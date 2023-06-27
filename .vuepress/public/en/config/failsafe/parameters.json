@@ -32240,6 +32240,20 @@
     },
     {
       "category": "Standard",
+      "decimalPlaces": 1,
+      "default": 1.0,
+      "group": "VTOL Attitude Control",
+      "increment": 0.1,
+      "longDesc": "Time in seconds it takes to tilt form VT_TILT_FW to VT_TILT_MC.",
+      "max": 10.0,
+      "min": 0.1,
+      "name": "VT_BT_TILT_DUR",
+      "shortDesc": "Duration motor tilt up in backtransition",
+      "type": "Float",
+      "units": "s"
+    },
+    {
+      "category": "Standard",
       "decimalPlaces": 2,
       "default": 0.0,
       "group": "VTOL Attitude Control",
