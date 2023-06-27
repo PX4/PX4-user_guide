@@ -21,6 +21,7 @@ The PM is **NOT** compatible with flight controllers that require an analog powe
 - **Communication protocol**: I2C
 - **Switching regulator outputs**: 5.2V and 3A max
 - **Weight**: 20g
+- **IC Used**: TI INA226
 
 ## Package Contents
 
