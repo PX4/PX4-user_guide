@@ -58,7 +58,8 @@ To calibrate the ESCs:
 
    ![ESC Calibration step 1](../../assets/qgc/setup/esc/qgc_esc_calibration.png)
 
-1. After successfully starting the calibration immediately power the ESCs:
+1. After starting the calibration sequence, power the ESCs (you should be prompted):
+
 
    ![ESC Calibration step 2](../../assets/qgc/setup/esc/esc_calibration_step_2.png)
 
