@@ -33255,6 +33255,13 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
+ <td><strong id="VT_BT_TILT_DUR">VT_BT_TILT_DUR</strong> (FLOAT)</td>
+ <td>Duration motor tilt up in backtransition <p><strong>Comment:</strong> Time in seconds it takes to tilt form VT_TILT_FW to VT_TILT_MC.</p>   </td>
+ <td>[0.1, 10] (0.1)</td>
+ <td>1.</td>
+ <td>s</td>
+</tr>
+<tr>
  <td><strong id="VT_B_DEC_FF">VT_B_DEC_FF</strong> (FLOAT)</td>
  <td>Backtransition deceleration setpoint to pitch feedforward gain    </td>
  <td>[0, 0.2] (0.01)</td>
