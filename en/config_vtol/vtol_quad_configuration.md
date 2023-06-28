@@ -1,6 +1,6 @@
 # Generic Standard VTOL (QuadPlane) Configuration & Tuning
 
-This is the configuration documentation for a [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), also known as a "QuadPlane VTOL". This is essentially a fixed wing vehicle with the addition of quadcopter motors.
+This is the configuration documentation for a [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), also known as a "QuadPlane VTOL". This is essentially a fixed wing vehicle with the addition of quadcopter motors.
 
 For airframe specific documentation and build instructions see [VTOL Framebuilds](../frames_vtol/README.md).
 
@@ -8,7 +8,7 @@ For airframe specific documentation and build instructions see [VTOL Framebuilds
 
 1. Run *QGroundControl*
 2. Flash the firmware for your current release or master (PX4 `main` branch build).
-3. In the [Frame setup](../config/airframe.md) section select the appropriate VTOL airframe.
+3. In the [Frame setup](../config/airframe.md) section select the appropriate VTOL airframe.
 
    If your airframe is not listed select the [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) frame.
 
@@ -18,7 +18,7 @@ For airframe specific documentation and build instructions see [VTOL Framebuilds
 You should assign a switch on your RC controller for switching between the multicopter- and fixed wing modes.
 
 :::note
-While PX4 allows flight without an RC controller, you must have one when tuning/configuring up a new airframe.
+While PX4 allows flight without an RC controller, you must have one when tuning/configuring a new airframe.
 :::
 
 This is done in [Flight Mode](../config/flight_mode.md) configuration, where you [assign flight modes and other functions](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set) to switches on your RC controller.
