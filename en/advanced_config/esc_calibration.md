@@ -9,20 +9,22 @@ Electronic Speed Controllers (ESCs) regulate motor speed (and direction) based o
 The range of inputs to which an ESC will respond is configurable, and the default range can differ even between ESCs of the same model.
 
 This calibration updates all the ESCs with a fixed maximum (2000us) and minimum (1000us) PWM input from the flight controller.
-Subsequently all the ESCs/motors will respond to flight controller input in the same way across the whole input range.
+Subsequently all the ESCs/motors on the vehicle will respond to flight controller input in the same way, across the whole input range.
 
-Calibration is recommended for all PWM/OneShot ESCs that support it, and in particular for low cost models.
+Calibration using this tool is recommended for all PWM/OneShot ESCs that support it.
 
 :::note
-High-quality controllers come with a factory calibration and should all respond the same way.
-In practice the input range may differ even on high quality controllers because they may be have been manually recalibrated after leaving the factory, and that might not have been done correctly. Following manual calibration they might not respond in the same way as they did after factory calibration.
+Calibration is particularly important for low-cost ESC, as they commonly vary a lot in their response to input.
 
-Using this calibration tool is recommended, as it ensures that all ESCs behave exactly the same way.
+However it is also recommended for High-quality controllers.
+Even though these are factory calibrated and should all respond the same way, in practice the input range can differ.
+It is also possible that a controller has been manually calibrated after leaving the factory (and may no longer behave in the same way).
 :::
 
-:::note
-Some ESCs do not support such a calibration. They must come factory calibrated and should respond consistently out of the box.
-This has to be verified using [Actuator Testing](../config/actuators.md#actuator-testing). Jump to step 7 which is still important.
+:::warning
+If you want to use an ESC that does not support this calibration, then you must choose an ESC that is factory calibrated and responds consistently out of the box.
+This should be verified using [Actuator Testing](../config/actuators.md#actuator-testing).
+Jump to the [actuator configuration step (7)](#actuatorconfig_step) (which is still important).
 :::
 
 OneShot ESCs should be [configured to use OneShot](../peripherals/oneshot.md#px4-configuration) before calibration (you should calibrate the ESCs after switching, even if you have previously calibrated).
@@ -30,9 +32,12 @@ OneShot ESCs should be [configured to use OneShot](../peripherals/oneshot.md#px4
 
 ## Preconditions
 
-You must be able to (un)power ESCs and flight controller independently.
-If the flight controller is powered through USB and there is a power module the procedure can detect battery connection.
-If battery power can't be detected e.g. because there's no power module then the calibration sequence is still performed based on timeouts.
+The calibration sequence requires that you are able keep the flight controller powered while power-cyling the ESCs.
+
+The recommended way to do this is to separately power the flight controller via USB, and connect/disconnect the battery to power the ESCs when needed.
+
+If the battery is connected via a power module the calibration procedure can detect the battery connection and use it to drive the calibration sequence.
+If battery power can't be detected the calibration sequence is performed based on timeouts.
 
 
 ## Steps
@@ -44,15 +49,14 @@ To calibrate the ESCs:
    :::warning
    Never attempt ESC calibration with propellers on!
 
-   The motors should not spin during ESC calibration.
-   However if calibration starts when the ESC is powered already, or if the ESC doesn't properly support/detect the calibration sequence, then it will respond to the PWM input by running the motor at maximum speed.
-
+   The motors _should_ not spin during ESC calibration.
+   However if calibration starts when the ESC is already powered, or if the ESC doesn't properly support/detect the calibration sequence, then it will respond to the PWM input by running the motor at maximum speed.
    :::
 1. Map the ESCs you're calibrating as motors in the vehicle's [Actuator Configuration](../config/actuators.md).
    Only mapped actuators get an output, and hence only ESCs mapped as motors will be calibrated.
 
 1. Unpower the ESCs by unplugging the battery.
-   The flight controller should ideally still be powered via USB, and remain connected to the ground station.
+   The flight controller should still be powered via USB, and remain connected to the ground station.
 
 1. Open the *QGroundControl* **Settings > Power**, then press the **Calibrate** button.
 
@@ -67,40 +71,66 @@ To calibrate the ESCs:
 
    ![ESC Calibration step 3](../../assets/qgc/setup/esc/esc_calibration_step_3.png)
 
-1. During the calibration you should hear model specific beeping from the ESC, which indicates the individual steps of the calibration.
+1. During the calibration you should hear model-specific beeping from the ESC, which indicates the individual steps of the calibration.
 
-   You will be prompted when the calibration completes. 
+   You will be prompted when the calibration completes.
 
-
+   <a id="actuatorconfig_step"></a>
    ![ESC Calibration step 4](../../assets/qgc/setup/esc/esc_calibration_step_4.png)
 
-1. Go back to the [Actuator Configuration](../config/actuators.md).
-   All motors with the same (re)calibrated ESCs should behave the same and work with the same configuration.
-   Verify the following things:
-   
-   - The minimum value for a motor (default: 1100us, parameters: [PWM_MAIN_MINn](../advanced_config/parameter_reference.md#PWM_MAIN_MIN1)/[PWM_AUX_MINn](../advanced_config/parameter_reference.md#PWM_AUX_MIN1)) should make the motor spin slowly but reliably and also spin up reliably after it was stopped.
-     Use a bit of margin here to make sure it doesn't stop in air when it shouldn't.
-     To find the right value you can (still without propellers) test by changing the disarmed value e.g. to 1100us and 1050us and 1025us which makes the motor spin immediately and when you found the right value reset the disarmed value.
-     After setting the desired minimum value you can test it using [Actuator Testing](../config/actuators.md#actuator-testing) by moving the test output slider just above the initial bump.
-   - The maximum value for a motor (default: 1900us, parameters: [PWM_MAIN_MAXn](../advanced_config/parameter_reference.md#PWM_MAIN_MAX1)/[PWM_AUX_MAXn](../advanced_config/parameter_reference.md#PWM_AUX_MAX1)) should be chosen such that if the value is further increased from there the motor doesn't actually spin faster anymore.
-     This can again be done by changing the disarmed value e.g. to 1900us and 1950us and 1975us and observing e.g. audibly if the motor is still going faster.
-   - The disarmed value for a motor (default: 1000us, parameters: [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1)/[PWM_AUX_DISn](../advanced_config/parameter_reference.md#PWM_AUX_DIS1)) should make the motor stop and stay stopped.
-     When calibrated properly this value should be able to stay 1000us.
-     If the ESC was previously mis-calibrated then the motor might already spin with 1000us.
+1. Go back to the [Actuator Configuration](../config/actuators.md) section.
 
+   Following ESC calibration all motors with the same (re)calibrated ESCs should behave in the same way for the same inputs, and the default PWM settings for motor outputs in the actuator configuration should work out of the box.
+   
+   You should confirm that the motors do indeed work correctly.
+   Since the default configuration values have been set conservatively, you may also wish to tune them for your particular ESCs.
+   
+   :::note
+   The steps below are the same as described in [Actuator Configuration > Motor Configuration](../config/actuators.md#motor-configuration).
+   The instructions here are optimized for the assumption that the ESCs have been calibrated.
+   :::
+   
+   Verify the following values:
+
+   - The minimum value for a motor (default: `1100us`) should make the motor spin slowly but reliably, and also spin up reliably after it was stopped.
+   
+     You can confirm that the value spins at minimum (still without propellers) in [Actuator Testing](../config/actuators.md#actuator-testing), by moving the test output slider to the first snap position from the bottom.
+
+     To find the "optimal" minimum value reduce the PWM minimum value for the output to the disarmed value (1000us), and increase it in small increments (e.g. 1025us, 1050us, etc) until the motor starts to spin.
+     The correct value should make the motor spin immediately and reliably as you move the slider from disarmed to minimum.
+     It is better to be a little too high than a little too low.
+
+   - The maximum value for a motor (default: `1900us`) should be chosen such that if the value is further increased from there the motor doesn't actually spin any faster.
+
+     You can confirm that the motor spins quickly at the maximum setting in [Actuator Testing](../config/actuators.md#actuator-testing), by moving the associated test output slider to the top snap position.
+
+     To find the "optimal" maximum value, increase the PWM maximum value for the output in increments (e.g. 1925us, 1950us, etc) and listen to determine whether the speed increases.
+     Stop at the increment before the last speed increase.
+
+   - The disarmed value for a motor (default: `1000us`) should make the motor stop and stay stopped.
+
+     You can confirm this in [Actuator Testing](../config/actuators.md#actuator-testing) by moving the test output slider to the snap position at the bottom of the slider and observing that the motor does not spin.
+
+     If the ESC spins with the default value of 1000us then the ESC is not properly calibrated.
+     If using an ESC that can't be calibrated, you should reduce the PWM output value for the output to below where the ESC does not split (such as 900us).
 
    :::note
    VTOL and fixed-wing motors do not need any special PWM configuration.
-   They will automatically stop during flight when commanded by the autopilot with the default PWM configuration.
-
+   With the default PWM configuration they will automatically stop during flight when commanded by the autopilot.
    :::
 
 ## Troubleshooting
 
-Possible problems:
 
-1. If you do not plug any ESC at the right time or the ESCs don't support calibration you'll still get the message that the calibration successfully completed because the system cannot possibly know if it actually worked.
-1. If you have a power module configured and connected the system will disallow starting the calibration for safety reasons.
-   Unplug power to the ESCs first. If you're blocked because a power module is necessary to keep your flight controller alive but can (un)power the ESCs separately make sure the power module is disabled in PX4 just for the ESC calibration e.g. by [PWM_AUX_MINn](../advanced_config/parameter_reference.md#PWM_AUX_MIN1).
-1. If there is a power module and the system detects an increase in current consumption directly after successfully initiating calibration it will be aborted for safety reasons.
+1. Calibration can state that it has succeeded even when it has failed.
 
+   This happens happen if you do not power the ESC at the right time, or the ESCs don't support calibration.
+   This occurse because PX4 has has no way to know whether or not calibration was successful.
+
+1. Calibration cannot be started if you have a power module configured and connected (for safety reasons).
+
+   Unplug power to the ESCs first.
+   If you're blocked because a power module is necessary to keep your flight controller alive, but you can (un)power the ESCs separately, you can disable the motor just for the ESC calibration using parameters such as [PWM_AUX_MINn](../advanced_config/parameter_reference.md#PWM_AUX_MIN1).
+
+1. PX4 will abort calibration (for safety reasons) if the system detects an increase in current consumption immediately after initiating calibration.
+   This requires a power module.
