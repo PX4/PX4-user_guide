@@ -65,7 +65,6 @@ To calibrate the ESCs:
 
 1. After starting the calibration sequence, power the ESCs (you should be prompted):
 
-
    ![ESC Calibration step 2](../../assets/qgc/setup/esc/esc_calibration_step_2.png)
 
    The calibration will begin automatically:
@@ -87,26 +86,30 @@ To calibrate the ESCs:
    Since the default configuration values have been set conservatively, you may also wish to tune them for your particular ESCs.
    
    :::note
-   The steps below are the same as described in [Actuator Configuration > Motor Configuration](../config/actuators.md#motor-configuration).
+   The steps below are similar to those described in [Actuator Configuration > Motor Configuration](../config/actuators.md#motor-configuration).
    The instructions here are optimized for the assumption that the ESCs have been calibrated.
    :::
-   
+
    Verify the following values:
 
    - The minimum value for a motor (default: `1100us`) should make the motor spin slowly but reliably, and also spin up reliably after it was stopped.
-   
-     You can confirm that the value spins at minimum (still without propellers) in [Actuator Testing](../config/actuators.md#actuator-testing), by moving the test output slider to the first snap position from the bottom.
 
-     To find the "optimal" minimum value reduce the PWM minimum value for the output to the disarmed value (1000us), and increase it in small increments (e.g. 1025us, 1050us, etc) until the motor starts to spin.
+     You can confirm that a motor spins at minimum (still without propellers) in [Actuator Testing](../config/actuators.md#actuator-testing), by enabling the sliders, and then moving the test output slider for the motor to the first snap position from the bottom.
      The correct value should make the motor spin immediately and reliably as you move the slider from disarmed to minimum.
-     It is better to be a little too high than a little too low.
 
-   - The maximum value for a motor (default: `1900us`) should be chosen such that if the value is further increased from there the motor doesn't actually spin any faster.
+     To find the "optimal" minimum value, move the slider to the bottom (disarmed).
+     Then increase the PWM output's `disarmed` setting in small increments (e.g. 1025us, 1050us, etc), until the motor starts to spin reliably (it is better to be a little too high than a little too low).
+     Enter this value into the `minimum` setting for all the motor PWM outputs, and restore the `disarmed` output to `1100us`.
+
+   - The maximum value for a motor (default: `1900us`) should be chosen such that increasing the value doesn't make the motor spin any faster.
 
      You can confirm that the motor spins quickly at the maximum setting in [Actuator Testing](../config/actuators.md#actuator-testing), by moving the associated test output slider to the top snap position.
 
-     To find the "optimal" maximum value, increase the PWM maximum value for the output in increments (e.g. 1925us, 1950us, etc) and listen to determine whether the speed increases.
-     Stop at the increment before the last speed increase.
+     To find the "optimal" maximum value, first move the slider to the bottom (disarmed).
+     Then increase the PWM output's `disarmed` setting to near the default maximum (`1900`) - the motors should spin up.
+     Listen to the tone of the motor as you increase the PWM maximum value for the output in increments (e.g. 1925us, 1950us, etc).
+     The optimal value is found at the point when the sound of the motors does not change as you increase the value of the output.
+     Enter this value into the `maximum` setting for all the motor PWM outputs, and restore the `disarmed` output to `1100us`.
 
    - The disarmed value for a motor (default: `1000us`) should make the motor stop and stay stopped.
 
@@ -121,7 +124,6 @@ To calibrate the ESCs:
    :::
 
 ## Troubleshooting
-
 
 1. Calibration can state that it has succeeded even when it has failed.
 
