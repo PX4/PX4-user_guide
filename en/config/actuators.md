@@ -484,7 +484,7 @@ The motor configuration sets output values such that motors:
 
 - don't spin when disarmed (at the `disarmed` PWM output value).
 - barely spin at the `minimum` PWM output value.
-- have the lowest `maximum` PWM output value that spins the motor at maximum rate.
+- have the _lowest_ `maximum` PWM output value that spins the motor at its _highest_ rate.
 - give **positive thrust** in the expected direction.
 
 For each motor:
