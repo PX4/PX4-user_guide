@@ -94,6 +94,14 @@ Note You will need a (free) [Github](https://github.com/) account to contribute 
 로컬에서 라이브러리를 빌드하여, 변경 사항이 제대로 반영되었는 지를 테스트합니다.
 1. 사전 요구 사항인 [Vuepress](https://vuepress.vuejs.org/guide/getting-started.html#prerequisites)을 설치합니다.
    - [Nodejs 10+](https://nodejs.org/en/)
+
+:::note
+For recent nodejs versions (after v16.15.0) you need to enable the node legacy OpenSSL provider. On Ubuntu you can do this by running the terminal command:
+
+     ```bash
+     export NODE_OPTIONS=--openssl-legacy-provider
+     ```
+
    - [Yarn classic](https://classic.yarnpkg.com/en/docs/install)
 1. 로컬 저장소로 이동합니다.
    ```sh
