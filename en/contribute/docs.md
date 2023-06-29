@@ -104,6 +104,15 @@ The instructions below explain how to get git and use it on your local computer.
 Build the library locally to test that any changes you have made have rendered properly:
 1. Install the [Vuepress prerequiresites](https://vuepress.vuejs.org/guide/getting-started.html#prerequisites):
    - [Nodejs 10+](https://nodejs.org/en/)
+
+     :::note
+     For recent nodejs versions (after v16.15.0) you need to enable the node legacy OpenSSL provider.
+     On Ubuntu you can do this by running the terminal command:
+     
+     ```bash
+     export NODE_OPTIONS=--openssl-legacy-provider
+     ```
+
    - [Yarn classic](https://classic.yarnpkg.com/en/docs/install)
 1. Navigate to your local repository:
    ```sh
