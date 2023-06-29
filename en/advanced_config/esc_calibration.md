@@ -34,7 +34,8 @@ OneShot ESCs should be [configured to use OneShot](../peripherals/oneshot.md#px4
 
 The calibration sequence requires that you are able keep the flight controller powered while power-cyling the ESCs.
 
-The recommended way to do this is to separately power the flight controller via USB, and connect/disconnect the battery to power the ESCs when needed.
+If using a Pixhawk flight controller, the recommended way to do this is to separately power the flight controller via USB, and connect/disconnect the battery to power the ESCs when needed.
+Flight control systems that can't power the autopilot via USB will need a different approach.
 
 If the battery is connected via a power module the calibration procedure can detect the battery connection and use it to drive the calibration sequence.
 If battery power can't be detected the calibration sequence is performed based on timeouts.
