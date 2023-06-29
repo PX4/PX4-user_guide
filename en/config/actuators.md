@@ -470,11 +470,22 @@ To assign an actuator:
 
 ### Motor Configuration
 
+:::note
+If using PWM or OneShot ESCs, you should first perform [ESC Calibration](../advanced_config/esc_calibration.md) (this topic also covers motor configuration).
+
+[DShot](../peripherals/dshot.md) and [DroneCAN](../dronecan/escs.md)/Cyphal ESCs do not require this configuration.
+:::
+
+:::warning
+Remove propellors!
+:::
+
 The motor configuration sets output values such that motors:
 
-- don't spin when disarmed (at the `disarmed` PWM output value)
-- barely spin at the `minimum` PWM output value
-- give **positive thrust** in the expected direction
+- don't spin when disarmed (at the `disarmed` PWM output value).
+- barely spin at the `minimum` PWM output value.
+- have the lowest `maximum` PWM output value that spins the motor at maximum rate.
+- give **positive thrust** in the expected direction.
 
 For each motor:
 
@@ -489,7 +500,7 @@ For each motor:
 
      ![PWM Minimum Output](../../assets/config/actuators/pwm_minimum_output.png)
      :::note
-     For DShot output, this is not required <!-- any, or just the minimum check? -->
+     For DShot output, this is not required.
      :::
 3. Increase the slider value to a level where you can verify that the motor is spinning in the correct direction and that it would give a positive thrust in the expected direction.
    - The expected thrust direction can vary by vehicle type.
@@ -497,6 +508,11 @@ For each motor:
    - For VTOL, thrust should point upwards when the Tilt Servo is at 0 degrees as defined the [Tilt Servo Convention](#tilt-servo-coordinate-system).
      Testing of the [Tilt Servo](#tilt-servo-setup) is covered below as well.
    - If thrust is in the wrong direction, you may need to [reverse the motors](#reversing-motors).
+
+4. Increase the slider value to the maximum value, so the motor is spinning quickly. 
+   Reduce the value of the PWM output's `maximum` value just below the default.
+   Listen to the tone of the motors as you increase the value in small (25us) increments.
+   The "optimal" maximum value is the value at which you last hear a change in the tone.
 
 
 ### Control Surface Setup
