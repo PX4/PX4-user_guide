@@ -30,7 +30,7 @@ On autopilots based on the [STM32 series](http://www.st.com/en/microcontrollers/
 主要特性：
 
 * 基于 web，非常适合终端用户。
-* 用户可以上传、下载、并且与他人分享报告。
+* Users can upload logs through the web interface, and then share report with others (bulk upload is supported using the [upload_log.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/upload_log.py) script)
 * 交互式绘图。
 
 ![Flight Review Charts](../../assets/flight_log_analysis/flight_review/flight-review-example.png)
