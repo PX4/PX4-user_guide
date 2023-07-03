@@ -21430,8 +21430,8 @@ table {
 <tr>
  <td><strong id="MPC_ACC_DOWN_MAX">MPC_ACC_DOWN_MAX</strong> (FLOAT)</td>
  <td>Maximum downwards acceleration in climb rate controlled modes    </td>
- <td>[2.0, 15.0] (1)</td>
- <td>3.0</td>
+ <td>[2, 15] (1)</td>
+ <td>3.</td>
  <td>m/s^2</td>
 </tr>
 <tr>
@@ -21451,8 +21451,8 @@ table {
 <tr>
  <td><strong id="MPC_ACC_UP_MAX">MPC_ACC_UP_MAX</strong> (FLOAT)</td>
  <td>Maximum upwards acceleration in climb rate controlled modes    </td>
- <td>[2.0, 15.0] (1)</td>
- <td>4.0</td>
+ <td>[2, 15] (1)</td>
+ <td>4.</td>
  <td>m/s^2</td>
 </tr>
 <tr>
@@ -21561,7 +21561,7 @@ table {
 <tr>
  <td><strong id="MPC_MANTHR_MIN">MPC_MANTHR_MIN</strong> (FLOAT)</td>
  <td>Minimum collective thrust in Stabilized mode <p><strong>Comment:</strong> The value is mapped to the lowest throttle stick position in Stabilized mode. Too low collective thrust leads to loss of roll/pitch/yaw torque control authority. Airmode is used to keep torque authority with zero thrust (see MC_AIRMODE).</p>   </td>
- <td>[0.0, 1.0] (0.01)</td>
+ <td>[0, 1] (0.01)</td>
  <td>0.08</td>
  <td>norm</td>
 </tr>
@@ -21582,7 +21582,7 @@ table {
 <tr>
  <td><strong id="MPC_MAN_Y_TAU">MPC_MAN_Y_TAU</strong> (FLOAT)</td>
  <td>Manual yaw rate input filter time constant <p><strong>Comment:</strong> Not used in Stabilized mode Setting this parameter to 0 disables the filter</p>   </td>
- <td>[0.0, 5.0] (0.01)</td>
+ <td>[0, 5] (0.01)</td>
  <td>0.08</td>
  <td>s</td>
 </tr>
@@ -21636,7 +21636,7 @@ table {
 <tr>
  <td><strong id="MPC_THR_XY_MARG">MPC_THR_XY_MARG</strong> (FLOAT)</td>
  <td>Horizontal thrust margin <p><strong>Comment:</strong> Margin that is kept for horizontal control when higher priority vertical thrust is saturated. To avoid completely starving horizontal control with high vertical error.</p>   </td>
- <td>[0.0, 0.5] (0.01)</td>
+ <td>[0, 0.5] (0.01)</td>
  <td>0.3</td>
  <td>norm</td>
 </tr>
@@ -21678,7 +21678,7 @@ table {
 <tr>
  <td><strong id="MPC_VELD_LP">MPC_VELD_LP</strong> (FLOAT)</td>
  <td>Numerical velocity derivative low pass cutoff frequency    </td>
- <td>[0.0, 10] (0.5)</td>
+ <td>[0, 10] (0.5)</td>
  <td>5.0</td>
  <td>Hz</td>
 </tr>
