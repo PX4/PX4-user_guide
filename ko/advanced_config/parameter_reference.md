@@ -17262,7 +17262,9 @@ table {
 
 <li><strong>9:</strong> Custom</li>
 
-<li><strong>10:</strong> Helicopter</li> 
+<li><strong>10:</strong> Helicopter (tail ESC)</li>
+
+<li><strong>11:</strong> Helicopter (tail Servo)</li> 
 </ul>
   </td>
  <td></td>
