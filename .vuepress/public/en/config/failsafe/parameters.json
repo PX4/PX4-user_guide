@@ -11174,8 +11174,12 @@
           "value": 9
         },
         {
-          "description": "Helicopter",
+          "description": "Helicopter (tail ESC)",
           "value": 10
+        },
+        {
+          "description": "Helicopter (tail Servo)",
+          "value": 11
         }
       ]
     },
