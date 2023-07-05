@@ -6,8 +6,8 @@ A tailsitter is essentially a fixed wing vehicle that takes off in a pitched up 
 The Duo-Tailsitter variant is so-named because it has two motors (a "quad" tailsitter would have four).
 
 Like other VTOLs, the Duo-Tailsitter has two modes of operation: multicopter (MC) mode and fixed wing (FW) mode.
-In MC mode, lift and roll are dependent on the motors, while the pitch and yaw depend on the ailevons.
-In FW mode, yaw depends on differential thrust from the motors, while roll and pitch depend on the ailevons.
+In MC mode, lift and roll are dependent on the motors, while the pitch and yaw depend on the elevons.
+In FW mode, yaw depends on differential thrust from the motors, while roll and pitch depend on the elevons.
 
 For airframe specific documentation and build instructions see [VTOL Framebuilds](../frames_vtol/README.md).
 
