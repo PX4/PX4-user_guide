@@ -40,7 +40,7 @@ The switch in the off-position means that you are flying in multicopter mode.
 
 MC-mode tuning is dificult because some axes depend on control surfaces, while others depend on the motors.
 
-:::warning
+:::note
 Always disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) when tuning a vehicle.
 :::
 
