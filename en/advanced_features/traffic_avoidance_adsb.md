@@ -94,6 +94,35 @@ The code can be found in `Navigator::check_traffic` ([/src/modules/navigator/nav
 PX4 will also forward the transponder data to a GCS if this has been configured for the MAVLink instance (this is recommended).
 The last 10 Digits of the GUID is displayed as Drone identification.
 
+## Triggering Fake Traffic
+
+:::note This part could be used both in SITL and a physical hardware. This feature shall be enabled on hardware just for testing purposes as it triggers failsafe actions mid-flight. :::
+
+There is code snippet nested under [/src/lib/adsb/AdsbConflict.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/adsb/AdsbConflict.cpp#L342C1-L342C1) which can be used to trigger fake_traffic such taht it can be used accordingly for your test purpose. The AdsbConflict class contains two methods: fake_traffic and run_fake_traffic. 
+
+fake_traffic Method
+
+The fake_traffic method is responsible for generating a simulated ADS-B traffic message. It takes several parameters to specify the characteristics of the fake traffic, such as callsign, distance, direction, traffic heading, altitude difference, horizontal velocity, vertical velocity, emitter type, ICAO address, UAV latitude and longitude, and UAV altitude. The method modifies the alt_uav parameter by reference.
+
+The method performs the following steps:
+
+- Calculates the latitude and longitude of the traffic based on the UAV's position, distance, and direction.
+- Computes the new altitude by adding the altitude difference to the UAV's altitude.
+- Populates the transponder_report_s structure with the simulated traffic data, including the timestamp, ICAO address, latitude, longitude, altitude type, altitude, heading, horizontal velocity, vertical velocity, callsign, emitter type, time since last communication, flags, and squawk code.
+- If the board supports a Universally Unique Identifier (UUID), the method retrieves the UUID using board_get_px4_guid and copies it to the uas_id field of the structure. Otherwise, it generates a simulated GUID.
+- Publishes the simulated traffic message using orb_publish.
+
+run_fake_traffic Method
+
+The run_fake_traffic method is responsible for running a series of simulated ADS-B traffic scenarios. It takes the UAV's latitude, longitude, and altitude as parameters and modifies them by reference.
+
+The method simulates different scenarios by calling the fake_traffic method with different parameters. It creates fake traffic messages with different callsigns, distances, directions, altitude differences, velocities, and emitter types. The method generates and publishes multiple traffic messages to simulate various situations.
+
+The generated scenarios include conflicts and non-conflicts, as well as spamming the traffic buffer. By calling fake_traffic with different parameters, the method simulates a range of traffic situations for testing purposes.
+
+
+
+
 <!-- See also implementation PR: https://github.com/PX4/PX4-Autopilot/pull/21283 -->
 
 ## Further Information
