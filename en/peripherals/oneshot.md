@@ -14,7 +14,7 @@ The only reason not to use DShot would be hardware limitations (insufficient DSh
 OneShot is essentially a version of [PWM](../peripherals/pwm_escs_and_servo.md) that can be, in theory, up to 8 times faster.
 
 Both PWM and OneShot communicate using a periodic pulse, where the width of the pulse indicates the desired power level.
-For PWM the pulse length typically ranges between 1000uS (zero) and 2000uS (full power), while for OneShot 125 the pulse widths are 8 times shorter, ranging from 125us (zero power) to 250us (full power).
+For PWM the pulse length typically ranges between 1000us (zero) and 2000us (full power), while for OneShot 125 the pulse widths are 8 times shorter, ranging from 125us (zero power) to 250us (full power).
 
 The theoretical maximum rate at which pulses can be sent, and hence the responsiveness, depends on the width of the largest pulse.
 For PWM this rate is close to 500 Hz while for OneShot it approaches 4 kHz.
@@ -33,4 +33,4 @@ To enable OneShot select the protocol for a group of outputs during [Actuator Co
 Note that the output range values are set to values in the normal PWM range (nominally `1000` to `2000`).
 These are scaled internally to output appropriate pulse-widths for Oneshot.
 
-Then perform [ESC Calibration](../advanced_config/esc_calibration.md). 
+Then perform [ESC Calibration](../advanced_config/esc_calibration.md).
