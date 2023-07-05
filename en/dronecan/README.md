@@ -2,9 +2,11 @@
 
 [DroneCAN](https://dronecan.github.io/) is a open software communication protocol for flight controllers and other [CAN](../can/README.md) devices on a vehicle to communicate with each other.
 
-:::note
-PX4 requires an SD card to enable dynamic node allocation and for firmware update.
-The SD card is not used in flight.
+:::warning
+- DroneCAN is not enabled by default, and nor are specific sensors and publications.
+  For setup information see [PX4 Configuration](#px4-configuration). 
+- PX4 requires an SD card to enable dynamic node allocation and for firmware update.
+  The SD card is not used in flight.
 :::
 
 :::note
@@ -100,6 +102,18 @@ To enable the DroneCAN driver, set the [UAVCAN_ENABLE](../advanced_config/parame
 
 `2` or `3` are recommended, if DNA is supported.
 
+### DroneCan Publications
+
+DroneCAN does not publish all information that _might_ be needed, in order to avoid spamming the CAN bus.
+Publishing of specific information is enabled it using the associated [UAVCAN parameter](../advanced_config/parameter_reference.md#uavcan).
+These can be recognised from the prefix `UAVCAN_PUB_`.
+
+The set of publications that you can enable are (in PX4 v1.14):
+
+- [UAVCAN_PUB_RTCM](../advanced_config/parameter_reference.md#UAVCAN_PUB_RTCM) ([RTCMStream](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#rtcmstream)): Enable when using a CAN-connected [RTK GPS](../gps_compass/rtk_gps.md) as the Rover unit (it ensures that RTCM information from the base unit is returned to the rover).
+- [UAVCAN_PUB_MBD](../advanced_config/parameter_reference.md#UAVCAN_PUB_MBD) ([MovingBaselineData](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#movingbaselinedata)): Enable to support [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md) when the _moving base_ RTK GPS is connected via CAN.
+- [UAVCAN_PUB_ARM](../advanced_config/parameter_reference.md#UAVCAN_PUB_ARM) ([Arming Status](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#armingstatus)): Publish when using DroneCAN components that require an arming status as a precondition for use.
+ 
 
 ### DroneCAN Sensor Subscriptions
 
@@ -136,6 +150,14 @@ Other Parameters:
 - If the GPS is not positioned at the vehicle centre of gravity you can account for the offset using [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z).
 - If the GPS module provides yaw information, you can enable GPS yaw fusion by setting bit 3 of [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) to true.
 
+#### RTK GPS
+
+Set the same parameters as for [GPS](#gps) above.
+
+Additionally set:
+
+- [UAVCAN_PUB_RTCM](../advanced_config/parameter_reference.md#UAVCAN_PUB_RTCM): Enable when using a CAN-connected [RTK GPS](../gps_compass/rtk_gps.md) as the Rover unit.
+- [UAVCAN_PUB_MBD](../advanced_config/parameter_reference.md#UAVCAN_PUB_MBD): Enable to support [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md) when the _moving base_ RTK GPS is connected via CAN.
 
 #### Barometer
 
