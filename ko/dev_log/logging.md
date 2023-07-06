@@ -21,15 +21,17 @@ The logging system is configured by default to collect sensible logs for [flight
 
 로깅은 [SD 로깅](../advanced_config/parameter_reference.md#sd-logging) 매개변수를 사용하여 설정할 수 있습니다. 변경할 가능성이 높은 매개변수가 아래에 설명되어 있습니다.
 
-| 매개 변수                                                                    | 설명                                                                                                                                             |
-| ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE)       | 로깅 모드는 로깅 시작 및 중지 시간을 정의합니다.<br />- `0`: 무장 해제 시까지 기록(기본값).<br />- `1`: 부팅에서 다음까지 기록 disarm.<br />- `2`: 부팅에서 종료될 때까지 기록합니다. |
-| [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | 로깅 프로파일. 자주 사용되지 않는 로깅/분석을 활성화하려면 이것을 사용하십시오(예: EKF2 재생, PID 및 필터 튜닝을 위한 고속 로깅, 열 온도 보정).                                                      |
-| [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | 아주 작은 추가 "미션 로그"를 만듭니다.<br>이 로그는 *비행 검토*와 함께 사용할 수 *없지만*, 위치 태그 지정 또는 규정 준수를 위해 작은 로그가 필요할 때 유용합니다.                                      |
+| 매개 변수                                                                    | 설명                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE)       | Logging Mode. Defines when logging starts and stops.<br />- `-1`: Logging disabled.<br />- `0`: Log when armed until disarm (default).<br />- `1`: Log from boot until disarm.<br />- `2`: Log from boot until shutdown.<br />- `3`: Log based on the [AUX1 RC channel](../advanced_config/parameter_reference.md#RC_MAP_AUX1).<br />- `4`: Log from first armed until shutdown. |
+| [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | 로깅 프로파일. 자주 사용되지 않는 로깅/분석을 활성화하려면 이것을 사용하십시오(예: EKF2 재생, PID 및 필터 튜닝을 위한 고속 로깅, 열 온도 보정).                                                                                                                                                                                                                                                                                                                            |
+| [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".<br>This log can *not* be used with [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), but is useful when you need a small log for geotagging or regulatory compliance.                                                                                                                                                                      |
+
 
 Useful settings for specific cases:
 
 - Raw sensor data for comparison: [SDLOG_MODE=1](../advanced_config/parameter_reference.md#SDLOG_MODE) and [SDLOG_PROFILE=64](../advanced_config/parameter_reference.md#SDLOG_PROFILE).
+- Disabling logging altogether: [SDLOG_MODE=`-1`](../advanced_config/parameter_reference.md#SDLOG_MODE)
 
 ### Logger module
 
