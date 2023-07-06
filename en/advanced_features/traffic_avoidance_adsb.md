@@ -94,36 +94,61 @@ The code can be found in `Navigator::check_traffic` ([/src/modules/navigator/nav
 PX4 will also forward the transponder data to a GCS if this has been configured for the MAVLink instance (this is recommended).
 The last 10 Digits of the GUID is displayed as Drone identification.
 
-## Triggering Fake Traffic
+## Testing/Simulated ADSB Traffic
 
-:::note This part could be used both in SITL and a physical hardware. This feature shall be enabled on hardware just for testing purposes as it triggers failsafe actions mid-flight. :::
+You can simulate ADS-B traffic for testing.
+Note that this requires that you [Build PX4](../dev_setup/building_px4.md)
 
-There is code snippet nested under [/src/lib/adsb/AdsbConflict.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/adsb/AdsbConflict.cpp#L342C1-L342C1) which can be used to trigger fake_traffic such taht it can be used accordingly for your test purpose. The AdsbConflict class contains two methods: fake_traffic and run_fake_traffic. 
+:::note
+Simulated ADS-B traffic can trigger real failsafe actions.
+Use with care in real flight!
+:::
 
-fake_traffic Method
+To enable this feature:
 
-The fake_traffic method is responsible for generating a simulated ADS-B traffic message. It takes several parameters to specify the characteristics of the fake traffic, such as callsign, distance, direction, traffic heading, altitude difference, horizontal velocity, vertical velocity, emitter type, ICAO address, UAV latitude and longitude, and UAV altitude. The method modifies the alt_uav parameter by reference.
+1. Uncomment the code in `AdsbConflict::run_fake_traffic()`([AdsbConflict.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/adsb/AdsbConflict.cpp#L342C1-L342C1)).
+1. Rebuild and run PX4.
+1. Execute the [`navigator fake_traffic` command](../modules/modules_controller.md#navigator) in the [QGroundControl MAVLink Shell](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) (or some other [PX4 Console or MAVLink shell](../debug/consoles.md), such as the PX4 simulator terminal).
+
+The code in `run_fake_traffic()` is then executed.
+You should see ADS-B warnings in the Console/MAVLink shell, and QGC should also show an ADS-B traffic popup.
+
+By default `run_fake_traffic()` publishes a number of traffic messages (it calls [`AdsbConflict::fake_traffic()`](#fake-traffic-method) to emit each report).
+These simulate ADS-B traffic where there may be a conflict, where there won't be a conflict, as well as spamming the traffic buffer.
+
+::: details Information about the test methods
+
+The relevent methods are defined in [AdsbConflict.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/adsb/AdsbConflict.cpp#L342C1-L342C1).
+
+#### `run_fake_traffic()` method
+
+The `run_fake_traffic()` method is run when the `navigator fake_traffic` command is called.
+
+The method simulates different scenarios by calling the `fake_traffic()` method with different parameters.
+It creates fake traffic messages with different callsigns, distances, directions, altitude differences, velocities, and emitter types.
+
+The default scenarios include conflicts and non-conflicts, as well as spamming the traffic buffer.
+
+#### `fake_traffic()` method
+
+`AdsbConflict::fake_traffic()` is called by the [`run_fake_traffic()`](#run-fake-traffic-method) to create individual ADS-B transponder reports.
+
+This takes several parameters, which specify the characteristics of the fake traffic: callsign, distance, direction, traffic heading, altitude difference, horizontal velocity, vertical velocity, emitter type, ICAO address, UAV latitude and longitude, and UAV altitude.
+The method modifies the `alt_uav` parameter by reference.
 
 The method performs the following steps:
 
 - Calculates the latitude and longitude of the traffic based on the UAV's position, distance, and direction.
 - Computes the new altitude by adding the altitude difference to the UAV's altitude.
-- Populates the transponder_report_s structure with the simulated traffic data, including the timestamp, ICAO address, latitude, longitude, altitude type, altitude, heading, horizontal velocity, vertical velocity, callsign, emitter type, time since last communication, flags, and squawk code.
-- If the board supports a Universally Unique Identifier (UUID), the method retrieves the UUID using board_get_px4_guid and copies it to the uas_id field of the structure. Otherwise, it generates a simulated GUID.
-- Publishes the simulated traffic message using orb_publish.
+- Populates a [TransponderReport](../msg_docs/TransponderReport.md) topic with the simulated traffic data, including the timestamp, ICAO address, latitude, longitude, altitude type, altitude, heading, horizontal velocity, vertical velocity, callsign, emitter type, time since last communication, flags, and squawk code.
+- If the board supports a Universally Unique Identifier (UUID), the method retrieves the UUID using `board_get_px4_guid` and copies it to the `uas_id` field of the structure.
+  Otherwise, it generates a simulated GUID.
+- Publishes the simulated traffic message using `orb_publish`.
 
-run_fake_traffic Method
-
-The run_fake_traffic method is responsible for running a series of simulated ADS-B traffic scenarios. It takes the UAV's latitude, longitude, and altitude as parameters and modifies them by reference.
-
-The method simulates different scenarios by calling the fake_traffic method with different parameters. It creates fake traffic messages with different callsigns, distances, directions, altitude differences, velocities, and emitter types. The method generates and publishes multiple traffic messages to simulate various situations.
-
-The generated scenarios include conflicts and non-conflicts, as well as spamming the traffic buffer. By calling fake_traffic with different parameters, the method simulates a range of traffic situations for testing purposes.
-
-
-
+:::
 
 <!-- See also implementation PR: https://github.com/PX4/PX4-Autopilot/pull/21283 -->
+<!-- See also bug to make this work without uncommenting: https://github.com/PX4/PX4-Autopilot/issues/21810 -->
 
 ## Further Information
 
