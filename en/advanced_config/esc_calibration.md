@@ -53,12 +53,12 @@ To calibrate the ESCs:
    The motors _should_ not spin during ESC calibration.
    However if calibration starts when the ESC is already powered, or if the ESC doesn't properly support/detect the calibration sequence, then it will respond to the PWM input by running the motor at maximum speed.
    :::
+
 1. Map the ESCs you're calibrating as motors in the vehicle's [Actuator Configuration](../config/actuators.md).
    Only mapped actuators get an output and only ESCs mapped as motors will be calibrated.
 
 1. Unpower the ESCs by unplugging the battery.
    The flight controller must stay powered, for example, by keeping the USB connected to the ground station.
-
 
 1. Open the *QGroundControl* **Settings > Power**, then press the **Calibrate** button.
 
