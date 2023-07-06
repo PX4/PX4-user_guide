@@ -57,7 +57,8 @@ To calibrate the ESCs:
    Only mapped actuators get an output and only ESCs mapped as motors will be calibrated.
 
 1. Unpower the ESCs by unplugging the battery.
-   The flight controller must stay powered e.g. through USB remaining connected to the ground station.
+   The flight controller must stay powered, for example, by keeping the USB connected to the ground station.
+
 
 1. Open the *QGroundControl* **Settings > Power**, then press the **Calibrate** button.
 
