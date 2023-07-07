@@ -7,7 +7,8 @@
 PX4 is the *Professional Autopilot*. 它由来自业界和学术界的世界级开发商开发，并得到活跃的全球社区的支持，为从竞速和物流无人机到地面车辆和潜水艇的各种载具提供动力。
 
 :::tip
-本指南包含了组装、配置和安全驾驶基于 PX4 的飞机所需的一切。 对贡献感兴趣吗 查看[开发](development/development.md)部分。 :::
+本指南包含了组装、配置和安全驾驶基于 PX4 的飞机所需的一切。 对贡献感兴趣吗 查看[开发](development/development.md)部分。 
+:::
 
 ## 如何开始？
 
@@ -26,7 +27,8 @@ PX4 is the *Professional Autopilot*. 它由来自业界和学术界的世界级�
 **我想要从头开始组装一架使用PX4的无人机：**
 
 :::tip
-支持的机体列举在 [机架参考](airframes/airframe_reference.md)。 These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*. :::
+支持的机体列举在 [机架参考](airframes/airframe_reference.md)。 These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*. 
+:::
 
 如果您想从头开始组装一架飞机：
 
@@ -102,7 +104,6 @@ The *Dronecode Calendar* shows important community events for platform users and
 
 :::tip
 The calendar default timezone is Central European Time (CET).
-
 :::
 
 <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
