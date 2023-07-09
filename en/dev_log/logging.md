@@ -79,6 +79,12 @@ This configuration will log sensor_accel 0 at full rate, sensor_accel 1 at 10Hz,
 
 There are several scripts to analyze and convert logging files in the [pyulog](https://github.com/PX4/pyulog) repository.
 
+
+## File size limitations
+
+The maximum file size depends on the file system and OS.
+The size limit on NuttX is currently around 2GB.
+
 ## Dropouts
 
 Logging dropouts are undesired and there are a few factors that influence the
