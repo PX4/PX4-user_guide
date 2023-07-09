@@ -71,7 +71,7 @@ As a sanity check, we start off by setting the following gain parameter:
 - Yaw rate controller
   - [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P) = `0`
   - [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I) = `0`
-  - [FW_RR_D](../advanced_config/parameter_reference.md#FW_RR_F) = `0`
+  - [FW_RR_D](../advanced_config/parameter_reference.md#FW_RR_D) = `0`
   - [FW_RR_FF](../advanced_config/parameter_reference.md#FW_RR_FF) = `0`
 - Attitude controller
   - [MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P) = `0`
