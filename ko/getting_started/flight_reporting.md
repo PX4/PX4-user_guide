@@ -15,7 +15,7 @@ Logs can be downloaded using [QGroundControl](http://qgroundcontrol.com/): **[An
 
 ## 로그 분석
 
-온라인 [Flight Review](http://logs.px4.io) 프로그램에 로그 파일을 먼저 업로드합니다. 업로드 후 로그 분석 페이지 링크를 이메일로 전송됩니다.
+온라인 [Flight Review](http://logs.px4.io) 프로그램에 로그 파일을 먼저 업로드합니다. After upload you'll be emailed a link to the analysis page for the log.
 
 [비행 검토를 위한 로그 분석](../log/flight_review.md)은 챠트 해석 방법을 설명하고, 과도한 진동, 불량한 PID 튜닝, 포화된 콘트롤러, 불균형 차량, GPS 잡음 등의 일반적인 문제의 원인을 확인할 수 있습니다.
 
