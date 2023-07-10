@@ -29,7 +29,7 @@ Integrated companion computer/flight controller solutions include:
 - Other options in [Companion Computer > Integrated Companion/Flight Controller Boards](../companion_computer/README.md#integrated-companion-flight-controller-boards)
 
 
-PX4 can also run natively on Raspberry Pi (this approach is not generally consider as "robust" as having a separate companion):
+PX4 can also run natively on Raspberry Pi (this approach is not generally considered as "robust" as having a separate companion):
 
 - [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
 - [Raspberry Pi 2/3/4 PilotPi Shield](../flight_controller/raspberry_pi_pilotpi.md)
