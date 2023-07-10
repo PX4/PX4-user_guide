@@ -64,7 +64,7 @@ Battery Emergency Level | [BAT_EMERGEN_THR](../advanced_config/parameter_referen
 
 ### RC Loss Failsafe
 
-The RC Loss failsafe may be triggered if the RC transmitter link is lost in manual modes (by default RC loss does not trigger the failsafe in missions, hold mode, or offboard mode).
+The RC Loss failsafe may be triggered if the RC transmitter link is lost.
 
 ![Safety - RC Loss (QGC)](../../assets/qgc/setup/safety/safety_rc_loss.png)
 
@@ -88,7 +88,7 @@ Parameter | Setting | Description
 <a id="COM_RC_LOSS_T"></a>[COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | RC Loss Timeout | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | Time after RC stops updating supplied data that the RC link is considered lost.
 <a id="COM_FAIL_ACT_T"></a>[COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T) | Failsafe Reaction Delay | Delay in seconds between failsafe condition triggered and failsafe reaction (RTL, Land, Hold).
 <a id="NAV_RCL_ACT"></a>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | Failsafe Action | Disabled, Loiter, Return, Land, Disarm, Terminate.
-<a id="COM_RCL_EXCEPT"></a>[COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT) | RC Loss Exceptions | Set the modes in which RC loss is ignored: Mission (default), Hold, Offboard.
+<a id="COM_RCL_EXCEPT"></a>[COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT) | RC Loss Exceptions | Set the modes in which RC loss is ignored: Mission, Hold, Offboard.
 
 ### Data Link Loss Failsafe
 
