@@ -393,29 +393,42 @@ To assign an actuator:
 
 ### Motor Configuration
 
+:::note
+If using PWM or OneShot ESCs, you should first perform [ESC Calibration](../advanced_config/esc_calibration.md) (this topic also covers PWM specific motor configuration).
+
+[DShot](../peripherals/dshot.md) ESCs do not require configuration of the command limits but only rotation direction.
+:::
+
+:::warning
+Remove propellers!
+:::
+
 The motor configuration sets output values such that motors:
 
-- don't spin when disarmed (at the `disarmed` PWM output value)
-- barely spin at the `minimum` PWM output value
-- give **positive thrust** in the expected direction
+- don't spin when disarmed (at the `disarmed` PWM output value).
+- barely but reliably spin up at the `minimum` PWM output value.
+- have the _lowest_ `maximum` PWM output value that spins the motor at its _highest_ rate.
+- give **positive thrust** in the expected direction.
 
 For each motor:
 
-1. Pull the motor slider down so that it snaps to the bottom. In this position the motor is set to the outputs `Disarmed` value.
+1. Pull the motor slider down so that it snaps to the bottom. In this position the motor is set to the outputs `disarmed` value.
    - Verify that the motor doesn't spin in this position.
-   - If the motor spins, reduce the corresponding PWM `Disarmed` value in the [Actuator Outputs](#actuator-outputs) section to below the level at which it still spins.
-2. Slowly move the slider up until it snaps to the _minimum_ position. In this position the motor is set to the outputs `Minimum` value.
+   - If the motor spins, reduce the corresponding PWM `disarmed` value in the [Actuator Outputs](#actuator-outputs) section to below the level at which it still spins.
+2. Slowly move the slider up until it snaps to the _minimum_ position. In this position the motor is set to the outputs `minimum` value.
    - Verify that the motor is spinning very slowly in this position.
-   - If the motor is not spinning, or spinning too fast you will need to adjust the corresponding PWM `Disarmed` value in the [Actuator Outputs](#actuator-outputs) such that the motors barely spin.
+   - If the motor is not spinning, or spinning too fast you will need to adjust the corresponding PWM `minimum` value in the [Actuator Outputs](#actuator-outputs) such that the motors barely spin.
 
      ![PWM Minimum Output](../../assets/config/actuators/pwm_minimum_output.png)   :::note
-  For DShot output, this is not required <!-- any, or just the minimum check? -->
+  For DShot output, this is not required.
 
 :::
 3. Increase the slider value to a level where you can verify that the motor is spinning in the correct direction and that it would give a positive thrust in the expected direction.
    - The expected thrust direction can vary by vehicle type. For example in multicopters the thrust should always point upwards, while in a fixed wing vehicle the thrust will push the vehicle forwards.
    - For VTOL, thrust should point upwards when the Tilt Servo is at 0 degrees as defined the [Tilt Servo Convention](#tilt-servo-coordinate-system). Testing of the [Tilt Servo](#tilt-servo-setup) is covered below as well.
    - If thrust is in the wrong direction, you may need to [reverse the motors](#reversing-motors).
+
+4. Increase the slider value to the maximum value, so the motor is spinning quickly. Reduce the value of the PWM output's `maximum` value just below the default. Listen to the tone of the motors as you increase the value in small (25us) increments. The "optimal" maximum value is the value at which you last hear a change in the tone.
 
 
 ### Control Surface Setup
