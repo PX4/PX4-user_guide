@@ -392,29 +392,42 @@ Outputs are assigned to functions and configured in the [Actuator Outputs](#actu
 
 ### 모터 설정
 
+:::note
+If using PWM or OneShot ESCs, you should first perform [ESC Calibration](../advanced_config/esc_calibration.md) (this topic also covers PWM specific motor configuration).
+
+[DShot](../peripherals/dshot.md) ESCs do not require configuration of the command limits but only rotation direction.
+:::
+
+:::warning
+Remove propellers!
+:::
+
 모터 설정에서는 모터의  출력 값을 설정합니다.
 
-- 무장 해제 시 회전하지 않음(`해제` PWM 출력 값에서)
-- `최소` PWM 출력 값에서 거의 회전하지 않음
-- 예상 방향으로 **긍정적인 추진력**을 할당함
+- don't spin when disarmed (at the `disarmed` PWM output value).
+- barely but reliably spin up at the `minimum` PWM output value.
+- have the _lowest_ `maximum` PWM output value that spins the motor at its _highest_ rate.
+- give **positive thrust** in the expected direction.
 
 각각의 모터에 대하여:
 
-1. 모터 슬라이더를 아래로 당겨서 아래쪽에 찰칵 소리가 나도록 합니다. 이 위치에서 모터는 출력 `Disarmed` 값으로 설정됩니다.
+1. 모터 슬라이더를 아래로 당겨서 아래쪽에 찰칵 소리가 나도록 합니다. In this position the motor is set to the outputs `disarmed` value.
    - 모터가 이 위치에서 회전하지 않는 지 확인하십시오.
-   - 모터가 회전하면 [액추에이터 출력](#actuator-outputs) 섹션에서 해당 PWM `비활성화됨` 값을 여전히 회전하는 수준 이하로 줄이십시오.
-2. 슬라이더가 _최소_ 위치에 고정될 때까지 슬라이더를 천천히 위로 이동합니다. 이 위치에서 모터는 출력 `최소` 값으로 설정됩니다.
+   - If the motor spins, reduce the corresponding PWM `disarmed` value in the [Actuator Outputs](#actuator-outputs) section to below the level at which it still spins.
+2. 슬라이더가 _최소_ 위치에 고정될 때까지 슬라이더를 천천히 위로 이동합니다. In this position the motor is set to the outputs `minimum` value.
    - 이 위치에서 모터가 매우 느리게 회전하는 지 확인합니다.
-   - 모터가 회전하지 않거나 너무 빠르게 회전하는 경우에는 모터가 거의 회전하지 않도록 [액추에이터 출력](#actuator-outputs)에서 해당 PWM `비 무장 해제` 값을 조정하여야 합니다.
+   - If the motor is not spinning, or spinning too fast you will need to adjust the corresponding PWM `minimum` value in the [Actuator Outputs](#actuator-outputs) such that the motors barely spin.
 
-     ![PWM Minimum Output](../../assets/config/actuators/pwm_minimum_output.png)   :::note
-  For DShot output, this is not required <!-- any, or just the minimum check? -->
+     ![PWM 최소 출력](../../assets/config/actuators/pwm_minimum_output.png)   :::note
+  For DShot output, this is not required.
 
 :::
 3. 모터가 올바른 방향으로 회전하고 있고 예상 방향으로 긍정적인 추진력을 제공하는 지 확인할 수 있는 수준으로 슬라이더 값을 증가시킵니다.
    - 예상 추력 방향은 차량 유형에 따라 다를 수 있습니다. 예를 들어, 멀티콥터에서는 추력이 항상 위쪽을 향해야 하지만 고정익 차량에서는 추력이 차량을 앞으로 밀어냅니다.
    - For VTOL, thrust should point upwards when the Tilt Servo is at 0 degrees as defined the [Tilt Servo Convention](#tilt-servo-coordinate-system). Testing of the [Tilt Servo](#tilt-servo-setup) is covered below as well.
    - 추력이 잘못된 방향인 경우 [모터를 역전](#reversing-motors)해야 할 수 있습니다.
+
+4. Increase the slider value to the maximum value, so the motor is spinning quickly. Reduce the value of the PWM output's `maximum` value just below the default. Listen to the tone of the motors as you increase the value in small (25us) increments. The "optimal" maximum value is the value at which you last hear a change in the tone.
 
 
 ### 조종면 설정
