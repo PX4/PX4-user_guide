@@ -17,7 +17,7 @@ Logs can be downloaded using [QGroundControl](http://qgroundcontrol.com/): **[An
 ## Analyzing the Logs
 
 Upload the log file to the online [Flight Review](http://logs.px4.io) tool.
-After upload you'll emailed a link to the analysis page for the log.
+After upload you'll be emailed a link to the analysis page for the log.
 
 [Log Analysis using Flight Review](../log/flight_review.md) explains how to interpret the plots, and can help you to verify/reject the causes of common problems: excessive vibration, poor PID tuning, saturated controllers, imbalanced vehicles, GPS noise, etc.
 
