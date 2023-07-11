@@ -78,7 +78,7 @@ To setup the environment for [Gazebo Classic](../sim_gazebo_classic/README.md) s
 
    ```sh
    brew unlink tbb
-   sed -i.bak '/disable! date:/s/^/  /; /disable! date:/s/./#/3' /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/tbb@2020.rb
+   sed -i.bak '/disable! date:/s/^/  /; /disable! date:/s/./#/3' $(brew --prefix)/Library/Taps/homebrew/homebrew-core/Formula/tbb@2020.rb
    brew install tbb@2020
    brew link tbb@2020
    ```
