@@ -919,112 +919,112 @@ table {
  <td><strong id="PCA9685_DIS1">PCA9685_DIS1</strong> (INT32)</td>
  <td>PCA9685 Output Channel 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS10">PCA9685_DIS10</strong> (INT32)</td>
  <td>PCA9685 Output Channel 10 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS11">PCA9685_DIS11</strong> (INT32)</td>
  <td>PCA9685 Output Channel 11 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS12">PCA9685_DIS12</strong> (INT32)</td>
  <td>PCA9685 Output Channel 12 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS13">PCA9685_DIS13</strong> (INT32)</td>
  <td>PCA9685 Output Channel 13 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS14">PCA9685_DIS14</strong> (INT32)</td>
  <td>PCA9685 Output Channel 14 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS15">PCA9685_DIS15</strong> (INT32)</td>
  <td>PCA9685 Output Channel 15 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS16">PCA9685_DIS16</strong> (INT32)</td>
  <td>PCA9685 Output Channel 16 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS2">PCA9685_DIS2</strong> (INT32)</td>
  <td>PCA9685 Output Channel 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS3">PCA9685_DIS3</strong> (INT32)</td>
  <td>PCA9685 Output Channel 3 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS4">PCA9685_DIS4</strong> (INT32)</td>
  <td>PCA9685 Output Channel 4 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS5">PCA9685_DIS5</strong> (INT32)</td>
  <td>PCA9685 Output Channel 5 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS6">PCA9685_DIS6</strong> (INT32)</td>
  <td>PCA9685 Output Channel 6 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS7">PCA9685_DIS7</strong> (INT32)</td>
  <td>PCA9685 Output Channel 7 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS8">PCA9685_DIS8</strong> (INT32)</td>
  <td>PCA9685 Output Channel 8 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS9">PCA9685_DIS9</strong> (INT32)</td>
  <td>PCA9685 Output Channel 9 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
@@ -3023,77 +3023,77 @@ table {
  <td><strong id="PWM_AUX_DIS1">PWM_AUX_DIS1</strong> (INT32)</td>
  <td>PWM Aux 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS10">PWM_AUX_DIS10</strong> (INT32)</td>
  <td>PWM Capture 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS11">PWM_AUX_DIS11</strong> (INT32)</td>
  <td>PWM Capture 3 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS2">PWM_AUX_DIS2</strong> (INT32)</td>
  <td>PWM Aux 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS3">PWM_AUX_DIS3</strong> (INT32)</td>
  <td>PWM Aux 3 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS4">PWM_AUX_DIS4</strong> (INT32)</td>
  <td>PWM Aux 4 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS5">PWM_AUX_DIS5</strong> (INT32)</td>
  <td>PWM Aux 5 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS6">PWM_AUX_DIS6</strong> (INT32)</td>
  <td>PWM Aux 6 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS7">PWM_AUX_DIS7</strong> (INT32)</td>
  <td>PWM Aux 7 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS8">PWM_AUX_DIS8</strong> (INT32)</td>
  <td>PWM Aux 8 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS9">PWM_AUX_DIS9</strong> (INT32)</td>
  <td>PWM Capture 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
@@ -4622,56 +4622,56 @@ table {
  <td><strong id="PWM_MAIN_DIS1">PWM_MAIN_DIS1</strong> (INT32)</td>
  <td>MAIN 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS2">PWM_MAIN_DIS2</strong> (INT32)</td>
  <td>MAIN 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS3">PWM_MAIN_DIS3</strong> (INT32)</td>
  <td>MAIN 3 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS4">PWM_MAIN_DIS4</strong> (INT32)</td>
  <td>MAIN 4 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS5">PWM_MAIN_DIS5</strong> (INT32)</td>
  <td>MAIN 5 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS6">PWM_MAIN_DIS6</strong> (INT32)</td>
  <td>MAIN 6 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS7">PWM_MAIN_DIS7</strong> (INT32)</td>
  <td>MAIN 7 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS8">PWM_MAIN_DIS8</strong> (INT32)</td>
  <td>MAIN 8 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
- <td>900</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
@@ -28260,7 +28260,9 @@ table {
 
 <li><strong>5:</strong> SF/LW20/b</li>
 
-<li><strong>6:</strong> SF/LW20/c</li> 
+<li><strong>6:</strong> SF/LW20/c</li>
+
+<li><strong>7:</strong> SF/LW30/d</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
