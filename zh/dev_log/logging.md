@@ -8,6 +8,8 @@ The [system logger](../modules/modules_system.md#logger) is able to log any ORB 
 
 By default, logging is automatically started when arming, and stopped when disarming. 每次解锁后的飞行对话将会在 SD 卡上生成一个新的日志文件。 To display the current state, use `logger status` on the console. If you want to start logging immediately, use `logger on`. This overrides the arming state, as if the system was armed. `log off` 取消日志记录。
 
+If logging stops due to a write error, or reaching the [maximum file size](#file-size-limitations), PX4 will automatically restart logging in a new file.
+
 For a list of all supported logger commands and parameters, use:
 
 ```
@@ -64,6 +66,11 @@ This configuration will log sensor_accel 0 at full rate, sensor_accel 1 at 10Hz,
 ## 脚本
 
 There are several scripts to analyze and convert logging files in the [pyulog](https://github.com/PX4/pyulog) repository.
+
+
+## File size limitations
+
+The maximum file size depends on the file system and OS. The size limit on NuttX is currently around 2GB.
 
 ## 丢帧
 
