@@ -8,6 +8,8 @@ The output log format is [ULog](../dev_log/ulog_file_format.md).
 
 By default, logging is automatically started when arming, and stopped when disarming. A new log file is created for each arming session on the SD card. To display the current state, use `logger status` on the console. If you want to start logging immediately, use `logger on`. This overrides the arming state, as if the system was armed. `logger off` undoes this.
 
+If logging stops due to a write error, or reaching the [maximum file size](#file-size-limitations), PX4 will automatically restart logging in a new file.
+
 For a list of all supported logger commands and parameters, use:
 
 ```
@@ -21,15 +23,17 @@ The logging system is configured by default to collect sensible logs for [flight
 
 Logging may further be configured using the [SD Logging](../advanced_config/parameter_reference.md#sd-logging) parameters. The parameters you are most likely to change are listed below.
 
-| Parameter                                                                | Description                                                                                                                                                                                                |
-| ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE)       | Logging Mode defines when logging starts and stops.<br />- `0`: log when armed until disarm (default).<br />- `1`: log from boot until disarm.<br />- `2`: log from boot until shutdown. |
-| [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | Logging profile. Use this to enable less common logging/analysis (e.g. for EKF2 replay, high rate logging for PID & filter tuning, thermal temperature calibration).                                       |
-| [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".<br>This log can *not* be used with *Flight Review*, but is useful when you need a small log for geotagging or regulatory compliance.                     |
+| Parameter                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE)       | Logging Mode. Defines when logging starts and stops.<br />- `-1`: Logging disabled.<br />- `0`: Log when armed until disarm (default).<br />- `1`: Log from boot until disarm.<br />- `2`: Log from boot until shutdown.<br />- `3`: Log based on the [AUX1 RC channel](../advanced_config/parameter_reference.md#RC_MAP_AUX1).<br />- `4`: Log from first armed until shutdown. |
+| [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | Logging profile. Use this to enable less common logging/analysis (e.g. for EKF2 replay, high rate logging for PID & filter tuning, thermal temperature calibration).                                                                                                                                                                                                                                                 |
+| [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".<br>This log can *not* be used with [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), but is useful when you need a small log for geotagging or regulatory compliance.                                                                                                                                                                      |
+
 
 Useful settings for specific cases:
 
 - Raw sensor data for comparison: [SDLOG_MODE=1](../advanced_config/parameter_reference.md#SDLOG_MODE) and [SDLOG_PROFILE=64](../advanced_config/parameter_reference.md#SDLOG_PROFILE).
+- Disabling logging altogether: [SDLOG_MODE=`-1`](../advanced_config/parameter_reference.md#SDLOG_MODE)
 
 ### Logger module
 
@@ -62,6 +66,11 @@ This configuration will log sensor_accel 0 at full rate, sensor_accel 1 at 10Hz,
 ## Scripts
 
 There are several scripts to analyze and convert logging files in the [pyulog](https://github.com/PX4/pyulog) repository.
+
+
+## File size limitations
+
+The maximum file size depends on the file system and OS. The size limit on NuttX is currently around 2GB.
 
 ## Dropouts
 
