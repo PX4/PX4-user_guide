@@ -8,6 +8,8 @@ The [system logger](../modules/modules_system.md#logger) is able to log any ORB 
 
 기본적으로, 로깅은 시동을 걸었을 때 시작하며, 제동 후 중지합니다. 새 로그 파일은 시동을 걸 때마다 SD 카드에 생성됩니다. 현재 상태를 표시하려면 콘솔에서 `logger status`명령을 사용하십시오. 로깅을 바로 시작하고 싶다면 `logger on` 명령을 내리십시오. 이 명령은 시동을 걸었을 때, 시동 동작보다 우선합니다. `logger off` 명령은 그 반대입니다.
 
+If logging stops due to a write error, or reaching the [maximum file size](#file-size-limitations), PX4 will automatically restart logging in a new file.
+
 For a list of all supported logger commands and parameters, use:
 
 ```
@@ -64,6 +66,11 @@ sensor_mag 200 1
 ## 스크립트
 
 [pyulog](https://github.com/PX4/pyulog) 저장소에 로깅 파일을 분석하고 변환하는 여러 스크립트가 있습니다.
+
+
+## File size limitations
+
+The maximum file size depends on the file system and OS. The size limit on NuttX is currently around 2GB.
 
 ## 손실
 
