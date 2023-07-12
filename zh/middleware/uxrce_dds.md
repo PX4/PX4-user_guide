@@ -405,11 +405,13 @@ uXRCE-DDS does not need the dependencies that were required for Fast-RTPS, such 
 
 If you do choose to remove the dependencies, take care not to remove anything that is used by applications (for example, Java).
 
-#### `_rtps` targets are not needed
+#### `_rtps` targets have been removed
 
-The make targets with extension `_rtps` were used to build firmware that included client side RTPS code.
+Anywhere you previously used a build target with extension `_rtps`, such as `px4_fmu-v5_rtps` or `px4_sitl_rtps`, you can now use the equivalent default target (for these cases `px4_fmu-v5_default` and `px4_sitl_default`).
 
-The uXRCE-DDS middleware is included by default in builds for most boards, so you no longer need a special firmware to work with ROS 2. To check if your board has it, look for `CONFIG_MODULES_UXRCE_DDS_CLIENT=y` in the `.px4board` file of your board. Those files are nested in [PX4-Autopilot/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards).
+The make targets with extension `_rtps` were used to build firmware that included client side RTPS code. The uXRCE-DDS middleware is included by default in builds for most boards, so you no longer need a special firmware to work with ROS 2.
+
+To check if your board has the middleware, look for `CONFIG_MODULES_UXRCE_DDS_CLIENT=y` in the `.px4board` file of your board. Those files are nested in [PX4-Autopilot/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards).
 
 If it is not present, or if it is set to `n`, then you have to clone the PX4 repo, modify the board configuration and manually [compile](../dev_setup/building_px4.md) the firmware.
 
