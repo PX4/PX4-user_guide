@@ -97,7 +97,7 @@ The last 10 Digits of the GUID is displayed as Drone identification.
 ## Testing/Simulated ADSB Traffic
 
 You can simulate ADS-B traffic for testing.
-Note that this requires that you [Build PX4](../dev_setup/building_px4.md)
+Note that this requires that you [Build PX4](../dev_setup/building_px4.md).
 
 :::note
 Simulated ADS-B traffic can trigger real failsafe actions.
@@ -124,23 +124,36 @@ The relevent methods are defined in [AdsbConflict.cpp](https://github.com/PX4/PX
 
 The `run_fake_traffic()` method is run when the `navigator fake_traffic` command is called.
 
-The method simulates different scenarios by calling the `fake_traffic()` method with different parameters.
-It creates fake traffic messages with different callsigns, distances, directions, altitude differences, velocities, and emitter types.
+The method calls the `fake_traffic()` method to generate simulated transponder messages around the current vehicle position.
+It passes in the current vehicle position, and information about the simulated traffic, such as callsign, distances, directions, altitude differences, velocities, and emitter types.
 
-The default scenarios include conflicts and non-conflicts, as well as spamming the traffic buffer.
+The (commented out) code in `run_fake_traffic()` simulates a number of different scenarios, including conflicts and non-conflicts, as well as spamming the traffic buffer.
 
 #### `fake_traffic()` method
 
 `AdsbConflict::fake_traffic()` is called by the [`run_fake_traffic()`](#run-fake-traffic-method) to create individual ADS-B transponder reports.
 
-This takes several parameters, which specify the characteristics of the fake traffic: callsign, distance, direction, traffic heading, altitude difference, horizontal velocity, vertical velocity, emitter type, ICAO address, UAV latitude and longitude, and UAV altitude.
-The method modifies the `alt_uav` parameter by reference.
+This takes several parameters, which specify the characteristics of the fake traffic:
 
-The method performs the following steps:
+- `callsign`: Callsign of the fake transponder.
+- `distance`: Horizontal distance to the fake vehicle from the current vehicle.
+- `direction`: Direction in NED from this vehicle to the fake in radians.
+- `traffic_heading`: Travel direction of the traffic in NED in radians.
+- `altitude_diff`: Altitude difference of the fake traffic. Positive is up.
+- `hor_velocity`: Horizontal velocity of fake traffic, in m/s.
+- `ver_velocity`: Vertical velocity of fake traffic, in m/s.
+- `emitter_type`: Type of fake vehicle, as an enumerated value.
+- `icao_address`: ICAO address.
+- `lat_uav`: Lat of this vehicle (used to position fake traffic around vehicle)
+- `on_uav`: Lon of this vehicle (used to position fake traffic around vehicle)
+- `alt_uav`: Altitude of the vehicle (as reference - used to position fake traffic around vehicle)
+   
+
+The method creates a simulated transponder message near the vehicle, using following steps:
 
 - Calculates the latitude and longitude of the traffic based on the UAV's position, distance, and direction.
 - Computes the new altitude by adding the altitude difference to the UAV's altitude.
-- Populates a [TransponderReport](../msg_docs/TransponderReport.md) topic with the simulated traffic data, including the timestamp, ICAO address, latitude, longitude, altitude type, altitude, heading, horizontal velocity, vertical velocity, callsign, emitter type, time since last communication, flags, and squawk code.
+- Populates a [TransponderReport](../msg_docs/TransponderReport.md) topic with the simulated traffic data.
 - If the board supports a Universally Unique Identifier (UUID), the method retrieves the UUID using `board_get_px4_guid` and copies it to the `uas_id` field of the structure.
   Otherwise, it generates a simulated GUID.
 - Publishes the simulated traffic message using `orb_publish`.
