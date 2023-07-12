@@ -52,6 +52,14 @@ Yaw Axis ->
 This is very counterintuitive but very important.
 
 
+:::warning
+Parts of this procedure are very _dangerous_ - they rely on active spinning propellers:
+
+- Remove propellers when not explicitly required.
+- Do not perform steps with spinning props unless you can find a way to do them safely.
+  Safety glasses, helmet and thick gloves are recommended but may not be sufficient!
+:::
+
 :::note
 Always disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) when tuning a vehicle.
 :::
