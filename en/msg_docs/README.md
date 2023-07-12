@@ -159,6 +159,8 @@ the field 'timestamp' is for the position & velocity (microseconds)
 The topic will not be updated when the vehicle is armed
 - [SensorSelection](SensorSelection.md) — Sensor ID's for the voted sensors output on the sensor_combined topic.
 Will be updated on startup of the sensor module and when sensor selection changes
+- [SensorUwb](SensorUwb.md) — UWB distance contains the distance information measured by an ultra-wideband positioning system,
+such as Pozyx or NXP Rddrone.
 - [SensorsStatus](SensorsStatus.md) — Sensor check metrics. This will be zero for a sensor that's primary or unpopulated.
 - [SensorsStatusImu](SensorsStatusImu.md) — Sensor check metrics. This will be zero for a sensor that's primary or unpopulated.
 - [SystemPower](SystemPower.md)
@@ -185,10 +187,6 @@ then the frequency, duration are used otherwise those values are ignored.
 mavlink message
 - [UlogStreamAck](UlogStreamAck.md) — Ack a previously sent ulog_stream message that had
 the NEED_ACK flag set
-- [UwbDistance](UwbDistance.md) — UWB distance contains the distance information measured by an ultra-wideband positioning system,
-such as Pozyx or NXP Rddrone.
-- [UwbGrid](UwbGrid.md) — UWB report message contains the grid information measured by an ultra-wideband positioning system,
-such as Pozyx or NXP Rddrone.
 - [VehicleAcceleration](VehicleAcceleration.md)
 - [VehicleAirData](VehicleAirData.md)
 - [VehicleAngularAccelerationSetpoint](VehicleAngularAccelerationSetpoint.md)
