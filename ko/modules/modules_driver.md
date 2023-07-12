@@ -1402,8 +1402,6 @@ uwb <command> [arguments...]
                  values: <file:dev>
      -b <val>    Baudrate for serial communication
                  values: <int>
-     -p <val>    Position Debug: displays errors in Multilateration
-                 values: <int>
 
    stop
 

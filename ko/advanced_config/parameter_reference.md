@@ -15373,9 +15373,16 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_OF_QMIN">EKF2_OF_QMIN</strong> (INT32)</td>
- <td>Optical Flow data will only be used if the sensor reports a quality metric >= EKF2_OF_QMIN    </td>
+ <td>Optical Flow data will only be used in air if the sensor reports a quality metric >= EKF2_OF_QMIN    </td>
  <td>[0, 255] </td>
  <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="EKF2_OF_QMIN_GND">EKF2_OF_QMIN_GND</strong> (INT32)</td>
+ <td>Optical Flow data will only be used on the ground if the sensor reports a quality metric >= EKF2_OF_QMIN_GND    </td>
+ <td>[0, 255] </td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -33111,15 +33118,8 @@ table {
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="UWB_INIT_OFF_YAW">UWB_INIT_OFF_YAW</strong> (FLOAT)</td>
- <td>UWB sensor YAW offset in body frame <p><strong>Comment:</strong> UWB sensor positioning in relation to Drone in NED. Yaw rotation in relation to direction of FMU.</p>   </td>
- <td>(0.1)</td>
- <td>0.0</td>
- <td>deg</td>
-</tr>
-<tr>
  <td><strong id="UWB_INIT_OFF_Z">UWB_INIT_OFF_Z</strong> (FLOAT)</td>
- <td>UWB sensor Y offset in body frame <p><strong>Comment:</strong> UWB sensor positioning in relation to Drone in NED. Z offset.</p>   </td>
+ <td>UWB sensor Z offset in body frame <p><strong>Comment:</strong> UWB sensor positioning in relation to Drone in NED. Z offset.</p>   </td>
  <td>(0.01)</td>
  <td>0.0</td>
  <td>m</td>
@@ -33153,6 +33153,96 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
+ <td></td>
+ <td>102</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UWB_SENS_ROT">UWB_SENS_ROT</strong> (INT32)</td>
+ <td>UWB sensor orientation <p><strong>Comment:</strong> The orientation of the sensor relative to the forward direction of the body frame. Look up table in src/lib/conversion/rotation.h Default position is the antannaes downward facing, UWB board parallel with body frame.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> ROTATION_NONE</li>
+
+<li><strong>1:</strong> ROTATION_YAW_45</li>
+
+<li><strong>2:</strong> ROTATION_YAW_90</li>
+
+<li><strong>3:</strong> ROTATION_YAW_135</li>
+
+<li><strong>4:</strong> ROTATION_YAW_180</li>
+
+<li><strong>5:</strong> ROTATION_YAW_225</li>
+
+<li><strong>6:</strong> ROTATION_YAW_270</li>
+
+<li><strong>7:</strong> ROTATION_YAW_315</li>
+
+<li><strong>8:</strong> ROTATION_ROLL_180</li>
+
+<li><strong>9:</strong> ROTATION_ROLL_180_YAW_45</li>
+
+<li><strong>10:</strong> ROTATION_ROLL_180_YAW_90</li>
+
+<li><strong>11:</strong> ROTATION_ROLL_180_YAW_135</li>
+
+<li><strong>12:</strong> ROTATION_PITCH_180</li>
+
+<li><strong>13:</strong> ROTATION_ROLL_180_YAW_225</li>
+
+<li><strong>14:</strong> ROTATION_ROLL_180_YAW_270</li>
+
+<li><strong>15:</strong> ROTATION_ROLL_180_YAW_315</li>
+
+<li><strong>16:</strong> ROTATION_ROLL_90</li>
+
+<li><strong>17:</strong> ROTATION_ROLL_90_YAW_45</li>
+
+<li><strong>18:</strong> ROTATION_ROLL_90_YAW_90</li>
+
+<li><strong>19:</strong> ROTATION_ROLL_90_YAW_135</li>
+
+<li><strong>20:</strong> ROTATION_ROLL_270</li>
+
+<li><strong>21:</strong> ROTATION_ROLL_270_YAW_45</li>
+
+<li><strong>22:</strong> ROTATION_ROLL_270_YAW_90</li>
+
+<li><strong>23:</strong> ROTATION_ROLL_270_YAW_135</li>
+
+<li><strong>24:</strong> ROTATION_PITCH_90</li>
+
+<li><strong>25:</strong> ROTATION_PITCH_270</li>
+
+<li><strong>26:</strong> ROTATION_PITCH_180_YAW_90</li>
+
+<li><strong>27:</strong> ROTATION_PITCH_180_YAW_270</li>
+
+<li><strong>28:</strong> ROTATION_ROLL_90_PITCH_90</li>
+
+<li><strong>29:</strong> ROTATION_ROLL_180_PITCH_90</li>
+
+<li><strong>30:</strong> ROTATION_ROLL_270_PITCH_90</li>
+
+<li><strong>31:</strong> ROTATION_ROLL_90_PITCH_180</li>
+
+<li><strong>32:</strong> ROTATION_ROLL_270_PITCH_180</li>
+
+<li><strong>33:</strong> ROTATION_ROLL_90_PITCH_270</li>
+
+<li><strong>34:</strong> ROTATION_ROLL_180_PITCH_270</li>
+
+<li><strong>35:</strong> ROTATION_ROLL_270_PITCH_270</li>
+
+<li><strong>36:</strong> ROTATION_ROLL_90_PITCH_180_YAW_90</li>
+
+<li><strong>37:</strong> ROTATION_ROLL_90_YAW_270</li>
+
+<li><strong>38:</strong> ROTATION_ROLL_90_PITCH_68_YAW_293</li>
+
+<li><strong>39:</strong> ROTATION_PITCH_315</li>
+
+<li><strong>40:</strong> ROTATION_ROLL_90_PITCH_315</li> 
+</ul>
+  </td>
  <td></td>
  <td>0</td>
  <td></td>
