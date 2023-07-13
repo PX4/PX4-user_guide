@@ -112,7 +112,7 @@ In the [Actuators](../config/actuators.md) configuration in *QGroundControl*
 
 ### RTK GPS
 
-RTK GPS는 플러그 앤 플레이입니다. 자세한 내용은 [여기](../advanced_features/rtk-gps.md)를 참조하십시오.
+RTK GPS는 플러그 앤 플레이입니다. For more instructions see [here](../gps_compass/rtk_gps.md).
 
 ### Lidar-Lite
 

@@ -101,7 +101,7 @@ With the default PWM configuration they will automatically stop during flight wh
 
    This happens if you do not power the ESC at the right time, or the ESCs don't support calibration. This occurs because PX4 has no feedback from the ESC to know whether or not calibration was successful. You have to rely on interpreting the beeps during the calibration and subsequent motor tests to know for sure that the calibration worked.
 
-<a id="problem_power_module"></a>
+   <a id="problem_power_module"></a>
 
 1. Calibration cannot be started if you have a power module configured and connected (for safety reasons).
 

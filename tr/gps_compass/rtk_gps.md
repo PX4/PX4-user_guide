@@ -1,11 +1,13 @@
 # RTK GPS
 
-*RTK GPS* devices can be accurate to centimeter-level, allowing PX4 to be used in applications like precision surveying (where pinpoint accuracy is essential).
+[Real Time Kinematic (RTK)](https://en.wikipedia.org/wiki/Real_Time_Kinematic) GNSS/GPS systems provide centimeter-level accuracy, allowing PX4 to be used in applications like precision surveying (where pinpoint accuracy is essential).
 
-:::note GPS
-can also be used as a source of yaw/heading information:
+This feature requires *QGroundControl* running on a laptop/PC and a vehicle with a WiFi or Telemetry radio link to the ground station laptop.
+
+:::note
+Some RTK GPS setups can provide yaw/heading information, as an alternative to the compass:
 - [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
-- Some GPS output yaw (see table below).
+- GPS directly output yaw (see table below).
 :::
 
 

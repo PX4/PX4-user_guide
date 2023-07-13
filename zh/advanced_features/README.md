@@ -2,8 +2,7 @@
 
 这部分包含了部分关于PX4自驾仪的高级功能：
 
-* [空中交通避障：ADSB/FLARM](../advanced_features/traffic_avoidance_adsb.md)
-* [空中交通避障：UTM](../advanced_features/traffic_avoidance_utm.md)
+* [Air Traffic Avoidance: ADS-B/FLARM/UTM](../peripherals/adsb_flarm.md)
 * [机器视觉](../computer_vision/README.md)
   * [自主避障](../computer_vision/obstacle_avoidance.md)（需要机载计算机）
   * [安全降落](../computer_vision/safe_landing.md)（需要机载计算机）
@@ -13,4 +12,4 @@
   * [视觉惯性里程计(VIO)](../computer_vision/visual_inertial_odometry.md)
 * [铱星/RockBlock卫通系统](../advanced_features/satcom_roadblock.md)
 * [精准着陆](../advanced_features/precland.md)
-* [GPS载波相位差分技术(RTK GPS)](../advanced_features/rtk-gps.md)
+* [GPS载波相位差分技术(RTK GPS)](../gps_compass/rtk_gps.md)

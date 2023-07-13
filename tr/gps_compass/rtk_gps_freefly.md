@@ -29,7 +29,7 @@ An RTK GPS kit includes:
 
 ## Configuration
 
-RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
+RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
 
 For the aircraft, you should set the parameter [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 115200 8N1 to ensure that PX4 configures the correct baudrate.
 

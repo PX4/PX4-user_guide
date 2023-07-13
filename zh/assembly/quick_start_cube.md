@@ -60,7 +60,7 @@ The Cube can be mounted using either vibration-damping foam pads (included in th
 
 ## GPS + 罗盘 + 安全开关 + LED
 
-The recommended GPS modules are the *Here* and [Here+](../gps_compass/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../getting_started/led_meanings.md). The difference between the modules is that *Here+* supports centimeter level positioning via [RTK](../advanced_features/rtk-gps.md). Otherwise they are used/connected in the same way.
+The recommended GPS modules are the *Here* and [Here+](../gps_compass/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../getting_started/led_meanings.md). The difference between the modules is that *Here+* supports centimeter level positioning via [RTK](../gps_compass/rtk_gps.md). Otherwise they are used/connected in the same way.
 
 :::warning
 The [Here+](../gps_compass/rtk_gps_hex_hereplus.md) has been superseded by the [Here3](https://www.cubepilot.org/#/here/here3) a [DroneCAN](../dronecan/README.md) RTK-GNSS that incorporate a compass and [LEDs](../getting_started/led_meanings.md) (but no safety switch). See [DroneCAN](../dronecan/README.md) for _Here3_ wiring and PX4 configuration information.

@@ -60,7 +60,7 @@ Cube를 (키트에 포함된) 진동 감쇠 폼 패드 또는 장착 나사를 �
 
 ## GPS + 나침반 + 안전 스위치 + LED
 
-권장되는 GPS 모듈은 *Here* 및 [Here+](../gps_compass/rtk_gps_hex_hereplus.md)이며, 둘 다 GPS 모듈, 나침반, 안전 스위치 및 [LED](../getting_started/led_meanings.md)를 통합합니다. 모듈 간의 차이점은 *Here+*가 [RTK](../advanced_features/rtk-gps.md)를 통하여 센티미터 수준의 위치 지정을 지원하는 점입니다. RTK 지원을 제외하면, 두 모듈의 연결 방법은 같습니다.
+권장되는 GPS 모듈은 *Here* 및 [Here+](../gps_compass/rtk_gps_hex_hereplus.md)이며, 둘 다 GPS 모듈, 나침반, 안전 스위치 및 [LED](../getting_started/led_meanings.md)를 통합합니다. The difference between the modules is that *Here+* supports centimeter level positioning via [RTK](../gps_compass/rtk_gps.md). RTK 지원을 제외하면, 두 모듈의 연결 방법은 같습니다.
 
 :::warning
 The [Here+](../gps_compass/rtk_gps_hex_hereplus.md) has been superseded by the [Here3](https://www.cubepilot.org/#/here/here3) a [DroneCAN](../dronecan/README.md) RTK-GNSS that incorporate a compass and [LEDs](../getting_started/led_meanings.md) (but no safety switch). See [DroneCAN](../dronecan/README.md) for _Here3_ wiring and PX4 configuration information.

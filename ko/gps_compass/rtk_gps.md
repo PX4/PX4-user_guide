@@ -1,10 +1,13 @@
 # RTK GPS
 
-PX4에서는 *RTK GPS* 장치의 센티미터 수준의 정확도로 정밀측량이 가능합니다.
+[Real Time Kinematic (RTK)](https://en.wikipedia.org/wiki/Real_Time_Kinematic) GNSS/GPS systems provide centimeter-level accuracy, allowing PX4 to be used in applications like precision surveying (where pinpoint accuracy is essential).
 
-:::note GPS는 요/방향 정보의 소스로 사용할 수 있습니다.
+This feature requires *QGroundControl* running on a laptop/PC and a vehicle with a WiFi or Telemetry radio link to the ground station laptop.
+
+:::note
+Some RTK GPS setups can provide yaw/heading information, as an alternative to the compass:
 - [듀얼 u-blox F9P를 사용한 RTK GPS 헤딩](../gps_compass/u-blox_f9p_heading.md).
-- 일부 GPS 출력 요 (아래 표 참조).
+- GPS directly output yaw (see table below).
 :::
 
 

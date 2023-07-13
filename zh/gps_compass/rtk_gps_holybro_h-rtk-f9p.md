@@ -15,7 +15,7 @@ Using RTK allows PX4 to get its position with centimeter-level accuracy, which i
 
 ## 配置
 
-RTK设置和使用在px4上通过 _QGroundControl_ 很大程度上可以即插即用 \ (请参阅[RTK GPS](../advanced_features/rtk-gps.md) 更多信息)。
+RTK setup and use on PX4 via _QGroundControl_ is largely plug and play \(see [RTK GPS](../gps_compass/rtk_gps.md) for more information\).
 
 ## 接线和连接
 

@@ -40,7 +40,7 @@ C-RTK 9Ps come with 6-pin and 10-pin connectors compatible with Pixhawk-standard
 
 ## Configuration
 
-RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
+RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
 
 ## Pinouts
 

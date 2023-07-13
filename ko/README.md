@@ -123,6 +123,6 @@ The calendar default timezone is Central European Time (CET).
 
 PX4는 [Dronecode 프로젝트](https://www.dronecode.org/) 주관으로 운영 관리됩니다.
 
-<a href="https://www.dronecode.org/" style="padding:20px" ><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode 로고" width="110px"/></a>
-<a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="리눅스 재단 로고" width="80px" /></a>
+<a href="" style="padding:20px" ><img src="" alt="" width="110px"/></a>
+<a href="" style="padding:20px;"><img src="" alt="" width="80px" /></a>
 <div style="padding:10px">&nbsp;</div>
