@@ -10,7 +10,7 @@
 
 ## 설정
 
-*QGroundControl*을 통한 PX4의 RTK 설정 및 사용은 대부분 플러그앤플레이입니다 \(자세한 내용은 [RTK GPS](../advanced_features/rtk-gps.md) 참조).
+RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
 
 :::tip
 Drotek UCenter 도구는 설정시 필요하지 않습니다. 모든 것이 *QGroundControl*에서 처리됩니다.
