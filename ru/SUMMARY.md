@@ -533,6 +533,7 @@
       * [SensorMag](msg_docs/SensorMag.md)
       * [SensorOpticalFlow](msg_docs/SensorOpticalFlow.md)
       * [SensorPreflightMag](msg_docs/SensorPreflightMag.md)
+      * [SensorUwb](msg_docs/SensorUwb.md)
       * [SensorSelection](msg_docs/SensorSelection.md)
       * [SensorsStatus](msg_docs/SensorsStatus.md)
       * [SensorsStatusImu](msg_docs/SensorsStatusImu.md)
