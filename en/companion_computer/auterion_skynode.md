@@ -39,7 +39,7 @@ PX4 v1.13 will generally work, with the following caveats:
 
 ## Building/Uploading Firmware
 
-Skynode PX4 `px4_fmu-v5x` binaries are built using the normal [developer environment](../dev_setup/dev_env.md) and are uploaded using either  `upload_skynode_usb` or `upload_skynode_wifi` upload targets.
+Skynode PX4 `px4_fmu-v5x` binaries are built from source using the normal [developer environment](../dev_setup/dev_env.md) and [build commands](../dev_setup/building_px4.md), and are uploaded using either  `upload_skynode_usb` or `upload_skynode_wifi` upload targets.
 
 You must have already installed [SSH keys](https://docs.auterion.com/manufacturers/software-customization/adding-ssh-keys) and you will need to enter Skynode's password (twice) during the upload process.
 
