@@ -2,8 +2,7 @@
 
 This section contains topics related to some of the more advanced features of the PX4 autopilot:
 
-* [Air Traffic Avoidance: ADS-B/FLARM](../advanced_features/traffic_avoidance_adsb.md)
-* [Air Traffic Avoidance: UTM](../advanced_features/traffic_avoidance_utm.md)
+* [Air Traffic Avoidance: ADS-B/FLARM/UTM](../peripherals/adsb_flarm.md)
 * [Computer Vision](../computer_vision/README.md)
   * [Obstacle Avoidance](../computer_vision/obstacle_avoidance.md) (needs companion computer)
   * [Safe Landing](../computer_vision/safe_landing.md) (needs companion computer)
@@ -13,4 +12,4 @@ This section contains topics related to some of the more advanced features of th
   * [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md)
 * [Iridium/RockBlock Satellite Communication System](../advanced_features/satcom_roadblock.md)
 * [Precision Landing](../advanced_features/precland.md)
-* [RTK GPS](../advanced_features/rtk-gps.md)
+* [RTK GPS](../gps_compass/rtk_gps.md)
