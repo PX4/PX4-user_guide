@@ -121,6 +121,6 @@ The calendar default timezone is Central European Time (CET).
 
 PX4飞行控制栈由 [Dronecode项目](https://www.dronecode.org/) 治理。
 
-<a href="https://www.dronecode.org/" style="padding:20px" ><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode 徽标" width="110px"/></a>
-<a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="Linux 基金会徽标" width="80px" /></a>
+<a href="" style="padding:20px" ><img src="" alt="" width="110px"/></a>
+<a href="" style="padding:20px;"><img src="" alt="" width="80px" /></a>
 <div style="padding:10px">&nbsp;</div>
