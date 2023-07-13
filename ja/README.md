@@ -119,6 +119,6 @@ PX4のコードは[BSD 3-clause license](https://opensource.org/licenses/BSD-3-C
 
 PX4 flight stackは， [Dronecode Project](https://www.dronecode.org/)の管理の下でホストされています．
 
-<a href="https://www.dronecode.org/" style="padding:20px" ><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode Logo" width="110px"/></a>
-<a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="Linux Foundation Logo" width="80px" /></a>
+<a href="" style="padding:20px" ><img src="" alt="" width="110px"/></a>
+<a href="" style="padding:20px;"><img src="" alt="" width="80px" /></a>
 <div style="padding:10px">&nbsp;</div>
