@@ -320,6 +320,7 @@
       * [RasPi Pixhawk Companion](companion_computer/pixhawk_rpi.md)
     * [Companion Computer Peripherals](companion_computer/companion_computer_peripherals.md)
     * [Holybro Pixhawk RPI CM4 Baseboard](companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
+    * [Auterion Skynode](companion_computer/auterion_skynode.md)
     * [Computer Vision](computer_vision/README.md)
       * [Obstacle Avoidance](computer_vision/obstacle_avoidance.md)
       * [Safe Landing](computer_vision/safe_landing.md)
