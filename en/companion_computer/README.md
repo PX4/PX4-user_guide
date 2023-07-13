@@ -24,6 +24,13 @@ The following boards are known to provide a good integration with PX4:
 
 - [Holybro Pixhawk RPI CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
 
+## Managed Integrated Systems
+
+The following integrated companion computer/flight controller systems use managed versions of flight controller and companion computer software by default (unmanaged code can only run in a sandboxed environment on the companion computer).
+They are listed here as they can be updated with "vanilla" PX4 firmware for testing/rapid development.
+
+- [Auterion Skynode](../companion_computer/auterion_skynode.md)
+
 
 ## Companion Computer Options
 
