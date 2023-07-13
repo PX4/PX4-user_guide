@@ -112,7 +112,7 @@ In the [Actuators](../config/actuators.md) configuration in *QGroundControl*
 
 ### RTK GPS
 
-RTK GPS is plug and play. For more instructions see [here](../advanced_features/rtk-gps.md).
+RTK GPS is plug and play. For more instructions see [here](../gps_compass/rtk_gps.md).
 
 ### Lidar-Lite
 
