@@ -2,8 +2,7 @@
 
 PX4 자동비행 프로그램의 고급 기능에 대하여 설명합니다.
 
-* [항공 충돌 방지: ADS-B/FLARM](../advanced_features/traffic_avoidance_adsb.md)
-* [항공 충돌 방지: UTM](../advanced_features/traffic_avoidance_utm.md)
+* [Air Traffic Avoidance: ADS-B/FLARM/UTM](../peripherals/adsb_flarm.md)
 * [컴퓨터 비전](../computer_vision/README.md)
   * [장애물 회피](../computer_vision/obstacle_avoidance.md) (보조 컴퓨터 필요)
   * [안전 착륙](../computer_vision/safe_landing.md) (보조 컴퓨터 필요)
@@ -13,4 +12,4 @@ PX4 자동비행 프로그램의 고급 기능에 대하여 설명합니다.
   * [시각적 관성 측정 (VIO)](../computer_vision/visual_inertial_odometry.md)
 * [이리듐/락블록 위성 통신 시스템](../advanced_features/satcom_roadblock.md)
 * [정밀 착륙](../advanced_features/precland.md)
-* [RTK GPS](../advanced_features/rtk-gps.md)
+* [RTK GPS](../gps_compass/rtk_gps.md)
