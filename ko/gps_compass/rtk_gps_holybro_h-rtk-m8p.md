@@ -15,7 +15,7 @@ RTK를 사용하면 PX4는 일반 GPS에서 제공하는 것 보다 훨씬 더 �
 
 ## 설정
 
-_QGroundControl_을 통한 PX4의 RTK 설정 및 사용은 대부분 플러그앤플레이입니다 \(자세한 내용은 [RTK GPS](../advanced_features/rtk-gps.md) 참조\).
+RTK setup and use on PX4 via _QGroundControl_ is largely plug and play \(see [RTK GPS](../gps_compass/rtk_gps.md) for more information\).
 
 ## 배선
 
