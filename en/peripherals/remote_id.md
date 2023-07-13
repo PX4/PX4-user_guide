@@ -113,7 +113,7 @@ The following messages are not supported in PX4 v1.14 (to be added by [PX4#21647
 
 ### Compliance
 
-The specific areas where PX4 v1.14 is know to (possibly) be non compliant with various specifications are:
+The specific areas where PX4 v1.14 is known to (possibly) be non compliant with various specifications are:
 
 - Vehicles must arm conditional on receiving the Remote ID [OPEN_DRONE_ID_ARM_STATUS](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_ARM_STATUS) message, with a status that indicates the Remote ID hardware is ready to broadcast.
   - PX4 v1.14 does not process `OPEN_DRONE_ID_ARM_STATUS`, and arming is only conditional on the Remote ID device `HEARTBEAT`.
