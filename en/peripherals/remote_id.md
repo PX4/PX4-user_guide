@@ -1,4 +1,4 @@
-# Remote ID
+# Remote ID (Open Drone ID)
 
 :::warning Experimental
 Remote ID support is experimental in PX4 v1.14.
@@ -7,16 +7,89 @@ Remote ID support is experimental in PX4 v1.14.
 Remote ID is a government mandated technology for UAVs in Japan, the United States of America and the European Union, designed to enable safe sharing of airspace between UAVs and other aircraft.
 The specification requires that UAVs broadcast data such as: real-time location/altitude, serial number, operator ID/location, status, etc.
 
+## Supported Hardware
+
 PX4 integrates with Remote ID hardware that supports the [Open Drone ID](https://mavlink.io/en/services/opendroneid.html) MAVLink protocol (Open Drone ID is an open source implementation of Remote ID).
 
-## Current Implementation
+It has been tested with the following devices:
 
-MAVLink-enabled Remote ID hardware must be connected to the autopilot.
-This might be done via a wired serial link, internal WiFi network, or Ethernet network in the same way as other MAVLink components (see [MAVLink Peripherals](../peripherals/mavlink_peripherals.md) and [Ethernet Setup](../advanced_config/ethernet_setup.md)).
+- [Cube ID](https://docs.cubepilot.org/user-guides/cube-id/cube-id) (CubePilot) - Displays basic ID in QGC.
 
-Enable Remote ID by [setting](../advanced_config/parameters.md#conditional-parameters) parameter [COM_ARM_ODID](../advanced_config/parameter_reference.md#COM_ARM_ODID) to `2` (it is `0 - disabled` by default).
+
+:::note
+Other devices that support the MAVLink API should work (but have not been tested).
+:::
+
+## Hardware Setup
+
+Remote ID devices can be connected to any free/unused serial port on the flight controller.
+Most commonly they are connected to the `TELEM2` port (if it is not being use for some other purpose) as this is already configured for MAVLink "by default".
+
+
+### Cube ID
+
+[Cube ID](https://docs.cubepilot.org/user-guides/cube-id/cube-id) can be connected using its serial port.
+It comes with a cable that has a Pixhawk-standard compatible connector, suitable for connecting to the `TELEM` ports on most recent Pixhawk flight controllers.
+
+:::note
+Cube ID also supports CAN connection, but this has not been tested with PX4, and may not be supported in PX4 v1.14.
+:::
+
+If using a different port, or a flight controller that has different connector, you may need to modify the cable. 
+The pinout of the serial port is shown below.
+The TX and RX on the flight controller must be connected to the RX and TX on the Remote ID, respectively.
+
+#### Cube ID Serial Port
+
+
+![Cube ID serial port](../../assets/hardware/remote_id/cube_id/serial_port_connector.jpg)
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | VCC_5V | 5V
+2 (blk) | TX (OUT) | 
+3 (blk) | RX (IN)  | 
+4 (blk) | GND | 0
+
+
+# PX4 Configuration
+
+### Port Configuration
+
+Remote ID hardware is configured in the same way as any other [MAVLink Peripheral](../peripherals/mavlink_peripherals.md).
+
+Assuming you have connected the device to the TELEM2 port, [set the parameters](../advanced_config/parameters.md) as shown:
+
+- [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) = TELEM 2
+- [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) = Normal
+- [MAV_1_RATE](../advanced_config/parameter_reference.md#MAV_1_RATE) = 0 (default sending rate for port).
+- [MAV_1_FORWARD](../advanced_config/parameter_reference.md#MAV_1_FORWARD) = Enabled
+  
+Then reboot the vehicle.
+
+You will now find a new parameter called [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD).
+The required baud rate depends on the remote ID used (for Cube ID it must be set to 57600).
+
+<!-- In theory, a Remote ID (or other MAVLink peripheral) that supports WiFi or wired Ethernet network could also be connected over those links. -->
+
+
+### Enable Remote ID
+
+Enable Remote ID by [setting](../advanced_config/parameters.md#conditional-parameters) parameter [COM_ARM_ODID](#COM_ARM_ODID) to `2` (it is disabled by default).
+
 The UAV will then require `HEARTBEAT` messages from the Remote ID as a precondition for arming the UAV.
-You can also set the parameter to `1` to warn but still allow arming without the Remote ID. 
+
+
+Parameter | Description
+--- | ---
+<a id="COM_ARM_ODID"></a>[COM_ARM_ODID](../advanced_config/parameter_reference.md#COM_ARM_ODID)  | Enable Drone ID system detection and health check. `0`: Disable (default), `1`: Warn if Remote ID not detected but still allow arming, `2`: Only allow arming if Remote ID is present.
+
+
+## Implementation
+
+Remote ID is enabled by setting parameter [COM_ARM_ODID](../advanced_config/parameter_reference.md#COM_ARM_ODID) to `2`.
+The UAV will then require `HEARTBEAT` messages from the Remote ID as a precondition for arming the UAV.
+You can also set the parameter to `1` to warn but still allow arming without the Remote ID.
 
 Once enabled, PX4 v1.14 streams these messages by default (in streaming modes: normal, onboard, usb, onboard low bandwidth):
 
@@ -52,9 +125,3 @@ The specific areas where PX4 v1.14 is know to (possibly) be non compliant with v
 The 
  - The ID is expected to be securely stored and tamper resistent.
    PX4's approach for this has yet be confirmed to be sufficient.
-
-## Supported Remote ID Hardware
-
-- [Cube ID](https://docs.cubepilot.org/user-guides/cube-id/cube-id) (CubePilot) - Displays basic ID in QGC.
-
-Other devices may work, but there has been limited testing.
