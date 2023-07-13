@@ -12,17 +12,18 @@ The system *minimally requires* a gyroscope, accelerometer, magnetometer (compas
 <span id="gps_compass"></span>
 ## GPS&罗盘
 
-PX4 支持许多全球导航卫星系统（GNSS）接收器和罗盘（磁力计）。 它还支持 [实时动态（RTK）GPS接收器](../gps_compass/rtk_gps.md) ，它将 GPS 系统扩展到厘米级精度。
-
-:::note
-[Pixhawk-series](../flight_controller/pixhawk_series.md) controllers include an *internal* compass. This *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. 在小型飞行器上，几乎总是需要外置罗盘。 :::
+PX4 supports a number of Global Navigation Satellite System (GNSS) receivers and compasses (magnetometers). It also supports Real Time Kinematic (RTK) GPS Receivers, which extend GPS systems to centimetre-level precision.
 
 我们建议使用安装在尽可能远离 电机/电调 电源线的外部“组合” 罗盘 / GPS 模块 - 通常在支座或机翼（固定翼）上。
 
-常见的 GPS/罗盘硬件选项列于：[GPS/罗盘](../gps_compass/README.md)。
-
 ![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
+GPS/compass hardware options are listed in:
+- [GPS/Compass](../gps_compass/README.md)
+- [RTK GPS](../gps_compass/rtk_gps.md)
+
+:::note
+[Pixhawk-series](../flight_controller/pixhawk_series.md) controllers include an *internal* compass. This *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. 在小型飞行器上，几乎总是需要外置罗盘。 :::
 
 ## 空速计
 
