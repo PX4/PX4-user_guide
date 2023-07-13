@@ -29,7 +29,7 @@ RTK GPS 키트에는 다음 내용물들이 포함됩니다.
 
 ## 설정
 
-*QGroundControl*을 통한 PX4의 RTK 설정 및 사용은 대부분 플러그앤플레이입니다 \(자세한 내용은 [RTK GPS](../advanced_features/rtk-gps.md) 참조).
+RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../gps_compass/rtk_gps.md) for more information).
 
 기체의 경우 PX4가 전송속도 매개변수 [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD)를 115200 8N1로 설정하여야 합니다.
 
