@@ -27,7 +27,7 @@ Upstream PX4 will generally work, with the following caveats:
 
 - Configuration for your exact product may not be present.
   You may lose the configuration for ESCs, batteries, sensor configuration, and so on.
-- Some parameters might have different default values in the PX4 release shipped with AuterionOS
+- Some parameters might have different default values in the PX4 release shipped with Auterion OS.
 - Features accessed by vendor-specific customisations running on the companion computer may not be present in PX4.
 
 
