@@ -20,28 +20,22 @@ For information about Auterion and Skynode, including purchase links:
 
 ## Skynode with Vanilla PX4
 
-:::note
-Skynode should only be used with Auterion OS in production.
-Auterion support managed versions of PX4.
-:::
+Skynode comes with a managed release of PX4.
+If you would like to try a more recent PX4 flight kernel, you can install the upstream "vanilla" PX4 from [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot).
 
-The unmodified "vanilla" version of PX4 can be installed on Skynode during development, and subsequently reverted to Auterion OS.
-This allows rapid development and prototyping, and pre-testing of PX4 features on Skynode before they become part of Auterion OS.
-In particular, it may be useful for Auterion customers who have not yet licensed the Auterion OS version of PX4.
+Upstream PX4 will generally work, with the following caveats:
 
-PX4 v1.13 will generally work, with the following caveats:
-
-- Configuration for your exact product may not be present in generic PX4.
+- Configuration for your exact product may not be present.
   You may lose the configuration for ESCs, batteries, sensor configuration, and so on.
-- Some parameters have different default values in Auterion OS.
+- Some parameters might have different default values in the PX4 release shipped with AuterionOS
 - Features accessed by vendor-specific customisations running on the companion computer may not be present in PX4.
 
 
 ## Building/Uploading Firmware
 
-Skynode PX4 `px4_fmu-v5x` binaries are built from source using the normal [developer environment](../dev_setup/dev_env.md) and [build commands](../dev_setup/building_px4.md), and are uploaded using either  `upload_skynode_usb` or `upload_skynode_wifi` upload targets.
+PX4 `px4_fmu-v5x` binaries for Skynode are built from source using the normal [developer environment](../dev_setup/dev_env.md) and [build commands](../dev_setup/building_px4.md), and are uploaded using either `upload_skynode_usb` or `upload_skynode_wifi` upload targets.
 
-You must have already installed [SSH keys](https://docs.auterion.com/manufacturers/software-customization/adding-ssh-keys) and you will need to enter Skynode's password (twice) during the upload process.
+You will need to enter Skynode's developer image password (twice) during the upload process.
 
 To build and upload PX4 for Skynode [when connected by USB-C](https://docs.auterion.com/manufacturers/avionics/skynode/advanced-configuration/connecting-to-skynode):
 
@@ -62,9 +56,9 @@ The mission computer then decompresses the binary and installs it to the flight 
 SSH and TAR are upload dependencies, but are expected to be present by default on Ubuntu, Ubuntu running on Windows in WSL2, and macOS.
 :::
 
-## Restoring Auterion OS
+## Restoring the Default PX4 Firmware
 
-To restore Auterion OS:
+To restore PX4:
 
 1. ?
 
