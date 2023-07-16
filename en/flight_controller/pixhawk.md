@@ -131,7 +131,7 @@ As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files
 
 ## Connectors
 
-:::note
+:::warning
 Many Pixhawk clones use Molex picoblade connectors instead of DF13 connectors. They have rectangular pins, rather than square ones, and cannot be assumed compatible.
 :::
 
