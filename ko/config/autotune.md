@@ -2,10 +2,10 @@
 
 자동 튜닝은 안정적이고 반응성은 높은 비행에 탁월한 컨트롤러인 PX4의 속도와 자세를 자동으로 튜닝합니다(다른 튜닝은 "선택 사항"에 가깝습니다). 현재 멀티콥터, 고정익 및 하이브리드 VTOL에 적용할 수 있습니다.
 
-Tuning only needs to be done once, and is recommended unless you're using vehicle that has already been tuned by the manufacturer (and not modified since).
+Tuning only needs to be done once, and is recommended unless you're using a vehicle that has already been tuned by the manufacturer (and not modified since).
 
 :::warning
-비행 중에 자동 튜닝이 수행됩니다. 기체는 중간 정도의 교란을 처리할 수 있을 만큼 원할하게 비행가능 하여야 하며, 다음 사항에 주의를 기울여야 합니다.
+비행 중에 자동 튜닝이 수행됩니다. The airframe must fly well enough to handle moderate disturbances, and should be closely attended:
 - 기체가 [자동 튜닝을 할 만큼 충분히 안정적인지](#pre-tuning-test) 테스트합니다.
 - Be ready to abort the autotuning process. You can do this by changing flight modes or using an auto-tune enable/disable switch ([if configured](#enable-disable-autotune-switch-fixed-wing)).
 - 튜닝 후 기체가 원활하게 비행하는 지 확인하십시오.
@@ -30,7 +30,7 @@ Tuning only needs to be done once, and is recommended unless you're using vehicl
    - **고정익:** [위치 모드](../flight_modes/position_mc.md) 또는 [고도 모드](../flight_modes/altitude_mc.md)에서 순항 속도로 이륙하고 비행합니다.
 1. RC 송신기 롤 스틱을 사용하여 기체를 몇 도만 기울여 다음 기동을 수행하십시오. _좌회전 > 오른쪽 롤 > 중심_ (전체 기동은 약 3초가 소요됩니다). 기체는 2번의 진동 이내에서 안정화되어야 합니다.
 1. 각각의 시도에서 더 큰 진폭으로 기울이면서 기동을 반복합니다. 기체가 ~20도에서 2번의 진동 내에서 안정화될 수 있으면 다음 단계로 이동합니다.
-1. 피치 축에서 동일한 동작을 반복합니다. 위의 A에서 작은 각도로 시작하여 기체의 틸트를 증가하기 전에, 2번의 진동 내에서 스스로 움직일 수 있는 지 확인하십시오.
+1. 피치 축에서 동일한 동작을 반복합니다. As above, start with small angles and confirm that the vehicle can stabilise itself within 2 oscillations before increasing the tilt.
 
 드론이 2번의 진동 내에서 스스로 안정화될 수 있으면, 자동 튜닝을 위한 준비가 완료된 것입니다.
 
