@@ -38,7 +38,7 @@ To make sure the vehicle is stable enough for auto-tuning:
 1. Repeat the maneuver, tilting with larger amplitudes at each attempt.
    If the vehicle can stabilise itself within 2 oscillations at ~20 degrees move to the next step.
 1. Repeat the same maneuvers but on the pitch axis.
-   A above, start with small angles and confirm that the vehicle can itself within 2 oscillations before increasing the tilt.
+   As above, start with small angles and confirm that the vehicle can stabilise itself within 2 oscillations before increasing the tilt.
 
 If the drone can stabilize itself within 2 oscillations it is ready for the auto-tuning procedure.
 
