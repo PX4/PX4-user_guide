@@ -2,8 +2,8 @@
 
 When a VTOL performs a back-transition (transition from fixed wing mode to multicopter) it needs to slow down before the multicopter can take proper control.
 To help with braking, the controller will pitch up the vehicle if the current deceleration is below what is set in expected deceleration ([VT_B_DEC_MSS](../advanced_config/parameter_reference.md#VT_B_DEC_MSS)).
-The response of this deceleration controller can be tuned through a `FF` and a `I` gain: [VT_B_DEC_FF](../advanced_config/parameter_reference.md#VT_B_DEC_FF), [VT_B_DEC_I](../advanced_config/parameter_reference.md#VT_B_DEC_I).
-Usually leaving the `FF` at 0 and increasing the `I` if required yields the best results.
+The response of this deceleration controller can be tuned through a `I` gain: [VT_B_DEC_I](../advanced_config/parameter_reference.md#VT_B_DEC_I).
+Increasing the `I` will result in more aggressive pitch-up to achieve the configured deceleration setting.
 
 The vehicle will consider the back-transition complete when the horizontal speed has reached multicopter cruise speed ([MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE)) or when the back-transition duration ([VT_B_TRANS_DUR](../advanced_config/parameter_reference.md#VT_B_TRANS_DUR)) has passed (whichever comes first).
 
