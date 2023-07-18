@@ -2,10 +2,10 @@
 
 Auto-tuning automates the process of tuning the PX4 rate and attitude controllers, which are the most important controllers for stable and responsive flight (other tuning is more "optional"). It is currently enabled for multicopter, fixed wing, and hybrid VTOL fixed wing vehicles.
 
-Tuning only needs to be done once, and is recommended unless you're using vehicle that has already been tuned by the manufacturer (and not modified since).
+Tuning only needs to be done once, and is recommended unless you're using a vehicle that has already been tuned by the manufacturer (and not modified since).
 
 :::warning
-Auto-tuning is performed while flying. The airframe must fly well enough handle moderate disturbances, and should be closely attended:
+Auto-tuning is performed while flying. The airframe must fly well enough to handle moderate disturbances, and should be closely attended:
 - Test that your vehicle is [stable enough for autotuning](#pre-tuning-test).
 - Be ready to abort the autotuning process. You can do this by changing flight modes or using an auto-tune enable/disable switch ([if configured](#enable-disable-autotune-switch-fixed-wing)).
 - Verify that the vehicle flies well after tuning.
@@ -30,7 +30,7 @@ To make sure the vehicle is stable enough for auto-tuning:
    - **Fixed-wing:** Take off and fly at cruise speed in [Position mode](../flight_modes/position_mc.md) or [Altitude mode](../flight_modes/altitude_mc.md).
 1. Use the RC transmitter roll stick to perform the following maneuver, tilting the vehicle just a few degrees: _roll left > roll right > center_ (The whole maneuver should take about 3 seconds). The vehicle should stabilise itself within 2 oscillations.
 1. Repeat the maneuver, tilting with larger amplitudes at each attempt. If the vehicle can stabilise itself within 2 oscillations at ~20 degrees move to the next step.
-1. Repeat the same maneuvers but on the pitch axis. A above, start with small angles and confirm that the vehicle can itself within 2 oscillations before increasing the tilt.
+1. Repeat the same maneuvers but on the pitch axis. As above, start with small angles and confirm that the vehicle can stabilise itself within 2 oscillations before increasing the tilt.
 
 If the drone can stabilize itself within 2 oscillations it is ready for the auto-tuning procedure.
 

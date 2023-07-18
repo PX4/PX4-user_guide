@@ -13697,18 +13697,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="COM_ARM_ARSP_EN">COM_ARM_ARSP_EN</strong> (INT32)</td>
- <td>Enable preflight check for maximal allowed airspeed when arming <p><strong>Comment:</strong> Deny arming if the current airspeed measurement is greater than half the cruise airspeed (FW_AIRSPD_TRIM). Excessive airspeed measurements on ground are either caused by wind or bad airspeed calibration.</p> <strong>参数对照:</strong><ul>
-<li><strong>0:</strong> Disabled</li>
-
-<li><strong>1:</strong> Enabled</li> 
-</ul>
-  </td>
- <td></td>
- <td>1</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="COM_ARM_AUTH_ID">COM_ARM_AUTH_ID</strong> (INT32)</td>
  <td>Arm authorizer system id <p><strong>Comment:</strong> Used if arm authorization is requested by COM_ARM_AUTH_REQ.</p>   </td>
  <td></td>
@@ -13862,7 +13850,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_ARM_WO_GPS">COM_ARM_WO_GPS</strong> (INT32)</td>
- <td>Allow arming without GPS <p><strong>Comment:</strong> The default allows the vehicle to arm without GPS signal.</p> <strong>参数对照:</strong><ul>
+ <td>Allow arming without GPS  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Require GPS lock to arm</li>
 
 <li><strong>1:</strong> Allow arming without GPS</li> 
@@ -14407,7 +14395,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_RC_OVERRIDE">COM_RC_OVERRIDE</strong> (INT32)</td>
- <td>Enable RC stick override of auto and/or offboard modes <p><strong>Comment:</strong> When RC stick override is enabled, moving the RC sticks more than COM_RC_STICK_OV immediately gives control back to the pilot by switching to Position mode and if position is unavailable Altitude mode. Note: Only has an effect on multicopters, and VTOLs in multicopter mode. This parameter is not considered in case of a GPS failure (Descend flight mode), where stick override is always enabled.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Enable override during auto modes (except for in critical battery reaction)</li> 
+ <td>Enable RC stick override of auto and/or offboard modes <p><strong>Comment:</strong> When RC stick override is enabled, moving the RC sticks more than COM_RC_STICK_OV immediately gives control back to the pilot by switching to Position mode and if position is unavailable Altitude mode. Note: Only has an effect on multicopters, and VTOLs in multicopter mode.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Enable override during auto modes (except for in critical battery reaction)</li> 
   <li><strong>1:</strong> Enable override during offboard mode</li> 
 </ul>
  </td>
@@ -21007,7 +20995,7 @@ table {
 </tr>
 <tr>
  <td><strong id="NAV_LOITER_RAD">NAV_LOITER_RAD</strong> (FLOAT)</td>
- <td>Loiter radius (FW only) <p><strong>Comment:</strong> Default value of loiter radius for missions, Hold mode, Return mode, etc. (fixedwing only).</p>   </td>
+ <td>Loiter radius (FW only) <p><strong>Comment:</strong> Default value of loiter radius in FW mode (e.g. for Loiter mode).</p>   </td>
  <td>[25, 1000] (0.5)</td>
  <td>80.0</td>
  <td>m</td>
@@ -23864,21 +23852,21 @@ table {
 </tr>
 <tr>
  <td><strong id="TRIM_PITCH">TRIM_PITCH</strong> (FLOAT)</td>
- <td>Pitch trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>   </td>
+ <td>Pitch trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight.</p>   </td>
  <td>[-0.5, 0.5] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="TRIM_ROLL">TRIM_ROLL</strong> (FLOAT)</td>
- <td>Roll trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>   </td>
+ <td>Roll trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight.</p>   </td>
  <td>[-0.5, 0.5] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="TRIM_YAW">TRIM_YAW</strong> (FLOAT)</td>
- <td>Yaw trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>   </td>
+ <td>Yaw trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight.</p>   </td>
  <td>[-0.5, 0.5] (0.01)</td>
  <td>0.0</td>
  <td></td>
@@ -33388,13 +33376,6 @@ table {
  <td>s</td>
 </tr>
 <tr>
- <td><strong id="VT_B_DEC_FF">VT_B_DEC_FF</strong> (FLOAT)</td>
- <td>Backtransition deceleration setpoint to pitch feedforward gain    </td>
- <td>[0, 0.2] (0.01)</td>
- <td>0.</td>
- <td>rad s^2/m</td>
-</tr>
-<tr>
  <td><strong id="VT_B_DEC_I">VT_B_DEC_I</strong> (FLOAT)</td>
  <td>Backtransition deceleration setpoint to pitch I gain    </td>
  <td>[0, 0.3] (0.05)</td>
@@ -33403,14 +33384,14 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_B_DEC_MSS">VT_B_DEC_MSS</strong> (FLOAT)</td>
- <td>Approximate deceleration during back transition <p><strong>Comment:</strong> The approximate deceleration during a back transition in m/s/s Used to calculate back transition distance in an auto mode. For standard vtol and tiltrotors a controller is used to track this value during the transition.</p>   </td>
+ <td>Approximate deceleration during back transition <p><strong>Comment:</strong> Used to calculate back transition distance in an auto mode. For standard vtol and tiltrotors a controller is used to track this value during the transition.</p>   </td>
  <td>[0.5, 10] (0.1)</td>
  <td>2.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="VT_B_TRANS_DUR">VT_B_TRANS_DUR</strong> (FLOAT)</td>
- <td>Maximum duration of a back transition <p><strong>Comment:</strong> Time in seconds used for a back transition maximally. Transition is also declared over if the groundspeed drops below MPC_XY_CRUISE.</p>   </td>
+ <td>Maximum duration of a back transition <p><strong>Comment:</strong> Transition is also declared over if the groundspeed drops below MPC_XY_CRUISE.</p>   </td>
  <td>[0.1, 20.00] (1)</td>
  <td>10.0</td>
  <td>s</td>
@@ -33527,7 +33508,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_F_TRANS_THR">VT_F_TRANS_THR</strong> (FLOAT)</td>
- <td>Target throttle value for the transition to fixed-wing flight <p><strong>Comment:</strong> standard vtol: pusher tailsitter, tiltrotor: main throttle</p>   </td>
+ <td>Target throttle value for the transition to fixed-wing flight    </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td></td>
@@ -33548,7 +33529,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_PITCH_MIN">VT_PITCH_MIN</strong> (FLOAT)</td>
- <td>Minimum pitch angle during hover <p><strong>Comment:</strong> Minimum pitch angle during hover flight. If the desired pitch angle is is lower than this value then the fixed-wing forward actuation can be used to compensate for the missing thrust in forward direction (see VT_FW_TRHUST_EN)</p>   </td>
+ <td>Minimum pitch angle during hover <p><strong>Comment:</strong> Any pitch setpoint below this value is translated to a forward force by the fixed-wing forward actuation if VT_FW_TRHUST_EN is set to 1.</p>   </td>
  <td>[-10.0, 45.0] (0.1)</td>
  <td>-5.0</td>
  <td>deg</td>
