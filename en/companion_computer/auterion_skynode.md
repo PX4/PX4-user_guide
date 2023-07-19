@@ -70,14 +70,17 @@ To reinstall the original Skynode version of PX4:
    
    You will need to enter the default development password when prompted (`auterion`).
 
+1. Copy/rename the original development image (named `update.tar`):
 
    ```sh
    cp /persistent/shared_container_dir/fmu/update.tar /persistent/shared_container_dir/fmu/update-dev.tar
    ```
 
-1. Skynode will automatically flash the original image to its flight controller.
-   You can monitor the flashing process using the following command. It will not work anymore after the flashing is completed.
+1. Skynode will automatically flash the copied image to its flight controller.
+   You can monitor the flashing process using the following command.
 
    ```sh
    tail --follow=name /shared_container_dir/fmu/update_status
    ```
+
+   After flashing completes Skynode will reboot.
