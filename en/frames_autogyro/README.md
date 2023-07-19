@@ -1,6 +1,14 @@
 # Autogyro Frames
 
 :::warning
+Support for autogyro frames is [experimental](../airframes/README.md#experimental-vehicles).
+
+- Does not have a maintainer.
+- Not regularly tested by the core development team.
+:::
+
+
+:::warning
 Support for autogyro frames is _experimental_.
 
 - The frame may not support all features needed in a product-quality UUV (feature support not known/documented).

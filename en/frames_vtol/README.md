@@ -1,10 +1,11 @@
-# VTOL Airframes
+# VTOLs
 
 PX4 uses the term VTOL to refer to vehicles that support both forward flight like a fixed-wing aircraft ("airplane") and vertical take off and landing like a helicopter or multicopter.
 
 ![Vertical Technologies: Deltaquad QuadPlane VTOL](../../assets/airframes/vtol/vertical_technologies_deltaquad/hero.jpg)
 
 VTOL vehicles offer the benefits of both multicopter and fixed-wing flight:
+
 - **Vertical takeoff and landing:** Even inexperienced pilots can take off and land virtually anywhere.
 - **Fast and efficient fixed wing flight:** Faster, further, and longer missions, carrying heavier payloads.
 - **Hovering:** Steady platform for photography, structure scans etc.

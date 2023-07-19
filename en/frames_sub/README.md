@@ -1,4 +1,4 @@
-# Underwater Vehicles (UUV)
+# Submarines (Underwater Vehicles - UUV)
 
 :::warning
 Support for UUVs is _experimental_.

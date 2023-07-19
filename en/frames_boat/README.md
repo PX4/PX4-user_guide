@@ -1,13 +1,13 @@
 # Boats (USV)
 
 :::warning
-Support for boats is _experimental_.
+Support for boats is [experimental](../airframes/README.md#experimental-vehicles).
 
-- The frame does not support all features needed in a product-quality UUV (feature support not known/documented).
-- The frame is not regularly tested by the core development team.
+- Does not have a maintainer.
+- Not regularly tested by the core development team.
+- Limited support for different types of vehicles.
+
+Maintainer volunteers, [contribution](../contribute/README.md) of new features, new frame configurations, or other improvements would all be very welcome!
 :::
 
-PX4 supports every imaginable plane geometry, including normal planes, flying wings, inverted V-tail planes etc.
-The complete set of supported configurations can be seen in [Airframes Reference > Plane](../airframes/airframe_reference.md#plane).
-
-
+<!-- No boat information available - not even in reference -->

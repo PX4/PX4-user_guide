@@ -1,31 +1,29 @@
 # Helicopter Configuration
 
-This section contains topics related to helicopter configuration and tuning.
-
-:::note
-Helicopters are less well-supported on than other types of vehicles.
-For example, PX4 does not support helicopters with coaxial or dual rotor types, and features such as RPM governor and autorotation.
-We would welcome your [contribution](../contribute/README.md) of new features, new frame configurations, or other improvements.
-:::
+This section contains topics related to [helicopter](../frames_helicopter/README.md) configuration and tuning.
 
 ## Supported Configurations
 
 Supported helicopter configurations:
 
 - Single main rotor with swash-plate controlled by up to 4 swash-plate servos and a mechanically uncoupled tail rotor driven by an ESC.
+- Mechanically coupled tails controlled by a servo can be flown by mapping the tail servo to the tail motor output and setting an adequate range and disarmed value for the servo.
+  But the system currently assumes it's a separate motor.
 
-:::note
-Mechanically coupled tails controlled by a servo can be flown by mapping the tail servo to the tail motor output and setting an adequate range and disarmed value for the servo. But the system currently assumes it's a separate motor.
-:::
+Supported flight operations/features:
 
-Supported flight opertaion:
-- Same as a multicopter. At the time of writing no autonomous/guided 3D flying with negative thrust is possible.
+- Same as a multicopter.
+- At the time of writing no autonomous/guided 3D flying with negative thrust is possible.
 
 ## Setup
 
 To setup and configure a helicopter:
 
-1. Select the helicopter [Airframe](../config/airframe.md) in QGroundControl
+1. Select a helicopter [Airframe](../config/airframe.md) in QGroundControl.
+   At time of writing there is only _Generic Helicopter (Tail ESC)_ in the Helicopter group.
+
+   ![QGC - helicopter airfame](../../assets/config/airframe/airframe_heli_generic.png)
+   
 1. Configure helicopter actuator geometry in **Vehicle Setup > Actuators**.
 
    :::note
