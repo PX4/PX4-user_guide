@@ -70,7 +70,6 @@ To reinstall the original Skynode version of PX4:
    
    You will need to enter the default development password when prompted (`auterion`).
 
-1. Copy the file `update.tar` onto Skynode (modify the source location to match the location of your Auterion images).
 
    ```sh
    cp /persistent/shared_container_dir/fmu/update.tar /persistent/shared_container_dir/fmu/update-dev.tar
