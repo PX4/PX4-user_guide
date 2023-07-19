@@ -1,4 +1,12 @@
-# Autogyro Frame Builds
+# Autogyro Frames
+
+:::warning
+Support for autogyro frames is _experimental_.
+
+- The frame may not support all features needed in a product-quality UUV (feature support not known/documented).
+- The frame is not regularly tested by the core development team.
+:::
+
 
 An [Autogyro](https://en.wikipedia.org/wiki/Autogyro) is a type of [rotorary-wing](https://en.wikipedia.org/wiki/Rotorcraft).
 Compared to other designs it possesses following advantages:
@@ -13,5 +21,5 @@ Compared to other designs it possesses following advantages:
   This ability can be useful because while an unmanned autogyro cannot fly very far in the case of failure (as is the case of a conventional airplane), the flight is still safe and aircraft does not fall (as is typical for multicopter or helicopter).
 
 PX4 supports several autogyro airframes.
-The complete set of supported configurations can be seen in [Airframes Reference > Autogyro](../airframes/airframe_reference.md#autogyro).
+The set of supported configurations can be seen in [Airframes Reference > Autogyro](../airframes/airframe_reference.md#autogyro).
 This section contains build logs/instructions for assembling and configuring a number of Autogyro frames.

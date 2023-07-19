@@ -1,7 +1,8 @@
 # Underwater Vehicles (UUV)
 
 :::warning
-Support for UUVs is _experimental_. The platform does not support all features needed in a product-quality UUV, and the platform is not regularly tested by the core development team.
+Support for UUVs is _experimental_.
+The platform does not support all features needed in a product-quality UUV, and the platform is not regularly tested by the core development team.
 
 At time of writing it has only been tested using ROS in offboard mode.
 The following features have not been implemented:

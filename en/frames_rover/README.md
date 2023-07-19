@@ -1,5 +1,12 @@
 # Rovers (UGVs)
 
+:::warning
+Support for rover frames is _experimental_.
+
+- The frame may not support all features needed in a product-quality UGV (feature support not known/documented).
+- The frame is not regularly tested by the core development team.
+:::
+
 PX4 supports rovers (Unmanned Ground Vehicles - UGVs) with [ackermann and differential](#rover-types) steering.
 
 This section contains build logs/instructions for assembling as well as configuring a number of UGV frames.
