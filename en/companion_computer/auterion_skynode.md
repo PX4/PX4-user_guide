@@ -58,9 +58,25 @@ SSH and TAR are upload dependencies, but are expected to be present by default o
 
 ## Restoring the Default PX4 Firmware
 
-To restore PX4:
+To reinstall the original Skynode version of PX4:
 
-1. ?
+1. SSH into Skynode:
 
-<!-- HOW? -->
+   ```sh
+   ssh auterion@10.41.1.1
+   ```
+   
+   You will need to enter the default development login/password (auterion/auterion).
 
+1. Copy the file `update.tar` onto Skynode (modify the source location to match the location of your Auterion images).
+
+   ```sh
+   cp /persistent/shared_container_dir/fmu/update.tar /persistent/shared_container_dir/fmu/update-dev.tar
+   ```
+
+1. Skynode should automatically flash the new image to its flight controller.
+   You can monitor the update using the following command.
+
+   ```sh
+   tail --follow=name /shared_container_dir/fmu/update_status
+   ```
