@@ -9,7 +9,7 @@ The OS is managed by Auterion in production, with customer applications running 
 
 Auterion OS and Skynode allow seamless integration with Auterion's other software and fleet management products.
 
-For information about Auterion and Skynode, including purchase links:
+For information about Auterion and Skynode:
 
 - [auterion.com](https://auterion.com/)
 - [Skynode](https://auterion.com/product/skynode/) (auterion.com)
