@@ -68,7 +68,7 @@ To reinstall the original Skynode version of PX4:
    ssh auterion@10.41.1.1
    ```
    
-   You will need to enter the default development password when prompted (`auterion`).
+   You will need to enter the development password when prompted (by default `auterion`).
 
 1. Copy/rename the original development image (named `update.tar`):
 
