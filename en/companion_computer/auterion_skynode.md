@@ -83,4 +83,4 @@ To reinstall the original Skynode version of PX4:
    tail --follow=name /shared_container_dir/fmu/update_status
    ```
 
-   After flashing completes Skynode will reboot.
+   After flashing completes the `tail` command will no longer show progress (because the file is removed).
