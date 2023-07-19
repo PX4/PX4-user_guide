@@ -20,7 +20,7 @@ For information about Auterion and Skynode, including purchase links:
 
 ## Skynode with Vanilla PX4
 
-Skynode comes with a managed release of PX4.
+Skynode comes with an Auterion-managed release of PX4.
 If you would like to try a more recent PX4 flight kernel, you can install the upstream "vanilla" PX4 from [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot).
 
 Upstream PX4 will generally work, with the following caveats:
