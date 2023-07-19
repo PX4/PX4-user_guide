@@ -53,7 +53,8 @@ make px4_fmu-v5x upload_skynode_wifi
 `upload_skynode_usb` and `upload_skynode_wifi` connect to Skynode via SSH over a network interface using the default (fixed) IP addresses, and upload a TAR compressed binary to the mission computer.
 The mission computer then decompresses the binary and installs it to the flight controller.
 
-SSH and TAR are upload dependencies, but are expected to be present by default on Ubuntu, Ubuntu running on Windows in WSL2, and macOS.
+SSH and TAR are upload dependencies, but are expected to be present by default on Ubuntu and Ubuntu running on Windows in WSL2.
+On macOS you should first install [gnu-tar](https://formulae.brew.sh/formula/gnu-tar).
 :::
 
 ## Restoring the Default PX4 Firmware
