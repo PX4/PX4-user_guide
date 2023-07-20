@@ -126,10 +126,11 @@ The following settings also apply, but are not displayed in the QGC UI.
 
 Setting | Parameter | Description
 --- | --- | ---
-Geofence altitude mode | [GF_ALTMODE](../advanced_config/parameter_reference.md#GF_ALTMODE) | Altitude reference used: 0 = WGS84, 1 = AMSL.
-Geofence counter limit | [GF_COUNT](../advanced_config/parameter_reference.md#GF_COUNT) | Set how many subsequent position measurements outside of the fence are needed before geofence violation is triggered.
-Geofence source | [GF_SOURCE](../advanced_config/parameter_reference.md#GF_SOURCE) | Set whether position source is estimated global position or direct from the GPS device.
-<span id="CBRK_FLIGHTTERM"></span>Circuit breaker for flight termination | [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | Enables/Disables flight termination action (disabled by default).
+<a id="GF_ALTMODE"></a>Geofence altitude mode | [GF_ALTMODE](../advanced_config/parameter_reference.md#GF_ALTMODE) | Altitude reference used: 0 = WGS84, 1 = AMSL.
+<a id="GF_COUNT"></a>Geofence counter limit | [GF_COUNT](../advanced_config/parameter_reference.md#GF_COUNT) | Set how many subsequent position measurements outside of the fence are needed before geofence violation is triggered.
+<a id="GF_SOURCE"></a>Geofence source | [GF_SOURCE](../advanced_config/parameter_reference.md#GF_SOURCE) | Set whether position source is estimated global position or direct from the GPS device.
+<a id="GF_PREDICT"></a>Preemptive geofence triggering | [GF_PREDICT](../advanced_config/parameter_reference.md#GF_PREDICT) | (Experimental) Trigger geofence if current motion of the vehicle is predicted to trigger the breach (rather than late triggering after the breach).
+<a id="CBRK_FLIGHTTERM"></a>Circuit breaker for flight termination | [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | Enables/Disables flight termination action (disabled by default).
 
 
 ### Return Mode Settings
@@ -143,10 +144,10 @@ The settings and underlying parameters are shown below:
 
 Setting | Parameter | Description
 --- | --- | ---
-Climb to altitude | [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) | Vehicle ascend to this minimum height (if below it) for the return flight.
+<a id="RTL_RETURN_ALT"></a>Climb to altitude | [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) | Vehicle ascend to this minimum height (if below it) for the return flight.
 Return behaviour |  | Choice list of *Return then*: Land, Loiter and do not land, or Loiter and land after a specified time.
-Loiter Altitude | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | If return with loiter is selected you can also specify the altitude at which the vehicle hold.
-Loiter Time | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY) | If return with loiter then land is selected you can also specify how long the vehicle will hold.
+<a id="RTL_DESCEND_ALT"></a>Loiter Altitude | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | If return with loiter is selected you can also specify the altitude at which the vehicle hold.
+<a id="RTL_LAND_DELAY"></a>Loiter Time | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY) | If return with loiter then land is selected you can also specify how long the vehicle will hold.
 
 :::note
 The return behaviour is defined by [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY).
@@ -191,16 +192,16 @@ The relevant parameters for all vehicles shown below.
 
 Parameter | Description
 --- | ---
-[COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | Delay after loss of position before the failsafe is triggered.
-[COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL) | Position control navigation loss response during mission. Values: 0 - assume use of RC, 1 - Assume no RC.
+<a id="COM_POS_FS_DELAY"></a>[COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | Delay after loss of position before the failsafe is triggered.
+<a id="COM_POSCTL_NAVL"></a>[COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL) | Position control navigation loss response during mission. Values: 0 - assume use of RC, 1 - Assume no RC.
 
 
 Parameters that only affect Fixed-wing vehicles:
 
 Parameter | Description
 --- | ---
-[FW_GPSF_LT](../advanced_config/parameter_reference.md#FW_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into land or flight termination). Set to 0 to disable.
-[FW_GPSF_R](../advanced_config/parameter_reference.md#FW_GPSF_R) | Fixed roll/bank angle while circling.
+<a id="FW_GPSF_LT"></a>[FW_GPSF_LT](../advanced_config/parameter_reference.md#FW_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into land or flight termination). Set to 0 to disable.
+<a id="FW_GPSF_R"></a>[FW_GPSF_R](../advanced_config/parameter_reference.md#FW_GPSF_R) | Fixed roll/bank angle while circling.
 
 
 ### Offboard Loss Failsafe
