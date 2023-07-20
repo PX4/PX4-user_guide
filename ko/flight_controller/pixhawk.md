@@ -146,14 +146,21 @@ Pixhawk 는 3 개의 전원이 공급되는 경우에는 전원 공급 장치의
 
 
 
-## 커넥터
+## Connections
 
-:::tip RC
-IN 포트는 RC 수신기 전용이며, 전원을 제공합니다. 서보, 전원 공급 장치 또는 배터리를 여기 또는 연결된 수신기에 **절대 연결하지 마십시오.**
-:::
+Pixhawk ports are shown below. These use Hirose DF13 connectors (predating the JST-GH connectors defined in the Pixhawk connector standard).
+
+:::warning
+Many 3DR Pixhawk clones use Molex picoblade connectors instead of DF13 connectors.
+They have rectangular instead of square pins, and cannot be assumed to be compatible.
 :::
 
 ![Pixhawk  커넥터](../../assets/flight_controller/pixhawk1/pixhawk_connectors.png)
+
+:::tip
+The `RC IN` port is for RC receivers only and provides sufficient power for that purpose. 서보, 전원 공급 장치 또는 배터리를 여기 또는 연결된 수신기에 **절대 연결하지 마십시오.**
+:::
+:::
 
 
 
@@ -388,7 +395,6 @@ make px4_fmu-v2_default
 * **USARTs**: Hirose DF13 6 pos ([Digi-Key Link: DF13A-6P-1.25H(20)](https://www.digikey.com/products/en?keywords=H3371-ND)) 
     * Mates: Hirose DF13 6 pos housing ([Digi-Key Link: Hirose DF13-6S-1.25C](https://www.digikey.com/products/en?keywords=H2182-ND))
 * **I2C and CAN**: Hirose DF13 4 pos ([Digi-Key Link: DF13A-4P-1.25H(20)](https://www.digikey.com/en/products/detail/hirose-electric-co-ltd/DF13A-4P-1-25H-20/530666) - discontinued)
-
 
 
 

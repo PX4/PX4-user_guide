@@ -13,7 +13,7 @@ At time of writing three MAVLink *instances* are defined, which correspond to th
 :::
 
 The parameters for each instance are:
-- [MAV_X_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) - Set the serial port (UART) for this instance "X", where X is 0, 1, 2. It can be any unused port, e.g.: TELEM2, TELEM3, GPS2 etc. For more information see [Serial Port Configuration](../peripherals/serial_configuration.md).
+- [MAV_X_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) - Set the serial port (UART) for this instance "X", where X is 0, 1, 2. It can be any unused port, e.g.: `TELEM2`, `TELEM3`, `GPS2` etc. For more information see [Serial Port Configuration](../peripherals/serial_configuration.md).
 - <span id="MAV_X_MODE"></span>[MAV_X_MODE](../advanced_config/parameter_reference.md#MAV_0_MODE) - Specify the telemetry mode/target (the set of messages to stream for the current instance and their rate). The default values are:
   - *Normal*: Standard set of messages for a GCS.
   - *Custom* or *Magic*: Nothing (in the default PX4 implementation). Modes may be used for testing when developing a new mode.

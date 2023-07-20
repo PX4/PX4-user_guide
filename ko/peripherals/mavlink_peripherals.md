@@ -13,7 +13,7 @@ GCS(Ground Control Station), OSD(On-Screen Display), 보조 컴퓨터, ADS-B 수
 :::
 
 각 인스턴스의 매개변수는 아래와 같습니다.
-- [MAV_X_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) - 인스턴스 "X"의 직렬 포트(UART)를 설정합니다. 여기서 X는 0, 1, 2입니다. 사용되지 않는 포트일 수 있습니다 (예 : TELEM2, TELEM3, GPS2 등). 자세한 내용은 [직렬 포트 설정](../peripherals/serial_configuration.md)을 참고하십시오.
+- [MAV_X_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) - 인스턴스 "X"의 직렬 포트(UART)를 설정합니다. 여기서 X는 0, 1, 2입니다. It can be any unused port, e.g.: `TELEM2`, `TELEM3`, `GPS2` etc. 자세한 내용은 [직렬 포트 설정](../peripherals/serial_configuration.md)을 참고하십시오.
 - <span id="MAV_X_MODE"></span>[MAV_X_MODE](../advanced_config/parameter_reference.md#MAV_0_MODE) - 원격 측정 모드와 대상(현재 인스턴스 및 해당 속도에 대한 스트리밍 메시지 집합)을 지정합니다. 기본값은 아래와 같습니다.
   - *일반* : GCS 표준 메시지 집합입니다.
   - *사용자 정의* 또는 *매직* : 없음(기본 PX4 구현 방식). 모드는 새 모드를 개발시 테스트용으로 사용할 수 있습니다.
