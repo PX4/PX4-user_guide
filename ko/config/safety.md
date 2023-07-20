@@ -112,12 +112,13 @@ Additional (and underlying) parameter settings are shown below.
 
 다음 설정도 가능하지만 QGC UI에 표시되지 않습니다.
 
-| 설정                                              | 매개변수                                                                         | 설명                                               |
-| ----------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------ |
-| 지오펜스 고도 모드                                      | [GF_ALTMODE](../advanced_config/parameter_reference.md#GF_ALTMODE)           | 사용 고도 기준: 0 = WGS84, 1 = AMSL.                   |
-| 지오펜스 카운터 제한                                     | [GF_COUNT](../advanced_config/parameter_reference.md#GF_COUNT)               | 지오펜스 위반이 트리거되기 전에 펜스 외부에서 필요한 후속 위치 측정 수를 설정합니다. |
-| 지오펜스 소스                                         | [GF_SOURCE](../advanced_config/parameter_reference.md#GF_SOURCE)             | 위치 소스가 글로벌 위치인지 또는 GPS 장치에서 직접 가져오는 지를 설정합니다.    |
-| <span id="CBRK_FLIGHTTERM"></span>비행 종료용 회로 차단기 | [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | 비행 종료 작업을 활성화/비활성화합니다 (기본적으로 비활성화 됨).            |
+| 설정                                                       | 매개변수                                                                         | 설명                                                                                                                                                  |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="GF_ALTMODE"></a>지오펜스 고도 모드                     | [GF_ALTMODE](../advanced_config/parameter_reference.md#GF_ALTMODE)           | 사용 고도 기준: 0 = WGS84, 1 = AMSL.                                                                                                                      |
+| <a id="GF_COUNT"></a>지오펜스 카운터 제한                    | [GF_COUNT](../advanced_config/parameter_reference.md#GF_COUNT)               | 지오펜스 위반이 트리거되기 전에 펜스 외부에서 필요한 후속 위치 측정 수를 설정합니다.                                                                                                    |
+| <a id="GF_SOURCE"></a>지오펜스 소스                        | [GF_SOURCE](../advanced_config/parameter_reference.md#GF_SOURCE)             | 위치 소스가 글로벌 위치인지 또는 GPS 장치에서 직접 가져오는 지를 설정합니다.                                                                                                       |
+| <a id="GF_PREDICT"></a>Preemptive geofence triggering | [GF_PREDICT](../advanced_config/parameter_reference.md#GF_PREDICT)           | (Experimental) Trigger geofence if current motion of the vehicle is predicted to trigger the breach (rather than late triggering after the breach). |
+| <a id="CBRK_FLIGHTTERM"></a>비행 종료용 회로 차단기                  | [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | 비행 종료 작업을 활성화/비활성화합니다 (기본적으로 비활성화 됨).                                                                                                               |
 
 
 ### 복귀 설정
@@ -128,12 +129,12 @@ Additional (and underlying) parameter settings are shown below.
 
 설정 기본 매개변수는 다음과 같습니다:
 
-| 설정                   | 매개변수                                                                           | 설명                                        |
-| -------------------- | ------------------------------------------------------------------------------ | ----------------------------------------- |
-| 고도 상승                | [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | 기체은 귀환을 위해이 최소 높이 (아래에있는 경우)까지 상승합니다.     |
-| 기본 동작                |                                                                                | *귀환*의 선택 목록 : 착륙, 배회, 미착륙 또는 배회, 일정시간후 착륙 |
-| <nobr>정지비행 고도</nobr> | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 귀환시 배회를 선택하면 기체의 유지 고도를 설정할 수 있습니다.       |
-| <nobr>정지비행 시간</nobr> | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | 배회후 착륙이 선택하면 기체의 정지 비행 시간을 설정합니다.         |
+| 설정                                             | 매개변수                                                                           | 설명                                        |
+| ---------------------------------------------- | ------------------------------------------------------------------------------ | ----------------------------------------- |
+| <a id="RTL_RETURN_ALT"></a>고도 상승                | [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | 기체은 귀환을 위해이 최소 높이 (아래에있는 경우)까지 상승합니다.     |
+| 기본 동작                                          |                                                                                | *귀환*의 선택 목록 : 착륙, 배회, 미착륙 또는 배회, 일정시간후 착륙 |
+| <a id="RTL_DESCEND_ALT"></a><nobr>정지비행 고도</nobr> | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 귀환시 배회를 선택하면 기체의 유지 고도를 설정할 수 있습니다.       |
+| <a id="RTL_LAND_DELAY"></a><nobr>정지비행 시간</nobr> | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | 배회후 착륙이 선택하면 기체의 정지 비행 시간을 설정합니다.         |
 
 :::note
 The return behaviour is defined by [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY). 음수이면 기체는 즉시 착륙합니다. 더 자세한 정보는 [복귀 모드](../flight_modes/return.md)를 참고하십시오.
@@ -169,18 +170,18 @@ Fixed-wing vehicles and VTOLs in fixed-wing flight additionally have a parameter
 
 The relevant parameters for all vehicles shown below.
 
-| 매개변수                                                                             | 설명                                                   |
-| -------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| [COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | 위치 손실 후 안전 장치 동작 지연 여부 설정                            |
-| [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL)   | 임무 중 위치 제어 탐색 손실 응답. 값 : 0 - RC 사용 가정, 1 - RC 없음 가정. |
+| 매개변수                                                                                                       | 설명                                                   |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| <a id="COM_POS_FS_DELAY"></a>[COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | 위치 손실 후 안전 장치 동작 지연 여부 설정                            |
+| <a id="COM_POSCTL_NAVL"></a>[COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL)   | 임무 중 위치 제어 탐색 손실 응답. 값 : 0 - RC 사용 가정, 1 - RC 없음 가정. |
 
 
 Parameters that only affect Fixed-wing vehicles:
 
-| 매개변수                                                                 | 설명                                                                                                          |
-| -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| [FW_GPSF_LT](../advanced_config/parameter_reference.md#FW_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into land or flight termination). 비활성화 하려면 0으로 설정하십시오. |
-| [FW_GPSF_R](../advanced_config/parameter_reference.md#FW_GPSF_R)   | 선회 비행시 고정 롤/뱅크 각도.                                                                                          |
+| 매개변수                                                                                           | 설명                                                                                                          |
+| ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| <a id="FW_GPSF_LT"></a>[FW_GPSF_LT](../advanced_config/parameter_reference.md#FW_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into land or flight termination). 비활성화 하려면 0으로 설정하십시오. |
+| <a id="FW_GPSF_R"></a>[FW_GPSF_R](../advanced_config/parameter_reference.md#FW_GPSF_R)   | 선회 비행시 고정 롤/뱅크 각도.                                                                                          |
 
 
 ### 오프 보드 안전 장치
