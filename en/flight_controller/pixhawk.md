@@ -129,13 +129,22 @@ Under these conditions the system will not draw any power (will not be operation
 As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
 :::
 
-## Connectors
+## Connections
 
-:::tip
-The RC IN port is for RC receivers only and provides power. **NEVER** connect any servos, power supplies or batteries to it or to the receiver connected to it.
+Pixhawk ports are shown below.
+These use Hirose DF13 connectors (predating the JST-GH connectors defined in the Pixhawk connector standard).
+
+:::warning
+Many 3DR Pixhawk clones use Molex picoblade connectors instead of DF13 connectors.
+They have rectangular instead of square pins, and cannot be assumed to be compatible.
 :::
 
 ![Pixhawk Connectors](../../assets/flight_controller/pixhawk1/pixhawk_connectors.png)
+
+:::tip
+The `RC IN` port is for RC receivers only and provides sufficient power for that purpose.
+**NEVER** connect any servos, power supplies or batteries to it or to the receiver connected to it.
+:::
 
 ## Pinouts
 
@@ -330,7 +339,6 @@ make px4_fmu-v2_default
 * **USARTs**: Hirose DF13 6 pos ([Digi-Key Link: DF13A-6P-1.25H(20)](https://www.digikey.com/products/en?keywords=H3371-ND))
   * Mates: Hirose DF13 6 pos housing ([Digi-Key Link: Hirose DF13-6S-1.25C](https://www.digikey.com/products/en?keywords=H2182-ND))
 * **I2C and CAN**: Hirose DF13 4 pos ([Digi-Key Link: DF13A-4P-1.25H(20)](https://www.digikey.com/en/products/detail/hirose-electric-co-ltd/DF13A-4P-1-25H-20/530666) - discontinued)
-
 
 ## Supported Platforms / Airframes
 
