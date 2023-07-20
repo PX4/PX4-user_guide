@@ -135,7 +135,7 @@ Pixhawk ports are shown below.
 These use Hirose DF13 connectors (predating the JST-GH connectors defined in the Pixhawk connector standard).
 
 :::warning
-Many Pixhawk clones use Molex picoblade connectors instead of DF13 connectors.
+Many 3DR Pixhawk clones use Molex picoblade connectors instead of DF13 connectors.
 They have rectangular instead of square pins, and cannot be assumed to be compatible.
 :::
 
