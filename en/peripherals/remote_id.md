@@ -126,6 +126,6 @@ Some known issues are:
   - PX4 v1.14 does not yet receive `OPEN_DRONE_ID_ARM_STATUS`.
 - `OPEN_DRONE_ID_ARM_STATUS` must be forwarded to the GCS, if present for additional error reporting.
 - [OPEN_DRONE_ID_BASIC_ID](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_BASIC_ID) specifies a serial number in an invalid format (not ANSI/CTA-2063 format).
-- The vehicle ID is expected to be securely stored and tamper resistent.
+- The vehicle ID is expected to be tamper resistent.
 
 [PX4-Autopilot/21647](https://github.com/PX4/PX4-Autopilot/pull/21647) will address some of the known issues.
