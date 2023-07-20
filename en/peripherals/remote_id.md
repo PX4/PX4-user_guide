@@ -39,8 +39,8 @@ If using a different port, or a flight controller that has different connector, 
 The pinout of the serial port is shown below.
 The TX and RX on the flight controller must be connected to the RX and TX on the Remote ID, respectively.
 
-#### Cube ID Serial Port
 
+#### Cube ID Serial Port
 
 ![Cube ID serial port](../../assets/hardware/remote_id/cube_id/serial_port_connector.jpg)
 
@@ -58,7 +58,7 @@ Pin | Signal | Volt
 
 Remote ID hardware is configured in the same way as any other [MAVLink Peripheral](../peripherals/mavlink_peripherals.md).
 
-Assuming you have connected the device to the TELEM2 port, [set the parameters](../advanced_config/parameters.md) as shown:
+Assuming you have connected the device to the `TELEM2` port, [set the parameters](../advanced_config/parameters.md) as shown:
 
 - [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) = TELEM 2
 - [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) = Normal
@@ -72,13 +72,14 @@ The required baud rate depends on the remote ID used (for Cube ID it must be set
 
 <!-- In theory, a Remote ID (or other MAVLink peripheral) that supports WiFi or wired Ethernet network could also be connected over those links. -->
 
-
 ### Enable Remote ID
 
-Enable Remote ID by [setting](../advanced_config/parameters.md#conditional-parameters) parameter [COM_ARM_ODID](#COM_ARM_ODID) to `2` (it is disabled by default).
+There is no need to explicitly enable Remote ID (supported Remote ID messages are either streamed by default or must be requested in the current implementation, even if no remote ID is connected).
 
-The UAV will then require `HEARTBEAT` messages from the Remote ID as a precondition for arming the UAV.
 
+### Prevent Arming based on Remote ID
+
+To only allow arming when a Remote ID is ready, [set](../advanced_config/parameters.md#conditional-parameters) the parameter [COM_ARM_ODID](#COM_ARM_ODID) to `2` (it is disabled by default).
 
 Parameter | Description
 --- | ---
@@ -87,11 +88,7 @@ Parameter | Description
 
 ## Implementation
 
-Remote ID is enabled by setting parameter [COM_ARM_ODID](../advanced_config/parameter_reference.md#COM_ARM_ODID) to `2`.
-The UAV will then require `HEARTBEAT` messages from the Remote ID as a precondition for arming the UAV.
-You can also set the parameter to `1` to warn but still allow arming without the Remote ID.
-
-Once enabled, PX4 v1.14 streams these messages by default (in streaming modes: normal, onboard, usb, onboard low bandwidth):
+PX4 v1.14 streams these messages by default (in streaming modes: normal, onboard, usb, onboard low bandwidth):
 
 - [OPEN_DRONE_ID_LOCATION](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_LOCATION) (1 Hz) - UAV location, altitude, direction, and speed.
 - [OPEN_DRONE_ID_SYSTEM](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_SYSTEM) (1 Hz) Operator location/altitude, multiple aircraft information (group/swarm, if applicable), full timestamp and possible category/class information.
@@ -101,9 +98,13 @@ Once enabled, PX4 v1.14 streams these messages by default (in streaming modes: n
 The following message can be streamed on request (using [MAV_CMD_SET_MESSAGE_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL)):
 
 - [OPEN_DRONE_ID_BASIC_ID](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_BASIC_ID) - UAV identity information (essentially a serial number)
-  - PX4 v1.14 specifies a serial number ([MAV_ODID_ID_TYPE_SERIAL_NUMBER](https://mavlink.io/en/messages/common.html#MAV_ODID_ID_TYPE_SERIAL_NUMBER)) but does not use the specified format (ANSI/CTA-2063 format).
+  - PX4 v1.14 specifies a serial number ([MAV_ODID_ID_TYPE_SERIAL_NUMBER](https://mavlink.io/en/messages/common.html#MAV_ODID_ID_TYPE_SERIAL_NUMBER)) but does not use the required format (ANSI/CTA-2063 format).
 
-The following messages are not supported in PX4 v1.14 (to be added by [PX4#21647](https://github.com/PX4/PX4-Autopilot/pull/21647)):
+PX4 prevents arming based on Remote ID health if parameter [COM_ARM_ODID](../advanced_config/parameter_reference.md#COM_ARM_ODID) is set to `2`.
+The UAV will then require `HEARTBEAT` messages from the Remote ID as a precondition for arming the UAV.
+You can also set the parameter to `1` to warn but still allow arming when Remote ID `HEARTBEAT` messages are not detected.
+
+The following Open Drone ID MAVLink messages are not supported in PX4 v1.14 (to be added by [PX4#21647](https://github.com/PX4/PX4-Autopilot/pull/21647)):
 
 - [OPEN_DRONE_ID_AUTHENTICATION](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_AUTHENTICATION) - Provides authentication data for the UAV.
 - [OPEN_DRONE_ID_SELF_ID](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_SELF_ID) - Operator identity (plain text).
@@ -125,3 +126,8 @@ The specific areas where PX4 v1.14 is known to (possibly) be non compliant with 
 The 
  - The ID is expected to be securely stored and tamper resistent.
    PX4's approach for this has yet be confirmed to be sufficient.
+
+:::note
+These compliance issues are expected to be addressed by [PX4-Autopilot/21647](https://github.com/PX4/PX4-Autopilot/pull/21647).
+It is not clear when this will merge, and whether the features will be backported to PX4 v1.14.
+:::
