@@ -45,6 +45,40 @@ nsh> free
 nsh> dmesg
 ```
 
+Below are a couple of commands which can be used in the [NuttShell](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=139629410) to get insights of the system.
+
+This NSH command provides the remaining free memory:
+
+```bash
+free
+```
+
+And the top command shows the stack usage per application:
+
+```
+top
+```
+
+Stack usage is calculated with stack coloring and thus is not the current usage, but the maximum since the start of the task.
+
+To see what is running in the work queues and at what rate, use:
+
+```
+work_queue status
+```
+
+And to debug uORB topics:
+
+```
+uorb top
+```
+
+And to inspect a specific uORB topic:
+
+```
+listener <topic_name>
+```
+
 Many other system commands and modules are listed in the [Modules and Command Reference](../modules/modules_main.md) (e.g. `top`, `listener`, etc.).
 
 :::tip
