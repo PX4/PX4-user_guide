@@ -112,9 +112,12 @@ The following Open Drone ID MAVLink messages are not supported in PX4 v1.14 (to 
 - [OPEN_DRONE_ID_ARM_STATUS](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_ARM_STATUS) - Status of Remote ID hardware. Use as condition for vehicle arming, and for Remote ID health check.
 - [OPEN_DRONE_ID_SYSTEM_UPDATE](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_SYSTEM_UPDATE) - Subset of `OPEN_DRONE_ID_SYSTEM` that can be sent with information at higher rate.
 
-### Compliance
+## Compliance
 
-The specific areas where PX4 v1.14 is known to (possibly) be non compliant with various specifications are:
+PX4 is not compliant with the relevant specifications (which is why this feature is currently experimental).
+A working group has been established to evaluate the gaps.
+
+Some known issues are:
 
 - Vehicles must arm conditional on receiving the Remote ID [OPEN_DRONE_ID_ARM_STATUS](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_ARM_STATUS) message, with a status that indicates the Remote ID hardware is ready to broadcast.
   - PX4 v1.14 does not process `OPEN_DRONE_ID_ARM_STATUS`, and arming is only conditional on the Remote ID device `HEARTBEAT`.
@@ -123,11 +126,6 @@ The specific areas where PX4 v1.14 is known to (possibly) be non compliant with 
   - PX4 v1.14 does not yet receive `OPEN_DRONE_ID_ARM_STATUS`.
 - `OPEN_DRONE_ID_ARM_STATUS` must be forwarded to the GCS, if present for additional error reporting.
 - [OPEN_DRONE_ID_BASIC_ID](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_BASIC_ID) specifies a serial number in an invalid format (not ANSI/CTA-2063 format).
-The
- - The ID is expected to be securely stored and tamper resistent.
-   PX4's approach for this has yet be confirmed to be sufficient.
+- The vehicle ID is expected to be securely stored and tamper resistent.
 
-:::note
-These compliance issues are expected to be addressed by [PX4-Autopilot/21647](https://github.com/PX4/PX4-Autopilot/pull/21647).
-It is not clear when this will merge, and whether the features will be backported to PX4 v1.14.
-:::
+[PX4-Autopilot/21647](https://github.com/PX4/PX4-Autopilot/pull/21647) will address some of the known issues.
