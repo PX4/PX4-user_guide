@@ -111,12 +111,13 @@ Setting `GF_ACTION` to terminate will kill the vehicle on violation of the fence
 
 The following settings also apply, but are not displayed in the QGC UI.
 
-| 设置                                        | 参数                                                                           | 描述                               |
-| ----------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------- |
-| 地理围栏定高模式                                  | [GF_ALTMODE](../advanced_config/parameter_reference.md#GF_ALTMODE)           | 使用的高度参考值：0 = WGS84，1 = AMSL。     |
-| 地理围栏计数限制                                  | [GF_COUNT](../advanced_config/parameter_reference.md#GF_COUNT)               | 设定需要检测到多少次在围栏之外的位置才能触发违反地理围栏的事件。 |
-| 地理围栏来源                                    | [GF_SOURCE](../advanced_config/parameter_reference.md#GF_SOURCE)             | 设置定位是来自全局位置估计还是直接来自 GPS 设备。      |
-| <span id="CBRK_FLIGHTTERM"></span>飞行终止断路器 | [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | 启用/禁用飞行终止操作（默认禁用）。               |
+| 设置                                                       | 参数                                                                           | 描述                                                                                                                                                  |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="GF_ALTMODE"></a>地理围栏定高模式                       | [GF_ALTMODE](../advanced_config/parameter_reference.md#GF_ALTMODE)           | 使用的高度参考值：0 = WGS84，1 = AMSL。                                                                                                                        |
+| <a id="GF_COUNT"></a>地理围栏计数限制                       | [GF_COUNT](../advanced_config/parameter_reference.md#GF_COUNT)               | 设定需要检测到多少次在围栏之外的位置才能触发违反地理围栏的事件。                                                                                                                    |
+| <a id="GF_SOURCE"></a>地理围栏来源                         | [GF_SOURCE](../advanced_config/parameter_reference.md#GF_SOURCE)             | 设置定位是来自全局位置估计还是直接来自 GPS 设备。                                                                                                                         |
+| <a id="GF_PREDICT"></a>Preemptive geofence triggering | [GF_PREDICT](../advanced_config/parameter_reference.md#GF_PREDICT)           | (Experimental) Trigger geofence if current motion of the vehicle is predicted to trigger the breach (rather than late triggering after the breach). |
+| <a id="CBRK_FLIGHTTERM"></a>飞行终止断路器                        | [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | 启用/禁用飞行终止操作（默认禁用）。                                                                                                                                  |
 
 
 ### 返航设置
@@ -127,12 +128,12 @@ The following settings also apply, but are not displayed in the QGC UI.
 
 The settings and underlying parameters are shown below:
 
-| 设置   | 参数                                                                             | 描述                                                                                                     |
-| ---- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| 爬升高度 | [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | 返航飞行时，机体上升到该最低高度（如果低于）。                                                                                |
-| 返航行为 |                                                                                | Choice list of *Return then*: Land, Loiter and do not land, or Loiter and land after a specified time. |
-| 悬停高度 | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 如果选择了返航并悬停，您还可以指定机体保持的高度。                                                                              |
-| 悬停时间 | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | 如果选择返航并悬停随后降落，您还可以指定机体将保持悬停多长时间。                                                                       |
+| 设置                             | 参数                                                                             | 描述                                                                                                     |
+| ------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| <a id="RTL_RETURN_ALT"></a>爬升高度 | [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | 返航飞行时，机体上升到该最低高度（如果低于）。                                                                                |
+| 返航行为                           |                                                                                | Choice list of *Return then*: Land, Loiter and do not land, or Loiter and land after a specified time. |
+| <a id="RTL_DESCEND_ALT"></a>悬停高度 | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 如果选择了返航并悬停，您还可以指定机体保持的高度。                                                                              |
+| <a id="RTL_LAND_DELAY"></a>悬停时间 | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | 如果选择返航并悬停随后降落，您还可以指定机体将保持悬停多长时间。                                                                       |
 
 :::note
 The return behaviour is defined by [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY). If negative the vehicle will land immediately. Additional information can be found in [Return mode](../flight_modes/return.md).
@@ -168,18 +169,18 @@ Fixed-wing vehicles and VTOLs in fixed-wing flight additionally have a parameter
 
 The relevant parameters for all vehicles shown below.
 
-| 参数                                                                               | 描述                                        |
-| -------------------------------------------------------------------------------- | ----------------------------------------- |
-| [COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | 失去位置后到触发故障保护前的延迟。                         |
-| [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL)   | 执行任务期间的位置控制导航丢失响应。 值：0——假设使用遥控，1——假设没有遥控。 |
+| 参数                                                                                                         | 描述                                        |
+| ---------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| <a id="COM_POS_FS_DELAY"></a>[COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | 失去位置后到触发故障保护前的延迟。                         |
+| <a id="COM_POSCTL_NAVL"></a>[COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL)   | 执行任务期间的位置控制导航丢失响应。 值：0——假设使用遥控，1——假设没有遥控。 |
 
 
 Parameters that only affect Fixed-wing vehicles:
 
-| 参数                                                                   | 描述                                                                                                |
-| -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| [FW_GPSF_LT](../advanced_config/parameter_reference.md#FW_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into land or flight termination). 设置为 0 以禁用。 |
-| [FW_GPSF_R](../advanced_config/parameter_reference.md#FW_GPSF_R)   | 以一定的横滚/侧倾角盘旋。                                                                                     |
+| 参数                                                                                             | 描述                                                                                                |
+| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| <a id="FW_GPSF_LT"></a>[FW_GPSF_LT](../advanced_config/parameter_reference.md#FW_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into land or flight termination). 设置为 0 以禁用。 |
+| <a id="FW_GPSF_R"></a>[FW_GPSF_R](../advanced_config/parameter_reference.md#FW_GPSF_R)   | 以一定的横滚/侧倾角盘旋。                                                                                     |
 
 
 ### Offboard 中断故障保护
