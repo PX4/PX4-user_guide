@@ -304,6 +304,7 @@
       * [Septentrio mosaic-go](gps_compass/septentrio_mosaic-go.md)
       * [Trimble MB-Two](gps_compass/rtk_gps_trimble_mb_two.md)
       * [CubePilot Here+ (Discontined)](gps_compass/rtk_gps_hex_hereplus.md)
+    * [Remote ID](peripherals/remote_id.md)
     * [智能电池](smart_batteries/README.md)
       * [Rotoye Batmon 电池智能套装](smart_batteries/rotoye_batmon.md)
     * [转速计（转数计数器）](sensor/tachometers.md)
