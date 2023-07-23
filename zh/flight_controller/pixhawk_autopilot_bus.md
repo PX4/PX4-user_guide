@@ -13,6 +13,8 @@ The "Mechanical Design" section of the standard provides specific recommendation
 ## PAB Compatible Carriers
 
 - [ARK Electronics Pixhawk Autopilot Bus Carrier](../flight_controller/arkpab.md)
+- [Holybro Pixhawk Standard Baseboard](https://holybro.com/products/pixhawk-baseboards)
+- [Holybro Pixhawk Mini Baseboard](https://holybro.com/products/pixhawk-baseboards)
 - [Holybro Pixhawk RPi CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md) (Integrated Companion/Flight Controller Board)
 
 ## PAB Compatible Flight Controllers
