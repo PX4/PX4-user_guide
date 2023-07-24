@@ -31,6 +31,8 @@ setting something to NaN means that no limit is provided
 - [CollisionReport](CollisionReport.md)
 - [ControlAllocatorStatus](ControlAllocatorStatus.md)
 - [Cpuload](Cpuload.md)
+- [DatamanRequest](DatamanRequest.md)
+- [DatamanResponse](DatamanResponse.md)
 - [DebugArray](DebugArray.md)
 - [DebugKeyValue](DebugKeyValue.md)
 - [DebugValue](DebugValue.md)
