@@ -255,7 +255,7 @@ To create and build the workspace:
    A naming convention for workspace folders can make it easier to manage workspaces.
    :::
 
-1. Clone the example repository and [px4_msgs](https://github.com/PX4/px4_msgs) to the `/src` directory (the `main` branch is cloned by default, which corresponds to the the version of PX4 we are running):
+1. Clone the example repository and [px4_msgs](https://github.com/PX4/px4_msgs) to the `/src` directory (the `main` branch is cloned by default, which corresponds to the version of PX4 we are running):
 
    ```sh
    git clone https://github.com/PX4/px4_msgs.git
