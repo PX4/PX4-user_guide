@@ -14269,15 +14269,15 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_POS_FS_EPH">COM_POS_FS_EPH</strong> (FLOAT)</td>
- <td>Horizontal position error threshold <p><strong>Comment:</strong> This is the horizontal position error (EPH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing. If the previous position error was below this threshold, there is an additional factor of 2.5 applied (threshold for invalidation 2.5 times the one for validation).</p>   </td>
- <td>[0, ?] </td>
+ <td>Horizontal position error threshold <p><strong>Comment:</strong> This is the horizontal position error (EPH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing. If the previous position error was below this threshold, there is an additional factor of 2.5 applied (threshold for invalidation 2.5 times the one for validation). Set to -1 to disable.</p>   </td>
+ <td>[-1, 400] </td>
  <td>5.</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="COM_POS_LOW_EPH">COM_POS_LOW_EPH</strong> (FLOAT)</td>
  <td>EPH threshold for RTL <p><strong>Comment:</strong> Specify the threshold for triggering a warning for low local position accuracy. Additionally triggers a RTL if currently in Mission or Loiter mode. Local position has to be still declared valid, which is most of all depending on COM_POS_FS_EPH. Use this feature on systems with dead-reckoning capabilites (e.g. fixed-wing vehicles with airspeed sensor) to improve the user notification and failure mitigation when flying in GNSS-denied areas. Set to -1 to disable.</p>   </td>
- <td>[-1, ?] </td>
+ <td>[-1, 1000] </td>
  <td>-1.0</td>
  <td>m</td>
 </tr>
@@ -15189,10 +15189,28 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_CHECK">EKF2_MAG_CHECK</strong> (INT32)</td>
- <td>Magnetic field strength test selection <p><strong>Comment:</strong> When set, the EKF checks the strength of the magnetic field to decide whether the magnetometer data is valid. If GPS data is received, the magnetic field is compared to a World Magnetic Model (WMM), otherwise an average value is used. This check is useful to reject occasional hard iron disturbance.</p>   </td>
+ <td>Magnetic field strength test selection <p><strong>Comment:</strong> Bitmask to set which check is used to decide whether the magnetometer data is valid. If GNSS data is received, the magnetic field is compared to a World Magnetic Model (WMM), otherwise an average value is used. This check is useful to reject occasional hard iron disturbance. Set bits to 1 to enable checks. Checks enabled by the following bit positions 0 : Magnetic field strength. Set tolerance using EKF2_MAG_CHK_STR 1 : Magnetic field inclination. Set tolerance using EKF2_MAG_CHK_INC 2 : Wait for GNSS to find the theoretical strength and inclination using the WMM</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Strength (EKF2_MAG_CHK_STR)</li> 
+  <li><strong>1:</strong> Inclination (EKF2_MAG_CHK_INC)</li> 
+  <li><strong>2:</strong> Wait for WMM</li> 
+</ul>
+ </td>
+ <td>[0, 7] </td>
+ <td>1</td>
  <td></td>
- <td>Enabled (1)</td>
- <td></td>
+</tr>
+<tr>
+ <td><strong id="EKF2_MAG_CHK_INC">EKF2_MAG_CHK_INC</strong> (FLOAT)</td>
+ <td>Magnetic field inclination check tolerance <p><strong>Comment:</strong> Maximum allowed deviation from the expected magnetic field inclination to pass the check.</p>   </td>
+ <td>[0.0, 90.0] </td>
+ <td>20.</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_MAG_CHK_STR">EKF2_MAG_CHK_STR</strong> (FLOAT)</td>
+ <td>Magnetic field strength check tolerance <p><strong>Comment:</strong> Maximum allowed deviation from the expected magnetic field strength to pass the check.</p>   </td>
+ <td>[0.0, 1.0] </td>
+ <td>0.2</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_DECL">EKF2_MAG_DECL</strong> (FLOAT)</td>
@@ -17207,9 +17225,9 @@ table {
 </tr>
 <tr>
  <td><strong id="GF_PREDICT">GF_PREDICT</strong> (INT32)</td>
- <td>Use Pre-emptive geofence triggering <p><strong>Comment:</strong> Predict the motion of the vehicle and trigger the breach if it is determined that the current trajectory would result in a breach happening before the vehicle can make evasive maneuvers. The vehicle is then re-routed to a safe hold position (stop for multirotor, loiter for fixed wing).</p>   </td>
+ <td>[EXPERIMENTAL] Use Pre-emptive geofence triggering <p><strong>Comment:</strong> WARNING: This experimental feature may cause flyaways. Use at your own risk. Predict the motion of the vehicle and trigger the breach if it is determined that the current trajectory would result in a breach happening before the vehicle can make evasive maneuvers. The vehicle is then re-routed to a safe hold position (stop for multirotor, loiter for fixed wing).</p>   </td>
  <td></td>
- <td>Enabled (1)</td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
