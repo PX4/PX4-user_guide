@@ -72,7 +72,6 @@ You need to install the PX4 development toolchain in order to use the simulator.
 :::note
 The only dependency ROS 2 has on PX4 is the set of message definitions, which it gets from [px4_msgs](https://github.com/PX4/px4_msgs).
 You only need to install PX4 if you need the simulator (as we do in this guide), or if you are creating a build that publishes custom uORB topics.
-If you would like to keep previously installed simulators such as ignition-gazebo, gazebo-classic,JBSim or JMAVSim please run bash **`./PX4-Autopilot/Tools/setup/ubuntu.sh --no-sim-tools`** instead.
 :::
 
 Set up a PX4 development environment on Ubuntu in the normal way:
@@ -84,6 +83,9 @@ bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
 cd PX4-Autopilot/
 make px4_sitl
 ```
+
+Note that the above commands will install the recommended simulator for your version of Ubuntu.
+If you want to install PX4 but keep your existing simulator installation, run `ubuntu.sh` above with the `--no-sim-tools` flag.
 
 For more information and troubleshooting see: [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) and [Download PX4 source](../dev_setup/building_px4.md).
 
