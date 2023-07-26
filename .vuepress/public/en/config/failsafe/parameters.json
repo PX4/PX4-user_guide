@@ -32239,6 +32239,26 @@
       "type": "Int32"
     },
     {
+      "category": "System",
+      "default": 1,
+      "group": "UXRCE-DDS Client",
+      "longDesc": "When enabled, uxrce_dds_client will synchronize the timestamps of the incoming and outgoing messages measuring the offset between the Agent OS time and the PX4 time.",
+      "name": "UXRCE_DDS_SYNCT",
+      "rebootRequired": true,
+      "shortDesc": "uXRCE-DDS timestamp synchronization enable",
+      "type": "Int32",
+      "values": [
+        {
+          "description": "Disabled",
+          "value": 0
+        },
+        {
+          "description": "Enabled",
+          "value": 1
+        }
+      ]
+    },
+    {
       "category": "Standard",
       "decimalPlaces": 2,
       "default": 8.0,
