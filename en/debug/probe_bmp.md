@@ -20,7 +20,7 @@ The *6-pos DF13* connector that comes with the probe cannot be used for SWD debu
 :::
 
 
-## Using Black Magic Probe
+## Using the Probe
 
 :::note
 To debug STM32F7 or later (FMUv5 and newer) the Dronecode probe / Blackmagic probe likely requires a firmware update.
@@ -63,4 +63,3 @@ attach 1
 ```
 
 And now you should be connected.
-
