@@ -4,7 +4,7 @@ PX4 enables terminal access to the system through the [MAVLink Shell](../debug/m
 
 This page explains the main differences and how the console/shell are used.
 
-<a id="console_vs_shell"></a>
+<a id="console_vs_shell"></a> 
 
 ## System Console vs. Shells
 
