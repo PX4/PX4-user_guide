@@ -1,8 +1,8 @@
-# Black Magic Probe
+# Black Magic Probe (and Dronecode Probe)
 
 
 The [Black Magic Probe](https://black-magic.org) is an easy to use, mostly plug-and-play, JTAG/SWD debugger for embedded microcontrollers.
-Since the Black Magic Probe is a generic debug probe, you will need an adapters that can be purchased here:
+Since the Black Magic Probe is a generic debug probe, you will need an adapter to connect to Pixhawk flight controllers, which can be purchased here:
 
 - [Drone Code Debug Adapter](https://1bitsquared.com/products/drone-code-debug-adapter) (1 BIT SQUARED).
 

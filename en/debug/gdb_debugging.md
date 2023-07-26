@@ -1,10 +1,14 @@
 # Debugging with GDB
 
 The [GNU DeBugger (GDB)](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html) comes installed with the compiler toolchain in the form of the `arm-none-eabi-gdb` binary.
-The debugger read the debug symbols inside the ELF file to understand the static and dynamic memory layout of the PX4 firmware.
+The debugger reads the debug symbols inside an ELF file to understand the static and dynamic memory layout of the PX4 firmware.
 To access the PX4 autopilot microcontroller, it needs to connect to a [Remote Target](https://sourceware.org/gdb/download/onlinedocs/gdb/Connecting.html), which is provided by a [SWD debug probe](swd_debug).
 
+The flow of information looks like this:
+
+```
 Developer <=> GDB <=> GDB Server <=> Debug Probe <=> SWD <=> PX4 Autopilot.
+```
 
 ## Quickstart
 

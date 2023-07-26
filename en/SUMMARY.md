@@ -613,7 +613,7 @@
     * [Debugging with GDB](debug/gdb_debugging.md)
       * [SWD Debug Port](debug/swd_debug.md)
       * [JLink Probe](debug/probe_jlink.md)
-      * [Black Magic Probe](debug/probe_bmp.md)
+      * [Black Magic/DroneCode Probe](debug/probe_bmp.md)
       * [STLink Probe](debug/probe_stlink.md)
       * [Hardfault Debugging](debug/gdb_hardfault.md)
     * [Debugging with Eclipse](debug/eclipse_jlink.md)
