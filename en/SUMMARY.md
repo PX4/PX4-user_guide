@@ -417,6 +417,8 @@
       * [CollisionReport](msg_docs/CollisionReport.md)
       * [ControlAllocatorStatus](msg_docs/ControlAllocatorStatus.md)
       * [Cpuload](msg_docs/Cpuload.md)
+      * [DatamanRequest](msg_docs/DatamanRequest.md)
+      * [DatamanResponse](msg_docs/DatamanResponse.md)
       * [DebugArray](msg_docs/DebugArray.md)
       * [DebugKeyValue](msg_docs/DebugKeyValue.md)
       * [DebugValue](msg_docs/DebugValue.md)
