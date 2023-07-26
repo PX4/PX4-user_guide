@@ -13,27 +13,26 @@ PX4 integrates with Remote ID hardware that supports the [Open Drone ID](https:/
 
 It has been tested with the following devices:
 
-- [Cube ID](https://docs.cubepilot.org/user-guides/cube-id/cube-id) (CubePilot) - Displays basic ID in QGC.
-
+- [Cube ID](https://docs.cubepilot.org/user-guides/cube-id/cube-id) (CubePilot)
+- [Db201](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) (BlueMark)
+- [Db202mav](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) (BlueMark) - less expensive variant without CAN port. 
 
 :::note
-Other devices that support the MAVLink API should work (but have not been tested).
+- Other devices that support the MAVLink API should work (but have not been tested).
+- PX4 does not support Remote ID over CAN in PX4 v1.14.
 :::
+
 
 ## Hardware Setup
 
 Remote ID devices can be connected to any free/unused serial port on the flight controller.
-Most commonly they are connected to the `TELEM2` port (if it is not being use for some other purpose) as this is already configured for MAVLink "by default".
+Most commonly they are connected directly to the `TELEM2` port (if it is not being use for some other purpose) as this is already configured for MAVLink "by default".
 
 
 ### Cube ID
 
-[Cube ID](https://docs.cubepilot.org/user-guides/cube-id/cube-id) can be connected using its serial port.
-It comes with a cable that has a Pixhawk-standard compatible connector, suitable for connecting to the `TELEM` ports on most recent Pixhawk flight controllers.
-
-:::note
-Cube ID also supports CAN connection, but this has not been tested with PX4, and may not be supported in PX4 v1.14.
-:::
+[Cube ID](https://docs.cubepilot.org/user-guides/cube-id/cube-id) can be connected using its serial port (DroneCAN cannot be used).
+It comes with a 6-pin JST-GH 1.25mm cable that can be connected directly to the `TELEM` ports on most recent Pixhawk flight controllers.
 
 If using a different port, or a flight controller that has different connector, you may need to modify the cable. 
 The pinout of the serial port is shown below.
@@ -50,6 +49,19 @@ Pin | Signal | Volt
 2 (blk) | TX (OUT) | 
 3 (blk) | RX (IN)  | 
 4 (blk) | GND | 0
+
+### BlueMark Db201/Db202mav
+
+[Db201](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) or [Db202mav](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) can be connected using their serial port (DroneCAN cannot be used).
+They come with a 6-pin JST-GH 1.25mm cable that can be connected directly to the `TELEM` ports on most recent Pixhawk flight controllers.
+
+If using a different serial port (i.e. with fewer pins), or a flight controller that has different connector, you may need to modify the cable.
+Information on the port pinout can be found in the [User Guide](https://download.bluemark.io/db200.pdf).
+
+The beacons come preinstalled with recent [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID) firmware.
+The [User Guide](https://download.bluemark.io/db200.pdf) explains how you can update firmware via the web interface, if needed.
+
+More general setup, including how to mount the beacon, is also covered in the [User Guide](https://download.bluemark.io/db200.pdf)
 
 
 # PX4 Configuration
