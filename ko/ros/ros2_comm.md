@@ -73,6 +73,8 @@ cd PX4-Autopilot/
 make px4_sitl
 ```
 
+Note that the above commands will install the recommended simulator for your version of Ubuntu. If you want to install PX4 but keep your existing simulator installation, run `ubuntu.sh` above with the `--no-sim-tools` flag.
+
 For more information and troubleshooting see: [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) and [Download PX4 source](../dev_setup/building_px4.md).
 
 ### ROS2 설치
@@ -238,7 +240,7 @@ To create and build the workspace:
 A naming convention for workspace folders can make it easier to manage workspaces.
 :::
 
-1. Clone the example repository and [px4_msgs](https://github.com/PX4/px4_msgs) to the `/src` directory (the `main` branch is cloned by default, which corresponds to the the version of PX4 we are running):
+1. Clone the example repository and [px4_msgs](https://github.com/PX4/px4_msgs) to the `/src` directory (the `main` branch is cloned by default, which corresponds to the version of PX4 we are running):
 
    ```sh
    git clone https://github.com/PX4/px4_msgs.git

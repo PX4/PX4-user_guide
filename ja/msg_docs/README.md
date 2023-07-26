@@ -29,6 +29,8 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [CollisionReport](CollisionReport.md)
 - [ControlAllocatorStatus](ControlAllocatorStatus.md)
 - [Cpuload](Cpuload.md)
+- [DatamanRequest](DatamanRequest.md)
+- [DatamanResponse](DatamanResponse.md)
 - [DebugArray](DebugArray.md)
 - [DebugKeyValue](DebugKeyValue.md)
 - [DebugValue](DebugValue.md)
