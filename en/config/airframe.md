@@ -1,9 +1,10 @@
-# Frame Setup
+# Vehicle (Frame) Selection
 
-After installing firmware you need to select the vehicle [frame configuration](../airframes/airframe_reference.md) that best matches your vehicle.
+After installing firmware you need to select the [vehicle type and specific frame configuration](../airframes/airframe_reference.md) that best matches your vehicle frame.
+This configures appropriate default parameter values for the vehicle type.
 
 :::note
-Select the configuration for your vehicle brand and model, if one exists, as this should be tuned well enough to fly following standard configuration. 
+Select the configuration for your vehicle brand and model, if one exists, as this should be tuned well enough to fly following standard configuration.
 Otherwise select the closest "Generic" frame option. 
 :::
 
