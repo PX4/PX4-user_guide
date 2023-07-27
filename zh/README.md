@@ -27,7 +27,8 @@ PX4 is the *Professional Autopilot*. 它由来自业界和学术界的世界级�
 **我想要从头开始组装一架使用PX4的无人机：**
 
 :::tip
-支持的机体列举在 [机架参考](airframes/airframe_reference.md)。 These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*. :::
+支持的机体列举在 [机架参考](airframes/airframe_reference.md)。 These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*. 
+:::
 
 如果您想从头开始组装一架飞机：
 
