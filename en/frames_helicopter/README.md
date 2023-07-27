@@ -15,23 +15,23 @@ Maintainer volunteers, [contribution](../contribute/README.md) of new features, 
 
 ## Helicopter Types
 
-PX4 supports helicopters with a single main rotor with a swash-plate controlled by up to 4 swash-plate servos, and a mechanically uncoupled tail rotor driven by an ESC.
+PX4 supports helicopters with a single main rotor with a swash-plate controlled by up to 4 swash-plate servos, and:
 
-Mechanically coupled tails controlled by a servo can be flown by mapping the tail servo to the tail motor output and setting an adequate range and disarmed value for the servo (but the system currently assumes it's a separate motor).
+- a mechanically uncoupled tail rotor driven by an ESC, or
+- a mechanically coupled tail controlled by a servo on the tail motor.
 
 The allowed flight operations and [flight modes](../getting_started/flight_modes.md#multicopter-helicopter) are the same as for multicopter.
 Note however that (at the time of writing) 3D flying with negative thrust is not supported in autonomous/guided modes.
 
-
 ## Assembly
 
-Assembly of the core components of an autopilot are similar for all frames.
+Assembly of the core autopilot components are similar for all frames.
 This is covered in [Basic Assembly](../assembly/README.md).
 
 Helicopter-specific assembly consists mostly of connecting and powering the motors and swash plate servos.
 
 :::note
-Note that the flight controller cannot power motors and servos (only GPS module, RC reciever, and low power telemetry modules can be powered from Pixhawk flight controllers).
+Note that the flight controller cannot power motors and servos (only GPS module, RC receiver, and low power telemetry modules can be powered from Pixhawk flight controllers).
 Generally a power distribution board (PDB) is used to power motors, and a separate (or integrated) battery elimination circuit (BEC) is used to power each of the servos.
 :::
 

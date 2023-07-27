@@ -21,8 +21,9 @@ The frame types that have a maintainer and are well tested and supported are:
 
 The following vehicle types are considered experimental:
 
+- [Airships](../frames_airship/README.md)
 - [Autogyros](../frames_autogyro/README.md)
-- [Boat](../frames_boat/README.md)
+- [Balloons](../frames_balloon/README.md)
 - [Helicopter](../frames_helicopter/README.md)
 - [Rovers](../frames_rover/README.md)
 - [Submarines](../frames_sub/README.md)
