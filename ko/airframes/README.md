@@ -1,5 +1,43 @@
-# 기체 프레임/기체 제작
+# Vehicle Types & Setup
 
-PX4는 멀티콥터, 고정익, VTOL 및 자동차 등에 적용할 수 있습니다. 지원되는 기체에 관련된 설정은 [기체 프레임 정의서](../airframes/airframe_reference.md)를 참고하십시오.
+PX4 supports numerous types of vehicles, including different configurations of multicopters, planes, VTOL vehicles, ground vehicles, and so on.
 
-다양한 기체에 [비행 콘트롤러](../flight_controller/README.md)를 설치하는 방법을 설명합니다.
+This section explains how to assemble, configure, and tune PX4-based autopilot systems for each type (much of this setup is common to all types).
+
+:::note
+[Vehicle Selection](../getting_started/frame_selection.md) provides high level information about the types of vehicles and the use cases for which they are best suited. :::
+
+## Supported Vehicles
+
+The frame types that have a maintainer and are well tested and supported are:
+
+- [Multicopters](../frames_multicopter/README.md) (tri-, quad-, hexa-, octa-, and even [omnicopter](../frames_multicopter/omnicopter.md) vehicles)
+- [Planes (Fixed Wing)](../frames_plane/README.md)
+- [VTOL](../frames_vtol/README.md): [Standard VTOL](../frames_vtol/standardvtol.md), [Tailsitter VTOL](../frames_vtol/tailsitter.md), [Tiltrotor VTOL](../frames_vtol/tiltrotor.md)
+
+
+## Experimental Vehicles
+
+The following vehicle types are considered experimental:
+
+- [Airships](../frames_airship/README.md)
+- [Autogyros](../frames_autogyro/README.md)
+- [Balloons](../frames_balloon/README.md)
+- [Helicopter](../frames_helicopter/README.md)
+- [Rovers](../frames_rover/README.md)
+- [Submarines](../frames_sub/README.md)
+
+:::note
+Experimental frames are those vehicle types that:
+
+- Do not have a maintainer.
+- Are not regularly tested by the core development team.
+- May lack features required for production-ready vehicles.
+- May not support some common vehicle configurations for the vehicle type.
+
+Maintainer volunteers, [contribution](../contribute/README.md) of new features, new frame configurations, or other improvements would all be very welcome! :::
+
+## Other Vehicles
+
+The complete set of supported vehicle types and their configurations can be found in the [Airframes Reference](../airframes/airframe_reference.md).
+

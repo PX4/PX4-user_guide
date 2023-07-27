@@ -1,10 +1,11 @@
-# VTOL 기체
+# VTOLs
 
 PX4는 고정익의 전진 비행과 멀티콥터의 수직 이착륙 기능을 모두 가지고 있는 기체를 칭하는 용어는  VTOL입니다.
 
 ![수직 기술: Deltaquad QuadPlane VTOL](../../assets/airframes/vtol/vertical_technologies_deltaquad/hero.jpg)
 
 VTOL은 고정익과 멀티콥터의 장점을 모두 가지고 있습니다.
+
 - **수직 이착륙:** 능숙한 조종사 아니어도 웬만한 장소에서 이착륙이 어렵지 않습니다.
 - **빠르고 효율적인 고정익 비행:** 더 빠르고, 더 멀리, 더 긴 임무를 수행하고 더 무거운 화물들을 운반합니다.
 - **호버링:** 사진, 구조 스캔 등을 위한 안정적인 플랫폼
@@ -60,9 +61,10 @@ PX4는 세 가지 중요한 VTOL 유형을 지원합니다.
 
 일반적으로, 기계적 복잡성이 증가함에 따라 기체의 비행이 용이할 수 있지만, 비용과 중량이가 증가합니다. 각 유형에는 장단점이 있으며, 이를 기반으로 성공적인 상업적인 벤처 회사들이 있습니다.
 
-위의 각 주요 유형에는 모터 수, 모터 기하학 및 비행 표면 등과 같은 많은 가능한 변형이 있습니다. PX4는 보다 일반적인 차량 설정에 대한 *기체 구성*을 제공합니다. 지원되는 세트는 [Airframes Reference &gt; VTOL](../airframes/airframe_reference.md#vtol)에 설명되어 있습니다.
+위의 각 주요 유형에는 모터 수, 모터 기하학 및 비행 표면 등과 같은 많은 가능한 변형이 있습니다. PX4 provides _airframe configurations_ for many of the more common vehicle setups. 지원되는 세트는 [Airframes Reference &gt; VTOL](../airframes/airframe_reference.md#vtol)에 설명되어 있습니다.
 
 :::note
+
 - 필요한 차량 설정이 지원되지 않는 경우에는 [기체를 추가](../dev_airframes/adding_a_new_frame.md)하여야 합니다(일부 [PX4 개발](../development/development.md) 전문 지식 필요).
 - VTOL 코드베이스는 다른 모든 기체와 동일한 코드베이스이며, 특히 전환 제어 로직을 추가합니다. :::
 
@@ -77,7 +79,7 @@ VTOL 비행 모드는 멀티콥터 모드에는 [멀티 콥터](../getting_start
 ## 조립
 
 :::note
-상업용과 키트 VTOL 차량에 대한 정보는 [기체 완제품](../complete_vehicles/README.md)을 참고하십시오. :::
+For information about commercial and kit VTOL vehicles see: [Complete Vehicles](../complete_vehicles/README.md) :::
 
 PX4로 제어되는 기체는 일반적으로 전원 시스템에 연결된 비행 컨트롤러, GPS, 외부 나침반(권장), 무선 제어 시스템(선택 사항), 텔레메트리(선택 사항) 및 속도 센서(VTOL용으로 강력 권장)와 같은 핵심 부품들을 공유합니다.
 
@@ -86,6 +88,7 @@ PX4로 제어되는 기체는 일반적으로 전원 시스템에 연결된 비�
 비행 컨트롤러 출력과 특정 컨트롤/모터 간의 매핑은 사용된 차량 프레임에 따라 다르며 [기체 정의서 &gt; VTOL](../airframes/airframe_reference.md#vtol)에 지정되어 있습니다.
 
 조립 방법은 여러 섹션에서 설명합니다.
+
 - [기본 조립](../assembly/README.md)에는 인기 있는 [비행 콘트롤러](../flight_controller/README.md)들의 핵심 부품들의 설정을 설명들이 포함되어 있습니다. 가이드가 없는 비행 컨트롤러는 일반적으로 거의 같은 방법으로 설정됩니다(거의 항상 유사한 설정 가이드가 포함됨).
 - [주변 장치](../peripherals/README.md)에는 [대기 속도 센서](../sensor/airspeed.md)를 비롯하여 기타 주변 장치에 대한 정보가 포함되어 있습니다.
 - [기체 정의서 &gt; VTOL](../airframes/airframe_reference.md#vtol) 각 기체 구성에 대해 다른 비행 콘트롤러에 연결하여야 하는 비행 컨트롤러 출력을 설명합니다.
@@ -97,27 +100,27 @@ PX4로 제어되는 기체는 일반적으로 전원 시스템에 연결된 비�
 ## 설정
 
 VTOL 설정은 여러 섹션에서 다룹니다.
+
 - [기본 설정](../config/README.md) - 모든 차량 유형(센서, 안전 시스템, 배터리 등)에 공통적인 설정입니다.
 - [VTOL 특정 구성](../config_vtol/README.md)
 - [주변 하드웨어](../peripherals/README.md) - 선택 가능한 하드웨와 및 센서에 대한 설정입니다.
 - [고급 설정](../advanced_config/README.md): 공장 조정과 고급 및 선택적 구성을 포함하는 추가 설정입니다.
 
-
 ## 비디오
 
 ### 교육
+
 VTOL Control & Airspeed Fault Detection (PX4 Developer Summit 2019)
 
 @[유투브](https://youtu.be/37BIBAzD6fE)
+
 <!-- 20190704 -->
 
 ### 테일시터
 
-
 [UAV Works VALAQ 순찰 테일 시터](https://www.valaqpatrol.com/valaq_patrol_technical_data/)
 
 @[유투브](https://youtu.be/pWt6uoqpPIw)
-
 
 [TBS Caipiroshka](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
 
@@ -135,11 +138,9 @@ VTOL Control & Airspeed Fault Detection (PX4 Developer Summit 2019)
 
 @[유투브](https://www.youtube.com/watch?v=4K8yaa6A0ks&vq=hd720)
 
-
 [Falcon Vertigo QuadPlane](../frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.md)
 
 @[유투브](https://youtu.be/h7OHTigtU0s)
-
 
 [Ranger QuadPlane](../frames_vtol/vtol_quadplane_volantex_ranger_ex_pixhawk.md)
 
