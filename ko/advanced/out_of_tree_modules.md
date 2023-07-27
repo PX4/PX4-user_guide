@@ -12,12 +12,12 @@ PX4 빌드에 외부("out of tree") 모듈을 추가하는 방법을 설명합�
 
 외부 모듈을 만들려면:
 
-- 외부 모듈을 그룹화하기 위한 *외부 디렉토리* 폴더를 만듭니다.
+- Create an _external directory_ folder for grouping the external modules:
   - 이것은 **PX4-Autopilot** 트리 외부 위치에 있을 수 있습니다.
   - **PX4-Autopilot**과 구조가 동일하여야 합니다(즉, **src**라는 디렉토리를 포함하여야 함).
   - 나중에 `EXTERNAL_MODULES_LOCATION`을 사용하여 이 디렉토리를 참조합니다.
 - 기존 모듈(예: **examples/px4_simple_app**)을 외부 디렉토리에 복사하거나 새 모듈을 직접 만듭니다.
-- 모듈의 이름을 변경하거나(**CMakeLists.txt**의 `MODULE` 포함), 기존 PX4-Autopilot *cmake* 빌드 구성에서 제거합니다. 이것은 내부 모듈과의 충돌을 피하기 위한 것입니다.
+- Rename the module (including `MODULE` in **CMakeLists.txt**) or remove it from the existing PX4-Autopilot _cmake_ build config. 이것은 내부 모듈과의 충돌을 피하기 위한 것입니다.
 - 콘텐츠가 있는 외부 디렉터리에 **CMakeLists.txt** 파일을 추가합니다.
   ```
   set(config_module_list_external
@@ -40,7 +40,6 @@ PX4 빌드에 외부("out of tree") 모듈을 추가하는 방법을 설명합�
     )
   ```
 
-
 ## 별도 uORB 메시지 정의
 
 uORB 메시지는 트리 외부에서 정의할 수 있습니다. 이를 위해서는 `$EXTERNAL_MODULES_LOCATION/msg` 폴더가 있어야 합니다.
@@ -56,6 +55,7 @@ uORB 메시지는 트리 외부에서 정의할 수 있습니다. 이를 위해�
       PARENT_SCOPE
       )
   ```
+
   여기서 `<message#>.msg`는 처리되고 uORB 메시지 생성에 사용되는 uORB 메시지 정의 파일의 이름입니다.
 
 외부 uORB 메시지는 일반 uORB 메시지와 동일한 위치에 생성됩니다. uORB 주제 헤더는 `<build_dir>/uORB/topics/`에 생성되며, 메시지 소스 파일은 `<build_dir>/msg/topics_sources/`에서 생성됩니다.
@@ -66,11 +66,10 @@ uORB 메시지는 트리 외부에서 정의할 수 있습니다. 이를 위해�
 외부 uORB 메시지 정의는 일반 uORB 메시지와 같은 이름을 가질 수 없습니다.
 :::
 
-
 ## 외부 모듈 및 uORB 메시지 빌드
 
 `make px4_sitl EXTERNAL_MODULES_LOCATION=<path>`을 실행합니다.
 
-다른 빌드 대상을 사용할 수 있지만, 빌드 디렉토리가 아직 존재하지 않아야 합니다. 이미 존재하는 경우, 빌드 폴더에서 *cmake* 변수를 설정할 수 있습니다.
+다른 빌드 대상을 사용할 수 있지만, 빌드 디렉토리가 아직 존재하지 않아야 합니다. If it already exists, you can also just set the _cmake_ variable in the build folder.
 
 차후 추가 빌드 과정에서는 `EXTERNAL_MODULES_LOCATION` 값을 지정할 필요가 없습니다.
