@@ -33362,6 +33362,14 @@ table {
  <td>8888</td>
  <td></td>
 </tr>
+<tr>
+ <td><strong id="UXRCE_DDS_SYNCT">UXRCE_DDS_SYNCT</strong> (INT32)</td>
+ <td>uXRCE-DDS timestamp synchronization enable <p><strong>Comment:</strong> When enabled, uxrce_dds_client will synchronize the timestamps of the incoming and outgoing messages measuring the offset between the Agent OS time and the PX4 time.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
 </tbody></table>
 
 ## VTOL Attitude Control
