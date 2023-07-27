@@ -14223,7 +14223,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_MOT_TEST_EN">COM_MOT_TEST_EN</strong> (INT32)</td>
- <td>Enable Motor Testing <p><strong>Comment:</strong> If set, enables the motor test interface via MAVLink (DO_MOTOR_TEST), that allows spinning the motors for testing purposes.</p>   </td>
+ <td>Enable Actuator Testing <p><strong>Comment:</strong> If set, enables the actuator test interface via MAVLink (ACTUATOR_TEST), that allows spinning the motors and moving the servos for testing purposes.</p>   </td>
  <td></td>
  <td>Enabled (1)</td>
  <td></td>
