@@ -12,7 +12,6 @@ Currently only [Grippers](../peripherals/gripper.md) can be used for package del
 The detailed documentation on how to setup a package delivery mission plan can be found [here](../flying/package_delivery_mission.md). Setup for the `payload_deliverer` module is covered in the documentation for the delivery mechanism, such as [Gripper](../peripherals/gripper.md#px4-configuration).
 :::
 
-
 ## Package Delivery Architecture Diagram
 
 ![Package delivery architecture overview](../../assets/advanced_config/payload_delivery_mission_architecture.png)
