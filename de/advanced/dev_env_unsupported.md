@@ -1,6 +1,6 @@
 # Unsupported Developer Toolchains
 
-This section contains topics about *unsupported* development platforms and tools (i.e. tools for which the code dev team are unlikely to be able to provide much advice).
+This section contains topics about _unsupported_ development platforms and tools (i.e. tools for which the code dev team are unlikely to be able to provide much advice).
 
 :::tip
 See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools we do support!
