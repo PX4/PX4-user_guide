@@ -9,10 +9,10 @@
 ## 가용 추정기
 
 사용 가능한 추정기는 다음과 같습니다.
-- **EKF2 고도 위치 풍향/풍속 상태 추정기** - EKF2는 고도, 3차원 위치 / 속도, 풍향/풍속 상태를 추정하는 확장 칼만 필터입니다.
-- **LPE 위치 추정기** - LPE 위치 추정기는 3차원 위치, 속도 상태를 추정하는 확장 칼만 필터입니다.
-- **Q 고도 추정기**  - Q 고도 추정기는 매우 간단한 쿼터니언 기반 고도 보완 필터입니다.
 
+- **EKF2 attitude, position and wind states estimator** - EKF2 is an extended Kalman filter estimating attitude, 3D position / velocity and wind states.
+- **LPE position estimator** - The LPE position estimator is an extended Kalman filter for 3D position and velocity states.
+- **Q 고도 추정기**  - Q 고도 추정기는 매우 간단한 쿼터니언 기반 고도 보완 필터입니다.
 
 ## 다양한 추정기 활성화 방법
 
