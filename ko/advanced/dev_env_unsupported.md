@@ -1,6 +1,6 @@
 # 지원되지 않는 개발 도구 모음
 
-*지원되지 않는* 개발 플랫폼 및 도구(예: 코드 개발 팀에서 많은 조언을 제공할 수 없는 도구)에 대하여 설명합니다.
+This section contains topics about _unsupported_ development platforms and tools (i.e. tools for which the code dev team are unlikely to be able to provide much advice).
 
 :::tip
 우리가 지원하는 환경과 도구에 대한 정보는 [도구 모음 설치](../dev_setup/dev_env.md)를 참조하십시오!
