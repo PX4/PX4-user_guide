@@ -2,42 +2,46 @@
 
 This topic explains how to construct and extend the development environment used for the no-longer-supported [Cygwin-based Windows Development Environment](../dev_setup/dev_env_windows_cygwin.md).
 
-
 ## Additional Information
 
 <a id="features"></a>
+
 ### Features / Issues
 
 The following features are known to work (version 2.0):
 
-* Building and running SITL with jMAVSim with significantly better performance than a VM (it generates a native windows binary **px4.exe**).
-* Building and uploading NuttX builds (e.g.: px4_fmu-v2 and px4_fmu-v4)
-* Style check with *astyle* (supports the command: `make format`)
-* Command line auto completion
-* Non-invasive installer! The installer does NOT affect your system and global path (it only modifies the selected installation directory e.g. **C:\PX4\** and uses a temporary local path).
-* The installer supports updating to a new version keeping your personal changes inside the toolchain folder
+- Building and running SITL with jMAVSim with significantly better performance than a VM (it generates a native windows binary **px4.exe**).
+- Building and uploading NuttX builds (e.g.: px4_fmu-v2 and px4_fmu-v4)
+- Style check with _astyle_ (supports the command: `make format`)
+- Command line auto completion
+- Non-invasive installer! The installer does NOT affect your system and global path (it only modifies the selected installation directory e.g. \*\*C:\PX4\*\* and uses a temporary local path).
+- The installer supports updating to a new version keeping your personal changes inside the toolchain folder
 
 Omissions:
-* Simulation: Gazebo and ROS are not supported.
-* Only NuttX and JMAVSim/SITL builds are supported.
-* [Known problems](https://github.com/orgs/PX4/projects/6) (Also use to report issues).
+
+- Simulation: Gazebo and ROS are not supported.
+- Only NuttX and JMAVSim/SITL builds are supported.
+- [Known problems](https://github.com/orgs/PX4/projects/6) (Also use to report issues).
 
 <a id="script_setup"></a>
+
 ### Shell Script Installation
 
 You can also install the environment using shell scripts in the Github project.
 
 1. Make sure you have [Git for Windows](https://git-scm.com/download/win) installed.
 1. Clone the repository https://github.com/PX4/windows-toolchain to the location you want to install the toolchain. Default location and naming is achieved by opening the `Git Bash` and executing:
+
 ```
 cd /c/
 git clone https://github.com/PX4/windows-toolchain PX4
 ```
+
 1. If you want to install all components navigate to the freshly cloned folder and double click on the script `install-all-components.bat` located in the folder `toolchain`. If you only need certain components and want to safe Internet traffic and or disk space you can navigate to the different component folders like e.g. `toolchain\cygwin64` and click on the **install-XXX.bat** scripts to only fetch something specific.
 1. Continue with [Getting Started](../dev_setup/dev_env_windows_cygwin.md#getting-started).
 
-
 <a id="manual_setup"></a>
+
 ### Manual Installation (for Toolchain Developers)
 
 This section describes how to setup the Cygwin toolchain manually yourself while pointing to the corresponding scripts from the script based installation repo.
@@ -47,32 +51,32 @@ The result should be the same as using the scripts or MSI installer.
 The toolchain gets maintained and hence these instructions might not cover every detail of all the future changes.
 :::
 
-1. Create the *folders*: **C:\PX4\**, **C:\PX4\toolchain\** and **C:\PX4\home\**
-1. Download the *Cygwin installer* file [setup-x86_64.exe](https://cygwin.com/setup-x86_64.exe) from the [official Cygwin website](https://cygwin.com/install.html)
+1. Create the _folders_: **C:\PX4\*\*, **C:\PX4\toolchain\*\* and \*\*C:\PX4\home\*\*
+1. Download the _Cygwin installer_ file [setup-x86_64.exe](https://cygwin.com/setup-x86_64.exe) from the [official Cygwin website](https://cygwin.com/install.html)
 1. Run the downloaded setup file
-1. In the wizard choose to install into the folder: **C:\PX4\toolchain\cygwin64\**
+1. In the wizard choose to install into the folder: \*\*C:\PX4\toolchain\cygwin64\*\*
 1. Select to install the default Cygwin base and the newest available version of the following additional packages:
 
-   * **Category:Packagename**
-   * Devel:cmake (3.3.2 gives no deprecated warnings, 3.6.2 works but has the warnings)
-   * Devel:gcc-g++
-   * Devel:gdb
-   * Devel:git
-   * Devel:make
-   * Devel:ninja
-   * Devel:patch
-   * Editors:xxd
-   * Editors:nano (unless you're the vim pro)
-   * Python:python2
-   * Python:python2-pip
-   * Python:python2-numpy
-   * Python:python2-jinja2
-   * Python:python2-pyyaml
-   * Python:python2-cerberus
-   * Archive:unzip
-   * Utils:astyle
-   * Shells:bash-completion
-   * Web:wget
+   - **Category:Packagename**
+   - Devel:cmake (3.3.2 gives no deprecated warnings, 3.6.2 works but has the warnings)
+   - Devel:gcc-g++
+   - Devel:gdb
+   - Devel:git
+   - Devel:make
+   - Devel:ninja
+   - Devel:patch
+   - Editors:xxd
+   - Editors:nano (unless you're the vim pro)
+   - Python:python2
+   - Python:python2-pip
+   - Python:python2-numpy
+   - Python:python2-jinja2
+   - Python:python2-pyyaml
+   - Python:python2-cerberus
+   - Archive:unzip
+   - Utils:astyle
+   - Shells:bash-completion
+   - Web:wget
 
    :::note
    Do not select as many packages as possible which are not on this list, there are some which conflict and break the builds.
@@ -90,6 +94,7 @@ The toolchain gets maintained and hence these instructions might not cover every
    The script [setup-environment.bat](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat) locally sets environmental variables for the workspace root directory `PX4_DIR`, all binary locations `PATH`, and the home directory of the unix environment `HOME`.
 
 1. Add necessary **python packages** to your setup by opening the Cygwin toolchain console (double clicking **run-console.bat**) and executing
+
    ```
    pip2 install toml
    pip2 install pyserial
@@ -107,10 +112,11 @@ The toolchain gets maintained and hence these instructions might not cover every
    :::
 
 1. Install the JDK:
-   * Download Java 14 from [Oracle](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) or [AdoptOpenJDK](https://adoptopenjdk.net/).
-   * Because sadly there is no portable archive containing the binaries directly you have to install it.
-   * Find the binaries and move/copy them to **C:\PX4\toolchain\jdk**.
-   * You can uninstall the Kit from your Windows system again, we only needed the binaries for the toolchain.
+
+   - Download Java 14 from [Oracle](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) or [AdoptOpenJDK](https://adoptopenjdk.net/).
+   - Because sadly there is no portable archive containing the binaries directly you have to install it.
+   - Find the binaries and move/copy them to **C:\PX4\toolchain\jdk**.
+   - You can uninstall the Kit from your Windows system again, we only needed the binaries for the toolchain.
 
    :::note
    This is what the toolchain does in: [jdk/install-jdk.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat).
@@ -126,23 +132,29 @@ The toolchain gets maintained and hence these instructions might not cover every
    This is what the toolchain does in: [apache-ant/install-apache-ant.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat).
    :::
 
-1. Download, build and add *genromfs* to the path:
-   * Clone the source code to the folder **C:\PX4\toolchain\genromfs\genromfs-src** with
+1. Download, build and add _genromfs_ to the path:
+
+   - Clone the source code to the folder **C:\PX4\toolchain\genromfs\genromfs-src** with
+
      ```
      cd /c/toolchain/genromfs
      git clone https://github.com/chexum/genromfs.git genromfs-src
      ```
 
-   * Compile it with:
+   - Compile it with:
      ```
      cd genromfs-src
      make all
-    ```
+     ```
 
-    * Copy the resulting binary **genromfs.exe** one folder level out to: **C:\PX4\toolchain\genromfs**
+   ```
 
-    :::note
-	This is what the toolchain does in: [genromfs/install-genromfs.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/genromfs/install-genromfs.bat).
-	:::
+   * Copy the resulting binary **genromfs.exe** one folder level out to: **C:\PX4\toolchain\genromfs**
+
+   :::note
+   .
+   :
+
+   ```
 
 1. Make sure all the binary folders of all the installed components are correctly listed in the `PATH` variable configured by [**setup-environment.bat**](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat).

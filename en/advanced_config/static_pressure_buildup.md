@@ -1,6 +1,6 @@
 # Static Pressure Buildup
 
-Air flowing over an enclosed vehicle can cause the *static pressure* to change within the canopy/hull. 
+Air flowing over an enclosed vehicle can cause the _static pressure_ to change within the canopy/hull.
 Depending on the location of holes/leaks in the hull, you can end up with under or overpressure (similar to a wing).
 
 The change in pressure can affect barometer measurements, leading to an inaccurate altitude estimate.
@@ -32,10 +32,10 @@ Aim for a barometer altitude drop of less than 2 metres at maximum horizontal sp
 
 ## Dynamic Calibration
 
-After modifying the hardware, you can then use the [EKF2\_PCOEF\_*](../advanced_config/parameter_reference.md#EKF2_PCOEF_XN) parameters to tune for expected barometer variation based on relative air velocity.
+After modifying the hardware, you can then use the [EKF2_PCOEF\_\*](../advanced_config/parameter_reference.md#EKF2_PCOEF_XN) parameters to tune for expected barometer variation based on relative air velocity.
 For more information see [ECL/EKF Overview & Tuning > Correction for Static Pressure Position Error](../advanced_config/tuning_the_ecl_ekf.md#correction-for-static-pressure-position-error).
 
 :::note
-The approach works well if the relationship between the error due to static pressure and the velocity varies linearly. 
+The approach works well if the relationship between the error due to static pressure and the velocity varies linearly.
 If the vehicle has a more complex aerodynamic model it will be less effective.
 :::
