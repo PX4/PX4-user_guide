@@ -1,49 +1,61 @@
 # 串口配置
 
-Many serial (UART) ports on a Pixhawk board can be fully configured via parameters: e.g.: `GPS1`, `TELEM1`, `TELEM2`, `TELEM4` (`UART+I2C`).
+PX4 defines [default functions](#default-serial-port-configuration) for many flight controller ports, which is why you can plug a GPS module into the port labelled `GPS 1`, an RC receiver into `RC IN`, or a telemetry module into `TELEM 1`, and generally they will just work.
+
+The functions assigned to ports are fully configurable using appropriate parameters (in most cases). You can assign any unused port to any function, or reassign a port to use it for something else.
 
 通过配置，可以轻松地(例如)：
-- 更改端口上的波特率
-- 在其他端口上运行 MAVLink ，或更改流消息
-- 设置双 GPS
-- 启用在串口上运行的传感器，例如某些 [距离传感器](../sensor/rangefinders.md) 。
+
+- Run MAVLink on a different port, change the streamed messages, or switch a TELEM port to use ROS 2/XRCE-DDS.
+- Change the baud rate on a port or set the UDP port
+- Setup dual GPS.
+- Enable sensors that run on a serial port, such as some [distance sensors](../sensor/rangefinders.md).
 
 :::note
-Some ports cannot be configured because they are used for a very specific purpose like RC input or the system console (`SERIAL 5`).
+
+- Some ports cannot be configured because they are used for a very specific purpose such as the system console.
+- The mapping of specific devices to port names on the flight controller is explained in [Serial Port Mapping](../hardware/serial_port_mapping.md).
 :::
 
-<span id="default_port_mapping"></span>
-## 端口预配置
+## Configuration Parameters
 
-The following functions are typically mapped to the same specific serial ports on all boards, and are hence mapped by default:
+The serial port configuration parameters allow you to assign a particular function or support for particular hardware to a particular port. These parameters follow the naming pattern `*_CONFIG` or `*_CFG`
 
-- MAVLink 被映射到 `Telem 1` 端口，端口的波特率为 57600 (对于[遥测模块](../telemetry/README.md))。
-- GPS 1 ([gps driver](../modules/modules_driver.md#gps)) is mapped to the `GPS 1` port with a baudrate *Auto* (with this setting a GPS will automatically detect the baudrate - except for the Trimble MB-Two, which requires 115200 baudrate).
-- MAVLink is mapped to the Ethernet port using `MAV_2_CONFIG` on Pixhawk devices that have an Ethernet port.
-
-All other ports have no assigned functions by default (are disabled).
-
-:::tip
-The port mappings above can be disabled by setting [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), and [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) to *Disabled*, respectively.
+:::note
+_QGroundControl_ only displays the parameters for services/drivers that are present in firmware.
 :::
 
+At time of writing the current set is:
+
+- GPS configuration: [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)
+- [Iridium Satellite radio](../advanced_features/satcom_roadblock.md): [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG)
+- [MAVLink Ports](../peripherals/mavlink_peripherals.md): [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG), [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG)
+- Modal IO ESC: [MODAL_IO_CONFIG](../advanced_config/parameter_reference.md#MODAL_IO_CONFIG)
+- MSP OSD: [MSP_OSD_CONFIG](../advanced_config/parameter_reference.md#MSP_OSD_CONFIG)
+- RC Port: [RC_PORT_CONFIG](../advanced_config/parameter_reference.md#RC_PORT_CONFIG)
+- [FrSky Telemetry](../peripherals/frsky_telemetry.md): [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG)
+- HoTT Telemetry: [TEL_HOTT_CONFIG](../advanced_config/parameter_reference.md#TEL_HOTT_CONFIG)
+- [uXRCE-DDS](../middleware/uxrce_dds.md) port: [UXRCE_DDS_CFG](../advanced_config/parameter_reference.md#UXRCE_DDS_CFG),
+- Sensors (optical flow, distance sensors): [SENS_CM8JL65_CFG](../advanced_config/parameter_reference.md#SENS_CM8JL65_CFG), [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG), [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG), [SENS_TFLOW_CFG](../advanced_config/parameter_reference.md#SENS_TFLOW_CFG), [SENS_TFMINI_CFG](../advanced_config/parameter_reference.md#SENS_TFMINI_CFG), [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG), [SENS_VN_CFG](../advanced_config/parameter_reference.md#SENS_VN_CFG),
+- CRSF RC Input Driver: [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG)
+- Sagetech MXS: [MXS_SER_CFG](../advanced_config/parameter_reference.md#MXS_SER_CFG)
+- Ultrawideband position sensor: [UWB_PORT_CFG](../advanced_config/parameter_reference.md#UWB_PORT_CFG)
+- DShot driver: [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG)
+
+Some functions/features may define additional configuration parameters, which will follow a similar naming pattern to the port configuration prefix. For example, `MAV_0_CONFIG` enables MAVLink on a particular port, but you may also need to set [MAV_0_FLOW_CTRL](../advanced_config/parameter_reference.md#MAV_0_FLOW_CTRL), [MAV_0_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FLOW_CTRL), [MAV_0_MODE](../advanced_config/parameter_reference.md#MAV_0_MODE) and so on.
 
 ## 如何配置端口
 
 All the serial drivers/ports are configured in the same way:
+
 1. Set the configuration parameter for the service/peripheral to the port it will use.
-
-:::note
-Configuration parameter names follow the pattern `*_CONFIG` or `*_CFG` (*QGroundControl* only displays the parameters for services/drivers that are present in firmware).
-
-   At time of writing the current set is: [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG), [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG), [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG), [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG), [MODAL_IO_CONFIG](../advanced_config/parameter_reference.md#MODAL_IO_CONFIG), [MSP_OSD_CONFIG](../advanced_config/parameter_reference.md#MSP_OSD_CONFIG), [RC_PORT_CONFIG](../advanced_config/parameter_reference.md#RC_PORT_CONFIG), [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG), [TEL_HOTT_CONFIG](../advanced_config/parameter_reference.md#TEL_HOTT_CONFIG), [UXRCE_DDS_CFG](../advanced_config/parameter_reference.md#UXRCE_DDS_CFG), [SENS_CM8JL65_CFG](../advanced_config/parameter_reference.md#SENS_CM8JL65_CFG), [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG), [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG), [SENS_TFLOW_CFG](../advanced_config/parameter_reference.md#SENS_TFLOW_CFG), [SENS_TFMINI_CFG](../advanced_config/parameter_reference.md#SENS_TFMINI_CFG), [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG), [SENS_VN_CFG](../advanced_config/parameter_reference.md#SENS_VN_CFG), [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG), [MXS_SER_CFG](../advanced_config/parameter_reference.md#MXS_SER_CFG), [UWB_PORT_CFG](../advanced_config/parameter_reference.md#UWB_PORT_CFG), [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG)
-:::
 1. Reboot the vehicle in order to make the additional configuration parameters visible.
 1. 将所选端口的波特率设置为所需值。
 1. Configure module-specific parameters (i.e. MAVLink streams and data rate configuration).
 
-The [GPS/Compass > Secondary GPS](../gps_compass/README.md#dual_gps) section provides a practical example of how to configure a port in *QGroundControl* (it shows how to use `GPS_2_CONFIG` to run a secondary GPS on the `TELEM 2` port).
+The [GPS/Compass > Secondary GPS](../gps_compass/README.md#dual_gps) section provides a practical example of how to configure a port in _QGroundControl_ (it shows how to use `GPS_2_CONFIG` to run a secondary GPS on the `TELEM 2` port).
 
+Similarly [PX4 Ethernet Setup > PX4 MAVLink Serial Port Configuration](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration) explains the setup for Ethernet serial ports, and [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md) explains the configuration for MAVLink serial ports.
 
 ## Deconflicting Ports
 
@@ -53,26 +65,62 @@ Port conflicts are handled by system startup, which ensures that at most one ser
 At time of writing there is no user feedback about conflicting ports.
 :::
 
+<a id="default_port_mapping"></a>
+
+## Default Serial Port Configuration
+
+:::tip
+These port mappings can be disabled by setting the associated configuration parameter to _Disabled_.
+:::
+
+The following ports are commonly mapped to specific functions on all boards:
+
+- `GPS 1` is configured as a GPS port (using [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)).
+
+  This maps the [gps driver](../modules/modules_driver.md#gps) to the port with a baud rate of _Auto_ (with this setting a GPS will automatically detect the baudrate - except for the Trimble MB-Two, which requires 115200 baud rate).
+
+- `RC IN` is configured as an RC input (using [RC_PORT_CONFIG](../advanced_config/parameter_reference.md#RC_PORT_CONFIG)).
+- `TELEM 1` is configured as a MAVLink serial port suitable for connection to a GCS via a [telemetry module](../telemetry/README.md).
+
+  The configuration uses [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) to set the port, [MAV_0_RATE](../advanced_config/parameter_reference.md#MAV_0_RATE) to set the baud rate to 57600, and [MAV_0_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) to set the messages streamed to "Normal". For more information see: [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md).
+
+- `TELEM 2` is configured by default as a MAVLink serial port suitable for connection to an Onboard/Companion computer via a wired connection.
+
+  The configuration uses [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) to set the port, [MAV_1_RATE](../advanced_config/parameter_reference.md#MAV_1_RATE) to set the baud rate, and [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) to set the messages streamed to "Onboard". For more information see: [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md).
+
+- `Ethernet` is mapped as a MAVLink port on Pixhawk devices that have an Ethernet port.
+
+  The configuration uses [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) and appropriate settings for the UDP port etc. For more information see [PX4 Ethernet Setup > PX4 MAVLink Serial Port Configuration](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration) and [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md).
+
+Other ports generally have no assigned functions by default (are disabled).
+
 ## 故障处理
 
 <a id="parameter_not_in_firmware"></a>
 
-### Configuration Parameter Missing from *QGroundControl*
+### Configuration Parameter Missing from _QGroundControl_
 
-*QGroundControl* only displays the parameters for services/drivers that are present in firmware. If a parameter is missing, then you may need to add it in firmware.
+_QGroundControl_ only displays the parameters for services/drivers that are present in firmware. If a parameter is missing, then you may need to add it in firmware.
 
 :::note PX4 firmware includes most drivers by default on [Pixhawk-series](../flight_controller/pixhawk_series.md) boards. Flash-limited boards may comment out/omit the driver (at time of writing this only affects boards based on FMUv2).
 :::
 
 You can include the missing driver in firmware by enabling the driver in the **default.px4board** config file that corresponds to the [board](https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4) you want to build for. For example, to enable the SRF02 driver, you would a the following line to the px4board.
+
 ```
 CONFIG_DRIVERS_DISTANCE_SENSOR_SRF02=y
 ```
 
-An easier method would be using boardconfig which launches a GUI where you can easily search, disable and enable modules. To launch boardconfig type `make <vendor>_<board>_<label> boardconfig`
+An easier method would be using boardconfig which launches a GUI where you can easily search, disable and enable modules. To launch boardconfig type:
+
+```
+make <vendor>_<board>_<label> boardconfig
+```
 
 You will then need to build the firmware for your platform, as described in [Building PX4 Software](../dev_setup/building_px4.md).
 
 ## 更多信息
 
-* [MAVLink 外设 (OSD/GCS/机载计算机/等等)](../peripherals/mavlink_peripherals.md)
+- [MAVLink 外设 (OSD/GCS/机载计算机/等等)](../peripherals/mavlink_peripherals.md)
+- [PX4 Ethernet Setup > PX4 MAVLink Serial Port Configuration](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration)
+- [Serial Port Mapping](../hardware/serial_port_mapping.md)
