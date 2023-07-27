@@ -29,7 +29,6 @@ Jump to the [actuator configuration step (7)](#actuatorconfig_step) (which is st
 
 OneShot ESCs should be [configured to use OneShot](../peripherals/oneshot.md#px4-configuration) before calibration. You should calibrate the ESCs after switching, even if you have previously calibrated.
 
-
 ## Preconditions
 
 The calibration sequence requires that you are able keep the flight controller powered while manually power-cyling the ESCs.
@@ -39,7 +38,6 @@ Flight control systems that can't power the autopilot via USB will need a [diffe
 
 If the battery is connected via a power module the calibration procedure can detect the battery connection and use it to drive the calibration sequence.
 If battery power can't be detected the calibration sequence is performed based on timeouts.
-
 
 ## Steps
 
@@ -60,7 +58,7 @@ To calibrate the ESCs:
 1. Unpower the ESCs by unplugging the battery.
    The flight controller must stay powered, for example, by keeping the USB connected to the ground station.
 
-1. Open the *QGroundControl* **Settings > Power**, then press the **Calibrate** button.
+1. Open the _QGroundControl_ **Settings > Power**, then press the **Calibrate** button.
 
    ![ESC Calibration step 1](../../assets/qgc/setup/esc/qgc_esc_calibration.png)
 

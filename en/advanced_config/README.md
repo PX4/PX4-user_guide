@@ -4,9 +4,9 @@ This section contains configuration topics that are relevant when bringing up a 
 It covers vehicle-specific tuning, factory/OEM calibration, and more advanced/less-common configuration.
 
 Note that the [peripheral hardware](../peripherals/README.md) documentation contains configuration that is specific to particular sensors and actuators.
- 
+
 :::tip
-If working with an existing kit or ready-to-fly airframe you should only need the [Basic Configuration](../config/README.md). 
+If working with an existing kit or ready-to-fly airframe you should only need the [Basic Configuration](../config/README.md).
 :::
 
 Topics include:
