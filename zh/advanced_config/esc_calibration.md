@@ -19,7 +19,6 @@ If you want to use an ESC that does not support this calibration, then it must b
 
 OneShot ESCs should be [configured to use OneShot](../peripherals/oneshot.md#px4-configuration) before calibration. You should calibrate the ESCs after switching, even if you have previously calibrated.
 
-
 ## 前置条件
 
 The calibration sequence requires that you are able keep the flight controller powered while manually power-cyling the ESCs.
@@ -27,7 +26,6 @@ The calibration sequence requires that you are able keep the flight controller p
 If using a Pixhawk flight controller, the recommended way to do this is to separately power the flight controller via USB, and connect/disconnect the battery to power the ESCs when needed. Flight control systems that can't power the autopilot via USB will need a [different approach](#problem_power_module).
 
 If the battery is connected via a power module the calibration procedure can detect the battery connection and use it to drive the calibration sequence. If battery power can't be detected the calibration sequence is performed based on timeouts.
-
 
 ## 步骤
 
@@ -44,7 +42,7 @@ Never attempt ESC calibration with propellers on!
 
 1. Unpower the ESCs by unplugging the battery. The flight controller must stay powered, for example, by keeping the USB connected to the ground station.
 
-1. Open the *QGroundControl* **Settings > Power**, then press the **Calibrate** button.
+1. Open the _QGroundControl_ **Settings > Power**, then press the **Calibrate** button.
 
    ![电调校准步骤 1](../../assets/qgc/setup/esc/qgc_esc_calibration.png)
 
