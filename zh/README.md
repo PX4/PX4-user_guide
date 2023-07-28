@@ -4,7 +4,7 @@
 
 [![版本发布](https://img.shields.io/badge/release-main-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![讨论](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](https://discuss.px4.io//) [![Discord](https://discordapp.com/api/guilds/1022170275984457759/widget.png?style=shield)](https://discord.gg/dronecode)
 
-PX4 is the *Professional Autopilot*. 它由来自业界和学术界的世界级开发商开发，并得到活跃的全球社区的支持，为从竞速和物流无人机到地面车辆和潜水艇的各种载具提供动力。
+PX4 is the _Professional Autopilot_. 它由来自业界和学术界的世界级开发商开发，并得到活跃的全球社区的支持，为从竞速和物流无人机到地面车辆和潜水艇的各种载具提供动力。
 
 :::tip
 本指南包含了组装、配置和安全驾驶基于 PX4 的飞机所需的一切。 对贡献感兴趣吗 查看[开发](development/development.md)部分。 :::
@@ -22,11 +22,13 @@ PX4 is the *Professional Autopilot*. 它由来自业界和学术界的世界级�
 - [基本配置](config/README.md) 解释了如何将固件更新到最新版本，校准主传感器（罗盘、陀螺仪、空速等），以及如何设置遥控器和安全功能。
 - [飞行](flying/README.md) 教授飞行要领，包括安全飞行的地点和方式，以及如何调试解锁和飞行问题。 同样提供了关于飞行模式的详细信息。
 
-
 **我想要从头开始组装一架使用PX4的无人机：**
 
 :::tip
-支持的机体列举在 [机架参考](airframes/airframe_reference.md)。 These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*. :::
+
+The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using _QGroundControl_.
+
+:::
 
 如果您想从头开始组装一架飞机：
 
@@ -51,22 +53,20 @@ PX4 is the *Professional Autopilot*. 它由来自业界和学术界的世界级�
 - [基本配置](config/README.md)解释了如何校准主传感器。
 - [高级配置](advanced_config/README.md)应该用于重新/微调机架。
 
-
 **我想在新硬件上运行 PX4 并扩展平台：**
 
 - [开发](development/development.md)介绍了如何支持新的机架、机型，修改飞行算法，添加新的模式，集成新的硬件，从飞行控制器的外部与PX4通信，以及如何为PX4做出贡献。
-
 
 ## 获取帮助
 
 [帮助](contribute/support.md)页面介绍了如何从核心开发团队和更广泛的社区获取帮助。
 
 除此以外，它还包括了：
+
 - [您可以得到帮助的论坛](contribute/support.md#forums-and-chat)
 - [问题诊断](contribute/support.md#diagnosing-problems)
 - [如何报告错误（bugs）](contribute/support.md#issue-bug-reporting)
 - [每周开发通讯](contribute/support.md#weekly-dev-call)
-
 
 ## 报告Bug & 问题
 
@@ -74,10 +74,10 @@ PX4 is the *Professional Autopilot*. 它由来自业界和学术界的世界级�
 
 如果代码的问题得到了开发团队的指导，这个问题可能会被上传到[Github here](https://github.com/PX4/PX4-Autopilot/issues)。 如果可能，请提供问题模板中所要求的[飞行日志](getting_started/flight_reporting.md)和其他信息。
 
-
 ## 参与贡献
 
 有关如何贡献代码和文档的信息可以在[贡献](contribute/README.md)部分中找到：
+
 - [代码](contribute/README.md)
 - [文档](contribute/docs.md)
 - [翻译](contribute/translation.md)
@@ -90,15 +90,15 @@ PX4 is the *Professional Autopilot*. 它由来自业界和学术界的世界级�
 
 ## 许可证
 
-根据许可 [BSD 3 条款许可证](https://opensource.org/licenses/BSD-3-Clause) 的细则，PX4 代码可自由使用和修改。 文档在[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)中获得许可。 更多信息请参见：[许可证](contribute/licenses.md)。
-
+PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). 文档在[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)中获得许可。 更多信息请参见：[许可证](contribute/licenses.md)。
 
 ## 日历 & 活动
 
-The *Dronecode Calendar* shows important community events for platform users and developers. 选择以下链接将其显示在您所在的时区日历中(并将其添加到您自己的日历中)：
-* [瑞士 - 苏黎世州](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
-* [太平洋时间—蒂华纳](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
-* [澳大利亚 - 墨尔本/悉尼/霍巴特](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
+The _Dronecode Calendar_ shows important community events for platform users and developers. 选择以下链接将其显示在您所在的时区日历中(并将其添加到您自己的日历中)：
+
+- [瑞士 - 苏黎世州](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
+- [太平洋时间—蒂华纳](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
+- [澳大利亚 - 墨尔本/悉尼/霍巴特](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
 
 :::tip
 The calendar default timezone is Central European Time (CET).
@@ -107,20 +107,19 @@ The calendar default timezone is Central European Time (CET).
 
 <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
-
 ### 图标
 
 此库中使用的以下图标是单独授权的（如下所示）：
 
-<img src="../assets/site/position_fixed.svg" title="需要定位（例如 GPS ）" width="30px" /> *placeholder* icon made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
+<img src="../assets/site/position_fixed.svg" title="需要定位（例如 GPS ）" width="30px" /> _placeholder_ icon made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
-<img src="../assets/site/automatic_mode.svg" title="自动模式" width="30px" /> *camera-automatic-mode* icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
-
+<img src="../assets/site/automatic_mode.svg" title="自动模式" width="30px" /> _camera-automatic-mode_ icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
 ## 治理
 
 PX4飞行控制栈由 [Dronecode项目](https://www.dronecode.org/) 治理。
 
-<a href="" style="padding:20px" ><img src="" alt="" width="110px"/></a>
-<a href="" style="padding:20px;"><img src="" alt="" width="80px" /></a>
+<a href="https://www.dronecode.org/" style="padding:20px" ><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode 徽标" width="110px"/></a>
+<a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="Linux 基金会徽标" width="80px" /></a>
+
 <div style="padding:10px">&nbsp;</div>
