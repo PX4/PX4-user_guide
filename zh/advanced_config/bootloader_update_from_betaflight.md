@@ -7,25 +7,24 @@ There are three tools that can be used to flash the PX4 bootloader: _Betaflight 
 :::note
 The _Betaflight Configurator_ is easiest, but newer versions may not support non-betaflight bootloader update. You might try it first, but use the other methods if firmware update does not work. 飞控板上电后可以放开该按钮。
 
-
 ## Betaflight Configurator Bootloader Update
 
 :::note
 _Betaflight Configurator_ may not support PX4 Bootloader update, as of May 2023. Older versions should work, though the precise versions are not known. 飞控板上电后可以放开该按钮。
 
-To install the PX4 bootloader using the *Betaflight Configurator*:
+To install the PX4 bootloader using the _Betaflight Configurator_:
 
 1. Download or build [bootloader firmware](#bootloader-firmware) for the board you want to flash.
 1. 下载适用于您平台的[ Betaflight 配置器](https://github.com/betaflight/betaflight-configurator/releases)。
 
 :::tip
-If using the *Chrome* web browser, a simple cross-platform alternative is to install the configurator as an [extension from here](https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao). 飞控板上电后可以放开该按钮。
+If using the _Chrome_ web browser, a simple cross-platform alternative is to install the configurator as an [extension from here](https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao). 飞控板上电后可以放开该按钮。
+
 1. 将飞控板连接到 PC 并启动 Betaflight 配置器。
 1. Press the **Load Firmware [Local]** button ![Betaflight 配置器-本地固件](../../assets/flight_controller/omnibus_f4_sd/betaflight_configurator.jpg)
 1. 从文件系统中选择 bootloader 二进制文件，然后烧写进飞控板的 flash。
 
 现在，您应当可以在飞控板上安装 PX4 固件了。
-
 
 ## DFU Bootloader Update
 
@@ -64,7 +63,6 @@ dfu-util -a 0 --dfuse-address 0x08000000 -D  build/<target>/<target>.bin
 The dfuse manual can be found here: https://www.st.com/resource/en/user_manual/cd00155676.pdf
 
 Use the tool to flash the `<target>.bin` file.
-
 
 ## Bootloader Firmware
 
@@ -112,8 +110,8 @@ make <target> # For example: omnibusf4sd_bl or kakutef7_bl
 
 ## 重新安装 Beatflight 固件
 
-In order to switch back to *Betaflight*:
+In order to switch back to _Betaflight_:
 
 1. Backup the PX4 parameters. You can do this by [exporting](../advanced/parameters_and_configurations.md#exporting-and-loading-parameters) them to an SD card.
 1. Keep the **bootloader** button pressed while attaching the USB cable
-1. Flash *Betaflight* as usual with the *Betaflight-configurator*
+1. Flash _Betaflight_ as usual with the _Betaflight-configurator_
