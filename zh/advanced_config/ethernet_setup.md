@@ -5,6 +5,7 @@ Ethernet connectivity provides a fast, reliable, and flexible communication alte
 It can be used to connect to ground stations, companion computers, and other MAVLink systems. It is particularly recommended when connecting to systems that "natively" use Ethernet - for example IP radios.
 
 This topic covers:
+
 - [PX4 Ethernet Setup](#px4-ethernet-setup)
   - [Supported Flight Controllers](#supported-flight-controllers)
   - [Setting up the Ethernet Network](#setting-up-the-ethernet-network)
@@ -22,9 +23,9 @@ PX4 supports Ethernet connectivity on [Pixhawk 5X-standard](https://github.com/p
 
 Supported flight controllers include:
 
- - [CUAV Pixhawk V6X](../flight_controller/cuav_pixhawk_v6x.md)
- - [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md)
- - [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md)
+- [CUAV Pixhawk V6X](../flight_controller/cuav_pixhawk_v6x.md)
+- [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md)
+- [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md)
 
 ## Setting up the Ethernet Network
 
@@ -44,6 +45,7 @@ Which is to say that a knowledge of how IP networks work is highly desirable!
 PX4 uses the [netman](../modules/modules_system.md#netman) module to apply and update network settings.
 
 Network settings are defined in the configuration file `/fs/microsd/net.cfg` on the SD card. This is a text file, that defines each setting on a new line as a `name=value` pair. A configuration file might look like this:
+
 ```
 DEVICE=eth0
 BOOTPROTO=fallback
@@ -54,6 +56,7 @@ DNS=192.168.0.254
 ```
 
 Where the values are:
+
 - `DEVICE`: Interface name. Default is `eth0`.
 - `BOOTPROTO`: Protocol for getting PX4 IP address. Valid values for proto are: `dhcp`, `static`, `fallback` (use DHCP but fall back to static address after time, if that fails)
 - `IPADDR`: Static IP address (used if BOOTPROTO is `static` or `fallback`)
@@ -61,12 +64,13 @@ Where the values are:
 - `ROUTER`: The address of the default route.
 - `DNS`: The address of the DNS server.
 
-To set the above "example" configuration using the *QGroundControl*:
+To set the above "example" configuration using the _QGroundControl_:
 
 1. Connect the flight controller to the computer with the USB cable.
 1. Open **QGroundcontrol > Analyze Tools > MAVLink Console**
-1. Enter commands "like" the ones below into the *MAVLink Console* (to write the values to the configuration file):
-   ```
+1. Enter commands "like" the ones below into the _MAVLink Console_ (to write the values to the configuration file):
+
+   ```bash
    echo DEVICE=eth0 > /fs/microsd/net.cfg
    echo BOOTPROTO=fallback >> /fs/microsd/net.cfg
    echo IPADDR=192.168.0.4 >> /fs/microsd/net.cfg
@@ -74,11 +78,11 @@ To set the above "example" configuration using the *QGroundControl*:
    echo ROUTER=192.168.0.254 >>/fs/microsd/net.cfg
    echo DNS=192.168.0.254 >>/fs/microsd/net.cfg
    ```
+
 1. Once the network configuration has been set you can disconnect the USB cable.
 1. Reboot the flight controller to apply the settings.
 
 Note that the above setup gives the flight controller an address on the Ethernet network. You also need to [configure the Ethernet port](#px4-mavlink-serial-port-configuration) to use MAVLink.
-
 
 ### Ubuntu Ethernet Network Setup
 
@@ -88,13 +92,14 @@ Below we show how you write a setup to the netplan configuration file "`/etc/net
 
 To setup the Ubuntu Computer:
 
-1. In a terminal, create and open a `netplan` configuration file: `/etc/netplan/01-network-manager-all.yaml` Below we do this using the *nano* text editor.
+1. In a terminal, create and open a `netplan` configuration file: `/etc/netplan/01-network-manager-all.yaml` Below we do this using the _nano_ text editor.
 
    ```
-   sudo nano /etc/netplan/01-network-manager-all.yaml 
+   sudo nano /etc/netplan/01-network-manager-all.yaml
    ```
 
 1. Copy and paste the following configuration information into the file (note: the indentations are important!):
+
    ```
    network:
      version: 2
@@ -111,18 +116,18 @@ To setup the Ubuntu Computer:
    ```
 
    Save and exit the editor.
-1. Apply the *netplan* configuration by entering the following command into the Ubuntu terminal.
+
+1. Apply the _netplan_ configuration by entering the following command into the Ubuntu terminal.
+
    ```
    sudo netplan apply
    ```
-
 
 ### Companion Computer Ethernet Network Setup
 
 The setup for a companion computer will depend on the companion computer's operating system.
 
 A Linux operating system may support `netplan`, in which case the instructions would be the same as above, but using a unique IP address.
-
 
 ## PX4 MAVLink Serial Port Configuration
 
@@ -148,12 +153,12 @@ Normally a companion computer would use port `14540` (rather than `14550`) and s
 
 For more information on MAVLink serial port configuration see [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md)
 
-
 ## QGroundControl Setup Example
 
 Assuming you have already [Set up the Ethernet Network](#setting-up-the-ethernet-network) so your ground station computer and PX4 run on the same network, and
 
 To connect QGroundControl to PX4 over Ethernet:
+
 1. [Set up the Ethernet Network](#setting-up-the-ethernet-network) so your ground station computer and PX4 run on the same network.
 1. Connect the ground station computer and PX4 using an Ethernet cable.
 1. Start QGroundControl and [define a comm link](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) (**Application Settings > Comm Links**) specifying the _server address_ and port as the IP address and port assigned in PX4, respectively.
@@ -186,11 +191,11 @@ To setup MAVSDK-Python running on a companion computer:
 can connect to the PX4 on port `14550` if you don't modify the PX4 Ethernet port configuration. However this is not recommended because the default configuration is optimised for communicating with a GCS (not a companion computer).
 :::
 
-
 ## ROS 2 Setup Example
 
 :::note
 Prerequisites:
+
 - You have a supported autopilot hardware running PX4 firmware that includes [uXRCE-DDS](../middleware/uxrce_dds.md) middleware. Note that PX4 v1.14 and later include the required [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) module by default.
 - [ROS 2](../ros/ros2_comm.md) has been set up correctly on the companion computer.
 - You have followed the Ethernet network and port setup as discussed at the top of this page.
@@ -202,19 +207,20 @@ To set up ROS 2:
 2. [Start the uXRCE-DDS client on PX4](../middleware/uxrce_dds.md#starting-the-client), either manually or by customizing the system startup script. Note that you must use the IP address of the companion computer and the UDP port on which the agent is listening (the example configuration above sets the companion IP address to `192.168.0.1`, and the agent UDP port is set to `8888` in the next step).
 3. [Start the micro XRCE-DDS agent on the companion computer](../middleware/uxrce_dds.md#starting-the-agent). For example, enter the following command in a terminal to start the agent listening on UDP port `8888`.
 
-   ```
+   ```bash
    MicroXRCEAgent udp4 -p 8888
    ```
+
 4. Run a [listener node](../ros/ros2_comm.md#running-the-example) in a new terminal to confirm the connection is established:
 
-   ```
+   ```bash
    source ~/ws_sensor_combined/install/setup.bash
    ros2 launch px4_ros_com sensor_combined_listener.launch.py
    ```
 
    If everything is setup correctly, the following output should be displayed in the terminal:
 
-   ```
+   ```bash
    RECEIVED SENSOR COMBINED DATA
    =============================
    ts: 855801598
@@ -228,3 +234,9 @@ To set up ROS 2:
    accelerometer_m_s2[2]: -9.77914
    accelerometer_integral_dt: 4997
    ```
+
+## See Also
+
+- [Get The Pixhawk Raspberry Pi CM4 Baseboard By Holybro Talking With PX4](https://px4.io/get-the-pixhawk-raspberry-pi-cm4-baseboard-by-holybro-talking-with-px4/) (px4.io blog):
+  - Tutorial showing how to connect Pixhawk 6X + Raspberry Pi on CM4 baseboard via wired Ethernet.
+  - Blog dupliciates a lot of material from this topic.
