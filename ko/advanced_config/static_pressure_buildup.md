@@ -1,6 +1,6 @@
 # 정압 축적
 
-밀폐된 차량 위로 공기가 흐르면 캐노피/선체 내에서 *정압*이 변경될 수 있습니다. 선체의 구멍/누출 위치에 따라 저압 또는 과압 (날개와 유사)이 발생할 수 있습니다.
+Air flowing over an enclosed vehicle can cause the _static pressure_ to change within the canopy/hull. 선체의 구멍/누출 위치에 따라 저압 또는 과압 (날개와 유사)이 발생할 수 있습니다.
 
 압력의 변화는 기압계 측정에 영향을 끼치므로, 고도 추정이 정확하지 않을 수 있습니다. 이것은 기체가 [고도](../flight_modes/altitude_mc.md), [위치](../flight_modes/position_mc.md) 또는 [미션](../flight_modes/mission.md) 모드에서 이동을 멈출 때 고도를 잃는 것으로 나타날 수 있습니다(기체가 움직이지 않으면 정압이 떨어집니다. 센서는 더 높은 고도를 보고하고 기체는 하강하여 보상합니다).
 
@@ -29,9 +29,9 @@ GPS는 많은 환경, 특히 건물에서 신호가 반사되는 도시 환경�
 
 ## 동적 보정
 
-하드웨어를 수정후 [EKF2*PCOEF**](../advanced_config/parameter_reference.md#EKF2_PCOEF_XN) 매개변수를 사용하여 상대 풍속을 기반으로 예상되는 기압계 변화를 조정할 수 있습니다. 자세한 내용은 [ECL/EKF 개요와 튜닝 > 정압 위치 오류 수정](../advanced_config/tuning_the_ecl_ekf.md#correction-for-static-pressure-position-error)을 참고하십시오.
+After modifying the hardware, you can then use the [EKF2_PCOEF\_\*](../advanced_config/parameter_reference.md#EKF2_PCOEF_XN) parameters to tune for expected barometer variation based on relative air velocity. 자세한 내용은 [ECL/EKF 개요와 튜닝 > 정압 위치 오류 수정](../advanced_config/tuning_the_ecl_ekf.md#correction-for-static-pressure-position-error)을 참고하십시오.
 
 :::note
-이 접근법은 정압으로 인한 오류와 속도 사이의 관계가 선형적으로 변하는 경우에 원활하게 작동합니다. 
+이 접근법은 정압으로 인한 오류와 속도 사이의 관계가 선형적으로 변하는 경우에 원활하게 작동합니다.
 기체에 복잡한 공기 역학 모델이 있으면 효율성이 떨어집니다. 
 :::

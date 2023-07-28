@@ -2,7 +2,6 @@
 
 This topic explains how to construct and extend the development environment used for the no-longer-supported [Cygwin-based Windows Development Environment](../dev_setup/dev_env_windows_cygwin.md).
 
-
 ## 附加信息
 
 <a id="features"></a>
@@ -11,17 +10,18 @@ This topic explains how to construct and extend the development environment used
 
 以下已知正常功能 (版本 2.0):
 
-* 使用 jMAVSim 编译和运行 SITL，其性能明显优于虚拟机 (它生成一个原生windows 二进制 ** px4.exe **)。
-* 编译和上传 NuttX 二进制文件（例如：px4_fmu-v2 和 px4_fmu-v4）
-* 使用 *astyle* 进行格式检查 (支持命令: `make format`)
-* 命令行自动补全
-* 绿色安装 安装程序不会影响您的系统和全局路径设置 (它只修改选定的安装目录, 例如 ** C:\PX4 \ ** 并使用临时本地路径变量)。
-* 安装程序支持更新到最新版本，同时保持您的个人更改在工具链文件夹中。
+- 使用 jMAVSim 编译和运行 SITL，其性能明显优于虚拟机 (它生成一个原生windows 二进制 ** px4.exe **)。
+- 编译和上传 NuttX 二进制文件（例如：px4_fmu-v2 和 px4_fmu-v4）
+- Style check with _astyle_ (supports the command: `make format`)
+- 命令行自动补全
+- 绿色安装 The installer does NOT affect your system and global path (it only modifies the selected installation directory e.g. \*\*C:\PX4\*\* and uses a temporary local path).
+- 安装程序支持更新到最新版本，同时保持您的个人更改在工具链文件夹中。
 
 补充：
-* 仿真模拟：暂不支持 Gazebo 和 ROS。
-* 仅支持 NuttX 和 JMAVSim/SITL 构建。
-* [已知问题](https://github.com/orgs/PX4/projects/6) (也用来报告问题)。
+
+- 仿真模拟：暂不支持 Gazebo 和 ROS。
+- 仅支持 NuttX 和 JMAVSim/SITL 构建。
+- [已知问题](https://github.com/orgs/PX4/projects/6) (也用来报告问题)。
 
 <a id="script_setup"></a>
 
@@ -31,13 +31,14 @@ This topic explains how to construct and extend the development environment used
 
 1. 确保您安装了 [Windows 版本的 Git](https://git-scm.com/download/win)。
 1. 将代码仓库 https://github.com/PX4/windows-toolchain 克隆到要安装工具链的位置。 打开 `Git Bash` 并执行以下操作，打开后会自动进入默认的安装目录：
+
 ```
 cd /c/
 git clone https://github.com/PX4/windows-toolchain PX4
 ```
+
 1. 如果要安装所有组件，请进入到新克隆的代码仓库文件夹， 然后双击位于文件夹 `toolchain`目录中的脚本 ` install-all-components.bat`。 如果您只需要某些组件并希望占用有限的Internet 数据和磁盘空间，则可以进入到不同的组件文件夹，如 ` toolchain\cygwin64 `，然后单击 ** install-XXX.bat ** 脚本以获取特定的内容。
 1. 继续 [ 入门指南 ](#getting_started) (或 [ 使用说明 ](#usage_instructions))
-
 
 <a id="manual_setup"></a>
 
@@ -49,32 +50,32 @@ git clone https://github.com/PX4/windows-toolchain PX4
 由于工具链的更新维护，这些指令可能无法涵盖未来更改的所有细节。
 :::
 
-1. 创建 *文件夹*: **C:\PX4\**, **C:\PX4\toolchain\** 和 **C:\PX4\home\**
-1. 从[Cygwin 官网](https://cygwin.com/install.html)下载*Cywin 安装*文件[setup-x86_64.exe](https://cygwin.com/setup-x86_64.exe)
+1. Create the _folders_: **C:\PX4\*\*, **C:\PX4\toolchain\*\* and \*\*C:\PX4\home\*\*
+1. Download the _Cygwin installer_ file [setup-x86_64.exe](https://cygwin.com/setup-x86_64.exe) from the [official Cygwin website](https://cygwin.com/install.html)
 1. 运行下载的安装文件
-1. 在向导中选择安装到文件夹：**C:\PX4\toolchain\cygwin64\**
+1. In the wizard choose to install into the folder: \*\*C:\PX4\toolchain\cygwin64\*\*
 1. 选择安装默认的 Cygwin 基础包和以下附加包的最新可用版本:
 
-   * **类别:Packagename**
-   * Devel:cmake (3.3.2 正常工作无告警, 3.6.2有告警但能够正常工作)
-   * Devel:gcc-g++
-   * Devel:gdb
-   * Devel:git
-   * Devel:make
-   * Devel:ninja
-   * Devel:patch
-   * Editors:xxd
-   * Editors:nano (除非你精通 vim)
-   * Python:python2
-   * Python:python2-pip
-   * Python:python2-numpy
-   * Python:python2-jinja2
-   * Python:python2-pyyaml
-   * Python:python2-cerberus
-   * Archive:unzip
-   * Utils:astyle
-   * Shells:bash-completion
-   * Web:wget
+   - **类别:Packagename**
+   - Devel:cmake (3.3.2 正常工作无告警, 3.6.2有告警但能够正常工作)
+   - Devel:gcc-g++
+   - Devel:gdb
+   - Devel:git
+   - Devel:make
+   - Devel:ninja
+   - Devel:patch
+   - Editors:xxd
+   - Editors:nano (除非你精通 vim)
+   - Python:python2
+   - Python:python2-pip
+   - Python:python2-numpy
+   - Python:python2-jinja2
+   - Python:python2-pyyaml
+   - Python:python2-cerberus
+   - Archive:unzip
+   - Utils:astyle
+   - Shells:bash-completion
+   - Web:wget
 
    :::note
 不要选择尽可能多的不在这个列表上的软件包，有些软件包冲突和中断构建。
@@ -91,6 +92,7 @@ git clone https://github.com/PX4/windows-toolchain PX4
    脚本[setup-environment.bat](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat)用于设置工作区根目录 `PX4_DIR`的环境变量，和 unix 环境中的 `HOME`目录。
 
 1. 通过打开并运行 Cywin 工具链控制台（双击**run-console.bat**）来添加必要的 **python packages**。
+
    ```
    pip2 install toml
    pip2 install pyserial
@@ -108,10 +110,11 @@ git clone https://github.com/PX4/windows-toolchain PX4
 :::
 
 1. 安装 JDK
-   * 从 [Oracle](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) 或 [AdoptOpenJDK](https://adoptopenjdk.net/) 下载 Java 14。
-   * 不幸的是，没有包含二进制文件的便携存档，您必须直接安装它。
-   * 找到二进制文件并将其移动/复制到 **C:\PX4\toolchain\jdk**
-   * 您可以再次从 Windows 系统卸载工具包，我们只需要工具链中的二进制工具。
+
+   - 从 [Oracle](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) 或 [AdoptOpenJDK](https://adoptopenjdk.net/) 下载 Java 14。
+   - 不幸的是，没有包含二进制文件的便携存档，您必须直接安装它。
+   - 找到二进制文件并将其移动/复制到 **C:\PX4\toolchain\jdk**
+   - 您可以再次从 Windows 系统卸载工具包，我们只需要工具链中的二进制工具。
 
 :::note
 这是工具链在: [jdk/install-jdk.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat) 中所起的作用。
@@ -120,31 +123,36 @@ git clone https://github.com/PX4/windows-toolchain PX4
 1. 下载 Windows的二进制文件压缩包[**Apache Ant**](https://ant.apache.org/bindownload.cgi) ，并将内容解包到文件夹 `C:\PX4\toolchain\apache-ant`
 
    :::tip
- 请确保您在下载的归档中没有其他文件夹层。
-
+Make sure you don't have an additional folder layer from the folder which is inside the downloaded archive.
 :::
 
 :::note
-这是工具链在[apache-ant/install-apache-ant.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat)所做的操作。
+This is what the toolchain does in: [apache-ant/install-apache-ant.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat).
 :::
 
-1. 下载、构建并添加*genromfs*到环境变量:
-   * 克隆源代码到文件夹 **C:\PX4\toolchain\genromfs\genromfs-src** 使用
+1. Download, build and add _genromfs_ to the path:
+
+   - 克隆源代码到文件夹 **C:\PX4\toolchain\genromfs\genromfs-src** 使用
+
      ```
      cd /c/toolchain/genromfs
      git clone https://github.com/chexum/genromfs.git genromfs-src
      ```
 
-   * 编译:
+   - 编译:
      ```
      cd genromfs-src
      make all
-    ```
+     ```
 
-    * 复制生成的二进制文件**genromfs.exe**到**C:\PX4\toolchain\genromfs**同级目录下
+   ```
 
-:::note
-这是工具链在[genromfs/install-genromfs.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/genromfs/install-genromfs.bat)中做的操作。
-:::
+   * Copy the resulting binary **genromfs.exe** one folder level out to: **C:\PX4\toolchain\genromfs**
+
+   :::note
+   .
+   :
+
+   ```
 
 1. 确保所有已安装组件的二进制文件夹都正确配置在 [**setup-environment.bat**](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat)配置的</code>PATH</0>环境变量中。

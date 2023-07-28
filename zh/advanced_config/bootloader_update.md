@@ -28,7 +28,7 @@ arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloade
 
 ## QGC Bootloader Update
 
-The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. 然后，可以通过设置参数[ SYS_BL_UPDATE ](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)来在下次重启时启动 bootloader 更新。
+The easiest approach is to first use _QGroundControl_ to install firmware with the desired/latest bootloader. 然后，可以通过设置参数[ SYS_BL_UPDATE ](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)来在下次重启时启动 bootloader 更新。
 
 :::note
 此方法只能在固件中存在 [SYS_BL_UpDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) 时才能使用 (目前只是 FMUv2 和一些自定义固件)。
@@ -37,11 +37,14 @@ The easiest approach is to first use *QGroundControl* to install firmware with t
 步骤如下：
 
 1. 插入 SD 卡（使能引导日志记录，便于调试任何可能的问题）。
-1. 使用包含 最新的/所需的 bootloader 的 image 文件来[更新固件](../config/firmware.md#custom)。 :::note
+1. 使用包含 最新的/所需的 bootloader 的 image 文件来[更新固件](../config/firmware.md#custom)。
+
+   :::note
 已经更新的 bootloader 可能在自定义固件中提供（例如，来自开发团队的固件），或者可能在最新的 master 分支中。
 :::
 
    ![FMUv2 更新](../../assets/qgc/setup/firmware/bootloader_update.jpg)
+
 1. 等待飞控重启。
 1. [找到并启用](../advanced_config/parameters.md) 参数 [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)。
 1. 重新启动（断开/重新连接飞控板）。 Bootloader 更新只需要几秒钟即可完成。
@@ -59,15 +62,16 @@ The easiest approach is to first use *QGroundControl* to install firmware with t
    ```bash
    arm-none-eabi-gdb px4fmuv5_bl.elf
    ```
-1. The *gdb terminal* appears and it should display the following output:
+
+1. The _gdb terminal_ appears and it should display the following output:
 
    ```bash
    GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git
    Copyright (C) 2017 Free Software Foundation, Inc.
    License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
    This is free software: you are free to change and redistribute it.
-   There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
-   and "show warranty" for details.
+   There is NO WARRANTY, to the extent permitted by law.
+   Type "show copying"    and "show warranty" for details.
    This GDB was configured as "--host=x86_64-linux-gnu --target=arm-none-eabi".
    Type "show configuration" for configuration details.
    For bug reporting instructions, please see:
@@ -78,12 +82,14 @@ The easiest approach is to first use *QGroundControl* to install firmware with t
    Type "apropos word" to search for commands related to "word"...
    Reading symbols from px4fmuv5_bl.elf...done.
    ```
+
 1. Find your `<dronecode-probe-id>` by running an ls command in the **/dev/serial/by-id** directory.
 1. 现在，使用以下命令连接到 Dronecode probe：
 
-   ```
+   ```bash
    tar ext /dev/serial/by-id/<dronecode-probe-id>
    ```
+
 1. 使用另一条 USB 线为 Pixhawk 供电，然后将 Dronecode probe 连接到 FMU-DEBUG 端口。
 
    为了能够将 Dronecode probe 连接到 FMU-DEBUG 端口，您可能需要卸下外壳（例如，在Pixhawk 4 上，可以使用 T6 Torx 螺丝刀进行操作）。
@@ -91,17 +97,18 @@ The easiest approach is to first use *QGroundControl* to install firmware with t
 
 1. 使用以下命令扫描 Pixhawk 的 swd 调试端口并连接到它 ：
 
-   ```
+   ```bash
    (gdb) mon swdp_scan
    (gdb) attach 1
    ```
+
 1. 将二进制文件加载到 Pixhawk 中 ：
 
-   ```
+   ```bash
    (gdb) load
    ```
 
-After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using *QGroundControl*.
+After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using _QGroundControl_.
 
 ## 其他飞控板（非 Pixhawk）
 

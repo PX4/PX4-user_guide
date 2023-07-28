@@ -9,10 +9,10 @@ EKF2 is highly recommended for all purposes (LPE is no longer supported/maintain
 ## Available Estimators
 
 The available estimators are:
-- **EKF2 attitude, position and wind states estimator** - EKF2 is an extended kalman filter estimating attitude, 3D position / velocity and wind states.
-- **LPE position estimator** - The LPE position estimator is an extended kalman filter for 3D position and velocity states.
-- **Q attitude estimator** - The attitude Q estimator is a very simple, quaternion based complementary filter for attitude.
 
+- **EKF2 attitude, position and wind states estimator** - EKF2 is an extended Kalman filter estimating attitude, 3D position / velocity and wind states.
+- **LPE position estimator** - The LPE position estimator is an extended Kalman filter for 3D position and velocity states.
+- **Q attitude estimator** - The attitude Q estimator is a very simple, quaternion based complementary filter for attitude.
 
 ## How to Enable Different Estimators
 

@@ -9,10 +9,10 @@
 ## 可用的估计器
 
 可用的估计器如下：
-- **EKF2 姿态、位置和风的状态估计器** - EKF2 是一个扩展卡尔曼过滤器，用于估计姿态、3D 位置/速度和风状态。
-- **LPE 位置估计器** - LPE 位置估计器是 3D 位置和速度状态的扩展卡尔曼滤波器。
-- **Q 姿态估计器** - 姿态Q估计器是一个非常简单、基于四元数的互补滤波器。
 
+- **EKF2 attitude, position and wind states estimator** - EKF2 is an extended Kalman filter estimating attitude, 3D position / velocity and wind states.
+- **LPE position estimator** - The LPE position estimator is an extended Kalman filter for 3D position and velocity states.
+- **Q 姿态估计器** - 姿态Q估计器是一个非常简单、基于四元数的互补滤波器。
 
 ## 如何启用不同的估计器
 

@@ -1,13 +1,12 @@
 # 参数设置
 
-PX4 uses the *param subsystem* (a flat table of `float` and `int32_t` values) and text files (for startup scripts) to store its configuration.
+PX4 uses the _param subsystem_ (a flat table of `float` and `int32_t` values) and text files (for startup scripts) to store its configuration.
 
-本节详细讨论 *param* 子系统。 它涵盖如何列出、保存和加载参数，以及如何定义这些参数。
+This section discusses the _param_ subsystem in detail. 它涵盖如何列出、保存和加载参数，以及如何定义这些参数。
 
 :::tip
 [System startup](../concept/system_startup.md) and the way that [frame configuration](../dev_airframes/adding_a_new_frame.md) startup scripts work are detailed on other pages.
 :::
-
 
 ## 命令行用法
 
@@ -16,11 +15,13 @@ PX4 [系统控制台](../debug/system_console.md)提供了[参数](../modules/mo
 ### 获取和设置参数
 
 `param show` 命令列出所有系统参数：
+
 ```sh
 param show
 ```
 
-为了更具选择性，参数明可以使用通配符 "*"：
+To be more selective, a partial parameter name with wildcard "\*" can be used:
+
 ```sh
 nsh> param show RC_MAP_A*
 Symbols: x = used, + = saved, * = unsaved
@@ -33,28 +34,31 @@ x   RC_MAP_ACRO_SW [375,514] : 0
 ```
 
 可以使用 `-c` 标志显示已更改的所有参数（从其默认值）：
+
 ```sh
 param show -c
 ```
 
 您可以使用`param show-for-airframe`来显示所有修改了默认值的参数，只显示当前机架定义的文件（默认导入）。
 
-
 ### 导出和加载参数
 
-您可以保存自上次将所有参数重置为其固件定义的默认值以来 *touched* 的任何参数（这包括已更改的任何参数，即使这些参数已更改为默认值）。
+You can save any parameters that have been _changed_ (that are different from airframe defaults).
 
 标准的 `param save ` 命令将参数存储在当前默认文件中:
+
 ```sh
 param save
 ```
 
 如果提供了参数，它会将参数存储到这个新位置:
+
 ```sh
 param save /fs/microsd/vtol_param_backup
 ```
 
-有两个不同的命令可用于 *load* 参数:
+There are two different commands to _load_ parameters:
+
 - `param load` 首先将所有参数完全重置为默认值，然后用存储在文件中的任何值覆盖参数值。
 - `param import` 只是用文件中的值覆盖参数值，然后保存结果（即有效调用 `param save`）。
 
@@ -70,21 +74,22 @@ param load /fs/microsd/vtol_param_backup
 # 选择性的保存参数 (不自动加载)
 param save
 ```
+
 ```sh
 # 将保存的参数与当前参数合并
-param import /fs/microsd/vtol_param_backup  
+param import /fs/microsd/vtol_param_backup
 ```
 
 ## 参数名称
 
 参数名称不得超过 16 个 ASCII 字符。
+
 - `orb_check()` 告诉我们是否有 *任何* 更新 `param_update` 的 uorb 消息 (但不是受影响的参数)，并设置 `updated` bool。
 - 如果更新了 "某些" 参数，我们会将更新复制到 `parameter_update_s` (`param_upd`)
 
 按照惯例，组中的每个参数都应共享相同的 (有意义的) 字符串前缀，后跟下划线，`MC_` 和 `FW_` 用于与多旋翼或固定翼系统具体相关的参数。 此惯例不强制执行。
 
 该名称必须在代码和 [parameter metadatata](#parameter-metadata) 中匹配，才能正确地将参数与其元数据（包括固件中的默认值）相关联。
-
 
 ### C++ API
 
@@ -94,23 +99,22 @@ By convention, every parameter in a group should share the same (meaningful) str
 
 The name must match in both code and [parameter metadata](#parameter-metadata) to correctly associate the parameter with its metadata (including default value in Firmware).
 
-
 ### C API
 
 There are separate C and C++ APIs that can be used to access parameter values from within PX4 modules and drivers.
 
 One important difference between the APIs is that the C++ version has a more efficient standardized mechanism to synchronize with changes to parameter values (i.e. from a GCS).
 
-Synchronization is important because a parameter can be changed to another value at any time. Your code should *always* use the current value from the parameter store. If getting the latest version is not possible, then a reboot will be required after the parameter is changed (set this requirement using the `@reboot_required` metadata).
+Synchronization is important because a parameter can be changed to another value at any time. Your code should _always_ use the current value from the parameter store. If getting the latest version is not possible, then a reboot will be required after the parameter is changed (set this requirement using the `@reboot_required` metadata).
 
 从 `ModuleParams` 派生类，并使用 `DEFINE_PARAMETERS` 指定参数李彪及其关联的参数属性。 参数的名称必须与其参数元数据定义相同。
 
-
 #### 多实例（模块化）元数据
 
-The C++ API provides macros to declare parameters as *class attributes*. You add some "boilerplate" code to regularly listen for changes in the [uORB Topic](../middleware/uorb.md) associated with *any* parameter update. Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync. In the rest of the code you can just use the defined parameter attributes and they will always be up to date!
+The C++ API provides macros to declare parameters as _class attributes_. You add some "boilerplate" code to regularly listen for changes in the [uORB Topic](../middleware/uorb.md) associated with _any_ parameter update. Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync. In the rest of the code you can just use the defined parameter attributes and they will always be up to date!
 
 First include the required needed headers in the class header for your module or driver:
+
 - **px4_platform_common/module_params.h** to get the `DEFINE_PARAMETERS` macro:
   ```cpp
   #include <px4_platform_common/module_params.h>
@@ -125,6 +129,7 @@ First include the required needed headers in the class header for your module or
   ```
 
 Derive your class from `ModuleParams`, and use `DEFINE_PARAMETERS` to specify a list of parameters and their associated parameter attributes. The names of the parameters must be the same as their parameter metadata definitions.
+
 ```cpp
 class MyModule : ..., public ModuleParams
 {
@@ -149,22 +154,24 @@ private:
 };
 ```
 
-
 调用 `parameters_update(parameter_update_sub);` 在代码中定期检查是否有更新(这是模板)：
 
 Call `parameters_update();` periodically in code to check if there has been an update:
-```cpp 
+
+```cpp
 class MyModule : ..., public ModuleParams
 {
 public:
-    ... 
+    ...
         private:
 
     /**
      * Check for parameter changes and update them if needed.
 ```
+
 然后，参数属性 (`_sys_autostart` 和`_att_bias_max` 在本例中) 可用于表示参数，并随时更新参数值的变化。
-- `num_instances` (默认是1): 要生成的实例数 (>=1)
+
+- `_parameter_update_sub.updated()` tells us if there is _any_ update to the `param_update` uORB message (but not what parameter is affected).
 - If there has been "some" parameter updated, we copy the update into a `parameter_update_s` (`param_update`), to clear the pending update.
 - Then we call `ModuleParams::updateParams()`. This "under the hood" updates all parameter attributes listed in our `DEFINE_PARAMETERS` list.
 
@@ -179,11 +186,13 @@ The [Application/Module Template](../modules/module_template.md) uses the new-st
 The C API can be used within both modules and drivers.
 
 First include the parameter API:
+
 ```C
 #include <uORB/topics/parameter_update.h>
 ```
 
 Then retrieve the parameter and assign it to a variable (here `my_param`), as shown below for `PARAM_NAME`. The variable `my_param` can then be used in your module code.
+
 ```C
 int32_t my_param = 0;
 param_get(param_find("PARAM_NAME"), &my_param);
@@ -192,6 +201,7 @@ param_get(param_find("PARAM_NAME"), &my_param);
 `param_find()` 是一个“昂贵”操作，返回一个可以被 `param_get()` 使用的句柄。 如果要多次读取该参数，可以缓存句柄，并在需要时在 `param_get()` 中使用
 
 `param_find()` is an "expensive" operation, which returns a handle that can be used by `param_get()`. If you're going to read the parameter multiple times, you may cache the handle and use it in `param_get()` when needed
+
 ```cpp
 # Get the handle to the parameter
 param_t my_param_handle = PARAM_INVALID;
@@ -201,7 +211,6 @@ my_param_handle = param_find("PARAM_NAME");
 int32_t my_param = 0;
 param_get(my_param_handle, &my_param);
 ```
-
 
 ### c 参数元数据
 
@@ -216,14 +225,13 @@ Parameter metadata can be stored anywhere in the source tree as either **.c** or
 The build system extracts the metadata (using `make parameters_metadata`) to build the [parameter reference](../advanced_config/parameter_reference.md) and the parameter information [used by ground stations](#publishing-parameter-metadata-to-a-gcs).
 
 :::warning
-After adding a *new* parameter file you should call `make clean` before building to generate the new parameters (parameter files are added as part of the *cmake* configure step, which happens for clean builds and if a cmake file is modified).
+After adding a _new_ parameter file you should call `make clean` before building to generate the new parameters (parameter files are added as part of the _cmake_ configure step, which happens for clean builds and if a cmake file is modified).
 :::
-
 
 #### YAML Metadata
 
 :::note
-At time of writing YAML parameter definitions cannot be used in *libraries*.
+At time of writing YAML parameter definitions cannot be used in _libraries_.
 :::
 
 YAML meta data is intended as a full replacement for the **.c** definitions. It supports all the same metadata, along with new features like multi-instance definitions.
@@ -237,22 +245,22 @@ YAML meta data is intended as a full replacement for the **.c** definitions. It 
   ```
   to the `px4_add_module` section of the `CMakeLists.txt` file of that module.
 
-
 #### Multi-Instance (Templated) YAML Meta Data
 
 Templated parameter definitions are supported in [YAML parameter definitions](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) (templated parameter code is not supported).
 
 The YAML allows you to define instance numbers in parameter names, descriptions, etc. using `${i}`. For example, below will generate MY_PARAM_1_RATE, MY_PARAM_2_RATE etc.
+
 ```
 #include <parameters/param.h>
 ```
 
 The following YAML definitions provide the start and end indexes.
+
 - `num_instances` (default 1): Number of instances to generate (>=1)
 - `instance_start` (default 0): First instance number. If 0, `${i}` expands to [0, N-1]`.
 
 For a full example see the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml)
-
 
 #### c Parameter Metadata
 
@@ -276,6 +284,7 @@ The legacy approach for defining parameter metadata is in a file with extension 
  */
 PARAM_DEFINE_FLOAT(MC_PITCH_P, 6.5f);
 ```
+
 ```cpp
 /**
  * Acceleration compensation based on GPS
@@ -327,7 +336,6 @@ The metadata on `px4-travis.s3.amazonaws.com` is used if parameter metadata is n
 Anyone doing custom development on a FLASH-constrained board can adjust the URL [here](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/component_information/CMakeLists.txt#L41) to point to another server.
 
 The XML file of the master branch is copied into the QGC source tree via CI and is used as a fallback in cases where no metadata is available via the component information service (this approach predates the existence of the component information protocol).
-
 
 ## Further Information
 

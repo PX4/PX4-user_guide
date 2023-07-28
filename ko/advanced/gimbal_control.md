@@ -27,7 +27,8 @@ PX4 can be configured as the gimbal manager to control a single gimbal device (w
 
 To enable a MAVLink gimbal, first set parameter [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN) to `MAVlink gimbal protocol v2` and [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) to `MAVLink gimbal protocol v2`.
 
-짐벌은 \[MAVLink 주변 기기 (GCS/OSD/보조)\](../peripherals/mavlink_peripherals.md#mavlink-peripherals-gcsosdcompanion) 에서 다루는 방법과 같이 *어떤 여분의 직렬 포트*에든 연결할 수 있습니다([직렬 포트 구성](../peripherals/serial_configuration.md#serial-port-configuration)도 참고). For example, if the `TELEM2` port on the flight controller is unused you can connect it to the gimbal and set the following PX4 parameters:
+The gimbal can be connected to _any free serial port_ using the instructions in [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md) (also see [Serial Port Configuration](../peripherals/serial_configuration.md#serial-port-configuration)). For example, if the `TELEM2` port on the flight controller is unused you can connect it to the gimbal and set the following PX4 parameters:
+
 - [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG)에서 **TELEM2**까지(`MAV_1_CONFIG`가 이미 보조 컴퓨터에 사용되고 있는 경우(예: `MAV_2_CONFIG` 사용))
 - [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE)에서 **NORMAL**로
 - 제조업체 권장 전송 속도에 대한 [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD).
@@ -42,12 +43,12 @@ You can support additional gimbals provided that they:
 - Are visible to the ground station and PX4 on the MAVLink network. This may require that traffic forwarding be configured between PX4, the GCS, and the gimbal.
 - Each gimbal must have a unique component id. For a PWM connected gimbal this will be the component ID of the autopilot
 
-
 ## Gimbal on FC PWM Output (MNT_MODE_OUT=AUX)
 
 The gimbal can also be controlled by connecting it to up to three flight controller PWM ports and setting the output mode to `MNT_MODE_OUT=AUX`.
 
 The output pins that are used to control the gimbal are set in the [Acuator Configuration > Outputs](../config/actuators.md#actuator-outputs) by selecting any three unused Actuator Outputs and assigning them the following output functions:
+
 - `Gimbal Roll`: Output controls gimbal roll.
 - `Gimbal Pitch`: Output controls Gimbal pitch.
 - `Gimbal Yaw`: Output controls Gimbal pitch.

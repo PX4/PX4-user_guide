@@ -12,12 +12,12 @@
 
 要创建外部模块：
 
-- 创建*外部目录*目录以对外部模块进行分组：
+- Create an _external directory_ folder for grouping the external modules:
   - 这个可以放在**PX4-Autopilot**目录树以外的任何地方。
   - 它必须具有与**PX4-Autopilot**相同的目录结构（即必须包含**src**目录）。
   - 稍后我们使用` EXTERNAL_MODULES_LOCATION `来引用此目录。
 - 将现有模块（例如**examples/px4_simple_app**）复制到外部目录，或直接创建新模块。
-- 重命名模块（包括在**CMakeLists.txt**中的`MODULE`），或者从 PX4-Autopilot *cmake* 编译配置中移除。 这是为了避免与内部模块发生冲突。
+- Rename the module (including `MODULE` in **CMakeLists.txt**) or remove it from the existing PX4-Autopilot _cmake_ build config. 这是为了避免与内部模块发生冲突。
 - 在外部目录中添加**CMakeLists.txt**文件，内容为：
   ```
   set(config_module_list_external
@@ -40,7 +40,6 @@
     )
   ```
 
-
 ## Out-of-Tree uORB 消息定义
 
 树外uORB消息将在与正常uORB消息相同的位置生成。 The out-of-tree uORB messages will be generated in the same locations as the normal uORB messages. The uORB topic headers are generated in `<build_dir>/uORB/topics/`, and the message source files are generated in `<build_dir>/msg/topics_sources/`.
@@ -56,6 +55,7 @@
       PARENT_SCOPE
       )
   ```
+
   其中`<message#>.msg `是要处理并用于生成 uORB 消息的 uORB 消息定义文件的名称。
 
 树外 uORB 消息将在与正常 uORB 消息相同的位置生成。 uORB主题标题在 `<build_dir>/uORB/topics/`中生成， 消息源文件由 生成于 `<build_dir>/msg/topics_sources/`。
@@ -65,11 +65,10 @@
 :::warning
 树外的 uORB 消息定义不能和普通的 uORB 消息名字一样。 Any other build target can be used, but the build directory must not yet exist. If it already exists, you can also just set the *cmake* variable in the build folder.
 
-
 ## 构建外部模块和 uORB 消息
 
 执行 `make px4_sitl EXTERNAL_MODULES_LOCATION=<path>`。
 
-任何其他构建目标都可以使用，但构建目录尚不存在。 如果它已经存在，您还可以在构建文件夹中设置*cmake*变量。
+任何其他构建目标都可以使用，但构建目录尚不存在。 If it already exists, you can also just set the _cmake_ variable in the build folder.
 
 对于随后的递增版本 `EXTERNAL_MODULES_LOCATION` 无需指定。

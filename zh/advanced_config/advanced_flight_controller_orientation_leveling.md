@@ -4,8 +4,9 @@
 
 :::note
 不推荐普通用户使用该教程。 对于基本设置，请遵循下面链接的说明：
-* [飞行控制器方向](../config/flight_controller_orientation.md)
-* [水平校准](../config/level_horizon_calibration.md) :::
+
+- [飞行控制器方向](../config/flight_controller_orientation.md)
+- [Level Horizon Calibration](../config/level_horizon_calibration.md) :::
 
 如果存在持续的漂移偏差(通常存在于多旋翼中，但不仅限于多旋翼)，一个比较好的方法是可以通过微调偏移角度参数的帮助，去除该偏差，而不是使用遥控发射器的微调器。 这样，飞机在完全自主的飞行中将保持调整修正。
 
@@ -15,7 +16,6 @@
 
 1. Open QGroundControl menu: **Settings > Parameters > Sensor Calibration**.
 2. 更改以下参数： ![FC Orientation QGC v2](../../assets/qgc/setup/sensor/fc_orientation_qgc_v2.png)
-
 
 ## 参数信息
 
@@ -52,15 +52,14 @@ The **SENS_BOARD_ROT** parameter defines the rotation relative to the platform, 
 - 24 = 俯仰 90°
 - 25 = 俯仰角 270°
 
-
 **SENS_BOARD_X_OFF**
 
-绕 PX4FMU 的 X 轴或者 横滚轴旋转角度。 正角度增加在逆时针方向，负角度增加在顺时针方向。
+绕 PX4FMU 的 X 轴或者 横滚轴旋转角度。 Positive angles increase in CCW direction, negative angles increase in CW direction.
 
 **SENS_BOARD_Y_OFF**
 
-绕 PX4FMU 的 Y 轴或者俯仰轴旋转角度。 正角度增加在逆时针方向，负角度增加在顺时针方向。
+绕 PX4FMU 的 Y 轴或者俯仰轴旋转角度。 Positive angles increase in CCW direction, negative angles increase in CW direction.
 
 **SENS_BOARD_Z_OFF**
 
-绕 PX4FMU 的 Z 轴或者偏航轴旋转角度。 正角度增加在逆时针方向，负角度增加在顺时针方向。
+绕 PX4FMU 的 Z 轴或者偏航轴旋转角度。 Positive angles increase in CCW direction, negative angles increase in CW direction.

@@ -4,7 +4,7 @@
 
 ![Intel Realsense Camera front view](../../assets/hardware/sensors/realsense/intel_realsense.png)
 
-ドライバーのインストールは、VirtualBox内のゲストOSとして動作するUbuntuオペレーションシステム(OS)上で実行されます。 The specifications of the host computer where the Virtual Box is running, the Virtual Box  and the guest system are given below:
+ドライバーのインストールは、VirtualBox内のゲストOSとして動作するUbuntuオペレーションシステム(OS)上で実行されます。 The specifications of the host computer where the Virtual Box is running, the Virtual Box and the guest system are given below:
 
 - Host Operation System: Windows 8
 - Processor: Intel(R) Core(TM) i7-4702MQ CPU @ 2.20GHz
@@ -12,7 +12,8 @@
 - Extensions: Extension package for Virtual Box installed (Needed for USB3 support)
 - Guest Operation System: Linux - Ubuntu 14.04.3 LTS
 
-The tutorial is ordered in the following way: In a first part it is shown how to install Ubuntu 14.04 as a guest OS in the Virtual Box. In a second part is shown how to install ROS Indigo and the camera driver. The  ensuing frequently used expressions have the following meaning:
+The tutorial is ordered in the following way: In a first part it is shown how to install Ubuntu 14.04 as a guest OS in the Virtual Box. In a second part is shown how to install ROS Indigo and the camera driver. The ensuing frequently used expressions have the following meaning:
+
 - Virtual Box (VB): Program that runs different Virtual Machines. In this case the Oracle VM.
 - Virtual Machine (VM): The operation system that runs in the Virtual Box as a guest system. In this case Ubuntu.
 
@@ -25,10 +26,10 @@ The tutorial is ordered in the following way: In a first part it is shown how to
     - Download updates while installing
     - Install this third party software
 - After the installation you might need to enable the Virtual Box to display Ubuntu on the whole desktop:
-  -  Start VM Ubuntu and login, Click on **Devices->Insert Guest Additions CD image** in the menu bar of the Virtual Box.
-  -  Click on **Run** and enter password on the windows that pop up in Ubuntu.
-  -  Wait until the installation is completed and then restart. Now, it should be possible to display the VM on the whole desktop.
-  -  If a window pops up in Ubuntu that asks whether to update, reject to update at this point.
+  - Start VM Ubuntu and login, Click on **Devices->Insert Guest Additions CD image** in the menu bar of the Virtual Box.
+  - Click on **Run** and enter password on the windows that pop up in Ubuntu.
+  - Wait until the installation is completed and then restart. Now, it should be possible to display the VM on the whole desktop.
+  - If a window pops up in Ubuntu that asks whether to update, reject to update at this point.
 - Enable USB 3 Controller in Virtual Box:
   - Shut down Virtual Machine.
   - Go to the settings of the Virtual Machine to the menu selection USB and choose: "USB 3.0(xHCI)". This is only possible if you have installed the extension package for the Virtual Box.
@@ -43,26 +44,33 @@ The tutorial is ordered in the following way: In a first part it is shown how to
 ## Installing camera driver
 
 - Install git:
+
 ```bash
 sudo apt-get install git
 ```
+
 - Download and install the driver
   - Clone [RealSense_ROS repository](https://github.com/bestmodule/RealSense_ROS):
     ```bash
     git clone https://github.com/bestmodule/RealSense_ROS.git
     ```
 - Follow instructions given in [here](https://github.com/bestmodule/RealSense_ROS/tree/master/r200_install).
+
   - Press the enter button when the questions whether to install the following installation packages show up:
+
     ```
     Intel Low Power Subsystem support in ACPI mode (MFD_INTEL_LPSS_ACPI) [N/m/y/?] (NEW)
     ```
+
     ```
     Intel Low Power Subsystem support in PCI mode (MFD_INTEL_LPSS_PCI) [N/m/y/?] (NEW)
 
     ```
+
     ```
     Dell Airplane Mode Switch driver (DELL_RBTN) [N/m/y/?] (NEW)
     ```
+
   - The following error message that can appear at the end of the installation process should not lead to a malfunction of the driver:
     ```
     rmmod: ERROR: Module uvcvideo is not currently loaded
@@ -71,6 +79,7 @@ sudo apt-get install git
 - After the installation has completed, reboot the Virtual Machine.
 
 - Test camera driver:
+
   - Connect the Intel RealSense camera head with the computer with a USB3 cable that is plugged into a USB3 receptacle on the computer.
   - Click on Devices->USB-> Intel Corp Intel RealSense 3D Camera R200 in the menu bar of the Virtual Box, in order to forward the camera USB connection to the Virtual Machine.
   - Execute the file [unpacked folder]/Bin/DSReadCameraInfo:
@@ -84,4 +93,3 @@ sudo apt-get install git
   - Follow the installation instructions in the "Installation" section given [here](https://github.com/bestmodule/RealSense_ROS/blob/master/realsense_dist/2.3/doc/RealSense-ROS-R200-nodelet.md), to install the ROS nodlet.
   - Follow the instructions in the "Running the R200 nodelet" section given [here](https://github.com/bestmodule/RealSense_ROS/blob/master/realsense_dist/2.3/doc/RealSense-ROS-R200-nodelet.md), to test the ROS nodlet together with the Intel RealSense R200 camera head.
     - If everything works, the different data streams from the Intel RealSense R200 camera are published as ROS topics.
-
