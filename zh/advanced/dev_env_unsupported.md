@@ -1,6 +1,6 @@
 # 不支持的开发者工具
 
-本章节包含关于*不支持的*开发平台和工具（代码开发团队不太可能为其提供很多建议的工具）。
+This section contains topics about _unsupported_ development platforms and tools (i.e. tools for which the code dev team are unlikely to be able to provide much advice).
 
 :::tip
 查看 [工具链安装](../dev_setup/dev_env.md) 来了解我们所支持的环境和工具!
