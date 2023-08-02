@@ -7,7 +7,7 @@ This section contains topics related to [helicopter](../frames_helicopter/README
 Supported helicopter configurations:
 
 - Single main rotor with swash-plate controlled by up to 4 swash-plate servos and a mechanically uncoupled tail rotor driven by an ESC.
-- Single main rotor with swash-plate controlled by up to 4 swash-plate servos and a mechanically coupled tail controlled by a servo. (This can be flown by mapping the tail servo to the tail motor output and setting an adequate range and disarmed value for the servo. The system currently assumes it's a separate motor.)
+- Single main rotor with swash-plate controlled by up to 4 swash-plate servos and a mechanically coupled tail controlled by a servo.
 
 Supported flight operations/features:
 
@@ -18,7 +18,7 @@ Supported flight operations/features:
 
 To setup and configure a helicopter:
 
-1. Select a helicopter [Airframe](../config/airframe.md) in QGroundControl. At time of writing there is only _Generic Helicopter (Tail ESC)_ in the Helicopter group. This will configure the helicopter frame with a mechanically uncoupled tail (tail ESC).
+1. Select a helicopter [Airframe](../config/airframe.md) in QGroundControl. At time of writing there is only _Generic Helicopter (Tail ESC)_ in the Helicopter group. This will configure the helicopter frame with a mechanically uncoupled tail  ([CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME): `10: Helicopter (tail ESC)`).
 
    ![QGC - helicopter airframe](../../assets/config/airframe/airframe_heli_generic.png)
 
