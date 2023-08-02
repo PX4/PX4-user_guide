@@ -464,7 +464,8 @@ Since the Definitions and Data Sections use the same message header format, they
   - [로거 모듈](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger)
   - [재생 모듈](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
   - [hardfault_log 모듈](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/hardfault_log): hardfault 충돌 데이터를 추가합니다.
-- [pyulog](https://github.com/PX4/pyulog): python, CLI 스크립트가 있는 ULog 파서 라이브러리
+- [pyulog](https://github.com/PX4/pyulog): python, ULog reader and writer library with CLI scripts.
+- [ulog_cpp](https://github.com/PX4/ulog_cpp): C++, ULog reader and writer library.
 - [FlightPlot](https://github.com/PX4/FlightPlot): 자바, 로그 플로터
 - [MAVLink](https://github.com/mavlink/mavlink): MAVLink를 통한 ULog 스트리밍용 메시지(적어도 잘린 메시지의 경우 데이터 추가는 지원되지 않습니다.)
 - [QGroundControl](https://github.com/mavlink/qgroundcontrol): C++, MAVLink를 통한 ULog 스트리밍 및 GeoTagging에 대한 최소한의 구문 분석
