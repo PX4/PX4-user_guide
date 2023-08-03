@@ -301,6 +301,6 @@ make px4_fmu-v3_default
 
 ## 디버그 포트
 
-이 보드에는 디버그 포트가 없습니다 (즉, [시스템 콘솔](../debug/system_console.md) 또는 [SWD (JTAG) 하드웨어 디버깅 인터페이스](../debug/swd_debug.md) 접근 포트가 없습니다.
+This board does not have a debug port (i.e it does not have a port for accessing the [System Console](../debug/system_console.md) or [SWD interface](../debug/swd_debug.md).
 
 개발자는 SWD용 보드 테스트 패드와 STM32F4 (IC) TX와 RX에 와이어를 납땜하여 콘솔을 획득할 수 있습니다.

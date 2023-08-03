@@ -10,12 +10,12 @@ PMSP는 현재 스택 추적을 샘플링하기 위하여, 주기적으로 펌�
 
 ### 전제 조건
 
-프로파일러는 GDB에서 임베디드 대상에서 PX4를 실행합니다. 따라서, 대상을 프로파일링하기 전에 프로파일링할 하드웨어가 있어야 하고, 해당 하드웨어에 펌웨어를 컴파일하고 업로드하여야 합니다. 그런 다음, GDB 서버를 실행하고 보드와 상호 작용하려면, DroneCode Probe와 같은 [SWD(JTAG) 하드웨어 디버깅 인터페이스](../debug/swd_debug.md#debug-probes)가 필요합니다.
+프로파일러는 GDB에서 임베디드 대상에서 PX4를 실행합니다. 따라서, 대상을 프로파일링하기 전에 프로파일링할 하드웨어가 있어야 하고, 해당 하드웨어에 펌웨어를 컴파일하고 업로드하여야 합니다. You will then need a [debug probe](../debug/swd_debug.md#debug-probes) (such as the DroneCode Probe), to run the GDB server and interact with the board.
 
 
 ### 디버거 장치 결정
 
-`poor-mans-profiler.sh`는 [DroneCode Probe](../debug/swd_debug.md#dronecode-probe)와 함께 사용하는 경우에는 올바른 USB 장치를 자동으로 감지하고 사용합니다. 다른 종류의 프로브를 사용하는 경우에는 디버거가 있는 특정 _기기_를 전달하여야 할 수 있습니다. bash 명령 `ls -alh /dev/serial/by-id/`을 사용하여, Ubuntu에서 가능한 장치를 열거할 수 있습니다. 예를 들어, 다음 장치는 USB를 통해 연결된 Pixhawk 4 및 DroneCode Probe로 열거됩니다.
+The `poor-mans-profiler.sh` automatically detects and uses the correct USB device if you use it with a [DroneCode Probe](../debug/probe_bmp.md#dronecode-probe). 다른 종류의 프로브를 사용하는 경우에는 디버거가 있는 특정 _기기_를 전달하여야 할 수 있습니다. bash 명령 `ls -alh /dev/serial/by-id/`을 사용하여, Ubuntu에서 가능한 장치를 열거할 수 있습니다. 예를 들어, 다음 장치는 USB를 통해 연결된 Pixhawk 4 및 DroneCode Probe로 열거됩니다.
 ```
 user@ubuntu:~/PX4-Autopilot$ ls -alh /dev/serial/by-id/
 total 0

@@ -166,7 +166,7 @@ All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixha
 
 #### 디버그 포트
 
-This is a [Pixhawk Debug Port](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (JST SM06B connector).
+The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (JST SM06B connector).
 
 | 핀     | 신호               | 전압    |
 | ----- | ---------------- | ----- |
@@ -177,9 +177,11 @@ This is a [Pixhawk Debug Port](https://github.com/pixhawk/Pixhawk-Standards/blob
 | 5 (흑) | SWCLK            | +3.3V |
 | 6 (흑) | GND              | GND   |
 
-For information about wiring and using this port see:
-- [PX4 시스템 콘솔](../debug/system_console.md#pixhawk_debug_port)(참고, FMU 콘솔은 UART7에 매핑됨).
-- [SWD (JTAG) 하드웨어 디버깅 인터페이스](../debug/swd_debug.md#pixhawk_debug_port_6_pin_sh)
+For information about using this port see:
+
+- [SWD Debug Port](../debug/swd_debug.md)
+- [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to UART7).
+
 
 ## Serial Port Mapping
 

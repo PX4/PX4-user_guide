@@ -171,12 +171,15 @@ make holybro_durandal-v1_default
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
-<span id="debug_port"></span>
+<a id="debug_port"></a>
+
 ## 디버그 포트
 
 [PX4 시스템 콘솔](../debug/system_console.md)과 [SWD 인터페이스](../debug/swd_debug.md)는 *디버그* 포트에서 실행됩니다.
 
-이런 포트 모두 표준 시리얼 핀아웃을 가지고 있고 표준 FTDI 케이블 (3.3V, but it's 5V tolerant) 또는 [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation)를 사용하여 연결할 수 있습니다. 핀아웃은 표준 Dronecode 디버그 커넥터 핀배열을 사용합니다. 이 포트의 배선 방법은 [배선](../debug/system_console.md)편을 참고하십시오.
+The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+
+For wiring and debugging information see the above links.
 
 :::note
 I/O 보드에 대해 노출된 디버그 포트가 없습니다.

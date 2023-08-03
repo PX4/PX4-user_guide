@@ -56,7 +56,7 @@ make px4_fmu-v4pro_default
 
 ![디버그 포트](../../assets/flight_controller/pixhawk3pro/pixhawk3_pro_debug_ports.jpg)
 
-The pinouts and connector comply with the [Pixhawk Standard Debug Port](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (JST SM06B connector).
+The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (JST SM06B connector).
 
 | 핀     | 신호               | 전압    |
 | ----- | ---------------- | ----- |
@@ -68,8 +68,9 @@ The pinouts and connector comply with the [Pixhawk Standard Debug Port](https://
 | 6 (흑) | GND              | GND   |
 
 이 포트의 배선과 사용 정보는 다음을 참조하십시오.
+
+- [SWD Debug Port](../debug/swd_debug.md)
 - [PX4 시스템 콘솔](../debug/system_console.md#pixhawk_debug_port) (참고, FMU 콘솔은 UART7에 매핑됨).
-- [SWD (JTAG) 하드웨어 디버깅 인터페이스](../debug/swd_debug.md)
 
 
 ## 시리얼 포트 매핑

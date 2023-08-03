@@ -85,7 +85,7 @@ SITL에서 PX4를 디버깅하려면:
 
 ### 하드웨어 디버깅
 
-[SWD(JTAG) 하드웨어 디버깅 인터페이스](../debug/swd_debug.md)의 지침은 일반적인 비행 콘트롤러(예: Dronecode 또는 Blackmagic 프로브 사용)에서 SWD 인터페이스에 연결하는 방법을 설명합니다.
+The instructions in [SWD Debug Port](../debug/swd_debug.md) explain how to connect to the SWD interface on common flight controllers (for example, using the Dronecode or Blackmagic probes).
 
 SWD 인터페이스에 연결한 후 VSCode의 하드웨어 디버깅은 디버거 유형(및 펌웨어)(예: `jlink (px4_fmu-v5)`)에 적합한 디버그 대상을 선택한다는 점을 제외하고 [SITL 디버깅](#debugging_sitl)과 동일합니다.
 

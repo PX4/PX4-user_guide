@@ -1,121 +1,62 @@
-# 嵌入式调试
+# Debugging with GDB
 
-## 识别大型内存使用者
+The [GNU DeBugger (GDB)](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html) comes installed with the compiler toolchain in the form of the `arm-none-eabi-gdb` binary. The debugger reads the debug symbols inside an ELF file to understand the static and dynamic memory layout of the PX4 firmware. To access the PX4 autopilot microcontroller, it needs to connect to a [Remote Target](https://sourceware.org/gdb/download/onlinedocs/gdb/Connecting.html), which is provided by a [SWD debug probe](swd_debug.md).
 
-运行 PX4 的自动驾驶仪支持通过 GDB 或 LLDB 进行调试。
-
-下面的命令将列出最大的静态分配：
-
-```bash
-arm-none-eabi-nm --size-sort --print-size --radix=dec build/px4_fmu-v2_default/px4_fmu-v2_default.elf | grep " [bBdD] "
-```
-
-此 NSH 命令提供剩余的可用内存：
+The flow of information looks like this:
 
 ```
-free
+Developer <=> GDB <=> GDB Server <=> Debug Probe <=> SWD <=> PX4 Autopilot.
 ```
 
-顶部命令显示每个应用程序的堆栈使用情况：
+## Quickstart
 
-堆栈使用情况是使用堆栈着色计算的，因此不是当前的使用情况，而是任务开始以来的最大值。
+To start a debugging session you typically:
 
-```
-top
-```
+1. Need a specialized [SWD debug probe](../debug/swd_debug.md#debug-probes).
+2. Find and connect to the [SWD debug port](../debug/swd_debug.md#autopilot-debug-ports). You may need a [debug adapter](swd_debug.md#debug-adapters).
+3. Configure and start the debug probe to create a GDB server.
+4. Launch GDB and connect to the GDB server as a remote target.
+5. Debug your firmware interactively.
 
-动态堆分配可以在 SITL 中的 POSIX 上跟踪，[gperftools](https://github.com/gperftools/gperftools)。
+See the debug probe documentation for details on how to setup your debug connection:
 
-```
-sudo apt-get install google-perftools libgoogle-perftools-dev
-```
+- [SEGGER J-Link](probe_jlink.md): commercial probe, no built-in serial console, requires adapter.
+- [Black Magic Probe](probe_bmp.md): integrated GDB server and serial console, requires adapter.
+- [STLink](probe_stlink): best value, integrated serial console, adapter must be soldered.
 
-首先，构建固件，如下所示：
+We recommend using the J-Link with the Pixhawk Debug Adapter or the STLinkv3-MINIE with a soldered custom cable.
 
-```
-make px4_sitl_default
-```
+Once connected, you can use the usual GDB commands such as:
 
-## 调试 Nuttx 的硬件故障
+- `continue` to continue program execution
+- `run` to start from the beginning
+- `backtrace` to see the backtrace
+- `break somewhere.cpp:123` to set a breakpoint
+- `delete somewhere.cpp:123` to remove it again
+- `info locals` to print local variables
+- `info registers` to print the registers
 
-A hard fault is a state when a CPU executes an invalid instruction or accesses an invalid memory address. This might occur when key areas in RAM have been corrupted.
+Consult the [GDB documentation](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html) for more details.
 
-### 堆分配
+:::tip
+To avoid having to type all commands to connect in GDB each time, you can write them into `~/.gdbinit`.
+:::
 
-The following video demonstrates hardfault debugging on PX4 using Eclipse and a JTAG debugger. It was presented at the PX4 Developer Conference 2019.
 
-@输入内容取决于你的系统：
+## Next Steps
 
-### 视频
+You've now connected the flight controller to an SWD debug probe!
 
-这会生成一个带堆分配示意图的 Pdf。 图中的数字会一直是0，因为单位是 MB。
+The following topics explain how to start on-target debugging:
 
-* Nuttx 维护两个堆栈：用于中断处理的 IRQ 堆栈和用户堆栈
-* 堆栈向下增长。 所以下面示例中的最高地址是 0x20021060，大小为 0x11f4 （4596 字节），因而最低地址为0x2001f6c。
+- [MCU Eclipse/J-Link Debugging for PX4](eclipse_jlink.md).
+- [Visual Studio Code IDE (VSCode)](../dev_setup/vscode.md).
 
-```bash
-cd build/px4_sitl_default/tmp
-export HEAPPROFILE=/tmp/heapprofile.hprof
-export HEAP_PROFILE_TIME_INTERVAL=30
-```
 
-更多详情参见 [gperftools 文档](https://htmlpreview.github.io/?https://github.com/gperftools/gperftools/blob/master/docs/heapprofile.html)。
+## Embedded Debug Tools
 
-```bash
-env LD_PRELOAD=/lib64/libtcmalloc.so ../src/firmware/posix/px4 ../../posix-configs/SITL/init/lpe/iris
-pprof --pdf ../src/firmware/posix/px4 /tmp/heapprofile.hprof.0001.heap > heap.pdf
-```
+The [Embedded Debug Tools](https://pypi.org/project/emdbg/) connect several software and hardware debugging tools together in a user friendly Python package to more easily enable advanced use cases for ARM Cortex-M microcontrollers and related devices.
 
-Then in the GDB prompt, start with the last instructions in R8, with the first address in flash (recognizable because it starts with `0x080`, the first is `0x0808439f`). 这是一个内存关键区域被损坏而导致错误的典型案例。 So one of the last steps before the hard fault was when `mavlink_log.c` tried to publish something,
+The library orchestrates the launch and configuration of hardware debug and trace probes, debuggers, logic analyzers, and waveform generators and provides analysis tools, converters, and plugins to provide significant insight into the software and hardware state during or after execution.
 
-```sh
-env LD_PRELOAD=/usr/lib/libtcmalloc.so ../src/firmware/posix/px4 ../../posix-configs/SITL/init/lpe/iris
-google-pprof --pdf ../src/firmware/posix/px4 /tmp/heapprofile.hprof.0001.heap > heap.pdf
-```
-
-```sh
-Assertion failed at file:armv7-m/up_hardfault.c line: 184 task: ekf_att_pos_estimator
-sp:     20003f90
-IRQ stack:
-  base: 20003fdc
-  size: 000002e8
-20003f80: 080d27c6 20003f90 20021060 0809b8d5 080d288c 000000b8 08097155 00000010
-20003fa0: 20003ce0 00000003 00000000 0809bb61 0809bb4d 080a6857 e000ed24 080a3879
-20003fc0: 00000000 2001f578 080ca038 000182b8 20017cc0 0809bad1 20020c14 00000000
-sp:     20020ce8
-User stack:
-  base: 20021060
-  size: 000011f4
-20020ce0: 60000010 2001f578 2001f578 080ca038 000182b8 0808439f 2001fb88 20020d4c
-20020d00: 20020d44 080a1073 666b655b 65686320 205d6b63 6f6c6576 79746963 76696420
-20020d20: 65747265 63202c64 6b636568 63636120 63206c65 69666e6f 08020067 0805c4eb
-20020d40: 080ca9d4 0805c21b 080ca1cc 080ca9d4 385833fb 38217db9 00000000 080ca964
-20020d60: 080ca980 080ca9a0 080ca9bc 080ca9d4 080ca9fc 080caa14 20022824 00000002
-20020d80: 2002218c 0806a30f 08069ab2 81000000 3f7fffec 00000000 3b4ae00c 3b12eaa6
-20020da0: 00000000 00000000 080ca010 4281fb70 20020f78 20017cc0 20020f98 20017cdc
-20020dc0: 2001ee0c 0808d7ff 080ca010 00000000 3f800000 00000000 080ca020 3aa35c4e
-20020de0: 3834d331 00000000 01010101 00000000 01010001 000d4f89 000d4f89 000f9fda
-20020e00: 3f7d8df4 3bac67ea 3ca594e6 be0b9299 40b643aa 41ebe4ed bcc04e1b 43e89c96
-20020e20: 448f3bc9 c3c50317 b4c8d827 362d3366 b49d74cf ba966159 00000000 00000000
-20020e40: 3eb4da7b 3b96b9b7 3eead66a 00000000 00000000 00000000 00000000 00000000
-20020e60: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-20020e80: 00000016 00000000 00000000 00010000 00000000 3c23d70a 00000000 00000000
-20020ea0: 00000000 20020f78 00000000 2001ed20 20020fa4 2001f498 2001f1a8 2001f500
-20020ec0: 2001f520 00000003 2001f170 ffffffe9 3b831ad2 3c23d70a 00000000 00000000
-20020ee0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-20020f00: 00000000 00000000 00000000 00000000 2001f4f0 2001f4a0 3d093964 00000001
-20020f20: 00000000 0808ae91 20012d10 2001da40 0000260b 2001f577 2001da40 0000260b
-20020f40: 2001f1a8 08087fd7 08087f9d 080cf448 0000260b 080afab1 080afa9d 00000003
-20020f60: 2001f577 0809c577 2001ed20 2001f4d8 2001f498 0805e077 2001f568 20024540
-20020f80: 00000000 00000000 00000000 0000260b 3d093a57 00000000 2001f540 2001f4f0
-20020fa0: 0000260b 3ea5b000 3ddbf5fa 00000000 3c23d70a 00000000 00000000 000f423f
-20020fc0: 00000000 000182b8 20017cc0 2001ed20 2001f4e8 00000000 2001f120 0805ea0d
-20020fe0: 2001f090 2001f120 2001eda8 ffffffff 000182b8 00000000 00000000 00000000
-20021000: 00000000 00000000 00000009 00000000 08090001 2001f93c 0000000c 00000000
-20021020: 00000101 2001f96c 00000000 00000000 00000000 00000000 00000000 00000000
-20021040: 00000000 00000000 00000000 00000000 00000000 0809866d 00000000 00000000
-R0: 20000f48 0a91ae0c 20020d00 20020d00 2001f578 080ca038 000182b8 20017cc0
-R8: 2001ed20 2001f4e8 2001ed20 00000005 20020d20 20020ce8 0808439f 08087c4e
-xPSR: 61000000 BASEPRI: 00000000 CONTROL: 00000000
-EXC_RETURN: ffffffe9
-```
+The emdbg library contains [many useful GDB plugins](https://github.com/Auterion/embedded-debug-tools/blob/main/src/emdbg/debug/gdb.md#user-commands) that make debugging PX4 easier. It also provides tools for [profiling PX4 in real-time](https://github.com/Auterion/embedded-debug-tools/tree/main/ext/orbetto).
