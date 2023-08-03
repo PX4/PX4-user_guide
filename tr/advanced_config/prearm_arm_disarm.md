@@ -33,7 +33,7 @@ PX4 allows you to configure how pre-arming, arming and disarming work using para
 Arming/disarming parameters can be found in [Parameter Reference > Commander](../advanced_config/parameter_reference.md#commander) (search for `COM_ARM_*` and `COM_DISARM_*`).
 :::
 
-<span id="arm_disarm_gestures"></span>
+<a id="arm_disarm_gestures"></a>
 
 ## Arming Gesture
 
@@ -53,11 +53,11 @@ RC controllers will have different gestures [based on their mode](../getting_sta
 
 The required hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYST).
 
-| Parameter                                                                                                        | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| <span id="COM_RC_ARM_HYST"></span>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | Time that RC stick must be held in arm/disarm position before arming/disarming occurs (default: 1 second). |
+| Parameter                                                                                               | Description                                                                                                |
+| ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| <a id="COM_RC_ARM_HYST"></a>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | Time that RC stick must be held in arm/disarm position before arming/disarming occurs (default: 1 second). |
 
-<span id="arm_disarm_switch"></span>
+<a id="arm_disarm_switch"></a>
 
 ## Arming Button/Switch
 
