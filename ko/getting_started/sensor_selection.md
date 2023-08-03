@@ -9,7 +9,8 @@ PX4 시스템은 안정화나 자율제어를  위하여 센서를 사용하여 
 아래에서 주요  센서들에 대하여 설명합니다. 마지막에는, [센서 배선 방법](#wiring)에 관한 자료들을 설명합니다.
 
 
-<span id="gps_compass"></span>
+<a id="gps_compass"></a>
+
 ## GPS와 나침반
 
 PX4 supports a number of Global Navigation Satellite System (GNSS) receivers and compasses (magnetometers). It also supports Real Time Kinematic (RTK) GPS Receivers, which extend GPS systems to centimetre-level precision.
@@ -59,7 +60,8 @@ GPS/compass hardware options are listed in:
 ![Image of ARK Flow optical flow sensor](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
 
 
-<span id="wiring"></span>
+<a id="wiring"></a>
+
 ## 센서 배선
 
 센서들의 배선 방법는 일반적으로 비행 콘트롤러나 센서 제조사에서 매뉴얼로 제공합니다.
