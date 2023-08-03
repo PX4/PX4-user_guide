@@ -102,7 +102,8 @@ The communication channel is via Telemetry Radios. The vehicle-based radio shoul
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_06.png)
 
-<span id="sd_card"></span>
+<a id="sd_card"></a>
+
 ## SD 卡
 
 An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory) is inserted in the factory (you do not need to do anything).
