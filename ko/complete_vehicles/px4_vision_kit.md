@@ -221,7 +221,8 @@ PX4와 보조 컴퓨터는 다음 인터페이스를 사용하여 [MAVLink](http
 - [경로 계획 인터페이스](../computer_vision/path_planning_interface.md) - 자동 모드에서 회피 기능을 구현 API.
 - [충돌 방지 인터페이스](../computer_vision/collision_prevention.md) - 장애물 맵을 기반으로하는 수동 위치 모드에서 차량 기반 회피를위한 API (현재 충돌 방지에 사용됨).
 
-<span id="install_image_mission_computer"></span>
+<a id="install_image_mission_computer"></a>
+
 ### 보조 컴퓨터에 이미지 설치
 
 *UP Core*에 이미지를 설치하고 내부 메모리(USB 스틱 대신)에서 부팅할 수 있습니다.
