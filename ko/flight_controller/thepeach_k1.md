@@ -12,17 +12,21 @@
 ## 주요 사양
 
 - Main 프로세서: STM32F427VIT6
+
   - 32bit ARM Cortex-M4, 168 MHz 256 KB RAM 2 MB Flash memory
 
 - IO 프로세서: STM32F100C8T6
+
   - ARM Cortex-M3, 32bit ARM Cortex-M3, 24 MHz, 8KB SRAM
 
 - 센서
+
   - 가속도/자이로스코프: ICM-20602
   - 가속도/자이로스코프/지자기: MPU-9250
   - 기압계: MS5611
 
 - 인터페이스
+
   - 8+5개의 PWM 출력 (IO 8개, FMU 5개)
   - Spektrum DSM / DSM2 / DSM-X Satellite 입력 호환
   - Futaba S.BUS 입출력 호환
@@ -48,15 +52,15 @@
 
 ## 시리얼 포트 매핑
 
-|        | UART       | 장치             | 포트 |
-| ------ | ---------- | -------------- | -- |
-| USART1 | /dev/ttyS0 | IO 프로세서 디버그    |    |
-| USART2 | /dev/ttyS1 | TELEM1 (흐름 제어) |    |
-| USART3 | /dev/ttyS2 | TELEM2 (흐름 제어) |    |
-| UART4  | /dev/ttyS3 | GPS1           |    |
-| USART6 | /dev/ttyS4 | PX4IO          |    |
-| UART7  | /dev/ttyS5 | 디버그 콘솔         |    |
-| UART8  | /dev/ttyS6 | TELEM4         |    |
+| UART   | Device     | Port           |
+| ------ | ---------- | -------------- |
+| USART1 | /dev/ttyS0 | IO 프로세서 디버그    |
+| USART2 | /dev/ttyS1 | TELEM1 (흐름 제어) |
+| USART3 | /dev/ttyS2 | TELEM2 (흐름 제어) |
+| UART4  | /dev/ttyS3 | GPS1           |
+| USART6 | /dev/ttyS4 | PX4IO          |
+| UART7  | /dev/ttyS5 | 디버그 콘솔         |
+| UART8  | /dev/ttyS6 | TELEM4         |
 
 ## 정격 전압
 
@@ -83,6 +87,7 @@
 ## 펌웨어 빌드
 
 이 비행 컨트롤러용 PX4를 빌드하려면:
+
 ```jsx
 make thepeach_k1_default
 ```
