@@ -46,7 +46,8 @@ If *QGroundControl* installs the FMUv2 target (see console during installation) 
 Next you will need to specify the [vehicle airframe](../config/airframe.md) (and then sensors, radio, etc.)
 
 
-<span id="custom"></span>
+<a id="custom"></a>
+
 ## 安装PX4 Master, Beta或自定义固件
 
 To install a different version of PX4:
