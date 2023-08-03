@@ -146,8 +146,8 @@ You can connect to the debug port using a [cable like this one](https://www.digi
 Flight controllers commonly provide a single debug port that exposes both the [SWD Interface](#debug-signals) and [System Console](system_console).
 There are several debug probes that are tested and supported:
 
-- [SEGGER J-Link](probe_jlink): commercial probe, no built-in serial console, requires adapter.
-- [Black Magic Probe](probe_bmp): integrated GDB server and serial console, requires adapter.
+- [SEGGER J-Link](probe_jlink.md): commercial probe, no built-in serial console, requires adapter.
+- [Black Magic Probe](probe_bmp.md): integrated GDB server and serial console, requires adapter.
 - [STLink](probe_stlink): best value, integrated serial console, adapter must be soldered.
 
 An adapter to connect to the debug port may come with your flight controller or debug probe.
@@ -160,7 +160,7 @@ The [Holybro Pixhawk Debug Adapter](https://holybro.com/products/pixhawk-debug-a
 It is the easiest way to connect:
 
 - Flight controllers that use either the [Pixhawk Debug Full](#pixhawk-debug-full) (10-pin SH) or [Pixhawk Debug Mini](#pixhawk-debug-mini) (6-pin SH) debug port.
-- SWD debug probes that support the 10-pin ARM compatible interface standard used by the [Segger JLink EDU mini](probe_jlink) or 20-pin compatible with the Segger JLink or STLink.
+- SWD debug probes that support the 10-pin ARM compatible interface standard used by the [Segger JLink EDU mini](probe_jlink.md) or 20-pin compatible with the Segger JLink or STLink.
 
 ![Holybro Pixhawk Debug Adapter](../../assets/debug/holybro_pixhawk_debug_adapter.png)
 
@@ -169,7 +169,7 @@ It is the easiest way to connect:
 Some SWD [debug probes](#debug-probes) come with adapters/cables for connecting to common Pixhawk [debug ports](#debug-ports).
 Probes that are known to come with connectors are listed below:
 
-- [DroneCode Probe](probe_bmp#dronecode-probe): comes with a connector for attaching to the [Pixhawk Debug Mini](#pixhawk-debug-mini)
+- [DroneCode Probe](probe_bmp.md#dronecode-probe): comes with a connector for attaching to the [Pixhawk Debug Mini](#pixhawk-debug-mini)
 
 ### Board-specific Adapters
 

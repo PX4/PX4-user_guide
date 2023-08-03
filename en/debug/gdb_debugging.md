@@ -2,7 +2,7 @@
 
 The [GNU DeBugger (GDB)](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html) comes installed with the compiler toolchain in the form of the `arm-none-eabi-gdb` binary.
 The debugger reads the debug symbols inside an ELF file to understand the static and dynamic memory layout of the PX4 firmware.
-To access the PX4 autopilot microcontroller, it needs to connect to a [Remote Target](https://sourceware.org/gdb/download/onlinedocs/gdb/Connecting.html), which is provided by a [SWD debug probe](swd_debug).
+To access the PX4 autopilot microcontroller, it needs to connect to a [Remote Target](https://sourceware.org/gdb/download/onlinedocs/gdb/Connecting.html), which is provided by a [SWD debug probe](swd_debug.md).
 
 The flow of information looks like this:
 
@@ -22,8 +22,8 @@ To start a debugging session you typically:
 
 See the debug probe documentation for details on how to setup your debug connection:
 
-- [SEGGER J-Link](probe_jlink): commercial probe, no built-in serial console, requires adapter.
-- [Black Magic Probe](probe_bmp): integrated GDB server and serial console, requires adapter.
+- [SEGGER J-Link](probe_jlink.md): commercial probe, no built-in serial console, requires adapter.
+- [Black Magic Probe](probe_bmp.md): integrated GDB server and serial console, requires adapter.
 - [STLink](probe_stlink): best value, integrated serial console, adapter must be soldered.
 
 We recommend using the J-Link with the Pixhawk Debug Adapter or the STLinkv3-MINIE with a soldered custom cable.
