@@ -60,7 +60,8 @@ The following sensors can be used for [Visual Inertial Odometry (VIO)](../comput
 - [T265 Realsense Tracking Camera](../peripherals/camera_t265_vio.md)
 
 
-<span id="data_telephony"></span>
+<a id="data_telephony"></a>
+
 ## Data Telephony (LTE)
 
 An LTE USB module can be attached to a companion computer and used to route MAVLink traffic between the flight controller and the Internet.

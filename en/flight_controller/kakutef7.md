@@ -68,7 +68,8 @@ This is the silkscreen for the *Kakute F7*, showing the top of the board:
 | Boot | Bootloader button | |
 
 
-<span id="bootloader"></span>
+<a id="bootloader"></a>
+
 ## PX4 Bootloader Update
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). 

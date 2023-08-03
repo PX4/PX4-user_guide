@@ -48,7 +48,8 @@ To install PX4:
 Next you will need to specify the [vehicle airframe](../config/airframe.md) (and then sensors, radio, etc.)
 
 
-<span id="custom"></span>
+<a id="custom"></a>
+
 ## Installing PX4 Master, Beta or Custom Firmware
 
 To install a different version of PX4:
@@ -66,6 +67,7 @@ Firmware update then continues as before.
 
 
 <a id="bootloader"></a>
+
 ## FMUv2 Bootloader Update
 
 If *QGroundControl* installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.

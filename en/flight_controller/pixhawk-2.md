@@ -49,7 +49,8 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 * microSD card for high-rate logging over extended periods of time
 
 
-<span id="stores"></span>
+<a id="stores"></a>
+
 ## Where to Buy
 
 [Cube Black](http://www.proficnc.com/61-system-kits) (ProfiCNC)
@@ -124,7 +125,8 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 ![Cube Ports - Top (GPS, TELEM etc) and Main/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
 
-<span id="serial_ports"></span>
+<a id="serial_ports"></a>
+
 ### Serial Port Mapping
 
 UART | Device | Port
@@ -158,6 +160,7 @@ It is pre-built and automatically installed by *QGroundControl* when appropriate
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
+
 ```
 make px4_fmu-v3_default
 ```

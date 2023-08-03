@@ -23,7 +23,8 @@ Modules that accept 5.0V supply:
 * [AlphaUAVLink](https://www.banggood.com/MAVLink-Wifi-Bridge-2_4G-Wireless-Wifi-Telemetry-Module-with-Antenna-for-Pixhawk-APM-Flight-Controller-p-1428590.html) (Banggood)
 
 
-<span id="px4_config"></span>
+<a id="px4_config"></a>
+
 ## Pixhawk/PX4 Setup & Configuration
 
 :::tip

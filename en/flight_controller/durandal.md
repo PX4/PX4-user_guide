@@ -84,31 +84,38 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 For more information see: [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf).
 
-<span id="purchase"></span>
+<a id="purchase"></a>
+
 ## Where to Buy
 
 Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/durandal).
 
 
-<span id="connections"></span>
+<a id="connections"></a>
+
 ## Connections
 
 The locations of ports/connections are shown here (and below in the [pinouts section](#pinouts)).
 
 ### Top
+
 ![Durandal - Top Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
 
 ### Front
+
 ![Durandal - Front Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_front.jpg)
 
 ### Back
+
 ![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
 ### Right
+
 ![Durandal - Right-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_right.jpg)
 
 
 ### Left
+
 ![Durandal - Left-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
 
@@ -254,7 +261,8 @@ Pin | Signal | Volt
 4 (black) | GND | GND
 
 
-<span id="gps"></span>
+<a id="gps"></a>
+
 #### GPS port
 
 Pin | Signal | Volt
@@ -270,7 +278,8 @@ Pin | Signal | Volt
 9 (black) | BUZZER | +5V
 10 (black) | GND | GND
 
-<span id="telem4_i2cb"></span>
+<a id="telem4_i2cb"></a>
+
 #### TELEM4 I2CB ports
 
 Pin | Signal | Volt
@@ -282,7 +291,8 @@ Pin | Signal | Volt
 5 (black) | SDA2 | +3.3V
 6 (black) | GND | GND
 
-<span id="telem1_2_3"></span>
+<a id="telem1_2_3"></a>
+
 #### TELEM3, TELEM2, TELEM1 port
 
 Pin | Signal | Volt
@@ -294,7 +304,8 @@ Pin | Signal | Volt
 5 (black) | RTS (out) | +3.3V
 6 (black) | GND | GND
 
-<span id="power"></span>
+<a id="power"></a>
+
 #### POWER port
 
 Pin | Signal | Volt
@@ -373,7 +384,7 @@ Pin | Signal | Volt
 9 (black) | ADC1_SPARE_2 | +6.6V [++](#warn_sensor)
 10 (black) | GND | GND
 
-<span id="warn_sensor"></span>
+<a id="warn_sensor"></a>
 
 :::warning
 \++ Sensors connected to pins 8, 9 must not send a signal exceeding the indicated voltage.
@@ -383,7 +394,8 @@ Pin | Signal | Volt
 
 ![Durandal - Left-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
-<span id="debug_port"></span>
+<a id="debug_port"></a>
+
 #### DEBUG port
 
 Pin | Signal | Volt

@@ -132,7 +132,8 @@ make px4_fmu-v5_default
 ```
 
 
-<span id="debug_port"></span>
+<a id="debug_port"></a>
+
 ## Debug Port
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port.

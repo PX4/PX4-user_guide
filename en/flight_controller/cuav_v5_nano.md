@@ -72,7 +72,8 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
 Autopilot may be purchased with included Neo GPS module
 :::
 
-<span id="connection"></span>
+<a id="connection"></a>
+
 ## Connections (Wiring)
 
 [V5 nano Wiring Quickstart](../assembly/quick_start_cuav_v5_nano.md)
@@ -95,7 +96,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 make px4_fmu-v5_default
 ```
 
-<span id="debug_port"></span>
+<a id="debug_port"></a>
 ## Debug Port
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) operate on the **FMU Debug** port (`DSU7`).
@@ -162,7 +163,8 @@ However, the pins marked **+** are all common, and a BEC may be connected to any
 The *V5 nano* has no over current protection.
 
 
-<span id="Optional-hardware"></span>
+<a id="Optional-hardware"></a>
+
 ## Peripherals
 
 * [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
@@ -178,14 +180,16 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 CUAV adopts some differentiated designs and is incompatible with some hardware, which will be described below.
 
-<span id="compatibility_gps"></span>
+<a id="compatibility_gps"></a>
+
 #### Neo v2.0 GPS not compatible with other devices
 
 The *Neo v2.0 GPS* that is recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
 
 The UAVCAN [NEO V2 PRO GNSS receiver](http://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html) can also be used, and is compatible with other flight controllers.
 
-<span id="compatibility_jtag"></span>
+<a id="compatibility_jtag"></a>
+
 #### Using JTAG for hardware debugging
 
 `DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
@@ -194,7 +198,8 @@ Some JTAG probes use this voltage to set the IO levels when communicating to the
 
 For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
 
-<span id="compatibility_pm2"></span>
+<a id="compatibility_pm2"></a>
+
 #### PM2 cannot power the flight controller
 
 `PM2` can only measure battery voltage and current, but **not** power the flight controller.
@@ -209,7 +214,8 @@ The issues below refer to the *batch number* in which they first appear.
 The batch number is the four-digit production date behind V01 and is displayed on a sticker on the side of the flight controller.
 For example, the serial number Batch V011904((V01 is the number of V5, 1904 is the production date, that is, the batch number).
 
-<span id="pin1_unfused"></span>
+<a id="pin1_unfused"></a>
+
 #### SBUS / DSM / RSSI interface Pin1 unfused
 
 :::warning

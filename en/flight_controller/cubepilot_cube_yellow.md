@@ -34,7 +34,8 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 * microSD card for high-rate logging over extended periods of time
 
 
-<span id="stores"></span>
+<a id="stores"></a>
+
 ## Where to Buy
 
 * [Reseller list](https://www.cubepilot.com/#/reseller/list)

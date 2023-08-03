@@ -70,7 +70,8 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 Autopilot may be purchased with included Neo GPS module
 :::
 
-<span id="connection"></span>
+<a id="connection"></a>
+
 ## Connections (Wiring)
 
 [CUAV V5+ Wiring Quickstart](../assembly/quick_start_cuav_v5_plus.md)
@@ -166,7 +167,8 @@ UART8 | /dev/ttyS6 | PX4IO
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
-<span id="optional-hardware"></span>
+<a id="optional-hardware"></a>
+
 ## Peripherals
 
 * [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
@@ -191,14 +193,16 @@ Similarly, a digital PM plugged into a analog connector will not work, and may a
 
 CUAV adopts some differentiated designs and is incompatible with some hardware, which will be described below.
 
-<span id="compatibility_gps"></span>
+<a id="compatibility_gps"></a>
+
 #### GPS not compatible with other devices
 
 The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
 
 The UAVCAN [NEO V2 PRO GNSS receiver](http://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html) can also be used, and is compatible with other flight controllers.
 
-<span id="compatibility_jtag"></span>
+<a id="compatibility_jtag"></a>
+
 #### Using JTAG for hardware debugging
 
 `DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
@@ -213,7 +217,8 @@ The issues below refer to the *batch number* in which they first appear.
 The batch number is the four-digit production date behind V01 and is displayed on a sticker on the side of the flight controller.
 For example, the serial number Batch V011904((V01 is the number of V5, 1904 is the production date, that is, the batch number).
 
-<span id="pin1_unfused"></span>
+<a id="pin1_unfused"></a>
+
 #### SBUS / DSM / RSSI interface Pin1 unfused
 
 :::warning

@@ -6,7 +6,8 @@ This topic explains the basics of flying a vehicle using an [RC Transmitter](../
 Before you fly for the first time you should read our [First Flight Guidelines](../flying/first_flight_guidelines.md).
 :::
 
-<span id="arm"></span>
+<a id="arm"></a>
+
 ## Arm the Vehicle
 
 Before you can fly the vehicle it must first be [armed](../getting_started/px4_basic_concepts.md#arming-and-disarming).
@@ -32,7 +33,8 @@ This is a safety measure to ensure that vehicles return to a safe state when not
 A VTOL vehicle can only arm in multicopter mode (by default - arming in fixed-wing mode can be enabled using [CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
 :::
 
-<span id="takeoff-and-landing"></span>
+<a id="takeoff-and-landing"></a>
+
 ## Takeoff
 
 The easiest way to takeoff (after [arming the vehicle](#arm)) is to use the automatic [Takeoff mode](../flight_modes/takeoff.md).

@@ -182,7 +182,8 @@ Pixhawk Mini features an advanced processor and sensor technology from ST Microe
   - The defective Pixhawk Minis will not calibrate without an external magnetometer or an attached GPS, even indoor.
   - When using an external GPS, [this is not a problem](https://github.com/PX4/PX4-Autopilot/pull/7618#issuecomment-320270082) because the secondary ICM20608 provides the accelerometer and the gyro, while the external GPS provides the magnetometer.
 
-<span id="wiring"></span>
+<a id="wiring"></a>
+
 ## Wiring Quick Start
 
 :::warning

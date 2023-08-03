@@ -169,7 +169,8 @@ USART6 | /dev/ttyS2 | GPS
 The Omnibus supports telemetry to the RC Transmitter using [FrSky Telemetry](../peripherals/frsky_telemetry.md) or [CRSF Crossfire Telemetry](#crsf_telemetry).
 
 
-<span id="crsf_telemetry"></span>
+<a id="crsf_telemetry"></a>
+
 ### CRSF Crossfire Telemetry
 
 TBS CRSF Crossfire telemetry is used to send telemetry data from the flight controller (the vehicle's attitude, battery, flight mode and GPS data) to the RC transmitter (Taranis).
@@ -207,7 +208,8 @@ Instructions for this are provided in the [TBS Crossfire Manual](https://www.tea
 
 The schematics are provided by [Airbot](https://myairbot.com/): [OmnibusF4-Pro-Sch.pdf](http://bit.ly/obf4pro).
 
-<span id="bootloader"></span>
+<a id="bootloader"></a>
+
 ## PX4 Bootloader Update
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). 

@@ -58,7 +58,7 @@ Setting | Parameter | Description
 --- | --- | ---
 Failsafe Action | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | Warn, Return, or Land based when capacity drops below [Battery Failsafe Level](#BAT_CRIT_THR), OR Warn, then return, then land based on each of the level settings below.
 Battery Warn Level | [BAT_LOW_THR](../advanced_config/parameter_reference.md#BAT_LOW_THR) | Percentage capacity for warnings (or other actions).
-<span id="BAT_CRIT_THR"></span>Battery Failsafe Level | [BAT_CRIT_THR](../advanced_config/parameter_reference.md#BAT_CRIT_THR) | Percentage capacity for Return action (or other actions if a single action selected).
+<a id="BAT_CRIT_THR"></a>Battery Failsafe Level | [BAT_CRIT_THR](../advanced_config/parameter_reference.md#BAT_CRIT_THR) | Percentage capacity for Return action (or other actions if a single action selected).
 Battery Emergency Level | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | Percentage capacity for triggering Land (immediately) action.
 
 

@@ -45,7 +45,8 @@ While a physical connector standard is not mandated, newer products generally fo
 
 The project also creates reference autopilot boards based on the open designs, and shares them under the same [licence](#licensing-and-trademarks).
 
-<span id="fmu_versions"></span>
+<a id="fmu_versions"></a>
+
 ### FMU Versions
 
 The Pixhawk project has created a number of different open designs/schematics.
@@ -87,7 +88,8 @@ At very high level, the main differences are:
   Much more configurable & customizable
   .([Pixhawk 5X](../flight_controller/pixhawk5x.md), Skynode)
 
-<span id="licensing-and-trademarks"></span>
+<a id="licensing-and-trademarks"></a>
+
 ### Licensing and Trademarks
 
 Pixhawk project schematics and reference designs are licensed under [CC BY-SA 3](https://creativecommons.org/licenses/by-sa/3.0/legalcode).

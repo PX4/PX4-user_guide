@@ -174,7 +174,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 make px4_fmu-v6x_default
 ```
 
-<span id="debug_port"></span>
+<a id="debug_port"></a>
 
 ## Debug Port
 
