@@ -2,11 +2,12 @@
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues. 有关如何连接此端口的详细信息，请参阅 [接线](../debug/system_console.md) 页面。
 
-*Durandal*<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers. It was designed and developed by Holybro.
+_Durandal_<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers. It was designed and developed by Holybro.
 
 ![Durandal](../../assets/flight_controller/durandal/durandal_hero.jpg)
 
 At high level, some of the key features are:
+
 - Integrated temperature control for sensors.
 - Powerful STM32H7 microcontroller running at 480MHz. 2 MB of Flash memory and 1 MB of RAM.
 - New sensors with higher temperature stability.
@@ -18,7 +19,6 @@ A summary of the key features, [assembly](../assembly/quick_start_durandal.md), 
 :::note
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
-
 
 ## 概览
 
@@ -35,7 +35,6 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
   - 气压计：MS5611
 - GPS：ublox Neo-M8N GPS/GLONASS 接收器；集成磁力计 IST8310
 
-
 #### 接口
 
 - 8-13 PWM servo outputs (8 from IO, 5 from FMU)
@@ -48,7 +47,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
   - 1 with separate 1.5A current limit
 - 3 个 I2C 接口
 - 4路SPI总线
-  - 1 internal high speed SPI sensor bus with 4 chip  selects and 6 DRDYs
+  - 1 internal high speed SPI sensor bus with 4 chip selects and 6 DRDYs
   - 1 internal low noise SPI bus dedicated for XXX
   - Barometer with 2 chip selects, no DRDYs
   - 1 internal SPI bus dedicated for FRAM
@@ -60,6 +59,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 - 2 additional analog inputs
 
 #### Electrical Data
+
 - 电源模块输出：4.9~5.5V
 - Max input voltage: 6V
 - 最大电流感应：120A
@@ -67,10 +67,12 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 - 伺服导轨输入电压：0~36V
 
 #### Mechanical Data
+
 - Dimensions: 80x45x20.5mm
 - 重量：68.8g
 
 #### 其它特性
+
 - Operating temperature: ~40~85C
 - Storage temperature: -40~85C
 - CE
@@ -79,33 +81,37 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 For more information see: [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf).
 
-<span id="purchase"></span>
+<a id="purchase"></a>
+
 ## Where to Buy
 
 Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/durandal).
 
+<a id="connections"></a>
 
-<span id="connections"></span>
 ## Connections
 
 The locations of ports/connections are shown here (and below in the [pinouts section](#pinouts)).
 
 ### Top
+
 ![Durandal - Top Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
 
 ### Front
+
 ![Durandal - Front Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_front.jpg)
 
 ### Back
+
 ![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
 ### Right
+
 ![Durandal - Right-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_right.jpg)
 
-
 ### Left
-![Durandal - Left-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
+![Durandal - Left-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
 ## 尺寸
 
@@ -144,12 +150,12 @@ Under these conditions the system will not draw any power (will not be operation
 
 The [Durandal Wiring Quick Start](../assembly/quick_start_durandal.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
 
-
 ## 编译固件
 
-端口使用标准的串口针脚，可以连接到标准的 FTDI 连接线上（3.3V，但它有5V 耐受性），或连接到 [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) 上。 针脚定义使用标准的 Dronecode 调试连接器针脚定义。 有关如何连接此端口的详细信息，请参阅 [接线](../debug/system_console.md) 页面。
+端口使用标准的串口针脚，可以连接到标准的 FTDI 连接线上（3.3V，但它有5V 耐受性），或连接到 [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) 上。 It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected. 有关如何连接此端口的详细信息，请参阅 [接线](../debug/system_console.md) 页面。
 
 任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。
+
 ```
 make holybro_durandal-v1_default
 ```
@@ -166,14 +172,13 @@ make holybro_durandal-v1_default
 | UART7  | /dev/ttyS5 | Debug Console |
 | UART8  | /dev/ttyS6 | PX4IO         |
 
-
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 <a id="debug_port"></a>
 
 ## Debug调试端口
 
-全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。
+The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the _Debug Port_.
 
 The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
@@ -183,13 +188,11 @@ For wiring and debugging information see the above links.
 No Debug port is exposed for the I/O board.
 :::
 
-
 ## 外部设备
 
-* [数字空速传感器](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
-* [数传电台模块](../telemetry/README.md)
-* [测距仪/距离传感器](../sensor/rangefinders.md)
-
+- [数字空速传感器](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+- [数传电台模块](../telemetry/README.md)
+- [测距仪/距离传感器](../sensor/rangefinders.md)
 
 ## 支持的平台/机身
 
@@ -197,15 +200,13 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-
 ## 针脚定义
 
-*Durandal* pinouts are listed below. These can also be downloaded from [here](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts).
+_Durandal_ pinouts are listed below. These can also be downloaded from [here](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts).
 
 ### Top Pinouts
 
 ![Durandal - Top Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
-
 
 ### Front Pinouts
 
@@ -245,8 +246,8 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 | 3 (black) | CAN L | +3.3V |
 | 4 (black) | GND   | GND   |
 
+<a id="gps"></a>
 
-<span id="gps"></span>
 #### GPS 接口
 
 | 针脚         | 信号                  | 电压    |
@@ -262,7 +263,8 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 | 9 (black)  | BUZZER              | +5V   |
 | 10 (black) | GND                 | GND   |
 
-<span id="telem4_i2cb"></span>
+<a id="telem4_i2cb"></a>
+
 #### TELEM4 I2CB ports
 
 | 针脚        | 信号       | 电压    |
@@ -274,7 +276,8 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 | 5 (black) | SDA2     | +3.3V |
 | 6 (black) | GND      | GND   |
 
-<span id="telem1_2_3"></span>
+<a id="telem1_2_3"></a>
+
 #### TELEM3, TELEM2, TELEM1 port
 
 | 针脚        | 信号       | 电压    |
@@ -286,7 +289,8 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 | 5 (black) | RTS（输出）  | +3.3V |
 | 6 (black) | GND      | GND   |
 
-<span id="power"></span>
+<a id="power"></a>
+
 #### POWER port
 
 | 针脚        | 信号  | 电压    |
@@ -297,7 +301,6 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 | 4 (black) | 电压  | +3.3V |
 | 5 (black) | GND | GND   |
 | 6 (black) | GND | GND   |
-
 
 ### Back Pinouts
 
@@ -316,7 +319,6 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 | 7  | IO_CH7 | +3.3V | VDD_SERVO | GND |
 | 8  | IO_CH8 | +3.3V | VDD_SERVO | GND |
 
-
 #### AUX Out
 
 | 针脚 | 信号      | 电压    | +         | -   |
@@ -327,15 +329,13 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 | 4  | FMU_CH4 | +3.3V | VDD_SERVO | GND |
 | 5  | FMU_CH5 | +3.3V | VDD_SERVO | GND |
 
-
 #### RC IN
 
 | 针脚 | 信号               | 电压    |
 | -- | ---------------- | ----- |
 | S  | SBUS_IN/PPM_IN | +3.3V |
-+ | VCC | +5V
-- | GND | GND
-
+| +  | VCC              | +5V   |
+| -  | GND              | GND   |
 
 ### Right-side Pinouts
 
@@ -365,7 +365,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 | 9 (black)  | ADC1_SPARE_2 | +6.6V [++](#warn_sensor) |
 | 10 (black) | GND            | GND                      |
 
-<span id="warn_sensor"></span>
+<a id="warn_sensor"></a>
 
 :::warning
 \++ Sensors connected to pins 8, 9 must not send a signal exceeding the indicated voltage.
@@ -375,7 +375,8 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 ![Durandal - Left-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
-<span id="debug_port"></span>
+<a id="debug_port"></a>
+
 #### DEBUG port
 
 | 针脚        | 信号    | 电压    |
@@ -386,7 +387,6 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 | 4 (black) | SWDIO | +3.3V |
 | 5 (black) | SWCLK | +3.3V |
 | 6 (black) | GND   | GND   |
-
 
 #### SPI port
 
@@ -400,7 +400,6 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 | 6 (black) | CS2  | +3.3V |
 | 7 (black) | GND  | GND   |
 
-
 #### USB port
 
 | 针脚        | 信号   | 电压    |
@@ -409,7 +408,6 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 | 2 (black) | DM   | +3.3V |
 | 3 (black) | DP   | +3.3V |
 | 4 (black) | GND  | GND   |
-
 
 ## 更多信息
 
