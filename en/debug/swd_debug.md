@@ -40,17 +40,17 @@ The debug port location and pinouts for a subset of autopilots are linked below:
 
 <a id="port-information"></a>
 
-| Autopilot                                                                           | Debug Port                                                                                                                                                                                                                            |
-| :---------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md#debug-port) (FMUv5x)         | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                                                                                             |
-| [Holybro Durandal](../flight_controller/durandal.md#debug-port)                     | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                                                                                             |
-| [Holybro Kakute F7](../flight_controller/kakutef7.md#debug-port)                    | Solder pads                                                                                                                                                                                                                           |
-| [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md#debug-port) (FMUv5)  | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                                                                                             |
-| [Holybro Pixhawk 4](../flight_controller/pixhawk4.md#debug_port) (FMUv5)            | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                                                                                             |
-| [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md#debug-port) (FMU-v4pro) | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                                                                                             |
-| [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port)                         | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1582-1-ND) (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1568-1-ND) (side mount) |
-| [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)                      | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1582-1-ND) (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1568-1-ND) (side mount) |
-| [3DR Pixhawk](../flight_controller/pixhawk.md#swd-port)                             | ARM 10-pin JTAG Connector (also used for FMUv2 boards including: _mRo Pixhawk_, _HobbyKing HKPilot32_).                                                                                                                               |
+| Autopilot                                                                           | Debug Port                                                                                                                                                        |
+| :---------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md#debug-port) (FMUv5x)         | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                         |
+| [Holybro Durandal](../flight_controller/durandal.md#debug-port)                     | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                         |
+| [Holybro Kakute F7](../flight_controller/kakutef7.md#debug-port)                    | Solder pads                                                                                                                                                       |
+| [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md#debug-port) (FMUv5)  | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                         |
+| [Holybro Pixhawk 4](../flight_controller/pixhawk4.md#debug_port) (FMUv5)            | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                         |
+| [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md#debug-port) (FMU-v4pro) | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                         |
+| [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port)                         | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)][BM06B-GHS-TBT(LF)(SN)(N)] (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)][SM06B-GHS-TBT(LF)(SN)(N)] (side mount) |
+| [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)                      | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)][BM06B-GHS-TBT(LF)(SN)(N)] (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)][SM06B-GHS-TBT(LF)(SN)(N)] (side mount) |
+| [3DR Pixhawk](../flight_controller/pixhawk.md#swd-port)                             | ARM 10-pin JTAG Connector (also used for FMUv2 boards including: _mRo Pixhawk_, _HobbyKing HKPilot32_).                                                           |
 
 <a id="pixhawk-standard-debug-ports"></a>
 
@@ -143,15 +143,18 @@ You can connect to the debug port using a [cable like this one](https://www.digi
 
 ## Debug Probes for PX4 Hardware
 
-Flight controllers commonly provide a single debug port that exposes both the [SWD Interface](#debug-signals) and [System Console](system_console).
-There are several debug probes that are tested and supported:
+Flight controllers commonly provide a [single debug port](#autopilot-debug-ports) that exposes both the [SWD Interface](#debug-signals) and [System Console](system_console).
 
-- [SEGGER J-Link](probe_jlink.md): commercial probe, no built-in serial console, requires adapter.
-- [Black Magic Probe](probe_bmp.md): integrated GDB server and serial console, requires adapter.
-- [STLink](probe_stlink): best value, integrated serial console, adapter must be soldered.
+There are several debug probes that are tested and supported for connecting to one or both of these interfaces:
+
+- [SEGGER J-Link](../debug/probe_jlink.md): commercial probe, no built-in serial console, requires adapter.
+- [Black Magic Probe](../debug/probe_bmp.md): integrated GDB server and serial console, requires adapter.
+- [STLink](../debug/probe_stlink): best value, integrated serial console, adapter must be soldered.
 
 An adapter to connect to the debug port may come with your flight controller or debug probe.
 Other options are given below.
+
+## Debug Adapters
 
 ### Holybro Pixhawk Debug Adapter
 
@@ -160,7 +163,7 @@ The [Holybro Pixhawk Debug Adapter](https://holybro.com/products/pixhawk-debug-a
 It is the easiest way to connect:
 
 - Flight controllers that use either the [Pixhawk Debug Full](#pixhawk-debug-full) (10-pin SH) or [Pixhawk Debug Mini](#pixhawk-debug-mini) (6-pin SH) debug port.
-- SWD debug probes that support the 10-pin ARM compatible interface standard used by the [Segger JLink EDU mini](probe_jlink.md) or 20-pin compatible with the Segger JLink or STLink.
+- SWD debug probes that support the 10-pin ARM compatible interface standard used by the [Segger JLink EDU mini](../debug/probe_jlink.md) or 20-pin compatible with the Segger JLink or STLink.
 
 ![Holybro Pixhawk Debug Adapter](../../assets/debug/holybro_pixhawk_debug_adapter.png)
 
@@ -173,7 +176,7 @@ Probes that are known to come with connectors are listed below:
 
 ### Board-specific Adapters
 
-Some manufacturers provide cables to make it easy to connect the SWD interface and [System Console](system_console).
+Some manufacturers provide cables to make it easy to connect the SWD interface and [System Console](../debug/system_console).
 
 - [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port) and [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port) include this debug cable:
 
@@ -197,3 +200,5 @@ This reduces the risk or poor wiring contributing to debugging problems, and has
 [swd]: https://developer.arm.com/documentation/ihi0031/a/The-Serial-Wire-Debug-Port--SW-DP-
 [itm]: https://developer.arm.com/documentation/ddi0403/d/Appendices/Debug-ITM-and-DWT-Packet-Protocol?lang=en
 [etm]: https://developer.arm.com/documentation/ihi0064/latest/
+[BM06B-GHS-TBT(LF)(SN)(N)]: https://www.digikey.com/products/en?keywords=455-1582-1-ND
+[SM06B-GHS-TBT(LF)(SN)(N)]: https://www.digikey.com/products/en?keywords=455-1568-1-ND

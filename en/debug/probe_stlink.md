@@ -3,7 +3,9 @@
 The [STLinkv3-MINIE](https://www.st.com/en/development-tools/stlink-v3minie.html) is a cheap, fast and highly capable debug probe that can serve as a stand-alone debug and console communicator for a PX4 developer:
 
 - Just one single USB-C connection for Reset, SWD, SWO, and serial in a very small package!
-- Up to 24MHz SWD and SWO connection. Up to 16 MBaud serial. 1.65V to 3.6V target voltage. USB2 high-speed 480 Mbps connection.
+- Up to 24MHz SWD and SWO connection.
+  Up to 16 MBaud serial. 1.65V to 3.6V target voltage.
+  USB2 high-speed 480 Mbps connection.
 - Driven by STLink or OpenOCD software with wide device support.
 - Much cheaper (<15€) than a Pixhawk Debug Adapter (~20€) with a JLink EDU mini (~55€) or JLink BASE (~400€) while having better hardware specs.
 
@@ -52,8 +54,8 @@ For this solder guide you need:
 - 1x [STLinkv3-MINIE](https://www.st.com/en/development-tools/stlink-v3minie.html).
 - 1x cable connector for mating with [JST SM10B (Full)](https://www.digikey.com/products/en?keywords=A10SR10SR30K203A) or [JST SM06B (Mini)](https://www.digikey.com/products/en?keywords=A06SR06SR30K152A).
 
-
   We recommend buying fully assembled cables with two connectors on either side.
+
 - 1x soldering iron and solder.
 - Some tongs, cutting pliers, and tweezers.
 

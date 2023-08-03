@@ -330,6 +330,6 @@ make px4_fmu-v3_default
 
 ## Debug Port
 
-This board does not have a debug port (i.e it does not have a port for accessing the [System Console](../debug/system_console.md) or [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md).
+This board does not have a debug port (i.e it does not have a port for accessing the [System Console](../debug/system_console.md) or [SWD interface](../debug/swd_debug.md).
 
 Developers will need to solder wires to the board test pads for SWD, and to the STM32F4 (IC) TX and RX to get a console.

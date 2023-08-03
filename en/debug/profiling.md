@@ -17,7 +17,7 @@ The folded stacks are then fed into the visualization script, for which purpose 
 
 The profiler relies on GDB to run PX4 on the embedded target.
 So before profiling a target, you must have the hardware you wish to profile, and you must compile and upload the firmware to that hardware.
-You will then need a [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md#debug-probes), such as the DroneCode Probe, to run the GDB server and interact with the board.
+You will then need a [debug probe](../debug/swd_debug.md#debug-probes) (such as the DroneCode Probe), to run the GDB server and interact with the board.
 
 
 ### Determine the Debugger Device
