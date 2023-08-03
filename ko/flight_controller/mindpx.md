@@ -24,22 +24,22 @@ MindPX는 총 PWM 출력 채널을 16 (8개의 주출력 + 8 aux 출력)으로 �
 
 ![](../../assets/hardware/hardware-mindpx-specs.png)
 
-* 메인시스템 온칩 : STM32F427
-  * CPU : 32 비트, 168 MHz ARM 코어 텍스<sup>&reg;</sup> FPU 포함 M4
-  * RAM : 256KB SRAM
-  * 2MB 플래시
-  * ST 마이크로 LSM303D 14 비트 가속도계/자력계
-  * MEAS MS5611 기압계
-  * InvenSense<sup>&reg;</sup> MPU6500 통합 6축 센서
+- 메인시스템 온칩 : STM32F427
 
+  - CPU : 32 비트, 168 MHz ARM 코어 텍스<sup>&reg;</sup> FPU 포함 M4
+  - RAM : 256KB SRAM
+  - 2MB 플래시
+  - ST 마이크로 LSM303D 14 비트 가속도계/자력계
+  - MEAS MS5611 기압계
+  - InvenSense<sup>&reg;</sup> MPU6500 통합 6축 센서
 
-* 주요 기능 :
-  * CNC 가공 가볍고 견고한 알루미늄 합금 케이스
-  * 내장 IMU 이중화 내장
-  * 총 16개의 PWM 출력 채널 (8 메인 + 8 보조)
-  * 플로우 연결을 위한 여분의 I2C 포트 1 개.
-  * 보조 컴퓨터 연결 용 추가 USB 포트 1 개(내장 UART-USB 변환기)
-  * 개발용 공개 디버그 포트
+- 주요 기능 :
+  - CNC 가공 가볍고 견고한 알루미늄 합금 케이스
+  - 내장 IMU 이중화 내장
+  - 총 16개의 PWM 출력 채널 (8 메인 + 8 보조)
+  - 플로우 연결을 위한 여분의 I2C 포트 1 개.
+  - 보조 컴퓨터 연결 용 추가 USB 포트 1 개(내장 UART-USB 변환기)
+  - 개발용 공개 디버그 포트
 
 ## 빠른 시작
 
@@ -69,7 +69,6 @@ MindPX는 총 PWM 출력 채널을 16 (8개의 주출력 + 8 aux 출력)으로 �
 | 7  |     TF 카드 슬롯     | 15 |                   삼색등                   |
 | 8  |  NRF/SPI(원격 제어)  | 16 |                 Looper                  |
 
-
 ### 라디오 수신기
 
 MindPX는 PPM/SBUS/DSM/DSM2/DSMX를 포함한 다양한 무선 수신기를 V2.6부터 지원합니다. MindPX는 FrSky<sup>&reg;</sup> 양방향 텔레메트리 D와 S.Port도 지원합니다.
@@ -78,10 +77,11 @@ MindPX는 PPM/SBUS/DSM/DSM2/DSMX를 포함한 다양한 무선 수신기를 V2.6
 
 ### 펌웨어 빌드
 
-::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
+
 ```
 make airmind_mindpx-v2_default
 ```
