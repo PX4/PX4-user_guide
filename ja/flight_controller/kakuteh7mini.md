@@ -22,7 +22,7 @@ PX4 runs on the H7 mini v1.3 and later.
 
 ## Key Features
 
-- MCU: STM32H743 32-bit processor running at 480 MHz
+- MCU: STM32H743 32-bit processor running at 480 MHz
 - IMU: BMI270
 - Barometer: BMP280
 - OSD: AT7456E
@@ -37,10 +37,10 @@ PX4 runs on the H7 mini v1.3 and later.
 - Dimensions: 30x31x6mm
 - Weight: 5.5g
 
-
 ## Where to Buy
 
 The board can be bought from one of the following shops (for example):
+
 - [Holybro](https://holybro.com/products/kakute-h7-mini)
 
 ## Connectors and Pins
@@ -68,12 +68,11 @@ The board can be bought from one of the following shops (for example):
 | M5 to M8 | Motor signal outputs (located in plug for use in 4-in-1 ESCs)     |                     |
 | Boot     | Bootloader button                                                 |                     |
 
-
 <a id="bootloader"></a>
 
 ## PX4 Bootloader Update
 
-The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Before the PX4 firmware can be installed, the *PX4 bootloader* must be flashed. Download the [holybro_kakuteh7mini_bootloader.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakuteh7mini/holybro_kakuteh7mini_bootloader.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
+The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Before the PX4 firmware can be installed, the _PX4 bootloader_ must be flashed. Download the [holybro_kakuteh7mini_bootloader.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakuteh7mini/holybro_kakuteh7mini_bootloader.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 
 ## Building Firmware
 
@@ -96,7 +95,8 @@ Firmware can be manually installed in any of the normal ways:
   ```
   make holybro_kakuteh7mini_default upload
   ```
-- [Load the firmware](../config/firmware.md) using *QGroundControl*. You can use either pre-built firmware or your own custom firmware.
+
+- [Load the firmware](../config/firmware.md) using _QGroundControl_. You can use either pre-built firmware or your own custom firmware.
 
 :::note
 KakuteH7mini is supported with PX4 main and v1.14 or newer.
@@ -110,7 +110,6 @@ In addition to the [basic configuration](../config/README.md), the following par
 | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag. |
 
-
 ## Serial Port Mapping
 
 | UART   | Device     | Port                  |
@@ -121,7 +120,6 @@ In addition to the [basic configuration](../config/README.md), the following par
 | USART6 | /dev/ttyS4 | RC SBUS               |
 | UART7  | /dev/ttyS5 | ESC telemetry (DShot) |
 
-
 ## Debug Port
 
 ### System Console
@@ -130,7 +128,8 @@ UART3 RX and TX are configured for use as the [System Console](../debug/system_c
 
 ### SWD
 
-The  [SWD interface](../debug/swd_debug.md) (JTAG) pins are:
+The [SWD interface](../debug/swd_debug.md) (JTAG) pins are:
+
 - `SWCLK`: Test Point 2 (Pin 72 on the CPU)
 - `SWDIO`: Test Point 3 (Pin 76 on CPU)
 - `GND`: As marked on board
