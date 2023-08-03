@@ -47,7 +47,8 @@ PX4 설치
 다음으로 [기체 프레임](../config/airframe.md)을 지정하여야 합니다(그리고 센서, 라디오 등).
 
 
-<span id="custom"></span>
+<a id="custom"></a>
+
 ## PX4 마스터, 베타 또는 사용자 지정 펌웨어 설치
 
 다른 버전의 PX4 설치
