@@ -5,7 +5,8 @@
 :::note
 처음 비행하기 전에 [첫 비행 지침](../flying/first_flight_guidelines.md)을 읽어야 합니다. :::
 
-<span id="arm"></span>
+<a id="arm"></a>
+
 ## 기체 시동
 
 Before you can fly the vehicle it must first be [armed](../getting_started/px4_basic_concepts.md#arming-and-disarming). 시동을 걸면 모든 모터와 액추에이터에 전원을 공급합니다. 멀티 콥터에서는 프로펠러가 회전할 수 있습니다.
@@ -24,7 +25,8 @@ Before you can fly the vehicle it must first be [armed](../getting_started/px4_b
 
 :::note VTOL은 멀티 콥터 모드에서만 시동이 가능합니다. 기본적으로 고정익 모드의 무장은 [CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)을 사용하여 활성화 할 수 있습니다. :::
 
-<span id="takeoff-and-landing"></span>
+<a id="takeoff-and-landing"></a>
+
 ## 이륙
 
 가장 용이한 이륙 방법([기체 시동](#arm) 후)은 자동 [이륙 모드](../flight_modes/takeoff.md)를 사용하는 것입니다. 일반적으로 [RC 스위치](../config/flight_mode.md) 또는 지상국 프로그램을 사용합니다.
