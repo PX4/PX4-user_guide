@@ -10,12 +10,12 @@ PMSP is a shell script that operates by interrupting execution of the firmware p
 
 ### Prerequisites
 
-The profiler relies on GDB to run PX4 on the embedded target. So before profiling a target, you must have the hardware you wish to profile, and you must compile and upload the firmware to that hardware. You will then need a [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md#debug-probes), such as the DroneCode Probe, to run the GDB server and interact with the board.
+The profiler relies on GDB to run PX4 on the embedded target. So before profiling a target, you must have the hardware you wish to profile, and you must compile and upload the firmware to that hardware. You will then need a [debug probe](../debug/swd_debug.md#debug-probes) (such as the DroneCode Probe), to run the GDB server and interact with the board.
 
 
 ### Determine the Debugger Device
 
-The `poor-mans-profiler.sh` automatically detects and uses the correct USB device if you use it with a [DroneCode Probe](../debug/swd_debug.md#dronecode-probe). If you use a different kind of probe you may need to pass in the specific _device_ on which the debugger is located. You can use the bash command `ls -alh /dev/serial/by-id/` to enumerate the possible devices on Ubuntu. For example the following devices are enumerated with a Pixhawk 4 and DroneCode Probe connected over USB:
+The `poor-mans-profiler.sh` automatically detects and uses the correct USB device if you use it with a [DroneCode Probe](../debug/probe_bmp.md#dronecode-probe). If you use a different kind of probe you may need to pass in the specific _device_ on which the debugger is located. You can use the bash command `ls -alh /dev/serial/by-id/` to enumerate the possible devices on Ubuntu. For example the following devices are enumerated with a Pixhawk 4 and DroneCode Probe connected over USB:
 ```
 user@ubuntu:~/PX4-Autopilot$ ls -alh /dev/serial/by-id/
 total 0
