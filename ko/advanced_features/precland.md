@@ -46,7 +46,8 @@ If using an offboard positioning system PX4 assumes that the target is visible w
 
 정밀 착륙은 임무, *귀환 모드*의 착륙 단계 또는 *정밀 착륙* 모드로 진입하여 사용할 수 있습니다.
 
-<span id="mission"></span>
+<a id="mission"></a>
+
 ### 미션 모드 정밀 착륙
 
 정밀 착륙은 `param2`을 적절히 설정하여 [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)를 사용하여 [임무](../flying/missions.md)의 일부로 시작됩니다.
