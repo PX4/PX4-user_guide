@@ -18,7 +18,8 @@ Obstacle avoidance can use the *local planner* (emits messages at ~30Hz and can 
 :::
 
 
-<span id="offboard_mode"></span>
+<a id="offboard_mode"></a>
+
 ## Offboard模式避障
 
 PX4 在 [Offboard 模式](../flight_modes/offboard.md)中支持自主避障功能。
@@ -30,7 +31,8 @@ PX4中唯一需要的配置是将 PX4 设置为 *Offboard 模式*。
 机载计算机中的硬件设置和软/硬件配置在 Github 仓库 [PX4/avoidance](https://github.com/PX4/PX4-Avoidance) 中已经提供。
 
 
-<span id="mission_mode"></span>
+<a id="mission_mode"></a>
+
 ## 任务模式避障
 
 PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台独立的运行避障软件的机载计算机配合。
@@ -68,7 +70,8 @@ Companion-side hardware setup and hardware/software configuration is provided in
 Obstacle avoidance in missions can use either the *local planner* or *global planner* (the local planner is recommended/better performing).
 
 
-<span id="interface"></span>
+<a id="interface"></a>
+
 ## 自主避障接口
 
 PX4 使用 [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) 集成机载计算机中的路径规划服务（包括 [任务中自主避障](../computer_vision/obstacle_avoidance.md#mission_mode)，[安全着陆](../computer_vision/safe_landing.md) 以及更多的服务）。
