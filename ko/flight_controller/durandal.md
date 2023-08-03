@@ -3,11 +3,12 @@
 :::warning PX4에서는 이 제품을 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-*Durandal*<sup>&reg;</sup>는 성공적인 Holybro 비행 컨트롤러 제품군에 대한 최신 업데이트입니다. Holybro가 설계하고 개발하였습니다.
+_Durandal_<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers. Holybro가 설계하고 개발하였습니다.
 
 ![Durandal](../../assets/flight_controller/durandal/durandal_hero.jpg)
 
 주요 기능은 다음과 같습니다.
+
 - 센서 통합 온도 제어.
 - 480MHz에서 실행되는 강력한 STM32H7 마이크로 컨트롤러. 2MB의 플래시 메모리 및 1MB의 RAM.
 - 온도 안정성이 높은 신규 센서.
@@ -19,7 +20,6 @@
 :::note
 이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
 :::
-
 
 ## 요약
 
@@ -36,7 +36,6 @@
   - 기압계: MS5611
 - GPS: u-blox Neo-M8N GPS/GLONASS 수신기; 통합 자력계 IST8310
 
-
 #### 인터페이스
 
 - PWM 출력 8-13개(IO에서 8개, FMU에서 5개)
@@ -49,7 +48,7 @@
   - 1.5A 전류 제한이 있는 1 개
 - I2C 포트 3개
 - SPI 버스 4개
-  - 4 개의 칩 선택 및 6 개의 DRDY가 있는 내부 고속 SPI 센서 버스 1 개
+  - 1 internal high speed SPI sensor bus with 4 chip selects and 6 DRDYs
   - XXX 전용 내부 저잡음 SPI 버스 1 개
   - 2 개의 칩 선택이 있는 기압계, DRDY 없음
   - FRAM 전용 내부 SPI 버스 1 개
@@ -61,6 +60,7 @@
 - 추가 아날로그 입력 2개
 
 #### 전기 데이터
+
 - 전원 모듈 출력: 4.9~5.5V
 - 최대 입력 전압: 6V
 - 최대 전류 감지: 120A
@@ -68,10 +68,12 @@
 - 서보 레일 입력: 0~36V
 
 #### 기계식 부품
+
 - 크기: 80x45x20.5mm
 - 중량: 68.8g
 
 #### 기타 특성
+
 - 작동 온도 : ~ 40 ~ 85C
 - 보관 온도 : -40 ~ 85C
 - CE
@@ -80,33 +82,37 @@
 
 For more information see: [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf).
 
-<span id="purchase"></span>
+<a id="purchase"></a>
+
 ## Where to Buy
 
 Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/durandal).
 
+<a id="connections"></a>
 
-<span id="connections"></span>
 ## 연결
 
 포트 연결의 위치는 여기에 표시됩니다(아래에는 [핀배열 섹션](#pinouts)).
 
 ### 상단
+
 ![Durandal - 핀배열 평면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
 
 ### 전면
+
 ![Durandal - 핀배열 전면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_front.jpg)
 
 ### 후면
+
 ![Durandal - 핀배열 후면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
 ### 우측
+
 ![Durandal - 핀배열 우면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_right.jpg)
 
-
 ### 좌측
-![Durandal - 핀배열 좌면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
+![Durandal - 핀배열 좌면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
 ## 크기
 
@@ -145,13 +151,13 @@ Under these conditions the system will not draw any power (will not be operation
 
 [Durandal 배선 개요](../assembly/quick_start_durandal.md)는 GPS, 전원 관리 보드 등을 포함한 필수 주변 장치 조립방법을 설명합니다.
 
-
 ## 펌웨어 빌드
 
-::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
+
 ```
 make holybro_durandal-v1_default
 ```
@@ -168,14 +174,13 @@ make holybro_durandal-v1_default
 | UART7  | /dev/ttyS5 | 디버깅 콘솔      |
 | UART8  | /dev/ttyS6 | PX4IO       |
 
-
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 <a id="debug_port"></a>
 
 ## 디버그 포트
 
-[PX4 시스템 콘솔](../debug/system_console.md)과 [SWD 인터페이스](../debug/swd_debug.md)는 *디버그* 포트에서 실행됩니다.
+The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the _Debug Port_.
 
 The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
@@ -185,13 +190,11 @@ For wiring and debugging information see the above links.
 I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 :::
 
-
 ## 주변 장치
 
-* [디지털 대기속도 센서](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
-* [텔레메트리 라디오 모듈](../telemetry/README.md)
-* [거리계/거리 센서](../sensor/rangefinders.md)
-
+- [디지털 대기속도 센서](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+- [텔레메트리 라디오 모듈](../telemetry/README.md)
+- [거리계/거리 센서](../sensor/rangefinders.md)
 
 ## 지원 플랫폼 및 기체
 
@@ -199,15 +202,13 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 
 지원되는 운송체의 설정은 [기체 정의서](../airframes/airframe_reference.md)를 참고하십시오.
 
-
 ## 핀배열
 
-*Durandal* 핀배열은 다음과 같습니다. These can also be downloaded from [here](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts).
+_Durandal_ pinouts are listed below. These can also be downloaded from [here](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts).
 
 ### 상단 핀배열
 
 ![Durandal - 핀배열 평면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
-
 
 ### 전면 핀배열
 
@@ -247,8 +248,8 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 3 (흑) | CAN L | +3.3V |
 | 4 (흑) | GND   | GND   |
 
+<a id="gps"></a>
 
-<span id="gps"></span>
 #### GPS 포트
 
 | 핀      | 신호                  | 전압    |
@@ -264,7 +265,8 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 9 (흑)  | BUZZER              | +5V   |
 | 10 (흑) | GND                 | GND   |
 
-<span id="telem4_i2cb"></span>
+<a id="telem4_i2cb"></a>
+
 #### TELEM4 I2CB 포트
 
 | 핀     | 신호       | 전압    |
@@ -276,7 +278,8 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 5 (흑) | SDA2     | +3.3V |
 | 6 (흑) | GND      | GND   |
 
-<span id="telem1_2_3"></span>
+<a id="telem1_2_3"></a>
+
 #### TELEM3, TELEM2, TELEM1 포트
 
 | 핀     | 신호       | 전압    |
@@ -288,7 +291,8 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 5 (흑) | RTS (출력) | +3.3V |
 | 6 (흑) | GND      | GND   |
 
-<span id="power"></span>
+<a id="power"></a>
+
 #### POWER 포트
 
 | 핀     | 신호      | 전압    |
@@ -299,7 +303,6 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 4 (흑) | VOLTAGE | +3.3V |
 | 5 (흑) | GND     | GND   |
 | 6 (흑) | GND     | GND   |
-
 
 ### 후면 핀배열
 
@@ -318,7 +321,6 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 7 | IO_CH7 | +3.3V | VDD_SERVO | GND |
 | 8 | IO_CH8 | +3.3V | VDD_SERVO | GND |
 
-
 #### AUX 출력
 
 | 핀 | 신호      | 전압    | +         | -   |
@@ -329,15 +331,13 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 4 | FMU_CH4 | +3.3V | VDD_SERVO | GND |
 | 5 | FMU_CH5 | +3.3V | VDD_SERVO | GND |
 
-
 #### RC 입력
 
 | 핀 | 신호               | 전압    |
 | - | ---------------- | ----- |
 | S | SBUS_IN/PPM_IN | +3.3V |
-+ | VCC | +5V
-- | GND | GND
-
+| + | VCC              | +5V   |
+| - | GND              | GND   |
 
 ### 우면 핀배열
 
@@ -367,7 +367,7 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 9 (흑)  | ADC1_SPARE_2 | +6.6V[++](#warn_sensor)  |
 | 10 (흑) | GND            | GND                      |
 
-<span id="warn_sensor"></span>
+<a id="warn_sensor"></a>
 
 :::warning
 \ ++ 핀 8, 9에 연결된 센서는 표시된 전압을 초과하는 신호를 전송하지 않아야 합니다.
@@ -377,7 +377,8 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 
 ![Durandal - 핀배열 좌면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
-<span id="debug_port"></span>
+<a id="debug_port"></a>
+
 #### 디버그 포트
 
 | 핀     | 신호    | 전압    |
@@ -388,7 +389,6 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 4 (흑) | SWDIO | +3.3V |
 | 5 (흑) | SWCLK | +3.3V |
 | 6 (흑) | GND   | GND   |
-
 
 #### SPI 포트
 
@@ -402,7 +402,6 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 6 (흑) | CS2  | +3.3V |
 | 7 (흑) | GND  | GND   |
 
-
 #### USB 포트
 
 | 핀     | 신호   | 전압    |
@@ -411,7 +410,6 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 2 (흑) | DM   | +3.3V |
 | 3 (흑) | DP   | +3.3V |
 | 4 (흑) | GND  | GND   |
-
 
 ## 추가 정보
 
