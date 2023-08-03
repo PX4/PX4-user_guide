@@ -18,7 +18,8 @@ Obstacle avoidance can use the *local planner* (emits messages at ~30Hz and can 
 :::
 
 
-<span id="offboard_mode"></span>
+<a id="offboard_mode"></a>
+
 ## 오프보드 모드 회피
 
 PX4는 [오프 보드 모드](../flight_modes/offboard.md)에서 장애물 회피를 지원합니다.
@@ -30,7 +31,8 @@ PX4는 [오프 보드 모드](../flight_modes/offboard.md)에서 장애물 회�
 Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
 
 
-<span id="mission_mode"></span>
+<a id="mission_mode"></a>
+
 ## 임무 모드 회피
 
 PX4는 보조 컴퓨터의 회피 소프트웨어를 사용하여 [임무 모드](../flight_modes/mission.md)에서 장애물 회피를 지원합니다.
@@ -68,7 +70,8 @@ Companion-side hardware setup and hardware/software configuration is provided in
 보조 컴퓨터 하드웨어와 소프트웨어 구성과 설정은 [PX4 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github 저장소에서 제공됩니다.
 
 
-<span id="interface"></span>
+<a id="interface"></a>
+
 ## 장애물 회피 인터페이스
 
 PX4는 [임무중 장애물 회피](../computer_vision/obstacle_avoidance.md#mission_mode), [안전 착륙](../computer_vision/safe_landing.md) 및 향후 서비스를 포함하여 보조 컴퓨터의 경로 계획 서비스를 통합하기 위하여 [경로 계획 오프 보드 인터페이스](../computer_vision/path_planning_interface.md)를 사용합니다.
