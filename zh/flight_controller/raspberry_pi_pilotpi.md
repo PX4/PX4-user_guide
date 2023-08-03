@@ -5,49 +5,49 @@
 :::warning PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 :::
 
-The *PilotPi* shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi. It is designed to be a low-cost but highly scalability platform with continuous updates from both Linux and PX4 sides. No proprietary driver is required, as all components have upstream support from RPi and PX4 community. PCB and schematic are open source as well.
+The _PilotPi_ shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi. It is designed to be a low-cost but highly scalability platform with continuous updates from both Linux and PX4 sides. No proprietary driver is required, as all components have upstream support from RPi and PX4 community. PCB and schematic are open source as well.
 
 ![PilotPi with RPi 4B](../../assets/flight_controller/pilotpi/hardware-pilotpi4b.png)
 
 ## 概览
 
-* 支持的树莓派：
-  * 树莓派 2B/3B/3B+/4B
-* 支持的操作系统：
-  * Raspberry Pi OS
-  * Ubuntu Server (armhf/arm64)
-* 加速度计/角速度计：
-  * ICM42688P
-* 磁力计：
-  * IST8310
-* 气压计：
-  * MS5611
-* PWM：
-  * PCA9685
-* ADC：
-  * ADS1115
-* 电源：
-  * 3~6S 电池 具有内置电压监测
-  * 通过USB线启动树莓派
-* 市场状态： *准备生产*
+- 支持的树莓派：
+  - 树莓派 2B/3B/3B+/4B
+- 支持的操作系统：
+  - Raspberry Pi OS
+  - Ubuntu Server (armhf/arm64)
+- 加速度计/角速度计：
+  - ICM42688P
+- 磁力计：
+  - IST8310
+- 气压计：
+  - MS5611
+- PWM：
+  - PCA9685
+- ADC：
+  - ADS1115
+- 电源：
+  - 3~6S 电池 具有内置电压监测
+  - 通过USB线启动树莓派
+- Availability: _preparing for shipping_
 
 ## 连接性
 
 Shield provides:
 
-* 16 x PWM 输出通道
-* GPS 连接器
-* 数传连接器
-* 外部I2C总线连接器（**Note:** 与CSI摄像头冲突）
-* 遥控输入口（SBUS 协议）
-* 3 x 0~5V ADC 通道
-* 2\*8 2.54mm 排插，引出未使用的 GPIO
+- 16 x PWM 输出通道
+- GPS 连接器
+- 数传连接器
+- 外部I2C总线连接器（**Note:** 与CSI摄像头冲突）
+- 遥控输入口（SBUS 协议）
+- 3 x 0~5V ADC 通道
+- 2\*8 2.54mm 排插，引出未使用的 GPIO
 
 Direct accessible from RPi:
 
-* 4x USB 连接器
-* CSI 连接器(**Note:** 与外部 I2C 总线冲突
-* 其它
+- 4x USB 连接器
+- CSI 连接器(**Note:** 与外部 I2C 总线冲突
+- 其它
 
 ## 推荐接线
 
@@ -154,24 +154,26 @@ When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
 
 This switch will decide the signal polarity of RX line: `UART_RX = SW xor RC_INPUT`
 
-* 开启：适合SBUS(反转信号)
-* 关闭：保留
+- 开启：适合SBUS(反转信号)
+- 关闭：保留
 
 #### 参考压
 
 ADC 3 & 4 will have VCC driven by:
-* 开启开关时：由REF5050驱动
-* 关闭开关时：从树莓派5V取电
+
+- 开启开关时：由REF5050驱动
+- 关闭开关时：从树莓派5V取电
 
 #### 启动模式
 
 This switch is connected to Pin22(BCM25). System rc script will check its value and decide whether PX4 should start alongside with system booting or not.
 
-* 开启：开机自启 PX4
-* 关闭：不启动 PX4
+- 开启：开机自启 PX4
+- 关闭：不启动 PX4
 
 ## 开发者快速指南
 
 Refer to specific instructions for the OS running on your RPi:
+
 - [Raspberry Pi OS Lite (armhf)](raspberry_pi_pilotpi_rpios.md)
 - [Ubuntu 服务器(arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)
