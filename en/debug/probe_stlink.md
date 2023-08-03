@@ -1,6 +1,6 @@
 # STLink Debug Probe
 
-The [STLinkv3-MINIE][stlinkv3] is a cheap, fast and highly capable debug probe that can serve as a stand-alone debug and console communicator for a PX4 developer:
+The [STLinkv3-MINIE](https://www.st.com/en/development-tools/stlink-v3minie.html) is a cheap, fast and highly capable debug probe that can serve as a stand-alone debug and console communicator for a PX4 developer:
 
 - Just one single USB-C connection for Reset, SWD, SWO, and serial in a very small package!
 - Up to 24MHz SWD and SWO connection. Up to 16 MBaud serial. 1.65V to 3.6V target voltage. USB2 high-speed 480 Mbps connection.
@@ -49,13 +49,15 @@ To connect to the Pixhawk Debug Port of your PX4 Autopilot, you need to solder a
 
 For this solder guide you need:
 
-- 1x [STLinkv3-MINIE][stlinkv3].
-- 1x cable connector for mating with [JST SM10B (Full)][jst10] or [JST SM06B (Mini)][jst6].
+- 1x [STLinkv3-MINIE](https://www.st.com/en/development-tools/stlink-v3minie.html).
+- 1x cable connector for mating with [JST SM10B (Full)](https://www.digikey.com/products/en?keywords=A10SR10SR30K203A) or [JST SM06B (Mini)](https://www.digikey.com/products/en?keywords=A06SR06SR30K152A).
+
+
   We recommend buying fully assembled cables with two connectors on either side.
 - 1x soldering iron and solder.
 - Some tongs, cutting pliers, and tweezers.
 
-The [Pixhawk Debug Port is standardized in DS-009][ds009] and needs to be connected to the STLinkv3-MINIE Board-To-Board (BTB) card edge connector CN2.
+The [Pixhawk Debug Port is standardized in DS-009](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) and needs to be connected to the STLinkv3-MINIE Board-To-Board (BTB) card edge connector CN2.
 The pinout mapping is described here:
 
 | #Full | #Mini | Pixhawk Debug    | STLinkv3 | #BTB |
@@ -187,8 +189,4 @@ Be aware that the heat can make the ink flow a little, so you may need to experi
 
 ![](../../assets/debug/stlinkv3_minie_p15.jpeg)
 
-[stlinkv3]: https://www.st.com/en/development-tools/stlink-v3minie.html
-[ds009]: https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf
 [emdbg]: https://pypi.org/project/emdbg/
-[jst6]: https://www.digikey.com/products/en?keywords=A06SR06SR30K152A
-[jst10]: https://www.digikey.com/products/en?keywords=A10SR10SR30K203A
