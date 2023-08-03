@@ -20,10 +20,9 @@ The NXP FMU and included peripherals have been tested to comply with FCC/CE/RoHs
 These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-
 ## Quick Summary
 
-- **Main FMU Processor:** 
+- **Main FMU Processor:**
   - Kinetis K66 MK66FN2MOVLQ18 microcontroller running at 180MHz Cortex-M4F MCU, 2MB Flash, 256KB SRAM, Dual USBs (FS + HS), Ethernet, 144-LQFP.
 - **On-board sensors:**
   - Accel/Gyro: BMI088/ICM42688 (RevD)...
@@ -35,7 +34,6 @@ These flight controllers are [manufacturer supported](../flight_controller/autop
 - **GPS:**
   - u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 
-
 This FMU is provided only as a kit, and includes [Segger Jlink EDU mini debugger](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/), DCD-LZ debugger adapter, USB-TTL-3V3 console cable, HolyBro GPS module, battery power module, SDCard and case, screws and stickers.
 Telemetry radios ([HGD-TELEM433](https://www.nxp.com/part/HGD-TELEM433) and [HGD-TELEM915](https://www.nxp.com/part/HGD-TELEM915)) must be purchased separately to match ISM band frequencies used in your country.
 
@@ -44,7 +42,6 @@ Telemetry radios ([HGD-TELEM433](https://www.nxp.com/part/HGD-TELEM433) and [HGD
 A "Lite" version RDDRONE-FMUK66L is also available which does not include the power module, GPS, Jlink or USB-TTL-3V3 console cable or SDCard.[Scroll down to see FMUK66L in the buy section of the FMUK66 buy page](https://www.nxp.com/design/designs/px4-robotic-drone-fmu-rddrone-fmuk66:RDDRONE-FMUK66#buy)
 
 Additional information can be found in the [Technical Data Sheet](https://www.nxp.com/design/designs/px4-robotic-drone-fmu-rddrone-fmuk66:RDDRONE-FMUK66). <!-- www.nxp.com/rddrone-fmuk66 -->
-
 
 ## Where to Buy
 
@@ -56,7 +53,7 @@ Additional information can be found in the [Technical Data Sheet](https://www.nx
   - [HGD-TELEM915](https://www.nxp.com/part/HGD-TELEM915)
 
 :::note
-*RDDRONE-FMUK66* FMU is also included in the complete HoverGames drone kit: [KIT-HGDRONEK66](https://www.nxp.com/applications/solutions/industrial/aerospace-and-mobile-robotics/uavs-drones-and-rovers/nxp-hovergames-drone-kit-including-rddrone-fmuk66-and-peripherals:KIT-HGDRONEK66#buy)
+_RDDRONE-FMUK66_ FMU is also included in the complete HoverGames drone kit: [KIT-HGDRONEK66](https://www.nxp.com/applications/solutions/industrial/aerospace-and-mobile-robotics/uavs-drones-and-rovers/nxp-hovergames-drone-kit-including-rddrone-fmuk66-and-peripherals:KIT-HGDRONEK66#buy)
 :::
 
 <!--
@@ -82,14 +79,14 @@ https://nxp.gitbook.io/hovergames
 
 :::tip
 Most users will not need to build this firmware!
-It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
+
 ```
 make nxp_fmuk66-v3_default
 ```
-
 
 ## Debug Port
 
@@ -123,7 +120,6 @@ You only need to supply the 3S/4S LiPo battery.
 
 - [HoverGames online documentation](https://nxp.gitbook.io/hovergames) PX4 user and programming guide, specific assembly, construction, debugging, programming instructions.
 
-- 3DModels supporting HoverGames and RDDRONE-FMUK66 can be found on *Thingiverse* at these search links: [fmuk66](https://www.thingiverse.com/search?q=fmuk66&type=things&sort=relevant), [hovergames](https://www.thingiverse.com/search?q=hovergames&type=things&sort=relevant).
+- 3DModels supporting HoverGames and RDDRONE-FMUK66 can be found on _Thingiverse_ at these search links: [fmuk66](https://www.thingiverse.com/search?q=fmuk66&type=things&sort=relevant), [hovergames](https://www.thingiverse.com/search?q=hovergames&type=things&sort=relevant).
 
 ![HoverGamesDronelogo](../../assets/flight_controller/nxp_rddrone_fmuk66/hovergames_colored_small.png)
-

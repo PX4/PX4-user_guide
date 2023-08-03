@@ -43,14 +43,15 @@ Configure collision prevention by [setting the following parameters](../advanced
 
 Parameter | Description
 --- | ---
-<span id="CP_DIST"></span>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) | Set the minimum allowed distance (the closest distance that the vehicle can approach the obstacle). Set negative to disable *collision prevention*. <br>> **Warning** This value is the distance to the sensors, not the outside of your vehicle or propellers. Be sure to leave a safe margin!
-<span id="CP_DELAY"></span>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY) | Set the sensor and velocity setpoint tracking delay. See [Delay Tuning](#delay_tuning) below.
-<span id="CP_GUIDE_ANG"></span>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG) | Set the angle (to both sides of the commanded direction) within which the vehicle may deviate if it finds fewer obstacles in that direction. See [Guidance Tuning](#angle_change_tuning) below.
-<span id="CP_GO_NO_DATA"></span>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | Set to 1 to allow the vehicle to move in directions where there is no sensor coverage (default is 0/`False`).
-<span id="MPC_POS_MODE"></span>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE) | Set to 0 or 3 to enable Collision Prevention in Position Mode (default is 4).
+<a id="CP_DIST"></a>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) | Set the minimum allowed distance (the closest distance that the vehicle can approach the obstacle). Set negative to disable *collision prevention*. <br>> **Warning** This value is the distance to the sensors, not the outside of your vehicle or propellers. Be sure to leave a safe margin!
+<a id="CP_DELAY"></a>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY) | Set the sensor and velocity setpoint tracking delay. See [Delay Tuning](#delay_tuning) below.
+<a id="CP_GUIDE_ANG"></a>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG) | Set the angle (to both sides of the commanded direction) within which the vehicle may deviate if it finds fewer obstacles in that direction. See [Guidance Tuning](#angle_change_tuning) below.
+<a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | Set to 1 to allow the vehicle to move in directions where there is no sensor coverage (default is 0/`False`).
+<a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE) | Set to 0 or 3 to enable Collision Prevention in Position Mode (default is 4).
 
 
-<span id="algorithm"></span>
+<a id="algorithm"></a>
+
 ## Algorithm Description
 
 The data from all sensors are fused into an internal representation of 36 sectors around the vehicle, each containing either the sensor data and information about when it was last observed, or an indication that no data for the sector was available.
@@ -73,7 +74,8 @@ If the sectors adjacent to the commanded sectors are 'better' by a significant m
 This helps to fine-tune user input to 'guide' the vehicle around obstacles rather than getting stuck against them.
 
 
-<span id="data_loss"></span>
+<a id="data_loss"></a>
+
 ### Range Data Loss
 
 If the autopilot does not receive range data from any sensor for longer than 0.5s, it will output a warning *No range data received, no movement allowed*.
@@ -89,7 +91,8 @@ Be careful when enabling [CP_GO_NO_DATA=1](#CP_GO_NO_DATA), which allows the veh
 If you lose connection to one of multiple sensors, the area covered by the faulty sensor is also treated as uncovered and you will be able to move there without constraint.
 :::
 
-<span id="delay_tuning"></span>
+<a id="delay_tuning"></a>
+
 ### CP_DELAY Delay Tuning
 
 There are two main sources of delay which should be accounted for: *sensor delay*, and vehicle *velocity setpoint tracking delay*.
@@ -106,7 +109,8 @@ The tracking delay is typically between 0.1 and 0.5 seconds, depending on vehicl
 If vehicle speed oscillates as it approaches the obstacle (i.e. it slows down, speeds up, slows down) the delay is set too high.
 :::
 
-<span id="angle_change_tuning"></span>
+<a id="angle_change_tuning"></a>
+
 ### CP_GUIDE_ANG Guidance Tuning
 
 Depending on the vehicle, type of environment and pilot skill different amounts of guidance may be desired.
@@ -122,7 +126,8 @@ The guidance feature will never direct the vehicle in a direction without sensor
 If the vehicle feels 'stuck' with only a single distance sensor pointing forwards, this is probably because the guidance cannot safely adapt the direction due to lack of information.
 :::
 
-<span id="rangefinder"></span>
+<a id="rangefinder"></a>
+
 ## PX4 Distance Sensor
 
 At time of writing PX4 allows you to use the [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) IR distance sensor for collision prevention "out of the box", with minimal additional configuration:
@@ -141,7 +146,8 @@ You can see the required modifications from the [feature PR](https://github.com/
 Please contribute back your changes!
 :::
 
-<span id="companion"></span>
+<a id="companion"></a>
+
 ## Companion Setup
 
 If using a companion computer or external sensor, it needs to supply a stream of [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) messages, which should reflect when and where obstacle were detected.

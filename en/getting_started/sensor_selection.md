@@ -9,7 +9,8 @@ The minimal set of sensors is incorporated into [Pixhawk Series](../flight_contr
 Below we describe some of the sensors. At the end there are links to information about [sensor wiring](#wiring).
 
 
-<span id="gps_compass"></span>
+<a id="gps_compass"></a>
+
 ## GPS & Compass
 
 PX4 supports a number of Global Navigation Satellite System (GNSS) receivers and compasses (magnetometers). 
@@ -66,7 +67,8 @@ This sensor can be used indoors, when no GPS signal is available.
 ![Image of ARK Flow optical flow sensor](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
 
 
-<span id="wiring"></span>
+<a id="wiring"></a>
+
 ## Sensor Wiring
 
 Sensor wiring information is usually provided in manufacturer documentation for flight controllers and the sensors themselves.

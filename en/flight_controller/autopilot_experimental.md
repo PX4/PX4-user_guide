@@ -6,7 +6,7 @@ For more information about PX4 project autopilot board support levels see: [px4.
 
 ## Experimental Autopilots
 
-This category is for experimental autopilots (and autopilot "platforms") that are *not supported* by either the PX4 project team or by a manufacturer.
+This category is for experimental autopilots (and autopilot "platforms") that are _not supported_ by either the PX4 project team or by a manufacturer.
 
 - [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
 - [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
@@ -19,5 +19,6 @@ They may not be compatible with the current PX4 release, and compatibility is no
 
 These are [complete vehicles](../complete_vehicles/README.md) that have a fully integrated autopilot and other hardware (i.e. unlike the other autopilots listed, you can't use them in your own builds).
 They are listed in this page because from a PX4 software perspective, they are another autopilot.
+
 - [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md) ([Complete Vehicle](../complete_vehicles/README.md))
 - [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md) ([Complete Vehicle](../complete_vehicles/README.md))

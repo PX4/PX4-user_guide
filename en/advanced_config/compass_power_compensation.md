@@ -12,7 +12,7 @@ Moving the compass away from power-carrying cables is the easiest and most effec
 The process is demonstrated for a multicopter, but is equally valid for other vehicle types.
 :::
 
-<span id="when"></span>
+<a id="when"></a>
 
 ## When is Power Compensation Applicable?
 

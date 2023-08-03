@@ -113,7 +113,8 @@ I tested all ESC motor pairs and their rotation directions using a cheap PWM ser
 
 ![Motor test](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/motor-test.jpg)
 
-<span id="mounting"></span>
+<a id="mounting"></a>
+
 ## Connecting & Mounting Electronics
 
 :::tip

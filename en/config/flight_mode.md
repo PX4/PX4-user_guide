@@ -62,7 +62,8 @@ This section contains a small number of possible setup configurations for tarani
 QGroundControl _may_ have [setup information for other transmitters here](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#transmitter-setup).
 
 
-<span id="taranis_setup"></span>
+<a id="taranis_setup"></a>
+
 ### Taranis Setup: 3-way Switch Configuration for Single-Channel Mode
 
 If you only need to support selecting between two or three modes then you can map the modes to the positions of a single 3-way switch.

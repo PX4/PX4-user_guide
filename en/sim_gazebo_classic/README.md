@@ -66,7 +66,7 @@ Vehicle | Command
 [Quadrotor with Depth Camera](../sim_gazebo_classic/gazebo_vehicles.md#quadrotor-with-depth-camera) (forward-facing) | `make px4_sitl gazebo-classic_iris_depth_camera`
 [Quadrotor with Depth Camera](../sim_gazebo_classic/gazebo_vehicles.md#quadrotor-with-depth-camera) (downward-facing) | `make px4_sitl gazebo-classic_iris_downward_depth_camera`
 [3DR Solo (Quadrotor)](../sim_gazebo_classic/gazebo_vehicles.md#3dr_solo) | `make px4_sitl gazebo-classic_solo`
-<span id="typhoon_h480"></span>[Typhoon H480 (Hexrotor)](../sim_gazebo_classic/gazebo_vehicles.md#typhoon_h480) (supports video streaming) | `make px4_sitl gazebo-classic_typhoon_h480`
+<a id="typhoon_h480"></a>[Typhoon H480 (Hexrotor)](../sim_gazebo_classic/gazebo_vehicles.md#typhoon_h480) (supports video streaming) | `make px4_sitl gazebo-classic_typhoon_h480`
 [Standard Plane](../sim_gazebo_classic/gazebo_vehicles.md#standard_plane) | `make px4_sitl gazebo-classic_plane`
 [Standard Plane (with catapult launch)](../sim_gazebo_classic/gazebo_vehicles.md#standard_plane_catapult) | `make px4_sitl gazebo-classic_plane_catapult`
 [Standard VTOL](../sim_gazebo_classic/gazebo_vehicles.md#standard_vtol) | `make px4_sitl gazebo-classic_standard_vtol`

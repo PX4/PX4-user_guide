@@ -27,7 +27,8 @@ All H-RTK GNSS models come with a GH 10-pin connector/cable that is compatible w
 The cables/connectors may need to be modified in order to connect to other flight controller boards (see [pin map](#pin_map)below).
 :::
 
-<span id="pin_map"></span>
+<a id="pin_map"></a>
+
 ## Pin Map
 
 ![h-rtk_rover_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk-m8p_pinmap.jpg)
