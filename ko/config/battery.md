@@ -32,7 +32,8 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 아래의 [배터리 유형 비교](#battery-type-comparison)는 기본 배터리 유형 간의 차이점과 배터리 설정에 미치는 영향을 설명합니다.
 :::
 
-<span id="basic_settings"></span>
+<a id="basic_settings"></a>
+
 ## 기본 배터리 설정 (기본값)
 
 기본 배터리 설정은 용량 추정 기본 방법을 사용하도록 PX4를 설정합니다. 이 방법은 측정된 원시 배터리 전압을 "빈"셀과 "충전"셀 (셀 수에 따라 조정 됨)에 대한 셀 전압 범위와 비교합니다.
@@ -135,7 +136,8 @@ The easiest way to calibrate the divider is by using *QGroundControl* and follow
 이 설정은 [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) 및 [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV) 매개변수에 해당합니다.
 :::
 
-<span id="current_divider"></span>
+<a id="current_divider"></a>
+
 ### 볼트 당 암페어
 
 :::tip
@@ -150,7 +152,8 @@ The easiest way to calibrate the dividers is by using *QGroundControl* and follo
 이 설정은 [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) 및 [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V) 매개변수에 해당합니다.
 :::
 
-<span id="load_compensation"></span>
+<a id="load_compensation"></a>
+
 ## 부하 보상을 통한 전압 기반 추정
 
 :::note
@@ -167,7 +170,8 @@ PX4는 아래 두개의 매개변수 중 하나를 [설정](../advanced_config/p
 * [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) - [전류 기반 부하 보상](#current_based_load_compensation) (권장).
 * [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) - [추력 기반 부하 보상](#thrust_based_load_compensation).
 
-<span id="current_based_load_compensation"></span>
+<a id="current_based_load_compensation"></a>
+
 ### 전류 기반 부하 보상 (권장 방식)
 
 이 부하 보상 방법은 부하를 결정하기 위해 전류를 측정합니다. [추력 기반 부하 보상](#thrust_based_load_compensation)보다 훨씬 정확하지만 전류 센서가 필요합니다.
@@ -182,7 +186,8 @@ PX4는 아래 두개의 매개변수 중 하나를 [설정](../advanced_config/p
 :::
 1. 기본 설정 화면에서 [전압 분배기당 전류값](#current_divider)을 보정하여야 합니다.
 
-<span id="thrust_based_load_compensation"></span>
+<a id="thrust_based_load_compensation"></a>
+
 ### 추력 기반 부하 보상
 
 이 부하 보상 방법은 모터에 할당된 총 추력을 기준으로 부하를 추정합니다.
@@ -196,7 +201,8 @@ This method is not particularly accurate because there's a delay between thrust 
 1. 매개변수 [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP)를 최대 추력 부하에서 셀에 표시되는 전압 강하량으로 설정합니다.
 
 
-<span id="current_integration"></span>
+<a id="current_integration"></a>
+
 ## 전류 통합과 융합된 전압 기반 추정
 
 :::note
