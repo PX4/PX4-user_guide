@@ -22,7 +22,7 @@ You will then need a [debug probe](../debug/swd_debug.md#debug-probes) (such as 
 
 ### Determine the Debugger Device
 
-The `poor-mans-profiler.sh` automatically detects and uses the correct USB device if you use it with a [DroneCode Probe](../debug/swd_debug.md#dronecode-probe).
+The `poor-mans-profiler.sh` automatically detects and uses the correct USB device if you use it with a [DroneCode Probe](../debug/probe_bmp.md#dronecode-probe).
 If you use a different kind of probe you may need to pass in the specific _device_ on which the debugger is located.
 You can use the bash command `ls -alh /dev/serial/by-id/` to enumerate the possible devices on Ubuntu.
 For example the following devices are enumerated with a Pixhawk 4 and DroneCode Probe connected over USB:

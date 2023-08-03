@@ -172,7 +172,7 @@ It is the easiest way to connect:
 Some SWD [debug probes](#debug-probes) come with adapters/cables for connecting to common Pixhawk [debug ports](#debug-ports).
 Probes that are known to come with connectors are listed below:
 
-- [DroneCode Probe](probe_bmp.md#dronecode-probe): comes with a connector for attaching to the [Pixhawk Debug Mini](#pixhawk-debug-mini)
+- [DroneCode Probe](../debug/probe_bmp.md#dronecode-probe): comes with a connector for attaching to the [Pixhawk Debug Mini](#pixhawk-debug-mini)
 
 ### Board-specific Adapters
 
