@@ -5,7 +5,7 @@ PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
 :::
 
-The AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) series is a fully stackable flight *platform* for miniature UAVs.
+The AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) series is a fully stackable flight _platform_ for miniature UAVs.
 The platform currently has two RTF vehicles: [MindRacer 210](../complete_vehicles/mindracer210.md) and [NanoMind 110](../complete_vehicles/nanomind110.md).
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
@@ -17,8 +17,8 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 ## Quick Summary
 
 MindRacer is a fully stackable flight platform for miniature UAVs.
-Based on [MindPX](../flight_controller/mindpx.md), *MindRacer* further scales down in formfactor while focused on providing modularity.
-MindRacer is a *platform* rather than a flight controller.
+Based on [MindPX](../flight_controller/mindpx.md), _MindRacer_ further scales down in formfactor while focused on providing modularity.
+MindRacer is a _platform_ rather than a flight controller.
 
 MindRacer implements the SEP (soldering-elimination-port) and WEP (wiring-elimination-protocol) concepts.
 Before SEP and WEP, soldering and wiring are always the major pain and efficiency killer during UAV manufacturing and tuning.
@@ -35,21 +35,21 @@ The main hardware documentation is [here](http://mindpx.net/assets/accessories/m
 - Support IMU isolation
 - DroneCode<sup>&reg;</sup> standard compliance connector
 
-|Item|Description|
-|:--:|:--:|
-|Flight controller/Processor|F427VIT6|
-|Weight|~6g|
-|Dimension|35x35mm|
-|PWM Outputs|maximum 6|
-|IMU|10DOF|
-|IMU isolation|YES/Optional|
-|Radio Receiver|S.BUS/PPM/DSM/DSM2/DSMX/SUMD|
-|Telemetry|FrSky<sup>&reg;</sup> D.Port, S.Port, Wifi, 3DR radio|
-|On board TF card for flight data recording|YES|
-|OneShot ESC Support|YES|
-|Expansion Slots|2x7(pin)x2|
-|On board Real time clock|YES|
-|Connector|JST GH(compliance with DroneCode standard)|
+|                    Item                    |                      Description                      |
+| :----------------------------------------: | :---------------------------------------------------: |
+|        Flight controller/Processor         |                       F427VIT6                        |
+|                   Weight                   |                          ~6g                          |
+|                 Dimension                  |                        35x35mm                        |
+|                PWM Outputs                 |                       maximum 6                       |
+|                    IMU                     |                         10DOF                         |
+|               IMU isolation                |                     YES/Optional                      |
+|               Radio Receiver               |             S.BUS/PPM/DSM/DSM2/DSMX/SUMD              |
+|                 Telemetry                  | FrSky<sup>&reg;</sup> D.Port, S.Port, Wifi, 3DR radio |
+| On board TF card for flight data recording |                          YES                          |
+|            OneShot ESC Support             |                          YES                          |
+|              Expansion Slots               |                      2x7(pin)x2                       |
+|          On board Real time clock          |                          YES                          |
+|                 Connector                  |      JST GH(compliance with DroneCode standard)       |
 
 ## Quick Start
 
@@ -61,10 +61,11 @@ The main hardware documentation is [here](http://mindpx.net/assets/accessories/m
 
 :::tip
 Most users will not need to build this firmware!
-It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
+
 ```
 make airmind_mindpx-v2_default
 ```

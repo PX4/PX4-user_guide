@@ -14,17 +14,21 @@ It is based on the **Pixhawk-project FMUv3** open hardware design and runs **PX4
 ## Specifications
 
 - Main Processor: STM32F427VIT6
+
   - 32bit ARM Cortex-M4, 168 MHz 256 KB RAM 2 MB Flash memory
-  
+
 - IO Processor: STM32F100C8T6
+
   - ARM Cortex-M3, 32bit ARM Cortex-M3, 24 MHz, 8KB SRAM
-  
+
 - On-board sensors
+
   - Accel/Gyro: ICM-20602
   - Accel/Gyro/Mag: MPU-9250
   - Barometer: MS5611
-  
+
 - Interfaces
+
   - 8+5 PWM output (8 from IO, 5 from FMU)
   - Spektrum DSM / DSM2 / DSM-X Satellite compatible input
   - Futaba S.BUS compatible input and output
@@ -37,7 +41,7 @@ It is based on the **Pixhawk-project FMUv3** open hardware design and runs **PX4
   - 1x CAN bus
   - 1x ADC
   - Analog inputs for voltage / Current of 1 battery
-  
+
 - Mechanical
   - Dimensions: 40.2 x 61.1 x 24.8 mm
   - Weight: 65g
@@ -50,15 +54,15 @@ It is based on the **Pixhawk-project FMUv3** open hardware design and runs **PX4
 
 ## Serial Port Mapping
 
-| UART | Device | Port
---- | --- | ---
-USART1 | /dev/ttyS0 | IO Processor Debug
-USART2 | /dev/ttyS1 | TELEM1 (flow control)
-USART3 | /dev/ttyS2 | TELEM2 (flow control)
-UART4  | /dev/ttyS3 | GPS1
-USART6 | /dev/ttyS4 | PX4IO
-UART7  | /dev/ttyS5 | Debug Console
-UART8  | /dev/ttyS6 | TELEM4
+| UART   | Device     | Port                  |
+| ------ | ---------- | --------------------- |
+| USART1 | /dev/ttyS0 | IO Processor Debug    |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
+| UART4  | /dev/ttyS3 | GPS1                  |
+| USART6 | /dev/ttyS4 | PX4IO                 |
+| UART7  | /dev/ttyS5 | Debug Console         |
+| UART8  | /dev/ttyS6 | TELEM4                |
 
 ## Voltage Ratings
 
@@ -87,6 +91,7 @@ Under these conditions, all power sources cause permanent damage to the flight c
 ## Building Firmware
 
 To build PX4 for this target:
+
 ```jsx
 make thepeach_k1_default
 ```

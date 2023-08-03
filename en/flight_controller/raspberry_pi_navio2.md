@@ -14,7 +14,6 @@ It allows you to build PX4 and transfer to the RasPi, or build natively.
 
 ![Ra Pi Image](../../assets/hardware/hardware-rpi2.jpg)
 
-
 ## OS Image
 
 Use the [Emlid RT Raspbian image for Navio 2](https://docs.emlid.com/navio2/configuring-raspberry-pi).
@@ -48,6 +47,7 @@ After installing the OS and connecting to it, make sure to [expand the Filesyste
 
 The existing Navio RGB overlay claims GPIOs used by PX4 for RGB Led.
 Edit `/boot/config.txt` by commenting the line enabling the `navio-rgb` overlay.
+
 ```
 #dtoverlay=navio-rgb
 ```
@@ -71,6 +71,7 @@ Next you need to change the hosts file:
 ```sh
 sudo nano /etc/hosts
 ```
+
 Change the entry `127.0.1.1 raspberry` to `127.0.1.1 <YOURNEWHOSTNAME>`
 
 Reboot the Pi after this step is completed to allow it to re-associate with your network.
@@ -83,11 +84,13 @@ To make connecting to the Pi easier, we recommend setting up Avahi (Zeroconf) wh
 sudo apt-get install avahi-daemon
 sudo insserv avahi-daemon
 ```
+
 Next, setup the Avahi configuration file
 
 ```sh
 sudo nano /etc/avahi/services/multiple.service
 ```
+
 Add this to the file :
 
 ```xml
@@ -107,11 +110,13 @@ Add this to the file :
 </service-group>
 
 ```
+
 Restart the daemon
 
 ```sh
 sudo /etc/init.d/avahi-daemon restart
 ```
+
 And that's it.
 You should be able to access your Pi directly by its hostname from any computer on the network.
 
@@ -121,17 +126,18 @@ You might have to add .local to the hostname to discover it.
 
 ## Configuring a SSH Public-Key
 
-In order to allow the PX4 development environment to automatically push executables to your board, you need to configure passwordless access to the RPi. 
+In order to allow the PX4 development environment to automatically push executables to your board, you need to configure passwordless access to the RPi.
 We use the public-key authentication method for this.
 
-To generate new SSH keys enter the following commands (Choose a sensible hostname such as `<YOURNANME>@<YOURDEVICE>`.  Here we have used `pi@px4autopilot`)
+To generate new SSH keys enter the following commands (Choose a sensible hostname such as `<YOURNANME>@<YOURDEVICE>`. Here we have used `pi@px4autopilot`)
 
 These commands need to be run on the HOST development computer!
 
 ```sh
 ssh-keygen -t rsa -C pi@px4autopilot
 ```
-Upon entering this command, you'll be asked where to save the key. We suggest you save it in the default location ($HOME/.ssh/id_rsa) by just hitting Enter.
+
+Upon entering this command, you'll be asked where to save the key. We suggest you save it in the default location (\$HOME/.ssh/id_rsa) by just hitting Enter.
 
 Now you should see the files `id_rsa` and `id_rsa.pub` in your `.ssh` directory in your home folder:
 
@@ -139,6 +145,7 @@ Now you should see the files `id_rsa` and `id_rsa.pub` in your `.ssh` directory 
 ls ~/.ssh
 authorized_keys  id_rsa  id_rsa.pub  known_hosts
 ```
+
 The `id_rsa` file is your private key. Keep this on the development computer.
 The `id_rsa.pub` file is your public key. This is what you put on the targets you want to connect to.
 
@@ -157,9 +164,11 @@ If you see a message "`Agent admitted failure to sign using the key.`" then add 
 ```sh
 ssh-add
 ```
+
 If this did not work, delete your keys with `rm ~/.ssh/id*` and follow the instructions again.
 
 ## Testing file transfer
+
 We use SCP to transfer files from the development computer to the target board over a network (WiFi or Ethernet).
 
 To test your setup, try pushing a file from the development PC to the Pi over the network now.
@@ -170,14 +179,13 @@ echo "Hello" > hello.txt
 scp hello.txt pi@px4autopilot:/home/pi/
 rm hello.txt
 ```
+
 This should copy over a "hello.txt" file into the home folder of your RPi.
 Validate that the file was indeed copied, and you can proceed to the next step.
-
 
 ## Building the Code
 
 Either build the source code on your development computer ("cross-compiler" build) or build it on the RaPi ("native" build) as shown below.
-
 
 ### Cross-compiler Build
 
@@ -188,7 +196,9 @@ Set the IP (or hostname) of your RPi using:
 ```sh
 export AUTOPILOT_HOST=192.168.X.X
 ```
+
 or
+
 ```sh
 export AUTOPILOT_HOST=pi_hostname.domain
 ```
@@ -267,6 +277,7 @@ pxh>
 ## Autostart
 
 To autostart px4, add the following to the file **/etc/rc.local** (adjust it accordingly if you use native build), right before the `exit 0` line:
+
 ```sh
 cd /home/pi && ./bin/px4 -d -s px4.config > px4.log
 ```
