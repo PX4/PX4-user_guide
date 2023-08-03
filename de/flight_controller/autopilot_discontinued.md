@@ -4,7 +4,7 @@
 For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
 :::
 
-This category is for discontinued autopilots and complete vehicles. These are *not supported* by the head revision of PX4 and are no longer being manufactured.
+This category is for discontinued autopilots and complete vehicles. These are _not supported_ by the head revision of PX4 and are no longer being manufactured.
 
 ## Autopilots
 
@@ -18,7 +18,7 @@ This category is for discontinued autopilots and complete vehicles. These are *n
 - [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md) (FMUv3)
 - [Holybro Pixfalcon](../flight_controller/pixfalcon.md) (Pixhawk FMUv2)
 - [Holybro pix32](../flight_controller/holybro_pix32.md) (FMUv2)
-- [mRo AUAV-X2](../flight_controller/auav_x2.md)  (Pixhawk FMUv2)
+- [mRo AUAV-X2](../flight_controller/auav_x2.md) (Pixhawk FMUv2)
 - [3DR Pixhawk 1](../flight_controller/pixhawk.md) (Pixhawk FMUv2)
 
 ## Complete Vehicles
