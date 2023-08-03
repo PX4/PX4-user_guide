@@ -1,12 +1,11 @@
-# PX4용 MCU Eclipse/J-Link 디버깅
+# Debugging with Eclipse and J-Link
 
-NuttX(예: Pixhawk 시리즈 보드)에서 실행되는 PX4를 디버그하기 위하여 *Segger Jlink 어댑터*와 함께 [MCU Eclipse](https://gnu-mcu-eclipse.github.io/)를 설정하고 사용하는 방법을 설명합니다.
-
+This topic explains how to setup and use [MCU Eclipse](https://gnu-mcu-eclipse.github.io/) with a _Segger Jlink adapter_ to debug PX4 running on NuttX (e.g. Pixhawk series boards).
 
 ## 필요한 하드웨어
 
 - [J-Link EDU Mini](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/)
-- Segger JLink를 Flight Controller [SWD(JTAG) 하드웨어 디버깅 인터페이스](../debug/swd_debug.md)(디버그 포트) 연결용 어댑터입니다.
+- Adapter to connect Segger JLink to Flight Controller [SWD Debug Port](../debug/swd_debug.md) (debug port).
 - Micro USB 케이블
 
 ## 설치
@@ -14,19 +13,22 @@ NuttX(예: Pixhawk 시리즈 보드)에서 실행되는 PX4를 디버그하기 �
 ### PX4
 
 일반 지침에 따라 PX4를 설정합니다.
+
 - [Setup the PX4 Developer Environment/Toolchain](../dev_setup/dev_env.md) for your platform (e.g. for Linux see: [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md)).
 - [PX4를 다운로드](../dev_setup/building_px4.md)하고, 선택적으로 명령줄에서 빌드합니다.
 
 ### Eclipse
 
-*Eclipse*를 설치하려면:
+To install _Eclipse_:
+
 1. [C/C++ 개발자를 위한 Eclipse CDT](https://github.com/gnu-mcu-eclipse/org.eclipse.epp.packages/releases/)(MCU GitHub)를 다운로드하십시오.
 1. Eclipse 폴더의 압축을 풀고 적당한 폴더에 복사합니다(설치 스크립트를 실행할 필요가 없음).
-1. *Eclipse*를 실행하고, 초기 워크벤치의 위치를 선택하십시오.
+1. Run _Eclipse_ and choose a location for your initial workbench.
 
 ### Segger Jlink 도구
 
-*Segger Jlink* 도구를 설치하려면:
+To install the _Segger Jlink_ tools:
+
 1. [J-Link Software and Documentation Pack](https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack)을 운영체제에 해당(윈도우와 리눅스용이 있음)하는 버전으로 다운로드하고 설치하십시오.
    - Linux에서 **/usr/bin**에 설치됩니다.
 
@@ -34,14 +36,15 @@ NuttX(예: Pixhawk 시리즈 보드)에서 실행되는 PX4를 디버그하기 �
 
 ## 첫 사용
 
-1. *Segger JLink*를 어댑터를 통하여 호스트 컴퓨터와 [비행 컨트롤러 디버그 포트](../debug/swd_debug.md)에 연결합니다.
+1. Connect the _Segger JLink_ to the host computer and the [flight controller debug port](../debug/swd_debug.md) (via an adapter).
 1. 비행 콘트롤러에 전원을 공급합니다.
-1. *Eclipse*를 실행합니다.
+1. Run _Eclipse_.
 1. **파일 > 가져오기 C/C++ > 기존 코드를 Makefile 프로젝트**로 만들고 **다음**을 클릭합니다.
-1. **PX4-Autopilot** 폴더를 가리키고 이름을 지정한 다음 *인덱서 설정용 도구 모음*에서 *ARM Cross GCC*를 선택하고 <0 >마침</strong>을 클릭합니다. 가져오기는 시간이 걸리며, 완료될 때까지 기다립니다.
-1. MCU 설정: 프로젝트 탐색기에서 최상위 프로젝트를 마우스 오른쪽 버튼으로 클릭하고 *속성*을 선택한 다음 MCU에서 *SEGGER J-Link 경로*를 선택합니다. 아래 스크린샷과 같이 설정합니다. ![Eclipse: Segger J-Link 경로](../../assets/debug/eclipse_segger_jlink_path.png)
+1. Point it to the **PX4-Autopilot** folder and give it a name, then select _ARM Cross GCC_ in the _Toolchain for Indexer Settings_ and click **Finish**. 가져오기는 시간이 걸리며, 완료될 때까지 기다립니다.
+1. Set the MCU settings: right-click on the top-level project in the Project Explorer, select _Properties_ then under MCU choose _SEGGER J-Link Path_. 아래 스크린샷과 같이 설정합니다. ![Eclipse: Segger J-Link 경로](../../assets/debug/eclipse_segger_jlink_path.png)
 1. 패키지를 업데이트합니다.
-   - 우상단의 *Open Perspective*라는 작은 아이콘을 클릭하고, *Packs* Perspective를 엽니다. ![Eclipse: Workspace](../../assets/debug/eclipse_workspace_perspective.png)
+
+   - Click the small icon on the top right called _Open Perspective_ and open the _Packs_ perspective. ![Eclipse: Workspace](../../assets/debug/eclipse_workspace_perspective.png)
    - **모두 업데이트** 버튼을 클릭합니다.
 
      :::tip
@@ -50,47 +53,54 @@ NuttX(예: Pixhawk 시리즈 보드)에서 실행되는 PX4를 디버그하기 �
 :::
 
      ![Eclipse: Workspace Packs Perspective](../../assets/debug/eclipse_packs_perspective.jpg)
+
    - STM32Fxx 장치는 Keil 폴더에 있습니다. 마우스 오른쪽 버튼을 클릭한 다음, F4 및 F7에 해당하는 장치에서 **설치**를 선택하여 설치합니다.
+
 1. 대상에 대한 디버깅 설정을 진행하십시오:
-   - 프로젝트를 마우스 오른쪽 버튼으로 클릭하고, *설정*을 엽니다(메뉴: **C/C++ 빌드 > 설정**).
-   - *기기* 탭, *기기* 섹션(*보드* 아님)을 선택합니다.
+
+   - Right click project and open the _Settings_ (menu: **C/C++ Build > Settings**)
+   - Choose the _Devices_ Tab, _Devices_ section (Not _Boards_).
    - 디버그하려는 FMU 칩을 찾으십시오.
 
    ![Eclipse: 설정에서 FMU 선택](../../assets/debug/eclipse_settings_devices_fmu.png)
+
 1. 버그 기호 옆에 있는 작은 드롭다운으로 디버그 설정을 선택합니다.![Eclipse: 디버깅 설정](../../assets/debug/eclipse_settings_debug_config.png)
-1. 그런 다음, *GDB SEGGER J-Link 디버깅*을 선택한 다음, 왼쪽 상단의 **새 구성** 버튼을 선택합니다. ![Eclipse: GDB Segger 디버깅 설정](../../assets/debug/eclipse_settings_debug_config_gdb_segger.png)
+1. Then select _GDB SEGGER J-Link Debugging_ and then the **New config** button on the top left. ![Eclipse: GDB Segger 디버깅 설정](../../assets/debug/eclipse_settings_debug_config_gdb_segger.png)
 1. 빌드 구성을 설정합니다.
-   - 이름을 지정하고 *C/C++ 애플리케이션*을 해당 **.elf** 파일로 설정합니다.
-   - *자동 빌드 비활성화* 선택합니다. :::note
-디버그 세션을 시작하기 전에, 명령줄에서 대상을 빌드하여야 합니다.
+
+   - Give it a name and set the _C/C++ Application_ to the corresponding **.elf** file.
+   - Choose _Disable Auto build_ :::note
+Remember that you must build the target from the command line before starting a debug session.
 :::
 
    ![Eclipse: GDB Segger 디버깅 설정](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config.png)
-1. *디버거* 및 *시작* 탭은 수정할 필요가 없습니다(아래 스크린샷으로 설정을 확인하기만 하면 됩니다).
+
+1. The _Debugger_ and _Startup_ tabs shouldn’t need any modifications (just verify your settings with the screenshots below)
 
    ![Eclipse: GDB Segger 디버깅 설정: 디버거 탭](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config_debugger_tab.png) ![Eclipse: GDB Segger 디버깅 설정: 시작 탭](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config_startup_tab.png)
 
 ## SEGGER Task-aware debugging
+
 Task-aware debugging (also known as [thread-aware debugging](https://www.segger.com/products/debug-probes/j-link/tools/j-link-gdb-server/thread-aware-debugging/)) allows you to show the context of all running threads/tasks instead of just the stack current task. This is quite useful since PX4 tends to run many different tasks.
 
 To enable this feature for use in Eclipse:
 
 1. You first need to enable `CONFIG_DEBUG_TCBINFO` in the NuttX configuration for your build (to expose the TCB offsets).
-    - Open a terminal in the root of your PX4-Autopilot source code
-    - In the terminal, open `menuconfig` using the appropriate make target for the build. This will be something like:
-      ```
-      make px4_fmu-v5_default boardguiconfig
-      ```
-      (See [PX4 Menuconfig Setup](../hardware/porting_guide_config.md#px4-menuconfig-setup) for more information) on using the config tools).
-   - Ensure that the *Enable TCBinfo struct for debug* is selected as shown: ![NuttX: Menuconfig: CONFIG_DEBUG_TCBINFO](../../assets/debug/nuttx_tcb_task_aware.png)
+   - Open a terminal in the root of your PX4-Autopilot source code
+   - In the terminal, open `menuconfig` using the appropriate make target for the build. This will be something like:
+     ```
+     make px4_fmu-v5_default boardguiconfig
+     ```
+     (See [PX4 Menuconfig Setup](../hardware/porting_guide_config.md#px4-menuconfig-setup) for more information) on using the config tools).
+   - Ensure that the _Enable TCBinfo struct for debug_ is selected as shown: ![NuttX: Menuconfig: CONFIG_DEBUG_TCBINFO](../../assets/debug/nuttx_tcb_task_aware.png)
 1. Compile the **jlink-nuttx.so** library in the terminal by running the following command in the terminal: `make jlink-nuttx`
-1. Modify Eclipse to use this libary. In the *J-Link GDB Server Setup* configuration, update **Other options** to include `-rtos /home/<PX4 path>/Tools/jlink-nuttx.so`, as shown in the image below.
+1. Modify Eclipse to use this libary. In the _J-Link GDB Server Setup_ configuration, update **Other options** to include `-rtos /home/<PX4 path>/Tools/jlink-nuttx.so`, as shown in the image below.
 
    ![Eclipse: GDB Segger Debug config RTOS aware: debugger tab](../../assets/debug/eclipse_settings_debug_config_gdb_segger_task_aware.png)
+
 1. When running the debugger you should see now multiple threads instead of just one:
 
    ![Eclipse: GDB Segger Debug config RTOS aware: debug session](../../assets/debug/eclipse_settings_debug_config_gdb_segger_task_aware_tasks.png)
-
 
 ## 문제 해결
 
@@ -102,7 +112,8 @@ To enable this feature for use in Eclipse:
 이것은 일반적으로 발생하지 않아야 합니다(그러나 STM F7 컨트롤러에 연결할 때 일화적으로 보고되었습니다).
 :::
 
-*Peripheral View*에 대해 누락된 SVD 파일 추가:
+Adding missing SVD files for the _Peripheral View_:
+
 1. MCU Eclipse가 패키지를 저장하는 위치를 찾으십시오(**환경 설정 > C/C++ > MCU 패키지**). ![Eclipse: MCU 패키지](../../assets/debug/eclipse_mcu_packages.png)
 2. http://www.keil.com/dd2/Pack/ 에서 누락된 패키지를 다운로드하십시오
 3. 압축 해제 도구로 다운로드한 팩을 열고 **/CMSIS/SVD**에서 **.SVD** 파일의 압축을 풉니다.
