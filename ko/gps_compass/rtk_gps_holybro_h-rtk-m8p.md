@@ -25,7 +25,8 @@ RTK setup and use on PX4 via _QGroundControl_ is largely plug and play \(see [RT
 다른 비행 콘트롤러에 연결하기 위하여 케이블/커넥터를 수정하는 경우도 있습니다 (아래 [핀 맵](#pin_map) 참조).
 :::
 
-<span id="pin_map"></span>
+<a id="pin_map"></a>
+
 ## 핀 맵
 
 ![h-rtk_rover_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk-m8p_pinmap.jpg)
