@@ -33,7 +33,8 @@ Companion-side hardware setup and hardware/software configuration is provided in
 这意味着不能在同一个无人机上同时启用不同规划器的 offboard 功能。 同时使用无人机（例如，无人机可以支持避障和防撞功能，但不支持安全着陆 - 反之亦然）。
 :::
 
-<span id="waypoint_interface"></span>
+<a id="waypoint_interface"></a>
+
 ## 轨迹接口
 
 PX4 sends information about the *desired path* to the companion computer (when `COM_OBS_AVOID=1`, in _auto_ modes), and receives back a stream of setpoints for the *planned path* from the path planning software.
@@ -45,7 +46,8 @@ Path planner software sends back setpoints for the *planned path* using either `
 :::warning
 路由规划软件在执行任务时不应混用这些接口（PX4 将使用最近收到的任意类型的消息）。 因此，开发者可以使用这个接口来创建自己新的机载计算机端路径规划服务，或调整现有的规划者软件。
 
-<span id="px4_waypoint_interface"></span>
+<a id="px4_waypoint_interface"></a>
+
 ### PX4 航点接口
 
 PX4 将期望路径封装在 [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息中，以 5Hz 的频率发送。
@@ -76,13 +78,16 @@ PX4 中各字段定义如下：
   - `command[2]`: 当前航点的 [MAVLink 命令](https://mavlink.io/en/messages/common.html#mav_commands)
 - 所有其它字段都是NaN(未定义)。
 
-<span id="type_adapted"></span> 路径规划软件（在机载计算机上运行）*可以* 以[TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
+<a id="type_adapted"></a>
+
+路径规划软件（在机载计算机上运行）*可以* 以[TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
 - Point 0 是当前根据目标类型所修改的目标航点/目标。 例如，在着陆时指定目标的 x、y 坐标和降落速度是合理的。 为了实现这一点，`FlightTaskAutoMapper` 修改 Point 0 中的着陆点，将 z 轴位置的分量设置为 NAN，将 z 轴速度设置为期望值。
 - 安全着陆规划器中没有用到 Point 1 和 2。
 - 局部和全局规划器中用到了 Point 1。
 
 
-<span id="companion-failure-handling"></span>
+<a id="companion-failure-handling"></a>
+
 #### 机载计算机的失效处理
 
 实现此接口的规划器必须：
@@ -98,7 +103,8 @@ PX4 中各字段定义如下：
   - 如果上次提供的贝塞尔轨迹的执行时间在路径规划期间超时（当使用[贝塞尔轨迹接口](#bezier_interface)时），这将被视为在 0.5 秒内没有收到新消息（即无人机切换到[保持模式](../flight_modes/hold.md)）。
 
 
-<span id="companion_waypoint_interface"></span>
+<a id="companion_waypoint_interface"></a>
+
 ## 机载航点接口
 
 The path planning software (running on the companion computer) *may* send the planned path to PX4 as a stream of [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages that have the setpoint in Point 0.
@@ -120,7 +126,8 @@ The path planning software (running on the companion computer) *may* send the pl
 - 当不支持对当前机体状态进行规划时，镜像回规划器收到的设定点值（例如，由于不支持着陆模式，局部路径规划器把安全着陆期间发送的信息镜像回去）。
 
 
-<span id="bezier_interface"></span>
+<a id="bezier_interface"></a>
+
 ## 机载贝塞尔曲线轨迹接口
 
 The path planning software (running on the companion computer) *may* send the planned path to PX4 as a stream of [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) messages.
