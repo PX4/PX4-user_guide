@@ -139,7 +139,7 @@ You should now test your debug probe to ensure you do not have any electrical sh
 1. Plug the probe into your target via the Pixhawk Debug Port.
 2. Test the serial port with a program of your choice.
 3. Test the SWD and RST connection via [OpenOCD][] or [STLink][] software.
-4. Test the SWO connection via [Orbuculum][].
+4. Test the SWO connection via [Orbuculum][https://github.com/orbcode/orbuculum].
 
 See the [Embedded Debug Tools][emdbg] for more information about software support for the PX4 FMUv5 and FMUv6 flight controllers.
 
@@ -192,6 +192,5 @@ Be aware that the heat can make the ink flow a little, so you may need to experi
 [emdbg]: https://pypi.org/project/emdbg/
 [openocd]: https://openocd.org
 [stlink]: https://www.st.com/en/development-tools/stsw-link004.html
-[orbuculum]: https://github.com/orbcode/orbuculum
 [jst6]: https://www.digikey.com/products/en?keywords=A06SR06SR30K152A
 [jst10]: https://www.digikey.com/products/en?keywords=A10SR10SR30K203A
