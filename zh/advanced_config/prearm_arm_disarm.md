@@ -33,7 +33,7 @@ PX4 allows you to configure how pre-arming, arming and disarming work using para
 Arming/disarming parameters can be found in [Parameter Reference > Commander](../advanced_config/parameter_reference.md#commander) (search for `COM_ARM_*` and `COM_DISARM_*`).
 :::
 
-<span id="arm_disarm_gestures"></span>
+<a id="arm_disarm_gestures"></a>
 
 ## 解锁手法
 
@@ -53,11 +53,11 @@ Arming/disarming parameters can be found in [Parameter Reference > Commander](..
 
 可以使用[COM_RC_ARM_HYST](#COM_RC_ARM_HYST)参数来配置保持时间。
 
-| 参数                                                                                                               | 描述                                      |
-| ---------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| <span id="COM_RC_ARM_HYST"></span>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | 遥控器的摇杆在解锁/锁定发生之前必须保持在解锁/锁定的位置。（默认：1 秒）。 |
+| 参数                                                                                                      | 描述                                      |
+| ------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| <a id="COM_RC_ARM_HYST"></a>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | 遥控器的摇杆在解锁/锁定发生之前必须保持在解锁/锁定的位置。（默认：1 秒）。 |
 
-<span id="arm_disarm_switch"></span>
+<a id="arm_disarm_switch"></a>
 
 ## 解锁按钮/开关
 
