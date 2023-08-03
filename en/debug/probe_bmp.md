@@ -13,7 +13,7 @@ The [Dronecode Probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+docume
 
 The probe's USB interface exposes two separate virtual serial port interfaces: one for connecting to the [System Console](system_console) (UART) and the other for an embedded GDB server (SWD interface).
 
-The probe provides a DCD-M connector cable for attaching to the [Pixhawk Debug Mini](swd_debug#pixhawk-debug-mini).
+The probe provides a DCD-M connector cable for attaching to the [Pixhawk Debug Mini](swd_debug.md#pixhawk-debug-mini).
 
 :::note
 The *6-pos DF13* connector that comes with the probe cannot be used for SWD debugging (it is for using the System Console).

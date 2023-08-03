@@ -51,7 +51,7 @@ The probe's connector pinout looks like the image below (connect to this using a
 
 ![connector_jlink_mini.png](../../assets/debug/connector_jlink_mini.png)
 
-The pin mapping to connect the J-Link Edu Mini to [Pixhawk Debug Mini](swd_debug#pixhawk_debug_mini) is shown below.
+The pin mapping to connect the J-Link Edu Mini to [Pixhawk Debug Mini](swd_debug.md#pixhawk_debug_mini) is shown below.
 
 | Pin | Signal     | JLink |
 | --: | :--------- | ----: |
