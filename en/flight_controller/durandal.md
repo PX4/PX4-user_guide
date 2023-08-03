@@ -177,14 +177,14 @@ UART8 | /dev/ttyS6 | PX4IO
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
-<span id="debug_port"></span>
+<a id="debug_port"></a>
 ## Debug Port
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the *Debug Port*.
 
-The port has a standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation).
-The pinout uses the standard Dronecode debug connector pinout.
-Please refer to the [wiring](../debug/system_console.md) page for details of how to wire up this port.
+The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+
+For wiring and debugging information see the above links.
 
 :::note
 No Debug port is exposed for the I/O board.

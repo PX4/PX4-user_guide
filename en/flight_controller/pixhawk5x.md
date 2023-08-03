@@ -201,7 +201,7 @@ make px4_fmu-v5x_default
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
 
-The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full-10-pin-sh-debug-port) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
+The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
  
 Pin | Signal | Volt
 --- | --- | ---
@@ -216,9 +216,10 @@ Pin | Signal | Volt
 9 (blk) | nRST             | +3.3V
 10 (blk) | `GND`           | GND
 
-For information about wiring and using this port see:
-- [PX4 System Console](../debug/system_console.md#pixhawk_debug_port) (Note, the FMU console maps to USART3).
-- [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md)
+For information about using this port see:
+
+- [SWD Debug Port](../debug/swd_debug.md)
+- [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
 
 
 ## Peripherals
