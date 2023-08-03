@@ -23,7 +23,8 @@ The ground- and vehicle- based radio modules are referred to as the transmitter 
 
 ## 远程控制的类型
 
-<span id="transmitter_modes"></span>
+<a id="transmitter_modes"></a>
+
 ### 飞机的远程控制单元
 
 The most popular *form* of remote control unit for UAVs is shown below. 横滚/俯仰和油门/偏航的控制分别布置在摇杆上（飞行器最少需要4个通道）。
@@ -66,7 +67,8 @@ One of the most popular RC units is the *FrSky Taranis X9D*. It has an internal 
 * 长距离 ~433MHz：ImmersionRC EzUHF(例如，Taranis)。
 
 
-<span id="compatible_receivers"></span>
+<a id="compatible_receivers"></a>
+
 ### PX4 兼容的接收机
 
 另外接收机和发射机需要兼容，接收机也必须和 PX4 和其他控制硬件兼容。
@@ -99,7 +101,8 @@ One of the most popular RC units is the *FrSky Taranis X9D*. It has an internal 
 相关信息可以查阅遥控器制造商提供的说明书。
 :::
 
-<span id="binding"></span>
+<a id="binding"></a>
+
 ## 发射机/接收机对频
 
 Before you can calibrate/use a radio system you must *bind* the receiver and transmitter so that they communicate only with each other. 各种遥控器的对频方法各不相同（参照遥控器说明书）。
