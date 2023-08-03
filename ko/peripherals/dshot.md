@@ -11,7 +11,8 @@ DShot은 PWM 또는 OneShot에 비해 여러 가지 장점을 가진 ESC 대체 
 
 이 항목에서는 DShot ESC 연결과 설정 방법을 설명합니다.
 
-<span id="wiring"></span>
+<a id="wiring"></a>
+
 ## 배선
 
 DShot ESC are wired the same way as [PWM ESCs](pwm_escs_and_servo.md). The only difference is that they can only be connected to the FMU, and usually only to some subset of pins.
@@ -37,7 +38,8 @@ DShot에는 *DShot150*, *DShot300*, *DShot600* 및 *DShot1200*과 같은 다양�
 그런 다음 배터리를 연결하고 기체의 시동을 켭니다. ESC가 초기화되고 모터가 올바른 방향으로 회전하여야 합니다.
 - If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)) you can reverse them in the UI using the **Set Spin Direction** option (this option appears after you select DShot and assign motors). You can also reverse motors by sending an [ESC Command](#commands).
 
-<span id="commands"></span>
+<a id="commands"></a>
+
 ## ESC 명령어
 
 명령은 [MAVLink 쉘](../debug/mavlink_shell.md)을 통하여 ESC로 전송됩니다. 지원되는 전체 명령어는 [여기](../modules/modules_driver.md#dshot)를 참고하십시오.
@@ -45,27 +47,37 @@ DShot에는 *DShot150*, *DShot300*, *DShot600* 및 *DShot1200*과 같은 다양�
 가장 중요한 것은 다음과 같습니다.
 
 - 첫 번째 모터 신호음 만들기(모터 식별에 도움이 됨) :
+
   ```
   dshot beep1 -m 1
   ```
+
 - 첫 번째 모터의 회전 방향을 영구적으로 반전:
+
   ```
   dshot reverse -m 1
   dshot save -m 1
   ```
+
   - Permanently reverse the spin direction of the first motor:
+
   ```
   dshot reverse -m 1
   dshot save -m 1
   ```
+
   Retrieving ESC information after the `dshot reverse -m 1` command  without the `dshot save -m 1` command will show:
+
   ```
   Rotation Direction: reversed
   ```
+
   after saving it with `dshot save -m 1` command, reversed direction will become new normal direction:
+
   ```
   Rotation Direction: normal
   ```
+
   To change direction again new `dshot reverse -m 1` command needs to be sent.
 
 ## 텔레메트리
