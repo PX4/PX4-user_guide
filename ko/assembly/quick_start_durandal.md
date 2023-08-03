@@ -54,7 +54,8 @@ GPS/나침반은 차량 전방 표식을 사용하여 가능한 전자 장치들
 
 전원 모듈 또는 배전 보드를 사용하여 모터와 서보에 전원을 공급하고 소비 전력을 측정할 수 있습니다. 권장되는 전원 모듈은 아래와 같습니다.
 
-<span id="pm02_v3"></span>
+<a id="pm02_v3"></a>
+
 ### PM02 v3 전원 모듈
 
 The [Power Module (PM02 v3)](../power_module/holybro_pm02.md) can be bundled with *Durandal*. 비행 콘트롤러에 배터리의 전력을 공급합니다.
@@ -86,7 +87,8 @@ The [Power Module (PM02 v3)](../power_module/holybro_pm02.md) can be bundled wit
   - 6 핀 MLX 케이블 (1 개)
   - 6 핀 GH 케이블 (1 개)
 
-<span id="pm07"></span>
+<a id="pm07"></a>
+
 ### Pixhawk 4 전원 모듈 (PM07)
 
 The [Pixhawk 4 Power Module (PM07)](https://holybro.com/collections/power-modules-pdbs/products/pixhawk-4-power-module-pm07) can be bundled/used with *Durandal*. 전원 모듈 및 배전 보드 역할을 수행하여 배터리의 조정된 전력을 비행 콘트롤러와 ESC에 제공합니다.
@@ -180,7 +182,8 @@ For more information see [Basic Concepts > SD Cards (Removable Memory)](../getti
 
 [Durandal &gt; 핀아웃](../flight_controller/durandal.md#pinouts)
 
-<span id="configuration"></span>
+<a id="configuration"></a>
+
 ## PX4 설정
 
 먼저 *QGroundControl*을 사용하여 콘트롤러에 [ PX4 "마스터"펌웨어 ](../config/firmware.md#custom)를 설치하여야 합니다.
