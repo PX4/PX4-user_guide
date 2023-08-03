@@ -56,7 +56,8 @@ The GPS module's integrated safety switch is enabled *by default* (when enabled,
 
 You can use a power module or power distribution board to power motors/servos and measure power consumption. The recommended power modules are shown below.
 
-<span id="pm02_v3"></span>
+<a id="pm02_v3"></a>
+
 ### PM02 v3 Power Module
 
 The [Power Module (PM02 v3)](../power_module/holybro_pm02.md) can be bundled with *pix32 v5*. It provides regulated power to flight controller and sends battery voltage/current to the flight controller.
