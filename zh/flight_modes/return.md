@@ -15,7 +15,8 @@ PX4 提供了几种机制来选择安全的返航路径，返航目的地和着�
 * 在多旋翼中移动遥控器摇杆（或 VTOL 在多旋翼模式下）[默认情况下](#COM_RC_OVERRIDE)会将无人机切换到[位置模式](../flight_modes/position_mc.md)，除非是处理电池失效保护。
 :::
 
-<span id="return_types"></span>
+<a id="return_types"></a>
+
 ## 返航类型（RTL_TYPE）
 
 PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通向安全目的地和/或着陆的畅通路径：
@@ -26,7 +27,8 @@ PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通�
 
 以下各节提供了每种类型的更详细说明。
 
-<span id="home_return"></span>
+<a id="home_return"></a>
+
 ### 起始位置/集结点返航类型（RTL_TYPE=0）
 
 无人机在该返航类型中：
@@ -38,7 +40,8 @@ PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通�
 If no rally points are defined, this is the same as a *Return to Launch* (RTL)/*Return to Home* (RTH).
 :::
 
-<span id="mission_landing_return"></span>
+<a id="mission_landing_return"></a>
+
 ### 任务着陆/集结点返航类型 (RTL_TYPE=1)
 
 无人机在该返航类型中：
@@ -47,14 +50,18 @@ If no rally points are defined, this is the same as a *Return to Launch* (RTL)/*
 - 如果目的地是飞行任务着陆模式，则按照该模式降落。
 - 如果目的地是集结点或者起始位置，无人机将在降落高度（取决于着陆参数）[降落或等待](#arrival)。
 
-<span id="mission_landing_pattern"></span> :::note 任务着陆模式包括[ MAV_CMD_DO_LAND_START ](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START)，一个或多个位置航点和[ MAV_CMD_NAV_LAND ](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)。
+<a id="mission_landing_pattern"></a>
+
+:::note
+任务着陆模式包括[ MAV_CMD_DO_LAND_START ](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START)，一个或多个位置航点和[ MAV_CMD_NAV_LAND ](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)。
 :::
 
 :::warning
 当此类型设置时，PX4 会拒绝任何没有有效着陆模式的任务。
 :::
 
-<span id="mission_path_return"></span>
+<a id="mission_path_return"></a>
+
 ### 任务路径返航类型（RTL_TYPE=2）
 
 This return type uses the mission (if defined) to provide a safe return *path*, and the mission landing pattern (if defined) to provide landing behaviour. If there is a mission but no mission landing pattern, the mission is flown *in reverse*. 集结点，如果有的话，将被忽略。
@@ -90,7 +97,8 @@ Mission *without* landing pattern defined:
 如果任务在返航模式期间发生更改，则将按照与上述相同的规则根据新任务重新评估行为（例如，如果新任务没有降落顺序并且你在一个任务中，则任务将被逆转）。
 
 
-<span id="safety_point_return"></span>
+<a id="safety_point_return"></a>
+
 ### 最近的安全目的地返回类型（RTL_TYPE=3）
 
 无人机在该返航类型中：
@@ -100,7 +108,8 @@ Mission *without* landing pattern defined:
 - 如果目的地是起始位置或者集结点，无人机会下降到下降高度（[ RTL_DESCEND_ALT ](#RTL_DESCEND_ALT)），然后[着陆或等待](#arrival)。
 
 
-<span id="return_altitude"></span>
+<a id="return_altitude"></a>
+
 ## 返航高度
 
 无人机通常会在返航之前首先上升到安全的高度，以躲避其与目的地之间的任何障碍。
@@ -130,7 +139,8 @@ Mission *without* landing pattern defined:
 - 无人机总是会爬升到至少[RTL_DESCEND_ALT](#RTL_DESCEND_ALT)的高度返航。
 
 
-<span id="arrival"></span>
+<a id="arrival"></a>
+
 ## 悬停/降落在目的地
 
 除非执行任务着陆（例如，如果执行[起始位置返航](#home_return)或[最安全目的地返航](#safety_point_return)），无人机才会到达目的地，并迅速降落到[RTL_DESCEND_ALT](#RTL_DESCEND_ALT) 高度。
@@ -138,7 +148,8 @@ Mission *without* landing pattern defined:
 无人机会在悬停一段指定的时间（[RTL_LAND_DELAY](#RTL_LAND_DELAY)）后降落。 如果 [RTL_LAND_DELAY=-1](#RTL_LAND_DELAY) 它将无限期悬停。
 
 
-<span id="default_configuration"></span>
+<a id="default_configuration"></a>
+
 ## 无人机默认行为
 
 The mode is _implemented_ in almost exactly the same way in all vehicle types (the exception being that fixed wing vehicles will circle rather than hover when waiting), and are hence tuned using the same parameters.
@@ -181,14 +192,14 @@ If not in a mission landing, a VTOL in FW mode will *always* transition back to 
 
 The RTL parameters are listed in [Parameter Reference > Return Mode](../advanced_config/parameter_reference.md#return-mode) (and summarised below).
 
-| 参数                                                                                                               | 描述                                                                                                                                                                                                                                                                                                         |
-| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="RTL_TYPE"></span>[RTL_TYPE](../advanced_config/parameter_reference.md#RTL_TYPE)                        | 返航机制（路径和目的地）。<br>`0`：通过直接路径返回到集结点或起始点（以最近者为准）。<br>`1`：返回到集结点或任务着陆模式的起点（以最近者为准），通过直接路径。 如果未定义任务着陆点或集结点，通过直接路径返回起始位置。 如果目的地是任务着陆模式，则按照该模式着陆。<br> `2`：如果定义了着陆模式，则使用任务路径快速着陆，否则快速返回起始位置。 忽略集结点。 如果没有定义任务规划，直接飞往起始位置。<br>`3`：通过直接路径返航到最近目的地：起始位置，任务降落起始点或者安全点。 如果目的地是飞行任务着陆模式，则按照该模式降落。 |
-| <span id="RTL_RETURN_ALT"></span>[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)    | 当[RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)为 0 时，返航高度以米为单位（默认：60 米）。 如果已经超过这个值, 飞机将返回当前的高度。                                                                                                                                                                                  |
-| <span id="RTL_DESCEND_ALT"></span>[RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 最小返航高度和无人机从较高的返航高度到减速或者停止的初始下降高度（默认： 30米）。                                                                                                                                                                                                                                                                 |
-| <span id="RTL_LAND_DELAY"></span>[RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)    | 着陆前在`RTL_DESCEND_ALT`高度悬停时间（默认： 0.5秒）- 默认情况下这个段时间很短，因此无人机智慧减速然后立即着陆。 如果设置为-1，系统将在 `RTL_DESCEND_ALT` 高度悬停而不是降落。 延迟能够使你为起落架的展开部署配置时间（自动触发）。                                                                                                                                                                  |
-| <span id="RTL_MIN_DIST"></span>[RTL_MIN_DIST](../advanced_config/parameter_reference.md#RTL_MIN_DIST)          | 能够触发无人机上升到返航高度，距离起始位置的最小水平距离由那个"锥形"指定。 如果无人机在水平方向比这个相对于起始位置的距离更近，它将在当前高度或者在`RTL_DESCEND_ALT`高度（以较高者为准）返航，而不是先上升到RTL_RETURN_ALT）。                                                                                                                                                                         |
-| <span id="RTL_CONE_ANG"></span>[RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)          | 圆锥半角决定无人机的 RTL 返航高度。 数值(度数)：0、25、45、65、80、90。 请注意，0 为“无圆锥”（始终返回` RTL_RETURN_ALT `或更高），而 90 则表示无人机必须在当前高度或在` RTL_DESCEND_ALT `高度（以较高者为准）返航。                                                                                                                                                                 |
-| <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 控制多旋翼（或者多旋翼模式下的 VOTL）的摇杆移动量来切换到 [位置模式](../flight_modes/position_mc.md) (除非无人机在处理紧急的电池失效保护)。 可以分别为自动模式和 offboard 模式启用此功能，默认情况下在自动模式下启用此功能。                                                                                                                                                                  |
-| <span id="COM_RC_STICK_OV"></span>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | 导致发射机切换到 [位置模式](../flight_modes/position_mc.md) 的摇杆移动量（如果 [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) 已启用）。                                                                                                                                                                                                      |
-| <span id="NAV_LOITER_RAD"></span>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)    | [仅限固定翼] 悬停的绕圈半径（[RTL_LAND_DELAY](#RTL_LAND_DELAY)）。                                                                                                                                                                                                                                                      | 
+| 参数                                                                                                       | 描述                                                                                                                                                                                                                                                                                                         |
+| -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="RTL_TYPE"></a>[RTL_TYPE](../advanced_config/parameter_reference.md#RTL_TYPE)                  | 返航机制（路径和目的地）。<br>`0`：通过直接路径返回到集结点或起始点（以最近者为准）。<br>`1`：返回到集结点或任务着陆模式的起点（以最近者为准），通过直接路径。 如果未定义任务着陆点或集结点，通过直接路径返回起始位置。 如果目的地是任务着陆模式，则按照该模式着陆。<br> `2`：如果定义了着陆模式，则使用任务路径快速着陆，否则快速返回起始位置。 忽略集结点。 如果没有定义任务规划，直接飞往起始位置。<br>`3`：通过直接路径返航到最近目的地：起始位置，任务降落起始点或者安全点。 如果目的地是飞行任务着陆模式，则按照该模式降落。 |
+| <a id="RTL_RETURN_ALT"></a>[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | 当[RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)为 0 时，返航高度以米为单位（默认：60 米）。 如果已经超过这个值, 飞机将返回当前的高度。                                                                                                                                                                                  |
+| <a id="RTL_DESCEND_ALT"></a>[RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 最小返航高度和无人机从较高的返航高度到减速或者停止的初始下降高度（默认： 30米）。                                                                                                                                                                                                                                                                 |
+| <a id="RTL_LAND_DELAY"></a>[RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | 着陆前在`RTL_DESCEND_ALT`高度悬停时间（默认： 0.5秒）- 默认情况下这个段时间很短，因此无人机智慧减速然后立即着陆。 如果设置为-1，系统将在 `RTL_DESCEND_ALT` 高度悬停而不是降落。 延迟能够使你为起落架的展开部署配置时间（自动触发）。                                                                                                                                                                  |
+| <a id="RTL_MIN_DIST"></a>[RTL_MIN_DIST](../advanced_config/parameter_reference.md#RTL_MIN_DIST)       | 能够触发无人机上升到返航高度，距离起始位置的最小水平距离由那个"锥形"指定。 如果无人机在水平方向比这个相对于起始位置的距离更近，它将在当前高度或者在`RTL_DESCEND_ALT`高度（以较高者为准）返航，而不是先上升到RTL_RETURN_ALT）。                                                                                                                                                                         |
+| <a id="RTL_CONE_ANG"></a>[RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)       | 圆锥半角决定无人机的 RTL 返航高度。 数值(度数)：0、25、45、65、80、90。 请注意，0 为“无圆锥”（始终返回` RTL_RETURN_ALT `或更高），而 90 则表示无人机必须在当前高度或在` RTL_DESCEND_ALT `高度（以较高者为准）返航。                                                                                                                                                                 |
+| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 控制多旋翼（或者多旋翼模式下的 VOTL）的摇杆移动量来切换到 [位置模式](../flight_modes/position_mc.md) (除非无人机在处理紧急的电池失效保护)。 可以分别为自动模式和 offboard 模式启用此功能，默认情况下在自动模式下启用此功能。                                                                                                                                                                  |
+| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | 导致发射机切换到 [位置模式](../flight_modes/position_mc.md) 的摇杆移动量（如果 [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) 已启用）。                                                                                                                                                                                                      |
+| <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)   | [仅限固定翼] 悬停的绕圈半径（[RTL_LAND_DELAY](#RTL_LAND_DELAY)）。                                                                                                                                                                                                                                                      | 
