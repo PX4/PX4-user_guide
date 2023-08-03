@@ -18,34 +18,38 @@ https://drotek.gitbook.io/pixhawk-3-pro/hardware
 
 ## 요약
 
-  * 마이크로컨트롤러 : **STM32F469**; 플래시 용량은 **2MiB**, RAM 용량은 **384KiB**입니다.
-  * **ICM-20608-G** 자이로 / 가속도계
-  * **MPU-9250** 자이로 / 가속도계 / 자력계
-  * **LIS3MDL** 나침반
-  * 2개의 SPI 버스를 통해 연결된 센서(고속 버스 1개와 저잡음 버스 1개)
-  * 2개의 I2C 버스
-  * CAN 버스 2 개
-  * 2 개의 전원 모듈에서 전압 / 배터리 판독
-  * FrSky<sup>&reg;</sup> 인버터
-  * 메인 8 개 + AUX PWM 출력 6개(개별 IO 칩, PX4IO)
-  * microSD (로깅)
-  * S.BUS / Spektrum / SUMD / PPM 입력
-  * JST GH 사용자 친화적 커넥터 : Pixracer와 동일한 커넥터와 핀배열
+- 마이크로컨트롤러 : **STM32F469**; 플래시 용량은 **2MiB**, RAM 용량은 **384KiB**입니다.
+- **ICM-20608-G** 자이로 / 가속도계
+- **MPU-9250** 자이로 / 가속도계 / 자력계
+- **LIS3MDL** 나침반
+- 2개의 SPI 버스를 통해 연결된 센서(고속 버스 1개와 저잡음 버스 1개)
+- 2개의 I2C 버스
+- CAN 버스 2 개
+- 2 개의 전원 모듈에서 전압 / 배터리 판독
+- FrSky<sup>&reg;</sup> 인버터
+- 메인 8 개 + AUX PWM 출력 6개(개별 IO 칩, PX4IO)
+- microSD (로깅)
+- S.BUS / Spektrum / SUMD / PPM 입력
+- JST GH 사용자 친화적 커넥터 : Pixracer와 동일한 커넥터와 핀배열
 
 ## 구매처
+
 [Drotek 상점](https://store.drotek.com/)에서 구매 (EU) :
-  * [Pixhawk 3 프로 (패키지)](https://store.drotek.com/autopilots/844-pixhawk-3-pro-pack.html)
-  * [Pixhawk 3 프로](https://store.drotek.com/autopilots/821-pixhawk-pro-autopilot-8944595120557.html)
+
+- [Pixhawk 3 프로 (패키지)](https://store.drotek.com/autopilots/844-pixhawk-3-pro-pack.html)
+- [Pixhawk 3 프로](https://store.drotek.com/autopilots/821-pixhawk-pro-autopilot-8944595120557.html)
 
 [readymaderc](https://www.readymaderc.com)에서 구매 (미국) :
-  * [Pixhawk 3 프로](https://www.readymaderc.com/products/details/pixhawk-3-pro-flight-controller)
+
+- [Pixhawk 3 프로](https://www.readymaderc.com/products/details/pixhawk-3-pro-flight-controller)
 
 ## 펌웨어 빌드
 
-::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) :
+
 ```
 make px4_fmu-v4pro_default
 ```
@@ -72,7 +76,6 @@ The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debu
 - [SWD Debug Port](../debug/swd_debug.md)
 - [PX4 시스템 콘솔](../debug/system_console.md#pixhawk_debug_port) (참고, FMU 콘솔은 UART7에 매핑됨).
 
-
 ## 시리얼 포트 매핑
 
 | UART   | 장치         | 포트             |
@@ -83,6 +86,5 @@ The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debu
 | UART4  |            |                |
 | UART7  | 콘솔         |                |
 | UART8  | SERIAL4    |                |
-
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
