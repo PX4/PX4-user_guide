@@ -13,46 +13,45 @@ Flight Core is identical to the PX4 Flight Controller portion of [VOXL Flight](h
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-
 ## Specification
 
-| Feature          | Details                                                                                                                                                         |
-|:---------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Weight           | 6 g                                                                                                                                                             |
-| MCU              | 216MHz, 32-bit ARM M7 [STM32F765II](https://www.st.com/en/microcontrollers-microprocessors/stm32f765ii.html)                                                    |
-| Memory           | 256Kb FRAM                                                                                                                                                      |
-|                  | 2Mbit Flash                                                                                                                                                     |
-|                  | 512Kbit SRAM                                                                                                                                                    |
-| Firmware         | [PX4](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/fc-v1)                                                                                      |
-| IMUs             | [ICM-20602](https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/) (SPI1)                                                                       |
-|                  | ICM-42688 (SPI2)                                                                                                                                                |
-|                  | [BMI088](https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1) (SPI6)                                                                             |
-| Barometer        | [BMP388](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp388/) (I2C4)                                                        |
-| Secure Element   | [A71CH](https://www.nxp.com/products/security-and-authentication/authentication/plug-and-trust-the-fast-easy-way-to-deploy-secure-iot-connections:A71CH) (I2C4) |
-| microSD Card     | [Information on supported cards](../dev_log/logging.md#sd-cards)                                                                                                |
-| Inputs           | GPS/Mag                                                                                                                                                         |
-|                  | Spektrum                                                                                                                                                        |
-|                  | Telemetry                                                                                                                                                       |
-|                  | CAN bus                                                                                                                                                         |
-|                  | PPM                                                                                                                                                             |
-| Outputs          | 6 LEDs (2xRGB)                                                                                                                                                  |
-|                  | 8 PWM Channels                                                                                                                                                  |
-| Extra Interfaces | 3 serial ports                                                                                                                                                  |
-|                  | I2C                                                                                                                                                             |
-|                  | GPIO                                                                                                                                                            |
+| Feature          | Details                                                          |
+|:---------------- |:---------------------------------------------------------------- |
+| Weight           | 6 g                                                              |
+| MCU              | 216MHz, 32-bit ARM M7 [STM32F765II][stm32f765ii]                 |
+| Memory           | 256Kb FRAM                                                       |
+|                  | 2Mbit Flash                                                      |
+|                  | 512Kbit SRAM                                                     |
+| Firmware         | [PX4][px4]                                                       |
+| IMUs             | [ICM-20602][icm-20602] (SPI1)                                    |
+|                  | ICM-42688 (SPI2)                                                 |
+|                  | [BMI088][bmi088] (SPI6)                                          |
+| Barometer        | [BMP388][bmp388] (I2C4)                                          |
+| Secure Element   | [A71CH][a71ch] (I2C4)                                            |
+| microSD Card     | [Information on supported cards](../dev_log/logging.md#sd-cards) |
+| Inputs           | GPS/Mag                                                          |
+|                  | Spektrum                                                         |
+|                  | Telemetry                                                        |
+|                  | CAN bus                                                          |
+|                  | PPM                                                              |
+| Outputs          | 6 LEDs (2xRGB)                                                   |
+|                  | 8 PWM Channels                                                   |
+| Extra Interfaces | 3 serial ports                                                   |
+|                  | I2C                                                              |
+|                  | GPIO                                                             |
 
 :::note
 More detailed hardware documentation can be found [here](https://docs.modalai.com/flight-core-datasheet/).
 :::
 
+<!-- reference links for table above (improve layout) -->
 ## Dimensions
 
 ![FlightCoreV1Dimensions](../../assets/flight_controller/modalai/fc_v1/dimensions.png)
 
-
 ## PX4 Firmware Compatibility
 
-*Flight Core v1* is fully compatible with the official PX4 Firmware from PX4 v1.11.
+_Flight Core v1_ is fully compatible with the official PX4 Firmware from PX4 v1.11.
 
 ModalAI maintains a [branched PX4 version](https://github.com/modalai/px4-firmware/tree/modalai-1.11) for PX4 v1.11. This includes UART ESC support and improvements in VIO and VOA that are planned to be upstreamed.
 
@@ -78,7 +77,7 @@ The diagram below shows the recommended orientation, which corresponds to `ROTAT
 ![FlightCoreV1Orientation](../../assets/flight_controller/modalai/fc_v1/orientation.png)
 
 :::warning
-For *PX4 v1.10* stable releases from *QGroundControl* use `ROTATION_YAW_180` for the above orientation.
+For _PX4 v1.10_ stable releases from _QGroundControl_ use `ROTATION_YAW_180` for the above orientation.
 :::
 
 ### Connectors
@@ -108,7 +107,6 @@ Detailed information about the pinouts can be found [here](https://docs.modalai.
 
 The full user guide is available [here](https://docs.modalai.com/flight-core-manual/).
 
-
 ### How to Build
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
@@ -135,3 +133,10 @@ make modalai_fc-v1
 ## Support
 
 Please visit the [ModalAI Forum](https://forum.modalai.com/category/10/flight-core) for more information.
+
+[stm32f765ii]: https://www.st.com/en/microcontrollers-microprocessors/stm32f765ii.html
+[bmp388]: https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp388/
+[icm-20602]: https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/
+[bmi088]: https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1
+[px4]: https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/fc-v1
+[a71ch]: https://www.nxp.com/products/security-and-authentication/authentication/plug-and-trust-the-fast-easy-way-to-deploy-secure-iot-connections:A71CH
