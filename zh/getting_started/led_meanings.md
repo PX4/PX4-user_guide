@@ -4,7 +4,8 @@
 - The [UI LED](#ui_led) provides user-facing status information related to *readiness for flight*.
 - [LEDs状态](#status_led) 提供PX4IO 和 FMU SoC的状态。 它们表示电量、驱动模式和活动以及错误。
 
-<span id="ui_led"></span>
+<a id="ui_led"></a>
+
 ## LED 界面
 
 The RGB *UI LED* indicates the current *readiness for flight* status of the vehicle. This is typically a superbright I2C peripheral, which may or may not be mounted on the flight controller board (i.e. FMUv4 does not have one on board, and typically uses an LED mounted on the GPS).
@@ -37,7 +38,8 @@ In the event of an error (blinking red), or if the vehicle can't achieve GPS loc
 * **[Blinking Red] Error / Setup Required:** Indicates that your autopilot needs to be configured or calibrated before flying. 将飞行器连接到地面站以找出问题所在。 如果您已经完成设置过程，飞行器仍然闪烁红色，这表明还有其他错误。
 
 
-<span id="status_led"></span>
+<a id="status_led"></a>
+
 ## LED 状态
 
 Three *Status LEDs* provide status for the FMU SoC, and three more provide status for the PX4IO (if present). 它们表示电量、驱动模式和活动以及错误。
