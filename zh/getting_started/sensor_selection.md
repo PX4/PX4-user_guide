@@ -9,7 +9,8 @@ The system *minimally requires* a gyroscope, accelerometer, magnetometer (compas
 下面我们介绍一些传感器。 最后有链接到关于 [传感器接线](#wiring) 的信息。
 
 
-<span id="gps_compass"></span>
+<a id="gps_compass"></a>
+
 ## GPS&罗盘
 
 PX4 supports a number of Global Navigation Satellite System (GNSS) receivers and compasses (magnetometers). It also supports Real Time Kinematic (RTK) GPS Receivers, which extend GPS systems to centimetre-level precision.
@@ -59,7 +60,8 @@ PX4 支持许多实惠的距离传感器，使用不同的技术，并支持不�
 ![Image of ARK Flow optical flow sensor](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
 
 
-<span id="wiring"></span>
+<a id="wiring"></a>
+
 ## 传感器接线
 
 传感器接线信息通常在飞控和传感器本身的制造商文档中提供。
