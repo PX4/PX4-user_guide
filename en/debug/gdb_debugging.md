@@ -15,7 +15,8 @@ Developer <=> GDB <=> GDB Server <=> Debug Probe <=> SWD <=> PX4 Autopilot.
 To start a debugging session you typically:
 
 1. Need a specialized [SWD debug probe](../debug/swd_debug.md#debug-probes).
-2. Find and connect to the [SWD debug port](swd_debug#debug-signals), [you may need an adapter](swd_debug.md#debug-probes).
+2. Find and connect to the [SWD debug port](../debug/swd_debug.md#autopilot-debug-ports).
+   You may need a [debug adapter](swd_debug.md#debug-adapters).
 3. Configure and start the debug probe to create a GDB server.
 4. Launch GDB and connect to the GDB server as a remote target.
 5. Debug your firmware interactively.
