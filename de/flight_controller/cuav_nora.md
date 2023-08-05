@@ -15,52 +15,52 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 ## Features
 
-* Internal shock absorption
-* The integrated process reduces the failure caused by interface damage.
-* Support USB_HS, download logs faster (PX4 not yet supported)
-* Support more dshot output
-* Support IMU heating, make the sensor work better
-* Dedicated CAN battery port
-* 3 sets of IMU sensors
-* Car-grade RM3100 compass
-* High performance processor
+- Internal shock absorption
+- The integrated process reduces the failure caused by interface damage.
+- Support USB_HS, download logs faster (PX4 not yet supported)
+- Support more dshot output
+- Support IMU heating, make the sensor work better
+- Dedicated CAN battery port
+- 3 sets of IMU sensors
+- Car-grade RM3100 compass
+- High performance processor
 
 :::tip
 The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/nora.html) are the canonical reference for Nora. They should be used by preference as they contain the most complete and up to date information.
 :::
 
-
 ## Quick Summary
 
-* Main FMU Processor: STM32H743
-* On-board sensors:
-  * Accelerometer/Gyroscope: ICM-20689
-  * Accelerometer/Gyroscope: ICM-20649
-  * Accelerometer/Gyroscope: BMI088
-  * Magnetometer: RM3100
-  * Barometer: MS5611*2
+- Main FMU Processor: STM32H743
+- On-board sensors:
 
-* Interfaces:
-   * 14 PWM outputs （12 supports Dshot）
-   * Support multiple RC inputs (SBUs / CPPM / DSM)
-   * Analogue / PWM RSSI input
-   * 2 GPS ports(GPS and UART4 ports)
-   * 4 i2c buses(Two i2c dedicated ports)
-   * 2 CAN bus ports
-   * 2 Power ports(Power A is common adc interface, Power C is DroneCAN battery interface)
-   * 2  ADC input
-   * 1 USB ports
-* Power System:
-  * Power: 4.3~5.4V
-  * USB Input: 4.75~5.25V
-  * Servo Rail Input: 0~36V
-* Weight and Dimensions:
-  * Weight: 101 g
-* Other Characteristics:
-  * Operating temperature: -20 ~ 80°c（Measured value）
-  * Three imus
-  * Supports temperature compensation
-  * Internal shock absorption
+  - Accelerometer/Gyroscope: ICM-20689
+  - Accelerometer/Gyroscope: ICM-20649
+  - Accelerometer/Gyroscope: BMI088
+  - Magnetometer: RM3100
+  - Barometer: MS5611\*2
+
+- Interfaces:
+  - 14 PWM outputs （12 supports Dshot）
+  - Support multiple RC inputs (SBUs / CPPM / DSM)
+  - Analogue / PWM RSSI input
+  - 2 GPS ports(GPS and UART4 ports)
+  - 4 i2c buses(Two i2c dedicated ports)
+  - 2 CAN bus ports
+  - 2 Power ports(Power A is common adc interface, Power C is DroneCAN battery interface)
+  - 2 ADC input
+  - 1 USB ports
+- Power System:
+  - Power: 4.3~5.4V
+  - USB Input: 4.75~5.25V
+  - Servo Rail Input: 0~36V
+- Weight and Dimensions:
+  - Weight: 101 g
+- Other Characteristics:
+  - Operating temperature: -20 ~ 80°c（Measured value）
+  - Three imus
+  - Supports temperature compensation
+  - Internal shock absorption
 
 :::note
 When it runs PX4 firmware, only 8 PWM outputs work.
@@ -71,7 +71,6 @@ The remaining 6 PWM ports are still being adapted (so it is not compatible with 
 
 - [CUAV Store](https://store.cuav.net)<\br>
 - [CUAV Aliexpress](https://www.aliexpress.com/item/4001042501927.html?gps-id=8041884&scm=1007.14677.110221.0&scm_id=1007.14677.110221.0&scm-url=1007.14677.110221.0&pvid=3dc0a3ba-fa82-43d2-b0b3-6280e4329cef&spm=a2g0o.store_home.promoteRecommendProducts_7913969.58)
-
 
 ## Connections (Wiring)
 
@@ -89,7 +88,7 @@ The `RCIN` port is limited to powering the rc receiver and cannot be connected t
 
 ## Voltage Ratings
 
-Nora AutoPilot* can be triple-redundant on the power supply if three power sources are supplied. The two power rails are: **POWERA**, **POWERC** and **USB**.
+Nora AutoPilot\* can be triple-redundant on the power supply if three power sources are supplied. The two power rails are: **POWERA**, **POWERC** and **USB**.
 
 :::note
 The output power rails **PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered.
@@ -98,23 +97,25 @@ The output power rails **PWM OUT** (0V to 36V) do not power the flight controlle
 **Normal Operation Maximum Ratings**
 
 Under these conditions all power sources will be used in this order to power the system:
+
 1. **POWERA** and **POWERC** inputs (4.3V to 5.4V)
 2. **USB** input (4.75V to 5.25V)
 
 ## Building Firmware
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
+
 ```
 make cuav_nora_default
 ```
 
 ## Over Current Protection
 
-The *Nora* has over-current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A. The *Nora* has short circuit protection.
+The _Nora_ has over-current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A. The _Nora_ has short circuit protection.
 
 :::warning
 Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
@@ -144,7 +145,7 @@ CUAV provides a dedicated debugging cable, which can be connected to the `DSU7` 
 :::warning
 The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
 
-Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines. For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
+Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines. For direct connection to _Segger Jlink_ we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and _NOT_ 5V).
 :::
 
 ## Supported Platforms / Airframes
@@ -153,6 +154,6 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 
 ## Further info
 
-* [Quick start](https://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
-* [CUAV docs](http://doc.cuav.net)
-* [nora schematic](https://github.com/cuav/hardware/tree/master/X7_Autopilot)
+- [Quick start](https://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
+- [CUAV docs](http://doc.cuav.net)
+- [nora schematic](https://github.com/cuav/hardware/tree/master/X7_Autopilot)

@@ -18,7 +18,6 @@ AIRLink has two computers and integrated LTE Module:
 - The powerful AI mission computer enables advanced drone software features like computer vision and obstacle avoidance, digital HD video streaming, and payload data streaming.
 - LTE/5G and WiFi connectivity modules provide permanent broadband internet connection which is enabler for remote workflows.
 
-
 ## Feature Highlights
 
 @[youtube](https://youtu.be/VcBx9DLPN54)
@@ -84,7 +83,6 @@ Purchase from the original Sky-Drones Store (worldwide shipping with 1-2 days or
 - [Buy AIRLink Core 4G](https://sky-drones.com/autopilots/airlink-core.html)
 - [Buy AIRLink Core 5G](https://sky-drones.com/store/airlink-5g-core.html)
 
-
 ## AIRLink Enterprise Kit Accessories
 
 @[youtube](https://youtu.be/lex7axW8WQg)
@@ -100,7 +98,6 @@ The standard set contains:
 - 1x HDMI to mini HDMI cable1x set of cables (7 cables for all connectors)
 
 [AIRLink Telemetry](https://sky-drones.com/sets/airlink-telemetry-set.html) based on the Microhard LAN/IP-based RF micromodule is available as an add-on and is fully compatible with AIRLink.
-
 
 ## Editions
 
@@ -125,7 +122,6 @@ SmartAP AIRLink's Core edition is intended for medium to high volume production 
 | Weight              | 198 g                                                       | 89 g                                                                                |
 | Ambient temperature | -40°C-..+50°C                                               | -40°C-..+50°C                                                                       |
 
-
 ## Key Features
 
 - **Easy to mount**
@@ -135,7 +131,6 @@ SmartAP AIRLink's Core edition is intended for medium to high volume production 
 - **FPV camera comes as standard**
 
   ![FPV camera comes as standard](../../assets/flight_controller/airlink/airlink-fpv-camera.jpg)
-
 
 ## Interfaces
 
@@ -178,8 +173,7 @@ SmartAP AIRLink's Core edition is intended for medium to high volume production 
   | 4          | FAN_OUT  | OUT       | +5V     | Fan output                     |
   | 5          | SBUS_OUT | OUT       | +3.3V   | SBUS output | 6 | GND | Ground |
 
-
-- **FMU SD card - microSD**
+* **FMU SD card - microSD**
 
 ### Right Side
 
@@ -245,8 +239,6 @@ SmartAP AIRLink's Core edition is intended for medium to high volume production 
 - **SIM Card - micro SIM**
 - **HDMI - mini HDMI**
 
-
-
 ### Front Side
 
 ![Front side](../../assets/flight_controller/airlink/airlink-interfaces-front.jpg)
@@ -258,7 +250,6 @@ SmartAP AIRLink's Core edition is intended for medium to high volume production 
   - CSI camera input
   - CAN 1
   - CAN 2
-
 
 - **TEL1 - JST GH SM06B-GHS-TB**
 
@@ -332,7 +323,6 @@ AIRLink has a large number of internal and external serial ports:
 | Serial 6 | USART 2 | Telemetry 3                                         |
 | Serial 7 | UART 4  | External UART                                       |
 
-
 ## RC Input
 
 RC input is configured on the SBUS pin and is connected to IO MCU via an inverter internally. For PPM receivers please use RC Connector PPM pin located on the left side of the unit.
@@ -354,13 +344,12 @@ AIRLink has 16 PWM ouputs. Main outputs 1-8 and connected to IO MCU. AUX outputs
 | AUX 7  | Timer 12 | Channel 1 |
 | AUX 8  | Timer 12 | Channel 2 |
 
-
 [DShot](../peripherals/dshot.md) can be used on the first four AUX pins.
 
 ## Building Firmware
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
@@ -374,7 +363,6 @@ make sky-drones_smartap-airlink
 - [SmartAP GPS](../gps_compass/gps_smartap.md) - GPS module with compass, pressure sensor and RGB LED
 - [SmartAP PDB](../power_module/sky-drones_smartap-pdb.md) - Power Distribution Board
 
-
 ## Reference Design
 
 ![Reference design](../../assets/flight_controller/airlink/airlink-reference-design.png)
@@ -383,17 +371,15 @@ AIRLink CAD model is available [here](https://docs.sky-drones.com/airlink/cad-mo
 
 AIRLink Reference design can be provided by request. Get in touch at [Sky-Drones contact page](https://sky-drones.com/contact-us)
 
-
 ## More Information
 
-For more information and instructions on setting up and using the AIRLink system see [AIRLink Documentation](https://docs.sky-drones.com/airlink/)
+For more information and instructions on setting up and using the AIRLink system see [AIRLink Documentation](https://docs.sky-drones.com/airlink/).
 
-For technical help, support and customization please get in touch at [Sky-Drones contact page](https://sky-drones.com/contact-us)
+For technical help, support and customization please get in touch at [Sky-Drones contact page](https://sky-drones.com/contact-us).
 
-More information can be found at  [www.sky-drones.com](https://sky-drones.com)
+More information can be found at [www.sky-drones.com](https://sky-drones.com).
 
-Frequently asked questions are answered in [FAQ](https://docs.sky-drones.com/airlink/faq)
-
+Frequently asked questions are answered in [FAQ](https://docs.sky-drones.com/airlink/faq).
 
 ## Useful Links
 

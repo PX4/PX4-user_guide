@@ -15,52 +15,52 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 ## 特性
 
-* Internal shock absorption
-* Modular design, can be DIY carrier board
-* Support USB_HS, download logs faster (PX4 not yet supported)
-* Support more dshot output
-* Support IMU heating, make the sensor work better
-* Dedicated CAN battery port
-* 3 sets of IMU sensors
-* Car-grade RM3100 compass
-* High performance processor
+- Internal shock absorption
+- Modular design, can be DIY carrier board
+- Support USB_HS, download logs faster (PX4 not yet supported)
+- Support more DShot output
+- Support IMU heating, make the sensor work better
+- Dedicated CAN battery port
+- 3 sets of IMU sensors
+- Car-grade RM3100 compass
+- High performance processor
 
 :::tip
 The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/) are the canonical reference for the X7. They should be used by preference as they contain the most complete and up to date information.
 :::
 
-
 ## Quick Summary
 
-* Main FMU Processor: STM32H743
-* 内置传感器：
-  * 加速度计/陀螺仪：ICM-20689
-  * 加速度计/陀螺仪：ICM-20649
-  * Accelerometer/Gyroscope: BMI088
-  * Magnetometer: RM3100
-  * Barometer: MS5611*2
+- Main FMU Processor: STM32H743
+- 内置传感器：
 
-* 接口：
-   * 14 PWM outputs （12 supports Dshot）
-   * Support multiple RC inputs (SBUs / CPPM / DSM)
-   * Analogue / PWM RSSI input
-   * 2 GPS ports(GPS and UART4 ports)
-   * 4 i2c buses(Two i2c dedicated ports)
-   * 2 CAN bus ports
-   * 2 Power ports(Power A is common adc interface, Power C is DroneCAN battery interface)
-   * 2  ADC input
-   * 1 USB ports
-* 电源系统
-  * 输入电压：4.3~5.4V
-  * USB输入电压: 4.75~5.25V
-  * 伺服导轨输入电压：0~36V
-* 重量和尺寸:
-  * Weight: 101 g
-* 其它特性:
-  * Operating temperature: -20 ~ 80°c（Measured value）
-  * Three imus
-  * Supports temperature compensation
-  * Internal shock absorption
+  - 加速度计/陀螺仪：ICM-20689
+  - 加速度计/陀螺仪：ICM-20649
+  - Accelerometer/Gyroscope: BMI088
+  - Magnetometer: RM3100
+  - Barometer: MS5611\*2
+
+- 接口：
+  - 14 PWM outputs （12 supports Dshot）
+  - Support multiple RC inputs (SBUs / CPPM / DSM)
+  - Analogue / PWM RSSI input
+  - 2 GPS ports(GPS and UART4 ports)
+  - 4 i2c buses(Two i2c dedicated ports)
+  - 2 CAN bus ports
+  - 2 Power ports(Power A is common adc interface, Power C is DroneCAN battery interface)
+  - 2 ADC input
+  - 1 USB ports
+- 电源系统
+  - 输入电压：4.3~5.4V
+  - USB输入电压: 4.75~5.25V
+  - 伺服导轨输入电压：0~36V
+- 重量和尺寸:
+  - Weight: 101 g
+- 其它特性:
+  - Operating temperature: -20 ~ 80°c（Measured value）
+  - Three imus
+  - Supports temperature compensation
+  - Internal shock absorption
 
 :::note
 When it runs PX4 firmware, only 8 pwm works, the remaining 6 pwm are still being adapted, so it is not compatible with VOLT now.
@@ -88,7 +88,7 @@ The `RCIN` port is limited to powering the RC receiver and cannot be connected t
 
 ## 额定电压
 
-The *X7 AutoPilot* can be triple-redundant on the power supply if three power sources are supplied. The power rails are: **POWERA**, **POWERC** and **USB**.
+The _X7 AutoPilot_ can be triple-redundant on the power supply if three power sources are supplied. The power rails are: **POWERA**, **POWERC** and **USB**.
 
 :::note
 The output power rails **PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered.
@@ -97,23 +97,25 @@ The output power rails **PWM OUT** (0V to 36V) do not power the flight controlle
 **Normal Operation Maximum Ratings**
 
 Under these conditions all power sources will be used in this order to power the system:
+
 1. **POWERA** and **POWERC** inputs (4.3V to 5.4V)
 2. **USB** input (4.75V to 5.25V)
 
 ## 编译固件
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
+
 ```
 make cuav_x7pro_default
 ```
 
 ## Over Current Protection
 
-The *X7* has over-current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A. The *X7* has short circuit protection.
+The _X7_ has over-current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A. The _X7_ has short circuit protection.
 
 :::warning
 Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
@@ -124,7 +126,6 @@ Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these a
 The system's serial console and SWD interface operate on the **DSU7** port. Simply connect the FTDI cable to the DSU7 connector (the product list contains the CUAV FTDI cable).
 
 ![Debug port (DSU7)](../../assets/flight_controller/cuav_v5_plus/debug_port_dsu7.jpg)
-
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) operate on the **FMU Debug** port (`DSU7`).
 
@@ -146,7 +147,7 @@ CUAV provides a dedicated debugging cable, which can be connected to the `DSU7` 
 :::warning
 The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
 
-Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines. For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
+Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines. For direct connection to _Segger Jlink_ we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and _NOT_ 5V).
 :::
 
 ## 支持的平台/机身
@@ -155,6 +156,6 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 
 ## 更多信息
 
-* [Quick start](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-x7.html)
-* [CUAV docs](http://doc.cuav.net)
-* [x7 schematic](https://github.com/cuav/hardware/tree/master/X7_Autopilot)
+- [Quick start](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-x7.html)
+- [CUAV docs](http://doc.cuav.net)
+- [x7 schematic](https://github.com/cuav/hardware/tree/master/X7_Autopilot)

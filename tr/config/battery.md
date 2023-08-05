@@ -32,7 +32,8 @@ This ensures that the battery failsafe behaviour is managed by PX4, and that ESC
 [Battery-Type Comparison](#battery-type-comparison) below explains the difference between the main battery types, and how that impacts the battery settings.
 :::
 
-<span id="basic_settings"></span>
+<a id="basic_settings"></a>
+
 ## Basic Battery Settings (default)
 
 The basic battery settings configure PX4 to use the default method for capacity estimate. This method compares the measured raw battery voltage to the range between cell voltages for "empty" and "full" cells (scaled by the number of cells).
@@ -133,7 +134,8 @@ The easiest way to calibrate the divider is by using *QGroundControl* and follow
 This setting corresponds to parameters: [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) and [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV).
 :::
 
-<span id="current_divider"></span>
+<a id="current_divider"></a>
+
 ### Amps per volt
 
 :::tip
@@ -148,7 +150,8 @@ The easiest way to calibrate the dividers is by using *QGroundControl* and follo
 This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) and [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V).
 :::
 
-<span id="load_compensation"></span>
+<a id="load_compensation"></a>
+
 ## Voltage-based Estimation with Load Compensation
 
 :::note
@@ -165,7 +168,8 @@ PX4 supports two load compensation methods, which are enabled by [setting](../ad
 * [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) - [Current-based Load Compensation](#current_based_load_compensation) (recommended).
 * [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) - [Thrust-based Load Compensation](#thrust_based_load_compensation).
 
-<span id="current_based_load_compensation"></span>
+<a id="current_based_load_compensation"></a>
+
 ### Current-based Load Compensation (recommended)
 
 This load compensation method relies on current measurement to determine load. It is far more accurate than [Thrust-based Load Compensation](#thrust_based_load_compensation) but requires that you have a current sensor.
@@ -180,7 +184,8 @@ A typical value is 5mΩ per cell but this can vary with discharge current rating
 :::
 1. You should also calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
 
-<span id="thrust_based_load_compensation"></span>
+<a id="thrust_based_load_compensation"></a>
+
 ### Thrust-based Load Compensation
 
 This load compensation method estimates the load based on the total thrust that gets commanded to the motors.
@@ -194,7 +199,8 @@ To enable this feature:
 1. Set the parameter [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) to how much voltage drop a cell shows under the load of full throttle.
 
 
-<span id="current_integration"></span>
+<a id="current_integration"></a>
+
 ## Voltage-based Estimation Fused with Current Integration
 
 :::note

@@ -12,7 +12,8 @@ The [Avionics Anonymous Laser Altimeter Interface](https://www.tindie.com/produc
 
 * [AvAnon Laser Interface](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/)
 
-<span id="supported_rangefinders"></span>
+<a id="supported_rangefinders"></a>
+
 ## Supported Rangefinders
 
 A full list of supported rangefinders can be found on the link above.

@@ -13,46 +13,45 @@ Flight Core는 VOXL Companion Computer와 Flight Core를 단일 PCB에 통합하
 이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
 :::
 
-
 ## 사양
 
-| 기능         | 세부 정보                                                                                                                                                           |
-|:---------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 중량         | 6 g                                                                                                                                                             |
-| MCU        | 216MHz, 32 비트 ARM M7 [STM32F765II](https://www.st.com/en/microcontrollers-microprocessors/stm32f765ii.html)                                                     |
-| 메모리        | 256Kb FRAM                                                                                                                                                      |
-|            | 2Mbit Flash                                                                                                                                                     |
-|            | 512Kbit SRAM                                                                                                                                                    |
-| 펌웨어        | [PX4](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/fc-v1)                                                                                      |
-| 관성계        | [ICM-20602](https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/) (SPI1)                                                                       |
-|            | ICM-42688 (SPI2)                                                                                                                                                |
-|            | [BMI088](https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1) (SPI6)                                                                             |
-| 기압계        | [BMP388](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp388/) (I2C4)                                                        |
-| 보안 요소      | [A71CH](https://www.nxp.com/products/security-and-authentication/authentication/plug-and-trust-the-fast-easy-way-to-deploy-secure-iot-connections:A71CH) (I2C4) |
-| microSD 카드 | [지원되는 카드 정보](../dev_log/logging.md#sd-cards)                                                                                                                    |
-| 입력         | GPS/자력계                                                                                                                                                         |
-|            | Spektrum                                                                                                                                                        |
-|            | 텔레메트리                                                                                                                                                           |
-|            | CAN 버스                                                                                                                                                          |
-|            | PPM                                                                                                                                                             |
-| 출력         | LED 6 개 (2xRGB)                                                                                                                                                 |
-|            | PWM 채널 8개                                                                                                                                                       |
-| 추가 인터페이스   | 시리얼포트 3개                                                                                                                                                        |
-|            | I2C                                                                                                                                                             |
-|            | GPIO                                                                                                                                                            |
+| 기능         | 세부 정보                                            |
+|:---------- |:------------------------------------------------ |
+| 중량         | 6 g                                              |
+| MCU        | 216MHz, 32-bit ARM M7 [STM32F765II][stm32f765ii] |
+| 메모리        | 256Kb FRAM                                       |
+|            | 2Mbit Flash                                      |
+|            | 512Kbit SRAM                                     |
+| 펌웨어        | [PX4][px4]                                       |
+| 관성계        | [ICM-20602][icm-20602] (SPI1)                    |
+|            | ICM-42688 (SPI2)                                 |
+|            | [BMI088][bmi088] (SPI6)                          |
+| 기압계        | [BMP388][bmp388] (I2C4)                          |
+| 보안 요소      | [A71CH][a71ch] (I2C4)                            |
+| microSD 카드 | [지원되는 카드 정보](../dev_log/logging.md#sd-cards)     |
+| 입력         | GPS/자력계                                          |
+|            | Spektrum                                         |
+|            | 텔레메트리                                            |
+|            | CAN 버스                                           |
+|            | PPM                                              |
+| 출력         | LED 6 개 (2xRGB)                                  |
+|            | PWM 채널 8개                                        |
+| 추가 인터페이스   | 시리얼포트 3개                                         |
+|            | I2C                                              |
+|            | GPIO                                             |
 
 :::note
 자세한 하드웨어 문서는 [여기](https://docs.modalai.com/flight-core-datasheet/)를 참고하십시오.
 :::
 
+<!-- reference links for table above (improve layout) -->
 ## 크기
 
 ![FlightCoreV1 크기](../../assets/flight_controller/modalai/fc_v1/dimensions.png)
 
-
 ## PX4 Firmware Compatibility
 
-*Flight Core v1*은 PX4 v1.11의 펌웨어와 완벽하게 호환됩니다.
+_Flight Core v1_ is fully compatible with the official PX4 Firmware from PX4 v1.11.
 
 ModalAI는 PX4 v1.11용 [분기 PX4 버전](https://github.com/modalai/px4-firmware/tree/modalai-1.11)을 유지합니다. 여기에는 UART ESC 지원과 업스트림 예정인 VIO와 VOA의 개선 사항이 포함됩니다.
 
@@ -78,7 +77,7 @@ ModalAI는 PX4 v1.11용 [분기 PX4 버전](https://github.com/modalai/px4-firmw
 ![FlightCoreV1 방향](../../assets/flight_controller/modalai/fc_v1/orientation.png)
 
 :::warning
-*QGroundControl*의 *PX4 v1.10* 안정 릴리스의 경우에는 위 방향으로 `ROTATION_YAW_180`을 사용합니다.
+For _PX4 v1.10_ stable releases from _QGroundControl_ use `ROTATION_YAW_180` for the above orientation.
 :::
 
 ### 커넥터
@@ -108,7 +107,6 @@ ModalAI는 PX4 v1.11용 [분기 PX4 버전](https://github.com/modalai/px4-firmw
 
 전체 사용자 가이드는 [여기](https://docs.modalai.com/flight-core-manual/)를 참고하십시오.
 
-
 ### 빌드 방법
 
 이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법:
@@ -135,3 +133,10 @@ make modalai_fc-v1
 ## 지원
 
 자세한 내용은 [ModalAI 포럼](https://forum.modalai.com/category/10/flight-core)을 참고하십시오.
+
+[stm32f765ii]: https://www.st.com/en/microcontrollers-microprocessors/stm32f765ii.html
+[bmp388]: https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp388/
+[icm-20602]: https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/
+[bmi088]: https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1
+[px4]: https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/fc-v1
+[a71ch]: https://www.nxp.com/products/security-and-authentication/authentication/plug-and-trust-the-fast-easy-way-to-deploy-secure-iot-connections:A71CH

@@ -54,7 +54,8 @@ The GPS module's integrated safety switch is enabled *by default* (when enabled,
 
 You can use a power module or power distribution board to power motors/servos and measure power consumption. The recommended power modules are shown below.
 
-<span id="pm02_v3"></span>
+<a id="pm02_v3"></a>
+
 ### PM02 v3 Power Module
 
 The [Power Module (PM02 v3)](../power_module/holybro_pm02.md) can be bundled with *Durandal*. It provides regulated power to flight controller and sends battery voltage/current to the flight controller.
@@ -86,7 +87,8 @@ The power module has the following characteristics/limits:
   - 6pin MLX cable (1)
   - 6pin GH cable (1)
 
-<span id="pm07"></span>
+<a id="pm07"></a>
+
 ### Pixhawk 4 Power Module (PM07)
 
 The [Pixhawk 4 Power Module (PM07)](https://holybro.com/collections/power-modules-pdbs/products/pixhawk-4-power-module-pm07) can be bundled/used with *Durandal*. It acts as both a power module and power distribution board, providing regulated power to flight controller and the ESCs, and sending battery voltage/current to the flight controller.
@@ -180,7 +182,8 @@ The wiring and configuration of optional/less common components is covered withi
 
 [Durandal > Pinouts](../flight_controller/durandal.md#pinouts)
 
-<span id="configuration"></span>
+<a id="configuration"></a>
+
 ## PX4 Configuration
 
 First you will need to install [PX4 "Master" Firmware](../config/firmware.md#custom) onto the controller using *QGroundControl*.

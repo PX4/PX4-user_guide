@@ -5,7 +5,8 @@
 :::note
 在您第一次飞行之前，您应该阅读我们的[首次飞行指南](../flying/first_flight_guidelines.md)。 :::
 
-<span id="arm"></span>
+<a id="arm"></a>
+
 ## 解锁机体
 
 Before you can fly the vehicle it must first be [armed](../getting_started/px4_basic_concepts.md#arming-and-disarming). 这将为所有电机和驱动器供电；在多轴飞行器上，它将启动螺旋桨转动。
@@ -24,7 +25,8 @@ Before you can fly the vehicle it must first be [armed](../getting_started/px4_b
 
 :::note VTOL机型只能在多轴模式下解锁(默认-可以使用[CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING) 启用固定翼飞机模式下解锁)。 :::
 
-<span id="takeoff-and-landing"></span>
+<a id="takeoff-and-landing"></a>
+
 ## 起飞
 
 最简单的起飞方式（在[机体解锁](#arm)后）是使用自动 [起飞模式](../flight_modes/takeoff.md)。 通常可以通过 [遥控器拨杆开关](../config/flight_mode.md) 或地面站触发的。

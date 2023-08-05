@@ -3,7 +3,7 @@
 :::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](http://mindpx.net)에 문의하십시오.
 :::
 
-AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) 시리즈는 미니어처 UAV를위한 완전 스택형 비행 *플랫폼*입니다. 현재 플랫폼에는 [MindRacer 210](../complete_vehicles/mindracer210.md)과 [NanoMind 110](../complete_vehicles/nanomind110.md)의 2개의 RTF 기체가 있습니다.
+The AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) series is a fully stackable flight _platform_ for miniature UAVs. 현재 플랫폼에는 [MindRacer 210](../complete_vehicles/mindracer210.md)과 [NanoMind 110](../complete_vehicles/nanomind110.md)의 2개의 RTF 기체가 있습니다.
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
@@ -13,7 +13,7 @@ AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) 시리즈는 미니어처
 
 ## 요약
 
-MindRacer는 소형 UAV를 위한 비행 플랫폼입니다. [MindPX](../flight_controller/mindpx.md)를 기반의 *MindRacer*는 모듈화와 폼팩터 크기 축소에 중점을 두었습니다. MindRacer는 비행 컨트롤러가 아닌 *플랫폼*입니다.
+MindRacer는 소형 UAV를 위한 비행 플랫폼입니다. Based on [MindPX](../flight_controller/mindpx.md), _MindRacer_ further scales down in formfactor while focused on providing modularity. MindRacer is a _platform_ rather than a flight controller.
 
 MindRacer는 SEP(납땜 제거 포트) 및 WEP(배선 제거 프로토콜) 개념을 구현합니다. SEP 및 WEP 이전에는, 납땜과 배선은 UAV 제조와 튜닝 과정의 어려움과 비효율성을 야기하였습니다.
 
@@ -53,10 +53,11 @@ MindRacer는 SEP(납땜 제거 포트) 및 WEP(배선 제거 프로토콜) 개�
 
 ### 빌드 방법
 
-::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
+
 ```
 make airmind_mindpx-v2_default
 ```

@@ -109,7 +109,7 @@ ssh ubuntu@pi_hostname.local
 
 #### 무 비밀번호 인증 (선택 사항)
 
-[비밀번호 없는 인증](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md)도 설정 가능합니다. 
+[비밀번호 없는 인증](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md)도 설정 가능합니다.
 
 
 
@@ -291,7 +291,7 @@ start_x=1
 
 ### 코드 빌드
 
-터미널에 다음 명령을 실행하여 *최신* 버전의 소스를 복제하십시오.
+To get the _very latest_ version onto your computer, enter the following command into a terminal:
 
 
 
@@ -301,7 +301,7 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 
 
 :::note
-최신 코드를 빌드하는 과정입니다. 
+최신 코드를 빌드하는 과정입니다.
 :::
 
 

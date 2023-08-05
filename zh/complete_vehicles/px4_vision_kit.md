@@ -219,7 +219,8 @@ Documentation about the companion computer vision/planning software can be found
 - [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - 机载计算机技术信息
 - [Occipital Developer Forum](https://structure.io/developers) - *结构核心* 相机信息
 
-<span id="install_image_mission_computer"></span>
+<a id="install_image_mission_computer"></a>
+
 ### 在机载计算机上安装镜像
 
 You can install the image on the *UP Core* and boot from internal memory (instead of the USB stick).

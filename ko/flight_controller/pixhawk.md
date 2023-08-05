@@ -9,44 +9,40 @@ PX4 does not manufacture this (or any) autopilot.
 Contact the manufacturer for support or compliance issues.
 :::
 
-
-*3DR Pixhawk<sup>&reg;</sup> 1* 자동조종장치는 [Pixhawk-project](https://pixhawk.org/) **FMUv2**를 기반의 인기있는 범용 비행 콘트롤러입니다. 하드웨어 설계에서 PX4FMU와 PX4IO의 기능을 결합하였습니다. PX4는 [NuttX](https://nuttx.apache.org/) OS에서 실행됩니다.
-
+The _3DR Pixhawk<sup>&reg;</sup> 1_ autopilot is a popular general purpose flight controller based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design (it combines the functionality of the PX4FMU + PX4IO). PX4는 [NuttX](https://nuttx.apache.org/) OS에서 실행됩니다.
 
 ![Pixhawk 이미지](../../assets/hardware/hardware-pixhawk.png)
 
 PX4 조립 및 설정 방법은 [Pixhawk 배선 퀵 스타트](../assembly/quick_start_pixhawk.md)를 참고하십시오.
 
-
 ## 주요 특징
 
-* 메인 시스템 온칩: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
-  * CPU : 단정밀도 FPU의 180MHz ARM<sup>&reg;</sup> Cortexex<sup>&reg;</sup>  M4
-  * RAM : 256KB SRAM (L1)
-* 장애복구 시스템 온칩 : STM32F100
-  * CPU: 24 MHz ARM Cortex M3
-  * RAM : 8KB SRAM
-* Wifi: ESP8266 외장형
-* GPS: u-blox<sup>&reg;</sup> 7/8 (Hobbyking<sup>&reg;</sup>) / u-blox 6 (3D Robotics)
-* 광류 센서: [PX4 Flow unit](../sensor/px4flow.md)
-* 중복 전원공급장치 및 자동 장애 조치
-* 외부 안전 스위치
-* 다색 LED 주시각 표시기
-* 고전력 멀티톤 피에조 오디오 표시기
-* 장기간 고속 로깅용 microSD 카드
+- 메인 시스템 온칩: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
+  - CPU : 단정밀도 FPU의 180MHz ARM<sup>&reg;</sup> Cortexex<sup>&reg;</sup>  M4
+  - RAM : 256KB SRAM (L1)
+- 장애복구 시스템 온칩 : STM32F100
+  - CPU: 24 MHz ARM Cortex M3
+  - RAM : 8KB SRAM
+- Wifi: ESP8266 외장형
+- GPS: u-blox<sup>&reg;</sup> 7/8 (Hobbyking<sup>&reg;</sup>) / u-blox 6 (3D Robotics)
+- 광류 센서: [PX4 Flow unit](../sensor/px4flow.md)
+- 중복 전원공급장치 및 자동 장애 조치
+- 외부 안전 스위치
+- 다색 LED 주시각 표시기
+- 고전력 멀티톤 피에조 오디오 표시기
+- 장기간 고속 로깅용 microSD 카드
 
 연결성
-* I2C 1개
-* CAN 1개 (2개는 옵션)
-* ADC 1개
-* UART 4개 (흐름 제어 2개 포함)
-* 콘솔 1개
-* 수동 오버라이드 기능이 있는 PWM 8개
-* 6개 PWM / GPIO / PWM 입력
-* S.BUS / PPM / Spektrum 입력
-* S.BUS 출력
 
-
+- I2C 1개
+- CAN 1개 (2개는 옵션)
+- ADC 1개
+- UART 4개 (흐름 제어 2개 포함)
+- 콘솔 1개
+- 수동 오버라이드 기능이 있는 PWM 8개
+- 6개 PWM / GPIO / PWM 입력
+- S.BUS / PPM / Spektrum 입력
+- S.BUS 출력
 
 # 구매처
 
@@ -60,54 +56,51 @@ mRo Pixhawk 주문:
   
   
 
-
 ## 사양
 
 
 
 ### 프로세서
 
-* 32 비트 STM32F427 [Cortex-M4F](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4) 코어 (FPU 포함)
-* 168 MHz
-* 256 KB RAM
-* 2 MB Flash
-* 32 비트 STM32F103 장애복구 코프로세서
+- 32 비트 STM32F427 [Cortex-M4F](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4) 코어 (FPU 포함)
+- 168 MHz
+- 256 KB RAM
+- 2 MB Flash
+- 32 비트 STM32F103 장애복구 코프로세서
 
 
 
 ### 센서
 
-* ST Micro L3GD20H  3축 16비트 자이로스코프
-* ST 마이크로 LSM303D 14 비트 가속도계/자력계
-* Invensense MPU 6000 3축 가속도계/자이로스코프
-* MEAS MS5611 기압계
+- ST Micro L3GD20H  3축 16비트 자이로스코프
+- ST 마이크로 LSM303D 14 비트 가속도계/자력계
+- Invensense MPU 6000 3축 가속도계/자이로스코프
+- MEAS MS5611 기압계
 
 
 
 ### 인터페이스
 
-* UART (직렬 포트) 5개, 1 개의 고전력 지원, 2x (HW 흐름 제어 포함)
-* CAN 2개(하나는 내부 3.3V 트랜시버, 하나는 확장 커넥터에 있음)
-* Spektrum DSM/DSM2/DSM-X® Satellite 호환 입력
-* Futaba S.BUS® 호환 입출력
-* PPM 합계 신호 입력
-* RSSI(PWM 또는 전압) 입력
-* I2C 
-* SPI
-* 3.3 및 6.6V ADC 입력
-* 내부 microUSB 포트 및 외부 microUSB 포트 확장
+- UART (직렬 포트) 5개, 1 개의 고전력 지원, 2x (HW 흐름 제어 포함)
+- CAN 2개(하나는 내부 3.3V 트랜시버, 하나는 확장 커넥터에 있음)
+- Spektrum DSM/DSM2/DSM-X® Satellite 호환 입력
+- Futaba S.BUS® 호환 입출력
+- PPM 합계 신호 입력
+- RSSI(PWM 또는 전압) 입력
+- I2C 
+- SPI
+- 3.3 및 6.6V ADC 입력
+- 내부 microUSB 포트 및 외부 microUSB 포트 확장
 
 @[유투브](https://youtu.be/gCCC5A-Bvv4)
 
 
 
-
 ### 전력 시스템 및 보호
 
-* 자동복구 기능의 이상적인 다이오드 컨트롤러
-* 서보 레일 고출력 (최대 10V) 및 고전류 (10A +) 준비
-* 모든 주변 장치 출력 과전류 보호, 모든 입력 ESD 보호
-
+- 자동복구 기능의 이상적인 다이오드 컨트롤러
+- 서보 레일 고출력 (최대 10V) 및 고전류 (10A +) 준비
+- 모든 주변 장치 출력 과전류 보호, 모든 입력 ESD 보호
 
 
 
@@ -300,7 +293,6 @@ The `RC IN` port is for RC receivers only and provides sufficient power for that
 
 
 
-
 ## 시리얼 포트 매핑
 
 | UART   | 장치         | 포트             |
@@ -330,14 +322,14 @@ The `RC IN` port is for RC receivers only and provides sufficient power for that
 
 The pinout is standard serial pinout, designed to connect to a [3.3V FTDI](https://www.digikey.com/en/products/detail/TTL-232R-3V3/768-1015-ND/1836393) cable (5V tolerant).
 
-| 3DR Pixhawk 1 |         | FTDI              |
-| ------------- | ------- | ----------------- |
-| 1             | +5V (적) | | N/C             |
-| 2             | S4 Tx   | | N/C             |
-| 3             | S4 Rx   | | N/C             |
-| 4             | S5 Tx   | 5 | FTDI RX (노랑)  |
-| 5             | S5 Rx   | 4 | FTDI TX (오렌지) |
-| 6             | GND     | 1 | FTDI GND (검정) |
+| 3DR Pixhawk 1 |         | FTDI                    |
+| ------------- | ------- | ----------------------- |
+| 1             | +5V (적) | | N/C                   |
+| 2             | S4 Tx   | | N/C                   |
+| 3             | S4 Rx   | | N/C                   |
+| 4             | S5 Tx   | 5    | FTDI RX (yellow) |
+| 5             | S5 Rx   | 4    | FTDI TX (orange) |
+| 6             | GND     | 1    | FTDI GND (black) |
 
 
 6 핀 DF13 1 : 1 커넥터에 대한 FTDI 케이블의 배선은 아래 그림과 같습니다.
@@ -349,9 +341,8 @@ The pinout is standard serial pinout, designed to connect to a [3.3V FTDI](https
 ![콘솔 디버그](../../assets/flight_controller/pixhawk1/console_debug.jpg)
 
 :::note
-콘솔을 *사용*방법은 [시스템 콘솔](../debug/system_console.md)을 참고하십시오.
+For information on how to _use_ the console see: [System Console](../debug/system_console.md).
 :::
-
 
 
 
@@ -366,17 +357,18 @@ The pinout is standard serial pinout, designed to connect to a [3.3V FTDI](https
 ![ARM 10핀 커넥터 핀배열](../../assets/flight_controller/pixhawk1/arm_10pin_jtag_connector_pinout.jpg)
 
 :::note
-모든 Pixhawk FMUv2 보드에는 유사한 SWD 포트가 있습니다. 
+모든 Pixhawk FMUv2 보드에는 유사한 SWD 포트가 있습니다.
 :::
 
 
 
 ## 펌웨어 빌드
 
-::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
+
 
 
 ```
@@ -388,13 +380,13 @@ make px4_fmu-v2_default
 
 ## 부품 / 하우징
 
-* **ARM MINI JTAG (J6)**: 1.27 mm 10pos header (SHROUDED), for Black Magic Probe: FCI 20021521-00010D4LF ([Distrelec](https://www.distrelec.ch/en/minitek-127-straight-male-pcb-header-surface-mount-rows-10-contacts-27mm-pitch-amphenol-fci-20021521-00010d4lf/p/14352308), [Digi-Key](https://www.digikey.com/en/products/detail/20021521-00010T1LF/609-4054-ND/2414951),) or Samtec FTSH-105-01-F-DV-K (untested) or Harwin M50-3600542 ([Digikey](https://www.digikey.com/en/products/detail/harwin-inc/M50-3600542/2264370) or [Mouser](http://ch.mouser.com/ProductDetail/Harwin/M50-3600542/?qs=%2fha2pyFadujTt%2fIEz8xdzrYzHAVUnbxh8Ki%252bwWYPNeEa09PYvTkIOQ%3d%3d)) 
-    * JTAG 어댑터 옵션 #1: [BlackMagic Probe](https://1bitsquared.com/products/black-magic-probe). 케이블 없이 제공될 수 있습니다 (제조업체에 확인). 그렇다면, **Samtec FFSD-05-D-06.00-01-N** 케이블 ([Samtec 샘플 서비스](http://www.samtec.com/suddenservice/samples/samples.aspx), [Digi-Key Link : SAM8218-ND)](http://www.digikey.com/product-search/en?x=0&y=0&lang=en&site=us&KeyWords=FFSD-05-D-06.00-01-N)) 또는 [태그 연결 리본](http://www.tag-connect.com/CORTEXRIBBON10) 및 Mini-USB 케이블이 필요합니다.
-  * JTAG Adapter Option #2: [Digi-Key Link: ST-LINK/V2](https://www.digikey.com/product-detail/en/stmicroelectronics/ST-LINK-V2/497-10484-ND) / [ST USER MANUAL](http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/USER_MANUAL/DM00026748.pdf), needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/en/products/detail/texas-instruments/MDL-ADA2/1986451)
-  * JTAG Adapter Option #3: [SparkFun Link: Olimex ARM-TINY](http://www.sparkfun.com/products/8278) or any other OpenOCD-compatible ARM Cortex JTAG adapter, needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/en/products/detail/texas-instruments/MDL-ADA2/1986451)
-* **USARTs**: Hirose DF13 6 pos ([Digi-Key Link: DF13A-6P-1.25H(20)](https://www.digikey.com/products/en?keywords=H3371-ND)) 
-    * Mates: Hirose DF13 6 pos housing ([Digi-Key Link: Hirose DF13-6S-1.25C](https://www.digikey.com/products/en?keywords=H2182-ND))
-* **I2C and CAN**: Hirose DF13 4 pos ([Digi-Key Link: DF13A-4P-1.25H(20)](https://www.digikey.com/en/products/detail/hirose-electric-co-ltd/DF13A-4P-1-25H-20/530666) - discontinued)
+- **ARM MINI JTAG (J6)**: 1.27 mm 10pos header (SHROUDED), for Black Magic Probe: FCI 20021521-00010D4LF ([Distrelec](https://www.distrelec.ch/en/minitek-127-straight-male-pcb-header-surface-mount-rows-10-contacts-27mm-pitch-amphenol-fci-20021521-00010d4lf/p/14352308), [Digi-Key](https://www.digikey.com/en/products/detail/20021521-00010T1LF/609-4054-ND/2414951),) or Samtec FTSH-105-01-F-DV-K (untested) or Harwin M50-3600542 ([Digikey](https://www.digikey.com/en/products/detail/harwin-inc/M50-3600542/2264370) or [Mouser](http://ch.mouser.com/ProductDetail/Harwin/M50-3600542/?qs=%2fha2pyFadujTt%2fIEz8xdzrYzHAVUnbxh8Ki%252bwWYPNeEa09PYvTkIOQ%3d%3d)) 
+    - JTAG 어댑터 옵션 #1: [BlackMagic Probe](https://1bitsquared.com/products/black-magic-probe). 케이블 없이 제공될 수 있습니다 (제조업체에 확인). 그렇다면, **Samtec FFSD-05-D-06.00-01-N** 케이블 ([Samtec 샘플 서비스](http://www.samtec.com/suddenservice/samples/samples.aspx), [Digi-Key Link : SAM8218-ND)](http://www.digikey.com/product-search/en?x=0&y=0&lang=en&site=us&KeyWords=FFSD-05-D-06.00-01-N)) 또는 [태그 연결 리본](http://www.tag-connect.com/CORTEXRIBBON10) 및 Mini-USB 케이블이 필요합니다.
+  - JTAG Adapter Option #2: [Digi-Key Link: ST-LINK/V2](https://www.digikey.com/product-detail/en/stmicroelectronics/ST-LINK-V2/497-10484-ND) / [ST USER MANUAL](http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/USER_MANUAL/DM00026748.pdf), needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/en/products/detail/texas-instruments/MDL-ADA2/1986451)
+  - JTAG Adapter Option #3: [SparkFun Link: Olimex ARM-TINY](http://www.sparkfun.com/products/8278) or any other OpenOCD-compatible ARM Cortex JTAG adapter, needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/en/products/detail/texas-instruments/MDL-ADA2/1986451)
+- **USARTs**: Hirose DF13 6 pos ([Digi-Key Link: DF13A-6P-1.25H(20)](https://www.digikey.com/products/en?keywords=H3371-ND)) 
+    - Mates: Hirose DF13 6 pos housing ([Digi-Key Link: Hirose DF13-6S-1.25C](https://www.digikey.com/products/en?keywords=H2182-ND))
+- **I2C and CAN**: Hirose DF13 4 pos ([Digi-Key Link: DF13A-4P-1.25H(20)](https://www.digikey.com/en/products/detail/hirose-electric-co-ltd/DF13A-4P-1-25H-20/530666) - discontinued)
 
 
 

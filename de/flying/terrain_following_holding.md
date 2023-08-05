@@ -5,7 +5,8 @@ PX4 supports [Terrain Following](#terrain_following) and [Terrain Hold](#terrain
 :::note PX4 does not "natively" support terrain following in missions. *QGroundControl* can be used to define missions that *approximately* follow terrain (this just sets waypoint altitudes based on height above terrain, where terrain height at waypoints is obtained from a map database).
 :::
 
-<span id="terrain_following"></span>
+<a id="terrain_following"></a>
+
 ## Terrain Following
 
 *Terrain following* enables a vehicle to automatically maintain a relatively constant height above ground level when traveling at low altitudes. This is useful for avoiding obstacles and for maintaining constant height when flying over varied terrain (e.g. for aerial photography).
@@ -25,7 +26,8 @@ More precisely, the vehicle will use the available selected sources of altitude 
 Terrain following is enabled by setting [MPC_ALT_MODE](../advanced_config/parameter_reference.md#MPC_ALT_MODE) to `1`.
 
 
-<span id="terrain_hold"></span>
+<a id="terrain_hold"></a>
+
 ## Terrain Hold
 
 *Terrain hold* uses a distance sensor to help a vehicle to better maintain a constant height above ground in altitude control modes, when horizontally stationary at low altitude. This allows a vehicle to avoid altitude changes due to barometer drift or excessive barometer interference from rotor wash.

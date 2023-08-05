@@ -56,7 +56,8 @@ GPS/나침반은 차량 전방 표식를 사용하여 가능하면 전자 장치
 
 전원 모듈 또는 배전 보드를 사용하여 모터와 서보에 전원을 공급하고 소비 전력을 측정할 수 있습니다. 권장되는 전원 모듈은 아래와 같습니다.
 
-<span id="pm02_v3"></span>
+<a id="pm02_v3"></a>
+
 ### PM02 v3 전원 모듈
 
 The [Power Module (PM02 v3)](../power_module/holybro_pm02.md) can be bundled with *pix32 v5*. It provides regulated power to flight controller and sends battery voltage/current to the flight controller.

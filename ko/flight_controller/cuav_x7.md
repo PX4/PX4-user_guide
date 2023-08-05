@@ -15,52 +15,52 @@
 
 ## 특징
 
-* 내부 충격 흡수
-* 모듈식 설계, DIY 캐리어 보드 가능
-* USB_HS 지원, 로그 다운로드 속도 향상(PX4는 아직 지원되지 않음)
-* 더 많은 dshot 출력 지원
-* IMU 가열 지원, 센서 작동 개선
-* Dedicated CAN battery port
-* IMU 센서 3 세트
-* 자동차 등급 RM3100 나침반
-* 고성능 프로세서
+- 내부 충격 흡수
+- 모듈식 설계, DIY 캐리어 보드 가능
+- USB_HS 지원, 로그 다운로드 속도 향상(PX4는 아직 지원되지 않음)
+- Support more DShot output
+- IMU 가열 지원, 센서 작동 개선
+- Dedicated CAN battery port
+- IMU 센서 3 세트
+- 자동차 등급 RM3100 나침반
+- 고성능 프로세서
 
 :::tip
 The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/) are the canonical reference for the X7. 가장 정확한 최신 정보를 포함하고 있습니다.
 :::
 
-
 ## 요약
 
-* 메인 FMU 프로세서: STM32H743
-* 내장 센서 :
-  * 가속도계/자이로스코프 : ICM-20689
-  * 가속도계/자이로스코프 : ICM-20649
-  * 가속도계/자이로스코프 : BMI088
-  * 자력계 : RM3100
-  * 기압계: MS5611*2
+- 메인 FMU 프로세서: STM32H743
+- 내장 센서 :
 
-* 인터페이스:
-   * PWM 출력 14개 (12개 Dshot 지원)
-   * 다중 RC 입력 지원 (SBU/CPPM/DSM)
-   * 아날로그/PWM RSSI 입력
-   * 2 개의 GPS 포트(GPS 및 UART4 포트)
-   * i2c 버스 4 개(i2c 전용 포트 2 개)
-   * CAN 버스 포트 2 개
-   * 2 Power ports(Power A is common adc interface, Power C is DroneCAN battery interface)
-   * 2  ADC input
-   * USB 포트 1 개
-* 전원시스템
-  * 전원: 4.3~5.4V
-  * USB 입력: 4.75~5.25V
-  * 서보 레일 입력: 0~36V
-* 중량 및 크기
-  * 무게 : 101g
-* 기타 특성:
-  * 작동 온도: -20 ~ 80°c (측정 값)
-  * 3개의 imus
-  * 온도 보상 지원
-  * 내부 충격 흡수
+  - 가속도계/자이로스코프 : ICM-20689
+  - 가속도계/자이로스코프 : ICM-20649
+  - 가속도계/자이로스코프 : BMI088
+  - 자력계 : RM3100
+  - Barometer: MS5611\*2
+
+- 인터페이스:
+  - PWM 출력 14개 (12개 Dshot 지원)
+  - 다중 RC 입력 지원 (SBU/CPPM/DSM)
+  - 아날로그/PWM RSSI 입력
+  - 2 개의 GPS 포트(GPS 및 UART4 포트)
+  - i2c 버스 4 개(i2c 전용 포트 2 개)
+  - CAN 버스 포트 2 개
+  - 2 Power ports(Power A is common adc interface, Power C is DroneCAN battery interface)
+  - 2 ADC input
+  - USB 포트 1 개
+- 전원시스템
+  - 전원: 4.3~5.4V
+  - USB 입력: 4.75~5.25V
+  - 서보 레일 입력: 0~36V
+- 중량 및 크기
+  - 무게 : 101g
+- 기타 특성:
+  - 작동 온도: -20 ~ 80°c (측정 값)
+  - 3개의 imus
+  - 온도 보상 지원
+  - 내부 충격 흡수
 
 :::note
 PX4 펌웨어를 실행하면 8 pwm 만 작동하고, 나머지 6 pwm은 여전히 조정중이므로 현재 VOLT와 호환되지 않습니다.
@@ -88,7 +88,7 @@ PX4 펌웨어를 실행하면 8 pwm 만 작동하고, 나머지 6 pwm은 여전�
 
 ## 정격 전압
 
-*X7 AutoPilot*은 세 개의 전원이 공급되는 경우, 전원 공급 장치에서 3중 중복이 가능합니다. 전원 레일은 **POWERA**, **POWERC**와 **USB** 입니다.
+The _X7 AutoPilot_ can be triple-redundant on the power supply if three power sources are supplied. 전원 레일은 **POWERA**, **POWERC**와 **USB** 입니다.
 
 :::note
 출력 전원 레일인 **PWM OUT**(0V to 36V) 은 비행제어보드에 전원을 공급하지 않습니다(공급받지도 않습니다). **POWERA**, **POWERC** 또는 **USB** 중 하나에 전원을 공급하여야합니다. 그렇지 않으면 보드에 전원이 공급되지 않습니다.
@@ -97,22 +97,24 @@ PX4 펌웨어를 실행하면 8 pwm 만 작동하고, 나머지 6 pwm은 여전�
 **정상 작동 최대 정격 전압**
 
 이러한 조건에서 전원은 아래의 순서대로 시스템에 전원을 공급하여야합니다.
+
 1. **POWER** 및 **POWER** 입력(4.3V ~ 5.4V)
 2. **USB** 입력(4.75V ~ 5.25V)
 
 ## 펌웨어 빌드
 
-::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
+
 ```
 make cuav_x7pro_default
 ```
 
 ## 과전류 보호
 
-*X7*은 5V 주변 장치와 5V 고전력에 과전류 보호기능으로 전류를 2.5A로 제한합니다. The *X7* has short circuit protection.
+The _X7_ has over-current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A. The _X7_ has short circuit protection.
 
 :::warning
 핀 1로 나열된 커넥터에 최대 2.5A를 전달할 수 있습니다(단, 정격은 1A에 불과함).
@@ -123,7 +125,6 @@ make cuav_x7pro_default
 시스템의 직렬 콘솔과 SWD 인터페이스는 **DSU7** 포트에서 작동합니다. FTDI 케이블을 DSU7 커넥터에 연결하기만 하면됩니다(제품 목록에는 CUAV FTDI 케이블이 포함되어 있음).
 
 ![디버그 포트 (DSU7)](../../assets/flight_controller/cuav_v5_plus/debug_port_dsu7.jpg)
-
 
 [PX4 시스템 콘솔](../debug/system_console.md)과 [SWD 인터페이스](../debug/swd_debug.md)는 **FMU 디버그** 포트에서 실행됩니다.
 
@@ -145,7 +146,7 @@ CUAV는 `DSU7` 포트에 연결할 수 있는 전용 디버깅 케이블을 제�
 :::warning SWD
 Vref 핀 (1)은 Vref로 5V를 사용하지만, CPU는 3.3V에서 실행됩니다!
 
-일부 JTAG 어댑터(SEGGER J-Link)는 Vref 전압을 사용하여 SWD 라인의 전압을 설정합니다. For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
+일부 JTAG 어댑터(SEGGER J-Link)는 Vref 전압을 사용하여 SWD 라인의 전압을 설정합니다. For direct connection to _Segger Jlink_ we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and _NOT_ 5V).
 :::
 
 ## 지원 플랫폼과 기체
@@ -154,6 +155,6 @@ Vref 핀 (1)은 Vref로 5V를 사용하지만, CPU는 3.3V에서 실행됩니다
 
 ## 추가 정보
 
-* [빠른 시작](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-x7.html)
-* [CUAV 문서](http://doc.cuav.net)
-* [x7 회로도](https://github.com/cuav/hardware/tree/master/X7_Autopilot)
+- [빠른 시작](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-x7.html)
+- [CUAV 문서](http://doc.cuav.net)
+- [x7 회로도](https://github.com/cuav/hardware/tree/master/X7_Autopilot)

@@ -101,7 +101,8 @@ KISS ESC는 성능이 우수하지만, 두 가지의 단점도 있습니다.
 
 ![모터 테스트](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/motor-test.jpg)
 
-<span id="mounting"></span>
+<a id="mounting"></a>
+
 ## 전자 부품 조립
 
 :::tip

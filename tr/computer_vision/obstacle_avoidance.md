@@ -18,7 +18,8 @@ Obstacle avoidance can use the *local planner* (emits messages at ~30Hz and can 
 :::
 
 
-<span id="offboard_mode"></span>
+<a id="offboard_mode"></a>
+
 ## Offboard Mode Avoidance
 
 PX4 supports obstacle avoidance in [Offboard mode](../flight_modes/offboard.md).
@@ -30,7 +31,8 @@ The only required PX4-side setup is to put PX4 into *Offboard mode*.
 Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
 
 
-<span id="mission_mode"></span>
+<a id="mission_mode"></a>
+
 ## Mission Mode Avoidance
 
 PX4 supports obstacle avoidance in [Mission mode](../flight_modes/mission.md), using avoidance software running on a separate companion computer.
@@ -68,7 +70,8 @@ Companion-side hardware setup and hardware/software configuration is provided in
 Obstacle avoidance in missions can use either the *local planner* or *global planner* (the local planner is recommended/better performing).
 
 
-<span id="interface"></span>
+<a id="interface"></a>
+
 ## Obstacle Avoidance Interface
 
 PX4 uses the [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) for integrating path planning services from a companion computer (including [Obstacle Avoidance in missions](../computer_vision/obstacle_avoidance.md#mission_mode), [Safe Landing](../computer_vision/safe_landing.md), and future services).

@@ -6,49 +6,49 @@
 :::warning PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 :::
 
-The *PilotPi* shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi. It is designed to be a low-cost but highly scalability platform with continuous updates from both Linux and PX4 sides. No proprietary driver is required, as all components have upstream support from RPi and PX4 community. PCB and schematic are open source as well.
+The _PilotPi_ shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi. It is designed to be a low-cost but highly scalability platform with continuous updates from both Linux and PX4 sides. No proprietary driver is required, as all components have upstream support from RPi and PX4 community. PCB and schematic are open source as well.
 
 ![PilotPi with RPi 4B](../../assets/flight_controller/pilotpi/hardware-pilotpi4b.png)
 
 ## Quick Summary
 
-* Supported RPi boards:
-  * Raspberry Pi 2B/3B/3B+/4B
-* Supported OS:
-  * Raspberry Pi OS
-  * Ubuntu Server (armhf/arm64)
-* Accelerometer / Gyro:
-  * ICM42688P
-* Magnetometer:
-  * IST8310
-* Barometer:
-  * MS5611
-* PWM:
-  * PCA9685
-* ADC:
-  * ADS1115
-* Power:
-  * 3~6S battery with built-in voltage sensing.
-  * Power the Pi through USB cable
-* Availability: *preparing for shipping*
+- Supported RPi boards:
+  - Raspberry Pi 2B/3B/3B+/4B
+- Supported OS:
+  - Raspberry Pi OS
+  - Ubuntu Server (armhf/arm64)
+- Accelerometer / Gyro:
+  - ICM42688P
+- Magnetometer:
+  - IST8310
+- Barometer:
+  - MS5611
+- PWM:
+  - PCA9685
+- ADC:
+  - ADS1115
+- Power:
+  - 3~6S battery with built-in voltage sensing.
+  - Power the Pi through USB cable
+- Availability: _preparing for shipping_
 
 ## Connectivity
 
 Shield provides:
 
-* 16x PWM outputting channels
-* GPS connector
-* Telemetry connector
-* External I2C bus connector (**Note:** conflicts with CSI camera)
-* RC input port (SBUS)
-* 3x ADC channels range 0~5V
-* 2\*8 2.54mm unused GPIO connector
+- 16x PWM outputting channels
+- GPS connector
+- Telemetry connector
+- External I2C bus connector (**Note:** conflicts with CSI camera)
+- RC input port (SBUS)
+- 3x ADC channels range 0~5V
+- 2\*8 2.54mm unused GPIO connector
 
 Direct accessible from RPi:
 
-* 4x USB connector
-* CSI connector(**Note:** conflict with external I2C bus)
-* etc.
+- 4x USB connector
+- CSI connector(**Note:** conflict with external I2C bus)
+- etc.
 
 ## Recommended Wiring
 
@@ -155,24 +155,26 @@ When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
 
 This switch will decide the signal polarity of RX line: `UART_RX = SW xor RC_INPUT`
 
-* On: suitable with SBUS (signal inverted)
-* Off: preserved
+- On: suitable with SBUS (signal inverted)
+- Off: preserved
 
 #### Vref
 
 ADC 3 & 4 will have VCC driven by:
-* Vref output from REF5050 if on
-* 5V pin directly from RPi if off
+
+- Vref output from REF5050 if on
+- 5V pin directly from RPi if off
 
 #### Boot Mode
 
 This switch is connected to Pin22(BCM25). System rc script will check its value and decide whether PX4 should start alongside with system booting or not.
 
-* On: start PX4 automatically
-* Off: don' t start PX4
+- On: start PX4 automatically
+- Off: don' t start PX4
 
 ## Developer Quick Start
 
 Refer to specific instructions for the OS running on your RPi:
+
 - [Raspberry Pi OS Lite (armhf)](raspberry_pi_pilotpi_rpios.md)
 - [Ubuntu Server (arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)

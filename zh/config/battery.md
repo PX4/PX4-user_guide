@@ -30,7 +30,8 @@ PX4 提供了许多（逐渐变得更有效）可用于估计容量的方法：
 下面的[电池类型比较](#battery-type-comparison)解释了主要电池类型之间的差异，以及它如何影响电池设置。
 :::
 
-<span id="basic_settings"></span>
+<a id="basic_settings"></a>
+
 ## 基本电池设置(默认)
 
 基本电池设置将PX4配置为使用默认方法进行容量估算。 此方法将测得的原始电池电压与“空”和“满”电芯的电池电压范围进行比较（按芯数量缩放）。
@@ -131,7 +132,8 @@ The easiest way to calibrate the divider is by using *QGroundControl* and follow
 This setting corresponds to parameters: [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) and [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV).
 :::
 
-<span id="current_divider"></span>
+<a id="current_divider"></a>
+
 ### 安培/伏特
 
 :::tip
@@ -146,7 +148,8 @@ The easiest way to calibrate the dividers is by using *QGroundControl* and follo
 This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) and [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V).
 :::
 
-<span id="load_compensation"></span>
+<a id="load_compensation"></a>
+
 ## 基于电压估计的负载补偿
 
 :::note
@@ -163,7 +166,8 @@ PX4 supports two load compensation methods, which are enabled by [setting](../ad
 * [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) - [Current-based Load Compensation](#current_based_load_compensation) (recommended).
 * [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) - [Thrust-based Load Compensation](#thrust_based_load_compensation).
 
-<span id="current_based_load_compensation"></span>
+<a id="current_based_load_compensation"></a>
+
 ### 基于电流的负载补偿（推荐）
 
 This load compensation method relies on current measurement to determine load. It is far more accurate than [Thrust-based Load Compensation](#thrust_based_load_compensation) but requires that you have a current sensor.
@@ -178,7 +182,8 @@ A typical value is 5mΩ per cell but this can vary with discharge current rating
 :::
 1. You should also calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
 
-<span id="thrust_based_load_compensation"></span>
+<a id="thrust_based_load_compensation"></a>
+
 ### Thrust-based Load Compensation
 
 This load compensation method estimates the load based on the total thrust that gets commanded to the motors.
@@ -192,7 +197,8 @@ To enable this feature:
 1. Set the parameter [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) to how much voltage drop a cell shows under the load of full throttle.
 
 
-<span id="current_integration"></span>
+<a id="current_integration"></a>
+
 ## Voltage-based Estimation Fused with Current Integration
 
 :::note

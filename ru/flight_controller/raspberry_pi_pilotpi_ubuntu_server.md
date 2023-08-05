@@ -214,14 +214,14 @@ start_x=1
 
 ### Building the code
 
-To get the *very latest* version onto your computer, enter the following command into a terminal:
+To get the _very latest_ version onto your computer, enter the following command into a terminal:
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note
-This is all you need to do just to build the latest code. 
+This is all you need to do just to build the latest code.
 :::
 
 #### Set RPi upload target

@@ -13,43 +13,43 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 ## 主要特性
 
-* Main System-on-Chip: [STM32F427VIT6 rev.3](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
-  * CPU: 180 MHz ARM Cortex<sup>&reg;</sup> M4 with single-precision FPU
-  * RAM: 256 KB SRAM (L1)
-* Standard FPV form factor: 36x36 mm with standard 30.5 mm hole pattern
-* Invensense<sup>&reg;</sup> ICM-20608 Accel / Gyro (4 KHz) / MPU9250 Accel / Gyro / Mag (4 KHz)
-* HMC5983 magnetometer with temperature compensation
-* Measurement Specialties MS5611 barometer
-* JST GH connectors
-* microSD (logging)
-* Futaba S.BUS and S.BUS2 / Spektrum DSM2 and DSMX / Graupner SUMD / PPM input / Yuneec ST24
-* FrSky<sup>&reg;</sup> telemetry port
-* OneShot PWM out (configurable)
-* Optional: Safety switch and buzzer
-
+- Main System-on-Chip: [STM32F427VIT6 rev.3](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
+  - CPU: 180 MHz ARM Cortex<sup>&reg;</sup> M4 with single-precision FPU
+  - RAM: 256 KB SRAM (L1)
+- Standard FPV form factor: 36x36 mm with standard 30.5 mm hole pattern
+- Invensense<sup>&reg;</sup> ICM-20608 Accel / Gyro (4 KHz) / MPU9250 Accel / Gyro / Mag (4 KHz)
+- HMC5983 magnetometer with temperature compensation
+- Measurement Specialties MS5611 barometer
+- JST GH connectors
+- microSD (logging)
+- Futaba S.BUS and S.BUS2 / Spektrum DSM2 and DSMX / Graupner SUMD / PPM input / Yuneec ST24
+- FrSky<sup>&reg;</sup> telemetry port
+- OneShot PWM out (configurable)
+- Optional: Safety switch and buzzer
 
 ## 在哪里买
 
 Pixracer is available from the [mRobotics.io](https://store.mrobotics.io/mRo-PixRacer-R15-Official-p/auav-pxrcr-r15-mr.htm).
 
 Accessories include:
-* [数字空速传感器](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
-* [Hobbyking<sup>&reg;</sup> OSD + EU Telemetry (433 MHz)](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html)
+
+- [数字空速传感器](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
+- [Hobbyking<sup>&reg;</sup> OSD + EU Telemetry (433 MHz)](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html)
 
 ## Kit
 
 The Pixracer is designed to use a separate avionics power supply. This is necessary to avoid current surges from motors or ESCs to flow back to the flight controller and disturb its delicate sensors.
 
-* Power module (with voltage and current sensing)
-* I2C splitter (supporting AUAV, Hobbyking and 3DR<sup>&reg;</sup> peripherals)
-* Cable kit for all common peripherals
+- Power module (with voltage and current sensing)
+- I2C splitter (supporting AUAV, Hobbyking and 3DR<sup>&reg;</sup> peripherals)
+- Cable kit for all common peripherals
 
 ## Wifi (no USB required)
 
 One of the main features of the board is its ability to use Wifi for flashing new firmware, system setup and in-flight telemetry. This frees it of the need of any desktop system.
 
-* [ESP8266 Wifi](../telemetry/esp8266_wifi_module.md)
-* [Custom ESP8266 MAVLink firmware](https://github.com/dogmaphobic/mavesp8266)
+- [ESP8266 Wifi](../telemetry/esp8266_wifi_module.md)
+- [Custom ESP8266 MAVLink firmware](https://github.com/dogmaphobic/mavesp8266)
 
 :::note
 Firmware upgrade is not yet enabled over WiFi (it is supported by the default bootloader but not yet enabled).
@@ -59,7 +59,6 @@ Setup and telemetry are supported.
 ## Assembly
 
 See the [Pixracer Wiring Quickstart](../assembly/quick_start_pixracer.md)
-
 
 ## Wiring Diagrams
 
@@ -79,7 +78,6 @@ If using `TELEM2` for an external telemetry module you will need to configure it
 
 ![Grau ACSP5 roh](../../assets/flight_controller/pixracer/grau_acsp5_roh.jpg)
 
-
 ## Connectors
 
 All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixhawk-connector-standard/). Unless noted otherwise all connectors are JST GH.
@@ -91,7 +89,6 @@ All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixha
 ![Pixracer bottom pinouts](../../assets/flight_controller/pixracer/pixracer_r09_bot_pinouts.jpg)
 
 ![Pixracer esp](../../assets/flight_controller/pixracer/pixracer_r09_esp_01.jpg)
-
 
 #### TELEM1, TELEM2+OSD ports
 
@@ -182,7 +179,6 @@ For information about using this port see:
 - [SWD Debug Port](../debug/swd_debug.md)
 - [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to UART7).
 
-
 ## Serial Port Mapping
 
 | UART   | 设备         | Port                  |
@@ -200,18 +196,19 @@ For information about using this port see:
 
 The reference is provided as: [Altium Design Files](https://github.com/AUAV-OpenSource/FMUv4-PixRacer)
 
-The following PDF files are provided for *convenience only*:
-* [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
-* [pixracer-r14.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 or RC14 is printed next to the SDCard socket
+The following PDF files are provided for _convenience only_:
 
+- [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
+- [pixracer-r14.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 or RC14 is printed next to the SDCard socket
 
 ## Building Firmware
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
+
 ```
 make px4_fmu-v4_default
 ```

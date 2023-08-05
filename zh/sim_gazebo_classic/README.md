@@ -62,23 +62,23 @@ The supported vehicles and `make` commands are listed below (click links to see 
 For the full list of build targets run `make px4_sitl list_vmd_make_targets` (and filter on those that start with `gazebo-classic_`).
 :::  
 
-| Vehicle                                                                                                                                    | Command                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- |
-| [Quadrotor](../sim_gazebo_classic/gazebo_vehicles.md#quadrotor)                                                                            | `make px4_sitl gazebo-classic`                            |
-| [Quadrotor with Optical Flow](../sim_gazebo_classic/gazebo_vehicles.md#quadrotor_optical_flow)                                             | `make px4_sitl gazebo-classic_iris_opt_flow`              |
-| [Quadrotor with Depth Camera](../sim_gazebo_classic/gazebo_vehicles.md#quadrotor-with-depth-camera) (forward-facing)                       | `make px4_sitl gazebo-classic_iris_depth_camera`          |
-| [Quadrotor with Depth Camera](../sim_gazebo_classic/gazebo_vehicles.md#quadrotor-with-depth-camera) (downward-facing)                      | `make px4_sitl gazebo-classic_iris_downward_depth_camera` |
-| [3DR Solo (Quadrotor)](../sim_gazebo_classic/gazebo_vehicles.md#3dr_solo)                                                                  | `make px4_sitl gazebo-classic_solo`                       |
-| <span id="typhoon_h480"></span>[Typhoon H480 (Hexrotor)](../sim_gazebo_classic/gazebo_vehicles.md#typhoon_h480) (supports video streaming) | `make px4_sitl gazebo-classic_typhoon_h480`               |
-| [Standard Plane](../sim_gazebo_classic/gazebo_vehicles.md#standard_plane)                                                                  | `make px4_sitl gazebo-classic_plane`                      |
-| [Standard Plane (with catapult launch)](../sim_gazebo_classic/gazebo_vehicles.md#standard_plane_catapult)                                  | `make px4_sitl gazebo-classic_plane_catapult`             |
-| [Standard VTOL](../sim_gazebo_classic/gazebo_vehicles.md#standard_vtol)                                                                    | `make px4_sitl gazebo-classic_standard_vtol`              |
-| [Tailsitter VTOL](../sim_gazebo_classic/gazebo_vehicles.md#tailsitter_vtol)                                                                | `make px4_sitl gazebo-classic_tailsitter`                 |
-| [Ackerman UGV (Rover)](../sim_gazebo_classic/gazebo_vehicles.md#ackermann-ugv)                                                             | `make px4_sitl gazebo-classic_rover`                      |
-| [Differential UGV (Rover)](../sim_gazebo_classic/gazebo_vehicles.md#differential-ugv)                                                      | `make px4_sitl gazebo-classic_r1_rover`                   |
-| [HippoCampus TUHH (UUV: Unmanned Underwater Vehicle)](../sim_gazebo_classic/gazebo_vehicles.md#uuv)                                        | `make px4_sitl gazebo-classic_uuv_hippocampus`            |
-| [Boat (USV: Unmanned Surface Vehicle)](../sim_gazebo_classic/gazebo_vehicles.md#usv)                                                       | `make px4_sitl gazebo-classic_boat`                       |
-| [Cloudship (Airship)](../sim_gazebo_classic/gazebo_vehicles.md#airship)                                                                    | `make px4_sitl gazebo-classic_cloudship`                  |
+| Vehicle                                                                                                                              | Command                                                   |
+| ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- |
+| [Quadrotor](../sim_gazebo_classic/gazebo_vehicles.md#quadrotor)                                                                      | `make px4_sitl gazebo-classic`                            |
+| [Quadrotor with Optical Flow](../sim_gazebo_classic/gazebo_vehicles.md#quadrotor_optical_flow)                                       | `make px4_sitl gazebo-classic_iris_opt_flow`              |
+| [Quadrotor with Depth Camera](../sim_gazebo_classic/gazebo_vehicles.md#quadrotor-with-depth-camera) (forward-facing)                 | `make px4_sitl gazebo-classic_iris_depth_camera`          |
+| [Quadrotor with Depth Camera](../sim_gazebo_classic/gazebo_vehicles.md#quadrotor-with-depth-camera) (downward-facing)                | `make px4_sitl gazebo-classic_iris_downward_depth_camera` |
+| [3DR Solo (Quadrotor)](../sim_gazebo_classic/gazebo_vehicles.md#3dr_solo)                                                            | `make px4_sitl gazebo-classic_solo`                       |
+| <a id="typhoon_h480"></a>[Typhoon H480 (Hexrotor)](../sim_gazebo_classic/gazebo_vehicles.md#typhoon_h480) (supports video streaming) | `make px4_sitl gazebo-classic_typhoon_h480`               |
+| [Standard Plane](../sim_gazebo_classic/gazebo_vehicles.md#standard_plane)                                                            | `make px4_sitl gazebo-classic_plane`                      |
+| [Standard Plane (with catapult launch)](../sim_gazebo_classic/gazebo_vehicles.md#standard_plane_catapult)                            | `make px4_sitl gazebo-classic_plane_catapult`             |
+| [Standard VTOL](../sim_gazebo_classic/gazebo_vehicles.md#standard_vtol)                                                              | `make px4_sitl gazebo-classic_standard_vtol`              |
+| [Tailsitter VTOL](../sim_gazebo_classic/gazebo_vehicles.md#tailsitter_vtol)                                                          | `make px4_sitl gazebo-classic_tailsitter`                 |
+| [Ackerman UGV (Rover)](../sim_gazebo_classic/gazebo_vehicles.md#ackermann-ugv)                                                       | `make px4_sitl gazebo-classic_rover`                      |
+| [Differential UGV (Rover)](../sim_gazebo_classic/gazebo_vehicles.md#differential-ugv)                                                | `make px4_sitl gazebo-classic_r1_rover`                   |
+| [HippoCampus TUHH (UUV: Unmanned Underwater Vehicle)](../sim_gazebo_classic/gazebo_vehicles.md#uuv)                                  | `make px4_sitl gazebo-classic_uuv_hippocampus`            |
+| [Boat (USV: Unmanned Surface Vehicle)](../sim_gazebo_classic/gazebo_vehicles.md#usv)                                                 | `make px4_sitl gazebo-classic_boat`                       |
+| [Cloudship (Airship)](../sim_gazebo_classic/gazebo_vehicles.md#airship)                                                              | `make px4_sitl gazebo-classic_cloudship`                  |
 
 
 :::note

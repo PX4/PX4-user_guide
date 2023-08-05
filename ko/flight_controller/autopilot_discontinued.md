@@ -3,7 +3,7 @@
 :::tip PX4 프로젝트 자동조종장치의 지원 수준에 대한 자세한 내용은 [px4.io/autopilots](https://px4.io/autopilots/)를 참고하십시오.
 :::
 
-이 카테고리는 단종된 자동조종장치와 완제품에 대하여 설명합니다. These are *not supported* by the head revision of PX4 and are no longer being manufactured.
+이 카테고리는 단종된 자동조종장치와 완제품에 대하여 설명합니다. These are _not supported_ by the head revision of PX4 and are no longer being manufactured.
 
 ## 자동조종장치
 
@@ -17,7 +17,7 @@
 - [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md) (FMUv3)
 - [Holybro Pixfalcon](../flight_controller/pixfalcon.md) (Pixhawk FMUv2)
 - [Holybro pix32](../flight_controller/holybro_pix32.md) (FMUv2)
-- [mRo AUAV-X2](../flight_controller/auav_x2.md)  (Pixhawk FMUv2)
+- [mRo AUAV-X2](../flight_controller/auav_x2.md) (Pixhawk FMUv2)
 - [3DR Pixhawk 1](../flight_controller/pixhawk.md) (Pixhawk FMUv2)
 
 ## 완제품

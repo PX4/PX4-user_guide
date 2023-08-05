@@ -54,7 +54,8 @@ PX4를 사용하면 "모드" 채널을 지정하고 채널의 PWM 값에 따라 
 이 섹션에는 taranis에 대한 몇 가지 가능한 설정 방법을 설명합니다. QGroundControl에는 [다른 송신기에 대한 설정 정보가 *있을 수 있습니다*.](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#transmitter-setup)
 
 
-<span id="taranis_setup"></span>
+<a id="taranis_setup"></a>
+
 ### Taranis 설정: 단일 채널 모드를 위한 3방향 스위치 설정
 
 2개 또는 3개의 모드 중 선택만 지원해야 하는 경우 단일 3방향 스위치의 위치에 모드를 매핑할 수 있습니다. 아래에서는 Taranis 3-way "SD"스위치를 채널 5에 매핑하는 방법을 보여줍니다.

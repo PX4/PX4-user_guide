@@ -23,22 +23,22 @@ MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs
 
 ![](../../assets/hardware/hardware-mindpx-specs.png)
 
-* Main System-on-Chip: STM32F427
-  * CPU: 32bits, 168 MHz ARM Cortex<sup>&reg;</sup> M4 with FPU
-  * RAM: 256 KB SRAM
-  * 2MB Flash
-  * ST Micro LSM303D 14 bit accelerometer/magnetometer
-  * MEAS MS5611 气压计
-  * InvenSense<sup>&reg;</sup> MPU6500 integrated 6-axis sensors
+- Main System-on-Chip: STM32F427
 
+  - CPU: 32bits, 168 MHz ARM Cortex<sup>&reg;</sup> M4 with FPU
+  - RAM: 256 KB SRAM
+  - 2MB Flash
+  - ST Micro LSM303D 14 bit accelerometer/magnetometer
+  - MEAS MS5611 气压计
+  - InvenSense<sup>&reg;</sup> MPU6500 integrated 6-axis sensors
 
-* Highlighted features:
-  * CNC processed aluminum alloy case, light and solid
-  * Built-in isolated IMU redundancy
-  * Total 16 PWM output channel (8 main + 8 aux)
-  * 1 extra I2C port for flow connection.
-  * 1 extra USB port for companion computer connection (built-in UART-to-USB converter)
-  * Exposed debug port for development
+- Highlighted features:
+  - CNC processed aluminum alloy case, light and solid
+  - Built-in isolated IMU redundancy
+  - Total 16 PWM output channel (8 main + 8 aux)
+  - 1 extra I2C port for flow connection.
+  - 1 extra USB port for companion computer connection (built-in UART-to-USB converter)
+  - Exposed debug port for development
 
 ## Quick Start
 
@@ -67,7 +67,6 @@ MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs
 |  7   |        TF card slot        |  15  |     Tricolor Light     |
 |  8   |  NRF/SPI(Remote Control)   |  16  |         Looper         |
 
-
 ### Radio Receiver
 
 MindPX supports a wide variety of radio receivers (since V2.6) including: PPM/SBUS/DSM/DSM2/DSMX. MindPX also support FrSky<sup>&reg;</sup> bi-direction telemetry D and S.Port.
@@ -77,10 +76,11 @@ For detailed Pin diagram, please refer to the [User Guide](http://mindpx.net/ass
 ### 编译固件
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
+
 ```
 make airmind_mindpx-v2_default
 ```

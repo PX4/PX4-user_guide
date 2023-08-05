@@ -49,7 +49,8 @@ More generally this is true on autopilots with STM32F7 or later (e.g. [Durandal]
 
 Simply attach one of the UART's TX pins to the SPort inverted or uninverted pin (PX4 will auto-detect and handle either type). Then [configure PX4](#configure).
 
-<span id="configure"></span>
+<a id="configure"></a>
+
 ## PX4配置
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which FrSky will run using [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG). There is no need to set the baud rate for the port, as this is configured by the driver.
@@ -68,7 +69,8 @@ drivers/telemetry/frsky_telemetry
 No further configuration is required; FrSky telemetry auto-starts when connected and detects D or S mode.
 
 
-<span id="transmitters"></span>
+<a id="transmitters"></a>
+
 ## 兼容遥控发射机
 
 You will need an RC transmitter that can receive the telemetry stream (and that is bound to the FrSky receiver).
@@ -95,12 +97,14 @@ If you open the `LuaPil.lua` script with a text editor, you can edit the configu
 * `local SayFlightMode = 0 `没有可供PX4飞行模式使用的WAV音频文件 遥测信息
 
 
-<span id="messages"></span>
+<a id="messages"></a>
+
 ## 遥测信息
 
 FrySky Telemetry can transmit most of the more useful status information from PX4. S-Port and D-Port receivers transmit different sets of messages, as listed in the following sections.
 
-<span id="s_port"></span>
+<a id="s_port"></a>
+
 ### S-Port
 
 S-Port receivers transmit the following messages from PX4 (from [here](https://github.com/iNavFlight/inav/blob/master/docs/Telemetry.md#available-smartport-sport-sensors)):
@@ -151,7 +155,8 @@ D-Port receivers transmit the following messages (from [here](https://github.com
 - **Vspd:** Vertical speed (cm/s).
 
 
-<span id="receivers"></span>
+<a id="receivers"></a>
+
 ## 睿思凯遥测接收机
 
 Pixhawk/PX4 supports D (old) and S (new) FrSky telemetry. The table belows all FrSky receivers that support telemetry via a D/S.PORT (in theory all of these should work).
@@ -162,8 +167,8 @@ Note that the X series receivers listed below are recommended (e.g. XSR, X8R). T
 
 | 接收机         | 范围    | 集成输出                  | 数字遥测输入                        | 尺寸                    | 重量    |
 | ----------- | ----- | --------------------- | ----------------------------- | --------------------- | ----- |
-| D4R-II      | 1.5km | CPPM (8)              | D.Port                        | 40x22.5x6mm           | 5.8g  |
-| D8R-XP      | 1.5km | CPPM (8)              | D.Port                        | 55x25x14mm            | 12.4g |
+| D4R-II      | 1.5km | CPPM (8)              | D.Port                        | 40x22.5x6mm           | 5.8g  |
+| D8R-XP      | 1.5km | CPPM (8)              | D.Port                        | 55x25x14mm            | 12.4g |
 | D8R-II Plus | 1.5km | 否                     | D.Port                        | 55x25x14mm            | 12.4g |
 | X4R         | 1.5km | CPPM (8)              | Smart Port                    | 40x22.5x6mm           | 5.8g  |
 | X4R-SB      | 1.5km | S.Bus (16)            | Smart Port                    | 40x22.5x6mm           | 5.8g  |
@@ -181,7 +186,8 @@ Note that the X series receivers listed below are recommended (e.g. XSR, X8R). T
 The above table originates from http://www.redsilico.com/frsky-receiver-chart and FrSky [product documentation](https://www.frsky-rc.com/product-category/receivers/).
 :::
 
-<span id="ready_made_cable"></span>
+<a id="ready_made_cable"></a>
+
 ## 成品转接线缆
 
 Ready-made cables for use with Pixhawk FMUv4 and earlier (except for Pixracer) are available from:
@@ -190,7 +196,8 @@ Ready-made cables for use with Pixhawk FMUv4 and earlier (except for Pixracer) a
   <a href="http://www.craftandtheoryllc.com/telemetry-cable"><img src="../../assets/hardware/telemetry/craft_and_theory_frsky_telemetry_cables.jpg" alt="从 Craft and Theory 购买转接线材。"></a>
 
 
-<span id="diy_cables"></span>
+<a id="diy_cables"></a>
+
 ## 自制转接线缆
 
 It is possible to create your own adapter cables. You will need connectors that are appropriate for your autopilot (e.g. *JST-GH connectors* for FMUv3/Pixhawk 2 "The Cube" and FMUv4/PixRacer v1, and DF-13 compatible *PicoBlade connectors* for older autopilots).
@@ -232,7 +239,6 @@ Connect the Pixracer FrSky TX line (FS out) to the receiver's RX line. Connect t
 Simply attach one of the UART's TX pins to the SPort inverted or uninverted pin (PX4 will auto-detect and handle either type).
 
 
-<span id="pixhawk_v2"></span>
 ### 其他飞控板
 
 Most other boards connect to the receiver for FrSky telemetry via the TELEM2 UART. This includes, for example: [Pixhawk 1](../flight_controller/pixhawk.md), [mRo Pixhawk](../flight_controller/mro_pixhawk.md), Pixhawk2.

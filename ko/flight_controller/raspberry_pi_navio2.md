@@ -11,7 +11,6 @@ Raspberry Pi 2/3 Navio2 오토파일럿의 개발자 퀵 스타트 가이드입�
 
 ![라즈베리파이 이미지](../../assets/hardware/hardware-rpi2.jpg)
 
-
 ## 운영체제 이미지
 
 [Navio 2용 Emlid RT Raspbian 이미지](https://docs.emlid.com/navio2/configuring-raspberry-pi)를 사용하십시오. 기본 이미지에는 아래 표시된 대부분의 설정이 완료되어 있습니다.
@@ -39,6 +38,7 @@ OS를 설치후 [파일시스템을 확장](https://www.raspberrypi.org/document
 ## Navio RGB 오버레이 비활성화
 
 기존 Navio RGB 오버레이는 PX4에서 RGB Led 용으로 사용하는 GPIO를 요구합니다. `navio-rgb` 오버레이를 활성화하는 줄에 주석을 달아 `/boot/config.txt`를 편집합니다.
+
 ```
 #dtoverlay=navio-rgb
 ```
@@ -59,6 +59,7 @@ sudo nano /etc/hostname
 
 <pre><code class="sh">sudo nano /etc/hosts
 `</pre>
+
 `127.0.1.1 raspberry` 항목을 `127.0.1.1 <YOURNEWHOSTNAME>`로 변경합니다.
 
 완료후 라즈베리파이를 재부팅하여 네트워크에 다시 연결합니다.
@@ -71,11 +72,13 @@ sudo nano /etc/hostname
 sudo apt-get install avahi-daemon
 sudo insserv avahi-daemon
 ```
+
 다음으로 Avahi 설정 파일을 편집합니다.
 
 ```sh
 sudo nano /etc/avahi/services/multiple.service
 ```
+
 다음 내용을 파일에 추가하십시오.
 
 ```xml
@@ -95,11 +98,13 @@ sudo nano /etc/avahi/services/multiple.service
 </service-group>
 
 ```
+
 데몬 다시 시작합니다.
 
 ```sh
 sudo /etc/init.d/avahi-daemon restart
 ```
+
 이제, 완료되었습니다. 네트워크의 모든 컴퓨터에서 호스트 이름으로 라즈베리파이에 직접 접근할 수 있어야 합니다.
 
 :::tip
@@ -110,14 +115,15 @@ sudo /etc/init.d/avahi-daemon restart
 
 PX4 실행 파일을 보드에 자동으로 푸시하려면 라즈베리파이에 암호가 필요없는 접근 방법을 설정하여야합니다. 이를 위하여 공개키 인증 방법을 사용합니다.
 
-새 SSH 키를 생성하려면 다음 명령을 입력하십시오. `<YOURNANME>@<YOURDEVICE>`에 적절한 호스트 이름을 선택하십시오.  여기서는 `pi@px4autopilot`을 사용하였습니다.
+새 SSH 키를 생성하려면 다음 명령을 입력하십시오. `<YOURNANME>@<YOURDEVICE>`에 적절한 호스트 이름을 선택하십시오. 여기서는 `pi@px4autopilot`을 사용하였습니다.
 
 이 명령은 HOST 개발 컴퓨터에서 실행되어야합니다.
 
 ```sh
 ssh-keygen -t rsa -C pi@px4autopilot
 ```
-이 명령을 입력하면 키를 저장할 위치를 묻는 메시지가 표시됩니다. Enter를 눌러 기본 위치($HOME/.ssh/id_rsa)에 저장하는 것이 좋습니다.
+
+이 명령을 입력하면 키를 저장할 위치를 묻는 메시지가 표시됩니다. We suggest you save it in the default location (\$HOME/.ssh/id_rsa) by just hitting Enter.
 
 이제 홈 폴더의 `.ssh` 디렉토리에 `id_rsa`와 `id_rsa.pub` 파일이 표시됩니다.
 
@@ -125,6 +131,7 @@ ssh-keygen -t rsa -C pi@px4autopilot
 ls ~/.ssh
 authorized_keys  id_rsa  id_rsa.pub  known_hosts
 ```
+
 `id_rsa` 파일은 개인키입니다. 이 파일은 개발 컴퓨터에 보관하십시오. `id_rsa.pub` 파일은 공개키입니다. 이것은 연결 대상 컴퓨터에 보관합니다.
 
 공개키를 라즈베리파이에 복사하려면 다음 명령을 사용하여 authorized_keys 파일에 공개키를 추가하고 SSH를 통해 전송합니다.
@@ -142,9 +149,11 @@ cat ~/.ssh/id_rsa.pub | ssh pi@px4autopilot 'cat >> .ssh/authorized_keys'
 ```sh
 ssh-add
 ```
+
 그래도 작동하지 않으면, `rm ~/.ssh/id*`로 키를 삭제하고 위의 과정을 다시 진행하십시오.
 
 ## 파일 전송 테스트
+
 SCP를 사용하여 네트워크(WiFi 또는 이더넷)를 통하여 개발 컴퓨터에서 대상 보드로 파일을 전송합니다.
 
 설정을 테스트하려면 지금 네트워크를 통해 개발 PC에서 라즈베리파이로 파일을 푸시해보십시오. 라즈베리파이에 네트워크 접근 권한이 있는 지 확인후, SSH를 사용할 수 있습니다.
@@ -154,13 +163,12 @@ echo "Hello" > hello.txt
 scp hello.txt pi@px4autopilot:/home/pi/
 rm hello.txt
 ```
-"hello.txt"파일을 라즈베리파이의 홈 폴더에 복사합니다. 파일이 실제로 복사되었는지 확인후, 다음 단계로 진행합니다.
 
+"hello.txt"파일을 라즈베리파이의 홈 폴더에 복사합니다. 파일이 실제로 복사되었는지 확인후, 다음 단계로 진행합니다.
 
 ## 코드 빌드
 
 아래와 같이 개발 컴퓨터( "크로스 컴파일러" 빌드)에서 소스 코드를 빌드하거나, 라즈베리파이에서( "네이티브" 빌드)에서 빌드할 수 있습니다.
-
 
 ### 크로스 컴파일러 빌드
 
@@ -171,7 +179,9 @@ rm hello.txt
 ```sh
 export AUTOPILOT_HOST=192.168.X.X
 ```
+
 또는
+
 ```sh
 export AUTOPILOT_HOST=pi_hostname.domain
 ```
@@ -248,6 +258,7 @@ pxh>
 ## 자동 실행
 
 px4를 자동으로 시작하려면 **/etc/rc.local** 파일의 `exit 0` 앞 줄에 아래 내용을 추가합니다. 네이티브 빌드를 사용하는 경우 적절하게 변경하십시오.
+
 ```sh
 cd /home/pi && ./bin/px4 -d -s px4.config > px4.log
 ```

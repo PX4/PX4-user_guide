@@ -33,7 +33,7 @@ PX4 allows you to configure how pre-arming, arming and disarming work using para
 시동/제동 매개변수는 [매개변수 참고 > 명령](../advanced_config/parameter_reference.md#commander) 에서 찾을 수 있습니다(`COM_ARM_*` 과 `COM_DISARM_*`으로 검색).
 :::
 
-<span id="arm_disarm_gestures"></span>
+<a id="arm_disarm_gestures"></a>
 
 ## 시동 제스쳐
 
@@ -53,11 +53,11 @@ PX4 allows you to configure how pre-arming, arming and disarming work using para
 
 필요한 보류 시간은 [COM_RC_ARM_HYST](#COM_RC_ARM_HYST)에서 설정합니다.
 
-| 매개변수                                                                                                             | 설명                                                           |
-| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| <span id="COM_RC_ARM_HYST"></span>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | 시동과 시동 해제가 발생하기 전에 RC 스틱이 시동/시동 해제 위치에 있어야하는 시간 (기본값 : 1 초). |
+| 매개변수                                                                                                    | 설명                                                           |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| <a id="COM_RC_ARM_HYST"></a>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | 시동과 시동 해제가 발생하기 전에 RC 스틱이 시동/시동 해제 위치에 있어야하는 시간 (기본값 : 1 초). |
 
-<span id="arm_disarm_switch"></span>
+<a id="arm_disarm_switch"></a>
 
 ## 시동 스위치
 

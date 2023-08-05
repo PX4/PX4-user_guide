@@ -15,7 +15,8 @@ PX4는 홈 위치, 집결 ( "안전") 지점, 임무 경로 및 임무 착륙 �
 * 멀티콥터 또는 VTOL 멀티콥터 모드에서 RC 스틱을 움직이면 위험한 배터리 안전 장치를 처리하지 않는 한 [기본적으로](#COM_RC_OVERRIDE) 기체는 [위치 모드](../flight_modes/position_mc.md)로 변경됩니다.
 :::
 
-<span id="return_types"></span>
+<a id="return_types"></a>
+
 ## 복귀 유형(RTL_TYPE)
 
 PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 검색하는 네 가지 대체 접근 방식 ([RTL_TYPE](#RTL_TYPE))을 제공합니다.
@@ -26,7 +27,8 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 
 각 유형에 대한 자세한 설명은 다음 섹션에서 제공됩니다.
 
-<span id="home_return"></span>
+<a id="home_return"></a>
+
 ### 홈/랠리 포인트 복귀 유형 (RTL_TYPE = 0)
 
 이 복귀 유형에서 기체의 동작:
@@ -38,7 +40,8 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 랠리 포인트가 정의되지 않은 경우 이는 *출발지 복귀* (RTL) / *홈으로 복귀* (RTH)과 동일합니다.
 :::
 
-<span id="mission_landing_return"></span>
+<a id="mission_landing_return"></a>
+
 ### 임무 착륙/랠리 포인트 복귀 유형 (RTL_TYPE = 1)
 
 이 복귀 유형에서 기체의 동작:
@@ -47,14 +50,18 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 - 목적지가 임무 착륙 패턴인 경우 패턴을 따라 착륙합니다.
 - 목적지가 집결지 또는 홈인 경우에는 하강 고도에서 [착륙또는 대기](#arrival)합니다 (착륙 매개 변수에 따라 다름).
 
-<span id="mission_landing_pattern"></span> :::note 미션 착륙 패턴은 [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), 하나 이상의 위치 웨이포인트 및 [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)로 구성됩니다.
+<a id="mission_landing_pattern"></a>
+
+:::note
+미션 착륙 패턴은 [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), 하나 이상의 위치 웨이포인트 및 [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)로 구성됩니다.
 :::
 
 :::warning
 이 유형이 설정되면 PX4는 유효한 착지 패턴이 없는 임무를 거부합니다.
 :::
 
-<span id="mission_path_return"></span>
+<a id="mission_path_return"></a>
+
 ### 임무 경로 복귀 유형 (RTL_TYPE = 2)
 
 이 반환 유형은 임무(정의 된 경우)을 사용하여 안전한 복귀 *경로*를 제공하고 임무 착륙 패턴 (정의 된 경우)을 사용하여 착륙합니다. 임무가 있지만 임무 착수 패턴이없는 경우 임무는 *역방향*으로 비행합니다. 랠리 포인트는 무시됩니다.
@@ -90,7 +97,8 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 복귀 모드에서 임무가 변경되면 위와 동일한 규칙에 따라 새 임무에 따라 행동이 재평가됩니다 (예 : 새 임무에 착륙 순서가없고 임무를 수행중인 경우 임무가 반전 됨).
 
 
-<span id="safety_point_return"></span>
+<a id="safety_point_return"></a>
+
 ### 가장 가까운 안전한 대상 복귀 유형 (RTL_TYPE = 3)
 
 이 복귀 유형에서 기체의 동작:
@@ -100,7 +108,8 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 - 목적지가 홈 위치 또는 집결지인 경우 기체는 하강 고도 ([RTL_DESCEND_ALT](#RTL_DESCEND_ALT))로 하강한 다음 [착륙 또는 대기](#arrival)합니다.
 
 
-<span id="return_altitude"></span>
+<a id="return_altitude"></a>
+
 ## 복귀 고도
 
 기체는 목적지까지의 장애물을 피하여 복귀하기 이전에 안전한 고도로 먼저 상승합니다.
@@ -130,7 +139,8 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 - 기체는 복귀를 위해 항상 최소 [RTL_DESCEND_ALT](#RTL_DESCEND_ALT)으로 상승합니다.
 
 
-<span id="arrival"></span>
+<a id="arrival"></a>
+
 ## 목적지에 호버링/착륙
 
 임무 착륙을 실행하지 않으면 (예 : [홈 위치 복귀](#home_return) 또는 [최인접 안전 목적지 복귀](#safety_point_return)을 실행하는 경우) 기체는 목적지에 도착하여 [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) 고도로 빠르게 하강합니다.
@@ -138,7 +148,8 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 기체는 지정된 시간 ([RTL_LAND_DELAY](#RTL_LAND_DELAY)) 동안 배회후에 착륙합니다. [RTL_LAND_DELAY = -1](#RTL_LAND_DELAY)이면 무기한 배회합니다.
 
 
-<span id="default_configuration"></span>
+<a id="default_configuration"></a>
+
 ## 기체 기본 동작
 
 이 모드는 모든 기체에서 매유 유사한 방식으로 *구현*되며 (단, 고정익 대기시 호버링하지 않고 원을 그리며) 따라서 동일한 매개 변수를 사용하여 조정됩니다.
@@ -181,14 +192,14 @@ RC 스틱 이동은 무시됩니다.
 
 RTL 매개 변수는 [매개변수 정의 > 복귀 모드](../advanced_config/parameter_reference.md#return-mode)에 기술되어 있습니다 (아래에 요약되어 있음).
 
-| 매개변수                                                                                                             | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="RTL_TYPE"></span>[RTL_TYPE](../advanced_config/parameter_reference.md#RTL_TYPE)                        | 복귀 메커니즘 (경로 및 목적지). <br> `0` : 직접 경로를 통해 집회 지점 또는 홈(둘 중 가장 가까운 곳)으로 복귀합니다. <br> `1` : 복귀 직접 경로를 통해 집결지 또는 임무 착륙 패턴 시작 지점 (둘 중 가장 가까운 지점) 임무 착륙 또는 집결 지점이 모두 정의되지 않은 경우에는 직접 경로를 통해 홈으로 복귀합니다. 목적지가 임무 착륙 패턴인 경우 착륙 패턴을 따릅니다. <br>`2` : 착륙 패턴이 정의 된 경우 착륙까지 빨리 감기 경로를 사용하고 그렇지 않으면 홈으로 빠르게 되감기합니다. 랠리포인트를 무시합니다. 임무 계획이 정의되지 않은 경우 홈으로 직접 비행합니다. <br>`3` : 가장 가까운 목적지 (집, 임무 시작 착륙 패턴 또는 안전 지점)까지 직접 경로를 통해 복귀합니다. 목적지가 임무 착륙 패턴인 경우 패턴을 따라 착륙합니다. |
-| <span id="RTL_RETURN_ALT"></span>[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)    | [RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)이 0 인 경우 고도를 미터 단위 (기본값 : 60m)로 반환합니다. 이미 이 값을 초과하면 기체는 현재 고도로 복귀합니다.                                                                                                                                                                                                                                                                                                                             |
-| <span id="RTL_DESCEND_ALT"></span>[RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 기체가 더 높은 복귀 고도에서 감속하거나 초기 하강을 중지할 최소 복귀 고도 및 고도 (기본값 : 30m)                                                                                                                                                                                                                                                                                                                                                                                                               |
-| <span id="RTL_LAND_DELAY"></span>[RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)    | 착륙 전 `RTL_DESCEND_ALT`에서 호버링하는 시간(기본값 : 0.5 초) - 기본적으로 이 시간은 짧아서 기체는 감속후 즉시 착륙합니다. -1로 설정하면 착륙하지 않고 `RTL_DESCEND_ALT`에서 배회합니다. 이 지연은 랜딩 기어가 배치될 시간을 설정합니다. (자동으로 동작함).                                                                                                                                                                                                                                                                                                    |
-| <span id="RTL_MIN_DIST"></span>[RTL_MIN_DIST](../advanced_config/parameter_reference.md#RTL_MIN_DIST)          | 홈 위치에서 "원뿔"에 지정된 복귀 고도까지 상승을 시작하는 최소 수평 거리. 차량이 홈까지의이 거리보다 수평으로 가까우면 먼저 RTL_RETURN_ALT로 상승하지 않고 현재 고도 또는 `RTL_DESCEND_ALT` (둘 중 더 높은 쪽)고도로 복귀합니다.                                                                                                                                                                                                                                                                                                                       |
-| <span id="RTL_CONE_ANG"></span>[RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)          | 기체 RTL 리턴 고도를 정의하는 원뿔의 반각. 값 (도) : 0, 25, 45, 65, 80, 90. 0은 "원뿔 없음" (항상 `RTL_RETURN_ALT` 이상에서 반환)이고, 90은 차량이 현재 고도 또는 `RTL_DESCEND_ALT` (둘 중 더 높은 고도)에서 복귀함을 나타냅니다.                                                                                                                                                                                                                                                                                                      |
-| <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 멀티콥터(또는 MC 모드의 VTOL)의 스틱 움직임으로 인해 모드가 [위치 모드](../flight_modes/position_mc.md)로 변경되는지 여부를 제어합니다(차량이 중요한 배터리 안전 장치를 처리하는 경우 제외). 자동 모드와 오프보드 모드에 대해 별도로 활성화할 수 있으며, 기본적으로 자동 모드에서 활성화됩니다.                                                                                                                                                                                                                                                                                   |
-| <span id="COM_RC_STICK_OV"></span>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | [위치 모드](../flight_modes/position_mc.md)로 전환하는 스틱 이동량 ([COM_RC_OVERRIDE](#COM_RC_OVERRIDE)이 활성화된 경우).                                                                                                                                                                                                                                                                                                                                                                    |
-| <span id="NAV_LOITER_RAD"></span>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)    | [고정익만 해당] 배회 원의 반경 ([RTL_LAND_DELAY](#RTL_LAND_DELAY)).                                                                                                                                                                                                                                                                                                                                                                                                                 | 
+| 매개변수                                                                                                     | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="RTL_TYPE"></a>[RTL_TYPE](../advanced_config/parameter_reference.md#RTL_TYPE)                  | 복귀 메커니즘 (경로 및 목적지). <br> `0` : 직접 경로를 통해 집회 지점 또는 홈(둘 중 가장 가까운 곳)으로 복귀합니다. <br> `1` : 복귀 직접 경로를 통해 집결지 또는 임무 착륙 패턴 시작 지점 (둘 중 가장 가까운 지점) 임무 착륙 또는 집결 지점이 모두 정의되지 않은 경우에는 직접 경로를 통해 홈으로 복귀합니다. 목적지가 임무 착륙 패턴인 경우 착륙 패턴을 따릅니다. <br>`2` : 착륙 패턴이 정의 된 경우 착륙까지 빨리 감기 경로를 사용하고 그렇지 않으면 홈으로 빠르게 되감기합니다. 랠리포인트를 무시합니다. 임무 계획이 정의되지 않은 경우 홈으로 직접 비행합니다. <br>`3` : 가장 가까운 목적지 (집, 임무 시작 착륙 패턴 또는 안전 지점)까지 직접 경로를 통해 복귀합니다. 목적지가 임무 착륙 패턴인 경우 패턴을 따라 착륙합니다. |
+| <a id="RTL_RETURN_ALT"></a>[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | [RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)이 0 인 경우 고도를 미터 단위 (기본값 : 60m)로 반환합니다. 이미 이 값을 초과하면 기체는 현재 고도로 복귀합니다.                                                                                                                                                                                                                                                                                                                             |
+| <a id="RTL_DESCEND_ALT"></a>[RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 기체가 더 높은 복귀 고도에서 감속하거나 초기 하강을 중지할 최소 복귀 고도 및 고도 (기본값 : 30m)                                                                                                                                                                                                                                                                                                                                                                                                               |
+| <a id="RTL_LAND_DELAY"></a>[RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | 착륙 전 `RTL_DESCEND_ALT`에서 호버링하는 시간(기본값 : 0.5 초) - 기본적으로 이 시간은 짧아서 기체는 감속후 즉시 착륙합니다. -1로 설정하면 착륙하지 않고 `RTL_DESCEND_ALT`에서 배회합니다. 이 지연은 랜딩 기어가 배치될 시간을 설정합니다. (자동으로 동작함).                                                                                                                                                                                                                                                                                                    |
+| <a id="RTL_MIN_DIST"></a>[RTL_MIN_DIST](../advanced_config/parameter_reference.md#RTL_MIN_DIST)       | 홈 위치에서 "원뿔"에 지정된 복귀 고도까지 상승을 시작하는 최소 수평 거리. 차량이 홈까지의이 거리보다 수평으로 가까우면 먼저 RTL_RETURN_ALT로 상승하지 않고 현재 고도 또는 `RTL_DESCEND_ALT` (둘 중 더 높은 쪽)고도로 복귀합니다.                                                                                                                                                                                                                                                                                                                       |
+| <a id="RTL_CONE_ANG"></a>[RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)       | 기체 RTL 리턴 고도를 정의하는 원뿔의 반각. 값 (도) : 0, 25, 45, 65, 80, 90. 0은 "원뿔 없음" (항상 `RTL_RETURN_ALT` 이상에서 반환)이고, 90은 차량이 현재 고도 또는 `RTL_DESCEND_ALT` (둘 중 더 높은 고도)에서 복귀함을 나타냅니다.                                                                                                                                                                                                                                                                                                      |
+| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 멀티콥터(또는 MC 모드의 VTOL)의 스틱 움직임으로 인해 모드가 [위치 모드](../flight_modes/position_mc.md)로 변경되는지 여부를 제어합니다(차량이 중요한 배터리 안전 장치를 처리하는 경우 제외). 자동 모드와 오프보드 모드에 대해 별도로 활성화할 수 있으며, 기본적으로 자동 모드에서 활성화됩니다.                                                                                                                                                                                                                                                                                   |
+| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | [위치 모드](../flight_modes/position_mc.md)로 전환하는 스틱 이동량 ([COM_RC_OVERRIDE](#COM_RC_OVERRIDE)이 활성화된 경우).                                                                                                                                                                                                                                                                                                                                                                    |
+| <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)   | [고정익만 해당] 배회 원의 반경 ([RTL_LAND_DELAY](#RTL_LAND_DELAY)).                                                                                                                                                                                                                                                                                                                                                                                                                 | 

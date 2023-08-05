@@ -18,7 +18,8 @@
 
 [임무 모드](../flight_modes/mission.md)에서는 매개변수가 활성화되면, 풍향계 기능이 항상 활성화됩니다. 임무에서 명령된 모든 요 각도는 무시됩니다.
 
-<span id="configuration"></span>
+<a id="configuration"></a>
+
 ## 설정
 
 이 기능은 [WV_* 매개 변수](../advanced_config/parameter_reference.md#WV_EN)를 사용하여 설정합니다.

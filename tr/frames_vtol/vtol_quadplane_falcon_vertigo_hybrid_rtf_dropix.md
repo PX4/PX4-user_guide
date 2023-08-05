@@ -149,7 +149,7 @@ For example, you might wire it up like this example (orientation as if "sitting 
 | AUX  5 | Throttle               |
 
 
-<span id="dropix_back"></span>
+<a id="dropix_back"></a>
 
 #### Flight Controller Connections: Motors, Servos, RC receiver, current sensor
 
@@ -168,7 +168,7 @@ The image below shows back of the dropix flight controller, highlighting the out
 1. Connect the receiver (RC IN).
 
 
-<span id="dropix_front"></span>
+<a id="dropix_front"></a>
 
 #### Flight Controller Connections: Telemetry, Airspeed Sensor, GPS, Buzzer and Safety Switch
 
@@ -228,7 +228,8 @@ It is important that nothing obstructs airflow to the Pitot tube. This is critic
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_51_telemetry_module_mounting.jpg" width="500px" title="Paste telemetry module" />
 
 
-<span id="compass_gps"></span>
+<a id="compass_gps"></a>
+
 #### GPS/Compass module
 
 The GPS/Compass module is already mounted on the wing, in the default orientation. You don't need to have to do anything extra for this!
@@ -236,7 +237,8 @@ The GPS/Compass module is already mounted on the wing, in the default orientatio
 <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_gps_compass.jpg" width="500px" title="GPS/Compass" />
 
 
-<span id="flight_controller_orientation"></span>
+<a id="flight_controller_orientation"></a>
+
 #### Mount and orient the flight controller
 
 1. Set your flight controller orientation to 270 degrees.
@@ -290,7 +292,4 @@ After you finish calibration the VTOL is ready to fly.
 
 ## Support
 
-If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.
-
-
-
+If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.

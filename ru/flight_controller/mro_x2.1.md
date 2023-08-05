@@ -13,46 +13,45 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 ## Quick Summary
 
-* Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
-  * CPU: STM32F427VIT6 ARM<sup>&reg;</sup> microcontroller - Revision 3
-  * IO: STM32F100C8T6 ARM<sup>&reg;</sup> microcontroller
-* Sensors:
-  * Invensense<sup>&reg;</sup> MPU9250 9DOF
-  * Invensense ICM-20602 6DOF
-  * MEAS MS5611 barometer
-* Dimensions/Weight
-  * Size: 36mm x 50mm (Can be ordered with vertical, horizontal or no headers installed)
-  * Mounting Points: 30.5mm x 30.5mm 3.2mm diameter
-  * Weight: 10.9g
+- Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
+  - CPU: STM32F427VIT6 ARM<sup>&reg;</sup> microcontroller - Revision 3
+  - IO: STM32F100C8T6 ARM<sup>&reg;</sup> microcontroller
+- Sensors:
+  - Invensense<sup>&reg;</sup> MPU9250 9DOF
+  - Invensense ICM-20602 6DOF
+  - MEAS MS5611 barometer
+- Dimensions/Weight
+  - Size: 36mm x 50mm (Can be ordered with vertical, horizontal or no headers installed)
+  - Mounting Points: 30.5mm x 30.5mm 3.2mm diameter
+  - Weight: 10.9g
 
 The diagram below provides a side-by-side comparison with a Pixhawk 1. The mRo features almost identical hardware and connectivity but has a much smaller footprint. Major differences are updated sensors and Rev 3 FMU.
 
 ![Mro Pixhawk 1 vs X2.1 comparison](../../assets/flight_controller/mro/px1_x21.jpg)
 
-
 ## Connectivity
 
-* 2.54mm headers:
-* GPS (UART4) with I2C
-* CAN Bus
-* RC input
-* PPM input
-* Spektrum input
-* RSSI input
-* sBus input
-* sBus output
-* Power input
-* Buzzer output
-* LED output
-* 8 x Servo outputs
-* 6 x Aux outputs
-* Offboard microUSB connector
-* Kill Pin output *(Currently not supported by firmware)*
-* AirSpeed Sensor
-* USART2 (Telem 1)
-* USART3 (Telem 2)
-* UART7 (Console)
-* UART8 (OSD)
+- 2.54mm headers:
+- GPS (UART4) with I2C
+- CAN Bus
+- RC input
+- PPM input
+- Spektrum input
+- RSSI input
+- sBus input
+- sBus output
+- Power input
+- Buzzer output
+- LED output
+- 8 x Servo outputs
+- 6 x Aux outputs
+- Offboard microUSB connector
+- Kill Pin output _(Currently not supported by firmware)_
+- AirSpeed Sensor
+- USART2 (Telem 1)
+- USART3 (Telem 2)
+- UART7 (Console)
+- UART8 (OSD)
 
 ## PX4 BootLoader Issue
 
@@ -61,8 +60,9 @@ By default a mRo X2.1 might come preconfigured for ArduPilot<sup>&reg;</sup> rat
 In this case you must update the BootLoader using [BL_Update_X21.zip](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/BL_Update_X21.zip). If this correction is not carried out your compass direction will be wrong and the secondary IMU will not be detected.
 
 The update steps are:
+
 1. Download and extract [BL_Update_X21.zip](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/BL_Update_X21.zip).
-2. Find the folder *BL_Update_X21*. This contains a **bin** file and a subfolder named **/etc** containing an **rc.txt** file
+2. Find the folder _BL_Update_X21_. This contains a **bin** file and a subfolder named **/etc** containing an **rc.txt** file
 3. Copy these files to your micro SD card's root directory and insert it into the mRO x2.1
 4. Power on the mRO x2.1 Wait for it to boot and then reboot 1 time.
 
@@ -77,10 +77,11 @@ This product can be ordered at the [mRobotics<sup>&reg;</sup> Store](https://sto
 ## Building Firmware
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
+
 ```
 make mro_x21_default
 ```
@@ -88,7 +89,6 @@ make mro_x21_default
 ## Schematics
 
 The board is documented on the mRo hardware repo: [x21_V2_schematic.pdf](https://github.com/mRoboticsIO/Hardware/blob/master/X2.1/Docs/x21_V2_schematic.pdf).
-
 
 ## Serial Port Mapping
 

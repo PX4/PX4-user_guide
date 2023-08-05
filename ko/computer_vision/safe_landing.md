@@ -35,7 +35,8 @@ Companion-side setup and configuration is provided in the [PX4/PX4-Avoidance](ht
 구성 정보에는 다양한 카메라, 차량 크기 및 착륙 여부를 결정하는 높이에 대한 안전 착륙을 설정 방법이 포함하고 있습니다.
 
 
-<span id="interface"></span>
+<a id="interface"></a>
+
 ## 안전 착륙 인터페이스
 
 PX4는 [임무중 장애물 회피](../computer_vision/obstacle_avoidance.md#mission_mode), [안전 착륙](../computer_vision/safe_landing.md) 및 향후 서비스를 포함하여 보조 컴퓨터의 경로 계획 서비스를 통합하기 위하여 [경로 계획 오프 보드 인터페이스](../computer_vision/path_planning_interface.md)를 사용합니다.

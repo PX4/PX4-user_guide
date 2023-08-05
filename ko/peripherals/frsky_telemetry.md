@@ -49,7 +49,8 @@ Pixhawk FMUv5와 이후 버전에서는 PX4는 반전된(또는 반전되지 않
 
 UART의 TX핀중 하나를 SPort 반전 또는 비반전 핀에 연결하면됩니다 (PX4는 두 유형 중 하나를 자동으로 감지합니다). 그런 다음 [PX4를 설정](#configure)합니다.
 
-<span id="configure"></span>
+<a id="configure"></a>
+
 ## PX4 설정
 
 [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG)를 사용하여 FrSky 실행 모듈 [직렬 포트를 설정](../peripherals/serial_configuration.md)합니다. 포트 전송속도는 드라이버에 의해 설정되므로, 추가로 설정하지 않아도 됩니다.
@@ -68,7 +69,8 @@ drivers/telemetry/frsky_telemetry
 추가 설정이 필요하지 않습니다. FrSky 텔레메트리는 연결되면 자동으로 시작되고 D 또는 S 모드를 감지합니다.
 
 
-<span id="transmitters"></span>
+<a id="transmitters"></a>
+
 ## 호환 RC 송신기
 
 텔레메트리 스트림을 수신 기능한 (FrSky 수신기에 바인딩된) RC 송신기가 필요합니다.
@@ -95,12 +97,14 @@ OpenTX 2.1.6 이상을 실행하는 Taranis 호환 수신기(예 : X9D Plus)는 
 * `local SayFlightMode = 0` - PX4 비행 모드 WAV 파일이 없습니다.
 
 
-<span id="messages"></span>
+<a id="messages"></a>
+
 ## 텔레메트리 메시지
 
 FrSky Telemetry는 PX4 유용한 상태 정보 대부분을 전송합니다. S-Port 및 D-Port 수신기는 다음 섹션에 나열된대로 서로 다른 메시지 세트를 전송합니다.
 
-<span id="s_port"></span>
+<a id="s_port"></a>
+
 ### S-Port
 
 S-Port 수신기는 PX4([여기](https://github.com/iNavFlight/inav/blob/master/docs/Telemetry.md#available-smartport-sport-sensors)에서)에서 다음 메시지들을 전송합니다.
@@ -151,7 +155,8 @@ D-Port 수신기는 다음 메시지를 전송합니다 ([여기](https://github
 - **VSpd:** 수직 속도 (cm/s).
 
 
-<span id="receivers"></span>
+<a id="receivers"></a>
+
 ## FrSky 텔레메트리 수신기
 
 Pixhawk/PX4는 D (이전) 및 S (신규) FrSky 텔레메트리를 지원합니다. 아래 표는 D/S.PORT 텔레메트리를 지원하는 FrSky 수신기들입니다 (이론상 모두 작동함).
@@ -181,7 +186,8 @@ Pixhawk/PX4는 D (이전) 및 S (신규) FrSky 텔레메트리를 지원합니�
 위의 표는 http://www.redsilico.com/frsky-receiver-chart 및 FrSky [제품 문서](https://www.frsky-rc.com/product-category/receivers/)에서 참조하였습니다.
 :::
 
-<span id="ready_made_cable"></span>
+<a id="ready_made_cable"></a>
+
 ## 기성품 케이블
 
 Pixhawk FMUv4와 이전 버전 (Pixracer 제외)의 기성품 케이블은 아래에서 구매가능합니다.
@@ -190,7 +196,8 @@ Pixhawk FMUv4와 이전 버전 (Pixracer 제외)의 기성품 케이블은 아�
   <a href="http://www.craftandtheoryllc.com/telemetry-cable"><img src="../../assets/hardware/telemetry/craft_and_theory_frsky_telemetry_cables.jpg" alt="Craft and Theory에서 케이블 구매"></a>
 
 
-<span id="diy_cables"></span>
+<a id="diy_cables"></a>
+
 ## DIY 케이블
 
 자신만의 어댑터 케이블을 만들 수 있습니다. 자동조종장치에 적합한 커넥터(예 : FMUv3/Pixhawk 2 "The Cube" 및 FMUv4/PixRacer v1 용 *JST-GH 커넥터* 및 DF-13 호환 *PicoBlade 커넥터* 이전 자동 조종 장치의 경우).
@@ -232,7 +239,6 @@ Pixracer FrSky TX 라인 (FS 출력)을 수신기의 RX 라인에 연결합니�
 UART의 TX핀중 하나를 SPort 반전 또는 비반전 핀에 연결하면됩니다 (PX4는 두 유형 중 하나를 자동으로 감지합니다).
 
 
-<span id="pixhawk_v2"></span>
 ### 기타 보드
 
 대부분의 다른 보드는 TELEM2 UART를 통해 FrSky 텔레메트리 수신기에 연결합니다. 여기에는 [Pixhawk 1](../flight_controller/pixhawk.md), [mRo Pixhawk](../flight_controller/mro_pixhawk.md), Pixhawk2 등이 포함됩니다.

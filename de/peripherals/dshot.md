@@ -11,7 +11,8 @@ DShot is an alternative ESC protocol that has several advantages over [PWM](../p
 
 This topic shows how to connect and configure DShot ESCs.
 
-<span id="wiring"></span>
+<a id="wiring"></a>
+
 ## Wiring/Connections
 
 DShot ESC are wired the same way as [PWM ESCs](pwm_escs_and_servo.md). The only difference is that they can only be connected to the FMU, and usually only to some subset of pins.
@@ -37,7 +38,8 @@ DShot comes with different speed options: *DShot150*, *DShot300*, *DShot600* and
 Then connect the battery and arm the vehicle. The ESCs should initialize and the motors turn in the correct directions.
 - If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)) you can reverse them in the UI using the **Set Spin Direction** option (this option appears after you select DShot and assign motors). You can also reverse motors by sending an [ESC Command](#commands).
 
-<span id="commands"></span>
+<a id="commands"></a>
+
 ## ESC Commands
 
 Commands can be sent to the ESC via the [MAVLink shell](../debug/mavlink_shell.md). See [here](../modules/modules_driver.md#dshot) for a full reference of the supported commands.
@@ -45,10 +47,13 @@ Commands can be sent to the ESC via the [MAVLink shell](../debug/mavlink_shell.m
 The most important ones are:
 
 - Make the first motor beep (helps with identifying motors):
+
   ```
   dshot beep1 -m 1
   ```
+
 - Retrieve ESC information (requires telemetry, see below):
+
   ```
   nsh> dshot esc_info -m 2
   INFO  [dshot] ESC Type: #TEKKO32_4in1#
@@ -63,19 +68,26 @@ The most important ones are:
   INFO  [dshot] LED 2: unsupported
   INFO  [dshot] LED 3: unsupported
   ```
+
   - Permanently reverse the spin direction of the first motor:
+
   ```
   dshot reverse -m 1
   dshot save -m 1
   ```
+
   Retrieving ESC information after the `dshot reverse -m 1` command  without the `dshot save -m 1` command will show:
+
   ```
   Rotation Direction: reversed
   ```
+
   after saving it with `dshot save -m 1` command, reversed direction will become new normal direction:
+
   ```
   Rotation Direction: normal
   ```
+
   To change direction again new `dshot reverse -m 1` command needs to be sent.
 
 ## Telemetry

@@ -17,7 +17,6 @@ NXP FMU와 포함된 주변 장치는 FCC/CE/RoHs/REACH 지침을 준수합니�
 이 비행 컨트롤러는 [제조업체에서 지원](../flight_controller/autopilot_manufacturer_supported.md)합니다.
 :::
 
-
 ## 요약
 
 - **메인 FMU 프로세서:**
@@ -32,7 +31,6 @@ NXP FMU와 포함된 주변 장치는 FCC/CE/RoHs/REACH 지침을 준수합니�
 - **GPS:**
   - u-blox Neo-M8N GPS/GLONASS 수신기; 통합 자력계 IST8310
 
-
 이 FMU는 키트로만 제공되며 [Segger Jlink EDU 미니 디버거](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/), DCD-LZ 디버거 어댑터, USB-TTL-3V3 콘솔 케이블, HolyBro GPS 모듈, 배터리 전원 모듈, SDCard 및 케이스, 나사와 스티커를 포함하고 있습니다. 텔레메트리 라디오([HGD-TELEM433](https://www.nxp.com/part/HGD-TELEM433) 및 [HGD-TELEM915](https://www.nxp.com/part/HGD-TELEM915))는 해당 국가에서 사용되는 ISM 대역 주파수와 일치하는 제품을 구매하여야 합니다.
 
 ![RDDRONE-FMUK66 FMU 키트](../../assets/flight_controller/nxp_rddrone_fmuk66/rddrone_fmu66_kit_img_contents.jpg)
@@ -40,7 +38,6 @@ NXP FMU와 포함된 주변 장치는 FCC/CE/RoHs/REACH 지침을 준수합니�
 전원 모듈, GPS, Jlink 또는 USB-TTL-3V3 콘솔 케이블 또는 SDCard를 포함하지 않는 "Lite" 버전 RDDRONE-FMUK66L도 사용할 수 있습니다. [아래로 스크롤하여 FMUK66 구매 페이지의 구매 섹션에서 FMUK66L을 확인하세요.](https://www.nxp.com/design/designs/px4-robotic-drone-fmu-rddrone-fmuk66:RDDRONE-FMUK66#buy)
 
 추가적인 정보는 [기술 데이트시트](https://www.nxp.com/design/designs/px4-robotic-drone-fmu-rddrone-fmuk66:RDDRONE-FMUK66)를 참고하십시오. <!-- www.nxp.com/rddrone-fmuk66 -->
-
 
 ## Where to Buy
 
@@ -52,7 +49,8 @@ NXP FMU와 포함된 주변 장치는 FCC/CE/RoHs/REACH 지침을 준수합니�
   - [HGD-TELEM915](https://www.nxp.com/part/HGD-TELEM915)
 
 :::note
-*RDDRONE-FMUK66* FMU는 전체 HoverGames 드론 키트에도 포함되어 있습니다. [KIT-HGDRONEK66](https://www.nxp.com/applications/solutions/industrial/aerospace-and-mobile-robotics/uavs-drones-and-rovers/nxp-hovergames-drone-kit-including-rddrone-fmuk66-and-peripherals:KIT-HGDRONEK66#buy)
+_RDDRONE-FMUK66_ FMU is also included in the complete HoverGames drone kit: [KIT-HGDRONEK66](https://www.nxp.com/applications/solutions/industrial/aerospace-and-mobile-robotics/uavs-drones-and-rovers/nxp-hovergames-drone-kit-including-rddrone-fmuk66-and-peripherals:KIT-HGDRONEK66#buy)
+:::
 
 <!--
 ## Connectors
@@ -75,14 +73,14 @@ https://nxp.gitbook.io/hovergames
 
 ## 펌웨어 빌드
 
-::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
 이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
+
 ```
 make nxp_fmuk66-v3_default
 ```
-
 
 ## 디버그 포트
 
@@ -114,7 +112,6 @@ DCD-LZ 브레이크아웃 어댑터를 사용하면 표준 10핀 JTAG/SWD 인터
 
 - [HoverGames 온라인 문서](https://nxp.gitbook.io/hovergames) PX4 사용자 및 프로그래밍 가이드, 특정 어셈블리, 구성, 디버깅, 프로그래밍 지침.
 
-- HoverGames 및 RDDRONE-FMUK66을 지원하는 3D 모델은 *Thingiverse*의 검색 링크 [fmuk66](https://www.thingiverse.com/search?q=fmuk66&type=things&sort=relevant), [hovergames](https://www.thingiverse.com/search?q=hovergames&type=things&sort=relevant)을 참고하십시오.
+- 3DModels supporting HoverGames and RDDRONE-FMUK66 can be found on _Thingiverse_ at these search links: [fmuk66](https://www.thingiverse.com/search?q=fmuk66&type=things&sort=relevant), [hovergames](https://www.thingiverse.com/search?q=hovergames&type=things&sort=relevant).
 
 ![HoverGamesDronelogo](../../assets/flight_controller/nxp_rddrone_fmuk66/hovergames_colored_small.png)
-

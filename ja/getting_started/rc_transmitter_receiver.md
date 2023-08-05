@@ -23,7 +23,8 @@ An aircraft must use a system that supports at least 4 channels (for roll, pitch
 
 ## RCシステムの種別
 
-<span id="transmitter_modes"></span>
+<a id="transmitter_modes"></a>
+
 ### Remote Control Units for Aircraft
 
 The most popular *form* of remote control unit for UAVs is shown below. It has separate control sticks for controlling roll/pitch and for throttle/yaw as shown (i.e. aircraft need at least 4 channels).
@@ -66,7 +67,8 @@ Other popular transmitter/receiver pairs
 * 433MHz帯を用いた長距離システム： ImmersionRC EzUHF セットを互換送信機(例：Taranis) と組み合わせたもの。
 
 
-<span id="compatible_receivers"></span>
+<a id="compatible_receivers"></a>
+
 ### PX4-Compatible Receivers
 
 In addition to the transmitter/receiver pairs being compatible, the receiver must also be compatible with PX4 and the flight controller hardware.
@@ -99,7 +101,8 @@ Instructions for connecting to specific flight controllers are given in the foll
 See the manufacturer's flight controller setup guide for additional information.
 :::
 
-<span id="binding"></span>
+<a id="binding"></a>
+
 ## Binding Transmitter/Receiver
 
 Before you can calibrate/use a radio system you must *bind* the receiver and transmitter so that they communicate only with each other. The process for binding a transmitter and receiver pair is hardware specific (see your manual for instructions).

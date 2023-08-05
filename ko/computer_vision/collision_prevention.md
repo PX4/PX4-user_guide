@@ -35,16 +35,17 @@ PX4 소프트웨어 설정은 다음 섹션에서 다룹니다. 충돌 방지를
 
 *QGroundControl*에서 [다음 매개 변수를 설정](../advanced_config/parameters.md)하여 충돌 방지를 설정합니다.
 
-| 매개변수                                                                                                       | 설명                                                                                                                                          |
-| ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="CP_DIST"></span>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)                     | 최소 허용 거리 (기체가 장애물에 접근할 수있는 가장 가까운 거리)를 설정합니다. *충돌 방지*를 비활성화하려면 음수로 설정하십시오. **Warning** 이 값은 기체 또는 프로펠러 외부가 아닌 센서까지의 거리입니다. 충분한 거리를 남겨 두십시오! |
-| <span id="CP_DELAY"></span>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)                  | 센서 및 속도 설정점 추적 지연을 설정합니다. 아래의 [지연 조정](#delay_tuning)을 참조하십시오.                                                                               |
-| <span id="CP_GUIDE_ANG"></span>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)    | 해당 방향에서 장애물이 적을 경우 기체가 이탈할 수있는 각도 (명령된 방향의 양쪽으로)를 설정합니다. 아래의 [가이던스 튜닝](#angle_change_tuning)을 참조하십시오.                                       |
-| <span id="CP_GO_NO_DATA"></span>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | 기체가 센서 범위 외부의 방향으로 이동할 수 있도록 하려면 1로 설정합니다 (기본값은 0/`False`).                                                                                 |
-| <span id="MPC_POS_MODE"></span>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)    | Set to 0 or 3 to enable Collision Prevention in Position Mode (default is 4).                                                               |
+| 매개변수                                                                                                | 설명                                                                                                                                          |
+| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="CP_DIST"></a>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)               | 최소 허용 거리 (기체가 장애물에 접근할 수있는 가장 가까운 거리)를 설정합니다. *충돌 방지*를 비활성화하려면 음수로 설정하십시오. **Warning** 이 값은 기체 또는 프로펠러 외부가 아닌 센서까지의 거리입니다. 충분한 거리를 남겨 두십시오! |
+| <a id="CP_DELAY"></a>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)             | 센서 및 속도 설정점 추적 지연을 설정합니다. 아래의 [지연 조정](#delay_tuning)을 참조하십시오.                                                                               |
+| <a id="CP_GUIDE_ANG"></a>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)   | 해당 방향에서 장애물이 적을 경우 기체가 이탈할 수있는 각도 (명령된 방향의 양쪽으로)를 설정합니다. 아래의 [가이던스 튜닝](#angle_change_tuning)을 참조하십시오.                                       |
+| <a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | 기체가 센서 범위 외부의 방향으로 이동할 수 있도록 하려면 1로 설정합니다 (기본값은 0/`False`).                                                                                 |
+| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)   | Set to 0 or 3 to enable Collision Prevention in Position Mode (default is 4).                                                               |
 
 
-<span id="algorithm"></span>
+<a id="algorithm"></a>
+
 ## 알고리즘 설명
 
 모든 센서의 데이터는 기체 주변의 36 개 섹터의 내부 표현으로 통합되며, 각 섹터에는 센서 데이터와 마지막 관찰 시점에 대한 정보 또는 해당 섹터에 대한 데이터를 사용할 수 없다는 표시가 포함됩니다. 기체가 특정 방향으로 이동하도록 명령을 받으면, 해당 방향의 반구에있는 모든 섹터를 확인하여 이동으로 인하여 기체가 장애물에 더 가까워 지는지 확인합니다. 그러한 경우에는, 차량 속도가 제한됩니다.
@@ -60,7 +61,8 @@ PX4 소프트웨어 설정은 다음 섹션에서 다룹니다. 충돌 방지를
 명령된 섹터에 인접한 섹터가 상당한 여백 만큼 '더 나은' 경우, 요청된 입력 방향은 [CP_GUIDE_ANG](#CP_GUIDE_ANG)에 지정된 각도까지 수정할 수 있습니다. 이는 장애물에 걸리지 않고 장애물 주변으로 차량을 '안내'하기 위하여 사용자 입력을 미세 조정하는 데 도움이 됩니다.
 
 
-<span id="data_loss"></span>
+<a id="data_loss"></a>
+
 ### 범위 데이터 손실
 
 자동항법장치가 0.5 초 이상 센서로부터 범위 데이터를 수신하지 못하면 *수신된 범위 데이터 없음, 이동 허용 없음* 경고 메시지를 출력합니다. 이렇게하면 xy의 속도 설정값이 0이 됩니다. 5초 동안 데이터를 수신하지 않으면 기체는 [유지 모드](../flight_modes/hold.md)로 전환됩니다. 기체가 다시 움직일 수 있도록 하려면 매개 변수 [CP_DIST](#CP_DIST)를 음수로 설정하거나 [위치 모드](../flight_modes/position_mc.md) 이외의 모드(예 : *고도 모드* 또는 *안정화 모드*)로 전환하여 충돌 방지를 비활성화하여야 합니다.
@@ -71,7 +73,8 @@ PX4 소프트웨어 설정은 다음 섹션에서 다룹니다. 충돌 방지를
 [CP_GO_NO_DATA = 1](#CP_GO_NO_DATA)을 활성화시에는 주의하여야 합니다. 간혹, 기체가 센서 범위 외부로 벗어날 수 있습니다. 여러 센서 중 하나라도 연결이 끊어지면 결함이있는 센서의 영역이 무시되어, 제약없이 이동할 수 있습니다.
 :::
 
-<span id="delay_tuning"></span>
+<a id="delay_tuning"></a>
+
 ### CP_DELAY 지연 튜닝
 
 고려해야 할 두 가지 주요 지연 원인은 *센서 지연*과 기체 *속도 설정점 추적 지연*입니다. 두 지연 소스 모두 [CP_DELAY](#CP_DELAY) 매개변수를 사용하여 튜닝됩니다.
@@ -84,7 +87,8 @@ PX4 소프트웨어 설정은 다음 섹션에서 다룹니다. 충돌 방지를
 장애물에 접근시 기체 속도가 진동하면 (즉, 감속, 가속, 감속), 지연이 너무 높게 설정됩니다.
 :::
 
-<span id="angle_change_tuning"></span>
+<a id="angle_change_tuning"></a>
+
 ### CP_GUIDE_ANG 가이던스 튜닝
 
 차량, 환경 유형 및 조종사의 기술에 따라 각기 다른 가이던스가 필요할 수 있습니다. [CP_GUIDE_ANG](#CP_GUIDE_ANG) 매개 변수를 0으로 설정하면 안내가 비활성화되어 기체가 명령된 방향으로만 정확하게 이동합니다. 이 매개 변수를 높이면 기체가 장애물을 피할 수 있는 최적의 방향을 선택할 수 있으므로 좁은 틈새를 더 쉽게 통과하고 물체를 돌아 다니는 동안 최소 거리를 정확하게 유지할 수 있습니다.
@@ -96,7 +100,8 @@ PX4 소프트웨어 설정은 다음 섹션에서 다룹니다. 충돌 방지를
 단 하나의 거리 센서만 전방을 향하고 있는 상태에서 기체가 '고착'된 느낌이 드는 경우, 이는 정보 부족으로 인하여 가이던스가 방향을 안전하게 조정할 수 없기 때문일 수 있습니다.
 :::
 
-<span id="rangefinder"></span>
+<a id="rangefinder"></a>
+
 ## PX4 거리 센서
 
 작성 시점에 PX4를 사용하면 최소한의 추가 설정으로 충돌 방지용으로 [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) IR 거리 센서를 사용할 수 있습니다.
@@ -113,7 +118,8 @@ PX4 소프트웨어 설정은 다음 섹션에서 다룹니다. 충돌 방지를
 [기능 PR](https://github.com/PX4/PX4-Autopilot/pull/12179)에서 필요한 수정 사항을 확인할 수 있습니다. 변경 사항에 기여하여 주십시오!
 :::
 
-<span id="companion"></span>
+<a id="companion"></a>
+
 ## 보조 컴퓨터 설정
 
 보조 컴퓨터 또는 외부 센서를 사용하는 경우 장애물이 감지된 시기와 위치를 반영하는 [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) 메시지 스트림을 제공하여야 합니다.

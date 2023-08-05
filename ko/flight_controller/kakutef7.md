@@ -3,7 +3,7 @@
 :::warning PX4에서는 이 제품을 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-Holybro의 *Kakute F7*은 레이서를 위해 설계된 비행 컨트롤러입니다.
+The _Kakute F7_ from Holybro is a flight controller board designed for racers.
 
 <img src="../../assets/flight_controller/kakutef7/board.jpg" width="400px" title="Kakute F7" />
 
@@ -13,35 +13,34 @@ Holybro의 *Kakute F7*은 레이서를 위해 설계된 비행 컨트롤러입�
 
 ## 주요 특징
 
-* 메인 시스템 온칩: [STM32F745VGT6](https://www.st.com/en/microcontrollers-microprocessors/stm32f745vg.html)
-  * CPU : 단정밀도 FPU의 216MHz ARM Cortex M7
-  * RAM : 320KB SRAM
-  * FLASH: 1 MB
-* 표준 레이서 폼 팩터 : 36x36mm, 표준 30.5mm 구멍 패턴
-* ICM20689 가속/자이로 (소프트 장착)
-* BMP280 기압계
-* microSD (로깅)
-* 6개의 UART
-* I2C 버스 1 개
-* 6 PWM 출력
-* 내장 OSD 칩(SPI를 통한 AB7456)
-
+- 메인 시스템 온칩: [STM32F745VGT6](https://www.st.com/en/microcontrollers-microprocessors/stm32f745vg.html)
+  - CPU : 단정밀도 FPU의 216MHz ARM Cortex M7
+  - RAM : 320KB SRAM
+  - FLASH: 1 MB
+- 표준 레이서 폼 팩터 : 36x36mm, 표준 30.5mm 구멍 패턴
+- ICM20689 가속/자이로 (소프트 장착)
+- BMP280 기압계
+- microSD (로깅)
+- 6개의 UART
+- I2C 버스 1 개
+- 6 PWM 출력
+- 내장 OSD 칩(SPI를 통한 AB7456)
 
 ## 구매처
 
 보드는 아래의 상점들에서 구매할 수 있습니다.
+
 - [getfpv](https://www.getfpv.com/holybro-kakute-f7-tekko32-f3-metal-65a-4-in-1-esc-combo.html)
 
 :::tip
-*Kakute F7*은 *Tekko32* 4-in-1 ESC와 작동하도록 설계되었으며, 함께 구매할 수 있습니다.
+The _Kakute F7_ is designed to work with the _Tekko32_ 4-in-1 ESC and they can be bought in combination.
 :::
 
 ## 커넥터 및 핀
 
-다음은 *Kakute F7*의 실크 스크린으로, 보드 상단을 보여줍니다.
+This is the silkscreen for the _Kakute F7_, showing the top of the board:
 
 ![Kakute F7 실크스크린](../../assets/flight_controller/kakutef7/silk.png)
-
 
 | 핀        | 기능                                                | 기본값          |
 | -------- | ------------------------------------------------- | ------------ |
@@ -65,15 +64,16 @@ Holybro의 *Kakute F7*은 레이서를 위해 설계된 비행 컨트롤러입�
 | RSI      | 수신기에서 아날로그 RSSI(0-3.3V) 입력                        |              |
 | Boot     | 부트로더 버튼                                           |              |
 
+<a id="bootloader"></a>
 
-<span id="bootloader"></span>
 ## 부트로더 업데이트
 
-보드에는 [Betaflight](https://github.com/betaflight/betaflight/wiki)가 사전 설치되어 있습니다. PX4 펌웨어를 설치하기 전에 *PX4 부트 로더*를 플래시하여야 합니다. [kakutef7_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/kakutef7/kakutef7_bl_0b3fbe2da0.hex) 부트로더 바이너리를 다운로드하고 [이 페이지](../advanced_config/bootloader_update_from_betaflight.md)에서 플래시 방법을 참고하십시오.
+보드에는 [Betaflight](https://github.com/betaflight/betaflight/wiki)가 사전 설치되어 있습니다. Before PX4 firmware can be installed, the _PX4 bootloader_ must be flashed. [kakutef7_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/kakutef7/kakutef7_bl_0b3fbe2da0.hex) 부트로더 바이너리를 다운로드하고 [이 페이지](../advanced_config/bootloader_update_from_betaflight.md)에서 플래시 방법을 참고하십시오.
 
 ## 펌웨어 빌드
 
 이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
+
 ```
 make holybro_kakutef7_default
 ```
@@ -81,12 +81,12 @@ make holybro_kakutef7_default
 ## 펌웨어 설치
 
 펌웨어는 일반적인 방법으로 설치할 수 있습니다.
+
 - 소스 빌드 및 업로드
   ```
   make holybro_kakutef7_default upload
   ```
-- *QGroundControl*을 사용하여 [펌웨어를 로드](../config/firmware.md)합니다. 미리 빌드된 펌웨어나 사용자 지정 펌웨어를 사용할 수 있습니다.
-
+- [Load the firmware](../config/firmware.md) using _QGroundControl_. 미리 빌드된 펌웨어나 사용자 지정 펌웨어를 사용할 수 있습니다.
 
 ## 설정
 
@@ -97,7 +97,6 @@ If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment you can use
 | 매개변수                                                                   | 설정                                                         |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | 보드에 내부 자력계가 없기 때문에 비활성화하여야 합니다. 외부 자력계를 연결하여 활성화 할 수 있습니다. |
-
 
 ## 시리얼 포트 매핑
 
@@ -120,7 +119,8 @@ UART3 RX와 TX는 [시스템 콘솔](../debug/system_console.md)을 사용하도
 
 ### SWD
 
-[SWD 인터페이스](../debug/swd_debug.md)(JTAG) 핀은 아래와 같습니다.
+The [SWD interface](../debug/swd_debug.md) (JTAG) pins are:
+
 - `SWCLK`: 테스트 포인트 2(CPU의 핀 72)
 - `SWDIO`: 테스트 포인트 3(CPU의 핀 76)
 - `GND`: 보드에 표시됨.

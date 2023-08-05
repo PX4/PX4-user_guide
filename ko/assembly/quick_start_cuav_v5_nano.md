@@ -107,7 +107,8 @@ V5 nano키트에는 2~14S LiPo 배터리를 지원하는 *HV\ _PM* 모듈이 포
 ![퀵 스타트](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_07.png)
 
 
-<span id="sd_card"></span>
+<a id="sd_card"></a>
+
 ## SD 카드(선택 사항)
 
 An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory) is inserted in the factory (you do not need to do anything).

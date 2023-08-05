@@ -149,7 +149,7 @@ For example, you might wire it up like this example (orientation as if "sitting 
 | AUX 5  | 스로틀              |
 
 
-<span id="dropix_back"></span>
+<a id="dropix_back"></a>
 
 #### 비행 컨트롤러 연결 : 모터, 서보, RC 수신기, 전류 센서
 
@@ -168,7 +168,7 @@ For example, you might wire it up like this example (orientation as if "sitting 
 1. 수신기를 RC IN에 연결합니다.
 
 
-<span id="dropix_front"></span>
+<a id="dropix_front"></a>
 
 #### 비행 컨트롤러 연결 : 원격 측정, 대기 속도 센서, GPS, 부저 및 안전 스위치
 
@@ -228,7 +228,8 @@ It is important that nothing obstructs airflow to the Pitot tube. 이것은 고�
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_51_telemetry_module_mounting.jpg" width="500px" title="원격 측정 모듈 장착" />
 
 
-<span id="compass_gps"></span>
+<a id="compass_gps"></a>
+
 #### GPS / 나침반 모듈
 
 GPS / 나침반 모듈은 기본 방향으로 날개에 이미 장착되어 있습니다. 이를 위해 추가 작업을 할 필요가 없습니다!
@@ -236,7 +237,8 @@ GPS / 나침반 모듈은 기본 방향으로 날개에 이미 장착되어 있�
 <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_gps_compass.jpg" width="500px" title="GPS/나침반" />
 
 
-<span id="flight_controller_orientation"></span>
+<a id="flight_controller_orientation"></a>
+
 #### 비행 컨트롤러 장착 및 방향 설정
 
 1. 비행 컨트롤러 방향을 270도로 설정합니다.
@@ -290,7 +292,4 @@ If necessary the servo direction can be reversed using the `Rev Range (for servo
 
 ## 지원
 
-참고:
-
-
-
+If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.

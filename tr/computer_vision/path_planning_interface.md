@@ -34,7 +34,8 @@ Only one planner can run on the companion computer at a time (at time of writing
 This means that offboard features that use different planners cannot be enabled on the same vehicle. a vehicle at the same time (e.g. a vehicle can support obstacle avoidance and collision prevent, but not also safe landing - or visa versa).
 :::
 
-<span id="waypoint_interface"></span>
+<a id="waypoint_interface"></a>
+
 ## Trajectory Interface
 
 PX4 sends information about the *desired path* to the companion computer (when `COM_OBS_AVOID=1`, in _auto_ modes), and receives back a stream of setpoints for the *planned path* from the path planning software.
@@ -47,7 +48,8 @@ Path planner software sends back setpoints for the *planned path* using either `
 Route planning software should not mix these interfaces while executing a task (PX4 will use the last received message of either type).
 :::
 
-<span id="px4_waypoint_interface"></span>
+<a id="px4_waypoint_interface"></a>
+
 ### PX4 Waypoint Interface
 
 PX4 sends the desired path in [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages at 5Hz.
@@ -78,13 +80,16 @@ The fields set by PX4 as shown:
   - `command[2]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the next waypoint.
 - All other indices/fields are set as NaN.
 
-<span id="type_adapted"></span> Notes:
+<a id="type_adapted"></a>
+
+Notes:
 - Point 0 is the current waypoint/target modified based on the type of target. For example, it makes sense when landing to specify the target x, y coordinates and a descent velocity. To achieve this `FlightTaskAutoMapper` modifies land waypoints in Point 0 to set the z component of position to NAN and the z-velocity to a desired value.
 - Point 1 and 2 are not used by the safe landing planner.
 - Point 1 is used by local and global planner.
 
 
-<span id="companion-failure-handling"></span>
+<a id="companion-failure-handling"></a>
+
 #### Handling of Companion Failure
 
 PX4 safely handles the case where messages are not received from the offboard system:
@@ -101,7 +106,8 @@ PX4 safely handles the case where messages are not received from the offboard sy
   - If the execution time of the last-supplied bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes/hold.md)).
 
 
-<span id="companion_waypoint_interface"></span>
+<a id="companion_waypoint_interface"></a>
+
 ## Companion Waypoint Interface
 
 The path planning software (running on the companion computer) *may* send the planned path to PX4 as a stream of [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages that have the setpoint in Point 0.
@@ -123,7 +129,8 @@ A planner that implements this interface must:
 - Mirror back setpoints it receives when it doesn't support planning for the current vehicle state (e.g. the local planner would mirror back messages sent during safe landing, because it does not support Land mode).
 
 
-<span id="bezier_interface"></span>
+<a id="bezier_interface"></a>
+
 ## Companion Bezier Trajectory Interface
 
 The path planning software (running on the companion computer) *may* send the planned path to PX4 as a stream of [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) messages.
