@@ -12905,7 +12905,7 @@ table {
  <td><strong id="ATT_ACC_COMP">ATT_ACC_COMP</strong> (INT32)</td>
  <td>Acceleration compensation based on GPS velocity    </td>
  <td></td>
- <td>Enabled (1)</td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -22194,6 +22194,24 @@ table {
  <td>[0, 4194303] </td>
  <td>16383</td>
  <td></td>
+</tr>
+</tbody></table>
+
+## PCA9685
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="PCA9685_RATE">PCA9685_RATE</strong> (FLOAT)</td>
+ <td>PWM frequency for PCA9685 <p><strong>Comment:</strong> Update rate at which the PWM signal is sent to the ESC.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[50, 450] (0.1)</td>
+ <td>50</td>
+ <td>Hz</td>
 </tr>
 </tbody></table>
 
