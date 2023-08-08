@@ -22165,6 +22165,24 @@ table {
 </tr>
 </tbody></table>
 
+## PCA9685
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="PCA9685_RATE">PCA9685_RATE</strong> (FLOAT)</td>
+ <td>PWM frequency for PCA9685 <p><strong>Comment:</strong> Update rate at which the PWM signal is sent to the ESC.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[50, 450] (0.1)</td>
+ <td>50</td>
+ <td>Hz</td>
+</tr>
+</tbody></table>
+
 ## PWM Outputs
 
 <table>
