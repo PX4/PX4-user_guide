@@ -4242,7 +4242,7 @@
     },
     {
       "category": "Standard",
-      "default": 1,
+      "default": 0,
       "group": "Attitude Q estimator",
       "name": "ATT_ACC_COMP",
       "shortDesc": "Acceleration compensation based on GPS velocity",
