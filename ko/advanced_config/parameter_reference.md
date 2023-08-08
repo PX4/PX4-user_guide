@@ -12873,7 +12873,7 @@ table {
  <td><strong id="ATT_ACC_COMP">ATT_ACC_COMP</strong> (INT32)</td>
  <td>Acceleration compensation based on GPS velocity    </td>
  <td></td>
- <td>Enabled (1)</td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
