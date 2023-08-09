@@ -55,8 +55,13 @@ At high level all vehicle types behave in the same way when MISSION mode is enga
    :::
 
 Missions can be paused by activating [HOLD mode](../flight_modes/hold.md).
-The mission will then continue from the current mission command when you reactivate the MISSION flight mode.
-While flying in mission mode, if you decide to discontinue the mission and switch to any other mode e.g. position mode, fly the vehicle elsewhere with RC, and then switch back to mission mode, the vehicle will continue the mission from its current position and will fly to the next mission waypoint not visited yet.
+In this state (or any mode except for MISSION) a new mission plan can be uploaded to the vehicle.
+On resuming the mission, the vehicle will continue from its current position and will fly to the waypoint that's marked as "currently active".
+Uploading a mission will reset the "currently active" waypoint to the first waypoint of the mission.
+Further, if the vehicle was doing a survey mission before stopping it (with camera trigger items), the "currently active" waypoint is reset to one waypoint before to
+ensure that all of the survey path has camera coverage.
+Camera configuration settings and vehicle speed setpoint settings are also stored in mission items as they can be configured to change within a mission.
+Upon resuming a mission the last camera and speed settings from the already flown part of the mission are automatically applied. 
 
 :::warning
 Ensure that the throttle stick is non-zero before switching to any RC mode (otherwise the vehicle will crash).
