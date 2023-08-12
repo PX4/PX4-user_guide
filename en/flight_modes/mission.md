@@ -63,9 +63,9 @@ A mission can be uploaded while the vehicle is paused, in which which case the c
 
 :::note
 When a mission is paused while the camera on the vehicle was triggering, PX4 sets the current active mission item to the previous waypoint, so that when the mission is restarted the vehicle will retrace its last mission leg.
-
 In addition, PX4 stores the last applied mission items for speed setting and camera triggering (from the already covered mission plan), and re-applies those settings on resuming the mission.
 :::
+
 
 :::warning
 Ensure that the throttle stick is non-zero before switching to any RC mode (otherwise the vehicle will crash).
