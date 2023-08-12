@@ -105,7 +105,7 @@ If moving in the horizontal plane the vehicle will continue until any momentum i
 If the wind blows the aircraft will drift in the direction of the wind.
 
 :::tip
-*Attitude mode* is the safest non-GPS manual mode for new fliers. It is just like [Manual/Stabilized](#manual_stabilized_mc) mode but additionally stabilizes the vehicle altitude when the sticks are released.
+*Altitude mode* is the safest non-GPS manual mode for new fliers. It is just like [Manual/Stabilized](#manual_stabilized_mc) mode but additionally stabilizes the vehicle altitude when the sticks are released.
 :::
 
 ![MC Altitude Mode](../../assets/flight_modes/altitude_MC.png)
