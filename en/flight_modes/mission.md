@@ -66,7 +66,6 @@ When a mission is paused while the camera on the vehicle was triggering, PX4 set
 In addition, PX4 stores the last applied mission items for speed setting and camera triggering (from the already covered mission plan), and re-applies those settings on resuming the mission.
 :::
 
-
 :::warning
 Ensure that the throttle stick is non-zero before switching to any RC mode (otherwise the vehicle will crash).
 We recommend you centre the control sticks before switching to any other mode.
