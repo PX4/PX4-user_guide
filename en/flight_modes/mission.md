@@ -54,14 +54,17 @@ At high level all vehicle types behave in the same way when MISSION mode is enga
    Enter the time to wait after landing before disarming the vehicle.
    :::
 
-Missions can be paused by activating [HOLD mode](../flight_modes/hold.md).
-In this state (or any mode except for MISSION) a new mission plan can be uploaded to the vehicle.
-On resuming the mission, the vehicle will continue from its current position and will fly to the waypoint that's marked as "currently active".
-Uploading a mission will reset the "currently active" waypoint to the first waypoint of the mission.
-Further, if the vehicle was doing a survey mission before stopping it (with camera trigger items), the "currently active" waypoint is reset to one waypoint before to
-ensure that all of the survey path has camera coverage.
-Camera configuration settings and vehicle speed setpoint settings are also stored in mission items as they can be configured to change within a mission.
-Upon resuming a mission the last camera and speed settings from the already flown part of the mission are automatically applied. 
+Missions can be paused by switching out of mission mode to any other mode (such as [Hold mode](../flight_modes/hold.md) or [Position mode](../flight_modes/position_mc.md)), and resumed by switching back to mission mode.
+If the vehicle does not have camera trigger items, it will head from its _current position_ towards the same waypoint as it as was heading towards originally.
+If the vehicle has camera trigger items it will head from its current position towards the last waypoint it travelled through before pausing, and then retrace its path at the same speed and with the same camera triggering behaviour.
+This ensures that in survey/camera missions the planned path is captured.
+A mission can be uploaded while the vehicle is paused, in which which case the current active mission item is set to 1.
+
+:::note
+When a mission is paused while the camera on the vehicle was triggering, PX4 sets the current active mission item to the previous waypoint, so that when the mission is restarted the vehicle will retrace its last mission leg.
+
+In addition, PX4 stores the last applied mission items for speed setting and camera triggering (from the already covered mission plan), and re-applies those settings on resuming the mission.
+:::
 
 :::warning
 Ensure that the throttle stick is non-zero before switching to any RC mode (otherwise the vehicle will crash).
