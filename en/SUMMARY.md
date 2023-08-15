@@ -80,6 +80,7 @@
   * [Helicopter (experimental)](frames_helicopter/README.md)
     * [Helicopter Config/Tuning](config_heli/README.md)
   * [Rovers (experimental)](frames_rover/README.md)
+    * [Cyber Rover](frames_rover/cyber_rover.md)
     * [Traxxas Stampede](frames_rover/traxxas_stampede.md)
   * [Submarines (experimental)](frames_sub/README.md)
     * [BlueROV2](frames_sub/bluerov2.md)
