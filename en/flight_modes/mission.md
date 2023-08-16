@@ -1,12 +1,12 @@
 # Mission Mode
 
-[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="Global position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 *Mission mode* causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller. 
 The mission is typically created and uploaded with a Ground Control Station (GCS) application like [QGroundControl](https://docs.qgroundcontrol.com/master/en/) (QGC).
 
 :::note
-- This mode requires 3d position information (e.g. GPS).
+- This mode requires a global 3d position estimate (from GPS or a [local position](#missions-using-a-local-position-estimate)).
 - The vehicle must be armed before this mode can be engaged.
 - This mode is automatic - no user intervention is *required* to control the vehicle.
 - RC control switches can be used to change flight modes on any vehicle.
@@ -379,3 +379,12 @@ During mission execution the vehicle will ascend vertically to the minimum takeo
 After transitioning the vehicle heads towards the 3D position defined in the mission item.
 
 A VTOL mission requires a `VTOL Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint.
+
+## Missions using a Local Position Estimate
+
+[Mission mode](../flight_modes/mission.md) requires a _global_ position estimate, which would normally come from a GPS/GNSS positioning system.
+
+Vehicles that only have a _local_ position estimate (say, from [Motion Capture (MOCAP)](../advanced/computer_vision.md#motion-capture) or [Visual Inertial Odometry (VIO)](../advanced/computer_vision.md#visual-inertial-odometry-vio)) can still plan and execute missions, by setting the GPS origin.
+This forces EKF to provide a global position estimate based on the origin and the local position estimate.
+
+The global origin may be set using the [SET_GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#SET_GPS_GLOBAL_ORIGIN) MAVLink message.
