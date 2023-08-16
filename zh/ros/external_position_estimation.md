@@ -129,6 +129,12 @@ MAVROS 具有插件，可使用以下管道从 VIO 或 MOCAP 系统中继可视�
 If performance is still poor, try increasing the [LPE_PN_V](../advanced_config/parameter_reference.md#LPE_PN_V) parameter. This will cause the estimator to trust measurements more during velocity estimation.
 :::
 
+## Planning/Executing Missions
+
+[Mission mode](../flight_modes/mission.md) _requires_ a global position estimate.
+
+Systems that only have a local position estimate (from MOCAP, VIO, or similar) can use the [SET_GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#SET_GPS_GLOBAL_ORIGIN) MAVLink message to set the origin of the EKF to a particular GPS location. EKF will then provide a global position estimate (based on origin and local frame position), which can be used to plan and execute missions.
+
 ## 使用 ROS
 
 ROS is not *required* for supplying external pose information, but is highly recommended as it already comes with good integrations with VIO and MoCap systems. PX4 must already have been set up as above.
