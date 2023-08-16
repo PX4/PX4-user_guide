@@ -1,4 +1,4 @@
-# 시동 전, 시동, 제동 구성
+# Arm, Disarm, Prearm Configuration
 
 기체에는 움직이는 부품이 있으며, 그 중에는 특히 모터와 프로펠러는 전원 공급시 위험할 수 있습니다.
 
@@ -88,6 +88,32 @@ The switch can also be set as part of _QGroundControl_ [Flight Mode](../config/f
 | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
 | <a id="COM_DISARM_LAND"></a>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | 착륙후 자동 시동 해제 대기 시간. 기본값: 2s (-1 비활성화).                       |
 | <a id="COM_DISARM_PRFLT"></a>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | 이륙 속도가 너무 느리면 자동 시동 해제 시간이 초과됩니다. 기본값: 10s (<=0 to disable). |
+
+## Pre-Arm Checks
+
+To reduce accidents, vehicles are only allowed to arm certain conditions are met. Arming is prevented if:
+
+- The vehicle is not in a "healthy" state. For example it is not calibrated, or is reporting sensor errors.
+- The vehicle has a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch) that has not been engaged.
+- The vehicle has a [remote ID](../peripherals/remote_id.md) that is unhealthy or otherwise not ready
+- A VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
+- The current mode requires an adequate global position estimate but the vehicle does not have GPS lock.
+- Many more ...
+
+The current failed checks can be viewed in QGroundControl (v4.2.0 and later): [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#arm).
+
+Note that internally PX4 runs arming checks at 10Hz. A list of the failed checks is kept, and if the list changes PX4 emits the current list using the [Events interface](../concept/events_interface.md). The list is also sent out when the GCS connects. Effectively the GCS knows the status of prearm checks immediately, both when disarmed and armed.
+
+:::details
+Implementation notes for developers The client implementation is in [libevents](https://github.com/mavlink/libevents):
+
+- [libevents > Event groups](https://github.com/mavlink/libevents#event-groups)
+- [health_and_arming_checks.h](https://github.com/mavlink/libevents/blob/main/libs/cpp/parse/health_and_arming_checks.h)
+
+QGC implementation: [HealthAndArmingCheckReport.cc](https://github.com/mavlink/qgroundcontrol/blob/master/src/Vehicle/HealthAndArmingCheckReport.cc).
+:::
+
+PX4 also emits a subset of the arming check information in the [SYS_STATUS](https://mavlink.io/en/messages/common.html#SYS_STATUS) message (see [MAV_SYS_STATUS_SENSOR](https://mavlink.io/en/messages/common.html#MAV_SYS_STATUS_SENSOR)).
 
 ## 시동 절차: 시동전 상태와 안전 버튼
 
