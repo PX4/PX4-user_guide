@@ -155,17 +155,15 @@ Pixhawk 飞控板支持的最大 SD 卡大小为 32 GB 。 The _SanDisk Extreme 
 
 ## 解锁和加锁
 
-载具可能有可动部件的，其中一些在通电后会有一定的危险性（特别是电机和螺旋桨）！
+A vehicle is said to be _armed_ when all motors and actuators are powered, and _disarmed_ when nothing is powered. There is also a _prearmed_ state when only actuators are powered.
 
-To reduce accidents, vehicles should be armed (motors and actuators powered) as little as possible when the vehicle is on the ground.
-
-Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/yaw stick on the _bottom right_ for one second (to disarm, hold stick on bottom left). 还可以使用遥控上的按钮来配置 PX4 解锁（也可以从地面站发送MAVLink解锁命令）。
-
-:::tip
-Sometimes a vehicle will not arm for reasons that are not obvious. QGC v4.2.0 (Daily build at time of writing) and later provide an arming check report in [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#arm). From PX4 v1.14 this provides comprehensive information about arming problems along with possible solutions.
+:::warning
+Armed vehicles can be dangerous as propellors will be spinning.
 :::
 
-By default, vehicles are:
+Arming is triggered by default (on Mode 2 transmitters) by holding the RC throttle/yaw stick on the _bottom right_ for one second (to disarm, hold stick on bottom left). 还可以使用遥控上的按钮来配置 PX4 解锁（也可以从地面站发送MAVLink解锁命令）。
+
+To reduce accidents, vehicles should be armed as little as possible when the vehicle is on the ground. By default, vehicles are:
 
 - _Disarmed_ or _Prearmed_ (motors unpowered) when not in use, and must be explicitly _armed_ before taking off.
 - Automatically disarm/prearm if the vehicle does not take off quickly enough after arming (the disarm time is configurable).
@@ -176,6 +174,9 @@ By default, vehicles are:
 
 When prearmed you can still use actuators, while disarming unpowers everything. Prearmed and disarmed should both safe, and a particular vehicle may support either or both.
 
+:::tip
+Sometimes a vehicle will not arm for reasons that are not obvious. QGC v4.2.0 (Daily build at time of writing) and later provide an arming check report in [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#arm). From PX4 v1.14 this provides comprehensive information about arming problems along with possible solutions.
+:::
 
 
 更详细的解锁和加锁的配置的解读可以在这里找到：[预解锁，解锁，加锁配置](../advanced_config/prearm_arm_disarm.md)。

@@ -96,7 +96,7 @@ Multicopter/Helicopter:
 스틱을 놓거나 중앙에 놓으면, 기체는 수평과 현재 *고도*를 유지합니다. 수평면에서 이동하는 경우에는 기체는 바람 저항에 의해 모멘텀이 소실될 때까지 이동합니다. 바람이 불면, 기체는 바람을 따라 표류합니다.
 
 :::tip
-*고도 모드*는 초보 비행자에게 가장 안전한 비 GPS 수동 모드입니다. [수동/안정화](#manual_stabilized_mc) 모드와 유사하지만, 스틱을 놓으면 차량 고도가 일정하게 유지됩니다.
+*Altitude mode* is the safest non-GPS manual mode for new fliers. [수동/안정화](#manual_stabilized_mc) 모드와 유사하지만, 스틱을 놓으면 차량 고도가 일정하게 유지됩니다.
 :::
 
 ![멀티콥터 고도 모드](../../assets/flight_modes/altitude_MC.png)

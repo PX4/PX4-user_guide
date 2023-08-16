@@ -2,7 +2,7 @@
 
 :::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. 하드웨어 지원이나 호환 문제는 [제조사](https://cubepilot.org/#/home)에 문의하십시오.
 
-[Cube Black](../flight_controller/pixhawk-2.md)은 [PX4](../flight_controller/autopilot_pixhawk_standard.md)에서 지원하지만, [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) 및 [Cube Orange ](../flight_controller/cubepilot_cube_orange.md)에 대한 지원은  [테스트](../flight_controller/autopilot_experimental.md) 단계입니다.
+Note also that while [Cube Black](../flight_controller/pixhawk-2.md) is [fully supported by PX4](../flight_controller/autopilot_pixhawk_standard.md), [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) and [Cube Orange](../flight_controller/cubepilot_cube_orange.md) are [Manufacturer Supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 *Cube*<sup>&reg;</sup> 비행 콘트롤러의 전원 공급 방법과 주요 주변 장치 연결방법에 대하여 설명합니다.

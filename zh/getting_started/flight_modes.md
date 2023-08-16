@@ -96,7 +96,7 @@ Position mode is the safest manual mode for new fliers. Unlike [Altitude](#altit
 When the sticks are released/centered the vehicle will level and maintain the current *altitude*. If moving in the horizontal plane the vehicle will continue until any momentum is dissipated by wind resistance. If the wind blows the aircraft will drift in the direction of the wind.
 
 :::tip
-*Attitude mode* is the safest non-GPS manual mode for new fliers. It is just like [Manual/Stabilized](#manual_stabilized_mc) mode but additionally stabilizes the vehicle altitude when the sticks are released.
+*Altitude mode* is the safest non-GPS manual mode for new fliers. It is just like [Manual/Stabilized](#manual_stabilized_mc) mode but additionally stabilizes the vehicle altitude when the sticks are released.
 :::
 
 ![MC Altitude Mode](../../assets/flight_modes/altitude_MC.png)

@@ -131,6 +131,12 @@ VIO 또는 MoCap 정보에서 이미 매우 정확한 고도를 사용할 수 �
 성능이 좋지 않으면, [LPE_PN_V](../advanced_config/parameter_reference.md#LPE_PN_V) 매개변수를 중가시키십시오. 이로 인해 추정자는 속도 추정 중에 측정값을 더 신뢰하게 됩니다.
 :::
 
+## Planning/Executing Missions
+
+[Mission mode](../flight_modes/mission.md) _requires_ a global position estimate.
+
+Systems that only have a local position estimate (from MOCAP, VIO, or similar) can use the [SET_GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#SET_GPS_GLOBAL_ORIGIN) MAVLink message to set the origin of the EKF to a particular GPS location. EKF will then provide a global position estimate (based on origin and local frame position), which can be used to plan and execute missions.
+
 ## ROS 연동
 
 ROS는 외부 포즈 정보를 제공하는 데 *필수*되지 않지만, 이미 VIO 및 MoCap 시스템과 잘 통합되어 있으므로 적극 권장합니다. PX4는 위와 같이 설정되어 있어야 합니다.

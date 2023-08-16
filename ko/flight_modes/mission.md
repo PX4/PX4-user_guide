@@ -1,11 +1,11 @@
 # 임무 모드
 
-[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="Global position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 *임무 모드*는 비행 제어기에 업로드하여 사전 정의된 자율 [임무](../flying/missions.md) (비행 계획)을 실행합니다. The mission is typically created and uploaded with a Ground Control Station (GCS) application like [QGroundControl](https://docs.qgroundcontrol.com/master/en/) (QGC).
 
 :::note
-- 이 모드에는 3D 위치 정보 (예 : GPS)가 필요합니다.
+- This mode requires a global 3d position estimate (from GPS or a [local position](#missions-using-a-local-position-estimate)).
 - 이 모드를 사용하려면 기체의 시동을 걸어야합니다.
 - 이 모드는 자동이며, 기체 제어에 사용자 개입이 *필요하지* 않습니다.
 - RC 무선 조종기 스위치는 기체의 비행 모드를 변경할 수 있습니다.
@@ -43,7 +43,7 @@ If you have a *Jump to item* command in the mission, moving to another item will
 :::tip
 To automatically disarm the vehicle after it lands, in *QGroundControl* go to [Vehicle Setup > Safety](https://docs.qgroundcontrol.com/master/en/SetupView/Safety.html), navigate to *Land Mode Settings* and check the box labeled *Disarm after*. 착륙 후 시동 꺼기 대기 시간을 입력하십시오. :::
 
-[유지 모드](../flight_modes/hold.md)를 사용하여 임무를 일시 중지할 수 있습니다. 임무 비행 모드를 다시 활성화하면 미션이 현재 미션 명령에서 계속됩니다. 임누 모드에서 비행하는 동안 미션을 중단하고 다른 모드로 전환하기로 결정한 경우: 위치 모드에서 RC로 기체를 다른 곳으로 비행한 다음 미션 모드로 다시 전환하면 현재 위치에서 미션을 계속하고 아직 방문하지 않은 다음 미션 웨이포인트로 비행합니다.
+Missions can be paused by switching out of mission mode to any other mode (such as [Hold mode](../flight_modes/hold.md) or [Position mode](../flight_modes/position_mc.md). When you switch back to mission mode the vehicle will continue the mission, heading from the _current vehicle position_ to the current active mission item (the same waypoint it as heading towards originally). Note that if you moved the vehicle while the mission was paused you will no longer be following the original track towards the waypoint. A mission can be uploaded while the vehicle is paused, in which which case the current active mission item is set to 1.
 
 :::warning
 RC 모드로 전환 전에 스로틀 스틱이 0이 아닌지 확인하십시오 (그렇지 않으면 기체가 충돌합니다).
@@ -330,3 +330,11 @@ Plan a VTOL mission takeoff by adding a `VTOL Takeoff` mission item to the map.
 During mission execution the vehicle will ascend vertically to the minimum takeoff altitude defined in the [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) parameter, then transition to fixed-wing mode with the heading defined in the mission item. After transitioning the vehicle heads towards the 3D position defined in the mission item.
 
 A VTOL mission requires a `VTOL Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint.
+
+## Missions using a Local Position Estimate
+
+[Mission mode](../flight_modes/mission.md) requires a _global_ position estimate, which would normally come from a GPS/GNSS positioning system.
+
+Vehicles that only have a _local_ position estimate (say, from [Motion Capture (MOCAP)](../advanced/computer_vision.md#motion-capture) or [Visual Inertial Odometry (VIO)](../advanced/computer_vision.md#visual-inertial-odometry-vio)) can still plan and execute missions, by setting the GPS origin. This forces EKF to provide a global position estimate based on the origin and the local position estimate.
+
+The global origin may be set using the [SET_GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#SET_GPS_GLOBAL_ORIGIN) MAVLink message.

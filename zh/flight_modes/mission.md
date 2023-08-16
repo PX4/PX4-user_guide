@@ -1,11 +1,11 @@
 # 任务模式
 
-[<img src="../../assets/site/position_fixed.svg" title="需要定位（例如 GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="Global position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 *Mission mode* causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application like [QGroundControl](https://docs.qgroundcontrol.com/master/en/) (QGC).
 
 :::note
-- 此模式需要 3d 位置信息（如 GPS）。
+- This mode requires a global 3d position estimate (from GPS or a [local position](#missions-using-a-local-position-estimate)).
 - 使用此模式前必须先解锁。
 - This mode is automatic - no user intervention is *required* to control the vehicle.
 - 遥控器开关可以用于更改任何无人机的飞行模式。
@@ -49,7 +49,7 @@ If you have a *Jump to item* command in the mission, moving to another item will
 :::tip
 To automatically disarm the vehicle after it lands, in *QGroundControl* go to [Vehicle Setup > Safety](https://docs.qgroundcontrol.com/master/en/SetupView/Safety.html), navigate to *Land Mode Settings* and check the box labeled *Disarm after*. 输入飞机降落后，锁定前的等待时间。 :::
 
-可以通过激活[HOLD 模式](../flight_modes/hold.md)暂停任务。 当您重新激活 MISSION 飞行模式时，任务将从当前任务命令继续执行。 在任务模式下飞行时，如果决定中止任务，并且切换到了其他飞行模式，如位置模式，通过遥控器讲无人机飞到了其他地方，然后切换回任务模式，无人机将从当前位置继续执行任务，并会飞往下一个未访问的任务航点。
+Missions can be paused by switching out of mission mode to any other mode (such as [Hold mode](../flight_modes/hold.md) or [Position mode](../flight_modes/position_mc.md). When you switch back to mission mode the vehicle will continue the mission, heading from the _current vehicle position_ to the current active mission item (the same waypoint it as heading towards originally). Note that if you moved the vehicle while the mission was paused you will no longer be following the original track towards the waypoint. A mission can be uploaded while the vehicle is paused, in which which case the current active mission item is set to 1.
 
 :::warning
 在切换到其他遥控器模式之前，确保油门摇杆不为零（否则无人机将坠毁）。
@@ -380,3 +380,13 @@ Plan a VTOL mission takeoff by adding a `VTOL Takeoff` mission item to the map.
 During mission execution the vehicle will ascend vertically to the minimum takeoff altitude defined in the [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) parameter, then transition to fixed-wing mode with the heading defined in the mission item. After transitioning the vehicle heads towards the 3D position defined in the mission item.
 
 A VTOL mission requires a `VTOL Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint.
+
+
+
+## Missions using a Local Position Estimate
+
+[Mission mode](../flight_modes/mission.md) requires a _global_ position estimate, which would normally come from a GPS/GNSS positioning system.
+
+Vehicles that only have a _local_ position estimate (say, from [Motion Capture (MOCAP)](../advanced/computer_vision.md#motion-capture) or [Visual Inertial Odometry (VIO)](../advanced/computer_vision.md#visual-inertial-odometry-vio)) can still plan and execute missions, by setting the GPS origin. This forces EKF to provide a global position estimate based on the origin and the local position estimate.
+
+The global origin may be set using the [SET_GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#SET_GPS_GLOBAL_ORIGIN) MAVLink message.

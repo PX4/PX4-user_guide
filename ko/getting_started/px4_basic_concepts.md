@@ -155,17 +155,15 @@ SD 카드는 선택 사항입니다. SD 카드가 없는 비행 콘트롤어는 
 
 ## 시동 및 해제
 
-기체에 전원을 공급하게 되면, 모터와 프로펠러와 같은 부품들은 안전 사고를 유발할 수 있으므로 항상 주의하여야 합니다.
+A vehicle is said to be _armed_ when all motors and actuators are powered, and _disarmed_ when nothing is powered. There is also a _prearmed_ state when only actuators are powered.
 
-To reduce accidents, vehicles should be armed (motors and actuators powered) as little as possible when the vehicle is on the ground.
-
-Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/yaw stick on the _bottom right_ for one second (to disarm, hold stick on bottom left). PX4에서 무선 조종 스위치로 시동을 걸 수 있도록 설정할 수 있습니다. 또한, 지상통제국에서 시동 명령을 MAVLink로 전송할 수 있습니다.
-
-:::tip
-Sometimes a vehicle will not arm for reasons that are not obvious. QGC v4.2.0 (Daily build at time of writing) and later provide an arming check report in [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#arm). From PX4 v1.14 this provides comprehensive information about arming problems along with possible solutions.
+:::warning
+Armed vehicles can be dangerous as propellors will be spinning.
 :::
 
-By default, vehicles are:
+Arming is triggered by default (on Mode 2 transmitters) by holding the RC throttle/yaw stick on the _bottom right_ for one second (to disarm, hold stick on bottom left). PX4에서 무선 조종 스위치로 시동을 걸 수 있도록 설정할 수 있습니다. 또한, 지상통제국에서 시동 명령을 MAVLink로 전송할 수 있습니다.
+
+To reduce accidents, vehicles should be armed as little as possible when the vehicle is on the ground. By default, vehicles are:
 
 - _Disarmed_ or _Prearmed_ (motors unpowered) when not in use, and must be explicitly _armed_ before taking off.
 - Automatically disarm/prearm if the vehicle does not take off quickly enough after arming (the disarm time is configurable).
@@ -176,6 +174,9 @@ By default, vehicles are:
 
 When prearmed you can still use actuators, while disarming unpowers everything. Prearmed and disarmed should both safe, and a particular vehicle may support either or both.
 
+:::tip
+Sometimes a vehicle will not arm for reasons that are not obvious. QGC v4.2.0 (Daily build at time of writing) and later provide an arming check report in [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#arm). From PX4 v1.14 this provides comprehensive information about arming problems along with possible solutions.
+:::
 
 
 시동 및 해제에 관한 자세한 내용은 [시동 준비, 시동, 시동 해제](../advanced_config/prearm_arm_disarm.md)를 참고하십시오.

@@ -194,9 +194,6 @@ param set-default MPC_Z_VEL_MAX_UP 2
 
 param set-default NAV_ACC_RAD 3
 
-param set-default PWM_MAIN_DIS3 1000
-param set-default PWM_MAIN_MIN3 1120
-
 param set-default SENS_BOARD_ROT 4
 
 param set-default VT_ARSP_BLEND 10
@@ -252,6 +249,7 @@ param set-default PWM_MAIN_FUNC8 104
 param set-default PWM_MAIN_TIM0 50
 param set-default PWM_MAIN_DIS1 1500
 param set-default PWM_MAIN_DIS2 1500
+param set-default PWM_MAIN_DIS3 1000
 param set-default PWM_MAIN_DIS4 1500
 ```
 
@@ -264,8 +262,8 @@ The airframe metadata files used by *QGroundControl* and the documentation sourc
 For a new frame belonging to an existing group, you don't need to do anything more than provide documentation in the airframe description located at [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d).
 
 If the airframe is for a **new group** you additionally need to:
-1. Add the svg image for the group into user guide documentation (if no image is provided a placeholder image is displayed): [assets/airframes/types](https://github.com/PX4/px4_user_guide/tree/master/assets/airframes/types)
-1. Add a mapping between the new group name and image filename in the [srcparser.py](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/px4airframes/srcparser.py) method `GetImageName()` (follow the pattern below):
+1. Add the svg image for the group into user guide documentation (if no image is provided a placeholder image is displayed): [assets/airframes/types](https://github.com/PX4/PX4-user_guide/tree/master/assets/airframes/types)
+1. Add a mapping between the new group name and image filename in the [srcparser.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/srcparser.py) method `GetImageName()` (follow the pattern below):
    ```python
    def GetImageName(self):
        """

@@ -366,3 +366,8 @@ wget https://raw.githubusercontent.com/mavlink/MAVSDK-Python/main/examples/tune.
 chmod +x tune.py
 ./tune.py
 ```
+
+## See Also
+
+- [Get The Pixhawk Raspberry Pi CM4 Baseboard By Holybro Talking With PX4](https://px4.io/get-the-pixhawk-raspberry-pi-cm4-baseboard-by-holybro-talking-with-px4/) (px4.io blog):
+  - Tutorial showing how to connect Pixhawk 6X + Raspberry Pi on CM4 baseboard via wired Ethernet.
