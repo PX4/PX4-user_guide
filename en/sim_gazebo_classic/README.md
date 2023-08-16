@@ -387,10 +387,16 @@ This publishes depth images and camera information on the `/camera/depth/image_r
 To use these images, you will need to install ROS or ROS 2.
 Note the warning at the top of this page about how to "avoid installation conflicts" when installing ROS and Gazebo.
 
-You can simulate a quadrotor with a forward-facing depth camera using:
+You can simulate a quadrotor with a forward-facing depth camera:
 
 ```sh
 make px4_sitl gazebo-classic_iris_depth_camera
+```
+
+or a quadrotor with a downward-facing depth camera:
+
+```sh
+make px4_sitl gazebo-classic_iris_downward_depth_camera
 ```
 
 <a id="flight_termination"></a>
