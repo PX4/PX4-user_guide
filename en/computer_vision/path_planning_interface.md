@@ -13,15 +13,15 @@ Path planning is enabled on PX4 in automatic modes (landing, takeoff, hold, miss
 In these modes planning software is expected to supply setpoints to PX4; if the software cannot support a particular flight mode it must mirror back setpoints from the vehicle. 
 
 :::tip
-The message flows from PX4 UORB topics, through MAVLink, to ROS and back again are all documented in: [PX4/PX4-Avoidance > Message Flows](https://github.com/PX4/PX4-Avoidance#message-flows).
+The message flows from PX4 UORB topics, through MAVLink, to ROS and back again are all documented in  [PX4/PX4-Avoidance > Message Flows](https://github.com/PX4/PX4-Avoidance#message-flows).
 :::
 
 All services that use this interface send and receive messages of the same type/format.
-Developers can therefore use this interface to create their own new companion-side path planning services, or tweak the existing planner software.
+Developers can therefore use this interface to create their own new companion-side path planning services or tweak the existing planner software.
 
 :::note
 The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) is recommended for developing path planning software.
-It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance) software pre-installed, and can be used as the base for your own algorithms.
+It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance) software pre-installed and can be used as the base for your own algorithms.
 :::
 
 ## PX4 Configuration
@@ -35,8 +35,8 @@ Companion-side hardware setup and hardware/software configuration is provided in
 The actual setup/configuration required depends on the planner being used.
 
 :::warning
-Only one planner can run on the companion computer at a time (at time of writing).
-This means that offboard features that use different planners cannot be enabled on the same vehicle. a vehicle at the same time (e.g. a vehicle can support obstacle avoidance and collision prevent, but not also safe landing - or visa versa).
+Only one planner can run on the companion computer at a time (at the time of writing).
+This means that offboard features that use different planners cannot be enabled on the same vehicle at the same time (e.g., a vehicle can support obstacle avoidance and collision prevention, but not also safe landing - or vice versa).
 :::
 
 <a id="waypoint_interface"></a>
@@ -92,8 +92,8 @@ Notes:
 - Point 0 is the current waypoint/target modified based on the type of target.
   For example, it makes sense when landing to specify the target x, y coordinates and a descent velocity.
   To achieve this `FlightTaskAutoMapper` modifies land waypoints in Point 0 to set the z component of position to NAN and the z-velocity to a desired value.
-- Point 1 and 2 are not used by the safe landing planner.
-- Point 1 is used by local and global planner.
+- Points 1 and 2 are not used by the safe landing planner.
+- Point 1 is used by local and global planners.
 
 
 <a id="companion-failure-handling"></a>
@@ -113,7 +113,7 @@ PX4 safely handles the case where messages are not received from the offboard sy
   A planner must always provide points in this timeframe.
   - A planner will mirror back setpoints it receives when the vehicle is in a mode/state for which it doesn't provide path planning. (i.e. the vehicle will follow its desired path, delayed by a very small amount).
   :::
-  - If the execution time of the last-supplied bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes/hold.md)).
+  - If the execution time of the last-supplied Bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes/hold.md)).
 
 
 <a id="companion_waypoint_interface"></a>
@@ -137,7 +137,7 @@ The fields for the messages from the companion computer are set as shown:
 A planner that implements this interface must:
 - Emit setpoints at more than 2Hz when receiving messages from PX4.
   PX4 will enter [Hold mode](../flight_modes/hold.md) if no message is received for more than 0.5s.
-- Mirror back setpoints it receives when it doesn't support planning for the current vehicle state (e.g. the local planner would mirror back messages sent during safe landing, because it does not support Land mode).
+- Mirror back setpoints it receives when it doesn't support planning for the current vehicle state (e.g. the local planner would mirror back messages sent during safe landing because it does not support Land mode).
 
 
 <a id="bezier_interface"></a>
@@ -150,21 +150,21 @@ The message defines the path that the vehicle should follow in terms of a curve 
 PX4 calculates its new setpoint (the expected current position/velocity/acceleration along the curve) using the time that the message was sent, the current time, and the total time for the curve (delta).
 
 :::note
-For example, say the message was sent 0.1 seconds ago and `delta` (curve duration) is 0.3s.
+For example, say the message was sent 0.1 seconds ago, and `delta` (curve duration) is 0.3s.
 PX4 can calculate its setpoint at the 0.1s position in the curve.
 :::
 
 In more detail, the `TRAJECTORY_REPRESENTATION_BEZIER` is parsed as follows:
 
-- The number of bezier control points determines the degree of the bezier curve.
-  For example, 3 points makes a quadratic bezier curve with constant acceleration.
-- The bezier curve must be the same degree in x, y, z, and yaw, with all bezier control points finite
-- The `delta` array should have the value corresponding with the last bezier control point indicate the duration that the waypoint takes to execute the curve to that point, from beginning to end.
+- The number of Bezier control points determines the degree of the Bezier curve.
+  For example, 3 points make a quadratic Bezier curve with constant acceleration.
+- The Bezier curve must be the same degree in x, y, z, and yaw, with all Bezier control points finite
+- The `delta` array should have the value corresponding with the last Bezier control point to indicate the duration that the waypoint takes to execute the curve to that point, from beginning to end.
   Other values in the `delta` array are ignored.
 - The timestamp of the MAVLink message should be the time that the curve starts, and communication delay and clock mismatch will be compensated for on the flight controller via the timesync mechanism.
 - The control points should all be specified in local coordinates ([MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
-- Bezier curves expire after the execution time of the bezier curve has been reached.
-  Ensure that new messages are sent at a high enough rate/with long enough execution time that this does not happen (or the vehicle will switch to Hold mode).
+- Bezier curves expire after the execution time of the Bezier curve has been reached.
+  Ensure that new messages are sent at a high enough rate and with a long enough execution time. If this does not happen the vehicle will switch to Hold mode.
 
 
 
