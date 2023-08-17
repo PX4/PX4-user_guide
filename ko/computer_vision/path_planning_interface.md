@@ -10,13 +10,13 @@ PX4는 보조 컴퓨터의 경로 계획 서비스 통합을 위하여 여러 �
 [COM_OBS_AVOID = 1](../advanced_config/parameter_reference.md#COM_OBS_AVOID)인 경우 PX4에서 자동 모드 (착륙, 이륙, 보류, 임무, 복귀)에서 경로 계획이 활성화됩니다. 이러한 모드에서 경로 계획 소프트웨어는 PX4에 설정값을 제공할 것으로 예상됩니다. 소프트웨어가 특정 비행 모드를 지원할 수없는 경우 기체의 설정값을 미러링하여야 합니다.
 
 :::tip
-The message flows from PX4 UORB topics, through MAVLink, to ROS and back again are all documented in: [PX4/PX4-Avoidance > Message Flows](https://github.com/PX4/PX4-Avoidance#message-flows).
+The message flows from PX4 UORB topics, through MAVLink, to ROS and back again are all documented in  [PX4/PX4-Avoidance > Message Flows](https://github.com/PX4/PX4-Avoidance#message-flows).
 :::
 
-이 인터페이스를 사용하는 모든 서비스는 동일한 유형과 형식의 메시지를 송수신합니다. 따라서 개발자는 이 인터페이스를 사용하여 새로운 보조 컴퓨터의 경로 계획 서비스를 만들거나 기존 플래너 소프트웨어를 조정할 수 있습니다.
+이 인터페이스를 사용하는 모든 서비스는 동일한 유형과 형식의 메시지를 송수신합니다. Developers can therefore use this interface to create their own new companion-side path planning services or tweak the existing planner software.
 
 :::note
-[PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md)는 경로계획 소프트웨어 개발에 권장됩니다. It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance) software pre-installed, and can be used as the base for your own algorithms.
+[PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md)는 경로계획 소프트웨어 개발에 권장됩니다. It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance) software pre-installed and can be used as the base for your own algorithms.
 :::
 
 ## PX4 설정
@@ -30,8 +30,8 @@ Companion-side hardware setup and hardware/software configuration is provided in
 필요한 실제 구성과 설정은 사용하는 플래너에 따라 달라집니다.
 
 :::warning
-한 번에 하나의 플래너만 보조 컴퓨터에서 실행할 수 있습니다 (이 문서 작성 당시에는).
-이는 다른 플래너를 사용하는 오프보드 기능을 동일한 기체에서 활성화 할 수 없음을 의미합니다. 기체는 장애물 회피 및 충돌 방지를 지원할 수 있지만 안전한 착륙은 할 수 없습니다. 또는 그 반대.
+Only one planner can run on the companion computer at a time (at the time of writing).
+This means that offboard features that use different planners cannot be enabled on the same vehicle at the same time (e.g., a vehicle can support obstacle avoidance and collision prevention, but not also safe landing - or vice versa).
 :::
 
 <a id="waypoint_interface"></a>
@@ -84,8 +84,8 @@ PX4에서 설정한 필드 :
 
 참고:
 - Point 0은 타겟 유형에 따라 수정된 현재 웨이포인트/타겟입니다. 예를 들어 착륙tl 목표 x, y 좌표 및 하강 속도를 지정하는 것이 합리적입니다. 이를 달성하기 위해 `FlightTaskAutoMapper`는 위치의 z 구성 요소를 NAN으로 설정하고 z-속도를 원하는 값으로 설정하기 위해 Point 0의 착륙 웨이포인트를 수정합니다.
-- Point 1과 2는 안전 착륙 계획자가 사용하지 않습니다.
-- Point 1은 지역 및 글로벌 플래너가 사용합니다.
+- Points 1 and 2 are not used by the safe landing planner.
+- Point 1 is used by local and global planners.
 
 
 <a id="companion-failure-handling"></a>
@@ -103,7 +103,7 @@ PX4는 오프보드 시스템에서 메시지가 수신되지 않는 경우를 �
   - 궤적 메시지가 0.5 초 이상 수신되지 않고, 기체가 자율 모드(복귀, 임무, 이륙, 착륙)에인 경우에는 기체는 [유지 모드](../flight_modes/hold.md)로 전환됩니다. :::note 플래너는 항상 이 기간에 포인트를 제공하여야 합니다.
   - 플래너는 기체가 경로 계획을 제공하지 않는 모드나 상태이면 수신한 설정값을 미러링합니다. (즉, 기체가 원하는 경로를 따라가는 데 약간의 지연이 있음).
 :::
-  - 경로 계획 중에 마지막으로 제공된 베지어 궤적의 실행 시간이 만료되면 ([베지어 궤적 인터페이스](#bezier_interface)를 사용할 때) 0.5 초 이내에 새 메시지를 받지 못하는 것과 동일하게 처리됩니다 (예 : 기체가 [대기 모드](../flight_modes/hold.md)).
+  - If the execution time of the last-supplied Bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes/hold.md)).
 
 
 <a id="companion_waypoint_interface"></a>
@@ -126,7 +126,7 @@ PX4는 오프보드 시스템에서 메시지가 수신되지 않는 경우를 �
 
 이 인터페이스를 구현하는 플래너는 다음 기능을 수행하여야합니다.
 - PX4에서 메시지를 수신 할 때 2Hz 이상에서 설정값을 송출합니다. 0.5초 이상 메시지가 수신되지 않으면 PX4는 [보류 모드](../flight_modes/hold.md)로 전환됩니다.
-- 현재 기체 상태에 대한 계획을 지원하지 않을 때 수신하는 설정값을 미러링합니다 (예 : 로컬 플래너는 착륙 모드를 지원하지 않기 때문에 안전 착륙 중에 전송된 메시지를 미러링합니다).
+- Mirror back setpoints it receives when it doesn't support planning for the current vehicle state (e.g. the local planner would mirror back messages sent during safe landing because it does not support Land mode).
 
 
 <a id="bezier_interface"></a>
@@ -138,17 +138,17 @@ PX4는 오프보드 시스템에서 메시지가 수신되지 않는 경우를 �
 메시지는 `타임 스탬프` 메시지에서 시작하여 시간 `델타` 이후에 최종 지점에 도달하는 곡선 (제어점에 의해 정의됨) 측면에서 기체의 운행 경로를 정의합니다. PX4는 메시지가 전송 시간, 현재 시간 및 곡선의 총 시간 (델타)을 사용하여 새 설정값 (곡선을 따라 예상되는 현재 위치/속도/가속도)을 계산합니다.
 
 :::note
-예를 들어 메시지가 0.1초 전에 전송되었고 `델타` (곡선 지속 시간)가 0.3 초라고 가정합니다. PX4는 곡선의 0.1s 위치에서 설정값을 계산할 수 있습니다.
+For example, say the message was sent 0.1 seconds ago, and `delta` (curve duration) is 0.3s. PX4는 곡선의 0.1s 위치에서 설정값을 계산할 수 있습니다.
 :::
 
 더 자세히 설명하면 `TRAJECTORY_REPRESENTATION_BEZIER`는 다음과 같이 구문 분석됩니다.
 
-- 베지어 제어점의 수는 베지어 곡선도를 결정합니다. 예를 들어, 3개의 점은 일정한 가속도로 2차 베지어 곡선을 생성합니다.
-- 베지어 곡선은 x, y, z 및 yaw에서 동일한 각도이여야 하며, 모든 베지어 제어점은 유한하여야합니다.
-- `delta` 배열은 마지막 베지어 제어점에 해당하는 값을 가져야합니다. 웨이포인트에서 처음부터 끝까지 커브를 실행하는 데 걸리는 시간을 나타냅니다. `델타` 배열의 다른 값들은 무시됩니다.
+- The number of Bezier control points determines the degree of the Bezier curve. For example, 3 points make a quadratic Bezier curve with constant acceleration.
+- The Bezier curve must be the same degree in x, y, z, and yaw, with all Bezier control points finite
+- The `delta` array should have the value corresponding with the last Bezier control point to indicate the duration that the waypoint takes to execute the curve to that point, from beginning to end. `델타` 배열의 다른 값들은 무시됩니다.
 - MAVLink 메시지의 타임스탬프는 곡선이 시작되는 시간이어야하며, 통신 지연과 클럭 불일치는 타임 싱크 메커니즘을 통하여 비행 컨트롤러에서 보상됩니다.
 - 제어점은 모두 지역 좌표([MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED))로 지정되어야 합니다.
-- 베지어 곡선은 베지어 곡선의 실행 시간에 도달하면 만료됩니다. 새 메시지가 발생하지 않을 만큼 충분히 높은 속도와 충분한 실행 시간으로 전송되는지 확인하십시오 (그렇지 않으면, 기체가 보류 모드로 전환됨).
+- Bezier curves expire after the execution time of the Bezier curve has been reached. Ensure that new messages are sent at a high enough rate and with a long enough execution time. If this does not happen the vehicle will switch to Hold mode.
 
 
 
