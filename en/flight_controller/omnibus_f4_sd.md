@@ -204,9 +204,9 @@ Connect the Nano RX and Omnibus pins as shown:
 | TX            | Ch2     |
 | RX            | Ch1     |
 
-Nothing else needs to be configured on PX4 flight controller side - the RC protocol is auto-detected.
+Nothing else needs to be configured on PX4 flight controller side - the RC protocol is auto-detected. 
 
-Next update the TX/RX modules to use the CRSF protocol and set up telemetry.
+Next update the TX/RX modules to use the CRSF protocol and set up telemetry. 
 Instructions for this are provided in the [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf) (search for 'Setting up radio for CRSF').
 
 ## Schematics
