@@ -20,6 +20,12 @@ All code contributions have to be under the permissive [BSD 3-clause license](ht
 
 PX4 uses the [Google C++ style guide](https://google.github.io/styleguide/cppguide.html), with the following (minimal) modifications:
 
+:::note
+Not all PX4 source code matches the style guide, but any _new code_ that you write should do so — in both new and existing files.
+There is no requirement to update other code in changed files to match the guide.
+However if you do, we recommend that you use `clang-format` and add formatting changes as a separate commit.
+:::
+
 ### Tabs
 
 - Tabs are used for indentation (equivalent to 8 spaces).
