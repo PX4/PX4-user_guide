@@ -10,7 +10,7 @@ _Pixhawk 6C Mini_<sup>&reg;</sup> is the latest update to the successful family 
 It is equipped with a high performance H7 Processor, and comes with IMU redundancy, temperature-controlled IMU board, and cost effective design, delivering incredible performance and reliability.
 It complies with the Pixhawk [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
-<img src="../../assets/flight_controller/pixhawk6c_mini/pixhawk6c_mini_hero.jpg" width="550px" title="Pixhawk6c mini Upright Image" />
+![Pixhawk6c mini Upright Image](../../assets/flight_controller/pixhawk6c_mini/pixhawk6c_mini_hero.jpg)
 
 :::tip
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
@@ -22,9 +22,11 @@ The Pixhawk® 6C Mini is the latest update to the successful family of Pixhawk®
 
 Inside the Pixhawk® 6C Mini, you can find an STMicroelectronics® based STM32H743, paired with sensor technology from Bosch® & InvenSense®, giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
 
-The Pixhawk® 6C Mini's H7 microcontroller contain the Arm® Cortex®-M7 core running up to 480 MHz, has 2MB flash memory and 1MB RAM. Thanks to the updated processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
+The Pixhawk® 6C Mini's H7 microcontroller contain the Arm® Cortex®-M7 core running up to 480 MHz, has 2MB flash memory and 1MB RAM.
+Thanks to the updated processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
 
-The Pixhawk 6C Mini includes high-performance, low-noise IMUs on board, designed to be cost effective while having IMU redundancy. A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
+The Pixhawk 6C Mini includes high-performance, low-noise IMUs on board, designed to be cost effective while having IMU redundancy.
+A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
 
 The Pixhawk® 6C Mini is perfect for developers at corporate research labs, startups, academics (research, professors, students), and commercial application.
 
@@ -35,7 +37,7 @@ The Pixhawk® 6C Mini is perfect for developers at corporate research labs, star
 - Newly designed integrated vibration isolation system to filter out high frequency vibration and reduce noise to ensure accurate readings
 - IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs&#x20;
 
-# Technical Specification
+## Technical Specification
 
 ### **Processors & Sensors**
 
@@ -56,20 +58,20 @@ The Pixhawk® 6C Mini is perfect for developers at corporate research labs, star
   - USB Power Input: 4.75\~5.25V
   - Servo Rail Input: 0\~36V
 - Current Ratings:
-  - TELEM1 Max output current limiter: 1A
+  - `TELEM1`` Max output current limiter: 1A
   - All other port combined output current limiter: 1A
 
 ### **Mechanical data**
 
-- Dimensions: 53.3 * 39 * 16.2 mm
+- Dimensions: 53.3 x 39 x 16.2 mm
 - Weight : 39.2g
 
 ### **Interfaces**
 
 - 16- PWM servo outputs (8 from IO, 6 from FMU)
 - 3 general purpose serial ports
-  - TELEM1 - Full flow control, separate 1A current limit
-  - TELEM2 - Full flow control
+  - `TELEM1` - Full flow control, separate 1A current limit
+  - `TELEM2` - Full flow control
 - 2 GPS ports
   - GPS1 - Full GPS port (GPS plus safety switch)
   - GPS2 - Basic GPS port
@@ -89,10 +91,10 @@ The Pixhawk® 6C Mini is perfect for developers at corporate research labs, star
 
 Order from [Holybro](https://holybro.com/products/pixhawk-6c-mini).
 
+## Assembly/Setup
 
-## Assembly/Setup 
-
-The Pixhawk 4 Mini's port is very similar to the Pixhawk 6C Mini's port. Please refer to the [Pixhawk 4 Mini Wiring Quick Start](../assembly/quick_start_pixhawk4_mini.md) as it provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
+The Pixhawk 4 Mini's port is very similar to the Pixhawk 6C Mini's port.
+Please refer to the [Pixhawk 4 Mini Wiring Quick Start](../assembly/quick_start_pixhawk4_mini.md) as it provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
 
 ## Pinouts
 
@@ -100,19 +102,21 @@ The Pixhawk 4 Mini's port is very similar to the Pixhawk 6C Mini's port. Please 
 
 ## Serial Port Mapping
 
-| UART   | Device     |  QGC Parameter Description |     Port Label on FC     |
-| ------ | ---------- |--------------------------- | ------------------------ |
-| USART1 | /dev/ttyS0 |            GPS1            |           GPS1           |
-| USART2 | /dev/ttyS1 |           TELEM3           |           N/A            |
-| USART3 | /dev/ttyS2 |            N/A             |         FMU Debug        |
-| UART5  | /dev/ttyS3 |           TELEM2           |          TELEM2          |
-| USART6 | /dev/ttyS4 |           PX4IO            |         I/O PWM Out      |
-| UART7  | /dev/ttyS5 |           TELEM1           |          TELEM1          |
-| UART8  | /dev/ttyS6 |            GPS2            |           GPS2           |
+| UART   | Device     | QGC Parameter Description | Port Label on FC |
+| ------ | ---------- | ------------------------- | ---------------- |
+| USART1 | /dev/ttyS0 | GPS1                      | GPS1             |
+| USART2 | /dev/ttyS1 | TELEM3                    | N/A              |
+| USART3 | /dev/ttyS2 | N/A                       | FMU Debug        |
+| UART5  | /dev/ttyS3 | TELEM2                    | TELEM2           |
+| USART6 | /dev/ttyS4 | PX4IO                     | I/O PWM Out      |
+| UART7  | /dev/ttyS5 | TELEM1                    | TELEM1           |
+| UART8  | /dev/ttyS6 | GPS2                      | GPS2             |
+
+<!-- See http://docs.px4.io/main/en/hardware/serial_port_mapping.html#serial-port-mapping -->
 
 ## Dimensions
 
-<img src="../../assets/flight_controller/pixhawk6c_mini/pixhawk_6C_mini_dimension.jpg" width="550px" title="Pixhawk6c Mini Dimension" />
+![Pixhawk6c Mini Dimensions](../../assets/flight_controller/pixhawk6c_mini/pixhawk_6c_mini_dimension.jpg)
 
 ## Voltage Ratings
 
@@ -165,14 +169,14 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SH connector).
 
-| Pin      | Signal           | Volt  |
-| -------- | ---------------- | ----- |
-| 1 (red)  | `Vtref`          | +3.3V |
-| 2 (blk)  | Console TX (OUT) | +3.3V |
-| 3 (blk)  | Console RX (IN)  | +3.3V |
-| 4 (blk)  | `SWDIO`          | +3.3V |
-| 5 (blk)  | `SWCLK`          | +3.3V |
-| 6 (blk)  | `GND`            | GND   |
+| Pin     | Signal           | Volt  |
+| ------- | ---------------- | ----- |
+| 1 (red) | `Vtref`          | +3.3V |
+| 2 (blk) | Console TX (OUT) | +3.3V |
+| 3 (blk) | Console RX (IN)  | +3.3V |
+| 4 (blk) | `SWDIO`          | +3.3V |
+| 5 (blk) | `SWCLK`          | +3.3V |
+| 6 (blk) | `GND`            | GND   |
 
 For information about using this port see:
 
@@ -190,10 +194,10 @@ For information about using this port see:
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## See Also
 
 - [Holybro Docs](https://docs.holybro.com/) (Holybro)
-- [Pixhawk 6C Wiring QuickStart](../assembly/quick_start_pixhawk6c.md)
+- [Pixhawk 4 Mini Wiring Quick Start](../assembly/quick_start_pixhawk4_mini.md) (and [Pixhawk 6C Wiring QuickStart](../assembly/quick_start_pixhawk6c.md))
 - [PM02 Power Module](../power_module/holybro_pm02.md)
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
 - [PM07 Power Module](../power_module/holybro_pm07_pixhawk4_power_module.md)
