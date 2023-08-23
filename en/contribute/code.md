@@ -22,7 +22,7 @@ PX4 uses the [Google C++ style guide](https://google.github.io/styleguide/cppgui
 
 :::note
 Not all PX4 source code matches the style guide, but any _new code_ that you write should do so — in both new and existing files.
-There is no requirement to update other code in changed files to match the guide.
+If you update an existing file you are not required to make the whole file comply with the style guide, just the code you've modified.
 However if you do, we recommend that you use `clang-format` and add formatting changes as a separate commit.
 :::
 
