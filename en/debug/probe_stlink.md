@@ -196,3 +196,8 @@ Be aware that the heat can make the ink flow a little, so you may need to experi
 ![](../../assets/debug/stlinkv3_minie_p15.jpeg)
 
 [emdbg]: https://pypi.org/project/emdbg/
+
+
+## See also
+
+- [STLINK-V3MINIE debugger/programmer tiny probe for STM32 microcontrollers](https://www.st.com/resource/en/user_manual/um2910-stlinkv3minie-debuggerprogrammer-tiny-probe-for-stm32-microcontrollers-stmicroelectronics.pdf) (User Manual)
