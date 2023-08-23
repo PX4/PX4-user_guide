@@ -1,9 +1,9 @@
 # PX4 Board Configuration (Kconfig)
 
 The PX4 Autopilot firmware can be configured at build time to adapt it for specialized applications (fixedwing, multicopter, rover or more), to enable new and experimental features (such as Cyphal) or to save flash & RAM usage by disabling some drivers and subsystems.
-This configuration is handled through *Kconfig*, which is the same [configuration system used by NuttX](../hardware/porting_guide_nuttx.md#nuttx-menuconfig-setup).
+This configuration is handled through _Kconfig_, which is the same [configuration system used by NuttX](../hardware/porting_guide_nuttx.md#nuttx-menuconfig-setup).
 
-The configuration options (often referred as "symbols" by the *kconfig* language) are defined in `Kconfig` files under the **/src** directory. 
+The configuration options (often referred as "symbols" by the _kconfig_ language) are defined in `Kconfig` files under the **/src** directory.
 
 ## PX4 Kconfig Symbol Naming Convention
 
@@ -18,10 +18,10 @@ Full example:
 
 ```
 menuconfig DRIVERS_UAVCAN_V1
-	bool "UAVCANv1"
-	default n
-	---help---
-		Enable support for UAVCANv1
+    bool "UAVCANv1"
+    default n
+    ---help---
+        Enable support for UAVCANv1
 
 if DRIVERS_UAVCAN_V1
     config UAVCAN_V1_GNSS_PUBLISHER
@@ -31,7 +31,7 @@ endif #DRIVERS_UAVCAN_V1
 ```
 
 :::note
-Builds will silently ignore any missing or miss-spelled modules in the  `*.px4board` configuration file.
+Builds will silently ignore any missing or miss-spelled modules in the `*.px4board` configuration file.
 :::
 
 ## PX4 Kconfig Label Inheritance
@@ -47,18 +47,26 @@ When modifying a Kconfig key in `default.px4board` it will be modified in all de
 
 ## PX4 Menuconfig Setup
 
-To modify the PX4 board configuration, you can use the [menuconfig](https://pypi.org/project/kconfiglib/#menuconfig-interfaces) tool.
-This can be launched using the PX4 build shortcuts:
+The [menuconfig](https://pypi.org/project/kconfiglib/#menuconfig-interfaces) tool is used to modify the PX4 board configuration, adding/removing modules, drivers, and other features.
+
+There are command line and GUI variants, both of which can be launched using the PX4 build shortcuts:
+
 ```
 make px4_fmu-v5_default boardconfig
 make px4_fmu-v5_default boardguiconfig
 ```
 
+:::note
+_Kconfiglib_ and _menuconfig_ come with the _kconfiglib_ python package, which is installed by the normal [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) installation script.
+If _kconfiglib_ is not installed, you can do so using the command: `pip3 install kconfiglib`
+:::
+
 The command line and GUI interfaces are shown below.
 
-![menuconfig](../../assets/hardware/kconfig-menuconfig.png)
+### menuconfig Command Line Interface
 
-![guiconfig](../../assets/hardware/kconfig-guiconfig.png)
+![menuconfig command line interface](../../assets/hardware/kconfig-menuconfig.png)
 
-*Kconfiglib* and *menuconfig* come with the *kconfiglib* python package, which is installed by the normal [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) installation script.
-If *kconfiglib* is not installed, you can do so using the command: `pip3 install kconfiglib`
+### menuconfig GUI Interface
+
+![menuconfig GUI interface](../../assets/hardware/kconfig-guiconfig.png)
