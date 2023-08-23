@@ -11,7 +11,7 @@ The [STLinkv3-MINIE](https://www.st.com/en/development-tools/stlink-v3minie.html
 The STLink Debug Probe does not come with an adapter for working with Pixhawk flight controllers. The [Pixhawk Debug Port Adapter](#pixhawk-debug-port-adapter) section below explains how you can create your own (some soldering required).
 
 :::note
-The [CUAV C-ADB Pixhawk Debugging Adapter](../debug/swd_debug.md#cuav-c-adb-pixhawk-debug-debugging-adapter) (~65€) comes with an STLinkv3-MINIE! This has a connector for the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) 10-pin SH port (but not the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini)).
+The [CUAV C-ADB Pixhawk Debugging Adapter](../debug/swd_debug.md#cuav-c-adb-pixhawk-debug-adapter) (~65€) comes with an STLinkv3-MINIE! This has a connector for the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) 10-pin SH port (but not the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini)).
 :::
 
 ## Debugging Configuration
@@ -47,7 +47,7 @@ See the [Embedded Debug Tools][emdbg] for more advanced debug options.
 
 ## Pixhawk Debug Port Adapter
 
-To connect to the Pixhawk Debug Port, you need to solder an adapter (unless using the [CUAV Debug Adaptor](../debug/swd_debug.md#cuav-c-adb-pixhawk-debug-debugging-adapter)).
+To connect to the Pixhawk Debug Port, you need to solder an adapter (unless using the [CUAV Debug Adaptor](../debug/swd_debug.md#cuav-c-adb-pixhawk-debug-adapter)).
 
 For this solder guide you need:
 
@@ -169,5 +169,10 @@ Use the heat gun to shrink the tubing all around the debug probe. Make sure the 
 Optionally, you may add a logo of your choice printed on paper and cut to size. Be aware that the heat can make the ink flow a little, so you may need to experiment with what settings work with your printer.
 
 ![](../../assets/debug/stlinkv3_minie_p15.jpeg)
+
+
+## See also
+
+- [STLINK-V3MINIE debugger/programmer tiny probe for STM32 microcontrollers](https://www.st.com/resource/en/user_manual/um2910-stlinkv3minie-debuggerprogrammer-tiny-probe-for-stm32-microcontrollers-stmicroelectronics.pdf) (User Manual)
 
 [emdbg]: https://pypi.org/project/emdbg/
