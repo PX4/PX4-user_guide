@@ -14,7 +14,7 @@ The STLink Debug Probe does not come with an adapter for working with Pixhawk fl
 The [Pixhawk Debug Port Adapter](#pixhawk-debug-port-adapter) section below explains how you can create your own (some soldering required).
 
 :::note
-The [CUAV C-ADB Pixhawk Debugging Adapter](../debug/swd_debug.md#cuav-c-adb-pixhawk-debug-debugging-adapter) (~65€) comes with an STLinkv3-MINIE!
+The [CUAV C-ADB Pixhawk Debugging Adapter](../debug/swd_debug.md#cuav-c-adb-pixhawk-debug-adapter) (~65€) comes with an STLinkv3-MINIE!
 This has a connector for the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) 10-pin SH port (but not the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini)).
 :::
 
@@ -51,7 +51,7 @@ See the [Embedded Debug Tools][emdbg] for more advanced debug options.
 
 ## Pixhawk Debug Port Adapter
 
-To connect to the Pixhawk Debug Port, you need to solder an adapter (unless using the [CUAV Debug Adaptor](../debug/swd_debug.md#cuav-c-adb-pixhawk-debug-debugging-adapter)).
+To connect to the Pixhawk Debug Port, you need to solder an adapter (unless using the [CUAV Debug Adaptor](../debug/swd_debug.md#cuav-c-adb-pixhawk-debug-adapter)).
 
 For this solder guide you need:
 
