@@ -23,7 +23,7 @@ TFmini can be connected to any unused _serial port_ (UART), such as: `TELEM2`, `
 There is no need to set the baud rate (this is hard coded in the sensor driver as only one rate is supported).
 
 :::note
-If the configuration parameter is not available in _QGroundControl_ then the [tfmini](/modules/modules_driver_distance_sensor.html#tfmini) driver may not be in firmware.
+If the configuration parameter is not available in _QGroundControl_ then the [tfmini](../modules/modules_driver_distance_sensor.md#tfmini) driver may not be in firmware.
 For information on how to add it see:
 
 - [Serial port Configuration: Configuration Parameter Missing from QGroundControl](../peripherals/serial_configuration.md#parameter_not_in_firmware)
