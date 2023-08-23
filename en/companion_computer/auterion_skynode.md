@@ -14,9 +14,8 @@ For information about Auterion and Skynode:
 - [auterion.com](https://auterion.com/)
 - [Skynode](https://auterion.com/product/skynode/) (auterion.com)
 - Skynode Guides:
-  - [Manufacturer's Guide](https://docs.auterion.com/manufacturers/getting-started/readme) 
+  - [Manufacturer's Guide](https://docs.auterion.com/manufacturers/getting-started/readme)
   - [App Developer's Guide](https://docs.auterion.com/developers/getting-started/readme)
-
 
 ## Skynode with Vanilla PX4
 
@@ -30,7 +29,6 @@ Upstream PX4 will generally work, with the following caveats:
 - Some parameters might have different default values in the PX4 release shipped with Auterion OS.
 - Features accessed by vendor-specific customisations running on the companion computer may not be present in PX4.
 - Auterion supports Skynode running its own Auterion-managed version of PX4.
-
 
 ## Building/Uploading Firmware
 
@@ -57,7 +55,6 @@ To build and upload PX4 for Skynode when connected using [Skynode's WiFi network
 ```
 make px4_fmu-v5x upload_skynode_wifi
 ```
-
 
 ## Restoring the Default PX4 Firmware
 
