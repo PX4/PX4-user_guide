@@ -33,12 +33,7 @@ Gazebo Classic is often used with [ROS](../ros/README.md), a toolkit/offboard AP
 If you plan to use PX4 with ROS you **should follow the** [ROS Instructions](../simulation/ros_interface.md) to install both ROS and Gazebo Classic (and thereby avoid installation conflicts).
 :::
 
-Gazebo Classic 9 or 11 setup is included in our standard build instructions:
-
-- **macOS:** [Development Environment on Mac](../dev_setup/dev_env_mac.md)
-- **Linux:** [Development Environment on Ubuntu LTS / Debian Linux > Simulation and NuttX (Pixhawk) Targets](../dev_setup/dev_env_linux_ubuntu.md#simulation-and-nuttx-pixhawk-targets)
-- **Windows:** Not supported.
-
+Gazebo Classic 9 or 11 setup is included in our [standard build instructions}(../dev_setup/dev_env.md) for Linux, macOS, and Windows.
 Additional installation instructions can be found on [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
 
 ## Running the Simulation
