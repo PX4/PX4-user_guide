@@ -186,7 +186,10 @@ For information about using this port see:
 ## Peripherals
 
 - [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
-- [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
+- [Telemetry Radio Modules](../telemetry/README.md):
+  - [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
+  - [Holybro Microhard P900 Radio](../telemetry/holybro_microhard_p900_radio.md)
+  - [Holybro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md)
 - [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
 ## Supported Platforms / Airframes
