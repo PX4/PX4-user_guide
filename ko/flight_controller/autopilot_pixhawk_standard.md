@@ -12,6 +12,7 @@
 - [CUAV Pixahwk V6X](../flight_controller/cuav_pixhawk_v6x.md) (FMUv6X)
 - [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md) (FMUv6X)
 - [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md) (FMUv6C)
+- [Holybro Pixhawk 6C Mini](../flight_controller/pixhawk6c_mini.md) (FMUv6C)
 - [Holybro Pix32 v6](../flight_controller/holybro_pix32_v6.md) (FMUv6C)
 - [Holybro Pixhawk 4](../flight_controller/pixhawk4.md) (FMUv5)
 - [Holybro Pixhawk 4](../flight_controller/pixhawk4.md) (FMUv5) - Discontinued by Holybro but supported by PX4
