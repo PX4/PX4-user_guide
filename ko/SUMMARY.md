@@ -324,6 +324,7 @@
       * [RasPi Pixhawk Companion](companion_computer/pixhawk_rpi.md)
     * [보조 컴퓨터 주변 기기](companion_computer/companion_computer_peripherals.md)
     * [Holybro Pixhawk RPI CM4 Baseboard](companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
+    * [Auterion Skynode](companion_computer/auterion_skynode.md)
     * [컴퓨터 비전](computer_vision/README.md)
       * [장애물 회피](computer_vision/obstacle_avoidance.md)
       * [안전 착륙](computer_vision/safe_landing.md)
