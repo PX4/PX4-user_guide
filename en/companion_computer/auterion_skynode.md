@@ -64,7 +64,6 @@ make px4_fmu-v5x upload_skynode_wifi
 
 ::::
 
-
 ## Restoring the Default PX4 Firmware
 
 To reinstall the original Skynode version of PX4 when connected via USB run the following command in the repository:
