@@ -34,7 +34,7 @@ Upstream PX4 will generally work, with the following caveats:
 
 PX4 `px4_fmu-v5x` binaries for Skynode are built from source using the normal [developer environment](../dev_setup/dev_env.md) and [build commands](../dev_setup/building_px4.md), and are uploaded using either `upload_skynode_usb` or `upload_skynode_wifi` upload targets.
 
-`upload_skynode_usb` and `upload_skynode_wifi` connect to Skynode via SSH over a network interface using the default (fixed) IP addresses, and upload a TAR compressed binary to the mission computer.
+`upload_skynode_usb` and `upload_skynode_wifi` connect to Skynode via SSH over a network interface using the default (fixed) IP addresses for [USB](https://docs.auterion.com/manufacturers/avionics/skynode/advanced-configuration/connecting-to-skynode) and [WiFi](https://docs.auterion.com/manufacturers/avionics/skynode/advanced-configuration/configuration), and upload a TAR compressed binary to the mission computer.
 The mission computer then decompresses the binary and installs it to the flight controller.
 
 :::note
@@ -42,30 +42,49 @@ SSH and TAR are needed to use these upload targets, but are expected to be prese
 On macOS you should first install [gnu-tar](https://formulae.brew.sh/formula/gnu-tar).
 :::
 
-You will need to enter Skynode's developer image password (twice) during the upload process.
+You will need to enter the password for the Skynode developer image password twice during the upload process.
 
-To build and upload PX4 for Skynode [when connected by USB-C](https://docs.auterion.com/manufacturers/avionics/skynode/advanced-configuration/connecting-to-skynode):
+:::: tabs
+
+::: tab "Skynode connected via USB"
 
 ```
 make px4_fmu-v5x upload_skynode_usb
 ```
 
-To build and upload PX4 for Skynode when connected using [Skynode's WiFi network](https://docs.auterion.com/manufacturers/avionics/skynode/advanced-configuration/configuration):
+:::
+
+::: tab "Skynode connected via WiFi"
 
 ```
 make px4_fmu-v5x upload_skynode_wifi
 ```
 
+:::
+
+::::
+
+
 ## Restoring the Default PX4 Firmware
 
 To reinstall the original Skynode version of PX4 when connected via USB run the following command in the repository:
+
+:::: tabs
+
+::: tab "Skynode connected via USB"
 
 ```
 ./Tools/auterion/upload_skynode.sh --revert
 ```
 
-Append `--wifi` if you're connecting over WiFi:
+:::
+
+::: tab "Skynode connected via WiFi"
 
 ```
 ./Tools/auterion/upload_skynode.sh --revert --wifi
 ```
+
+:::
+
+::::
