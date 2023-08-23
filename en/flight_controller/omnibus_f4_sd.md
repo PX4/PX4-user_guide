@@ -204,10 +204,13 @@ Connect the Nano RX and Omnibus pins as shown:
 | TX            | Ch2     |
 | RX            | Ch1     |
 
-Nothing else needs to be configured on PX4 flight controller side - the RC protocol is auto-detected. 
-
-Next update the TX/RX modules to use the CRSF protocol and set up telemetry. 
+Next update the TX/RX modules to use the CRSF protocol and set up telemetry.
 Instructions for this are provided in the [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf) (search for 'Setting up radio for CRSF').
+
+#### PX4 CRSF Configuration
+
+You will need to build custom firmware to use CRSF.
+For more information see [CRSF Telemetry](../telemetry/crsf_telemetry.md#px4-configuration).
 
 ## Schematics
 
@@ -231,6 +234,12 @@ make omnibus_f4sd_default
 
 ## Installing PX4 Firmware
 
+You can use either pre-built firmware or your own custom firmware.
+
+:::warning  
+If you use [CRSF Telemetry](../telemetry/crsf_telemetry.md#px4-configuration) in your radio system, as describe above, then you must use custom firmware.
+:::
+
 The firmware can be installed in any of the normal ways:
 
 - Build and upload the source
@@ -240,7 +249,6 @@ The firmware can be installed in any of the normal ways:
   ```
 
 - [Load the firmware](../config/firmware.md) using _QGroundControl_.
-  You can use either pre-built firmware or your own custom firmware.
 
 ## Configuration
 

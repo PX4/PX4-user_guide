@@ -77,7 +77,7 @@ It has an internal transmitter module can be used with the recommended *FrSky X4
 It also has a custom radio transmitter module slot and customizable open source OpenTX Firmware. 
 
 :::note
-This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) or [TBS Crossfire](../telemetry/crossfire_telemetry.md) radio modules.
+This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) or [TBS Crossfire](../telemetry/crsf_telemetry.md) radio modules.
 :::
 
 Other popular transmitter/receiver pairs
