@@ -6,7 +6,8 @@ The *Land* flight mode causes the vehicle to land at the position where the mode
 After landing, vehicles will disarm after a short timeout (by default).
 
 :::note
-* This mode requires a valid position estimate unless the mode is entered due to a failsafe, in which case only altitude is required (typically a barometer is built into the flight controller).
+* This mode requires a valid global position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+* In a failsafe the mode only requires altitude (typically a barometer is built into the flight controller).
 * This mode is automatic - no user intervention is *required* to control the vehicle.
 * RC control switches can be used to change flight modes on any vehicle.
 * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
