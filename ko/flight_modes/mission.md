@@ -5,7 +5,7 @@
 *임무 모드*는 비행 제어기에 업로드하여 사전 정의된 자율 [임무](../flying/missions.md) (비행 계획)을 실행합니다. The mission is typically created and uploaded with a Ground Control Station (GCS) application like [QGroundControl](https://docs.qgroundcontrol.com/master/en/) (QGC).
 
 :::note
-- This mode requires a global 3d position estimate (from GPS or a [local position](#missions-using-a-local-position-estimate)).
+- This mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
 - 이 모드를 사용하려면 기체의 시동을 걸어야합니다.
 - 이 모드는 자동이며, 기체 제어에 사용자 개입이 *필요하지* 않습니다.
 - RC 무선 조종기 스위치는 기체의 비행 모드를 변경할 수 있습니다.
@@ -331,10 +331,3 @@ During mission execution the vehicle will ascend vertically to the minimum takeo
 
 A VTOL mission requires a `VTOL Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint.
 
-## Missions using a Local Position Estimate
-
-[Mission mode](../flight_modes/mission.md) requires a _global_ position estimate, which would normally come from a GPS/GNSS positioning system.
-
-Vehicles that only have a _local_ position estimate (say, from [Motion Capture (MOCAP)](../advanced/computer_vision.md#motion-capture) or [Visual Inertial Odometry (VIO)](../advanced/computer_vision.md#visual-inertial-odometry-vio)) can still plan and execute missions, by setting the GPS origin. This forces EKF to provide a global position estimate based on the origin and the local position estimate.
-
-The global origin may be set using the [SET_GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#SET_GPS_GLOBAL_ORIGIN) MAVLink message.
