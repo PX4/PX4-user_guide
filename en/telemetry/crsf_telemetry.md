@@ -2,14 +2,14 @@
 
 CRSF is a telemetry protocol that can be used for both RC control and to get telemetry information from the vehicle/flight controller on a compatible RC transmitter.
 
-The protocol was developed by [Team BlackSheep](https://www.team-blacksheep.com/) for their Crossfire RC system, but is also used by ExpressLRS (ELRS) RC systems.
+The protocol was developed by [Team BlackSheep](https://www.team-blacksheep.com/) for their Crossfire RC system, but is also used by [ExpressLRS (ELRS)](https://www.expresslrs.org/) RC systems.
 It is a bidirectional protocol that only needs a single UART for communicating both RC and telemetry.
 
-The [supported telemetry is listed here](#telemetry-messages), and includes: flight mode, battery level, GPS data RC signal strength, speed, altitude, and so on.
+The [supported telemetry messages are listed here](#telemetry-messages), and include: flight mode, battery level, GPS data RC signal strength, speed, altitude, and so on.
 
 :::note
 If you don't need telemetry you can connect a TBS Crossfire to the `RCIN` port and configure the receiver to use S.BUS.
-Crossfire radio systems can also be used as [Telemetry Radios](/telemetry/README.md).
+Crossfire radio systems can also be used as [Telemetry Radios](../telemetry/README.md).
 :::
 
 :::warning
@@ -19,21 +19,21 @@ The [instructions below](#px4-configuration) explain how to build and upload cus
 
 ## Radio System Setup
 
-To use CRSF telemetry you will need a [TBS Crossfire radio system](#tbs-radio-systems) or [ExpressLRS radio system](#expresslrs-radio-systems) that includes both a transmitter and receiver (from the same vendor).
+To use CRSF telemetry you will need a [TBS Crossfire radio system](#tbs-radio-systems) or [ExpressLRS radio system](#expresslrs-radio-systems) that includes an [RC controller](#rc-controllers) with a transmitter, and a receiver (from the same vendor).
 
 :::note
 An RC radio system historically consisted of a ground-based controller that transmitted to an on-vehicle receiver.
-Even though many radio systems are now bidirectional, the ground module is still referred to as the transmitter, and the air unit is called a receiver.
+Even though many radio systems are now bidirectional, the ground module may still be referred to as the transmitter, and the air unit may be called a receiver.
 :::
 
 Generally you will need to separately setup and configure the transmitter and receiver, and then _bind_ them together.
 
-At transmitter might come as an integral part of a handheld controller, or it might be a separate module that you plug into a controller like the FrSky Taranis.
-If it is a separate module you will need to connect it to your handheld controller, and you may also need to update the module software on the transmitter to a firmware that supports CRSF, such as OpenTX or EdgeTx.
-Either way you will need to configure the transmitter to enable CRSF.
+A transmitter might come as an integral part of an [RC controller](#rc-controllers), or it might be a separate module that you plug into a controller.
+If it is a separate module then you may also need to update the module software on the transmitter to firmware that supports CRSF, such as OpenTX or EdgeTx.
+In both cases you will need to configure the transmitter to enable CRSF.
 
-The receiver must be wired to a spare port (UART) on the Flight Controller.
-At this point you can _bind_ the transmitter and receiver together.
+The receiver must be [wired](#wiring) to a spare port (UART) on the Flight Controller.
+Then you can _bind_ the transmitter and receiver together.
 
 Instructions for the steps above are covered in
 
@@ -44,14 +44,18 @@ Instructions for the steps above are covered in
 
 The TX and RX on your selected Flight Controller UART should be connected to separate channels on the receiver.
 The signal is usually uninverted, and can be directly connected (no additional inverter logic is required in the cable).
-You should check the manual for the specific receiver though!
+You should check the manual for your specific receiver though!
 
-For TBS receivers you should wire an FC UART and receiver as shown (this assumes the TBS Nano RX).
+#### TBS Receiver Wiring
+
+For TBS receivers you wire the FC UART and receiver as shown (this assumes the TBS Nano RX).
 
 | FC UART | Nano RX |
 | ------- | ------- |
 | TX      | Ch2     |
 | RX      | Ch1     |
+
+#### ExpressLRS Receiver Wiring
 
 For ExpressLRS receivers wire to the flight controller UART as shown below (wiring is covered [in detail here](https://www.expresslrs.org/quick-start/receivers/wiring-up/)):
 
@@ -66,7 +70,7 @@ For ExpressLRS receivers wire to the flight controller UART as shown below (wiri
 
 ### Firmware Configuration/Build
 
-CRSF telemetry support is not included in prebuilt PX4 firmware (or custom firmware by default).
+CRSF telemetry support is not included in any PX4 firmware by default.
 To use this feature you must build and upload custom firmware that includes [crsf-rc](../modules/modules_driver.md#crsf-rc) and removes [rc_input](../modules/modules_driver.md#rc-input).
 
 The steps are:
@@ -116,35 +120,42 @@ You can upload firmware as part of the build process using the `upload` options:
 make ark_fmu-v6x_default upload
 ```
 
-Alternatively you can use QGroundControl to install the firmware, as described in [Firmware > Installing PX4 master, beta, or custom firmware](https://docs.px4.io/main/en/config/firmware.html#installing-px4-master-beta-or-custom-firmware).
+Alternatively you can use QGroundControl to install the firmware, as described in [Firmware > Installing PX4 master, beta, or custom firmware](../config/firmware.md#installing-px4-master-beta-or-custom-firmware).
 
 ### Parameter Configuration
 
 [Set the parameter](../advanced_config/parameters.md) named [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG) to port that is connected to the CRSF receiver (such as `TELEM1`).
 
 This [configures the serial port](../peripherals/serial_configuration.md) to use the CRSF protocol.
-Note that some serial ports may already have a [default serial port mapping](../peripherals/serial_configuration.md#default-serial-port-configuration) or [default MAVLink serial port mapping](../peripherals/mavlink_peripherals.md#default-mavlink-ports) that you will have to un-map before you can assign to CRSF.
+Note that some serial ports may already have a [default serial port mapping](../peripherals/serial_configuration.md#default-serial-port-configuration) or [default MAVLink serial port mapping](../peripherals/mavlink_peripherals.md#default-mavlink-ports) that you will have to un-map before you can assign the port to CRSF.
 For example, if you want to use `TELEM1` or `TELEM2` you first need to modify [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) or [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) to stop setting those ports.
 
 There is no need to set the baud rate for the port, as this is configured by the driver.
 
+## RC Controllers
+
+A transmitter might come as an integral part of an RC controller, or it might be a separate module that you plug into a controller.
+
+RC Controllers that support TBS Crossfire and ExpressLRS TX modules:
+
+- [FrSky Taranis X9D Plus](https://www.frsky-rc.com/product/taranis-x9d-plus-2/) has an external module bay that can be used with TBS or ExpressLRS transmitter modules that are "JR module bay" compatible.
+  You will need to install OpenTX software, which supports CRSF, and enable the external module and CRSF.
+- [Radiomaster TX16S](https://www.radiomasterrc.com/collections/tx16s-mkii) has an internal ExpressLRS transmitter module.
+  It also has an external module bay that can be used with TBS or ExpressLRS transmitter modules that are "JR module bay" compatible.
+  It runs both OpenTX and EdgeTx software, either of which can support CRSF.
+
 ## TBS Radio Systems
 
 [TBS Crossfire Radio Systems are listed here](https://www.team-blacksheep.com/shop/cat:cat_crossfire#product_listing).
-A few tested options are listed below.
+A few options are listed below.
 
-Transmitters:
+Transmitter modules:
 
-- [FrSky Taranis X9D Plus (2)](https://www.frsky-rc.com/product/taranis-x9d-plus-2/) is a popular RC controller that has an external module bay.
-  This can be used with modules that are "JR module bay" compatible.
-  It also runs OpenTX software, which supports CRSF.
-- [Radiomaster TX16S]
-- TBD
+- [TBS CROSSFIRE TX - LONG RANGE R/C TRANSMITTER](https://www.team-blacksheep.com/products/prod:crossfire_tx)
 
 Receivers:
 
 - [TBS Crossfire Nano RX](http://team-blacksheep.com/products/prod:crossfire_nano_rx) - designed for small quadcopters.
-- ?
 
 ## ExpressLRS Radio Systems
 
@@ -153,15 +164,16 @@ A few tested options are listed below.
 
 Transmitters:
 
-- [FrSky Taranis X9D Plus (2)](https://www.frsky-rc.com/product/taranis-x9d-plus-2/) is a popular RC controller that has an external module bay.
-  This can be used with modules that are "JR module bay" compatible.
-  It also runs OpenTX software, which supports CRSF.
+- TBD
 
 Receivers:
 
 - [ExpressLRS Matek Diversity RX](http://www.mateksys.com/?portfolio=elrs-r24).
-  Note that there is a setup example in the [Reptile Dragon 2 Build Log](../frames_plane/reptile_dragon_2.md#elrs-rx).
+
+  :::note
+  This is used in the [Reptile Dragon 2 Build Log](../frames_plane/reptile_dragon_2.md).
   See sections [ELRS Rx](../frames_plane/reptile_dragon_2.md#elrs-rx) and [Radio Setup](../frames_plane/reptile_dragon_2.md#radio-setup).
+  :::
 
 ## Telemetry Messages
 
