@@ -162,7 +162,7 @@ Receivers:
 Express LRS provide Radio System guidance in the [Hardware Selection](https://www.expresslrs.org/hardware/hardware-selection/) page.
 A few tested options are listed below.
 
-Transmitters:
+Transmitter modules:
 
 - TBD
 
