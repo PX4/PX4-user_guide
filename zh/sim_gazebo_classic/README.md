@@ -28,11 +28,26 @@ See [Simulation](../simulation/README.md) for general information about simulato
 
 ## Installation
 
+Gazebo Classic 9 or 11 setup is included in our [standard build instructions}(../dev_setup/dev_env.md) for Linux, macOS, and Windows. Additional installation instructions can be found on [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
+
 :::note
-Gazebo Classic is often used with [ROS](../ros/README.md), a toolkit/offboard API for automating vehicle control. If you plan to use PX4 with ROS you **should follow the** [ROS Instructions](../simulation/ros_interface.md) to install both ROS and Gazebo Classic (and thereby avoid installation conflicts).
+If you plan to use PX4 with ROS you **should follow the** [ROS Instructions](../simulation/ros_interface.md) to install both ROS and Gazebo Classic (and thereby avoid installation conflicts).
 :::  
 
-Gazebo Classic 9 or 11 setup is included in our [standard build instructions}(../dev_setup/dev_env.md) for Linux, macOS, and Windows. Additional installation instructions can be found on [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
+:::note
+The following commands can be used to remove [Gazebo (Garden)](../sim_gazebo_gz/README.md) and reinstall Gazebo-Classic 11:
+
+
+
+```sh
+sudo apt remove gz-garden
+sudo apt install aptitude
+sudo aptitude install gazebo libgazebo11 libgazebo-dev
+```
+
+
+Note that `aptitude` is needed because it can resolve dependency conflicts (by removing certain packages) that `apt` is unable to handle.
+:::  
 
 
 
@@ -548,7 +563,6 @@ or
 ```
 VERBOSE_SIM=1 make px4_sitl gazebo-classic
 ```
-
 
 
 
