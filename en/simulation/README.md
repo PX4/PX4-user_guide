@@ -133,10 +133,10 @@ A number of examples are shown below, and there are many more in the individual 
 make px4_sitl gz_x500
 
 # Start Gazebo Classic with plane
-make px4_sitl gazebo-classic-classic_plane
+make px4_sitl gazebo-classic-_plane
 
 # Start Gazebo Classic with iris and optical flow
-make px4_sitl gazebo-classic-classic_iris_opt_flow
+make px4_sitl gazebo-classic_iris_opt_flow
 
 # Start JMavSim with iris (default vehicle model)
 make px4_sitl jmavsim
