@@ -39,14 +39,14 @@ The debug port location and pinouts for a subset of autopilots are linked below:
 
 | 오토파일럿                                                                               | 디버그 포트                                                                                                                                                                  |
 |:----------------------------------------------------------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md#debug-port) (FMUv5x)         | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                               |
+| \[Holybro Pixhawk 5X][holybro pixhawk 5x\] (FMUv5x)                                 | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                               |
 | [Holybro Durandal](../flight_controller/durandal.md#debug-port)                     | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                               |
 | [Holybro Kakute F7](../flight_controller/kakutef7.md#debug-port)                    | Solder pads                                                                                                                                                             |
 | [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md#debug-port) (FMUv5)  | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                               |
 | [Holybro Pixhawk 4](../flight_controller/pixhawk4.md#debug_port) (FMUv5)            | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                               |
 | [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md#debug-port) (FMU-v4pro) | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                               |
-| [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port)                         | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)][BM06B-GHS-TBT(LF)(SN)(N)] (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)][SM06B-GHS-TBT(LF)(SN)(N)] (side mount) |
-| [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)                      | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)][BM06B-GHS-TBT(LF)(SN)(N)] (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)][SM06B-GHS-TBT(LF)(SN)(N)] (side mount) |
+| [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port)                         | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)][bm06b-ghs-tbt(lf)(sn)(n)] (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)][sm06b-ghs-tbt(lf)(sn)(n)] (side mount) |
+| [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)                      | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)][bm06b-ghs-tbt(lf)(sn)(n)] (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)][sm06b-ghs-tbt(lf)(sn)(n)] (side mount) |
 | [3DR Pixhawk](../flight_controller/pixhawk.md#swd-port)                             | ARM 10-pin JTAG Connector (also used for FMUv2 boards including: _mRo Pixhawk_, _HobbyKing HKPilot32_).                                                                 |
 
 <a id="pixhawk-standard-debug-ports"></a>
@@ -162,11 +162,13 @@ It is the easiest way to connect:
 
 ![Holybro Pixhawk Debug Adapter](../../assets/debug/holybro_pixhawk_debug_adapter.png)
 
-### CUAV C-ADB Pixhawk Debug Debugging Adapter
+### CUAV C-ADB Pixhawk Debug Adapter
 
-The [CUAV C-ADB Secondary Development Pixhawk Flight Controller Debug Debugging Adapter](https://store.cuav.net/shop/cuav-c-adb/) comes with an [STLinkv3-MINIE Debug Probe](../debug/probe_stlink.md).
+The [CUAV C-ADB Secondary Development Pixhawk Flight Controller Debug Adapter](https://store.cuav.net/shop/cuav-c-adb/) comes with an [STLinkv3-MINIE Debug Probe](../debug/probe_stlink.md).
 
 This has a ports for connecting to the [Pixhawk Debug Full](#pixhawk-debug-full) (10-pin SH) and CUAV-standard DSU interface (but not the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) (6-pin SH)).
+
+The M2 connector on the adaptor is 14-pin CN4 STDC14 (see the [STLinkv3-MINIE User Manual](https://www.st.com/resource/en/user_manual/um2910-stlinkv3minie-debuggerprogrammer-tiny-probe-for-stm32-microcontrollers-stmicroelectronics.pdf) for more information). The cable used to connect the M2 and the STLinkv3-MINIE comes with the adaptor.
 
 ![CUAV C-ADB adaptor connected to the STLinkv3-MINIE](../../assets/debug/cuav_c-adb_debug_adapter/hero.jpg)
 
@@ -188,7 +190,7 @@ Some manufacturers provide cables to make it easy to connect the SWD interface a
 
 You can also create custom cables for connecting to different boards or probes:
 
-- Connect SWDIO, SWCLK and GND pins on the debug probe to the corresponding pins on the debug port.
+- Connect `SWDIO`, `SWCLK` and `GND` pins on the debug probe to the corresponding pins on the debug port.
 - Connect the VREF pin, if supported by the debug probe.
 - Connect the remaining pins, if present.
 
@@ -199,8 +201,10 @@ Where possible, we highly recommend that you create or obtain an adapter board r
 This reduces the risk or poor wiring contributing to debugging problems, and has the benefit that adapters usually provide a common interface for connecting to multiple popular flight controller boards.
 :::
 
+<!-- Reference links used above -->
+
 [swd]: https://developer.arm.com/documentation/ihi0031/a/The-Serial-Wire-Debug-Port--SW-DP-
 [itm]: https://developer.arm.com/documentation/ddi0403/d/Appendices/Debug-ITM-and-DWT-Packet-Protocol?lang=en
 [etm]: https://developer.arm.com/documentation/ihi0064/latest/
-[BM06B-GHS-TBT(LF)(SN)(N)]: https://www.digikey.com/products/en?keywords=455-1582-1-ND
-[SM06B-GHS-TBT(LF)(SN)(N)]: https://www.digikey.com/products/en?keywords=455-1568-1-ND
+[bm06b-ghs-tbt(lf)(sn)(n)]: https://www.digikey.com/products/en?keywords=455-1582-1-ND
+[sm06b-ghs-tbt(lf)(sn)(n)]: https://www.digikey.com/products/en?keywords=455-1568-1-ND

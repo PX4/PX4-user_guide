@@ -87,7 +87,7 @@ make holybro_kakuteh7v2_default
 ## Installing PX4 Firmware
 
 :::note
-KakuteH7 is supported with PX4 master & PX4 v1.13 or newer. If you are loading the pre-built firmware via QGroundcontrol, you must use QGC Daily or QGC version newer than 4.1.7. Prior to that release you will need to manually build and install the firmware.
+KakuteH7v2 is supported with PX4 master & PX4 v1.14 or newer. If you are loading the pre-built firmware via QGroundcontrol, you must use QGC Daily or QGC version newer than 4.1.7. Prior to that release you will need to manually build and install the firmware.
 :::
 
 Firmware can be manually installed in any of the normal ways:

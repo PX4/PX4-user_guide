@@ -129,11 +129,13 @@ MAVROS 具有插件，可使用以下管道从 VIO 或 MOCAP 系统中继可视�
 If performance is still poor, try increasing the [LPE_PN_V](../advanced_config/parameter_reference.md#LPE_PN_V) parameter. This will cause the estimator to trust measurements more during velocity estimation.
 :::
 
-## Planning/Executing Missions
+## Enabling Auto Modes with a Local Position
 
-[Mission mode](../flight_modes/mission.md) _requires_ a global position estimate.
+All PX4 automatic flight modes ([Mission](../flight_modes/mission.md), [Return](../flight_modes/return.md), [Land](../flight_modes/land.md), [Hold](../flight_modes/land.md), [Orbit](../flight_modes/orbit.md))) require a _global_ position estimate, which would normally come from a GPS/GNSS system.
 
-Systems that only have a local position estimate (from MOCAP, VIO, or similar) can use the [SET_GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#SET_GPS_GLOBAL_ORIGIN) MAVLink message to set the origin of the EKF to a particular GPS location. EKF will then provide a global position estimate (based on origin and local frame position), which can be used to plan and execute missions.
+Systems that only have a _local_ position estimate (from MOCAP, VIO, or similar) can use the [SET_GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#SET_GPS_GLOBAL_ORIGIN) MAVLink message to set the origin of the EKF to a particular global location. EKF will then provide a global position estimate based on origin and local frame position.
+
+This can then be used when planning and executing indoor missions, or to set a local return point, and so on.
 
 ## 使用 ROS
 

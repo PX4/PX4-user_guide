@@ -13890,7 +13890,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_FAIL_ACT_T">COM_FAIL_ACT_T</strong> (FLOAT)</td>
- <td>Delay between failsafe condition triggered and failsafe reaction <p><strong>Comment:</strong> Before entering failsafe (RTL, Land, Hold), wait COM_FAIL_ACT_T seconds in Hold mode for the user to realize. During that time the user cannot take over control. Afterwards the configured failsafe action is triggered and the user may take over. A zero value disables the delay and the user cannot take over via stick movements (switching modes is still allowed).</p>   </td>
+ <td>Delay between failsafe condition triggered and failsafe reaction <p><strong>Comment:</strong> Before entering failsafe (RTL, Land, Hold), wait COM_FAIL_ACT_T seconds in Hold mode for the user to realize. During that time the user cannot take over control via the stick override feature see COM_RC_OVERRIDE. Afterwards the configured failsafe action is triggered and the user may use stick override. A zero value disables the delay and the user cannot take over via stick movements (switching modes is still allowed).</p>   </td>
  <td>[0.0, 25.0] </td>
  <td>5.</td>
  <td>s</td>
