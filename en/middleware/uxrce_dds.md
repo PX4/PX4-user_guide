@@ -447,7 +447,9 @@ For example, you could use different default namespaces or use a custom package 
 
 For publishers, an optional key `interval_us` can be added to specify the minimum duration between topic publications.
 If this key is not present, the topic will be published at the uORB topic rate.
-For subscribers, this key will be ignored
+For subscribers, this key will be ignored.
+
+For example, the `vehicle_attitude` topic shown below would publish no faster than 10 Hz, even though the uORB topic rate is much higher.
 
 ```yaml
 publications:
