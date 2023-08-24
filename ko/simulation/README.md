@@ -107,10 +107,10 @@ where `simulator` is `gz` (for Gazebo), `gazebo-classic`, `jmavsim` or some othe
 make px4_sitl gz_x500
 
 # Start Gazebo Classic with plane
-make px4_sitl gazebo-classic-classic_plane
+make px4_sitl gazebo-classic_plane
 
 # Start Gazebo Classic with iris and optical flow
-make px4_sitl gazebo-classic-classic_iris_opt_flow
+make px4_sitl gazebo-classic_iris_opt_flow
 
 # Start JMavSim with iris (default vehicle model)
 make px4_sitl jmavsim
