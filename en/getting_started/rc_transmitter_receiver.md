@@ -101,6 +101,7 @@ In addition to the transmitter/receiver pairs being compatible, the receiver mus
 - All FrSky PPM and S.Bus models
 - Graupner HoTT
 - All PPM models from other manufacturers
+- TBS Crossfire/Express LRS Receivers using [CRSF Telemetry](../telemetry/crsf_telemetry.md) (UART connection). 
 
 
 ## Connecting Receivers
@@ -112,11 +113,7 @@ As general guidance, receivers connect to the flight controller using the port a
 - PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins (typically labeled RC or RCIN)
 - PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
-Instructions for connecting to specific flight controllers are given in the following quick-start guides:
-
-* [Pixhawk 1](../assembly/quick_start_pixhawk.md#radio-control)
-* [Pixracer](../assembly/quick_start_pixracer.md)
-* [Pixhawk 4](../assembly/quick_start_pixhawk4.md)
+Instructions for connecting to specific flight controllers are given in their [quick-start](../assembly/README.md) guides (such as [CUAV Pixhawk V6X Wiring Quick Start: Radio Control](../assembly/quick_start_cuav_pixhawk_v6x.md#radio-control) or [Holybro Pixhawk 6X Wiring Quick Start: Radio Control](../assembly/quick_start_pixhawk6x.md#radio-control)).
 
 :::tip
 See the manufacturer's flight controller setup guide for additional information.
@@ -147,4 +144,6 @@ For more information see [Radio Control Setup > RC Loss Detection](../config/rad
 ## Related Topics
 
 * [Radio Control Setup](../config/radio.md) - Configuring your radio with PX4.
-* [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control. 
+* [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.
+* [TBS Crossfire (CRSF) Telemetry](../telemetry/crsf_telemetry.md)
+* [FrSky Telemetry](../peripherals/frsky_telemetry.md)
