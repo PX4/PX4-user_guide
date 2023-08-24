@@ -43,6 +43,7 @@ sudo apt remove gz-garden
 sudo apt install aptitude
 sudo aptitude install gazebo libgazebo11 libgazebo-dev
 ```
+Note that `aptitude` because it can resolve dependency conflicts (by removing certain packages) that `apt` is unable to handle.
 :::
 
 ## Running the Simulation
