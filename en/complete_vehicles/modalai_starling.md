@@ -43,6 +43,33 @@ This guide explains the minimal additional setup required to get the UAV ready t
 | M       | Motor 1504                            |                  |
 | N       | XT30 Power Connector                  |                  |
 
+## Datasheet
 
- 
+### Specifications 
 
+| Component       | Specification                                                     |
+|-----------------|-------------------------------------------------------------------|
+| Autopilot       | VOXL2                                                             |
+| Take-off Weight | 275g (172g without battery)                                       |
+| Diagonal Size   | 211mm                                                             |
+| Flight Time     | >30 minutes                                                       |
+| Motors          | 1504                                                              |
+| Propellers      | 120mm                                                             |
+| Frame           | 3mm Carbon Fiber                                                  |
+| ESC             | ModalAI VOXL 4-in-1 ESC V2                                        |
+| GPS             | UBlox M10                                                         |
+| RC Receiver     | 915mhz ELRS                                                       |
+| Power Module    | ModalAI Power Module v3 - 5V/6A                                   |
+| Battery         | Sony VTC6 3000mah 2S, or any 2S 18650 battery with XT30 connector |
+| Height          | 83mm                                                              |
+| Width           | 187mm (Props folded)                                              |
+| Length          | 142mm (Props folded)                                              |
+
+### Hardware Wiring Diagram
+
+![Hardware Overview](../../assets/hardware/modalai_starling/D0005-compute-wiring-d.jpg)
+
+## Tutorial Videos
+* [VOXL 2 Starling Hardware Overview](https://youtu.be/M9OiMpbEYOg)
+* [VOXL 2 Starling First Flight Tutorial](https://youtu.be/Cpbbye3Z6co)
+* [VOXL 2 Starling ELRS Set Up](https://youtu.be/7OwGS-kcFVg)
