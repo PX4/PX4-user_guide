@@ -3,7 +3,7 @@
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-The [Holybro Kakute H7](https://holybro.com/products/kakute-h7-v2) is full of features including dual plug-and-play 4in1 ESC ports, HD camera plug, barometer, OSD, 6x UARTs, full Blackbox MicroSD card slot, 5V and 9V BEC, easy soldering layout, and much more.
+The [Holybro Kakute H7](https://holybro.com/products/kakute-h7) is full of features including dual plug-and-play 4in1 ESC ports, HD camera plug, barometer, OSD, 6x UARTs, full Blackbox MicroSD card slot, 5V and 9V BEC, easy soldering layout, and much more.
 
 The Kakute H7 builds upon the best features of its predecessor, the [Kakute F7](../flight_controller/kakutef7.md), and further improves on hardware components and layout. Dual plug'n'play 4-in-1 ESC connectors simplify support for x8 and Octocopter configurations, keeping assembly simple and clean.
 
@@ -35,7 +35,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 The board can be bought from one of the following shops (for example):
 
-- [Holybro](https://holybro.com/products/kakute-h7-v2)
+- [Holybro](https://holybro.com/products/kakute-h7)
 
 :::tip
 The _Kakute H7_ is designed to work with the _Tekko32_ 4-in-1 ESC and they can be bought in combination.
