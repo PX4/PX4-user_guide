@@ -26557,6 +26557,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CAL_MAG0_PITCH">CAL_MAG0_PITCH</strong> (FLOAT)</td>
+ <td>Magnetometer 0 Custom Euler Pitch Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG0_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="CAL_MAG0_PRIO">CAL_MAG0_PRIO</strong> (INT32)</td>
  <td>Magnetometer 0 priority  <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Uninitialized</li> 
@@ -26579,8 +26586,15 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CAL_MAG0_ROLL">CAL_MAG0_ROLL</strong> (FLOAT)</td>
+ <td>Magnetometer 0 Custom Euler Roll Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG0_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="CAL_MAG0_ROT">CAL_MAG0_ROT</strong> (INT32)</td>
- <td>Magnetometer 0 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td>Magnetometer 0 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero. Set to "Custom Euler Angle" to define the rotation using CAL_MAG0_ROLL, CAL_MAG0_PITCH and CAL_MAG0_YAW.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -26664,9 +26678,11 @@ table {
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+
+<li><strong>100:</strong> Custom Euler Angle</li> 
 </ul>
   </td>
- <td>[-1, 40] </td>
+ <td>[-1, 100] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -26697,6 +26713,13 @@ table {
  <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_MAG0_YAW">CAL_MAG0_YAW</strong> (FLOAT)</td>
+ <td>Magnetometer 0 Custom Euler Yaw Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG0_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_YCOMP">CAL_MAG0_YCOMP</strong> (FLOAT)</td>
@@ -26762,6 +26785,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CAL_MAG1_PITCH">CAL_MAG1_PITCH</strong> (FLOAT)</td>
+ <td>Magnetometer 1 Custom Euler Pitch Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG1_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="CAL_MAG1_PRIO">CAL_MAG1_PRIO</strong> (INT32)</td>
  <td>Magnetometer 1 priority  <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Uninitialized</li> 
@@ -26784,8 +26814,15 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CAL_MAG1_ROLL">CAL_MAG1_ROLL</strong> (FLOAT)</td>
+ <td>Magnetometer 1 Custom Euler Roll Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG1_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="CAL_MAG1_ROT">CAL_MAG1_ROT</strong> (INT32)</td>
- <td>Magnetometer 1 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td>Magnetometer 1 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero. Set to "Custom Euler Angle" to define the rotation using CAL_MAG1_ROLL, CAL_MAG1_PITCH and CAL_MAG1_YAW.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -26869,9 +26906,11 @@ table {
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+
+<li><strong>100:</strong> Custom Euler Angle</li> 
 </ul>
   </td>
- <td>[-1, 40] </td>
+ <td>[-1, 100] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -26902,6 +26941,13 @@ table {
  <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_MAG1_YAW">CAL_MAG1_YAW</strong> (FLOAT)</td>
+ <td>Magnetometer 1 Custom Euler Yaw Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG1_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_YCOMP">CAL_MAG1_YCOMP</strong> (FLOAT)</td>
@@ -26967,6 +27013,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CAL_MAG2_PITCH">CAL_MAG2_PITCH</strong> (FLOAT)</td>
+ <td>Magnetometer 2 Custom Euler Pitch Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG2_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="CAL_MAG2_PRIO">CAL_MAG2_PRIO</strong> (INT32)</td>
  <td>Magnetometer 2 priority  <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Uninitialized</li> 
@@ -26989,8 +27042,15 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CAL_MAG2_ROLL">CAL_MAG2_ROLL</strong> (FLOAT)</td>
+ <td>Magnetometer 2 Custom Euler Roll Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG2_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="CAL_MAG2_ROT">CAL_MAG2_ROT</strong> (INT32)</td>
- <td>Magnetometer 2 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td>Magnetometer 2 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero. Set to "Custom Euler Angle" to define the rotation using CAL_MAG2_ROLL, CAL_MAG2_PITCH and CAL_MAG2_YAW.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -27074,9 +27134,11 @@ table {
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+
+<li><strong>100:</strong> Custom Euler Angle</li> 
 </ul>
   </td>
- <td>[-1, 40] </td>
+ <td>[-1, 100] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -27107,6 +27169,13 @@ table {
  <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_MAG2_YAW">CAL_MAG2_YAW</strong> (FLOAT)</td>
+ <td>Magnetometer 2 Custom Euler Yaw Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG2_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_YCOMP">CAL_MAG2_YCOMP</strong> (FLOAT)</td>
@@ -27172,6 +27241,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CAL_MAG3_PITCH">CAL_MAG3_PITCH</strong> (FLOAT)</td>
+ <td>Magnetometer 3 Custom Euler Pitch Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG3_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="CAL_MAG3_PRIO">CAL_MAG3_PRIO</strong> (INT32)</td>
  <td>Magnetometer 3 priority  <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Uninitialized</li> 
@@ -27194,8 +27270,15 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CAL_MAG3_ROLL">CAL_MAG3_ROLL</strong> (FLOAT)</td>
+ <td>Magnetometer 3 Custom Euler Roll Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG3_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="CAL_MAG3_ROT">CAL_MAG3_ROT</strong> (INT32)</td>
- <td>Magnetometer 3 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td>Magnetometer 3 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero. Set to "Custom Euler Angle" to define the rotation using CAL_MAG3_ROLL, CAL_MAG3_PITCH and CAL_MAG3_YAW.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -27279,9 +27362,11 @@ table {
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+
+<li><strong>100:</strong> Custom Euler Angle</li> 
 </ul>
   </td>
- <td>[-1, 40] </td>
+ <td>[-1, 100] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -27312,6 +27397,13 @@ table {
  <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_MAG3_YAW">CAL_MAG3_YAW</strong> (FLOAT)</td>
+ <td>Magnetometer 3 Custom Euler Yaw Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG3_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_YCOMP">CAL_MAG3_YCOMP</strong> (FLOAT)</td>
@@ -33610,13 +33702,6 @@ table {
 <tr>
  <td><strong id="VT_TILT_MC">VT_TILT_MC</strong> (FLOAT)</td>
  <td>Normalized tilt in Hover    </td>
- <td>[0.0, 1.0] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="VT_TILT_SPINUP">VT_TILT_SPINUP</strong> (FLOAT)</td>
- <td>Tilt when disarmed and in the first second after arming <p><strong>Comment:</strong> This specific tilt during spin-up is necessary for some systems whose motors otherwise don't spin-up freely.</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>0.0</td>
  <td></td>
