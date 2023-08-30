@@ -23,7 +23,7 @@ PX4 비행 스택은 컴퓨터(동일한 컴퓨터 또는 동일한 네트워크
 | [JSBSim](../simulation/jsbsim.md)                                       | <p>고급 비행 역학 모델 시뮬레이션을 제공합니다. 이것은 풍동 데이터를 기반으로 현실적인 비행 역학을 모델링할 수 있습니다.</p> <p><strong>지원 차량:</strong> 평면, 쿼드, 육각</p>                                                  |
 | [jMAVSim](../simulation/jmavsim.md)                                     | *콥터* 유형의 차량을 비행할 수 있는 간단한 멀티콥터 시뮬레이터입니다. <p>설정이 간단하며, 기체가 이륙, 비행, 착륙할 수 있으며, 다양한 장애 조건(예: GPS 장애)에 적절하게 반응 여부를 테스트할 수 있습니다. [다중 차량 시뮬레이션](../simulation/multi_vehicle_jmavsim.md)에도 사용할 수 있습니다.</p><p><strong>지원 차량:</strong> 쿼드</p>         |
 | [AirSim](../simulation/airsim.md)                                       | <p>물리적 및 시각적으로 사실적인 시뮬레이션을 제공하는 크로스 플랫폼 시뮬레이터입니다. 이 시뮬레이터는 리소스 집약적이며, 다른 시뮬레이터보다 강력한 컴퓨터가 필요합니다.</p><p><strong>지원 차량:</strong> Iris(MultiRotor 모델 및 X 구성의 PX4 QuadRotor 구성).</p>                                                 |
-| [Simulation-In-Hardware](../simulation/simulation-in-hardware.md) (SIH) | <p>An alternative to HITL that offers a hard real-time simulation directly on the hardware autopilot. This simulator is implemented in C++ as a PX4 module directly in the Firmware [code](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/sih). </p><p><strong>Supported Vehicles:</strong> Plane, Quad, Tailsitter</p>                                                 |
+| [Simulation-In-Hardware](../simulation/simulation-in-hardware.md) (SIH) | <p>An alternative to HITL that offers a hard real-time simulation directly on the hardware autopilot. This simulator is implemented in C++ as a PX4 module directly in the Firmware [code](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/simulator_sih). </p><p><strong>Supported Vehicles:</strong> Plane, Quad, Tailsitter</p>                                                 |
 
 시뮬레이터를 설정 사용 방법에 대한 지침은 위에 링크를 참고하십시오.
 
@@ -177,9 +177,9 @@ SITL이 이 기능을 지원하지 않는 시뮬레이터와 함께 사용되는
 
 To disable lockstep in PX4, run `make px4_sitl_default boardconfig` and set the `BOARD_NOLOCKSTEP` "Force disable lockstep" symbol which is located under toolchain.
 
-To disable lockstep in Gazebo, edit [the model SDF file](https://github.com/PX4/PX4-SITL_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) and set `<enable_lockstep>false</enable_lockstep>`.
+To disable lockstep in Gazebo, edit [the model SDF file](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) and set `<enable_lockstep>false</enable_lockstep>`.
 
-To disable lockstep in jMAVSim, remove `-l` in [sitl_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/jmavsim/sitl_run.sh#L40), or make sure otherwise that the java binary is started without the `-lockstep` flag.
+To disable lockstep in jMAVSim, remove `-l` in [sitl_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/jsbsim/sitl_run.sh#L40), or make sure otherwise that the java binary is started without the `-lockstep` flag.
 <!-- Relevant lines in sitl_run.sh are: -->
 <!-- # Start Java simulator -->
 <!-- "$src_path"/Tools/simulation/jmavsim/jmavsim_run.sh -r 250 -l & SIM_PID=$! -->
