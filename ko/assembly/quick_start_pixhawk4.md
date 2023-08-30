@@ -157,7 +157,7 @@ The mapping is not consistent across frames (e.g. you can't rely on the throttle
 
 ## 핀배열
 
-[Pixhawk 4 핀배열](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
+[Pixhawk 4 Pinouts](https://holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
 
 ## 설정
 
@@ -171,5 +171,5 @@ QuadPlane에 대한 자세한 설정 방법은 [QuadPlane VTOL 설정](../config
 
 - [Pixhawk 4](../flight_controller/pixhawk4.md) (개요 페이지)
 - [Pixhawk 4 기술 데이터 시트](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
-- [Pixhawk 4 핀배열](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
-- [Pixhawk 4 빠른 시작 가이드 (Holybro)](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)
+- [Pixhawk 4 Pinouts](https://holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
+- [Pixhawk 4 빠른 시작 가이드 (Holybro)](https://holybro.com/manual/Pixhawk4-quickstartguide.pdf)
