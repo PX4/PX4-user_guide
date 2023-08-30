@@ -149,6 +149,7 @@
   * [전체 매개변수 정의서](advanced_config/parameter_reference.md)
 * [하드웨어(드론 및 부품)](hardware/drone_parts.md)
   * [완성 기체](complete_vehicles/README.md)
+    * [ModalAI Starling](complete_vehicles/modalai_starling.md)
     * [PX4 비전 키트](complete_vehicles/px4_vision_kit.md)
     * [마인드레이서 BNF & RTF](complete_vehicles/mindracer_BNF_RTF.md)
       * [마인드레이서 210](complete_vehicles/mindracer210.md)

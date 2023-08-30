@@ -14,8 +14,8 @@ This section lists vehicles that are sold fully assembled and ready to fly (RTF)
   * [ThunderFly TF-G2](https://www.thunderfly.cz/tf-g2.html)
 * Multicopter
   * [Teal One](https://tealdrones.com/teal-one/)
-  * [ModalAI m500](https://www.modalai.com/collections/development-drones/products/voxl-m500)
-  * [ModalAI Sentinel](https://www.modalai.com/products/sentinel-development-drone)
+  * [ModalAI Starling](../complete_vehicles/modalai_starling.md)
+  * [ModalAI Sentinel](https://www.modalai.com/sentinel)
 * VTOL
   * [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
 
@@ -33,6 +33,7 @@ This section lists fully assembled vehicles where you can update the software to
 
 This section lists drone kits that are intended as platforms for further development. They may come either fully assembled or in parts.
 
+- [ModalAI Starling](../complete_vehicles/modalai_starling.md)
 - [PX4 Vision DevKit](../complete_vehicles/px4_vision_kit.md) - Multicopter used for PX4 computer vision development
 
 ## UAV Kits
