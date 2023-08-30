@@ -63,10 +63,9 @@ These may or may not be updatable to run "vanilla" PX4.
   * [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus/)
   * [Yuneec Mantis Q](https://px4.io/portfolio/yuneec-mantis-q/)
   * [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
-  * [Airlango Mystic](http://airlango.com/products/)
   * [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/)
 * Fixed Wing:
-  * [Sentera PXH](https://sentera.shop/collections/drone-systems-sensors/products/broad-acre-package) (Broad Acre Package)
+  * [Sentera PXH](https://sentera.com/products/fieldcapture/ag-drones/phx/)
 * VTOL
   * [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
   * [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)

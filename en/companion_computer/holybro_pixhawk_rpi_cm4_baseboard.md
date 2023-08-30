@@ -1,6 +1,6 @@
 # Holybro Pixhawk RPi CM4 Baseboard
 
-The [Holybro Pixhawk RPi CM4 Baseboard](http://www.holybro.com/product/pixhawk-rpi-cm4-baseboard/) is a single-board solution that pre-integrates a (swappable) Pixhawk flight controller with the Raspberry Pi CM4 companion computer ("RPi").
+The [Holybro Pixhawk RPi CM4 Baseboard](https://holybro.com/products/pixhawk-rpi-cm4-baseboard) is a single-board solution that pre-integrates a (swappable) Pixhawk flight controller with the Raspberry Pi CM4 companion computer ("RPi").
 The baseboard has a compact form factor with all the connections needed for development.
 
 ![RPi CM4 with Pixhawk](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_hero.jpg)
@@ -15,7 +15,7 @@ The board follows the [Pixhawk Connector Standard](https://github.com/pixhawk/Pi
 
 ## Purchase
 
-- [Holybro Pixhawk RPi CM4 Baseboard](http://www.holybro.com/product/pixhawk-rpi-cm4-baseboard/) (www.holybro.com)
+- [Holybro Pixhawk RPi CM4 Baseboard](https://holybro.com/products/pixhawk-rpi-cm4-baseboard) (www.holybro.com)
 
   The baseboard can be purchased with or without an RPi CM4 and/or flight controller:
 

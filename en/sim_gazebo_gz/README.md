@@ -151,7 +151,7 @@ To add a new model:
 
 1. Add an **sdf** file in the PX4 Gazebo [model directory](https://github.com/PX4/PX4-Autopilot/tree/main/Tools/simulation/gz/models).
 1. Define an [airframe configuration file](../dev_airframes/adding_a_new_frame.md).
-1. Define the default parameters for Gazebo in the airframe configuration file (this example is from [x500 quadcopter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/4001_x500)):
+1. Define the default parameters for Gazebo in the airframe configuration file (this example is from [x500 quadcopter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/4001_gz_x500)):
 
    ```
    PX4_SIMULATOR=${PX4_SIMULATOR:=gz}
