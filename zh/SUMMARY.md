@@ -149,6 +149,7 @@
   * [Full Parameter Reference](advanced_config/parameter_reference.md)
 * [硬件(无人机&零件)](hardware/drone_parts.md)
   * [整机](complete_vehicles/README.md)
+    * [ModalAI Starling](complete_vehicles/modalai_starling.md)
     * [PX4 视觉套件](complete_vehicles/px4_vision_kit.md)
     * [MindRacer BNF & RTF](complete_vehicles/mindracer_BNF_RTF.md)
       * [MindRacer 210](complete_vehicles/mindracer210.md)
