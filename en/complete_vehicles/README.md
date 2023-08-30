@@ -36,7 +36,7 @@ This section lists fully assembled vehicles where you can update the software to
 This section lists drone kits that are intended as platforms for further development.
 They may come either fully assembled or in parts.
 
-- [ModalAI Starling](https://www.modalai.com/starling)
+- [ModalAI Starling](../complete_vehicles/modalai_starling.md)
 - [PX4 Vision DevKit](../complete_vehicles/px4_vision_kit.md) - Multicopter used for PX4 computer vision development
 
 ## UAV Kits
