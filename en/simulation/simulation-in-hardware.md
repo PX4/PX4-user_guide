@@ -81,6 +81,6 @@ The vehicle can be observed moving in jMAVSim, and on the QGC _Fly_ view.
 ## Credits
 
 The SIH was originally developed by Coriolis g Corporation, then the airplane model and tailsitter models were added by Altitude R&D inc.
-Both are Canadian companies, Coriolis develops a new type of Vertical Takeoff and Landing (VTOL) vehicles based on passive coupling systems [www.vogi-vtol.com](http://www.vogi-vtol.com/);
-Altitude R&D is specialized in dynamics, control, and real-time simulation [www.altitude-rd.com](https://www.altitude-rd.com/).
+Both are Canadian companies, [Coriolis g](http://ww7.vogi-vtol.com) develops a new type of Vertical Takeoff and Landing (VTOL) vehicles based on passive coupling systems;
+[Altitude R&D](https://www.altitude-rd.com/) is specialized in dynamics, control, and real-time simulation.
 They provide the SIH as a simple simulator for quadrotors and airplanes released for free under BSD license.

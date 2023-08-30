@@ -60,10 +60,10 @@ Any Omnibus F4 labeled derivative (e.g. clone) should work as well. However, pow
 
 These are the boards tested and known to work:
 
-- [Hobbywing XRotor Flight Controller F4](http://www.hobbywing.com/goods.php?id=636)
+- [Hobbywing XRotor Flight Controller F4](https://www.hobbywing.com/en/products/info.html?id=164)
 
   :::note
-  This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](http://www.hobbywing.com/goods.php?id=588) without soldering. This ESC board also provides power for the Omnibus board.
+  This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](https://www.hobbywing.com/en/products/info.html?id=116) without soldering. This ESC board also provides power for the Omnibus board.
   :::
 
   Purchase from:
@@ -75,7 +75,7 @@ These are the boards tested and known to work:
   Purchase from:
 
   - [Airbot (CN manufacturer)](https://store.myairbot.com/omnibusf4prov3.html)
-  - [Ready To Fly Quads (US reseller)](http://www.readytoflyquads.com/flip-32-f4-omnibus-v2-pro)
+  - [Ready To Fly Quads (US reseller)](https://quadsrtf.com/product/flip-32-f4-omnibus-rev-2/)
 
 Accessories include:
 
@@ -253,6 +253,4 @@ In addition to the [basic configuration](../config/README.md), the following par
 
 ## Further Info
 
-A review with further information of the board can be found [here](https://nathan.vertile.com/blog/2016/10/12/omnibusf4/).
-
-[This page](https://blog.dronetrest.com/omnibus-f4-flight-controller-guide/) also provides a nice overview with pinouts and setup instructions.
+[This page](https://blog.dronetrest.com/omnibus-f4-flight-controller-guide/) provides a good overview with pinouts and setup instructions.

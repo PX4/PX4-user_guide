@@ -18,7 +18,7 @@ It supports [DroneCAN](../dronecan/README.md), runs [PX4 DroneCAN Firmware](../d
 
 ### Holybro ST VL53L1X Lidar
 
-The [VL53L1X](http://www.holybro.com/product/vl53l1x/) is a state-of-the-art, Time-of-Flight (ToF), laser-ranging sensor, enhancing the ST FlightSense™ product family.
+The [VL53L1X](https://holybro.com/products/st-vl53l1x-lidar) is a state-of-the-art, Time-of-Flight (ToF), laser-ranging sensor, enhancing the ST FlightSense™ product family.
 It is the fastest miniature ToF sensor on the market with accurate ranging up to 4 m and fast ranging frequency up to 50 Hz.
 
 It comes with a JST GHR 4 pin connector that is compatible with the I2C port on [Pixhawk 4](../flight_controller/pixhawk4.md), [Pixhawk 5X](../flight_controller/pixhawk5x.md), and other flight controllers that follow the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)).
@@ -159,7 +159,7 @@ make px4_sitl gazebo-classic_typhoon_h480
 If you need to use a different vehicle you can include the model in its configuration file.
 You can see how in the respective Iris and Typhoon configuration files:
 
-- [iris_opt_flow.sdf](https://github.com/PX4/PX4-SITL_gazebo/blob/master/models/iris_opt_flow/iris_opt_flow.sdf)
+- [iris_opt_flow.sdf](https://github.com/PX4/PX4-SITL_gazebo/blob/main/models/iris_opt_flow/iris_opt_flow.sdf)
   ```xml
     <include>
       <uri>model://lidar</uri>
