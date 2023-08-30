@@ -13,8 +13,8 @@
   * [ThunderFly TF-G2](https://www.thunderfly.cz/tf-g2.html)
 * 멀티콥터
   * [Teal One](https://tealdrones.com/teal-one/)
-  * [ModalAI m500](https://www.modalai.com/collections/development-drones/products/voxl-m500)
-  * [ModalAI Sentinel](https://www.modalai.com/products/sentinel-development-drone)
+  * [ModalAI Starling](../complete_vehicles/modalai_starling.md)
+  * [ModalAI Sentinel](https://www.modalai.com/sentinel)
 * VTOL
   * [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
 
@@ -32,6 +32,7 @@ This section lists fully assembled vehicles where you can update the software to
 
 이 섹션에는 추가 개발을 위한 플랫폼 키트를 설명합니다. 완전히 조립품이거나 부분 조립품들입니다.
 
+- [ModalAI Starling](../complete_vehicles/modalai_starling.md)
 - [PX4 Vision DevKit](../complete_vehicles/px4_vision_kit.md) - PX4 컴퓨터 비전 개발을 위한 멀티콥터
 
 ## UAV 키트
