@@ -156,7 +156,7 @@ Please use descriptive, multi-paragraph commit messages for all non-trivial chan
 
 **Use **`git commit -s`** to sign off on all of your commits.** This will add `signed-off-by:` with your name and email as the last line.
 
-This commit guide is based on best practices for the Linux Kernel and other [projects maintained](https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115) by Linus Torvalds.
+This commit guide is based on best practices for the Linux Kernel and other [projects maintained](https://github.com/torvalds/subsurface-for-dirk/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115) by Linus Torvalds.
 
 ## Pull Requests
 
