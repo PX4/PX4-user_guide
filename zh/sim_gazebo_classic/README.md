@@ -245,7 +245,7 @@ To simulate wind speed, add this plugin to your world file and set `windVelocity
 
 Wind direction is passed as a direction vector (standard ENU convention), which will be normalized in the gazebo plugin. Additionally you can state wind velocity variance in (m/s)² and direction variance based on a normal distribution to add some random factor into the simulation. Gust is internally handled in the same way as wind, with the slight difference that you can state start time and duration with the following two parameters `windGustStart` and `windGustDuration`.
 
-You can see how this is done in [PX4/PX4-SITL_gazebo/worlds/windy.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/windy.world#L15-L31).
+You can see how this is done in [PX4/PX4-SITL_gazebo/worlds/windy.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/windy.world#L15-L31).
 
 
 
@@ -308,7 +308,7 @@ The next time you build/restart Gazebo Classic it will use the new GPS noise set
 
 ## Loading a Specific World
 
-PX4 supports a number of [Worlds](../sim_gazebo_classic/gazebo_worlds.md), which are stored in [PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/main/worlds). By default Gazebo Classic displays a flat featureless plane, as defined in [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/empty.world).
+PX4 supports a number of [Worlds](../sim_gazebo_classic/gazebo_worlds.md), which are stored in [PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/main/worlds). By default Gazebo Classic displays a flat featureless plane, as defined in [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/empty.world).
 
 You can load any of the worlds by specifying them as the final option in the PX4 configuration target.
 
@@ -348,7 +348,7 @@ You can also set a [Custom Takeoff Location](#custom_takeoff_location) that does
 
 The location of the world is defined in the **.world** file by specifying the location of the origin using the `spherical_coordinates` tag. The latitude, longitude, elevation must all be specified (for this to be a valid).
 
-An example can be found in the [sonoma_raceway.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/sonoma_raceway.world):
+An example can be found in the [sonoma_raceway.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/sonoma_raceway.world):
 
 
 ```
@@ -430,7 +430,7 @@ The camera also supports/responds to the following MAVLink commands: [MAV_CMD_RE
 :::  
 
 :::note
-The simulated camera is implemented in [PX4/PX4-SITL_gazebo/master/src/gazebo_camera_manager_plugin.cpp](https://github.com/PX4/PX4-SITL_gazebo/blob/master/src/gazebo_camera_manager_plugin.cpp).
+The simulated camera is implemented in [PX4/PX4-SITL_gazebo/main/src/gazebo_camera_manager_plugin.cpp](https://github.com/PX4/PX4-SITL_gazebo/blob/main/src/gazebo_camera_manager_plugin.cpp).
 :::  
 
 <!-- Simulated Depth Camera section removed 20230301.
