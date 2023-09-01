@@ -42,6 +42,10 @@ If you update an existing file you are not required to make the whole file compl
 
 - `lowerCamelCase()` is used for functions and methods to *visually* distinguish them from `ClassConstructors()` and `ClassNames`.
 
+### Private Class Member Variable Names
+
+- `_underscore_prefixed_snake_case` is used for private class member variable names, as oppose to `underscore_postfixed_` due to "tab-ability" (see all class members with one press of tab) and PX4 style legacy (hard to teach old dogs new tricks).
+
 ### Class Privacy Keywords
 
 - *zero* spaces before `public:`, `private:`, or `protected:` keywords.
@@ -60,15 +64,15 @@ public:
          */
         float doSomething(const float input_param) const {
                 const float in_scope_variable = input_param + kConstantFloat;
-                return in_scope_variable * private_member_variable_;
+                return in_scope_variable * _private_member_variable;
         }
 
-        void setPrivateMember(const float private_member_variable) { private_member_variable_ = private_member_variable; }
+        void setPrivateMember(const float private_member_variable) { _private_member_variable = private_member_variable; }
 
         /**
          * @return Whatever we are "getting" [units]
          */
-        float getPrivateMember() const { return private_member_variable_; }
+        float getPrivateMember() const { return _private_member_variable; }
 
 private:
     
@@ -76,7 +80,7 @@ private:
         static constexpr float kConstantFloat = ...;  
 
         // Clear description of the variable if not completely obvious from the name [units]
-        float private_member_variable_{...};
+        float _private_member_variable{...};
 };
 ```
 
