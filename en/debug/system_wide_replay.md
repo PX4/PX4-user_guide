@@ -29,7 +29,7 @@ Reasons for this are given below.
   ```
   This will create the output in a separate build directory `build/px4_sitl_default_replay` (so that the parameters don't interfere with normal builds).
   It's possible to choose any posix SITL build target for replay, the build system knows through the `replay` environment variable that it's in replay mode.
-- Add ORB publisher rules file in `build/px4_sitl_default_replay/tmp/rootfs/orb_publisher.rules`.
+- Add ORB publisher rules file in `build/px4_sitl_default_replay/rootfs/orb_publisher.rules`.
   This file defines which module is allowed to publish which messages.
   It has the following format:
   ```
@@ -52,7 +52,7 @@ Reasons for this are given below.
   
   This allows that the modules, which usually publish these topics, don't need to be disabled for replay.
 
-- Optional: setup parameter overrides in the file `build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt`.
+- Optional: setup parameter overrides in the file `build/px4_sitl_default_replay/rootfs/replay_params.txt`.
   This file should contain a list of `<param_name> <value>`, like:
   
   ```
@@ -122,7 +122,7 @@ The parameters can be adjusted as well.
 They can be extracted from the log with the following \(install pyulog with `pip install --user pyulog` first\):
 
 ```
-ulog_params -i "$replay" -d ' ' | grep -e '^EKF2' > build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt
+ulog_params -i "$replay" -d ' ' | grep -e '^EKF2' > build/px4_sitl_default_replay/rootfs/replay_params.txt
 ```
 
 Then edit the parameters in the file as needed and restart the replay process with `make px4_sitl none`. 
