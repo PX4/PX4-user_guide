@@ -23,7 +23,7 @@ It is important that all replayed topics contain only a single absolute timestam
   make px4_sitl none
   ```
   This will create the output in a separate build directory `build/px4_sitl_default_replay` (so that the parameters don't interfere with normal builds). `build/px4_sitl_default_replay` (so that the parameters don't interfere with normal builds). It's possible to choose any posix SITL build target for replay, the build system knows through the `replay` environment variable that it's in replay mode.
-- Add ORB publisher rules file in `build/px4_sitl_default_replay/tmp/rootfs/orb_publisher.rules`. 此文件定义允许了发布消息的模块。 It has the following format:
+- Add ORB publisher rules file in `build/px4_sitl_default_replay/rootfs/orb_publisher.rules`. 此文件定义允许了发布消息的模块。 It has the following format:
   ```
   It means that the given list of topics should only be published by <code><module></code> (which is the command name). Publications to any of these topics from another module are silently ignored. If <code>ignore_others</code> is <code>true</code>, then publications to other topics from <code><module></code> are ignored.
   ```
@@ -41,7 +41,7 @@ ignore_others: true
 
   This allows that the modules, which usually publish these topics, don't need to be disabled for replay.
 
-- Optional: setup parameter overrides in the file `build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt`. 此文件应包含 ` &lt;param_name&gt; &lt;value&gt; ` 的列表，例如：
+- Optional: setup parameter overrides in the file `build/px4_sitl_default_replay/rootfs/replay_params.txt`. 此文件应包含 ` &lt;param_name&gt; &lt;value&gt; ` 的列表，例如：
 
   ```
   EKF2_GB_NOISE 0.001
@@ -98,10 +98,8 @@ INFO  [replay] Replay done (published 9917 msgs, 2.136 s)
 参数也可以调整。 They can be extracted from the log with the following \(install pyulog with `pip install --user pyulog` first\):
 
 ```
-Optional: setup parameter overrides in the file <code>build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt</code>. This file should contain a list of <code><param_name> <value></code>, like:
+ulog_params -i "$replay" -d ' ' | grep -e '^EKF2' > build/px4_sitl_default_replay/rootfs/replay_params.txt
 ```
-. This file should contain a list of <param_name> <value>, like:
-</code>
 
 Then edit the parameters in the file as needed and restart the replay process with `make px4_sitl none`. This will create a new log file. 这将创建一个新的日志文件。
 

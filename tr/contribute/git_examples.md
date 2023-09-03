@@ -47,7 +47,7 @@ Adding a feature to PX4 follows a defined workflow. In order to share your contr
   ```
 
   For a good commit message, please refer to [Contributing](../contribute/README.md) section.
-* Some time might have passed and the [upstream main](https://github.com/PX4/PX4-Autopilot.git) has changed. PX4 prefers a linear commit history and uses [git rebase](https://git-scm.com/book/de/v1/Git-Branching-Rebasing). To include the newest changes from upstream in your local branch, switch to your main branch
+* Some time might have passed and the [upstream main](https://github.com/PX4/PX4-Autopilot.git) has changed. PX4 prefers a linear commit history and uses [git rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing). To include the newest changes from upstream in your local branch, switch to your main branch
 
   ```sh
   git checkout main

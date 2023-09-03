@@ -48,7 +48,7 @@ I2C 포트에 연결 가능한 모델을 위의 표를 참고하십시오.
 ![SF1XX LIDAR-I2C 연결](../../assets/hardware/sensors/lidar_lightware/sf1xx_i2c.jpg)
 
 :::note
-일부 이전 버전은 PX4에서 사용할 수 없습니다. 특히 `0x55`와 같은 I2C 주소를 갖도록 잘못 설정되어 `rgbled` 모듈과 충돌할 수 있습니다. 리눅스 시스템에서는 [i2cdetect](http://manpages.ubuntu.com/manpages/bionic/en/man8/i2cdetect.8.html)를 사용하여 주소를 확인할 수 있습니다. I2C 주소가 `0x66`과 동일하면, 센서를 PX4와 함께 사용할 수 있습니다.
+일부 이전 버전은 PX4에서 사용할 수 없습니다. 특히 `0x55`와 같은 I2C 주소를 갖도록 잘못 설정되어 `rgbled` 모듈과 충돌할 수 있습니다. On Linux systems you may be able to determine the address using [i2cdetect](https://linux.die.net/man/8/i2cdetect). I2C 주소가 `0x66`과 동일하면, 센서를 PX4와 함께 사용할 수 있습니다.
 :::
 
 <a id="i2c_parameter_setup"></a>

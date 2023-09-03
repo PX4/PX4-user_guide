@@ -75,9 +75,10 @@ The main frame-specific differences are the motor wiring, and some aspects of tu
 
 ### Quad
 
-[유투브](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
-
----
+<!-- 
+[Skypull](https://www.skypull.technology/) Tethered quad tailsitter (promotional video)
+@[youtube](https://youtu.be/6s-Izqb_GVs)
+-->
 
 [UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/valaq_patrol_technical_data/) - Tailsitter takeoff, transition, landing.
 

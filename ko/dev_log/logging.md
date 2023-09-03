@@ -42,10 +42,10 @@ _Developers_ can further configure what information is logged via the [logger](.
 
 ### 진단SD 카드 설정
 
-Separately, the list of logged topics can also be customized with a file on the SD card. 주제 목록이 있는 카드에 `etc/logging/logger_topics.txt` 파일을 생성합니다(SITL의 경우 `build/px4_sitl_default/tmp/rootfs/fs/microsd/etc/logging/logger_topics).</p>
-
-<pre><code><topic_name> <interval> <instance>
-`</pre>
+Separately, the list of logged topics can also be customized with a file on the SD card. Create a file `etc/logging/logger_topics.txt` on the card with a list of topics (For SITL, it's `build/px4_sitl_default/rootfs/fs/microsd/etc/logging/logger_topics.txt`):
+```
+<topic_name> <interval> <instance>
+```
 `<interval>`은 선택 사항이며, 지정된 경우 이 항목에 대해 기록된 두 메시지 사이의 최소 시간 간격(ms)을 정의합니다. 지정하지 않으면, 주제가 최대 속도로 기록됩니다.
 
 `<instance>`은 선택 사항이며, 지정된 경우 기록할 인스턴스를 정의합니다. 지정하지 않으면, 토픽의 모든 인스턴스를 로깅합니다. `<instance>`를 지정하려면, `<interval>`을 반드시 지정하여야합니다. 0 값을 설정하면 최대 기록율로 지정할 수 있습니다.
