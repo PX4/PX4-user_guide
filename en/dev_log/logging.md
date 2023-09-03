@@ -53,7 +53,7 @@ This allows, for example, logging of your own uORB topics.
 ### SD Card Configuration
 
 Separately, the list of logged topics can also be customized with a file on the SD card.
-Create a file `etc/logging/logger_topics.txt` on the card with a list of topics (For SITL, it's `build/px4_sitl_default/tmp/rootfs/fs/microsd/etc/logging/logger_topics.txt`):
+Create a file `etc/logging/logger_topics.txt` on the card with a list of topics (For SITL, it's `build/px4_sitl_default/rootfs/fs/microsd/etc/logging/logger_topics.txt`):
 ```
 <topic_name> <interval> <instance>
 ```
