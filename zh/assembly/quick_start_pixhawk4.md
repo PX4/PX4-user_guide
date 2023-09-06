@@ -157,7 +157,7 @@ The wiring and configuration of optional/less common components is covered withi
 
 ## 针脚定义
 
-[Pixhawk 4 针脚定义](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf)（PDF）
+[Pixhawk 4 Pinouts](https://holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
 
 ## 配置
 
@@ -171,5 +171,5 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 
 - [Pixhawk 4](../flight_controller/pixhawk4.md)（概览页面）
 - [Pixhawk 4 技术数据表](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
-- [Pixhawk 4 针脚定义](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf)（PDF）
-- [Pixhawk 4 快速入门指南（PDF）](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)
+- [Pixhawk 4 Pinouts](https://holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
+- [Pixhawk 4 快速入门指南（PDF）](https://holybro.com/manual/Pixhawk4-quickstartguide.pdf)

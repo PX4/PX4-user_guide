@@ -58,10 +58,10 @@ The _Omnibus F4 SD_ is a controller board designed for racers. 일반적인 레�
 
 아래의 보드들은 테스트되고 작동하는 것입니다.
 
-- [Hobbywing XRotor 비행 콘트롤러 F4](http://www.hobbywing.com/goods.php?id=636)
+- [Hobbywing XRotor 비행 콘트롤러 F4](https://www.hobbywing.com/en/products/info.html?id=164)
 
 :::note
-This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](http://www.hobbywing.com/goods.php?id=588) without soldering. 이 ESC 보드는 또한 Omnibus 보드에 전원을 제공합니다.
+This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](https://www.hobbywing.com/en/products/info.html?id=116) without soldering. 이 ESC 보드는 또한 Omnibus 보드에 전원을 제공합니다.
 :::
 
   구매처:
@@ -73,7 +73,7 @@ This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](http://www.h
   구매처:
 
   - [Airbot (CN 제조업체)](https://store.myairbot.com/omnibusf4prov3.html)
-  - [Ready To Fly Quads(미국 리셀러)](http://www.readytoflyquads.com/flip-32-f4-omnibus-v2-pro)
+  - [Ready To Fly Quads(미국 리셀러)](https://quadsrtf.com/product/flip-32-f4-omnibus-rev-2/)
 
 액세서리에는 아래의 내용물이 포함됩니다.
 
@@ -242,6 +242,4 @@ make omnibus_f4sd_default
 
 ## 추가 정보
 
-이 보드에 관한 리뷰는 [여기](https://nathan.vertile.com/blog/2016/10/12/omnibusf4/)를 참고하십시오.
-
-[이 페이지](https://blog.dronetrest.com/omnibus-f4-flight-controller-guide/)는 핀배열, 설정 방법을 제공합니다.
+[This page](https://blog.dronetrest.com/omnibus-f4-flight-controller-guide/) provides a good overview with pinouts and setup instructions.

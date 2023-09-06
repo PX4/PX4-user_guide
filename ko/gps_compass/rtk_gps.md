@@ -23,7 +23,6 @@ PX4에서 작동하는 RTK 호환 장치(단종 된 장치 제외)는 아래와 
 | [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)                                        |         |                                                              |                                   |         |
 | [CUAV C-RTK2 ](../gps_compass/rtk_gps_cuav_c-rtk2.md)                                         |         |                                                              |                                   | &check; |
 | [CUAV C-RTK 9Ps GPS](../gps_compass/rtk_gps_cuav_c-rtk-9ps.md)                                |         |                           &check;                            |                                   |         |
-| [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)                                      |         |                                                              |                                   |         |
 | [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md)                                |         |                                                              |                                   |         |
 | [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P)                                    |         |                                                              |                                   |         |
 | [CubePilot Here3](https://www.cubepilot.org/#/here/here3)                                     |         |                                                              |              &check;              |         |

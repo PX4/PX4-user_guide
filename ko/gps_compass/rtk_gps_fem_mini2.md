@@ -1,6 +1,6 @@
 # Femtones MINI2 수신기
 
-[MINI2 수신기](http://www.femtomes.com)는 센티미터 레벨 포지셔닝을 위하여 빠르고 안정적인 RTK 초기화를 제공하는 RTK GPS 수신기입니다. It is intended for applications that require high-precision positioning (e.g. navigation and mapping, etc.).
+[MINI2 Receiver](http://www.femtomes.com/#/MiniII?type=0) is an RTK GPS receiver that delivers high-rate and reliable RTK initialization for centimeter level positioning. It is intended for applications that require high-precision positioning (e.g. navigation and mapping, etc.).
 
 수신기는 직렬 포트 (UART)를 통하여 PX4에 연결되며, 표준 웹 브라우저를 사용하여 설정할 수 있습니다.
 
@@ -22,7 +22,7 @@
 
 ## Where to Buy
 
-판매 견적은 [Femtones](http://www.femtomes.com)에 문의하십시오.
+Contact [Femtones](http://www.femtomes.com/) directly for sales quote:
 - **전자메일:** [sales@femtomes.com](mailto:sales@femtomes.com)
 - **전화:** +86-10-53779838
 
@@ -41,7 +41,7 @@
 
 방향 추정을 위해 두 안테나는 같은 높이에 있어야하고, 서로 최소 30cm 떨어져 있어야합니다. 두 GPS가 향하는 방향은 [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) 매개변수로 설정할 수 있습니다.
 
-[GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)를 사용하여 [MINI2 수신기](http://www.femtomes.com)의 실행 직렬 포트를 설정하고, [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD)에서 전송 속도를 115200으로 설정합니다.
+Configure the serial port on which the [MINI2 Receiver](http://www.femtomes.com/#/MiniII?type=0) will run using [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), and set the baud rate to 115200 using [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD).
 
 설정후에는 수신기는 다른 [RTK GPS](../gps_compass/rtk_gps.md)와 동일한 방식으로 사용됩니다 (즉, Survey-in 프로세스와 관련하여).
 
@@ -50,11 +50,11 @@
 
 MINI2는 다음 구성 요소를 통합합니다.
 
-- [FB672](http://www.femtomes.com/en/FB672.php) : 소형, 이중 안테나, 이중 주파수 GNSS OEM 보드(센티미터 수준의 정확한 위치와 정확한 방향 제공).
+- [FB672](http://www.femtomes.com/#/FB672): Compact, dual antenna, dual frequency GNSS OEM board (delivers centimeter accurate position and precise heading).
 
   ![FB672](../../assets/hardware/gps/rtk_fem_fb_1.jpg)
 
-- [FB6A0](http://www.femtomes.com/en/FB6A0.php) : 컴팩트한 4 중 주파수 GNSS OEM 보드(센티미터 단위로 정확한 위치 제공)
+- [FB6A0](http://www.femtomes.com/#/FB6A0): Compact, quadruple frequency GNSS OEM board (delivers centimeter-accurate positioning)
 
   ![FB6A0](../../assets/hardware/gps/rtk_fem_fb_2.jpg)
 

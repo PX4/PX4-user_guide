@@ -93,13 +93,14 @@
 6. 작업이 호출되도록 비행 모드를 업데이트합니다. 일반적으로, 매개변수는 특정 비행 작업을 사용해야 하는 시기를 선택합니다.
 
    예를 들어, 멀티콥터 위치 모드에서 새로운 `MyTask`를 활성화하려면:
-   - 매개변수에 5와 같이 이전에 사용하지 않은 값이 있는 경우 "MyTask"를 선택하는 옵션을 추가하려면 `MPC_POS_MODE`([mc_pos_control_params.c](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mc_pos_control/mc_pos_control_params.c#L706-L721))를 업데이트 하십시오.
+   - Update `MPC_POS_MODE` ([multicopter_position_mode_params.c](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mc_pos_control/multicopter_position_mode_params.c)) to add an option for selecting "MyTask" if the parameter has a previously unused value like 5:
      ```
      ...
-     * @value 4 Acceleration based input
-     * @value 5 MyTask position mode implementation
-     * @group Multicopter Position Control
-     */
+      * @value 0 Direct velocity
+      * @value 3 Smoothed velocity
+      * @value 4 Acceleration based
+      * @group Multicopter Position Control
+      */
      PARAM_DEFINE_INT32(MPC_POS_MODE, 4);
      ```
    - `_param_mpc_pos_mode`에 올바른 값이 있을 때 작업을 활성화하려면 [FlightModeManager.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/FlightModeManager.cpp#L266-L285) 매개변수의 스위치에 새 옵션에 대한 사례를 추가하십시오.

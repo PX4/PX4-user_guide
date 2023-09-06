@@ -24,8 +24,8 @@ RTF 키트에는 RC 수신기와 텔레메트리를 제외하고, 시스템에 �
 
 * 사전 적층 EPP 날개
 * 윙팁 및 전체 하드웨어
-* [Dropix](https://store-drotek.com/888-dropix.html) 아래의 부품들이 포함된 비행 컨트롤러
-  * [GPS u-blox M8N](https://store-drotek.com/876-DP0105.html)
+* Dropix flight controller (discontinued) with
+  * GPS u-blox M8N
   * 전원 센서:
   * [풍속 센서](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
 * Quad power set  [Tiger Motor MT-2216-11 900kv V2](https://www.getfpv.com/tiger-motor-mt-2216-11-900kv-v2.html) (discontinued)
@@ -37,7 +37,7 @@ RTF 키트에는 RC 수신기와 텔레메트리를 제외하고, 시스템에 �
 * 탄소 섬유 튜브 및 마운트
 * G10 모터 마운트
 * 1 x [3700mah 4S 30C 리포 배터리](https://www.overlander.co.uk/batteries/lipo-batteries/power-packs/3700mah-4s-14-8v-25c-lipo-battery-overlander-sport.html)
-* [배전 보드 및 케이블](https://store-drotek.com/453-apm-power-source-xt60.html)
+* Dropix power distribution board and cable
 
 이 키트는 라디오 수신기 또는 텔레메트리(선택 사항)는 제공하지 않습니다. 다음의 부품을 사용하여 조립하였습니다.
 
