@@ -42,7 +42,7 @@ Arming/disarming parameters can be found in [Parameter Reference > Commander](..
 - **Arming:** Throttle minimum, yaw maximum
 - **Disarming:** Throttle minimum, yaw minimum
 
-遥控器[基于不同的模式](../getting_started/rc_transmitter_receiver.md#types-of-remote-controls)有不同的手法（因为控制器模式会影响用于油门和偏航的摇杆）：
+RC controllers will have different gestures [based on their mode](../getting_started/rc_transmitter_receiver.md#types-of-remote-controllers) (as controller mode affects the sticks used for throttle and yaw):
 
 - **Mode 2**:
   - _Arm:_ Left stick to bottom right.
