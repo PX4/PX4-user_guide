@@ -42,7 +42,7 @@ PX4 allows you to configure how pre-arming, arming and disarming work using para
 - **시동:** 스로틀 최소, 요 최대
 - **시동 해제 :** 스로틀 최소, 요 최소
 
-무선조종장치는 [모드에 따라](../getting_started/rc_transmitter_receiver.md#types-of-remote-controls) 제어 방법이 다릅니다. 제어 모드는 추진 제어와 방위 제어에 사용하는 스틱이 달라집니다.
+RC controllers will have different gestures [based on their mode](../getting_started/rc_transmitter_receiver.md#types-of-remote-controllers) (as controller mode affects the sticks used for throttle and yaw):
 
 - **모드 2**:
   - _Arm:_ Left stick to bottom right.
