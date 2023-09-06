@@ -1,27 +1,31 @@
 # 무선 조종기(RC)
 
-휴대용 송신기로 차량을 *수동으로* 제어하려면, 무선조종기(RC)가 필요합니다. 무선 조종기 작동 방법, 차량에 적합한 무선 시스템 선택법 및 비행 콘트롤러에 연결하는 방법에 대하여 설명합니다.
+A Radio Control (RC) system can be used to *manually* control your vehicle from a handheld RC controller. This topic provides an overview of how RC works, how to choose an appropriate radio system for your vehicle, and how to connect it to your flight controller.
 
-:::note PX4의 자율 비행 모드에는 무선 조종기가 필수 사항은 아닙니다. PX4의 [매개 변수](../advanced_config/parameters.md) [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE)를 1로 설정하여 무선 조종기 사용을 비활성화 할 수 있습니다. :::
+:::tip PX4 can also be manually controlled using a [Joystick](../config/joystick.md) or gamepad-like controller:  this is different to an RC system! The [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) parameter [can be set](../advanced_config/parameters.md) to choose whether RC (default), Joystick, both, or neither, are enabled. :::
+
+:::note
+PX4 does not require a remote control system for autonomous flight modes.
+:::
 
 ## 무선 조종기 작동 방법
 
-*무선 조종기*에는 조종사가 지상에서 차량을 조종하는 *원격 제어 장치*가 있습니다. 리모콘에는 차량 이동 (예 : 속도, 방향, 스로틀, 요, 피치, 롤 등)을 지정하거나, 자동 [비행 모드 ](../flight_modes/README.md)(예 : 이륙, 착륙, 임무, 복귀)를 활성화하는 물리적 장치들이 있습니다. 리모콘에는 차량 이동 (예 : 속도, 방향, 스로틀, 요, 피치, 롤 등)을 지정하거나, 자동 [비행 모드 ](../flight_modes/README.md)(예 : 이륙, 착륙, 임무, 복귀)를 활성화하는 물리적 장치들이 있습니다.
+*무선 조종기*에는 조종사가 지상에서 차량을 조종하는 *원격 제어 장치*가 있습니다. 리모콘에는 차량 이동 (예 : 속도, 방향, 스로틀, 요, 피치, 롤 등)을 지정하거나, 자동 [비행 모드 ](../flight_modes/README.md)(예 : 이륙, 착륙, 임무, 복귀)를 활성화하는 물리적 장치들이 있습니다. On *telemetry-enabled* RC systems, the remote control unit can also receive and display information from the vehicle, such as battery level, flight mode, and warnings.
 
 ![Taranis X9D 송신기](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-무선 조종기에는 차량과 호환되는 무선 통신 모듈이 포함되어 있습니다. 차량 기반 장치는 비행 콘트롤러에 연결됩니다. 비행 콘트롤러는 현재의 자동 비행 모드와 차량 상태를 기준으로 명령어 해석하는 방법을 결정하고, 차량 모터와 액추에이터를 구동합니다.
+The ground based RC controller contains a radio module that is bound to, and communicates with, a (compatible) radio module on the vehicle. 차량 기반 장치는 비행 콘트롤러에 연결됩니다. 비행 콘트롤러는 현재의 자동 비행 모드와 차량 상태를 기준으로 명령어 해석하는 방법을 결정하고, 차량 모터와 액추에이터를 구동합니다.
 
 <!-- image showing the different parts here would be nice -->
 
 :::note
-지상 및 차량 기반 무선 모듈을 각각 송신기 및 수신기라고 하며 (양방향 통신을 지원하더라도) 총칭하여 *송수신기*라고합니다. 무선 콘트롤러의 라디오 모듈을 송신기라고 합니다. :::
+지상 및 차량 기반 무선 모듈을 각각 송신기 및 수신기라고 하며 (양방향 통신을 지원하더라도) 총칭하여 *송수신기*라고합니다. The RC controller and it's included radio module are commonly referred to as a "transmitter". :::
 
 무선 조종기의 중요한 품질중의 하나는 지원 채널수 입니다. 채널 수는 차량에 명령을 전송시에 사용 가능한 리모콘의 물리적 컨트롤 수를 정의합니다 (예 : 실제로 사용할 수있는 스위치, 다이얼, 콘트롤 스틱 갯수).
 
 항공기는 최소 4개 채널(롤, 피치, 요, 스로틀)을 지원하는 무선 조종기를 사용하여야 합니다. 지상 차량에는 최소 2개의 채널(조향, 스로틀)이 필요합니다. 8 채널 또는 16 채널 송신기는 다른 메커니즘을 제어하거나, 자동조종장치에서 제공하는 [비행 모드](../flight_modes/README.md)를 활성화하는 추가 채널을 제공합니다.
 
-## 무선 조종기 종류
+## Types of Remote Controllers
 
 <a id="transmitter_modes"></a>
 
@@ -57,7 +61,7 @@ UAV용 가장 인기있는 무선 종종기 *유형은*은 아래와 같습니�
 인기있는 무선 조종기중 하나는 * FrSky Taranis X9D *입니다. 권장되는 *FrSky X4R-SB*(S-BUS, 낮은 지연) 또는 *X4R* (PPM-Sum, 레거시) 수신기와 함께 사용할 수있는 내부 송신기들이 있습니다. 그리고, 맞춤형 라디오 송신기 모듈 슬롯과 맞춤형 오픈 소스 OpenTX 펌웨어가 있습니다.
 
 :::note
-이 무선 조종기는 [FrSky](../peripherals/frsky_telemetry.md) 무선 모듈과 함께 사용하여 차량의 원격 정보를 표시 할 수 있습니다. :::
+This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) or [TBS Crossfire](../telemetry/crsf_telemetry.md) radio modules. :::
 
 기타 인기 있는 송수신기 조합
 
@@ -80,6 +84,7 @@ UAV용 가장 인기있는 무선 종종기 *유형은*은 아래와 같습니�
 - 모든 FrSky PPM 및 S.Bus 모델
 - Graupner HoTT
 - 다른 제조업체의 모든 PPM 모델
+- TBS Crossfire/Express LRS Receivers using [CRSF Telemetry](../telemetry/crsf_telemetry.md) (UART connection).
 
 
 ## 수신기 연결
@@ -91,11 +96,7 @@ UAV용 가장 인기있는 무선 종종기 *유형은*은 아래와 같습니�
 - PPM-Sum 및 S.BUS 수신기는 **RC** 접지, 전원 및 신호 핀(일반적으로 RC 또는 RCIN으로 표시됨)에 직접 연결합니다.
 - *각각의 채널이 독립적으로 배선된* PPM 수신기는 반드시 RCIN 포트에 PPM 인코더로 [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) 연결합니다. PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다.
 
-특정 비행 콘트롤러의 연결 방법은 다음 빠른 시작 가이드를 참고하십시오.
-
-* [Pixhawk 1](../assembly/quick_start_pixhawk.md#radio-control)
-* [Pixracer](../assembly/quick_start_pixracer.md)
-* [Pixhawk 4](../assembly/quick_start_pixhawk4.md)
+Instructions for connecting to specific flight controllers are given in their [quick-start](../assembly/README.md) guides (such as [CUAV Pixhawk V6X Wiring Quick Start: Radio Control](../assembly/quick_start_cuav_pixhawk_v6x.md#radio-control) or [Holybro Pixhawk 6X Wiring Quick Start: Radio Control](../assembly/quick_start_pixhawk6x.md#radio-control)).
 
 :::tip
 추가 정보는 제조업체의 비행 콘트롤러 설정 매뉴얼을 참고하십시오.
@@ -124,4 +125,6 @@ For more information see [Radio Control Setup > RC Loss Detection](../config/rad
 ## 관련 내용
 
 * [무선 조종기 설정](../config/radio.md) - PX4 무전 조종기 설정
-* [비행 첫걸음](../flying/basic_flying.md) - 무선 조종기 비행 방법을 설명합니다. 
+* [비행 첫걸음](../flying/basic_flying.md) - 무선 조종기 비행 방법을 설명합니다.
+* [TBS Crossfire (CRSF) Telemetry](../telemetry/crsf_telemetry.md)
+* [FrSky Telemetry](../peripherals/frsky_telemetry.md)
