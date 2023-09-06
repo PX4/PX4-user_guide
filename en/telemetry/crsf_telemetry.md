@@ -136,7 +136,6 @@ There is no need to set the baud rate for the port, as this is configured by the
 
 [Radio Control Setup](../config/radio.md) explains how to map your RC controller's attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
 
-
 ## RC Controllers
 
 A transmitter might come as an integral part of an RC controller, or it might be a separate module that you plug into a controller.
@@ -214,6 +213,5 @@ The supported telemetry messages and their source are listed below (this table i
 - [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf)
 - [ExpressLRS Documentation](https://www.expresslrs.org/quick-start/getting-started/)
 - [FrSky Telemetry](../peripherals/frsky_telemetry.md)
-- [Radio Control Setup](../config/radio.md) 
+- [Radio Control Setup](../config/radio.md)
 - [Radio Control Systems](../getting_started/rc_transmitter_receiver.md)
-
