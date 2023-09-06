@@ -1,9 +1,9 @@
 # 遥控设置
 
-The *Radio Setup* screen is used to configure the mapping of your remote control unit's main attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
+The *Radio Setup* screen is used to configure the mapping of your RC controller's main attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
 
-:::note RC
-Control is enabled by default, but a [joystick](../config/joystick.md) may be enabled instead (or as a fallback) using the [parameter](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html) [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE). :::
+:::note
+A [Joystick](../config/joystick.md) can be used instead of RC for manual control. The [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) parameter [can be set](../advanced_config/parameters.md) to define what kind of manual controller(s) are enabled. :::
 
 ## 绑定接收机
 
