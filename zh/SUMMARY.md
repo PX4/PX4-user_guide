@@ -249,6 +249,7 @@
           * [Holybro Kotleta](dronecan/holybro_kotleta.md)
           * [Zubax Orel](dronecan/zubax_orel.md)
       * [VESC](peripherals/vesc.md)
+    * [TBS Crossfire (CRSF) Telemetry](telemetry/crsf_telemetry.md)
     * [睿思凯数传](peripherals/frsky_telemetry.md)
     * [Gimbal \(Mount\) Configuration](advanced/gimbal_control.md)
     * [GPS/罗盘](gps_compass/README.md)
