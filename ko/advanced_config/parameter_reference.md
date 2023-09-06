@@ -17523,21 +17523,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR0_PX">CA_ROTOR0_PX</strong> (FLOAT)</td>
- <td>Position of rotor 0 along X body axis    </td>
+ <td>Position of rotor 0 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR0_PY">CA_ROTOR0_PY</strong> (FLOAT)</td>
- <td>Position of rotor 0 along Y body axis    </td>
+ <td>Position of rotor 0 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR0_PZ">CA_ROTOR0_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 0 along Z body axis    </td>
+ <td>Position of rotor 0 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -17597,21 +17597,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR10_PX">CA_ROTOR10_PX</strong> (FLOAT)</td>
- <td>Position of rotor 10 along X body axis    </td>
+ <td>Position of rotor 10 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR10_PY">CA_ROTOR10_PY</strong> (FLOAT)</td>
- <td>Position of rotor 10 along Y body axis    </td>
+ <td>Position of rotor 10 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR10_PZ">CA_ROTOR10_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 10 along Z body axis    </td>
+ <td>Position of rotor 10 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -17671,21 +17671,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR11_PX">CA_ROTOR11_PX</strong> (FLOAT)</td>
- <td>Position of rotor 11 along X body axis    </td>
+ <td>Position of rotor 11 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR11_PY">CA_ROTOR11_PY</strong> (FLOAT)</td>
- <td>Position of rotor 11 along Y body axis    </td>
+ <td>Position of rotor 11 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR11_PZ">CA_ROTOR11_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 11 along Z body axis    </td>
+ <td>Position of rotor 11 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -17745,21 +17745,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR1_PX">CA_ROTOR1_PX</strong> (FLOAT)</td>
- <td>Position of rotor 1 along X body axis    </td>
+ <td>Position of rotor 1 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR1_PY">CA_ROTOR1_PY</strong> (FLOAT)</td>
- <td>Position of rotor 1 along Y body axis    </td>
+ <td>Position of rotor 1 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR1_PZ">CA_ROTOR1_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 1 along Z body axis    </td>
+ <td>Position of rotor 1 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -17819,21 +17819,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR2_PX">CA_ROTOR2_PX</strong> (FLOAT)</td>
- <td>Position of rotor 2 along X body axis    </td>
+ <td>Position of rotor 2 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR2_PY">CA_ROTOR2_PY</strong> (FLOAT)</td>
- <td>Position of rotor 2 along Y body axis    </td>
+ <td>Position of rotor 2 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR2_PZ">CA_ROTOR2_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 2 along Z body axis    </td>
+ <td>Position of rotor 2 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -17893,21 +17893,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR3_PX">CA_ROTOR3_PX</strong> (FLOAT)</td>
- <td>Position of rotor 3 along X body axis    </td>
+ <td>Position of rotor 3 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR3_PY">CA_ROTOR3_PY</strong> (FLOAT)</td>
- <td>Position of rotor 3 along Y body axis    </td>
+ <td>Position of rotor 3 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR3_PZ">CA_ROTOR3_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 3 along Z body axis    </td>
+ <td>Position of rotor 3 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -17967,21 +17967,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR4_PX">CA_ROTOR4_PX</strong> (FLOAT)</td>
- <td>Position of rotor 4 along X body axis    </td>
+ <td>Position of rotor 4 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR4_PY">CA_ROTOR4_PY</strong> (FLOAT)</td>
- <td>Position of rotor 4 along Y body axis    </td>
+ <td>Position of rotor 4 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR4_PZ">CA_ROTOR4_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 4 along Z body axis    </td>
+ <td>Position of rotor 4 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -18041,21 +18041,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR5_PX">CA_ROTOR5_PX</strong> (FLOAT)</td>
- <td>Position of rotor 5 along X body axis    </td>
+ <td>Position of rotor 5 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR5_PY">CA_ROTOR5_PY</strong> (FLOAT)</td>
- <td>Position of rotor 5 along Y body axis    </td>
+ <td>Position of rotor 5 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR5_PZ">CA_ROTOR5_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 5 along Z body axis    </td>
+ <td>Position of rotor 5 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -18115,21 +18115,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR6_PX">CA_ROTOR6_PX</strong> (FLOAT)</td>
- <td>Position of rotor 6 along X body axis    </td>
+ <td>Position of rotor 6 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR6_PY">CA_ROTOR6_PY</strong> (FLOAT)</td>
- <td>Position of rotor 6 along Y body axis    </td>
+ <td>Position of rotor 6 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR6_PZ">CA_ROTOR6_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 6 along Z body axis    </td>
+ <td>Position of rotor 6 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -18189,21 +18189,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR7_PX">CA_ROTOR7_PX</strong> (FLOAT)</td>
- <td>Position of rotor 7 along X body axis    </td>
+ <td>Position of rotor 7 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR7_PY">CA_ROTOR7_PY</strong> (FLOAT)</td>
- <td>Position of rotor 7 along Y body axis    </td>
+ <td>Position of rotor 7 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR7_PZ">CA_ROTOR7_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 7 along Z body axis    </td>
+ <td>Position of rotor 7 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -18263,21 +18263,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR8_PX">CA_ROTOR8_PX</strong> (FLOAT)</td>
- <td>Position of rotor 8 along X body axis    </td>
+ <td>Position of rotor 8 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR8_PY">CA_ROTOR8_PY</strong> (FLOAT)</td>
- <td>Position of rotor 8 along Y body axis    </td>
+ <td>Position of rotor 8 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR8_PZ">CA_ROTOR8_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 8 along Z body axis    </td>
+ <td>Position of rotor 8 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -18337,21 +18337,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR9_PX">CA_ROTOR9_PX</strong> (FLOAT)</td>
- <td>Position of rotor 9 along X body axis    </td>
+ <td>Position of rotor 9 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR9_PY">CA_ROTOR9_PY</strong> (FLOAT)</td>
- <td>Position of rotor 9 along Y body axis    </td>
+ <td>Position of rotor 9 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR9_PZ">CA_ROTOR9_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 9 along Z body axis    </td>
+ <td>Position of rotor 9 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -28090,6 +28090,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_EN_ASP5033">SENS_EN_ASP5033</strong> (INT32)</td>
+ <td>ASP5033 differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_EN_BAROSIM">SENS_EN_BAROSIM</strong> (INT32)</td>
  <td>Enable simulated barometer sensor instance  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
@@ -32757,13 +32765,6 @@ table {
  <td>UAVCAN CAN bus bitrate    </td>
  <td>[20000, 1000000] </td>
  <td>1000000</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="CANNODE_NODE_ID">CANNODE_NODE_ID</strong> (INT32)</td>
- <td>UAVCAN Node ID <p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   </td>
- <td>[1, 125] </td>
- <td>120</td>
  <td></td>
 </tr>
 <tr>
