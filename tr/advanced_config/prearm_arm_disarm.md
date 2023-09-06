@@ -42,7 +42,7 @@ By default, the vehicle is armed and disarmed by moving RC throttle/yaw sticks t
 - **Arming:** Throttle minimum, yaw maximum
 - **Disarming:** Throttle minimum, yaw minimum
 
-RC controllers will have different gestures [based on their mode](../getting_started/rc_transmitter_receiver.md#types-of-remote-controls) (as controller mode affects the sticks used for throttle and yaw):
+RC controllers will have different gestures [based on their mode](../getting_started/rc_transmitter_receiver.md#types-of-remote-controllers) (as controller mode affects the sticks used for throttle and yaw):
 
 - **Mode 2**:
   - _Arm:_ Left stick to bottom right.
