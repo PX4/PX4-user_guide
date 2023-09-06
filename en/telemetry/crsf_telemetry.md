@@ -1,6 +1,6 @@
 # CRSF Telemetry (TBS Crossfire Telemetry)
 
-CRSF is a telemetry protocol that can be used for both RC control and to get telemetry information from the vehicle/flight controller on a compatible RC transmitter.
+CRSF is a telemetry protocol that can be used for both [RC control](../getting_started/rc_transmitter_receiver.md) and to get telemetry information from the vehicle/flight controller on a compatible RC transmitter.
 
 The protocol was developed by [Team BlackSheep](https://www.team-blacksheep.com/) for their Crossfire RC system, but is also used by [ExpressLRS (ELRS)](https://www.expresslrs.org/) RC systems.
 It is a bidirectional protocol that only needs a single UART for communicating both RC and telemetry.
@@ -124,13 +124,18 @@ Alternatively you can use QGroundControl to install the firmware, as described i
 
 ### Parameter Configuration
 
-[Set the parameter](../advanced_config/parameters.md) named [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG) to port that is connected to the CRSF receiver (such as `TELEM1`).
+[Set the parameter](../advanced_config/parameters.md) named [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG) to the port that is connected to the CRSF receiver (such as `TELEM1`).
 
 This [configures the serial port](../peripherals/serial_configuration.md) to use the CRSF protocol.
 Note that some serial ports may already have a [default serial port mapping](../peripherals/serial_configuration.md#default-serial-port-configuration) or [default MAVLink serial port mapping](../peripherals/mavlink_peripherals.md#default-mavlink-ports) that you will have to un-map before you can assign the port to CRSF.
 For example, if you want to use `TELEM1` or `TELEM2` you first need to modify [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) or [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) to stop setting those ports.
 
 There is no need to set the baud rate for the port, as this is configured by the driver.
+
+### Radio Setup
+
+[Radio Control Setup](../config/radio.md) explains how to map your RC controller's attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
+
 
 ## RC Controllers
 
@@ -209,3 +214,6 @@ The supported telemetry messages and their source are listed below (this table i
 - [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf)
 - [ExpressLRS Documentation](https://www.expresslrs.org/quick-start/getting-started/)
 - [FrSky Telemetry](../peripherals/frsky_telemetry.md)
+- [Radio Control Setup](../config/radio.md) 
+- [Radio Control Systems](../getting_started/rc_transmitter_receiver.md)
+

@@ -1,22 +1,26 @@
 # Radio Control Systems
 
-A radio control (RC) system is required if you want to *manually* control your vehicle from a handheld transmitter.
-This topic explains a little about how RC works, how to choose an appropriate radio system for your vehicle, and how to connect it to your flight controller.
+A Radio Control (RC) system can be used to *manually* control your vehicle from a handheld RC controller.
+This topic provides an overview of how RC works, how to choose an appropriate radio system for your vehicle, and how to connect it to your flight controller.
 
 :::tip
+PX4 can also be manually controlled using a [Joystick](../config/joystick.md) or gamepad-like controller:  this is different to an RC system!
+The [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) parameter [can be set](../advanced_config/parameters.md) to choose whether RC (default), Joystick, both, or neither, are enabled.
+:::
+
+:::note
 PX4 does not require a remote control system for autonomous flight modes.
-You can disable RC checks by [setting parameter](../advanced_config/parameters.md): [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) to 1.
 :::
 
 ## How do RC Systems Work?
 
 An *RC system* has a ground-based *remote control unit* that is used by the operator to command the vehicle.
 The remote has physical controls that can be used to specify vehicle movement (e.g. speed, direction, throttle, yaw, pitch, roll, etc.) and to enable autopilot [flight modes](../flight_modes/README.md) (e.g. takeoff, land, return to land, mission etc.).
-On *telemetry-enabled* RC systems, the remote control unit can also receive and display information from the vehicle (e.g. battery level, flight mode).
+On *telemetry-enabled* RC systems, the remote control unit can also receive and display information from the vehicle, such as battery level, flight mode, and warnings.
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-The remote control unit contains a radio module that is bound to, and communicates with, a (compatible) radio module on the vehicle.
+The ground based RC controller contains a radio module that is bound to, and communicates with, a (compatible) radio module on the vehicle.
 The vehicle-based unit is connected to the flight controller.
 The flight controller determines how to interpret the commands based on the current autopilot flight mode and vehicle state, and drives the vehicle motors and actuators appropriately.
 
@@ -24,7 +28,7 @@ The flight controller determines how to interpret the commands based on the curr
 
 :::note
 The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*.
-The remote control unit and it's included radio module are also referred to as a "transmitter".
+The RC controller and it's included radio module are commonly referred to as a "transmitter".
 :::
 
 An important quality of an RC system is how many "channels" it supports.
@@ -33,7 +37,7 @@ The number of channels defines how many different physical controls on the remot
 An aircraft must use a system that supports at least 4 channels (for roll, pitch, yaw, thrust).
 Ground vehicles need at least two channels (steering + throttle). An 8 or 16 channel transmitter provides additional channels that can be used to control other mechanisms or activate different [flight modes](../flight_modes/README.md) provided by the autopilot.
 
-## Types of Remote Controls
+## Types of Remote Controllers
 
 <a id="transmitter_modes"></a>
 
