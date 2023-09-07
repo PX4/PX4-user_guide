@@ -112,15 +112,25 @@ which provide separate power for the flight controller and to the ESCs (for the 
 Information about batteries and battery configuration can be found in [Battery Configuration](../config/battery.md)
 and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
 
-## Radio Control (RC)
+## Manual Control
 
-A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to _manually_ control the vehicle.
-It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle.
-Some RC systems can additionally receive telemetry information back from the autopilot.
+Pilots can control a vehicle manually using either a [Radio Control (RC) System](#radio-control-rc) or a [Joystick/Gamepad](#gcs-joystick-controller) controller connected via QGroundControl.
 
 :::note
-PX4 does not require a remote control system for autonomous flight modes.
+PX4 does not _require_ a manual control system for autonomous flight modes.
 :::
+
+:::note
+Both methods can be used for most manual control use cases, such as surveys.
+RC systems are recommended when first tuning/testing a new frame design or when flying racers/acrobatically (and in other cases where low latency is important).
+:::
+
+### Radio Control (RC)
+
+[Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) systems can be used to manually control PX4.
+
+They consist of a ground based RC controller that uses a radio transmitter to communicate stick/control positions to a receiver on the vehicle.
+Some RC systems can additionally receive telemetry information back from the autopilot.
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
@@ -130,13 +140,20 @@ PX4 does not require a remote control system for autonomous flight modes.
 - [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.
 - [FrSky Telemetry](../peripherals/frsky_telemetry.md) - Set up the RC transmitter to receive telemetry/status updates from PX4.
 
-## GCS Joystick Controller
+### GCS Joystick Controller
 
-A [computer joystick](../config/joystick.md) connected through _QGroundControl_ can also be used to manually control PX4 (QGC converts joystick movements into MAVLink messages that are sent over the telemetry link).
-This approach is used by ground control units that have an integrated ground control station, like the _Auterion_ [Skynav](https://auterion-gs.com/skynav/) or _UAVComponents_ [MicroNav](https://uxvtechnologies.com/ground-control-stations/micronav/).
-Joysticks are also commonly used to fly the vehicle in simulation.
+A [Joystick/Gamepad](../config/joystick.md) connected through _QGroundControl_ can also be used to manually control PX4.
+
+With this approach, QGroundControl translates stick/button information from a connected Joystick into MAVLink-protocol messages, which are then sent to PX4 using the shared telemetry radio link.
+The telemetry radio must have sufficient bandwidth for both manual control and other telemetry messages, and of course this approach means that you must have a ground station running QGroundControl.
+
+Joysticks are also used to manually fly PX4 in a [simulator](../simulation/README.md).
+
+:::note
+Controllers like the _Auterion_ [Skynav](https://auterion-gs.com/skynav/) and _UAVComponents_ [MicroNav](https://uxvtechnologies.com/ground-control-stations/micronav/) integrate QGC and a Joystick, and connect the vehicle via a high bandwidth telemetry radio link.
 
 ![Photo of MicroNav, a ground controller with integrated joysticks](../../assets/peripherals/joystick/micronav.jpg)
+:::
 
 ## Safety Switch
 

@@ -2,19 +2,19 @@
 
 This section contains contains more advanced configuration topics, and those for features that are more rarely modified, or that are specific only to manufacturers/OEMs.
 
-Parameter config:
+### Parameters
 
 - [Finding/Updating Parameters](../advanced_config/parameters.md)
 - [Full Parameter Reference](../advanced_config/parameter_reference.md)
 
-Feature configuration:
+### Feature configuration
 
 - [ECL/EKF Overview & Tuning](../advanced_config/tuning_the_ecl_ekf.md)
 - [Flight Termination Configuration](../advanced_config/flight_termination.md)
 - [Land Detector Configuration](../advanced_config/land_detector.md)
 - [Prearm/Arm/Disarm Configuration](../advanced_config/prearm_arm_disarm.md)
 
-Factory/advanced calibration:
+### OEM/Factory Calibration
 
 - [IMU Factory Calibration](../advanced_config/imu_factory_calibration.md)
 - [Sensor Thermal Compensation](../advanced_config/sensor_thermal_calibration.md)
@@ -22,13 +22,13 @@ Factory/advanced calibration:
 - [Advanced Controller Orientation](../advanced_config/advanced_flight_controller_orientation_leveling.md)
 - [Static Pressure Buildup](../advanced_config/static_pressure_buildup.md)
 
-Serial port/Ethernet configuration:
+### Serial port/Ethernet configuration
 
 - [Serial Port Configuration](../peripherals/serial_configuration.md)
 - [MAVLink Telemetry (OSD/GCS)](../peripherals/mavlink_peripherals.md)
 - [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md)
 
-Miscellaneous:
+### Miscellaneous
 
 - [Bootloader Update](../advanced_config/bootloader_update.md)
 
