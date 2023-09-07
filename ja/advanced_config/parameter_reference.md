@@ -30748,8 +30748,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_HAS_NUM_DIST">SYS_HAS_NUM_DIST</strong> (INT32)</td>
- <td>Control the number of distance sensors on the vehicle <p><strong>Comment:</strong> If set to the number of distance sensors, the preflight check will check for their presence and valid data publication. Disable with 0 if no distance sensor present or to disable the preflight check.</p>   <p><b>Reboot required:</b> true</p>
-</td>
+ <td>Number of distance sensors to check being available <p><strong>Comment:</strong> The preflight check will fail if fewer than this number of distance sensors with valid data is present. Disable the check with 0.</p>   </td>
  <td>[0, 4] </td>
  <td>0</td>
  <td></td>
