@@ -1,4 +1,4 @@
-# 무선 조종기(RC) 설정
+# Radio Control (RC) Setup
 
 The *Radio Setup* screen is used to configure the mapping of your RC controller's main attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
 
@@ -112,7 +112,6 @@ AUX 패스 스루 채널 설정 절차
    ![AUX1 및 AUX2 RC 패스 스루 채널](../../assets/qgc/setup/radio/radio_additional_setup_aux_passthrough_channels.jpg)
 
 비행 컨트롤러는 AUX1/AUX2의 지정된 채널에서 수정되지 않은 값을 통해 하드웨어를 구동하는 연결된 서보/릴레이로 전달합니다.
-
 
 
 ### 매개변수 튜닝 채널
