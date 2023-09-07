@@ -1,4 +1,4 @@
-# Radio (Remote Control) Setup
+# Radio Control (RC) Setup
 
 The *Radio Setup* screen is used to configure the mapping of your RC controller's main attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
 
@@ -112,7 +112,6 @@ To use the AUX passthrough channels:
    ![AUX1 and AUX2 RC passthrough channels](../../assets/qgc/setup/radio/radio_additional_setup_aux_passthrough_channels.jpg)
 
 The flight controller will pass through the unmodified values from the specified channels out of AUX1/AUX2 to the connected servos/relays that drive your hardware.
-
 
 
 ### Param Tuning Channels
