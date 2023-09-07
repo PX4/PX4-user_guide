@@ -1,27 +1,31 @@
 # 遥控系统
 
-A radio control (RC) system is required if you want to *manually* control your vehicle from a handheld transmitter. 这个章节解释了一些关于 RC 如何工作，如何为你的飞行器（车辆）选择一个合适的无线电系统和怎么连接到飞控。
+A Radio Control (RC) system can be used to *manually* control your vehicle from a handheld RC controller. This topic provides an overview of how RC works, how to choose an appropriate radio system for your vehicle, and how to connect it to your flight controller.
 
-:::tip PX4 在自动飞行模式可以不需要遥控器。 可以在[参数设置](../advanced_config/parameters.md)里禁用遥控器检查: [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) 设置为1. :::
+:::tip PX4 can also be manually controlled using a [Joystick](../config/joystick.md) or gamepad-like controller:  this is different to an RC system! The [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) parameter [can be set](../advanced_config/parameters.md) to choose whether RC (default), Joystick, both, or neither, are enabled. :::
+
+:::note
+PX4 does not require a remote control system for autonomous flight modes.
+:::
 
 ## 遥控系统是如何工作的？
 
-An *RC system* has a ground-based *remote control unit* that is used by the operator to command the vehicle. 远程控制单元有物理结构来控制无人机的运动（例如，速度、方向、油门、偏航、俯仰和横滚等）和 [飞行模式 ](../flight_modes/README.md)（例如，起飞、着陆、返航、任务等）。 On *telemetry-enabled* RC systems, the remote control unit can also receive and display information from the vehicle (e.g. battery level, flight mode).
+An *RC system* has a ground-based *remote control unit* that is used by the operator to command the vehicle. 远程控制单元有物理结构来控制无人机的运动（例如，速度、方向、油门、偏航、俯仰和横滚等）和 [飞行模式 ](../flight_modes/README.md)（例如，起飞、着陆、返航、任务等）。 On *telemetry-enabled* RC systems, the remote control unit can also receive and display information from the vehicle, such as battery level, flight mode, and warnings.
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-远程控制单元有一个可以和飞机上的无线电模块相互绑定、通信的无线电模块。 飞机上的单元连接到飞控上。 自驾仪根据当前飞机的飞行模式和飞机状态来发送命令，正确驱动电机和伺服器。
+The ground based RC controller contains a radio module that is bound to, and communicates with, a (compatible) radio module on the vehicle. 飞机上的单元连接到飞控上。 自驾仪根据当前飞机的飞行模式和飞机状态来发送命令，正确驱动电机和伺服器。
 
 <!-- image showing the different parts here would be nice -->
 
 :::note
-The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*. 远程控制单元和它包含的无线模块也被称作“发射机”。 :::
+The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*. The RC controller and it's included radio module are commonly referred to as a "transmitter". :::
 
 遥控系统的一个重要质量指标是它支持多少个通道。 通道的数量决定了远程控制单元上多少个物理控制器可以用来发送命令来控制无人机（比如多少开关、转盘、控制摇杆可以用）。
 
 一个飞行器最少支持4个通道（横滚、俯仰、偏航、油门）。 地面车辆最少需要两个通道（转向和油门）。 8或16通道的遥控器可以提供额外的通道，用来控制其他机械结构或激活自驾仪上不同的[飞行模式](../flight_modes/README.md)。
 
-## 远程控制的类型
+## Types of Remote Controllers
 
 <a id="transmitter_modes"></a>
 
@@ -57,7 +61,7 @@ The choice of mode is largely one of taste (*Mode 2* is more popular). :::
 One of the most popular RC units is the *FrSky Taranis X9D*. It has an internal transmitter module can be used with the recommended *FrSky X4R-SB* (S-BUS, low delay) or *X4R* (PPM-Sum, legacy) receivers out of the box. 它还有一个可以自定义的无线发射机模块接口和自定义的 OpenTX 开源固件。
 
 :::note
-使用[ FrSky ](../peripherals/frsky_telemetry.md)的无线模块可以开启遥测功能。 :::
+This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) or [TBS Crossfire](../telemetry/crsf_telemetry.md) radio modules. :::
 
 其他常用的成对发射机/接收机。
 
@@ -80,6 +84,7 @@ One of the most popular RC units is the *FrSky Taranis X9D*. It has an internal 
 - 所有的 FrSky PPM 和 S.Bus 模块。
 - Graupner HoTT。（一种新的2.4 g 无线通信技术，可以语音遥测和搭配大量传感器，可以进行4 km或100 mW 范围内的控制 ）
 - 所有其他制造商的 PPM 模块。
+- TBS Crossfire/Express LRS Receivers using [CRSF Telemetry](../telemetry/crsf_telemetry.md) (UART connection).
 
 
 ## 连接接收机
@@ -91,11 +96,7 @@ One of the most popular RC units is the *FrSky Taranis X9D*. It has an internal 
 - PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins (typically labeled RC or RCIN)
 - PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
-特定遥控器的连接可以查阅下面提供的快速指南。
-
-* [Pixhawk 1](../assembly/quick_start_pixhawk.md#radio-control)
-* [Pixracer](../assembly/quick_start_pixracer.md)
-* [Pixhawk 4](../assembly/quick_start_pixhawk4.md)
+Instructions for connecting to specific flight controllers are given in their [quick-start](../assembly/README.md) guides (such as [CUAV Pixhawk V6X Wiring Quick Start: Radio Control](../assembly/quick_start_cuav_pixhawk_v6x.md#radio-control) or [Holybro Pixhawk 6X Wiring Quick Start: Radio Control](../assembly/quick_start_pixhawk6x.md#radio-control)).
 
 :::tip
 相关信息可以查阅遥控器制造商提供的说明书。
@@ -124,4 +125,6 @@ For more information see [Radio Control Setup > RC Loss Detection](../config/rad
 ## 相关章节
 
 * [遥控器设置](../config/radio.md) - 使用 PX4设置你的遥控器。
-* [飞行 101](../flying/basic_flying.md) - 学习如何使用遥控器飞行。 
+* [飞行 101](../flying/basic_flying.md) - 学习如何使用遥控器飞行。
+* [TBS Crossfire (CRSF) Telemetry](../telemetry/crsf_telemetry.md)
+* [FrSky Telemetry](../peripherals/frsky_telemetry.md)

@@ -1,52 +1,75 @@
 # Standard Configuration
 
-This section describes the standard software configuration and calibration that is required for all PX4 vehicles.
+This section covers the common software configuration and calibration needed for most PX4 vehicles.
 
-:::note
-Before starting this section you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer (*QGroundControl* does not support vehicle configuration on mobile platforms).
+You must first [load firmware and select your vehicle frame/type](#firmware-vehicle-selection). Most other steps can be done out of order, except for [tuning](#tuning), which must be done last.
 
-To access **Vehicle Setup** screens, open the QGC application menu ("Q" icon in the top-left corner) and then choose **Vehicle Setup** in the *Select Tool* popup:
+## Preconditions
 
-![QGC Main Menu Popup: highlighting Vehicle Setup](../../assets/qgc/setup/menu_setup.png) :::
+Before starting you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer. Then open the QGC application menu ("Q" icon in the top-left corner) and choose **Vehicle Setup** in the _Select Tool_ popup:
 
-The sub topics cover each of the steps in detail (first install the PX4 firmware and set your vehicle airframe):
-* [固件](../config/firmware.md)
-* [机架](../config/airframe.md)
-* [传感器方向](../config/flight_controller_orientation.md)
-* [罗盘](../config/compass.md)
-* [陀螺仪](../config/gyroscope.md)
-* [加速度计 Accelerometer](../config/accelerometer.md)
-* [Airspeed](../config/airspeed.md) (primarily for fixed-wing/VTOL)
-* [水平平面校准](../config/level_horizon_calibration.md)
-* [无线电系统设置](../config/radio.md)
-* [操纵杆设置](../config/joystick.md)
-* [Flight Modes](../config/flight_mode.md) (Optional)
-* [Battery](../config/battery.md) (optional)
-* [Safety](../config/safety.md) (optional)
-* [Actuators](../config/actuators.md)
-* [Autotune](../config/autotune.md)
+![QGC Main Menu Popup: highlighting Vehicle Setup](../../assets/qgc/setup/menu_setup.png)
 
+## Configuration Steps
+
+### Firmware/Vehicle Selection
+
+- [Loading Firmware](../config/firmware.md)
+- [Vehicle (Frame) Selection](../config/airframe.md)
+
+### Motor/Actuator Setup
+
+- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [Actuator Configuration and Testing](../config/actuators.md)
+
+### Sensor Calibration
+
+- [传感器方向](../config/flight_controller_orientation.md)
+- [罗盘](../config/compass.md)
+- [陀螺仪](../config/gyroscope.md)
+- [加速度计 Accelerometer](../config/accelerometer.md)
+- [Level Horizon](../config/level_horizon_calibration.md)
+- [Airspeed](../config/airspeed.md) (Fixed-wing/VTOL only)
+
+### Manual Control Setup
+
+Radio Control:
+
+- [Radio Controller (RC) Setup](../config/radio.md)
+- [Flight Mode Configuration](../config/flight_mode.md)
+
+Joystick/GamePad:
+
+- [操纵杆设置](../config/joystick.md)
+
+### Safety Configuration
+
+- [Battery/Power Module Setup](../config/battery.md)
+- [Safety Configuration (Failsafes)](../config/safety.md)
+
+### Tuning
+
+- [Autotune](../config/autotune.md) (Recommended on vehicles and frames that support it)
 
 ## 视频教程
 
-The video below shows the calibration process in detail (this uses an older version of *QGroundControl*, but most of the process is unchanged).
+The video below shows most of the calibration process (it uses an older version of _QGroundControl_, but most of the process is unchanged).
 
 @[youtube](https://youtu.be/91VGmdSlbo4)
-
-
-## Advanced Configuration
-
-If your [selected airframe configuration](../config/airframe.md) is a _specific vehicle model_ (e.g. [Holybro s500](../frames_multicopter/holybro_s500_v2_pixhawk4.md)) then it may benefit from fine tuning, but this is not generally required.
-
-If you're using a new airframe, a "generic" airframe, significantly modifying an airframe, or using less common sensors then see:
-- [Advanced Configuration](../advanced_config/README.md): Vehicle-specific tuning, fine tuning, factory-level configuration.
-- [Flight Controller Peripherals](../peripherals/README.md) - Hardware and software setup related to specific hardware (in particular lesser-used sensors).
 
 ## Support
 
 If you need help with the configuration you can ask for help on the [QGroundControl Support forum](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage).
 
-## Further Information
+## See Also
 
-* [QGroundControl > Setup](https://docs.qgroundcontrol.com/master/en/SetupView/SetupView.html)
+- [QGroundControl > Setup](https://docs.qgroundcontrol.com/master/en/SetupView/SetupView.html)
+- Vehicle-Centric Config/Tuning:
 
+  - [Multicopter Config/Tuning](../config_mc/README.md)
+  - [Helicopter Config/Tuning](../config_heli/README.md)
+  - [Fixed Wing Config/Tuning](../config_fw/README.md)
+  - [VTOL Config/Tuning](../config_vtol/README.md)
+
+- [Flight Controller Peripherals](../peripherals/README.md) - Setup related to specific sensors, actuators, and so on.
+- [Advanced Configuration](../advanced_config/README.md) - Factory/OEM calibration, configuring advanced features, less-common configuration.
