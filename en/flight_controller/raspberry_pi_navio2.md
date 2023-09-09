@@ -81,7 +81,7 @@ Follow the instructions below to build the source code on your developmenet mach
 
 ### Cross-compiler Build
 
-First install the [standard developer environment on your Ubunto development computer](../dev_setup/dev_env_linux.md).
+First install the [standard developer environment on your Ubunto development computer](../dev_setup/dev_env_linux.md#raspberry-pi).
 
 Specify the IP (or hostname) of your Pi using:
 
