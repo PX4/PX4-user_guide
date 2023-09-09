@@ -1,4 +1,4 @@
-# Raspberry Pi 2/3 Navio2 Autopilot
+# Raspberry Pi 2/3/4 Navio2 Autopilot
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
@@ -9,7 +9,7 @@ Contact the [manufacturer](https://emlid.com/) for hardware support or complianc
 PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 :::
 
-This is the developer "quickstart" for Raspberry Pi 2/3 Navio2 autopilots.
+This is the developer "quickstart" for Raspberry Pi 2/3/4 Navio2 autopilots.
 It allows you to build PX4 and transfer to the RasPi, or build natively.
 
 ![Ra Pi Image](../../assets/hardware/hardware-rpi2.jpg)
@@ -26,22 +26,29 @@ By upgrading, a new kernel can get installed which lacks the necessary HW suppor
 
 ## Setting up Access
 
-The Raspbian image has SSH setup already.
+The Raspberry Pi OS image has SSH setup already.
 Username is "pi" and password is "raspberry".
-You can connect to your RPi2/3 over a network (Ethernet is set to come up with DHCP by default) and then proceed to configure WiFi access.
 We assume that the username and password remain at their defaults for the purpose of this guide.
 
-To setup the RPi2/3 to join your local wifi, follow [this guide](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md).
+To setup the Pi to join your local wifi, follow [this guide](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md), or connect it via an ethernet cable.
 
-Find the IP address of your Pi from your network, and then you can proceed to connect to it using SSH.
+To connect to your pi via SSH, use the default username(pi) and hostname(navio). Alternatively if this doesn't work, you can find the IP address of your Pi and specify it.
 
+```sh
+ssh pi@navio.local
+```
+or
 ```sh
 ssh pi@<IP-ADDRESS>
 ```
 
 ## Expand the Filesystem
 
-After installing the OS and connecting to it, make sure to [expand the Filesystem](https://www.raspberrypi.org/documentation/configuration/raspi-config.md), so there is enough space on the SD Card.
+Expand file system to take advantage of entire SD card by running:
+
+```sh
+sudo raspi-config --expand-rootfs
+```
 
 ## Disable Navio RGB Overlay
 
@@ -52,121 +59,6 @@ Edit `/boot/config.txt` by commenting the line enabling the `navio-rgb` overlay.
 #dtoverlay=navio-rgb
 ```
 
-## Changing Hostnames
-
-To avoid conflicts with any other RPis on the network, we advise you to change the default hostname to something sensible.
-We used "px4autopilot" for our setup.
-Connect to the Pi via SSH and follow the below instructions.
-
-Edit the hostname file:
-
-```sh
-sudo nano /etc/hostname
-```
-
-Change `raspberry` to whatever hostname you want (one word with limited characters apply)
-
-Next you need to change the hosts file:
-
-```sh
-sudo nano /etc/hosts
-```
-
-Change the entry `127.0.1.1 raspberry` to `127.0.1.1 <YOURNEWHOSTNAME>`
-
-Reboot the Pi after this step is completed to allow it to re-associate with your network.
-
-## Setting up Avahi (Zeroconf)
-
-To make connecting to the Pi easier, we recommend setting up Avahi (Zeroconf) which allows easy access to the Pi from any network by directly specifying its hostname.
-
-```sh
-sudo apt-get install avahi-daemon
-sudo insserv avahi-daemon
-```
-
-Next, setup the Avahi configuration file
-
-```sh
-sudo nano /etc/avahi/services/multiple.service
-```
-
-Add this to the file :
-
-```xml
-<?xml version="1.0" standalone='no'?>
-<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
-<service-group>
-        <name replace-wildcards="yes">%h</name>
-        <service>
-                <type>_device-info._tcp</type>
-                <port>0</port>
-                <txt-record>model=RackMac</txt-record>
-        </service>
-        <service>
-                <type>_ssh._tcp</type>
-                <port>22</port>
-        </service>
-</service-group>
-
-```
-
-Restart the daemon
-
-```sh
-sudo /etc/init.d/avahi-daemon restart
-```
-
-And that's it.
-You should be able to access your Pi directly by its hostname from any computer on the network.
-
-:::tip
-You might have to add .local to the hostname to discover it.
-:::
-
-## Configuring a SSH Public-Key
-
-In order to allow the PX4 development environment to automatically push executables to your board, you need to configure passwordless access to the RPi.
-We use the public-key authentication method for this.
-
-To generate new SSH keys enter the following commands (Choose a sensible hostname such as `<YOURNANME>@<YOURDEVICE>`. Here we have used `pi@px4autopilot`)
-
-These commands need to be run on the HOST development computer!
-
-```sh
-ssh-keygen -t rsa -C pi@px4autopilot
-```
-
-Upon entering this command, you'll be asked where to save the key. We suggest you save it in the default location (\$HOME/.ssh/id_rsa) by just hitting Enter.
-
-Now you should see the files `id_rsa` and `id_rsa.pub` in your `.ssh` directory in your home folder:
-
-```sh
-ls ~/.ssh
-authorized_keys  id_rsa  id_rsa.pub  known_hosts
-```
-
-The `id_rsa` file is your private key. Keep this on the development computer.
-The `id_rsa.pub` file is your public key. This is what you put on the targets you want to connect to.
-
-To copy your public key to your Raspberry Pi, use the following command to append the public key to your authorized_keys file on the Pi, sending it over SSH:
-
-```sh
-cat ~/.ssh/id_rsa.pub | ssh pi@px4autopilot 'cat >> .ssh/authorized_keys'
-```
-
-Note that this time you will have to authenticate with your password ("raspberry" by default).
-
-Now try `ssh pi@px4autopilot` and you should connect without a password prompt.
-
-If you see a message "`Agent admitted failure to sign using the key.`" then add your RSA or DSA identities to the authentication agent, ssh-agent and the execute the following command:
-
-```sh
-ssh-add
-```
-
-If this did not work, delete your keys with `rm ~/.ssh/id*` and follow the instructions again.
-
 ## Testing file transfer
 
 We use SCP to transfer files from the development computer to the target board over a network (WiFi or Ethernet).
@@ -176,38 +68,38 @@ Make sure the Pi has network access, and you can SSH into it.
 
 ```sh
 echo "Hello" > hello.txt
-scp hello.txt pi@px4autopilot:/home/pi/
+scp hello.txt pi@navio.local:/home/pi/
 rm hello.txt
 ```
 
-This should copy over a "hello.txt" file into the home folder of your RPi.
+This should copy over a "hello.txt" file into the home folder of your Pi.
 Validate that the file was indeed copied, and you can proceed to the next step.
 
 ## Building the Code
 
-Either build the source code on your development computer ("cross-compiler" build) or build it on the RaPi ("native" build) as shown below.
+Follow the instructions below to build the source code on your developmenet machine (Ubuntu 18.04) and transfer the compiled program to the Pi, unfortunetealy, the option to build the code natively(on the Pi) is no longer available.
 
 ### Cross-compiler Build
 
 First install the [standard developer environment on your Ubunto development computer](../dev_setup/dev_env_linux.md).
 
-Set the IP (or hostname) of your RPi using:
+Specify the IP (or hostname) of your Pi using:
 
 ```sh
-export AUTOPILOT_HOST=192.168.X.X
+export AUTOPILOT_HOST=navio.local
 ```
 
 or
 
 ```sh
-export AUTOPILOT_HOST=pi_hostname.domain
+export AUTOPILOT_HOST=192.168.X.X
 ```
 
 :::note
 The value of the environment variable should be set before the build, or `make upload` will fail to find your RPi.
 :::
 
-Build the executable file:
+Build the executable file on your development machine:
 
 ```sh
 cd PX4-Autopilot
@@ -224,37 +116,11 @@ cd PX4-Autopilot
 make emlid_navio2 upload # for cross-compiler build
 ```
 
-Then, connect over ssh and run it with (as root):
+Then, connect over ssh and run it on the Pi (as root):
 
 ```sh
 cd ~/px4
 sudo ./bin/px4 -s px4.config
-```
-
-### Native Build
-
-A native build is one that you run directly on the Pi (the other option is to run builds on a development computer which cross-compiles for the Pi, and pushes the PX4 executable binary directly to the Pi).
-
-Run these commands on the Pi to setup the build system on the Pi.
-
-```sh
-sudo apt-get update
-sudo apt-get install cmake python-empy
-```
-
-Clone the Firmware directly onto the Pi then build the native build target (`emlid_navio2_native`).
-
-```sh
-git clone https://github.com/PX4/PX4-Autopilot.git --recursive
-cd PX4-Autopilot
-make emlid_navio2_native
-```
-
-The "px4" executable file is in the directory **build/emlid_navio2_native/**.
-Run it directly with:
-
-```sh
-sudo ./build/emlid_navio2_native/px4 build/emlid_navio2_native/etc -s ./posix-configs/rpi/px4.config
 ```
 
 A successful build followed by executing px4 will give you something like this:
