@@ -107,7 +107,7 @@ make emlid_navio2 # for cross-compiler build
 ```
 
 The "px4" executable file is in the directory **build/emlid_navio2_default/**.
-Make sure you can connect to your Pi over ssh, see [instructions how to access your Pi](#setting-up-access).
+Make sure you can connect to your Pi over ssh, see [instructions how to access your Pi](#setting-up-access) following the instructions for armhf under Raspberry Pi.
 
 Then upload it with:
 
