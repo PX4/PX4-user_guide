@@ -103,7 +103,7 @@ Build the executable file on your development machine:
 
 ```sh
 cd PX4-Autopilot
-make emlid_navio2 # for cross-compiler build
+make emlid_navio2
 ```
 
 The "px4" executable file is in the directory **build/emlid_navio2_default/**.
@@ -113,7 +113,7 @@ Then upload it with:
 
 ```sh
 cd PX4-Autopilot
-make emlid_navio2 upload # for cross-compiler build
+make emlid_navio2 upload
 ```
 
 Then, connect over ssh and run it on the Pi (as root):
