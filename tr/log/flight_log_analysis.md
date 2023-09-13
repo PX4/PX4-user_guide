@@ -19,7 +19,7 @@ Before analyzing a flight log it is important to establish its context:
 
 If a log file ends mid-air, two main causes are possible: a power failure _or_ a hard fault of the operating system.
 
-On autopilots based on the [STM32 series](http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html?querycriteria=productId=SC1169), hard faults are logged to the SD card. These are located on the top level of the SD card and named _fault\_date.log_, e.g. **fault\_2017\_04\_03\_00\_26\_05.log**. You should check for the presence of this file if a flight log ends abruptly.
+On autopilots based on the [STM32 series](http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html), hard faults are logged to the SD card. These are located on the top level of the SD card and named _fault\_date.log_, e.g. **fault\_2017\_04\_03\_00\_26\_05.log**. You should check for the presence of this file if a flight log ends abruptly.
 
 ## Analysis Tools
 
