@@ -16,7 +16,7 @@ It allows you to build PX4 and transfer to the RasPi, or build natively.
 
 ## OS Image
 
-Use the [Emlid RT Raspbian image for Navio 2](https://docs.emlid.com/navio2/configuring-raspberry-pi) Raspberry Pi OS image.
+Use the preconfigured [Emlid Raspberry Pi OS image for Navio 2](https://docs.emlid.com/navio2/configuring-raspberry-pi).
 The default image will have most of the setup procedures shown below already done.
 
 :::warning
@@ -44,7 +44,7 @@ ssh pi@<IP-ADDRESS>
 
 ## Expand the Filesystem
 
-Expand file system to take advantage of entire SD card by running:
+Expand the file system to take advantage of the entire SD card by running:
 
 ```sh
 sudo raspi-config --expand-rootfs
