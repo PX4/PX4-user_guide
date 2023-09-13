@@ -88,7 +88,7 @@ Note that earlier versions allowed code to be built natively (on the Pi), but th
 
 ### Cross-compiler Build
 
-First install the [standard developer environment on your Ubunto development computer](../dev_setup/dev_env_linux_ubuntu.md#raspberry-pi).
+First install the [standard PX4 developer environment](../dev_setup/dev_env_linux_ubuntu.md#raspberry-pi) on your Ubuntu 18.04 development computer.
 
 Specify the IP (or hostname) of your Pi using:
 
