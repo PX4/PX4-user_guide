@@ -8,7 +8,7 @@ PX4要求外部控制器提供2Hz连续的“有效存在”信号，该信号�
 
 :::note
 - 此模式需要位置或位/姿信息 - 例如 GPS、光流、视觉惯性里程计、mocap 等。
-- 除了更改模式外， 禁止遥控器控制。
+- RC control is disabled except to change modes (you can also fly without any manual controller at all by setting the parameter [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) to 4: Stick input disabled).
 - 飞行器必须已经收到一条 MAVLink 设置点消息或 ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) 消息，才允许在Offboard模式下解锁或者在飞行中切换至Offboard模式。
 - 如果没有以 > 2Hz 的速度收到MAVLink 设置点消息或 `OffboardControlMode` ，飞行器将退出Offboard模式。
 - 并非所有 MAVLink 支持的坐标系和字段值都被设定值消息和飞行器支持。 请*仔细*阅读以下章节，确保仅使用支持的值。 :::
