@@ -3,7 +3,7 @@
 [DroneCAN](https://dronecan.github.io/) is a open software communication protocol for flight controllers and other [CAN](../can/README.md) devices on a vehicle to communicate with each other.
 
 :::warning
-- DroneCAN is not enabled by default, and nor are specific sensors and publications.
+- DroneCAN is not enabled by default, and nor are specific sensors and features that use it.
   For setup information see [PX4 Configuration](#px4-configuration). 
 - PX4 requires an SD card to enable dynamic node allocation and for firmware update.
   The SD card is not used in flight.
@@ -66,23 +66,24 @@ Supported hardware includes (this is not an exhaustive list):
 DroneCAN operates over a CAN network.
 DroneCAN hardware should be connected as described in [CAN > Wiring](../can/README.md#wiring).
 
-## Node ID
+## Node ID Allocation
 
 Every DroneCAN device must be configured with a *node id* that is unique on the vehicle.
 
-Most devices support dynamic node allocation (DNA) which allows PX4 to automatically configure the node ID of each detected peripheral on system startup.
-Consult the manufacturer documentation for details on whether your device supports DNA and how to enable it. Many devices will automatically switch to DNA if the node id is set to 0.
+Most devices support _Dynamic Node Allocation (DNA)_, which allows PX4 to automatically configure the node ID of each detected peripheral on system startup.
+Consult the manufacturer documentation for details on whether your device supports DNA and how to enable it.
+Many devices will automatically switch to DNA if the node id is set to 0.
 PX4 will enable the built in allocation server if the [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) parameter is > 1 (set to 2 or 3).
-
-:::note
-PX4 has a node ID, which can be configured using the [UAVCAN_NODE_ID](../advanced_config/parameter_reference.md#UAVCAN_NODE_ID) parameter.
-The parameter is set to 1 by default.
-:::
 
 Some devices don't support DNA.
 Additionally, in certain mission-critical scenarios, you might prefer to manually configure node IDs beforehand instead of relying on the dynamic allocation server.
 If you wish to disable the DNA completely, set `UAVCAN_ENABLE` to `1` and manually set each node ID to a unique value.
 If the DNA is still running and certain devices need to be manually configured, give these devices a value greater than the total number of DroneCAN devices to avoid clashes.
+
+:::note
+The PX4 node ID can be configured using the [UAVCAN_NODE_ID](../advanced_config/parameter_reference.md#UAVCAN_NODE_ID) parameter.
+The parameter is set to 1 by default.
+:::
 
 :::warning
 At time of writing, PX4 does not run the node allocation server on the CAN2 port.
@@ -91,37 +92,43 @@ This means that if you have a device that is *only* connected to CAN2 (not redun
 
 ## PX4 Configuration
 
+DroneCAN is configured by [setting specific parameters](../advanced_config/parameters.md) in QGroundControl.
+You will need to enable DroneCAN itself, along with subscriptions and publications for any features that you use.
+In some cases you may need to also configure parameters for the connected peripherals (this can also be done via QGC).
+
 ### Enabling DroneCAN
 
-To enable the DroneCAN driver, set the [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) parameter:
+To enable the PX4 DroneCAN driver, set the [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) parameter:
 
 - `0`: DroneCAN driver disabled
-- `1`: DroneCAN driver enabled for sensors, DNA server disabled
+- `1`: DroneCAN driver enabled for sensors, [DNA server](#node-id-allocation) disabled
 - `2`: DroneCAN driver enabled for sensors, DNA server enabled
 - `3`: DroneCAN driver enabled for sensors and ESCs, DNA server enabled
 
 `2` or `3` are recommended, if DNA is supported.
 
-### DroneCan Publications
+### DroneCan Subscriptions & Publications
 
-DroneCAN does not publish all information that _might_ be needed, in order to avoid spamming the CAN bus.
-Publishing of specific information is enabled it using the associated [UAVCAN parameter](../advanced_config/parameter_reference.md#uavcan).
-These can be recognised from the prefix `UAVCAN_PUB_`.
+PX4 does not publish or subscribe to DroneCAN messages that _might_ be needed by default, in order to avoid spamming the CAN bus.
+Instead you must enable publication or subscription to the messages associated with a particular feature by setting the associated [UAVCAN parameter](../advanced_config/parameter_reference.md#uavcan).
 
-The set of publications that you can enable are (in PX4 v1.14):
+For example, to use a connected DroneCAN smart battery you would enable the [UAVCAN_SUB_BAT](../advanced_config/parameter_reference.md#UAVCAN_SUB_BAT) parameter, which would subscribe PX4 to receive [BatteryInfo](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#batteryinfo) DroneCAN messages.
+If using a peripheral that needs to know if PX4 is armed, you would need to set the [UAVCAN_PUB_ARM](../advanced_config/parameter_reference.md#UAVCAN_PUB_ARM) parameter so that PX4 starts publishing [ArmingStatus](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#armingstatus) messages.
 
-- [UAVCAN_PUB_RTCM](../advanced_config/parameter_reference.md#UAVCAN_PUB_RTCM) ([RTCMStream](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#rtcmstream)): Enable when using a CAN-connected [RTK GPS](../gps_compass/rtk_gps.md) as the Rover unit (it ensures that RTCM information from the base unit is returned to the rover).
-- [UAVCAN_PUB_MBD](../advanced_config/parameter_reference.md#UAVCAN_PUB_MBD) ([MovingBaselineData](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#movingbaselinedata)): Enable to support [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md) when the _moving base_ RTK GPS is connected via CAN.
-- [UAVCAN_PUB_ARM](../advanced_config/parameter_reference.md#UAVCAN_PUB_ARM) ([Arming Status](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#armingstatus)): Publish when using DroneCAN components that require an arming status as a precondition for use.
- 
+The parameter names are prefixed with `UAVCAN_SUB_` and `UAVCAN_PUB_` to indicate whether they enable PX4 subscribing or publishing.
+The remainder of the name indicates the specific message/feature being set.
 
-### DroneCAN Sensor Subscriptions
+DroneCAN peripherals connected to PX4 can also be configured using via QGC "as though they were PX4 parameters".
+These are named with the prefix [CANNODE_](../advanced_config/parameter_reference.md#CANNODE_BITRATE).
+`CANNODE_` parameters prefixed with `CANNODE_PUB_` and `CANNODE_SUB_` enable the peripheral to publish or subscribe the associated DroneCAN message.
+Note that if you enable publishing from one DroneCAN node, you are likely to need to enable subscribing from another.
 
-DroneCAN sensors are not enabled by default.
-To use a sensor you must subscribe to it using the associated sensor-specific [UAVCAN parameter](../advanced_config/parameter_reference.md#uavcan).
-These can be recognised from the prefix `UAVCAN_SUB_`
+The following sections provide additional detail on the parameters used to enable particular features.
 
-The set of subscriptions (sensors) that you can enable is (in PX4 v1.14):
+
+#### Sensors
+
+The DroneCAN sensor parameters/subscriptions that you can enable are (in PX4 v1.14):
 
 - [UAVCAN_SUB_ASPD](../advanced_config/parameter_reference.md#UAVCAN_SUB_ASPD): Airspeed
 - [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO): Barometer
@@ -136,17 +143,16 @@ The set of subscriptions (sensors) that you can enable is (in PX4 v1.14):
 - [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG): Magnetometer (compass)
 - [UAVCAN_SUB_RNG](../advanced_config/parameter_reference.md#UAVCAN_SUB_RNG): Range finder (distance sensor).
 
-
 #### GPS
 
 DroneCAN parameters:
 
-- Enable [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS) (along with [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE)).
+- Enable [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS).
 - Enable [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG) if the GPS module has an inbuilt compass.
-- Set [CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) to `1` if this is that last node on the CAN bus.
 
 Other Parameters:
 
+- Set [CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) to `1` for the last node on the CAN bus.
 - If the GPS is not positioned at the vehicle centre of gravity you can account for the offset using [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z).
 - If the GPS module provides yaw information, you can enable GPS yaw fusion by setting bit 3 of [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) to true.
 
@@ -154,29 +160,56 @@ Other Parameters:
 
 Set the same parameters as for [GPS](#gps) above.
 
-Additionally set:
+##### Rover RTK module used with a fixed base
 
-- [UAVCAN_PUB_RTCM](../advanced_config/parameter_reference.md#UAVCAN_PUB_RTCM): Enable when using a CAN-connected [RTK GPS](../gps_compass/rtk_gps.md) as the Rover unit.
-- [UAVCAN_PUB_MBD](../advanced_config/parameter_reference.md#UAVCAN_PUB_MBD): Enable to support [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md) when the _moving base_ RTK GPS is connected via CAN.
+Position of rover is established using RTCM messages from the RTK base module (the base module is connected to QGC, which sends the RTCM information to PX4 via MAVLink).
+
+PX4 parameters:
+
+- [UAVCAN_PUB_RTCM](../advanced_config/parameter_reference.md#UAVCAN_PUB_RTCM): 
+  - Makes PX4 publish RTCM messages ([RTCMStream](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#rtcmstream)) to the bus (which it gets from the RTK base module via QGC).
+
+Rover module:
+
+- [CANNODE_SUB_RTCM](../advanced_config/parameter_reference.md#CANNODE_SUB_RTCM) tells the rover that it should subscribe to [RTCMStream](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#rtcmstream) RTCM messages on the bus (from the moving base)
+
+
+:::note
+You could instead use [UAVCAN_PUB_MBD](../advanced_config/parameter_reference.md#UAVCAN_PUB_MBD) and [CANNODE_SUB_MBD](../advanced_config/parameter_reference.md#CANNODE_SUB_MBD), which also publish RTCM messages (these are newer).
+Using the [RTCMStream](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#rtcmstream message means that you can implement moving base (see below) at the same time.
+:::
+
+##### Moving base
+
+As discussed in  [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md) a vehicle can have two RTK modules in order to calculate yaw from GPS.
+In this setup the vehicle has a _moving base_ RTK GPS and a _rover_ RTK GPS.
+
+These parameters can be set on moving base and rover RTK units, respectively:
+
+- [CANNODE_PUB_MBD](../advanced_config/parameter_reference.md#CANNODE_PUB_MBD) causes a moving base GPS unit to publish [MovingBaselineData](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#movingbaselinedata)RTCM messages onto the bus (for the rover)
+- [CANNODE_SUB_MBD](../advanced_config/parameter_reference.md#CANNODE_SUB_MBD) tells the rover that it should subscribe to [MovingBaselineData](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#movingbaselinedata) RTCM messages on the bus (from the moving base).
+
+For PX4 you will also need to set [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) to indicate the relative position of the moving base and rover: 0 if your Rover is in front of your Moving Base, 90 if Rover is right of Moving Base, 180 if Rover is behind Moving Base, or 270 if Rover is left of Moving Base.
+
 
 #### Barometer
 
 DroneCAN parameters:
 
-- Enable [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO) (along with [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE)).
+- Enable [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO).
 
 #### Compass
 
 DroneCAN parameters:
 
-- Enable [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG) (along with [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE)).
+- Enable [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG).
 
 #### Distance Sensor/Range Finder 
 
 DroneCAN parameters:
 
-- Enable [UAVCAN_SUB_RNG](../advanced_config/parameter_reference.md#UAVCAN_SUB_RNG) (along with [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE)).
-- Set [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MIN) and [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX), the minimum and maximum range of the distance sensors.
+- Enable [UAVCAN_SUB_RNG](../advanced_config/parameter_reference.md#UAVCAN_SUB_RNG).
+- Set [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MIN) and [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX), the minimum and maximum range of the distance sensor.
 
 Other parameters:
 
@@ -188,7 +221,7 @@ Other parameters:
 
 DroneCAN parameters:
 
-- Enable [UAVCAN_SUB_FLOW](../advanced_config/parameter_reference.md#UAVCAN_SUB_FLOW) (along with [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE)).
+- Enable [UAVCAN_SUB_FLOW](../advanced_config/parameter_reference.md#UAVCAN_SUB_FLOW).
 
 
 Other parameters:
@@ -204,7 +237,11 @@ Optical flow sensors require rangefinder data.
 However the rangefinder need not be part of the same module, and if not, may not be connected via DroneCAN.
 If the rangefinder is connected via DroneCAN (whether inbuilt or separate), you will also need to enable it as described in the [rangefinder section](#distance-sensor-range-finder) (above).
 
+#### Arming Peripherals
 
+DroneCAN parameters:
+
+- [UAVCAN_PUB_ARM](../advanced_config/parameter_reference.md#UAVCAN_PUB_ARM) ([Arming Status](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#armingstatus)): Publish when using DroneCAN components that require an arming status as a precondition for use.
 
 ### ESC & Servos
 
