@@ -32,7 +32,8 @@ We assume that the username and password remain at their defaults for the purpos
 
 To setup the Pi to join your local wifi, follow [this guide](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md), or connect it via an ethernet cable.
 
-To connect to your pi via SSH, use the default username(pi) and hostname(navio). Alternatively if this doesn't work, you can find the IP address of your Pi and specify it.
+To connect to your Pi via SSH, use the default username (`pi`) and hostname (`navio`).
+Alternatively (if this doesn't work), you can find the IP address of your RPi and specify it.
 
 ```sh
 ssh pi@navio.local
