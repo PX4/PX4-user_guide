@@ -78,7 +78,8 @@ Validate that the file was indeed copied, and you can proceed to the next step.
 
 ## Building the Code
 
-Follow the instructions below to build the source code on your developmenet machine (Ubuntu 18.04) and transfer the compiled program to the Pi, unfortunetealy, the option to build the code natively(on the Pi) is no longer available.
+Follow the instructions below to build the source code on your development machine (Ubuntu 18.04) and transfer the compiled program to the Pi.
+Note that earlier versions allowed code to be built natively (on the Pi), but this option is no longer available.
 
 ### Cross-compiler Build
 
