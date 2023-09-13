@@ -78,7 +78,12 @@ Validate that the file was indeed copied, and you can proceed to the next step.
 
 ## Building the Code
 
-Follow the instructions below to build the source code on your development machine (Ubuntu 18.04) and transfer the compiled program to the Pi.
+:::note
+PX4 binaries for Navio 2 can only be built on Ubuntu 18.04.
+Ubuntu 20.04 and later do not currently work (as of September 2023). 
+:::
+
+Follow the instructions below to build the source code on your development machine and transfer the compiled program to the Pi.
 Note that earlier versions allowed code to be built natively (on the Pi), but this option is no longer available.
 
 ### Cross-compiler Build
