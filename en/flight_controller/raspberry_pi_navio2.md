@@ -38,7 +38,9 @@ Alternatively (if this doesn't work), you can find the IP address of your RPi an
 ```sh
 ssh pi@navio.local
 ```
+
 or
+
 ```sh
 ssh pi@<IP-ADDRESS>
 ```
@@ -114,7 +116,7 @@ make emlid_navio2
 ```
 
 The "px4" executable file is in the directory **build/emlid_navio2_default/**.
-Make sure you can connect to your Pi over ssh, see [instructions how to access your Pi](#setting-up-access) following the instructions for armhf under Raspberry Pi.
+Make sure you can connect to your Pi over SSH, see [instructions how to access your Pi](#setting-up-access) following the instructions for armhf under Raspberry Pi.
 
 Then upload it with:
 
