@@ -93,7 +93,7 @@ A "remote" is a handle to a particular repository. The remote named *origin* is 
 
 概述：
 1. Install the [Vuepress prerequiresites](https://vuepress.vuejs.org/guide/getting-started.html#prerequisites):
-   - [Nodejs 10+](https://nodejs.org/en/)
+   - [Nodejs 10+](https://nodejs.org/en)
 
 :::note
 For recent nodejs versions (after v16.15.0) you need to enable the node legacy OpenSSL provider. On Ubuntu you can do this by running the terminal command:
