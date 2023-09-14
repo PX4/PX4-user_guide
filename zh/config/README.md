@@ -31,6 +31,9 @@ Before starting you should [Download QGroundControl](http://qgroundcontrol.com/d
 - [Level Horizon](../config/level_horizon_calibration.md)
 - [Airspeed](../config/airspeed.md) (Fixed-wing/VTOL only)
 
+> **Note:** Setup for optional sensors and specific hardware is provided in [Flight Controller Peripherals](../peripherals/README.md).
+
+
 ### Manual Control Setup
 
 Radio Control:
@@ -64,12 +67,11 @@ If you need help with the configuration you can ask for help on the [QGroundCont
 ## See Also
 
 - [QGroundControl > Setup](https://docs.qgroundcontrol.com/master/en/SetupView/SetupView.html)
+- [Flight Controller Peripherals](../peripherals/README.md) - Setup specific sensors, optional sensors, actuators, and so on.
+- [Advanced Configuration](../advanced_config/README.md) - Factory/OEM calibration, configuring advanced features, less-common configuration.
 - Vehicle-Centric Config/Tuning:
 
   - [Multicopter Config/Tuning](../config_mc/README.md)
   - [Helicopter Config/Tuning](../config_heli/README.md)
   - [Fixed Wing Config/Tuning](../config_fw/README.md)
   - [VTOL Config/Tuning](../config_vtol/README.md)
-
-- [Flight Controller Peripherals](../peripherals/README.md) - Setup related to specific sensors, actuators, and so on.
-- [Advanced Configuration](../advanced_config/README.md) - Factory/OEM calibration, configuring advanced features, less-common configuration.
