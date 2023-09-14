@@ -34,10 +34,10 @@ This section contains contains more advanced configuration topics, and those for
 
 ## See Also
 
-- [Standard Configuration](../config/README.md) - "common" setup needed for most vehicle types.
+- [Standard Configuration](../config/README.md) - Setup essential sensors/features needed for most PX4 vehicles.
+- [Flight Controller Peripherals](../peripherals/README.md) - Setup specific sensors, optional sensors, actuators, and so on.
 - Vehicle Config/Tuning:
   - [Multicopter Config/Tuning](../config_mc/README.md)
   - [Helicopter Config/Tuning](../config_heli/README.md)
   - [Fixed Wing Config/Tuning](../config_fw/README.md)
   - [VTOL Config/Tuning](../config_vtol/README.md)
-- [Flight Controller Peripherals](../peripherals/README.md) - setup related to specific sensors, actuators, and so on.
