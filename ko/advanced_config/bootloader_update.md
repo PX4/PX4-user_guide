@@ -1,24 +1,26 @@
 # 부트로더 업데이트
 
-The [PX4 bootloader](https://github.com/PX4/Bootloader) is used to load firmware for [Pixhawk boards](../flight_controller/pixhawk_series.md) (PX4FMU, PX4IO).
+The _PX4 Bootloader_ is used to load firmware for [Pixhawk boards](../flight_controller/pixhawk_series.md) (PX4FMU, PX4IO).
+
+Pixhawk controllers usually comes with an appropriate bootloader version pre-installed. However in some case it is not present, or an older version is present that needs to be updated.
 
 이 섹션은 픽스호크 부트로더를 업데이트 방법을 설명합니다.
 
 :::note
-Pixhawk hardware usually comes with an appropriate bootloader version pre-installed. 적절한 부트로더를 포함하는 이미지를 사용하여 [펌웨어를 업데이트](../config/firmware.md#custom)합니다.
+A case where you may need to update Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
 :::
 
-## Building the new PX4 Bootloader Yourself
+## Building the PX4 Bootloader
 
-FMUv6X STM32H7)로 시작하는 보드는 인트리 PX4 부트로더를 사용합니다. 이전 보드는 레거시 [PX4 부트로더](https://github.com/PX4/Bootloader) 저장소의 부트로더를 사용합니다. 사용 방법은 README의 지침을 참조하십시오.
+FMUv6X STM32H7)로 시작하는 보드는 인트리 PX4 부트로더를 사용합니다.
 
-다음을 사용하여 PX4-Autopilot 폴더에 새 부트로더를 빌드합니다.
+This can be built from within the PX4-Autopilot folder using the `make` command and the board-specific target with a `_bootloader` suffix. For FMUv6X the command is:
 
 ```
 make px4_fmu-v6x_bootloader
 ```
 
-부트로더 바이너리를 `build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf`로 빌드하며 SWD 또는 DFU를 통해 플래시 할 수 있습니다. 부트로더를 빌드하는 경우 이러한 옵션중 하나를 충분히 숙지하여야합니다.
+This will build the bootloader binary as `build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf`, which can be flashed via SWD or DFU. 부트로더를 빌드하는 경우 이러한 옵션중 하나를 충분히 숙지하여야합니다.
 
 ELF 파일 대신 HEX 파일이 필요한 경우에는 objcopy를 사용하십시오.
 
@@ -26,9 +28,15 @@ ELF 파일 대신 HEX 파일이 필요한 경우에는 objcopy를 사용하십�
 arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf px4_fmu-v6x_bootloader.hex
 ```
 
+## Building the Legacy PX4 Bootloader
+
+PX4 boards up to FMUv5X (before STM32H7) used a legacy [PX4 bootloader](https://github.com/PX4/Bootloader) repository.
+
+사용 방법은 README의 지침을 참조하십시오.
+
 ## QGC Bootloader Update
 
-The easiest approach is to first use _QGroundControl_ to install firmware with the desired/latest bootloader. 그런 다음, 매개변수 [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)를 설정하여 재시작시 부트로더 업데이트를 실행합니다.
+The easiest approach is to first use _QGroundControl_ to install firmware that contains the desired/latest bootloader. 그런 다음, 매개변수 [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)를 설정하여 재시작시 부트로더 업데이트를 실행합니다.
 
 :::note
 이 접근 방식은 [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)가 펌웨어에 존해하는 경우에만 사용할 수 있습니다 (현재는 FMUv2 및 일부 사용자 지정 펌웨어).
@@ -43,15 +51,42 @@ The easiest approach is to first use _QGroundControl_ to install firmware with t
 업데이트된 부트로더는 사용자 정의 펌웨어(예 : 개발팀에서 제공)로 제공되거나 최신 마스터에 포함될 수 있습니다.
 :::
 
-   ![FMUv2 업데이트](../../assets/qgc/setup/firmware/bootloader_update.jpg)
-
 1. 기체가 재부팅될 때까지 기다리십시오.
 1. [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) 파라미터를 [찾아서 활성화](../advanced_config/parameters.md) 하십시오.
 1. 재부팅하십시오 (보드의 연결을 끊고 다시 연결하십시오.). 부트로더 업데이트는 수 초 안에 완료됩니다.
 
 일반적으로이 시점에서 새로 설치된 부트로더를 사용하여 다시 [펌웨어를 업데이트](../config/firmware.md) 할 수 있습니다.
 
-### Dronecode Probe 부트로더 업데이트
+An specific example of this process for updating the FMUv2 bootloader is given below.
+
+### FMUv2 Bootloader Update
+
+If *QGroundControl* installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
+
+:::note
+Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata) that restricted them to using 1MB of flash memory. The problem is fixed on newer boards, but you may need to update the factory-provided bootloader in order to install FMUv3 Firmware and access all 2MB available memory.
+:::
+
+To update the bootloader:
+
+1. SD카드를 삽입합니다 (발생할 수 있는 문제들의 디버그를 위한 부트 로그 기록을 가능하게 합니다.)
+1. [Update the Firmware](../config/firmware.md) to PX4 *master* version (when updating the firmware, check **Advanced settings** and then select **Developer Build (master)** from the dropdown list). *QGroundControl* will automatically detect that the hardware supports FMUv2 and install the appropriate Firmware.
+
+   ![FMUv2 업데이트](../../assets/qgc/setup/firmware/bootloader_update.jpg)
+
+   기체가 재부팅될 때까지 기다리십시오.
+1. [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) 파라미터를 [찾아서 활성화](../advanced_config/parameters.md) 하십시오.
+1. 재부팅하십시오 (보드의 연결을 끊고 다시 연결하십시오.). 부트로더 업데이트는 수 초 안에 완료됩니다.
+1. Then [Update the Firmware](../config/firmware.md) again. This time *QGroundControl* should autodetect the hardware as FMUv3 and update the Firmware appropriately.
+
+   ![FMUv3 update](../../assets/qgc/setup/firmware/bootloader_fmu_v3_update.jpg)
+
+:::note
+If the hardware has the [Silicon Errata](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata) it will still be detected as FMUv2 and you will see that FMUv2 was re-installed (in console). In this case you will not be able to install FMUv3 hardware.
+:::
+
+
+## Dronecode Probe 부트로더 업데이트
 
 아래에서 dronecode probe를 사용하여 수동 부트로더 업데이트 방법을 설명합니다:
 
