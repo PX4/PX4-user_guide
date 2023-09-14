@@ -20,7 +20,7 @@ To install PX4:
 1. Start *QGroundControl* and connect the vehicle.
 1. Select **"Q" icon > Vehicle Setup > Firmware** (sidebar) to open *Firmware Setup*.
 
-   ![Firmware disconnected](../../assets/qgc/setup/firmware/firmware_disconnected.jpg)
+   ![Firmware disconnected](../../assets/qgc/setup/firmware/firmware_disconnected.png)
 
 1. Connect the flight controller directly to your computer via USB.
 
@@ -28,16 +28,16 @@ To install PX4:
    Connect directly to a powered USB port on your machine (do not connect through a USB hub).
    :::
 
-1. Select the **PX4 Flight Stack X.x.x Release** option to install the latest stable version of PX4 *for your hardware* (autodetected).
+1. Select the **PX4 Pro Stable Release vX.x.x** option to install the latest stable version of PX4 *for your flight controller* (autodetected).
 
-   ![Install PX4 default](../../assets/qgc/setup/firmware/firmware_connected_default_px4.jpg)
+   ![Install PX4 default](../../assets/qgc/setup/firmware/firmware_connected_default_px4.png)
 
 1. Click the **OK** button to start the update.
 
    The firmware will then proceed through a number of upgrade steps (downloading new firmware, erasing old firmware etc.). 
    Each step is printed to the screen and overall progress is displayed on a progress bar.
    
-   ![Firmware upgrade complete](../../assets/qgc/setup/firmware/firmware_upgrade_complete.jpg)
+   ![Firmware upgrade complete](../../assets/qgc/setup/firmware/firmware_upgrade_complete.png)
    
    Once the firmware has completed loading, the device/vehicle will reboot and reconnect.
    
@@ -50,58 +50,34 @@ Next you will need to specify the [vehicle airframe](../config/airframe.md) (and
 
 <a id="custom"></a>
 
-## Installing PX4 Master, Beta or Custom Firmware
+## Installing PX4 Main, Beta or Custom Firmware
 
 To install a different version of PX4:
-1. Connect the vehicle as above, and select **PX4 Flight Stack vX.x.x Stable Release**
-   ![Install PX4 version](../../assets/qgc/setup/firmware/qgc_choose_firmware.jpg)
+
+1. Connect the vehicle as above, and select **PX4 Pro Stable Release vX.x.x**.
+   ![Install PX4 version](../../assets/qgc/setup/firmware/qgc_choose_firmware.png)
 1. Check **Advanced settings** and select the version from the dropdown list:
    - **Standard Version (stable):** The default version (i.e. no need to use advanced settings to install this!)
    - **Beta Testing (beta):** A beta/candidate release.
      Only available when a new release is being prepared.
-   - **Developer Build (master):** The latest build of PX4/PX4-Autopilot.
+   - **Developer Build (master):** The latest build of PX4/PX4-Autopilot _main_ branch.
    - **Custom Firmware file...:** A custom firmware file (e.g. that you have built locally).
      If you select this you will have to choose the custom firmware from the file system in the next step.
 
 Firmware update then continues as before.
 
-
 <a id="bootloader"></a>
 
-## FMUv2 Bootloader Update
+## Bootloader Update
 
+Pixhawk hardware usually comes with an appropriate bootloader version pre-installed.
+
+A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware.
 If *QGroundControl* installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
 
-:::note
-Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata) that restricted them to using 1MB of flash memory.
-The problem is fixed on newer boards, but you may need to update the factory-provided bootloader in order to install FMUv3 Firmware and access all 2MB available memory.
-:::
+![FMUv2 update](../../assets/qgc/setup/firmware/bootloader_update.jpg)
 
-To update the bootloader:
-
-1. Insert an SD card (enables boot logging to debug any problems).
-1. [Update the Firmware](../config/firmware.md) to PX4 *master* version (when updating the firmware, check **Advanced settings** and then select **Developer Build (master)** from the dropdown list).
-   *QGroundControl* will automatically detect that the hardware supports FMUv2 and install the appropriate Firmware.
-   
-   ![FMUv2 update](../../assets/qgc/setup/firmware/bootloader_update.jpg)
-   
-   Wait for the vehicle to reboot.
-1. [Find and enable](../advanced_config/parameters.md) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
-1. Reboot (disconnect/reconnect the board). 
-   The bootloader update will only take a few seconds.
-1. Then [Update the Firmware](../config/firmware.md) again. 
-   This time *QGroundControl* should autodetect the hardware as FMUv3 and update the Firmware appropriately.
-
-   ![FMUv3 update](../../assets/qgc/setup/firmware/bootloader_fmu_v3_update.jpg)
-
-   :::note
-   If the hardware has the *Silicon Errata* it will still be detected as FMUv2 and you will see that FMUv2 was re-installed (in console). 
-   In this case you will not be able to install FMUv3 hardware.
-   :::
-
-:::tip
-For more information see [Bootloader Update](../advanced_config/bootloader_update.md).
-:::
+You can update it by following the instructions in [Bootloader update > FMUv2 Bootloader Update](../advanced_config/bootloader_update.md#fmuv2-bootloader-update).
 
 ## Further Information
 
