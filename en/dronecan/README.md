@@ -160,7 +160,7 @@ Other Parameters:
 
 Set the same parameters as for [GPS](#gps) above.
 
-##### Rover RTK module used with a fixed base
+##### Rover and fixed base
 
 Position of rover is established using RTCM messages from the RTK base module (the base module is connected to QGC, which sends the RTCM information to PX4 via MAVLink).
 
