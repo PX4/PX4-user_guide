@@ -179,7 +179,7 @@ You could instead use [UAVCAN_PUB_MBD](../advanced_config/parameter_reference.md
 Using the [RTCMStream](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#rtcmstream message means that you can implement moving base (see below) at the same time.
 :::
 
-##### Moving base
+##### Rover and moving base
 
 As discussed in  [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md) a vehicle can have two RTK modules in order to calculate yaw from GPS.
 In this setup the vehicle has a _moving base_ RTK GPS and a _rover_ RTK GPS.
