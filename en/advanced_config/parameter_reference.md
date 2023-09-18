@@ -29575,6 +29575,18 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="VN_MODE">VN_MODE</strong> (INT32)</td>
+ <td>VectorNav driver mode <p><strong>Comment:</strong> INS or sensors</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Sensors Only (default)</li> 
+
+<li><strong>1:</strong> INS</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="VOXLPM_SHUNT_BAT">VOXLPM_SHUNT_BAT</strong> (FLOAT)</td>
  <td>VOXL Power Monitor Shunt, Battery    <p><b>Reboot required:</b> true</p>
 </td>
