@@ -70,6 +70,13 @@ It comes with a 6-pin JST-GH 1.25mm cable that can be connected directly to the 
 The module comes preinstalled with recent [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID) firmware.
 The [User Guide](https://docs.holybro.com/radio/remote-id) explains how you can config and update firmware via the web interface, if needed.
 
+#### Holybro Pinouts
+
+Note that CAN port not supported in PX4 v1.14
+
+![Holybro Remote ID Pinouts](../../assets/peripherals/remoteid_holybro/holybro_remote_id_pinout.jpg)
+
+
 # PX4 Configuration
 
 ### Port Configuration
