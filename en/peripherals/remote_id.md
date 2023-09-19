@@ -13,6 +13,7 @@ PX4 integrates with Remote ID hardware that supports the [Open Drone ID](https:/
 
 It has been tested with the following devices:
 
+- [Holybro RemoteID Module](https://holybro.com/products/remote-id) (Holybro)
 - [Cube ID](https://docs.cubepilot.org/user-guides/cube-id/cube-id) (CubePilot)
 - [Db201](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) (BlueMark)
 - [Db202mav](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) (BlueMark) - less expensive variant without CAN port. 
@@ -27,6 +28,14 @@ It has been tested with the following devices:
 
 Remote ID devices can be connected to any free/unused serial port on the flight controller.
 Most commonly they are connected directly to the `TELEM2` port (if it is not being use for some other purpose) as this is already configured for MAVLink "by default".
+
+### Holybro Remote ID Module
+
+The [Holybro Remote ID Module](https://holybro.com/products/remote-id) can be connected using the serial port (DroneCAN cannot be used in PX4 v1.14).
+It come with a 6-pin JST-GH 1.25mm cable that can be connected directly to the `TELEM` ports on most recent Pixhawk flight controllers such as the Pixhwak 6C/6X or Cube Orange. 
+
+The module come preinstalled with recent [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID) firmware.
+The [User Guide](https://docs.holybro.com/radio/remote-id) explains how you can config and update firmware via the web interface, if needed.
 
 
 ### Cube ID
