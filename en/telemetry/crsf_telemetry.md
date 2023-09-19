@@ -120,7 +120,7 @@ You can upload firmware as part of the build process using the `upload` options:
 make ark_fmu-v6x_default upload
 ```
 
-Alternatively you can use QGroundControl to install the firmware, as described in [Firmware > Installing PX4 master, beta, or custom firmware](../config/firmware.md#installing-px4-master-beta-or-custom-firmware).
+Alternatively you can use QGroundControl to install the firmware, as described in [Firmware > Installing PX4 master, beta, or custom firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware).
 
 ### Parameter Configuration
 
