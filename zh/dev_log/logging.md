@@ -1,6 +1,6 @@
 # 日志记录
 
-The [system logger](../modules/modules_system.md#logger) is able to log any ORB topic with all included fields. Everything necessary is generated from the `.msg` file, so that only the topic name needs to be specified. An optional interval parameter specifies the maximum logging rate of a certain topic. 所有主题的实例将会被记录。
+[系统记录器](../modules/modules_system.md#logger) 能够记录任何 ORB 单元及其所有包含的字段。 Everything necessary is generated from the `.msg` file, so that only the topic name needs to be specified. An optional interval parameter specifies the maximum logging rate of a certain topic. 所有主题的实例将会被记录。
 
 输出的日志格式是 [Ulog](../log/ulog_file_format.md)。
 
@@ -8,9 +8,9 @@ The [system logger](../modules/modules_system.md#logger) is able to log any ORB 
 
 By default, logging is automatically started when arming, and stopped when disarming. 每次解锁后的飞行对话将会在 SD 卡上生成一个新的日志文件。 To display the current state, use `logger status` on the console. If you want to start logging immediately, use `logger on`. This overrides the arming state, as if the system was armed. `log off` 取消日志记录。
 
-If logging stops due to a write error, or reaching the [maximum file size](#file-size-limitations), PX4 will automatically restart logging in a new file.
+如果日志因为写错误停止，或者达到[最大文件大小](#file-size-limitations)PX4将自动重新开始记录一个新文件。
 
-For a list of all supported logger commands and parameters, use:
+对于所有支持的记录器命令和参数的列表，使用：
 
 ```
 logger help
@@ -23,11 +23,11 @@ The logging system is configured by default to collect sensible logs for [flight
 
 The `<interval>` is optional, and if specified, defines the minimum interval in ms between two logged messages of this topic. If not specified, the topic is logged at full rate. The parameters you are most likely to change are listed below.
 
-| SD 卡                                                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE)       | Logging Mode. Defines when logging starts and stops.<br />- `-1`: Logging disabled.<br />- `0`: Log when armed until disarm (default).<br />- `1`: Log from boot until disarm.<br />- `2`: Log from boot until shutdown.<br />- `3`: Log based on the [AUX1 RC channel](../advanced_config/parameter_reference.md#RC_MAP_AUX1).<br />- `4`: Log from first armed until shutdown. |
-| [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | Logging profile. Use this to enable less common logging/analysis (e.g. for EKF2 replay, high rate logging for PID & filter tuning, thermal temperature calibration).                                                                                                                                                                                                                                                 |
-| [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".<br>This log can *not* be used with [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), but is useful when you need a small log for geotagging or regulatory compliance.                                                                                                                                                                      |
+| SD 卡                                                                     | Description                                                                                                                                                                                                                                                         |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE)       | 日志模式 定义什么时候日志开始记录和停止。<br />-`1`：日志禁用。<br />-`0`：日志从装备开始到解除装备为止（默认）。<br />-`1`：日志从引导到解除装备为止。<br />-`2`：日志从引导直到关机为止。<br />-`3`：日志基于[AUX1 RC 通道](../advanced_config/parameter_reference.md#RC_MAP_AUX1)。<br />-`4`：日志从第一次装备直到关机为止。 |
+| [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | Logging profile. Use this to enable less common logging/analysis (e.g. for EKF2 replay, high rate logging for PID & filter tuning, thermal temperature calibration).                                                                                                |
+| [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".<br>This log can *not* be used with [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), but is useful when you need a small log for geotagging or regulatory compliance.                     |
 
 
 Useful settings for specific cases:
