@@ -14,8 +14,8 @@ Before you can fly the vehicle it must first be [armed](../getting_started/px4_b
 解锁无人机
 - First disengage the [safety switch](../getting_started/px4_basic_concepts.md#safety-switch).
 - 对您的机体使用解锁命令 - 将油门杆放在右下角。
-  - Alternatively configure an [arm/disarm switch](../config/safety.md#arm-disarm-switch).
-  - You can also arm in *QGroundControl* (PX4 does not require a radio control for flying autonomously).
+  - 或者增加一个[解锁/加锁开关](../config/safety.md#arm-disarm-switch)。
+  - 你也可以在 *QGroundControl*中解锁 (PX4 自主飞行不需要无线电控制)。
 
 :::tip
 机体在[校准/配置](../config/README.md)完成且位置固定之前无法解锁。 [机体状态通知](../getting_started/vehicle_status.md) (包括机体LED, 音频通知和 *QGroundControl* 通知）可以告诉您机体何时可以飞行(并帮助您在未准备好飞行时找出原因)。 :::
@@ -87,10 +87,10 @@ The [Failure Detector](../config/safety.md#failure-detector) will automatically 
 
 ![固定翼基本动作](../../assets/flying/basic_movements_forward.png)
 
-- Pitch => Up/down.
-- Roll => Left/right and a turn.
-- Yaw => Left/right tail rotation and turn.
-- Throttle => Changed forward speed.
+- 俯仰 => 上升 / 下降。
+- 横滚 => 左倾/ 右倾和转弯。
+- 偏航=> 左/右尾旋转和转弯。
+- 油门 => 改变前进速度。
 
 :::note
 对于飞机的最佳转弯又称为协调转弯，需同时操作滚动和少量偏航。
@@ -108,4 +108,4 @@ The [Failure Detector](../config/safety.md#failure-detector) will automatically 
 * 位置模式 - 当摇杆被释放机体将保持飞行（位置定点，不会随风漂移）。
 
 :::note
-You can also access automatic modes through the buttons on the bottom of the *QGroundControl* main flight screen. :::
+您也可以通过主飞行界面底部的 *QGroundControl* 按钮访问自动模式。 :::
