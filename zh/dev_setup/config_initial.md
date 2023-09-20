@@ -31,7 +31,7 @@ A Taranis RC plus a Note 4 tablet make up for a very inexpensive field kit.
 Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html) for a **desktop OS**.
 
 To configure the vehicle:
-1. 下载并安装 [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)。
+1. [Install PX4 firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware) (including "custom" firmware with your own changes).
 1. [基本配置](https://docs.px4.io/en/config/)（PX4 用户指南）说明了如何执行基本配置。
 1. [参数配置](https://docs.px4.io/en/advanced_config/parameters.html) （PX4 用户指南）说明了如何查找和修改单个的参数。
 1. [Parameter Configuration](../advanced_config/parameters.md) explains how you can find and modify individual parameters.

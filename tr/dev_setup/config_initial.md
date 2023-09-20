@@ -31,7 +31,7 @@ Tavsiye edilen ekipmanlar:
 Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html) for a **desktop OS**.
 
 Aracı yapılandırmak için:
-1. Geliştirme platformunuz için [QGroundControl Günlük Sürüm](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)'ü indirin.
+1. [Install PX4 firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware) (including "custom" firmware with your own changes).
 1. [Temel Yapılandırma](../config/README.md) bölümünden temel konfigurasyonun nasıl yapılacağına dair açıklamalara ulaşabilirsiniz.
 1. [Parametre Konfigürasyonu](../advanced_config/parameters.md) bölümünden parametreleri nasıl bulup özelleştirebileceğinize bakabilirsiniz.
 1. [Parameter Configuration](../advanced_config/parameters.md) explains how you can find and modify individual parameters.

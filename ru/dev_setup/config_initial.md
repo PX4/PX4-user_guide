@@ -31,7 +31,7 @@ The equipment below is highly recommended:
 Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html) for a **desktop OS**.
 
 To configure the vehicle:
-1. [Install PX4 firmware](../config/firmware.md#installing-px4-master-beta-or-custom-firmware) (including "custom" firmware with your own changes).
+1. [Install PX4 firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware) (including "custom" firmware with your own changes).
 1. [Start with the airframe](../config/airframe.md) that best-matches your vehicle from the [airframe reference](../airframes/airframe_reference.md).
 1. [Basic Configuration](../config/README.md) explains how to perform basic configuration.
 1. [Parameter Configuration](../advanced_config/parameters.md) explains how you can find and modify individual parameters.
