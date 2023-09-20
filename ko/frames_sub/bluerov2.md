@@ -33,7 +33,7 @@ PX4는 *BlueROV2 Heavy Configuration*으로 알려진 8 추력 벡터 설정에 
 ## 기체 설정
 
 BlueROV2는 PX4가 설치된 상태로 제공되지 않습니다. 다음을 수행해야합니다.
-1. [PX4 펌웨어 설치](../config/firmware.md#installing-px4-master-beta-or-custom-firmware) :::note PX4 v1.12 이전에는 "마스터"버전을 설치하여야 합니다.
+1. [Install PX4 Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware) :::note Prior to PX4 v1.12 you will need to install the "master" version.
 1. [기체 설정](../config/airframe.md). 다음과 같이 "BlueROV2 Heavy Configuration"을 선택하여야 합니다. ![QGC - BlueROV2 Heay 설정 기체 선택](../../assets/airframes/sub/bluerov/qgc_airframe.jpg)
 
 <!-- what other tuning/testing/ etc? -->
