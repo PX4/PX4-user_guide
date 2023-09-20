@@ -19729,6 +19729,53 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="LTEST_ACC_UNC">LTEST_ACC_UNC</strong> (FLOAT)</td>
+ <td>Acceleration uncertainty <p><strong>Comment:</strong> Variance of acceleration measurement used for landing target position prediction. Higher values results in tighter following of the measurements and more lenient outlier rejection</p>   </td>
+ <td>[0.01, ?] </td>
+ <td>10.0</td>
+ <td>(m/s^2)^2</td>
+</tr>
+<tr>
+ <td><strong id="LTEST_MEAS_UNC">LTEST_MEAS_UNC</strong> (FLOAT)</td>
+ <td>Landing target measurement uncertainty <p><strong>Comment:</strong> Variance of the landing target measurement from the driver. Higher values result in less aggressive following of the measurement and a smoother output as well as fewer rejected measurements.</p>   </td>
+ <td></td>
+ <td>0.005</td>
+ <td>tan(rad)^2</td>
+</tr>
+<tr>
+ <td><strong id="LTEST_MODE">LTEST_MODE</strong> (INT32)</td>
+ <td>Landing target mode <p><strong>Comment:</strong> Configure the mode of the landing target. Depending on the mode, the landing target observations are used differently to aid position estimation. Mode Moving:     The landing target may be moving around while in the field of view of the vehicle. Landing target measurements are not used to aid positioning. Mode Stationary: The landing target is stationary. Measured velocity w.r.t. the landing target is used to aid velocity estimation.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Moving</li> 
+
+<li><strong>1:</strong> Stationary</li> 
+</ul>
+  </td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="LTEST_POS_UNC_IN">LTEST_POS_UNC_IN</strong> (FLOAT)</td>
+ <td>Initial landing target position uncertainty <p><strong>Comment:</strong> Initial variance of the relative landing target position in x and y direction</p>   </td>
+ <td>[0.001, ?] </td>
+ <td>0.1</td>
+ <td>m^2</td>
+</tr>
+<tr>
+ <td><strong id="LTEST_SCALE_X">LTEST_SCALE_X</strong> (FLOAT)</td>
+ <td>Scale factor for sensor measurements in sensor x axis <p><strong>Comment:</strong> Landing target x measurements are scaled by this factor before being used</p>   </td>
+ <td>[0.01, ?] </td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="LTEST_SCALE_Y">LTEST_SCALE_Y</strong> (FLOAT)</td>
+ <td>Scale factor for sensor measurements in sensor y axis <p><strong>Comment:</strong> Landing target y measurements are scaled by this factor before being used</p>   </td>
+ <td>[0.01, ?] </td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="LTEST_SENS_POS_X">LTEST_SENS_POS_X</strong> (FLOAT)</td>
  <td>X Position of IRLOCK in body frame (forward)    <p><b>Reboot required:</b> true</p>
 </td>
@@ -19775,63 +19822,6 @@ table {
 </td>
  <td>[-1, 40] </td>
  <td>2</td>
- <td></td>
-</tr>
-</tbody></table>
-
-## Landing target Estimator
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="LTEST_ACC_UNC">LTEST_ACC_UNC</strong> (FLOAT)</td>
- <td>Acceleration uncertainty <p><strong>Comment:</strong> Variance of acceleration measurement used for landing target position prediction. Higher values results in tighter following of the measurements and more lenient outlier rejection</p>   </td>
- <td>[0.01, ?] </td>
- <td>10.0</td>
- <td>(m/s^2)^2</td>
-</tr>
-<tr>
- <td><strong id="LTEST_MEAS_UNC">LTEST_MEAS_UNC</strong> (FLOAT)</td>
- <td>Landing target measurement uncertainty <p><strong>Comment:</strong> Variance of the landing target measurement from the driver. Higher values result in less aggressive following of the measurement and a smoother output as well as fewer rejected measurements.</p>   </td>
- <td></td>
- <td>0.005</td>
- <td>tan(rad)^2</td>
-</tr>
-<tr>
- <td><strong id="LTEST_MODE">LTEST_MODE</strong> (INT32)</td>
- <td>Landing target mode <p><strong>Comment:</strong> Configure the mode of the landing target. Depending on the mode, the landing target observations are used differently to aid position estimation. Mode Moving:     The landing target may be moving around while in the field of view of the vehicle. Landing target measurements are not used to aid positioning. Mode Stationary: The landing target is stationary. Measured velocity w.r.t. the landing target is used to aid velocity estimation.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Moving</li> 
-
-<li><strong>1:</strong> Stationary</li> 
-</ul>
-  </td>
- <td>[0, 1] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="LTEST_POS_UNC_IN">LTEST_POS_UNC_IN</strong> (FLOAT)</td>
- <td>Initial landing target position uncertainty <p><strong>Comment:</strong> Initial variance of the relative landing target position in x and y direction</p>   </td>
- <td>[0.001, ?] </td>
- <td>0.1</td>
- <td>m^2</td>
-</tr>
-<tr>
- <td><strong id="LTEST_SCALE_X">LTEST_SCALE_X</strong> (FLOAT)</td>
- <td>Scale factor for sensor measurements in sensor x axis <p><strong>Comment:</strong> Landing target x measurements are scaled by this factor before being used</p>   </td>
- <td>[0.01, ?] </td>
- <td>1.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="LTEST_SCALE_Y">LTEST_SCALE_Y</strong> (FLOAT)</td>
- <td>Scale factor for sensor measurements in sensor y axis <p><strong>Comment:</strong> Landing target y measurements are scaled by this factor before being used</p>   </td>
- <td>[0.01, ?] </td>
- <td>1.0</td>
  <td></td>
 </tr>
 <tr>
@@ -20922,8 +20912,8 @@ table {
 </tr>
 <tr>
  <td><strong id="MIS_TAKEOFF_ALT">MIS_TAKEOFF_ALT</strong> (FLOAT)</td>
- <td>Take-off altitude <p><strong>Comment:</strong> This is the minimum altitude the system will take off to.</p>   </td>
- <td>[0, 80] (0.5)</td>
+ <td>Default take-off altitude <p><strong>Comment:</strong> This is the relative altitude the system will take off to if not otherwise specified.</p>   </td>
+ <td>[0, ?] (0.5)</td>
  <td>2.5</td>
  <td>m</td>
 </tr>
@@ -27906,6 +27896,51 @@ table {
  <td></td>
  <td>500000</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_AFBR_HYSTER">SENS_AFBR_HYSTER</strong> (INT32)</td>
+ <td>AFBR Rangefinder Short/Long Range Threshold Hysteresis <p><strong>Comment:</strong> This parameter defines the hysteresis for switching between short and long range mode.</p>   </td>
+ <td>[1, 10] </td>
+ <td>1</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="SENS_AFBR_L_RATE">SENS_AFBR_L_RATE</strong> (INT32)</td>
+ <td>AFBR Rangefinder Long Range Rate <p><strong>Comment:</strong> This parameter defines measurement rate of the AFBR Rangefinder in long range mode.</p>   </td>
+ <td>[1, 100] </td>
+ <td>25</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_AFBR_MODE">SENS_AFBR_MODE</strong> (INT32)</td>
+ <td>AFBR Rangefinder Mode <p><strong>Comment:</strong> This parameter defines the mode of the AFBR Rangefinder.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Short Range Mode</li> 
+
+<li><strong>1:</strong> Long Range Mode</li> 
+
+<li><strong>2:</strong> High Speed Short Range Mode</li> 
+
+<li><strong>3:</strong> High Speed Long Range Mode</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 3] </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_AFBR_S_RATE">SENS_AFBR_S_RATE</strong> (INT32)</td>
+ <td>AFBR Rangefinder Short Range Rate <p><strong>Comment:</strong> This parameter defines measurement rate of the AFBR Rangefinder in short range mode.</p>   </td>
+ <td>[1, 100] </td>
+ <td>50</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_AFBR_THRESH">SENS_AFBR_THRESH</strong> (INT32)</td>
+ <td>AFBR Rangefinder Short/Long Range Threshold <p><strong>Comment:</strong> This parameter defines the threshold for switching between short and long range mode. The mode will switch from short to long range when the distance is greater than the threshold plus the hysteresis. The mode will switch from long to short range when the distance is less than the threshold minus the hysteresis.</p>   </td>
+ <td>[1, 50] </td>
+ <td>5</td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="SENS_BARO_QNH">SENS_BARO_QNH</strong> (FLOAT)</td>
