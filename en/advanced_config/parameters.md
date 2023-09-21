@@ -3,10 +3,10 @@
 PX4 behaviour can be configured/tuned using [parameters](../advanced_config/parameter_reference.md) (e.g. [Multicopter PID gains](../config_mc/pid_tuning_guide_multicopter.md), calibration information, etc.).
 
 The _QGroundControl Parameters_ screen allows you to find and modify **any** of the parameters associated with the vehicle.
-The screen is accessed by clicking the top menu _Gear_ icon and then _Parameters_ in the sidebar.
+The screen is accessed by clicking the **Q** application icon > **Vehicle Setup**, and then _Parameters_ in the sidebar.
 
 :::note
-Most of the more commonly used parameters are more conveniently set using the dedicated setup screens described in the [Basic Configuration](../config/README.md) section.
+Most of the more commonly used parameters are more conveniently set using the dedicated setup screens, as described in the [Standard Configuration](../config/README.md) section.
 The _Parameters_ screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
 :::
 
@@ -19,13 +19,19 @@ While some parameters can be changed in flight, this is not recommended (except 
 ## Finding a Parameter
 
 You can search for a parameter by entering a term in the _Search_ field.
-This will show you a list of all parameter names and descriptions that contain the entered substring (press **Clear** to reset the search).
+This will show you a list of all parameter names and descriptions that contain the entered substring (press **Clear** to reset the search, and use the **Show modified only** checkbox to filter out unchanged parameters).
 
-![Parameters Search](../../assets/qgc/setup/parameters/parameters_search.jpg)
+![Parameters Search](../../assets/qgc/setup/parameters/parameters_search.png)
 
-You can also browse the parameters by group by clicking on the buttons to the left (in the image below the _Battery Calibration_ group is selected).
+You can also browse the parameters by type and group by clicking on the buttons to the left (in the image below the _DShot_ group in the _Standard_ parameters is selected).
 
-![Parameters Screen](../../assets/qgc/setup/parameters/parameters_px4.jpg)
+![Parameters Screen](../../assets/qgc/setup/parameters/parameters_px4.png)
+
+You can expand/collapse the "type" groupings as shown.
+Note that the groups at the bottom named _Component X_ are attached [DroneCAN peripherals](../dronecan/README.md#qgc-cannode-parameter-configuration) ("X" is the node id).
+[QGC can set the parameters](../dronecan/README.md#qgc-cannode-parameter-configuration) of these peripherals if they are attached to the Flight Controller when QGC is started.
+
+![Parameters Types - collapsed](../../assets/qgc/setup/parameters/parameters_types.png)
 
 :::tip
 If you can't find an expected parameter, see the [next section](#missing).
@@ -88,13 +94,16 @@ You can select additional options from the **Tools** menu on the top right hand 
 **Refresh**
 <br>Refresh the parameter values by re-requesting all of them from the vehicle.
 
-**Reset all to defaults**
-<br>Reset all parameters to their original default values.
+**Reset all to firmware defaults**
+<br>Reset all parameters to their original default values in the firmware.
+
+**Reset to vehicle's configuration defaults**
+<br>Reset all parameters to their original default values for the particular selected airfame configuration.
 
 **Load from file / Save to file**
 <br>Load parameters from an existing file or save your current parameter settings to a file.
 
-**Clear RC to Param**
+**Clear all RC to Param**
 <br>This clears all associations between RC transmitter controls and parameters.
 For more information see: [Radio Setup > Param Tuning Channels](../config/radio.md#param-tuning-channels).
 
