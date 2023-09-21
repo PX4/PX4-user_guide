@@ -21,7 +21,7 @@
   * [CUAV V5+ Wiring Quickstart](assembly/quick_start_cuav_v5_plus.md)
   * [CUAV V5 nano Wiring Quickstart](assembly/quick_start_cuav_v5_nano.md)
   * [Holybro Pixhawk 6C Wiring Quickstart](assembly/quick_start_pixhawk6c.md)
-  * [Holybro Pixhawk 6X Wiring Quickstart](assembly/quick_start_pixhawk6x.md)
+  * [Holybro Pixhawk 6X  快速接线指南](assembly/quick_start_pixhawk6x.md)
   * [Holybro Pixhawk 5X Wiring Quickstart](assembly/quick_start_pixhawk5x.md)
   * [Holybro Pixhawk 4 Wiring Quickstart - Discontinued](assembly/quick_start_pixhawk4.md)
   * [Holybro Pixhawk 4 Mini Wiring Quickstart - Discontinued](assembly/quick_start_pixhawk4_mini.md)
