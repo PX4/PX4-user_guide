@@ -377,5 +377,34 @@
     "type": "PageNotLinkedInternally",
     "fileRelativeToRoot": "en\\middleware\\micrortps.md",
     "hideReason": "This is deliberately omitted"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/mission.html#fw-mission-landing",
+      "text": "fixed-wing landing"
+    },
+    "hideReason": "Is in HTML"
+  },
+  {
+    "type": "PageNotInTOC",
+    "fileRelativeToRoot": "en\\advanced_features\\README.md",
+    "hideReason": "Its a redirect, or should be."
+  },
+  {
+    "type": "PageNotLinkedInternally",
+    "fileRelativeToRoot": "en\\advanced_features\\README.md",
+    "hideReason": "Its a redirect"
+  },
+  {
+    "type": "PageNotInTOC",
+    "fileRelativeToRoot": "en\\gps_compass\\rtk_gps_drotek_xl.md",
+    "hideReason": "It's a redirect in case someone ends up here"
+  },
+  {
+    "type": "PageNotLinkedInternally",
+    "fileRelativeToRoot": "en\\gps_compass\\rtk_gps_drotek_xl.md",
+    "hideReason": "Intended orphan"
   }
 ]
