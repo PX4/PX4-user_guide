@@ -89,6 +89,8 @@ The outputs that are to be controlled are specified in the [Actuators](../config
 
 For example, in the image above, the `AUX5` output is assigned the function `Offboard Actuator Set 1` function. To control the actuator attached to `AUX5` you would set the value of `MAV_CMD_DO_SET_ACTUATOR.param1`.
 
+<!-- PX4 v1.14 bug https://github.com/PX4/PX4-Autopilot/issues/21966 -->
+
 ### Generic Actuator Control with RC
 
 Up to 6 autopilot PWM or CAN outputs can be controlled using RC channels. The outputs that are to be controlled are specified in the [Actuators](../config/actuators.md#actuator-outputs) configuration screen by assigning the functions `RC AUX 1` to `RC AUX 6` to the desired [actuator outputs](../config/actuators.md#actuator-outputs).
