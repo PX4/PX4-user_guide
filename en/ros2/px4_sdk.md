@@ -8,7 +8,7 @@ A mode can send different types of setpoints, ranging from high-level navigation
 
 This diagram provides a conceptual overview:
 
-![Overiew](../../assets/diagrams/ros2_modes_overview.svg)
+![ROS2 modes overview diagram](../../assets/middleware/ros2/px4_sdk/ros2_modes_overview.svg)
 
 <!-- Source: https://docs.google.com/drawings/d/1WByCfgcytnaow7r41VhYJL8OGrw1RjFO51GoPMQBCNA/edit -->
 
@@ -60,7 +60,7 @@ These are currently implemented:
 
 ### Comparison to Offboard Control
 
-The above concepts provide a number of advantages over traditional [offboard control](offboard_control.md):
+The above concepts provide a number of advantages over traditional [offboard control](../ros/offboard_control.md):
 
 - Multiple nodes or applications can coexist and even run at the same time. It is clearly defined which node can control the vehicle at any given time.
 - Exposing a selectable mode to the GCS.
@@ -149,7 +149,7 @@ The following steps are required to get started:
 
 9. At this point you should be able to see the mode in QGroundControl as well:
 
-   ![QGC Modes](../../assets/middleware/ros/qgc_modes.png)
+   ![QGC Modes](../../assets/middleware/ros2/px4_sdk/qgc_modes.png)
 
 10. Select the mode, make sure you have a manual control source (physical or virtual joystick), and arm the vehicle.
     The mode will then activate, and it should print the following output:
@@ -296,7 +296,7 @@ For example:
 ```
 
 means you would select **External Mode 1** in QGC:
-![QGC Mode Assignment](../../assets/middleware/ros/qgc_mode_assignment.png)
+![QGC Mode Assignment](../../assets/middleware/ros2/px4_sdk/qgc_mode_assignment.png)
 
 :::note
 PX4 ensures a given mode is always assignment to the same index by storing a hash of the mode name.
