@@ -4,7 +4,7 @@
 
 :::warning
 - DroneCAN is not enabled by default, and nor are specific sensors and features that use it.
-  For setup information see [PX4 Configuration](#px4-configuration). 
+  For setup information see [PX4 Configuration](#px4-configuration).
 - PX4 requires an SD card to enable dynamic node allocation and for firmware update.
   The SD card is not used in flight.
 :::
@@ -25,7 +25,6 @@ Connecting peripherals over DroneCAN has many benefits:
 - Wiring is less complicated as you can have a single bus for connecting all your ESCs and other DroneCAN peripherals.
 - Setup is easier as you configure ESC numbering by manually spinning each motor.
 - It allows users to configure and update the firmware of all CAN-connected devices centrally through PX4.
-
 
 ## Supported Hardware
 
@@ -68,7 +67,7 @@ DroneCAN hardware should be connected as described in [CAN > Wiring](../can/READ
 
 ## Node ID Allocation
 
-Every DroneCAN device must be configured with a *node id* that is unique on the vehicle.
+Every DroneCAN device must be configured with a _node id_ that is unique on the vehicle.
 
 Most devices support _Dynamic Node Allocation (DNA)_, which allows PX4 to automatically configure the node ID of each detected peripheral on system startup.
 Consult the manufacturer documentation for details on whether your device supports DNA and how to enable it.
@@ -87,7 +86,7 @@ The parameter is set to 1 by default.
 
 :::warning
 At time of writing, PX4 does not run the node allocation server on the CAN2 port.
-This means that if you have a device that is *only* connected to CAN2 (not redundantly to CAN1 and CAN2), you will need to manually configure its node ID.
+This means that if you have a device that is _only_ connected to CAN2 (not redundantly to CAN1 and CAN2), you will need to manually configure its node ID.
 :::
 
 ## PX4 Configuration
@@ -122,7 +121,7 @@ The parameter names are prefixed with `UAVCAN_SUB_` and `UAVCAN_PUB_` to indicat
 The remainder of the name indicates the specific message/feature being set.
 
 DroneCAN peripherals connected to PX4 can also be [configured using via QGC](#qgc-cannode-parameter-configuration).
-These are named with the prefix [CANNODE_](../advanced_config/parameter_reference.md#CANNODE_BITRATE).
+These are named with the prefix [CANNODE\_](../advanced_config/parameter_reference.md#CANNODE_BITRATE).
 `CANNODE_` parameters prefixed with `CANNODE_PUB_` and `CANNODE_SUB_` enable the peripheral to publish or subscribe the associated DroneCAN message.
 Note that if you enable publishing from one DroneCAN node, you are likely to need to enable subscribing from another.
 
@@ -138,7 +137,7 @@ The DroneCAN sensor parameters/subscriptions that you can enable are (in PX4 v1.
 - [UAVCAN_SUB_BTN](../advanced_config/parameter_reference.md#UAVCAN_SUB_BTN): Button
 - [UAVCAN_SUB_DPRES](../advanced_config/parameter_reference.md#UAVCAN_SUB_DPRES): Differential pressure
 - [UAVCAN_SUB_FLOW](../advanced_config/parameter_reference.md#UAVCAN_SUB_FLOW): Optical flow
-- [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS): GPS 
+- [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS): GPS
 - [UAVCAN_SUB_HYGRO](../advanced_config/parameter_reference.md#UAVCAN_SUB_HYGRO): Hygrometer
 - [UAVCAN_SUB_ICE](../advanced_config/parameter_reference.md#UAVCAN_SUB_ICE): Internal combustion engine (ICE).
 - [UAVCAN_SUB_IMU](../advanced_config/parameter_reference.md#UAVCAN_SUB_IMU): IMU
@@ -161,7 +160,6 @@ Other PX4 Parameters:
 - If the GPS is not positioned at the vehicle centre of gravity you can account for the offset using [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z).
 - If the GPS module provides yaw information, you can enable GPS yaw fusion by setting bit 3 of [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) to true.
 
-
 #### RTK GPS
 
 Set the same parameters as for [GPS](#gps) above.
@@ -173,13 +171,12 @@ Position of rover is established using RTCM messages from the RTK base module (t
 
 PX4 DroneCAN parameters:
 
-- [UAVCAN_PUB_RTCM](../advanced_config/parameter_reference.md#UAVCAN_PUB_RTCM): 
+- [UAVCAN_PUB_RTCM](../advanced_config/parameter_reference.md#UAVCAN_PUB_RTCM):
   - Makes PX4 publish RTCM messages ([RTCMStream](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#rtcmstream)) to the bus (which it gets from the RTK base module via QGC).
 
 Rover module parameters (also [set using QGC](#qgc-cannode-parameter-configuration)):
 
 - [CANNODE_SUB_RTCM](../advanced_config/parameter_reference.md#CANNODE_SUB_RTCM) tells the rover that it should subscribe to [RTCMStream](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#rtcmstream) RTCM messages on the bus (from the moving base).
-
 
 :::note
 You could instead use [UAVCAN_PUB_MBD](../advanced_config/parameter_reference.md#UAVCAN_PUB_MBD) and [CANNODE_SUB_MBD](../advanced_config/parameter_reference.md#CANNODE_SUB_MBD), which also publish RTCM messages (these are newer).
@@ -198,7 +195,6 @@ These parameters can be [set on moving base and rover RTK CAN nodes](#qgc-cannod
 
 For PX4 you will also need to set [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) to indicate the relative position of the moving base and rover: 0 if your Rover is in front of your Moving Base, 90 if Rover is right of Moving Base, 180 if Rover is behind Moving Base, or 270 if Rover is left of Moving Base.
 
-
 #### Barometer
 
 PX4 DroneCAN parameters:
@@ -211,7 +207,7 @@ PX4 DroneCAN parameters:
 
 - Enable [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG).
 
-#### Distance Sensor/Range Finder 
+#### Distance Sensor/Range Finder
 
 PX4 DroneCAN parameters:
 
@@ -221,8 +217,7 @@ PX4 DroneCAN parameters:
 Other PX4 parameters:
 
 - If the rangefinder is not positioned at the vehicle centre of gravity you can account for the offset using [EKF2_RNG_POS_X](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_Y](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Y) and [EKF2_RNG_POS_Z](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Z).
-- Other `EKF2_RNG_*` parameters may be relevant, in which case they should be documented with the specific rangefinder. 
-
+- Other `EKF2_RNG_*` parameters may be relevant, in which case they should be documented with the specific rangefinder.
 
 #### Optical Flow Sensor
 
@@ -237,7 +232,6 @@ Other PX4 parameters:
 - Enable optical flow fusion by setting [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL).
 - To disable GPS aiding (optional), set [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) to `0`.
 - If the optical flow unit is not positioned at the vehicle centre of gravity you can account for the offset using [EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X), [EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) and [EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z).
-
 
 Optical flow sensors require rangefinder data.
 However the rangefinder need not be part of the same module, and if not, may not be connected via DroneCAN.
@@ -262,11 +256,9 @@ For example, the screenshot below shows the parameters for a CAN GPS with node i
 
 ![QGC Parameter showing selected DroneCAN node](../../assets/can/dronecan/qgc_can_parameters.png)
 
-
 ## Device Specific Setup
 
 Most DroneCAN nodes require no further setup, unless specifically noted in their device-specific documentation.
-
 
 ## Firmware Update
 
