@@ -24,8 +24,8 @@ Almost everything you need is provided in the RTF kit (the links next to compone
 
 * Pre laminated EPP wings
 * Wingtips and full hardware
-* [Dropix](https://store-drotek.com/888-dropix.html) flight controller with
-  * [GPS u-blox M8N](https://store-drotek.com/876-DP0105.html)
+* Dropix flight controller (discontinued) with
+  * GPS u-blox M8N
   * Power Sensor  
   * [Airspeed Sensor](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
 * Quad power set  [Tiger Motor MT-2216-11 900kv V2](https://www.getfpv.com/tiger-motor-mt-2216-11-900kv-v2.html) (discontinued)
@@ -37,7 +37,7 @@ Almost everything you need is provided in the RTF kit (the links next to compone
 * Carbon fiber tubes and mounts
 * G10 motor mounts
 * 1 x [3700mah 4S 30C Lipo battery](https://www.overlander.co.uk/batteries/lipo-batteries/power-packs/3700mah-4s-14-8v-25c-lipo-battery-overlander-sport.html)
-* [Power distribution board and cable](https://store-drotek.com/453-apm-power-source-xt60.html)
+* Dropix power distribution board and cable
 
 The kit does not come with a radio receiver or (optional) telemetry modules.
 For this build we used the following components:

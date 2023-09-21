@@ -9,7 +9,7 @@ PX4 提供了几种机制来选择安全的返航路径，返航目的地和着�
 以下章节解释了如何配置 [返航类型](#return_types)， [返航高度](#return_altitude) 和 [降落/抵达行为](#arrival)。 At the end there are sections explaining the *default* (preconfigured) behaviour for each [vehicle type](#default_configuration).
 
 :::note
-* 该模式需要 GPS。
+* This mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
 * This mode is automatic - no user intervention is *required* to control the vehicle.
 * 遥控开关可以在任何无人机上更改飞行模式。
 * 在多旋翼中移动遥控器摇杆（或 VTOL 在多旋翼模式下）[默认情况下](#COM_RC_OVERRIDE)会将无人机切换到[位置模式](../flight_modes/position_mc.md)，除非是处理电池失效保护。

@@ -160,7 +160,7 @@ JMAVSim은 다중 차량 시뮬레이션이 가능합니다. [JMAVSim이 있는 
 ## 중요 파일
 
 * 시작 스크립트는 [시스템 시작](../concept/system_startup.md)에서 설명합니다.
-* 시뮬레이션된 루트 파일 시스템("`/`" 디렉토리)은 다음의 빌드 디렉토리 내에 생성됩니다: `build/px4_sitl_default/tmp/rootfs`.
+* The simulated root file system ("`/`" directory) is created inside the build directory here: `build/px4_sitl_default/rootfs`.
 
 ## 문제 해결
 

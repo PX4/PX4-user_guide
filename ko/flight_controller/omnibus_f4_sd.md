@@ -58,10 +58,10 @@ The _Omnibus F4 SD_ is a controller board designed for racers. 일반적인 레�
 
 아래의 보드들은 테스트되고 작동하는 것입니다.
 
-- [Hobbywing XRotor 비행 콘트롤러 F4](http://www.hobbywing.com/goods.php?id=636)
+- [Hobbywing XRotor 비행 콘트롤러 F4](https://www.hobbywing.com/en/products/info.html?id=164)
 
 :::note
-This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](http://www.hobbywing.com/goods.php?id=588) without soldering. 이 ESC 보드는 또한 Omnibus 보드에 전원을 제공합니다.
+This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](https://www.hobbywing.com/en/products/info.html?id=116) without soldering. 이 ESC 보드는 또한 Omnibus 보드에 전원을 제공합니다.
 :::
 
   구매처:
@@ -73,7 +73,7 @@ This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](http://www.h
   구매처:
 
   - [Airbot (CN 제조업체)](https://store.myairbot.com/omnibusf4prov3.html)
-  - [Ready To Fly Quads(미국 리셀러)](http://www.readytoflyquads.com/flip-32-f4-omnibus-v2-pro)
+  - [Ready To Fly Quads(미국 리셀러)](https://quadsrtf.com/product/flip-32-f4-omnibus-rev-2/)
 
 액세서리에는 아래의 내용물이 포함됩니다.
 
@@ -171,14 +171,19 @@ Omnibus는 [FrSky 텔레메트리](../peripherals/frsky_telemetry.md) 또는 [CR
 
 ### CRSF Crossfire 텔레메트리
 
-TBS CRSF Crossfire 텔레메트리는 비행 콘트롤러(기체의 자세, 배터리, 비행 모드 및 GPS 데이터)에서 RC 송신기(Taranis)로 원격측정 데이터를 전송합니다.
+[TBS CRSF Telemetry](../telemetry/crsf_telemetry.md) may be used to send telemetry data from the flight controller (the vehicle's attitude, battery, flight mode and GPS data) to an RC transmitter such as a Taranis.
 
-FrSky 텔레메트리의 이점은 다음과 같습니다.
+Benefits over [FrSky telemetry](../peripherals/frsky_telemetry.md) include:
 
 - RC와 텔레메트리에는 단일 UART 만 필요합니다.
 - CRSF 프로토콜은 응답시간 느린 장치에 최적화되어 있습니다.
 - 150Hz RC 업데이트 속도.
 - 신호는 반전되지 않으므로 외부 인버터 로직이 필요하지 않습니다.
+
+:::note
+If you use CRSF Telemetry you will need to build custom PX4 firmware.
+By contrast, FrSky telemetry can use prebuilt firmware.
+:::
 
 Omnibus는 소형 쿼드 용으로 특별히 설계되었으므로 [TBS Crossfire Nano RX](http://team-blacksheep.com/products/prod:crossfire_nano_rx) 사용을 권장합니다.
 
@@ -197,9 +202,11 @@ Omnibus는 소형 쿼드 용으로 특별히 설계되었으므로 [TBS Crossfir
 | TX            | Ch2     |
 | RX            | Ch1     |
 
-PX4 비행 컨트롤러에서 다른 항목을 설정하지 않아도 됩니다. RC 프로토콜이 자동으로 감지됩니다.
-
 다음으로 TX/RX 모듈을 업데이트하여 CRSF 프로토콜을 사용하고 텔레메트리를 설정합니다. 이에 대한 지침은 [TBS Crossfire 매뉴얼](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf)( 'CRSF용 라디오 설정' 검색)에 나와 있습니다.
+
+#### PX4 CRSF Configuration
+
+You will need to build custom firmware to use CRSF. For more information see [CRSF Telemetry](../telemetry/crsf_telemetry.md#px4-configuration).
 
 ## 회로도
 
@@ -221,6 +228,13 @@ make omnibus_f4sd_default
 
 ## 펌웨어 설치
 
+미리 빌드된 펌웨어나 사용자 지정 펌웨어를 사용할 수 있습니다.
+
+:::warning
+
+If you use [CRSF Telemetry](../telemetry/crsf_telemetry.md#px4-configuration) in your radio system, as describe above, then you must use custom firmware.
+:::
+
 펌웨어는 일반적인 방법으로 설치할 수 있습니다.
 
 - 소스 빌드 및 업로드
@@ -229,7 +243,7 @@ make omnibus_f4sd_default
   make omnibus_f4sd_default upload
   ```
 
-- [Load the firmware](../config/firmware.md) using _QGroundControl_. 미리 빌드된 펌웨어나 사용자 지정 펌웨어를 사용할 수 있습니다.
+- [Load the firmware](../config/firmware.md) using _QGroundControl_.
 
 ## 설정
 
@@ -242,6 +256,4 @@ make omnibus_f4sd_default
 
 ## 추가 정보
 
-이 보드에 관한 리뷰는 [여기](https://nathan.vertile.com/blog/2016/10/12/omnibusf4/)를 참고하십시오.
-
-[이 페이지](https://blog.dronetrest.com/omnibus-f4-flight-controller-guide/)는 핀배열, 설정 방법을 제공합니다.
+[This page](https://blog.dronetrest.com/omnibus-f4-flight-controller-guide/) provides a good overview with pinouts and setup instructions.

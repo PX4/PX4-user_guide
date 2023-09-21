@@ -22,7 +22,7 @@ It is important that all replayed topics contain only a single absolute timestam
   make px4_sitl_default
   ```
   This will create the output in a separate build directory `build/px4_sitl_default_replay` (so that the parameters don't interfere with normal builds). It's possible to choose any posix SITL build target for replay, the build system knows through the `replay` environment variable that it's in replay mode.
-- Add ORB publisher rules file in `build/px4_sitl_default_replay/tmp/rootfs/orb_publisher.rules`. This file defines which module is allowed to publish which messages. It has the following format:
+- Add ORB publisher rules file in `build/px4_sitl_default_replay/rootfs/orb_publisher.rules`. This file defines which module is allowed to publish which messages. It has the following format:
   ```
   restrict_topics: <topic1>, <topic2>, ..., <topicN>
   module: <module>
@@ -40,7 +40,7 @@ It is important that all replayed topics contain only a single absolute timestam
 
   This allows that the modules, which usually publish these topics, don't need to be disabled for replay.
 
-- Optional: setup parameter overrides in the file `build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt`. This file should contain a list of `<param_name> <value>`, like:
+- Optional: setup parameter overrides in the file `build/px4_sitl_default_replay/rootfs/replay_params.txt`. This file should contain a list of `<param_name> <value>`, like:
 
   ```
   EKF2_GB_NOISE 0.001
@@ -99,7 +99,7 @@ INFO  [replay] Replay done (published 9917 msgs, 2.136 s)
 The parameters can be adjusted as well. They can be extracted from the log with the following \(install pyulog with `pip install --user pyulog` first\):
 
 ```
-ulog_params -i "$replay" -d ' ' | grep -e '^EKF2' > build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt
+ulog_params -i "$replay" -d ' ' | grep -e '^EKF2' > build/px4_sitl_default_replay/rootfs/replay_params.txt
 ```
 
 Then edit the parameters in the file as needed and restart the replay process with `make px4_sitl none`. This will create a new log file.

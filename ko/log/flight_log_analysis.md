@@ -19,7 +19,7 @@ This topic provide an overview of the tools and methods that can be used to anal
 
 If a log file ends mid-air, two main causes are possible: a power failure _or_ a hard fault of the operating system.
 
-On autopilots based on the [STM32 series](http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html?querycriteria=productId=SC1169), hard faults are logged to the SD card. [STM32 시리즈](http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html?querycriteria=productId=SC1169) 기반 자동 조종 장치에서는 운영 체제의 하드 오류가 SD 카드에 기록됩니다. You should check for the presence of this file if a flight log ends abruptly.
+On autopilots based on the [STM32 series](http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html), hard faults are logged to the SD card. [STM32 시리즈](http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html?querycriteria=productId=SC1169) 기반 자동 조종 장치에서는 운영 체제의 하드 오류가 SD 카드에 기록됩니다. You should check for the presence of this file if a flight log ends abruptly.
 
 ## 분석 도구
 

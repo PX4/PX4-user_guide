@@ -3,7 +3,7 @@
 [E-Flite 컨버전스](https://youtu.be/HNedXQ_jhYo) PX4의 자율 비행이 가능한 VTOL로 변환할 수 있습니다. 공간은 충분하지 않지만, GPS, 텔레메트리를 장착하기에는 [Pixfalcon](../flight_controller/pixfalcon.md) 비행 콘트롤러의 공간은 충분합니다.
 
 :::note
-오리지널 [Horizon Hobby *E-Flite Convergence*](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) 프레임과 [Pixfalcon](../flight_controller/pixfalcon.md)은 단종되었습니다. Alternatives are provided in the [Purchase](#where-to-buy) section. :::
+The original Horizon Hobby *E-Flite Convergence* frame and [Pixfalcon](../flight_controller/pixfalcon.md) have been discontinued. Alternatives are provided in the [Purchase](#where-to-buy) section. :::
 
 @[유투브](https://youtu.be/E61P2f2WPNU)
 
@@ -11,7 +11,7 @@
 ## Where to Buy
 
 차량 프레임 옵션:
-- **WL Tech XK X450** - [뱅굿](https://usa.banggood.com/XK-X450-VTOL-2_4G-6CH-EPO-450mm-Wingspan-3D-or-6G-Mode-Switchable-Aerobatics-RC-Airplane-RTF-p-1533418.html), [알리익스프레스](https://www.aliexpress.com/item/1005001946025611.html)
+- **WL Tech XK X450** - [AliExpress](https://www.aliexpress.com/item/1005001946025611.html)
 - **JJRC M02** - [뱅굿(AU)](https://au.banggood.com/JJRC-M02-2_4G-6CH-450mm-Wingspan-EPO-Brushless-6-axis-Gyro-Aerobatic-RC-Airplane-RTF-3D-or-6G-Mode-Aircraft-p-1588201.html), [알리익스프레스](https://www.aliexpress.com/item/4001031497018.html)
 
 비행 컨트롤러 옵션():

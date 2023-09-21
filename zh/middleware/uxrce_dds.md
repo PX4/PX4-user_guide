@@ -10,7 +10,6 @@ PX4 使用 [eProsima Micro XRCE-DDS](https://micro-xrce-dds.docs.eprosima.com/en
 
 本指南描述了软件架构以及建立客户和代理所需要的操作。 尤其是，它涵盖了对于PX4用户最重要的选项。
 
-
 ## 软件架构
 
 The uXRCE-DDS middleware consists of a client running on PX4 and an agent running on the companion computer, with bi-directional data exchange between them over a serial or UDP link. 代理端(Agent)充当客户端的代理，使其能够在DDS全局数据空间中发布和订阅话题。
@@ -27,7 +26,6 @@ The [eProsima micro XRCE-DDS _agent_](https://github.com/eProsima/Micro-XRCE-DDS
 
 Code that wants to subscribe/publish to PX4 does have a dependency on client-side code; it requires uORB message definitions that match those used to create the PX4 uXRCE-DDS client so that it can interpret the messages.
 
-
 ## 代码生成
 
 The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) is generated at build time and included in PX4 firmare by default. 代理不依赖客户端代码。 它可以单独构建或在ROS2工作区中构建，也可以在Ubuntu上采用snap包安装。
@@ -37,7 +35,6 @@ When PX4 is built, a code generator uses the uORB message definitions in the sou
 PX4 main分支或release版本构建将自动从当前分支的 [PX4/px4_msgs](https://github.com/PX4/px4_msgs) 中导出 uORB 消息子集。
 
 ROS 2 applications need to be built in a workspace that includes the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware. 可以通过将接口包 [PX4/px4_msgs](https://github.com/PX4/px4_msgs) 克隆到你的 ROS 2 工作空间并切换到正确的分支来实现。 请注意，所有与消息相关联的代码生成都是由 ROS 2 处理的。
-
 
 ## Micro XRCE-DDS Agent Installation
 
@@ -108,23 +105,28 @@ To build the agent within ROS:
    cd ~/px4_ros_uxrce_dds_ws/src
    git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
    ```
+
 1. Source the ROS 2 development environment, and compile the workspace using `colcon`:
 
    :::: tabs
 
    ::: tab humble
+
    ```sh
    source /opt/ros/humble/setup.bash
    colcon build
    ```
 
+
 :::
 
    ::: tab foxy
+
    ```sh
    source /opt/ros/foxy/setup.bash
    colcon build
    ```
+
 
 :::
 
@@ -133,7 +135,6 @@ To build the agent within ROS:
 
    This builds all the folders under `/src` using the sourced toolchain.
 
-
 To run the micro XRCE-DDS agent in the workspace:
 
 1. Source the `local_setup.bash` to make the executables available in the terminal (also `setup.bash` if using a new terminal).
@@ -141,26 +142,29 @@ To run the micro XRCE-DDS agent in the workspace:
    :::: tabs
 
    ::: tab humble
+
    ```sh
    source /opt/ros/humble/setup.bash
    source install/local_setup.bash
    ```
 
+
 :::
 
    ::: tab foxy
+
    ```sh
    source /opt/ros/foxy/setup.bash
    source install/local_setup.bash
    ```
+
 
 :::
 
    :
 :::
 
-
-1. Start the agent with settings for connecting to the uXRCE-DDS client running on the simulator:
+1) Start the agent with settings for connecting to the uXRCE-DDS client running on the simulator:
 
    ```sh
    MicroXRCEAgent udp4 -p 8888
@@ -171,7 +175,6 @@ To run the micro XRCE-DDS agent in the workspace:
 ### Starting the Agent
 
 The agent is used to connect to the client over a particular channel, such as UDP or a serial connection. The channel settings are specified when the agent is started, using command line options. These are documented in the eProsima user guide: [Micro XRCE-DDS Agent > Agent CLI](https://micro-xrce-dds.docs.eprosima.com/en/latest/agent.html#agent-cli). Note that the agent supports many channel options, but PX4 only supports UDP and serial connections.
-
 
 :::note
 You should create a single instance of the agent for each channel over which you need to connect.
@@ -193,7 +196,6 @@ sudo MicroXRCEAgent serial --dev /dev/AMA0 -b 921600
 For more information about setting up communications channels see [Pixhawk + Companion Setup > Serial Port setup](../companion_computer/pixhawk_companion.md#serial-port-setup), and sub-documents.
 :::
 
-
 ### Starting the Client
 
 The uXRCE-DDS client module ([uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client)) is included by default in all firmware and the simulator. This must be started with appropriate settings for the communication channel that you wish to use to communicate with the agent.
@@ -206,6 +208,7 @@ The configuration can be done using the [UXRCE-DDS parameters](../advanced_confi
 
 - [UXRCE_DDS_CFG](../advanced_config/parameter_reference.md#UXRCE_DDS_CFG): Set the port to connect on, such as `TELEM2`, `Ethernet`, or `Wifi`.
 - If using an Ethernet connection:
+
   - [UXRCE_DDS_PRT](../advanced_config/parameter_reference.md#UXRCE_DDS_PRT): Use this to specify the agent UDP listening port. The default value is `8888`.
   - [UXRCE_DDS_AG_IP](../advanced_config/parameter_reference.md#UXRCE_DDS_AG_IP): Use this to specify the IP address of the agent. The IP address must be provided in `int32` format as PX4 does not support string parameters. The default value is `2130706433` which corresponds to the _localhost_ `127.0.0.1`.
 
@@ -216,6 +219,7 @@ The configuration can be done using the [UXRCE-DDS parameters](../advanced_confi
       ```sh
       python3 ./PX4-Autopilot/Tools/convert_ip.py <the IP address in decimal dot notation>
       ```
+
     - To get the IP address in decimal dot notation from the `int32` version:
 
       ```sh
@@ -223,6 +227,7 @@ The configuration can be done using the [UXRCE-DDS parameters](../advanced_confi
       ```
 
 - If using a serial connection:
+
   - [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD), [SER_URT6_BAUD](../advanced_config/parameter_reference.md#SER_URT6_BAUD) (and so on): Use the `_BAUD` parameter associated with the serial port to set the baud rate. For example, you'd set a value for `SER_TEL2_BAUD` if you are connecting to the companion using `TELEM2`. For more information see [Serial port configuration](../peripherals/serial_configuration.md#serial-port-configuration).
 
 - Some setups might also need these parameters to be set:
@@ -244,6 +249,7 @@ You can also start the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds
 ```sh
 uxrce_dds_client start -t udp -p 8888 -h 192.168.0.100 -n drone
 ```
+
 Options `-p` or `-h` are used to bypass `UXRCE_DDS_PRT` and `UXRCE_DDS_AG_IP`.
 
 #### Starting the Client in Simulation
@@ -262,12 +268,12 @@ For example, the following command can be used to start a Gazebo simulation with
 ROS_DOMAIN_ID=3 PX4_UXRCE_DDS_PORT=9999 PX4_UXRCE_DDS_NS=drone make px4_sitl gz_x500
 ```
 
-
 ## Supported uORB Messages
 
 The set of [PX4 uORB topics](../msg_docs/README.md) that are exposed through the client are set in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml).
 
 The topics are release specific (support is compiled into [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) at build time). While most releases should support a very similar set of messages, to be certain you would need to check the yaml file for your particular release.
+
 <!-- Jublish the set we use?: https://github.com/PX4/px4_msgs/issues/22 -->
 
 Note that ROS 2/DDS needs to have the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware in order to interpret the messages. The message definitions are stored in the ROS 2 interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs), and they are automatically synchronized by CI on the `main` and release branches. Note that all the messages from PX4 source code are present in the repository, but only those listed in `dds_topics.yaml` will be available as ROS 2 topics. Therefore,
@@ -284,14 +290,12 @@ Note that ROS 2/DDS needs to have the _same_ message definitions that were used 
 Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) completely defines the relationship between PX4 uORB topics and ROS 2 messages. For more information see [DDS Topics YAML](#dds-topics-yaml) below.
 :::
 
-
 ## Customizing the Topic Namespace
 
 Custom topic namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)) or at runtime (which is useful for multi vehicle operations):
 
- - One possibility is to use the `-n` option when starting the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) from command line. This technique can be used both in simulation and real vehicles.
- - A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_UXRCE_DDS_NS` before starting the simulation.
-
+- One possibility is to use the `-n` option when starting the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) from command line. This technique can be used both in simulation and real vehicles.
+- A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_UXRCE_DDS_NS` before starting the simulation.
 
 :::note
 Changing the namespace at runtime will append the desired namespace as a prefix to all `topic` fields in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml). Therefore, commands like:
@@ -312,6 +316,7 @@ will generate topics under the namespaces:
 /uav_1/fmu/in/  # for subscribers
 /uav_1/fmu/out/ # for publishers
 ```
+
 :::
 
 ## PX4 ROS 2 QoS Settings
@@ -341,8 +346,8 @@ uxrQoS_t qos = {
 ```
 
 ROS 2 uses the following QoS settings (by default) for publishers and subscriptions: "keep last" for history with a queue size of 10, "reliable" for reliability, "volatile" for durability, and "system default" for liveliness. Deadline, lifespan, and lease durations are also all set to "default".
-<!-- From https://github.com/PX4/PX4-user_guide/pull/2259#discussion_r1099788316 -->
 
+<!-- From https://github.com/PX4/PX4-user_guide/pull/2259#discussion_r1099788316 -->
 
 ## DDS Topics YAML
 
@@ -350,13 +355,13 @@ The PX4 yaml file [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/ma
 
 The file is structured as follows:
 
-```
+```yaml
 publications:
 
   - topic: /fmu/out/collision_constraints
     type: px4_msgs::msg::CollisionConstraints
 
-  ...  
+  ...
 
   - topic: /fmu/out/vehicle_odometry
     type: px4_msgs::msg::VehicleOdometry
@@ -383,9 +388,8 @@ Each (`topic`,`type`) pairs defines:
 1. A new subscription or publication depending on the list to which it is added.
 2. The topic _base name_, which **must** coincide with the desired uORB topic name that you want to publish/subscribe. It is identified by the last token in `topic:` that starts with `/` and does not contains any `/` in it. `vehicle_odometry`, `vehicle_status` and `offboard_control_mode` are examples of base names.
 3. The topic [namespace](https://design.ros2.org/articles/topic_and_service_names.html#namespaces). By default it is set to:
-
-    - `/fmu/out/` for topics that are _published_ by PX4.
-    - `/fmu/in/` for topics that are _subscribed_ by PX4.
+   - `/fmu/out/` for topics that are _published_ by PX4.
+   - `/fmu/in/` for topics that are _subscribed_ by PX4.
 4. The message type (`VehicleOdometry`, `VehicleStatus`, `OffboardControlMode`, etc.) and the ROS 2 package (`px4_msgs`) that is expected to provide the message definition.
 
 You can arbitrarily change the configuration. For example, you could use different default namespaces or use a custom package to store the message definitions.
@@ -397,7 +401,6 @@ These guidelines explain how to migrate from using PX4 v1.13 [Fast-RTPS](../midd
 :::note
 This section contains migration-specific information. You should also read the rest of this page to properly understand uXRCE-DDS.
 :::
-
 
 #### Dependencies do not need to be removed
 
@@ -425,7 +428,6 @@ The list of topics that are published and subscribed for a particular firmware i
 
 See [Supported uORB Messages](#supported-uorb-messages) and [DDS Topics YAML](#dds-topics-yaml) sections for more information.
 
-
 #### Topics no longer need to be synced between client and agent.
 
 The list of bridged topics between agent and client no longer needs to be synced for ROS 2, so the `update_px4_ros2_bridge.sh` script is no longer needed.
@@ -434,7 +436,7 @@ The list of bridged topics between agent and client no longer needs to be synced
 
 The topic naming format changed:
 
-- Published topics:  `/fmu/topic-name/out` (Fast-RTPS) to `/fmu/out/topic-name` (XRCE-DDS).
+- Published topics: `/fmu/topic-name/out` (Fast-RTPS) to `/fmu/out/topic-name` (XRCE-DDS).
 - Subscribed topics: `/fmu/topic-name/in`(Fast-RTPS) to `/fmu/in/topic-name` (XRCE-DDS).
 
 You should update your application to the new convention.
@@ -470,7 +472,6 @@ In your ROS 2 nodes, you will need to:
   ```python
   msg.timestamp = int(self.get_clock().now().nanoseconds / 1000)
   ```
-
 
 ## Helpful Resources
 

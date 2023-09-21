@@ -5,7 +5,8 @@
 The *Land* flight mode causes the vehicle to land at the position where the mode was engaged. 降落后，无人机将会在一小段时间后上锁（默认情况下）。
 
 :::note
-* 该模式需要有效的位置估计，除非由于失效保护进入该模式，这种情况下仅需要高度估计（通常飞控内置一个气压计）。
+* This mode requires a valid global position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+* In a failsafe the mode only requires altitude (typically a barometer is built into the flight controller).
 * This mode is automatic - no user intervention is *required* to control the vehicle.
 * 遥控器开关可以用于更改任何无人机的飞行模式。
 * 在多旋翼中移动遥控器摇杆（或 VTOL 在多旋翼模式下）[默认情况下](#COM_RC_OVERRIDE)会将无人机切换到[位置模式](../flight_modes/position_mc.md)，除非是处理电池失效保护。

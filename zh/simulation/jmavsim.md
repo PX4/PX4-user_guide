@@ -160,7 +160,7 @@ The simulation can be [interfaced to ROS](../simulation/ros_interface.md) the sa
 ## 值得一看的脚本文件
 
 * 启动脚本位于 [posix-configs/SITL/init](https://github.com/PX4/Firmware/tree/master/posix-configs/SITL/init) 文件夹下，以 `rcS_SIM_AIRFRAME` 的方式进行命名，默认值是 `rcS_jmavsim_iris` 。
-* 根文件系统 (相当于 `/`) 位于生成目录内: `build/px4_sitl_default/src/firmware/posix/rootfs/` 。
+* The simulated root file system ("`/`" directory) is created inside the build directory here: `build/px4_sitl_default/rootfs`.
 
 ## 故障处理
 

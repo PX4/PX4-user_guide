@@ -48,7 +48,7 @@ There you should see the message that a new branch has been pushed to your forke
   ```
 
   you can use the command `git branch` to make sure you're on the right branch. * Add your changes that you want to be part of the commit by adding the respective files
-* Some time might have passed and the [upstream main](https://github.com/PX4/PX4-Autopilot.git) has changed. PX4 更喜欢线性提交历史记录, 并使用 [git rebase](https://git-scm.com/book/de/v1/Git-Branching-Rebasing)。 To include the newest changes from upstream in your local branch, switch to your main branch
+* Some time might have passed and the [upstream main](https://github.com/PX4/PX4-Autopilot.git) has changed. PX4 prefers a linear commit history and uses [git rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing). To include the newest changes from upstream in your local branch, switch to your main branch
 
   ```sh
   git checkout main

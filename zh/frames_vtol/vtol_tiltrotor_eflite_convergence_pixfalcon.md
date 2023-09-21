@@ -3,7 +3,7 @@
 The [E-Flite Convergence](https://youtu.be/HNedXQ_jhYo) can easily be converted to a fully autonomous VTOL with PX4. There is not much space but it's enough for a [Pixfalcon](../flight_controller/pixfalcon.md) flight controller with GPS and telemetry.
 
 :::note
-The original [Horizon Hobby *E-Flite Convergence*](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) frame and [Pixfalcon](../flight_controller/pixfalcon.md) have been discontinued. Alternatives are provided in the [Purchase](#where-to-buy) section. :::
+The original Horizon Hobby *E-Flite Convergence* frame and [Pixfalcon](../flight_controller/pixfalcon.md) have been discontinued. Alternatives are provided in the [Purchase](#where-to-buy) section. :::
 
 @[youtube](https://youtu.be/E61P2f2WPNU)
 
@@ -11,7 +11,7 @@ The original [Horizon Hobby *E-Flite Convergence*](https://www.modelflight.com.a
 ## Where to Buy
 
 Vehicle frame options:
-- **WL Tech XK X450** - [Banggood](https://usa.banggood.com/XK-X450-VTOL-2_4G-6CH-EPO-450mm-Wingspan-3D-or-6G-Mode-Switchable-Aerobatics-RC-Airplane-RTF-p-1533418.html), [AliExpress](https://www.aliexpress.com/item/1005001946025611.html)
+- **WL Tech XK X450** - [AliExpress](https://www.aliexpress.com/item/1005001946025611.html)
 - **JJRC M02** - [Banggood (AU)](https://au.banggood.com/JJRC-M02-2_4G-6CH-450mm-Wingspan-EPO-Brushless-6-axis-Gyro-Aerobatic-RC-Airplane-RTF-3D-or-6G-Mode-Aircraft-p-1588201.html), [AliExpress](https://www.aliexpress.com/item/4001031497018.html)
 
 Flight controller options ():

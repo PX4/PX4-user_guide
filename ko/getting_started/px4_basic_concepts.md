@@ -90,13 +90,23 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 
 배터리와 배터리 설정 정보는 [배터리 설정](../config/battery.md)과 [ 기본 조립](../assembly/README.md)(예: [픽스호크 4 배선 빠른 시작 &gt; 전원](../assembly/quick_start_pixhawk4.md#power))를 참고하십시오.
 
-## 무선 조종(RC)
+## Manual Control
 
-A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to _manually_ control the vehicle. 송신기(무선 조종기에 장착)와 수신기(기체에 장착)로 구성됩니다. 일부 RC에서는 자동조종장치에서 전송한 텔레메트리를 수신할 수 있습니다.
+Pilots can control a vehicle manually using either a [Radio Control (RC) System](#radio-control-rc) or a [Joystick/Gamepad](#gcs-joystick-controller) controller connected via QGroundControl.
+
+:::note PX4 does not _require_ a manual control system for autonomous flight modes.
+:::
 
 :::note
-PX4는 자율비행 모드에서 RC가 필수 사항은 아닙니다.
+Both methods can be used for most manual control use cases, such as surveys.
+RC systems are recommended when first tuning/testing a new frame design or when flying racers/acrobatically (and in other cases where low latency is important).
 :::
+
+### 무선 조종(RC)
+
+[Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) systems can be used to manually control PX4.
+
+They consist of a ground based RC controller that uses a radio transmitter to communicate stick/control positions to a receiver on the vehicle. 일부 RC에서는 자동조종장치에서 전송한 텔레메트리를 수신할 수 있습니다.
 
 ![Taranis X9D 송신기](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
@@ -106,11 +116,19 @@ RC 선택 방법은 [RC 선택](../getting_started/rc_transmitter_receiver.md)�
 - [비행 첫걸음](../flying/basic_flying.md) - RC 비행 방법을 설명합니다.
 - [FrSky 텔레메트리](../peripherals/frsky_telemetry.md) - PX4의 텔레메트리 정보나 상태 정보를 수신을 위한 RC  송신기 설정방법을 설명합니다.
 
-## 지상제어 S/W와 조이스틱
+### 지상제어 S/W와 조이스틱
 
-A [computer joystick](../config/joystick.md) connected through _QGroundControl_ can also be used to manually control PX4 (QGC converts joystick movements into MAVLink messages that are sent over the telemetry link). This approach is used by ground control units that have an integrated ground control station, like the _Auterion_ [Skynav](https://auterion-gs.com/skynav/) or _UAVComponents_ [MicroNav](https://uxvtechnologies.com/ground-control-stations/micronav/). 조이스틱은 기체 시뮬레이션에서 자주 사용됩니다.
+A [Joystick/Gamepad](../config/joystick.md) connected through _QGroundControl_ can also be used to manually control PX4.
+
+With this approach, QGroundControl translates stick/button information from a connected Joystick into MAVLink-protocol messages, which are then sent to PX4 using the shared telemetry radio link. The telemetry radio must have sufficient bandwidth for both manual control and other telemetry messages, and of course this approach means that you must have a ground station running QGroundControl.
+
+Joysticks are also used to manually fly PX4 in a [simulator](../simulation/README.md).
+
+:::note
+Controllers like the _Auterion_ [Skynav](https://auterion-gs.com/skynav/) and _UAVComponents_ [MicroNav](https://uxvtechnologies.com/ground-control-stations/micronav/) integrate QGC and a Joystick, and connect the vehicle via a high bandwidth telemetry radio link.
 
 ![MicroNav와 지상제어S/W에서 조이스틱을 사용하는 그림](../../assets/peripherals/joystick/micronav.jpg)
+:::
 
 ## 안전 스위치
 
@@ -155,17 +173,15 @@ SD 카드는 선택 사항입니다. SD 카드가 없는 비행 콘트롤어는 
 
 ## 시동 및 해제
 
-기체에 전원을 공급하게 되면, 모터와 프로펠러와 같은 부품들은 안전 사고를 유발할 수 있으므로 항상 주의하여야 합니다.
+A vehicle is said to be _armed_ when all motors and actuators are powered, and _disarmed_ when nothing is powered. There is also a _prearmed_ state when only actuators are powered.
 
-To reduce accidents, vehicles should be armed (motors and actuators powered) as little as possible when the vehicle is on the ground.
-
-Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/yaw stick on the _bottom right_ for one second (to disarm, hold stick on bottom left). PX4에서 무선 조종 스위치로 시동을 걸 수 있도록 설정할 수 있습니다. 또한, 지상통제국에서 시동 명령을 MAVLink로 전송할 수 있습니다.
-
-:::tip
-Sometimes a vehicle will not arm for reasons that are not obvious. QGC v4.2.0 (Daily build at time of writing) and later provide an arming check report in [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#arm). From PX4 v1.14 this provides comprehensive information about arming problems along with possible solutions.
+:::warning
+Armed vehicles can be dangerous as propellors will be spinning.
 :::
 
-By default, vehicles are:
+Arming is triggered by default (on Mode 2 transmitters) by holding the RC throttle/yaw stick on the _bottom right_ for one second (to disarm, hold stick on bottom left). PX4에서 무선 조종 스위치로 시동을 걸 수 있도록 설정할 수 있습니다. 또한, 지상통제국에서 시동 명령을 MAVLink로 전송할 수 있습니다.
+
+To reduce accidents, vehicles should be armed as little as possible when the vehicle is on the ground. By default, vehicles are:
 
 - _Disarmed_ or _Prearmed_ (motors unpowered) when not in use, and must be explicitly _armed_ before taking off.
 - Automatically disarm/prearm if the vehicle does not take off quickly enough after arming (the disarm time is configurable).
@@ -176,6 +192,9 @@ By default, vehicles are:
 
 When prearmed you can still use actuators, while disarming unpowers everything. Prearmed and disarmed should both safe, and a particular vehicle may support either or both.
 
+:::tip
+Sometimes a vehicle will not arm for reasons that are not obvious. QGC v4.2.0 (Daily build at time of writing) and later provide an arming check report in [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#arm). From PX4 v1.14 this provides comprehensive information about arming problems along with possible solutions.
+:::
 
 
 시동 및 해제에 관한 자세한 내용은 [시동 준비, 시동, 시동 해제](../advanced_config/prearm_arm_disarm.md)를 참고하십시오.

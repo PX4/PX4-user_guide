@@ -182,7 +182,7 @@ th {
  <td><a href="../flight_modes/land.html">착륙</a></td>
  <td class="centred" colspan="3">자동</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="20px" /></a></td>
- <td>차량이 <a href="../flying/fixed_wing_landing.html">고정익 착륙</a> 절차를 시작합니다.</td>
+ <td>Vehicle initiates the <a href="../flight_modes/mission.html#fw-mission-landing">fixed-wing landing</a> sequence.</td>
 </tr>
 
 <tr id="hold_fw">

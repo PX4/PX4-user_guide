@@ -9,7 +9,7 @@ PX4는 홈 위치, 집결 ( "안전") 지점, 임무 경로 및 임무 착륙 �
 다음 섹션에서는 [복귀 유형 ](#return_types), [복귀 고도](#return_altitude) 및 [착륙/도착 동작](#arrival) 설정 방법을 설명합니다. 마지막에는 각 [기체 유형](#default_configuration)에 대한 *기본* (미리 구성된) 동작을 설명하는 섹션이 있습니다.
 
 :::note
-* 이 모드는 GPS가 필요합니다.
+* This mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
 * 이 모드는 자동입니다. 기체 제어시 사용자 개입이 *필요하지* 않습니다.
 * RC 제어 스위치는 기체의 비행 모드를 변경할 수 있습니다.
 * 멀티콥터 또는 VTOL 멀티콥터 모드에서 RC 스틱을 움직이면 위험한 배터리 안전 장치를 처리하지 않는 한 [기본적으로](#COM_RC_OVERRIDE) 기체는 [위치 모드](../flight_modes/position_mc.md)로 변경됩니다.

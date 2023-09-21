@@ -626,6 +626,33 @@ iim42652 <command> [arguments...]
 
    status        print status info
 ```
+## iim42653
+Source: [drivers/imu/invensense/iim42653](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/iim42653)
+
+<a id="iim42653_usage"></a>
+
+### Usage
+```
+iim42653 <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+     [-C <val>]  Input clock frequency (Hz)
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## l3gd20
 Source: [drivers/imu/l3gd20](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/l3gd20)
 

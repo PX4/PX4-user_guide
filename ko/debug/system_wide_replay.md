@@ -22,7 +22,7 @@ Replay is useful to test the effect of different parameter values based on real 
   make px4_sitl_default
   ```
   This will create the output in a separate build directory `build/px4_sitl_default_replay` (so that the parameters don't interfere with normal builds). 재생을 위하여 posix SITL 빌드 대상을 선택할 수 있으며, 빌드 시스템은 `재생` 환경변수로 재생 모드임을 알 수 있습니다.
-- Add ORB publisher rules file in `build/px4_sitl_default_replay/tmp/rootfs/orb_publisher.rules`. 이 파일은 어떤 모듈이 어떤 메시지를 게시하는 지를 정의합니다. 형식은 다음과 같습니다.
+- Add ORB publisher rules file in `build/px4_sitl_default_replay/rootfs/orb_publisher.rules`. 이 파일은 어떤 모듈이 어떤 메시지를 게시하는 지를 정의합니다. 형식은 다음과 같습니다.
   ```
   restrict_topics: <topic1>, <topic2>, ..., <topicN>
   module: <module>
@@ -40,7 +40,7 @@ Replay is useful to test the effect of different parameter values based on real 
 
   이렇게 하면 이러한 주제를 게시하는 모듈을 재생을 위하여 비활성화할 필요가 없습니다.
 
-- 선택 사항: `build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt` 파일에서 설정 매개변수를 재정의합니다. 이 파일에는 다음과 같은 `<param_name> <value>` 목록이 포함되어야 합니다.
+- Optional: setup parameter overrides in the file `build/px4_sitl_default_replay/rootfs/replay_params.txt`. 이 파일에는 다음과 같은 `<param_name> <value>` 목록이 포함되어야 합니다.
 
   ```
   EKF2_GB_NOISE 0.001
@@ -99,7 +99,7 @@ INFO  [replay] Replay done (published 9917 msgs, 2.136 s)
 매개변수도 조정할 수 있습니다. They can be extracted from the log with the following \(install pyulog with `pip install --user pyulog` first\):
 
 ```
-ulog_params -i "$replay" -d ' ' | grep -e '^EKF2' > build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt
+ulog_params -i "$replay" -d ' ' | grep -e '^EKF2' > build/px4_sitl_default_replay/rootfs/replay_params.txt
 ```
 
 그런 다음 필요에 따라 파일의 매개변수를 편집하고, `make px4_sitl none`으로 재생 프로세스를 다시 시작합니다. 그러면 새 로그 파일이 생성됩니다.

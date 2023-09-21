@@ -7,7 +7,7 @@
 PX4开发团队强烈建议您使用/迁移到这个版本的ROS！
 :::
 
-ROS 2 和 PX4 之间的通信使用中间件实现 [XRCE-DDS 协议](../middleware/uxrce_dds.md)。 这个中间件将PX4的 [uORB 消息](../msg_docs/README.md) 作为ROS 2 消息和类型直接使用，非常高效地实现 ROS 2 工作空间和节点直接访问 PX4。 中间件使用 uORB 消息定义生成代码来序列化和反序列化来处理PX4 的收发消息。 在ROS 2 应用中使用相同的消息定义可直接进行解析。
+ROS 2 和 PX4 之间的通信使用中间件实现 [XRCE-DDS 协议](../middleware/uxrce_dds.md)。 这个中间件将PX4的 [uORB 消息](../msg_docs/README.md) 作为ROS 2 消息和类型直接使用，非常高效地实现 ROS 2 工作空间和节点直接访问 PX4。 中间件使用 uORB 消息定义生成代码来序列化和反序列化来处理PX4 的收发消息。 These same message definitions are used in ROS 2 applications to allow the messages to be interpreted.
 
 为了在 XRCE-DDS 上高效使用 [ROS 2](../ros/ros2_comm.md) ， (撰写本文时)你必须对PX4内部结构和约定有一定的理解，以明确与使用 ROS 有哪些不同。 我们计划近期提供ROS 2 API 以对 PX4 的特性进行封装，并举例说明它们的用途。
 

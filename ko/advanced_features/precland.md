@@ -180,8 +180,7 @@ make px4_sitl gazebo-classic_iris_irlock
 ```
 
 
-You can change the location of the beacon either by moving it in the Gazebo Classic GUI or by changing its location in the [Gazebo world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/iris_irlock.world#L42).
-
+You can change the location of the beacon either by moving it in the Gazebo Classic GUI or by changing its location in the [Gazebo world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/iris_irlock.world#L42).
 
 
 

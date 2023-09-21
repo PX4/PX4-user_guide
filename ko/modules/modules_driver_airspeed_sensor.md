@@ -1,4 +1,31 @@
 # 모듈 참조: 항속 센서(드라이버)
+## asp5033
+Source: [drivers/differential_pressure/asp5033](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/asp5033)
+
+
+### Description
+Driver to enable an external \[ASP5033\] (https://www.qio-tek.com/index.php/product/qiotek-asp5033-dronecan-airspeed-and-compass-module/) TE connected via I2C. This is not included by default in firmware. It can be included with terminal command: "make <your_board> boardconfig" or in default.px4board with adding the line: "CONFIG_DRIVERS_DIFFERENTIAL_PRESSURE_ASP5033=y" It can be enabled with the "SENS_EN_ASP5033" parameter set to 1.
+
+<a id="asp5033_usage"></a>
+
+### 사용법
+```
+asp5033 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 109
+
+   stop
+
+   status        print status info
+```
 ## ets_airspeed
 소스: [drivers/differential_pressure/ets](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/ets)
 
@@ -50,7 +77,7 @@ Source: [drivers/differential_pressure/ms4525do](https://github.com/PX4/PX4-Auto
 
 <a id="ms4525do_usage"></a>
 
-### 사용법
+### Usage
 ```
 ms4525do <command> [arguments...]
  Commands:
@@ -96,7 +123,7 @@ Source: [drivers/differential_pressure/sdp3x](https://github.com/PX4/PX4-Autopil
 
 <a id="sdp3x_usage"></a>
 
-### Usage
+### 사용법
 ```
 sdp3x <command> [arguments...]
  Commands:

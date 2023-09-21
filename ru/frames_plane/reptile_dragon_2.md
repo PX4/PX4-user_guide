@@ -296,6 +296,8 @@ PX4 includes a standalone CRSF parser module which supports telemetry and CRSF L
 4. Scroll to highlight `crsf_rc` and press enter to enable it.
 5. Save and exit the PX4 board config tool.
 
+For more information see [TBS Crossfire (CRSF) Telemetry](../telemetry/crsf_telemetry.md).
+
 ### `msp_osd` Module
 
 The `msp_osd` module steams MSP telemetry to a selected serial port. The Caddx Vista Air Unit supports listening to MSP telemetry and will show the received telemetry values in its OSD (on screen display).

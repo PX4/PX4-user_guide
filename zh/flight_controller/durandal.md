@@ -190,7 +190,7 @@ No Debug port is exposed for the I/O board.
 
 ## 外部设备
 
-- [数字空速传感器](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+- [数字空速传感器](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
 - [数传电台模块](../telemetry/README.md)
 - [测距仪/距离传感器](../sensor/rangefinders.md)
 

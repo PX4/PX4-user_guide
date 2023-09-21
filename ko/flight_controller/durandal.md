@@ -192,7 +192,7 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 
 ## 주변 장치
 
-- [디지털 대기속도 센서](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+- [디지털 대기속도 센서](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
 - [텔레메트리 라디오 모듈](../telemetry/README.md)
 - [거리계/거리 센서](../sensor/rangefinders.md)
 

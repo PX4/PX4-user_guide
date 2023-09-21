@@ -1,24 +1,26 @@
 # Bootloader Update
 
-The [PX4 bootloader](https://github.com/PX4/Bootloader) is used to load firmware for [Pixhawk boards](../flight_controller/pixhawk_series.md) (PX4FMU, PX4IO).
+The _PX4 Bootloader_ is used to load firmware for [Pixhawk boards](../flight_controller/pixhawk_series.md) (PX4FMU, PX4IO).
+
+Pixhawk controllers usually comes with an appropriate bootloader version pre-installed. However in some case it is not present, or an older version is present that needs to be updated.
 
 This topic explains several methods for updating the Pixhawk bootloader.
 
 :::note
-Pixhawk hardware usually comes with an appropriate bootloader version pre-installed. A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
+A case where you may need to update Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
 :::
 
-## Building the new PX4 Bootloader Yourself
+## Building the PX4 Bootloader
 
-Boards starting with FMUv6X (STM32H7) use the in-tree PX4 bootloader. Older boards use the bootloader from the legacy [PX4 bootloader](https://github.com/PX4/Bootloader) repository. Please refer to the instructions in the README to learn how to use it.
+Boards starting with FMUv6X (STM32H7) use the in-tree PX4 bootloader.
 
-Build the new bootloader in the PX4-Autopilot folder with:
+This can be built from within the PX4-Autopilot folder using the `make` command and the board-specific target with a `_bootloader` suffix. For FMUv6X the command is:
 
 ```
 make px4_fmu-v6x_bootloader
 ```
 
-Which will build the bootloader binary as `build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf` which can be flashed via SWD or DFU. If you are building the bootloader you should be familiar with one of these options already.
+This will build the bootloader binary as `build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf`, which can be flashed via SWD or DFU. If you are building the bootloader you should be familiar with one of these options already.
 
 If you need a HEX file instead of an ELF file, use objcopy:
 
@@ -26,9 +28,15 @@ If you need a HEX file instead of an ELF file, use objcopy:
 arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf px4_fmu-v6x_bootloader.hex
 ```
 
+## Building the Legacy PX4 Bootloader
+
+PX4 boards up to FMUv5X (before STM32H7) used a legacy [PX4 bootloader](https://github.com/PX4/Bootloader) repository.
+
+Please refer to the instructions in the README to learn how to use it.
+
 ## QGC Bootloader Update
 
-The easiest approach is to first use _QGroundControl_ to install firmware with the desired/latest bootloader. You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+The easiest approach is to first use _QGroundControl_ to install firmware that contains the desired/latest bootloader. You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 
 :::note
 This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware (currently just FMUv2 and some custom firmware).
@@ -43,15 +51,42 @@ The steps are:
 The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest master.
 :::
 
-   ![FMUv2 update](../../assets/qgc/setup/firmware/bootloader_update.jpg)
-
 1. Wait for the vehicle to reboot.
 1. [Find and enable](../advanced_config/parameters.md) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 1. Reboot (disconnect/reconnect the board). The bootloader update will only take a few seconds.
 
 Generally at this point you may then want to [update the firmware](../config/firmware.md) again using the correct/newly installed bootloader.
 
-### Dronecode Probe Bootloader Update
+An specific example of this process for updating the FMUv2 bootloader is given below.
+
+### FMUv2 Bootloader Update
+
+If *QGroundControl* installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
+
+:::note
+Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata) that restricted them to using 1MB of flash memory. The problem is fixed on newer boards, but you may need to update the factory-provided bootloader in order to install FMUv3 Firmware and access all 2MB available memory.
+:::
+
+To update the bootloader:
+
+1. Insert an SD card (enables boot logging to debug any problems).
+1. [Update the Firmware](../config/firmware.md) to PX4 *master* version (when updating the firmware, check **Advanced settings** and then select **Developer Build (master)** from the dropdown list). *QGroundControl* will automatically detect that the hardware supports FMUv2 and install the appropriate Firmware.
+
+   ![FMUv2 update](../../assets/qgc/setup/firmware/bootloader_update.jpg)
+
+   Wait for the vehicle to reboot.
+1. [Find and enable](../advanced_config/parameters.md) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+1. Reboot (disconnect/reconnect the board). The bootloader update will only take a few seconds.
+1. Then [Update the Firmware](../config/firmware.md) again. This time *QGroundControl* should autodetect the hardware as FMUv3 and update the Firmware appropriately.
+
+   ![FMUv3 update](../../assets/qgc/setup/firmware/bootloader_fmu_v3_update.jpg)
+
+:::note
+If the hardware has the [Silicon Errata](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata) it will still be detected as FMUv2 and you will see that FMUv2 was re-installed (in console). In this case you will not be able to install FMUv3 hardware.
+:::
+
+
+## Dronecode Probe Bootloader Update
 
 The following steps explain how you can "manually" update the bootloader using the dronecode probe:
 

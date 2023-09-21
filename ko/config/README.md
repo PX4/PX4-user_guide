@@ -1,52 +1,77 @@
 # 기본 설정
 
-PX4 차량의 표준 소프트웨어 설정 방법과 보정 방법에 대하여 설명합니다.
+This section covers the common software configuration and calibration needed for most PX4 vehicles.
 
-:::note
-이 섹션을 시작하기 전에 [QGroundControl을 다운로드](http://qgroundcontrol.com/downloads/)하고 **데스크톱** 컴퓨터에 설치하여야 합니다. 모바일 플랫폼에서는 *QGroundControl*을 사용하여 차량 설정을 할 수 없습니다.
+You must first [load firmware and select your vehicle frame/type](#firmware-vehicle-selection). Most other steps can be done out of order, except for [tuning](#tuning), which must be done last.
 
-**차량 설정** 화면에 액세스하려면 QGC 애플리케이션 메뉴(왼쪽 상단의 "Q" 아이콘)를 연 다음 *선택 도구* 팝업에서 **차량 설정**을 선택하십시오.
+## Preconditions
 
-![QGC 주 메뉴 팝업: 차량 설정 강조 표시](../../assets/qgc/setup/menu_setup.png) :::
+Before starting you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer. Then open the QGC application menu ("Q" icon in the top-left corner) and choose **Vehicle Setup** in the _Select Tool_ popup:
 
-하위 주제는 각 단계를 자세히 다룹니다. 먼저 PX4 펌웨어를 설치하고 차량 기체를 설정하십시오.
-* [펌웨어](../config/firmware.md)
-* [기체](../config/airframe.md)
-* [센서 방향](../config/flight_controller_orientation.md)
-* [나침반](../config/compass.md)
-* [자이로스코프](../config/gyroscope.md)
-* [가속도 센서](../config/accelerometer.md)
-* [대기 속도 센서](../config/airspeed.md) (고정익/VTOL)
-* [수평 보정](../config/level_horizon_calibration.md)
-* [무선 조종기 설정](../config/radio.md)
-* [조이스틱 설정](../config/joystick.md)
-* [비행 모드](../config/flight_mode.md)(선택 사항)
-* [배터리](../config/battery.md)(선택 사항)
-* [안전 설정](../config/safety.md)(선택 사항)
-* [액츄에이터](../config/actuators.md)
-* [자동 튜닝](../config/autotune.md)
+![QGC 주 메뉴 팝업: 차량 설정 강조 표시](../../assets/qgc/setup/menu_setup.png)
 
+## Configuration Steps
+
+### Firmware/Vehicle Selection
+
+- [Loading Firmware](../config/firmware.md)
+- [Vehicle (Frame) Selection](../config/airframe.md)
+
+### Motor/Actuator Setup
+
+- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [Actuator Configuration and Testing](../config/actuators.md)
+
+### Sensor Calibration
+
+- [센서 방향](../config/flight_controller_orientation.md)
+- [나침반](../config/compass.md)
+- [자이로스코프](../config/gyroscope.md)
+- [가속도 센서](../config/accelerometer.md)
+- [Level Horizon](../config/level_horizon_calibration.md)
+- [Airspeed](../config/airspeed.md) (Fixed-wing/VTOL only)
+
+> **Note:** Setup for optional sensors and specific hardware is provided in [Flight Controller Peripherals](../peripherals/README.md).
+
+
+### Manual Control Setup
+
+Radio Control:
+
+- [Radio Controller (RC) Setup](../config/radio.md)
+- [Flight Mode Configuration](../config/flight_mode.md)
+
+Joystick/GamePad:
+
+- [조이스틱 설정](../config/joystick.md)
+
+### Safety Configuration
+
+- [Battery/Power Module Setup](../config/battery.md)
+- [Safety Configuration (Failsafes)](../config/safety.md)
+
+### Tuning
+
+- [Autotune](../config/autotune.md) (Recommended on vehicles and frames that support it)
 
 ## 영상 가이드
 
-아래 비디오는 보정 프로세스를 자세히 설명합니다. *QGroundControl*의 버전은 차이가 나지만, 대부분의 프로세스는 유사합니다.
+The video below shows most of the calibration process (it uses an older version of _QGroundControl_, but most of the process is unchanged).
 
 @[유투브](https://youtu.be/91VGmdSlbo4)
-
-
-## 고급 설정
-
-If your [selected airframe configuration](../config/airframe.md) is a _specific vehicle model_ (e.g. [Holybro s500](../frames_multicopter/holybro_s500_v2_pixhawk4.md)) then it may benefit from fine tuning, but this is not generally required.
-
-새 기체, "일반" 기체를 사용하거나 기체를 많이 수정하거나 일반적이지 않은 센서를 사용하는 경우에는 다음을 참조하십시오.
-- [고급 설정](../advanced_config/README.md): 차량별 조정, 미세 조정, 공장 수준 구성.
-- [비행 콘트롤러 주변 장치](../peripherals/README.md) - 특정 하드웨어(특히 많이 사용되지 않는 센서)와 관련된 하드웨어 및 소프트웨어 설정입니다.
 
 ## 지원
 
 설정에 대한 도움이 필요한 경우 [QGroundControl 지원 포럼 ](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage)에서 도움을 요청할 수 있습니다
 
-## 추가 정보
+## See Also
 
-* [QGroundControl &gt; 설정](https://docs.qgroundcontrol.com/master/en/SetupView/SetupView.html)
+- [QGroundControl &gt; 설정](https://docs.qgroundcontrol.com/master/en/SetupView/SetupView.html)
+- [Flight Controller Peripherals](../peripherals/README.md) - Setup specific sensors, optional sensors, actuators, and so on.
+- [Advanced Configuration](../advanced_config/README.md) - Factory/OEM calibration, configuring advanced features, less-common configuration.
+- Vehicle-Centric Config/Tuning:
 
+  - [Multicopter Config/Tuning](../config_mc/README.md)
+  - [Helicopter Config/Tuning](../config_heli/README.md)
+  - [Fixed Wing Config/Tuning](../config_fw/README.md)
+  - [VTOL Config/Tuning](../config_vtol/README.md)

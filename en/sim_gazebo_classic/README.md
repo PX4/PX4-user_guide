@@ -28,18 +28,23 @@ See [Simulation](../simulation/README.md) for general information about simulato
 
 ## Installation
 
+Gazebo Classic 9 or 11 setup is included in our [standard build instructions}(../dev_setup/dev_env.md) for Linux, macOS, and Windows.
+Additional installation instructions can be found on [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
+
 :::note
-Gazebo Classic is often used with [ROS](../ros/README.md), a toolkit/offboard API for automating vehicle control.
 If you plan to use PX4 with ROS you **should follow the** [ROS Instructions](../simulation/ros_interface.md) to install both ROS and Gazebo Classic (and thereby avoid installation conflicts).
 :::
 
-Gazebo Classic 9 or 11 setup is included in our standard build instructions:
+:::note
+The following commands can be used to remove [Gazebo (Garden)](../sim_gazebo_gz/README.md) and reinstall Gazebo-Classic 11:
 
-- **macOS:** [Development Environment on Mac](../dev_setup/dev_env_mac.md)
-- **Linux:** [Development Environment on Ubuntu LTS / Debian Linux > Simulation and NuttX (Pixhawk) Targets](../dev_setup/dev_env_linux_ubuntu.md#simulation-and-nuttx-pixhawk-targets)
-- **Windows:** Not supported.
-
-Additional installation instructions can be found on [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
+```sh
+sudo apt remove gz-garden
+sudo apt install aptitude
+sudo aptitude install gazebo libgazebo11 libgazebo-dev
+```
+Note that `aptitude` is needed because it can resolve dependency conflicts (by removing certain packages) that `apt` is unable to handle.
+:::
 
 ## Running the Simulation
 
@@ -209,7 +214,7 @@ Wind direction is passed as a direction vector (standard ENU convention), which 
 Additionally you can state wind velocity variance in (m/s)² and direction variance based on a normal distribution to add some random factor into the simulation.
 Gust is internally handled in the same way as wind, with the slight difference that you can state start time and duration with the following two parameters `windGustStart` and `windGustDuration`.
 
-You can see how this is done in [PX4/PX4-SITL_gazebo/worlds/windy.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/windy.world#L15-L31).
+You can see how this is done in [PX4/PX4-SITL_gazebo/worlds/windy.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/windy.world#L15-L31).
 
 ### Using a Joystick
 
@@ -263,7 +268,7 @@ The next time you build/restart Gazebo Classic it will use the new GPS noise set
 ## Loading a Specific World
 
 PX4 supports a number of [Worlds](../sim_gazebo_classic/gazebo_worlds.md), which are stored in [PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/main/worlds).
-By default Gazebo Classic displays a flat featureless plane, as defined in [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/empty.world).
+By default Gazebo Classic displays a flat featureless plane, as defined in [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/empty.world).
 
 You can load any of the worlds by specifying them as the final option in the PX4 configuration target.
 
@@ -304,7 +309,7 @@ However adding the location to the map is easier (and can still be over-ridden b
 The location of the world is defined in the **.world** file by specifying the location of the origin using the `spherical_coordinates` tag.
 The latitude, longitude, elevation must all be specified (for this to be a valid).
 
-An example can be found in the [sonoma_raceway.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/sonoma_raceway.world):
+An example can be found in the [sonoma_raceway.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/sonoma_raceway.world):
 ```
     <spherical_coordinates>
       <surface_model>EARTH_WGS84</surface_model>
@@ -370,13 +375,9 @@ The camera also supports/responds to the following MAVLink commands: [MAV_CMD_RE
 :::
 
 :::note
-The simulated camera is implemented in [PX4/PX4-SITL_gazebo/master/src/gazebo_camera_manager_plugin.cpp](https://github.com/PX4/PX4-SITL_gazebo/blob/master/src/gazebo_camera_manager_plugin.cpp). 
+The simulated camera is implemented in [PX4/PX4-SITL_gazebo/main/src/gazebo_camera_manager_plugin.cpp](https://github.com/PX4/PX4-SITL_gazebo/blob/main/src/gazebo_camera_manager_plugin.cpp). 
 :::
 
-<!-- Simulated Depth Camera section removed 20230301.
-  Feature not yet available: https://github.com/PX4/PX4-user_guide/pull/2264#issuecomment-1441711189 
--->
-<!-- 
 ## Simulated Depth Camera
 
 The *Gazebo Classic* [depth camera model](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/depth_camera/depth_camera.sdf.jinja) simulates an Intel® RealSense™ D455 stereo depth camera using the [Openni Kinect plugin](https://classic.gazebosim.org/tutorials?tut=ros_gzplugins#OpenniKinect).
@@ -386,13 +387,17 @@ This publishes depth images and camera information on the `/camera/depth/image_r
 To use these images, you will need to install ROS or ROS 2.
 Note the warning at the top of this page about how to "avoid installation conflicts" when installing ROS and Gazebo.
 
-You can simulate a quadrotor with a forward-facing depth camera using:
+You can simulate a quadrotor with a forward-facing depth camera:
 
 ```sh
 make px4_sitl gazebo-classic_iris_depth_camera
 ```
 
--->
+or a quadrotor with a downward-facing depth camera:
+
+```sh
+make px4_sitl gazebo-classic_iris_downward_depth_camera
+```
 
 <a id="flight_termination"></a>
 ## Simulated Parachute/Flight Termination
@@ -485,7 +490,6 @@ or
 ```
 VERBOSE_SIM=1 make px4_sitl gazebo-classic
 ```
-
 
 ## Extending and Customizing
 

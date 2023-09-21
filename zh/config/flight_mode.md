@@ -5,16 +5,16 @@ This topic explains how to map [flight modes](../getting_started/flight_modes.md
 :::tip
 In order to set up flight modes you must already have:
 - [Configured your radio](../config/radio.md)
-- [Setup your transmitter](#rc-transmitter-setup) to encode the physical positions of your mode switch(es) into a single channel. We provide examples for the popular *Taranis* transmitter [below](#taranis-setup-3-way-switch-configuration-for-single-channel-mode) (check your documentation if you use a different transmitter). :::
+- [Setup your transmitter](#rc-transmitter-setup) to encode the physical positions of your mode switch(es) into a single channel. 我们在[这里](#taranis-setup-3-way-switch-configuration-for-single-channel-mode)提供了流行的 *Taranis *遥控器的示例（如果您使用不同的遥控器，请查阅相关文档）。 :::
 
 
 ## What Flight Modes and Switches Should I Set?
 
-*Flight Modes* provide different types of *autopilot-assisted flight*, and *fully autonomous flight*. You can set any (or none) of the flight modes [described here](../getting_started/flight_modes.md). Most users should set the following functions, as these make the vehicle easier and safer to fly:
+*飞行模式* 提供了不同类型的 *自动驾驶辅助飞行*和 *完全自主飞行* You can set any (or none) of the flight modes [described here](../getting_started/flight_modes.md). Most users should set the following functions, as these make the vehicle easier and safer to fly:
 
-- **Position mode** ([multicopter](../getting_started/flight_modes.md#position-mode-mc), [fixed-wing](../getting_started/flight_modes.md#position-mode-fw)) - Easiest and safest mode for manual flight.
+- **位置模式** ([多旋翼飞行器](../getting_started/flight_modes.md#position-mode-mc), [固定翼飞行器](../getting_started/flight_modes.md#position-mode-fw)- 手动飞行最简单和最安全的模式。
 - [Return mode](../flight_modes/return.md) - Return to launch position by safe path and land (by default).
-- **VTOL Transition Switch** - Toggle between fixed-wing and multicopter flight configuration on VTOL vehicles.
+- **垂直起降开关**-在 VTOL 飞行器上的固定翼和多旋翼飞行配置之间切换。
 
 It is also common to map switches to:
 
@@ -28,30 +28,30 @@ PX4 allows you to specify a "mode" channel and select up to 6 flight modes that 
 
 To configure single-channel flight mode selection:
 
-1. Start *QGroundControl* and connect the vehicle.
+1. 打开 *QGroundControl* 并连接上机体。
 1. 打开您的 RC 遥控器发射机。
-1. Select **QGroundControl icon > Vehicle Setup**, and then **Flight Modes** in the sidebar.
+1. 选择 **QGroundControllation 图标 > 车辆设置**, 然后在侧边栏中选择 **飞行模式**
 
    ![飞行模式单通道控制](../../assets/qgc/setup/flight_modes/flight_modes_single_channel.jpg)
 
-1. Specify *Flight Mode Settings*:
-   * Select the **Mode channel** (above this shown as Channel 5, but this will depend on your transmitter configuration).
-   * Move the transmitter switch (or switches) that you have set up for mode selection through the available positions. The mode slot matching your current switch position will be highlighted (above this is *Flight Mode 1*). :::note
+1. 指定*飞行模式设置* :
+   * 选择 **Mode channel** （上面显示的是 Channel 5 ，但是这是取决于你遥控器的配置）。
+   * Move the transmitter switch (or switches) that you have set up for mode selection through the available positions. 与您当前开关位置匹配的模式栏将高亮显示（高于此值为 *飞行模式1*）。 :::note
 While you can set flight modes in any of the 6 slots, only the channels that are mapped to switch positions will be highlighted/used.
 :::
    * Select the flight mode that you want triggered for each switch position.
-1. Specify *Switch Settings*:
-   * Select the channels that you want to map to specific actions - e.g.: *Return* mode, *Kill switch*, *offboard* mode, etc. (if you have spare switches and channels on your transmitter).
+1. 指定 *遥控器开关设置* ：
+   * 选择你想要映射到的指定想要映射的动作-例如：*返回*模式，*终止开关*，*板外*模式等。（如果您的遥控器上有备用的开关和通道）
 
 1. Test that the modes are mapped to the right transmitter switches:
-   * Check the *Channel Monitor* to confirm that the expected channel is changed by each switch.
-   * Select each mode switch on your transmitter in turn, and check that the desired flight mode is activated (the text turns yellow on *QGroundControl* for the active mode).
+   * 检查 *Channel Monitor* 以确认改变每个开关改变了预期的通道。
+   * 拨动你遥控器上刚刚映射的飞行模式有关的开关，并检查对应的飞行模式已被激活（ *QGroundeControl* 上对应的通道的字体在被激活的情况下变为黄色 ）
 
 All values are automatically saved as they are changed.
 
 ## RC Transmitter Setup
 
-This section contains a small number of possible setup configurations for taranis. QGroundControl _may_ have [setup information for other transmitters here](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#transmitter-setup).
+This section contains a small number of possible setup configurations for taranis. QGroundControl _可能_在[这里有其他遥控器的设置信息](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#transmitter-setup)。
 
 
 <a id="taranis_setup"></a>
@@ -60,20 +60,19 @@ This section contains a small number of possible setup configurations for tarani
 
 If you only need to support selecting between two or three modes then you can map the modes to the positions of a single 3-way switch. Below we show how to map the Taranis 3-way "SD" switch to channel 5.
 
-:::note
-This example shows how to set up the popular *FrSky Taranis* transmitter. Transmitter setup will be different on other transmitters. :::
+**Note** 本示例演示如何设置常用的 *FrSky taranis* 遥控器。 Transmitter setup will be different on other transmitters. :::
 
-Open the Taranis UI **MIXER** page and scroll down to **CH5**, as shown below:
+打开Taranis UI**MIXER**页面，向下滚动道**CH5**，如下：
 
 ![Taranis - Map channel to switch](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_1.png)
 
-Press **ENT(ER)** to edit the **CH5** configuration then change the **Source** to be the *SD* button.
+按下**ENT(ER)**编辑**CH5**配置然后将**Source**改为*SD*按钮。
 
 ![Taranis - Configure channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_2.png)
 
-That's it! Channel 5 will now output 3 different PWM values for the three different **SD** switch positions.
+That's it! 通道5现在将为三个不同的**SD**开关位置输出3个不同的PWM的值。
 
-The *QGroundControl* configuration is then as described in the previous section.
+*QGroundControl* 配置当时正像前一节中描述的那样。
 
 
 ### Taranis Setup: Multi-Switch Configuration for Single-Channel Mode
@@ -82,15 +81,15 @@ Most transmitters do not have 6-way switches, so if you need to be able to suppo
 
 On the FrSky Taranis this process involves assigning a "logical switch" to each combination of positions of the two real switches. Each logical switch is then assigned to a different PWM value on the same channel.
 
-The video below shows how this is done with the *FrSky Taranis* transmitter.<!-- \[youtube\](https://youtu.be/scqO7vbH2jo) Video has gone private and is no longer available --><!-- @\[youtube\](https://youtu.be/BNzeVGD8IZI?t=427) - video showing how to set the QGC side - at about 7mins and 3 secs -->@[youtube](https://youtu.be/TFEjEQZqdVA)
+下面的视频展示如何使用*FrSky Taranis*遥控器来完成此操作。<!-- \[youtube\](https://youtu.be/scqO7vbH2jo) Video has gone private and is no longer available --><!-- @\[youtube\](https://youtu.be/BNzeVGD8IZI?t=427) - video showing how to set the QGC side - at about 7mins and 3 secs -->@[youtube](https://youtu.be/TFEjEQZqdVA)
 
-The *QGroundControl* configuration is then [as described above](#flight-mode-selection).
+*QGroundControl*配置[如上所述](#flight-mode-selection)
 
 
 ## Further Information
 
 * [Flight Modes Overview](../flight_modes/README.md)
-* [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
+* [QGroundControl > 飞行模式](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
 * [PX4 Setup Video - @6m53s](https://youtu.be/91VGmdSlbo4?t=6m53s) (Youtube)
 * [Radio switch parameters](../advanced_config/parameter_reference.md#radio-switches) - Can be used to set mappings via parameters
 

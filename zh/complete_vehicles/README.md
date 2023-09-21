@@ -14,8 +14,8 @@ This section lists vehicles that are sold fully assembled and ready to fly (RTF)
   * [ThunderFly TF-G2](https://www.thunderfly.cz/tf-g2.html)
 * Multicopter
   * [Teal One](https://tealdrones.com/teal-one/)
-  * [ModalAI m500](https://www.modalai.com/collections/development-drones/products/voxl-m500)
-  * [ModalAI Sentinel](https://www.modalai.com/products/sentinel-development-drone)
+  * [ModalAI Starling](../complete_vehicles/modalai_starling.md)
+  * [ModalAI Sentinel](https://www.modalai.com/sentinel)
 * VTOL
   * [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
 
@@ -33,6 +33,7 @@ This section lists fully assembled vehicles where you can update the software to
 
 This section lists drone kits that are intended as platforms for further development. They may come either fully assembled or in parts.
 
+- [ModalAI Starling](../complete_vehicles/modalai_starling.md)
 - [PX4 Vision DevKit](../complete_vehicles/px4_vision_kit.md) - Multicopter used for PX4 computer vision development
 
 ## UAV Kits
@@ -59,10 +60,9 @@ This section contains consumer vehicles that run a _custom_ version of PX4 (supp
   * [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus/)
   * [Yuneec Mantis Q](https://px4.io/portfolio/yuneec-mantis-q/)
   * [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
-  * [Airlango Mystic](http://airlango.com/products/)
   * [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/)
 * Fixed Wing:
-  * [Sentera PXH](https://sentera.shop/collections/drone-systems-sensors/products/broad-acre-package) (Broad Acre Package)
+  * [Sentera PXH](https://sentera.com/products/fieldcapture/ag-drones/phx/)
 * VTOL
   * [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
   * [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)

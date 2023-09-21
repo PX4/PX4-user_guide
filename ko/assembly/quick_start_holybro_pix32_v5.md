@@ -169,5 +169,5 @@ QuadPlane에 대한 자세한 설정 방법은 [QuadPlane VTOL 설정](../config
 - [Pix32 v5  기술 데이터 시트](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf)
 - [Pix32 v5 핀배열](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf)
 - [Pix32 v5 기본 회로도](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5-BASE-Schematic_diagram.pdf)
-- [Pix32 v5 기본 구성 요소 레이아웃](http://www.holybro.com/manual/Holybro_PIX32-V5-BASE-ComponentsLayout.pdf)
+- [Pix32 v5 기본 구성 요소 레이아웃](https://holybro.com/manual/Holybro_PIX32-V5-BASE-ComponentsLayout.pdf)
 - [FMUv5 레퍼런스 디자인 핀배열](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).

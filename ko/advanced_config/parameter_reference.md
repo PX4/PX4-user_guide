@@ -13858,7 +13858,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_FAIL_ACT_T">COM_FAIL_ACT_T</strong> (FLOAT)</td>
- <td>Delay between failsafe condition triggered and failsafe reaction <p><strong>Comment:</strong> Before entering failsafe (RTL, Land, Hold), wait COM_FAIL_ACT_T seconds in Hold mode for the user to realize. During that time the user cannot take over control. Afterwards the configured failsafe action is triggered and the user may take over. A zero value disables the delay and the user cannot take over via stick movements (switching modes is still allowed).</p>   </td>
+ <td>Delay between failsafe condition triggered and failsafe reaction <p><strong>Comment:</strong> Before entering failsafe (RTL, Land, Hold), wait COM_FAIL_ACT_T seconds in Hold mode for the user to realize. During that time the user cannot take over control via the stick override feature see COM_RC_OVERRIDE. Afterwards the configured failsafe action is triggered and the user may use stick override. A zero value disables the delay and the user cannot take over via stick movements (switching modes is still allowed).</p>   </td>
  <td>[0.0, 25.0] </td>
  <td>5.</td>
  <td>s</td>
@@ -17523,21 +17523,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR0_PX">CA_ROTOR0_PX</strong> (FLOAT)</td>
- <td>Position of rotor 0 along X body axis    </td>
+ <td>Position of rotor 0 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR0_PY">CA_ROTOR0_PY</strong> (FLOAT)</td>
- <td>Position of rotor 0 along Y body axis    </td>
+ <td>Position of rotor 0 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR0_PZ">CA_ROTOR0_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 0 along Z body axis    </td>
+ <td>Position of rotor 0 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -17597,21 +17597,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR10_PX">CA_ROTOR10_PX</strong> (FLOAT)</td>
- <td>Position of rotor 10 along X body axis    </td>
+ <td>Position of rotor 10 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR10_PY">CA_ROTOR10_PY</strong> (FLOAT)</td>
- <td>Position of rotor 10 along Y body axis    </td>
+ <td>Position of rotor 10 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR10_PZ">CA_ROTOR10_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 10 along Z body axis    </td>
+ <td>Position of rotor 10 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -17671,21 +17671,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR11_PX">CA_ROTOR11_PX</strong> (FLOAT)</td>
- <td>Position of rotor 11 along X body axis    </td>
+ <td>Position of rotor 11 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR11_PY">CA_ROTOR11_PY</strong> (FLOAT)</td>
- <td>Position of rotor 11 along Y body axis    </td>
+ <td>Position of rotor 11 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR11_PZ">CA_ROTOR11_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 11 along Z body axis    </td>
+ <td>Position of rotor 11 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -17745,21 +17745,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR1_PX">CA_ROTOR1_PX</strong> (FLOAT)</td>
- <td>Position of rotor 1 along X body axis    </td>
+ <td>Position of rotor 1 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR1_PY">CA_ROTOR1_PY</strong> (FLOAT)</td>
- <td>Position of rotor 1 along Y body axis    </td>
+ <td>Position of rotor 1 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR1_PZ">CA_ROTOR1_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 1 along Z body axis    </td>
+ <td>Position of rotor 1 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -17819,21 +17819,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR2_PX">CA_ROTOR2_PX</strong> (FLOAT)</td>
- <td>Position of rotor 2 along X body axis    </td>
+ <td>Position of rotor 2 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR2_PY">CA_ROTOR2_PY</strong> (FLOAT)</td>
- <td>Position of rotor 2 along Y body axis    </td>
+ <td>Position of rotor 2 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR2_PZ">CA_ROTOR2_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 2 along Z body axis    </td>
+ <td>Position of rotor 2 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -17893,21 +17893,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR3_PX">CA_ROTOR3_PX</strong> (FLOAT)</td>
- <td>Position of rotor 3 along X body axis    </td>
+ <td>Position of rotor 3 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR3_PY">CA_ROTOR3_PY</strong> (FLOAT)</td>
- <td>Position of rotor 3 along Y body axis    </td>
+ <td>Position of rotor 3 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR3_PZ">CA_ROTOR3_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 3 along Z body axis    </td>
+ <td>Position of rotor 3 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -17967,21 +17967,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR4_PX">CA_ROTOR4_PX</strong> (FLOAT)</td>
- <td>Position of rotor 4 along X body axis    </td>
+ <td>Position of rotor 4 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR4_PY">CA_ROTOR4_PY</strong> (FLOAT)</td>
- <td>Position of rotor 4 along Y body axis    </td>
+ <td>Position of rotor 4 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR4_PZ">CA_ROTOR4_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 4 along Z body axis    </td>
+ <td>Position of rotor 4 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -18041,21 +18041,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR5_PX">CA_ROTOR5_PX</strong> (FLOAT)</td>
- <td>Position of rotor 5 along X body axis    </td>
+ <td>Position of rotor 5 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR5_PY">CA_ROTOR5_PY</strong> (FLOAT)</td>
- <td>Position of rotor 5 along Y body axis    </td>
+ <td>Position of rotor 5 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR5_PZ">CA_ROTOR5_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 5 along Z body axis    </td>
+ <td>Position of rotor 5 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -18115,21 +18115,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR6_PX">CA_ROTOR6_PX</strong> (FLOAT)</td>
- <td>Position of rotor 6 along X body axis    </td>
+ <td>Position of rotor 6 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR6_PY">CA_ROTOR6_PY</strong> (FLOAT)</td>
- <td>Position of rotor 6 along Y body axis    </td>
+ <td>Position of rotor 6 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR6_PZ">CA_ROTOR6_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 6 along Z body axis    </td>
+ <td>Position of rotor 6 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -18189,21 +18189,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR7_PX">CA_ROTOR7_PX</strong> (FLOAT)</td>
- <td>Position of rotor 7 along X body axis    </td>
+ <td>Position of rotor 7 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR7_PY">CA_ROTOR7_PY</strong> (FLOAT)</td>
- <td>Position of rotor 7 along Y body axis    </td>
+ <td>Position of rotor 7 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR7_PZ">CA_ROTOR7_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 7 along Z body axis    </td>
+ <td>Position of rotor 7 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -18263,21 +18263,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR8_PX">CA_ROTOR8_PX</strong> (FLOAT)</td>
- <td>Position of rotor 8 along X body axis    </td>
+ <td>Position of rotor 8 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR8_PY">CA_ROTOR8_PY</strong> (FLOAT)</td>
- <td>Position of rotor 8 along Y body axis    </td>
+ <td>Position of rotor 8 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR8_PZ">CA_ROTOR8_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 8 along Z body axis    </td>
+ <td>Position of rotor 8 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -18337,21 +18337,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR9_PX">CA_ROTOR9_PX</strong> (FLOAT)</td>
- <td>Position of rotor 9 along X body axis    </td>
+ <td>Position of rotor 9 along X body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR9_PY">CA_ROTOR9_PY</strong> (FLOAT)</td>
- <td>Position of rotor 9 along Y body axis    </td>
+ <td>Position of rotor 9 along Y body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR9_PZ">CA_ROTOR9_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 9 along Z body axis    </td>
+ <td>Position of rotor 9 along Z body axis relative to center of gravity    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -19697,6 +19697,53 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="LTEST_ACC_UNC">LTEST_ACC_UNC</strong> (FLOAT)</td>
+ <td>Acceleration uncertainty <p><strong>Comment:</strong> Variance of acceleration measurement used for landing target position prediction. Higher values results in tighter following of the measurements and more lenient outlier rejection</p>   </td>
+ <td>[0.01, ?] </td>
+ <td>10.0</td>
+ <td>(m/s^2)^2</td>
+</tr>
+<tr>
+ <td><strong id="LTEST_MEAS_UNC">LTEST_MEAS_UNC</strong> (FLOAT)</td>
+ <td>Landing target measurement uncertainty <p><strong>Comment:</strong> Variance of the landing target measurement from the driver. Higher values result in less aggressive following of the measurement and a smoother output as well as fewer rejected measurements.</p>   </td>
+ <td></td>
+ <td>0.005</td>
+ <td>tan(rad)^2</td>
+</tr>
+<tr>
+ <td><strong id="LTEST_MODE">LTEST_MODE</strong> (INT32)</td>
+ <td>Landing target mode <p><strong>Comment:</strong> Configure the mode of the landing target. Depending on the mode, the landing target observations are used differently to aid position estimation. Mode Moving:     The landing target may be moving around while in the field of view of the vehicle. Landing target measurements are not used to aid positioning. Mode Stationary: The landing target is stationary. Measured velocity w.r.t. the landing target is used to aid velocity estimation.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Moving</li>
+
+<li><strong>1:</strong> Stationary</li> 
+</ul>
+  </td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="LTEST_POS_UNC_IN">LTEST_POS_UNC_IN</strong> (FLOAT)</td>
+ <td>Initial landing target position uncertainty <p><strong>Comment:</strong> Initial variance of the relative landing target position in x and y direction</p>   </td>
+ <td>[0.001, ?] </td>
+ <td>0.1</td>
+ <td>m^2</td>
+</tr>
+<tr>
+ <td><strong id="LTEST_SCALE_X">LTEST_SCALE_X</strong> (FLOAT)</td>
+ <td>Scale factor for sensor measurements in sensor x axis <p><strong>Comment:</strong> Landing target x measurements are scaled by this factor before being used</p>   </td>
+ <td>[0.01, ?] </td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="LTEST_SCALE_Y">LTEST_SCALE_Y</strong> (FLOAT)</td>
+ <td>Scale factor for sensor measurements in sensor y axis <p><strong>Comment:</strong> Landing target y measurements are scaled by this factor before being used</p>   </td>
+ <td>[0.01, ?] </td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="LTEST_SENS_POS_X">LTEST_SENS_POS_X</strong> (FLOAT)</td>
  <td>X Position of IRLOCK in body frame (forward)    <p><b>Reboot required:</b> true</p>
 </td>
@@ -19743,63 +19790,6 @@ table {
 </td>
  <td>[-1, 40] </td>
  <td>2</td>
- <td></td>
-</tr>
-</tbody></table>
-
-## Landing target Estimator
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="LTEST_ACC_UNC">LTEST_ACC_UNC</strong> (FLOAT)</td>
- <td>Acceleration uncertainty <p><strong>Comment:</strong> Variance of acceleration measurement used for landing target position prediction. Higher values results in tighter following of the measurements and more lenient outlier rejection</p>   </td>
- <td>[0.01, ?] </td>
- <td>10.0</td>
- <td>(m/s^2)^2</td>
-</tr>
-<tr>
- <td><strong id="LTEST_MEAS_UNC">LTEST_MEAS_UNC</strong> (FLOAT)</td>
- <td>Landing target measurement uncertainty <p><strong>Comment:</strong> Variance of the landing target measurement from the driver. Higher values result in less aggressive following of the measurement and a smoother output as well as fewer rejected measurements.</p>   </td>
- <td></td>
- <td>0.005</td>
- <td>tan(rad)^2</td>
-</tr>
-<tr>
- <td><strong id="LTEST_MODE">LTEST_MODE</strong> (INT32)</td>
- <td>Landing target mode <p><strong>Comment:</strong> Configure the mode of the landing target. Depending on the mode, the landing target observations are used differently to aid position estimation. Mode Moving:     The landing target may be moving around while in the field of view of the vehicle. Landing target measurements are not used to aid positioning. Mode Stationary: The landing target is stationary. Measured velocity w.r.t. the landing target is used to aid velocity estimation.</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> Moving</li>
-
-<li><strong>1:</strong> Stationary</li> 
-</ul>
-  </td>
- <td>[0, 1] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="LTEST_POS_UNC_IN">LTEST_POS_UNC_IN</strong> (FLOAT)</td>
- <td>Initial landing target position uncertainty <p><strong>Comment:</strong> Initial variance of the relative landing target position in x and y direction</p>   </td>
- <td>[0.001, ?] </td>
- <td>0.1</td>
- <td>m^2</td>
-</tr>
-<tr>
- <td><strong id="LTEST_SCALE_X">LTEST_SCALE_X</strong> (FLOAT)</td>
- <td>Scale factor for sensor measurements in sensor x axis <p><strong>Comment:</strong> Landing target x measurements are scaled by this factor before being used</p>   </td>
- <td>[0.01, ?] </td>
- <td>1.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="LTEST_SCALE_Y">LTEST_SCALE_Y</strong> (FLOAT)</td>
- <td>Scale factor for sensor measurements in sensor y axis <p><strong>Comment:</strong> Landing target y measurements are scaled by this factor before being used</p>   </td>
- <td>[0.01, ?] </td>
- <td>1.0</td>
  <td></td>
 </tr>
 <tr>
@@ -20890,8 +20880,8 @@ table {
 </tr>
 <tr>
  <td><strong id="MIS_TAKEOFF_ALT">MIS_TAKEOFF_ALT</strong> (FLOAT)</td>
- <td>Take-off altitude <p><strong>Comment:</strong> This is the minimum altitude the system will take off to.</p>   </td>
- <td>[0, 80] (0.5)</td>
+ <td>Default take-off altitude <p><strong>Comment:</strong> This is the relative altitude the system will take off to if not otherwise specified.</p>   </td>
+ <td>[0, ?] (0.5)</td>
  <td>2.5</td>
  <td>m</td>
 </tr>
@@ -26525,6 +26515,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CAL_MAG0_PITCH">CAL_MAG0_PITCH</strong> (FLOAT)</td>
+ <td>Magnetometer 0 Custom Euler Pitch Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG0_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="CAL_MAG0_PRIO">CAL_MAG0_PRIO</strong> (INT32)</td>
  <td>Magnetometer 0 priority  <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Uninitialized</li>
@@ -26547,8 +26544,15 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CAL_MAG0_ROLL">CAL_MAG0_ROLL</strong> (FLOAT)</td>
+ <td>Magnetometer 0 Custom Euler Roll Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG0_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="CAL_MAG0_ROT">CAL_MAG0_ROT</strong> (INT32)</td>
- <td>Magnetometer 0 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>값:</strong><ul>
+ <td>Magnetometer 0 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero. Set to "Custom Euler Angle" to define the rotation using CAL_MAG0_ROLL, CAL_MAG0_PITCH and CAL_MAG0_YAW.</p> <strong>값:</strong><ul>
 <li><strong>-1:</strong> Internal</li>
 
 <li><strong>0:</strong> No rotation</li>
@@ -26631,10 +26635,12 @@ table {
 
 <li><strong>39:</strong> Pitch 315°</li>
 
-<li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+<li><strong>40:</strong> Roll 90°, Pitch 315°</li>
+
+<li><strong>100:</strong> Custom Euler Angle</li> 
 </ul>
   </td>
- <td>[-1, 40] </td>
+ <td>[-1, 100] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -26665,6 +26671,13 @@ table {
  <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_MAG0_YAW">CAL_MAG0_YAW</strong> (FLOAT)</td>
+ <td>Magnetometer 0 Custom Euler Yaw Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG0_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_YCOMP">CAL_MAG0_YCOMP</strong> (FLOAT)</td>
@@ -26730,6 +26743,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CAL_MAG1_PITCH">CAL_MAG1_PITCH</strong> (FLOAT)</td>
+ <td>Magnetometer 1 Custom Euler Pitch Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG1_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="CAL_MAG1_PRIO">CAL_MAG1_PRIO</strong> (INT32)</td>
  <td>Magnetometer 1 priority  <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Uninitialized</li>
@@ -26752,8 +26772,15 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CAL_MAG1_ROLL">CAL_MAG1_ROLL</strong> (FLOAT)</td>
+ <td>Magnetometer 1 Custom Euler Roll Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG1_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="CAL_MAG1_ROT">CAL_MAG1_ROT</strong> (INT32)</td>
- <td>Magnetometer 1 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>값:</strong><ul>
+ <td>Magnetometer 1 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero. Set to "Custom Euler Angle" to define the rotation using CAL_MAG1_ROLL, CAL_MAG1_PITCH and CAL_MAG1_YAW.</p> <strong>값:</strong><ul>
 <li><strong>-1:</strong> Internal</li>
 
 <li><strong>0:</strong> No rotation</li>
@@ -26836,10 +26863,12 @@ table {
 
 <li><strong>39:</strong> Pitch 315°</li>
 
-<li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+<li><strong>40:</strong> Roll 90°, Pitch 315°</li>
+
+<li><strong>100:</strong> Custom Euler Angle</li> 
 </ul>
   </td>
- <td>[-1, 40] </td>
+ <td>[-1, 100] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -26870,6 +26899,13 @@ table {
  <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_MAG1_YAW">CAL_MAG1_YAW</strong> (FLOAT)</td>
+ <td>Magnetometer 1 Custom Euler Yaw Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG1_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_YCOMP">CAL_MAG1_YCOMP</strong> (FLOAT)</td>
@@ -26935,6 +26971,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CAL_MAG2_PITCH">CAL_MAG2_PITCH</strong> (FLOAT)</td>
+ <td>Magnetometer 2 Custom Euler Pitch Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG2_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="CAL_MAG2_PRIO">CAL_MAG2_PRIO</strong> (INT32)</td>
  <td>Magnetometer 2 priority  <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Uninitialized</li>
@@ -26957,8 +27000,15 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CAL_MAG2_ROLL">CAL_MAG2_ROLL</strong> (FLOAT)</td>
+ <td>Magnetometer 2 Custom Euler Roll Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG2_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="CAL_MAG2_ROT">CAL_MAG2_ROT</strong> (INT32)</td>
- <td>Magnetometer 2 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>값:</strong><ul>
+ <td>Magnetometer 2 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero. Set to "Custom Euler Angle" to define the rotation using CAL_MAG2_ROLL, CAL_MAG2_PITCH and CAL_MAG2_YAW.</p> <strong>값:</strong><ul>
 <li><strong>-1:</strong> Internal</li>
 
 <li><strong>0:</strong> No rotation</li>
@@ -27041,10 +27091,12 @@ table {
 
 <li><strong>39:</strong> Pitch 315°</li>
 
-<li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+<li><strong>40:</strong> Roll 90°, Pitch 315°</li>
+
+<li><strong>100:</strong> Custom Euler Angle</li> 
 </ul>
   </td>
- <td>[-1, 40] </td>
+ <td>[-1, 100] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -27075,6 +27127,13 @@ table {
  <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_MAG2_YAW">CAL_MAG2_YAW</strong> (FLOAT)</td>
+ <td>Magnetometer 2 Custom Euler Yaw Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG2_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_YCOMP">CAL_MAG2_YCOMP</strong> (FLOAT)</td>
@@ -27140,6 +27199,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CAL_MAG3_PITCH">CAL_MAG3_PITCH</strong> (FLOAT)</td>
+ <td>Magnetometer 3 Custom Euler Pitch Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG3_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="CAL_MAG3_PRIO">CAL_MAG3_PRIO</strong> (INT32)</td>
  <td>Magnetometer 3 priority  <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Uninitialized</li>
@@ -27162,8 +27228,15 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CAL_MAG3_ROLL">CAL_MAG3_ROLL</strong> (FLOAT)</td>
+ <td>Magnetometer 3 Custom Euler Roll Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG3_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="CAL_MAG3_ROT">CAL_MAG3_ROT</strong> (INT32)</td>
- <td>Magnetometer 3 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>값:</strong><ul>
+ <td>Magnetometer 3 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero. Set to "Custom Euler Angle" to define the rotation using CAL_MAG3_ROLL, CAL_MAG3_PITCH and CAL_MAG3_YAW.</p> <strong>값:</strong><ul>
 <li><strong>-1:</strong> Internal</li>
 
 <li><strong>0:</strong> No rotation</li>
@@ -27246,10 +27319,12 @@ table {
 
 <li><strong>39:</strong> Pitch 315°</li>
 
-<li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+<li><strong>40:</strong> Roll 90°, Pitch 315°</li>
+
+<li><strong>100:</strong> Custom Euler Angle</li> 
 </ul>
   </td>
- <td>[-1, 40] </td>
+ <td>[-1, 100] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -27280,6 +27355,13 @@ table {
  <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_MAG3_YAW">CAL_MAG3_YAW</strong> (FLOAT)</td>
+ <td>Magnetometer 3 Custom Euler Yaw Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG3_ROT to "Custom Euler Angle"</p>   </td>
+ <td>[-180, 180] </td>
+ <td>0.0</td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_YCOMP">CAL_MAG3_YCOMP</strong> (FLOAT)</td>
@@ -27784,6 +27866,51 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_AFBR_HYSTER">SENS_AFBR_HYSTER</strong> (INT32)</td>
+ <td>AFBR Rangefinder Short/Long Range Threshold Hysteresis <p><strong>Comment:</strong> This parameter defines the hysteresis for switching between short and long range mode.</p>   </td>
+ <td>[1, 10] </td>
+ <td>1</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="SENS_AFBR_L_RATE">SENS_AFBR_L_RATE</strong> (INT32)</td>
+ <td>AFBR Rangefinder Long Range Rate <p><strong>Comment:</strong> This parameter defines measurement rate of the AFBR Rangefinder in long range mode.</p>   </td>
+ <td>[1, 100] </td>
+ <td>25</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_AFBR_MODE">SENS_AFBR_MODE</strong> (INT32)</td>
+ <td>AFBR Rangefinder Mode <p><strong>Comment:</strong> This parameter defines the mode of the AFBR Rangefinder.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Short Range Mode</li>
+
+<li><strong>1:</strong> Long Range Mode</li>
+
+<li><strong>2:</strong> High Speed Short Range Mode</li>
+
+<li><strong>3:</strong> High Speed Long Range Mode</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 3] </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_AFBR_S_RATE">SENS_AFBR_S_RATE</strong> (INT32)</td>
+ <td>AFBR Rangefinder Short Range Rate <p><strong>Comment:</strong> This parameter defines measurement rate of the AFBR Rangefinder in short range mode.</p>   </td>
+ <td>[1, 100] </td>
+ <td>50</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_AFBR_THRESH">SENS_AFBR_THRESH</strong> (INT32)</td>
+ <td>AFBR Rangefinder Short/Long Range Threshold <p><strong>Comment:</strong> This parameter defines the threshold for switching between short and long range mode. The mode will switch from short to long range when the distance is greater than the threshold plus the hysteresis. The mode will switch from long to short range when the distance is less than the threshold minus the hysteresis.</p>   </td>
+ <td>[1, 50] </td>
+ <td>5</td>
+ <td>m</td>
+</tr>
+<tr>
  <td><strong id="SENS_BARO_QNH">SENS_BARO_QNH</strong> (FLOAT)</td>
  <td>QNH for barometer    </td>
  <td>[500, 1500] </td>
@@ -27995,6 +28122,14 @@ table {
 </td>
  <td>[0, 1] </td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_ASP5033">SENS_EN_ASP5033</strong> (INT32)</td>
+ <td>ASP5033 differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -29443,6 +29578,18 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="VN_MODE">VN_MODE</strong> (INT32)</td>
+ <td>VectorNav driver mode <p><strong>Comment:</strong> INS or sensors</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Sensors Only (default)</li>
+
+<li><strong>1:</strong> INS</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="VOXLPM_SHUNT_BAT">VOXLPM_SHUNT_BAT</strong> (FLOAT)</td>
  <td>VOXL Power Monitor Shunt, Battery    <p><b>Reboot required:</b> true</p>
 </td>
@@ -30616,8 +30763,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_HAS_NUM_DIST">SYS_HAS_NUM_DIST</strong> (INT32)</td>
- <td>Control the number of distance sensors on the vehicle <p><strong>Comment:</strong> If set to the number of distance sensors, the preflight check will check for their presence and valid data publication. Disable with 0 if no distance sensor present or to disable the preflight check.</p>   <p><b>Reboot required:</b> true</p>
-</td>
+ <td>Number of distance sensors to check being available <p><strong>Comment:</strong> The preflight check will fail if fewer than this number of distance sensors with valid data is present. Disable the check with 0.</p>   </td>
  <td>[0, 4] </td>
  <td>0</td>
  <td></td>
@@ -32668,13 +32814,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CANNODE_NODE_ID">CANNODE_NODE_ID</strong> (INT32)</td>
- <td>UAVCAN Node ID <p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   </td>
- <td>[1, 125] </td>
- <td>120</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="CANNODE_PUB_MBD">CANNODE_PUB_MBD</strong> (INT32)</td>
  <td>Enable MovingBaselineData publication    <p><b>Reboot required:</b> true</p>
 </td>
@@ -33172,7 +33311,7 @@ table {
   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>102</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -33578,13 +33717,6 @@ table {
 <tr>
  <td><strong id="VT_TILT_MC">VT_TILT_MC</strong> (FLOAT)</td>
  <td>Normalized tilt in Hover    </td>
- <td>[0.0, 1.0] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="VT_TILT_SPINUP">VT_TILT_SPINUP</strong> (FLOAT)</td>
- <td>Tilt when disarmed and in the first second after arming <p><strong>Comment:</strong> This specific tilt during spin-up is necessary for some systems whose motors otherwise don't spin-up freely.</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>0.0</td>
  <td></td>

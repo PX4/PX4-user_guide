@@ -34,7 +34,7 @@ The vehicle will then match the configuration documented in the [Airframe Refere
 
 BlueROV2 does not come with PX4 installed.
 You will need to:
-1. [Install PX4 Firmware](../config/firmware.md#installing-px4-master-beta-or-custom-firmware)
+1. [Install PX4 Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware)
    :::note
    Prior to PX4 v1.12 you will need to install the "master" version.
 1. [Set the Airframe](../config/airframe.md).

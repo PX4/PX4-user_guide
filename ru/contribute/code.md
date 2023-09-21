@@ -18,6 +18,10 @@ All code contributions have to be under the permissive [BSD 3-clause license](ht
 
 PX4 uses the [Google C++ style guide](https://google.github.io/styleguide/cppguide.html), with the following (minimal) modifications:
 
+:::note
+Not all PX4 source code matches the style guide, but any _new code_ that you write should do so — in both new and existing files. If you update an existing file you are not required to make the whole file comply with the style guide, just the code you've modified.
+:::
+
 ### Tabs
 
 - Tabs are used for indentation (equivalent to 8 spaces).
@@ -158,7 +162,7 @@ Reported-by: Name <email@px4.io>
 
 **Use **`git commit -s`** to sign off on all of your commits.** This will add `signed-off-by:` with your name and email as the last line.
 
-This commit guide is based on best practices for the Linux Kernel and other [projects maintained](https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115) by Linus Torvalds.
+This commit guide is based on best practices for the Linux Kernel and other [projects maintained](https://github.com/torvalds/subsurface-for-dirk/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115) by Linus Torvalds.
 
 ## Pull Requests
 

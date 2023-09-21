@@ -275,9 +275,3 @@ Airframe selection sets *default* autopilot parameters for the frame.
 These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
 
 For instructions on how, start from [Autotune](../config/autotune.md).
-
-## Log Examples
-
-[Log in FPV acro flight (maximum values: 108km/h speed, 85A total current draw)](https://logs.px4.io/plot_app?log=9c311942-bc7c-4b0c-8be8-eeb64fa8192c)
-
-[Log in (mostly) manual LOS flight for the entire battery](https://logs.px4.io/plot_app?log=6de8b8cd-74f9-4eae-ad2f-76867e916f4f)

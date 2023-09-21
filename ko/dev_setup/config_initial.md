@@ -31,7 +31,7 @@ Taranis RC와 Note 4 태블릿은 매우 저렴한 현장 키트를 구성합니
 Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html) for a **desktop OS**.
 
 기체를 설정하려면:
-1. [PX4 펌웨어를 설치](../config/firmware.md#installing-px4-master-beta-or-custom-firmware)합니다(자신이 변경한 "맞춤형" 펌웨어 포함).
+1. [Install PX4 firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware) (including "custom" firmware with your own changes).
 1. [기체 참조](../airframes/airframe_reference.md)에서 귀하의 기체와 가장 잘 어울리는 [기체](../config/airframe.md)부터 시작하십시오.
 1. [기본 설정](../config/README.md)에서는 기본 설정 방법을 설명합니다.
 1. [매개변수 설정](../advanced_config/parameters.md)에서는 개별 매개변수를 검색하고 수정하는 방법을 설명합니다.

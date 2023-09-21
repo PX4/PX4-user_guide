@@ -22,7 +22,7 @@ The following factors affect control latency:
 - PX4 software internals: the sensor signals need to be read in the driver and then pass through the controller to the output driver.
 - The maximum gyro publication rate (configured with [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX)). A higher rate reduces latency but is computationally intensive/can starve other processes. 4 kHz or higher is only recommended for controllers with STM32H7 processor or newer (2 kHz value is near the limit for less capable processors).
 - The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a *Pixracer* or *Omnibus F4*, but does apply to a Pixhawk). To avoid the IO delay, disable [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and attach the motors to the AUX pins instead.
-- PWM output signal: enable [Dshot](../peripherals/dshot.md) or One-Shot to reduce latency. The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
+- PWM 输出信号：启用 Dshot 或 One-Shot 以减少延迟。 The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
 
 Below we look at the impact of the low pass filters.
 
@@ -30,8 +30,8 @@ Below we look at the impact of the low pass filters.
 
 This is the filtering pipeline for the controllers in PX4:
 - On-chip DLPF for the gyro sensor. This is disabled on all chips where it can be disabled (if not, the cutoff frequency is set to the highest level of the chip).
-- A notch filter on the gyro sensor data that is used to filter out narrow band noise, for example harmonics at the rotor blade pass frequency. This filter can be configured using [IMU_GYRO_NF0_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_BW) and [IMU_GYRO_NF0_FRQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_FRQ).
-- Low-pass filter on the gyro sensor data. It can be configured with the  [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter. :::note
+- A notch filter on the gyro sensor data that is used to filter out narrow band noise, for example harmonics at the rotor blade pass frequency. 此过滤器可以使用 [IMU_GYRO_NF0_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_BW) 和 [IMU_GYRO_NF0_FRQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_FRQ) 进行配置。
+- Low-pass filter on the gyro sensor data. 它可以使用 [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) 参数进行配置。 :::note
 Sampling and filtering is always performed at the full raw sensor rate (commonly 8kHz, depending on the IMU).
 :::
 - A separate low-pass filter on the D-term. The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance. For this reason the D-term has a separately-configurable low-pass filter, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
@@ -73,7 +73,7 @@ The performed flight maneuver can simply be hovering in [Manual/Stabilized mode]
 
 First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30). Upload the logs to [Flight Review](https://logs.px4.io) and compare the *Actuator Controls FFT* plot. Set the cutoff frequency to a value before the noise starts to increase noticeably (for frequencies around and above 60 Hz).
 
-Then tune the D-term filter (`IMU_DGYRO_CUTOFF`) in the same way. Note that there can be negative impacts on performance if `IMU_GYRO_CUTOFF` and `IMU_DGYRO_CUTOFF` are set too far apart (the differences have to be significant though - e.g. D=15, gyro=80).
+Then tune the D-term filter (`IMU_DGYRO_CUTOFF`) in the same way. 请注意，如果 `IMU_GYRO_CUTOFF` 和 `IMU_DGYRO_CUTOFF` 设置太远(差别必须是重要的，尽管-e)。 . D=15, gyro=80。
 
 Below is an example for three different `IMU_DGYRO_CUTOFF` filter values (40Hz, 70Hz, 90Hz). At 90 Hz the general noise level starts to increase (especially for roll), and thus a cutoff frequency of 70 Hz is a safe setting. ![IMU_DGYRO_CUTOFF=40](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_40.png) ![IMU_DGYRO_CUTOFF=70](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_70.png) ![IMU_DGYRO_CUTOFF=90](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_90.png)
 

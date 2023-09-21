@@ -338,6 +338,8 @@ To use this module, the default `rc_input` module must be disabled and the `crsf
 4. Scroll to highlight `crsf_rc` and press enter to enable it.
 5. Save and exit the PX4 board config tool.
 
+For more information see [TBS Crossfire (CRSF) Telemetry](../telemetry/crsf_telemetry.md).
+
 ### `msp_osd` Module
 
 The `msp_osd` module steams MSP telemetry to a selected serial port.

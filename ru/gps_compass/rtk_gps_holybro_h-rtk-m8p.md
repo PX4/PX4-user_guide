@@ -1,6 +1,10 @@
-# Holybro H-RTK M8P GNSS
+# Holybro H-RTK M8P GNSS (Discontinued)
 
-The [Holybro H-RTK M8P GNSS](http://www.holybro.com/product/h-rtk-m8p-rover-lite/) is an [RTK GNSS module](../gps_compass/rtk_gps.md) series for the mass market. This family is similar to the [H-RTK M9P](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) series but uses the smaller, lighter, and less expensive M8P u-blox RTK GNSS module (which still provides far superior position resolution than previous generations_.
+:::warning
+This GNSS has been discontinued, and is no longer commercially available.
+:::
+
+The [Holybro H-RTK M8P GNSS](https://holybro.com/collections/standard-h-rtk-series/products/h-rtk-m8p-gnss-series) is an [RTK GNSS module](../gps_compass/rtk_gps.md) series for the mass market. This family is similar to the [H-RTK M9P](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) series but uses the smaller, lighter, and less expensive M8P u-blox RTK GNSS module (which still provides far superior position resolution than previous generations_.
 
 There are three models of Holybro H-RTK M8P to choose from, each with different antenna design to meet different needs. Refer to the [Specification and Model Comparison section](#specification-and-model-comparison) for more details.
 
@@ -10,7 +14,7 @@ Using RTK allows PX4 to get its position with centimeter-level accuracy, which i
 
 ## Where to Buy
 
-* [H-RTK M8P (GPS RTK Mounts)](https://holybro.com/products/gps-rtk-mounts)
+* [H-RTK M8P (GPS RTK Mounts)](https://holybro.com/products/vertical-mount-for-h-rtk-helical)
 
 
 ## Configuration

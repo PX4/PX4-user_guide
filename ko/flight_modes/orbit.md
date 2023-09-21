@@ -2,7 +2,16 @@
 
 [<img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*궤도* 유도 비행 모드를 사용하면 멀티콥터 (또는 멀티 콥터 모드의 VTOL)가 항상 중앙을 향하도록 [기본](https://mavlink.io/en/messages/common.html#ORBIT_YAW_BEHAVIOUR) 요잉으로 원을 그리는 비행하도록 명령할 수 있습니다.
+The *Orbit* guided flight mode allows you to command a multicopter (or VTOL in multicopter mode) to fly in a circle at a particular location, by [default](https://mavlink.io/en/messages/common.html#ORBIT_YAW_BEHAVIOUR) yawing so that it always faces towards the center.
+
+:::note
+* This mode requires a valid global position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+* This mode is automatic - no user intervention is *required* to control the vehicle.
+* RC stick movement can control ascent/descent and orbit speed and direction.
+* The mode can be triggered using the [MAV_CMD_DO_ORBIT](https://mavlink.io/en/messages/common.html#MMAV_CMD_DO_ORBIT) MAVLink command.
+:::
+
+## Overview
 
 ![궤도 모드 (멀티콥터)](../../assets/flying/orbit.jpg)
 

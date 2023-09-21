@@ -101,6 +101,7 @@ The following list shows the build commands for the [Pixhawk standard](../flight
 
 - [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): `make px4_fmu-v6x_default`
 - [Holybro Pixhawk 6C (FMUv6C)](../flight_controller/pixhawk6c.md): `make px4_fmu-v6c_default`
+- [Holybro Pixhawk 6C Mini (FMUv6C)](../flight_controller/pixhawk6c_mini.md): `make px4_fmu-v6c_default`
 - [Holybro Pix32 v6 (FMUv6C)](../flight_controller/holybro_pix32_v6.md): `make px4_fmu-v6c_default`
 - [Holybro Pixhawk 5X (FMUv5X)](../flight_controller/pixhawk5x.md): `make px4_fmu-v5x_default`
 - [Pixhawk 4 (FMUv5)](../flight_controller/pixhawk4.md): `make px4_fmu-v5_default`
@@ -288,8 +289,8 @@ make list_config_targets
 - **DEBUGGER:** Debugger to use: `none` (*default*), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. 
   For more information see [Simulation Debugging](../debug/simulation_debugging.md).
 - **WORLD:** (Gazebo Classic only).
-  Set the world ([PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/master/worlds)) that is loaded.
-  Default is [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/empty.world).
+  Set the world ([PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/main/worlds)) that is loaded.
+  Default is [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/empty.world).
   For more information see [Gazebo Classic > Loading a Specific World](../sim_gazebo_classic/README.md#set_world).
 
 :::tip

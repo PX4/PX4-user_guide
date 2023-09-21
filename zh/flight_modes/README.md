@@ -183,7 +183,7 @@ th {
  <td><a href="../flight_modes/land.html">降落</a></td>
  <td class="centred" colspan="3">自动</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="20px" /></a></td>
- <td>飞机启动了 <a href="../flying/fixed_wing_landing.html">固定翼着陆</a> 程序。</td>
+ <td>Vehicle initiates the <a href="../flight_modes/mission.html#fw-mission-landing">fixed-wing landing</a> sequence.</td>
 </tr>
 
 <tr id="hold_fw">

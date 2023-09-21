@@ -37,7 +37,7 @@ The Holybro [X500 V2 Kit](https://holybro.com/collections/x500-kits) includes al
 * Holybro BLHeli S ESC 20A x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
 * Propellers - 1045 x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
 * Power Distribution Board – XT60 plug for battery & XT30 plug for ESCs & peripherals
-* Camera mount (optional and the 3D file can be downloaded from [here](http://www.holybro.com/3D_Print/Holybro_X500_V2_3D%20Print.rar))
+* Camera mount (optional and the 3D file can be downloaded from [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_X500_V2_3D_Print.rar?v=1665561017))
 
 Other parts in this build(**Not included in the ARF kit**):
 * [Pixhawk 5X autopilot](../flight_controller/pixhawk5x.md)

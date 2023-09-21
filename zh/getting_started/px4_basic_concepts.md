@@ -90,13 +90,23 @@ PX4无人机最常使用的是锂聚合物（LiPo）电池。 The battery is typ
 
 Information about batteries and battery configuration can be found in [Battery Configuration](../config/battery.md) and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
 
-## 无线电控制（遥控）
+## Manual Control
 
-A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to _manually_ control the vehicle. 它由一个遥控装置组成，使用发射机来与飞行器上的接收机通信。 一些遥控系统还可以额外接收自动驾驶仪传回的数传信息。
+Pilots can control a vehicle manually using either a [Radio Control (RC) System](#radio-control-rc) or a [Joystick/Gamepad](#gcs-joystick-controller) controller connected via QGroundControl.
+
+:::note PX4 does not _require_ a manual control system for autonomous flight modes.
+:::
 
 :::note
-PX4 在自主飞行模式中不需要遥控系统。
+Both methods can be used for most manual control use cases, such as surveys.
+RC systems are recommended when first tuning/testing a new frame design or when flying racers/acrobatically (and in other cases where low latency is important).
 :::
+
+### 无线电控制（遥控）
+
+[Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) systems can be used to manually control PX4.
+
+They consist of a ground based RC controller that uses a radio transmitter to communicate stick/control positions to a receiver on the vehicle. 一些遥控系统还可以额外接收自动驾驶仪传回的数传信息。
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
@@ -106,11 +116,19 @@ PX4 在自主飞行模式中不需要遥控系统。
 - [飞行 101](../flying/basic_flying.md) - 学习如何使用遥控器飞行。
 - [FrSky 数传](../peripherals/frsky_telemetry.md) - 设置遥控发射机以从 PX4 接收数传/状态更新。
 
-## 地面站游戏手柄控制器
+### 地面站游戏手柄控制器
 
-A [computer joystick](../config/joystick.md) connected through _QGroundControl_ can also be used to manually control PX4 (QGC converts joystick movements into MAVLink messages that are sent over the telemetry link). This approach is used by ground control units that have an integrated ground control station, like the _Auterion_ [Skynav](https://auterion-gs.com/skynav/) or _UAVComponents_ [MicroNav](https://uxvtechnologies.com/ground-control-stations/micronav/). 游戏手柄也常被用于控制仿真中的无人机。
+A [Joystick/Gamepad](../config/joystick.md) connected through _QGroundControl_ can also be used to manually control PX4.
+
+With this approach, QGroundControl translates stick/button information from a connected Joystick into MAVLink-protocol messages, which are then sent to PX4 using the shared telemetry radio link. The telemetry radio must have sufficient bandwidth for both manual control and other telemetry messages, and of course this approach means that you must have a ground station running QGroundControl.
+
+Joysticks are also used to manually fly PX4 in a [simulator](../simulation/README.md).
+
+:::note
+Controllers like the _Auterion_ [Skynav](https://auterion-gs.com/skynav/) and _UAVComponents_ [MicroNav](https://uxvtechnologies.com/ground-control-stations/micronav/) integrate QGC and a Joystick, and connect the vehicle via a high bandwidth telemetry radio link.
 
 ![Photo of MicroNav, a ground controller with integrated joysticks](../../assets/peripherals/joystick/micronav.jpg)
+:::
 
 ## 安全开关
 
@@ -155,17 +173,15 @@ Pixhawk 飞控板支持的最大 SD 卡大小为 32 GB 。 The _SanDisk Extreme 
 
 ## 解锁和加锁
 
-载具可能有可动部件的，其中一些在通电后会有一定的危险性（特别是电机和螺旋桨）！
+A vehicle is said to be _armed_ when all motors and actuators are powered, and _disarmed_ when nothing is powered. There is also a _prearmed_ state when only actuators are powered.
 
-To reduce accidents, vehicles should be armed (motors and actuators powered) as little as possible when the vehicle is on the ground.
-
-Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/yaw stick on the _bottom right_ for one second (to disarm, hold stick on bottom left). 还可以使用遥控上的按钮来配置 PX4 解锁（也可以从地面站发送MAVLink解锁命令）。
-
-:::tip
-Sometimes a vehicle will not arm for reasons that are not obvious. QGC v4.2.0 (Daily build at time of writing) and later provide an arming check report in [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#arm). From PX4 v1.14 this provides comprehensive information about arming problems along with possible solutions.
+:::warning
+Armed vehicles can be dangerous as propellors will be spinning.
 :::
 
-By default, vehicles are:
+Arming is triggered by default (on Mode 2 transmitters) by holding the RC throttle/yaw stick on the _bottom right_ for one second (to disarm, hold stick on bottom left). 还可以使用遥控上的按钮来配置 PX4 解锁（也可以从地面站发送MAVLink解锁命令）。
+
+To reduce accidents, vehicles should be armed as little as possible when the vehicle is on the ground. By default, vehicles are:
 
 - _Disarmed_ or _Prearmed_ (motors unpowered) when not in use, and must be explicitly _armed_ before taking off.
 - Automatically disarm/prearm if the vehicle does not take off quickly enough after arming (the disarm time is configurable).
@@ -176,6 +192,9 @@ By default, vehicles are:
 
 When prearmed you can still use actuators, while disarming unpowers everything. Prearmed and disarmed should both safe, and a particular vehicle may support either or both.
 
+:::tip
+Sometimes a vehicle will not arm for reasons that are not obvious. QGC v4.2.0 (Daily build at time of writing) and later provide an arming check report in [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#arm). From PX4 v1.14 this provides comprehensive information about arming problems along with possible solutions.
+:::
 
 
 更详细的解锁和加锁的配置的解读可以在这里找到：[预解锁，解锁，加锁配置](../advanced_config/prearm_arm_disarm.md)。

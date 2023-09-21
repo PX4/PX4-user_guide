@@ -1,6 +1,6 @@
 # CUAV C-RTK
 
-[CUAV C-RTK GPS 수신기](http://doc.cuav.net/gps/c-rtk/en/)는 일반 사용자를 위한 [RTK GPS 모듈](../gps_compass/rtk_gps.md)입니다. 완전한 RTK 시스템은 2개 이상의 C-RTK 모듈 \(하나는 기지국용, 다른 하나는 항공기용\)으로 구성됩니다. RTK를 사용하면 PX4는 일반 GPS에서 제공하는 것 보다 훨씬 더 정확한 센티미터 수준의 정확도로 위치를 파악할 수 있습니다.
+The [CUAV C-RTK GPS receiver](https://www.cuav.net/en/c_rtk_9ps/) is an [RTK GPS module](../gps_compass/rtk_gps.md) for the mass market. 완전한 RTK 시스템은 2개 이상의 C-RTK 모듈 \(하나는 기지국용, 다른 하나는 항공기용\)으로 구성됩니다. RTK를 사용하면 PX4는 일반 GPS에서 제공하는 것 보다 훨씬 더 정확한 센티미터 수준의 정확도로 위치를 파악할 수 있습니다.
 
 <img src="../../assets/hardware/gps/rtk_c-rtk.jpg" width="500px" title="C-RTK" />
 
@@ -16,7 +16,7 @@ RTK setup and use on PX4 via _QGroundControl_ is largely plug and play \(see [RT
 
 ## 배선
 
-C-RTK GPS는 [Pixhack v3](http://doc.cuav.net/gps/c-rtk/en/c-rtk/hardware-connection.html)과 호환되는 6핀 커넥터 및 4핀 커넥터로 종단되는 케이블과 함께 제공됩니다. 6핀 커넥터는 RTK GPS 용 인터페이스를 제공하며 비행 콘트롤러의 GPS 포트에 연결하여야합니다. 4핀 커넥터는 두 번째 GPS로 사용하기 위한 (옵션) m8n (표준) GPS 인터페이스입니다.
+C-RTK GPS comes with a cable that terminates in a 6-pin connector and 4-pin connector that are compatible with [Pixhack v3](https://doc.cuav.net/flight-controller/pixhack/en/quick-start-pixhack-v3x.html#gps--compass). 6핀 커넥터는 RTK GPS 용 인터페이스를 제공하며 비행 콘트롤러의 GPS 포트에 연결하여야합니다. 4핀 커넥터는 두 번째 GPS로 사용하기 위한 (옵션) m8n (표준) GPS 인터페이스입니다.
 
 :::tip
 이 문서 작성시에는 PX4는 아직 두 번째 GPS를 완전하게 지원하지 않습니다. 4핀 포트는 연결할 필요 없습니다.
@@ -39,4 +39,3 @@ C-RTK GPS 핀배열은 아래와 같습니다. 이것은 다른 자동조종보�
 | 4 | GPS_TX       | 4 | SCL               | GPS_TX       |
 | 5 | VCC_5V       | 5 | SDA               | VCC_5V       |
 | 6 | GND          | 6 | GND               | GND          |
-

@@ -5,7 +5,8 @@
 *착륙* 모드는 기체의 모드가 활성화된 위치에 착륙합니다. 착륙후 기체는 가급적 짧은 시간내에 시동이 해제됩니다.
 
 :::note
-* 이 모드는 안전 장치 가동으로 인해 상태를 전환하지 않는 한 유효한 위치 추정치가 필요하며, 이 경우 고도만 필요합니다(일반적으로 기압계는 비행 제어기에 내장).
+* This mode requires a valid global position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+* In a failsafe the mode only requires altitude (typically a barometer is built into the flight controller).
 * 이 모드는 자동입니다. 기체를 제어시 사용자 개입이 *필요하지* 않습니다.
 * RC 제어 스위치는 기체의 비행 모드를 변경할 수 있습니다.
 * 멀티콥터 또는 멀티콥터 모드의 VTOL에서 RC 스틱을 움직이면 위험한 배터리 안전 장치를 처리하지 않는 한 [기본적으로](#COM_RC_OVERRIDE) 기체는 [위치 모드](../flight_modes/position_mc.md)로 변경됩니다.

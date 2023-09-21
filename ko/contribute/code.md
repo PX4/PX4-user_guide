@@ -18,6 +18,10 @@ To contribute new functionality, [sign up for Github](https://docs.github.com/en
 
 PX4 uses the [Google C++ style guide](https://google.github.io/styleguide/cppguide.html), with the following (minimal) modifications:
 
+:::note
+Not all PX4 source code matches the style guide, but any _new code_ that you write should do so — in both new and existing files. If you update an existing file you are not required to make the whole file comply with the style guide, just the code you've modified.
+:::
+
 ### Tabs
 
 - Tabs are used for indentation (equivalent to 8 spaces).
@@ -153,7 +157,7 @@ else {
 
 ****`git commit -s`**를 사용하여 모든 커밋을 승인합니다. ** 이렇게 하면 `signed-off-by:`가 추가됩니다. 마지막 줄에 이름과 이메일을 입력합니다.
 
-이 커밋 가이드는 Linux 커널과 Linus Torvalds가 관리하는 [프로젝트](https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115)에 대한 모범 사례들을 참고로 작성되었습니다.
+This commit guide is based on best practices for the Linux Kernel and other [projects maintained](https://github.com/torvalds/subsurface-for-dirk/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115) by Linus Torvalds.
 
 ## Pull Requests
 

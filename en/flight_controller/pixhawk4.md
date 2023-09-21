@@ -146,7 +146,7 @@ For wiring information see:
 
 ## Peripherals
 
-- [Digital Airspeed Sensor](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+- [Digital Airspeed Sensor](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
 - [Telemetry Radio Modules](../telemetry/README.md)
 - [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 

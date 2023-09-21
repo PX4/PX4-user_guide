@@ -7,7 +7,7 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-Pixfalcon 자동조종장치([Holybro<sup>&reg;</sup>](http://www.holybro.com/)에서 설계)는 FPV 레이서에 적용하기 위하여 공간에 최적화된 [Pixhawk 1](../flight_controller/pixhawk.md) 설계에서 파생된 바이너리 호환 (FMUv2)입니다. 소형화를 위하여 가진 IO가 적습니다.
+The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](https://holybro.com/)) is binary-compatible (FMUv2) derivative of the [Pixhawk 1](../flight_controller/pixhawk.md) design that has been optimized for space-constrained applications such as FPV racers. 소형화를 위하여 가진 IO가 적습니다.
 
 ![Pixfalcon 대표 이미지](../../assets/hardware/hardware-pixfalcon.png)
 
@@ -34,8 +34,8 @@ Pixfalcon 자동조종장치([Holybro<sup>&reg;</sup>](http://www.holybro.com/)�
 
 하드웨어 옵션:
 
-- 광류 센서: 제조업체 [Holybro](http://www.holybro.com/product/px4flow/)의 PX4 광류 센서
-- 제조업체 [Holybro](http://www.holybro.com/product/digital-air-speed-sensor/) 또는 유통 업체 [Hobbyking](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)의 디지털 대기속도 센서
+- Optical flow: PX4 Flow unit from manufacturer [Holybro](https://holybro.com/products/px4flow)
+- Digital Airspeed sensor from manufacturer [Holybro](https://holybro.com/products/digital-air-speed-sensor) or distributor [Hobbyking](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
 - 텔레메트리가 통합 화면 디스플레이
   - [Hobbyking OSD + EU 텔레메트리 (433 MHz)](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html)
 - 순수 텔레메트리 옵션:
@@ -68,7 +68,3 @@ make px4_fmu-v2_default
 | UART4  | /dev/ttyS2 | GPS            |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
-
-## 주요 링크
-
-- [사용자 매뉴얼](http://www.holybro.com/manual/pixfalcon11.pdf)

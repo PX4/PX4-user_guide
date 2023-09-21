@@ -9,7 +9,7 @@ PX4 provides several mechanisms for choosing a safe return path, destination and
 The following sections explain how to configure the [return type](#return_types), [return altitude](#return_altitude) and [landing/arrival behaviour](#arrival). The following sections explain how to configure the [return type](#return_types), [return altitude](#return_altitude) and [landing/arrival behaviour](#arrival).
 
 :::note
-* This mode requires GPS.
+* This mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
 * This mode is automatic - no user intervention is *required* to control the vehicle.
 * RC control switches can be used to change flight modes on any vehicle.
 * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.

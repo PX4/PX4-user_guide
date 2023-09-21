@@ -2,7 +2,16 @@
 
 [<img src="../../assets/site/difficulty_easy.png" title="易于飞行" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如 GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-The *Orbit* guided flight mode allows you to command a multicopter (or VTOL in multicopter mode) to fly in a circle, by [default](https://mavlink.io/en/messages/common.html#ORBIT_YAW_BEHAVIOUR) yawing so that it always faces towards the center.
+The *Orbit* guided flight mode allows you to command a multicopter (or VTOL in multicopter mode) to fly in a circle at a particular location, by [default](https://mavlink.io/en/messages/common.html#ORBIT_YAW_BEHAVIOUR) yawing so that it always faces towards the center.
+
+:::note
+* This mode requires a valid global position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+* This mode is automatic - no user intervention is *required* to control the vehicle.
+* RC stick movement can control ascent/descent and orbit speed and direction.
+* The mode can be triggered using the [MAV_CMD_DO_ORBIT](https://mavlink.io/en/messages/common.html#MMAV_CMD_DO_ORBIT) MAVLink command.
+:::
+
+## Overview
 
 ![轨道模式 - 多旋翼](../../assets/flying/orbit.jpg)
 

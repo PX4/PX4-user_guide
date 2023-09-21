@@ -60,10 +60,10 @@ Any Omnibus F4 labeled derivative (e.g. clone) should work as well. However, pow
 
 These are the boards tested and known to work:
 
-- [Hobbywing XRotor Flight Controller F4](http://www.hobbywing.com/goods.php?id=636)
+- [Hobbywing XRotor Flight Controller F4](https://www.hobbywing.com/en/products/info.html?id=164)
 
   :::note
-  This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](http://www.hobbywing.com/goods.php?id=588) without soldering. This ESC board also provides power for the Omnibus board.
+  This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](https://www.hobbywing.com/en/products/info.html?id=116) without soldering. This ESC board also provides power for the Omnibus board.
   :::
 
   Purchase from:
@@ -75,7 +75,7 @@ These are the boards tested and known to work:
   Purchase from:
 
   - [Airbot (CN manufacturer)](https://store.myairbot.com/omnibusf4prov3.html)
-  - [Ready To Fly Quads (US reseller)](http://www.readytoflyquads.com/flip-32-f4-omnibus-v2-pro)
+  - [Ready To Fly Quads (US reseller)](https://quadsrtf.com/product/flip-32-f4-omnibus-rev-2/)
 
 Accessories include:
 
@@ -177,14 +177,19 @@ The Omnibus supports telemetry to the RC Transmitter using [FrSky Telemetry](../
 
 ### CRSF Crossfire Telemetry
 
-TBS CRSF Crossfire telemetry is used to send telemetry data from the flight controller (the vehicle's attitude, battery, flight mode and GPS data) to the RC transmitter (Taranis).
+[TBS CRSF Telemetry](../telemetry/crsf_telemetry.md) may be used to send telemetry data from the flight controller (the vehicle's attitude, battery, flight mode and GPS data) to an RC transmitter such as a Taranis.
 
-Benefits over FrSky telemetry include:
+Benefits over [FrSky telemetry](../peripherals/frsky_telemetry.md) include:
 
 - Only a single UART is needed for RC and telemetry.
 - The CRSF protocol is optimized for low latency.
 - 150 Hz RC update rate.
 - The signals are uninverted and thus no (external) inverter logic is required.
+
+:::note
+If you use CRSF Telemetry you will need to build custom PX4 firmware.
+By contrast, FrSky telemetry can use prebuilt firmware.
+:::
 
 For Omnibus we recommend the [TBS Crossfire Nano RX](http://team-blacksheep.com/products/prod:crossfire_nano_rx), since it is specifically designed for small Quads.
 
@@ -204,10 +209,13 @@ Connect the Nano RX and Omnibus pins as shown:
 | TX            | Ch2     |
 | RX            | Ch1     |
 
-Nothing else needs to be configured on PX4 flight controller side - the RC protocol is auto-detected.
-
 Next update the TX/RX modules to use the CRSF protocol and set up telemetry.
 Instructions for this are provided in the [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf) (search for 'Setting up radio for CRSF').
+
+#### PX4 CRSF Configuration
+
+You will need to build custom firmware to use CRSF.
+For more information see [CRSF Telemetry](../telemetry/crsf_telemetry.md#px4-configuration).
 
 ## Schematics
 
@@ -231,6 +239,12 @@ make omnibus_f4sd_default
 
 ## Installing PX4 Firmware
 
+You can use either pre-built firmware or your own custom firmware.
+
+:::warning  
+If you use [CRSF Telemetry](../telemetry/crsf_telemetry.md#px4-configuration) in your radio system, as describe above, then you must use custom firmware.
+:::
+
 The firmware can be installed in any of the normal ways:
 
 - Build and upload the source
@@ -240,7 +254,6 @@ The firmware can be installed in any of the normal ways:
   ```
 
 - [Load the firmware](../config/firmware.md) using _QGroundControl_.
-  You can use either pre-built firmware or your own custom firmware.
 
 ## Configuration
 
@@ -253,6 +266,4 @@ In addition to the [basic configuration](../config/README.md), the following par
 
 ## Further Info
 
-A review with further information of the board can be found [here](https://nathan.vertile.com/blog/2016/10/12/omnibusf4/).
-
-[This page](https://blog.dronetrest.com/omnibus-f4-flight-controller-guide/) also provides a nice overview with pinouts and setup instructions.
+[This page](https://blog.dronetrest.com/omnibus-f4-flight-controller-guide/) provides a good overview with pinouts and setup instructions.

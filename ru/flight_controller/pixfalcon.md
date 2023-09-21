@@ -7,7 +7,7 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](http://www.holybro.com/)) is binary-compatible (FMUv2) derivative of the [Pixhawk 1](../flight_controller/pixhawk.md) design that has been optimized for space-constrained applications such as FPV racers. It has less IO to allow for the reduction in size.
+The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](https://holybro.com/)) is binary-compatible (FMUv2) derivative of the [Pixhawk 1](../flight_controller/pixhawk.md) design that has been optimized for space-constrained applications such as FPV racers. It has less IO to allow for the reduction in size.
 
 ![Pixfalcon hero image](../../assets/hardware/hardware-pixfalcon.png)
 
@@ -34,8 +34,8 @@ From distributor [Hobbyking<sup>&reg;</sup>](https://hobbyking.com/en_us/pixfalc
 
 Optional hardware:
 
-- Optical flow: PX4 Flow unit from manufacturer [Holybro](http://www.holybro.com/product/px4flow/)
-- Digital Airspeed sensor from manufacturer [Holybro](http://www.holybro.com/product/digital-air-speed-sensor/) or distributor [Hobbyking](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
+- Optical flow: PX4 Flow unit from manufacturer [Holybro](https://holybro.com/products/px4flow)
+- Digital Airspeed sensor from manufacturer [Holybro](https://holybro.com/products/digital-air-speed-sensor) or distributor [Hobbyking](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
 - On screen display with integrated Telemetry:
   - [Hobbyking OSD + EU Telemetry (433 MHz)](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html)
 - Pure Telemetry options:
@@ -69,7 +69,3 @@ Developers will need to solder wires to the board test pads for SWD, and to the 
 | UART4  | /dev/ttyS2 | GPS                      |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
-
-## Key Links
-
-- [User Manual](http://www.holybro.com/manual/pixfalcon11.pdf)

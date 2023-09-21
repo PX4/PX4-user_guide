@@ -25,6 +25,6 @@ float32 value                   # range: [-1, 1], where 1 means maximum positive
                                 # and NaN maps to disarmed (stop the motors)
 uint32 timeout_ms               # timeout in ms after which to exit test mode (if 0, do not time out)
 
-uint8 ORB_QUEUE_LENGTH = 12                     # same as MAX_NUM_MOTORS to support code in esc_calibration
+uint8 ORB_QUEUE_LENGTH = 16                     # >= MAX_NUM_MOTORS to support code in esc_calibration
 
 ```

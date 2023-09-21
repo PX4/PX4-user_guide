@@ -75,9 +75,10 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
 
 ### Quad
 
-[Skypull](https://www.skypull.technology/) Tethered quad tailsitter (promotional video) @[youtube](https://youtu.be/6s-Izqb_GVs)
-
----
+<!-- 
+[Skypull](https://www.skypull.technology/) Tethered quad tailsitter (promotional video)
+@[youtube](https://youtu.be/6s-Izqb_GVs)
+-->
 
 [UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/valaq_patrol_technical_data/) - Tailsitter takeoff, transition, landing.
 
