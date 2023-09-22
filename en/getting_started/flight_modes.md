@@ -57,7 +57,7 @@ Rover/Boat:
 * Autonomous: [Mission](#mission-mode-ugv)
 
 :::note
-Only manual and mission modes are supported.
+Only manual and mission modes are supported for rovers and boats.
 YOu can switch to any other mode but the behaviour will be the same as for manual mode.
 :::
 
