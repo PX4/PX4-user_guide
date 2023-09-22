@@ -5,7 +5,7 @@ They are loosely grouped into *manual*, *assisted* and *auto* modes, based on th
 The pilot transitions between flight modes using switches on the remote control or with a ground control station.
 
 Not all flight modes are available on all vehicle types, and some modes behave differently on different vehicle types (as described below).
-Finally, some flight modes make sense only under specific pre-flight and in-flight conditions (e.g. GPS lock, airspeed sensor, vehicle attitude sensing along an axis).
+Finally, some flight modes make sense only under specific pre-flight and in-flight conditions (e.g. GPS lock).
 The system will not allow transitions to those modes until the right conditions are met.
 
 The sections below provide an overview of the modes, followed by a [flight mode evaluation diagram](#flight-mode-evaluation-diagram) that shows the conditions under which PX4 will transition into a new mode.
