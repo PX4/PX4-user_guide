@@ -268,7 +268,7 @@ When all remote control inputs are centered (no roll, pitch, yaw, and ~50% throt
 
 :::tip
 *Altitude mode* is the safest non GPS guided mode appropriate for beginners learning how to fly.
-It is just like [Manual](#manual_fw) mode but additionally stabilizes the vehicle altitude when the pitch stick is released.
+It is just like [Stabilized](#stabilized_fw) mode but additionally stabilizes the vehicle altitude and airspeed.
 :::
 
 ![FW Altitude Mode](../../assets/flight_modes/altitude_FW.png)
