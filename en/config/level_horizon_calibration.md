@@ -3,8 +3,7 @@
 You can use *Level Horizon Calibration* to compensate for small misalignments in controller orientation and to level the horizon in the *QGroundControl* flight view (blue on top and green on bottom). 
 
 :::tip
-Leveling the horizon is highly recommended, and will result in the best flight performance.
-This process can also be repeated if you notice a constant drift during flight.
+Performing this calibration step is only recommended if the autopilot's orientation is visibly misaligned with the specified orientation, or if there is a constant drift during flight in not position-controlled flight modes.
 :::
 
 ## Performing the Calibration 
