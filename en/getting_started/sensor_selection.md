@@ -25,9 +25,7 @@ GPS/compass hardware options are listed in:
 - [RTK GPS](../gps_compass/rtk_gps.md)
 
 :::note
-[Pixhawk-series](../flight_controller/pixhawk_series.md) controllers include an *internal* compass. 
-This *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines.
-On small vehicles an external compass is almost always required.
+[Pixhawk-series](../flight_controller/pixhawk_series.md) controllers include an *internal* compass. Due to electromagnetic interference caused by power cables close to the flight controller, it is highly recommended to not rely on the internal compass for heading estimation and instead to mount an external one.
 :::
 
 ## Airspeed
