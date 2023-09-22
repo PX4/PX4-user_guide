@@ -21317,6 +21317,65 @@ table {
 </tr>
 </tbody></table>
 
+## Multicopter Acro Mode
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="MC_ACRO_EXPO">MC_ACRO_EXPO</strong> (FLOAT)</td>
+ <td>Acro mode roll, pitch expo factor <p><strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve</p>   </td>
+ <td>[0, 1] </td>
+ <td>0.</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MC_ACRO_EXPO_Y">MC_ACRO_EXPO_Y</strong> (FLOAT)</td>
+ <td>Acro mode yaw expo factor <p><strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve</p>   </td>
+ <td>[0, 1] </td>
+ <td>0.</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MC_ACRO_P_MAX">MC_ACRO_P_MAX</strong> (FLOAT)</td>
+ <td>Acro mode maximum pitch rate <p><strong>Comment:</strong> Full stick deflection leads to this rate.</p>   </td>
+ <td>[0.0, 1800.0] (5)</td>
+ <td>100.</td>
+ <td>deg/s</td>
+</tr>
+<tr>
+ <td><strong id="MC_ACRO_R_MAX">MC_ACRO_R_MAX</strong> (FLOAT)</td>
+ <td>Acro mode maximum roll rate <p><strong>Comment:</strong> Full stick deflection leads to this rate.</p>   </td>
+ <td>[0.0, 1800.0] (5)</td>
+ <td>100.</td>
+ <td>deg/s</td>
+</tr>
+<tr>
+ <td><strong id="MC_ACRO_SUPEXPO">MC_ACRO_SUPEXPO</strong> (FLOAT)</td>
+ <td>Acro mode roll, pitch super expo factor <p><strong>Comment:</strong> "Superexponential" factor for refining the input curve shape tuned using MC_ACRO_EXPO. 0 Pure Expo function 0.7 reasonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>   </td>
+ <td>[0, 0.95] </td>
+ <td>0.</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MC_ACRO_SUPEXPOY">MC_ACRO_SUPEXPOY</strong> (FLOAT)</td>
+ <td>Acro mode yaw super expo factor <p><strong>Comment:</strong> "Superexponential" factor for refining the input curve shape tuned using MC_ACRO_EXPO_Y. 0 Pure Expo function 0.7 reasonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>   </td>
+ <td>[0, 0.95] </td>
+ <td>0.</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MC_ACRO_Y_MAX">MC_ACRO_Y_MAX</strong> (FLOAT)</td>
+ <td>Acro mode maximum yaw rate <p><strong>Comment:</strong> Full stick deflection leads to this rate.</p>   </td>
+ <td>[0.0, 1800.0] (5)</td>
+ <td>100.</td>
+ <td>deg/s</td>
+</tr>
+</tbody></table>
+
 ## Multicopter Attitude Control
 
 <table>
@@ -21887,55 +21946,6 @@ table {
    <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
-<tr>
- <td><strong id="MC_ACRO_EXPO">MC_ACRO_EXPO</strong> (FLOAT)</td>
- <td>Acro mode Expo factor for Roll and Pitch <p><strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve</p>   </td>
- <td>[0, 1] </td>
- <td>0.69</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MC_ACRO_EXPO_Y">MC_ACRO_EXPO_Y</strong> (FLOAT)</td>
- <td>Acro mode Expo factor for Yaw <p><strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve</p>   </td>
- <td>[0, 1] </td>
- <td>0.69</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MC_ACRO_P_MAX">MC_ACRO_P_MAX</strong> (FLOAT)</td>
- <td>Max acro pitch rate <p><strong>Comment:</strong> default: 2 turns per second</p>   </td>
- <td>[0.0, 1800.0] (5)</td>
- <td>720.0</td>
- <td>deg/s</td>
-</tr>
-<tr>
- <td><strong id="MC_ACRO_R_MAX">MC_ACRO_R_MAX</strong> (FLOAT)</td>
- <td>Max acro roll rate <p><strong>Comment:</strong> default: 2 turns per second</p>   </td>
- <td>[0.0, 1800.0] (5)</td>
- <td>720.0</td>
- <td>deg/s</td>
-</tr>
-<tr>
- <td><strong id="MC_ACRO_SUPEXPO">MC_ACRO_SUPEXPO</strong> (FLOAT)</td>
- <td>Acro mode SuperExpo factor for Roll and Pitch <p><strong>Comment:</strong> SuperExpo factor for refining the input curve shape tuned using MC_ACRO_EXPO. 0 Pure Expo function 0.7 reasonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>   </td>
- <td>[0, 0.95] </td>
- <td>0.7</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MC_ACRO_SUPEXPOY">MC_ACRO_SUPEXPOY</strong> (FLOAT)</td>
- <td>Acro mode SuperExpo factor for Yaw <p><strong>Comment:</strong> SuperExpo factor for refining the input curve shape tuned using MC_ACRO_EXPO_Y. 0 Pure Expo function 0.7 reasonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>   </td>
- <td>[0, 0.95] </td>
- <td>0.7</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MC_ACRO_Y_MAX">MC_ACRO_Y_MAX</strong> (FLOAT)</td>
- <td>Max acro yaw rate <p><strong>Comment:</strong> default 1.5 turns per second</p>   </td>
- <td>[0.0, 1800.0] (5)</td>
- <td>540.0</td>
- <td>deg/s</td>
-</tr>
 <tr>
  <td><strong id="MC_BAT_SCALE_EN">MC_BAT_SCALE_EN</strong> (INT32)</td>
  <td>Battery power level scaler <p><strong>Comment:</strong> This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery. The copter should constantly behave as if it was fully charged with reduced max acceleration at lower battery percentages. i.e. if hover is at 0.5 throttle at 100% battery, it will still be 0.5 at 60% battery.</p>   </td>
