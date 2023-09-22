@@ -153,7 +153,7 @@ The [Orbit mode](../flight_modes/orbit.md) allows you to command a multicopter (
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Hold mode](../flight_modes/hold.md) causes the multicopter to stop and hover at its current position and altitude (maintaining position against wind and other forces). The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. 它可以通过与编程的RC开关或者*QGroundControl*的**Pause**按钮来激活。
+[Hold mode](../flight_modes/hold.md) causes the multicopter to stop and hover at its current position and altitude (maintaining position against wind and other forces). The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. 它可以通过预编程的RC开关或者*QGroundControl*的**Pause**按钮来激活。
 
 
 <a id="return_mc"></a>
@@ -175,8 +175,7 @@ The return behaviour depends on parameter settings, and may follow a mission pat
 
 [Mission mode](../flight_modes/mission.md) causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application.
 
-:::tip
-The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en/). *QGroundControl* is the same application we use for [configuring PX4](../config/README.md).
+:::tip PX4 GCS 叫做[QGroundControl](https://docs.qgroundcontrol.com/master/en/). *QGroundControl*是我们为[配置PX4](../config/README.md)所使用的程序。
 :::
 
 <a id="takeoff_mc"></a>
@@ -203,7 +202,7 @@ The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Follow Me mode](../flight_modes/follow_me.md) causes a multicopter to autonomously follow and track a user providing their current position setpoint. Position setpoints might come from an Android phone/tablet running *QGroundControl* or from a MAVSDK app.
+[Follow Me mode](../flight_modes/follow_me.md) causes a multicopter to autonomously follow and track a user providing their current position setpoint. 位置定点可能来自运行*QGroundControl*的Android手机/平板或者MAVSDK应用程序。
 
 <a id="offboard_mc"></a>
 
@@ -250,8 +249,7 @@ The climb/descent rate is controlled via the pitch/elevator stick. Once centered
 
 When all remote control inputs are centered (no roll, pitch, yaw, and ~50% throttle) the aircraft will return to straight, level flight (subject to wind) and keep its current altitude.
 
-:::tip
-*Altitude mode* is the safest non GPS guided mode appropriate for beginners learning how to fly. It is just like [Manual](#manual_fw) mode but additionally stabilizes the vehicle altitude when the pitch stick is released.
+*高度模式*是最安全的没有GPS的引导模式适合初学者学习如何飞行。 It is just like [Manual](#manual_fw) mode but additionally stabilizes the vehicle altitude when the pitch stick is released.
 :::
 
 ![FW Altitude Mode](../../assets/flight_modes/altitude_FW.png)
@@ -267,8 +265,7 @@ When all remote control inputs are centered (no roll, pitch, yaw, and ~50% throt
 
 The vehicle climb/descends based on pitch input and performs a coordinated turn if the roll/pitch sticks are non-zero. Roll and pitch are angle controlled (you can't roll upside down or loop).
 
-:::tip
-*Stabilized mode* is much easier to fly than [Manual mode](#manual_fw) because you can't roll or flip it, and it is easy to level the vehicle by centering the control sticks.
+*稳定模式*比[手动模式](#manual_fw)更容易飞行，因为你不能滚动或者反转它，并且可以很容易通过控制杆回中保持飞机水平。
 :::
 
 The vehicle will glide if the throttle is lowered to 0% (motor stops). In order to perform a turn the command must beheld throughout the maneuver because if the roll is released the plane will stop turning and level itself (the same is true for pitch and yaw commands).
@@ -284,7 +281,7 @@ The vehicle will glide if the throttle is lowered to 0% (motor stops). In order 
 
 [Acro mode](../flight_modes/acro_fw.md) is the RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
 
-The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
+滚转、俯仰和偏航摇杆控制围绕相应轴旋转角速率，油门直接传递到控制分配。 When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
 
 ![FW Manual Acrobatic Flight](../../assets/flight_modes/manual_acrobatic_FW.png)
 
@@ -295,7 +292,7 @@ The roll, pitch and yaw sticks control the rate of angular rotation around the r
 
 [<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
-[Manual mode](../flight_modes/manual_fw.md) sends RC stick input directly to control allocation for "fully" manual control.
+[手动模式](../flight_modes/manual_fw.md)发送摇杆输入来控制分配，以实现“完全”手动控制。
 
 :::tip
 This is the hardest mode to fly, because nothing is stabilised. Unlike [Acro Mode](#acro_fw) if the RP stick is centered the vehicle will not automatically stop rotating around the axis - the pilot actually has to move the stick to apply force in the other direction.
@@ -312,7 +309,7 @@ It provides a safety mechanism that allows full control of throttle, elevator, a
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Hold](../flight_modes/hold.md) causes a fixed-wing vehicle to start circling around the current position at its current altitude. The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. It can be activated with a pre-programmed RC switch or the *QGroundControl* **Pause** button.
+[Hold](../flight_modes/hold.md) causes a fixed-wing vehicle to start circling around the current position at its current altitude. The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. 它可以通过预编程的RC开关或者*QGroundControl*的**Pause**按钮来激活。
 
 
 <a id="return_fw"></a>
@@ -335,8 +332,7 @@ The return behaviour depends on parameter settings, and may follow a mission pat
 [Mission mode](../flight_modes/mission.md) causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application.
 
 
-:::tip
-The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en/). *QGroundControl* is the same application we use for [configuring PX4](../config/README.md).
+:::tip PX4 GCS 叫做[QGroundControl](https://docs.qgroundcontrol.com/master/en/). *QGroundControl*是我们为[配置PX4](../config/README.md)所使用的程序。
 :::
 
 <a id="takeoff_fw"></a>
@@ -354,7 +350,7 @@ The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;
 
-[Land mode](../flight_modes/land.md) causes the vehicle to turn and land at the location at which the mode was engaged. Fixed wing landing logic and parameters are explained in the topic: [Mission > Fixed Wing Mission Landing](../flight_modes/mission.md#fw-mission-landing).
+[Land mode](../flight_modes/land.md) causes the vehicle to turn and land at the location at which the mode was engaged. 固定翼着陆逻辑和参数在主题：[任务>固定翼任务着陆](../flight_modes/mission.md#fw-mission-landing)中说明。
 
 <a id="offboard_fw"></a>
 
@@ -393,7 +389,7 @@ Ground vehicles and boats only support [manual mode](#manual-mode-ugv) and [miss
 This mode is enabled unless mission mode is set.
 :::
 
-*Manual mode* stops motors when RC control sticks are centered. To move the vehicle you move the sticks outside of the center.
+当控制杆在中央的时候*手动模式*停止电机。 To move the vehicle you move the sticks outside of the center.
 
 <!--
 When under manual control the roll and pitch sticks control the angle of the vehicle (attitude), the yaw stick controls the rate of rotation above the horizontal plane, and the throttle controls altitude/speed.
@@ -406,14 +402,13 @@ As soon as you release the control sticks they will return to the center deadzon
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-*Mission mode*<!-- \[Mission mode\](../flight_modes/mission.md) -->causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application.
+*任务模式*<!-- \[Mission mode\](../flight_modes/mission.md) -->使飞行器执行已上传到飞行控制器的预定义的自主[任务](../flying/missions.md)（飞行计划）。 The mission is typically created and uploaded with a Ground Control Station (GCS) application.
 
-:::tip
-The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en/). *QGroundControl* is the same application we use for [configuring PX4](../config/README.md).
+:::tip PX4 GCS 叫做[QGroundControl](https://docs.qgroundcontrol.com/master/en/). *QGroundControl*是我们为[配置PX4](../config/README.md)所使用的程序。
 :::
 
 
 ## Further Information
 
-* [Flying > Flight Modes](../flight_modes/README.md) - Detailed technical explanation of all modes
-* [Basic Configuration > Flight Modes](../config/flight_mode.md) - How to map RC control switches to specific flight modes
+* [飞行> 飞行模式 ](../flight_modes/README.md) - 所有模式的详细技术说明。
+* [基本配置 > 飞行模式 ](../config/flight_mode.md) - 如何将 RC 控制开关映射到特定飞行模式。
