@@ -277,7 +277,7 @@ Parameter | Description
 [FW_LND_EARLYCFG](../advanced_config/parameter_reference.md#FW_LND_EARLYCFG) | Optionally deploy landing configuration during the landing descent orbit (e.g. flaps, spoilers, landing airspeed).
 [FW_LND_AIRSPD](../advanced_config/parameter_reference.md#FW_LND_AIRSPD) | Calibrated airspeed setpoint during landing.
 [FW_FLAPS_LND_SCL](../advanced_config/parameter_reference.md#FW_FLAPS_LND_SCL) | Flaps setting during landing.
-[FW_LND_THRTC_SC](../advanced_config/parameter_reference.md#FW_LND_THRTC_SC) | Altitude time constant factor for landing (overrides default [TECS tuning](../config_fw/advanced_tuning_guide_fixedwing.md)).
+[FW_LND_THRTC_SC](../advanced_config/parameter_reference.md#FW_LND_THRTC_SC) | Altitude time constant factor for landing (overrides default [TECS tuning](../config_fw/position_tuning_guide_fixedwing.md)).
 
 ### Flaring / Roll-out
 
