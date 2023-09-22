@@ -1,7 +1,5 @@
 # Airspeed Calibration
 
-The airspeed calibration needs to read a stable baseline with 0 airspeed in order to determine an offset.
-
 :::note
 [Airspeed sensors](../sensor/airspeed.md) are highly recommended for Fixed Wing and VTOL vehicles.
 :::
