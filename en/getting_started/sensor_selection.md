@@ -49,7 +49,7 @@ For more information and recommended hardware see: [Sensors > Tachometers](../se
 
 ## Distance
 
-Distance sensors are used for precision landing, object avoidance and terrain following.
+Distance sensors are used for smooth landings, object avoidance and terrain following.
 
 PX4 supports many affordable distance sensors, using different technologies, and supporting different ranges and features.
 For more information see: [Distance Sensors](../sensor/rangefinders.md).
