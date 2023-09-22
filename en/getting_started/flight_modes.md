@@ -42,8 +42,8 @@ Vehicles can flip, and while more maneuverable, are harder to fly.
 
 Fixed Wing:
 
-* Manual-Easy: [Position](#position-mode-fw), [Altitude](#altitude-mode-fw), [Stabilized](#stabilized-mode-fw), [Manual](#manual-mode-fw)
-* Manual-Acrobatic: [Acro](#acro-mode-fw)
+* Manual-Easy: [Position](#position-mode-fw), [Altitude](#altitude-mode-fw), [Stabilized](#stabilized-mode-fw)
+* Manual-Acrobatic: [Manual](#manual-mode-fw), [Acro](#acro-mode-fw)
 * Autonomous: [Hold](#hold_fw), [Return](#return-mode-fw), [Mission](#mission-mode-fw), [Takeoff](#takeoff-mode-fw), [Land](#land-mode-fw), [Offboard](#offboard-mode-fw)
 
 Multicopter/Helicopter:
