@@ -15,9 +15,6 @@ Before calibration they must be [enabled via the corresponding parameter](../adv
 
 ## Performing the Calibration
 
-The airspeed calibration needs to read a stable baseline with 0 airspeed in order to determine an offset.
-Cup your hands over the pitot to block any wind (if calibrating the sensor indoors this is not needed) and then blow into the tube using your mouth (to signal completion of the calibration).
-
 To calibrate the airspeed sensor:
 
 1. Start *QGroundControl* and connect the vehicle.
@@ -37,7 +34,7 @@ To calibrate the airspeed sensor:
    If they are swapped then the sensor will read a large negative differential pressure when you blow into the tube, and the calibration will abort with an error. 
    :::
 
-1. Wait for 2-3 seconds before removing the covering (calibration completes silently after several seconds)
+1. The GUI of *QGroundControl* tells you if the calibration was successful or not. 
 
 
 ## Further Information
