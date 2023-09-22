@@ -26,7 +26,7 @@ To level the horizon:
    
 ## Verification
 
-After the orientation is set and level-horizon calibration is complete, check in the flight view that the heading in the compass shows a value around 0 when you point the vehicle towards north and that the horizon is level (blue on top and green on bottom).
+Check that the artificial horizon displayed in the flight view has the indicator in the middle when the vehicle is placed on a level surface.
 
 
 ## Further Information
