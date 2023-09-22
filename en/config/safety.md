@@ -21,7 +21,7 @@ Action | Description
 --- | ---
 <a id="action_none"></a>None/Disabled | No action. The failsafe will be ignored.
 <a id="action_warning"></a>Warning | A warning message will be sent (i.e. to *QGroundControl*).
-<a id="action_hold"></a>[Hold mode](../flight_modes/hold.md) | The vehicle will enter *Hold mode*. For multicopters this means the vehicle will hover, while for fixed/wing the vehicle will circle.
+<a id="action_hold"></a>[Hold mode](../flight_modes/hold.md) | The vehicle will enter *Hold mode*. For multicopters this means the vehicle will hover, while for fixed-wing the vehicle will circle.
 <a id="action_return"></a>[Return mode](../flight_modes/return.md) | The vehicle will enter *Return mode*. Return behaviour can be set in the [Return Home Settings](#return-mode-settings) (below).
 <a id="action_land"></a>[Land mode](../flight_modes/land.md) | The vehicle will enter *Land mode*, and lands immediately.
 <a id="action_disarm"></a>Disarm | Stops the motors immediately.
@@ -62,9 +62,10 @@ Battery Warn Level | [BAT_LOW_THR](../advanced_config/parameter_reference.md#BAT
 Battery Emergency Level | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | Percentage capacity for triggering Land (immediately) action.
 
 
-### RC Loss Failsafe
+### Manual Control Loss failsafe
 
-The RC Loss failsafe may be triggered if the RC transmitter link is lost.
+The manual control loss failsafe may be triggered if the RC transmitter link is lost.
+On setups without RC but with joysticks connected over MAVLink, it is triggered if the joysticks are disconnected or the data link is lost.
 
 :::note
 PX4 and the receiver may also need to be configured in order to *detect RC loss*: [Radio Setup > RC Loss Detection](../config/radio.md#rc-loss-detection).
