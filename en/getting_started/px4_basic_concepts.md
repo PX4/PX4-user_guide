@@ -137,7 +137,7 @@ Some RC systems can additionally receive telemetry information back from the aut
 [RC System Selection](../getting_started/rc_transmitter_receiver.md) explains how to choose an RC system. Other related topics include:
 
 - [Radio/Remote Control Setup](../config/radio.md) - Remote control configuration in _QGroundControl_.
-- [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.
+- [Manual Flying](../flying/basic_flying.md) - Learn how to fly with a remote control.
 - [FrSky Telemetry](../peripherals/frsky_telemetry.md) - Set up the RC transmitter to receive telemetry/status updates from PX4.
 
 ### GCS Joystick Controller
