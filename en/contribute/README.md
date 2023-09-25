@@ -11,6 +11,7 @@ This code aims to foster an open and welcoming environment.
 :::
 
 This section contains information about contributing to PX4, including the source code, documentation, and translations, and their relevant licenses.
+* [Maintainers](./maintainers.md) - Maintainers of PX4 Subsystems and Ecosystem
 * [Dev Call](../contribute/dev_call.md) - Discuss architecture, pull requests, impacting issues with the dev team
 * [Codeline Management](../contribute/code.md) - Work with PX4 code
 * [Documentation](../contribute/docs.md) - Improve the docs

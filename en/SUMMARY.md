@@ -684,6 +684,7 @@
       * [External Position Estimation (Vision/Motion based)](ros/external_position_estimation.md)
   * [DroneKit](robotics/dronekit.md)
 * [Contribution (&Dev Call)](contribute/README.md)
+  * [Maintainers](contribute/maintainers.md)
   * [Dev Call](contribute/dev_call.md)
   * [Support](contribute/support.md)
   * [Source Code Management](contribute/code.md)
