@@ -1,13 +1,12 @@
 # 传感器
 
-基于 PX4 的系统使用传感器来确定飞行器状态（自稳和启用自主控制所需）。 飞行器状态包括：位置/高度，航向，速度，空速，方向（姿态），不同方向的旋转速率，电池电量等。
+基于 PX4 的系统使用传感器来确定飞行器状态（自稳和启用自主控制所需）。 The vehicle states include: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different directions, battery level, and so on.
 
-The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. 需要 GPS 或其他定位系统来启用所有自动[模式](../getting_started/flight_modes.md#categories)和一些辅助模式。 固定翼和 VTOL 飞行器还应包括空速传感器（特别推荐）。
+PX4 *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. 需要 GPS 或其他定位系统来启用所有自动[模式](../getting_started/flight_modes.md#categories)和一些辅助模式。 固定翼和 VTOL 飞行器还应包括空速传感器（特别推荐）。
 
-最小的传感器组合集成在 [Pixhawk 系列](../flight_controller/pixhawk_series.md) 飞控上（并且也能存在其他飞控平台上）。 附加/外部传感器可以连接到控制器。
+最小的传感器组合集成在 [Pixhawk 系列](../flight_controller/pixhawk_series.md) 飞控上（并且也能存在其他飞控平台上）。 Additional/external sensors, in particular a GPS, can be attached to the controller.
 
-下面我们介绍一些传感器。 最后有链接到关于 [传感器接线](#wiring) 的信息。
-
+Below we describe some of the more important external sensors.
 
 <a id="gps_compass"></a>
 
@@ -36,15 +35,6 @@ Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames.
 
 有关更多信息和推荐的硬件，请参阅：[空速传感器](../sensor/airspeed.md)。
 
-## 转速计
-
-Tachometers ([revolution-counter sensors](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft)) are *highly recommended* for rotor-wing frames because they allow the autopilot to detect stall or another rotor failure (for rotor-wing flight it is the rotation of blades that guarantees lift not airspeed or ground speed).
-
-![Digital RPM Sensor - TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
-
-For more information and recommended hardware see: [Sensors > Tachometers](../sensor/tachometers.md).
-
-
 ## 距离传感器
 
 距离传感器用于精准着陆，避障和地形跟随。
@@ -60,14 +50,8 @@ PX4 支持许多实惠的距离传感器，使用不同的技术，并支持不�
 ![Image of ARK Flow optical flow sensor](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
 
 
-<a id="wiring"></a>
+## See Also
 
-## 传感器接线
-
-传感器接线信息通常在飞控和传感器本身的制造商文档中提供。
-
-另外，请参阅：
-
-- [基本组件](../assembly/README.md)包含飞控快速入门指南。 其包括核心传感器到特定飞控硬件的接线。
+- [Peripheral Hardware](../peripherals/README.md) contains documentation for other sensors, such as [Battery/Power Monitors](../power_module/README.md)), [Air traffic warning systems](../peripherals/adsb_flarm.md), [Tachometers](../sensor/tachometers.md).
+- [基本组件](../assembly/README.md)包含飞控快速入门指南。 These explain how to connect the core sensors to specific flight controller hardware.
 - [飞控](../flight_controller/README.md) 主题通常包含接线信息。
-- [外设硬件](../peripherals/README.md)包含其他传感器的文档。
