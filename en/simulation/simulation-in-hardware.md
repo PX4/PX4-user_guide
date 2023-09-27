@@ -36,10 +36,11 @@ To run the SIH, you will need a [flight controller](../flight_controller/README.
 you will also need either a [radio control transmitter and receiver pair](../getting_started/rc_transmitter_receiver.md) or a [joystick](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html) (a joystick can be used via QGroundControl to emulate a radio control system).
 
 - SIH is compatible with all Pixhawk-series boards except those based on FMUv2.
-- SIH for quadrotor supported from PX4 v1.9.
-- SIH for fixed-wing (airplane) and tailsitter are supported in versions after PX v1.12 (currently in the master branch).
+- SIH for quadrotor is supported from PX4 v1.9.
+- SIH for fixed-wing (airplane) and tailsitter are supported from PX4 v1.13.
+- SIH as SITL (without hardware) from PX4 v1.14.
 
-## Setting up SIH
+## Setting up the SIH
 
 Running the SIH is as easy as selecting an airframe.
 Plug the autopilot to the desktop computer with a USB cable, let it boot, then using a ground control station select [SIH Quadcopter X](../airframes/airframe_reference.md#copter_simulation_sih_quadcopter_x), `SIH plane AERT`, or 'SIH Tailsitter Duo'.
@@ -56,7 +57,7 @@ Also, if the airplane hits the floor the state estimator might lose its fix.
 
 The simulated vehicle can be displayed in jMAVSim for the following PX4 versions:
 - Quadrotor from PX4 v1.11.
-- Fixed-wing from the PX4 master (or the release version after PX4 v1.12).
+- Fixed-wing from PX4 v1.13.
 
 To display the simulated vehicle:
 1. Close *QGroundControl* (if open).
@@ -77,10 +78,25 @@ To display the simulated vehicle:
 At this point, the system can be armed and flown.
 The vehicle can be observed moving in jMAVSim, and on the QGC _Fly_ view.
 
+## Running the SIH as SITL (without hardware)
+
+The SIH can be run as Software-In-The-Loop from v1.14. It means the real code is executed on the laptop/computer without the hardware autopilot. 
+To run the SIH as SITL, the [compilation toolchain](https://docs.px4.io/main/en/dev_setup/dev_env.html) must be installed first. 
+The command to run it
+1. as a quadrotor: `make px4_sitl sihsim_quadx`
+1. as a fixed wing airplane: `make px4_sitl sihsim_airplane`
+1. as the XVert tailsitter: `make px4_sitl sihsim_xvert`
+
+The SITL allows the simulation to be run faster than real time. To run the airplane simulation 10 times faster than real time, run the command
+```
+PX4_SIM_SPEED_FACTOR=10 make px4_sitl sihsim_airplane
+```
 
 ## Credits
 
 The SIH was originally developed by Coriolis g Corporation, then the airplane model and tailsitter models were added by Altitude R&D inc.
-Both are Canadian companies, [Coriolis g](http://ww7.vogi-vtol.com) develops a new type of Vertical Takeoff and Landing (VTOL) vehicles based on passive coupling systems;
-[Altitude R&D](https://www.altitude-rd.com/) is specialized in dynamics, control, and real-time simulation.
+Both are Canadian companies, 
+- [Coriolis g](http://ww7.vogi-vtol.com) develops a new type of Vertical Takeoff and Landing (VTOL) vehicles based on passive coupling systems;
+- [Altitude R&D](https://www.altitude-rd.com/) is specialized in dynamics, control, and real-time simulation.
+
 They provide the SIH as a simple simulator for quadrotors and airplanes released for free under BSD license.
