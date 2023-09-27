@@ -1,19 +1,16 @@
-# Radio Control (RC) Setup
+# 无线电控制（遥控）设置
 
-The *Radio Setup* screen is used to configure the mapping of your RC controller's main attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
+*遥控器设置 *界面是用来映射遥控器的摇杆（如横滚、俯仰、偏航以及油门）通道，校准最小值和最大值和遥控器的正反向设置。
 
-:::note
-A [Joystick](../config/joystick.md) can be used instead of RC for manual control. The [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) parameter [can be set](../advanced_config/parameters.md) to define what kind of manual controller(s) are enabled. :::
+可以使用[操纵杆](../config/joystick.md)代替遥控器手动控制。 [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE)参数[可以设置](../advanced_config/parameters.md)来定义启用哪种类型的手动控制器。 :::
 
 ## 绑定接收机
 
 在你校准遥控器之前，遥控器的发射机和接收机需要绑定（对频）。 发射机和接收机对频的方法各有不同（请参照您使用的遥控器的说明书） 提醒：如果您使用的是 Spektrum 的接收机， 提醒：如果您使用的是 FrSky 的接收机，您可以在发射机上进行绑定（对频），下面是介绍。
 
-:::note
-If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*, as [shown below](#spectrum-bind). :::
+如果您使用*Spektrum*接收器，您可以使用*QGroundControl*置于绑定模式，如[下面所示](#spectrum-bind)。 :::
 
-:::note
-If you are using a *FrSky* receiver, you can bind it with its transmitter, by following instructions [here](https://www.youtube.com/watch?v=1IYg5mQdLVI). :::
+如果您使用*FrSky*接收器，您可以在按照[此处](https://www.youtube.com/watch?v=1IYg5mQdLVI)的说明与发射机进行绑定。 :::
 
 
 ## RC Loss Detection
