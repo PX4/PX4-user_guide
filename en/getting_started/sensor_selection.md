@@ -1,13 +1,16 @@
 # Sensors
 
-PX4-based systems use sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The vehicle states include: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different directions, battery level, etc.
+PX4-based systems use sensors to determine vehicle state (needed for stabilization and to enable autonomous control).
+The vehicle states include: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different directions, battery level, and so on.
 
-The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
+PX4 *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer.
+A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes.
+Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
 
-The minimal set of sensors is incorporated into [Pixhawk Series](../flight_controller/pixhawk_series.md) flight controllers (and may also be in other controller platforms). Additional/external sensors can be attached to the controller.
+The minimal set of sensors is incorporated into [Pixhawk Series](../flight_controller/pixhawk_series.md) flight controllers (and may also be in other controller platforms).
+Additional/external sensors, in particular a GPS, can be attached to the controller.
 
-Below we describe some of the sensors. At the end there are links to information about [sensor wiring](#wiring).
-
+Below we describe some of the more important external sensors.
 
 <a id="gps_compass"></a>
 
@@ -34,7 +37,8 @@ On small vehicles an external compass is almost always required.
 
 Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames.
 
-They are so important because the autopilot does not have other means to detect stall. For fixed-wing flight it is the airspeed that guarantees lift not ground speed!
+They are so important because the autopilot does not have other means to detect stall.
+For fixed-wing flight it is the airspeed that guarantees lift not ground speed!
 
 ![Digital airspeed sensor](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
@@ -58,15 +62,9 @@ This sensor can be used indoors, when no GPS signal is available.
 ![Image of ARK Flow optical flow sensor](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
 
 
-<a id="wiring"></a>
+## See Also
 
-## Sensor Wiring
-
-Sensor wiring information is usually provided in manufacturer documentation for flight controllers and the sensors themselves.
-
-In addition, see:
-
+- [Peripheral Hardware](../peripherals/README.md) contains documentation for other sensors, such as [Battery/Power Monitors](../power_module/README.md)), [Air traffic warning systems](../peripherals/adsb_flarm.md), [Tachometers](../sensor/tachometers.md).
 - [Basic Assembly](../assembly/README.md) contains flight controller quick start guides.
-  These cover wiring of the core sensors to specific flight controller hardware.
+  These explain how to connect the core sensors to specific flight controller hardware.
 - [Flight Controller](../flight_controller/README.md) topics often contain wiring information.
-- [Peripheral Hardware](../peripherals/README.md) contains documentation for other sensors.
