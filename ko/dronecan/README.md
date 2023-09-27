@@ -104,9 +104,9 @@ For example, to use a connected DroneCAN smart battery you would enable the [UAV
 
 The parameter names are prefixed with `UAVCAN_SUB_` and `UAVCAN_PUB_` to indicate whether they enable PX4 subscribing or publishing. The remainder of the name indicates the specific message/feature being set.
 
-DroneCAN peripherals connected to PX4 can also be [configured using via QGC](#qgc-cannode-parameter-configuration). These are named with the prefix [CANNODE\_](../advanced_config/parameter_reference.md#CANNODE_BITRATE). `CANNODE_` parameters prefixed with `CANNODE_PUB_` and `CANNODE_SUB_` enable the peripheral to publish or subscribe the associated DroneCAN message. Note that if you enable publishing from one DroneCAN node, you are likely to need to enable subscribing from another.
+DroneCAN peripherals connected to PX4 can also be [configured using parameters via QGC](#qgc-cannode-parameter-configuration). By convention, parameters named with the prefix [CANNODE\_](../advanced_config/parameter_reference.md#CANNODE_BITRATE) have prefined meaning, and may be documented in the parameter reference. `CANNODE_` parameters prefixed with `CANNODE_PUB_` and `CANNODE_SUB_` enable the peripheral to publish or subscribe the associated DroneCAN message. These allow DroneCAN peripherals to be configured to only subscribe and publish messages that they actually need (in the same way that PX4 uses the corresponding `UAVCAN_PUB_`/`UAVCAN_SUB_` parameters). Note that a peripheral might might not use `CANNODE_` parameters, in which case it may have to publish/subscribe to particular messages whether or not they are needed.
 
-The following sections provide additional detail on the parameters used to enable particular features.
+The following sections provide additional detail on the PX4 and DroneCAN peripheral parameters used to enable particular features.
 
 #### Sensors
 
