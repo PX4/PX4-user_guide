@@ -64,8 +64,9 @@ Battery Emergency Level | [BAT_EMERGEN_THR](../advanced_config/parameter_referen
 
 ### Manual Control Loss failsafe
 
-The manual control loss failsafe may be triggered if the RC transmitter link is lost.
-On setups without RC but with joysticks connected over MAVLink, it is triggered if the joysticks are disconnected or the data link is lost.
+The manual control loss failsafe may be triggered if the connection to the [RC transmitter](../getting_started/rc_transmitter_receiver.md) or [joystick](../config/joystick.md) is lost, and there is no fallback.
+If using an [RC transmitter](../getting_started/rc_transmitter_receiver.md) this is triggered if the RC [transmitter link is lost](../getting_started/rc_transmitter_receiver.md#set-signal-loss-behaviour).
+If using [joysticks](../config/joystick.md) connected over a MAVLink data link, this is triggered if the joysticks are disconnected or the data link is lost.
 
 :::note
 PX4 and the receiver may also need to be configured in order to *detect RC loss*: [Radio Setup > RC Loss Detection](../config/radio.md#rc-loss-detection).
