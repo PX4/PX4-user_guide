@@ -1,13 +1,12 @@
 # 센서
 
-PX4 시스템은 안정화나 자율제어를  위하여 센서를 사용하여 기체의 상태를 파악합니다. 기체 상태에는 위치, 고도, 방향, 속도, 대기 속도, 방향, 회전 속도 및 배터리 잔량 등이 있습니다.
+PX4 시스템은 안정화나 자율제어를  위하여 센서를 사용하여 기체의 상태를 파악합니다. The vehicle states include: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different directions, battery level, and so on.
 
-자이로스코프, 가속도 센서, 지자기 센서와 기압 센서는 *시스템 구동을 위한 최소 요구 사항*입니다. 자동 [모드](../getting_started/flight_modes.md#categories)와  기타 모드에는 GPS나 이와 유사한 위치 확인 시스템이 요구됩니다. 고정익과 수직이착륙기에는 대기속도 센서가 필요합니다.
+PX4 *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. 자동 [모드](../getting_started/flight_modes.md#categories)와  기타 모드에는 GPS나 이와 유사한 위치 확인 시스템이 요구됩니다. 고정익과 수직이착륙기에는 대기속도 센서가 필요합니다.
 
-[Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 비행 콘트롤러에 최소한의 센서들이 내장되어 있습니다. 필요한 센서들을 콘트롤러에 추가할 수 있습니다.
+[Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 비행 콘트롤러에 최소한의 센서들이 내장되어 있습니다. Additional/external sensors, in particular a GPS, can be attached to the controller.
 
-아래에서 주요  센서들에 대하여 설명합니다. 마지막에는, [센서 배선 방법](#wiring)에 관한 자료들을 설명합니다.
-
+Below we describe some of the more important external sensors.
 
 <a id="gps_compass"></a>
 
@@ -36,15 +35,6 @@ GPS/compass hardware options are listed in:
 
 더 자세한 정보와 권장 하드웨어는 [대기속도 센서](../sensor/airspeed.md)를 참고하십시오.
 
-## 타코미터
-
-타코미터([회전 카운터 센서](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft))는 자동조종장치의 실속 또는 다른 로터 고장을 감지할 수 있기 때문에 로터 윙 프레임에서 *적극 권장*됩니다. 로터 윙 비행의 경우 양력을 발생시키는 것은 대지속도나 지면 속도가 아닌 블레이드의 회전입니다.
-
-![디지털 RPM 센서-TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
-
-더 자세한 정보와 권장되는 하드웨어는 [센서 &gt; 타코미터](../sensor/tachometers.md)편을 참고하십시오.
-
-
 ## 거리 센서
 
 정확한 착지, 장애물 회피와 등고 비행 등을 위하여 거리 센서가 필요합니다.
@@ -60,14 +50,8 @@ GPS/compass hardware options are listed in:
 ![Image of ARK Flow optical flow sensor](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
 
 
-<a id="wiring"></a>
+## See Also
 
-## 센서 배선
-
-센서들의 배선 방법는 일반적으로 비행 콘트롤러나 센서 제조사에서 매뉴얼로 제공합니다.
-
-추가:
-
-- [기초 초립법](../assembly/README.md)에는 비행 콘틀롤러에 관한 시작 가이드가 포함되어 있습니다. 특정 비행 콘트롤러의 주요 센서들의 배선 방법을 설명합니다.
+- [Peripheral Hardware](../peripherals/README.md) contains documentation for other sensors, such as [Battery/Power Monitors](../power_module/README.md)), [Air traffic warning systems](../peripherals/adsb_flarm.md), [Tachometers](../sensor/tachometers.md).
+- [기초 초립법](../assembly/README.md)에는 비행 콘틀롤러에 관한 시작 가이드가 포함되어 있습니다. These explain how to connect the core sensors to specific flight controller hardware.
 - [비행 콘트롤러](../flight_controller/README.md) 항목에서는 배선 정보를 설명합니다.
-- [ 주변 하드웨어 ](../peripherals/README.md)에는 주요 센서들에 대하여 설명합니다.
