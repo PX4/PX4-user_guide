@@ -34,7 +34,7 @@ To calibrate the airspeed sensor:
    If they are swapped then the sensor will read a large negative differential pressure when you blow into the tube, and the calibration will abort with an error. 
    :::
 
-1. The GUI of *QGroundControl* tells you if the calibration was successful or not. 
+1. *QGroundControl* then tells you if the calibration was successful or not. 
 
 
 ## Further Information
