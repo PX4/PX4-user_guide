@@ -1,11 +1,13 @@
+<Redirect to="../flight_modes_mc/position" />
+
 # 위치 모드(멀티콥터)
 
 [<img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*위치* 모드는 롤링이 가능한 비행하기 쉬운 RC 모드입니다. 피치 스틱은 차량의 좌우 및 전후 방향(자동차의 가속 페달과 유사)의 지면 가속을 제어하고, 스로틀은 상승-하강 속도를 제어합니다. 스틱을 풀거나 중앙에 놓으면 차량이 능동적으로 제동하고 수평을 맞추고 3D 공간의 위치에 고정되어 바람과 기타 힘을 보상합니다. With full stick deflection the vehicle accelerates initially with [MPC_ACC_HOR_MAX](#MPC_ACC_HOR_MAX) ramping down until it reaches the final velocity [MPC_VEL_MANUAL](#MPC_VEL_MANUAL).
+*Position* is an easy-to-fly RC mode in which roll and pitch sticks control acceleration over ground in the vehicle's left-right and forward-back directions (similar to a car's accelerator pedal), and throttle controls speed of ascent-descent. 스틱을 풀거나 중앙에 놓으면 차량이 능동적으로 제동하고 수평을 맞추고 3D 공간의 위치에 고정되어 바람과 기타 힘을 보상합니다. With full stick deflection the vehicle accelerates initially with [MPC_ACC_HOR_MAX](#MPC_ACC_HOR_MAX) ramping down until it reaches the final velocity [MPC_VEL_MANUAL](#MPC_VEL_MANUAL).
 
 :::tip
-위치 모드는 새 전단지를위한 가장 안전한 수동 모드입니다. [고도](../flight_modes/altitude_mc.md) 및 [수동 / 안정화](../flight_modes/manual_stabilized_mc.md) 모드와 달리, 차량은 바람의 저항에 의해 감속 될 때까지 계속되는 대신 스틱이 중앙에있을 때 정지합니다. :::
+위치 모드는 새 전단지를위한 가장 안전한 수동 모드입니다. Unlike [Altitude](../flight_modes_mc/altitude.md) and [Manual/Stabilized](../flight_modes_mc/manual_stabilized.md) modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance. :::
 
 아래 다이어그램은 모드 동작을 시각적으로 보여줍니다 (모드 2 송신기의 경우).
 
@@ -23,10 +25,10 @@
 :::warning
 잘 보정된 차량에서는 매우 드물지만 때때로 착륙에 문제가 발생할 수 있습니다.
 - 차량이 수평으로 움직이지 않는 경우:
-  - [고도 모드](../flight_modes/altitude_mc.md)에서 계속 착륙할 수 있습니다. 접근 방식은 롤 및 피치 스틱을 사용하여 차량이 착륙 지점 위에 있는지 수동으로 확인하는 점을 제외하고 위와 동일합니다.
+  - You can still land under control in [Altitude mode](../flight_modes_mc/altitude.md). 접근 방식은 롤 및 피치 스틱을 사용하여 차량이 착륙 지점 위에 있는지 수동으로 확인하는 점을 제외하고 위와 동일합니다.
   - 착륙 후 GPS와 자력계 방향을 확인하고 보정합니다.
 - 차량이 지상/착륙 및 무장 해제를 감지하지 못하는 경우:
-  - 차량이 지상에 도착한 후 스로틀 스틱을 낮게 유지하면서 [수동/안정화 모드](../flight_modes/manual_stabilized_mc.md)로 전환하고 제스처나 다른 명령을 사용하여 수동으로 무장 해제합니다. 또는 차량이 이미 지상에 있을 때 킬 스위치를 사용할 수도 있습니다. :::
+  - After the vehicle is on the ground switch to [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md) keeping the throttle stick low, and manually disarm using a gesture or other command. 또는 차량이 이미 지상에 있을 때 킬 스위치를 사용할 수도 있습니다. :::
 
 ## 기술 요약
 
