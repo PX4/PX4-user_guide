@@ -77,7 +77,7 @@ To setup and configure a helicopter:
    1. Assign the [motors and servos to the outputs](../config/actuators.md#actuator-outputs).
    1. Power the vehicle with a battery and use the [actuator testing sliders](../config/actuators.md#actuator-testing) to validate correct servo and motor assignment and direction.
 
-1. Using an RC in [Acro mode](../flight_modes/acro_mc.md), verify the correct movement of the swash-plate. With most airframes you need to see the following:
+1. Using an RC in [Acro mode](../flight_modes_mc/acro.md), verify the correct movement of the swash-plate. With most airframes you need to see the following:
 
    - Moving the roll stick to the right should tilt the swash-plate to the right.
    - Moving the pitch stick forward should tilt the swash-plate forward.
@@ -120,7 +120,7 @@ A negative value is needed when positive thrust of the tail rotor rotates the ve
 
 ### Rate Controller
 
-The rate controller should be tuned in [Acro mode](../flight_modes/acro_mc.md), but can also be done in [Stabilized mode](../flight_modes/manual_stabilized_mc.md) if you cannot fly Acro mode.
+The rate controller should be tuned in [Acro mode](../flight_modes_mc/acro.md), but can also be done in [Stabilized mode](../flight_modes_mc/manual_stabilized.md) if you cannot fly Acro mode.
 
 1. Start off with disabled rate controller gains, and only a small feed forward:
 

@@ -13,7 +13,7 @@ Manual tuning is recommended for frames where autotuning does not work, or where
 - Trims must be configured first (before PID turning).
   The [Fixed-Wing Trimming Guide](../config_fw/trimming_guide_fixedwing.md) explains how.
 - Incorrectly set gains during tuning can make attitude control unstable.
-  A pilot tuning gains should therefore be able to fly and land the plane in [manual](../flight_modes/manual_fw.md) (override) control.
+  A pilot tuning gains should therefore be able to fly and land the plane in [manual](../flight_modes_fw/manual.md) (override) control.
 - Excessive gains (and rapid servo motion) can violate the maximum forces of your airframe - increase gains carefully.
 - Roll and pitch tuning follow the same sequence.
   The only difference is that pitch is more sensitive to trim offsets, so [trimming](../config_fw/trimming_guide_fixedwing.md) has to be done carefully and integrator gains need more attention to compensate this.

@@ -32,7 +32,7 @@ Then adjust the sliders (as discussed below) to improve the tracking of the resp
 - Rate controller tuning is the most important, and if tuned well, the other controllers often need no or only minor adjustments
 - Usually the same tuning gains can be used for roll and pitch.
 - use Acro/Stabilized/Altitude mode to tune the rate controller
-- Use [Position mode](../flight_modes/position_mc.md) to tune the *Velocity Controller* and the *Position Controller*.
+- Use [Position mode](../flight_modes_mc/position.md) to tune the *Velocity Controller* and the *Position Controller*.
   Make sure to switch to the *Simple position control* mode so you can generate step inputs.
   ![QGC PID tuning: Simple control selector](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_simple_control.png)
 :::
@@ -45,7 +45,7 @@ Then adjust the sliders (as discussed below) to improve the tracking of the resp
 - If using PWM outputs their minimum values should be set correctly in the [Actuator Configuration](../config/actuators.md#actuator-configuration-and-testing).
   These need to be set low, but such that the **motors never stop** when the vehicle is armed.
 
-  This can be tested in [Acro mode](../flight_modes/acro_mc.md) or in [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md):
+  This can be tested in [Acro mode](../flight_modes_mc/acro.md) or in [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md):
   - Remove propellers
   - Arm the vehicle and lower the throttle to the minimum
   - Tilt the vehicle to all directions, about 60 degrees
@@ -63,7 +63,7 @@ Make sure to have assigned a [Kill switch](../config/safety.md#emergency-switche
 
 The tuning procedure is:
 
-1. Arm the vehicle, takeoff, and hover (typically in [Position mode](../flight_modes/position_mc.md)).
+1. Arm the vehicle, takeoff, and hover (typically in [Position mode](../flight_modes_mc/position.md)).
 1. Open _QGroundControl_ **Vehicle Setup > PID Tuning**
    ![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
 1. Select the **Rate Controller** tab.
@@ -82,7 +82,7 @@ The tuning procedure is:
    :::
 1. Set the *Select Tuning* radio button to: **Roll**.
 1. (Optionally) Select the **Automatic Flight Mode Switching** checkbox.
-   This will _automatically_ switch from [Position mode](../flight_modes/position_mc.md) to [Stabilised mode](../flight_modes/manual_stabilized_mc.md) when you press the **Start** button
+   This will _automatically_ switch from [Position mode](../flight_modes_mc/position.md) to [Stabilised mode](../flight_modes_mc/manual_stabilized.md) when you press the **Start** button
 1. For rate controller tuning switch to *Acro mode*, *Stabilized mode* or *Altitude mode* (unless automatic switching is enabled).
 1. Select the **Start** button in order to start tracking the setpoint and response curves.
 1. Rapidly move the *roll stick* full range and observe the step response on the plots.

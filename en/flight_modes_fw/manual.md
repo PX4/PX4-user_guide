@@ -1,5 +1,3 @@
-<Redirect to="../flight_modes_fw/manual" />
-
 # Manual Mode (Fixed-wing)
 
 <!-- this requires review -->

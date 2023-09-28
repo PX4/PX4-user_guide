@@ -10,7 +10,7 @@ PX4 support for this flight controller is [experimental](../flight_controller/au
 :::
 
 :::warning
-Crazyflie 2.1 is only able to fly in [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md).
+Crazyflie 2.1 is only able to fly in [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md).
 :::
 
 The Crazyflie line of micro quads was created by Bitcraze AB.
@@ -207,7 +207,7 @@ The Joystick menu in QGC, only appears after you connect the controller to the P
 
 ## Hardware Setup
 
-Crazyflie 2.1 is only able to fly in [Stabilized mode](../flight_modes/manual_stabilized_mc.md). 
+Crazyflie 2.1 is only able to fly in [Stabilized mode](../flight_modes_mc/manual_stabilized.md). 
 
 In order to log flight details, you can mount SD card deck on top of crazyflie as shown below:
 

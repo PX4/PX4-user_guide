@@ -72,7 +72,7 @@ th {
 <tbody>
 
 <tr id="position_fw">
- <td><a href="../flight_modes/position_fw.html">Position</a>
+ <td><a href="../flight_modes_mc/position.html">Position</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td>S<sup>+</sup></td>
@@ -97,7 +97,7 @@ th {
 
 
 <tr id="altitude_fw">
- <td><a href="../flight_modes/altitude_fw.html">Altitude</a>
+ <td><a href="../flight_modes_mc/altitude.html">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td><p>S (roll)</p><p>S<sup>+</sup>(pitch)</p></td>
@@ -126,7 +126,7 @@ th {
 
 
 <tr id="stabilized_fw">
- <td><a href="../flight_modes/stabilized_fw.html">Stabilized</a>
+ <td><a href="../flight_modes_fw/stabilized.html">Stabilized</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -145,7 +145,7 @@ th {
 </tr>
 
 <tr id="acro_fw">
- <td><a href="../flight_modes/acro_fw.html">Acro</a>
+ <td><a href="../flight_modes_mc/acro.html">Acro</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
  </td>
  <td>S<sub>rate</sub></td>
@@ -158,7 +158,7 @@ th {
 
 
 <tr id="manual_fw">
- <td><a href="../flight_modes/manual_fw.html">Manual</a>
+ <td><a href="../flight_modes_fw/manual.html">Manual</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
  </td>
  <td>M</td>
@@ -237,7 +237,7 @@ th {
 
 
 <tr id="position_mc">
- <td><a href="../flight_modes/position_mc.html">Position</a>
+ <td><a href="../flight_modes_mc/position.html">Position</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td>S<sup>+</sup></td>
@@ -267,7 +267,7 @@ th {
 </tr>
 
 <tr id="altitude_mc">
- <td><a href="../flight_modes/altitude_mc.html">Altitude</a>
+ <td><a href="../flight_modes_mc/altitude.html">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -300,7 +300,7 @@ th {
 
 
 <tr id="manual_stabilized_mc">
- <td><a href="../flight_modes/manual_stabilized_mc.html">Manual/ Stabilized</a>
+ <td><a href="../flight_modes_mc/manual_stabilized.html">Manual/ Stabilized</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -324,7 +324,7 @@ th {
 </tr>
 
 <tr id="acro_mc">
- <td><a href="../flight_modes/acro_mc.html">Acro</a>
+ <td><a href="../flight_modes_mc/acro.html">Acro</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
  </td>
  <td>S<sub>rate</sub></td>
@@ -338,7 +338,7 @@ th {
 
 
 <tr id="orbit_mc">
- <td><a href="../flight_modes/orbit.html">Orbit</a>
+ <td><a href="../flight_modes_mc/orbit.html">Orbit</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td>-</td>
@@ -387,7 +387,7 @@ th {
 </tr>
 
 <tr id="followme_mc">
- <td><a href="../flight_modes/follow_me.html">Follow Me</a></td>
+ <td><a href="../flight_modes_mc/follow_me.html">Follow Me</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle autonomously follows a user using an Android phone/tablet running QGC.</td>

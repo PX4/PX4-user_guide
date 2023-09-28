@@ -2,7 +2,7 @@
 
 *Collision Prevention* may be used to automatically slow and stop a vehicle before it can crash into an obstacle.
 
-It can be enabled for multicopter vehicles in [Position mode](../flight_modes/position_mc.md), and can use sensor data from an offboard companion computer, offboard rangefinders over MAVLink, a rangefinder attached to the flight controller, or any combination of the above.
+It can be enabled for multicopter vehicles in [Position mode](../flight_modes_mc/position.md), and can use sensor data from an offboard companion computer, offboard rangefinders over MAVLink, a rangefinder attached to the flight controller, or any combination of the above.
 
 Collision prevention may restrict vehicle maximum speed if the sensor range isn't large enough!
 It also prevents motion in directions where no sensor data is available (i.e. if you have no rear-sensor data, you will not be able to fly backwards).
@@ -81,7 +81,7 @@ This helps to fine-tune user input to 'guide' the vehicle around obstacles rathe
 If the autopilot does not receive range data from any sensor for longer than 0.5s, it will output a warning *No range data received, no movement allowed*.
 This will force the velocity setpoints in xy to zero.
 After 5 seconds of not receiving any data, the vehicle will switch into [HOLD mode](../flight_modes/hold.md). 
-If you want the vehicle to be able to move again, you will need to disable Collision Prevention by either setting the parameter [CP_DIST](#CP_DIST) to a negative value, or switching to a mode other than [Position mode](../flight_modes/position_mc.md) (e.g. to *Altitude mode* or *Stabilized mode*).
+If you want the vehicle to be able to move again, you will need to disable Collision Prevention by either setting the parameter [CP_DIST](#CP_DIST) to a negative value, or switching to a mode other than [Position mode](../flight_modes_mc/position.md) (e.g. to *Altitude mode* or *Stabilized mode*).
 
 If you have multiple sensors connected and you lose connection to one of them, you will still be able to fly inside the field of view (FOV) of the reporting sensors.
 The data of the faulty sensor will expire and the region covered by this sensor will be treated as uncovered, meaning you will not be able to move there.
@@ -101,7 +101,7 @@ Both sources of delay are tuned using the [CP_DELAY](#CP_DELAY) parameter.
 The *sensor delay* for distance sensors connected directly to the flight controller can be assumed to be 0.
 For external vision-based systems the sensor delay may be as high as 0.2s.
 
-Vehicle *velocity setpoint tracking delay* can be measured by flying at full speed in [Position mode](../flight_modes/position_mc.md), then commanding a stop.
+Vehicle *velocity setpoint tracking delay* can be measured by flying at full speed in [Position mode](../flight_modes_mc/position.md), then commanding a stop.
 The delay between the actual velocity and the velocity setpoint can then be measured from the logs.
 The tracking delay is typically between 0.1 and 0.5 seconds, depending on vehicle size and tuning.
 
