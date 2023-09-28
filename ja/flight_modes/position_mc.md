@@ -1,3 +1,5 @@
+<Redirect to="../flight_modes_mc/position" />
+
 # Position Mode (Multicopter)
 
 [<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
@@ -5,7 +7,7 @@
 *Position* is an easy-to-fly RC mode in which roll and pitch sticks control acceleration over ground in the vehicle's left-right and forward-back directions (similar to a car's accelerator pedal), and throttle controls speed of ascent-descent. When the sticks are released/centered the vehicle will actively brake, level, and be locked to a position in 3D space — compensating for wind and other forces. With full stick deflection the vehicle accelerates initially with [MPC_ACC_HOR_MAX](#MPC_ACC_HOR_MAX) ramping down until it reaches the final velocity [MPC_VEL_MANUAL](#MPC_VEL_MANUAL).
 
 :::tip
-Position mode is the safest manual mode for new fliers. Unlike [Altitude](../flight_modes/altitude_mc.md) and [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance. :::
+Position mode is the safest manual mode for new fliers. Unlike [Altitude](../flight_modes_mc/altitude.md) and [Manual/Stabilized](../flight_modes_mc/manual_stabilized.md) modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance. :::
 
 The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
 
@@ -23,10 +25,10 @@ Landing in this mode is easy:
 :::warning
 While very rare on a well calibrated vehicle, sometimes there may be problems with landing.
 - If the vehicle does not stop moving horizontally:
-  - You can still land under control in [Altitude mode](../flight_modes/altitude_mc.md). The approach is the same as above, except that you must manually ensure that the vehicle stays above the landing spot using the roll and pitch stick.
+  - You can still land under control in [Altitude mode](../flight_modes_mc/altitude.md). The approach is the same as above, except that you must manually ensure that the vehicle stays above the landing spot using the roll and pitch stick.
   - After landing check GPS and magnetometer orientation, calibration.
 - If the vehicle does not detect the ground/landing and disarm:
-  - After the vehicle is on the ground switch to [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md) keeping the throttle stick low, and manually disarm using a gesture or other command. Alternatively you can also use the kill switch when the vehicle is already on the ground. :::
+  - After the vehicle is on the ground switch to [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md) keeping the throttle stick low, and manually disarm using a gesture or other command. Alternatively you can also use the kill switch when the vehicle is already on the ground. :::
 
 ## Technical Summary
 
