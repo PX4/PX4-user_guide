@@ -1,4 +1,4 @@
-# 手动模式（固定翼）
+# Manual Mode (Fixed-wing)
 
 <!-- this requires review -->
 
