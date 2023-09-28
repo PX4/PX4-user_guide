@@ -152,7 +152,7 @@ Mission *without* landing pattern defined:
 
 ## 无人机默认行为
 
-The mode is _implemented_ in almost exactly the same way in all vehicle types (the exception being that fixed wing vehicles will circle rather than hover when waiting), and are hence tuned using the same parameters.
+The mode is _implemented_ in almost exactly the same way in all vehicle types (the exception being that fixed-wing vehicles will circle rather than hover when waiting), and are hence tuned using the same parameters.
 
 However the *default configuration* is tailored to suit the vehicle type, as described below.
 
@@ -165,7 +165,7 @@ However the *default configuration* is tailored to suit the vehicle type, as des
 - 立即或多或少降落（小[RTL_LAND_DELAY](#RTL_LAND_DELAY)）。
 
 
-### 固定翼（FW）
+### Fixed-wing (FW)
 
 固定翼默认使用[任务降落返航](#mission_landing_return)：
 - 如果定义了任务降落，直接飞往任务降落起点，然后着陆。
@@ -173,7 +173,7 @@ However the *default configuration* is tailored to suit the vehicle type, as des
 
 If not following a mission landing, and [RTL_LAND_DELAY](#RTL_LAND_DELAY) is set to -1, the vehicle will land as described in the topic: [Land Mode > Fixed-wing landing](../flight_modes/land.md#fixed-wing-fw).
 
-固定翼 [安全返回高度](#return_altitude) 仅取决于 [RTL_RETURN_ALT](#RTL_RETURN_ALT) (未使用 [RTL_CONE_ANG](#RTL_CONE_ANG) 定义的圆锥)
+The fixed-wing [safe return altitude](#return_altitude) depends only on [RTL_RETURN_ALT](#RTL_RETURN_ALT) (the cone defined by [RTL_CONE_ANG](#RTL_CONE_ANG) is not used)
 
 遥控器摇杆操作被忽略。
 
@@ -202,4 +202,4 @@ The RTL parameters are listed in [Parameter Reference > Return Mode](../advanced
 | <a id="RTL_CONE_ANG"></a>[RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)       | 圆锥半角决定无人机的 RTL 返航高度。 数值(度数)：0、25、45、65、80、90。 请注意，0 为“无圆锥”（始终返回` RTL_RETURN_ALT `或更高），而 90 则表示无人机必须在当前高度或在` RTL_DESCEND_ALT `高度（以较高者为准）返航。                                                                                                                                                                 |
 | <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 控制多旋翼（或者多旋翼模式下的 VOTL）的摇杆移动量来切换到 [位置模式](../flight_modes/position_mc.md) (除非无人机在处理紧急的电池失效保护)。 可以分别为自动模式和 offboard 模式启用此功能，默认情况下在自动模式下启用此功能。                                                                                                                                                                  |
 | <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | 导致发射机切换到 [位置模式](../flight_modes/position_mc.md) 的摇杆移动量（如果 [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) 已启用）。                                                                                                                                                                                                      |
-| <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)   | [仅限固定翼] 悬停的绕圈半径（[RTL_LAND_DELAY](#RTL_LAND_DELAY)）。                                                                                                                                                                                                                                                      | 
+| <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)   | [Fixed-wing Only] The radius of the loiter circle (at [RTL_LAND_DELAY](#RTL_LAND_DELAY).                                                                                                                                                                                                                 | 
