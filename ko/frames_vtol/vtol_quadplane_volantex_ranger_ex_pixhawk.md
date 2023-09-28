@@ -9,9 +9,9 @@ QuadRanger VTOL은 QuadCopter 시스템으로 설계된 Volantex Ranger-Ex를 �
 
 ![쿼드레인저](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_complete_build.jpg)
 
-VTOL 변환된 비행기의 중량은 LiPo를 포함하여 약 3.5kg 정도 증가합니다. 변환된 비행기는 약 65%의 추진력으로 순항할 수 있습니다. 제안하는 쿼드 설정은 7.5kg의 추력을 제공하며, 기체는 약 4.5kg의 총 중량으로 비행 가능합니다. FPV 장비와 카메라를 탑재에 충분한 하중 용량을 가지고 있습니다.
+VTOL 변환된 비행기의 중량은 LiPo를 포함하여 약 3.5kg 정도 증가합니다. 변환된 비행기는 약 65%의 추진력으로 순항할 수 있습니다. The suggested quad setup provides a thrust of 7.5kg and the airframe can fly with a total weight of around 4.5kg. FPV 장비와 카메라를 탑재에 충분한 하중 용량을 가지고 있습니다.
 
-변환은 공기 역학에 미치는 영향을 최소화하고, 추가 강도를 제공하여 날개 굴곡을 최소화하도록 설계되었습니다.
+The conversion is designed to minimize impact on the aerodynamics and provide additional strength minimize wing flexing.
 
 
 ## 부품 명세서
@@ -30,13 +30,14 @@ VTOL 변환된 비행기의 중량은 LiPo를 포함하여 약 3.5kg 정도 증�
 -   3DR 호환 전원 모듈
 -   GPS
 
-Hobbyking EU 및 전세계 매장 링크가 있는 전체 부품 목록은 [QuadRanger-VTOL-partslist](https://px4.io/wp-content/uploads/2016/01/QuadRanger-VTOL-partslist-1.xlsx)를 참조하십시오.
+For a full parts list with links to Hobbyking EU and International warehouse see: [QuadRanger-VTOL-partslist](https://px4.io/wp-content/uploads/2016/01/QuadRanger-VTOL-partslist-1.xlsx)
 
 아래 이미지는 한 날개에 필요한 부품을 보여줍니다.
 
 ![쿼드레인저 부품](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_parts_for_one_wing.jpg)
 
-  변환에 필요한 도구는 다음과 같습니다.
+
+변환에 필요한 도구는 다음과 같습니다.
 
 -   Dremel 또는 유사한 회전 도구
 -   취미용 칼
@@ -49,17 +50,17 @@ Hobbyking EU 및 전세계 매장 링크가 있는 전체 부품 목록은 [Quad
 
 ## 날개 변환
 
-전체 조립 방법은 아래의 비디오를 참고하십시오.
+A full build log is provided in the following video.
 
 :::note
-이 변환 조립 방법은 이전 변환으로 인한 손상을 보여주는 날개에서 수행됩니다. 
+이 변환 조립 방법은 이전 변환으로 인한 손상을 보여주는 날개에서 수행됩니다. 
 :::
 
 @[유투브](https://youtu.be/l_ppJ_HhAUQ)
 
-800mm 사각 탄소 튜브를 570mm와 230mm 길이로 자릅니다.
+Cut both 800mm square carbon tubes to a length of 570mm and 230mm.
 
-고정된 깊이를 유지하기 위하여, 회전 도구를 사용하여 1.5cm 깊이의 스티로폼 날개에 슬롯을 만듭니다. 슬롯은 230mm 정사각형 탄소 튜브 1 개의 길이, 깊이 및 너비를 유지하여야 합니다. 아래 표시된 위치에 있어야합니다.
+Making a slot in the Styrofoam wing 1.5cm deep using a rotary tool with some form of guidance to keep a fixed depth. 슬롯은 230mm 정사각형 탄소 튜브 1 개의 길이, 깊이 및 너비를 유지하여야 합니다. 아래 표시된 위치에 있어야합니다.
 
 ![QuadRanger 탄소 튜브 슬롯](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_carbon_tube_slot.jpg)
 
@@ -67,9 +68,9 @@ CA 접착제를 사용하여 300x150x1.5mm 탄소 시트를 230mm 탄소 튜브�
 
 ![QuadRanger 시트 첨부](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_sheet_attachment.jpg)
 
-CA 접착제를 사용하여 570mm 정사각형 탄소 튜브를 탄소 시트에 붙입니다. 날개가 만나는 지점에서 285mm 떨어진 곳에 위치하여야 합니다. 튜브는 날개의 수직 영역을 기준으로 중앙에 있어야 합니다. 양쪽에서 정확히 165mm 연장되어야합니다.
+Using CA glue, glue the 570mm square carbon tube to the carbon sheet. It should be located 285mm from where the wings join. 튜브는 날개의 수직 영역을 기준으로 중앙에 있어야 합니다. 양쪽에서 정확히 165mm 연장되어야합니다.
 
-모터 마운트를 모터에 부착합니다. 다른 모터 장착 플레이트와 4 개의 M3x25mm 나사를 사용하여 아래 표시된대로 사각형 탄소 튜브 끝에 모터를 고정합니다. 타이 랩이있는 ESC를 카본 튜브에 부착합니다. Afro ESC를 사용할 때는 최소한 신호와 접지선을 연결하십시오.
+모터 마운트를 모터에 부착합니다. With another motor mount plate and 4 M3x25mm screws clamp the motor on the end of the square carbon tube as indicated below. 타이 랩이있는 ESC를 카본 튜브에 부착합니다. Afro ESC를 사용할 때는 최소한 신호와 접지선을 연결하십시오.
 
 ![QuadRanger 모토와 esc](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_motor_and_esc.jpg)
 
@@ -77,17 +78,17 @@ CA 접착제를 사용하여 570mm 정사각형 탄소 튜브를 탄소 시트�
 
 Pixhawk의 출력은 다음과 같이 연결되어야합니다 ( "평면에 앉아 있음"과 같은 방향)
 
-| 포트     | 연결            |
-| ------ | ------------- |
-| MAIN 1 | 전방 우측, 반시계 방향 |
-| MAIN 2 | 후방 촤즉, 반시계 방향 |
-| MAIN 3 | 전방 좌측, 시계방향   |
-| MAIN 4 | 후방 우측, 시계 방향  |
-| AUX 1  | 좌측 보조익        |
-| AUX 2  | 우측 보조익        |
-| AUX 3  | 승강타           |
-| AUX 4  | 방향타           |
-| AUX 5  | 스로틀           |
+| 포트     | 연결                     |
+| ------ | ---------------------- |
+| MAIN 1 | Front right motor, CCW |
+| MAIN 2 | 후방 촤즉, 반시계 방향          |
+| MAIN 3 | 전방 좌측, 시계방향            |
+| MAIN 4 | 후방 우측, 시계 방향           |
+| AUX 1  | 좌측 보조익                 |
+| AUX 2  | 우측 보조익                 |
+| AUX 3  | 승강타                    |
+| AUX 4  | 방향타                    |
+| AUX 5  | 스로틀                    |
 
 
 :::note
@@ -106,5 +107,5 @@ Pixhawk의 출력은 다음과 같이 연결되어야합니다 ( "평면에 앉�
 
 ## 지원
 
-VTOL 변환 또는 구성에 대한 질문이 있으시면 <https://discuss.px4.io/c/px4/vtol>을 방문하십시오.
+If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.
 
