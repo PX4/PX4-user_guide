@@ -4,7 +4,7 @@ Flight modes define how the autopilot responds to remote control input, and how 
 
 The modes provide different types/levels of autopilot assistance to the user (pilot), ranging from automation of common tasks like takeoff and landing, through to mechanisms that make it easier to regain level flight, hold the vehicle to a fixed path or position, etc.
 
-This topic provides an overview of the available the flight modes for different frame types: [multicopter/helicopter](#multicopter-helicopter) (MC), [fixed-wing](#fixed-wing) (FW), [VTOL](#vertical-take-off-and-landing-vtol), [rovers/boats](#rover-boat).
+This topic provides an overview of the available the flight modes for different frame types: [multicopter/helicopter](#multicopter-helicopter) (MC), [fixed-wing](#fixed-wing) (FW), [VTOL](#vertical-take-off-and-landing-vtol), [rovers](#rover).
 
 :::tip
 More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
@@ -51,14 +51,14 @@ Multicopter/Helicopter:
 * Manual-Acrobatic: [Acro](#acro-mode-mc)
 * Autonomous: [Hold](#hold-mode-mc), [Return](#return-mode-mc), [Mission](#mission-mode-mc), [Takeoff](#takeoff-mode-mc), [Land](#land-mode-mc), [Follow Me](#follow-me-mode-mc), [Offboard](#offboard-mode-mc)
 
-Rover/Boat:
+Rover:
 
 * Manual-Easy: [Manual](#manual-mode-ugv)
 * Autonomous: [Mission](#mission-mode-ugv)
 
 :::note
-Only manual and mission modes are supported for rovers and boats.
-YOu can switch to any other mode but the behaviour will be the same as for manual mode.
+Only manual and mission modes are supported for rovers.
+You can switch to any other mode but the behaviour will be the same as for manual mode.
 :::
 
 
@@ -400,9 +400,9 @@ A few notes:
 - VTOL [Return mode](../flight_modes/return.md) uses a mission landing by default, if defined.
 
 <a id="ugv_flight_modes"></a>
-## Rover/Boat
+## Rover
 
-Ground vehicles and boats only support [manual mode](#manual-mode-ugv) and [mission mode](#mission-mode-ugv) (while you can switch to other modes, these all behave just like manual mode).
+Ground vehicles only support [manual mode](#manual-mode-ugv) and [mission mode](#mission-mode-ugv) (while you can switch to other modes, these all behave just like manual mode).
 
 ### Manual Mode (UGV)
 
@@ -421,7 +421,7 @@ When under manual control the roll and pitch sticks control the angle of the veh
 
 As soon as you release the control sticks they will return to the center deadzone.
 This will turn off the motors and center the wheels/rudder.
-There is no active braking, so the vehicle may continue to move until its momentum dissipates (and for a boat, continue to drift).
+There is no active braking, so the vehicle may continue to move until its momentum dissipates.
 
 
 ### Mission Mode (UGV)
