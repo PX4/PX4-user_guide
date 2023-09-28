@@ -9,7 +9,7 @@ Almost all Flight Controllers have a *heading mark arrow* (shown below). 기체�
 ![콘트롤러 방향 ](../../assets/qgc/setup/sensor/fc_orientation_1.png)
 
 :::note
-콘트롤러가 물리적인 제약으로 기본적인 위치에 장착할 수 없는 경우에는 자율비행 프로그램에서 실제 장착된 [비행 콘트롤러의 방향](../config/flight_controller_orientation.md)을 설정하여 합니다. :::
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to physical constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md). :::
 
 ## 진동 방지
 
