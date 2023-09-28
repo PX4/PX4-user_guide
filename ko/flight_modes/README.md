@@ -1,6 +1,6 @@
 # 비행 모드
 
-*Flight Modes* define how the autopilot responds to user input and controls vehicle movement. 아래 표는 고정익과 헬리콥터의 비행 모드를 요약 한 것입니다 ([테이블 키는 아래](#key)). 이것은 "고급 수준"의 기본 동작이며 기체 매개변수에 따라 달라질 수 있습니다. 링크된 주제 (사이드 바)는 튜닝 매개 변수를 포함하여 개별 모드에 대한 자세한 정보를 제공합니다.
+*Flight Modes* define how the autopilot responds to user input and controls vehicle movement. The tables below summarizes flight modes for fixed-wing and copter ([table key is below](#key)). 이것은 "고급 수준"의 기본 동작이며 기체 매개변수에 따라 달라질 수 있습니다. 링크된 주제 (사이드 바)는 튜닝 매개 변수를 포함하여 개별 모드에 대한 자세한 정보를 제공합니다.
 
 **Tip** A *beginner friendly* explanation of all flight modes is provided in [Getting Started > Flight Modes](../getting_started/flight_modes.md). :::
 
@@ -54,7 +54,7 @@ th {
 
 </style>
 
-## 고정익
+## Fixed-wing
 
 <table>
  <thead>
