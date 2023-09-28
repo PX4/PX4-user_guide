@@ -8,7 +8,7 @@ With full stick deflection the vehicle accelerates initially with [MPC_ACC_HOR_M
 
 :::tip
 Position mode is the safest manual mode for new fliers. 
-Unlike [Altitude](../flight_modes/altitude_mc.md) and [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance.
+Unlike [Altitude](../flight_modes_mc/altitude.md) and [Manual/Stabilized](../flight_modes_mc/manual_stabilized.md) modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance.
 :::
 
 The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
@@ -27,11 +27,11 @@ Landing in this mode is easy:
 :::warning
 While very rare on a well calibrated vehicle, sometimes there may be problems with landing.
 - If the vehicle does not stop moving horizontally:
-  - You can still land under control in [Altitude mode](../flight_modes/altitude_mc.md).
+  - You can still land under control in [Altitude mode](../flight_modes_mc/altitude.md).
     The approach is the same as above, except that you must manually ensure that the vehicle stays above the landing spot using the roll and pitch stick.
   - After landing check GPS and magnetometer orientation, calibration.
 - If the vehicle does not detect the ground/landing and disarm:
-  - After the vehicle is on the ground switch to [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md) keeping the throttle stick low, and manually disarm using a gesture or other command.
+  - After the vehicle is on the ground switch to [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md) keeping the throttle stick low, and manually disarm using a gesture or other command.
     Alternatively you can also use the kill switch when the vehicle is already on the ground.
 :::
 

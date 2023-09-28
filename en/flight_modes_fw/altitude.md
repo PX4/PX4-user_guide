@@ -25,9 +25,9 @@ RC/manual mode like Stabilized mode but with altitude stabilization (centered st
   * Pitch stick controls altitude.
   * Throttle stick controls the airspeed of the aircraft (as for centered Roll/Pitch/Yaw inputs).
   * Roll stick controls roll angle. Autopilot will maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight).
-    This is same as in [Stabilized mode](../flight_modes/stabilized_fw.md).
+    This is same as in [Stabilized mode](../flight_modes_fw/stabilized.md).
   * Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight)).
-    This is same as in [Stabilized mode](../flight_modes/stabilized_fw.md).
+    This is same as in [Stabilized mode](../flight_modes_fw/stabilized.md).
 
 :::note
 * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
