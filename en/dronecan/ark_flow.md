@@ -124,4 +124,4 @@ If you see a solid red LED there is an error and you should check the following:
 
 @[youtube](https://www.youtube.com/watch?v=SAbRe1fi7bU&list=PLUepQApgwSozmwhOo-dXnN33i2nBEl1c0)
 <!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
-*PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes/position_mc.md)).* 
+*PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes_mc/position.md)).* 
