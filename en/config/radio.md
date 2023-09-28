@@ -23,7 +23,7 @@ If you are using a *FrSky* receiver, you can bind it with its transmitter, by fo
 
 ## RC Loss Detection
 
-PX4 needs to be able to detect when the signal from the RC controller has been lost in order to be able to take [appropriate safety measures](../config/safety.md#rc-loss-failsafe).
+PX4 needs to be able to detect when the signal from the RC controller has been lost in order to be able to take [appropriate safety measures](../config/safety.md#manual-control-loss-failsafe).
 
 RC receivers have different ways of indicating signal loss:
 - Output nothing (automatically detected by PX4)
