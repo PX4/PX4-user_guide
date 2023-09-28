@@ -1,4 +1,4 @@
-# 수동 모드(고정 날개)
+# Manual Mode (Fixed-wing)
 
 <!-- this requires review -->
 
