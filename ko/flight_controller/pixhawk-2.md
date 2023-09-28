@@ -33,7 +33,7 @@ Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 �
 - 14 개 PWM/서보 출력(페일세이프 및 수동 오버라이드 포함 8 개, 보조, 고전력 호환 6 개)
 - 추가 주변 장치(UART, I2C, CAN) 다양한 연결 옵션
 - 전용 프로세서 및 독립형 전원 공급 장치(고정익 적용)로 비행중 복구 및 수동 오버라이드 통합 백업 시스템
-- 백업 시스템은 믹싱을 통합하여 일관된 자동조종장치와 수동 오버라이드 믹싱 모드를 제공합니다(고정익 적용).
+- Backup system integrates mixing, providing consistent autopilot and manual override mixing modes (fixed-wing use)
 - 중복 전원공급장치 및 자동 장애 조치
 - 외부 안전 스위치
 - 다색 LED 주시각 표시기
