@@ -7,7 +7,7 @@ PX4 uses the term VTOL to refer to vehicles that support both forward flight lik
 VTOL vehicles offer the benefits of both multicopter and fixed-wing flight:
 
 - **Vertical takeoff and landing:** Even inexperienced pilots can take off and land virtually anywhere.
-- **Fast and efficient fixed wing flight:** Faster, further, and longer missions, carrying heavier payloads.
+- **Fast and efficient fixed-wing flight:** Faster, further, and longer missions, carrying heavier payloads.
 - **Hovering:** Steady platform for photography, structure scans etc.
 
 This section describes the VTOL types and configurations supported by PX4, and provides high-level directions for assembly, configuration, and flight.
@@ -20,7 +20,7 @@ PX4 supports the three most important/main VTOL types.
   <div class="grid_item">
     <div class="grid_item_heading"><a href="tailsitter.html" title="Tailsitter"><big>Tailsitter</big></a></div>
     <div class="grid_text">
-    Rotors permanently in fixed wing-position.
+    Rotors permanently in fixed-wing position.
     Takes off and lands on tail. Whole vehicle tilts forward to enter forward flight.
     <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="wingtraone" />
     <ul>
@@ -70,7 +70,7 @@ Within each of the main "types" above, there are many possible variations—for 
 
 ## Flying and Flight Modes
 
-A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle. Multicopter mode is mainly used for take off and landing while the fixed wing mode is used for efficient travel and/or mission execution.
+A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle. Multicopter mode is mainly used for take off and landing while the fixed-wing mode is used for efficient travel and/or mission execution.
 
 The flight modes for VTOL vehicles are the same as for [multicopter](../getting_started/flight_modes.md#mc_flight_modes) when flying in MC mode and [fixed-wing](../getting_started/flight_modes.md#fw_flight_modes) when flying in FW mode.
 
