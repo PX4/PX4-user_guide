@@ -22,7 +22,7 @@ Some drones also have a separate on-vehicle [companion computer](#offboard-compa
 
 PX4의 주요 특징들은 아래와 같습니다.
 
-- 항공기(멀티콥터, 고정익 및 수직이착륙기), 지상운송체, 잠수정 등 [다양한 차량들](../airframes/airframe_reference.md)을 제어합니다.
+- Controls [many different vehicle frames/types](../airframes/airframe_reference.md), including: aircraft (multicopters, fixed-wing aircraft and VTOLs), ground vehicles and underwater vehicles.
 - [차량 컨트롤러](#vehicle-flight-controller-board), 센서 및 다양한 주변 장치에 적합한 매우 탁월한 선택입니다.
 - 유연하고 강력한 [비행 모드](#flight-modes)와 [안전 기능](#safety-settings-failsafe)을 지원합니다.
 - Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/README.md) ([ROS 2](../ros/ros2_comm.md), [MAVSDK](http://mavsdk.mavlink.io)).
@@ -45,7 +45,7 @@ PX4는 초기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)�
 
 ## 센서
 
-PX4는 기체의 상태 측정하기 위하여 센서를 사용합니다. 이는 자율비행 기체 안정화에 필수 과정입니다. The system _minimally requires_ a gyroscope, accelerometer, magnetometer (compass) and barometer. [자동 모드](../getting_started/flight_modes.md#categories)와  기타 모드를 사용하기 위해서는 GPS와 같은 위치측정시스템이 필요합니다. 고정익과 수직이착륙기에는 대기속도 센서가 필수입니다.
+PX4는 기체의 상태 측정하기 위하여 센서를 사용합니다. 이는 자율비행 기체 안정화에 필수 과정입니다. The system _minimally requires_ a gyroscope, accelerometer, magnetometer (compass) and barometer. [자동 모드](../getting_started/flight_modes.md#categories)와  기타 모드를 사용하기 위해서는 GPS와 같은 위치측정시스템이 필요합니다. Fixed-wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
 
 더 자세한 정보는 다음을 참고하십시오.
 
@@ -113,7 +113,7 @@ They consist of a ground based RC controller that uses a radio transmitter to co
 RC 선택 방법은 [RC 선택](../getting_started/rc_transmitter_receiver.md)을 참고하십시오. 다음과 같은 관련 주제들을 설명합니다.
 
 - [Radio/Remote Control Setup](../config/radio.md) - Remote control configuration in _QGroundControl_.
-- [비행 첫걸음](../flying/basic_flying.md) - RC 비행 방법을 설명합니다.
+- [Manual Flying](../flying/basic_flying.md) - Learn how to fly with a remote control.
 - [FrSky 텔레메트리](../peripherals/frsky_telemetry.md) - PX4의 텔레메트리 정보나 상태 정보를 수신을 위한 RC  송신기 설정방법을 설명합니다.
 
 ### 지상제어 S/W와 조이스틱
