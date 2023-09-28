@@ -1,4 +1,4 @@
-# 飞行入门课
+# Manual Flying
 
 本主题介绍了在手动或自动驾驶辅助飞行模式下使用[遥控器](../getting_started/rc_transmitter_receiver.md)操控机体的基础知识（有关自主飞行，请参阅：[任务](../flying/missions.md)）。
 
@@ -34,7 +34,7 @@ Before you can fly the vehicle it must first be [armed](../getting_started/px4_b
 多旋翼飞行器（和 VTOL 在多轴模式下）飞手可以通过启用[位置模式](../flight_modes/README.md#position_mc)，解锁机体，然后将油门杆升至 62.5% 以上来*手动*起飞。 高于此值，所有控制器都被启用，无人机将输出悬停所需的油门值（[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)）。
 
 :::tip
-强烈推荐自动起飞模式，尤其是固定翼机体！
+The automatic takeoff mode is highly recommended, in particular for fixed-wing vehicles!
 :::
 
 :::note
@@ -58,7 +58,7 @@ The [Failure Detector](../config/safety.md#failure-detector) will automatically 
 如果您在降落期间看到车辆“抽搐” (电机不停的在关闭打开状态快速切换) 这可能是由于 [降落检测器配置](../advanced_config/land_detector.md)不当（特别是[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)设置不当）造成的。 :::
 
 :::tip
-强烈建议自动降落，尤其是固定翼机体。
+Automatic landing is highly recommended, in particular for Fixed-wing vehicles.
 :::
 
 
