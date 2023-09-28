@@ -4,7 +4,7 @@
 
 [首次飞行指南](../flying/first_flight_guidelines.md) - 确保您的第一次飞行愉快、有教育意义且安全的指南。
 
-[飞行入门课](../flying/basic_flying.md) - 如何使用遥控器手动控制机体。
+[Manual Flying](../flying/basic_flying.md) — How to fly a vehicle manually, using an RC Transmitter.
 
 [任务](../flying/missions.md) - 如何执行自主任务。
 
