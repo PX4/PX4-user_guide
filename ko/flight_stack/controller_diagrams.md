@@ -87,7 +87,8 @@ Request access from dev team. -->
 ## 고정익 위치 콘트롤러
 
 ### 총 에너지 제어 시스템(TECS)
-총 에너지 제어 시스템(TECS)의 PX4 구현을 통하여 고정익 항공기의 실제 속도와 고도를 동시에 제어할 수 있습니다. 코드는 고정익 위치 제어 모듈에서 사용되는 라이브러리로 구현됩니다.
+
+The PX4 implementation of the Total Energy Control System (TECS) enables simultaneous control of true airspeed and altitude of a fixed-wing aircraft. The code is implemented as a library which is used in the fixed-wing position control module.
 
 ![TECS](../../assets/diagrams/tecs_in_context.svg)
 
