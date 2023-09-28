@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/RadioStatus.msg)
+[源文件](https://github.com/PX4/PX4-Autopilot/blob/main/msg/RadioStatus.msg)
 
 ```c
 
