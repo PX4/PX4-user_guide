@@ -1,3 +1,5 @@
+<Redirect to="../flight_modes_fw/manual" />
+
 # Manual Mode (Fixed-wing)
 
 <!-- this requires review -->
@@ -7,7 +9,7 @@
 *Manual mode* sends RC stick input directly to control allocation for fully manual control.
 
 :::tip
-This is the hardest mode to fly, because nothing is stabilized. Unlike [Acro Mode](../flight_modes/acro_fw.md) if the RP stick is centered the vehicle will not automatically stop rotating around the axis; the pilot actually has to move the stick to apply force in the other direction. :::
+This is the hardest mode to fly, because nothing is stabilized. Unlike [Acro Mode](../flight_modes_fw/acro.md) if the RP stick is centered the vehicle will not automatically stop rotating around the axis; the pilot actually has to move the stick to apply force in the other direction. :::
 
 :::note
 This is the only mode that overrides the FMU (commands are sent via the safety coprocessor).
