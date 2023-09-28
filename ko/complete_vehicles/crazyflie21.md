@@ -8,7 +8,7 @@
 :::
 
 :::warning
-Crazyflie 2.1은 [수동/안정 모드](../flight_modes/manual_stabilized_mc.md) 비행만 가능합니다.
+Crazyflie 2.1 is only able to fly in [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md).
 :::
 
 Crazyflie 마이크로 쿼드 라인은 Bitcraze AB에서 제조하였습니다. Crazyflie 2.1의 개요는 [여기](https://www.bitcraze.io/products/crazyflie-2-1/)를 참고하십시오.
@@ -197,7 +197,7 @@ The Joystick menu in QGC, only appears after you connect the controller to the P
 
 ## 하드웨어 설정
 
-Crazyflie 2.1은 [안정화 모드](../flight_modes/manual_stabilized_mc.md)에서만 비행 가능합니다.
+Crazyflie 2.1 is only able to fly in [Stabilized mode](../flight_modes_mc/manual_stabilized.md).
 
 비행세부정보를 기록하기 위하여 아래와 같이 crazyflie 위에 SD 카드 데크를 장착할 수 있습니다.
 
