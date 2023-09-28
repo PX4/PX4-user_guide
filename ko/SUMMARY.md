@@ -682,7 +682,7 @@
       * [라즈베리파이에 ROS 설치](ros/raspberrypi_installation.md)
       * [외부 위치 추정(비전/모션 기반)](ros/external_position_estimation.md)
   * [드론키트](robotics/dronekit.md)
-* [기여와 온라인 미팅](contribute/README.md)
+* [Community](contribute/README.md)
   * [온라인 미팅](contribute/dev_call.md)
   * [지원](contribute/support.md)
   * [소스 코드 관리](contribute/code.md)
