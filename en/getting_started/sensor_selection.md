@@ -5,13 +5,12 @@ The vehicle states include: position/altitude, heading, speed, airspeed, orienta
 
 PX4 *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer.
 A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes.
-Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
+Fixed-wing and VTOL-vehicles should additionally include an airspeed sensor (highly recommended).
 
 The minimal set of sensors is incorporated into [Pixhawk Series](../flight_controller/pixhawk_series.md) flight controllers (and may also be in other controller platforms).
-Additional/external sensors, in particular a GPS, can be attached to the controller.
+Additional/external sensors can be attached to the controller.
 
-Below we describe some of the more important external sensors.
-
+Below we describe some of the external sensors.
 <a id="gps_compass"></a>
 
 ## GPS & Compass
@@ -28,16 +27,14 @@ GPS/compass hardware options are listed in:
 - [RTK GPS](../gps_compass/rtk_gps.md)
 
 :::note
-[Pixhawk-series](../flight_controller/pixhawk_series.md) controllers include an *internal* compass. 
-This *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines.
-On small vehicles an external compass is almost always required.
+[Pixhawk-series](../flight_controller/pixhawk_series.md) controllers include an *internal* compass. Due to electromagnetic interference caused by power cables close to the flight controller, it is highly recommended to not rely on the internal compass for heading estimation and instead to mount an external one.
 :::
 
 ## Airspeed
 
-Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames.
+Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames.
 
-They are so important because the autopilot does not have other means to detect stall.
+They are so important because the autopilot does not have other means to detect stall.
 For fixed-wing flight it is the airspeed that guarantees lift not ground speed!
 
 ![Digital airspeed sensor](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
@@ -46,7 +43,7 @@ For more information and recommended hardware see: [Airspeed Sensors](../sensor/
 
 ## Distance
 
-Distance sensors are used for precision landing, object avoidance and terrain following.
+Distance sensors are used for smooth landings, object avoidance and terrain following.
 
 PX4 supports many affordable distance sensors, using different technologies, and supporting different ranges and features.
 For more information see: [Distance Sensors](../sensor/rangefinders.md).

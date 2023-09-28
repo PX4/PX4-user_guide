@@ -37,7 +37,7 @@ make px4_sitl gz_x500_depth
 ![x500 with depth camera in Gazebo](../../assets/simulation/gazebo/vehicles/x500_depth.png)
 
 <a id="fixed_wing"></a>
-## Plane/Fixed Wing
+## Plane/Fixed-wing
 
 <a id="rc-cessna"></a>
 ### Standard Plane

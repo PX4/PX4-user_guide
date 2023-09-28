@@ -1,6 +1,6 @@
-# Fixed-wing PID Tuning Guide
+# Fixed-wing Rate/Attitude Controller Tuning Guide
 
-This guide explains how to manually tune the fixed wing PID loop.
+This guide explains how to manually tune the fixed-wing PID loop.
 It is intended for advanced users / experts, as incorrect PID tuning may crash your aircraft.
 
 :::note
@@ -26,8 +26,8 @@ Even if you can't note all the quantities immediately on paper, the log file wil
 
 :::note
 All these quantities will be automatically logged.
- You only need to take notes if you want to directly move on to tuning without looking at the log files.
-  
+You only need to take notes if you want to directly move on to tuning without looking at the log files.
+
 - Fly level with a convenient airspeed.
   Note throttle stick position and airspeed (example: 70% → 0.7 throttle, 15 m/s airspeed).
 - Climb with maximum throttle and sufficient airspeed for 10-30 seconds (example: 12 m/s airspeed, climbed 100 m in 30 seconds).

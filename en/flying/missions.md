@@ -36,7 +36,7 @@ If set, a multi-rotor vehicle will yaw to face the **Heading** value specified i
 If **Heading** has not been explicitly set for the target waypoint (`param4=NaN`) then the vehicle will yaw towards a location specified in the parameter [MPC_YAW_MODE](../advanced_config/parameter_reference.md#MPC_YAW_MODE).
 By default this is the next waypoint.
 
-Vehicle types that cannot independently control yaw and direction of travel will ignore yaw settings (e.g. Fixed Wing).
+Vehicle types that cannot independently control yaw and direction of travel will ignore yaw settings (e.g. Fixed-wing).
 
 ### Setting Acceptance/Turning Radius
 
