@@ -1,9 +1,7 @@
 # 항속센서 보정
 
-항속 보정 오프셋을 결정하기 위하여 항속이 0인 안정적인 기준선을 측정하여야 합니다.
-
 :::note
-[속도 센서](../sensor/airspeed.md)는 고정익과 VTOL 기체에 적극 권장됩니다.
+[Airspeed sensors](../sensor/airspeed.md) are highly recommended for Fixed-wing and VTOL vehicles.
 :::
 
 :::warning
@@ -15,8 +13,6 @@
 :::
 
 ## 보정 절차
-
-항속 보정 오프셋을 결정하기 위하여 항속이 0인 안정적인 기준선을 측정하여야 합니다. 피토 위에 손을 대고 바람을 차단한 채로(실내에서 센서를 보정할 필요가 없는 경우) 입을 사용하여 튜브에 불어 넣습니다 (보정 완료 신호를 보내기 위해).
 
 항속 센서 보정 절차
 
@@ -36,7 +32,7 @@
 교체한  센서는 튜브에 바람을 불어 넣을 때 큰 음의 차압을 판독하고 보정이 오류와 함께 중단됩니다. 
 :::
 
-1. 덮개를 제거하기 전에 2-3 초간 기다립니다(몇 초 후 캘리브레이션이 자동으로 완료됩니다).
+1. *QGroundControl* then tells you if the calibration was successful or not.
 
 
 ## 추가 정보
