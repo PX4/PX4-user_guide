@@ -110,7 +110,7 @@ The _Pixhawk Mini_ is shipped with the following contents:
 | 안전 스위치                                                             | ![안전 스위치](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_drawing.png)                            |
 | 8 채널 PWM 브레이크아웃 케이블                                                | ![8 채널 PWM 브레이크아웃 케이블](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_8channel_pwm_breakout_cable_drawing.png) |
 | 장착 폼                                                               | ![장착 폼](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)                                             |
-| I2C 브레이크 아웃 보드? - not listed parts on handout                      |  -                                                                                                                       |
+| I2C 브레이크 아웃 보드? - not listed parts on handout                      | -                                                                                                                        |
 
 ## 옵션 액세서리
 
@@ -197,7 +197,7 @@ The _Pixhawk Mini_ should be mounted on the frame using vibration-damping foam p
 ![장착 폼](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)
 
 :::note
-컨트롤러를 권장/기본 방향으로 장착하기 어려운 경우에는 (예 : 공간 제약으로 인해) 실제 장착한 방향을 소프트웨어에 설정하여야 합니다([기체 콘트롤러 방향 ](../config/flight_controller_orientation.md) 참고). :::
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md). :::
 
 ### GPS와 나침반
 
