@@ -70,7 +70,7 @@ th {
 <tbody>
 
 <tr id="position_fw">
- <td><a href="../flight_modes/position_fw.html">위치</a>
+ <td><a href="../flight_modes_mc/position.html">Position</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="20px" /></a></p>
  </td>
  <td>S<sup>+</sup></td>
@@ -95,7 +95,7 @@ th {
 
 
 <tr id="altitude_fw">
- <td><a href="../flight_modes/altitude_fw.html">위치</a>
+ <td><a href="../flight_modes_mc/altitude.html">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="20px" /></a></p>
  </td>
  <td><p>S (roll)</p><p>S (roll)</p></td>
@@ -124,7 +124,7 @@ th {
 
 
 <tr id="stabilized_fw">
- <td><a href="../flight_modes/stabilized_fw.html">안정화</a>
+ <td><a href="../flight_modes_fw/stabilized.html">Stabilized</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="중급 난이도 비행" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -143,7 +143,7 @@ th {
 </tr>
 
 <tr id="acro_fw">
- <td><a href="../flight_modes/acro_fw.html">아크로</a>
+ <td><a href="../flight_modes_mc/acro.html">Acro</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="고급 난이도 비행" width="20px" /></a></p>
  </td>
  <td>S<sub>rate</sub></td>
@@ -156,7 +156,7 @@ th {
 
 
 <tr id="manual_fw">
- <td><a href="../flight_modes/manual_fw.html">수동</a>
+ <td><a href="../flight_modes_fw/manual.html">Manual</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="고급 난이도 비행" width="20px" /></a></p>
  </td>
  <td>M</td>
@@ -233,7 +233,7 @@ th {
 
 
 <tr id="position_mc">
- <td><a href="../flight_modes/position_mc.html">위치</a>
+ <td><a href="../flight_modes_mc/position.html">Position</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="20px" /></a></p>
  </td>
  <td>S<sup>+</sup></td>
@@ -263,7 +263,7 @@ th {
 </tr>
 
 <tr id="altitude_mc">
- <td><a href="../flight_modes/altitude_mc.html">고도</a>
+ <td><a href="../flight_modes_mc/altitude.html">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -296,7 +296,7 @@ th {
 
 
 <tr id="manual_stabilized_mc">
- <td><a href="../flight_modes/manual_stabilized_mc.html">수동/안정화</a>
+ <td><a href="../flight_modes_mc/manual_stabilized.html">Manual/ Stabilized</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="중급 난이도 비행" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -320,7 +320,7 @@ th {
 </tr>
 
 <tr id="acro_mc">
- <td><a href="../flight_modes/acro_mc.html">아크로</a>
+ <td><a href="../flight_modes_mc/acro.html">Acro</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="고급 난이도 비행" width="20px" /></a></p>
  </td>
  <td>S<sub>rate</sub></td>
@@ -334,7 +334,7 @@ th {
 
 
 <tr id="orbit_mc">
- <td><a href="../flight_modes/orbit.html">고도</a>
+ <td><a href="../flight_modes_mc/orbit.html">Orbit</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="20px" /></a></p>
  </td>
  <td>-</td>
@@ -383,7 +383,7 @@ th {
 </tr>
 
 <tr id="followme_mc">
- <td><a href="../flight_modes/follow_me.html">따라다니기</a></td>
+ <td><a href="../flight_modes_mc/follow_me.html">따라다니기</a></td>
  <td colspan="3">자동</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="20px" /></a></td>
  <td>기체는 QGC를 실행하는 Android 휴대 전화/태블릿을 사용하는 사용자를 자동으로 추적합니다.</td>
