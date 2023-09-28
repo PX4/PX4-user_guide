@@ -4,7 +4,7 @@
 
 비행 모드는 이륙 및 착륙과 같은 일반적인 작업의 자동화뿐만 아니라, 수평 비행을 용이하게하기 위하여 고정된 경로나 위치에 기체를 유지하는 메커니즘에 이르기까지 조종사에게 다양한 유형의 자율비행 방법을 제공합니다.
 
-This topic provides an overview of the available the flight modes for different frame types: [multicopter/helicopter](#multicopter-helicopter) (MC), [fixed-wing](#fixed-wing) (FW), [VTOL](#vertical-take-off-and-landing-vtol), [rovers/boats](#rover-boat).
+This topic provides an overview of the available the flight modes for different frame types: [multicopter/helicopter](#multicopter-helicopter) (MC), [fixed-wing](#fixed-wing) (FW), [VTOL](#vertical-take-off-and-landing-vtol), [rovers](#rover).
 
 :::tip
 비행 모드에 대한 자세한 정보는 [비행 &gt; 비행 모드](../flight_modes/README.md)를 참고하십시오.
@@ -34,10 +34,10 @@ This topic provides an overview of the available the flight modes for different 
 
 수동 모드는 "간편" 모드와 "곡예(Acro)" 모드로 나눌 수 있습니다. 수동 모드는 "간편" 모드와 "곡예(Acro)" 모드로 나눌 수 있습니다. 이렇게 하면 움직임이 예측 가능하고, 각도가 제어되기 때문에 기체가 뒤집히지 않습니다. 곡예 모드에서 RC 스틱은 각 축을 중심으로 회전 속도를 제어합니다. 기체는 뒤집힐 수 있으며, 기동성이 높아 지는 반면 비행 조종은 어려워집니다.
 
-고정익:
+Fixed-wing:
 
-* 수동 간편 : [위치](#position-mode-fw), [고도](#altitude-mode-fw), [안정화](#stabilized-mode-fw), [수동](#manual-mode-fw)
-* 수동 곡예 : [곡예](#acro-mode-fw)
+* Manual-Easy: [Position](#position-mode-fw), [Altitude](#altitude-mode-fw), [Stabilized](#stabilized-mode-fw)
+* Manual-Acrobatic: [Manual](#manual-mode-fw), [Acro](#acro-mode-fw)
 * 자율 : [유지](#hold_fw), [복귀](#return-mode-fw), [미션](#mission-mode-fw), [이륙](#takeoff-mode-fw), [착륙](#land-mode-fw), [오프보드](#offboard-mode-fw)
 
 Multicopter/Helicopter:
@@ -45,14 +45,14 @@ Multicopter/Helicopter:
 * 수동 곡예 : [곡예](#acro-mode-mc)
 * 자율 : [유지](#hold-mode-mc), [복귀](#return-mode-mc), [미션](#mission-mode-mc), [이륙](#takeoff-mode-mc), [착륙](#land-mode-mc), [조종사 추적](#follow-me-mode-mc), [오프 보드](#offboard-mode-mc)
 
-로보 및 보트:
+Rover:
 
 * 수동-간편 : [수동](#manual-mode-ugv)
 * 자율: [임무](#mission-mode-ugv)
 
 :::note
-수동과 임무 모드만 지원합니다.
-다른 모드로 전환할 수 있지만, 동작은 수동 모드와 동일합니다.
+Only manual and mission modes are supported for rovers.
+You can switch to any other mode but the behaviour will be the same as for manual mode.
 :::
 
 
@@ -253,7 +253,7 @@ The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en
 무선종조기의 모든 입력이 중앙에 있을 때 (롤, 피치, 요은 없음, 약 50%스로틀) 기체는 직선, 수평(바람에 따라)으로 현재 고도를 유지합니다.
 
 :::tip
-*고도 모드*는 비행 방법을 배우는 초보자에게 적합한 가장 안전한 비 GPS 모드입니다. [수동](#manual_fw) 모드와 유사하지만, 피치 스틱을 놓으면 기체의 고도가 안정화됩니다.
+*고도 모드*는 비행 방법을 배우는 초보자에게 적합한 가장 안전한 비 GPS 모드입니다. It is just like [Stabilized](#stabilized_fw) mode but additionally stabilizes the vehicle altitude and airspeed.
 :::
 
 ![고정익 고도 모드](../../assets/flight_modes/altitude_FW.png)
@@ -325,7 +325,7 @@ FMU 펌웨어가 오작동하면 무선 조종기를 통하여 스로틀, 엘리
 
 [귀환 모드](../flight_modes/return.md)에서는 기체가 안전한 위치와 경로로 비행합니다. 이 모드는 수동(사전 프로그래밍된 RC 스위치를 통하여)이나 자동(즉, [사고 방지](../config/safety.md)가 동작되는 경우)으로 활성화할 수 있습니다.
 
-귀환 동작은 매개 변수 설정에 따라 다르며, 임무 경로나 정의된 임무 착륙 패턴에 의해서 동작합니다. 기본적으로 고정익은 안전한 고도로 상승하고, 미션 착륙 패턴이 있으면 이를 수행합니다. 그렇지 않으면, 홈 위치로 돌아와 선회 비행 합니다.
+귀환 동작은 매개 변수 설정에 따라 다르며, 임무 경로나 정의된 임무 착륙 패턴에 의해서 동작합니다. By default a fixed-wing vehicle will ascend to a safe height and use a mission landing pattern if one exists, otherwise it will fly to the home position and circle.
 
 
 <a id="mission_fw"></a>
@@ -356,7 +356,7 @@ The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;
 
-[착륙 모드](../flight_modes/land.md)는 이륙 위치에 기체가 착륙합니다. Fixed wing landing logic and parameters are explained in the topic: [Mission > Fixed Wing Mission Landing](../flight_modes/mission.md#fw-mission-landing).
+[착륙 모드](../flight_modes/land.md)는 이륙 위치에 기체가 착륙합니다. Fixed-wing landing logic and parameters are explained in the topic: [Mission > Fixed-wing Mission Landing](../flight_modes/mission.md#fw-mission-landing).
 
 <a id="offboard_fw"></a>
 
@@ -364,7 +364,7 @@ The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
-[오프 보드 모드](../flight_modes/offboard.md)에서는 고정익은  MAVLink를 통하여 제공되는 위치, 속도 또는 자세 설정 값을 따르도록 합니다.
+[Offboard mode](../flight_modes/offboard.md) causes the fixed-wing vehicle to obey attitude setpoints provided over MAVLink.
 
 :::note
 이 모드는 보조 컴퓨터와 지상통제국 프로그램을 위한 것입니다.
@@ -372,7 +372,7 @@ The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en
 
 ## 수직이착륙기 (VTOL)
 
-VTOL 항공기는 멀티콥터와 고정익의 장점을 모두 가지고 있습니다. 멀티콥터 모드는 주로 이착륙시에 사용되고, 고정익 모드는 이동 및 임무 수행시에 사용됩니다.
+VTOL 항공기는 멀티콥터와 고정익의 장점을 모두 가지고 있습니다. The multicopter mode is mainly used for take off and landing while the fixed-wing mode is used for efficient travel and/or mission execution.
 
 VTOL의 비행 모드는 멀티콥터 모드 비행시에는 [멀티 콥터](#mc_flight_modes)와 동일하고, 고정익 모드 비행시에는 [고정익](#fw_flight_modes)과 동일합니다.
 
@@ -383,9 +383,9 @@ VTOL의 비행 모드는 멀티콥터 모드 비행시에는 [멀티 콥터](#mc
 
 <a id="ugv_flight_modes"></a>
 
-## 로버/보트
+## Rover
 
-지상 차량과 보트는 [수동 모드](#manual-mode-ugv)와 [미션 모드](#mission-mode-ugv)만 지원합니다. 다른 모드로 전환할 수 있지만, 수동 모드와 동일하게 작동합니다.
+Ground vehicles only support [manual mode](#manual-mode-ugv) and [mission mode](#mission-mode-ugv) (while you can switch to other modes, these all behave just like manual mode).
 
 ### 수동 모드 (UGV)
 
@@ -401,7 +401,7 @@ VTOL의 비행 모드는 멀티콥터 모드 비행시에는 [멀티 콥터](#mc
 When under manual control the roll and pitch sticks control the angle of the vehicle (attitude), the yaw stick controls the rate of rotation above the horizontal plane, and the throttle controls altitude/speed.
 -->
 
-조종기의 스틱을 놓으면 센터 데드 존으로 되돌아갑니다. 그러면 모터가 꺼지고, 바퀴와 방향타가 중앙에 위치합니다. 활성 제동이 없으므로 차량은 운동량 소실시까지 계속 움직입니다 (그리고 보트의 경우에는 계속 표류함).
+조종기의 스틱을 놓으면 센터 데드 존으로 되돌아갑니다. 그러면 모터가 꺼지고, 바퀴와 방향타가 중앙에 위치합니다. There is no active braking, so the vehicle may continue to move until its momentum dissipates.
 
 
 ### 임무 모드 (UGV)
