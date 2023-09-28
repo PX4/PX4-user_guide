@@ -682,7 +682,7 @@
       * [在 RPi 安装 ROS/MAVROS ](ros/raspberrypi_installation.md)
       * [外部位置估计（基于视觉/运动）](ros/external_position_estimation.md)
   * [DroneKit](robotics/dronekit.md)
-* [贡献（&开发者会议）](contribute/README.md)
+* [Community](contribute/README.md)
   * [开发者会议](contribute/dev_call.md)
   * [技术支持](contribute/support.md)
   * [源代码管理](contribute/code.md)
