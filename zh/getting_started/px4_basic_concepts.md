@@ -22,7 +22,7 @@ Some drones also have a separate on-vehicle [companion computer](#offboard-compa
 
 PX4的一些主要功能包括：
 
-- 可控制[许多不同的设备机架/类型](../airframes/airframe_reference.md)，包括：飞机（多旋翼，固定翼和垂直起降），地面车辆和水下潜航器。
+- Controls [many different vehicle frames/types](../airframes/airframe_reference.md), including: aircraft (multicopters, fixed-wing aircraft and VTOLs), ground vehicles and underwater vehicles.
 - 适用于[设备控制器](#vehicle-flight-controller-board)，传感器和其他外围设备的硬件选择。
 - 灵活而强大的[飞行模式](#flight-modes)和[安全功能](#safety-settings-failsafe)。
 - Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/README.md) ([ROS 2](../ros/ros2_comm.md), [MAVSDK](http://mavsdk.mavlink.io)).
@@ -45,7 +45,7 @@ PX4最初设计用于在[Pixhawk系列](../flight_controller/pixhawk_series.md)�
 
 ## 传感器
 
-PX4使用传感器确定机体状态（这是稳定和启动自动控制所必须的）。 The system _minimally requires_ a gyroscope, accelerometer, magnetometer (compass) and barometer. GPS和其他定位系统是启用所有的自动[模式](../getting_started/flight_modes.md#categories)以及部分辅助模式所必须的。 固定翼和 VTOL 飞行器还应包括空速传感器（强烈推荐）。
+PX4使用传感器确定机体状态（这是稳定和启动自动控制所必须的）。 The system _minimally requires_ a gyroscope, accelerometer, magnetometer (compass) and barometer. GPS和其他定位系统是启用所有的自动[模式](../getting_started/flight_modes.md#categories)以及部分辅助模式所必须的。 Fixed-wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
 
 更多信息请参阅：
 
@@ -113,7 +113,7 @@ They consist of a ground based RC controller that uses a radio transmitter to co
 [遥控系统选择](../getting_started/rc_transmitter_receiver.md)解释了如何选择遥控系统。 其他相关主题包括：
 
 - [Radio/Remote Control Setup](../config/radio.md) - Remote control configuration in _QGroundControl_.
-- [飞行 101](../flying/basic_flying.md) - 学习如何使用遥控器飞行。
+- [Manual Flying](../flying/basic_flying.md) - Learn how to fly with a remote control.
 - [FrSky 数传](../peripherals/frsky_telemetry.md) - 设置遥控发射机以从 PX4 接收数传/状态更新。
 
 ### 地面站游戏手柄控制器

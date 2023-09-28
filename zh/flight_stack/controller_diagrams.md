@@ -87,7 +87,8 @@ Request access from dev team. -->
 ## 固定翼位置控制器
 
 ### 总能量控制系统(TECS)
-通过总能量控制系统(TECS)，PX4可以同时对固定翼飞行器的空速和高度进行控制。 这其中的代码通过一个用库（这个库是用于固定翼位置控制模块）作为接口。
+
+The PX4 implementation of the Total Energy Control System (TECS) enables simultaneous control of true airspeed and altitude of a fixed-wing aircraft. The code is implemented as a library which is used in the fixed-wing position control module.
 
 ![总能量控制系统](../../assets/diagrams/tecs_in_context.svg)
 

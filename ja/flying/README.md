@@ -4,7 +4,7 @@ This section contains topics about flying your (fully configured) autopilot cont
 
 [First Flight Guidelines](../flying/first_flight_guidelines.md) — Guidelines to ensure that your first flight is enjoyable, educational, and safe.
 
-[Flying 101](../flying/basic_flying.md) — How to fly a vehicle manually, using an RC Transmitter.
+[Manual Flying](../flying/basic_flying.md) — How to fly a vehicle manually, using an RC Transmitter.
 
 [Missions](../flying/missions.md) — How to fly an autonomous mission.
 

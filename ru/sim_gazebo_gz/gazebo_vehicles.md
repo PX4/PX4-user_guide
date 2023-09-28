@@ -38,7 +38,7 @@ make px4_sitl gz_x500_depth
 
 <a id="fixed_wing"></a>
 
-## Plane/Fixed Wing
+## Plane/Fixed-wing
 
 <a id="rc-cessna"></a>
 

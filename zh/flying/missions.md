@@ -31,7 +31,7 @@ PX4进行了一些基本的健全性检查确定任务是否可行。 For exampl
 
 如果**航向**没有明确设置目标航点（`参数4=NaN`）那么机体将要朝着参数[MPC_YAW_MODE](../advanced_config/parameter_reference.md#MPC_YAW_MODE)中指定的位置飞去。 默认情况下，是指向下一个航点。
 
-不能独立控制偏航和行驶方向的机体类型将忽略偏航设置（例如固定翼）。
+Vehicle types that cannot independently control yaw and direction of travel will ignore yaw settings (e.g. Fixed-wing).
 
 ### 设置航点/转弯半径
 

@@ -34,9 +34,9 @@ There is **no setup** that does not require signal ground to be connected!
 The connection to the +5V wire (if present) depends on the ESC/Vehicle.
 
 
-### Fixed Wing / VTOL
+### Fixed-wing / VTOL
 
-On a fixed wing (or VTOL) ESC, the +5V line usually provides the output of a Battery Elimination Circuit (BEC).:
+On a fixed-wing (or VTOL) ESC, the +5V line usually provides the output of a Battery Elimination Circuit (BEC).:
 
 - This can be connected to the Pixhawk servo rail and used to power servos for flaps, ailerons etc.
 

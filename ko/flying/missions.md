@@ -31,7 +31,7 @@ For more detail on the checks and possible actions, see: [Mission Mode > Mission
 
 경유지 (`param4 = NaN`)의 **방향각**이 명시적으로 설정되지 않은 경우 기체는 매개 변수 [MPC_YAW_MODE](../advanced_config/parameter_reference.md#MPC_YAW_MODE)에 지정된 위치를 향해 요잉합니다. 기본적으로 이것은 다음 경유지입니다.
 
-고정익과 같이 요 및 이동 방향을 제어할 수 없는 기체는 요 설정을 무시합니다.
+Vehicle types that cannot independently control yaw and direction of travel will ignore yaw settings (e.g. Fixed-wing).
 
 ### 수용 회전 반경 설정
 

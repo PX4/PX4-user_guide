@@ -22,7 +22,7 @@ Some drones also have a separate on-vehicle [companion computer](#offboard-compa
 
 Some of PX4's key features are:
 
-- Controls [many different vehicle frames/types](../airframes/airframe_reference.md), including: aircraft (multicopters, fixed wing aircraft and VTOLs), ground vehicles and underwater vehicles.
+- Controls [many different vehicle frames/types](../airframes/airframe_reference.md), including: aircraft (multicopters, fixed-wing aircraft and VTOLs), ground vehicles and underwater vehicles.
 - Great choice of hardware for [vehicle controller](#vehicle-flight-controller-board), sensors and other peripherals.
 - Flexible and powerful [flight modes](#flight-modes) and [safety features](#safety-settings-failsafe).
 - Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/README.md) ([ROS 2](../ros/ros2_comm.md), [MAVSDK](http://mavsdk.mavlink.io)).
@@ -45,7 +45,7 @@ For more information see: [Flight Controller Selection](flight_controller_select
 
 ## Sensors
 
-PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The system _minimally requires_ a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
+PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The system _minimally requires_ a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed-wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
 
 For more information see:
 
@@ -113,7 +113,7 @@ They consist of a ground based RC controller that uses a radio transmitter to co
 [RC System Selection](../getting_started/rc_transmitter_receiver.md) explains how to choose an RC system. Other related topics include:
 
 - [Radio/Remote Control Setup](../config/radio.md) - Remote control configuration in _QGroundControl_.
-- [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.
+- [Manual Flying](../flying/basic_flying.md) - Learn how to fly with a remote control.
 - [FrSky Telemetry](../peripherals/frsky_telemetry.md) - Set up the RC transmitter to receive telemetry/status updates from PX4.
 
 ### GCS Joystick Controller

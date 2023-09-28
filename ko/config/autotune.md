@@ -1,6 +1,6 @@
 # 자동 튜닝
 
-자동 튜닝은 안정적이고 반응성은 높은 비행에 탁월한 컨트롤러인 PX4의 속도와 자세를 자동으로 튜닝합니다(다른 튜닝은 "선택 사항"에 가깝습니다). 현재 멀티콥터, 고정익 및 하이브리드 VTOL에 적용할 수 있습니다.
+자동 튜닝은 안정적이고 반응성은 높은 비행에 탁월한 컨트롤러인 PX4의 속도와 자세를 자동으로 튜닝합니다(다른 튜닝은 "선택 사항"에 가깝습니다). It is currently enabled for multicopter, fixed-wing, and hybrid VTOL fixed-wing vehicles.
 
 Tuning only needs to be done once, and is recommended unless you're using a vehicle that has already been tuned by the manufacturer (and not modified since).
 
@@ -41,7 +41,7 @@ Tuning only needs to be done once, and is recommended unless you're using a vehi
 
 자동 튜닝은 **공간이 충분한 안전 지역**에서 진행하여야 합니다. 약 40초([19~68초](#how-long-does-autotuning-take)) 가량 걸립니다. 최상의 결과를 위하여, 날씨가 잔잔할 때 테스트를 실행하는 것이 좋습니다.
 
-The recommended modes for autotuning are [Hold mode](../flight_modes/hold.md) (fixed wing) and [Altitude mode](../flight_modes/altitude_mc.md) (MC), but any other flight mode can be used. During auto tuning, the RC sticks can still be used to fly the vehicle.
+The recommended modes for autotuning are [Hold mode](../flight_modes/hold.md) (fixed-wing) and [Altitude mode](../flight_modes/altitude_mc.md) (MC), but any other flight mode can be used. During auto tuning, the RC sticks can still be used to fly the vehicle.
 
 :::note
 The auto-tuning sequence can be aborted at any time by changing flight modes or using the [enable/disable Autotune switch](#enable-disable-autotune-switch-fixed-wing) (if configured).
@@ -67,7 +67,8 @@ If an [Enable/Disable Autotune Switch](#enable-disable-autotune-switch-fixed-win
    1. 경고 팝업을 읽고 **확인**을 클릭하여 튜닝을 시작합니다.
 1. 드론은 먼저 빠른 롤 동작을 수행한 후 피치 및 요 동작을 수행합니다. 진행률은 _자동 조정_ 버튼 옆의 진행률 표시줄에 표시됩니다.
 1. 튜닝 적용:
-   - **고정익:** 조정이 즉시/자동으로 적용되고 비행 중에 테스트를 실시합니다(기본값). 그런 다음, PX4는 4초 테스트를 실행하고 문제가 감지되면 튜닝 작업의 이전 상태로 복원합니다.
+
+   - **Fixed-Wing:** The tuning will be immediately/automatically be applied and tested in flight (by default). 그런 다음, PX4는 4초 테스트를 실행하고 문제가 감지되면 튜닝 작업의 이전 상태로 복원합니다.
    - **멀티콥터:** 새로운 조정 매개변수를 적용을 위하여 수동으로 착륙하고 시동을 해제합니다. 주의하여 이륙하고 차량이 안정성을 수동으로 테스트하십시오.
 1. 강한 진동이 발생하면, 즉시 착륙하고 아래 [문제 해결](#troubleshooting) 섹션의 지침을 따르십시오.
 
@@ -75,9 +76,9 @@ If an [Enable/Disable Autotune Switch](#enable-disable-autotune-switch-fixed-win
 
 추가 참고 사항:
 
-- **VTOL:** 하이브리드 VTOL 고정익은 멀티콥터 모드의 멀티콥터 지침과 고정익 모드의 고정익 지침에 따라 두 번 튜닝합니다.
+- **VTOL:** Hybrid VTOL fixed-wing vehicles must be tuned twice, following multicopter instructions in MC mode and fixed-wing instructions in FW mode.
 - **멀티콥터:** 위의 지침은 [고도 모드](../flight_modes/altitude_mc.md)에서 기체를 튜닝합니다. 대신 [이륙 모드](../flight_modes/takeoff.md)에서 이륙하고 기체가 이러한 모드에서 안정적인 것으로 _알려진 경우_ [위치 모드](../flight_modes/position_mc.md)에서 튜닝할 수 있습니다.
-- **고정익:** 자동 튜닝은 [고도 모드](../flight_modes/altitude_mc.md) 또는 [위치 모드](../flight_modes/position_mc.md)에서도 실행할 수 있습니다. 그러나 직선으로 비행하면서 테스트를 실행하면 더 큰 튜닝 안전 영역이 필요하며, 더 좋은 튜닝 결과를 보장하지 않습니다.
+- **Fixed-wing:** Autotuning can also be run in [Altitude mode](../flight_modes/altitude_mc.md) or [Position mode](../flight_modes/position_mc.md). 그러나 직선으로 비행하면서 테스트를 실행하면 더 큰 튜닝 안전 영역이 필요하며, 더 좋은 튜닝 결과를 보장하지 않습니다.
 - Whether tuning is applied in-air or after landing can be [configured using parameters](#apply-parameters-when-in-air-landed).
 
 ## 문제 해결
@@ -117,7 +118,7 @@ If an [Enable/Disable Autotune Switch](#enable-disable-autotune-switch-fixed-win
 * `1`: 무장 해제 후 게인을 적용합니다(멀티콥터의 경우 기본값). 이후, 조종자는 주의하여 이륙하면서 튜닝 결과를 테스트할 수 있습니다.
 * `2`: 즉시 적용됩니다(고정익의 경우 기본값). 새로운 튜닝이 적용되고, 교란이 컨트롤러로 전송된 후, 다음 4초 동안 안정성이 모니터링됩니다. 제어 루프가 불안정한 경우, 제어 게인을 즉시 이전 값으로 복원합니다. 테스트를 통과하면, 조종자는 새로운 튜닝 결과를 사용할 수 있습니다.
 
-### Enable/Disable Autotune Switch (Fixed Wing)
+### Enable/Disable Autotune Switch (Fixed-Wing)
 
 A remote control switch can be configured to enable/disable autotune (in any mode) using an RC AUX channel.
 
@@ -131,9 +132,9 @@ The auto tuner will be disabled when the switch is below `0.5` (on the manual co
 
 If using an RC AUX switch to enable autotuning, make sure to [select the tuning axes](#select-tuning-axis-fixed-wing) before flight.
 
-### Select Tuning Axis (Fixed Wing)
+### Select Tuning Axis (Fixed-Wing)
 
-고정익(전용)은 [FW_AT_AXES](../advanced_config/parameter_reference.md#FW_AT_AXES) 비트마스크 매개변수로 조정 축을 선택할 수 있습니다.
+Fixed-wing vehicles (only) can select which axes are tuned using the [FW_AT_AXES](../advanced_config/parameter_reference.md#FW_AT_AXES) bitmask parameter:
 
 * 비트 `0`: 롤(기본값)
 * 비트 `1`: 피치(기본값)
@@ -158,11 +159,11 @@ PX4는 [PID 컨트롤러](../flight_stack/controller_diagrams.md)(속도, 자세
 
 Generally if you use a [frame configuration](../config/airframe.md) that is similar to your vehicle then the vehicle will be able to fly. 그러나, 하드웨어 설정히 일치하지 않는 경우에는 속도 및 자세 콘트롤러를 튜닝하여야 합니다. 속도 및 위치 컨트롤러의 튜닝은 기체 역학의 영향을 덜 받고 유사한 기체에 대한 기본 튜닝 설정으로 충분하기 때문에 중요성이 떨어집니다.
 
-자동 튜닝은 속도와 자세 콘트롤러의  자동 튜닝 메커니즘을 제공합니다. 고정익, 멀티콥터 및 VTOL 기체를 튜닝할 수 있습니다(모드 전환은 수동으로 튜닝하여야 함). 이론상으로는 속도 콘트롤러가 있는 다른 기체 유형에서 작동하여야 하지만 현재는 위의 유형만 지원됩니다.
+자동 튜닝은 속도와 자세 콘트롤러의  자동 튜닝 메커니즘을 제공합니다. It can be used to tune fixed-wing and multicopter vehicles, and VTOL vehicles when flying as a multicopter or as a fixed-wing (transition between modes must be manually tuned). 이론상으로는 속도 콘트롤러가 있는 다른 기체 유형에서 작동하여야 하지만 현재는 위의 유형만 지원됩니다.
 
-프레임이 매우 유연하지 않으면, 자동 튜닝은 PX4에서 지원하는 멀티콥터 및 고정익 설정에 적합합니다([자세한 내용은 아래](#does-autotuning-work-for-all-supported-airframes) 참조).
+Automatic tuning works well for the multicopter and fixed-wing vehicle configurations supported by PX4, provided the frame is not too flexible (see [below for more information](#does-autotuning-work-for-all-supported-airframes)).
 
-기체는 고도 안정화 모드([고도 모드](../flight_modes/altitude_mc.md), [유지 모드](../flight_modes/hold.md) 또는 [위치 모드](../flight_modes/position_mc.md))에서 비행하여야 합니다. 비행 스택은 각 축에서 차량에 작은 교란을 적용후, 새 튜닝 매개변수 계산을 시도합니다. 고정익은 신규 튜닝은 기본적으로 공중에서 적용하며, 그 후 기체는 새 설정을 테스트하고 컨트롤러가 안정적이지 않으면 튜닝 값들을 이전으로 되돌립니다. 멀티콥터는 착륙 및 무장 해제 후에 새 튜닝 매개변수를 적용합니다. 조종자는 주의를 기울여 이륙 및 튜닝을 테스트하여야 합니다.
+기체는 고도 안정화 모드([고도 모드](../flight_modes/altitude_mc.md), [유지 모드](../flight_modes/hold.md) 또는 [위치 모드](../flight_modes/position_mc.md))에서 비행하여야 합니다. 비행 스택은 각 축에서 차량에 작은 교란을 적용후, 새 튜닝 매개변수 계산을 시도합니다. For fixed-wing vehicles the new tuning is applied in-air by default, after which the vehicle tests the new settings and reverts the tuning if the controllers are not stable. 멀티콥터는 착륙 및 무장 해제 후에 새 튜닝 매개변수를 적용합니다. 조종자는 주의를 기울여 이륙 및 튜닝을 테스트하여야 합니다.
 
 튜닝 프로세스는 약 40초([19~68초](#how-long-does-autotuning-take))가 소요됩니다. The default behaviour can be configured using [parameters](#optional-configuration).
 
@@ -171,7 +172,7 @@ Generally if you use a [frame configuration](../config/airframe.md) that is simi
 
 #### 어떤 기체 유형이 지원됩니까?
 
-멀티콥터, 고정익 및 하이브리드 VTOL 고정익에 대하여 자동 튜닝이 활성화됩니다.
+Autotuning is enabled for multicopter, fixed-wing, and hybrid VTOL fixed-wing vehicles.
 
 아직은 다른 기체 유형에는 사용할 수 없지만, 이론상으로는 속도 콘트롤러를 사용하는 모든 기체에에 적용할 수 있습니다.
 
@@ -179,7 +180,7 @@ Generally if you use a [frame configuration](../config/airframe.md) that is simi
 
 무인 항공기 역학을 추정하기 위하여 자동 튜닝에 사용되는 수학적 모델은 축간 결합(SISO)이 없고 복잡성이 제한된(2개의 극과 2개의 0) 선형 시스템을 가정합니다. 실제 드론이 이러한 조건에서 상이한 경우에는 모델이 드론의 실제 역학을 표현할 수 없습니다.
 
-실제 자동 튜닝은 기체 유형이 너무 유연하지 않다면, 일반적으로 고정익과 멀티콥터에 적합합니다.
+In practise, autotuning generally works well for fixed-wing and multicopter, provided the frame is not too flexible.
 
 #### 자동 튜닝은 얼마나 걸립니까?
 
@@ -187,9 +188,9 @@ Generally if you use a [frame configuration](../config/airframe.md) that is simi
 
 멀티콥터는 세 축을 모두 조정해야 하며 기본적으로 새로운 게인을 공중에서 테스트하지 않습니다. 따라서 조정은 19초(`5 + 2 + 5 + 2 + 5`)에서 64초(`20x3 + 2x2`) 사이가 소요됩니다.
 
-기본적으로 고정익은 3개의 축을 모두 조정한 다음, 새 게인을 공중에서 테스트합니다. 따라서 범위는 25초(`5 + 2 + 5 + 2 + 5 + 2 + 4`)와 70초(`20x3 + 3x2 + 4`) 사이입니다.
+By default a fixed-wing vehicle tunes all three axes and then tests the new gains in-air. 따라서 범위는 25초(`5 + 2 + 5 + 2 + 5 + 2 + 4`)와 70초(`20x3 + 3x2 + 4`) 사이입니다.
 
-그러나, 위의 설정은 기본값입니다. 멀티콥터는 공중에서 테스트를 실행하도록 선택 가능하며, 고정익은 실행하지 않도록 선택할 수 있습니다. 또한, 고정익은 더 적은 축을 조정하도록 선택할 수 있습니다.
+그러나, 위의 설정은 기본값입니다. A multicopter can choose to run the tests in air, and a fixed-wing can choose not to. Further, a fixed-wing can choose to tune fewer axes.
 
 일화에 따르면 두 기체 모두 보통 40초 정도 걸립니다.
 

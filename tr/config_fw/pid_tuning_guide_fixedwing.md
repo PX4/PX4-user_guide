@@ -1,6 +1,6 @@
-# Fixed-wing PID Tuning Guide
+# Fixed-wing Rate/Attitude Controller Tuning Guide
 
-This guide explains how to manually tune the fixed wing PID loop. It is intended for advanced users / experts, as incorrect PID tuning may crash your aircraft.
+This guide explains how to manually tune the fixed-wing PID loop. It is intended for advanced users / experts, as incorrect PID tuning may crash your aircraft.
 
 :::note
 [Autotune](../config/autotune.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames. Manual tuning is recommended for frames where autotuning does not work, or where fine-tuning is essential.

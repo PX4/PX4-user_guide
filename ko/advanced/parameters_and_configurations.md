@@ -95,7 +95,7 @@ param import /fs/microsd/vtol_param_backup
 
 매개변수 이름은 ASCII 문자 16자 이하입니다.
 
-관례에 따라, 그룹의 모든 매개변수는 동일한(의미 있는) 문자열 접두사 뒤에 밑줄이 와야 하며, 특히 멀티콥터 또는 고정익 관련 매개변수에는 `MC_` 및 `FW_`가 사용됩니다. 이 관례는 강제 사항은 아닙니다.
+By convention, every parameter in a group should share the same (meaningful) string prefix followed by an underscore, and `MC_` and `FW_` are used for parameters related specifically to Multicopter or Fixed-wing systems. 이 관례는 강제 사항은 아닙니다.
 
 매개변수를 해당 메타데이터(펌웨어의 기본값 포함)와 올바르게 연결하려면, 이름이 코드와 [매개변수 메타데이터](#parameter-metadata)에서 일치하여야 합니다.
 

@@ -138,7 +138,7 @@ For example, you might wire it up like this example (orientation as if "sitting 
 
 | Port   | 接口定义                   |
 | ------ | ---------------------- |
-| MAIN 1 | Front right motor, CCW |
+| MAIN 1 | Front right motor, CCW |
 | MAIN 2 | Back left motor, CCW   |
 | MAIN 3 | Front left motor, CW   |
 | MAIN 4 | Back right motor, CW   |

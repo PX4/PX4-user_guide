@@ -1,4 +1,4 @@
-# Flying 101
+# Manual Flying
 
 This topic explains the basics of flying a vehicle using an [RC Transmitter](../getting_started/rc_transmitter_receiver.md) in a manual or autopilot-assisted flight mode (for autonomous flight see: [Missions](../flying/missions.md)).
 
@@ -35,7 +35,7 @@ The easiest way to takeoff (after [arming the vehicle](#arm)) is to use the auto
 Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by enabling [position mode](../flight_modes/README.md#position_mc), arming the vehicle, and then raising the throttle stick above 62.5%. Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
 
 :::tip
-The automatic takeoff mode is highly recommended, in particular for Fixed Wing vehicles!
+The automatic takeoff mode is highly recommended, in particular for fixed-wing vehicles!
 :::
 
 :::note
@@ -59,7 +59,7 @@ Note that vehicles automatically disarm on landing by default:
 If you see the vehicle "twitch" during landing (turn down the motors, and then immediately turn them back up) this is probably caused by a poor [Land Detector Configuration](../advanced_config/land_detector.md) (specifically, a poorly set [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)). :::
 
 :::tip
-Automatic landing is highly recommended, in particular for Fixed Wing vehicles.
+Automatic landing is highly recommended, in particular for Fixed-wing vehicles.
 :::
 
 

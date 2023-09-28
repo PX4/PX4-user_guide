@@ -18,7 +18,7 @@ A [Joystick](../config/joystick.md) can be used instead of RC for manual control
 
 ## RC 손실 감지
 
-PX4에서 [적절한 안전 조치](../config/safety.md#rc-loss-failsafe)를 수행하기 위해서는 RC 컨트롤러의 신호가 손실되는 시점을 감지할 수 있어야합니다.
+PX4 needs to be able to detect when the signal from the RC controller has been lost in order to be able to take [appropriate safety measures](../config/safety.md#manual-control-loss-failsafe).
 
 RC 수신기에는 신호 손실을 나타내는 여러가지 방법이 있습니다.
 - 아무것도 출력하지 않음 (PX4에서 자동으로 감지 됨)
@@ -119,7 +119,7 @@ AUX 패스 스루 채널 설정 절차
 튜닝 채널을 사용하면 송신기 튜닝 노브를 매개변수에 매핑할 수 있습니다 (트랜스미터에서 매개변수를 동적으로 수정할 수 있음).
 
 :::tip
-이 기능을 사용하여 수동으로 기내 튜닝을 할 수 있습니다 : [멀티콥터 PID 튜닝 설명서](../config_mc/pid_tuning_guide_multicopter.md), [고정익 PID 튜닝 설명서](../config_fw/pid_tuning_guide_fixedwing.md). :::
+This feature is provided to enable manual in-flight tuning: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md), [Fixed-wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md). :::
 
 매개 변수 튜닝에 사용되는 채널은 *라디오* 설정 (여기!)에서 할당되며 각 튜닝 채널에서 관련 매개변수로의 매핑은 *매개변수 편집기*에서 정의됩니다.
 

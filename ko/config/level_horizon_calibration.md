@@ -3,8 +3,7 @@
 You can use *Level Horizon Calibration* to compensate for small misalignments in controller orientation and to level the horizon in the *QGroundControl* flight view (blue on top and green on bottom).
 
 :::tip
-수평 보정을 강력히 권고합니다. 최고의 비행 성능을 나타낼 수 있습니다.
-비행중에 일정한 표류현상이 나타나는 경우에도 이 과정을 반복 할 수 있습니다.
+Performing this calibration step is only recommended if the autopilot's orientation is visibly misaligned with the specified orientation, or if there is a constant drift during flight in not position-controlled flight modes.
 :::
 
 ## 보정 작업
@@ -28,7 +27,7 @@ You can use *Level Horizon Calibration* to compensate for small misalignments in
 
 ## 검증 
 
-방향이 설정되고 수평 수평 보정이 완료되면, 비행 뷰에서 차량이 북쪽으로 향할 때 나침반의 방향이 0 부근의 값이 표시되며 수평 여부를 확인할 수 있습니다 (상단은 파란색, 하단은 녹색).
+Check that the artificial horizon displayed in the flight view has the indicator in the middle when the vehicle is placed on a level surface.
 
 
 

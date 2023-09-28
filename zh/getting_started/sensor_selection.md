@@ -2,12 +2,11 @@
 
 基于 PX4 的系统使用传感器来确定飞行器状态（自稳和启用自主控制所需）。 The vehicle states include: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different directions, battery level, and so on.
 
-PX4 *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. 需要 GPS 或其他定位系统来启用所有自动[模式](../getting_started/flight_modes.md#categories)和一些辅助模式。 固定翼和 VTOL 飞行器还应包括空速传感器（特别推荐）。
+PX4 *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. 需要 GPS 或其他定位系统来启用所有自动[模式](../getting_started/flight_modes.md#categories)和一些辅助模式。 Fixed-wing and VTOL-vehicles should additionally include an airspeed sensor (highly recommended).
 
-最小的传感器组合集成在 [Pixhawk 系列](../flight_controller/pixhawk_series.md) 飞控上（并且也能存在其他飞控平台上）。 Additional/external sensors, in particular a GPS, can be attached to the controller.
+最小的传感器组合集成在 [Pixhawk 系列](../flight_controller/pixhawk_series.md) 飞控上（并且也能存在其他飞控平台上）。 附加/外部传感器可以连接到控制器。
 
-Below we describe some of the more important external sensors.
-
+Below we describe some of the external sensors.
 <a id="gps_compass"></a>
 
 ## GPS&罗盘
@@ -23,13 +22,13 @@ GPS/compass hardware options are listed in:
 - [RTK GPS](../gps_compass/rtk_gps.md)
 
 :::note
-[Pixhawk-series](../flight_controller/pixhawk_series.md) controllers include an *internal* compass. This *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. 在小型飞行器上，几乎总是需要外置罗盘。 :::
+[Pixhawk-series](../flight_controller/pixhawk_series.md) controllers include an *internal* compass. Due to electromagnetic interference caused by power cables close to the flight controller, it is highly recommended to not rely on the internal compass for heading estimation and instead to mount an external one. :::
 
 ## 空速计
 
-Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames.
+Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames.
 
-它们非常重要，因为自驾仪没有其他方法来检测失速。 对于固定翼飞行来说，保证升力的是空速而不是地速。
+They are so important because the autopilot does not have other means to detect stall. 对于固定翼飞行来说，保证升力的是空速而不是地速。
 
 ![Digital airspeed sensor](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
@@ -37,7 +36,7 @@ Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames.
 
 ## 距离传感器
 
-距离传感器用于精准着陆，避障和地形跟随。
+Distance sensors are used for smooth landings, object avoidance and terrain following.
 
 PX4 支持许多实惠的距离传感器，使用不同的技术，并支持不同的范围和功能。 有关更多信息，请参阅：[距离传感器](../sensor/rangefinders.md)。
 

@@ -125,6 +125,6 @@ For more information see [Radio Control Setup > RC Loss Detection](../config/rad
 ## 관련 내용
 
 * [무선 조종기 설정](../config/radio.md) - PX4 무전 조종기 설정
-* [비행 첫걸음](../flying/basic_flying.md) - 무선 조종기 비행 방법을 설명합니다.
+* [Manual Flying](../flying/basic_flying.md) - Learn how to fly with a remote control.
 * [TBS Crossfire (CRSF) Telemetry](../telemetry/crsf_telemetry.md)
 * [FrSky Telemetry](../peripherals/frsky_telemetry.md)

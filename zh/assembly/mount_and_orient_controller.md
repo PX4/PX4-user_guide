@@ -8,7 +8,8 @@
 
 ![飞控安装方向](../../assets/qgc/setup/sensor/fc_orientation_1.png)
 
-飞控板载的加速度计和陀螺仪对振动很敏感。 一部分型号的飞控板提供了内置的减振；另一些型号则提供了*减振泡沫*，垫在载具和飞控之间以起到减振作用。
+:::note
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to physical constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md). 一部分型号的飞控板提供了内置的减振；另一些型号则提供了*减振泡沫*，垫在载具和飞控之间以起到减振作用。
 
 ## 振动隔离
 

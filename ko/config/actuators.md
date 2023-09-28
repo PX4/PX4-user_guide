@@ -423,7 +423,7 @@ Remove propellers!
 
 :::
 3. 모터가 올바른 방향으로 회전하고 있고 예상 방향으로 긍정적인 추진력을 제공하는 지 확인할 수 있는 수준으로 슬라이더 값을 증가시킵니다.
-   - 예상 추력 방향은 차량 유형에 따라 다를 수 있습니다. 예를 들어, 멀티콥터에서는 추력이 항상 위쪽을 향해야 하지만 고정익 차량에서는 추력이 차량을 앞으로 밀어냅니다.
+   - 예상 추력 방향은 차량 유형에 따라 다를 수 있습니다. For example in multicopters the thrust should always point upwards, while in a fixed-wing vehicle the thrust will push the vehicle forwards.
    - For VTOL, thrust should point upwards when the Tilt Servo is at 0 degrees as defined the [Tilt Servo Convention](#tilt-servo-coordinate-system). Testing of the [Tilt Servo](#tilt-servo-setup) is covered below as well.
    - 추력이 잘못된 방향인 경우 [모터를 역전](#reversing-motors)해야 할 수 있습니다.
 

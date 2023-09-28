@@ -3,7 +3,7 @@
 방향과 수평 평형은 센서 보드의 작은 정렬 불량이나 사소한 교정 오류를 수정하기 위하여 매개변수를 사용하여 수동으로 미세 조정 가능합니다.
 
 :::note
-이 지침은 일반 사용자에게는 권장되지 않습니다. 기본 설정은 아래의 지침을 참고하십시오.
+These instructions are not recommended for regular users. 기본 설정은 아래의 지침을 참고하십시오.
 
 - [비행 컨트롤러 방향 ](../config/flight_controller_orientation.md)
 - [Level Horizon Calibration](../config/level_horizon_calibration.md) :::
