@@ -2,7 +2,7 @@
 
 저크 제한 궤적 유형은 사용자 스틱 입력 또는 미션 변경 (예 : 촬영, 매핑,화물)에 응답하여 부드러운 동작을 제공합니다. 저크와 가속 제한이 항상 보장되는 부드러운 대칭 S-커브를 생성합니다.
 
-이 궤적 유형은 항상 [임무 모드](../flight_modes/mission.md)에서 활성화됩니다. [위치 모드](../flight_modes/position_mc.md)에서 활성화하려면 매개변수를 설정하십시오 : [MPC_POS_MODE = 3](../advanced_config/parameter_reference.md#MPC_POS_MODE).
+이 궤적 유형은 항상 [임무 모드](../flight_modes/mission.md)에서 활성화됩니다. To enable it in [Position mode](../flight_modes_mc/position.md) set the parameter: [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
 :::note
 The jerk-limited type is not used *by default* in position mode. 더 빠른 응답이 필요한 기체(예 : 레이서 쿼드)에는 적합하지 않을 수 있습니다.
