@@ -4,7 +4,7 @@
 
 [첫 비행 지침](../flying/first_flight_guidelines.md) - 첫 비행을 즐겁고 안전하게 하기 위한 지침들
 
-[Flying 101](../flying/basic_flying.md) - RC 무선 조정기를 사용하여 기체를 수동으로 조종법.
+[Manual Flying](../flying/basic_flying.md) — How to fly a vehicle manually, using an RC Transmitter.
 
 [미션](../flying/missions.md) - 자율 비행 방법
 
