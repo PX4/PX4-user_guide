@@ -31,7 +31,7 @@ Durandal은 전원 모듈(*PM02 V3*, *PM07* 및 *Pixhawk 4 GPS / Compass*)이 �
 
 ![장착 및 방향](../../assets/flight_controller/durandal/orientation.jpg)
 
-콘트롤러를 공간의 제약 등으로 권장 방향으로 장착할 수없는 경우에는 실제 장착한 방향을 프로그램에서 설정하여야 합니다. [비행 콘트롤러 방향](../config/flight_controller_orientation.md).
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 
 :::tip
 이 보드에는 내부진동 차단 기능을 제공합니다.
@@ -117,7 +117,7 @@ See also [PM07 Quick Start Guide](https://docs.holybro.com/power-module-and-pdb/
 다른 전원 모듈(예 : Pixracer의 모듈)을 사용하지 않으면 *전압 분배기*를 업데이트 할 필요는 없습니다.
 
 
-## 무선 조종
+## Radio Control
 
 리모트 컨트롤(RC) 라디오 시스템은 기체를 *수동* 제어시에 사용합니다. PX4의 자율 비행 모드에는 라디오 시스템이 필수적이지 않습니다.
 
@@ -136,10 +136,10 @@ See also [PM07 Quick Start Guide](https://docs.holybro.com/power-module-and-pdb/
 
 - *각각의 채널이 독립적으로 배선된* PPM/PWM 수신기는 반드시 **PPM RC**포트에 *PPM 인코더를 통해* [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)연결하여야 합니다. PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다.
 
-무선 시스템 선택, 수신기 호환성 및 송신기/수신기 바인딩에 대한 자세한 내용은 [원격 제어 송신기 & 수신기](../getting_started/rc_transmitter_receiver.md)를 참고하십시오.
+For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
 
 
-## 무선 텔레메트리(선택 사항)
+## Telemetry Radios (Optional)
 
 무선 텔레메트리는 지상국 프로그램에서 비행 차량의 통신/제어에 사용합니다(예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
 
