@@ -136,17 +136,17 @@ Motor and servo wiring is nearly entirely up to you, but should match the [Gener
 
 For example, you might wire it up like this example (orientation as if "sitting in the plane"):
 
-| 포트     | 연결               |
-| ------ | ---------------- |
-| MAIN 1 | 전방 우측 모터, 반시계 방향 |
-| MAIN 2 | 후방 촤즉 모터, 반시계 방향 |
-| MAIN 3 | 전방 좌측 모터, 시계방향   |
-| MAIN 4 | 후방 우측 모터, 시계 방향  |
-| AUX 1  | 좌측 보조익           |
-| AUX 2  | 우측 보조익           |
-| AUX 3  | 승강타              |
-| AUX 4  | 방향타              |
-| AUX 5  | 스로틀              |
+| 포트     | 연결                     |
+| ------ | ---------------------- |
+| MAIN 1 | Front right motor, CCW |
+| MAIN 2 | 후방 촤즉 모터, 반시계 방향       |
+| MAIN 3 | 전방 좌측 모터, 시계방향         |
+| MAIN 4 | 후방 우측 모터, 시계 방향        |
+| AUX 1  | 좌측 보조익                 |
+| AUX 2  | 우측 보조익                 |
+| AUX 3  | 승강타                    |
+| AUX 4  | 방향타                    |
+| AUX 5  | 스로틀                    |
 
 
 <a id="dropix_back"></a>
