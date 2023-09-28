@@ -2,12 +2,11 @@
 
 PX4 시스템은 안정화나 자율제어를  위하여 센서를 사용하여 기체의 상태를 파악합니다. The vehicle states include: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different directions, battery level, and so on.
 
-PX4 *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. 자동 [모드](../getting_started/flight_modes.md#categories)와  기타 모드에는 GPS나 이와 유사한 위치 확인 시스템이 요구됩니다. 고정익과 수직이착륙기에는 대기속도 센서가 필요합니다.
+PX4 *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. 자동 [모드](../getting_started/flight_modes.md#categories)와  기타 모드에는 GPS나 이와 유사한 위치 확인 시스템이 요구됩니다. Fixed-wing and VTOL-vehicles should additionally include an airspeed sensor (highly recommended).
 
-[Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 비행 콘트롤러에 최소한의 센서들이 내장되어 있습니다. Additional/external sensors, in particular a GPS, can be attached to the controller.
+[Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 비행 콘트롤러에 최소한의 센서들이 내장되어 있습니다. 필요한 센서들을 콘트롤러에 추가할 수 있습니다.
 
-Below we describe some of the more important external sensors.
-
+Below we describe some of the external sensors.
 <a id="gps_compass"></a>
 
 ## GPS와 나침반
@@ -23,13 +22,13 @@ GPS/compass hardware options are listed in:
 - [RTK GPS](../gps_compass/rtk_gps.md)
 
 :::note
-[픽스호크 시리즈](../flight_controller/pixhawk_series.md) 콘트롤러에는 *내부* 나침반이 포함되어 있습니다. Pixhawk를 배터리나 전선에서 가능하면 멀리 장착하여 전자기 간섭을 최소화하는 것이 좋습니다. 소형 운송체에서는 대부분 외부 나침반이 필수 요구사항입니다. :::
+[픽스호크 시리즈](../flight_controller/pixhawk_series.md) 콘트롤러에는 *내부* 나침반이 포함되어 있습니다. Due to electromagnetic interference caused by power cables close to the flight controller, it is highly recommended to not rely on the internal compass for heading estimation and instead to mount an external one. :::
 
 ## 대기속도  센서
 
-고정익과 VTOL에는 대기속도센서를 *사용*이 적극 권장됩니다.
+Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames.
 
-자동조종장치에는 실속을 감지하는 다른 수단이 없으므로,  비행 속도 측정은는 매우 중요합니다. 고정익의 양력을 발생시키는 것은 대지속도가 아니라 대기속도입니다.
+They are so important because the autopilot does not have other means to detect stall. 고정익의 양력을 발생시키는 것은 대지속도가 아니라 대기속도입니다.
 
 ![디지털 대기 센서](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
@@ -37,7 +36,7 @@ GPS/compass hardware options are listed in:
 
 ## 거리 센서
 
-정확한 착지, 장애물 회피와 등고 비행 등을 위하여 거리 센서가 필요합니다.
+Distance sensors are used for smooth landings, object avoidance and terrain following.
 
 여러가지 기술을 사용하여 다양한 범위와 기능을 지원하는 저렴한 거리 센서를 PX4에서 지원합니다. 더 자세한 정보는 [거리 센서](../sensor/rangefinders.md)를 참고하십시오.
 
