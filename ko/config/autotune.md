@@ -26,8 +26,8 @@ Tuning only needs to be done once, and is recommended unless you're using a vehi
 
 1. 비행 구역이 깨끗하고 공간이 충분한 지 확인하기 위하여, 일반적인 비행 전 안전 점검을 실시합니다.
 1. 이륙 및 시험 준비
-   - **멀티콥터:** [고도 모드](../flight_modes/altitude_mc.md) 또는 안정화 모드에서 이륙하여 지상 1m에서 호버링합니다.
-   - **고정익:** [위치 모드](../flight_modes/position_mc.md) 또는 [고도 모드](../flight_modes/altitude_mc.md)에서 순항 속도로 이륙하고 비행합니다.
+   - **Multicopters:** Take off and hover at 1m above ground in [Altitude mode](../flight_modes_mc/altitude.md) or Stabilized mode.
+   - **Fixed-wing:** Take off and fly at cruise speed in [Position mode](../flight_modes_mc/position.md) or [Altitude mode](../flight_modes_mc/altitude.md).
 1. RC 송신기 롤 스틱을 사용하여 기체를 몇 도만 기울여 다음 기동을 수행하십시오. _좌회전 > 오른쪽 롤 > 중심_ (전체 기동은 약 3초가 소요됩니다). 기체는 2번의 진동 이내에서 안정화되어야 합니다.
 1. 각각의 시도에서 더 큰 진폭으로 기울이면서 기동을 반복합니다. 기체가 ~20도에서 2번의 진동 내에서 안정화될 수 있으면 다음 단계로 이동합니다.
 1. 피치 축에서 동일한 동작을 반복합니다. As above, start with small angles and confirm that the vehicle can stabilise itself within 2 oscillations before increasing the tilt.
@@ -41,7 +41,7 @@ Tuning only needs to be done once, and is recommended unless you're using a vehi
 
 자동 튜닝은 **공간이 충분한 안전 지역**에서 진행하여야 합니다. 약 40초([19~68초](#how-long-does-autotuning-take)) 가량 걸립니다. 최상의 결과를 위하여, 날씨가 잔잔할 때 테스트를 실행하는 것이 좋습니다.
 
-The recommended modes for autotuning are [Hold mode](../flight_modes/hold.md) (fixed-wing) and [Altitude mode](../flight_modes/altitude_mc.md) (MC), but any other flight mode can be used. During auto tuning, the RC sticks can still be used to fly the vehicle.
+The recommended modes for autotuning are [Hold mode](../flight_modes/hold.md) (fixed-wing) and [Altitude mode](../flight_modes_mc/altitude.md) (MC), but any other flight mode can be used. During auto tuning, the RC sticks can still be used to fly the vehicle.
 
 :::note
 The auto-tuning sequence can be aborted at any time by changing flight modes or using the [enable/disable Autotune switch](#enable-disable-autotune-switch-fixed-wing) (if configured).
@@ -51,7 +51,7 @@ The auto-tuning sequence can be aborted at any time by changing flight modes or 
 
 1. [사전 튜닝 테스트](#pre-tuning-test)를 수행합니다.
 1. RC를 사용하여 이륙 및 테스트 준비합니다:
-   - **멀티콥터:** [고도 모드](../flight_modes/altitude_mc.md)에서 조종기를 사용하여 이륙합니다. 안전한 거리와 지상에서 4~20m에서 기체를 호버링하십시오.
+   - **Multicopters:** Takeoff using the remote controller in [Altitude mode](../flight_modes_mc/altitude.md). 안전한 거리와 지상에서 4~20m에서 기체를 호버링하십시오.
    - **고정익:** 순항 속도로 비행하면 [유지 모드](../flight_modes/hold.md)를 활성화합니다. 이렇게 하면 비행기가 일정한 고도와 속도로 원을 그리며 선회 비행합니다.
 1. Enable autotune.
 
@@ -77,8 +77,8 @@ If an [Enable/Disable Autotune Switch](#enable-disable-autotune-switch-fixed-win
 추가 참고 사항:
 
 - **VTOL:** Hybrid VTOL fixed-wing vehicles must be tuned twice, following multicopter instructions in MC mode and fixed-wing instructions in FW mode.
-- **멀티콥터:** 위의 지침은 [고도 모드](../flight_modes/altitude_mc.md)에서 기체를 튜닝합니다. 대신 [이륙 모드](../flight_modes/takeoff.md)에서 이륙하고 기체가 이러한 모드에서 안정적인 것으로 _알려진 경우_ [위치 모드](../flight_modes/position_mc.md)에서 튜닝할 수 있습니다.
-- **Fixed-wing:** Autotuning can also be run in [Altitude mode](../flight_modes/altitude_mc.md) or [Position mode](../flight_modes/position_mc.md). 그러나 직선으로 비행하면서 테스트를 실행하면 더 큰 튜닝 안전 영역이 필요하며, 더 좋은 튜닝 결과를 보장하지 않습니다.
+- **Multicopter:** The instructions above tune the vehicle in [Altitude mode](../flight_modes_mc/altitude.md). You can instead takeoff in [Takeoff mode](../flight_modes/takeoff.md) and tune in [Position mode](../flight_modes_mc/position.md) if the vehicle is is _known_ to be stable in these modes.
+- **Fixed-wing:** Autotuning can also be run in [Altitude mode](../flight_modes_mc/altitude.md) or [Position mode](../flight_modes_mc/position.md). 그러나 직선으로 비행하면서 테스트를 실행하면 더 큰 튜닝 안전 영역이 필요하며, 더 좋은 튜닝 결과를 보장하지 않습니다.
 - Whether tuning is applied in-air or after landing can be [configured using parameters](#apply-parameters-when-in-air-landed).
 
 ## 문제 해결
@@ -163,7 +163,7 @@ Generally if you use a [frame configuration](../config/airframe.md) that is simi
 
 Automatic tuning works well for the multicopter and fixed-wing vehicle configurations supported by PX4, provided the frame is not too flexible (see [below for more information](#does-autotuning-work-for-all-supported-airframes)).
 
-기체는 고도 안정화 모드([고도 모드](../flight_modes/altitude_mc.md), [유지 모드](../flight_modes/hold.md) 또는 [위치 모드](../flight_modes/position_mc.md))에서 비행하여야 합니다. 비행 스택은 각 축에서 차량에 작은 교란을 적용후, 새 튜닝 매개변수 계산을 시도합니다. For fixed-wing vehicles the new tuning is applied in-air by default, after which the vehicle tests the new settings and reverts the tuning if the controllers are not stable. 멀티콥터는 착륙 및 무장 해제 후에 새 튜닝 매개변수를 적용합니다. 조종자는 주의를 기울여 이륙 및 튜닝을 테스트하여야 합니다.
+The vehicle must be flying in an altitude-stabilized mode ([Altitude mode](../flight_modes_mc/altitude.md), [Hold mode](../flight_modes/hold.md), or [Position mode](../flight_modes_mc/position.md)). 비행 스택은 각 축에서 차량에 작은 교란을 적용후, 새 튜닝 매개변수 계산을 시도합니다. For fixed-wing vehicles the new tuning is applied in-air by default, after which the vehicle tests the new settings and reverts the tuning if the controllers are not stable. 멀티콥터는 착륙 및 무장 해제 후에 새 튜닝 매개변수를 적용합니다. 조종자는 주의를 기울여 이륙 및 튜닝을 테스트하여야 합니다.
 
 튜닝 프로세스는 약 40초([19~68초](#how-long-does-autotuning-take))가 소요됩니다. The default behaviour can be configured using [parameters](#optional-configuration).
 
