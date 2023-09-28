@@ -126,7 +126,7 @@ th {
 
 
 <tr id="stabilized_fw">
- <td><a href="../flight_modes_mc/stabilized.html">Stabilized</a>
+ <td><a href="../flight_modes_fw/stabilized.html">Stabilized</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -158,7 +158,7 @@ th {
 
 
 <tr id="manual_fw">
- <td><a href="../flight_modes_mc/manual.html">Manual</a>
+ <td><a href="../flight_modes_fw/manual.html">Manual</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
  </td>
  <td>M</td>
