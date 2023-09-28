@@ -52,7 +52,7 @@ The configuration file consists of several main blocks:
 - Documentation (used in the [Airframes Reference](../airframes/airframe_reference.md) and *QGroundControl*). Airframe-specific parameter settings
   - The configuration and geometry using [control allocation](../concept/control_allocation.md) parameters
   - [Tuning gains](#tuning-gains)
-- The controllers and apps it should start, such as multicopter or fixed wing controllers, land detectors etc.
+- The controllers and apps it should start, such as multicopter or fixed-wing controllers, land detectors etc.
 
 이러한 측면은 대부분 독립적이므로, 많은 구성이 기체의 동일한 물리적 레이아웃을 공유하고 동일한 응용 프로그램을 시작하며 튜닝 이득이 가장 차이가 납니다.
 
@@ -299,7 +299,7 @@ For a new frame belonging to an existing group, you don't need to do anything mo
 
 * [Autotuning](../config/autotune.md)
 * [멀티콥터 PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md)
-* [고정익 PID 튜닝 가이드](../config_fw/pid_tuning_guide_fixedwing.md)
+* [Fixed-wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
 * [VTOL 설정](../config_vtol/README.md)
 
 
