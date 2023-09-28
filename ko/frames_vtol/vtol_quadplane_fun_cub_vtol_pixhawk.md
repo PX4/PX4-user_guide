@@ -76,5 +76,5 @@ After you finish calibration the VTOL is ready to fly.
 
 ## 지원
 
-VTOL 변환 또는 구성에 대한 질문이 있으시면 <https://discuss.px4.io/c/px4/vtol>을 방문하십시오.
+If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.
 
