@@ -1,4 +1,4 @@
-# 비행 101
+# Manual Flying
 
 수동 또는 자동 조종 보조 비행 모드에서 [RC 송신기](../getting_started/rc_transmitter_receiver.md)를 사용하여 기체 비행의 기본적인 사항들을 설명합니다 (자율 비행의 경우 [미션](../flying/missions.md) 참조).
 
@@ -34,7 +34,7 @@ Before you can fly the vehicle it must first be [armed](../getting_started/px4_b
 멀티 콥터 (및 멀티 콥터 모드의 VTOL) [포지션 모드](../flight_modes/README.md#position_mc)를 활성화하고 기체 시동후 스로틀 스틱을 62.5 % 이상 올리면 *수동으로* 이륙할 수 있습니다. 이 값을 초과하면 모든 컨트롤러가 활성화되고 차량이 호버링에 필요한 스로틀 수준 ([ MPC_THR_HOVER ](../advanced_config/parameter_reference.md#MPC_THR_HOVER))으로 이동합니다
 
 :::tip
-특히 고정익에는 자동 이륙 모드를 적극 권장합니다!
+The automatic takeoff mode is highly recommended, in particular for fixed-wing vehicles!
 :::
 
 :::note
@@ -58,7 +58,7 @@ The [Failure Detector](../config/safety.md#failure-detector) will automatically 
 착륙하는 동안 차량 "트위치"가 표시되는 경우 (모터를 껐다가 즉시 다시 켜십시오) 이는 잘못된 [토지 감지기 구성](../advanced_config/land_detector.md) (특히 잘못 설정된 [MPC_THR_HOVER ](../advanced_config/parameter_reference.md#MPC_THR_HOVER) 때문일 수 있습니다.). :::
 
 :::tip
-특히 고정익에는 자동 착륙 모드를 적극 권장합니다.
+Automatic landing is highly recommended, in particular for Fixed-wing vehicles.
 :::
 
 
