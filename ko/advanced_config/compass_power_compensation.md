@@ -37,7 +37,7 @@
 
    ![스트랩](../../assets/advanced_config/strap.png)
 
-1. 드론에 전원을 공급하고 [ACRO 비행 모드](../flight_modes/acro_mc.md)로 전환하십시오 (이 모드를 사용하면 드론이 끈에 의해 발생하는 움직임을 보정하지 않도록 합니다).
+1. Power the vehicle and switch into [ACRO flight mode](../flight_modes_mc/acro.md) (using this mode ensures the vehicle won't attempt to compensate for movement resulting from the straps).
 
    - 기체에 시동을 걸고 스로틀을 천천히 최대로 올립니다.
    - 스로틀을 천천히 0까지 낮춥니다.
