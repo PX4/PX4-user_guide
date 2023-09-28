@@ -50,7 +50,7 @@
   * [Autotune](config/autotune.md)
 * [Vehicle Types & Setup](airframes/README.md)
   * [Multicopters](frames_multicopter/README.md)
-    * [Multicopter Config/Tuning](config_mc/README.md)
+    * [Configuration/Tuning](config_mc/README.md)
       * [Filter/Control Latency Tuning](config_mc/filter_tuning.md)
       * [PID Tuning (Manual/Basic)](config_mc/pid_tuning_guide_multicopter_basic.md)
       * [PID Tuning Guide (Manual/Advanced)](config_mc/pid_tuning_guide_multicopter.md)
