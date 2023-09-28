@@ -36,9 +36,9 @@ The vehicle will land at the location at which the mode was engaged. 无人机�
 :::warning
 Fixed-wing _Land mode_ is currently broken: [PX4-Autopilot/pull/21036](https://github.com/PX4/PX4-Autopilot/pull/21036). (Specifically, switching to Land mode causes a fly-away.)
 
-Automated landing in missions is supported: [Mission mode > Fixed wing mission landing](../flight_modes/mission.md#fw-mission-landing). :::
+Automated landing in missions is supported: [Mission mode > Fixed-wing mission landing](../flight_modes/mission.md#fw-mission-landing). :::
 
 
 ## 垂直起降（VTOL）
 
-当处于固定翼模式时，VTOL 遵循 LAND 行为和[固定翼](#fixed-wing-fw)的参数，而当处于多旋翼模式时，VTOL 遵循[多旋翼](#multi-copter-mc)的参数。 当设置 [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)（默认：开）时，固定翼模式下的 VTOL 将在着陆前切换回多旋翼模式。
+A VTOL follows the LAND behavior and parameters of [Fixed-wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode. 当设置 [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)（默认：开）时，固定翼模式下的 VTOL 将在着陆前切换回多旋翼模式。
