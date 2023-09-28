@@ -159,7 +159,7 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 :::
 
    RC 컨트롤러 스위치는 다음에 대해 정의하는 것이 좋습니다.
-   - [위치 모드](../flight_modes/position_mc.md)-충돌 방지를 테스트하는 데 사용할 수 있는 안전한 수동 비행 모드입니다.
+   - [Position Mode](../flight_modes_mc/position.md) - a safe manual flight mode that can be used to test collision prevention.
    - [임무 모드](../flight_modes/mission.md) - 임무를 실행하고 장애물 회피를 테스트합니다.
    - [귀환 모드](../flight_modes/return.md) - 기체를 출발 지점으로 안전하게 복귀하여 착륙합니다.
 
@@ -199,7 +199,7 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 1. 지상국을 기체 WiFi에 연결합니다.
 1. PX4 비전을 테스트하기 위해 나무나 기타 편리한 장애물이 있는 비행하기에 안전한 실외 위치를 찾으십시오.
 
-1. [충돌 방지](../computer_vision/collision_prevention.md)를 테스트하려면 [위치 모드](../flight_modes/position_mc.md)를 활성화하고 수동으로 장애물을 향해 비행하십시오. 기체의 속도를 줄인 다음 장애물로부터 6m 이내에 정지해야합니다(거리는 [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) 매개 변수를 사용하여 [변경](../advanced_config/parameters.md) 할 수 있음).
+1. To test [collision prevention](../computer_vision/collision_prevention.md), enable [Position Mode](../flight_modes_mc/position.md) and fly manually towards an obstacle. 기체의 속도를 줄인 다음 장애물로부터 6m 이내에 정지해야합니다(거리는 [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) 매개 변수를 사용하여 [변경](../advanced_config/parameters.md) 할 수 있음).
 
 1. [장애물 회피](../computer_vision/obstacle_avoidance.md)를 테스트 하려면 경로에 장애물이 있는 임무를 만드십시오. 그런 다음, [임무 모드](../flight_modes/mission.md)로 전환하여 임무를 실행하고 장애물을 돌아다니는 기체를 관찰한 다음 계획된 코스로 돌아갑니다.
 
