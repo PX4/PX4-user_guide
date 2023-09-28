@@ -36,9 +36,9 @@ RC 스틱을 움직이면 차량이 [위치 모드](../flight_modes/position_mc.
 :::warning
 Fixed-wing _Land mode_ is currently broken: [PX4-Autopilot/pull/21036](https://github.com/PX4/PX4-Autopilot/pull/21036). (Specifically, switching to Land mode causes a fly-away.)
 
-Automated landing in missions is supported: [Mission mode > Fixed wing mission landing](../flight_modes/mission.md#fw-mission-landing). :::
+Automated landing in missions is supported: [Mission mode > Fixed-wing mission landing](../flight_modes/mission.md#fw-mission-landing). :::
 
 
 ## 수직이착륙기
 
-VTOL은 고정익 모드에서는 이륙 동작 및 매개 변수는 [고정익](#fixed-wing-fw)를 따르며, 멀티콥터 모드에서는 [멀티콥터](#multi-copter-mc) 매개 변수를 따릅니다. [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)이 설정되면(기본값: 켜짐) 고정익 모드의 VTOL이 착륙 직전에 멀티콥터로 되돌아갑니다.
+A VTOL follows the LAND behavior and parameters of [Fixed-wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode. [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)이 설정되면(기본값: 켜짐) 고정익 모드의 VTOL이 착륙 직전에 멀티콥터로 되돌아갑니다.
