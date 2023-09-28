@@ -15,7 +15,7 @@
 | AOA         | Angle Of Attack(받음각). *beta*로 표기                                    |
 | AOS         | Angle Of Sideslip(횡활각). *beta*로 표기                                  |
 | FRD         | 오른손 법칙에 따라 기체의 앞부분을 X축, 오른쪽 방향을 Y축, 아래 방향을 Z축으로 두는 좌표계              |
-| FW          | Fixed-Wing(고정익).                                                    |
+| FW          | Fixed-wing (planes).                                                |
 | MC          | MultiCopter(멀티콥터).                                                  |
 | MPC 또는 MCPC | MultiCopter Position Controller(멀티콥터 위치 조종기). MPC는 모델 예측 제어라고도 합니다. |
 | NED         | 오른손 법칙에 따라  X 축은 진북을 가리키고 Y 축은 진동, Z 축은 아래를 가리키는 좌표계                |
