@@ -17,7 +17,7 @@ TECS (Total Energy Control System)는 항공기의 고도 및 대기 속도를 �
 
 TECS를 조정하기 전에 잘 튜닝된 자세 컨트롤러가 필요합니다. [PID 조정 가이드](../config_fw/pid_tuning_guide_fixedwing.md).
 
-TECS 튜닝은 주로 기체 제한을 올바르게 설정하는 것입니다. 이러한 제한은 아래에 설명된 일련의 비행 기동으로부터 결정될 수있는 매개변수로 설정할 수 있습니다. 대부분의 기동은 [안정된 비행 모드](../flight_modes/stabilized_fw.md)에서 조종사가 비행기를 조종하여야 했습니다.
+TECS 튜닝은 주로 기체 제한을 올바르게 설정하는 것입니다. 이러한 제한은 아래에 설명된 일련의 비행 기동으로부터 결정될 수있는 매개변수로 설정할 수 있습니다. Most of the maneuvers required the plane to be flown by a pilot in [Stabilized flight mode](../flight_modes_fw/stabilized.md).
 
 :::tip
 조종사가 조종하는 동안 원격 측정 데이터를 읽고 기록할 수있는 사람이 있으면 매우 좋습니다.
@@ -26,7 +26,7 @@ TECS 튜닝은 주로 기체 제한을 올바르게 설정하는 것입니다. �
 
 #### 1 차 : 트림 조건
 
-[안정화 모드](../flight_modes/stabilized_fw.md)로 비행하고 트림 속도에서 수평 비행을 위한 스로틀 및 피치 각도 모두에 대한 트림 값을 찾습니다. 스로틀로 속도와 피치를 조정하여 수평 비행을 유지하십시오.
+Fly in [stabilized mode](../flight_modes_fw/stabilized.md) and find trim values for both throttle and pitch angle for level flight at trim airspeed. 스로틀로 속도와 피치를 조정하여 수평 비행을 유지하십시오.
 
 다음 매개 변수를 설정하십시오.
 - [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) -기동비행시 원하는 트림 대기 속도로 설정합니다.
@@ -35,7 +35,7 @@ TECS 튜닝은 주로 기체 제한을 올바르게 설정하는 것입니다. �
 
 #### 2 차 : 대기 속도와 스로틀 제한
 
-기체 최대 허용 대기 속도에 도달시까지 [안정화 모드](../flight_modes/stabilized_fw.md)로 비행하고 피치 제어를 사용하여 수평 비행을 유지하면서 스로틀을 높입니다.
+Fly in [stabilized mode](../flight_modes_fw/stabilized.md) and increase throttle while maintaining level flight using pitch control - until the vehicle reaches the maximum allowed airspeed.
 
 다음 매개 변수를 설정하십시오.
 - [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX) -수평 비행 중 최대 대기 속도에 도달하기 위해 적용한 스로틀로 설정합니다.
@@ -59,7 +59,7 @@ Do not use [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_M
 모든 L1 매개변수는 [여기](../advanced_config/parameter_reference.md#fw-l1-control)에 기술되어 있습니다.
 - [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) - `FW_AIRSPD_TRIM`을 유지하면서 달성된 싱크 속도를 설정합니다.
 
-Specify the target climb and sink rate for autonomous missions by adjusting [FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP) and [FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP). These specify the height rates at which the vehicle will climb or descend in order to change altitude. Furthermore, these two values define the height rate limits commanded by the user in [Altitude mode](../flight_modes/altitude_fw.md) and [Position mode](../flight_modes/position_fw.md).
+Specify the target climb and sink rate for autonomous missions by adjusting [FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP) and [FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP). These specify the height rates at which the vehicle will climb or descend in order to change altitude. Furthermore, these two values define the height rate limits commanded by the user in [Altitude mode](../flight_modes_fw/altitude.md) and [Position mode](../flight_modes_fw/position.md).
 
 
 ### FW Path Control Tuning (Position)
