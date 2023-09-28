@@ -152,7 +152,7 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 
 ## 기체 기본 동작
 
-이 모드는 모든 기체에서 매유 유사한 방식으로 *구현*되며 (단, 고정익 대기시 호버링하지 않고 원을 그리며) 따라서 동일한 매개 변수를 사용하여 조정됩니다.
+The mode is _implemented_ in almost exactly the same way in all vehicle types (the exception being that fixed-wing vehicles will circle rather than hover when waiting), and are hence tuned using the same parameters.
 
 그러나 *기본 설정*은 아래 설명과 같이 기체 유형에 맞게 조정됩니다.
 
@@ -165,7 +165,7 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 - 거의 즉시 착륙합니다. (작은 [RTL_LAND_DELAY](#RTL_LAND_DELAY)).
 
 
-### 고정익 (FW)
+### Fixed-wing (FW)
 
 고정익은 기본적으로 [임무 착륙 복귀 유형](#mission_landing_return)을 사용합니다.
 - 임무 착륙이 정의된 경우 임무 착륙 시작 지점으로 직접 비행후 착륙합니다.
@@ -173,7 +173,7 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 
 If not following a mission landing, and [RTL_LAND_DELAY](#RTL_LAND_DELAY) is set to -1, the vehicle will land as described in the topic: [Land Mode > Fixed-wing landing](../flight_modes/land.md#fixed-wing-fw).
 
-고정익[안전 복귀 고도](#return_altitude)는 [RTL_RETURN_ALT](#RTL_RETURN_ALT)에만 의존합니다 ([RTL_CONE_ANG](#RTL_CONE_ANG)로 정의된 원뿔은 사용되지 않음).
+The fixed-wing [safe return altitude](#return_altitude) depends only on [RTL_RETURN_ALT](#RTL_RETURN_ALT) (the cone defined by [RTL_CONE_ANG](#RTL_CONE_ANG) is not used)
 
 RC 스틱 이동은 무시됩니다.
 
@@ -202,4 +202,4 @@ RTL 매개 변수는 [매개변수 정의 > 복귀 모드](../advanced_config/pa
 | <a id="RTL_CONE_ANG"></a>[RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)       | 기체 RTL 리턴 고도를 정의하는 원뿔의 반각. 값 (도) : 0, 25, 45, 65, 80, 90. 0은 "원뿔 없음" (항상 `RTL_RETURN_ALT` 이상에서 반환)이고, 90은 차량이 현재 고도 또는 `RTL_DESCEND_ALT` (둘 중 더 높은 고도)에서 복귀함을 나타냅니다.                                                                                                                                                                                                                                                                                                      |
 | <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 멀티콥터(또는 MC 모드의 VTOL)의 스틱 움직임으로 인해 모드가 [위치 모드](../flight_modes/position_mc.md)로 변경되는지 여부를 제어합니다(차량이 중요한 배터리 안전 장치를 처리하는 경우 제외). 자동 모드와 오프보드 모드에 대해 별도로 활성화할 수 있으며, 기본적으로 자동 모드에서 활성화됩니다.                                                                                                                                                                                                                                                                                   |
 | <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | [위치 모드](../flight_modes/position_mc.md)로 전환하는 스틱 이동량 ([COM_RC_OVERRIDE](#COM_RC_OVERRIDE)이 활성화된 경우).                                                                                                                                                                                                                                                                                                                                                                    |
-| <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)   | [고정익만 해당] 배회 원의 반경 ([RTL_LAND_DELAY](#RTL_LAND_DELAY)).                                                                                                                                                                                                                                                                                                                                                                                                                 | 
+| <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)   | [Fixed-wing Only] The radius of the loiter circle (at [RTL_LAND_DELAY](#RTL_LAND_DELAY).                                                                                                                                                                                                                                                                                                                                                                                | 
