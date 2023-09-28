@@ -1,8 +1,10 @@
+<Redirect to="../flight_modes_fw/altitude" />
+
 # Altitude Mode (Fixed-wing)
 
 [<img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="필요한 고도 (예 : 기압계, 거리계)" width="30px" />](../getting_started/flight_modes.md#altitude_only)
 
-*고도* 비행모드는 사용자가 기체의 고도를 제어하거나 특정 고도를 유지하는것을 용이하게 합니다. 이 모드 하에서 바람이 있을 때 기체는 방향을 유지하지 않습니다.
+The *Altitude* flight mode makes it easier for users to control vehicle altitude, and in particular to reach and maintain a fixed altitude. 이 모드 하에서 바람이 있을 때 기체는 방향을 유지하지 않습니다.
 
 기체의 상승/하강률을 피치/엘리베이터 스틱을 이용하여 제어할 수 있습니다. 일단 중앙에 위치하면 자동조종장치가 현재 고도에 고정되고 요/롤 및 모든 대기 속도에서 이 고도를 유지합니다.
 
@@ -24,8 +26,8 @@ RC 수동 모드는 안정화 모드와 같지만 고도 안정화를 사용합�
 * 센터  외부:
   * 피치 스틱은 고도를 제어합니다.
   * 스로틀 스틱은 기체의 대기 속도를 제어합니다 (중앙 롤/피치/요 입력의 경우).
-  * 롤 스틱은 롤 각도를 제어합니다. 자동 조종 장치는 [조정 비행](https://en.wikipedia.org/wiki/Coordinated_flight)을 유지합니다. 이것은 [안정화 모드](../flight_modes/stabilized_fw.md)와 동일합니다.
-  * 요 스틱은 방향타를 작동합니다 ([조정 비행](https://en.wikipedia.org/wiki/Coordinated_flight)을 유지하기 위해 자동 조종 장치에 의해 계산된 신호에 신호가 추가됩니다). 이것은 [안정화 모드](../flight_modes/stabilized_fw.md)와 동일합니다.
+  * 롤 스틱은 롤 각도를 제어합니다. 자동 조종 장치는 [조정 비행](https://en.wikipedia.org/wiki/Coordinated_flight)을 유지합니다. This is same as in [Stabilized mode](../flight_modes_fw/stabilized.md).
+  * 요 스틱은 방향타를 작동합니다 ([조정 비행](https://en.wikipedia.org/wiki/Coordinated_flight)을 유지하기 위해 자동 조종 장치에 의해 계산된 신호에 신호가 추가됩니다). This is same as in [Stabilized mode](../flight_modes_fw/stabilized.md).
 
 :::note
 * 수동 입력이 필요합니다 (RC 컨트롤러 또는 MAVLink를 통한 게임 패드/엄지 스틱).
