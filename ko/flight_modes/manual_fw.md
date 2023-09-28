@@ -1,3 +1,5 @@
+<Redirect to="../flight_modes_fw/manual" />
+
 # Manual Mode (Fixed-wing)
 
 <!-- this requires review -->
@@ -7,7 +9,7 @@
 *Manual mode* sends RC stick input directly to control allocation for fully manual control.
 
 :::tip
-이 모드는 안정화 기능이 없기 때문에, 가장 어려운 모드입니다 [아크로모드](../flight_modes/acro_fw.md)와 달리, RP 스틱이 중심일 경우 기체가 축 주위에서 자동으로 회전을 멈추지 않습니다. 조종사는 실제로 스틱을 이동하여 다른 방향으로 힘을 가해야 합니다. :::
+이 모드는 안정화 기능이 없기 때문에, 가장 어려운 모드입니다 Unlike [Acro Mode](../flight_modes_fw/acro.md) if the RP stick is centered the vehicle will not automatically stop rotating around the axis; the pilot actually has to move the stick to apply force in the other direction. :::
 
 :::note
 이 모드는 FMU를 재정의하는 유일한 모드입니다(명령어는 코프로세서를 통해 전송됩니다).
