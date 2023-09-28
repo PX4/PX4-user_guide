@@ -7,7 +7,7 @@ PX4는 고정익의 전진 비행과 멀티콥터의 수직 이착륙 기능을 
 VTOL은 고정익과 멀티콥터의 장점을 모두 가지고 있습니다.
 
 - **수직 이착륙:** 능숙한 조종사 아니어도 웬만한 장소에서 이착륙이 어렵지 않습니다.
-- **빠르고 효율적인 고정익 비행:** 더 빠르고, 더 멀리, 더 긴 임무를 수행하고 더 무거운 화물들을 운반합니다.
+- **Fast and efficient fixed-wing flight:** Faster, further, and longer missions, carrying heavier payloads.
 - **호버링:** 사진, 구조 스캔 등을 위한 안정적인 플랫폼
 
 PX4가 지원하는 VTOL 유형, 조립, 구성 및 비행 방법에 대하여 설명합니다.
@@ -20,7 +20,7 @@ PX4는 세 가지 중요한 VTOL 유형을 지원합니다.
   <div class="grid_item">
     <div class="grid_item_heading"><a href="tailsitter.html" title="테일시터"><big>테일시터</big></a></div>
     <div class="grid_text">
-    고정익 위치에 로터가 고정됩니다.
+    Rotors permanently in fixed-wing position.
     이륙하고 꼬리로 착륙합니다. 전체 차량이 앞으로 기울어져 전진 비행으로 전환합니다.
     <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="윙트라온" />
     <ul>
@@ -70,7 +70,7 @@ PX4는 세 가지 중요한 VTOL 유형을 지원합니다.
 
 ## 비행 모드
 
-VTOL은 멀티콥터와 고정익의 장점을 모두 가지고 있습니다. 멀티콥터 모드는 주로 이착륙시에 사용되며 고정익 모드는 이동과 임무 수행시에 사용됩니다.
+VTOL은 멀티콥터와 고정익의 장점을 모두 가지고 있습니다. Multicopter mode is mainly used for take off and landing while the fixed-wing mode is used for efficient travel and/or mission execution.
 
 VTOL 비행 모드는 멀티콥터 모드에는 [멀티 콥터](../getting_started/flight_modes.md#mc_flight_modes)와 동일하고, 고정익 모드에는 [고정익](../getting_started/flight_modes.md#fw_flight_modes)과 동일합니다.
 
