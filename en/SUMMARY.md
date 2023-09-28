@@ -683,7 +683,7 @@
       * [ROS/MAVROS Installation on RPi](ros/raspberrypi_installation.md)
       * [External Position Estimation (Vision/Motion based)](ros/external_position_estimation.md)
   * [DroneKit](robotics/dronekit.md)
-* [Contribution (&Dev Call)](contribute/README.md)
+* [Community](contribute/README.md)
   * [Dev Call](contribute/dev_call.md)
   * [Support](contribute/support.md)
   * [Source Code Management](contribute/code.md)
