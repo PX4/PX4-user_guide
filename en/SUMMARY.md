@@ -651,7 +651,7 @@
       * [Windows VM Toolchain](dev_setup/dev_env_windows_vm.md)
       * [Windows Cygwin Toolchain](dev_setup/dev_env_windows_cygwin.md)
       * [Qt Creator IDE](dev_setup/qtcreator.md)
-    * [Connecting an RC Receiver on Linux (Tutorial(](tutorials/linux_sbus.md)
+    * [Connecting an RC Receiver to PX4 on Linux (Tutorial)](tutorials/linux_sbus.md)
   * [Platform Testing and CI](test_and_ci/README.md)
     * [Test Flights](test_and_ci/test_flights.md)
       * [Test MC_01 - Manual Modes](test_cards/mc_01_manual_modes.md)
