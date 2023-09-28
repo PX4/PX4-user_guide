@@ -22,7 +22,7 @@ It works (at time of writing, in PX4 v1.14) but is no longer supported or mainta
 
 ## 如何启用不同的估计器
 
-对于多旋转器和 VTOL，使用参数 [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) 来选择以下配置(LPE 不支持固定翼)。
+For multirotors and VTOL use the parameter [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) to choose between the following configurations (LPE is not supported for Fixed-wing).
 
 | SYS_MC_EST_GROUP | Q Estimator | LPE | EKF2 |
 | ------------------ | ----------- | --- | ---- |
