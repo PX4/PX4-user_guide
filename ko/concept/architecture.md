@@ -46,7 +46,7 @@ again. -->
 
 ### 비행 스택
 
-비행 스택은 자율 드론을 위한 안내, 탐색 및 제어 알고리즘의 모음입니다. 여기에는 고정익, 멀티콥터 및 VTOL 콘트롤러와 자세 및 위치 추정기가 포함됩니다.
+비행 스택은 자율 드론을 위한 안내, 탐색 및 제어 알고리즘의 모음입니다. It includes controllers for fixed-wing, multirotor and VTOL airframes as well as estimators for attitude and position.
 
 다음 다이어그램은 비행 스택의 빌딩 블록에 대한 개요를 나타냅니다. 여기에는 센서, RC 입력 및 자율 비행 제어(내비게이터)에서 모터 또는 서보 제어(액추에이터)에 이르는 전체 파이프라인이 포함됩니다.
 
