@@ -1,6 +1,6 @@
 # 표준 VTOL
 
-**표준 VTOL**은 멀티콥터와 고정익간의 비행 제어가 _완전 분리된_ [VTOL](../frames_vtol/README.md)입니다.
+A **Standard VTOL** is a [VTOL](../frames_vtol/README.md) that has _completely separate_ flight controls for multicopter and fixed-wing flight.
 
 ![수직 기술: Deltaquad QuadPlane VTOL](../../assets/airframes/vtol/vertical_technologies_deltaquad/hero_small.png)
 
