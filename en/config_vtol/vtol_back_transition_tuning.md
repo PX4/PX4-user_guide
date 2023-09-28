@@ -1,6 +1,6 @@
 # VTOL Back-transition Tuning
 
-When a VTOL performs a back-transition (transition from fixed wing mode to multicopter) it needs to slow down before the multicopter can take proper control.
+When a VTOL performs a back-transition (transition from fixed-wing mode to multicopter) it needs to slow down before the multicopter can take proper control.
 To help with braking, the controller will pitch up the vehicle if the current deceleration is below what is set in expected deceleration ([VT_B_DEC_MSS](../advanced_config/parameter_reference.md#VT_B_DEC_MSS)).
 The response of this deceleration controller can be tuned through a `FF` and a `I` gain: [VT_B_DEC_FF](../advanced_config/parameter_reference.md#VT_B_DEC_FF), [VT_B_DEC_I](../advanced_config/parameter_reference.md#VT_B_DEC_I).
 Usually leaving the `FF` at 0 and increasing the `I` if required yields the best results.
@@ -16,5 +16,5 @@ Make sure you have a large enough back-transition duration to allow the vehicle 
 ## Back-transition duration
 
 Setting a high back-transition time ([VT_B_TRANS_DUR](../advanced_config/parameter_reference.md#VT_B_TRANS_DUR)) will give the vehicle more time to slow down.
-During this period the VTOL will shut down its fixed wing motor and slowly ramp up its MC motors while gliding.
+During this period the VTOL will shut down its fixed-wing motor and slowly ramp up its MC motors while gliding.
 The higher this time is set the longer the vehicle will glide in an attempt to slow down. The caveat of this behavior is that the vehicle will only control altitude and not position during this period, so some drift can occur.

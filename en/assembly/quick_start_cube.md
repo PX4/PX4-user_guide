@@ -53,7 +53,7 @@ ideally oriented top-side up and with the arrow pointing towards the front of th
 ![Cube Mount - Direction of Front](../../assets/flight_controller/cube/cube_mount_front.jpg)
 
 :::note
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 :::
 
 The Cube can be mounted using either vibration-damping foam pads (included in the kit) or mounting screws. 
@@ -103,7 +103,7 @@ The buzzer should be connected to the USB port as shown (no further configuratio
 ![Cube Buzzer](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
 <a id="rc_control"></a>
-## Radio Control
+## Radio Control
 
 A [remote control (RC) radio system](../getting_started/rc_transmitter_receiver.md) is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
@@ -147,7 +147,7 @@ Ensure the voltage of servo you are going to use is appropriate!
 :::
 
 <a id="telemetry"></a>
-## Telemetry System (Optional)
+## Telemetry System (Optional)
 
 A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 

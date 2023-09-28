@@ -44,7 +44,7 @@ Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by ena
 Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
 
 :::tip
-The automatic takeoff mode is highly recommended, in particular for Fixed Wing vehicles!
+The automatic takeoff mode is highly recommended, in particular for fixed-wing vehicles!
 :::
 
 :::note
@@ -71,7 +71,7 @@ If you see the vehicle "twitch" during landing (turn down the motors, and then i
 :::
 
 :::tip
-Automatic landing is highly recommended, in particular for Fixed Wing vehicles.
+Automatic landing is highly recommended, in particular for Fixed-wing vehicles.
 :::
 
 

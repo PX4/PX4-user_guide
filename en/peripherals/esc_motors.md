@@ -19,7 +19,7 @@ A high level overview of the main ESC/Servo protocols supported by PX4 is given 
 
 ### PWM
 
-[PWM ESCs](../peripherals/pwm_escs_and_servo.md) are commonly used for fixed wing vehicles and ground vehicles (vehicles that require a lower latency like multicopters typically use oneshot or dshot ESCs).
+[PWM ESCs](../peripherals/pwm_escs_and_servo.md) are commonly used for fixed-wing vehicles and ground vehicles (vehicles that require a lower latency like multicopters typically use oneshot or dshot ESCs).
 
 PWM ESCs communicate using a periodic pulse, where the _width_ of the pulse indicates the desired power level.
 The pulse wdith typically ranges between 1000uS for zero power and 2000uS for full power.

@@ -1,6 +1,6 @@
 # Fixed-wing PID Tuning Guide
 
-This guide explains how to manually tune the fixed wing PID loop.
+This guide explains how to manually tune the fixed-wing PID loop.
 It is intended for advanced users / experts, as incorrect PID tuning may crash your aircraft.
 
 :::note

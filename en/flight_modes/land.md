@@ -40,11 +40,11 @@ Parameter | Description
 Fixed-wing _Land mode_ is currently broken: [PX4-Autopilot/pull/21036](https://github.com/PX4/PX4-Autopilot/pull/21036).
 (Specifically, switching to Land mode causes a fly-away.)
 
-Automated landing in missions is supported: [Mission mode > Fixed wing mission landing](../flight_modes/mission.md#fw-mission-landing).
+Automated landing in missions is supported: [Mission mode > Fixed-wing mission landing](../flight_modes/mission.md#fw-mission-landing).
 :::
 
 
 ## VTOL
 
-A VTOL follows the LAND behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
+A VTOL follows the LAND behavior and parameters of [Fixed-wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
 When [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT) is set (default: on) a VTOL in FW mode will transition back to MC just before landing.

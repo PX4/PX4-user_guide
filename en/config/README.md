@@ -62,6 +62,10 @@ The video below shows most of the calibration process (it uses an older version 
 
 @[youtube](https://youtu.be/91VGmdSlbo4)
 
+## Support
+
+If you need help with the configuration you can ask for help on the [QGroundControl Support forum](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage).
+
 ## See Also
 
 - [QGroundControl > Setup](https://docs.qgroundcontrol.com/master/en/SetupView/SetupView.html)
@@ -71,5 +75,5 @@ The video below shows most of the calibration process (it uses an older version 
 
   - [Multicopter Config/Tuning](../config_mc/README.md)
   - [Helicopter Config/Tuning](../config_heli/README.md)
-  - [Fixed Wing Config/Tuning](../config_fw/README.md)
+  - [Fixed-wing Config/Tuning](../config_fw/README.md)
   - [VTOL Config/Tuning](../config_vtol/README.md)

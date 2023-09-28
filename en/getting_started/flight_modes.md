@@ -40,7 +40,7 @@ Not only does this make movement predictable, but because angles are controlled,
 In acrobatic modes RC sticks control the rate of angular rotation (around the respective axis).
 Vehicles can flip, and while more maneuverable, are harder to fly.
 
-Fixed Wing:
+Fixed-wing:
 
 * Manual-Easy: [Position](#position-mode-fw), [Altitude](#altitude-mode-fw), [Stabilized](#stabilized-mode-fw)
 * Manual-Acrobatic: [Manual](#manual-mode-fw), [Acro](#acro-mode-fw)
@@ -343,7 +343,7 @@ It can be activated with a pre-programmed RC switch or the *QGroundControl* **Pa
 The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a [failsafe](../config/safety.md) being triggered).
 
 The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined).
-By default a fixed wing vehicle will ascend to a safe height and use a mission landing pattern if one exists, otherwise it will fly to the home position and circle. 
+By default a fixed-wing vehicle will ascend to a safe height and use a mission landing pattern if one exists, otherwise it will fly to the home position and circle. 
 
 
 <a id="mission_fw"></a>
@@ -374,14 +374,14 @@ The specific launch behaviour depends on the configured takeoff mode (catapult/h
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;
 
 [Land mode](../flight_modes/land.md) causes the vehicle to turn and land at the location at which the mode was engaged.
-Fixed wing landing logic and parameters are explained in the topic: [Mission > Fixed Wing Mission Landing](../flight_modes/mission.md#fw-mission-landing).
+Fixed-wing landing logic and parameters are explained in the topic: [Mission > Fixed-wing Mission Landing](../flight_modes/mission.md#fw-mission-landing).
 
 <a id="offboard_fw"></a>
 ### Offboard Mode (FW)
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Offboard mode](../flight_modes/offboard.md) causes the fixed wing vehicle to obey attitude setpoints provided over MAVLink. 
+[Offboard mode](../flight_modes/offboard.md) causes the fixed-wing vehicle to obey attitude setpoints provided over MAVLink. 
 
 :::note
 This mode is intended for vehicle control from companion computers and ground stations!
@@ -390,7 +390,7 @@ This mode is intended for vehicle control from companion computers and ground st
 ## Vertical Take Off and Landing (VTOL)
 
 A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle.
-The multicopter mode is mainly used for take off and landing while the fixed wing mode is used for efficient travel and/or mission execution.
+The multicopter mode is mainly used for take off and landing while the fixed-wing mode is used for efficient travel and/or mission execution.
 
 Generally the flight modes for VTOL vehicles are the same as for [multicopter](#mc_flight_modes) when flying in MC mode and [fixed-wing](#fw_flight_modes) when flying in FW mode.
 

@@ -1,4 +1,4 @@
-# Manual Mode (Fixed Wing)
+# Manual Mode (Fixed-wing)
 
 <!-- this requires review -->
 

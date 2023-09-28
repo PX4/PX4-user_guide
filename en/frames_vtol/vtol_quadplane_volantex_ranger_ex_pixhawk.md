@@ -14,10 +14,10 @@ Key information:
 
 The VTOL conversion makes the plane a bit heavier (around 3.5kg including LiPo).
 With this conversion the plane will cruise at approximately 65% throttle.
-The suggested quad setup provides a thrust of 7.5kg and the airframe can fly with a total weight of around 4.5kg.
+The suggested quad setup provides a thrust of 7.5kg and the airframe can fly with a total weight of around 4.5kg.
 This leaves enough payload capacity for payloads like FPV gear and cameras.
 
-The conversion is designed to minimize impact on the aerodynamics and provide additional strength minimize wing flexing.
+The conversion is designed to minimize impact on the aerodynamics and provide additional strength minimize wing flexing.
 
 
 ## Bill of Materials
@@ -36,14 +36,14 @@ The conversion is designed to minimize impact on the aerodynamics and provide ad
 -   3DR Power module or compatible
 -   GPS
 
-For a full parts list with links to Hobbyking EU and International warehouse see:
+For a full parts list with links to Hobbyking EU and International warehouse see:
 [QuadRanger-VTOL-partslist](https://px4.io/wp-content/uploads/2016/01/QuadRanger-VTOL-partslist-1.xlsx)
 
 The image below depicts the parts required for one wing.
 
 ![QuadRanger Parts](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_parts_for_one_wing.jpg)
 
- 
+ 
 The tools required for the conversion are;
 
 -   A Dremel or similar rotary tool
@@ -57,17 +57,17 @@ The tools required for the conversion are;
 
 ## Wing conversion
 
-A full build log is provided in the following video.
+A full build log is provided in the following video.
 
 :::note
-Please note that the conversion in this build log is performed on a wing that shows damage from a previous conversion. 
+Please note that the conversion in this build log is performed on a wing that shows damage from a previous conversion. 
 :::
   
 @[youtube](https://youtu.be/l_ppJ_HhAUQ)
 
-Cut both 800mm square carbon tubes to a length of 570mm and 230mm.
+Cut both 800mm square carbon tubes to a length of 570mm and 230mm.
 
-Making a slot in the Styrofoam wing 1.5cm deep using a rotary tool with some form of guidance to keep a fixed depth.
+Making a slot in the Styrofoam wing 1.5cm deep using a rotary tool with some form of guidance to keep a fixed depth.
 The slot should be the length, depth and width of one 230mm square carbon tube.
 It should be located as indicated below.
 
@@ -79,13 +79,13 @@ Using UHU POR glue the sheet and carbon tube to the Styrofoam wing as indicated 
 
 ![QuadRanger sheet attachment](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_sheet_attachment.jpg)
 
-Using CA glue, glue the 570mm square carbon tube to the carbon sheet.
-It should be located 285mm from where the wings join.
+Using CA glue, glue the 570mm square carbon tube to the carbon sheet.
+It should be located 285mm from where the wings join.
 The tube should be centred relative to the vertical area of the wing.
 It should extend exactly 165mm on both sides.
 
 Attach the motor mount to the motor.
-With another motor mount plate and 4 M3x25mm screws clamp the motor on the end of the square carbon tube as indicated below.
+With another motor mount plate and 4 M3x25mm screws clamp the motor on the end of the square carbon tube as indicated below.
 Attach the ESC's with tie wraps to the carbon tube.
 When using the Afro ESC be sure to connect at least signal and ground wire.
 
@@ -98,7 +98,7 @@ like "sitting in the plane").
 
 Port | Connection
 --- | ---
-MAIN 1   | Front right motor, CCW
+MAIN 1   | Front right motor, CCW
 MAIN 2   | Back left motor, CCW
 MAIN 3   | Front left motor, CW
 MAIN 4   | Back right motor, CW
@@ -125,5 +125,5 @@ Configure the frame as shown in QGroundControl below (do not forget to click **A
 
 ## Support
 
-If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.
+If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.
 

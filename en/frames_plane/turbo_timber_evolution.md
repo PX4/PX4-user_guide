@@ -82,7 +82,7 @@ A long M3 nylon screw and a washer on the underside, followed by a washer and st
 
 ## Pitot Pod
 
-An [airspeed sensor](../sensor/airspeed.md) is highly recommended for use on fixed wing vehicles.
+An [airspeed sensor](../sensor/airspeed.md) is highly recommended for use on fixed-wing vehicles.
 This build uses a MS4525DO differential pressure module and pitot tube housed in a 3D printed pod that has a hardpoint hanger for connecting it to the wing.
 
 ![Pitot pod/tube sitting on a desk](../../assets/airframes/fw/turbo_timber_evolution/pitotpod1.jpg)
@@ -123,7 +123,7 @@ The bottom mount carries the Pixhawk and attaches to the airframe while the top 
 First, the Pixhawk 4 Mini was placed in the lower mount.
 Hot glue was added to rigidly connect the fcu to the mount with two zipties providing additional security.
 The standoff mounts for the upper mount were installed, and the bolts securely tightened.
-Once the lower mount is installed, these screws are inaccessible, so attention was paid to making sure they were tightt enough so they cannot back out. 
+Once the lower mount is installed, these screws are inaccessible, so attention was paid to making sure they were tightt enough so they cannot back out. 
 
 ## Electrical
 
@@ -132,7 +132,7 @@ Once the lower mount is installed, these screws are inaccessible, so attention w
 The Holybro power module was wired inline with the ESC.
 A spare 16awg power lead was also broken out, terminated to an XT30.
 This spare lead will be used to provide power to the Caddx Vista FPV unit, but could also be connected to a splitter to power more peripherals.
-Power for the servo and lighting will be provided by the "BEC" power supply in the ESC. 
+Power for the servo and lighting will be provided by the "BEC" power supply in the ESC. 
 
 ![An image showing the completed power module](../../assets/airframes/fw/turbo_timber_evolution/power_module.jpg)
 
@@ -159,7 +159,7 @@ Access to the Pixhawk 4 Mini requires removal of the upper mount.
 While this isn't too difficult, it was a consideration for wanting to streamline debugging in the field.
 A short right angle USB micro extension was used to allow easy access to the Pixhawk 4 Mini's USB interface.
 The USB-A end of this cable was left dangling in the battery bay.
-Similarly, a JST PH to std spaced headers adapter was made, and it was also left easily accessible in the battery bay. 
+Similarly, a JST PH to std spaced headers adapter was made, and it was also left easily accessible in the battery bay. 
 
 ### Peripherals
 
@@ -193,7 +193,7 @@ Heatshrink was used to electrically insulate the bare board and the radio was in
 Overall, this build was a success.
 
 Even with the added weight of the Pixhawk 4 Mini installation, the airplane balances well and has plenty of power to retain its original STOL characterisitics.
-PX4 is easily capable of stabilizing the airplane and fine tuning of the rate loops were accomplished using [fixed wing autotuning](../config/autotune.md).
+PX4 is easily capable of stabilizing the airplane and fine tuning of the rate loops were accomplished using [fixed-wing autotuning](../config/autotune.md).
 The results of tuning can be found in the [parameter file linked below](#parameter-file).
 
 In testing I found takeoffs can be as short as only 10ft (3m) using no flaps.

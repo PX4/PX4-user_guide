@@ -64,7 +64,7 @@ You will need to [select a compatible transmitter/receiver](../getting_started/r
 - Spektrum/DSM receivers connect to the **DSM/SBUS** input.
 - PPM  receivers connect to the **PPM** input port.
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
 
 ![RC control](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_04.jpg)
 

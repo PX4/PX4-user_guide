@@ -27,7 +27,7 @@ These provide powerful general-purpose computing platform for networking, comput
 
 Some of PX4's key features are:
 
-- Controls [many different vehicle frames/types](../airframes/airframe_reference.md), including: aircraft (multicopters, fixed wing aircraft and VTOLs), ground vehicles and underwater vehicles.
+- Controls [many different vehicle frames/types](../airframes/airframe_reference.md), including: aircraft (multicopters, fixed-wing aircraft and VTOLs), ground vehicles and underwater vehicles.
 - Great choice of hardware for [vehicle controller](#vehicle-flight-controller-board), sensors and other peripherals.
 - Flexible and powerful [flight modes](#flight-modes) and [safety features](#safety-settings-failsafe).
 - Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/README.md) ([ROS 2](../ros/ros2_comm.md), [MAVSDK](http://mavsdk.mavlink.io)).
@@ -55,7 +55,8 @@ For more information see: [Flight Controller Selection](flight_controller_select
 
 PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control).
 The system _minimally requires_ a gyroscope, accelerometer, magnetometer (compass) and barometer.
-A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
+A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes.
+Fixed-wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
 
 For more information see:
 

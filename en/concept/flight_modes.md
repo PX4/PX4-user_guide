@@ -27,7 +27,7 @@ For example, experienced fliers can use modes that provide direct passthrough of
 - **Rovers / Boats:** 
   * **MANUAL/STABILIZED/ACRO:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to control allocation.
 
-- **Fixed wing aircraft:**
+- **Fixed-wing aircraft:**
 
   - **MANUAL:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to control allocation.
   - **STABILIZED:** The pilot's pitch and roll inputs are passed as angle commands to the autopilot, while the yaw input is sent directly via control allocation to the rudder (manual control).
@@ -63,7 +63,7 @@ Assisted modes often make it much easier to gain or restore controlled flight.
 
 - **ALTCTL** (Altitude Control)
 
-  - **Fixed wing aircraft:** When the roll, pitch and yaw (RPY) RC sticks are all centered (or less than some specified deadband range) the aircraft will return to straight and level flight and keep its current altitude.
+  - **Fixed-wing aircraft:** When the roll, pitch and yaw (RPY) RC sticks are all centered (or less than some specified deadband range) the aircraft will return to straight and level flight and keep its current altitude.
     Its x and y position will drift with the wind.
   - **Multirotors:** Roll, pitch and yaw inputs are as in Stabilised mode.
     Throttle inputs indicate climb or sink at a predetermined maximum rate.
@@ -72,7 +72,7 @@ Assisted modes often make it much easier to gain or restore controlled flight.
     The autopilot only controls altitude so the x,y position of the vehicle can drift due to wind.
 - **POSCTL** (Position Control)
 
-  - **Fixed wing aircraft:** Neutral inputs (centered RC sticks) give level flight and it will crab against the wind if needed to maintain a straight line.
+  - **Fixed-wing aircraft:** Neutral inputs (centered RC sticks) give level flight and it will crab against the wind if needed to maintain a straight line.
   - **Multirotors** Roll controls left-right speed, pitch controls front-back speed over ground.
     Yaw controls yaw rate as in MANUAL mode.
     Throttle controls climb/descent rate as in ALTCTL mode.
@@ -84,11 +84,11 @@ Assisted modes often make it much easier to gain or restore controlled flight.
 
 - **AUTO_LOITER** (Loiter)
 
-  - **Fixed wing aircraft:** The aircraft loiters around the current position at the current altitude (or possibly slightly above the current altitude, good for 'I'm losing it'). 
+  - **Fixed-wing aircraft:** The aircraft loiters around the current position at the current altitude (or possibly slightly above the current altitude, good for 'I'm losing it'). 
   - **Multirotors:**  The multirotor hovers / loiters at the current position and altitude.
 - **AUTO_RTL** (Return to Launch)
 
-  - **Fixed wing aircraft:** The aircraft returns to the home position and loiters in a circle above the home position. 
+  - **Fixed-wing aircraft:** The aircraft returns to the home position and loiters in a circle above the home position. 
   - **Multirotors:** The multirotor returns in a straight line on the current altitude (if the current altitude is higher than the home position + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)) or on the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) (if the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) is higher than the current altitude), then lands automatically.
 - **AUTO_MISSION** (Mission)
   - **All system types:** The aircraft obeys the programmed mission sent by the ground control station (GCS).
