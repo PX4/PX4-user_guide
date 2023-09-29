@@ -129,7 +129,7 @@ The GPIO1/2 pins are free pins that can be used to generate signals in software 
 
 The socket is a _10-pin JST SH_ - Digikey number: [BM10B-SRSS-TB(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1796-2-ND) (vertical mount) or [SM10B-SRSS-TB(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1810-2-ND) (side mount).
 
-You can connect to the debug port using a [cable like this one](https://www.digikey.com/products/en?keywords=A10SR10SR30K203A).
+您可以连接到调试端口使用[像这样](https://www.digikey.com/products/en?keywords=A10SR10SR30K203A)的电缆。
 
 <!-- FIXME: better to have image showing proper connections for SWD+SWO -->
 
