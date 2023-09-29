@@ -69,7 +69,7 @@
 
 필터 튜닝은 비행 로그를 검토하는 것이 제일 좋은 방법입니다. 서로 다른 매개 변수를 사용하여 여러 차례 비행후 로그를 분석할 수 있지만, 별도의 로그 파일이 생성되도록 중간에 시동을 꺼야합니다.
 
-비행 기동은 [수동/안정화 모드](../flight_modes/manual_stabilized_mc.md)에서 단순히 모든 방향으로 롤링 및 피칭하고 스로틀 기간을 늘리면서 호버링할 수 있습니다. 전체 시간은 30초를 넘지 않아도 됩니다. 정확한 비교를 위해서 모든 테스트에서 기동이 유사하여야 합니다.
+The performed flight maneuver can simply be hovering in [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md) with some rolling and pitching to all directions and some increased throttle periods. 전체 시간은 30초를 넘지 않아도 됩니다. 정확한 비교를 위해서 모든 테스트에서 기동이 유사하여야 합니다.
 
 먼저 낮은 D-term 필터값 ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30)을 사용하면서 10Hz 단위로 자이로 필터 [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF)를 조정합니다. 로그를 [Flight Review](https://logs.px4.io)에 업로드하여 *Actuator Controls FFT* 플롯을 비교합니다. 노이즈가 눈에 띄게 증가하기 전에 차단 주파수를 설정하십시오 (60Hz 주변 및 그 이상의 주파수).
 

@@ -1,3 +1,5 @@
+<Redirect to="../flight_modes_fw/manual" />
+
 # Manual Mode (Fixed-wing)
 
 <!-- this requires review -->
@@ -7,7 +9,7 @@
 *Manual mode* sends RC stick input directly to control allocation for fully manual control.
 
 :::tip
-这是最难飞行的模式，因为什么都不稳定。 不同于[特技模式](../flight_modes/acro_fw.md)，如果 RP （俯仰和横滚） 摇杆居中，无人机不会自动停止绕轴转；飞手实际上必须移动摇杆向另一个方向施力。 :::
+这是最难飞行的模式，因为什么都不稳定。 Unlike [Acro Mode](../flight_modes_fw/acro.md) if the RP stick is centered the vehicle will not automatically stop rotating around the axis; the pilot actually has to move the stick to apply force in the other direction. :::
 
 :::note
 这是唯一忽略 FMU（命令通过安全协处理器发送） 的飞行模式。

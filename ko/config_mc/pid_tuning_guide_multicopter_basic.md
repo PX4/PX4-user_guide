@@ -24,7 +24,7 @@ _QGroundControl_ **PID 튜닝** 설정은 기체 설정점과 응답 곡선의 �
 - 속도 컨트롤러 조정이 가장 중요하며 잘 조정된 경우 다른 컨트롤러는 종종 약간의 조정만 필요하거나 필요하지 않습니다.
 - 일반적으로 롤 및 피치에 동일한 튜닝 게인을 사용할 수 있습니다.
 - 곡예/안정화/고도 모드를 사용하여 속도 컨트롤러 조정
-- [위치 모드](../flight_modes/position_mc.md)를 사용하여 *속도 컨트롤러* 및 *위치 컨트롤러*를 조정합니다. 단계 입력을 생성할 수 있도록 *단순 위치 제어* 모드로 전환하여야 합니다. ![QGC PID tuning: Simple control selector](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_simple_control.png)
+- Use [Position mode](../flight_modes_mc/position.md) to tune the *Velocity Controller* and the *Position Controller*. 단계 입력을 생성할 수 있도록 *단순 위치 제어* 모드로 전환하여야 합니다. ![QGC PID tuning: Simple control selector](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_simple_control.png)
 :::
 
 ## 전제 조건:
@@ -33,7 +33,7 @@ _QGroundControl_ **PID 튜닝** 설정은 기체 설정점과 응답 곡선의 �
 - [ESC 보정](../advanced_config/esc_calibration.md)을 완료하여야 합니다.
 - If using PWM outputs their minimum values should be set correctly in the [Actuator Configuration](../config/actuators.md#actuator-configuration-and-testing). These need to be set low, but such that the **motors never stop** when the vehicle is armed.
 
-  [곡예 모드](../flight_modes/acro_mc.md) 또는 [수동/안정 모드](../flight_modes/manual_stabilized_mc.md)에서 테스트할 수 있습니다.
+  This can be tested in [Acro mode](../flight_modes_mc/acro.md) or in [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md):
   - 프로펠러 제거
   - 기체에 시동을 걸고 스로틀을 최소로 내립니다.
   - 차량을 모든 방향으로 60도 정도 기울입니다.
@@ -49,7 +49,7 @@ _QGroundControl_ **PID 튜닝** 설정은 기체 설정점과 응답 곡선의 �
 
 튜닝 절차는 다음과 같습니다.
 
-1. 기체에 시동을 걸고, 이륙 호버링합니다 (일반적으로 [위치 모드](../flight_modes/position_mc.md)에서).
+1. Arm the vehicle, takeoff, and hover (typically in [Position mode](../flight_modes_mc/position.md)).
 1. _QGroundControl_을 실행합니다. **차량 설정 > PID 튜닝** ![QGC 속도 컨트롤러 튜닝 UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
 1. **Rate Controller** 탭을 선택하십시오.
 1. 에어 모드 선택기가 **사용 안함**으로 설정되어 있는 지 확인합니다.
@@ -64,7 +64,7 @@ _QGroundControl_ **PID 튜닝** 설정은 기체 설정점과 응답 곡선의 �
    자세한 내용은 [자세한 PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve)를 참조하십시오.
 :::
 1. *튜닝 선택* 라디오 버튼을 **롤**로 설정합니다.
-1. (선택 사항) **자동 비행 모드 전환** 확인란을 선택합니다. **시작** 버튼을 누르면 _자동으로_ [위치 모드](../flight_modes/position_mc.md)에서 [안정화 모드](../flight_modes/manual_stabilized_mc.md)로 전환됩니다.
+1. (선택 사항) **자동 비행 모드 전환** 확인란을 선택합니다. This will _automatically_ switch from [Position mode](../flight_modes_mc/position.md) to [Stabilised mode](../flight_modes_mc/manual_stabilized.md) when you press the **Start** button
 1. 속도 컨트롤러 튜닝의 경우 *곡예 모드*, *안정화 모드* 또는 *고도 모드*로 전환합니다 (자동 전환이 활성화되지 않은 경우).
 1. 설정점과 응답 곡선 추적을 시작하려면 **시작** 버튼을 클릭합니다.
 1. *롤 스틱* 전체 범위를 빠르게 이동하고 플롯에서 계단 응답을 관찰합니다. :::tip 플롯을 더 쉽게 검사 할 수 있도록 추적을 중지하십시오. 확대/축소/이동시 자동으로 발생합니다. 플롯을 다시 시작하려면 **시작** 버튼을 사용하고 재설정하려면 **지우기** 버튼을 사용합니다.

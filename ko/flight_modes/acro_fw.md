@@ -1,8 +1,10 @@
+<Redirect to="../flight_modes_fw/acro" />
+
 # Acro Mode (Fixed-wing)
 
 [<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
-곡예 기동을 수행하는 RC 모드 (예 : 롤, 뒤집기, 포장 마차 및 곡예 인물)
+*Acro mode* is the RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
 
 The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation. 스틱이 중앙에 놓여지면 기체는 회전을 멈추지만 현재 방향 (측면, 반전 등) 과 현재 모멘텀에 따라 움직입니다.
 

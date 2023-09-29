@@ -1,4 +1,6 @@
-# 环绕模式 （多旋翼）
+<Redirect to="../flight_modes_mc/orbit" />
+
+# Orbit (Multicopter)
 
 [<img src="../../assets/site/difficulty_easy.png" title="易于飞行" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如 GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
@@ -25,7 +27,7 @@ The use of an RC control is *optional*. 如果没有遥控，则环绕模式如�
 
 遥控可以用于改变绕圈的高度，半径，速度和绕圈方向：
 - **左摇杆：**
-  - *up/down:* controls speed of ascent/descent, as in [Position mode](../flight_modes/position_mc.md). 当在中部死区时，高度被锁定。
+  - *up/down:* controls speed of ascent/descent, as in [Position mode](../flight_modes_mc/position.md). 当在中部死区时，高度被锁定。
   - *left/right:* no effect.
 - **右摇杆：**
   - *left/right:* controls acceleration of orbit in clockwise/counter-clockwise directions. 当居中时，当前速度被锁定。

@@ -10,7 +10,7 @@
 
 ## 수동 모드 동작 방식
 
-풍향계 기능은 [위치 모드](../flight_modes/position_mc.md)에서만 적용됩니다 (다른 수동 멀티콥터 모드는 제외함).
+The weather vane feature will only take effect in [Position mode](../flight_modes_mc/position.md) (not other manual MC modes).
 
 사용자는 풍향계 컨트롤러가 기체의 기수를 바람으로 변경중에도, 요 스틱을 사용하여 요 속도를 제어할 수 있습니다. 목표 요율은 풍향계 요율과 사용자가 명령한 요율의 합입니다.
 

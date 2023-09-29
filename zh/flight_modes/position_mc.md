@@ -1,3 +1,5 @@
+<Redirect to="../flight_modes_mc/position" />
+
 # 位置模式（多旋翼）
 
 [<img src="../../assets/site/difficulty_easy.png" title="飞行难度：简单" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动/遥控器控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="需要定位锁定（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
@@ -5,7 +7,7 @@
 *Position* is an easy-to-fly RC mode in which roll and pitch sticks control acceleration over ground in the vehicle's left-right and forward-back directions (similar to a car's accelerator pedal), and throttle controls speed of ascent-descent. 当摇杆释放/居中时，机体将主动制动，保持水平，并锁定到 3D 空间中的位置 — 补偿风和其他力。 摇杆满偏时，机体以[MPC_ACC_HOR_MAX](#MPC_ACC_HOR_MAX)开始加速减小到达到最终的速度[MPC_VEL_MANUAL](#MPC_VEL_MANUAL)。
 
 :::tip
-位置模式对于新手是最安全的手动模式。 不同于[定高模式](../flight_modes/altitude_mc.md)和[手动/自稳模式](../flight_modes/manual_stabilized_mc.md)，机体在摇杆中位时会停止，而不是继续直到风阻使其减速。 :::
+位置模式对于新手是最安全的手动模式。 Unlike [Altitude](../flight_modes_mc/altitude.md) and [Manual/Stabilized](../flight_modes_mc/manual_stabilized.md) modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance. :::
 
 下图直观地显示了模式行为（对于美国手的遥控器）。
 
@@ -23,10 +25,10 @@
 :::warning
 虽然在校准良好的机体上非常罕见，但有时着陆可能会出现问题。
 - 如果机体无法停止水平移动：
-  - 您仍然可以在[高度模式](../flight_modes/altitude_mc.md)下在控制降落。 方法与上述相同，除了您必须使用横滚和俯仰杆手动确保机体保持在降落点上方。
+  - You can still land under control in [Altitude mode](../flight_modes_mc/altitude.md). 方法与上述相同，除了您必须使用横滚和俯仰杆手动确保机体保持在降落点上方。
   - 降落后检查 GPS 和磁罗盘方向，并校准。
 - 如果机体未检测到地面/降落并落锁。
-  - 机体落地后切换到[手动/自稳模式](../flight_modes/manual_stabilized_mc.md)，保持油门杆低位，并使用手势或其他命令手动落锁。 或者，当机体已经在地面上时，您也可以使用断电开关。 :::
+  - After the vehicle is on the ground switch to [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md) keeping the throttle stick low, and manually disarm using a gesture or other command. 或者，当机体已经在地面上时，您也可以使用断电开关。 :::
 
 ## 技术摘要
 

@@ -1,6 +1,6 @@
 # 레이서 설정
 
-레이서의 최적의 성능 (특히 [곡예 모드](../flight_modes/acro_mc.md))을 위한 설정법을 설명합니다.
+This page describes how to setup and configure a racer for optimal performance (in particular for [Acro mode](../flight_modes_mc/acro.md)).
 
 레이서들은 빠른 기동을 위해 설계된 기체입니다. 가능하면, 유경험자에게 도움을 받는 것이 좋습니다.
 
@@ -32,7 +32,7 @@
 - 로그에는 비행 트랙이 포함되어 있으므로 비행을 검토할 수 있습니다 (3D). 이것은 곡예 비행 기술을 향상에 많은 도움이 됩니다.
 
 :::note
-공격적인 곡예 기동 중에는 GPS가 잠시 동안 위치를 파악하지 못할 수도 있습니다. 이 시간 동안 [위치 모드](../flight_modes/position_mc.md)로 전환하면 위치 값이 유효해질 때 까지 [고도모드](../flight_modes/altitude_mc.md)가 대신 작용합니다.
+공격적인 곡예 기동 중에는 GPS가 잠시 동안 위치를 파악하지 못할 수도 있습니다. If you switch into [position mode](../flight_modes_mc/position.md) during that time, [altitude mode](../flight_modes_mc/altitude.md) will be used instead until the position becomes valid again.
 :::
 
 ## 하드웨어 설정

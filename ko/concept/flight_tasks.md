@@ -124,7 +124,7 @@
 
 ## 신규 비행 작업 테스트
 
-비행 작업을 테스트하려면, 작업이 활성화된 상태에서 기체를 실행하여야 합니다. 위의 예에서 이것은 매개변수 `MPC_POS_MODE`를 5로 설정하고 이륙하고 차량을 [위치 모드](../flight_modes/position_mc.md)로 전환하는 것을 의미합니다.
+비행 작업을 테스트하려면, 작업이 활성화된 상태에서 기체를 실행하여야 합니다. For the example above, this means setting the parameter `MPC_POS_MODE` to 5, taking off, and switching the vehicle to [Position mode](../flight_modes_mc/position.md).
 
 :::note
 위에 정의된 작업은 시뮬레이터에서만 테스트하여야 합니다. 코드는 실제로 설정값을 생성하지 않으므로 기체는 비행하지 않습니다.

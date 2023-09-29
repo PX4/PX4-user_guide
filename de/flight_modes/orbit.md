@@ -1,4 +1,6 @@
-# Orbit (MC)
+<Redirect to="../flight_modes_mc/orbit" />
+
+# Orbit (Multicopter)
 
 [<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
@@ -25,7 +27,7 @@ The use of an RC control is *optional*. If no RC control is present the orbit wi
 
 RC control can be used to change the orbit altitude, radius, speed, and orbit direction:
 - **Left stick:**
-  - *up/down:* controls speed of ascent/descent, as in [Position mode](../flight_modes/position_mc.md). When in center deadzone, altitude is locked.
+  - *up/down:* controls speed of ascent/descent, as in [Position mode](../flight_modes_mc/position.md). When in center deadzone, altitude is locked.
   - *left/right:* no effect.
 - **Right stick:**
   - *left/right:* controls acceleration of orbit in clockwise/counter-clockwise directions. When centered the current speed is locked.

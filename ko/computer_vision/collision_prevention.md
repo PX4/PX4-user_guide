@@ -2,7 +2,7 @@
 
 *충돌방지* 기능은 기체가 장애물을 만나면 자동으로 속도를 늦추거나 정지합니다
 
-[위치 모드](../flight_modes/position_mc.md)에서 멀티콥터에 대해 활성화할 수 있으며, 오프보드 보조 컴퓨터, MAVLink를 통한 오프보드 거리계, 비행 컨트롤러에 부착된 거리계 또는 위의 조합에서 센서 데이터를 사용할 수 있습니다.
+It can be enabled for multicopter vehicles in [Position mode](../flight_modes_mc/position.md), and can use sensor data from an offboard companion computer, offboard rangefinders over MAVLink, a rangefinder attached to the flight controller, or any combination of the above.
 
 충돌 방지는 센서 범위가 충분히 크지 않으면, 기체의 최대 속도를 제한할 수 있습니다! 또한 센서 데이터를 사용할 수 없는 방향으로의 움직임을 방지합니다 (즉, 후방 센서 데이터가없는 경우 뒤로 비행할 수 없음).
 
@@ -65,7 +65,7 @@ PX4 소프트웨어 설정은 다음 섹션에서 다룹니다. 충돌 방지를
 
 ### 범위 데이터 손실
 
-자동항법장치가 0.5 초 이상 센서로부터 범위 데이터를 수신하지 못하면 *수신된 범위 데이터 없음, 이동 허용 없음* 경고 메시지를 출력합니다. 이렇게하면 xy의 속도 설정값이 0이 됩니다. 5초 동안 데이터를 수신하지 않으면 기체는 [유지 모드](../flight_modes/hold.md)로 전환됩니다. 기체가 다시 움직일 수 있도록 하려면 매개 변수 [CP_DIST](#CP_DIST)를 음수로 설정하거나 [위치 모드](../flight_modes/position_mc.md) 이외의 모드(예 : *고도 모드* 또는 *안정화 모드*)로 전환하여 충돌 방지를 비활성화하여야 합니다.
+자동항법장치가 0.5 초 이상 센서로부터 범위 데이터를 수신하지 못하면 *수신된 범위 데이터 없음, 이동 허용 없음* 경고 메시지를 출력합니다. 이렇게하면 xy의 속도 설정값이 0이 됩니다. 5초 동안 데이터를 수신하지 않으면 기체는 [유지 모드](../flight_modes/hold.md)로 전환됩니다. If you want the vehicle to be able to move again, you will need to disable Collision Prevention by either setting the parameter [CP_DIST](#CP_DIST) to a negative value, or switching to a mode other than [Position mode](../flight_modes_mc/position.md) (e.g. to *Altitude mode* or *Stabilized mode*).
 
 여러 센서가 연결되어 있고, 그 중 하나와의 연결이 끊어진 경우에도 보고 센서의 시야 (FOV) 내부를 비행할 수 있습니다. 결함이 있는 센서의 데이터가 만료되고, 이 센서가 포함하는 영역이 커버되지 않은 것으로 처리되므로 그 곳으로 이동할 수 없습니다.
 
@@ -81,7 +81,7 @@ PX4 소프트웨어 설정은 다음 섹션에서 다룹니다. 충돌 방지를
 
 비행 컨트롤러에 직접 연결된 거리 센서의 *센서 지연*은 0으로 가정할 수 있습니다. 외부 비전 기반 시스템의 경우 센서 지연이 최대 0.2 초 일 수 있습니다.
 
-기체 *속도 설정 점 추적 지연*은 [위치 모드](../flight_modes/position_mc.md)에서 최고 속도로 비행후 정지 명령을 내리면 측정할 수 있습니다. 실제 속도와 속도 설정점 사이의 지연은 로그에서 측정할 수 있습니다. 추적 지연은 일반적으로 기체 크기와 튜닝에 따라 0.1 초에서 0.5 초 사이입니다.
+Vehicle *velocity setpoint tracking delay* can be measured by flying at full speed in [Position mode](../flight_modes_mc/position.md), then commanding a stop. 실제 속도와 속도 설정점 사이의 지연은 로그에서 측정할 수 있습니다. 추적 지연은 일반적으로 기체 크기와 튜닝에 따라 0.1 초에서 0.5 초 사이입니다.
 
 :::tip
 장애물에 접근시 기체 속도가 진동하면 (즉, 감속, 가속, 감속), 지연이 너무 높게 설정됩니다.

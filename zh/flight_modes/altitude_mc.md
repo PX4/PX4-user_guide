@@ -1,3 +1,5 @@
+<Redirect to="../flight_modes_mc/altitude" />
+
 # 定高模式（多旋翼）
 
 [<img src="../../assets/site/difficulty_easy.png" title="飞行难度：简单" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动/遥控器控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="需要高度传感器（例如气压计、测距仪）" width="30px" />](../getting_started/flight_modes.md#altitude_only)
@@ -7,7 +9,7 @@
 When the sticks are released/centered the vehicle will level and maintain the current *altitude*. 如果在水平面上运动，机体将继持续运动直到任何动量被风阻力消散。 如果刮风，飞机会向风的方向漂移。
 
 :::tip
-*Altitude mode* is the safest non-GPS manual mode for new fliers. 就像[手动/自稳](../flight_modes/manual_stabilized_mc.md)模式，但是在松开摇杆时也可以锁定机体高度。 :::
+*Altitude mode* is the safest non-GPS manual mode for new fliers. It is just like [Manual/Stabilized](../flight_modes_mc/manual_stabilized.md) mode but additionally locks the vehicle altitude when the sticks are released. :::
 
 下图直观的展示了该模式（以[美国手的遥控器](../getting_started/rc_transmitter_receiver.md#transmitter_modes)举例）。
 
@@ -15,7 +17,7 @@ When the sticks are released/centered the vehicle will level and maintain the cu
 
 ## 技术总结
 
-RC/manual mode like [Manual/Stabilized (MC)](../flight_modes/manual_stabilized_mc.md) mode but with *altitude stabilization* (centered sticks level vehicle and hold it to fixed altitude).
+RC/manual mode like [Manual/Stabilized (MC)](../flight_modes_mc/manual_stabilized.md) mode but with *altitude stabilization* (centered sticks level vehicle and hold it to fixed altitude).
 
 * 回正摇杆（内带死区）：
   * RPY摇杆使飞机水平。

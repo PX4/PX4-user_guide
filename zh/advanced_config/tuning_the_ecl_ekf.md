@@ -156,7 +156,7 @@ EKF2模块将误差建模为与机体固连的椭球体，在将其转换为高�
 
 以下方法可获得良好的调参参数：
 
-1. 在  [Position mode](../flight_modes/position_mc.md) 下飞行一次，在最小和最大速度之间反复向前/向后/向左/向上/向下(在静止条件下进行测试时可获得最佳结果)。
+1. Fly once in [Position mode](../flight_modes_mc/position.md) repeatedly forwards/backwards/left/right/up/down between rest and maximum speed (best results are obtained when this testing is conducted in still conditions).
 2. Extract the `.ulg` log file using, for example, [QGroundControl: Analyze > Log Download](https://docs.qgroundcontrol.com/master/en/analyze_view/log_download.html)
 
 :::note
@@ -331,7 +331,7 @@ Fixed-wing platforms can take advantage of an assumed sideslip observation of ze
 
 以下方法可获得良好的调参参数：
 
-1. 在  [Position mode](../flight_modes/position_mc.md) 下飞行一次，在最小和最大速度之间反复向前/向后/向左/向上/向下(在静止条件下进行测试时可获得最佳结果)。
+1. Fly once in [Position mode](../flight_modes_mc/position.md) repeatedly forwards/backwards/left/right/up/down between rest and maximum speed (best results are obtained when this testing is conducted in still conditions).
 2. Extract the **.ulg** log file using, for example, [QGroundControl: Analyze > Log Download](https://docs.qgroundcontrol.com/master/en/analyze_view/log_download.html) :::note The same **.ulg** log file can also be used to tune the [static pressure position error coefficients](#correction-for-static-pressure-position-error).
 :::
 3. Use the log with the [mc_wind_estimator_tuning.py](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2/EKF/python/tuning_tools/mc_wind_estimator) Python script to obtain the optimal set of parameters.

@@ -1,13 +1,15 @@
+<Redirect to="../flight_modes_fw/stabilized" />
+
 # Stabilized Mode (Fixed-wing)
 
 [<img src="../../assets/site/difficulty_medium.png" title="중급 난이도 비행" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
-안정화 모드 *는 RC 스틱이 중앙에있을 때 차량을 똑바로 수평 비행으로 전환하여 바람에 대한 수평 자세를 유지합니다 (차량 방향 및 고도 제외).
+*Stabilized mode*  puts the vehicle into straight and level flight when the RC sticks are centered, maintaining the horizontal posture against wind (but not vehicle heading and altitude).
 
 기체는 피치 입력을 기반으로 상승/하강하며, 롤/피치 스틱이 0이 아닌 경우 회전합니다. 롤과 피치는 각도가 제어됩니다 (거꾸로 굴리거나 반복할 수 없음).
 
 :::tip
-*안정화 모드*는 굴리거나 뒤집을 수 없기 때문에 [수동 모드](../flight_modes/manual_fw.md)보다 비행하기 훨씬 쉽고 조종 스틱을 중앙에 배치하여 기체의 수평을 유지가 용이합니다. :::
+*Stabilized mode* is much easier to fly than [Manual mode](../flight_modes_fw/manual.md) because you can't roll or flip it, and it is easy to level the vehicle by centering the control sticks. :::
 
 스로틀을 0%로 낮추면 기체가 미끄러집니다 (모터 정지). 회전을 수행하기 위해 명령은 기동 내내 지켜 져야합니다. 롤이 풀리면 비행기는 회전을 멈추고 스스로 수평을 맞출 것입니다 (피치 및 요 명령도 마찬가지입니다).
 

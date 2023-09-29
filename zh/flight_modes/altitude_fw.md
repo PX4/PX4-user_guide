@@ -1,3 +1,5 @@
+<Redirect to="../flight_modes_fw/altitude" />
+
 # Altitude Mode (Fixed-wing)
 
 [<img src="../../assets/site/difficulty_easy.png" title="易于飞行" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="所需高度（例如巴罗、测距仪）" width="30px" />](../getting_started/flight_modes.md#altitude_only)
@@ -24,8 +26,8 @@ The *Altitude* flight mode makes it easier for users to control vehicle altitude
 * 外部中心：
   * 俯仰摇杆控制高度。
   * 油门杆控制飞机的空速（如回中输入 横滚/俯仰/偏航）。
-  * 横滚摇杆控制横滚角度。 自动驾驶仪将保持 [协调飞行](https://en.wikipedia.org/wiki/Coordinated_flight)。 这和[稳定模式](../flight_modes/stabilized_fw.md)一样。
-  * 偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 [协调飞行](https://en.wikipedia.org/wiki/Coordinated_flight)）。 这和[稳定模式](../flight_modes/stabilized_fw.md)一样。
+  * 横滚摇杆控制横滚角度。 自动驾驶仪将保持 [协调飞行](https://en.wikipedia.org/wiki/Coordinated_flight)。 This is same as in [Stabilized mode](../flight_modes_fw/stabilized.md).
+  * 偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 [协调飞行](https://en.wikipedia.org/wiki/Coordinated_flight)）。 This is same as in [Stabilized mode](../flight_modes_fw/stabilized.md).
 
 :::note
 * 需要手动输入（遥控器，或者通过 MAVLink 连接的游戏手柄/拇指摇杆）。
