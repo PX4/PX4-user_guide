@@ -1,6 +1,6 @@
 # 穿越机设置
 
-本页面描述了：如何设置和配置一台穿越机来获取良好的性能（尤其对于特技模式）
+This page describes how to setup and configure a racer for optimal performance (in particular for [Acro mode](../flight_modes_mc/acro.md)).
 
 请注意穿越机是经过特殊设计的动力强劲的快速飞行器。 你应该是有一定经验的使用者，或者让有经验的使用者帮助你。
 
@@ -32,7 +32,7 @@
 - 飞行记录将包含飞行路线追踪，这意味着你可以进行航行回顾（3D 模式）。 这可以帮助你改善特技飞行技巧。
 
 :::note
-在有挑战性的特技精巧操作中，GPS会在短时间内失效。 If you switch into [position mode](../flight_modes/position_mc.md) during that time, [altitude mode](../flight_modes/altitude_mc.md) will be used instead until the position becomes valid again.
+在有挑战性的特技精巧操作中，GPS会在短时间内失效。 If you switch into [position mode](../flight_modes_mc/position.md) during that time, [altitude mode](../flight_modes_mc/altitude.md) will be used instead until the position becomes valid again.
 :::
 
 ## 硬件安装
