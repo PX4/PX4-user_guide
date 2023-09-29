@@ -1,3 +1,5 @@
+<Redirect to="../flight_modes_fw/stabilized" />
+
 # Stabilized Mode (Fixed-wing)
 
 [<img src="../../assets/site/difficulty_medium.png" title="中等飞行难度" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
@@ -7,7 +9,7 @@
 如果横滚/俯仰摇杆杆不为零，则无人机根据俯仰输入进行爬升/下降并执行协调的转弯。 横滚和俯仰是角度控制的（不能上下滚动或循环）。
 
 :::tip
-*Stabilized mode* is much easier to fly than [Manual mode](../flight_modes/manual_fw.md) because you can't roll or flip it, and it is easy to level the vehicle by centering the control sticks. :::
+*Stabilized mode* is much easier to fly than [Manual mode](../flight_modes_fw/manual.md) because you can't roll or flip it, and it is easy to level the vehicle by centering the control sticks. :::
 
 如果油门降至 0％（电机停止），飞机将滑行。 为了执行转弯，必须在整个操纵过程中保持命令，因为如果释放横滚摇杆，则飞机将停止转动并自行调平（对于俯仰和偏航命令也是如此）。
 
