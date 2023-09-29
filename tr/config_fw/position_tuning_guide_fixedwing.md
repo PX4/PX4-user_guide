@@ -17,7 +17,7 @@ TECS (Total Energy Control System) is a guidance algorithm for fixed-wing aircra
 
 A well-tuned attitude controller is required before tuning TECS: [PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md).
 
-Tuning TECS is mainly about setting the airframe limitations correctly. Those limitations can be specified in terms of parameters that can be determined from a sequence of flight maneuvers, which are described below. Most of the maneuvers required the plane to be flown by a pilot in [Stabilized flight mode](../flight_modes/stabilized_fw.md).
+Tuning TECS is mainly about setting the airframe limitations correctly. Those limitations can be specified in terms of parameters that can be determined from a sequence of flight maneuvers, which are described below. Most of the maneuvers required the plane to be flown by a pilot in [Stabilized flight mode](../flight_modes_fw/stabilized.md).
 
 :::tip
 It is highly beneficial to have a person available who can read and take note of telemetry data while the pilot is flying the maneuvers.
@@ -26,7 +26,7 @@ To improve accuracy we also recommended that you verify the data obtained during
 
 #### 1st: Trim Conditions
 
-Fly in [stabilized mode](../flight_modes/stabilized_fw.md) and find trim values for both throttle and pitch angle for level flight at trim airspeed. Use throttle to adjust airspeed and pitch to keep level flight.
+Fly in [stabilized mode](../flight_modes_fw/stabilized.md) and find trim values for both throttle and pitch angle for level flight at trim airspeed. Use throttle to adjust airspeed and pitch to keep level flight.
 
 Set the following parameters:
 - [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) - set to the desired trim airspeed flown during the maneuver.
@@ -35,7 +35,7 @@ Set the following parameters:
 
 #### 2nd: Airspeed & Throttle Limits
 
-Fly in [stabilized mode](../flight_modes/stabilized_fw.md) and increase throttle while maintaining level flight using pitch control - until the vehicle reaches the maximum allowed airspeed.
+Fly in [stabilized mode](../flight_modes_fw/stabilized.md) and increase throttle while maintaining level flight using pitch control - until the vehicle reaches the maximum allowed airspeed.
 
 Set the following parameters:
 - [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX) - set to the throttle you applied to reach maximum airspeed during level flight.
@@ -59,7 +59,7 @@ Fly in stabilized mode, reduce the throttle to `FW_THR_MIN` and slowly decrease 
 Fly in stabilized mode, reduce throttle to `FW_THR_MIN` and adjust the pitch angle such that the plane maintains `FW_AIRSPD_TRIM`.
 - [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) - set to the sink rate achieved while maintaining `FW_AIRSPD_TRIM`.
 
-Specify the target climb and sink rate for autonomous missions by adjusting [FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP) and [FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP). These specify the height rates at which the vehicle will climb or descend in order to change altitude. Furthermore, these two values define the height rate limits commanded by the user in [Altitude mode](../flight_modes/altitude_fw.md) and [Position mode](../flight_modes/position_fw.md).
+Specify the target climb and sink rate for autonomous missions by adjusting [FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP) and [FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP). These specify the height rates at which the vehicle will climb or descend in order to change altitude. Furthermore, these two values define the height rate limits commanded by the user in [Altitude mode](../flight_modes_fw/altitude.md) and [Position mode](../flight_modes_fw/position.md).
 
 
 ### FW Path Control Tuning (Position)
