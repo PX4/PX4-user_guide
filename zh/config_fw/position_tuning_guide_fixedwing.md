@@ -14,7 +14,7 @@ TECS（总能量控制系统）是一种用于固定翼飞机的制导算法，�
 
 调整 TECS 之前需要一个调整好的姿态控制器：[PID调整指南](../config_fw/pid_tuning_guide_fixedwing.md)。
 
-调整 TECS 主要是正确地设置机身限制。 这些限制可以通过如下所述的一系列飞行操作确定的参数来指定。 大多数操作要求飞行员在[稳定飞行模式](../flight_modes/stabilized_fw.md)下飞行。
+调整 TECS 主要是正确地设置机身限制。 这些限制可以通过如下所述的一系列飞行操作确定的参数来指定。 Most of the maneuvers required the plane to be flown by a pilot in [Stabilized flight mode](../flight_modes_fw/stabilized.md).
 
 :::tip
 当飞行员飞行时，能有人帮助阅读和记录遥测数据时非常有益的。
@@ -23,7 +23,7 @@ TECS（总能量控制系统）是一种用于固定翼飞机的制导算法，�
 
 #### 1st：平衡条件
 
-以[稳定模式](../flight_modes/stabilized_fw.md)飞行并找到以平衡速度水平飞行的油门和俯仰角。 使用油门去调节空速和俯仰以保持水平飞行。
+Fly in [stabilized mode](../flight_modes_fw/stabilized.md) and find trim values for both throttle and pitch angle for level flight at trim airspeed. 使用油门去调节空速和俯仰以保持水平飞行。
 
 设置以下参数：
 - [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) - 设置为操作过程中所需要的平衡空速。
@@ -32,7 +32,7 @@ TECS（总能量控制系统）是一种用于固定翼飞机的制导算法，�
 
 #### 2nd：空速和油门限制
 
-以[稳定模式](../flight_modes/stabilized_fw.md)飞行并增加油门，同时使用俯仰控制保持水平飞行-直到飞行器到达最大允许空速。
+Fly in [stabilized mode](../flight_modes_fw/stabilized.md) and increase throttle while maintaining level flight using pitch control - until the vehicle reaches the maximum allowed airspeed.
 
 设置以下参数：
 - [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX) - 设置水平飞行时到达最大空速所需油门。
@@ -56,7 +56,7 @@ TECS（总能量控制系统）是一种用于固定翼飞机的制导算法，�
 以稳定模式飞行，减小油门到`FW_THR_MIN`并调整俯仰角使飞机保持`FW_AIRSPD_TRIM`。
 - [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) - 设置为保持`FW_AIRSPD_TRIM`所需的下降速率。
 
-通过调整[FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP)和[FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP)来确定自动任务的目标爬升率和下降率。 这些参数指定了飞行器改变高度时的爬升率和下降率。 此外，这两个值定义了用户在[高度模式](../flight_modes/altitude_fw.md)和[位置模式](../flight_modes/position_fw.md)下命令的高度变化速率限制。
+通过调整[FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP)和[FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP)来确定自动任务的目标爬升率和下降率。 这些参数指定了飞行器改变高度时的爬升率和下降率。 Furthermore, these two values define the height rate limits commanded by the user in [Altitude mode](../flight_modes_fw/altitude.md) and [Position mode](../flight_modes_fw/position.md).
 
 
 ### 固定翼轨迹控制调整（位置）
