@@ -108,7 +108,7 @@ You can connect to the debug port using a [cable like this one](https://www.digi
 
 The [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) defines _Pixhawk Debug Full_, a _10-Pin SH Debug Port_ that provides access to both SWD pins and the [System Console](system_console). This essentially moves the solder pads from beside the [Pixhawk Debug Mini](#pixhawk-debug-mini) into the connector, and also adds an SWO pin.
 
-This port is specified for use in FMUv5x, FMUv6, FMUv6x.
+该端口指定用于FMUv5x, FMUv6, FMUv6x。
 
 The pinout is as shown below (pins required for debugging are bold):
 
