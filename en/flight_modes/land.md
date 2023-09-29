@@ -11,7 +11,7 @@ After landing, vehicles will disarm after a short timeout (by default).
 * This mode is automatic - no user intervention is *required* to control the vehicle.
 * RC control switches can be used to change flight modes on any vehicle.
 * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
-* The mode can be triggered using the [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START) MAVLink command, or by explicitly switching to Land mode.
+* The mode can be triggered using the [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) MAVLink command, or by explicitly switching to Land mode.
 :::
 
 The specific behaviour for each vehicle type is described below.
