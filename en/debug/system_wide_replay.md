@@ -52,16 +52,7 @@ Reasons for this are given below.
   
   This allows that the modules, which usually publish these topics, don't need to be disabled for replay.
 
-- Optional: setup parameter overrides in the file `build/px4_sitl_default_replay/rootfs/replay_params.txt`.
-  This file should contain a list of `<param_name> <value>`, like:
-  
-  ```
-  EKF2_GB_NOISE 0.001
-  ```
-  
-  By default, all parameters from the log file are applied.
-  When a parameter changed during recording, it will be changed as well at the right time during replay.
-  A parameter in the `replay_params.txt` will override the value and changes to it from the log file will not be applied.
+- Optional: setup parameter overrides (see instructions below).
 - Optional: copy `dataman` missions file from the SD card to the build directory.
   Only necessary if a mission should be replayed.
 - Start the replay:
@@ -81,6 +72,33 @@ Reasons for this are given below.
 
   ```sh
   unset replay
+  ```
+
+### Overriding parameters in the original log
+
+By default, all parameters from the original log file are applied during a replay.
+If a parameter changes during recording, it will be changed at the right time during the replay.
+
+Parameters can be overridden during a replay in two ways: _fixed_ and _dynamic_.
+If an overridden parameter changes in the log, this change will not be applied in the replay.
+
+- **Fixed parameter overrides** will override parameters from the start of the replay.
+  They are defined in the file `build/px4_sitl_default_replay/rootfs/replay_params.txt`, where each line should have the format `<param_name> <value>`.
+  For example:
+
+  ```
+  EKF2_RNG_NOISE 0.1
+  ```
+
+- **Dynamic parameter overrides** will update parameter values at specified times.
+  These parameters will still be initialised to the values in the log or in the fixed overrides.
+  Parameter update events should be defined in `build/px4_sitl_default_replay/rootfs/replay_params_dynamic.txt`, where each line has the format `<param_name> <value> <timestamp>`.
+  The timestamp is the time in seconds from the start of the log. For example:
+
+  ```
+  EKF2_RNG_NOISE 0.15 23.4
+  EKF2_RNG_NOISE 0.05 56.7
+  EKF2_RNG_DELAY 4.5 30.0
   ```
 
 ### Important Notes
