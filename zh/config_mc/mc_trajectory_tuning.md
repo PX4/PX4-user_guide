@@ -32,9 +32,9 @@ P/PID 增益<0>整定不当会导致机体不稳定。 Poorly tuned *setpoint va
 
 [任务模式](../flight_modes/mission.md)始终使用[加加速度限制型](../config_mc/mc_jerk_limited_type_trajectory.md)轨迹。
 
-[Position mode](../flight_modes/position_mc.md) supports the [implementations](#position-mode-implementations) listed below. It uses the acceleration based mapping by default; other types can be set using [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE).
+[Position mode](../flight_modes_mc/position.md) supports the [implementations](#position-mode-implementations) listed below. It uses the acceleration based mapping by default; other types can be set using [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
-[Altitude mode](../flight_modes/altitude_mc.md) similarly supports the [implementations](#altitude-mode-implementations) selected by [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE), but *only* for smoothing the vertical component (i.e. when controlling the altitude).
+[Altitude mode](../flight_modes_mc/altitude.md) similarly supports the [implementations](#altitude-mode-implementations) selected by [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE), but *only* for smoothing the vertical component (i.e. when controlling the altitude).
 
 其他模式不支持轨迹调整。
 
