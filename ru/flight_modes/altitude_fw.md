@@ -1,3 +1,5 @@
+<Redirect to="../flight_modes_fw/altitude" />
+
 # Altitude Mode (Fixed-wing)
 
 [<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" />](../getting_started/flight_modes.md#altitude_only)
@@ -24,8 +26,8 @@ RC/manual mode like Stabilized mode but with altitude stabilization (centered st
 * Outside center:
   * Pitch stick controls altitude.
   * Throttle stick controls the airspeed of the aircraft (as for centered Roll/Pitch/Yaw inputs).
-  * Roll stick controls roll angle. Autopilot will maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight). This is same as in [Stabilized mode](../flight_modes/stabilized_fw.md).
-  * Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight)). This is same as in [Stabilized mode](../flight_modes/stabilized_fw.md).
+  * Roll stick controls roll angle. Autopilot will maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight). This is same as in [Stabilized mode](../flight_modes_fw/stabilized.md).
+  * Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight)). This is same as in [Stabilized mode](../flight_modes_fw/stabilized.md).
 
 :::note
 * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
