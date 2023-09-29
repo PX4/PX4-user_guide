@@ -10,7 +10,7 @@ Weather vane functionality is not supported on pure multirotors.
 
 ## Manual Mode Behaviour
 
-The weather vane feature will only take effect in [Position mode](../flight_modes/position_mc.md) (not other manual MC modes).
+The weather vane feature will only take effect in [Position mode](../flight_modes_mc/position.md) (not other manual MC modes).
 
 The user can still use the yaw stick to demand a yaw rate even while the weather vane controller is trying to turn the nose of the vehicle into the wind. The target yaw rate is the sum of weather vane yaw rate and user commanded yaw rate.
 
