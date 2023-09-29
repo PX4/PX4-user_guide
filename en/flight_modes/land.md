@@ -36,13 +36,27 @@ Parameter | Description
 
 ## Fixed-wing (FW)
 
-:::warning
-Fixed-wing _Land mode_ is currently broken: [PX4-Autopilot/pull/21036](https://github.com/PX4/PX4-Autopilot/pull/21036).
-(Specifically, switching to Land mode causes a fly-away.)
+Fixed-wing _land mode_ performs a circular landing at the current vehicle position.
+As opposed to the configurable landing approach settings in mission mode, the _land mode_ cannot be adapted to the local terrain, and should
+thus only be considered as an emergency option to bring a vehicle to the ground.
 
-Automated landing in missions is supported: [Mission mode > Fixed-wing mission landing](../flight_modes/mission.md#fw-mission-landing).
+When the mode is engaged, the vehicle starts to loiter around the current vehicle position with loiter radius [NAV_LOITER_RAD](#NAV_LOITER_RAD) and begins to descend with a constant descent speed.
+The descent speed is calculated using [FW_LND_ANG](#FW_LND_ANG) and the set landing airspeed [FW_LND_AIRSPD](#FW_LND_AIRSPD).
+The vehicle will flare if configured to do so (see [Flaring](../flight_modes/mission.md#flaring-roll-out)), and otherwise proceed circling with the constant descent rate until landing is detected.
+[Manual nudging](../flight_modes/mission.md#automatic-abort) and [automatic land abort](../flight_modes/mission.md#nudging) are not available in the landing mode.
+
+
+:::warning
+It is highly recommended to only engage this mode in case of emergency, as the exact touch down point cannot be configured and it will
+touch down while tracking a circle.
+Auto landings should whenever possible be executed through the mission interface: [Mission mode > Fixed-wing mission landing](../flight_modes/mission.md#fw-mission-landing).
 :::
 
+Parameter | Description
+--- | ---
+<a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD) | The loiter radius that the controller tracks for the whole landing sequence.
+<a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG) | The flight path angle setpoint.
+<a id="FW_LND_AIRSPD"></a>[FW_LND_AIRSPD](../advanced_config/parameter_reference.md#FW_LND_AIRSPD) | The airspeed setpoint.
 
 ## VTOL
 
