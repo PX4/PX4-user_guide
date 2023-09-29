@@ -157,7 +157,7 @@ WiFi 网络 SSID、密码和其他凭据可以在连接后更改(如果需要), 
    我们推荐的遥控设置为：
 
    我们推荐的 RC 控制器开关定义为：
-   - 默认情况下，PX4 Vision Kit运行 *localplanner* ，这是您自己的软件的推荐起点。
+   - [Position Mode](../flight_modes_mc/position.md) - a safe manual flight mode that can be used to test collision prevention.
    - *globalplanner* 尚未用这个工具包测试。
    - *降落计划器* 需要一个向下的摄像头，并且必须先修改相机的安装座才能使用。
 
@@ -197,7 +197,7 @@ WiFi 网络 SSID、密码和其他凭据可以在连接后更改(如果需要), 
 1. 将预先烧录的USB驱动器插入标有 `USB1` 的 *UP Core* 端口中。
 1. 找到一个安全的户外位置进行飞行，最好是用树或其他方便的障碍测试PX4视觉。
 
-1. 测试 [防止碰撞](../computer_vision/collision_prevention.md), 启用 [位置模式](../flight_modes/position_mc.md) 并手动向障碍飞行。 无人机应减速，然后在障碍物距离小于6米时悬停(通过 [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) 参数，距离 [可调整](../advanced_config/parameters.md)  )。
+1. To test [collision prevention](../computer_vision/collision_prevention.md), enable [Position Mode](../flight_modes_mc/position.md) and fly manually towards an obstacle. 无人机应减速，然后在障碍物距离小于6米时悬停(通过 [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) 参数，距离 [可调整](../advanced_config/parameters.md)  )。
 
 1. 要测试 [避障](../computer_vision/obstacle_avoidance.md)，创建一个被障碍阻止的路径。 然后切换到 [任务模式](../flight_modes/mission.md) 来运行任务。并观察无人机绕开障碍物，然后返回计划路线。
 
