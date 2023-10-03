@@ -14,7 +14,7 @@ All identified topics need to be logged at full rate (see [logging](../dev_log/l
 For `ekf2` this is already the case with the default set of logged topics.
 
 It is important that all replayed topics contain only a single absolute timestamp, which is the automatically generated field `timestamp`.
-Should there be more timestamps, they must be relative with respect to the main timestamp.
+Should there be more timestamps, they must be relative to the main timestamp.
 For an example, see [SensorCombined.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg).
 Reasons for this are given below.
 
@@ -27,11 +27,12 @@ Reasons for this are given below.
   export replay=<absolute_path_to_log_file.ulg>
   make px4_sitl_default
   ```
-  This will create the output in a separate build directory `build/px4_sitl_default_replay` (so that the parameters don't interfere with normal builds).
+  This will create the build/make output in a separate build directory `build/px4_sitl_default_replay` (so that the parameters don't interfere with normal builds).
   It's possible to choose any posix SITL build target for replay, since the build system knows through the `replay` environment variable that it's in replay mode.
 - Add ORB publisher rules in the file `build/px4_sitl_default_replay/rootfs/orb_publisher.rules`.
   This file defines which module is allowed to publish which messages.
   It has the following format:
+  
   ```
   restrict_topics: <topic1>, <topic2>, ..., <topicN>
   module: <module>
@@ -75,7 +76,7 @@ Reasons for this are given below.
   unset replay
   ```
 
-### Overriding parameters in the original log
+### Overriding Parameters in the Original Log
 
 By default, all parameters from the original log file are applied during a replay.
 If a parameter changes during recording, it will be changed at the right time during the replay.
