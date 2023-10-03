@@ -124,7 +124,8 @@ In EKF2 mode, the replay will automatically create the ORB publisher rules descr
 
 To perform an EKF2 replay:
 
-- Record the original log. Optionally set `SDLOG_MODE` to `1` to log from boot.
+- Record the original log.
+  Optionally set `SDLOG_MODE` to `1` to log from boot.
 
 - In addition to the `replay` environment variable, set `replay_mode` to `ekf2`:
 
@@ -145,7 +146,7 @@ To perform an EKF2 replay:
   unset replay; unset replay_mode
   ```
 
-### Adjusting EKF2-specific parameters for the replay
+### Adjusting EKF2-specific Parameters for the Replay
 
 First install `pyulog`:
 
