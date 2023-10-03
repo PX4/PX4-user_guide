@@ -37,20 +37,19 @@ Parameter | Description
 ## Fixed-wing (FW)
 
 Fixed-wing _land mode_ performs a circular landing at the current vehicle position.
-As opposed to the configurable landing approach settings in mission mode, the _land mode_ cannot be adapted to the local terrain, and should
-thus only be considered as an emergency option to bring a vehicle to the ground.
+
+:::warning
+Fixed-wing _land mode_ should only be used in an **emergency**!
+The vehicle will descend around the current location irrespective of the suitability of the underlying terrain, and touch down while following a circlular flight path.
+
+Where possible, instead use the configurable landing approach in [Mission mode > Fixed-wing mission landing](../flight_modes/mission.md#fw-mission-landing).
+:::
 
 When the mode is engaged, the vehicle starts to loiter around the current vehicle position with loiter radius [NAV_LOITER_RAD](#NAV_LOITER_RAD) and begins to descend with a constant descent speed.
 The descent speed is calculated using [FW_LND_ANG](#FW_LND_ANG) and the set landing airspeed [FW_LND_AIRSPD](#FW_LND_AIRSPD).
 The vehicle will flare if configured to do so (see [Flaring](../flight_modes/mission.md#flaring-roll-out)), and otherwise proceed circling with the constant descent rate until landing is detected.
-[Manual nudging](../flight_modes/mission.md#automatic-abort) and [automatic land abort](../flight_modes/mission.md#nudging) are not available in the landing mode.
 
-
-:::warning
-It is highly recommended to only engage this mode in case of emergency, as the exact touch down point cannot be configured and it will
-touch down while tracking a circle.
-Auto landings should whenever possible be executed through the mission interface: [Mission mode > Fixed-wing mission landing](../flight_modes/mission.md#fw-mission-landing).
-:::
+[Manual nudging](../flight_modes/mission.md#automatic-abort) and [automatic land abort](../flight_modes/mission.md#nudging) are not available in land mode.
 
 Parameter | Description
 --- | ---
