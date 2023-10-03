@@ -10,7 +10,7 @@
 * 이 모드는 자동입니다. 기체를 제어시 사용자 개입이 *필요하지* 않습니다.
 * RC 제어 스위치는 기체의 비행 모드를 변경할 수 있습니다.
 * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
-* The mode can be triggered using the [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START) MAVLink command, or by explicitly switching to Land mode. :::
+* The mode can be triggered using the [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) MAVLink command, or by explicitly switching to Land mode. :::
 
 각 기체 유형에 대한 구체적인 동작은 아래에 설명되어 있습니다.
 
@@ -33,11 +33,22 @@ RC stick movement will change the vehicle to [Position mode](../flight_modes_mc/
 
 ## Fixed-wing (FW)
 
+Fixed-wing _land mode_ performs a circular landing at the current vehicle position.
+
 :::warning
-Fixed-wing _Land mode_ is currently broken: [PX4-Autopilot/pull/21036](https://github.com/PX4/PX4-Autopilot/pull/21036). (Specifically, switching to Land mode causes a fly-away.)
+Fixed-wing _land mode_ should only be used in an **emergency**! The vehicle will descend around the current location irrespective of the suitability of the underlying terrain, and touch down while following a circlular flight path.
 
-Automated landing in missions is supported: [Mission mode > Fixed-wing mission landing](../flight_modes/mission.md#fw-mission-landing). :::
+Where possible, instead use the configurable landing approach in [Mission mode > Fixed-wing mission landing](../flight_modes/mission.md#fw-mission-landing). :::
 
+When the mode is engaged, the vehicle starts to loiter around the current vehicle position with loiter radius [NAV_LOITER_RAD](#NAV_LOITER_RAD) and begins to descend with a constant descent speed. The descent speed is calculated using [FW_LND_ANG](#FW_LND_ANG) and the set landing airspeed [FW_LND_AIRSPD](#FW_LND_AIRSPD). The vehicle will flare if configured to do so (see [Flaring](../flight_modes/mission.md#flaring-roll-out)), and otherwise proceed circling with the constant descent rate until landing is detected.
+
+[Manual nudging](../flight_modes/mission.md#automatic-abort) and [automatic land abort](../flight_modes/mission.md#nudging) are not available in land mode.
+
+| 매개 변수                                                                                                 | 설명                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD) | The loiter radius that the controller tracks for the whole landing sequence. |
+| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)         | The flight path angle setpoint.                                              |
+| <a id="FW_LND_AIRSPD"></a>[FW_LND_AIRSPD](../advanced_config/parameter_reference.md#FW_LND_AIRSPD)   | The airspeed setpoint.                                                       |
 
 ## 수직이착륙기
 
