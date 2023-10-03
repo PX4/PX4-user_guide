@@ -30,7 +30,7 @@ Reasons for this are given below.
   This will create the build/make output in a separate build directory `build/px4_sitl_default_replay` (so that the parameters don't interfere with normal builds).
   It's possible to choose any posix SITL build target for replay, since the build system knows through the `replay` environment variable that it's in replay mode.
 - Add ORB publisher rules in the file `build/px4_sitl_default_replay/rootfs/orb_publisher.rules`.
-  This file defines which module is allowed to publish which messages.
+  This file defines the modules that are allowed to publish particular messages.
   It has the following format:
   
   ```
@@ -53,7 +53,7 @@ Reasons for this are given below.
   
   With this, the modules that usually publish these topics don't need to be disabled for the replay.
 
-- _(Optional)_ Setup parameter overrides (see instructions below).
+- _(Optional)_ Setup parameter overrides (see [instructions below](#overriding-parameters-in-the-original-log)).
 - _(Optional)_ Copy a `dataman` mission file from the SD card to the build directory.
   This is only necessary if a mission should be replayed.
 - Start the replay:
