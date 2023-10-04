@@ -205,7 +205,9 @@ Hole to feed the USB cable through the wall.
 
 ### Flight Controller
 
-The Flight controller can be installed above the ESC. If a Pixhawk 6c or 6c mini is used, simply stick the flight controller with double sided tape into place.
+The Flight controller can be installed above the ESC.
+If a Pixhawk 6c or 6c mini is used, simply stick the flight controller with double sided tape into place.
+
 If a Skynode is used, place it at the on top of the ESCs and mark the 2 rear mounting locations on the injection molded plastic part of the ZMO.
 Remove the Skynode from the vehicle and drill 2 holes with a 2.8 mm drill bit into the plastic part.
 Put the Skynode back into place and screw it down with 2x M3x10 screws.
@@ -248,21 +250,36 @@ LTE antenna 2 and RC receiver
 
 ### Sensor Calibration
 
-Do the sensor calibration. Make sure to select the correct orientation of the flight controller.
+First make sure to set the [correct orientation of the flight controller](../config/flight_controller_orientation.md).
+This should be the default (`ROTATION_NONE`).
+
+Then calibrate the main sensors:
+
+- [Compass](../config/compass.md)
+- [Gyroscope](../config/gyroscope.md)
+- [Accelerometer](../config/accelerometer.md)
+- [Airspeed](../config/airspeed.html)
 
 ### RC-Setup
 
-Calibrate you RC controller and setup the flight mode switch.
+[Calibrate your RC Controller](../config/radio.md) and setup the [flight mode switches](../config/flight_mode.md).
 
 ### Actuator Setup
 
-:::note
-Make sure the props are removed! The motors can start very easily in the actuators tab if a value gets changed in the wrong location.
+:::warning
+Make sure the props are removed!
+The motors are easy to start in the actuators tab by accident.
 :::
+
+Motors, control surfaces, and other actuators are configured in the QGroundControl [Actuator Configuration & Testing](../config/actuators.md).
+
 
 #### Tilt Servos
 
-Switch the vehicle into manual mode. Either via the flight mode switch or type "commander mode manual" into the mavlink shell. Check if the motors are pointing upwards. If they are pointing forwards they need to be reversed. To do so select the checkbox under PWM-Main for each servo. Adjust the minimum or maximum value that the servo is pointing vertical up. Then type "commander transition" into the mavlink shell to adjust the horizontal position.
+Switch the vehicle into manual mode. Either via the flight mode switch or type "commander mode manual" into the mavlink shell.
+Check if the motors are pointing upwards. If they are pointing forwards they need to be reversed.
+To do so select the checkbox under PWM-Main for each servo. Adjust the minimum or maximum value that the servo is pointing vertical up.
+Then type "commander transition" into the mavlink shell to adjust the horizontal position.
 
 ![Tilt Servo adjustment](../../assets/airframes/vtol/omp_hobby_zmo_fpv/tilt-limits-01.jpg)
 
