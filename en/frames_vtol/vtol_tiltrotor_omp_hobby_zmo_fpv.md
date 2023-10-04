@@ -119,7 +119,7 @@ The connector glued into the fuselage. Make sure to properly align the connector
 
 Cut the foam as shown in the pictures to create space to mount the Pixhawk adapter boards and BEC with double sided tape. The FMU board is placed on the left side (in flight direction) of the fuselage. Solder a servo connector and a cable for the battery voltage to the BEC.
 
-![Foam cutout 01](../../assets/airframes/vtol/omp_hobby_zmo_fpv/foam-cut-01.jpg)
+![Foam cutout 01](../../assets/airframes/vtol/omp_hobby_zmo_fpv/foam-cut-01.png)
 ![Pixhawk adapter board mount 01](../../assets/airframes/vtol/omp_hobby_zmo_fpv/pixhawk-adapter-01.jpg)
 
 Prepare the BEC to connect to the IO board and to the battery. The BEC can also be soldered directly to the battery pads of the ESC.
@@ -153,11 +153,11 @@ Check first if the pitot tube fits into the 3D-Printed mount. If this is the cas
 
 Glue the 3D-Printed mount into place.
 
-![Pitot tube 01](../../assets/airframes/vtol/omp_hobby_zmo_fpv/pitot-tube-01.jpg)
+![Pitot tube 01](../../assets/airframes/vtol/omp_hobby_zmo_fpv/pitot-tube-01.png)
 
 The sensor can be mounted on top of the 3D-Printed mount.
 
-![Pitot tube 02](../../assets/airframes/vtol/omp_hobby_zmo_fpv/pitot-tube-02.jpg)
+![Pitot tube 02](../../assets/airframes/vtol/omp_hobby_zmo_fpv/pitot-tube-02.png)
 
 #### Lidar
 
@@ -216,9 +216,11 @@ LTE antenna 2 and RC receiver
 
 ### Select Airframe
 
-Open QGC and go under vehicle setup. Search for SYS_AUTO in the parameters tab. Set SYS_AUTOCONFIG to "Reset parameters to airframe defaults" and SYS_AUTOSTART to 13300. Reboot the vehicle.
+Open QGC and go under vehicle setup. Search for `SYS_AUTO` in the parameters tab.
+Set SYS_AUTOCONFIG to "Reset parameters to airframe defaults" and SYS_AUTOSTART to 13300.
+Reboot the vehicle.
 
-![SYS_AUTO](../../assets/airframes/vtol/omp_hobby_zmo_fpv/sys_auto.jpg)
+![SYS_AUTO](../../assets/airframes/vtol/omp_hobby_zmo_fpv/sys_auto.png)
 
 ### Sensor Calibration
 
