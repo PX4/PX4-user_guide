@@ -82,7 +82,7 @@ Sensors that you don't need to calibrate/configure include:
 - [Level Horizon](../config/level_horizon_calibration.md) calibration isn't usually needed if you have mounted the flight controller level.
 - Sensors that are not present, or that are not used by PX4 multicopter for flight control, such as [Airspeed sensors](../config/airspeed.md).
 - Sensors that don't need calibration, including: Barometers and GNSS.
-  :::
+:::
 
 ## Manual Control Setup
 
