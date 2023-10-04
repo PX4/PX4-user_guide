@@ -10,18 +10,17 @@ The OMP Hobby ZMO is a small sized tiltrotor VTOL that is available as RTF kit.
 
 Key airframe features:
 
-- Spacious interior
+- Compact and easy to transport
 - Pre installed actuators
 - Quick release wing connecting system
+- Transport case in kit included
 - ~35 minute long flight times (depending on takeoff weight)
 - VTOL enables flying in locations where a fixed wing couldn't fly
 - Battery and charger included in the kit
 - Easy overall build
 - Space to mount FPV and/or action camera in the front
-- Airspeed data from pitot/static probe
-- Lidar distance sensor
 
-Depending on the final takeoff weight the hover time might be limited, since there is not a lot of air circulation inside the fuselage when the vehicle is hovering.
+Depending on the final takeoff weight the hover time might be limited, since there is not a lot of air circulation inside the fuselage when the vehicle is hovering. Therefore the ESC's might overheat.
 
 ## Where to Buy
 
@@ -37,6 +36,8 @@ The following options have been tested:
 - [Pixhawk 6C](../flight_controller/pixhawk6c.md) with [PM02 V3](../power_module/holybro_pm02.md)
 - [Pixhawk 6C mini](../flight_controller/pixhawk6c_mini.md) with [PM02 V3](../power_module/holybro_pm02.md)
 
+The approximate maximum size of the FC is: 50x110x22mm
+
 ## Additional accessories
 
 - [GPS F9P (included in Skynode eval. kit)](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)
@@ -50,7 +51,7 @@ The following options have been tested:
 - [Servo cable extension cable male 30cm 10 pcs](https://www.getfpv.com/male-to-male-servo-extension-cable-twisted-22awg-jr-style-5-pcs.html)
 - [USB-C extension cable](https://www.digitec.ch/en/s1/product/powerguard-usb-c-usb-c-025-m-usb-cables-22529949?dbq=1&gclid=Cj0KCQjw2cWgBhDYARIsALggUhrh-z-7DSU0wKfLBVa8filkXLQaxUpi7pC0ffQyRzLng8Ph01h2R1gaAp0mEALw_wcB&gclsrc=aw.ds)
 - [3M VHB tape](https://www.amazon.in/3M-VHB-Tape-4910-Length/dp/B00GTABM3Y)
-- [3D-Printed mounts]()
+- [3D-Printed mounts](../../assets/airframes/vtol/omp_hobby_zmo_fpv/OMP-Hobby-ZMO-3D-Prints.zip)
   - 2x wing connector mount
   - 1x Airspeed sensor mount
   - 1x GPS-Mount
@@ -68,6 +69,7 @@ The following tools were used for this build.
 - Soldering station
 - Glue: Hot glue, 5 min Epoxy
 - Tape
+- 3M Double sided tape ([3M VHB tape](https://www.amazon.in/3M-VHB-Tape-4910-Length/dp/B00GTABM3Y))
 - Sandpaper
 - 3D-Printer
 
@@ -225,6 +227,10 @@ Skynode mount in the front
 
 ### Antennas and RC Receiver
 
+:::note
+If a Skynode is installed the LTE can be used as telemetry and video link. If a Pixhawk is used a different telemetry link will be needed. A basic example would be a [SiK Telemetry Radio](https://holybro.com/products/sik-telemetry-radio-v3?_pos=2&_sid=e5e1c6ba3&_ss=r).
+:::
+
 One LTE antenna can be installed at the bottom of the vehicle. For that you can feed the antenna wire through the opening for the ESC heat-sink.
 The second antenna can be installed on the inside of the vehicle on the left side of the battery compartment.
 The RC receiver can also be placed at the left side of the battery compartment.
@@ -242,11 +248,13 @@ LTE antenna 2 and RC receiver
 ### Select Airframe
 
 1. Open QGC and go under vehicle setup.
-1. Search for [SYS_AUTO](../advanced_config/parameter_reference.md#SYS_AUTOSTART) in the parameters tab.
-1. Set [SYS_AUTOCONFIG](../advanced_config/parameter_reference.md#SYS_AUTOCONFIG) to "Reset parameters to airframe defaults" and [SYS_AUTOSTART](../advanced_config/parameter_reference.md#SYS_AUTOSTART) to `13300`.
-1. Reboot the vehicle.
 
-![SYS_AUTO](../../assets/airframes/vtol/omp_hobby_zmo_fpv/sys_auto.png)
+
+1. Open QGC and go under vehicle setup.
+1. Search for [SYS_AUTO](../advanced_config/parameter_reference.md#SYS_AUTOSTART) in the parameters tab.
+1. Set [SYS_AUTOCONFIG](../advanced_config/parameter_reference.md#SYS_AUTOCONFIG) to "Reset parameters to airframe defaults" and [SYS_AUTOSTART](../advanced_config/parameter_reference.md#SYS_AUTOSTART) to `1230113`.
+1. Reboot the vehicle.
+1. Load the [parameter-file]() up to the vehicle. To do so, go into the parameter tab and press on tools in the top-right corner. Select "Load from file.." and select the file.
 
 ### Sensor Calibration
 
