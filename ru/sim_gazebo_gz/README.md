@@ -37,6 +37,10 @@ make px4_sitl gz_x500
 ```
 This will run both the PX4 SITL instance and the Gazebo client. Note that all gazebo make targets have the prefix `gz_`.
 
+:::note
+If `make px4_sitl gz_x500` gives the error `ninja: error: unknown target 'gz_x500'` then run `make distclean` to start from a clean slate, and try running `make px4_sitl gz_x500` again.
+:::
+
 The supported vehicles and `make` commands are listed below.
 
 | Vehicle                                                                                          | Command                          | `PX4_SYS_AUTOSTART` |
