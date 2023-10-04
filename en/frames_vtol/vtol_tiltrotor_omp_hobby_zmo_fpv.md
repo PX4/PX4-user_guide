@@ -268,7 +268,8 @@ Then calibrate the main sensors:
 - [Compass](../config/compass.md)
 - [Gyroscope](../config/gyroscope.md)
 - [Accelerometer](../config/accelerometer.md)
-- [Airspeed](../config/airspeed.html)
+- [Airspeed](../config/airspeed.md)
+
 
 ### RC-Setup
 
