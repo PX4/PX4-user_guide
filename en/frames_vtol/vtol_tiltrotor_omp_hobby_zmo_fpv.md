@@ -228,7 +228,9 @@ Skynode mount in the front
 ### Antennas and RC Receiver
 
 :::note
-If a Skynode is installed the LTE can be used as telemetry and video link. If a Pixhawk is used a different telemetry link will be needed. A basic example would be a [SiK Telemetry Radio](https://holybro.com/products/sik-telemetry-radio-v3?_pos=2&_sid=e5e1c6ba3&_ss=r).
+If a Skynode is installed the LTE can be used as telemetry and video link.
+If a Pixhawk is used a different [telemetry link](../telemetry/README.md) will be needed.
+An inexpensive example would be a [SiK Telemetry Radio](../telemetry/sik_radio.md).
 :::
 
 One LTE antenna can be installed at the bottom of the vehicle. For that you can feed the antenna wire through the opening for the ESC heat-sink.
