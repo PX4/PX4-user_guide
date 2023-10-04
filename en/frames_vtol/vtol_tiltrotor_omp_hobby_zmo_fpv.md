@@ -250,7 +250,7 @@ Check with RC-Controller, if the actuators need to be reversed.
 
 Now adjust the trim value that all the surfaces are in neutral position.
 
-![Servo trim](../../assets/airframes/vtol/omp_hobby_zmo_fpv/servo-trim.jpg)
+![Servo trim](../../assets/airframes/vtol/omp_hobby_zmo_fpv/servo_trim.png)
 
 #### Motor Direction and Orientation
 
