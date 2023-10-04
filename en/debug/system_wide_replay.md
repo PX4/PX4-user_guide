@@ -82,7 +82,7 @@ By default, all parameters from the original log file are applied during a repla
 If a parameter changes during recording, it will be changed at the right time during the replay.
 
 Parameters can be overridden during a replay in two ways: _fixed_ and _dynamic_.
-If an overridden parameter changes in the log, this change will not be applied in the replay.
+When parameters are overridden, corresponding parameter changes in the log are not applied during replay.
 
 - **Fixed parameter overrides** will override parameters from the start of the replay.
   They are defined in the file `build/px4_sitl_default_replay/rootfs/replay_params.txt`, where each line should have the format `<param_name> <value>`.
