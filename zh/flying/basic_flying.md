@@ -29,11 +29,11 @@ Before you can fly the vehicle it must first be [armed](../getting_started/px4_b
 
 ## 起飞
 
-### Multicopter takeoff
+### Multicopter Takeoff
 
-The easiest way to takeoff (after [arming the vehicle](#arm)) is to use the automatic [Takeoff mode (MC)](../flight_modes_mc/takeoff.md). 通常可以通过 [遥控器拨杆开关](../config/flight_mode.md) 或地面站触发的。
+Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by enabling any manual mode, arming the vehicle and then raising the throttle stick until the motors produce enough thrust to leave the ground. In [Position mode (MC)](../flight_modes/README.md#position_mc) or [Altitude mode (MC)](../flight_modes/README.md#altitude_mc) the throttle stick has to be increased to above 62.5% to command a climb rate and make the vehicle leave the ground. 高于此值，所有控制器都被启用，无人机将输出悬停所需的油门值（[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)）。
 
-Multicopter (and VTOL in multicopter mode) pilots can also take off *manually* by enabling [Position mode (MC)](../flight_modes/README.md#position_mc), arming the vehicle, and then raising the throttle stick above 62.5%. 高于此值，所有控制器都被启用，无人机将输出悬停所需的油门值（[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)）。
+Alternatively the takeoff can performed using the automatic [Takeoff mode (MC)](../flight_modes_mc/takeoff.md).
 
 :::note
 如果机体在解锁后过长时间没有起飞，无人机将会加锁（使用[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)调整超时时间）。 :::
@@ -43,48 +43,55 @@ The [Failure Detector](../config/safety.md#failure-detector) will automatically 
 
 ### Fixed-wing Takeoff
 
-Automatic takeoff using [Takeoff mode (FW)](../flight_modes_fw/takeoff.md) is highly recommended for fixed-wing vehicles! You can either [hand-launch](../flight_modes_fw/takeoff.md#catapult-hand-launch) (default) or use [runway takeoff](../flight_modes_fw/takeoff.md#runway-takeoff) (if supported by hardware and configured).
+:::note
+Taking off manually (and landing) is not easy!
+We recommend using with the automatic modes instead, especially for inexperienced pilots.
+:::
 
-For runway takeoff:
+[Stabilized mode](../flight_modes/README.md#stabilized_fw), [Acro mode](../flight_modes/README.md#acro_fw) or [Manual mode](../flight_modes/README.md#manual_fw) mode are recommended for manual takeoff. [Position mode](../flight_modes/README.md#position_fw) and [Altitude mode](../flight_modes/README.md#altitude_fw) can also be used, but it is important to accelerate the vehicle sufficiently before bringing them airborne — strong thrust if hand-launched, long runway phase for runway takeoff (this is required because the controller in these modes can prioritize airspeed over altitude tracking).
 
-1. Place the vehicle facing the planned takeoff direction (ideally facing the wind)
-1. Activate [Takeoff mode (FW)](../flight_modes_fw/takeoff.md)
-1. [Arm the vehicle](#arm) using an [RC switch](../config/flight_mode.md) or ground station
+Manual takeoffs with hand-launched planes:
+- Ramp up the motor and throw the vehicle horizontally.
+- Do not pitch up too fast as this may stall the plane.
+- A good vehicle trim is crucial for safe hand-launch takeoffs, because if the vehicle doesn't fly level there is only a very short time for the pilot to react before the vehicle crashes!
 
-   The vehicle will ramp up motors, and fly in the indicated direction, until it reaches the (parameter set) clearance height, then enter Hold mode.
+Manual takeoffs with runway-launched planes:
+- Accelerate on the runway until the speed is sufficient for takeoff.
+- If the plane has a steerable wheel, use the yaw stick to keep it on course.
+- Once the speed is sufficient pull up the nose with the pitch stick.
 
-
-For catapult/hand-launch:
-
-1. Point the vehicle in the direction you want it to take off, in order to set the course (ideally facing the wind)
-1. Activate [Takeoff mode (FW)](../flight_modes_fw/takeoff.md)
-1. [Arm the vehicle](#arm) using an [RC switch](../config/flight_mode.md) or ground station
-1. Throw/launch the vehicle in the direction you want it to take off.
-
-   Motors will start after the launch is detected, after which the behaviour is the same as for runway takeoff.
-
-For more information see [Takeoff mode (FW)](../flight_modes_fw/takeoff.md). Using a takeoff item defined in [a mission plan](../flight_modes/mission.md#fw-mission-takeoff) is also recommended.
-
+Automatic takeoffs are possible in the [Mission mode](../flight_modes/mission.md#fw-mission-takeoff) or [Takeoff mode (FW)](../flight_modes_fw/takeoff.md). The pilot can take over manual control over the vehicle at any moment during the takeoff process or after it by changing into a manual flight mode.
 
 ## 降落
 
-Landing a fixed-wing vehicle is not easy manually. The best way to land a fixed-wing vehicle is to use a [Fixed-Wing Mission Landing](../flight_modes/mission.md#fw-mission-landing). This landing is defined in a mission, and can be used in either [Mission](../flight_modes/mission.md) or [Return](../flight_modes/return.md) modes. The automatic [Land mode](../flight_modes_fw/land.md) mode is not recommended unless absolutely necessary, as it cannot account for underlying terrain.
-<!-- Added this to make it more generic: We'll split this out later -->
+### Multicopter Landing
 
-The easiest way to land a multicopter or VTOL is to use the automatic [Land](../flight_modes_mc/land.md) or [Return](../flight_modes/return.md) modes. For multicopter (and VTOL in multicopter mode) pilots can also land manually in altitude or position mode by pressing the throttle stick down until the vehicle lands and disarms.
+Multicopters can be landed in any manual mode. Make sure to keep the throttle stick pulled down after touching down until the motors have switched off.
 
 请注意，默认情况下，机体在降落后会自动加锁：
 
 - 通过[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)来设置降落后自动加锁的时间（或完全禁用它）。
 - 通过将油门杆放在左下角手动加锁。
 
+There is also the option to let the vehicle land autonomously. For that engage the [Land mode](../flight_modes_mc/land.md) or [Return mode](../flight_modes/return.md).
+
 :::note
 如果您在降落期间看到车辆“抽搐” (电机不停的在关闭打开状态快速切换) 这可能是由于 [降落检测器配置](../advanced_config/land_detector.md)不当（特别是[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)设置不当）造成的。 :::
 
-:::tip
-Automatic landing is highly recommended, in particular for Fixed-wing vehicles.
-:::
 
+### Fixed-wing Landing
+
+[Stabilized mode](../flight_modes/README.md#stabilized_fw), [Acro mode](../flight_modes/README.md#acro_fw) or [Manual mode](../flight_modes/README.md#manual_fw) are recommended for landing (just as they are for takeoff). In these modes the pilot has full control over the motor thrust, which is required to perform a manual flaring maneuver when close to the ground (raising the vehicle nose without increasing throttle). You should perform the landing in headwind to reduce the groundspeed before touching down.
+
+For auto landings you should use a [Fixed-Wing Mission Landing](../flight_modes/mission.md#fw-mission-landing). This landing is defined in a mission, and can be used in either [Mission](../flight_modes/mission.md) or [Return](../flight_modes/return.md) modes.
+
+The automatic [Land mode](../flight_modes_fw/land.md) mode is not recommended unless absolutely necessary, as it cannot account for underlying terrain.
+<!-- Added this to make it more generic: We'll split this out later -->
+
+请注意，默认情况下，机体在降落后会自动加锁：
+
+- 通过[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)来设置降落后自动加锁的时间（或完全禁用它）。
+- 通过将油门杆放在左下角手动加锁。
 
 ## 飞行控制/命令
 
