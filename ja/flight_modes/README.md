@@ -171,7 +171,7 @@ th {
 
 
 <tr id="takeoff_fw">
- <td><a href="../flight_modes/takeoff.html">Takeoff</a></td>
+ <td><a href="../flight_modes_fw/takeoff.html">Takeoff</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle initiates the takeoff sequence using either <em>catapult/hand-launch mode</em> or <em>runway takeoff mode</em> (in the current direction).</td>
@@ -347,7 +347,7 @@ th {
 </tr>
 
 <tr id="takeoff_mc">
- <td><a href="../flight_modes/takeoff.html">Takeoff</a></td>
+ <td><a href="../flight_modes_mc/takeoff.html">Takeoff</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle ascends to takeoff altitude and holds position.</td>
