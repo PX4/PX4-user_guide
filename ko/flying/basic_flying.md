@@ -29,13 +29,11 @@ Before you can fly the vehicle it must first be [armed](../getting_started/px4_b
 
 ## 이륙
 
-가장 용이한 이륙 방법([기체 시동](#arm) 후)은 자동 [이륙 모드](../flight_modes/takeoff.md)를 사용하는 것입니다. 일반적으로 [RC 스위치](../config/flight_mode.md) 또는 지상국 프로그램을 사용합니다.
+### Multicopter takeoff
 
-멀티 콥터 (및 멀티 콥터 모드의 VTOL) [포지션 모드](../flight_modes/README.md#position_mc)를 활성화하고 기체 시동후 스로틀 스틱을 62.5 % 이상 올리면 *수동으로* 이륙할 수 있습니다. 이 값을 초과하면 모든 컨트롤러가 활성화되고 차량이 호버링에 필요한 스로틀 수준 ([ MPC_THR_HOVER ](../advanced_config/parameter_reference.md#MPC_THR_HOVER))으로 이동합니다
+The easiest way to takeoff (after [arming the vehicle](#arm)) is to use the automatic [Takeoff mode (MC)](../flight_modes_mc/takeoff.md). 일반적으로 [RC 스위치](../config/flight_mode.md) 또는 지상국 프로그램을 사용합니다.
 
-:::tip
-The automatic takeoff mode is highly recommended, in particular for fixed-wing vehicles!
-:::
+Multicopter (and VTOL in multicopter mode) pilots can also take off *manually* by enabling [Position mode (MC)](../flight_modes/README.md#position_mc), arming the vehicle, and then raising the throttle stick above 62.5%. 이 값을 초과하면 모든 컨트롤러가 활성화되고 차량이 호버링에 필요한 스로틀 수준 ([ MPC_THR_HOVER ](../advanced_config/parameter_reference.md#MPC_THR_HOVER))으로 이동합니다
 
 :::note
 시동 후 이륙 시간이 너무 오래 걸리면 차량의 시동이 해제될 수 있습니다 ([COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)를 사용하여 시간 제한 조정). :::
@@ -43,10 +41,34 @@ The automatic takeoff mode is highly recommended, in particular for fixed-wing v
 :::note
 The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff. :::
 
+### Fixed-wing Takeoff
+
+Automatic takeoff using [Takeoff mode (FW)](../flight_modes_fw/takeoff.md) is highly recommended for fixed-wing vehicles! You can either [hand-launch](../flight_modes_fw/takeoff.md#catapult-hand-launch) (default) or use [runway takeoff](../flight_modes_fw/takeoff.md#runway-takeoff) (if supported by hardware and configured).
+
+For runway takeoff:
+
+1. Place the vehicle facing the planned takeoff direction (ideally facing the wind)
+1. Activate [Takeoff mode (FW)](../flight_modes_fw/takeoff.md)
+1. [Arm the vehicle](#arm) using an [RC switch](../config/flight_mode.md) or ground station
+
+   The vehicle will ramp up motors, and fly in the indicated direction, until it reaches the (parameter set) clearance height, then enter Hold mode.
+
+
+For catapult/hand-launch:
+
+1. Point the vehicle in the direction you want it to take off, in order to set the course (ideally facing the wind)
+1. Activate [Takeoff mode (FW)](../flight_modes_fw/takeoff.md)
+1. [Arm the vehicle](#arm) using an [RC switch](../config/flight_mode.md) or ground station
+1. Throw/launch the vehicle in the direction you want it to take off.
+
+   Motors will start after the launch is detected, after which the behaviour is the same as for runway takeoff.
+
+For more information see [Takeoff mode (FW)](../flight_modes_fw/takeoff.md). Using a takeoff item defined in [a mission plan](../flight_modes/mission.md#fw-mission-takeoff) is also recommended.
+
 
 ## 착륙
 
-Landing a fixed-wing vehicle is not easy manually. The best way to land a fixed-wing vehicle is to use a [Fixed-Wing Mission Landing](../flight_modes/mission.md#fw-mission-landing). This landing is defined in a mission, and can be used in either [Mission](../flight_modes/mission.md) or [Return](../flight_modes/return.md) modes. The automatic [Land mode](../flight_modes_few/land.md) mode is not recommended unless absolutely necessary, as it cannot account for underlying terrain.
+Landing a fixed-wing vehicle is not easy manually. The best way to land a fixed-wing vehicle is to use a [Fixed-Wing Mission Landing](../flight_modes/mission.md#fw-mission-landing). This landing is defined in a mission, and can be used in either [Mission](../flight_modes/mission.md) or [Return](../flight_modes/return.md) modes. The automatic [Land mode](../flight_modes_fw/land.md) mode is not recommended unless absolutely necessary, as it cannot account for underlying terrain.
 <!-- Added this to make it more generic: We'll split this out later -->
 
 The easiest way to land a multicopter or VTOL is to use the automatic [Land](../flight_modes_mc/land.md) or [Return](../flight_modes/return.md) modes. For multicopter (and VTOL in multicopter mode) pilots can also land manually in altitude or position mode by pressing the throttle stick down until the vehicle lands and disarms.
