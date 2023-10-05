@@ -215,23 +215,25 @@ If the vehicle is already flying when the mission is started, a takeoff mission 
 
 Starting flights with mission takeoff (and landing using a mission landing) is the recommended way of operating a plane autonomously.
 
-:::note
-A more detailed description of mission mode fixed-wing takeoff can be found in [Takeoff mode > Fixed-wing](../flight_modes/takeoff.md#fixed-wing-fw) (covering fixed-wing takeoff in both mission mode and takeoff mode).
-:::
+Both [runway takeoff](../flight_modes_fw/takeoff.md#runway-takeoff) and [hand-launched takeoff](../flight_modes_fw/takeoff.md#catapult-hand-launch) are supported — for configuration information see [Takeoff mode (FW)](../flight_modes_fw/takeoff.md).
 
-Fixed-wing mission takeoffs are defined in a Takeoff mission item, which corresponds to the [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) MAVLink command.
-
+The takeoff behaviour is defined in a Takeoff mission item, which corresponds to the [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) MAVLink command.
 During mission execution the vehicle will takeoff towards this waypoint, and climb until the specified altitude is reached.
 The mission item is then accepted, and the mission will start executing the next item.
 
-Both runway and hand-launched takeoff are supported — for configuration information see [Takeoff mode > Fixed-wing](../flight_modes/takeoff.md#fixed-wing-fw).
+More specifically, the takeoff mission item defines the takeoff course and clearance altitude.
+The course is the line between the vehicle starting point and the horizontal position defined in the mission item,  while the clearance altitude is the mission item altitude.
+
 For a runway takeoff, the `Takeoff` mission item will cause the vehicle to arm, throttle up the motors and take off.
 When hand-launching the vehicle will arm, but only throttle up when the vehicle is thrown (the acceleration trigger is detected).
-
 In both cases, the vehicle should be placed (or launched) facing towards the takeoff waypoint when the mission is started.
 If possible, always make the vehicle takeoff into the wind.
 
+:::note
 A fixed-wing mission requires a `Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint.
+:::
+
+For more infomormation about takeoff behaviour and configuration see [Takeoff mode (FW)](../flight_modes_fw/takeoff.md).
 
 
 ## FW Mission Landing
