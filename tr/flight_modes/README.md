@@ -180,14 +180,14 @@ th {
 
 
 <tr id="land_fw">
- <td><a href="../flight_modes/land.html">Land</a></td>
+ <td><a href="../flight_modes_fw/land.html">Land</a></td>
  <td class="centred" colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle initiates the <a href="../flight_modes/mission.html#fw-mission-landing">fixed-wing landing</a> sequence.</td>
 </tr>
 
 <tr id="hold_fw">
- <td><a href="../flight_modes/hold.html">Hold</a></td>
+ <td><a href="../flight_modes_fw/hold.html">Hold</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle circles around the GPS hold position at the current altitude.</td>
@@ -355,14 +355,14 @@ th {
 </tr>
 
 <tr id="land_mc">
- <td><a href="../flight_modes/land.html">Land</a></td>
+ <td><a href="../flight_modes_mc/land.html">Land</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle lands at the position where the mode was engaged.</td>
 </tr>
 
 <tr id="hold_mc">
- <td><a href="../flight_modes/hold.html">Hold</a></td>
+ <td><a href="../flight_modes_mc/hold.html">Hold</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle hovers at the current GPS position and altitude.</td>

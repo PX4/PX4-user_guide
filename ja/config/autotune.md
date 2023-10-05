@@ -41,7 +41,7 @@ If not, go to the [troubleshooting](#troubleshooting) section, which explains th
 
 The auto-tuning sequence must be performed in a **safe flight zone, with enough space**. It takes about 40 seconds ([between 19 and 68 seconds](#how-long-does-autotuning-take)). For best results, we recommend running the test in calm weather conditions.
 
-The recommended modes for autotuning are [Hold mode](../flight_modes/hold.md) (fixed-wing) and [Altitude mode](../flight_modes_mc/altitude.md) (MC), but any other flight mode can be used. During auto tuning, the RC sticks can still be used to fly the vehicle.
+The recommended modes for autotuning are [Hold mode](../flight_modes_fw/hold.md) (fixed-wing) and [Altitude mode](../flight_modes_mc/altitude.md) (MC), but any other flight mode can be used. During auto tuning, the RC sticks can still be used to fly the vehicle.
 
 :::note
 The auto-tuning sequence can be aborted at any time by changing flight modes or using the [enable/disable Autotune switch](#enable-disable-autotune-switch-fixed-wing) (if configured).
@@ -52,7 +52,7 @@ The test steps are:
 1. Perform the [pre-tuning test](#pre-tuning-test).
 1. Takeoff using RC control and prepare for test:
    - **Multicopters:** Takeoff using the remote controller in [Altitude mode](../flight_modes_mc/altitude.md). Hover the vehicle at a safe distance and at a few meters above ground (between 4 and 20m).
-   - **Fixed-wing:** Once flying at cruise speed, activate [Hold mode](../flight_modes/hold.md). This will guide the plane to fly in circle at constant altitude and speed.
+   - **Fixed-wing:** Once flying at cruise speed, activate [Hold mode](../flight_modes_mc/hold.md). This will guide the plane to fly in circle at constant altitude and speed.
 1. Enable autotune.
 
 :::tip
@@ -163,7 +163,7 @@ Autotuning provides an automatic mechanism to tune the rate and attitude control
 
 Automatic tuning works well for the multicopter and fixed-wing vehicle configurations supported by PX4, provided the frame is not too flexible (see [below for more information](#does-autotuning-work-for-all-supported-airframes)).
 
-The vehicle must be flying in an altitude-stabilized mode ([Altitude mode](../flight_modes_mc/altitude.md), [Hold mode](../flight_modes/hold.md), or [Position mode](../flight_modes_mc/position.md)). The flight stack will apply a small disturbance to the vehicle in each axis and then attempt to calculate the new tuning parameters. For fixed-wing vehicles the new tuning is applied in-air by default, after which the vehicle tests the new settings and reverts the tuning if the controllers are not stable. For multicopter, the vehicle lands and applies the new tuning parameters after disarming; the pilot is expected to then take off carefully and test the tuning.
+The vehicle must be flying in an altitude-stabilized mode (such as [Altitude mode](../flight_modes_mc/altitude.md), [Hold mode](../flight_modes_mc/hold.md), or [Position mode](../flight_modes_mc/position.md)). The flight stack will apply a small disturbance to the vehicle in each axis and then attempt to calculate the new tuning parameters. For fixed-wing vehicles the new tuning is applied in-air by default, after which the vehicle tests the new settings and reverts the tuning if the controllers are not stable. For multicopter, the vehicle lands and applies the new tuning parameters after disarming; the pilot is expected to then take off carefully and test the tuning.
 
 The tuning process takes about 40 seconds ([between 19 and 68 seconds](#how-long-does-autotuning-take)). The default behaviour can be configured using [parameters](#optional-configuration).
 

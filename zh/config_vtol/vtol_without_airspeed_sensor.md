@@ -53,7 +53,7 @@ The position estimator tested for this mode is EKF2, you can set this by changin
 
 ## First Flight Without Airspeed Sensor
 
-The values apply to a position controlled flight (like [Hold mode](../flight_modes/hold.md) or [Mission mode](../flight_modes/mission.md) or Mission mode). It is therefore recommended that a mission is configured at a safe altitude, approximately 10m above the quad-chute threshold.
+The values apply to a position controlled flight (like [Hold mode](../flight_modes_fw/hold.md) or [Mission mode](../flight_modes/mission.md) or Mission mode). It is therefore recommended that a mission is configured at a safe altitude, approximately 10m above the quad-chute threshold.
 
 Like for the reference flight, this flight should be performed in very low wind conditions. For the first flight the following is recommended:
 
@@ -70,7 +70,9 @@ If the mission finished successfully you should proceed to examine the log for t
 
 If all these conditions have been met you can start to tune down the cruise throttle in small steps until the groundspeed matches that of the reference flight.
 
-## QUICK OVERVIEW OF RELEVANT PARAMETERS
+## Parameter Overview
+
+The relevant parameters are:
 
 - [FW_ARSP_MODE](../advanced_config/parameter_reference.md#FW_ARSP_MODE): Declare invalid (2)
 - [CBRK_AIRSPD_CHK](../advanced_config/parameter_reference.md#CBRK_AIRSPD_CHK): 162128
