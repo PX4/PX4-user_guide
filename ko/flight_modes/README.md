@@ -186,7 +186,7 @@ th {
 </tr>
 
 <tr id="hold_fw">
- <td><a href="../flight_modes/hold.html">대기</a></td>
+ <td><a href="../flight_modes_fw/hold.html">대기</a></td>
  <td colspan="3">자동</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="20px" /></a></td>
  <td>기체는 현재 고도에서 GPS 유지 위치를 중심으로 선회합니다.</td>
@@ -361,7 +361,7 @@ th {
 </tr>
 
 <tr id="hold_mc">
- <td><a href="../flight_modes/hold.html">대기</a></td>
+ <td><a href="../flight_modes_mc/hold.html">대기</a></td>
  <td colspan="3">자동</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="20px" /></a></td>
  <td>기체는 현재 GPS 위치와 고도에서 호버링합니다.</td>
