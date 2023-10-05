@@ -238,9 +238,6 @@ Fixed-wing mission landing is the recommended way to land a plane autonomously. 
 
 If possible, always plan the landing such that it does the approach into the wind.
 
-:::note
-Note fixed-wing landing using [Land mode](../flight_modes/land.md#fixed-wing-fw) is currently broken, so mission landing is the _only_ way to autonomously land a plane. :::
-
 The following sections describe the landing sequence, land abort and nudging, safety considerations, and configuration. 
 
 
