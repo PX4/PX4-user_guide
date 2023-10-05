@@ -155,7 +155,7 @@ The [Orbit mode](../flight_modes_mc/orbit.md) allows you to command a multicopte
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
-[유지 모드](../flight_modes/hold.md)는 멀티콥터가 현재 위치와 고도에서 호버링합니다 (바람과 다른 힘에 대한 현 위치 유지). 유지 모드를 사용하여 임무를 일시 중지하거나, 비상시 기체를 다시 제어할 수 있습니다. 사전 프로그래밍된 RC 스위치 또는 *QGroundControl*의 **일시 정지** 버튼으로 활성화할 수 있습니다.
+[Hold mode](../flight_modes_mc/hold.md) causes the multicopter to stop and hover at its current position and altitude (maintaining position against wind and other forces). 유지 모드를 사용하여 임무를 일시 중지하거나, 비상시 기체를 다시 제어할 수 있습니다. 사전 프로그래밍된 RC 스위치 또는 *QGroundControl*의 **일시 정지** 버튼으로 활성화할 수 있습니다.
 
 
 <a id="return_mc"></a>
@@ -314,7 +314,7 @@ FMU 펌웨어가 오작동하면 무선 조종기를 통하여 스로틀, 엘리
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
-[유지 모드](../flight_modes/hold.md)에서는 고정익은 현재 위치를 중심으로 현재 고도에서 선회 비행합니다. 유지 모드를 사용하여 임무를 일시 중지하거나, 비상시 기체를 다시 제어할 수 있습니다. It can be activated with a pre-programmed RC switch or the *QGroundControl* **Pause** button.
+[Hold](../flight_modes_fw/hold.md) causes a fixed-wing vehicle to start circling around the current position at its current altitude. 유지 모드를 사용하여 임무를 일시 중지하거나, 비상시 기체를 다시 제어할 수 있습니다. It can be activated with a pre-programmed RC switch or the *QGroundControl* **Pause** button.
 
 
 <a id="return_fw"></a>
