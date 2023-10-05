@@ -16,9 +16,9 @@ The list below shows the set of all failsafe actions, ordered in increasing seve
 | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="action_none"></a>없음/비활성화                                           | No action. The failsafe will be ignored.                                                                                                                                                                                                                                  |
 | <a id="action_warning"></a>경고                                                | A warning message will be sent (i.e. to *QGroundControl*).                                                                                                                                                                                                                |
-| <a id="action_hold"></a>Hold mode                                         | The vehicle will enter [Hold mode (MC)](../flight_modes_mc/hold.md) or [Hold mode (FW)](../flight_modes_fw/hold.md). For multicopters this means the vehicle will hover, while for fixed-wing the vehicle will circle.                                                    |
+| <a id="action_hold"></a>Hold mode                                         | The vehicle will enter [Hold mode (MC)](../flight_modes_mc/hold.md) or [Hold mode (FW)](../flight_modes_fw/hold.md) and hover or circle, respectively. VTOL vehicles will hold according to their current mode (MC/FW).                                                   |
 | <a id="action_return"></a>[복귀 모드](../flight_modes/return.md)                | 기체는 *복귀 모드*로 들어갑니다. 복귀 경로는 [복귀 설정](#return-mode-settings)에서 자세히 설정할 수 있습니다.                                                                                                                                                                                               |
-| <a id="action_land"></a>[착륙 모드](../flight_modes/land.md)                  | 차량은 *착륙 모드*로 전환하여 즉시 착륙합니다.                                                                                                                                                                                                                                               |
+| <a id="action_land"></a>Land mode                                         | The vehicle will enter [Land mode (MC)](../flight_modes_mc/land.md) or [Land mode (FW)](../flight_modes_fw/land.md), and land. A VTOL will first transition to MC mode.                                                                                                   |
 | <a id="action_disarm"></a>Disarm                                            | Stops the motors immediately.                                                                                                                                                                                                                                             |
 | <a id="action_flight_termination"></a>[비행 종료](../advanced_config/flight_termination.md) | 모든 컨트롤러를 끄고 모든 PWM 출력을 안전 장치 값(예 : [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1), [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1))으로 설정합니다. 안전장치 출력은 낙하산, 랜딩 기어를 배치하거나 다른 작업을 수행할 수 있습니다. 고정익은 안전하게 활공할 수 있습니다. |
 
@@ -142,16 +142,16 @@ The return behaviour is defined by [RTL_LAND_DELAY](../advanced_config/parameter
 
 ### 착륙 모드 설정
 
-*현재 위치의 착륙*는 [착륙 모드](../flight_modes/land.md)를 실행하는 일반적인 [안전 조치](#failsafe-actions)입니다. 이 섹션에서는 착륙후 기체의 자동 시동 방법과 시간 설정 방법을 설명합니다. 멀티콥터에서만 하강 속도를 추가로 설정할 수 있습니다.
+*Land at the current position* is a common [failsafe action](#failsafe-actions) (in particular for multicopters), that engages [Land Mode](../flight_modes_mc/land.md). 이 섹션에서는 착륙후 기체의 자동 시동 방법과 시간 설정 방법을 설명합니다. 멀티콥터에서만 하강 속도를 추가로 설정할 수 있습니다.
 
 ![안전 - 착륙 모드 설정(QGC)](../../assets/qgc/setup/safety/safety_land_mode.png)
 
 설정 기본 매개변수는 다음과 같습니다:
 
-| 설정                     | 매개변수                                                                           | 설명                                                      |
-| ---------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------- |
-| <nobr>착륙후 시동 꺼기</nobr> | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | 착륙후 시동을 끄려면 확인란을 선택합니다. 값은 0 이상으로 1초 미만의 값도 설정할 수 있습니다. |
-| 착륙 하강률                 | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | 착륙 하강율(멀티콥더에만 적용됨).                                     |
+| 설정                             | 매개변수                                                                           | 설명                                                      |
+| ------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| <nobr>착륙후 시동 꺼기</nobr>         | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | 착륙후 시동을 끄려면 확인란을 선택합니다. 값은 0 이상으로 1초 미만의 값도 설정할 수 있습니다. |
+| Landing Descent Rate (MC only) | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | Rate of descent.                                        |
 
 
 ## 기타 안전 장치 설정
