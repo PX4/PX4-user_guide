@@ -7,6 +7,7 @@ _作动器设置_ 界面用于自定义飞行器的特定几何构型，将作�
 在 *QGroundControl* 打开下列视图： **"Q" (应用菜单) > 飞行器设置 > 作动器** (页面)。 界面中显示的元素依赖于 [选定的飞行器构型](../config/airframe.md)，默认的输出绑定参见 [飞行器构型参考](../airframes/airframe_reference.md) 。
 
 该界面有三个部分：
+
 - [几何构型](#geometry): 配置 [选定机型](../config/airframe.md)的几何构型。 该设置包含电机的数量、位置和特性，同时包含控制舵面、电机倾转舵机的数量和特性。
 - [控制器输出](#actuator-outputs): 将电机、控制面和其他执行器对应到指定的输出端口上。
 - [作动器测试](#actuator-testing): 测试电机或舵机按照期望的方向或速度直接运动。
@@ -494,7 +495,12 @@ The motors must turn in the direction defined in configured geometry ("**Directi
 
 There are several options:
 
-- If the ESCs are configured as [DShot](../peripherals/dshot.md) you can reverse the direction via UI (**Set Spin Direction** buttons). Note that the current direction cannot be queried, so you might have to try both options.
+- If the ESCs are configured as [DShot](../peripherals/dshot.md) you can permanently reverse the direction via UI. The **Set Spin Direction** buttons are displayed below the Actuator sliders (if DShot motors are used). These popup a dialog in which you select the motor for which you want to apply the direction.
+
+  ![Set spin direction buttons](../../assets/config/actuators/reverse_dshot.png)
+
+  Note that the current direction cannot be queried, so you may need to try both options.
+
 - Swap 2 of the 3 motor cables (it does not matter which ones).
 
   :::note
