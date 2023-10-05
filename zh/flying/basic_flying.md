@@ -46,11 +46,13 @@ The [Failure Detector](../config/safety.md#failure-detector) will automatically 
 
 ## 降落
 
-最简单的降落方法是使用自动 [降落](../flight_modes/land.md)或者[返航](../flight_modes/return.md)模式。
+Landing a fixed-wing vehicle is not easy manually. The best way to land a fixed-wing vehicle is to use a [Fixed-Wing Mission Landing](../flight_modes/mission.md#fw-mission-landing). This landing is defined in a mission, and can be used in either [Mission](../flight_modes/mission.md) or [Return](../flight_modes/return.md) modes. The automatic [Land mode](../flight_modes_few/land.md) mode is not recommended unless absolutely necessary, as it cannot account for underlying terrain.
+<!-- Added this to make it more generic: We'll split this out later -->
 
-对于多轴飞行器（和多轴模式下的 VTOL），飞手可以通过向下推油门杆手动降落，直到机体降落加锁。
+The easiest way to land a multicopter or VTOL is to use the automatic [Land](../flight_modes_mc/land.md) or [Return](../flight_modes/return.md) modes. For multicopter (and VTOL in multicopter mode) pilots can also land manually in altitude or position mode by pressing the throttle stick down until the vehicle lands and disarms.
 
 请注意，默认情况下，机体在降落后会自动加锁：
+
 - 通过[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)来设置降落后自动加锁的时间（或完全禁用它）。
 - 通过将油门杆放在左下角手动加锁。
 
