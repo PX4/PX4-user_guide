@@ -1,4 +1,4 @@
-# Hold Mode (Fixed Wing)
+# 保持模式 (Fixed-wing)
 
 [<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
@@ -13,7 +13,7 @@ _Hold mode_ can be used to pause a mission or to help you regain control of a ve
 :::note
 
 
-- This mode requires GPS.
+- 该模式需要 GPS
 - This mode is automatic - no user intervention is _required_ to control the vehicle.
 - RC control switches can be used to change flight modes on any vehicle.
 - RC stick movement is ignored.
