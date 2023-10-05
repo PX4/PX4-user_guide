@@ -80,7 +80,7 @@ The pilot can take over manual control over the vehicle at any moment during the
 
 ### Multicopter Landing
 
-Multicopters can be landed in any manual modes.
+Multicopters can be landed in any manual mode.
 Make sure to keep the throttle stick pulled down after touching down until the motors have switched off. 
 
 Note that vehicles automatically disarm on landing by default:
