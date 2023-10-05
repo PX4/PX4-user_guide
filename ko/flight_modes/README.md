@@ -179,7 +179,7 @@ th {
 
 
 <tr id="land_fw">
- <td><a href="../flight_modes/land.html">착륙</a></td>
+ <td><a href="../flight_modes_fw/land.html">착륙</a></td>
  <td class="centred" colspan="3">자동</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="20px" /></a></td>
  <td>Vehicle initiates the <a href="../flight_modes/mission.html#fw-mission-landing">fixed-wing landing</a> sequence.</td>
@@ -354,7 +354,7 @@ th {
 </tr>
 
 <tr id="land_mc">
- <td><a href="../flight_modes/land.html">착륙</a></td>
+ <td><a href="../flight_modes_mc/land.html">착륙</a></td>
  <td colspan="3">자동</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="20px" /></a></td>
  <td>기체는 모드 적용된 위치에 착륙합니다.</td>
