@@ -25,7 +25,7 @@ The mode defaults to catapult/hand launch, but can be set to runway takeoff by s
 
 To use _Takeoff mode_ you first switch to the mode, and then arm the vehicle.
 The acceleration of hand/catapult launch triggers the motors to start.
-For runway launch motors ramp up automatically once the vehicle has been armed.
+For runway launch, motors ramp up automatically once the vehicle has been armed.
 
 Irrespective of the modality, a flight path (starting point and takeoff course) and clearance altitude are defined:
 
