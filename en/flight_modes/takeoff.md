@@ -66,7 +66,7 @@ Parameter | Description
 
 In *catapult/hand-launch mode* the vehicle waits to detect launch (based on acceleration trigger).
 On launch it enables the motor and climbs with the maximum climb rate [FW_T_CLMB_MAX](#FW_T_CLMB_MAX) while keeping the pitch setpoint above [FW_TKO_PITCH_MIN](#FW_TKO_PITCH_MIN).
-Once it reaches [MIS_TAKEOFF_ALT](#MIS_TAKEOFF_ALT) it will automatically switch to [Hold mode](../flight_modes/hold.md) and loiter.
+Once it reaches [MIS_TAKEOFF_ALT](#MIS_TAKEOFF_ALT) it will automatically switch to [Hold mode](../flight_modes_fw/hold.md) and loiter.
 
 All RC stick movement is ignored during the full takeoff sequence.
 
