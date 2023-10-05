@@ -55,55 +55,60 @@ The [Failure Detector](../config/safety.md#failure-detector) will automatically 
 
 ### Fixed-wing Takeoff
 
-Automatic takeoff using [Takeoff mode (FW)](../flight_modes_fw/takeoff.md) is highly recommended for fixed-wing vehicles!
-You can either [hand-launch](../flight_modes_fw/takeoff.md#catapult-hand-launch) (default) or use [runway takeoff](../flight_modes_fw/takeoff.md#runway-takeoff) (if supported by hardware and configured).
+:::note
+Manual takeoffs (as well as landings) are tricky to perform and it is thus recommended to takeoff with the automatic modes instead, especially for inexperienced pilots.
+:::
 
-For runway takeoff:
+For manual takeoffs it is recommended to use [Stabilized mode](../flight_modes/README.md#stabilized_fw), [Acro mode](../flight_modes/README.md#acro_fw) or [Manual mode](../flight_modes/README.md#manual_fw) mode.
+[Position mode](../flight_modes/README.md#position_fw) and [Altitude mode](../flight_modes/README.md#altitude_fw) are also possible to takeoff in, but as the controller in these modes can prioritize airspeed over altitude tracking it is important to accelerate the vehicle sufficiently before bringing them airborne (strong thrust if hand-launched, long runway phase for runway takeoff).
 
-1. Place the vehicle facing the planned takeoff direction (ideally facing the wind)
-1. Activate [Takeoff mode (FW)](../flight_modes_fw/takeoff.md)
-1. [Arm the vehicle](#arm) using an [RC switch](../config/flight_mode.md) or ground station
+Manual takeoffs with hand-launched planes: ramp up the motor and throw the vehicle horizontally.
+Do not pitch up too fast as this may stall the plane.
+A good vehicle trim is crucial for safe hand-launch takeoffs, as there is only little reaction time for the pilot to avoid a crash if it doesn't fly level!
 
-   The vehicle will ramp up motors, and fly in the indicated direction, until it reaches the (parameter set) clearance height, then enter Hold mode.
+Manual takeoffs with runway-launched planes: accelerate on the runway until the speed is sufficient for takeoff.
+If the plane has a steerable wheel use the yaw stick to keep it driving straight.
+Once the speed is sufficient pull up the nose with the pitch stick.
 
-
-For catapult/hand-launch:
-
-1. Point the vehicle in the direction you want it to take off, in order to set the course (ideally facing the wind)
-1. Activate [Takeoff mode (FW)](../flight_modes_fw/takeoff.md)
-1. [Arm the vehicle](#arm) using an [RC switch](../config/flight_mode.md) or ground station
-1. Throw/launch the vehicle in the direction you want it to take off.
-
-   Motors will start after the launch is detected, after which the behaviour is the same as for runway takeoff.
-
-For more information see [Takeoff mode (FW)](../flight_modes_fw/takeoff.md).
-Using a takeoff item defined in [a mission plan](../flight_modes/mission.md#fw-mission-takeoff) is also recommended.
-
+Automatic takeoffs are possible in the [Mission mode](../flight_modes/mission.md#fw-mission-takeoff) or [Takeoff mode (FW)](../flight_modes_fw/takeoff.md).
+The pilot can take over manual control over the vehicle at any moment during the takeoff process or after it by changing into a manual flight mode.
 
 ## Landing
 
-Landing a fixed-wing vehicle is not easy manually.
-The best way to land a fixed-wing vehicle is to use a [Fixed-Wing Mission Landing](../flight_modes/mission.md#fw-mission-landing).
-This landing is defined in a mission, and can be used in either [Mission](../flight_modes/mission.md) or [Return](../flight_modes/return.md) modes.
-The automatic [Land mode](../flight_modes_fw/land.md) mode is not recommended unless absolutely necessary, as it cannot account for underlying terrain.
-<!-- Added this to make it more generic: We'll split this out later -->
+### Multicopter Landing
 
-The easiest way to land a multicopter or VTOL is to use the automatic [Land](../flight_modes_mc/land.md) or [Return](../flight_modes/return.md) modes.
-For multicopter (and VTOL in multicopter mode) pilots can also land manually in altitude or position mode by pressing the throttle stick down until the vehicle lands and disarms.
+Multicopters can be landed in any manual modes.
+Make sure to keep the throttle stick pulled down after touching down until the motors are switched off. 
 
 Note that vehicles automatically disarm on landing by default:
 
 - Use [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to set the time to auto-disarm after landing (or disable it altogether).
 - Manually disarm by putting the throttle stick in the bottom left corner.
 
+There is also the option to let the vehicle land autonomously.
+For that engage the [Land mode](../flight_modes_mc/land.md) or [Return mode](../flight_modes/return.md).
+
 :::note
 If you see the vehicle "twitch" during landing (turn down the motors, and then immediately turn them back up) this is probably caused by a poor [Land Detector Configuration](../advanced_config/land_detector.md) (specifically, a poorly set [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
 :::
 
-:::tip
-Automatic landing is highly recommended, in particular for Fixed-wing vehicles.
-:::
 
+### Fixed-wing Landing
+
+As for takeoff, for manual landings it is recommended to use [Stabilized mode](../flight_modes/README.md#stabilized_fw), [Acro mode](../flight_modes/README.md#acro_fw) or [Manual mode](../flight_modes/README.md#manual_fw).
+In these modes the pilot has full control over the motor thrust, which is required to perform a manual flaring maneuver when close to the ground (rasing the vehicle nose without increasing throttle).
+It is recommended to perform the landing in headwind to reduce the groundspeed before touching down.
+
+For auto landings you should use a [Fixed-Wing Mission Landing](../flight_modes/mission.md#fw-mission-landing).
+This landing is defined in a mission, and can be used in either [Mission](../flight_modes/mission.md) or [Return](../flight_modes/return.md) modes.
+
+The automatic [Land mode](../flight_modes_fw/land.md) mode is not recommended unless absolutely necessary, as it cannot account for underlying terrain.
+<!-- Added this to make it more generic: We'll split this out later -->
+
+Note that vehicles automatically disarm on landing by default:
+
+- Use [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to set the time to auto-disarm after landing (or disable it altogether).
+- Manually disarm by putting the throttle stick in the bottom left corner.
 
 ## Flight Controls/Commands
 
