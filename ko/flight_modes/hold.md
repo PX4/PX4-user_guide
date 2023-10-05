@@ -1,11 +1,13 @@
+<Redirect to="../flight_modes_mc/hold" />
+
 # 유지 모드
 
 [<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*유지* 모드(예: "Loiter")는 기체의 현 위치와 고도를 유지합니다. 멀터콥터는 현 위치를 유지하며, 고정익은 현 위치 주변을 선회합니다.
+The *Hold* flight mode (a.k.a. "Loiter") causes the vehicle to stop and maintain its current GPS position and altitude (MC vehicles will hover at the GPS position, while FW vehicles will circle around it).
 
 :::tip
-*유지 모드*를 사용하여 임무를 일시 중지하거나 비상시 기체를 제어합니다. 일반적으로 사전 프로그래밍 되어진 스위치로 작동시킵니다. :::
+*Hold mode* can be used to pause a mission or to help you regain control of a vehicle in an emergency. 일반적으로 사전 프로그래밍 되어진 스위치로 작동시킵니다. :::
 
 :::note
 * 이 모드는 GPS가 필요합니다.
