@@ -196,7 +196,7 @@ The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Land mode](../flight_modes/land.md) causes the multicopter to land at the location at which the mode was engaged.
+[Land mode](../flight_modes_mc/land.md) causes the multicopter to land at the location at which the mode was engaged.
 
 
 <a id="followme_mc"></a>
@@ -356,7 +356,7 @@ The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;
 
-[Land mode](../flight_modes/land.md) causes the vehicle to turn and land at the location at which the mode was engaged. Fixed-wing landing logic and parameters are explained in the topic: [Mission > Fixed-wing Mission Landing](../flight_modes/mission.md#fw-mission-landing).
+[Land mode](../flight_modes_fw/land.md) causes the vehicle to turn and land at the location at which the mode was engaged. Fixed-wing landing logic and parameters are explained in the topic: [Mission > Fixed-wing Mission Landing](../flight_modes/mission.md#fw-mission-landing).
 
 <a id="offboard_fw"></a>
 
