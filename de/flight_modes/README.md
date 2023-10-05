@@ -180,7 +180,7 @@ th {
 
 
 <tr id="land_fw">
- <td><a href="../flight_modes/land.html">Land</a></td>
+ <td><a href="../flight_modes_fw/land.html">Land</a></td>
  <td class="centred" colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle initiates the <a href="../flight_modes/mission.html#fw-mission-landing">fixed-wing landing</a> sequence.</td>
@@ -355,7 +355,7 @@ th {
 </tr>
 
 <tr id="land_mc">
- <td><a href="../flight_modes/land.html">Land</a></td>
+ <td><a href="../flight_modes_mc/land.html">Land</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle lands at the position where the mode was engaged.</td>
