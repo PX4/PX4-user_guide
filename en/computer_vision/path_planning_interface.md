@@ -105,15 +105,15 @@ PX4 safely handles the case where messages are not received from the offboard sy
   - preflight checks will fail (irrespective of vehicle mode) and it won't fly until `COM_OBS_AVOID` is set to 0.
 - If no planner is running and `COM_OBS_AVOID` is enabled after boot:
   - the vehicle will run normally in manual modes.
-  - if you switch to an autonomous mode (e.g. Land Mode) it will immediately fall back to [Hold mode](../flight_modes/hold.md).
+  - if you switch to an autonomous mode (e.g. Land Mode) it will immediately fall back to [Hold mode](../flight_modes_mc/hold.md).
 - When external path planning is enabled:
   - if the `HEARTBEAT` is lost PX4 will emit a status message (which is displayed in *QGroundControl*) stating either "Avoidance system lost" or "Avoidance system timeout" (depending on the vehicle state). This is irrespective of the current flight mode.
-  - if a trajectory message is not received for more than 0.5 seconds and the vehicle is in an autonomous mode (Return, Mission, Takeoff, Land), the vehicle will switch into [Hold mode](../flight_modes/hold.md).
+  - if a trajectory message is not received for more than 0.5 seconds and the vehicle is in an autonomous mode (Return, Mission, Takeoff, Land), the vehicle will switch into [Hold mode](../flight_modes_mc/hold.md).
   :::note
   A planner must always provide points in this timeframe.
   - A planner will mirror back setpoints it receives when the vehicle is in a mode/state for which it doesn't provide path planning. (i.e. the vehicle will follow its desired path, delayed by a very small amount).
   :::
-  - If the execution time of the last-supplied Bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes/hold.md)).
+  - If the execution time of the last-supplied Bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes_mc/hold.md)).
 
 
 <a id="companion_waypoint_interface"></a>
@@ -136,7 +136,7 @@ The fields for the messages from the companion computer are set as shown:
 
 A planner that implements this interface must:
 - Emit setpoints at more than 2Hz when receiving messages from PX4.
-  PX4 will enter [Hold mode](../flight_modes/hold.md) if no message is received for more than 0.5s.
+  PX4 will enter [Hold mode](../flight_modes_mc/hold.md) if no message is received for more than 0.5s.
 - Mirror back setpoints it receives when it doesn't support planning for the current vehicle state (e.g. the local planner would mirror back messages sent during safe landing because it does not support Land mode).
 
 
