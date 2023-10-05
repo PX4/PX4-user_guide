@@ -7,6 +7,7 @@ _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자
 여기에서 *QGroundControl* 보기를 오픈합니다. **"Q"(앱 메뉴) > 차량 설정 > 액추에이터**(탭). 표시되는 요소는 [선택한 프레임](../config/airframe.md)에 따라 달라지며, 출력은 [기체 참조](../airframes/airframe_reference.md)와 같이 기본적으로 매핑됩니다.
 
 보기에는 세 개의 섹션이 있습니다.
+
 - [기하](#geometry): [선택한 기체](../config/airframe.md)의 기하 도형을 설정합니다. 여기에는 [모터](#motor-geometry)의 수, 위치 및 속성과 [제어 표면](#control-surfaces-geometry) 및 [모터 틸트 서보](#motor-tilt-servo-geometry)의 수와 속성이 포함됩니다.
 - [액추에이터 출력](#actuator-outputs): 모터, 제어 표면 및 기타 액추에이터를 특정 출력에 할당합니다.
 - [액추에이터 테스트](#actuator-testing): 모터와 액추에이터가 예상대로 방향과 속도로 움직이는 지 테스트합니다.
@@ -493,7 +494,12 @@ Another way to test without using the sliders would be to set the [`COM_PREARM_M
 
 회전 반향을 변경하는 방법은 다음과 같습니다:
 
-- ESC가 [DShot](../peripherals/dshot.md)으로 구성된 경우 UI를 통해 방향을 변경할 수 있습니다(**회전 방향 설정** 버튼). 현재 방향을 알 수 없으므로, 두 옵션을 모두 시도하여야 할 수 있습니다.
+- If the ESCs are configured as [DShot](../peripherals/dshot.md) you can permanently reverse the direction via UI. The **Set Spin Direction** buttons are displayed below the Actuator sliders (if DShot motors are used). These popup a dialog in which you select the motor for which you want to apply the direction.
+
+  ![Set spin direction buttons](../../assets/config/actuators/reverse_dshot.png)
+
+  Note that the current direction cannot be queried, so you may need to try both options.
+
 - 모터 케이블 3개 중 2개를 변경하면됩니다(어떤 케이블이든 상관 없음).
 
   :::note
