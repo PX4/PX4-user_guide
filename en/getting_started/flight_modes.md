@@ -202,7 +202,7 @@ The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Takeoff](../flight_modes/takeoff.md) mode causes the multicopter to climb vertically to takeoff altitude and hover in position.
+[Takeoff](../flight_modes_mc/takeoff.md) mode causes the multicopter to climb vertically to takeoff altitude and hover in position.
 
 
 <a id="land_mc"></a>
@@ -364,7 +364,7 @@ The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;
 
-[Takeoff mode](../flight_modes/takeoff.md#fixed_wing) initiates the vehicle takeoff sequence.
+[Takeoff mode](../flight_modes_fw/takeoff.md#fixed_wing) initiates the vehicle takeoff sequence.
 The specific launch behaviour depends on the configured takeoff mode (catapult/hand-launch mode or runway takeoff mode).
 
 
