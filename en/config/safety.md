@@ -21,9 +21,9 @@ Action | Description
 --- | ---
 <a id="action_none"></a>None/Disabled | No action. The failsafe will be ignored.
 <a id="action_warning"></a>Warning | A warning message will be sent (i.e. to *QGroundControl*).
-<a id="action_hold"></a>Hold mode | The vehicle will enter [Hold mode (MC)](../flight_modes_mc/hold.md) or [Hold mode (FW)](../flight_modes_fw/hold.md). For multicopters this means the vehicle will hover, while for fixed-wing the vehicle will circle.
+<a id="action_hold"></a>Hold mode | The vehicle will enter [Hold mode (MC)](../flight_modes_mc/hold.md) or [Hold mode (FW)](../flight_modes_fw/hold.md) and hover or circle, respectively. VTOL vehicles will hold according to their current mode (MC/FW).
 <a id="action_return"></a>[Return mode](../flight_modes/return.md) | The vehicle will enter *Return mode*. Return behaviour can be set in the [Return Home Settings](#return-mode-settings) (below).
-<a id="action_land"></a>[Land mode](../flight_modes/land.md) | The vehicle will enter *Land mode*, and lands immediately.
+<a id="action_land"></a>Land mode | The vehicle will enter [Land mode (MC)](../flight_modes_mc/land.md) or [Land mode (FW)](../flight_modes_fw/land.md), and land. A VTOL will first transition to MC mode.
 <a id="action_disarm"></a>Disarm | Stops the motors immediately.
 <a id="action_flight_termination"></a>[Flight termination](../advanced_config/flight_termination.md) | Turns off all controllers and sets all PWM outputs to their failsafe values (e.g. [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1), [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1)). The failsafe outputs can be used to deploy a parachute, landing gear or perform another operation. For a fixed-wing vehicle this might allow you to glide the vehicle to safety.
 
@@ -159,7 +159,7 @@ Additional information can be found in [Return mode](../flight_modes/return.md).
 
 ### Land Mode Settings
 
-*Land at the current position* is a common [failsafe action](#failsafe-actions) that engages [Land Mode](../flight_modes/land.md).
+*Land at the current position* is a common [failsafe action](#failsafe-actions) (in particular for multicopters), that engages [Land Mode](../flight_modes_mc/land.md).
 This section shows how to control when and if the vehicle automatically disarms after landing.
 For Multicopters (only) you can additionally set the descent rate.
 
@@ -170,7 +170,7 @@ The settings and underlying parameters are shown below:
 Setting | Parameter | Description
 --- | --- | ---
 Disarm After | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Select checkbox to specify that the vehicle will disarm after landing. The value must be non-zero but can be a fraction of a second.
-Landing Descent Rate | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED) | Rate of descent (MC only).
+Landing Descent Rate (MC only) | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED) | Rate of descent.
 
 
 ## Other Failsafe Settings
