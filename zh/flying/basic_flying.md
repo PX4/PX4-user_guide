@@ -29,13 +29,11 @@ Before you can fly the vehicle it must first be [armed](../getting_started/px4_b
 
 ## 起飞
 
-最简单的起飞方式（在[机体解锁](#arm)后）是使用自动 [起飞模式](../flight_modes/takeoff.md)。 通常可以通过 [遥控器拨杆开关](../config/flight_mode.md) 或地面站触发的。
+### Multicopter takeoff
 
-多旋翼飞行器（和 VTOL 在多轴模式下）飞手可以通过启用[位置模式](../flight_modes/README.md#position_mc)，解锁机体，然后将油门杆升至 62.5% 以上来*手动*起飞。 高于此值，所有控制器都被启用，无人机将输出悬停所需的油门值（[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)）。
+The easiest way to takeoff (after [arming the vehicle](#arm)) is to use the automatic [Takeoff mode (MC)](../flight_modes_mc/takeoff.md). 通常可以通过 [遥控器拨杆开关](../config/flight_mode.md) 或地面站触发的。
 
-:::tip
-The automatic takeoff mode is highly recommended, in particular for fixed-wing vehicles!
-:::
+Multicopter (and VTOL in multicopter mode) pilots can also take off *manually* by enabling [Position mode (MC)](../flight_modes/README.md#position_mc), arming the vehicle, and then raising the throttle stick above 62.5%. 高于此值，所有控制器都被启用，无人机将输出悬停所需的油门值（[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)）。
 
 :::note
 如果机体在解锁后过长时间没有起飞，无人机将会加锁（使用[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)调整超时时间）。 :::
@@ -43,10 +41,34 @@ The automatic takeoff mode is highly recommended, in particular for fixed-wing v
 :::note
 The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff. :::
 
+### Fixed-wing Takeoff
+
+Automatic takeoff using [Takeoff mode (FW)](../flight_modes_fw/takeoff.md) is highly recommended for fixed-wing vehicles! You can either [hand-launch](../flight_modes_fw/takeoff.md#catapult-hand-launch) (default) or use [runway takeoff](../flight_modes_fw/takeoff.md#runway-takeoff) (if supported by hardware and configured).
+
+For runway takeoff:
+
+1. Place the vehicle facing the planned takeoff direction (ideally facing the wind)
+1. Activate [Takeoff mode (FW)](../flight_modes_fw/takeoff.md)
+1. [Arm the vehicle](#arm) using an [RC switch](../config/flight_mode.md) or ground station
+
+   The vehicle will ramp up motors, and fly in the indicated direction, until it reaches the (parameter set) clearance height, then enter Hold mode.
+
+
+For catapult/hand-launch:
+
+1. Point the vehicle in the direction you want it to take off, in order to set the course (ideally facing the wind)
+1. Activate [Takeoff mode (FW)](../flight_modes_fw/takeoff.md)
+1. [Arm the vehicle](#arm) using an [RC switch](../config/flight_mode.md) or ground station
+1. Throw/launch the vehicle in the direction you want it to take off.
+
+   Motors will start after the launch is detected, after which the behaviour is the same as for runway takeoff.
+
+For more information see [Takeoff mode (FW)](../flight_modes_fw/takeoff.md). Using a takeoff item defined in [a mission plan](../flight_modes/mission.md#fw-mission-takeoff) is also recommended.
+
 
 ## 降落
 
-Landing a fixed-wing vehicle is not easy manually. The best way to land a fixed-wing vehicle is to use a [Fixed-Wing Mission Landing](../flight_modes/mission.md#fw-mission-landing). This landing is defined in a mission, and can be used in either [Mission](../flight_modes/mission.md) or [Return](../flight_modes/return.md) modes. The automatic [Land mode](../flight_modes_few/land.md) mode is not recommended unless absolutely necessary, as it cannot account for underlying terrain.
+Landing a fixed-wing vehicle is not easy manually. The best way to land a fixed-wing vehicle is to use a [Fixed-Wing Mission Landing](../flight_modes/mission.md#fw-mission-landing). This landing is defined in a mission, and can be used in either [Mission](../flight_modes/mission.md) or [Return](../flight_modes/return.md) modes. The automatic [Land mode](../flight_modes_fw/land.md) mode is not recommended unless absolutely necessary, as it cannot account for underlying terrain.
 <!-- Added this to make it more generic: We'll split this out later -->
 
 The easiest way to land a multicopter or VTOL is to use the automatic [Land](../flight_modes_mc/land.md) or [Return](../flight_modes/return.md) modes. For multicopter (and VTOL in multicopter mode) pilots can also land manually in altitude or position mode by pressing the throttle stick down until the vehicle lands and disarms.
