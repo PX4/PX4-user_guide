@@ -171,7 +171,7 @@ The mode is _implemented_ in almost exactly the same way in all vehicle types (t
 - 임무 착륙이 정의된 경우 임무 착륙 시작 지점으로 직접 비행후 착륙합니다.
 - 그렇지 않으면, 홈 위치로 직접 비행하고 그 위 반경 [NAV_LOITER_RAD](#NAV_LOITER_RAD)에서 선회 비행합니다.
 
-If not following a mission landing, and [RTL_LAND_DELAY](#RTL_LAND_DELAY) is set to -1, the vehicle will land as described in the topic: [Land Mode > Fixed-wing landing](../flight_modes/land.md#fixed-wing-fw).
+If not following a mission landing, and [RTL_LAND_DELAY](#RTL_LAND_DELAY) is set to -1, the vehicle will land in the same way as [Land mode](../flight_modes_fw/land.md).
 
 The fixed-wing [safe return altitude](#return_altitude) depends only on [RTL_RETURN_ALT](#RTL_RETURN_ALT) (the cone defined by [RTL_CONE_ANG](#RTL_CONE_ANG) is not used)
 
