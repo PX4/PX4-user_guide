@@ -52,7 +52,7 @@ PX4는 보조 컴퓨터의 회피 소프트웨어를 사용하여 [임무 모드
   - *로컬 플래너* 임무 속도는 약 3m/s입니다.
   - *글로벌 플래너* 임무 속도는 약 1~1.5m/s입니다.
 
-PX4가 0.5 초 이상 설정 값 업데이트 수신을 중지하면 [보류 모드](../flight_modes/hold.md)로 전환됩니다.
+If PX4 stops receiving setpoint updates for more than half a second it will switch into [Hold mode](../flight_modes_mc/hold.md).
 
 
 ### PX4 설정
