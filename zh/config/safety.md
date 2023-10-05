@@ -16,9 +16,9 @@ The list below shows the set of all failsafe actions, ordered in increasing seve
 | ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="action_none"></a>无/禁用                                             | No action. The failsafe will be ignored.                                                                                                                                                                                                           |
 | <a id="action_warning"></a>警告                                               | A warning message will be sent (i.e. to *QGroundControl*).                                                                                                                                                                                         |
-| <a id="action_hold"></a>Hold mode                                        | The vehicle will enter [Hold mode (MC)](../flight_modes_mc/hold.md) or [Hold mode (FW)](../flight_modes_fw/hold.md). For multicopters this means the vehicle will hover, while for fixed-wing the vehicle will circle.                             |
+| <a id="action_hold"></a>Hold mode                                        | The vehicle will enter [Hold mode (MC)](../flight_modes_mc/hold.md) or [Hold mode (FW)](../flight_modes_fw/hold.md) and hover or circle, respectively. VTOL vehicles will hold according to their current mode (MC/FW).                            |
 | <a id="action_return"></a>[返航模式](../flight_modes/return.md)                | The vehicle will enter *Return mode*. Return behaviour can be set in the [Return Home Settings](#return-mode-settings) (below).                                                                                                                    |
-| <a id="action_land"></a>[降落模式](../flight_modes/land.md)                  | The vehicle will enter *Land mode*, and lands immediately.                                                                                                                                                                                         |
+| <a id="action_land"></a>Land mode                                        | The vehicle will enter [Land mode (MC)](../flight_modes_mc/land.md) or [Land mode (FW)](../flight_modes_fw/land.md), and land. A VTOL will first transition to MC mode.                                                                            |
 | <a id="action_disarm"></a>Disarm                                           | Stops the motors immediately.                                                                                                                                                                                                                      |
 | <a id="action_flight_termination"></a>[飞行终止](../advanced_config/flight_termination.md) | 关闭所有控制器并将所有 PWM 输出设置为其故障保护值（例如 [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1)，[PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1) 等输出）。 故障保护输出可用于启动降落伞、起落架或执行其他操作。 对于固定翼飞行器，这可能允许您将机体滑翔至安全位置。 |
 
@@ -141,16 +141,16 @@ The return behaviour is defined by [RTL_LAND_DELAY](../advanced_config/parameter
 
 ### 降落模式设置
 
-*Land at the current position* is a common [failsafe action](#failsafe-actions) that engages [Land Mode](../flight_modes/land.md). This section shows how to control when and if the vehicle automatically disarms after landing. For Multicopters (only) you can additionally set the descent rate.
+*Land at the current position* is a common [failsafe action](#failsafe-actions) (in particular for multicopters), that engages [Land Mode](../flight_modes_mc/land.md). This section shows how to control when and if the vehicle automatically disarms after landing. For Multicopters (only) you can additionally set the descent rate.
 
 ![Safety - Land Mode Settings (QGC)](../../assets/qgc/setup/safety/safety_land_mode.png)
 
 The settings and underlying parameters are shown below:
 
-| 设置    | 参数                                                                             | 描述                                       |
-| ----- | ------------------------------------------------------------------------------ | ---------------------------------------- |
-| 几秒后锁定 | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | 选中复选框以指定机体在降落后上锁。  该值必须是非零的，但可以是小于一秒的小数。 |
-| 降落速率  | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | 下降速率（仅限多旋翼）。                             |
+| 设置                             | 参数                                                                             | 描述                                       |
+| ------------------------------ | ------------------------------------------------------------------------------ | ---------------------------------------- |
+| 几秒后锁定                          | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | 选中复选框以指定机体在降落后上锁。  该值必须是非零的，但可以是小于一秒的小数。 |
+| Landing Descent Rate (MC only) | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | Rate of descent.                         |
 
 
 ## 其他故障保护设置
