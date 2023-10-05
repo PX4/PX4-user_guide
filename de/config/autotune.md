@@ -77,8 +77,8 @@ If an [Enable/Disable Autotune Switch](#enable-disable-autotune-switch-fixed-win
 Additional notes:
 
 - **VTOL:** Hybrid VTOL fixed-wing vehicles must be tuned twice, following multicopter instructions in MC mode and fixed-wing instructions in FW mode.
-- **Multicopter:** The instructions above tune the vehicle in [Altitude mode](../flight_modes_mc/altitude.md). You can instead takeoff in [Takeoff mode](../flight_modes/takeoff.md) and tune in [Position mode](../flight_modes_mc/position.md) if the vehicle is is _known_ to be stable in these modes.
-- **Fixed-wing:** Autotuning can also be run in [Altitude mode](../flight_modes_mc/altitude.md) or [Position mode](../flight_modes_mc/position.md). However running the test while flying straight requires a larger safe area for tuning, and does not give a significantly better tuning result.
+- **Multicopter:** The instructions above tune the vehicle in [Altitude mode](../flight_modes_mc/altitude.md). You can instead takeoff in [Takeoff mode](../flight_modes_mc/takeoff.md) and tune in [Position mode](../flight_modes_mc/position.md) if the vehicle is is _known_ to be stable in these modes.
+- **Fixed-wing:** Autotuning can also be run in [Altitude mode](../flight_modes_fw/altitude.md) or [Position mode](../flight_modes_fw/position.md). However running the test while flying straight requires a larger safe area for tuning, and does not give a significantly better tuning result.
 - Whether tuning is applied in-air or after landing can be [configured using parameters](#apply-parameters-when-in-air-landed).
 
 ## Troubleshooting
