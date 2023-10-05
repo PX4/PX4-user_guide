@@ -85,7 +85,7 @@ Using a takeoff item defined in [a mission plan](../flight_modes/mission.md#fw-m
 Landing a fixed-wing vehicle is not easy manually.
 The best way to land a fixed-wing vehicle is to use a [Fixed-Wing Mission Landing](../flight_modes/mission.md#fw-mission-landing).
 This landing is defined in a mission, and can be used in either [Mission](../flight_modes/mission.md) or [Return](../flight_modes/return.md) modes.
-The automatic [Land mode](../flight_modes_few/land.md) mode is not recommended unless absolutely necessary, as it cannot account for underlying terrain.
+The automatic [Land mode](../flight_modes_fw/land.md) mode is not recommended unless absolutely necessary, as it cannot account for underlying terrain.
 <!-- Added this to make it more generic: We'll split this out later -->
 
 The easiest way to land a multicopter or VTOL is to use the automatic [Land](../flight_modes_mc/land.md) or [Return](../flight_modes/return.md) modes.
