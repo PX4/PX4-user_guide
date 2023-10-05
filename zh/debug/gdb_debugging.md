@@ -1,22 +1,22 @@
-# Debugging with GDB
+# 使用 GDB 调试
 
-The [GNU DeBugger (GDB)](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html) comes installed with the compiler toolchain in the form of the `arm-none-eabi-gdb` binary. The debugger reads the debug symbols inside an ELF file to understand the static and dynamic memory layout of the PX4 firmware. To access the PX4 autopilot microcontroller, it needs to connect to a [Remote Target](https://sourceware.org/gdb/download/onlinedocs/gdb/Connecting.html), which is provided by a [SWD debug probe](swd_debug.md).
+[GNU DeBugger（GDB）](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html)是用编译器工具链安装的形式为二进制`arm-none-eabi-gdb`。 调试器读取ELF文件内的调试富豪，以了解PX4固件的静态和动态内存布局。 要访问PX4自动驾驶仪微控制器，需要连接到[远程目标](https://sourceware.org/gdb/download/onlinedocs/gdb/Connecting.html)，这是由[SWD 调试探测器](swd_debug.md)提供的。
 
-The flow of information looks like this:
+信息流看起来像这样：
 
 ```
 Developer <=> GDB <=> GDB Server <=> Debug Probe <=> SWD <=> PX4 Autopilot.
 ```
 
-## Quickstart
+## 快速入门
 
-To start a debugging session you typically:
+要启动调试会话，您通常需要：
 
-1. Need a specialized [SWD debug probe](../debug/swd_debug.md#debug-probes).
-2. Find and connect to the [SWD debug port](../debug/swd_debug.md#autopilot-debug-ports). You may need a [debug adapter](swd_debug.md#debug-adapters).
-3. Configure and start the debug probe to create a GDB server.
-4. Launch GDB and connect to the GDB server as a remote target.
-5. Debug your firmware interactively.
+1. 需要特定的[SWD 调试探针](../debug/swd_debug.md#debug-probes)
+2. 查找并连接到 [SWD 调试端口](../debug/swd_debug.md#autopilot-debug-ports) 您可能需要一个[调试适配器](swd_debug.md#debug-adapters)。
+3. 配置并启动调试探测来创建 GDB 服务。
+4. 启动GDB并作为远程目标连接到 GDB 服务。
+5. 以交互方式调试您的固件。
 
 See the debug probe documentation for details on how to setup your debug connection:
 
