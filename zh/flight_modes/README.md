@@ -172,7 +172,7 @@ th {
 
 
 <tr id="takeoff_fw">
- <td><a href="../flight_modes/takeoff.html">起飞</a></td>
+ <td><a href="../flight_modes_fw/takeoff.html">起飞</a></td>
  <td colspan="3">自动</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="20px" /></a></td>
  <td>飞机使用 <em>弹射/手持发射模式</em> 或 <em>滑行起飞模式</em> （在当前方向）启动起飞顺序。</td>
@@ -348,7 +348,7 @@ th {
 </tr>
 
 <tr id="takeoff_mc">
- <td><a href="../flight_modes/takeoff.html">起飞</a></td>
+ <td><a href="../flight_modes_mc/takeoff.html">起飞</a></td>
  <td colspan="3">自动</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="20px" /></a></td>
  <td>机体上升到起飞高度并保持位置。</td>
