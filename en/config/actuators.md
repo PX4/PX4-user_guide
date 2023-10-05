@@ -8,6 +8,7 @@ Open the view in *QGroundControl* here: **"Q" (app menu) > Vehicle Setup > Actua
 The displayed elements depend on the [selected frame](../config/airframe.md), with outputs mapped by default as shown in the [Airframe Reference](../airframes/airframe_reference.md).
 
 The view has three sections:
+
 - [Geometry](#geometry): Configure the geometry for the [selected airframe](../config/airframe.md).
   This includes number, position and properties of [motors](#motor-geometry) and also the number and properties of [control surfaces](#control-surfaces-geometry) and [motor tilt servos](#motor-tilt-servo-geometry).
 - [Actuator Outputs](#actuator-outputs): Assign motors, control surfaces, and other actuators to specific output.
@@ -591,8 +592,14 @@ If any motors do not turn in the correct direction they must be reversed.
 
 There are several options:
 
-- If the ESCs are configured as [DShot](../peripherals/dshot.md) you can reverse the direction via UI (**Set Spin Direction** buttons).
-  Note that the current direction cannot be queried, so you might have to try both options.
+- If the ESCs are configured as [DShot](../peripherals/dshot.md) you can permanently reverse the direction via UI.
+  The **Set Spin Direction** buttons are displayed below the Actuator sliders (if DShot motors are used).
+  These popup a dialog in which you select the motor for which you want to apply the direction.
+  
+  ![Set spin direction buttons](../../assets/config/actuators/reverse_dshot.png)
+
+  Note that the current direction cannot be queried, so you may need to try both options.
+  
 - Swap 2 of the 3 motor cables (it does not matter which ones).
 
   :::note
