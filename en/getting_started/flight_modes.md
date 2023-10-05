@@ -364,7 +364,7 @@ The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;
 
-[Takeoff mode](../flight_modes_fw/takeoff.md#fixed_wing) initiates the vehicle takeoff sequence.
+[Takeoff mode](../flight_modes_fw/takeoff.md) initiates the vehicle takeoff sequence.
 The specific launch behaviour depends on the configured takeoff mode (catapult/hand-launch mode or runway takeoff mode).
 
 
