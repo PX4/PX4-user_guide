@@ -47,7 +47,10 @@ The next step is to define your vehicle [geometry](../config/actuators.md#motor-
 If using PWM ESCs and OneShot ESCs (but not DShot and DroneCAN/Cyphal ESC) you should then perform [ESC Calibration](../advanced_config/esc_calibration.md) before proceeding to [Motor Configuration](../config/actuators.md#motor-configuration).
 This ensures that all ESC provide exactly the same output for a given input (ideally we'd calibrate ESCs first, but you can't calibrate your ESCs until outputs are mapped).
 
-The final step is [Motor Configuration](../config/actuators.md#motor-configuration), which sets the directions of motors, and their disarmed, armed and high limits.
+The final step is [Motor Configuration](../config/actuators.md#motor-configuration):
+- [Reverse any motors](../config/actuators.md#reversing-motors) that don't match the spin direction configured in the Geometry.
+  For DShot ESC you can do this through the Acuator Testing UI.
+- PWM, OneShot, and CAN ESC, set the motor input limits for disarmed, low and high speed (not needed for DShot ESC)
 
 Relevant topics:
 
