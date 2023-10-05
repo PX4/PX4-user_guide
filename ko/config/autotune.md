@@ -77,8 +77,8 @@ If an [Enable/Disable Autotune Switch](#enable-disable-autotune-switch-fixed-win
 추가 참고 사항:
 
 - **VTOL:** Hybrid VTOL fixed-wing vehicles must be tuned twice, following multicopter instructions in MC mode and fixed-wing instructions in FW mode.
-- **Multicopter:** The instructions above tune the vehicle in [Altitude mode](../flight_modes_mc/altitude.md). You can instead takeoff in [Takeoff mode](../flight_modes/takeoff.md) and tune in [Position mode](../flight_modes_mc/position.md) if the vehicle is is _known_ to be stable in these modes.
-- **Fixed-wing:** Autotuning can also be run in [Altitude mode](../flight_modes_mc/altitude.md) or [Position mode](../flight_modes_mc/position.md). 그러나 직선으로 비행하면서 테스트를 실행하면 더 큰 튜닝 안전 영역이 필요하며, 더 좋은 튜닝 결과를 보장하지 않습니다.
+- **Multicopter:** The instructions above tune the vehicle in [Altitude mode](../flight_modes_mc/altitude.md). You can instead takeoff in [Takeoff mode](../flight_modes_mc/takeoff.md) and tune in [Position mode](../flight_modes_mc/position.md) if the vehicle is is _known_ to be stable in these modes.
+- **Fixed-wing:** Autotuning can also be run in [Altitude mode](../flight_modes_fw/altitude.md) or [Position mode](../flight_modes_fw/position.md). 그러나 직선으로 비행하면서 테스트를 실행하면 더 큰 튜닝 안전 영역이 필요하며, 더 좋은 튜닝 결과를 보장하지 않습니다.
 - Whether tuning is applied in-air or after landing can be [configured using parameters](#apply-parameters-when-in-air-landed).
 
 ## 문제 해결
