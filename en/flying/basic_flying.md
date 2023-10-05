@@ -43,7 +43,7 @@ Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by ena
 In [Position mode (MC)](../flight_modes/README.md#position_mc) or [Altitude mode (MC)](../flight_modes/README.md#altitude_mc) the throttle stick has to be increased to above 62.5% to command a climb rate and make the vehicle leave the ground. 
 Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
 
-Alternatively the takeoff can performed by the automatic [Takeoff mode (MC)](../flight_modes_mc/takeoff.md).
+Alternatively the takeoff can performed using the automatic [Takeoff mode (MC)](../flight_modes_mc/takeoff.md).
 
 :::note
 The vehicle may disarm if you take too long to take off after arming (tune the timeout using [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)).
@@ -56,19 +56,22 @@ The [Failure Detector](../config/safety.md#failure-detector) will automatically 
 ### Fixed-wing Takeoff
 
 :::note
-Manual takeoffs (as well as landings) are tricky to perform and it is thus recommended to takeoff with the automatic modes instead, especially for inexperienced pilots.
+Taking off manually (and landing) is not easy!
+We recommend using with the automatic modes instead, especially for inexperienced pilots.
 :::
 
-For manual takeoffs it is recommended to use [Stabilized mode](../flight_modes/README.md#stabilized_fw), [Acro mode](../flight_modes/README.md#acro_fw) or [Manual mode](../flight_modes/README.md#manual_fw) mode.
-[Position mode](../flight_modes/README.md#position_fw) and [Altitude mode](../flight_modes/README.md#altitude_fw) are also possible to takeoff in, but as the controller in these modes can prioritize airspeed over altitude tracking it is important to accelerate the vehicle sufficiently before bringing them airborne (strong thrust if hand-launched, long runway phase for runway takeoff).
+[Stabilized mode](../flight_modes/README.md#stabilized_fw), [Acro mode](../flight_modes/README.md#acro_fw) or [Manual mode](../flight_modes/README.md#manual_fw) mode are recommended for manual takeoff.
+[Position mode](../flight_modes/README.md#position_fw) and [Altitude mode](../flight_modes/README.md#altitude_fw) can also be used, but it is important to accelerate the vehicle sufficiently before bringing them airborne — strong thrust if hand-launched, long runway phase for runway takeoff (this is required because the controller in these modes can prioritize airspeed over altitude tracking).
 
-Manual takeoffs with hand-launched planes: ramp up the motor and throw the vehicle horizontally.
-Do not pitch up too fast as this may stall the plane.
-A good vehicle trim is crucial for safe hand-launch takeoffs, as there is only little reaction time for the pilot to avoid a crash if it doesn't fly level!
+Manual takeoffs with hand-launched planes: 
+- Ramp up the motor and throw the vehicle horizontally.
+- Do not pitch up too fast as this may stall the plane.
+- A good vehicle trim is crucial for safe hand-launch takeoffs, because if the vehicle doesn't fly level there is only a very short time for the pilot to react before the vehicle crashes!
 
-Manual takeoffs with runway-launched planes: accelerate on the runway until the speed is sufficient for takeoff.
-If the plane has a steerable wheel use the yaw stick to keep it driving straight.
-Once the speed is sufficient pull up the nose with the pitch stick.
+Manual takeoffs with runway-launched planes:
+- Accelerate on the runway until the speed is sufficient for takeoff.
+- If the plane has a steerable wheel, use the yaw stick to keep it on course.
+- Once the speed is sufficient pull up the nose with the pitch stick.
 
 Automatic takeoffs are possible in the [Mission mode](../flight_modes/mission.md#fw-mission-takeoff) or [Takeoff mode (FW)](../flight_modes_fw/takeoff.md).
 The pilot can take over manual control over the vehicle at any moment during the takeoff process or after it by changing into a manual flight mode.
@@ -95,9 +98,9 @@ If you see the vehicle "twitch" during landing (turn down the motors, and then i
 
 ### Fixed-wing Landing
 
-As for takeoff, for manual landings it is recommended to use [Stabilized mode](../flight_modes/README.md#stabilized_fw), [Acro mode](../flight_modes/README.md#acro_fw) or [Manual mode](../flight_modes/README.md#manual_fw).
-In these modes the pilot has full control over the motor thrust, which is required to perform a manual flaring maneuver when close to the ground (rasing the vehicle nose without increasing throttle).
-It is recommended to perform the landing in headwind to reduce the groundspeed before touching down.
+[Stabilized mode](../flight_modes/README.md#stabilized_fw), [Acro mode](../flight_modes/README.md#acro_fw) or [Manual mode](../flight_modes/README.md#manual_fw) are recommended for landing (just as they are for takeoff).
+In these modes the pilot has full control over the motor thrust, which is required to perform a manual flaring maneuver when close to the ground (raising the vehicle nose without increasing throttle).
+You should perform the landing in headwind to reduce the groundspeed before touching down.
 
 For auto landings you should use a [Fixed-Wing Mission Landing](../flight_modes/mission.md#fw-mission-landing).
 This landing is defined in a mission, and can be used in either [Mission](../flight_modes/mission.md) or [Return](../flight_modes/return.md) modes.
