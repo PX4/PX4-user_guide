@@ -5,7 +5,6 @@
 The _Takeoff_ flight mode causes the vehicle to take off to a specified height and then enter [Hold mode](../flight_modes_fw/takeoff.md).
 
 Vehicles are [hand or catapult launched](#catapult-hand-launch) by default, but can also be [configured](#RWTO_TKOFF) to use a [runway takeoff](#runway-takeoff) when supported by the hardware.
-Takeoff mode is highly recommended for fixed-wing vehicles.
 
 :::note
 
