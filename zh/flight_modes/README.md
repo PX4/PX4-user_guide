@@ -180,7 +180,7 @@ th {
 
 
 <tr id="land_fw">
- <td><a href="../flight_modes/land.html">降落</a></td>
+ <td><a href="../flight_modes_fw/land.html">降落</a></td>
  <td class="centred" colspan="3">自动</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="20px" /></a></td>
  <td>Vehicle initiates the <a href="../flight_modes/mission.html#fw-mission-landing">fixed-wing landing</a> sequence.</td>
@@ -355,7 +355,7 @@ th {
 </tr>
 
 <tr id="land_mc">
- <td><a href="../flight_modes/land.html">降落</a></td>
+ <td><a href="../flight_modes_mc/land.html">降落</a></td>
  <td colspan="3">自动</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="20px" /></a></td>
  <td>飞机降落在模式指定的位置。</td>
