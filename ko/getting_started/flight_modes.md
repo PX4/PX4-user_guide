@@ -187,7 +187,7 @@ The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
-[이륙](../flight_modes/takeoff.md) 모드에서는 멀티콥터는 이륙 고도까지 수직 상승한 후에 호버링합니다.
+[Takeoff](../flight_modes_mc/takeoff.md) mode causes the multicopter to climb vertically to takeoff altitude and hover in position.
 
 
 <a id="land_mc"></a>
@@ -347,7 +347,7 @@ The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;
 
-[이륙 모드](../flight_modes/takeoff.md#fixed_wing)에서는 기체 이륙에 필요한 일련의 작업들을 수행합니다. 구체적인 이륙 동작은 설정된 이륙 모드(투석기/수동/활주로 이륙 모드)에 따라 차이가 납니다.
+[Takeoff mode](../flight_modes_fw/takeoff.md) initiates the vehicle takeoff sequence. 구체적인 이륙 동작은 설정된 이륙 모드(투석기/수동/활주로 이륙 모드)에 따라 차이가 납니다.
 
 
 <a id="land_fw"></a>

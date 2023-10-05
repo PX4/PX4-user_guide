@@ -171,7 +171,7 @@ th {
 
 
 <tr id="takeoff_fw">
- <td><a href="../flight_modes/takeoff.html">이륙</a></td>
+ <td><a href="../flight_modes_fw/takeoff.html">이륙</a></td>
  <td colspan="3">자동</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="20px" /></a></td>
  <td>기체는 <em>투석기/수동 발사 모드</em> 또는 <em>활주로 이륙 모드</em> (현재 방향)를 사용하여 이륙 시퀀스를 시작합니다.</td>
@@ -347,7 +347,7 @@ th {
 </tr>
 
 <tr id="takeoff_mc">
- <td><a href="../flight_modes/takeoff.html">이륙</a></td>
+ <td><a href="../flight_modes_mc/takeoff.html">이륙</a></td>
  <td colspan="3">자동</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="20px" /></a></td>
  <td>기체는 이륙 고도까지 상승하고 위치를 유지합니다.</td>
