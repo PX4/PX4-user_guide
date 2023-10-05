@@ -53,7 +53,7 @@ The position estimator tested for this mode is EKF2, you can set this by changin
 
 ## 대기속도 센서가 없는 첫 비행
 
-The values apply to a position controlled flight (like [Hold mode](../flight_modes/hold.md) or [Mission mode](../flight_modes/mission.md) or Mission mode). It is therefore recommended that a mission is configured at a safe altitude, approximately 10m above the quad-chute threshold.
+The values apply to a position controlled flight (like [Hold mode](../flight_modes_fw/hold.md) or [Mission mode](../flight_modes/mission.md) or Mission mode). It is therefore recommended that a mission is configured at a safe altitude, approximately 10m above the quad-chute threshold.
 
 기준 비행과 같이, 이 비행은 풍속이 매우 작은 조건에서 수행되어야 합니다. For the first flight the following is recommended:
 
@@ -70,7 +70,9 @@ The values apply to a position controlled flight (like [Hold mode](../flight_mod
 
 이러한 모든 조건이 충족되면, 지면 속도가 기준 비행 속도와 일치할 때까지 작은 단계로 크루즈 스로틀을 조정할 수 있습니다.
 
-## 관련 매개 변수에 대한 간략한 개요
+## Parameter Overview
+
+The relevant parameters are:
 
 - [FW_ARSP_MODE](../advanced_config/parameter_reference.md#FW_ARSP_MODE): 잘못된 선언 (2)
 - [CBRK_AIRSPD_CHK](../advanced_config/parameter_reference.md#CBRK_AIRSPD_CHK): 162128
