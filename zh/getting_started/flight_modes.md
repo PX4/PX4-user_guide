@@ -153,7 +153,7 @@ The [Orbit mode](../flight_modes_mc/orbit.md) allows you to command a multicopte
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Hold mode](../flight_modes/hold.md) causes the multicopter to stop and hover at its current position and altitude (maintaining position against wind and other forces). The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. 它可以通过预编程的RC开关或者*QGroundControl*的**Pause**按钮来激活。
+[Hold mode](../flight_modes_mc/hold.md) causes the multicopter to stop and hover at its current position and altitude (maintaining position against wind and other forces). The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. 它可以通过预编程的RC开关或者*QGroundControl*的**Pause**按钮来激活。
 
 
 <a id="return_mc"></a>
@@ -309,7 +309,7 @@ It provides a safety mechanism that allows full control of throttle, elevator, a
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Hold](../flight_modes/hold.md) causes a fixed-wing vehicle to start circling around the current position at its current altitude. The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. 它可以通过预编程的RC开关或者*QGroundControl*的**Pause**按钮来激活。
+[Hold](../flight_modes_fw/hold.md) causes a fixed-wing vehicle to start circling around the current position at its current altitude. The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. 它可以通过预编程的RC开关或者*QGroundControl*的**Pause**按钮来激活。
 
 
 <a id="return_fw"></a>
