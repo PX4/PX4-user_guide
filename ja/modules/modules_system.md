@@ -775,9 +775,6 @@ uxrce_dds_client <command> [arguments...]
                  values: <IP>
      [-p <val>]  Agent listening port. If not provided, defaults to
                  UXRCE_DDS_PRT
-     [-l]        Restrict to localhost (use in combination with
-                 ROS_LOCALHOST_ONLY=1)
-     [-c]        Use custom participant config (profile_name="px4_participant")
      [-n <val>]  Client DDS namespace
 
    stop
