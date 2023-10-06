@@ -12735,21 +12735,21 @@ table {
 <tbody>
 <tr>
  <td><strong id="ASPD_BETA_GATE">ASPD_BETA_GATE</strong> (INT32)</td>
- <td>Airspeed Selector: Gate size for sideslip angle fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
+ <td>Gate size for sideslip angle fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
  <td>[1, 5] </td>
  <td>1</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="ASPD_BETA_NOISE">ASPD_BETA_NOISE</strong> (FLOAT)</td>
- <td>Airspeed Selector: Wind estimator sideslip measurement noise <p><strong>Comment:</strong> Sideslip measurement noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
+ <td>Wind estimator sideslip measurement noise <p><strong>Comment:</strong> Sideslip measurement noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
  <td>[0, 1] </td>
  <td>0.3</td>
  <td>rad</td>
 </tr>
 <tr>
  <td><strong id="ASPD_DO_CHECKS">ASPD_DO_CHECKS</strong> (INT32)</td>
- <td>Enable checks on airspeed sensors <p><strong>Comment:</strong> Controls which checks are run to check airspeed data for validity. Only applied if ASPD_PRIMARY > 0. Note that the data missing check is enabled if any of the options is set.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Only data missing check (triggers if more than 1s no data)</li> 
+ <td>Enable checks on airspeed sensors <p><strong>Comment:</strong> Controls which checks are run to check airspeed data for validity. Only applied if ASPD_PRIMARY > 0.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Only data missing check (triggers if more than 1s no data)</li> 
   <li><strong>1:</strong> Data stuck (triggers if data is exactly constant for 2s in FW mode)</li> 
   <li><strong>2:</strong> Innovation check (see ASPD_FS_INNOV)</li> 
   <li><strong>3:</strong> Load factor check (triggers if measurement is below stall speed)</li> 
@@ -12858,35 +12858,35 @@ table {
 </tr>
 <tr>
  <td><strong id="ASPD_SCALE_NSD">ASPD_SCALE_NSD</strong> (FLOAT)</td>
- <td>Airspeed Selector: Wind estimator true airspeed scale process noise spectral density <p><strong>Comment:</strong> Airspeed scale process noise of the internal wind estimator(s) of the airspeed selector. When unaided, the scale uncertainty (1-sigma, unitless) increases by this amount every second.</p>   </td>
+ <td>Wind estimator true airspeed scale process noise spectral density <p><strong>Comment:</strong> Airspeed scale process noise of the internal wind estimator(s) of the airspeed selector. When unaided, the scale uncertainty (1-sigma, unitless) increases by this amount every second.</p>   </td>
  <td>[0, 0.1] </td>
  <td>1.e-4</td>
  <td>1/s/sqrt(Hz)</td>
 </tr>
 <tr>
  <td><strong id="ASPD_TAS_GATE">ASPD_TAS_GATE</strong> (INT32)</td>
- <td>Airspeed Selector: Gate size for true airspeed fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
+ <td>Gate size for true airspeed fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
  <td>[1, 5] </td>
  <td>3</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="ASPD_TAS_NOISE">ASPD_TAS_NOISE</strong> (FLOAT)</td>
- <td>Airspeed Selector: Wind estimator true airspeed measurement noise <p><strong>Comment:</strong> True airspeed measurement noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
+ <td>Wind estimator true airspeed measurement noise <p><strong>Comment:</strong> True airspeed measurement noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
  <td>[0, 4] </td>
  <td>1.4</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="ASPD_WERR_THR">ASPD_WERR_THR</strong> (FLOAT)</td>
- <td>Horizontal wind uncertainty threshold for synthetic airspeed <p><strong>Comment:</strong> The synthetic airspeed estimate (from groundspeed and heading) will be declared valid as soon and as long the horizontal wind uncertainty drops below this value.</p>   </td>
+ <td>Horizontal wind uncertainty threshold for synthetic airspeed <p><strong>Comment:</strong> The synthetic airspeed estimate (from groundspeed and heading) will be declared valid as soon and as long the horizontal wind uncertainty is below this value.</p>   </td>
  <td>[0.001, 5] </td>
  <td>0.55</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="ASPD_WIND_NSD">ASPD_WIND_NSD</strong> (FLOAT)</td>
- <td>Airspeed Selector: Wind estimator wind process noise noise spectral density <p><strong>Comment:</strong> Wind process noise of the internal wind estimator(s) of the airspeed selector. When unaided, the wind estimate uncertainty (1-sigma, in m/s) increases by this amount every second.</p>   </td>
+ <td>Wind estimator wind process noise spectral density <p><strong>Comment:</strong> Wind process noise of the internal wind estimator(s) of the airspeed selector. When unaided, the wind estimate uncertainty (1-sigma, in m/s) increases by this amount every second.</p>   </td>
  <td>[0, 1] </td>
  <td>1.e-2</td>
  <td>m/s^2/sqrt(Hz)</td>
@@ -13121,6 +13121,8 @@ table {
 <tr>
  <td><strong id="BAT1_N_CELLS">BAT1_N_CELLS</strong> (INT32)</td>
  <td>Number of cells for battery 1 <p><strong>Comment:</strong> Defines the number of cells the attached battery consists of.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Unknown</li>
+
 <li><strong>1:</strong> 1S Battery</li>
 
 <li><strong>2:</strong> 2S Battery</li>
@@ -13251,6 +13253,8 @@ table {
 <tr>
  <td><strong id="BAT2_N_CELLS">BAT2_N_CELLS</strong> (INT32)</td>
  <td>Number of cells for battery 2 <p><strong>Comment:</strong> Defines the number of cells the attached battery consists of.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Unknown</li>
+
 <li><strong>1:</strong> 1S Battery</li>
 
 <li><strong>2:</strong> 2S Battery</li>
@@ -14779,7 +14783,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_ARSP_THR">EKF2_ARSP_THR</strong> (FLOAT)</td>
- <td>Airspeed fusion threshold <p><strong>Comment:</strong> A value of zero will deactivate airspeed fusion. Any other positive value will determine the minimum airspeed which will still be fused. Set to about 90% of the vehicles stall speed. Both airspeed fusion and sideslip fusion must be active for the EKF to continue navigating after loss of GPS. Use EKF2_FUSE_BETA to activate sideslip fusion. Note: side slip fusion is currently not supported for tailsitters.</p>   </td>
+ <td>Airspeed fusion threshold <p><strong>Comment:</strong> Airspeed data is fused for wind estimation if above this threshold. Set to 0 to disable airspeed fusion. For reliable wind estimation both sideslip (see EKF2_FUSE_BETA) and airspeed fusion should be enabled. Only applies to fixed-wing vehicles (or VTOLs in fixed-wing mode).</p>   </td>
  <td>[0.0, ?] </td>
  <td>0.0</td>
  <td>m/s</td>
@@ -14994,7 +14998,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_FUSE_BETA">EKF2_FUSE_BETA</strong> (INT32)</td>
- <td>Boolean determining if synthetic sideslip measurements should fused <p><strong>Comment:</strong> A value of 1 indicates that fusion is active Both  sideslip fusion and airspeed fusion must be active for the EKF to continue navigating after loss of GPS. Use EKF2_ARSP_THR to activate airspeed fusion.</p>   </td>
+ <td>Enable synthetic sideslip fusion <p><strong>Comment:</strong> For reliable wind estimation both sideslip and airspeed fusion (see EKF2_ARSP_THR) should be enabled. Only applies to fixed-wing vehicles (or VTOLs in fixed-wing mode). Note: side slip fusion is currently not supported for tailsitters.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
@@ -15785,21 +15789,21 @@ table {
 <tbody>
 <tr>
  <td><strong id="FW_MAN_P_MAX">FW_MAN_P_MAX</strong> (FLOAT)</td>
- <td>Maximum manual pitch angle <p><strong>Comment:</strong> Maximum manual pitch angle setpoint (positive & negative) in manual attitude-only stabilized mode</p>   </td>
+ <td>Maximum manual pitch angle <p><strong>Comment:</strong> Applies to both directions in all manual modes with attitude stabilization but without altitude control</p>   </td>
  <td>[0.0, 90.0] (0.5)</td>
  <td>30.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_MAN_R_MAX">FW_MAN_R_MAX</strong> (FLOAT)</td>
- <td>Maximum manual roll angle <p><strong>Comment:</strong> Maximum manual roll angle setpoint (positive & negative) in manual attitude-only stabilized mode</p>   </td>
+ <td>Maximum manual roll angle <p><strong>Comment:</strong> Applies to both directions in all manual modes with attitude stabilization</p>   </td>
  <td>[0.0, 90.0] (0.5)</td>
  <td>45.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_MAN_YR_MAX">FW_MAN_YR_MAX</strong> (FLOAT)</td>
- <td>Maximum manually added yaw rate <p><strong>Comment:</strong> This is the maximally added yaw rate setpoint from the yaw stick in any attitude controlled flight mode. The controller already generates a yaw rate setpoint to coordinate a turn, and this value is added to it. This is an absolute value, which is applied symmetrically to the negative and positive side.</p>   </td>
+ <td>Maximum manually added yaw rate <p><strong>Comment:</strong> This is the maximally added yaw rate setpoint from the yaw stick in any attitude controlled flight mode. It is added to the yaw rate setpoint generated by the controller for turn coordination.</p>   </td>
  <td>[0, ?] (0.5)</td>
  <td>30.</td>
  <td>deg/s</td>
@@ -15827,7 +15831,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_P_TC">FW_P_TC</strong> (FLOAT)</td>
- <td>Attitude pitch time constant <p><strong>Comment:</strong> This defines the latency between a pitch step input and the achieved setpoint (inverse to a P gain). Half a second is a good start value and fits for most average systems. Smaller systems may require smaller values, but as this will wear out servos faster, the value should only be decreased as needed.</p>   </td>
+ <td>Attitude pitch time constant <p><strong>Comment:</strong> This defines the latency between a pitch step input and the achieved setpoint (inverse to a P gain). Smaller systems may require smaller values.</p>   </td>
  <td>[0.2, 1.0] (0.05)</td>
  <td>0.4</td>
  <td>s</td>
@@ -15841,7 +15845,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_R_TC">FW_R_TC</strong> (FLOAT)</td>
- <td>Attitude Roll Time Constant <p><strong>Comment:</strong> This defines the latency between a roll step input and the achieved setpoint (inverse to a P gain). Half a second is a good start value and fits for most average systems. Smaller systems may require smaller values, but as this will wear out servos faster, the value should only be decreased as needed.</p>   </td>
+ <td>Attitude Roll Time Constant <p><strong>Comment:</strong> This defines the latency between a roll step input and the achieved setpoint (inverse to a P gain). Smaller systems may require smaller values.</p>   </td>
  <td>[0.2, 1.0] (0.05)</td>
  <td>0.4</td>
  <td>s</td>
@@ -15862,7 +15866,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_WR_FF">FW_WR_FF</strong> (FLOAT)</td>
- <td>Wheel steering rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
+ <td>Wheel steering rate feed forward    </td>
  <td>[0.0, 10] (0.05)</td>
  <td>0.2</td>
  <td>%/rad/s</td>
@@ -15876,7 +15880,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_WR_IMAX">FW_WR_IMAX</strong> (FLOAT)</td>
- <td>Wheel steering rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
+ <td>Wheel steering rate integrator limit    </td>
  <td>[0.0, 1.0] (0.05)</td>
  <td>0.4</td>
  <td></td>
@@ -15945,7 +15949,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_LND_EARLYCFG">FW_LND_EARLYCFG</strong> (INT32)</td>
- <td>Early landing configuration deployment <p><strong>Comment:</strong> When disabled, the landing configuration (flaps, landing airspeed, etc.) is only activated on the final approach to landing. When enabled, it is already activated when entering the final loiter-down (loiter-to-alt) waypoint before the landing approach. This shifts the (often large) altitude and airspeed errors caused by the configuration change away from the ground such that these are not so critical. It also gives the controller enough time to adapt to the new configuration such that the landing approach starts with a cleaner initial state.</p>   </td>
+ <td>Early landing configuration deployment <p><strong>Comment:</strong> When disabled, the landing configuration (flaps, landing airspeed, etc.) is only activated on the final approach to landing. When enabled, it is already activated when entering the final loiter-down (loiter-to-alt) waypoint before the landing approach.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
@@ -16084,7 +16088,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_LAUN_DETCN_ON">FW_LAUN_DETCN_ON</strong> (INT32)</td>
- <td>FW Launch detection <p><strong>Comment:</strong> Enables automatic launch detection based on measured acceleration. Use for hand- or catapult-launched vehicles. Only available for fixed-wing vehicles. Not compatible with runway takeoff.</p>   </td>
+ <td>Fixed-wing launch detection <p><strong>Comment:</strong> Enables automatic launch detection based on measured acceleration. Use for hand- or catapult-launched vehicles. Not compatible with runway takeoff.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
@@ -16236,7 +16240,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="FW_ACRO_X_MAX">FW_ACRO_X_MAX</strong> (FLOAT)</td>
- <td>Acro body x max rate <p><strong>Comment:</strong> This is the rate the controller is trying to achieve if the user applies full roll stick input in acro mode.</p>   </td>
+ <td>Acro body roll max rate setpoint    </td>
  <td>[10, 720] </td>
  <td>90</td>
  <td>deg</td>
@@ -16381,14 +16385,14 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_PR_I">FW_PR_I</strong> (FLOAT)</td>
- <td>Pitch rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
+ <td>Pitch rate integrator gain    </td>
  <td>[0.0, 10] (0.005)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
 <tr>
  <td><strong id="FW_PR_IMAX">FW_PR_IMAX</strong> (FLOAT)</td>
- <td>Pitch rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
+ <td>Pitch rate integrator limit    </td>
  <td>[0.0, 1.0] (0.05)</td>
  <td>0.4</td>
  <td></td>
@@ -16409,35 +16413,35 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_RR_D">FW_RR_D</strong> (FLOAT)</td>
- <td>Roll rate derivative Gain <p><strong>Comment:</strong> Roll rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
+ <td>Roll rate derivative gain    </td>
  <td>[0.0, 10] (0.005)</td>
- <td>0.00</td>
+ <td>0.0</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_RR_FF">FW_RR_FF</strong> (FLOAT)</td>
- <td>Roll rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output. Use this to obtain a tigher response of the controller without introducing noise amplification.</p>   </td>
+ <td>Roll rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output.</p>   </td>
  <td>[0.0, 10.0] (0.05)</td>
  <td>0.5</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_RR_I">FW_RR_I</strong> (FLOAT)</td>
- <td>Roll rate integrator Gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
+ <td>Roll rate integrator gain    </td>
  <td>[0.0, 10] (0.01)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
 <tr>
  <td><strong id="FW_RR_IMAX">FW_RR_IMAX</strong> (FLOAT)</td>
- <td>Roll integrator anti-windup <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value.</p>   </td>
+ <td>Roll integrator limit    </td>
  <td>[0.0, 1.0] (0.05)</td>
  <td>0.2</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_RR_P">FW_RR_P</strong> (FLOAT)</td>
- <td>Roll rate proportional Gain    </td>
+ <td>Roll rate proportional gain    </td>
  <td>[0.0, 10] (0.005)</td>
  <td>0.05</td>
  <td>%/rad/s</td>
@@ -16458,7 +16462,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_YR_D">FW_YR_D</strong> (FLOAT)</td>
- <td>Yaw rate derivative gain <p><strong>Comment:</strong> Yaw rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
+ <td>Yaw rate derivative gain    </td>
  <td>[0.0, 10] (0.005)</td>
  <td>0.0</td>
  <td>%/rad/s</td>
@@ -16472,14 +16476,14 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_YR_I">FW_YR_I</strong> (FLOAT)</td>
- <td>Yaw rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
+ <td>Yaw rate integrator gain    </td>
  <td>[0.0, 10] (0.5)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
 <tr>
  <td><strong id="FW_YR_IMAX">FW_YR_IMAX</strong> (FLOAT)</td>
- <td>Yaw rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
+ <td>Yaw rate integrator limit    </td>
  <td>[0.0, 1.0] (0.05)</td>
  <td>0.2</td>
  <td></td>
@@ -16510,7 +16514,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_MIN">FW_AIRSPD_MIN</strong> (FLOAT)</td>
- <td>Minimum Airspeed (CAS) <p><strong>Comment:</strong> The minimal airspeed (calibrated airspeed) the user is able to command. Further, if the airspeed falls below this value, the TECS controller will try to increase airspeed more aggressively. Has to be set according to the vehicle's stall speed (which should be set in FW_AIRSPD_STALL), with some margin between the stall speed and minimum airspeed. This value corresponds to the desired minimum speed with the default load factor (level flight, default weight), and is automatically adpated to the current load factor (calculated from roll setpoint and WEIGHT_GROSS/WEIGHT_BASE).</p>   </td>
+ <td>Minimum Airspeed (CAS) <p><strong>Comment:</strong> The minimal airspeed (calibrated airspeed) the user is able to command. Further, if the airspeed falls below this value, the TECS controller will try to increase airspeed more aggressively. Should be set (with some margin) above the vehicle stall speed. This value corresponds to the desired minimum speed with the default load factor (level flight, default weight), and is automatically adapated to the current load factor (calculated from roll setpoint and WEIGHT_GROSS/WEIGHT_BASE).</p>   </td>
  <td>[0.5, ?] (0.5)</td>
  <td>10.0</td>
  <td>m/s</td>
@@ -16573,14 +16577,14 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_THR_MAX">FW_THR_MAX</strong> (FLOAT)</td>
- <td>Throttle limit max <p><strong>Comment:</strong> This is the maximum throttle % that can be used by the controller. For overpowered aircraft, this should be reduced to a value that provides sufficient thrust to climb at the maximum pitch angle PTCH_MAX.</p>   </td>
+ <td>Throttle limit max <p><strong>Comment:</strong> Maximum throttle limit in altitude controlled modes. Should be set accordingly to achieve FW_T_CLMB_MAX.</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_THR_MIN">FW_THR_MIN</strong> (FLOAT)</td>
- <td>Throttle limit min <p><strong>Comment:</strong> This is the minimum throttle % that can be used by the controller. For electric aircraft this will normally be set to zero, but can be set to a small non-zero value if a folding prop is fitted to prevent the prop from folding and unfolding repeatedly in-flight or to provide some aerodynamic drag from a turning prop to improve the descent rate. For aircraft with internal combustion engine this parameter should be set for desired idle rpm.</p>   </td>
+ <td>Throttle limit min <p><strong>Comment:</strong> Minimum throttle limit in altitude controlled modes. Usually set to 0 but can be increased to prevent the motor from stopping when descending, which can increase achievable descent rates. For aircraft with internal combustion engine this parameter should be set for desired idle rpm.</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>0.0</td>
  <td>norm</td>
@@ -16748,7 +16752,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_WIND_ARSP_SC">FW_WIND_ARSP_SC</strong> (FLOAT)</td>
- <td>Wind-based airspeed scaling factor <p><strong>Comment:</strong> Multiplying this factor with the current absolute wind estimate gives the airspeed offset added to the minimum airspeed setpoint limit. This helps to make the system more robust against disturbances (turbulence) in high wind. Only applies to AUTO flight mode. airspeed_min_adjusted = FW_AIRSPD_MIN + FW_WIND_ARSP_SC * wind.length()</p>   </td>
+ <td>Wind-based airspeed scaling factor <p><strong>Comment:</strong> Multiplying this factor with the current absolute wind estimate gives the airspeed offset added to the minimum airspeed setpoint limit. This helps to make the system more robust against disturbances (turbulence) in high wind. Only applies to AUTO flight mode.</p>   </td>
  <td>[0, ?] (0.01)</td>
  <td>0.</td>
  <td></td>
@@ -17303,7 +17307,9 @@ table {
 
 <li><strong>10:</strong> Helicopter (tail ESC)</li>
 
-<li><strong>11:</strong> Helicopter (tail Servo)</li> 
+<li><strong>11:</strong> Helicopter (tail Servo)</li>
+
+<li><strong>12:</strong> Helicopter (Coaxial)</li> 
 </ul>
   </td>
  <td></td>
@@ -18519,6 +18525,8 @@ table {
 <tr>
  <td><strong id="CA_SP0_COUNT">CA_SP0_COUNT</strong> (INT32)</td>
  <td>Number of swash plates servos  <strong>Values:</strong><ul>
+<li><strong>2:</strong> 2</li>
+
 <li><strong>3:</strong> 3</li>
 
 <li><strong>4:</strong> 4</li> 
@@ -33458,7 +33466,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="UXRCE_DDS_AG_IP">UXRCE_DDS_AG_IP</strong> (INT32)</td>
- <td>uXRCE-DDS Agent IP address <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for uXRCE-DDS, selected Agent IP address will be set and used. Decimal dot notation is not supported. IP address must be provided in int32 format. For example, 192.168.1.2 is mapped to -1062731518; 127.0.0.1 is mapped to 2130706433.</p>   <p><b>Reboot required:</b> True</p>
+ <td>uXRCE-DDS Agent IP address <p><strong>Comment:</strong> If ethernet is enabled and is the selected configuration for uXRCE-DDS, the selected Agent IP address will be set and used. Decimal dot notation is not supported. IP address must be provided in int32 format. For example, 192.168.1.2 is mapped to -1062731518; 127.0.0.1 is mapped to 2130706433.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td></td>
  <td>2130706433</td>
@@ -33509,7 +33517,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UXRCE_DDS_KEY">UXRCE_DDS_KEY</strong> (INT32)</td>
- <td>uXRCE-DDS Session key <p><strong>Comment:</strong> uXRCE-DDS key, must be different from zero. In a single agent - multi client configuration, each client must have a unique session key.</p>   <p><b>Reboot required:</b> True</p>
+ <td>uXRCE-DDS session key <p><strong>Comment:</strong> uXRCE-DDS key, must be different from zero. In a single agent - multi client configuration, each client must have a unique session key.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td></td>
  <td>1</td>
@@ -33517,15 +33525,30 @@ table {
 </tr>
 <tr>
  <td><strong id="UXRCE_DDS_PRT">UXRCE_DDS_PRT</strong> (INT32)</td>
- <td>uXRCE-DDS UDP Port <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for uXRCE-DDS, selected udp port will be set and used.</p>   <p><b>Reboot required:</b> True</p>
+ <td>uXRCE-DDS UDP port <p><strong>Comment:</strong> If ethernet is enabled and is the selected configuration for uXRCE-DDS, the selected UDP port will be set and used.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0, 65535] </td>
  <td>8888</td>
  <td></td>
 </tr>
 <tr>
+ <td><strong id="UXRCE_DDS_PTCFG">UXRCE_DDS_PTCFG</strong> (INT32)</td>
+ <td>uXRCE-DDS participant configuration <p><strong>Comment:</strong> Set the participant configuration on the Agent's system. 0: Use the default configuration. 1: Restrict messages to localhost (use in combination with ROS_LOCALHOST_ONLY=1). 2: Use a custom participant with the profile name "px4_participant".</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Default</li>
+
+<li><strong>1:</strong> Localhost-only</li>
+
+<li><strong>2:</strong> Custom participant</li> 
+</ul>
+  <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0, 2] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="UXRCE_DDS_SYNCT">UXRCE_DDS_SYNCT</strong> (INT32)</td>
- <td>uXRCE-DDS timestamp synchronization enable <p><strong>Comment:</strong> When enabled, uxrce_dds_client will synchronize the timestamps of the incoming and outgoing messages measuring the offset between the Agent OS time and the PX4 time.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Enable uXRCE-DDS timestamp synchronization <p><strong>Comment:</strong> When enabled, uxrce_dds_client will synchronize the timestamps of the incoming and outgoing messages measuring the offset between the Agent OS time and the PX4 time.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td></td>
  <td>Enabled (1)</td>
@@ -33709,7 +33732,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_LND_PITCH_MIN">VT_LND_PITCH_MIN</strong> (FLOAT)</td>
- <td>Minimum pitch angle during hover landing <p><strong>Comment:</strong> Overrides VT_PITCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to allow lower minimum pitch angles as it can avoid the wings generating too much lift and preventing the vehicle from sinking at the desired rate.</p>   </td>
+ <td>Minimum pitch angle during hover landing <p><strong>Comment:</strong> Overrides VT_PITCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to reduce the pitch angle to reduce the generated lift in head wind.</p>   </td>
  <td>[-10.0, 45.0] (0.1)</td>
  <td>-5.0</td>
  <td>deg</td>
@@ -33737,7 +33760,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_QC_T_ALT_LOSS">VT_QC_T_ALT_LOSS</strong> (FLOAT)</td>
- <td>Quad-chute transition altitude loss threshold <p><strong>Comment:</strong> Altitude loss threshold for quad-chute triggering during VTOL transition to fixed-wing flight. Active until 5s after completing transition to fixed-wing. Only active if altitude estimate is valid and in altitude-controlled mode. If the current altitude is more than this value below the altitude at the beginning of the transition, it will instantly switch back to MC mode and execute behavior defined in COM_QC_ACT. Set to 0 do disable this threshold.</p>   </td>
+ <td>Quad-chute transition altitude loss threshold <p><strong>Comment:</strong> Altitude loss threshold for quad-chute triggering during VTOL transition to fixed-wing flight in altitude-controlled flight modes. Active until 5s after completing transition to fixed-wing. If the current altitude is more than this value below the altitude at the beginning of the transition, it will instantly switch back to MC mode and execute behavior defined in COM_QC_ACT. Set to 0 do disable this threshold.</p>   </td>
  <td>[0, 50] (1)</td>
  <td>20.0</td>
  <td>m</td>
