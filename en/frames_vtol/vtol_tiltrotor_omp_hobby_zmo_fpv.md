@@ -269,13 +269,10 @@ An inexpensive example would be a [SiK Telemetry Radio](../telemetry/sik_radio.m
 
 ### Select Airframe
 
-1. Open QGC and go under vehicle setup.
-
 1) Open QGC and go under vehicle setup.
-1) Search for [SYS_AUTO](../advanced_config/parameter_reference.md#SYS_AUTOSTART) in the parameters tab.
-1) Set [SYS_AUTOCONFIG](../advanced_config/parameter_reference.md#SYS_AUTOCONFIG) to "Reset parameters to airframe defaults" and [SYS_AUTOSTART](../advanced_config/parameter_reference.md#SYS_AUTOSTART) to `1230113`.
-1) Reboot the vehicle.
-1) Load the [parameter-file]() up to the vehicle. To do so, go into the parameter tab and press on tools in the top-right corner. Select "Load from file.." and select the file.
+1) Select [Generic Quadplane VTOL](https://docs.px4.io/main/en/airframes/airframe_reference.html#vtol_standard_vtol_generic_standard_vtol) under the [Airframe](https://docs.px4.io/main/en/config/airframe.html) tab and click "Apply and Restart"
+1) Select the [Parameters](https://docs.px4.io/main/en/advanced_config/parameters.html#finding-updating-parameters) tab and click on "Tools" in the top right corner. Select "Load from file..". Download the [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/OMP-Hobby-ZMO.params) and upload it to the flight controller.
+1) reboot the vehicle
 
 ### Sensor Calibration
 
