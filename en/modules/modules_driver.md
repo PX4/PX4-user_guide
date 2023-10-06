@@ -943,6 +943,25 @@ pca9685_pwm_out <command> [arguments...]
 
    status        print status info
 ```
+## pm_selector_auterion
+Source: [drivers/power_monitor/pm_selector_auterion](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/pm_selector_auterion)
+
+
+### Description
+Driver for starting and auto-detecting different power monitors.
+
+
+<a id="pm_selector_auterion_usage"></a>
+### Usage
+```
+pm_selector_auterion <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## pmw3901
 Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/pmw3901)
 
