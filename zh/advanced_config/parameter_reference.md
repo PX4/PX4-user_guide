@@ -13734,6 +13734,13 @@ table {
  <td>s</td>
 </tr>
 <tr>
+ <td><strong id="COM_ARM_BAT_MIN">COM_ARM_BAT_MIN</strong> (FLOAT)</td>
+ <td>Minimum battery level for arming <p><strong>Comment:</strong> Additional battery level check that only allows arming if the state of charge of the emptiest connected battery is above this value. A value of 0 disables the check.</p>   </td>
+ <td>[0, 0.9] (0.01)</td>
+ <td>0.</td>
+ <td>norm</td>
+</tr>
+<tr>
  <td><strong id="COM_ARM_CHK_ESCS">COM_ARM_CHK_ESCS</strong> (INT32)</td>
  <td>Enable checks on ESCs that report telemetry <p><strong>Comment:</strong> If this parameter is set, the system will check ESC's online status and failures. This param is specific for ESCs reporting status. It shall be used only if ESCs support telemetry.</p>   </td>
  <td></td>
@@ -13894,7 +13901,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_FAIL_ACT_T">COM_FAIL_ACT_T</strong> (FLOAT)</td>
- <td>Delay between failsafe condition triggered and failsafe reaction <p><strong>Comment:</strong> Before entering failsafe (RTL, Land, Hold), wait COM_FAIL_ACT_T seconds in Hold mode for the user to realize. During that time the user cannot take over control via the stick override feature see COM_RC_OVERRIDE. Afterwards the configured failsafe action is triggered and the user may use stick override. A zero value disables the delay and the user cannot take over via stick movements (switching modes is still allowed).</p>   </td>
+ <td>Delay between failsafe condition triggered and failsafe reaction <p><strong>Comment:</strong> Before entering failsafe (RTL, Land, Hold), wait COM_FAIL_ACT_T seconds in Hold mode for the user to realize. During that time the user cannot take over control via the stick override feature (see COM_RC_OVERRIDE). Afterwards the configured failsafe action is triggered and the user may use stick override. A zero value disables the delay and the user cannot take over via stick movements (switching modes is still allowed).</p>   </td>
  <td>[0.0, 25.0] </td>
  <td>5.</td>
  <td>s</td>
@@ -14392,7 +14399,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_RC_LOSS_T">COM_RC_LOSS_T</strong> (FLOAT)</td>
- <td>RC loss time threshold <p><strong>Comment:</strong> After this amount of seconds without RC connection it's considered lost and not used anymore</p>   </td>
+ <td>Manual control loss timeout <p><strong>Comment:</strong> The time in seconds without a new setpoint from RC or Joystick, after which the connection is considered lost. This must be kept short as the vehicle will use the last supplied setpoint until the timeout triggers.</p>   </td>
  <td>[0, 35] (0.1)</td>
  <td>0.5</td>
  <td>s</td>
