@@ -89,7 +89,7 @@ PX4 개발자는 소스 내에서 적절한 문서를 작성하는 것이 좋습
 현재 두 가지 소스 기반 문서 유형이 있습니다.
 - `PRINT_MODULE_*` 메소드는 두 모듈 런타임과 [모듈 & 이 가이드의 명령 참조](../modules/modules_main.md) 사용 지침에 모두 사용됩니다.
   - API는 [여기 소스 코드](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381)에 문서화되어 있습니다.
-  - 좋은 예제로는 [응용 프로그램/모듈 템플릿](../modules/module_template.md)과 모듈 참조에서 링크된 파일이 있습니다.
+  - 좋은 예제로는 [응용 프로그램/모듈 템플릿](../modules/modules_template.md)과 모듈 참조에서 링크된 파일이 있습니다.
 - *가치가 추가되거나 중복되지 않는* 다른 소스 문서를 권장합니다.
 
   :::tip

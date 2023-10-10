@@ -551,7 +551,7 @@ icm42670p <command> [arguments...]
    status        print status info
 ```
 ## icm42688p
-Source: [drivers/imu/invensense/icm45686](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/icm45686)
+Source: [drivers/imu/invensense/icm42688p](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/icm42688p)
 
 <a id="icm42688p_usage"></a>
 ### Usage
@@ -571,6 +571,7 @@ icm42688p <command> [arguments...]
                  default: 0
      [-C <val>]  Input clock frequency (Hz)
                  default: 0
+     [-6]        Drive ICM-42686
 
    stop
 

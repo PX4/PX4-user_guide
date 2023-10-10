@@ -6,4 +6,4 @@
 * [工具链安装](../dev_setup/dev_env.md)
 * [构建代码](../dev_setup/building_px4.md)
 * [编写应用程序](../modules/hello_sky.md)
-* [应用/模块模板](../modules/module_template.md)
+* [应用/模块模板](../modules/modules_template.md)

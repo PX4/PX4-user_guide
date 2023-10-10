@@ -3,7 +3,7 @@
 This topic explains how to create and run your first onboard application. It covers all the basic concepts and APIs required for app development on PX4.
 
 :::note
-For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. These are covered in [Application/Module Template](../modules/module_template.md).
+For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. These are covered in [Application/Module Template](../modules/modules_template.md).
 :::
 
 ## Prerequisites
@@ -339,7 +339,7 @@ Your app will display 5 sensor values in the console and then exit:
 ```
 
 :::tip
-The [Module Template for Full Applications](../modules/module_template.md) can be used to write background process that can be controlled from the command line.
+The [Module Template for Full Applications](../modules/modules_template.md) can be used to write background process that can be controlled from the command line.
 :::
 
 ## Publishing Data

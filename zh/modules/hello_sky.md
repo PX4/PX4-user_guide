@@ -3,7 +3,7 @@
 本文主要说明如何创建并运行你的第一个板载应用程序。 它涵盖了 PX4 应用程序开发所需的所有基本概念和 API。
 
 :::note
-为简单起见，省略了更高级的功能，如启动/停止功能和命令行参数。 这些在[Application/Module Template](../modules/module_template.md) 中有介绍。
+为简单起见，省略了更高级的功能，如启动/停止功能和命令行参数。 这些在[Application/Module Template](../modules/modules_template.md) 中有介绍。
 :::
 
 ## 系统必备组件
@@ -335,7 +335,7 @@ px4_simple_app &
 ```
 
 :::tip
-[完整应用程序的模块模板](../modules/module_template.md)可用于编写可从命令行控制的后台进程。
+[完整应用程序的模块模板](../modules/modules_template.md)可用于编写可从命令行控制的后台进程。
 :::
 
 ## 发布数据

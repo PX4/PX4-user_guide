@@ -12735,21 +12735,21 @@ table {
 <tbody>
 <tr>
  <td><strong id="ASPD_BETA_GATE">ASPD_BETA_GATE</strong> (INT32)</td>
- <td>Gate size for sideslip angle fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
+ <td>Airspeed Selector: Gate size for sideslip angle fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
  <td>[1, 5] </td>
  <td>1</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="ASPD_BETA_NOISE">ASPD_BETA_NOISE</strong> (FLOAT)</td>
- <td>Wind estimator sideslip measurement noise <p><strong>Comment:</strong> Sideslip measurement noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
+ <td>Airspeed Selector: Wind estimator sideslip measurement noise <p><strong>Comment:</strong> Sideslip measurement noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
  <td>[0, 1] </td>
  <td>0.3</td>
  <td>rad</td>
 </tr>
 <tr>
  <td><strong id="ASPD_DO_CHECKS">ASPD_DO_CHECKS</strong> (INT32)</td>
- <td>Enable checks on airspeed sensors <p><strong>Comment:</strong> Controls which checks are run to check airspeed data for validity. Only applied if ASPD_PRIMARY > 0.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Only data missing check (triggers if more than 1s no data)</li> 
+ <td>Enable checks on airspeed sensors <p><strong>Comment:</strong> Controls which checks are run to check airspeed data for validity. Only applied if ASPD_PRIMARY > 0. Note that the data missing check is enabled if any of the options is set.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Only data missing check (triggers if more than 1s no data)</li> 
   <li><strong>1:</strong> Data stuck (triggers if data is exactly constant for 2s in FW mode)</li> 
   <li><strong>2:</strong> Innovation check (see ASPD_FS_INNOV)</li> 
   <li><strong>3:</strong> Load factor check (triggers if measurement is below stall speed)</li> 
@@ -12858,35 +12858,35 @@ table {
 </tr>
 <tr>
  <td><strong id="ASPD_SCALE_NSD">ASPD_SCALE_NSD</strong> (FLOAT)</td>
- <td>Wind estimator true airspeed scale process noise spectral density <p><strong>Comment:</strong> Airspeed scale process noise of the internal wind estimator(s) of the airspeed selector. When unaided, the scale uncertainty (1-sigma, unitless) increases by this amount every second.</p>   </td>
+ <td>Airspeed Selector: Wind estimator true airspeed scale process noise spectral density <p><strong>Comment:</strong> Airspeed scale process noise of the internal wind estimator(s) of the airspeed selector. When unaided, the scale uncertainty (1-sigma, unitless) increases by this amount every second.</p>   </td>
  <td>[0, 0.1] </td>
  <td>1.e-4</td>
  <td>1/s/sqrt(Hz)</td>
 </tr>
 <tr>
  <td><strong id="ASPD_TAS_GATE">ASPD_TAS_GATE</strong> (INT32)</td>
- <td>Gate size for true airspeed fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
+ <td>Airspeed Selector: Gate size for true airspeed fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
  <td>[1, 5] </td>
  <td>3</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="ASPD_TAS_NOISE">ASPD_TAS_NOISE</strong> (FLOAT)</td>
- <td>Wind estimator true airspeed measurement noise <p><strong>Comment:</strong> True airspeed measurement noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
+ <td>Airspeed Selector: Wind estimator true airspeed measurement noise <p><strong>Comment:</strong> True airspeed measurement noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
  <td>[0, 4] </td>
  <td>1.4</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="ASPD_WERR_THR">ASPD_WERR_THR</strong> (FLOAT)</td>
- <td>Horizontal wind uncertainty threshold for synthetic airspeed <p><strong>Comment:</strong> The synthetic airspeed estimate (from groundspeed and heading) will be declared valid as soon and as long the horizontal wind uncertainty is below this value.</p>   </td>
+ <td>Horizontal wind uncertainty threshold for synthetic airspeed <p><strong>Comment:</strong> The synthetic airspeed estimate (from groundspeed and heading) will be declared valid as soon and as long the horizontal wind uncertainty drops below this value.</p>   </td>
  <td>[0.001, 5] </td>
  <td>0.55</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="ASPD_WIND_NSD">ASPD_WIND_NSD</strong> (FLOAT)</td>
- <td>Wind estimator wind process noise spectral density <p><strong>Comment:</strong> Wind process noise of the internal wind estimator(s) of the airspeed selector. When unaided, the wind estimate uncertainty (1-sigma, in m/s) increases by this amount every second.</p>   </td>
+ <td>Airspeed Selector: Wind estimator wind process noise noise spectral density <p><strong>Comment:</strong> Wind process noise of the internal wind estimator(s) of the airspeed selector. When unaided, the wind estimate uncertainty (1-sigma, in m/s) increases by this amount every second.</p>   </td>
  <td>[0, 1] </td>
  <td>1.e-2</td>
  <td>m/s^2/sqrt(Hz)</td>
@@ -12905,7 +12905,7 @@ table {
  <td><strong id="ATT_ACC_COMP">ATT_ACC_COMP</strong> (INT32)</td>
  <td>Acceleration compensation based on GPS velocity    </td>
  <td></td>
- <td>Disabled (0)</td>
+ <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
@@ -13121,8 +13121,6 @@ table {
 <tr>
  <td><strong id="BAT1_N_CELLS">BAT1_N_CELLS</strong> (INT32)</td>
  <td>Number of cells for battery 1 <p><strong>Comment:</strong> Defines the number of cells the attached battery consists of.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Unknown</li> 
-
 <li><strong>1:</strong> 1S Battery</li> 
 
 <li><strong>2:</strong> 2S Battery</li> 
@@ -13253,8 +13251,6 @@ table {
 <tr>
  <td><strong id="BAT2_N_CELLS">BAT2_N_CELLS</strong> (INT32)</td>
  <td>Number of cells for battery 2 <p><strong>Comment:</strong> Defines the number of cells the attached battery consists of.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Unknown</li> 
-
 <li><strong>1:</strong> 1S Battery</li> 
 
 <li><strong>2:</strong> 2S Battery</li> 
@@ -13689,15 +13685,15 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="COM_ARMABLE">COM_ARMABLE</strong> (INT32)</td>
- <td>Flag to allow arming <p><strong>Comment:</strong> Set 0 to prevent accidental use of the vehicle e.g. for safety or maintenance reasons.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disallow arming</li> 
+ <td><strong id="COM_ARM_ARSP_EN">COM_ARM_ARSP_EN</strong> (INT32)</td>
+ <td>Enable preflight check for maximal allowed airspeed when arming <p><strong>Comment:</strong> Deny arming if the current airspeed measurement is greater than half the cruise airspeed (FW_AIRSPD_TRIM). Excessive airspeed measurements on ground are either caused by wind or bad airspeed calibration.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
 
-<li><strong>1:</strong> Allow arming</li> 
+<li><strong>1:</strong> Enabled</li> 
 </ul>
   </td>
  <td></td>
- <td>Enabled (1)</td>
+ <td>1</td>
  <td></td>
 </tr>
 <tr>
@@ -13732,13 +13728,6 @@ table {
  <td>(0.1)</td>
  <td>1</td>
  <td>s</td>
-</tr>
-<tr>
- <td><strong id="COM_ARM_BAT_MIN">COM_ARM_BAT_MIN</strong> (FLOAT)</td>
- <td>Minimum battery level for arming <p><strong>Comment:</strong> Additional battery level check that only allows arming if the state of charge of the emptiest connected battery is above this value. A value of 0 disables the check.</p>   </td>
- <td>[0, 0.9] (0.01)</td>
- <td>0.</td>
- <td>norm</td>
 </tr>
 <tr>
  <td><strong id="COM_ARM_CHK_ESCS">COM_ARM_CHK_ESCS</strong> (INT32)</td>
@@ -13825,20 +13814,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="COM_ARM_ODID">COM_ARM_ODID</strong> (INT32)</td>
- <td>Enable Drone ID system detection and health check <p><strong>Comment:</strong> This check detects if the Open Drone ID system is missing. Depending on the value of the parameter, the check can be disabled, warn only or deny arming.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
-
-<li><strong>1:</strong> Warning only</li> 
-
-<li><strong>2:</strong> Enforce Open Drone ID system presence</li> 
-</ul>
-  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="COM_ARM_SDCARD">COM_ARM_SDCARD</strong> (INT32)</td>
  <td>Enable FMU SD card detection check <p><strong>Comment:</strong> This check detects if the FMU SD card is missing. Depending on the value of the parameter, the check can be disabled, warn only or deny arming.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
@@ -13861,7 +13836,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_ARM_WO_GPS">COM_ARM_WO_GPS</strong> (INT32)</td>
- <td>Allow arming without GPS  <strong>Values:</strong><ul>
+ <td>Allow arming without GPS <p><strong>Comment:</strong> The default allows the vehicle to arm without GPS signal.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Require GPS lock to arm</li> 
 
 <li><strong>1:</strong> Allow arming without GPS</li> 
@@ -13901,7 +13876,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_FAIL_ACT_T">COM_FAIL_ACT_T</strong> (FLOAT)</td>
- <td>Delay between failsafe condition triggered and failsafe reaction <p><strong>Comment:</strong> Before entering failsafe (RTL, Land, Hold), wait COM_FAIL_ACT_T seconds in Hold mode for the user to realize. During that time the user cannot take over control via the stick override feature (see COM_RC_OVERRIDE). Afterwards the configured failsafe action is triggered and the user may use stick override. A zero value disables the delay and the user cannot take over via stick movements (switching modes is still allowed).</p>   </td>
+ <td>Delay between failsafe condition triggered and failsafe reaction <p><strong>Comment:</strong> Before entering failsafe (RTL, Land, Hold), wait COM_FAIL_ACT_T seconds in Hold mode for the user to realize. During that time the user cannot take over control. Afterwards the configured failsafe action is triggered and the user may take over. A zero value disables the delay and the user cannot take over via stick movements (switching modes is still allowed).</p>   </td>
  <td>[0.0, 25.0] </td>
  <td>5.</td>
  <td>s</td>
@@ -14234,7 +14209,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_MOT_TEST_EN">COM_MOT_TEST_EN</strong> (INT32)</td>
- <td>Enable Actuator Testing <p><strong>Comment:</strong> If set, enables the actuator test interface via MAVLink (ACTUATOR_TEST), that allows spinning the motors and moving the servos for testing purposes.</p>   </td>
+ <td>Enable Motor Testing <p><strong>Comment:</strong> If set, enables the motor test interface via MAVLink (DO_MOTOR_TEST), that allows spinning the motors for testing purposes.</p>   </td>
  <td></td>
  <td>Enabled (1)</td>
  <td></td>
@@ -14312,15 +14287,15 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_POS_FS_EPH">COM_POS_FS_EPH</strong> (FLOAT)</td>
- <td>Horizontal position error threshold <p><strong>Comment:</strong> This is the horizontal position error (EPH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing. If the previous position error was below this threshold, there is an additional factor of 2.5 applied (threshold for invalidation 2.5 times the one for validation). Set to -1 to disable.</p>   </td>
- <td>[-1, 400] </td>
+ <td>Horizontal position error threshold <p><strong>Comment:</strong> This is the horizontal position error (EPH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing. If the previous position error was below this threshold, there is an additional factor of 2.5 applied (threshold for invalidation 2.5 times the one for validation).</p>   </td>
+ <td>[0, ?] </td>
  <td>5.</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="COM_POS_LOW_EPH">COM_POS_LOW_EPH</strong> (FLOAT)</td>
  <td>EPH threshold for RTL <p><strong>Comment:</strong> Specify the threshold for triggering a warning for low local position accuracy. Additionally triggers a RTL if currently in Mission or Loiter mode. Local position has to be still declared valid, which is most of all depending on COM_POS_FS_EPH. Use this feature on systems with dead-reckoning capabilites (e.g. fixed-wing vehicles with airspeed sensor) to improve the user notification and failure mitigation when flying in GNSS-denied areas. Set to -1 to disable.</p>   </td>
- <td>[-1, 1000] </td>
+ <td>[-1, ?] </td>
  <td>-1.0</td>
  <td>m</td>
 </tr>
@@ -14399,14 +14374,14 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_RC_LOSS_T">COM_RC_LOSS_T</strong> (FLOAT)</td>
- <td>Manual control loss timeout <p><strong>Comment:</strong> The time in seconds without a new setpoint from RC or Joystick, after which the connection is considered lost. This must be kept short as the vehicle will use the last supplied setpoint until the timeout triggers.</p>   </td>
+ <td>RC loss time threshold <p><strong>Comment:</strong> After this amount of seconds without RC connection it's considered lost and not used anymore</p>   </td>
  <td>[0, 35] (0.1)</td>
  <td>0.5</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="COM_RC_OVERRIDE">COM_RC_OVERRIDE</strong> (INT32)</td>
- <td>Enable RC stick override of auto and/or offboard modes <p><strong>Comment:</strong> When RC stick override is enabled, moving the RC sticks more than COM_RC_STICK_OV immediately gives control back to the pilot by switching to Position mode and if position is unavailable Altitude mode. Note: Only has an effect on multicopters, and VTOLs in multicopter mode.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Enable override during auto modes (except for in critical battery reaction)</li> 
+ <td>Enable RC stick override of auto and/or offboard modes <p><strong>Comment:</strong> When RC stick override is enabled, moving the RC sticks more than COM_RC_STICK_OV immediately gives control back to the pilot by switching to Position mode and if position is unavailable Altitude mode. Note: Only has an effect on multicopters, and VTOLs in multicopter mode. This parameter is not considered in case of a GPS failure (Descend flight mode), where stick override is always enabled.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Enable override during auto modes (except for in critical battery reaction)</li> 
   <li><strong>1:</strong> Enable override during offboard mode</li> 
 </ul>
  </td>
@@ -14790,7 +14765,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_ARSP_THR">EKF2_ARSP_THR</strong> (FLOAT)</td>
- <td>Airspeed fusion threshold <p><strong>Comment:</strong> Airspeed data is fused for wind estimation if above this threshold. Set to 0 to disable airspeed fusion. For reliable wind estimation both sideslip (see EKF2_FUSE_BETA) and airspeed fusion should be enabled. Only applies to fixed-wing vehicles (or VTOLs in fixed-wing mode).</p>   </td>
+ <td>Airspeed fusion threshold <p><strong>Comment:</strong> A value of zero will deactivate airspeed fusion. Any other positive value will determine the minimum airspeed which will still be fused. Set to about 90% of the vehicles stall speed. Both airspeed fusion and sideslip fusion must be active for the EKF to continue navigating after loss of GPS. Use EKF2_FUSE_BETA to activate sideslip fusion. Note: side slip fusion is currently not supported for tailsitters.</p>   </td>
  <td>[0.0, ?] </td>
  <td>0.0</td>
  <td>m/s</td>
@@ -15005,7 +14980,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_FUSE_BETA">EKF2_FUSE_BETA</strong> (INT32)</td>
- <td>Enable synthetic sideslip fusion <p><strong>Comment:</strong> For reliable wind estimation both sideslip and airspeed fusion (see EKF2_ARSP_THR) should be enabled. Only applies to fixed-wing vehicles (or VTOLs in fixed-wing mode). Note: side slip fusion is currently not supported for tailsitters.</p>   </td>
+ <td>Boolean determining if synthetic sideslip measurements should fused <p><strong>Comment:</strong> A value of 1 indicates that fusion is active Both  sideslip fusion and airspeed fusion must be active for the EKF to continue navigating after loss of GPS. Use EKF2_ARSP_THR to activate airspeed fusion.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
@@ -15155,7 +15130,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_HDG_GATE">EKF2_HDG_GATE</strong> (FLOAT)</td>
- <td>Gate size for heading fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
+ <td>Gate size for magnetic heading fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
  <td>[1.0, ?] </td>
  <td>2.6</td>
  <td>SD</td>
@@ -15232,28 +15207,10 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_CHECK">EKF2_MAG_CHECK</strong> (INT32)</td>
- <td>Magnetic field strength test selection <p><strong>Comment:</strong> Bitmask to set which check is used to decide whether the magnetometer data is valid. If GNSS data is received, the magnetic field is compared to a World Magnetic Model (WMM), otherwise an average value is used. This check is useful to reject occasional hard iron disturbance. Set bits to 1 to enable checks. Checks enabled by the following bit positions 0 : Magnetic field strength. Set tolerance using EKF2_MAG_CHK_STR 1 : Magnetic field inclination. Set tolerance using EKF2_MAG_CHK_INC 2 : Wait for GNSS to find the theoretical strength and inclination using the WMM</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Strength (EKF2_MAG_CHK_STR)</li> 
-  <li><strong>1:</strong> Inclination (EKF2_MAG_CHK_INC)</li> 
-  <li><strong>2:</strong> Wait for WMM</li> 
-</ul>
- </td>
- <td>[0, 7] </td>
- <td>1</td>
+ <td>Magnetic field strength test selection <p><strong>Comment:</strong> When set, the EKF checks the strength of the magnetic field to decide whether the magnetometer data is valid. If GPS data is received, the magnetic field is compared to a World Magnetic Model (WMM), otherwise an average value is used. This check is useful to reject occasional hard iron disturbance.</p>   </td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="EKF2_MAG_CHK_INC">EKF2_MAG_CHK_INC</strong> (FLOAT)</td>
- <td>Magnetic field inclination check tolerance <p><strong>Comment:</strong> Maximum allowed deviation from the expected magnetic field inclination to pass the check.</p>   </td>
- <td>[0.0, 90.0] </td>
- <td>20.</td>
- <td>deg</td>
-</tr>
-<tr>
- <td><strong id="EKF2_MAG_CHK_STR">EKF2_MAG_CHK_STR</strong> (FLOAT)</td>
- <td>Magnetic field strength check tolerance <p><strong>Comment:</strong> Maximum allowed deviation from the expected magnetic field strength to pass the check.</p>   </td>
- <td>[0.0, 1.0] </td>
- <td>0.2</td>
- <td>gauss</td>
+ <td>Enabled (1)</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_DECL">EKF2_MAG_DECL</strong> (FLOAT)</td>
@@ -15293,10 +15250,16 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_TYPE">EKF2_MAG_TYPE</strong> (INT32)</td>
- <td>Type of magnetometer fusion <p><strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fusion of magnetometer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to 'Automatic' magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to 'Magnetic heading' magnetic heading fusion is used at all times. If set to 'None' the magnetometer will not be used under any circumstance. If no external source of yaw is available, it is possible to use post-takeoff horizontal movement combined with GPS velocity measurements to align the yaw angle with the timer required (depending on the amount of movement and GPS data quality).</p> <strong>Values:</strong><ul>
+ <td>Type of magnetometer fusion <p><strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fusion of magnetometer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to 'Automatic' magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to 'Magnetic heading' magnetic heading fusion is used at all times. If set to '3-axis' 3-axis field fusion is used at all times. If set to 'VTOL custom' the behaviour is the same as 'Automatic', but if fusing airspeed, magnetometer fusion is only allowed to modify the magnetic field states. This can be used by VTOL platforms with large magnetic field disturbances to prevent incorrect bias states being learned during forward flight operation which can adversely affect estimation accuracy after transition to hovering flight. If set to 'MC custom' the behaviour is the same as 'Automatic, but if there are no earth frame position or velocity observations being used, the magnetometer will not be used. This enables vehicles to operate with no GPS in environments where the magnetic field cannot be used to provide a heading reference. Prior to flight, the yaw angle is assumed to be constant if movement tests indicate that the vehicle is static. This allows the vehicle to be placed on the ground to learn the yaw gyro bias prior to flight. If set to 'None' the magnetometer will not be used under any circumstance. If no external source of yaw is available, it is possible to use post-takeoff horizontal movement combined with GPS velocity measurements to align the yaw angle with the timer required (depending on the amount of movement and GPS data quality).</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Automatic</li> 
 
 <li><strong>1:</strong> Magnetic heading</li> 
+
+<li><strong>2:</strong> 3-axis</li> 
+
+<li><strong>3:</strong> VTOL custom</li> 
+
+<li><strong>4:</strong> MC custom</li> 
 
 <li><strong>5:</strong> None</li> 
 </ul>
@@ -15796,21 +15759,21 @@ table {
 <tbody>
 <tr>
  <td><strong id="FW_MAN_P_MAX">FW_MAN_P_MAX</strong> (FLOAT)</td>
- <td>Maximum manual pitch angle <p><strong>Comment:</strong> Applies to both directions in all manual modes with attitude stabilization but without altitude control</p>   </td>
+ <td>Maximum manual pitch angle <p><strong>Comment:</strong> Maximum manual pitch angle setpoint (positive & negative) in manual attitude-only stabilized mode</p>   </td>
  <td>[0.0, 90.0] (0.5)</td>
  <td>30.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_MAN_R_MAX">FW_MAN_R_MAX</strong> (FLOAT)</td>
- <td>Maximum manual roll angle <p><strong>Comment:</strong> Applies to both directions in all manual modes with attitude stabilization</p>   </td>
+ <td>Maximum manual roll angle <p><strong>Comment:</strong> Maximum manual roll angle setpoint (positive & negative) in manual attitude-only stabilized mode</p>   </td>
  <td>[0.0, 90.0] (0.5)</td>
  <td>45.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_MAN_YR_MAX">FW_MAN_YR_MAX</strong> (FLOAT)</td>
- <td>Maximum manually added yaw rate <p><strong>Comment:</strong> This is the maximally added yaw rate setpoint from the yaw stick in any attitude controlled flight mode. It is added to the yaw rate setpoint generated by the controller for turn coordination.</p>   </td>
+ <td>Maximum manually added yaw rate <p><strong>Comment:</strong> This is the maximally added yaw rate setpoint from the yaw stick in any attitude controlled flight mode. The controller already generates a yaw rate setpoint to coordinate a turn, and this value is added to it. This is an absolute value, which is applied symmetrically to the negative and positive side.</p>   </td>
  <td>[0, ?] (0.5)</td>
  <td>30.</td>
  <td>deg/s</td>
@@ -15838,7 +15801,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_P_TC">FW_P_TC</strong> (FLOAT)</td>
- <td>Attitude pitch time constant <p><strong>Comment:</strong> This defines the latency between a pitch step input and the achieved setpoint (inverse to a P gain). Smaller systems may require smaller values.</p>   </td>
+ <td>Attitude pitch time constant <p><strong>Comment:</strong> This defines the latency between a pitch step input and the achieved setpoint (inverse to a P gain). Half a second is a good start value and fits for most average systems. Smaller systems may require smaller values, but as this will wear out servos faster, the value should only be decreased as needed.</p>   </td>
  <td>[0.2, 1.0] (0.05)</td>
  <td>0.4</td>
  <td>s</td>
@@ -15852,7 +15815,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_R_TC">FW_R_TC</strong> (FLOAT)</td>
- <td>Attitude Roll Time Constant <p><strong>Comment:</strong> This defines the latency between a roll step input and the achieved setpoint (inverse to a P gain). Smaller systems may require smaller values.</p>   </td>
+ <td>Attitude Roll Time Constant <p><strong>Comment:</strong> This defines the latency between a roll step input and the achieved setpoint (inverse to a P gain). Half a second is a good start value and fits for most average systems. Smaller systems may require smaller values, but as this will wear out servos faster, the value should only be decreased as needed.</p>   </td>
  <td>[0.2, 1.0] (0.05)</td>
  <td>0.4</td>
  <td>s</td>
@@ -15873,7 +15836,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_WR_FF">FW_WR_FF</strong> (FLOAT)</td>
- <td>Wheel steering rate feed forward    </td>
+ <td>Wheel steering rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
  <td>[0.0, 10] (0.05)</td>
  <td>0.2</td>
  <td>%/rad/s</td>
@@ -15887,7 +15850,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_WR_IMAX">FW_WR_IMAX</strong> (FLOAT)</td>
- <td>Wheel steering rate integrator limit    </td>
+ <td>Wheel steering rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
  <td>[0.0, 1.0] (0.05)</td>
  <td>0.4</td>
  <td></td>
@@ -15956,7 +15919,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_LND_EARLYCFG">FW_LND_EARLYCFG</strong> (INT32)</td>
- <td>Early landing configuration deployment <p><strong>Comment:</strong> When disabled, the landing configuration (flaps, landing airspeed, etc.) is only activated on the final approach to landing. When enabled, it is already activated when entering the final loiter-down (loiter-to-alt) waypoint before the landing approach.</p>   </td>
+ <td>Early landing configuration deployment <p><strong>Comment:</strong> When disabled, the landing configuration (flaps, landing airspeed, etc.) is only activated on the final approach to landing. When enabled, it is already activated when entering the final loiter-down (loiter-to-alt) waypoint before the landing approach. This shifts the (often large) altitude and airspeed errors caused by the configuration change away from the ground such that these are not so critical. It also gives the controller enough time to adapt to the new configuration such that the landing approach starts with a cleaner initial state.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
@@ -16095,7 +16058,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_LAUN_DETCN_ON">FW_LAUN_DETCN_ON</strong> (INT32)</td>
- <td>Fixed-wing launch detection <p><strong>Comment:</strong> Enables automatic launch detection based on measured acceleration. Use for hand- or catapult-launched vehicles. Not compatible with runway takeoff.</p>   </td>
+ <td>FW Launch detection <p><strong>Comment:</strong> Enables automatic launch detection based on measured acceleration. Use for hand- or catapult-launched vehicles. Only available for fixed-wing vehicles. Not compatible with runway takeoff.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
@@ -16247,17 +16210,10 @@ table {
 <tbody>
 <tr>
  <td><strong id="FW_ACRO_X_MAX">FW_ACRO_X_MAX</strong> (FLOAT)</td>
- <td>Acro body roll max rate setpoint    </td>
+ <td>Acro body x max rate <p><strong>Comment:</strong> This is the rate the controller is trying to achieve if the user applies full roll stick input in acro mode.</p>   </td>
  <td>[10, 720] </td>
  <td>90</td>
  <td>deg</td>
-</tr>
-<tr>
- <td><strong id="FW_ACRO_YAW_EN">FW_ACRO_YAW_EN</strong> (INT32)</td>
- <td>Enable yaw rate controller in Acro <p><strong>Comment:</strong> If this parameter is set to 1, the yaw rate controller is enabled in Fixed-wing Acro mode. Otherwise the pilot commands directly the yaw actuator. It is disabled by default because an active yaw rate controller will fight against the natural turn coordination of the plane.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
 </tr>
 <tr>
  <td><strong id="FW_ACRO_Y_MAX">FW_ACRO_Y_MAX</strong> (FLOAT)</td>
@@ -16392,14 +16348,14 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_PR_I">FW_PR_I</strong> (FLOAT)</td>
- <td>Pitch rate integrator gain    </td>
+ <td>Pitch rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
  <td>[0.0, 10] (0.005)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
 <tr>
  <td><strong id="FW_PR_IMAX">FW_PR_IMAX</strong> (FLOAT)</td>
- <td>Pitch rate integrator limit    </td>
+ <td>Pitch rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
  <td>[0.0, 1.0] (0.05)</td>
  <td>0.4</td>
  <td></td>
@@ -16420,35 +16376,35 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_RR_D">FW_RR_D</strong> (FLOAT)</td>
- <td>Roll rate derivative gain    </td>
+ <td>Roll rate derivative Gain <p><strong>Comment:</strong> Roll rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
  <td>[0.0, 10] (0.005)</td>
- <td>0.0</td>
+ <td>0.00</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_RR_FF">FW_RR_FF</strong> (FLOAT)</td>
- <td>Roll rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output.</p>   </td>
+ <td>Roll rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output. Use this to obtain a tigher response of the controller without introducing noise amplification.</p>   </td>
  <td>[0.0, 10.0] (0.05)</td>
  <td>0.5</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_RR_I">FW_RR_I</strong> (FLOAT)</td>
- <td>Roll rate integrator gain    </td>
+ <td>Roll rate integrator Gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
  <td>[0.0, 10] (0.01)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
 <tr>
  <td><strong id="FW_RR_IMAX">FW_RR_IMAX</strong> (FLOAT)</td>
- <td>Roll integrator limit    </td>
+ <td>Roll integrator anti-windup <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value.</p>   </td>
  <td>[0.0, 1.0] (0.05)</td>
  <td>0.2</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_RR_P">FW_RR_P</strong> (FLOAT)</td>
- <td>Roll rate proportional gain    </td>
+ <td>Roll rate proportional Gain    </td>
  <td>[0.0, 10] (0.005)</td>
  <td>0.05</td>
  <td>%/rad/s</td>
@@ -16469,7 +16425,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_YR_D">FW_YR_D</strong> (FLOAT)</td>
- <td>Yaw rate derivative gain    </td>
+ <td>Yaw rate derivative gain <p><strong>Comment:</strong> Yaw rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
  <td>[0.0, 10] (0.005)</td>
  <td>0.0</td>
  <td>%/rad/s</td>
@@ -16483,14 +16439,14 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_YR_I">FW_YR_I</strong> (FLOAT)</td>
- <td>Yaw rate integrator gain    </td>
+ <td>Yaw rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
  <td>[0.0, 10] (0.5)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
 <tr>
  <td><strong id="FW_YR_IMAX">FW_YR_IMAX</strong> (FLOAT)</td>
- <td>Yaw rate integrator limit    </td>
+ <td>Yaw rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
  <td>[0.0, 1.0] (0.05)</td>
  <td>0.2</td>
  <td></td>
@@ -16521,7 +16477,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_MIN">FW_AIRSPD_MIN</strong> (FLOAT)</td>
- <td>Minimum Airspeed (CAS) <p><strong>Comment:</strong> The minimal airspeed (calibrated airspeed) the user is able to command. Further, if the airspeed falls below this value, the TECS controller will try to increase airspeed more aggressively. Should be set (with some margin) above the vehicle stall speed. This value corresponds to the desired minimum speed with the default load factor (level flight, default weight), and is automatically adapated to the current load factor (calculated from roll setpoint and WEIGHT_GROSS/WEIGHT_BASE).</p>   </td>
+ <td>Minimum Airspeed (CAS) <p><strong>Comment:</strong> The minimal airspeed (calibrated airspeed) the user is able to command. Further, if the airspeed falls below this value, the TECS controller will try to increase airspeed more aggressively. Has to be set according to the vehicle's stall speed (which should be set in FW_AIRSPD_STALL), with some margin between the stall speed and minimum airspeed. This value corresponds to the desired minimum speed with the default load factor (level flight, default weight), and is automatically adpated to the current load factor (calculated from roll setpoint and WEIGHT_GROSS/WEIGHT_BASE).</p>   </td>
  <td>[0.5, ?] (0.5)</td>
  <td>10.0</td>
  <td>m/s</td>
@@ -16584,14 +16540,14 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_THR_MAX">FW_THR_MAX</strong> (FLOAT)</td>
- <td>Throttle limit max <p><strong>Comment:</strong> Maximum throttle limit in altitude controlled modes. Should be set accordingly to achieve FW_T_CLMB_MAX.</p>   </td>
+ <td>Throttle limit max <p><strong>Comment:</strong> This is the maximum throttle % that can be used by the controller. For overpowered aircraft, this should be reduced to a value that provides sufficient thrust to climb at the maximum pitch angle PTCH_MAX.</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_THR_MIN">FW_THR_MIN</strong> (FLOAT)</td>
- <td>Throttle limit min <p><strong>Comment:</strong> Minimum throttle limit in altitude controlled modes. Usually set to 0 but can be increased to prevent the motor from stopping when descending, which can increase achievable descent rates. For aircraft with internal combustion engine this parameter should be set for desired idle rpm.</p>   </td>
+ <td>Throttle limit min <p><strong>Comment:</strong> This is the minimum throttle % that can be used by the controller. For electric aircraft this will normally be set to zero, but can be set to a small non-zero value if a folding prop is fitted to prevent the prop from folding and unfolding repeatedly in-flight or to provide some aerodynamic drag from a turning prop to improve the descent rate. For aircraft with internal combustion engine this parameter should be set for desired idle rpm.</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>0.0</td>
  <td>norm</td>
@@ -16759,7 +16715,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_WIND_ARSP_SC">FW_WIND_ARSP_SC</strong> (FLOAT)</td>
- <td>Wind-based airspeed scaling factor <p><strong>Comment:</strong> Multiplying this factor with the current absolute wind estimate gives the airspeed offset added to the minimum airspeed setpoint limit. This helps to make the system more robust against disturbances (turbulence) in high wind. Only applies to AUTO flight mode.</p>   </td>
+ <td>Wind-based airspeed scaling factor <p><strong>Comment:</strong> Multiplying this factor with the current absolute wind estimate gives the airspeed offset added to the minimum airspeed setpoint limit. This helps to make the system more robust against disturbances (turbulence) in high wind. Only applies to AUTO flight mode. airspeed_min_adjusted = FW_AIRSPD_MIN + FW_WIND_ARSP_SC * wind.length()</p>   </td>
  <td>[0, ?] (0.01)</td>
  <td>0.</td>
  <td></td>
@@ -17312,11 +17268,7 @@ table {
 
 <li><strong>9:</strong> Custom</li> 
 
-<li><strong>10:</strong> Helicopter (tail ESC)</li> 
-
-<li><strong>11:</strong> Helicopter (tail Servo)</li> 
-
-<li><strong>12:</strong> Helicopter (Coaxial)</li> 
+<li><strong>10:</strong> Helicopter</li> 
 </ul>
   </td>
  <td></td>
@@ -17568,21 +17520,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR0_PX">CA_ROTOR0_PX</strong> (FLOAT)</td>
- <td>Position of rotor 0 along X body axis relative to center of gravity    </td>
+ <td>Position of rotor 0 along X body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR0_PY">CA_ROTOR0_PY</strong> (FLOAT)</td>
- <td>Position of rotor 0 along Y body axis relative to center of gravity    </td>
+ <td>Position of rotor 0 along Y body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR0_PZ">CA_ROTOR0_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 0 along Z body axis relative to center of gravity    </td>
+ <td>Position of rotor 0 along Z body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -17642,21 +17594,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR10_PX">CA_ROTOR10_PX</strong> (FLOAT)</td>
- <td>Position of rotor 10 along X body axis relative to center of gravity    </td>
+ <td>Position of rotor 10 along X body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR10_PY">CA_ROTOR10_PY</strong> (FLOAT)</td>
- <td>Position of rotor 10 along Y body axis relative to center of gravity    </td>
+ <td>Position of rotor 10 along Y body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR10_PZ">CA_ROTOR10_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 10 along Z body axis relative to center of gravity    </td>
+ <td>Position of rotor 10 along Z body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -17716,21 +17668,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR11_PX">CA_ROTOR11_PX</strong> (FLOAT)</td>
- <td>Position of rotor 11 along X body axis relative to center of gravity    </td>
+ <td>Position of rotor 11 along X body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR11_PY">CA_ROTOR11_PY</strong> (FLOAT)</td>
- <td>Position of rotor 11 along Y body axis relative to center of gravity    </td>
+ <td>Position of rotor 11 along Y body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR11_PZ">CA_ROTOR11_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 11 along Z body axis relative to center of gravity    </td>
+ <td>Position of rotor 11 along Z body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -17790,21 +17742,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR1_PX">CA_ROTOR1_PX</strong> (FLOAT)</td>
- <td>Position of rotor 1 along X body axis relative to center of gravity    </td>
+ <td>Position of rotor 1 along X body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR1_PY">CA_ROTOR1_PY</strong> (FLOAT)</td>
- <td>Position of rotor 1 along Y body axis relative to center of gravity    </td>
+ <td>Position of rotor 1 along Y body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR1_PZ">CA_ROTOR1_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 1 along Z body axis relative to center of gravity    </td>
+ <td>Position of rotor 1 along Z body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -17864,21 +17816,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR2_PX">CA_ROTOR2_PX</strong> (FLOAT)</td>
- <td>Position of rotor 2 along X body axis relative to center of gravity    </td>
+ <td>Position of rotor 2 along X body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR2_PY">CA_ROTOR2_PY</strong> (FLOAT)</td>
- <td>Position of rotor 2 along Y body axis relative to center of gravity    </td>
+ <td>Position of rotor 2 along Y body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR2_PZ">CA_ROTOR2_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 2 along Z body axis relative to center of gravity    </td>
+ <td>Position of rotor 2 along Z body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -17938,21 +17890,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR3_PX">CA_ROTOR3_PX</strong> (FLOAT)</td>
- <td>Position of rotor 3 along X body axis relative to center of gravity    </td>
+ <td>Position of rotor 3 along X body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR3_PY">CA_ROTOR3_PY</strong> (FLOAT)</td>
- <td>Position of rotor 3 along Y body axis relative to center of gravity    </td>
+ <td>Position of rotor 3 along Y body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR3_PZ">CA_ROTOR3_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 3 along Z body axis relative to center of gravity    </td>
+ <td>Position of rotor 3 along Z body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -18012,21 +17964,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR4_PX">CA_ROTOR4_PX</strong> (FLOAT)</td>
- <td>Position of rotor 4 along X body axis relative to center of gravity    </td>
+ <td>Position of rotor 4 along X body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR4_PY">CA_ROTOR4_PY</strong> (FLOAT)</td>
- <td>Position of rotor 4 along Y body axis relative to center of gravity    </td>
+ <td>Position of rotor 4 along Y body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR4_PZ">CA_ROTOR4_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 4 along Z body axis relative to center of gravity    </td>
+ <td>Position of rotor 4 along Z body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -18086,21 +18038,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR5_PX">CA_ROTOR5_PX</strong> (FLOAT)</td>
- <td>Position of rotor 5 along X body axis relative to center of gravity    </td>
+ <td>Position of rotor 5 along X body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR5_PY">CA_ROTOR5_PY</strong> (FLOAT)</td>
- <td>Position of rotor 5 along Y body axis relative to center of gravity    </td>
+ <td>Position of rotor 5 along Y body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR5_PZ">CA_ROTOR5_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 5 along Z body axis relative to center of gravity    </td>
+ <td>Position of rotor 5 along Z body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -18160,21 +18112,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR6_PX">CA_ROTOR6_PX</strong> (FLOAT)</td>
- <td>Position of rotor 6 along X body axis relative to center of gravity    </td>
+ <td>Position of rotor 6 along X body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR6_PY">CA_ROTOR6_PY</strong> (FLOAT)</td>
- <td>Position of rotor 6 along Y body axis relative to center of gravity    </td>
+ <td>Position of rotor 6 along Y body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR6_PZ">CA_ROTOR6_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 6 along Z body axis relative to center of gravity    </td>
+ <td>Position of rotor 6 along Z body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -18234,21 +18186,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR7_PX">CA_ROTOR7_PX</strong> (FLOAT)</td>
- <td>Position of rotor 7 along X body axis relative to center of gravity    </td>
+ <td>Position of rotor 7 along X body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR7_PY">CA_ROTOR7_PY</strong> (FLOAT)</td>
- <td>Position of rotor 7 along Y body axis relative to center of gravity    </td>
+ <td>Position of rotor 7 along Y body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR7_PZ">CA_ROTOR7_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 7 along Z body axis relative to center of gravity    </td>
+ <td>Position of rotor 7 along Z body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -18308,21 +18260,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR8_PX">CA_ROTOR8_PX</strong> (FLOAT)</td>
- <td>Position of rotor 8 along X body axis relative to center of gravity    </td>
+ <td>Position of rotor 8 along X body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR8_PY">CA_ROTOR8_PY</strong> (FLOAT)</td>
- <td>Position of rotor 8 along Y body axis relative to center of gravity    </td>
+ <td>Position of rotor 8 along Y body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR8_PZ">CA_ROTOR8_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 8 along Z body axis relative to center of gravity    </td>
+ <td>Position of rotor 8 along Z body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -18382,21 +18334,21 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR9_PX">CA_ROTOR9_PX</strong> (FLOAT)</td>
- <td>Position of rotor 9 along X body axis relative to center of gravity    </td>
+ <td>Position of rotor 9 along X body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR9_PY">CA_ROTOR9_PY</strong> (FLOAT)</td>
- <td>Position of rotor 9 along Y body axis relative to center of gravity    </td>
+ <td>Position of rotor 9 along Y body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR9_PZ">CA_ROTOR9_PZ</strong> (FLOAT)</td>
- <td>Position of rotor 9 along Z body axis relative to center of gravity    </td>
+ <td>Position of rotor 9 along Z body axis    </td>
  <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
@@ -18532,8 +18484,6 @@ table {
 <tr>
  <td><strong id="CA_SP0_COUNT">CA_SP0_COUNT</strong> (INT32)</td>
  <td>Number of swash plates servos  <strong>Values:</strong><ul>
-<li><strong>2:</strong> 2</li> 
-
 <li><strong>3:</strong> 3</li> 
 
 <li><strong>4:</strong> 4</li> 
@@ -19744,53 +19694,6 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="LTEST_ACC_UNC">LTEST_ACC_UNC</strong> (FLOAT)</td>
- <td>Acceleration uncertainty <p><strong>Comment:</strong> Variance of acceleration measurement used for landing target position prediction. Higher values results in tighter following of the measurements and more lenient outlier rejection</p>   </td>
- <td>[0.01, ?] </td>
- <td>10.0</td>
- <td>(m/s^2)^2</td>
-</tr>
-<tr>
- <td><strong id="LTEST_MEAS_UNC">LTEST_MEAS_UNC</strong> (FLOAT)</td>
- <td>Landing target measurement uncertainty <p><strong>Comment:</strong> Variance of the landing target measurement from the driver. Higher values result in less aggressive following of the measurement and a smoother output as well as fewer rejected measurements.</p>   </td>
- <td></td>
- <td>0.005</td>
- <td>tan(rad)^2</td>
-</tr>
-<tr>
- <td><strong id="LTEST_MODE">LTEST_MODE</strong> (INT32)</td>
- <td>Landing target mode <p><strong>Comment:</strong> Configure the mode of the landing target. Depending on the mode, the landing target observations are used differently to aid position estimation. Mode Moving:     The landing target may be moving around while in the field of view of the vehicle. Landing target measurements are not used to aid positioning. Mode Stationary: The landing target is stationary. Measured velocity w.r.t. the landing target is used to aid velocity estimation.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Moving</li> 
-
-<li><strong>1:</strong> Stationary</li> 
-</ul>
-  </td>
- <td>[0, 1] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="LTEST_POS_UNC_IN">LTEST_POS_UNC_IN</strong> (FLOAT)</td>
- <td>Initial landing target position uncertainty <p><strong>Comment:</strong> Initial variance of the relative landing target position in x and y direction</p>   </td>
- <td>[0.001, ?] </td>
- <td>0.1</td>
- <td>m^2</td>
-</tr>
-<tr>
- <td><strong id="LTEST_SCALE_X">LTEST_SCALE_X</strong> (FLOAT)</td>
- <td>Scale factor for sensor measurements in sensor x axis <p><strong>Comment:</strong> Landing target x measurements are scaled by this factor before being used</p>   </td>
- <td>[0.01, ?] </td>
- <td>1.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="LTEST_SCALE_Y">LTEST_SCALE_Y</strong> (FLOAT)</td>
- <td>Scale factor for sensor measurements in sensor y axis <p><strong>Comment:</strong> Landing target y measurements are scaled by this factor before being used</p>   </td>
- <td>[0.01, ?] </td>
- <td>1.0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="LTEST_SENS_POS_X">LTEST_SENS_POS_X</strong> (FLOAT)</td>
  <td>X Position of IRLOCK in body frame (forward)    <p><b>Reboot required:</b> true</p>
 </td>
@@ -19837,6 +19740,63 @@ table {
 </td>
  <td>[-1, 40] </td>
  <td>2</td>
+ <td></td>
+</tr>
+</tbody></table>
+
+## Landing target Estimator
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="LTEST_ACC_UNC">LTEST_ACC_UNC</strong> (FLOAT)</td>
+ <td>Acceleration uncertainty <p><strong>Comment:</strong> Variance of acceleration measurement used for landing target position prediction. Higher values results in tighter following of the measurements and more lenient outlier rejection</p>   </td>
+ <td>[0.01, ?] </td>
+ <td>10.0</td>
+ <td>(m/s^2)^2</td>
+</tr>
+<tr>
+ <td><strong id="LTEST_MEAS_UNC">LTEST_MEAS_UNC</strong> (FLOAT)</td>
+ <td>Landing target measurement uncertainty <p><strong>Comment:</strong> Variance of the landing target measurement from the driver. Higher values result in less aggressive following of the measurement and a smoother output as well as fewer rejected measurements.</p>   </td>
+ <td></td>
+ <td>0.005</td>
+ <td>tan(rad)^2</td>
+</tr>
+<tr>
+ <td><strong id="LTEST_MODE">LTEST_MODE</strong> (INT32)</td>
+ <td>Landing target mode <p><strong>Comment:</strong> Configure the mode of the landing target. Depending on the mode, the landing target observations are used differently to aid position estimation. Mode Moving:     The landing target may be moving around while in the field of view of the vehicle. Landing target measurements are not used to aid positioning. Mode Stationary: The landing target is stationary. Measured velocity w.r.t. the landing target is used to aid velocity estimation.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Moving</li> 
+
+<li><strong>1:</strong> Stationary</li> 
+</ul>
+  </td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="LTEST_POS_UNC_IN">LTEST_POS_UNC_IN</strong> (FLOAT)</td>
+ <td>Initial landing target position uncertainty <p><strong>Comment:</strong> Initial variance of the relative landing target position in x and y direction</p>   </td>
+ <td>[0.001, ?] </td>
+ <td>0.1</td>
+ <td>m^2</td>
+</tr>
+<tr>
+ <td><strong id="LTEST_SCALE_X">LTEST_SCALE_X</strong> (FLOAT)</td>
+ <td>Scale factor for sensor measurements in sensor x axis <p><strong>Comment:</strong> Landing target x measurements are scaled by this factor before being used</p>   </td>
+ <td>[0.01, ?] </td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="LTEST_SCALE_Y">LTEST_SCALE_Y</strong> (FLOAT)</td>
+ <td>Scale factor for sensor measurements in sensor y axis <p><strong>Comment:</strong> Landing target y measurements are scaled by this factor before being used</p>   </td>
+ <td>[0.01, ?] </td>
+ <td>1.0</td>
  <td></td>
 </tr>
 <tr>
@@ -20927,8 +20887,8 @@ table {
 </tr>
 <tr>
  <td><strong id="MIS_TAKEOFF_ALT">MIS_TAKEOFF_ALT</strong> (FLOAT)</td>
- <td>Default take-off altitude <p><strong>Comment:</strong> This is the relative altitude the system will take off to if not otherwise specified.</p>   </td>
- <td>[0, ?] (0.5)</td>
+ <td>Take-off altitude <p><strong>Comment:</strong> This is the minimum altitude the system will take off to.</p>   </td>
+ <td>[0, 80] (0.5)</td>
  <td>2.5</td>
  <td>m</td>
 </tr>
@@ -20966,7 +20926,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_YAW_MODE">MPC_YAW_MODE</strong> (INT32)</td>
- <td>Heading behavior in autonomous modes  <strong>Values:</strong><ul>
+ <td>Yaw mode <p><strong>Comment:</strong> Specifies the heading in Auto.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> towards waypoint</li> 
 
 <li><strong>1:</strong> towards home</li> 
@@ -21012,7 +20972,7 @@ table {
 </tr>
 <tr>
  <td><strong id="NAV_LOITER_RAD">NAV_LOITER_RAD</strong> (FLOAT)</td>
- <td>Loiter radius (FW only) <p><strong>Comment:</strong> Default value of loiter radius in FW mode (e.g. for Loiter mode).</p>   </td>
+ <td>Loiter radius (FW only) <p><strong>Comment:</strong> Default value of loiter radius for missions, Hold mode, Return mode, etc. (fixedwing only).</p>   </td>
  <td>[25, 1000] (0.5)</td>
  <td>80.0</td>
  <td>m</td>
@@ -21332,65 +21292,6 @@ table {
 </tr>
 </tbody></table>
 
-## Multicopter Acro Mode
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="MC_ACRO_EXPO">MC_ACRO_EXPO</strong> (FLOAT)</td>
- <td>Acro mode roll, pitch expo factor <p><strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve</p>   </td>
- <td>[0, 1] </td>
- <td>0.</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MC_ACRO_EXPO_Y">MC_ACRO_EXPO_Y</strong> (FLOAT)</td>
- <td>Acro mode yaw expo factor <p><strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve</p>   </td>
- <td>[0, 1] </td>
- <td>0.</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MC_ACRO_P_MAX">MC_ACRO_P_MAX</strong> (FLOAT)</td>
- <td>Acro mode maximum pitch rate <p><strong>Comment:</strong> Full stick deflection leads to this rate.</p>   </td>
- <td>[0.0, 1800.0] (5)</td>
- <td>100.</td>
- <td>deg/s</td>
-</tr>
-<tr>
- <td><strong id="MC_ACRO_R_MAX">MC_ACRO_R_MAX</strong> (FLOAT)</td>
- <td>Acro mode maximum roll rate <p><strong>Comment:</strong> Full stick deflection leads to this rate.</p>   </td>
- <td>[0.0, 1800.0] (5)</td>
- <td>100.</td>
- <td>deg/s</td>
-</tr>
-<tr>
- <td><strong id="MC_ACRO_SUPEXPO">MC_ACRO_SUPEXPO</strong> (FLOAT)</td>
- <td>Acro mode roll, pitch super expo factor <p><strong>Comment:</strong> "Superexponential" factor for refining the input curve shape tuned using MC_ACRO_EXPO. 0 Pure Expo function 0.7 reasonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>   </td>
- <td>[0, 0.95] </td>
- <td>0.</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MC_ACRO_SUPEXPOY">MC_ACRO_SUPEXPOY</strong> (FLOAT)</td>
- <td>Acro mode yaw super expo factor <p><strong>Comment:</strong> "Superexponential" factor for refining the input curve shape tuned using MC_ACRO_EXPO_Y. 0 Pure Expo function 0.7 reasonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>   </td>
- <td>[0, 0.95] </td>
- <td>0.</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MC_ACRO_Y_MAX">MC_ACRO_Y_MAX</strong> (FLOAT)</td>
- <td>Acro mode maximum yaw rate <p><strong>Comment:</strong> Full stick deflection leads to this rate.</p>   </td>
- <td>[0.0, 1800.0] (5)</td>
- <td>100.</td>
- <td>deg/s</td>
-</tr>
-</tbody></table>
-
 ## Multicopter Attitude Control
 
 <table>
@@ -21450,9 +21351,9 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_YAWRAUTO_MAX">MPC_YAWRAUTO_MAX</strong> (FLOAT)</td>
- <td>Max yaw rate in autonomous modes <p><strong>Comment:</strong> Limits the rate of change of the yaw setpoint to avoid large control output and mixer saturation.</p>   </td>
- <td>[0, 360] (5)</td>
- <td>45.</td>
+ <td>Max yaw rate in auto mode <p><strong>Comment:</strong> Limit the rate of change of the yaw setpoint in autonomous mode to avoid large control output and mixer saturation.</p>   </td>
+ <td>[0.0, 360.0] (5)</td>
+ <td>45.0</td>
  <td>deg/s</td>
 </tr>
 </tbody></table>
@@ -21502,35 +21403,35 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_ACC_DOWN_MAX">MPC_ACC_DOWN_MAX</strong> (FLOAT)</td>
- <td>Maximum downwards acceleration in climb rate controlled modes    </td>
- <td>[2, 15] (1)</td>
- <td>3.</td>
+ <td>Maximum vertical acceleration in velocity controlled modes down    </td>
+ <td>[2.0, 15.0] (1)</td>
+ <td>3.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="MPC_ACC_HOR">MPC_ACC_HOR</strong> (FLOAT)</td>
- <td>Acceleration for autonomous and for manual modes <p><strong>Comment:</strong> When piloting manually, this parameter is only used in MPC_POS_MODE 4.</p>   </td>
- <td>[2, 15] (1)</td>
- <td>3.</td>
+ <td>Acceleration for auto and for manual <p><strong>Comment:</strong> Note: In manual, this parameter is only used in MPC_POS_MODE 4.</p>   </td>
+ <td>[2.0, 15.0] (1)</td>
+ <td>3.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="MPC_ACC_HOR_MAX">MPC_ACC_HOR_MAX</strong> (FLOAT)</td>
- <td>Maximum horizontal acceleration <p><strong>Comment:</strong> MPC_POS_MODE 1 just deceleration 3 acceleration and deceleration 4 not used, use MPC_ACC_HOR instead</p>   </td>
- <td>[2, 15] (1)</td>
- <td>5.</td>
+ <td>Maximum horizontal acceleration for auto mode and for manual mode <p><strong>Comment:</strong> MPC_POS_MODE 1 just deceleration 3 acceleration and deceleration 4 just acceleration</p>   </td>
+ <td>[2.0, 15.0] (1)</td>
+ <td>5.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="MPC_ACC_UP_MAX">MPC_ACC_UP_MAX</strong> (FLOAT)</td>
- <td>Maximum upwards acceleration in climb rate controlled modes    </td>
- <td>[2, 15] (1)</td>
- <td>4.</td>
+ <td>Maximum vertical acceleration in velocity controlled modes upward    </td>
+ <td>[2.0, 15.0] (1)</td>
+ <td>4.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="MPC_ALT_MODE">MPC_ALT_MODE</strong> (INT32)</td>
- <td>Altitude reference mode <p><strong>Comment:</strong> Set to 0 to control height relative to the earth frame origin. This origin may move up and down in flight due to sensor drift. Set to 1 to control height relative to estimated distance to ground. The vehicle will move up and down with terrain height variation. Requires a distance to ground sensor. The height controller will revert to using height above origin if the distance to ground estimate becomes invalid as indicated by the local_position.distance_bottom_valid message being false. Set to 2 to control height relative to ground (requires a distance sensor) when stationary and relative to earth frame origin when moving horizontally. The speed threshold is controlled by the MPC_HOLD_MAX_XY parameter.</p> <strong>Values:</strong><ul>
+ <td>Altitude control mode <p><strong>Comment:</strong> Set to 0 to control height relative to the earth frame origin. This origin may move up and down in flight due to sensor drift. Set to 1 to control height relative to estimated distance to ground. The vehicle will move up and down with terrain height variation. Requires a distance to ground sensor. The height controller will revert to using height above origin if the distance to ground estimate becomes invalid as indicated by the local_position.distance_bottom_valid message being false. Set to 2 to control height relative to ground (requires a distance sensor) when stationary and relative to earth frame origin when moving horizontally. The speed threshold is controlled by the MPC_HOLD_MAX_XY parameter.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Altitude following</li> 
 
 <li><strong>1:</strong> Terrain following</li> 
@@ -21544,58 +21445,58 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_HOLD_DZ">MPC_HOLD_DZ</strong> (FLOAT)</td>
- <td>Deadzone for sticks in manual piloted modes <p><strong>Comment:</strong> Does not apply to manual throttle and direct attitude piloting by stick.</p>   </td>
- <td>[0, 1] (0.01)</td>
+ <td>Deadzone of sticks where position hold is enabled    </td>
+ <td>[0.0, 1.0] </td>
  <td>0.1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_HOLD_MAX_XY">MPC_HOLD_MAX_XY</strong> (FLOAT)</td>
- <td>Maximum horizontal velocity for which position hold is enabled (use 0 to disable check) <p><strong>Comment:</strong> Only used with MPC_POS_MODE 0 or MPC_ALT_MODE 2</p>   </td>
- <td>[0, 3] </td>
+ <td>Maximum horizontal velocity for which position hold is enabled (use 0 to disable check)    </td>
+ <td>[0.0, 3.0] </td>
  <td>0.8</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_HOLD_MAX_Z">MPC_HOLD_MAX_Z</strong> (FLOAT)</td>
- <td>Maximum vertical velocity for which position hold is enabled (use 0 to disable check) <p><strong>Comment:</strong> Only used with MPC_ALT_MODE 1</p>   </td>
- <td>[0, 3] </td>
+ <td>Maximum vertical velocity for which position hold is enabled (use 0 to disable check)    </td>
+ <td>[0.0, 3.0] </td>
  <td>0.6</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_JERK_AUTO">MPC_JERK_AUTO</strong> (FLOAT)</td>
- <td>Jerk limit in autonomous modes <p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions but also limited agility.</p>   </td>
- <td>[1, 80] (1)</td>
- <td>4.</td>
+ <td>Jerk limit in auto mode <p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility.</p>   </td>
+ <td>[1.0, 80.0] (1)</td>
+ <td>4.0</td>
  <td>m/s^3</td>
 </tr>
 <tr>
  <td><strong id="MPC_JERK_MAX">MPC_JERK_MAX</strong> (FLOAT)</td>
- <td>Maximum horizontal and vertical jerk in Position/Altitude mode <p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother motions but limits agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Only used with smooth MPC_POS_MODE 3 and 4.</p>   </td>
- <td>[0.5, 500] (1)</td>
- <td>8.</td>
+ <td>Maximum jerk limit <p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Note: This is only used when MPC_POS_MODE is set to a smoothing mode 3 or 4.</p>   </td>
+ <td>[0.5, 500.0] (1)</td>
+ <td>8.0</td>
  <td>m/s^3</td>
 </tr>
 <tr>
  <td><strong id="MPC_LAND_ALT1">MPC_LAND_ALT1</strong> (FLOAT)</td>
  <td>Altitude for 1. step of slow landing (descend) <p><strong>Comment:</strong> Below this altitude descending velocity gets limited to a value between "MPC_Z_VEL_MAX_DN" (or "MPC_Z_V_AUTO_DN") and "MPC_LAND_SPEED" Value needs to be higher than "MPC_LAND_ALT2"</p>   </td>
  <td>[0, 122] </td>
- <td>10.</td>
+ <td>10.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="MPC_LAND_ALT2">MPC_LAND_ALT2</strong> (FLOAT)</td>
  <td>Altitude for 2. step of slow landing (landing) <p><strong>Comment:</strong> Below this altitude descending velocity gets limited to "MPC_LAND_SPEED" Value needs to be lower than "MPC_LAND_ALT1"</p>   </td>
  <td>[0, 122] </td>
- <td>5.</td>
+ <td>5.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="MPC_LAND_ALT3">MPC_LAND_ALT3</strong> (FLOAT)</td>
  <td>Altitude for 3. step of slow landing <p><strong>Comment:</strong> Below this altitude descending velocity gets limited to "MPC_LAND_CRWL", if LIDAR available. No effect if LIDAR not available</p>   </td>
  <td>[0, 122] </td>
- <td>1.</td>
+ <td>1.0</td>
  <td>m</td>
 </tr>
 <tr>
@@ -21607,17 +21508,17 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_LAND_RADIUS">MPC_LAND_RADIUS</strong> (FLOAT)</td>
- <td>User assisted landing radius <p><strong>Comment:</strong> When nudging is enabled (see MPC_LAND_RC_HELP), this controls the maximum allowed horizontal displacement from the original landing point.</p>   </td>
- <td>[0, ?] (1)</td>
+ <td>User assisted landing radius <p><strong>Comment:</strong> When user assisted descent is enabled (see MPC_LAND_RC_HELP), this parameter controls the maximum position adjustment allowed from the original landing point.</p>   </td>
+ <td>[0, ?] </td>
  <td>1000.</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="MPC_LAND_RC_HELP">MPC_LAND_RC_HELP</strong> (INT32)</td>
- <td>Enable nudging based on user input during autonomous land routine <p><strong>Comment:</strong> Using stick input the vehicle can be moved horizontally and yawed. The descend speed is amended: stick full up - 0 stick centered - MPC_LAND_SPEED stick full down - 2 * MPC_LAND_SPEED Manual override during auto modes has to be disabled to use this feature (see COM_RC_OVERRIDE).</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Nudging disabled</li> 
+ <td>Enable user assisted descent for autonomous land routine <p><strong>Comment:</strong> When enabled, descent speed will be: stick full up - 0 stick centered - MPC_LAND_SPEED stick full down - 2 * MPC_LAND_SPEED Additionally, the vehicle can be yawed and moved laterally using the other sticks. Manual override during auto modes has to be disabled to use this feature (see COM_RC_OVERRIDE).</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Fixed descent speed of MPC_LAND_SPEED</li> 
 
-<li><strong>1:</strong> Nudging enabled</li> 
+<li><strong>1:</strong> User assisted descent speed</li> 
 </ul>
   </td>
  <td>[0, 1] </td>
@@ -21633,40 +21534,40 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_MANTHR_MIN">MPC_MANTHR_MIN</strong> (FLOAT)</td>
- <td>Minimum collective thrust in Stabilized mode <p><strong>Comment:</strong> The value is mapped to the lowest throttle stick position in Stabilized mode. Too low collective thrust leads to loss of roll/pitch/yaw torque control authority. Airmode is used to keep torque authority with zero thrust (see MC_AIRMODE).</p>   </td>
- <td>[0, 1] (0.01)</td>
+ <td>Minimum manual thrust <p><strong>Comment:</strong> Minimum vertical thrust. It's recommended to set it > 0 to avoid free fall with zero thrust. With MC_AIRMODE set to 1, this can safely be set to 0.</p>   </td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>0.08</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="MPC_MAN_TILT_MAX">MPC_MAN_TILT_MAX</strong> (FLOAT)</td>
- <td>Maximal tilt angle in Stabilized or Altitude mode    </td>
- <td>[0, 90] (1)</td>
- <td>35.</td>
+ <td>Maximal tilt angle in manual or altitude mode    </td>
+ <td>[0.0, 90.0] </td>
+ <td>35.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MPC_MAN_Y_MAX">MPC_MAN_Y_MAX</strong> (FLOAT)</td>
- <td>Max manual yaw rate for Stabilized, Altitude, Position mode    </td>
- <td>[0, 400] (10)</td>
- <td>150.</td>
+ <td>Max manual yaw rate    </td>
+ <td>[0.0, 400] </td>
+ <td>150.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_MAN_Y_TAU">MPC_MAN_Y_TAU</strong> (FLOAT)</td>
- <td>Manual yaw rate input filter time constant <p><strong>Comment:</strong> Not used in Stabilized mode Setting this parameter to 0 disables the filter</p>   </td>
- <td>[0, 5] (0.01)</td>
+ <td>Manual yaw rate input filter time constant <p><strong>Comment:</strong> Setting this parameter to 0 disables the filter</p>   </td>
+ <td>[0.0, 5.0] </td>
  <td>0.08</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="MPC_POS_MODE">MPC_POS_MODE</strong> (INT32)</td>
- <td>Position/Altitude mode variant <p><strong>Comment:</strong> The supported sub-modes are: 0 Sticks directly map to velocity setpoints without smoothing. Also applies to vertical direction and Altitude mode. Useful for velocity control tuning. 3 Sticks map to velocity but with maximum acceleration and jerk limits based on jerk optimized trajectory generator (different algorithm than 1). 4 Sticks map to acceleration and there's a virtual brake drag</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Direct velocity</li> 
+ <td>Manual-Position control sub-mode <p><strong>Comment:</strong> The supported sub-modes are: 0 Simple position control where sticks map directly to velocity setpoints without smoothing. Useful for velocity control tuning. 3 Smooth position control with maximum acceleration and jerk limits based on jerk optimized trajectory generator (different algorithm than 1). 4 Smooth position control where sticks map to acceleration and there's a virtual brake drag</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Simple position control</li> 
 
-<li><strong>3:</strong> Smoothed velocity</li> 
+<li><strong>3:</strong> Smooth position control (Jerk optimized)</li> 
 
-<li><strong>4:</strong> Acceleration based</li> 
+<li><strong>4:</strong> Acceleration based input</li> 
 </ul>
   </td>
  <td></td>
@@ -21675,7 +21576,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_THR_CURVE">MPC_THR_CURVE</strong> (INT32)</td>
- <td>Thrust curve mapping in Stabilized Mode <p><strong>Comment:</strong> This parameter defines how the throttle stick input is mapped to collective thrust in Stabilized mode. In case the default is used ('Rescale to hover thrust'), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select 'No Rescale' to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, then 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: In case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.</p> <strong>Values:</strong><ul>
+ <td>Thrust curve in Manual Mode <p><strong>Comment:</strong> This parameter defines how the throttle stick input is mapped to commanded thrust in Manual/Stabilized flight mode. In case the default is used ('Rescale to hover thrust'), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select 'No Rescale' to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: In case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Rescale to hover thrust</li> 
 
 <li><strong>1:</strong> No Rescale</li> 
@@ -21687,52 +21588,52 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_THR_HOVER">MPC_THR_HOVER</strong> (FLOAT)</td>
- <td>Vertical thrust required to hover <p><strong>Comment:</strong> Mapped to center throttle stick in Stabilized mode (see MPC_THR_CURVE). Used for initialization of the hover thrust estimator (see MPC_USE_HTE). The estimated hover thrust is used as base for zero vertical acceleration in altitude control. The hover thrust is important for land detection to work correctly.</p>   </td>
+ <td>Hover thrust <p><strong>Comment:</strong> Vertical thrust required to hover. This value is mapped to center stick for manual throttle control. With this value set to the thrust required to hover, transition from manual to Altitude or Position mode while hovering will occur with the throttle stick near center, which is then interpreted as (near) zero demand for vertical speed. This parameter is also important for the landing detection to work correctly.</p>   </td>
  <td>[0.1, 0.8] (0.01)</td>
  <td>0.5</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="MPC_THR_MAX">MPC_THR_MAX</strong> (FLOAT)</td>
- <td>Maximum collective thrust in climb rate controlled modes <p><strong>Comment:</strong> Limit allowed thrust e.g. for indoor test of overpowered vehicle.</p>   </td>
- <td>[0, 1] (0.05)</td>
- <td>1.</td>
+ <td>Maximum thrust in auto thrust control <p><strong>Comment:</strong> Limit max allowed thrust</p>   </td>
+ <td>[0.0, 1.0] (0.01)</td>
+ <td>1.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="MPC_THR_MIN">MPC_THR_MIN</strong> (FLOAT)</td>
- <td>Minimum collective thrust in climb rate controlled modes <p><strong>Comment:</strong> Too low thrust leads to loss of roll/pitch/yaw torque control authority. With airmode enabled this parameters can be set to 0 while still keeping torque authority (see MC_AIRMODE).</p>   </td>
- <td>[0.05, 0.5] (0.01)</td>
+ <td>Minimum collective thrust in auto thrust control <p><strong>Comment:</strong> It's recommended to set it > 0 to avoid free fall with zero thrust. Note: Without airmode zero thrust leads to zero roll/pitch control authority. (see MC_AIRMODE)</p>   </td>
+ <td>[0.05, 1.0] (0.01)</td>
  <td>0.12</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="MPC_THR_XY_MARG">MPC_THR_XY_MARG</strong> (FLOAT)</td>
- <td>Horizontal thrust margin <p><strong>Comment:</strong> Margin that is kept for horizontal control when higher priority vertical thrust is saturated. To avoid completely starving horizontal control with high vertical error.</p>   </td>
- <td>[0, 0.5] (0.01)</td>
+ <td>Horizontal thrust margin <p><strong>Comment:</strong> Margin that is kept for horizontal control when prioritizing vertical thrust. To avoid completely starving horizontal control with high vertical error.</p>   </td>
+ <td>[0.0, 0.5] (0.01)</td>
  <td>0.3</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="MPC_TILTMAX_AIR">MPC_TILTMAX_AIR</strong> (FLOAT)</td>
- <td>Maximum tilt angle in air <p><strong>Comment:</strong> Absolute maximum for all velocity or acceleration controlled modes. Any higher value is truncated.</p>   </td>
- <td>[20, 89] (1)</td>
- <td>45.</td>
+ <td>Maximum tilt angle in air <p><strong>Comment:</strong> Limits maximum tilt in AUTO and POSCTRL modes during flight.</p>   </td>
+ <td>[20.0, 89.0] </td>
+ <td>45.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MPC_TILTMAX_LND">MPC_TILTMAX_LND</strong> (FLOAT)</td>
- <td>Maximum tilt during inital takeoff ramp <p><strong>Comment:</strong> Tighter tilt limit during takeoff to avoid tip over.</p>   </td>
- <td>[5, 89] (1)</td>
- <td>12.</td>
+ <td>Maximum tilt during landing <p><strong>Comment:</strong> Limits maximum tilt angle on landing.</p>   </td>
+ <td>[10.0, 89.0] </td>
+ <td>12.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MPC_TKO_RAMP_T">MPC_TKO_RAMP_T</strong> (FLOAT)</td>
- <td>Smooth takeoff ramp time constant <p><strong>Comment:</strong> Increasing this value will make climb rate controlled takeoff slower. If it's too slow the drone might scratch the ground and tip over. A time constant of 0 disables the ramp</p>   </td>
+ <td>Position control smooth takeoff ramp time constant <p><strong>Comment:</strong> Increasing this value will make automatic and manual takeoff slower. If it's too slow the drone might scratch the ground and tip over. A time constant of 0 disables the ramp</p>   </td>
  <td>[0, 5] </td>
- <td>3.</td>
- <td>s</td>
+ <td>3.0</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_TKO_SPEED">MPC_TKO_SPEED</strong> (FLOAT)</td>
@@ -21743,71 +21644,71 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_USE_HTE">MPC_USE_HTE</strong> (INT32)</td>
- <td>Hover thrust estimator <p><strong>Comment:</strong> Disable to use the fixed parameter MPC_THR_HOVER Enable to use the hover thrust estimator</p>   </td>
+ <td>Hover thrust source selector <p><strong>Comment:</strong> Set false to use the fixed parameter MPC_THR_HOVER Set true to use the value computed by the hover thrust estimator</p>   </td>
  <td></td>
  <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_VELD_LP">MPC_VELD_LP</strong> (FLOAT)</td>
- <td>Numerical velocity derivative low pass cutoff frequency    </td>
- <td>[0, 10] (0.5)</td>
+ <td>Low pass filter cut freq. for numerical velocity derivative    </td>
+ <td>[0.0, 10] </td>
  <td>5.0</td>
  <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="MPC_VEL_MANUAL">MPC_VEL_MANUAL</strong> (FLOAT)</td>
- <td>Maximum horizontal velocity setpoint in Position mode <p><strong>Comment:</strong> Must be smaller than MPC_XY_VEL_MAX. The maximum sideways and backward speed can be set differently using MPC_VEL_MAN_SIDE and MPC_VEL_MAN_BACK, respectively.</p>   </td>
- <td>[3, 20] (1)</td>
- <td>10.</td>
+ <td>Maximum horizontal velocity setpoint in Position mode <p><strong>Comment:</strong> If velocity setpoint larger than MPC_XY_VEL_MAX is set, then the setpoint will be capped to MPC_XY_VEL_MAX The maximum sideways and backward speed can be set differently using MPC_VEL_MAN_SIDE and MPC_VEL_MAN_BACK, respectively.</p>   </td>
+ <td>[3.0, 20.0] (1)</td>
+ <td>10.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_VEL_MAN_BACK">MPC_VEL_MAN_BACK</strong> (FLOAT)</td>
  <td>Maximum backward velocity in Position mode <p><strong>Comment:</strong> If set to a negative value or larger than MPC_VEL_MANUAL then MPC_VEL_MANUAL is used.</p>   </td>
- <td>[-1, 20] (1)</td>
- <td>-1.</td>
+ <td>[-1.0, 20.0] (0.1)</td>
+ <td>-1.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_VEL_MAN_SIDE">MPC_VEL_MAN_SIDE</strong> (FLOAT)</td>
  <td>Maximum sideways velocity in Position mode <p><strong>Comment:</strong> If set to a negative value or larger than MPC_VEL_MANUAL then MPC_VEL_MANUAL is used.</p>   </td>
- <td>[-1, 20] (1)</td>
- <td>-1.</td>
+ <td>[-1.0, 20.0] (0.1)</td>
+ <td>-1.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_CRUISE">MPC_XY_CRUISE</strong> (FLOAT)</td>
- <td>Default horizontal velocity in autonomous modes <p><strong>Comment:</strong> e.g. in Missions, RTL, Goto if the waypoint does not specify differently</p>   </td>
- <td>[3, 20] (1)</td>
- <td>5.</td>
+ <td>Default horizontal velocity in mission <p><strong>Comment:</strong> Horizontal velocity used when flying autonomously in e.g. Missions, RTL, Goto.</p>   </td>
+ <td>[3.0, 20.0] (1)</td>
+ <td>5.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_ERR_MAX">MPC_XY_ERR_MAX</strong> (FLOAT)</td>
  <td>Maximum horizontal error allowed by the trajectory generator <p><strong>Comment:</strong> The integration speed of the trajectory setpoint is linearly reduced with the horizontal position tracking error. When the error is above this parameter, the integration of the trajectory is stopped to wait for the drone. This value can be adjusted depending on the tracking capabilities of the vehicle.</p>   </td>
- <td>[0.1, 10] (1)</td>
- <td>2.</td>
+ <td>[0.1, 10.0] </td>
+ <td>2.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_MAN_EXPO">MPC_XY_MAN_EXPO</strong> (FLOAT)</td>
- <td>Manual position control stick exponential curve sensitivity <p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve 1 Purely cubic input curve</p>   </td>
- <td>[0, 1] (0.01)</td>
+ <td>Manual position control stick exponential curve sensitivity <p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>   </td>
+ <td>[0, 1] </td>
  <td>0.6</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_P">MPC_XY_P</strong> (FLOAT)</td>
- <td>Proportional gain for horizontal position error <p><strong>Comment:</strong> Defined as corrective velocity in m/s per m position error</p>   </td>
- <td>[0, 2] (0.1)</td>
+ <td>Proportional gain for horizontal position error    </td>
+ <td>[0.0, 2.0] </td>
  <td>0.95</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_TRAJ_P">MPC_XY_TRAJ_P</strong> (FLOAT)</td>
  <td>Proportional gain for horizontal trajectory position error    </td>
- <td>[0.1, 1] (0.1)</td>
+ <td>[0.1, 1.0] </td>
  <td>0.5</td>
  <td></td>
 </tr>
@@ -21815,111 +21716,111 @@ table {
  <td><strong id="MPC_XY_VEL_ALL">MPC_XY_VEL_ALL</strong> (FLOAT)</td>
  <td>Overall Horizontal Velocity Limit <p><strong>Comment:</strong> If set to a value greater than zero, other parameters are automatically set (such as MPC_XY_VEL_MAX or MPC_VEL_MANUAL). If set to a negative value, the existing individual parameters are used.</p>   </td>
  <td>[-20, 20] (1)</td>
- <td>-10.</td>
+ <td>-10.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_VEL_D_ACC">MPC_XY_VEL_D_ACC</strong> (FLOAT)</td>
- <td>Differential gain for horizontal velocity error <p><strong>Comment:</strong> Defined as corrective acceleration in m/s^2 per m/s^2 velocity derivative</p>   </td>
- <td>[0.1, 2] (0.02)</td>
+ <td>Differential gain for horizontal velocity error. Small values help reduce fast oscillations. If value is too big oscillations will appear again <p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m/s^2 velocity derivative</p>   </td>
+ <td>[0.1, 2.0] </td>
  <td>0.2</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_VEL_I_ACC">MPC_XY_VEL_I_ACC</strong> (FLOAT)</td>
- <td>Integral gain for horizontal velocity error <p><strong>Comment:</strong> Defined as correction acceleration in m/s^2 per m velocity integral Allows to eliminate steady state errors in disturbances like wind.</p>   </td>
- <td>[0, 60] (0.02)</td>
+ <td>Integral gain for horizontal velocity error <p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m velocity integral Non-zero value allows to eliminate steady state errors in the presence of disturbances like wind.</p>   </td>
+ <td>[0.0, 60.0] </td>
  <td>0.4</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_VEL_MAX">MPC_XY_VEL_MAX</strong> (FLOAT)</td>
- <td>Maximum horizontal velocity <p><strong>Comment:</strong> Absolute maximum for all velocity controlled modes. Any higher value is truncated.</p>   </td>
- <td>[0, 20] (1)</td>
- <td>12.</td>
+ <td>Maximum horizontal velocity <p><strong>Comment:</strong> Maximum horizontal velocity in AUTO mode. If higher speeds are commanded in a mission they will be capped to this velocity.</p>   </td>
+ <td>[0.0, 20.0] (1)</td>
+ <td>12.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_VEL_P_ACC">MPC_XY_VEL_P_ACC</strong> (FLOAT)</td>
- <td>Proportional gain for horizontal velocity error <p><strong>Comment:</strong> Defined as corrective acceleration in m/s^2 per m/s velocity error</p>   </td>
- <td>[1.2, 5] (0.1)</td>
+ <td>Proportional gain for horizontal velocity error <p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m/s velocity error</p>   </td>
+ <td>[1.2, 5.0] </td>
  <td>1.8</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_YAW_EXPO">MPC_YAW_EXPO</strong> (FLOAT)</td>
- <td>Manual control stick yaw rotation exponential curve <p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve 1 Purely cubic input curve</p>   </td>
- <td>[0, 1] (0.01)</td>
+ <td>Manual control stick yaw rotation exponential curve <p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>   </td>
+ <td>[0, 1] </td>
  <td>0.6</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_MAN_EXPO">MPC_Z_MAN_EXPO</strong> (FLOAT)</td>
- <td>Manual control stick vertical exponential curve <p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve 1 Purely cubic input curve</p>   </td>
- <td>[0, 1] (0.01)</td>
+ <td>Manual control stick vertical exponential curve <p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>   </td>
+ <td>[0, 1] </td>
  <td>0.6</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_P">MPC_Z_P</strong> (FLOAT)</td>
- <td>Proportional gain for vertical position error <p><strong>Comment:</strong> Defined as corrective velocity in m/s per m position error</p>   </td>
- <td>[0.1, 1.5] (0.1)</td>
- <td>1.</td>
+ <td>Proportional gain for vertical position error    </td>
+ <td>[0.0, 1.5] </td>
+ <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_ALL">MPC_Z_VEL_ALL</strong> (FLOAT)</td>
  <td>Overall Vertical Velocity Limit <p><strong>Comment:</strong> If set to a value greater than zero, other parameters are automatically set (such as MPC_Z_VEL_MAX_UP or MPC_LAND_SPEED). If set to a negative value, the existing individual parameters are used.</p>   </td>
  <td>[-3, 8] (0.5)</td>
- <td>-3.</td>
+ <td>-3.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_D_ACC">MPC_Z_VEL_D_ACC</strong> (FLOAT)</td>
- <td>Differential gain for vertical velocity error <p><strong>Comment:</strong> Defined as corrective acceleration in m/s^2 per m/s^2 velocity derivative</p>   </td>
- <td>[0, 2] (0.02)</td>
- <td>0.</td>
+ <td>Differential gain for vertical velocity error <p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m/s^2 velocity derivative</p>   </td>
+ <td>[0.0, 2.0] </td>
+ <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_I_ACC">MPC_Z_VEL_I_ACC</strong> (FLOAT)</td>
- <td>Integral gain for vertical velocity error <p><strong>Comment:</strong> Defined as corrective acceleration in m/s^2 per m velocity integral</p>   </td>
- <td>[0.2, 3] (0.1)</td>
- <td>2.</td>
+ <td>Integral gain for vertical velocity error <p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m velocity integral Non zero value allows hovering thrust estimation on stabilized or autonomous takeoff.</p>   </td>
+ <td>[0.2, 3.0] </td>
+ <td>2.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_MAX_DN">MPC_Z_VEL_MAX_DN</strong> (FLOAT)</td>
- <td>Maximum descent velocity <p><strong>Comment:</strong> Absolute maximum for all climb rate controlled modes. In manually piloted modes full stick deflection commands this velocity. For default autonomous velocity see MPC_Z_V_AUTO_UP</p>   </td>
- <td>[0.5, 4] (0.1)</td>
+ <td>Maximum descent velocity <p><strong>Comment:</strong> Descent velocity in manual modes and offboard. For auto modes, see MPC_Z_V_AUTO_DN</p>   </td>
+ <td>[0.5, 4.0] (0.1)</td>
  <td>1.5</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_MAX_UP">MPC_Z_VEL_MAX_UP</strong> (FLOAT)</td>
- <td>Maximum ascent velocity <p><strong>Comment:</strong> Absolute maximum for all climb rate controlled modes. In manually piloted modes full stick deflection commands this velocity. For default autonomous velocity see MPC_Z_V_AUTO_UP</p>   </td>
- <td>[0.5, 8] (0.1)</td>
+ <td>Maximum ascent velocity <p><strong>Comment:</strong> Ascent velocity in manual modes and offboard. For auto modes, see MPC_Z_V_AUTO_UP</p>   </td>
+ <td>[0.5, 8.0] (0.1)</td>
  <td>3.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_P_ACC">MPC_Z_VEL_P_ACC</strong> (FLOAT)</td>
- <td>Proportional gain for vertical velocity error <p><strong>Comment:</strong> Defined as corrective acceleration in m/s^2 per m/s velocity error</p>   </td>
- <td>[2, 15] (0.1)</td>
- <td>4.</td>
+ <td>Proportional gain for vertical velocity error <p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m/s velocity error</p>   </td>
+ <td>[2.0, 15.0] </td>
+ <td>4.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_V_AUTO_DN">MPC_Z_V_AUTO_DN</strong> (FLOAT)</td>
- <td>Descent velocity in autonomous modes <p><strong>Comment:</strong> For manual modes and offboard, see MPC_Z_VEL_MAX_DN</p>   </td>
- <td>[0.5, 4] (0.5)</td>
+ <td>Automatic descent velocity <p><strong>Comment:</strong> Descent velocity in auto modes. For manual modes and offboard, see MPC_Z_VEL_MAX_DN</p>   </td>
+ <td>[0.5, 4.0] (0.1)</td>
  <td>1.5</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_V_AUTO_UP">MPC_Z_V_AUTO_UP</strong> (FLOAT)</td>
- <td>Ascent velocity in autonomous modes <p><strong>Comment:</strong> For manually controlled modes and offboard see MPC_Z_VEL_MAX_UP</p>   </td>
- <td>[0.5, 8] (0.5)</td>
+ <td>Automatic ascent velocity <p><strong>Comment:</strong> Ascent velocity in auto modes. For manual modes and offboard, see MPC_Z_VEL_MAX_UP</p>   </td>
+ <td>[0.5, 8.0] (0.1)</td>
  <td>3.</td>
  <td>m/s</td>
 </tr>
@@ -21961,6 +21862,55 @@ table {
    <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
+<tr>
+ <td><strong id="MC_ACRO_EXPO">MC_ACRO_EXPO</strong> (FLOAT)</td>
+ <td>Acro mode Expo factor for Roll and Pitch <p><strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve</p>   </td>
+ <td>[0, 1] </td>
+ <td>0.69</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MC_ACRO_EXPO_Y">MC_ACRO_EXPO_Y</strong> (FLOAT)</td>
+ <td>Acro mode Expo factor for Yaw <p><strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve</p>   </td>
+ <td>[0, 1] </td>
+ <td>0.69</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MC_ACRO_P_MAX">MC_ACRO_P_MAX</strong> (FLOAT)</td>
+ <td>Max acro pitch rate <p><strong>Comment:</strong> default: 2 turns per second</p>   </td>
+ <td>[0.0, 1800.0] (5)</td>
+ <td>720.0</td>
+ <td>deg/s</td>
+</tr>
+<tr>
+ <td><strong id="MC_ACRO_R_MAX">MC_ACRO_R_MAX</strong> (FLOAT)</td>
+ <td>Max acro roll rate <p><strong>Comment:</strong> default: 2 turns per second</p>   </td>
+ <td>[0.0, 1800.0] (5)</td>
+ <td>720.0</td>
+ <td>deg/s</td>
+</tr>
+<tr>
+ <td><strong id="MC_ACRO_SUPEXPO">MC_ACRO_SUPEXPO</strong> (FLOAT)</td>
+ <td>Acro mode SuperExpo factor for Roll and Pitch <p><strong>Comment:</strong> SuperExpo factor for refining the input curve shape tuned using MC_ACRO_EXPO. 0 Pure Expo function 0.7 reasonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>   </td>
+ <td>[0, 0.95] </td>
+ <td>0.7</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MC_ACRO_SUPEXPOY">MC_ACRO_SUPEXPOY</strong> (FLOAT)</td>
+ <td>Acro mode SuperExpo factor for Yaw <p><strong>Comment:</strong> SuperExpo factor for refining the input curve shape tuned using MC_ACRO_EXPO_Y. 0 Pure Expo function 0.7 reasonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>   </td>
+ <td>[0, 0.95] </td>
+ <td>0.7</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MC_ACRO_Y_MAX">MC_ACRO_Y_MAX</strong> (FLOAT)</td>
+ <td>Max acro yaw rate <p><strong>Comment:</strong> default 1.5 turns per second</p>   </td>
+ <td>[0.0, 1800.0] (5)</td>
+ <td>540.0</td>
+ <td>deg/s</td>
+</tr>
 <tr>
  <td><strong id="MC_BAT_SCALE_EN">MC_BAT_SCALE_EN</strong> (INT32)</td>
  <td>Battery power level scaler <p><strong>Comment:</strong> This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery. The copter should constantly behave as if it was fully charged with reduced max acceleration at lower battery percentages. i.e. if hover is at 0.5 throttle at 100% battery, it will still be 0.5 at 60% battery.</p>   </td>
@@ -23897,21 +23847,21 @@ table {
 </tr>
 <tr>
  <td><strong id="TRIM_PITCH">TRIM_PITCH</strong> (FLOAT)</td>
- <td>Pitch trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight.</p>   </td>
+ <td>Pitch trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>   </td>
  <td>[-0.5, 0.5] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="TRIM_ROLL">TRIM_ROLL</strong> (FLOAT)</td>
- <td>Roll trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight.</p>   </td>
+ <td>Roll trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>   </td>
  <td>[-0.5, 0.5] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="TRIM_YAW">TRIM_YAW</strong> (FLOAT)</td>
- <td>Yaw trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight.</p>   </td>
+ <td>Yaw trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>   </td>
  <td>[-0.5, 0.5] (0.01)</td>
  <td>0.0</td>
  <td></td>
@@ -26572,13 +26522,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_MAG0_PITCH">CAL_MAG0_PITCH</strong> (FLOAT)</td>
- <td>Magnetometer 0 Custom Euler Pitch Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG0_ROT to "Custom Euler Angle"</p>   </td>
- <td>[-180, 180] </td>
- <td>0.0</td>
- <td>deg</td>
-</tr>
-<tr>
  <td><strong id="CAL_MAG0_PRIO">CAL_MAG0_PRIO</strong> (INT32)</td>
  <td>Magnetometer 0 priority  <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Uninitialized</li> 
@@ -26601,15 +26544,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_MAG0_ROLL">CAL_MAG0_ROLL</strong> (FLOAT)</td>
- <td>Magnetometer 0 Custom Euler Roll Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG0_ROT to "Custom Euler Angle"</p>   </td>
- <td>[-180, 180] </td>
- <td>0.0</td>
- <td>deg</td>
-</tr>
-<tr>
  <td><strong id="CAL_MAG0_ROT">CAL_MAG0_ROT</strong> (INT32)</td>
- <td>Magnetometer 0 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero. Set to "Custom Euler Angle" to define the rotation using CAL_MAG0_ROLL, CAL_MAG0_PITCH and CAL_MAG0_YAW.</p> <strong>Values:</strong><ul>
+ <td>Magnetometer 0 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -26693,11 +26629,9 @@ table {
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>100:</strong> Custom Euler Angle</li> 
 </ul>
   </td>
- <td>[-1, 100] </td>
+ <td>[-1, 40] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -26728,13 +26662,6 @@ table {
  <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="CAL_MAG0_YAW">CAL_MAG0_YAW</strong> (FLOAT)</td>
- <td>Magnetometer 0 Custom Euler Yaw Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG0_ROT to "Custom Euler Angle"</p>   </td>
- <td>[-180, 180] </td>
- <td>0.0</td>
- <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_YCOMP">CAL_MAG0_YCOMP</strong> (FLOAT)</td>
@@ -26800,13 +26727,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_MAG1_PITCH">CAL_MAG1_PITCH</strong> (FLOAT)</td>
- <td>Magnetometer 1 Custom Euler Pitch Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG1_ROT to "Custom Euler Angle"</p>   </td>
- <td>[-180, 180] </td>
- <td>0.0</td>
- <td>deg</td>
-</tr>
-<tr>
  <td><strong id="CAL_MAG1_PRIO">CAL_MAG1_PRIO</strong> (INT32)</td>
  <td>Magnetometer 1 priority  <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Uninitialized</li> 
@@ -26829,15 +26749,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_MAG1_ROLL">CAL_MAG1_ROLL</strong> (FLOAT)</td>
- <td>Magnetometer 1 Custom Euler Roll Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG1_ROT to "Custom Euler Angle"</p>   </td>
- <td>[-180, 180] </td>
- <td>0.0</td>
- <td>deg</td>
-</tr>
-<tr>
  <td><strong id="CAL_MAG1_ROT">CAL_MAG1_ROT</strong> (INT32)</td>
- <td>Magnetometer 1 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero. Set to "Custom Euler Angle" to define the rotation using CAL_MAG1_ROLL, CAL_MAG1_PITCH and CAL_MAG1_YAW.</p> <strong>Values:</strong><ul>
+ <td>Magnetometer 1 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -26921,11 +26834,9 @@ table {
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>100:</strong> Custom Euler Angle</li> 
 </ul>
   </td>
- <td>[-1, 100] </td>
+ <td>[-1, 40] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -26956,13 +26867,6 @@ table {
  <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="CAL_MAG1_YAW">CAL_MAG1_YAW</strong> (FLOAT)</td>
- <td>Magnetometer 1 Custom Euler Yaw Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG1_ROT to "Custom Euler Angle"</p>   </td>
- <td>[-180, 180] </td>
- <td>0.0</td>
- <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_YCOMP">CAL_MAG1_YCOMP</strong> (FLOAT)</td>
@@ -27028,13 +26932,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_MAG2_PITCH">CAL_MAG2_PITCH</strong> (FLOAT)</td>
- <td>Magnetometer 2 Custom Euler Pitch Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG2_ROT to "Custom Euler Angle"</p>   </td>
- <td>[-180, 180] </td>
- <td>0.0</td>
- <td>deg</td>
-</tr>
-<tr>
  <td><strong id="CAL_MAG2_PRIO">CAL_MAG2_PRIO</strong> (INT32)</td>
  <td>Magnetometer 2 priority  <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Uninitialized</li> 
@@ -27057,15 +26954,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_MAG2_ROLL">CAL_MAG2_ROLL</strong> (FLOAT)</td>
- <td>Magnetometer 2 Custom Euler Roll Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG2_ROT to "Custom Euler Angle"</p>   </td>
- <td>[-180, 180] </td>
- <td>0.0</td>
- <td>deg</td>
-</tr>
-<tr>
  <td><strong id="CAL_MAG2_ROT">CAL_MAG2_ROT</strong> (INT32)</td>
- <td>Magnetometer 2 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero. Set to "Custom Euler Angle" to define the rotation using CAL_MAG2_ROLL, CAL_MAG2_PITCH and CAL_MAG2_YAW.</p> <strong>Values:</strong><ul>
+ <td>Magnetometer 2 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -27149,11 +27039,9 @@ table {
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>100:</strong> Custom Euler Angle</li> 
 </ul>
   </td>
- <td>[-1, 100] </td>
+ <td>[-1, 40] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -27184,13 +27072,6 @@ table {
  <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="CAL_MAG2_YAW">CAL_MAG2_YAW</strong> (FLOAT)</td>
- <td>Magnetometer 2 Custom Euler Yaw Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG2_ROT to "Custom Euler Angle"</p>   </td>
- <td>[-180, 180] </td>
- <td>0.0</td>
- <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_YCOMP">CAL_MAG2_YCOMP</strong> (FLOAT)</td>
@@ -27256,13 +27137,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_MAG3_PITCH">CAL_MAG3_PITCH</strong> (FLOAT)</td>
- <td>Magnetometer 3 Custom Euler Pitch Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG3_ROT to "Custom Euler Angle"</p>   </td>
- <td>[-180, 180] </td>
- <td>0.0</td>
- <td>deg</td>
-</tr>
-<tr>
  <td><strong id="CAL_MAG3_PRIO">CAL_MAG3_PRIO</strong> (INT32)</td>
  <td>Magnetometer 3 priority  <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Uninitialized</li> 
@@ -27285,15 +27159,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_MAG3_ROLL">CAL_MAG3_ROLL</strong> (FLOAT)</td>
- <td>Magnetometer 3 Custom Euler Roll Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG3_ROT to "Custom Euler Angle"</p>   </td>
- <td>[-180, 180] </td>
- <td>0.0</td>
- <td>deg</td>
-</tr>
-<tr>
  <td><strong id="CAL_MAG3_ROT">CAL_MAG3_ROT</strong> (INT32)</td>
- <td>Magnetometer 3 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero. Set to "Custom Euler Angle" to define the rotation using CAL_MAG3_ROLL, CAL_MAG3_PITCH and CAL_MAG3_YAW.</p> <strong>Values:</strong><ul>
+ <td>Magnetometer 3 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -27377,11 +27244,9 @@ table {
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>100:</strong> Custom Euler Angle</li> 
 </ul>
   </td>
- <td>[-1, 100] </td>
+ <td>[-1, 40] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -27412,13 +27277,6 @@ table {
  <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="CAL_MAG3_YAW">CAL_MAG3_YAW</strong> (FLOAT)</td>
- <td>Magnetometer 3 Custom Euler Yaw Angle <p><strong>Comment:</strong> Setting this parameter changes CAL_MAG3_ROT to "Custom Euler Angle"</p>   </td>
- <td>[-180, 180] </td>
- <td>0.0</td>
- <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_YCOMP">CAL_MAG3_YCOMP</strong> (FLOAT)</td>
@@ -27923,51 +27781,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SENS_AFBR_HYSTER">SENS_AFBR_HYSTER</strong> (INT32)</td>
- <td>AFBR Rangefinder Short/Long Range Threshold Hysteresis <p><strong>Comment:</strong> This parameter defines the hysteresis for switching between short and long range mode.</p>   </td>
- <td>[1, 10] </td>
- <td>1</td>
- <td>m</td>
-</tr>
-<tr>
- <td><strong id="SENS_AFBR_L_RATE">SENS_AFBR_L_RATE</strong> (INT32)</td>
- <td>AFBR Rangefinder Long Range Rate <p><strong>Comment:</strong> This parameter defines measurement rate of the AFBR Rangefinder in long range mode.</p>   </td>
- <td>[1, 100] </td>
- <td>25</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SENS_AFBR_MODE">SENS_AFBR_MODE</strong> (INT32)</td>
- <td>AFBR Rangefinder Mode <p><strong>Comment:</strong> This parameter defines the mode of the AFBR Rangefinder.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Short Range Mode</li> 
-
-<li><strong>1:</strong> Long Range Mode</li> 
-
-<li><strong>2:</strong> High Speed Short Range Mode</li> 
-
-<li><strong>3:</strong> High Speed Long Range Mode</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 3] </td>
- <td>1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SENS_AFBR_S_RATE">SENS_AFBR_S_RATE</strong> (INT32)</td>
- <td>AFBR Rangefinder Short Range Rate <p><strong>Comment:</strong> This parameter defines measurement rate of the AFBR Rangefinder in short range mode.</p>   </td>
- <td>[1, 100] </td>
- <td>50</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SENS_AFBR_THRESH">SENS_AFBR_THRESH</strong> (INT32)</td>
- <td>AFBR Rangefinder Short/Long Range Threshold <p><strong>Comment:</strong> This parameter defines the threshold for switching between short and long range mode. The mode will switch from short to long range when the distance is greater than the threshold plus the hysteresis. The mode will switch from long to short range when the distance is less than the threshold minus the hysteresis.</p>   </td>
- <td>[1, 50] </td>
- <td>5</td>
- <td>m</td>
-</tr>
-<tr>
  <td><strong id="SENS_BARO_QNH">SENS_BARO_QNH</strong> (FLOAT)</td>
  <td>QNH for barometer    </td>
  <td>[500, 1500] </td>
@@ -28179,14 +27992,6 @@ table {
 </td>
  <td>[0, 1] </td>
  <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SENS_EN_ASP5033">SENS_EN_ASP5033</strong> (INT32)</td>
- <td>ASP5033 differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -28446,8 +28251,6 @@ table {
 <li><strong>5:</strong> SF/LW20/b</li> 
 
 <li><strong>6:</strong> SF/LW20/c</li> 
-
-<li><strong>7:</strong> SF/LW30/d</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -29635,18 +29438,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="VN_MODE">VN_MODE</strong> (INT32)</td>
- <td>VectorNav driver mode <p><strong>Comment:</strong> INS or sensors</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Sensors Only (default)</li> 
-
-<li><strong>1:</strong> INS</li> 
-</ul>
-  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="VOXLPM_SHUNT_BAT">VOXLPM_SHUNT_BAT</strong> (FLOAT)</td>
  <td>VOXL Power Monitor Shunt, Battery    <p><b>Reboot required:</b> true</p>
 </td>
@@ -30775,16 +30566,9 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_FAC_CAL_MODE">SYS_FAC_CAL_MODE</strong> (INT32)</td>
- <td>Enable factory calibration mode <p><strong>Comment:</strong> If enabled, future sensor calibrations will be stored to /fs/mtd_caldata. Note: this is only supported on boards with a separate calibration storage /fs/mtd_caldata.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
-
-<li><strong>1:</strong> All sensors</li> 
-
-<li><strong>2:</strong> All sensors except mag</li> 
-</ul>
-  </td>
+ <td>Enable factory calibration mode <p><strong>Comment:</strong> If enabled, future sensor calibrations will be stored to /fs/mtd_caldata. Note: this is only supported on boards with a separate calibration storage /fs/mtd_caldata.</p>   </td>
  <td></td>
- <td>0</td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -30820,7 +30604,8 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_HAS_NUM_DIST">SYS_HAS_NUM_DIST</strong> (INT32)</td>
- <td>Number of distance sensors to check being available <p><strong>Comment:</strong> The preflight check will fail if fewer than this number of distance sensors with valid data is present. Disable the check with 0.</p>   </td>
+ <td>Control the number of distance sensors on the vehicle <p><strong>Comment:</strong> If set to the number of distance sensors, the preflight check will check for their presence and valid data publication. Disable with 0 if no distance sensor present or to disable the preflight check.</p>   <p><b>Reboot required:</b> true</p>
+</td>
  <td>[0, 4] </td>
  <td>0</td>
  <td></td>
@@ -32314,462 +32099,6 @@ table {
  <td>Disabled (0)</td>
  <td></td>
 </tr>
-<tr>
- <td><strong id="TC_M0_ID">TC_M0_ID</strong> (INT32)</td>
- <td>ID of Magnetometer that the calibration is for    </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M0_TMAX">TC_M0_TMAX</strong> (FLOAT)</td>
- <td>Magnetometer calibration maximum temperature    </td>
- <td></td>
- <td>100.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M0_TMIN">TC_M0_TMIN</strong> (FLOAT)</td>
- <td>Magnetometer calibration minimum temperature    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M0_TREF">TC_M0_TREF</strong> (FLOAT)</td>
- <td>Magnetometer calibration reference temperature    </td>
- <td></td>
- <td>25.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M0_X0_0">TC_M0_X0_0</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^0 polynomial coefficient - X axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M0_X0_1">TC_M0_X0_1</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^0 polynomial coefficient - Y axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M0_X0_2">TC_M0_X0_2</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^0 polynomial coefficient - Z axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M0_X1_0">TC_M0_X1_0</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^1 polynomial coefficient - X axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M0_X1_1">TC_M0_X1_1</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^1 polynomial coefficient - Y axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M0_X1_2">TC_M0_X1_2</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^1 polynomial coefficient - Z axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M0_X2_0">TC_M0_X2_0</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^2 polynomial coefficient - X axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M0_X2_1">TC_M0_X2_1</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^2 polynomial coefficient - Y axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M0_X2_2">TC_M0_X2_2</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^2 polynomial coefficient - Z axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M0_X3_0">TC_M0_X3_0</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^3 polynomial coefficient - X axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M0_X3_1">TC_M0_X3_1</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^3 polynomial coefficient - Y axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M0_X3_2">TC_M0_X3_2</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^3 polynomial coefficient - Z axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M1_ID">TC_M1_ID</strong> (INT32)</td>
- <td>ID of Magnetometer that the calibration is for    </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M1_TMAX">TC_M1_TMAX</strong> (FLOAT)</td>
- <td>Magnetometer calibration maximum temperature    </td>
- <td></td>
- <td>100.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M1_TMIN">TC_M1_TMIN</strong> (FLOAT)</td>
- <td>Magnetometer calibration minimum temperature    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M1_TREF">TC_M1_TREF</strong> (FLOAT)</td>
- <td>Magnetometer calibration reference temperature    </td>
- <td></td>
- <td>25.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M1_X0_0">TC_M1_X0_0</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^0 polynomial coefficient - X axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M1_X0_1">TC_M1_X0_1</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^0 polynomial coefficient - Y axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M1_X0_2">TC_M1_X0_2</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^0 polynomial coefficient - Z axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M1_X1_0">TC_M1_X1_0</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^1 polynomial coefficient - X axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M1_X1_1">TC_M1_X1_1</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^1 polynomial coefficient - Y axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M1_X1_2">TC_M1_X1_2</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^1 polynomial coefficient - Z axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M1_X2_0">TC_M1_X2_0</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^2 polynomial coefficient - X axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M1_X2_1">TC_M1_X2_1</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^2 polynomial coefficient - Y axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M1_X2_2">TC_M1_X2_2</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^2 polynomial coefficient - Z axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M1_X3_0">TC_M1_X3_0</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^3 polynomial coefficient - X axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M1_X3_1">TC_M1_X3_1</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^3 polynomial coefficient - Y axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M1_X3_2">TC_M1_X3_2</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^3 polynomial coefficient - Z axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M2_ID">TC_M2_ID</strong> (INT32)</td>
- <td>ID of Magnetometer that the calibration is for    </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M2_TMAX">TC_M2_TMAX</strong> (FLOAT)</td>
- <td>Magnetometer calibration maximum temperature    </td>
- <td></td>
- <td>100.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M2_TMIN">TC_M2_TMIN</strong> (FLOAT)</td>
- <td>Magnetometer calibration minimum temperature    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M2_TREF">TC_M2_TREF</strong> (FLOAT)</td>
- <td>Magnetometer calibration reference temperature    </td>
- <td></td>
- <td>25.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M2_X0_0">TC_M2_X0_0</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^0 polynomial coefficient - X axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M2_X0_1">TC_M2_X0_1</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^0 polynomial coefficient - Y axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M2_X0_2">TC_M2_X0_2</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^0 polynomial coefficient - Z axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M2_X1_0">TC_M2_X1_0</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^1 polynomial coefficient - X axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M2_X1_1">TC_M2_X1_1</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^1 polynomial coefficient - Y axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M2_X1_2">TC_M2_X1_2</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^1 polynomial coefficient - Z axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M2_X2_0">TC_M2_X2_0</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^2 polynomial coefficient - X axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M2_X2_1">TC_M2_X2_1</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^2 polynomial coefficient - Y axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M2_X2_2">TC_M2_X2_2</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^2 polynomial coefficient - Z axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M2_X3_0">TC_M2_X3_0</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^3 polynomial coefficient - X axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M2_X3_1">TC_M2_X3_1</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^3 polynomial coefficient - Y axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M2_X3_2">TC_M2_X3_2</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^3 polynomial coefficient - Z axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M3_ID">TC_M3_ID</strong> (INT32)</td>
- <td>ID of Magnetometer that the calibration is for    </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M3_TMAX">TC_M3_TMAX</strong> (FLOAT)</td>
- <td>Magnetometer calibration maximum temperature    </td>
- <td></td>
- <td>100.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M3_TMIN">TC_M3_TMIN</strong> (FLOAT)</td>
- <td>Magnetometer calibration minimum temperature    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M3_TREF">TC_M3_TREF</strong> (FLOAT)</td>
- <td>Magnetometer calibration reference temperature    </td>
- <td></td>
- <td>25.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M3_X0_0">TC_M3_X0_0</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^0 polynomial coefficient - X axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M3_X0_1">TC_M3_X0_1</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^0 polynomial coefficient - Y axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M3_X0_2">TC_M3_X0_2</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^0 polynomial coefficient - Z axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M3_X1_0">TC_M3_X1_0</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^1 polynomial coefficient - X axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M3_X1_1">TC_M3_X1_1</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^1 polynomial coefficient - Y axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M3_X1_2">TC_M3_X1_2</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^1 polynomial coefficient - Z axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M3_X2_0">TC_M3_X2_0</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^2 polynomial coefficient - X axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M3_X2_1">TC_M3_X2_1</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^2 polynomial coefficient - Y axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M3_X2_2">TC_M3_X2_2</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^2 polynomial coefficient - Z axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M3_X3_0">TC_M3_X3_0</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^3 polynomial coefficient - X axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M3_X3_1">TC_M3_X3_1</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^3 polynomial coefficient - Y axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M3_X3_2">TC_M3_X3_2</strong> (FLOAT)</td>
- <td>Magnetometer offset temperature ^3 polynomial coefficient - Z axis    </td>
- <td></td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TC_M_ENABLE">TC_M_ENABLE</strong> (INT32)</td>
- <td>Thermal compensation for magnetometer sensors    <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
 </tbody></table>
 
 ## Transponder
@@ -32868,6 +32197,13 @@ table {
  <td>UAVCAN CAN bus bitrate    </td>
  <td>[20000, 1000000] </td>
  <td>1000000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CANNODE_NODE_ID">CANNODE_NODE_ID</strong> (INT32)</td>
+ <td>UAVCAN Node ID <p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   </td>
+ <td>[1, 125] </td>
+ <td>120</td>
  <td></td>
 </tr>
 <tr>
@@ -33368,7 +32704,7 @@ table {
   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>0</td>
+ <td>102</td>
  <td></td>
 </tr>
 <tr>
@@ -33473,7 +32809,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="UXRCE_DDS_AG_IP">UXRCE_DDS_AG_IP</strong> (INT32)</td>
- <td>uXRCE-DDS Agent IP address <p><strong>Comment:</strong> If ethernet is enabled and is the selected configuration for uXRCE-DDS, the selected Agent IP address will be set and used. Decimal dot notation is not supported. IP address must be provided in int32 format. For example, 192.168.1.2 is mapped to -1062731518; 127.0.0.1 is mapped to 2130706433.</p>   <p><b>Reboot required:</b> True</p>
+ <td>uXRCE-DDS Agent IP address <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for uXRCE-DDS, selected Agent IP address will be set and used. Decimal dot notation is not supported. IP address must be provided in int32 format. For example, 192.168.1.2 is mapped to -1062731518; 127.0.0.1 is mapped to 2130706433.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td></td>
  <td>2130706433</td>
@@ -33524,7 +32860,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UXRCE_DDS_KEY">UXRCE_DDS_KEY</strong> (INT32)</td>
- <td>uXRCE-DDS session key <p><strong>Comment:</strong> uXRCE-DDS key, must be different from zero. In a single agent - multi client configuration, each client must have a unique session key.</p>   <p><b>Reboot required:</b> True</p>
+ <td>uXRCE-DDS Session key <p><strong>Comment:</strong> uXRCE-DDS key, must be different from zero. In a single agent - multi client configuration, each client must have a unique session key.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td></td>
  <td>1</td>
@@ -33532,33 +32868,10 @@ table {
 </tr>
 <tr>
  <td><strong id="UXRCE_DDS_PRT">UXRCE_DDS_PRT</strong> (INT32)</td>
- <td>uXRCE-DDS UDP port <p><strong>Comment:</strong> If ethernet is enabled and is the selected configuration for uXRCE-DDS, the selected UDP port will be set and used.</p>   <p><b>Reboot required:</b> True</p>
+ <td>uXRCE-DDS UDP Port <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for uXRCE-DDS, selected udp port will be set and used.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0, 65535] </td>
  <td>8888</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UXRCE_DDS_PTCFG">UXRCE_DDS_PTCFG</strong> (INT32)</td>
- <td>uXRCE-DDS participant configuration <p><strong>Comment:</strong> Set the participant configuration on the Agent's system. 0: Use the default configuration. 1: Restrict messages to localhost (use in combination with ROS_LOCALHOST_ONLY=1). 2: Use a custom participant with the profile name "px4_participant".</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Default</li> 
-
-<li><strong>1:</strong> Localhost-only</li> 
-
-<li><strong>2:</strong> Custom participant</li> 
-</ul>
-  <p><b>Reboot required:</b> True</p>
-</td>
- <td>[0, 2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UXRCE_DDS_SYNCT">UXRCE_DDS_SYNCT</strong> (INT32)</td>
- <td>Enable uXRCE-DDS timestamp synchronization <p><strong>Comment:</strong> When enabled, uxrce_dds_client will synchronize the timestamps of the incoming and outgoing messages measuring the offset between the Agent OS time and the PX4 time.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>Enabled (1)</td>
  <td></td>
 </tr>
 </tbody></table>
@@ -33586,11 +32899,11 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
- <td><strong id="VT_BT_TILT_DUR">VT_BT_TILT_DUR</strong> (FLOAT)</td>
- <td>Duration motor tilt up in backtransition <p><strong>Comment:</strong> Time in seconds it takes to tilt form VT_TILT_FW to VT_TILT_MC.</p>   </td>
- <td>[0.1, 10] (0.1)</td>
- <td>1.</td>
- <td>s</td>
+ <td><strong id="VT_B_DEC_FF">VT_B_DEC_FF</strong> (FLOAT)</td>
+ <td>Backtransition deceleration setpoint to pitch feedforward gain    </td>
+ <td>[0, 0.2] (0.01)</td>
+ <td>0.</td>
+ <td>rad s^2/m</td>
 </tr>
 <tr>
  <td><strong id="VT_B_DEC_I">VT_B_DEC_I</strong> (FLOAT)</td>
@@ -33601,14 +32914,14 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_B_DEC_MSS">VT_B_DEC_MSS</strong> (FLOAT)</td>
- <td>Approximate deceleration during back transition <p><strong>Comment:</strong> Used to calculate back transition distance in an auto mode. For standard vtol and tiltrotors a controller is used to track this value during the transition.</p>   </td>
+ <td>Approximate deceleration during back transition <p><strong>Comment:</strong> The approximate deceleration during a back transition in m/s/s Used to calculate back transition distance in an auto mode. For standard vtol and tiltrotors a controller is used to track this value during the transition.</p>   </td>
  <td>[0.5, 10] (0.1)</td>
  <td>2.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="VT_B_TRANS_DUR">VT_B_TRANS_DUR</strong> (FLOAT)</td>
- <td>Maximum duration of a back transition <p><strong>Comment:</strong> Transition is also declared over if the groundspeed drops below MPC_XY_CRUISE.</p>   </td>
+ <td>Maximum duration of a back transition <p><strong>Comment:</strong> Time in seconds used for a back transition maximally. Transition is also declared over if the groundspeed drops below MPC_XY_CRUISE.</p>   </td>
  <td>[0.1, 20.00] (1)</td>
  <td>10.0</td>
  <td>s</td>
@@ -33725,7 +33038,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_F_TRANS_THR">VT_F_TRANS_THR</strong> (FLOAT)</td>
- <td>Target throttle value for the transition to fixed-wing flight    </td>
+ <td>Target throttle value for the transition to fixed-wing flight <p><strong>Comment:</strong> standard vtol: pusher tailsitter, tiltrotor: main throttle</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td></td>
@@ -33739,14 +33052,14 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_LND_PITCH_MIN">VT_LND_PITCH_MIN</strong> (FLOAT)</td>
- <td>Minimum pitch angle during hover landing <p><strong>Comment:</strong> Overrides VT_PITCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to reduce the pitch angle to reduce the generated lift in head wind.</p>   </td>
+ <td>Minimum pitch angle during hover landing <p><strong>Comment:</strong> Overrides VT_PITCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to allow lower minimum pitch angles as it can avoid the wings generating too much lift and preventing the vehicle from sinking at the desired rate.</p>   </td>
  <td>[-10.0, 45.0] (0.1)</td>
  <td>-5.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="VT_PITCH_MIN">VT_PITCH_MIN</strong> (FLOAT)</td>
- <td>Minimum pitch angle during hover <p><strong>Comment:</strong> Any pitch setpoint below this value is translated to a forward force by the fixed-wing forward actuation if VT_FW_TRHUST_EN is set to 1.</p>   </td>
+ <td>Minimum pitch angle during hover <p><strong>Comment:</strong> Minimum pitch angle during hover flight. If the desired pitch angle is is lower than this value then the fixed-wing forward actuation can be used to compensate for the missing thrust in forward direction (see VT_FW_TRHUST_EN)</p>   </td>
  <td>[-10.0, 45.0] (0.1)</td>
  <td>-5.0</td>
  <td>deg</td>
@@ -33767,7 +33080,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_QC_T_ALT_LOSS">VT_QC_T_ALT_LOSS</strong> (FLOAT)</td>
- <td>Quad-chute transition altitude loss threshold <p><strong>Comment:</strong> Altitude loss threshold for quad-chute triggering during VTOL transition to fixed-wing flight in altitude-controlled flight modes. Active until 5s after completing transition to fixed-wing. If the current altitude is more than this value below the altitude at the beginning of the transition, it will instantly switch back to MC mode and execute behavior defined in COM_QC_ACT. Set to 0 do disable this threshold.</p>   </td>
+ <td>Quad-chute transition altitude loss threshold <p><strong>Comment:</strong> Altitude loss threshold for quad-chute triggering during VTOL transition to fixed-wing flight. Active until 5s after completing transition to fixed-wing. Only active if altitude estimate is valid and in altitude-controlled mode. If the current altitude is more than this value below the altitude at the beginning of the transition, it will instantly switch back to MC mode and execute behavior defined in COM_QC_ACT. Set to 0 do disable this threshold.</p>   </td>
  <td>[0, 50] (1)</td>
  <td>20.0</td>
  <td>m</td>
@@ -33789,6 +33102,13 @@ table {
 <tr>
  <td><strong id="VT_TILT_MC">VT_TILT_MC</strong> (FLOAT)</td>
  <td>Normalized tilt in Hover    </td>
+ <td>[0.0, 1.0] (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VT_TILT_SPINUP">VT_TILT_SPINUP</strong> (FLOAT)</td>
+ <td>Tilt when disarmed and in the first second after arming <p><strong>Comment:</strong> This specific tilt during spin-up is necessary for some systems whose motors otherwise don't spin-up freely.</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>0.0</td>
  <td></td>

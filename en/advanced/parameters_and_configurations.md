@@ -193,7 +193,7 @@ In the above method:
 The parameter attributes (`_sys_autostart` and `_att_bias_max` in this case) can then be used to represent the parameters, and will be updated whenever the parameter value changes.
 
 :::tip
-The [Application/Module Template](../modules/module_template.md) uses the new-style C++ API but does not include [parameter metadata](#parameter-metadata).
+The [Application/Module Template](../modules/modules_template.md) uses the new-style C++ API but does not include [parameter metadata](#parameter-metadata).
 :::
 
 #### C API

@@ -181,7 +181,7 @@ void Module::parameters_update()
 그런 다음, 매개변수 속성(이 경우 `_sys_autostart` 및 `_att_bias_max`)을 사용하여 매개변수를 나타낼 수 있으며, 매개변수 변경시에 업데이트됩니다.
 
 :::tip
-[애플리케이션/모듈 템플릿](../modules/module_template.md)은 새로운 스타일의 C++ API를 사용하지만, [매개변수 메타데이터](#parameter-metadata)는 포함하지 않습니다.
+[애플리케이션/모듈 템플릿](../modules/modules_template.md)은 새로운 스타일의 C++ API를 사용하지만, [매개변수 메타데이터](#parameter-metadata)는 포함하지 않습니다.
 :::
 
 #### C API

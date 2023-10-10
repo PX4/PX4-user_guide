@@ -130,11 +130,13 @@ It is used to store structured data of different types: mission waypoints, missi
 Each type has a specific type and a fixed maximum amount of storage items, so that fast random access is possible.
 
 ### Implementation
-Reading and writing a single item is always atomic.
+Reading and writing a single item is always atomic. If multiple items need to be read/modified atomically, there is
+an additional lock per item type via `dm_lock`.
 
 **DM_KEY_FENCE_POINTS** and **DM_KEY_SAFE_POINTS** items: the first data element is a `mission_stats_entry_s` struct,
 which stores the number of items for these types. These items are always updated atomically in one transaction (from
-the mavlink mission manager).
+the mavlink mission manager). During that time, navigator will try to acquire the geofence item lock, fail, and will not
+check for geofence violations.
 
 
 <a id="dataman_usage"></a>
@@ -723,9 +725,8 @@ temperature_compensation <command> [arguments...]
                  sensor_correction topic
 
    calibrate     Run temperature calibration process
-     [-a]        calibrate the accel
      [-g]        calibrate the gyro
-     [-m]        calibrate the mag
+     [-a]        calibrate the accel
      [-b]        calibrate the baro (if none of these is given, all will be
                  calibrated)
 
@@ -803,6 +804,9 @@ uxrce_dds_client <command> [arguments...]
                  values: <IP>
      [-p <val>]  Agent listening port. If not provided, defaults to
                  UXRCE_DDS_PRT
+     [-l]        Restrict to localhost (use in combination with
+                 ROS_LOCALHOST_ONLY=1)
+     [-c]        Use custom participant config (profile_name="px4_participant")
      [-n <val>]  Client DDS namespace
 
    stop

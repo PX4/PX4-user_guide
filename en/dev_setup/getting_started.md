@@ -6,4 +6,4 @@ This section contains topics about getting started with PX4 development:
 * [Toolchain Installation](../dev_setup/dev_env.md)
 * [Building the Code](../dev_setup/building_px4.md)
 * [Writing an Application](../modules/hello_sky.md)
-* [Application/Module Template](../modules/module_template.md)
+* [Application/Module Template](../modules/modules_template.md)

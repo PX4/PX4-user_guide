@@ -350,7 +350,7 @@
       * [Other/Generic Tools](dev_setup/generic_dev_tools.md)
     * [Building the Code](dev_setup/building_px4.md)
     * [Writing your First Application](modules/hello_sky.md)
-    * [Application/Module Template](modules/module_template.md)
+    * [Application/Module Template](modules/modules_template.md)
   * [Concepts](concept/README.md)
     * [PX4 Architecture](concept/px4_systems_architecture.md)
     * [PX4 Flight Stack Architecture](concept/architecture.md)

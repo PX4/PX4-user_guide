@@ -1,45 +1,15 @@
 # Modules Reference: Driver
 Subcategories:
-- [Imu](modules_driver_imu.md)
-- [Distance Sensor](modules_driver_distance_sensor.md)
-- [Ins](modules_driver_ins.md)
-- [Airspeed Sensor](modules_driver_airspeed_sensor.md)
-- [Baro](modules_driver_baro.md)
 - [Transponder](modules_driver_transponder.md)
+- [Imu](modules_driver_imu.md)
+- [Ins](modules_driver_ins.md)
+- [Baro](modules_driver_baro.md)
 - [Rpm Sensor](modules_driver_rpm_sensor.md)
-- [Optical Flow](modules_driver_optical_flow.md)
+- [Airspeed Sensor](modules_driver_airspeed_sensor.md)
 - [Magnetometer](modules_driver_magnetometer.md)
+- [Optical Flow](modules_driver_optical_flow.md)
+- [Distance Sensor](modules_driver_distance_sensor.md)
 
-## MCP23009
-Source: [drivers/gpio/mcp23009](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gpio/mcp23009)
-
-<a id="MCP23009_usage"></a>
-### Usage
-```
-MCP23009 <command> [arguments...]
- Commands:
-   start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 37
-     [-D <val>]  Direction
-                 default: 0
-     [-O <val>]  Output
-                 default: 0
-     [-P <val>]  Pullups
-                 default: 0
-     [-U <val>]  Update Interval [ms]
-                 default: 0
-
-   stop
-
-   status        print status info
-```
 ## adc
 Source: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/board_adc)
 
@@ -64,21 +34,6 @@ adc <command> [arguments...]
 ```
 ## ads1115
 Source: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/ads1115)
-
-
-### Description
-
-Driver to enable an external [ADS1115](https://www.adafruit.com/product/1085) ADC connected via I2C.
-
-The driver is included by default in firmware for boards that do not have an internal analog to digital converter,
-such as [PilotPi](../flight_controller/raspberry_pi_pilotpi.md) or [CUAV Nora](../flight_controller/cuav_nora.md)
-(search for `CONFIG_DRIVERS_ADC_ADS1115` in board configuration files).
-
-It is enabled/disabled using the
-[ADC_ADS1115_EN](../advanced_config/parameter_reference.md#ADC_ADS1115_EN)
-parameter, and is disabled by default.
-If enabled, internal ADCs are not used.
-
 
 <a id="ads1115_usage"></a>
 ### Usage
@@ -943,25 +898,6 @@ pca9685_pwm_out <command> [arguments...]
 
    status        print status info
 ```
-## pm_selector_auterion
-Source: [drivers/power_monitor/pm_selector_auterion](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/pm_selector_auterion)
-
-
-### Description
-Driver for starting and auto-detecting different power monitors.
-
-
-<a id="pm_selector_auterion_usage"></a>
-### Usage
-```
-pm_selector_auterion <command> [arguments...]
- Commands:
-   start
-
-   stop
-
-   status        print status info
-```
 ## pmw3901
 Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/pmw3901)
 
@@ -1143,7 +1079,7 @@ rc_input <command> [arguments...]
    status        print status info
 ```
 ## rgbled
-Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/rgbled_ncp5623c)
+Source: [drivers/lights/rgbled](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/rgbled)
 
 <a id="rgbled_usage"></a>
 ### Usage
@@ -1158,9 +1094,7 @@ rgbled <command> [arguments...]
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
-                 default: 57
-     [-o <val>]  RGB PWM Assignment
-                 default: 123
+                 default: 85
 
    stop
 

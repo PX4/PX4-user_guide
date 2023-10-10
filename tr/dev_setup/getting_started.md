@@ -6,4 +6,4 @@ Bu bölüm, PX4 geliştirmeye başlamakla ilgili konuları içermektedir:
 * [Geliştirici ortamı kurulumu](../dev_setup/dev_env.md)
 * [Kodu oluşturma ve geliştirme](../dev_setup/building_px4.md)
 * [Bir Uygulama yazma](../modules/hello_sky.md)
-* [Uygulama/Modül Şablonu](../modules/module_template.md)
+* [Uygulama/Modül Şablonu](../modules/modules_template.md)
