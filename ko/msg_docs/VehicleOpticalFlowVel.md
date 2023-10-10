@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleOpticalFlowVel.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/msg/VehicleOpticalFlowVel.msg)
 
 ```c
 uint64 timestamp                       # time since system start (microseconds)
