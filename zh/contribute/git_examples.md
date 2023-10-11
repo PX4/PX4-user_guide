@@ -176,16 +176,16 @@ You can reuse an existing repo rather than cloning a new one. In this case clean
 
 :::
 
-- Fetch the desired release branch. For example, assuming you want the source for PX4 v1.13:
+- Fetch the desired release branch. For example, assuming you want the source for PX4 v1.14:
 
   ```sh
-  git fetch origin release/1.13
+  git fetch origin release/1.14
   ```
 
 - Checkout the code for the branch
 
   ```sh
-  git checkout release/1.13
+  git checkout release/1.14
   ```
 
 - Update submodules:
