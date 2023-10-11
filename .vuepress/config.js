@@ -88,7 +88,7 @@ module.exports = {
     }
   },
   themeConfig: {
-    px4_version: 'main',
+    px4_version: 'v1.14',
     sidebarDepth:0,  //change to 1 if decide to use vuepress-plugin-right-anchor
     logo: '/px4-logo.svg',
     searchMaxSuggestions: 10,
@@ -175,6 +175,7 @@ module.exports = {
             ariaLabel: 'Versions Menu',
             items: [
               { text: 'main', link: 'https://docs.px4.io/main/en/' },
+              { text: 'v1.14', link: 'https://docs.px4.io/v1.14/en/' },
               { text: 'v1.13', link: 'https://docs.px4.io/v1.13/en/' },
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/en/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
@@ -256,7 +257,8 @@ module.exports = {
             ariaLabel: 'Versions Menu',
             items: [
               { text: 'main', link: 'https://docs.px4.io/main/ko/' },
-              { text: 'v1.13', link: 'https://docs.px4.io/v1.12/ko/' },
+              { text: 'v1.14', link: 'https://docs.px4.io/v1.14/ko/' },
+              { text: 'v1.13', link: 'https://docs.px4.io/v1.13/ko/' },
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/ko/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
               {
@@ -330,6 +332,7 @@ module.exports = {
             ariaLabel: 'Versions Menu',
             items: [
               { text: 'main', link: 'https://docs.px4.io/main/zh/' },
+              { text: 'v1.14', link: 'https://docs.px4.io/v1.14/zh/' },
               { text: 'v1.13', link: 'https://docs.px4.io/v1.13/zh/' },
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/zh/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/zh/' },
