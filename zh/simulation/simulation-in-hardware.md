@@ -114,7 +114,7 @@ PX4_SIM_SPEED_FACTOR=10 make px4_sitl sihsim_airplane
 
 The dynamic models for the various vehicles are:
 
-- Quadrotor: [pdf report](https://github.com/PX4/PX4-user_guide/raw/main/assets/simulation/SIH_dynamic_model.pdf).
+- Quadrotor: [pdf report](https://github.com/PX4/PX4-user_guide/raw/v1.14/assets/simulation/SIH_dynamic_model.pdf).
 - Fixed-wing: Inspired by the PhD thesis: "Dynamics modeling of agile fixed-wing unmanned aerial vehicles." Khan, Waqas, supervised by Nahon, Meyer, McGill University, PhD thesis, 2016.
 - Tailsitter: Inspired by the master's thesis: "Modeling and control of a flying wing tailsitter unmanned aerial vehicle." Chiappinelli, Romain, supervised by Nahon, Meyer, McGill University, Masters thesis, 2018.
 

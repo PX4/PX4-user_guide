@@ -220,4 +220,4 @@ PWM과 정적 추력간의 매핑은 배터리 전압에 따라 크게 달라집
 
 기체 비행이 성공적이면 [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) 매개변수를 통하여 에어 모드를 활성화 할 수 있습니다.
 
-[THR_MDL_FAC_Calculation]: https://github.com/PX4/PX4-user_guide/blob/main/assets/config/mc/ThrustCurve.ipynb
+[THR_MDL_FAC_Calculation]: https://github.com/PX4/PX4-user_guide/blob/v1.14/assets/config/mc/ThrustCurve.ipynb

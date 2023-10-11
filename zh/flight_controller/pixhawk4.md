@@ -46,7 +46,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 - 其它特性：
   - 工作温度：-40 ~ 85°C
 
-Additional information can be found in the [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
+Additional information can be found in the [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/v1.14/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
 
 ## Where to Buy
 
@@ -147,7 +147,7 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 
 ## 更多信息
 
-- [Pixhawk 4 技术数据表](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
+- [Pixhawk 4 技术数据表](https://github.com/PX4/PX4-user_guide/raw/v1.14/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
 -
 FMUv5参考设计</0 >。</li> 
   

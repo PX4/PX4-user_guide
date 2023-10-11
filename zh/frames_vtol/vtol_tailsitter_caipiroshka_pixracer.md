@@ -11,7 +11,7 @@ The *TBS Caipirinha* has been superseded and is no longer available. These instr
 ## 配件列表
 
 * TBS Caipirinha Wing (no longer available - try [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp))
-* Left and right 3D-printed motor mount (<a href="https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/caipiroshka/motor_mounts.zip" target="_blank">design files</a>)
+* Left and right 3D-printed motor mount (<a href="https://github.com/PX4/PX4-user_guide/raw/v1.14/assets/airframes/vtol/caipiroshka/motor_mounts.zip" target="_blank">design files</a>)
 * CW 8045 propeller ([Eflight store](https://www.banggood.com/GEMFAN-Carbon-Nylon-8045-CWCCW-Propeller-For-Quadcopters-1-Pair-p-950874.html))
 * CCW 8045 propeller ([Eflight store](https://www.banggood.com/GEMFAN-Carbon-Nylon-8045-CWCCW-Propeller-For-Quadcopters-1-Pair-p-950874.html))
 * 2 x 1800kv 120-180W电机
