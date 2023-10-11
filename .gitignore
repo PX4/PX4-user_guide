@@ -7,6 +7,9 @@ node_modules
 # Book build output
 _book
 
+#log folder
+logs
+
 # Vuepress build output
 .vuepress/dist
 
