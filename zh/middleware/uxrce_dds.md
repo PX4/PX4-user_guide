@@ -234,6 +234,8 @@ The configuration can be done using the [UXRCE-DDS parameters](../advanced_confi
 
   - [UXRCE_DDS_KEY](../advanced_config/parameter_reference.md#UXRCE_DDS_KEY): The uXRCE-DDS key. If you're working in a multi-client, single agent configuration, each client should have a unique non-zero key. This is primarily important for multi-vehicle simulations, where all clients are connected in UDP to the same agent. (See the [official eprosima documentation](https://micro-xrce-dds.docs.eprosima.com/en/stable/client_api.html#session) , `uxr_init_session`.)
   - [UXRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#UXRCE_DDS_DOM_ID): The DDS domain ID. This provides a logical separation between DDS networks, and can be used to separate clients on different networks. By default, ROS 2 operates on ID 0.
+  - [UXRCE_DDS_PTCFG](../advanced_config/parameter_reference.md#UXRCE_DDS_PTCFG): uXRCE-DDS participant configuration. It allows to restrict the visibility of the DDS topics to the _localhost_ only and to use user-customized participant configuration files stored on the agent side.
+
 
 :::note
 Many ports are already have a default configuration. To use these ports you must first disable the existing configuration:
@@ -393,6 +395,20 @@ Each (`topic`,`type`) pairs defines:
 4. The message type (`VehicleOdometry`, `VehicleStatus`, `OffboardControlMode`, etc.) and the ROS 2 package (`px4_msgs`) that is expected to provide the message definition.
 
 You can arbitrarily change the configuration. For example, you could use different default namespaces or use a custom package to store the message definitions.
+
+For publishers, an optional key `interval_us` can be added to specify the minimum duration between topic publications. If this key is not present, the topic will be published at the uORB topic rate. For subscribers, this key will be ignored.
+
+For example, the `vehicle_attitude` topic shown below would publish no faster than 10 Hz, even though the uORB topic rate is much higher.
+
+```yaml
+publications:
+  - topic: /fmu/out/vehicle_attitude
+    type: px4_msgs::msg::VehicleAttitude
+    interval_us: 100000
+
+  - topic: /fmu/out/vehicle_odometry
+    type: px4_msgs::msg::VehicleOdometry
+```
 
 ## Fast-RTPS to uXRCE-DDS Migration Guidelines
 
