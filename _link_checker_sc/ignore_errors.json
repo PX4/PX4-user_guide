@@ -505,5 +505,64 @@
       "text": "Follow Me"
     },
     "hideReason": "HTML link in table"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_fw/takeoff.html",
+      "text": "Takeoff"
+    },
+    "hideReason": "md file linked from inside html"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_fw/land.html",
+      "text": "Land"
+    },
+    "hideReason": "md file linked from inside html"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_fw/hold.html",
+      "text": "Hold"
+    },
+    "hideReason": "md file linked from inside html"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_mc/takeoff.html",
+      "text": "Takeoff"
+    },
+    "hideReason": "md file linked from inside html"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_mc/land.html",
+      "text": "Land"
+    },
+    "hideReason": "md file linked from inside html"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_mc/hold.html",
+      "text": "Hold"
+    },
+    "hideReason": "md file linked from inside html"
+  },
+  {
+    "type": "OrphanedImage",
+    "fileRelativeToRoot": "assets\\simulation\\gazebo_classic\\gazebo_offboard.webm",
+    "hideReason": "Its fine"
   }
 ]
