@@ -38,7 +38,7 @@ All simulators except for Gazebo communicate with PX4 using the Simulator MAVLin
 ![시뮬레이터 MAVLink API](../../assets/simulation/px4_simulator_messages.svg)
 
 :::note
-A SITL build of PX4 uses [SimulatorMavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/simulator_mavlink/SimulatorMavlink.cpp) to handle these messages while a hardware build in HIL mode uses [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp). 시뮬레이터의 센서 데이터는 PX4 uORB 주제에 기록됩니다. 모든 모터/액츄에이터가 차단되지만, 내부 소프트웨어는 완전하게 작동합니다.
+A SITL build of PX4 uses [SimulatorMavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/modules/simulation/simulator_mavlink/SimulatorMavlink.cpp) to handle these messages while a hardware build in HIL mode uses [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/modules/mavlink/mavlink_receiver.cpp). 시뮬레이터의 센서 데이터는 PX4 uORB 주제에 기록됩니다. 모든 모터/액츄에이터가 차단되지만, 내부 소프트웨어는 완전하게 작동합니다.
 :::
 
 메시지는 아래에 설명되어 있습니다(자세한 내용은 링크 참조).
@@ -179,7 +179,7 @@ To disable lockstep in PX4, run `make px4_sitl_default boardconfig` and set the 
 
 To disable lockstep in Gazebo, edit [the model SDF file](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) and set `<enable_lockstep>false</enable_lockstep>`.
 
-To disable lockstep in jMAVSim, remove `-l` in [sitl_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/jsbsim/sitl_run.sh#L40), or make sure otherwise that the java binary is started without the `-lockstep` flag.
+To disable lockstep in jMAVSim, remove `-l` in [sitl_run.sh](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/Tools/simulation/jsbsim/sitl_run.sh#L40), or make sure otherwise that the java binary is started without the `-lockstep` flag.
 <!-- Relevant lines in sitl_run.sh are: -->
 <!-- # Start Java simulator -->
 <!-- "$src_path"/Tools/simulation/jmavsim/jmavsim_run.sh -r 250 -l & SIM_PID=$! -->
@@ -271,14 +271,14 @@ The simulated camera is a gazebo classic plugin that implements the [MAVLink Cam
 브로드캐스팅은 네트워크에서 실행 중인 시뮬레이션이 하나만 있는 경우에 간단하게 연결되도록 합니다. Do not use this approach if there are multiple simulations running on the network (you might instead [publish to a specific address](#enable-streaming-to-specific-address)).
 :::
 
-`mavlink start`가 호출되는 적절한 설정 파일에서 이 작업을 수행하여야 합니다. For example: [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink).
+`mavlink start`가 호출되는 적절한 설정 파일에서 이 작업을 수행하여야 합니다. For example: [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink).
 
 
 ### 특정 주소로 스트리밍 활성화
 
 [mavlink 모듈](../modules/modules_communication.md#mavlink_usage)은 기본적으로 *localhost*로 라우팅되지만, `-t` 옵션을 사용하여 스트리밍 외부 IP 주소를 지정합니다. 지정된 원격 컴퓨터가 적절한 포트(예: *QGroundControl*의 경우 14550)를 수신하여 시뮬레이터에 연결할 수 있습니다.
 
-`mavlink start`가 호출되는 설정 파일에서 이 작업을 수행하여야 합니다. For example: [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink).
+`mavlink start`가 호출되는 설정 파일에서 이 작업을 수행하여야 합니다. For example: [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink).
 
 
 ### SSH 터널링

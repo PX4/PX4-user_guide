@@ -113,7 +113,7 @@ To switch between branches:
    make submodulesclean
    ```
 
-<!-- FYI: Cleaning commands in https://github.com/PX4/PX4-Autopilot/blob/main/Makefile#L494 -->
+<!-- FYI: Cleaning commands in https://github.com/PX4/PX4-Autopilot/blob/release/1.14/Makefile#L494 -->
 
 ## 특정 릴리스 가져오기
 
@@ -178,13 +178,13 @@ You can reuse an existing repo rather than cloning a new one. In this case clean
 - Fetch the desired release branch. For example, assuming you want the source for PX4 v1.13:
 
   ```sh
-  git fetch origin release/1.13
+  git fetch origin release/1.14
   ```
 
 - Checkout the code for the branch
 
   ```sh
-  git checkout release/1.13
+  git checkout release/1.14
   ```
 
 - Update submodules:

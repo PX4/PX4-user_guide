@@ -8,7 +8,7 @@
 Welcome to the PX4 Community!
 
 :::tip
-We pledge to adhere to the [PX4 code of conduct](https://github.com/PX4/PX4-Autopilot/blob/main/CODE_OF_CONDUCT.md), which aims to foster an open and welcoming environment.
+We pledge to adhere to the [PX4 code of conduct](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/CODE_OF_CONDUCT.md), which aims to foster an open and welcoming environment.
 :::
 
 

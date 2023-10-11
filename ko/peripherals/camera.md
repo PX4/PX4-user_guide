@@ -111,7 +111,7 @@ When using a camera connected to the flight controller as described in this docu
 | Param #2 | Reset trigger sequence. `1`: reset, any other value does nothing.                                  |
 | Param #3 | Pause triggering, but without switching the camera off or retracting it. `1`: pause, `0`: restart. |
 
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/camera_trigger/camera_trigger.cpp#L549 -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/drivers/camera_trigger/camera_trigger.cpp#L549 -->
 
 [MAV_CMD_DO_DIGICAM_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_DIGICAM_CONTROL) - 모든 모드에서 허용됩니다.
 
@@ -129,7 +129,7 @@ When using a camera connected to the flight controller as described in this docu
 
 <p spaces-before="0">This accepts <code>param1` to `param4` as defined in the MAVLink message definition. The shutter integration setting (`param2`) is only obeyed with a GPIO backend.</p>
 
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/camera_trigger/camera_trigger.cpp#L632 -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/drivers/camera_trigger/camera_trigger.cpp#L632 -->
 
 ## MAVLink Cameras
 

@@ -110,7 +110,7 @@ where `ARGS` is a list of environment variables including:
 
 - `PX4_GZ_WORLD`:
   Sets the Gazebo world file for a new simulation.
-  If it is not given, then [default](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf) is used.
+  If it is not given, then [default](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/Tools/simulation/gz/worlds/default.sdf) is used.
   - This variable is ignored if an existing simulation is already running.
   - This value should be [specified for the selected airframe](#adding-new-worlds-and-models) but may be overridden using this argument.
 
@@ -119,7 +119,7 @@ where `ARGS` is a list of environment variables including:
   - This value should be [set for the selected airframe](#adding-new-worlds-and-models), in which case it does not need to be set as an argument.
 
 The PX4 Gazebo worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-Autopilot/tree/main/Tools/simulation/gz).
-They are added to the Gazebo search `PATH` by [gz_env.sh.in](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/gz_bridge/gz_env.sh.in) during the simulation startup phase.
+They are added to the Gazebo search `PATH` by [gz_env.sh.in](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/modules/simulation/gz_bridge/gz_env.sh.in) during the simulation startup phase.
 
 :::note
 `gz_env.sh.in` is compiled and made available in `$PX4_DIR/build/px4_sitl_default/rootfs/gz_env.sh`
@@ -155,7 +155,7 @@ To add a new model:
 
 1. Add an **sdf** file in the PX4 Gazebo [model directory](https://github.com/PX4/PX4-Autopilot/tree/main/Tools/simulation/gz/models).
 1. Define an [airframe configuration file](../dev_airframes/adding_a_new_frame.md).
-1. Define the default parameters for Gazebo in the airframe configuration file (this example is from [x500 quadcopter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/4001_gz_x500)):
+1. Define the default parameters for Gazebo in the airframe configuration file (this example is from [x500 quadcopter](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/ROMFS/px4fmu_common/init.d-posix/airframes/4001_gz_x500)):
 
    ```
    PX4_SIMULATOR=${PX4_SIMULATOR:=gz}
@@ -164,7 +164,7 @@ To add a new model:
    ```
    - `PX4_SIMULATOR=${PX4_SIMULATOR:=gz}` sets the default simulator (Gz) for that specific airframe.
 
-   - `PX4_GZ_WORLD=${PX4_GZ_WORLD:=default}` sets the [default world](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf) for that specific airframe.
+   - `PX4_GZ_WORLD=${PX4_GZ_WORLD:=default}` sets the [default world](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/Tools/simulation/gz/worlds/default.sdf) for that specific airframe.
 
    - Setting the default value of `PX4_SIM_MODEL` lets you start the simulation with just
      ```bash

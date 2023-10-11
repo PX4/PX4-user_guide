@@ -67,7 +67,7 @@ Before using offboard mode with ROS 2, please spend a few minutes understanding 
 
 ### Copter
 
-* [px4_msgs::msg::TrajectorySetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectorySetpoint.msg)
+* [px4_msgs::msg::TrajectorySetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/msg/TrajectorySetpoint.msg)
   * 다음 입력 조합이 지원됩니다.
     * Position setpoint (`position` different from `NaN`). Non-`NaN` values of velocity and acceleration are used as feedforward terms for the inner loop controllers.
     * Velocity setpoint (`velocity` different from `NaN` and `position` set to `NaN`). Non-`NaN` values acceleration are used as feedforward terms for the inner loop controllers.
@@ -75,17 +75,17 @@ Before using offboard mode with ROS 2, please spend a few minutes understanding 
 
   - All values are interpreted in NED (Nord, East, Down) coordinate system and the units are \[m\], \[m/s\] and \[m/s^2\] for position, velocity and acceleration, respectively.
 
-* [px4_msgs::msg::VehicleAttitudeSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitudeSetpoint.msg)
+* [px4_msgs::msg::VehicleAttitudeSetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/msg/VehicleAttitudeSetpoint.msg)
   * The following input combination is supported:
     * quaterion `q_d` + thrust setpoint `thrust_body`. Non-`NaN` values of `yaw_sp_move_rate` are used as feedforward terms expressed in Earth frame and in \[rad/s\].
   - The quaterion represents the rotation between the drone body FRD (front, right, down) frame and the NED frame. The trust is in the drone body FRD frame and expressed in normalized \[-1, 1\] values.
 
-* [px4_msgs::msg::VehicleRatesSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleRatesSetpoint.msg)
+* [px4_msgs::msg::VehicleRatesSetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/msg/VehicleRatesSetpoint.msg)
   * The following input combination is supported:
     * `roll`, `pitch`, `yaw` and `thrust_body`.
   - All the value are in the drone body FRD frame. The rates are in \[rad/s\] while thrust_body is normalized in \[-1, 1\].
 
-* [px4_msgs::msg::VehicleThrustSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleThrustSetpoint.msg) + [px4_msgs::msg::VehicleTorqueSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleTorqueSetpoint.msg)
+* [px4_msgs::msg::VehicleThrustSetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/msg/VehicleThrustSetpoint.msg) + [px4_msgs::msg::VehicleTorqueSetpoint](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/msg/VehicleTorqueSetpoint.msg)
   * The following input combination is supported:
     * `xyz` for thrust and `xyz` for torque.
   - All the value are in the drone body FRD frame and normalized in \[-1, 1\].
@@ -100,7 +100,7 @@ The following MAVLink messages and their particular fields and field values are 
 ### 멀티콥터/VTOL
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
-  * 다음 입력 조합이 지원됩니다. <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 다음 입력 조합이 지원됩니다. <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 위치 설정점(`x`, `y`, `z` 만 해당.)
     * Velocity setpoint (only `vx`, `vy`, `vz`)
     * 가속도 설정점 (`afx`, `afy`, `afz` 만 해당)
@@ -109,7 +109,7 @@ The following MAVLink messages and their particular fields and field values are 
   - * PX4는 `coordinate_frame` 값 (전용)을 지원합니다 : [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 및 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
-  * 다음 입력 조합이 지원됩니다. <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 다음 입력 조합이 지원됩니다. <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 위치 설정점(`lat_int`, `lon_int`, `alt` 만 해당.)
     * Velocity setpoint (only `vx`, `vy`, `vz`)
     * *추진력* 설정점 (`afx`, `afy`, `afz` 만 해당)
@@ -128,7 +128,7 @@ The following MAVLink messages and their particular fields and field values are 
 ### Fixed-wing
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
-  * 다음 입력 조합이 지원됩니다 (`type_mask`를 통해). <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 다음 입력 조합이 지원됩니다 (`type_mask`를 통해). <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 위치 설정점 (`x`, `y`, `z` 만 해당, 속도 및 가속도 설정 값은 무시됨).
       * :::note 아래의 *setpoint type* 값은 `type_mask` 필드에 대한 MAVLink 표준의 일부가 아닙니다. :::
 
@@ -141,7 +141,7 @@ The following MAVLink messages and their particular fields and field values are 
   * PX4는 좌표 프레임 (`coordinate_frame` 필드)을 지원합니다 : [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 및 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
-  * 다음 입력 조합이 지원됩니다 (`type_mask`를 통해). <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 다음 입력 조합이 지원됩니다 (`type_mask`를 통해). <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 위치 설정점(`lat_int`, `lon_int`, `alt` 만 해당.)
       * `type_mask`에서 설정점의 *유형*을 지정합니다 (이 비트가 설정되지 않은 경우 차량은 꽃과 같은 패턴으로 비행합니다).
 
@@ -163,7 +163,7 @@ The following MAVLink messages and their particular fields and field values are 
 ### 탐사선
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
-  * 다음 입력 조합이 지원됩니다 (`type_mask`를 통해). <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 다음 입력 조합이 지원됩니다 (`type_mask`를 통해). <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 위치 설정점(`x`, `y`, `z` 만 해당.)
       * `type_mask`에서 설정점의 *유형*을 지정합니다.
 
@@ -176,7 +176,7 @@ The following MAVLink messages and their particular fields and field values are 
   - PX4는 좌표 프레임 (`coordinate_frame` 필드)을 지원합니다 : [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 및 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
-  * 다음 입력 조합이 지원됩니다 (`type_mask`를 통해). <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 다음 입력 조합이 지원됩니다 (`type_mask`를 통해). <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 위치 설정점(`lat_int`, `lon_int`, `alt` 만 해당.)
   * `type_mask`에서 설정점의 *유형*을 지정합니다 (MAVLink 표준의 일부가 아님). 값들은 다음과 같습니다:
     - 다음 비트가 설정되지 않으면 정상적인 동작입니다.

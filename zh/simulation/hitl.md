@@ -24,7 +24,7 @@ PX4 supports HITL for multicopters (using jMAVSim or Gazebo Classic) and VTOL (u
 硬件在环仿真（HITL）模式下标准的 PX4 固件在真实的硬件上运行。 JMAVSim or Gazebo Classic (running on a development computer) are connected to the flight controller hardware via USB/UART. 模拟器充当在 PX4 和 *QGroundControl* 之间共享 MAVLink 数据的网关。
 
 :::note
-The simulator can also be connected via UDP if the flight controller has networking support and uses a stable, low-latency connection (e.g. a wired Ethernet connection - WiFi is usually not sufficiently reliable). For example, this configuration has been tested with PX4 running on a Raspberry Pi connected via Ethernet to the computer (a startup configuration that includes the command for running jMAVSim can be found [here](https://github.com/PX4/PX4-Autopilot/blob/main/posix-configs/rpi/px4_hil.config)).
+The simulator can also be connected via UDP if the flight controller has networking support and uses a stable, low-latency connection (e.g. a wired Ethernet connection - WiFi is usually not sufficiently reliable). For example, this configuration has been tested with PX4 running on a Raspberry Pi connected via Ethernet to the computer (a startup configuration that includes the command for running jMAVSim can be found [here](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/posix-configs/rpi/px4_hil.config)).
 :::
 
 The diagram below shows the simulation environment:

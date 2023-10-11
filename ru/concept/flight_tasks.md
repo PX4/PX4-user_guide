@@ -93,7 +93,7 @@ The instructions below might be used to create a task named *MyTask*:
 6. Update a flight mode to ensure that the task is called. Usually a parameter is used to select when a particular flight task should be used.
 
    For example, to enable our new `MyTask` in multicopter Position mode:
-   - Update `MPC_POS_MODE` ([multicopter_position_mode_params.c](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mc_pos_control/multicopter_position_mode_params.c)) to add an option for selecting "MyTask" if the parameter has a previously unused value like 5:
+   - Update `MPC_POS_MODE` ([multicopter_position_mode_params.c](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/modules/mc_pos_control/multicopter_position_mode_params.c)) to add an option for selecting "MyTask" if the parameter has a previously unused value like 5:
      ```
      ...
       * @value 0 Direct velocity
