@@ -14,8 +14,8 @@ Cameras can also (optionally) signal PX4 at the exact moment that a photo/frame 
 This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
 
 
-<!-- Camera trigger driver: https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger -->
-<!-- Camera capture driver: https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture -->
+<!-- Camera trigger driver: https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/camera_trigger -->
+<!-- Camera capture driver: https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/camera_capture -->
 
 ## Trigger Configuration
 

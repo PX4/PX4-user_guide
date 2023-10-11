@@ -14,7 +14,7 @@ The tutorial assumes you have a [custom uORB](../middleware/uorb.md) `ca_traject
 
 ## Defining Custom MAVLink Messages
 
-PX4 includes the [mavlink/mavlink](https://github.com/mavlink/mavlink) repo as a submodule under [/src/modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink), and generates the MAVLink 2 C header files at build time.
+PX4 includes the [mavlink/mavlink](https://github.com/mavlink/mavlink) repo as a submodule under [/src/modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/modules/mavlink), and generates the MAVLink 2 C header files at build time.
 
 There are are number of XML dialect files in [/mavlink/messages/1.0/](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/). The dialect that is built is specified using the variable `MAVLINK_DIALECT` in [/src/modules/mavlink/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/modules/mavlink/CMakeLists.txt#L34); by default this is [development.xml](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/development.xml). The files are generated into the build directory: `/build/<build target>/mavlink/`.
 

@@ -14,7 +14,7 @@ They are also present in other hardware:
 
 - [CUAV NEO 3 Pro GNSS module](https://doc.cuav.net/gps/neo-series-gnss/en/neo-3-pro.html#key-data) ([MS5611](../modules/modules_driver_baro.md#ms5611))
 
-The supported baro part numbers can be inferred from the driver names, which are listed in [PX4-Autopilot/src/drivers/barometer](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer) and from the [Modules Reference: Baro (Driver)](../modules/modules_driver_baro.md) documentation. At time of writing, drivers/parts include: bmp280, bmp388 (and BMP380), dps310, goertek (spl06), invensense (icp10100, icp10111, icp101xx, icp201xx), lps22hb, lps25h, lps33hw, maiertek (mpc2520), mpl3115a2, ms5611, ms5837, tcbp001ta
+The supported baro part numbers can be inferred from the driver names, which are listed in [PX4-Autopilot/src/drivers/barometer](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/barometer) and from the [Modules Reference: Baro (Driver)](../modules/modules_driver_baro.md) documentation. At time of writing, drivers/parts include: bmp280, bmp388 (and BMP380), dps310, goertek (spl06), invensense (icp10100, icp10111, icp101xx, icp201xx), lps22hb, lps25h, lps33hw, maiertek (mpc2520), mpl3115a2, ms5611, ms5837, tcbp001ta
 
 
 ## PX4 Configuration
@@ -39,5 +39,5 @@ Barometers don't require calibration.
 
 ## Developer Information
 
-- [Baro driver source code](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer)
+- [Baro driver source code](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/barometer)
 - [Modules Reference: Baro (Driver)](../modules/modules_driver_baro.md) documentation.

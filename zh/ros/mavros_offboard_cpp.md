@@ -7,7 +7,7 @@
 :::
 
 :::tip
-该例程使用C++。 相似的使用 Python 的例子参见 [ROS/MAVROS Offboard示例(Python)](../ros/mavros_offboard_python.md) (也可参见 [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros))。
+该例程使用C++。 相似的使用 Python 的例子参见 [ROS/MAVROS Offboard示例(Python)](../ros/mavros_offboard_python.md) (也可参见 [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/integrationtests/python_src/px4_it/mavros))。
 :::
 
 <video width="100%" autoplay="true" controls="true">

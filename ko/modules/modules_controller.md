@@ -86,7 +86,7 @@ fw_att_control <command> [arguments...]
    status        print status info
 ```
 ## fw_pos_control
-Source: [modules/fw_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_pos_control)
+Source: [modules/fw_pos_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/modules/fw_pos_control)
 
 
 ### 설명
@@ -107,7 +107,7 @@ fw_pos_control <command> [arguments...]
    status        print status info
 ```
 ## fw_rate_control
-Source: [modules/fw_rate_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_rate_control)
+Source: [modules/fw_rate_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/modules/fw_rate_control)
 
 
 ### 설명

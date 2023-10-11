@@ -9,7 +9,7 @@ At the end of the tutorial, you should see the same behaviour as in the video be
 :::
 
 :::tip
-This example uses Python. Other examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros).
+This example uses Python. Other examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/integrationtests/python_src/px4_it/mavros).
 :::
 
 <a id="offb_video"></a>

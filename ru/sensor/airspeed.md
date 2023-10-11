@@ -64,4 +64,4 @@ Airspeed sensors should be calibrated by following the instructions: [Basic Conf
 
 ## Информация для разработчиков
 
-- [Airspeed drivers](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure) (source code)
+- [Airspeed drivers](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/differential_pressure) (source code)

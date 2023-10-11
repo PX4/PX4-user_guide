@@ -11,7 +11,7 @@
 - [Magnetometer](modules_driver_magnetometer.md)
 
 ## MCP23009
-Source: [drivers/gpio/mcp23009](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gpio/mcp23009)
+Source: [drivers/gpio/mcp23009](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/gpio/mcp23009)
 
 <a id="MCP23009_usage"></a>
 
@@ -241,7 +241,7 @@ bst <command> [arguments...]
    status        print status info
 ```
 ## crsf_rc
-Source: [drivers/rc/crsf_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/crsf_rc)
+Source: [drivers/rc/crsf_rc](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/rc/crsf_rc)
 
 
 ### 설명
@@ -514,7 +514,7 @@ gps <command> [arguments...]
      cold|warm|hot Specify reset type
 ```
 ## gz_bridge
-Source: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/gz_bridge)
+Source: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/modules/simulation/gz_bridge)
 
 
 ### Description
@@ -538,7 +538,7 @@ gz_bridge <command> [arguments...]
    status        print status info
 ```
 ## ina220
-Source: [drivers/power_monitor/ina220](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina220)
+Source: [drivers/power_monitor/ina220](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/power_monitor/ina220)
 
 
 ### 예
@@ -782,7 +782,7 @@ lsm303agr <command> [arguments...]
    status        print status info
 ```
 ## modal_io
-Source: [drivers/actuators/modal_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/modal_io)
+Source: [drivers/actuators/modal_io](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/actuators/modal_io)
 
 
 ### 설명
@@ -842,7 +842,7 @@ modal_io <command> [arguments...]
    status        print status info
 ```
 ## msp_osd
-Source: [drivers/osd/msp_osd](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/osd/msp_osd)
+Source: [drivers/osd/msp_osd](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/osd/msp_osd)
 
 
 ### 설명
@@ -981,7 +981,7 @@ pca9685_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pm_selector_auterion
-Source: [drivers/power_monitor/pm_selector_auterion](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/pm_selector_auterion)
+Source: [drivers/power_monitor/pm_selector_auterion](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/power_monitor/pm_selector_auterion)
 
 
 ### 설명
@@ -1066,7 +1066,7 @@ pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pwm_out_sim
-Source: [modules/simulation/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/pwm_out_sim)
+Source: [modules/simulation/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/modules/simulation/pwm_out_sim)
 
 
 ### 설명
@@ -1209,7 +1209,7 @@ rgbled <command> [arguments...]
    status        print status info
 ```
 ## rgbled_is31fl3195
-Source: [drivers/lights/rgbled_is31fl3195](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/rgbled_is31fl3195)
+Source: [drivers/lights/rgbled_is31fl3195](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/lights/rgbled_is31fl3195)
 
 <a id="rgbled_is31fl3195_usage"></a>
 
@@ -1236,7 +1236,7 @@ rgbled_is31fl3195 <command> [arguments...]
    status        print status info
 ```
 ## rgbled_lp5562
-Source: [drivers/lights/rgbled_lp5562](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/rgbled_lp5562)
+Source: [drivers/lights/rgbled_lp5562](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/lights/rgbled_lp5562)
 
 
 ### 설명

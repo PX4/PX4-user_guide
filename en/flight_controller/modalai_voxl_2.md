@@ -66,7 +66,7 @@ More information about the firmware can be found [here](https://docs.modalai.com
 
 ### main branch
 
-PX4 mainline support is a work in progress (currently started [here](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/voxl2)).
+PX4 mainline support is a work in progress (currently started [here](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/boards/modalai/voxl2)).
 
 ## QGroundControl Support
 

@@ -102,7 +102,7 @@ If both `PX4_GZ_MODEL_NAME` and `PX4_GZ_MODEL` are not given, then PX4 looks for
 - `PX4_SIMULATOR=GZ`: Sets the simulator, which for Gz must be `gz`.
   - This value should be [set for the selected airframe](#adding-new-worlds-and-models), in which case it does not need to be set as an argument.
 
-The PX4 Gazebo worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-Autopilot/tree/main/Tools/simulation/gz). They are added to the Gazebo search `PATH` by [gz_env.sh.in](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/modules/simulation/gz_bridge/gz_env.sh.in) during the simulation startup phase.
+The PX4 Gazebo worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/Tools/simulation/gz). They are added to the Gazebo search `PATH` by [gz_env.sh.in](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/modules/simulation/gz_bridge/gz_env.sh.in) during the simulation startup phase.
 
 :::note
 `gz_env.sh.in` is compiled and made available in `$PX4_DIR/build/px4_sitl_default/rootfs/gz_env.sh`
@@ -132,11 +132,11 @@ Here are some examples of the different scenarios covered above.
 
 ## Adding New Worlds and Models
 
-New worlds files can simply be copied into the PX4 Gazebo [world directory](https://github.com/PX4/PX4-Autopilot/tree/main/Tools/simulation/gz/worlds).
+New worlds files can simply be copied into the PX4 Gazebo [world directory](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/Tools/simulation/gz/worlds).
 
 To add a new model:
 
-1. Add an **sdf** file in the PX4 Gazebo [model directory](https://github.com/PX4/PX4-Autopilot/tree/main/Tools/simulation/gz/models).
+1. Add an **sdf** file in the PX4 Gazebo [model directory](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/Tools/simulation/gz/models).
 1. Define an [airframe configuration file](../dev_airframes/adding_a_new_frame.md).
 1. Define the default parameters for Gazebo in the airframe configuration file (this example is from [x500 quadcopter](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/ROMFS/px4fmu_common/init.d-posix/airframes/4001_gz_x500)):
 

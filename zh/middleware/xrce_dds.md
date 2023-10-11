@@ -32,7 +32,7 @@ PX4 [microdds-client](../modules/modules_system.md#microdds-client) 发布自定
 
 PX4 [microdds-client](../modules/modules_system.md#microdds-client) 是在构建时生成的，并且默认包含在 PX4 固件中。 代理不依赖客户端代码。 它可以单独构建或在ROS2工作区中构建，也可以在Ubuntu上采用snap包安装。
 
-在 PX4 构建时，代码生成器将基于代码树中的 uORB 消息定义([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg))将在 [PX4-Autopilot/src/modules/microdds_client/dds_subjects. aml](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/modules/microdds_client/dds_topics.yaml) 声明的 uORB 话题的子集编译至 [microdds-client](../modules/modules_system.md#microdds-client) 中。
+在 PX4 构建时，代码生成器将基于代码树中的 uORB 消息定义([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/msg))将在 [PX4-Autopilot/src/modules/microdds_client/dds_subjects. aml](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/modules/microdds_client/dds_topics.yaml) 声明的 uORB 话题的子集编译至 [microdds-client](../modules/modules_system.md#microdds-client) 中。
 
 PX4 main分支或release版本构建将自动从当前分支的 [PX4/px4_msgs](https://github.com/PX4/px4_msgs) 中导出 uORB 消息子集。
 
@@ -224,7 +224,7 @@ The topics are release specific (support is compiled into [microdds-client](../m
 Note that ROS 2/DDS needs to have the _same_ message definitions that were used to create the XRCE-DDS client module in the PX4 Firmware in order to interpret the messages. The message definitions are stored in the ROS 2 interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs), and they are automatically synchronized by CI on the `main` and release branches. Note that all the messages from PX4 source code are present in the repository, but only those listed in `dds_topics.yaml` will be available as ROS 2 topics. Therefore,
 
 - If you're using a main or release version of PX4 you can get the message definitions by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your workspace.
-- If you're creating or modifying uORB messages you must manually update the messages in your workspace from your PX4 source tree. Generally this means that you would update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/modules/microdds_client/dds_topics.yaml), clone the interface package, and then manually synchronize it by copying the new/modified message definitions from [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to its `msg` folders. Assuming that PX4-Autopilot is in your home directory `~`, while `px4_msgs` is in `~/px4_ros_com/src/`, then the command might be:
+- If you're creating or modifying uORB messages you must manually update the messages in your workspace from your PX4 source tree. Generally this means that you would update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/src/modules/microdds_client/dds_topics.yaml), clone the interface package, and then manually synchronize it by copying the new/modified message definitions from [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/msg) to its `msg` folders. Assuming that PX4-Autopilot is in your home directory `~`, while `px4_msgs` is in `~/px4_ros_com/src/`, then the command might be:
 
   ```sh
   rm ~/px4_ros_com/src/px4_msgs/msg/*.msg

@@ -104,7 +104,7 @@ adis16497 <command> [arguments...]
    status        print status info
 ```
 ## adis16507
-Source: [drivers/imu/analog_devices/adis16507](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/analog_devices/adis16507)
+Source: [drivers/imu/analog_devices/adis16507](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/imu/analog_devices/adis16507)
 
 <a id="adis16507_usage"></a>
 
@@ -158,7 +158,7 @@ bmi055 <command> [arguments...]
    status        print status info
 ```
 ## bmi085
-Source: [drivers/imu/bosch/bmi085](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/bosch/bmi085)
+Source: [drivers/imu/bosch/bmi085](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/imu/bosch/bmi085)
 
 <a id="bmi085_usage"></a>
 
@@ -241,7 +241,7 @@ bmi088_i2c <command> [arguments...]
    status        print status info
 ```
 ## bmi270
-Source: [drivers/imu/bosch/bmi270](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/bosch/bmi270)
+Source: [drivers/imu/bosch/bmi270](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/imu/bosch/bmi270)
 
 <a id="bmi270_usage"></a>
 
@@ -335,7 +335,7 @@ fxos8701cq <command> [arguments...]
    status        print status info
 ```
 ## iam20680hp
-Source: [drivers/imu/invensense/iam20680hp](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/iam20680hp)
+Source: [drivers/imu/invensense/iam20680hp](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/imu/invensense/iam20680hp)
 
 <a id="iam20680hp_usage"></a>
 
@@ -597,7 +597,7 @@ icm42688p <command> [arguments...]
    status        print status info
 ```
 ## l3gd20
-Source: [drivers/imu/invensense/icm45686](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/icm45686)
+Source: [drivers/imu/invensense/icm45686](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/imu/invensense/icm45686)
 
 <a id="icm42688p_usage"></a>
 
@@ -624,7 +624,7 @@ l3gd20 <command> [arguments...]
    status        print status info
 ```
 ## iim42652
-Source: [drivers/imu/invensense/iim42652](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/iim42652)
+Source: [drivers/imu/invensense/iim42652](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/imu/invensense/iim42652)
 
 <a id="iim42652_usage"></a>
 
@@ -651,7 +651,7 @@ iim42652 <command> [arguments...]
    status        print status info
 ```
 ## iim42653
-Source: [drivers/imu/invensense/iim42653](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/iim42653)
+Source: [drivers/imu/invensense/iim42653](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/imu/invensense/iim42653)
 
 <a id="iim42653_usage"></a>
 
@@ -781,7 +781,7 @@ mpu9520 <command> [arguments...]
    status        print status info
 ```
 ## mpu9250
-Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/mpu9250)
+Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/imu/invensense/mpu9250)
 
 <a id="mpu9250_usage"></a>
 

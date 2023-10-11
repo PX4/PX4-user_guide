@@ -13,7 +13,7 @@
 * 适用于期望平台的 [PX4 开发工具链](../setup/dev_env.md) 。
 * 从 Github [下载 PX4 源代码](../setup/building_px4.md#get_px4_code) 。
 
-The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
+The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
 * 重命名 (或删除) **px4_simple_app** 目录。
 
 ## 最小的应用程序
@@ -159,7 +159,7 @@ The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_modu
 * PX4 SITL (Simulator): [PX4-Autopilot/boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/boards/px4/sitl/default.px4board)
 * Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/boards/px4/fmu-v2/default.px4board)
 * Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.14/boards/px4/fmu-v4/default.px4board)
-* *px4board* files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/main/boards)
+* *px4board* files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/boards)
 
 To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the *px4board* file or run [boardconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup) `make px4_fmu-v4_default boardconfig`:
 
@@ -511,7 +511,7 @@ If you start *QGroundControl*, you can check the sensor values in the real time 
 
 ## 总结
 
-本教程涵盖了所有开发基本 PX4 自动驾驶仪应用程序的内容。 Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/main/msg/) and that the headers are well documented and serve as reference.
+本教程涵盖了所有开发基本 PX4 自动驾驶仪应用程序的内容。 Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/msg/) and that the headers are well documented and serve as reference.
 
 此处可找到更多信息和故障排除/常见陷阱：[uORB](../middleware/uorb.md)。
 

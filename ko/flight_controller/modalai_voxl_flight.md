@@ -187,7 +187,7 @@ _참고: 표시된 매핑은 PX4 제어 인터페이스 전용입니다._
 자세한 내용은 [ModalAI 포럼](https://forum.modalai.com/category/8/voxl-flight)을 참고하십시오.
 
 [stm32f765ii]: https://www.st.com/en/microcontrollers-microprocessors/stm32f765ii.html
-[px4]: https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/fc-v1
+[px4]: https://github.com/PX4/PX4-Autopilot/tree/release/1.14/boards/modalai/fc-v1
 [icm-20602]: https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/
 [bmi088]: https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1
 [bmp388]: https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp388/

@@ -11,8 +11,8 @@ Whenever a camera is triggered, the MAVLink [CAMERA_TRIGGER](https://mavlink.io/
 Cameras can also (optionally) signal PX4 at the exact moment that a photo/frame is taken using a camera capture pin. 이를 통하여 지오 태깅을위한 GPS 위치 또는 VIO 동기화를 위한 올바른 IMU 샘플 등에 이미지를 보다 정확하게 매핑할 수 있습니다.
 
 
-<!-- Camera trigger driver: https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger -->
-<!-- Camera capture driver: https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture -->
+<!-- Camera trigger driver: https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/camera_trigger -->
+<!-- Camera capture driver: https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/camera_capture -->
 
 ## 트리거 설정
 
