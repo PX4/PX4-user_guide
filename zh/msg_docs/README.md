@@ -1,12 +1,11 @@
-# uORB Message Reference
+# uORB 消息参考
 
-:::note
-This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/msg/generate_msg_docs.py) from the source code.
+此列表是[自动生成](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/msg/generate_msg_docs.py)从源代码。
 :::
 
-This topic lists the UORB messages available in PX4 (some of which may be may be shared by the [PX4-ROS 2 Bridge](../ros/ros2_comm.md)). Graphs showing how these are used [can be found here](../middleware/uorb_graph.md).
+本主题列出了PX4中可用的UORB消息（其中一些消息可能是[PX4-ROS 2 Bridge](../ros/ros2_comm.md)。 如何使用这些图表[可以在这里找到](../middleware/uorb_graph.md)。
 
-- [ActionRequest](ActionRequest.md)
+- [操作请求](ActionRequest.md)
 - [ActuatorArmed](ActuatorArmed.md)
 - [ActuatorControlsStatus](ActuatorControlsStatus.md)
 - [ActuatorMotors](ActuatorMotors.md) — Motor control message
