@@ -178,13 +178,11 @@ module.exports = {
               { text: 'v1.13', link: 'https://docs.px4.io/v1.13/en/' },
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/en/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
-              { text: 'v1.10', link: 'https://docs.px4.io/v1.10/en/' },
               {
                 text: 'DevGuide (Old/Merged)',
                 ariaLabel: 'Old Devguide',
                 items: [
                   { text: 'DevGuide v1.11', link: 'https://dev.px4.io/v1.11_noredirect/en/' },
-                  { text: 'DevGuide v1.10', link: 'https://dev.px4.io/v1.10_noredirect/en/' },
                 ]
               },
               
@@ -263,13 +261,11 @@ module.exports = {
               { text: 'v1.13', link: 'https://docs.px4.io/v1.13/ko/' },
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/ko/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
-              { text: 'v1.10', link: 'https://docs.px4.io/v1.10/en/' },
               {
                 text: 'DevGuide (Old/Merged)',
                 ariaLabel: 'Old Devguide',
                 items: [
                   { text: 'DevGuide v1.11', link: 'https://dev.px4.io/v1.11_noredirect/en/' },
-                  { text: 'DevGuide v1.10', link: 'https://dev.px4.io/v1.10_noredirect/en/' },
                 ]
               },
 
@@ -340,13 +336,11 @@ module.exports = {
               { text: 'v1.13', link: 'https://docs.px4.io/v1.13/zh/' },
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/zh/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/zh/' },
-              { text: 'v1.10', link: 'https://docs.px4.io/v1.10/zh/' },
               {
                 text: 'DevGuide (Old/Merged)',
                 ariaLabel: 'Old Devguide',
                 items: [
                   { text: 'DevGuide v1.11', link: 'https://dev.px4.io/v1.11_noredirect/en/' },
-                  { text: 'DevGuide v1.10', link: 'https://dev.px4.io/v1.10_noredirect/en/' },
                 ]
               },
               
