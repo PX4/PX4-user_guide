@@ -1,20 +1,19 @@
-# Connecting an RC Receiver to a PX4 Linux-based Autopilot
+# 将RC接收器连接到基于PX4 Linux的自动驾驶仪
 
-The *S.Bus Driver for Linux* allows a Linux-based autopilot to access up to 16 channels from a *Futaba S.Bus receiver* via a serial port. The driver should also work with other receivers that use the S.Bus protocol, including as FrSky, RadioLink, and even S.Bus encoders.
+本主题介绍如何设置PX4基于Linux的自动驾驶仪在任何串行端口上连接和使用[支持的RC接收器](../getting_started/rc_transmitter_receiver.md)。
 
-A signal inverter circuit is required (described below) to enable the device serial port to read data from the receiver.
+对于S.Bus以外的类型，您可以将接收器直接连接到串口，或者使用USB转TTY串行线（例如 PL2302 USB转串行TTL转换器）。
 
-:::note
-For an S.Bus receiver (or encoder - e.g. from Futaba, RadioLink, etc.) you will usually need to connect the receiver and device via a [signal inverter circuit](#signal_inverter_circuit), but otherwise the setup is the same.
+对于S.Bus接收器（或者编码-例如来自Futaba、RadioLink等），您通常需要通过[信号逆变器](#signal_inverter_circuit)连接接收器和设备，但其他设置是相同的。
 :::
 
-Then [Start the PX4 RC Driver](#start_driver) on the device, as shown below.
+然后[启动PX4 RC Driver](#start_driver)在设备上，如下图。
 
 <a id="start_driver"></a>
 
 ## Signal inverter circuit
 
-To start the RC driver on a particular UART (e.g. in this case `/dev/ttyS2`):
+要在 UART 上启动 RC驱动程序(例如: `/dev/ttyS2`)：
 
 ```
 linux_sbus start|stop|status -d <device> -c <channel>
@@ -26,7 +25,7 @@ S.Bus 是 *inverted* UART 通信信号。
 
 ## 源代码
 
-S.Bus is an _inverted_ UART communication signal.
+S.Bus 是 _inverted_ UART 通信信号。
 
 The command syntax is:
 
