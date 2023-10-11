@@ -562,8 +562,6 @@
       * [UavcanParameterValue](msg_docs/UavcanParameterValue.md)
       * [UlogStream](msg_docs/UlogStream.md)
       * [UlogStreamAck](msg_docs/UlogStreamAck.md)
-      * [UwbDistance](msg_docs/UwbDistance.md)
-      * [UwbGrid](msg_docs/UwbGrid.md)
       * [VehicleAcceleration](msg_docs/VehicleAcceleration.md)
       * [VehicleAirData](msg_docs/VehicleAirData.md)
       * [VehicleAngularAccelerationSetpoint](msg_docs/VehicleAngularAccelerationSetpoint.md)
