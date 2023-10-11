@@ -37,7 +37,7 @@ Performing this power compensation is advisable only if all the following statem
 
    ![strap](../../assets/advanced_config/strap.png)
 
-1. Power the vehicle and switch into [ACRO flight mode](../flight_modes/acro_mc.md) (using this mode ensures the vehicle won't attempt to compensate for movement resulting from the straps).
+1. Power the vehicle and switch into [ACRO flight mode](../flight_modes_mc/acro.md) (using this mode ensures the vehicle won't attempt to compensate for movement resulting from the straps).
 
    - Arm the vehicle and slowly raise the throttle to the maximum
    - Slowly lower the throttle down to zero

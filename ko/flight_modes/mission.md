@@ -9,7 +9,7 @@
 - 이 모드를 사용하려면 기체의 시동을 걸어야합니다.
 - 이 모드는 자동이며, 기체 제어에 사용자 개입이 *필요하지* 않습니다.
 - RC 무선 조종기 스위치는 기체의 비행 모드를 변경할 수 있습니다.
-- 멀티콥터와 VTOL 멀티콥터 모드에서 RC 스틱을 움직이면 위험한 배터리 안전 장치를 처리하지 않는 한 [기본적으로](#COM_RC_OVERRIDE) 기체는 [위치 모드](../flight_modes/position_mc.md)로 변경됩니다. :::
+- RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe. :::
 
 ## 설명
 
@@ -43,7 +43,7 @@ If you have a *Jump to item* command in the mission, moving to another item will
 :::tip
 To automatically disarm the vehicle after it lands, in *QGroundControl* go to [Vehicle Setup > Safety](https://docs.qgroundcontrol.com/master/en/SetupView/Safety.html), navigate to *Land Mode Settings* and check the box labeled *Disarm after*. 착륙 후 시동 꺼기 대기 시간을 입력하십시오. :::
 
-Missions can be paused by switching out of mission mode to any other mode (such as [Hold mode](../flight_modes/hold.md) or [Position mode](../flight_modes/position_mc.md). When you switch back to mission mode the vehicle will continue the mission, heading from the _current vehicle position_ to the current active mission item (the same waypoint it as heading towards originally). Note that if you moved the vehicle while the mission was paused you will no longer be following the original track towards the waypoint. A mission can be uploaded while the vehicle is paused, in which which case the current active mission item is set to 1.
+Missions can be paused by switching out of mission mode to any other mode (such as [Hold mode](../flight_modes_mc/hold.md) or [Position mode](../flight_modes_mc/position.md)). When you switch back to mission mode the vehicle will continue the mission, heading from the _current vehicle position_ to the current active mission item (the same waypoint it as heading towards originally). Note that if you moved the vehicle while the mission was paused you will no longer be following the original track towards the waypoint. A mission can be uploaded while the vehicle is paused, in which which case the current active mission item is set to 1.
 
 :::warning
 RC 모드로 전환 전에 스로틀 스틱이 0이 아닌지 확인하십시오 (그렇지 않으면 기체가 충돌합니다).
@@ -83,12 +83,12 @@ A subset of the most important checks are listed below:
 
 General parameters:
 
-| 매개변수                                                                                                    | 설명                                                                                                                                                        |
-| ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="NAV_RCL_ACT"></a>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)         | RC 손실 안전 모드 (RC 연결이 끊어지면 기체가 수행할 작업) - 예 : 홀드 모드 진입, 복귀 모드, 종료 등                                                                                          |
-| <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_RCL_ACT)      | 고정익 선회 반경                                                                                                                                                 |
-| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 멀티콥터(MC 모드에서는 VTOL)의 스틱 움직임이 [위치 모드](../flight_modes/position_mc.md)에서 조종사에게 제어권을 재부여 여부를 제어합니다. 자동 모드와 오프보드 모드에 대해 별도로 활성화할 수 있으며, 기본적으로 자동 모드에서 활성화됩니다. |
-| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | [위치 모드](../flight_modes/position_mc.md)로 전환하는 스틱 이동량 ([COM_RC_OVERRIDE](#COM_RC_OVERRIDE)이 활성화된 경우).                                                    |
+| 매개변수                                                                                                    | 설명                                                                                                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <a id="NAV_RCL_ACT"></a>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)         | RC 손실 안전 모드 (RC 연결이 끊어지면 기체가 수행할 작업) - 예 : 홀드 모드 진입, 복귀 모드, 종료 등                                                                                                                                                   |
+| <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_RCL_ACT)      | 고정익 선회 반경                                                                                                                                                                                                          |
+| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Controls whether stick movement on a multicopter (or VTOL in MC mode) gives control back to the pilot in [Position mode](../flight_modes_mc/position.md). 자동 모드와 오프보드 모드에 대해 별도로 활성화할 수 있으며, 기본적으로 자동 모드에서 활성화됩니다. |
+| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | The amount of stick movement that causes a transition to [Position mode](../flight_modes_mc/position.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled).                                                    |
 
 
 Parameters related to [mission feasibility checks](#mission-feasibility-checks):
@@ -193,28 +193,25 @@ If the vehicle is already flying when the mission is started, a takeoff mission 
 
 Starting flights with mission takeoff (and landing using a mission landing) is the recommended way of operating a plane autonomously.
 
+Both [runway takeoff](../flight_modes_fw/takeoff.md#runway-takeoff) and [hand-launched takeoff](../flight_modes_fw/takeoff.md#catapult-hand-launch) are supported — for configuration information see [Takeoff mode (FW)](../flight_modes_fw/takeoff.md).
+
+The takeoff behaviour is defined in a Takeoff mission item, which corresponds to the [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) MAVLink command. During mission execution the vehicle will takeoff towards this waypoint, and climb until the specified altitude is reached. The mission item is then accepted, and the mission will start executing the next item.
+
+More specifically, the takeoff mission item defines the takeoff course and clearance altitude. The course is the line between the vehicle starting point and the horizontal position defined in the mission item,  while the clearance altitude is the mission item altitude.
+
+For a runway takeoff, the `Takeoff` mission item will cause the vehicle to arm, throttle up the motors and take off. When hand-launching the vehicle will arm, but only throttle up when the vehicle is thrown (the acceleration trigger is detected). In both cases, the vehicle should be placed (or launched) facing towards the takeoff waypoint when the mission is started. If possible, always make the vehicle takeoff into the wind.
+
 :::note
-A more detailed description of mission mode fixed-wing takeoff can be found in [Takeoff mode > Fixed-wing](../flight_modes/takeoff.md#fixed-wing-fw) (covering fixed wing takeoff in both mission mode and takeoff mode). :::
+A fixed-wing mission requires a `Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint. :::
 
-Fixed-wing mission takeoffs are defined in a Takeoff mission item, which corresponds to the [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) MAVLink command.
-
-During mission execution the vehicle will takeoff towards this waypoint, and climb until the specified altitude is reached. The mission item is then accepted, and the mission will start executing the next item.
-
-Both runway and hand-launched takeoff are supported — for configuration information see [Takeoff mode > Fixed-wing](../flight_modes/takeoff.md#fixed-wing-fw). For a runway takeoff, the `Takeoff` mission item will cause the vehicle to arm, throttle up the motors and take off. When hand-launching the vehicle will arm, but only throttle up when the vehicle is thrown (the acceleration trigger is detected).
-
-In both cases, the vehicle should be placed (or launched) facing towards the takeoff waypoint when the mission is started. If possible, always make the vehicle takeoff into the wind.
-
-A fixed-wing mission requires a `Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint.
+For more infomormation about takeoff behaviour and configuration see [Takeoff mode (FW)](../flight_modes_fw/takeoff.md).
 
 
 ## FW Mission Landing
 
-Fixed wing mission landing is the recommended way to land a plane autonomously. This can be planned in *QGroundControl* using [fixed-wing landing pattern](https://docs.qgroundcontrol.com/master/en/PlanView/pattern_fixed_wing_landing.html).
+Fixed-wing mission landing is the recommended way to land a plane autonomously. This can be planned in *QGroundControl* using [fixed-wing landing pattern](https://docs.qgroundcontrol.com/master/en/PlanView/pattern_fixed_wing_landing.html).
 
 If possible, always plan the landing such that it does the approach into the wind.
-
-:::note
-Note fixed wing landing using [Land mode](../flight_modes/land.md#fixed-wing-fw) is currently broken, so mission landing is the _only_ way to autonomously land a plane. :::
 
 The following sections describe the landing sequence, land abort and nudging, safety considerations, and configuration.
 
@@ -246,7 +243,7 @@ The parameters that affect the landing approach are listed below.
 | [FW_LND_EARLYCFG](../advanced_config/parameter_reference.md#FW_LND_EARLYCFG)                | Optionally deploy landing configuration during the landing descent orbit (e.g. flaps, spoilers, landing airspeed).                         |
 | [FW_LND_AIRSPD](../advanced_config/parameter_reference.md#FW_LND_AIRSPD)                    | Calibrated airspeed setpoint during landing.                                                                                               |
 | [FW_FLAPS_LND_SCL](../advanced_config/parameter_reference.md#FW_FLAPS_LND_SCL)              | Flaps setting during landing.                                                                                                              |
-| [FW_LND_THRTC_SC](../advanced_config/parameter_reference.md#FW_LND_THRTC_SC)                | Altitude time constant factor for landing (overrides default [TECS tuning](../config_fw/advanced_tuning_guide_fixedwing.md)).              |
+| [FW_LND_THRTC_SC](../advanced_config/parameter_reference.md#FW_LND_THRTC_SC)                | Altitude time constant factor for landing (overrides default [TECS tuning](../config_fw/position_tuning_guide_fixedwing.md)).              |
 
 ### Flaring / Roll-out
 
@@ -277,7 +274,7 @@ The landing may be aborted by the operator at any point during the final approac
 
 Aborting the landing results in a climb out to an orbit pattern centered above the land waypoint. The maximum of the aircraft's current altitude and [MIS_LND_ABRT_ALT](#MIS_LND_ABRT_ALT) is set as the abort orbit altitude height relative to (above) the landing waypoint. Landing configuration (e.g. flaps, spoilers, landing airspeed) is disabled during abort and the aicraft flies in cruise conditions.
 
-The abort command is disabled during the flare for safety. Operators may still manually abort the landing by switching to any manual mode, such as [Stabilized mode](../flight_modes/stabilized_fw.md)), though it should be noted that this is risky!
+The abort command is disabled during the flare for safety. Operators may still manually abort the landing by switching to any manual mode, such as [Stabilized mode](../flight_modes_fw/stabilized.md)), though it should be noted that this is risky!
 
 #### Automatic Abort
 
@@ -303,7 +300,7 @@ In both cases, the vehicle remains in full auto mode, tracking the shifted appro
 Approach path nudging is frozen once the flare starts. If conducting a runway landing with steerable nose wheel, the yaw stick command passes directly to the nose wheel from flare start, during roll out, until disarm. Note that if the wheel controller is enabled ([FW_W_EN](#FW_W_EN)), the controller will actively attempt to steer the vehicle to the approach path, i.e. "fighting" operator yaw stick inputs.
 
 :::note
-Nudging should not be used to supplement poor position control tuning. If the vehicle is regularly showing poor tracking peformance on a defined path, please refer to the [fixed-wing control tuning guide](../flight_modes/position_fw.md) for instruction. :::
+Nudging should not be used to supplement poor position control tuning. If the vehicle is regularly showing poor tracking peformance on a defined path, please refer to the [fixed-wing control tuning guide](../flight_modes_fw/position.md) for instruction. :::
 
 | 매개변수                                                                                                 | 설명                                                                                 |
 | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |

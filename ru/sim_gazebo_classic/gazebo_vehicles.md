@@ -68,7 +68,7 @@ This target also supports [video streaming simulation](../sim_gazebo_classic/REA
 
 <a id="fixed_wing"></a>
 
-## Plane/Fixed Wing
+## Plane/Fixed-wing
 
 <a id="standard_plane"></a>
 
@@ -89,7 +89,7 @@ make px4_sitl gazebo-classic_plane
 make px4_sitl gazebo-classic_plane_catapult
 ```
 
-This model simulates hand/catapult launch, which can be used for [fixed wing takeoff](../flight_modes/takeoff.md#fixed-wing-fw) in position mode, takeoff mode, or missions.
+This model simulates hand/catapult launch, which can be used for [fixed-wing takeoff](../flight_modes_fw/takeoff.md) in position mode, takeoff mode, or missions.
 
 The plane will automatically be launched as soon as the vehicle is armed.
 

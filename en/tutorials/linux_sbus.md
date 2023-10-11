@@ -1,4 +1,4 @@
-# Connecting an RC Receiver on Linux (Including S.Bus)
+# Connecting an RC Receiver to a PX4 Linux-based Autopilot
 
 This topic shows how to setup a PX4 Linux-based autopilot to connect and use a [supported RC receiver](../getting_started/rc_transmitter_receiver.md) on any serial port.
 
@@ -10,22 +10,23 @@ For an S.Bus receiver (or encoder - e.g. from Futaba, RadioLink, etc.) you will 
 
 Then [Start the PX4 RC Driver](#start_driver) on the device, as shown below.
 
-
 <a id="start_driver"></a>
+
 ## Starting the Driver
 
-To start the RC driver on a particular UART (e.g. in this case `/dev/ttyS2`): 
+To start the RC driver on a particular UART (e.g. in this case `/dev/ttyS2`):
+
 ```
 rc_input start -d /dev/ttyS2
 ```
 
 For other driver usage information see: [rc_input](../modules/modules_driver.md#rc-input).
 
-
 <a id="signal_inverter_circuit"></a>
+
 ## Signal Inverter Circuit (S.Bus only)
 
-S.Bus is an *inverted* UART communication signal.
+S.Bus is an _inverted_ UART communication signal.
 
 While some serial ports/flight controllers can read an inverted UART signal, most require a signal inverter circuit between the receiver and serial port to un-invert the signal.
 

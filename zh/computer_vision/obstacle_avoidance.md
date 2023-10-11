@@ -52,7 +52,7 @@ PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台
   - *local planner* mission speed is around 3 m/s.
   - *global planner* mission speed is around 1-1.5 m/s.
 
-如果 PX4 停止接收设定点更新超过半秒钟， 将切换到 [保持Hold 模式](../flight_modes/hold.md)。
+If PX4 stops receiving setpoint updates for more than half a second it will switch into [Hold mode](../flight_modes_mc/hold.md).
 
 
 ### PX4 配置

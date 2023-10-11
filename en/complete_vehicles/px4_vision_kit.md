@@ -165,7 +165,7 @@ In addition, users will need ground station hardware/software:
    :::
 
    We recommend RC controller switches are define for:
-   - [Position Mode](../flight_modes/position_mc.md) - a safe manual flight mode that can be used to test collision prevention.
+   - [Position Mode](../flight_modes_mc/position.md) - a safe manual flight mode that can be used to test collision prevention.
    - [Mission Mode](../flight_modes/mission.md) - run missions and test obstacle avoidance.
    - [Return Mode](../flight_modes/return.md) - return vehicle safely to its launch point and land.
 
@@ -206,7 +206,7 @@ When the vehicle setup described above is complete:
 1. Connect the ground station to the vehicle WiFi network.
 1. Find a safe outdoor location for flying, ideally with a tree or some other convenient obstacle for testing PX4 Vision.
 
-1. To test [collision prevention](../computer_vision/collision_prevention.md), enable [Position Mode](../flight_modes/position_mc.md) and fly manually towards an obstacle.
+1. To test [collision prevention](../computer_vision/collision_prevention.md), enable [Position Mode](../flight_modes_mc/position.md) and fly manually towards an obstacle.
   The vehicle should slow down and then stop within 6m of the obstacle (the distance can be [changed](../advanced_config/parameters.md) using the [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) parameter).
 
 1. To test [obstacle avoidance](../computer_vision/obstacle_avoidance.md), create a mission where the path is blocked by an obstacle.

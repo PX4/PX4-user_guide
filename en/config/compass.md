@@ -70,7 +70,12 @@ Notes:
 - There is no start/stop for this type of calibration (the algorithm runs continuously when the vehicle is disarmed).
 - The calibration is immediately applied to the data (no reboot is required) but is saved to the calibration parameters after disarming the vehicle only (the calibration is lost if no arming/disarming sequence is performed between calibration and shutdown).
 - The amplitude and the speed of the partial rotations done in step 1 can affect the calibration quality.
-  Following the advice above is ususally enough.
+  Following the advice above is usually enough.
+
+
+## Verification
+
+After the calibration is complete, check that the heading indicator and the heading of the arrow on the map are stable and match the orientation of the vehicle when turning it e.g. to the cardinal directions.
 
 ## Additional Calibration/Configuration
 

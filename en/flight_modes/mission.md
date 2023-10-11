@@ -10,7 +10,7 @@ The mission is typically created and uploaded with a Ground Control Station (GCS
 - The vehicle must be armed before this mode can be engaged.
 - This mode is automatic - no user intervention is *required* to control the vehicle.
 - RC control switches can be used to change flight modes on any vehicle.
-- RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+- RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
 :::
 
 ## Description
@@ -58,7 +58,6 @@ Missions can be paused by switching out of mission mode to any other mode (such 
 If the vehicle was not capturing images when it was paused, on resuming it will head from its _current position_ towards the same waypoint as it as was heading towards originally.
 If the vehicle was capturing images (has camera trigger items) it will instead head from its current position towards the last waypoint it travelled through (before pausing), and then retrace its path at the same speed and with the same camera triggering behaviour.
 This ensures that in survey/camera missions the planned path is captured.
-
 A mission can be uploaded while the vehicle is paused, in which which case the current active mission item is set to 1.
 
 :::note
@@ -110,8 +109,8 @@ Parameter | Description
 --- | ---
 <a id="NAV_RCL_ACT"></a>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | RC loss failsafe mode (what the vehicle will do if it looses RC connection) - e.g. enter hold mode, return mode, terminate etc.
 <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | Fixed-wing loiter radius.
-<a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Controls whether stick movement on a multicopter (or VTOL in MC mode) gives control back to the pilot in [Position mode](../flight_modes/position_mc.md). This can be separately enabled for auto modes and for offboard mode, and is enabled in auto modes by default.
-<a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | The amount of stick movement that causes a transition to [Position mode](../flight_modes/position_mc.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled).
+<a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Controls whether stick movement on a multicopter (or VTOL in MC mode) gives control back to the pilot in [Position mode](../flight_modes_mc/position.md). This can be separately enabled for auto modes and for offboard mode, and is enabled in auto modes by default.
+<a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | The amount of stick movement that causes a transition to [Position mode](../flight_modes_mc/position.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled).
 
 
 Parameters related to [mission feasibility checks](#mission-feasibility-checks):
@@ -222,35 +221,33 @@ If the vehicle is already flying when the mission is started, a takeoff mission 
 
 Starting flights with mission takeoff (and landing using a mission landing) is the recommended way of operating a plane autonomously.
 
-:::note
-A more detailed description of mission mode fixed-wing takeoff can be found in [Takeoff mode > Fixed-wing](../flight_modes/takeoff.md#fixed-wing-fw) (covering fixed wing takeoff in both mission mode and takeoff mode).
-:::
+Both [runway takeoff](../flight_modes_fw/takeoff.md#runway-takeoff) and [hand-launched takeoff](../flight_modes_fw/takeoff.md#catapult-hand-launch) are supported — for configuration information see [Takeoff mode (FW)](../flight_modes_fw/takeoff.md).
 
-Fixed-wing mission takeoffs are defined in a Takeoff mission item, which corresponds to the [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) MAVLink command.
-
+The takeoff behaviour is defined in a Takeoff mission item, which corresponds to the [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) MAVLink command.
 During mission execution the vehicle will takeoff towards this waypoint, and climb until the specified altitude is reached.
 The mission item is then accepted, and the mission will start executing the next item.
 
-Both runway and hand-launched takeoff are supported — for configuration information see [Takeoff mode > Fixed-wing](../flight_modes/takeoff.md#fixed-wing-fw).
+More specifically, the takeoff mission item defines the takeoff course and clearance altitude.
+The course is the line between the vehicle starting point and the horizontal position defined in the mission item,  while the clearance altitude is the mission item altitude.
+
 For a runway takeoff, the `Takeoff` mission item will cause the vehicle to arm, throttle up the motors and take off.
 When hand-launching the vehicle will arm, but only throttle up when the vehicle is thrown (the acceleration trigger is detected).
-
 In both cases, the vehicle should be placed (or launched) facing towards the takeoff waypoint when the mission is started.
 If possible, always make the vehicle takeoff into the wind.
 
+:::note
 A fixed-wing mission requires a `Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint.
+:::
+
+For more infomormation about takeoff behaviour and configuration see [Takeoff mode (FW)](../flight_modes_fw/takeoff.md).
 
 
 ## FW Mission Landing
 
-Fixed wing mission landing is the recommended way to land a plane autonomously.
+Fixed-wing mission landing is the recommended way to land a plane autonomously.
 This can be planned in *QGroundControl* using [fixed-wing landing pattern](https://docs.qgroundcontrol.com/master/en/PlanView/pattern_fixed_wing_landing.html).
 
 If possible, always plan the landing such that it does the approach into the wind.
-
-:::note
-Note fixed wing landing using [Land mode](../flight_modes/land.md#fixed-wing-fw) is currently broken, so mission landing is the _only_ way to autonomously land a plane.
-:::
 
 The following sections describe the landing sequence, land abort and nudging, safety considerations, and configuration. 
 
@@ -284,7 +281,7 @@ Parameter | Description
 [FW_LND_EARLYCFG](../advanced_config/parameter_reference.md#FW_LND_EARLYCFG) | Optionally deploy landing configuration during the landing descent orbit (e.g. flaps, spoilers, landing airspeed).
 [FW_LND_AIRSPD](../advanced_config/parameter_reference.md#FW_LND_AIRSPD) | Calibrated airspeed setpoint during landing.
 [FW_FLAPS_LND_SCL](../advanced_config/parameter_reference.md#FW_FLAPS_LND_SCL) | Flaps setting during landing.
-[FW_LND_THRTC_SC](../advanced_config/parameter_reference.md#FW_LND_THRTC_SC) | Altitude time constant factor for landing (overrides default [TECS tuning](../config_fw/advanced_tuning_guide_fixedwing.md)).
+[FW_LND_THRTC_SC](../advanced_config/parameter_reference.md#FW_LND_THRTC_SC) | Altitude time constant factor for landing (overrides default [TECS tuning](../config_fw/position_tuning_guide_fixedwing.md)).
 
 ### Flaring / Roll-out
 
@@ -320,7 +317,7 @@ The maximum of the aircraft's current altitude and [MIS_LND_ABRT_ALT](#MIS_LND_A
 Landing configuration (e.g. flaps, spoilers, landing airspeed) is disabled during abort and the aicraft flies in cruise conditions.
 
 The abort command is disabled during the flare for safety.
-Operators may still manually abort the landing by switching to any manual mode, such as [Stabilized mode](../flight_modes/stabilized_fw.md)), though it should be noted that this is risky!
+Operators may still manually abort the landing by switching to any manual mode, such as [Stabilized mode](../flight_modes_fw/stabilized.md)), though it should be noted that this is risky!
 
 #### Automatic Abort
 
@@ -357,7 +354,7 @@ Note that if the wheel controller is enabled ([FW_W_EN](#FW_W_EN)), the controll
 
 :::note
 Nudging should not be used to supplement poor position control tuning.
-If the vehicle is regularly showing poor tracking peformance on a defined path, please refer to the [fixed-wing control tuning guide](../flight_modes/position_fw.md) for instruction.
+If the vehicle is regularly showing poor tracking peformance on a defined path, please refer to the [fixed-wing control tuning guide](../flight_modes_fw/position.md) for instruction.
 :::
 
 Parameter | Description

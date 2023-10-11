@@ -73,23 +73,23 @@ module.exports = {
     // As a special case, the default locale can use '/' as its path.
     '/en/': {
       lang: 'en-US', // this will be set as the lang attribute on <html>
-      title: 'PX4 User Guide',
+      title: 'PX4 User Guide (main)',
       description: 'PX4 is the Professional Autopilot. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.'
     },
     '/ko/': {
       lang: 'ko-KR', // this will be set as the lang attribute on <html>
-      title: 'PX4 오토파일럿 사용자 설명서',
+      title: 'PX4 오토파일럿 사용자 설명서 (main)',
       description: 'PX4 is the Professional Autopilot. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.'
     },
     '/zh/': {
       lang: 'zh-CN',
-      title: 'PX4 自动驾驶用户指南',
+      title: 'PX4 自动驾驶用户指南 (main)',
       description: 'PX4 is the Professional Autopilot. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.'
     }
   },
   themeConfig: {
     px4_version: 'main',
-    sidebarDepth:0,  //change to 1 if decide to use vuepress-plugin-right-anchor
+    sidebarDepth:0, //change to 1 if decide to use vuepress-plugin-right-anchor
     logo: '/px4-logo.svg',
     searchMaxSuggestions: 10,
     // Assumes GitHub. Can also be a full GitLab url.
@@ -175,6 +175,7 @@ module.exports = {
             ariaLabel: 'Versions Menu',
             items: [
               { text: 'main', link: 'https://docs.px4.io/main/en/' },
+              { text: 'v1.14', link: 'https://docs.px4.io/v1.14/en/' },
               { text: 'v1.13', link: 'https://docs.px4.io/v1.13/en/' },
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/en/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
@@ -256,7 +257,8 @@ module.exports = {
             ariaLabel: 'Versions Menu',
             items: [
               { text: 'main', link: 'https://docs.px4.io/main/ko/' },
-              { text: 'v1.13', link: 'https://docs.px4.io/v1.12/ko/' },
+              { text: 'v1.14', link: 'https://docs.px4.io/v1.14/ko/' },
+              { text: 'v1.13', link: 'https://docs.px4.io/v1.13/ko/' },
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/ko/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
               {
@@ -330,6 +332,7 @@ module.exports = {
             ariaLabel: 'Versions Menu',
             items: [
               { text: 'main', link: 'https://docs.px4.io/main/zh/' },
+              { text: 'v1.14', link: 'https://docs.px4.io/v1.14/zh/' },
               { text: 'v1.13', link: 'https://docs.px4.io/v1.13/zh/' },
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/zh/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/zh/' },

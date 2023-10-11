@@ -1,4 +1,4 @@
-# Linux에서 RC 수신기 연결(S.Bus 포함)
+# Connecting an RC Receiver to a PX4 Linux-based Autopilot
 
 직렬 포트에서 [지원되는 RC 수신기](../getting_started/rc_transmitter_receiver.md)를 연결하고 사용하도록, PX4 Linux 기반 자동조종장치 설정 방법을 설명합니다.
 
@@ -10,24 +10,23 @@ For an S.Bus receiver (or encoder - e.g. from Futaba, RadioLink, etc.) you will 
 
 그런 다음, 아래와 같이 기기에서 [PX4 RC 드라이버를 시작](#start_driver)합니다.
 
-
 <a id="start_driver"></a>
 
 ## 드라이버 시작
 
 특정 UART에서 RC 드라이버를 시작하려면(예: 이 경우 `/dev/ttyS2`):
+
 ```
 rc_input start -d /dev/ttyS2
 ```
 
 기타 드라이버 사용 정보는 [rc_input](../modules/modules_driver.md#rc-input)을 참고하십시오.
 
-
 <a id="signal_inverter_circuit"></a>
 
 ## 신호 반전 회로(S.Bus 전용)
 
-S.Bus는 *반전된* UART 통신 신호입니다.
+S.Bus is an _inverted_ UART communication signal.
 
 일부 직렬 포트/비행 컨트롤러는 반전된 UART 신호를 읽을 수 있지만, 대부분은 신호 반전을 복원하기 위하여 수신기와 직렬 포트 사이에 신호 인버터 회로가 필요합니다.
 

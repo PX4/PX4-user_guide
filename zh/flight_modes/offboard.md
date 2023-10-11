@@ -125,7 +125,7 @@ bool actuator
     * 带有推力设定值（`SET_ATTITUDE_TARGET.thrust`）的姿态和方向（`SET_ATTITUDE_TARGET.q`）。
     * 带有推力设定值（`SET_ATTITUDE_TARGET.thrust`）的机身速率（`SET_ATTITUDE_TARGET` `.body_roll_rate` ，`.body_pitch_rate`，`.body_yaw_rate`）。
 
-### 固定翼
+### Fixed-wing
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
   * 支持以下输入组合（通过 `type_mask`）： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
@@ -194,13 +194,13 @@ bool actuator
 
 *Offboard 模式* 受以下参数影响：
 
-| 参数                                                                                                      | 描述                                                                                                                                                                |
-| ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="COM_OF_LOSS_T"></a>[COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)     | Offboard 连接超时时间（以秒为单位），超过该时间未检测到offboard连接后将触发 offboard 连接丢失的失效保护措施 ( `COM_OBL_RC_ACT`)                                                                           |
-| <a id="COM_OBL_RC_ACT"></a>[COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT)   | Offboard 连接丢失后应切换到的控制模式（可设置为 - 0：*位置模式*，1：[高度模式](../flight_modes/altitude_mc.md)，2：*手动模式*，3：[返航模式](../flight_modes/return.md)，4：[降落模式](../flight_modes/land.md)）。 |
-| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 控制多旋翼（或者多旋翼模式下的 VOTL）的摇杆移动量来切换到 [位置模式](../flight_modes/position_mc.md)。 默认情况下未启用此功能。                                                                              |
-| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | 导致发射机切换到 [位置模式](../flight_modes/position_mc.md) 的摇杆移动量（如果 [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) 已启用）。                                                             |
-| <a id="COM_RCL_EXCEPT"></a>[COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT)   | 该参数指定一种模式，在该模式下将忽略RC丢失及不会触发RC丢失的失效保护动作。 将位 `2` 置1将在Offboard模式下忽略RC丢失。                                                                                             |
+| 参数                                                                                                      | 描述                                                                                                                                                              |
+| ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="COM_OF_LOSS_T"></a>[COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)     | Offboard 连接超时时间（以秒为单位），超过该时间未检测到offboard连接后将触发 offboard 连接丢失的失效保护措施 ( `COM_OBL_RC_ACT`)                                                                         |
+| <a id="COM_OBL_RC_ACT"></a>[COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT)   | Flight mode to switch to if offboard control is lost (Values are - `0`: *Position*, `1`: *Altitude*, `2`: *Manual*, `3`: *Return, `4`: *Land*).                 |
+| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Controls whether stick movement on a multicopter (or VTOL in MC mode) causes a mode change to [Position mode](../flight_modes_mc/position.md). 默认情况下未启用此功能。     |
+| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | The amount of stick movement that causes a transition to [Position mode](../flight_modes_mc/position.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled). |
+| <a id="COM_RCL_EXCEPT"></a>[COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT)   | 该参数指定一种模式，在该模式下将忽略RC丢失及不会触发RC丢失的失效保护动作。 将位 `2` 置1将在Offboard模式下忽略RC丢失。                                                                                           |
 
 
 ## 开发者资源

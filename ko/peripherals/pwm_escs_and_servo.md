@@ -34,9 +34,9 @@ This allows you to easily undo the wire later if needed
 +5V 와이어 (있는 경우)에 대한 연결은 ESC/기체에 따라 달라집니다.
 
 
-### 고정익 / VTOL
+### Fixed-wing / VTOL
 
-On a fixed wing (or VTOL) ESC, the +5V line usually provides the output of a Battery Elimination Circuit (BEC).:
+On a fixed-wing (or VTOL) ESC, the +5V line usually provides the output of a Battery Elimination Circuit (BEC).:
 
 - 이것은 Pixhawk 서보 레일에 연결되어 플랩, 에일러론 등의 서보에 전원을 공급에 사용할 수 있습니다.
 

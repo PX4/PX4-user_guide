@@ -29,7 +29,7 @@ Here are some general points to follow when tuning:
 The rate controller is the inner-most loop with three independent PID controllers to control the body rates (yaw, pitch, roll).
 
 :::note
-A well-tuned rate controller is very important as it affects *all* flight modes. A badly tuned rate controller will be visible in [Position mode](../flight_modes/position_mc.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
+A well-tuned rate controller is very important as it affects *all* flight modes. A badly tuned rate controller will be visible in [Position mode](../flight_modes_mc/position.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
 :::
 
 #### 速率控制器架构/形式
@@ -79,7 +79,7 @@ The related parameters for the tuning of the PID rate controllers are:
 - Pitch rate control ([MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P), [MC_PITCHRATE_I](../advanced_config/parameter_reference.md#MC_PITCHRATE_I), [MC_PITCHRATE_D](../advanced_config/parameter_reference.md#MC_PITCHRATE_D), [MC_PITCHRATE_K](../advanced_config/parameter_reference.md#MC_PITCHRATE_K))
 - Yaw rate control ([MC_YAWRATE_P](../advanced_config/parameter_reference.md#MC_YAWRATE_P), [MC_YAWRATE_I](../advanced_config/parameter_reference.md#MC_YAWRATE_I), [MC_YAWRATE_D](../advanced_config/parameter_reference.md#MC_YAWRATE_D), [MC_YAWRATE_K](../advanced_config/parameter_reference.md#MC_YAWRATE_K))
 
-The rate controller can be tuned in [Acro mode](../flight_modes/acro_mc.md) or [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md):
+The rate controller can be tuned in [Acro mode](../flight_modes_mc/acro.md) or [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md):
 - *Acro mode* is preferred, but is harder to fly. If you choose this mode, disable all stick expo:
   - `MC_ACRO_EXPO` = 0, `MC_ACRO_EXPO_Y` = 0, `MC_ACRO_SUPEXPO` = 0, `MC_ACRO_SUPEXPOY` = 0
   - `MC_ACRO_P_MAX` = 200, `MC_ACRO_R_MAX` = 200

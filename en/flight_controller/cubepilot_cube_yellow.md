@@ -25,7 +25,7 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 - 14 PWM / Servo outputs (8 with failsafe and manual override, 6 auxiliary, high-power compatible)
 - Abundant connectivity options for additional peripherals (UART, I2C, CAN)
 - Integrated backup system for in-flight recovery and manual override with dedicated processor and stand-alone power supply (fixed-wing use)
-- Backup system integrates mixing, providing consistent autopilot and manual override mixing modes (fixed wing use)
+- Backup system integrates mixing, providing consistent autopilot and manual override mixing modes (fixed-wing use)
 - Redundant power supply inputs and automatic failover
 - External safety switch
 - Multicolor LED main visual indicator

@@ -18,7 +18,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 ## Key Features
 
-- MCU: STM32H743 32-bit processor running at 480 MHz
+- MCU: STM32H743 32-bit processor running at 480 MHz
 - IMU: BMI270
 - Barometer: BMP280
 - OSD: AT7456E

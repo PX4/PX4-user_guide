@@ -49,7 +49,7 @@ Cube를 가능한 (이상적으로는) 윗면이 위로 향하도록 하여 기�
 ![Cube 장착 - 전면 방향](../../assets/flight_controller/cube/cube_mount_front.jpg)
 
 :::note
-콘트롤러를 권장 기본 방향으로 장착 할 수 없는 경우(예 : 공간 제약으로 인해) 실제 장착 방향을 자동항법장치 프로그램에서 설정하여야합니다. [비행 콘트롤러 방향](../config/flight_controller_orientation.md)
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 :::
 
 Cube를 (키트에 포함된) 진동 감쇠 폼 패드 또는 장착 나사를 사용해 장착할 수 있습니다. Cube 액세서리에 포함된 장착 1.8mm 두께의 프레임보드 전용으로 설계되었습니다. 커스텀 나사는 나사산 길이가 6mm~7.55mm인 M2.5 나사여야 합니다.
@@ -96,7 +96,7 @@ GPS 없이 비행하는 경우, 기체에 시동을 걸고 비행하기 위해 �
 
 <a id="rc_control"></a>
 
-## 라디오 콘트롤
+## Radio Control
 
 무선 조종기는 기체 *수동*제어시에 사용합니다 (PX4에는 자율 비행 모드에서는 무선 조종기가 필수는 아닙니다).
 
@@ -135,7 +135,7 @@ Cube는 일반적으로 **POWER1** 포트에 연결된 전원 모듈(키트와 �
 
 <a id="telemetry"></a>
 
-## 텔레메트리 시스템 (선택 사항)
+## Telemetry System (Optional)
 
 지상국에서는 텔레메트리를 사용하여 기체를 통신, 모니터링, 제어 합니다. 기체를 특정 위치로 움직이도록 지시하거나, 새로운 임무를 업로드할 수 있습니다.
 

@@ -8,18 +8,18 @@
 
 ## System Console vs. Shells
 
-The PX4 _System Console_ provides low-level access to the system, debug output and analysis of the system boot process.
+PX4_系统控制台_提供对底层访问的能力，输出调试信息和分析系统启动过程分析。
 
-There is just one _System Console_, which runs on one specific UART (the debug port, as configured in NuttX), and is commonly attached to a computer via an FTDI cable (or some other debug adapter like a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation)).
+只有一个_系统控制台_，它运行在特定的UART上（调试端口，如Nuttx中配置），并且通常通过FTDI电缆（或者其他的一些调试器，如[Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation)）连接到计算机。
 
-- Used for _low-level debugging/development_: bootup, NuttX, startup scripts, board bringup, development on central parts of PX4 (e.g. uORB).
+- 使用_底层陶氏/开发_：bootup，NuttX，启动脚本，飞控板启动，PX4核心部分的开发（例如uORB）。
 - 更具体一点，这里是包括自启动的用户应用在内的整个PX4系统下所有启动过程唯一的输出位置。
 
 Shell 提供对系统的上层访问能力：
 
 - 用于执行基础的模块调试运行命令。
-- Only _directly_ display the output of modules you start.
-- Cannot _directly_ display the output of tasks running on the work queue.
+- 只_直接_显示你启动的模块输出。
+- 无法_直接_显示运行在工作队列上的任务输出。
 - 在 PX4 系统无法启动时无助于调试（它并没有运行）。
 
 支持来自串口或 MAVLink 的多个shell同时运行。 由于 MAVLink 能提供更加灵活的使用方式，所以目前只使用了 [MAVLink Shell](../debug/mavlink_shell.md) 。
@@ -43,35 +43,35 @@ nsh> free
 nsh> dmesg
 ```
 
-Below are a couple of commands which can be used in the [NuttShell](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=139629410) to get insights of the system.
+瞎main是一些可以在[NuttShell](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=139629410)中使用的命令来深入了解系统。
 
-This NSH command provides the remaining free memory:
+此 NSH 命令提供剩余的可用内存：
 
 ```bash
 free
 ```
 
-The top command shows the stack usage per application:
+top命令显示每个应用成虚使用的堆栈情况：
 
 ```
 top
 ```
 
-Note that stack usage is calculated with stack coloring and is the maximum since the start of the task (not the current usage).
+注意堆栈使用量是通过堆栈着色计算的，并且是任务开始以来的最大值（不是当前使用量）。
 
-To see what is running in the work queues and at what rate, use:
+要查看工作队列的运行抢空以及运行速度，使用：
 
 ```
 work_queue status
 ```
 
-To debug uORB topics:
+调试 uORB 主题：
 
 ```
 uorb top
 ```
 
-To inspect a specific uORB topic:
+检查特定的 uORB 主题：
 
 ```
 listener <topic_name>

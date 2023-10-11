@@ -2,7 +2,7 @@
 
 *防撞*功能用于自动减速或制动，以免飞机撞上障碍物。
 
-防撞功能可以在多旋翼的[位置模式](../flight_modes/position_mc.md)中使能，并且可以使用来自外接配套计算机，外接支持 MAVLink 协议的测距仪，连接到飞控的测距仪或者以上任意组合的传感器数据。
+It can be enabled for multicopter vehicles in [Position mode](../flight_modes_mc/position.md), and can use sensor data from an offboard companion computer, offboard rangefinders over MAVLink, a rangefinder attached to the flight controller, or any combination of the above.
 
 如果传感器的测量范围不够大，防撞功能可能会限制无人机的最大飞行速度。 它也会阻止在没有传感器数据的方向上运动（例如：如果后方没有传感器数据，将无法向后方飞行 ）。
 
@@ -65,7 +65,7 @@ PX4 软件配置在下一章节中。 如果您准备使用距离传感器连接
 
 ### 航程数据丢失
 
-如果自驾仪超过0.5秒没有收到传感器的航程数据，自驾仪将会发出警告*没有航程数据，不允许移动*。 这会导致强制将 xy 的速度设置为 0。 5秒没有收到任何数据，无人机会切换到 [保持模式](../flight_modes/hold.md)。 如果想要再次移动机身，则需要禁止防撞功能，禁止防撞功能可以通过设置 [CP_DIST](#CP_DIST) 为负值或者切换到 [位置模式](../flight_modes/position_mc.md) 以外的模式（例如：切换到 *高度模式* 或者 *自稳模式*）。
+如果自驾仪超过0.5秒没有收到传感器的航程数据，自驾仪将会发出警告*没有航程数据，不允许移动*。 这会导致强制将 xy 的速度设置为 0。 After 5 seconds of not receiving any data, the vehicle will switch into [HOLD mode](../flight_modes_mc/hold.md). If you want the vehicle to be able to move again, you will need to disable Collision Prevention by either setting the parameter [CP_DIST](#CP_DIST) to a negative value, or switching to a mode other than [Position mode](../flight_modes_mc/position.md) (e.g. to *Altitude mode* or *Stabilized mode*).
 
 如果连接了多个传感器，但是其中有一个传感器失去连接，仍然能够在有传感器数据上报的视野（FOV）范围内飞行。 故障传感器的数据会失效，并且该传感器覆盖的区域会被视为未覆盖区域，意味着无法移动到该区域。
 
@@ -81,7 +81,7 @@ PX4 软件配置在下一章节中。 如果您准备使用距离传感器连接
 
 连接到飞控的距离传感器的 *传感器延迟* 可以假定为 0。 对于外部视觉系统，传感器延迟可能高达 0.2秒。
 
-无人机 *速度设定点跟踪延迟* 可以通过在 <0>位置模式</0> 下全速飞行，然后停止来测量。 然后可以从日志中测量实际速度和速度设置值之间的延迟。 跟踪延迟通常在 0.1 至 0.5秒之间，取决于机身尺寸和调试情况。
+Vehicle *velocity setpoint tracking delay* can be measured by flying at full speed in [Position mode](../flight_modes_mc/position.md), then commanding a stop. 然后可以从日志中测量实际速度和速度设置值之间的延迟。 跟踪延迟通常在 0.1 至 0.5秒之间，取决于机身尺寸和调试情况。
 
 :::tip
 如果车速在接近障碍物时发生振荡（即减速，加速，减速），则延迟设置太高。

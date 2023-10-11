@@ -3,7 +3,7 @@
 可以通过手动调参来修正无人机的方向和地平线水准，以校正传感器芯片存在的微小不对准或校准误差。
 
 :::note
-不推荐普通用户使用该教程。 对于基本设置，请遵循下面链接的说明：
+These instructions are not recommended for regular users. 对于基本设置，请遵循下面链接的说明：
 
 - [飞行控制器方向](../config/flight_controller_orientation.md)
 - [Level Horizon Calibration](../config/level_horizon_calibration.md) :::

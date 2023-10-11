@@ -2,10 +2,10 @@
 
 PX4에서는 [매개변수](../advanced_config/parameter_reference.md)를 통하여 [멀티콥터 PID 계수](../config_mc/pid_tuning_guide_multicopter.md), 캘리브레이션 정보 등을 수정합니다.
 
-The _QGroundControl Parameters_ screen allows you to find and modify **any** of the parameters associated with the vehicle. The screen is accessed by clicking the top menu _Gear_ icon and then _Parameters_ in the sidebar.
+The _QGroundControl Parameters_ screen allows you to find and modify **any** of the parameters associated with the vehicle. The screen is accessed by clicking the **Q** application icon > **Vehicle Setup**, and then _Parameters_ in the sidebar.
 
 :::note
-일반적인 매개변수들은 [기본 설정](../config/README.md) 설정 화면에서 수정합니다. The _Parameters_ screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
+Most of the more commonly used parameters are more conveniently set using the dedicated setup screens, as described in the [Standard Configuration](../config/README.md) section. The _Parameters_ screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
 :::
 
 :::warning
@@ -16,13 +16,17 @@ The _QGroundControl Parameters_ screen allows you to find and modify **any** of 
 
 ## 매개변수 검색
 
-You can search for a parameter by entering a term in the _Search_ field. 검색은 입력된 문자열을 포함하는 모든 매개변수의 이름과 설명을 나열합니다(검색을 초기화하려면 **지우기** 버튼를 클릭합니다).
+You can search for a parameter by entering a term in the _Search_ field. This will show you a list of all parameter names and descriptions that contain the entered substring (press **Clear** to reset the search, and use the **Show modified only** checkbox to filter out unchanged parameters).
 
-![매개변수 검색](../../assets/qgc/setup/parameters/parameters_search.jpg)
+![매개변수 검색](../../assets/qgc/setup/parameters/parameters_search.png)
 
-You can also browse the parameters by group by clicking on the buttons to the left (in the image below the _Battery Calibration_ group is selected).
+You can also browse the parameters by type and group by clicking on the buttons to the left (in the image below the _DShot_ group in the _Standard_ parameters is selected).
 
-![매개변수 화면](../../assets/qgc/setup/parameters/parameters_px4.jpg)
+![매개변수 화면](../../assets/qgc/setup/parameters/parameters_px4.png)
+
+You can expand/collapse the "type" groupings as shown. Note that the groups at the bottom named _Component X_ are attached [DroneCAN peripherals](../dronecan/README.md#qgc-cannode-parameter-configuration) ("X" is the node id). [QGC can set the parameters](../dronecan/README.md#qgc-cannode-parameter-configuration) of these peripherals if they are attached to the Flight Controller when QGC is started.
+
+![Parameters Types - collapsed](../../assets/qgc/setup/parameters/parameters_types.png)
 
 :::tip
 매개 변수를 찾을 수없는 경우에는 [다음 섹션](#missing)을 참조하십시오.
@@ -76,10 +80,12 @@ You may also need to disable other modules in order to fit the rebuilt firmware 
 
 **새로 고침** <br />모든 매개변수를 기체로부터 재로딩합니다.
 
-**기본값으로 재설정** <br />모든 매개변수를 펌웨어의 기본값으로 재설정합니다.
+**Reset all to firmware defaults** <br>Reset all parameters to their original default values in the firmware.
+
+**Reset to vehicle's configuration defaults** <br>Reset all parameters to their original default values for the particular selected airfame configuration.
 
 **파일에서 불러오기 / 파일에 저장** <br />기존 파일에서 매개변수를 불러오거나 현재 매개변수 설정을 파일에 저장합니다.
 
-**RC를 Param으로 지우기** <br />이것은 RC 송신기 제어와 매개 변수 사이의 모든 연관성을 삭제합니다. 자세한 내용은 [라디오 설정 > 매개변수 튜닝 채널](../config/radio.md#param-tuning-channels)를 참조하십시오.
+**Clear all RC to Param** <br>This clears all associations between RC transmitter controls and parameters. 자세한 내용은 [라디오 설정 > 매개변수 튜닝 채널](../config/radio.md#param-tuning-channels)를 참조하십시오.
 
 **기체 재부팅** <br />기체을 재부팅합니다 (일부 파라미터를 변경후에 요구됩니다).

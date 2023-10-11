@@ -32,7 +32,7 @@ PNF (또는 "PNP") 버전에는 모터, 프로펠러와 ESC가 포함됩니다.
 
 ### Autopilot 및 필수 부품들
 
-- [Pixracer](../flight_controller/pixracer.md) 키트 (GPS 및 전원 모듈 포함)
+- [Pixracer](../flight_controller/pixracer.md) kit (including GPS and power module)
 - FrSky D4R-II 수신기 또는 동급 (설명서에 따라 PPM 합계 출력으로 점퍼됨)
 - Holybro pix32용 [미니 텔레메트리 세트](../flight_controller/pixfalcon.md#availability)
 - Holybro pix32 / Pixfalcon용 [디지털 대기 속도 센서](../flight_controller/pixfalcon.md#availability)
@@ -81,4 +81,4 @@ Set up the [Actuator Configuration](../config/actuators.md) to match the wiring 
 
 Perform all the the other [Basic Configuration](../config/README.md), including [Autotuning](../config/autotune.md).
 
-Advanced tuning is optional - see [Fixed Wing Vehicle Configuration](../config_fw/README.md).
+Advanced tuning is optional - see [Fixed-wing Vehicle Configuration](../config_fw/README.md).

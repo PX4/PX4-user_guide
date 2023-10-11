@@ -1,6 +1,6 @@
-# Fixed-wing PID Tuning Guide
+# Fixed-wing Rate/Attitude Controller Tuning Guide
 
-This guide explains how to manually tune the fixed wing PID loop. It is intended for advanced users / experts, as incorrect PID tuning may crash your aircraft.
+This guide explains how to manually tune the fixed-wing PID loop. It is intended for advanced users / experts, as incorrect PID tuning may crash your aircraft.
 
 :::note
 [Autotune](../config/autotune.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames. Manual tuning is recommended for frames where autotuning does not work, or where fine-tuning is essential.
@@ -9,7 +9,7 @@ This guide explains how to manually tune the fixed wing PID loop. It is intended
 ## Preconditions
 
 - Trims must be configured first (before PID turning). The [Fixed-Wing Trimming Guide](../config_fw/trimming_guide_fixedwing.md) explains how.
-- Incorrectly set gains during tuning can make attitude control unstable. A pilot tuning gains should therefore be able to fly and land the plane in [manual](../flight_modes/manual_fw.md) (override) control.
+- Incorrectly set gains during tuning can make attitude control unstable. A pilot tuning gains should therefore be able to fly and land the plane in [manual](../flight_modes_fw/manual.md) (override) control.
 - Excessive gains (and rapid servo motion) can violate the maximum forces of your airframe - increase gains carefully.
 - Roll and pitch tuning follow the same sequence. The only difference is that pitch is more sensitive to trim offsets, so [trimming](../config_fw/trimming_guide_fixedwing.md) has to be done carefully and integrator gains need more attention to compensate this.
 

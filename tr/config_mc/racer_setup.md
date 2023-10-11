@@ -1,6 +1,6 @@
 # Racer Setup
 
-This page describes how to setup and configure a racer for optimal performance (in particular for [Acro mode](../flight_modes/acro_mc.md)).
+This page describes how to setup and configure a racer for optimal performance (in particular for [Acro mode](../flight_modes_mc/acro.md)).
 
 Keep in mind that racers are fast vehicles, specifically designed to be overpowered! You should already have some experience, or let someone with experience help you.
 
@@ -32,7 +32,7 @@ There are however some benefits in adding GPS, particularly for beginners:
 - The log contains the flight track, which means you can review the flight (in 3D). This can help to improve your acrobatic flight skills.
 
 :::note
-During aggressive acrobatic maneuvers the GPS can lose its position fix for a short time. If you switch into [position mode](../flight_modes/position_mc.md) during that time, [altitude mode](../flight_modes/altitude_mc.md) will be used instead until the position becomes valid again.
+During aggressive acrobatic maneuvers the GPS can lose its position fix for a short time. If you switch into [position mode](../flight_modes_mc/position.md) during that time, [altitude mode](../flight_modes_mc/altitude.md) will be used instead until the position becomes valid again.
 :::
 
 ## Hardware Setup

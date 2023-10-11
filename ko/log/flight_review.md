@@ -10,7 +10,7 @@
 
 - 그래프의 배경색은 기록 중 비행 모드를 나타내는 데 사용됩니다 (그래프는 모드에 따라 다름).![비행 모드](../../assets/flight_log_analysis/flight_review/flight_modes.png)
   - **비행 모드 :** 그래프 본문의 배경색은 비행 모드를 나타냅니다. 그래프 위로 마우스를 가져 가면 비행 모드 레이블이 표시됩니다.
-  - **VTOL 비행 모드 :** VTOL 기체는 추가로 그래프 하단에 VTOL 모드를 배경색으로 표시합니다 (멀티콥터의 경우 파란색, 고정익의 경우 노란색, 전환의 경우 빨간색).
+  - **VTOL flight mode:** VTOL vehicles additionally show the VTOL mode as background colour in the bottom part of the plot (blue for multicopter, yellow for fixed-wing, and red for transition).
 - 특정 그래프 축을 마우스로 스크롤 하면 해당 축이 확대됩니다 (수평 또는 수직).
 - 그래프 내에서 마우스를 스크롤 하면 두 축이 모두 확대됩니다.
 

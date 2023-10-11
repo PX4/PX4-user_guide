@@ -1,6 +1,6 @@
 # 飞行模式
 
-*Flight Modes* define how the autopilot responds to user input and controls vehicle movement. 下表总结了固定机翼和直升机的飞行模式 （[表键如下](#key)）。 请注意，这是 "上层" 默认行为，可能因机体参数而异。 链接的主题（侧边栏）提供了有关各个模式的详细信息，包括它们的调整参数。
+*Flight Modes* define how the autopilot responds to user input and controls vehicle movement. The tables below summarizes flight modes for fixed-wing and copter ([table key is below](#key)). 请注意，这是 "上层" 默认行为，可能因机体参数而异。 链接的主题（侧边栏）提供了有关各个模式的详细信息，包括它们的调整参数。
 
 :::tip
 A *beginner friendly* explanation of all flight modes is provided in [Getting Started > Flight Modes](../getting_started/flight_modes.md). :::
@@ -55,7 +55,7 @@ th {
 
 </style>
 
-## 固定翼
+## Fixed-wing
 
 <table>
  <thead>
@@ -71,7 +71,7 @@ th {
 <tbody>
 
 <tr id="position_fw">
- <td><a href="../flight_modes/position_fw.html">位置</a>
+ <td><a href="../flight_modes_mc/position.html">Position</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于飞行" width="20px" /></a></p>
  </td>
  <td>S<sup>+</sup></td>
@@ -96,7 +96,7 @@ th {
 
 
 <tr id="altitude_fw">
- <td><a href="../flight_modes/altitude_fw.html">高度</a>
+ <td><a href="../flight_modes_mc/altitude.html">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于飞行" width="20px" /></a></p>
  </td>
  <td><p>S（滚转）</p><p>S<sup>+</sup>(俯仰)</p></td>
@@ -125,7 +125,7 @@ th {
 
 
 <tr id="stabilized_fw">
- <td><a href="../flight_modes/stabilized_fw.html">自稳</a>
+ <td><a href="../flight_modes_fw/stabilized.html">Stabilized</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="中等飞行难度" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -144,7 +144,7 @@ th {
 </tr>
 
 <tr id="acro_fw">
- <td><a href="../flight_modes/acro_fw.html">特技</a>
+ <td><a href="../flight_modes_mc/acro.html">Acro</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="飞行难度：困难" width="20px" /></a></p>
  </td>
  <td>S<sub>rate</sub></td>
@@ -157,7 +157,7 @@ th {
 
 
 <tr id="manual_fw">
- <td><a href="../flight_modes/manual_fw.html">手动</a>
+ <td><a href="../flight_modes_fw/manual.html">Manual</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="飞行难度：困难" width="20px" /></a></p>
  </td>
  <td>M</td>
@@ -172,7 +172,7 @@ th {
 
 
 <tr id="takeoff_fw">
- <td><a href="../flight_modes/takeoff.html">起飞</a></td>
+ <td><a href="../flight_modes_fw/takeoff.html">起飞</a></td>
  <td colspan="3">自动</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="20px" /></a></td>
  <td>飞机使用 <em>弹射/手持发射模式</em> 或 <em>滑行起飞模式</em> （在当前方向）启动起飞顺序。</td>
@@ -180,14 +180,14 @@ th {
 
 
 <tr id="land_fw">
- <td><a href="../flight_modes/land.html">降落</a></td>
+ <td><a href="../flight_modes_fw/land.html">降落</a></td>
  <td class="centred" colspan="3">自动</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="20px" /></a></td>
  <td>Vehicle initiates the <a href="../flight_modes/mission.html#fw-mission-landing">fixed-wing landing</a> sequence.</td>
 </tr>
 
 <tr id="hold_fw">
- <td><a href="../flight_modes/hold.html">保持</a></td>
+ <td><a href="../flight_modes_fw/hold.html">保持</a></td>
  <td colspan="3">自动</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="20px" /></a></td>
  <td>飞机在当前高度并在 GPS 保持的位置绕圈飞行。</td>
@@ -234,7 +234,7 @@ th {
 
 
 <tr id="position_mc">
- <td><a href="../flight_modes/position_mc.html">位置</a>
+ <td><a href="../flight_modes_mc/position.html">Position</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于飞行" width="20px" /></a></p>
  </td>
  <td>S<sup>+</sup></td>
@@ -264,7 +264,7 @@ th {
 </tr>
 
 <tr id="altitude_mc">
- <td><a href="../flight_modes/altitude_mc.html">高度</a>
+ <td><a href="../flight_modes_mc/altitude.html">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于飞行" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -297,7 +297,7 @@ th {
 
 
 <tr id="manual_stabilized_mc">
- <td><a href="../flight_modes/manual_stabilized_mc.html">手动/自稳</a>
+ <td><a href="../flight_modes_mc/manual_stabilized.html">Manual/ Stabilized</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="中等飞行难度" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -321,7 +321,7 @@ th {
 </tr>
 
 <tr id="acro_mc">
- <td><a href="../flight_modes/acro_mc.html">特技</a>
+ <td><a href="../flight_modes_mc/acro.html">Acro</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="飞行难度：困难" width="20px" /></a></p>
  </td>
  <td>S<sub>rate</sub></td>
@@ -335,7 +335,7 @@ th {
 
 
 <tr id="orbit_mc">
- <td><a href="../flight_modes/orbit.html">环绕</a>
+ <td><a href="../flight_modes_mc/orbit.html">Orbit</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于飞行" width="20px" /></a></p>
  </td>
  <td>-</td>
@@ -348,21 +348,21 @@ th {
 </tr>
 
 <tr id="takeoff_mc">
- <td><a href="../flight_modes/takeoff.html">起飞</a></td>
+ <td><a href="../flight_modes_mc/takeoff.html">起飞</a></td>
  <td colspan="3">自动</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="20px" /></a></td>
  <td>机体上升到起飞高度并保持位置。</td>
 </tr>
 
 <tr id="land_mc">
- <td><a href="../flight_modes/land.html">降落</a></td>
+ <td><a href="../flight_modes_mc/land.html">降落</a></td>
  <td colspan="3">自动</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="20px" /></a></td>
  <td>飞机降落在模式指定的位置。</td>
 </tr>
 
 <tr id="hold_mc">
- <td><a href="../flight_modes/hold.html">保持</a></td>
+ <td><a href="../flight_modes_mc/hold.html">保持</a></td>
  <td colspan="3">自动</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="20px" /></a></td>
  <td>无人机悬停在当前 GPS 位置和高度。</td>
@@ -384,7 +384,7 @@ th {
 </tr>
 
 <tr id="followme_mc">
- <td><a href="../flight_modes/follow_me.html">跟随</a></td>
+ <td><a href="../flight_modes_mc/follow_me.html">跟随</a></td>
  <td colspan="3">自动</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="20px" /></a></td>
  <td>飞机自动跟随运行 QGC 的安卓手机/平板电脑的用户。</td>

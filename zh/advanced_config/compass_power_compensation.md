@@ -37,7 +37,7 @@
 
    ![带子](../../assets/advanced_config/strap.png)
 
-1. 给无人机上电，并切换到[特技 (ACRO) 飞行模式](../flight_modes/acro_mc.md) （此模式下无人机不会试图去补偿带子对运动造成的影响）。
+1. Power the vehicle and switch into [ACRO flight mode](../flight_modes_mc/acro.md) (using this mode ensures the vehicle won't attempt to compensate for movement resulting from the straps).
 
    - 解锁无人机，然后缓缓将油门推到最大。
    - 慢慢将油门降到0

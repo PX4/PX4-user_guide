@@ -22,7 +22,7 @@
 ![Grau setup pixracer 하단](../../assets/flight_controller/pixracer/grau_setup_pixracer_bottom.jpg)
 
 
-### 무선 조종기 RC
+### Radio/Remote Control
 
 라디오 리모트 컨트롤(RC)은 기체를 *수동*으로 조작합니다. PX4 자율 비행 모드에는 RC는 필수 요구 사항은 아닙니다.
 

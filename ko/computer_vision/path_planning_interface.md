@@ -97,13 +97,13 @@ PX4는 오프보드 시스템에서 메시지가 수신되지 않는 경우를 �
   - 비행 전 검사는 (기체 모드와 관계없이) 실패하고 `COM_OBS_AVOID`가 0으로 설정될 때까지 비행하지 않습니다.
 - 실행중인 플래너가없고 `COM_OBS_AVOID`가 부팅후 활성화 된 경우 :
   - 기체는 수동 모드에서 정상적으로 작동합니다.
-  - 자율 모드(예 : 착륙 모드)로 전환하면 즉시 [유지 모드](../flight_modes/hold.md)로 돌아갑니다.
+  - if you switch to an autonomous mode (e.g. Land Mode) it will immediately fall back to [Hold mode](../flight_modes_mc/hold.md).
 - 외부 경로 계획이 활성화 된 경우 :
   - `HEARTBEAT`가 분실된 경우 PX4는 "Avoidance system lost"또는 "Avoidance system timeout"(기체 상태에 따라 다름)을 나타내는 상태 메시지 (*QGroundControl*에 표시됨)를 내 보냅니다. 이것은 현재 비행 모드와 관계가 없습니다.
-  - 궤적 메시지가 0.5 초 이상 수신되지 않고, 기체가 자율 모드(복귀, 임무, 이륙, 착륙)에인 경우에는 기체는 [유지 모드](../flight_modes/hold.md)로 전환됩니다. :::note 플래너는 항상 이 기간에 포인트를 제공하여야 합니다.
+  - if a trajectory message is not received for more than 0.5 seconds and the vehicle is in an autonomous mode (Return, Mission, Takeoff, Land), the vehicle will switch into [Hold mode](../flight_modes_mc/hold.md). :::note 플래너는 항상 이 기간에 포인트를 제공하여야 합니다.
   - 플래너는 기체가 경로 계획을 제공하지 않는 모드나 상태이면 수신한 설정값을 미러링합니다. (즉, 기체가 원하는 경로를 따라가는 데 약간의 지연이 있음).
 :::
-  - If the execution time of the last-supplied Bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes/hold.md)).
+  - If the execution time of the last-supplied Bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes_mc/hold.md)).
 
 
 <a id="companion_waypoint_interface"></a>
@@ -125,7 +125,7 @@ PX4는 오프보드 시스템에서 메시지가 수신되지 않는 경우를 �
 - 다른 모든 인덱스와 필드는 NaN으로 설정됩니다.
 
 이 인터페이스를 구현하는 플래너는 다음 기능을 수행하여야합니다.
-- PX4에서 메시지를 수신 할 때 2Hz 이상에서 설정값을 송출합니다. 0.5초 이상 메시지가 수신되지 않으면 PX4는 [보류 모드](../flight_modes/hold.md)로 전환됩니다.
+- PX4에서 메시지를 수신 할 때 2Hz 이상에서 설정값을 송출합니다. PX4 will enter [Hold mode](../flight_modes_mc/hold.md) if no message is received for more than 0.5s.
 - Mirror back setpoints it receives when it doesn't support planning for the current vehicle state (e.g. the local planner would mirror back messages sent during safe landing because it does not support Land mode).
 
 

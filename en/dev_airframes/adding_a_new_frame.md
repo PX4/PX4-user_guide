@@ -58,7 +58,7 @@ The configuration file consists of several main blocks:
  Airframe-specific parameter settings
   - The configuration and geometry using [control allocation](../concept/control_allocation.md) parameters
   - [Tuning gains](#tuning-gains)
-- The controllers and apps it should start, such as multicopter or fixed wing controllers, land detectors etc.
+- The controllers and apps it should start, such as multicopter or fixed-wing controllers, land detectors etc.
 
 These aspects are mostly independent, which means that many configurations share the same physical layout of the airframe, start the same applications and differ most in their tuning gains.
 
@@ -312,7 +312,7 @@ The following topics explain how to tune the parameters that will be specified i
 
 * [Autotuning](../config/autotune.md)
 * [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md)
-* [Fixed Wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
+* [Fixed-wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
 * [VTOL Configuration](../config_vtol/README.md)
 
 

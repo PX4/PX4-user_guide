@@ -1,6 +1,6 @@
 # Flight Modes
 
-*Flight Modes* define how the autopilot responds to user input and controls vehicle movement. The tables below summarizes flight modes for fixed wing and copter ([table key is below](#key)). Note that this is the "high level" default behaviour, and may vary based on vehicle parameters. The linked topics (sidebar) provide more detailed information about individual modes, including their tuning parameters.
+*Flight Modes* define how the autopilot responds to user input and controls vehicle movement. The tables below summarizes flight modes for fixed-wing and copter ([table key is below](#key)). Note that this is the "high level" default behaviour, and may vary based on vehicle parameters. The linked topics (sidebar) provide more detailed information about individual modes, including their tuning parameters.
 
 **Tip** A *beginner friendly* explanation of all flight modes is provided in [Getting Started > Flight Modes](../getting_started/flight_modes.md). :::
 
@@ -54,7 +54,7 @@ th {
 
 </style>
 
-## Fixed Wing
+## Fixed-wing
 
 <table>
  <thead>
@@ -70,7 +70,7 @@ th {
 <tbody>
 
 <tr id="position_fw">
- <td><a href="../flight_modes/position_fw.html">Position</a>
+ <td><a href="../flight_modes_mc/position.html">Position</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td>S<sup>+</sup></td>
@@ -95,7 +95,7 @@ th {
 
 
 <tr id="altitude_fw">
- <td><a href="../flight_modes/altitude_fw.html">Altitude</a>
+ <td><a href="../flight_modes_mc/altitude.html">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td><p>S (roll)</p><p>S<sup>+</sup>(pitch)</p></td>
@@ -124,7 +124,7 @@ th {
 
 
 <tr id="stabilized_fw">
- <td><a href="../flight_modes/stabilized_fw.html">Stabilized</a>
+ <td><a href="../flight_modes_fw/stabilized.html">Stabilized</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -143,7 +143,7 @@ th {
 </tr>
 
 <tr id="acro_fw">
- <td><a href="../flight_modes/acro_fw.html">Acro</a>
+ <td><a href="../flight_modes_mc/acro.html">Acro</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
  </td>
  <td>S<sub>rate</sub></td>
@@ -156,7 +156,7 @@ th {
 
 
 <tr id="manual_fw">
- <td><a href="../flight_modes/manual_fw.html">Manual</a>
+ <td><a href="../flight_modes_fw/manual.html">Manual</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
  </td>
  <td>M</td>
@@ -171,7 +171,7 @@ th {
 
 
 <tr id="takeoff_fw">
- <td><a href="../flight_modes/takeoff.html">Takeoff</a></td>
+ <td><a href="../flight_modes_fw/takeoff.html">Takeoff</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle initiates the takeoff sequence using either <em>catapult/hand-launch mode</em> or <em>runway takeoff mode</em> (in the current direction).</td>
@@ -179,14 +179,14 @@ th {
 
 
 <tr id="land_fw">
- <td><a href="../flight_modes/land.html">Land</a></td>
+ <td><a href="../flight_modes_fw/land.html">Land</a></td>
  <td class="centred" colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle initiates the <a href="../flight_modes/mission.html#fw-mission-landing">fixed-wing landing</a> sequence.</td>
 </tr>
 
 <tr id="hold_fw">
- <td><a href="../flight_modes/hold.html">Hold</a></td>
+ <td><a href="../flight_modes_fw/hold.html">Hold</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle circles around the GPS hold position at the current altitude.</td>
@@ -233,7 +233,7 @@ th {
 
 
 <tr id="position_mc">
- <td><a href="../flight_modes/position_mc.html">Position</a>
+ <td><a href="../flight_modes_mc/position.html">Position</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td>S<sup>+</sup></td>
@@ -263,7 +263,7 @@ th {
 </tr>
 
 <tr id="altitude_mc">
- <td><a href="../flight_modes/altitude_mc.html">Altitude</a>
+ <td><a href="../flight_modes_mc/altitude.html">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -296,7 +296,7 @@ th {
 
 
 <tr id="manual_stabilized_mc">
- <td><a href="../flight_modes/manual_stabilized_mc.html">Manual/ Stabilized</a>
+ <td><a href="../flight_modes_mc/manual_stabilized.html">Manual/ Stabilized</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -320,7 +320,7 @@ th {
 </tr>
 
 <tr id="acro_mc">
- <td><a href="../flight_modes/acro_mc.html">Acro</a>
+ <td><a href="../flight_modes_mc/acro.html">Acro</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
  </td>
  <td>S<sub>rate</sub></td>
@@ -334,7 +334,7 @@ th {
 
 
 <tr id="orbit_mc">
- <td><a href="../flight_modes/orbit.html">Orbit</a>
+ <td><a href="../flight_modes_mc/orbit.html">Orbit</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td>-</td>
@@ -347,21 +347,21 @@ th {
 </tr>
 
 <tr id="takeoff_mc">
- <td><a href="../flight_modes/takeoff.html">Takeoff</a></td>
+ <td><a href="../flight_modes_mc/takeoff.html">Takeoff</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle ascends to takeoff altitude and holds position.</td>
 </tr>
 
 <tr id="land_mc">
- <td><a href="../flight_modes/land.html">Land</a></td>
+ <td><a href="../flight_modes_mc/land.html">Land</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle lands at the position where the mode was engaged.</td>
 </tr>
 
 <tr id="hold_mc">
- <td><a href="../flight_modes/hold.html">Hold</a></td>
+ <td><a href="../flight_modes_mc/hold.html">Hold</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle hovers at the current GPS position and altitude.</td>
@@ -383,7 +383,7 @@ th {
 </tr>
 
 <tr id="followme_mc">
- <td><a href="../flight_modes/follow_me.html">Follow Me</a></td>
+ <td><a href="../flight_modes_mc/follow_me.html">Follow Me</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle autonomously follows a user using an Android phone/tablet running QGC.</td>

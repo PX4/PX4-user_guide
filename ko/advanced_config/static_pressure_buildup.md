@@ -2,7 +2,7 @@
 
 Air flowing over an enclosed vehicle can cause the _static pressure_ to change within the canopy/hull. 선체의 구멍/누출 위치에 따라 저압 또는 과압 (날개와 유사)이 발생할 수 있습니다.
 
-압력의 변화는 기압계 측정에 영향을 끼치므로, 고도 추정이 정확하지 않을 수 있습니다. 이것은 기체가 [고도](../flight_modes/altitude_mc.md), [위치](../flight_modes/position_mc.md) 또는 [미션](../flight_modes/mission.md) 모드에서 이동을 멈출 때 고도를 잃는 것으로 나타날 수 있습니다(기체가 움직이지 않으면 정압이 떨어집니다. 센서는 더 높은 고도를 보고하고 기체는 하강하여 보상합니다).
+압력의 변화는 기압계 측정에 영향을 끼치므로, 고도 추정이 정확하지 않을 수 있습니다. This might manifest as the vehicle losing altitude when it stops moving in [Altitude](../flight_modes_mc/altitude.md), [Position](../flight_modes_mc/position.md) or [Mission](../flight_modes/mission.md) modes (when the vehicle stops moving the static pressure drops, the sensor reports a higher altitude, and the vehicle compensates by descending).
 
 한 가지 해결책은 거품으로 채워진 환기 구멍을 사용하여 축적을 최소화한 다음 (가능한 한 많이) 동적 보정을 시도하여 나머지 효과를 제거하는 것입니다.
 

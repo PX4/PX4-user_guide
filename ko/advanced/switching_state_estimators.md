@@ -22,7 +22,7 @@ It works (at time of writing, in PX4 v1.14) but is no longer supported or mainta
 
 ## 다양한 추정기 활성화 방법
 
-멀티콥터와 VTOL은 [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) 매개변수를 사용하여 설정합니다(고정 익에는 LPE가 지원되지 않음).
+For multirotors and VTOL use the parameter [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) to choose between the following configurations (LPE is not supported for Fixed-wing).
 
 | SYS_MC_EST_GROUP | Q 추정기 | LPE | EKF2 |
 | ------------------ | ----- | --- | ---- |

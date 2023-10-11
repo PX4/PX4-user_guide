@@ -1,4 +1,4 @@
-# 비행 101
+# Manual Flying
 
 수동 또는 자동 조종 보조 비행 모드에서 [RC 송신기](../getting_started/rc_transmitter_receiver.md)를 사용하여 기체 비행의 기본적인 사항들을 설명합니다 (자율 비행의 경우 [미션](../flying/missions.md) 참조).
 
@@ -29,13 +29,11 @@ Before you can fly the vehicle it must first be [armed](../getting_started/px4_b
 
 ## 이륙
 
-가장 용이한 이륙 방법([기체 시동](#arm) 후)은 자동 [이륙 모드](../flight_modes/takeoff.md)를 사용하는 것입니다. 일반적으로 [RC 스위치](../config/flight_mode.md) 또는 지상국 프로그램을 사용합니다.
+### Multicopter Takeoff
 
-멀티 콥터 (및 멀티 콥터 모드의 VTOL) [포지션 모드](../flight_modes/README.md#position_mc)를 활성화하고 기체 시동후 스로틀 스틱을 62.5 % 이상 올리면 *수동으로* 이륙할 수 있습니다. 이 값을 초과하면 모든 컨트롤러가 활성화되고 차량이 호버링에 필요한 스로틀 수준 ([ MPC_THR_HOVER ](../advanced_config/parameter_reference.md#MPC_THR_HOVER))으로 이동합니다
+Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by enabling any manual mode, arming the vehicle and then raising the throttle stick until the motors produce enough thrust to leave the ground. In [Position mode (MC)](../flight_modes/README.md#position_mc) or [Altitude mode (MC)](../flight_modes/README.md#altitude_mc) the throttle stick has to be increased to above 62.5% to command a climb rate and make the vehicle leave the ground. 이 값을 초과하면 모든 컨트롤러가 활성화되고 차량이 호버링에 필요한 스로틀 수준 ([ MPC_THR_HOVER ](../advanced_config/parameter_reference.md#MPC_THR_HOVER))으로 이동합니다
 
-:::tip
-특히 고정익에는 자동 이륙 모드를 적극 권장합니다!
-:::
+Alternatively the takeoff can performed using the automatic [Takeoff mode (MC)](../flight_modes_mc/takeoff.md).
 
 :::note
 시동 후 이륙 시간이 너무 오래 걸리면 차량의 시동이 해제될 수 있습니다 ([COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)를 사용하여 시간 제한 조정). :::
@@ -43,24 +41,57 @@ Before you can fly the vehicle it must first be [armed](../getting_started/px4_b
 :::note
 The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff. :::
 
+### Fixed-wing Takeoff
+
+:::note
+Taking off manually (and landing) is not easy!
+We recommend using with the automatic modes instead, especially for inexperienced pilots.
+:::
+
+[Stabilized mode](../flight_modes/README.md#stabilized_fw), [Acro mode](../flight_modes/README.md#acro_fw) or [Manual mode](../flight_modes/README.md#manual_fw) mode are recommended for manual takeoff. [Position mode](../flight_modes/README.md#position_fw) and [Altitude mode](../flight_modes/README.md#altitude_fw) can also be used, but it is important to accelerate the vehicle sufficiently before bringing them airborne — strong thrust if hand-launched, long runway phase for runway takeoff (this is required because the controller in these modes can prioritize airspeed over altitude tracking).
+
+Manual takeoffs with hand-launched planes:
+- Ramp up the motor and throw the vehicle horizontally.
+- Do not pitch up too fast as this may stall the plane.
+- A good vehicle trim is crucial for safe hand-launch takeoffs, because if the vehicle doesn't fly level there is only a very short time for the pilot to react before the vehicle crashes!
+
+Manual takeoffs with runway-launched planes:
+- Accelerate on the runway until the speed is sufficient for takeoff.
+- If the plane has a steerable wheel, use the yaw stick to keep it on course.
+- Once the speed is sufficient pull up the nose with the pitch stick.
+
+Automatic takeoffs are possible in the [Mission mode](../flight_modes/mission.md#fw-mission-takeoff) or [Takeoff mode (FW)](../flight_modes_fw/takeoff.md). The pilot can take over manual control over the vehicle at any moment during the takeoff process or after it by changing into a manual flight mode.
 
 ## 착륙
 
-가장 용이한 착륙 방법은 자동 [착륙](../flight_modes/land.md) 또는 [복귀](../flight_modes/return.md) 모드를 사용하는 것입니다.
+### Multicopter Landing
 
-멀티 콥터 (및 멀티 콥터 모드의 VTOL)의 경우 차량이 착륙하고 무장 해제 될 때까지 스로틀 스틱을 아래로 눌러 수동으로 착륙할 수 있습니다.
+Multicopters can be landed in any manual mode. Make sure to keep the throttle stick pulled down after touching down until the motors have switched off.
 
 차량은 기본적으로 착륙시 자동으로 무장 해제됩니다.
+
 - 착륙 후 자동 해제 시간을 설정하려면 [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)를 사용하십시오 (또는 모두 비활성화).
 - 스로틀 스틱을 왼쪽 하단 모서리에 놓아 수동으로 무장 해제하십시오.
+
+There is also the option to let the vehicle land autonomously. For that engage the [Land mode](../flight_modes_mc/land.md) or [Return mode](../flight_modes/return.md).
 
 :::note
 착륙하는 동안 차량 "트위치"가 표시되는 경우 (모터를 껐다가 즉시 다시 켜십시오) 이는 잘못된 [토지 감지기 구성](../advanced_config/land_detector.md) (특히 잘못 설정된 [MPC_THR_HOVER ](../advanced_config/parameter_reference.md#MPC_THR_HOVER) 때문일 수 있습니다.). :::
 
-:::tip
-특히 고정익에는 자동 착륙 모드를 적극 권장합니다.
-:::
 
+### Fixed-wing Landing
+
+[Stabilized mode](../flight_modes/README.md#stabilized_fw), [Acro mode](../flight_modes/README.md#acro_fw) or [Manual mode](../flight_modes/README.md#manual_fw) are recommended for landing (just as they are for takeoff). In these modes the pilot has full control over the motor thrust, which is required to perform a manual flaring maneuver when close to the ground (raising the vehicle nose without increasing throttle). You should perform the landing in headwind to reduce the groundspeed before touching down.
+
+For auto landings you should use a [Fixed-Wing Mission Landing](../flight_modes/mission.md#fw-mission-landing). This landing is defined in a mission, and can be used in either [Mission](../flight_modes/mission.md) or [Return](../flight_modes/return.md) modes.
+
+The automatic [Land mode](../flight_modes_fw/land.md) mode is not recommended unless absolutely necessary, as it cannot account for underlying terrain.
+<!-- Added this to make it more generic: We'll split this out later -->
+
+차량은 기본적으로 착륙시 자동으로 무장 해제됩니다.
+
+- 착륙 후 자동 해제 시간을 설정하려면 [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)를 사용하십시오 (또는 모두 비활성화).
+- 스로틀 스틱을 왼쪽 하단 모서리에 놓아 수동으로 무장 해제하십시오.
 
 ## 비행 제어 명령어
 

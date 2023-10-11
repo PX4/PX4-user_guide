@@ -24,7 +24,7 @@ Other key parameters that you may need to tune in order to improve landing behav
   A racer or a big camera drone without payload mounted might need a much lower setting (e.g. 35%).
 
   :::note
-  Incorrectly setting `MPC_THR_HOVER` may result in ground-contact or maybe-landed detection while still in air (in particular, while descending in [Position mode](../flight_modes/position_mc.md) or [Altitude mode](../flight_modes/altitude_mc.md)).
+  Incorrectly setting `MPC_THR_HOVER` may result in ground-contact or maybe-landed detection while still in air (in particular, while descending in [Position mode](../flight_modes_mc/position.md) or [Altitude mode](../flight_modes_mc/altitude.md)).
   This causes the vehicle to "twitch" (turn down the motors, and then immediately turn them back up).
   :::
 
@@ -36,7 +36,7 @@ Other key parameters that you may need to tune in order to improve landing behav
 
 In order to detect landing, the multicopter first has to go through three different states, where each state contains the conditions from the previous states plus tighter constraints.
 If a condition cannot be reached because of missing sensors, then the condition is true by default.
-For instance, in [Acro mode](../flight_modes/acro_mc.md) and no sensor is active except for the gyro sensor, then the detection solely relies on thrust output and time.
+For instance, in [Acro mode](../flight_modes_mc/acro.md) and no sensor is active except for the gyro sensor, then the detection solely relies on thrust output and time.
 
 In order to proceed to the next state, each condition has to be true for a third of the configured total land detector trigger time [LNDMC_TRIG_TIME](../advanced_config/parameter_reference.md#LNDMC_TRIG_TIME).
 If the vehicle is equipped with a distance sensor, but the distance to ground is currently not measurable (usually because it is too large), the trigger time is increased by a factor of 3.

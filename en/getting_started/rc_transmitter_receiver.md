@@ -148,6 +148,6 @@ For more information see [Radio Control Setup > RC Loss Detection](../config/rad
 ## Related Topics
 
 * [Radio Control Setup](../config/radio.md) - Configuring your radio with PX4.
-* [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.
+* [Manual Flying](../flying/basic_flying.md) - Learn how to fly with a remote control.
 * [TBS Crossfire (CRSF) Telemetry](../telemetry/crsf_telemetry.md)
 * [FrSky Telemetry](../peripherals/frsky_telemetry.md)

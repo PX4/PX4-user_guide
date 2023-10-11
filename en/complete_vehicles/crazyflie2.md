@@ -191,7 +191,7 @@ This is the rate at which Joystick commands are sent from QGroundControl to Craz
 
 ## Hardware Setup
 
-Crazyflie 2.0 is able to fly with precise control in [Stabilized mode](../flight_modes/manual_stabilized_mc.md), [Altitude mode](../flight_modes/altitude_mc.md) and [Position mode](../flight_modes/position_mc.md). 
+Crazyflie 2.0 is able to fly with precise control in [Stabilized mode](../flight_modes_mc/manual_stabilized.md), [Altitude mode](../flight_modes_mc/altitude.md) and [Position mode](../flight_modes_mc/position.md). 
 
 * You will need the [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck) to fly in *Altitude* mode. 
   If you also want to fly in the *Position* mode, it is recommended you buy the [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck) which also has the integrated Z-ranger sensor.

@@ -25,7 +25,7 @@ The available estimators are:
 
 ## How to Enable Different Estimators
 
-For multirotors and VTOL use the parameter [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) to choose between the following configurations (LPE is not supported for Fixed Wing).
+For multirotors and VTOL use the parameter [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) to choose between the following configurations (LPE is not supported for Fixed-wing).
 
 | SYS_MC_EST_GROUP | Q Estimator | LPE     | EKF2    |
 | ---------------- | ----------- | ------- | ------- |

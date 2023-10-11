@@ -87,7 +87,8 @@ Request access from dev team. -->
 ## Fixed-Wing Position Controller
 
 ### Total Energy Control System (TECS)
-The PX4 implementation of the Total Energy Control System (TECS) enables simultaneous control of true airspeed and altitude of a fixed wing aircraft. The code is implemented as a library which is used in the fixed wing position control module.
+
+The PX4 implementation of the Total Energy Control System (TECS) enables simultaneous control of true airspeed and altitude of a fixed-wing aircraft. The code is implemented as a library which is used in the fixed-wing position control module.
 
 ![TECS](../../assets/diagrams/tecs_in_context.svg)
 

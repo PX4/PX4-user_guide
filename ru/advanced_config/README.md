@@ -39,5 +39,5 @@ This section contains contains more advanced configuration topics, and those for
 - Vehicle Config/Tuning:
   - [Multicopter Config/Tuning](../config_mc/README.md)
   - [Helicopter Config/Tuning](../config_heli/README.md)
-  - [Fixed Wing Config/Tuning](../config_fw/README.md)
+  - [Fixed-wing Config/Tuning](../config_fw/README.md)
   - [VTOL Config/Tuning](../config_vtol/README.md)

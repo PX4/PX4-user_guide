@@ -54,7 +54,7 @@ The sensor can be mounted anywhere on the frame, but you will need to specify th
 
 ## Firmware Setup
 
-ARK Flow runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](README.md#node-id).
+ARK Flow runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](README.md#node-id-allocation).
 
 ARK Flow boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself see [PX4 DroneCAN Firmware > Building the Firmware](px4_cannode_fw.md#building-the-firmware).
 
@@ -120,4 +120,4 @@ If you see a solid red LED there is an error and you should check the following:
 
 @[youtube](https://www.youtube.com/watch?v=SAbRe1fi7bU&list=PLUepQApgwSozmwhOo-dXnN33i2nBEl1c0)
 <!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
-*PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes/position_mc.md)).* 
+*PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes_mc/position.md)).* 

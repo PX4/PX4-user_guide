@@ -377,5 +377,133 @@
     "type": "PageNotLinkedInternally",
     "fileRelativeToRoot": "en\\middleware\\micrortps.md",
     "hideReason": "This is deliberately omitted"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/mission.html#fw-mission-landing",
+      "text": "fixed-wing landing"
+    },
+    "hideReason": "Is in HTML"
+  },
+  {
+    "type": "PageNotInTOC",
+    "fileRelativeToRoot": "en\\advanced_features\\README.md",
+    "hideReason": "Its a redirect, or should be."
+  },
+  {
+    "type": "PageNotLinkedInternally",
+    "fileRelativeToRoot": "en\\advanced_features\\README.md",
+    "hideReason": "Its a redirect"
+  },
+  {
+    "type": "PageNotInTOC",
+    "fileRelativeToRoot": "en\\gps_compass\\rtk_gps_drotek_xl.md",
+    "hideReason": "It's a redirect in case someone ends up here"
+  },
+  {
+    "type": "PageNotLinkedInternally",
+    "fileRelativeToRoot": "en\\gps_compass\\rtk_gps_drotek_xl.md",
+    "hideReason": "Intended orphan"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_mc/position.html",
+      "text": "Position"
+    },
+    "hideReason": "Link exists"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_mc/altitude.html",
+      "text": "Altitude"
+    },
+    "hideReason": "Has to be html link in table"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_fw/stabilized.html",
+      "text": "Stabilized"
+    },
+    "hideReason": "HTML link in table"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_mc/acro.html",
+      "text": "Acro"
+    },
+    "hideReason": "HTML link in table"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_fw/manual.html",
+      "text": "Manual"
+    },
+    "hideReason": "HTML link in table"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_mc/position.html",
+      "text": "Position"
+    },
+    "hideReason": "HTML link in table"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_mc/altitude.html",
+      "text": "Altitude"
+    },
+    "hideReason": "HTML link in table"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_mc/manual_stabilized.html",
+      "text": "Manual/ Stabilized"
+    },
+    "hideReason": "HTML link in table"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_mc/acro.html",
+      "text": "Acro"
+    },
+    "hideReason": "HTML link in table"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_mc/orbit.html",
+      "text": "Orbit"
+    },
+    "hideReason": "HTML link in table"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_mc/follow_me.html",
+      "text": "Follow Me"
+    },
+    "hideReason": "HTML link in table"
   }
 ]

@@ -50,7 +50,7 @@ The configuration file consists of several main blocks:
 - Documentation (used in the [Airframes Reference](../airframes/airframe_reference.md) and *QGroundControl*). Airframe-specific parameter settings
   - The configuration and geometry using [control allocation](../concept/control_allocation.md) parameters
   - [Tuning gains](#tuning-gains)
-- The controllers and apps it should start, such as multicopter or fixed wing controllers, land detectors etc.
+- The controllers and apps it should start, such as multicopter or fixed-wing controllers, land detectors etc.
 
 一个典型的配置文件如下所示 ([original file here](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/airframes/3033_wingwing)) .
 
@@ -295,7 +295,7 @@ The following topics explain how to tune the parameters that will be specified i
 
 * [Autotuning](../config/autotune.md)
 * [多轴飞行器 PID 调参指南](../config_mc/pid_tuning_guide_multicopter.md)
-* [固定翼 PID 调参指南](../config_fw/pid_tuning_guide_fixedwing.md)
+* [Fixed-wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
 * [垂直起降（VTOL）配置](../config_vtol/README.md)
 
 

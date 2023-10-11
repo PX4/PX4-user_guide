@@ -11,7 +11,7 @@ Generally if you're using an appropriate [supported frame configuration](../airf
 
 ## Introduction
 
-PX4 uses **P**roportional, **I**ntegral, **D**erivative (PID) controllers (these are the most widespread control technique).
+PX4 uses **P**roportional, **I**ntegral, **D**erivative (PID) controllers (these are the most widespread control technique).
 
 The _QGroundControl_ **PID Tuning** setup provides real-time plots of the vehicle setpoint and response curves. The goal of tuning is to set the P/I/D values such that the _Response_ curve matches the _Setpoint_ curve as closely as possible (i.e. a fast response without overshoots).
 
@@ -25,7 +25,7 @@ The testing procedure for each controller (rate, attitude, velocity/posibition) 
 - Rate controller tuning is the most important, and if tuned well, the other controllers often need no or only minor adjustments
 - Usually the same tuning gains can be used for roll and pitch.
 - use Acro/Stabilized/Altitude mode to tune the rate controller
-- Use [Position mode](../flight_modes/position_mc.md) to tune the *Velocity Controller* and the *Position Controller*. Make sure to switch to the *Simple position control* mode so you can generate step inputs. ![QGC PID tuning: Simple control selector](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_simple_control.png)
+- Use [Position mode](../flight_modes_mc/position.md) to tune the *Velocity Controller* and the *Position Controller*. Make sure to switch to the *Simple position control* mode so you can generate step inputs. ![QGC PID tuning: Simple control selector](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_simple_control.png)
 :::
 
 ## Preconditions
@@ -34,7 +34,7 @@ The testing procedure for each controller (rate, attitude, velocity/posibition) 
 - You should have done an [ESC calibration](../advanced_config/esc_calibration.md).
 - If using PWM outputs their minimum values should be set correctly in the [Actuator Configuration](../config/actuators.md#actuator-configuration-and-testing). These need to be set low, but such that the **motors never stop** when the vehicle is armed.
 
-  This can be tested in [Acro mode](../flight_modes/acro_mc.md) or in [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md):
+  This can be tested in [Acro mode](../flight_modes_mc/acro.md) or in [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md):
   - Remove propellers
   - Arm the vehicle and lower the throttle to the minimum
   - Tilt the vehicle to all directions, about 60 degrees
@@ -50,7 +50,7 @@ Poorly tuned vehicles are likely to be unstable, and easy to crash. Make sure to
 
 The tuning procedure is:
 
-1. Arm the vehicle, takeoff, and hover (typically in [Position mode](../flight_modes/position_mc.md)).
+1. Arm the vehicle, takeoff, and hover (typically in [Position mode](../flight_modes_mc/position.md)).
 1. Open _QGroundControl_ **Vehicle Setup > PID Tuning** ![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
 1. Select the **Rate Controller** tab.
 1. Confirm that the airmode selector is set to **Disabled**
@@ -66,7 +66,7 @@ For PWM, power-based and (some) UAVCAN speed controllers, the control signal to 
    For more information see the [detailed PID tuning guide](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve).
 :::
 1. Set the *Select Tuning* radio button to: **Roll**.
-1. (Optionally) Select the **Automatic Flight Mode Switching** checkbox. This will _automatically_ switch from [Position mode](../flight_modes/position_mc.md) to [Stabilised mode](../flight_modes/manual_stabilized_mc.md) when you press the **Start** button
+1. (Optionally) Select the **Automatic Flight Mode Switching** checkbox. This will _automatically_ switch from [Position mode](../flight_modes_mc/position.md) to [Stabilised mode](../flight_modes_mc/manual_stabilized.md) when you press the **Start** button
 1. For rate controller tuning switch to *Acro mode*, *Stabilized mode* or *Altitude mode* (unless automatic switching is enabled).
 1. Select the **Start** button in order to start tracking the setpoint and response curves.
 1. Rapidly move the *roll stick* full range and observe the step response on the plots. :::tip Stop tracking to enable easier inspection of the plots. This happens automatically when you zoom/pan. Use the **Start** button to restart the plots, and **Clear** to reset them.

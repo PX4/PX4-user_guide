@@ -1,6 +1,6 @@
 # 비행 모드
 
-*Flight Modes* define how the autopilot responds to user input and controls vehicle movement. 아래 표는 고정익과 헬리콥터의 비행 모드를 요약 한 것입니다 ([테이블 키는 아래](#key)). 이것은 "고급 수준"의 기본 동작이며 기체 매개변수에 따라 달라질 수 있습니다. 링크된 주제 (사이드 바)는 튜닝 매개 변수를 포함하여 개별 모드에 대한 자세한 정보를 제공합니다.
+*Flight Modes* define how the autopilot responds to user input and controls vehicle movement. The tables below summarizes flight modes for fixed-wing and copter ([table key is below](#key)). 이것은 "고급 수준"의 기본 동작이며 기체 매개변수에 따라 달라질 수 있습니다. 링크된 주제 (사이드 바)는 튜닝 매개 변수를 포함하여 개별 모드에 대한 자세한 정보를 제공합니다.
 
 **Tip** A *beginner friendly* explanation of all flight modes is provided in [Getting Started > Flight Modes](../getting_started/flight_modes.md). :::
 
@@ -54,7 +54,7 @@ th {
 
 </style>
 
-## 고정익
+## Fixed-wing
 
 <table>
  <thead>
@@ -70,7 +70,7 @@ th {
 <tbody>
 
 <tr id="position_fw">
- <td><a href="../flight_modes/position_fw.html">위치</a>
+ <td><a href="../flight_modes_mc/position.html">Position</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="20px" /></a></p>
  </td>
  <td>S<sup>+</sup></td>
@@ -95,7 +95,7 @@ th {
 
 
 <tr id="altitude_fw">
- <td><a href="../flight_modes/altitude_fw.html">위치</a>
+ <td><a href="../flight_modes_mc/altitude.html">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="20px" /></a></p>
  </td>
  <td><p>S (roll)</p><p>S (roll)</p></td>
@@ -124,7 +124,7 @@ th {
 
 
 <tr id="stabilized_fw">
- <td><a href="../flight_modes/stabilized_fw.html">안정화</a>
+ <td><a href="../flight_modes_fw/stabilized.html">Stabilized</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="중급 난이도 비행" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -143,7 +143,7 @@ th {
 </tr>
 
 <tr id="acro_fw">
- <td><a href="../flight_modes/acro_fw.html">아크로</a>
+ <td><a href="../flight_modes_mc/acro.html">Acro</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="고급 난이도 비행" width="20px" /></a></p>
  </td>
  <td>S<sub>rate</sub></td>
@@ -156,7 +156,7 @@ th {
 
 
 <tr id="manual_fw">
- <td><a href="../flight_modes/manual_fw.html">수동</a>
+ <td><a href="../flight_modes_fw/manual.html">Manual</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="고급 난이도 비행" width="20px" /></a></p>
  </td>
  <td>M</td>
@@ -171,7 +171,7 @@ th {
 
 
 <tr id="takeoff_fw">
- <td><a href="../flight_modes/takeoff.html">이륙</a></td>
+ <td><a href="../flight_modes_fw/takeoff.html">이륙</a></td>
  <td colspan="3">자동</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="20px" /></a></td>
  <td>기체는 <em>투석기/수동 발사 모드</em> 또는 <em>활주로 이륙 모드</em> (현재 방향)를 사용하여 이륙 시퀀스를 시작합니다.</td>
@@ -179,14 +179,14 @@ th {
 
 
 <tr id="land_fw">
- <td><a href="../flight_modes/land.html">착륙</a></td>
+ <td><a href="../flight_modes_fw/land.html">착륙</a></td>
  <td class="centred" colspan="3">자동</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="20px" /></a></td>
  <td>Vehicle initiates the <a href="../flight_modes/mission.html#fw-mission-landing">fixed-wing landing</a> sequence.</td>
 </tr>
 
 <tr id="hold_fw">
- <td><a href="../flight_modes/hold.html">대기</a></td>
+ <td><a href="../flight_modes_fw/hold.html">대기</a></td>
  <td colspan="3">자동</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="20px" /></a></td>
  <td>기체는 현재 고도에서 GPS 유지 위치를 중심으로 선회합니다.</td>
@@ -233,7 +233,7 @@ th {
 
 
 <tr id="position_mc">
- <td><a href="../flight_modes/position_mc.html">위치</a>
+ <td><a href="../flight_modes_mc/position.html">Position</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="20px" /></a></p>
  </td>
  <td>S<sup>+</sup></td>
@@ -263,7 +263,7 @@ th {
 </tr>
 
 <tr id="altitude_mc">
- <td><a href="../flight_modes/altitude_mc.html">고도</a>
+ <td><a href="../flight_modes_mc/altitude.html">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -296,7 +296,7 @@ th {
 
 
 <tr id="manual_stabilized_mc">
- <td><a href="../flight_modes/manual_stabilized_mc.html">수동/안정화</a>
+ <td><a href="../flight_modes_mc/manual_stabilized.html">Manual/ Stabilized</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="중급 난이도 비행" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -320,7 +320,7 @@ th {
 </tr>
 
 <tr id="acro_mc">
- <td><a href="../flight_modes/acro_mc.html">아크로</a>
+ <td><a href="../flight_modes_mc/acro.html">Acro</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="고급 난이도 비행" width="20px" /></a></p>
  </td>
  <td>S<sub>rate</sub></td>
@@ -334,7 +334,7 @@ th {
 
 
 <tr id="orbit_mc">
- <td><a href="../flight_modes/orbit.html">고도</a>
+ <td><a href="../flight_modes_mc/orbit.html">Orbit</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="20px" /></a></p>
  </td>
  <td>-</td>
@@ -347,21 +347,21 @@ th {
 </tr>
 
 <tr id="takeoff_mc">
- <td><a href="../flight_modes/takeoff.html">이륙</a></td>
+ <td><a href="../flight_modes_mc/takeoff.html">이륙</a></td>
  <td colspan="3">자동</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="20px" /></a></td>
  <td>기체는 이륙 고도까지 상승하고 위치를 유지합니다.</td>
 </tr>
 
 <tr id="land_mc">
- <td><a href="../flight_modes/land.html">착륙</a></td>
+ <td><a href="../flight_modes_mc/land.html">착륙</a></td>
  <td colspan="3">자동</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="20px" /></a></td>
  <td>기체는 모드 적용된 위치에 착륙합니다.</td>
 </tr>
 
 <tr id="hold_mc">
- <td><a href="../flight_modes/hold.html">대기</a></td>
+ <td><a href="../flight_modes_mc/hold.html">대기</a></td>
  <td colspan="3">자동</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="20px" /></a></td>
  <td>기체는 현재 GPS 위치와 고도에서 호버링합니다.</td>
@@ -383,7 +383,7 @@ th {
 </tr>
 
 <tr id="followme_mc">
- <td><a href="../flight_modes/follow_me.html">따라다니기</a></td>
+ <td><a href="../flight_modes_mc/follow_me.html">따라다니기</a></td>
  <td colspan="3">자동</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="20px" /></a></td>
  <td>기체는 QGC를 실행하는 Android 휴대 전화/태블릿을 사용하는 사용자를 자동으로 추적합니다.</td>

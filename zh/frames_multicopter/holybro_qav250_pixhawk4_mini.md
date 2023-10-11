@@ -12,7 +12,7 @@ Key information
 
 - **Frame:** Holybro QAV250
 - **Flight controller:** [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
-- **Assembly time (approx.):** 3.5 hours (2 for frame, 1.5 autopilot installation/configuration)
+- **Assembly time (approx.):** 3.5 hours (2 for frame, 1.5 autopilot installation/configuration)
 
 ![Assembled Holybro QAV250 with Pixhawk4 Mini](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qav250_hero.jpg)
 

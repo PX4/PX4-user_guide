@@ -1,19 +1,19 @@
 # Holybro DroneCAN M8N GPS
 
-The Holybro DroneCAN GPS has an UBLOX M8N module, BMM150 compass, tri-colored LED indicator.
+Holybro DroneCAN GPS有一个UBLOX M8N 模块，BMM150指南针，三色LED指示器。
 
-The GPS module uses the [DroneCAN](README.md) protocol for communication. DroneCAN connections are more resistant to electromagnetic interference compared to serial connection, making it more reliable. In addition, using DroneCAN means that the GPS and compass do not occupy any flight controller serial ports (different/additional CAN devices can be connected to the same CAN bus via a CAN splitter board).
+GPS模块使用 [DroneCAN](README.md) 协议进行通信。 DroneCAN连接比串行连接更抗电磁干扰，从而更加可靠。 此外，使用DroneCAN意味着GPS和指南针不占用任何飞控串口（不同/附加的CAN设备可以通过CAN分离板连接到同一CAN总线。
 
 <img src="../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps.jpg" width="400px" title="Hero diagram for the GPS module" />
 
 
-## Where to Buy
+## 购买途径
 
-Order this module from:
+通过以下途径购买模块：
 
 * [Holybro](https://holybro.com/products/dronecan-m8n-gps)
 
-## Hardware Specifications
+## 硬件规格
 
 |                           | DroneCAN M8N                         |
 | ------------------------- | ------------------------------------ |
@@ -42,11 +42,11 @@ Order this module from:
 | Cable Length              | 26cm                                 |
 | Other                     | <ul><li>LNA MAX2659ELT+ RF Amplifier</li><li>Rechargeable Farah capacitance</li><li>Low noise 3.3V regulator</li><li>26cm cable included</li></ul>            |
 
-## Hardware Setup
+## 硬件设置
 
-### Mounting
+### 挂载
 
-The recommended mounting orientation is with the arrow on the GPS pointing towards the **front of vehicle**.
+建议安装方向是GPS上的箭头指向**机架前方**
 
 The sensor can be mounted anywhere on the frame, but you will need to specify its position, relative to vehicle centre of gravity, during [PX4 configuration](#px4-configuration).
 
@@ -54,7 +54,7 @@ The sensor can be mounted anywhere on the frame, but you will need to specify it
 
 The Holybro DroneCAN GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions.
 
-### Pinout
+### 针脚定义
 
 ![Diagram showing GPS pinouts](../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps_pinout.jpg)
 
@@ -63,7 +63,7 @@ The Holybro DroneCAN GPS is connected to the CAN bus using a Pixhawk standard 4 
 ![Diagram showing GPS dimensions](../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps_dimension.jpg)
 
 
-## PX4 Configuration
+## PX4配置
 
 You need to set necessary [DroneCAN](README.md) parameters and define offsets if the sensor is not centred within the vehicle. The required settings are outlined below.
 

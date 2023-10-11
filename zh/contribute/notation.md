@@ -15,7 +15,7 @@
 | AOA        | Angle Of Attack. Angle Of Attack. Also named *alpha*.                                                                                                                          |
 | AOS        | Angle Of Sideslip. Angle Of Sideslip. Also named *beta*.                                                                                                                       |
 | FRD        | Coordinate system where the X-axis is pointing towards the Front of the vehicle, the Y-axis is pointing Right and the Z-axis is pointing Down, completing the right-hand rule. |
-| FW         | 固定翼.                                                                                                                                                                           |
+| FW         | Fixed-wing (planes).                                                                                                                                                           |
 | MC         | MultiCopter.                                                                                                                                                                   |
 | MPC 或 MCPC | MultiCopter Position Controller. MultiCopter Position Controller. MPC is also used for Model Predictive Control.                                                               |
 | NED        | Coordinate system where the X-axis is pointing towards the true North, the Y-axis is pointing East and the Z-axis is pointing Down, completing the right-hand rule.            |

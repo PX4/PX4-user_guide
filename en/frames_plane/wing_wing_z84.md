@@ -33,7 +33,7 @@ One of these (any small (>=12A) ESC will do):
 
 ### Autopilot and Essential Components
 
-- [Pixracer](../flight_controller/pixracer.md) kit (including GPS and power module)
+- [Pixracer](../flight_controller/pixracer.md) kit (including GPS and power module)
 - FrSky D4R-II receiver or equivalent (jumpered to PPM sum output according to its manual)
 - [Mini telemetry set](../flight_controller/pixfalcon.md#availability) for Holybro pix32
 - [Digital airspeed sensor](../flight_controller/pixfalcon.md#availability) for Holybro pix32 / Pixfalcon
@@ -89,4 +89,4 @@ Set up the [Actuator Configuration](../config/actuators.md) to match the wiring 
 
 Perform all the the other [Basic Configuration](../config/README.md), including [Autotuning](../config/autotune.md).
 
-Advanced tuning is optional - see [Fixed Wing Vehicle Configuration](../config_fw/README.md).
+Advanced tuning is optional - see [Fixed-wing Vehicle Configuration](../config_fw/README.md).

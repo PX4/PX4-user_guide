@@ -10,7 +10,7 @@
 
 - Plot background color is used to indicate flight mode during recording (where graphs depend on mode): ![飞行模式](../../assets/flight_log_analysis/flight_review/flight_modes.png)
   - **Flight mode:** Background colour on the body of the plot indicates flight mode. 将鼠标悬停在绘图上将显示飞行模式标签。
-  - **VTOL flight mode:** VTOL vehicles additionally show the VTOL mode as background colour in the bottom part of the plot (blue for multicopter, yellow for fixed wing, and red for transition).
+  - **VTOL flight mode:** VTOL vehicles additionally show the VTOL mode as background colour in the bottom part of the plot (blue for multicopter, yellow for fixed-wing, and red for transition).
 - 鼠标在特定的绘图轴上滚动可缩放该轴 (水平或垂直)。
 - 鼠标在图形内滚动可缩放两个轴。
 

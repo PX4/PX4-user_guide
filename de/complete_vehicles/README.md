@@ -61,7 +61,7 @@ This section contains consumer vehicles that run a *custom* version of PX4 (supp
   * [Yuneec Mantis Q](https://px4.io/portfolio/yuneec-mantis-q/)
   * [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
   * [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/)
-* Fixed Wing:
+* Fixed-Wing:
   * [Sentera PXH](https://sentera.com/products/fieldcapture/ag-drones/phx/)
 * VTOL
   * [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
