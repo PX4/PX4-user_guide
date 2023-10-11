@@ -72,17 +72,17 @@ module.exports = {
     // As a special case, the default locale can use '/' as its path.
     '/en/': {
       lang: 'en-US', // this will be set as the lang attribute on <html>
-      title: 'PX4 User Guide (v1.14)',
+      title: 'PX4 User Guide (v1.12)',
       description: 'PX4 is the Professional Autopilot. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.'
     },
     '/ko/': {
       lang: 'ko-KR', // this will be set as the lang attribute on <html>
-      title: 'PX4 오토파일럿 사용자 설명서 (v1.14)',
+      title: 'PX4 오토파일럿 사용자 설명서 (v1.12)',
       description: 'PX4 is the Professional Autopilot. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.'
     },
     '/zh/': {
       lang: 'zh-CN',
-      title: 'PX4 自动驾驶用户指南 (v1.14)',
+      title: 'PX4 自动驾驶用户指南 (v1.12)',
       description: 'PX4 is the Professional Autopilot. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.'
     }
   },
