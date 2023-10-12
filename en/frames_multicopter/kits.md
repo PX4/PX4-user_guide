@@ -34,4 +34,3 @@ The build guides below show how to assemble vehicles from separate frame and fli
 - [Omnicopter (KakuteH7)](../frames_multicopter/omnicopter.md)
 - [DJI F450 (CUAV v5+)](../frames_multicopter/dji_f450_cuav_5plus.md) — Discontinued
 - [DJI F450 (CUAV v5 nano)](../frames_multicopter/dji_f450_cuav_5nano.md) — Discontinued
-- [DJI F450 + RTK \(Pixhawk 3 Pro\)](../frames_multicopter/dji_flamewheel_450.md) — Discontinued

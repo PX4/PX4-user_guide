@@ -57,7 +57,7 @@
       * [Setpoint Tuning (Trajectory Generator)](config_mc/mc_trajectory_tuning.md)
         * [Jerk-limited Type Trajectory](config_mc/mc_jerk_limited_type_trajectory.md)
       * [Multicopter Racer Setup](config_mc/racer_setup.md)
-    * [Kits](../frames_multicopter/kits.md)
+    * [Kits](frames_multicopter/kits.md)
       * [X500 v2 (Pixhawk 6C)](frames_multicopter/holybro_x500v2_pixhawk6c.md)
       * [X500 v2 (Pixhawk 5X)](frames_multicopter/holybro_x500V2_pixhawk5x.md)
       * [X500 (Pixhawk 4)](frames_multicopter/holybro_x500_pixhawk4.md)
