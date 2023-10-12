@@ -67,15 +67,25 @@ Assuming both are well calibrated, which is better for local position estimation
 
 The consensus [appears to be](https://discuss.px4.io/t/vio-vs-optical-flow/34680):
 
+Optical flow:
 - Downward facing optical flow gives you a planar velocity thats corrected for angular velocity with the gyro.
-  It requires an accurate distance to the ground and assumes a planar surface.
-  Given those conditions it can be just as accurate/reliable as VIO.
-- Optical flow is more robust than VIO as it has fewer states.
-  In theory VIO will be less effective if there are no point features to track.
-  In practice the real world generally has point features.
-- A combination (fusing both) is probably the most reliable, though not necessary in most real-world scenarios.
+- Requires an accurate distance to the ground and assumes a planar surface.
+  Given those conditions it can be just as accurate/reliable as VIO (such as indoor flight)
+- Is more robust than VIO as it has fewer states.
+- Is significantly cheaper and easier to set up as it only requires a flow sensor, a rangefinder, and setting up a few parameters (which can be connected to the flight controller).
 
-Last of all, remember that VIO is offers more than just local position estimation: you can’t do any obstacle avoidance or mapping with optical flow.
+VIO:
+- Is more expensive to purchase and harder to set up.
+  It requires a separate companion computer, calibration, software, configuration and so on.
+- Will be less effective if there are no point features to track (in practice the real world generally has point features).
+- Is more flexible, allowing additional features such as obstacle avoidance and mapping.
+
+A combination (fusing both) is probably the most reliable, though not necessary in most real-world scenarios.
+Normally you will select the system that suits operating environment and cost constraints:
+
+- Use VIO if you plan on flying outdoors without GPS (or outdoors and indoors), or if you need to support obstacle avoidance and other computer vision features.
+- Use Optical Flow if you plan on only flying indoors (without GPS) and cost is an important consideration.
+
 
 ## External Resources
 
