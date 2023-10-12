@@ -65,7 +65,6 @@
       * [DJI F450 (CUAV v5+)](frames_multicopter/dji_f450_cuav_5plus.md)
       * [DJI F450 (CUAV v5 nano)](frames_multicopter/dji_f450_cuav_5nano.md)
       * [QAV250 (Pixhawk4 Mini) - Discontinued](frames_multicopter/holybro_qav250_pixhawk4_mini.md)
-      * [QAV250 \(Pixhawk Mini\)](frames_multicopter/lumenier_qav250_pixhawk_mini.md)
       * [QAV-R 5" Racer (Pixracer)](frames_multicopter/qav_r_5_kiss_esc_racer.md)
       * [Omnicopter](frames_multicopter/omnicopter.md)
   * [Planes (Fixed-wing)](frames_plane/README.md) 
