@@ -365,4 +365,5 @@ The direction can't be changed in software because the vehicle does not use [DSh
 - Arm in [Stabilized mode](../flight_modes_fw/stabilized.md) and check if motors respond to the commands, e.g. roll left increases throttle on the right motor
 - Takeoff in [Stabilized mode](../flight_modes_fw/stabilized.md) and make some basic maneuvers
 - If everything went without any issue, takeoff in [Position mode](../flight_modes_fw/position.md) and do a transition at around 50m.
-  If something goes wrong switch back to multicopter mode as fast as possible.
+  If something goes wrong switch back to multicopter mode as fast as possible (using the transition switch).
+
