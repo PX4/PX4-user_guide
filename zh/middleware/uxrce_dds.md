@@ -396,20 +396,6 @@ Each (`topic`,`type`) pairs defines:
 
 You can arbitrarily change the configuration. For example, you could use different default namespaces or use a custom package to store the message definitions.
 
-For publishers, an optional key `interval_us` can be added to specify the minimum duration between topic publications. If this key is not present, the topic will be published at the uORB topic rate. For subscribers, this key will be ignored.
-
-For example, the `vehicle_attitude` topic shown below would publish no faster than 10 Hz, even though the uORB topic rate is much higher.
-
-```yaml
-publications:
-  - topic: /fmu/out/vehicle_attitude
-    type: px4_msgs::msg::VehicleAttitude
-    interval_us: 100000
-
-  - topic: /fmu/out/vehicle_odometry
-    type: px4_msgs::msg::VehicleOdometry
-```
-
 ## Fast-RTPS to uXRCE-DDS Migration Guidelines
 
 These guidelines explain how to migrate from using PX4 v1.13 [Fast-RTPS](../middleware/micrortps.md) middleware to PX4 v1.14 `uXRCE-DDS` middleware. These are useful if you have [ROS 2 applications written for PX4 v1.13](https://docs.px4.io/v1.13/en/ros/ros2_comm.html), or you have used Fast-RTPS to interface your applications to PX4 [directly](https://docs.px4.io/v1.13/en/middleware/micrortps.html#agent-in-an-offboard-fast-dds-interface-ros-independent).
