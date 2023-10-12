@@ -270,9 +270,11 @@ An inexpensive example would be a [SiK Telemetry Radio](../telemetry/sik_radio.m
 ### Select Airframe
 
 1) Open QGC and go under vehicle setup.
-1) Select [Generic Quadplane VTOL](https://docs.px4.io/main/en/airframes/airframe_reference.html#vtol_standard_vtol_generic_standard_vtol) under the [Airframe](https://docs.px4.io/main/en/config/airframe.html) tab and click "Apply and Restart"
-1) Select the [Parameters](https://docs.px4.io/main/en/advanced_config/parameters.html#finding-updating-parameters) tab and click on "Tools" in the top right corner. Select "Load from file..". Download the [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/OMP-Hobby-ZMO.params) and upload it to the flight controller.
-1) reboot the vehicle
+1. Select [Generic Tiltrotor VTOL](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_tiltrotor_vtol) under the [Airframe](https://docs.px4.io/main/en/config/airframe.html) tab and click **Apply and Restart**.
+1. Download the [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/OMP-Hobby-ZMO.params).
+1. Select the [Parameters](../advanced_config/parameters.md#finding-updating-parameters) tab and click on "Tools" in the top right corner.
+   Select **Load from file** and then choose the `OMP-Hobby-ZMO.params` file you just downloaded.
+1. Reboot the vehicle.
 
 ### Sensor Calibration
 
