@@ -51,8 +51,8 @@ Vehicle | Command | `PX4_SYS_AUTOSTART`
 [Quadrotor(x500)](./gazebo_vehicles.md#x500-quadrotor) | `make px4_sitl gz_x500` | 4001
 [Quadrotor(x500) with Depth Camera](./gazebo_vehicles.md#x500-quadrotor-with-depth-camera) | `make px4_sitl gz_x500_depth` | 4002
 [Quadrotor(x500) with Vision Odometry](./gazebo_vehicles.md#x500-quadrotor-with-visual-odometry) | `make px4_sitl gz_x500_vision` | 4005
-[VTOL](./gazebo_vehicles.md#standard-vtol) | `make px4_sitl gz_standard_vtol` | 4003
-[Plane](./gazebo_vehicles.md#rc-cessna) | `make px4_sitl gz_rc_cessna` | 4004
+[VTOL](./gazebo_vehicles.md#standard-vtol) | `make px4_sitl gz_standard_vtol` | 4004
+[Plane](./gazebo_vehicles.md#rc-cessna) | `make px4_sitl gz_rc_cessna` | 4003
 
 The commands above launch a single vehicle with the full UI.
 *QGroundControl* should be able to automatically connect to the simulated vehicle.
