@@ -83,7 +83,7 @@ VIO:
 - Is more flexible, allowing additional features such as obstacle avoidance and mapping.
 
 A combination (fusing both) is probably the most reliable, though not necessary in most real-world scenarios.
-Normally you will select the system that suits operating environment and cost constraints:
+Normally you will select the system that suits your operating environment, required features, and cost constraints:
 
 - Use VIO if you plan on flying outdoors without GPS (or outdoors and indoors), or if you need to support obstacle avoidance and other computer vision features.
 - Use Optical Flow if you plan on only flying indoors (without GPS) and cost is an important consideration.
