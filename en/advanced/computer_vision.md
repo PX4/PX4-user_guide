@@ -57,6 +57,26 @@ For information about optical flow see:
 - [Optical Flow](../sensor/optical_flow.md)
 - [EKF > Optical Flow](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
 
+## Comparisons
+
+### Optical Flow vs VIO for Local Position Estimation
+
+Both these techniques use cameras and measure differences between frames. 
+Optical flow uses a downward facing camera, while VIO uses a stereo camera or a 45 degree tracking camera.
+Assuming both are well calibrated, which is better for local position estimation?
+
+The consensus [appears to be](https://discuss.px4.io/t/vio-vs-optical-flow/34680):
+
+- Downward facing optical flow gives you a planar velocity thats corrected for angular velocity with the gyro.
+  It requires an accurate distance to the ground and assumes a planar surface.
+  Given those conditions it can be just as accurate/reliable as VIO.
+- Optical flow is more robust than VIO as it has fewer states.
+  In theory VIO will be less effective if there are no point features to track.
+  In practice the real world generally has point features.
+- A combination (fusing both) is probably the most reliable, though not necessary in most real-world scenarios.
+
+Last of all, remember that VIO is offers more than just local position estimation: you can’t do any obstacle avoidance or mapping with optical flow.
+
 ## External Resources
 
 - [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - ROS + PX4 simulation environment for computer vision.
