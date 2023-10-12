@@ -270,7 +270,8 @@ An inexpensive example would be a [SiK Telemetry Radio](../telemetry/sik_radio.m
 ### Select Airframe
 
 1. Open QGC, select the **Q** icon, and then select **Vehicle Setup**.
-1. Select the [Airframe](https://docs.px4.io/main/en/config/airframe.html) tab
+1. Select the [Airframe](../config/airframe.md) tab
+
 1. Select [Generic Tiltrotor VTOL](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_tiltrotor_vtol) from the _VTOL Tiltrotor_ group, and then and click **Apply and Restart**.
 
 ### Load Parameters File
