@@ -25,7 +25,6 @@ Note that never variants of kits often vary only in what flight controller is su
 - [Holybro X500 v1 (Pixhawk 4)](../frames_multicopter/holybro_x500_pixhawk4.md) — Discontinued (v2 kit uses Pixhawk 6c)
 - [Holybro S500 v1 (Pixhawk 4)](../frames_multicopter/holybro_s500_v2_pixhawk4.md) — Discontinued (v2 kit uses Pixhawk 6c)
 - [Holybro QAV250 Kit (Pixhawk 4 mini)](../frames_multicopter/holybro_qav250_pixhawk4_mini.md) — Discontinued (current kit uses Pixhawk 6c)
-- [Lumenier QAV250 \(Pixhawk Mini\)](../frames_multicopter/lumenier_qav250_pixhawk_mini.md) — Discontinued
 - [Lumenier QAV-R 5" Racer (Pixracer)](../frames_multicopter/qav_r_5_kiss_esc_racer.md) — Discontinued
 
 ## Non-kit Build Guides
