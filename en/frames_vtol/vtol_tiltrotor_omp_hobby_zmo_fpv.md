@@ -269,11 +269,20 @@ An inexpensive example would be a [SiK Telemetry Radio](../telemetry/sik_radio.m
 
 ### Select Airframe
 
-1) Open QGC and go under vehicle setup.
-1. Select [Generic Tiltrotor VTOL](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_tiltrotor_vtol) under the [Airframe](https://docs.px4.io/main/en/config/airframe.html) tab and click **Apply and Restart**.
+1. Open QGC, select the **Q** icon, and then select **Vehicle Setup**.
+1. Select the [Airframe](https://docs.px4.io/main/en/config/airframe.html) tab
+1. Select [Generic Tiltrotor VTOL](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_tiltrotor_vtol) from the _VTOL Tiltrotor_ group, and then and click **Apply and Restart**.
+
+### Load Parameters File
+
+Next we load a [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/OMP-Hobby-ZMO.params) that contains parameters that define the frame geometry, output mappings, and tuning values — so you don't have to!
+If you have followed the wiring instructions for the motors you probably won't need to do much further configuration other than sensor calibration and fixing the trims.
+
+To load the file:
+
 1. Download the [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/OMP-Hobby-ZMO.params).
-1. Select the [Parameters](../advanced_config/parameters.md#finding-updating-parameters) tab and click on "Tools" in the top right corner.
-   Select **Load from file** and then choose the `OMP-Hobby-ZMO.params` file you just downloaded.
+1. Select the [Parameters](../advanced_config/parameters.md#finding-updating-parameters) tab and then click on **Tools** in the top right corner.
+1. Select **Load from file** and then choose the `OMP-Hobby-ZMO.params` file you just downloaded.
 1. Reboot the vehicle.
 
 ### Sensor Calibration
@@ -292,6 +301,9 @@ Then calibrate the main sensors:
 
 [Calibrate your RC Controller](../config/radio.md) and setup the [flight mode switches](../config/flight_mode.md).
 
+We recommend you assign RC switches for the set of modes defined in [Flight Mode Configuration > What Flight Modes and Switches Should I Set?](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set).
+In particular you should assign a _VTOL Transition Switch_, _Kill Switch_, and a switch to select [Stabilized mode](../flight_modes_fw/stabilized.md) and [Position mode](../flight_modes_fw/position.md).
+
 ### Actuator Setup
 
 :::warning
@@ -301,24 +313,27 @@ The motors are easy to start in the actuators tab by accident.
 
 Motors, control surfaces, and other actuators are configured in the QGroundControl [Actuator Configuration & Testing](../config/actuators.md).
 
+The [parameter file](#load-parameters-file) loaded previously means that this screen should already be correctly setup: you just need to adjust the trims for your particular vehicle.
+If motors/servos were connected to different outputs than suggested, you will need to change the output to function mappings in the actuator output section.
+
 #### Tilt Servos
 
 1. Switch the vehicle into manual mode (either via the flight mode switch or type `commander mode manual` into the MAVLink shell).
 1. Check if the motors point upwards.
-   If they point forwards they need to be reversed.
-1. To reverse the motors select the checkbox under PWM-Main for each servo.
+   If the motors point forwards then their associated Tilt servos need to be reversed (selecting the checkbox next to each servo).
+
+   ![Tilt Servo adjustment](../../assets/airframes/vtol/omp_hobby_zmo_fpv/tilt-limits-01.jpg)
+
 1. Adjust the minimum or maximum value that the servo is pointing vertical up.
 1. Then type `commander transition` into the MAVLink shell to adjust the horizontal position.
 
-![Tilt Servo adjustment](../../assets/airframes/vtol/omp_hobby_zmo_fpv/tilt-limits-01.jpg)
-
 #### Control Surfaces
 
-Check with RC-Controller, if the actuators need to be reversed.
+Check if the actuators need to be reversed using the RC-Controller:
 
-- Roll stick to the right -> Right aileron up, left aileron down
-- Pitch stick to the back (fly upwards) -> both V-tail surfaces up
-- Yaw stick to the right -> both surfaces to the right
+- Roll stick to the right. The right aileron should go up, left aileron should go down.
+- Pitch stick to the back (fly upwards). Both V-tail surfaces should move up.
+- Yaw stick to the right. Both surfaces should move to the right
 
 Now adjust the trim value so that all the surfaces are in neutral position.
 
@@ -326,26 +341,28 @@ Now adjust the trim value so that all the surfaces are in neutral position.
 
 #### Motor Direction and Orientation
 
-Make sure the props are removed!!!
+Make sure the props are removed!!
 
 - `Motor 1`: Front left motor should spin CW
 - `Motor 2`: Front right motor should spin CCW
 - `Motor 3`: Rear motor should spin CCW
 
-If the motor spins in the wrong directions two of the three motor wires need to be swapped. The direction can not be changed in software since the ESCs are not using dshot.
+If the motor spins in the wrong directions two of the three motor wires need to be swapped.
+The direction can't be changed in software because the vehicle does not use [DShot ESC](../peripherals/dshot.md).
 
 ## First Flight
 
 - Check CG (There are markings underneath the wing)
 - Check actuator orientations and neutral trim
 - Check tilt rotor reactions in [Stabilized mode](../flight_modes_fw/stabilized.md)
-  - Yaw the vehicle to the right (nose to the right) -> right motor should tilt down
-  - Yaw the vehicle to the left (nose to the left) -> left motor should tilt down
+  - Yaw the vehicle to the right (nose to the right). The right motor should tilt down.
+  - Yaw the vehicle to the left (nose to the left). The left motor should tilt down.
 - Check tilt rotor reactions in [Stabilized mode](../flight_modes_fw/stabilized.md)
-  - Roll the vehicle to the right -> Right aileron should go down
-  - Pitch the vehicle up (nose up) -> both elevons should go down
-  - Yaw the vehicle to the right (nose to the right) -> both elevons should go to the right,
+  - Roll the vehicle to the right. The right aileron should go down.
+  - Pitch the vehicle up (nose up). Both elevons should go down.
+  - Yaw the vehicle to the right (nose to the right). Both elevons should go to the right.
 - Check kill switch
 - Arm in [Stabilized mode](../flight_modes_fw/stabilized.md) and check if motors respond to the commands, e.g. roll left increases throttle on the right motor
-- Takeoff in stabilized and make some basic maneuvers
-- If everything went without any issue, takeoff in [Position mode](../flight_modes_fw/position.md) and do a transition at around 50m. If something goes wrong switch back to MC mode as fast as possible.
+- Takeoff in [Stabilized mode](../flight_modes_fw/stabilized.md) and make some basic maneuvers
+- If everything went without any issue, takeoff in [Position mode](../flight_modes_fw/position.md) and do a transition at around 50m.
+  If something goes wrong switch back to multicopter mode as fast as possible.
