@@ -128,7 +128,7 @@ Here are some examples of the different scenarios covered above.
 1. **Start simulator + default world + spawn vehicle at default pose**
 
    ```sh
-   PX4_SYS_AUTOSTART=4001 PX4_GZ_MODEL=x500 ./build/px4_sitl_default/bin/px4
+   PX4_SYS_AUTOSTART=4001 PX4_SIM_MODEL=gz_x500 ./build/px4_sitl_default/bin/px4
    ```
 
 2. **Start simulator + default world + spawn vehicle at custom pose (y=2m)**
