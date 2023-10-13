@@ -46,7 +46,7 @@ The approximate maximum size of the FC is: 50x110x22mm
 - [Airspeed sensor (included in Skynode eval. kit)](https://www.dualrc.com/parts/airspeed-sensor-sdp33) — recommended for improved safety and performance
 - [Airspeed sensor (cheaper alternative)](https://holybro.com/products/digital-air-speed-sensor?pr_prod_strat=use_description&pr_rec_id=236dfda00&pr_rec_pid=7150470561981&pr_ref_pid=7150472462525&pr_seq=uniform)
 - [Lidar Lightware lw20-c (included in Skynode eval. kit)](../sensor/sfxx_lidar.md) (Optional)
-- [Lidar Seeed Studio PSK-CM8JL65-CC5 (cheaper alternative)](https://www.seeedstudio.com/PSK-CM8JL65-CC5-Infrared-Distance-Measuring-Sensor-p-4028.html)
+- [Lidar Seeed Studio PSK-CM8JL65-CC5 (cheaper alternative)](https://www.seeedstudio.com/PSK-CM8JL65-CC5-Infrared-Distance-Measuring-Sensor-p-4028.html) (Optional)
 - [5V BEC](http://www.mateksys.com/?portfolio=bec12s-pro)
 - [Radio (RC) System](../getting_started/rc_transmitter_receiver.md) of your preference
 - [Servo cable extension cable male 30cm 10 pcs](https://www.getfpv.com/male-to-male-servo-extension-cable-twisted-22awg-jr-style-5-pcs.html)
@@ -286,6 +286,12 @@ To load the file:
 1. Select **Load from file** and then choose the `OMP-Hobby-ZMO.params` file you just downloaded.
 1. Reboot the vehicle.
 
+### Sensor Selection
+
+The airspeed sensor can be enabled in the [Parameters](https://docs.px4.io/main/en/advanced_config/parameters.html#finding-updating-parameters) tab. If the [recommended airspeed sensor](https://www.dualrc.com/parts/airspeed-sensor-sdp33) is used, SENS_EN_SDP3X needs to be enabled.
+
+The lidar distance sensor can also be enabled in the [Parameters](https://docs.px4.io/main/en/advanced_config/parameters.html#finding-updating-parameters) tab. If the [Lidar Lightware lw20-c (included in Skynode eval. kit)](../sensor/sfxx_lidar.md) is used, SENS_EN_SF1XX needs to be set to 6 (SF/LW/20c).
+
 ### Sensor Calibration
 
 First make sure to set the [correct orientation of the flight controller](../config/flight_controller_orientation.md).
@@ -353,18 +359,18 @@ The direction can't be changed in software because the vehicle does not use [DSh
 
 ## First Flight
 
-- Check CG (There are markings underneath the wing)
+- Check tilt rotor reactions in [Stabilized mode](../flight_modes_fw/stabilized.md). Keep the throttle stick at the minimum and place the vehicle at the ground. To enable the tilt servos you need to arm the vehicle.
+  - Yaw the vehicle to the right (nose to the right) -> right motor should tilt down
+  - Yaw the vehicle to the left (nose to the left) -> left motor should tilt down
+- Mount the propellers.
+- Check CG. Switch the vehicle into forward flight mode. To check the CG lift the vehicle with two fingers up at the markings underneath the wing. The vehicle should balance horizontally. If the vehicle tips to either the tail or to the nose then you need to move the battery into the opposite direction. If you are not able to balance the vehicle with this method you will need to reposition some components or add weight to balance the vehicle.
 - Check actuator orientations and neutral trim
-- Check tilt rotor reactions in [Stabilized mode](../flight_modes_fw/stabilized.md)
-  - Yaw the vehicle to the right (nose to the right). The right motor should tilt down.
-  - Yaw the vehicle to the left (nose to the left). The left motor should tilt down.
-- Check tilt rotor reactions in [Stabilized mode](../flight_modes_fw/stabilized.md)
-  - Roll the vehicle to the right. The right aileron should go down.
+- Check control surface reactions in [Stabilized mode](../flight_modes_fw/stabilized.md). Switch the vehicle into forward flight mode.
+  - Roll the vehicle to the right. The right aileron should go down. The left aileron should go up.
   - Pitch the vehicle up (nose up). Both elevons should go down.
-  - Yaw the vehicle to the right (nose to the right). Both elevons should go to the right.
-- Check kill switch
+  - Yaw the vehicle to the right (nose to the right). Both elevons should go to the left.
+- If a [kill-switch](../config/safety.html#kill-switch) is used, make sure it's working properly and will not be activated accidentally in flight!
 - Arm in [Stabilized mode](../flight_modes_fw/stabilized.md) and check if motors respond to the commands, e.g. roll left increases throttle on the right motor
 - Takeoff in [Stabilized mode](../flight_modes_fw/stabilized.md) and make some basic maneuvers
 - If everything went without any issue, takeoff in [Position mode](../flight_modes_fw/position.md) and do a transition at around 50m.
   If something goes wrong switch back to multicopter mode as fast as possible (using the transition switch).
-
