@@ -50,6 +50,32 @@ VIO uses [Visual Odometry](https://en.wikipedia.org/wiki/Visual_odometry) to est
 - [光流](../sensor/optical_flow.md)
 - [EKF > 光流](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
 
+## Comparisons
+
+### Optical Flow vs VIO for Local Position Estimation
+
+Both these techniques use cameras and measure differences between frames. Optical flow uses a downward facing camera, while VIO uses a stereo camera or a 45 degree tracking camera. Assuming both are well calibrated, which is better for local position estimation?
+
+The consensus [appears to be](https://discuss.px4.io/t/vio-vs-optical-flow/34680):
+
+Optical flow:
+
+- Downward facing optical flow gives you a planar velocity thats corrected for angular velocity with the gyro.
+- Requires an accurate distance to the ground and assumes a planar surface. Given those conditions it can be just as accurate/reliable as VIO (such as indoor flight)
+- Is more robust than VIO as it has fewer states.
+- Is significantly cheaper and easier to set up as it only requires a flow sensor, a rangefinder, and setting up a few parameters (which can be connected to the flight controller).
+
+VIO:
+
+- Is more expensive to purchase and harder to set up. It requires a separate companion computer, calibration, software, configuration and so on.
+- Will be less effective if there are no point features to track (in practice the real world generally has point features).
+- Is more flexible, allowing additional features such as obstacle avoidance and mapping.
+
+A combination (fusing both) is probably the most reliable, though not necessary in most real-world scenarios. Normally you will select the system that suits your operating environment, required features, and cost constraints:
+
+- Use VIO if you plan on flying outdoors without GPS (or outdoors and indoors), or if you need to support obstacle avoidance and other computer vision features.
+- Use Optical Flow if you plan on only flying indoors (without GPS) and cost is an important consideration.
+
 ## 外部资源
 
 - [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - ROS + PX4 计算机视觉模拟仿真环境。 [XTDrone 手册](https://www.yuque.com/xtdrone/manual_en) 有你需要开始的一切！
