@@ -431,9 +431,10 @@ Similarly to vectors, also quanternions representing the attitude of the vehicle
 ### ROS, Gazebo and PX4 time synchronization
 
 By default, time synchronization between ROS 2 and PX4 is automatically managed by the [uXRCE-DDS middleware](https://micro-xrce-dds.docs.eprosima.com/en/latest/time_sync.html) and time synchronization statistics are available listening to the bridged topic `/fmu/out/timesync_status`.
-When the uXRCE-DDS client runs on a flight controller and the Agent runs on a companion computer this is the desired behavior as time offsets, time drift and communication latency are computed and automatically compensated.
+When the uXRCE-DDS client runs on a flight controller and the agent runs on a companion computer this is the desired behavior as time offsets, time drift, and communication latency, are computed and automatically compensated.
 
-Instead, during Gazebo simulations, PX4 uses the Gazebo `/clock` topic as [time source](../sim_gazebo_gz/README.md#px4-gazebo-time-synchronization). This clock is always slightly off-sync w.r.t. the OS clock (the real time factor is never exactly one) and it can can even run much faster or much slower depending on the [user preferences](http://sdformat.org/spec?elem=physics&ver=1.9).
+For Gazebo simulations PX4 uses the Gazebo `/clock` topic as [time source](../sim_gazebo_gz/README.md#px4-gazebo-time-synchronization) instead.
+This clock is always slightly off-sync w.r.t. the OS clock (the real time factor is never exactly one) and it can can even run much faster or much slower depending on the [user preferences](http://sdformat.org/spec?elem=physics&ver=1.9).
 Note that this is different from the [simulation lockstep](../simulation/README.md#lockstep-simulation) procedure adopted with Gazebo Classic.
 
 ROS2 users have then two possibilities regarding the [time source](https://design.ros2.org/articles/clock_and_time.html) of their nodes.
@@ -448,19 +449,14 @@ No further action is required by the user.
 #### ROS2 nodes use the Gazebo clock as time source
 
 In this scenario, ROS2 also uses the Gazebo `/clock` topic as time source.
-This approach makes sense if the Gazebo simulation is running with real time factor different from one or if ROS2 need to directly interact with Gazebo.
-The procedure requires to:
+This approach makes sense if the Gazebo simulation is running with real time factor different from one, or if ROS2 needs to directly interact with Gazebo.
+The procedure requires you to:
 
 - Directly bridge ROS and Gazebo using [ros_gz](https://github.com/gazebosim/ros_gz) and the [ros_gz_bridge](https://github.com/gazebosim/ros_gz) package.
-- Bridge the Gazebo `/clock` topic over ROS
+- Bridge the Gazebo `/clock` topic over ROS:
+
   ```sh
   ros2 run ros_gz_bridge parameter_bridge /clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock
-  ```
-- Run all your nodes with the parameter `use_sim_time` set to `true` (see [ROS clock and Time design](https://design.ros2.org/articles/clock_and_time.html)).
-
-On the PX4 side, you are only required to stop the uXRCE-DDS time synchronization, setting the parameter [UXRCE_DDS_SYNCT](../advanced_config/parameter_reference.md#UXRCE_DDS_SYNCT) to `false`.
-
-By doing so, Gazebo will act as main and only time source for both ROS2 and PX4.
 
 ## ROS 2 Example Applications
 
