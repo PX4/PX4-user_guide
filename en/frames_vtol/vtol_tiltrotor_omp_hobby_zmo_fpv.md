@@ -52,7 +52,7 @@ The approximate maximum size of the FC is: 50x110x22mm
 - [Servo cable extension cable male 30cm 10 pcs](https://www.getfpv.com/male-to-male-servo-extension-cable-twisted-22awg-jr-style-5-pcs.html)
 - [USB-C extension cable](https://www.digitec.ch/en/s1/product/powerguard-usb-c-usb-c-025-m-usb-cables-22529949?dbq=1&gclid=Cj0KCQjw2cWgBhDYARIsALggUhrh-z-7DSU0wKfLBVa8filkXLQaxUpi7pC0ffQyRzLng8Ph01h2R1gaAp0mEALw_wcB&gclsrc=aw.ds)
 - [3M VHB tape](https://www.amazon.in/3M-VHB-Tape-4910-Length/dp/B00GTABM3Y)
-- [3D-Printed mounts](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/OMP-Hobby-ZMO-3D-Prints.zip)
+- [3D-Printed mounts](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/omp_hobby_zmo_3d_prints.zip)
   - 2x wing connector mount
   - 1x Airspeed sensor mount
   - 1x GPS-Mount
@@ -276,21 +276,22 @@ An inexpensive example would be a [SiK Telemetry Radio](../telemetry/sik_radio.m
 
 ### Load Parameters File
 
-Next we load a [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/OMP-Hobby-ZMO.params) that contains parameters that define the frame geometry, output mappings, and tuning values — so you don't have to!
+Next we load a [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/omp_hobby_zmo.params) that contains parameters that define the frame geometry, output mappings, and tuning values — so you don't have to!
 If you have followed the wiring instructions for the motors you probably won't need to do much further configuration other than sensor calibration and fixing the trims.
 
 To load the file:
 
-1. Download the [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/OMP-Hobby-ZMO.params).
+1. Download the [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/omp_hobby_zmo_fpv/omp_hobby_zmo.params).
 1. Select the [Parameters](../advanced_config/parameters.md#finding-updating-parameters) tab and then click on **Tools** in the top right corner.
-1. Select **Load from file** and then choose the `OMP-Hobby-ZMO.params` file you just downloaded.
+1. Select **Load from file** and then choose the `omp_hobby_zmo.params` file you just downloaded.
 1. Reboot the vehicle.
 
 ### Sensor Selection
 
-The airspeed sensor can be enabled in the [Parameters](https://docs.px4.io/main/en/advanced_config/parameters.html#finding-updating-parameters) tab. If the [recommended airspeed sensor](https://www.dualrc.com/parts/airspeed-sensor-sdp33) is used, SENS_EN_SDP3X needs to be enabled.
+The airspeed sensor can be enabled in the [Parameters](../advanced_config/parameters.md#finding-updating-parameters) tab.
 
-The lidar distance sensor can also be enabled in the [Parameters](https://docs.px4.io/main/en/advanced_config/parameters.html#finding-updating-parameters) tab. If the [Lidar Lightware lw20-c (included in Skynode eval. kit)](../sensor/sfxx_lidar.md) is used, SENS_EN_SF1XX needs to be set to 6 (SF/LW/20c).
+- If the [recommended airspeed sensor (SDP33)](https://www.dualrc.com/parts/airspeed-sensor-sdp33) is used, `SENS_EN_SDP3X` needs to be enabled.
+- If the [Lidar Lightware lw20-c (included in Skynode eval. kit)](../sensor/sfxx_lidar.md) is used, `SENS_EN_SF1XX` needs to be set to 6 (SF/LW/20c).
 
 ### Sensor Calibration
 
@@ -363,12 +364,20 @@ The direction can't be changed in software because the vehicle does not use [DSh
   - Yaw the vehicle to the right (nose to the right) -> right motor should tilt down
   - Yaw the vehicle to the left (nose to the left) -> left motor should tilt down
 - Mount the propellers.
-- Check CG. Switch the vehicle into forward flight mode. To check the CG lift the vehicle with two fingers up at the markings underneath the wing. The vehicle should balance horizontally. If the vehicle tips to either the tail or to the nose then you need to move the battery into the opposite direction. If you are not able to balance the vehicle with this method you will need to reposition some components or add weight to balance the vehicle.
+- Check center of gravity (GG).
+  Switch the vehicle into forward flight mode.
+  To check the CG lift the vehicle with two fingers up at the markings underneath the wing.
+  The vehicle should balance horizontally.
+  If the vehicle tips to either the tail or to the nose then you need to move the battery into the opposite direction.
+  If you are not able to balance the vehicle with this method you will need to reposition some components or add weight to balance the vehicle.
 - Check actuator orientations and neutral trim
 - Check control surface reactions in [Stabilized mode](../flight_modes_fw/stabilized.md). Switch the vehicle into forward flight mode.
-  - Roll the vehicle to the right. The right aileron should go down. The left aileron should go up.
-  - Pitch the vehicle up (nose up). Both elevons should go down.
-  - Yaw the vehicle to the right (nose to the right). Both elevons should go to the left.
+  - Roll the vehicle to the right.
+    The right aileron should go down. The left aileron should go up.
+  - Pitch the vehicle up (nose up).
+    Both elevons should go down.
+  - Yaw the vehicle to the right (nose to the right).
+    Both elevons should go to the left.
 - If a [kill-switch](../config/safety.html#kill-switch) is used, make sure it's working properly and will not be activated accidentally in flight!
 - Arm in [Stabilized mode](../flight_modes_fw/stabilized.md) and check if motors respond to the commands, e.g. roll left increases throttle on the right motor
 - Takeoff in [Stabilized mode](../flight_modes_fw/stabilized.md) and make some basic maneuvers
