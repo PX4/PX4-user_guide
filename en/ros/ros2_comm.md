@@ -454,6 +454,7 @@ On the ROS2 side, direct interaction with Gazebo is achieved by the [ros_gz_brid
 Read through the [repo](https://github.com/gazebosim/ros_gz#readme) and [package](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge#readme) READMEs to find out the right version that has to be installed depending on your ROS2 and Gazebo versions.
 
 Once the package is installed and sourced, the node `parameter_bridge` provides the bridging capabilities and can be used to create an unidirectional `/clock` bridge:
+
 ```sh
 ros2 run ros_gz_bridge parameter_bridge /clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock
 ```
@@ -462,6 +463,7 @@ At this point, every ROS2 node must be instructed to use the newly bridged `/clo
 
 This concludes the modifications required on the ROS2 side. On the PX4 side, you are only required to stop the uXRCE-DDS time synchronization, setting the parameter [UXRCE_DDS_SYNCT](../advanced_config/parameter_reference.md#UXRCE_DDS_SYNCT) to `false`.
 By doing so, Gazebo will act as main and only time source for both ROS2 and PX4.
+
 ## ROS 2 Example Applications
 
 ### ROS 2 Listener
