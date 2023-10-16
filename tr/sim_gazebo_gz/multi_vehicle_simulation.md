@@ -44,7 +44,7 @@ This allows for greater flexibility and customization.
   ```
 
   ```sh
-  PX4_SYS_AUTOSTART=4004 PX4_GZ_MODEL_POSE="0,2" PX4_GZ_MODEL=rc_cessna ./build/px4_sitl_default/bin/px4 -i 3
+  PX4_SYS_AUTOSTART=4003 PX4_GZ_MODEL_POSE="0,2" PX4_GZ_MODEL=rc_cessna ./build/px4_sitl_default/bin/px4 -i 3
   ```
 
 - Start the agent:
