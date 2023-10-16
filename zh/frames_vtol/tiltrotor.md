@@ -9,6 +9,6 @@ A **Tiltrotor VTOL** is a [VTOL](../frames_vtol/README.md) vehicle that has roto
 
 This section contains videos that are specific to Tiltrotor VTOL (videos that apply to all VTOL types can be found in [VTOL](../frames_vtol/README.md)).
 
-[Convergence Tiltrotor](../frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
+[Convergence Tiltrotor](../frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md) [OMP Hobby ZMO FPV](../frames_vtol/vtol_tiltrotor_omp_hobby_zmo_fpv.md)
 
 @[youtube](https://youtu.be/E61P2f2WPNU)
