@@ -90,6 +90,7 @@
       * [Build: TBS Caipiroshka Tailsitter Build (Pixracer)](frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
     * [Tiltrotor VTOL](frames_vtol/tiltrotor.md)
       * [Build: Convergence Tiltrotor (Pixfalcon)](frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
+      * [Build: OMP Hobby ZMO FPV](frames_vtol/vtol_tiltrotor_omp_hobby_zmo_fpv.md)
   * [Airships (experimental)](frames_airship/README.md)
   * [Autogyros (experimental)](frames_autogyro/README.md)
     * [ThunderFly Auto-G2 (Holybro pix32)](frames_autogyro/thunderfly_auto_g2.md)
