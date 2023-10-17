@@ -80,7 +80,7 @@ This helps to fine-tune user input to 'guide' the vehicle around obstacles rathe
 
 If the autopilot does not receive range data from any sensor for longer than 0.5s, it will output a warning *No range data received, no movement allowed*.
 This will force the velocity setpoints in xy to zero.
-After 5 seconds of not receiving any data, the vehicle will switch into [HOLD mode](../flight_modes_mc/hold.md). 
+After 5 seconds of not receiving any data, the vehicle will switch into [HOLD mode](../flight_modes_mc/hold.md).
 If you want the vehicle to be able to move again, you will need to disable Collision Prevention by either setting the parameter [CP_DIST](#CP_DIST) to a negative value, or switching to a mode other than [Position mode](../flight_modes_mc/position.md) (e.g. to *Altitude mode* or *Stabilized mode*).
 
 If you have multiple sensors connected and you lose connection to one of them, you will still be able to fly inside the field of view (FOV) of the reporting sensors.
@@ -130,10 +130,28 @@ If the vehicle feels 'stuck' with only a single distance sensor pointing forward
 
 ## PX4 Distance Sensor
 
+### Lanbao PSK-CM8JL65-CC5
+
 At time of writing PX4 allows you to use the [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) IR distance sensor for collision prevention "out of the box", with minimal additional configuration:
 - First [attach and configure the sensor](../sensor/cm8jl65_ir_distance_sensor.md), and enable collision prevention (as described above, using [CP_DIST](#CP_DIST)).
 - Set the sensor orientation using [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0).
 
+### LightWare LiDAR SF45 Rotating Lidar
+
+As of 1.14, PX4 supports the [LightWare LiDAR SF45](https://www.lightwarelidar.com/shop/sf45-b-50-m/) rotating lidar which covers 320 degree sensing.
+- The SF45 is only supported over UART and must be configured in the [LightWare Studio](https://www.lightwarelidar.com/resources-software)
+- In the LightWare Studio app enable scanning, set the scan angle, and change the baud rate to 921600.
+- To enable the SF45 in PX4, you will need to add the driver in boardconfig under drivers -> Distance sensors and select `lightware_sf45_serial`, then recompile and upload to your autopilot target.
+- In QGC set `SENS_EN_SF45_CFG` to the serial port you have the sensor connected to: make sure GPS or Telemetry is not enabled on this port.
+- Set the orientation of the sensor (facing up or down) `SF45_ORIENT_CFG`, update rate under `SF45_UPDATE_CFG`, and yaw orientation `SF45_YAW_CFG` parameters.
+
+In QGC you should see an [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message in the Mavlink console if collision prevention is configured correctly and active.
+
+The obstacle overlay in QGC will look like this:
+
+![sf45](../../assets/sf45/sf45_obstacle_map.png)
+
+### Rangefinder Support
 
 Other sensors may be enabled, but this requires modification of driver code to set the sensor orientation and field of view.
 - Attach and configure the distance sensor on a particular port (see [sensor-specific docs](../sensor/rangefinders.md)) and enable collision prevention using [CP_DIST](#CP_DIST).
