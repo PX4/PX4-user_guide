@@ -7,6 +7,10 @@ Remote ID support is experimental in PX4 v1.14.
 Remote ID is a government mandated technology for UAVs in Japan, the United States of America and the European Union, designed to enable safe sharing of airspace between UAVs and other aircraft.
 The specification requires that UAVs broadcast data such as: real-time location/altitude, serial number, operator ID/location, status, etc.
 
+The PX4 autopilot-supported Remote ID modules target the standard Remote ID rules which is one of three different ways drone pilots and integrators can be compliant under FAA regulations. An autopilot-integrated standard remote ID module must receive Mavlink or DroneCAN Open Drone ID messages from PX4 in contrast to a broadcast rules module which has integrated GPS and does NOT have any communication with the autopilot (standalone).
+
+If you are unsure if you fall under the standard RemoteID rules or broadcast rules please see the official [FAA](https://www.faa.gov/uas/getting_started/remote_id) getting started documentation.
+
 ## Supported Hardware
 
 PX4 integrates with Remote ID hardware that supports the [Open Drone ID](https://mavlink.io/en/services/opendroneid.html) MAVLink protocol (Open Drone ID is an open source implementation of Remote ID).
@@ -48,6 +52,10 @@ The TX and RX on the flight controller must be connected to the RX and TX on the
 | 2 (blk) | TX (OUT) |      |
 | 3 (blk) | RX (IN)  |      |
 | 4 (blk) | GND      | 0    |
+
+Note that Cube ID does not support firmware updates in PX4 (only Ardupilot).
+
+The Cube ID firmware is not compatible with ArduRemoteID and does not currently set `OPEN_DRONE_ID_ARM_STATUS` flags if an Open Drone ID message error is detected.
 
 ### BlueMark Db201/Db202mav
 
@@ -135,6 +143,10 @@ The following Open Drone ID MAVLink messages are not supported in PX4 v1.14 (to 
 - [OPEN_DRONE_ID_OPERATOR_ID](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_OPERATOR_ID) - Operator identity.
 - [OPEN_DRONE_ID_ARM_STATUS](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_ARM_STATUS) - Status of Remote ID hardware. Use as condition for vehicle arming, and for Remote ID health check.
 - [OPEN_DRONE_ID_SYSTEM_UPDATE](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_SYSTEM_UPDATE) - Subset of `OPEN_DRONE_ID_SYSTEM` that can be sent with information at higher rate.
+
+## Module Broadcast Testing
+
+A 3rd-party app such as [Drone Scanner](https://github.com/dronetag/drone-scanner) can be downloaded from either Google Play or Apple App store and be used to ensure the remote ID module is broadcasting the correct information.
 
 ## Compliance
 
