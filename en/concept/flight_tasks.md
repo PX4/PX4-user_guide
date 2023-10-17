@@ -65,7 +65,7 @@ The instructions below might be used to create a task named *MyTask*:
      virtual ~FlightTaskMyTask() = default;
 
      bool update();
-     bool activate(vehicle_local_position_setpoint_s last_setpoint);
+     bool activate(const trajectory_setpoint_s &last_setpoint) override;
 
    private:
      float _origin_z{0.f};
