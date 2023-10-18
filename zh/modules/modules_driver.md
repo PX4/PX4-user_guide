@@ -1381,3 +1381,25 @@ voxlpm [arguments...]
 
    status        print status info
 ```
+## zenoh
+Source: [modules/zenoh](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/zenoh)
+
+
+### 描述
+
+Zenoh demo bridge
+
+<a id="zenoh_usage"></a>
+
+### 描述
+```
+zenoh <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status
+
+   config
+```
