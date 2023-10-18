@@ -33862,6 +33862,24 @@ table {
 </tr>
 </tbody></table>
 
+## Zenoh
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="ZENOH_ENABLE">ZENOH_ENABLE</strong> (INT32)</td>
+ <td>Zenoh Enable <p><strong>Comment:</strong> Zenoh</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## Miscellaneous
 
 <table>
