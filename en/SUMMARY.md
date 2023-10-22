@@ -165,6 +165,7 @@
     * [Pixhawk Series](flight_controller/pixhawk_series.md)
       * [Silicon Errata](flight_controller/silicon_errata.md)
     * [Pixhawk Standard Autopilots](flight_controller/autopilot_pixhawk_standard.md)
+	  * [Holybro Pixhawk 6X-RT (FMUv6X-RT)](flight_controller/pixhawk6x-rt.md)	
       * [CUAV Pixhawk V6X (FMUv6X)](flight_controller/cuav_pixhawk_v6x.md)
       * [Holybro Pixhawk 6X (FMUv6X)](flight_controller/pixhawk6x.md)
       * [Holybro Pixhawk 6C (FMUv6C)](flight_controller/pixhawk6c.md)
