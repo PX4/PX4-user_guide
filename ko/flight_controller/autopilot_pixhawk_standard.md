@@ -9,6 +9,7 @@
 
 이 카테고리의 보드는 다음과 같습니다.
 
+- [Holybro Pixhawk 6X-RT](../flight_controller/pixhawk6x-rt.md) (FMUv6X)
 - [CUAV Pixahwk V6X](../flight_controller/cuav_pixhawk_v6x.md) (FMUv6X)
 - [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md) (FMUv6X)
 - [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md) (FMUv6C)
