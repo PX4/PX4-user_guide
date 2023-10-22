@@ -947,20 +947,18 @@ Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/mast
 
 
 ### 설명
-This module is responsible for generate pwm pulse with PCA9685 chip.
+This is a PCA9685 PWM output driver.
 
-It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
+It runs on I2C workqueue which is asynchronous with FC control loop, fetching the latest mixing result and write them to PCA9685 at its scheduling ticks.
 
-### Implementation
-This module depends on ModuleBase and OutputModuleInterface. IIC communication is based on CDev::I2C
+It can do full 12bits output as duty-cycle mode, while also able to output precious pulse width that can be accepted by most ESCs and servos.
 
 ### 예
 It is typically started with:
 ```
-pca9685_pwm_out start -a 64 -b 1
+pca9685_pwm_out start -a 0x40 -b 1
 ```
 
-The number X can be acquired by executing `pca9685_pwm_out status` when this driver is running.
 
 <a id="pca9685_pwm_out_usage"></a>
 
@@ -969,12 +967,10 @@ The number X can be acquired by executing `pca9685_pwm_out status` when this dri
 pca9685_pwm_out <command> [arguments...]
  Commands:
    start         Start the task
-     [-a <val>]  device address on this bus
-                 default: 64
+     [-a <val>]  7-bits I2C address of PCA9685
+                 values: <addr>, default: 0x40
      [-b <val>]  bus that pca9685 is connected to
                  default: 1
-     [-r <val>]  schedule rate limit
-                 default: 400
 
    stop
 

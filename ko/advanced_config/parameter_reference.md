@@ -996,6 +996,30 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="PCA9685_DUTY_EN">PCA9685_DUTY_EN</strong> (INT32)</td>
+ <td>Put the selected channels into Duty-Cycle output mode <p><strong>Comment:</strong> The driver will output standard pulse-width encoded signal without this bit set. To make PCA9685 output in duty-cycle fashion, please enable the corresponding channel bit here and adjusting standard params to suit your need. The driver will have 12bits resolution for duty-cycle output. That means to achieve 0% to 100% output range on one channel, the corresponding params MIN and MAX for the channel should be set to 0 and 4096. Other standard params follows the same rule.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Put CH1 to Duty-Cycle mode</li> 
+  <li><strong>1:</strong> Put CH2 to Duty-Cycle mode</li> 
+  <li><strong>2:</strong> Put CH3 to Duty-Cycle mode</li> 
+  <li><strong>3:</strong> Put CH4 to Duty-Cycle mode</li> 
+  <li><strong>4:</strong> Put CH5 to Duty-Cycle mode</li> 
+  <li><strong>5:</strong> Put CH6 to Duty-Cycle mode</li> 
+  <li><strong>6:</strong> Put CH7 to Duty-Cycle mode</li> 
+  <li><strong>7:</strong> Put CH8 to Duty-Cycle mode</li> 
+  <li><strong>8:</strong> Put CH9 to Duty-Cycle mode</li> 
+  <li><strong>9:</strong> Put CH10 to Duty-Cycle mode</li> 
+  <li><strong>10:</strong> Put CH11 to Duty-Cycle mode</li> 
+  <li><strong>11:</strong> Put CH12 to Duty-Cycle mode</li> 
+  <li><strong>12:</strong> Put CH13 to Duty-Cycle mode</li> 
+  <li><strong>13:</strong> Put CH14 to Duty-Cycle mode</li> 
+  <li><strong>14:</strong> Put CH15 to Duty-Cycle mode</li> 
+  <li><strong>15:</strong> Put CH16 to Duty-Cycle mode</li> 
+</ul>
+ </td>
+ <td>[0, 65535] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="PCA9685_FAIL1">PCA9685_FAIL1</strong> (INT32)</td>
  <td>PCA9685 Output Channel 1 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PCA9685_FUNC1).</p>   </td>
  <td>[-1, 2200] </td>
@@ -2743,224 +2767,231 @@ table {
  <td><strong id="PCA9685_MAX1">PCA9685_MAX1</strong> (INT32)</td>
  <td>PCA9685 Output Channel 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[1600, 2200] </td>
- <td>2000</td>
+ <td>1900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX10">PCA9685_MAX10</strong> (INT32)</td>
  <td>PCA9685 Output Channel 10 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[1600, 2200] </td>
- <td>2000</td>
+ <td>1900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX11">PCA9685_MAX11</strong> (INT32)</td>
  <td>PCA9685 Output Channel 11 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[1600, 2200] </td>
- <td>2000</td>
+ <td>1900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX12">PCA9685_MAX12</strong> (INT32)</td>
  <td>PCA9685 Output Channel 12 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[1600, 2200] </td>
- <td>2000</td>
+ <td>1900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX13">PCA9685_MAX13</strong> (INT32)</td>
  <td>PCA9685 Output Channel 13 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[1600, 2200] </td>
- <td>2000</td>
+ <td>1900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX14">PCA9685_MAX14</strong> (INT32)</td>
  <td>PCA9685 Output Channel 14 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[1600, 2200] </td>
- <td>2000</td>
+ <td>1900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX15">PCA9685_MAX15</strong> (INT32)</td>
  <td>PCA9685 Output Channel 15 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[1600, 2200] </td>
- <td>2000</td>
+ <td>1900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX16">PCA9685_MAX16</strong> (INT32)</td>
  <td>PCA9685 Output Channel 16 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[1600, 2200] </td>
- <td>2000</td>
+ <td>1900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX2">PCA9685_MAX2</strong> (INT32)</td>
  <td>PCA9685 Output Channel 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[1600, 2200] </td>
- <td>2000</td>
+ <td>1900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX3">PCA9685_MAX3</strong> (INT32)</td>
  <td>PCA9685 Output Channel 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[1600, 2200] </td>
- <td>2000</td>
+ <td>1900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX4">PCA9685_MAX4</strong> (INT32)</td>
  <td>PCA9685 Output Channel 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[1600, 2200] </td>
- <td>2000</td>
+ <td>1900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX5">PCA9685_MAX5</strong> (INT32)</td>
  <td>PCA9685 Output Channel 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[1600, 2200] </td>
- <td>2000</td>
+ <td>1900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX6">PCA9685_MAX6</strong> (INT32)</td>
  <td>PCA9685 Output Channel 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[1600, 2200] </td>
- <td>2000</td>
+ <td>1900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX7">PCA9685_MAX7</strong> (INT32)</td>
  <td>PCA9685 Output Channel 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[1600, 2200] </td>
- <td>2000</td>
+ <td>1900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX8">PCA9685_MAX8</strong> (INT32)</td>
  <td>PCA9685 Output Channel 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[1600, 2200] </td>
- <td>2000</td>
+ <td>1900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX9">PCA9685_MAX9</strong> (INT32)</td>
  <td>PCA9685 Output Channel 9 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[1600, 2200] </td>
- <td>2000</td>
+ <td>1900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN1">PCA9685_MIN1</strong> (INT32)</td>
  <td>PCA9685 Output Channel 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[800, 1400] </td>
- <td>1000</td>
+ <td>1100</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN10">PCA9685_MIN10</strong> (INT32)</td>
  <td>PCA9685 Output Channel 10 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[800, 1400] </td>
- <td>1000</td>
+ <td>1100</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN11">PCA9685_MIN11</strong> (INT32)</td>
  <td>PCA9685 Output Channel 11 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[800, 1400] </td>
- <td>1000</td>
+ <td>1100</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN12">PCA9685_MIN12</strong> (INT32)</td>
  <td>PCA9685 Output Channel 12 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[800, 1400] </td>
- <td>1000</td>
+ <td>1100</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN13">PCA9685_MIN13</strong> (INT32)</td>
  <td>PCA9685 Output Channel 13 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[800, 1400] </td>
- <td>1000</td>
+ <td>1100</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN14">PCA9685_MIN14</strong> (INT32)</td>
  <td>PCA9685 Output Channel 14 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[800, 1400] </td>
- <td>1000</td>
+ <td>1100</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN15">PCA9685_MIN15</strong> (INT32)</td>
  <td>PCA9685 Output Channel 15 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[800, 1400] </td>
- <td>1000</td>
+ <td>1100</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN16">PCA9685_MIN16</strong> (INT32)</td>
  <td>PCA9685 Output Channel 16 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[800, 1400] </td>
- <td>1000</td>
+ <td>1100</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN2">PCA9685_MIN2</strong> (INT32)</td>
  <td>PCA9685 Output Channel 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[800, 1400] </td>
- <td>1000</td>
+ <td>1100</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN3">PCA9685_MIN3</strong> (INT32)</td>
  <td>PCA9685 Output Channel 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[800, 1400] </td>
- <td>1000</td>
+ <td>1100</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN4">PCA9685_MIN4</strong> (INT32)</td>
  <td>PCA9685 Output Channel 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[800, 1400] </td>
- <td>1000</td>
+ <td>1100</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN5">PCA9685_MIN5</strong> (INT32)</td>
  <td>PCA9685 Output Channel 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[800, 1400] </td>
- <td>1000</td>
+ <td>1100</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN6">PCA9685_MIN6</strong> (INT32)</td>
  <td>PCA9685 Output Channel 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[800, 1400] </td>
- <td>1000</td>
+ <td>1100</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN7">PCA9685_MIN7</strong> (INT32)</td>
  <td>PCA9685 Output Channel 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[800, 1400] </td>
- <td>1000</td>
+ <td>1100</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN8">PCA9685_MIN8</strong> (INT32)</td>
  <td>PCA9685 Output Channel 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[800, 1400] </td>
- <td>1000</td>
+ <td>1100</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN9">PCA9685_MIN9</strong> (INT32)</td>
  <td>PCA9685 Output Channel 9 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[800, 1400] </td>
- <td>1000</td>
+ <td>1100</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="PCA9685_PWM_FREQ">PCA9685_PWM_FREQ</strong> (FLOAT)</td>
+ <td>PWM cycle frequency <p><strong>Comment:</strong> Controls the PWM frequency at timing perspective. This is independent from PWM update frequency, as PCA9685 is capable to output without being continuously commanded by FC. Higher frequency leads to more accurate pulse width, but some ESCs and servos may not support it. This parameter should be set to the same value as PWM update rate in most case. This parameter MUST NOT exceed upper limit of 400.0, if any outputs as generic 1000~2000us pulse width is desired. Frequency higher than 400 only makes sense in duty-cycle mode.</p>   </td>
+ <td>[23.8, 1525.87] </td>
+ <td>50.0</td>
  <td></td>
 </tr>
 <tr>
@@ -2985,6 +3016,13 @@ table {
  </td>
  <td>[0, 65535] </td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="PCA9685_SCHD_HZ">PCA9685_SCHD_HZ</strong> (FLOAT)</td>
+ <td>PWM update rate <p><strong>Comment:</strong> Controls the update rate of PWM output. Flight Controller will inform those numbers of update events in a second, to PCA9685. Higher update rate will consume more I2C bandwidth, which may even lead to worse output latency, or completely block I2C bus.</p>   </td>
+ <td>[50.0, 400.0] </td>
+ <td>50.0</td>
  <td></td>
 </tr>
 <tr>
@@ -22177,24 +22215,6 @@ table {
  <td>[0, 4194303] </td>
  <td>16383</td>
  <td></td>
-</tr>
-</tbody></table>
-
-## PCA9685
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="PCA9685_RATE">PCA9685_RATE</strong> (FLOAT)</td>
- <td>PWM frequency for PCA9685 <p><strong>Comment:</strong> Update rate at which the PWM signal is sent to the ESC.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>[50, 450] (0.1)</td>
- <td>50</td>
- <td>Hz</td>
 </tr>
 </tbody></table>
 
