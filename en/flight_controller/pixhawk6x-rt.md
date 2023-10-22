@@ -11,7 +11,7 @@ It is based on the [Pixhawk​​® Autopilot FMUv6X Standard](https://github.co
 
 Equipped with a high performance NXP i.mx RT1176 dual core Processor, modular design, triple redundancy, temperature-controlled IMU board, isolated sensor domains, delivering incredible performance, reliability, and flexibility.
 
-<img src="../../assets/flight_controller/pixhawk6x-rt/pixhawk6x-rt.png" width="230px" title="Pixhawk6X-RT Upright Image" /> 
+[Pixhawk6X-RT Upright Image](../../assets/flight_controller/pixhawk6x-rt/pixhawk6x-rt.png)
 
 :::tip
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
@@ -21,9 +21,12 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 Inside the Pixhawk®​ 6X-RT, you can find an NXP i.mx RT1176, paired with sensor technology from Bosch®​​, InvenSense®​,​ giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
 
-The Pixhawk® 6X-RT's i.mx RT1176 Crossover dual-core MCU contain an Arm® Cortex®-M7 core running up to 1GHz and Arm® Cortex®-M4 core running up to 400MHz, has 2MB SRAM and external XIP Flash with 64MB. The PX4 Autopilot takes advantage of the increased power and RAM. Thanks to the updated processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
+The Pixhawk® 6X-RT's i.mx RT1176 Crossover dual-core MCU contain an Arm® Cortex®-M7 core running up to 1GHz and Arm® Cortex®-M4 core running up to 400MHz, has 2MB SRAM and external XIP Flash with 64MB.
+The PX4 Autopilot takes advantage of the increased power and RAM.
+Thanks to the increased processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
 
-The FMUv6X open standard includes high-performance, low-noise IMUs on board, designed for better stabilization. Triple redundant IMU & double redundant barometer on separate buses. When the PX4 Autopilot detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
+The FMUv6X open standard includes high-performance, low-noise IMUs on board, designed for better stabilization.
+Triple redundant IMU & double redundant barometer on separate buses. When PX4 detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
 
 An independent LDO powers every sensor set with independent power control. A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
 
@@ -33,8 +36,8 @@ The Pixhawk®​ 6X-RT is perfect for developers at corporate research labs, sta
 
 ## Key Design Points
 
-- High performance [NXP i.MX RT1170 1GHz Crossover MCU](https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/i-mx-rt-crossover-mcus/i-mx-rt1170-1-ghz-crossover-mcu-with-arm-cortex-cores:i.MX-RT1170) with Arm® Cortex® Cores
-- Hardware secure element [NXP EdgeLock SE051](https://www.nxp.com/products/security-and-authentication/authentication/edgelock-se051-proven-easy-to-use-iot-security-solution-with-support-for-updatability-and-custom-applets:SE051) an extension to the widely trusted EdgeLock SE050 Plug & Trust secure element family, supports applet updates in the field and delivers proven security certified to CC EAL 6+, with AVA_VAN.5 up to the OS level, for strong protection against the most recent attack scenarios.. E.g to securely store operator ID or certificates.
+- High performance [NXP i.MX RT1170 1GHz Crossover MCU](https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/i-mx-rt-crossover-mcus/i-mx-rt1170-1-ghz-crossover-mcu-with-arm-cortex-cores:i.MX-RT1170) with Arm® Cortex® cores
+- Hardware secure element [NXP EdgeLock SE051](https://www.nxp.com/products/security-and-authentication/authentication/edgelock-se051-proven-easy-to-use-iot-security-solution-with-support-for-updatability-and-custom-applets:SE051) an extension to the widely trusted EdgeLock SE050 Plug & Trust secure element family, supports applet updates in the field and delivers proven security certified to CC EAL 6+, with AVA_VAN.5 up to the OS level, for strong protection against the most recent attack scenarios. E.g, to securely store operator ID or certificates.
 - Modular flight controller: separated IMU, FMU, and Base system connected by a 100-pin & a 50-pin Pixhawk®​ Autopilot Bus connector.
 - Redundancy: 3x IMU sensors & 2x Barometer sensors on separate buses
 - Triple redundancy domains: Completely isolated sensor domains with separate buses and separate power control
@@ -47,7 +50,7 @@ The Pixhawk®​ 6X-RT is perfect for developers at corporate research labs, sta
 - FMU Processor: NXP i.MX RT1176
   - 32 Bit Arm® Cortex®-M7, 1GHz
   - 32 Bit Arm® Cortex®-M4, 400MHz secondary core
-  - 64MB external flash memory 
+  - 64MB external flash memory
   - 2MB RAM
 - NXP EdgeLock SE051 hardware secure element
   - IEC62443-4-2 certified for the applicable requirements
