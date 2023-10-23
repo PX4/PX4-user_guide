@@ -198,9 +198,11 @@ It is pre-built and automatically installed by _QGroundControl_ when appropriate
 To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
-make px4_fmu-v6x_default
+make nxp_fmurt1170-v1_default
 ```
-
+:::warning
+As of now PX4 SW enablement is done in px4 branch pr-imxrt1170-imxrt1062 only. Merge to PX4 main is expected soon.
+:::
 <a id="debug_port"></a>
 
 ## Debug Port
