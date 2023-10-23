@@ -20,6 +20,7 @@ You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (co
   - [Holybro Pixhawk 4 Mini (FMUv5)](../flight_controller/pixhawk4_mini.md)
   - [Holybro Pixhawk 5X (FMUv5X)](../flight_controller/pixhawk5x.md)
   - [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md)
+  - [Holybro Pixhawk 6X-RT (FMUv6X-RT)](../flight_controller/pixhawk6x-rt.md)
   - [Holybro Pixhawk 6C (FMUv6C)](../flight_controller/pixhawk6c.md)
   - [Holybro Pixhawk 6C Mini (FMUv6C)](../flight_controller/pixhawk6c_mini.md)
   - [Holybro Pixhawk Mini (FMUv2)](../flight_controller/pixhawk_mini.md)
