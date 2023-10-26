@@ -166,6 +166,7 @@
       * [실리콘 정오표](flight_controller/silicon_errata.md)
     * [표준 픽스호크 오토파일럿](flight_controller/autopilot_pixhawk_standard.md)
       * [CUAV Pixhawk V6X (FMUv6X)](flight_controller/cuav_pixhawk_v6x.md)
+      * [Holybro Pixhawk 6X-RT (FMUv6X-RT)](flight_controller/pixhawk6x-rt.md)
       * [Holybro Pixhawk 6X (FMUv6X)](flight_controller/pixhawk6x.md)
       * [Holybro Pixhawk 6C (FMUv6C)](flight_controller/pixhawk6c.md)
       * [Holybro Pixhawk 6C Mini(FMUv6C)](flight_controller/pixhawk6c_mini.md)

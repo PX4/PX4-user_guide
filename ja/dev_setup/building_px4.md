@@ -1,12 +1,10 @@
 # PX4ソフトウェアのビルド
 
-PX4は、シミュレートされたターゲットとハードウェアの両方に対して、コンソールまたはIDEでビルドすることができます。
+PX4 firmware can be built from source code on the console or in an IDE, for both simulated and hardware targets.
 
-:::ノート これらの手順に従う前に、まずホストOSとターゲットハードウェアに [Developer Toolchain](../dev_setup/dev_env.md) をインストールする必要があります。
-:::
+You need to build PX4 in order to use [simulators](../simulation/README.md), or if you want to modify PX4 and create a custom build. If you just want to try out PX4 on real hardware then [load the prebuilt binaries](../config/firmware.md) using QGroundControl (there is no need to follow these instructions).
 
-:::tip
-一般的なビルド問題の解決策については、以下の [トラブルシューティング](#troubleshooting) を参照してください。
+:::ノート これらの手順に従う前に、まずホストOSとターゲットハードウェアに [Developer Toolchain](../dev_setup/dev_env.md) をインストールする必要があります。 If you have any problems after following these steps see the [Troubleshooting](#troubleshooting) section below.
 :::
 
 ## PX4ソースコードをダウンロードする

@@ -1,10 +1,10 @@
 # 编译 PX4 软件
 
-对于模拟目标和硬件目标，可以在控制台上或 IDE 中生成 PX4。
+PX4 firmware can be built from source code on the console or in an IDE, for both simulated and hardware targets.
 
-PX4 源代码存储在 [PX4/Firmware](https://github.com/PX4/Firmware) 存储库中的 GitHub 上。 若要在您的计算机上获得*最新的*版本，请在终端中输入以下命令：
+You need to build PX4 in order to use [simulators](../simulation/README.md), or if you want to modify PX4 and create a custom build. If you just want to try out PX4 on real hardware then [load the prebuilt binaries](../config/firmware.md) using QGroundControl (there is no need to follow these instructions).
 
-初次编译之前，我们会使用终端环境编译一个模拟目标。 这使我们能够在进入真正的硬件和 IDE 之前验证系统设置。
+PX4 源代码存储在 [PX4/Firmware](https://github.com/PX4/Firmware) 存储库中的 GitHub 上。 If you have any problems after following these steps see the [Troubleshooting](#troubleshooting) section below. 若要在您的计算机上获得*最新的*版本，请在终端中输入以下命令：
 
 ## 下载 PX4 源代码
 
@@ -17,8 +17,7 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note
-This is all you need to do just to build the latest code. If needed you can also [get the source code specific to a particular release](../contribute/git_examples.md#get-a-specific-release). [GIT Examples](../contribute/git_examples.md) provides a lot more information working with releases and contributing to PX4.
-:::
+This is all you need to do just to build the latest code. If needed you can also [get the source code specific to a particular release](../contribute/git_examples.md#get-a-specific-release). [GIT Examples](../contribute/git_examples.md) provides a lot more information working with releases and contributing to PX4. 这使我们能够在进入真正的硬件和 IDE 之前验证系统设置。
 
 ## 初次编译（使用 jMAVSim 模拟器）
 
@@ -55,7 +54,7 @@ Flying the simulation with the ground control station is closer to the real oper
 ```
 make px4_sitl gazebo-classic
 ```
-运行成功后将输出类似结束：
+:::
 
 ## 基于NuttX / Pixhawk 的飞控板
 
@@ -80,7 +79,7 @@ A successful run will end with similar output to:
 The first part of the build target `px4_fmu-v4` indicates the target flight controller hardware for the firmware. The suffix, in this case `_default`, indicates a firmware _configuration_, such as supporting or omitting particular features.
 
 :::note
-The `_default` suffix is optional. For example, `make px4_fmu-v5` and `px4_fmu-v5_default` result in the same firmware. 若要在您的计算机上获得*最新的*版本，请在终端中输入以下命令：
+The `_default` suffix is optional. For example, `make px4_fmu-v5` and `px4_fmu-v5_default` result in the same firmware. 运行成功后将输出类似结束：
 
 The following list shows the build commands for the [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) boards:
 
@@ -252,14 +251,15 @@ You can get a list of *all* available `CONFIGURATION_TARGET` options using the c
 ```sh
 make list_config_targets
 ```
-:::
+若要在您的计算机上获得*最新的*版本，请在终端中输入以下命令：
 
 **VIEWER_MODEL_DEBUGGER_WORLD:**
 
 - **VIEWER:** This is the simulator ("viewer") to launch and connect: `gz`, `gazebo`, `jmavsim`, `none` <!-- , ?airsim -->
 
 :::tip
-`none` can be used if you want to launch PX4 and wait for a simulator (jmavsim, Gazebo, Gazebo Classic, or some other simulator). For example, `make px4_sitl none_iris` launches PX4 without a simulator (but with the iris airframe). 若要在您的计算机上获得*最新的*版本，请在终端中输入以下命令：
+`none` can be used if you want to launch PX4 and wait for a simulator (jmavsim, Gazebo, Gazebo Classic, or some other simulator). For example, `make px4_sitl none_iris` launches PX4 without a simulator (but with the iris airframe).
+:::
 - **MODEL:**要使用的 *载具* 模型（例如 `iris` (*default*)、`rover`、`tailsitter` 等），该模型将由模拟器加载。 环境变量 `PX4_SIM_MODEL` 将设置为所选模型。 然后在 [启动脚本 ](#scripts) 中使用该模型来选择适当的参数。
 - **DEBUGGER:**要使用的调试器：`none` (*default*)、`ide`、`gdb`、`lldb`、`ddd`、`valgrind`、`callgrind`。 有关详细信息，请参阅 < 0>Simulation 调试 </0>。
 - **WORLD:** (Gazebo Classic only). Set the world ([PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/main/worlds)) that is loaded. Default is [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/empty.world). For more information see [Gazebo Classic > Loading a Specific World](../sim_gazebo_classic/README.md#set_world).
@@ -270,7 +270,7 @@ You can get a list of *all* available `VIEWER_MODEL_DEBUGGER_WORLD` options usin
 ```sh
 make px4_sitl list_vmd_make_targets
 ```
-:::
+若要在您的计算机上获得*最新的*版本，请在终端中输入以下命令：
 
 Notes:
 - Most of the values in the `CONFIGURATION_TARGET` and `VIEWER_MODEL_DEBUGGER` have defaults, and are hence optional. For example, `gazebo-classic` is equivalent to `gazebo-classic_iris` or `gazebo-classic_iris_none`.

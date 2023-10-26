@@ -12,12 +12,12 @@
 
 要创建外部模块：
 
-- Create an _external directory_ folder for grouping the external modules:
+- 创建用于分组外部模块的_外部目录_文件夹
   - 这个可以放在**PX4-Autopilot**目录树以外的任何地方。
   - 它必须具有与**PX4-Autopilot**相同的目录结构（即必须包含**src**目录）。
   - 稍后我们使用` EXTERNAL_MODULES_LOCATION `来引用此目录。
 - 将现有模块（例如**examples/px4_simple_app**）复制到外部目录，或直接创建新模块。
-- Rename the module (including `MODULE` in **CMakeLists.txt**) or remove it from the existing PX4-Autopilot _cmake_ build config. 这是为了避免与内部模块发生冲突。
+- 重命名模块（包括在**CMakeLists.txt**中的`MODULE`），或者从 PX4-Autopilot _cmake_ 编译配置中移除。 这是为了避免与内部模块发生冲突。
 - 在外部目录中添加**CMakeLists.txt**文件，内容为：
   ```
   set(config_module_list_external
@@ -69,6 +69,6 @@
 
 执行 `make px4_sitl EXTERNAL_MODULES_LOCATION=<path>`。
 
-任何其他构建目标都可以使用，但构建目录尚不存在。 If it already exists, you can also just set the _cmake_ variable in the build folder.
+任何其他构建目标都可以使用，但构建目录尚不存在。 如果它已经存在，您还可以在构建文件夹中设置_cmake_变量。
 
 对于随后的递增版本 `EXTERNAL_MODULES_LOCATION` 无需指定。
