@@ -1,13 +1,11 @@
 # Building PX4 Software
 
-PX4 can be built on the console or in an IDE, for both simulated and hardware targets.
+PX4 firmware can be built from source code on the console or in an IDE, for both simulated and hardware targets.
+
+You need to build PX4 in order to use [simulators](../simulation/README.md), or if you want to modify PX4 and create a custom build. If you just want to try out PX4 on real hardware then [load the prebuilt binaries](../config/firmware.md) using QGroundControl (there is no need to follow these instructions).
 
 :::note
-Before following these instructions you must first install the [Developer Toolchain](../dev_setup/dev_env.md) for your host operating system and target hardware.
-:::
-
-:::tip
-For solutions to common build problems see [Troubleshooting](#troubleshooting) below.
+Before following these instructions you must first install the [Developer Toolchain](../dev_setup/dev_env.md) for your host operating system and target hardware. If you have any problems after following these steps see the [Troubleshooting](#troubleshooting) section below.
 :::
 
 ## Download the PX4 Source Code
