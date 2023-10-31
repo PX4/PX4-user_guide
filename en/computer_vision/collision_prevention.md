@@ -138,7 +138,7 @@ At time of writing PX4 allows you to use the [Lanbao PSK-CM8JL65-CC5](../sensor/
 
 PX4 v1.14 (and later) supports the [LightWare LiDAR SF45](https://www.lightwarelidar.com/shop/sf45-b-50-m/) rotating lidar which provides 320 degree sensing.
 
-The SF45 must be connected via a UART/serial port.
+The SF45 must be connected via a UART/serial port and configured as described below (In addition to the [collision prevention setup](#px4-software-setup)).
 
 [LightWare Studio](https://www.lightwarelidar.com/resources-software) configuration:
 
