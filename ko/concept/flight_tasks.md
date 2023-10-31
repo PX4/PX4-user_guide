@@ -59,7 +59,7 @@
      virtual ~FlightTaskMyTask() = default;
 
      bool update();
-     bool activate(vehicle_local_position_setpoint_s last_setpoint);
+     bool activate(const trajectory_setpoint_s &last_setpoint) override;
 
    private:
      float _origin_z{0.f};
@@ -69,7 +69,7 @@
    ```cpp
    #include "FlightTaskMyTask.hpp"
 
-   bool FlightTaskMyTask::activate(vehicle_local_position_setpoint_s last_setpoint)
+   bool FlightTaskMyTask::activate(const trajectory_setpoint_s &last_setpoint)
    {
      bool ret = FlightTask::activate(last_setpoint);
      PX4_INFO("FlightTaskMyTask activate was called! ret: %d", ret); // report if activation was successful
