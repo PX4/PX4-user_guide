@@ -24806,6 +24806,13 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="RTL_APPR_FORCE">RTL_APPR_FORCE</strong> (INT32)</td>
+ <td>RTL force approach landing <p><strong>Comment:</strong> Only consider RTL point, if it has an approach defined.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="RTL_TIME_FACTOR">RTL_TIME_FACTOR</strong> (FLOAT)</td>
  <td>RTL time estimate safety margin factor <p><strong>Comment:</strong> Safety factor that is used to scale the actual RTL time estimate. Time with margin = RTL_TIME_FACTOR * time + RTL_TIME_MARGIN</p>   </td>
  <td>[1.0, 2.0] (0.1)</td>
