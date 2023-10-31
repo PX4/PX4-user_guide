@@ -146,7 +146,7 @@ The SF45 must be connected via a UART/serial port.
 
 PX4 Configuration:
 
-- Add the [lightware_sf45_serial](../modules/modules_driver_distance_sensor.html#lightware-sf45-serial) driver in [menuconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup):
+- Add the [lightware_sf45_serial](../modules/modules_driver_distance_sensor.md#lightware-sf45-serial) driver in [menuconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup):
   - Under **drivers > Distance sensors** select `lightware_sf45_serial`.
   - Recompile and upload to the flight controller.
 - [Set the following parameters](../advanced_config/parameters.md) via QGC:
