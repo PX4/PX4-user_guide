@@ -63,7 +63,7 @@ In order to run the simulation without running the Gazebo gui, use the `HEADLESS
 HEADLESS=1 make px4_sitl gz_x500
 ```
 
-It is also possible to specify use the above `make` command to specify a desired world. To do so, simply concatenate the desired world to
+It is also possible to use the above `make` command to specify a desired world. To do so, simply concatenate the desired world to
 the desired vehicle. For example: If you want to run the windy world with the `x500` vehicle you can specify: `make px4_sitl gz_x500_windy`.
 If no world is specified, PX4 will use the default world. The supported worlds are listed below.
 
