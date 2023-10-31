@@ -14,7 +14,7 @@ Purchasing information can be found on the [Vertiq website](https://www.vertiq.c
 ## Hardware Setup
 ### Wiring
 
-Connecting your Vertiq module to a PWM input or DroneCAN bus will vary depending on your model. Please see the product data sheets for wiring information. All Vertiq datasheets can be found at [vertiq.co](https://www.vertiq.co/). 
+Connecting your Vertiq module to a PWM output from your flight controller or DroneCAN bus will vary depending on your model. Please see the product data sheets for wiring information. All Vertiq datasheets can be found at [vertiq.co](https://www.vertiq.co/). 
 
 ## Firmware Setup
 
