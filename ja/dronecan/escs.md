@@ -6,4 +6,5 @@ PX4 supports DroneCAN compliant ESCs. For more information, see the following ar
   - [Zubax Orel 20/21](zubax_orel.md)
   - [Holybro Kotleta 20](holybro_kotleta.md)
 - [Zubax Telega](zubax_telega.md)
+- [Vertiq](../peripherals/vertiq.md) (larger modules)
 - [VESC Project](../peripherals/vesc.md)
