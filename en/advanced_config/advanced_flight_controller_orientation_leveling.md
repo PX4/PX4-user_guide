@@ -8,7 +8,8 @@ For basic settings stick to the instructions linked below:
 
 - [Flight Controller Orientation](../config/flight_controller_orientation.md)
 - [Level Horizon Calibration](../config/level_horizon_calibration.md)
-  :::
+
+:::
 
 If there is a persistent drift bias (often seen in multirotors but not limited to them), it is a good strategy to trim it with the help of this fine-tuning offset angle parameters instead of using the trimmers of your RC Transmitter.
 This way when in fully autonomous flight the aircraft will maintain the trimming.
@@ -21,14 +22,15 @@ To change the orientation parameters:
 2. Change the parameters as shown below:
    ![FC Orientation QGC v2](../../assets/qgc/setup/sensor/fc_orientation_qgc_v2.png)
 
-## Parameter information
+## Parameter Information
 
 The **SENS_BOARD_ROT** parameter defines the rotation relative to the platform, while the X,Y and Z fine tuning offsets are fixed relative to the board itself.
-What happens is that the fine tuning offsets are added to the SENS_BOARD_ROT angle in order to get the total offset angles for the Yaw, Pitch and Roll orientation of the flight controller.
+What happens is that the fine tuning offsets are added to the `SENS_BOARD_ROT`` angle in order to get the total offset angles for the Yaw, Pitch and Roll orientation of the flight controller.
 
 **SENS_BOARD_ROT**
 
-This parameter defines the rotation of the FMU board relative to the platform. Possible values are:
+This parameter defines the rotation of the FMU board relative to the platform.
+Possible values are:
 
 - 0 = No rotation
 - 1 = Yaw 45°

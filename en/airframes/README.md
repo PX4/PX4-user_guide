@@ -16,7 +16,6 @@ The frame types that have a maintainer and are well tested and supported are:
 - [Planes (Fixed-wing)](../frames_plane/README.md)
 - [VTOL](../frames_vtol/README.md): [Standard VTOL](../frames_vtol/standardvtol.md), [Tailsitter VTOL](../frames_vtol/tailsitter.md), [Tiltrotor VTOL](../frames_vtol/tiltrotor.md)
 
-
 ## Experimental Vehicles
 
 The following vehicle types are considered experimental:
@@ -42,4 +41,3 @@ Maintainer volunteers, [contribution](../contribute/README.md) of new features, 
 ## Other Vehicles
 
 The complete set of supported vehicle types and their configurations can be found in the [Airframes Reference](../airframes/airframe_reference.md).
-

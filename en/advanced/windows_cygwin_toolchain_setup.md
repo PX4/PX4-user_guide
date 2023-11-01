@@ -4,8 +4,6 @@ This topic explains how to construct and extend the development environment used
 
 ## Additional Information
 
-<a id="features"></a>
-
 ### Features / Issues
 
 The following features are known to work (version 2.0):
@@ -23,8 +21,6 @@ Omissions:
 - Only NuttX and JMAVSim/SITL builds are supported.
 - [Known problems](https://github.com/orgs/PX4/projects/6) (Also use to report issues).
 
-<a id="script_setup"></a>
-
 ### Shell Script Installation
 
 You can also install the environment using shell scripts in the Github project.
@@ -32,15 +28,13 @@ You can also install the environment using shell scripts in the Github project.
 1. Make sure you have [Git for Windows](https://git-scm.com/download/win) installed.
 1. Clone the repository https://github.com/PX4/windows-toolchain to the location you want to install the toolchain. Default location and naming is achieved by opening the `Git Bash` and executing:
 
-```
+```cmd
 cd /c/
 git clone https://github.com/PX4/windows-toolchain PX4
 ```
 
 1. If you want to install all components navigate to the freshly cloned folder and double click on the script `install-all-components.bat` located in the folder `toolchain`. If you only need certain components and want to safe Internet traffic and or disk space you can navigate to the different component folders like e.g. `toolchain\cygwin64` and click on the **install-XXX.bat** scripts to only fetch something specific.
 1. Continue with [Getting Started](../dev_setup/dev_env_windows_cygwin.md#getting-started).
-
-<a id="manual_setup"></a>
 
 ### Manual Installation (for Toolchain Developers)
 
@@ -95,7 +89,7 @@ The toolchain gets maintained and hence these instructions might not cover every
 
 1. Add necessary **python packages** to your setup by opening the Cygwin toolchain console (double clicking **run-console.bat**) and executing
 
-   ```
+   ```sh
    pip2 install toml
    pip2 install pyserial
    pip2 install pyulog
@@ -136,25 +130,18 @@ The toolchain gets maintained and hence these instructions might not cover every
 
    - Clone the source code to the folder **C:\PX4\toolchain\genromfs\genromfs-src** with
 
-     ```
+     ```cmd
      cd /c/toolchain/genromfs
      git clone https://github.com/chexum/genromfs.git genromfs-src
      ```
 
    - Compile it with:
-     ```
+
+     ```cmd
      cd genromfs-src
      make all
      ```
 
-   ```
-
-   * Copy the resulting binary **genromfs.exe** one folder level out to: **C:\PX4\toolchain\genromfs**
-
-   :::note
-   .
-   :
-
-   ```
+   - Copy the resulting binary **genromfs.exe** one folder level out to: **C:\PX4\toolchain\genromfs**
 
 1. Make sure all the binary folders of all the installed components are correctly listed in the `PATH` variable configured by [**setup-environment.bat**](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat).
