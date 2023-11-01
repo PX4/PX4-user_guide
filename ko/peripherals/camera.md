@@ -58,13 +58,14 @@ Camera trigger pins are set in the _QGroundControl_ [Actuators](../config/actuat
 
 The trigger pins can be set by assigning the `Camera_Trigger` function on any FMU output. If using trigger setup that requires two pins (e.g. Seagull MAP2) you can assign to any two outputs.
 
-Note however that once an output has been used for camera triggering, the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator or motor, say).
+Note however that if a _PWM_ output has been used for camera triggering (such as Seagull MAP2), the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator, motor, or camera capture, because the timer has already been used).
 
 :::note
 At time of writing triggering only works on FMU pins:
 
 - On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+) .
 - A controller that only has an FMU, the pins map to `MAIN` outputs (e.g. Pixhawk 4 mini, CUAV v5 nano).
+
 :::
 
 ### 기타 매개변수
@@ -83,11 +84,14 @@ Cameras can also (optionally) use a camera capture pin to signal the exact momen
 
 PX4에서 [CAM_CAP_FBACK=1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK)을 설정하면 카메라 캡처/피드백이 활성화됩니다. The pin used for camera capture is then set in the _QGroundControl_ [Actuators](../config/actuators.md) configuration screen by assigning the `Camera_Capture` function on any FMU output.
 
+Note that if a _PWM output_ is used as a camera capture input, the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator, motor, or camera trigger, because the timer has already been used).
+
 :::note
 At time of writing camera capture only works on FMU pins:
 
 - On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+).
 - A controller that only has an FMU, the pins map to `MAIN` outputs (e.g. Pixhawk 4 mini, CUAV v5 nano).
+
 :::
 
 PX4는 카메라 캡처 핀에서 적절한 전압 레벨로 상승 에지를 감지합니다 (Pixhawk 비행 콘트롤러의 경우 일반적으로 3.3V). If the camera isn't outputting an appropriate voltage, then additional circuitry will be required to make the signal compatible.
@@ -151,7 +155,7 @@ The following sections are out of date and need retesting.
    
    
 
-   ```sh
+   ```
    camera_trigger test
    ```
 
