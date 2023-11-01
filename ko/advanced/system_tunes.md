@@ -26,14 +26,18 @@ ANSI 음악은 ANSI BBS 시스템 시대에 인기가 있었고, 최고의 편�
 1. [멜로디 마스터](ftp://archives.thebbs.org/ansi_utilities/melody21.zip)를 다운로드하고 새 디렉터리로 압축을 해제합니다.
 1. Open the _Dosbox_ console
 1. 멜로디 마스터 디렉터리를 아래와 같이 도스박스에서 마운트하십시오.
-   ```
+
+   ```sh
    mount c C:\<path_to_directory>\Melody21
    ```
+
 1. Start _Melody Master_ with the following commands
-   ```
+
+   ```sh
    c:
    start
    ```
+
 1. You will then have the option to click through a few screens, then press **1** to display _Melody Master_: ![멜로디 마스터 2.1](../../assets/tunes/tunes_melody_master_2_1.jpg)
 
    화면의 절반 하단부에서 도구 사용에 필요한 키보드 단축키를 안내해줍니다(악보를 움직이고 음표 길이를 선택할 수 있는 등의 작업 가능).
