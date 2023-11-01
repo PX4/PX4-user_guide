@@ -33,9 +33,10 @@ ESC 설정 매개변수를 변경하기 전에 프로펠러를 제거하십시�
 
 Enable DShot for your required outputs in the [Actuator Configuration](../config/actuators.md).
 
-DShot에는 *DShot150*, *DShot300*, *DShot600* 및 *DShot1200*과 같은 다양한 속도 옵션들이 있습니다. 여기에서 숫자는 속도를 나타냅니다. You should set the parameter to the highest speed supported by your ESC (according to its datasheet).
+DShot comes with different speed options: _DShot150_, _DShot300_, _DShot600_ and _DShot1200_, where the number indicates the speed in kilo-bits/second. You should set the parameter to the highest speed supported by your ESC (according to its datasheet).
 
 그런 다음 배터리를 연결하고 기체의 시동을 켭니다. ESC가 초기화되고 모터가 올바른 방향으로 회전하여야 합니다.
+
 - If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)) you can reverse them in the UI using the **Set Spin Direction** option (this option appears after you select DShot and assign motors). You can also reverse motors by sending an [ESC Command](#commands).
 
 <a id="commands"></a>
@@ -66,7 +67,7 @@ DShot에는 *DShot150*, *DShot300*, *DShot600* 및 *DShot1200*과 같은 다양�
   dshot save -m 1
   ```
 
-  Retrieving ESC information after the `dshot reverse -m 1` command  without the `dshot save -m 1` command will show:
+  Retrieving ESC information after the `dshot reverse -m 1` command without the `dshot save -m 1` command will show:
 
   ```
   Rotation Direction: reversed
@@ -93,6 +94,7 @@ DShot에는 *DShot150*, *DShot300*, *DShot600* 및 *DShot1200*과 같은 다양�
 이러한 DShot ESC에는 추가 텔레메트리 와이어가 있습니다.
 
 이 기능을 활성화하려면(지원 ESC에서) :
+
 1. 모든 ESC의 모든 원격 측정 와이어를 함께 연결한 다음, 사용하지 않는 비행 콘트롤러 직렬 포트의 RX핀 중 하나에 연결합니다.
 1. [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG)를 사용하여 해당 직렬 포트에서 텔레메트리를 활성화합니다.
 
@@ -108,8 +110,10 @@ dshot esc_info -m 1
 
 :::tip
 원격 분석이 지원되고 활성화된 경우에도, 모든 DSHOT 가능 ESC가 `[esc_info]` (예 : APD 80F3x)를 지원하지 않을 수도 있습니다. 결과 오류는 다음과 같습니다.
+
 ```
 ERROR [dshot] No data received. 텔레메트리가 올바르게 설정되어 있으면, 다시 시도하십시오.
 ```
+
 세부 사항은 제조업체 문서를 확인하십시오.
 :::
