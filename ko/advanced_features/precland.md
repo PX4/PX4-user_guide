@@ -1,8 +1,8 @@
 # 정밀 착륙
 
-PX4는 고정 또는 이동 표적에 대한 *멀티콥터*의 정밀 착륙을 지원합니다. 표적은 온보드 IR 센서와 착륙 표지 또는 오프보드 포지셔닝 시스템에 의해 제공될 수 있습니다.
+PX4 supports precision landing for _multicopters_ on either stationary or moving targets. 표적은 온보드 IR 센서와 착륙 표지 또는 오프보드 포지셔닝 시스템에 의해 제공될 수 있습니다.
 
-정밀 착륙은 [미션](#mission)의 일부로, [복귀 모드](#return-mode-precision-landing) 착륙 또는 [* Precision Land* 비행 모드](#precision-landing-flight-mode)로 시작할 수 있습니다.
+Precision landing can be [started/initiated](#initiating-a-precision-landing) as part of a [mission](#mission), in a [Return mode](#return-mode-precision-landing) landing, or by entering the [_Precision Land_ flight mode](#precision-landing-flight-mode).
 
 :::note
 정밀 착륙은 유효한 전역 위치에서만 가능합니다(현재 위치 컨트롤러 구현의 제한으로 인해).
@@ -16,7 +16,7 @@ PX4는 고정 또는 이동 표적에 대한 *멀티콥터*의 정밀 착륙을 
 
 #### 필수 모드
 
-*필수 모드*에서 착륙을 시작할 때 아무런 신호를 찾을 수 없으면 기체는 목표물을 찾기 시작합니다. 목표물을 찾은 경우에는 기체는 정밀 착륙을 실행합니다.
+In _Required Mode_ the vehicle will search for a target if none is visible when landing is initiated. 목표물을 찾은 경우에는 기체는 정밀 착륙을 실행합니다.
 
 이런 탐색 과정은 탐색 고도까지 상승을 포함합니다([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)). 기체가 목표물을 탐색 고도에서 찾을 수 없고, 탐색시간 초과 ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT))이후에는 현재 위치에서 일반 착륙을 시작합니다.
 
@@ -26,7 +26,7 @@ If using an offboard positioning system PX4 assumes that the target is visible w
 
 #### 가능성 탐색 모드
 
-*가능성 탐색 모드*에서는 기체가 착륙이 시행될 때 목표물이 가시적이면 정밀 착륙을 시작합니다. 목표물이 보이지 않으면, 기체는 즉시 현재 위치에서 *일반* 착륙을 수행합니다.
+In _Opportunistic Mode_ the vehicle will use precision landing _if_ (and only if) the target is visible when landing is initiated. If it is not visible the vehicle immediately performs a _normal_ landing at the current position.
 
 ### 착륙 과정
 
@@ -44,7 +44,7 @@ If using an offboard positioning system PX4 assumes that the target is visible w
 
 ## 정밀 착륙 수행
 
-정밀 착륙은 임무, *귀환 모드*의 착륙 단계 또는 *정밀 착륙* 모드로 진입하여 사용할 수 있습니다.
+Precision landing can be used in missions, during the landing phase in _Return mode_, or by entering the _Precision Land_ mode.
 
 <a id="mission"></a>
 
@@ -66,13 +66,13 @@ If using an offboard positioning system PX4 assumes that the target is visible w
 - `1`: [가능성 탐색](#opportunistic-mode) 정밀 착륙
 - `2`: [필수](#required-mode) 정밀 착륙
 
-
 ### 정밀 착륙 비행 모드
 
-정밀 착륙은 *정밀 착륙* 비행 모드로 전환하여 활성화됩니다.
+Precision landing can be enabled by switching to the _Precision Landing_ flight mode.
 
-[*QGroundControl* MAVLink 콘솔](../debug/mavlink_shell.md#qgroundcontrol-mavlink-console)을 사용하여 다음 명령을 입력하여 이를 확인할 수 있습니다.
-```
+You can verify this using the [_QGroundControl_ MAVLink Console](../debug/mavlink_shell.md#qgroundcontrol-mavlink-console) to enter the following command:
+
+```sh
 commander mode auto:precland
 ```
 
@@ -82,11 +82,11 @@ commander mode auto:precland
 
 :::note
 작성 시점에 정밀 착륙을 직접 호출하는 *편리한* 방법은 없습니다(리턴 모드 명령 제외).
-- *QGroundControl*은 이를 UI 옵션으로 제공하지 않습니다.
+
+- _QGroundControl_ does not provide it as a UI option.
 - [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)는 임무에서만 작동합니다.
 - [MAV_CMD_DO_SET_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_MODE) should work, but you will need to determine the appropriate base and custom modes used by PX4 to represent the precision landing mode.
 :::
-
 
 ## 하드웨어 설정
 
@@ -98,7 +98,7 @@ IR-LOCK MarkOne</2 >). 정밀 착륙은 약 10 cm 이내의 오차로 착륙할 
 
 [공식 매뉴얼](https://irlock.readme.io/v2.0/docs)에 따라 IR-LOCK 센서를 장착하십시오. 센서의 x축이 기체의 y축과 정렬되어 있는지, 센서의 y축이 기체의 -x 방향과 정렬되어 있는지 확인하십시오 (카메라에서 전방으로 90도 기울인 경우).
 
-[ 범위거리 센서 ](../getting_started/sensor_selection.md#distance)(*LidarLite v3*)를 설치에도 문제가 없습니다.
+Install a [range/distance sensor](../getting_started/sensor_selection.md#distance) (the _LidarLite v3_ has been found to work well).
 
 :::note
 대부분의 적외선 범위 센서는 IR-LOCK 비콘이 있는 경우에는 제대로 작동하지 않습니다.
@@ -154,7 +154,6 @@ IR-Lock 센서는 기본적으로 비활성화되어 있습니다. [SENS_EN_IRLO
 
 
 
-
 ### IR 비콘 스케일링
 
 IR-LOCK 센서의 렌즈 왜곡으로 인해 측정 스케일링이 필수적입니다.
@@ -175,7 +174,7 @@ IR-LOCK 비컨과 범위 센서와 IR-LOCK 카메라가 장착된 기체를 사�
 
 
 
-```
+```sh
 make px4_sitl gazebo-classic_iris_irlock
 ```
 
@@ -201,7 +200,6 @@ You can change the location of the beacon either by moving it in the Gazebo Clas
 ### 고급 기체 위치 추정 
 
 타겟이 매개변수 `LTEST_MODE`를 사용하여 정지 상태로 지정되면, 타겟 측정을 통하여 기체의 위치/속도 추정치를 개선할 수 있습니다. 기체의 음의 속도를 측정을 목표물의 속도와 결합하여 추정합니다.
-
 
 
 
