@@ -7,9 +7,10 @@ The [VESC project](https://vesc-project.com/) is a fully open source hardware an
 [Vesc Project > Hardware](https://vesc-project.com/Hardware)
 
 ## Hardware Setup
+
 ### Wiring
 
-ESCs are connected to the CAN bus using the VESC CAN connector. Note that this is *not* the Pixhawk standard 4 pin JST GH connector. For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions. ESC order does not matter.
+ESCs are connected to the CAN bus using the VESC CAN connector. Note that this is _not_ the Pixhawk standard 4 pin JST GH connector. For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions. ESC order does not matter.
 
 ## Firmware Setup
 
@@ -47,5 +48,5 @@ See DroneCAN Troubleshooting - (README.md#troubleshooting).
 
 ## Further Information
 
-* [VESC Project ESCs](https://vesc-project.com/)
-* [Benjamin Vedder's blog](http://vedder.se) (project owner)
+- [VESC Project ESCs](https://vesc-project.com/)
+- [Benjamin Vedder's blog](http://vedder.se) (project owner)
