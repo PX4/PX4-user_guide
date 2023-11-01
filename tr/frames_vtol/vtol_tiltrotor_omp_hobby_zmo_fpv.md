@@ -341,7 +341,7 @@ If the motor spins in the wrong directions two of the three motor wires need to 
   - Roll the vehicle to the right. The right aileron should go down. The left aileron should go up.
   - Pitch the vehicle up (nose up). Both elevons should go down.
   - Yaw the vehicle to the right (nose to the right). Both elevons should go to the left.
-- If a [kill-switch](../config/safety.html#kill-switch) is used, make sure it's working properly and will not be activated accidentally in flight!
+- If a [kill-switch](../config/safety.md#kill-switch) is used, make sure it's working properly and will not be activated accidentally in flight!
 - Arm in [Stabilized mode](../flight_modes_fw/stabilized.md) and check if motors respond to the commands, e.g. roll left increases throttle on the right motor
 - Takeoff in [Stabilized mode](../flight_modes_fw/stabilized.md) and make some basic maneuvers
 - If everything went without any issue, takeoff in [Position mode](../flight_modes_fw/position.md) and do a transition at around 50m. If something goes wrong switch back to multicopter mode as fast as possible (using the transition switch).
