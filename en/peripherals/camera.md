@@ -63,14 +63,15 @@ Camera trigger pins are set in the _QGroundControl_ [Actuators](../config/actuat
 The trigger pins can be set by assigning the `Camera_Trigger` function on any FMU output.
 If using trigger setup that requires two pins (e.g. Seagull MAP2) you can assign to any two outputs.
 
-Note however that once an output has been used for camera triggering, the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator or motor, say).
+Note however that if a _PWM_ output has been used for camera triggering (such as Seagull MAP2), the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator, motor, or camera capture, because the timer has already been used).
 
 :::note
 At time of writing triggering only works on FMU pins:
 
 - On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+) .
 - A controller that only has an FMU, the pins map to `MAIN` outputs (e.g. Pixhawk 4 mini, CUAV v5 nano).
-  :::
+
+:::
 
 ### Other Parameters
 
@@ -90,12 +91,15 @@ This allows more precise mapping of images to GPS position for geotagging, or th
 Camera capture/feedback is enabled in PX4 by setting [CAM_CAP_FBACK = 1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK).
 The pin used for camera capture is then set in the _QGroundControl_ [Actuators](../config/actuators.md) configuration screen by assigning the `Camera_Capture` function on any FMU output.
 
+Note that if a _PWM output_ is used as a camera capture input, the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator, motor, or camera trigger, because the timer has already been used).
+
 :::note
 At time of writing camera capture only works on FMU pins:
 
 - On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+).
 - A controller that only has an FMU, the pins map to `MAIN` outputs (e.g. Pixhawk 4 mini, CUAV v5 nano).
-  :::
+
+:::
 
 PX4 detects a rising edge with the appropriate voltage level on the camera capture pin (for Pixhawk flight controllers this is normally 3.3V).
 If the camera isn't outputting an appropriate voltage, then additional circuitry will be required to make the signal compatible.
@@ -163,7 +167,7 @@ The following sections are out of date and need retesting.
 
 1. On the PX4 console:
 
-   ```sh
+   ```
    camera_trigger test
    ```
 
