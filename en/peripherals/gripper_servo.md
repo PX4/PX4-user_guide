@@ -4,13 +4,11 @@ This section explains how to connect and configure a [gripper](../peripherals/gr
 
 ![R4-EM-R22-16: High-load gripper example](../../assets/hardware/grippers/highload_gripper_example.jpg)
 
-
 ## Supported Grippers
 
 The following PWM-connected servos have been tested with PX4:
 
 - [R4-EM-R22-161 : push-to-close latch electronic lock](https://southco.com/en_any_int/r4-em-r22-161).
-
 
 ## Connecting a PWM-controlled Gripper
 
@@ -21,11 +19,11 @@ A typical connector is shown in the image below:
 
 In the image above the wire colors have the following meanings:
 
-Wire color | Purpose
----     | ---
-Brown   | Ground
-Red     | Power
-Yellow  | PWM Signal
+| Wire color | Purpose    |
+| ---------- | ---------- |
+| Brown      | Ground     |
+| Red        | Power      |
+| Yellow     | PWM Signal |
 
 You would need to connect them into a PWM input of the Flight controller appropriately.
 
@@ -33,8 +31,8 @@ You would need to connect them into a PWM input of the Flight controller appropr
 
 Before connecting the cable, double-check the following requirements:
 
-* **Signal line voltage level**: Check the data-sheet of your gripper mechanism to find the voltage level of the signal line. And make sure this is compatible with the voltage level of the pins of your Flight Controller.
-* **Power requirements of gripper**: Check the mechanism's data-sheet to find out the power line voltage level requirements. Depending on that, the gripper can be either connected directly to the [power module](../power_module/README.md) or connected to a 5V line.
+- **Signal line voltage level**: Check the data-sheet of your gripper mechanism to find the voltage level of the signal line. And make sure this is compatible with the voltage level of the pins of your Flight Controller.
+- **Power requirements of gripper**: Check the mechanism's data-sheet to find out the power line voltage level requirements. Depending on that, the gripper can be either connected directly to the [power module](../power_module/README.md) or connected to a 5V line.
   Alternatively a custom voltage regulator can be used to output any other voltage required.
 
 ## PX4 Configuration

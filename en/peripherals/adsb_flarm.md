@@ -2,8 +2,7 @@
 
 PX4 supports simple air traffic avoidance in [missions](../flight_modes/mission.md) using [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast), [FLARM](https://en.wikipedia.org/wiki/FLARM), or [UTM](https://www.faa.gov/uas/research_development/traffic_management) transponders that use the standard MAVLink interfaces.
 
-If a potential collision is detected, PX4 can *warn*, immediately [land](../flight_modes_mc/land.md), or [return](../flight_modes/return.md) (depending on the value of [NAV_TRAFF_AVOID](#NAV_TRAFF_AVOID)).
-
+If a potential collision is detected, PX4 can _warn_, immediately [land](../flight_modes_mc/land.md), or [return](../flight_modes/return.md) (depending on the value of [NAV_TRAFF_AVOID](#NAV_TRAFF_AVOID)).
 
 ## Supported Hardware
 
@@ -14,7 +13,6 @@ It has been tested with the following devices:
 - [PingRX ADS-B Receiver](https://uavionix.com/product/pingrx-pro/) (uAvionix)
 - [FLARM](https://flarm.com/products/uav/atom-uav-flarm-for-drones/) <!-- I think originally https://flarm.com/products/powerflarm/uav/ -->
 
-
 ## Hardware Setup
 
 Any of the devices can be connected to any free/unused serial port on the flight controller.
@@ -24,29 +22,28 @@ Most commonly they are connected to `TELEM2` (if this is not being use for some 
 
 The PingRX MAVLink port uses a JST ZHR-4 mating connector with pinout as shown below.
 
-Pin | Signal | Volt
---- | --- | ---
-1 (red) | RX (IN)  | +5V tolerant
-2 (blk) | TX (OUT) | 
-3 (blk) | Power  | +4 to 6V
-4 (blk) | GND    | GND
+| Pin     | Signal   | Volt         |
+| ------- | -------- | ------------ |
+| 1 (red) | RX (IN)  | +5V tolerant |
+| 2 (blk) | TX (OUT) |
+| 3 (blk) | Power    | +4 to 6V     |
+| 4 (blk) | GND      | GND          |
 
 The PingRX comes with connector cable that can be attached directly to the TELEM2 port (DF13-6P) on an [mRo Pixhawk](../flight_controller/mro_pixhawk.md).
 For other ports or boards, you will need to obtain your own cable.
-
 
 ## FLARM
 
 FLARM has an on-board DF-13 6 Pin connector that has an identical pinout to the [mRo Pixhawk](../flight_controller/mro_pixhawk.md).
 
-Pin | Signal | Volt
---- | --- | ---
-1 (red) | VCC      | +4V to +36V
-2 (blk) | TX (OUT) | +3.3V
-3 (blk) | RX (IN)  | +3.3V
-4 (blk) | - | +3.3V
-5 (blk) | - | +3.3V
-6 (blk) | GND      | GND
+| Pin     | Signal   | Volt        |
+| ------- | -------- | ----------- |
+| 1 (red) | VCC      | +4V to +36V |
+| 2 (blk) | TX (OUT) | +3.3V       |
+| 3 (blk) | RX (IN)  | +3.3V       |
+| 4 (blk) | -        | +3.3V       |
+| 5 (blk) | -        | +3.3V       |
+| 6 (blk) | GND      | GND         |
 
 :::note
 The TX and RX on the flight controller must be connected to the RX and TX on the FLARM, respectively.
@@ -56,8 +53,8 @@ The TX and RX on the flight controller must be connected to the RX and TX on the
 
 ### Port Configuration
 
-The recievers are configured in the same way as any other [MAVLink Peripheral](../peripherals/mavlink_peripherals.md). 
-The only *specific* setup is that the port baud rate must be set to 57600 and the a low-bandwidth profile (`MAV_X_MODE`).
+The recievers are configured in the same way as any other [MAVLink Peripheral](../peripherals/mavlink_peripherals.md).
+The only _specific_ setup is that the port baud rate must be set to 57600 and the a low-bandwidth profile (`MAV_X_MODE`).
 
 Assuming you have connected the device to the TELEM2 port, [set the parameters](../advanced_config/parameters.md) as shown:
 
@@ -65,8 +62,8 @@ Assuming you have connected the device to the TELEM2 port, [set the parameters](
 - [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) = Normal
 - [MAV_1_RATE](../advanced_config/parameter_reference.md#MAV_1_RATE) = 0 (default sending rate for port).
 - [MAV_1_FORWARD](../advanced_config/parameter_reference.md#MAV_1_FORWARD) = Enabled
-  
-Then reboot the vehicle. 
+
+Then reboot the vehicle.
 
 You will now find a new parameter called [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD), which must be set to 57600.
 
@@ -74,12 +71,12 @@ You will now find a new parameter called [SER_TEL2_BAUD](../advanced_config/para
 
 Configure the action when there is a potential collision using the parameter below:
 
-Parameter | Description
---- | ---
-<a id="NAV_TRAFF_AVOID"></a>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)  | Enable traffic avoidance mode specify avoidance response. 0: Disable, 1: Warn only, 2: Return mode, 3: Land mode.
-<a id="NAV_TRAFF_A_HOR"></a>[NAV_TRAFF_A_HOR](../advanced_config/parameter_reference.md#NAV_TRAFF_A_HOR)  | Horizonal radius of cylinder around the vehicle that defines its airspace (i.e. the airspace in the ground plane).
-<a id="NAV_TRAFF_A_VER"></a>[NAV_TRAFF_A_VER](../advanced_config/parameter_reference.md#NAV_TRAFF_A_VER)  | Vertical height above and below vehicle of the cylinder that defines its airspace (also see [NAV_TRAFF_A_HOR](#NAV_TRAFF_A_HOR)).
-<a id="NAV_TRAFF_COLL_T"></a>[NAV_TRAFF_COLL_T](../advanced_config/parameter_reference.md#NAV_TRAFF_COLL_T) | Collision time threshold. Avoidance will trigger if the estimated time until collision drops below this value (the estimated time is based on relative speed of traffic and UAV).
+| Parameter                                                                                                   | Description                                                                                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="NAV_TRAFF_AVOID"></a>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)    | Enable traffic avoidance mode specify avoidance response. 0: Disable, 1: Warn only, 2: Return mode, 3: Land mode.                                                                 |
+| <a id="NAV_TRAFF_A_HOR"></a>[NAV_TRAFF_A_HOR](../advanced_config/parameter_reference.md#NAV_TRAFF_A_HOR)    | Horizonal radius of cylinder around the vehicle that defines its airspace (i.e. the airspace in the ground plane).                                                                |
+| <a id="NAV_TRAFF_A_VER"></a>[NAV_TRAFF_A_VER](../advanced_config/parameter_reference.md#NAV_TRAFF_A_VER)    | Vertical height above and below vehicle of the cylinder that defines its airspace (also see [NAV_TRAFF_A_HOR](#NAV_TRAFF_A_HOR)).                                                 |
+| <a id="NAV_TRAFF_COLL_T"></a>[NAV_TRAFF_COLL_T](../advanced_config/parameter_reference.md#NAV_TRAFF_COLL_T) | Collision time threshold. Avoidance will trigger if the estimated time until collision drops below this value (the estimated time is based on relative speed of traffic and UAV). |
 
 ## Implementation
 
@@ -100,16 +97,14 @@ The last 10 Digits of the GUID is displayed as Drone identification.
 ### UTM
 
 PX4 listens for `UTM_GLOBAL_POSITION` MAVLink messages during missions.
-When a valid message is received, its validity flags, position and heading are mapped into the same `transponder_report` UORB topic used for *ADS-B traffic avoidance*.
+When a valid message is received, its validity flags, position and heading are mapped into the same `transponder_report` UORB topic used for _ADS-B traffic avoidance_.
 
-The implementation is otherwise *exactly* as described in the section above.
-
+The implementation is otherwise _exactly_ as described in the section above.
 
 :::note
 [UTM_GLOBAL_POSITION](https://mavlink.io/en/messages/common.html#UTM_GLOBAL_POSITION) contains additional fields that are not provided by an ADSB transponder (see [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE)).
 The current implementation simply drops the additional fields (including information about the vehicle's planned next waypoint).
 :::
-
 
 ## Testing/Simulated ADSB Traffic
 
@@ -164,7 +159,6 @@ This takes several parameters, which specify the characteristics of the fake tra
 - `lat_uav`: Lat of this vehicle (used to position fake traffic around vehicle)
 - `on_uav`: Lon of this vehicle (used to position fake traffic around vehicle)
 - `alt_uav`: Altitude of the vehicle (as reference - used to position fake traffic around vehicle)
-   
 
 The method creates a simulated transponder message near the vehicle, using following steps:
 

@@ -8,9 +8,10 @@ While it can be controlled using traditional PWM input, it also supports being c
 [Vesc Project > Hardware](https://vesc-project.com/Hardware)
 
 ## Hardware Setup
+
 ### Wiring
 
-ESCs are connected to the CAN bus using the VESC CAN connector. Note that this is *not* the Pixhawk standard 4 pin JST GH connector. For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions. ESC order does not matter.
+ESCs are connected to the CAN bus using the VESC CAN connector. Note that this is _not_ the Pixhawk standard 4 pin JST GH connector. For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions. ESC order does not matter.
 
 ## Firmware Setup
 
@@ -18,14 +19,14 @@ The preferred tool for motor enumeration is the [VESC tool](https://vesc-project
 In addition to the normal motor configuration that you will have to setup in the VESC tool, you will also need to properly setup the app configuration.
 The recommended app setup is as follows:
 
-Parameter | Option
---- | ---
-App to use | `No App`
-VESC ID | `1,2,...`
-Can Status Message Mode | `CAN_STATUS_1_2_3_4_5`
-CAN Baud Rate | `CAN_BAUD_500K`
-CAN Mode | `UAVCAN`
-UAVCAN ESC Index | `0,1,...`
+| Parameter               | Option                 |
+| ----------------------- | ---------------------- |
+| App to use              | `No App`               |
+| VESC ID                 | `1,2,...`              |
+| Can Status Message Mode | `CAN_STATUS_1_2_3_4_5` |
+| CAN Baud Rate           | `CAN_BAUD_500K`        |
+| CAN Mode                | `UAVCAN`               |
+| UAVCAN ESC Index        | `0,1,...`              |
 
 VESC ID should have the same motor numbering as in PX4 convention, starting at `1` for top-right motor, `2` for bottom-left motor etc.
 However the `UAVCAN ESC Index` starts from `0`, and as such it is always one index lower than the `VESC ID`.
@@ -52,5 +53,5 @@ See DroneCAN Troubleshooting - (README.md#troubleshooting).
 
 ## Further Information
 
-* [VESC Project ESCs](https://vesc-project.com/)
-* [Benjamin Vedder's blog](http://vedder.se) (project owner)
+- [VESC Project ESCs](https://vesc-project.com/)
+- [Benjamin Vedder's blog](http://vedder.se) (project owner)

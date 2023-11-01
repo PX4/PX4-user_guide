@@ -25,7 +25,6 @@ Below are a few considerations when using parachutes:
 - The parachute will only deploy if the flight controller is powered and PX4 is running properly (unless it is triggered independently of PX4).
   It will not deploy if something causes the flight stack to crash.
 
-
 ## Parachute Setup
 
 Flight termination (and hence parachute deployment) may be triggered by safety checks such as RC Loss, geofence violation, and so on, from attitude triggers and other failure detector checks, or by a command from a ground station.
@@ -38,13 +37,14 @@ Parachute setup therefore involves:
 - Configure PX4 to deploy the parachute during flight termination (set PWM output levels appropriately or send the MAVLink parachute deploy command).
 - Configure PX4 output levels to disable motors on failsafe.
   This is the default so usually nothing is required (for servos it's the center value).
-  
+
 ### Enable Flight Termination
 
 To enable flight termination:
-- Set [Safety](../config/safety.md) action to *Flight termination* for checks where you want the parachute to trigger.
+
+- Set [Safety](../config/safety.md) action to _Flight termination_ for checks where you want the parachute to trigger.
 - Set [Failure Detector](../config/safety.md#failure-detector) pitch angles, roll angles and time triggers for crash/flip detection, and disable the failure/IMU timeout circuit breaker (i.e. set [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM)).
-  
+
 :::note
 You can also configure an [external Automatic Trigger System (ATS)](../config/safety.md#external-automatic-trigger-system-ats) for failure detection.
 :::
@@ -56,13 +56,15 @@ You will probably also need to separately power the parachute servo.
 This is might be done by connecting a 5V BEC to the Flight Controller servo rail, and powering the parachute from it.
 
 You then need to ensure that the parachute pin will be set to a value that will trigger the parachute when a failsafe occurs:
+
 - Open [Actuators](../config/actuators.md) in QGroundControl
 - Assign the _Parachute_ function to any unused output (below we set the `AUX6` output):
 
   ![Actuators - Parachute (QGC)](../../assets/config/actuators/qgc_actuators_parachute.png)
+
 - Set appropriate PWM values for your parachute.
   The output is automatically set to the maximum PWM value when a failsafe is triggered.
-  
+
   :::note
   For the spring-loaded launcher from [Fruity Chutes](https://fruitychutes.com/buyachute/drone-and-uav-parachute-recovery-c-21/harrier-drone-parachute-launcher-c-21_33/) the minimum PWM value should be between 700 and 1000ms, and the maximum value between 1800 and 2200ms.
   :::
@@ -73,12 +75,13 @@ PX4 will trigger a connected and healthy parachute on failsafe by sending the co
 
 MAVLink parachute support is enabled by setting the parameter [COM_PARACHUTE=1](../advanced_config/parameter_reference.md#COM_PARACHUTE).
 PX4 will then indicate parachute status using the [MAV_SYS_STATUS_RECOVERY_SYSTEM](https://mavlink.io/en/messages/common.html#MAV_SYS_STATUS_RECOVERY_SYSTEM) bit in the [SYS_STATUS](https://mavlink.io/en/messages/common.html#SYS_STATUS) extended onboard control sensors fields:
+
 - `SYS_STATUS.onboard_control_sensors_present_extended`: MAVLink parachute present (based on heartbeat detection).
 - `SYS_STATUS.onboard_control_sensors_enabled_extended`: ?
 - `SYS_STATUS.onboard_control_sensors_health_extended`: MAVLink parachute healthy (based on heartbeat detection).
 
 A MAVLink parachute is required to emit a [HEARTBEAT](https://mavlink.io/en/messages/common.html#HEARTBEAT) with `HEARTBEAT.type` of [MAV_TYPE_PARACHUTE](https://mavlink.io/en/messages/common.html#MAV_TYPE_PARACHUTE).
- 
+
 <!-- PX4 v1.13 support added here: https://github.com/PX4/PX4-Autopilot/pull/18589 -->
 
 ## Parachute Testing
