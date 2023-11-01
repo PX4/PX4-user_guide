@@ -1,15 +1,15 @@
 # Remote ID (Open Drone ID)
 
 :::warning Experimental
-Remote ID support is experimental in PX4 v1.14.
+Remote ID support is experimental.
 :::
 
 Remote ID is a government mandated technology for UAVs in Japan, the United States of America and the European Union, designed to enable safe sharing of airspace between UAVs and other aircraft.
 The specification requires that UAVs broadcast data such as: real-time location/altitude, serial number, operator ID/location, status, etc.
 
-The PX4 autopilot-supported Remote ID modules target the standard Remote ID rules which is one of three different ways drone pilots and integrators can be compliant under FAA regulations. An autopilot-integrated standard remote ID module must receive Mavlink or DroneCAN Open Drone ID messages from PX4 in contrast to a broadcast rules module which has integrated GPS and does NOT have any communication with the autopilot (standalone).
-
-If you are unsure if you fall under the standard RemoteID rules or broadcast rules please see the official [FAA](https://www.faa.gov/uas/getting_started/remote_id) getting started documentation.
+PX4 works with Remote ID modules that target the FAA [standard Remote ID rules](https://www.faa.gov/uas/getting_started/remote_id).
+These are designed to be integrated into the vehicle, and broadcast Open Drone ID messages using id, position, and other information that is supplied by an autopilot.
+The "standard rules" modules enable less restrictive operation than "broadcast rules" modules, which are standalone modules with an integrated GPS that do not have any communication with the autopilot.
 
 ## Supported Hardware
 
@@ -26,7 +26,8 @@ It has been tested with the following devices:
 
 - Other devices that support the MAVLink API should work (but have not been tested).
 - PX4 does not support Remote ID over CAN in PX4 v1.14.
-  :::
+
+:::
 
 ## Hardware Setup
 
@@ -53,9 +54,12 @@ The TX and RX on the flight controller must be connected to the RX and TX on the
 | 3 (blk) | RX (IN)  |      |
 | 4 (blk) | GND      | 0    |
 
-Note that Cube ID does not support firmware updates in PX4 (only Ardupilot).
+#### Cube ID Firmware
 
-The Cube ID firmware is not compatible with ArduRemoteID and does not currently set `OPEN_DRONE_ID_ARM_STATUS` flags if an Open Drone ID message error is detected.
+The Cube ID uses proprietary firmware (not [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID) like some other remote id beacons).
+This firmware does not currently set `OPEN_DRONE_ID_ARM_STATUS` flags if an Open Drone ID message error is detected.
+
+For firmware update instructions see [Cube ID > Updating](https://docs.cubepilot.org/user-guides/cube-id/cube-id#updating).
 
 ### BlueMark Db201/Db202mav
 
@@ -72,7 +76,7 @@ More general setup, including how to mount the beacon, is also covered in the [U
 
 ### Holybro Remote ID Module
 
-The [Holybro Remote ID Module](https://holybro.com/products/remote-id) can be connected using the serial port (DroneCAN cannot be used in PX4 v1.14).
+The [Holybro Remote ID Module](https://holybro.com/products/remote-id) can be connected using the serial port (DroneCAN cannot be used at time of writing: PX4 v1.14).
 It comes with a 6-pin JST-GH 1.25mm cable that can be connected directly to the `TELEM` ports on most recent Pixhawk flight controllers such as the Pixhawk 6C/6X or Cube Orange.
 
 The module comes preinstalled with recent [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID) firmware.
@@ -84,8 +88,7 @@ Note that CAN port not supported in PX4 v1.14
 
 ![Holybro Remote ID Pinouts](../../assets/peripherals/remoteid_holybro/holybro_remote_id_pinout.jpg)
 
-
-# PX4 Configuration
+## PX4 Configuration
 
 ### Port Configuration
 
@@ -117,6 +120,14 @@ To only allow arming when a Remote ID is ready, [set](../advanced_config/paramet
 | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="COM_ARM_ODID"></a>[COM_ARM_ODID](../advanced_config/parameter_reference.md#COM_ARM_ODID) | Enable Drone ID system detection and health check. `0`: Disable (default), `1`: Warn if Remote ID not detected but still allow arming, `2`: Only allow arming if Remote ID is present. |
 
+## Module Broadcast Testing
+
+Integrators should test than the remote ID module is broadcasting the correct information, such as UAV location, ID, operator ID and so on.
+This is most easily done using a 3rd party application on your mobile device:
+
+- [Drone Scanner](https://github.com/dronetag/drone-scanner) (Google Play or Apple App store)
+- [OpenDroneID OSM](https://play.google.com/store/apps/details?id=org.opendroneid.android_osm&hl=en&gl=US) (Google Play)
+
 ## Implementation
 
 PX4 v1.14 streams these messages by default (in streaming modes: normal, onboard, usb, onboard low bandwidth):
@@ -144,10 +155,6 @@ The following Open Drone ID MAVLink messages are not supported in PX4 v1.14 (to 
 - [OPEN_DRONE_ID_ARM_STATUS](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_ARM_STATUS) - Status of Remote ID hardware. Use as condition for vehicle arming, and for Remote ID health check.
 - [OPEN_DRONE_ID_SYSTEM_UPDATE](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_SYSTEM_UPDATE) - Subset of `OPEN_DRONE_ID_SYSTEM` that can be sent with information at higher rate.
 
-## Module Broadcast Testing
-
-A 3rd-party app such as [Drone Scanner](https://github.com/dronetag/drone-scanner) can be downloaded from either Google Play or Apple App store and be used to ensure the remote ID module is broadcasting the correct information.
-
 ## Compliance
 
 PX4 may not be compliant with the relevant specifications in version 1.14 (which is why this feature is currently experimental).
@@ -165,3 +172,7 @@ Some known issues are:
 - The vehicle ID is expected to be tamper resistent.
 
 [PX4-Autopilot/21647](https://github.com/PX4/PX4-Autopilot/pull/21647) is intended to address the known issues.
+
+## See Also
+
+- [Remote Identification of Drones](https://www.faa.gov/uas/getting_started/remote_id) (FAA)
