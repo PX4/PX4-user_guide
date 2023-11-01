@@ -23,7 +23,6 @@ graph LR;
 See [Simulation](../simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
 :::
 
-<a id="installation"></a>
 ## Installation (Ubuntu Linux)
 
 :::note
@@ -32,38 +31,43 @@ These instructions were tested on Ubuntu 18.04
 
 1. Install the usual [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md).
 1. Install FlightGear:
+
    ```sh
    sudo add-apt-repository ppa:saiarcot895/flightgear
    sudo apt update
    sudo apt install flightgear
    ```
+
    This installs the latest stable FlightGear version from the PAA repository along with the FGdata package.
-   
+
    :::tip
    For some models (e.g. those with electric engines) the daily build with the newest features may be necessary.
    Install this using the [daily build PPA](https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear-edge).
    :::
 
 1. Check that you are able to run FlightGear:
-   ```
+
+   ```sh
    fgfs --launcher
    ```
+
 1. Set write permissions to the **Protocols** folder in the FlightGear installation directory:
-   ```
+
+   ```sh
    sudo chmod a+w /usr/share/games/flightgear/Protocol
    ```
-   Setting the permissions is required because the PX4-FlightGear-Bridge puts the communication definition file here. 
 
-Additional installation instructions can be found on [FlightGear wiki](http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA).   
+   Setting the permissions is required because the PX4-FlightGear-Bridge puts the communication definition file here.
 
+Additional installation instructions can be found on [FlightGear wiki](http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA).
 
-<a id="running"></a>
 ## Running the Simulation
 
 Run a simulation by starting PX4 SITL, specifying the airframe configuration of your choice.
 
-The easiest way to do this is to open a terminal in the root directory of the PX4 *PX4-Autopilot* repository and call `make` for the desired target.
+The easiest way to do this is to open a terminal in the root directory of the PX4 _PX4-Autopilot_ repository and call `make` for the desired target.
 For example, to start a plane simulation :
+
 ```sh
 cd /path/to/PX4-Autopilot
 make px4_sitl_nolockstep flightgear_rascal
@@ -71,20 +75,22 @@ make px4_sitl_nolockstep flightgear_rascal
 
 The supported vehicles and `make` commands are listed below (click on the links to see the vehicle images).
 
-Vehicle | Command
---- | ---
-[Standard Plane](../simulation/flightgear_vehicles.md#standard_plane) | `make px4_sitl_nolockstep flightgear_rascal`
-[Ackerman vehicle (UGV/Rover)](../simulation/flightgear_vehicles.md#ugv) | `make px4_sitl_nolockstep flightgear_tf-r1`
-[Autogyro](../simulation/flightgear_vehicles.md#autogyro) | `make px4_sitl_nolockstep flightgear_tf-g1`
+| Vehicle                                                                  | Command                                      |
+| ------------------------------------------------------------------------ | -------------------------------------------- |
+| [Standard Plane](../simulation/flightgear_vehicles.md#standard_plane)    | `make px4_sitl_nolockstep flightgear_rascal` |
+| [Ackerman vehicle (UGV/Rover)](../simulation/flightgear_vehicles.md#ugv) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
+| [Autogyro](../simulation/flightgear_vehicles.md#autogyro)                | `make px4_sitl_nolockstep flightgear_tf-g1`  |
 
 The commands above launch a single vehicle with the full UI.
-*QGroundControl* should be able to automatically connect to the simulated vehicle.
+_QGroundControl_ should be able to automatically connect to the simulated vehicle.
 
 :::note
 For the full list of FlightGear build targets (highlighted) run:
+
 ```
 make px4_sitl_nolockstep list_vmd_make_targets | grep flightgear_
 ```
+
 For additional information see: [FlightGear Vehicles](../simulation/flightgear_vehicles.md) (this includes information about "unsupported" vehicles, and adding new vehicles).
 :::
 
@@ -99,7 +105,7 @@ The `make` commands mentioned above first build PX4 and then run it along with t
 Once the PX4 has started it will launch the PX4 shell as shown below.
 You must select enter to get the command prompt.
 
-```
+```sh
 ______  __   __    ___
 | ___ \ \ \ / /   /   |
 | |_/ /  \ V /   / /| |
@@ -144,7 +150,6 @@ The console will print out status as PX4 loads the airframe-specific initializat
 Once there is an INFO print that [ecl/EKF] is `commencing GPS fusion` the vehicle is ready to arm.
 At this point, you should see a FlightGear window with some view of aircraft.
 
-
 :::note
 You can change the view by pressing **Ctrl+V**.
 :::
@@ -166,11 +171,11 @@ You can tune your FG installation/settings by the following environment variable
 - `FG\_ARGS\_EX` - any additional FG parameters.
 
 <a id="frame_rate"></a>
+
 ### Display the frame rate
 
 In FlightGear you can display the frame rate by enabling it in: **View > View Options > Show frame rate**.
 
-<a id="custom_takeoff_location"></a>
 ### Set Custom Takeoff Location
 
 Takeoff location in SITL FlightGear can be set using additional variables.
@@ -180,27 +185,24 @@ The variables which can be set are as follows: `--airport`, `--runway`, and `--o
 Other options can be found on [FlightGear wiki](http://wiki.flightgear.org/Command_line_options#Initial_Position_and_Orientation)
 
 For example:
-```
+
+```sh
 FG_ARGS_EX="--airport=PHNL"  make px4_sitl_nolockstep flightgear_rascal
 ```
 
 The example above starts the simulation on the [Honolulu international airport](http://wiki.flightgear.org/Suggested_airports)
 
-
-<a id="joystick"></a>
 ### Using a Joystick
 
-Joystick and thumb-joystick are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystick-gamepad-integration)).
+Joystick and thumb-joystick are supported through _QGroundControl_ ([setup instructions here](../simulation/README.md#joystick-gamepad-integration)).
 
 The joystick input in FlightGear should be disabled in otherwise there will be a "race condition" between the FG joystick input and PX4 commands.
-
 
 ## Extending and Customizing
 
 To extend or customize the simulation interface, edit the files in the **Tools/simulation/flightgear/flightgear_bridge** folder.
 The code is available in the [PX4-FlightGear-Bridge repository](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge) on Github.
 
-
 ## Further Information
 
-* [PX4-FlightGear-Bridge readme](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)
+- [PX4-FlightGear-Bridge readme](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)

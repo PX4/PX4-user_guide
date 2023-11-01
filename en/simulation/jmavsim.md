@@ -1,10 +1,11 @@
 # jMAVSim with SITL
 
-jMAVSim is a simple multirotor/Quad simulator that allows you to fly *copter* type vehicles running PX4 around a simulated world. It is easy to set up and can be used to test that your vehicle can take off, fly, land, and responds appropriately to various fail conditions (e.g. GPS failure).
+jMAVSim is a simple multirotor/Quad simulator that allows you to fly _copter_ type vehicles running PX4 around a simulated world.
+It is easy to set up and can be used to test that your vehicle can take off, fly, land, and responds appropriately to various fail conditions (e.g. GPS failure).
 
 <strong>Supported Vehicles:</strong>
 
-* Quad
+- Quad
 
 This topic shows how to set up jMAVSim to connect with a SITL version of PX4.
 
@@ -55,15 +56,13 @@ Ready to fly.
 pxh>
 ```
 
-
 It will also bring up a window showing a 3D view of the [jMAVSim](https://github.com/PX4/jMAVSim) simulator:
 
 ![jMAVSim 3d View](../../assets/simulation/jmavsim/jmavsim.jpg)
 
-
 ## Taking it to the Sky
 
-The system will start printing status information. You will be able to start flying once you have a position lock (shortly after the console displays the message: *EKF commencing GPS fusion*).
+The system will start printing status information. You will be able to start flying once you have a position lock (shortly after the console displays the message: _EKF commencing GPS fusion_).
 
 To takeoff enter the following into the console:
 
@@ -71,7 +70,7 @@ To takeoff enter the following into the console:
 pxh> commander takeoff
 ```
 
-You can use *QGroundControl* to fly a mission or to connect to a [joystick](#joystick).
+You can use _QGroundControl_ to fly a mission or to connect to a [joystick](#using-a-joystick).
 
 ## Usage/Configuration Options
 
@@ -86,7 +85,8 @@ Options that apply to all simulators are covered in the top level [Simulation](.
 The default takeoff location in can be overridden using the environment variables: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
 
 For example, to set the latitude, longitude and altitude:
-```
+
+```sh
 export PX4_HOME_LAT=28.452386
 export PX4_HOME_LON=-13.867138
 export PX4_HOME_ALT=28.5
@@ -97,18 +97,16 @@ make px4_sitl_default jmavsim
 
 The simulation speed can be increased or decreased with respect to realtime using the environment variable `PX4_SIM_SPEED_FACTOR`.
 
-```
+```sh
 export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl_default jmavsim
 ```
 
 For more information see: [Simulation > Run Simulation Faster than Realtime](../simulation/README.md#simulation_speed).
 
-<a id="joystick"></a>
 ### Using a Joystick
 
-Joystick and thumb-joystick support are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystick-gamepad-integration)).
-
+Joystick and thumb-joystick support are supported through _QGroundControl_ ([setup instructions here](../simulation/README.md#joystick-gamepad-integration)).
 
 ### Simulating a Wifi Drone
 
@@ -124,7 +122,7 @@ The simulator broadcasts its address on the local network as a real drone would 
 
 You can start JMAVSim and PX4 separately:
 
-```
+```sh
 ./Tools/simulation/jmavsim/jmavsim_run.sh -l
 make px4_sitl none
 ```
@@ -134,10 +132,10 @@ This allows a faster testing cycle (restarting jMAVSim takes significantly more 
 ### Headless Mode
 
 To start jMAVSim without the GUI, set the env variable `HEADLESS=1` as shown:
-```bash
+
+```sh
 HEADLESS=1 make px4_sitl jmavsim
 ```
-
 
 ## Multi-Vehicle Simulation
 
@@ -159,14 +157,14 @@ The simulation can be [interfaced to ROS](../simulation/ros_interface.md) the sa
 
 ## Important Files
 
-* The startup scripts are discussed in [System Startup](../concept/system_startup.md).
-* The simulated root file system ("`/`" directory) is created inside the build directory here: `build/px4_sitl_default/rootfs`.
+- The startup scripts are discussed in [System Startup](../concept/system_startup.md).
+- The simulated root file system ("`/`" directory) is created inside the build directory here: `build/px4_sitl_default/rootfs`.
 
 ## Troubleshooting
 
 ### java.long.NoClassDefFoundError
 
-```
+```sh
 Exception in thread "main" java.lang.NoClassDefFoundError: javax/vecmath/Tuple3d
 at java.base/java.lang.Class.forName0(Native Method)
 at java.base/java.lang.Class.forName(Class.java:374)
@@ -188,12 +186,11 @@ at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:499)
 
 This error should no longer occur once the jMAVSim submodule is [updated to newer jar libs](https://github.com/PX4/jMAVSim/pull/119) and Java 11 or Java 14 should work fine.
 
-
 ### An illegal reflective access operation has occurred
 
 This warning can be ignored (it will probably be displayed but the simulation will still work correctly).
 
-```
+```sh
 WARNING: An illegal reflective access operation has occurred
 WARNING: Illegal reflective access by javax.media.j3d.JoglPipeline (rsrc:j3dcore.jar) to method sun.awt.AppContext.getAppContext()
 WARNING: Please consider reporting this to the maintainers of javax.media.j3d.JoglPipeline
@@ -204,7 +201,7 @@ Inconsistency detected by ld.so: dl-lookup.c: 112: check_match: Assertion versio
 
 ### java.awt.AWTError: Assistive Technology not found: org.GNOME.Accessibility.AtkWrapper
 
-```
+```sh
 Exception in thread "main" java.lang.reflect.InvocationTargetException
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -228,28 +225,33 @@ at me.drton.jmavsim.Simulator.main(Simulator.java:678)
 If you see this error, try this workaround:
 
 Edit the **accessibility.properties** file:
-```
+
+```sh
 sudo gedit /etc/java-8-openjdk/accessibility.properties
 ```
 
 and comment out the line indicated below:
-```
+
+```sh
 #assistive_technologies=org.GNOME.Acessibility.AtkWrapper
 ```
 
 For more info, check [this GitHub issue](https://github.com/PX4/PX4-Autopilot/issues/9557).
 A contributor found the fix in [askubuntu.com](https://askubuntu.com/questions/695560).
 
-### Exception in thread "main" java.lang.UnsupportedClassVersionError:
+### Exception in thread "main" java.lang.UnsupportedClassVersionError
+
 When compiling jMAVsim, you might encounter the following error:
 
-```
+```sh
 Exception in thread "main" java.lang.UnsupportedClassVersionError: me/drton/jmavsim/Simulator has been compiled by a more recent version of the Java Runtime (class file version 59.0), this version of the Java Runtime only recognizes class file versions up to 58.0
 ```
 
-This error is telling you, you need a more recent version of Java in your environment. Class file version 58 corresponds to jdk14, version 59 to jdk15, version 60 to jdk 16 etc.
+This error is telling you, you need a more recent version of Java in your environment.
+Class file version 58 corresponds to jdk14, version 59 to jdk15, version 60 to jdk 16 etc.
 
 To fix it under macOS, we recommend installing OpenJDK through homebrew
+
 ```sh
 brew install --cask adoptopenjdk16
 ```

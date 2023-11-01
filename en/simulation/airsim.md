@@ -5,11 +5,9 @@ It provides physically and visually realistic simulations of Pixhawk/PX4 using e
 
 @[youtube](https://youtu.be/-WfTr1-OBGQ) <!-- datestamp:video:youtube:20170216:AirSim Demo -->
 
-
 ## PX4 Setup
 
 [PX4 Setup for AirSim](https://microsoft.github.io/AirSim/px4_setup/) describes how to use PX4 with AirSim using both [SITL](https://microsoft.github.io/AirSim/px4_sitl/) and [HITL](https://microsoft.github.io/AirSim/px4_setup/#setting-up-px4-hardware-in-loop).
-
 
 ## Videos
 
@@ -22,7 +20,6 @@ WSL 2 is not a supported [PX4 Windows development environment](../dev_setup/dev_
 This limitation does not apply for AirSim because its UI is run natively in Windows.
 :::
 
-
 #### Microsoft AirSim: Applications to Research and Industry (PX4 Developer Summit Virtual 2020)
 
 @[youtube](https://youtu.be/-YMiKaJYl44) <!-- datestamp:video:youtube:20200716:Microsoft AirSim: Applications to Research and Industry — PX4 Developer Summit Virtual 2020 -->
@@ -31,8 +28,7 @@ This limitation does not apply for AirSim because its UI is run natively in Wind
 
 @[youtube](https://youtu.be/JDx0MPTlhrg) <!-- datestamp:video:youtube:20200716:Autonomous Drone Inspections using AirSim and PX4 — PX4 Developer Summit Virtual 2020 -->
 
-
 ## Further Information
 
-* [AirSim Documentation](https://microsoft.github.io/AirSim/)
-* [Using AirSim to Simulate Aircraft Inspection by Autonomous Drones](https://gaas.gitbook.io/guide/case-study/using-airsim-to-simulate-aircraft-inspection-by-autonomous-drones) (Case Study from Generalized Autonomy Aviation System (GAAS) project).
+- [AirSim Documentation](https://microsoft.github.io/AirSim/)
+- [Using AirSim to Simulate Aircraft Inspection by Autonomous Drones](https://gaas.gitbook.io/guide/case-study/using-airsim-to-simulate-aircraft-inspection-by-autonomous-drones) (Case Study from Generalized Autonomy Aviation System (GAAS) project).
