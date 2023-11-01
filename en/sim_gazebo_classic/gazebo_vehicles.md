@@ -9,14 +9,13 @@ The [Gazebo Classic](../sim_gazebo_classic/README.md) page shows how to install 
 :::
 
 ## Multicopter
-<a id="quadrotor"></a>
+
 ### Quadrotor (Default)
 
 ```sh
 make px4_sitl gazebo-classic
 ```
 
-<a id="quadrotor_optical_flow"></a>
 ### Quadrotor with Optical Flow
 
 ```sh
@@ -39,7 +38,6 @@ _Downward-facing depth camera:_
 make px4_sitl gazebo-classic_iris_downward_depth_camera
 ```
 
-<a id="3dr_solo"></a>
 ### 3DR Solo (Quadrotor)
 
 ```sh
@@ -48,8 +46,6 @@ make px4_sitl gazebo-classic_solo
 
 ![3DR Solo in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/solo.png)
 
-
-<a id="typhoon_h480"></a>
 ### Typhoon H480 (Hexrotor)
 
 ```sh
@@ -63,9 +59,9 @@ This target also supports [video streaming simulation](../sim_gazebo_classic/REA
 :::
 
 <a id="fixed_wing"></a>
+
 ## Plane/Fixed-wing
 
-<a id="standard_plane"></a>
 ### Standard Plane
 
 ```sh
@@ -74,8 +70,6 @@ make px4_sitl gazebo-classic_plane
 
 ![Plane in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/plane.png)
 
-
-<a id="standard_plane_catapult"></a>
 #### Standard Plane with Catapult Launch
 
 ```sh
@@ -86,10 +80,8 @@ This model simulates hand/catapult launch, which can be used for [fixed-wing tak
 
 The plane will automatically be launched as soon as the vehicle is armed.
 
-
 ## VTOL
 
-<a id="standard_vtol"></a>
 ### Standard VTOL
 
 ```sh
@@ -98,7 +90,6 @@ make px4_sitl gazebo-classic_standard_vtol
 
 ![Standard VTOL in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/standard_vtol.png)
 
-<a id="tailsitter_vtol"></a>
 ### Tailsitter VTOL
 
 ```sh
@@ -107,8 +98,8 @@ make px4_sitl gazebo-classic_tailsitter
 
 ![Tailsitter VTOL in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/tailsitter.png)
 
-
 <a id="ugv"></a>
+
 ## Unmmanned Ground Vehicle (UGV/Rover/Car)
 
 ### Ackermann UGV
@@ -127,11 +118,8 @@ make px4_sitl gazebo-classic_r1_rover
 
 ![Rover in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/r1_rover.png)
 
-
-<a id="uuv"></a>
 ## Unmanned Underwater Vehicle (UUV/Submarine)
 
-<a id="uuv_hippocampus"></a>
 ### HippoCampus TUHH UUV
 
 ```sh
@@ -140,11 +128,11 @@ make px4_sitl gazebo-classic_uuv_hippocampus
 
 ![Submarine/UUV](../../assets/simulation/gazebo_classic/vehicles/hippocampus.png)
 
-<a id="usv"></a>
 ## Unmanned Surface Vehicle (USV/Boat)
 
 <a id="usv_boat"></a>
-### Boat
+
+### Boat (USV)
 
 ```sh
 make px4_sitl gazebo-classic_boat
@@ -153,9 +141,9 @@ make px4_sitl gazebo-classic_boat
 ![Boat/USV](../../assets/simulation/gazebo_classic/vehicles/boat.png)
 
 <a id="airship"></a>
+
 ## Airship
 
-<a id="cloudship"></a>
 ### Cloudship
 
 ```sh
