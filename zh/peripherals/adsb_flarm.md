@@ -2,8 +2,7 @@
 
 PX4 supports simple air traffic avoidance in [missions](../flight_modes/mission.md) using [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast), [FLARM](https://en.wikipedia.org/wiki/FLARM), or [UTM](https://www.faa.gov/uas/research_development/traffic_management) transponders that use the standard MAVLink interfaces.
 
-If a potential collision is detected, PX4 can *warn*, immediately [land](../flight_modes_mc/land.md), or [return](../flight_modes/return.md) (depending on the value of [NAV_TRAFF_AVOID](#NAV_TRAFF_AVOID)).
-
+If a potential collision is detected, PX4 can _warn_, immediately [land](../flight_modes_mc/land.md), or [return](../flight_modes/return.md) (depending on the value of [NAV_TRAFF_AVOID](#NAV_TRAFF_AVOID)).
 
 ## Supported Hardware
 
@@ -13,7 +12,6 @@ It has been tested with the following devices:
 
 - [PingRX ADS-B Receiver](https://uavionix.com/product/pingrx-pro/) (uAvionix)
 - [FLARM](https://flarm.com/products/uav/atom-uav-flarm-for-drones/) <!-- I think originally https://flarm.com/products/powerflarm/uav/ -->
-
 
 ## Hardware Setup
 
@@ -31,7 +29,6 @@ The PingRX MAVLink port uses a JST ZHR-4 mating connector with pinout as shown b
 | 4 (blk) | GND      | GND          |
 
 The PingRX comes with connector cable that can be attached directly to the TELEM2 port (DF13-6P) on an [mRo Pixhawk](../flight_controller/mro_pixhawk.md). For other ports or boards, you will need to obtain your own cable.
-
 
 ## FLARM
 
@@ -54,7 +51,7 @@ The TX and RX on the flight controller must be connected to the RX and TX on the
 
 ### Port Configuration
 
-The recievers are configured in the same way as any other [MAVLink Peripheral](../peripherals/mavlink_peripherals.md). The only *specific* setup is that the port baud rate must be set to 57600 and the a low-bandwidth profile (`MAV_X_MODE`).
+The recievers are configured in the same way as any other [MAVLink Peripheral](../peripherals/mavlink_peripherals.md). The only _specific_ setup is that the port baud rate must be set to 57600 and the a low-bandwidth profile (`MAV_X_MODE`).
 
 Assuming you have connected the device to the TELEM2 port, [set the parameters](../advanced_config/parameters.md) as shown:
 
@@ -92,15 +89,13 @@ PX4 will also forward the transponder data to a GCS if this has been configured 
 
 ### UTM
 
-PX4 listens for `UTM_GLOBAL_POSITION` MAVLink messages during missions. When a valid message is received, its validity flags, position and heading are mapped into the same `transponder_report` UORB topic used for *ADS-B traffic avoidance*.
+PX4 listens for `UTM_GLOBAL_POSITION` MAVLink messages during missions. When a valid message is received, its validity flags, position and heading are mapped into the same `transponder_report` UORB topic used for _ADS-B traffic avoidance_.
 
-The implementation is otherwise *exactly* as described in the section above.
-
+The implementation is otherwise _exactly_ as described in the section above.
 
 :::note
 [UTM_GLOBAL_POSITION](https://mavlink.io/en/messages/common.html#UTM_GLOBAL_POSITION) contains additional fields that are not provided by an ADSB transponder (see [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE)). The current implementation simply drops the additional fields (including information about the vehicle's planned next waypoint).
 :::
-
 
 ## Testing/Simulated ADSB Traffic
 
@@ -152,7 +147,6 @@ This takes several parameters, which specify the characteristics of the fake tra
 - `lat_uav`: Lat of this vehicle (used to position fake traffic around vehicle)
 - `on_uav`: Lon of this vehicle (used to position fake traffic around vehicle)
 - `alt_uav`: Altitude of the vehicle (as reference - used to position fake traffic around vehicle)
-
 
 The method creates a simulated transponder message near the vehicle, using following steps:
 
