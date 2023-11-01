@@ -19,15 +19,17 @@ PX4 빌드에 외부("out of tree") 모듈을 추가하는 방법을 설명합�
 - 기존 모듈(예: **examples/px4_simple_app**)을 외부 디렉토리에 복사하거나 새 모듈을 직접 만듭니다.
 - Rename the module (including `MODULE` in **CMakeLists.txt**) or remove it from the existing PX4-Autopilot _cmake_ build config. 이것은 내부 모듈과의 충돌을 피하기 위한 것입니다.
 - 콘텐츠가 있는 외부 디렉터리에 **CMakeLists.txt** 파일을 추가합니다.
-  ```
+
+  ```cmake
   set(config_module_list_external
       modules/<new_module>
       PARENT_SCOPE
       )
   ```
+
 - 내부의 `modules/<new_module>/CMakeLists.txt`에 `EXTERNAL` 줄을 추가합니다. 예를 들면, `px4_add_module()`와 같습니다.
 
-  ```
+  ```cmake
   px4_add_module(
     MODULE modules__test_app
     MAIN test_app
@@ -47,7 +49,7 @@ uORB 메시지는 트리 외부에서 정의할 수 있습니다. 이를 위해�
 - 새 메시지 정의를 `$EXTERNAL_MODULES_LOCATION/msg` 디렉토리에 배치합니다. 이러한 새로운 트리 외부 메시지 정의의 형식은 다른 모든 [uORB 메시지 정의](../middleware/uorb.md#adding-a-new-topic)와 동일합니다.
 - 콘텐츠가 포함된 `$EXTERNAL_MODULES_LOCATION/msg/CMakeLists.txt` 파일을 추가합니다.
 
-  ```
+  ```cmake
   set(config_msg_list_external
       <message1>.msg
       <message2>.msg
