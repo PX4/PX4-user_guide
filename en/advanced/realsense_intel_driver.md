@@ -5,7 +5,8 @@ The RealSense R200 camera head is depicted below:
 
 ![Intel Realsense Camera front view](../../assets/hardware/sensors/realsense/intel_realsense.png)
 
-The installation of the driver package is executed on a Ubuntu operation system (OS) that runs as a guest OS in a Virtual Box. The specifications of the host computer where the Virtual Box is running, the Virtual Box and the guest system are given below:
+The installation of the driver package is executed on a Ubuntu operation system (OS) that runs as a guest OS in a Virtual Box.
+The specifications of the host computer where the Virtual Box is running, the Virtual Box and the guest system are given below:
 
 - Host Operation System: Windows 8
 - Processor: Intel(R) Core(TM) i7-4702MQ CPU @ 2.20GHz
@@ -29,7 +30,8 @@ The tutorial is ordered in the following way: In a first part it is shown how to
 - After the installation you might need to enable the Virtual Box to display Ubuntu on the whole desktop:
   - Start VM Ubuntu and login, Click on **Devices->Insert Guest Additions CD image** in the menu bar of the Virtual Box.
   - Click on **Run** and enter password on the windows that pop up in Ubuntu.
-  - Wait until the installation is completed and then restart. Now, it should be possible to display the VM on the whole desktop.
+  - Wait until the installation is completed and then restart.
+    Now, it should be possible to display the VM on the whole desktop.
   - If a window pops up in Ubuntu that asks whether to update, reject to update at this point.
 - Enable USB 3 Controller in Virtual Box:
   - Shut down Virtual Machine.
@@ -47,15 +49,18 @@ The tutorial is ordered in the following way: In a first part it is shown how to
 
 - Install git:
 
-```bash
-sudo apt-get install git
-```
+  ```bash
+  sudo apt-get install git
+  ```
 
-- Download and install the driver
+- Download and install the driver:
+
   - Clone [RealSense_ROS repository](https://github.com/bestmodule/RealSense_ROS):
+
     ```bash
     git clone https://github.com/bestmodule/RealSense_ROS.git
     ```
+
 - Follow instructions given in [here](https://github.com/bestmodule/RealSense_ROS/tree/master/r200_install).
 
   - Press the enter button when the questions whether to install the following installation packages show up:
@@ -66,7 +71,6 @@ sudo apt-get install git
 
     ```
     Intel Low Power Subsystem support in PCI mode (MFD_INTEL_LPSS_PCI) [N/m/y/?] (NEW)
-
     ```
 
     ```
@@ -74,6 +78,7 @@ sudo apt-get install git
     ```
 
   - The following error message that can appear at the end of the installation process should not lead to a malfunction of the driver:
+
     ```
     rmmod: ERROR: Module uvcvideo is not currently loaded
     ```
@@ -86,9 +91,11 @@ sudo apt-get install git
   - Click on Devices->USB-> Intel Corp Intel RealSense 3D Camera R200 in the menu bar of the Virtual Box, in order to forward the camera USB connection to the Virtual Machine.
   - Execute the file [unpacked folder]/Bin/DSReadCameraInfo:
     - If the following error message appears, unplug the camera (physically unplug USB cable from the computer). Plug it in again + Click on Devices->USB-> Intel Corp Intel RealSense 3D Camera R200 in the menu bar of the Virtual Box again and execute again the file [unpacked folder]/Bin/DSReadCameraInfo.
-      ```
+
+      ```bash
       DSAPI call failed at ReadCameraInfo.cpp:134!
       ```
+
     - If the camera driver works and recognises the Intel RealSense R200, you should see specific information about the Intel RealSense R200 camera head.
 
 - Installation and testing of the ROS nodlet:

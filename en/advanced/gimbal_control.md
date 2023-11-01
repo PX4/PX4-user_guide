@@ -82,7 +82,7 @@ The [Gazebo Classic](../sim_gazebo_classic/README.md) simulation [Typhoon H480 m
 
 To run it, use:
 
-```
+```sh
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
@@ -95,13 +95,13 @@ The following describes testing in SITL, but the commands also work on a real de
 
 Start the simulation with (no parameter needs to be changed for that):
 
-```
+```sh
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
 Make sure it's armed, eg. with `commander takeoff`, then use the following command to control the gimbal (for example):
 
-```
+```sh
 gimbal test yaw 30
 ```
 

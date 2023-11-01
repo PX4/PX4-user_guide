@@ -99,7 +99,8 @@ and made available to ground stations via the [MAVLink Component Information ser
 
 Parameter names must be no more than 16 ASCII characters.
 
-By convention, every parameter in a group should share the same (meaningful) string prefix followed by an underscore, and `MC_` and `FW_` are used for parameters related specifically to Multicopter or Fixed-wing systems. This convention is not enforced.
+By convention, every parameter in a group should share the same (meaningful) string prefix followed by an underscore, and `MC_` and `FW_` are used for parameters related specifically to Multicopter or Fixed-wing systems.
+This convention is not enforced.
 
 The name must match in both code and [parameter metadata](#parameter-metadata) to correctly associate the parameter with its metadata (including default value in Firmware).
 
@@ -126,14 +127,19 @@ In the rest of the code you can just use the defined parameter attributes and th
 First include the required needed headers in the class header for your module or driver:
 
 - **px4_platform_common/module_params.h** to get the `DEFINE_PARAMETERS` macro:
+
   ```cpp
   #include <px4_platform_common/module_params.h>
   ```
+
 - **parameter_update.h** to access the uORB `parameter_update` message:
+
   ```cpp
   #include <uORB/topics/parameter_update.h>
   ```
+
 - **Subscription.hpp** for the uORB C++ subscription API:
+
   ```cpp
   #include <uORB/Subscription.hpp>
   ```
@@ -260,10 +266,12 @@ It supports all the same metadata, along with new features like multi-instance d
 - The YAML parameter metadata schema is here: [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml).
 - An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml).
 - A YAML file is registered in the cmake build system by adding
-  ```
+
+  ```cmake
   MODULE_CONFIG
   	module.yaml
   ```
+
   to the `px4_add_module` section of the `CMakeLists.txt` file of that module.
 
 #### Multi-Instance (Templated) YAML Meta Data
@@ -273,7 +281,7 @@ Templated parameter definitions are supported in [YAML parameter definitions](ht
 The YAML allows you to define instance numbers in parameter names, descriptions, etc. using `${i}`.
 For example, below will generate MY_PARAM_1_RATE, MY_PARAM_2_RATE etc.
 
-```
+```yaml
 MY_PARAM_${i}_RATE:
             description:
                 short: Maximum rate for instance ${i}
