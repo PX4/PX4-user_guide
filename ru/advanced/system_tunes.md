@@ -26,14 +26,18 @@ The steps for using the software are:
 1. Download [Melody Master](ftp://archives.thebbs.org/ansi_utilities/melody21.zip) and unzip into a new directory
 1. Open the _Dosbox_ console
 1. Mount the melody master directory in Dosbox as shown below:
-   ```
+
+   ```sh
    mount c C:\<path_to_directory\Melody21
    ```
+
 1. Start _Melody Master_ with the following commands
-   ```
+
+   ```sh
    c:
    start
    ```
+
 1. You will then have the option to click through a few screens, then press **1** to display _Melody Master_: ![Melody Master 2.1](../../assets/tunes/tunes_melody_master_2_1.jpg)
 
    The lower half of the screen provides helpful advice on keyboard shortcuts for using the tool (arrows for moving in stave, and numbers for selecting the note length, etc.).
