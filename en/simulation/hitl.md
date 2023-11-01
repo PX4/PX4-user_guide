@@ -112,7 +112,7 @@ Make sure *QGroundControl* is not running!
 1. Set up the environment variables:
 
    ```sh
-   source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+   source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
    ```
 
    and run Gazebo Classic in HITL mode:
