@@ -4,8 +4,6 @@ This topic explains how to construct and extend the development environment used
 
 ## 추가 정보
 
-<a id="features"></a>
-
 ### 기능 / 이슈
 
 다음 기능이 (버전 2.0)에서 작동하는 것으로 알려져 있습니다.
@@ -23,8 +21,6 @@ This topic explains how to construct and extend the development environment used
 - NuttX와 JMAVSim/SITL 빌드만 지원됩니다.
 - [알려진 문제](https://github.com/orgs/PX4/projects/6) (또한 보고할 문제).
 
-<a id="script_setup"></a>
-
 ### 셸 스크립트 설치
 
 Github 프로젝트에서 셸 스크립트를 사용하여 환경을 설치할 수 있습니다.
@@ -32,15 +28,13 @@ Github 프로젝트에서 셸 스크립트를 사용하여 환경을 설치할 �
 1. [Windows용 Git](https://git-scm.com/download/win)이 설치 여부를 체크합니다.
 1. 도구 체인을 설치하려는 위치에 https://github.com/PX4/windows-toolchain 저장소를 복제합니다. 기본 위치와 이름은 `Git Bash`를 열고, 다음을 실행하여 지정합니다.
 
-```
+```cmd
 cd /c/
 git clone https://github.com/PX4/windows-toolchain PX4
 ```
 
 1. 모든 구성 요소를 설치하려면, 새로 복제된 폴더로 이동하여 `toolchain` 폴더에 있는 `install-all-components.bat` 스크립트를 두 번 클릭합니다. 특정 구성 요소만 필요하고 인터넷 트래픽 및/또는 디스크 공간을 보호하려면, 예를 들어 다음과 같은 다른 구성 요소 폴더로 이동할 수 있습니다. `toolchain\cygwin64` 및 **install-XXX.bat** 스크립트를 클릭하여 특정 항목만 가져옵니다.
 1. [시작하기](../dev_setup/dev_env_windows_cygwin.md#getting-started)를 계속합니다.
-
-<a id="manual_setup"></a>
 
 ### 수동 설치 (툴체인 개발자용)
 
@@ -93,7 +87,7 @@ git clone https://github.com/PX4/windows-toolchain PX4
 
 1. Cygwin 도구 모음 콘솔을 열고(**run-console.bat** 두 번 클릭) 다음을 실행하여 필요한 **python 패키지**를 설정에 추가합니다.
 
-   ```
+   ```sh
    pip2 install toml
    pip2 install pyserial
    pip2 install pyulog
@@ -134,25 +128,18 @@ This is what the toolchain does in: [apache-ant/install-apache-ant.bat](https://
 
    - 다음을 사용하여 **C:\PX4\toolchain\genromfs\genromfs-src** 폴더에 소스 코드를 복제합니다.
 
-     ```
+     ```cmd
      cd /c/toolchain/genromfs
      git clone https://github.com/chexum/genromfs.git genromfs-src
      ```
 
    - 다음 명령으로 컴파일합니다.
-     ```
+
+     ```cmd
      cd genromfs-src
      make all
      ```
 
-   ```
-
-   * Copy the resulting binary **genromfs.exe** one folder level out to: **C:\PX4\toolchain\genromfs**
-
-   :::note
-   .
-   :
-
-   ```
+   - 결과 바이너리 **genromfs.exe**를 한 폴더 수준으로 복사합니다. **C:\PX4\toolchain\genromfs**
 
 1. 설치된 모든 구성요소의 모든 바이너리 폴더가 [**setup-environment.bat**](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat)에 의해 구성된 `PATH` 변수에 올바르게 나열되어 있는지 확인하십시오.
