@@ -1,11 +1,15 @@
 # Remote ID (Open Drone ID)
 
 :::warning Experimental
-Remote ID support is experimental in PX4 v1.14.
+Remote ID support is experimental.
 :::
 
 Remote ID is a government mandated technology for UAVs in Japan, the United States of America and the European Union, designed to enable safe sharing of airspace between UAVs and other aircraft.
 The specification requires that UAVs broadcast data such as: real-time location/altitude, serial number, operator ID/location, status, etc.
+
+PX4 works with Remote ID modules that target the FAA [standard Remote ID rules](https://www.faa.gov/uas/getting_started/remote_id).
+These are designed to be integrated into the vehicle, and broadcast Open Drone ID messages using id, position, and other information that is supplied by an autopilot.
+The "standard rules" modules enable less restrictive operation than "broadcast rules" modules, which are standalone modules with an integrated GPS that do not have any communication with the autopilot.
 
 ## Supported Hardware
 
@@ -22,7 +26,8 @@ It has been tested with the following devices:
 
 - Other devices that support the MAVLink API should work (but have not been tested).
 - PX4 does not support Remote ID over CAN in PX4 v1.14.
-  :::
+
+:::
 
 ## Hardware Setup
 
@@ -49,6 +54,13 @@ The TX and RX on the flight controller must be connected to the RX and TX on the
 | 3 (blk) | RX (IN)  |      |
 | 4 (blk) | GND      | 0    |
 
+#### Cube ID Firmware
+
+The Cube ID uses proprietary firmware (not [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID) like some other remote id beacons).
+This firmware does not currently set `OPEN_DRONE_ID_ARM_STATUS` flags if an Open Drone ID message error is detected.
+
+For firmware update instructions see [Cube ID > Updating](https://docs.cubepilot.org/user-guides/cube-id/cube-id#updating).
+
 ### BlueMark Db201/Db202mav
 
 [Db201](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) or [Db202mav](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) can be connected using their serial port (DroneCAN cannot be used).
@@ -64,7 +76,7 @@ More general setup, including how to mount the beacon, is also covered in the [U
 
 ### Holybro Remote ID Module
 
-The [Holybro Remote ID Module](https://holybro.com/products/remote-id) can be connected using the serial port (DroneCAN cannot be used in PX4 v1.14).
+The [Holybro Remote ID Module](https://holybro.com/products/remote-id) can be connected using the serial port (DroneCAN cannot be used at time of writing: PX4 v1.14).
 It comes with a 6-pin JST-GH 1.25mm cable that can be connected directly to the `TELEM` ports on most recent Pixhawk flight controllers such as the Pixhawk 6C/6X or Cube Orange.
 
 The module comes preinstalled with recent [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID) firmware.
@@ -76,8 +88,7 @@ Note that CAN port not supported in PX4 v1.14
 
 ![Holybro Remote ID Pinouts](../../assets/peripherals/remoteid_holybro/holybro_remote_id_pinout.jpg)
 
-
-# PX4 Configuration
+## PX4 Configuration
 
 ### Port Configuration
 
@@ -108,6 +119,14 @@ To only allow arming when a Remote ID is ready, [set](../advanced_config/paramet
 | Parameter                                                                                       | Description                                                                                                                                                                            |
 | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="COM_ARM_ODID"></a>[COM_ARM_ODID](../advanced_config/parameter_reference.md#COM_ARM_ODID) | Enable Drone ID system detection and health check. `0`: Disable (default), `1`: Warn if Remote ID not detected but still allow arming, `2`: Only allow arming if Remote ID is present. |
+
+## Module Broadcast Testing
+
+Integrators should test than the remote ID module is broadcasting the correct information, such as UAV location, ID, operator ID and so on.
+This is most easily done using a 3rd party application on your mobile device:
+
+- [Drone Scanner](https://github.com/dronetag/drone-scanner) (Google Play or Apple App store)
+- [OpenDroneID OSM](https://play.google.com/store/apps/details?id=org.opendroneid.android_osm&hl=en&gl=US) (Google Play)
 
 ## Implementation
 
@@ -153,3 +172,7 @@ Some known issues are:
 - The vehicle ID is expected to be tamper resistent.
 
 [PX4-Autopilot/21647](https://github.com/PX4/PX4-Autopilot/pull/21647) is intended to address the known issues.
+
+## See Also
+
+- [Remote Identification of Drones](https://www.faa.gov/uas/getting_started/remote_id) (FAA)
