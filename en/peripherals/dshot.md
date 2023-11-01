@@ -38,11 +38,12 @@ Remove propellers before changing ESC configuration parameters!
 
 Enable DShot for your required outputs in the [Actuator Configuration](../config/actuators.md).
 
-DShot comes with different speed options: *DShot150*, *DShot300*, *DShot600* and *DShot1200*, where the number indicates the speed in kilo-bits/second.
+DShot comes with different speed options: _DShot150_, _DShot300_, _DShot600_ and _DShot1200_, where the number indicates the speed in kilo-bits/second.
 You should set the parameter to the highest speed supported by your ESC (according to its datasheet).
 
 Then connect the battery and arm the vehicle.
 The ESCs should initialize and the motors turn in the correct directions.
+
 - If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)) you can reverse them in the UI using the **Set Spin Direction** option (this option appears after you select DShot and assign motors).
   You can also reverse motors by sending an [ESC Command](#commands).
 
@@ -60,7 +61,7 @@ The most important ones are:
   ```
   dshot beep1 -m 1
   ```
-  
+
 - Retrieve ESC information (requires telemetry, see below):
 
   ```
@@ -77,27 +78,27 @@ The most important ones are:
   INFO  [dshot] LED 2: unsupported
   INFO  [dshot] LED 3: unsupported
   ```
-  
+
   - Permanently reverse the spin direction of the first motor:
-  
+
   ```
   dshot reverse -m 1
   dshot save -m 1
   ```
-  
-  Retrieving ESC information after the `dshot reverse -m 1` command  without the `dshot save -m 1` command will show:
-  
+
+  Retrieving ESC information after the `dshot reverse -m 1` command without the `dshot save -m 1` command will show:
+
   ```
   Rotation Direction: reversed
   ```
-  
+
   after saving it with `dshot save -m 1` command, reversed direction will become new normal direction:
-  
+
   ```
   Rotation Direction: normal
   ```
-  
-  To change direction again new `dshot reverse -m 1` command needs to be sent. 
+
+  To change direction again new `dshot reverse -m 1` command needs to be sent.
 
 ## Telemetry
 
@@ -112,6 +113,7 @@ Some ESCs are capable of sending telemetry back to the flight controller, includ
 These DShot ESCs will have an additional telemetry wire.
 
 To enable this feature (on ESCs that support it):
+
 1. Join all the telemetry wires from all the ESCs together, and then connect them to one of the RX pins on an unused flight controller serial port.
 1. Enable telemetry on that serial port using [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG).
 
@@ -128,8 +130,10 @@ You may have to configure [MOT_POLE_COUNT](../advanced_config/parameter_referenc
 :::tip
 Not all DSHOT-capable ESCs support `[esc_info]`(e.g. APD 80F3x), even when telemetry is supported and enabled.
 The resulting error is:
+
 ```
 ERROR [dshot] No data received. If telemetry is setup correctly, try again.
 ```
+
 Check manufacturer documentation for confirmation/details.
 :::

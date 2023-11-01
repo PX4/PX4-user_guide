@@ -8,7 +8,6 @@ These are typically faster and more responsive than [PWM ESCs](../peripherals/pw
 The only reason not to use DShot would be hardware limitations (insufficient DShot pins available or using an ESC that does not support DShot).
 :::
 
-
 ## Overview
 
 OneShot is essentially a version of [PWM](../peripherals/pwm_escs_and_servo.md) that can be, in theory, up to 8 times faster.
@@ -19,7 +18,6 @@ For PWM the pulse length typically ranges between 1000us (zero) and 2000us (full
 The theoretical maximum rate at which pulses can be sent, and hence the responsiveness, depends on the width of the largest pulse.
 For PWM this rate is close to 500 Hz while for OneShot it approaches 4 kHz.
 In practice the actual maximum rate for OneShot ESCs is typically between 1 kHz and 2 kHz, depending on the ESC used.
-
 
 ## Setup
 

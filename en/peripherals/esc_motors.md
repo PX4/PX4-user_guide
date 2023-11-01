@@ -6,12 +6,13 @@ The ESC takes a signal from the flight controller and uses it to set control the
 PX4 supports a number of common protocols for sending the signals to ESCs: [PWM ESCs](../peripherals/pwm_escs_and_servo.md), [OneShot ESCs](../peripherals/oneshot.md), [DShot ESCs](../peripherals/dshot.md), [DroneCAN ESCs](../dronecan/escs.md), PCA9685 ESC (via I2C), and some UART ESCs (from Yuneec).
 
 For more information see:
-* [PWM ESCs and Servos](../peripherals/pwm_escs_and_servo.md)
-* [OneShot ESCs and Servos](../peripherals/oneshot.md)
-* [DShot](../peripherals/dshot.md)
-* [DroneCAN ESCs](../dronecan/escs.md)
-* [ESC Calibration](../advanced_config/esc_calibration.md)
-* [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
+
+- [PWM ESCs and Servos](../peripherals/pwm_escs_and_servo.md)
+- [OneShot ESCs and Servos](../peripherals/oneshot.md)
+- [DShot](../peripherals/dshot.md)
+- [DroneCAN ESCs](../dronecan/escs.md)
+- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
 
 A high level overview of the main ESC/Servo protocols supported by PX4 is given below.
 
@@ -33,10 +34,10 @@ In addition to being a relatively slow protocol PWM ESCs require [calibration](.
 Unlike [dshot](#dshot) and [DroneCAN ESC](#dronecan) they do not have the ability to provide telemetry and feedback on ESC (or servo) state.
 
 Setup:
+
 - [ESC Wiring](../peripherals/pwm_escs_and_servo.md)
 - [PX4 Configuration](../peripherals/pwm_escs_and_servo.md#px4-configuration)
 - [ESC Calibration](../advanced_config/esc_calibration.md)
-
 
 ### Oneshot 125
 
@@ -46,11 +47,12 @@ There are a number of variants of the OneShot protocol, which support different 
 PX4 only supports OneShot 125.
 
 OneShot 125 is the same as PWM but uses pulse widths that are 8 times shorter (from 125us to 250us for zero to full power).
-This allows OneShot 125 ESCs to have a much shorter duty cycle/higher rate. 
+This allows OneShot 125 ESCs to have a much shorter duty cycle/higher rate.
 For PWM the theoretical maximum is close to 500 Hz while for OneShot it approaches 4 kHz.
 The actual supported rate depends on the ESC used.
 
 Setup:
+
 - [ESC Wiring](../peripherals/pwm_escs_and_servo.md) (same as for PWM ESCs)
 - [PX4 Configuration](../peripherals/oneshot.md#px4-configuration)
 - [ESC Calibration](../advanced_config/esc_calibration.md)
@@ -66,6 +68,7 @@ PX4 configuration is done in the [Actuator Configuration](../config/actuators.md
 Selecting a higher rate DShot ESC in the UI result in lower latency, but lower rates are more robust (and hence more suitable for large aircraft with longer leads); some ESCs only support lower rates (see datasheets for information).
 
 Setup:
+
 - [ESC Wiring](../peripherals/pwm_escs_and_servo.md) (same as for PWM ESCs)
 - [DShot](../peripherals/dshot.md) also contains information about how to send commands etc.
 

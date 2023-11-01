@@ -32,7 +32,6 @@ Manually triggering a gripper from an [RC Control](../getting_started/rc_transmi
 
 MAVLink applications, such as ground stations, can also control the gripper using the [MAV_CMD_DO_GRIPPER](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GRIPPER) MAVLink command.
 
-
 ## PX4 Configuration
 
 ### Package Delivery Configuration
@@ -55,7 +54,6 @@ For example, the image below assigns `Gripper` to the PWM AUX5 output.
 Additional information about actuator mapping is provided in the gripper-specific documentation.
 For example, see [Gripper Servo > Actuator Mapping](../peripherals/gripper_servo.md#actuator-mapping).
 
-
 ### Enable Pre-ARM Mode
 
 Typically you will want to enable the [pre-arming mode](../advanced_config/prearm_arm_disarm.md).
@@ -74,7 +72,7 @@ To set the actuation timeout:
 
    There are two easy ways to open and close the gripper.
    While the drone is on a bench and the propellers are removed:
-   
+
    - Run the `payload_deliverer` test in the QGC [MAVLink Shell](../debug/mavlink_shell.md):
 
      ```
@@ -89,7 +87,6 @@ To set the actuation timeout:
    - Use the [Joystick](#qgc-joystick-configuration) to trigger gripper open and close actions.
 
 1. Set [PD_GRIPPER_TO](../advanced_config/parameter_reference.md#PD_GRIPPER_TO) to whichever of the gripper open and close time is larger.
-
 
 ### Mission Delivery Timeout
 
@@ -106,7 +103,6 @@ To set the timeout:
 
 1. Set [MIS_PD_TO](../advanced_config/parameter_reference.md#MIS_PD_TO) to a value greater than the [gripper actuation timeout](#gripper-actuation-timeout).
 
-
 ## QGC Joystick Configuration
 
 QGroundControl [Joystick](../config/joystick.md) configuration allows you to map gripper actions to Joystick buttons, after which you will be open and close the gripper manually.
@@ -116,6 +112,7 @@ To map joystick buttons in QGroundControl:
 1. Open the menu: **QGC Logo (upper-left) > Vehicle Setup > Joystick > Button Assignment** tab.
 
    ![Gripper action mapping](../../assets/config/gripper/qgc_gripper_actions_joystick.png)
+
 1. Select `Gripper Open` and `Gripper Close` actions for your desired joystick buttons, as shown above.
 
 You can test the actions by clicking on the mapped buttons and checking for gripper movement.
