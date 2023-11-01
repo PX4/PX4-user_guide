@@ -57,24 +57,34 @@ Vehicle | Command | `PX4_SYS_AUTOSTART`
 The commands above launch a single vehicle with the full UI.
 *QGroundControl* should be able to automatically connect to the simulated vehicle.
 
-In order to run the simulation without running the Gazebo gui, use the `HEADLESS=1` flag:
+### Headless Mode
+
+The simulation can be run without the Gazebo GUI using the `HEADLESS=1` flag:
 
 ```bash
 HEADLESS=1 make px4_sitl gz_x500
 ```
 
-It is also possible to use the above `make` command to specify a desired world. To do so, simply concatenate the desired world to
-the desired vehicle. For example: If you want to run the windy world with the `x500` vehicle you can specify: `make px4_sitl gz_x500_windy`.
-If no world is specified, PX4 will use the default world. The supported worlds are listed below.
+### Specify World
+
+The simulation can be run inside a particular world by concatenating the desired world to the name of the desired vehicle.
+For example, to run the windy world with the `x500` vehicle you can specify:
+
+```bash
+make px4_sitl gz_x500_windy
+```
+
+The supported worlds are listed below.
 
 World | Command | Description
 --- | --- | ---
-`default` | `make px4_sitl *` | Grey plane
-`windy` | `make px4_sitl *_windy` | Grey plane with wind enabled
+`default` | `make px4_sitl *` | Empty world (a grey plane)
+`windy` | `make px4_sitl *_windy` | Empty world with wind enabled
 
-:::note
-Adding `default` to a model will prevent PX4 from launching (as in `make px4_sitl gz_x500_default`). If you want to use the default world,
-no specification is necessary.
+:::warning
+Note that if no world is specified, PX4 will use the `default` world.
+However you must not _explicitly_ specify `_default` on the model as this will prevent PX4 from launching.
+In other words, use `make px4_sitl gz_x500` instead of `make px4_sitl gz_x500_default` for the default.
 :::
 
 ## Usage/Configuration Options
