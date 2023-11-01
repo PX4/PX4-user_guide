@@ -29,7 +29,6 @@ Manually triggering a gripper from an [RC Control](../getting_started/rc_transmi
 
 MAVLink applications, such as ground stations, can also control the gripper using the [MAV_CMD_DO_GRIPPER](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GRIPPER) MAVLink command.
 
-
 ## PX4 Configuration
 
 ### Package Delivery Configuration
@@ -48,7 +47,6 @@ This is done by assigning the `Gripper` function to the to the output port where
 ![Gripper output mapping](../../assets/config/gripper/qgc_gripper_actuator_output_small.png)
 
 Additional information about actuator mapping is provided in the gripper-specific documentation. For example, see [Gripper Servo > Actuator Mapping](../peripherals/gripper_servo.md#actuator-mapping).
-
 
 ### Enable Pre-ARM Mode
 
@@ -80,7 +78,6 @@ If you get an error message like "[payload_deliverer] not running", repeat the s
 
 1. Set [PD_GRIPPER_TO](../advanced_config/parameter_reference.md#PD_GRIPPER_TO) to whichever of the gripper open and close time is larger.
 
-
 ### Mission Delivery Timeout
 
 When running a [Payload Delivery Mission](../flying/package_delivery_mission.md) it is important that the mission is not halted in the case where the gripper does not report that it has opened (or closed). This might happen if a gripper feedback sensor was damaged or UORB dropped the gripper actuator timout message.
@@ -95,7 +92,6 @@ To set the timeout:
 
 1. Set [MIS_PD_TO](../advanced_config/parameter_reference.md#MIS_PD_TO) to a value greater than the [gripper actuation timeout](#gripper-actuation-timeout).
 
-
 ## QGC Joystick Configuration
 
 QGroundControl [Joystick](../config/joystick.md) configuration allows you to map gripper actions to Joystick buttons, after which you will be open and close the gripper manually.
@@ -105,6 +101,7 @@ To map joystick buttons in QGroundControl:
 1. Open the menu: **QGC Logo (upper-left) > Vehicle Setup > Joystick > Button Assignment** tab.
 
    ![Gripper action mapping](../../assets/config/gripper/qgc_gripper_actions_joystick.png)
+
 1. Select `Gripper Open` and `Gripper Close` actions for your desired joystick buttons, as shown above.
 
 You can test the actions by clicking on the mapped buttons and checking for gripper movement. If the gripper doesn't move as expected check the package delivery configuration and actuator mapping are set up properly.
