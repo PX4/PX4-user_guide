@@ -13,14 +13,12 @@ Pixhawk 6C + PM02 + M8N GPS.
 
 ![Pixhawk6c standard set](../../assets/flight_controller/pixhawk6c/pixhawk6c_standard_set.jpg)
 
-
 ## Mount and Orient Controller
 
-*Pixhawk 6C* can be mounted on the frame using double side tape included in the kit.
+_Pixhawk 6C_ can be mounted on the frame using double side tape included in the kit.
 It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
 <img src="../../assets/flight_controller/pixhawk6c/pixhawk6c_vehicle_front1.jpg" width="300px" title="Pixhawk6c - mounting orientation" />
-
 
 :::note
 If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
@@ -37,17 +35,15 @@ The GPS/Compass should be [mounted on the frame](../assembly/mount_gps_compass.m
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_gps_front.jpg" width="200px" title="Pixhawk5x standard set" />
 
-
 :::note
-The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle).
+The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle).
 To disable the safety press and hold the safety switch for 1 second.
 You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 :::
 
-
 ## Power
 
-Connect the output of the power module of your selection that comes with the Standard Set to one of the **POWER** port of *Pixhawk 6C* using the 6-wire cable.
+Connect the output of the power module of your selection that comes with the Standard Set to one of the **POWER** port of _Pixhawk 6C_ using the 6-wire cable.
 
 If using a plane or rover, the **FMU PWM-OUT** will need to be separately powered in order to drive servos for rudders, elevons etc. This can be done by connecting the 8 pin power (+) rail of the **FMU PWM-OUT** to a voltage regulator (for example, a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery).
 
@@ -55,41 +51,39 @@ If using a plane or rover, the **FMU PWM-OUT** will need to be separately powere
 The power rail voltage must be appropriate for the servo being used!
 :::
 
-PIN & Connector | Function
---- | ---
-I/O PWM Out | Connect Motor Signal and GND wires here.
-FMU PWM Out | Connect Servo Signal, positive, and GND wires here.
-
+| PIN & Connector | Function                                            |
+| --------------- | --------------------------------------------------- |
+| I/O PWM Out     | Connect Motor Signal and GND wires here.            |
+| FMU PWM Out     | Connect Servo Signal, positive, and GND wires here. |
 
 :::note
-**MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of *Pixhawk 6C* whereas **AUX outputs** map to **FMU PWM OUT** of *Pixhawk 6C*.
+**MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of _Pixhawk 6C_ whereas **AUX outputs** map to **FMU PWM OUT** of _Pixhawk 6C_.
 For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**.
 :::
 
-The pinout of *Pixhawk 6C*’s power ports is shown below.
+The pinout of _Pixhawk 6C_’s power ports is shown below.
 
-Pin | Signal | Volt
---- | --- | ---
-1(red) | VDD | +5V
-2(black) | VDD | +5V
-3(black) | CURRENT | +3.3V
-4(black) | VOLTAGE | +3.3V
-5(black) | GND | GND
-6(black) | GND | GND
+| Pin      | Signal  | Volt  |
+| -------- | ------- | ----- |
+| 1(red)   | VDD     | +5V   |
+| 2(black) | VDD     | +5V   |
+| 3(black) | CURRENT | +3.3V |
+| 4(black) | VOLTAGE | +3.3V |
+| 5(black) | GND     | GND   |
+| 6(black) | GND     | GND   |
 
 ## Radio Control
 
-A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
 
 - Spektrum/DSM receivers connect to the **DSM** input.
 - PPM or SBUS receivers connect to the **PPM/SBUS** input port.
 
-PPM and PWM receivers that have an *individual wire for each channel* must connect to the *PPM/SBUS** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+PPM and PWM receivers that have an _individual wire for each channel_ must connect to the *PPM/SBUS\*\* port *via a PPM encoder\* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
 For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
-
 
 ## Telemetry Radios (Optional)
 
@@ -103,7 +97,7 @@ Radios are also available for purchase on [Holybro's website](https://holybro.co
 ## SD Card (Optional)
 
 SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware.
-Insert the card (included in Pixhawk 6C) into *Pixhawk 6C* as shown below.
+Insert the card (included in Pixhawk 6C) into _Pixhawk 6C_ as shown below.
 
 <img src="../../assets/flight_controller/pixhawk6c/pixhawk6c_sd_slot.jpg" width="320px" title="Pixhawk6c SD" />
 
@@ -129,7 +123,7 @@ The wiring and configuration of optional/less common components is covered withi
 
 ## Pinouts
 
-* [Holybro Pixhawk -6C Pinout](https://docs.holybro.com/autopilot/pixhawk-6c/pixhawk-6c-pinout)
+- [Holybro Pixhawk -6C Pinout](https://docs.holybro.com/autopilot/pixhawk-6c/pixhawk-6c-pinout)
 
 ## Configuration
 

@@ -11,9 +11,9 @@ This quick start guide shows how to power the [Holybro Pix32v5](../flight_contro
 
 ## Unboxing
 
-Pix32 v5 is sold bundled with a number of different combinations of accessories, including the *pix32 v5 Base board*, power module *PM02 V3*, and the [Holybro M8N GPS](https://holybro.com/collections/gps/products/m8n-gps) (UBLOX NEO-M8N).
+Pix32 v5 is sold bundled with a number of different combinations of accessories, including the _pix32 v5 Base board_, power module _PM02 V3_, and the [Holybro M8N GPS](https://holybro.com/collections/gps/products/m8n-gps) (UBLOX NEO-M8N).
 
-The content of the box with the *PM02 V3* power module and *Pixhawk 4 GPS/Compass* is shown below.
+The content of the box with the _PM02 V3_ power module and _Pixhawk 4 GPS/Compass_ is shown below.
 The box also includes a pinout guide and power module instructions, and Base board (not shown on the schematic below).
 
 ![Pix32 v5 Box](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_unboxing_schematics.png)
@@ -31,7 +31,7 @@ More information about available ports can be found [here](https://cdn.shopify.c
 
 ## Mount and Orient Controller
 
-*Pix32 v5*  should be mounted on the frame positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
+_Pix32 v5_ should be mounted on the frame positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
 ![Pix32 v5 With Orientation](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_orientation.png)
 
@@ -54,7 +54,7 @@ It connects directly to the **GPS port** using the 10 pin cable.
 The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
 
 :::note
-The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle).
+The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle).
 To disable the safety press and hold the safety switch for 1 second.
 You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 :::
@@ -68,10 +68,10 @@ The recommended power modules are shown below.
 
 ### PM02 v3 Power Module
 
-The [Power Module (PM02 v3)](../power_module/holybro_pm02.md) can be bundled with *pix32 v5*.
+The [Power Module (PM02 v3)](../power_module/holybro_pm02.md) can be bundled with _pix32 v5_.
 It provides regulated power to flight controller and sends battery voltage/current to the flight controller.
 
-Connect the output of the *Power Module* as shown.
+Connect the output of the _Power Module_ as shown.
 
 ![Pix32 v5 With Power Module](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_power.jpg)
 
@@ -90,44 +90,42 @@ Ensure the voltage of servo you are going to use is appropriate.
 :::
 
 The power module has the following characteristics/limits:
+
 - Max input voltage: 60V
 - Max current sensing: 120A Voltage
-- Current measurement configured for SV ADC Switching regulator outputs 5.2V and 3A max 
-- Weight: 20g 
-- Package includes: 
+- Current measurement configured for SV ADC Switching regulator outputs 5.2V and 3A max
+- Weight: 20g
+- Package includes:
   - PM02 board
   - 6pin MLX cable (1)
   - 6pin GH cable (1)
 
-
 ### Battery Configuration
 
 The battery/power setup must be configured in [Power Settings](../config/battery.md).
-For either Power Module you will need to configure the *Number of Cells*.
+For either Power Module you will need to configure the _Number of Cells_.
 
-You will not need to update the *voltage divider* unless you are using some other power module (e.g. the one from the Pixracer).
+You will not need to update the _voltage divider_ unless you are using some other power module (e.g. the one from the Pixracer).
 
 ## Radio Control
 
-A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes). 
+A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver). 
+You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
 
-The instructions below show how to connect the different types of receivers to *Pix32 v5* with Baseboard:
+The instructions below show how to connect the different types of receivers to _Pix32 v5_ with Baseboard:
 
 - Spektrum/DSM receivers connect to the **DSM RC** input shown below.
 
   ![Pix32v5 rc receivers](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_receivers_connection.jpg)
-  
+
 - PPM and S.Bus receivers connect to the **SBUS_IN/PPM_IN** input port (marked as RC IN):
 
   ![Pinouts](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
 
-
-- PPM and PWM receivers that have an *individual wire for each channel* must connect to the **PPM RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+- PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **PPM RC** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
 For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
-
 
 ## Telemetry Radios (Optional)
 
@@ -141,7 +139,7 @@ The other radio is connected to your ground station computer or mobile device (u
 ## SD Card (Optional)
 
 SD cards are most commonly used to [log and analyse flight details](../getting_started/flight_reporting.md).
-A micro SD card should come preinstalled on the pix32 v5, if you have your own micro SD card, insert the card into *pix32 v5* as shown below.
+A micro SD card should come preinstalled on the pix32 v5, if you have your own micro SD card, insert the card into _pix32 v5_ as shown below.
 
 ![Pix32 v5 With SD Card](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_sd_card.jpg)
 
@@ -151,9 +149,9 @@ The SanDisk Extreme U3 32GB is [highly recommended](../dev_log/logging.md#sd-car
 
 ## Motors
 
-Motors/servos control signals are connected to the **I/O PWM OUT** (**MAIN**) and **FMU PWM OUT** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md). 
+Motors/servos control signals are connected to the **I/O PWM OUT** (**MAIN**) and **FMU PWM OUT** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
 
-  ![Pix32 v5 - Back Pinouts (Schematic)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
+![Pix32 v5 - Back Pinouts (Schematic)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
 
 The motors must be separately [powered](#power).
 
@@ -175,7 +173,7 @@ General configuration information is covered in: [Autopilot Configuration](../co
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
-<!-- Nice to have detailed wiring infographic and instructions for different vehicle types. --> 
+<!-- Nice to have detailed wiring infographic and instructions for different vehicle types. -->
 
 ## Further information
 

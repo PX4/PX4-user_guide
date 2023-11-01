@@ -5,9 +5,9 @@ PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
-This quick start guide shows how to power the *3DR Pixhawk* flight controller and connect its most important peripherals.
-  
-![Pixhawk Image](../../assets/flight_controller/pixhawk1/pixhawk_logo_view.jpg) 
+This quick start guide shows how to power the _3DR Pixhawk_ flight controller and connect its most important peripherals.
+
+![Pixhawk Image](../../assets/flight_controller/pixhawk1/pixhawk_logo_view.jpg)
 
 :::note
 The [3DR Pixhawk](../flight_controller/pixhawk.md) is no longer available from 3DR.
@@ -27,7 +27,7 @@ More detailed wiring information is [shown below](#detailed-wiring-infographic-c
 
 ## Mount and Orient Controller
 
-The *Pixhawk* should be mounted on the frame using vibration-damping foam pads (included in the kit).
+The _Pixhawk_ should be mounted on the frame using vibration-damping foam pads (included in the kit).
 It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow points towards the front of the vehicle.
 
 ![Pixhawk mounting and orientation](../../assets/flight_controller/pixhawk1/pixhawk_3dr_mounting_and_foam.jpg)
@@ -42,7 +42,6 @@ Connect the included buzzer and safety switch as shown below (these are mandator
 
 ![Pixhawk mounting and orientation](../../assets/flight_controller/pixhawk1/pixhawk_3dr_buzzer_and_safety_switch.jpg)
 
-
 ## GPS + Compass
 
 Attach a GPS (required) to the GPS port using the 6-wire cable supplied in the kit. Optionally attach a compass to the I2C port using a 4-wire cable (the Pixhawk has an internal compass, which can be used if necessary).
@@ -54,28 +53,27 @@ The GPS/Compass should be mounted on the frame as far away from other electronic
 
 ![Connect compass/GPS to Pixhawk](../../assets/flight_controller/pixhawk1/pixhawk_3dr_compass_gps.jpg)
 
-
 ## Power
 
-Connect the output of a *Power module* (PM) to the **POWER** port using a 6-wire cable as shown. The PM input will be connected to your LiPo battery, while the main output will supply vehicle ESCs/motors (possibly via a power distribution board).
+Connect the output of a _Power module_ (PM) to the **POWER** port using a 6-wire cable as shown. The PM input will be connected to your LiPo battery, while the main output will supply vehicle ESCs/motors (possibly via a power distribution board).
 
-The power module supplies the flight controller with power from the battery and also sends information about the analog current and voltage supplied via the module (including both power to the flight controller and to motors etc). 
+The power module supplies the flight controller with power from the battery and also sends information about the analog current and voltage supplied via the module (including both power to the flight controller and to motors etc).
 
 ![Pixhawk - Power Module](../../assets/flight_controller/pixhawk1/pixhawk_3dr_power_module.jpg)
 
 :::warning
-The power module supplies the flight controller itself, but cannot power servos and other hardware connected to the controller's output ports (rail). For copter this does not matter because the motors are separately powered. 
+The power module supplies the flight controller itself, but cannot power servos and other hardware connected to the controller's output ports (rail). For copter this does not matter because the motors are separately powered.
 :::
 
 For planes and VTOL the output rail will need to be separately powered in order to drive servos for rudders, elevons etc. Often the main pusher/puller motor uses an ESC with an integrated [BEC](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) that can be connected to the Pixhawk output rail. If not, you will need to setup a 5V BEC to connect to one of the free Pixhawk ports (without power, the servos will not work).
 
-<!-- It would be good to have real example of this powering --> 
+<!-- It would be good to have real example of this powering -->
 
 ## Radio Control
 
-A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes). 
+A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver). 
+You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
 
 The instructions below show how to connect the different types of receivers to Pixhawk:
 
@@ -85,10 +83,9 @@ The instructions below show how to connect the different types of receivers to P
 - PPM-SUM and S.BUS receivers connect to the **RC** ground, power and signal pins as shown.
   ![Pixhawk - Radio port for PPM/S.BUS receivers](../../assets/flight_controller/pixhawk1/pixhawk_3dr_receiver_ppm_sbus.jpg)
 
-- PPM and PWM receivers that have an *individual wire for each channel* must connect to the **RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+- PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **RC** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
 For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
-
 
 ## Telemetry Radios (Optional)
 
@@ -97,7 +94,6 @@ Telemetry radios may be used to communicate and control a vehicle in flight from
 ![Pixhawk/Telemetry Radio](../../assets/flight_controller/pixhawk1/pixhawk_3dr_telemetry_radio.jpg)
 
 <!-- what configuration is required once you've set up a radio) -->
-
 
 ## Motors
 
@@ -115,14 +111,12 @@ If your frame is not listed in the reference then use a "generic" airframe of th
 :::note
 The output rail must be separately powered, as discussed in the [Power](#power) section above.
 :::
- 
-<!-- INSERT image of the motor AUX/MAIN ports? -->
 
+<!-- INSERT image of the motor AUX/MAIN ports? -->
 
 ## Other Peripherals
 
 The wiring and configuration of other components is covered within the topics for individual [peripherals](../peripherals/README.md).
-
 
 ## Configuration
 
@@ -139,4 +133,4 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 ## Further information
 
 - [Pixhawk Series](../flight_controller/pixhawk_series.md)
-- [3DR Pixhawk](../flight_controller/pixhawk.md) 
+- [3DR Pixhawk](../flight_controller/pixhawk.md)
