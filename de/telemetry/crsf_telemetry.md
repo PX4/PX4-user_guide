@@ -114,11 +114,15 @@ Alternatively you can use QGroundControl to install the firmware, as described i
 
 ### Parameter Configuration
 
-[Set the parameter](../advanced_config/parameters.md) named [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG) to the port that is connected to the CRSF receiver (such as `TELEM1`).
+[Find and set](../advanced_config/parameters.md) the following parameters:
 
-This [configures the serial port](../peripherals/serial_configuration.md) to use the CRSF protocol. Note that some serial ports may already have a [default serial port mapping](../peripherals/serial_configuration.md#default-serial-port-configuration) or [default MAVLink serial port mapping](../peripherals/mavlink_peripherals.md#default-mavlink-ports) that you will have to un-map before you can assign the port to CRSF. For example, if you want to use `TELEM1` or `TELEM2` you first need to modify [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) or [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) to stop setting those ports.
+1. [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG) — Set to the port that is connected to the CRSF receiver (such as `TELEM1`).
 
-There is no need to set the baud rate for the port, as this is configured by the driver.
+   This [configures the serial port](../peripherals/serial_configuration.md) to use the CRSF protocol. Note that some serial ports may already have a [default serial port mapping](../peripherals/serial_configuration.md#default-serial-port-configuration) or [default MAVLink serial port mapping](../peripherals/mavlink_peripherals.md#default-mavlink-ports) that you will have to un-map before you can assign the port to CRSF. For example, if you want to use `TELEM1` or `TELEM2` you first need to modify [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) or [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) to stop setting those ports.
+
+   There is no need to set the baud rate for the port, as this is configured by the driver.
+
+1. [RC_CRSF_TEL_EN](../advanced_config/parameter_reference.md#RC_CRSF_TEL_EN) — Enable to activate Crossfire telemetry.
 
 ### Radio Setup
 
