@@ -93,7 +93,7 @@ The *QGroundControl User Guide* also has instructions on [Joystick](https://docs
    cd <Firmware_clone>
    DONT_RUN=1 make px4_sitl_default gazebo-classic
    ```
-1. Open the vehicle model's sdf file (e.g. **Tools/simulation/gazebo/sitl_gazebo/models/iris_hitl/iris_hitl.sdf**).
+1. Open the vehicle model's sdf file (e.g. **Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/iris_hitl/iris_hitl.sdf**).
 1. 필요한 경우 `serialDevice` 매개변수(`/dev/ttyACM0`)를 변경합니다.
 
 :::note
@@ -103,13 +103,13 @@ The *QGroundControl User Guide* also has instructions on [Joystick](https://docs
 1. 환경 변수를 설정합니다.
 
    ```sh
-   source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+   source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
    ```
 
    and run Gazebo Classic in HITL mode:
 
    ```sh
-   gazebo Tools/simulation/gazebo/sitl_gazebo/worlds/hitl_iris.world
+   gazebo Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds/hitl_iris.world
    ```
 1. *QGroundControl*을 실행합니다. It should autoconnect to PX4 and Gazebo Classic.
 

@@ -9,9 +9,9 @@
 
 ## 포장 개봉
 
-Pix32 v5 is sold bundled with a number of different combinations of accessories, including the *pix32 v5 Base board*, power module *PM02 V3*, and the [Holybro M8N GPS](https://holybro.com/collections/gps/products/m8n-gps) (UBLOX NEO-M8N).
+Pix32 v5 is sold bundled with a number of different combinations of accessories, including the _pix32 v5 Base board_, power module _PM02 V3_, and the [Holybro M8N GPS](https://holybro.com/collections/gps/products/m8n-gps) (UBLOX NEO-M8N).
 
-*PM02 V3* 전원 모듈과 *Pixhawk 4 GPS/Compass*의 상자 내용물은 다음과 같습니다. 상자에는 핀 배치 가이드 및 전원 모듈 지침과 베이스 보드(아래 회로도에는 표시되지 않음)가 포함되어 있습니다.
+The content of the box with the _PM02 V3_ power module and _Pixhawk 4 GPS/Compass_ is shown below. 상자에는 핀 배치 가이드 및 전원 모듈 지침과 베이스 보드(아래 회로도에는 표시되지 않음)가 포함되어 있습니다.
 
 ![Pix32 v5 박스](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_unboxing_schematics.png)
 
@@ -27,7 +27,7 @@ More information about available ports can be found [here](https://cdn.shopify.c
 
 ## 콘트롤러 장착 및 장착 방향
 
-*Pix32 v5*은 차량의 무게 중심에 최대한 가까운 위치에 장착하여야하며, 화살표가 차량의 전방과 상향을 향하도록 합니다.
+_Pix32 v5_ should be mounted on the frame positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
 ![Pix32 v5 (방향 포함)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_orientation.png)
 
@@ -48,8 +48,8 @@ Pix32 v5 is designed to work well with the [Holybro M8N GPS](https://holybro.com
 
 GPS/나침반은 차량 전방 표식를 사용하여 가능하면 전자 장치들에서 멀리 떨어진 프레임에 장착하는 것이 좋습니다. 나침반은 다른 전자 장치와 떨어지면 간섭이 줄어듦니다.
 
-:::note GPS
-모듈의 통합 안전 스위치는 *기본적으로* 활성화되어 있습니다. 활성화되면 PX4는 차량 시동을 걸 수 없습니다. 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
+:::note
+The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
 :::
 
 ## 전원
@@ -60,9 +60,9 @@ GPS/나침반은 차량 전방 표식를 사용하여 가능하면 전자 장치
 
 ### PM02 v3 전원 모듈
 
-The [Power Module (PM02 v3)](../power_module/holybro_pm02.md) can be bundled with *pix32 v5*. It provides regulated power to flight controller and sends battery voltage/current to the flight controller.
+The [Power Module (PM02 v3)](../power_module/holybro_pm02.md) can be bundled with _pix32 v5_. It provides regulated power to flight controller and sends battery voltage/current to the flight controller.
 
-그림과 같이 *전원 모듈*을 연결합니다.
+Connect the output of the _Power Module_ as shown.
 
 ![Pix32 v5 (전원 모듈 포함)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_power.jpg)
 
@@ -79,6 +79,7 @@ The [Power Module (PM02 v3)](../power_module/holybro_pm02.md) can be bundled wit
 :::
 
 전원 모듈에는 다음과 같은 특성과 제약 사항이 있습니다.
+
 - 최대 입력 전압 : 60V
 - 최대 전류 감지 : 120A 전압
 - SV ADC 스위칭 레귤레이터 출력에 대해 구성된 전류 측정은 최대 5.2V 및 3A를 출력합니다.
@@ -88,20 +89,19 @@ The [Power Module (PM02 v3)](../power_module/holybro_pm02.md) can be bundled wit
   - 6 핀 MLX 케이블 (1)
   - 6 핀 GH 케이블 (1)
 
-
 ### 배터리 설정
 
-배터리 설정은 [전원 설정](../config/battery.md)에서 설정합니다. 전원 모듈의 *셀의 갯수*를 설정하여야 합니다.
+배터리 설정은 [전원 설정](../config/battery.md)에서 설정합니다. For either Power Module you will need to configure the _Number of Cells_.
 
-다른 전원 모듈(예 : Pixracer의 모듈)을 사용하지 않으면 *전압 분배기*를 업데이트 할 필요는 없습니다.
+You will not need to update the _voltage divider_ unless you are using some other power module (e.g. the one from the Pixracer).
 
 ## 무선 조종
 
-리모트 컨트롤(RC) 라디오 시스템은 기체를 *수동* 제어시에 사용합니다. PX4의 자율 비행 모드에는 라디오 시스템은 필수 항목은 아닙니다.
+A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
-[호환되는 송신기/수신기를 선택](../getting_started/rc_transmitter_receiver.md)후 *바인딩*을 하여야 통신이 가능합니다. 송신기/수신기의 매뉴얼을 참고하십시오.
+You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
 
-아래의 지침은 여러가지 유형의 수신기를 *Pix32 v5*를 연결하는 방법을 설명합니다.
+The instructions below show how to connect the different types of receivers to _Pix32 v5_ with Baseboard:
 
 - Spektrum/DSM 수신기는 **DSM RC** 입력에 연결합니다.
 
@@ -111,11 +111,9 @@ The [Power Module (PM02 v3)](../power_module/holybro_pm02.md) can be bundled wit
 
   ![핀배열](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
 
-
-- *각각의 채널이 독립적으로 배선된* PPM/PWM 수신기는 반드시 **PPM RC**포트에 *PPM 인코더를 통해* [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)연결하여야 합니다. PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다.
+- PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **PPM RC** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
 For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
-
 
 ## 무선 텔레메트리(선택 사항)
 
@@ -127,7 +125,7 @@ For more information about selecting a radio system, receiver compatibility, and
 
 ## SD 카드 (선택 사항)
 
-SD 카드는 일반적으로 [세부 비행 기록 및 분석](../getting_started/flight_reporting.md)에 사용됩니다. 마이크로 SD 카드는 pix32 v5에 미리 설치되어 있어야하며, 별도의 마이크로 SD 카드가있는 경우 아래 그림과 같이 *pix32 v5*에 카드를 삽입하십시오.
+SD 카드는 일반적으로 [세부 비행 기록 및 분석](../getting_started/flight_reporting.md)에 사용됩니다. A micro SD card should come preinstalled on the pix32 v5, if you have your own micro SD card, insert the card into _pix32 v5_ as shown below.
 
 ![Pix32 v5 (SD 카드 포함)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_sd_card.jpg)
 
@@ -139,7 +137,7 @@ SanDisk Extreme U3 32GB를 사용하는 것을 [적극 권장](../dev_log/loggin
 
 모터/서보 제어 신호는 **I/O PWM OUT** (**MAIN OUT**) 및 **FMU PWM OUT** (**AUX**)에 연결합니다. 포트는 [기체 정의서](../airframes/airframe_reference.md)에서 지정된 순서대로 연결합니다.
 
-  ![Pix32 v5 백 핀배열(개략도)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
+![Pix32 v5 백 핀배열(개략도)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
 
 모터는 별도 [전원을 공급](#power)하여야 합니다.
 
@@ -161,7 +159,7 @@ SanDisk Extreme U3 32GB를 사용하는 것을 [적극 권장](../dev_log/loggin
 
 QuadPlane에 대한 자세한 설정 방법은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)을 참고하십시오.
 
-<!-- Nice to have detailed wiring infographic and instructions for different vehicle types. --> 
+<!-- Nice to have detailed wiring infographic and instructions for different vehicle types. -->
 
 ## 추가 정보
 

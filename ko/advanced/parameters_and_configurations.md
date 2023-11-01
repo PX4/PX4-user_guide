@@ -116,14 +116,19 @@ The C++ API provides macros to declare parameters as _class attributes_. You add
 제일 먼저, 모듈 또는 드라이버의 클래스 헤더에 필요한 필수 헤더를 포함합니다.
 
 - **px4_platform_common/module_params.h**를 사용하여 `DEFINE_PARAMETERS` 매크로를 가져옵니다.
+
   ```cpp
   #include <px4_platform_common/module_params.h>
   ```
+
 - uORB `parameter_update` 메시지에 액세스하려면 **parameter_update.h**를 인클루드합니다.
+
   ```cpp
   #include <uORB/topics/parameter_update.h>
   ```
+
 - uORB C++ 구독 API용 **Subscription.hpp**를 인클루드합니다.:
+
   ```cpp
   #include <uORB/Subscription.hpp>
   ```
@@ -243,10 +248,12 @@ YAML 메타 데이터는 **.c** 정의를 대체합니다. 다중 인스턴스 �
 - The YAML parameter metadata schema is here: [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml).
 - An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml).
 - YAML 파일은 다음을 추가하여 cmake 빌드 시스템에 등록됩니다.
-  ```
+
+  ```cmake
   MODULE_CONFIG
     module.yaml
   ```
+
   해당 모듈의 `CMakeLists.txt` 파일의 `px4_add_module` 섹션에 추가합니다.
 
 #### 다중 인스턴스(템플릿) YAML 메타 데이터
@@ -255,7 +262,7 @@ Templated parameter definitions are supported in [YAML parameter definitions](ht
 
 YAML을 사용하면 `${i}`를 사용하여 매개변수 이름, 설명 등에 인스턴스 번호를 정의할 수 있습니다. 예를 들어 아래는 MY_PARAM_1_RATE, MY_PARAM_2_RATE 등을 생성합니다.
 
-```
+```yaml
 MY_PARAM_${i}_RATE:
             description:
                 short: Maximum rate for instance ${i}

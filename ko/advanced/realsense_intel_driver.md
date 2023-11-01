@@ -45,15 +45,18 @@
 
 - git을 설치하십시오:
 
-```bash
-sudo apt-get install git
-```
+  ```bash
+  sudo apt-get install git
+  ```
 
-- 드라이버를 다운로드하고 설치하십시오
+- Download and install the driver:
+
   - [RealSense_ROS 저장소](https://github.com/bestmodule/RealSense_ROS)를 복제하십시오:
+
     ```bash
     git clone https://github.com/bestmodule/RealSense_ROS.git
     ```
+
 - [이곳](https://github.com/bestmodule/RealSense_ROS/tree/master/r200_install)의 절차를 따르십시오.
 
   - 패키지 설치할 지 여부를 물어보면 엔터키를 입력하십시오.
@@ -64,7 +67,6 @@ sudo apt-get install git
 
     ```
     Intel Low Power Subsystem support in PCI mode (MFD_INTEL_LPSS_PCI) [N/m/y/?] (NEW)
-
     ```
 
     ```
@@ -72,6 +74,7 @@ sudo apt-get install git
     ```
 
   - 설치 프로세스가 끝날 때 나타날 수 있는 다음 오류 메시지는 드라이버의 오작동으로 이어지지 않아야 합니다.
+
     ```
     rmmod: ERROR: Module uvcvideo is not currently loaded
     ```
@@ -84,9 +87,11 @@ sudo apt-get install git
   - 버추어 박스의 메뉴 표시줄에서 장치->USB->Intel Corp Intel RealSense 3D Camera R200를 눌러 가상 머신에 USB 카메라를 연결하십시오.
   - [패키지 해제 폴더]/Bin/DSReadCameraInfo 파일을 실행하십시오:
     - 다음 오류 메시지가 나타나면 카메라 연결을 해제하십시오(컴퓨터에서 물리적으로 USB 케이블을 뽑아내십시오). 다시 연결한 후, 버추어 박스의 메뉴표시줄에서 장치->USB->Intel Corp Intel RealSense 3D Camera R200를 다시 누르고,  [언팩 폴더]/Bin/DSReadCameraInfo 파일을 다시 실행하십시오
-      ```
+
+      ```bash
       DSAPI call failed at ReadCameraInfo.cpp:134!
       ```
+
     - 카메라 드라이버가 동작하고 Intel RealSense R200을 인식하면, Intel RealSense R200 카메라 헤드 정보를 살펴보아야 합니다.
 
 - ROS 노들릿(nodlet) 설치 및 시험:

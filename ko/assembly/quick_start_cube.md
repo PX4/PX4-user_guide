@@ -5,7 +5,7 @@
 Note also that while [Cube Black](../flight_controller/pixhawk-2.md) is [fully supported by PX4](../flight_controller/autopilot_pixhawk_standard.md), [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) and [Cube Orange](../flight_controller/cubepilot_cube_orange.md) are [Manufacturer Supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-*Cube*<sup>&reg;</sup> 비행 콘트롤러의 전원 공급 방법과 주요 주변 장치 연결방법에 대하여 설명합니다.
+This quick start guide shows how to power the _Cube_<sup>&reg;</sup> flight controllers and connect their most important peripherals.
 
 <img src="../../assets/flight_controller/cube/orange/cube_orange_hero.jpg" width="350px" /> <img src="../../assets/flight_controller/cube/cube_black_hero.png" width="350px" /> <img src="../../assets/flight_controller/cube/yellow/cube_yellow_hero.jpg" width="150px" />
 
@@ -44,7 +44,7 @@ Note also that while [Cube Black](../flight_controller/pixhawk-2.md) is [fully s
 
 ## 콘트롤러 장착 및 장착 방향
 
-Cube를 가능한 (이상적으로는) 윗면이 위로 향하도록 하여 기체의 무게 중심에 가까운 위치에, 그리고 화살표를 기체의 앞면을 가르키도록 장착하십시오 (큐브 윗면에 그려진 *화살표 마크*를 참고하십시오).
+Mount the Cube as close as possible to your vehicle’s center of gravity, ideally oriented top-side up and with the arrow pointing towards the front of the vehicle (note the _subtle_ arrow marker on top of the cube)
 
 ![Cube 장착 - 전면 방향](../../assets/flight_controller/cube/cube_mount_front.jpg)
 
@@ -60,7 +60,7 @@ Cube를 (키트에 포함된) 진동 감쇠 폼 패드 또는 장착 나사를 �
 
 ## GPS + 나침반 + 안전 스위치 + LED
 
-권장되는 GPS 모듈은 *Here* 및 [Here+](../gps_compass/rtk_gps_hex_hereplus.md)이며, 둘 다 GPS 모듈, 나침반, 안전 스위치 및 [LED](../getting_started/led_meanings.md)를 통합합니다. The difference between the modules is that *Here+* supports centimeter level positioning via [RTK](../gps_compass/rtk_gps.md). RTK 지원을 제외하면, 두 모듈의 연결 방법은 같습니다.
+The recommended GPS modules are the _Here_ and [Here+](../gps_compass/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../getting_started/led_meanings.md). The difference between the modules is that _Here+_ supports centimeter level positioning via [RTK](../gps_compass/rtk_gps.md). RTK 지원을 제외하면, 두 모듈의 연결 방법은 같습니다.
 
 :::warning
 The [Here+](../gps_compass/rtk_gps_hex_hereplus.md) has been superseded by the [Here3](https://www.cubepilot.org/#/here/here3) a [DroneCAN](../dronecan/README.md) RTK-GNSS that incorporate a compass and [LEDs](../getting_started/led_meanings.md) (but no safety switch). See [DroneCAN](../dronecan/README.md) for _Here3_ wiring and PX4 configuration information.
@@ -72,8 +72,8 @@ GPS/나침반은 차량 전방 표식를 사용하여 가능하면 전자 장치
 
 ![Here+ 연결 다이어그램](../../assets/flight_controller/cube/here_plus_connector.png)
 
-:::note GPS
-모듈의 통합 안전 스위치는 *기본적으로* 활성화되어 있습니다. 활성화되면 PX4는 차량 시동을 걸 수 없습니다. 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
+:::note
+The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
 :::
 
 :::tip
@@ -82,7 +82,7 @@ GPS/나침반은 차량 전방 표식를 사용하여 가능하면 전자 장치
 
 ## 안전 스위치
 
-Cube와 함께 구성된 *전용* 안전 스위치는 (내장 안전 스위치를 포함한) 권장 [GPS](#gps)를 사용하지 않을 경우에만 사용합니다.
+The _dedicated_ safety switch that comes with the Cube is only required if you are not using the recommended [GPS](#gps) (which has an inbuilt safety switch).
 
 GPS 없이 비행하는 경우, 기체에 시동을 걸고 비행하기 위해 안전 스위치는 반드시 `GPS1` 포트(또는 구형 6핀 케이블 사용시 제공된 케이블을 통해)에 장착되어어야 합니다.
 
@@ -98,9 +98,9 @@ GPS 없이 비행하는 경우, 기체에 시동을 걸고 비행하기 위해 �
 
 ## Radio Control
 
-무선 조종기는 기체 *수동*제어시에 사용합니다 (PX4에는 자율 비행 모드에서는 무선 조종기가 필수는 아닙니다).
+A [remote control (RC) radio system](../getting_started/rc_transmitter_receiver.md) is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
-[호환되는 송신기/수신기를 선택](../getting_started/rc_transmitter_receiver.md)후 *바인딩*을 하여야 통신이 가능합니다. 송신기/수신기의 매뉴얼을 참고하십시오.
+You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
 
 아래의 지침은 다양한 유형의 수신기를 연결하는 방법을 설명합니다.
 
@@ -118,17 +118,17 @@ Spektrum DSM, DSM2 및 DSM-X Satellite RC 수신기는 **SPKT/DSM** 포트에 �
 
 ### PWM 수신기
 
-Cube는 *각 채널에 개별 배선*이 있는 PPM 또는 PWM 수신기에 직접 연결할 수 없습니다. 그러므로, PWM 수신기는 hex.aero 또는 proficnc.com에서 판매하는 PPM 인코더 모듈을 *사용하여* **RCIN** 포트에 연결하여야 합니다.
+The Cube cannot directly connect to PPM or PWM receivers that have an _individual wire for each channel_. PWM receivers must therefore connect to the **RCIN** port _via_ a PPM encoder module, which may be purchased from hex.aero or proficnc.com.
 
 ## 전원
 
-Cube는 일반적으로 **POWER1** 포트에 연결된 전원 모듈(키트와 함께 제공됨)을 통하여 리튬 이온 폴리머(LiPo) 배터리에서 전원을 공급합니다. 전원 모듈은 보드에 안정적인 공급 및 전압/전류 표시하며, 멀티콥터에서 모터를 구동하는 ESC에 전원을 *별도*로 공급할 수 있습니다.
+Cube는 일반적으로 **POWER1** 포트에 연결된 전원 모듈(키트와 함께 제공됨)을 통하여 리튬 이온 폴리머(LiPo) 배터리에서 전원을 공급합니다. The power module provides reliable supply and voltage/current indication to the board, and may _separately_ supply power to ESCs that are used to drive motors on a multicopter vehicle.
 
 멀티콥터의 일반적인 전원 설정은 다음과 같습니다.
 
 ![전원 설정 - 멀티콥터](../../assets/flight_controller/cube/cube_wiring_power_mc.jpg)
 
-:::Note ** MAIN / AUX **의 핀 전원 (+) 레일은 비행 콘트롤러에 대한 전원 모듈 공급으로 전원이 공급되지 않습니다. 방향타, 엘레본 등의 서보를 구동하려면 별도로 전원을 공급하여야 합니다.
+:::Note The power (+) rail of **MAIN/AUX** is _not powered_ by the power module supply to the flight controller. 방향타, 엘레본 등의 서보를 구동하려면 별도로 전원을 공급하여야 합니다.
 
 이것은 BEC가 장착된 ESC, 독립형 5V BEC 또는 2S LiPo 배터리에 전원 레일을 연결하여 수행할 수 있습니다. 사용하는 서보의 전압을 확인하십시오!
 :::
@@ -179,7 +179,7 @@ The mapping is not consistent across frames (e.g. you can't rely on the throttle
 
 [QGroundContro](http://qgroundcontrol.com/)를 사용하여 설정합니다.
 
-*QGroundControl*을 다운로드, 설치 및 실행한 후 그림과 같이 보드를 컴퓨터에 연결합니다.
+After downloading, installing and running _QGroundControl_, connect the board to your computer as shown.
 
 ![Cube - 컴퓨터 USB 연결](../../assets/flight_controller/cube/cube_usb_connection.jpg)
 

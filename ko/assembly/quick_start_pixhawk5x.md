@@ -5,7 +5,6 @@
 
 [Pixhawk<sup>&reg;</sup> 5X](../flight_controller/pixhawk5x.md) 비행 콘트롤러의 전원 공급 방법과 주요 주변 장치 연결 방법에 대하여 설명합니다.
 
-
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_standard_set.jpg" width="520px" title="Pixhawk 5X 표준 세트" />
 
 Pixhawk 5 표준 세트
@@ -16,14 +15,13 @@ Pixhawk 5 표준 세트
 
 ![Pixhawk 5X 배선 개요](../../assets/flight_controller/pixhawk5x/pixhawk5x_wiring_diagram.jpg)
 
-
 :::tip
 사용 가능한 포트에 대한 자세한 설명은 [Pixhawk  5X &gt; 연결 방법](../flight_controller/pixhawk5x.md#connections)을 참고하십시오.
 :::
 
 ## 콘트롤러 장착 및 장착 방향
 
-*Pixhawk 5X*는 키트에 포함된 양면 테이프를 사용하여 프레임에 장착할 수 있습니다. 차량의 무게 중심에 최대한 가깝운 프레임에 장착하여야 하며, 화살표가 차량의 앞쪽과 위쪽을 향하도록 하여야 합니다.
+_Pixhawk 5X_ can be mounted on the frame using double side tape included in the kit. 차량의 무게 중심에 최대한 가깝운 프레임에 장착하여야 하며, 화살표가 차량의 앞쪽과 위쪽을 향하도록 하여야 합니다.
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_vehicle_front1.jpg" width="400px" title="Pixhawk 5X 표준 세트" />
 
@@ -41,15 +39,13 @@ The GPS/Compass should be [mounted on the frame](../assembly/mount_gps_compass.m
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_gps_front.jpg" width="200px" title="Pixhawk 5X 표준 세트" />
 
-
-:::note GPS
-모듈의 통합 안전 스위치는 *기본적으로* 활성화됩니다. 활성화된 상태에서 PX4의 차량 시동이 가능합니다. 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
+:::note
+The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
 :::
-
 
 ## 전원
 
-표준 세트와 함께 제공되는 *PM02D 전원 모듈*(PM 보드)의 출력을 6선 케이블을 사용하여 *Pixhawk 5X* **POWER** 포트 중 하나에 연결합니다. Pixhawk 5X의 PM02D 및 전원 포트는 6회로
+Connect the output of the _PM02D Power Module_ (PM board) that comes with the Standard Set to one of the **POWER** port of _Pixhawk 5X_ using the 6-wire cable. Pixhawk 5X의 PM02D 및 전원 포트는 6회로
 2.00mm 피치 CLIK-Mate 전선 기판 간 PCB 리셉터클<0>과 [Housing](https://www.molex.com/molex/products/part-detail/crimp_housings/5024390600)을 사용합니다.</p> 
 
 PM02D 전원 모듈은 **2~6S** 배터리를 지원하며, 보드의 입력을 LiPo 배터리에 연결합니다. 전원 보드는 **FMU PWM OUT**와 **I/O PWM OUT**의 + 및 - 핀에 전원을 공급하지 않습니다.
@@ -66,11 +62,11 @@ PM02D 전원 모듈은 **2~6S** 배터리를 지원하며, 보드의 입력을 L
 | FMU PWM Out | 여기에 서보 신호, 양극 및 GND 전선을 연결합니다. |
 
 
-:::note PX
-펌웨어의 **MAIN** 출력은 *Pixhawk 5X*의 **I/O PWM OUT** 포트에 매핑되는 반면, **AUX 출력**은 *Pixhawk 5X*의 **FMU PWM OUT**에 매핑됩니다. 예를 들어 **MAIN1**은 **I/O PWM OUT**의 IO_CH1 핀에 매핑되고, **AUX1**은 **FMU PWM OUT**의 FMU_CH1 핀에 매핑됩니다.
+:::note
+**MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of _Pixhawk 5X_ whereas **AUX outputs** map to **FMU PWM OUT** of _Pixhawk 5x_. 예를 들어 **MAIN1**은 **I/O PWM OUT**의 IO_CH1 핀에 매핑되고, **AUX1**은 **FMU PWM OUT**의 FMU_CH1 핀에 매핑됩니다.
 :::
 
-*Pixhawk 5X* 전원 포트의 핀배열은 다음과 같습니다. 전원 포트는 전압 및 전류 데이터를 위해 PM02D 전원 모듈에서 I2C 디지털 신호를 수신합니다. VCC 라인은 최소 3A 연속을 제공해야하며, 기본적으로 5.1V로 설정되어야 합니다. 5V 보다 낮은 전압은 권장되지 않습니다.
+The pinout of _Pixhawk 5X_’s power ports is shown below. 전원 포트는 전압 및 전류 데이터를 위해 PM02D 전원 모듈에서 I2C 디지털 신호를 수신합니다. VCC 라인은 최소 3A 연속을 제공해야하며, 기본적으로 5.1V로 설정되어야 합니다. 5V 보다 낮은 전압은 권장되지 않습니다.
 
 | 핀     | 신호  | 전압    |
 | ----- | --- | ----- |
@@ -86,17 +82,16 @@ PM02D 전원 모듈은 **2~6S** 배터리를 지원하며, 보드의 입력을 L
 
 ## Radio Control
 
-라디오 리모트 컨트롤(RC)은 기체를 *수동*으로 조작합니다. PX4 자율 비행 모드에는 RC는 필수 요구 사항은 아닙니다.
+A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
-[호환되는 송신기/수신기를 선택](../getting_started/rc_transmitter_receiver.md)한 다음 통신을 위해 *바인딩*을 하여야 합니다(특정 송신기/수신기와 함께 제공되는 매뉴얼 참조).
+You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
 
 - Spektrum/DSM 수신기는 **DSM/SBUS RC** 입력에 연결합니다.
 - PPM/SBUS 수신기는 **RC IN** 입력 포트에 연결합니다.
 
-*각각의 채널이 독립적으로 배선된* PPM/PWM 수신기는 반드시**RC IN**포트에 *PPM 인코더를 통하여* [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)연결하여야 합니다. PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다.
+PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **RC IN** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
 For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
-
 
 
 
@@ -112,7 +107,7 @@ Radios are also available for purchase on [Holybro's website](https://holybro.co
 
 ## SD 카드 (선택 사항)
 
-SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flight_reporting.md)하고, 임무를 수행하고, UAVCAN 버스 하드웨어를 사용하는 데 필요하므로 사용하는 것이 좋습니다. 아래 그림과 같이 SD 카드(Pixhawk  5X 키트에 포함됨)를 *Pixhawk 5X*에 삽입합니다.
+SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flight_reporting.md)하고, 임무를 수행하고, UAVCAN 버스 하드웨어를 사용하는 데 필요하므로 사용하는 것이 좋습니다. Insert the card (included in Pixhawk 5X kit) into _Pixhawk 5X_ as shown below.
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_sd_slot.jpg" width="420px" title="Pixhawk5x standard set" />
 
@@ -145,7 +140,7 @@ The mapping is not consistent across frames (e.g. you can't rely on the throttle
 
 ![Pixhawk 5X Pinout1](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
 
-You can also download *Pixhawk 5X* pinouts from [here](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf).
+You can also download _Pixhawk 5X_ pinouts from [here](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf).
 
 
 

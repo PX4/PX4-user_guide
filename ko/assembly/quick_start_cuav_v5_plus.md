@@ -7,7 +7,6 @@
 
 ![V5 + AutoPilot-영웅 이미지](../../assets/flight_controller/cuav_v5_plus/v5+_01.png)
 
-
 ## 배선 개요
 
 아래의 이미지는 중요한 센서와 주변 장치(모터와 서보 출력 제외) 연결 방법을 보여줍니다. 다음 섹션에서 각 장치에 대하여 자세히 설명합니다.
@@ -16,7 +15,7 @@
 
 | 인터페이스           | 기능                                                                                                                  |
 |:--------------- |:------------------------------------------------------------------------------------------------------------------- |
-| Power1          | 전원 연결. *아날로그* 전압 및 전류 감지 기능이 있는 전원 입력. 이 커넥터에 Digital 전원모듈을 사용하지 마십시오!                                              |
+| Power1          | 전원 연결. Power input with _analog_ voltage and current detection. 이 커넥터에 Digital 전원모듈을 사용하지 마십시오!                     |
 | Power2          | i2c 스마트 배터리를 연결합니다.                                                                                                 |
 | TF CARD         | 로그 저장용 SD 카드 (카드는 공장에서 미리 삽입됨).                                                                                     |
 | M1~M8           | PWM 출력 모터와 서보를 콘트롤 합니다.                                                                                             |
@@ -40,16 +39,15 @@
 If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../gps_compass/rtk_gps.md).
 :::
 
-
 ## GPS + 나침반 + 안전 스위치 + LED
 
-권장되는 GPS 모듈은 GPS, 나침반, 안전 스위치, 부저 및 LED 상태 표시등이 포함된 *Neo v2 GPS*입니다.
+The recommended GPS module is the _Neo v2 GPS_, which contains GPS, compass, safety switch, buzzer, LED status light.
 
 :::note
 다른 GPS 모듈은 작동하지 않을 수 있습니다 ([호환성 문제](../flight_controller/cuav_v5_nano.md#compatibility_gps) 참고).
 :::
 
-The GPS/Compass module should be [mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction marker towards the front of the vehicle (*Neo v2 GPS* arrow is in the same direction as the flight control arrow). 케이블을 사용하여 비행제어 GPS 인터페이스에 연결합니다.
+The GPS/Compass module should be [mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction marker towards the front of the vehicle (_Neo v2 GPS_ arrow is in the same direction as the flight control arrow). 케이블을 사용하여 비행제어 GPS 인터페이스에 연결합니다.
 
 :::note
 [NEO V2 PRO GNSS (CAN GPS)](http://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html)를 사용하면, 케이블을 사용하여 비행제어 CAN 인터페이스에 연결하십시오.
@@ -59,7 +57,7 @@ The GPS/Compass module should be [mounted on the frame](../assembly/mount_gps_co
 
 ## 안전 스위치
 
-V5+에 제공되는 전용 안전 스위치는 권장 *Neo V2 GPS* (안전 스위치 내장)를 사용하지 않는 경우에만 필요합니다.
+The dedicated safety switch that comes with the V5+ is only required if you are not using the recommended _Neo V2 GPS_ (which has an inbuilt safety switch).
 
 GPS 없이 비행하는 경우 차량을 시동 스위치를 `GPS1` 포트에 직접 연결하여야합니다 (이전 6 핀 GPS를 사용하는 경우에는,  라인 변경에 관련된 하단 인터페이스 매뉴얼을 참고하십시오).
 
@@ -81,7 +79,7 @@ V5+에는 DSM 전용 케이블이 포함되어 있습니다. Spektrum 위성 수
 
 ## 전원
 
-V5+ 키트에는 2~14S LiPo 배터리를 지원하는 *HV\ _PM* 모듈이 포함되어 있습니다. *HW\_PM* 모듈의 6 핀 커넥터를 비행 제어 `Power1` 인터페이스에 연결합니다.
+The V5+ kit includes the _HV_PM_ module, which supports 2~14S LiPo batteries. Connect the 6pin connector of the _HW_PM_ module to the flight control `Power1` interface.
 
 :::warning
 제공된 전원 모듈에는 퓨즈가 없습니다. 주변 장치를 연결하는 동안에는 전원을 **반드시** 꺼야 합니다.
@@ -114,17 +112,15 @@ An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory)
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_07.png)
 
-
 ## 핀배열
 
 [여기](http://manual.cuav.net/V5-Plus.pdf)에서 **V5 +** 핀배열을 다운로드하십시오.
 
-
 ## 추가 정보
 
 - [DJI FlameWheel450에서 CUAV v5 +를 사용하는 기체 빌드 로그](../frames_multicopter/dji_f450_cuav_5plus.md)
-- [CUAV V5 + 수동](http://manual.cuav.net/V5-Plus.pdf) (CUAV)
+- [CUAV V5+ Manual](http://manual.cuav.net/V5-Plus.pdf) (CUAV)
 - [CUAV V5 + 문서](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html) (CUAV)
-- [FMUv5 참조 설계 핀아웃](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
+- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
 - [CUAV Github](https://github.com/cuav) (CUAV)
 - [베이스 보드 설계 참조](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2BBASE) (CUAV)

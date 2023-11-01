@@ -93,7 +93,7 @@ Make sure *QGroundControl* is not running!
    cd <Firmware_clone>
    DONT_RUN=1 make px4_sitl_default gazebo-classic
    ```
-1. Open the vehicle model's sdf file (e.g. **Tools/simulation/gazebo/sitl_gazebo/models/iris_hitl/iris_hitl.sdf**).
+1. Open the vehicle model's sdf file (e.g. **Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/iris_hitl/iris_hitl.sdf**).
 1. 找到文件的 `mavlink_interface plugin` 分区，将 `serialEnabled` 和 `hil_mode` 参数更改为 `true` 。
 
 :::note
@@ -103,13 +103,13 @@ The serial device depends on what port is used to connect the vehicle to the com
 1. Set up the environment variables:
 
    ```sh
-   source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+   source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
    ```
 
    and run Gazebo Classic in HITL mode:
 
    ```sh
-   gazebo Tools/simulation/gazebo/sitl_gazebo/worlds/hitl_iris.world
+   gazebo Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds/hitl_iris.world
    ```
 1. Start *QGroundControl*. It should autoconnect to PX4 and Gazebo Classic.
 

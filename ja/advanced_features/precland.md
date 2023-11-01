@@ -1,8 +1,8 @@
 # Precision Landing
 
-PX4 supports precision landing for *multicopters* on either stationary or moving targets. The target may be provided by an onboard IR sensor and a landing beacon, or by an offboard positioning system.
+PX4 supports precision landing for _multicopters_ on either stationary or moving targets. The target may be provided by an onboard IR sensor and a landing beacon, or by an offboard positioning system.
 
-Precision landing can be [started/initiated](#initiating-a-precision-landing) as part of a [mission](#mission), in a [Return mode](#return-mode-precision-landing) landing, or by entering the [*Precision Land* flight mode](#precision-landing-flight-mode).
+Precision landing can be [started/initiated](#initiating-a-precision-landing) as part of a [mission](#mission), in a [Return mode](#return-mode-precision-landing) landing, or by entering the [_Precision Land_ flight mode](#precision-landing-flight-mode).
 
 :::note
 Precision landing is only possible with a valid global position (due to a limitation in the current implementation of the position controller).
@@ -16,7 +16,7 @@ A precision landing can be configured to either be "required" or "opportunistic"
 
 #### Required Mode
 
-In *Required Mode* the vehicle will search for a target if none is visible when landing is initiated. The vehicle will perform a precision landing if a target is located.
+In _Required Mode_ the vehicle will search for a target if none is visible when landing is initiated. The vehicle will perform a precision landing if a target is located.
 
 The search procedure consists of climbing to the search altitude ([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)). If the target is still not visible at the search altitude and after a search timeout ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT)), a normal landing is initiated at the current position.
 
@@ -26,7 +26,7 @@ If using an offboard positioning system PX4 assumes that the target is visible w
 
 #### Opportunistic Mode
 
-In *Opportunistic Mode* the vehicle will use precision landing *if* (and only if) the target is visible when landing is initiated. If it is not visible the vehicle immediately performs a *normal* landing at the current position.
+In _Opportunistic Mode_ the vehicle will use precision landing _if_ (and only if) the target is visible when landing is initiated. If it is not visible the vehicle immediately performs a _normal_ landing at the current position.
 
 ### Landing Phases
 
@@ -44,7 +44,7 @@ A flow diagram showing the phases can be found in [landing phases flow Diagram](
 
 ## Initiating a Precision Landing
 
-Precision landing can be used in missions, during the landing phase in *Return mode*, or by entering the *Precision Land* mode.
+Precision landing can be used in missions, during the landing phase in _Return mode_, or by entering the _Precision Land_ mode.
 
 <a id="mission"></a>
 
@@ -66,13 +66,13 @@ This is enabled using the parameter [RTL_PLD_MD](../advanced_config/parameter_re
 - `1`: [Opportunistic](#opportunistic-mode) precision landing.
 - `2`: [Required](#required-mode) precision landing.
 
-
 ### Precision Landing Flight Mode
 
-Precision landing can be enabled by switching to the *Precision Landing* flight mode.
+Precision landing can be enabled by switching to the _Precision Landing_ flight mode.
 
-You can verify this using the [*QGroundControl* MAVLink Console](../debug/mavlink_shell.md#qgroundcontrol-mavlink-console) to enter the following command:
-```
+You can verify this using the [_QGroundControl_ MAVLink Console](../debug/mavlink_shell.md#qgroundcontrol-mavlink-console) to enter the following command:
+
+```sh
 commander mode auto:precland
 ```
 
@@ -82,11 +82,11 @@ When switching to the mode in this way, the precision landing is always "require
 
 :::note
 At time of writing is no *convenient* way to directly invoke precision landing (other than commanding return mode):
-- *QGroundControl* does not provide it as a UI option.
+
+- _QGroundControl_ does not provide it as a UI option.
 - [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) only works in missions.
 - [MAV_CMD_DO_SET_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_MODE) should work, but you will need to determine the appropriate base and custom modes used by PX4 to represent the precision landing mode.
 :::
-
 
 ## Hardware Setup
 
@@ -96,7 +96,7 @@ The IR sensor/landing beacon solution requires an [IR-LOCK Sensor](https://irloc
 
 Install the IR-LOCK sensor by following the [official guide](https://irlock.readme.io/v2.0/docs). Ensure that the sensor's x axis is aligned with the vehicle's y axis and the sensor's y axis aligned with the vehicle's -x direction (this is the case if the camera is pitched down 90 degrees from facing forward).
 
-Install a [range/distance sensor](../getting_started/sensor_selection.md#distance) (the *LidarLite v3* has been found to work well).
+Install a [range/distance sensor](../getting_started/sensor_selection.md#distance) (the _LidarLite v3_ has been found to work well).
 
 :::note
 Many infrared based range sensors do not perform well in the presence of the IR-LOCK beacon.
@@ -140,7 +140,6 @@ Other relevant parameters are listed in the parameter reference under [Landing_t
 | <a id="PLD_MAX_SRCH"></a>[PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH)     | Maximum number of search attempts in an required landing.                                                           |
 | <a id="RTL_PLD_MD"></a>[RTL_PLD_MD](../advanced_config/parameter_reference.md#RTL_PLD_MD)         | RTL precision land mode. `0`: disabled, `1`: [Opportunistic](#opportunistic-mode), `2`: [Required](#required-mode). |
 
-
 ### IR Beacon Scaling
 
 Measurement scaling may be necessary due to lens distortions of the IR-LOCK sensor.
@@ -157,7 +156,7 @@ Precision landing with the IR-LOCK sensor and beacon can be simulated in [Gazebo
 
 To start the simulation with the world that contains a IR-LOCK beacon and a vehicle with a range sensor and IR-LOCK camera, run:
 
-```
+```sh
 make px4_sitl gazebo-classic_iris_irlock
 ```
 
@@ -176,7 +175,6 @@ The `landing_target_estimator` publishes the estimated relative position and vel
 ### Enhanced Vehicle Position Estimation
 
 If the target is specified to be stationary using the parameter `LTEST_MODE`, the vehicle's position/velocity estimate can be improved with the help of the target measurements. This is done by fusing the target's velocity as a measurement of the negative velocity of the vehicle.
-
 
 ### Landing Phases Flow Diagram
 

@@ -10,13 +10,12 @@ Whenever a camera is triggered, the MAVLink [CAMERA_TRIGGER](https://mavlink.io/
 
 Cameras can also (optionally) signal PX4 at the exact moment that a photo/frame is taken using a camera capture pin. This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
 
-
 <!-- Camera trigger driver: https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger -->
 <!-- Camera capture driver: https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture -->
 
 ## Trigger Configuration
 
-Camera triggering is usually configured from the *QGroundControl* [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/master/en/SetupView/Camera.html#px4-camera-setup) section.
+Camera triggering is usually configured from the _QGroundControl_ [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/master/en/SetupView/Camera.html#px4-camera-setup) section.
 
 ![Trigger pins](../../assets/camera/trigger_pins.png)
 
@@ -53,10 +52,9 @@ The camera trigger driver supports several backends - each for a specific applic
 | 3      | Enables the MAVLink interface. In this mode, no actual hardware output is used. Only the `CAMERA_TRIGGER` MAVLink message is sent by the autopilot (by default, if the MAVLink application is in `onboard` mode. Otherwise, a custom stream will need to be enabled).                                                                                                                                                                                                                                            |
 | 4      | Enables the generic PWM interface. This allows the use of [infrared triggers](https://hobbyking.com/en_us/universal-remote-control-infrared-shutter-ir-rc-1g.html) or servos to trigger your camera.                                                                                                                                                                                                                                                                                                             |
 
-
 ### Trigger Output Pin Configuration
 
-Camera trigger pins are set in the *QGroundControl* [Actuators](../config/actuators.md) configuration screen.
+Camera trigger pins are set in the _QGroundControl_ [Actuators](../config/actuators.md) configuration screen.
 
 The trigger pins can be set by assigning the `Camera_Trigger` function on any FMU output. If using trigger setup that requires two pins (e.g. Seagull MAP2) you can assign to any two outputs.
 
@@ -64,6 +62,7 @@ Note however that once an output has been used for camera triggering, the whole 
 
 :::note
 At time of writing triggering only works on FMU pins:
+
 - On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+) .
 - A controller that only has an FMU, the pins map to `MAIN` outputs (e.g. Pixhawk 4 mini, CUAV v5 nano).
 :::
@@ -82,10 +81,11 @@ The full list of parameters pertaining to the camera trigger module can be found
 
 Cameras can also (optionally) use a camera capture pin to signal the exact moment when a photo/frame is taken. This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
 
-Camera capture/feedback is enabled in PX4 by setting [CAM_CAP_FBACK = 1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK). The pin used for camera capture is then set in the *QGroundControl* [Actuators](../config/actuators.md) configuration screen by assigning the `Camera_Capture` function on any FMU output.
+Camera capture/feedback is enabled in PX4 by setting [CAM_CAP_FBACK = 1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK). The pin used for camera capture is then set in the _QGroundControl_ [Actuators](../config/actuators.md) configuration screen by assigning the `Camera_Capture` function on any FMU output.
 
 :::note
 At time of writing camera capture only works on FMU pins:
+
 - On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+).
 - A controller that only has an FMU, the pins map to `MAIN` outputs (e.g. Pixhawk 4 mini, CUAV v5 nano).
 :::
@@ -139,7 +139,6 @@ In this case MAVLink camera messages are forwarded to a MAVLink camera for handl
 
 MAVLink cameras are recommended because directly connected cameras only support [a small subset](#mavlink-command-interface-directly-connected-cameras) of the available MAVLink camera messages and commands. MAVLink cameras potentially offer much more control over a camera using the [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html).
 
-
 ## Testing Trigger Functionality
 
 :::warning
@@ -148,10 +147,11 @@ The following sections are out of date and need retesting.
 
 1. On the PX4 console:
 
-   ```
+   ```sh
    camera_trigger test
    ```
-1. From *QGroundControl*:
+
+1. From _QGroundControl_:
 
    Click on **Trigger Camera** in the main instrument panel. These shots are not logged or counted for geotagging.
 
@@ -167,9 +167,9 @@ In this example, we will use a Seagull MAP2 trigger cable to interface to a Sony
 
 The recommended camera settings are:
 
-* `TRIG_INTERFACE=2` (Seagull MAP2).
-* `TRIG_MODE=4` (Mission controlled).
-* Leave the remaining parameters at their defaults.
+- `TRIG_INTERFACE=2` (Seagull MAP2).
+- `TRIG_MODE=4` (Mission controlled).
+- Leave the remaining parameters at their defaults.
 
 You will need to connect the Seagull MAP2 to FMU pins on your autopilot. The other end of the MAP2 cable will go into the QX-1's "MULTI" port.
 
@@ -179,11 +179,11 @@ We use a Sony QX-1 with a 16-50mm f3.5-5.6 lens for this example.
 
 To avoid autofocus and metering lag when the camera is triggered, the following guidelines should be followed:
 
-* Manual focus to infinity
-* Set camera to continuous shooting mode
-* Manually set exposure and aperture
-* ISO should be set as low as possible
-* Manual white balance suitable for scene
+- Manual focus to infinity
+- Set camera to continuous shooting mode
+- Manually set exposure and aperture
+- ISO should be set as low as possible
+- Manual white balance suitable for scene
 
 ### 任务规划
 
@@ -217,7 +217,7 @@ The following diagram illustrates the sequence of events which must happen in or
 
 [![Mermaid sequence diagram](https://mermaid.ink/img/pako:eNqNUs9rwjAU_lceOW-3nXIQpIoIVkftZIdCeTbPNqxJXJI6ivi_L1Er6Dzs9kK-H3lfviOrjCDGmaPvjnRFE4m1RVVogKXxBFbWjQezg_fPN-CQS0Xgel3Bj_QNKDxY40A6EEYTYOeNQi8rbNs-SkTS62g04DgkqMgi5EG2JguWUPR_vaoLSlh5CKAb63reGuMdoBbR96Zwz7kzvQylcrXjPDFKBe71BYnR3po2ClzhkXnZNR1vFlJ_cR6GMkkn5WRV5tl8NptmZbJa5tlqEXmtMXuYBtMe4m05X-bTbDNegJJtKx1VRgv3NIybQTJOp9l4EH94zGMY99ugmqcfa49q_zyER3aKvmpg-G3QndqS_R_17AJSYU3n9PfdNuzXFJq0YC8sgBVKEbp0jHoF8w0pKhgPo6Addq0vWKFPARp7sg4lYtzbjl5Ytxfoh-oxvsPW0ekXb8TjxQ?type=png)](https://mermaid.live/edit#pako:eNqNUs9rwjAU_lceOW-3nXIQpIoIVkftZIdCeTbPNqxJXJI6ivi_L1Er6Dzs9kK-H3lfviOrjCDGmaPvjnRFE4m1RVVogKXxBFbWjQezg_fPN-CQS0Xgel3Bj_QNKDxY40A6EEYTYOeNQi8rbNs-SkTS62g04DgkqMgi5EG2JguWUPR_vaoLSlh5CKAb63reGuMdoBbR96Zwz7kzvQylcrXjPDFKBe71BYnR3po2ClzhkXnZNR1vFlJ_cR6GMkkn5WRV5tl8NptmZbJa5tlqEXmtMXuYBtMe4m05X-bTbDNegJJtKx1VRgv3NIybQTJOp9l4EH94zGMY99ugmqcfa49q_zyER3aKvmpg-G3QndqS_R_17AJSYU3n9PfdNuzXFJq0YC8sgBVKEbp0jHoF8w0pKhgPo6Addq0vWKFPARp7sg4lYtzbjl5Ytxfoh-oxvsPW0ekXb8TjxQ)
 
-<!-- Original 
+<!-- Original
 ![Sequence diag](../../assets/camera/sequence_diagram.jpg)
 {/% mermaid %/}
 sequenceDiagram
@@ -243,10 +243,10 @@ First, set the TRIG_MODE to 1 to make the driver wait for the start command and 
 
 For the purposes of this example we will be configuring the trigger to operate in conjunction with a Point Grey Firefly MV camera running at 30 FPS.
 
-* `TRIG_INTERVAL`: 33.33 ms
-* `TRIG_POLARITY`: 0 (active low)
-* `TRIG_ACT_TIME`: 0.5 ms. The manual specifies it only has to be a minimum of 1 microsecond.
-* `TRIG_MODE`: 1, because we want our camera driver to be ready to receive images before starting to trigger. This is essential to properly process sequence numbers.
+- `TRIG_INTERVAL`: 33.33 ms
+- `TRIG_POLARITY`: 0 (active low)
+- `TRIG_ACT_TIME`: 0.5 ms. The manual specifies it only has to be a minimum of 1 microsecond.
+- `TRIG_MODE`: 1, because we want our camera driver to be ready to receive images before starting to trigger. This is essential to properly process sequence numbers.
 
 ### Step 3
 

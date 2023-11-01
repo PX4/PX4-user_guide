@@ -214,7 +214,7 @@ HITL(Hardware-in-the-Loop) 시뮬레이션을 사용하여, 일반 PX4 펌웨어
 
 PX4 supports capture of both still images and video from within the [Gazebo Classic](../sim_gazebo_classic/README.md) simulated environment. This can be enabled/set up as described in [Gazebo > Video Streaming](../sim_gazebo_classic/README.md#video).
 
-The simulated camera is a gazebo classic plugin that implements the [MAVLink Camera Protocol](https://mavlink.io/en/protocol/camera.html) <!-- **PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp -->. PX4는 다른 MAVLink 카메라와 *동일 방법*으로 카메라와 연결/통합합니다.
+The simulated camera is a gazebo classic plugin that implements the [MAVLink Camera Protocol](https://mavlink.io/en/protocol/camera.html) <!-- **PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/src/gazebo_geotagged_images_plugin.cpp -->. PX4는 다른 MAVLink 카메라와 *동일 방법*으로 카메라와 연결/통합합니다.
 1. MAVLink 카메라와 함께 사용할 카메라 트리거 드라이버를 구성하려면 [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE)를 `3`으로 설정합니다. :::tip 이 모드에서 드라이버는 이미지 캡처가 요청시에 [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) 메시지를 전송합니다. 자세한 내용은 [카메라](../peripherals/camera.md)를 참고하십시오.
 :::
 

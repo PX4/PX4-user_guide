@@ -1,7 +1,8 @@
 # ESC Calibration
 
 :::note
-These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md) and [OneShot ESCs](../peripherals/oneshot.md). [DShot](../peripherals/dshot.md) and [CAN](../can/README.md) ESCs ([DroneCAN](../dronecan/escs.md)/Cyphal) do not require this kind of calibration. :::
+These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md) and [OneShot ESCs](../peripherals/oneshot.md). [DShot](../peripherals/dshot.md) and [CAN](../can/README.md) ESCs ([DroneCAN](../dronecan/escs.md)/Cyphal) do not require this kind of calibration.
+:::
 
 Electronic Speed Controllers (ESCs) regulate motor speed (and direction) based on their input command from the flight controller (FC). The range of input commands to which an ESC will respond is often configurable, and the default range can differ even between ESCs of the same model.
 
@@ -12,10 +13,12 @@ Calibration using this tool is recommended for all PWM/OneShot ESCs that support
 :::note
 Calibration is particularly important for low-cost ESC, as they commonly vary a lot in their response to input.
 
-However it is also recommended for high-quality controllers. Even though these are factory calibrated and should all respond the same way, in practice the input range can differ. For example if a controller has been manually calibrated after leaving the factory it may no longer behave in the same way. :::
+However it is also recommended for high-quality controllers. Even though these are factory calibrated and should all respond the same way, in practice the input range can differ. For example if a controller has been manually calibrated after leaving the factory it may no longer behave in the same way.
+:::
 
 :::warning
-If you want to use an ESC that does not support this calibration, then it must be factory calibrated and respond consistently out of the box. This should be verified using [Actuator Testing](../config/actuators.md#actuator-testing). Jump to the [actuator configuration step (7)](#actuatorconfig_step) (which is still important). :::
+If you want to use an ESC that does not support this calibration, then it must be factory calibrated and respond consistently out of the box. This should be verified using [Actuator Testing](../config/actuators.md#actuator-testing). Jump to the [actuator configuration step (7)](#actuatorconfig_step) (which is still important).
+:::
 
 OneShot ESCs should be [configured to use OneShot](../peripherals/oneshot.md#px4-configuration) before calibration. You should calibrate the ESCs after switching, even if you have previously calibrated.
 
@@ -36,7 +39,8 @@ To calibrate the ESCs:
 :::warning
 Never attempt ESC calibration with propellers on!
 
-   The motors _should_ not spin during ESC calibration. However if calibration starts when the ESC is already powered, or if the ESC doesn't properly support/detect the calibration sequence, then it will respond to the PWM input by running the motor at maximum speed. :::
+   The motors _should_ not spin during ESC calibration. However if calibration starts when the ESC is already powered, or if the ESC doesn't properly support/detect the calibration sequence, then it will respond to the PWM input by running the motor at maximum speed.
+:::
 
 1. Map the ESCs you're calibrating as motors in the vehicle's [Actuator Configuration](../config/actuators.md). Only mapped actuators get an output and only ESCs mapped as motors will be calibrated.
 
@@ -66,7 +70,8 @@ Never attempt ESC calibration with propellers on!
    You need to confirm that the motors do indeed work correctly. Since the default configuration values have been set conservatively, you may also wish to tune them for your particular ESCs.
 
 :::note
-The steps below are similar to those described in [Actuator Configuration > Motor Configuration](../config/actuators.md#motor-configuration). :::
+The steps below are similar to those described in [Actuator Configuration > Motor Configuration](../config/actuators.md#motor-configuration).
+:::
 
    Verify the following values:
 

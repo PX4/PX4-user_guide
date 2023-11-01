@@ -5,7 +5,7 @@
 Note also that while [Cube Black](../flight_controller/pixhawk-2.md) is [fully supported by PX4](../flight_controller/autopilot_pixhawk_standard.md), [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) and [Cube Orange](../flight_controller/cubepilot_cube_orange.md) are [Manufacturer Supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-This quick start guide shows how to power the *Cube*<sup>&reg;</sup> flight controllers and connect their most important peripherals.
+This quick start guide shows how to power the _Cube_<sup>&reg;</sup> flight controllers and connect their most important peripherals.
 
 <img src="../../assets/flight_controller/cube/orange/cube_orange_hero.jpg" width="350px" /> <img src="../../assets/flight_controller/cube/cube_black_hero.png" width="350px" /> <img src="../../assets/flight_controller/cube/yellow/cube_yellow_hero.jpg" width="150px" />
 
@@ -44,7 +44,7 @@ More information about available ports can be found here: [Cube > Ports](../flig
 
 ## Mount and Orient Controller
 
-Mount the Cube as close as possible to your vehicle’s center of gravity, ideally oriented top-side up and with the arrow pointing towards the front of the vehicle (note the *subtle* arrow marker on top of the cube)
+Mount the Cube as close as possible to your vehicle’s center of gravity, ideally oriented top-side up and with the arrow pointing towards the front of the vehicle (note the _subtle_ arrow marker on top of the cube)
 
 ![Cube Mount - Direction of Front](../../assets/flight_controller/cube/cube_mount_front.jpg)
 
@@ -60,7 +60,7 @@ The Cube can be mounted using either vibration-damping foam pads (included in th
 
 ## GPS + Compass + Safety Switch + LED
 
-The recommended GPS modules are the *Here* and [Here+](../gps_compass/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../getting_started/led_meanings.md). The difference between the modules is that *Here+* supports centimeter level positioning via [RTK](../gps_compass/rtk_gps.md). Otherwise they are used/connected in the same way.
+The recommended GPS modules are the _Here_ and [Here+](../gps_compass/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../getting_started/led_meanings.md). The difference between the modules is that _Here+_ supports centimeter level positioning via [RTK](../gps_compass/rtk_gps.md). Otherwise they are used/connected in the same way.
 
 :::warning
 The [Here+](../gps_compass/rtk_gps_hex_hereplus.md) has been superseded by the [Here3](https://www.cubepilot.org/#/here/here3) a [DroneCAN](../dronecan/README.md) RTK-GNSS that incorporate a compass and [LEDs](../getting_started/led_meanings.md) (but no safety switch). See [DroneCAN](../dronecan/README.md) for _Here3_ wiring and PX4 configuration information.
@@ -73,7 +73,7 @@ The diagram below shows a schematic view of the module and its connections.
 ![Here+ Connector Diagram](../../assets/flight_controller/cube/here_plus_connector.png)
 
 :::note
-The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 :::
 
 :::tip
@@ -82,7 +82,7 @@ If you want to use an old-style 6-pin GPS module, the kit comes with a cable tha
 
 ## Safety Switch
 
-The *dedicated* safety switch that comes with the Cube is only required if you are not using the recommended [GPS](#gps) (which has an inbuilt safety switch).
+The _dedicated_ safety switch that comes with the Cube is only required if you are not using the recommended [GPS](#gps) (which has an inbuilt safety switch).
 
 If you are flying without the GPS you must attach the switch directly to the `GPS1` port in order to be able to arm the vehicle and fly (or via a supplied cable if using an old-style 6-pin GPS).
 
@@ -98,9 +98,9 @@ The buzzer should be connected to the USB port as shown (no further configuratio
 
 ## Radio Control
 
-A [remote control (RC) radio system](../getting_started/rc_transmitter_receiver.md) is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+A [remote control (RC) radio system](../getting_started/rc_transmitter_receiver.md) is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
 
 The instructions below show how to connect the different types of receivers.
 
@@ -118,17 +118,17 @@ Spektrum DSM, DSM2, and DSM-X Satellite RC receivers connect to the **SPKT/DSM**
 
 ### PWM Receivers
 
-The Cube cannot directly connect to PPM or PWM receivers that have an *individual wire for each channel*. PWM receivers must therefore connect to the **RCIN** port *via* a PPM encoder module, which may be purchased from hex.aero or proficnc.com.
+The Cube cannot directly connect to PPM or PWM receivers that have an _individual wire for each channel_. PWM receivers must therefore connect to the **RCIN** port _via_ a PPM encoder module, which may be purchased from hex.aero or proficnc.com.
 
 ## Power
 
-Cube is typically powered from a Lithium Ion Polymer (LiPo) Battery via a Power Module (supplied with the kit) that is connected to the **POWER1** port. The power module provides reliable supply and voltage/current indication to the board, and may *separately* supply power to ESCs that are used to drive motors on a multicopter vehicle.
+Cube is typically powered from a Lithium Ion Polymer (LiPo) Battery via a Power Module (supplied with the kit) that is connected to the **POWER1** port. The power module provides reliable supply and voltage/current indication to the board, and may _separately_ supply power to ESCs that are used to drive motors on a multicopter vehicle.
 
 A typical power setup for a Multicopter vehicle is shown below.
 
 ![Power Setup - MC](../../assets/flight_controller/cube/cube_wiring_power_mc.jpg)
 
-:::Note The power (+) rail of **MAIN/AUX** is *not powered* by the power module supply to the flight controller. In order to drive servos for rudders, elevons, etc., it will need to be separately powered.
+:::Note The power (+) rail of **MAIN/AUX** is _not powered_ by the power module supply to the flight controller. In order to drive servos for rudders, elevons, etc., it will need to be separately powered.
 
 This can be done by connecting the power rail to a BEC equipped ESC, a standalone 5V BEC, or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate!
 :::
@@ -179,7 +179,7 @@ If connecting peripherals to the port labeled `GPS2`, assign the PX4 [serial por
 
 Configuration is performed using [QGroundContro](http://qgroundcontrol.com/).
 
-After downloading, installing and running *QGroundControl*, connect the board to your computer as shown.
+After downloading, installing and running _QGroundControl_, connect the board to your computer as shown.
 
 ![Cube - USB Connection to Computer](../../assets/flight_controller/cube/cube_usb_connection.jpg)
 
