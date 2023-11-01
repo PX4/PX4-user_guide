@@ -152,7 +152,7 @@ You can control the vehicles with *QGroundControl* or MAVROS in a similar way to
 
 For each simulated vehicle, the following is required:
 
-* **Gazebo Classic model**: This is defined as `xacro` file in `PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/rotors_description/urdf/<model>_base.xacro` see [here](https://github.com/PX4/PX4-SITL_gazebo/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf).
+* **Gazebo Classic model**: This is defined as `xacro` file in `PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/rotors_description/urdf/<model>_base.xacro` see [here](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf).
   Currently, the model `xacro` file is assumed to end with **base.xacro**.
   This model should have an argument called  `mavlink_udp_port` which defines the UDP port on which Gazebo Classic will communicate with PX4 node.
   The model's `xacro` file will be used to generate an `urdf` model that contains UDP port that you select.
@@ -255,7 +255,7 @@ The steps are:
    ```
 
    :::note
-   Note that the vehicle model file name argument is optional (`vehicle:=<model_file_name>`); if omitted the [plane model](https://github.com/PX4/PX4-SITL_gazebo/tree/master/models/plane) will be used by default.
+   Note that the vehicle model file name argument is optional (`vehicle:=<model_file_name>`); if omitted the [plane model](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/master/models/plane) will be used by default.
    :::
 
 This method is similar to using the xacro except that the SITL/Gazebo Classic port number is automatically inserted by _xmstarlet_ for each spawned vehicle, and does not need to be specified in the SDF file.

@@ -159,7 +159,7 @@ make px4_sitl gazebo-classic_typhoon_h480
 If you need to use a different vehicle you can include the model in its configuration file.
 You can see how in the respective Iris and Typhoon configuration files:
 
-- [iris_opt_flow.sdf](https://github.com/PX4/PX4-SITL_gazebo/blob/main/models/iris_opt_flow/iris_opt_flow.sdf)
+- [iris_opt_flow.sdf](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/iris_opt_flow/iris_opt_flow.sdf)
   ```xml
     <include>
       <uri>model://lidar</uri>
@@ -177,7 +177,7 @@ You can see how in the respective Iris and Typhoon configuration files:
       </axis>
     </joint>
    ```
-- [typhoon_h480.sdf](https://github.com/PX4/PX4-SITL_gazebo/blob/main/models/typhoon_h480/typhoon_h480.sdf.jinja#L1131-L1145)
+- [typhoon_h480.sdf](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/typhoon_h480/typhoon_h480.sdf.jinja#L1131-L1145)
   ```xml
     <include>
       <uri>model://sonar</uri>
