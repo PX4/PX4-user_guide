@@ -118,7 +118,7 @@ Make sure *QGroundControl* is not running!
    and run Gazebo Classic in HITL mode:
 
    ```sh
-   gazebo Tools/simulation/gazebo-classic/sitl_gazebo/worlds/hitl_iris.world
+   gazebo Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds/hitl_iris.world
    ```
 1. Start *QGroundControl*.
    It should autoconnect to PX4 and Gazebo Classic.
