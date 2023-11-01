@@ -65,7 +65,7 @@ The [Gazebo Classic](../sim_gazebo_classic/README.md) simulation [Typhoon H480 m
 
 실행하려면 다음을 사용하십시오.
 
-```
+```sh
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
@@ -77,13 +77,13 @@ The driver provides a simple test command. 다음은 SITL에서의 테스트 방
 
 다음을 사용하여 시뮬레이션을 시작합니다(이를 위해 매개변수를 변경할 필요는 없음).
 
-```
+```sh
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
 예를 들어 시동 여부를 확인하십시오. `commander takeoff` 명령어를 실행한 다음, 다음 명령을 사용하여 짐벌(예)을 제어합니다:
 
-```
+```sh
 gimbal test yaw 30
 ```
 
