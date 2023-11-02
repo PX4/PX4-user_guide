@@ -3,11 +3,12 @@
 This topic provides imagery/information about the [Gazebo Classic](../sim_gazebo_classic/README.md) worlds supported by PX4.
 
 The [empty.world](#empty_world) is spawned by default, though this may be overridden by a [model specific world](#model_specific_worlds).
-Developers can also manually specify the world to load: [Gazebo Classic > Loading a Specific World](../sim_gazebo_classic/README.md#set_world).
+Developers can also manually specify the world to load: [Gazebo Classic > Loading a Specific World](../sim_gazebo_classic/README.md#loading-a-specific-world).
 
 The source code for supported worlds can be found on GitHub here: [PX4/PX4-SITL_gazebo-classic/tree/main/worlds](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/main/worlds).
 
 <a id="empty_world"></a>
+
 ## Empty (Default)
 
 [PX4/PX4-SITL_gazebo-classic/tree/main/worlds/empty.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/empty.world)
@@ -56,14 +57,16 @@ The source code for supported worlds can be found on GitHub here: [PX4/PX4-SITL_
 ![Yosemite](../../assets/simulation/gazebo_classic/worlds/yosemite.jpg)
 
 <a id="model_specific_worlds"></a>
+
 ## Model Specific Worlds
 
 Some [vehicle models](../sim_gazebo_classic/gazebo_vehicles.md) rely on the physics / plugins of a specific world.
 The PX4 toolchain will automatically spawn a world that has the same name as the vehicle model if one exists (instead of the default **empty.world**):
 
 The model specific worlds are:
-- [boat.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/boat.world): Includes a surface to simulate buoyancy of the [boat](../sim_gazebo_classic/gazebo_vehicles.md#usv).
-- [uuv_hippocampus.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/uuv_hippocampus.world): An empty world used to simulate an underwater environment for the [HippoCampus UUV](../sim_gazebo_classic/gazebo_vehicles.md#uuv).
-- [typhoon_h480.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/typhoon_h480.world): Used by [Typhoon H480 (Hexrotor)](../sim_gazebo_classic/gazebo_vehicles.md#typhoon_h480) vehicle model and includes a video widget to enable / disable video streaming.
+
+- [boat.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/boat.world): Includes a surface to simulate buoyancy of the [boat](../sim_gazebo_classic/gazebo_vehicles.md#unmanned-surface-vehicle-usv-boat).
+- [uuv_hippocampus.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/uuv_hippocampus.world): An empty world used to simulate an underwater environment for the [HippoCampus UUV](../sim_gazebo_classic/gazebo_vehicles.md#hippocampus-tuhh-uuv).
+- [typhoon_h480.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/typhoon_h480.world): Used by [Typhoon H480 (Hexrotor)](../sim_gazebo_classic/gazebo_vehicles.md#typhoon-h480-hexrotor) vehicle model and includes a video widget to enable / disable video streaming.
   The world includes a gazebo plugin for a simulated camera.
 - [iris_irlock.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/iris_irlock.world): Includes a IR beacon for testing [precision landing](../advanced_features/precland.md).
