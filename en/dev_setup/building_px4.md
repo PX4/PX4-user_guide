@@ -31,7 +31,7 @@ If needed you can also [get the source code specific to a particular release](..
 First we'll build a simulated target using a console environment.
 This allows us to validate the system setup before moving on to real hardware and an IDE.
 
-Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../simulation/jmavsim.md) using the following command:
+Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../sim_jmavsim/README.md) using the following command:
 ```sh
 make px4_sitl jmavsim
 ```
@@ -61,7 +61,7 @@ This will reposition the vehicle.
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
 :::tip
-PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md) and [AirSim](../simulation/airsim.md). 
+PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md) and [AirSim](../sim_airsim/README.md). 
 These are also started with *make* - e.g.
 
 ```
@@ -291,7 +291,7 @@ make list_config_targets
 - **WORLD:** (Gazebo Classic only).
   Set the world ([PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/main/worlds)) that is loaded.
   Default is [empty.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/empty.world).
-  For more information see [Gazebo Classic > Loading a Specific World](../sim_gazebo_classic/README.md#set_world).
+  For more information see [Gazebo Classic > Loading a Specific World](../sim_gazebo_classic/README.md##loading-a-specific-world).
 
 :::tip
 You can get a list of *all* available `VIEWER_MODEL_DEBUGGER_WORLD` options using the command below:

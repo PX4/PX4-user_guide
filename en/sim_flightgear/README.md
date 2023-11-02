@@ -4,7 +4,7 @@
 This allows FlightGear to simulate rotorcrafts under various meteorological conditions (which is why the bridge was originally developed by [ThunderFly s.r.o.](https://www.thunderfly.cz/)).
 
 This page describes FlightGear's single-vehicle use in SITL.
-For information about multi-vehicle use see: [Multi-Vehicle Simulation with FlightGear](../simulation/multi_vehicle_flightgear.md).
+For information about multi-vehicle use see: [Multi-Vehicle Simulation with FlightGear](../sim_flightgear/multi_vehicle.md).
 
 **Supported Vehicles:** Autogyro, Plane, Rover.
 
@@ -77,9 +77,9 @@ The supported vehicles and `make` commands are listed below (click on the links 
 
 | Vehicle                                                                                         | Command                                      |
 | ----------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| [Standard Plane](../simulation/flightgear_vehicles.md#standard-plane)                           | `make px4_sitl_nolockstep flightgear_rascal` |
-| [Ackerman vehicle (UGV/Rover)](../simulation/flightgear_vehicles.md#ackerman-vehicle-ugv-rover) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
-| [Autogyro](../simulation/flightgear_vehicles.md#autogyro)                                       | `make px4_sitl_nolockstep flightgear_tf-g1`  |
+| [Standard Plane](../sim_flightgear/vehicles.md#standard-plane)                           | `make px4_sitl_nolockstep flightgear_rascal` |
+| [Ackerman vehicle (UGV/Rover)](../sim_flightgear/vehicles.md#ackerman-vehicle-ugv-rover) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
+| [Autogyro](../sim_flightgear/vehicles.md#autogyro)                                       | `make px4_sitl_nolockstep flightgear_tf-g1`  |
 
 The commands above launch a single vehicle with the full UI.
 _QGroundControl_ should be able to automatically connect to the simulated vehicle.
@@ -91,7 +91,7 @@ For the full list of FlightGear build targets (highlighted) run:
 make px4_sitl_nolockstep list_vmd_make_targets | grep flightgear_
 ```
 
-For additional information see: [FlightGear Vehicles](../simulation/flightgear_vehicles.md) (this includes information about "unsupported" vehicles, and adding new vehicles).
+For additional information see: [FlightGear Vehicles](../sim_flightgear/vehicles.md) (this includes information about "unsupported" vehicles, and adding new vehicles).
 :::
 
 :::note
