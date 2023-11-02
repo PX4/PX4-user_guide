@@ -10,7 +10,7 @@ It is easy to set up and can be used to test that your vehicle can take off, fly
 This topic shows how to set up jMAVSim to connect with a SITL version of PX4.
 
 :::tip
-jMAVSim can also be used for HITL Simulation ([as shown here](../simulation/hitl.md#jmavsim_hitl_configuration)).
+jMAVSim can also be used for HITL Simulation ([as shown here](../simulation/hitl.md#jmavsim-quadrotor-only)).
 :::
 
 ## Installation

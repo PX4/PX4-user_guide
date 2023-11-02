@@ -75,11 +75,11 @@ make px4_sitl_nolockstep flightgear_rascal
 
 The supported vehicles and `make` commands are listed below (click on the links to see the vehicle images).
 
-| Vehicle                                                                  | Command                                      |
-| ------------------------------------------------------------------------ | -------------------------------------------- |
-| [Standard Plane](../simulation/flightgear_vehicles.md#standard_plane)    | `make px4_sitl_nolockstep flightgear_rascal` |
-| [Ackerman vehicle (UGV/Rover)](../simulation/flightgear_vehicles.md#ugv) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
-| [Autogyro](../simulation/flightgear_vehicles.md#autogyro)                | `make px4_sitl_nolockstep flightgear_tf-g1`  |
+| Vehicle                                                                                         | Command                                      |
+| ----------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| [Standard Plane](../simulation/flightgear_vehicles.md#standard-plane)                           | `make px4_sitl_nolockstep flightgear_rascal` |
+| [Ackerman vehicle (UGV/Rover)](../simulation/flightgear_vehicles.md#ackerman-vehicle-ugv-rover) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
+| [Autogyro](../simulation/flightgear_vehicles.md#autogyro)                                       | `make px4_sitl_nolockstep flightgear_tf-g1`  |
 
 The commands above launch a single vehicle with the full UI.
 _QGroundControl_ should be able to automatically connect to the simulated vehicle.

@@ -264,7 +264,7 @@ For setup information see the _QGroundControl User Guide_:
 ## Camera Simulation
 
 PX4 supports capture of both still images and video from within the [Gazebo Classic](../sim_gazebo_classic/README.md) simulated environment.
-This can be enabled/set up as described in [Gazebo > Video Streaming](../sim_gazebo_classic/README.md#video).
+This can be enabled/set up as described in [Gazebo Glassic > Video Streaming](../sim_gazebo_classic/README.md#video-streaming).
 
 The simulated camera is a gazebo classic plugin that implements the [MAVLink Camera Protocol](https://mavlink.io/en/protocol/camera.html) <!-- **PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/src/gazebo_geotagged_images_plugin.cpp -->.
 PX4 connects/integrates with this camera in _exactly the same way_ as it would with any other MAVLink camera:
