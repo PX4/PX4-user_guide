@@ -47,20 +47,23 @@ If `make px4_sitl gz_x500` gives the error `ninja: error: unknown target 'gz_x50
 
 The supported vehicles and `make` commands are listed below.
 
-| Vehicle                                                                                          | Command                          | `PX4_SYS_AUTOSTART` |
-| ------------------------------------------------------------------------------------------------ | -------------------------------- | ------------------- |
-| [Quadrotor(x500)](./gazebo_vehicles.md#x500-quadrotor)                                           | `make px4_sitl gz_x500`          | 4001                |
-| [Quadrotor(x500) with Depth Camera](./gazebo_vehicles.md#x500-quadrotor-with-depth-camera)       | `make px4_sitl gz_x500_depth`    | 4002                |
-| [Quadrotor(x500) with Vision Odometry](./gazebo_vehicles.md#x500-quadrotor-with-visual-odometry) | `make px4_sitl gz_x500_vision`   | 4005                |
-| [VTOL](./gazebo_vehicles.md#standard-vtol)                                                       | `make px4_sitl gz_standard_vtol` | 4004                |
-| [Plane](./gazebo_vehicles.md#standard-plane)                                                     | `make px4_sitl gz_rc_cessna`     | 4003                |
+| Vehicle                                                                                           | Command                          | `PX4_SYS_AUTOSTART` |
+| ------------------------------------------------------------------------------------------------- | -------------------------------- | ------------------- |
+| [Quadrotor (x500)](./gazebo_vehicles.md#x500-quadrotor)                                           | `make px4_sitl gz_x500`          | 4001                |
+| [Quadrotor (x500) with Depth Camera](./gazebo_vehicles.md#x500-quadrotor-with-depth-camera)       | `make px4_sitl gz_x500_depth`    | 4002                |
+| [Quadrotor (x500) with Vision Odometry](./gazebo_vehicles.md#x500-quadrotor-with-visual-odometry) | `make px4_sitl gz_x500_vision`   | 4005                |
+| [VTOL](./gazebo_vehicles.md#standard-vtol)                                                        | `make px4_sitl gz_standard_vtol` | 4004                |
+| [Plane](./gazebo_vehicles.md#standard-plane)                                                      | `make px4_sitl gz_rc_cessna`     | 4003                |
 
 The commands above launch a single vehicle with the full UI.
 _QGroundControl_ should be able to automatically connect to the simulated vehicle.
 
 ### Headless Mode
 
-The simulation can be run without the Gazebo GUI using the `HEADLESS=1` flag:
+You might want to run Gazebo in "headless mode" (without the Gazebo GUI) as it uses fewer resources, and does not rely on your system having a graphics card that properly supports OpenGL rendering.
+This makes it faster to load and run, and for many simple use cases may be all you need.
+
+The simulation can be run in headless mode by prefixing the command with the `HEADLESS=1` environment variable:
 
 ```bash
 HEADLESS=1 make px4_sitl gz_x500
@@ -73,6 +76,12 @@ For example, to run the windy world with the `x500` vehicle you can specify:
 
 ```bash
 make px4_sitl gz_x500_windy
+```
+
+You can also specify the world using the `PX4_GZ_WORLD` environment variable:
+
+```sh
+PX4_GZ_WORLD=windy make px4_sitl gz_x500
 ```
 
 The supported worlds are listed below.
@@ -98,11 +107,23 @@ In particular, it is possible to:
 
 These scenarios are managed by setting the appropriate environment variables.
 
+:::note
+The environment variables described below can be used as a prefix to the `make px4_sitl gz*` command as well as for starting PX4 SITL from a prebuilt binary.
+
+These will override any settings defined by the make command itself.
+For example, this following command will start the `gz_rc_cessna` model rather than the `gz_x500` model.
+
+```sh
+PX4_GZ_MODEL=gz_rc_cessna make px4_sitl gz_x500
+```
+
+:::
+
 ### Syntax
 
 The startup syntax takes the form:
 
-```bash
+```sh
 ARGS ./build/px4_sitl_default/bin/px4
 ```
 
