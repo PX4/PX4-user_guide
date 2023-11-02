@@ -51,6 +51,7 @@ make px4_sitl gz_rc_cessna
 
 ![Plane in Gazebo](../../assets/simulation/gazebo/vehicles/rc_cessna.png)
 
+### Advanced Plane
 
 ```sh
 make px4_sitl gz_advanced_plane
