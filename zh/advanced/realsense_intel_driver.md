@@ -45,15 +45,18 @@
 
 - 安装 Git
 
-```bash
-sudo apt-get install git
-```
+  ```bash
+  sudo apt-get install git
+  ```
 
-- 下载并安装驱动
+- Download and install the driver:
+
   - 获取 [RealSense_ROS repository](https://github.com/bestmodule/RealSense_ROS)：
+
     ```bash
     git clone https://github.com/bestmodule/RealSense_ROS.git
     ```
+
 - 参照 [here](https://github.com/bestmodule/RealSense_ROS/tree/master/r200_install) 的介绍说明。
 
   - 无论要不要安装如下包都敲击回车：
@@ -71,7 +74,6 @@ Dell Airplane Mode Switch driver (DELL_RBTN) [N/m/y/?] (NEW) (NEW)
 
     ```
     Intel Low Power Subsystem support in PCI mode (MFD_INTEL_LPSS_PCI) [N/m/y/?] (NEW)
-
     ```
 
     ```
@@ -79,6 +81,7 @@ Dell Airplane Mode Switch driver (DELL_RBTN) [N/m/y/?] (NEW) (NEW)
     ```
 
   - 进程安装结束时如下错误信息会出现，但不应该导致驱动故障：
+
     ```
     rmmod: ERROR: Module uvcvideo is not currently loaded
     ```
@@ -91,9 +94,11 @@ Dell Airplane Mode Switch driver (DELL_RBTN) [N/m/y/?] (NEW) (NEW)
   - 在 Virtual Box 菜单栏中单击 Devices->USB-> Intel Corp Intel RealSense 3D Camera R200， 为了将相机 USB 连接到虚拟机。
   - 执行文件 [unpacked folder]/bin/dsreadcamerainfo：
     - 如果出现以下错误消息，请拔下相机 (从计算机物理上拔下 usb 电缆)。 If the following error message appears, unplug the camera (physically unplug USB cable from the computer). Plug it in again + Click on Devices->USB-> Intel Corp Intel RealSense 3D Camera R200 in the menu bar of the Virtual Box again and execute again the file [unpacked folder]/Bin/DSReadCameraInfo. `DSAPI call failed at ReadCameraInfo.cpp:134!`
-      ```
+
+      ```bash
       DSAPI call failed at ReadCameraInfo.cpp:134!
       ```
+
     - 如果相机驱动程序工作正常并识别 Intel RealSense R200，您应该看到有关 Intel RealSense R200 相机头的特定信息。
 
 - ROS 节点的安装和测试：
