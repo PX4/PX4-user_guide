@@ -1,6 +1,6 @@
 # PX4-Autopilot Main Release Notes
 
-This contains changes to PX4 since the last major release (v1.14).
+This contains changes to PX4 since the last major release (v1.14). 
 
 ## Read Before Upgrading
 
