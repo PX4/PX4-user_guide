@@ -60,7 +60,10 @@ _QGroundControl_ should be able to automatically connect to the simulated vehicl
 
 ### Headless Mode
 
-The simulation can be run without the Gazebo GUI using the `HEADLESS=1` flag:
+You might want to run Gazebo in "headless mode" (without the Gazebo GUI) as it uses fewer resources, and does not rely on your system having a graphics card that properly supports OpenGL rendering.
+This makes it faster to load and run, and for many simple use cases may be all you need.
+
+The simulation can be run in headless mode by prefixing the command with the `HEADLESS=1` environment variable:
 
 ```bash
 HEADLESS=1 make px4_sitl gz_x500
@@ -73,6 +76,12 @@ For example, to run the windy world with the `x500` vehicle you can specify:
 
 ```bash
 make px4_sitl gz_x500_windy
+```
+
+You can also specify the world using the `PX4_GZ_WORLD` environment variable:
+
+```sh
+PX4_GZ_WORLD=windy make px4_sitl gz_x500
 ```
 
 The supported worlds are listed below.
@@ -102,7 +111,7 @@ These scenarios are managed by setting the appropriate environment variables.
 
 The startup syntax takes the form:
 
-```bash
+```sh
 ARGS ./build/px4_sitl_default/bin/px4
 ```
 
