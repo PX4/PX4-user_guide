@@ -107,18 +107,6 @@ In particular, it is possible to:
 
 These scenarios are managed by setting the appropriate environment variables.
 
-:::note
-The environment variables described below can be used as a prefix to the `make px4_sitl gz*` command as well as for starting PX4 SITL from a prebuilt binary.
-
-These will override any settings defined by the make command itself.
-For example, this following command will start the `gz_rc_cessna` model rather than the `gz_x500` model.
-
-```sh
-PX4_GZ_MODEL=gz_rc_cessna make px4_sitl gz_x500
-```
-
-:::
-
 ### Syntax
 
 The startup syntax takes the form:
