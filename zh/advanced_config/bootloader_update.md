@@ -16,7 +16,7 @@ A case where you may need to update Pixhawk boards that install FMUv2 firmware: 
 
 This can be built from within the PX4-Autopilot folder using the `make` command and the board-specific target with a `_bootloader` suffix. For FMUv6X the command is:
 
-```
+```sh
 make px4_fmu-v6x_bootloader
 ```
 
@@ -24,7 +24,7 @@ This will build the bootloader binary as `build/px4_fmu-v6x_bootloader/px4_fmu-v
 
 如果需要 HEX 文件而不是 ELF 文件，请使用 objcopy 参数：
 
-```
+```sh
 arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf px4_fmu-v6x_bootloader.hex
 ```
 
@@ -61,7 +61,7 @@ An specific example of this process for updating the FMUv2 bootloader is given b
 
 ### FMUv2 Bootloader Update
 
-If *QGroundControl* installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
+If _QGroundControl_ installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
 
 :::note
 Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata) that restricted them to using 1MB of flash memory. The problem is fixed on newer boards, but you may need to update the factory-provided bootloader in order to install FMUv3 Firmware and access all 2MB available memory.
@@ -70,21 +70,21 @@ Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions
 To update the bootloader:
 
 1. 插入 SD 卡（使能引导日志记录，便于调试任何可能的问题）。
-1. [Update the Firmware](../config/firmware.md) to PX4 *master* version (when updating the firmware, check **Advanced settings** and then select **Developer Build (master)** from the dropdown list). *QGroundControl* will automatically detect that the hardware supports FMUv2 and install the appropriate Firmware.
+1. [Update the Firmware](../config/firmware.md) to PX4 _master_ version (when updating the firmware, check **Advanced settings** and then select **Developer Build (master)** from the dropdown list). _QGroundControl_ will automatically detect that the hardware supports FMUv2 and install the appropriate Firmware.
 
    ![FMUv2 更新](../../assets/qgc/setup/firmware/bootloader_update.jpg)
 
    等待飞控重启。
+
 1. [找到并启用](../advanced_config/parameters.md) 参数 [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)。
 1. 重新启动（断开/重新连接飞控板）。 Bootloader 更新只需要几秒钟即可完成。
-1. Then [Update the Firmware](../config/firmware.md) again. This time *QGroundControl* should autodetect the hardware as FMUv3 and update the Firmware appropriately.
+1. Then [Update the Firmware](../config/firmware.md) again. This time _QGroundControl_ should autodetect the hardware as FMUv3 and update the Firmware appropriately.
 
    ![FMUv3 update](../../assets/qgc/setup/firmware/bootloader_fmu_v3_update.jpg)
 
 :::note
 If the hardware has the [Silicon Errata](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata) it will still be detected as FMUv2 and you will see that FMUv2 was re-installed (in console). In this case you will not be able to install FMUv3 hardware.
 :::
-
 
 ## Dronecode Probe Bootloader 更新
 

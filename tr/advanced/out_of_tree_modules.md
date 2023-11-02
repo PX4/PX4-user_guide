@@ -19,15 +19,17 @@ To create an external module:
 - Copy an existing module (e.g. **examples/px4_simple_app**) to the external directory, or directly create a new module.
 - Rename the module (including `MODULE` in **CMakeLists.txt**) or remove it from the existing PX4-Autopilot _cmake_ build config. This is to avoid conflicts with internal modules.
 - Add a file **CMakeLists.txt** in the external directory with content:
-  ```
+
+  ```cmake
   set(config_module_list_external
       modules/<new_module>
       PARENT_SCOPE
       )
   ```
+
 - Add a line `EXTERNAL` to the `modules/<new_module>/CMakeLists.txt` within `px4_add_module()`, for example like this:
 
-  ```
+  ```cmake
   px4_add_module(
     MODULE modules__test_app
     MAIN test_app
@@ -47,7 +49,7 @@ uORB messages can also be defined out-of-tree. For this, the `$EXTERNAL_MODULES_
 - Place all new message definitions within the `$EXTERNAL_MODULES_LOCATION/msg` directory. The format of these new out-of-tree message definitions are the same as for any other [uORB message definition](../middleware/uorb.md#adding-a-new-topic).
 - Add a file `$EXTERNAL_MODULES_LOCATION/msg/CMakeLists.txt` with content:
 
-  ```
+  ```cmake
   set(config_msg_list_external
       <message1>.msg
       <message2>.msg

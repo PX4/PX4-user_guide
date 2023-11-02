@@ -10,7 +10,7 @@ All PX4 integraton tests are executed automatically by our [Continuous Integrati
 
 ## ROS / MAVROS 测试
 
-* [jMAVSim 仿真模拟](../simulation/jmavsim.md)
+* [jMAVSim 仿真模拟](../sim_jmavsim/README.md)
 * [Gazebo Classic Simulator](../sim_gazebo_classic/README.md)
 * [ROS 和 MAVROS](../simulation/ros_interface.md)
 

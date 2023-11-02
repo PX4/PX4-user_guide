@@ -116,14 +116,19 @@ The C++ API provides macros to declare parameters as _class attributes_. You add
 First include the required needed headers in the class header for your module or driver:
 
 - **px4_platform_common/module_params.h** to get the `DEFINE_PARAMETERS` macro:
+
   ```cpp
   #include <px4_platform_common/module_params.h>
   ```
+
 - **parameter_update.h** to access the uORB `parameter_update` message:
+
   ```cpp
   #include <uORB/topics/parameter_update.h>
   ```
+
 - **Subscription.hpp** for the uORB C++ subscription API:
+
   ```cpp
   #include <uORB/Subscription.hpp>
   ```
@@ -239,10 +244,12 @@ YAML meta data is intended as a full replacement for the **.c** definitions. It 
 - The YAML parameter metadata schema is here: [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml).
 - An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml).
 - A YAML file is registered in the cmake build system by adding
-  ```
+
+  ```cmake
   MODULE_CONFIG
     module.yaml
   ```
+
   to the `px4_add_module` section of the `CMakeLists.txt` file of that module.
 
 #### Multi-Instance (Templated) YAML Meta Data
@@ -251,7 +258,7 @@ Templated parameter definitions are supported in [YAML parameter definitions](ht
 
 The YAML allows you to define instance numbers in parameter names, descriptions, etc. using `${i}`. For example, below will generate MY_PARAM_1_RATE, MY_PARAM_2_RATE etc.
 
-```
+```yaml
 #include <parameters/param.h>
 ```
 

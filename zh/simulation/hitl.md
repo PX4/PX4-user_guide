@@ -4,7 +4,6 @@
 
 PX4 supports HITL for multicopters (using jMAVSim or Gazebo Classic) and VTOL (using Gazebo Classic).
 
-
 <a id="compatible_airframe"></a>
 
 ## HITL兼容机架
@@ -21,7 +20,7 @@ PX4 supports HITL for multicopters (using jMAVSim or Gazebo Classic) and VTOL (u
 
 ## HITL 仿真环境
 
-硬件在环仿真（HITL）模式下标准的 PX4 固件在真实的硬件上运行。 JMAVSim or Gazebo Classic (running on a development computer) are connected to the flight controller hardware via USB/UART. 模拟器充当在 PX4 和 *QGroundControl* 之间共享 MAVLink 数据的网关。
+硬件在环仿真（HITL）模式下标准的 PX4 固件在真实的硬件上运行。 JMAVSim or Gazebo Classic (running on a development computer) are connected to the flight controller hardware via USB/UART. The simulator acts as gateway to share MAVLink data between PX4 and _QGroundControl_.
 
 :::note
 The simulator can also be connected via UDP if the flight controller has networking support and uses a stable, low-latency connection (e.g. a wired Ethernet connection - WiFi is usually not sufficiently reliable). For example, this configuration has been tested with PX4 running on a Raspberry Pi connected via Ethernet to the computer (a startup configuration that includes the command for running jMAVSim can be found [here](https://github.com/PX4/PX4-Autopilot/blob/main/posix-configs/rpi/px4_hil.config)).
@@ -29,14 +28,13 @@ The simulator can also be connected via UDP if the flight controller has network
 
 The diagram below shows the simulation environment:
 
-* 飞控板 HITL 模式被激活 (通过 *QGroundControl*) ，该模式下不会启动飞控板上任何传感器。
-* *jMAVSim* or *Gazebo Classic* are connected to the flight controller via USB.
-* 模拟器通过 UDP 连接到 *QGroundControl* 并将 MAVLink 数据传输至 PX4 。
-* *Gazebo Classic* and *jMAVSim* can also connect to an offboard API and bridge MAVLink messages to PX4.
-* (可选 - 仅适用于Gazebo) Gazebo 还可以连接到一个 offboard API ，并将 MAVLink 数据桥接到 PX4 。
+- A HITL configuration is selected (via _QGroundControl_) that doesn't start any real sensors.
+- _jMAVSim_ or _Gazebo Classic_ are connected to the flight controller via USB.
+- The simulator is connected to _QGroundControl_ via UDP and bridges its MAVLink messages to PX4.
+- _Gazebo Classic_ and _jMAVSim_ can also connect to an offboard API and bridge MAVLink messages to PX4.
+- (Optional) A serial connection can be used to connect Joystick/Gamepad hardware via _QGroundControl_.
 
 ![HITL Setup - jMAVSim and Gazebo Classic](../../assets/simulation/px4_hitl_overview_jmavsim_gazebo.svg)
-
 
 ## HITL 相比于 SITL
 
@@ -46,36 +44,42 @@ By contrast, HITL runs normal PX4 firmware in "HITL mode", on normal hardware. T
 
 完成所有的配置设定后 **关闭** *QGroundControl* 并断开飞控板与计算机的连接。
 
-
 ## 配置 HITL
 
 ### JMAVSim/Gazebo HITL 仿真环境
 
-1. 通过 USB 将自动驾驶仪直接连接到 *QGroundControl*。
+1. Connect the autopilot directly to _QGroundControl_ via USB.
 1. 激活 HITL 模式
+
    1. 打开 **Setup > Safety** 选项卡。
-   1. 在 *HITL Enabled* 下拉框中选择 **Enabled** 完成 HITL 模式的激活。
+   1. Enable HITL mode by selecting **Enabled** from the _HITL Enabled_ list:
 
       ![QGroundControl HITL 配置](../../assets/gcs/qgc_hitl_config.png)
+
 1. 选择机架
+
    1. 打开 **Setup > Airframes** 选项卡。
-   1. 选择一个你想要进行测试的 [兼容的机架](#compatible_airframe) 。 Then click **Apply and Restart** on top-right of the *Airframe Setup* page.
+   1. 选择一个你想要进行测试的 [兼容的机架](#compatible_airframe) 。 Then click **Apply and Restart** on top-right of the _Airframe Setup_ page.
 
       ![选择机架](../../assets/gcs/qgc_hil_config.png)
+
 1. 如有必要, 校准您的 RC 遥控器 或操纵杆。
 1. 设置 UDP
-   1. 在设置菜单的 "*General*" 选项卡下, 取消选中 *AutoConnect* 一栏中除 **UDP** 外的所有复选框。
+
+   1. Under the _General_ tab of the settings menu, uncheck all _AutoConnect_ boxes except for **UDP**.
 
       ![GITL 模式 QGC 自动连接设置](../../assets/gcs/qgc_hitl_autoconnect.png)
+
 1. (可选) 配置操纵杆和故障保护。 设置以下 [parameters](https://docs.px4.io/en/advanced_config/parameters.html#finding-a-parameter) 以便使用操纵杆而不是 RC 遥控器：
-   * [COM_RC_IN_MODE](../advanced/parameter_reference.md#COM_RC_IN_MODE) 更改为 "Joystick/No RC Checks". 这允许操纵杆输入并禁用 RC 输入检查。 这允许操纵杆输入并禁用 RC 输入检查。
-   * [NAV_DLL_ACT](../advanced/parameter_reference.md#NAV_DLL_ACT) 更改为 "Disabled"。 这可确保在没有无线遥控的情况下运行 HITL 时 RC 失控保护不会介入。
+
+   - [COM_RC_IN_MODE](../advanced/parameter_reference.md#COM_RC_IN_MODE) 更改为 "Joystick/No RC Checks". 这允许操纵杆输入并禁用 RC 输入检查。 这允许操纵杆输入并禁用 RC 输入检查。
+   - [NAV_DLL_ACT](../advanced/parameter_reference.md#NAV_DLL_ACT) 更改为 "Disabled"。 这可确保在没有无线遥控的情况下运行 HITL 时 RC 失控保护不会介入。
 
 :::tip
-The *QGroundControl User Guide* also has instructions on [Joystick](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html) and [Virtual Joystick](https://docs.qgroundcontrol.com/master/en/SettingsView/VirtualJoystick.html) setup.
+The _QGroundControl User Guide_ also has instructions on [Joystick](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html) and [Virtual Joystick](https://docs.qgroundcontrol.com/master/en/SettingsView/VirtualJoystick.html) setup.
 :::
 
-遵循以下流程进行 X-Plane 模拟器的配置：
+Once configuration is complete, **close** _QGroundControl_ and disconnect the flight controller hardware from the computer.
 
 ### X-Plane HITL 仿真环境
 
@@ -84,7 +88,7 @@ The *QGroundControl User Guide* also has instructions on [Joystick](https://docs
 #### Gazebo Classic
 
 :::note
-Make sure *QGroundControl* is not running!
+Make sure _QGroundControl_ is not running!
 :::
 
 1. Build PX4 with [Gazebo Classic](../sim_gazebo_classic/README.md) (in order to build the Gazebo Classic plugins).
@@ -93,6 +97,7 @@ Make sure *QGroundControl* is not running!
    cd <Firmware_clone>
    DONT_RUN=1 make px4_sitl_default gazebo-classic
    ```
+
 1. Open the vehicle model's sdf file (e.g. **Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/iris_hitl/iris_hitl.sdf**).
 1. 找到文件的 `mavlink_interface plugin` 分区，将 `serialEnabled` 和 `hil_mode` 参数更改为 `true` 。
 
@@ -111,18 +116,18 @@ The serial device depends on what port is used to connect the vehicle to the com
    ```sh
    gazebo Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds/hitl_iris.world
    ```
-1. Start *QGroundControl*. It should autoconnect to PX4 and Gazebo Classic.
 
-<a id="jmavsim_hitl_configuration"></a>
+1. Start _QGroundControl_. It should autoconnect to PX4 and Gazebo Classic.
 
 #### jMAVSim (仅适用于四旋翼无人机)
 
 :::note
-Make sure *QGroundControl* is not running!
+Make sure _QGroundControl_ is not running!
 :::
 
 1. 将飞行控制器连接到计算机, 并等待其启动。
 1. 在 HITL 模式下运行 jMAVSim (r如有必要，修改串口号名称 `/dev/ttyACM0` - 比如，在 Mac OS 上该参数应为 `/dev/tty.usbmodem1`)： sh ./Tools/jmavsim_run.sh -q -d /dev/ttyACM0 -b 921600 -r 250
+
    ```sh
    ./Tools/simulation/jmavsim/jmavsim_run.sh -q -s -d /dev/ttyACM0 -b 921600 -r 250
    ```
@@ -130,9 +135,9 @@ Make sure *QGroundControl* is not running!
 :::note
 Replace the serial port name `/dev/ttyACM0` as appropriate. On macOS this port would be `/dev/tty.usbmodem1`. On Windows (including Cygwin) it would be the COM1 or another port - check the connection in the Windows Device Manager.
 :::
-1. 开启 *QGroundControl*。 它应该会自动连接 PX4 和 Gazebo 。
 
+1. Start _QGroundControl_. 它应该会自动连接 PX4 和 Gazebo 。
 
 ## 在 HITL 仿真中执行自主飞行任务
 
-You should be able to use *QGroundControl* to [run missions](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#missions) and otherwise control the vehicle.
+You should be able to use _QGroundControl_ to [run missions](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#missions) and otherwise control the vehicle.

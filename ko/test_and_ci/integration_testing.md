@@ -10,7 +10,7 @@ PX4의 ROS 기반 통합 테스트 방법을 설명합니다.
 
 ## 전제 조건
 
-* [jMAVSim 시뮬레이터](../simulation/jmavsim.md)
+* [jMAVSim 시뮬레이터](../sim_jmavsim/README.md)
 * [Gazebo Classic Simulator](../sim_gazebo_classic/README.md)
 * [ROS와 MAVROS](../simulation/ros_interface.md)
 

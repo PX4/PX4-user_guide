@@ -64,7 +64,7 @@ PX4 automatically switches to MAVLink 2 if the GCS and telemetry modules support
 
 MAVLink 2 must be used on low-bandwidth links for good RTK performance. Care must be taken to make sure that the telemetry chain uses MAVLink 2 throughout. You can verify the protocol version by using the `mavlink status` command on the system console:
 
-```
+```sh
 nsh> mavlink status
 instance #0:
         GCS heartbeat:  593486 us ago

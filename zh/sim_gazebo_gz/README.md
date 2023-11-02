@@ -31,10 +31,11 @@ sudo apt-get install gz-garden
 
 Gazebo SITL simulation can be conveniently run through a `make` command as shown below:
 
-```bash
+```sh
 cd /path/to/PX4-Autopilot
 make px4_sitl gz_x500
 ```
+
 This will run both the PX4 SITL instance and the Gazebo client. Note that all gazebo make targets have the prefix `gz_`.
 
 :::note
@@ -43,15 +44,15 @@ If `make px4_sitl gz_x500` gives the error `ninja: error: unknown target 'gz_x50
 
 The supported vehicles and `make` commands are listed below.
 
-| Vehicle                                                                                          | Command                          | `PX4_SYS_AUTOSTART` |
-| ------------------------------------------------------------------------------------------------ | -------------------------------- | ------------------- |
-| [Quadrotor(x500)](./gazebo_vehicles.md#x500-quadrotor)                                           | `make px4_sitl gz_x500`          | 4001                |
-| [Quadrotor(x500) with Depth Camera](./gazebo_vehicles.md#x500-quadrotor-with-depth-camera)       | `make px4_sitl gz_x500_depth`    | 4002                |
-| [Quadrotor(x500) with Vision Odometry](./gazebo_vehicles.md#x500-quadrotor-with-visual-odometry) | `make px4_sitl gz_x500_vision`   | 4005                |
-| [VTOL](./gazebo_vehicles.md#standard-vtol)                                                       | `make px4_sitl gz_standard_vtol` | 4004                |
-| [Plane](./gazebo_vehicles.md#rc-cessna)                                                          | `make px4_sitl gz_rc_cessna`     | 4003                |
+| Vehicle                                                                                                  | Command                          | `PX4_SYS_AUTOSTART` |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------- | ------------------- |
+| [Quadrotor(x500)](../sim_gazebo_gz/vehicles.md#x500-quadrotor)                                           | `make px4_sitl gz_x500`          | 4001                |
+| [Quadrotor(x500) with Depth Camera](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-depth-camera)       | `make px4_sitl gz_x500_depth`    | 4002                |
+| [Quadrotor(x500) with Vision Odometry](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-visual-odometry) | `make px4_sitl gz_x500_vision`   | 4005                |
+| [VTOL](../sim_gazebo_gz/vehicles.md#standard-vtol)                                                       | `make px4_sitl gz_standard_vtol` | 4004                |
+| [Plane](../sim_gazebo_gz/vehicles.md#standard-plane)                                                     | `make px4_sitl gz_rc_cessna`     | 4003                |
 
-The commands above launch a single vehicle with the full UI. *QGroundControl* should be able to automatically connect to the simulated vehicle.
+The commands above launch a single vehicle with the full UI. _QGroundControl_ should be able to automatically connect to the simulated vehicle.
 
 ### Headless Mode
 
@@ -102,9 +103,11 @@ where `ARGS` is a list of environment variables including:
 - `PX4_SYS_AUTOSTART` (**Mandatory**): Sets the [airframe autostart id](../dev_airframes/adding_a_new_frame.md) of the PX4 airframe to start.
 
 - `PX4_GZ_MODEL_NAME`: Sets the name of an _existing_ model in the gazebo simulation. If provided, the startup script tries to bind a new PX4 instance to the Gazebo resource matching exactly that name.
+
   - The setting is mutually exclusive with `PX4_GZ_MODEL`.
 
 - `PX4_GZ_MODEL`: Sets the name of a new Gazebo model to be spawned in the simulator. If provided, the startup script looks for a model in the Gazebo resource path that matches the given variable, spawns it and binds a new PX4 instance to it.
+
   - The setting is mutually exclusive with `PX4_GZ_MODEL_NAME`.
 
 :::note
@@ -112,11 +115,13 @@ If both `PX4_GZ_MODEL_NAME` and `PX4_GZ_MODEL` are not given, then PX4 looks for
 :::
 
 - `PX4_GZ_MODEL_POSE`: Sets the spawning position and orientation of the model when `PX4_GZ_MODEL` is adopted. If provided, the startup script spawns the model at a pose following the syntax `"x,y,z,roll,pitch,yaw"`, where the positions are given in metres and the angles are in radians.
+
   - If omitted, the zero pose `[0,0,0,0,0,0]` is used.
   - If less then 6 values are provided, the missing ones are fixed to zero.
   - This can only be used with `PX4_GZ_MODEL` (not `PX4_GZ_MODEL_NAME`).
 
 - `PX4_GZ_WORLD`: Sets the Gazebo world file for a new simulation. If it is not given, then [default](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf) is used.
+
   - This variable is ignored if an existing simulation is already running.
   - This value should be [specified for the selected airframe](#adding-new-worlds-and-models) but may be overridden using this argument.
 
@@ -161,17 +166,19 @@ To add a new model:
 1. Define an [airframe configuration file](../dev_airframes/adding_a_new_frame.md).
 1. Define the default parameters for Gazebo in the airframe configuration file (this example is from [x500 quadcopter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/4001_gz_x500)):
 
-   ```
+   ```conf
    PX4_SIMULATOR=${PX4_SIMULATOR:=gz}
    PX4_GZ_WORLD=${PX4_GZ_WORLD:=default}
    PX4_SIM_MODEL=${PX4_SIM_MODEL:=<your model name>}
    ```
+
    - `PX4_SIMULATOR=${PX4_SIMULATOR:=gz}` sets the default simulator (Gz) for that specific airframe.
 
    - `PX4_GZ_WORLD=${PX4_GZ_WORLD:=default}` sets the [default world](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf) for that specific airframe.
 
-   - Setting the default value of `PX4_SIM_MODEL` lets you start the simulation with just
-     ```bash
+   - Setting the default value of `PX4_SIM_MODEL` lets you start the simulation with just:
+
+     ```sh
      PX4_SYS_AUTOSTART=<your new airframe id> ./build/px4_sitl_default/bin/px4
      ```
 

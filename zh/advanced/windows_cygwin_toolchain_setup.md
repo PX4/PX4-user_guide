@@ -4,8 +4,6 @@ This topic explains how to construct and extend the development environment used
 
 ## 附加信息
 
-<a id="features"></a>
-
 ### 特性/问题
 
 以下已知正常功能 (版本 2.0):
@@ -23,8 +21,6 @@ This topic explains how to construct and extend the development environment used
 - 仅支持 NuttX 和 JMAVSim/SITL 构建。
 - [已知问题](https://github.com/orgs/PX4/projects/6) (也用来报告问题)。
 
-<a id="script_setup"></a>
-
 ### Shell 脚本安装
 
 你还可以使用 Github 项目中的 shell 脚本进行开发环境的安装。
@@ -32,15 +28,13 @@ This topic explains how to construct and extend the development environment used
 1. 确保您安装了 [Windows 版本的 Git](https://git-scm.com/download/win)。
 1. 将代码仓库 https://github.com/PX4/windows-toolchain 克隆到要安装工具链的位置。 打开 `Git Bash` 并执行以下操作，打开后会自动进入默认的安装目录：
 
-```
+```cmd
 cd /c/
 git clone https://github.com/PX4/windows-toolchain PX4
 ```
 
 1. 如果要安装所有组件，请进入到新克隆的代码仓库文件夹， 然后双击位于文件夹 `toolchain`目录中的脚本 ` install-all-components.bat`。 如果您只需要某些组件并希望占用有限的Internet 数据和磁盘空间，则可以进入到不同的组件文件夹，如 ` toolchain\cygwin64 `，然后单击 ** install-XXX.bat ** 脚本以获取特定的内容。
 1. 继续 [ 入门指南 ](#getting_started) (或 [ 使用说明 ](#usage_instructions))
-
-<a id="manual_setup"></a>
 
 ### 手动安装 (用于工具链开发者)
 
@@ -93,7 +87,7 @@ git clone https://github.com/PX4/windows-toolchain PX4
 
 1. 通过打开并运行 Cywin 工具链控制台（双击**run-console.bat**）来添加必要的 **python packages**。
 
-   ```
+   ```sh
    pip2 install toml
    pip2 install pyserial
    pip2 install pyulog
@@ -134,25 +128,18 @@ This is what the toolchain does in: [apache-ant/install-apache-ant.bat](https://
 
    - 克隆源代码到文件夹 **C:\PX4\toolchain\genromfs\genromfs-src** 使用
 
-     ```
+     ```cmd
      cd /c/toolchain/genromfs
      git clone https://github.com/chexum/genromfs.git genromfs-src
      ```
 
    - 编译:
-     ```
+
+     ```cmd
      cd genromfs-src
      make all
      ```
 
-   ```
-
-   * Copy the resulting binary **genromfs.exe** one folder level out to: **C:\PX4\toolchain\genromfs**
-
-   :::note
-   .
-   :
-
-   ```
+   - 复制生成的二进制文件**genromfs.exe**到**C:\PX4\toolchain\genromfs**同级目录下
 
 1. 确保所有已安装组件的二进制文件夹都正确配置在 [**setup-environment.bat**](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat)配置的</code>PATH</0>环境变量中。
