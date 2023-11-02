@@ -272,6 +272,11 @@ Specifically, setting a flag has the following consequences in PX4, if the condi
   Check the [safety page](../config/safety.md) for how to configure failsafe behavior.
   A failsafe is also triggered when the mode crashes or becomes unresponsive while it is selected.
 
+This is the corresponding flow diagram for the manual control flag:
+
+![Mode requirements diagram](../../assets/middleware/ros2/px4_ros2_interface_lib/mode_requirements_diagram.png)
+<!-- source: https://drive.google.com/file/d/1g_NlQlw7ROLP_mAi9YY2nDwP0zTNsFlB/view -->
+
 It is possible to manually update any mode requirement after the mode is registered. For example to add home position as requirement:
 
 ```cpp
