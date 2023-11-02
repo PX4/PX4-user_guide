@@ -139,7 +139,7 @@ HEADLESS=1 make px4_sitl jmavsim
 
 ## Multi-Vehicle Simulation
 
-JMAVSim can be used for multi-vehicle simulation: [Multi-Vehicle Sim with JMAVSim](../simulation/multi_vehicle_jmavsim.md).
+JMAVSim can be used for multi-vehicle simulation: [Multi-Vehicle Sim with JMAVSim](../sim_jmavsim/multi_vehicle.md).
 
 ## Extending and Customizing
 

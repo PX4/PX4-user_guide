@@ -1,6 +1,6 @@
 # FlightGear Vehicles
 
-This topic lists/displays the vehicles supported by the PX4 [FlightGear](../simulation/flightgear.md) simulation, and the `make` commands required to run them (the commands are run from terminal in the **PX4-Autopilot** directory).
+This topic lists/displays the vehicles supported by the PX4 [FlightGear](../sim_flightgear/README.md) simulation, and the `make` commands required to run them (the commands are run from terminal in the **PX4-Autopilot** directory).
 The supported types are: plane, autogyro and rover (there are specific frames within these types).
 
 :::tip
@@ -8,7 +8,7 @@ For the full list of build targets run `make px4_sitl list_vmd_make_targets` (fi
 :::
 
 :::note
-The [FlightGear](../simulation/flightgear.md) page shows how to install and use FlightGear in more detail (this page is a summary of vehicle-specific features).
+The [FlightGear](../sim_flightgear/README.md) page shows how to install and use FlightGear in more detail (this page is a summary of vehicle-specific features).
 :::
 
 ## Standard Plane

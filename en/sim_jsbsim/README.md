@@ -26,7 +26,7 @@ These instructions were tested on Ubuntu 18.04
    ```
 
 1. (Optional) FlightGear may (optionally) be used for visualisation.
-   To install FlightGear, refer to the [FlightGear installation instructions](../simulation/flightgear.md)).
+   To install FlightGear, refer to the [FlightGear installation instructions](../sim_flightgear/README.md)).
 
 ## Running the Simulation
 

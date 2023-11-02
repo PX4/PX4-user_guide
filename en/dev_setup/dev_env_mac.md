@@ -3,7 +3,7 @@
 The following instructions set up a PX4 development environment for macOS.
 This environment can be used to build PX4 for:
 * Pixhawk and other NuttX-based hardware
-* [jMAVSim Simulation](../simulation/jmavsim.md)
+* [jMAVSim Simulation](../sim_jmavsim/README.md)
 * [Gazebo Classic Simulation](../sim_gazebo_classic/README.md)
 
 :::tip
@@ -109,7 +109,7 @@ To setup the environment for [Gazebo Classic](../sim_gazebo_classic/README.md) s
 
 ## jMAVSim Simulation
 
-To setup the environment for [jMAVSim](../simulation/jmavsim.md) simulation:
+To setup the environment for [jMAVSim](../sim_jmavsim/README.md) simulation:
 
 1. Install a recent version of Java (e.g. Java 15).
    You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) or use [Eclipse Temurin](https://adoptium.net):
@@ -128,7 +128,7 @@ To setup the environment for [jMAVSim](../simulation/jmavsim.md) simulation:
    PX4 v1.11 and beyond require at least JDK 15 for jMAVSim simulation.
 
    For earlier versions, macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`.
-   You can find the fix in the [jMAVSim with SITL > Troubleshooting](../simulation/jmavsim.md#troubleshooting)).
+   You can find the fix in the [jMAVSim with SITL > Troubleshooting](../sim_jmavsim/README.md#troubleshooting)).
    :::
 
 ## Next Steps

@@ -11,11 +11,11 @@ To simulate multiple iris or plane vehicles in Gazebo Classic use the following 
 Tools/simulation/gazebo-classic/sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
 ```
 
-- `<model>`: The [vehicle type/model](../sim_gazebo_classic/gazebo_vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
+- `<model>`: The [vehicle type/model](../sim_gazebo_classic/vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
 - `<number_of_vehicles>`: The number of vehicles to spawn.
   Default is 3.
   Maximum is 254.
-- `<world>`: The [world](../sim_gazebo_classic/gazebo_worlds.md) that the vehicle should be spawned into, e.g.: `empty` (default)
+- `<world>`: The [world](../sim_gazebo_classic/worlds.md) that the vehicle should be spawned into, e.g.: `empty` (default)
 - `<script>`: Spawn multiple vehicles of different types (overriding the values in `-m` and `-n`).
   For example:
 

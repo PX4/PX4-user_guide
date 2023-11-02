@@ -5,7 +5,7 @@ The following instructions explain how to set up a PX4 development environment o
 This environment can be used to build PX4 for:
 
 - [Pixhawk and other NuttX-based hardware](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
-- [jMAVSim Simulation](../simulation/jmavsim.md)
+- [jMAVSim Simulation](../sim_jmavsim/README.md)
 - [Gazebo Classic Simulation](../sim_gazebo_classic/README.md)
 
 :::tip

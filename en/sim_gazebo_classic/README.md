@@ -7,7 +7,7 @@ It has been superseded by [Gazebo](../sim_gazebo_gz/README.md) (which was [forme
 
 Gazebo Classic is a powerful 3D simulation environment for autonomous robots that is particularly suitable for testing object-avoidance and computer vision.
 This page describes its use with SITL and a single vehicle.
-Gazebo Classic can also be used with [HITL](../simulation/hitl.md) and for [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md).
+Gazebo Classic can also be used with [HITL](../simulation/hitl.md) and for [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation.md).
 
 **Supported Vehicles:** Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter), Hex (Typhoon H480), [Generic Standard VTOL (QuadPlane)](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), Tailsitter, Plane, Rover, Submarine/UUV.
 
@@ -67,21 +67,21 @@ For the full list of build targets run `make px4_sitl list_vmd_make_targets` (an
 
 | Vehicle                                                                                                                                   | Command                                                   |
 | ----------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| [Quadrotor](../sim_gazebo_classic/gazebo_vehicles.md#quadrotor-default)                                                                   | `make px4_sitl gazebo-classic`                            |
-| [Quadrotor with Optical Flow](../sim_gazebo_classic/gazebo_vehicles.md#quadrotor-with-optical-flow)                                       | `make px4_sitl gazebo-classic_iris_opt_flow`              |
-| [Quadrotor with Depth Camera](../sim_gazebo_classic/gazebo_vehicles.md#quadrotor-with-depth-camera) (forward-facing)                      | `make px4_sitl gazebo-classic_iris_depth_camera`          |
-| [Quadrotor with Depth Camera](../sim_gazebo_classic/gazebo_vehicles.md#quadrotor-with-depth-camera) (downward-facing)                     | `make px4_sitl gazebo-classic_iris_downward_depth_camera` |
-| [3DR Solo (Quadrotor)](../sim_gazebo_classic/gazebo_vehicles.md#3dr-solo-quadrotor)                                                      | `make px4_sitl gazebo-classic_solo`                       |
-| <a id="typhoon_h480"></a>[Typhoon H480 (Hexrotor)](../sim_gazebo_classic/gazebo_vehicles.md#typhoon-h480-hexrotor) (with video streaming) | `make px4_sitl gazebo-classic_typhoon_h480`               |
-| [Standard Plane](../sim_gazebo_classic/gazebo_vehicles.md#standard-plane)                                                                 | `make px4_sitl gazebo-classic_plane`                      |
-| [Standard Plane (with catapult launch)](../sim_gazebo_classic/gazebo_vehicles.md#standard-plane-with-catapult-launch)                     | `make px4_sitl gazebo-classic_plane_catapult`             |
-| [Standard VTOL](../sim_gazebo_classic/gazebo_vehicles.md#standard-vtol)                                                                   | `make px4_sitl gazebo-classic_standard_vtol`              |
-| [Tailsitter VTOL](../sim_gazebo_classic/gazebo_vehicles.md#tailsitter-vtol)                                                               | `make px4_sitl gazebo-classic_tailsitter`                 |
-| [Ackerman UGV (Rover)](../sim_gazebo_classic/gazebo_vehicles.md#ackermann-ugv)                                                            | `make px4_sitl gazebo-classic_rover`                      |
-| [Differential UGV (Rover)](../sim_gazebo_classic/gazebo_vehicles.md#differential-ugv)                                                     | `make px4_sitl gazebo-classic_r1_rover`                   |
-| [HippoCampus TUHH (UUV: Unmanned Underwater Vehicle)](../sim_gazebo_classic/gazebo_vehicles.md#unmanned-underwater-vehicle-uuv-submarine)                                       | `make px4_sitl gazebo-classic_uuv_hippocampus`            |
-| [Boat (USV: Unmanned Surface Vehicle)](../sim_gazebo_classic/gazebo_vehicles.md#hippocampus-tuhh-uuv)                                     | `make px4_sitl gazebo-classic_boat`                       |
-| [Cloudship (Airship)](../sim_gazebo_classic/gazebo_vehicles.md#airship)                                                                   | `make px4_sitl gazebo-classic_cloudship`                  |
+| [Quadrotor](../sim_gazebo_classic/vehicles.md#quadrotor-default)                                                                   | `make px4_sitl gazebo-classic`                            |
+| [Quadrotor with Optical Flow](../sim_gazebo_classic/vehicles.md#quadrotor-with-optical-flow)                                       | `make px4_sitl gazebo-classic_iris_opt_flow`              |
+| [Quadrotor with Depth Camera](../sim_gazebo_classic/vehicles.md#quadrotor-with-depth-camera) (forward-facing)                      | `make px4_sitl gazebo-classic_iris_depth_camera`          |
+| [Quadrotor with Depth Camera](../sim_gazebo_classic/vehicles.md#quadrotor-with-depth-camera) (downward-facing)                     | `make px4_sitl gazebo-classic_iris_downward_depth_camera` |
+| [3DR Solo (Quadrotor)](../sim_gazebo_classic/vehicles.md#3dr-solo-quadrotor)                                                      | `make px4_sitl gazebo-classic_solo`                       |
+| <a id="typhoon_h480"></a>[Typhoon H480 (Hexrotor)](../sim_gazebo_classic/vehicles.md#typhoon-h480-hexrotor) (with video streaming) | `make px4_sitl gazebo-classic_typhoon_h480`               |
+| [Standard Plane](../sim_gazebo_classic/vehicles.md#standard-plane)                                                                 | `make px4_sitl gazebo-classic_plane`                      |
+| [Standard Plane (with catapult launch)](../sim_gazebo_classic/vehicles.md#standard-plane-with-catapult-launch)                     | `make px4_sitl gazebo-classic_plane_catapult`             |
+| [Standard VTOL](../sim_gazebo_classic/vehicles.md#standard-vtol)                                                                   | `make px4_sitl gazebo-classic_standard_vtol`              |
+| [Tailsitter VTOL](../sim_gazebo_classic/vehicles.md#tailsitter-vtol)                                                               | `make px4_sitl gazebo-classic_tailsitter`                 |
+| [Ackerman UGV (Rover)](../sim_gazebo_classic/vehicles.md#ackermann-ugv)                                                            | `make px4_sitl gazebo-classic_rover`                      |
+| [Differential UGV (Rover)](../sim_gazebo_classic/vehicles.md#differential-ugv)                                                     | `make px4_sitl gazebo-classic_r1_rover`                   |
+| [HippoCampus TUHH (UUV: Unmanned Underwater Vehicle)](../sim_gazebo_classic/vehicles.md#unmanned-underwater-vehicle-uuv-submarine)                                       | `make px4_sitl gazebo-classic_uuv_hippocampus`            |
+| [Boat (USV: Unmanned Surface Vehicle)](../sim_gazebo_classic/vehicles.md#hippocampus-tuhh-uuv)                                     | `make px4_sitl gazebo-classic_boat`                       |
+| [Cloudship (Airship)](../sim_gazebo_classic/vehicles.md#airship)                                                                   | `make px4_sitl gazebo-classic_cloudship`                  |
 
 :::note
 The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful reference if there are build errors.
@@ -267,7 +267,7 @@ The next time you build/restart Gazebo Classic it will use the new GPS noise set
 
 ## Loading a Specific World
 
-PX4 supports a number of [Worlds](../sim_gazebo_classic/gazebo_worlds.md), which are stored in [PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/main/worlds).
+PX4 supports a number of [Worlds](../sim_gazebo_classic/worlds.md), which are stored in [PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/main/worlds).
 By default Gazebo Classic displays a flat featureless plane, as defined in [empty.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/empty.world).
 
 You can load any of the worlds by specifying them as the final option in the PX4 configuration target.
@@ -320,7 +320,7 @@ An example can be found in the [sonoma_raceway.world](https://github.com/PX4/PX4
     </spherical_coordinates>
 ```
 
-You can test this by spawning a rover in the [Sonoma Raceway World](../sim_gazebo_classic/gazebo_worlds.md#sonoma-raceway) using the following `make` command (note that spawning takes longer the first time as the model needs to be downloaded from the model database):
+You can test this by spawning a rover in the [Sonoma Raceway World](../sim_gazebo_classic/worlds.md#sonoma-raceway) using the following `make` command (note that spawning takes longer the first time as the model needs to be downloaded from the model database):
 
 ```sh
 make px4_sitl gazebo-classic_rover__sonoma_raceway
@@ -504,4 +504,4 @@ It will not overwrite changes in files in the directory.
 ## Further Information
 
 - [ROS with Gazebo Classic Simulation](../simulation/ros_interface.md)
-- [Gazebo Classic Octomap](../sim_gazebo_classic/gazebo_octomap.md)
+- [Gazebo Classic Octomap](../sim_gazebo_classic/octomap.md)

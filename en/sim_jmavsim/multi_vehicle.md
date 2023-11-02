@@ -1,6 +1,6 @@
 # Multi-Vehicle Simulation with JMAVSim
 
-This topic explains how to simulate multiple UAV (multicopter) vehicles using [JMAVSim](../simulation/jmavsim.md) and SITL.
+This topic explains how to simulate multiple UAV (multicopter) vehicles using [JMAVSim](../sim_jmavsim/README.md) and SITL.
 All vehicle instances are started at the same position in the simulation.
 
 :::tip

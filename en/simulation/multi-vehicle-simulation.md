@@ -3,9 +3,9 @@
 PX4 supports multi-vehicle simulation using the following simulators:
 
 - [Multi-Vehicle Sim with Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md) (both with and without ROS)
-- [Multi-Vehicle Sim with Gazebo Classic](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md) (both with and without ROS)
-- [Multi-Vehicle Sim with FlightGear](../simulation/multi_vehicle_flightgear.md)
-- [Multi-Vehicle Sim with JMAVSim](../simulation/multi_vehicle_jmavsim.md)
+- [Multi-Vehicle Sim with Gazebo Classic](../sim_gazebo_classic/multi_vehicle_simulation.md) (both with and without ROS)
+- [Multi-Vehicle Sim with FlightGear](../sim_flightgear/multi_vehicle.md)
+- [Multi-Vehicle Sim with JMAVSim](../sim_jmavsim/multi_vehicle.md)
 
 The choice of the simulator depends on the vehicle to be simulated, how "good" the simulation needs to be (and for what features), and how many vehicles need to be simulated at a time:
 

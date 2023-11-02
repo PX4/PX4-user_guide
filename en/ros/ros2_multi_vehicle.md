@@ -7,7 +7,7 @@ This is particular useful in simulation as only one agent needs to be started.
 
 The only requirements are
 
-- To be able to run [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) without ROS 2 with the desired simulator ([Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md), [Gazebo Classic](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md#multiple-vehicle-with-gazebo-classic), [FlightGear](../simulation/multi_vehicle_flightgear.md) and [JMAVSim](../simulation/multi_vehicle_jmavsim.md)).
+- To be able to run [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) without ROS 2 with the desired simulator ([Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md), [Gazebo Classic](../sim_gazebo_classic/multi_vehicle_simulation.md#multiple-vehicle-with-gazebo-classic), [FlightGear](../sim_flightgear/multi_vehicle.md) and [JMAVSim](../sim_jmavsim/multi_vehicle.md)).
 - To be able to use [ROS 2](./ros2_comm.md) in a single vehicle simulation.
 
 ## Principle of Operation
