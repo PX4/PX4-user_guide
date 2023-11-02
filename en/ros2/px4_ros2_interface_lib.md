@@ -1,6 +1,6 @@
-# PX4 SDK
+# PX4 ROS 2 interface library
 
-The [PX4 SDK](https://github.com/PX4/px4_sdk) is a C++ library to simplify controlling PX4 from ROS 2.
+The [PX4 ROS 2 interface library](https://github.com/Auterion/px4-ros2-interface-lib) is a C++ library to simplify controlling PX4 from ROS 2.
 It allows to write external modes that are dynamically registered with PX4 and behave the same way as internal ones.
 A mode can send different types of setpoints, ranging from high-level navigation tasks all the way down to direct actuator controls.
 
@@ -8,7 +8,7 @@ A mode can send different types of setpoints, ranging from high-level navigation
 
 This diagram provides a conceptual overview:
 
-![ROS2 modes overview diagram](../../assets/middleware/ros2/px4_sdk/ros2_modes_overview.svg)
+![ROS2 modes overview diagram](../../assets/middleware/ros2/px4_ros2_interface_lib/ros2_modes_overview.svg)
 
 <!-- Source: https://docs.google.com/drawings/d/1WByCfgcytnaow7r41VhYJL8OGrw1RjFO51GoPMQBCNA/edit -->
 
@@ -36,7 +36,7 @@ The following sections define and explain the terms used in the diagram.
   Should the failsafe clear, the executor gets reactivated.
 - This allows multiple executors to coexist.
 - Executors cannot activate other executors.
-- Within the SDK, a mode executor is always implemented in combination with a custom mode.
+- Within the library, a mode executor is always implemented in combination with a custom mode.
 
 :::note
 - These definitions guarantee that a user can take away control from a custom mode or executor at any point in time by commanding a mode switch through RC or a GCS.
@@ -73,16 +73,16 @@ The above concepts provide a number of advantages over traditional [offboard con
 The following steps are required to get started:
 
 1. Make sure you have a working [ROS 2 setup](../ros/ros2_comm.md), with _px4_msgs_ in the ROS 2 workspace.
-2. Clone the SDK into the workspace:
+2. Clone the repository into the workspace:
 
    ```shell
    cd $ros_workspace/src
-   git clone --recursive https://github.com/PX4/px4_sdk.git
+   git clone --recursive https://github.com/Auterion/px4-ros2-interface-lib
    ```
 
    :::note
-   To ensure compatibility, use the latest _main_ branches for PX4, _px4_msgs_ and the SDK.
-   See also [here](https://github.com/PX4/px4_sdk#compatibility-with-px4).
+   To ensure compatibility, use the latest _main_ branches for PX4, _px4_msgs_ and the library.
+   See also [here](https://github.com/Auterion/px4-ros2-interface-lib#compatibility-with-px4).
    :::
 
 3. Build the workspace:
@@ -149,7 +149,7 @@ The following steps are required to get started:
 
 9. At this point you should be able to see the mode in QGroundControl as well:
 
-   ![QGC Modes](../../assets/middleware/ros2/px4_sdk/qgc_modes.png)
+   ![QGC Modes](../../assets/middleware/ros2/px4_ros2_interface_lib/qgc_modes.png)
 
 10. Select the mode, make sure you have a manual control source (physical or virtual joystick), and arm the vehicle.
     The mode will then activate, and it should print the following output:
@@ -163,18 +163,18 @@ The following steps are required to get started:
 ## Mode Tutorial
 
 This section steps through an example for a custom mode class.
-For a complete application, check out the [examples in the repository](https://github.com/PX4/px4_sdk/tree/main/examples/cpp).
+For a complete application, check out the [examples in the repository](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/examples/cpp).
 
 ```cpp{1,5,7-9,24-31}
-class MyMode : public px4_sdk::ModeBase // [1]
+class MyMode : public px4_ros2::ModeBase // [1]
 {
 public:
   explicit MyMode(rclcpp::Node & node)
   : ModeBase(node, Settings{"My Mode"}) // [2]
   {
     // [3]
-    _manual_control_input = std::make_shared<px4_sdk::ManualControlInput>(*this);
-    _rates_setpoint = std::make_shared<px4_sdk::RatesSetpointType>(*this);
+    _manual_control_input = std::make_shared<px4_ros2::ManualControlInput>(*this);
+    _rates_setpoint = std::make_shared<px4_ros2::RatesSetpointType>(*this);
   }
 
   void onActivate() override
@@ -187,34 +187,34 @@ public:
     // Called when our mode gets deactivated
   }
 
-  void updateSetpoint(float dt_s) override
+  void updateSetpoint(const rclcpp::Duration & dt) override
   {
     // [4]
-    Eigen::Vector3f thrust_sp{};
-    thrust_sp(2) = -_manual_control_input->throttle();
-    Eigen::Vector3f rates_sp{};
-    rates_sp(0) = _manual_control_input->roll() * 150.F * M_PI / 180.F;
-    rates_sp(1) = -_manual_control_input->pitch() * 150.F * M_PI / 180.F;
-    rates_sp(2) = _manual_control_input->yaw() * 100.F * M_PI / 180.F;
+    const Eigen::Vector3f thrust_sp{0.F, 0.F, -_manual_control_input->throttle()};
+    const Eigen::Vector3f rates_sp{
+      _manual_control_input->roll() * 150.F * M_PI / 180.F,
+      -_manual_control_input->pitch() * 150.F * M_PI / 180.F,
+      _manual_control_input->yaw() * 100.F * M_PI / 180.F
+    };
     _rates_setpoint->update(rates_sp, thrust_sp);
   }
 
 private:
-  std::shared_ptr<px4_sdk::ManualControlInput> _manual_control_input;
-  std::shared_ptr<px4_sdk::RatesSetpointType> _rates_setpoint;
+  std::shared_ptr<px4_ros2::ManualControlInput> _manual_control_input;
+  std::shared_ptr<px4_ros2::RatesSetpointType> _rates_setpoint;
 };
 ```
 
-- **[1]**: First we create a class that inherits from `px4_sdk::ModeBase`
+- **[1]**: First we create a class that inherits from `px4_ros2::ModeBase`
 - **[2]**: In the constructor, we pass the mode name. This also allows to configure some other things, like replacing an FMU-internal mode.
 - **[3]**: This is where we create all objects that we want to use later on.
   This can be RC input, setpoint type(s), or telemetry. `*this` is passed as a `Context` to each object, which associates the object with the mode.
 - **[4]**: Whenever the mode is active, this method gets called regularly (the update rate depends on the setpoint type).
   Here is where we can do our work and generate a new setpoint.
 
-## How to use the SDK
+## How to use the library
 
-General notes on how to use the SDK:
+General notes on how to use the library:
 
 - coordinate convention: TODO
 
@@ -227,7 +227,7 @@ A mode can choose its setpoint type(s) it wants to use to control the vehicle.
 The used types also define the compatibility with different vehicle types.
 
 The following sections provide a list of commonly used setpoint types.
-You can also add your own type by adding a class that inherits from `px4_sdk::SetpointBase`, sets the configuration flags according to what the setpoint requires, and then publishes any topic containing a setpoint.
+You can also add your own type by adding a class that inherits from `px4_ros2::SetpointBase`, sets the configuration flags according to what the setpoint requires, and then publishes any topic containing a setpoint.
 
 #### Smooth Position
 
@@ -235,7 +235,7 @@ TODO
 
 #### Direct Actuator Control
 
-Actuators can be directly controlled using the [px4_sdk::DirectActuatorsSetpointType](https://github.com/PX4/px4_sdk/blob/main/px4_sdk_cpp/include/px4_sdk/control/setpoint_types/direct_actuators.hpp) setpoint type.
+Actuators can be directly controlled using the [px4_ros2::DirectActuatorsSetpointType](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/control/setpoint_types/direct_actuators.hpp) setpoint type.
 Motors and servos can be set independently. Be aware that the assignment is vehicle and setup-specific.
 For example to control a quadrotor, you need to set the first 4 motors according to its [output configuration](../concept/control_allocation.md).
 
@@ -248,19 +248,19 @@ If you want to control an actuator that does not control the vehicle's motion, b
 If you want to control an independent actuator (a servo), follow these steps:
 
 1. [Configure the output](../payloads/#generic-actuator-control-with-mavlink)
-2. Create an instance of [px4_sdk::OffboardActuatorControls](https://github.com/PX4/px4_sdk/blob/main/px4_sdk_cpp/include/px4_sdk/control/offboard_actuators.hpp) in the constructor of your mode
+2. Create an instance of [px4_ros2::OffboardActuatorControls](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/control/offboard_actuators.hpp) in the constructor of your mode
 3. Call the `set` method to control the actuator(s). This can be done independently of any active setpoints.
 
 ### Telemetry
 
-Telemetry, such as local or global position estimates can be found under [px4_sdk/odometry](https://github.com/PX4/px4_sdk/tree/main/px4_sdk_cpp/include/px4_sdk/odometry).
+Telemetry, such as local or global position estimates can be found under [px4_ros2/odometry](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/px4_ros2_cpp/include/px4_ros2/odometry).
 
 ### Failsafes and Mode Requirements
 
 Each mode has a set of requirement flags. These are generally automatically set, depending on which objects are used within the context of a mode. For example when adding manual control input with
 
 ```cpp
-_manual_control_input = std::make_shared<px4_sdk::ManualControlInput>(*this);
+_manual_control_input = std::make_shared<px4_ros2::ManualControlInput>(*this);
 ```
 
 the requirement flag for manual control gets set.
@@ -282,7 +282,7 @@ modeRequirements().home_position = true;
 
 A mode or mode executor can temporarily defer non-essential failsafes.
 To do so, use the method `deferFailsafesSync`. And to get notified when a failsafe would be triggered, override the method `void onFailsafeDeferred()`.
-Check the [integration test](https://github.com/PX4/px4_sdk/blob/main/px4_sdk_cpp/test/integration/overrides.cpp#L167) for an example.
+Check the [integration test](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/test/integration/overrides.cpp) for an example.
 
 ### Assigning a Mode to an RC Switch or Joystick Action
 
@@ -296,7 +296,7 @@ For example:
 ```
 
 means you would select **External Mode 1** in QGC:
-![QGC Mode Assignment](../../assets/middleware/ros2/px4_sdk/qgc_mode_assignment.png)
+![QGC Mode Assignment](../../assets/middleware/ros2/px4_ros2_interface_lib/qgc_mode_assignment.png)
 
 :::note
 PX4 ensures a given mode is always assignment to the same index by storing a hash of the mode name.
@@ -316,7 +316,7 @@ Settings{kName, false, ModeBase::kModeIDRtl}
 
 ## CI: Integration Tests
 
-When opening a pull request to PX4, CI runs the integration tests of the SDK.
+When opening a pull request to PX4, CI runs the integration tests of the library.
 These can also be run locally from PX4:
 
 ```shell
