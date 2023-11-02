@@ -168,7 +168,6 @@
       * [CUAV Pixhawk V6X (FMUv6X)](flight_controller/cuav_pixhawk_v6x.md)
       * [Holybro Pixhawk 6X-RT (FMUv6X-RT)](flight_controller/pixhawk6x-rt.md)
       * [Holybro Pixhawk 6X (FMUv6X)](flight_controller/pixhawk6x.md)
-      * [Holybro Pixhawk 6X-RT (FMUv6X-RT)](flight_controller/pixhawk6x-rt.md)
       * [Holybro Pixhawk 6C (FMUv6C)](flight_controller/pixhawk6c.md)
       * [Holybro Pixhawk 6C Mini(FMUv6C)](flight_controller/pixhawk6c_mini.md)
       * [Holybro Pix32 v6 (FMUv6C)](flight_controller/holybro_pix32_v6.md)
