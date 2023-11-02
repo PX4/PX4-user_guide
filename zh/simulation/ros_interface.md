@@ -2,22 +2,22 @@
 
 [ROS](../ros/README.md) (Robot Operating System) can be used with PX4 and the [Gazebo Classic](../sim_gazebo_classic/README.md) simulator. 它使用[ MAVROS](../ros/mavros_installation.md) MAVLink 节点与 PX4 通信。
 
-The ROS/Gazebo Classic integration with PX4 follows the pattern in the diagram below (this shows the *generic* [PX4 simulation environment](../simulation/README.md#sitl-simulation-environment)). PX4 communicates with the simulator (e.g. Gazebo Classic) to receive sensor data from the simulated world and send motor and actuator values. 它与 GCS 和 Offboard API（例如 ROS）通信，以从模拟环境发送遥测数据并接收命令。
+The ROS/Gazebo Classic integration with PX4 follows the pattern in the diagram below (this shows the _generic_ [PX4 simulation environment](../simulation/README.md#sitl-simulation-environment)). PX4 communicates with the simulator (e.g. Gazebo Classic) to receive sensor data from the simulated world and send motor and actuator values. 它与 GCS 和 Offboard API（例如 ROS）通信，以从模拟环境发送遥测数据并接收命令。
 
 ![PX4 SITL 概述](../../assets/simulation/px4_sitl_overview.png)
 
-在 Ubuntu Linux 上使用 ROS 设置 PX4 仿真的最简单方法是使用标准安装脚本，可以在[ Development Environment on Linux > Gazebo with ROS ](../setup/dev_env_linux.md#gazebo-with-ros)中找到。 该脚本安装了您需要的一切：PX4，ROS“Kinetic”，Gazebo 7 模拟器和[ MAVROS ](../ros/mavros_installation.md)。
+:::note
+The only _slight_ difference to "normal behaviour" is that ROS initiates the connection on port 14557, while it is more typical for an offboard API to listen for connections on UDP port 14540. 该脚本安装了您需要的一切：PX4，ROS“Kinetic”，Gazebo 7 模拟器和[ MAVROS ](../ros/mavros_installation.md)。
 
 ## Installing ROS and Gazebo Classic
 
 :::note
-*ROS* is only supported on Linux (not macOS or Windows).
+_ROS_ is only supported on Linux (not macOS or Windows).
 :::
 
 The easiest way to setup PX4 simulation with ROS on Ubuntu Linux is to use the standard installation script that can be found at [Development Environment on Linux > Gazebo with ROS](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo). The script installs everything you need: PX4, ROS "Melodic", the Gazebo Classic 9 simulator, and [MAVROS](../ros/mavros_installation.md).
 
 可以对 Gazebo 模拟进行修改，以直接集成发布到 ROS 主题 （如 Gazebo ROS 激光插件）的传感器。 要支持此功能，必须使用适当的 ROS wrappers 启动 Gazebo。
-
 
 ## 启动 ROS/Simulation
 
@@ -34,7 +34,7 @@ roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
 
 :::note
-It can be useful to call *roslaunch* with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. For example:
+It can be useful to call _roslaunch_ with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. For example:
 
 ```sh
 cd <Firmware_clone>
@@ -45,6 +45,7 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
 roslaunch px4 posix_sitl.launch
 ```
+
 在您自己的启动文件中包含上述启动文件之一，以在模拟中运行 ROS 应用程序。
 
 ## Launching Gazebo Classic with ROS Wrappers
@@ -53,8 +54,8 @@ The Gazebo Classic simulation can be modified to integrate sensors publishing di
 
 首先使用以下命令启动模拟器：
 
-* [posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/main/launch/posix_sitl.launch): plain SITL launch
-* [mavros_posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch): SITL and MAVROS
+- [posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/main/launch/posix_sitl.launch): plain SITL launch
+- [mavros_posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch): SITL and MAVROS
 
 控制台将如下所示：
 
@@ -74,7 +75,7 @@ Include one of the above mentioned launch files in your own launch file to run y
 
 ## 事件之后发生了什么
 
-This section shows how the *roslaunch* instructions provided previously actually work (you can follow them to manually launch the simulation and ROS).
+This section shows how the _roslaunch_ instructions provided previously actually work (you can follow them to manually launch the simulation and ROS).
 
 You will need three terminals, in all of them the ros environment must be sourced.
 
@@ -91,7 +92,7 @@ The console will look like this:
 ```sh
 INFO  [px4] instance: 0
 
-______  __   __    ___ 
+______  __   __    ___
 | ___ \ \ \ / /   /   |
 | |_/ /  \ V /   / /| |
 |  __/   /   \  / /_| |
@@ -107,7 +108,7 @@ INFO  [param] importing from 'parameters.bson'
 INFO  [parameters] BSON document size 295 bytes, decoded 295 bytes (INT32:12, FLOAT:3)
 INFO  [param] selected parameter backup file parameters_backup.bson
 INFO  [dataman] data manager file './dataman' size is 7866640 bytes
-etc/init.d-posix/rcS: 31: [: Illegal number: 
+etc/init.d-posix/rcS: 31: [: Illegal number:
 INFO  [init] PX4_SIM_HOSTNAME: localhost
 INFO  [simulator_mavlink] Waiting for simulator to accept connection on TCP port 4560
 ```
