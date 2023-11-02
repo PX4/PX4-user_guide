@@ -53,8 +53,8 @@ Select the **Apply and Restart** button.
 
 [Gazebo Classic](../sim_gazebo_classic/README.md) provides simulations for both types of steering:
 
-- Ackermann: [ackermann rover](../sim_gazebo_classic/gazebo_vehicles.md#ackermann-ugv)
-- Differential: [r1 rover](../sim_gazebo_classic/gazebo_vehicles.md#differential-ugv)
+- Ackermann: [ackermann rover](../sim_gazebo_classic/vehicles.md#ackermann-ugv)
+- Differential: [r1 rover](../sim_gazebo_classic/vehicles.md#differential-ugv)
 
 ## 비디오
 

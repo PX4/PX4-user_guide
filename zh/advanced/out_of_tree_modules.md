@@ -19,15 +19,17 @@
 - 将现有模块（例如**examples/px4_simple_app**）复制到外部目录，或直接创建新模块。
 - 重命名模块（包括在**CMakeLists.txt**中的`MODULE`），或者从 PX4-Autopilot _cmake_ 编译配置中移除。 这是为了避免与内部模块发生冲突。
 - 在外部目录中添加**CMakeLists.txt**文件，内容为：
-  ```
+
+  ```cmake
   set(config_module_list_external
       modules/<new_module>
       PARENT_SCOPE
       )
   ```
+
 - 在`px4_add_module()`中添加一行 `EXTERNAL` 到 `modules<new_module>/CMakeLists.txt` 中，例如:
 
-  ```
+  ```cmake
   px4_add_module(
     MODULE modules__test_app
     MAIN test_app
@@ -47,7 +49,7 @@
 - 将所有新消息定义放在 `$EXTERNAL_MODULES_LOCATION/msg` 目录中。 Place all new message definitions within the `$EXTERNAL_MODULES_LOCATION/msg` directory. The format of these new out-of-tree message definitions are the same as for any other [uORB message definition](../middleware/uorb.md#adding-a-new-topic).
 - 将以下内容添加文件`$EXTERNAL_MODULES_LOCATION/msg/CMakeLists.txt`：
 
-  ```
+  ```cmake
   set(config_msg_list_external
       <message1>.msg
       <message2>.msg

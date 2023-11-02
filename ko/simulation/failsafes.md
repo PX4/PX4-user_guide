@@ -8,10 +8,9 @@ SITL에서는 시뮬레이션 편리성을 위하여, 일부 안전 장치가 �
 [HITL 시뮬레이션](../simulation/hitl.md)을 사용하여 안전장치를 테스트할 수도 있습니다. HITL은 비행 컨트롤러의 일반 설정 매개변수를 사용합니다.
 :::
 
-
 ## 데이터 링크 손실
 
-*데이터 링크 손실* 안전 장치(MAVLink를 통한 외부 데이터 사용 불가)는 기본적으로 활성화되어 있습니다. 따라서 연결된 GCS, SDK 또는 기타 MAVLink 애플리케이션에서만 시뮬레이션 가능합니다.
+The _Data Link Loss_ failsafe (unavailability of external data via MAVLink) is enabled by default. 따라서 연결된 GCS, SDK 또는 기타 MAVLink 애플리케이션에서만 시뮬레이션 가능합니다.
 
 [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) 매개변수를 사용할 안전장치로 설정하여 동작을 변경하십시오. 비활성화하려면 `0`으로 설정합니다.
 
@@ -20,7 +19,7 @@ SITL에서는 시뮬레이션 편리성을 위하여, 일부 안전 장치가 �
 
 ## RC 링크 손실
 
-*RC 링크 손실* 안전 장치(리모컨에서 데이터를 사용할 수 없음)는 기본적으로 활성화되어 있습니다. 다른 시험을 가로막는 배터리 용량 부족 상태를 유발하지 않고 지상 통제 장치의 배터리 표시를 시험해볼 수 있습니다.
+The _RC Link Loss_ failsafe (unavailability of data from a remote control) is enabled by default. 다른 시험을 가로막는 배터리 용량 부족 상태를 유발하지 않고 지상 통제 장치의 배터리 표시를 시험해볼 수 있습니다.
 
 [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) 매개변수를 사용할 안전장치로 설정하여 동작을 변경하십시오. 비활성화하려면 `0`으로 설정합니다.
 
@@ -45,8 +44,10 @@ SITL에서는 시뮬레이션 편리성을 위하여, 일부 안전 장치가 �
 [고장 주입](../debug/failure_injection.md)은 많은 센서와 시스템의 여러가지 오류를 시뮬레이션합니다. GPS가 없거나 간헐적으로 발생하는 경우, 특정 값에서 멈추거나 멈추는 RC 신호, 회피 시스템의 오류 등을 시뮬레이션 할 수 있습니다.
 
 GPS 오류를 시뮬레이션하려면 다음을 수행합니다.
+
 1. 매개변수 [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN)을 활성화합니다.
-1. SITL 인스턴스 *pxh 셸*에서 다음 명령어를 실행합니다.
+1. Enter the following commands on the SITL instance _pxh shell_:
+
    ```bash
    # Turn (all) GPS off
    failure gps off

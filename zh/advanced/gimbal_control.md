@@ -61,11 +61,11 @@ The PWM values to use for the disarmed, maximum and minimum values can be determ
 
 ## SITL
 
-The [Gazebo Classic](../sim_gazebo_classic/README.md) simulation [Typhoon H480 model](../sim_gazebo_classic/gazebo_vehicles.md#typhoon-h480-hexrotor) comes with a preconfigured simulated gimbal.
+The [Gazebo Classic](../sim_gazebo_classic/README.md) simulation [Typhoon H480 model](../sim_gazebo_classic/vehicles.md#typhoon-h480-hexrotor) comes with a preconfigured simulated gimbal.
 
 要运行它，请使用：
 
-```
+```sh
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
@@ -77,13 +77,13 @@ The driver provides a simple test command. 接下来描述了在SITL中的测试
 
 使用下面这条指令开始仿真（不需要修改任何参数）：
 
-```
+```sh
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
 确保无人机是上锁状态，例如使用`命令行 takeoff`， 然后用下面的命令来控制云台（例如）：
 
-```
+```sh
 gimbal test yaw 30
 ```
 

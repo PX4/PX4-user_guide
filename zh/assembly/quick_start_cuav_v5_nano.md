@@ -7,7 +7,6 @@
 
 ![Nano Hero Image](../../assets/flight_controller/cuav_v5_nano/v5_nano_01.png)
 
-
 ## 接线图概述
 
 下图展示了如何连接最重要的传感器和外围设备（电机和伺服舵机输出除外）。 我们将在下面各节中介绍它们的细节。
@@ -20,7 +19,7 @@
 | PM2            | [不要与 PX4 一起使用 ](../flight_controller/cuav_v5_nano.md#compatibility_pm2)             |
 | TF CARD        | 用于日志存储的SD卡（随卡提供）                                                                    |
 | M1~M8          | PWM 输出接口。 可以使用它控制电机或舵机。                                                             |
-| A1~A3          | Capture pins (not *currently* supported on PX4).                                    |
+| A1~A3          | Capture pins (not _currently_ supported on PX4).                                    |
 | nARMED         | 表示 FMU 处于待命状态。 低电平时表示激活（待命时是低电平）。                                                   |
 | DSU7           | 用于 FMU 调试，读取调试信息。                                                                   |
 | I2C2/I2C3/I2C4 | 连接I2C总线设备；比如外部的罗盘。                                                                  |
@@ -41,7 +40,7 @@ If the controller cannot be mounted in the recommended/default orientation (e.g.
 
 ## GPS + 罗盘 + 安全开关 + LED
 
-The recommended GPS module is the *Neo v2 GPS*, which contains GPS, compass, safety switch, buzzer, LED status light.
+The recommended GPS module is the _Neo v2 GPS_, which contains GPS, compass, safety switch, buzzer, LED status light.
 
 :::note
 Other GPS modules may not work (see [this compatibility issue](../flight_controller/cuav_v5_nano.md#compatibility_gps)).
@@ -55,18 +54,15 @@ If you use CAN GPS, please use the cable to connect to the flight control CAN in
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_04.png)
 
-
 ## 安全开关
 
-The dedicated safety switch that comes with the V5+ is only required if you are not using the recommended *Neo v2 GPS* (which has an inbuilt safety switch).
+The dedicated safety switch that comes with the V5+ is only required if you are not using the recommended _Neo v2 GPS_ (which has an inbuilt safety switch).
 
 If you are flying without the GPS you must attach the switch directly to the `GPS1` port in order to be able to arm the vehicle and fly (If you use the old 6-pin GPS, please read the definition of the bottom interface to change the line).
 
-
 ## 蜂鸣器
 
-If you do not use the recommended *Neo v2 GPS* the buzzer may not work.
-
+If you do not use the recommended _Neo v2 GPS_ the buzzer may not work.
 
 ## 遥控器
 
@@ -76,15 +72,13 @@ The figure below shows how you can access your remote receiver (please find the 
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_05.png)
 
-
 ## Spektrum 卫星接收器
 
 通信频道是通过数传无线电实现的。 机载的无线数传模块应连接到 **TELEM1** 或者 **TELEM2** 端口（如果连接到这些端口，则无需进一步配置）。
 
-
 ## 电源
 
-The *v5 nano* kit includes the *HV\_PM* module, which supports 2~14S LiPo batteries. Connect the 6pin connector of the *HW\_PM* module to the flight control `Power` interface.
+The _v5 nano_ kit includes the _HV_PM_ module, which supports 2~14S LiPo batteries. Connect the 6pin connector of the _HW_PM_ module to the flight control `Power` interface.
 
 :::warning
 The supplied power module is unfused. Power **must** be turned off while connecting peripherals.
@@ -94,7 +88,7 @@ The supplied power module is unfused. Power **must** be turned off while connect
 
 :::note
 The power module is not a power source for peripherals connected to the PWM outputs.
-If you're connecting servos/actuators you will need to separately power them using a BEC. 
+If you're connecting servos/actuators you will need to separately power them using a BEC.
 :::
 
 ## 数传系统（可选）
@@ -105,13 +99,11 @@ The communication channel is via Telemetry Radios. The vehicle-based radio shoul
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_07.png)
 
-
 <a id="sd_card"></a>
 
 ## SD 卡
 
 An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory) is inserted in the factory (you do not need to do anything).
-
 
 ## 电机
 
@@ -119,11 +111,9 @@ Motors/servos are connected to the MAIN ports in the order specified for your ve
 
 ![快速入门](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
-
 ## 针脚定义
 
 ![V5 nano pinouts](../../assets/flight_controller/cuav_v5_nano/v5_nano_pinouts.png)
-
 
 ## 更多信息
 
@@ -131,4 +121,4 @@ Motors/servos are connected to the MAIN ports in the order specified for your ve
 - [CUAV V5 nano](../flight_controller/cuav_v5_nano.md)
 - [V5 nano manual](http://manual.cuav.net/V5-nano.pdf) (CUAV)
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
-- [CUAV Github](https://github.com/cuav)  (CUAV)
+- [CUAV Github](https://github.com/cuav) (CUAV)

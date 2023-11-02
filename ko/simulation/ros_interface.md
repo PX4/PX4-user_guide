@@ -2,24 +2,23 @@
 
 [ROS](../ros/README.md) (Robot Operating System) can be used with PX4 and the [Gazebo Classic](../sim_gazebo_classic/README.md) simulator. [MAVROS](../ros/mavros_installation.md) MAVLink 노드를 사용하여 PX4와 통신합니다.
 
-The ROS/Gazebo Classic integration with PX4 follows the pattern in the diagram below (this shows the *generic* [PX4 simulation environment](../simulation/README.md#sitl-simulation-environment)). PX4 communicates with the simulator (e.g. Gazebo Classic) to receive sensor data from the simulated world and send motor and actuator values. GCS 및 Offboard API(예: ROS)와 통신하여 시뮬레이션된 환경에서 텔레메트리 데이터를 전송하고 명령을 수신합니다.
+The ROS/Gazebo Classic integration with PX4 follows the pattern in the diagram below (this shows the _generic_ [PX4 simulation environment](../simulation/README.md#sitl-simulation-environment)). PX4 communicates with the simulator (e.g. Gazebo Classic) to receive sensor data from the simulated world and send motor and actuator values. GCS 및 Offboard API(예: ROS)와 통신하여 시뮬레이션된 환경에서 텔레메트리 데이터를 전송하고 명령을 수신합니다.
 
 ![PX4 SITL 개요](../../assets/simulation/px4_sitl_overview.png)
 
 :::note
-"정상 동작"과의 유일한 *약간의* 차이점은 ROS가 포트 14557에서 연결을 시작하지만, 오프보드 API가 UDP 포트 14540에서 연결을 수신 대기하는 것이 더 일반적입니다. 스크립트는 필요한 모든 구성 항목, PX4, ROS "키네틱", 가제보 7 모의 시험 환경, [MAVROS](../ros/mavros_installation.md)를 설치합니다.
+The only _slight_ difference to "normal behaviour" is that ROS initiates the connection on port 14557, while it is more typical for an offboard API to listen for connections on UDP port 14540. 스크립트는 필요한 모든 구성 항목, PX4, ROS "키네틱", 가제보 7 모의 시험 환경, [MAVROS](../ros/mavros_installation.md)를 설치합니다.
 
 ## Installing ROS and Gazebo Classic
 
 :::note
-*ROS*는 Linux(MacOS와 Windows 제외)에서만 지원됩니다.
+_ROS_ is only supported on Linux (not macOS or Windows).
 :::
 
 Ubuntu Linux에서 ROS로 PX4 시뮬레이션을 설정하는 가장 쉬운 방법은 [Linux의 개발 환경 > ROS Gazebo](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo)의 표준 설치 스크립트를 사용하는 것입니다. The script installs everything you need: PX4, ROS "Melodic", the Gazebo Classic 9 simulator, and [MAVROS](../ros/mavros_installation.md).
 
 :::note
 스크립트는 Gazebo 9가 포함된 [표준 ROS "Melodic" 설치 지침](http://wiki.ros.org/melodic/Installation/Ubuntu)을 따릅니다. 이 기능을 지원하려면, 가제보를 적당한 ROS 래퍼와 함께 실행해야합니다.
-
 
 ## ROS 시뮬레이션 실행
 
@@ -36,11 +35,12 @@ roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
 
 :::note
-It can be useful to call *roslaunch* with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. 예:
+It can be useful to call _roslaunch_ with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. 예:
 
 ```sh
 roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
+
 위에서 언급한 실행 파일 중 하를 여러분의 실행 파일 목록에 넣어 ROS 프로그램을 모의 시험 환경에서 실행할 수 있게 하십시오.
 
 ## Launching Gazebo Classic with ROS Wrappers
@@ -49,8 +49,8 @@ The Gazebo Classic simulation can be modified to integrate sensors publishing di
 
 ROS로 래핑된 시뮬레이션을 실행하는 데 사용할 수 있는 ROS 시작 스크립트가 있습니다.
 
-* [posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/master/launch/posix_sitl.launch): plain SITL launch
-* [mavros_posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/master/launch/mavros_posix_sitl.launch): SITL과 MAVROS
+- [posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/master/launch/posix_sitl.launch): plain SITL launch
+- [mavros_posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/master/launch/mavros_posix_sitl.launch): SITL과 MAVROS
 
 ROS에 래핑된 SITL을 실행하려면 ROS 환경을 업데이트한 다음, 평소와 같이 시작하여야 합니다.
 
@@ -70,7 +70,7 @@ roslaunch px4 posix_sitl.launch
 
 ## 움직임 뒤에서 일어나는 일
 
-이 섹션에서는 이전에 제공된 *roslaunch* 지침이 실제로 어떻게 작동하는 지 설명합니다(시뮬레이션 및 ROS를 수동으로 시작하려면 지침을 따를 수 있습니다).
+This section shows how the _roslaunch_ instructions provided previously actually work (you can follow them to manually launch the simulation and ROS).
 
 You will need three terminals, in all of them the ros environment must be sourced.
 
@@ -87,7 +87,7 @@ roslaunch px4 px4.launch
 ```sh
 INFO  [px4] instance: 0
 
-______  __   __    ___ 
+______  __   __    ___
 | ___ \ \ \ / /   /   |
 | |_/ /  \ V /   / /| |
 |  __/   /   \  / /_| |
@@ -103,7 +103,7 @@ INFO  [param] importing from 'parameters.bson'
 INFO  [parameters] BSON document size 295 bytes, decoded 295 bytes (INT32:12, FLOAT:3)
 INFO  [param] selected parameter backup file parameters_backup.bson
 INFO  [dataman] data manager file './dataman' size is 7866640 bytes
-etc/init.d-posix/rcS: 31: [: Illegal number: 
+etc/init.d-posix/rcS: 31: [: Illegal number:
 INFO  [init] PX4_SIM_HOSTNAME: localhost
 INFO  [simulator_mavlink] Waiting for simulator to accept connection on TCP port 4560
 ```

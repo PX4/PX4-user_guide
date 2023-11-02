@@ -7,10 +7,9 @@
 默认情况下启用 *数据链路丢失* 故障保护（无法通过 MAVLink 获取外部数据）。 这使得模拟仅适用于连接的 GCS，SDK 或其他 MAVLink 应用程序。
 :::
 
-
 ## 数据链路丢失
 
-The *Data Link Loss* failsafe (unavailability of external data via MAVLink) is enabled by default. This makes the simulation only usable with a connected GCS, SDK, or other MAVLink application.
+The _Data Link Loss_ failsafe (unavailability of external data via MAVLink) is enabled by default. This makes the simulation only usable with a connected GCS, SDK, or other MAVLink application.
 
 *RC 链接损失* failslafe （来自远程控制的数据不可用） 被默认启用。 这使得模拟仿真只能使用 MAVLink 或远程控制连接。
 
@@ -18,7 +17,7 @@ The *Data Link Loss* failsafe (unavailability of external data via MAVLink) is e
 
 ## RC 链接损失
 
-模拟仿真的电池永远不会耗尽电量，并且默认情况下仅耗尽其容量的 50％ 会发送电压报告。 这可以在 GCS UI 中测试电池指示，而不会触发可能中断其他测试的低电池反应。
+The _RC Link Loss_ failsafe (unavailability of data from a remote control) is enabled by default. 这可以在 GCS UI 中测试电池指示，而不会触发可能中断其他测试的低电池反应。
 
 Set the parameter [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) to the desired failsafe action to change the behavior. For example, set to `0` to disable it.
 
@@ -43,8 +42,10 @@ By changing [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_
 [Failure injection](../debug/failure_injection.md) can be used to simulate different types of failures in many sensors and systems. For example, this can be used to simulate absent or intermittent GPS, RC signal that has stopped or got stuck on a particular value, failure of the avoidance system, and much more.
 
 For example, to simulate GPS failure:
+
 1. Enable the parameter [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
-1. Enter the following commands on the SITL instance *pxh shell*:
+1. Enter the following commands on the SITL instance _pxh shell_:
+
    ```bash
    # Turn (all) GPS off
    failure gps off

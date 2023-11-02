@@ -2,18 +2,18 @@
 
 [ROS](../ros/README.md) (Robot Operating System) can be used with PX4 and the [Gazebo Classic](../sim_gazebo_classic/README.md) simulator. It uses the [MAVROS](../ros/mavros_installation.md) MAVLink node to communicate with PX4.
 
-The ROS/Gazebo Classic integration with PX4 follows the pattern in the diagram below (this shows the *generic* [PX4 simulation environment](../simulation/README.md#sitl-simulation-environment)). PX4 communicates with the simulator (e.g. Gazebo Classic) to receive sensor data from the simulated world and send motor and actuator values. It communicates with the GCS and an Offboard API (e.g. ROS) to send telemetry from the simulated environment and receive commands.
+The ROS/Gazebo Classic integration with PX4 follows the pattern in the diagram below (this shows the _generic_ [PX4 simulation environment](../simulation/README.md#sitl-simulation-environment)). PX4 communicates with the simulator (e.g. Gazebo Classic) to receive sensor data from the simulated world and send motor and actuator values. It communicates with the GCS and an Offboard API (e.g. ROS) to send telemetry from the simulated environment and receive commands.
 
 ![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.png)
 
 :::note
-The only *slight* difference to "normal behaviour" is that ROS initiates the connection on port 14557, while it is more typical for an offboard API to listen for connections on UDP port 14540.
+The only _slight_ difference to "normal behaviour" is that ROS initiates the connection on port 14557, while it is more typical for an offboard API to listen for connections on UDP port 14540.
 :::
 
 ## Installing ROS and Gazebo Classic
 
 :::note
-*ROS* is only supported on Linux (not macOS or Windows).
+_ROS_ is only supported on Linux (not macOS or Windows).
 :::
 
 The easiest way to setup PX4 simulation with ROS on Ubuntu Linux is to use the standard installation script that can be found at [Development Environment on Linux > Gazebo with ROS](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo). The script installs everything you need: PX4, ROS "Melodic", the Gazebo Classic 9 simulator, and [MAVROS](../ros/mavros_installation.md).
@@ -21,7 +21,6 @@ The easiest way to setup PX4 simulation with ROS on Ubuntu Linux is to use the s
 :::note
 The script follows the [standard ROS "Melodic" installation instructions](http://wiki.ros.org/melodic/Installation/Ubuntu), which includes Gazebo 9.
 :::
-
 
 ## Launching ROS/Simulation
 
@@ -38,11 +37,12 @@ roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
 
 :::note
-It can be useful to call *roslaunch* with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. For example:
+It can be useful to call _roslaunch_ with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. For example:
 
 ```sh
 roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
+
 :::
 
 ## Launching Gazebo Classic with ROS Wrappers
@@ -51,8 +51,8 @@ The Gazebo Classic simulation can be modified to integrate sensors publishing di
 
 There are ROS launch scripts available to run the simulation wrapped in ROS:
 
-* [posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/main/launch/posix_sitl.launch): plain SITL launch
-* [mavros_posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch): SITL and MAVROS
+- [posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/main/launch/posix_sitl.launch): plain SITL launch
+- [mavros_posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch): SITL and MAVROS
 
 To run SITL wrapped in ROS the ROS environment needs to be updated, then launch as usual:
 
@@ -72,7 +72,7 @@ Include one of the above mentioned launch files in your own launch file to run y
 
 ## What's Happening Behind the Scenes
 
-This section shows how the *roslaunch* instructions provided previously actually work (you can follow them to manually launch the simulation and ROS).
+This section shows how the _roslaunch_ instructions provided previously actually work (you can follow them to manually launch the simulation and ROS).
 
 You will need three terminals, in all of them the ros environment must be sourced.
 
@@ -89,7 +89,7 @@ The console will look like this:
 ```sh
 INFO  [px4] instance: 0
 
-______  __   __    ___ 
+______  __   __    ___
 | ___ \ \ \ / /   /   |
 | |_/ /  \ V /   / /| |
 |  __/   /   \  / /_| |
@@ -105,7 +105,7 @@ INFO  [param] importing from 'parameters.bson'
 INFO  [parameters] BSON document size 295 bytes, decoded 295 bytes (INT32:12, FLOAT:3)
 INFO  [param] selected parameter backup file parameters_backup.bson
 INFO  [dataman] data manager file './dataman' size is 7866640 bytes
-etc/init.d-posix/rcS: 31: [: Illegal number: 
+etc/init.d-posix/rcS: 31: [: Illegal number:
 INFO  [init] PX4_SIM_HOSTNAME: localhost
 INFO  [simulator_mavlink] Waiting for simulator to accept connection on TCP port 4560
 ```

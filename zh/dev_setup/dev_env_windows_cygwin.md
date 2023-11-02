@@ -2,7 +2,7 @@
 
 该工具链非常轻便，而且容易安装和使用。 它是目前Windows环境下用于PX4开发的最新和最好的工具。
 * 编译/上传 PX4到Nuttx目标(Pixhawk系列飞控)
-* [jMAVSim Simulation](../simulation/jmavsim.md)
+* [jMAVSim Simulation](../sim_jmavsim/README.md)
 
 :::warning
 This setup is an [unsupported windows development environment](../advanced/dev_env_unsupported.md).

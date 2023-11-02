@@ -2,7 +2,7 @@
 
 다음 지침은 Windows 10에서 (Cygwin 기반) PX4 개발 환경 설정 방법을 설명합니다. 이 환경은 다음을 위한 PX4를 구축하는 데 사용합니다.
 * Pixhawk와 기타 NuttX 기반 하드웨어
-* [jMAVSim 시뮬레이션](../simulation/jmavsim.md)
+* [jMAVSim 시뮬레이션](../sim_jmavsim/README.md)
 
 :::warning
 This setup is an [unsupported windows development environment](../advanced/dev_env_unsupported.md).

@@ -14,7 +14,7 @@ The *supported platforms* for PX4 development are:
 | ----------------------------------------------------------------------------------------------------------------------------------- |:--------------:|:-------:|:-------:|
 | **NuttX based hardware:** [Pixhawk Series](../flight_controller/pixhawk_series.md), [Crazyflie](../complete_vehicles/crazyflie2.md) |       X        |    X    |    X    |
 | **Linux-based hardware:** [Raspberry Pi 2/3](../flight_controller/raspberry_pi_navio2.md)                                           |       X        |         |         |
-| **Simulation:** [jMAVSim SITL](../simulation/jmavsim.md)                                                                            |       X        | &check; | &check; |
+| **Simulation:** [jMAVSim SITL](../sim_jmavsim/README.md)                                                                            |       X        | &check; | &check; |
 | **Simulation:** [Gazebo SITL](../sim_gazebo_gz/README.md)                                                                           |       X        |    X    |    X    |
 | **Simulation:** [Gazebo Classic SITL](../sim_gazebo_classic/README.md)                                                              |       X        |    X    |    X    |
 | **Simulation:** [ROS with Gazebo Classic](../simulation/ros_interface.md)                                                           |       X        |         |         |

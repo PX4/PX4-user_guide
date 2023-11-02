@@ -14,7 +14,7 @@ The table below shows what PX4 targets you can build on each OS.
 | ----------------------------------------------------------------------------------------------------------------------------------- |:--------------:|:-------:|:-------:|
 | **NuttX based hardware:** [Pixhawk Series](../flight_controller/pixhawk_series.md), [Crazyflie](../complete_vehicles/crazyflie2.md) |    &check;     | &check; | &check; |
 | **Linux-based hardware:** [Raspberry Pi 2/3](../flight_controller/raspberry_pi_navio2.md)                                           |    &check;     |         |         |
-| **Simulation:** [jMAVSim SITL](../simulation/jmavsim.md)                                                                            |    &check;     | &check; | &check; |
+| **Simulation:** [jMAVSim SITL](../sim_jmavsim/README.md)                                                                            |    &check;     | &check; | &check; |
 | **Simulation:** [Gazebo SITL](../sim_gazebo_gz/README.md)                                                                           |    &check;     | &check; | &check; |
 | **Simulation:** [Gazebo Classic SITL](../sim_gazebo_classic/README.md)                                                              |    &check;     | &check; | &check; |
 | **Simulation:** [ROS with Gazebo Classic](../simulation/ros_interface.md)                                                           |    &check;     |         |         |

@@ -63,7 +63,7 @@ PX4 自动切换到 MAVLink 2，如果GCS 和遥测模块支持。
 
 MAVLink 2 必须用于低带宽链接以保证 RTK 性能。 Care must be taken to make sure that the telemetry chain uses MAVLink 2 throughout. 您可以使用系统控制台上的 `mavlink status` 命令验证协议版本：
 
-```
+```sh
 nsh> mavlink status
 instance #0:
         GCS heartbeat:  593486 us ago
