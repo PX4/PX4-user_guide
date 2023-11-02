@@ -10,7 +10,7 @@ All PX4 integraton tests are executed automatically by our [Continuous Integrati
 
 ## Prerequisites:
 
-* [jMAVSim Simulator](../simulation/jmavsim.md)
+* [jMAVSim Simulator](../sim_jmavsim/README.md)
 * [Gazebo Classic Simulator](../sim_gazebo_classic/README.md)
 * [ROS and MAVROS](../simulation/ros_interface.md)
 
