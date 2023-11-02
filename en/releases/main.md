@@ -39,7 +39,8 @@ TBD ...
 
 ### Simulation
 
-- TBD
+- [Gazebo] Support for [Advanced Plane](../gazebo_vehicles.md#advanced-plane), a simulated fixed-wing vehicle that provides better aerodynamic simulation than the regular plane.
+  Added to PX4 in [PX4-Autopilot#22167](https://github.com/PX4/PX4-Autopilot/pull/22167) and [gz-sim#2185](https://github.com/gazebosim/gz-sim/pull/2185) (advanced lift drag plugin).
 
 ### MAVLink
 
