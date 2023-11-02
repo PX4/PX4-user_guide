@@ -60,7 +60,7 @@ make px4_sitl gz_advanced_plane
 
 note:::
 The difference between the Advanced Plane and the "regular plane" lies in the Lift Physics that the two models use. For mode detail on the lift calculations for the Advanced Plane,
-consolidate: https://github.com/PX4/PX4-SITL_gazebo-classic/blob/20ded0757b4f2cb362833538716caf1e938b162a/src/liftdrag_plugin/README.md
+see: https://github.com/PX4/PX4-SITL_gazebo-classic/blob/20ded0757b4f2cb362833538716caf1e938b162a/src/liftdrag_plugin/README.md
 :::
 
 ## VTOL
