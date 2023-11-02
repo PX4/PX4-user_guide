@@ -25,7 +25,7 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 
 먼저 콘솔 환경에서 시뮬레이션 대상을 빌드합니다. 이를 통하여 실제 하드웨어와 IDE로 사용전에 시스템 설정을 검증할 수 있습니다.
 
-**PX4-Autopilot** 디렉토리로 이동하여, 다음 명령을 사용하여 [jMAVSim](../simulation/jmavsim.md)을 시작합니다.
+Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../sim_jmavsim/README.md) using the following command:
 ```sh
 make px4_sitl jmavsim
 ```
@@ -51,7 +51,7 @@ Flying the simulation with the ground control station is closer to the real oper
 
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
-:::tip PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md) and [AirSim](../simulation/airsim.md). These are also started with *make* - e.g.
+:::tip PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md) and [AirSim](../sim_airsim/README.md). These are also started with *make* - e.g.
 
 ```
 make px4_sitl gazebo-classic
@@ -257,7 +257,7 @@ make list_config_targets
 :::
 - **모델:** 사용할 *기체* 모델(예: `iris`(*기본*), `rover` , `tailsitter` 등), 시뮬레이터에 의해 로드됩니다. 환경 변수 `PX4_SIM_MODEL`은 선택한 모델로 설정되며, 이 모델은 [시작 스크립트](../simulation/README.md#startup-scripts)에서 적절한 매개변수 선택합니다.
 - **디버거:** 사용할 디버거: `없음`(*기본*), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. 자세한 내용은 [시뮬레이션 디버깅](../debug/simulation_debugging.md)을 참고하십시오.
-- **WORLD:** (Gazebo Classic only). Set the world ([PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/main/worlds)) that is loaded. Default is [empty.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/empty.world). For more information see [Gazebo Classic > Loading a Specific World](../sim_gazebo_classic/README.md#set_world).
+- **WORLD:** (Gazebo Classic only). Set the world ([PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/main/worlds)) that is loaded. Default is [empty.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/empty.world). For more information see [Gazebo Classic > Loading a Specific World](../sim_gazebo_classic/README.md##loading-a-specific-world).
 
 :::tip
 You can get a list of *all* available `VIEWER_MODEL_DEBUGGER_WORLD` options using the command below:
