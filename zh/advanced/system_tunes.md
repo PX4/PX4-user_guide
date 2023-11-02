@@ -25,14 +25,18 @@ ANSI 音乐在 ANSI BBS 系统中很受欢迎，因此最好的编辑工具是 D
 1. 下载 [Melody Master](ftp://archives.thebbs.org/ansi_utilities/melody21.zip) 并解压缩到新目录
 1. Open the _Dosbox_ console
 1. 将 Melody 主目录挂载到 DosBox，如下：
-   ```
+
+   ```sh
    mount c C:\<path_to_directory\Melody21
    ```
+
 1. Start _Melody Master_ with the following commands
-   ```
+
+   ```sh
    c:
    start
    ```
+
 1. You will then have the option to click through a few screens, then press **1** to display _Melody Master_: ![Melody Master 2.1](../../assets/tunes/tunes_melody_master_2_1.jpg)
 
    屏幕的下半部分提供了关于键盘快捷键的实用工具（箭头用于移动， 和选择笔记长度的数字等）。
