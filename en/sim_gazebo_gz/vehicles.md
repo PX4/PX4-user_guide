@@ -49,7 +49,19 @@ make px4_sitl gz_x500_depth
 make px4_sitl gz_rc_cessna
 ```
 
-![Plane in Gazebo Classic](../../assets/simulation/gazebo/vehicles/rc_cessna.png)
+![Plane in Gazebo](../../assets/simulation/gazebo/vehicles/rc_cessna.png)
+
+
+```sh
+make px4_sitl gz_advanced_plane
+```
+
+![Advanced Plane in Gazebo](../../assets/simulation/gazebo/vehicles/advanced_plane.png)
+
+note:::
+The difference between the Advanced Plane and the "regular plane" lies in the Lift Physics that the two models use. For mode detail on the lift calculations for the Advanced Plane,
+consolidate: https://github.com/PX4/PX4-SITL_gazebo-classic/blob/20ded0757b4f2cb362833538716caf1e938b162a/src/liftdrag_plugin/README.md
+:::
 
 ## VTOL
 
