@@ -1,10 +1,11 @@
 # 다중 차량 시뮬레이션
 
 PX4는 다음 시뮬레이터를 사용하여 다중 차량 시뮬레이션을 지원합니다.
+
 - [Multi-Vehicle Sim with Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md) (both with and without ROS)
-- [Multi-Vehicle Sim with Gazebo Classic](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md) (both with and without ROS)
-- [FlightGear 다중 차량 시뮬레이션](../simulation/multi_vehicle_flightgear.md)
-- [JMAVSim 다중 차량 시뮬레이션](../simulation/multi_vehicle_jmavsim.md)
+- [Multi-Vehicle Sim with Gazebo Classic](../sim_gazebo_classic/multi_vehicle_simulation.md) (both with and without ROS)
+- [FlightGear 다중 차량 시뮬레이션](../sim_flightgear/multi_vehicle.md)
+- [JMAVSim 다중 차량 시뮬레이션](../sim_jmavsim/multi_vehicle.md)
 
 시뮬레이터의 선택은 시뮬레이션할 차량, 시뮬레이션 퀄러티, 시뮬레이션 기능, 시뮬레이션 차량 대수에 따라 달라집니다.
 
