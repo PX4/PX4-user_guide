@@ -1,7 +1,7 @@
 # PX4 ROS 2 interface library
 
 The [PX4 ROS 2 interface library](https://github.com/Auterion/px4-ros2-interface-lib) is a C++ library to simplify controlling PX4 from ROS 2.
-It allows to write external modes that are dynamically registered with PX4 and behave the same way as internal ones.
+It allows developers to write external modes that are dynamically registered with PX4 and behave the same way as internal ones.
 A mode can send different types of setpoints, ranging from high-level navigation tasks all the way down to direct actuator controls.
 
 ## Overview
@@ -17,17 +17,20 @@ The following sections define and explain the terms used in the diagram.
 ### Definitions
 
 #### Mode
-
-- A mode is a component that can send setpoints to the vehicle, which control its motion (such as velocity or direct actuator commands).
-- It is passive, meaning it does not activate other modes (by sending commands), and it must be activated by someone else (either the user through RC/GCS, the FMU in a failsafe situation or by a _mode executor_).
+A mode has the following properties:
+- It is a component that can send setpoints to the vehicle, which control its motion (such as velocity or direct actuator commands).
+- A mode can't activate other modes (by sending commands), and must be activated by the user (through RC/GCS), the flight controller in a failsafe situation, a _mode executor_, or some other external system.
 - It selects a setpoint type and sends it while it is active.
   A mode can switch between multiple setpoint types.
 - Has a name displayed by the GCS.
 - Can configure its mode requirements (for example that it requires a valid position estimate).
-- A mode can consist of different tasks (for example flying to a target, lowering a winch, releasing a payload and then fly back).
+- A mode can perform different tasks, such as flying to a target, lowering a winch, releasing a payload and then fly back.
 
 #### Mode Executor
+A mode executor is an optional component for scheduling modes.
+For example, the mode executor for a custom payload delivery or survey mode might first trigger a take-off, then switch to the custom mode, and when that completes trigger an RTL.
 
+Specifically, it has the following properties:
 - A mode executor is an optional component one level higher than a mode. It is a state machine that can activate modes, and wait for their completion.
 - It can only do so while it is in charge.
   For that, an executor has exactly one _owned mode_ (and a mode can be owned by at most one executor).
@@ -43,10 +46,6 @@ The following sections define and explain the terms used in the diagram.
 - A mode executor is transparent to the user.
   It gets indirectly selected and activated through the owning mode, and thus the mode should be named accordingly.
 :::
-
-##### When would you use a mode executor?
-
-The most common use-case is the execution of an autonomous 'mission', such as a survey or a payload delivery: the executor triggers a take-off, then switches to a custom mode which performs the survey, and when completed, triggers an RTL.
 
 #### Configuration Overrides
 
@@ -66,9 +65,9 @@ The above concepts provide a number of advantages over traditional [offboard con
 - Exposing a selectable mode to the GCS.
 - Integrated with the failsafe state machine and arming checks.
 - It is well-defined which setpoint types can be sent.
-- It is possible to replace an FMU-internal mode (such as RTL).
+- It is possible to replace a flight controller internal mode (such as RTL).
 
-## Getting Started
+## Installation and first Test
 
 The following steps are required to get started:
 
@@ -118,7 +117,7 @@ The following steps are required to get started:
    ros2 run example_mode_manual_cpp example_mode_manual
    ```
 
-   You should get an output like this:
+   You should get an output like this showing 'My Manual Mode' mode being registered:
 
    ```
    [DEBUG] [example_mode_manual]: Checking message compatibility...
@@ -160,10 +159,20 @@ The following steps are required to get started:
 
 11. Now you are ready to create your own mode.
 
-## Mode Tutorial
+
+## How to use the library
+
+General notes on how to use the library:
+
+- coordinate convention: TODO
+
+The following sections describe specific functionality.
+Apart from that, any other PX4 topic can be subscribed or published directly.
+
+### Mode Class Definition
 
 This section steps through an example for a custom mode class.
-For a complete application, check out the [examples in the repository](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/examples/cpp).
+For a complete application, check out the [examples in the repository](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/examples/cpp), such as [examples/cpp/modes/manual](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/modes/manual/include/mode.hpp).
 
 ```cpp{1,5,7-9,24-31}
 class MyMode : public px4_ros2::ModeBase // [1]
@@ -206,20 +215,14 @@ private:
 ```
 
 - **[1]**: First we create a class that inherits from `px4_ros2::ModeBase`
-- **[2]**: In the constructor, we pass the mode name. This also allows to configure some other things, like replacing an FMU-internal mode.
+- **[2]**: In the constructor, we pass the mode name. This also allows us to configure some other things, like replacing a flight controller internal mode.
 - **[3]**: This is where we create all objects that we want to use later on.
   This can be RC input, setpoint type(s), or telemetry. `*this` is passed as a `Context` to each object, which associates the object with the mode.
 - **[4]**: Whenever the mode is active, this method gets called regularly (the update rate depends on the setpoint type).
   Here is where we can do our work and generate a new setpoint.
 
-## How to use the library
-
-General notes on how to use the library:
-
-- coordinate convention: TODO
-
-The following sections describe specific functionality.
-Apart from that, any other PX4 topic can be subscribed or published directly.
+After creating an instance of that mode, `mode->doRegister()` must be called which does the actual registration with the flight controller and returns `false` if it fails.
+In case a mode executor is used, `doRegister()` must be called on the mode executor, instead of for the mode.
 
 ### Setpoint Types
 
@@ -229,7 +232,7 @@ The used types also define the compatibility with different vehicle types.
 The following sections provide a list of commonly used setpoint types.
 You can also add your own type by adding a class that inherits from `px4_ros2::SetpointBase`, sets the configuration flags according to what the setpoint requires, and then publishes any topic containing a setpoint.
 
-#### Smooth Position
+#### GoTo Position Setpoints
 
 TODO
 
@@ -283,6 +286,8 @@ It is possible to manually update any mode requirement after the mode is registe
 modeRequirements().home_position = true;
 ```
 
+The full list of flags can be found in [requirement_flags.hpp](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/common/requirement_flags.hpp).
+
 #### Deferring Failsafes
 
 A mode or mode executor can temporarily defer non-essential failsafes.
@@ -291,7 +296,7 @@ Check the [integration test](https://github.com/Auterion/px4-ros2-interface-lib/
 
 ### Assigning a Mode to an RC Switch or Joystick Action
 
-External modes can be assigned to RC switches or joystick actions.
+External modes can be assigned to [RC switches](../config/flight_mode.md) or joystick actions.
 When assigning a mode to an RC switch, you need to know the index.
 Use `commander status` while the mode is running to get that information.
 For example:
@@ -304,13 +309,14 @@ means you would select **External Mode 1** in QGC:
 ![QGC Mode Assignment](../../assets/middleware/ros2/px4_ros2_interface_lib/qgc_mode_assignment.png)
 
 :::note
-PX4 ensures a given mode is always assignment to the same index by storing a hash of the mode name.
+PX4 ensures a given mode is always assigned to the same index by storing a hash of the mode name.
 This makes it independent of startup ordering in case of multiple external modes.
 :::
 
 ### Replacing an Internal Mode
 
-An external mode can replace an existing internal mode, such as RTL. By doing so, whenever RTL gets selected (through the user or a failsafe situation), the external mode is used instead of the internal one.
+An external mode can replace an existing internal mode, such as [Return](../flight_modes/return.md) mode (RTL).
+By doing so, whenever RTL gets selected (through the user or a failsafe situation), the external mode is used instead of the internal one.
 The internal one is only used as a fallback when the external one becomes unresponsive or crashes.
 
 The replacement mode can be set in the settings of the `ModeBase` constructor:
