@@ -52,7 +52,7 @@ adis16470 <command> [arguments...]
    status        print status info
 ```
 ## adis16477
-소스: [drivers/imu/adis16477](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/adis16477)
+Source: [drivers/imu/analog_devices/adis16477](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/analog_devices/adis16477)
 
 <a id="adis16477_usage"></a>
 
@@ -78,7 +78,7 @@ adis16477 <command> [arguments...]
    status        print status info
 ```
 ## adis16497
-소스: [drivers/imu/adis16497](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/adis16497)
+Source: [drivers/imu/analog_devices/adis16497](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/analog_devices/adis16497)
 
 <a id="adis16497_usage"></a>
 
@@ -267,7 +267,7 @@ bmi270 <command> [arguments...]
    status        print status info
 ```
 ## fxas21002c
-소스: [drivers/imu/fxas21002c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/fxas21002c)
+Source: [drivers/imu/nxp/fxas21002c](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/nxp/fxas21002c)
 
 <a id="fxas21002c_usage"></a>
 
@@ -301,7 +301,7 @@ fxas21002c <command> [arguments...]
    status        print status info
 ```
 ## fxos8701cq
-소스: [drivers/imu/fxos8701cq](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/fxos8701cq)
+Source: [drivers/imu/nxp/fxos8701cq](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/nxp/fxos8701cq)
 
 <a id="fxos8701cq_usage"></a>
 
@@ -678,7 +678,7 @@ iim42653 <command> [arguments...]
    status        print status info
 ```
 ## lsm303d
-소스: [drivers/imu/lsm303d](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/lsm303d)
+Source: [drivers/imu/st/l3gd20](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/st/l3gd20)
 
 <a id="l3gd20_usage"></a>
 
@@ -704,7 +704,7 @@ lsm303d <command> [arguments...]
    status        print status info
 ```
 ## lsm9ds1
-소스: [drivers/imu/st/lsm9ds1](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/st/lsm9ds1)
+Source: [drivers/imu/st/lsm303d](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/st/lsm303d)
 
 <a id="lsm303d_usage"></a>
 
