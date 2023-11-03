@@ -55,6 +55,7 @@
 - [Event](Event.md) — Events interface
 - [FailsafeFlags](FailsafeFlags.md) — Input flags for the failsafe state machine set by the arming & health checks.
 - [FailureDetectorStatus](FailureDetectorStatus.md)
+- [FigureEightStatus](FigureEightStatus.md)
 - [FollowTarget](FollowTarget.md)
 - [FollowTargetEstimator](FollowTargetEstimator.md)
 - [FollowTargetStatus](FollowTargetStatus.md)
