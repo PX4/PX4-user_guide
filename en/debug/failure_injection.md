@@ -7,13 +7,13 @@ Failure injection is disabled by default, and can be enabled using the [SYS_FAIL
 
 :::warning
 Failure injection still in development.
-At time of writing (PX4 v1.12):
+At time of writing (PX4 v1.14):
 - It can only be used in simulation (support for both failure injection in real flight is planned).
-- Many failure types are not broadly implemented. In those cases the command will return with an "unsupported" message.
+- It requires support in the simulator.
+  It is supported in Gazebo Classic
+- Many failure types are not broadly implemented.
+  In those cases the command will return with an "unsupported" message.
 :::
-
-
-
 
 
 ## Failure System Command
