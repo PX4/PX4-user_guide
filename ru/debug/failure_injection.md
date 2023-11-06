@@ -5,13 +5,11 @@ System failure injection allows you to induce different types of sensor and syst
 Failure injection is disabled by default, and can be enabled using the [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN) parameter.
 
 :::warning
-Failure injection still in development. At time of writing (PX4 v1.12):
+Failure injection still in development. At time of writing (PX4 v1.14):
 - It can only be used in simulation (support for both failure injection in real flight is planned).
+- It requires support in the simulator. It is supported in Gazebo Classic
 - Many failure types are not broadly implemented. In those cases the command will return with an "unsupported" message.
 :::
-
-
-
 
 
 ## Failure System Command
