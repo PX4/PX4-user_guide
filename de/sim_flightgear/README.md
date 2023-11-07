@@ -1,5 +1,9 @@
 # FlightGear Simulation
 
+:::warning
+Community Supported This simulator is not maintained, tested, or supported, by the core development team. For information about supported toolchains see: [Toolchain Installation](../dev_setup/dev_env.md).
+:::
+
 [FlightGear](https://www.flightgear.org/) is a flight simulator with powerful [FDM engines](http://wiki.flightgear.org/Flight_Dynamics_Model). This allows FlightGear to simulate rotorcrafts under various meteorological conditions (which is why the bridge was originally developed by [ThunderFly s.r.o.](https://www.thunderfly.cz/)).
 
 This page describes FlightGear's single-vehicle use in SITL. For information about multi-vehicle use see: [Multi-Vehicle Simulation with FlightGear](../sim_flightgear/multi_vehicle.md).
