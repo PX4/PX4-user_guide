@@ -49,6 +49,7 @@ Device | GPS | Compass | [RTK](../gps_compass/rtk_gps.md) | [GPS Yaw Output](#co
 [Holybro M8N GPS](../gps_compass/gps_holybro_m8n_m9n.md) | M8N | IST8310 | | | |
 [Holybro M9N GPS](../gps_compass/gps_holybro_m8n_m9n.md) | M9N | IST8310 | | | |
 [Holybro DroneCAN M9N GPS](https://holybro.com/products/dronecan-m9n-gps) | M9N | BMM150 | | | |
+[Holybro H-RTK F9P Ultralight](https://holybro.com/products/h-rtk-f9p-ultralight) | F9P | IST8310 | &check; | | &check;|
 [Holybro H-RTK F9P Helical or Base](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | F9P | IST8310 | &check; | | &check;|
 [Holybro DroneCAN H-RTK F9P Helical](https://holybro.com/products/dronecan-h-rtk-f9p-helical) | F9P | BMM150  | &check; | | &check;|
 [Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | F9P | IST8310 | &check; | | |
