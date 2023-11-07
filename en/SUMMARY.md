@@ -449,6 +449,7 @@
       * [Event](msg_docs/Event.md) — Events interface
       * [FailsafeFlags](msg_docs/FailsafeFlags.md)
       * [FailureDetectorStatus](msg_docs/FailureDetectorStatus.md)
+      * [FigureEightStatus](msg_docs/FigureEightStatus.md)
       * [FollowTarget](msg_docs/FollowTarget.md)
       * [FollowTargetEstimator](msg_docs/FollowTargetEstimator.md)
       * [FollowTargetStatus](msg_docs/FollowTargetStatus.md)
@@ -658,6 +659,7 @@
       * [AirSim Simulation](sim_airsim/README.md)
       * [HITL Simulation](simulation/hitl.md)
       * [Simulation-In-Hardware](simulation/simulation-in-hardware.md)
+      * [Multi-vehicle simulation](simulation/multi-vehicle-simulation.md)
   * [Platform Testing and CI](test_and_ci/README.md)
     * [Test Flights](test_and_ci/test_flights.md)
       * [Test MC_01 - Manual Modes](test_cards/mc_01_manual_modes.md)

@@ -22,8 +22,8 @@ Questions about these tools should be raised on the [discussion forums](../contr
   - [HITL Simulation](../simulation/hitl.md) — Simulator interacting with PX4 running on hardware
   - [Simulation-In-Hardware](../simulation/simulation-in-hardware.md) — Simulator running in PX4 on hardware
   - [FlightGear Simulation](../sim_flightgear/README.md)
-    - [FlightGear Vehicles](sim_flightgear/vehicles.md)
+    - [FlightGear Vehicles](../sim_flightgear/vehicles.md)
     - [Multi-Vehicle Sim with FlightGear](../sim_flightgear/multi_vehicle.md)
   - [JSBSim Simulation](../sim_jsbsim/README.md)
   - [AirSim Simulation](../sim_airsim/README.md) — Beautiful simulator that does not appear well supported
-  - [Multi-Vehicle Simulation](simulation/multi-vehicle-simulation.md)
+  - [Multi-Vehicle Simulation](../simulation/multi-vehicle-simulation.md)
