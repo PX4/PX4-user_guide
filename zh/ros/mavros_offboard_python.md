@@ -30,7 +30,7 @@
 2. 在 `~/catkin_ws/src 中` 目录创建一个新包，名为 `offboard_py` (在这种情况下) 依赖 `rospy` ：
 
     ```sh
-    catalkin_create_pkg offboard_py rospy
+    catkin_create_pkg offboard_py rospy
     ```
 
 3. 在 `~/catkin_ws/` 目录中构建新的软件包：
