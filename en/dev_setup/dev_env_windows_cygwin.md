@@ -6,7 +6,7 @@ This environment can be used to build PX4 for:
 * [jMAVSim Simulation](../sim_jmavsim/README.md)
 
 :::warning
-This setup is an [unsupported windows development environment](../advanced/dev_env_unsupported.md).
+This setup is an [unsupported windows development environment](../advanced/community_supported_dev_env).
 
 The toolchain was previously recommended, but does not work with PX4 v1.12 and later due to packaging issues.
 The [Windows WSL2-Based Development Environment](../dev_setup/dev_env_windows_wsl.md) should be used by preference.

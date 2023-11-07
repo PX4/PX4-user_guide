@@ -645,7 +645,7 @@
     * [System Tunes](advanced/system_tunes.md)
     * [Advanced Linux Installation Cases](dev_setup/dev_env_advanced_linux.md)
     * [Connecting an RC Receiver to PX4 on Linux (Tutorial)](tutorials/linux_sbus.md)
-    * [Community Supported Developer Setup](advanced/dev_env_unsupported.md)
+    * [Community Supported Developer Setup](advanced/community_supported_dev_env)
       * [CentOS Linux](dev_setup/dev_env_linux_centos.md)
       * [Arch Linux](dev_setup/dev_env_linux_arch.md)
       * [Windows VM Toolchain](dev_setup/dev_env_windows_vm.md) 

@@ -1,7 +1,7 @@
 # Windows Virtual Machine-Hosted Toolchain
 
 :::warning
-This development environment is [not supported](../advanced/dev_env_unsupported.md).
+This development environment is [not supported](../advanced/community_supported_dev_env).
 See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools we do support!
 :::
 
