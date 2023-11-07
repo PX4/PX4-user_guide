@@ -21565,7 +21565,7 @@ table {
 </ul>
   </td>
  <td>[0, 2] </td>
- <td>0</td>
+ <td>2</td>
  <td></td>
 </tr>
 <tr>
