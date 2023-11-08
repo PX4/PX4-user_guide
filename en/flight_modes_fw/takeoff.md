@@ -19,7 +19,7 @@ Vehicles are [hand or catapult launched](#catapult-hand-launch) by default, but 
 
 ## Technical Summary
 
-Takeoff mode (and [fixed wing mission takeoff](../flight_modes/mission.md#fw-mission-takeoff)) has two modalities: [catapult/hand-launch](#catapult-hand-launch) or [runway takeoff](#runway-takeoff) (hardware-dependent).
+Takeoff mode (and [fixed wing mission takeoff](../flight_modes_fw/mission.md#mission-takeoff)) has two modalities: [catapult/hand-launch](#catapult-hand-launch) or [runway takeoff](#runway-takeoff) (hardware-dependent).
 The mode defaults to catapult/hand launch, but can be set to runway takeoff by setting [RWTO_TKOFF](#RWTO_TKOFF) to 1.
 
 To use _Takeoff mode_ you first switch to the mode, and then arm the vehicle.
@@ -121,6 +121,6 @@ Runway takeoff is affected by the following parameters:
 ## See Also
 
 - [Takeoff Mode (MC)](../flight_modes_mc/takeoff.md)
-- [Planning a mission takeoff](../flight_modes/mission.md#fw-mission-takeoff)
+- [Planning a mission takeoff](../flight_modes_fw/mission.md#mission-takeoff)
 
 <!-- this maps to AUTO_TAKEOFF in dev -->

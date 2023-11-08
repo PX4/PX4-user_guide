@@ -189,7 +189,7 @@ By default a mulitcopter will simply ascend to a safe height, fly to its home po
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Mission mode](../flight_modes/mission.md) causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller.
+[Mission mode](../flight_modes_mc/mission.md) causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller.
 The mission is typically created and uploaded with a Ground Control Station (GCS) application.
 
 :::tip
@@ -351,7 +351,7 @@ By default a fixed-wing vehicle will ascend to a safe height and use a mission l
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Mission mode](../flight_modes/mission.md) causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller.
+[Mission mode](../flight_modes_fw/mission.md) causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller.
 The mission is typically created and uploaded with a Ground Control Station (GCS) application. 
 
 
@@ -374,7 +374,7 @@ The specific launch behaviour depends on the configured takeoff mode (catapult/h
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;
 
 [Land mode](../flight_modes_fw/land.md) causes the vehicle to turn and land at the location at which the mode was engaged.
-Fixed-wing landing logic and parameters are explained in the topic: [Mission > Fixed-wing Mission Landing](../flight_modes/mission.md#fw-mission-landing).
+Fixed-wing landing logic and parameters are explained in the topic: [Mission > Fixed-wing Mission Landing](../flight_modes_fw/mission.md#mission-landing).
 
 <a id="offboard_fw"></a>
 ### Offboard Mode (FW)

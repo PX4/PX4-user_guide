@@ -71,7 +71,7 @@ The position estimator tested for this mode is EKF2, you can set this by changin
 
 ## First Flight Without Airspeed Sensor
 
-The values apply to a position controlled flight (like [Hold mode](../flight_modes_fw/hold.md) or [Mission mode](../flight_modes/mission.md) or Mission mode). 
+The values apply to a position controlled flight (like [Hold mode](../flight_modes_fw/hold.md) or [Mission mode](../flight_modes_vtol/mission.md) or Mission mode). 
 It is therefore recommended that a mission is configured at a safe altitude, approximately 10m above the quad-chute threshold. 
 
 Like for the reference flight, this flight should be performed in very low wind conditions. 

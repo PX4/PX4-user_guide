@@ -1,4 +1,4 @@
-# Obstacle Avoidance
+# Obstacle Avoidance (Multicopter)
 
 *Obstacle Avoidance* enables a vehicle to navigate around obstacles when following a preplanned path.
 
@@ -38,7 +38,7 @@ Companion-side hardware setup and hardware/software configuration is provided in
 
 ## Mission Mode Avoidance
 
-PX4 supports obstacle avoidance in [Mission mode](../flight_modes/mission.md), using avoidance software running on a separate companion computer.
+PX4 supports obstacle avoidance in [Mission mode](../flight_modes_mc/mission.md), using avoidance software running on a separate companion computer.
 
 ### Mission Progression
 
