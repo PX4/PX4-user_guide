@@ -2,7 +2,7 @@
 
 [<img src="../../assets/site/difficulty_hard.png" title="飞行难度：困难" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动/遥控器控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
-*Acro mode* is the RC mode for performing acrobatic maneuvers e.g. flips, rolls and loops.
+_Acro mode_ is the RC mode for performing acrobatic maneuvers e.g. flips, rolls and loops.
 
 RPY摇杆输入控制围绕各自轴的角度旋转速率。 当操纵杆居中时，飞机将停止旋转，但保持其当前朝向（不一定是水平）。
 
@@ -27,14 +27,12 @@ RC RPY stick inputs control the rate of angular rotation around the respective a
 ![特技模式 - 指数- 纯线性输入曲线](../../assets/flight_modes/acro_mc_input_curve_expo_linear.png) ![特技模式 - 指数- 纯三次输入曲线](../../assets/flight_modes/acro_mc_input_curve_expo_cubic.png)
 
 :::note
-
 The mathematical relationship is:
 
 $$\mathrm{y} = r(f\cdot x^3 + x(1-f)) (1-g)/(1-g|x|)$$, 其中 `f = MC_ACRO_EXPO` 或 `MC_ACRO_EXPO_Y`，`g = MC_ACRO_SUPEXPO` 或 `MC_ACRO_SUPEXPOY` ， `r` 为最大速率。
 
 您可以在[此处](https://www.desmos.com/calculator/yty5kgurmc)进行试验。
 :::
-
 
 ## 参数
 
