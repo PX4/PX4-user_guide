@@ -129,7 +129,7 @@ From the body axis derivatives log file, the following advanced lift drag plugin
 | Cnr         | Cenr                              | dCn/dr (yaw moment slope wrt yaw rate)                   |
 
 Furthermore, every control surface also has six own parameters, which are also derived from this log file.
-`{i}`` below ranges from 1 to the number of unique control surface types in the model.
+`{i}` below ranges from 1 to the number of unique control surface types in the model.
 
 | Name in AVL | Name in Advanced Lift Drag Plugin | Description                                                   |
 | ----------- | --------------------------------- | ------------------------------------------------------------- |
