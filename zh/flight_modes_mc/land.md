@@ -6,7 +6,6 @@ The _Land_ flight mode causes the vehicle to land at the position where the mode
 
 :::note
 
-
 - This mode requires a valid global position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
 - In a failsafe the mode only requires altitude (typically a barometer is built into the flight controller).
 - This mode is automatic - no user intervention is _required_ to control the vehicle.
@@ -15,7 +14,6 @@ The _Land_ flight mode causes the vehicle to land at the position where the mode
 - The mode can be triggered using the [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) MAVLink command, or by explicitly switching to Land mode.
 
 :::
-
 
 ## Technical Summary
 
