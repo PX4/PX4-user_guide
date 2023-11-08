@@ -5,13 +5,11 @@
 실패 주입은 기본적으로 비활성화되어 있으며, [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN) 매개변수를 사용하여 활성화할 수 있습니다.
 
 :::warning
-실패 주입은 아직 개발 중입니다. 작성 당시(PX4 v1.12):
+실패 주입은 아직 개발 중입니다. At time of writing (PX4 v1.14):
 - 시뮬레이션에서만 사용할 수 있습니다(실제 비행에서 실패 주입 모두 지원 예정).
+- It requires support in the simulator. It is supported in Gazebo Classic
 - 많은 실패 유형이 광범위하게 구현되지 않았습니다. 이러한 경우 명령은 "지원되지 않는" 메시지와 함께 반환됩니다.
 :::
-
-
-
 
 
 ## 장애 시스템 명령

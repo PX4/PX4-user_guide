@@ -13911,7 +13911,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_CPU_MAX">COM_CPU_MAX</strong> (FLOAT)</td>
- <td>Maximum allowed CPU load to still arm <p><strong>Comment:</strong> A negative value disables the check.</p>   </td>
+ <td>Maximum allowed CPU load to still arm <p><strong>Comment:</strong> The check fails if the CPU load is above this threshold for 2s. A negative value disables the check.</p>   </td>
  <td>[-1, 100] (1)</td>
  <td>95.0</td>
  <td>%</td>
@@ -14487,10 +14487,30 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_WIND_MAX">COM_WIND_MAX</strong> (FLOAT)</td>
- <td>Wind speed RTL threshold <p><strong>Comment:</strong> Wind speed threshold above which an automatic return to launch is triggered. It is not possible to resume the mission or switch to any auto mode other than RTL or Land if this threshold is exceeded. Taking over in any manual mode is still possible. Set to -1 to disable.</p>   </td>
+ <td>High wind speed failsafe threshold <p><strong>Comment:</strong> Wind speed threshold above which an automatic failsafe action is triggered. Failsafe action can be specified with COM_WIND_MAX_ACT.</p>   </td>
  <td>[-1, ?] (0.1)</td>
  <td>-1.</td>
  <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="COM_WIND_MAX_ACT">COM_WIND_MAX_ACT</strong> (INT32)</td>
+ <td>High wind failsafe mode <p><strong>Comment:</strong> Action the system takes when a wind speed above the specified threshold is detected. See COM_WIND_MAX to set the failsafe threshold. If enabled, it is not possible to resume the mission or switch to any auto mode other than RTL or Land if this threshold is exceeded. Taking over in any manual mode is still possible.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> None</li>
+
+<li><strong>1:</strong> Warning</li>
+
+<li><strong>2:</strong> Hold</li>
+
+<li><strong>3:</strong> Return</li>
+
+<li><strong>4:</strong> Terminate</li>
+
+<li><strong>5:</strong> Land</li> 
+</ul>
+  </td>
+ <td>(1)</td>
+ <td>0</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="COM_WIND_WARN">COM_WIND_WARN</strong> (FLOAT)</td>
@@ -21577,7 +21597,7 @@ table {
 </ul>
   </td>
  <td>[0, 2] </td>
- <td>0</td>
+ <td>2</td>
  <td></td>
 </tr>
 <tr>
