@@ -10,7 +10,7 @@ It is based on the [Pixhawk​​® Autopilot FMUv6X Standard](https://github.co
 
 Equipped with a high performance NXP i.mx RT1176 dual core Processor, modular design, triple redundancy, temperature-controlled IMU board, isolated sensor domains, delivering incredible performance, reliability, and flexibility.
 
-[Pixhawk6X-RT Upright Image](../../assets/flight_controller/pixhawk6x-rt/pixhawk6x-rt.png)
+<img src="../../assets/flight_controller/pixhawk6x-rt/pixhawk6x-rt.png" width="350px" title="Pixhawk6X-RT Upright Image" /> <img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_exploded_diagram.png" width="300px" title="Pixhawk6X Exploded Image" />
 
 :::tip
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
@@ -127,7 +127,9 @@ The [Pixhawk 6X Wiring Quick Start](../assembly/quick_start_pixhawk6x.md) provid
 
 ## Connections
 
-Sample Wiring Diagram ![Pixhawk 6X Wiring Overview](../../assets/flight_controller/pixhawk6x/pixhawk6x_wiring_diagram.png)
+Sample Wiring Diagram
+
+![Pixhawk 6X Wiring Overview](../../assets/flight_controller/pixhawk6x/pixhawk6x_wiring_diagram.png)
 
 ## Pinouts
 
@@ -191,7 +193,7 @@ Most users will not need to build this firmware! It is pre-built and automatical
 To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
-make px4_fmu-v6x_default
+make px4_fmu-v6xrt
 ```
 
 <a id="debug_port"></a>
