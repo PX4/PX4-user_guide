@@ -1,7 +1,9 @@
 # CentOS Development Environment
 
 :::warning
-This development environment is [not supported](../advanced/dev_env_unsupported.md). See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools we do support!
+This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md). It may or may not work with current versions of PX4.
+
+See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
 :::
 
 The build requires Python 2.7.5. Therefore as of this writing Centos 7 should be used. (For earlier Centos releases a side-by-side install of python v2.7.5 may be done. But it is not recommended because it can break yum.)
@@ -29,12 +31,13 @@ You may want to also install `python-pip` and `screen`.
 :::
 
 ## GCC Toolchain Installation
+
 <!-- GCC toolchain documentation used for all Linux platforms to build NuttX -->
 
 Execute the script below to install GCC 7-2017-q4:
 
 :::warning
-This version of GCC is out of date. At time of writing the current version on Ubuntu is `9-2020-q2-update` (see  [focal nuttx docker file](https://github.com/PX4/PX4-containers/blob/master/docker/Dockerfile_nuttx-focal#L28))
+This version of GCC is out of date. At time of writing the current version on Ubuntu is `9-2020-q2-update` (see [focal nuttx docker file](https://github.com/PX4/PX4-containers/blob/master/docker/Dockerfile_nuttx-focal#L28))
 :::
 
 ```sh
@@ -48,7 +51,6 @@ popd
 ```
 
 Now restart your machine.
-
 
 **Troubleshooting**
 
@@ -68,9 +70,10 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 
 <!-- import docs ninja build system -->
+
 ## Ninja Build System
 
-[Ninja](https://ninja-build.org/) is a faster build system than *Make* and the PX4 *CMake* generators support it.
+[Ninja](https://ninja-build.org/) is a faster build system than _Make_ and the PX4 _CMake_ generators support it.
 
 On Ubuntu Linux you can install this automatically from normal repos.
 
@@ -90,4 +93,3 @@ exportline="export PATH=$HOME/ninja:\$PATH"
 if grep -Fxq "$exportline" ~/.profile; then echo nothing to do ; else echo $exportline >> ~/.profile; fi
 . ~/.profile
 ```
-
