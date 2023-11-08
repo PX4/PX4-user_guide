@@ -1,5 +1,11 @@
 # Hardware in the Loop Simulation (HITL)
 
+:::warning HITL
+is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4.
+
+See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+:::
+
 Hardware-in-the-Loop (HITL or HIL) is a simulation mode in which normal PX4 firmware is run on real flight controller hardware. This approach has the benefit of testing most of the actual flight code on the real hardware.
 
 PX4 supports HITL for multicopters (using jMAVSim or Gazebo Classic) and VTOL (using Gazebo Classic).

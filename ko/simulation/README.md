@@ -12,19 +12,16 @@ PX4 supports both _Software In the Loop (SITL)_ simulation, where the flight sta
 
 ## 지원되는 시뮬레이터
 
-아래의 시뮬레이터들은 HITL과  SITL 시뮬레이션용으로 PX4와 연동됩니다.
+The following simulators are supported by the PX4 core development team.
 
-| 시뮬레이터                                                                   | 설명                                                                                                                                                        |
-| ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Gazebo](../sim_gazebo_gz/README.md)                                    | <p><strong>이 시뮬레이터를 적극 권장합니다.</strong></p><p>Gazebo supersedes [Gazebo Classic](../sim_gazebo_classic/README.md), featuring more advanced rendering, physics and sensor models. It is the only version of Gazebo available from Ubuntu Linux 22.04</p><p>물체 회피와 컴퓨터 비전 테스트에 매우 적합한 강력한 3D 시뮬레이션 환경입니다. [다중 차량시뮬레이션](../simulation/multi-vehicle-simulation.md)에도 사용할 수 있으며 일반적으로 차량 제어 자동화를 위한 도구 모음인 [ROS](../simulation/ros_interface.md)와 함께 사용됩니다. </p><p><strong>Supported Vehicles:</strong> Quad, Standard VTOL, Plane</p>                                                      |
-| [Gazebo Classic](../sim_gazebo_classic/README.md)                       | <p><strong>이 시뮬레이터를 적극 권장합니다.</strong></p><p>물체 회피와 컴퓨터 비전 테스트에 매우 적합한 강력한 3D 시뮬레이션 환경입니다. [다중 차량시뮬레이션](../simulation/multi-vehicle-simulation.md)에도 사용할 수 있으며 일반적으로 차량 제어 자동화를 위한 도구 모음인 [ROS](../simulation/ros_interface.md)와 함께 사용됩니다.</p><p><strong>Supported Vehicles:</strong> Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter), Hex (Typhoon H480), [Generic Standard VTOL (QuadPlane)](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), Tailsitter, Plane, Rover, Submarine </p>                                                                               |
-| [FlightGear](../sim_flightgear/README.md)                               | <p>물리적, 시각적으로 사실적인 시뮬레이션을 제공합니다. 특히 뇌우, 눈, 비과 우박을 포함한 다양한 기상 조건을 시뮬레이션할 수 있으며, 열과 다양한 유형의 대기 흐름을 시뮬레이션할 수 있습니다. [Multi-vehicle simulation](../sim_flightgear/multi_vehicle.md) is also supported.</p> <p><strong>지원 차량:</strong> 비행기, 오토자이로, 로버</p>                                                                                                        |
-| [JSBSim](../sim_jsbsim/README.md)                                       | <p>고급 비행 역학 모델 시뮬레이션을 제공합니다. 이것은 풍동 데이터를 기반으로 현실적인 비행 역학을 모델링할 수 있습니다.</p> <p><strong>지원 차량:</strong> 평면, 쿼드, 육각</p>                                                                                                       |
-| [jMAVSim](../sim_jmavsim/README.md)                                     | A simple multirotor simulator that allows you to fly _copter_ type vehicles around a simulated world. <p>설정이 간단하며, 기체가 이륙, 비행, 착륙할 수 있으며, 다양한 장애 조건(예: GPS 장애)에 적절하게 반응 여부를 테스트할 수 있습니다. It can also be used for [multi-vehicle simulation](../sim_jmavsim/multi_vehicle.md).</p><p><strong>지원 차량:</strong> 쿼드</p> |
-| [AirSim](../sim_airsim/README.md)                                       | <p>물리적 및 시각적으로 사실적인 시뮬레이션을 제공하는 크로스 플랫폼 시뮬레이터입니다. 이 시뮬레이터는 리소스 집약적이며, 다른 시뮬레이터보다 강력한 컴퓨터가 필요합니다.</p><p><strong>지원 차량:</strong> Iris(MultiRotor 모델 및 X 구성의 PX4 QuadRotor 구성).</p>                                                                                                      |
-| [Simulation-In-Hardware](../simulation/simulation-in-hardware.md) (SIH) | <p>An alternative to HITL that offers a hard real-time simulation directly on the hardware autopilot. This simulator is implemented in C++ as a PX4 module directly in the Firmware [code](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/simulator_sih). </p><p><strong>Supported Vehicles:</strong> Plane, Quad, Tailsitter</p>                                                                                                      |
 
-시뮬레이터를 설정 사용 방법에 대한 지침은 위에 링크를 참고하십시오.
+| 시뮬레이터                                             | 설명                                                                                                                                                      |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Gazebo](../sim_gazebo_gz/README.md)              | <p><strong>이 시뮬레이터를 적극 권장합니다.</strong></p><p>Gazebo supersedes [Gazebo Classic](../sim_gazebo_classic/README.md), featuring more advanced rendering, physics and sensor models. It is the only version of Gazebo available from Ubuntu Linux 22.04</p><p>물체 회피와 컴퓨터 비전 테스트에 매우 적합한 강력한 3D 시뮬레이션 환경입니다. [다중 차량시뮬레이션](../simulation/multi-vehicle-simulation.md)에도 사용할 수 있으며 일반적으로 차량 제어 자동화를 위한 도구 모음인 [ROS](../simulation/ros_interface.md)와 함께 사용됩니다. </p><p><strong>Supported Vehicles:</strong> Quad, Standard VTOL, Plane</p>                                                    |
+| [Gazebo Classic](../sim_gazebo_classic/README.md) | <p><strong>이 시뮬레이터를 적극 권장합니다.</strong></p><p>물체 회피와 컴퓨터 비전 테스트에 매우 적합한 강력한 3D 시뮬레이션 환경입니다. [다중 차량시뮬레이션](../simulation/multi-vehicle-simulation.md)에도 사용할 수 있으며 일반적으로 차량 제어 자동화를 위한 도구 모음인 [ROS](../simulation/ros_interface.md)와 함께 사용됩니다.</p><p><strong>Supported Vehicles:</strong> Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter), Hex (Typhoon H480), [Generic Standard VTOL (QuadPlane)](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), Tailsitter, Plane, Rover, Submarine </p>                                                                             |
+| [jMAVSim](../sim_jmavsim/README.md)               | A simple multirotor simulator that allows you to fly _copter_ type vehicles around a simulated world. <p>설정이 간단하며, 기체가 이륙, 비행, 착륙할 수 있으며, 다양한 장애 조건(예: GPS 장애)에 적절하게 반응 여부를 테스트할 수 있습니다. It can also be used for [multi-vehicle simulation](../sim_jmavsim/multi_vehicle.md).</p><p><strong>지원 차량:</strong> 쿼드</p> |
+
+There are also a number of [Community Supported Simulators](../simulation/community_supported_simulators.md).
 
 ---
 
@@ -333,7 +330,7 @@ The tunnel may in theory run indefinitely, but _netcat_ connections may need to 
 [QGC_remote_connect.bash](https://raw.githubusercontent.com/ThunderFly-aerospace/sitl_gazebo/autogyro-sitl/scripts/QGC_remote_connect.bash) 스크립트를 QGC 컴퓨터에서 실행하여 위의 지침을 자동으로 설정/실행할 수 있습니다. 시뮬레이션은 원격 서버에서 실행 중이어야 하며, 해당 서버로 SSH 연결이 가능하여야 합니다.
 
 [mav_mode_flag_hil_enabled]: https://mavlink.io/en/messages/common.html#MAV_MODE_FLAG_HIL_ENABLED
-[hil_actuator_controls]: https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS)
+[hil_actuator_controls]: https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS
 [hil_sensor]: https://mavlink.io/en/messages/common.html#HIL_SENSOR
 [hil_gps]: https://mavlink.io/en/messages/common.html#HIL_GPS
 [hil_optical_flow]: https://mavlink.io/en/messages/common.html#HIL_OPTICAL_FLOW

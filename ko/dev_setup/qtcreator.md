@@ -1,7 +1,9 @@
 # Qt Creator IDE
 
 :::warning
-Qt Creator는 PX4 개발에서 공식적으로 지원되고 권장되는 IDE인 [VSCode](../dev_setup/vscode.md)로 대체되었습니다.
+This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md). It may or may not work with current versions of PX4.
+
+Qt Creator has been replaced by [VSCode](../dev_setup/vscode.md) as the officially supported (and recommended) IDE for PX4 development. See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
 :::
 
 [Qt Creator](https://www.qt.io/download-open-source)는 PX4를 컴파일하고 디버그하는 데 사용할 수 있는 널리 사용되는 크로스 플랫폼 오픈 소스 IDE입니다.
@@ -10,7 +12,7 @@ Qt Creator는 PX4 개발에서 공식적으로 지원되고 권장되는 IDE인 
 
 Qt Creator는 클릭 가능한 기호, 전체 코드베이스의 자동 완성, 펌웨어 빌드 및 플래싱을 제공합니다.
 
-![](../../assets/toolchain/qtcreator.png)
+![Screenshot of Qt Creator](../../assets/toolchain/qtcreator.png)
 
 아래 비디오는 사용 방법을 보여줍니다.
 
@@ -50,6 +52,6 @@ cd build/creator
 cmake ../.. -G "CodeBlocks - Unix Makefiles"
 ```
 
-설정이 종료되었습니다. *Qt Creator* 실행 후, 아래 비디오의 단계를 완료하여 빌드할 프로젝트를 설정하십시오.
+설정이 종료되었습니다. Start _Qt Creator_, then complete the steps in the video below to set up the project to build.
 
 @[유투브](https://www.youtube.com/watch?v=0pa0gS30zNw&rel=0&vq=hd720)
