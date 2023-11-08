@@ -6,7 +6,6 @@ The _Takeoff_ flight mode causes the vehicle to take off to a specified height a
 
 :::note
 
-
 - This mode requires a good position estimate (e.g. from GPS).
 - The vehicle must be armed before this mode will activate.
 - This mode is automatic - no user intervention is _required_ to control the vehicle.
@@ -15,7 +14,6 @@ The _Takeoff_ flight mode causes the vehicle to take off to a specified height a
 - The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff.
 
 :::
-
 
 ## Technical Summary
 

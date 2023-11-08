@@ -2,7 +2,7 @@
 
 [<img src="../../assets/site/difficulty_hard.png" title="很难飞" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
-*Acro mode* is the RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+_Acro mode_ is the RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
 
 The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation. 当操纵杆居中时，飞机将停止旋转，但保持其当前朝向（在其侧面，倒置或任何其他方向）并根据当前动量移动。 When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
 
@@ -13,7 +13,6 @@ The roll, pitch and yaw sticks control the rate of angular rotation around the r
 用于执行杂技动作的遥控模式，例如滚动、翻转、摊位和杂技图形。
 
 RPY摇杆输入被转换为角速度命令，通过自动驾驶仪稳定。 Throttle is passed directly to control allocation.
-
 
 ## 参数
 
