@@ -1,5 +1,12 @@
 # FlightGear Vehicles
 
+:::warning
+This simulator is [community supported and maintained](../simulation/community_supported_simulators.md).
+It may or may not work with current versions of PX4.
+
+See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+:::
+
 This topic lists/displays the vehicles supported by the PX4 [FlightGear](../sim_flightgear/README.md) simulation, and the `make` commands required to run them (the commands are run from terminal in the **PX4-Autopilot** directory).
 The supported types are: plane, autogyro and rover (there are specific frames within these types).
 

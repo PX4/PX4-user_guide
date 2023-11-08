@@ -1,5 +1,12 @@
 # Multi-Vehicle Simulation with FlightGear
 
+:::warning
+This simulator is [community supported and maintained](../simulation/community_supported_simulators.md).
+It may or may not work with current versions of PX4.
+
+See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+:::
+
 This topic explains how to simulate multiple vehicles using FlightGear in SITL.
 All vehicle instances have parameters defined by their startup scripts.
 
@@ -16,7 +23,7 @@ To start multiple instances (on separate ports and IDs):
 
 1. Checkout the [PX4 branch that supports multiple vehicles](https://github.com/ThunderFly-aerospace/PX4Firmware/tree/flightgear-multi) (at ThunderFly-aerospace):
 
-   ```bash
+   ```sh
    git clone https://github.com/ThunderFly-aerospace/PX4Firmware.git
    cd PX4Firmware
    git checkout flightgear-multi
@@ -25,14 +32,14 @@ To start multiple instances (on separate ports and IDs):
 1. Build the PX4 Firmware using the standard toolchain (with FlightGear installed).
 1. Start the first instance using the [predefined scripts](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge/tree/master/scripts):
 
-   ```bash
+   ```sh
    cd ./Tools/flightgear_bridge/scripts
    ./vehicle1.sh
    ```
 
 1. Start subsequent instances using another script:
 
-   ```bash
+   ```sh
    ./vehicle2.sh
    ```
 
