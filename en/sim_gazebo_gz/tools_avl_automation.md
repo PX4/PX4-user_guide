@@ -1,65 +1,85 @@
 # Advanced Lift Drag (AVL) Automation Tool
 
-This tool calculates the necessary parameters required to create the _Advanced Lift Drag_ plugin that is used by the Gazebo [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane) model.
-The user only has to provide a few parameters for each wing foil and the tool will use this to call up Athena Lattice Vortex (AVL) which will make the necessary calculations. 
+The Gazebo [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane) vehicle model uses the _Advanced Lift Drag_ plugin to model vehicle lift and drag behaviour.
+This tool allows you to calculate the parameters required to create a _Advanced Lift Drag_ plugin for your own particular vehicle.
+
+You only have to provide a few parameters for each wing foil and the tool will use this information to call the Athena Lattice Vortex (AVL) to make the necessary calculations.
 The results will then automatically be written into a provided plugin template that can then be copy-pasted into a model or world sdf file.
 
-## Setup
+## Install
 
-In order to run this tool, it is necessary to follow these steps:
+To setup the tool:
 
 1. Download AVL 3.36 from <https://web.mit.edu/drela/Public/web/avl/>.
    The file for AVL version 3.36 can be found about halfway down the page.
-2. After downloading, extract AVL and move it to the home directory using:
+1. After downloading, extract AVL and move it to the home directory using:
 
-```sh
-sudo tar -xf avl3.36.tgz
-mv ./Avl /home/
-```
+   ```sh
+   sudo tar -xf avl3.36.tgz
+   mv ./Avl /home/
+   ```
 
-Follow the README.md found in Avl to finish the setup process for AVL (requires to set up plotlib and eispack libraries).
-We recommend using the gfortran compile option.
-This might require you to install `gfortran`.
-This can be done by running:
+1. Follow the **README.md** found in `./Avl` to finish the setup process for AVL (this requires that you set up `plotlib` and `eispack` libraries).
+   We recommend using the `gfortran` compile option, which might further require that you to install `gfortran`.
+   On Ubuntu can be done by running:
 
-```sh
-sudo apt update
-sudo apt install gfortran
-```
+   ```sh
+   sudo apt update
+   sudo apt install gfortran
+   ```
 
-When running the Makefile for AVL, you might encounter an Error 1 message stating that there is a directory missing.
-This does not prevent AVL from working for our purposes.
+   When running the Makefile for AVL, you might encounter an `Error 1` message stating that there is a directory missing.
+   This does not prevent AVL from working for our purposes.
+
 Once the process described in the AVL README is completed, AVL is ready to be used.
 No further set up is required on the side of the AVL or the tool.
+
 If you want to move the location of the AVL directory, this can simply be done by passing the `--avl_path` flag to the `input_avl.py` file, using the desired directory location for the flag (don't forget to place a "/" behind the last part of the path).
 Running this will automatically also adjust the paths where necessary.
 
-## Run
+## Run AVL
 
-To run the tool all that is needed is to modify the `input.yml` to the plane that you desire and then run `python input_avl.py <your_custom_yaml_file>.yml`.
-Note that you require to have the `yaml` and `argparse` packages in your python environment to run this.
 An example template has been provided in the form of the `input.yml` that implements a standard plane with two ailerons, an elevator and a rudder.
 This example template can be run using: `python input_avl.py --yaml_file input.yml`.
-Once the script has been executed, the generated .avl, .sdf and a plot of the proposed control surfaces can be found in `<your-planes-name>` directory.
-The sdf file is the generated Advanced Lift Drag Plugin that can be copied and pasted straight into a model.sdf file, which can then be run in Gazebo.
+
+To run the tool for your plane:
+
+1. Copy the example `input.yml` to `<your_custom_yaml_file>.yml` and modify it to match your desired plane
+1. Run the tool on your yml file:
+
+   ```sh
+   python input_avl.py <your_custom_yaml_file>.yml
+   ```
+
+   Note that the `yaml` and `argparse` packages must be present in your Python environment.
+
+1. The tool prompts for a range of vehicle specific parameters that are needed in order to specify the geometry and physical properties of the plane.
+   You can either:
+   - select a predefined model template (such as a Cessna or a VTOL), which has a known number of control surfaces, and just modify some physical properties, or
+   - define a completely custom model
+
+Once the script has been executed, the generated `.avl`, `.sdf` and a plot of the proposed control surfaces can be found in `<your-plane-name>` directory.
+The sdf file is the generated Advanced Lift Drag Plugin that can be copied and pasted into a model.sdf file, which can then be run in Gazebo.
 
 ## Functionality
 
-The tool first asks the user for a range of vehicle specific parameters that are needed in order to specify the geometry and physical properties of the plane.
-The user has the choice to define a completely custom model, or alternatively select a predefined model template (such as a Cessna or a VTOL), which has a known number of control surfaces, and then provide only some physical properties, without having to define the entire model themselves.
-The input_avl.py file takes the provided parameter and creates an .avl file from this that can be read by AVL (the program).
+The **input_avl.py** file takes the user-provided parameters and creates an .avl file from this that can be read by AVL (the program).
 This happens in the **process.sh** file.
-The necessary output generated by AVL will be saved in two files: **custom_vehicle_body_axis_derivatives.txt** and **custom_vehicle_stability_derivatives.txt**.
+
+The output generated by AVL will be saved in two files: **custom_vehicle_body_axis_derivatives.txt** and **custom_vehicle_stability_derivatives.txt**.
 These two files contain the parameters that are required in order to populate the Advanced Lift Drag Plugin.
-Finally, avl_out_parse.py reads the generated .txt files and accordingly assigns parameters to the correct element in sdf.
-Once this is done, it is only a question of copy and pasting the generated Advanced Lift Drag plugin (found as `<custom_plane>.sdf` into the desired **model.sdf** file).
+
+Finally, **avl_out_parse.py** reads the generated .txt files and assigns parameters to the correct elements in sdf.
+
+The generated Advanced Lift Drag plugin (`<custom_plane>.sdf`) can be copied into the particular **model.sdf** file used by Gazebo.
 
 ## Usability
 
 The current implementation provides a minimal working example.
 More accurate measurements can be made by adjusting the chosen number of vortices along span and chord according to desired preferences.
 A good starting point for this can be found here: <https://www.redalyc.org/pdf/6735/673571173005.pdf>.
-Furthermore, one can also more accurately model a vehicle by using a larger number of sections.
+
+One can also more accurately model a vehicle by using a larger number of sections.
 In the current .yml file, only a left and right edge are defined for each surface yielding exactly one section, but the code supports expanding this to any number of desired sections.
 
 :::note
