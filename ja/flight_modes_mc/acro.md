@@ -2,7 +2,7 @@
 
 [<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
-*Acro mode* is the RC mode for performing acrobatic maneuvers e.g. flips, rolls and loops.
+_Acro mode_ is the RC mode for performing acrobatic maneuvers e.g. flips, rolls and loops.
 
 The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
 
@@ -27,14 +27,12 @@ This roll and pitch input stick response can be tuned using the [MC_ACRO_EXPO](#
 ![Acro mode - expo - pure linear input curve](../../assets/flight_modes/acro_mc_input_curve_expo_linear.png) ![Acro mode - expo - pure cubic input curve](../../assets/flight_modes/acro_mc_input_curve_expo_cubic.png)
 
 :::note
-
 The mathematical relationship is:
 
 $$\mathrm{y} = r(f \cdot x^3 + x(1-f)) (1-g)/(1-g |x|)$$, where `f = MC_ACRO_EXPO` or `MC_ACRO_EXPO_Y`, `g = MC_ACRO_SUPEXPO` or `MC_ACRO_SUPEXPOY`,and `r` is the maximum rate.
 
 You can experiment with the relationships [here](https://www.desmos.com/calculator/yty5kgurmc).
 :::
-
 
 ## Parameters
 
