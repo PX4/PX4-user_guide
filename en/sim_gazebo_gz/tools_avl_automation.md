@@ -1,6 +1,6 @@
 # Advanced Lift Drag (AVL) Automation Tool
 
-This tool calculates the necessary parameters required to create the Advanced Lift Drag plugin that is used by the Advanced Plane model. The user only has to provide a few parameters for each wing foil and the tool will use this to call up Athena Lattice Vortex (AVL) which will make the necessary calculations for the required parameters and write this into the plugin template.
+This tool calculates the necessary parameters required to create the Advanced Lift Drag plugin that is used by the Advanced Plane model. The user only has to provide a few parameters for each wing foil and the tool will use this to call up Athena Lattice Vortex (AVL) which will make the necessary calculations. The results will then automatically be written into a provided plugin template that can then be copy pasted into a model or world sdf file.
 
 ## Setup
 
