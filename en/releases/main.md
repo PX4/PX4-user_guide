@@ -10,10 +10,7 @@ TBD ...
 
 - TBD
 
-
-
 ## Upgrade Guide
-
 
 ## Other changes
 
