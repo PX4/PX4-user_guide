@@ -1,6 +1,6 @@
 # Advanced Lift Drag (AVL) Automation Tool
 
-This tool automates the writing of the Advanced Lift Drag plugin used by the Advanced Plane by automatizing the coefficient generation and requiring minimal user calculations.
+This tool calculates the necessary parameters required to create the Advanced Lift Drag plugin that is used by the Advanced Plane model. The user only has to provide a few parameters for each wing foil and the tool will use this to call up Athena Lattice Vortex (AVL) which will make the necessary calculations for the required parameters and write this into the plugin template.
 
 ## Setup
 
@@ -16,7 +16,7 @@ mv ./Avl /home/
 ```
 
 Follow the README.md found in Avl to finish the setup process for AVL (requires to set up plotlib and eispack libraries).
-I recommend using the gfortran compile option.
+We recommend using the gfortran compile option.
 This might require you to install `gfortran`.
 This can be done by running:
 
