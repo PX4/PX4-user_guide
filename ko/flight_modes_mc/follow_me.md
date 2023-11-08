@@ -2,7 +2,7 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*Follow Me* mode allows a multicopter to autonomously hold position and altitude relative to another system that is broadcasting its position (and optionally velocity) using the [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) MAVLink message.
+_Follow Me_ mode allows a multicopter to autonomously hold position and altitude relative to another system that is broadcasting its position (and optionally velocity) using the [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) MAVLink message.
 
 ![Follow-me Concept](../../assets/flight_modes/followme_concept.png)
 
@@ -20,45 +20,37 @@ Users can adjust the follow angle, height and distance using an RC controller as
 
   ![Follow-me Angle Diagram](../../assets/flight_modes/followme_angle.png)
 
-
 :::note
-
 Angle, height, and distance values set using the RC controller are discarded when you exit follow-me mode. If you exit Follow-Me mode and activate it again the values will be reset to their defaults.
 :::
-
-
 
 Demo video:
 
 @[youtube](https://youtu.be/csuMtU6seXI?t=155)
 
-
 ## How to Use Follow Me
 
-Follow-me mode is supported by *QGroundControl* on Android devices with a GPS module, and [MAVSDK](#follow-me-with-mavsdk).
+Follow-me mode is supported by _QGroundControl_ on Android devices with a GPS module, and [MAVSDK](#follow-me-with-mavsdk).
 
 :::note
 
-* 이 모드는 GPS가 필요합니다.
-* *이 모드는 현재 멀티콥터에서만 지원됩니다.
-* The follow target must also be able to supply position information.
-* * *QGroundControl</em>은 GPS가있는 Android 기기에서만 이 모드를 지원합니다.
+- 이 모드는 GPS가 필요합니다.
+- *이 모드는 현재 멀티콥터에서만 지원됩니다.
+- The follow target must also be able to supply position information.
+- _QGroundControl_ only supports this mode on Android devices that have GPS.
 :::
-
 
 ### 안전 주의 사항
 
 :::warning
-
-:::warning
-**추적 모드**는 장애물 회피 유형을 지원하지 않습니다. 이 모드를 사용시에는 특별한 주의가 필요합니다.
+**Follow-me mode** does not implement any type of obstacle avoidance. 이 모드를 사용시에는 특별한 주의가 필요합니다.
 :::
 
-
 The following flight precautions should be observed:
+
 - Follow me mode should only be used in wide open areas that are unobstructed by trees, power lines, houses, etc.
-  - Set the [follow-me height](#FLW_TGT_HT) to a value that is well above any surrounding obstructions. By *default* this is 8 metres above the home (arming) position.
-- - 모드가 자동 이륙을 구현하더라도 착륙시 추적 모드로 전환하는 것보다 추적 모드를 시작하기 전에 수동으로 안전한 높이로 비행하는 것이 *안전*합니다.
+  - Set the [follow-me height](#FLW_TGT_HT) to a value that is well above any surrounding obstructions. By _default_ this is 8 metres above the home (arming) position.
+- It is _safer_ to manually fly to a safe height before engaging follow-me mode than to engage follow-me mode when landed (even though the mode implements auto take off).
 - Give your vehicle sufficient room to stop, especially when it is moving fast.
 - Be ready to switch back to Position mode if something goes wrong, in particular when using follow-me mode for the first time.
 - You can't switch follow-me mode off using RC stick movements (as that will adjust the properties). You either need to have a GroundStation that can send flight mode switch signals or a flight mode switch configured in your RC transmitter.
@@ -67,9 +59,10 @@ The following flight precautions should be observed:
 
 ![Follow-me QGC Example](../../assets/flight_modes/followme_qgc_example.jpg)
 
-*Follow Me* mode is supported using *QGroundControl* as a target on ground station hardware that has a GPS module. 권장 구성은 텔레메트리를 사용하는 USB OTG 지원 Android 장치입니다.
+_Follow Me_ mode is supported using _QGroundControl_ as a target on ground station hardware that has a GPS module. 권장 구성은 텔레메트리를 사용하는 USB OTG 지원 Android 장치입니다.
 
-To setup *Follow Me* mode:
+To setup _Follow Me_ mode:
+
 - Connect a telemetry radio to your ground station device and another to the vehicle (this allows positioning information to be relayed between the two radios).
 - Disable sleep-mode on your Android device:
   - This setting can usually be found under: **Settings > Display**.
@@ -85,6 +78,7 @@ To setup *Follow Me* mode:
 At this point you can start moving, and the drone will be following you.
 
 이 모드는 다음 Android 장치에서 테스트되었습니다.
+
 - Galaxy S10
 - - 넥서스 5 - Nexus 7 태블릿
 
@@ -95,11 +89,8 @@ At this point you can start moving, and the drone will be following you.
 For more information see the [Follow Me class](https://mavsdk.mavlink.io/main/en/cpp/guide/follow_me.html) documentation as well as the [Follow Me Example](https://mavsdk.mavlink.io/main/en/cpp/examples/follow_me.html).
 
 :::note
-
-:::note MAVSDK
-is not currently recommended, due to a bug ([MAVSDK#1756](https://github.com/mavlink/MAVSDK/issues/1756) where the same message is occasionally sent twice. This can confuse the target position and velocity estimator.
+MAVSDK is not currently recommended, due to a bug ([MAVSDK#1756](https://github.com/mavlink/MAVSDK/issues/1756) where the same message is occasionally sent twice. This can confuse the target position and velocity estimator.
 :::
-
 
 ## 설정
 
@@ -117,14 +108,14 @@ The altitude control mode determine whether the vehicle altitude is relative to 
   - Distance sensors aren't always accurate and vehicles may be "jumpy" when flying in this mode.
   - Note that that height is relative to the ground underneath the vehicle, not the follow target. The drone may not follow altitude changes of the target!
 
--  `3D tracking` mode makes the drone follow at a height relative to the follow target, as supplied by its GPS sensor. This adapts to target altitude changes, such as when you walk up a hill.
+- `3D tracking` mode makes the drone follow at a height relative to the follow target, as supplied by its GPS sensor. This adapts to target altitude changes, such as when you walk up a hill.
 
-  :::warning
-  Do not set the **Altitude mode ([FLW_TGT_ALT_M](#FLW_TGT_ALT_M)**) to `3D Tracking` when using QGC for Android (or more generally, without checking that [FOLLOW_TARGET.altitude](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) is an AMSL value).
+:::warning
+Do not set the **Altitude mode ([FLW_TGT_ALT_M](#FLW_TGT_ALT_M)**) to `3D Tracking` when using QGC for Android (or more generally, without checking that [FOLLOW_TARGET.altitude](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) is an AMSL value).
 
-  The MAVLink [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) message definition expects an altitude relative to mean sea level (AMSL) while QGC on Android is sending an altitude relative to the GPS ellipsoid. This can differ as much as 200 meters!
+The MAVLink [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) message definition expects an altitude relative to mean sea level (AMSL) while QGC on Android is sending an altitude relative to the GPS ellipsoid. This can differ as much as 200 meters!
 
-  The drone probably won't crash due to the built-in minimum safety altitude limit (1 meter), but it may fly much higher than expected. If the drone's altitude is significantly different than specified, assume that the ground station's altitude output is wrong and use 2D tracking.
+The drone probably won't crash due to the built-in minimum safety altitude limit (1 meter), but it may fly much higher than expected. If the drone's altitude is significantly different than specified, assume that the ground station's altitude output is wrong and use 2D tracking.
 :::
 
 ### Parameters
@@ -133,16 +124,14 @@ The follow-me behavior can be configured using the following parameters:
 
 | 매개변수                                                                                                    | 설명                                                                                                                                                                                                                                                                                                                                                                     |
 | ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="FLW_TGT_HT"></a>[FLW_TGT_HT](../advanced_config/parameter_reference.md#FLW_TGT_HT)           | Vehicle follow-me height, in metres. 이 높이는 *홈/시동 위치를 기준으로* 고정되어 있습니다 (대상 기체 아님). Default and minimum height is 8 meters (about 26 ft)                                                                                                                                                                                                                                  |
-| <a id="FLW_TGT_DST"></a>[FLW_TGT_DST](../advanced_config/parameter_reference.md#FLW_TGT_DST)         | Vehicle/ground station separation in the *horizontal* (x,y) plane, in metres. 최소 허용 간격은 1 미터입니다. 기본 거리는 8 미터 (약 26 피트)입니다.                                                                                                                                                                                                                                             |
+| <a id="FLW_TGT_HT"></a>[FLW_TGT_HT](../advanced_config/parameter_reference.md#FLW_TGT_HT)           | Vehicle follow-me height, in metres. Note that this height is fixed _relative to the home/arming position_ (not the target vehicle). Default and minimum height is 8 meters (about 26 ft)                                                                                                                                                                              |
+| <a id="FLW_TGT_DST"></a>[FLW_TGT_DST](../advanced_config/parameter_reference.md#FLW_TGT_DST)         | Vehicle/ground station separation in the _horizontal_ (x,y) plane, in metres. 최소 허용 간격은 1 미터입니다. 기본 거리는 8 미터 (약 26 피트)입니다.                                                                                                                                                                                                                                             |
 | <a id="FLW_TGT_FA"></a>[FLW_TGT_FA](../advanced_config/parameter_reference.md#FLW_TGT_FA)           | Follow angle relative to the target's heading, in degrees. If a value out of the range [`-180.0`, `+180.0`] is entered, it will get automatically wrapped and applied (e.g. `480.0` will be converted to `120.0`)                                                                                                                                                      |
 | <a id="FLW_TGT_ALT_M"></a>[FLW_TGT_ALT_M](../advanced_config/parameter_reference.md#FLW_TGT_ALT_M)     | Altitude control mode. <br>- `0` = 2D Tracking (Altitude Fixed) <br>- `1` = 2D Tracking + Terrain Following <br>- `2` = 3D Tracking of the target's GPS altitude **WARNING: [DO NOT USE WITH QGC for Android](#altitude-control-mode)**.                                                                                                             |
 | <a id="FLW_TGT_MAX_VEL"></a>[FLW_TGT_MAX_VEL](../advanced_config/parameter_reference.md#FLW_TGT_MAX_VEL) | Maximum relative velocity for orbital motion around the target, in m/s.<br>- 10 m/s has proven to be a sweet spot for aggressiveness vs smoothness.<br>- Setting it to higher value means the orbit trajectory around the target will move faster, but if the drone is physically not capable of achieving that speed, it leads to an aggressive behavior. |
 | <a id="FLW_TGT_RS"></a>[FLW_TGT_RS](../advanced_config/parameter_reference.md#FLW_TGT_RS)           | Dynamic filtering algorithm responsiveness that filters incoming target location.<br>- `0.0` = Very sensitive to movements and noisy estimates of position, velocity and acceleration.<br>- `1.0` = Very stable but not responsive filter                                                                                                                  |
 
-
 ### Tips and tricks
-
 
 1. Set the [follow distance](#FLW_TGT_DST) to more than 12 meters (8 meters is a "recommended minimum").
 
@@ -154,10 +143,9 @@ The follow-me behavior can be configured using the following parameters:
 
 3. Using the RC Adjustment for height, distance and angle, you can get some creative camera shots.
 
-
    @[youtube](https://www.youtube.com/watch?v=o3DhvCL_M1E) This video demonstrates a Google-Earth view perspective, by adjusting the height to around 50 meters (high), distance to 1 meter (close). Which allows a perspective as shot from a satellite.
 
 ## 알려진 이슈들
 
 - SiK 915 Mhz [텔레메트리](../telemetry/sik_radio.md)는 일부 Android 기기에서 수신하는 GPS 신호를 방해하는 것으로 알려져 있습니다. 간섭을 피하기 위해 추적 대상 모드를 사용할 때 텔레메트리와 Android 장치를 가능한 멀리 두십시오.
-- QGC for Android reports an incorrect altitude (altitude above elipsoid rather than AMSL). The follow altitude can be off by up to 200m! 
+- QGC for Android reports an incorrect altitude (altitude above elipsoid rather than AMSL). The follow altitude can be off by up to 200m!
