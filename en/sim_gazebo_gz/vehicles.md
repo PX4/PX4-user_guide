@@ -60,8 +60,11 @@ make px4_sitl gz_advanced_plane
 ![Advanced Plane in Gazebo](../../assets/simulation/gazebo/vehicles/advanced_plane.png)
 
 :::note
-The difference between the Advanced Plane and the "regular plane" lies in the Lift Physics that the two models use.
-For more detail on the lift calculations for the Advanced Plane, see: https://github.com/PX4/PX4-SITL_gazebo-classic/blob/20ded0757b4f2cb362833538716caf1e938b162a/src/liftdrag_plugin/README.md
+The difference between the Advanced Plane and the "regular plane" lies in the Lift Physics that the two models use:
+
+- You can configure the _Advanced Lift Drag_ plugin used by the model to more closely match a particular vehicle using the [Advanced Lift Drag Tool](../sim_gazebo_gz/tools_avl_automation.md).
+- For more detail on the lift calculations for the Advanced Plane, see [PX4-SITL_gazebo-classic/src/liftdrag_plugin/README.md](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/20ded0757b4f2cb362833538716caf1e938b162a/src/liftdrag_plugin/README.md)
+
 :::
 
 ## VTOL
