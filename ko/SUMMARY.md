@@ -369,6 +369,7 @@
   * [시뮬레이션](simulation/README.md)
     * [Gazebo 시뮬레이션](sim_gazebo_gz/README.md)
       * [Vehicles](sim_gazebo_gz/vehicles.md)
+        * [Advanced Lift Drag Tool](sim_gazebo_gz/tools_avl_automation.md)
       * [Multi-Vehicle Sim](sim_gazebo_gz/multi_vehicle_simulation.md)
     * [Gazebo Classic Simulation](sim_gazebo_classic/README.md)
       * [Vehicles](sim_gazebo_classic/vehicles.md)
