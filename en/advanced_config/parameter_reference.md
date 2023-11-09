@@ -12782,7 +12782,7 @@ table {
  <td><strong id="ASPD_BETA_NOISE">ASPD_BETA_NOISE</strong> (FLOAT)</td>
  <td>Wind estimator sideslip measurement noise <p><strong>Comment:</strong> Sideslip measurement noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
  <td>[0, 1] </td>
- <td>0.3</td>
+ <td>0.15</td>
  <td>rad</td>
 </tr>
 <tr>
@@ -12905,7 +12905,7 @@ table {
  <td><strong id="ASPD_TAS_GATE">ASPD_TAS_GATE</strong> (INT32)</td>
  <td>Gate size for true airspeed fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
  <td>[1, 5] </td>
- <td>3</td>
+ <td>4</td>
  <td>SD</td>
 </tr>
 <tr>
@@ -12926,7 +12926,7 @@ table {
  <td><strong id="ASPD_WIND_NSD">ASPD_WIND_NSD</strong> (FLOAT)</td>
  <td>Wind estimator wind process noise spectral density <p><strong>Comment:</strong> Wind process noise of the internal wind estimator(s) of the airspeed selector. When unaided, the wind estimate uncertainty (1-sigma, in m/s) increases by this amount every second.</p>   </td>
  <td>[0, 1] </td>
- <td>1.e-2</td>
+ <td>1.e-1</td>
  <td>m/s^2/sqrt(Hz)</td>
 </tr>
 </tbody></table>
@@ -15737,7 +15737,7 @@ table {
  <td><strong id="EKF2_TAS_GATE">EKF2_TAS_GATE</strong> (FLOAT)</td>
  <td>Gate size for TAS fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
  <td>[1.0, ?] </td>
- <td>3.0</td>
+ <td>5.0</td>
  <td>SD</td>
 </tr>
 <tr>
@@ -15782,7 +15782,7 @@ table {
  <td><strong id="EKF2_WIND_NSD">EKF2_WIND_NSD</strong> (FLOAT)</td>
  <td>Process noise spectral density for wind velocity prediction <p><strong>Comment:</strong> When unaided, the wind estimate uncertainty (1-sigma, in m/s) increases by this amount every second.</p>   </td>
  <td>[0.0, 1.0] </td>
- <td>1.0e-2</td>
+ <td>5.0e-2</td>
  <td>m/s^2/sqrt(Hz)</td>
 </tr>
 </tbody></table>
