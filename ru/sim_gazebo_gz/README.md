@@ -44,13 +44,14 @@ If `make px4_sitl gz_x500` gives the error `ninja: error: unknown target 'gz_x50
 
 The supported vehicles and `make` commands are listed below.
 
-| Vehicle                                                                                                  | Command                          | `PX4_SYS_AUTOSTART` |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------- | ------------------- |
-| [Quadrotor(x500)](../sim_gazebo_gz/vehicles.md#x500-quadrotor)                                           | `make px4_sitl gz_x500`          | 4001                |
-| [Quadrotor(x500) with Depth Camera](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-depth-camera)       | `make px4_sitl gz_x500_depth`    | 4002                |
-| [Quadrotor(x500) with Vision Odometry](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-visual-odometry) | `make px4_sitl gz_x500_vision`   | 4005                |
-| [VTOL](../sim_gazebo_gz/vehicles.md#standard-vtol)                                                       | `make px4_sitl gz_standard_vtol` | 4004                |
-| [Plane](../sim_gazebo_gz/vehicles.md#standard-plane)                                                     | `make px4_sitl gz_rc_cessna`     | 4003                |
+| Vehicle                                                                                                  | Command                           | `PX4_SYS_AUTOSTART` |
+| -------------------------------------------------------------------------------------------------------- | --------------------------------- | ------------------- |
+| [Quadrotor(x500)](../sim_gazebo_gz/vehicles.md#x500-quadrotor)                                           | `make px4_sitl gz_x500`           | 4001                |
+| [Quadrotor(x500) with Depth Camera](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-depth-camera)       | `make px4_sitl gz_x500_depth`     | 4002                |
+| [Quadrotor(x500) with Vision Odometry](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-visual-odometry) | `make px4_sitl gz_x500_vision`    | 4005                |
+| [VTOL](../sim_gazebo_gz/vehicles.md#standard-vtol)                                                       | `make px4_sitl gz_standard_vtol`  | 4004                |
+| [Plane](../sim_gazebo_gz/vehicles.md#standard-plane)                                                     | `make px4_sitl gz_rc_cessna`      | 4003                |
+| [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane)                                            | `make px4_sitl gz_advanced_plane` | 4008                |
 
 The commands above launch a single vehicle with the full UI. _QGroundControl_ should be able to automatically connect to the simulated vehicle.
 

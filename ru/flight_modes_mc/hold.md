@@ -5,13 +5,10 @@
 The _Hold_ flight mode causes the vehicle to stop and hover at its current GPS position and altitude.
 
 :::tip
-
 _Hold mode_ can be used to pause a mission or to help you regain control of a vehicle in an emergency. It is usually activated with a pre-programmed switch.
 :::
 
-
 :::note
-
 
 - This mode requires GPS.
 - This mode is automatic - no user intervention is _required_ to control the vehicle.
@@ -19,7 +16,6 @@ _Hold mode_ can be used to pause a mission or to help you regain control of a ve
 - RC stick movement will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
 
 :::
-
 
 ## Technical Summary
 

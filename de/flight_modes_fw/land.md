@@ -5,15 +5,12 @@
 The _Land_ flight mode causes the vehicle to descend at the position where the mode was engaged, following a circular path until touchdown. After landing, vehicles will disarm after a short timeout (by default).
 
 :::warning
-
 Fixed-wing _land mode_ should only be used in an **emergency**! The vehicle will descend around the current location irrespective of the suitability of the underlying terrain, and touch down while following a circular flight path.
 
 Where possible, instead use [Return mode](../flight_modes/return.md) with a predefined [Fixed-wing mission landing](../flight_modes/mission.md#fw-mission-landing).
 :::
 
-
 :::note
-
 
 - This mode requires a valid global position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
 - In a failsafe the mode only requires altitude (typically a barometer is built into the flight controller).
@@ -23,7 +20,6 @@ Where possible, instead use [Return mode](../flight_modes/return.md) with a pred
 - The mode can be triggered using the [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) MAVLink command, or by explicitly switching to Land mode.
 
 :::
-
 
 ## Technical Summary
 

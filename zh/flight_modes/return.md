@@ -2,17 +2,18 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="需要定位（例如 GPS ）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-The *Return* flight mode is used to *fly a vehicle to safety* on an unobstructed path to a safe destination, where it may either wait (hover or circle) or land.
+The _Return_ flight mode is used to _fly a vehicle to safety_ on an unobstructed path to a safe destination, where it may either wait (hover or circle) or land.
 
 PX4 提供了几种机制来选择安全的返航路径，返航目的地和着陆，包括使用其实位置，集结（“安全”）点，任务路径和任务着陆顺序。
 
-以下章节解释了如何配置 [返航类型](#return_types)， [返航高度](#return_altitude) 和 [降落/抵达行为](#arrival)。 At the end there are sections explaining the *default* (preconfigured) behaviour for each [vehicle type](#default_configuration).
+以下章节解释了如何配置 [返航类型](#return_types)， [返航高度](#return_altitude) 和 [降落/抵达行为](#arrival)。 At the end there are sections explaining the _default_ (preconfigured) behaviour for each [vehicle type](#default_configuration).
 
 :::note
-* This mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
-* This mode is automatic - no user intervention is *required* to control the vehicle.
-* 遥控开关可以在任何无人机上更改飞行模式。
-* RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
+
+- This mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+- This mode is automatic - no user intervention is _required_ to control the vehicle.
+- 遥控开关可以在任何无人机上更改飞行模式。
+- RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
 :::
 
 <a id="return_types"></a>
@@ -20,8 +21,9 @@ PX4 提供了几种机制来选择安全的返航路径，返航目的地和着�
 ## 返航类型（RTL_TYPE）
 
 PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通向安全目的地和/或着陆的畅通路径：
+
 - [返航到起始位置/集结点](#home_return)（`RTL_TYPE=0`）: 上升到安全高度并通过直接路径返回到最近的集结点或起始地点。
-- [Mission landing/rally point return](#mission_landing_return) (`RTL_TYPE=1`): Ascend to a safe altitude, fly direct to the closest destination *other than home*: rally point or start of mission landing. 如果未定义任务着陆点或集结点，请通过直接路径返回起始位置。
+- [Mission landing/rally point return](#mission_landing_return) (`RTL_TYPE=1`): Ascend to a safe altitude, fly direct to the closest destination _other than home_: rally point or start of mission landing. 如果未定义任务着陆点或集结点，请通过直接路径返回起始位置。
 - [任务路径返航](#mission_path_return)（`RTL_TYPE=2`）：使用任务路径并快速继续执行任务着陆（如果已定义）。 如果未定义任务降落，则将快速回退到任务起始位置。 如果未定义任务，直接返航到起始位置（集结点将被忽略）。
 - [最近的安全目的地返航](#safety_point_return)（` RTL_TYPE = 3 `）：上升到安全高度并通过直接路径返回最近的目的地：起始位置，任务着陆点的开始位置或集结点。 如果目的地是飞行任务着陆模式，则按照该模式降落。
 
@@ -32,12 +34,13 @@ PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通�
 ### 起始位置/集结点返航类型（RTL_TYPE=0）
 
 无人机在该返航类型中：
+
 - 爬升到一个安全的[返航高度](#return_altitude)（高于任何可预期的障碍物）。
 - 通过直接路径飞往起始位置或集结点（以最近者为准）。
 - [降落或等待](#arrival)处于下降高度（取决于着陆参数）。
 
 :::note
-If no rally points are defined, this is the same as a *Return to Launch* (RTL)/*Return to Home* (RTH).
+If no rally points are defined, this is the same as a _Return to Launch_ (RTL)/_Return to Home_ (RTH).
 :::
 
 <a id="mission_landing_return"></a>
@@ -45,6 +48,7 @@ If no rally points are defined, this is the same as a *Return to Launch* (RTL)/*
 ### 任务着陆/集结点返航类型 (RTL_TYPE=1)
 
 无人机在该返航类型中：
+
 - 爬升到一个安全的[返航高度](#return_altitude)（高于任何可预期的障碍物）。
 - 通过直接路径飞行到一个集结点或[任务着陆模式](#mission_landing_pattern)的起点（以最近者为准）。 如果未定义任务降落或集结点，无人机通过直接路径返回到起始位置。
 - 如果目的地是飞行任务着陆模式，则按照该模式降落。
@@ -64,13 +68,14 @@ If no rally points are defined, this is the same as a *Return to Launch* (RTL)/*
 
 ### 任务路径返航类型（RTL_TYPE=2）
 
-This return type uses the mission (if defined) to provide a safe return *path*, and the mission landing pattern (if defined) to provide landing behaviour. If there is a mission but no mission landing pattern, the mission is flown *in reverse*. 集结点，如果有的话，将被忽略。
+This return type uses the mission (if defined) to provide a safe return _path_, and the mission landing pattern (if defined) to provide landing behaviour. If there is a mission but no mission landing pattern, the mission is flown _in reverse_. 集结点，如果有的话，将被忽略。
 
 :::note
 该行为相当复杂，因为它取决于飞行模式以及是否定义了任务和任务着陆。
 :::
 
-Mission *with* landing pattern:
+Mission _with_ landing pattern:
+
 - **Mission mode:** Mission is continued in "fast-forward mode" (jumps, delay and any other non-position commands ignored, loiter and other position waypoints converted to simple waypoints) and then lands.
 - **任务模式以外的自动模式：**
   - 爬升到一个安全的[返航高度](#return_altitude) 高于任何可预期的障碍物。
@@ -81,7 +86,8 @@ Mission *with* landing pattern:
   - 直接飞到降落序列位置并下降到航点高度。
   - 使用任务降落模式着陆。
 
-Mission *without* landing pattern defined:
+Mission _without_ landing pattern defined:
+
 - **任务模式:**
   - 从上一个航点开始以“快退”（反向）飞行的任务
     - 跳，延迟和其他任何非定位命令都会被忽略，悬停和其他位置航点将转换为简单航点。
@@ -96,17 +102,16 @@ Mission *without* landing pattern defined:
 
 如果任务在返航模式期间发生更改，则将按照与上述相同的规则根据新任务重新评估行为（例如，如果新任务没有降落顺序并且你在一个任务中，则任务将被逆转）。
 
-
 <a id="safety_point_return"></a>
 
 ### 最近的安全目的地返回类型（RTL_TYPE=3）
 
 无人机在该返航类型中：
+
 - 爬升到一个安全的[返航高度](#return_altitude)（高于任何可预期的障碍物）。
 - 飞到最近目的地的直接路径：起始位置，任务着陆模式或集结点。
 - 如果目的地是飞行任务着陆模式，则按照该模式降落。
 - 如果目的地是起始位置或者集结点，无人机会下降到下降高度（[ RTL_DESCEND_ALT ](#RTL_DESCEND_ALT)），然后[着陆或等待](#arrival)。
-
 
 <a id="return_altitude"></a>
 
@@ -125,6 +130,7 @@ Mission *without* landing pattern defined:
 <!-- Original draw.io diagram can be found here: https://drive.google.com/file/d/1W72XeZYSOkRlBSbPXCCiam9NMAyAWSg-/view?usp=sharing -->
 
 如果无人机是：
+
 - 高于[RTL_RETURN_ALT](#RTL_RETURN_ALT) (1)，无人机将在当前高度返航。
 - 在圆锥下方，它将返回与圆锥（2）或[ RTL_DESCEND_ALT ](#RTL_DESCEND_ALT)（以较高者为准）相交的位置。
 - 在圆锥（3）之外，它将首先爬升，直到达到[ RTL_RETURN_ALT ](#RTL_RETURN_ALT)。
@@ -133,11 +139,11 @@ Mission *without* landing pattern defined:
   - 低于 [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (5)，它将会先爬升到 `RTL_DESCEND_ALT`的高度。
 
 注意：
+
 - 如果 [RTL_CONE_ANG](#RTL_CONE_ANG) 为 0 度，则没有 "圆锥"：
   - 无人机在`RTL_RETURN_ALT`的高度或者（或以上）返航。
 - 如果 [RTL_CONE_ANG](#RTL_CONE_ANG) 是90度，无人机将更大程度在 `RTL_DESCEND_ALT` 的高度和当前高度返航。
 - 无人机总是会爬升到至少[RTL_DESCEND_ALT](#RTL_DESCEND_ALT)的高度返航。
-
 
 <a id="arrival"></a>
 
@@ -147,27 +153,27 @@ Mission *without* landing pattern defined:
 
 无人机会在悬停一段指定的时间（[RTL_LAND_DELAY](#RTL_LAND_DELAY)）后降落。 如果 [RTL_LAND_DELAY=-1](#RTL_LAND_DELAY) 它将无限期悬停。
 
-
 <a id="default_configuration"></a>
 
 ## 无人机默认行为
 
 The mode is _implemented_ in almost exactly the same way in all vehicle types (the exception being that fixed-wing vehicles will circle rather than hover when waiting), and are hence tuned using the same parameters.
 
-However the *default configuration* is tailored to suit the vehicle type, as described below.
+However the _default configuration_ is tailored to suit the vehicle type, as described below.
 
 ### 多旋翼（MC）
 
 多旋翼默认使用[起始位置返航](#home_return)（并使用一下配置）：
+
 - 爬升到 [RTL_RETURN_ALT](#RTL_RETURN_ALT)（[RTL_CONE_ANG=0](#RTL_CONE_ANG) - 未使用锥体）。
 - 以直线和恒定的高度飞到起始位置（如果已经超过返航高度，它将在当前高度返航）。
 - 快速下降到[RTL_DESCEND_ALT](#RTL_DESCEND_ALT)的高度。
 - 立即或多或少降落（小[RTL_LAND_DELAY](#RTL_LAND_DELAY)）。
 
-
 ### Fixed-wing (FW)
 
 固定翼默认使用[任务降落返航](#mission_landing_return)：
+
 - 如果定义了任务降落，直接飞往任务降落起点，然后着陆。
 - 否则直接飞到起始位置，并在半径上方圆环 [NAV_LOITER_RAD](#NAV_LOITER_RAD)。
 
@@ -177,15 +183,15 @@ The fixed-wing [safe return altitude](#return_altitude) depends only on [RTL_RET
 
 遥控器摇杆操作被忽略。
 
-
 ### 垂直起降
 
 VTOL 默认使用[任务降落返航](#mission_landing_return):
+
 - 如果定义了任务降落，直接飞往任务降落起点，然后着陆。
 - 否则直接飞向起始位置，切换到多旋翼模式，然后像多旋翼一样着陆。
 
 :::note
-If not in a mission landing, a VTOL in FW mode will *always* transition back to MC just before landing (ignoring [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)).
+If not in a mission landing, a VTOL in FW mode will _always_ transition back to MC just before landing (ignoring [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)).
 :::
 
 ## 参数
@@ -202,4 +208,4 @@ The RTL parameters are listed in [Parameter Reference > Return Mode](../advanced
 | <a id="RTL_CONE_ANG"></a>[RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)       | 圆锥半角决定无人机的 RTL 返航高度。 数值(度数)：0、25、45、65、80、90。 请注意，0 为“无圆锥”（始终返回` RTL_RETURN_ALT `或更高），而 90 则表示无人机必须在当前高度或在` RTL_DESCEND_ALT `高度（以较高者为准）返航。                                                                                                                                                                 |
 | <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Controls whether stick movement on a multicopter (or VTOL in MC mode) causes a mode change to [Position mode](../flight_modes_mc/position.md) (except when vehicle is handling a critical battery failsafe). 可以分别为自动模式和 offboard 模式启用此功能，默认情况下在自动模式下启用此功能。                                                 |
 | <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | The amount of stick movement that causes a transition to [Position mode](../flight_modes_mc/position.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled).                                                                                                                                            |
-| <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)   | [Fixed-wing Only] The radius of the loiter circle (at [RTL_LAND_DELAY](#RTL_LAND_DELAY).                                                                                                                                                                                                                 | 
+| <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)   | [Fixed-wing Only] The radius of the loiter circle (at [RTL_LAND_DELAY](#RTL_LAND_DELAY).                                                                                                                                                                                                                 |

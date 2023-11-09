@@ -5,13 +5,10 @@
 The _Hold_ flight mode causes the vehicle to loiter (circle) around its current GPS position and maintain its current altitude.
 
 :::tip
-
 _Hold mode_ can be used to pause a mission or to help you regain control of a vehicle in an emergency. It is usually activated with a pre-programmed switch.
 :::
 
-
 :::note
-
 
 - 该模式需要 GPS
 - This mode is automatic - no user intervention is _required_ to control the vehicle.
@@ -19,7 +16,6 @@ _Hold mode_ can be used to pause a mission or to help you regain control of a ve
 - RC stick movement is ignored.
 
 :::
-
 
 ## Technical Summary
 

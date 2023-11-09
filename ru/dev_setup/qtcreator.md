@@ -1,7 +1,9 @@
 # Qt Creator IDE
 
 :::warning
-Qt Creator has been replaced by [VSCode](../dev_setup/vscode.md) as the officially supported (and recommended) IDE for PX4 development.
+This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md). It may or may not work with current versions of PX4.
+
+Qt Creator has been replaced by [VSCode](../dev_setup/vscode.md) as the officially supported (and recommended) IDE for PX4 development. See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
 :::
 
 [Qt Creator](https://www.qt.io/download-open-source) is a popular cross-platform open-source IDE that can be used to compile and debug PX4.
@@ -10,7 +12,7 @@ Qt Creator has been replaced by [VSCode](../dev_setup/vscode.md) as the official
 
 Qt creator offers clickable symbols, auto-completion of the complete codebase and building and flashing firmware.
 
-![](../../assets/toolchain/qtcreator.png)
+![Screenshot of Qt Creator](../../assets/toolchain/qtcreator.png)
 
 The video below shows how it is used.
 
@@ -50,6 +52,6 @@ cd build/creator
 cmake ../.. -G "CodeBlocks - Unix Makefiles"
 ```
 
-That's it! Start *Qt Creator*, then complete the steps in the video below to set up the project to build.
+That's it! Start _Qt Creator_, then complete the steps in the video below to set up the project to build.
 
 @[youtube](https://www.youtube.com/watch?v=0pa0gS30zNw&rel=0&vq=hd720)

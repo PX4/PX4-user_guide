@@ -6,7 +6,7 @@
 * [Gazebo Classic Simulation](../sim_gazebo_classic/README.md)
 
 :::tip
-이 설정은 PX4 개발 팀에서 지원합니다. 다른 대상을 빌드하려면 [다른 OS](../dev_setup/dev_env.md#supported-targets)(또는 [지원되지 않는 개발 환경](../advanced/dev_env_unsupported.md))를 사용하여야 합니다.
+이 설정은 PX4 개발 팀에서 지원합니다. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported development environment](../advanced/community_supported_dev_env.md)).
 :::
 
 ## 영상 가이드

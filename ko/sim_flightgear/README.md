@@ -1,7 +1,9 @@
 # FlightGear Simulation
 
 :::warning
-Community Supported This simulator is not maintained, tested, or supported, by the core development team. For information about supported toolchains see: [Toolchain Installation](../dev_setup/dev_env.md).
+This simulator is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4.
+
+See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
 :::
 
 [FlightGear](https://www.flightgear.org/) is a flight simulator with powerful [FDM engines](http://wiki.flightgear.org/Flight_Dynamics_Model). This allows FlightGear to simulate rotorcrafts under various meteorological conditions (which is why the bridge was originally developed by [ThunderFly s.r.o.](https://www.thunderfly.cz/)).
@@ -76,18 +78,18 @@ make px4_sitl_nolockstep flightgear_rascal
 
 The supported vehicles and `make` commands are listed below (click on the links to see the vehicle images).
 
-| Vehicle                                                                                  | Command                                      |
-| ---------------------------------------------------------------------------------------- | -------------------------------------------- |
-| [Standard Plane](../sim_flightgear/vehicles.md#standard-plane)                           | `make px4_sitl_nolockstep flightgear_rascal` |
-| [Ackerman vehicle (UGV/Rover)](../sim_flightgear/vehicles.md#ackerman-vehicle-ugv-rover) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
-| [Autogyro](../sim_flightgear/vehicles.md#autogyro)                                       | `make px4_sitl_nolockstep flightgear_tf-g1`  |
+| Vehicle                                                                                   | Command                                      |
+| ----------------------------------------------------------------------------------------- | -------------------------------------------- |
+| [Standard Plane](../sim_flightgear/vehicles.md#standard-plane)                            | `make px4_sitl_nolockstep flightgear_rascal` |
+| [Ackermann vehicle (UGV/Rover)](../sim_flightgear/vehicles.md#ackerman-vehicle-ugv-rover) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
+| [Autogyro](../sim_flightgear/vehicles.md#autogyro)                                        | `make px4_sitl_nolockstep flightgear_tf-g1`  |
 
 The commands above launch a single vehicle with the full UI. _QGroundControl_ should be able to automatically connect to the simulated vehicle.
 
 :::note
 For the full list of FlightGear build targets (highlighted) run:
 
-```
+```sh
 make px4_sitl_nolockstep list_vmd_make_targets | grep flightgear_
 ```
 

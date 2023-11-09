@@ -2,20 +2,17 @@
 
 [<img src="../../assets/site/difficulty_medium.png" title="飞行难度：中等" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动/遥控器控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
-The *Manual/Stabilized* mode stabilizes the multicopter when the RC control sticks are centred. 要手动使机体移动/飞，您可以移动摇杆使其偏离居中位置。 To manually move/fly the vehicle you move the sticks outside of the centre.
+The _Manual/Stabilized_ mode stabilizes the multicopter when the RC control sticks are centred. To manually move/fly the vehicle you move the sticks outside of the centre.
 
 :::note
-
-需要手动输入（遥控器，或者通过 MAVLink 连接的游戏手柄/拇指摇杆）。
+This multicopter mode is enabled if you set either _Manual_ or _Stabilized_ modes.
 :::
 
-
-When under manual control the roll and pitch sticks control the *angle* of the vehicle (attitude) around the respective axes, the yaw stick controls the rate of rotation above the horizontal plane, and the throttle controls altitude/speed.
+When under manual control the roll and pitch sticks control the _angle_ of the vehicle (attitude) around the respective axes, the yaw stick controls the rate of rotation above the horizontal plane, and the throttle controls altitude/speed.
 
 一旦释放摇杆，它们将会返回中心死区。 一旦横滚和俯仰摇杆居中，多旋翼无人机将平稳并停止运动。 然后机体将悬停在适当的位置/保持高度 - 前提是平衡得当，油门设置适当（在[下方](#params)查看），并且没有施加任何外力（例如风）。 飞行器将朝着任何风的方向漂移，您必须控制油门以保持高度。
 
 ![MC Manual Flight](../../assets/flight_modes/manual_stabilized_MC.png)
-
 
 ## 技术描述
 
@@ -23,9 +20,8 @@ When under manual control the roll and pitch sticks control the *angle* of the v
 
 :::note
 
-* Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
+- Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
 :::
-
 
 <a id="params"></a>
 

@@ -6,7 +6,7 @@ MacOS 是受支持的 PX4 开发平台。 根据本文的指示构建的开发�
 * [Gazebo Classic Simulation](../sim_gazebo_classic/README.md)
 
 :::tip
-This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported development environment](../advanced/dev_env_unsupported.md)).
+This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported development environment](../advanced/community_supported_dev_env.md)).
 :::
 
 ## Homebrew 安装

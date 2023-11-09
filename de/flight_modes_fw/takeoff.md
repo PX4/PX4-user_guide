@@ -8,7 +8,6 @@ Vehicles are [hand or catapult launched](#catapult-hand-launch) by default, but 
 
 :::note
 
-
 - This mode requires a good position estimate (e.g. from GPS).
 - The vehicle must be armed before this mode will activate.
 - This mode is automatic - no user intervention is _required_ to control the vehicle.
@@ -17,7 +16,6 @@ Vehicles are [hand or catapult launched](#catapult-hand-launch) by default, but 
 - The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff.
 
 :::
-
 
 ## Technical Summary
 
@@ -45,10 +43,8 @@ Parameters that affect both catapult/hand-launch and runway takeoffs:
 | <a id="FW_T_CLMB_MAX"></a>[FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)       | Maximum climb rate.                                                                                                                |
 
 :::note
-
 The vehicle always respects normal FW max/min throttle settings during takeoff ([FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN), [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX)).
 :::
-
 
 <a id="hand_launch"></a>
 
@@ -90,10 +86,8 @@ The _runway takeoff mode_ has the following phases:
 3. **Climbout**: Increase pitch setpoint and climb to takeoff altitude. To prevent wingstrikes, the controller will keep the roll setpoint locked to 0 when close to the ground, and then gradually allow more roll while climbing. It is based on the vehicle geometry as configured in [FW_WING_SPAN](#FW_WING_SPAN) and [FW_WING_HEIGHT](#FW_WING_HEIGHT).
 
 :::note
-
 For a smooth takeoff, the runway wheel controller possibly needs to be tuned. It consists of a rate controller (P-I-FF-controller with the parameters [FW_WR_P](../advanced_config/parameter_reference.md#FW_WR_P), [FW_WR_I](../advanced_config/parameter_reference.md#FW_WR_I), [FW_WR_FF](../advanced_config/parameter_reference.md#FW_WR_FF)) and an outer loop that calculates heading setpoints from course errors and can be tuned via [RWTO_NPFG_PERIOD](#RWTO_NPFG_PERIOD).
 :::
-
 
 ### Parameters (Runway Takeoff)
 
