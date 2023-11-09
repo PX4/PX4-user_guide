@@ -56,6 +56,10 @@ The supported vehicles and `make` commands are listed below.
 | [Plane](../sim_gazebo_gz/vehicles.md#standard-plane)                                                     | `make px4_sitl gz_rc_cessna`      | 4003                |
 | [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane)                                            | `make px4_sitl gz_advanced_plane` | 4008                |
 
+:::warning
+(09.11.2023) The Advanced Lift Drag Plugin that is required to run the Advanced Plane is not yet part of the Gazebo distribution. This means the Advanced Plane will not fly as is. One way to work around this is to compile the gz-sim library from [Gazebo source code](https://github.com/gazebosim/gz-sim), go into the `build/lib` directory, copy out the advanced lift drag plugin .so file (depending on the exact Gazebo Version this is called something along the lines of `libgz-sim7-advanced-lift-drag-system.so`) and paste this into the `~/.gz/sim/plugins` folder. This will enable you to run the Advanced Plane in PX4. A GitHub issue has also been created on the [PX4-Autopilot Github issues page](https://github.com/PX4/PX4-Autopilot/issues/22337) to track the problem.
+:::
+
 The commands above launch a single vehicle with the full UI.
 _QGroundControl_ should be able to automatically connect to the simulated vehicle.
 
