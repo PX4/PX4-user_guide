@@ -39,6 +39,10 @@ Not all PX4 source code matches the style guide, but any _new code_ that you wri
 
 - `lowerCamelCase()` is used for functions and methods to *visually* distinguish them from `ClassConstructors()` and `ClassNames`.
 
+### Private Class Member Variable Names
+
+- `_underscore_prefixed_snake_case` is used for private class member variable names, as oppose to `underscore_postfixed_`.
+
 ### Class Privacy Keywords
 
 - *zero* spaces before `public:`, `private:`, or `protected:` keywords.
@@ -57,23 +61,23 @@ public:
          */
         float doSomething(const float input_param) const {
                 const float in_scope_variable = input_param + kConstantFloat;
-                return in_scope_variable * private_member_variable_;
+                return in_scope_variable * _private_member_variable;
         }
 
-        void setPrivateMember(const float private_member_variable) { private_member_variable_ = private_member_variable; }
+        void setPrivateMember(const float private_member_variable) { _private_member_variable = private_member_variable; }
 
         /**
          * @return Whatever we are "getting" [units]
          */
-        float getPrivateMember() const { return private_member_variable_; }
+        float getPrivateMember() const { return _private_member_variable; }
 
 private:
 
         // Clear description of the constant if not completely obvious from the name [units]
-        static constexpr float kConstantFloat = ...;  
+        static constexpr float kConstantFloat = ...;
 
         // Clear description of the variable if not completely obvious from the name [units]
-        float private_member_variable_{...};
+        float _private_member_variable{...};
 };
 ```
 
