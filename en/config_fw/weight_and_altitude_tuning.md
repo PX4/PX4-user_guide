@@ -16,7 +16,7 @@ When both [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE) a
 1. Scale the maximum climb rate [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) as a function of the weight ratio and the air density.
 From the steady state equations of motions of an airplane we find that the maximum climb rate can be written as
 
-$$ \dot{h}_{max} = V * ( Thrust - Drag ) \over{m  g}  $$
+$$ \dot{h}_{max} = { V * ( Thrust - Drag ) \over{m*g}}  $$
 
 where V is the true airspeed and m is the vehicle mass. As the vehicle weight appears linearly in the denominator we scaling is straightforward. The air density affects the airspeed, the thrust and the drag and modelling this effects is not straight forward. However, we can refer to literature and experience, which suggest that for a propeller airplane the maximum climb rate reduces approximately linear with the air density. Therefore, we can write the maximum climb rate as
 
