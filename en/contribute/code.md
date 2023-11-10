@@ -8,7 +8,7 @@ The PX4 project uses a three-branch Git branching model:
 * [beta](https://github.com/PX4/PX4-Autopilot/tree/beta) has been thoroughly tested. It's intended for flight testers.
 * [stable](https://github.com/PX4/PX4-Autopilot/tree/stable) points to the last release.
 
-We try to retain a [linear history through rebases](https://www.atlassian.com/git/tutorials/rewriting-history) and avoid the [Github flow](https://docs.github.com/en/get-started/quickstart/github-flow). 
+We try to retain a [linear history through rebases](https://www.atlassian.com/git/tutorials/rewriting-history) and avoid the [Github flow](https://docs.github.com/en/get-started/quickstart/github-flow).
 However, due to the global team and fast moving development we might resort to merges at times.
 
 To contribute new functionality, [sign up for Github](https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account), then [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repository, [create a new branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository), add your [changes as commits](#commits-and-commit-messages), and finally [send a pull request](#pull-requests).
@@ -44,7 +44,7 @@ If you update an existing file you are not required to make the whole file compl
 
 ### Private Class Member Variable Names
 
-- `_underscore_prefixed_snake_case` is used for private class member variable names, as oppose to `underscore_postfixed_` due to "tab-ability" (see all class members with one press of tab) and PX4 style legacy (hard to teach old dogs new tricks).
+- `_underscore_prefixed_snake_case` is used for private class member variable names, as oppose to `underscore_postfixed_`.
 
 ### Class Privacy Keywords
 
@@ -75,9 +75,9 @@ public:
         float getPrivateMember() const { return _private_member_variable; }
 
 private:
-    
+
         // Clear description of the constant if not completely obvious from the name [units]
-        static constexpr float kConstantFloat = ...;  
+        static constexpr float kConstantFloat = ...;
 
         // Clear description of the variable if not completely obvious from the name [units]
         float _private_member_variable{...};
@@ -92,17 +92,17 @@ PX4 developers are encouraged to create appropriate in-source documentation.
 Source-code documentation standards are not enforced, and the code is currently inconsistently documented.
 We'd like to do better!
 :::
-  
+
 Currently we have two types of source-based documentation:
 - `PRINT_MODULE_*` methods are used for both module run time usage instructions and for the [Modules & Commands Reference](../modules/modules_main.md) in this guide.
-  - The API is documented [in the source code here](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381). 
+  - The API is documented [in the source code here](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381).
   - Good examples of usage include the [Application/Module Template](../modules/module_template.md) and the files linked from the modules reference.
-- We encourage other in-source documentation *where it adds value/is not redundant*. 
+- We encourage other in-source documentation *where it adds value/is not redundant*.
 
   :::tip
   Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
   :::
-  
+
   - Do not add documentation that can trivially be inferred from C++ entity names.
   - ALWAYS specify units of variables, constants, and input/return parameters where they are defined.
   - Commonly you may want to add information about corner cases and error handling.
@@ -118,7 +118,7 @@ if (fabsf(yaw_stick_normalized_input) < 0.1f) {
 else {
         yaw_rate_setpoint = 0.52f * yaw_stick_normalized_input;
 }
-``` 
+```
 
 Instead, define the numbers as named constants with appropriate context in the header:
 
