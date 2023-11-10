@@ -84,7 +84,7 @@ Before using offboard mode with ROS 2, please spend a few minutes understanding 
 
     - 姿态四元数 `q_d` + 推力设定值 `thrust_body`。 非-`NaN` 值的 `yaw_sp_move_rate` 被用作大地坐标系下的偏航角前馈使用，单位为\[rad/s\]。
 
-  - The quaternion represents the rotation between the drone body FRD (front, right, down) frame and the NED frame. The trust is in the drone body FRD frame and expressed in normalized \[-1, 1\] values.
+  - The quaternion represents the rotation between the drone body FRD (front, right, down) frame and the NED frame. The thrust is in the drone body FRD frame and expressed in normalized \[-1, 1\] values.
 
 - [px4_msgs::msg::VehicleRatesSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleRatesSetpoint.msg)
 
