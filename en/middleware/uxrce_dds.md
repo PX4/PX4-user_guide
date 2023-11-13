@@ -433,6 +433,14 @@ subscriptions:
 
   - topic: /fmu/in/vehicle_trajectory_waypoint
     type: px4_msgs::msg::VehicleTrajectoryWaypoint
+
+subscriptions_multi:
+
+  - topic: /fmu/in/vehicle_optical_flow_vel
+    type: px4_msgs::msg::VehicleOpticalFlowVel
+
+  ...
+
 ```
 
 Each (`topic`,`type`) pairs defines:
@@ -446,6 +454,10 @@ Each (`topic`,`type`) pairs defines:
    - `/fmu/out/` for topics that are _published_ by PX4.
    - `/fmu/in/` for topics that are _subscribed_ by PX4.
 4. The message type (`VehicleOdometry`, `VehicleStatus`, `OffboardControlMode`, etc.) and the ROS 2 package (`px4_msgs`) that is expected to provide the message definition.
+
+We distinguish `subscriptions` from `subscriptions_multi` because PX4 uORB allows multiple publishers to a single uORB topic:
+  - Each field in `subscriptions` defines a ROS2 subscription (e.g. over `/fmu/in/vehicle_optical_flow_vel`) along with a uORB publication (e.g. over `vehicle_optical_flow_vel`) of those messages, under the assumption that only a **single publisher exists to the specified uORB topic**. 
+  - Each field in `subscriptions_multi` also defines such a ROS2 subscription and uORB republication, however **other publishers to the same uORB topic may coexist** (e.g. an internal PX4 module can also publishing over `vehicle_optical_flow_vel`).
 
 You can arbitrarily change the configuration.
 For example, you could use different default namespaces or use a custom package to store the message definitions.
