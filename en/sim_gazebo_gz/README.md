@@ -97,7 +97,8 @@ The supported worlds are listed below.
 | World     | Command                 | Description                   |
 | --------- | ----------------------- | ----------------------------- |
 | `default` | `make px4_sitl *`       | Empty world (a grey plane)    |
-| `windy`   | `make px4_sitl *_windy` | Empty world with wind enabled |
+| `windy`   | `make px4_sitl *_windy` | Empty world with wind enabled. Wind settings can be changed [here](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/ff6f74e4c226882146aa098f064efb9393dd50d3/worlds/windy.world#L18-L29). |
+| `ramped_up_wind`   | `make px4_sitl *_ramped_up_wind` | Empty world with wind ramped up. Wind settings can be changed [here](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/ff6f74e4c226882146aa098f064efb9393dd50d3/worlds/ramped_up_wind.world#L18C3-L32).|
 
 :::warning
 Note that if no world is specified, PX4 will use the `default` world.
