@@ -6,7 +6,7 @@ The _Orbit_ guided flight mode allows you to command a multicopter (or VTOL in m
 
 :::note
 
-- This mode requires a valid global position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+- This mode requires a valid local position estimate.
 - This mode is automatic - no user intervention is _required_ to control the vehicle.
 - RC stick movement can control ascent/descent and orbit speed and direction.
 - The mode can be triggered using the [MAV_CMD_DO_ORBIT](https://mavlink.io/en/messages/common.html#MMAV_CMD_DO_ORBIT) MAVLink command.

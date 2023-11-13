@@ -14,7 +14,7 @@ Where possible, instead use [Return mode](../flight_modes/return.md) with a pred
 
 :::note
 
-- This mode requires a valid global position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+- This mode requires a valid local position estimate.
 - This mode is automatic - no user intervention is _required_ to control the vehicle.
 - RC control switches can be used to change flight modes on any vehicle.
 - RC stick movement is ignored.
