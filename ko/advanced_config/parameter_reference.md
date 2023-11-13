@@ -30886,19 +30886,6 @@ table {
  <td>Enabled (1)</td>
  <td></td>
 </tr>
-<tr>
- <td><strong id="SYS_USE_IO">SYS_USE_IO</strong> (INT32)</td>
- <td>Set usage of IO board <p><strong>Comment:</strong> Can be used to use a configure the use of the IO board.</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> IO PWM disabled (RC only)</li>
-
-<li><strong>1:</strong> IO enabled (RC & PWM)</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
 </tbody></table>
 
 ## Telemetry
