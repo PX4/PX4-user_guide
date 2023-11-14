@@ -90,6 +90,7 @@
       * [FunCub QuadPlane (Pixhawk)](frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md)
       * [Ranger QuadPlane (Pixhawk)](frames_vtol/vtol_quadplane_volantex_ranger_ex_pixhawk.md)
       * [Falcon Vertigo QuadPlane (Dropix)](frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.md)
+      * [Build: LOONG VTOL](frames_vtol/vtol_quadplane_loong.md)
     * [Tailsitter VTOL](frames_vtol/tailsitter.md)
       * [Build: TBS Caipiroshka Tailsitter Build (Pixracer)](frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
     * [Tiltrotor VTOL](frames_vtol/tiltrotor.md)
