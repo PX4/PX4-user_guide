@@ -21,7 +21,7 @@ $$ \dot{h}_{max} = { V * ( Thrust - Drag ) \over{m*g}}  $$
 where V is the true airspeed and m is the vehicle mass. As the vehicle weight appears linearly in the denominator we scaling is straightforward. The air density affects the airspeed, the thrust and the drag and modelling this effects is not straight forward. However, we can refer to literature and experience, which suggest that for a propeller airplane the maximum climb rate reduces approximately linear with the air density. Therefore, we can write the maximum climb rate as
 
 
-$$ \dot{h}_{max} = \dot{h}_{base} {m_{base}\over{m_{gross}}} {\rho_{sealevel} \over{\rho}} $$
+$$ \dot{h}_{max} = \dot{h}_{base} * {m_{base} \over{m_{gross}}} {\rho_{sealevel} \over{\rho}} $$
 
 where $\rho_{sealevel}$ is the air density at sea level in the standard atmosphere.
 
