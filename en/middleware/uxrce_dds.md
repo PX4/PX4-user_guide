@@ -445,7 +445,7 @@ subscriptions_multi:
 
 Each (`topic`,`type`) pairs defines:
 
-1. A new subscription or publication depending on the list to which it is added.
+1. A new publication, subscription, or subscriptions_multi, depending on the list to which it is added.
 2. The topic _base name_, which **must** coincide with the desired uORB topic name that you want to publish/subscribe.
    It is identified by the last token in `topic:` that starts with `/` and does not contains any `/` in it.
    `vehicle_odometry`, `vehicle_status` and `offboard_control_mode` are examples of base names.
