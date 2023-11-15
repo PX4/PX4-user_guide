@@ -46,18 +46,24 @@ Simple changes to _existing content_ can be made by clicking the **Edit this pag
 1. 아직 Github에 [가입](https://github.com/join)하지 않은 경우에는 가입합니다.
 1. Create a copy (Fork) of the [PX4 User Guide repo](https://github.com/PX4/PX4-user_guide) on Github ([instructions here](https://docs.github.com/en/get-started/quickstart/fork-a-repo)).
 1. 복사된 저장소를 로컬 컴퓨터에 복제합니다.
+
    ```sh
    cd ~/wherever/
    git clone https://github.com/<your git name>/px4_user_guide.git
    ```
+
    예를 들어, Github 계정이 "john_citizen"인 사용자의 PX4 사용자 가이드 포크를 복제합니다.
+
    ```sh
    git clone https://github.com/john_citizen/px4_user_guide.git
    ```
+
 1. 로컬 저장소로 이동합니다.
+
    ```sh
    cd ~/wherever/px4_user_guide
    ```
+
 1. Add a _remote_ called "upstream" to point to the PX4 version of the library:
 
    ```sh
@@ -69,21 +75,29 @@ Simple changes to _existing content_ can be made by clicking the **Edit this pag
 :::
 
 1. 변경 사항에 대한 브랜치를 생성합니다.
+
    ```sh
    git checkout -b <your_feature_branch_name>
    ```
+
    그러면 컴퓨터에 `your_feature_branch_name`이라는 로컬 브랜치가 생성됩니다.
+
 1. 필요에 따라 문서를 변경합니다(다음 섹션에서 이에 대한 일반 지침).
 1. 변경 사항에 완료되면 "커밋"을 사용하여, 로컬 브랜치에 추가합니다.
+
    ```sh
    git add <file name>
    git commit -m "<your commit message>"
    ```
+
    For a good commit message, please refer to the [Source Code Management](../contribute//code.md#commits-and-commit-messages) section.
+
 1. 로컬 분기(추가된 커밋 포함)를 Github의 분기된 저장소에 푸시합니다.
+
    ```sh
    git push origin your_feature_branch_name
    ```
+
 1. 웹 브라우저에서 Github의 분기된 저장소로 이동합니다(예: `https://github.com/<your git name>/px4_user_guide.git`). 새 분기가 분기된 저장소로 푸시되었다는 메시지가 표시되어야 합니다.
 1. 풀 요청(PR) 생성:
    - "새 분기 메시지"(앞의 한 단계 참조)의 오른쪽에 "풀 요청 비교 및 생성"이라는 녹색 버튼이 표시되어야 합니다. 클릭합니다.
@@ -101,7 +115,7 @@ Simple changes to _existing content_ can be made by clicking the **Edit this pag
 :::note
 For recent nodejs versions (after v16.15.0) you need to enable the node legacy OpenSSL provider. On Ubuntu you can do this by running the terminal command:
 
-     ```bash
+     ```sh
      export NODE_OPTIONS=--openssl-legacy-provider
      ```
 
@@ -156,9 +170,14 @@ Use `yarn docs:dev` to preview changes _as you make them_ (documents are updated
   - 파일의 영어(**/en**) 버전만 편집하십시오. 번역을 관리하기 위해 [Crowdin](../contribute/translation.md)을 사용합니다.
 - 모든 페이지는 **/en**이라는 적절한 이름의 하위 폴더에 있어야 합니다(예: 이 페이지는 **en/contribute/** 폴더에 있음).
   - 이렇게 하면 다른 페이지와 이미지가 항상 동일한 상대 수준이므로 연결이 더 용이해집니다.
-- 책의 _구조_는 **SUMMARY.md**에 정의되어 있습니다.
-  - 가이드에 새 페이지를 추가하는 경우 이 파일에도 항목을 추가하여야 합니다. :::tip This is not "standard vuepress" way to define the sidebar (the summary file is imported by [.vuepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/main/.vuepress/get_sidebar.js)).
+- The _structure_ of the book is defined in **SUMMARY.md**
+
+  - If you add a new page to the guide you must also add an entry to this file!
+
+:::tip
+This is not "standard vuepress" way to define the sidebar (the summary file is imported by [.vuepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/main/.vuepress/get_sidebar.js)).
 :::
+
 - 이미지는 **/assets**의 하위 폴더에 저장하여야 합니다. 이것은 콘텐츠 폴더에서 두 개의 폴더 아래에 있으므로, 이미지를 추가하면 다음과 같이 참조하게 됩니다.
 
   ```plain
@@ -218,4 +237,4 @@ Use `yarn docs:dev` to preview changes _as you make them_ (documents are updated
 
 ## 라이센스
 
-All PX4/Dronecode documentation is free to use and modify under terms of the permissive [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) licence.
+All PX4/Dronecode documentation is free to use and modify under terms of the permissive [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.
