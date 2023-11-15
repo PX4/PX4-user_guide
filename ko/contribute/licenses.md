@@ -6,8 +6,7 @@
 
 시스템의 구성요소들에 대한 라이선스를 문서로 정리합니다.
 
-* [PX4 Flight Stack](https://github.com/PX4/PX4-Autopilot) &mdash; BSD
-* [PX4 미들웨어](https://github.com/PX4/PX4-Autopilot) &mdash; BSD
-* [Pixhawk 하드웨어](https://github.com/PX4/Hardware) &mdash; CC-BY-SA 3.0
-* Snapdragon 하드웨어 &mdash; 퀄컴 상업용
-  
+- [PX4 Flight Stack](https://github.com/PX4/PX4-Autopilot) &mdash; BSD
+- [PX4 미들웨어](https://github.com/PX4/PX4-Autopilot) &mdash; BSD
+- [Pixhawk 하드웨어](https://github.com/PX4/Hardware) &mdash; CC-BY-SA 3.0
+- [PX4 User Guide](https://github.com/PX4/PX4-user_guide) (Documentation) &mdash; [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
