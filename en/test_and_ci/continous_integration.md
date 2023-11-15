@@ -19,7 +19,7 @@ Most of the test are run using the Github workflows in [.github/workflows](https
 
 - `compile_nuttx.yml`:
   Builds NuttX flight controller board targets.
-  It can detect Flash overflows and code syntax errors,
+  It can detect Flash overflows and code syntax errors.
 - `sitl_tests.yml`: 
   Executes [MAVSDK SITL Tests](./integration_testing_mavsdk.md).
   Detect system-level bugs in the code (e.g. VTOL doesn't return to home)
