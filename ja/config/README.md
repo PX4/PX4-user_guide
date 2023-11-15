@@ -33,7 +33,6 @@ Before starting you should [Download QGroundControl](http://qgroundcontrol.com/d
 
 > **Note:** Setup for optional sensors and specific hardware is provided in [Flight Controller Peripherals](../peripherals/README.md).
 
-
 ### Manual Control Setup
 
 Radio Control:
