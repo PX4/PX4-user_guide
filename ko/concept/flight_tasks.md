@@ -1,7 +1,6 @@
 # 비행 작업
 
-*비행 작업*은 [비행 모드](../concept/flight_modes.md)에서 정해진 이동 동작(예: 사람 추적, 비행 평활화)을 수행합니다.
-
+_Flight Tasks_ are used within [Flight Modes](../concept/flight_modes.md) to provide specific movement behaviours: e.g. follow me, or flight smoothing.
 
 ## 개요
 
@@ -14,30 +13,35 @@
 :::note PX4 개발자 회의의 비디오 개요는 [아래에서](#video)  제공합니다.
 :::
 
-
 ## 비행 작업 생성
 
-아래 지침을 사용하여 *MyTask*라는 작업을 만들 수 있습니다.
+The instructions below might be used to create a task named _MyTask_:
 
 1. [PX4-Autopilot/src/modules/flight_mode_manager/tasks](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/flight_mode_manager/tasks)에 새 비행 작업에 대한 디렉터리를 생성합니다. 규칙에 따라 디렉토리 이름은 작업 이름을 따서 지정되므로 **/MyTask**라고 합니다.
-   ```
+
+   ```sh
    mkdir PX4-Autopilot/src/lib/flight_tasks/tasks/MyTask
    ```
-2. "FlightTask" 접두사를 사용하여 *MyTask* 디렉토리에 새 비행 작업에 대한 빈 소스 코드 및 *cmake* 파일을 만듭니다.
+
+2. Create empty source code and _cmake_ files for the new flight task in the _MyTask_ directory using the prefix "FlightTask":
    - CMakeLists.txt
    - FlightTaskMyTask.hpp
    - FlightTaskMyTask.cpp
-3. 새 작업을 위해 **CMakeLists.txt** 업데이트 합니다.
-   - 다른 작업(예: [Orbit/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/tasks/Orbit/CMakeLists.txt))을 위해 **CMakeLists.txt**의 내용을 복사합니다.
-   - 현재 연도로 저작권을 업데이트 합니다.
-     ```cmake   
+3. Update **CMakeLists.txt** for the new task
+
+   - Copy the contents of the **CMakeLists.txt** for another task - e.g. [Orbit/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/tasks/Orbit/CMakeLists.txt)
+   - Update the copyright to the current year
+
+     ```cmake
      ############################################################################
      #
      #   Copyright (c) 2021 PX4 Development Team. All rights reserved.
      #
      ```
-   - 새 작업을 반영하도록 코드를 수정하십시오. 예: `FlightTaskOrbit`를 `FlightTaskMyTask`로 변경합니다. 코드는 아래와 같습니다.
-     ```cmake 
+
+   - Modify the code to reflect the new task - e.g. replace `FlightTaskOrbit` with `FlightTaskMyTask`. The code will look something like this:
+
+     ```cmake
      px4_add_library(FlightTaskMyTask
          FlightTaskMyTask.cpp
      )
@@ -47,6 +51,7 @@
      ```
 
 4. 헤더 파일 업데이트(이 경우 **FlightTaskMyTask.hpp**): 대부분의 작업은 가상 메서드 `activate()` 및 `update()`를 다시 구현하며, 이 예에서는 개인 변수도 있습니다.
+
    ```cpp
    #pragma once
 
@@ -65,7 +70,9 @@
      float _origin_z{0.f};
    };
    ```
-4. cpp 파일을 적절하게 업데이트 합니다. 이 예는 단순히 작업 메서드가 호출되었음을 나타내는 **FlightTaskMyTask.cpp**의 간단한 구현을 제공합니다.
+
+5. cpp 파일을 적절하게 업데이트 합니다. 이 예는 단순히 작업 메서드가 호출되었음을 나타내는 **FlightTaskMyTask.cpp**의 간단한 구현을 제공합니다.
+
    ```cpp
    #include "FlightTaskMyTask.hpp"
 
@@ -82,19 +89,24 @@
      return true;
    }
    ```
-5. [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/CMakeLists.txt#L40)에 새 작업을 빌드할 작업 목록에 추가합니다.
-   ```
+
+6. Add the new task to the list of tasks to be built in [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/CMakeLists.txt#L40):
+
+   ```cmake
    list(APPEND flight_tasks_to_add
       Orbit
       MyTask
    )
    )
    ```
-6. 작업이 호출되도록 비행 모드를 업데이트합니다. 일반적으로, 매개변수는 특정 비행 작업을 사용해야 하는 시기를 선택합니다.
+
+7. 작업이 호출되도록 비행 모드를 업데이트합니다. 일반적으로, 매개변수는 특정 비행 작업을 사용해야 하는 시기를 선택합니다.
 
    예를 들어, 멀티콥터 위치 모드에서 새로운 `MyTask`를 활성화하려면:
+
    - Update `MPC_POS_MODE` ([multicopter_position_mode_params.c](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mc_pos_control/multicopter_position_mode_params.c)) to add an option for selecting "MyTask" if the parameter has a previously unused value like 5:
-     ```
+
+     ```c
      ...
       * @value 0 Direct velocity
       * @value 3 Smoothed velocity
@@ -103,7 +115,9 @@
       */
      PARAM_DEFINE_INT32(MPC_POS_MODE, 4);
      ```
+
    - `_param_mpc_pos_mode`에 올바른 값이 있을 때 작업을 활성화하려면 [FlightModeManager.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/FlightModeManager.cpp#L266-L285) 매개변수의 스위치에 새 옵션에 대한 사례를 추가하십시오.
+
      ```cpp
      ...
      // manual position control
@@ -114,13 +128,12 @@
           error = switchTask(FlightTaskIndex::ManualPositionSmoothVel);
           break;
        case 5: // Add case for new task: MyTask
-          error =  _flight_tasks.switchTask(FlightTaskIndex::MyTask);
+          error = switchTask(FlightTaskIndex::MyTask);
           break;
-    case 4:
-    ....
+     case 4:
+     ....
      ...
      ```
-
 
 ## 신규 비행 작업 테스트
 
@@ -129,7 +142,6 @@
 :::note
 위에 정의된 작업은 시뮬레이터에서만 테스트하여야 합니다. 코드는 실제로 설정값을 생성하지 않으므로 기체는 비행하지 않습니다.
 :::
-
 
 ## 비디오
 
