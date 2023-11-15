@@ -2,17 +2,20 @@
 
 The _Radio Setup_ screen is used to configure the mapping of your RC controller's main attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
 
-可以使用[操纵杆](../config/joystick.md)代替遥控器手动控制。 [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE)参数[可以设置](../advanced_config/parameters.md)来定义启用哪种类型的手动控制器。 :::
+可以使用[操纵杆](../config/joystick.md)代替遥控器手动控制。 [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE)参数[可以设置](../advanced_config/parameters.md)来定义启用哪种类型的手动控制器。
+:::
 
 ## 绑定接收机
 
 在你校准遥控器之前，遥控器的发射机和接收机需要绑定（对频）。 发射机和接收机对频的方法各有不同（请参照您使用的遥控器的说明书） 提醒：如果您使用的是 Spektrum 的接收机， 提醒：如果您使用的是 FrSky 的接收机，您可以在发射机上进行绑定（对频），下面是介绍。
 
 :::note
-If you are using a _Spektrum_ receiver, you can put it into bind mode using _QGroundControl_, as [shown below](#spectrum-bind). :::
+If you are using a _Spektrum_ receiver, you can put it into bind mode using _QGroundControl_, as [shown below](#spectrum-bind).
+:::
 
 :::note
-If you are using a _FrSky_ receiver, you can bind it with its transmitter, by following instructions [here](https://www.youtube.com/watch?v=1IYg5mQdLVI). :::
+If you are using a _FrSky_ receiver, you can bind it with its transmitter, by following instructions [here](https://www.youtube.com/watch?v=1IYg5mQdLVI).
+:::
 
 ## RC Loss Detection
 
@@ -81,7 +84,8 @@ To bind a Spektrum transmitter/receiver:
 This setting is used to copy the manual trim settings from your radio transmitter so that they can be applied automatically within the autopilot. After this is done you will need to remove the manually set trims.
 
 :::note
-Trim settings are used to adjust the roll, pitch, yaw such that when you center the sticks on your remote control, you get stable or level flight (in Stabilized flight mode). Some RC controllers provide trim knobs that allow you to provide an offset to the value sent by the RC controller for each stick position. 这里的**微调设置**将偏移量转移到了自驾仪中。 :::
+Trim settings are used to adjust the roll, pitch, yaw such that when you center the sticks on your remote control, you get stable or level flight (in Stabilized flight mode). Some RC controllers provide trim knobs that allow you to provide an offset to the value sent by the RC controller for each stick position. 这里的**微调设置**将偏移量转移到了自驾仪中。
+:::
 
 To copy the trims:
 
@@ -111,7 +115,8 @@ The flight controller will pass through the unmodified values from the specified
 Tuning channels allow you to map a transmitter tuning knob to a parameter (so that you can dynamically modify a parameter from your transmitter).
 
 :::tip
-This feature is provided to enable manual in-flight tuning: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md), [Fixed-wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md). :::
+This feature is provided to enable manual in-flight tuning: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md), [Fixed-wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md).
+:::
 
 The channels used for parameter tuning are assigned in the _Radio_ setup (here!), while the mapping from each tuning channel to its associated parameter is defined in the _Parameter editor_.
 
@@ -136,7 +141,8 @@ To map a PARAM tuning channel to a parameter:
 1. Press **Save** to save all changes and close the _Parameter Editor_.
 
 :::tip
-You can clear all parameter/tuning channel mappings by selecting menu **Tools > Clear RC to Param** at the top right of the _Parameters_ screen. :::
+You can clear all parameter/tuning channel mappings by selecting menu **Tools > Clear RC to Param** at the top right of the _Parameters_ screen.
+:::
 
 ## 更多信息
 
