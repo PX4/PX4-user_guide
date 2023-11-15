@@ -49,7 +49,7 @@ The tutorial is ordered in the following way: In a first part it is shown how to
 
 - Install git:
 
-  ```bash
+  ```sh
   sudo apt-get install git
   ```
 
@@ -57,7 +57,7 @@ The tutorial is ordered in the following way: In a first part it is shown how to
 
   - Clone [RealSense_ROS repository](https://github.com/bestmodule/RealSense_ROS):
 
-    ```bash
+    ```sh
     git clone https://github.com/bestmodule/RealSense_ROS.git
     ```
 
@@ -65,21 +65,21 @@ The tutorial is ordered in the following way: In a first part it is shown how to
 
   - Press the enter button when the questions whether to install the following installation packages show up:
 
-    ```
+    ```sh
     Intel Low Power Subsystem support in ACPI mode (MFD_INTEL_LPSS_ACPI) [N/m/y/?] (NEW)
     ```
 
-    ```
+    ```sh
     Intel Low Power Subsystem support in PCI mode (MFD_INTEL_LPSS_PCI) [N/m/y/?] (NEW)
     ```
 
-    ```
+    ```sh
     Dell Airplane Mode Switch driver (DELL_RBTN) [N/m/y/?] (NEW)
     ```
 
   - The following error message that can appear at the end of the installation process should not lead to a malfunction of the driver:
 
-    ```
+    ```sh
     rmmod: ERROR: Module uvcvideo is not currently loaded
     ```
 
@@ -90,9 +90,10 @@ The tutorial is ordered in the following way: In a first part it is shown how to
   - Connect the Intel RealSense camera head with the computer with a USB3 cable that is plugged into a USB3 receptacle on the computer.
   - Click on Devices->USB-> Intel Corp Intel RealSense 3D Camera R200 in the menu bar of the Virtual Box, in order to forward the camera USB connection to the Virtual Machine.
   - Execute the file [unpacked folder]/Bin/DSReadCameraInfo:
+
     - If the following error message appears, unplug the camera (physically unplug USB cable from the computer). Plug it in again + Click on Devices->USB-> Intel Corp Intel RealSense 3D Camera R200 in the menu bar of the Virtual Box again and execute again the file [unpacked folder]/Bin/DSReadCameraInfo.
 
-      ```bash
+      ```sh
       DSAPI call failed at ReadCameraInfo.cpp:134!
       ```
 

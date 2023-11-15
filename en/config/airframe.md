@@ -11,13 +11,13 @@ Choose the frame that matches your vehicle brand and model if one exists, and ot
 
 To set the airframe:
 
-1. Start *QGroundControl* and connect the vehicle.
-1. Select **"Q" icon > Vehicle Setup > Airframe** (sidebar) to open *Airframe Setup*.
+1. Start _QGroundControl_ and connect the vehicle.
+1. Select **"Q" icon > Vehicle Setup > Airframe** (sidebar) to open _Airframe Setup_.
 1. Select the broad vehicle group/type that matches your airframe and then use the dropdown within the group to choose the airframe that best matches your vehicle.
-   
+
    ![Selecting generic hexarotor X frame in QGroundControl](../../assets/qgc/setup/airframe/airframe_px4.jpg)
 
-   The example above shows *Generic Hexarotor X geometry* selected from the *Hexarotor X* group.
+   The example above shows _Generic Hexarotor X geometry_ selected from the _Hexarotor X_ group.
 
 1. Click **Apply and Restart**.
    Click **Apply** in the following prompt to save the settings and restart the vehicle.
