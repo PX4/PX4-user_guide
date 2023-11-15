@@ -4,9 +4,9 @@
 
 PX4 项目使用三分支 Git 模型：
 
-* [main](https://github.com/PX4/PX4-Autopilot/tree/main) is by default unstable and sees rapid development.
-* [beta](https://github.com/PX4/PX4-Autopilot/tree/beta) 经过全面测试。 它是供飞行测试人员使用的。
-* [stable](https://github.com/PX4/PX4-Autopilot/tree/stable) 是最新发行版本。
+- [main](https://github.com/PX4/PX4-Autopilot/tree/main) is by default unstable and sees rapid development.
+- [beta](https://github.com/PX4/PX4-Autopilot/tree/beta) 经过全面测试。 它是供飞行测试人员使用的。
+- [stable](https://github.com/PX4/PX4-Autopilot/tree/stable) 是最新发行版本。
 
 We try to retain a [linear history through rebases](https://www.atlassian.com/git/tutorials/rewriting-history) and avoid the [Github flow](https://docs.github.com/en/get-started/quickstart/github-flow). 然而，由于全球团队和快速的发展，我们可能有时会进行合并。
 
@@ -37,7 +37,7 @@ Not all PX4 source code matches the style guide, but any _new code_ that you wri
 
 ### Function and Method Names
 
-- `lowerCamelCase()` is used for functions and methods to *visually* distinguish them from `ClassConstructors()` and `ClassNames`.
+- `lowerCamelCase()` is used for functions and methods to _visually_ distinguish them from `ClassConstructors()` and `ClassNames`.
 
 ### Private Class Member Variable Names
 
@@ -45,7 +45,7 @@ Not all PX4 source code matches the style guide, but any _new code_ that you wri
 
 ### Class Privacy Keywords
 
-- *zero* spaces before `public:`, `private:`, or `protected:` keywords.
+- _zero_ spaces before `public:`, `private:`, or `protected:` keywords.
 
 ### Example Code Snippet
 
@@ -91,10 +91,11 @@ We'd like to do better!
 :::
 
 Currently we have two types of source-based documentation:
+
 - `PRINT_MODULE_*` methods are used for both module run time usage instructions and for the [Modules & Commands Reference](../modules/modules_main.md) in this guide.
   - The API is documented [in the source code here](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381).
   - Good examples of usage include the [Application/Module Template](../modules/module_template.md) and the files linked from the modules reference.
-- We encourage other in-source documentation *where it adds value/is not redundant*.
+- We encourage other in-source documentation _where it adds value/is not redundant_.
 
   :::tip
 Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
@@ -127,6 +128,7 @@ static constexpr float kMaxYawRate = math::radians(30.0f);
 ```
 
 and update the source implementation.
+
 ```cpp
 if (fabsf(yaw_stick_normalized_input) < kYawStickDeadzone) {
         yaw_rate_setpoint = 0.0f;
@@ -138,9 +140,9 @@ else {
 
 ## Commits and Commit Messages
 
-Please use descriptive, multi-paragraph commit messages for all non-trivial changes. Structure them well so they make sense in the one-line summary but also provide full detail.
+Use descriptive, multi-paragraph commit messages for all non-trivial changes. Structure them well so they make sense in the one-line summary but also provide full detail.
 
-```
+```plain
 组成部分：在一个句子中解释这一更改。 修复 #1234
 
 将软件组件添加到摘要行的开头，或者通过模块名称或它的描述。
@@ -169,7 +171,8 @@ Github [Pull Requests (PRs)](https://docs.github.com/en/pull-requests/collaborat
 They include the new set of [commits](#commits-and-commit-messages) in your branch (relative the main branch), and a description of the changes.
 
 The description should include:
+
 - An overview of what the changes deliver; enough to understand the broad purpose of the code
 - Links to related issues or supporting information.
-- Information about what testing of the PR funcitonality has been done, with links to flight logs.
+- Information about what testing of the PR functionality has been done, with links to flight logs.
 - Where possible, the results from general [Test Flights](../test_and_ci/test_flights.md) both before and after the change.
