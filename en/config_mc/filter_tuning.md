@@ -27,8 +27,8 @@ The following factors affect control latency:
   A higher rate reduces latency but is computationally intensive/can starve other processes.
   4 kHz or higher is only recommended for controllers with STM32H7 processor or newer (2 kHz value is near the limit for less capable processors).
 - The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a _Pixracer_ or _Omnibus F4_, but does apply to a Pixhawk).
-  To avoid the IO delay, disable [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and attach the motors to the AUX pins instead.
-- PWM output signal: enable [Dshot](../peripherals/dshot.md) or One-Shot to reduce latency.
+  To avoid the IO delay attach the motors to the AUX pins instead.
+- PWM output signal: enable [Dshot](../peripherals/dshot.md) by preference to reduce latency (or One-Shot if DShot is not supported).
   The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
 
 Below we look at the impact of the low pass filters.
