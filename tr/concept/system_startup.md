@@ -8,15 +8,16 @@ The remaining files are part of the general startup logic. The first executed fi
 
 The following sections are split according to the operating system that PX4 runs on.
 
-
 ## Posix (Linux/MacOS)
 
 On Posix, the system shell is used as script interpreter (e.g. /bin/sh, being symlinked to dash on Ubuntu). For that to work, a few things are required:
+
 - PX4 modules need to look like individual executables to the system. This is done via symbolic links. For each module a symbolic link `px4-<module> -> px4` is created in the `bin` directory of the build folder. When executed, the binary path is checked (`argv[0]`), and if it is a module (starts with `px4-`), it sends the command to the main px4 instance (see below).
 
 :::tip
 The `px4-` prefix is used to avoid conflicts with system commands (e.g. `shutdown`), and it also allows for simple tab completion by typing `px4-<TAB>`.
 :::
+
 - The shell needs to know where to find the symbolic links. For that the `bin` directory with the symbolic links is added to the `PATH` variable right before executing the startup scripts.
 - The shell starts each module as a new (client) process. Each client process needs to communicate with the main instance of px4 (the server), where the actual modules are running as threads. This is done through a [UNIX socket](http://man7.org/linux/man-pages/man7/unix.7.html). The server listens on a socket, to which clients can connect and send a command. The server then sends the output and return code back to the client.
 - The startup scripts call the module directly, e.g. `commander start`, rather than using the `px4-` prefix. This works via aliases: for each module an alias in the form of `alias <module>=px4-<module>` is created in the file `bin/px4-alias.sh`.
@@ -24,16 +25,18 @@ The `px4-` prefix is used to avoid conflicts with system commands (e.g. `shutdow
 - In addition to that, multiple server instances can be started for multi-vehicle simulations. A client selects the instance via `--instance`. The instance is available in the script via `$px4_instance` variable.
 
 The modules can be executed from any terminal when PX4 is already running on a system. For example:
-```
+
+```sh
 cd <PX4-Autopilot>/build/px4_sitl_default/bin
 ./px4-commander takeoff
 ./px4-listener sensor_accel
 ```
 
-### Dynamic modules
+### Dynamic Modules
 
 Normally, all modules are compiled into a single PX4 executable. However, on Posix, there's the option of compiling a module into a separate file, which can be loaded into PX4 using the `dyn` command.
-```
+
+```sh
 dyn ./test.px4mod
 ```
 
@@ -80,11 +83,11 @@ These files are referenced in PX4 code as `/fs/microsd/etc/config.txt` and `/fs/
 
 #### Customizing the Configuration (config.txt)
 
-The `config.txt` file can be used to modify parameters. It is loaded after the main system has been configured and *before* it is booted.
+The `config.txt` file can be used to modify parameters. It is loaded after the main system has been configured and _before_ it is booted.
 
 For example, you could create a file on the SD card, `etc/config.txt` with that sets parameter values as shown:
 
-```
+```sh
 param set-default PWM_MAIN_DIS3 1000
 param set-default PWM_MAIN_MIN3 1120
 ```
@@ -99,13 +102,16 @@ Typically the system does not stream mavlink messages after boot failure, in thi
 :::
 
 The following example shows how to start custom applications:
+
 - Create a file on the SD card `etc/extras.txt` with this content:
-  ```
+
+  ```sh
   custom_app start
   ```
+
 - A command can be made optional by gating it with the `set +e` and `set -e` commands:
 
-  ```
+  ```sh
   set +e
   optional_app start      # Will not result in boot failure if optional_app is unknown or fails
   set -e

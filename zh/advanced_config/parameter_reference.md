@@ -452,12 +452,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -507,12 +507,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -562,12 +562,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -617,12 +617,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -932,12 +932,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -987,12 +987,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -1042,12 +1042,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -1097,12 +1097,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -1152,12 +1152,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -1207,12 +1207,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -1262,12 +1262,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -1317,12 +1317,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -1372,12 +1372,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -1427,12 +1427,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -1482,12 +1482,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -1537,12 +1537,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -1592,12 +1592,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -1647,12 +1647,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -1702,12 +1702,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -1757,12 +1757,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -2228,12 +2228,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -2286,12 +2286,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -2344,12 +2344,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -2402,12 +2402,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -2460,12 +2460,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -2518,12 +2518,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -2576,12 +2576,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -2634,12 +2634,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -2692,12 +2692,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -2750,12 +2750,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -2808,12 +2808,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -3211,12 +3211,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -3266,12 +3266,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -3321,12 +3321,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -3376,12 +3376,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -3431,12 +3431,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -3486,12 +3486,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -3541,12 +3541,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -3596,12 +3596,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -3933,12 +3933,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -3988,12 +3988,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -4043,12 +4043,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -4098,12 +4098,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -4153,12 +4153,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -4208,12 +4208,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -4263,12 +4263,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -4318,12 +4318,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -4613,12 +4613,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -4668,12 +4668,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -4723,12 +4723,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -4778,12 +4778,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -4833,12 +4833,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -4888,12 +4888,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -4943,12 +4943,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -4998,12 +4998,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -5181,12 +5181,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -5236,12 +5236,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -5291,12 +5291,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -5346,12 +5346,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -5401,12 +5401,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -5456,12 +5456,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -5511,12 +5511,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -5566,12 +5566,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -5693,12 +5693,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -5748,12 +5748,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -5803,12 +5803,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -5858,12 +5858,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -5913,12 +5913,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -5968,12 +5968,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -6023,12 +6023,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -6078,12 +6078,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -6373,12 +6373,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -6428,12 +6428,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -6483,12 +6483,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -6538,12 +6538,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -6593,12 +6593,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -6648,12 +6648,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -6703,12 +6703,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -6758,12 +6758,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -7053,12 +7053,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -7108,12 +7108,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -7163,12 +7163,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -7218,12 +7218,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -7273,12 +7273,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -7328,12 +7328,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -7383,12 +7383,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -7438,12 +7438,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -7493,12 +7493,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -7548,12 +7548,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -7603,12 +7603,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -7658,12 +7658,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -7713,12 +7713,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -7768,12 +7768,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -7823,12 +7823,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -7878,12 +7878,12 @@ table {
 <li><strong>206:</strong> Servo 6</li>
 <li><strong>207:</strong> Servo 7</li>
 <li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Offboard Actuator Set 1</li>
-<li><strong>302:</strong> Offboard Actuator Set 2</li>
-<li><strong>303:</strong> Offboard Actuator Set 3</li>
-<li><strong>304:</strong> Offboard Actuator Set 4</li>
-<li><strong>305:</strong> Offboard Actuator Set 5</li>
-<li><strong>306:</strong> Offboard Actuator Set 6</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
 <li><strong>400:</strong> Landing Gear</li>
 <li><strong>401:</strong> Parachute</li>
 <li><strong>402:</strong> RC Roll</li>
@@ -9243,7 +9243,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_FLTMODE1">COM_FLTMODE1</strong> (INT32)</td>
- <td>First flightmode slot (1000-1160) <p><strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.</p> <strong>参数对照:</strong><ul>
+ <td>Mode slot 1 <p><strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Unassigned</li>
 <li><strong>0:</strong> Manual</li>
 <li><strong>1:</strong> Altitude</li>
@@ -9258,6 +9258,14 @@ table {
 <li><strong>11:</strong> Land</li>
 <li><strong>12:</strong> Follow Me</li>
 <li><strong>13:</strong> Precision Land</li>
+<li><strong>100:</strong> External Mode 1</li>
+<li><strong>101:</strong> External Mode 2</li>
+<li><strong>102:</strong> External Mode 3</li>
+<li><strong>103:</strong> External Mode 4</li>
+<li><strong>104:</strong> External Mode 5</li>
+<li><strong>105:</strong> External Mode 6</li>
+<li><strong>106:</strong> External Mode 7</li>
+<li><strong>107:</strong> External Mode 8</li>
 </ul>  </td>
  <td></td>
  <td>-1</td>
@@ -9265,7 +9273,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_FLTMODE2">COM_FLTMODE2</strong> (INT32)</td>
- <td>Second flightmode slot (1160-1320) <p><strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.</p> <strong>参数对照:</strong><ul>
+ <td>Mode slot 2 <p><strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Unassigned</li>
 <li><strong>0:</strong> Manual</li>
 <li><strong>1:</strong> Altitude</li>
@@ -9280,6 +9288,14 @@ table {
 <li><strong>11:</strong> Land</li>
 <li><strong>12:</strong> Follow Me</li>
 <li><strong>13:</strong> Precision Land</li>
+<li><strong>100:</strong> External Mode 1</li>
+<li><strong>101:</strong> External Mode 2</li>
+<li><strong>102:</strong> External Mode 3</li>
+<li><strong>103:</strong> External Mode 4</li>
+<li><strong>104:</strong> External Mode 5</li>
+<li><strong>105:</strong> External Mode 6</li>
+<li><strong>106:</strong> External Mode 7</li>
+<li><strong>107:</strong> External Mode 8</li>
 </ul>  </td>
  <td></td>
  <td>-1</td>
@@ -9287,7 +9303,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_FLTMODE3">COM_FLTMODE3</strong> (INT32)</td>
- <td>Third flightmode slot (1320-1480) <p><strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.</p> <strong>参数对照:</strong><ul>
+ <td>Mode slot 3 <p><strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Unassigned</li>
 <li><strong>0:</strong> Manual</li>
 <li><strong>1:</strong> Altitude</li>
@@ -9302,6 +9318,14 @@ table {
 <li><strong>11:</strong> Land</li>
 <li><strong>12:</strong> Follow Me</li>
 <li><strong>13:</strong> Precision Land</li>
+<li><strong>100:</strong> External Mode 1</li>
+<li><strong>101:</strong> External Mode 2</li>
+<li><strong>102:</strong> External Mode 3</li>
+<li><strong>103:</strong> External Mode 4</li>
+<li><strong>104:</strong> External Mode 5</li>
+<li><strong>105:</strong> External Mode 6</li>
+<li><strong>106:</strong> External Mode 7</li>
+<li><strong>107:</strong> External Mode 8</li>
 </ul>  </td>
  <td></td>
  <td>-1</td>
@@ -9309,7 +9333,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_FLTMODE4">COM_FLTMODE4</strong> (INT32)</td>
- <td>Fourth flightmode slot (1480-1640) <p><strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.</p> <strong>参数对照:</strong><ul>
+ <td>Mode slot 4 <p><strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Unassigned</li>
 <li><strong>0:</strong> Manual</li>
 <li><strong>1:</strong> Altitude</li>
@@ -9324,6 +9348,14 @@ table {
 <li><strong>11:</strong> Land</li>
 <li><strong>12:</strong> Follow Me</li>
 <li><strong>13:</strong> Precision Land</li>
+<li><strong>100:</strong> External Mode 1</li>
+<li><strong>101:</strong> External Mode 2</li>
+<li><strong>102:</strong> External Mode 3</li>
+<li><strong>103:</strong> External Mode 4</li>
+<li><strong>104:</strong> External Mode 5</li>
+<li><strong>105:</strong> External Mode 6</li>
+<li><strong>106:</strong> External Mode 7</li>
+<li><strong>107:</strong> External Mode 8</li>
 </ul>  </td>
  <td></td>
  <td>-1</td>
@@ -9331,7 +9363,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_FLTMODE5">COM_FLTMODE5</strong> (INT32)</td>
- <td>Fifth flightmode slot (1640-1800) <p><strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.</p> <strong>参数对照:</strong><ul>
+ <td>Mode slot 5 <p><strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Unassigned</li>
 <li><strong>0:</strong> Manual</li>
 <li><strong>1:</strong> Altitude</li>
@@ -9346,6 +9378,14 @@ table {
 <li><strong>11:</strong> Land</li>
 <li><strong>12:</strong> Follow Me</li>
 <li><strong>13:</strong> Precision Land</li>
+<li><strong>100:</strong> External Mode 1</li>
+<li><strong>101:</strong> External Mode 2</li>
+<li><strong>102:</strong> External Mode 3</li>
+<li><strong>103:</strong> External Mode 4</li>
+<li><strong>104:</strong> External Mode 5</li>
+<li><strong>105:</strong> External Mode 6</li>
+<li><strong>106:</strong> External Mode 7</li>
+<li><strong>107:</strong> External Mode 8</li>
 </ul>  </td>
  <td></td>
  <td>-1</td>
@@ -9353,7 +9393,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_FLTMODE6">COM_FLTMODE6</strong> (INT32)</td>
- <td>Sixth flightmode slot (1800-2000) <p><strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.</p> <strong>参数对照:</strong><ul>
+ <td>Mode slot 6 <p><strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Unassigned</li>
 <li><strong>0:</strong> Manual</li>
 <li><strong>1:</strong> Altitude</li>
@@ -9368,6 +9408,14 @@ table {
 <li><strong>11:</strong> Land</li>
 <li><strong>12:</strong> Follow Me</li>
 <li><strong>13:</strong> Precision Land</li>
+<li><strong>100:</strong> External Mode 1</li>
+<li><strong>101:</strong> External Mode 2</li>
+<li><strong>102:</strong> External Mode 3</li>
+<li><strong>103:</strong> External Mode 4</li>
+<li><strong>104:</strong> External Mode 5</li>
+<li><strong>105:</strong> External Mode 6</li>
+<li><strong>106:</strong> External Mode 7</li>
+<li><strong>107:</strong> External Mode 8</li>
 </ul>  </td>
  <td></td>
  <td>-1</td>
@@ -9461,6 +9509,62 @@ table {
 <li><strong>2:</strong> Land mode</li>
 <li><strong>3:</strong> Return at critical level, land at emergency level</li>
 </ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="COM_MODE0_HASH">COM_MODE0_HASH</strong> (INT32)</td>
+ <td>External mode identifier 0 <p><strong>Comment:</strong> This parameter is automatically set to identify external modes. It ensures that modes get assigned to the same index independent from their startup order, which is required when mapping an external mode to an RC switch.</p>   </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="COM_MODE1_HASH">COM_MODE1_HASH</strong> (INT32)</td>
+ <td>External mode identifier 1 <p><strong>Comment:</strong> This parameter is automatically set to identify external modes. It ensures that modes get assigned to the same index independent from their startup order, which is required when mapping an external mode to an RC switch.</p>   </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="COM_MODE2_HASH">COM_MODE2_HASH</strong> (INT32)</td>
+ <td>External mode identifier 2 <p><strong>Comment:</strong> This parameter is automatically set to identify external modes. It ensures that modes get assigned to the same index independent from their startup order, which is required when mapping an external mode to an RC switch.</p>   </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="COM_MODE3_HASH">COM_MODE3_HASH</strong> (INT32)</td>
+ <td>External mode identifier 3 <p><strong>Comment:</strong> This parameter is automatically set to identify external modes. It ensures that modes get assigned to the same index independent from their startup order, which is required when mapping an external mode to an RC switch.</p>   </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="COM_MODE4_HASH">COM_MODE4_HASH</strong> (INT32)</td>
+ <td>External mode identifier 4 <p><strong>Comment:</strong> This parameter is automatically set to identify external modes. It ensures that modes get assigned to the same index independent from their startup order, which is required when mapping an external mode to an RC switch.</p>   </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="COM_MODE5_HASH">COM_MODE5_HASH</strong> (INT32)</td>
+ <td>External mode identifier 5 <p><strong>Comment:</strong> This parameter is automatically set to identify external modes. It ensures that modes get assigned to the same index independent from their startup order, which is required when mapping an external mode to an RC switch.</p>   </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="COM_MODE6_HASH">COM_MODE6_HASH</strong> (INT32)</td>
+ <td>External mode identifier 6 <p><strong>Comment:</strong> This parameter is automatically set to identify external modes. It ensures that modes get assigned to the same index independent from their startup order, which is required when mapping an external mode to an RC switch.</p>   </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="COM_MODE7_HASH">COM_MODE7_HASH</strong> (INT32)</td>
+ <td>External mode identifier 7 <p><strong>Comment:</strong> This parameter is automatically set to identify external modes. It ensures that modes get assigned to the same index independent from their startup order, which is required when mapping an external mode to an RC switch.</p>   </td>
  <td></td>
  <td>0</td>
  <td></td>
@@ -14227,7 +14331,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL0_TD">CA_SV_TL0_TD</strong> (INT32)</td>
- <td>Tilt Servo 0 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>参数对照:</strong><ul>
+ <td>Tilt Servo 0 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Towards Front</li>
 <li><strong>90:</strong> Towards Right</li>
 </ul>  </td>
@@ -14273,7 +14377,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL2_CT">CA_SV_TL2_CT</strong> (INT32)</td>
- <td>Tilt 2 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>参数对照:</strong><ul>
+ <td>Tilt 2 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> Yaw</li>
 <li><strong>2:</strong> Pitch</li>
@@ -15525,7 +15629,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -17258,7 +17362,7 @@ table {
  <td>RC channel 16 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC17_DZ">RC17_DZ</strong> (FLOAT)</td>
@@ -17272,7 +17376,7 @@ table {
  <td>RC channel 17 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC17_MIN">RC17_MIN</strong> (FLOAT)</td>
@@ -17348,7 +17452,7 @@ table {
  <td>RC channel 1 maximum <p><strong>Comment:</strong> Maximum value for RC channel 1</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000.0</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC1_MIN">RC1_MIN</strong> (FLOAT)</td>
@@ -17448,7 +17552,7 @@ table {
  <td>RC channel 3 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC4_DZ">RC4_DZ</strong> (FLOAT)</td>
@@ -17462,7 +17566,7 @@ table {
  <td>RC channel 4 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC4_MIN">RC4_MIN</strong> (FLOAT)</td>
@@ -17486,7 +17590,7 @@ table {
  <td>RC channel 4 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC5_DZ">RC5_DZ</strong> (FLOAT)</td>
@@ -17500,7 +17604,7 @@ table {
  <td>RC channel 5 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC5_MIN">RC5_MIN</strong> (FLOAT)</td>
@@ -22274,7 +22378,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MPDT7_ROT">SENS_MPDT7_ROT</strong> (INT32)</td>
- <td>MappyDot Sensor 7 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
+ <td>MappyDot Sensor 7 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>

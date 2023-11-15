@@ -17,6 +17,8 @@
 - [Airspeed](Airspeed.md)
 - [AirspeedValidated](AirspeedValidated.md)
 - [AirspeedWind](AirspeedWind.md)
+- [ArmingCheckReply](ArmingCheckReply.md)
+- [ArmingCheckRequest](ArmingCheckRequest.md)
 - [AutotuneAttitudeControlStatus](AutotuneAttitudeControlStatus.md)
 - [BatteryStatus](BatteryStatus.md)
 - [ButtonEvent](ButtonEvent.md)
@@ -26,6 +28,7 @@
 - [CellularStatus](CellularStatus.md)
 - [CollisionConstraints](CollisionConstraints.md) — Local setpoint constraints in NED frame setting something to NaN means that no limit is provided
 - [CollisionReport](CollisionReport.md)
+- [ConfigOverrides](ConfigOverrides.md) — Configurable overrides by (external) modes or mode executors
 - [ControlAllocatorStatus](ControlAllocatorStatus.md)
 - [Cpuload](Cpuload.md)
 - [DatamanRequest](DatamanRequest.md)
@@ -98,6 +101,8 @@
 - [ManualControlSwitches](ManualControlSwitches.md)
 - [MavlinkLog](MavlinkLog.md)
 - [MavlinkTunnel](MavlinkTunnel.md) — MAV_TUNNEL_PAYLOAD_TYPE enum
+- [MessageFormatRequest](MessageFormatRequest.md)
+- [MessageFormatResponse](MessageFormatResponse.md)
 - [Mission](Mission.md)
 - [MissionResult](MissionResult.md)
 - [ModeCompleted](ModeCompleted.md) — Mode completion result, published by an active mode. Note that this is not always published (e.g. when a user switches modes or on failsafe activation)
@@ -129,6 +134,8 @@
 - [RateCtrlStatus](RateCtrlStatus.md)
 - [RcChannels](RcChannels.md)
 - [RcParameterMap](RcParameterMap.md)
+- [RegisterExtComponentReply](RegisterExtComponentReply.md)
+- [RegisterExtComponentRequest](RegisterExtComponentRequest.md) — Request to register an external component
 - [Rpm](Rpm.md)
 - [RtlTimeEstimate](RtlTimeEstimate.md)
 - [SatelliteInfo](SatelliteInfo.md)
@@ -166,6 +173,7 @@
 - [UavcanParameterValue](UavcanParameterValue.md) — UAVCAN-MAVLink parameter bridge response type
 - [UlogStream](UlogStream.md) — Message to stream ULog data from the logger. Corresponds to the LOGGING_DATA mavlink message
 - [UlogStreamAck](UlogStreamAck.md) — Ack a previously sent ulog_stream message that had the NEED_ACK flag set
+- [UnregisterExtComponent](UnregisterExtComponent.md)
 - [VehicleAcceleration](VehicleAcceleration.md)
 - [VehicleAirData](VehicleAirData.md)
 - [VehicleAngularAccelerationSetpoint](VehicleAngularAccelerationSetpoint.md)

@@ -6,7 +6,8 @@
 비행 모드를 설정하려면 아래 사항들이 준비되어야 합니다.
 
 - [라디오 설정](../config/radio.md)
-- [송신기를 설정](#rc-transmitter-setup)하여 모드 스위치의 물리적 위치를 단일 채널로 인코딩합니다. We provide examples for the popular _Taranis_ transmitter [below](#taranis-setup-3-way-switch-configuration-for-single-channel-mode) (check your documentation if you use a different transmitter). :::
+- [송신기를 설정](#rc-transmitter-setup)하여 모드 스위치의 물리적 위치를 단일 채널로 인코딩합니다. We provide examples for the popular _Taranis_ transmitter [below](#taranis-setup-3-way-switch-configuration-for-single-channel-mode) (check your documentation if you use a different transmitter).
+:::
 
 ## 어떤 비행 모드와 스위치를 설정하여야 합니까?
 
@@ -34,7 +35,8 @@ PX4를 사용하면 "모드" 채널을 지정하고 채널의 PWM 값에 따라 
    ![비행 모드 단일 채널](../../assets/qgc/setup/flight_modes/flight_modes_single_channel.jpg)
 
 1. Specify _Flight Mode Settings_:
-   - **모드 채널**을 선택합니다 (위에 채널 5로 표시되지만 송신기 구성에 따라 다름).
+
+   - Select the **Mode channel** (above this shown as Channel 5, but this will depend on your transmitter configuration).
    - Move the transmitter switch (or switches) that you have set up for mode selection through the available positions. The mode slot matching your current switch position will be highlighted (above this is _Flight Mode 1_).
 
      :::note
@@ -42,11 +44,12 @@ While you can set flight modes in any of the 6 slots, only the channels that are
 :::
 
    - Select the flight mode that you want triggered for each switch position.
+
 1. Specify _Switch Settings_:
 
    - Select the channels that you want to map to specific actions - e.g.: _Return_ mode, _Kill switch_, _offboard_ mode, etc. (if you have spare switches and channels on your transmitter).
 
-1. 모드가 올바른 송신기 스위치에 매핑되었는 지 테스트합니다.
+1. Test that the modes are mapped to the right transmitter switches:
    - Check the _Channel Monitor_ to confirm that the expected channel is changed by each switch.
    - Select each mode switch on your transmitter in turn, and check that the desired flight mode is activated (the text turns yellow on _QGroundControl_ for the active mode).
 
@@ -63,7 +66,8 @@ While you can set flight modes in any of the 6 slots, only the channels that are
 2개 또는 3개의 모드 중 선택만 지원해야 하는 경우 단일 3방향 스위치의 위치에 모드를 매핑할 수 있습니다. 아래에서는 Taranis 3-way "SD"스위치를 채널 5에 매핑하는 방법을 보여줍니다.
 
 :::note
-This example shows how to set up the popular _FrSky Taranis_ transmitter. 송신기 설정은 송신기마다 차이가 날 수 있습니다. :::
+This example shows how to set up the popular _FrSky Taranis_ transmitter. 송신기 설정은 송신기마다 차이가 날 수 있습니다.
+:::
 
 Taranis UI **MIXER** 페이지를 열고 아래와 같이 **CH5**까지 아래로 스크롤합니다.
 
@@ -89,7 +93,7 @@ The _QGroundControl_ configuration is then [as described above](#flight-mode-sel
 
 ## 추가 정보
 
-- [PX4 비행 모드 개요](../flight_modes/README.md)
-- [QGroundControl > 비행 모드](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
-- [PX4 설정 비디오 - @6m53s](https://youtu.be/91VGmdSlbo4?t=6m53s) (유튜브)
-- [라디오 스위치 매개변수](../advanced_config/parameter_reference.md#radio-switches) - 매개변수를 통해 매핑을 설정하는 데 사용할 수 있습니다.
+- [Flight Modes Overview](../flight_modes/README.md)
+- [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
+- [PX4 Setup Video - @6m53s](https://youtu.be/91VGmdSlbo4?t=6m53s) (Youtube)
+- [Radio switch parameters](../advanced_config/parameter_reference.md#radio-switches) - Can be used to set mappings via parameters

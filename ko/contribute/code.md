@@ -4,9 +4,9 @@
 
 PX4 프로젝트는 3가지 Git 분기 모델을 사용합니다.
 
-* [main](https://github.com/PX4/PX4-Autopilot/tree/main) is by default unstable and sees rapid development.
-* [beta](https://github.com/PX4/PX4-Autopilot/tree/beta)는 철저한 테스트를 거쳤습니다. 비행 테스터를 위한 것입니다.
-* [stable](https://github.com/PX4/PX4-Autopilot/tree/stable)은 최신 릴리스를 의미합니다.
+- [main](https://github.com/PX4/PX4-Autopilot/tree/main) is by default unstable and sees rapid development.
+- [beta](https://github.com/PX4/PX4-Autopilot/tree/beta)는 철저한 테스트를 거쳤습니다. 비행 테스터를 위한 것입니다.
+- [stable](https://github.com/PX4/PX4-Autopilot/tree/stable)은 최신 릴리스를 의미합니다.
 
 We try to retain a [linear history through rebases](https://www.atlassian.com/git/tutorials/rewriting-history) and avoid the [Github flow](https://docs.github.com/en/get-started/quickstart/github-flow). 그러나, 전세계의 역동적인 개발팀과 수시로 병합 작업을 진행합니다.
 
@@ -37,7 +37,7 @@ Not all PX4 source code matches the style guide, but any _new code_ that you wri
 
 ### Function and Method Names
 
-- `lowerCamelCase()` is used for functions and methods to *visually* distinguish them from `ClassConstructors()` and `ClassNames`.
+- `lowerCamelCase()` is used for functions and methods to _visually_ distinguish them from `ClassConstructors()` and `ClassNames`.
 
 ### Private Class Member Variable Names
 
@@ -45,7 +45,7 @@ Not all PX4 source code matches the style guide, but any _new code_ that you wri
 
 ### Class Privacy Keywords
 
-- *zero* spaces before `public:`, `private:`, or `protected:` keywords.
+- _zero_ spaces before `public:`, `private:`, or `protected:` keywords.
 
 ### Example Code Snippet
 
@@ -91,10 +91,11 @@ PX4 개발자는 소스 내에서 적절한 문서를 작성하는 것이 좋습
 :::
 
 현재 두 가지 소스 기반 문서 유형이 있습니다.
+
 - `PRINT_MODULE_*` 메소드는 두 모듈 런타임과 [모듈 & 이 가이드의 명령 참조](../modules/modules_main.md) 사용 지침에 모두 사용됩니다.
   - API는 [여기 소스 코드](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381)에 문서화되어 있습니다.
   - 좋은 예제로는 [응용 프로그램/모듈 템플릿](../modules/module_template.md)과 모듈 참조에서 링크된 파일이 있습니다.
-- *가치가 추가되거나 중복되지 않는* 다른 소스 문서를 권장합니다.
+- We encourage other in-source documentation _where it adds value/is not redundant_.
 
   :::tip
 개발자는 목적을 유추할 수 있도록 C++ 엔터티(클래스, 함수, 변수 등)의 이름을 지정하여 명시적 문서의 필요성을 줄일 수 있습니다.
@@ -127,6 +128,7 @@ static constexpr float kMaxYawRate = math::radians(30.0f);
 ```
 
 and update the source implementation.
+
 ```cpp
 if (fabsf(yaw_stick_normalized_input) < kYawStickDeadzone) {
         yaw_rate_setpoint = 0.0f;
@@ -138,9 +140,9 @@ else {
 
 ## 커밋과 커밋 메시지
 
-사소한 변경에 대하여도 자세한 설명한 여러 단락 커밋 메시지를 기록하십시오. 쉽게 이해할 수 있는 한 줄 요약과 자세한 세부정보도 기록하십시오.
+Use descriptive, multi-paragraph commit messages for all non-trivial changes. 쉽게 이해할 수 있는 한 줄 요약과 자세한 세부정보도 기록하십시오.
 
-```
+```plain
 컴포넌트: 변경 사항을 한 문장으로 설명하십시오. Fixes #1234
 
 요약 시작 부분에 소프트웨어 구성 요소를 추가합니다.
@@ -170,7 +172,8 @@ Github [Pull Requests (PRs)](https://docs.github.com/en/pull-requests/collaborat
 They include the new set of [commits](#commits-and-commit-messages) in your branch (relative the main branch), and a description of the changes.
 
 The description should include:
+
 - An overview of what the changes deliver; enough to understand the broad purpose of the code
 - Links to related issues or supporting information.
-- Information about what testing of the PR funcitonality has been done, with links to flight logs.
+- Information about what testing of the PR functionality has been done, with links to flight logs.
 - Where possible, the results from general [Test Flights](../test_and_ci/test_flights.md) both before and after the change.
