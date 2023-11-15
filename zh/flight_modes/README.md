@@ -1,9 +1,9 @@
 # 飞行模式
 
-*Flight Modes* define how the autopilot responds to user input and controls vehicle movement. The tables below summarizes flight modes for fixed-wing and copter ([table key is below](#key)). 请注意，这是 "上层" 默认行为，可能因机体参数而异。 链接的主题（侧边栏）提供了有关各个模式的详细信息，包括它们的调整参数。
+_Flight Modes_ define how the autopilot responds to user input and controls vehicle movement. The tables below summarizes flight modes for fixed-wing and copter ([table key is below](#key)). 请注意，这是 "上层" 默认行为，可能因机体参数而异。 链接的主题（侧边栏）提供了有关各个模式的详细信息，包括它们的调整参数。
 
 :::tip
-A *beginner friendly* explanation of all flight modes is provided in [Getting Started > Flight Modes](../getting_started/flight_modes.md). :::
+A _beginner friendly_ explanation of all flight modes is provided in [Getting Started > Flight Modes](../getting_started/flight_modes.md). :::
 
 <!-- Styles used for tables below -->
 <style>
@@ -23,17 +23,9 @@ tr td:nth-last-child(1) {
     text-align:left;
 }
 
-/*
-  .col_summary {
-    width:50px;
-  }
-*/
-
-
 th {
   font-size:1.0rem;
 }
-
 
 @media (min-width: 1500px){
 .page-inner {
@@ -52,7 +44,6 @@ th {
   max-width: 800px;
   }
 }
-
 </style>
 
 ## Fixed-wing
@@ -65,7 +56,7 @@ th {
      <th class="col_yaw">偏航</th>
      <th class="col_throttle">油门</th>
      <th class="col_sensor">位置传感器</th>
-     <th class="col_summary">概要</th></tr>
+     <th class="col_summary">概要</th>
    </tr>
  </thead>
 <tbody>
@@ -94,7 +85,6 @@ th {
   </td>
 </tr>
 
-
 <tr id="altitude_fw">
  <td><a href="../flight_modes_mc/altitude.html">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于飞行" width="20px" /></a></p>
@@ -111,6 +101,7 @@ th {
        <li>自动驾驶仪保持高度稳定和机翼水平。</li> 
        <li>如果连接了空速传感器，油门控制飞机的空速（如果没有空速传感器，用户就无法控制油门）。</li>
     </ul>
+    </li>
     <li>中心以外：
       <ul>
        <li>俯仰摇杆控制高度。</li>
@@ -122,7 +113,6 @@ th {
  </p>
  </td>
 </tr>
-
 
 <tr id="stabilized_fw">
  <td><a href="../flight_modes_fw/stabilized.html">Stabilized</a>
@@ -155,7 +145,6 @@ th {
 <p>RPY摇杆输入被转换为角速度命令，通过自动驾驶仪稳定。 Throttle is passed directly to control allocation.</p></td>
 </tr>
 
-
 <tr id="manual_fw">
  <td><a href="../flight_modes_fw/manual.html">Manual</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="飞行难度：困难" width="20px" /></a></p>
@@ -170,14 +159,12 @@ th {
   </td>
 </tr>
 
-
 <tr id="takeoff_fw">
  <td><a href="../flight_modes_fw/takeoff.html">起飞</a></td>
  <td colspan="3">自动</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="20px" /></a></td>
  <td>飞机使用 <em>弹射/手持发射模式</em> 或 <em>滑行起飞模式</em> （在当前方向）启动起飞顺序。</td>
 </tr>
-
 
 <tr id="land_fw">
  <td><a href="../flight_modes_fw/land.html">降落</a></td>
@@ -199,7 +186,6 @@ th {
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="20px" /></a></td>
  <td>无人机飞向安全位置的明确路径。 返航取决于参数设置，并且可遵循任务路径和/或任务着陆模式（如果已定义）。</td>
 </tr>
-
 
 <tr id="mission_fw">
  <td><a href="../flight_modes/mission.html">任务</a></td>
@@ -227,11 +213,10 @@ th {
      <th>偏航</th>
      <th>油门</th>
      <th>位置传感器</th>
-     <th class="col_summary">概要</th></tr>
+     <th class="col_summary">概要</th>
    </tr>
  </thead>
 <tbody>
-
 
 <tr id="position_mc">
  <td><a href="../flight_modes_mc/position.html">Position</a>
@@ -256,8 +241,6 @@ th {
        <li>当机体在地上时，如果油门摇杆抬高至 62.5%（从油门杆最低开始的整个范围），机体将起飞。</li>
       </ul>
     </li>
-    </ul>
-  </li>
   </ul>
  </p>
 </td>
@@ -278,6 +261,7 @@ th {
        <li>RPY摇杆使机体水平。</li> 
        <li>油门（~50%）保持当前高度稳定并抗风。</li>
     </ul>
+    </li>
     <li>中心以外：
       <ul>
        <li>滚转/俯仰摇杆控制各自方向的倾斜角，从而产生相应的左右和前后运动。</li>
@@ -294,7 +278,6 @@ th {
  </p>
  </td>
 </tr>
-
 
 <tr id="manual_stabilized_mc">
  <td><a href="../flight_modes_mc/manual_stabilized.html">Manual/ Stabilized</a>
@@ -332,7 +315,6 @@ th {
   <p>横滚、俯仰、偏航摇杆输入控制围绕各自轴的角度旋转速率。 Throttle is passed directly to control allocation.  当操纵杆居中时，机体将停止旋转，但保持其当前朝向（在其侧面，倒置或任何其他方向）并根据当前动量移动。</p>
  </td>
 </tr>
-
 
 <tr id="orbit_mc">
  <td><a href="../flight_modes_mc/orbit.html">Orbit</a>
@@ -375,7 +357,6 @@ th {
  <td>无人机飞向安全位置的明确路径。 返航取决于参数设置，并且可遵循任务路径和/或任务着陆模式（如果已定义）。</td>
 </tr>
 
-
 <tr id="mission_mc">
  <td><a href="../flight_modes/mission.html">任务</a></td>
  <td colspan="3">自动</td>
@@ -404,7 +385,6 @@ th {
 VTOL飞机支持固定翼和多旋翼模式，根据当前飞行模式（多旋翼或固定翼）执行这些模式。
 
 VTOL 在两种配置中均支持 [外部](../flight_modes/offboard.md) 模式。
-
 
 ## 关键字
 
