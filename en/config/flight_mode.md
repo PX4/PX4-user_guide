@@ -39,6 +39,7 @@ To configure single-channel flight mode selection:
    ![Flight modes single-channel](../../assets/qgc/setup/flight_modes/flight_modes_single_channel.jpg)
 
 1. Specify _Flight Mode Settings_:
+
    - Select the **Mode channel** (above this shown as Channel 5, but this will depend on your transmitter configuration).
    - Move the transmitter switch (or switches) that you have set up for mode selection through the available positions.
      The mode slot matching your current switch position will be highlighted (above this is _Flight Mode 1_).
@@ -48,6 +49,7 @@ To configure single-channel flight mode selection:
      :::
 
    - Select the flight mode that you want triggered for each switch position.
+
 1. Specify _Switch Settings_:
 
    - Select the channels that you want to map to specific actions - e.g.: _Return_ mode, _Kill switch_, _offboard_ mode, etc. (if you have spare switches and channels on your transmitter).
