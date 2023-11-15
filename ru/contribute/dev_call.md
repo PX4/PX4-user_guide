@@ -7,13 +7,13 @@
 
 The PX4 dev team and community come together to discuss any topic of interest to the community, ranging from sorting out issues to satisfying your curiosity.
 
-## Who should attend:
+## Who should attend?
 
-* Core project maintainers
-* Component maintainers
-* Test team lead
-* Dronecode members
-* Community members (you!)
+- Core project maintainers
+- Component maintainers
+- Test team lead
+- Dronecode members
+- Community members (you!)
 
 :::tip
 The Community Q&A call is open to all interested community members.
@@ -28,5 +28,6 @@ We publish a forum post per meeting a week before the call on [PX4 Discuss - wee
 Please add your topics for discussion to the agenda before the meeting begins, by replying to the meeting note. This will help you formulate your questions more clearly, and allow us to think about them in advance.
 
 ## Schedule
-* TIME: Wednesday 17h00 CET ([subscribe to calendar](https://www.dronecode.org/calendar/))
-* **Join the call**: [https://discord.gg/BDYmr6FA6Q](https://discord.gg/BDYmr6FA6Q)
+
+- TIME: Wednesday 17h00 CET ([subscribe to calendar](https://www.dronecode.org/calendar/))
+- **Join the call**: [https://discord.gg/BDYmr6FA6Q](https://discord.gg/BDYmr6FA6Q)
