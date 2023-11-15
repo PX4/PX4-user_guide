@@ -1,14 +1,14 @@
 # 펌웨어 설치 및 업데이트
 
-*QGroundControl* **데스크톱** 버전에서 [Pixhawk 시리즈](../getting_started/flight_controller_selection.md) 비행 콘트롤러의 PX4 펌웨어를 설치할 수 있습니다.
+_QGroundControl_ **desktop** versions can be used to install PX4 firmware onto [Pixhawk-series](../getting_started/flight_controller_selection.md) flight-controller boards.
 
 :::warning
-**펌웨어 설치를 시작하기 전에** 직접 또는 텔레메트리 연결을 포함한 기체의 모든 USB 연결을 *해제*하여야 합니다. 기체에 배터리를 연결하지 *않아야* 합니다.
+**Before you start installing Firmware** all USB connections to the vehicle must be _disconnected_ (both direct or through a telemetry radio). The vehicle must _not be_ powered by a battery.
 :::
 
 ## PX4 안정 버전 설치
 
-가장 최근에 출시된 PX4 버전은 알려진 버그들이 수정되었으며, 최신 기능을 지원합니다.
+Generally you should use the most recent _released_ version of PX4, in order to benefit from bug fixes and get the latest and greatest features.
 
 :::tip
 안정 버전은 기본적으로 설치되는 버전입니다.
@@ -16,8 +16,8 @@
 
 PX4 설치
 
-1. *QGroundControl*을 시작하고 기체에 연결합니다.
-1. *펌웨어 설정*을 오픈하여 사이드바의 **"Q" icon > Vehicle Setup > Firmware**을 선택하십시오.
+1. Start _QGroundControl_ and connect the vehicle.
+1. Select **"Q" icon > Vehicle Setup > Firmware** (sidebar) to open _Firmware Setup_.
 
    ![펌웨어가 분리됨](../../assets/qgc/setup/firmware/firmware_disconnected.png)
 
@@ -28,7 +28,7 @@ PX4 설치
 주컴퓨터에서 전원이 공급되는 USB 포트에 직접 연결합니다(USB 허브로 연결하지 마십시오).
 :::
 
-1. Select the **PX4 Pro Stable Release vX.x.x** option to install the latest stable version of PX4 *for your flight controller* (autodetected).
+1. Select the **PX4 Pro Stable Release vX.x.x** option to install the latest stable version of PX4 _for your flight controller_ (autodetected).
 
    ![PX4 설치 기본값](../../assets/qgc/setup/firmware/firmware_connected_default_px4.png)
 
@@ -41,11 +41,10 @@ PX4 설치
    펌웨어의 업로드가 완료되면, 장치가 재부팅되고 다시 연결됩니다.
 
 :::tip
-*QGroundControl* FMUv2 대상 설치(설치 하는 동안 콘솔 참조) 하고 새로운 보드, 비행 콘트롤러에서 모든 메모리를 액세스 하려면 [부트 로더를 업데이트](#bootloader) 하여야 합니다.
+If _QGroundControl_ installs the FMUv2 target (see console during installation) and you have a newer board, you may need to [update the bootloader](#bootloader) in order to access all the memory on your flight controller.
 :::
 
 다음으로 [기체 프레임](../config/airframe.md)을 지정하여야 합니다(그리고 센서, 라디오 등).
-
 
 <a id="custom"></a>
 
@@ -68,7 +67,7 @@ PX4 설치
 
 Pixhawk hardware usually comes with an appropriate bootloader version pre-installed.
 
-A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware. 다른 버전의 PX4 설치
+A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware. If _QGroundControl_ installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
 
 ![FMUv2 업데이트](../../assets/qgc/setup/firmware/bootloader_update.jpg)
 
@@ -76,5 +75,5 @@ You can update it by following the instructions in [Bootloader update > FMUv2 Bo
 
 ## 추가 정보
 
-* [QGroundControl User Guide > Firmware](https://docs.qgroundcontrol.com/master/en/SetupView/Firmware.html).
-* [PX4 설정 비디오](https://youtu.be/91VGmdSlbo4) (유튜브)
+- [QGroundControl User Guide > Firmware](https://docs.qgroundcontrol.com/master/en/SetupView/Firmware.html).
+- [PX4 설정 비디오](https://youtu.be/91VGmdSlbo4) (유튜브)
