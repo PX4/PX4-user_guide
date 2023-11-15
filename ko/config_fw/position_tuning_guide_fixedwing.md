@@ -29,6 +29,7 @@ TECS 튜닝은 주로 기체 제한을 올바르게 설정하는 것입니다. �
 Fly in [stabilized mode](../flight_modes_fw/stabilized.md) and find trim values for both throttle and pitch angle for level flight at trim airspeed. 스로틀로 속도와 피치를 조정하여 수평 비행을 유지하십시오.
 
 다음 매개 변수를 설정하십시오.
+
 - [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) -기동비행시 원하는 트림 대기 속도로 설정합니다.
 - [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM) - set to the throttle required to fly at trim airspeed.
 - [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF) - 수평 비행을 유지를 위한 피치 각도로 설정합니다.
@@ -38,6 +39,7 @@ Fly in [stabilized mode](../flight_modes_fw/stabilized.md) and find trim values 
 Fly in [stabilized mode](../flight_modes_fw/stabilized.md) and increase throttle while maintaining level flight using pitch control - until the vehicle reaches the maximum allowed airspeed.
 
 다음 매개 변수를 설정하십시오.
+
 - [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX) -수평 비행 중 최대 대기 속도에 도달하기 위해 적용한 스로틀로 설정합니다.
 - [FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN) - 비행 최소 스로틀을 설정합니다.
 - [FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX) - `FW_THR_MAX`에서 수평 비행 최대 대기 속도를 설정합니다.
@@ -49,18 +51,20 @@ Do not use [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_M
 :::
 
 안정화 모드로 비행하고 스로틀을 `FW_THR_MIN`으로 줄이고 기체가 `FW_AIRSPD_MAX`에 도달할 때까지 피치 각도를 천천히 줄입니다.
+
 - [FW_P_LIM_MAX](../advanced_config/parameter_reference.md#FW_P_LIM_MAX) - `FW_THR_MAX` 적용시 트림 속도로 상승에 필요한 피치 각도를 설정합니다.
 - [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) - `FW_AIRSPD_TRIM`에서 상승률을 설정합니다.
 
 안정화 모드로 비행하고 스로틀을 `FW_THR_MIN`으로 줄이고, 기체가 `FW_AIRSPD_TRIM`을 유지하도록 피치 각도를 설정합니다.
+
 - [FW_P_LIM_MIN](../advanced_config/parameter_reference.md#FW_P_LIM_MIN) - `FW_THR_MIN`에서 `FW_AIRSPD_MAX`에 도달에 필요한 피치 각도를 설정합니다.
 - [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX)-하강율을 설정합니다.
 
 모든 L1 매개변수는 [여기](../advanced_config/parameter_reference.md#fw-l1-control)에 기술되어 있습니다.
+
 - [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) - `FW_AIRSPD_TRIM`을 유지하면서 달성된 싱크 속도를 설정합니다.
 
 Specify the target climb and sink rate for autonomous missions by adjusting [FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP) and [FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP). These specify the height rates at which the vehicle will climb or descend in order to change altitude. Furthermore, these two values define the height rate limits commanded by the user in [Altitude mode](../flight_modes_fw/altitude.md) and [Position mode](../flight_modes_fw/position.md).
-
 
 ### FW Path Control Tuning (Position)
 
