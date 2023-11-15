@@ -10,13 +10,13 @@ Choose the frame that matches your vehicle brand and model if one exists, and ot
 
 기체 프레임 설정하기:
 
-1. *QGroundControl *을 시작하고 기체에 연결합니다.
-1. *기체 설정*을 오픈하여 사이드바의 **"Q" icon > Vehicle Setup > 기체**을 선택하십시오.
+1. Start _QGroundControl_ and connect the vehicle.
+1. Select **"Q" icon > Vehicle Setup > Airframe** (sidebar) to open _Airframe Setup_.
 1. 설정하는 기체 프레임과 일치하는 큰 범주의 그룹/유형을 선택하고, 그룹 내에서 드롭다운하여 기체와 가장 일치하는 기체 프레임을 선택하십시오.
 
    ![Selecting generic hexarotor X frame in QGroundControl](../../assets/qgc/setup/airframe/airframe_px4.jpg)
 
-   위의 예는 *Hexarotor X* 그룹에서 선택된 *Generic Hexarotor X 프레임들*을 나타냅니다.
+   The example above shows _Generic Hexarotor X geometry_ selected from the _Hexarotor X_ group.
 
 1. **적용하고 재시작**을 클릭하십시오. 그 다음 대화 상자에서 **적용**을 클릭하여 설정을 저장하고 기체을 다시 시작하십시오.
 
