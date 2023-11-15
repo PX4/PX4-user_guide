@@ -14,7 +14,6 @@ To use it:
 5. Check what happens when changing mode or **Move the RC sticks**
 6. Play with different settings and conditions!
 
-
 The simulation can also be executed locally in order to test a specific version or set of changes:
 
 ```sh
