@@ -34,10 +34,9 @@ You only need to take notes if you want to directly move on to tuning without lo
 - Descend with zero throttle and reasonable airspeed for 10-30 seconds (example: 18 m/s airspeed, descended 80 m in 30 seconds).
 - Bank hard right with full roll stick until 60 degrees roll, then bank hard left with full roll stick until 60 degrees in the opposite side.
 - Pitch up hard 45 degrees, pitch down hard 45 degrees.
-:::
+  :::
 
 This guide will use these quantities to set some of the controller gains later on.
-
 
 ## Tune Roll
 
@@ -52,7 +51,6 @@ To tune this gain, first set the other gains to their minimum values (nominally 
 
 - [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I)
 - [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P)
-
 
 #### Gains to tune
 
@@ -87,7 +85,7 @@ To tune this gain, set the other gains to their minimum values.
 #### Gains to tune
 
 - [FW_PR_FF](../advanced_config/parameter_reference.md#FW_PR_FF) - start with a value of 0.4.
-  Increase this value (doubling each  time) until the plane pitches satisfactory and reaches the setpoint.
+  Increase this value (doubling each time) until the plane pitches satisfactory and reaches the setpoint.
   Back down the gain 20% at the end of the process.
 
 ### Tuning the Rate Gain
@@ -95,12 +93,11 @@ To tune this gain, set the other gains to their minimum values.
 - [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_P) - start with a value of 0.04.
   Increase this value (doubling each time) until the system starts to wobble / twitch.
   Then reduce value by 50%.
-    
+
 ### Tuning the Trim Offsets with the Integrator Gain
 
 - [FW_PR_I](../advanced_config/parameter_reference.md#FW_PR_I) - start with a value of 0.01.
   Increase this value (doubling each time) until there is no offset between commanded and actual pitch value (this will most likely require looking at a log file).
-
 
 ## Adjusting the Time Constant of the Outer Loop
 
@@ -109,7 +106,6 @@ The default of 0.5 seconds should be fine for normal fixed-wing setups and usual
 
 - [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC) - set to a default of 0.5 seconds, increase to make the Pitch response softer, decrease to make the response harder.
 - [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) - set to a default of 0.5 seconds, increase to make the Roll response softer, decrease to make the response harder.
-
 
 ## Other Tuning Parameters
 
