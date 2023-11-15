@@ -6,7 +6,8 @@ This topic explains how to map [flight modes](../getting_started/flight_modes.md
 In order to set up flight modes you must already have:
 
 - [Configured your radio](../config/radio.md)
-- [Setup your transmitter](#rc-transmitter-setup) to encode the physical positions of your mode switch(es) into a single channel. We provide examples for the popular _Taranis_ transmitter [below](#taranis-setup-3-way-switch-configuration-for-single-channel-mode) (check your documentation if you use a different transmitter). :::
+- [Setup your transmitter](#rc-transmitter-setup) to encode the physical positions of your mode switch(es) into a single channel. We provide examples for the popular _Taranis_ transmitter [below](#taranis-setup-3-way-switch-configuration-for-single-channel-mode) (check your documentation if you use a different transmitter).
+:::
 
 ## What Flight Modes and Switches Should I Set?
 
@@ -34,6 +35,7 @@ To configure single-channel flight mode selection:
    ![Flight modes single-channel](../../assets/qgc/setup/flight_modes/flight_modes_single_channel.jpg)
 
 1. Specify _Flight Mode Settings_:
+
    - Select the **Mode channel** (above this shown as Channel 5, but this will depend on your transmitter configuration).
    - Move the transmitter switch (or switches) that you have set up for mode selection through the available positions. The mode slot matching your current switch position will be highlighted (above this is _Flight Mode 1_).
 
@@ -42,6 +44,7 @@ While you can set flight modes in any of the 6 slots, only the channels that are
 :::
 
    - Select the flight mode that you want triggered for each switch position.
+
 1. Specify _Switch Settings_:
 
    - Select the channels that you want to map to specific actions - e.g.: _Return_ mode, _Kill switch_, _offboard_ mode, etc. (if you have spare switches and channels on your transmitter).
@@ -63,7 +66,8 @@ This section contains a small number of possible setup configurations for tarani
 If you only need to support selecting between two or three modes then you can map the modes to the positions of a single 3-way switch. Below we show how to map the Taranis 3-way "SD" switch to channel 5.
 
 :::note
-This example shows how to set up the popular _FrSky Taranis_ transmitter. Transmitter setup will be different on other transmitters. :::
+This example shows how to set up the popular _FrSky Taranis_ transmitter. Transmitter setup will be different on other transmitters.
+:::
 
 Open the Taranis UI **MIXER** page and scroll down to **CH5**, as shown below:
 
