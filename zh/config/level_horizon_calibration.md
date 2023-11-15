@@ -12,7 +12,8 @@ To level the horizon:
 
 1. Start _QGroundControl_ and connect the vehicle.
 1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
-1. Click the **Level Horizon** button. ![Level Horizon calibration](../../assets/qgc/setup/sensor/sensor_level_horizon.jpg) :::note You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here. :::
+1. Click the **Level Horizon** button. ![Level Horizon calibration](../../assets/qgc/setup/sensor/sensor_level_horizon.jpg) :::note You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
+:::
 1. Place the vehicle in its level flight orientation on a level surface:
 
    - For planes this is the position during level flight (planes tend to have their wings slightly pitched up!)
