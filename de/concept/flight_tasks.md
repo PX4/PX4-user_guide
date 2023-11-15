@@ -1,7 +1,6 @@
 # Flight Tasks
 
-*Flight Tasks* are used within [Flight Modes](../concept/flight_modes.md) to provide specific movement behaviours: e.g. follow me, or flight smoothing.
-
+_Flight Tasks_ are used within [Flight Modes](../concept/flight_modes.md) to provide specific movement behaviours: e.g. follow me, or flight smoothing.
 
 ## Overview
 
@@ -15,30 +14,35 @@ By convention tasks are contained in a subfolder of [PX4-Autopilot/src/modules/f
 Video overviews from PX4 developer summits are [provided below](#video).
 :::
 
-
 ## Creating a Flight Task
 
-The instructions below might be used to create a task named *MyTask*:
+The instructions below might be used to create a task named _MyTask_:
 
 1. Create a directory for the new flight task in [PX4-Autopilot/src/modules/flight_mode_manager/tasks](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/flight_mode_manager/tasks). By convention the directory is named after the task, so we will call it **/MyTask**.
-   ```
+
+   ```sh
    mkdir PX4-Autopilot/src/modules/flight_mode_manager/tasks/MyTask
    ```
-2. Create empty source code and *cmake* files for the new flight task in the *MyTask* directory using the prefix "FlightTask":
+
+2. Create empty source code and _cmake_ files for the new flight task in the _MyTask_ directory using the prefix "FlightTask":
    - CMakeLists.txt
    - FlightTaskMyTask.hpp
    - FlightTaskMyTask.cpp
 3. Update **CMakeLists.txt** for the new task
+
    - Copy the contents of the **CMakeLists.txt** for another task - e.g. [Orbit/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/tasks/Orbit/CMakeLists.txt)
    - Update the copyright to the current year
-     ```cmake   
+
+     ```cmake
      ############################################################################
      #
      #   Copyright (c) 2021 PX4 Development Team. All rights reserved.
      #
      ```
+
    - Modify the code to reflect the new task - e.g. replace `FlightTaskOrbit` with `FlightTaskMyTask`. The code will look something like this:
-     ```cmake 
+
+     ```cmake
      px4_add_library(FlightTaskMyTask
          FlightTaskMyTask.cpp
      )
@@ -48,6 +52,7 @@ The instructions below might be used to create a task named *MyTask*:
      ```
 
 4. Update the header file (in this case **FlightTaskMyTask.hpp**): Most tasks reimplement the virtual methods `activate()` and `update()`, and in this example we also have a private variable.
+
    ```cpp
    #pragma once
 
@@ -66,7 +71,9 @@ The instructions below might be used to create a task named *MyTask*:
      float _origin_z{0.f};
    };
    ```
-4. Update the cpp file as appropriate. This example provides as simple implementation of **FlightTaskMyTask.cpp** that simply indicates that the task methods are called.
+
+5. Update the cpp file as appropriate. This example provides as simple implementation of **FlightTaskMyTask.cpp** that simply indicates that the task methods are called.
+
    ```cpp
    #include "FlightTaskMyTask.hpp"
 
@@ -83,18 +90,23 @@ The instructions below might be used to create a task named *MyTask*:
      return true;
    }
    ```
-5. Add the new task to the list of tasks to be built in [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/CMakeLists.txt#L40):
-   ```
+
+6. Add the new task to the list of tasks to be built in [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/CMakeLists.txt#L40):
+
+   ```cmake
    list(APPEND flight_tasks_to_add
       Orbit
       MyTask
    )
    ```
-6. Update a flight mode to ensure that the task is called. Usually a parameter is used to select when a particular flight task should be used.
+
+7. Update a flight mode to ensure that the task is called. Usually a parameter is used to select when a particular flight task should be used.
 
    For example, to enable our new `MyTask` in multicopter Position mode:
+
    - Update `MPC_POS_MODE` ([multicopter_position_mode_params.c](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mc_pos_control/multicopter_position_mode_params.c)) to add an option for selecting "MyTask" if the parameter has a previously unused value like 5:
-     ```
+
+     ```c
      ...
       * @value 0 Direct velocity
       * @value 3 Smoothed velocity
@@ -103,7 +115,9 @@ The instructions below might be used to create a task named *MyTask*:
       */
      PARAM_DEFINE_INT32(MPC_POS_MODE, 4);
      ```
+
    - Add a case for your new option in the switch for the parameter [FlightModeManager.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/FlightModeManager.cpp#L266-L285) to enable the task when `_param_mpc_pos_mode` has the right value.
+
      ```cpp
      ...
      // manual position control
@@ -116,11 +130,10 @@ The instructions below might be used to create a task named *MyTask*:
        case 5: // Add case for new task: MyTask
           error = switchTask(FlightTaskIndex::MyTask);
           break;
-    case 4:
-    ....
+     case 4:
+     ....
      ...
      ```
-
 
 ## Test New Flight Task
 
@@ -129,7 +142,6 @@ To test the flight task you need to run the vehicle with the task enabled. For t
 :::note
 The task defined above should only be tested on the simulator. The code doesn't actually create setpoints so the vehicle will not fly.
 :::
-
 
 ## Video
 
