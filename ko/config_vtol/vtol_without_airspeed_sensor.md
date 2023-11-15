@@ -24,7 +24,7 @@ Fixed-wing vehicles use airspeed sensors to determine the speed at which the air
 
 기준 비행 후 로그를 다운로드하고 [FlightPlot](../log/flight_log_analysis.md#flightplot) (또는 다른 분석 도구)을 사용하여 로그를 분석합니다. Plot the altitude (`GPOS.Alt`), thrust (`ATC1.Thrust`), groundspeed (Expression: `sqrt(GPS.VelN\^2 + GPS.VelE\^2)`), pitch (`ATT.Pitch`) and roll (`AT.Roll`).
 
-기체가 수평일 때(피치와 롤이 없거나 거의 없음), 상승중(고도 상승) 및 기체가 제자리에 있을 때의(더 많이 롤링) 스로틀 레벨 (추력)을 검사합니다. The initial value to use as cruise speed should be the highest thrust applied during a roll or ascend, the thrust during level flight should be considered the minimum value if you decide to further tune down your speed.
+Examine the throttle level (thrust) when the vehicle is level (no or little pitch and roll), during the ascend (increasing altitude) and when the vehicle is banking (more roll). The initial value to use as cruise speed should be the highest thrust applied during a roll or ascend, the thrust during level flight should be considered the minimum value if you decide to further tune down your speed.
 
 또한 전면 전환이 완료되는 데 걸린 시간도 기록합니다. 이 값은 최소 전환 시간을 설정하는 데 사용됩니다.  안전상의 이유로 이번에는 + 30%를 추가하여야 합니다.
 
@@ -35,7 +35,8 @@ Fixed-wing vehicles use airspeed sensors to determine the speed at which the air
 To bypass the flight checks you need to set the circuit breaker for the airspeed sensor ([CBRK_AIRSPD_CHK](../advanced_config/parameter_reference.md#CBRK_AIRSPD_CHK)) to 162128.
 
 :::note
-`CBRK_AIRSPD_CHK`를 활성화하면 센서 드라이버가 시작되지 않고 보정이 방지됩니다 (즉, 비행 검사를 우회하는 것 이상을 수행합니다). :::
+`CBRK_AIRSPD_CHK`를 활성화하면 센서 드라이버가 시작되지 않고 보정이 방지됩니다 (즉, 비행 검사를 우회하는 것 이상을 수행합니다).
+:::
 
 비행 컨트롤러에게 대기속도 센서 없이 날고 있다는 것을 알리려면, 대기 속도 모드를 'Airspeed disabled'([FW_ARSP_MODE = 1](../advanced_config/parameter_reference.md#FW_ARSP_MODE))로 설정하여야 합니다.
 
