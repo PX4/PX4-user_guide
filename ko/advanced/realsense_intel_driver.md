@@ -45,7 +45,7 @@
 
 - git을 설치하십시오:
 
-  ```bash
+  ```sh
   sudo apt-get install git
   ```
 
@@ -53,7 +53,7 @@
 
   - [RealSense_ROS 저장소](https://github.com/bestmodule/RealSense_ROS)를 복제하십시오:
 
-    ```bash
+    ```sh
     git clone https://github.com/bestmodule/RealSense_ROS.git
     ```
 
@@ -61,21 +61,21 @@
 
   - 패키지 설치할 지 여부를 물어보면 엔터키를 입력하십시오.
 
-    ```
+    ```sh
     Intel Low Power Subsystem support in ACPI mode (MFD_INTEL_LPSS_ACPI) [N/m/y/?] (NEW)
     ```
 
-    ```
+    ```sh
     Intel Low Power Subsystem support in PCI mode (MFD_INTEL_LPSS_PCI) [N/m/y/?] (NEW)
     ```
 
-    ```
+    ```sh
     Dell Airplane Mode Switch driver (DELL_RBTN) [N/m/y/?] (NEW)
     ```
 
   - 설치 프로세스가 끝날 때 나타날 수 있는 다음 오류 메시지는 드라이버의 오작동으로 이어지지 않아야 합니다.
 
-    ```
+    ```sh
     rmmod: ERROR: Module uvcvideo is not currently loaded
     ```
 
@@ -86,9 +86,10 @@
   - 인텔 리얼센스 카메라 헤드를 USB3 케이블로 USB3 방식을 따르는 컴퓨터의 포트에 연결하십시오.
   - 버추어 박스의 메뉴 표시줄에서 장치->USB->Intel Corp Intel RealSense 3D Camera R200를 눌러 가상 머신에 USB 카메라를 연결하십시오.
   - [패키지 해제 폴더]/Bin/DSReadCameraInfo 파일을 실행하십시오:
+
     - 다음 오류 메시지가 나타나면 카메라 연결을 해제하십시오(컴퓨터에서 물리적으로 USB 케이블을 뽑아내십시오). 다시 연결한 후, 버추어 박스의 메뉴표시줄에서 장치->USB->Intel Corp Intel RealSense 3D Camera R200를 다시 누르고,  [언팩 폴더]/Bin/DSReadCameraInfo 파일을 다시 실행하십시오
 
-      ```bash
+      ```sh
       DSAPI call failed at ReadCameraInfo.cpp:134!
       ```
 
