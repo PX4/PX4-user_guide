@@ -19,7 +19,8 @@
 :::note VTOL
 Tailsitter 기체의 경우 모든 센서 보정에 대한 멀티콥터 설정(차량에 대한 상대적 이륙, 이륙, 호버링, 착륙)에 따라 차량 방향을 설정합니다.
 
-축은 일반적으로  전진 비행에 대하여는 차량의 방향에 상대적입니다. 자세한 정보는 [기본 개념](../getting_started/px4_basic_concepts.md#heading-and-directions)편을 참고하십시오. :::
+축은 일반적으로  전진 비행에 대하여는 차량의 방향에 상대적입니다. 자세한 정보는 [기본 개념](../getting_started/px4_basic_concepts.md#heading-and-directions)편을 참고하십시오.
+:::
 
 ## 방향 설정
 
