@@ -17,18 +17,22 @@ PX4 separates this translation logic, which is referred to as "mixing" from the 
 This ensures that the core controllers do not require special handling for each airframe geometry, and greatly improves reusability.
 
 In addition, PX4 abstracts the mapping of output functions to specific hardware outputs.
-This means that any motor or servo can be assigned to almost any physical output. 
+This means that any motor or servo can be assigned to almost any physical output.
 
 <!-- https://docs.google.com/drawings/d/1Li9YhTLc3yX6mGX0iSOfItHXvaUhevO2DRZwuxPQ1PI/edit -->
+
 ![Mixing Overview](../../assets/diagrams/mixing_overview.png)
 
 ## Actuator Control Pipeline
 
 Overview of the mixing pipeline in terms of modules and uORB topics (press to show full-screen):
+
 <!-- https://drive.google.com/file/d/1L2IoxsyB4GAWE-s82R_x42mVXW_IDlHP/view?usp=sharing -->
+
 ![Pipeline Overview](../../assets/concepts/control_allocation_pipeline.png)
 
 Notes:
+
 - The rate controller outputs torque and thrust setpoints
 - the `control_allocator` module:
   - handles different geometries based on configuration parameters
@@ -61,7 +65,8 @@ The schema for this file is [here](https://github.com/PX4/PX4-Autopilot/blob/mai
 When [adding a new frame configuration](../dev_airframes/adding_a_new_frame.md), set the appropriate [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) and other default mixer values for the geometry.
 
 You can see this, for example, in the airframe configuration file [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter)
-```
+
+```sh
 ...
 param set-default CA_AIRFRAME 4
 param set-default CA_ROTOR_COUNT 2
