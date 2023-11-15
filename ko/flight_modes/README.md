@@ -1,8 +1,9 @@
 # 비행 모드
 
-*Flight Modes* define how the autopilot responds to user input and controls vehicle movement. The tables below summarizes flight modes for fixed-wing and copter ([table key is below](#key)). 이것은 "고급 수준"의 기본 동작이며 기체 매개변수에 따라 달라질 수 있습니다. 링크된 주제 (사이드 바)는 튜닝 매개 변수를 포함하여 개별 모드에 대한 자세한 정보를 제공합니다.
+_Flight Modes_ define how the autopilot responds to user input and controls vehicle movement. The tables below summarizes flight modes for fixed-wing and copter ([table key is below](#key)). 이것은 "고급 수준"의 기본 동작이며 기체 매개변수에 따라 달라질 수 있습니다. 링크된 주제 (사이드 바)는 튜닝 매개 변수를 포함하여 개별 모드에 대한 자세한 정보를 제공합니다.
 
-**Tip** A *beginner friendly* explanation of all flight modes is provided in [Getting Started > Flight Modes](../getting_started/flight_modes.md). :::
+:::tip
+A _beginner friendly_ explanation of all flight modes is provided in [Getting Started > Flight Modes](../getting_started/flight_modes.md). :::
 
 <!-- Styles used for tables below -->
 <style>
@@ -22,17 +23,9 @@ tr td:nth-last-child(1) {
     text-align:left;
 }
 
-/*
-  .col_summary {
-    width:50px;
-  }
-*/
-
-
 th {
   font-size:1.0rem;
 }
-
 
 @media (min-width: 1500px){
 .page-inner {
@@ -51,7 +44,6 @@ th {
   max-width: 800px;
   }
 }
-
 </style>
 
 ## Fixed-wing
@@ -64,7 +56,7 @@ th {
      <th class="col_yaw">좌우</th>
      <th class="col_throttle">추진력</th>
      <th class="col_sensor">위치 센서</th>
-     <th class="col_summary">요약</th></tr>
+     <th class="col_summary">요약</th>
    </tr>
  </thead>
 <tbody>
@@ -93,7 +85,6 @@ th {
   </td>
 </tr>
 
-
 <tr id="altitude_fw">
  <td><a href="../flight_modes_mc/altitude.html">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="20px" /></a></p>
@@ -110,6 +101,7 @@ th {
        <li>자동 조종 장치는 날개도 수평을 유지하면서 고도를 유지합니다.</li> 
        <li>스로틀 스틱은 대기 속도 센서가 연결된 경우 기체의 대기 속도를 제어합니다 (대기 속도 센서가 없으면 사용자가 스로틀을 제어할 수 없음).</li>
     </ul>
+    </li>
     <li>센터  외부:
       <ul>
        <li>피치 스틱은 고도를 제어합니다.</li>
@@ -121,7 +113,6 @@ th {
  </p>
  </td>
 </tr>
-
 
 <tr id="stabilized_fw">
  <td><a href="../flight_modes_fw/stabilized.html">Stabilized</a>
@@ -154,7 +145,6 @@ th {
 <p>RPY 스틱 입력은 자동 조종 장치에 의해 안정화되는 각속도 명령으로 변환됩니다. Throttle is passed directly to control allocation.</p></td>
 </tr>
 
-
 <tr id="manual_fw">
  <td><a href="../flight_modes_fw/manual.html">Manual</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="고급 난이도 비행" width="20px" /></a></p>
@@ -169,14 +159,12 @@ th {
   </td>
 </tr>
 
-
 <tr id="takeoff_fw">
  <td><a href="../flight_modes_fw/takeoff.html">이륙</a></td>
  <td colspan="3">자동</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="20px" /></a></td>
  <td>기체는 <em>투석기/수동 발사 모드</em> 또는 <em>활주로 이륙 모드</em> (현재 방향)를 사용하여 이륙 시퀀스를 시작합니다.</td>
 </tr>
-
 
 <tr id="land_fw">
  <td><a href="../flight_modes_fw/land.html">착륙</a></td>
@@ -198,7 +186,6 @@ th {
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="20px" /></a></td>
  <td>기체는 안전 위치로 경로 비행합니다. 반환 동작은 매개 변수 설정에 따라 다르며 임무 경로나 임무 착륙 패턴 (정의 된 경우)을 따라서 동작합니다.</td>
 </tr>
-
 
 <tr id="mission_fw">
  <td><a href="../flight_modes/mission.html">임무</a></td>
@@ -226,11 +213,10 @@ th {
      <th>좌우</th>
      <th>추진력</th>
      <th>위치 센서</th>
-     <th class="col_summary">요약</th></tr>
+     <th class="col_summary">요약</th>
    </tr>
  </thead>
 <tbody>
-
 
 <tr id="position_mc">
  <td><a href="../flight_modes_mc/position.html">Position</a>
@@ -255,8 +241,6 @@ th {
        <li>착륙했을 때 스로틀 스틱을 62.5 % (하단에서 전체 범위) 이상으로 올리면 기체가 이륙합니다.</li>
       </ul>
     </li>
-    </ul>
-  </li>
   </ul>
  </p>
 </td>
@@ -277,6 +261,7 @@ th {
        <li>RPY는 기체 수평을 유지합니다.</li> 
        <li>스로틀(~ 50 %)은 현재 고도를 바람에 대해 일정하게 유지합니다.</li>
     </ul>
+    </li>
     <li>센터  외부:
       <ul>
        <li>롤/피치 스틱은 각각의 방향에서 틸트 각도를 제어하여 해당하는 좌우와 전후 방향으로 이동합니다.</li>
@@ -293,7 +278,6 @@ th {
  </p>
  </td>
 </tr>
-
 
 <tr id="manual_stabilized_mc">
  <td><a href="../flight_modes_mc/manual_stabilized.html">Manual/ Stabilized</a>
@@ -331,7 +315,6 @@ th {
   <p>RC RPY 스틱 입력은 각 축의 회전 각속도를 제어합니다. Throttle is passed directly to control allocation.  스틱이 중앙에 오면 차량은 회전을 멈추고, 현재 방향(예 : 반전될 수 있음)을 유지하고 현재 운동량에 따라 이동합니다.</p>
  </td>
 </tr>
-
 
 <tr id="orbit_mc">
  <td><a href="../flight_modes_mc/orbit.html">Orbit</a>
@@ -374,7 +357,6 @@ th {
  <td>기체는 안전 위치로 경로 비행합니다. 반환 동작은 매개 변수 설정에 따라 다르며 임무 경로나 임무 착륙 패턴 (정의 된 경우)을 따라서 동작합니다.</td>
 </tr>
 
-
 <tr id="mission_mc">
  <td><a href="../flight_modes/mission.html">임무</a></td>
  <td colspan="3">자동</td>
@@ -403,7 +385,6 @@ th {
 VTOL 기체는 현재 차량 모드 (MC 또는 FW)를 기반으로 실행되는 고정익 및 멀티콥터 비행 모드를 모두 지원합니다.
 
 VTOL은 두 구성 모두에서 [오프 보드](../flight_modes/offboard.md) 모드를 지원합니다.
-
 
 ## 요점
 
