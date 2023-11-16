@@ -28,7 +28,7 @@ PX4 参考设计是飞行控制器的 [Pixhawk 系列 ](../flight_controller/pix
 
 <!-- Draw.io version of file can be found here: https://drive.google.com/file/d/1H0nK7Ufo979BE9EBjJ_ccVx3fcsilPS3/view?usp=sharing -->
 
-一些Pixhawk系列控制器为了减少空间或复杂性，或者更好解决使用问题，没有通过I/O板构建。 In this case [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) is set to `0` so that the I/O driver is not started. You can also set `SYS_USE_IO` to `0` to disable the I/O on a flight controller where it is present but not needed (in order to slightly reduce the CPU load).
+一些Pixhawk系列控制器为了减少空间或复杂性，或者更好解决使用问题，没有通过I/O板构建。 In this case the I/O driver is not started.
 
 :::note
 Manufacturer flight controller variants without an I/O board are often named as a "diminutive" of a version that includes the I/O board: e.g. _Pixhawk 4_ **Mini**_, \_CUAV v5 **nano**_.
