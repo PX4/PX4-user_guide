@@ -108,8 +108,8 @@ It is _crucial_ to reduce the control latency as much as possible! 지연 시간
 - 부드러운 기체 또는 부드러운 진동 장착은 지연 시간을 증가시킵니다 (필터 역할을 함).
 - 소프트웨어 및 센서 칩의 [저역 통과 필터](../config_mc/filter_tuning.md)는 지연시간 증가분을 상쇄하여 노이즈 필터링을 원활하게 합니다.
 - PX4 소프트웨어 내부 : 센서 신호를 드라이버에서 읽은 다음 컨트롤러를 통해 출력 드라이버로 전달하여야 합니다.
-- The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a _Pixracer_ or _Omnibus F4_, but does apply to a Pixhawk). IO 지연을 방지하려면 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO)를 비활성화하고 모터를 AUX 핀에 대신 연결하십시오.
-- PWM output signal: enable the One-Shot protocol to reduce latency. The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
+- The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a _Pixracer_ or _Omnibus F4_, but does apply to a Pixhawk). To avoid the IO delay attach the motors to the AUX pins instead.
+- PWM output signal: enable [Dshot](../peripherals/dshot.md) by preference to reduce latency (or One-Shot if DShot is not supported). The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
 
 ### 필터 튜닝
 
