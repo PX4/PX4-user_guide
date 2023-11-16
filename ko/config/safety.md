@@ -160,7 +160,7 @@ The _Position Loss Failsafe_ is triggered if the quality of the PX4 position est
 실패 동작은 RC 제어 여부 (및 고도 정보)에 따라 [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL)에 의해 결정됩니다.
 
 - `0` : 원격 제어 가능. Switch to _Altitude mode_ if a height estimate is available, otherwise _Stabilized mode_.
-- `1`: Remote control _not_ available. Switch to _Land mode_ if a height estimate is available, otherwise enter flight termination.
+- `1`: Remote control _not_ available. Switch to _Descend mode_ if a height estimate is available, otherwise enter flight termination. _Descend mode_ is a landing mode that does not require a position estimate.
 
 Fixed-wing vehicles and VTOLs in fixed-wing flight additionally have a parameter ([FW_GPSF_LT](../advanced_config/parameter_reference.md#FW_GPSF_LT)) that defines how long they will loiter (circle with a constant roll angle ([FW_GPSF_R](../advanced_config/parameter_reference.md#FW_GPSF_R)) at the current altitude) after losing position before attempting to land. If VTOLs have are configured to switch to hover for landing ([NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)) then they will first transition and then descend.
 
