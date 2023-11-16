@@ -455,9 +455,19 @@ Each (`topic`,`type`) pairs defines:
    - `/fmu/in/` for topics that are _subscribed_ by PX4.
 4. The message type (`VehicleOdometry`, `VehicleStatus`, `OffboardControlMode`, etc.) and the ROS 2 package (`px4_msgs`) that is expected to provide the message definition.
 
-We distinguish `subscriptions` from `subscriptions_multi` because PX4 uORB allows multiple publishers to a single uORB topic:
-  - Each field in `subscriptions` defines a ROS2 subscription (e.g. over `/fmu/in/vehicle_optical_flow_vel`) along with a uORB publication (e.g. over `vehicle_optical_flow_vel`) of those messages, under the assumption that only a **single publisher exists to the specified uORB topic**. 
-  - Each field in `subscriptions_multi` also defines such a ROS2 subscription and uORB republication, however **other publishers to the same uORB topic may coexist** (e.g. an internal PX4 module can also publishing over `vehicle_optical_flow_vel`).
+:::note
+We distinguish `subscriptions` from `subscriptions_multi` because PX4 uORB allows multiple publishers to a single uORB topic using the concept of topic instances.
+:::
+
+Add a topic to the `subscriptions` section to:
+- Expose messages from a ROS2 topic (e.g. subscribes over `/fmu/in/vehicle_odometry`) to instance 0 (the first instance) of a uORB topic (e.g. publishes over `vehicle_odometry`).
+- If another (internal) PX4 module is already publishing on the same uORB topic, its subscribers will receive both streams of messages.
+- This is the desired behavior when the specified uORB topic has no other publishers, or you want to replace an internal publisher on this topic (for example during offboard control).
+
+Add a topic to the `subscriptions_multi` section to:
+- Expose messages from a ROS2 topic to a newly allocated instance of a uORB topic (e.g. publishes over new instance of `vehicle_odometry`).
+- By doing so the subscribers can distinguish between the different publishers on a common topic by using only certain instances.
+- This is the desired behavior, for example, when you want PX4 to log the readings of two equal sensors; they will both publish on the same topic, but one will use instance 0 and the other will use instance 1.
 
 You can arbitrarily change the configuration.
 For example, you could use different default namespaces or use a custom package to store the message definitions.
