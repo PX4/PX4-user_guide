@@ -6,7 +6,7 @@ PX4 uses computer vision systems (primarily running on [Companion Computers](../
 
 - [光学フロー](#optical_flow) では、2次元速度の推定が行えます (下向きのカメラと下向きの距離センサーを使用)。
 - [Motion Capture](#motion-capture) provides 3D pose estimation using a vision system that is _external_ to the vehicle. 主に屋内ナビゲーションに使用されます。
-- [Visual Inertial Odometry](#visual-inertial-odometry-vio) provides 3D pose and velocity estimation using an onboard vision system and IMU. It is used for navigation when global position information is absent or unreliable.
+- [Visual Inertial Odometry](#visual-inertial-odometry-vio) provides 3D pose and velocity estimation using an onboard vision system and IMU. It is used for navigation when GNSS position information is absent or unreliable.
 - [Obstacle Avoidance](../computer_vision/obstacle_avoidance.md) provides full navigation around obstacles when flying a planned path (currently missions are supported). This uses [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) running on a companion computer.
 - [Collision Prevention](../computer_vision/collision_prevention.md) is used to stop vehicles before they can crash into an obstacle (primarily when flying in manual modes).
 
