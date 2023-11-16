@@ -12,7 +12,7 @@ _Follow Me_ mode allows a multicopter to autonomously hold position and altitude
   - Flying vehicles will failsafe if they lose the position estimate.
 - Mode prevents arming (vehicle must be armed when switching to this mode).
 - Mode requires wind and flight time are within specified limits.
-- This mode is currently only supported on multicopter.
+- This mode is currently only supported on multicopter (or VTOL in MC mode).
 - The follow target must also be able to supply position information.
 - Follow-me mode is supported by _QGroundControl_ on Android devices with a GPS module, and [MAVSDK](#follow-me-with-mavsdk).
 
