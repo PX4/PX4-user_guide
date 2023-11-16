@@ -467,7 +467,7 @@ For example, it creates a ROS2 subscriber of `/fmu/in/vehicle_odometry` and a uO
 The uORB subscriber will not be able to determine if an incoming message was published by PX4 or by ROS2.
 - This is the desired behavior when the specified uORB topic has no other publishers, or when you want to replace an internal publisher on this topic (for example during offboard control).
 
-When you add a topic to the  `subscriptions_multi` section the uXRCE-DDS module:
+When you add a topic to the `subscriptions_multi` section the uXRCE-DDS module:
 - Queries the uORB manager and get the number `n` of instances currently in use for the desired topic.
 - Creates a unidirectional route going from the ROS2 topic to the a _new_ instance (instance `n+1`) of the associated uORB topic.
 For example, if `vehicle_odometry` has already `2` instances, it creates a ROS2 subscriber of `/fmu/in/vehicle_odometry` and a uORB publisher on instance `3` of `vehicle_odometry`.
