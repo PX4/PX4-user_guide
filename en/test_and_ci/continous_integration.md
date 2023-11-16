@@ -22,44 +22,63 @@ Most of the test are run using the Github workflows in [.github/workflows](https
   It can detect Flash overflows and code syntax errors.
 - `sitl_tests.yml`: 
   Executes [MAVSDK SITL Tests](./integration_testing_mavsdk.md).
-  Detect system-level bugs in the code (e.g. VTOL doesn't return to home)
+  It runs Missions, Offboard control, Failsafe, Follow me, etc to check functionality of various features of PX4 (and uploads test logs to [Flight Review](../log/flight_review.md))
 - `mavros_mission_tests.yml`:
   Executes mission plans using MAVROS.
   Detects system level bugs in close, and also verifies compatibility between MAVROS and PX4.
 - `checks.yml`:
   Runs various make targets (using `make` command).
   The commands for each targets are documented in the [Makefile](https://github.com/PX4/PX4-Autopilot/blob/main/Makefile)
-  - `check_format`: Checks the coding style format using Clang Tidy ?
+  - `check_format`: Checks the coding style format using AStyle.
   - `airframe_metadata`: Builds airframe XML metadata
   - `parameters_metadata`: Builds parameter XML metadata
   - `module_documentation`: Builds module documentation
   - `tests`: Runs unit tests
   - `tests_coverage`: Runs coverage tests
   - ... (other auxiliary tests)
-- `ekf_functional_change_indicator.yml`: Check if there's any functionality change in EKF ?
-- `ekf_update_change_indicator.yml`: Check if there's any functionality change in EKF ?
+- `ekf_functional_change_indicator.yml`: Check if there's any functionality change in EKF by feeding data of a log and comparing the estimator output with expected values in .csv file
+- `ekf_update_change_indicator.yml`: Updates the test data (.csv file) for the EKF functional change test
 - `failsafe_sim.yml`: Builds [failsafe simulator](../config/safety_simulation.md)
-- `clang-tidy.yml`: Runs Clang Tidy to check if coding style is consistent
+- `clang-tidy.yml`: Runs Clang Tidy to detect problematic code patterns (e.g. dead code)
 - `compile_linux.yml`: Builds linux flight controller board targets
 
 ## PX4 Releases/main
 
-A number of additional artifacts are built when changes are made to the `main` branch or to `release/*` branches (any releases).
-These are then deployed to other repositories, uploaded to servers, and generally made available to other systems and services that use them.
+### Firmware
 
-Release/main actions are managed by the [.github/workflows/deploy_all.yml](https://github.com/PX4/PX4-Autopilot/blob/main/.github/workflows/deploy_all.yml) workflow.
+PX4 manages firmware (.px4 file) files in 3 different categories onboard the [Amazon S3 bucket server](https://px4-travis.s3.amazonaws.com/):
+
+- Stable: Latest stable release that has went though beta tests
+- Beta: Latest release candidate / beta releases for early bird testing
+- Master: Latest build directly from the `main` branch
+
+These are stored in separate directories (e.g. for the latest stable firmware for FMUv5x target: https://px4-travis.s3.amazonaws.com/Firmware/stable/px4_fmu-v5x_default.px4).
+
+Process of updating the firmware files are done when appropriate branches (stable, beta) are updated by a maintainer, via the Jenkins Server by following pipelines:
+
+- [PX4_misc/Firmware_s3_deploy_stable](http://ci.px4.io/blue/organizations/jenkins/PX4_misc%2FFirmware_s3_deploy_stable/activity)
+- [PX4_misc/Firmware_s3_deploy_beta](http://ci.px4.io/blue/organizations/jenkins/PX4_misc%2FFirmware_s3_deploy_beta/activity)
+- [PX4_misc/Firmware_s3_deploy_main](http://ci.px4.io/blue/organizations/jenkins/PX4_misc%2FFirmware_s3_deploy_main/activity)
+
+### Metadata (machine-readable)
+
+Machine-readable metadata files (parameters, events, etc) are built when changes are made to the `main` branch or to `release/*` branches (any releases).
+They are used by QGroundControl mainly to fetch the latest metadata necessary to display an up-to-date UI for Actuators page / Airframes, etc.
+
+Metadata deployment is managed by the [.github/workflows/deploy_all.yml](https://github.com/PX4/PX4-Autopilot/blob/main/.github/workflows/deploy_all.yml) workflow.
 
 For each board target, the artifacts built are:
 
 - Parameter metadata (`parameters.*`)
 - Events metadata (`events/*.xz`)
 - Actuators metadata (`actuators.json*`)
-- Target binary (`*.px4`)
 
-These files are uploaded to the [Amazon S3 bucket server](https://px4-travis.s3.amazonaws.com/).
+These files are uploaded to the [Amazon S3 bucket server](https://px4-travis.s3.amazonaws.com/) into appropriate folders (e.g. http://px4-travis.s3.amazonaws.com/Firmware/master/px4_fmu-v5_default/actuators.json).
 
-In addition, if there are changes to the `main` branch Jenkins builds / deploys metadata used by QGroundControl and documentation builds, based on the definitions in [PX4-Autopilot/Jenkinsfile](https://github.com/PX4/PX4-Autopilot/blob/main/Jenkinsfile).
+### Metadata (human-readable)
 
+If there are changes to the `main` branch Jenkins builds / deploys metadata to the documentation and QGroundControl repository directly, based on the definitions in [PX4-Autopilot/Jenkinsfile](https://github.com/PX4/PX4-Autopilot/blob/main/Jenkinsfile).
+This is documented below.
 
 ## PX4 Documentation
 
