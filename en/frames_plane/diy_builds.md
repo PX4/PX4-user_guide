@@ -3,7 +3,7 @@
 Do-it-yourself (DIY) builds describe how to assemble a vehicle from parts that are sourced separately.
 
 At the easier end of the scale of DIY builds are those that take an existing RC vehicle and graft on a flight controller.
-At the harder end of the scale are "unique" vehicles where some parts may be fabricated using 3D printers.
+At the harder end of the scale are "unique" vehicles where some parts may be fabricated using a 3D printer.
 Somewhere in the middle are builds that use separate but readily available components: frame, motors, ESC, propellers, flight controller, and so on.
 
 DIY Builds:
