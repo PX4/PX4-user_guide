@@ -92,9 +92,7 @@ commander mode auto:precland
 
 ### IR 센서/비콘 설정
 
-IR 센서/착륙 비콘 솔루션에는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-landing-kit)와 비행 컨트롤러에 연결된 하향식 [거리 센서](../sensor/rangefinders.md), 그리고 표적으로 IR 비콘이 필요합니다(예:
-
-IR-LOCK MarkOne</2 >). 정밀 착륙은 약 10 cm 이내의 오차로 착륙할 수 있게 합니다. GPS 착륙은 수 미터의 오차가 발생할 수 있습니다.</p> 
+IR 센서/착륙 비콘 솔루션에는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-landing-kit)와 비행 컨트롤러에 연결된 하향식 [거리 센서](../sensor/rangefinders.md), 그리고 표적으로 IR 비콘이 필요합니다(예: [IR-LOCK MarkOne](https://irlock.com/collections/markone)). 정밀 착륙은 약 10 cm 이내의 오차로 착륙할 수 있게 합니다. GPS 착륙은 수 미터의 오차가 발생할 수 있습니다.
 
 [공식 매뉴얼](https://irlock.readme.io/v2.0/docs)에 따라 IR-LOCK 센서를 장착하십시오. 센서의 x축이 기체의 y축과 정렬되어 있는지, 센서의 y축이 기체의 -x 방향과 정렬되어 있는지 확인하십시오 (카메라에서 전방으로 90도 기울인 경우).
 
@@ -105,8 +103,6 @@ Install a [range/distance sensor](../getting_started/sensor_selection.md#distanc
 호환 가능한 다른 센서는 IR-LOCK 설명서를 참조하십시오.
 :::
 
-
-
 ## 오프보드 포지셔닝
 
 오프보드 솔루션에는 MAVLink [Landing Target Protocol](https://mavlink.io/en/services/landing_target.html)을 구현하는 포지셔닝 시스템이 필요합니다. 이것은 착륙 목표를 결정하기 위해 모든 위치 지정 메커니즘을 사용할 수 있습니다(예: 컴퓨터 비전 및 시각적 표시).
@@ -115,23 +111,16 @@ Install a [range/distance sensor](../getting_started/sensor_selection.md#distanc
 
 PX4는 [거리 센서](../sensor/rangefinders.md) 또는 기타 센서를 명시적으로 필요로 하지 않지만, 자체 위치를 더 정확하게 결정할 수 있다면 더 나은 성능을 나타낼 수 있습니다.
 
-
-
 ## 펌웨어 설정
 
 정밀 착륙에는 `irlock` 및 `landing_target_estimator` 모듈이 필요합니다. 이들은 대부분의 비행 컨트롤러에 PX4 펌웨어에 기본적으로 포함되어 있습니다.
 
 FMUv2 기반 컨트롤러에는 기본적으로 포함되지 않습니다. 이러한 보드 및 포함되지 않은 기타 보드에서는 비행 컨트롤러에 대한 관련 구성 파일에서 다음 키를 'y'로 설정하여 보드를 추가할 수 있습니다. (예: FMUv5: [PX4-Autopilot/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.px4board)):
 
-
-
 ```
 CONFIG_DRIVERS_IRLOCK=y
 CONFIG_MODULES_LANDING_TARGET_ESTIMATOR=y
 ```
-
-
-
 
 ## PX4 매개변수 설정
 
@@ -151,9 +140,6 @@ IR-Lock 센서는 기본적으로 비활성화되어 있습니다. [SENS_EN_IRLO
 | <a id="PLD_MAX_SRCH"></a>[PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH)     | 착륙시 최대 검색 시도 횟수입니다.                                                                   |
 | <a id="RTL_PLD_MD"></a>[RTL_PLD_MD](../advanced_config/parameter_reference.md#RTL_PLD_MD)         | RTL 정밀 지상 모드. `0`: 비활성화됨, `1`: [기회적](#opportunistic-mode), `2`: [필수](#required-mode). |
 
-
-
-
 ### IR 비콘 스케일링
 
 IR-LOCK 센서의 렌즈 왜곡으로 인해 측정 스케일링이 필수적입니다.
@@ -164,28 +150,19 @@ IR-LOCK 센서의 렌즈 왜곡으로 인해 측정 스케일링이 필수적입
 
 `LTEST_MODE`를 정지로 설정하고 정밀착륙 도중 기체의 측면에 진동이 나타나면, 비콘 측정 값이 너무 높게 조정되었을 가능성이 있으므로 관련 방향에서 스케일 매개변수를 줄여야합니다.
 
-
-
 ## 시뮬레이션
 
 Precision landing with the IR-LOCK sensor and beacon can be simulated in [Gazebo Classic](../sim_gazebo_classic/README.md).
 
 IR-LOCK 비컨과 범위 센서와 IR-LOCK 카메라가 장착된 기체를 사용하여 시뮬레이션을 시작하려면 다음을 실행하십시오.
 
-
-
 ```sh
 make px4_sitl gazebo-classic_iris_irlock
 ```
 
-
 You can change the location of the beacon either by moving it in the Gazebo Classic GUI or by changing its location in the [Gazebo world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/iris_irlock.world#L42).
 
-
-
 ## 작동 원리
-
-
 
 ### 착륙 목표 추정기
 
@@ -195,13 +172,9 @@ You can change the location of the beacon either by moving it in the Gazebo Clas
 
 `landing_target_estimator`는 새로운 `irlock-report`가 추정치에 결합시 마다 매번 추정 상대 위치와 속도를 보고합니다. 비컨이 보이지 않거나, 신호 측정이 거부되면 아무 것도 보고하지 않습니다. 착륙 목표 추정치는 `landing_targett_pose` uORB 메시지에 게재됩니다.
 
-
-
-### 고급 기체 위치 추정 
+### 고급 기체 위치 추정
 
 타겟이 매개변수 `LTEST_MODE`를 사용하여 정지 상태로 지정되면, 타겟 측정을 통하여 기체의 위치/속도 추정치를 개선할 수 있습니다. 기체의 음의 속도를 측정을 목표물의 속도와 결합하여 추정합니다.
-
-
 
 ### 착륙 단계 흐름도
 
