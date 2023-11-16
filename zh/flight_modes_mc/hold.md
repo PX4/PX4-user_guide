@@ -10,10 +10,16 @@ _Hold mode_ can be used to pause a mission or to help you regain control of a ve
 
 :::note
 
-- This mode requires GPS.
-- This mode is automatic - no user intervention is _required_ to control the vehicle.
+- Mode is automatic - no user intervention is _required_ to control the vehicle.
+- Mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+  - Flying vehicles can't switch to this mode without global position.
+  - Flying vehicles will failsafe if they lose the position estimate.
+  - Disarmed vehicles can switch to mode without valid position estimate but can't arm.
+- Mode requires wind and flight time are within allowed limits (specified via parameters).
 - RC control switches can be used to change flight modes on any vehicle.
 - RC stick movement will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
+
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
 :::
 

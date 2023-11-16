@@ -10,10 +10,17 @@ PX4 提供了几种机制来选择安全的返航路径，返航目的地和着�
 
 :::note
 
-- This mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
-- This mode is automatic - no user intervention is _required_ to control the vehicle.
+- Mode is automatic - no user intervention is _required_ to control the vehicle.
+- Mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+  - Flying vehicles can't switch to this mode without global position.
+  - Flying vehicles will failsafe if they lose the position estimate.
+- Mode requires home position is set.
+- Mode prevents arming (vehicle must be armed when switching to this mode).
 - 遥控开关可以在任何无人机上更改飞行模式。
 - RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
+
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
+
 :::
 
 <a id="return_types"></a>
@@ -82,7 +89,7 @@ Mission _with_ landing pattern:
   - 直接飞到最近的航点（对固定翼而言，不是着陆航点），然后降落到航点高度。
   - 从该航点以快速模式继续执行任务。
 - **手动模式:**
-  - 爬升到一个安全的[返航高度](#return_altitude) 高于任何可预期的障碍物。
+  - Ascend to a safe [return altitude](#return_altitude) above any expected obstacles.
   - 直接飞到降落序列位置并下降到航点高度。
   - 使用任务降落模式着陆。
 
