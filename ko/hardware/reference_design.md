@@ -28,7 +28,7 @@ FMU 1~3세대는 개방형 하드웨어로 설계되었으나, FMU 4세대와 5�
 
 <!-- Draw.io version of file can be found here: https://drive.google.com/file/d/1H0nK7Ufo979BE9EBjJ_ccVx3fcsilPS3/view?usp=sharing -->
 
-일부 Pixhawk 시리즈 컨트롤러는 공간이나 복잡성을 줄이기 위하여 특정 보드 의 기능 향상을 위하여 I/O 보드 없이 제작됩니다. In this case [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) is set to `0` so that the I/O driver is not started. You can also set `SYS_USE_IO` to `0` to disable the I/O on a flight controller where it is present but not needed (in order to slightly reduce the CPU load).
+일부 Pixhawk 시리즈 컨트롤러는 공간이나 복잡성을 줄이기 위하여 특정 보드 의 기능 향상을 위하여 I/O 보드 없이 제작됩니다. In this case the I/O driver is not started.
 
 :::note
 Manufacturer flight controller variants without an I/O board are often named as a "diminutive" of a version that includes the I/O board: e.g. _Pixhawk 4_ **Mini**_, \_CUAV v5 **nano**_.

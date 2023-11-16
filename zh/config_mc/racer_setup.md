@@ -108,8 +108,8 @@ It is _crucial_ to reduce the control latency as much as possible! A lower laten
 - 软机架或软振动隔离装置会增加延迟(它们充当了滤波器)。
 - [Low-pass filters](../config_mc/filter_tuning.md) in software and on the sensor chip trade off increased latency for improved noise filtering.
 - PX4 软件内部：传感器信号需要从驱动程序中读取，然后通过控制器传递到输出驱动器。
-- The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a _Pixracer_ or _Omnibus F4_, but does apply to a Pixhawk). 要避免IO 延迟，请禁用 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) 并将电机连接到 AUX 引脚。
-- PWM output signal: enable the One-Shot protocol to reduce latency. The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
+- The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a _Pixracer_ or _Omnibus F4_, but does apply to a Pixhawk). To avoid the IO delay attach the motors to the AUX pins instead.
+- PWM output signal: enable [Dshot](../peripherals/dshot.md) by preference to reduce latency (or One-Shot if DShot is not supported). The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
 
 ### Filter Tuning
 

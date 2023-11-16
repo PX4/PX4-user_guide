@@ -22,8 +22,8 @@ The _control latency_ is the delay from a physical disturbance of the vehicle un
 - 소프트웨어 및 센서 칩의 저역 통과 필터는 대기 시간 증가분을 상쇄하여 노이즈 필터링을 원활하게합니다.
 - PX4 소프트웨어 내부 : 센서 신호를 드라이버에서 읽은 다음 컨트롤러를 통해 출력 드라이버로 전달하여야 합니다.
 - 최대 자이로 게시 속도 ([IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX)로 설정됨). 속도가 높을수록 지연 시간이 줄어들지만 증간된 연산량으로 인하여 다른 프로세스를 방해할 수 있습니다. 4kHz 이상은 STM32H7 프로세서 이상의 컨트롤러에서만 권장됩니다 (2kHz 값은 성능이 낮은 프로세서의 최대치입니다).
-- The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a _Pixracer_ or _Omnibus F4_, but does apply to a Pixhawk). IO 지연을 방지하려면 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO)를 비활성화하고 모터를 AUX 핀에 대신 연결하십시오.
-- PWM output signal: enable [Dshot](../peripherals/dshot.md) or One-Shot to reduce latency. The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
+- The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a _Pixracer_ or _Omnibus F4_, but does apply to a Pixhawk). To avoid the IO delay attach the motors to the AUX pins instead.
+- PWM output signal: enable [Dshot](../peripherals/dshot.md) by preference to reduce latency (or One-Shot if DShot is not supported). The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
 
 아래에서는 저역 통과 필터의 효과에 대하여 설명합니다.
 

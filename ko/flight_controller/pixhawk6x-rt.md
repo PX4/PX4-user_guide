@@ -193,7 +193,7 @@ Most users will not need to build this firmware! It is pre-built and automatical
 To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
-make px4_fmu-v6xrt
+make px4_fmu-v6xrt_default
 ```
 
 <a id="debug_port"></a>
