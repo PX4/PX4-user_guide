@@ -8,8 +8,8 @@ Vehicles are [hand or catapult launched](#catapult-hand-launch) by default, but 
 
 :::note
 
-- This mode requires a good position estimate (e.g. from GPS).
-- The vehicle must be armed before this mode will activate.
+- This mode requires at least a valid local position estimate (does not require a global position).
+  <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 - This mode is automatic - no user intervention is _required_ to control the vehicle.
 - RC control switches can be used to change flight modes.
 - RC stick movement is ignored in catapult takeoff but can can be used to nudge the vehicle in runway takeoff.
