@@ -470,11 +470,11 @@ The uORB subscriber will not be able to determine if an incoming message was pub
 When you add a topic to the `subscriptions_multi` section the uXRCE-DDS module:
 - Queries the uORB manager and get the number `n` of instances currently in use for the desired topic.
 - Creates a unidirectional route going from the ROS2 topic to the a _new_ instance (instance `n+1`) of the associated uORB topic.
-For example, if `vehicle_odometry` has already `2` instances, it creates a ROS2 subscriber of `/fmu/in/vehicle_odometry` and a uORB publisher on instance `3` of `vehicle_odometry`.
+  For example, if `vehicle_odometry` has already `2` instances, it creates a ROS2 subscriber of `/fmu/in/vehicle_odometry` and a uORB publisher on instance `3` of `vehicle_odometry`.
 - This ensures that no other internal PX4 module will publish on the same instance used by uXRCE-DDS.
-The subscribers will be able to subscribe to the desired instance and distinguish between publishers.
+  The subscribers will be able to subscribe to the desired instance and distinguish between publishers.
 - Note, however, that this guarantees separation between PX4 and ROS2 publishers, not among multiple ROS2 publishers.
-In that scenario, their messages will still be routed to the same instance.
+  In that scenario, their messages will still be routed to the same instance.
 - This is the desired behavior, for example, when you want PX4 to log the readings of two equal sensors; they will both publish on the same topic, but one will use instance 0 and the other will use instance 1.
 
 You can arbitrarily change the configuration.
