@@ -10049,24 +10049,6 @@ table {
  <td>m/s^2</td>
 </tr>
 <tr>
- <td><strong id="EKF2_AID_MASK">EKF2_AID_MASK</strong> (INT32)</td>
- <td>Will be removed after v1.14 release <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Deprecated. use EKF2_OF_CTRL instead 2 : Deprecated, use EKF2_IMU_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead 4 : Deprecated, use EKF2_EV_CTRL instead 5 : Deprecated. use EKF2_DRAG_CTRL instead 6 : Deprecated, use EKF2_EV_CTRL instead 7 : Deprecated, use EKF2_GPS_CTRL instead 8 : Deprecated, use EKF2_EV_CTRL instead</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> unused</li>
-  <li><strong>1:</strong> unused</li>
-  <li><strong>2:</strong> unused</li>
-  <li><strong>3:</strong> unused</li>
-  <li><strong>4:</strong> unused</li>
-  <li><strong>5:</strong> unused</li>
-  <li><strong>6:</strong> unused</li>
-  <li><strong>7:</strong> unused</li>
-  <li><strong>8:</strong> unused</li>
-</ul>
- <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 511] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="EKF2_ANGERR_INIT">EKF2_ANGERR_INIT</strong> (FLOAT)</td>
  <td>1-sigma tilt angle uncertainty after gravity vector alignment    <p><b>Reboot required:</b> true</p>
 </td>
@@ -11039,7 +11021,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -12509,7 +12491,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_FAILURE_MODE">CA_FAILURE_MODE</strong> (INT32)</td>
- <td>Motor failure handling mode <p><strong>Comment:</strong> This is used to specify how to handle motor failures reported by failure detector.</p> <strong>값:</strong><ul>
+ <td>Motor failure handling mode <p><strong>Comment:</strong> This is used to specify how to handle motor failures reported by failure detector.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Ignore</li>
 <li><strong>1:</strong> Remove first failed motor from effectiveness</li>
 </ul>  </td>
@@ -16826,7 +16808,7 @@ table {
 </tr>
 <tr>
  <td><strong id="OSD_ATXXXX_CFG">OSD_ATXXXX_CFG</strong> (INT32)</td>
- <td>Enable/Disable the ATXXX OSD Chip <p><strong>Comment:</strong> Configure the ATXXXX OSD Chip (mounted on the OmnibusF4SD board) and select the transmission standard.</p> <strong>값:</strong><ul>
+ <td>Enable/Disable the ATXXX OSD Chip <p><strong>Comment:</strong> Configure the ATXXXX OSD Chip (mounted on the OmnibusF4SD board) and select the transmission standard.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> NTSC</li>
 <li><strong>2:</strong> PAL</li>
@@ -19202,7 +19184,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -21429,7 +21411,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_CM8JL65_R_0">SENS_CM8JL65_R_0</strong> (INT32)</td>
- <td>Distance Sensor Rotation <p><strong>Comment:</strong> Distance Sensor Rotation as MAV_SENSOR_ORIENTATION enum</p> <strong>값:</strong><ul>
+ <td>Distance Sensor Rotation <p><strong>Comment:</strong> Distance Sensor Rotation as MAV_SENSOR_ORIENTATION enum</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> ROTATION_FORWARD_FACING</li>
 <li><strong>2:</strong> ROTATION_RIGHT_FACING</li>
 <li><strong>6:</strong> ROTATION_LEFT_FACING</li>
@@ -22520,7 +22502,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SF45_ORIENT_CFG">SF45_ORIENT_CFG</strong> (INT32)</td>
- <td>Orientation upright or facing downward <p><strong>Comment:</strong> The SF45 mounted facing upward or downward on the frame</p> <strong>값:</strong><ul>
+ <td>Orientation upright or facing downward <p><strong>Comment:</strong> The SF45 mounted facing upward or downward on the frame</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Rotation upward</li>
 <li><strong>1:</strong> Rotation downward</li>
 </ul>  <p><b>Reboot required:</b> True</p>
@@ -22552,7 +22534,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SF45_YAW_CFG">SF45_YAW_CFG</strong> (INT32)</td>
- <td>Sensor facing forward or backward <p><strong>Comment:</strong> The usb port on the sensor indicates 180deg, opposite usb is forward facing</p> <strong>값:</strong><ul>
+ <td>Sensor facing forward or backward <p><strong>Comment:</strong> The usb port on the sensor indicates 180deg, opposite usb is forward facing</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Rotation forward</li>
 <li><strong>1:</strong> Rotation backward</li>
 <li><strong>2:</strong> Rotation right</li>
@@ -23511,7 +23493,7 @@ table {
 </tr>
 <tr>
  <td><strong id="TEL_HOTT_CONFIG">TEL_HOTT_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for HoTT Telemetry <p><strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.</p> <strong>값:</strong><ul>
+ <td>Serial Configuration for HoTT Telemetry <p><strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -25386,7 +25368,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MXS_TARG_PORT">MXS_TARG_PORT</strong> (INT32)</td>
- <td>Sagetech MXS Participant Configuration <p><strong>Comment:</strong> The MXS communication port to receive Target data from</p> <strong>값:</strong><ul>
+ <td>Sagetech MXS Participant Configuration <p><strong>Comment:</strong> The MXS communication port to receive Target data from</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>1:</strong> COM0</li>
 <li><strong>2:</strong> COM1</li>
