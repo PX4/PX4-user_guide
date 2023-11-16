@@ -12,6 +12,7 @@ The mission is typically created and uploaded with a Ground Control Station (GCS
   - Flying vehicles can't switch to this mode without global position.
   - Flying vehicles will failsafe if they lose the position estimate.
   - Disarmed vehicles can switch to mode without valid position estimate but can't arm.
+- Mode requires wind and flight time are within specified limits.
 - RC control switches can be used to change flight modes on any vehicle.
 - RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
 
