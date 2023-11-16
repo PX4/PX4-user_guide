@@ -10081,24 +10081,6 @@ table {
  <td>m/s^2</td>
 </tr>
 <tr>
- <td><strong id="EKF2_AID_MASK">EKF2_AID_MASK</strong> (INT32)</td>
- <td>Will be removed after v1.14 release <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Deprecated. use EKF2_OF_CTRL instead 2 : Deprecated, use EKF2_IMU_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead 4 : Deprecated, use EKF2_EV_CTRL instead 5 : Deprecated. use EKF2_DRAG_CTRL instead 6 : Deprecated, use EKF2_EV_CTRL instead 7 : Deprecated, use EKF2_GPS_CTRL instead 8 : Deprecated, use EKF2_EV_CTRL instead</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> unused</li>
-  <li><strong>1:</strong> unused</li>
-  <li><strong>2:</strong> unused</li>
-  <li><strong>3:</strong> unused</li>
-  <li><strong>4:</strong> unused</li>
-  <li><strong>5:</strong> unused</li>
-  <li><strong>6:</strong> unused</li>
-  <li><strong>7:</strong> unused</li>
-  <li><strong>8:</strong> unused</li>
-</ul>
- <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 511] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="EKF2_ANGERR_INIT">EKF2_ANGERR_INIT</strong> (FLOAT)</td>
  <td>1-sigma tilt angle uncertainty after gravity vector alignment    <p><b>Reboot required:</b> true</p>
 </td>
