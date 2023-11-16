@@ -16,7 +16,7 @@ It is usually activated with a pre-programmed switch.
   - Flying vehicles can't switch to this mode without global position.
   - Flying vehicles will failsafe if they lose the position estimate.
   - Disarmed vehicles can switch to mode without valid position estimate but can't arm.
-- Mode requires wind and flight time are within specified limits.
+- Mode requires wind and flight time are within allowed limits (specified via parameters).
 - RC control switches can be used to change flight modes on any vehicle.
 - RC stick movement will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
 
