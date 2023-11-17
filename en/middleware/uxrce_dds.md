@@ -463,13 +463,12 @@ For this reason, we distinguish between `subscriptions` and `subscriptions_multi
 When you add a topic to the  `subscriptions` section the uXRCE-DDS module:
 - Creates a unidirectional route going from the ROS2 topic to the _default_ instance (instance 0) of the associated uORB topic.
 For example, it creates a ROS2 subscriber of `/fmu/in/vehicle_odometry` and a uORB publisher of `vehicle_odometry`.
-- If other (internal) PX4 modules are already publishing on the same uORB topic, its subscribers will receive all streams of messages.
-The uORB subscriber will not be able to determine if an incoming message was published by PX4 or by ROS2.
-- This is the desired behavior when the specified uORB topic has no other publishers, or when you want to replace an internal publisher on this topic (for example during offboard control).
+- If other (internal) PX4 modules are already publishing on the same uORB topic instance as the ROS2 publisher, the instance's subscribers will receive all streams of messages.
+  The uORB subscriber will not be able to determine if an incoming message was published by PX4 or by ROS2.
+- This is the desired behavior when the ROS2 publisher is expected to be the sole publisher on the topic instance (for example, replacing an internal publisher to the topic during offboard control), or when the source of multiple publishing streams does not matter.
 
 When you add a topic to the `subscriptions_multi` section the uXRCE-DDS module:
-- Queries the uORB manager and get the number `n` of instances currently in use for the desired topic.
-- Creates a unidirectional route going from the ROS2 topic to the a _new_ instance (instance `n+1`) of the associated uORB topic.
+- Creates a unidirectional route going from the ROS2 topic to a _new_ instance of the associated uORB topic.
   For example, if `vehicle_odometry` has already `2` instances, it creates a ROS2 subscriber of `/fmu/in/vehicle_odometry` and a uORB publisher on instance `3` of `vehicle_odometry`.
 - This ensures that no other internal PX4 module will publish on the same instance used by uXRCE-DDS.
   The subscribers will be able to subscribe to the desired instance and distinguish between publishers.
