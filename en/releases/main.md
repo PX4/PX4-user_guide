@@ -52,7 +52,7 @@ TBD ...
 
 ### Multi-Rotor
 
-- TBD
+- [Throw launch](../advanced_features/throw_launch.md): ability to start a multicopter by throwing it into the air. [PX4-Autopilot#21170](https://github.com/PX4/PX4-Autopilot/pull/21170)
 
 ### VTOL
 

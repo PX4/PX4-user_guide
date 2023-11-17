@@ -153,6 +153,7 @@
   * [MAVLink Telemetry (OSD/GCS)](peripherals/mavlink_peripherals.md)
   * [PX4 Ethernet Setup](advanced_config/ethernet_setup.md)
   * [Bootloader Update](advanced_config/bootloader_update.md)
+  * [Throw Launch](advanced_features/throw_launch.md)
 * [Hardware (Drones&Parts)](hardware/drone_parts.md)
   * [Complete Vehicles](complete_vehicles/README.md)
     * [ModalAI Starling](complete_vehicles/modalai_starling.md)
