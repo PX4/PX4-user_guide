@@ -220,7 +220,7 @@ To add a new model:
      ```
 
 :::note
-As long as the world file and the model file are in the Gazebo search path `GZ_RESOURCE_PATH` it is not necessary to add them to the PX4 world and model directories.
+As long as the world file and the model file are in the Gazebo search path `GZ_SIM_RESOURCE_PATH` it is not necessary to add them to the PX4 world and model directories.
 However, `make px4_sitl gz_<model>_<world>` won't work with them.
 :::
 
