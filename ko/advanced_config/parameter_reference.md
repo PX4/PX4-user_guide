@@ -32,7 +32,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="ctl_bw">ctl_bw</strong> (INT32)</td>
- <td>속도 조종 장치 대역폭 <p><strong>설명:</ 0> 속도 컨트롤러 대역폭 (Hz). 값이 높을수록 속도와 전류 상승 시간이 빨라지지만, 오버 슈트와 전류 소비가 많이 발생할 수 있습니다. 고정익의 값은 50Hz 미만이어야합니다. 멀티콥터는 100Hz까지는 응답성을 향상시킬 수 있습니다.</p>   </td>
+ <td>속도 조종 장치 대역폭 <p><strong>설명:</strong> 속도 컨트롤러 대역폭 (Hz). 값이 높을수록 속도와 전류 상승 시간이 빨라지지만, 오버 슈트와 전류 소비가 많이 발생할 수 있습니다. 고정익의 값은 50Hz 미만이어야합니다. 멀티콥터는 100Hz까지는 응답성을 향상시킬 수 있습니다.</p>   </td>
  <td>[10, 250] </td>
  <td>75</td>
  <td>Hz</td>
@@ -9182,6 +9182,13 @@ table {
  <td>s</td>
 </tr>
 <tr>
+ <td><strong id="COM_DISARM_MAN">COM_DISARM_MAN</strong> (INT32)</td>
+ <td>Allow disarming via switch/stick/button on multicopters in manual thrust modes <p><strong>Comment:</strong> 0: Disallow disarming when not landed 1: Allow disarming in multicopter flight in modes where the thrust is directly controlled by thr throttle stick e.g. Stabilized, Acro</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="COM_DISARM_PRFLT">COM_DISARM_PRFLT</strong> (FLOAT)</td>
  <td>Time-out for auto disarm if not taking off <p><strong>Comment:</strong> A non-zero, positive value specifies the time in seconds, within which the vehicle is expected to take off after arming. In case the vehicle didn&#x27;t takeoff within the timeout it disarms again. A negative value disables autmoatic disarming triggered by a pre-takeoff timeout.</p>   </td>
  <td>(0.1)</td>
@@ -15613,6 +15620,13 @@ table {
  <td></td>
  <td>Enabled (1)</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="MAN_KILL_GEST_T">MAN_KILL_GEST_T</strong> (FLOAT)</td>
+ <td>Trigger time for kill stick gesture <p><strong>Comment:</strong> The timeout for holding the left stick to the lower left and the right stick to the lower right at the same time until the gesture kills the actuators one-way. A negative value disables the feature.</p>   </td>
+ <td>[-1, 15] </td>
+ <td>-1.</td>
+ <td>s</td>
 </tr>
 </tbody></table>
 
@@ -25347,7 +25361,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MXS_SER_CFG">MXS_SER_CFG</strong> (INT32)</td>
- <td>Serial Configuration for Sagetech MXS Serial Port <p><strong>Comment:</strong> Configure on which serial port to run Sagetech MXS Serial Port.</p> <strong>값:</strong><ul>
+ <td>Serial Configuration for Sagetech MXS Serial Port <p><strong>Comment:</strong> Configure on which serial port to run Sagetech MXS Serial Port.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -25496,7 +25510,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_LGT_STROB">UAVCAN_LGT_STROB</strong> (INT32)</td>
- <td>UAVCAN STROBE light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the STROBE lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>값:</strong><ul>
+ <td>UAVCAN STROBE light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the STROBE lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Always off</li>
 <li><strong>1:</strong> When autopilot is armed</li>
 <li><strong>2:</strong> When autopilot is prearmed</li>
@@ -26304,7 +26318,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>

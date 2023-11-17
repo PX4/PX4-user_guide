@@ -9214,6 +9214,13 @@ table {
  <td>s</td>
 </tr>
 <tr>
+ <td><strong id="COM_DISARM_MAN">COM_DISARM_MAN</strong> (INT32)</td>
+ <td>Allow disarming via switch/stick/button on multicopters in manual thrust modes <p><strong>Comment:</strong> 0: Disallow disarming when not landed 1: Allow disarming in multicopter flight in modes where the thrust is directly controlled by thr throttle stick e.g. Stabilized, Acro</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="COM_DISARM_PRFLT">COM_DISARM_PRFLT</strong> (FLOAT)</td>
  <td>Time-out for auto disarm if not taking off <p><strong>Comment:</strong> A non-zero, positive value specifies the time in seconds, within which the vehicle is expected to take off after arming. In case the vehicle didn&#x27;t takeoff within the timeout it disarms again. A negative value disables autmoatic disarming triggered by a pre-takeoff timeout.</p>   </td>
  <td>(0.1)</td>
@@ -10079,24 +10086,6 @@ table {
  <td>[0.01, 1.0] </td>
  <td>3.5e-1</td>
  <td>m/s^2</td>
-</tr>
-<tr>
- <td><strong id="EKF2_AID_MASK">EKF2_AID_MASK</strong> (INT32)</td>
- <td>Will be removed after v1.14 release <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Deprecated. use EKF2_OF_CTRL instead 2 : Deprecated, use EKF2_IMU_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead 4 : Deprecated, use EKF2_EV_CTRL instead 5 : Deprecated. use EKF2_DRAG_CTRL instead 6 : Deprecated, use EKF2_EV_CTRL instead 7 : Deprecated, use EKF2_GPS_CTRL instead 8 : Deprecated, use EKF2_EV_CTRL instead</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> unused</li>
-  <li><strong>1:</strong> unused</li>
-  <li><strong>2:</strong> unused</li>
-  <li><strong>3:</strong> unused</li>
-  <li><strong>4:</strong> unused</li>
-  <li><strong>5:</strong> unused</li>
-  <li><strong>6:</strong> unused</li>
-  <li><strong>7:</strong> unused</li>
-  <li><strong>8:</strong> unused</li>
-</ul>
- <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 511] </td>
- <td>0</td>
- <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_ANGERR_INIT">EKF2_ANGERR_INIT</strong> (FLOAT)</td>
@@ -15663,6 +15652,13 @@ table {
  <td></td>
  <td>Enabled (1)</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="MAN_KILL_GEST_T">MAN_KILL_GEST_T</strong> (FLOAT)</td>
+ <td>Trigger time for kill stick gesture <p><strong>Comment:</strong> The timeout for holding the left stick to the lower left and the right stick to the lower right at the same time until the gesture kills the actuators one-way. A negative value disables the feature.</p>   </td>
+ <td>[-1, 15] </td>
+ <td>-1.</td>
+ <td>s</td>
 </tr>
 </tbody></table>
 
