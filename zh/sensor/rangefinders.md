@@ -12,7 +12,6 @@ Distance sensors provide distance measurement that can be used for [terrain foll
 
 [ARK Flow](../dronecan/ark_flow.md) is an open-source Time-of-Flight (ToF) and optical flow sensor module, which is capable of measuring distances from 8cm to 30m. 它可以通过CAN1接口连接至飞控，允许通过CAN2接口添加传感器。 It supports [DroneCAN](../dronecan/README.md), runs [PX4 DroneCAN Firmware](../dronecan/px4_cannode_fw.md), and is packed into a tiny form factor.
 
-
 ### Holybro ST VL53L1X 激光雷达
 
 The [VL53L1X](https://holybro.com/products/st-vl53l1x-lidar) is a state-of-the-art, Time-of-Flight (ToF), laser-ranging sensor, enhancing the ST FlightSense™ product family. 它是市场上速度最快的微型 ToF 传感器，精确测距可达 4 m，快速测距频率可达 50 Hz。
@@ -43,21 +42,17 @@ PX4 also supports the [LightWare LiDAR SF45 Rotating Lidar](https://www.lightwar
 
 PX4 提供以下通过 I2C总线连接的型号：TeraRanger One, TeraRanger Evo 60m 和 TeraRanger Evo 600Hz。
 
-
 ### Ainstein US-D1 标准雷达高度计
 
-The *Ainstein* [US-D1 Standard Radar Altimeter](../sensor/ulanding_radar.md) is compact microwave rangefinder that has been optimised for use on UAVs. 它有大约50米的感测范围。 该产品的一个特别优势是它可以在所有天气条件下和所有地形类型（包括水）上有效运行。
-
+The _Ainstein_ [US-D1 Standard Radar Altimeter](../sensor/ulanding_radar.md) is compact microwave rangefinder that has been optimised for use on UAVs. 它有大约50米的感测范围。 该产品的一个特别优势是它可以在所有天气条件下和所有地形类型（包括水）上有效运行。
 
 ### LeddarOne
 
 [LeddarOne](../sensor/leddar_one.md) 是一种小型激光雷达模块，具有窄而漫反射的光束，在一个坚固、可靠、经济高效的组件中提供出色的整体探测范围和性能。 它的遥感范围从1厘米到40米不等，需要与UART/串行总线连接。
 
-
 ### TFmini
 
 [Benewake TFmini Lidar](../sensor/tfmini.md) 是一个的小巧、低成本、低功率的激光测距拥有 12m 的测量范围
-
 
 ### PSK-CM8JL65-CC5
 
@@ -73,20 +68,19 @@ The [Avionics Anonymous UAVCAN Laser Altimeter Interface](../dronecan/avanon_las
 
 测距仪通常连接到串口(PWM)或者 I2C 接口(取决于设备驱动），并通过设置特定的参数在端口上启用。
 
-The hardware and software setup that is *specific to each distance sensor* is covered in their individual topics.
+The hardware and software setup that is _specific to each distance sensor_ is covered in their individual topics.
 
-The generic configuration that is *common to all distance sensors*, covering both the physical setup and usage, is given below.
-
+The generic configuration that is _common to all distance sensors_, covering both the physical setup and usage, is given below.
 
 ### 常规配置
 
-The common rangefinder configuration is specified using [EKF2\_RNG\_*](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) parameters. 这些包括（非详尽）：
+The common rangefinder configuration is specified using [EKF2_RNG\_\*](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) parameters. 这些包括（非详尽）：
+
 - [EKF2_RNG_POS_X](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_Y](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Y), [EKF2_RNG_POS_Z](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Z) - 测距仪在 X、Y、Z 方向上与车辆重心的偏移量。
 - [EKF2_RNG_PITCH](../advanced_config/parameter_reference.md#EKF2_RNG_PITCH) - 0 度值（默认值）对应于测距仪与车辆垂直轴精确对齐（即垂直向下），而 90 度表示测距仪指向前方。 如果使用非零间距，则使用简单的三角法计算到地面的距离。
 - [EKF2_RNG_DELAY](../advanced_config/parameter_reference.md#EKF2_RNG_DELAY) - 数据从传感器到达估计器的近似延迟。
 - [EKF2_RNG_SFE](../advanced_config/parameter_reference.md#EKF2_RNG_SFE) - Range finder range dependent noise scaler.
 - [EKF2_RNG_NOISE](../advanced_config/parameter_reference.md#EKF2_RNG_NOISE) - 测距仪融合的测量噪声
-
 
 ## 测试
 
@@ -94,7 +88,7 @@ The common rangefinder configuration is specified using [EKF2\_RNG\_*](../advanc
 
 ### QGroundControl MAVLink 检查器
 
-The *QGroundControl MAVLink Inspector* lets you view messages sent from the vehicle, including `DISTANCE_SENSOR` information from the rangefinder. The main difference between the tools is that the *Analyze* tool can plot values in a graph.
+The _QGroundControl MAVLink Inspector_ lets you view messages sent from the vehicle, including `DISTANCE_SENSOR` information from the rangefinder. The main difference between the tools is that the _Analyze_ tool can plot values in a graph.
 
 :::note
 发送的消息取决于车辆配置。 `DISTANCE_SENSOR`只有在联网车辆安装了测距仪并发布传感器值时，您才会收到消息。
@@ -105,21 +99,22 @@ The *QGroundControl MAVLink Inspector* lets you view messages sent from the vehi
 1. Open the menu **Q > Select Tool > Analyze Tools**:
 
    ![Menu for QGC Analyze Tool](../../assets/qgc/analyze/menu_analyze_tool.png)
+
 1. 选择消息`DISTANCE_SENSOR`，然后选中plot复选框`current_distance`。 工具将会绘制结果： ![QGC Analyze DISTANCE_SENSOR value](../../assets/qgc/analyze/qgc_analyze_tool_distance_sensor.png)
 
 ### QGroundControl MAVLink 控制台
 
-You can also use the *QGroundControl MAVLink Console* to observe the `distance_sensor` uORB topic:
+You can also use the _QGroundControl MAVLink Console_ to observe the `distance_sensor` uORB topic:
+
 ```sh
 listener distance_sensor 5
 ```
 
 :::note
-The *QGroundControl MAVLink Console* works when connected to Pixhawk or other NuttX targets, but not the Simulator. 在模拟器上可以直接在终端中运行命令。
+The _QGroundControl MAVLink Console_ works when connected to Pixhawk or other NuttX targets, but not the Simulator. 在模拟器上可以直接在终端中运行命令。
 :::
 
 For more information see: [Development > Debugging/Logging > Sensor/Topic Debugging using the Listener Command](../debug/sensor_uorb_topic_debugging.md).
-
 
 ## 仿真
 
@@ -140,6 +135,7 @@ make px4_sitl gazebo-classic_typhoon_h480
 如果你需要使用一个不同的车辆，你可以在它的配置文件中包含此模型。 你可以看到如何在相应的 Iris 和 Typhoon 配置文件：
 
 - [iris_opt_flow.sdf](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/iris_opt_flow/iris_opt_flow.sdf)
+
   ```xml
     <include>
       <uri>model://lidar</uri>
@@ -156,8 +152,10 @@ make px4_sitl gazebo-classic_typhoon_h480
         </limit>
       </axis>
     </joint>
-   ```
+  ```
+
 - [typhoon_h480.sdf](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/typhoon_h480/typhoon_h480.sdf.jinja#L1131-L1145)
+
   ```xml
     <include>
       <uri>model://sonar</uri>
