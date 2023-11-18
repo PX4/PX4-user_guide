@@ -15,11 +15,11 @@ It was presented at the PX4 Developer Conference 2019.
 A typical scenario that can cause a hard fault is when the processor overwrites the stack and then the processor returns to an invalid address from the stack.
 This may be caused by a bug in code were a wild pointer corrupts the stack, or another task overwrites this task's stack.
 
-* NuttX maintains two stacks: The IRQ stack for interrupt processing and the user stack
-* The stack grows downward.
+- NuttX maintains two stacks: The IRQ stack for interrupt processing and the user stack
+- The stack grows downward.
   So the highest address in the example below is 0x20021060, the size is 0x11f4 (4596 bytes) and consequently the lowest address is 0x2001fe6c.
 
-```bash
+```sh
 Assertion failed at file:armv7-m/up_hardfault.c line: 184 task: ekf_att_pos_estimator
 sp:     20003f90
 IRQ stack:
@@ -66,14 +66,14 @@ xPSR: 61000000 BASEPRI: 00000000 CONTROL: 00000000
 EXC_RETURN: ffffffe9
 ```
 
-To decode the hard fault, load the *exact* binary into the debugger:
+To decode the hard fault, load the _exact_ binary into the debugger:
 
-```bash
+```sh
 arm-none-eabi-gdb build/px4_fmu-v2_default/px4_fmu-v2_default.elf
 ```
 
 Then in the GDB prompt, start with the last instructions in R8, with the first address in flash (recognizable because it starts with `0x080`, the first is `0x0808439f`).
-The execution is left to right. So one of the last steps before the hard fault was when ```mavlink_log.c``` tried to publish something,
+The execution is left to right. So one of the last steps before the hard fault was when `mavlink_log.c` tried to publish something,
 
 ```sh
 (gdb) info line *0x0808439f
