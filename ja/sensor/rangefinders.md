@@ -12,7 +12,6 @@ This section lists the distance sensors supported by PX4 (linked to more detaile
 
 [ARK Flow](../dronecan/ark_flow.md) is an open-source Time-of-Flight (ToF) and optical flow sensor module, which is capable of measuring distances from 8cm to 30m. It can be connected to the flight controller via its CAN1 port, allowing additional sensors to connect through its CAN2 port. It supports [DroneCAN](../dronecan/README.md), runs [PX4 DroneCAN Firmware](../dronecan/px4_cannode_fw.md), and is packed into a tiny form factor.
 
-
 ### Holybro ST VL53L1X Lidar
 
 The [VL53L1X](https://holybro.com/products/st-vl53l1x-lidar) is a state-of-the-art, Time-of-Flight (ToF), laser-ranging sensor, enhancing the ST FlightSense™ product family. It is the fastest miniature ToF sensor on the market with accurate ranging up to 4 m and fast ranging frequency up to 50 Hz.
@@ -43,21 +42,17 @@ PX4 also supports the [LightWare LiDAR SF45 Rotating Lidar](https://www.lightwar
 
 PX4 supports the following models connected via the I2C bus: TeraRanger One, TeraRanger Evo 60m and TeraRanger Evo 600Hz.
 
-
 ### Ainstein US-D1 Standard Radar Altimeter
 
-The *Ainstein* [US-D1 Standard Radar Altimeter](../sensor/ulanding_radar.md) is compact microwave rangefinder that has been optimised for use on UAVs. It has a sensing range of around 50m. A particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
-
+The _Ainstein_ [US-D1 Standard Radar Altimeter](../sensor/ulanding_radar.md) is compact microwave rangefinder that has been optimised for use on UAVs. It has a sensing range of around 50m. A particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
 
 ### LeddarOne
 
 [LeddarOne](../sensor/leddar_one.md) is small Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. It has a sensing range from 1cm to 40m and needs to be connected to a UART/serial bus.
 
-
 ### TFmini
 
 The [Benewake TFmini Lidar](../sensor/tfmini.md) is a tiny, low cost, and low power LIDAR with 12m range.
-
 
 ### PSK-CM8JL65-CC5
 
@@ -73,20 +68,19 @@ The [Avionics Anonymous UAVCAN Laser Altimeter Interface](../dronecan/avanon_las
 
 Rangefinders are usually connected to either a serial (PWM) or I2C port (depending on the device driver), and are enabled on the port by setting a particular parameter.
 
-The hardware and software setup that is *specific to each distance sensor* is covered in their individual topics.
+The hardware and software setup that is _specific to each distance sensor_ is covered in their individual topics.
 
-The generic configuration that is *common to all distance sensors*, covering both the physical setup and usage, is given below.
-
+The generic configuration that is _common to all distance sensors_, covering both the physical setup and usage, is given below.
 
 ### Generic Configuration
 
-The common rangefinder configuration is specified using [EKF2\_RNG\_*](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) parameters. These include (non exhaustively):
+The common rangefinder configuration is specified using [EKF2_RNG\_\*](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) parameters. These include (non exhaustively):
+
 - [EKF2_RNG_POS_X](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_Y](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Y), [EKF2_RNG_POS_Z](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Z) - offset of the rangefinder from the vehicle centre of gravity in X, Y, Z directions.
 - [EKF2_RNG_PITCH](../advanced_config/parameter_reference.md#EKF2_RNG_PITCH) - A value of 0 degrees (default) corresponds to the range finder being exactly aligned with the vehicle vertical axis (i.e. straight down), while 90 degrees indicates that the range finder is pointing forward. Simple trigonometry is used to calculate the distance to ground if a non-zero pitch is used.
 - [EKF2_RNG_DELAY](../advanced_config/parameter_reference.md#EKF2_RNG_DELAY) - approximate delay of data reaching the estimator from the sensor.
 - [EKF2_RNG_SFE](../advanced_config/parameter_reference.md#EKF2_RNG_SFE) - Range finder range dependent noise scaler.
 - [EKF2_RNG_NOISE](../advanced_config/parameter_reference.md#EKF2_RNG_NOISE) - Measurement noise for range finder fusion
-
 
 ## Testing
 
@@ -94,7 +88,7 @@ The easiest way to test the rangefinder is to vary the range and compare to the 
 
 ### QGroundControl MAVLink Inspector
 
-The *QGroundControl MAVLink Inspector* lets you view messages sent from the vehicle, including `DISTANCE_SENSOR` information from the rangefinder. The main difference between the tools is that the *Analyze* tool can plot values in a graph.
+The _QGroundControl MAVLink Inspector_ lets you view messages sent from the vehicle, including `DISTANCE_SENSOR` information from the rangefinder. The main difference between the tools is that the _Analyze_ tool can plot values in a graph.
 
 :::note
 The messages that are sent depend on the vehicle configuration. You will only get `DISTANCE_SENSOR` messages if the connected vehicle has a rangefinder installed and is publishing sensor values.
@@ -105,21 +99,22 @@ To view the rangefinder output:
 1. Open the menu **Q > Select Tool > Analyze Tools**:
 
    ![Menu for QGC Analyze Tool](../../assets/qgc/analyze/menu_analyze_tool.png)
+
 1. Select the message `DISTANCE_SENSOR`, and then check the plot checkbox against `current_distance`. The tool will then plot the result: ![QGC Analyze DISTANCE_SENSOR value](../../assets/qgc/analyze/qgc_analyze_tool_distance_sensor.png)
 
 ### QGroundControl MAVLink Console
 
-You can also use the *QGroundControl MAVLink Console* to observe the `distance_sensor` uORB topic:
+You can also use the _QGroundControl MAVLink Console_ to observe the `distance_sensor` uORB topic:
+
 ```sh
 listener distance_sensor 5
 ```
 
 :::note
-The *QGroundControl MAVLink Console* works when connected to Pixhawk or other NuttX targets, but not the Simulator. On the Simulator you can run the commands directly in the terminal.
+The _QGroundControl MAVLink Console_ works when connected to Pixhawk or other NuttX targets, but not the Simulator. On the Simulator you can run the commands directly in the terminal.
 :::
 
 For more information see: [Development > Debugging/Logging > Sensor/Topic Debugging using the Listener Command](../debug/sensor_uorb_topic_debugging.md).
-
 
 ## Simulation
 
@@ -140,6 +135,7 @@ make px4_sitl gazebo-classic_typhoon_h480
 If you need to use a different vehicle you can include the model in its configuration file. You can see how in the respective Iris and Typhoon configuration files:
 
 - [iris_opt_flow.sdf](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/iris_opt_flow/iris_opt_flow.sdf)
+
   ```xml
     <include>
       <uri>model://lidar</uri>
@@ -156,8 +152,10 @@ If you need to use a different vehicle you can include the model in its configur
         </limit>
       </axis>
     </joint>
-   ```
+  ```
+
 - [typhoon_h480.sdf](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/typhoon_h480/typhoon_h480.sdf.jinja#L1131-L1145)
+
   ```xml
     <include>
       <uri>model://sonar</uri>
