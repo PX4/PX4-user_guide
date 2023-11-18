@@ -45,8 +45,7 @@ The GPS module's integrated safety switch is enabled _by default_ (when enabled,
 
 ## 전원
 
-Connect the output of the _PM02D Power Module_ (PM board) that comes with the Standard Set to one of the **POWER** port of _Pixhawk 5X_ using the 6-wire cable. Pixhawk 5X의 PM02D 및 전원 포트는 6회로
-2.00mm 피치 CLIK-Mate 전선 기판 간 PCB 리셉터클<0>과 [Housing](https://www.molex.com/molex/products/part-detail/crimp_housings/5024390600)을 사용합니다.</p> 
+Connect the output of the _PM02D Power Module_ (PM board) that comes with the Standard Set to one of the **POWER** port of _Pixhawk 5X_ using the 6-wire cable. Pixhawk 5X의 PM02D 및 전원 포트는 6회로 [2.00mm 피치 CLIK-Mate 전선 기판 간 PCB 리셉터클](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670)과 [Housing](https://www.molex.com/molex/products/part-detail/crimp_housings/5024390600)을 사용합니다.
 
 PM02D 전원 모듈은 **2~6S** 배터리를 지원하며, 보드의 입력을 LiPo 배터리에 연결합니다. 전원 보드는 **FMU PWM OUT**와 **I/O PWM OUT**의 + 및 - 핀에 전원을 공급하지 않습니다.
 
@@ -60,7 +59,6 @@ PM02D 전원 모듈은 **2~6S** 배터리를 지원하며, 보드의 입력을 L
 | ----------- | ------------------------------ |
 | I/O PWM Out | 여기에 모터 신호와 GND 배선을 연결합니다.      |
 | FMU PWM Out | 여기에 서보 신호, 양극 및 GND 전선을 연결합니다. |
-
 
 :::note
 **MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of _Pixhawk 5X_ whereas **AUX outputs** map to **FMU PWM OUT** of _Pixhawk 5x_. 예를 들어 **MAIN1**은 **I/O PWM OUT**의 IO_CH1 핀에 매핑되고, **AUX1**은 **FMU PWM OUT**의 FMU_CH1 핀에 매핑됩니다.
@@ -77,9 +75,6 @@ The pinout of _Pixhawk 5X_’s power ports is shown below. 전원 포트는 전�
 | 5 (흑) | GND | GND   |
 | 6 (흑) | GND | GND   |
 
-
-
-
 ## Radio Control
 
 A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
@@ -93,8 +88,6 @@ PPM and PWM receivers that have an _individual wire for each channel_ must conne
 
 For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
 
-
-
 ## Telemetry Radios (Optional)
 
 [무선 텔레메트리](../telemetry/README.md)는 지상국 프로그램에서 비행 차량의 통신/제어에 사용합니다(예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
@@ -102,8 +95,6 @@ For more information about selecting a radio system, receiver compatibility, and
 기체의 텔레메트리를 **TELEM1** 포트에 연결합니다. 이 포트에 연결된 경우에는 추가 설정이 필요하지 않습니다. 다른 텔레메트리는 일반적으로 지상국 컴퓨터나 모바일 장치에 USB를 통하여 연결됩니다.
 
 Radios are also available for purchase on [Holybro's website](https://holybro.com/collections/telemetry-radios) .
-
-
 
 ## SD 카드 (선택 사항)
 
@@ -113,8 +104,6 @@ SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flig
 
 :::tip
 For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory). 아래 그림과 같이 SD 카드(Pixhawk  5X 키트에 포함됨)를 *Pixhawk 5X*에 삽입합니다.
-
-
 
 ## 모터
 
@@ -128,21 +117,15 @@ For more information see [Basic Concepts > SD Cards (Removable Memory)](../getti
 The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). 해당 기체의 프레임의  정확한 모터 연결 여부를 확인하십시오.
 :::
 
-
-
 ## 기타 주변 장치
 
 많이 사용하지 않는 부품들의 배선과 조립 방법은 개별 [주변 장치](../peripherals/README.md)를 참고하십시오.
-
-
 
 ## 핀배열
 
 ![Pixhawk 5X Pinout1](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
 
 You can also download _Pixhawk 5X_ pinouts from [here](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf).
-
-
 
 ## 설정
 
