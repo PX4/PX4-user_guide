@@ -12,7 +12,7 @@ brew install segger-jlink
 
 Once installed, you can start the server using:
 
-```bash
+```sh
 JLinkGDBServer -if swd -device STM32F765II
 ```
 
@@ -20,7 +20,7 @@ It might then prompt you to update the JLink which is recommended, and then to s
 
 Once that's done, the GDB server should be start listening on port `2331`, e.g. like so:
 
-```bash
+```sh
 Checking target voltage...
 Target voltage: 3.28 V
 Listening on TCP/IP port 2331
@@ -31,7 +31,7 @@ Waiting for GDB connection...
 
 You can now start GDB with the exact elf file that is currently flashed on the autopilot (in a separate terminal):
 
-```bash
+```sh
 arm-none-eabi-gdb build/px4_fmu-v5_default/px4_fmu-v5_default.elf -ex "target extended-remote :2331"
 ```
 
