@@ -12,6 +12,7 @@
 ## 하드웨어 설정
 
 이 보드에는 PX4 연결 (투 스루 패스) I²C 커넥터가 장착되어 있으며, 다양한 센서에 연결용 3핀 커넥터가 있습니다.
+
 - TFRPM01은 모든 I²C 포트에 연결 가능합니다.
 - TFRPM01에는 다양한 프로브 유형에 연결 3핀 헤더 커넥터 (풀업 장착 입력 포함)가 있습니다.
   - 센서/프로브 하드웨어에는 펄스 신호가 필요합니다. 신호 입력은 +5V TTL 로직 또는 [오픈 콜렉터](https://en.wikipedia.org/wiki/Open_collector) 출력을 받습니다. 최대 펄스 주파수는 50% 듀티 사이클에서 20kHz입니다.
@@ -26,7 +27,6 @@ TFRPM01A 전자 장치에는 프로브가 연결 여부를 표시하는 LED가 �
 다양한 홀 효과 센서가 시판중입니다. For example, a [55100 Miniature Flange Mounting Proximity Sensor](https://m.littelfuse.com/media?resourcetype=datasheets&itemid=6d69d457-770e-46ba-9998-012c5e0aedd7&filename=littelfuse-hall-effect-sensors-55100-datasheet) is a good choice.
 
 ![홀 효과 프로브의 예](../../assets/hardware/sensors/tfrpm/hall_probe.jpg)
-
 
 ### 광학 센서 프로브
 
@@ -43,10 +43,13 @@ TFRPM01A 전자 장치에는 프로브가 연결 여부를 표시하는 LED가 �
 #### 콘솔에서 드라이버 시작
 
 다음 명령을 사용하여 [콘솔](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html)에서 드라이버를 시작합니다.
-```
+
+```sh
 pcf8583 start -X -b <bus number>
 ```
+
 여기서:
+
 - `-X`는 외부 버스를 나타냅니다.
 - `<bus number>`은 연결된 장치의 버스 번호입니다.
 
@@ -71,15 +74,19 @@ pcf8583 start -X -b <bus number>
 The [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) can also be used to check that the driver is running and the UORB topics it is outputting.
 
 TFRPM01 드라이버의 상태를 확인하려면 다음 명령을 실행하십시오.
-```
+
+```sh
 pcf8583 status
 ```
+
 드라이버가 실행중인 경우 I²C 포트가 실행중인 인스턴스의 다른 기본 매개변수와 함께 인쇄됩니다. 드라이버가 실행 중이 아니면, 위에서 설명한 절차를 사용하여 시작할 수 있습니다.
 
 [listener](../modules/modules_command.md#listener) 명령을 사용하면 실행중인 드라이버에서 RPM UORB 메시지를 모니터링할 수 있습니다.
-```
+
+```sh
 listener rpm
 ```
+
 주기적으로 표시하려면 명령 뒤에 `-n 50` 매개변수를 추가하여 다음 50 개의 메시지를 인쇄 가능합니다.
 
 #### QGroundControl MAVLink 검사기
@@ -89,20 +96,21 @@ QGroundControl [Mavlink 검사기](https://docs.qgroundcontrol.com/master/en/ana
 1. QGC 메뉴에서 인스펙터를 시작합니다 : **분석 도구 > Mavlink 검사기**
 1. `RAW_RPM`이 메시지 목록에 있는 지 확인하십시오 (없으면 드라이버가 실행 중인 지 확인하십시오).
 
-
 ### 매개변수 설정
 
-일반적으로 센서는 설정 없이도 사용할 수 있지만, RPM 값은 실제 RPM의 배수이어야 합니다.  이는 `PCF8583_MAGNET` 매개변수가 감지된 로터의 단일 회전당 실제 펄스 수와 일치하여야하기 때문입니다. 필요시 다음의 매개 변수들을 조정하여야 합니다.
+일반적으로 센서는 설정 없이도 사용할 수 있지만, RPM 값은 실제 RPM의 배수이어야 합니다. 이는 `PCF8583_MAGNET` 매개변수가 감지된 로터의 단일 회전당 실제 펄스 수와 일치하여야하기 때문입니다. 필요시 다음의 매개 변수들을 조정하여야 합니다.
 
-* [PCF8583_POOL](../advanced_config/parameter_reference.md#PCF8583_POOL) — 카운트 숫자 판독 사이의 풀링 간격
-* [PCF8583_RESET](../advanced_config/parameter_reference.md#PCF8583_RESET) — 계수된 숫자를 0으로 재설정해야하는 카운터 값입니다.
-* [PCF8583_MAGNET](../advanced_config/parameter_reference.md#PCF8583_MAGNET) — 회전당 펄스 수 (예 : 로터 디스크의 자석 수).
+- [PCF8583_POOL](../advanced_config/parameter_reference.md#PCF8583_POOL) — 카운트 숫자 판독 사이의 풀링 간격
+- [PCF8583_RESET](../advanced_config/parameter_reference.md#PCF8583_RESET) — 계수된 숫자를 0으로 재설정해야하는 카운터 값입니다.
+- [PCF8583_MAGNET](../advanced_config/parameter_reference.md#PCF8583_MAGNET) — 회전당 펄스 수 (예 : 로터 디스크의 자석 수).
 
 :::note
 위의 매개변수는 드라이버/PX4를 재부팅하면, QGC에 나타납니다.
 
 재시작 후 설정 매개변수를 사용할 수 없는 경우에는 드라이버가 시작되었는 지 확인하십시오. [드라이버가 펌웨어에 없을 수 있습니다](../peripherals/serial_configuration.md#configuration-parameter-missing-from-qgroundcontrol).이 경우 보드에 추가하여야 합니다.
-```
+
+```sh
 drivers/rpm/pcf8583
 ```
+
 :::
