@@ -9,17 +9,16 @@ This section is for software developers and (new) hardware integrators.
 
 다음과 같은 것을 설명합니다.
 
-* [개발자 최소 설정](../dev_setup/config_initial.md), [PX4 소스 코드 빌드](../dev_setup/building_px4.md), 그리고 [다양한 자동조정장치](../flight_controller/README.md) 배포 방법을 이해합니다.
-* [PX4 시스템 구조](../concept/architecture.md)와 핵심 개념을 이해합니다.
-* 플라이트 스택과 미들웨어 수정 방법을 배웁니다:
+- [개발자 최소 설정](../dev_setup/config_initial.md), [PX4 소스 코드 빌드](../dev_setup/building_px4.md), 그리고 [다양한 자동조정장치](../flight_controller/README.md) 배포 방법을 이해합니다.
+- [PX4 시스템 구조](../concept/architecture.md)와 핵심 개념을 이해합니다.
+- 플라이트 스택과 미들웨어 수정 방법을 배웁니다:
   - 비행 알고리즘 수정 및 신규 [비행 상태](../concept/flight_modes.md) 추가.
   - 새로운 [기체](../dev_airframes/README.md)를 지원합니다.
-* PX4에 새 하드웨어를 조합하는 방법을 배웁니다:
+- PX4에 새 하드웨어를 조합하는 방법을 배웁니다:
   - 카메라, 거리 센서 등과 같은 신규 센서와 액츄에이터를 지원합니다.
   - 신규 자동조종장치에서 실행하도록 PX4 수정합니다.
-* PX4를 [시뮬레이션](../simulation/README.md), [테스트](../test_and_ci/README.md), [디버그/로그](../debug/README.md) 합니다.
-* 외부 로보틱스 API와 통신/통합합니다.
-
+- PX4를 [시뮬레이션](../simulation/README.md), [테스트](../test_and_ci/README.md), [디버그/로그](../debug/README.md) 합니다.
+- 외부 로보틱스 API와 통신/통합합니다.
 
 ## 주요 개발자 링크
 
