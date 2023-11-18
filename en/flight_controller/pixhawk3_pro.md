@@ -1,4 +1,4 @@
-# Pixhawk 3 Pro
+# Pixhawk 3 Pro (Discontinued)
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
