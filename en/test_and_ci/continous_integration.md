@@ -38,7 +38,30 @@ A Webhook is configured to [px4-jenkins.dagar.ca](http://px4-jenkins.dagar.ca:80
 |---|---|---|---|
 | [PX4-Autopilot](http://px4-jenkins.dagar.ca:8080/job/PX4-Autopilot/) (On Github shown as **continuous-integration/jenkins/branch**) | Runs hardware test script | Pushes & Pull Requests (all Webhook events) | [.ci/Jenkinsfile-hardware](https://github.com/PX4/PX4-Autopilot/blob/main/.ci/Jenkinsfile-hardware) |
 
+Hardware rack is composed of actual hardware connected via USB, each connected with separate Jenkins nodes currently as following:
+
+- `cubepilot_cubeorange_test`: Cubepilot CubeOrange
+- `cuav_x7pro_test`: CUAV X7 Pro
+- `px4_fmu-v4_test`: FMU v4
+- `px4_fmu-v4pro_test`: FMU v4 Pro
+- `px4_fmu-v5_debug`: FMU v5 with debug flag, prints out debug information
+- `px4_fmu-v5_stackcheck`: FMU v5 compiled with stackcheck, detects stack overflow, etc.
+- `px4_fmu-v5_test`: FMU v4
+- `nxp_fmuk66-v3_test`: FMU k66 v3
+
+Note that `_test` label for the target means ... (TODO)
+
+It performs the following tests on each build node targets:
+
+- Build: Build bootloader and firmware binary files
+- Flash: Flash the hardware via USB, JLink, and other methods (specific to hardware)
+- Tests: Various tests regarding sensors, commander module, uorb topics, etc.
+- Status: Reboot and check filesystem (/proc, /dev, etc), module, system commands, and do quick IMU calibration
+- Print topics: Print out selected set of uORB topic data (for debugging purposes)
+
 This CI is crucial for detecting failures in hardware that can't be detected via Software CI tools, such as hardfault, NuttShell, NuttX bugs, etc.
+
+For the full test script, visit [.ci/Jenkinsfile-hardware](https://github.com/PX4/PX4-Autopilot/blob/main/.ci/Jenkinsfile-hardware).
 
 To view all the past runs of the hardware rack CI, visit [px4-jenkins.dagar.ca](http://px4-jenkins.dagar.ca:8080/job/PX4-Autopilot/).
 
@@ -88,6 +111,8 @@ Most of the test are run using the Github workflows in [.github/workflows](https
 - `clang-tidy.yml`: Runs Clang Tidy to detect problematic code patterns (e.g. dead code)
 - `compile_linux.yml`: Builds linux flight controller board targets
 - `deploy_all.yml`: Uploads updated metadata to S3 when `main` or `release/*` branches are updated
+
+You can check the past runs of the Github Actions from the [Actions tab](https://github.com/PX4/PX4-Autopilot/actions) of the PX4-Autopilot repository.
 
 Aside from that, there is also a (currently disabled) hardware rack CI running from Jenkins, as documented [above](#hardware-testing-jenkins).
 
@@ -171,7 +196,7 @@ Note that the documentation build is also run using Jenkins CI, and is based on 
 
 The PX4 firmware uploaded by Jenkins is used by QGroundControl for [PX4 Firmware updates](../config/firmware.md) (stable: `release/*` / beta: `main`).
 
-The Jenkins server uses the [PX4BuildBot](https://github.com/PX4BuildBot) account to upload the following metadata to QGC whenever there is an update to main or a release branch:
+The Jenkins server uses the [PX4BuildBot](https://github.com/PX4BuildBot) account to update the following metadata files in QGC source tree.
 
 - `airframes.xml`: Airframes metadata describing all supported airframes
 - `parameters.xml`: Parameters metadata describing all supported parameters
