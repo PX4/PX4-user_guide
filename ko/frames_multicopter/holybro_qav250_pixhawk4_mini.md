@@ -112,7 +112,7 @@ The Holybro [QAV250 Kit](https://holybro.com/products/qav250-kit) kits includes 
 1. 비행 컨트롤러 플레이트를 스탠드 오프에 놓습니다 (전원 모듈 위).![QAV250 비행 컨트롤러 플레이트 추가](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/6_flight_controller_plate.jpg)
 1. 모터를 부착합니다. 모터에는 회전 방향을 나타내는 화살표가 있습니다. ![QAV250 모터 추가](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/7_motors.jpg)
 1. 키트의 양면 테이프를 사용하여 *Pixhawk 4 Mini*를 비행 컨트롤러 플레이트에 부착합니다. ![QAV250 양면 테이프 추가](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/8_double_sided_tape_controller.jpg)
-1. 전원 모듈의 "전원"케이블을 <0 Pixhawk 4 mini</em>에 연결합니다. ![QAV250 파워 Pixhawk](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/9_power_module_power_pixhawk.jpg)
+1. 전원 모듈의 "전원"케이블을 *Pixhawk 4 mini*에 연결합니다. ![QAV250 파워 Pixhawk](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/9_power_module_power_pixhawk.jpg)
 1. 알루미늄 스탠드오프를 버튼 플레이트에 부착합니다.![QAV250 알루미늄 지지대](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/10_aluminium_standoffs.jpg)
 1. Esc를 모터에 연결합니다. 이 이미지는 모터의 순서와 회전 방향을 나타냅니다. ![QAV250  ESC 연결](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/11_escs.jpg)
 
