@@ -37,7 +37,7 @@ The [System Console](../debug/system_console.md) is essential when the system do
 
 其它更多的系统命令与模块被列举在 [模块和命令参考](../middleware/modules_main.md) 中。（比如 `top`、`listener` 等）
 
-```bash
+```sh
 nsh> ls
 nsh> free
 nsh> dmesg
@@ -47,13 +47,13 @@ nsh> dmesg
 
 此 NSH 命令提供剩余的可用内存：
 
-```bash
+```sh
 free
 ```
 
 top命令显示每个应用成虚使用的堆栈情况：
 
-```
+```sh
 top
 ```
 
@@ -61,19 +61,19 @@ top
 
 要查看工作队列的运行抢空以及运行速度，使用：
 
-```
+```sh
 work_queue status
 ```
 
 调试 uORB 主题：
 
-```
+```sh
 uorb top
 ```
 
 检查特定的 uORB 主题：
 
-```
+```sh
 listener <topic_name>
 ```
 
