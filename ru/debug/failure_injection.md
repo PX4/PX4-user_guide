@@ -6,11 +6,12 @@ Failure injection is disabled by default, and can be enabled using the [SYS_FAIL
 
 :::warning
 Failure injection still in development. At time of writing (PX4 v1.14):
+
 - It can only be used in simulation (support for both failure injection in real flight is planned).
 - It requires support in the simulator. It is supported in Gazebo Classic
 - Many failure types are not broadly implemented. In those cases the command will return with an "unsupported" message.
-:::
 
+:::
 
 ## Failure System Command
 
@@ -19,10 +20,13 @@ Failures can be injected using the [failure system command](../modules/modules_c
 ### Syntax
 
 The full syntax of the [failure](../modules/modules_command.md#failure) command is:
-```
+
+```sh
 failure <component> <failure_type> [-i <instance_number>]
 ```
+
 where:
+
 - _component_:
   - Sensors:
     - `gyro`: Gyro.
@@ -52,14 +56,14 @@ where:
   - `intermittent`: Publish intermittently.
 - _instance number_ (optional): Instance number of affected sensor. 0 (default) indicates all sensors of specified type.
 
-
 ### Example
 
 To simulate losing RC signal without having to turn off your RC controller:
 
 1. Enable the parameter [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
-1. Enter the following commands on the MAVLink console or SITL *pxh shell*:
-   ```bash
+1. Enter the following commands on the MAVLink console or SITL _pxh shell_:
+
+   ```sh
    # Fail RC (turn publishing off)
    failure rc_signal off
 
@@ -69,6 +73,6 @@ To simulate losing RC signal without having to turn off your RC controller:
 
 ## MAVSDK Failure Plugin
 
-The [MAVSDK failure plugin](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html) can be used to programmatically inject failures. It is used in [PX4 Integration Testing](../test_and_ci/integration_testing_mavsdk.md) to simulate failure cases (for example, see [PX4-Autopilot/test/mavsdk_tests/autopilot_tester.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/autopilot_tester.cpp)).
+The [MAVSDK failure plugin](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html) can be used to programmatically inject failures. It is used in [PX4 Integration Testing](../test_and_ci/integration_testing_mavsdk.md) to simulate failure cases (for example, see [PX4-Autopilot/test/mavsdk_tests/autopilot_tester.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/autopilot_tester.cpp)).
 
 The plugin API is a direct mapping of the failure command shown above, with a few additional error signals related to the connection.
