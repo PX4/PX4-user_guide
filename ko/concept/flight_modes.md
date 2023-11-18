@@ -66,16 +66,11 @@ _Flight Modes_ define how the autopilot responds to user input and controls vehi
 - **AUTO_RTL** (실행으로 돌아가기)
 
   - **Fixed-wing aircraft:** The aircraft returns to the home position and loiters in a circle above the home position.
-  - **멀티콥터:** 멀티콥터는 현재 고도(현재 고도가 홈 위치 + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)보다 높은 경우) 또는
+  - **멀티콥터:** 멀티콥터는 현재 고도(현재 고도가 홈 위치 + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)보다 높은 경우) 또는 [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)([RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)이 현재 고도보다 높은 경우), 자동으로 착륙합니다.
 
-RTL_RETURN_ALT</ 1>([RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)이 현재 고도보다 높은 경우), 자동으로 착륙합니다.</li> </ul></li> 
-    
-    - **AUTO_MISSION** (Mission)
-  
-    - **모든 시스템 유형:** 기체는 지상관제소(GCS)에서 전송한 프로그래밍된 임무를 수행합니다. 임무를 수신하지 않으면, 기체는 현재 위치에서 배회합니다.
-  - **_OFFBOARD:_**(오프보드) 위치, 속도 또는 자세 기준/목표/설정점은 직렬 케이블과 MAVLink로 연결된 보조 컴퓨터에서 제공합니다. 오프보드 설정값은 [MAVSDK](http://mavsdk.mavlink.io) 또는 [MAVROS](https://github.com/mavlink/mavros)와 같은 API에서 제공할 수 있습니다.</ul> 
-
-
+- **AUTO_MISSION** (Mission)
+  - **모든 시스템 유형:** 기체는 지상관제소(GCS)에서 전송한 프로그래밍된 임무를 수행합니다. 임무를 수신하지 않으면, 기체는 현재 위치에서 배회합니다.
+  - **_OFFBOARD:_**(오프보드) 위치, 속도 또는 자세 기준/목표/설정점은 직렬 케이블과 MAVLink로 연결된 보조 컴퓨터에서 제공합니다. 오프보드 설정값은 [MAVSDK](http://mavsdk.mavlink.io) 또는 [MAVROS](https://github.com/mavlink/mavros)와 같은 API에서 제공할 수 있습니다.
 
 ## 비행 모드 평가 다이어그램
 
