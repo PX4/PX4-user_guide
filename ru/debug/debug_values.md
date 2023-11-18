@@ -18,8 +18,8 @@ This tutorial shows how to send the MAVLink message `NAMED_VALUE_FLOAT` using th
 
 The code for this tutorial is available here:
 
-* [Debug Tutorial Code](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
-* [Enable the tutorial app](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.px4board) by ensuring the MAVLink debug app (**CONFIG_EXAMPLES_PX4_MAVLINK_DEBUG**) is in the config of your board and set set to 'y'.
+- [Debug Tutorial Code](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
+- [Enable the tutorial app](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.px4board) by ensuring the MAVLink debug app (**CONFIG_EXAMPLES_PX4_MAVLINK_DEBUG**) is in the config of your board and set set to 'y'.
 
 All required to set up a debug publication is this code snippet. First add the header file:
 
@@ -47,14 +47,13 @@ orb_publish(ORB_ID(debug_key_value), pub_dbg, &dbg);
 ```
 
 :::warning
-Multiple debug messages must have enough time between their respective publishings for Mavlink to process them. 
+Multiple debug messages must have enough time between their respective publishings for Mavlink to process them.
 This means that either the code must wait between publishing multiple debug messages, or alternate the messages on each function call iteration.
 :::
 
 The result in QGroundControl then looks like this on the real-time plot:
 
 ![QGC debugvalue plot](../../assets/gcs/qgc-debugval-plot.jpg)
-
 
 ## Tutorial: Receive String / Float Pairs
 
@@ -103,5 +102,4 @@ When a new message is available on the `debug_key_value` topic, do not forget to
         }
     }
 }
-
 ```

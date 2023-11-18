@@ -34,7 +34,6 @@ Pixhawk flight controllers usually come with a [Pixhawk Connector Standard Debug
 
 These ports have pins for console TX and RX which can connect to an FTDI cable. The mapping for the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) to FTDI is shown below.
 
-
 | Pixhawk 디버그 포트 | -                        | FTDI | -                       |
 | -------------- | ------------------------ | ---- | ----------------------- |
 | 1 (적)          | TARGET PROCESSOR VOLTAGE |      | N/C (SWD/JTAG 디버깅에 사용됨) |
@@ -54,7 +53,7 @@ The [SWD Debug Port](../debug/swd_debug.md) page and individual flight controlle
 
 Ubuntu에 screen 명령어를 설치합니다. Mac OS에 이미 설치되어 있습니다.
 
-```bash
+```sh
 sudo apt-get install screen
 ```
 
@@ -62,7 +61,7 @@ sudo apt-get install screen
 
 화면을 BAUDRATE baud, 8 데이터 비트, 1 정지 비트를 오른쪽 직렬 포트에 연결합니다(`ls /dev/tty*`를 사용하고 USB 장치를 뽑거나 다시 꽂을 때 어떻게 변하는 지 관찰). 일반적인 이름은 Linux의 경우 `/dev/ttyUSB0`와 `/dev/ttyACM0`이고, Mac OS의 경우 `/dev/tty.usbserial-ABCBD`입니다.
 
-```bash
+```sh
 screen /dev/ttyXXX BAUDRATE 8N1
 ```
 

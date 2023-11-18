@@ -38,7 +38,7 @@ The MAVLink shell/console and the [System Console](../debug/system_console.md) a
 
 For example, type `ls` to view the local file system, `free` to see the remaining free RAM, `dmesg` to look at boot output.
 
-```bash
+```sh
 nsh> ls
 nsh> free
 nsh> dmesg
@@ -48,13 +48,13 @@ Below are a couple of commands which can be used in the [NuttShell](https://cwik
 
 This NSH command provides the remaining free memory:
 
-```bash
+```sh
 free
 ```
 
 The top command shows the stack usage per application:
 
-```
+```sh
 top
 ```
 
@@ -62,19 +62,19 @@ Note that stack usage is calculated with stack coloring and is the maximum since
 
 To see what is running in the work queues and at what rate, use:
 
-```
+```sh
 work_queue status
 ```
 
 To debug uORB topics:
 
-```
+```sh
 uorb top
 ```
 
 To inspect a specific uORB topic:
 
-```
+```sh
 listener <topic_name>
 ```
 

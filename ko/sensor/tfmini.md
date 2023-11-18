@@ -25,4 +25,5 @@ If the configuration parameter is not available in _QGroundControl_ then the [tf
 
 - [Serial port Configuration: Configuration Parameter Missing from QGroundControl](../peripherals/serial_configuration.md#parameter_not_in_firmware)
 - [PX4 Board Configuration (Kconfig)](../hardware/porting_guide_config.md#px4-menuconfig-setup).
+
 :::

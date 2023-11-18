@@ -7,7 +7,6 @@ The [STLinkv3-MINIE](https://www.st.com/en/development-tools/stlink-v3minie.html
 - Driven by STLink or OpenOCD software with wide device support.
 - Much cheaper (<15€) than a Pixhawk Debug Adapter (~20€) with a JLink EDU mini (~55€) or JLink BASE (~400€) while having better hardware specs.
 
-
 The STLink Debug Probe does not come with an adapter for working with Pixhawk flight controllers. The [Pixhawk Debug Port Adapter](#pixhawk-debug-port-adapter) section below explains how you can create your own (some soldering required).
 
 :::note
@@ -169,7 +168,6 @@ Use the heat gun to shrink the tubing all around the debug probe. Make sure the 
 Optionally, you may add a logo of your choice printed on paper and cut to size. Be aware that the heat can make the ink flow a little, so you may need to experiment with what settings work with your printer.
 
 ![](../../assets/debug/stlinkv3_minie_p15.jpeg)
-
 
 ## See also
 

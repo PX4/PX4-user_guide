@@ -19,7 +19,9 @@ To contribute new functionality, [sign up for Github](https://docs.github.com/en
 PX4 uses the [Google C++ style guide](https://google.github.io/styleguide/cppguide.html), with the following (minimal) modifications:
 
 :::note
+
 Not all PX4 source code matches the style guide, but any _new code_ that you write should do so — in both new and existing files. If you update an existing file you are not required to make the whole file comply with the style guide, just the code you've modified.
+
 :::
 
 ### Tabs
@@ -86,8 +88,9 @@ private:
 PX4 개발자는 소스 내에서 적절한 문서를 작성하는 것이 좋습니다.
 
 :::note
-소스 코드 문서화 표준은 시행되지 않으며, 코드는 현재 일관성 있게 문서화되어 있지 않습니다.
-이보다 더 나아지길 바랍니다!
+
+Source-code documentation standards are not enforced, and the code is currently inconsistently documented. 이보다 더 나아지길 바랍니다!
+
 :::
 
 현재 두 가지 소스 기반 문서 유형이 있습니다.
@@ -98,7 +101,10 @@ PX4 개발자는 소스 내에서 적절한 문서를 작성하는 것이 좋습
 - We encourage other in-source documentation _where it adds value/is not redundant_.
 
   :::tip
-개발자는 목적을 유추할 수 있도록 C++ 엔터티(클래스, 함수, 변수 등)의 이름을 지정하여 명시적 문서의 필요성을 줄일 수 있습니다.
+
+  Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
+
+
 :::
 
   - Do not add documentation that can trivially be inferred from C++ entity names.

@@ -15,19 +15,17 @@ The following models are supported by PX4, and can be connected to either the I2
 | [SF11/C](https://lightwarelidar.com/products/sf11-c-100-m) | 100       | Serial or I2C bus |                                                                 |
 | [LW20/C](https://lightware.co.za/products/lw20-c-100-m)    | 100       | I2C bus           | Waterproofed (IP67) with servo for sense-and-avoid applications |
 
-
 ### Discontinued
 
 The following models are no longer available from the manufacturer.
 
-| Model                                                                                              | 范围   | Bus                                                                       |
-| -------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------- |
-| [SF02](http://documents.lightware.co.za/SF02%20-%20Laser%20Rangefinder%20Manual%20-%20Rev%208.pdf) | 50   | Serial                                                                    |
-| [SF10/A](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 25   | Serial or I2C                                                             |
-| [SF10/B](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 50   | Serial or I2C                                                             |
-| SF10/C                                                                                             | 100m | Serial or I2C                                                             |
-| LW20/B                                                                                             | 50   | I2C bus | Waterproofed (IP67) with servo for sense-and-avoid applications |
-
+| Model                                                                                              | 范围   | Bus                                                                             |
+| -------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------- |
+| [SF02](http://documents.lightware.co.za/SF02%20-%20Laser%20Rangefinder%20Manual%20-%20Rev%208.pdf) | 50   | Serial                                                                          |
+| [SF10/A](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 25   | Serial or I2C                                                                   |
+| [SF10/B](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 50   | Serial or I2C                                                                   |
+| SF10/C                                                                                             | 100m | Serial or I2C                                                                   |
+| LW20/B                                                                                             | 50   | I2C bus       | Waterproofed (IP67) with servo for sense-and-avoid applications |
 
 ## I2C Setup
 
@@ -57,14 +55,13 @@ Some older revisions cannot be used with PX4. Specifically they may be miss-conf
 
 Set the [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX) parameter to match the rangefinder model and then reboot.
 
-
 ## Serial Setup
 
 <a id="serial_hardware_setup"></a>
 
 ### Hardware
 
-The lidar can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
+The lidar can be connected to any unused _serial port_ (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
 
 <!-- Would be good to show serial setup! -->
 
@@ -75,7 +72,7 @@ The lidar can be connected to any unused *serial port* (UART), e.g.: TELEM2, TEL
 [Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG). There is no need to set the baud rate for the port, as this is configured by the driver.
 
 :::note
-If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware).
+If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware).
 :::
 
 Then set the [SENS_EN_SF0X](../advanced_config/parameter_reference.md#SENS_EN_SF0X) parameter to match the rangefinder model and reboot.

@@ -15,19 +15,17 @@ LightWare는 UAV에 장착에 적합한 경량의 범용 레이저 고도계( "�
 | [SF11/C](https://lightwarelidar.com/products/sf11-c-100-m) | 100    | 직렬 또는 I2C 버스 |                                     |
 | [LW20/C](https://lightware.co.za/products/lw20-c-100-m)    | 100    | I2C 버스       | 감지 및 회피 애플리케이션을 위한 서보가 있는 방수 (IP67) |
 
-
 ### 단종됨
 
 다음 모델은 제조업체에서 더 이상 판매하지 않습니다.
 
-| 모델                                                                                                 | 범위   | 버스                                          |
-| -------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------- |
-| [SF02](http://documents.lightware.co.za/SF02%20-%20Laser%20Rangefinder%20Manual%20-%20Rev%208.pdf) | 50   | 직렬                                          |
-| [SF10/A](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 25   | 직렬 또는 I2C 버스                                |
-| [SF10/B](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 50   | 직렬 또는 I2C 버스                                |
-| SF10/C                                                                                             | 100m | 직렬 또는 I2C 버스                                |
-| LW20/B                                                                                             | 50   | I2C 버스 |감지 및 회피 애플리케이션을 위한 서보가 있는 방수 (IP67) |
-
+| 모델                                                                                                 | 범위   | 버스                                                                              |
+| -------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------- |
+| [SF02](http://documents.lightware.co.za/SF02%20-%20Laser%20Rangefinder%20Manual%20-%20Rev%208.pdf) | 50   | 직렬                                                                              |
+| [SF10/A](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 25   | 직렬 또는 I2C 버스                                                                    |
+| [SF10/B](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 50   | 직렬 또는 I2C 버스                                                                    |
+| SF10/C                                                                                             | 100m | 직렬 또는 I2C 버스                                                                    |
+| LW20/B                                                                                             | 50   | I2C bus       | Waterproofed (IP67) with servo for sense-and-avoid applications |
 
 ## I2C 설정
 
@@ -57,14 +55,13 @@ I2C 포트에 연결 가능한 모델을 위의 표를 참고하십시오.
 
 거리계 모델과 일치하도록 [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX) 매개변수를 설정후 재부팅 하십시오.
 
-
 ## 직렬 설정
 
 <a id="serial_hardware_setup"></a>
 
 ### 하드웨어
 
-LIDAR는 사용하지 않는 *직렬 포트* (UART) (예 : TELEM2, TELEM3, GPS2 등)에 연결할 수 있습니다.
+The lidar can be connected to any unused _serial port_ (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
 
 <!-- Would be good to show serial setup! -->
 
@@ -75,7 +72,7 @@ LIDAR는 사용하지 않는 *직렬 포트* (UART) (예 : TELEM2, TELEM3, GPS2 
 [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG)를 사용하여 LIDAR가 실행될 [직렬 포트를 설정](../peripherals/serial_configuration.md)합니다. 포트 전송속도는 드라이버에 의해 설정되므로, 추가로 설정할 필요는 없습니다.
 
 :::note
-*QGroundControl*에서 설정 매개변수를 사용할 수 없는 경우에는 [펌웨어에 드라이버를 추가](../peripherals/serial_configuration.md#parameter_not_in_firmware)하여야 합니다.
+If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware).
 :::
 
 그런 다음 [SENS_EN_SF0X](../advanced_config/parameter_reference.md#SENS_EN_SF0X) 매개변수를 거리계 모델과 일치하도록 설정하고 재부팅하십시오.

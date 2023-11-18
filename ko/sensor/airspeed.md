@@ -1,6 +1,6 @@
 # 풍속 센서
 
-Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames. They are so important because the autopilot does not have other means to detect stall. 고정익 비행의 경우 지상 속도가 아닌 양력을 보장하는 속도입니다.
+Airspeed sensors are _highly recommended_ for fixed-wing and VTOL frames. They are so important because the autopilot does not have other means to detect stall. 고정익 비행의 경우 지상 속도가 아닌 양력을 보장하는 속도입니다.
 
 ![디지털 풍속 센서](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
@@ -21,7 +21,9 @@ Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames. They a
 위의 센서들은 I2C 버스/포트를 통해 연결됩니다.
 
 :::note
+
 Additionally, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/) can be connected to the CAN bus to determine not only high-accuracy airspeed, but also true static pressure and air temperature via onboard barometer and an OAT probe.
+
 :::
 
 ## 설정
@@ -40,6 +42,7 @@ You should also check [ASPD_PRIMARY](../advanced_config/parameter_reference.md#A
 ### Multiple Airspeed Sensors
 
 If you have multiple airspeed sensors then you can select which sensor is _preferred_ as the primary source using [ASPD_PRIMARY](../advanced_config/parameter_reference.md#ASPD_PRIMARY), where `1`, `2` and `3` reflect the order in which the airspeed sensors were started:
+
 - `-1`: Disabled (no airspeed information used).
 - `0`: Synthetic airspeed estimation (groundspeed minus windspeed)
 - `1`: First airspeed sensor started (default)

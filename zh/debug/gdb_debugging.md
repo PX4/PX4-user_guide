@@ -4,7 +4,7 @@
 
 信息流看起来像这样：
 
-```
+```sh
 Developer <=> GDB <=> GDB Server <=> Debug Probe <=> SWD <=> PX4 Autopilot.
 ```
 
@@ -42,7 +42,6 @@ Consult the [GDB documentation](https://sourceware.org/gdb/download/onlinedocs/g
 To avoid having to type all commands to connect in GDB each time, you can write them into `~/.gdbinit`.
 :::
 
-
 ## Next Steps
 
 You've now connected the flight controller to an SWD debug probe!
@@ -52,11 +51,10 @@ The following topics explain how to start on-target debugging:
 - [MCU Eclipse/J-Link Debugging for PX4](eclipse_jlink.md).
 - [Visual Studio Code IDE (VSCode)](../dev_setup/vscode.md).
 
-
 ## Embedded Debug Tools
 
 The [Embedded Debug Tools](https://pypi.org/project/emdbg/) connect several software and hardware debugging tools together in a user friendly Python package to more easily enable advanced use cases for ARM Cortex-M microcontrollers and related devices.
 
 The library orchestrates the launch and configuration of hardware debug and trace probes, debuggers, logic analyzers, and waveform generators and provides analysis tools, converters, and plugins to provide significant insight into the software and hardware state during or after execution.
 
-The emdbg library contains [many useful GDB plugins](https://github.com/Auterion/embedded-debug-tools/blob/main/src/emdbg/debug/gdb.md#user-commands) that make debugging PX4 easier. It also provides tools for [profiling PX4 in real-time](https://github.com/Auterion/embedded-debug-tools/tree/main/ext/orbetto).
+The `emdbg` library contains [many useful GDB plugins](https://github.com/Auterion/embedded-debug-tools/blob/main/src/emdbg/debug/gdb.md#user-commands) that make debugging PX4 easier. It also provides tools for [profiling PX4 in real-time](https://github.com/Auterion/embedded-debug-tools/tree/main/ext/orbetto).

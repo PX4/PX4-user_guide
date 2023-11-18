@@ -6,14 +6,16 @@
 `px4_fmu-v2_default`가 1MB 플래시 제한에 도달할 수 있는 변경 사항을 분석합니다.
 :::
 
-*Bloaty*는 경로에 있어야 하며, *cmake* 구성시 발견되어야 합니다. PX4 [도커 파일](https://github.com/PX4/containers/blob/master/docker/Dockerfile_nuttx-bionic)은 다음과 같이 *bloaty*를 설치합니다.
-```
+_Bloaty_ must be in your path and found at _cmake_ configure time. The PX4 [docker files](https://github.com/PX4/containers/blob/master/docker/Dockerfile_nuttx-bionic) install _bloaty_ as shown:
+
+```sh
 git clone --recursive https://github.com/google/bloaty.git /tmp/bloaty \
     && cd /tmp/bloaty && cmake -GNinja . && ninja bloaty && cp bloaty /usr/local/bin/ \
     && rm -rf /tmp/*
 ```
 
-아래 예는 `px4_fmu-v2_default`에서 *mpu9250* 드라이버를 제거할 때의 영향을 확인할 수 있는 방법을 보여줍니다. 먼저 드라이버없이 로컬로 빌드를 설정합니다.
+The example below shows how you might see the impact of removing the _mpu9250_ driver from `px4_fmu-v2_default`. 먼저 드라이버없이 로컬로 빌드를 설정합니다.
+
 ```sh
  % git diff
 diff --git a/boards/px4/fmu-v2/default.cmake b/boards/px4/fmu-v2/default.cmake
@@ -30,7 +32,9 @@ index 40d7778..2ce7972 100644
                 #irlock
                 #magnetometer # all available magnetometer drivers
 ```
+
 그런 다음, 비교할 대상 빌드를 지정하여 make 대상을 사용합니다(이 경우 `px4_fmu-v2_default`).
+
 ```sh
 % make px4_fmu-v2_default bloaty_compare_master
 ...
@@ -52,4 +56,5 @@ index 40d7778..2ce7972 100644
   -1.0% -1.05Ki [Unmapped]                                                                       +24.2Ki  +0.2%
   -1.0% -10.3Ki TOTAL                                                                            +14.9Ki  +0.1%
 ```
-이것은 `px4_fmu-v2_default`에서 *mpu9250*을 제거하면 10.3kB의 플래시를 절약할 수 있음을 보여줍니다. 또한 *mpu9250* 드라이버의 여러 조각 크기를 보여줍니다.
+
+This shows that removing _mpu9250_ from `px4_fmu-v2_default` would save 10.3 kB of flash. It also shows the sizes of different pieces of the _mpu9250_ driver.
