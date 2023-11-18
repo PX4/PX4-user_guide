@@ -1,6 +1,6 @@
 # Sensor/Topic Debugging using the Listener Command
 
-The uORB is an asynchronous `publish()` / `subscribe()` messaging API used for inter-thread/inter-process communication. The `listener` command can be used from the *QGroundControl MAVLink Console* to inspect topic (message) values, including the current values published by sensors.
+The uORB is an asynchronous `publish()` / `subscribe()` messaging API used for inter-thread/inter-process communication. The `listener` command can be used from the _QGroundControl MAVLink Console_ to inspect topic (message) values, including the current values published by sensors.
 
 :::tip
 This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying).
@@ -14,7 +14,7 @@ The `listener` command is also available through the [System Console](../debug/s
 To check what topics are available at what rate, just use the `uorb top` command.
 :::
 
-The image below demonstrates *QGroundControl* being used to get the value of the acceleration sensor.
+The image below demonstrates _QGroundControl_ being used to get the value of the acceleration sensor.
 
 ![QGC MAVLink Console](../../assets/gcs/qgc_mavlink_console_listener_command.png)
 
