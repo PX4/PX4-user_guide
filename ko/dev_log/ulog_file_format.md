@@ -3,6 +3,7 @@
 ULog is the file format used for logging messages. The format is self-describing, i.e. it contains the format and [uORB](../middleware/uorb.md) message types that are logged. This document is meant to be the ULog File Format Spec Documentation. It is intended especially for anyone who is interested in writing a ULog parser / serializer and needs to decode / encode files.
 
 PX4 uses ULog to log uORB topics as messages related to (but not limited to) the following sources:
+
 - **Device inputs:** Sensors, RC input, etc.
 - **Internal states:** CPU load, attitude, EKF state, etc.
 - **String messages:** `printf` statements, including `PX4_INFO()` and `PX4_ERR()`.
@@ -47,12 +48,11 @@ ULog files have the following three sections:
 
 A description of each section is provided below.
 
-
 ### 헤더 섹션
 
 헤더는 고정 크기 섹션이며, 다음 형식(16바이트)을 갖습니다.
 
-```
+```plain
 ----------------------------------------------------------------------
 | 0x55 0x4c 0x6f 0x67 0x01 0x12 0x35 | 0x01         | uint64_t       |
 | File magic (7B)                    | Version (1B) | Timestamp (8B) |
@@ -81,19 +81,18 @@ struct message_header_s {
 Message sections below are prefixed with the character that corresponds to it's `msg_type`.
 :::
 
-
 ### 정의 섹션
 
 The definitions section contains basic information such as software version, message format, initial parameter values, and so on.
 
 The message types in this section are:
+
 1. [Flag Bits](#b-flag-bits-message)
 2. [Format Definition](#f-format-message)
 3. [Information](#i-information-message)
 4. [Multi Information](#m-multi-information-message)
 5. [Parameter](#p-parameter-message)
 6. [Default Parameter](#q-default-parameter-message)
-
 
 #### 'B': Flag Bits Message
 
@@ -113,17 +112,22 @@ struct ulog_message_flag_bits_s {
 ```
 
 - `compat_flags`: compatible flag bits
+
   - These flags indicate the presence of features in the log file that are compatible with any ULog parser.
-  - `compat_flags[0]`: *DEFAULT_PARAMETERS* (Bit 0): if set, the log contains [default parameters message](#q-default-parameter-message)
+  - `compat_flags[0]`: _DEFAULT_PARAMETERS_ (Bit 0): if set, the log contains [default parameters message](#q-default-parameter-message)
 
   The rest of the bits are currently not defined and must be set to 0. 이 비트는 향후 기존 파서와 호환되는 ULog 변경에 사용할 수 있습니다. For example, adding a new message type can be indicated by defining a new bit in the standard, and existing parsers will ignore the new message type. 이는 알 수 없는 비트 중 하나가 설정되어 있으면, 파서가 해당 비트를 무시할 수 있음을 의미합니다.
-- `incompat_flags`: 비호환성 플래그 비트값.
-  - `incompat_flags[0]`: *DATA_APPENDED* (Bit 0): if set, the log contains appended data and at least one of the `appended_offsets` is non-zero.
 
-  The rest of the bits are currently not defined and must be set to 0. 이것은 기존 파서가 처리할 수 없는 주요 변경 사항을 도입하는 데 사용할 수 있습니다. For example, when an old ULog parser that didn't have the concept of *DATA_APPENDED* reads the newer ULog, it would stop parsing the log as the log will contain out-of-spec messages / concepts. If a parser finds any of these bits set that isn't specified, it must refuse to parse the log.
+- `incompat_flags`: 비호환성 플래그 비트값.
+
+  - `incompat_flags[0]`: _DATA_APPENDED_ (Bit 0): if set, the log contains appended data and at least one of the `appended_offsets` is non-zero.
+
+  The rest of the bits are currently not defined and must be set to 0. 이것은 기존 파서가 처리할 수 없는 주요 변경 사항을 도입하는 데 사용할 수 있습니다. For example, when an old ULog parser that didn't have the concept of _DATA_APPENDED_ reads the newer ULog, it would stop parsing the log as the log will contain out-of-spec messages / concepts. If a parser finds any of these bits set that isn't specified, it must refuse to parse the log.
+
 - `appended_offsets`: File offset (0-based) for appended data. 데이터가 추가되지 않은 경우에는 모든 오프셋은 0이어야 합니다. 이것은 메시지 중간에 멈출 수 있는 로그에 대한 데이터를 안정적으로 추가할 수 있습니다. For example, crash dumps.
 
   데이터를 추가하는 프로세스는 다음과 같습니다.
+
   - set the relevant `incompat_flags` bit
   - set the first `appended_offsets` that is currently 0 to the length of the log file without the appended data, as that is where the new data will start
   - append any type of messages that are valid for the Data section.
@@ -147,12 +151,14 @@ struct message_format_s {
 A `field` has the format: `type field_name`, or for an array: `type[array_length] field_name` is used (only fixed size arrays are supported).
 
 A `type` is one of the [basic binary types](#data-types) or a `message_name` of another format definition (nested usage).
+
 - 유형은 정의되기 전에 사용할 수 있습니다.
   - e.g. The message `MessageA:MessageB[2] msg_b` can come before the `MessageB:uint_8[3] data`
 - There can be arbitrary nesting but **no circular dependencies**
   - e.g. `MessageA:MessageB[2] msg_b` & `MessageB:MessageA[4] msg_a`
 
 일부 필드 이름은 특별합니다.
+
 - `timestamp`: every [Subscription Message](#a-subscription-message) must include a timestamp field
   - 유형은 `uint64_t`(현재 유일하게 사용됨), `uint32_t`, `uint16_t` 또는 `uint8_t`일 수 있습니다.
   - The unit is always microseconds, except for in `uint8_t` where the unit is in milliseconds.
@@ -233,7 +239,7 @@ struct ulog_message_info_multiple_header_s {
 };
 ```
 
-* `is_continued` can be used for split-up messages: if set to 1, it is part of the previous message with the same key.
+- `is_continued` can be used for split-up messages: if set to 1, it is part of the previous message with the same key.
 
 파서는 다중 메시지를 로그에서 발생하는 메시지와 동일한 순서를 사용하여 2D 목록으로 저장할 수 있습니다.
 
@@ -268,17 +274,16 @@ struct ulog_message_parameter_default_header_s {
 };
 ```
 
-* `default_types`는 비트 필드이며 값이 속한 그룹을 정의합니다.
-  * 최소한 하나의 비트가 설정되어야 합니다.
-    * `1<<0`:: 시스템 전체 기본값
-    * `1<<1`: 현재 설정(예: 기체)의 기본값
+- `default_types`는 비트 필드이며 값이 속한 그룹을 정의합니다.
+  - 최소한 하나의 비트가 설정되어야 합니다.
+    - `1<<0`:: 시스템 전체 기본값
+    - `1<<1`: 현재 설정(예: 기체)의 기본값
 
 로그에는 모든 매개변수에 대한 기본값이 포함되어 있지 않을 수 있습니다. 이러한 경우 기본값은 매개변수 값과 같고, 다른 기본 유형은 독립적으로 처리됩니다.
 
 This message can also be used in the Data section, and the data type is restricted to `int32_t` and `float`.
 
 This section ends before the start of the first [Subscription Message](#a-subscription-message) or [Logging](#l-logged-string-message) message, whichever comes first.
-
 
 ### 데이터 섹션
 
@@ -353,8 +358,8 @@ struct message_logging_s {
 };
 ```
 
-* `timestamp`: in microseconds
-* `log_level`: same as in the Linux kernel:
+- `timestamp`: in microseconds
+- `log_level`: same as in the Linux kernel:
 
 | 이름      | 레벨  | 설명            |
 | ------- | --- | ------------- |
@@ -379,8 +384,9 @@ struct message_logging_tagged_s {
 };
 ```
 
-* `tag`: 기록된 메시지 문자열의 소스를 나타내는 ID입니다. 시스템 아키텍처에 따라 프로세스, 스레드 또는 클래스를 나타낼 수 있습니다.
-  * For example, a reference implementation for an onboard computer running multiple processes to control different payloads, external disks, serial devices etc can encode these process identifiers using a `uint16_t enum` into the `tag` attribute of struct as follows:
+- `tag`: 기록된 메시지 문자열의 소스를 나타내는 ID입니다. 시스템 아키텍처에 따라 프로세스, 스레드 또는 클래스를 나타낼 수 있습니다.
+
+  - For example, a reference implementation for an onboard computer running multiple processes to control different payloads, external disks, serial devices etc can encode these process identifiers using a `uint16_t enum` into the `tag` attribute of struct as follows:
 
   ```c
   enum class ulog_tag : uint16_t {
@@ -397,8 +403,8 @@ struct message_logging_tagged_s {
   };
   ```
 
-* `timestamp`: in microseconds
-* `log_level`: same as in the Linux kernel:
+- `timestamp`: in microseconds
+- `log_level`: same as in the Linux kernel:
 
 | 이름      | 레벨  | 설명            |
 | ------- | --- | ------------- |
@@ -422,7 +428,7 @@ struct message_sync_s {
 };
 ```
 
-* `sync_magic`: [0x2F, 0x73, 0x13, 0x20, 0x25, 0x0C, 0xBB, 0x12]
+- `sync_magic`: [0x2F, 0x73, 0x13, 0x20, 0x25, 0x0C, 0xBB, 0x12]
 
 #### 'O': Dropout message
 
@@ -474,12 +480,11 @@ Since the Definitions and Data Sections use the same message header format, they
 - [PlotJuggler](https://github.com/facontidavide/PlotJuggler): 로그 및 시계열을 플롯하는 C++/Qt 응용 프로그램입니다. 버전 2.1.3부터 ULog를 지원합니다.
 - [ulogreader](https://github.com/maxsun/ulogreader): Javascript, ULog 리더 및 파서는 JSON 개체 형식의 로그를 출력합니다.
 
-
 ## 파일 형식 버전 이력
 
 ### 버전 2의 변경 사항
 
-* Addition of [Multi Information Message](#m-multi-information-message) and [Flag Bits Message](#b-flag-bits-message) and the ability to append data to a log.
-  * 기존 로그에 충돌 데이터를 추가하는 데 사용됩니다.
-  * 메시지 중간에 잘린 로그에 데이터가 추가되면, 버전 1 파서로 파싱할 수 없습니다.
-* 그 외의 파서가 알 수 없는 메시지를 무시하면, 순방향 및 역방향 호환성이 제공됩니다.
+- Addition of [Multi Information Message](#m-multi-information-message) and [Flag Bits Message](#b-flag-bits-message) and the ability to append data to a log.
+  - 기존 로그에 충돌 데이터를 추가하는 데 사용됩니다.
+  - 메시지 중간에 잘린 로그에 데이터가 추가되면, 버전 1 파서로 파싱할 수 없습니다.
+- 그 외의 파서가 알 수 없는 메시지를 무시하면, 순방향 및 역방향 호환성이 제공됩니다.
