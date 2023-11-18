@@ -1,17 +1,18 @@
 # PX4 DroneCAN Firmware
 
 PX4 can run as the firmware on many DroneCAN peripherals. There are multiple benefits to this:
-* PX4 has built-in drivers for a [wide range](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers) of sensors and peripherals components.
-* PX4 has a robust DroneCAN driver implementation that has undergone multiple years of field testing.
-* PX4 is continuously being developed. You routinely get access to the latest improvements.
-* PX4's estimation and control code makes it easy to create "smart" cannodes like integrated AHRS modules.
-* The firmware is completely open source (PX4 is BSD licensed).
+
+- PX4 has built-in drivers for a [wide range](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers) of sensors and peripherals components.
+- PX4 has a robust DroneCAN driver implementation that has undergone multiple years of field testing.
+- PX4 is continuously being developed. You routinely get access to the latest improvements.
+- PX4's estimation and control code makes it easy to create "smart" cannodes like integrated AHRS modules.
+- The firmware is completely open source (PX4 is BSD licensed).
 
 ## Building the Firmware
 
 Follow the [PX4 building docs](../dev_setup/building_px4.md) just as you would to build firmware for a flight controller. Device build configurations are stored [here](https://github.com/PX4/PX4-Autopilot/tree/main/boards). After installing the [PX4 toolchain](../dev_setup/dev_env.md), clone the sources and build. For example, to build for the [Ark Flow](ark_flow.md) target:
 
-```
+```sh
 git clone --recursive https://github.com/PX4/PX4-Autopilot
 cd PX4-Autopilot
 make ark_can-flow_default
@@ -41,14 +42,13 @@ Build the bootloader firmware by specifying the same peripheral target with the 
 
 For example, to build for the [Ark Flow](ark_flow.md) target:
 
-```
+```sh
 git clone --recursive https://github.com/PX4/PX4-Autopilot
 cd PX4-Autopilot
 make ark_can-flow_canbootloader
 ```
 
 The binary can then be flashed to the microcontroller using your favorite SWD/JTAG debugger, such as the [Black Magic Probe](https://black-magic.org/index.html), [ST-Link](https://www.st.com/en/development-tools/st-link-v2.html), or [Segger JLink](https://www.segger.com/products/debug-probes/j-link/).
-
 
 ### Firmware Internals
 

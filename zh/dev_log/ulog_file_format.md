@@ -3,6 +3,7 @@
 ULog is the file format used for logging messages. The format is self-describing, i.e. it contains the format and [uORB](../middleware/uorb.md) message types that are logged. This document is meant to be the ULog File Format Spec Documentation. It is intended especially for anyone who is interested in writing a ULog parser / serializer and needs to decode / encode files.
 
 PX4 uses ULog to log uORB topics as messages related to (but not limited to) the following sources:
+
 - **Device inputs:** Sensors, RC input, etc.
 - **Internal states:** CPU load, attitude, EKF state, etc.
 - **String messages:** `printf` statements, including `PX4_INFO()` and `PX4_ERR()`.
@@ -47,12 +48,11 @@ ULog files have the following three sections:
 
 A description of each section is provided below.
 
-
 ### 头部分
 
 头是一个固定大小的部分，具有以下格式（16个字节）：
 
-```
+```plain
 ----------------------------------------------------------------------
 | 0x55 0x4c 0x6f 0x67 0x01 0x12 0x35 | 0x01         | uint64_t       |
 | File magic(7B)                     | Version (1B) |  Timestamp (8B) |
@@ -81,19 +81,18 @@ struct message_header_s {
 Message sections below are prefixed with the character that corresponds to it's `msg_type`.
 :::
 
-
 ### 定义部分
 
 The definitions section contains basic information such as software version, message format, initial parameter values, and so on.
 
 The message types in this section are:
+
 1. [Flag Bits](#b-flag-bits-message)
 2. [Format Definition](#f-format-message)
 3. [Information](#i-information-message)
 4. [Multi Information](#m-multi-information-message)
 5. [Parameter](#p-parameter-message)
 6. [Default Parameter](#q-default-parameter-message)
-
 
 #### 'B': Flag Bits Message
 
@@ -113,17 +112,22 @@ struct ulog_message_flag_bits_s {
 ```
 
 - `compat_flags`: compatible flag bits
+
   - These flags indicate the presence of features in the log file that are compatible with any ULog parser.
-  - `compat_flags[0]`: *DEFAULT_PARAMETERS* (Bit 0): if set, the log contains [default parameters message](#q-default-parameter-message)
+  - `compat_flags[0]`: _DEFAULT_PARAMETERS_ (Bit 0): if set, the log contains [default parameters message](#q-default-parameter-message)
 
   The rest of the bits are currently not defined and must be set to 0. These bits can be used for future ULog changes that are compatible with existing parsers. For example, adding a new message type can be indicated by defining a new bit in the standard, and existing parsers will ignore the new message type. It means parsers can just ignore the bits if one of the unknown bits is set.
-- `incompat_flags`: 不兼容的标志位。
-  - `incompat_flags[0]`: *DATA_APPENDED* (Bit 0): if set, the log contains appended data and at least one of the `appended_offsets` is non-zero.
 
-  The rest of the bits are currently not defined and must be set to 0. 这可用于引入现有解析器无法处理的重大更改。 For example, when an old ULog parser that didn't have the concept of *DATA_APPENDED* reads the newer ULog, it would stop parsing the log as the log will contain out-of-spec messages / concepts. If a parser finds any of these bits set that isn't specified, it must refuse to parse the log.
+- `incompat_flags`: 不兼容的标志位。
+
+  - `incompat_flags[0]`: _DATA_APPENDED_ (Bit 0): if set, the log contains appended data and at least one of the `appended_offsets` is non-zero.
+
+  The rest of the bits are currently not defined and must be set to 0. 这可用于引入现有解析器无法处理的重大更改。 For example, when an old ULog parser that didn't have the concept of _DATA_APPENDED_ reads the newer ULog, it would stop parsing the log as the log will contain out-of-spec messages / concepts. If a parser finds any of these bits set that isn't specified, it must refuse to parse the log.
+
 - `appended_offsets`: File offset (0-based) for appended data. 如果没有附加数据，则所有偏移量必须为零。 这可以用于消息中途暂停的情况下可靠的添加数据。 For example, crash dumps.
 
   附加数据的过程应该做到：
+
   - set the relevant `incompat_flags` bit
   - set the first `appended_offsets` that is currently 0 to the length of the log file without the appended data, as that is where the new data will start
   - append any type of messages that are valid for the Data section.
@@ -147,12 +151,14 @@ struct message_format_s {
 A `field` has the format: `type field_name`, or for an array: `type[array_length] field_name` is used (only fixed size arrays are supported).
 
 A `type` is one of the [basic binary types](#data-types) or a `message_name` of another format definition (nested usage).
+
 - 一个类型可以在定义之前使用。
   - e.g. The message `MessageA:MessageB[2] msg_b` can come before the `MessageB:uint_8[3] data`
 - There can be arbitrary nesting but **no circular dependencies**
   - e.g. `MessageA:MessageB[2] msg_b` & `MessageB:MessageA[4] msg_a`
 
 有些字段名是特殊的：
+
 - `timestamp`: every [Subscription Message](#a-subscription-message) must include a timestamp field
   - 它的类型可以是：`uint64_t` (目前唯一使用的)，`uint32_t`, `uint16_t` 或者是 `uint8_t` 。
   - The unit is always microseconds, except for in `uint8_t` where the unit is in milliseconds.
@@ -233,7 +239,7 @@ struct ulog_message_info_multiple_header_s {
 };
 ```
 
-* `is_continued` can be used for split-up messages: if set to 1, it is part of the previous message with the same key.
+- `is_continued` can be used for split-up messages: if set to 1, it is part of the previous message with the same key.
 
 解析器可以将所有多报文信息存储为一个 2D 列表，使用与日志中报文相同的顺序。
 
@@ -268,17 +274,16 @@ struct ulog_message_parameter_default_header_s {
 };
 ```
 
-* `default_types` is a bitfield and defines to which group(s) the value belongs to.
-  * At least one bit must be set:
-    * `1<<0`: system wide default
-    * `1<<1`: default for the current configuration (e.g. an airframe)
+- `default_types` is a bitfield and defines to which group(s) the value belongs to.
+  - At least one bit must be set:
+    - `1<<0`: system wide default
+    - `1<<1`: default for the current configuration (e.g. an airframe)
 
 A log may not contain default values for all parameters. In those cases the default is equal to the parameter value, and different default types are treated independently.
 
 This message can also be used in the Data section, and the data type is restricted to `int32_t` and `float`.
 
 This section ends before the start of the first [Subscription Message](#a-subscription-message) or [Logging](#l-logged-string-message) message, whichever comes first.
-
 
 ### 数据部分
 
@@ -353,8 +358,8 @@ struct message_logging_s {
 };
 ```
 
-* `timestamp`: in microseconds
-* `log_level`: same as in the Linux kernel:
+- `timestamp`: in microseconds
+- `log_level`: same as in the Linux kernel:
 
 | 名称      | 对应值 | 含义       |
 | ------- | --- | -------- |
@@ -379,8 +384,9 @@ struct message_logging_tagged_s {
 };
 ```
 
-* `tag`: id representing source of logged message string. It could represent a process, thread or a class depending upon the system architecture.
-  * For example, a reference implementation for an onboard computer running multiple processes to control different payloads, external disks, serial devices etc can encode these process identifiers using a `uint16_t enum` into the `tag` attribute of struct as follows:
+- `tag`: id representing source of logged message string. It could represent a process, thread or a class depending upon the system architecture.
+
+  - For example, a reference implementation for an onboard computer running multiple processes to control different payloads, external disks, serial devices etc can encode these process identifiers using a `uint16_t enum` into the `tag` attribute of struct as follows:
 
   ```c
   enum class ulog_tag : uint16_t {
@@ -397,8 +403,8 @@ struct message_logging_tagged_s {
   };
   ```
 
-* `timestamp`: in microseconds
-* `log_level`: same as in the Linux kernel:
+- `timestamp`: in microseconds
+- `log_level`: same as in the Linux kernel:
 
 | 名称      | 对应值 | 含义       |
 | ------- | --- | -------- |
@@ -422,7 +428,7 @@ struct message_sync_s {
 };
 ```
 
-* `sync_magic`: to be defined.
+- `sync_magic`: to be defined.
 
 #### 'O': Dropout message
 
@@ -474,12 +480,11 @@ Since the Definitions and Data Sections use the same message header format, they
 - [PlotJuggler](https://github.com/facontidavide/PlotJuggler): 绘制日志和时间序列的 C++/Qt 应用。 自版本2.1.3支持 ULog。
 - [ulogreader](https://github.com/maxsun/ulogreader): Javascript, ULog reader and parser outputs log in JSON object format.
 
-
 ## 文件格式版本历史
 
 ### 版本 2 中的改变
 
-* Addition of [Multi Information Message](#m-multi-information-message) and [Flag Bits Message](#b-flag-bits-message) and the ability to append data to a log.
-  * 这被用来给现有的日志添加损坏的数据。
-  * 如果从中间切开的报文数据被附加到日志中，这不能被版本 1 解析器解析。
-* 除此之外，如果解析器忽略未知消息，则提供向前和向后的兼容性。
+- Addition of [Multi Information Message](#m-multi-information-message) and [Flag Bits Message](#b-flag-bits-message) and the ability to append data to a log.
+  - 这被用来给现有的日志添加损坏的数据。
+  - 如果从中间切开的报文数据被附加到日志中，这不能被版本 1 解析器解析。
+- 除此之外，如果解析器忽略未知消息，则提供向前和向后的兼容性。

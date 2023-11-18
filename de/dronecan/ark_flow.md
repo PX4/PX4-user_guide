@@ -8,7 +8,7 @@ ARK Flow is an open source [DroneCAN](README.md) [optical flow](../sensor/optica
 
 Order this module from:
 
-* [ARK Electronics](https://arkelectron.com/product/ark-flow/) (US)
+- [ARK Electronics](https://arkelectron.com/product/ark-flow/) (US)
 
 ## Hardware Specifications
 
@@ -73,7 +73,7 @@ In order to use the ARK Flow board, connect it to the Pixhawk CAN bus and enable
 
 The steps are:
 
-- In *QGroundControl* set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
+- In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect ARK Flow CAN to the Pixhawk CAN.
 
 Once enabled, the module will be detected on boot. Flow data should arrive at 10Hz.
@@ -84,7 +84,8 @@ DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enablin
 
 You need to set the EKF optical flow parameters to enable fusing optical flow measurements for velocity calculation, set necessary [DroneCAN](README.md) parameters, and define offsets if the sensor is not centred within the vehicle.
 
-Set the following parameters in *QGroundControl*:
+Set the following parameters in _QGroundControl_:
+
 - Enable optical flow fusion by setting [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL).
 - To optionally disable GPS aiding, set [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) to `0`.
 - Enable [UAVCAN_SUB_FLOW](../advanced_config/parameter_reference.md#UAVCAN_SUB_FLOW).
@@ -119,5 +120,7 @@ If you see a solid red LED there is an error and you should check the following:
 ## Video
 
 @[youtube](https://www.youtube.com/watch?v=SAbRe1fi7bU&list=PLUepQApgwSozmwhOo-dXnN33i2nBEl1c0)
+
 <!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
-*PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes_mc/position.md)).* 
+
+_PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes_mc/position.md))._

@@ -9,17 +9,16 @@ Mevcut donanımlarla çalışıp PX4'ü sadece uçuş için kullanmak istiyorsan
 
 Bu rehber ile birlikte:
 
-* Çalıştığınız bilgisayar için [geliştirici ortamınızı](../dev_setup/config_initial.md) kurmayı, [ PX4'ü kaynak kodundan build etmeyi](../dev_setup/building_px4.md) ve  [desteklenen otopilotlar ](../flight_controller/README.md)  üzerinde uygulamayı öğreneceksiniz.
-* [PX4 Sistem Mimarisini](../concept/architecture.md) ve diğer temel konseptleri anlayacaksınız.
-* Flight stack ve middleware üzerinde değişiklikleri nasıl yapabileceğinizi öğreneceksiniz:
+- Çalıştığınız bilgisayar için [geliştirici ortamınızı](../dev_setup/config_initial.md) kurmayı, [ PX4'ü kaynak kodundan build etmeyi](../dev_setup/building_px4.md) ve  [desteklenen otopilotlar ](../flight_controller/README.md)  üzerinde uygulamayı öğreneceksiniz.
+- [PX4 Sistem Mimarisini](../concept/architecture.md) ve diğer temel konseptleri anlayacaksınız.
+- Flight stack ve middleware üzerinde değişiklikleri nasıl yapabileceğinizi öğreneceksiniz:
   - Uçuş algoritmalarını değiştirme ve yeni [uçuş modları](../concept/flight_modes.md) ekleme.
   - Yeni araç [gövdelerini](../dev_airframes/README.md) destekleme.
-* PX4'ü yeni bir donanım ile nasıl entegre edebileceğinizi göreceksiniz.
+- PX4'ü yeni bir donanım ile nasıl entegre edebileceğinizi göreceksiniz.
   - Yeni sensörler ve aktüatörleri entegre etme.
   - PX4'ün yeni bir otopilot donanımında çalışmasını sağlama
-* PX4'ü [simüle](../simulation/README.md) ve [test](../test_and_ci/README.md) edip [debug/log](../debug/README.md)'u öğreneceksiniz.
-* Dilediğiniz harici Robotik API'ı entegre edebileceksiniz.
-
+- PX4'ü [simüle](../simulation/README.md) ve [test](../test_and_ci/README.md) edip [debug/log](../debug/README.md)'u öğreneceksiniz.
+- Dilediğiniz harici Robotik API'ı entegre edebileceksiniz.
 
 ## Geliştiriciler için bazı ana linkler
 

@@ -9,17 +9,16 @@ This section is for software developers and (new) hardware integrators.
 
 以下の方法を説明します。
 
-* [最小の開発者設定](../dev_setup/config_initial.md)を取得し、[ソースからPX4をビルドして](../dev_setup/building_px4.md) 、[サポートされた数多くの自動操縦装置](../flight_controller/README.md) にデプロイする。
-* [PX4システムアーキテクチャ](../concept/architecture.md) およびその他のコアコンセプトを理解する。
-* フライトスタックとミドルウェアを変更する方法を学ぶ：
+- [最小の開発者設定](../dev_setup/config_initial.md)を取得し、[ソースからPX4をビルドして](../dev_setup/building_px4.md) 、[サポートされた数多くの自動操縦装置](../flight_controller/README.md) にデプロイする。
+- [PX4システムアーキテクチャ](../concept/architecture.md) およびその他のコアコンセプトを理解する。
+- フライトスタックとミドルウェアを変更する方法を学ぶ：
   - フライトアルゴリズムを変更し、新しい [フライトモード](../concept/flight_modes.md)を追加します。
   - 新しい [機体](../dev_airframes/README.md)をサポートする。
-* PX4と新しいハードウェアを統合する方法を学ぶ：
+- PX4と新しいハードウェアを統合する方法を学ぶ：
   - カメラ、レンジファインダーなどの新しいセンサーやアクチュエータをサポートする。
   - PX4を新しいハードウェアで実行するように変更する。
-* PX4の[シミュレーション](../simulation/README.md)、[テスト](../test_and_ci/README.md)、[デバッグ/ログ](../debug/README.md)
-* 外部ロボティクスAPIとの通信/統合
-
+- PX4の[シミュレーション](../simulation/README.md)、[テスト](../test_and_ci/README.md)、[デバッグ/ログ](../debug/README.md)
+- 外部ロボティクスAPIとの通信/統合
 
 ## 主要な開発者リンク
 
