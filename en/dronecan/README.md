@@ -3,10 +3,12 @@
 [DroneCAN](https://dronecan.github.io/) is a open software communication protocol for flight controllers and other [CAN](../can/README.md) devices on a vehicle to communicate with each other.
 
 :::warning
+
 - DroneCAN is not enabled by default, and nor are specific sensors and features that use it.
   For setup information see [PX4 Configuration](#px4-configuration).
 - PX4 requires an SD card to enable dynamic node allocation and for firmware update.
   The SD card is not used in flight.
+
 :::
 
 :::note

@@ -6,14 +6,13 @@ The GPS module uses the [DroneCAN](README.md) protocol for communication.
 DroneCAN connections are more resistant to electromagnetic interference compared to serial connection, making it more reliable.
 In addition, using DroneCAN means that the GPS and compass do not occupy any flight controller serial ports (different/additional CAN devices can be connected to the same CAN bus via a CAN splitter board).
 
-<img src="../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps.jpg" width="400px" title="Hero diagram for the GPS module" /> 
-
+<img src="../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps.jpg" width="400px" title="Hero diagram for the GPS module" />
 
 ## Where to Buy
 
 Order this module from:
 
-* [Holybro](https://holybro.com/products/dronecan-m8n-gps) 
+- [Holybro](https://holybro.com/products/dronecan-m8n-gps)
 
 ## Hardware Specifications
 
@@ -26,7 +25,7 @@ Order this module from:
 | Frequency Band            | <p>GPS: L1C/A<br>GLONASS: L10F<br>Beidou: B1I<br>Galileo: E1B/C</p>                                                                                |
 | GNSS Augmentation System  | SBAS: WAAS, EGNOS, MSAS, QZSS                                                                                                                      |
 | Navigation Update         | 5Hz Default(10Hz MAX)                                                                                                                              |
-| Navigation sensitivity    |  –167 dBm                                                                                                                                          |
+| Navigation sensitivity    | –167 dBm                                                                                                                                           |
 | Cold starts               | \~ 26s                                                                                                                                             |
 | Accuracy                  | 2.5m                                                                                                                                               |
 | Speed Accuracy            | 0.05 m/s                                                                                                                                           |
@@ -65,7 +64,6 @@ For more information, refer to the [CAN Wiring](../can/README.md#wiring) instruc
 
 ![Diagram showing GPS dimensions](../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps_dimension.jpg)
 
-
 ## PX4 Configuration
 
 You need to set necessary [DroneCAN](README.md) parameters and define offsets if the sensor is not centred within the vehicle.
@@ -81,7 +79,7 @@ In order to use the ARK GPS board, connect it to the Pixhawk CAN bus and enable 
 
 The steps are:
 
-- In *QGroundControl* set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
+- In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect GPS CAN to the Pixhawk CAN.
 
 Once enabled, the module will be detected on boot.

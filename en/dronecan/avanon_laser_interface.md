@@ -11,7 +11,7 @@ The [Avionics Anonymous Laser Altimeter Interface](https://www.tindie.com/produc
 
 ## Where to Buy
 
-* [AvAnon Laser Interface](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/)
+- [AvAnon Laser Interface](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/)
 
 <a id="supported_rangefinders"></a>
 
@@ -44,25 +44,25 @@ Therefore the laser must be compatible with whatever voltage is supplied to the 
 
 ### CAN Connector
 
-Pin | Name | Description
---- | ---   | ---
-1   | POWER_IN | Power Supply. 4.0-5.5V supported, but must also be compatible with connected laser.
-2   | TX/SCL | TX for serial mode, Clock for I2C mode.
-3   | RX/SDA | RX for serial mode, Data for I2C mode.
-4   | GND | Signal/power ground.
+| Pin | Name     | Description                                                                         |
+| --- | -------- | ----------------------------------------------------------------------------------- |
+| 1   | POWER_IN | Power Supply. 4.0-5.5V supported, but must also be compatible with connected laser. |
+| 2   | TX/SCL   | TX for serial mode, Clock for I2C mode.                                             |
+| 3   | RX/SDA   | RX for serial mode, Data for I2C mode.                                              |
+| 4   | GND      | Signal/power ground.                                                                |
 
 ### Laser Connector
 
-Pin | Name | Description
---- | ---   | ---
-1   | POWER_OUT | Filtered power at the supply voltage.
-2   | CAN+ | TX for serial mode, Clock for I2C mode.
-3   | RX/SDA | RX for serial mode, Data for I2C mode.
-4   | GND | Signal/power ground.
+| Pin | Name      | Description                             |
+| --- | --------- | --------------------------------------- |
+| 1   | POWER_OUT | Filtered power at the supply voltage.   |
+| 2   | CAN+      | TX for serial mode, Clock for I2C mode. |
+| 3   | RX/SDA    | RX for serial mode, Data for I2C mode.  |
+| 4   | GND       | Signal/power ground.                    |
 
 ## PX4 Configuration
 
-To enable the laser altimeter you will need to [set the following parameters](../advanced_config/parameters.md) (in QGroundControl): 
+To enable the laser altimeter you will need to [set the following parameters](../advanced_config/parameters.md) (in QGroundControl):
 
 - Enable DroneCAN by setting [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) non zero.
 - Enable DroneCAN rangefinder subscription by setting [UAVCAN_SUB_RNG](../advanced_config/parameter_reference.md#UAVCAN_SUB_RNG)
