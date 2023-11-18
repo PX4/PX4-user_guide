@@ -1,9 +1,10 @@
 # Optical Flow
 
-*Optical Flow* uses a downward facing camera and a downward facing distance sensor for velocity estimation.
+_Optical Flow_ uses a downward facing camera and a downward facing distance sensor for velocity estimation.
 
 @[youtube](https://youtu.be/aPQKgUof3Pc)
-*Video: PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes_mc/position.md)).* 
+_Video: PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes_mc/position.md))._
+
 <!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
 
 ## Setup
@@ -17,12 +18,12 @@ If connected to PX4 via MAVLink the Optical Flow device must publish to the [OPT
 
 The output of the flow when moving in different directions must be as follows:
 
-Vehicle movement | Integrated flow
---- | ---
-Forwards | + Y
-Backwards | - Y
-Right | - X
-Left | + X
+| Vehicle movement | Integrated flow |
+| ---------------- | --------------- |
+| Forwards         | + Y             |
+| Backwards        | - Y             |
+| Right            | - X             |
+| Left             | + X             |
 
 For pure rotations the `integrated_xgyro` and `integrated_x` (respectively `integrated_ygyro` and `integrated_y`) have to be the same.
 
@@ -31,8 +32,7 @@ An popular setup is the [PX4Flow](../sensor/px4flow.md) and [Lidar-Lite](../sens
 ![Optical flow lidar attached](../../assets/hardware/sensors/optical_flow/flow_lidar_attached.jpg)
 
 Sensor data from the optical flow device is fused with other velocity data sources.
-The approach used for fusing sensor data and any offsets from the center of the vehicle must be configured in the [estimator](#estimators). 
-
+The approach used for fusing sensor data and any offsets from the center of the vehicle must be configured in the [estimator](#estimators).
 
 ## Flow Sensors/Cameras
 
@@ -51,12 +51,10 @@ It is used in a number of products, including some from: Bitcraze, Tindie, Hex, 
 It is also possible to use a board/quad that has an integrated camera.
 For this the [Optical Flow repo](https://github.com/PX4/OpticalFlow) can be used (see also [snap_cam](https://github.com/PX4/snap_cam)).
 
-
 ## Range Finders
 
 You can use any supported [distance sensor](../sensor/rangefinders.md).
 However we recommend using LIDAR rather than sonar sensors, because of their robustness and accuracy.
-
 
 ## Estimators
 
@@ -64,23 +62,21 @@ Estimators fuse data from the optical flow sensor and other sources.
 The settings for how fusing is done, and relative offsets to vehicle center must be specified for the estimator used.
 
 The offsets are calculated relative to the vehicle orientation and center as shown below:
- 
+
 ![Optical Flow offsets](../../assets/hardware/sensors/optical_flow/px4flow_offset.png)
 
 Optical Flow based navigation is enabled by both the availableestimators: EKF2 and LPE (deprecated).
 
 <a id="ekf2"></a>
+
 ### Extended Kalman Filter (EKF2)
 
 For optical flow fusion using EKF2, set [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL).
 
 If your optical flow sensor is offset from the vehicle centre, you can set this using the following parameters.
 
-Parameter | Description
---- | ---
-<a id="EKF2_OF_POS_X"></a>[EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X) | X position of optical flow focal point in body frame (default is 0.0m).
-<a id="EKF2_OF_POS_Y"></a>[EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) | Y position of optical flow focal point in body frame (default is 0.0m).
-<a id="EKF2_OF_POS_Z"></a>[EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) | Z position of optical flow focal point in body frame (default is 0.0m).
-
-
-
+| Parameter                                                                                          | Description                                                             |
+| -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| <a id="EKF2_OF_POS_X"></a>[EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X) | X position of optical flow focal point in body frame (default is 0.0m). |
+| <a id="EKF2_OF_POS_Y"></a>[EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) | Y position of optical flow focal point in body frame (default is 0.0m). |
+| <a id="EKF2_OF_POS_Z"></a>[EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) | Z position of optical flow focal point in body frame (default is 0.0m). |

@@ -1,6 +1,6 @@
 # Airspeed Sensors
 
-Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames.
+Airspeed sensors are _highly recommended_ for fixed-wing and VTOL frames.
 They are so important because the autopilot does not have other means to detect stall.
 For fixed-wing flight it is the airspeed that guarantees lift not ground speed!
 
@@ -23,7 +23,9 @@ Recommended digital airspeed sensors include:
 All the above sensors are connected via the I2C bus/port.
 
 :::note
+
 Additionally, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/) can be connected to the CAN bus to determine not only high-accuracy airspeed, but also true static pressure and air temperature via onboard barometer and an OAT probe.
+
 :::
 
 ## Configuration
@@ -43,6 +45,7 @@ You should also check [ASPD_PRIMARY](../advanced_config/parameter_reference.md#A
 ### Multiple Airspeed Sensors
 
 If you have multiple airspeed sensors then you can select which sensor is _preferred_ as the primary source using [ASPD_PRIMARY](../advanced_config/parameter_reference.md#ASPD_PRIMARY), where `1`, `2` and `3` reflect the order in which the airspeed sensors were started:
+
 - `-1`: Disabled (no airspeed information used).
 - `0`: Synthetic airspeed estimation (groundspeed minus windspeed)
 - `1`: First airspeed sensor started (default)
