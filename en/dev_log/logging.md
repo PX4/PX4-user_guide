@@ -14,7 +14,7 @@ A new log file is created for each arming session on the SD card.
 To display the current state, use `logger status` on the console.
 If you want to start logging immediately, use `logger on`.
 This overrides the arming state, as if the system was armed.
-`logger off` undoes this. 
+`logger off` undoes this.
 
 If logging stops due to a write error, or reaching the [maximum file size](#file-size-limitations), PX4 will automatically restart logging in a new file.
 
@@ -24,7 +24,6 @@ For a list of all supported logger commands and parameters, use:
 logger help
 ```
 
-
 ## Configuration
 
 The logging system is configured by default to collect sensible logs for [flight reporting](../getting_started/flight_reporting.md) with [Flight Review](http://logs.px4.io).
@@ -32,12 +31,11 @@ The logging system is configured by default to collect sensible logs for [flight
 Logging may further be configured using the [SD Logging](../advanced_config/parameter_reference.md#sd-logging) parameters.
 The parameters you are most likely to change are listed below.
 
-Parameter | Description
---- | ---
-[SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) | Logging Mode. Defines when logging starts and stops.<br />- `-1`: Logging disabled.<br />- `0`: Log when armed until disarm (default).<br />- `1`: Log from boot until disarm.<br />- `2`: Log from boot until shutdown.<br />- `3`: Log based on the [AUX1 RC channel](../advanced_config/parameter_reference.md#RC_MAP_AUX1).<br />- `4`: Log from first armed until shutdown.
-[SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | Logging profile. Use this to enable less common logging/analysis (e.g. for EKF2 replay, high rate logging for PID & filter tuning, thermal temperature calibration).
-[SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".<br>This log can *not* be used with [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), but is useful when you need a small log for geotagging or regulatory compliance.
-
+| Parameter                                                                | Description                                                                                                                                                                                                                                                                                                                                                                      |
+| ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE)       | Logging Mode. Defines when logging starts and stops.<br />- `-1`: Logging disabled.<br />- `0`: Log when armed until disarm (default).<br />- `1`: Log from boot until disarm.<br />- `2`: Log from boot until shutdown.<br />- `3`: Log based on the [AUX1 RC channel](../advanced_config/parameter_reference.md#RC_MAP_AUX1).<br />- `4`: Log from first armed until shutdown. |
+| [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | Logging profile. Use this to enable less common logging/analysis (e.g. for EKF2 replay, high rate logging for PID & filter tuning, thermal temperature calibration).                                                                                                                                                                                                             |
+| [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".<br>This log can _not_ be used with [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), but is useful when you need a small log for geotagging or regulatory compliance.                                                                                                                                        |
 
 Useful settings for specific cases:
 
@@ -49,14 +47,15 @@ Useful settings for specific cases:
 _Developers_ can further configure what information is logged via the [logger](../modules/modules_system.md#logger) module.
 This allows, for example, logging of your own uORB topics.
 
-
 ### SD Card Configuration
 
 Separately, the list of logged topics can also be customized with a file on the SD card.
 Create a file `etc/logging/logger_topics.txt` on the card with a list of topics (For SITL, it's `build/px4_sitl_default/rootfs/fs/microsd/etc/logging/logger_topics.txt`):
-```
+
+```plain
 <topic_name> <interval> <instance>
 ```
+
 The `<interval>` is optional, and if specified, defines the minimum interval in ms between two logged messages of this topic.
 If not specified, the topic is logged at full rate.
 
@@ -68,7 +67,7 @@ The topics in this file replace all of the default logged topics.
 
 Example :
 
-```
+```plain
 sensor_accel 0 0
 sensor_accel 100 1
 sensor_gyro 200
@@ -80,7 +79,6 @@ This configuration will log sensor_accel 0 at full rate, sensor_accel 1 at 10Hz,
 ## Scripts
 
 There are several scripts to analyze and convert logging files in the [pyulog](https://github.com/PX4/pyulog) repository.
-
 
 ## File size limitations
 
@@ -109,16 +107,16 @@ Tests were done on a Pixracer; the results are applicable to Pixhawk as well.
 The maximum supported SD card size for NuttX is 32GB (SD Memory Card Specifications Version 2.0).
 :::
 
-| SD Card | Mean Seq. Write Speed [KB/s] | Max Write Time / Block (average) [ms] |
-| -- | -- | -- |
-| SanDisk Extreme U3 32GB | 461 | **15** |
-| Sandisk Ultra Class 10 8GB | 348 | 40 |
-| Sandisk Class 4 8GB | 212 | 60 |
-| SanDisk Class 10 32 GB (High Endurance Video Monitoring Card) | 331 | 220 |
-| Lexar U1 (Class 10), 16GB High-Performance | 209 | 150 |
-| Sandisk Ultra PLUS Class 10 16GB | 196 | 500 |
-| Sandisk Pixtor Class 10 16GB | 334 | 250 |
-| Sandisk Extreme PLUS Class 10 32GB | 332 | 150 |
+| SD Card                                                       | Mean Seq. Write Speed [KB/s] | Max Write Time / Block (average) [ms] |
+| ------------------------------------------------------------- | ---------------------------- | ------------------------------------- |
+| SanDisk Extreme U3 32GB                                       | 461                          | **15**                                |
+| Sandisk Ultra Class 10 8GB                                    | 348                          | 40                                    |
+| Sandisk Class 4 8GB                                           | 212                          | 60                                    |
+| SanDisk Class 10 32 GB (High Endurance Video Monitoring Card) | 331                          | 220                                   |
+| Lexar U1 (Class 10), 16GB High-Performance                    | 209                          | 150                                   |
+| Sandisk Ultra PLUS Class 10 16GB                              | 196                          | 500                                   |
+| Sandisk Pixtor Class 10 16GB                                  | 334                          | 250                                   |
+| Sandisk Extreme PLUS Class 10 32GB                            | 332                          | 150                                   |
 
 More important than the mean write speed is the maximum write time per block (of 4 KB).
 This defines the minimum buffer size: the larger this maximum, the larger the log buffer needs to be to avoid dropouts.
@@ -142,6 +140,7 @@ And only one client can request log streaming at the same time.
 The connection does not need to be reliable, the protocol is designed to handle drops.
 
 There are different clients that support ulog streaming:
+
 - `mavlink_ulog_streaming.py` script in PX4-Autopilot/Tools.
 - QGroundControl:
   ![QGC Log Streaming](../../assets/gcs/qgc-log-streaming.png)
@@ -156,7 +155,7 @@ There are different clients that support ulog streaming:
   If more is needed, messages are dropped.
   The currently used percentage can be inspected with `mavlink status` (1.8% is used in this example):
 
-  ```
+  ```sh
   instance #0:
           GCS heartbeat:  160955 us ago
           mavlink chan: #0
@@ -172,6 +171,6 @@ There are different clients that support ulog streaming:
           MAVLink version: 2
           transport protocol: UDP (14556)
   ```
-  
+
   Also make sure `txerr` stays at 0.
   If this goes up, either the NuttX sending buffer is too small, the physical link is saturated or the hardware is too slow to handle the data.

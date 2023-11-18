@@ -2,9 +2,10 @@
 
 The following instructions set up a PX4 development environment for macOS.
 This environment can be used to build PX4 for:
-* Pixhawk and other NuttX-based hardware
-* [jMAVSim Simulation](../sim_jmavsim/README.md)
-* [Gazebo Classic Simulation](../sim_gazebo_classic/README.md)
+
+- Pixhawk and other NuttX-based hardware
+- [jMAVSim Simulation](../sim_jmavsim/README.md)
+- [Gazebo Classic Simulation](../sim_gazebo_classic/README.md)
 
 :::tip
 This setup is supported by the PX4 dev team.
@@ -14,7 +15,6 @@ To build other targets you will need to use a [different OS](../dev_setup/dev_en
 ## Video Guide
 
 @[youtube](https://youtu.be/tMbMGiMs1cQ)
-
 
 ## Base Setup
 
@@ -26,25 +26,25 @@ The "base" macOS setup installs the tools needed for building firmware, and incl
 If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
 
 1. Locate the Terminal application within the Utilities folder (**Finder > Go menu > Utilities**)
-2. Select *Terminal.app* and right-click on it, then choose **Duplicate**.
-3. Rename the duplicated Terminal app, e.g. to *x86 Terminal*
-4. Now select the renamed *x86 Terminal* app and right-click and choose **Get Info*
+2. Select _Terminal.app_ and right-click on it, then choose **Duplicate**.
+3. Rename the duplicated Terminal app, e.g. to _x86 Terminal_
+4. Now select the renamed _x86 Terminal_ app and right-click and choose \*_Get Info_
 5. Check the box for **Open using Rosetta**, then close the window
-6. Run the *x86 Terminal* as usual, which will fully support the current PX4 toolchain
-:::
+6. Run the _x86 Terminal_ as usual, which will fully support the current PX4 toolchain
+   :::
 
-First set up the environment 
+First set up the environment
 
 1. Enable more open files by appending the following line to the `~/.zshenv` file (creating it if necessary):
 
    ```sh
    echo ulimit -S -n 2048 >> ~/.zshenv
    ```
-   
+
    :::note
    If you don't do this, the build toolchain may report the error: `"LD: too many open files"`
    :::
-   
+
 1. Enforce Python 3 by appending the following lines to `~/.zshenv`
 
    ```sh
@@ -63,6 +63,7 @@ To setup the environment to be able to build for Pixhawk/NuttX hardware (and ins
    brew tap PX4/px4
    brew install px4-dev
    ```
+
 1. Install the required Python packages:
 
    ```sh
@@ -84,7 +85,7 @@ To setup the environment for [Gazebo Classic](../sim_gazebo_classic/README.md) s
    brew install tbb@2020
    brew link tbb@2020
    ```
-   
+
    :::note
    September 2021: The commands above are a workaround to this bug: [PX4-Autopilot#17644](https://github.com/PX4/PX4-Autopilot/issues/17644).
    They can be removed once it is fixed (along with this note).
@@ -139,7 +140,8 @@ Once you have finished setting up the command-line toolchain:
 - Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html)
 
   :::tip
-  The *daily build* includes development tools that are hidden in release builds. 
+  The _daily build_ includes development tools that are hidden in release builds.
   It may also provide access to new PX4 features that are not yet supported in release builds.
   :::
+
 - Continue to the [build instructions](../dev_setup/building_px4.md).

@@ -66,7 +66,7 @@ In order to use the ARK CANnode board, connect it to the Pixhawk CAN bus and ena
 
 The steps are:
 
-- In *QGroundControl* set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
+- In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect ARK CANnode CAN to the Pixhawk CAN.
 
 Once enabled, the module will be detected on boot.
@@ -83,9 +83,9 @@ This is done using the the parameters named like `UAVCAN_SUB_*` in the parameter
 
 On the ARK CANnode, you may need to configure the following parameters:
 
-Parameter | Description
---- | ---
-<a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | CAN built-in bus termination.
+| Parameter                                                                                       | Description                   |
+| ----------------------------------------------------------------------------------------------- | ----------------------------- |
+| <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | CAN built-in bus termination. |
 
 ## LED Meanings
 

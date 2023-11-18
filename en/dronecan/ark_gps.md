@@ -8,7 +8,7 @@ ARK GPS is an open source [DroneCAN](README.md) [GNSS/GPS](../gps_compass/README
 
 Order this module from:
 
-* [ARK Electronics](https://arkelectron.com/product/ark-gps/) (US)
+- [ARK Electronics](https://arkelectron.com/product/ark-gps/) (US)
 
 ## Hardware Specifications
 
@@ -55,7 +55,7 @@ The sensor can be mounted anywhere on the frame, but you will need to specify it
 ## Firmware Setup
 
 ARK GPS runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md).
-As such, it supports firmware update over the CAN bus and [dynamic node allocation](../dronecan/README.md#node-id-allocation). 
+As such, it supports firmware update over the CAN bus and [dynamic node allocation](../dronecan/README.md#node-id-allocation).
 
 ARK GPS boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself see [PX4 DroneCAN Firmware > Building the Firmware](px4_cannode_fw.md#building-the-firmware).
 
@@ -77,7 +77,7 @@ In order to use the ARK GPS board, connect it to the Pixhawk CAN bus and enable 
 
 The steps are:
 
-- In *QGroundControl* set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
+- In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect ARK GPS CAN to the Pixhawk CAN.
 
 Once enabled, the module will be detected on boot.
