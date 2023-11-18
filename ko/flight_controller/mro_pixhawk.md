@@ -56,7 +56,7 @@ PX4 실행을 위한 조립 설정 방법은 [Pixhawk 배선 퀵 스타트](../a
 
 - [베어본 (Bare Bones)](https://store.mrobotics.io/Genuine-PixHawk-1-Barebones-p/mro-pixhawk1-bb-mr.htm) - 보드만(3DR Pixhawk 대체품으로 유용합니다)
 - [mRo Pixhawk 2.4.6 필수 키트](https://store.mrobotics.io/Genuine-PixHawk-Flight-Controller-p/mro-pixhawk1-minkit-mr.htm) - 텔레메트리 무선 통신을 제외한 모든 것
--  mRo Pixhawk 2.4.6 쿨 키트 (한정판)</0> - 텔레 메 트리 라디오를 포함하여 필요한 모든 것</li> </ul> 
+-  mRo Pixhawk 2.4.6 쿨 키트 </li> </ul> 
   
   
 
