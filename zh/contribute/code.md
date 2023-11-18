@@ -19,7 +19,9 @@ To contribute new functionality, [sign up for Github](https://docs.github.com/en
 PX4 uses the [Google C++ style guide](https://google.github.io/styleguide/cppguide.html), with the following (minimal) modifications:
 
 :::note
+
 Not all PX4 source code matches the style guide, but any _new code_ that you write should do so — in both new and existing files. If you update an existing file you are not required to make the whole file comply with the style guide, just the code you've modified.
+
 :::
 
 ### Tabs
@@ -86,8 +88,9 @@ private:
 PX4 developers are encouraged to create appropriate in-source documentation.
 
 :::note
-Source-code documentation standards are not enforced, and the code is currently inconsistently documented.
-We'd like to do better!
+
+Source-code documentation standards are not enforced, and the code is currently inconsistently documented. We'd like to do better!
+
 :::
 
 Currently we have two types of source-based documentation:
@@ -98,7 +101,10 @@ Currently we have two types of source-based documentation:
 - We encourage other in-source documentation _where it adds value/is not redundant_.
 
   :::tip
-Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
+
+  Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
+
+
 :::
 
   - Do not add documentation that can trivially be inferred from C++ entity names.
