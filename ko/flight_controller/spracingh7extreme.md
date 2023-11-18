@@ -76,11 +76,7 @@ SPRacingH7EXTREME은 [Seriously Pro 상점](https://shop.seriouslypro.com/sp-rac
 
 ## 매뉴얼, 핀배열 및 연결 다이어그램
 
-핀배열과 설명서는
-
-여기</ 0>에서 다운로드할 수 있습니다. 다른 다이어그램은 [SPRacingH7EXTREME 웹 사이트](http://seriouslypro.com/spracingh7extreme)를 참조하십시오.</p> 
-
-
+핀배열과 설명서는 [여기](http://seriouslypro.com/files/SPRacingH7EXTREME-Manual-latest.pdf)에서 다운로드할 수 있습니다. 다른 다이어그램은 [SPRacingH7EXTREME 웹 사이트](http://seriouslypro.com/spracingh7extreme)를 참조하십시오.
 
 ## 개발자
 
