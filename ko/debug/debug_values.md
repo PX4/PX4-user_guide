@@ -18,8 +18,8 @@ MAVLink 디버그 메시지는 uORB 주제로/에서 번역됩니다. MAVLink �
 
 이 자습서의 코드는 다음에서 사용할 수 있습니다.
 
-* [튜토리얼 코드 디버그](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
-* 보드 구성에서 MAVLink 디버그 앱(**px4_mavlink_debug**)의 주석 처리를 제거하여 [튜토리얼 앱을 활성화](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake)합니다.
+- [튜토리얼 코드 디버그](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
+- 보드 구성에서 MAVLink 디버그 앱(**px4_mavlink_debug**)의 주석 처리를 제거하여 [튜토리얼 앱을 활성화](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake)합니다.
 
 디버그 게시를 설정에 필요한 것은 아래의 코드입니다. 먼저 헤더 파일을 추가합니다.
 
@@ -47,14 +47,13 @@ orb_publish(ORB_ID(debug_key_value), pub_dbg, &dbg);
 ```
 
 :::warning
-Multiple debug messages must have enough time between their respective publishings for Mavlink to process them. 
+Multiple debug messages must have enough time between their respective publishings for Mavlink to process them.
 이는 코드가 여러 디버그 메시지 게시 사이에 대기하거나, 각 함수 호출 반복에서 메시지를 대체하는 것을 의미합니다.
 :::
 
 QGroundControl의 결과는 실시간 플롯에서 다음과 같습니다.
 
 ![QGC 디버그값 플롯](../../assets/gcs/qgc-debugval-plot.jpg)
-
 
 ## 튜토리얼: 문자열 / 부동 소수점 쌍 수신
 
@@ -103,5 +102,4 @@ while (true) {
         }
     }
 }
-
 ```
