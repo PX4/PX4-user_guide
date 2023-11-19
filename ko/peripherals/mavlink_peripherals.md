@@ -47,13 +47,13 @@ The mode defines the _default_ messages and rates. 연결된 MAVLink 시스템�
   - 값이 0이면 데이터 속도가 이론적인 값의 절반으로 설정됩니다.
 - <a id="MAV_X_FORWARD"></a>[MAV_X_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FORWARD) - 현재 인스턴스에서 수신한 MAVLink 패킷을 다른 인터페이스로 전달할 수 있습니다. 예를 들어 GCS가 보조 컴퓨터에 연결된 MAVLink 지원 카메라와 통신할 수 있도록 GCS와 보조 컴퓨터간에 메시지를 전송에 사용할 수 있습니다.
 
-다음으로 위에서 할당한 직렬 포트의 전송 속도를 설정하여야 합니다 (`MAV_X_CONFIG /0>).</p>
+다음으로 위에서 할당한 직렬 포트의 전송 속도를 설정하여야 합니다 (`MAV_X_CONFIG `).
 
-<p spaces-before="0">:::tip
+:::tip
 매개변수를 사용하가 위하여 PX4를 재부팅합니다(예 : QGroundControl에서).
-:::</p>
+:::
 
-<p spaces-before="0">The parameter used will depend on the <a href="../advanced_config/parameter_reference.md#serial">assigned serial port</a> - for example: <code>SER_GPS1_BAUD`, `SER_TEL2_BAUD`, etc. 사용하는 값은 연결 유형과 연결된 MAVLink 주변 장치에 따라 달라집니다.
+The parameter used will depend on the [assigned serial port](../advanced_config/parameter_reference.md#serial) - for example: `SER_GPS1_BAUD`, `SER_TEL2_BAUD`, etc. 사용하는 값은 연결 유형과 연결된 MAVLink 주변 장치에 따라 달라집니다.
 
 <a id="default_ports"></a>
 
