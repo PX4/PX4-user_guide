@@ -66,7 +66,7 @@ For Multirotors, Manual and Stabilized modes are the same.
 - **自动返航模式：** （返航）
 
   - **Fixed-wing aircraft:** The aircraft returns to the home position and loiters in a circle above the home position.
-  - **多旋翼：** 多旋翼无人机保持当前高度，沿直线返回起飞位置（如果当前高度大于起飞位置高度 + [RTL_RETURN_ALT](../advanced/parameter_reference.md#RTL_RETURN_ALT)）或者 [RTL_RETURN_ALT](../advanced/parameter_reference.md#RTL_RETURN_ALT) （如果 [RTL_RETURN_ALT](../advanced/parameter_reference.md#RTL_RETURN_ALT) 比当前高度要高），则无人机将自动降落。
+  - **Multirotors:** The multirotor returns in a straight line on the current altitude (if the current altitude is higher than the home position + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)) or on the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) (if the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) is higher than the current altitude), then lands automatically.
 
 - **AUTO_MISSION** (Mission)
   - **所有类型的系统：**飞机执行由地面控制站 (GCS) 发送的预规划飞行任务。 如果没有收到任务, 飞机将会在当前的的位置上停留/盘旋。

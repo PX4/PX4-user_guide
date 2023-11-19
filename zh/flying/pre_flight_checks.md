@@ -113,5 +113,5 @@ The following parameters also affect preflight checks.
 
 The [COM_ARM_WO_GPS](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS) parameter controls whether or not arming is allowed without a global position estimate.
 - `1` (default): Arming *is* allowed without a position estimate for flight modes that do not require position information (only).
-- </code>0</0>：只有当 EKF 提供全球位置估计并且 EKF GPS 质量检查正在通过时，才允许解锁。
+- `0`：只有当 EKF 提供全球位置估计并且 EKF GPS 质量检查正在通过时，才允许解锁。
 
