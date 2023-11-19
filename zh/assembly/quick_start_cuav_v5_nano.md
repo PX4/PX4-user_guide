@@ -66,7 +66,7 @@ If you do not use the recommended _Neo v2 GPS_ the buzzer may not work.
 
 ## 遥控器
 
-v5 nano</em>套件包括了支持 2~14S 锂聚合物电池的 *HV\\u PM* 模块。 将 *HW\\u PM* 模块的6针连接器连接到飞控的`电源`接口。
+A remote control (RC) radio system is required if you want to manually control your vehicle (PX4 does not require a radio system for autonomous flight modes). 将 *HW\\u PM* 模块的6针连接器连接到飞控的`电源`接口。
 
 The figure below shows how you can access your remote receiver (please find the S.Bus cable in the kit)
 

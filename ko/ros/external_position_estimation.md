@@ -47,7 +47,7 @@ PX4는 기준 프레임뿐만 아니라 로컬 바디 프레임에도 FRD(X **F*
 사용자는 아래 [참조 프레임 및 ROS](#reference-frames-and-ros)을 참고하십시오.
 :::
 
-예를 들어, Optitrack 프레임워크를 사용하는 경우 로컬 프레임은 수평면(앞면 *x*, 오른쪽 *z*)에 $x{}$ 및 $z{}$가 있는 반면 < 0>y</em> 축은 수직이고 위쪽을 가르킵니다. 간단한 트릭은 NED 규칙을 얻기 위해 축을 변경하는 것입니다.
+예를 들어, Optitrack 프레임워크를 사용하는 경우 로컬 프레임은 수평면(앞면 *x*, 오른쪽 *z*)에 $x{}$ 및 $z{}$가 있는 반면 *y* 축은 수직이고 위쪽을 가르킵니다. 간단한 트릭은 NED 규칙을 얻기 위해 축을 변경하는 것입니다.
 
 `x_{mav}`, `y_{mav}`, `z_{mav}`가 MAVLink를 통해 위치 피드백으로 전송되는 좌표라면, 결과는 다음과 같습니다.
 ```
@@ -169,7 +169,7 @@ EKF2로 작업하는 경우 "비전" 파이프라인만 지원됩니다. EKF2에
 - `geometry_msgs/PoseStamped` 또는 `geometry_msgs/PoseWithCovarianceStamped` 유형의 MoCap ROS 주제는 `/mavros/vision_pose/pose`로 다시 매핑하여야 합니다. `geometry_msgs/PoseStamped` 주제는 MoCap에 일반적으로 데이터에 대한 관련 공분산이 없으므로, 가장 일반적입니다.
 - `nav_msgs/Odometry` ROS 메시지를 통해 데이터를 가져오면 `/mavros/odometry/out`에 다시 매핑해야 하며, `frame_id< /0> 및 <code>child_frame_id`에 따라 차이가 납니다.
 - 주행 거리 프레임 `frame_id = odom`, `child_frame_id = base_link`는 `mavros/launch/px4_config.yaml`의 파일을 업데이트하여 변경할 수 있습니다. 그러나, 현재 버전의 mavros(`1.3.0`)는 tf 트리를 사용하여 `frame_id`에서 하드코딩된 프레임 `odom_ned`로의 변환을 찾을 수 있어야 합니다. tf 트리에서 하드코딩된 프레임 `base_link_frd`에 연결하는 `child_frame_id`에도 동일하게 적용됩니다. mavros `1.2.0`을 사용 중이고 `mavros/launch/px4_config.yaml` 파일을 업데이트하지 않은 경우에는, 큰 걱정 없이 주행 거리 측정 프레임 `frame_id = odom`, `child_frame_id = base_link`을 안전하게 사용할 수 있습니다.
-- `child_frame_id = base_link`를 사용하여 px4에 주행 거리 측정 데이터를 보내는 경우에는, `nav_msgs/Odometry` 메시지의 `twist` 부분이 **관성 프레임이 아닌 **본문 프레임**으로 표현되었는 지 확인하여야 합니다.</li> </ul>
+- Note that if you are sending odometry data to px4 using `child_frame_id = base_link`, then you need to make sure that the `twist` portion of the `nav_msgs/Odometry` message is **expressed in body frame**, **not in inertial frame!!!!!**.
 
 
 ### 기준 프레임과 ROS

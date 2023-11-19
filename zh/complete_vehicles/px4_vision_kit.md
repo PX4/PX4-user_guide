@@ -232,27 +232,19 @@ You can install the image on the *UP Core* and boot from internal memory (instea
 To flash the USB image to the *UP Core*:
 
 1. 将预先烧录的USB驱动器插入标有 `USB1` 的 *UP Core* 端口中。
-1.
-登录到配套计算机<0> （如上所述）。</li> 
-   
-   1 打开终端，然后运行以下命令将映像复制到内部存储器（eMMC）。 终端将在刷新过程中提示您一些响应。 
-  
-  
+1. [登录到配套计算机](#login_mission_computer) （如上所述）。
+1. 打开终端，然后运行以下命令将映像复制到内部存储器（eMMC）。 终端将在刷新过程中提示您一些响应。
    ```sh
    cd ~/catkin_ws/src/px4vision_ros/tools
    sudo ./flash_emmc.sh
    ```
 
-
 :::note
 执行此脚本时，将删除 *UP Core* 计算机中保存的所有信息。
 :::
 
-1 拔出U盘。
-
-1 重启无人机， *UP Core* 计算机现在将从内部内存（eMMC）引导。</ol> 
-
-
+1. 拔出U盘。
+1. 重启无人机， *UP Core* 计算机现在将从内部内存（eMMC）引导。
 
 ### Boot the Companion Computer
 
@@ -271,27 +263,21 @@ Once started the companion computer can be used both as a computer vision develo
 ### 登录机载计算机
 
 To login to the companion computer:
-
 1. 通过端口 `USB2` 将键盘和鼠标连接到 *UP Core*：
-   
+
    ![UP Core：USB2](../../assets/hardware/px4_vision_devkit/upcore_port_usb2.png)
-
    - 使用套件中的 USB-JST电缆获取一个 USB A 连接器
-     
+
      ![USB 转 JST 线](../../assets/hardware/px4_vision_devkit/usb_jst_cable.jpg)
-
    - 如果键盘和鼠标具有单独的接口，则可以将USB集线器连接到电缆。
-     
-     1. 连接显示器到 *UP Core* 的 HDMI 接口。
-![UP Core：HDMI 端口](../../assets/hardware/px4_vision_devkit/upcore_port_hdmi.png)
+1. 连接显示器到 *UP Core* 的 HDMI 接口。
 
-Ubuntu 登录屏幕应显示在显示器上。
+   ![UP Core：HDMI 端口](../../assets/hardware/px4_vision_devkit/upcore_port_hdmi.png)
 
-1. 使用凭据登录到 *UP Core*： 
-      - **用户名：**px4vision
+   Ubuntu 登录屏幕应显示在显示器上。
+1. 使用凭据登录到 *UP Core*：
+   - **用户名：**px4vision
    - **密码：**px4vision
-
-
 
 
 
@@ -303,19 +289,13 @@ ROS 工作区位于 `~/catkin_ws`。 有关在 ROS 中进行开发以及使用 c
 
 The avoidance package is started on boot. To integrate a different planner, this needs to be disabled.
 
-1. 使用以下指令禁用避障程序： 
-   
-   
+1. 使用以下指令禁用避障程序：
    ```sh
    systemctl stop avoidance.service
    ```
+   您只需重启机器即可重启服务。
 
-
-您只需重启机器即可重启服务。
-
-其他有用的指令是： 
-
-
+   其他有用的指令是：
    ```sh
    # restart service
    systemctl start avoidance.service
@@ -327,29 +307,19 @@ The avoidance package is started on boot. To integrate a different planner, this
    systemctl enable avoidance.service  
    ```
 
-
 1. The source code of the obstacle avoidance package can be found in https://github.com/PX4/PX4-Avoidance which is located in `~/catkin_ws/src/avoidance`.
 
-1. 更改代码！ 要获取最新的避障代码，请从避障仓库中提取代码： 
-   
-   
+1. 更改代码！ 要获取最新的避障代码，请从避障仓库中提取代码：
    ```sh
    git pull origin
    git checkout origin/master
    ```
-
-
-1. 构建软件包 
-   
-   
+1. 构建软件包
    ```
    catkin build local_planner
    ```
 
-
 The ROS workspace is placed in `~/catkin_ws`. For reference on developing in ROS and using the catkin workspace, see the [ROS catkin tutorials](http://wiki.ros.org/catkin/Tutorials).
-
-
 
 
 ### 开发 PX4 固件
@@ -357,7 +327,6 @@ The ROS workspace is placed in `~/catkin_ws`. For reference on developing in ROS
 The kit is designed for creating computer vision software that runs on the companion computer, and which integrates with PX4’s flexible path planning and collision prevention interfaces.
 
 可从 [Holybro的网站](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf) 下载载板的引脚 。
-
 - You will need to connect *QGroundControl* to the kit's *Pixhawk* **via USB** in order to update firmware.
 - 加载新固件后选择 *PX4 Vision DevKit* 机架： ![机身选择 - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
 
@@ -365,13 +334,9 @@ The kit is designed for creating computer vision software that runs on the compa
 Modification of PX4 code is not *needed* to meet most computer vision use cases. To discuss the interfaces or how to integrate other features join the [PX4 support channels](../contribute/support.md).
 :::
 
-
-
 ## PX4 Vision Carrier Board Pinouts
 
 Information for the PX4 Vision 1.15 can be found at [https://docs.holybro.com](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5). The carrier board pinouts and other information are in the [downloads section](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5/downloads).
-
-
 
 ## 如何获得技术支持？
 
@@ -382,13 +347,10 @@ Information for the PX4 Vision 1.15 can be found at [https://docs.holybro.com](h
 - [PX4 避障软件/文档](https://github.com/PX4/PX4-Avoidance)
 - [路径规划接口](../computer_vision/path_planning_interface.md)
 
-
-
 ## 如何获得技术支持
 
 For hardware issues, please contact Holybro at: [productservice@holybro.com](mailto:productservice@holybro.com).
 
 For software issues, use the following community support channels:
-
 - [Holybro PX4 Vision Wikifactory 资料库](https://wikifactory.com/+holybro/px4-vision)
 - [PX4 Support channels](../contribute/support.md)
