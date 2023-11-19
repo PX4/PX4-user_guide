@@ -27,10 +27,10 @@ It is important that all replayed topics contain only a single absolute timestam
 - Add ORB publisher rules in the file `build/px4_sitl_default_replay/rootfs/orb_publisher.rules`. This file defines the modules that are allowed to publish particular messages. It has the following format:
 
   ```sh
-  It means that the given list of topics should only be published by <code><module></code> (which is the command name). Publications to any of these topics from another module are silently ignored. If <code>ignore_others</code> is <code>true</code>, then publications to other topics from <code><module></code> are ignored.
+  restrict_topics: <topic1>, <topic2>, ..., <topicN>
+  module: <module>
+  ignore_others: <true/false>
   ```
- (which is the command name). Publications to any of these topics from another module are silently ignored. If ignore_others is true, then publications to other topics from <module> are ignored.
-  </code>
 
   This means that the given list of topics should only be published by `<module>` (which is the command name). Publications to any of these topics from another module are silently ignored. If `ignore_others` is `true`, publications to other topics from `<module>` are ignored.
 
@@ -38,8 +38,8 @@ It is important that all replayed topics contain only a single absolute timestam
 
   ```sh
   restrict_topics: sensor_combined, vehicle_gps_position, vehicle_land_detected
-module: replay
-ignore_others: true
+  module: replay
+  ignore_others: true
   ```
 
   With this, the modules that usually publish these topics don't need to be disabled for the replay.
