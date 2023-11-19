@@ -12,15 +12,15 @@ Adding a feature to PX4 follows a defined workflow. In order to share your contr
 
   ```sh
   cd ~/wherever/
-git clone https://github.com/<your git name>/Firmware.git
+  git clone https://github.com/<your git name>/PX4-Autopilot.git
   ```
 
 - Go into the new directory, initialize and update the submodules, and add the original upstream Firmware
 
   ```sh
-  cd Firmware
-git submodule update --init --recursive
-git remote add upstream https://github.com/PX4/Firmware.git
+  cd PX4-Autopilot
+  git submodule update --init --recursive
+  git remote add upstream https://github.com/PX4/PX4-Autopilot.git
   ```
 
 - You should have now two remote repositories: One repository is called `upstream` that points to PX4/PX4-Autopilot, and one repository `origin` that points to your forked copy of the PX4 repository.
