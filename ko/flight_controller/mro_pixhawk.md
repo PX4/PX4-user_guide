@@ -56,9 +56,7 @@ PX4 실행을 위한 조립 설정 방법은 [Pixhawk 배선 퀵 스타트](../a
 
 - [베어본 (Bare Bones)](https://store.mrobotics.io/Genuine-PixHawk-1-Barebones-p/mro-pixhawk1-bb-mr.htm) - 보드만(3DR Pixhawk 대체품으로 유용합니다)
 - [mRo Pixhawk 2.4.6 필수 키트](https://store.mrobotics.io/Genuine-PixHawk-Flight-Controller-p/mro-pixhawk1-minkit-mr.htm) - 텔레메트리 무선 통신을 제외한 모든 것
--  mRo Pixhawk 2.4.6 쿨 키트 </li> </ul> 
-  
-  
+- [mRo Pixhawk 2.4.6 쿨 키트 (Limited edition)](https://store.mrobotics.io/product-p/mro-pixhawk1-fullkit-mr.htm) - Everything you need including telemetry radios
 
 ## 펌웨어 빌드
 
@@ -67,26 +65,17 @@ PX4 실행을 위한 조립 설정 방법은 [Pixhawk 배선 퀵 스타트](../a
 
 이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
 
-
-
 ```
 make px4_fmu-v3_default
 ```
-
-
-
 
 ## 디버그 포트
 
 [3DR Pixhawk 1 &gt; 디버그 포트](../flight_controller/pixhawk.md#debug-ports)를 참고하십시오.
 
-
-
 ## 핀배열
 
 [3DR Pixhawk 1 &gt; 핀배열](../flight_controller/pixhawk.md#pinouts)을 참고하십시오.
-
-
 
 ## 시리얼 포트 매핑
 
