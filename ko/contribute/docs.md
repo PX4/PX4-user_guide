@@ -43,7 +43,7 @@ Simple changes to _existing content_ can be made by clicking the **Edit this pag
 라이브러리 소스를 로컬 컴퓨터로 가져오려면 git 명령어를 사용하여야 합니다. 아래 지침은 git을 가져와 로컬 컴퓨터에서 사용하는 방법을 설명합니다.
 
 1. [https://git-scm.com/downloads](https://git-scm.com/downloads)에서 git 프로그램을 다운로드합니다.
-1. 아직 Github에 [가입](https://github.com/join)하지 않은 경우에는 가입합니다.
+1. [Sign up](https://github.com/join) for Github if you haven't already
 1. Create a copy (Fork) of the [PX4 User Guide repo](https://github.com/PX4/PX4-user_guide) on Github ([instructions here](https://docs.github.com/en/get-started/quickstart/fork-a-repo)).
 1. 복사된 저장소를 로컬 컴퓨터에 복제합니다.
 
@@ -101,7 +101,7 @@ Simple changes to _existing content_ can be made by clicking the **Edit this pag
 1. 웹 브라우저에서 Github의 분기된 저장소로 이동합니다(예: `https://github.com/<your git name>/px4_user_guide.git`). 새 분기가 분기된 저장소로 푸시되었다는 메시지가 표시되어야 합니다.
 1. 풀 요청(PR) 생성:
    - "새 분기 메시지"(앞의 한 단계 참조)의 오른쪽에 "풀 요청 비교 및 생성"이라는 녹색 버튼이 표시되어야 합니다. 클릭합니다.
-   - 풀 요청 템플릿이 생성됩니다. 그것은 당신의 커밋을 나열하고 의미 있는 제목(하나의 커밋 PR의 경우 일반적으로 커밋 메시지)과 메시지(<span style="color:orange">어떤 이유에서 수행했는지 설명</span>)를 추가할 수 있습니다(반드시). 비교를 위하여, [기타 풀 요청](https://github.com/PX4/px4_user_guide/pulls)을 확인하십시오.
+   - 풀 요청 템플릿이 생성됩니다. 그것은 당신의 커밋을 나열하고 의미 있는 제목(하나의 커밋 PR의 경우 일반적으로 커밋 메시지)과 메시지(<span style="color:orange">어떤 이유에서 수행했는지 설명</span>)를 추가할 수 있습니다(반드시). Check [other pull requests](https://github.com/PX4/PX4-user_guide/pulls) for comparison)
 1. 완료하였습니다. PX4 사용자 가이드 유지 관리자는 이제 귀하의 기여를 검투한 후에, 통합 여부를 결정합니다. 때때로 변경 사항에 대한 질문을 확인하십시오.
 
 ### 로컬에서 라이브러리 구축
