@@ -9,16 +9,16 @@
 ## 系统必备组件
 
 以下内容是您需要提前准备的：
-* [PX4 SITL 模拟器](../simulation/README.md) *或者* 一个 [兼容 PX4 的飞行控制器](https://docs.px4.io/en/flight_controller/#documented-boards) 。
-* 适用于期望平台的 [PX4 开发工具链](../setup/dev_env.md) 。
-* 从 Github [下载 PX4 源代码](../setup/building_px4.md#get_px4_code) 。
+* [PX4 SITL Simulator](../simulation/README.md) *or* a [PX4-compatible flight controller](../flight_controller/README.md).
+* [PX4 Development Toolchain](../dev_setup/dev_env.md) for the desired target.
+* [Download the PX4 Source Code](../dev_setup/building_px4.md#download-the-px4-source-code) from Github
 
 The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
 * 重命名 (或删除) **px4_simple_app** 目录。
 
 ## 最小的应用程序
 
-在本节中，我们创建一个*很小的应用程序*，只是打印出来`Hello Sky!`。 这包括一个*C*文件和一个*cmake*定义（它告诉工具链如何构建应用程序）。</p>
+在本节中，我们创建一个*很小的应用程序*，只是打印出来`Hello Sky!`。 This consists of a single *C* file and a *cmake* definition (which tells the toolchain how to build the application).
 
 1. 新建如下文件夹： **Firmware/src/examples/px4_simple_app**。
 1. 在该目录中新建一个名为 **px4_simple_app.c** 的 C 文件：
