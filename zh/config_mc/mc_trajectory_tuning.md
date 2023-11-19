@@ -24,7 +24,8 @@ The _desired setpoint_ passed to the P/PID controller is itself calculated from 
 _Setpoint value tuning_ ("higher level tuning") is used to specify the mapping between the _demanded_ and the _desired_ setpoints - i.e. defining the "ramp" at which the desired setpoint follows the demanded setpoint.
 
 :::tip
-P/PID 增益<0>整定不当会导致机体不稳定。 Poorly tuned _setpoint values_ cannot result in instability, but may result in either very jerky or very unresponsive reactions to setpoint changes. :::</p>
+[P/PID 增益](../config_mc/pid_tuning_guide_multicopter.md)整定不当会导致机体不稳定。 Poorly tuned _setpoint values_ cannot result in instability, but may result in either very jerky or very unresponsive reactions to setpoint changes.
+:::
 
 <a id="modes"></a>
 
@@ -38,37 +39,33 @@ P/PID 增益<0>整定不当会导致机体不稳定。 Poorly tuned _setpoint va
 
 其他模式不支持轨迹调整。
 
-
-
 ## Position Mode Implementations
 
 The following list provides an _overview_ of the different implementations of how the stick input is interpreted and turned into trajectory setpoints:
 
-- Acceleration based (Default) 
-    - Horizontal stick input mapped to acceleration setpoints.
+- Acceleration based (Default)
+  - Horizontal stick input mapped to acceleration setpoints.
   - Intuitive stick feel because it's like pushing the vehicle around.
   - No unexpected tilt changes upon reaching travel speed velocity.
   - Vertical stick input mapped with jerk-limited trajectory.
   - Set in position mode using `MPC_POS_MODE=4`.
-- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) 
-    - Used when smooth motion is required (e.g.: filming, mapping, cargo).
+- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md)
+  - Used when smooth motion is required (e.g.: filming, mapping, cargo).
   - Generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
   - May not be suitable for vehicles/use-cases that require a faster response - e.g. race quads.
   - Set in position mode using `MPC_POS_MODE=3`.
-- **Simple position control** 
-    - Sticks map directly to velocity setpoints without smoothing.
+- **Simple position control**
+  - Sticks map directly to velocity setpoints without smoothing.
   - Useful for velocity control tuning.
   - Set in position mode using `MPC_POS_MODE=0`.
-
-
 
 ## Altitude Mode Implementations
 
 Analogously to [position mode implementations](#position-mode-implementations) these are the implementations for interpreting vertical stick input:
 
-- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) 
-    - Smoothed vertical input.
+- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md)
+  - Smoothed vertical input.
   - Set in altitude mode with `MPC_POS_MODE` 3 or 4.
-- **Simple altitude control** 
-    - Unsmoothed vertical input.
+- **Simple altitude control**
+  - Unsmoothed vertical input.
   - Set in altitude mode only when using `MPC_POS_MODE=0`.
