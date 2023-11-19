@@ -53,7 +53,7 @@ The mode defines the _default_ messages and rates. 연결된 MAVLink 시스템�
 매개변수를 사용하가 위하여 PX4를 재부팅합니다(예 : QGroundControl에서).
 :::
 
-The parameter used will depend on the [assigned serial port](../advanced_config/parameter_reference.md#serial) - for example: `SER_GPS1_BAUD`, `SER_TEL2_BAUD`, etc. 사용하는 값은 연결 유형과 연결된 MAVLink 주변 장치에 따라 달라집니다.
+사용하는 값은 연결 유형과 연결된 MAVLink 주변 장치에 따라 달라집니다.
 
 <a id="default_ports"></a>
 
