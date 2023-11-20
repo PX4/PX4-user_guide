@@ -1,6 +1,8 @@
 # Flight Modes
 
-_Flight Modes_ define how the autopilot responds to user input and controls vehicle movement. The tables below summarizes flight modes for fixed-wing and copter ([table key is below](#key)). Note that this is the "high level" default behaviour, and may vary based on vehicle parameters. The linked topics (sidebar) provide more detailed information about individual modes, including their tuning parameters.
+_Flight Modes_ define how the autopilot responds to user input and controls vehicle movement.
+The tables below summarizes flight modes for fixed-wing and copter ([table key is below](#key)). Note that this is the "high level" default behaviour, and may vary based on vehicle parameters.
+The linked topics (sidebar) provide more detailed information about individual modes, including their tuning parameters.
 
 :::tip
 A _beginner friendly_ explanation of all flight modes is provided in [Getting Started > Flight Modes](../getting_started/flight_modes.md).
