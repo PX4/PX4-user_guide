@@ -117,6 +117,8 @@ Under Unix there's a flag in the permissions of each file that tells the OS whet
 diff --git ...
 old mode 100644
 new mode 100755
+old mode 100644
+new mode 100755
 ```
 
 We recommend globally disabling the permission check on Windows to avoid the problem:

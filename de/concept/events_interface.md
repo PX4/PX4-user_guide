@@ -47,16 +47,13 @@ float arg2 = -1.f;
 /* EVENT
  * @description
  * This is the detailed event description.
- *
- * - value of arg1: {1}
+ * * - value of arg1: {1}
  * - value of arg2: {2:.1}
- *
- * <profile name="dev">
+ * * <profile name="dev">
  * (This paragraph is only meant to be shown to developers).
  * This behavior can be configured with the parameter <param>COM_EXAMPLE</param>.
  * </profile>
- *
- * Link to documentation: <a>https://docs.px4.io</a>
+ * * Link to documentation: <a>https://docs.px4.io</a>
  */
 events::send<uint8_t, float>(events::ID("event_name"),
     {events::Log::Error, events::LogInternal::Info}, "Event Message", arg1, arg2);

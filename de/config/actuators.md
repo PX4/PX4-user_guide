@@ -411,7 +411,7 @@ For each motor:
    - If the motor is not spinning, or spinning too fast you will need to adjust the corresponding PWM `minimum` value in the [Actuator Outputs](#actuator-outputs) such that the motors barely spin.
 
      ![PWM Minimum Output](../../assets/config/actuators/pwm_minimum_output.png)   :::note
-  For DShot output, this is not required.
+For DShot output, this is not required.
 
 :::
 

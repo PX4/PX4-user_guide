@@ -20,7 +20,7 @@ PX4 uses the [Google C++ style guide](https://google.github.io/styleguide/cppgui
 
 :::note
 
-Not all PX4 source code matches the style guide, but any _new code_ that you write should do so — in both new and existing files. If you update an existing file you are not required to make the whole file comply with the style guide, just the code you've modified.
+If you update an existing file you are not required to make the whole file comply with the style guide, just the code you've modified. Not all PX4 source code matches the style guide, but any _new code_ that you write should do so — in both new and existing files.
 
 :::
 
@@ -57,8 +57,7 @@ public:
 
         /**
          * @brief Description of what this function does.
-         *
-         * @param[in] input_param Clear description of the input [units]
+         * * @param[in] input_param Clear description of the input [units]
          * @return Whatever we are returning [units]
          */
         float doSomething(const float input_param) const {

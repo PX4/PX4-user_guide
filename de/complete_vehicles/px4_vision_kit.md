@@ -129,7 +129,7 @@ In addition, users will need ground station hardware/software:
 
    ![UP Core: USB1 Port ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
 1. Power the vehicle with a fully charged battery.  :::note
- Ensure propellers are removed before connecting the battery.
+Ensure propellers are removed before connecting the battery.
 
 :::
 1. Connect the ground station to the vehicle WiFi network (after a few seconds) using the following default credentials:

@@ -46,7 +46,7 @@ Demo video:
 
 @[youtube](https://youtu.be/csuMtU6seXI?t=155)
 
-### 안전 주의 사항
+### Safety Precautions
 
 :::warning
 **Follow-me mode** does not implement any type of obstacle avoidance. 이 모드를 사용시에는 특별한 주의가 필요합니다.

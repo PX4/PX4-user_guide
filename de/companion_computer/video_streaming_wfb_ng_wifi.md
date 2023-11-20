@@ -123,9 +123,8 @@ For simple cases you can use omnidirectional antennas with linear (that bundled 
 
 **A** It depends on your antennas and WiFi cards. With Alfa AWU036ACH and 20dBi patch antenna on the ground ~20km is possible.
 
-:::warning
+Or setup RTL properly to avoid model loss. :::warning
 Don't use band that the RC TX operates on!
-Or setup RTL properly to avoid model loss.
 :::
 
 **Q:** _Is only Raspberry PI supported?_

@@ -197,7 +197,7 @@ Then, you need to stick the battery on top of the SD card deck using a double si
 
 ## Altitude Control
 
-Crazyflie is able to fly in *Altitude* mode if you use a [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck). According to the datasheet, the maximum height (above ground) the range finder can sense is 2 m. However, when tested on dark surfaces this value decreases to 0.5 m. On a light floor, it goes up to max 1.3 m. This means you cannot hold altitudes above this value in *Altitude* or *Position* flight modes.
+Crazyflie is able to fly in *Altitude* mode if you use a [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck). According to the datasheet, the maximum height (above ground) the range finder can sense is 2 m. However, when tested on dark surfaces this value decreases to 0.5 m. On a light floor, it goes up to max 1.3 m. This means you cannot hold altitudes above this value in *Altitude* or *Position* flight modes. However, when tested on dark surfaces this value decreases to 0.5 m. On a light floor, it goes up to max 1.3 m. This means you cannot hold altitudes above this value in *Altitude* or *Position* flight modes.
 
 :::tip
 If the Crazyflie 2.0 height drifts at mid-throttle command in *Altitude mode* or *Position mode*, first try rebooting the vehicle. If this does not fix the problem, recalibrate the accel and mag (compass).  
@@ -209,7 +209,7 @@ Since the onboard barometer is highly susceptible to wind disturbances created b
 
 ## Position Control
 
-With [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck), you can fly Crazyflie 2.0 in *Position mode*. Unlike [PX4FLOW](../sensor/px4flow.md), the flow deck does not house a gyro, hence the onboard gyro is used for flow fusion to find the local position estimates. Unlike PX4flow, the flow deck does not house a gyro, hence the onboard gyro is used for flow fusion to find the local position estimates.
+With [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck), you can fly Crazyflie 2.0 in *Position mode*. Unlike PX4flow, the flow deck does not house a gyro, hence the onboard gyro is used for flow fusion to find the local position estimates. Unlike [PX4FLOW](../sensor/px4flow.md), the flow deck does not house a gyro, hence the onboard gyro is used for flow fusion to find the local position estimates.
 
 ## Using FrSky Taranis RC Transmitter as Joystick
 

@@ -58,6 +58,7 @@ You can see this, for example, in the airframe configuration file [13200_generic
 
 ```sh
 ...
+...
 param set-default CA_AIRFRAME 4
 param set-default CA_ROTOR_COUNT 2
 param set-default CA_ROTOR0_KM -0.05

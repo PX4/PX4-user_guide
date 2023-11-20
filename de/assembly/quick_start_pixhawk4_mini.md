@@ -57,7 +57,7 @@ Connect the remaining ESCs and servos similarly.
 | PWR                 | JST-GH 6-pin Connector, 5V 3A output<br> connect to _Pixhawk 4 Mini_ POWER |
 | BAT                 | Power Input, connect to 2~12s LiPo Battery                                       |
 
-The pinout of the _Pixhawk 4 Mini_ **POWER** port is shown below. The `CURRENT` signal should carry an analog voltage from 0-3.3V for 0-120A as default. The `VOLTAGE` signal should carry an analog voltage from 0-3.3V for 0-60V as default. The VCC lines have to offer at least 3A continuous and should default to 5.1V. A lower voltage of 5V is still acceptable, but discouraged.
+The pinout of the _Pixhawk 4 Mini_ **POWER** port is shown below. The `CURRENT` signal should carry an analog voltage from 0-3.3V for 0-120A as default. The `VOLTAGE` signal should carry an analog voltage from 0-3.3V for 0-60V as default. The VCC lines have to offer at least 3A continuous and should default to 5.1V. A lower voltage of 5V is still acceptable, but discouraged. A lower voltage of 5V is still acceptable, but discouraged.
 
 | Pin      | Signal  | Volt  |
 | -------- | ------- | ----- |

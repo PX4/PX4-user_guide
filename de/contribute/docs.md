@@ -152,8 +152,7 @@ For recent nodejs versions (after v16.15.0) you need to enable the node legacy O
    yarn docs:buildwin
    ```
 
-:::tip
-Use `yarn docs:dev` to preview changes _as you make them_ (documents are updated and served very quickly). Before submitting a PR you should also build it using `docs:build`, as this can highlight issues that are not visible when using `docs:dev`.
+Before submitting a PR you should also build it using `docs:build`, as this can highlight issues that are not visible when using `docs:dev`. :::tip Use `yarn docs:dev` to preview changes _as you make them_ (documents are updated and served very quickly).
 :::
 
 ### Source Code Structure

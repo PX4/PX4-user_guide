@@ -26,7 +26,7 @@ To improve accuracy we also recommended that you verify the data obtained during
 
 #### 1st: Trim Conditions
 
-Fly in [stabilized mode](../flight_modes_fw/stabilized.md) and find trim values for both throttle and pitch angle for level flight at trim airspeed. Use throttle to adjust airspeed and pitch to keep level flight.
+Use throttle to adjust airspeed and pitch to keep level flight. Fly in [stabilized mode](../flight_modes_fw/stabilized.md) and find trim values for both throttle and pitch angle for level flight at trim airspeed.
 
 Set the following parameters:
 

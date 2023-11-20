@@ -31,7 +31,7 @@ It is important that all replayed topics contain only a single absolute timestam
   ignore_others: <true/false>
   ```
 
-  This means that the given list of topics should only be published by `<module>` (which is the command name). Publications to any of these topics from another module are silently ignored. If `ignore_others` is `true`, publications to other topics from `<module>` are ignored.
+  Publications to any of these topics from another module are silently ignored. This means that the given list of topics should only be published by `<module>` (which is the command name). If `ignore_others` is `true`, publications to other topics from `<module>` are ignored.
 
   For replay, we only want the `replay` module to be able to publish the previously identified list of topics. So, for replaying `ekf2`, the rules file should look like this:
 
