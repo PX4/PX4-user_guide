@@ -6,20 +6,20 @@ This section contains information about companion computer peripherals. These in
 
 This section lists devices that may be used for the physical serial/data connection between a companion computer and a flight controller.
 
-:::note
-PX4 configuration for communicating with a companion computer over MAVLink via TELEM2 is covered in [MAVLink (OSD / Telemetry)](../peripherals/mavlink_peripherals.md#telem2). Other relevant topics/sections include: [Companion Computers](../companion_computer/README.md), [Robotics](../robotics/README.md) and [uXRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/uxrce_dds.md).
+Other relevant topics/sections include: [Companion Computers](../companion_computer/README.md), [Robotics](../robotics/README.md) and [uXRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/uxrce_dds.md). :::note  
+PX4 configuration for communicating with a companion computer over MAVLink via TELEM2 is covered in [MAVLink (OSD / Telemetry)](../peripherals/mavlink_peripherals.md#telem2).
 :::
 
 ### FTDI Devices
 
-The FTDI USB adapters are the most common way of communicating between companion computer and Pixhawk. They are usually plug and play as long as the IO of the adapter is set to 3.3V. In order to utilize the full capability/reliability of the serial link offered on the Pixhawk hardware, flow control is recommended.
+The FTDI USB adapters are the most common way of communicating between companion computer and Pixhawk. They are usually plug and play as long as the IO of the adapter is set to 3.3V. In order to utilize the full capability/reliability of the serial link offered on the Pixhawk hardware, flow control is recommended. In order to utilize the full capability/reliability of the serial link offered on the Pixhawk hardware, flow control is recommended.
 
 A few "turnkey" options are listed below:
 
 | Device                                                                 | 3.3v IO (Default) | Flow Control | Tx/Rx LEDs | JST-GH |
 | ---------------------------------------------------------------------- | ----------------- | ------------ | ---------- | ------ |
 | [mRo USB FTDI Serial to JST-GH (Basic)][mro_usb_ftdi_serial_to_jst_gh] | Capable           | Capable      | No         | Yes    |
-| \[SparkFun FTDI Basic Breakout\]\[sparkfun_ftdi__breakout\]          | Yes               | No           | Yes        | No     |
+| \[SparkFun FTDI Basic Breakout\]\[sparkfun_ftdi__breakout\]      | Yes               | No           | Yes        | No     |
 
 <!-- Reference links for above table -->
 
