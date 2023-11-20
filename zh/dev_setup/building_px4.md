@@ -4,7 +4,8 @@ PX4 firmware can be built from source code on the console or in an IDE, for both
 
 You need to build PX4 in order to use [simulators](../simulation/README.md), or if you want to modify PX4 and create a custom build. If you just want to try out PX4 on real hardware then [load the prebuilt binaries](../config/firmware.md) using QGroundControl (there is no need to follow these instructions).
 
-PX4 源代码存储在 [PX4/Firmware](https://github.com/PX4/Firmware) 存储库中的 GitHub 上。 If you have any problems after following these steps see the [Troubleshooting](#troubleshooting) section below. 若要在您的计算机上获得*最新的*版本，请在终端中输入以下命令：
+:::note
+Before following these instructions you must first install the [Developer Toolchain](../dev_setup/dev_env.md) for your host operating system and target hardware. If you have any problems after following these steps see the [Troubleshooting](#troubleshooting) section below. 若要在您的计算机上获得*最新的*版本，请在终端中输入以下命令：
 
 ## 下载 PX4 源代码
 

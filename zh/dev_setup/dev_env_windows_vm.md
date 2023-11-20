@@ -23,7 +23,7 @@ VMWare performance is acceptable for basic usage (building Firmware) but not for
 
 1. 下载 [VMWare Player Freeware](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)。
 1. 将其安装在 Windows 系统上。
-1. 下载所需版本的 Ubuntu Desktop ISO 镜像文件</0>。 (参阅 [Linux Instructions Page](../setup/dev_env_linux.md) 以获取推荐的 Ubuntu 版本)。
+1. 下载所需版本的 Ubuntu Desktop ISO 镜像文件</0>。 (see [Linux Instructions Page](../dev_setup/dev_env_linux.md) for recommended Ubuntu version).
 1. Open _VMWare Player_.
 1. Enable 3D acceleration in the VM's settings: **VM > Settings > Hardware > Display > Accelerate 3D graphics**
 
