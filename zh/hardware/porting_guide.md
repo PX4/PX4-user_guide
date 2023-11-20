@@ -84,8 +84,8 @@ You can reach out to the core developer team and community on the [official supp
 ## 相关信息
 
 * [Device Drivers](../middleware/drivers.md) - 如何支持新的外围硬件设备（设备驱动）
-* [Building the Code](../setup/building_px4.md) - How to build source and upload firmware
+* [Building the Code](../dev_setup/building_px4.md) - How to build source and upload firmware
 * 受支持的飞行控制器：
   * [自动驾驶仪硬件](../flight_controller/README.md)
-  * [Supported boards list](https://github.com/PX4/Firmware/#supported-hardware) (Github)
+  * [Supported boards list](https://github.com/PX4/PX4-Autopilot/#supported-hardware) (Github) - Boards for which PX4-Autopilot has specific code
 * [Supported Peripherals](../peripherals/README.md)
