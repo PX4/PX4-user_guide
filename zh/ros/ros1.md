@@ -1,6 +1,7 @@
 # ROS 1 with MAVROS
 
-[ROS](http://www.ros.org/) （机器人操作系统）是一种通用的机器人库，可与 PX4 一起用于 [离板控制 ](../ros/mavros_offboard.md)。 它使用 [MAVROS](../ros/mavros_installation.md) 节点与在硬件上运行或使用 [Gazebo 模拟器 ](../simulation/ros_interface.md) 的 PX4 进行通信。
+:::tip
+The PX4 development team recommend that users migrate to [ROS 2](../ros/ros2.md) (i.e. skip this section)! 它使用 [MAVROS](../ros/mavros_installation.md) 节点与在硬件上运行或使用 [Gazebo 模拟器 ](../simulation/ros_interface.md) 的 PX4 进行通信。
 
 [ROS](../ros/README.md) (Robot Operating System) is a general-purpose robotics library that can be used to create powerful drone applications for the PX4 Autopilot.
 
