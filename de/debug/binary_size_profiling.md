@@ -11,6 +11,7 @@ _Bloaty_ must be in your path and found at _cmake_ configure time. The PX4 [dock
 ```sh
 git clone --recursive https://github.com/google/bloaty.git /tmp/bloaty \
     && cd /tmp/bloaty && cmake -GNinja . && ninja bloaty && cp bloaty /usr/local/bin/ \
+    && rm -rf /tmp/* && ninja bloaty && cp bloaty /usr/local/bin/ \
     && rm -rf /tmp/*
 ```
 
@@ -23,7 +24,7 @@ index 40d7778..2ce7972 100644
 --- a/boards/px4/fmu-v2/default.px4board
 +++ b/boards/px4/fmu-v2/default.px4board
 @@ -36,7 +36,7 @@
--               CONFIG_DRIVERS_IMU_INVENSENSE_MPU9250=y
+- CONFIG_DRIVERS_IMU_INVENSENSE_MPU9250=y
 +               CONFIG_DRIVERS_IMU_INVENSENSE_MPU9250=n
 ```
 
@@ -34,8 +35,10 @@ Then use the make target, specifying the target build to compare (`px4_fmu-v2_de
 ...
 ...
 ...
+...
+     ...
      VM SIZE                                                                                        FILE SIZE
- --------------                                                                                  --------------
+ -------------- --------------
   [DEL]     -52 MPU9250::check_null_data(unsigned int*, unsigned char)                               -52  [DEL]
   [DEL]     -52 MPU9250::test_error()                                                                -52  [DEL]
   [DEL]     -52 MPU9250_gyro::MPU9250_gyro(MPU9250*, char const*)                                    -52  [DEL]
