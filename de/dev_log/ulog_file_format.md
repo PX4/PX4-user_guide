@@ -39,10 +39,8 @@ ULog files have the following three sections:
 ```
 ----------------------
 |       Header       |
-----------------------
-|    Definitions     |
-----------------------
-|        Data        |
+---------------------- |    Definitions     |
+---------------------- |        Data        |
 ----------------------
 ```
 
