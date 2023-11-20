@@ -75,12 +75,7 @@ The instructions below might be used to create a task named _MyTask_:
 5. Update the cpp file as appropriate. This example provides as simple implementation of **FlightTaskMyTask.cpp** that simply indicates that the task methods are called.
 
    ```cpp
-   #include "FlightTaskMyTask.hpp"
-
-   bool FlightTaskMyTask::activate(const trajectory_setpoint_s &last_setpoint)
-   {
-     bool ret = FlightTask::activate(last_setpoint);
-     PX4_INFO("FlightTaskMyTask activate was called! ret: %d", ret); // report if activation was successful
+   ret: %d", ret); // report if activation was successful
      return ret;
    }
 
@@ -88,7 +83,12 @@ The instructions below might be used to create a task named _MyTask_:
    {
      PX4_INFO("FlightTaskMyTask update was called!"); // report update
      return true;
-   }
+   } #include "FlightTaskMyTask.hpp"
+
+   bool FlightTaskMyTask::activate(const trajectory_setpoint_s &last_setpoint)
+   {
+     bool ret = FlightTask::activate(last_setpoint);
+     PX4_INFO("FlightTaskMyTask activate was called!
    ```
 
 6. Add the new task to the list of tasks to be built in [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/CMakeLists.txt#L40):
