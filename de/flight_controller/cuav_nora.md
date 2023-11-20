@@ -115,7 +115,7 @@ make cuav_nora_default
 
 ## Over Current Protection
 
-The _Nora_ has over-current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A. The _Nora_ has short circuit protection.
+The _Nora_ has over-current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A. The _Nora_ has short circuit protection. The _Nora_ has short circuit protection.
 
 :::warning
 Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
