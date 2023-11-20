@@ -18,14 +18,21 @@ The assembly consists of a 3D-printed frame on which all the autopilot parts wer
 
 ![Assembly](../../assets/airframes/rover/aion_r1/r1_assembly.png)
 
-## Output Connections
+## Configuration
+
+Use *QGroundControl* for rover configuration:
+
+1. In the [Basic Configuration](../config/README.md) section, select the [Airframe](../config/airframe.md) tab.
+2. Choose **Aion Robotics R1 UGV** under the **Rover** category.
+
+![Select Airframe](../../assets/airframes/rover/aion_r1/r1_airframe.png)
 
 ### Connecting RoboClaw to the Autopilot
 
 1. Ensure proper connection of the RoboClaw to the flight controller, as detailed in the [RoboClaw User Manual](https://downloads.basicmicro.com/docs/roboclaw_user_manual.pdf) 'Packet Serial Wiring' section, which has been validated for compatibility.
 
    ![Serial Wiring Encoders](../../assets/airframes/rover/aion_r1/wiring_r1.jpg)
-   
+
 2. Connect the RoboClaw to a suitable serial (UART) port (e.g., GPS2 or TELEM1).
 
 3. After selecting the appropriate port and connecting the cables, navigate to the [Parameters](../advanced_config/parameters.md) section in QGC. Locate the 'BRCLW' section and set the `RBCLW_SER_CFG` parameter to match your chosen port (e.g., `RBCLW_SER_CFG GPS2` for the GPS2 port):
@@ -48,19 +55,14 @@ The assembly consists of a 3D-printed frame on which all the autopilot parts wer
 ### Configuring RoboClaw in PX4
 
 1. In PX4, navigate to Actuators Configuration & Testing.
-2. Select RoboClaw driver and configure as needed.
+2. Select the RoboClaw driver from the list of available motor controller drivers. For the channel assignments, disarm, minimum, and maximum values, please refer to the image below. For systems with more than two motors, it is possible to assign the same function to several motors. The reason for the unusual values, can be found in the [RoboClaw User Manual](https://downloads.basicmicro.com/docs/roboclaw_user_manual.pdf) under `Compatibility Commands` for `Packet Serial`: 
+
+    ```
+    Drive motor forward. Valid data range is 0 - 127. A value of 127 = full speed forward, 64 =
+    about half speed forward and 0 = full stop.
+    ```
 
 ![Roboclaw QGC](../../assets/airframes/rover/aion_r1/roboclaw/roboclaw_qgc.png)
-
-
-## Configuration
-
-Use *QGroundControl* for rover configuration:
-
-1. In the [Basic Configuration](../config/README.md) section, select the [Airframe](../config/airframe.md) tab.
-2. Choose **Aion Robotics R1 UGV** under the **Rover** category.
-
-![Select Airframe](../../assets/airframes/rover/aion_r1/r1_airframe.png)
 
 
 ## Usage
