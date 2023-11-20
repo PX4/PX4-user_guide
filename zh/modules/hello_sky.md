@@ -20,10 +20,10 @@ The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/P
 
 在本节中，我们创建一个*很小的应用程序*，只是打印出来`Hello Sky!`。 This consists of a single *C* file and a *cmake* definition (which tells the toolchain how to build the application).
 
-1. 新建如下文件夹： **Firmware/src/examples/px4_simple_app**。
-1. 在该目录中新建一个名为 **px4_simple_app.c** 的 C 文件：
+1. Create a new directory **PX4-Autopilot/src/examples/px4_simple_app**.
+1. Create a new C file in that directory named **px4_simple_app.c**:
 
-   * 将下面的默认头部注释复制到文件页面的顶部， 该注释应出现在所有贡献的文件中！
+   * Copy in the default header to the top of the page. 该注释应出现在所有贡献的文件中！
 
      ```c
      /****************************************************************************
@@ -265,7 +265,10 @@ INFO  [px4_simple_app] Hello Sky!
 
 为了做一些实用的事情，应用程序需要订阅输入和发布输出（例如电机或伺服命令）。
 
-:::tip PX4 硬件抽象的好处在这里发挥作用！ 无需以任何方式与传感器驱动程序交互，如果板或传感器更新，也无需更新您的应用程序。 为了实现这一功能，我们使用了 POSIX 系统调用函数 [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) 。
+:::tip
+PX4 硬件抽象的好处在这里发挥作用！
+无需以任何方式与传感器驱动程序交互，如果板或传感器更新，也无需更新您的应用程序。
+:::
 
 应用程序之间的每个消息通道称为[主题](../middleware/uorb.md)。 For this tutorial, we are interested in the [SensorCombined](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg) topic, which holds the synchronized sensor data of the complete system.
 
