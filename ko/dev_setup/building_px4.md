@@ -122,7 +122,7 @@ Append `upload` to the make commands to upload the compiled binary to the autopi
 make px4_fmu-v4_default upload
 ```
 
-다른 보드에 대한 빌드 명령어 정보는 [보드별 비행 콘트롤러 페이지](../flight_controller/README.md)에서 제공됩니다(일반적으로 *펌웨어 빌드* 제목 아래).
+A successful run will end with this output:
 
 ```sh
 Erase  : [====================] 100.0%
@@ -145,13 +145,13 @@ make list_config_targets
 
 ## 그래픽 IDE에서의 컴파일
 
-많은 빌드 문제는 일치하지 않는 하위 모듈이나 불완전하게 정리된 빌드 환경으로 인하여 발생합니다. 하위 모듈을 업데이트하고 `distclean`을 수행하면 이 오류를 수정할 수 있습니다:
+많은 빌드 문제는 일치하지 않는 하위 모듈이나 불완전하게 정리된 빌드 환경으로 인하여 발생합니다. It is easy to set up and can be used to compile PX4 for both simulation and hardware environments.
 
 ## 문제 해결
 
 ### 일반 빌드 오류
 
-`XXXX바이트로 오버플로된 영역 '플래시'` 오류는 펌웨어가 대상 하드웨어 플랫폼에 비해 너무 크다는 것을 나타냅니다. 이는 플래시 크기가 1MB로 제한되는 `make px4_fmu-v2_default` 빌드에서 나타납니다.
+Many build problems are caused by either mismatching submodules or an incompletely cleaned-up build environment. Updating the submodules and doing a `distclean` can fix these kinds of errors:
 
 ```sh
 git submodule update --recursive
@@ -160,9 +160,9 @@ make distclean
 
 ### Flash overflowed by XXX bytes
 
-*vanilla* 마스터 브랜치를 구축하는 경우, 가장 큰 원인은 지원되지 않는 GCC 버전을 사용하기 때문입니다. 이 경우, [개발자 도구 모음](../dev_setup/dev_env.md) 지침에 지정된 버전을 설치하십시오.
+The `region 'flash' overflowed by XXXX bytes` error indicates that the firmware is too large for the target hardware platform. This is common for `make px4_fmu-v2_default` builds, where the flash size is limited to 1MB.
 
-If you're building the _vanilla_ master branch, the most likely cause is using an unsupported version of GCC. 이 경우 빌드에서 필요하지 않은 드라이버 모듈을 제거하여야 합니다.
+If you're building the _vanilla_ master branch, the most likely cause is using an unsupported version of GCC. In this case, install the version specified in the [Developer Toolchain](../dev_setup/dev_env.md) instructions.
 
 MacOS는 실행 중인 모든 프로세스에서 기본적으로 최대 256개의 열린 파일을 허용합니다. PX4 빌드 시스템은 많은 수의 파일을 오픈하므로, 이 갯수를 초과할 수 있습니다.
 
@@ -176,9 +176,9 @@ The build toolchain will then report `Too many open files` for many files, as sh
 /usr/local/Cellar/gcc-arm-none-eabi/20171218/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/bin/ld: cannot find NuttX/nuttx/fs/libfs.a: Too many open files
 ```
 
-macOS Catalina 10.15.1부터 *cmake*로 시뮬레이터를 빌드시 문제가 발생할 수 있습니다. You can do this in the macOS _Terminal_ for each session:
+The solution is to increase the maximum allowed number of open files (e.g. to 300). You can do this in the macOS _Terminal_ for each session:
 
-- [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/mac_set_ulimit.sh) 스크립트를 실행하거나,
+- Run this script [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/mac_set_ulimit.sh), or
 - 다음 명령어를 실행하십시오.
 
   ```sh
@@ -205,22 +205,22 @@ arm-none-eabi-gdb --version
 arm-none-eabi-size --version
 ```
 
-이 문제는 [컴파일러를 제거하고 다시 설치](https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa)하여 해결할 수 있습니다.
+Example of bash output with missing dependencies:
 
 ```bash
 arm-none-eabi-gdb --version
 arm-none-eabi-gdb: command not found
 ```
 
-[Visual Studio Code IDE(VSCode) > 문제 해결](../dev_setup/vscode.md#troubleshooting)을 참고하십시오.
+This can be resolved by removing and [reinstalling the compiler](https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa).
 
 ### Ubuntu 18.04: Visual Studio Code는 이 큰 작업 영역에서 파일 변경 사항을 감시할 수 없습니다.
 
-`make px4_sitl jmavsim` 명령을 실행시, "가져오기 실패" 오류는 일부 Python 패키지가 설치되지 않았음을 나타냅니다(예상된 위치).
+See [Visual Studio Code IDE (VSCode) > Troubleshooting](../dev_setup/vscode.md#troubleshooting).
 
 ### Python 패키지를 가져오지 못했습니다.
 
-이러한 종속성을 이미 설치했다면 컴퓨터에 두 개 이상의 Python 버전이 있고(예: Python 2.7.16 Python 3.8.3) 빌드 툴체인에서 사용하는 버전에 모듈이 없는 문제일 수 있습니다.
+"Failed to import" errors when running the `make px4_sitl jmavsim` command indicates that some Python packages are not installed (where expected).
 
 ```sh
 Failed to import jinja2: No module named 'jinja2'
