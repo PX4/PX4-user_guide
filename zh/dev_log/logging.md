@@ -2,7 +2,7 @@
 
 [系统记录器](../modules/modules_system.md#logger) 能够记录任何 ORB 单元及其所有包含的字段。 Everything necessary is generated from the `.msg` file, so that only the topic name needs to be specified. An optional interval parameter specifies the maximum logging rate of a certain topic. 所有主题的实例将会被记录。
 
-输出的日志格式是 [Ulog](../log/ulog_file_format.md)。
+The output log format is [ULog](../dev_log/ulog_file_format.md).
 
 ## 用法
 
