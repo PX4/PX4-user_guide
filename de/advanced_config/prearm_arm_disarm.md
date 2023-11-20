@@ -8,8 +8,7 @@ To reduce the chance of accidents, PX4 has explicit state(s) for powering the ve
 - **Pre-armed:** Motors/propellers are locked but actuators for non-dangerous electronics are powered (e.g. ailerons, flaps etc.).
 - **Armed:** Vehicle is fully powered. Motors/propellers may be turning (dangerous!)
 
-:::note
-Ground stations may display _disarmed_ for pre-armed vehicles. While not technically correct for pre-armed vehicles, it is "safe".
+While not technically correct for pre-armed vehicles, it is "safe". :::note Ground stations may display _disarmed_ for pre-armed vehicles.
 :::
 
 Users can control progression though these states using a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch) on the vehicle (optional) _and_ an [arming switch/button](#arm_disarm_switch), [arming gesture](#arm_disarm_gestures), or _MAVLink command_ on the ground controller:
@@ -61,7 +60,7 @@ The required hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYS
 
 ## Arming Button/Switch
 
-An _arming button_ or "momentary switch" can be configured to trigger arm/disarm _instead_ of [gesture-based arming](#arm_disarm_gestures) (setting an arming switch disables arming gestures). The button should be held down for ([nominally](#COM_RC_ARM_HYST)) one second to arm (when disarmed) or disarm (when armed).
+The button should be held down for ([nominally](#COM_RC_ARM_HYST)) one second to arm (when disarmed) or disarm (when armed). An _arming button_ or "momentary switch" can be configured to trigger arm/disarm _instead_ of [gesture-based arming](#arm_disarm_gestures) (setting an arming switch disables arming gestures).
 
 A two-position switch can also be used for arming/disarming, where the respective arm/disarm commands are sent on switch _transitions_.
 
@@ -91,7 +90,7 @@ By default vehicles will automatically disarm on landing, or if you take too lon
 
 ## Pre-Arm Checks
 
-To reduce accidents, vehicles are only allowed to arm certain conditions are met. Arming is prevented if:
+To reduce accidents, vehicles are only allowed to arm certain conditions are met. Arming is prevented if: Arming is prevented if:
 
 - The vehicle is not in a "healthy" state. For example it is not calibrated, or is reporting sensor errors.
 - The vehicle has a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch) that has not been engaged.
@@ -122,7 +121,7 @@ The arming sequence depends on whether or not there is a _safety switch_, and is
 The [COM_PREARM_MODE](#COM_PREARM_MODE) parameter defines when/if pre-arm mode is enabled ("safe"/non-throttling actuators are able to move):
 
 - _Disabled_: Pre-arm mode disabled (there is no stage where only "safe"/non-throttling actuators are enabled).
-- _Safety Switch_ (Default): The pre-arm mode is enabled by the safety switch. If there is no safety switch then pre-arm mode will not be enabled.
+- If there is no safety switch then pre-arm mode will not be enabled. _Safety Switch_ (Default): The pre-arm mode is enabled by the safety switch.
 - _Always_: Prearm mode is enabled from power up.
 
 If there is a safety switch then this will be a precondition for arming. If there is no safety switch the I/O safety circuit breaker must be engaged ([CBRK_IO_SAFETY](#CBRK_IO_SAFETY)), and arming will depend only on the arm command.
@@ -180,7 +179,7 @@ The startup sequence is:
 
 ### COM_PREARM_MODE=Safety or Disabled and No Safety Switch
 
-With no safety switch, when `COM_PREARM_MODE` is set to _Safety_ or _Disabled_ prearm mode cannot be enabled (same as disarmed). This corresponds to [COM_PREARM_MODE=0 or 1](#COM_PREARM_MODE) (Disabled/Safety Switch) and [CBRK_IO_SAFETY=22027](#CBRK_IO_SAFETY) (I/O safety circuit breaker engaged).
+This corresponds to [COM_PREARM_MODE=0 or 1](#COM_PREARM_MODE) (Disabled/Safety Switch) and [CBRK_IO_SAFETY=22027](#CBRK_IO_SAFETY) (I/O safety circuit breaker engaged). With no safety switch, when `COM_PREARM_MODE` is set to _Safety_ or _Disabled_ prearm mode cannot be enabled (same as disarmed).
 
 The startup sequence is:
 
