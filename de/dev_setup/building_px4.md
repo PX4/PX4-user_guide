@@ -292,7 +292,7 @@ The environment variable `PX4_SIM_MODEL` will be set to the selected model, whic
 
 Additional make targets are discussed in relevant sections:
 
-- `bloaty_compare_master`: [Binary Size Profiling]()
+- `bloaty_compare_master`: [Binary Size Profiling](../debug/binary_size_profiling.md)
 - ...
 
 ## Firmware Version & Git Tags
