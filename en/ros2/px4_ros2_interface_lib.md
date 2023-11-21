@@ -162,10 +162,6 @@ The following steps are required to get started:
 
 ## How to use the library
 
-General notes on how to use the library:
-
-- coordinate convention: TODO
-
 The following sections describe specific functionality.
 Apart from that, any other PX4 topic can be subscribed or published directly.
 
@@ -232,9 +228,11 @@ The used types also define the compatibility with different vehicle types.
 The following sections provide a list of commonly used setpoint types.
 You can also add your own type by adding a class that inherits from `px4_ros2::SetpointBase`, sets the configuration flags according to what the setpoint requires, and then publishes any topic containing a setpoint.
 
+<!--
 #### GoTo Position Setpoints
 
 TODO
+-->
 
 #### Direct Actuator Control
 
@@ -251,7 +249,7 @@ If you want to control an actuator that does not control the vehicle's motion, b
 If you want to control an independent actuator (a servo), follow these steps:
 
 1. [Configure the output](../payloads/#generic-actuator-control-with-mavlink)
-2. Create an instance of [px4_ros2::OffboardActuatorControls](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/control/offboard_actuators.hpp) in the constructor of your mode
+2. Create an instance of [px4_ros2::PeripheralActuatorControls](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/control/peripheral_actuators.hpp) in the constructor of your mode
 3. Call the `set` method to control the actuator(s). This can be done independently of any active setpoints.
 
 ### Telemetry
@@ -297,7 +295,7 @@ Check the [integration test](https://github.com/Auterion/px4-ros2-interface-lib/
 ### Assigning a Mode to an RC Switch or Joystick Action
 
 External modes can be assigned to [RC switches](../config/flight_mode.md) or joystick actions.
-When assigning a mode to an RC switch, you need to know the index.
+When assigning a mode to an RC switch, you need to know the index (because the parameter metadata does not contain the dynamic mode name).
 Use `commander status` while the mode is running to get that information.
 For example:
 
