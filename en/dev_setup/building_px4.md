@@ -331,7 +331,7 @@ Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR
 
 Additional make targets are discussed in relevant sections:
 
-- `bloaty_compare_master`: [Binary Size Profiling]()
+- `bloaty_compare_master`: [Binary Size Profiling](../debug/binary_size_profiling.md)
 - ...
 
 ## Firmware Version & Git Tags
