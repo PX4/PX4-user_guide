@@ -199,7 +199,7 @@ Then install setup MAVProxy on the RPi using the following terminal commands:
    sudo mavproxy.py --master=/dev/serial0 --baudrate 57600
    ```
 
-:::note
+   :::note
 Note that above we used `/dev/serial0`, but we could equally well have used `/dev/ttyAMA0`. If we were connecting via USB then we would instead set the port as `/dev/ttyACM0`:
 
    ```bash
@@ -232,8 +232,8 @@ The configuration steps are:
    SER_TEL2_BAUD = 921600
    ```
 
-   [MAV_1_CONFIG=0](../advanced_config/parameter_reference.md#MAV_1_CONFIG) and [UXRCE_DDS_CFG=102](../advanced_config/parameter_reference.md#UXRCE_DDS_CFG) disable MAVLink on TELEM2 and enable the uXRCE-DDS client on TELEM2, respectively. The `SER_TEL2_BAUD` rate sets the comms link data rate.   
-You could similarly configure a connection to `TELEM1` using either `MAV_1_CONFIG` or `MAV_0_CONFIG`.
+   The `SER_TEL2_BAUD` rate sets the comms link data rate.   
+You could similarly configure a connection to `TELEM1` using either `MAV_1_CONFIG` or `MAV_0_CONFIG`. [MAV_1_CONFIG=0](../advanced_config/parameter_reference.md#MAV_1_CONFIG) and [UXRCE_DDS_CFG=102](../advanced_config/parameter_reference.md#UXRCE_DDS_CFG) disable MAVLink on TELEM2 and enable the uXRCE-DDS client on TELEM2, respectively.
 
    :::note
 You will need to reboot the flight controller to apply any changes to these parameters.
@@ -252,7 +252,7 @@ If the client module is not running you can start it manually in the MAVLink con
 uxrce_dds_client start -t serial -d /dev/ttyS3 -b 921600
 ```
 
-Note that `/dev/ttyS3` is the PX4 port for `TELEM2` on the [Holybro Pixhawk 6c](../flight_controller/pixhawk6c.md#serial-port-mapping). For other flight controllers check the serial port mapping section in their overview page.
+For other flight controllers check the serial port mapping section in their overview page. Note that `/dev/ttyS3` is the PX4 port for `TELEM2` on the [Holybro Pixhawk 6c](../flight_controller/pixhawk6c.md#serial-port-mapping).
 :::
 
 ### ROS Setup on RPi
@@ -273,6 +273,9 @@ The steps to setup ROS 2 and the Micro XRCE-DDS Agent on the RPi are:
    mkdir build
    cd build
    cmake ..
+   make
+   sudo make install
+   sudo ldconfig /usr/local/lib/
    make
    sudo make install
    sudo ldconfig /usr/local/lib/
