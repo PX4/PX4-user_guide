@@ -6,7 +6,7 @@ A mode can send different types of setpoints, ranging from high-level navigation
 
 ## Overview
 
-This diagram provides a conceptual overview:
+This diagram provides a conceptual overview of how PX4 ROS 2 Interface Library modes and mode executors interact with PX4.
 
 ![ROS2 modes overview diagram](../../assets/middleware/ros2/px4_ros2_interface_lib/ros2_modes_overview.svg)
 
@@ -18,15 +18,16 @@ The following sections define and explain the terms used in the diagram.
 
 #### Mode
 
-A mode has the following properties:
+A mode defined using the interface library has the following properties:
 
-- It is a component that can send setpoints to the vehicle, which control its motion (such as velocity or direct actuator commands).
-- A mode can't activate other modes (by sending commands), and must be activated by the user (through RC/GCS), the flight controller in a failsafe situation, a _mode executor_, or some other external system.
-- It selects a setpoint type and sends it while it is active.
-  A mode can switch between multiple setpoint types.
+- A mode is a component that can send setpoints to the vehicle in order to control its motion (such as velocity or direct actuator commands).
+- A mode selects a setpoint type and sends it while it is active.
+  It can switch between multiple setpoint types.
+- A mode can't activate other modes, and must be activated by the user (through RC/GCS), the flight controller in a failsafe situation, a _mode executor_, or some other external system.
 - Has a name displayed by the GCS.
 - Can configure its mode requirements (for example that it requires a valid position estimate).
 - A mode can perform different tasks, such as flying to a target, lowering a winch, releasing a payload and then fly back.
+- A mode can replace a mode defined in PX4.
 
 #### Mode Executor
 
@@ -35,7 +36,8 @@ For example, the mode executor for a custom payload delivery or survey mode migh
 
 Specifically, it has the following properties:
 
-- A mode executor is an optional component one level higher than a mode. It is a state machine that can activate modes, and wait for their completion.
+- A mode executor is an optional component one level higher than a mode.
+  It is a state machine that can activate modes, and wait for their completion.
 - It can only do so while it is in charge.
   For that, an executor has exactly one _owned mode_ (and a mode can be owned by at most one executor).
   This mode serves as activation for the executor: when the user selects the mode, the owning executor gets activated and can select any mode.
@@ -55,25 +57,28 @@ Specifically, it has the following properties:
 
 #### Configuration Overrides
 
-Both modes and executors can define configuration overrides, allowing to customize certain behaviors while the mode or executor is active.
+Both modes and executors can define configuration overrides, allowing customisation of certain behaviors while the mode or executor is active.
 
 These are currently implemented:
 
-- Disabling auto-disarm. This allows for landing and then taking off again (e.g. to release a payload).
-- Ability to defer non-essential failsafes.
-  It allows for example an executor to run a critical action without being interrupted by low-battery failsafe, such as controlling a winch.
+- _Disabling auto-disarm_.
+  This permits landing and then taking off again (e.g. to release a payload).
+- _Ability to defer non-essential failsafes_.
+  This allows an executor to run an action without being interrupted by non-critical failsafe.
+  For example, ignoring a low-battery failsafe so that a winch operation can complete.
 
 ### Comparison to Offboard Control
 
 The above concepts provide a number of advantages over traditional [offboard control](../ros/offboard_control.md):
 
-- Multiple nodes or applications can coexist and even run at the same time. It is clearly defined which node can control the vehicle at any given time.
-- Exposing a selectable mode to the GCS.
-- Integrated with the failsafe state machine and arming checks.
-- It is well-defined which setpoint types can be sent.
-- It is possible to replace a flight controller internal mode (such as RTL).
+- Multiple nodes or applications can coexist and even run at the same time.
+  But only one node can _control the vehicle_ at a given time, and this node is well defined.
+- Modes have a distinct name and be displayed/selected in the GCS.
+- Modes are integrated with the failsafe state machine and arming checks.
+- The setpoint types that can be sent are well defined.
+- ROS 2 modes can replace flight controller internal modes (such as [Return mode](../flight_modes/return.md)).
 
-## Installation and first Test
+## Installation and First Test
 
 The following steps are required to get started:
 
@@ -98,12 +103,14 @@ The following steps are required to get started:
    colcon build
    ```
 
-4. In a different shell, start PX4 SITL (you can use any model or simulator):
+4. In a different shell, start PX4 SITL:
 
    ```sh
    cd $px4-autopilot
    make px4_sitl gazebo-classic
    ```
+
+   (here we use Gazebo-Classic, but you can use any model or simulator)
 
 5. Run the micro XRCE agent in a new shell (you can keep it running afterward):
 
@@ -167,13 +174,14 @@ The following steps are required to get started:
 
 ## How to Use the Library
 
-The following sections describe specific functionality.
-Apart from that, any other PX4 topic can be subscribed or published directly.
+The following sections describe specific functionality provided by this library.
+In addition, any other PX4 topic can be subscribed or published.
 
 ### Mode Class Definition
 
-This section steps through an example for a custom mode class.
-For a complete application, check out the [examples in the repository](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/examples/cpp), such as [examples/cpp/modes/manual](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/modes/manual/include/mode.hpp).
+This section steps through an example of how to create a class for a custom mode.
+
+For a complete application, check out the [examples in the `Auterion/px4-ros2-interface-lib` repository](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/examples/cpp), such as [examples/cpp/modes/manual](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/modes/manual/include/mode.hpp).
 
 ```cpp{1,5,7-9,24-31}
 class MyMode : public px4_ros2::ModeBase // [1]
@@ -215,11 +223,11 @@ private:
 };
 ```
 
-- **[1]**: First we create a class that inherits from `px4_ros2::ModeBase`
-- **[2]**: In the constructor, we pass the mode name. This also allows us to configure some other things, like replacing a flight controller internal mode.
-- **[3]**: This is where we create all objects that we want to use later on.
+- `[1]`: First we create a class that inherits from `px4_ros2::ModeBase`
+- `[2]`: In the constructor, we pass the mode name. This also allows us to configure some other things, like replacing a flight controller internal mode.
+- `[3]`: This is where we create all objects that we want to use later on.
   This can be RC input, setpoint type(s), or telemetry. `*this` is passed as a `Context` to each object, which associates the object with the mode.
-- **[4]**: Whenever the mode is active, this method gets called regularly (the update rate depends on the setpoint type).
+- `[4]`: Whenever the mode is active, this method gets called regularly (the update rate depends on the setpoint type).
   Here is where we can do our work and generate a new setpoint.
 
 After creating an instance of that mode, `mode->doRegister()` must be called which does the actual registration with the flight controller and returns `false` if it fails.
@@ -239,10 +247,11 @@ You can also add your own type by adding a class that inherits from `px4_ros2::S
 TODO
 -->
 
-#### Direct Actuator Control
+#### Direct Actuator Control Setpoint (DirectActuatorsSetpointType)
 
 Actuators can be directly controlled using the [px4_ros2::DirectActuatorsSetpointType](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/control/setpoint_types/direct_actuators.hpp) setpoint type.
-Motors and servos can be set independently. Be aware that the assignment is vehicle and setup-specific.
+Motors and servos can be set independently.
+Be aware that the assignment is vehicle and setup-specific.
 For example to control a quadrotor, you need to set the first 4 motors according to its [output configuration](../concept/control_allocation.md).
 
 :::note
@@ -254,8 +263,9 @@ If you want to control an actuator that does not control the vehicle's motion, b
 If you want to control an independent actuator (a servo), follow these steps:
 
 1. [Configure the output](../payloads/#generic-actuator-control-with-mavlink)
-2. Create an instance of [px4_ros2::PeripheralActuatorControls](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/control/peripheral_actuators.hpp) in the constructor of your mode
-3. Call the `set` method to control the actuator(s). This can be done independently of any active setpoints.
+2. Create an instance of [px4_ros2::PeripheralActuatorControls](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/control/peripheral_actuators.hpp) in the constructor of your mode.
+3. Call the `set` method to control the actuator(s).
+   This can be done independently of any active setpoints.
 
 ### Telemetry
 
@@ -263,13 +273,14 @@ Telemetry, such as local or global position estimates can be found under [px4_ro
 
 ### Failsafes and Mode Requirements
 
-Each mode has a set of requirement flags. These are generally automatically set, depending on which objects are used within the context of a mode. For example when adding manual control input with
+Each mode has a set of requirement flags.
+These are generally automatically set, depending on which objects are used within the context of a mode.
+For example when adding manual control input with the code below the requirement flag for manual control gets set:
 
 ```cpp
 _manual_control_input = std::make_shared<px4_ros2::ManualControlInput>(*this);
 ```
 
-the requirement flag for manual control gets set.
 Specifically, setting a flag has the following consequences in PX4, if the condition is not met:
 
 - arming is not allowed, while the mode is selected
@@ -284,7 +295,8 @@ This is the corresponding flow diagram for the manual control flag:
 
 <!-- source: https://drive.google.com/file/d/1g_NlQlw7ROLP_mAi9YY2nDwP0zTNsFlB/view -->
 
-It is possible to manually update any mode requirement after the mode is registered. For example to add home position as requirement:
+It is possible to manually update any mode requirement after the mode is registered.
+For example to add home position as requirement:
 
 ```cpp
 modeRequirements().home_position = true;
@@ -294,8 +306,9 @@ The full list of flags can be found in [requirement_flags.hpp](https://github.co
 
 #### Deferring Failsafes
 
-A mode or mode executor can temporarily defer non-essential failsafes.
-To do so, use the method `deferFailsafesSync`. And to get notified when a failsafe would be triggered, override the method `void onFailsafeDeferred()`.
+A mode or mode executor can temporarily defer non-essential failsafes by calling the method `deferFailsafesSync()`.
+To get notified when a failsafe would be triggered, override the method `void onFailsafeDeferred()`.
+
 Check the [integration test](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/test/integration/overrides.cpp) for an example.
 
 ### Assigning a Mode to an RC Switch or Joystick Action
@@ -303,6 +316,7 @@ Check the [integration test](https://github.com/Auterion/px4-ros2-interface-lib/
 External modes can be assigned to [RC switches](../config/flight_mode.md) or joystick actions.
 When assigning a mode to an RC switch, you need to know the index (because the parameter metadata does not contain the dynamic mode name).
 Use `commander status` while the mode is running to get that information.
+
 For example:
 
 ```plain
