@@ -41,8 +41,9 @@ TBD ...
 
 ### uXRCE-DDS / ROS2
 
-- [uXRCE-DDS] [Topics selector](../middleware/uxrce_dds.md#dds-topics-yaml) supports multi-instance ROS2 subscribers.
-  ROS2 users can now decide if the messages that they are sending to PX4 will overlap with the existing uORB ones or if the want to keep them in separate instances.
+- [uXRCE-DDS] [DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml) now allows the use of `subscription_multi` to specify that indicated ROS 2 topics are sent to a separate uORB topic instance reserved for ROS 2.
+  This allows PX4 to differentiate between updates from ROS and those from PX4 uORB publishers.
+  With this change ROS2 users can now decide if the messages that they are sending to PX4 will overlap with the existing uORB ones or be kept in separate instances.
   Added in PX4 in [PX4-Autopilot#22266](https://github.com/PX4/PX4-Autopilot/pull/22266).
 
 ### MAVLink
