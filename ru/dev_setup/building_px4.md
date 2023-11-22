@@ -295,7 +295,7 @@ The `VENDOR_MODEL_VARIANT` options map to particular _px4board_ configuration fi
 
 Additional make targets are discussed in relevant sections:
 
-- `bloaty_compare_master`: [Binary Size Profiling]()
+- `bloaty_compare_master`: [Binary Size Profiling](../debug/binary_size_profiling.md)
 - ...
 
 ## Firmware Version & Git Tags
