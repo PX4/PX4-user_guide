@@ -4,12 +4,12 @@ PX4 uses and generates data that has associated human- and machine- readable met
 
 - [Parameters](../advanced_config/parameters.md) configure PX4 behaviour.
   - A parameter is represented by an ID string that maps to a value stored in PX4.
-  - The associated metadata includes a description the setting, its possible values, information about how the value might be presented (say for bitmasks).
+  - The associated metadata includes a description of the setting, its possible values, information about how the value might be presented (say for bitmasks).
 - [Events](../concept/events_interface.md) provide notification of events, such as reasons for a failsafe, low battery warnings, end of calibration, and so on.
   - An event is represented by an id, and is sent with a log level, some message, and arguments.
   - The associated metadata includes a description of the event and the arguments.
 
-The metadata and metadata translations are shared with external systems, such as QGroundControl, allowing them to display information about parameters and events as as a string in the user's own language.
+The metadata and metadata translations are shared with external systems, such as QGroundControl, allowing them to display information about parameters and events as a string in the user's own language.
 
 This topic explains how you can define metadata and help translate strings (and "just for your information", how it all works).
 
