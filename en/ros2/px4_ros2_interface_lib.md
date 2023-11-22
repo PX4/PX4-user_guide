@@ -1,4 +1,4 @@
-# PX4 ROS 2 Interface LLibrary
+# PX4 ROS 2 Interface Library
 
 The [PX4 ROS 2 Interface Library](https://github.com/Auterion/px4-ros2-interface-lib) is a C++ library to simplify controlling PX4 from ROS 2.
 It allows developers to write external modes that are dynamically registered with PX4 and behave the same way as internal ones.
