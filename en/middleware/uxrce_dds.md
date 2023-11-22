@@ -456,7 +456,7 @@ Each (`topic`,`type`) pairs defines:
 4. The message type (`VehicleOdometry`, `VehicleStatus`, `OffboardControlMode`, etc.) and the ROS 2 package (`px4_msgs`) that is expected to provide the message definition.
 
 :::note
-While in general ROS2 does not allow subscribers to distinguish between multiple nodes publishing on the same topic, PX4 does implement this feature allowing uORB topics to have [multiple instances](uorb.md#multi-instance).
+While in general ROS2 does not allow subscribers to distinguish between multiple nodes publishing on the same topic, PX4 does implement this feature allowing uORB topics to have [multiple instances](../middleware/uorb.md#multi-instance).
 For this reason, we distinguish between `subscriptions` and `subscriptions_multi`.
 :::
 
