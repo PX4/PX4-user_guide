@@ -460,14 +460,14 @@ While in general ROS2 does not allow subscribers to distinguish between multiple
 For this reason, we distinguish between `subscriptions` and `subscriptions_multi`.
 :::
 
-When you add a topic to the  `subscriptions` section the uXRCE-DDS module:
-- Creates a unidirectional route going from the ROS2 topic to the _default_ instance (instance 0) of the associated uORB topic.
-For example, it creates a ROS2 subscriber of `/fmu/in/vehicle_odometry` and a uORB publisher of `vehicle_odometry`.
+Add a topic to the  `subscriptions` section the uXRCE-DDS module to:
+- Create a unidirectional route going from the ROS2 topic to the _default_ instance (instance 0) of the associated uORB topic.
+  For example, it creates a ROS2 subscriber of `/fmu/in/vehicle_odometry` and a uORB publisher of `vehicle_odometry`.
 - If other (internal) PX4 modules are already publishing on the same uORB topic instance as the ROS2 publisher, the instance's subscribers will receive all streams of messages.
   The uORB subscriber will not be able to determine if an incoming message was published by PX4 or by ROS2.
 - This is the desired behavior when the ROS2 publisher is expected to be the sole publisher on the topic instance (for example, replacing an internal publisher to the topic during offboard control), or when the source of multiple publishing streams does not matter.
 
-When you add a topic to the `subscriptions_multi` section the uXRCE-DDS module:
+Add a topic to the `subscriptions_multi` section the uXRCE-DDS module to:
 - Creates a unidirectional route going from the ROS2 topic to a _new_ instance of the associated uORB topic.
   For example, if `vehicle_odometry` has already `2` instances, it creates a ROS2 subscriber of `/fmu/in/vehicle_odometry` and a uORB publisher on instance `3` of `vehicle_odometry`.
 - This ensures that no other internal PX4 module will publish on the same instance used by uXRCE-DDS.
