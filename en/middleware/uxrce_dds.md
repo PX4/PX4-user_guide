@@ -455,8 +455,6 @@ Each (`topic`,`type`) pairs defines:
    - `/fmu/in/` for topics that are _subscribed_ by PX4.
 4. The message type (`VehicleOdometry`, `VehicleStatus`, `OffboardControlMode`, etc.) and the ROS 2 package (`px4_msgs`) that is expected to provide the message definition.
 
-ROS2 does not allow subscribers to distinguish between multiple nodes publishing on the same topic, while PX4 can, using [multiple uORB topic instances](../middleware/uorb.md#multi-instance).
-
 `subscriptions` and `subscriptions_multi` allow us to choose the uORB topic instance that ROS 2 topics are routed to: either a shared instance that may also be getting updates from internal PX4 uORB publishers, or a separate instance that is reserved for ROS2 publications, respectively.
 Without this mechanism all ROS 2 messages would be routed to the _same_ uORB topic instance (because ROS 2 does not have the concept of [multiple topic instances](../middleware/uorb.md#multi-instance)), and it would not be possible PX4 subscribers to differentiate between streams from ROS 2 or PX4 publishers.
 
