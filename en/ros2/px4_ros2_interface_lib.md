@@ -1,6 +1,6 @@
-# PX4 ROS 2 interface library
+# PX4 ROS 2 Interface LLibrary
 
-The [PX4 ROS 2 interface library](https://github.com/Auterion/px4-ros2-interface-lib) is a C++ library to simplify controlling PX4 from ROS 2.
+The [PX4 ROS 2 Interface Library](https://github.com/Auterion/px4-ros2-interface-lib) is a C++ library to simplify controlling PX4 from ROS 2.
 It allows developers to write external modes that are dynamically registered with PX4 and behave the same way as internal ones.
 A mode can send different types of setpoints, ranging from high-level navigation tasks all the way down to direct actuator controls.
 
@@ -17,7 +17,9 @@ The following sections define and explain the terms used in the diagram.
 ### Definitions
 
 #### Mode
+
 A mode has the following properties:
+
 - It is a component that can send setpoints to the vehicle, which control its motion (such as velocity or direct actuator commands).
 - A mode can't activate other modes (by sending commands), and must be activated by the user (through RC/GCS), the flight controller in a failsafe situation, a _mode executor_, or some other external system.
 - It selects a setpoint type and sends it while it is active.
@@ -27,10 +29,12 @@ A mode has the following properties:
 - A mode can perform different tasks, such as flying to a target, lowering a winch, releasing a payload and then fly back.
 
 #### Mode Executor
+
 A mode executor is an optional component for scheduling modes.
 For example, the mode executor for a custom payload delivery or survey mode might first trigger a take-off, then switch to the custom mode, and when that completes trigger an RTL.
 
 Specifically, it has the following properties:
+
 - A mode executor is an optional component one level higher than a mode. It is a state machine that can activate modes, and wait for their completion.
 - It can only do so while it is in charge.
   For that, an executor has exactly one _owned mode_ (and a mode can be owned by at most one executor).
@@ -42,9 +46,11 @@ Specifically, it has the following properties:
 - Within the library, a mode executor is always implemented in combination with a custom mode.
 
 :::note
+
 - These definitions guarantee that a user can take away control from a custom mode or executor at any point in time by commanding a mode switch through RC or a GCS.
 - A mode executor is transparent to the user.
   It gets indirectly selected and activated through the owning mode, and thus the mode should be named accordingly.
+
 :::
 
 #### Configuration Overrides
@@ -74,7 +80,7 @@ The following steps are required to get started:
 1. Make sure you have a working [ROS 2 setup](../ros/ros2_comm.md), with _px4_msgs_ in the ROS 2 workspace.
 2. Clone the repository into the workspace:
 
-   ```shell
+   ```sh
    cd $ros_workspace/src
    git clone --recursive https://github.com/Auterion/px4-ros2-interface-lib
    ```
@@ -86,7 +92,7 @@ The following steps are required to get started:
 
 3. Build the workspace:
 
-   ```shell
+   ```sh
    cd ..
    source install/setup.bash
    colcon build
@@ -94,14 +100,14 @@ The following steps are required to get started:
 
 4. In a different shell, start PX4 SITL (you can use any model or simulator):
 
-   ```shell
+   ```sh
    cd $px4-autopilot
    make px4_sitl gazebo-classic
    ```
 
 5. Run the micro XRCE agent in a new shell (you can keep it running afterward):
 
-   ```shell
+   ```sh
    MicroXRCEAgent udp4 -p 8888
    ```
 
@@ -119,7 +125,7 @@ The following steps are required to get started:
 
    You should get an output like this showing 'My Manual Mode' mode being registered:
 
-   ```
+   ```sh
    [DEBUG] [example_mode_manual]: Checking message compatibility...
    [DEBUG] [example_mode_manual]: Subscriber found, continuing
    [DEBUG] [example_mode_manual]: Publisher found, continuing
@@ -132,7 +138,7 @@ The following steps are required to get started:
 
 8. On the PX4 shell, you can check that PX4 registered the new mode:
 
-   ```shell
+   ```sh
    commander status
    ```
 
@@ -153,14 +159,13 @@ The following steps are required to get started:
 10. Select the mode, make sure you have a manual control source (physical or virtual joystick), and arm the vehicle.
     The mode will then activate, and it should print the following output:
 
-    ```
+    ```sh
     [DEBUG] [example_mode_manual]: Mode 'My Manual Mode' activated
     ```
 
 11. Now you are ready to create your own mode.
 
-
-## How to use the library
+## How to Use the Library
 
 The following sections describe specific functionality.
 Apart from that, any other PX4 topic can be subscribed or published directly.
@@ -276,6 +281,7 @@ Specifically, setting a flag has the following consequences in PX4, if the condi
 This is the corresponding flow diagram for the manual control flag:
 
 ![Mode requirements diagram](../../assets/middleware/ros2/px4_ros2_interface_lib/mode_requirements_diagram.png)
+
 <!-- source: https://drive.google.com/file/d/1g_NlQlw7ROLP_mAi9YY2nDwP0zTNsFlB/view -->
 
 It is possible to manually update any mode requirement after the mode is registered. For example to add home position as requirement:
@@ -328,18 +334,18 @@ Settings{kName, false, ModeBase::kModeIDRtl}
 When opening a pull request to PX4, CI runs the integration tests of the library.
 These can also be run locally from PX4:
 
-```shell
+```sh
 ./test/ros_test_runner.py
 ```
 
 And to run only a single case:
 
-```shell
+```sh
 ./test/ros_test_runner.py --verbose --case <case>
 ```
 
 You can list the available test cases with:
 
-```shell
+```sh
 ./test/ros_test_runner.py --list-cases
 ```
