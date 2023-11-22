@@ -457,7 +457,7 @@ Each (`topic`,`type`) pairs defines:
 
 :::note
 While in general ROS2 does not allow subscribers to distinguish between multiple nodes publishing on the same topic, PX4 does implement this feature allowing uORB topics to have [multiple instances](../middleware/uorb.md#multi-instance).
-For this reason, we distinguish between `subscriptions` and `subscriptions_multi`.
+`subscriptions` and `subscriptions_multi` allows us to choose the uORB instance that ROS 2 topics are routed to: either a shared instance that may also be getting updates from PX4 published, or a separate instance that is reserved for ROS2 publications, respectively.
 :::
 
 Add a topic to the  `subscriptions` section the uXRCE-DDS module to:
