@@ -6,8 +6,8 @@ Developers use the library to create and dynamically register modes written usin
 These modes are dynamically registered with PX4, and appear to be part of PX4 to a ground station or other external system.
 They can even replace the default modes in PX4 with enhanced ROS 2 versions, falling back to the original version if the ROS2 mode fails.
 
-The library also defines its own topics for sending different types of setpoints, ranging from high-level navigation tasks all the way down to direct actuator controls.
-These topics abstract the internal setpoints used by PX4, and that can therefore used to provide a consistent ROS 2 interface for future PX4 and ROS releases.
+The library also provides classes for sending different types of setpoints, ranging from high-level navigation tasks all the way down to direct actuator controls.
+These classes abstract the internal setpoints used by PX4, and that can therefore be used to provide a consistent ROS 2 interface for future PX4 and ROS releases.
 
 ## Overview
 
@@ -238,6 +238,84 @@ private:
 After creating an instance of that mode, `mode->doRegister()` must be called which does the actual registration with the flight controller and returns `false` if it fails.
 In case a mode executor is used, `doRegister()` must be called on the mode executor, instead of for the mode.
 
+### Mode Executor Class Definition
+
+This section steps through an example of how to create a mode executor class.
+
+```cpp{1,4-5,9-16,20,33-57}
+class MyModeExecutor : public px4_ros2::ModeExecutorBase // [1]
+{
+public:
+  MyModeExecutor(rclcpp::Node & node, px4_ros2::ModeBase & owned_mode) // [2]
+  : ModeExecutorBase(node, px4_ros2::ModeExecutorBase::Settings{}, owned_mode),
+    _node(node)
+  { }
+
+  enum class State // [3]
+  {
+    Reset,
+    TakingOff,
+    MyMode,
+    RTL,
+    WaitUntilDisarmed,
+  };
+
+  void onActivate() override
+  {
+    runState(State::TakingOff, px4_ros2::Result::Success); // [4]
+  }
+
+  void onDeactivate(DeactivateReason reason) override { }
+
+  void runState(State state, px4_ros2::Result previous_result)
+  {
+    if (previous_result != px4_ros2::Result::Success) {
+      RCLCPP_ERROR(_node.get_logger(), "State %i: previous state failed: %s", (int)state,
+        resultToString(previous_result));
+      return;
+    }
+
+    switch (state) { // [5]
+      case State::Reset:
+        break;
+
+      case State::TakingOff:
+        takeoff([this](px4_ros2::Result result) {runState(State::MyMode, result);});
+        break;
+
+      case State::MyMode:
+        scheduleMode(
+          ownedMode().id(), [this](px4_ros2::Result result) {
+            runState(State::RTL, result);
+          });
+        break;
+
+      case State::RTL:
+        rtl([this](px4_ros2::Result result) {runState(State::WaitUntilDisarmed, result);});
+        break;
+
+      case State::WaitUntilDisarmed:
+        waitUntilDisarmed([this](px4_ros2::Result result) {
+            RCLCPP_INFO(_node.get_logger(), "All states complete (%s)", resultToString(result));
+          });
+        break;
+    }
+  }
+
+private:
+  rclcpp::Node & _node;
+};
+```
+
+- `[1]`: First we create a class that inherits from `px4_ros2::ModeExecutorBase`.
+- `[2]`: The constructor takes our custom mode that is associated with the executor and passes it to the constructor of `ModeExecutorBase`.
+- `[3]`: We define an enum for the states we want to run through.
+- `[4]`: `onActivate` gets called when the executor becomes active. At this point we can start to run through our states.
+  How you do this is up to you, in this example a method `runState` is used to execute the next state.
+- `[5]`: According to the state, we call a method from `ModeExecutorBase` that asynchronously runs the requested mode.
+  A callback is passed which is called upon completion.
+  This provides a `Result` argument which tells you whether the operation succeeded or not.
+
 ### Setpoint Types
 
 A mode can choose its setpoint type(s) it wants to use to control the vehicle.
@@ -245,6 +323,11 @@ The used types also define the compatibility with different vehicle types.
 
 The following sections provide a list of commonly used setpoint types.
 You can also add your own type by adding a class that inherits from `px4_ros2::SetpointBase`, sets the configuration flags according to what the setpoint requires, and then publishes any topic containing a setpoint.
+
+:::note
+More setpoint types can be found under [px4_ros2/control/setpoint_types/experimental](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/px4_ros2_cpp/include/px4_ros2/control/setpoint_types/experimental).
+This will likely still change in the future though.
+:::
 
 <!--
 #### GoTo Position Setpoints

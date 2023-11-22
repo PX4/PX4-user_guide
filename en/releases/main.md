@@ -54,3 +54,6 @@ TBD ...
 ### Fixed-wing
 
 - TBD
+
+### ROS 2
+- [PX4 ROS 2 Interface Library](../ros2/px4_ros2_interface_lib.md): A new C++ library that simplifies controlling PX4 from ROS 2.
