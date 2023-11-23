@@ -5,6 +5,7 @@ WiFi 텔레메트리는 기체의 WiFi 무선 장치와 GCS간에 MAVLink 통신
 PX4는 UDP와 WiFi를 통한 텔레메트리를 지원합니다. 지상국에서 첫 번째 heartbeat를 수신 할 때까지 하트 비트를 255.255.255.255의 포트 14550으로 heartbeat를 브로드캐스팅합니다. 이 시점에서는 데이터는 지상국에만 전송됩니다.
 
 호환 가능한 WiFi 텔레메트리 모듈은 아래와 같습니다.
-* [ESP8266 WiFi 모듈](../telemetry/esp8266_wifi_module.md)
-* [ESP32 WiFi Module](../telemetry/esp32_wifi_module.md)
-* [3DR Telemetry Wifi](../telemetry/3dr_telemetry_wifi.md) (Discontinued)
+
+- [ESP8266 WiFi 모듈](../telemetry/esp8266_wifi_module.md)
+- [ESP32 WiFi Module](../telemetry/esp32_wifi_module.md)
+- [3DR Telemetry Wifi](../telemetry/3dr_telemetry_wifi.md) (Discontinued)
