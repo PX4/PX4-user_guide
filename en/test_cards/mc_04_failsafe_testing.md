@@ -5,7 +5,7 @@
 ❏ Verify Data Link Loss action is Return to Land and the timeout is 10 seconds
 
 ❏ Verify Battery failsafe
- 
+
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Action is Return to Land
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Warn Level is 25%
