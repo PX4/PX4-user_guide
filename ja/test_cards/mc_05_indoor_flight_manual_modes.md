@@ -2,10 +2,10 @@
 
 ## When to Use This Test Card
 
-* New build maiden flight
-* When required to replicate an issue in a confined area
-* Experimental builds that might have stability issues
-* Testing hardware that has been replaced and/or modified
+- New build maiden flight
+- When required to replicate an issue in a confined area
+- Experimental builds that might have stability issues
+- Testing hardware that has been replaced and/or modified
 
 ## Arm and Take-off
 
@@ -37,6 +37,6 @@
 
 ## Expected Results
 
-* Take-off should be smooth as throttle is raised
-* No oscillations should present in any of the above flight modes
-* Upon landing, copter should not bounce on the ground
+- Take-off should be smooth as throttle is raised
+- No oscillations should present in any of the above flight modes
+- Upon landing, copter should not bounce on the ground
