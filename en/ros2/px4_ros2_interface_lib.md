@@ -333,12 +333,14 @@ private:
 A mode can choose its setpoint type(s) it wants to use to control the vehicle.
 The used types also define the compatibility with different vehicle types.
 
-The following sections provide a list of commonly used setpoint types.
-You can also add your own type by adding a class that inherits from `px4_ros2::SetpointBase`, sets the configuration flags according to what the setpoint requires, and then publishes any topic containing a setpoint.
+The following sections provide a list of supported setpoint types:
 
-:::note
-More setpoint types can be found under [px4_ros2/control/setpoint_types/experimental](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/px4_ros2_cpp/include/px4_ros2/control/setpoint_types/experimental).
-This will likely still change in the future though.
+- [DirectActuatorsSetpointType](#direct-actuator-control-setpoint-directactuatorssetpointtype): Direct control of motors and flight surface servo setpoints
+
+:::tip
+The other setpoint types are currently experimental, and can be found in: [px4_ros2/control/setpoint_types/experimental](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/px4_ros2_cpp/include/px4_ros2/control/setpoint_types/experimental).
+
+You can add your own setpoint types by adding a class that inherits from `px4_ros2::SetpointBase`, sets the configuration flags according to what the setpoint requires, and then publishes any topic containing a setpoint.
 :::
 
 <!--
@@ -369,7 +371,15 @@ If you want to control an independent actuator (a servo), follow these steps:
 
 ### Telemetry
 
-Telemetry, such as local or global position estimates can be found under [px4_ros2/odometry](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/px4_ros2_cpp/include/px4_ros2/odometry).
+Telemetry topics include:
+
+- [OdometryGlobalPosition](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/odometry/global_position.hpp): Global position
+- [OdometryLocalPosition](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/odometry/local_position.hpp): Local position, velocity and acceleration.
+
+:::note
+These topics provide a wrapper around the internal PX4 topics, allowing the library to maintain compatibility if the internal topics change.
+Check [px4_ros2/odometry](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/px4_ros2_cpp/include/px4_ros2/odometry) for new topics, and of course you can use any ROS 2 topic published from PX4.
+:::
 
 ### Failsafes and Mode Requirements
 
@@ -424,6 +434,7 @@ For example:
 ```
 
 means you would select **External Mode 1** in QGC:
+
 ![QGC Mode Assignment](../../assets/middleware/ros2/px4_ros2_interface_lib/qgc_mode_assignment.png)
 
 :::note
