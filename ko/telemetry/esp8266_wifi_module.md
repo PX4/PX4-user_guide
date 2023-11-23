@@ -12,13 +12,14 @@ ESP8266 모듈은 여러 곳에서 쉽게 구매할 수 있습니다. 몇 군데
 대부분의 모듈은 3.3V 입력 (전용)을 지원하지만 일부 비행 콘트롤러(예 : Pixhawk 4)는 5V에서 출력됩니다 (호환성을 확인하고 필요한 경우 전압을 낮추어야합니다).
 
 3.3V 사용 모듈:
-* [WRL-17146](https://www.sparkfun.com/products/13678) (Sparkfun)
-* [AI 클라우드](https://us.gearbest.com/boards-shields/pp_009604906563.html) - 단종됨 (GearBeast)
+
+- [WRL-17146](https://www.sparkfun.com/products/13678) (Sparkfun)
+- [AI 클라우드](https://us.gearbest.com/boards-shields/pp_009604906563.html) - 단종됨 (GearBeast)
 
 5.0V 사용 모듈:
-* [AI Thinker](https://www.banggood.com/Wireless-Wifi-to-Uart-Telemetry-Module-With-Antenna-for-Mini-APM-Flight-Controller-p-1065339.html) (Banggood)
-* [AlphaUAVLink](https://www.banggood.com/MAVLink-Wifi-Bridge-2_4G-Wireless-Wifi-Telemetry-Module-with-Antenna-for-Pixhawk-APM-Flight-Controller-p-1428590.html) (Banggood)
 
+- [AI Thinker](https://www.banggood.com/Wireless-Wifi-to-Uart-Telemetry-Module-With-Antenna-for-Mini-APM-Flight-Controller-p-1065339.html) (Banggood)
+- [AlphaUAVLink](https://www.banggood.com/MAVLink-Wifi-Bridge-2_4G-Wireless-Wifi-Telemetry-Module-with-Antenna-for-Pixhawk-APM-Flight-Controller-p-1428590.html) (Banggood)
 
 <a id="px4_config"></a>
 
@@ -33,12 +34,12 @@ ESP8266 모듈은 여러 곳에서 쉽게 구매할 수 있습니다. 몇 군데
 USB로 비행 컨트롤러를 지상국에 연결합니다 (WiFi가 아직 완전히 설정되지 않았으므로).
 
 *QGroundControl* 사용법:
+
 - [Load recent PX4 firmware onto the flight controller](../config/firmware.md).
 - ESP8266 연결용 [직렬 포트를 설정](../peripherals/serial_configuration.md)합니다. ESP8266에 설정된 값과 일치하려면 전송 속도를 921600으로 설정하여야 합니다.
 - [Configure MAVLink](../peripherals/mavlink_peripherals.md) on the corresponding serial port in order to receive telemetry and transmit commands over the ESP8266.
 
 무선 연결용 비행 콘트롤러 직렬 포트를 설정후에는 지상국과 기체간의 물리적 USB 연결을 해제할 수 있습니다.
-
 
 ## ESP8266을 통한 QGC 연결
 
@@ -47,12 +48,14 @@ USB로 비행 컨트롤러를 지상국에 연결합니다 (WiFi가 아직 완�
 :::note ESP8266 핫스팟 설정은 보드와 함께 제공됩니다. 일반적으로 보드 뒷면 또는 포장지에 인쇄되어 있습니다.
 
 일반적인 공장 네트워크 설정은 다음과 같습니다.
+
 - **SSID:** PixRacer
 - **비밀번호:** pixracer
 - **WiFi Channel:** 11
 - **UART 속도:** 921600
 
 다른 모듈은 다음과 같은 설정을 사용할 수 있습니다.
+
 - **SSID:** IFFRC_xxxxxxxx
 - **비밀번호:** 12345678
 - **IP:** 192.168.4.1
@@ -70,7 +73,6 @@ Wi-Fi가 활성화된 *QGroundControl* 지상국 컴퓨터/태블릿에서 ESP82
 *QGroundControl*은 지상국 컴퓨터가 "Pixracer"라는 이름의 WiFi에 연결되면 자동으로 기체에 연결됩니다.
 
 다른 WiFi 이름을 가진 모듈을 사용하는 경우에는, 다음 섹션에 표시된대로 QGroundControl WiFi 연결을 수동으로 설정하여야 합니다.
-
 
 ## 비표준 WiFi 연결 QGC 설정
 
@@ -90,7 +92,6 @@ Wi-Fi가 활성화된 *QGroundControl* 지상국 컴퓨터/태블릿에서 ESP82
 :::tip
 If you have any problem connecting, see [QGC Usage Problems](https://docs.qgroundcontrol.com/master/en/troubleshooting/qgc_usage.html).
 :::
-
 
 ## ESP8266 플래싱/펌웨어 (고급)
 
@@ -112,19 +113,18 @@ If you have any problem connecting, see [QGC Usage Problems](https://docs.qgroun
 이것은 펌웨어를 업데이트하는 가장 손쉬운 방법입니다.
 :::
 
-
 ### ESP8266 펌웨어 플래싱
 
 플래싱전에 아래 설명대로 *플래시 모드*에서 ESP8266을 부팅합니다. [MavESP8266](https://github.com/dogmaphobic/mavesp8266) 저장소를 복제한 경우 제공된 [PlatformIO](http://platformio.org) 도구 및 환경을 사용하여 펌웨어를 빌드하고 플래시할 수 있습니다. 위에서 사전 빌드 펌웨어를 다운로드한 경우에는 [esptool](https://github.com/espressif/esptool) 유틸리티를 다운로드후 아래 명령어를 실행하십시오.
 
-```
+```sh
 esptool.py --baud 921600 --port /dev/your_serial_port write_flash 0x00000 firmware_xxxxx.bin
 ```
 
 여기서:
 
-* **firmware_xxxxx.bin**은 위에서 다운로드 한 펌웨어입니다.
-* **your_serial_port**는 ESP8266이 연결된 직렬 포트의 이름입니다 (예 : `/dev/cu.usbmodem`).
+- **firmware_xxxxx.bin**은 위에서 다운로드 한 펌웨어입니다.
+- **your_serial_port**는 ESP8266이 연결된 직렬 포트의 이름입니다 (예 : `/dev/cu.usbmodem`).
 
 ### 펌웨어 플래싱을 위한 배선
 
@@ -142,7 +142,6 @@ RX, TX, VCC 및 GND가 FTDI 어댑터에서 ESP8266으로 연결되는 케이블
 #### ESP8266 (ESP-01) 핀배열
 
 ![esp8266 wifi 모듈 핀배열](../../assets/hardware/telemetry/esp8266_pinout.jpg)
-
 
 #### FTDI USB / UART 어댑터를 사용한 플래싱 다이어그램
 
