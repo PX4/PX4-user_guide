@@ -32,7 +32,6 @@ sudo usermod -aG docker $USER
 # Log in/out again before using docker!
 ```
 
-
 <a id="px4_containers"></a>
 
 ## 컨테이너 계층
@@ -41,7 +40,7 @@ The available containers are on [Github here](https://github.com/PX4/PX4-contain
 
 이를 통하여 다양한 빌드 대상 및 구성을 테스트할 수 있습니다(포함된 도구는 이름에서 유추할 수 있음). The containers are hierarchical, such that containers have the functionality of their parents. For example, the partial hierarchy below shows that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
 
-```
+```plain
 - px4io/px4-dev-base-focal
   - px4io/px4-dev-nuttx-focal
   - px4io/px4-dev-simulation-focal
@@ -52,7 +51,7 @@ The available containers are on [Github here](https://github.com/PX4/PX4-contain
   - px4io/px4-dev-nuttx-jammy
 ```
 
-The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx-focal:latest` (available tags are listed for each container on *hub.docker.com*. For example, the `px4io/px4-dev-nuttx-focal` tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx-focal/tags?page=1&ordering=last_updated)).
+The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx-focal:latest` (available tags are listed for each container on _hub.docker.com_. For example, the `px4io/px4-dev-nuttx-focal` tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx-focal/tags?page=1&ordering=last_updated)).
 
 :::tip
 일반적으로 최근 컨테이너를 사용하여야 하지만 반드시 `최신 버전`일 필요는 없습니다(너무 자주 변경됨). PX4 소스 코드를 다음과 같이 **src/PX4-Autopilot**에 이미 다운로드했음을 가정합니다:
@@ -77,8 +76,10 @@ cd PX4-Autopilot
 ```sh
 ./Tools/docker_run.sh 'make px4_sitl_default'
 ```
+
 또는 NuttX 도구 체인을 사용하여 bash 세션을 시작합니다.
-```
+
+```sh
 ./Tools/docker_run.sh 'bash'
 ```
 
@@ -104,14 +105,17 @@ docker run -it --privileged \
     -p 14570:14570/udp \
     --name=<local_container_name> <container>:<tag> <build_command>
 ```
+
 여기서,
-* `<host_src>`: 컨테이너에서 `<container_src>`에 매핑될 호스트 컴퓨터 디렉터리입니다. 이것은 일반적으로 **PX4-Autopilot** 디렉토리입니다.
-* `<container_src>`: 컨테이너 내부에서 공유(소스) 디렉토리의 위치입니다.
-* `<local_container_name>`: 생성 중인 도커 컨테이너의 이름입니다. 나중에 컨테이너를 다시 참조해야 하는 경우에 사용할 수 있습니다.
-* `<container>:<tag>`: 시작할 버전 태그가 있는 컨테이너입니다(예: `px4io/px4-dev-ros:2017-10-23`).
-* `<build_command>`: 새 컨테이너에서 호출할 명령어입니다. 예: `bash`는 컨테이너에서 bash 쉘을 실행합니다.
+
+- `<host_src>`: 컨테이너에서 `<container_src>`에 매핑될 호스트 컴퓨터 디렉터리입니다. 이것은 일반적으로 **PX4-Autopilot** 디렉토리입니다.
+- `<container_src>`: 컨테이너 내부에서 공유(소스) 디렉토리의 위치입니다.
+- `<local_container_name>`: 생성 중인 도커 컨테이너의 이름입니다. 나중에 컨테이너를 다시 참조해야 하는 경우에 사용할 수 있습니다.
+- `<container>:<tag>`: 시작할 버전 태그가 있는 컨테이너입니다(예: `px4io/px4-dev-ros:2017-10-23`).
+- `<build_command>`: 새 컨테이너에서 호출할 명령어입니다. 예: `bash`는 컨테이너에서 bash 쉘을 실행합니다.
 
 아래의 예는 호스트 컴퓨터에서 bash 셸을 열고, **~/src/PX4-Autopilot** 디렉터리를 공유하는 방법을 설명합니다.
+
 ```sh
 # enable access to xhost from the container
 xhost +
@@ -131,7 +135,7 @@ We use the host network mode to avoid conflicts between the UDP port access cont
 :::
 
 :::note
-If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value. On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`. On other hosts you might iterate the value of `0` in  `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
+If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value. On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`. On other hosts you might iterate the value of `0` in `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
 :::
 
 모든 것이 잘 실행되면, 새로운 bash 쉘이 실행됩니다. 예를 들어 SITL을 실행하여 모든 것이 작동하는 지 확인하십시오.
@@ -140,7 +144,6 @@ If you encounter the error "Can't open display: :0", `DISPLAY` may need to be se
 cd src/PX4-Autopilot    #This is <container_src>
 make px4_sitl_default gazebo-classic
 ```
-
 
 ### 컨테이너 재진입
 
@@ -158,10 +161,13 @@ docker exec -it container_name bash
 ### 컨테이너 정리
 
 때로는 컨테이너를 완전히 비워야 합니다. 이름을 사용하여 정리할 수 있습니다.
+
 ```sh
 docker rm mycontainer
 ```
+
 이름이 기억나지 않으면, 아래와 같이 비활성 컨테이너 ID를 나열한 다음 삭제합니다.
+
 ```sh
 docker ps -a -q
 45eeb98f1dd9
@@ -172,14 +178,14 @@ docker rm 45eeb98f1dd9
 
 시뮬레이션 인스턴스를 실행시에는 도커 컨테이너 내부의 SITL과 호스트에서 *QGroundControl*을 통해 제어하려면 네트워크를 수동으로 설정하여야 합니다. *QGroundControl*에 자동으로 연결되지 않습니다.
 
-In *QGroundControl*, navigate to [Settings](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) and select Comm Links. ::: ::: 포트는 사용된 [구성](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS)에 따라 다릅니다. IP 주소는 도커 컨테이너 중 하나이며, 기본 네트워크는 172.17.0.1/16입니다. 도커 컨테이너의 IP 주소는 다음 명령으로 찾을 수 있습니다(컨테이너 이름이 `mycontainer`라고 가정).
+In _QGroundControl_, navigate to [Settings](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) and select Comm Links. ::: ::: 포트는 사용된 [구성](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS)에 따라 다릅니다. IP 주소는 도커 컨테이너 중 하나이며, 기본 네트워크는 172.17.0.1/16입니다. 도커 컨테이너의 IP 주소는 다음 명령으로 찾을 수 있습니다(컨테이너 이름이 `mycontainer`라고 가정).
 
 ```sh
 $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}' mycontainer
 ```
 
 :::note
-위의 이중 중괄호 사이에는 공백이 없어야 합니다(gitbook에서 UI 렌더링 문제를 피하기 위해 필요함). 
+위의 이중 중괄호 사이에는 공백이 없어야 합니다(gitbook에서 UI 렌더링 문제를 피하기 위해 필요함).
 :::
 
 ### 문제 해결
@@ -189,7 +195,6 @@ $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}
 컨테이너는 기본 사용자(일반적으로 "루트") 계정으로 파일을 생성합니다. 이것 때문에, 호스트 컴퓨터의 사용자가 컨테이너에서 생성한 파일에 액세스할 수 없는 상황이 발생합니다.
 
 위의 예는 `--env=LOCAL_USER_ID="$(id -u)"` 줄을 사용하여 호스트의 사용자와 동일한 UID를 가진 사용자를 컨테이너에 생성합니다. 이렇게 하면 컨테이너 내에서 생성된 모든 파일을 호스트에서 액세스할 수 있습니다.
-
 
 #### 그래픽 드라이버 문제
 
@@ -207,7 +212,6 @@ libGL error: failed to load driver: swrast
 
 이에 대한 자세한 내용은 [여기](http://gernotklingler.com/blog/howto-get-hardware-accelerated-opengl-support-docker/)를 참고하십시오.
 
-
 <a id="virtual_machine"></a>
 
 ## 가상 머신 지원
@@ -216,7 +220,7 @@ libGL error: failed to load driver: swrast
 
 다음 설정은 테스트 되었습니다.
 
-  * VMWare Fusion 및 Ubuntu 14.04가 포함된 OS X(Parallels에서 GUI를 지원하는 Docker 컨테이너로 인해 X-Server가 충돌함).
+- VMWare Fusion 및 Ubuntu 14.04가 포함된 OS X(Parallels에서 GUI를 지원하는 Docker 컨테이너로 인해 X-Server가 충돌함).
 
 **메모리**
 
@@ -248,4 +252,3 @@ export DOCKER_HOST=tcp://<ip of your VM>:2375
 # run some docker command to see if it works, e.g. ps
 docker ps
 ```
-
