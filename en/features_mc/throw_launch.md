@@ -12,11 +12,16 @@ This feature was introduced after PX4 v1.14.
 This feature allows a multicopter to be started by arming it from a fixed position and then throwing it into the air.
 The vehicle then turns on the motors and operates according to its current mode.
 
-The vehicle detects that it has been thrown based on reaching a certain speed and altitude (5m/s and 2m by default, respectively) and then starts the motors at the apex of the throw, once it determines that it has started to fall.
-Note that unlike in other configurations, when throw launch is enabled the propellers should not spin until the launch is detected ( even when the vehicle is armed).
+The vehicle detects that it has been thrown based on reaching a certain speed (5m/s), and then starts the motors at the apex of the throw, once it determines that it has started to fall.
+You need to throw it high enough so that the vehicle can stabilize its height well before falling in range of people (2 or 3 metres is usually sufficient).
 
-The vehicle will not arm while it is moving, and should not be used on a moving platform (this is to reduce the chance of accidental triggering if a vehicle is armed and then moved to a launch point).
-As usual the vehicle will disarm if the throw is not detected within a few seconds of arming.
+Note that unlike in other configurations, when throw launch is enabled the propellers should not spin until the launch is detected (even when the vehicle is armed), and that the arming tone will continue to play until the vehicle is thrown.
+The vehicle will not automatically disarm after arming, and must be manually disarmed if you choose not to throw it. 
+
+The vehicle should not be transported after being armed and before the throw.
+In particular, the throw should not be executed from a moving platform.
+The reason for this is that the condition to start the motors depends on absolute speed of the multicopter and does not account for any additional movement.
+Trying to throw the drone from a moving platform might result in the motors being started prematurely.
 
 ## Safety
 
