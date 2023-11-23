@@ -456,8 +456,10 @@ Settings{kName, false, ModeBase::kModeIDRtl}
 
 ## CI: Integration Tests
 
-When opening a pull request to PX4, CI runs the integration tests of the library.
-These can also be run locally from PX4:
+When opening a pull request to PX4, CI runs the library integration tests.
+These test that mode registration, failsafes, and mode replacement, work as expected.
+
+The tests can also be run locally from PX4:
 
 ```sh
 ./test/ros_test_runner.py
