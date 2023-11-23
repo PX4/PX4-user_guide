@@ -294,7 +294,7 @@ public:
         takeoff([this](px4_ros2::Result result) {runState(State::MyMode, result);});
         break;
 
-      case State::MyMode:
+      case State::MyMode: // [6]
         scheduleMode(
           ownedMode().id(), [this](px4_ros2::Result result) {
             runState(State::RTL, result);
@@ -323,9 +323,10 @@ private:
 - `[3]`: We define an enum for the states we want to run through.
 - `[4]`: `onActivate` gets called when the executor becomes active. At this point we can start to run through our states.
   How you do this is up to you, in this example a method `runState` is used to execute the next state.
-- `[5]`: According to the state, we call a method from `ModeExecutorBase` that asynchronously runs the requested mode.
-  A callback is passed which is called upon completion.
-  This provides a `Result` argument which tells you whether the operation succeeded or not.
+- `[5]`: On switching to a state we call an asynchronous method from `ModeExecutorBase` to start the desired mode: `run`, `takeoff`, `rtl`, and so on.
+  These methods are passed a function that is called on completion; the callback provides a `Result` argument that tells you whether the operation succeeded or not.
+  The callback runs the next state on success.
+- `[6]`: We use the `scheduleMode()` method to start the executor's "owned mode", following the same pattern as the other state handlers.
 
 ### Setpoint Types
 
