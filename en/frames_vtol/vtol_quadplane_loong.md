@@ -87,7 +87,7 @@ In this documentation the integration of a Auterion Skynode is described. The in
 
 ### Avionics Unit
 
-![Complete stack assembly](../../assets/airframes/vtol/loong_vtol/02-stack.jpg)
+![Complete stack assembly](../../assets/airframes/vtol/loong_vtol/02-stack.png)
 
 #### Prepare 3D-Printed Parts
 
