@@ -26,7 +26,7 @@ Trying to throw the drone from a moving platform might result in the motors bein
 ## Safety
 
 :::warning
-Throw launch is potentially dangerous as it requires the operator to hold an armed multicopter and be in proximity when it is flying.
+Throw launch is dangerous as it requires the operator to hold an armed multicopter and be in proximity when it is flying.
 :::
 
 Before testing, make sure that the aircraft can take off with the normal position or takeoff modes.
