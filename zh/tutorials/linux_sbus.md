@@ -15,7 +15,7 @@
 
 要在 UART 上启动 RC驱动程序(例如: `/dev/ttyS2`)：
 
-```
+```sh
 linux_sbus start|stop|status -d <device> -c <channel>
 ```
 
