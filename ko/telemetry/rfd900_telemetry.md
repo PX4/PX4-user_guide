@@ -12,9 +12,9 @@
 
 사용할 수 있는 버전은 다음과 같습니다.
 
-* [jD-RF900Plus Longrange (900Mhz)](http://store.jdrones.com/jD_RD900Plus_Telemetry_Bundle_p/rf900set02.htm) (미국)
-* [jD-RF868Plus Longrange (868Mhz)](http://store.jdrones.com/jD_RD868Plus_Telemetry_Bundle_p/rf868set02.htm) (유럽)
-* [store.rfdesign.com.au](https://store.rfdesign.com.au/radio-modems/):
-  * [RFD 900+ 모뎀](https://store.rfdesign.com.au/rfd-900p-modem/)
-  * [RFD 868x Modem (EU)](https://store.rfdesign.com.au/rfd868x-eu-hs-8517-62-00-90/)
-  * [RFD900x](https://store.rfdesign.com.au/rfd-900x-modem-hs-8517-62-00-90/)
+- [jD-RF900Plus Longrange (900Mhz)](http://store.jdrones.com/jD_RD900Plus_Telemetry_Bundle_p/rf900set02.htm) (미국)
+- [jD-RF868Plus Longrange (868Mhz)](http://store.jdrones.com/jD_RD868Plus_Telemetry_Bundle_p/rf868set02.htm) (유럽)
+- [store.rfdesign.com.au](https://store.rfdesign.com.au/radio-modems/):
+  - [RFD 900+ 모뎀](https://store.rfdesign.com.au/rfd-900p-modem/)
+  - [RFD 868x Modem (EU)](https://store.rfdesign.com.au/rfd868x-eu-hs-8517-62-00-90/)
+  - [RFD900x](https://store.rfdesign.com.au/rfd-900x-modem-hs-8517-62-00-90/)

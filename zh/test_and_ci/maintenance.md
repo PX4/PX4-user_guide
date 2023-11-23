@@ -8,13 +8,13 @@
 
 要查找流失指标，可以使用 [Churn](https://github.com/danmayer/churn) 等工具：
 
-```
+```sh
 gem install churn
 ```
 
 从 `v1.6.0-rc2` 开始的示例输出将是：
 
-```
+```sh
 cd src/Firmware
 churn --start_date "6 months ago"
 **********************************************************************
