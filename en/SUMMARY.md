@@ -69,7 +69,7 @@
       * [DJI F450 (CUAV v5+)](frames_multicopter/dji_f450_cuav_5plus.md)
       * [DJI F450 (CUAV v5 nano)](frames_multicopter/dji_f450_cuav_5nano.md)
     * [Features](features_mc/README.md)
-      * [Throw Launch](features_mc/throw_launch.md)
+      * [Throw Launch](flight_modes_mc/throw_launch.md)
       * [Precision Landing](advanced_features/precland.md)
   * [Planes (Fixed-wing)](frames_plane/README.md) 
     * [Config/Tuning](config_fw/README.md)
