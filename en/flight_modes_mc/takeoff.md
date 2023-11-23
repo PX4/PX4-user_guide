@@ -38,6 +38,7 @@ Takeoff is affected by the following parameters:
 
 ## See Also
 
+- [Throw Launch (MC)](../flight_modes_mc/throw_launch.md)
 - [Takeoff Mode (FW)](../flight_modes_fw/takeoff.md)
 
 <!-- this maps to AUTO_TAKEOFF in dev -->
