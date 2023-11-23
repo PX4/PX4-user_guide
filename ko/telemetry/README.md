@@ -3,19 +3,20 @@
 텔레메트리 라디오는 (선택적으로) *QGroundControl*과 같은 지상 관제소와 PX4를 실행 기체간의 무선 MAVLink 연결을 제공합니다. 기체가 비행 중일 때 매개변수를 조정하고, 실시간으로 원격 측정 데이터를 확인하고, 비행 중 임무를 변경 등의 작업을 수행합니다.
 
 PX4는 다양한 텔레메트리 라디오 타입을 지원합니다:
-* [SiK 라디오 ](../telemetry/sik_radio.md) 기반 펌웨어 (일반적으로 UART 인터페이스에서 작동해야 함).
-  * [RFD900 텔레메트리 라디오](../telemetry/rfd900_telemetry.md)
-  * [HolyBro SiK Telemetry Radio](../telemetry/holybro_sik_radio.md)
-  * <del><em>HKPilot Telemetry Radio</em></del> (Discontinued)
-  * <del><em>3DR Telemetry Radio</em></del> (Discontinued)
-* [텔레메트리 Wi-fi](../telemetry/telemetry_wifi.md)
-* [Microhard Serial Telemetry Radio](../telemetry/microhard_serial.md)
-  * [ARK Electron Microhard Serial Telemetry Radio](../telemetry/ark_microhard_serial.md)
-  * [Holybro Microhard P900 Telemetry Radio](../telemetry/holybro_microhard_p900_radio.md)
-* CUAV Serial Telemetry Radio
-  * [CUAV P8 Telemetry Radio](../telemetry/cuav_p8_radio.md)
-* XBee Serial Telemetry Radio
-  * [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md) (Discontinued)
+
+- [SiK 라디오 ](../telemetry/sik_radio.md) 기반 펌웨어 (일반적으로 UART 인터페이스에서 작동해야 함).
+  - [RFD900 텔레메트리 라디오](../telemetry/rfd900_telemetry.md)
+  - [HolyBro SiK Telemetry Radio](../telemetry/holybro_sik_radio.md)
+  - <del><em>HKPilot Telemetry Radio</em></del> (Discontinued)
+  - <del><em>3DR Telemetry Radio</em></del> (Discontinued)
+- [텔레메트리 Wi-fi](../telemetry/telemetry_wifi.md)
+- [Microhard Serial Telemetry Radio](../telemetry/microhard_serial.md)
+  - [ARK Electron Microhard Serial Telemetry Radio](../telemetry/ark_microhard_serial.md)
+  - [Holybro Microhard P900 Telemetry Radio](../telemetry/holybro_microhard_p900_radio.md)
+- CUAV Serial Telemetry Radio
+  - [CUAV P8 Telemetry Radio](../telemetry/cuav_p8_radio.md)
+- XBee Serial Telemetry Radio
+  - [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md) (Discontinued)
 
 PX4는 [SiK 라디오](../telemetry/sik_radio.md) 프로토콜과 호환되며 즉시 사용할 수 있습니다. 적절한 커넥터를 변경해야 할 수도 있습니다.
 
