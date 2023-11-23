@@ -3,7 +3,7 @@
 The Foxtech Loong is a easy to build ARF quadplane VTOL drone with wingspan of 2160mm.
 This build guide shows how to add a flight controller system using [Auterion Skynode evaluation kit](../companion_computer/auterion_skynode.md) or [Pixhawk 6C](../flight_controller/pixhawk6c.md) and setup PX4.
 
-![Finished Loong Flight](../../assets/airframes/vtol/loong_vtol/01-foxtech-loong.jpg)
+![Finished Loong Flight](../../assets/airframes/vtol/foxtech_loong_2160/01-foxtech-loong.jpg)
 
 
 ## Overview
@@ -52,7 +52,7 @@ The following options have been tested:
 - [Groundstation and Radio link](https://holybro.com/collections/rc-radio-transmitter-receiver/products/skydroid-h12?variant=42940989931709)
 - [USB-C extension cable](https://www.digitec.ch/en/s1/product/powerguard-usb-c-usb-c-025-m-usb-cables-22529949?dbq=1&gclid=Cj0KCQjw2cWgBhDYARIsALggUhrh-z-7DSU0wKfLBVa8filkXLQaxUpi7pC0ffQyRzLng8Ph01h2R1gaAp0mEALw_wcB&gclsrc=aw.ds)
 - [I2C Splitter](https://www.3dxr.co.uk/autopilots-c2/the-cube-aka-pixhawk-2-1-c9/cube-cables-accessories-sensors-c15/cubepilot-i2c-can-splitter-jst-gh-4pin-p2840)
-- [3D-Printed mounts](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/loong_vtol/loong-3d-prints.zip)
+- [3D-Printed mounts](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/foxtech_loong_2160/loong-3d-prints.zip)
   - 1x Baseplate
   - 1x Stack-fixture
   - 1x Fan-Mount
@@ -87,7 +87,7 @@ In this documentation the integration of a Auterion Skynode is described. The in
 
 ### Avionics Unit
 
-![Complete stack assembly](../../assets/airframes/vtol/loong_vtol/02-stack.png)
+![Complete stack assembly](../../assets/airframes/vtol/foxtech_loong_2160/02-stack.png)
 
 #### Prepare 3D-Printed Parts
 
@@ -97,11 +97,11 @@ Use a soldering iron to press the threaded inserts into the 3D-Printed parts.
 
 Insert 10x M3 threaded inserts into the baseplate as shown in the picture:
 
-![Baseplate with threaded inserts](../../assets/airframes/vtol/loong_vtol/03-baseplate.jpg)
+![Baseplate with threaded inserts](../../assets/airframes/vtol/foxtech_loong_2160/03-baseplate.jpg)
 
 Insert 2x M3 threaded inserts into the stack fixture as shown in the picture below:
 
-![Stack fixture with threaded inserts](../../assets/airframes/vtol/loong_vtol/04-stack-fixture.jpg)
+![Stack fixture with threaded inserts](../../assets/airframes/vtol/foxtech_loong_2160/04-stack-fixture.jpg)
 
 Insert 2x M4 threaded inserts into the fan mount and radio mount as shown in the picture below. If you would like to add a 40mm 5V fan to the fan mount, insert 4x M3 inserts. Change the cable connector to a servo connector so it can be plugged into the servo rail to be powered.
 
@@ -109,23 +109,23 @@ Insert 2x M4 threaded inserts into the fan mount and radio mount as shown in the
 A fan might be needed if a powerful radio is used.
 :::
 
-![Radio-mount](../../assets/airframes/vtol/loong_vtol/05-radio-mount.jpg)
+![Radio-mount](../../assets/airframes/vtol/foxtech_loong_2160/05-radio-mount.jpg)
 
-![Fan-mount](../../assets/airframes/vtol/loong_vtol/06-fan-mount.jpg)
+![Fan-mount](../../assets/airframes/vtol/foxtech_loong_2160/06-fan-mount.jpg)
 
-![Fan-mount with fan](../../assets/airframes/vtol/loong_vtol/07-fan-mount.jpg)
+![Fan-mount with fan](../../assets/airframes/vtol/foxtech_loong_2160/07-fan-mount.jpg)
 
 Remove the original mounting plate from the vehicle. Tape the cables to the outside of the fuselage. Slide the baseplate into the vehicle. Screw the stack fixture to the baseplate and mark the location of the stack fixture with tape or a pen. Remove the parts from the fuselage and glue the stack fixture into place using hot glue.
 
-![Empty fuselage](../../assets/airframes/vtol/loong_vtol/08-preparations.jpg)
+![Empty fuselage](../../assets/airframes/vtol/foxtech_loong_2160/08-preparations.jpg)
 
-![Mounting stack fixture](../../assets/airframes/vtol/loong_vtol/09-stack-fixure.jpg)
+![Mounting stack fixture](../../assets/airframes/vtol/foxtech_loong_2160/09-stack-fixure.jpg)
 
 #### 40A Power Module
 
 Remove the case from the 40A PM that comes with the Skynode evaluation kit. Screw the PM with 2x M2x6mm to the bottom of the baseplate. Create a cable to extend the XT60 connector to an XT30 that is mounted on the baseplate. With that, the 6S battery power can be directly plugged into the XT30 connector with the pre-configured cable that comes with the vehicle. If necessary, the 10V output of the radio port on the PM can also be exposed via an XT30 that can be mounted next to the 6S battery input XT60.
 
-![40A Power Module installation](../../assets/airframes/vtol/loong_vtol/10-40a-power-module.jpg)
+![40A Power Module installation](../../assets/airframes/vtol/foxtech_loong_2160/10-40a-power-module.jpg)
 
 ### Sensors
 
@@ -137,21 +137,21 @@ The sensor can be installed with 2x M3x16mm screws in the front right corner of 
 Use a heat source carefully since the foam starts to melt at high temperatures.
 :::
 
-![Mounted airspeed sensor](../../assets/airframes/vtol/loong_vtol/11-airspeed-sensor.jpg)
+![Mounted airspeed sensor](../../assets/airframes/vtol/foxtech_loong_2160/11-airspeed-sensor.jpg)
 
 #### Lidar
 
 Mark the location to install the lidar with some tape or a pen. Cut a hole inside the PVC shell and the foam, so that the lidar fits in place. Secure the lidar with hot glue.
 
-![Prepared lidar hole](../../assets/airframes/vtol/loong_vtol/12-lidar-01.jpg)
+![Prepared lidar hole](../../assets/airframes/vtol/foxtech_loong_2160/12-lidar-01.jpg)
 
-![Installed lidar](../../assets/airframes/vtol/loong_vtol/13-lidar-02.jpg)
+![Installed lidar](../../assets/airframes/vtol/foxtech_loong_2160/13-lidar-02.jpg)
 
 #### GPS/Compass
 
 Use double sided tape to mount the GPS in the rear of the vehicle underneath the rear latch. The arrow on the GPS for the orientation can be ignored. The orientation will be detected by the flight controller during the calibration.
 
-![Installed GPS](../../assets/airframes//vtol/loong_vtol/14-gps.jpg)
+![Installed GPS](../../assets/airframes//vtol/foxtech_loong_2160/14-gps.jpg)
 
 #### Pixhawk 6c/6c mini
 
@@ -165,7 +165,7 @@ Tape a I2C splitter to the front right side of the baseplate. Connect the I2C sp
 Plug in the two 40-pin cables into the front of the Skynode.
 Plug in the USB-C extension cable and bend it over to the front. The bend needs to be very tight, so that the plate will fit into the vehicle.
 
-![Installed Skynode](../../assets/airframes/vtol/loong_vtol/15-skynode.jpg)
+![Installed Skynode](../../assets/airframes/vtol/foxtech_loong_2160/15-skynode.jpg)
 
 #### Adapter Boards
 
@@ -175,11 +175,11 @@ Screw the Pixhawk adapter Boards to the top plate.
 
 Tape the Skynode LTE antennas to the side of the fuselage as shown in the picture:
 
-![LTE-Antennas](../../assets/airframes/vtol/loong_vtol/16-lte-antennas.jpg)
+![LTE-Antennas](../../assets/airframes/vtol/foxtech_loong_2160/16-lte-antennas.jpg)
 
 If you are using a radio telemetry module you can mount the antennas to the top of the fuselage. In the front you can mount the antenna extension cable directly. In the back you can use the 3D-Printed antenna adapter. The adapter can be glued in place with hot glue.
 
-![WIFI-Antennas-Front](../../assets/airframes/vtol/loong_vtol/17-antenna-front.jpg)
+![WIFI-Antennas-Front](../../assets/airframes/vtol/foxtech_loong_2160/17-antenna-front.jpg)
 
 ![WIFI-Antenna-Back]()
 
@@ -222,12 +222,12 @@ If you wish plug the actuators in a different order make sure to make the necess
 
 ### Load Parameters File
 
-Next we load a [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/loong_vtol/loong.params) that contains parameters that define the frame geometry, output mappings, and tuning values — so you don't have to!
+Next we load a [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/foxtech_loong_2160/loong.params) that contains parameters that define the frame geometry, output mappings, and tuning values — so you don't have to!
 If you have followed the wiring instructions for the motors you probably won't need to do much further configuration other than sensor calibration and fixing the trims.
 
 To load the file:
 
-1. Download the [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/loong_vtol/loong.params).
+1. Download the [parameter file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/foxtech_loong_2160/loong.params).
 1. Select the [Parameters](../advanced_config/parameters.md#finding-updating-parameters) tab and then click on **Tools** in the top right corner.
 1. Select **Load from file** and then choose the `loong.params` file you just downloaded.
 1. Reboot the vehicle.
