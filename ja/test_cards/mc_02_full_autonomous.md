@@ -14,8 +14,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Duration of 5 to 6 minutes
 
-❏ Upload mission to vehicle using *QGroundControl*
-
+❏ Upload mission to vehicle using _QGroundControl_
 
 ## Arm and Take-off
 
@@ -27,19 +26,15 @@
 
 ❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
 
-
-
 ## Expected Results
 
-* Take-off should be smooth as throttle is raised
-* Mission should upload on first attempt
-* Vehicle should automatically take-off upon engaging Auto
-* Upon landing, copter should not bounce on the ground
+- Take-off should be smooth as throttle is raised
+- Mission should upload on first attempt
+- Vehicle should automatically take-off upon engaging Auto
+- Upon landing, copter should not bounce on the ground
 
 
-
-
-<!-- 
+<!--
 MC_002 - Full autonomous
 
 -   Make sure the auto-disarm is enabled
