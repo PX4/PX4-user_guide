@@ -253,6 +253,26 @@ heater <command> [arguments...]
 
    status        print status info
 ```
+## i2c_launcher
+Source: [systemcmds/i2c_launcher](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/i2c_launcher)
+
+
+### Description
+Daemon that starts drivers based on found I2C devices.
+
+
+<a id="i2c_launcher_usage"></a>
+### Usage
+```
+i2c_launcher <command> [arguments...]
+ Commands:
+   start
+     -b <val>    Bus number
+
+   stop
+
+   status        print status info
+```
 ## land_detector
 Source: [modules/land_detector](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/land_detector)
 
