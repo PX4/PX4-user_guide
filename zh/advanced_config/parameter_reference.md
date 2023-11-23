@@ -12481,34 +12481,17 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="GF_ALTMODE">GF_ALTMODE</strong> (INT32)</td>
- <td>Geofence altitude mode <p><strong>Comment:</strong> Select which altitude (AMSL) source should be used for geofence calculations.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Autopilot estimator global position altitude (GPS)</li>
-<li><strong>1:</strong> Raw barometer altitude (assuming standard atmospheric pressure)</li>
-</ul>  </td>
- <td>[0, 1] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="GF_COUNT">GF_COUNT</strong> (INT32)</td>
- <td>Geofence counter limit <p><strong>Comment:</strong> Set how many subsequent position measurements outside of the fence are needed before geofence violation is triggered</p>   </td>
- <td>[-1, 10] (1)</td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="GF_MAX_HOR_DIST">GF_MAX_HOR_DIST</strong> (FLOAT)</td>
- <td>Max horizontal distance in meters <p><strong>Comment:</strong> Maximum horizontal distance in meters the vehicle can be from home before triggering a geofence action. Disabled if 0.</p>   </td>
+ <td>Max horizontal distance from Home <p><strong>Comment:</strong> Maximum horizontal distance in meters the vehicle can be from Home before triggering a geofence action. Disabled if 0.</p>   </td>
  <td>[0, 10000] (1)</td>
- <td>0</td>
+ <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="GF_MAX_VER_DIST">GF_MAX_VER_DIST</strong> (FLOAT)</td>
- <td>Max vertical distance in meters <p><strong>Comment:</strong> Maximum vertical distance in meters the vehicle can be from home before triggering a geofence action. Disabled if 0.</p>   </td>
+ <td>Max vertical distance from Home <p><strong>Comment:</strong> Maximum vertical distance in meters the vehicle can be from Home before triggering a geofence action. Disabled if 0.</p>   </td>
  <td>[0, 10000] (1)</td>
- <td>0</td>
+ <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
@@ -12520,7 +12503,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GF_SOURCE">GF_SOURCE</strong> (INT32)</td>
- <td>Geofence source <p><strong>Comment:</strong> Select which position source should be used. Selecting GPS instead of global position makes sure that there is no dependence on the position estimator 0 = global position, 1 = GPS</p> <strong>参数对照:</strong><ul>
+ <td>Geofence source <p><strong>Comment:</strong> Select which position source should be used. Selecting GPS instead of global position makes sure that there is no dependence on the position estimator 0 = global position, 1 = GPS</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> GPOS</li>
 <li><strong>1:</strong> GPS</li>
 </ul>  </td>
@@ -12561,7 +12544,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_FAILURE_MODE">CA_FAILURE_MODE</strong> (INT32)</td>
- <td>Motor failure handling mode <p><strong>Comment:</strong> This is used to specify how to handle motor failures reported by failure detector.</p> <strong>Values:</strong><ul>
+ <td>Motor failure handling mode <p><strong>Comment:</strong> This is used to specify how to handle motor failures reported by failure detector.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Ignore</li>
 <li><strong>1:</strong> Remove first failed motor from effectiveness</li>
 </ul>  </td>
@@ -12669,7 +12652,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_METHOD">CA_METHOD</strong> (INT32)</td>
- <td>Control allocation method <p><strong>Comment:</strong> Selects the algorithm and desaturation method. If set to Automtic, the selection is based on the airframe (CA_AIRFRAME).</p> <strong>参数对照:</strong><ul>
+ <td>Control allocation method <p><strong>Comment:</strong> Selects the algorithm and desaturation method. If set to Automtic, the selection is based on the airframe (CA_AIRFRAME).</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Pseudo-inverse with output clipping</li>
 <li><strong>1:</strong> Pseudo-inverse with sequential desaturation technique</li>
 <li><strong>2:</strong> Automatic</li>
@@ -14325,7 +14308,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL0_CT">CA_SV_TL0_CT</strong> (INT32)</td>
- <td>Tilt 0 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>Values:</strong><ul>
+ <td>Tilt 0 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> Yaw</li>
 <li><strong>2:</strong> Pitch</li>
@@ -14433,7 +14416,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL3_CT">CA_SV_TL3_CT</strong> (INT32)</td>
- <td>Tilt 3 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>参数对照:</strong><ul>
+ <td>Tilt 3 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> Yaw</li>
 <li><strong>2:</strong> Pitch</li>
@@ -14459,7 +14442,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL3_TD">CA_SV_TL3_TD</strong> (INT32)</td>
- <td>Tilt Servo 3 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>Values:</strong><ul>
+ <td>Tilt Servo 3 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Towards Front</li>
 <li><strong>90:</strong> Towards Right</li>
 </ul>  </td>
@@ -14544,7 +14527,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="ISBD_CONFIG">ISBD_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for Iridium (with MAVLink) <p><strong>Comment:</strong> Configure on which serial port to run Iridium (with MAVLink).</p> <strong>参数对照:</strong><ul>
+ <td>Serial Configuration for Iridium (with MAVLink) <p><strong>Comment:</strong> Configure on which serial port to run Iridium (with MAVLink).</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -15097,7 +15080,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_0_CONFIG">MAV_0_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MAVLink (instance 0) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for MAVLink (instance 0) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -15119,7 +15102,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_0_FLOW_CTRL">MAV_0_FLOW_CTRL</strong> (INT32)</td>
- <td>Enable serial flow control for instance 0 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detection fails.</p> <strong>参数对照:</strong><ul>
+ <td>Enable serial flow control for instance 0 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detection fails.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Force off</li>
 <li><strong>1:</strong> Force on</li>
 <li><strong>2:</strong> Auto-detected</li>
@@ -15202,7 +15185,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_1_CONFIG">MAV_1_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MAVLink (instance 1) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for MAVLink (instance 1) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -15224,7 +15207,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_1_FLOW_CTRL">MAV_1_FLOW_CTRL</strong> (INT32)</td>
- <td>Enable serial flow control for instance 1 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detection fails.</p> <strong>参数对照:</strong><ul>
+ <td>Enable serial flow control for instance 1 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detection fails.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Force off</li>
 <li><strong>1:</strong> Force on</li>
 <li><strong>2:</strong> Auto-detected</li>
@@ -15307,7 +15290,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_2_CONFIG">MAV_2_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MAVLink (instance 2) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for MAVLink (instance 2) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -15329,7 +15312,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_2_FLOW_CTRL">MAV_2_FLOW_CTRL</strong> (INT32)</td>
- <td>Enable serial flow control for instance 2 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detection fails.</p> <strong>参数对照:</strong><ul>
+ <td>Enable serial flow control for instance 2 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detection fails.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Force off</li>
 <li><strong>1:</strong> Force on</li>
 <li><strong>2:</strong> Auto-detected</li>
@@ -16414,7 +16397,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_THR_CURVE">MPC_THR_CURVE</strong> (INT32)</td>
- <td>Thrust curve mapping in Stabilized Mode <p><strong>Comment:</strong> This parameter defines how the throttle stick input is mapped to collective thrust in Stabilized mode. In case the default is used (&#x27;Rescale to hover thrust&#x27;), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select &#x27;No Rescale&#x27; to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, then 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: In case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.</p> <strong>Values:</strong><ul>
+ <td>Thrust curve mapping in Stabilized Mode <p><strong>Comment:</strong> This parameter defines how the throttle stick input is mapped to collective thrust in Stabilized mode. In case the default is used (&#x27;Rescale to hover thrust&#x27;), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select &#x27;No Rescale&#x27; to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, then 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: In case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Rescale to hover thrust</li>
 <li><strong>1:</strong> No Rescale</li>
 </ul>  </td>
@@ -16843,7 +16826,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="MSP_OSD_CONFIG">MSP_OSD_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MSP OSD <p><strong>Comment:</strong> Configure on which serial port to run MSP OSD.</p> <strong>参数对照:</strong><ul>
+ <td>Serial Configuration for MSP OSD <p><strong>Comment:</strong> Configure on which serial port to run MSP OSD.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -16864,7 +16847,7 @@ table {
 </tr>
 <tr>
  <td><strong id="OSD_ATXXXX_CFG">OSD_ATXXXX_CFG</strong> (INT32)</td>
- <td>Enable/Disable the ATXXX OSD Chip <p><strong>Comment:</strong> Configure the ATXXXX OSD Chip (mounted on the OmnibusF4SD board) and select the transmission standard.</p> <strong>Values:</strong><ul>
+ <td>Enable/Disable the ATXXX OSD Chip <p><strong>Comment:</strong> Configure the ATXXXX OSD Chip (mounted on the OmnibusF4SD board) and select the transmission standard.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> NTSC</li>
 <li><strong>2:</strong> PAL</li>
@@ -17079,7 +17062,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="RC_INPUT_PROTO">RC_INPUT_PROTO</strong> (INT32)</td>
- <td>RC input protocol <p><strong>Comment:</strong> Select your RC input protocol or auto to scan.</p> <strong>参数对照:</strong><ul>
+ <td>RC input protocol <p><strong>Comment:</strong> Select your RC input protocol or auto to scan.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Auto</li>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> PPM</li>
@@ -21467,7 +21450,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_CM8JL65_R_0">SENS_CM8JL65_R_0</strong> (INT32)</td>
- <td>Distance Sensor Rotation <p><strong>Comment:</strong> Distance Sensor Rotation as MAV_SENSOR_ORIENTATION enum</p> <strong>Values:</strong><ul>
+ <td>Distance Sensor Rotation <p><strong>Comment:</strong> Distance Sensor Rotation as MAV_SENSOR_ORIENTATION enum</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> ROTATION_FORWARD_FACING</li>
 <li><strong>2:</strong> ROTATION_RIGHT_FACING</li>
 <li><strong>6:</strong> ROTATION_LEFT_FACING</li>
@@ -21680,7 +21663,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_EN_PCF8583">SENS_EN_PCF8583</strong> (INT32)</td>
- <td>PCF8583 eneable driver <p><strong>Comment:</strong> Run PCF8583 driver automatically</p> <strong>参数对照:</strong><ul>
+ <td>PCF8583 eneable driver <p><strong>Comment:</strong> Run PCF8583 driver automatically</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Eneabled</li>
 </ul>  <p><b>Reboot required:</b> true</p>
@@ -22384,7 +22367,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MPDT7_ROT">SENS_MPDT7_ROT</strong> (INT32)</td>
- <td>MappyDot Sensor 7 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td>MappyDot Sensor 7 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -22401,7 +22384,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MPDT8_ROT">SENS_MPDT8_ROT</strong> (INT32)</td>
- <td>MappyDot Sensor 8 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
+ <td>MappyDot Sensor 8 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -22569,7 +22552,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SF45_UPDATE_CFG">SF45_UPDATE_CFG</strong> (INT32)</td>
- <td>Update rate in Hz <p><strong>Comment:</strong> The SF45 sets the update rate in Hz to allow greater resolution</p> <strong>Values:</strong><ul>
+ <td>Update rate in Hz <p><strong>Comment:</strong> The SF45 sets the update rate in Hz to allow greater resolution</p> <strong>参数对照:</strong><ul>
 <li><strong>1:</strong> 50hz</li>
 <li><strong>2:</strong> 100hz</li>
 <li><strong>3:</strong> 200hz</li>
@@ -22614,7 +22597,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VN_MODE">VN_MODE</strong> (INT32)</td>
- <td>VectorNav driver mode <p><strong>Comment:</strong> INS or sensors</p> <strong>参数对照:</strong><ul>
+ <td>VectorNav driver mode <p><strong>Comment:</strong> INS or sensors</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Sensors Only (default)</li>
 <li><strong>1:</strong> INS</li>
 </ul>  </td>
@@ -23549,7 +23532,7 @@ table {
 </tr>
 <tr>
  <td><strong id="TEL_HOTT_CONFIG">TEL_HOTT_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for HoTT Telemetry <p><strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for HoTT Telemetry <p><strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -25390,7 +25373,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MXS_OP_MODE">MXS_OP_MODE</strong> (INT32)</td>
- <td>Sagetech MXS mode configuration <p><strong>Comment:</strong> This parameter defines the operating mode of the MXS</p> <strong>参数对照:</strong><ul>
+ <td>Sagetech MXS mode configuration <p><strong>Comment:</strong> This parameter defines the operating mode of the MXS</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Off</li>
 <li><strong>1:</strong> On</li>
 <li><strong>2:</strong> Standby</li>
@@ -25403,7 +25386,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MXS_SER_CFG">MXS_SER_CFG</strong> (INT32)</td>
- <td>Serial Configuration for Sagetech MXS Serial Port <p><strong>Comment:</strong> Configure on which serial port to run Sagetech MXS Serial Port.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for Sagetech MXS Serial Port <p><strong>Comment:</strong> Configure on which serial port to run Sagetech MXS Serial Port.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -25500,7 +25483,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_ENABLE">UAVCAN_ENABLE</strong> (INT32)</td>
- <td>UAVCAN mode <p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.</p> <strong>参数对照:</strong><ul>
+ <td>UAVCAN mode <p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Sensors Manual Config</li>
 <li><strong>2:</strong> Sensors Automatic Config</li>
@@ -25552,7 +25535,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_LGT_STROB">UAVCAN_LGT_STROB</strong> (INT32)</td>
- <td>UAVCAN STROBE light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the STROBE lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
+ <td>UAVCAN STROBE light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the STROBE lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Always off</li>
 <li><strong>1:</strong> When autopilot is armed</li>
 <li><strong>2:</strong> When autopilot is prearmed</li>
@@ -25627,7 +25610,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_SUB_BAT">UAVCAN_SUB_BAT</strong> (INT32)</td>
- <td>subscription battery <p><strong>Comment:</strong> Enable UAVCAN battery subscription. uavcan::equipment::power::BatteryInfo ardupilot::equipment::power::BatteryInfoAux 0 - Disable 1 - Use raw data. Recommended for Smart battery 2 - Filter the data with internal battery library</p> <strong>参数对照:</strong><ul>
+ <td>subscription battery <p><strong>Comment:</strong> Enable UAVCAN battery subscription. uavcan::equipment::power::BatteryInfo ardupilot::equipment::power::BatteryInfoAux 0 - Disable 1 - Use raw data. Recommended for Smart battery 2 - Filter the data with internal battery library</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disable</li>
 <li><strong>1:</strong> Raw data</li>
 <li><strong>2:</strong> Filter data</li>
@@ -26036,6 +26019,14 @@ table {
 </td>
  <td>[0, 2] </td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UXRCE_DDS_SYNCC">UXRCE_DDS_SYNCC</strong> (INT32)</td>
+ <td>Enable uXRCE-DDS system clock synchronization <p><strong>Comment:</strong> When enabled along with UXRCE_DDS_SYNCT, uxrce_dds_client will set the system clock using the agents UTC timestamp.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
