@@ -1,10 +1,9 @@
 # Foxtech Loong 2160 VTOL
 
-The Foxtech Loong is a easy to build ARF quadplane VTOL drone with wingspan of 2160mm.
+The _Foxtech Loong 2160 VTOL_ is a easy to build almost-ready-to-fly (ARF) quadplane VTOL drone with wingspan of 2160mm.
 This build guide shows how to add a flight controller system using [Auterion Skynode evaluation kit](../companion_computer/auterion_skynode.md) or [Pixhawk 6C](../flight_controller/pixhawk6c.md) and setup PX4.
 
-![Finished Loong Flight](../../assets/airframes/vtol/foxtech_loong_2160/01-foxtech-loong.jpg)
-
+![Photo of Loong VTOL in flight](../../assets/airframes/vtol/foxtech_loong_2160/01-foxtech-loong.jpg)
 
 ## Overview
 
@@ -95,107 +94,158 @@ In this documentation the integration of a Auterion Skynode is described. The in
 Use a soldering iron to press the threaded inserts into the 3D-Printed parts.
 :::
 
-Insert 10x M3 threaded inserts into the baseplate as shown in the picture:
+1. Insert 10x M3 threaded inserts into the baseplate as shown in the picture:
 
-![Baseplate with threaded inserts](../../assets/airframes/vtol/foxtech_loong_2160/03-baseplate.jpg)
+   ![Baseplate with threaded inserts](../../assets/airframes/vtol/foxtech_loong_2160/03-baseplate.jpg)
 
-Insert 2x M3 threaded inserts into the stack fixture as shown in the picture below:
+1. Insert 2x M3 threaded inserts into the stack fixture as shown in the picture below:
 
-![Stack fixture with threaded inserts](../../assets/airframes/vtol/foxtech_loong_2160/04-stack-fixture.jpg)
+   ![Stack fixture with threaded inserts](../../assets/airframes/vtol/foxtech_loong_2160/04-stack-fixture.jpg)
 
-Insert 2x M4 threaded inserts into the fan mount and radio mount as shown in the picture below. If you would like to add a 40mm 5V fan to the fan mount, insert 4x M3 inserts. Change the cable connector to a servo connector so it can be plugged into the servo rail to be powered.
+1. Insert 2x M4 threaded inserts into the fan mount and radio mount as shown in the picture below.
 
-:::note
-A fan might be needed if a powerful radio is used.
-:::
+   ![Radio-mount](../../assets/airframes/vtol/foxtech_loong_2160/05-radio-mount.jpg)
 
-![Radio-mount](../../assets/airframes/vtol/foxtech_loong_2160/05-radio-mount.jpg)
+   If you would like to add a 40mm 5V fan to the fan mount, insert 4x M3 inserts.
 
-![Fan-mount](../../assets/airframes/vtol/foxtech_loong_2160/06-fan-mount.jpg)
+   ![Fan-mount](../../assets/airframes/vtol/foxtech_loong_2160/06-fan-mount.jpg)
 
-![Fan-mount with fan](../../assets/airframes/vtol/foxtech_loong_2160/07-fan-mount.jpg)
+1. Change the cable connector to a servo connector so it can be plugged into the servo rail to be powered.
 
-Remove the original mounting plate from the vehicle. Tape the cables to the outside of the fuselage. Slide the baseplate into the vehicle. Screw the stack fixture to the baseplate and mark the location of the stack fixture with tape or a pen. Remove the parts from the fuselage and glue the stack fixture into place using hot glue.
+   :::note
+   A fan might be needed if a powerful radio is used.
+   :::
 
-![Empty fuselage](../../assets/airframes/vtol/foxtech_loong_2160/08-preparations.jpg)
+   ![Fan-mount with fan](../../assets/airframes/vtol/foxtech_loong_2160/07-fan-mount.jpg)
+
+1. Remove the original mounting plate from the vehicle.
+   Tape the cables to the outside of the fuselage.
+
+   ![Empty fuselage](../../assets/airframes/vtol/foxtech_loong_2160/08-preparations.jpg)
+
+1. Slide the baseplate into the vehicle.
+1. Screw the stack fixture to the baseplate and mark the location of the stack fixture with tape or a pen.
+1. Remove the parts from the fuselage and glue the stack fixture into place using hot glue.
 
 ![Mounting stack fixture](../../assets/airframes/vtol/foxtech_loong_2160/09-stack-fixure.jpg)
 
-#### 40A Power Module
+### Power Module
 
-Remove the case from the 40A PM that comes with the Skynode evaluation kit. Screw the PM with 2x M2x6mm to the bottom of the baseplate. Create a cable to extend the XT60 connector to an XT30 that is mounted on the baseplate. With that, the 6S battery power can be directly plugged into the XT30 connector with the pre-configured cable that comes with the vehicle. If necessary, the 10V output of the radio port on the PM can also be exposed via an XT30 that can be mounted next to the 6S battery input XT60.
+1. Remove the case from the 40A PM that comes with the Skynode evaluation kit.
+1. Screw the PM with 2x M2x6mm to the bottom of the baseplate.
+1. Create a cable to extend the XT60 connector to an XT30 that is mounted on the baseplate.
+   With that, the 6S battery power can be directly plugged into the XT30 connector with the pre-configured cable that comes with the vehicle.
 
-![40A Power Module installation](../../assets/airframes/vtol/foxtech_loong_2160/10-40a-power-module.jpg)
+   ![40A Power Module installation](../../assets/airframes/vtol/foxtech_loong_2160/10-40a-power-module.jpg)
+
+If necessary, the 10V output of the radio port on the PM can also be exposed via an XT30 that can be mounted next to the 6S battery input XT60.
 
 ### Sensors
 
 #### Pitot Tube
 
-The sensor can be installed with 2x M3x16mm screws in the front right corner of the baseplate. Take care that the connector is facing the center of the fuselage. Only the front tube (not as shown in the picture) is used; the other tube can be removed since our experience showed that the pressure inside the fuselage is sufficient as static pressure. When the stack is mounted inside the fuselage, the tube coming from the wing and the one from the airspeed sensor need to be spliced together. Use some spit to push them together and afterward use a heat shrink tube to reinforce the connection.
+1. The sensor can be installed with 2x M3x16mm screws in the front right corner of the baseplate.
+   Take care that the connector is facing the center of the fuselage.
 
-:::warning
-Use a heat source carefully since the foam starts to melt at high temperatures.
-:::
+   ![Mounted airspeed sensor](../../assets/airframes/vtol/foxtech_loong_2160/11-airspeed-sensor.jpg)
 
-![Mounted airspeed sensor](../../assets/airframes/vtol/foxtech_loong_2160/11-airspeed-sensor.jpg)
+   Only the front tube (not as shown in the picture) is used; the other tube can be removed since our experience showed that the pressure inside the fuselage is sufficient as static pressure.
+
+1. When the stack is mounted inside the fuselage, the tube coming from the wing and the one from the airspeed sensor need to be spliced together.
+   Use some spit to push them together and afterward use a heat shrink tube to reinforce the connection.
+
+   :::warning
+   Use a heat source carefully since the foam starts to melt at high temperatures.
+   :::
 
 #### Lidar
 
-Mark the location to install the lidar with some tape or a pen. Cut a hole inside the PVC shell and the foam, so that the lidar fits in place. Secure the lidar with hot glue.
+1. Mark the location to install the lidar with some tape or a pen.
+   Cut a hole inside the PVC shell and the foam, so that the lidar fits in place.
 
-![Prepared lidar hole](../../assets/airframes/vtol/foxtech_loong_2160/12-lidar-01.jpg)
+   ![Prepared lidar hole](../../assets/airframes/vtol/foxtech_loong_2160/12-lidar-01.jpg)
 
-![Installed lidar](../../assets/airframes/vtol/foxtech_loong_2160/13-lidar-02.jpg)
+1. Secure the lidar with hot glue.
+
+   ![Installed lidar](../../assets/airframes/vtol/foxtech_loong_2160/13-lidar-02.jpg)
 
 #### GPS/Compass
 
-Use double sided tape to mount the GPS in the rear of the vehicle underneath the rear latch. The arrow on the GPS for the orientation can be ignored. The orientation will be detected by the flight controller during the calibration.
+1. Use double sided tape to mount the GPS in the rear of the vehicle underneath the rear latch.
 
-![Installed GPS](../../assets/airframes//vtol/foxtech_loong_2160/14-gps.jpg)
+   ![Installed GPS](../../assets/airframes//vtol/foxtech_loong_2160/14-gps.jpg)
+
+   The arrow on the GPS for the orientation can be ignored.
+   The orientation will be detected by the flight controller during the calibration.
+
+### Flight Controller
+
+Install either the Pixhawk or Skynode onto the baseplate.
 
 #### Pixhawk 6c/6c mini
 
-Use double sided tape to mount the flight controller to the baseplate.
+1. Use double sided tape to mount the flight controller to the baseplate.
 
 #### Skynode
 
-Use 4x M3x8 screws to mount the Skynode to the baseplate. Make sure that the top of the "A" is facing to the front of the vehicle. Plug the 40A Power Module into the upper one of the two power connectors.
-Plug one or if needed two USB adapters into the 4-pin JST-GH connectors into the back of the Skynode and feed them to the front of the plate. Fix the cables with zip ties in place.
-Tape a I2C splitter to the front right side of the baseplate. Connect the I2C splitter with the ETH port in the back of the Skynode. The I2C splitter can be used to easily plug in ETH devices as for example a radio link.
-Plug in the two 40-pin cables into the front of the Skynode.
-Plug in the USB-C extension cable and bend it over to the front. The bend needs to be very tight, so that the plate will fit into the vehicle.
+1. Use 4x M3x8 screws to mount the Skynode to the baseplate.
+   Make sure that the top of the "A" is facing to the front of the vehicle.
+1. Plug the 40A Power Module into the upper one of the two power connectors.
+1. Plug one (or if needed two) USB adapters into the 4-pin JST-GH connectors into the back of the Skynode and feed them to the front of the plate.
+   Fix the cables with zip ties in place.
+1. Tape a I2C splitter to the front right side of the baseplate (The splitter can be used to plug in ETH devices such as a radio link.)
+1. Connect the I2C splitter with the ETH port in the back of the Skynode.
+1. Plug in the two 40-pin cables into the front of the Skynode.
+1. Plug in the USB-C extension cable and bend it over to the front.
+   The bend needs to be very tight, so that the plate will fit into the vehicle.
 
 ![Installed Skynode](../../assets/airframes/vtol/foxtech_loong_2160/15-skynode.jpg)
 
 #### Adapter Boards
 
-Screw the Pixhawk adapter Boards to the top plate.
+1. Screw the Pixhawk adapter Boards to the top plate.
 
 ### Antennas and RC Receiver
 
-Tape the Skynode LTE antennas to the side of the fuselage as shown in the picture:
+1. Tape the Skynode LTE antennas to the side of the fuselage as shown in the picture:
 
-![LTE-Antennas](../../assets/airframes/vtol/foxtech_loong_2160/16-lte-antennas.jpg)
+   ![LTE-Antennas](../../assets/airframes/vtol/foxtech_loong_2160/16-lte-antennas.jpg)
 
-If you are using a radio telemetry module you can mount the antennas to the top of the fuselage. In the front you can mount the antenna extension cable directly. In the back you can use the 3D-Printed antenna adapter. The adapter can be glued in place with hot glue.
+1. If you are using a radio telemetry module you can mount the antennas to the top of the fuselage.
+   In the front you can mount the antenna extension cable directly.
 
-![WIFI-Antennas-Front](../../assets/airframes/vtol/foxtech_loong_2160/17-antenna-front.jpg)
+   ![WIFI-Antennas-Front](../../assets/airframes/vtol/foxtech_loong_2160/17-antenna-front.jpg)
 
-![WIFI-Antenna-Back]()
+   In the back you can use the 3D-Printed antenna adapter. The adapter can be glued in place with hot glue.
+
+   ![WIFI-Antenna-Back]()
 
 ### 12S Power Module
 
-The 12S Power Module will be mounted on top of the battery. Plug the XT90 that is installed inside the vehicle into the PM. The power cable to connect the Skynode needs to be extended. This is necessary to get battery readings from the power module. Furthermore the power module can be used as a 5V backup for Skynode.
+The 12S Power Module will be mounted on top of the battery.
+Plug the XT90 that is installed inside the vehicle into the PM.
+The power cable to connect the Skynode needs to be extended.
+This is necessary to get battery readings from the power module.
+
+The power module can be used as a 5V backup for Skynode.
 
 ### Assembly
 
-Slide the baseplate into the vehicle. Plug in the LTE-Antennas into the Skynode. Screw the Fan-Mount and Radio-Mount to the baseplate. Slide the baseplate all the way back and screw it to the stack fixture. Place the top plate on top of the stack and feed the 40-pin cables from the Skynode through the two holes in front of the Pixhawk adapter boards. Make sure to connect the top connector to the adapter board that has the 'GPS1' input.
+The assembly steps are:
+
+1. Slide the baseplate into the vehicle.
+1. Plug in the LTE-Antennas into the Skynode.
+1. Screw the Fan-Mount and Radio-Mount to the baseplate.
+1. Slide the baseplate all the way back and screw it to the stack fixture.
+1. Place the top plate on top of the stack and feed the 40-pin cables from the Skynode through the two holes in front of the Pixhawk adapter boards.
+1. Make sure to connect the top connector to the adapter board that has the 'GPS1' input.
 
 Plug the actuators in to the Pixhawk adapter board in the following order:
 
 MAIN:
+
 1. Puller Motor
-1. empty or Fan if installed
+1. Empty, or fan if installed
 1. Aileron right
 1. Aileron left
 1. Elevator right
@@ -203,6 +253,7 @@ MAIN:
 1. Rudder
 
 AUX:
+
 1. Motor front right
 1. Motor rear left
 1. Motor front left
@@ -210,14 +261,12 @@ AUX:
 
 If you wish plug the actuators in a different order make sure to make the necessary changes in the Actuator tab.
 
-
 ## Software Setup
 
 ### Select Airframe
 
 1. Open QGC, select the **Q** icon, and then select **Vehicle Setup**.
 1. Select the [Airframe](../config/airframe.md) tab
-
 1. Select [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) from the _Standard VTOL_ group, and then and click **Apply and Restart**.
 
 ### Load Parameters File
@@ -267,7 +316,7 @@ Motors, control surfaces, and other actuators are configured in the QGroundContr
 The [parameter file](#load-parameters-file) loaded previously means that this screen should already be correctly setup: you just need to adjust the trims for your particular vehicle.
 If motors/servos were connected to different outputs than suggested, you will need to change the output to function mappings in the actuator output section.
 
-To calibrate the ESC's power up the vehicle with the wings not connected and go into the **Actuators** tab in QGC. Enable motor test and side the slider for Motor you would like to calibrate up to the maximum. Plug the wings into the fuselage and wait until the beeb-sequence if finished (ca. 5s). Then side the slider to the minimum. 
+To calibrate the ESC's power up the vehicle with the wings not connected and go into the **Actuators** tab in QGC. Enable motor test and side the slider for Motor you would like to calibrate up to the maximum. Plug the wings into the fuselage and wait until the beeb-sequence if finished (ca. 5s). Then side the slider to the minimum.
 
 #### Control Surfaces
 
@@ -285,9 +334,12 @@ Now adjust the trim value so that all the surfaces are in neutral position.
 
 Arm the vehicle with the props of in stabilized mode. Check that all the quad-motors spin with a similar low idle speed and verify that the direction is correct. Check the following reactions:
 
-- Roll stick to the right. The left two motors should spool up
-- Roll stick to the back. The front two motors should spool up
-- Yaw stick to the right. Front right and rear left motor should spool up
+- Roll stick to the right.
+  The left two motors should spool up
+- Roll stick to the back.
+  The front two motors should spool up
+- Yaw stick to the right.
+  Front right and rear left motor should spool up
 
 :::note
 increase the throttle a bit if you can't see a reaction since Airmode is not enabled for the yaw axis.
@@ -302,7 +354,8 @@ increase the throttle a bit if you can't see a reaction since Airmode is not ena
   If the vehicle tips to either the tail or to the nose then you need to move the battery into the opposite direction.
   If you are not able to balance the vehicle with this method you will need to reposition some components or add weight to balance the vehicle.
 - Check actuator orientations and neutral trim
-- Check control surface reactions in [Stabilized mode](../flight_modes_fw/stabilized.md). Switch the vehicle into forward flight mode.
+- Check control surface reactions in [Stabilized mode](../flight_modes_fw/stabilized.md).
+  Switch the vehicle into forward flight mode.
   - Roll the vehicle to the right.
     The right aileron should go down. The left aileron should go up.
   - Pitch the vehicle up (nose up).
