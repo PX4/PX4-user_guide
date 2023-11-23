@@ -12,7 +12,7 @@ This feature was introduced after PX4 v1.14.
 This feature allows a multicopter to be started by arming it from a fixed position and then throwing it into the air.
 The vehicle then turns on the motors and operates according to its current mode.
 
-The vehicle detects that it has been thrown based on reaching a certain speed (5m/s), and then starts the motors at the apex of the throw, once it determines that it has started to fall.
+The vehicle detects that it has been thrown based on reaching a certain speed (default 5m/s), and then starts the motors at the apex of the throw, once it determines that it has started to fall.
 You need to throw it high enough so that the vehicle can stabilize its height well before falling anywhere near people.
 
 Note that unlike in other configurations, when throw launch is enabled the propellers should not spin until the launch is detected (even when the vehicle is armed), and that the arming tone will continue to play until the vehicle is thrown.
