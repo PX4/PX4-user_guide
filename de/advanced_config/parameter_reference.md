@@ -12481,34 +12481,17 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="GF_ALTMODE">GF_ALTMODE</strong> (INT32)</td>
- <td>Geofence altitude mode <p><strong>Comment:</strong> Select which altitude (AMSL) source should be used for geofence calculations.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Autopilot estimator global position altitude (GPS)</li>
-<li><strong>1:</strong> Raw barometer altitude (assuming standard atmospheric pressure)</li>
-</ul>  </td>
- <td>[0, 1] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="GF_COUNT">GF_COUNT</strong> (INT32)</td>
- <td>Geofence counter limit <p><strong>Comment:</strong> Set how many subsequent position measurements outside of the fence are needed before geofence violation is triggered</p>   </td>
- <td>[-1, 10] (1)</td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="GF_MAX_HOR_DIST">GF_MAX_HOR_DIST</strong> (FLOAT)</td>
- <td>Max horizontal distance in meters <p><strong>Comment:</strong> Maximum horizontal distance in meters the vehicle can be from home before triggering a geofence action. Disabled if 0.</p>   </td>
+ <td>Max horizontal distance from Home <p><strong>Comment:</strong> Maximum horizontal distance in meters the vehicle can be from Home before triggering a geofence action. Disabled if 0.</p>   </td>
  <td>[0, 10000] (1)</td>
- <td>0</td>
+ <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="GF_MAX_VER_DIST">GF_MAX_VER_DIST</strong> (FLOAT)</td>
- <td>Max vertical distance in meters <p><strong>Comment:</strong> Maximum vertical distance in meters the vehicle can be from home before triggering a geofence action. Disabled if 0.</p>   </td>
+ <td>Max vertical distance from Home <p><strong>Comment:</strong> Maximum vertical distance in meters the vehicle can be from Home before triggering a geofence action. Disabled if 0.</p>   </td>
  <td>[0, 10000] (1)</td>
- <td>0</td>
+ <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
@@ -16792,7 +16775,7 @@ table {
 <tr>
  <td><strong id="MC_YAWRATE_D">MC_YAWRATE_D</strong> (FLOAT)</td>
  <td>Yaw rate D gain <p><strong>Comment:</strong> Yaw rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>[0.0, ?] [0, ?] (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
@@ -26036,6 +26019,14 @@ table {
 </td>
  <td>[0, 2] </td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UXRCE_DDS_SYNCC">UXRCE_DDS_SYNCC</strong> (INT32)</td>
+ <td>Enable uXRCE-DDS system clock synchronization <p><strong>Comment:</strong> When enabled along with UXRCE_DDS_SYNCT, uxrce_dds_client will set the system clock using the agents UTC timestamp.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
