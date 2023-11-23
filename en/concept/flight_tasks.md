@@ -100,10 +100,15 @@ The instructions below might be used to create a task named _MyTask_:
 6. Add the new task to the list of tasks to be built in [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/CMakeLists.txt#L40):
 
    ```cmake
-   list(APPEND flight_tasks_to_add
-      Orbit
-      MyTask
-   )
+   ...
+   if(NOT px4_constrained_flash_build)
+	   list(APPEND flight_tasks_all
+		   AutoFollowTarget
+		   Orbit
+		   MyTask
+	   )
+   endif()
+   ...
    ```
 
 7. Update a flight mode to ensure that the task is called.
@@ -118,9 +123,10 @@ The instructions below might be used to create a task named _MyTask_:
       * @value 0 Direct velocity
       * @value 3 Smoothed velocity
       * @value 4 Acceleration based
+      * @value 5 Acceleration based
       * @group Multicopter Position Control
       */
-     PARAM_DEFINE_INT32(MPC_POS_MODE, 4);
+     PARAM_DEFINE_INT32(MPC_POS_MODE, 5);
      ```
 
    - Add a case for your new option in the switch for the parameter [FlightModeManager.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/FlightModeManager.cpp#L266-L285) to enable the task when `_param_mpc_pos_mode` has the right value.
@@ -147,8 +153,25 @@ The instructions below might be used to create a task named _MyTask_:
 To test the flight task you need to run the vehicle with the task enabled.
 For the example above, this means setting the parameter `MPC_POS_MODE` to 5, taking off, and switching the vehicle to [Position mode](../flight_modes_mc/position.md).
 
+
+
 :::note
 The task defined above should only be tested on the simulator. The code doesn't actually create setpoints so the vehicle will not fly.
+:::
+
+Build SITL simulation (gazebo-classic)
+```sh
+make px4_sitl gazebo-classic
+```
+
+Open QGroundcontrol if not no message info will be printed out. In the console takeoff and switch to Position mode:
+```sh
+pxh> commander takeoff
+pxh> commander mode posctl
+```
+
+:::note
+The console will display continously `INFO  [FlightTaskMyTask] FlightTaskMyTask update was called!`. If you want to change to another flight mode, type i.e. `commander mode altctl` over the displaying message.
 :::
 
 ## Video
