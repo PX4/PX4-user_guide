@@ -8,14 +8,12 @@ SiK 라디오는 다양한 범위와 폼 팩터를 지원하는 다양한 제조
 
 ![SiK 라디오](../../assets/hardware/telemetry/holybro_sik_radio.jpg)
 
-<a id="vendors"></a>
-
 ## 공급 업체
 
-* [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
-* [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
-* <del><em>HKPilot Telemetry Radio</em></del> (Discontinued)
-* <del><em>3DR 텔레메트리 라디오</em></del> (단종)
+- [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
+- [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
+- <del><em>HKPilot Telemetry Radio</em></del> (Discontinued)
+- <del><em>3DR 텔레메트리 라디오</em></del> (단종)
 
 ## 설정
 
@@ -23,13 +21,11 @@ SiK 라디오는 다양한 범위와 폼 팩터를 지원하는 다양한 제조
 
 기체의 장치는 비행 제어장치의 `TELEM1` 포트에 연결하며, 보통 추가 설정은 하지 않습니다.
 
-
 ## 펌웨어 업데이트
 
 대부분의 [공급업체](#vendors)에서 제공하는 하드웨어는 최신 펌웨어에 설정되어 있습니다. 구형 하드웨어에서 MAVLink 2 추가하기 위하여, 새 펌웨어로 업데이트하여야 합니다.
 
-You can update the radio firmware using *QGroundControl*: [QGroundControl User Guide > Loading Firmware](https://docs.qgroundcontrol.com/master/en/SetupView/Firmware.html).
-
+You can update the radio firmware using _QGroundControl_: [QGroundControl User Guide > Loading Firmware](https://docs.qgroundcontrol.com/master/en/SetupView/Firmware.html).
 
 ## 고급 설정
 
