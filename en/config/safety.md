@@ -104,7 +104,8 @@ The settings and underlying parameters are shown below.
 
 ### Geofence Failsafe
 
-The _Geofence Failsafe_ is a "virtual" cylinder centered around the home position.
+The _Geofence Failsafe_ is triggered when the drone breaches a "virtual" perimeter.
+In its simplest form, the perimeter is set up as a cylinder centered around the home position.
 If the vehicle moves outside the radius or above the altitude the specified _Failsafe Action_ will trigger.
 
 ![Safety - Geofence (QGC)](../../assets/qgc/setup/safety/safety_geofence.png)
