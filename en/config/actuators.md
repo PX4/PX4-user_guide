@@ -333,7 +333,7 @@ Functions include:
   Only motors allowed for airframe are displayed.
 - `Servo 1` to `Servo 8`: Servo output.
   These are further assigned a specific meaning based on airframe, such as "tilt servo", "left aileron".
-- `Offboard Acutator Set 1` to `Offboard Acutator Set 6`: [Payloads > Generic Actuator Control with MAVLink](../payloads/README.md#generic-actuator-control-with-mavlink).
+- `Peripheral via Acutator Set 1` to `Peripheral via Acutator Set 6`: [Payloads > Generic Actuator Control with MAVLink](../payloads/README.md#generic-actuator-control-with-mavlink).
 - `Landing Gear`: Output is landing gear.
 - `Parachute`: Output is parachute.
   The minimum value is sent in normal use and the maximum value is emitted when a failsafe is triggered.
