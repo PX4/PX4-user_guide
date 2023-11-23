@@ -16,7 +16,7 @@ For an S.Bus receiver (or encoder - e.g. from Futaba, RadioLink, etc.) you will 
 
 특정 UART에서 RC 드라이버를 시작하려면(예: 이 경우 `/dev/ttyS2`):
 
-```
+```sh
 rc_input start -d /dev/ttyS2
 ```
 
