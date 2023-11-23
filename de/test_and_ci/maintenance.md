@@ -1,4 +1,4 @@
-# Maintenance notes
+# Maintenance Notes
 
 This picks and describes some tools to help analyze the state of the codebase and support its maintenance.
 
@@ -8,13 +8,13 @@ The amount of churn, so the number of changes done to a file can be an indicator
 
 To find churn metrics a tool such as [Churn](https://github.com/danmayer/churn) can be used:
 
-```
+```sh
 gem install churn
 ```
 
 An example output as of `v1.6.0-rc2` would be:
 
-```
+```sh
 cd src/PX4-Autopilot
 churn --start_date "6 months ago"
 **********************************************************************
