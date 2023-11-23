@@ -16,7 +16,7 @@ Then [Start the PX4 RC Driver](#start_driver) on the device, as shown below.
 
 To start the RC driver on a particular UART (e.g. in this case `/dev/ttyS2`):
 
-```
+```sh
 rc_input start -d /dev/ttyS2
 ```
 
