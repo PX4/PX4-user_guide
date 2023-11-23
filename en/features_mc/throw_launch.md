@@ -3,7 +3,7 @@
 :::warning Experimental
 This feature was introduced after PX4 v1.14.
 
-- It has not yet been broadly tested on different vehicle configurations or scenarios. various platforms and in different scenarios.
+- It has not yet been broadly tested on different vehicle configurations or scenarios.
 - The majority of testing has been done in position mode.
   Other modes should also work.
 
