@@ -332,23 +332,9 @@ PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
 
 ## GCS에 매개변수 메타데이터 게시
 
-매개변수 메타데이터는 PX4 빌드중에 JSON 또는 XML 파일로 저장됩니다.
+The parameter metadata JSON file is compiled into firmware (or hosted on the Internet), and made available to ground stations via the [MAVLink Component Metadata service](https://mavlink.io/en/services/component_information.html). This ensures that metadata is always up-to-date with the code running on the vehicle.
 
-대부분의 비행 컨트롤러(대부분의 FLASH가 충분히 사용 가능)의 경우 JSON 파일은 xz 압축되어 생성된 바이너리 내에 저장됩니다. 그런 다음 파일은 [MAVLink 구성 요소 정보 프로토콜](https://mavlink.io/en/services/component_information.html)을 사용하여 지상국과 공유됩니다. 이렇게 하면 매개변수 메타데이터가 차량에서 실행되는 코드와 함께 항상 최신 상태를 유지합니다.
-
-메모리가 제한된 비행 콘트롤러 대상의 바이너리는 매개변수 메타데이터를 바이너리에 저장하지 않고, `px4-travis.s3.amazonaws.com`에 저장된 동일한 데이터를 참조합니다. 이는 예를 들어 [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)에 적용됩니다. The metadata is uploaded via [github CI](https://github.com/PX4/PX4-Autopilot/blob/main/.github/workflows/metadata.yml) for all build targets (and hence will only be available once parameters have been merged into master).
-
-:::note
-You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/main/boards/omnibus/f4sd/default.px4board).
-:::
-
-:::note
-매개변수 메타데이터가 차량에 없는 경우 `px4-travis.s3.amazonaws.com`의 메타데이터가 사용됩니다. 또한 저속 텔레메트리 통신에서 느린 다운로드를 방지하기 위한 대체 수단으로 사용될 수 있습니다.
-:::
-
-Anyone doing custom development on a FLASH-constrained board can adjust the URL [here](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/component_information/CMakeLists.txt#L41) to point to another server.
-
-마스터 분기의 XML 파일은 CI를 통해 QGC 소스 트리에 복사되고, 구성 요소 정보 서비스를 통해 사용할 수 있는 메타데이터가 없는 경우의 대체 수단으로 사용됩니다(이 접근 방식은 구성 요소 정보 프로토콜이 존재하기 이전).
+대부분의 비행 컨트롤러(대부분의 FLASH가 충분히 사용 가능)의 경우 JSON 파일은 xz 압축되어 생성된 바이너리 내에 저장됩니다. 그런 다음 파일은 [MAVLink 구성 요소 정보 프로토콜](https://mavlink.io/en/services/component_information.html)을 사용하여 지상국과 공유됩니다.
 
 ## 추가 정보
 
