@@ -10,9 +10,9 @@ PX4의 ROS 기반 통합 테스트 방법을 설명합니다.
 
 ## 전제 조건
 
-* [jMAVSim 시뮬레이터](../sim_jmavsim/README.md)
-* [Gazebo Classic Simulator](../sim_gazebo_classic/README.md)
-* [ROS와 MAVROS](../simulation/ros_interface.md)
+- [jMAVSim 시뮬레이터](../sim_jmavsim/README.md)
+- [Gazebo Classic Simulator](../sim_gazebo_classic/README.md)
+- [ROS와 MAVROS](../simulation/ros_interface.md)
 
 ## 테스트 실행
 
@@ -28,6 +28,7 @@ make <test_target>
 `test_target` is a makefile targets from the set: *tests_mission*, *tests_mission_coverage*, *tests_offboard* and *tests_avoidance*.
 
 `test/` 아래에 있는 테스트 스크립트를 직접 실행할 수도 있습니다.
+
 ```sh
 source <catkin_ws>/devel/setup.bash
 cd <PX4-Autopilot_clone>
@@ -36,6 +37,7 @@ make px4_sitl_default sitl_gazebo
 ```
 
 예:
+
 ```sh
 ./test/rostest_px4_run.sh mavros_posix_tests_offboard_posctl.test
 ```
@@ -48,7 +50,6 @@ make px4_sitl_default sitl_gazebo
 
 **.test** 파일은 `integrationtests/python_src/px4_it/mavros/`에 정의된 해당 Python 테스트를 실행합니다.
 
-
 ## 신규 MAVROS 테스트 작성(Python)
 
 This section explains how to write a new python test using ROS 1/MAVROS, test it, and add it to the PX4 test suite.
@@ -58,11 +59,12 @@ This section explains how to write a new python test using ROS 1/MAVROS, test it
 새 테스트를 작성하려면:
 
 1. 아래의 빈 테스트 스켈레톤을 복사하여 새 테스트 스크립트를 작성합니다.
-    ```python
-    #!/usr/bin/env python
+
+   ```python
+   #!/usr/bin/env python
     # [... LICENSE ...]
 
-    #
+   #
     # @author Example Author <author@example.com>
     #
     PKG = 'px4'
@@ -107,36 +109,42 @@ This section explains how to write a new python test using ROS 1/MAVROS, test it
     if __name__ == '__main__':
         import rostest
         rostest.rosrun(PKG, 'mavros_new_test', MavrosNewTest)
-    ```
+   ```
 
 1. 새 테스트만 실행합니다.
-   - 시뮬레이터를 시작합니다.
-        ```sh
-        cd <PX4-Autopilot_clone>
-        source Tools/simulation/gazebo/setup_gazebo.bash
-        roslaunch launch/mavros_posix_sitl.launch
-        ```
-    - 테스트를 실행합니다(새로운 쉘에서).
-        ```
-        cd <PX4-Autopilot_clone>
-        source Tools/simulation/gazebo/setup_gazebo.bash
-        rosrun px4 mavros_new_test.py
-        ```
+
+   - Start the simulator:
+
+     ```sh
+     cd <PX4-Autopilot_clone>
+     source Tools/simulation/gazebo/setup_gazebo.bash
+     roslaunch launch/mavros_posix_sitl.launch
+     ```
+
+   - Run test (in a new shell):
+
+     ```sh
+     cd <PX4-Autopilot_clone>
+     source Tools/simulation/gazebo/setup_gazebo.bash
+     rosrun px4 mavros_new_test.py
+     ```
 
 1. 시작 파일에 새 테스트 노드 추가
 
    - `test/`에서 새 `<test_name>.test` ROS 실행 파일을 만듭니다.
    - 기본 스크립트 *rostest_px4_run.sh* 또는 *rostest_avoidance_run.sh* 중 하나를 사용하여 테스트 파일을 호출합니다.
 
-1. (선택 사항) Makefile에서 새 대상 만들기
-   - Makefile을 오픈합니다.
-   - *Testing* 섹션을 검색합니다.
-   - 새 대상 이름을 추가하고 테스트를 호출합니다.
+1. (Optional) Create a new target in the Makefile
 
-   예:
-    ```sh
-    tests_<new_test_target_name>: rostest
-        @"$(SRC_DIR)"/test/rostest_px4_run.sh mavros_posix_tests_<new_test>.test
-    ```
+   - Open the Makefile
+   - Search the _Testing_ section
+   - Add a new target name and call the test
+
+   For example:
+
+   ```sh
+   tests_<new_test_target_name>: rostest
+    @"$(SRC_DIR)"/test/rostest_px4_run.sh mavros_posix_tests_<new_test>.test
+   ```
 
 위에서 설명한 대로 테스트를 실행합니다.
