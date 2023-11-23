@@ -14,6 +14,7 @@ bool velocity
 bool acceleration
 bool attitude
 bool body_rate
-bool actuator
+bool thrust_and_torque
+bool direct_actuator
 
 ```

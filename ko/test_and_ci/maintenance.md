@@ -8,13 +8,13 @@
 
 변경 횟수의 척도를 찾는 도구 [Churn](https://github.com/danmayer/churn)을 이 용도로 사용할 수 있습니다.
 
-```
+```sh
 gem install churn
 ```
 
 `v1.6.0-rc2` 출력 예제는 다음과 같습니다:
 
-```
+```sh
 cd src/PX4-Autopilot
 churn --start_date "6 months ago"
 **********************************************************************

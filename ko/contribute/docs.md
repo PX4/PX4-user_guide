@@ -133,13 +133,13 @@ For recent nodejs versions (after v16.15.0) you need to enable the node legacy O
    yarn install
    ```
 
-1. 라이브러리 미리보기 및 제공
+1. Preview and serve the library:
 
    ```sh
    yarn docs:dev
    ```
 
-   - 이제 http://localhost:8080/px4_user_guide/에서 가이드를 검색할 수 있습니다.
+   - Now you can browse the guide on http://localhost:8080/px4_user_guide/
    - 터미널 프롬프트에서 **CTRL+C**를 사용하여 검색을 중지합니다.
 
 1. 다음을 사용하여 라이브러리를 빌드합니다.

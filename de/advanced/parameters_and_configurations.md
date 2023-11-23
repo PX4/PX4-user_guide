@@ -267,8 +267,8 @@ The YAML allows you to define instance numbers in parameter names, descriptions,
 
 ```yaml
 MY_PARAM_${i}_RATE:
-            description:
-                short: Maximum rate for instance ${i}
+  description:
+    short: Maximum rate for instance ${i}
 ```
 
 The following YAML definitions provide the start and end indexes.
@@ -330,23 +330,9 @@ The lines in the comment block are all optional, and are primarily used to contr
 
 ## Publishing Parameter Metadata to a GCS
 
-Parameter metadata is collected into a JSON or XML file during each PX4 build.
+The parameter metadata JSON file is compiled into firmware (or hosted on the Internet), and made available to ground stations via the [MAVLink Component Metadata service](https://mavlink.io/en/services/component_information.html). This ensures that metadata is always up-to-date with the code running on the vehicle.
 
-For most flight controllers (as most have enough FLASH available), the JSON file is xz-compressed and stored within the generated binary. The file is then shared to ground stations using the [MAVLink Component Information Protocol](https://mavlink.io/en/services/component_information.html). This ensures that parameter metadata is always up-to-date with the code running on the vehicle.
-
-Binaries for flight controller targets with constrained memory do not store the parameter metadata in the binary, but instead reference the same data stored on `px4-travis.s3.amazonaws.com`. This applies, for example, to the [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md). The metadata is uploaded via [github CI](https://github.com/PX4/PX4-Autopilot/blob/main/.github/workflows/metadata.yml) for all build targets (and hence will only be available once parameters have been merged into master).
-
-:::note
-You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/main/boards/omnibus/f4sd/default.px4board).
-:::
-
-:::note
-The metadata on `px4-travis.s3.amazonaws.com` is used if parameter metadata is not present on the vehicle. It may also be used as a fallback to avoid a very slow download over a low-rate telemetry link.
-:::
-
-Anyone doing custom development on a FLASH-constrained board can adjust the URL [here](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/component_information/CMakeLists.txt#L41) to point to another server.
-
-The XML file of the master branch is copied into the QGC source tree via CI and is used as a fallback in cases where no metadata is available via the component information service (this approach predates the existence of the component information protocol).
+This process is the same as for [events metadata](../concept/events_interface.md#publishing-event-metadata-to-a-gcs). For more information see [PX4 Metadata (Translation & Publication)](../advanced/px4_metadata.md)
 
 ## Further Information
 

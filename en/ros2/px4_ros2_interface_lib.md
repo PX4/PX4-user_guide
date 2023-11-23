@@ -3,12 +3,11 @@
 :::warning Experimental
 At time of writing parts of the PX4 ROS 2 Interface Library is experimental, and hence subject to change:
 
-- The architecture and core interfaces for defining modes in ROS 2 modes are largely stable.
+- The architecture and core interfaces for defining modes in ROS 2 modes are largely stable, and are tested in CI.
   The library offers significant benefits over using offboard mode in its current state.
 - Only a few setpoint types have settled (the others are still under development).
   You may need to use internal PX4 topics which may not remain backwards-compatible over time.
 - The API is not fully documented.
-- Testing in CI is still limited.
 
 :::
 
@@ -295,7 +294,7 @@ public:
         takeoff([this](px4_ros2::Result result) {runState(State::MyMode, result);});
         break;
 
-      case State::MyMode:
+      case State::MyMode: // [6]
         scheduleMode(
           ownedMode().id(), [this](px4_ros2::Result result) {
             runState(State::RTL, result);
@@ -324,9 +323,10 @@ private:
 - `[3]`: We define an enum for the states we want to run through.
 - `[4]`: `onActivate` gets called when the executor becomes active. At this point we can start to run through our states.
   How you do this is up to you, in this example a method `runState` is used to execute the next state.
-- `[5]`: According to the state, we call a method from `ModeExecutorBase` that asynchronously runs the requested mode.
-  A callback is passed which is called upon completion.
-  This provides a `Result` argument which tells you whether the operation succeeded or not.
+- `[5]`: On switching to a state we call an asynchronous method from `ModeExecutorBase` to start the desired mode: `run`, `takeoff`, `rtl`, and so on.
+  These methods are passed a function that is called on completion; the callback provides a `Result` argument that tells you whether the operation succeeded or not.
+  The callback runs the next state on success.
+- `[6]`: We use the `scheduleMode()` method to start the executor's "owned mode", following the same pattern as the other state handlers.
 
 ### Setpoint Types
 
@@ -336,7 +336,6 @@ The used types also define the compatibility with different vehicle types.
 The following sections provide a list of supported setpoint types:
 
 - [GotoSetpointType](#goto-setpoint-gotosetpointtype): Smooth position and (optionally) heading control
-
 - [DirectActuatorsSetpointType](#direct-actuator-control-setpoint-directactuatorssetpointtype): Direct control of motors and flight surface servo setpoints
 
 :::tip
@@ -344,6 +343,7 @@ The other setpoint types are currently experimental, and can be found in: [px4_r
 
 You can add your own setpoint types by adding a class that inherits from `px4_ros2::SetpointBase`, sets the configuration flags according to what the setpoint requires, and then publishes any topic containing a setpoint.
 :::
+
 
 #### Go-to Setpoint (GotoSetpointType)
 

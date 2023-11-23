@@ -1,6 +1,6 @@
 # 参与翻译
 
-We'd love your help to translate _QGroundControl_, and our guides for PX4, _QGroundControl_ and MAVLink!
+We'd love your help to translate _QGroundControl_, PX4 Metadata (in QGC), and our guides for PX4, _QGroundControl_ and MAVLink!
 
 Our docs (and _QGroundControl_) use the [Crowdin](https://crowdin.com) online tool for translation. Crowdin automatically imports source topics from Github and presents new and changed strings for translation and/or review (approval).
 
@@ -19,11 +19,12 @@ The steps to join our translation tream are:
 
 1. 注册 Crowdin：https://crowdin.com/join
 1. 打开要加入的翻译项目：
-   - [QGroundControl](https://crowdin.com/project/qgroundcontrol)
-   - [PX4 用户手册](https://crowdin.com/project/px4-user-guide)
-   - [PX4 开发人员指南](https://crowdin.com/project/qgroundcontrol-developer-guide)
-   - [QGroundControl 开发人员指南](https://crowdin.com/project/qgroundcontrol-user-guide)
-   - [QGroundControl 用户指南](https://crowdin.com/project/mavlink)
+   - [QGroundControl](https://crowdin.com/project/qgroundcontrol) — QGroundControl UI and hard coded strings.
+   - [PX4-Metadata-Translations](https://crowdin.com/project/px4-metadata-translations) — PX4 parameter and event descriptions in QGroundControl.
+   - [PX4 开发人员指南](https://crowdin.com/project/px4-user-guide)
+   - [QGroundControl 开发人员指南](https://crowdin.com/project/qgroundcontrol-developer-guide)
+   - [QGroundControl 用户指南](https://crowdin.com/project/qgroundcontrol-user-guide)
+   - [MAVLink Guide](https://crowdin.com/project/mavlink)
 1. Select the language you want to translate
 1. Click the **Join** button (next to the text _You must join the translators team to be able to participate in this project_)
 

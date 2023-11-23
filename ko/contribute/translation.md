@@ -1,6 +1,6 @@
 # 번역
 
-We'd love your help to translate _QGroundControl_, and our guides for PX4, _QGroundControl_ and MAVLink!
+We'd love your help to translate _QGroundControl_, PX4 Metadata (in QGC), and our guides for PX4, _QGroundControl_ and MAVLink!
 
 Our docs (and _QGroundControl_) use the [Crowdin](https://crowdin.com) online tool for translation. Crowdin은 Github에서 원본 문서를 가져와서 번역하고 검토(승인)할 문서들을  편집할 수 있습니다.
 
@@ -21,11 +21,12 @@ Crowdin은 "풀 요청"(이 단계에서 개발팀이 주기적으로 검토하�
 
 1. crowdin에 가입: [https://crowdin.com/join](https://crowdin.com/join)
 1. 참여를 원하는 번역 프로젝트를 엽니다:
-   - [QGroundControl](https://crowdin.com/project/qgroundcontrol)
-   - [PX4 사용자 안내서](https://crowdin.com/project/px4-user-guide)
+   - [QGroundControl](https://crowdin.com/project/qgroundcontrol) — QGroundControl UI and hard coded strings.
+   - [PX4-Metadata-Translations](https://crowdin.com/project/px4-metadata-translations) — PX4 parameter and event descriptions in QGroundControl.
    - [QGroundControl 개발 안내서](https://crowdin.com/project/qgroundcontrol-developer-guide)
    - [QGroundControl 사용 안내서](https://crowdin.com/project/qgroundcontrol-user-guide)
    - [MAVLink 안내서](https://crowdin.com/project/mavlink)
+   - [MAVLink Guide](https://crowdin.com/project/mavlink)
 1. 번역하려는 언어를 선택합니다
 1. Click the **Join** button (next to the text _You must join the translators team to be able to participate in this project_)
 

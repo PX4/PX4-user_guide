@@ -383,16 +383,39 @@ subscriptions:
 
   - topic: /fmu/in/vehicle_trajectory_waypoint
     type: px4_msgs::msg::VehicleTrajectoryWaypoint
+
+subscriptions_multi:
+
+  - topic: /fmu/in/vehicle_optical_flow_vel
+    type: px4_msgs::msg::VehicleOpticalFlowVel
+
+  ...
+
 ```
 
 Each (`topic`,`type`) pairs defines:
 
-1. A new subscription or publication depending on the list to which it is added.
+1. A new `publication`, `subscription`, or `subscriptions_multi`, depending on the list to which it is added.
 2. The topic _base name_, which **must** coincide with the desired uORB topic name that you want to publish/subscribe. It is identified by the last token in `topic:` that starts with `/` and does not contains any `/` in it. `vehicle_odometry`, `vehicle_status` and `offboard_control_mode` are examples of base names.
 3. The topic [namespace](https://design.ros2.org/articles/topic_and_service_names.html#namespaces). By default it is set to:
    - `/fmu/out/` for topics that are _published_ by PX4.
    - `/fmu/in/` for topics that are _subscribed_ by PX4.
 4. The message type (`VehicleOdometry`, `VehicleStatus`, `OffboardControlMode`, etc.) and the ROS 2 package (`px4_msgs`) that is expected to provide the message definition.
+
+`subscriptions` and `subscriptions_multi` allow us to choose the uORB topic instance that ROS 2 topics are routed to: either a shared instance that may also be getting updates from internal PX4 uORB publishers, or a separate instance that is reserved for ROS2 publications, respectively. Without this mechanism all ROS 2 messages would be routed to the _same_ uORB topic instance (because ROS 2 does not have the concept of [multiple topic instances](../middleware/uorb.md#multi-instance)), and it would not be possible for PX4 subscribers to differentiate between streams from ROS 2 or PX4 publishers.
+
+Add a topic to the `subscriptions` section to:
+
+- Create a unidirectional route going from the ROS2 topic to the _default_ instance (instance 0) of the associated uORB topic. For example, it creates a ROS2 subscriber of `/fmu/in/vehicle_odometry` and a uORB publisher of `vehicle_odometry`.
+- If other (internal) PX4 modules are already publishing on the same uORB topic instance as the ROS2 publisher, the instance's subscribers will receive all streams of messages. The uORB subscriber will not be able to determine if an incoming message was published by PX4 or by ROS2.
+- This is the desired behavior when the ROS2 publisher is expected to be the sole publisher on the topic instance (for example, replacing an internal publisher to the topic during offboard control), or when the source of multiple publishing streams does not matter.
+
+Add a topic to the `subscriptions_multi` section to:
+
+- Create a unidirectional route going from the ROS2 topic to a _new_ instance of the associated uORB topic. For example, if `vehicle_odometry` has already `2` instances, it creates a ROS2 subscriber of `/fmu/in/vehicle_odometry` and a uORB publisher on instance `3` of `vehicle_odometry`.
+- This ensures that no other internal PX4 module will publish on the same instance used by uXRCE-DDS. The subscribers will be able to subscribe to the desired instance and distinguish between publishers.
+- Note, however, that this guarantees separation between PX4 and ROS2 publishers, not among multiple ROS2 publishers. In that scenario, their messages will still be routed to the same instance.
+- This is the desired behavior, for example, when you want PX4 to log the readings of two equal sensors; they will both publish on the same topic, but one will use instance 0 and the other will use instance 1.
 
 You can arbitrarily change the configuration. For example, you could use different default namespaces or use a custom package to store the message definitions.
 

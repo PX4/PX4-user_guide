@@ -6,7 +6,6 @@
 
 ❏ 升高油门起飞
 
-
 ## 飞行
 
 ❏ 自稳
@@ -33,16 +32,14 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ 俯仰/翻转/偏航响应设置为俯仰/翻滚/偏航率
 
-
 ## 着陆
 
 ❏ 降落位置模式，油门低于 40％
 
 ❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
 
-
 ## 预期成果
 
-* 当油门升高时，起飞应该是平稳的
-* 在上述任何飞行模式中都不应出现振荡
-* 着陆时，直升机不应在地面上反弹
+- 当油门升高时，起飞应该是平稳的
+- 在上述任何飞行模式中都不应出现振荡
+- 着陆时，直升机不应在地面上反弹

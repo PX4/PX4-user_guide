@@ -1,6 +1,6 @@
 # Translation
 
-We'd love your help to translate _QGroundControl_, and our guides for PX4, _QGroundControl_ and MAVLink!
+We'd love your help to translate _QGroundControl_, PX4 Metadata (in QGC), and our guides for PX4, _QGroundControl_ and MAVLink!
 
 Our docs (and _QGroundControl_) use the [Crowdin](https://crowdin.com) online tool for translation. Crowdin automatically imports source topics from Github and presents new and changed strings for translation and/or review (approval).
 
@@ -21,7 +21,8 @@ The steps to join our translation tream are:
 
 1. Join Crowdin: [https://crowdin.com/join](https://crowdin.com/join)
 1. Open the translation project you want to join:
-   - [QGroundControl](https://crowdin.com/project/qgroundcontrol)
+   - [QGroundControl](https://crowdin.com/project/qgroundcontrol) — QGroundControl UI and hard coded strings.
+   - [PX4-Metadata-Translations](https://crowdin.com/project/px4-metadata-translations) — PX4 parameter and event descriptions in QGroundControl.
    - [PX4 User Guide](https://crowdin.com/project/px4-user-guide)
    - [QGroundControl Developer Guide](https://crowdin.com/project/qgroundcontrol-developer-guide)
    - [QGroundControl User Guide](https://crowdin.com/project/qgroundcontrol-user-guide)

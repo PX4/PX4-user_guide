@@ -531,7 +531,7 @@ ina220 <command> [arguments...]
      [-a <val>]  I2C address
                  default: 65
      [-k]        if initialization (probing) fails, keep retrying periodically
-     [-t <val>]  battery index for calibration values (1 or 2)
+     [-t <val>]  battery index for calibration values (1 or 3)
                  default: 1
      [-T <val>]  Type
                  values: VBATT|VREG, default: VBATT
@@ -570,7 +570,7 @@ ina226 <command> [arguments...]
      [-a <val>]  I2C address
                  default: 65
      [-k]        if initialization (probing) fails, keep retrying periodically
-     [-t <val>]  battery index for calibration values (1 or 2)
+     [-t <val>]  battery index for calibration values (1 or 3)
                  default: 1
 
    stop
@@ -607,7 +607,7 @@ ina228 <command> [arguments...]
      [-a <val>]  I2C address
                  default: 69
      [-k]        if initialization (probing) fails, keep retrying periodically
-     [-t <val>]  battery index for calibration values (1 or 2)
+     [-t <val>]  battery index for calibration values (1 or 3)
                  default: 1
 
    stop
@@ -644,7 +644,7 @@ ina238 <command> [arguments...]
      [-a <val>]  I2C address
                  default: 69
      [-k]        if initialization (probing) fails, keep retrying periodically
-     [-t <val>]  battery index for calibration values (1 or 2)
+     [-t <val>]  battery index for calibration values (1 or 3)
                  default: 1
 
    stop
@@ -1104,6 +1104,8 @@ px4io <command> [arguments...]
    sbus1_out     enable sbus1 out
 
    sbus2_out     enable sbus2 out
+
+   supported     Returns 0 if px4io is supported
 
    test_fmu_fail test: turn off IO updates
 

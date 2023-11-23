@@ -10047,28 +10047,28 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_ABL_ACCLIM">EKF2_ABL_ACCLIM</strong> (FLOAT)</td>
- <td>Maximum IMU accel magnitude that allows IMU bias learning <p><strong>Comment:</strong> If the magnitude of the IMU accelerometer vector exceeds this value, the EKF delta velocity state estimation will be inhibited. This reduces the adverse effect of high manoeuvre accelerations and IMU nonlinerity and scale factor errors on the delta velocity bias estimates.</p>   </td>
+ <td>Maximum IMU accel magnitude that allows IMU bias learning <p><strong>Comment:</strong> If the magnitude of the IMU accelerometer vector exceeds this value, the EKF accel bias state estimation will be inhibited. This reduces the adverse effect of high manoeuvre accelerations and IMU nonlinerity and scale factor errors on the accel bias estimates.</p>   </td>
  <td>[20.0, 200.0] </td>
  <td>25.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="EKF2_ABL_GYRLIM">EKF2_ABL_GYRLIM</strong> (FLOAT)</td>
- <td>Maximum IMU gyro angular rate magnitude that allows IMU bias learning <p><strong>Comment:</strong> If the magnitude of the IMU angular rate vector exceeds this value, the EKF delta velocity state estimation will be inhibited. This reduces the adverse effect of rapid rotation rates and associated errors on the delta velocity bias estimates.</p>   </td>
+ <td>Maximum IMU gyro angular rate magnitude that allows IMU bias learning <p><strong>Comment:</strong> If the magnitude of the IMU angular rate vector exceeds this value, the EKF accel bias state estimation will be inhibited. This reduces the adverse effect of rapid rotation rates and associated errors on the accel bias estimates.</p>   </td>
  <td>[2.0, 20.0] </td>
  <td>3.0</td>
  <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_ABL_LIM">EKF2_ABL_LIM</strong> (FLOAT)</td>
- <td>Accelerometer bias learning limit <p><strong>Comment:</strong> The ekf delta velocity bias states will be limited to within a range equivalent to +- of this value.</p>   </td>
+ <td>Accelerometer bias learning limit <p><strong>Comment:</strong> The ekf accel bias states will be limited to within a range equivalent to +- of this value.</p>   </td>
  <td>[0.0, 0.8] </td>
  <td>0.4</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="EKF2_ABL_TAU">EKF2_ABL_TAU</strong> (FLOAT)</td>
- <td>Time constant used by acceleration and angular rate magnitude checks used to inhibit delta velocity bias learning <p><strong>Comment:</strong> The vector magnitude of angular rate and acceleration used to check if learning should be inhibited has a peak hold filter applied to it with an exponential decay. This parameter controls the time constant of the decay.</p>   </td>
+ <td>Time constant used by acceleration and angular rate magnitude checks used to inhibit accel bias learning <p><strong>Comment:</strong> The vector magnitude of angular rate and acceleration used to check if learning should be inhibited has a peak hold filter applied to it with an exponential decay. This parameter controls the time constant of the decay.</p>   </td>
  <td>[0.1, 1.0] </td>
  <td>0.5</td>
  <td>s</td>
@@ -10397,28 +10397,28 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_GPS_P_GATE">EKF2_GPS_P_GATE</strong> (FLOAT)</td>
- <td>Gate size for GPS horizontal position fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
+ <td>Gate size for GNSS position fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
  <td>[1.0, ?] </td>
  <td>5.0</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GPS_P_NOISE">EKF2_GPS_P_NOISE</strong> (FLOAT)</td>
- <td>Measurement noise for gps position    </td>
+ <td>Measurement noise for GNSS position    </td>
  <td>[0.01, 10.0] </td>
  <td>0.5</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GPS_V_GATE">EKF2_GPS_V_GATE</strong> (FLOAT)</td>
- <td>Gate size for GPS velocity fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
+ <td>Gate size for GNSS velocity fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
  <td>[1.0, ?] </td>
  <td>5.0</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GPS_V_NOISE">EKF2_GPS_V_NOISE</strong> (FLOAT)</td>
- <td>Measurement noise for gps horizontal velocity    </td>
+ <td>Measurement noise for GNSS velocity    </td>
  <td>[0.01, 5.0] </td>
  <td>0.3</td>
  <td>m/s</td>
@@ -10439,7 +10439,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_GYR_B_LIM">EKF2_GYR_B_LIM</strong> (FLOAT)</td>
- <td>Gyro bias learning limit <p><strong>Comment:</strong> The ekf delta angle bias states will be limited to within a range equivalent to +- of this value.</p>   </td>
+ <td>Gyro bias learning limit <p><strong>Comment:</strong> The ekf gyro bias states will be limited to within a range equivalent to +- of this value.</p>   </td>
  <td>[0.0, 0.4] </td>
  <td>0.15</td>
  <td>rad/s</td>
@@ -11526,6 +11526,100 @@ table {
 </tr>
 </tbody></table>
 
+## FW Performance
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="FW_AIRSPD_MAX">FW_AIRSPD_MAX</strong> (FLOAT)</td>
+ <td>Maximum Airspeed (CAS) <p><strong>Comment:</strong> The maximal airspeed (calibrated airspeed) the user is able to command.</p>   </td>
+ <td>[0.5, ?] (0.5)</td>
+ <td>20.0</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_AIRSPD_MIN">FW_AIRSPD_MIN</strong> (FLOAT)</td>
+ <td>Minimum Airspeed (CAS) <p><strong>Comment:</strong> The minimal airspeed (calibrated airspeed) the user is able to command. Further, if the airspeed falls below this value, the TECS controller will try to increase airspeed more aggressively. Has to be set according to the vehicle&#x27;s stall speed (which should be set in FW_AIRSPD_STALL), with some margin between the stall speed and minimum airspeed. This value corresponds to the desired minimum speed with the default load factor (level flight, default weight), and is automatically adpated to the current load factor (calculated from roll setpoint and WEIGHT_GROSS/WEIGHT_BASE).</p>   </td>
+ <td>[0.5, ?] (0.5)</td>
+ <td>10.0</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_AIRSPD_STALL">FW_AIRSPD_STALL</strong> (FLOAT)</td>
+ <td>Stall Airspeed (CAS) <p><strong>Comment:</strong> The stall airspeed (calibrated airspeed) of the vehicle. It is used for airspeed sensor failure detection and for the control surface scaling airspeed limits.</p>   </td>
+ <td>[0.5, ?] (0.5)</td>
+ <td>7.0</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_AIRSPD_TRIM">FW_AIRSPD_TRIM</strong> (FLOAT)</td>
+ <td>Trim (Cruise) Airspeed <p><strong>Comment:</strong> The trim CAS (calibrated airspeed) of the vehicle. If an airspeed controller is active, this is the default airspeed setpoint that the controller will try to achieve. This value corresponds to the trim airspeed with the default load factor (level flight, default weight).</p>   </td>
+ <td>[0.5, ?] (0.5)</td>
+ <td>15.0</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_SERVICE_CEIL">FW_SERVICE_CEIL</strong> (FLOAT)</td>
+ <td>Service ceiling <p><strong>Comment:</strong> Altitude in standard atmosphere at which the vehicle in normal configuration (WEIGHT_BASE) is still able to achieve a maximum climb rate of 0.5m/s at maximum throttle (FW_THR_MAX). Used to compensate for air density in FW_T_CLMB_MAX. Set negative to disable.</p>   </td>
+ <td>[-1.0, ?] (1.0)</td>
+ <td>-1.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="FW_THR_ASPD_MAX">FW_THR_ASPD_MAX</strong> (FLOAT)</td>
+ <td>Throttle at max airspeed <p><strong>Comment:</strong> Required throttle (at sea level, standard atmosphere) for level flight at maximum airspeed FW_AIRSPD_MAX Set to 0 to disable mapping of airspeed to trim throttle.</p>   </td>
+ <td>[0, 1] (0.01)</td>
+ <td>0.</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_THR_ASPD_MIN">FW_THR_ASPD_MIN</strong> (FLOAT)</td>
+ <td>Throttle at min airspeed <p><strong>Comment:</strong> Required throttle (at sea level, standard atmosphere) for level flight at minimum airspeed FW_AIRSPD_MIN Set to 0 to disable mapping of airspeed to trim throttle below FW_AIRSPD_TRIM.</p>   </td>
+ <td>[0, 1] (0.01)</td>
+ <td>0.</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_THR_TRIM">FW_THR_TRIM</strong> (FLOAT)</td>
+ <td>Trim throttle <p><strong>Comment:</strong> Required throttle (at sea level, standard atmosphere) for level flight at FW_AIRSPD_TRIM</p>   </td>
+ <td>[0.0, 1.0] (0.01)</td>
+ <td>0.6</td>
+ <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FW_T_CLMB_MAX">FW_T_CLMB_MAX</strong> (FLOAT)</td>
+ <td>Maximum climb rate <p><strong>Comment:</strong> This is the maximum calibrated climb rate that the aircraft can achieve with the throttle set to FW_THR_MAX and the airspeed set to the trim value. For electric aircraft make sure this number can be achieved towards the end of flight when the battery voltage has reduced.</p>   </td>
+ <td>[1.0, 15.0] (0.5)</td>
+ <td>5.0</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_T_SINK_MIN">FW_T_SINK_MIN</strong> (FLOAT)</td>
+ <td>Minimum descent rate <p><strong>Comment:</strong> This is the minimum calibrated sink rate of the aircraft with the throttle set to THR_MIN and flown at the same airspeed as used to measure FW_T_CLMB_MAX.</p>   </td>
+ <td>[1.0, 5.0] (0.5)</td>
+ <td>2.0</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="WEIGHT_BASE">WEIGHT_BASE</strong> (FLOAT)</td>
+ <td>Vehicle base weight <p><strong>Comment:</strong> This is the weight of the vehicle at which it&#x27;s performance limits were derived. A zero or negative value disables trim throttle and minimum airspeed compensation based on weight.</p>   </td>
+ <td>(0.5)</td>
+ <td>-1.0</td>
+ <td>kg</td>
+</tr>
+<tr>
+ <td><strong id="WEIGHT_GROSS">WEIGHT_GROSS</strong> (FLOAT)</td>
+ <td>Vehicle gross weight <p><strong>Comment:</strong> This is the actual weight of the vehicle at any time. This value will differ from WEIGHT_BASE in case weight was added or removed from the base weight. Examples are the addition of payloads or larger batteries. A zero or negative value disables trim throttle and minimum airspeed compensation based on weight.</p>   </td>
+ <td>(0.1)</td>
+ <td>-1.0</td>
+ <td>kg</td>
+</tr>
+</tbody></table>
+
 ## FW Rate Control
 
 <table>
@@ -11797,34 +11891,6 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="FW_AIRSPD_MAX">FW_AIRSPD_MAX</strong> (FLOAT)</td>
- <td>Maximum Airspeed (CAS) <p><strong>Comment:</strong> The maximal airspeed (calibrated airspeed) the user is able to command.</p>   </td>
- <td>[0.5, ?] (0.5)</td>
- <td>20.0</td>
- <td>m/s</td>
-</tr>
-<tr>
- <td><strong id="FW_AIRSPD_MIN">FW_AIRSPD_MIN</strong> (FLOAT)</td>
- <td>Minimum Airspeed (CAS) <p><strong>Comment:</strong> The minimal airspeed (calibrated airspeed) the user is able to command. Further, if the airspeed falls below this value, the TECS controller will try to increase airspeed more aggressively. Should be set (with some margin) above the vehicle stall speed. This value corresponds to the desired minimum speed with the default load factor (level flight, default weight), and is automatically adapated to the current load factor (calculated from roll setpoint and WEIGHT_GROSS/WEIGHT_BASE).</p>   </td>
- <td>[0.5, ?] (0.5)</td>
- <td>10.0</td>
- <td>m/s</td>
-</tr>
-<tr>
- <td><strong id="FW_AIRSPD_STALL">FW_AIRSPD_STALL</strong> (FLOAT)</td>
- <td>Stall Airspeed (CAS) <p><strong>Comment:</strong> The stall airspeed (calibrated airspeed) of the vehicle. It is used for airspeed sensor failure detection and for the control surface scaling airspeed limits.</p>   </td>
- <td>[0.5, ?] (0.5)</td>
- <td>7.0</td>
- <td>m/s</td>
-</tr>
-<tr>
- <td><strong id="FW_AIRSPD_TRIM">FW_AIRSPD_TRIM</strong> (FLOAT)</td>
- <td>Trim (Cruise) Airspeed <p><strong>Comment:</strong> The trim CAS (calibrated airspeed) of the vehicle. If an airspeed controller is active, this is the default airspeed setpoint that the controller will try to achieve.</p>   </td>
- <td>[0.5, ?] (0.5)</td>
- <td>15.0</td>
- <td>m/s</td>
-</tr>
-<tr>
  <td><strong id="FW_GND_SPD_MIN">FW_GND_SPD_MIN</strong> (FLOAT)</td>
  <td>Minimum groundspeed <p><strong>Comment:</strong> The controller will increase the commanded airspeed to maintain this minimum groundspeed to the next waypoint.</p>   </td>
  <td>[0.0, 40] (0.5)</td>
@@ -11844,20 +11910,6 @@ table {
  <td>[-60.0, 0.0] (0.5)</td>
  <td>-30.0</td>
  <td>deg</td>
-</tr>
-<tr>
- <td><strong id="FW_THR_ASPD_MAX">FW_THR_ASPD_MAX</strong> (FLOAT)</td>
- <td>Throttle at max airspeed <p><strong>Comment:</strong> Required throttle for level flight at maximum airspeed FW_AIRSPD_MAX (sea level, standard atmosphere) Set to 0 to disable mapping of airspeed to trim throttle.</p>   </td>
- <td>[0, 1] (0.01)</td>
- <td>0.</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_THR_ASPD_MIN">FW_THR_ASPD_MIN</strong> (FLOAT)</td>
- <td>Throttle at min airspeed <p><strong>Comment:</strong> Required throttle for level flight at minimum airspeed FW_AIRSPD_MIN (sea level, standard atmosphere) Set to 0 to disable mapping of airspeed to trim throttle below FW_AIRSPD_TRIM.</p>   </td>
- <td>[0, 1] (0.01)</td>
- <td>0.</td>
- <td></td>
 </tr>
 <tr>
  <td><strong id="FW_THR_IDLE">FW_THR_IDLE</strong> (FLOAT)</td>
@@ -11888,13 +11940,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="FW_THR_TRIM">FW_THR_TRIM</strong> (FLOAT)</td>
- <td>Trim throttle <p><strong>Comment:</strong> This is the throttle setting required to achieve FW_AIRSPD_TRIM during level flight.</p>   </td>
- <td>[0.0, 1.0] (0.01)</td>
- <td>0.6</td>
- <td>norm</td>
-</tr>
-<tr>
  <td><strong id="FW_TKO_AIRSPD">FW_TKO_AIRSPD</strong> (FLOAT)</td>
  <td>Takeoff Airspeed <p><strong>Comment:</strong> The calibrated airspeed setpoint TECS will stabilize to during the takeoff climbout. If set &lt;= 0.0, FW_AIRSPD_MIN will be set by default.</p>   </td>
  <td>[-1.0, ?] (0.1)</td>
@@ -11907,13 +11952,6 @@ table {
  <td>[2.0, ?] (0.5)</td>
  <td>5.0</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="FW_T_CLMB_MAX">FW_T_CLMB_MAX</strong> (FLOAT)</td>
- <td>Maximum climb rate <p><strong>Comment:</strong> This is the maximum climb rate that the aircraft can achieve with the throttle set to THR_MAX and the airspeed set to the trim value. For electric aircraft make sure this number can be achieved towards the end of flight when the battery voltage has reduced.</p>   </td>
- <td>[1.0, 15.0] (0.5)</td>
- <td>5.0</td>
- <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_T_CLMB_R_SP">FW_T_CLMB_R_SP</strong> (FLOAT)</td>
@@ -11969,13 +12007,6 @@ table {
  <td>Maximum descent rate <p><strong>Comment:</strong> This sets the maximum descent rate that the controller will use. If this value is too large, the aircraft can over-speed on descent. This should be set to a value that can be achieved without exceeding the lower pitch angle limit and without over-speeding the aircraft.</p>   </td>
  <td>[1.0, 15.0] (0.5)</td>
  <td>5.0</td>
- <td>m/s</td>
-</tr>
-<tr>
- <td><strong id="FW_T_SINK_MIN">FW_T_SINK_MIN</strong> (FLOAT)</td>
- <td>Minimum descent rate <p><strong>Comment:</strong> This is the sink rate of the aircraft with the throttle set to THR_MIN and flown at the same airspeed as used to measure FW_T_CLMB_MAX.</p>   </td>
- <td>[1.0, 5.0] (0.5)</td>
- <td>2.0</td>
  <td>m/s</td>
 </tr>
 <tr>
@@ -12450,34 +12481,17 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="GF_ALTMODE">GF_ALTMODE</strong> (INT32)</td>
- <td>Geofence altitude mode <p><strong>Comment:</strong> Select which altitude (AMSL) source should be used for geofence calculations.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Autopilot estimator global position altitude (GPS)</li>
-<li><strong>1:</strong> Raw barometer altitude (assuming standard atmospheric pressure)</li>
-</ul>  </td>
- <td>[0, 1] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="GF_COUNT">GF_COUNT</strong> (INT32)</td>
- <td>Geofence counter limit <p><strong>Comment:</strong> Set how many subsequent position measurements outside of the fence are needed before geofence violation is triggered</p>   </td>
- <td>[-1, 10] (1)</td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="GF_MAX_HOR_DIST">GF_MAX_HOR_DIST</strong> (FLOAT)</td>
- <td>Max horizontal distance in meters <p><strong>Comment:</strong> Maximum horizontal distance in meters the vehicle can be from home before triggering a geofence action. Disabled if 0.</p>   </td>
+ <td>Max horizontal distance from Home <p><strong>Comment:</strong> Maximum horizontal distance in meters the vehicle can be from Home before triggering a geofence action. Disabled if 0.</p>   </td>
  <td>[0, 10000] (1)</td>
- <td>0</td>
+ <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="GF_MAX_VER_DIST">GF_MAX_VER_DIST</strong> (FLOAT)</td>
- <td>Max vertical distance in meters <p><strong>Comment:</strong> Maximum vertical distance in meters the vehicle can be from home before triggering a geofence action. Disabled if 0.</p>   </td>
+ <td>Max vertical distance from Home <p><strong>Comment:</strong> Maximum vertical distance in meters the vehicle can be from Home before triggering a geofence action. Disabled if 0.</p>   </td>
  <td>[0, 10000] (1)</td>
- <td>0</td>
+ <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
@@ -12489,7 +12503,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GF_SOURCE">GF_SOURCE</strong> (INT32)</td>
- <td>Geofence source <p><strong>Comment:</strong> Select which position source should be used. Selecting GPS instead of global position makes sure that there is no dependence on the position estimator 0 = global position, 1 = GPS</p> <strong>参数对照:</strong><ul>
+ <td>Geofence source <p><strong>Comment:</strong> Select which position source should be used. Selecting GPS instead of global position makes sure that there is no dependence on the position estimator 0 = global position, 1 = GPS</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> GPOS</li>
 <li><strong>1:</strong> GPS</li>
 </ul>  </td>
@@ -12530,7 +12544,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_FAILURE_MODE">CA_FAILURE_MODE</strong> (INT32)</td>
- <td>Motor failure handling mode <p><strong>Comment:</strong> This is used to specify how to handle motor failures reported by failure detector.</p> <strong>Values:</strong><ul>
+ <td>Motor failure handling mode <p><strong>Comment:</strong> This is used to specify how to handle motor failures reported by failure detector.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Ignore</li>
 <li><strong>1:</strong> Remove first failed motor from effectiveness</li>
 </ul>  </td>
@@ -12638,7 +12652,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_METHOD">CA_METHOD</strong> (INT32)</td>
- <td>Control allocation method <p><strong>Comment:</strong> Selects the algorithm and desaturation method. If set to Automtic, the selection is based on the airframe (CA_AIRFRAME).</p> <strong>参数对照:</strong><ul>
+ <td>Control allocation method <p><strong>Comment:</strong> Selects the algorithm and desaturation method. If set to Automtic, the selection is based on the airframe (CA_AIRFRAME).</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Pseudo-inverse with output clipping</li>
 <li><strong>1:</strong> Pseudo-inverse with sequential desaturation technique</li>
 <li><strong>2:</strong> Automatic</li>
@@ -14330,7 +14344,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL1_CT">CA_SV_TL1_CT</strong> (INT32)</td>
- <td>Tilt 1 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>参数对照:</strong><ul>
+ <td>Tilt 1 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> Yaw</li>
 <li><strong>2:</strong> Pitch</li>
@@ -14356,7 +14370,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL1_TD">CA_SV_TL1_TD</strong> (INT32)</td>
- <td>Tilt Servo 1 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>参数对照:</strong><ul>
+ <td>Tilt Servo 1 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Towards Front</li>
 <li><strong>90:</strong> Towards Right</li>
 </ul>  </td>
@@ -14392,7 +14406,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL2_TD">CA_SV_TL2_TD</strong> (INT32)</td>
- <td>Tilt Servo 2 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>参数对照:</strong><ul>
+ <td>Tilt Servo 2 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Towards Front</li>
 <li><strong>90:</strong> Towards Right</li>
 </ul>  </td>
@@ -14402,7 +14416,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL3_CT">CA_SV_TL3_CT</strong> (INT32)</td>
- <td>Tilt 3 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>参数对照:</strong><ul>
+ <td>Tilt 3 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> Yaw</li>
 <li><strong>2:</strong> Pitch</li>
@@ -14513,7 +14527,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="ISBD_CONFIG">ISBD_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for Iridium (with MAVLink) <p><strong>Comment:</strong> Configure on which serial port to run Iridium (with MAVLink).</p> <strong>参数对照:</strong><ul>
+ <td>Serial Configuration for Iridium (with MAVLink) <p><strong>Comment:</strong> Configure on which serial port to run Iridium (with MAVLink).</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -15066,7 +15080,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_0_CONFIG">MAV_0_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MAVLink (instance 0) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for MAVLink (instance 0) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -15088,7 +15102,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_0_FLOW_CTRL">MAV_0_FLOW_CTRL</strong> (INT32)</td>
- <td>Enable serial flow control for instance 0 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detection fails.</p> <strong>参数对照:</strong><ul>
+ <td>Enable serial flow control for instance 0 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detection fails.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Force off</li>
 <li><strong>1:</strong> Force on</li>
 <li><strong>2:</strong> Auto-detected</li>
@@ -15171,7 +15185,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_1_CONFIG">MAV_1_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MAVLink (instance 1) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for MAVLink (instance 1) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -15193,7 +15207,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_1_FLOW_CTRL">MAV_1_FLOW_CTRL</strong> (INT32)</td>
- <td>Enable serial flow control for instance 1 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detection fails.</p> <strong>参数对照:</strong><ul>
+ <td>Enable serial flow control for instance 1 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detection fails.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Force off</li>
 <li><strong>1:</strong> Force on</li>
 <li><strong>2:</strong> Auto-detected</li>
@@ -15276,7 +15290,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_2_CONFIG">MAV_2_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MAVLink (instance 2) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for MAVLink (instance 2) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -15298,7 +15312,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_2_FLOW_CTRL">MAV_2_FLOW_CTRL</strong> (INT32)</td>
- <td>Enable serial flow control for instance 2 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detection fails.</p> <strong>参数对照:</strong><ul>
+ <td>Enable serial flow control for instance 2 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detection fails.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Force off</li>
 <li><strong>1:</strong> Force on</li>
 <li><strong>2:</strong> Auto-detected</li>
@@ -15470,7 +15484,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -15611,7 +15625,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -15837,20 +15851,6 @@ table {
  <td>[1, 900000000] </td>
  <td>60</td>
  <td>s</td>
-</tr>
-<tr>
- <td><strong id="WEIGHT_BASE">WEIGHT_BASE</strong> (FLOAT)</td>
- <td>Vehicle base weight <p><strong>Comment:</strong> This is the weight of the vehicle at which it&#x27;s performance limits were derived. A zero or negative value disables trim throttle and minimum airspeed compensation based on weight.</p>   </td>
- <td>(0.5)</td>
- <td>-1.0</td>
- <td>kg</td>
-</tr>
-<tr>
- <td><strong id="WEIGHT_GROSS">WEIGHT_GROSS</strong> (FLOAT)</td>
- <td>Vehicle gross weight <p><strong>Comment:</strong> This is the actual weight of the vehicle at any time. This value will differ from WEIGHT_BASE in case weight was added or removed from the base weight. Examples are the addition of payloads or larger batteries. A zero or negative value disables trim throttle and minimum airspeed compensation based on weight.</p>   </td>
- <td>(0.1)</td>
- <td>-1.0</td>
- <td>kg</td>
 </tr>
 </tbody></table>
 
@@ -16397,7 +16397,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_THR_CURVE">MPC_THR_CURVE</strong> (INT32)</td>
- <td>Thrust curve mapping in Stabilized Mode <p><strong>Comment:</strong> This parameter defines how the throttle stick input is mapped to collective thrust in Stabilized mode. In case the default is used (&#x27;Rescale to hover thrust&#x27;), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select &#x27;No Rescale&#x27; to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, then 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: In case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.</p> <strong>Values:</strong><ul>
+ <td>Thrust curve mapping in Stabilized Mode <p><strong>Comment:</strong> This parameter defines how the throttle stick input is mapped to collective thrust in Stabilized mode. In case the default is used (&#x27;Rescale to hover thrust&#x27;), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select &#x27;No Rescale&#x27; to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, then 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: In case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Rescale to hover thrust</li>
 <li><strong>1:</strong> No Rescale</li>
 </ul>  </td>
@@ -16826,7 +16826,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="MSP_OSD_CONFIG">MSP_OSD_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MSP OSD <p><strong>Comment:</strong> Configure on which serial port to run MSP OSD.</p> <strong>参数对照:</strong><ul>
+ <td>Serial Configuration for MSP OSD <p><strong>Comment:</strong> Configure on which serial port to run MSP OSD.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -16847,7 +16847,7 @@ table {
 </tr>
 <tr>
  <td><strong id="OSD_ATXXXX_CFG">OSD_ATXXXX_CFG</strong> (INT32)</td>
- <td>Enable/Disable the ATXXX OSD Chip <p><strong>Comment:</strong> Configure the ATXXXX OSD Chip (mounted on the OmnibusF4SD board) and select the transmission standard.</p> <strong>Values:</strong><ul>
+ <td>Enable/Disable the ATXXX OSD Chip <p><strong>Comment:</strong> Configure the ATXXXX OSD Chip (mounted on the OmnibusF4SD board) and select the transmission standard.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> NTSC</li>
 <li><strong>2:</strong> PAL</li>
@@ -17062,7 +17062,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="RC_INPUT_PROTO">RC_INPUT_PROTO</strong> (INT32)</td>
- <td>RC input protocol <p><strong>Comment:</strong> Select your RC input protocol or auto to scan.</p> <strong>参数对照:</strong><ul>
+ <td>RC input protocol <p><strong>Comment:</strong> Select your RC input protocol or auto to scan.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Auto</li>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> PPM</li>
@@ -19199,7 +19199,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -19223,7 +19223,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -21450,7 +21450,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_CM8JL65_R_0">SENS_CM8JL65_R_0</strong> (INT32)</td>
- <td>Distance Sensor Rotation <p><strong>Comment:</strong> Distance Sensor Rotation as MAV_SENSOR_ORIENTATION enum</p> <strong>Values:</strong><ul>
+ <td>Distance Sensor Rotation <p><strong>Comment:</strong> Distance Sensor Rotation as MAV_SENSOR_ORIENTATION enum</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> ROTATION_FORWARD_FACING</li>
 <li><strong>2:</strong> ROTATION_RIGHT_FACING</li>
 <li><strong>6:</strong> ROTATION_LEFT_FACING</li>
@@ -21663,7 +21663,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_EN_PCF8583">SENS_EN_PCF8583</strong> (INT32)</td>
- <td>PCF8583 eneable driver <p><strong>Comment:</strong> Run PCF8583 driver automatically</p> <strong>参数对照:</strong><ul>
+ <td>PCF8583 eneable driver <p><strong>Comment:</strong> Run PCF8583 driver automatically</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Eneabled</li>
 </ul>  <p><b>Reboot required:</b> true</p>
@@ -22367,7 +22367,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MPDT7_ROT">SENS_MPDT7_ROT</strong> (INT32)</td>
- <td>MappyDot Sensor 7 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td>MappyDot Sensor 7 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -22384,7 +22384,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MPDT8_ROT">SENS_MPDT8_ROT</strong> (INT32)</td>
- <td>MappyDot Sensor 8 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
+ <td>MappyDot Sensor 8 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -22552,7 +22552,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SF45_UPDATE_CFG">SF45_UPDATE_CFG</strong> (INT32)</td>
- <td>Update rate in Hz <p><strong>Comment:</strong> The SF45 sets the update rate in Hz to allow greater resolution</p> <strong>Values:</strong><ul>
+ <td>Update rate in Hz <p><strong>Comment:</strong> The SF45 sets the update rate in Hz to allow greater resolution</p> <strong>参数对照:</strong><ul>
 <li><strong>1:</strong> 50hz</li>
 <li><strong>2:</strong> 100hz</li>
 <li><strong>3:</strong> 200hz</li>
@@ -22597,7 +22597,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VN_MODE">VN_MODE</strong> (INT32)</td>
- <td>VectorNav driver mode <p><strong>Comment:</strong> INS or sensors</p> <strong>参数对照:</strong><ul>
+ <td>VectorNav driver mode <p><strong>Comment:</strong> INS or sensors</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Sensors Only (default)</li>
 <li><strong>1:</strong> INS</li>
 </ul>  </td>
@@ -23532,7 +23532,7 @@ table {
 </tr>
 <tr>
  <td><strong id="TEL_HOTT_CONFIG">TEL_HOTT_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for HoTT Telemetry <p><strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for HoTT Telemetry <p><strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -25373,7 +25373,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MXS_OP_MODE">MXS_OP_MODE</strong> (INT32)</td>
- <td>Sagetech MXS mode configuration <p><strong>Comment:</strong> This parameter defines the operating mode of the MXS</p> <strong>参数对照:</strong><ul>
+ <td>Sagetech MXS mode configuration <p><strong>Comment:</strong> This parameter defines the operating mode of the MXS</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Off</li>
 <li><strong>1:</strong> On</li>
 <li><strong>2:</strong> Standby</li>
@@ -25386,7 +25386,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MXS_SER_CFG">MXS_SER_CFG</strong> (INT32)</td>
- <td>Serial Configuration for Sagetech MXS Serial Port <p><strong>Comment:</strong> Configure on which serial port to run Sagetech MXS Serial Port.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for Sagetech MXS Serial Port <p><strong>Comment:</strong> Configure on which serial port to run Sagetech MXS Serial Port.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -25483,7 +25483,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_ENABLE">UAVCAN_ENABLE</strong> (INT32)</td>
- <td>UAVCAN mode <p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.</p> <strong>参数对照:</strong><ul>
+ <td>UAVCAN mode <p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Sensors Manual Config</li>
 <li><strong>2:</strong> Sensors Automatic Config</li>
@@ -25535,7 +25535,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_LGT_STROB">UAVCAN_LGT_STROB</strong> (INT32)</td>
- <td>UAVCAN STROBE light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the STROBE lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
+ <td>UAVCAN STROBE light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the STROBE lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Always off</li>
 <li><strong>1:</strong> When autopilot is armed</li>
 <li><strong>2:</strong> When autopilot is prearmed</li>
@@ -25610,7 +25610,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_SUB_BAT">UAVCAN_SUB_BAT</strong> (INT32)</td>
- <td>subscription battery <p><strong>Comment:</strong> Enable UAVCAN battery subscription. uavcan::equipment::power::BatteryInfo ardupilot::equipment::power::BatteryInfoAux 0 - Disable 1 - Use raw data. Recommended for Smart battery 2 - Filter the data with internal battery library</p> <strong>参数对照:</strong><ul>
+ <td>subscription battery <p><strong>Comment:</strong> Enable UAVCAN battery subscription. uavcan::equipment::power::BatteryInfo ardupilot::equipment::power::BatteryInfoAux 0 - Disable 1 - Use raw data. Recommended for Smart battery 2 - Filter the data with internal battery library</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disable</li>
 <li><strong>1:</strong> Raw data</li>
 <li><strong>2:</strong> Filter data</li>
@@ -26022,6 +26022,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="UXRCE_DDS_SYNCC">UXRCE_DDS_SYNCC</strong> (INT32)</td>
+ <td>Enable uXRCE-DDS system clock synchronization <p><strong>Comment:</strong> When enabled along with UXRCE_DDS_SYNCT, uxrce_dds_client will set the system clock using the agents UTC timestamp.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="UXRCE_DDS_SYNCT">UXRCE_DDS_SYNCT</strong> (INT32)</td>
  <td>Enable uXRCE-DDS timestamp synchronization <p><strong>Comment:</strong> When enabled, uxrce_dds_client will synchronize the timestamps of the incoming and outgoing messages measuring the offset between the Agent OS time and the PX4 time.</p>   <p><b>Reboot required:</b> True</p>
 </td>
@@ -26308,7 +26316,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
