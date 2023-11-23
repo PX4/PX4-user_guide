@@ -1,5 +1,17 @@
 # PX4 ROS 2 Interface Library
 
+:::warning Experimental
+At time of writing parts of the PX4 ROS 2 Interface Library is experimental, and hence subject to change:
+
+- The architecture and core interfaces for defining modes in ROS 2 modes are largely stable.
+  The library offers significant benefits over using offboard mode in its current state.
+- Only a few setpoint types have settled (the others are still under development).
+  You may need to use internal PX4 topics which may not remain backwards-compatible over time.
+- The API is not fully documented.
+- Testing in CI is still limited.
+
+:::
+
 The [PX4 ROS 2 Interface Library](https://github.com/Auterion/px4-ros2-interface-lib) is a C++ library that simplifies controlling PX4 from ROS 2.
 
 Developers use the library to create and dynamically register modes written using ROS 2.
