@@ -52,10 +52,13 @@ GTest 기능 시험은 매개변수, uORB 메세지, 고급 GTest 기능에 따�
 1. **test_[description].cpp** 파일에 각각의 test[1,2,...] 메드를 실행하도록 `run_tests()` 메서드를 작성하십시오.
 1. **test_[description].cpp** 파일에 다양한 시험 절차를 작성하십시오.
 1. **test_[description].cpp** 파일 내부 하단에 테스트를 선언하십시오.
+
    ```cpp
    ut_declare_test_c(test_[description], [Description]Test)
    ```
+
    서식은 아래와 같습니다:
+
    ```cpp
    #include <unit_test.h>
    #include "[new feature].h"
@@ -102,6 +105,7 @@ GTest 기능 시험은 매개변수, uORB 메세지, 고급 GTest 기능에 따�
 
    ut_declare_test_c(test_[description], [Description]Test)
    ```
+
    참고로 `ut_[name of one of the unit test functions]`는 [unit_test.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/include/unit_test.h)에 지정한 단위 테스트 함수 중 하나에 해당합니다.
 
 1. [tests_main.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/systemcmds/tests/tests_main.h)에 새 테스트를 정의하십시오:
@@ -109,6 +113,7 @@ GTest 기능 시험은 매개변수, uORB 메세지, 고급 GTest 기능에 따�
    ```cpp
    extern int test_[description](int argc, char *argv[]);
    ```
+
 1. [tests_main.c](https://github.com/PX4/PX4-Autopilot/blob/master/src/systemcmds/tests/tests_main.c)에 새 설명 이름, 테스트 함수, 옵션을 추가하십시오:
 
    ```cpp
@@ -119,20 +124,22 @@ GTest 기능 시험은 매개변수, uORB 메세지, 고급 GTest 기능에 따�
        ...
    }
    ```
+
    `OPTION`은 `OPT_NOALLTEST`,`OPT_NOJIGTEST`, `0` 중 한가지 값이 들어갈 수 있으며, px4 셸에서 한두가지 명령을 호출했을 때 고려합니다.
 
    ```bash
    pxh> tests all
    ```
+
    또는
 
    ```bash
    pxh> tests jig
    ```
+
    `OPT_NOALLTEST` 옵션으로 테스트를 수행한다면, `tests all`을 호출할 때의 테스트를 제외합니다. `OPT_NOJIGTEST`에 대해서도 `test jig` 명령을 호출했을 때 마찬가지입니다. `0` 옵션은 개발자가 활용하고자 하는 테스트를 제외하지 않음을 의미합니다.
 
 1. `test_[description].cpp` 테스트를 [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/systemcmds/tests/CMakeLists.txt)에 추가하십시오.
-
 
 ## 로컬 머신에서의 테스트
 
@@ -151,6 +158,7 @@ make tests TESTFILTER=<regex filter expression>
 ```
 
 예를 들어:
+
 - `make tests TESTFILTER=unit`: GTest 단위 테스트만 실행
 - `make tests TESTFILTER=sitl` 모의 시험 환경상 테스트만 실행
 - `make tests TESTFILTER=Attitude` `AttitudeControl` 테스트만 실행
