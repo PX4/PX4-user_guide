@@ -1,83 +1,87 @@
 # Throw Launch (Multicopter)
 
-:::note
-Introduced after PX4 v1.14.
-As this is a relatively new feature, it has not been broadly tested across various platforms and in different scenarios.
+:::warning Experimental
+This feature was introduced after PX4 v1.14.
+
+- It has not yet been broadly tested on different vehicle configurations or scenarios. various platforms and in different scenarios.
+- The majority of testing has been done in position mode.
+  Other modes should also work.
+
 :::
 
-In addition to standard takeoff, PX4-based multicopters can be started by throwing them into the air.
-Once the aircraft detects the throw, it turns on the motors and behaves according to the mode it is in.
-The majority of testing is done with position mode, but other modes should also work.
+This feature allows a multicopter to be started by arming it from a fixed position and then throwing it into the air.
+The vehicle then turns on the motors and operates according to its current mode.
 
-:::note
-This feature was intended to be used with multicopters.
-For similar functionality on fixed-winged aircrafts, check [Hand Launch in Takeoff Mode](../flight_modes_fw/takeoff.md#catapult-hand-launch).
-:::
+The vehicle detects that it has been thrown based on reaching a certain speed and altitude (5m/s and 2m by default, respectively) and then starts the motors at the apex of the throw, once it determines that it has started to fall.
+Note that unlike in other configurations, when throw launch is enabled the propellers should not spin until the launch is detected ( even when the vehicle is armed).
+
+The vehicle will not arm while it is moving, and should not be used on a moving platform (this is to reduce the chance of accidental triggering if a vehicle is armed and then moved to a launch point).
+As usual the vehicle will disarm if the throw is not detected within a few seconds of arming.
 
 ## Safety
 
 :::warning
-Caution! This procedure requires the operator to hold an armed multicopter and be in proximity when it is flying.
-It is dangerous.
-Take special care and do not neglect any safety measures.
+Throw launch is potentially dangerous as it requires the operator to hold an armed multicopter and be in proximity when it is flying.
 :::
 
+Before testing, make sure that the aircraft can take off with the normal position or takeoff modes.
+Also ensure that the propellers do not spin on arming after enabling the feature.
+
+In addition:
+
 1. Wear safety equipment.
-   Eye protection and safety work gloves are recommended.
-1. Have an easily accessible [killswitch](../config/safety.md#kill-switch), test it, and remind the operator to be attentive and use it if needed.
-   We found the latter part to be particularly important as pilots tend to try to save the aircraft even in hard situations.
+   Eye protection and work gloves are recommended.
+1. Have an easily accessible and tested [kill switch](../config/safety.md#kill-switch).
+   Remind the operator to be attentive and use the kill switch if needed.
+   Pilots tend to forget that vehicles are replaceable, but they are not!
 1. Test as much as possible without propellers.
-   Make sure the tools to dismount the propellers are easily accessible not to neglect this step.
+   Keep the tools for removing propellers nearby/readily accessible.
 1. Test this feature with at least two people — one handling the aircraft, the other one the remote control.
 1. Keep in mind that after the throw, the exact behavior of the aircraft might be hard to predict as it depends heavily on the way it is thrown.
    Sometimes it will stay perfectly in place, but sometimes (e.g., due to extensive roll), it might drift to one side while stabilizing.
-   Keep safe distance.
+   Keep a safe distance!
 
-For safety, we recommend the following procedure to first execute the throw launch without the propellers to confirm the arming does not happen prematurely and for the operator to understand what to expect during the flight.
+On first flight of a new vehicle we recommend performing a [Throw Launch test without propellers](#throw-launch-pretest) (see below).
 
-### Throw launch test without propellers
+## Throw Launch Pretest
+
+A throw launch without propellers can be used to confirm that arming does not occur prematurely, and for the operator to understand what to expect during the flight.
+
+The steps for this test are:
 
 1. Dismount the propellers.
 1. Set [COM_THROW_EN](../advanced_config/parameter_reference.md#COM_THROW_EN) to `Enabled`.
 1. Arm the aircraft.
    The engines should not spin, but the vehicle should be armed and keep playing the arming tune.
-1. Throw the aircraft into the air around 2 m up.
+1. Throw the aircraft about 2m into the air.
    If the aircraft is not thrown high enough, the motors will not turn on.
 1. The engines should start just after crossing the apex.
-1. Engage the kill switch (ideally a second person operating the RC should do it).
+1. Engage the kill switch (ideally a second person operating the RC should do this).
 1. Catch the drone.
-   Use safety gloves.
+   Remember to use safety gloves!
 
-## Operation
+## Throw Launch
 
-Before testing the throw launch, make sure the aircraft works well using the usual takeoff.
+The steps for a throw launch are:
 
-### Throw launch
-
-1. Set [COM_THROW_EN](../advanced_config/parameter_reference.md#COM_THROW_EN) to Enabled.
+1. Set [COM_THROW_EN](../advanced_config/parameter_reference.md#COM_THROW_EN) to `Enabled`.
 1. Arm the aircraft.
    The propellers should not spin, but the vehicle should be armed and keep playing the arming tune.
-1. Throw the aircraft away from you, forward and up.
-   The vehicle should reach the speed of [COM_THROW_SPEED](../advanced_config/parameter_reference.md#COM_THROW_SPEED), which by default is set to 5 m/s.
-   To achieve that, throwing it to around 2 m altitude and 2 m away should suffice.
-   If this speed is not achieved, the aircraft will fall down with the motors off
-   Try to avoid excessive rotation during the throw, as this might cause the drone to fail or behave unpredictably.
-   The exact meaning of "excessive rotation" depends on the platform: for instance, [PX4Vision](../complete_vehicles/px4_vision_kit.md) used for the testing, still managed to recover after 2-3 full rotations.
-1. After the downward velocity is detected (the vehicle starts falling down), the motors should turn on and the vehicle will start flying according to the mode it is in.
-1. Fly!
-
-The throw launch was primarily tested in the POSITION mode, but should also work in other modes.
-
-:::warning
-Do not try to use this feature on a moving platform (e.g., throwing a drone from a moving car).
-It was not designed with such scenario in mind and the implemented safety mechanism assumes that the drone does not move before the throw.
-Otherwise, the drone might turn on the motors prematurely.
-:::
+1. Throw the aircraft away from you, forward and up (about 2m away and 2m up is recommended).
+   - The vehicle must reach the speed of [COM_THROW_SPEED](../advanced_config/parameter_reference.md#COM_THROW_SPEED) to detect launch, which by default is set to 5 m/s.
+     If this speed is not achieved, the motors will not start and the aircraft will fall to the ground.
+   - Try to avoid excessive rotation during the throw, as this might cause the drone to fail or behave unpredictably.
+     The exact meaning of "excessive rotation" depends on the platform: for instance, [PX4Vision](../complete_vehicles/px4_vision_kit.md) used for the testing, still managed to recover after 2-3 full rotations.
+1. After a downward velocity is detected (the vehicle reaches its apex and starts falling down), the motors should turn on and the vehicle will start flying in the current mode.
 
 ## Parameters
 
-The following parameters determine the behavior of the system.
+The following parameters can be used to enable and configure throw launch:
 
 - [COM_THROW_EN](../advanced_config/parameter_reference.md#COM_THROW_EN) enables the feature.
 - [COM_THROW_SPEED](../advanced_config/parameter_reference.md#COM_THROW_SPEED) determines the minimum speed the aircraft should reach to detect the throw.
   If it is not reached, the engines will not turn on.
+
+## See Also
+
+- [Takeoff Mode (Fixed Wing) > Catapult/Hand Launch](../flight_modes_fw/takeoff.md#catapult-hand-launch).
