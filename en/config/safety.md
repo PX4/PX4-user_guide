@@ -111,7 +111,7 @@ If the vehicle moves outside the radius or above the altitude the specified _Fai
 ![Safety - Geofence (QGC)](../../assets/qgc/setup/safety/safety_geofence.png)
 
 :::tip
-PX4 separately supports more complicated GeoFence geometries with multiple arbitrary polygonal and circular inclusion and exclusion areas: [Flying > GeoFence](../flying/geofence.md).
+PX4 separately supports more complicated Geofence geometries with multiple arbitrary polygonal and circular inclusion and exclusion areas: [Flying > Geofence](../flying/geofence.md).
 :::
 
 The settings and underlying [geofence parameters](../advanced_config/parameter_reference.md#geofence) are shown below.

@@ -108,7 +108,7 @@
   * [Manual Flying](flying/basic_flying.md)
   * [Missions](flying/missions.md)
     * [Package Delivery Mission](flying/package_delivery_mission.md)
-  * [GeoFence](flying/geofence.md)
+  * [Geofence](flying/geofence.md)
   * [Safety Point Planning](flying/plan_safety_points.md)
   * [Flight Modes](flight_modes/README.md)
     * [Position Mode (MC)](flight_modes_mc/position.md)
