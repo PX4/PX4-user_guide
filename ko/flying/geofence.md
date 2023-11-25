@@ -3,6 +3,7 @@
 GeoFence는 기체의 비행 영역을 정의하는 가상 경계입니다. GeoFence는 기체가 RC 무선 조종기의 영향권을 벗어나서 안전하지 않거나 제한된 공역을 비행하는 것을 방지합니다.
 
 두 가지 방법으로 GeoFence를 설정할 수 있습니다.
+
 - 간단한 실린더 형태를 이용한  "사고방지" 지오펜스를 정의할 수 있습니다.
 - GeoFence 계획(*QGroundControl*)을 사용하여 복잡한 영역를 정의할 수 있습니다.
 
@@ -26,9 +27,10 @@ GeoFence는 미션 및 랠리 포인트와 함께 *QGroundControl*에서 계획�
 
 ![GeoFence 계획](../../assets/qgc/plan_geofence/geofence_overview.jpg)
 
-GeoFence planning is fully documented in [Plan View > GeoFence](https://docs.qgroundcontrol.com/master/en/PlanView/PlanGeoFence.html) (QGroundControl User Guide).
+Geofence planning is fully documented in [Plan View > GeoFence](https://docs.qgroundcontrol.com/master/en/PlanView/PlanGeoFence.html) (QGroundControl User Guide).
 
 요약
+
 1. *QGroundControl > 평면도 *를 오픈합니다.
 1. *계획 유형* 라디오 버튼 : **울타리**를 선택합니다. 그러면 *GeoFence 편집기*가 표시됩니다. ![GeoFence 계획](../../assets/qgc/plan_geofence/geofence_editor.jpg)
 1. **다각형 울타리** 또는 **원형 울타리** 버튼을 선택하여 원하는 유형의 *기본 * 울타리를 지도에 추가합니다. 편집기에서 울타리 유형을 추가합니다.
@@ -40,6 +42,11 @@ GeoFence planning is fully documented in [Plan View > GeoFence](https://docs.qgr
 1. 필요한 만큼 울타리를 추가하십시오.
 1. **업로드** 버튼 (오른쪽 상단)을 클릭하여 울타리(랠리 포인트 및 임무와 함께)를 차량에 업로드합니다.
 1. [GeoFence 사고방지](../config/safety.md#geofence-failsafe)에서 위반 조치를 설정하십시오.
+
+:::note
+Any geofence that does not include the Home position will be rejected by the flight controller and not uploaded.
+If the vehicle is flying, also any geofence that would immediately get breached after the upload is rejected.
+:::
 
 :::note PX4는 GeoFences 지원을 포함하는 MAVLink [Mission Microservice](https://mavlink.io/en/services/mission.html)를 제공합니다.
 :::
