@@ -601,6 +601,7 @@
       * [VehicleTrajectoryBezier](msg_docs/VehicleTrajectoryBezier.md)
       * [VehicleTrajectoryWaypoint](msg_docs/VehicleTrajectoryWaypoint.md)
       * [VtolVehicleStatus](msg_docs/VtolVehicleStatus.md)
+      * [WheelEncoders](msg_docs/WheelEncoders.md)
       * [Wind](msg_docs/Wind.md)
       * [YawEstimatorStatus](msg_docs/YawEstimatorStatus.md)
     * [MAVLink通讯](middleware/mavlink.md)
