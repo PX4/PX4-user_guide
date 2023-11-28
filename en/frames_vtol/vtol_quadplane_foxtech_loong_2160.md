@@ -64,7 +64,8 @@ The following options have been tested:
 - [XT30 connectors](https://www.amazon.com/Connectors-Female-Pieces-Shrink-Battery/dp/B0875MBLNH/ref=sr_1_1?keywords=xt30+connector&qid=1700643604&sr=8-1)
 - [Div. Screws](https://de.aliexpress.com/item/1005005999729125.html?spm=a2g0o.productlist.main.1.7fe0c7fcvInMsM&algo_pvid=2e5373e9-747f-4a28-9739-cd59d05d64f1&aem_p4p_detail=202311220106396068090130108300006423842&algo_exp_id=2e5373e9-747f-4a28-9739-cd59d05d64f1-0&pdp_npi=4%40dis%21CHF%2114.42%213.72%21%21%2116.01%21%21%402101f04d17006439995917563eeeb0%2112000035246480339%21sea%21CH%210%21AB&curPageLogUid=24AixvgVOlG3&search_p4p_id=202311220106396068090130108300006423842_1)
 - [Zip ties](https://www.amazon.com/Superun-Cable-Tie-Kit-Assorted/dp/B07TMKJP5S/ref=sr_1_2?crid=968Z3XJK9N3J&keywords=zip%2Bties%2Bset&qid=1700644053&sprefix=zip%2Bties%2Bset%2Caps%2C155&sr=8-2&th=1)
-- [Antenna extension cable - matching your radio system]()
+- [Antenna extension cable - matching your radio system](https://www.digikey.ch/de/products/detail/amphenol-rf/095-902-536-012/13246174)
+- [Recommended Battery (12S 22Ah)](https://genstattu.com/tattu-22-2v-30c-6s-22000mah-lipo-battery-with-xt90-s-plug-for-uav.html)
 
 ## Tools
 
@@ -77,6 +78,7 @@ The following tools were used for this build.
 - Tape
 - 3M Double sided tape ([3M VHB tape](https://www.amazon.in/3M-VHB-Tape-4910-Length/dp/B00GTABM3Y))
 - 3D-Printer
+- [Blue Loctite](https://www.amazon.com/Loctite-Heavy-Duty-Threadlocker-Single/dp/B000I1RSNS?th=1)
 
 ## Hardware Integration
 
@@ -129,7 +131,7 @@ Use a soldering iron to press the threaded inserts into the 3D-Printed parts.
 
 ![Mounting stack fixture](../../assets/airframes/vtol/foxtech_loong_2160/09-stack-fixure.jpg)
 
-### Power Module
+### 40A Power Module
 
 1. Remove the case from the 40A PM that comes with the Skynode evaluation kit.
 1. Screw the PM with 2x M2x6mm to the bottom of the baseplate.
@@ -152,13 +154,17 @@ If necessary, the 10V output of the radio port on the PM can also be exposed via
    Only the front tube (not as shown in the picture) is used; the other tube can be removed since our experience showed that the pressure inside the fuselage is sufficient as static pressure.
 
 1. When the stack is mounted inside the fuselage, the tube coming from the wing and the one from the airspeed sensor need to be spliced together.
-   Use some spit to push them together and afterward use a heat shrink tube to reinforce the connection.
+   Use some spit (that's the easiest way) to push them together and afterward use a heat shrink tube to reinforce the connection.
 
    :::warning
    Use a heat source carefully since the foam starts to melt at high temperatures.
    :::
 
 #### Lidar
+
+:::note
+It's recommended to use a lidar, but it's not necessary. In case no lidar is mounted it's recommended to set VT_FWD_THRUST_EN to 0 instead of 1.
+:::
 
 1. Mark the location to install the lidar with some tape or a pen.
    Cut a hole inside the PVC shell and the foam, so that the lidar fits in place.
@@ -218,16 +224,19 @@ Install either the Pixhawk or Skynode onto the baseplate.
 
    In the back you can use the 3D-Printed antenna adapter. The adapter can be glued in place with hot glue.
 
-   ![WIFI-Antenna-Back]()
+   ![WIFI-Antenna-Back](../../assets/airframes/vtol/foxtech_loong_2160/19-rear-antenna.jpg)
 
 ### 12S Power Module
 
+This 12S power module is used as main power module and can handle higher currents than the 40A power module. This is needed since the Loong uses up to 120A in the hover phase.
 The 12S Power Module will be mounted on top of the battery.
 Plug the XT90 that is installed inside the vehicle into the PM.
 The power cable to connect the Skynode needs to be extended.
 This is necessary to get battery readings from the power module.
 
 The power module can be used as a 5V backup for Skynode.
+
+![12S-Power-Module](../../assets/airframes/vtol/foxtech_loong_2160/18-12s-power-module.jpg)
 
 ### Assembly
 
@@ -259,7 +268,7 @@ AUX:
 1. Motor front left
 1. Motor rear right
 
-If you wish plug the actuators in a different order make sure to make the necessary changes in the Actuator tab.
+If you wish plug the actuators in a different order make sure to make the necessary changes in the Actuator tab of QGC.
 
 ## Software Setup
 
@@ -284,6 +293,7 @@ To load the file:
 ### Sensor Selection
 
 - If the [Lidar Lightware lw20-c (included in Skynode eval. kit)](../sensor/sfxx_lidar.md) is used, `SENS_EN_SF1XX` needs to be set to 6 (SF/LW/20c).
+- Make that the correct airspeed sensor is selected. If you use the recommended [airspeed sensor](https://www.dualrc.com/parts/airspeed-sensor-sdp33) no changes will be needed since SENS_EN_SDP3X is already set to 1 in the parameter file.
 
 ### Sensor Calibration
 
@@ -322,6 +332,7 @@ To calibrate the ESC's power up the vehicle with the wings not connected and go 
 
 Check if the actuators need to be reversed using the RC-Controller:
 
+- Switch into [Manual mode](../flight_modes_fw/stabilized.md)
 - Roll stick to the right. The right aileron should go up, left aileron should go down.
 - Pitch stick to the back (fly upwards). Both V-tail surfaces should move up.
 - Yaw stick to the right. Both surfaces should move to the right
@@ -332,7 +343,7 @@ Now adjust the trim value so that all the surfaces are in neutral position.
 
 #### Motor Direction and Orientation
 
-Arm the vehicle with the props of in stabilized mode. Check that all the quad-motors spin with a similar low idle speed and verify that the direction is correct. Check the following reactions:
+Arm the vehicle with the propellers still detached in [Stabilized mode](../flight_modes_fw/stabilized.md). Check that all the quad-motors spin with a similar low idle speed and verify that the direction is correct. Check the following reactions:
 
 - Roll stick to the right.
   The left two motors should spool up
@@ -347,7 +358,7 @@ increase the throttle a bit if you can't see a reaction since Airmode is not ena
 
 ## First Flight
 
-- Mount the propellers.
+- Mount the propellers (use blue Loctite for the screws).
 - Check center of gravity (GG).
   To check the CG lift the vehicle with two fingers up at the latches that connect the wing.
   The vehicle should balance horizontally.
