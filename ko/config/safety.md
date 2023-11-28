@@ -87,7 +87,7 @@ The Data Link Loss failsafe is triggered if a telemetry link (connection to grou
 
 ### Geofence 안전장치
 
-The _Geofence Failsafe_ is a "virtual" cylinder centered around the home position. If the vehicle moves outside the radius or above the altitude the specified _Failsafe Action_ will trigger.
+The _Geofence Failsafe_ is triggered when the drone breaches a "virtual" perimeter. In its simplest form, the perimeter is set up as a cylinder centered around the home position. If the vehicle moves outside the radius or above the altitude the specified _Failsafe Action_ will trigger.
 
 ![안전 - 지오펜스 (QGC)](../../assets/qgc/setup/safety/safety_geofence.png)
 
@@ -111,8 +111,6 @@ The _Geofence Failsafe_ is a "virtual" cylinder centered around the home positio
 
 | 설정                                                       | 매개변수                                                                         | 설명                                                                                                                                                  |
 | -------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="GF_ALTMODE"></a>지오펜스 고도 모드                     | [GF_ALTMODE](../advanced_config/parameter_reference.md#GF_ALTMODE)           | 사용 고도 기준: 0 = WGS84, 1 = AMSL.                                                                                                                      |
-| <a id="GF_COUNT"></a>지오펜스 카운터 제한                    | [GF_COUNT](../advanced_config/parameter_reference.md#GF_COUNT)               | 지오펜스 위반이 트리거되기 전에 펜스 외부에서 필요한 후속 위치 측정 수를 설정합니다.                                                                                                    |
 | <a id="GF_SOURCE"></a>지오펜스 소스                        | [GF_SOURCE](../advanced_config/parameter_reference.md#GF_SOURCE)             | 위치 소스가 글로벌 위치인지 또는 GPS 장치에서 직접 가져오는 지를 설정합니다.                                                                                                       |
 | <a id="GF_PREDICT"></a>Preemptive geofence triggering | [GF_PREDICT](../advanced_config/parameter_reference.md#GF_PREDICT)           | (Experimental) Trigger geofence if current motion of the vehicle is predicted to trigger the breach (rather than late triggering after the breach). |
 | <a id="CBRK_FLIGHTTERM"></a>비행 종료용 회로 차단기                  | [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | 비행 종료 작업을 활성화/비활성화합니다 (기본적으로 비활성화 됨).                                                                                                               |

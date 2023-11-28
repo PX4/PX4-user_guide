@@ -8,7 +8,7 @@ This section contains topics about flying your (fully configured) autopilot cont
 
 [Missions](../flying/missions.md) — How to fly an autonomous mission.
 
-[GeoFence](../flying/geofence.md) — How to set a geofence.
+[Geofence](../flying/geofence.md) — How to set a geofence.
 
 [Rally Points](../flying/plan_safety_points.md) — How to plan safe-return landing points (rally points).
 
