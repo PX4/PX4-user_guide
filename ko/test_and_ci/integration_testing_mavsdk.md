@@ -78,7 +78,7 @@ optional arguments:
 
 `모델` 및 테스트 `케이스`를 명령줄 옵션으로 지정하여, 단일 테스트를 실행합니다. 예를 들어, 임무에서 테일시터 비행을 테스트하려면, 다음을 실행합니다.
 
-```bash
+```sh
 test/mavsdk_tests/mavsdk_test_runner.py test/mavsdk_tests/configs/sitl.json --speed-factor 10 --model tailsitter --case 'Fly square Multicopter Missions including RTL'
 ```
 
