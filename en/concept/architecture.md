@@ -27,8 +27,7 @@ Caution: it can happen that after exporting some of the arrows are wrong. In
 that case zoom into the graph until the arrows are correct, and then export
 again. -->
 
-The source code is split into self-contained modules/programs (shown in `monospace` in the
-diagram).
+The source code is split into self-contained modules/programs (shown in `monospace` in the diagram).
 Usually a building block corresponds to exactly one module.
 
 :::tip
