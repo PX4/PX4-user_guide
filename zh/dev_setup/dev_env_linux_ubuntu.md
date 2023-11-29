@@ -34,7 +34,7 @@ To install the toolchain:
 
 1. **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_common_deps.sh" target="_blank" download>ubuntu_sim_common_deps.sh</a>**：[通用依赖](#common-dependencies)，[jMAVSim](#jmavsim) 模拟器
 
-   ```bash
+   ```sh
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
 
@@ -43,7 +43,7 @@ The environment setup scripts in the source usually work for recent PX4 releases
 :::
 
 1. 运行 bash 脚本（比如运行 **ubuntu_sim.sh** ）： bash source ubuntu_sim.sh 所有弹出的提示均确认通过。
-   ```bash
+   ```sh
    bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
    ```
    - 在安装过程中确认并通过所有的提示。
@@ -56,7 +56,7 @@ Additional notes These notes are provided "for information only":
 - If you want to use Gazebo on Ubuntu 20.04 you can add it manually. See [Gazebo > Installation](../sim_gazebo_gz/README.md#installation-ubuntu-linux).
 - You can verify the NuttX installation by confirming the gcc version as shown:
 
-  ```bash
+  ```sh
   $arm-none-eabi-gcc --version
 
   arm-none-eabi-gcc (GNU Arm Embedded Toolchain 9-2020-q2-update) 9.3.1 20200408 (release)
@@ -67,7 +67,7 @@ Additional notes These notes are provided "for information only":
 
 - You're going to need the PX4 source code anyway. But if you just wanted to set up the development environment without getting all the source code you could instead just download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/requirements.txt) and then run **ubuntu.sh**:
 
-  ```bash
+  ```sh
   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/ubuntu.sh
   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/requirements.txt
   bash ubuntu.sh
@@ -96,7 +96,7 @@ To build for Ubuntu 20.04 (focal) you must use docker (the GCC toolchain on Ubun
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/requirements.txt
    ```
 1. **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_nuttx.sh" target="_blank" download>ubuntu_sim_nuttx.sh</a>**：**ubuntu_sim.sh** + NuttX 工具。
-   ```bash
+   ```sh
    bash ubuntu.sh --no-nuttx --no-sim-tools
    ```
 1. Then setup an cross-compiler (either GCC or clang) as described in the following sections.
@@ -187,13 +187,13 @@ If you're working with [ROS Noetic](http://wiki.ros.org/noetic) on Ubuntu 20.04:
 
    1. [Download PX4 Source Code](../dev_setup/building_px4.md):
 
-      ```bash
+      ```sh
       git clone https://github.com/PX4/PX4-Autopilot.git --recursive
       ```
 
    1. Run the **ubuntu.sh** the `--no-sim-tools` (and optionally `--no-nuttx`):
 
-      ```bash
+      ```sh
       bash ./PX4-Autopilot/Tools/setup/ubuntu.sh --no-sim-tools --no-nuttx
       ```
 
@@ -216,13 +216,13 @@ If you're working with ROS "Melodic on Ubuntu 18.04:
 
 1. Download the [ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh) script in a bash shell:
 
-   ```bash
+   ```sh
    wget https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh
    ```
 
 1. 下载脚本
 
-   ```bash
+   ```sh
    ROS Gazebo: http://wiki.ros.org/kinetic/Installation/Ubuntu
    ```
 
