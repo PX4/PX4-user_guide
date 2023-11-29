@@ -87,11 +87,11 @@ The settings and underlying parameters are shown below.
 
 ### 地理围栏故障保护
 
-The _Geofence Failsafe_ is a "virtual" cylinder centered around the home position. If the vehicle moves outside the radius or above the altitude the specified _Failsafe Action_ will trigger.
+The _Geofence Failsafe_ is triggered when the drone breaches a "virtual" perimeter. In its simplest form, the perimeter is set up as a cylinder centered around the home position. If the vehicle moves outside the radius or above the altitude the specified _Failsafe Action_ will trigger.
 
 ![Safety - Geofence (QGC)](../../assets/qgc/setup/safety/safety_geofence.png)
 
-:::tip PX4 separately supports more complicated GeoFence geometries with multiple arbitrary polygonal and circular inclusion and exclusion areas: [Flying > GeoFence](../flying/geofence.md).
+:::tip PX4 separately supports more complicated Geofence geometries with multiple arbitrary polygonal and circular inclusion and exclusion areas: [Flying > Geofence](../flying/geofence.md).
 :::
 
 The settings and underlying [geofence parameters](../advanced_config/parameter_reference.md#geofence) are shown below.
@@ -110,8 +110,6 @@ The following settings also apply, but are not displayed in the QGC UI.
 
 | 设置                                                       | 参数                                                                           | 描述                                                                                                                                                  |
 | -------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="GF_ALTMODE"></a>地理围栏定高模式                       | [GF_ALTMODE](../advanced_config/parameter_reference.md#GF_ALTMODE)           | 使用的高度参考值：0 = WGS84，1 = AMSL。                                                                                                                        |
-| <a id="GF_COUNT"></a>地理围栏计数限制                       | [GF_COUNT](../advanced_config/parameter_reference.md#GF_COUNT)               | 设定需要检测到多少次在围栏之外的位置才能触发违反地理围栏的事件。                                                                                                                    |
 | <a id="GF_SOURCE"></a>地理围栏来源                         | [GF_SOURCE](../advanced_config/parameter_reference.md#GF_SOURCE)             | 设置定位是来自全局位置估计还是直接来自 GPS 设备。                                                                                                                         |
 | <a id="GF_PREDICT"></a>Preemptive geofence triggering | [GF_PREDICT](../advanced_config/parameter_reference.md#GF_PREDICT)           | (Experimental) Trigger geofence if current motion of the vehicle is predicted to trigger the breach (rather than late triggering after the breach). |
 | <a id="CBRK_FLIGHTTERM"></a>飞行终止断路器                        | [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | 启用/禁用飞行终止操作（默认禁用）。                                                                                                                                  |

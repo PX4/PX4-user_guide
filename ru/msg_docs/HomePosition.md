@@ -25,4 +25,6 @@ bool valid_lpos     # true when the local position (xyz) has been set
 
 bool manual_home    # true when home position was set manually
 
+uint32 update_count     # update counter of the home position
+
 ```

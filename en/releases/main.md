@@ -24,7 +24,8 @@ TBD ...
 
 ### Control
 
-- TBD
+- [offboard] [ROS2 Offboard control](../flight_modes/offboard.md#ros-2-messages) allows for direct motors and servo control.
+  Added in PX4 in [PX4-Autopilot#22222](https://github.com/PX4/PX4-Autopilot/pull/22222).
 
 ### Estimation
 
@@ -52,7 +53,8 @@ TBD ...
 
 ### Multi-Rotor
 
-- TBD
+- [Throw launch](../flight_modes_mc/throw_launch.md): Start a multicopter by throwing it into the air.
+  Added to PX4 in [PX4-Autopilot#21170](https://github.com/PX4/PX4-Autopilot/pull/21170).
 
 ### VTOL
 

@@ -48,7 +48,7 @@ TBD ...
 
 ### Multi-Rotor
 
-- TBD
+- [Throw launch](../flight_modes_mc/throw_launch.md): Start a multicopter by throwing it into the air. Added to PX4 in [PX4-Autopilot#21170](https://github.com/PX4/PX4-Autopilot/pull/21170).
 
 ### VTOL
 
@@ -57,3 +57,7 @@ TBD ...
 ### Fixed-wing
 
 - TBD
+
+### ROS 2
+
+- [Experimental] [PX4 ROS 2 Interface Library](../ros2/px4_ros2_interface_lib.md): A new C++ library that simplifies controlling PX4 from ROS 2. Supports adding flight modes in ROS 2 that are peers of the PX4 modes running on the flight controller. Added to PX4 in [PX4-Autopilot#20707](https://github.com/PX4/PX4-Autopilot/pull/20707) (initial support).

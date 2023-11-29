@@ -3796,6 +3796,182 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="RBCLW_DIS1">RBCLW_DIS1</strong> (INT32)</td>
+ <td>Roboclaw Driver Channel 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[128, 128] </td>
+ <td>128</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RBCLW_DIS2">RBCLW_DIS2</strong> (INT32)</td>
+ <td>Roboclaw Driver Channel 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[128, 128] </td>
+ <td>128</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RBCLW_FAIL1">RBCLW_FAIL1</strong> (INT32)</td>
+ <td>Roboclaw Driver Channel 1 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see RBCLW_FUNC1).</p>   </td>
+ <td>[-1, 257] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RBCLW_FAIL2">RBCLW_FAIL2</strong> (INT32)</td>
+ <td>Roboclaw Driver Channel 2 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see RBCLW_FUNC2).</p>   </td>
+ <td>[-1, 257] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RBCLW_FUNC1">RBCLW_FUNC1</strong> (INT32)</td>
+ <td>Roboclaw Driver Channel 1 Output Function <p><strong>Comment:</strong> Select what should be output on Roboclaw Driver Channel 1. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Constant Min</li>
+<li><strong>2:</strong> Constant Max</li>
+<li><strong>101:</strong> Motor 1</li>
+<li><strong>102:</strong> Motor 2</li>
+<li><strong>103:</strong> Motor 3</li>
+<li><strong>104:</strong> Motor 4</li>
+<li><strong>105:</strong> Motor 5</li>
+<li><strong>106:</strong> Motor 6</li>
+<li><strong>107:</strong> Motor 7</li>
+<li><strong>108:</strong> Motor 8</li>
+<li><strong>109:</strong> Motor 9</li>
+<li><strong>110:</strong> Motor 10</li>
+<li><strong>111:</strong> Motor 11</li>
+<li><strong>112:</strong> Motor 12</li>
+<li><strong>201:</strong> Servo 1</li>
+<li><strong>202:</strong> Servo 2</li>
+<li><strong>203:</strong> Servo 3</li>
+<li><strong>204:</strong> Servo 4</li>
+<li><strong>205:</strong> Servo 5</li>
+<li><strong>206:</strong> Servo 6</li>
+<li><strong>207:</strong> Servo 7</li>
+<li><strong>208:</strong> Servo 8</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
+<li><strong>400:</strong> Landing Gear</li>
+<li><strong>401:</strong> Parachute</li>
+<li><strong>402:</strong> RC Roll</li>
+<li><strong>403:</strong> RC Pitch</li>
+<li><strong>404:</strong> RC Throttle</li>
+<li><strong>405:</strong> RC Yaw</li>
+<li><strong>406:</strong> RC Flaps</li>
+<li><strong>407:</strong> RC AUX 1</li>
+<li><strong>408:</strong> RC AUX 2</li>
+<li><strong>409:</strong> RC AUX 3</li>
+<li><strong>410:</strong> RC AUX 4</li>
+<li><strong>411:</strong> RC AUX 5</li>
+<li><strong>412:</strong> RC AUX 6</li>
+<li><strong>420:</strong> Gimbal Roll</li>
+<li><strong>421:</strong> Gimbal Pitch</li>
+<li><strong>422:</strong> Gimbal Yaw</li>
+<li><strong>430:</strong> Gripper</li>
+<li><strong>440:</strong> Landing Gear Wheel</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RBCLW_FUNC2">RBCLW_FUNC2</strong> (INT32)</td>
+ <td>Roboclaw Driver Channel 2 Output Function <p><strong>Comment:</strong> Select what should be output on Roboclaw Driver Channel 2. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Constant Min</li>
+<li><strong>2:</strong> Constant Max</li>
+<li><strong>101:</strong> Motor 1</li>
+<li><strong>102:</strong> Motor 2</li>
+<li><strong>103:</strong> Motor 3</li>
+<li><strong>104:</strong> Motor 4</li>
+<li><strong>105:</strong> Motor 5</li>
+<li><strong>106:</strong> Motor 6</li>
+<li><strong>107:</strong> Motor 7</li>
+<li><strong>108:</strong> Motor 8</li>
+<li><strong>109:</strong> Motor 9</li>
+<li><strong>110:</strong> Motor 10</li>
+<li><strong>111:</strong> Motor 11</li>
+<li><strong>112:</strong> Motor 12</li>
+<li><strong>201:</strong> Servo 1</li>
+<li><strong>202:</strong> Servo 2</li>
+<li><strong>203:</strong> Servo 3</li>
+<li><strong>204:</strong> Servo 4</li>
+<li><strong>205:</strong> Servo 5</li>
+<li><strong>206:</strong> Servo 6</li>
+<li><strong>207:</strong> Servo 7</li>
+<li><strong>208:</strong> Servo 8</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
+<li><strong>400:</strong> Landing Gear</li>
+<li><strong>401:</strong> Parachute</li>
+<li><strong>402:</strong> RC Roll</li>
+<li><strong>403:</strong> RC Pitch</li>
+<li><strong>404:</strong> RC Throttle</li>
+<li><strong>405:</strong> RC Yaw</li>
+<li><strong>406:</strong> RC Flaps</li>
+<li><strong>407:</strong> RC AUX 1</li>
+<li><strong>408:</strong> RC AUX 2</li>
+<li><strong>409:</strong> RC AUX 3</li>
+<li><strong>410:</strong> RC AUX 4</li>
+<li><strong>411:</strong> RC AUX 5</li>
+<li><strong>412:</strong> RC AUX 6</li>
+<li><strong>420:</strong> Gimbal Roll</li>
+<li><strong>421:</strong> Gimbal Pitch</li>
+<li><strong>422:</strong> Gimbal Yaw</li>
+<li><strong>430:</strong> Gripper</li>
+<li><strong>440:</strong> Landing Gear Wheel</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RBCLW_MAX1">RBCLW_MAX1</strong> (INT32)</td>
+ <td>Roboclaw Driver Channel 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[128, 256] </td>
+ <td>256</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RBCLW_MAX2">RBCLW_MAX2</strong> (INT32)</td>
+ <td>Roboclaw Driver Channel 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[128, 256] </td>
+ <td>256</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RBCLW_MIN1">RBCLW_MIN1</strong> (INT32)</td>
+ <td>Roboclaw Driver Channel 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[1, 128] </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RBCLW_MIN2">RBCLW_MIN2</strong> (INT32)</td>
+ <td>Roboclaw Driver Channel 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[1, 128] </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RBCLW_REV">RBCLW_REV</strong> (INT32)</td>
+ <td>Reverse Output Range for Roboclaw Driver <p><strong>Comment:</strong> Allows to reverse the output range for each channel. Note: this is only useful for servos.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Roboclaw Driver Channel 1</li>
+  <li><strong>1:</strong> Roboclaw Driver Channel 2</li>
+</ul>
+ </td>
+ <td>[0, 3] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SIM_GZ_EC_DIS1">SIM_GZ_EC_DIS1</strong> (INT32)</td>
  <td>SIM_GZ ESC 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
@@ -12481,34 +12657,17 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="GF_ALTMODE">GF_ALTMODE</strong> (INT32)</td>
- <td>Geofence altitude mode <p><strong>Comment:</strong> Select which altitude (AMSL) source should be used for geofence calculations.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Autopilot estimator global position altitude (GPS)</li>
-<li><strong>1:</strong> Raw barometer altitude (assuming standard atmospheric pressure)</li>
-</ul>  </td>
- <td>[0, 1] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="GF_COUNT">GF_COUNT</strong> (INT32)</td>
- <td>Geofence counter limit <p><strong>Comment:</strong> Set how many subsequent position measurements outside of the fence are needed before geofence violation is triggered</p>   </td>
- <td>[-1, 10] (1)</td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="GF_MAX_HOR_DIST">GF_MAX_HOR_DIST</strong> (FLOAT)</td>
- <td>Max horizontal distance in meters <p><strong>Comment:</strong> Maximum horizontal distance in meters the vehicle can be from home before triggering a geofence action. Disabled if 0.</p>   </td>
+ <td>Max horizontal distance from Home <p><strong>Comment:</strong> Maximum horizontal distance in meters the vehicle can be from Home before triggering a geofence action. Disabled if 0.</p>   </td>
  <td>[0, 10000] (1)</td>
- <td>0</td>
+ <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="GF_MAX_VER_DIST">GF_MAX_VER_DIST</strong> (FLOAT)</td>
- <td>Max vertical distance in meters <p><strong>Comment:</strong> Maximum vertical distance in meters the vehicle can be from home before triggering a geofence action. Disabled if 0.</p>   </td>
+ <td>Max vertical distance from Home <p><strong>Comment:</strong> Maximum vertical distance in meters the vehicle can be from Home before triggering a geofence action. Disabled if 0.</p>   </td>
  <td>[0, 10000] (1)</td>
- <td>0</td>
+ <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
@@ -18889,6 +19048,70 @@ table {
  <td>[0, 3600] (1)</td>
  <td>100</td>
  <td>s</td>
+</tr>
+</tbody></table>
+
+## Roboclaw
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="RBCLW_SER_CFG">RBCLW_SER_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for Roboclaw Driver <p><strong>Comment:</strong> Configure on which serial port to run Roboclaw Driver.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>6:</strong> UART 6</li>
+<li><strong>101:</strong> TELEM 1</li>
+<li><strong>102:</strong> TELEM 2</li>
+<li><strong>103:</strong> TELEM 3</li>
+<li><strong>104:</strong> TELEM/SERIAL 4</li>
+<li><strong>201:</strong> GPS 1</li>
+<li><strong>202:</strong> GPS 2</li>
+<li><strong>203:</strong> GPS 3</li>
+<li><strong>300:</strong> Radio Controller</li>
+<li><strong>301:</strong> Wifi Port</li>
+<li><strong>401:</strong> EXT2</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+</tbody></table>
+
+## Roboclaw Driver
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="RBCLW_ADDRESS">RBCLW_ADDRESS</strong> (INT32)</td>
+ <td>Address of the ESC on the bus <p><strong>Comment:</strong> The ESC has to be configured to have an address from 0x80 to 0x87. This parameter needs to match the configured value.</p> <strong>Values:</strong><ul>
+<li><strong>128:</strong> 0x80</li>
+<li><strong>129:</strong> 0x81</li>
+<li><strong>130:</strong> 0x82</li>
+<li><strong>131:</strong> 0x83</li>
+<li><strong>132:</strong> 0x84</li>
+<li><strong>133:</strong> 0x85</li>
+<li><strong>134:</strong> 0x86</li>
+<li><strong>135:</strong> 0x87</li>
+</ul>  </td>
+ <td>[128, 135] </td>
+ <td>128</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RBCLW_COUNTS_REV">RBCLW_COUNTS_REV</strong> (INT32)</td>
+ <td>Number of encoder counts for one wheel revolution <p><strong>Comment:</strong> The default value of 1200 corresponds to the default configuration of the Aion R1 rover.</p>   </td>
+ <td>[1, ?] </td>
+ <td>1200</td>
+ <td></td>
 </tr>
 </tbody></table>
 
@@ -26036,6 +26259,14 @@ table {
 </td>
  <td>[0, 2] </td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UXRCE_DDS_SYNCC">UXRCE_DDS_SYNCC</strong> (INT32)</td>
+ <td>Enable uXRCE-DDS system clock synchronization <p><strong>Comment:</strong> When enabled along with UXRCE_DDS_SYNCT, uxrce_dds_client will set the system clock using the agents UTC timestamp.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>

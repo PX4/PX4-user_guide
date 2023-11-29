@@ -1222,6 +1222,36 @@ rgbled_lp5562 <command> [arguments...]
 
    status        print status info
 ```
+## roboclaw
+Source: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/roboclaw)
+
+
+### Description
+
+This driver communicates over UART with the [Roboclaw motor driver](https://www.basicmicro.com/motor-controller).
+It performs two tasks:
+
+ - Control the motors based on the OutputModuleInterface.
+ - Read the wheel encoders and publish the raw data in the `wheel_encoders` uORB topic
+
+In order to use this driver, the Roboclaw should be put into Packet Serial mode (see the linked documentation), and
+your flight controller's UART port should be connected to the Roboclaw as shown in the documentation.
+The driver needs to be enabled using the parameter `RBCLW_SER_CFG`, the baudrate needs to be set correctly and
+the address `RBCLW_ADDRESS` needs to match the ESC configuration.
+
+The command to start this driver is: `$ roboclaw start <UART device> <baud rate>`
+
+<a id="roboclaw_usage"></a>
+### Usage
+```
+roboclaw <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## safety_button
 Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/safety_button)
 
