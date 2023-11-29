@@ -77,7 +77,7 @@ To set the above "example" configuration using the _QGroundControl_:
 1. Open **QGroundcontrol > Analyze Tools > MAVLink Console**
 1. Enter commands "like" the ones below into the _MAVLink Console_ (to write the values to the configuration file):
 
-   ```bash
+   ```sh
    echo DEVICE=eth0 > /fs/microsd/net.cfg
    echo BOOTPROTO=fallback >> /fs/microsd/net.cfg
    echo IPADDR=192.168.0.4 >> /fs/microsd/net.cfg
@@ -224,20 +224,20 @@ To set up ROS 2:
 3. [Start the micro XRCE-DDS agent on the companion computer](../middleware/uxrce_dds.md#starting-the-agent).
    For example, enter the following command in a terminal to start the agent listening on UDP port `8888`.
 
-   ```bash
+   ```sh
    MicroXRCEAgent udp4 -p 8888
    ```
 
 4. Run a [listener node](../ros/ros2_comm.md#running-the-example) in a new terminal to confirm the connection is established:
 
-   ```bash
+   ```sh
    source ~/ws_sensor_combined/install/setup.bash
    ros2 launch px4_ros_com sensor_combined_listener.launch.py
    ```
 
    If everything is setup correctly, the following output should be displayed in the terminal:
 
-   ```bash
+   ```sh
    RECEIVED SENSOR COMBINED DATA
    =============================
    ts: 855801598

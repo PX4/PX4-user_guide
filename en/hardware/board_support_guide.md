@@ -10,6 +10,7 @@ Boards that are not compliant with the requirements are [unsupported](#unsupport
 :::
 
 <a id="general_requirements"></a>
+
 ## General Requirements
 
 The general requirements for all supported boards are:
@@ -19,21 +20,23 @@ The general requirements for all supported boards are:
    Board needs to pass acceptance criteria to ensure quality of parts and assembly.
 1. A clear and easy way to contact customer support for customers.
    One or more of the following is accepted:
+
    - PX4 Discord server presence
    - Support email
    - Phone number
 
-2. Point of contact (PoC) for the PX4 maintainers (direct email or available in Slack/Forum/Github)
-3. The board needs to use the [PX4 bootloader protocol](https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/bootloader).
+1. Point of contact (PoC) for the PX4 maintainers (direct email or available in Slack/Forum/Github)
+1. The board needs to use the [PX4 bootloader protocol](https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/bootloader).
    For more information on bootloaders see: [PX4 Nuttx Porting Guide > Bootloader](../hardware/porting_guide_nuttx.md#bootloader).
-4. Adequate documentation, which includes, but is not limited to:
-  
-    - A complete pinout made available publicly that maps PX4 pin definitions to:
-      1. Microcontroller pins
-      2. Physical external connectors
-    - A block diagram or full schematic of the main components (sensors, power supply, etc.) that allows to infer software requirements and boot order
-    - A manual of the finished product detailing its use
-5. There must be a dedicated webpage for the board with PX4, which lists the features and limitations for usage with PX4, and includes or links to the above described documentation.
+1. Adequate documentation, which includes, but is not limited to:
+
+   - A complete pinout made available publicly that maps PX4 pin definitions to:
+     1. Microcontroller pins
+     2. Physical external connectors
+   - A block diagram or full schematic of the main components (sensors, power supply, etc.) that allows to infer software requirements and boot order
+   - A manual of the finished product detailing its use
+
+1. There must be a dedicated webpage for the board with PX4, which lists the features and limitations for usage with PX4, and includes or links to the above described documentation.
 
 ## Board Support Categories
 
@@ -50,6 +53,7 @@ A Pixhawk board is one that conforms to the Pixhawk standards. These standards a
 PX4 generally only supports boards that are commercially available, which typically means that board standards released within the last five years are supported.
 
 <a id="ver_rev_id"></a>
+
 ### VER and REV ID (Hardware Revision and Version Sensing)
 
 FMUv5 and onwards have an electrical sensing mechanism.
@@ -72,7 +76,7 @@ This will result in a better result for all parties.
 
 :::note
 These boards will be assigned [VER and REV ID](#ver_rev_id) based on compatibility.
-A special assignment will be made by PX4 if the board is a variant of an FMU specification and capable of running the same binary, with minor differences supported by the manufacturer. 
+A special assignment will be made by PX4 if the board is a variant of an FMU specification and capable of running the same binary, with minor differences supported by the manufacturer.
 Contact the PX4 maintainer at [boards@px4.io](mailto:boards@px4.io) to request more information.
 :::
 
@@ -85,10 +89,9 @@ The following requirements apply:
 
 :::note
 Experimental boards that were _previously_ Pixhawk or Manufacturer supported will have/retain their original IDs.
-*New* experimental boards are allocated [VER and REV IDs](#ver_rev_id) based on compatibility, in the same way as Manufacturer Supported boards.
+_New_ experimental boards are allocated [VER and REV IDs](#ver_rev_id) based on compatibility, in the same way as Manufacturer Supported boards.
 :::
 
-<a id="unsupported"></a>
 ## Unsupported
 
 This category includes all boards that aren't supported by the PX4 project or a manufacturer, and that fall outside the"experimental" support.
@@ -110,7 +113,7 @@ When a new board is brought to market that falls into the manufacturer supported
 
 Contact PX4 board maintainers at [boards@px4.io](mailto:boards@px4.io) and request the following:
 
-1. The assignment of a *board id* for bootloader and firmware selection in QGC.
+1. The assignment of a _board id_ for bootloader and firmware selection in QGC.
 2. The assignment of REV and VER ID resistor values.
 3. If the board supports USB: Either request the assignment of a USB VID and PID or provide the USB VID and PID.
 

@@ -135,13 +135,13 @@ The steps to create new SITL unit tests are as follows:
 
    `OPTION` can be `OPT_NOALLTEST`,`OPT_NOJIGTEST` or `0` and is considered if within px4 shell one of the two commands are called:
 
-   ```bash
+   ```sh
    pxh> tests all
    ```
 
    or
 
-   ```bash
+   ```sh
    pxh> tests jig
    ```
 
@@ -153,7 +153,7 @@ The steps to create new SITL unit tests are as follows:
 
 Run the complete list of GTest Unit Tests, GTest Functional Tests and SITL Unit Tests right from bash:
 
-```bash
+```sh
 make tests
 ```
 
@@ -161,7 +161,7 @@ The individual GTest test binaries are in the `build/px4_sitl_test/` directory, 
 
 Filter to run only a subset of tests using a regular expression for the ctest name with this command:
 
-```bash
+```sh
 make tests TESTFILTER=<regex filter expression>
 ```
 
