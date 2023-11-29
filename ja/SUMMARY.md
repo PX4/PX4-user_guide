@@ -87,6 +87,7 @@
       * [VTOL機/速度センサなし](config_vtol/vtol_without_airspeed_sensor.md)
       * [VTOL機風見機能](config_vtol/vtol_weathervane.md)
     * [Standard VTOL](frames_vtol/standardvtol.md)
+      * [Build: Foxtech Loong 2160 VTOL](frames_vtol/vtol_quadplane_foxtech_loong_2160.md)
       * [FunCub QuadPlane (Pixhawk)](frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md)
       * [Ranger QuadPlane (Pixhawk)](frames_vtol/vtol_quadplane_volantex_ranger_ex_pixhawk.md)
       * [Falcon Vertigo QuadPlane (Dropix)](frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.md)
