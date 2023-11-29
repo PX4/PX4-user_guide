@@ -9,12 +9,14 @@
 ## 준비 사항
 
 다음과 같은 것이 필요합니다.
-* [PX4 SITL 시뮬레이터](../simulation/README.md) *또는* [PX4 호환 비행 콘트롤러](../flight_controller/README.md)
-* 목표 타켓에 대한 [PX4 개발 툴체인](../dev_setup/dev_env.md)
-* Github에서 [PX4 소스 코드 다운로드](../dev_setup/building_px4.md#download-the-px4-source-code)
+
+- [PX4 SITL 시뮬레이터](../simulation/README.md) *또는* [PX4 호환 비행 콘트롤러](../flight_controller/README.md)
+- 목표 타켓에 대한 [PX4 개발 툴체인](../dev_setup/dev_env.md)
+- Github에서 [PX4 소스 코드 다운로드](../dev_setup/building_px4.md#download-the-px4-source-code)
 
 소스 코드 [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/px4_simple_app) 디렉토리에는 막혔을 때 검토할 수 있는 이 튜토리얼의 완성된 버전이 포함되어 있습니다.
-* **px4_simple_app** 디렉토리의 이름을 변경하거나 삭제합니다.
+
+- **px4_simple_app** 디렉토리의 이름을 변경하거나 삭제합니다.
 
 ## 간단한 어플리케이션
 
@@ -23,7 +25,7 @@
 1. 새 디렉토리 **PX4-Autopilot/src/examples/px4_simple_app**을 생성합니다.
 1. **px4_simple_app.c**라는 디렉터리에 신규 C 파일을 생성합니다.
 
-   * 기본 헤더를 페이지 상단에 복사합니다. 이것은 기여한 모든 파일에 첨부하여야 합니다.
+   - 기본 헤더를 페이지 상단에 복사합니다. 이것은 기여한 모든 파일에 첨부하여야 합니다.
 
      ```c
      /****************************************************************************
@@ -60,7 +62,7 @@
       ****************************************************************************/
      ```
 
-   * 기본 헤더 아래에 다음 코드를 복사합니다. 이것은 기여한 모든 파일에 첨부하여야 합니다.
+   - 기본 헤더 아래에 다음 코드를 복사합니다. 이것은 기여한 모든 파일에 첨부하여야 합니다.
 
      ```c
      /**
@@ -90,6 +92,7 @@
 :::
 
 1. **CMakeLists.txt**라는 새 *cmake* 정의 파일을 만들고 오픈합니다. 아래 텍스트를 복사하십시오.
+
    ```cmake
    ############################################################################
    #
@@ -132,7 +135,9 @@
     DEPENDS
     )
    ```
+
    `px4_add_module()` 메서드는 모듈 설명에서 정적 라이브러리를 빌드합니다.
+
    - `MODULE` 블록은 모듈의 펌웨어 고유 이름입니다(관례에 따라 모듈 이름은 `src`에 대한 상위 디렉토리 접두어를 사용함).
    - `MAIN` 블록은 PX4 셸 또는 SITL 콘솔에서 호출할 수 있도록 NuttX에 명령을 등록하는 모듈의 진입점을 나열합니다.
 
@@ -145,24 +150,26 @@
 `DYNAMIC`을 `px4_add_module`에 대한 옵션으로 지정하면 POSIX 플랫폼에서 정적 라이브러리 대신 *공유 라이브러리*가 생성됩니다. PX4를 다시 컴파일하고 소스 코드가 아닌 바이너리로 공유함). 앱은 내장 명령이 되지 않지만, `examples__px4_simple_app.px4mod`라는 별도의 파일로 끝이 납니다. 그런 다음 `dyn` 명령을 사용하여 런타임에 파일을 로드하여 명령을 실행할 수 있습니다. `dyn ./examples__px4_simple_app.px4mod`
 :::
 
-1. Create and open a new *Kconfig* definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4-kconfig-symbol-naming-convention)). Copy in the text below:
-   ```menuconfig EXAMPLES_PX4_SIMPLE_APP
-    bool "PX4 Simple app"
-    default n
-    ---help---
-        Enable PX4 simple app
+1. Create and open a new _Kconfig_ definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4-kconfig-symbol-naming-convention)). Copy in the text below:
+
+   ```
+   P
+   "
+   n
+   -
+   p
    ```
 
 ## 애플리케이션/펌웨어 빌드
 
 이제 어플리케이션 제작이 완료되었습니다. 실행하려면 먼저 PX4의 일부로 빌드되었는지 확인합니다. 애플리케이션은 대상에 대한 적절한 보드 수준 *cmake* 파일의 빌드/펌웨어에 추가됩니다.
 
-* PX4 SITL(시뮬레이터): [PX4-Autopilot/boards/px4/sitl/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/sitl/default.cmake)
-* Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake)
-* Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake)
-* 다른 보드의 *cmake* 파일은 [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/master/boards)에서 찾을 수 있습니다.
+- PX4 SITL(시뮬레이터): [PX4-Autopilot/boards/px4/sitl/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/sitl/default.cmake)
+- Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake)
+- Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake)
+- 다른 보드의 *cmake* 파일은 [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/master/boards)에서 찾을 수 있습니다.
 
-To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the *px4board* file or run [boardconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup) `make px4_fmu-v4_default boardconfig`:
+To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the _px4board_ file or run [boardconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup) `make px4_fmu-v4_default boardconfig`:
 
 ```
 examples  --->
@@ -175,11 +182,10 @@ examples  --->
 
 보드별 명령어를 사용하여, 예제를 빌드합니다.
 
-* jMAVSim 시뮬레이터: `make px4_sitl_default jmavsim`
-* Pixhawk v1/2: `make px4_fmu-v2_default` (혹은 `make px4_fmu-v2`)
-* Pixhawk v3: `make px4_fmu-v4_default`
-* 기타 보드: [코드 빌드](../dev_setup/building_px4.md#building-for-nuttx)
-
+- jMAVSim 시뮬레이터: `make px4_sitl_default jmavsim`
+- Pixhawk v1/2: `make px4_fmu-v2_default` (혹은 `make px4_fmu-v2`)
+- Pixhawk v3: `make px4_fmu-v4_default`
+- 기타 보드: [코드 빌드](../dev_setup/building_px4.md#building-for-nuttx)
 
 ## 앱 테스트(하드웨어)
 
@@ -187,8 +193,8 @@ examples  --->
 
 업로더를 활성화한 다음 보드를 재설정합니다.
 
-* Pixhawk v1/2: `make px4_fmu-v2_default upload`
-* Pixhawk v3: `make px4_fmu-v4_default upload`
+- Pixhawk v1/2: `make px4_fmu-v2_default upload`
+- Pixhawk v3: `make px4_fmu-v4_default upload`
 
 보드 재설정전에 컴파일 메시지를 인쇄하고 마지막에 다음을 인쇄합니다.
 
@@ -260,7 +266,6 @@ INFO  [px4_simple_app] Hello Sky!
 ```
 
 이제 응용 프로그램을 확장할 수 있습니다.
-
 
 ## 센서 데이터 읽기
 
@@ -512,7 +517,7 @@ int px4_simple_app_main(int argc, char *argv[])
 px4_simple_app
 ```
 
-If you start *QGroundControl*, you can check the sensor values in the real time plot ([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)).
+If you start _QGroundControl_, you can check the sensor values in the real time plot ([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)).
 
 ## 마무리
 
