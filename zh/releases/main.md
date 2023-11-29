@@ -24,7 +24,7 @@ TBD ...
 
 ### Control
 
-- TBD
+- [offboard] [ROS2 Offboard control](../flight_modes/offboard.md#ros-2-messages) allows for direct motors and servo control. Added in PX4 in [PX4-Autopilot#22222](https://github.com/PX4/PX4-Autopilot/pull/22222).
 
 ### Estimation
 
