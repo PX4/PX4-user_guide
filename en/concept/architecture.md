@@ -28,7 +28,8 @@ that case zoom into the graph until the arrows are correct, and then export
 again. -->
 
 The source code is split into self-contained modules/programs (shown in `monospace` in the
-diagram). Usually a building block corresponds to exactly one module.
+diagram).
+Usually a building block corresponds to exactly one module.
 
 :::tip
 At runtime, you can inspect which modules are executed with the `top` command in shell, and each module can be started/stopped individually via `<module_name> start/stop`.
@@ -117,7 +118,8 @@ There are 2 different ways that a module can be executed:
   - Multiple _work queue tasks_ can run on a queue, and there can be multiple queues.
   - A _work queue task_ is scheduled by specifying a fixed time in the future, or via uORB topic update callback.
 
-  The advantage of running modules on a work queue is that it uses less RAM, and potentially results in fewer task switches. The disadvantages are that _work queue tasks_ are not allowed to sleep or poll on a message, or do blocking IO (such as reading from a file).
+  The advantage of running modules on a work queue is that it uses less RAM, and potentially results in fewer task switches.
+  The disadvantages are that _work queue tasks_ are not allowed to sleep or poll on a message, or do blocking IO (such as reading from a file).
   Long-running tasks (doing heavy computation) should potentially also run in a separate task or at least a separate work queue.
 
 :::note
