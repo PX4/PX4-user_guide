@@ -118,7 +118,7 @@ The relay server should be run on either Ubuntu 16.04 or 14.04 OS.
 
 1. Configure the broker's credentials (change PWD to your preferred password):
 
-   ```bash
+   ```sh
    sudo rabbitmqctl add_user iridiumsbd PWD
    sudo rabbitmqctl set_permissions iridiumsbd ".*" ".*" ".*"
    ```

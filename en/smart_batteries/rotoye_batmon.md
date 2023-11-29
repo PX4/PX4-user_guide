@@ -33,12 +33,12 @@ More details can be found [here](https://github.com/rotoye/batmon_reader)
 ### Build PX4 Firmware
 
 1. Clone or download [Rotoye's fork of PX4:](https://github.com/rotoye/PX4-Autopilot/tree/batmon_4.03)
-   ```bash
+   ```sh
    git clone https://github.com/rotoye/PX4-Autopilot.git
    cd PX4-Autopilot
    ```
 1. Checkout the *batmon_4.03* branch
-   ```bash
+   ```sh
    git fetch origin batmon_4.03
    git checkout batmon_4.03
    ```

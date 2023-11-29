@@ -50,7 +50,7 @@ Performing this power compensation is advisable only if all the following statem
 
 1. Retrieve the ulog and use the python script [mag_compensation.py](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/sensors/vehicle_magnetometer/mag_compensation/python/mag_compensation.py) to identify the compensation parameters.
 
-   ```bash
+   ```sh
    python mag_compensation.py ~/path/to/log/logfile.ulg
    ```
 

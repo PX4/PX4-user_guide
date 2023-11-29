@@ -73,7 +73,7 @@ This makes it faster to load and run, and for many simple use cases may be all y
 
 The simulation can be run in headless mode by prefixing the command with the `HEADLESS=1` environment variable:
 
-```bash
+```sh
 HEADLESS=1 make px4_sitl gz_x500
 ```
 
@@ -82,7 +82,7 @@ HEADLESS=1 make px4_sitl gz_x500
 The simulation can be run inside a particular world by concatenating the desired world to the name of the desired vehicle.
 For example, to run the windy world with the `x500` vehicle you can specify:
 
-```bash
+```sh
 make px4_sitl gz_x500_windy
 ```
 

@@ -17,7 +17,7 @@ In this case fallback to [v2.8.4 here](https://github.com/facontidavide/PlotJugg
 If the downloaded AppImage does not open, you may need to change its access settings.
 This is done in the terminal using the following command:
 
-```bash
+```sh
 chmod 777 <Path-To-PlotJuggler-AppImage>
 ```
 
