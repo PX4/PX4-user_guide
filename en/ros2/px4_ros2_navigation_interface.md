@@ -10,7 +10,7 @@ These estimates are then fused into the EKF as internal PX4 estimates would.
 
 The library provides two classes `LocalNavigationInterface` and `GlobalNavigationInterface` which both expose a similar `update` method, to either provide a local position update or global position update to PX4, respectively. The `update` method expects a position estimate `struct` (defined below) which developers can populate with their own generated position estimates.
 
-## Example and First test
+## Example and First Test
 
 The following steps are required to get started:
 
@@ -103,7 +103,7 @@ Using multiple instances of the same interface (e.g. local and local) to send es
 
 For a simple example using the interface, check out the [examples in the `Auterion/px4-ros2-interface-lib` repository](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/examples/cpp/navigation), such as [examples/cpp/navigation/local_navigation](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/navigation/local_navigation/include/local_navigation.hpp) or [examples/cpp/navigation/global_navigation](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/navigation/local_navigation/include/global_navigation.hpp).
 
-### Local position updates
+### Local Position Updates
 
 To send a local position estimate populate the `LocalPositionEstimate` struct which is defined as follows:
 
@@ -180,7 +180,7 @@ private:
 };
 ```
 
-### Global position updates
+### Global Position Updates
 
 To send a global position estimate populate the `GlobalPositionEstimate` struct which is defined as follows:
 
