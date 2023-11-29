@@ -103,7 +103,7 @@ px4_fmu-v6x_bootloader
 
 To build for these flight controllers, download and build the [PX4-Autopilot source](https://github.com/PX4/PX4-Autopilot), and then make the target using the following commands:
 
-```bash
+```sh
 git clone --recursive https://github.com/PX4/PX4-Autopilot.git
 cd PX4-Autopilot
 make <target> # For example: holybro_kakuteh7mini_bootloader
