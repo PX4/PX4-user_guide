@@ -67,14 +67,14 @@ The first field that has a non-zero value (from top to bottom) defines what vali
 For example, if the `acceleration` field is the first non-zero value, then PX4 requires a valid `velocity estimate`, and the setpoint must be specified using the `TrajectorySetpoint` message.
 
 | desired control quantity | position field | velocity field | acceleration field | attitude field | body_rate field | thrust_and_torque field | direct_actuator field | required estimate | required message                                                                                                                |
-|--------------------------|----------------|----------------|--------------------|----------------|-----------------|-------------------------|-----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| ------------------------ | -------------- | -------------- | ------------------ | -------------- | --------------- | ----------------------- | --------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | position (NED)           | ✓              | -              | -                  | -              | -               | -                       | -                     | position          | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
 | velocity (NED)           | ✗              | ✓              | -                  | -              | -               | -                       | -                     | velocity          | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
 | acceleration (NED)       | ✗              | ✗              | ✓                  | -              | -               | -                       | -                     | velocity          | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
 | attitude (FRD)           | ✗              | ✗              | ✗                  | ✓              | -               | -                       | -                     | none              | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                               |
 | body_rate (FRD)          | ✗              | ✗              | ✗                  | ✗              | ✓               | -                       | -                     | none              | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                     |
 | thrust and torque (FRD)  | ✗              | ✗              | ✗                  | ✗              | ✗               | ✓                       | -                     | none              | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) and [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
-| direct motors and servos | ✗              | ✗              | ✗                  | ✗              | ✗               | ✗                       | ✓                     | none              | [ActuatorMotors](../msg_docs/ActuatorMotors.md)  and  [ActuatorServos](../msg_docs/ActuatorServos.md)                           |
+| direct motors and servos | ✗              | ✗              | ✗                  | ✗              | ✗               | ✗                       | ✓                     | none              | [ActuatorMotors](../msg_docs/ActuatorMotors.md) and [ActuatorServos](../msg_docs/ActuatorServos.md)                             |
 
 where &check; means that the bit is set, &cross; means that the bit is not set and `-` means that the bit is value is irrelevant.
 
@@ -114,6 +114,7 @@ Before using offboard mode with ROS 2, please spend a few minutes understanding 
 The following offboard control modes bypass all internal PX4 control loops and should be used with great care.
 
 - [px4_msgs::msg::VehicleThrustSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleThrustSetpoint.msg) + [px4_msgs::msg::VehicleTorqueSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleTorqueSetpoint.msg)
+
   - The following input combination is supported:
     - `xyz` for thrust and `xyz` for torque.
   - All the values are in the drone body FRD frame and normalized in \[-1, 1\].
