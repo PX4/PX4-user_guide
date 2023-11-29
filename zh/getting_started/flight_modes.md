@@ -173,7 +173,7 @@ The return behaviour depends on parameter settings, and may follow a mission pat
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Mission mode](../flight_modes/mission.md) causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application.
+[Mission mode](../flight_modes_mc/mission.md) causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application.
 
 :::tip PX4 GCS 叫做[QGroundControl](https://docs.qgroundcontrol.com/master/en/). *QGroundControl*是我们为[配置PX4](../config/README.md)所使用的程序。
 :::
@@ -329,7 +329,7 @@ The return behaviour depends on parameter settings, and may follow a mission pat
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Mission mode](../flight_modes/mission.md) causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application.
+[Mission mode](../flight_modes_fw/mission.md) causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application.
 
 
 :::tip PX4 GCS 叫做[QGroundControl](https://docs.qgroundcontrol.com/master/en/). *QGroundControl*是我们为[配置PX4](../config/README.md)所使用的程序。
@@ -350,7 +350,7 @@ The return behaviour depends on parameter settings, and may follow a mission pat
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;
 
-[Land mode](../flight_modes_fw/land.md) causes the vehicle to turn and land at the location at which the mode was engaged. Fixed-wing landing logic and parameters are explained in the topic: [Mission > Fixed-wing Mission Landing](../flight_modes/mission.md#fw-mission-landing).
+[Land mode](../flight_modes_fw/land.md) causes the vehicle to turn and land at the location at which the mode was engaged. Fixed-wing landing logic and parameters are explained in the topic: [Mission > Fixed-wing Mission Landing](../flight_modes_fw/mission.md#mission-landing).
 
 <a id="offboard_fw"></a>
 
