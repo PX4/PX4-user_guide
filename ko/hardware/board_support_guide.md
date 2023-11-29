@@ -17,20 +17,22 @@ PX4 개발 및 테스트 팀은 [Pixhawk 표준](https://pixhawk.org/standards/)
 1. 하드웨어는 시장에서 사용할 수 있어야 합니다.
 1. 보드에는 UAV에서 PX4와 함께 보드를 사용하는 것이 불가능하거나 위험하게 하는 버그나 허용 범위 초과하는  품질 이상이 없어야 합니다. 보드는 부품과 조립품의 품질을 보장하기 위해 승인 기준을 통과하여야 합니다.
 1. 고객을 지원하고 고객이 연락할 수 있는 명확하고 쉬운 방법이 있어야 합니다. 다음과 같은 방법이 허용됩니다.
+
    - PX4 Discord server presence
    - 지원 이메일
    - 전화번호
 
-2. PX4 관리자를 위한 PoC(Point of Contact)(직접 이메일 또는 Slack/Forum/Github에서 사용 가능)
-3. 보드는 [PX4 부트로더 프로토콜](https://github.com/PX4/PX4-Autopilot/tree/master/platforms/nuttx/src/bootloader)을 사용하여야 합니다. 부트로더에 대한 자세한 내용은 [PX4 Nuttx 포팅 가이드 > 부트로더](../hardware/porting_guide_nuttx.md#bootloader)를 참고하십시오.
-4. 다음 내용을 포함하는 적절한 문서:
+1. PX4 관리자를 위한 PoC(Point of Contact)(직접 이메일 또는 Slack/Forum/Github에서 사용 가능)
+1. 보드는 [PX4 부트로더 프로토콜](https://github.com/PX4/PX4-Autopilot/tree/master/platforms/nuttx/src/bootloader)을 사용하여야 합니다. 부트로더에 대한 자세한 내용은 [PX4 Nuttx 포팅 가이드 > 부트로더](../hardware/porting_guide_nuttx.md#bootloader)를 참고하십시오.
+1. 다음 내용을 포함하는 적절한 문서:
 
-    - PX4 핀 정의를 아래에 매핑하는 완전한 핀배열 공개:
-      1. 마이크로컨트롤러 핀
-      2. 물리적 외부 커넥터
-    - 소프트웨어 요구 사항과 부팅 순서를 유추할 수 있는 주요 구성 요소(센서, 전원 공급 장치 등)의 블록 다이어그램 또는 전체 회로도
-    - 완제품 사용 설명서
-5. PX4와 함께 사용하기 위한 기능과 제한 사항을 나열하고 위에 설명된 문서를 포함하거나 링크하는 PX4가 있는 보드용 전용 웹페이지가 있어야 합니다.
+   - PX4 핀 정의를 아래에 매핑하는 완전한 핀배열 공개:
+     1. 마이크로컨트롤러 핀
+     2. 물리적 외부 커넥터
+   - 소프트웨어 요구 사항과 부팅 순서를 유추할 수 있는 주요 구성 요소(센서, 전원 공급 장치 등)의 블록 다이어그램 또는 전체 회로도
+   - A manual of the finished product detailing its use
+
+1. There must be a dedicated webpage for the board with PX4, which lists the features and limitations for usage with PX4, and includes or links to the above described documentation.
 
 ## 보드 지원 카테고리
 
@@ -80,8 +82,6 @@ Because these boards are 100% compliant with the Pixhawk standard, the values as
 _이전_ Pixhawk 또는 제조업체가 지원했던 실험 보드는 원래 ID를 갖거나 유지합니다. *신규* 실험 보드에는 제조업체 지원 보드와 동일한 방식으로 호환성에 따라 [VER 및 REV ID](#ver_rev_id)가 할당됩니다.
 :::
 
-<a id="unsupported"></a>
-
 ## 미지원
 
 이 범주에는 PX4 프로젝트 또는 제조업체에서 지원하지 않고 "실험적" 지원에 해당하지 않는 모든 보드가 포함됩니다.
@@ -103,9 +103,9 @@ _이전_ Pixhawk 또는 제조업체가 지원했던 실험 보드는 원래 ID�
 
 PX4 보드 관리자에게 [boards@px4.io](mailto:boards@px4.io)로 연락하여 다음을 요청하십시오.
 
-1. QGC에서 부트로더 및 펌웨어 선택을 위한 *보드 ID* 할당
-2. REV 및 VER ID 저항 값 할당
-3. 보드가 USB를 지원하는 경우: USB VID 및 PID 할당을 요청하거나 USB VID 및 PID를 제공하십시오.
+1. The assignment of a _board id_ for bootloader and firmware selection in QGC.
+2. The assignment of REV and VER ID resistor values.
+3. If the board supports USB: Either request the assignment of a USB VID and PID or provide the USB VID and PID.
 
 [포팅 가이드](../hardware/porting_guide.md)에 설명된 보드 이식 릴리스 프로세스에 따라 보드를 통합합니다.
 
