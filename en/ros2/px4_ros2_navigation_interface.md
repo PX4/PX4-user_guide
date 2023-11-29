@@ -8,7 +8,8 @@ The PX4 ROS 2 Interface Library for navigation enables developers to send their 
 The interface provides a layer of abstraction from PX4 and the uORB messaging framework, and introduces a few sanity checks on the requested state estimation updates sent via the interface.
 These estimates are then fused into the EKF as internal PX4 estimates would.
 
-The library provides two classes `LocalNavigationInterface` and `GlobalNavigationInterface` which both expose a similar `update` method, to either provide a local position update or global position update to PX4, respectively. The `update` method expects a position estimate `struct` (defined below) which developers can populate with their own generated position estimates.
+The library provides two classes `LocalNavigationInterface` and `GlobalNavigationInterface` which both expose a similar `update` method, to either provide a local position update or global position update to PX4, respectively.
+The `update` method expects a position estimate `struct` (defined below) which developers can populate with their own generated position estimates.
 
 ## Example and First Test
 
@@ -93,12 +94,15 @@ The following steps are required to get started:
 
 8. Now you are ready to use the navigation interface to send your own position updates.
 
-
 ## How to Use the Library
-When sending a position estimate, populate a struct with the fields you have estimated. Then call the interface’s update function with that struct as the argument. Note that while only the field `timestamp_sample` entry is mandatory, defining an estimate entry (e.g. `velocity_xy`) then requires defining its associated variance value (e.g. `velocity_xy_variance`).
+
+When sending a position estimate, populate a struct with the fields you have estimated.
+Then call the interface’s update function with that struct as the argument.
+Note that while only the field `timestamp_sample` entry is mandatory, defining an estimate entry (e.g. `velocity_xy`) then requires defining its associated variance value (e.g. `velocity_xy_variance`).
 
 :::note
-Using multiple instances of the same interface (e.g. local and local) to send estimation updates will stream all update messages to the same topic and result in cross-talk. This should not affect estimate fusion into the EKF, but different measurement sources will become indistinguishable.
+Using multiple instances of the same interface (e.g. local and local) to send estimation updates will stream all update messages to the same topic and result in cross-talk.
+This should not affect estimate fusion into the EKF, but different measurement sources will become indistinguishable.
 :::
 
 For a simple example using the interface, check out the [examples in the `Auterion/px4-ros2-interface-lib` repository](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/examples/cpp/navigation), such as [examples/cpp/navigation/local_navigation](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/navigation/local_navigation/include/local_navigation.hpp) or [examples/cpp/navigation/global_navigation](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/navigation/local_navigation/include/global_navigation.hpp).
