@@ -48,7 +48,7 @@ GPS 오류를 시뮬레이션하려면 다음을 수행합니다.
 1. 매개변수 [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN)을 활성화합니다.
 1. Enter the following commands on the SITL instance _pxh shell_:
 
-   ```bash
+   ```sh
    # Turn (all) GPS off
    failure gps off
 
