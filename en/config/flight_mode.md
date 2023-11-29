@@ -17,7 +17,7 @@ You can set any (or none) of the flight modes [described here](../getting_starte
 Most users should set the following functions, as these make the vehicle easier and safer to fly:
 
 - **Position mode** ([multicopter](../getting_started/flight_modes.md#position-mode-mc), [fixed-wing](../getting_started/flight_modes.md#position-mode-fw)) - Easiest and safest mode for manual flight.
-- [Return mode](../flight_modes/return.md) - Return to launch position by safe path and land (by default).
+- **Return mode** ([multicopter](../flight_modes_mc/return.md),[fixed-wing](../flight_modes_fw/return.md)) - Return to launch position by safe path and land.
 - **VTOL Transition Switch** - Toggle between fixed-wing and multicopter flight configuration on VTOL vehicles.
 
 It is also common to map switches to:

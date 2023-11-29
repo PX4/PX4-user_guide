@@ -9,7 +9,7 @@ After landing, vehicles will disarm after a short timeout (by default).
 Fixed-wing _land mode_ should only be used in an **emergency**!
 The vehicle will descend around the current location irrespective of the suitability of the underlying terrain, and touch down while following a circular flight path.
 
-Where possible, instead use [Return mode](../flight_modes/return.md) with a predefined [Fixed-wing mission landing](../flight_modes_fw/mission.md#mission-landing).
+Where possible, instead use [Return mode](../flight_modes_fw/return.md) with a predefined [Fixed-wing mission landing](../flight_modes_fw/mission.md#mission-landing).
 :::
 
 :::note

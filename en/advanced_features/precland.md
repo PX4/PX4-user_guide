@@ -68,7 +68,7 @@ Precision landing can be initiated as part of a [mission](../flying/missions.md)
 
 ### Return Mode Precision Landing
 
-Precision landing can be used in the [Return mode](../flight_modes/return.md) landing phase.
+Precision landing can be used in the [Return mode](../flight_modes_mc/return.md) landing phase.
 
 This is enabled using the parameter [RTL_PLD_MD](../advanced_config/parameter_reference.md#RTL_PLD_MD), which takes the following values:
 

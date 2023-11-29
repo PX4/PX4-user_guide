@@ -137,6 +137,8 @@ The following settings also apply, but are not displayed in the QGC UI.
 
 ### Return Mode Settings
 
+<!-- Propose replace section by a summary and links - return mode is complicated -->
+
 _Return_ is a common [failsafe action](#failsafe-actions) that engages [Return mode](../flight_modes/return.md) to return the vehicle to the home position.
 This section shows how to set the land/loiter behaviour after returning.
 

@@ -91,7 +91,7 @@ Note that vehicles automatically disarm on landing by default:
 - Manually disarm by putting the throttle stick in the bottom left corner.
 
 There is also the option to let the vehicle land autonomously.
-For that engage the [Land mode](../flight_modes_mc/land.md) or [Return mode](../flight_modes/return.md).
+For that engage the [Land mode](../flight_modes_mc/land.md) or [Return mode](../flight_modes_mc/return.md).
 
 :::note
 If you see the vehicle "twitch" during landing (turn down the motors, and then immediately turn them back up) this is probably caused by a poor [Land Detector Configuration](../advanced_config/land_detector.md) (specifically, a poorly set [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
@@ -105,7 +105,7 @@ In these modes the pilot has full control over the motor thrust, which is requir
 You should perform the landing in headwind to reduce the groundspeed before touching down.
 
 For auto landings you should use a [Fixed-Wing Mission Landing](../flight_modes_fw/mission.md#mission-landing).
-This landing is defined in a mission, and can be used in either [Mission](../flight_modes_fw/mission.md) or [Return](../flight_modes/return.md) modes.
+This landing is defined in a mission, and can be used in either [Mission](../flight_modes_fw/mission.md) or [Return](../flight_modes_fw/return.md) modes.
 
 The automatic [Land mode](../flight_modes_fw/land.md) mode is not recommended unless absolutely necessary, as it cannot account for underlying terrain.
 <!-- Added this to make it more generic: We'll split this out later -->
