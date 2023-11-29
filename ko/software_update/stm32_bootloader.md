@@ -13,7 +13,7 @@ PX4 부트로더용 코드는 Github [Bootloader](https://github.com/px4/bootloa
 
 ## 부트로더 빌드
 
-```bash
+```sh
 git clone https://github.com/PX4/Bootloader.git
 cd Bootloader
 git submodule init
@@ -42,7 +42,7 @@ make
 * 리눅스: `/dev/serial/by-id/usb-Black_Sphere_XXX-if00`
 * MAC OS: tty.xxx 포트가 아닌 cu.xxx 포트를 사용합니다. `tar ext /dev/tty.usbmodemDDEasdf`
 
-```bash
+```sh
 arm-none-eabi-gdb
   (gdb) tar ext /dev/serial/by-id/usb-Black_Sphere_XXX-if00
   (gdb) mon swdp_scan
@@ -67,7 +67,7 @@ Segger 웹사이트에서 [J-Link 소프트웨어를 다운로드](https://www.s
 
 아래 명령어는 STM32F427VI SoC를 사용하는 비행 콘트롤러용 서버를 실행합니다.
 
-```bash
+```sh
 JLinkGDBServer -select USB=0 -device STM32F427VI -if SWD-DP -speed 20000
 ```
 
@@ -81,7 +81,7 @@ JLinkGDBServer -select USB=0 -device STM32F427VI -if SWD-DP -speed 20000
 
 #### GDB 연결
 
-```bash
+```sh
 arm-none-eabi-gdb
   (gdb) tar ext :2331
   (gdb) load aerofcv1_bl.elf
@@ -98,7 +98,7 @@ Error erasing flash with vFlashErase packet
 
 대상을 분리하고(JTAG가 연결된 상태에서), 다음 명령어를 실행합니다.
 
-```bash
+```sh
 mon tpwr disable
 swdp_scan
 attach 1
