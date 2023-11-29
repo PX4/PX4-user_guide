@@ -82,7 +82,8 @@ The following tools were used for this build.
 
 ## Hardware Integration
 
-In this documentation the integration of a Auterion Skynode is described. The installation of a Pixhawk can be done similarly.
+In this documentation the integration of a Auterion Skynode is described.
+The installation of a Pixhawk can be done similarly.
 
 ### Preparations
 
@@ -133,7 +134,9 @@ Use a soldering iron to press the threaded inserts into the 3D-Printed parts.
 
 ### 40A Power Module
 
-1. Remove the case from the 40A PM that comes with the Skynode evaluation kit.
+The 40A power module provides power for the avionics when using Skynode (and comes with the Skynode evaluation kit):
+
+1. Remove the case from the 40A PM.
 1. Screw the PM with 2x M2x6mm to the bottom of the baseplate.
 1. Create a cable to extend the XT60 connector to an XT30 that is mounted on the baseplate.
    With that, the 6S battery power can be directly plugged into the XT30 connector with the pre-configured cable that comes with the vehicle.
@@ -163,7 +166,8 @@ If necessary, the 10V output of the radio port on the PM can also be exposed via
 #### Lidar
 
 :::note
-It's recommended to use a lidar, but it's not necessary. In case no lidar is mounted it's recommended to set VT_FWD_THRUST_EN to 0 instead of 1.
+A lidar is recommended!
+If no lidar is mounted you should disable using fixed-wing actuation in hover to accelerate forward (set [VT_FWD_THRUST_EN](../advanced_config/parameter_reference.md#VT_FWD_THRUST_EN) to `0` instead of `1`).
 :::
 
 1. Mark the location to install the lidar with some tape or a pen.
@@ -222,13 +226,16 @@ Install either the Pixhawk or Skynode onto the baseplate.
 
    ![WIFI-Antennas-Front](../../assets/airframes/vtol/foxtech_loong_2160/17-antenna-front.jpg)
 
-   In the back you can use the 3D-Printed antenna adapter. The adapter can be glued in place with hot glue.
+   In the back you can use the 3D-Printed antenna adapter.
+   The adapter can be glued in place with hot glue.
 
    ![WIFI-Antenna-Back](../../assets/airframes/vtol/foxtech_loong_2160/19-rear-antenna.jpg)
 
 ### 12S Power Module
 
-This 12S power module is used as main power module and can handle higher currents than the 40A power module. This is needed since the Loong uses up to 120A in the hover phase.
+This 12S power module is the main power module for the motors.
+It can handle higher currents than the 40A power module used to power the avionics, and is needed since the Loong uses up to 120A in the hover phase.
+
 The 12S Power Module will be mounted on top of the battery.
 Plug the XT90 that is installed inside the vehicle into the PM.
 The power cable to connect the Skynode needs to be extended.
@@ -268,7 +275,7 @@ AUX:
 1. Motor front left
 1. Motor rear right
 
-If you wish plug the actuators in a different order make sure to make the necessary changes in the Actuator tab of QGC.
+If you wish connect the actuators to different outputs you will need to modify the Actuator Output mappings (see [Actuator Configuration](../config/actuators.md)).
 
 ## Software Setup
 
@@ -293,7 +300,8 @@ To load the file:
 ### Sensor Selection
 
 - If the [Lidar Lightware lw20-c (included in Skynode eval. kit)](../sensor/sfxx_lidar.md) is used, `SENS_EN_SF1XX` needs to be set to 6 (SF/LW/20c).
-- Make that the correct airspeed sensor is selected. If you use the recommended [airspeed sensor](https://www.dualrc.com/parts/airspeed-sensor-sdp33) no changes will be needed since SENS_EN_SDP3X is already set to 1 in the parameter file.
+- Make that the correct airspeed sensor is selected.
+  If you use the recommended [airspeed sensor](https://www.dualrc.com/parts/airspeed-sensor-sdp33) no changes will be needed since [SENS_EN_SDP3X](../advanced_config/parameter_reference.md#SENS_EN_SDP3X) is set to `1` in the parameter file.
 
 ### Sensor Calibration
 
@@ -326,16 +334,22 @@ Motors, control surfaces, and other actuators are configured in the QGroundContr
 The [parameter file](#load-parameters-file) loaded previously means that this screen should already be correctly setup: you just need to adjust the trims for your particular vehicle.
 If motors/servos were connected to different outputs than suggested, you will need to change the output to function mappings in the actuator output section.
 
-To calibrate the ESC's power up the vehicle with the wings not connected and go into the **Actuators** tab in QGC. Enable motor test and side the slider for Motor you would like to calibrate up to the maximum. Plug the wings into the fuselage and wait until the beeb-sequence if finished (ca. 5s). Then side the slider to the minimum.
+To calibrate the ESC's power up the vehicle with the wings not connected and go into the **Actuators** tab in QGC.
+Enable motor test and side the slider for Motor you would like to calibrate up to the maximum.
+Plug the wings into the fuselage and wait until the beeb-sequence if finished (ca. 5s).
+Then side the slider to the minimum.
 
 #### Control Surfaces
 
 Check if the actuators need to be reversed using the RC-Controller:
 
 - Switch into [Manual mode](../flight_modes_fw/stabilized.md)
-- Roll stick to the right. The right aileron should go up, left aileron should go down.
-- Pitch stick to the back (fly upwards). Both V-tail surfaces should move up.
-- Yaw stick to the right. Both surfaces should move to the right
+- Roll stick to the right.
+  The right aileron should go up, left aileron should go down.
+- Pitch stick to the back (fly upwards).
+  Both V-tail surfaces should move up.
+- Yaw stick to the right.
+  Both surfaces should move to the right
 
 Now adjust the trim value so that all the surfaces are in neutral position.
 
@@ -343,7 +357,9 @@ Now adjust the trim value so that all the surfaces are in neutral position.
 
 #### Motor Direction and Orientation
 
-Arm the vehicle with the propellers still detached in [Stabilized mode](../flight_modes_fw/stabilized.md). Check that all the quad-motors spin with a similar low idle speed and verify that the direction is correct. Check the following reactions:
+Arm the vehicle with the propellers still detached in [Stabilized mode](../flight_modes_fw/stabilized.md).
+Check that all the quad-motors spin with a similar low idle speed and verify that the direction is correct.
+Check the following reactions:
 
 - Roll stick to the right.
   The left two motors should spool up
@@ -353,7 +369,7 @@ Arm the vehicle with the propellers still detached in [Stabilized mode](../fligh
   Front right and rear left motor should spool up
 
 :::note
-increase the throttle a bit if you can't see a reaction since Airmode is not enabled for the yaw axis.
+increase the throttle a bit if you can't see a reaction since [Airmode](../config_mc/pid_tuning_guide_multicopter.md#airmode-mixer-saturation) is not enabled for the yaw axis.
 :::
 
 ## First Flight
@@ -368,7 +384,8 @@ increase the throttle a bit if you can't see a reaction since Airmode is not ena
 - Check control surface reactions in [Stabilized mode](../flight_modes_fw/stabilized.md).
   Switch the vehicle into forward flight mode.
   - Roll the vehicle to the right.
-    The right aileron should go down. The left aileron should go up.
+    The right aileron should go down.
+    The left aileron should go up.
   - Pitch the vehicle up (nose up).
     Both elevons should go down.
   - Yaw the vehicle to the right (nose to the right).
