@@ -20,7 +20,7 @@ region `flash' overflowed by 12456 bytes
 
 아래 명령은 가장 큰 정적 할당을 출력합니다.
 
-```bash
+```sh
 arm-none-eabi-nm --size-sort --print-size --radix=dec build/px4_fmu-v5_default/px4_fmu-v5_default.elf | grep " [bBdD] "
 ```
 

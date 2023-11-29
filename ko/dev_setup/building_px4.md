@@ -198,7 +198,7 @@ sudo ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /us
 
 Build issues related to `arm_none_eabi_gcc`may be due to a broken g++ toolchain installation. You can verify that this is the case by checking for missing dependencies using:
 
-```bash
+```sh
 arm-none-eabi-gcc --version
 arm-none-eabi-g++ --version
 arm-none-eabi-gdb --version
@@ -207,7 +207,7 @@ arm-none-eabi-size --version
 
 Example of bash output with missing dependencies:
 
-```bash
+```sh
 arm-none-eabi-gdb --version
 arm-none-eabi-gdb: command not found
 ```

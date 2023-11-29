@@ -7,7 +7,7 @@ The _Land_ flight mode causes the vehicle to descend at the position where the m
 :::warning
 Fixed-wing _land mode_ should only be used in an **emergency**! The vehicle will descend around the current location irrespective of the suitability of the underlying terrain, and touch down while following a circular flight path.
 
-Where possible, instead use [Return mode](../flight_modes/return.md) with a predefined [Fixed-wing mission landing](../flight_modes/mission.md#fw-mission-landing).
+Where possible, instead use [Return mode](../flight_modes/return.md) with a predefined [Fixed-wing mission landing](../flight_modes_fw/mission.md#mission-landing).
 :::
 
 :::note
@@ -28,9 +28,9 @@ Where possible, instead use [Return mode](../flight_modes/return.md) with a pred
 
 Land mode causes the vehicle follow a descending circular path (corkscrew) until touchdown.
 
-When the mode is engaged, the vehicle starts to loiter around the current vehicle position with loiter radius [NAV_LOITER_RAD](#NAV_LOITER_RAD) and begins to descend with a constant descent speed. The descent speed is calculated using [FW_LND_ANG](#FW_LND_ANG) and the set landing airspeed [FW_LND_AIRSPD](#FW_LND_AIRSPD). The vehicle will flare if configured to do so (see [Flaring](../flight_modes/mission.md#flaring-roll-out)), and otherwise proceed circling with the constant descent rate until landing is detected.
+When the mode is engaged, the vehicle starts to loiter around the current vehicle position with loiter radius [NAV_LOITER_RAD](#NAV_LOITER_RAD) and begins to descend with a constant descent speed. The descent speed is calculated using [FW_LND_ANG](#FW_LND_ANG) and the set landing airspeed [FW_LND_AIRSPD](#FW_LND_AIRSPD). The vehicle will flare if configured to do so (see [Flaring](../flight_modes_fw/mission.md#flaring-roll-out)), and otherwise proceed circling with the constant descent rate until landing is detected.
 
-[Manual nudging](../flight_modes/mission.md#automatic-abort) and [automatic land abort](../flight_modes/mission.md#nudging) are not available in land mode.
+[Manual nudging](../flight_modes_fw/mission.md#automatic-abort) and [automatic land abort](../flight_modes_fw/mission.md#nudging) are not available in land mode.
 
 ### Parameters
 

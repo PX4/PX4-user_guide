@@ -78,7 +78,7 @@ optional arguments:
 
 Run a single test by specifying the `model` and test `case` as command line options. For example, to test flying a tailsitter in a mission you might run:
 
-```bash
+```sh
 test/mavsdk_tests/mavsdk_test_runner.py test/mavsdk_tests/configs/sitl.json --speed-factor 10 --model tailsitter --case 'Fly VTOL mission'
 ```
 

@@ -11,7 +11,6 @@ Other common ways to connect RaPi and Pixhawk are:
 - Serial connection to the RPi USB port. This is simple and reliable, but requires an additional FTDI Chip USB-to-serial adapter board. This option is covered in [Pixhawk Companion > Serial Port Setup](../companion_computer/pixhawk_companion.md#serial-port-setup).
 :::
 
-
 ## Wiring
 
 ### Serial connection
@@ -35,7 +34,7 @@ The diagram shows Pixhawk `TELEM2` port pins on the left and RPi GPIO board pins
 | ![Pin numbering showing left-most pin is pin 1](../../assets/companion_computer/pixhawk_rpi/pins_numbers.png) | ![](../../assets/companion_computer/pixhawk_rpi/rpi_gpio.png) |
 
 :::note
-Almost all recent Pixhawk boards, such as the Pixhawk-6C, use the same connectors and pin numbers for correpsponding ports, as defined in the Pixhawk Connector Standard. You can check the specific board documentation to confirm the pin layout.
+Almost all recent Pixhawk boards, such as the Pixhawk-6C, use the same connectors and pin numbers for corresponding ports, as defined in the Pixhawk Connector Standard. You can check the specific board documentation to confirm the pin layout.
 
 The standard `TELEM2` pin assignments are shown below.
 
@@ -61,6 +60,7 @@ You can plug an [appropriate radio](../telemetry/README.md) into the Pixhawk `TE
 Pixhawk boards usually require a reliable 5V DC supply, which is commonly supplied from LiPO batteries via a [Power Module and/or Power Distribution board](../power_module/README.md) to a port labeled `POWER` (or similar).
 
 The instructions for your flight controller will normally explain the recommended setup. For example:
+
 - [Holybro Pixhawk 6C > Voltage Ratings](../flight_controller/pixhawk6c.md#voltage-ratings)
 - [Holybro Pixhawk 6C Wiring Quick Start > Power](../assembly/quick_start_pixhawk6c.md#power)
 
@@ -71,7 +71,7 @@ Overloading your Pixhawk is a good way to destroy it.
 :::
 
 :::note
-During PX4 setup and configuration the USB connection with your ground station laptop is suffient to power the Pixhawk board, and your companion computer might be powered from a desktop charger.
+During PX4 setup and configuration the USB connection with your ground station laptop is sufficient to power the Pixhawk board, and your companion computer might be powered from a desktop charger.
 :::
 
 ## PX4 Setup
@@ -101,7 +101,6 @@ make px4_fmu-v6c_default upload
 ```
 -->
 
-
 ## Ubuntu Setup on RPi
 
 The following steps show how to install and setup Ubuntu 22.04 on the RPi. Note that ROS 2 versions target particular Ubuntu versions. We're using Ubuntu 22.04 to match ROS 2 "Humble", so if you're working with ROS 2 "Foxy" you would instead install Ubuntu 20.04.
@@ -117,40 +116,44 @@ Enter the following commands (in sequence) a terminal to configure Ubuntu for RP
 
 1. Install `raspi-config`:
 
-   ```
+   ```sh
    sudo apt update
    sudo apt upgrade
-   sudo apt-get install raspi-config 
+   sudo apt-get install raspi-config
    ```
+
 1. Open `raspi-config`:
 
-   ```
+   ```sh
    sudo raspi-config
    ```
 
 1. Go to the **Interface Option** and then click **Serial Port**.
+
    - Select **No** to disable serial login shell.
    - Select **Yes** to enable the serial interface.
    - Click **Finish** and restart the RPi.
 
 1. Open the firmware boot configuration file in the `nano` editor on RaPi:
 
-   ```bash
+   ```sh
    sudo nano /boot/firmware/config.txt
    ```
+
 1. Append the following text to the end of the file (after the last line):
 
-   ```bash
+   ```sh
    enable_uart=1
    dtoverlay=disable-bt
    ```
 
 1. Then save the file and restart the RPi.
+
    - In `nano` you can save the file using the following sequence of keyboard shortcuts: **ctrl+x**, **ctrl+y**, **Enter**.
 
 1. Check that the serial port is available. In this case we use the following terminal commands to list the serial devices:
 
-   ```bash
+   ```sh
    cd /
    ls /dev/ttyAMA0
    ```
@@ -158,7 +161,6 @@ Enter the following commands (in sequence) a terminal to configure Ubuntu for RP
    The result of the command should include the RX/TX connection `/dev/ttyAMA0` (note that this serial port is also available as `/dev/serial0`).
 
 The RPi is now setup to work with RPi and communicate using the `/dev/ttyAMA0` serial port. Note that we'll install more software in the following sections to work with MAVLink and ROS 2.
-
 
 ## MAVLink Communication
 
@@ -174,7 +176,7 @@ First check the Pixhawk `TELEM 2` configuration:
 1. Open QGroundControl (the vehicle should connect).
 1. [Check/change the following parameters](../advanced_config/parameters.md) in QGroundControl:
 
-   ```
+   ```ini
    MAV_1_CONFIG = TELEM2
    UXRCE_DDS_CFG = 0 (Disabled)
    SER_TEL2_BAUD = 57600
@@ -182,12 +184,11 @@ First check the Pixhawk `TELEM 2` configuration:
 
    Note that the parameters may already be set appropriately. For information about how serial ports and MAVLink configuration work see [Serial Port Configuration](../peripherals/serial_configuration.md) and [MAVLink Peripherals](../peripherals/mavlink_peripherals.md).
 
-
 Then install setup MAVProxy on the RPi using the following terminal commands:
 
 1. Install MAVProxy:
 
-   ```bash
+   ```sh
    sudo apt install python3-pip
    sudo pip3 install mavproxy
    sudo apt remove modemmanager
@@ -195,17 +196,18 @@ Then install setup MAVProxy on the RPi using the following terminal commands:
 
 1. Run MAVProxy, setting the port to connect to `/dev/ttyAMA0` and the baud rate to match the PX4:
 
-   ```
+   ```sh
    sudo mavproxy.py --master=/dev/serial0 --baudrate 57600
    ```
 
-   :::note
+:::note
 Note that above we used `/dev/serial0`, but we could equally well have used `/dev/ttyAMA0`. If we were connecting via USB then we would instead set the port as `/dev/ttyACM0`:
 
-   ```bash
+   ```sh
    sudo chmod a+rw /dev/ttyACM0
    sudo mavproxy.py --master=/dev/ttyACM0 --baudrate 57600
    ```
+
 
 :::
 
@@ -226,14 +228,14 @@ The configuration steps are:
 1. Connect the Pixhawk with the laptop using a USB cable and open QGroundControl (if not currently connected).
 1. [Check/change the following parameters](../advanced_config/parameters.md) in QGroundControl:
 
-   ```
+   ```ini
    MAV_1_CONFIG = 0 (Disabled)
    UXRCE_DDS_CFG = 102 (TELEM2)
    SER_TEL2_BAUD = 921600
    ```
 
-   The `SER_TEL2_BAUD` rate sets the comms link data rate.   
-You could similarly configure a connection to `TELEM1` using either `MAV_1_CONFIG` or `MAV_0_CONFIG`. [MAV_1_CONFIG=0](../advanced_config/parameter_reference.md#MAV_1_CONFIG) and [UXRCE_DDS_CFG=102](../advanced_config/parameter_reference.md#UXRCE_DDS_CFG) disable MAVLink on TELEM2 and enable the uXRCE-DDS client on TELEM2, respectively.
+   [MAV_1_CONFIG=0](../advanced_config/parameter_reference.md#MAV_1_CONFIG) and [UXRCE_DDS_CFG=102](../advanced_config/parameter_reference.md#UXRCE_DDS_CFG) disable MAVLink on TELEM2 and enable the uXRCE-DDS client on TELEM2, respectively. The `SER_TEL2_BAUD` rate sets the comms link data rate.  
+You could similarly configure a connection to `TELEM1` using either `MAV_1_CONFIG` or `MAV_0_CONFIG`.
 
    :::note
 You will need to reboot the flight controller to apply any changes to these parameters.
@@ -241,18 +243,18 @@ You will need to reboot the flight controller to apply any changes to these para
 
 1. Check that the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) module is now running. YOu can do this by running the following command in the QGroundControl [MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html):
 
-   ```
+   ```sh
    uxrce_dds_client status
    ```
 
 :::note
 If the client module is not running you can start it manually in the MAVLink console:
 
-```
+```sh
 uxrce_dds_client start -t serial -d /dev/ttyS3 -b 921600
 ```
 
-For other flight controllers check the serial port mapping section in their overview page. Note that `/dev/ttyS3` is the PX4 port for `TELEM2` on the [Holybro Pixhawk 6c](../flight_controller/pixhawk6c.md#serial-port-mapping).
+Note that `/dev/ttyS3` is the PX4 port for `TELEM2` on the [Holybro Pixhawk 6c](../flight_controller/pixhawk6c.md#serial-port-mapping). For other flight controllers check the serial port mapping section in their overview page.
 :::
 
 ### ROS Setup on RPi
@@ -262,12 +264,13 @@ The steps to setup ROS 2 and the Micro XRCE-DDS Agent on the RPi are:
 1. Install ROS 2 Humble by following the [official tutorial](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
 2. Install the git using the RPi terminal:
 
-   ```bash
+   ```sh
    sudo apt install git
    ```
+
 3. Install the uXRCE_DDS agent:
 
-   ```bash
+   ```sh
    git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
    cd Micro-XRCE-DDS-Agent
    mkdir build
@@ -276,15 +279,13 @@ The steps to setup ROS 2 and the Micro XRCE-DDS Agent on the RPi are:
    make
    sudo make install
    sudo ldconfig /usr/local/lib/
-   make
-   sudo make install
-   sudo ldconfig /usr/local/lib/
    ```
 
    See [uXRCE-DDS > Micro XRCE-DDS Agent Installation](../middleware/uxrce_dds.md#micro-xrce-dds-agent-installation) for alternative ways of installing the agent.
+
 4. Start the agent in the RPi terminal:
 
-   ```bash
+   ```sh
    sudo MicroXRCEAgent serial --dev /dev/serial0 -b 921600
    ```
 
@@ -292,7 +293,7 @@ The steps to setup ROS 2 and the Micro XRCE-DDS Agent on the RPi are:
 
 Now that both the agent and client are running, you should see activity on both the MAVLink console and the RPi terminal. You can view the available topics using the following command on the RPi:
 
-```bash
+```sh
 source /opt/ros/humble/setup.bash
 ros2 topic list
 ```

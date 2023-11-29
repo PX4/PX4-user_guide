@@ -14,7 +14,7 @@ The latest version of PlotJuggler for Windows may not work. In this case fallbac
 
 If the downloaded AppImage does not open, you may need to change its access settings. This is done in the terminal using the following command:
 
-```bash
+```sh
 chmod 777 <Path-To-PlotJuggler-AppImage>
 ```
 

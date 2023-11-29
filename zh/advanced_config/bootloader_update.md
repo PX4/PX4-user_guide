@@ -94,13 +94,13 @@ If the hardware has the [Silicon Errata](../flight_controller/silicon_errata.md#
 1. 通过 USB 将 Dronecode Probe 连接到PC。
 1. 进入包含二进制文件的目录，然后在终端中运行以下命令 ：
 
-   ```bash
+   ```sh
    arm-none-eabi-gdb px4fmuv5_bl.elf
    ```
 
 1. The _gdb terminal_ appears and it should display the following output:
 
-   ```bash
+   ```sh
    GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git
    Copyright (C) 2017 Free Software Foundation, Inc.
    License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
@@ -121,7 +121,7 @@ If the hardware has the [Silicon Errata](../flight_controller/silicon_errata.md#
 1. Find your `<dronecode-probe-id>` by running an ls command in the **/dev/serial/by-id** directory.
 1. 现在，使用以下命令连接到 Dronecode probe：
 
-   ```bash
+   ```sh
    tar ext /dev/serial/by-id/<dronecode-probe-id>
    ```
 
@@ -132,14 +132,14 @@ If the hardware has the [Silicon Errata](../flight_controller/silicon_errata.md#
 
 1. 使用以下命令扫描 Pixhawk 的 swd 调试端口并连接到它 ：
 
-   ```bash
+   ```sh
    (gdb) mon swdp_scan
    (gdb) attach 1
    ```
 
 1. 将二进制文件加载到 Pixhawk 中 ：
 
-   ```bash
+   ```sh
    (gdb) load
    ```
 

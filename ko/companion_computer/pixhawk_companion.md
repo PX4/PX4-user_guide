@@ -4,7 +4,6 @@ PX4 running on Pixhawk-series flight controllers can connect to a companion comp
 
 See [Companion Computers](../companion_computer/README.md) for information about supported hardware and general setup.
 
-
 ## Companion Computer Software
 
 The companion computer needs to run software that communicates with the flight controller, and which routes traffic to ground stations and the cloud.
@@ -32,7 +31,7 @@ To use [ROS 2/uXRCE-DDS](../ros/ros2_comm.md) instead of MAVLink on `TELEM2`, di
 If you're connecting using a serial port, wire the port according to the instructions below. All Pixhawk serial ports operate at 3.3V and are 5V level compatible.
 
 :::warning
-Many modern companion computers only support 1.8V levels on their hardware UART and can be damaged by 3.3V levels. Use a level shifter. In most cases the accessible hardware serial ports already have some function (modem or console) associated with them and need to be *reconfigured in Linux* before they can be used.
+Many modern companion computers only support 1.8V levels on their hardware UART and can be damaged by 3.3V levels. Use a level shifter. In most cases the accessible hardware serial ports already have some function (modem or console) associated with them and need to be _reconfigured in Linux_ before they can be used.
 :::
 
 A safe and easy to set up option is to use an FTDI Chip USB-to-serial adapter board to connect from `TELEM2` on the Pixhawk to the USB port on the companion computer. The `TELEM2` to FTDI wiring map is shown below.

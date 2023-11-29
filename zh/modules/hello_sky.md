@@ -9,21 +9,23 @@
 ## 系统必备组件
 
 以下内容是您需要提前准备的：
-* [PX4 SITL Simulator](../simulation/README.md) *or* a [PX4-compatible flight controller](../flight_controller/README.md).
-* [PX4 Development Toolchain](../dev_setup/dev_env.md) for the desired target.
-* [Download the PX4 Source Code](../dev_setup/building_px4.md#download-the-px4-source-code) from Github
+
+- [PX4 SITL Simulator](../simulation/README.md) _or_ a [PX4-compatible flight controller](../flight_controller/README.md).
+- [PX4 Development Toolchain](../dev_setup/dev_env.md) for the desired target.
+- [Download the PX4 Source Code](../dev_setup/building_px4.md#download-the-px4-source-code) from Github
 
 The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
-* 重命名 (或删除) **px4_simple_app** 目录。
+
+- 重命名 (或删除) **px4_simple_app** 目录。
 
 ## 最小的应用程序
 
-在本节中，我们创建一个*很小的应用程序*，只是打印出来`Hello Sky!`。 This consists of a single *C* file and a *cmake* definition (which tells the toolchain how to build the application).
+在本节中，我们创建一个*很小的应用程序*，只是打印出来`Hello Sky!`。 This consists of a single _C_ file and a _cmake_ definition (which tells the toolchain how to build the application).
 
 1. Create a new directory **PX4-Autopilot/src/examples/px4_simple_app**.
 1. Create a new C file in that directory named **px4_simple_app.c**:
 
-   * Copy in the default header to the top of the page. 该注释应出现在所有贡献的文件中！
+   - Copy in the default header to the top of the page. 该注释应出现在所有贡献的文件中！
 
      ```c
      /****************************************************************************
@@ -60,7 +62,7 @@ The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/P
       ****************************************************************************/
      ```
 
-   * 将下面的代码复制到头部注释的下方， 该注释应出现在所有贡献的文件中！
+   - 将下面的代码复制到头部注释的下方， 该注释应出现在所有贡献的文件中！
 
      ```c
      /**
@@ -90,6 +92,7 @@ The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/P
 :::
 
 1. 创建并打开一个名为**CMakeLists.txt**的新*cmake*定义文件。 复制下面的文本：
+
    ```cmake
    ############################################################################
    #
@@ -132,7 +135,9 @@ The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/P
     DEPENDS
     )
    ```
+
    `px4_add_module()` 方法根据模块描述生成静态库。
+
    - `MODULE`块是模块的唯一固件名称（按照惯例，模块名称的前缀是`src`之后的父路径）
    - `MAIN`块列出了模块的入口点，它将命令注册到 NuttX，以便可以从 PX4 shell 或 SITL 控制台调用它。
 
@@ -144,24 +149,26 @@ The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_modu
 如果您对`px4_add_module`指定`DYNAMIC`选项，则会在 POSIX 平台上创建一个动态库而不是静态库（这些可以在无需重新编译 PX4 的情况下加载，并作为二进制文件而不是源代码共享给其他人）。 您的应用程序不会成为内置命令，而是生成一个名为`examples__px4_simple_app.px4mod`的文件。 您可以通过在运行时使用以下`dyn`命令加载文件来运行您的命令：`dyn ./examples__px4_simple_app.px4mod`
 :::
 
-1. Create and open a new *Kconfig* definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4-kconfig-symbol-naming-convention)). Copy in the text below:
-   ```menuconfig EXAMPLES_PX4_SIMPLE_APP
-    bool "PX4 Simple app"
-    default n
-    ---help---
-        Enable PX4 simple app
+1. Create and open a new _Kconfig_ definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4-kconfig-symbol-naming-convention)). Copy in the text below:
+
+   ```
+   P
+   "
+   n
+   -
+   p
    ```
 
 ## 编译应用程序/固件
 
 应用程序的编写至此完成。 为了运行它，您首先需要确保它是作为 PX4 的一部分构建的。 应用程序被将依据目标的适当板级*cmake*文件添加到编译/固件中：
 
-* PX4 SITL (Simulator): [PX4-Autopilot/boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board)
-* Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v2/default.px4board)
-* Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v4/default.px4board)
-* *px4board* files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/main/boards)
+- PX4 SITL (Simulator): [PX4-Autopilot/boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board)
+- Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v2/default.px4board)
+- Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v4/default.px4board)
+- _px4board_ files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/main/boards)
 
-To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the *px4board* file or run [boardconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup) `make px4_fmu-v4_default boardconfig`:
+To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the _px4board_ file or run [boardconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup) `make px4_fmu-v4_default boardconfig`:
 
 ```
 examples  --->
@@ -174,11 +181,10 @@ examples  --->
 
 使用特定板的命令构建示例：
 
-* jMAVSim 模拟器： `make px4_sitl_default jmavsim`
-* Pixhawk v1/2：`make px4_fmu-v2_default`（或者仅使用`make px4_fmu-v2`）
-* Pixhawk v3： `make px4_fmu-v4_default`
-* 其它板: [构建代码](../dev_setup/building_px4.md#building-for-nuttx)
-
+- jMAVSim 模拟器： `make px4_sitl_default jmavsim`
+- Pixhawk v1/2：`make px4_fmu-v2_default`（或者仅使用`make px4_fmu-v2`）
+- Pixhawk v3： `make px4_fmu-v4_default`
+- 其它板: [构建代码](../dev_setup/building_px4.md#building-for-nuttx)
 
 ## 测试应用（硬件）
 
@@ -186,8 +192,8 @@ examples  --->
 
 启用上传器，然后重启飞控板：
 
-* Pixhawk v1/2: `make px4_fmu-v2_default upload`
-* Pixhawk v3: `make px4_fmu-v4_default upload`
+- Pixhawk v1/2: `make px4_fmu-v2_default upload`
+- Pixhawk v3: `make px4_fmu-v4_default upload`
 
 在您重启飞控板之前，它应该打印一些编译消息，并在最后打印：
 
@@ -259,7 +265,6 @@ INFO  [px4_simple_app] Hello Sky!
 ```
 
 现在可以扩展该应用程序以实际执行实用的任务
-
 
 ## 订阅传感器数据
 
@@ -510,7 +515,7 @@ int px4_simple_app_main(int argc, char *argv[])
 px4_simple_app
 ```
 
-If you start *QGroundControl*, you can check the sensor values in the real time plot ([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)).
+If you start _QGroundControl_, you can check the sensor values in the real time plot ([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)).
 
 ## 总结
 

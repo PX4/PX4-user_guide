@@ -20,7 +20,7 @@ region `flash' overflowed by 12456 bytes
 
 The command below will list the largest static allocations:
 
-```bash
+```sh
 sudo apt-get remove modemmanager
 ```
 

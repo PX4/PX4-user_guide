@@ -162,13 +162,13 @@
 
    `OPTION` can be `OPT_NOALLTEST`,`OPT_NOJIGTEST` or `0` and is considered if within px4 shell one of the two commands are called: ```bash pxh&gt; tests all
 
-   ```bash
+   ```sh
    pxh> tests all
    ```
 
    或
 
-   ```bash
+   ```sh
    pxh> tests jig
    ```
 
@@ -180,7 +180,7 @@
 
 Run the complete list of GTest Unit Tests, GTest Functional Tests and SITL Unit Tests right from bash:
 
-```bash
+```sh
 make tests
 ```
 
@@ -188,7 +188,7 @@ make tests
 
 使用以下命令对ctest名称使用正则表达式对要运行的测试子集进行筛选：
 
-```bash
+```sh
 pxh> tests help
 ```
 

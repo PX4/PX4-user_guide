@@ -145,7 +145,7 @@ Gazebo Classic can be run in a _headless_ mode in which the Gazebo Classic UI is
 
 Simply prefix the normal `make` command with `HEADLESS=1` as shown:
 
-```bash
+```sh
 HEADLESS=1 make px4_sitl gazebo-classic_plane
 ```
 

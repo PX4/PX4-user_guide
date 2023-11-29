@@ -13,7 +13,7 @@ PX4 引导加载程序的代码可从 Github [ Bootloader ](https://github.com/p
 
 ## 构建 Bootloader
 
-```bash
+```sh
 git clone https://github.com/PX4/Bootloader.git
 cd Bootloader
 git submodule init
@@ -41,7 +41,7 @@ The instructions below are valid for a Blackmagic / Dronecode probe. Other JTAG 
 * 在 Linux 上： `/dev/serial/by-id/usb-Black_Sphere_XXX-if00`
 * 在 MAC OS 上：确保使用 cu.xxx 端口，而不是 tty.xxx 端口： `tar ext /dev/tty.usbmodemDDEasdf`
 
-```bash
+```sh
 arm-none-eabi-gdb
   (gdb) tar ext /dev/serial/by-id/usb-Black_Sphere_XXX-if00
   (gdb) mon swdp_scan
@@ -68,7 +68,7 @@ arm-none-eabi-gdb
 
 常见目标的 `--device`/SoC是：
 
-```bash
+```sh
 JLinkGDBServer -select USB=0 -device STM32F427VI -if SWD-DP -speed 20000
 ```
 
@@ -82,7 +82,7 @@ The `--device`/SoC for common targets is:
 
 #### 连接 GDB
 
-```bash
+```sh
 arm-none-eabi-gdb
   (gdb) tar ext :2331
   (gdb) load aerofcv1_bl.elf
@@ -99,7 +99,7 @@ Error erasing flash with vFlashErase packet
 
 这将禁用目标供电并尝试另一个闪光周期。
 
-```bash
+```sh
 mon tpwr disable
 swdp_scan
 attach 1

@@ -16,7 +16,7 @@ The user can still use the yaw stick to demand a yaw rate even while the weather
 
 ## Mission Mode Behaviour
 
-In [Mission mode](../flight_modes/mission.md) the weather vane feature will always be active when the parameter is enabled. Any yaw angle commanded in a mission will be ignored.
+In [Mission mode](../flight_modes_vtol/mission.md) the weather vane feature will always be active when the parameter is enabled. Any yaw angle commanded in a mission will be ignored.
 
 <a id="configuration"></a>
 

@@ -35,8 +35,7 @@ Examine the throttle level (thrust) when the vehicle is level (no or little pitc
 To bypass the flight checks you need to set the circuit breaker for the airspeed sensor ([CBRK_AIRSPD_CHK](../advanced_config/parameter_reference.md#CBRK_AIRSPD_CHK)) to 162128.
 
 :::note
-`CBRK_AIRSPD_CHK`를 활성화하면 센서 드라이버가 시작되지 않고 보정이 방지됩니다 (즉, 비행 검사를 우회하는 것 이상을 수행합니다).
-:::
+`CBRK_AIRSPD_CHK`를 활성화하면 센서 드라이버가 시작되지 않고 보정이 방지됩니다 (즉, 비행 검사를 우회하는 것 이상을 수행합니다). :::
 
 비행 컨트롤러에게 대기속도 센서 없이 날고 있다는 것을 알리려면, 대기 속도 모드를 'Airspeed disabled'([FW_ARSP_MODE = 1](../advanced_config/parameter_reference.md#FW_ARSP_MODE))로 설정하여야 합니다.
 
@@ -54,7 +53,7 @@ The position estimator tested for this mode is EKF2, you can set this by changin
 
 ## 대기속도 센서가 없는 첫 비행
 
-The values apply to a position controlled flight (like [Hold mode](../flight_modes_fw/hold.md) or [Mission mode](../flight_modes/mission.md) or Mission mode). It is therefore recommended that a mission is configured at a safe altitude, approximately 10m above the quad-chute threshold.
+The values apply to a position controlled flight (like [Hold mode](../flight_modes_fw/hold.md) or [Mission mode](../flight_modes_vtol/mission.md) or Mission mode). It is therefore recommended that a mission is configured at a safe altitude, approximately 10m above the quad-chute threshold.
 
 기준 비행과 같이, 이 비행은 풍속이 매우 작은 조건에서 수행되어야 합니다. For the first flight the following is recommended:
 
@@ -81,3 +80,4 @@ The relevant parameters are:
 - [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM): determined (e.g. 70%)
 - [VT_TRANS_MIN_TM](../advanced_config/parameter_reference.md#VT_TRANS_MIN_TM): 결정됨 (예: 10 초)
 - [VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT): 15
+

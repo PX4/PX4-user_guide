@@ -13,7 +13,7 @@ The code for the PX4 bootloader is available from the Github [Bootloader](https:
 
 ## Building the Bootloader
 
-```bash
+```sh
 git clone https://github.com/PX4/Bootloader.git
 cd Bootloader
 git submodule init
@@ -43,7 +43,7 @@ The sequence is
 * On LINUX: `/dev/serial/by-id/usb-Black_Sphere_XXX-if00`
 * On MAC OS: Make sure to use the cu.xxx port, not the tty.xxx port: `tar ext /dev/tty.usbmodemDDEasdf`
 
-```bash
+```sh
 arm-none-eabi-gdb
   (gdb) tar ext /dev/serial/by-id/usb-Black_Sphere_XXX-if00
   (gdb) mon swdp_scan
@@ -68,7 +68,7 @@ These instructions are for the [J-Link GDB server](https://www.segger.com/jlink-
 
 The command below is used to run the server for flight controllers that use the STM32F427VI SoC:
 
-```bash
+```sh
 JLinkGDBServer -select USB=0 -device STM32F427VI -if SWD-DP -speed 20000
 ```
 
@@ -82,7 +82,7 @@ The `--device`/SoC for common targets is:
 
 #### Connect GDB
 
-```bash
+```sh
 arm-none-eabi-gdb
   (gdb) tar ext :2331
   (gdb) load aerofcv1_bl.elf
@@ -99,7 +99,7 @@ Error erasing flash with vFlashErase packet
 
 Disconnect the target (while leaving JTAG connected) and run
 
-```bash
+```sh
 mon tpwr disable
 swdp_scan
 attach 1

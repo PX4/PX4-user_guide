@@ -11,10 +11,12 @@ This frame has been [discontinued](../flight_controller/autopilot_experimental.m
 ## 구매처
 
 *Beta75X*는 여러 곳에서 구매할 수 있습니다.
+
 - [GetFPV](https://www.getfpv.com/beta75x-2s-brushless-whoop-micro-quadcopter-xt30-frsky.html)
 - [아마존](https://www.amazon.com/BETAFPV-Beta75X-Brushless-Quadcopter-Smartaudio/dp/B07H86XSPW)
 
 추가로 다음과 같은 것들이 필요합니다.
+
 - RC 송신기. *Beta75X*는 수신기와 함께 배송될 수 있습니다. PX4는 이들과 호환되지만 송신기와 일치하는 버전을 선택하는 것이 좋습니다.
 - LiPo 배터리 충전기(배터리 1개와 함께 배송되지만 여분이 필요할 수 있습니다).
 - FPV를 비행하고 싶다면 FPV 고글을 사용하십시오. There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product-page/dominator-v3).
@@ -42,6 +44,7 @@ You can always [reinstall Betaflight](../advanced_config/bootloader_update_from_
 :::
 
 PX4를 설치 및 설정:
+
 - [PX4 펌웨어 로드](../config/firmware.md).
 - [Airframe](../config/airframe.md)을 *BetaFPV Beta75X 2S Brushless Whoop*로 설정합니다.
 - 센서 보정과 무선 설정을 포함하여 [기본 설정](../config/README.md)을 진행합니다.

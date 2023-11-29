@@ -35,8 +35,7 @@ Finally take note of the groundspeed during cruise flight. This can be used to t
 To bypass the flight checks you need to set the circuit breaker for the airspeed sensor ([CBRK_AIRSPD_CHK](../advanced_config/parameter_reference.md#CBRK_AIRSPD_CHK)) to 162128.
 
 :::note
-Enabling `CBRK_AIRSPD_CHK` will prevent the sensor driver from starting and prevent calibrarion (i.e. it does more than just bypassing flight checks).
-:::
+Enabling `CBRK_AIRSPD_CHK` will prevent the sensor driver from starting and prevent calibrarion (i.e. it does more than just bypassing flight checks). :::
 
 To tell the flight controller that it is fling without an airspeed sensor you need to set the airspeed mode to 'Airspeed disabled' ([FW_ARSP_MODE=1](../advanced_config/parameter_reference.md#FW_ARSP_MODE)).
 
@@ -54,7 +53,7 @@ The position estimator tested for this mode is EKF2, you can set this by changin
 
 ## First Flight Without Airspeed Sensor
 
-The values apply to a position controlled flight (like [Hold mode](../flight_modes_fw/hold.md) or [Mission mode](../flight_modes/mission.md) or Mission mode). It is therefore recommended that a mission is configured at a safe altitude, approximately 10m above the quad-chute threshold.
+The values apply to a position controlled flight (like [Hold mode](../flight_modes_fw/hold.md) or [Mission mode](../flight_modes_vtol/mission.md) or Mission mode). It is therefore recommended that a mission is configured at a safe altitude, approximately 10m above the quad-chute threshold.
 
 Like for the reference flight, this flight should be performed in very low wind conditions. For the first flight the following is recommended:
 
@@ -81,3 +80,4 @@ The relevant parameters are:
 - [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM): determined (e.g. 70%)
 - [VT_TRANS_MIN_TM](../advanced_config/parameter_reference.md#VT_TRANS_MIN_TM): determined (e.g. 10 seconds)
 - [VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT): 15
+
