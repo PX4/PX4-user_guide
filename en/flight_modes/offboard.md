@@ -109,7 +109,7 @@ Before using offboard mode with ROS 2, please spend a few minutes understanding 
 
   - All the values are in the drone body FRD frame. The rates are in \[rad/s\] while thrust_body is normalized in \[-1, 1\].
 
-### Generic vehicle
+### Generic Vehicle
 
 The following offboard control modes bypass all internal PX4 control loops and should be used with great care.
 
