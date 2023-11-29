@@ -10,14 +10,14 @@ This is a small subset of vehicles that can run PX4. You can find others on [px4
 
 This section lists vehicles that are sold fully assembled and ready to fly (RTF), with PX4 installed.
 
-* Autogyro
-  * [ThunderFly TF-G2](https://www.thunderfly.cz/tf-g2.html)
-* Multicopter
-  * [Teal One](https://tealdrones.com/teal-one/)
-  * [ModalAI Starling](../complete_vehicles/modalai_starling.md)
-  * [ModalAI Sentinel](https://www.modalai.com/sentinel)
-* VTOL
-  * [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
+- Autogyro
+  - [ThunderFly TF-G2](https://www.thunderfly.cz/tf-g2.html)
+- Multicopter
+  - [Teal One](https://tealdrones.com/teal-one/)
+  - [ModalAI Starling](../complete_vehicles/modalai_starling.md)
+  - [ModalAI Sentinel](https://www.modalai.com/sentinel)
+- VTOL
+  - [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
 
 ## Fully Assembled (PX4 Compatible)
 
@@ -45,24 +45,24 @@ Kits provide a gentler introduction to building drones than starting from indivi
 They allow you to use parts that are known to work, and to fly a vehicle that is appropriately tuned.
 :::
 
-* Multicopter
-  * [PX4 Development Kit - X500 V2](https://holybro.com/collections/x500-kits) ([holybro.com](https://holybro.com/))
-  * [Holybro X500 Kit](../frames_multicopter/holybro_x500_pixhawk4.md)
-  * [Holybro S500 Kit](../frames_multicopter/holybro_s500_v2_pixhawk4.md)
-  * [Holybro QAV250 Kit](../frames_multicopter/holybro_qav250_pixhawk4_mini.md)
-  * [NXP HoverGames KIT-HGDRONEK66](https://www.nxp.com/KIT-HGDRONEK66) ([hovergames.com](https://www.hovergames.com/))
+- Multicopter
+  - [PX4 Development Kit - X500 V2](https://holybro.com/collections/x500-kits) ([holybro.com](https://holybro.com/))
+  - [Holybro X500 Kit](../frames_multicopter/holybro_x500_pixhawk4.md)
+  - [Holybro S500 Kit](../frames_multicopter/holybro_s500_v2_pixhawk4.md)
+  - [Holybro QAV250 Kit](../frames_multicopter/holybro_qav250_pixhawk4_mini.md)
+  - [NXP HoverGames KIT-HGDRONEK66](https://www.nxp.com/KIT-HGDRONEK66) ([hovergames.com](https://www.hovergames.com/))
 
 ## Fully Assembled (Custom PX4)
 
 This section contains consumer vehicles that run a *custom* version of PX4 (supported by their vendors). These may or may not be updatable to run "vanilla" PX4.
 
-* Multicopter
-  * [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus/)
-  * [Yuneec Mantis Q](https://px4.io/portfolio/yuneec-mantis-q/)
-  * [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
-  * [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/)
-* Fixed-Wing:
-  * [Sentera PXH](https://sentera.com/products/fieldcapture/ag-drones/phx/)
-* VTOL
-  * [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
-  * [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)
+- Multicopter
+  - [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus/)
+  - [Yuneec Mantis Q](https://px4.io/portfolio/yuneec-mantis-q/)
+  - [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
+  - [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/)
+- Fixed-Wing:
+  - [Sentera PXH](https://sentera.com/products/fieldcapture/ag-drones/phx/)
+- VTOL
+  - [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
+  - [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)
