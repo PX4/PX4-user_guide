@@ -52,8 +52,8 @@ dyn ./test.px4mod
 
 #### 启动失败的常见原因
 
-- 对于自定义的应用程序：系统用尽了 RAM 资源。 运行 `free` 命令以查看可用 RAM 的大小。
-- 引发堆栈跟踪的软件故障或者断言。
+- For custom applications: The system was out of RAM. Run the `free` command to see the amount of free RAM.
+- A software fault or assertion resulting in a stack trace
 
 ### 自定义系统的启动文件
 
