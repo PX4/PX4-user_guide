@@ -335,7 +335,7 @@ The used types also define the compatibility with different vehicle types.
 
 The following sections provide a list of supported setpoint types:
 
-- [GotoSetpointType](#goto-setpoint-gotosetpointtype): Smooth position and (optionally) heading control
+- [GotoSetpointType](#go-to-setpoint-gotosetpointtype): Smooth position and (optionally) heading control
 - [DirectActuatorsSetpointType](#direct-actuator-control-setpoint-directactuatorssetpointtype): Direct control of motors and flight surface servo setpoints
 
 :::tip
