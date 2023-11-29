@@ -41,7 +41,7 @@ make px4_sitl_default jmavsim
 
 For Gazebo Classic (only) you can also start the simulator with a debugger attached. Note however, that you must provide the vehicle type in the simulator target, as shown below:
 
-```bash
+```sh
 make px4_sitl_default gazebo-classic_iris_gdb
 make px4_sitl_default gazebo-classic_iris_lldb
 ```
@@ -99,13 +99,13 @@ You can also start your simulation, and _then_ attach `gdb`:
 
 1. In one terminal screen enter the command to start your simulation:
 
-   ```bash
+   ```sh
    make px4_sitl_default gazebo-classic
    ```
 
    As the script runs, note the **SITL COMMAND:** output text located right above the large "PX4" text. It will list the location of your px4 bin file for later use.
 
-   ```bash
+   ```sh
    SITL COMMAND: "<px4 bin file>" "<build dir>"/etc
 
    ______  __   __    ___
@@ -123,7 +123,7 @@ You can also start your simulation, and _then_ attach `gdb`:
 
 2. Open another terminal and type:
 
-   ```bash
+   ```sh
    ps -a
    ```
 
@@ -131,7 +131,7 @@ You can also start your simulation, and _then_ attach `gdb`:
 
    (In this example it is 14149)
 
-   ```bash
+   ```sh
    atlas:~/px4/main/PX4-Autopilot$ ps -a
        PID TTY          TIME CMD
    1796 tty2     00:01:59 Xorg
