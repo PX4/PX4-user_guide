@@ -75,7 +75,7 @@ Manual takeoffs with runway-launched planes:
 - If the plane has a steerable wheel, use the yaw stick to keep it on course.
 - Once the speed is sufficient pull up the nose with the pitch stick.
 
-Automatic takeoffs are possible in the [Mission mode](../flight_modes/mission.md#fw-mission-takeoff) or [Takeoff mode (FW)](../flight_modes_fw/takeoff.md).
+Automatic takeoffs are possible in the [Mission mode](../flight_modes_fw/mission.md#mission-takeoff) or [Takeoff mode (FW)](../flight_modes_fw/takeoff.md).
 The pilot can take over manual control over the vehicle at any moment during the takeoff process or after it by changing into a manual flight mode.
 
 ## Landing
@@ -104,8 +104,8 @@ If you see the vehicle "twitch" during landing (turn down the motors, and then i
 In these modes the pilot has full control over the motor thrust, which is required to perform a manual flaring maneuver when close to the ground (raising the vehicle nose without increasing throttle).
 You should perform the landing in headwind to reduce the groundspeed before touching down.
 
-For auto landings you should use a [Fixed-Wing Mission Landing](../flight_modes/mission.md#fw-mission-landing).
-This landing is defined in a mission, and can be used in either [Mission](../flight_modes/mission.md) or [Return](../flight_modes/return.md) modes.
+For auto landings you should use a [Fixed-Wing Mission Landing](../flight_modes_fw/mission.md#mission-landing).
+This landing is defined in a mission, and can be used in either [Mission](../flight_modes_fw/mission.md) or [Return](../flight_modes/return.md) modes.
 
 The automatic [Land mode](../flight_modes_fw/land.md) mode is not recommended unless absolutely necessary, as it cannot account for underlying terrain.
 <!-- Added this to make it more generic: We'll split this out later -->

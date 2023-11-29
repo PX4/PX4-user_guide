@@ -173,7 +173,7 @@ th {
  <td><a href="../flight_modes_fw/land.html">Land</a></td>
  <td class="centred" colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
- <td>Vehicle initiates the <a href="../flight_modes/mission.html#fw-mission-landing">fixed-wing landing</a> sequence.</td>
+ <td>Vehicle initiates the <a href="../flight_modes_fw/mission.html#mission-landing">fixed-wing landing</a> sequence.</td>
 </tr>
 
 <tr id="hold_fw">
@@ -191,7 +191,7 @@ th {
 </tr>
 
 <tr id="mission_fw">
- <td><a href="../flight_modes/mission.html">Mission</a></td>
+ <td><a href="../flight_modes_fw/mission.html">Mission</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle executes a <a href="../flying/missions.html">predefined mission/flight plan</a> that has been uploaded to the flight controller. </td>
@@ -361,7 +361,7 @@ th {
 </tr>
 
 <tr id="mission_mc">
- <td><a href="../flight_modes/mission.html">Mission</a></td>
+ <td><a href="../flight_modes_mc/mission.html">Mission</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle executes a <a href="../flying/missions.html">predefined mission/flight plan</a> that has been uploaded to the flight controller.</td>

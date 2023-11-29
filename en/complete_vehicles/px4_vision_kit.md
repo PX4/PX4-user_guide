@@ -174,7 +174,7 @@ In addition, users will need ground station hardware/software:
    We recommend RC controller switches are define for:
 
    - [Position Mode](../flight_modes_mc/position.md) - a safe manual flight mode that can be used to test collision prevention.
-   - [Mission Mode](../flight_modes/mission.md) - run missions and test obstacle avoidance.
+   - [Mission Mode](../flight_modes_mc/mission.md) - run missions and test obstacle avoidance.
    - [Return Mode](../flight_modes/return.md) - return vehicle safely to its launch point and land.
 
 1. Attach the propellers with the rotations as shown:
@@ -218,7 +218,7 @@ When the vehicle setup described above is complete:
    The vehicle should slow down and then stop within 6m of the obstacle (the distance can be [changed](../advanced_config/parameters.md) using the [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) parameter).
 
 1. To test [obstacle avoidance](../computer_vision/obstacle_avoidance.md), create a mission where the path is blocked by an obstacle.
-   Then switch to [Mission Mode](../flight_modes/mission.md) to run the mission, and observe the vehicle moving around the obstacle and then returning to the planned course.
+   Then switch to [Mission Mode](../flight_modes_mc/mission.md) to run the mission, and observe the vehicle moving around the obstacle and then returning to the planned course.
 
 ## Development using the Kit
 
