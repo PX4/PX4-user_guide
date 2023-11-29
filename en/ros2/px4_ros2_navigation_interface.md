@@ -4,7 +4,9 @@
 At time of writing parts of the PX4 ROS 2 Interface Library is experimental, and hence subject to change.
 :::
 
-The PX4 ROS 2 Interface Library for navigation enables developers to send their position estimates to PX4 directly using ROS 2. The interface provides a layer of abstraction from PX4 and the uORB messaging framework, and introduces a few sanity checks on the requested state estimation updates sent via the interface. These estimates are then fused into the EKF as internal PX4 estimates would.
+The PX4 ROS 2 Interface Library for navigation enables developers to send their position estimates to PX4 directly using ROS 2.
+The interface provides a layer of abstraction from PX4 and the uORB messaging framework, and introduces a few sanity checks on the requested state estimation updates sent via the interface.
+These estimates are then fused into the EKF as internal PX4 estimates would.
 
 The library provides two classes `LocalNavigationInterface` and `GlobalNavigationInterface` which both expose a similar `update` method, to either provide a local position update or global position update to PX4, respectively. The `update` method expects a position estimate `struct` (defined below) which developers can populate with their own generated position estimates.
 
