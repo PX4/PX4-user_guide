@@ -12,7 +12,6 @@ The flight controller runs PX4 on NuttX, and provides core flight and safety cod
 
 Communications with the ground stations and the cloud are usually routed via the companion computer (e.g. using the [MAVLink Router](https://github.com/mavlink-router/mavlink-router)).
 
-
 ## Integrated Companion/Flight Controller Boards
 
 Controller boards that come with a pre-integrated companion computer and flight controller can significantly ease both software and hardware setup. In some cases the boards are set up to allow easy replacement of flight controller and/or companion computer parts.
@@ -26,7 +25,6 @@ The following boards are known to provide a good integration with PX4:
 The following integrated companion computer/flight controller systems use managed/custom versions of flight controller and companion computer software by default. They are listed here as they can be updated with "vanilla" PX4 firmware for testing/rapid development.
 
 - [Auterion Skynode](../companion_computer/auterion_skynode.md)
-
 
 ## Companion Computer Options
 
@@ -64,6 +62,7 @@ You can also write your own custom MAVLink libraries from scratch:
 #### Routers
 
 You will need a router if you need to bridge MAVLink from the vehicle to a ground station or IP network, or if you need multiple connections:
+
 - [MAVLink Router](https://github.com/intel/mavlink-router) (recommended)
 - [MAVProxy](https://ardupilot.org/mavproxy/)
 
@@ -77,9 +76,7 @@ The following topics explain how to set up companion computers for specific flig
 
 - [Using a Companion Computer with Pixhawk Controllers](../companion_computer/pixhawk_companion.md)
 
-
 ## Additional Information
 
 - [Companion Computer Peripherals](../companion_computer/companion_computer_peripherals.md)
 - [PX4 System Architecture > FC and Companion Computer](../concept/px4_systems_architecture.md#fc-and-companion-computer)
-
