@@ -22105,6 +22105,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_IMU_CLPNOTI">SENS_IMU_CLPNOTI</strong> (INT32)</td>
+ <td>IMU notify clipping <p><strong>Comment:</strong> Notify the user if the IMU is clipping</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_IMU_MODE">SENS_IMU_MODE</strong> (INT32)</td>
  <td>Sensors hub IMU mode  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
