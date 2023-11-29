@@ -133,7 +133,7 @@ If performance is still poor, try increasing the [LPE_PN_V](../advanced_config/p
 
 ## Enabling Auto Modes with a Local Position
 
-All PX4 automatic flight modes (such as [Mission](../flight_modes/mission.md), [Return](../flight_modes/return.md), [Land](../flight_modes_mc/land.md), [Hold](../flight_modes_mc/land.md), [Orbit](../flight_modes_mc/orbit.md))) require a _global_ position estimate, which would normally come from a GPS/GNSS system.
+All PX4 automatic flight modes (such as [Mission](../flight_modes_mc/mission.md), [Return](../flight_modes/return.md), [Land](../flight_modes_mc/land.md), [Hold](../flight_modes_mc/land.md), [Orbit](../flight_modes_mc/orbit.md))) require a _global_ position estimate, which would normally come from a GPS/GNSS system.
 
 Systems that only have a _local_ position estimate (from MOCAP, VIO, or similar) can use the [SET_GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#SET_GPS_GLOBAL_ORIGIN) MAVLink message to set the origin of the EKF to a particular global location. EKF will then provide a global position estimate based on origin and local frame position.
 
@@ -233,7 +233,7 @@ The following steps explain how to feed position estimates from an [OptiTrack](h
 
 * Install the `vrpn_client_ros` package
 * You can get each rigid body pose on an individual topic by running
-  ```bash
+  ```sh
   roslaunch vrpn_client_ros sample.launch server:=<mocap machine ip>
   ```
 
