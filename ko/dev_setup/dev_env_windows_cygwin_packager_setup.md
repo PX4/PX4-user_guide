@@ -34,10 +34,10 @@ You can also install the environment using shell scripts in the Github project.
 1. Make sure you have [Git for Windows](https://git-scm.com/download/win) installed.
 1. Clone the repository https://github.com/PX4/windows-toolchain to the location you want to install the toolchain. Default location and naming is achieved by opening the `Git Bash` and executing:
 
-```cmd
-cd /c/
-git clone https://github.com/PX4/windows-toolchain PX4
-```
+   ```sh
+   cd /c/
+   git clone https://github.com/PX4/windows-toolchain PX4
+   ```
 
 1. If you want to install all components navigate to the freshly cloned folder and double click on the script `install-all-components.bat` located in the folder `toolchain`. If you only need certain components and want to safe Internet traffic and or disk space you can navigate to the different component folders like e.g. `toolchain\cygwin64` and click on the **install-XXX.bat** scripts to only fetch something specific.
 1. Continue with [Getting Started](../dev_setup/dev_env_windows_cygwin.md#getting-started).
@@ -134,14 +134,14 @@ This is what the toolchain does in: [apache-ant/install-apache-ant.bat](https://
 
    - Clone the source code to the folder **C:\PX4\toolchain\genromfs\genromfs-src** with
 
-     ```cmd
+     ```sh
      cd /c/toolchain/genromfs
      git clone https://github.com/chexum/genromfs.git genromfs-src
      ```
 
    - Compile it with:
 
-     ```cmd
+     ```sh
      cd genromfs-src
      make all
      ```
