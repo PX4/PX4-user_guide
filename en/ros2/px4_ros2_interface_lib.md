@@ -372,7 +372,7 @@ _goto_setpoint->update(
 ```
 
 An additional feature of the go-to setpoint is dynamic control on the underlying smoothers' speed limits (i.e. maximum horizontal and vertical translational velocities as well as heading rate).
-If, as above, left unspecified, the smoothers will default the the vehicle's default maximums (typically set to the physical limitations).
+If, as above, left unspecified, the smoothers will default to the vehicle's default maximums (typically set to the physical limitations).
 The smoothers will _only_ decrease speed limits, never increase.
 
 ```cpp
