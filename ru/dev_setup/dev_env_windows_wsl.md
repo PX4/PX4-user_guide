@@ -132,7 +132,7 @@ If you work from a location outside of the WSL file system you'll run into issue
 
 1. Download the PX4 source code using `git` (which is already installed in WSL2):
 
-   ```bash
+   ```sh
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
 
@@ -142,7 +142,7 @@ The environment setup scripts in the source usually work for recent PX4 releases
 
 1. Run the **ubuntu.sh** installer script and acknowledge any prompts as the script progresses:
 
-   ```bash
+   ```sh
    bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
    ```
 
