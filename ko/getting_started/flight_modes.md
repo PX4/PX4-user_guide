@@ -356,7 +356,7 @@ The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;
 
-[Land mode](../flight_modes_fw/land.md) causes the vehicle to turn and land at the location at which the mode was engaged. Fixed-wing landing logic and parameters are explained in the topic: [Mission > Fixed-wing Mission Landing](../flight_modes/mission.md#fw-mission-landing).
+[Land mode](../flight_modes_fw/land.md) causes the vehicle to turn and land at the location at which the mode was engaged. Fixed-wing landing logic and parameters are explained in the topic: [Mission > Fixed-wing Mission Landing](../flight_modes_fw/mission.md#mission-landing).
 
 <a id="offboard_fw"></a>
 
