@@ -7,7 +7,8 @@ The [Holybro Kopis 2](https://holybro.com/products/kopis2-hdv-free-shipping) is 
 ## 구매처
 
 *Kopis 2*는 여러 곳에서 구매 가능합니다.
-- [Holybro](https://holybro.com/products/kopis2-hdv-free-shipping)  <!-- item code 30069, 30070 -->
+
+- [Holybro](https://holybro.com/products/kopis2-hdv-free-shipping) <!-- item code 30069, 30070 -->
 - [GetFPV](https://www.getfpv.com/holybro-kopis-2-fpv-racing-drone-pnp.html)
 
 추가로 다음과 같은 것들이 필요합니다.
@@ -39,7 +40,7 @@ You can always [reinstall Betaflight](../advanced_config/bootloader_update_from_
 :::
 
 PX4를 설치 및 설정:
+
 - [PX4 펌웨어 로드](../config/firmware.md).
 - [Airframe](../config/airframe.md)을 *Holybro Kopis 2*로 설정합니다.
 - 센서 보정과 무선 설정을 포함하여 [기본 설정](../config/README.md)을 진행합니다.
-
