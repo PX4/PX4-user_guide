@@ -4,7 +4,7 @@
 
 그런 다음 VTOL별 설정과 튜닝 작업을 합니다.
 
-* [QuadPlane 설정](../config_vtol/vtol_quad_configuration.md)
-* [후방 이동 튜닝](../config_vtol/vtol_back_transition_tuning.md)
-* [속도 센서가 없는 VTOL](../config_vtol/vtol_without_airspeed_sensor.md)
-* [VTOL 날씨 풍향](../config_vtol/vtol_weathervane.md)
+- [QuadPlane 설정](../config_vtol/vtol_quad_configuration.md)
+- [후방 이동 튜닝](../config_vtol/vtol_back_transition_tuning.md)
+- [속도 센서가 없는 VTOL](../config_vtol/vtol_without_airspeed_sensor.md)
+- [VTOL 날씨 풍향](../config_vtol/vtol_weathervane.md)

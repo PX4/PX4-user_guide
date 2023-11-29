@@ -57,24 +57,24 @@ libsystem_kernel.dylib`__read_nocancel:
     0x7fff90f4430c <+12>: movq   %rax, %rdi
     0x7fff90f4430f <+15>: jmp    0x7fff90f3fc53            ; cerror_nocancel
     0x7fff90f44314 <+20>: retq
-(lldb) 
+(lldb)
 ```
 
 DriverFrameworks 스케줄링이 디버깅 세션을 방해하지 않도록 하려면, `SIGCONT`를 LLDB 및 GDB에서 마스킹합니다.
 
-```bash
+```sh
 (lldb) process handle SIGCONT -n false -p false -s false
 ```
 
 또는 GDB의 경우:
 
-```
+```sh
 (gdb) handle SIGCONT noprint nostop
 ```
 
 그 후 lldb 또는 gdb 셸은 일반 세션처럼 작동합니다. LLDB/GDB 문서를 참고하십시오.
 
-마지막 매개변수인 &lt;viewer\_model\_debugger&gt; 트리플렛은 실제로 빌드 디렉토리에서 make에 전달되므로
+The last parameter, the &lt;viewer_model_debugger&gt; triplet, is actually passed to make in the build directory, so
 
 ```sh
 make px4_sitl_default gazebo-classic_iris_gdb
@@ -99,67 +99,69 @@ You can also start your simulation, and _then_ attach `gdb`:
 
 1. In one terminal screen enter the command to start your simulation:
 
-    ```bash
-    make px4_sitl_default gazebo-classic
-    ```
+   ```bash
+   make px4_sitl_default gazebo-classic
+   ```
 
-    As the script runs, note the **SITL COMMAND:** output text located right above the large "PX4" text. It will list the location of your px4 bin file for later use.
-
-    ```bash
-    SITL COMMAND: "<px4 bin file>" "<build dir>"/etc
-
-    ______  __   __    ___ 
-    | ___ \ \ \ / /   /   |
-    | |_/ /  \ V /   / /| |
-    |  __/   /   \  / /_| |
-    | |     / /^\ \ \___  |
-    \_|     \/   \/     |_/
-
-    px4 starting.
-
-    INFO  [px4] startup script: /bin/sh etc/init.d-posix/rcS 0
-    INFO  [init] found model autostart file as SYS_AUTOSTART=10015
-    ```
-2. Open another terminal and type:
-
-    ```bash
-    ps -a
-    ```
-
-    You will want to note the PID of the process named "PX4"
-
-    (In this example it is 14149)
-
-    ```bash
-    atlas:~/px4/main/PX4-Autopilot$ ps -a
-        PID TTY          TIME CMD
-    1796 tty2     00:01:59 Xorg
-    1836 tty2     00:00:00 gnome-session-b
-    14027 pts/1    00:00:00 make
-    14077 pts/1    00:00:00 sh
-    14078 pts/1    00:00:00 cmake
-    14079 pts/1    00:00:00 ninja
-    14090 pts/1    00:00:00 sh
-    14091 pts/1    00:00:00 bash
-    14095 pts/1    00:01:23 gzserver
-    14149 pts/1    00:02:48 px4
-    14808 pts/2    00:00:00 ps
-    ```
-3. Then type in the same window
+   As the script runs, note the **SITL COMMAND:** output text located right above the large "PX4" text. It will list the location of your px4 bin file for later use.
 
    ```bash
+   SITL COMMAND: "<px4 bin file>" "<build dir>"/etc
+
+   ______  __   __    ___
+   | ___ \ \ \ / /   /   |
+   | |_/ /  \ V /   / /| |
+   |  __/   /   \  / /_| |
+   | |     / /^\ \ \___  |
+   \_|     \/   \/     |_/
+
+   px4 starting.
+
+   INFO  [px4] startup script: /bin/sh etc/init.d-posix/rcS 0
+   INFO  [init] found model autostart file as SYS_AUTOSTART=10015
+   ```
+
+2. Open another terminal and type:
+
+   ```bash
+   ps -a
+   ```
+
+   You will want to note the PID of the process named "PX4"
+
+   (In this example it is 14149)
+
+   ```bash
+   atlas:~/px4/main/PX4-Autopilot$ ps -a
+       PID TTY          TIME CMD
+   1796 tty2     00:01:59 Xorg
+   1836 tty2     00:00:00 gnome-session-b
+   14027 pts/1    00:00:00 make
+   14077 pts/1    00:00:00 sh
+   14078 pts/1    00:00:00 cmake
+   14079 pts/1    00:00:00 ninja
+   14090 pts/1    00:00:00 sh
+   14091 pts/1    00:00:00 bash
+   14095 pts/1    00:01:23 gzserver
+   14149 pts/1    00:02:48 px4
+   14808 pts/2    00:00:00 ps
+   ```
+
+3. Then type in the same window
+
+   ```sh
    sudo gdb [px4 bin file path (from step 1) here]
    ```
 
    예를 들어,
 
-   ```bash
+   ```sh
    sudo gdb /home/atlas/px4/base/PX4-Autopilot/build/px4_sitl_default/bin/px4
    ```
 
    Now, you can attach to the PX4 instance by entering the PID noted in step 2.
 
-   ```bash
+   ```sh
    attach [PID on px4]
    ```
 
@@ -177,7 +179,7 @@ To do so, set the environment variable `PX4_NO_OPTIMIZATION` to be a semi-colon 
 export PX4_NO_OPTIMIZATION='px4;^modules__uORB;^modules__systemlib$'
 ```
 
-대상의 최적화를 억제합니다: 플랫폼\_\_posix\_\_px4\_layer, modules\_\_systemlib, modules\_\_uORB, 예제\_\_px4\_simple\_app, modules\_\_uORB\_\_uORB \\_tests 및 px4.
+would suppress optimization of the targets: platforms\_\_posix\_\_px4_layer, modules\_\_systemlib, modules\_\_uORB, examples\_\_px4_simple_app, modules\_\_uORB\_\_uORB_tests and px4.
 
 The targets that can be matched with these regular expressions can be printed with the command:
 

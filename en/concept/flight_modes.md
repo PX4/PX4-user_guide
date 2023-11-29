@@ -1,7 +1,7 @@
 # Flight Modes
 
-*Flight Modes* define how the autopilot responds to user input and controls vehicle movement.
-They are loosely grouped into *manual*, *assisted* and *auto* modes, based on the level/type of control provided by the autopilot.
+_Flight Modes_ define how the autopilot responds to user input and controls vehicle movement.
+They are loosely grouped into _manual_, _assisted_ and _auto_ modes, based on the level/type of control provided by the autopilot.
 The pilot transitions between flight modes using switches on the remote control or with a ground control station.
 
 Not all flight modes are available on all vehicle types, and some modes behave differently on different vehicle types (as described below).
@@ -12,8 +12,10 @@ The sections below provide an overview of the modes, followed by a [flight mode 
 
 :::note
 User-facing flight mode documentation can be found in:
+
 - [Getting Started > Flight Modes](../getting_started/flight_modes.md): Beginner friendly explanation of all flight modes.
 - [Flying > Flight Modes](../flight_modes/README.md): Detailed documentation of each mode.
+
 :::
 
 ## Flight Mode Summary
@@ -24,8 +26,9 @@ User-facing flight mode documentation can be found in:
 Vehicle movement always follows stick movement, but the level/type of response changes depending on the mode.
 For example, experienced fliers can use modes that provide direct passthrough of stick positions to actuators, while beginners will often choose modes that are less responsive to sudden stick-position changes.
 
-- **Rovers / Boats:** 
-  * **MANUAL/STABILIZED/ACRO:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to control allocation.
+- **Rovers / Boats:**
+
+  - **MANUAL/STABILIZED/ACRO:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to control allocation.
 
 - **Fixed-wing aircraft:**
 
@@ -35,22 +38,22 @@ For example, experienced fliers can use modes that provide direct passthrough of
     However, in this mode the position of the aircraft is not controlled by the autopilot, hence the position can drift due to wind.
     With nonzero roll input the vehicle does a coordinated turn to achieve zero sideslip (the acceleration in y-direction (sidewards) is zero).
     During a coordinated turn, the rudder is used to control the sideslip and any manual yaw input is added to that.
-  - **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw *rate* commands to the autopilot.
+  - **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw _rate_ commands to the autopilot.
     The autopilot controls the angular rates.
     Throttle is passed directly to control allocation.
 
 - **Multirotors:**
 
-  - **MANUAL/STABILIZED** The pilot's inputs are passed as roll and pitch *angle* commands and a yaw *rate* command.
+  - **MANUAL/STABILIZED** The pilot's inputs are passed as roll and pitch _angle_ commands and a yaw _rate_ command.
     Throttle is passed directly to control allocation.
     The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered, consequently leveling-out the attitude.
     However, in this mode the position of the vehicle is not controlled by the autopilot, hence the position can drift due to wind.
-  
+
     :::note
     For Multirotors, Manual and Stabilized modes are the same.
     :::
 
-  - **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw *rate* commands to the autopilot.
+  - **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw _rate_ commands to the autopilot.
     The autopilot controls the angular rates, but not the attitude.
     Hence, if the RC sticks are centered the vehicle will not level-out.
     This allows the multirotor to become completely inverted.
@@ -70,6 +73,7 @@ Assisted modes often make it much easier to gain or restore controlled flight.
     Throttle has large deadzone.
     Centered Throttle holds altitude steady.
     The autopilot only controls altitude so the x,y position of the vehicle can drift due to wind.
+
 - **POSCTL** (Position Control)
 
   - **Fixed-wing aircraft:** Neutral inputs (centered RC sticks) give level flight and it will crab against the wind if needed to maintain a straight line.
@@ -84,12 +88,14 @@ Assisted modes often make it much easier to gain or restore controlled flight.
 
 - **AUTO_LOITER** (Loiter)
 
-  - **Fixed-wing aircraft:** The aircraft loiters around the current position at the current altitude (or possibly slightly above the current altitude, good for 'I'm losing it'). 
-  - **Multirotors:**  The multirotor hovers / loiters at the current position and altitude.
+  - **Fixed-wing aircraft:** The aircraft loiters around the current position at the current altitude (or possibly slightly above the current altitude, good for 'I'm losing it').
+  - **Multirotors:** The multirotor hovers / loiters at the current position and altitude.
+
 - **AUTO_RTL** (Return to Launch)
 
-  - **Fixed-wing aircraft:** The aircraft returns to the home position and loiters in a circle above the home position. 
+  - **Fixed-wing aircraft:** The aircraft returns to the home position and loiters in a circle above the home position.
   - **Multirotors:** The multirotor returns in a straight line on the current altitude (if the current altitude is higher than the home position + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)) or on the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) (if the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) is higher than the current altitude), then lands automatically.
+
 - **AUTO_MISSION** (Mission)
   - **All system types:** The aircraft obeys the programmed mission sent by the ground control station (GCS).
     If no mission received, aircraft will LOITER at current position instead.

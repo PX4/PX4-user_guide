@@ -29,7 +29,6 @@ All these quantities will be automatically logged. You only need to take notes i
 
 This guide will use these quantities to set some of the controller gains later on.
 
-
 ## Tune Roll
 
 Tune first the roll axis, then pitch. The roll axis is safer as an incorrect tuning leads only to motion, but not a loss of altitude.
@@ -42,7 +41,6 @@ To tune this gain, first set the other gains to their minimum values (nominally 
 
 - [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I)
 - [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P)
-
 
 #### Gains to tune
 
@@ -81,14 +79,12 @@ To tune this gain, set the other gains to their minimum values.
 
 - [FW_PR_I](../advanced_config/parameter_reference.md#FW_PR_I) - start with a value of 0.01. Increase this value (doubling each time) until there is no offset between commanded and actual pitch value (this will most likely require looking at a log file).
 
-
 ## Adjusting the Time Constant of the Outer Loop
 
 The overall softness / hardness of the control loop can be adjusted by the time constant. The default of 0.5 seconds should be fine for normal fixed-wing setups and usually does not require adjustment.
 
 - [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC) - set to a default of 0.5 seconds, increase to make the Pitch response softer, decrease to make the response harder.
 - [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) - set to a default of 0.5 seconds, increase to make the Roll response softer, decrease to make the response harder.
-
 
 ## Other Tuning Parameters
 

@@ -152,7 +152,7 @@ This starts up more quickly and uses less system resources (i.e. it is a more "l
 
 Simply prefix the normal `make` command with `HEADLESS=1` as shown:
 
-```bash
+```sh
 HEADLESS=1 make px4_sitl gazebo-classic_plane
 ```
 

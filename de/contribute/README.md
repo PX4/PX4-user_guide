@@ -11,7 +11,6 @@ Welcome to the PX4 Community!
 We pledge to adhere to the [PX4 code of conduct](https://github.com/PX4/PX4-Autopilot/blob/main/CODE_OF_CONDUCT.md), which aims to foster an open and welcoming environment.
 :::
 
-
 This section contains information about how you can meet with the community and contribute to PX4:
 
 - [Dev Call](../contribute/dev_call.md) - Discuss architecture, pull requests, impacting issues with the dev team
@@ -21,4 +20,3 @@ This section contains information about how you can meet with the community and 
 - [Translation](../contribute/translation.md) - Translate using Crowdin
 - [Terminology/Notation](../contribute/notation.md) - Terms and symbols used in the docs
 - [Licenses](../contribute/licenses.md) - PX4 and Pixhawk licensing
-

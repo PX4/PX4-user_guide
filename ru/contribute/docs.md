@@ -46,18 +46,24 @@ To get the library(s) sources onto your local computer you will need to use the 
 1. [Sign up](https://github.com/join) for Github if you haven't already
 1. Create a copy (Fork) of the [PX4 User Guide repo](https://github.com/PX4/PX4-user_guide) on Github ([instructions here](https://docs.github.com/en/get-started/quickstart/fork-a-repo)).
 1. Clone (copy) your forked repository to your local computer:
+
    ```sh
    cd ~/wherever/
    git clone https://github.com/<your git name>/px4_user_guide.git
    ```
+
    For example, to clone the PX4 userguide fork for a user with Github account "john_citizen":
+
    ```sh
    git clone https://github.com/john_citizen/px4_user_guide.git
    ```
+
 1. Navigate to your local repository:
+
    ```sh
    cd ~/wherever/px4_user_guide
    ```
+
 1. Add a _remote_ called "upstream" to point to the PX4 version of the library:
 
    ```sh
@@ -69,21 +75,29 @@ A "remote" is a handle to a particular repository. The remote named _origin_ is 
 :::
 
 1. Create a branch for your changes:
+
    ```sh
    git checkout -b <your_feature_branch_name>
    ```
+
    This creates a local branch on your computer named `your_feature_branch_name`.
+
 1. Make changes to the documentation as needed (general guidance on this in following sections)
 1. Once you are satisfied with your changes, you can add them to your local branch using a "commit":
+
    ```sh
    git add <file name>
    git commit -m "<your commit message>"
    ```
+
    For a good commit message, please refer to the [Source Code Management](../contribute//code.md#commits-and-commit-messages) section.
+
 1. Push your local branch (including commits added to it) to your forked repository on Github.
+
    ```sh
    git push origin your_feature_branch_name
    ```
+
 1. Go to your forked repository on Github in a web browser, e.g.: `https://github.com/<your git name>/px4_user_guide.git`. There you should see the message that a new branch has been pushed to your forked repository.
 1. Create a pull request (PR):
    - On the right hand side of the "new branch message" (see one step before), you should see a green button saying "Compare & Create Pull Request". Press it.
@@ -101,7 +115,7 @@ Build the library locally to test that any changes you have made have rendered p
 :::note
 For recent nodejs versions (after v16.15.0) you need to enable the node legacy OpenSSL provider. On Ubuntu you can do this by running the terminal command:
 
-     ```bash
+     ```sh
      export NODE_OPTIONS=--openssl-legacy-provider
      ```
 
@@ -157,8 +171,13 @@ In overview:
 - All pages must be in an appropriately named sub-folder of **/en** (e.g. this page is in folder **en/contribute/**).
   - This makes linking easier because other pages and images are always as the same relative levels
 - The _structure_ of the book is defined in **SUMMARY.md**
-  - If you add a new page to the guide you must also add an entry to this file! :::tip This is not "standard vuepress" way to define the sidebar (the summary file is imported by [.vuepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/main/.vuepress/get_sidebar.js)).
+
+  - If you add a new page to the guide you must also add an entry to this file!
+
+:::tip
+This is not "standard vuepress" way to define the sidebar (the summary file is imported by [.vuepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/main/.vuepress/get_sidebar.js)).
 :::
+
 - Images must be stored in a sub folder of **/assets**. This is two folders down from content folders, so if you add an image you will reference it like:
 
   ```plain
@@ -218,4 +237,4 @@ For information about translation see: [Translation](../contribute/translation.m
 
 ## Licence
 
-All PX4/Dronecode documentation is free to use and modify under terms of the permissive [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) licence.
+All PX4/Dronecode documentation is free to use and modify under terms of the permissive [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.

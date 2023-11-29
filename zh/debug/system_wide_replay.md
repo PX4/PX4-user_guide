@@ -8,36 +8,37 @@ Replay is useful to test the effect of different parameter values based on real 
 
 The first step is to identify the module or modules that should be replayed. Then, identify all the inputs to these modules, i.e. subscribed ORB topics. For system-wide replay, this consists of all hardware input: sensors, RC input, MAVLink commands and file system.
 
-All identified topics need to be logged at full rate (see [logging](../log/logging.md)). For `ekf2` this is already the case with the default set of logged topics. For `ekf2` this is already the case with the default set of logged topics.
+All identified topics need to be logged at full rate (see [logging](../dev_log/logging.md)). For `ekf2` this is already the case with the default set of logged topics.
 
-It is important that all replayed topics contain only a single absolute timestamp, which is the automatically generated field `timestamp`. Should there be more timestamps, then they must be relative with respect to the main timestamp. For an example, see [sensor_combined.msg](https://github.com/PX4/Firmware/blob/master/msg/sensor_combined.msg). Reasons for this are given below. Should there be more timestamps, they must be relative to the main timestamp. For an example, see [SensorCombined.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg). 造成这种情况的原因如下。
+It is important that all replayed topics contain only a single absolute timestamp, which is the automatically generated field `timestamp`. Should there be more timestamps, they must be relative to the main timestamp. For an example, see [SensorCombined.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg). 造成这种情况的原因如下。
 
-
-## 用法
+## Usage
 
 - First, choose the file to replay and build the target (from within the PX4-Autopilot directory):
 
   ```sh
-  export replay_mode=ekf2
-  export replay=<abs_path_to_log.ulg>
-  make px4_sitl none
+  export replay=<absolute_path_to_log_file.ulg>
+  make px4_sitl_default
   ```
+
   This will create the build/make output in a separate build directory `build/px4_sitl_default_replay` (so that the parameters don't interfere with normal builds). It's possible to choose any posix SITL build target for replay, since the build system knows through the `replay` environment variable that it's in replay mode.
+
 - Add ORB publisher rules in the file `build/px4_sitl_default_replay/rootfs/orb_publisher.rules`. This file defines the modules that are allowed to publish particular messages. It has the following format:
 
+  ```sh
+  restrict_topics: <topic1>, <topic2>, ..., <topicN>
+  module: <module>
+  ignore_others: <true/false>
   ```
-  It means that the given list of topics should only be published by <code><module></code> (which is the command name). Publications to any of these topics from another module are silently ignored. If <code>ignore_others</code> is <code>true</code>, then publications to other topics from <code><module></code> are ignored.
-  ```
- (which is the command name). Publications to any of these topics from another module are silently ignored. If ignore_others is true, then publications to other topics from <module> are ignored.
-  </code>
+
   This means that the given list of topics should only be published by `<module>` (which is the command name). Publications to any of these topics from another module are silently ignored. If `ignore_others` is `true`, publications to other topics from `<module>` are ignored.
 
   For replay, we only want the `replay` module to be able to publish the previously identified list of topics. So for replaying `ekf2`, the rules file looks like this: So, for replaying `ekf2`, the rules file should look like this:
 
-  ```
+  ```sh
   restrict_topics: sensor_combined, vehicle_gps_position, vehicle_land_detected
-module: replay
-ignore_others: true
+  module: replay
+  ignore_others: true
   ```
 
   With this, the modules that usually publish these topics don't need to be disabled for the replay.
@@ -68,13 +69,13 @@ Parameters can be overridden during a replay in two ways: _fixed_ and _dynamic_.
 
 - **Fixed parameter overrides** will override parameters from the start of the replay. They are defined in the file `build/px4_sitl_default_replay/rootfs/replay_params.txt`, where each line should have the format `<param_name> <value>`. For example:
 
-  ```
+  ```sh
   EKF2_RNG_NOISE 0.1
   ```
 
 - **Dynamic parameter overrides** will update parameter values at specified times. These parameters will still be initialised to the values in the log or in the fixed overrides. Parameter update events should be defined in `build/px4_sitl_default_replay/rootfs/replay_params_dynamic.txt`, where each line has the format `<param_name> <value> <timestamp>`. The timestamp is the time in seconds from the start of the log. For example:
 
-  ```
+  ```sh
   EKF2_RNG_NOISE 0.15 23.4
   EKF2_RNG_NOISE 0.05 56.7
   EKF2_RNG_DELAY 4.5 30.0
@@ -135,11 +136,11 @@ ulog_params -i "$replay" -d ' ' | grep -e '^EKF2' > build/px4_sitl_default_repla
 
 Adjust these as desired, and add dynamic parameter overrides in `replay_params_dynamic.txt` if necessary.
 
-
 ## 后台
 
 回放分为3个组件:
-- a replay module These have a negative effect on replay, so care should be taken to avoid dropouts during recording.
+
+- A replay module These have a negative effect on replay, so care should be taken to avoid dropouts during recording.
 - It is currently only possible to replay in 'real-time': as fast as the recording was done.
 
 The replay module reads the log and publishes the messages at the same speed as they were recorded. 将常量偏移量添加到每条消息的时间戳中，以匹配当前系统时间（这就是为什么所有其他时间戳都需要是相对的原因）。 命令 `replay tryapplyparms` 在加载所有其他模块之前执行，并应用日志和用户设置参数中的参数。 然后，作为最后一个命令，`replay trystart` 将再次应用参数并开始实际回放。 如果未设置环境变量 `replay`，则这两个命令不执行任何操作。

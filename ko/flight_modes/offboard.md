@@ -47,19 +47,21 @@ bool velocity
 bool acceleration
 bool attitude
 bool body_rate
-bool actuator
+bool thrust_and_torque
+bool direct_actuator
 ```
 
 The fields are ordered in terms of priority such that `position` takes precedence over `velocity` and later fields, `velocity` takes precedence over `acceleration`, and so on. The first field that has a non-zero value (from top to bottom) defines what valid estimate is required in order to use offboard mode, and the setpoint message(s) that can be used. For example, if the `acceleration` field is the first non-zero value, then PX4 requires a valid `velocity estimate`, and the setpoint must be specified using the `TrajectorySetpoint` message.
 
-| desired control quantity | position field | velocity field | acceleration field | attitude field | body_rate field | actuator field | required estimate | required message                                                                                                                |
-| ------------------------ |:--------------:|:--------------:|:------------------:|:--------------:|:---------------:|:--------------:|:-----------------:| ------------------------------------------------------------------------------------------------------------------------------- |
-| position (NED)           |    &check;     |       -        |         -          |       -        |        -        |       -        |     position      | `TrajectorySetpoint`                                                                                                            |
-| velocity (NED)           |    &cross;     |    &check;     |         -          |       -        |        -        |       -        |     velocity      | `TrajectorySetpoint`                                                                                                            |
-| acceleration (NED)       |    &cross;     |    &cross;     |      &check;       |       -        |        -        |       -        |     velocity      | `TrajectorySetpoint`                                                                                                            |
-| attitude (FRD)           |    &cross;     |    &cross;     |      &cross;       |    &check;     |        -        |       -        |       none        | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                               |
-| body_rate (FRD)          |    &cross;     |    &cross;     |      &cross;       |    &cross;     |     &check;     |       -        |       none        | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                     |
-| thrust and torque (FRD)  |    &cross;     |    &cross;     |      &cross;       |    &cross;     |     &cross;     |    &check;     |       none        | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) and [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
+| desired control quantity | position field | velocity field | acceleration field | attitude field | body_rate field | thrust_and_torque field | direct_actuator field | required estimate | required message                                                                                                                |
+| ------------------------ | -------------- | -------------- | ------------------ | -------------- | --------------- | ------------------------- | --------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| position (NED)           | ✓              | -              | -                  | -              | -               | -                         | -                     | position          | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
+| velocity (NED)           | ✗              | ✓              | -                  | -              | -               | -                         | -                     | velocity          | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
+| acceleration (NED)       | ✗              | ✗              | ✓                  | -              | -               | -                         | -                     | velocity          | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
+| attitude (FRD)           | ✗              | ✗              | ✗                  | ✓              | -               | -                         | -                     | none              | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                               |
+| body_rate (FRD)          | ✗              | ✗              | ✗                  | ✗              | ✓               | -                         | -                     | none              | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                     |
+| thrust and torque (FRD)  | ✗              | ✗              | ✗                  | ✗              | ✗               | ✓                         | -                     | none              | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) and [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
+| direct motors and servos | ✗              | ✗              | ✗                  | ✗              | ✗               | ✗                         | ✓                     | none              | [ActuatorMotors](../msg_docs/ActuatorMotors.md) and [ActuatorServos](../msg_docs/ActuatorServos.md)                             |
 
 where &check; means that the bit is set, &cross; means that the bit is not set and `-` means that the bit is value is irrelevant.
 
@@ -84,7 +86,7 @@ Before using offboard mode with ROS 2, please spend a few minutes understanding 
 
     - quaterion `q_d` + thrust setpoint `thrust_body`. Non-`NaN` values of `yaw_sp_move_rate` are used as feedforward terms expressed in Earth frame and in \[rad/s\].
 
-  - The quaternion represents the rotation between the drone body FRD (front, right, down) frame and the NED frame. The trust is in the drone body FRD frame and expressed in normalized \[-1, 1\] values.
+  - The quaternion represents the rotation between the drone body FRD (front, right, down) frame and the NED frame. The thrust is in the drone body FRD frame and expressed in normalized \[-1, 1\] values.
 
 - [px4_msgs::msg::VehicleRatesSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleRatesSetpoint.msg)
 
@@ -92,13 +94,22 @@ Before using offboard mode with ROS 2, please spend a few minutes understanding 
 
     - `roll`, `pitch`, `yaw` and `thrust_body`.
 
-  - All the value are in the drone body FRD frame. The rates are in \[rad/s\] while thrust_body is normalized in \[-1, 1\].
+  - All the values are in the drone body FRD frame. The rates are in \[rad/s\] while thrust_body is normalized in \[-1, 1\].
+
+### Generic Vehicle
+
+The following offboard control modes bypass all internal PX4 control loops and should be used with great care.
 
 - [px4_msgs::msg::VehicleThrustSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleThrustSetpoint.msg) + [px4_msgs::msg::VehicleTorqueSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleTorqueSetpoint.msg)
+
   - The following input combination is supported:
     - `xyz` for thrust and `xyz` for torque.
-  - All the value are in the drone body FRD frame and normalized in \[-1, 1\].
-  - In order to save resources, this mode is disabled by default. If you want to use it you need to manually add `vehicle_thrust_setpoint` and `vehicle_torque_setpoint` to the list of [subscribed topics](../middleware/uxrce_dds.md#dds-topics-yaml), and manually recompile the firmware.
+  - All the values are in the drone body FRD frame and normalized in \[-1, 1\].
+
+- [px4_msgs::msg::ActuatorMotors](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorMotors.msg) + [px4_msgs::msg::ActuatorServos](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorServos.msg)
+  - You directly control the motor outputs and/or servo outputs.
+  - All the values normalized in \[-1, 1\]. For outputs that do not support negative values, negative entries map to `NaN`.
+  - `NaN` maps to disarmed.
 
 ## MAVLink Messages
 
@@ -108,7 +119,7 @@ The following MAVLink messages and their particular fields and field values are 
 
 - [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
 
-  - 다음 입력 조합이 지원됩니다. <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - The following input combinations are supported: <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
     - 위치 설정점(`x`, `y`, `z` 만 해당.)
     - Velocity setpoint (only `vx`, `vy`, `vz`)
@@ -172,7 +183,7 @@ The following MAVLink messages and their particular fields and field values are 
 The _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field.
 :::
 
-        값들은 다음과 같습니다:
+        The values are:
 
         - 4096 : 이륙 설정점.
         - 8192: 착륙 설정점.

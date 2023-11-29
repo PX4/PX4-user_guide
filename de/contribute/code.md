@@ -4,9 +4,9 @@
 
 The PX4 project uses a three-branch Git branching model:
 
-* [main](https://github.com/PX4/PX4-Autopilot/tree/main) is by default unstable and sees rapid development.
-* [beta](https://github.com/PX4/PX4-Autopilot/tree/beta) has been thoroughly tested. It's intended for flight testers.
-* [stable](https://github.com/PX4/PX4-Autopilot/tree/stable) points to the last release.
+- [main](https://github.com/PX4/PX4-Autopilot/tree/main) is by default unstable and sees rapid development.
+- [beta](https://github.com/PX4/PX4-Autopilot/tree/beta) has been thoroughly tested. It's intended for flight testers.
+- [stable](https://github.com/PX4/PX4-Autopilot/tree/stable) points to the last release.
 
 We try to retain a [linear history through rebases](https://www.atlassian.com/git/tutorials/rewriting-history) and avoid the [Github flow](https://docs.github.com/en/get-started/quickstart/github-flow). However, due to the global team and fast moving development we might resort to merges at times.
 
@@ -19,7 +19,9 @@ All code contributions have to be under the permissive [BSD 3-clause license](ht
 PX4 uses the [Google C++ style guide](https://google.github.io/styleguide/cppguide.html), with the following (minimal) modifications:
 
 :::note
-Not all PX4 source code matches the style guide, but any _new code_ that you write should do so — in both new and existing files. If you update an existing file you are not required to make the whole file comply with the style guide, just the code you've modified.
+
+If you update an existing file you are not required to make the whole file comply with the style guide, just the code you've modified. Not all PX4 source code matches the style guide, but any _new code_ that you write should do so — in both new and existing files.
+
 :::
 
 ### Tabs
@@ -37,11 +39,15 @@ Not all PX4 source code matches the style guide, but any _new code_ that you wri
 
 ### Function and Method Names
 
-- `lowerCamelCase()` is used for functions and methods to *visually* distinguish them from `ClassConstructors()` and `ClassNames`.
+- `lowerCamelCase()` is used for functions and methods to _visually_ distinguish them from `ClassConstructors()` and `ClassNames`.
+
+### Private Class Member Variable Names
+
+- `_underscore_prefixed_snake_case` is used for private class member variable names, as oppose to `underscore_postfixed_`.
 
 ### Class Privacy Keywords
 
-- *zero* spaces before `public:`, `private:`, or `protected:` keywords.
+- _zero_ spaces before `public:`, `private:`, or `protected:` keywords.
 
 ### Example Code Snippet
 
@@ -51,29 +57,28 @@ public:
 
         /**
          * @brief Description of what this function does.
-         *
-         * @param[in] input_param Clear description of the input [units]
+         * * @param[in] input_param Clear description of the input [units]
          * @return Whatever we are returning [units]
          */
         float doSomething(const float input_param) const {
                 const float in_scope_variable = input_param + kConstantFloat;
-                return in_scope_variable * private_member_variable_;
+                return in_scope_variable * _private_member_variable;
         }
 
-        void setPrivateMember(const float private_member_variable) { private_member_variable_ = private_member_variable; }
+        void setPrivateMember(const float private_member_variable) { _private_member_variable = private_member_variable; }
 
         /**
          * @return Whatever we are "getting" [units]
          */
-        float getPrivateMember() const { return private_member_variable_; }
+        float getPrivateMember() const { return _private_member_variable; }
 
 private:
 
         // Clear description of the constant if not completely obvious from the name [units]
-        static constexpr float kConstantFloat = ...;  
+        static constexpr float kConstantFloat = ...;
 
         // Clear description of the variable if not completely obvious from the name [units]
-        float private_member_variable_{...};
+        float _private_member_variable{...};
 };
 ```
 
@@ -82,18 +87,23 @@ private:
 PX4 developers are encouraged to create appropriate in-source documentation.
 
 :::note
-Source-code documentation standards are not enforced, and the code is currently inconsistently documented.
-We'd like to do better!
+
+Source-code documentation standards are not enforced, and the code is currently inconsistently documented. We'd like to do better!
+
 :::
 
 Currently we have two types of source-based documentation:
+
 - `PRINT_MODULE_*` methods are used for both module run time usage instructions and for the [Modules & Commands Reference](../modules/modules_main.md) in this guide.
   - The API is documented [in the source code here](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381).
   - Good examples of usage include the [Application/Module Template](../modules/module_template.md) and the files linked from the modules reference.
-- We encourage other in-source documentation *where it adds value/is not redundant*.
+- We encourage other in-source documentation _where it adds value/is not redundant_.
 
   :::tip
-Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
+
+  Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
+
+
 :::
 
   - Do not add documentation that can trivially be inferred from C++ entity names.
@@ -123,6 +133,7 @@ static constexpr float kMaxYawRate = math::radians(30.0f);
 ```
 
 and update the source implementation.
+
 ```cpp
 if (fabsf(yaw_stick_normalized_input) < kYawStickDeadzone) {
         yaw_rate_setpoint = 0.0f;
@@ -134,9 +145,9 @@ else {
 
 ## Commits and Commit Messages
 
-Please use descriptive, multi-paragraph commit messages for all non-trivial changes. Structure them well so they make sense in the one-line summary but also provide full detail.
+Use descriptive, multi-paragraph commit messages for all non-trivial changes. Structure them well so they make sense in the one-line summary but also provide full detail.
 
-```
+```plain
 Component: Explain the change in one sentence. Fixes #1234
 
 Prepend the software component to the start of the summary
@@ -171,7 +182,8 @@ Github [Pull Requests (PRs)](https://docs.github.com/en/pull-requests/collaborat
 They include the new set of [commits](#commits-and-commit-messages) in your branch (relative the main branch), and a description of the changes.
 
 The description should include:
+
 - An overview of what the changes deliver; enough to understand the broad purpose of the code
 - Links to related issues or supporting information.
-- Information about what testing of the PR funcitonality has been done, with links to flight logs.
+- Information about what testing of the PR functionality has been done, with links to flight logs.
 - Where possible, the results from general [Test Flights](../test_and_ci/test_flights.md) both before and after the change.

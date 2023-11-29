@@ -22,9 +22,9 @@ The Discuss Forum is much preferred because it is indexed by search engines and 
 
 문제의 원인이 무엇인지 확실하지 않고 문제 분석의 도움을 원하시면,
 
-* [Flight Log Review](http://logs.px4.io/)에 로그를 업로드하십시오
-* Open a discussion on [PX4 Discuss](https://discuss.px4.io/c/flight-testing/) with a flight report and links to logs.
-* The dev team may prompt you to [raise an issue](#issue-bug-reporting) if the problem is caused by a bug.
+- [Flight Log Review](http://logs.px4.io/)에 로그를 업로드하십시오
+- Open a discussion on [PX4 Discuss](https://discuss.px4.io/c/flight-testing/) with a flight report and links to logs.
+- The dev team may prompt you to [raise an issue](#issue-bug-reporting) if the problem is caused by a bug.
 
 ## 문제와 버그 보고
 

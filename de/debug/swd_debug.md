@@ -39,7 +39,7 @@ The debug port location and pinouts for a subset of autopilots are linked below:
 
 | Autopilot                                                                           | Debug Port                                                                                                                                                              |
 |:----------------------------------------------------------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| \[Holybro Pixhawk 5X][holybro pixhawk 5x\] (FMUv5x)                                 | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                               |
+| \[Holybro Pixhawk 5X]\[holybro pixhawk 5x\\] (FMUv5x)                             | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                               |
 | [Holybro Durandal](../flight_controller/durandal.md#debug-port)                     | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                               |
 | [Holybro Kakute F7](../flight_controller/kakutef7.md#debug-port)                    | Solder pads                                                                                                                                                             |
 | [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md#debug-port) (FMUv5)  | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                               |
@@ -69,8 +69,8 @@ Check your [specific board](#port-information) to confirm the port used.
 | FMUv6       | Pixhawk 6                                                       | [Pixhawk Debug Full](#pixhawk-debug-full) |
 | FMUv6X      | Pixhawk 6X                                                      | [Pixhawk Debug Full](#pixhawk-debug-full) |
 
-:::note
-There FMU and Pixhawk versions are (only) consistent after FMUv5X.
+:::tip
+Check your [specific board](#port-information) to confirm the port used.
 :::
 
 ### Pixhawk Debug Mini

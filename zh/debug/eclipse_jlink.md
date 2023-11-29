@@ -69,7 +69,9 @@ Ignore all the errors about missing packages that pop up.
 1. Setup build config:
 
    - Give it a name and set the _C/C++ Application_ to the corresponding **.elf** file.
-   - Choose _Disable Auto build_ :::note
+   - Choose _Disable Auto build_
+
+     :::note
 Remember that you must build the target from the command line before starting a debug session.
 :::
 
@@ -86,13 +88,18 @@ Task-aware debugging (also known as [thread-aware debugging](https://www.segger.
 To enable this feature for use in Eclipse:
 
 1. You first need to enable `CONFIG_DEBUG_TCBINFO` in the NuttX configuration for your build (to expose the TCB offsets).
+
    - Open a terminal in the root of your PX4-Autopilot source code
    - In the terminal, open `menuconfig` using the appropriate make target for the build. This will be something like:
-     ```
+
+     ```sh
      make px4_fmu-v5_default boardguiconfig
      ```
+
      (See [PX4 Menuconfig Setup](../hardware/porting_guide_config.md#px4-menuconfig-setup) for more information) on using the config tools).
+
    - Ensure that the _Enable TCBinfo struct for debug_ is selected as shown: ![NuttX: Menuconfig: CONFIG_DEBUG_TCBINFO](../../assets/debug/nuttx_tcb_task_aware.png)
+
 1. Compile the **jlink-nuttx.so** library in the terminal by running the following command in the terminal: `make jlink-nuttx`
 1. Modify Eclipse to use this libary. In the _J-Link GDB Server Setup_ configuration, update **Other options** to include `-rtos /home/<PX4 path>/Tools/jlink-nuttx.so`, as shown in the image below.
 
@@ -114,7 +121,12 @@ This should not generally happen (but anecdotally has been reported when connect
 
 Adding missing SVD files for the _Peripheral View_:
 
-1. Find out where MCU Eclipse stores its packages (**Preferences > C/C++ > MCU Packages**): ![Eclipse: MCU Packages](../../assets/debug/eclipse_mcu_packages.png)
+1. Find out where MCU Eclipse stores its packages (**Preferences > C/C++ > MCU Packages**):
+
+   ![Eclipse: MCU Packages](../../assets/debug/eclipse_mcu_packages.png)
+
 2. Download missing packages from: http://www.keil.com/dd2/Pack/
 3. Open downloaded pack with a decompression tool, and extract the **.SVD** files from: **/CMSIS/SVD**.
-4. Select desired **.SVD** file in: **Debug Options > GDB SEGGER JLink Debugging > SVD Path** ![Eclipse: SVD File path](../../assets/debug/eclipse_svd_file_path.png)
+4. Select desired **.SVD** file in: **Debug Options > GDB SEGGER JLink Debugging > SVD Path**
+
+   ![Eclipse: SVD File path](../../assets/debug/eclipse_svd_file_path.png)

@@ -128,8 +128,9 @@ To get the source code for a _specific older release_ (tag):
    cd PX4-Autopilot
    ```
 
-:::note
-You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
+   :::note
+
+   You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
 
    ```sh
    make clean
@@ -164,8 +165,9 @@ To get a release branch:
   cd PX4-Autopilot
   ```
 
-:::note
-You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
+  :::note
+
+  You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
 
   ```sh
   make clean
@@ -206,23 +208,30 @@ cd Firmware
 ```
 
 - 하위 모듈 업데이트에 대한 수정 사항/기능을 설명하는 새로운 분기를 만듭니다.
+
   ```sh
   git checkout -b pr-some-fix
   ```
+
 - 하위 모듈 하위 디렉토리로 이동합니다.
+
   ```sh
   cd <path to submodule>
   ```
+
 - PX4 하위 모듈이 반드시 최신 커밋을 가리킬 필요는 없습니다. Therefore, first checkout main and pull the newest upstream code.
+
   ```sh
   git checkout main
   git pull upstream main
   ```
+
 - Firmware 디렉토리로 돌아가서, 평소처럼 변경 사항을 추가, 커밋 및 푸시합니다.
+
   ```sh
   cd -
-git add <path to submodule>
-git commit -m "Update submodule to include ..."
+  git add <path to submodule>
+  git commit -m "Update submodule to include ..."
   git push upstream pr-some-fix
   ```
 

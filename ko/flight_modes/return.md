@@ -10,10 +10,17 @@ PX4는 홈 위치, 집결 ( "안전") 지점, 임무 경로 및 임무 착륙 �
 
 :::note
 
-- This mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
-- This mode is automatic - no user intervention is _required_ to control the vehicle.
+- Mode is automatic - no user intervention is _required_ to control the vehicle.
+- Mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+  - Flying vehicles can't switch to this mode without global position.
+  - Flying vehicles will failsafe if they lose the position estimate.
+- Mode requires home position is set.
+- Mode prevents arming (vehicle must be armed when switching to this mode).
 - RC 제어 스위치는 기체의 비행 모드를 변경할 수 있습니다.
 - RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
+
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
+
 :::
 
 <a id="return_types"></a>
@@ -82,7 +89,7 @@ Mission _with_ landing pattern:
   - 가장 가까운 웨이포인트 (착륙 WP가 아닌 FW의 경우)로 직접 비행하고 웨이포인트 고도로 하강합니다.
   - 그 웨이포인트에서 빨리 감기 모드로 임무를 계속 수행합니다.
 - **수동 모드:**
-  - 안전한 [복귀 고도](#return_altitude) (예상 장애물 위)로 상승합니다.
+  - Ascend to a safe [return altitude](#return_altitude) above any expected obstacles.
   - 착륙 순서 위치로 직접 비행하고 웨이포인트 고도로 하강합니다.
   - 임무 착륙 패턴을 사용하는 착륙
 

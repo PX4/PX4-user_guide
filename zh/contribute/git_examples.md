@@ -12,15 +12,15 @@ Adding a feature to PX4 follows a defined workflow. In order to share your contr
 
   ```sh
   cd ~/wherever/
-git clone https://github.com/<your git name>/Firmware.git
+  git clone https://github.com/<your git name>/PX4-Autopilot.git
   ```
 
 - Go into the new directory, initialize and update the submodules, and add the original upstream Firmware
 
   ```sh
-  cd Firmware
-git submodule update --init --recursive
-git remote add upstream https://github.com/PX4/Firmware.git
+  cd PX4-Autopilot
+  git submodule update --init --recursive
+  git remote add upstream https://github.com/PX4/PX4-Autopilot.git
   ```
 
 - You should have now two remote repositories: One repository is called `upstream` that points to PX4/PX4-Autopilot, and one repository `origin` that points to your forked copy of the PX4 repository.
@@ -129,8 +129,9 @@ To get the source code for a _specific older release_ (tag):
    cd PX4-Autopilot
    ```
 
-:::note
-You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
+   :::note
+
+   You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
 
    ```sh
    make clean
@@ -165,8 +166,9 @@ To get a release branch:
   cd PX4-Autopilot
   ```
 
-:::note
-You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
+  :::note
+
+  You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
 
   ```sh
   make clean
@@ -207,19 +209,26 @@ cd Firmware
 ```
 
 - 创建一个分支，描述子模块更新的 bug 修复/功能：
+
   ```sh
   git checkout -b pr-some-fix
   ```
+
 - 进入子模块的子目录
+
   ```sh
   cd <path to submodule>
   ```
+
 - PX4 submodule might not necessarily point to the newest commit. Therefore, first checkout master and pull the newest upstream code. Therefore, first checkout main and pull the newest upstream code.
+
   ```sh
   git checkout main
   git pull upstream main
   ```
+
 - 回到 Firmware 目录，如往常一样添加、提交和上推更改。
+
   ```sh
   cd -
   git add <path to submodule>

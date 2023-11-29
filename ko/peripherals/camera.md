@@ -125,13 +125,13 @@ When using a camera connected to the flight controller as described in this docu
 | -------- | ----------------------------------------- |
 | Param #5 | 원샷 명령을 트리거합니다 (단일 이미지 프레임을 트리거하려면 1로 설정). |
 
- MAV_CMD_DO_SET_CAM_TRIGG_DIST </ 0> - "임무 통제"모드에서 허용됨 (` TRIG_MODE </> 4)</p>
+[ MAV_CMD_DO_SET_CAM_TRIGG_DIST ](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_DIST) - "임무 통제"모드에서 허용됨 (` TRIG_MODE ` 4)
 
-<p spaces-before="0">이 명령은 GCS의 조사 임무에 따라 카메라를 트리거하기 위해 임무중 자동 생성됩니다.</p>
+이 명령은 GCS의 조사 임무에 따라 카메라를 트리거하기 위해 임무중 자동 생성됩니다.
 
-<p spaces-before="0"><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_OBLIQUE_SURVEY">MAV_CMD_OBLIQUE_SURVEY</a> - Mission command to set a camera auto mount pivoting oblique survey.</p>
+[MAV_CMD_OBLIQUE_SURVEY](https://mavlink.io/en/messages/common.html#MAV_CMD_OBLIQUE_SURVEY) - Mission command to set a camera auto mount pivoting oblique survey.
 
-<p spaces-before="0">This accepts <code>param1` to `param4` as defined in the MAVLink message definition. The shutter integration setting (`param2`) is only obeyed with a GPIO backend.</p>
+This accepts `param1` to `param4` as defined in the MAVLink message definition. The shutter integration setting (`param2`) is only obeyed with a GPIO backend.
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/camera_trigger/camera_trigger.cpp#L632 -->
 
@@ -143,38 +143,29 @@ In this case MAVLink camera messages are forwarded to a MAVLink camera for handl
 
 MAVLink cameras are recommended because directly connected cameras only support [a small subset](#mavlink-command-interface-directly-connected-cameras) of the available MAVLink camera messages and commands. MAVLink cameras potentially offer much more control over a camera using the [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html).
 
-
-
 ## 트리거 기능 테스트
 
 :::warning
 The following sections are out of date and need retesting.
 :::
 
-1. PX4 콘솔에서 : 
-   
-   
+1. PX4 콘솔에서 :
 
    ```
    camera_trigger test
    ```
 
-
 1. From _QGroundControl_:
-   
+
    기본 계기판에서 **트리거 카메라**를 클릭합니다. 이러한 샷은 위치 정보 태그 지정을 위하여 기록되거나 계산되지 않습니다.
-   
+
    ![QGC 테스트 카메라](../../assets/camera/qgc_test_camera.png)
-
-
 
 ## Sony QX-1 예제 (사진 측량)
 
 ![사진 측량법](../../assets/camera/photogrammetry.png)
 
 이 예에서는 Seagull MAP2 트리거 케이블로 Sony QX-1에 연결하여 자율 측량 임무를 수행한 후 정사 투영을 만드는 것입니다.
-
-
 
 ### 트리거 설정
 
@@ -185,8 +176,6 @@ The following sections are out of date and need retesting.
 - 나머지 매개 변수는 기본값으로 설정합니다.
 
 You will need to connect the Seagull MAP2 to FMU pins on your autopilot. MAP2 케이블의 다른 쪽 끝은 QX-1의 "MULTI" 포트에 연결합니다.
-
-
 
 ### 카메라 설정
 
@@ -200,15 +189,11 @@ You will need to connect the Seagull MAP2 to FMU pins on your autopilot. MAP2 �
 - ISO는 가능한 한 낮게 설정합니다.
 - 풍경에 적합한 수동 화이트 밸런스를 설정합니다.
 
-
-
 ### 임무 계획
 
 ![QGC 측량 다각형](../../assets/camera/qgc_survey_polygon.jpeg)
 
 ![QGC 측량 매개변수](../../assets/camera/qgc_survey_parameters.jpg)
-
-
 
 ### 지오태깅
 
@@ -218,15 +203,11 @@ You will need to connect the Seagull MAP2 to FMU pins on your autopilot. MAP2 �
 
 [Pic2Map](https://www.pic2map.com/)과 같은 무료 온라인 서비스를 사용하여 지오 태깅을 확인할 수 있습니다. Pic2Map은 40 개의 이미지 제한이 있습니다.
 
-
-
 ### 재구성
 
 3D 재구성을 위해 [Pix4D](https://pix4d.com/)를 사용합니다.
 
 ![지오태그](../../assets/camera/geotag.jpg)
-
-
 
 ## 카메라-IMU 동기화 예 (VIO)
 
@@ -262,8 +243,6 @@ end
 
 먼저 TRIG_MODE를 1로 설정하여 드라이버가 시작 명령을 기다리도록하고, 나머지 매개변수를 얻기 위해 FCU를 재부팅합니다.
 
-
-
 ### 2 단계
 
 이 예제의 목적을 위하여 30 FPS에서 실행되는 Point Grey Firefly MV 카메라와 함께 작동하도록 트리거를 설정합니다.
@@ -271,16 +250,11 @@ end
 - `TRIG_INTERVAL`: 33.33 ms
 - `TRIG_POLARITY`: 0 (active low)
 - `TRIG_ACT_TIME`: 0.5 ms. 매뉴얼에는 최소 1 마이크로 초면 충분하다고 명시되어 있습니다.
-
 - `TRIG_MODE` : 1, 트리거 시작전에 카메라 드라이버가 이미지를 수신할 준비가 되는 것이 좋습니다. 이것은 일련 번호를 처리에 필수적입니다.
-
-
 
 ### 3 단계
 
 접지 및 신호 핀을 적절한 위치에 연결하여 카메라를 AUX 포트에 연결합니다.
-
-
 
 ### 4 단계
 

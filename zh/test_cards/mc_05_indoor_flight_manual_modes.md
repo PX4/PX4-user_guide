@@ -2,10 +2,10 @@
 
 ## 何时使用此测试卡
 
-* 新建初次飞行
-* 当需要在受限区域复制问题时
-* 可能存在稳定性问题的实验性构建
-* 测试已更换和/或修改的硬件
+- 新建初次飞行
+- 当需要在受限区域复制问题时
+- 可能存在稳定性问题的实验性构建
+- 测试已更换和/或修改的硬件
 
 ## 解锁并起飞
 
@@ -33,10 +33,10 @@
 
 ❏ 以稳定或高度模式着陆，油门低于 40％
 
-❏ 接地后，直升机应在 2 秒内自动撤防（撤防时间由参数设置：[COM_DISARM_LAND](../advanced/parameter_reference.md#COM_DISARM_LAND)）
+❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
 
 ## 期待的结果
 
-* 当油门升高时，起飞应该是平稳的
-* 在上述任何飞行模式中都不应出现振荡
-* 着陆时，直升机不应在地面上反弹
+- 当油门升高时，起飞应该是平稳的
+- 在上述任何飞行模式中都不应出现振荡
+- 着陆时，直升机不应在地面上反弹

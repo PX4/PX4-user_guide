@@ -1,11 +1,9 @@
 # Black Magic Probe (and Dronecode Probe)
 
-
 The [Black Magic Probe](https://black-magic.org) is an easy to use, mostly plug-and-play, JTAG/SWD debugger for embedded microcontrollers.
 Since the Black Magic Probe is a generic debug probe, you will need an adapter to connect to Pixhawk flight controllers, which can be purchased here:
 
 - [Drone Code Debug Adapter](https://1bitsquared.com/products/drone-code-debug-adapter) (1 BIT SQUARED).
-
 
 ## Dronecode Probe
 
@@ -16,9 +14,8 @@ The probe's USB interface exposes two separate virtual serial port interfaces: o
 The probe provides a DCD-M connector cable for attaching to the [Pixhawk Debug Mini](swd_debug.md#pixhawk-debug-mini).
 
 :::note
-The *6-pos DF13* connector that comes with the probe cannot be used for SWD debugging (it is for using the System Console).
+The _6-pos DF13_ connector that comes with the probe cannot be used for SWD debugging (it is for using the System Console).
 :::
-
 
 ## Using the Probe
 
@@ -29,25 +26,25 @@ You can find how to update the [blackmagic probe here](https://github.com/blacks
 
 To use a Dronecode probe with GDB, start GDB with the exact ELF file that is currently flashed on the autopilot:
 
-```bash
+```sh
 arm-none-eabi-gdb build/px4_fmu-v5_default/px4_fmu-v5_default.elf
 ```
 
 Then, you have to select the Dronecode probe interface, on Linux this is e.g.:
 
-```bash
+```sh
 target ext /dev/serial/by-id/usb-Black_Sphere_Technologies_Black_Magic_Probe_f9414d5_7DB85DAC-if00
 ```
 
 Then you scan for the target:
 
-```bash
+```sh
 monitor swdp_scan
 ```
 
 And you should see something like:
 
-```bash
+```sh
 Target voltage: 3.3V
 Available Targets:
 No. Att Driver
@@ -58,7 +55,7 @@ Note that for some autopilots it shows 0.0V but the subsequent steps work nevert
 
 You can now attach to that target:
 
-```
+```sh
 attach 1
 ```
 

@@ -3,11 +3,7 @@
 PX4 supports numerous plane geometries, including normal planes, flying wings, inverted V-tail planes, and so on.
 The set of supported frame configurations can be seen in [Airframes Reference > Plane](../airframes/airframe_reference.md#plane).
 
-This section contains build logs/instructions for assembling and configuring a number of Plane frames.
-
-- [Reptile Dragon 2 (ARK6X)](../frames_plane/reptile_dragon_2.md)
-- [Turbo Timber Evolution (Pixhawk 4 Mini)](../frames_plane/turbo_timber_evolution.md)
-- [Wing Wing Z84 (Pixracer)](../frames_plane/wing_wing_z84.md)
+This section contains build logs/instructions for assembling and configuring a number of [fixed-wing DIY builds](../frames_plane/diy_builds.md).
 
 ## Videos
 

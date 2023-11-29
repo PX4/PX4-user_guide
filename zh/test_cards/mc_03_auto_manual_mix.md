@@ -32,12 +32,10 @@
 
 ❏ 启动返航
 
-❏ 接地后，无人机应在 2 秒内自动加锁（加锁时间由参数设置：[ COM_DISARM_LAND ](../advanced/parameter_reference.md#COM_DISARM_LAND)）
-
+❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
 
 ## 预期成果
 
-* 当油门升高时，起飞应该是平稳的
-* 在上述任何飞行模式中都不应出现振荡
-* 着陆时，直升机不应在地面上反弹
-
+- 当油门升高时，起飞应该是平稳的
+- 在上述任何飞行模式中都不应出现振荡
+- 着陆时，直升机不应在地面上反弹

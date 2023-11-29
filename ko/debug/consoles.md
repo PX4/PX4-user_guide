@@ -38,7 +38,7 @@ MAVLink 셸/콘솔과 [시스템 콘솔](../debug/system_console.md)은 같은 �
 
 예를 들어, 로컬 파일 시스템을 보려면 `ls`를 입력하고, 남은 여유 RAM을 보려면 `free`를 입력하고, 부팅 출력을 보려면 `dmesg`를 입력합니다.
 
-```bash
+```sh
 nsh> ls
 nsh> free
 nsh> dmesg
@@ -48,13 +48,13 @@ Below are a couple of commands which can be used in the [NuttShell](https://cwik
 
 This NSH command provides the remaining free memory:
 
-```bash
+```sh
 free
 ```
 
 The top command shows the stack usage per application:
 
-```
+```sh
 top
 ```
 
@@ -62,19 +62,19 @@ Note that stack usage is calculated with stack coloring and is the maximum since
 
 To see what is running in the work queues and at what rate, use:
 
-```
+```sh
 work_queue status
 ```
 
 To debug uORB topics:
 
-```
+```sh
 uorb top
 ```
 
 To inspect a specific uORB topic:
 
-```
+```sh
 listener <topic_name>
 ```
 

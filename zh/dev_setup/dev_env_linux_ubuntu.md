@@ -2,7 +2,7 @@
 
 The following instructions set up a PX4 development environment on the [Ubuntu Linux LTS](https://wiki.ubuntu.com/LTS) versions supported by PX4. This includes: 18.04 (Bionic Beaver), 20.04 (Focal Fossa), and Ubuntu 22.04 (Jammy Jellyfish).
 
-Bash scripts are provided to simplify the process. They are intended to be run on *clean* Ubuntu LTS installations, and may not work if run "on top" of an existing system, or on a different Ubuntu release.
+Bash scripts are provided to simplify the process. They are intended to be run on _clean_ Ubuntu LTS installations, and may not work if run "on top" of an existing system, or on a different Ubuntu release.
 
 The [supported targets](../dev_setup/dev_env.md#supported-targets) are:
 
@@ -41,6 +41,7 @@ To install the toolchain:
 :::note
 The environment setup scripts in the source usually work for recent PX4 releases. If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release).
 :::
+
 1. 运行 bash 脚本（比如运行 **ubuntu_sim.sh** ）： bash source ubuntu_sim.sh 所有弹出的提示均确认通过。
    ```bash
    bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
@@ -49,9 +50,9 @@ The environment setup scripts in the source usually work for recent PX4 releases
    - 你可以通过传输参数`--no-nuttx` 和 `--no-sim-tools` 来跳过 nuttx 和/或 仿真器工具的安装。
 1. 完成后重新启动计算机。
 
-
 :::details
 Additional notes These notes are provided "for information only":
+
 - If you want to use Gazebo on Ubuntu 20.04 you can add it manually. See [Gazebo > Installation](../sim_gazebo_gz/README.md#installation-ubuntu-linux).
 - You can verify the NuttX installation by confirming the gcc version as shown:
 
@@ -63,22 +64,25 @@ Additional notes These notes are provided "for information only":
   This is free software; see the source for copying conditions.  There is NO
   warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
   ```
+
 - You're going to need the PX4 source code anyway. But if you just wanted to set up the development environment without getting all the source code you could instead just download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/requirements.txt) and then run **ubuntu.sh**:
 
-   ```bash
-   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/ubuntu.sh
-   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/requirements.txt
-   bash ubuntu.sh
-   ```
-   <!-- From https://gazebosim.org/docs/garden/install_ubuntu -->
-:::
+  ```bash
+  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/ubuntu.sh
+  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/requirements.txt
+  bash ubuntu.sh
+  ```
 
+     <!-- From https://gazebosim.org/docs/garden/install_ubuntu -->
+
+
+:::
 
 <a id="raspberry-pi-hardware"></a>
 
 ## 通用依赖
 
-为 [jMAVSim Simulation](../simulation/jmavsim.md) 安装依赖。
+The following instructions explain how to set up a build toolchain for RasPi on _Ubuntu 18.04_.
 
 :::warning
 To build for Ubuntu 20.04 (focal) you must use docker (the GCC toolchain on Ubuntu 20.04 can build PX4, but the generated binary files are too new to run on actual Pi). For more information see [PilotPi with Raspberry Pi OS Developer Quick Start > Alternative build method using docker](../flight_controller/raspberry_pi_pilotpi_rpios.md#alternative-build-method-using-docker).
@@ -86,7 +90,7 @@ To build for Ubuntu 20.04 (focal) you must use docker (the GCC toolchain on Ubun
 
 本节解释如何安装 [ROS/Gazebo](../ros/README.md) ("Melodic") 以便与PX4一起使用。
 
-1. Download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/requirements.txt) from the PX4 source repository (**/Tools/setup/**):  <!-- NEED px4_version -->
+1. Download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/requirements.txt) from the PX4 source repository (**/Tools/setup/**): <!-- NEED px4_version -->
    ```
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/ubuntu.sh
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/requirements.txt
@@ -132,12 +136,14 @@ sudo -H pip install pandas jinja2 pyserial cerberus
 First install GCC (needed to use clang).
 
 sudo apt-get update
+
 ```
 # optional python tools
 sudo -H pip install pyulog
 ```
 
-sudo apt-get install ros-kinetic-desktop-full -y
+Example below for building PX4 firmware out of tree, using _CMake_.
+
 ```sh
 git clone https://github.com/raspberrypi/tools.git ${HOME}/rpi-tools
 
@@ -159,7 +165,6 @@ Additional developer information for using PX4 on Raspberry Pi (including buildi
 - [Raspberry Pi 2/3 Navio2 Autopilot](../flight_controller/raspberry_pi_navio2.md).
 - 在安装[高通骁龙飞控](#snapdragon-flight) 或 [树莓派/Parrot Bebop](#raspberry-pi-hardware) 之前， 你可以先运行它。
 
-
 ## ROS 2
 
 Information about ROS 2 setup and development with PX4 can be found in the [ROS 2 User Guide](../ros/ros2_comm.md).
@@ -180,23 +185,28 @@ If you're working with [ROS Noetic](http://wiki.ros.org/noetic) on Ubuntu 20.04:
 
 1. Install PX4 without the simulator toolchain:
 
-   1. **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_common_deps.sh" target="_blank" download>ubuntu_sim_common_deps.sh</a>**：[通用依赖](#common-dependencies)，[jMAVSim](#jmavsim) 模拟器
+   1. [Download PX4 Source Code](../dev_setup/building_px4.md):
 
       ```bash
       git clone https://github.com/PX4/PX4-Autopilot.git --recursive
       ```
+
    1. Run the **ubuntu.sh** the `--no-sim-tools` (and optionally `--no-nuttx`):
 
       ```bash
       bash ./PX4-Autopilot/Tools/setup/ubuntu.sh --no-sim-tools --no-nuttx
       ```
-      - 在安装过程中确认并通过所有的提示。
-   1. 完成后重新启动计算机。
+
+      - Acknowledge any prompts as the script progress.
+
+   1. Restart the computer on completion.
+
 1. You _may_ need to install the following additional dependencies:
 
    ```
    sudo apt-get install protobuf-compiler libeigen3-dev libopencv-dev -y
    ```
+
 1. Follow the [Noetic Installation instructions](http://wiki.ros.org/noetic/Installation/Ubuntu#Installation) (ros-noetic-desktop-full is recommended).
 1. Intall MAVROS by following the [MAVROS Installation Guide](../ros/mavros_installation.md).
 
@@ -209,24 +219,27 @@ If you're working with ROS "Melodic on Ubuntu 18.04:
    ```bash
    wget https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh
    ```
+
 1. 下载脚本
 
    ```bash
    ROS Gazebo: http://wiki.ros.org/kinetic/Installation/Ubuntu
    ```
+
    随着脚本的运行，可能需要确认一些提示。
 
 :::note
-* ROS Melodic is installed with Gazebo (Classic) 9 by default.
-* 你的 catkin （ROS 构建系统）工作目录生成在**~/catkin_ws/**。
-* The script uses instructions from the ROS Wiki "Melodic" [Ubuntu page](http://wiki.ros.org/melodic/Installation/Ubuntu).
-:::
 
+- ROS Melodic is installed with Gazebo (Classic) 9 by default.
+- 你的 catkin （ROS 构建系统）工作目录生成在**~/catkin_ws/**。
+- The script uses instructions from the ROS Wiki "Melodic" [Ubuntu page](http://wiki.ros.org/melodic/Installation/Ubuntu).
+:::
 
 ## Gazebo dependencies
 
 Once you have finished setting up the command-line toolchain:
+
 - Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html) :::tip The *daily build* includes development tools that hidden in release builds. It may also provide access to new PX4 features that are not yet supported in release builds.
+- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html) :::tip The _daily build_ includes development tools that hidden in release builds. It may also provide access to new PX4 features that are not yet supported in release builds.
 :::
 - Continue to the [build instructions](../dev_setup/building_px4.md).

@@ -1,8 +1,8 @@
 # 无线数传
 
-无线数传 (选配) 可以用于建立 *QGroundControl* 地面站与PX4飞控之间的无线MAVLink连接。 本节包含两个主题：已经支持的无线数传 和 在PX4系统中集成新的数传。
+Telemetry Radios can (optionally) be used to provide a wireless MAVLink connection between a ground control station like _QGroundControl_ and a vehicle running PX4. 本节包含两个主题：已经支持的无线数传 和 在PX4系统中集成新的数传。
 
-[PX4 用户手册 > 数传](http://docs.px4.io/en/telemetry/) 列举了PX4已支持的无线数传系统。 包括使用 *SiK Radio*固件的数传 和 *3DR WiFi 无线数传*。
+[PX4 用户手册 > 数传](http://docs.px4.io/en/telemetry/) 列举了PX4已支持的无线数传系统。 This includes radios that use the _SiK Radio_ firmware and _3DR WiFi Telemetry Radios_.
 :::
 
 ## 已支持的无线数传

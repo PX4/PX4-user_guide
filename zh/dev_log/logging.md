@@ -2,7 +2,7 @@
 
 [系统记录器](../modules/modules_system.md#logger) 能够记录任何 ORB 单元及其所有包含的字段。 Everything necessary is generated from the `.msg` file, so that only the topic name needs to be specified. An optional interval parameter specifies the maximum logging rate of a certain topic. 所有主题的实例将会被记录。
 
-输出的日志格式是 [Ulog](../log/ulog_file_format.md)。
+The output log format is [ULog](../dev_log/ulog_file_format.md).
 
 ## 用法
 
@@ -16,7 +16,6 @@ By default, logging is automatically started when arming, and stopped when disar
 logger help
 ```
 
-
 ## 配置
 
 The logging system is configured by default to collect sensible logs for [flight reporting](../getting_started/flight_reporting.md) with [Flight Review](http://logs.px4.io).
@@ -27,8 +26,7 @@ The `<interval>` is optional, and if specified, defines the minimum interval in 
 | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE)       | 日志模式 定义什么时候日志开始记录和停止。<br />-`1`：日志禁用。<br />-`0`：日志从装备开始到解除装备为止（默认）。<br />-`1`：日志从引导到解除装备为止。<br />-`2`：日志从引导直到关机为止。<br />-`3`：日志基于[AUX1 RC 通道](../advanced_config/parameter_reference.md#RC_MAP_AUX1)。<br />-`4`：日志从第一次装备直到关机为止。 |
 | [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | Logging profile. Use this to enable less common logging/analysis (e.g. for EKF2 replay, high rate logging for PID & filter tuning, thermal temperature calibration).                                                                                                |
-| [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".<br>This log can *not* be used with [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), but is useful when you need a small log for geotagging or regulatory compliance.                     |
-
+| [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".<br>This log can _not_ be used with [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), but is useful when you need a small log for geotagging or regulatory compliance.                     |
 
 Useful settings for specific cases:
 
@@ -39,13 +37,14 @@ Useful settings for specific cases:
 
 _Developers_ can further configure what information is logged via the [logger](../modules/modules_system.md#logger) module. This allows, for example, logging of your own uORB topics.
 
-
 ### 诊断
 
 Separately, the list of logged topics can also be customized with a file on the SD card. Create a file `etc/logging/logger_topics.txt` on the card with a list of topics (For SITL, it's `build/px4_sitl_default/rootfs/fs/microsd/etc/logging/logger_topics.txt`):
-```
+
+```plain
 <topic_name>, <interval>
 ```
+
 The `<interval>` is optional, and if specified, defines the minimum interval in ms between two logged messages of this topic. If not specified, the topic is logged at full rate.
 
 The `<instance>` is optional, and if specified, defines the instance to log. If not specified, all instances of the topic are logged. To specify `<instance>`, `<interval>` must be specified. It can be set to 0 to log at full rate
@@ -54,7 +53,7 @@ The topics in this file replace all of the default logged topics.
 
 By far the best card we know so far is the **SanDisk Extreme U3 32GB**. This card is recommended, because it does not exhibit write time spikes (and thus virtually no dropouts). Different card sizes might work equally well, but the performance is usually different.
 
-```
+```plain
 sensor_accel 0 0
 sensor_accel 100 1
 sensor_gyro 200
@@ -66,7 +65,6 @@ This configuration will log sensor_accel 0 at full rate, sensor_accel 1 at 10Hz,
 ## 脚本
 
 There are several scripts to analyze and convert logging files in the [pyulog](https://github.com/PX4/pyulog) repository.
-
 
 ## File size limitations
 
@@ -113,6 +111,7 @@ The traditional and still fully supported way to do logging is using an SD card 
 The requirement is that the link provides at least ~50KB/s, so for example a WiFi link. And only one client can request log streaming at the same time. The connection does not need to be reliable, the protocol is designed to handle drops.
 
 There are different clients that support ulog streaming:
+
 - `mavlink_ulog_streaming.py` script in Firmware/Tools.
 - QGroundControl： ![QGC Log Streaming](../../assets/gcs/qgc-log-streaming.png)
 - [MAVGCL](https://github.com/ecmnet/MAVGCL)
@@ -123,7 +122,7 @@ There are different clients that support ulog streaming:
 - If it still does not work, make sure that Mavlink 2 is used. Enforce it by setting `MAV_PROTO_VER` to 2. Enforce it by setting `MAV_PROTO_VER` to 2.
 - Log streaming uses a maximum of 70% of the configured mavlink rate (`-r` parameter). If more is needed, messages are dropped. The currently used percentage can be inspected with `mavlink status` (1.8% is used in this example): 如果需要更大的速率，数据会丢失。 The currently used percentage can be inspected with `mavlink status` (1.8% is used in this example):
 
-  ```
+  ```sh
   instance #0:
           GCS heartbeat:  160955 us ago
           mavlink chan: #0

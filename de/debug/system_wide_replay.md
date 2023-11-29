@@ -12,7 +12,6 @@ All identified topics need to be logged at full rate (see [logging](../dev_log/l
 
 It is important that all replayed topics contain only a single absolute timestamp, which is the automatically generated field `timestamp`. Should there be more timestamps, they must be relative to the main timestamp. For an example, see [SensorCombined.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg). Reasons for this are given below.
 
-
 ## Usage
 
 - First, choose the file to replay and build the target (from within the PX4-Autopilot directory):
@@ -21,19 +20,22 @@ It is important that all replayed topics contain only a single absolute timestam
   export replay=<absolute_path_to_log_file.ulg>
   make px4_sitl_default
   ```
+
   This will create the build/make output in a separate build directory `build/px4_sitl_default_replay` (so that the parameters don't interfere with normal builds). It's possible to choose any posix SITL build target for replay, since the build system knows through the `replay` environment variable that it's in replay mode.
+
 - Add ORB publisher rules in the file `build/px4_sitl_default_replay/rootfs/orb_publisher.rules`. This file defines the modules that are allowed to publish particular messages. It has the following format:
 
-  ```
+  ```sh
   restrict_topics: <topic1>, <topic2>, ..., <topicN>
   module: <module>
   ignore_others: <true/false>
   ```
-  This means that the given list of topics should only be published by `<module>` (which is the command name). Publications to any of these topics from another module are silently ignored. If `ignore_others` is `true`, publications to other topics from `<module>` are ignored.
+
+  Publications to any of these topics from another module are silently ignored. This means that the given list of topics should only be published by `<module>` (which is the command name). If `ignore_others` is `true`, publications to other topics from `<module>` are ignored.
 
   For replay, we only want the `replay` module to be able to publish the previously identified list of topics. So, for replaying `ekf2`, the rules file should look like this:
 
-  ```
+  ```sh
   restrict_topics: sensor_combined, vehicle_gps_position, vehicle_land_detected
   module: replay
   ignore_others: true
@@ -67,13 +69,13 @@ Parameters can be overridden during a replay in two ways: _fixed_ and _dynamic_.
 
 - **Fixed parameter overrides** will override parameters from the start of the replay. They are defined in the file `build/px4_sitl_default_replay/rootfs/replay_params.txt`, where each line should have the format `<param_name> <value>`. For example:
 
-  ```
+  ```sh
   EKF2_RNG_NOISE 0.1
   ```
 
 - **Dynamic parameter overrides** will update parameter values at specified times. These parameters will still be initialised to the values in the log or in the fixed overrides. Parameter update events should be defined in `build/px4_sitl_default_replay/rootfs/replay_params_dynamic.txt`, where each line has the format `<param_name> <value> <timestamp>`. The timestamp is the time in seconds from the start of the log. For example:
 
-  ```
+  ```sh
   EKF2_RNG_NOISE 0.15 23.4
   EKF2_RNG_NOISE 0.05 56.7
   EKF2_RNG_DELAY 4.5 30.0
@@ -134,11 +136,11 @@ ulog_params -i "$replay" -d ' ' | grep -e '^EKF2' > build/px4_sitl_default_repla
 
 Adjust these as desired, and add dynamic parameter overrides in `replay_params_dynamic.txt` if necessary.
 
-
 ## Behind the Scenes
 
 Replay is split into 3 components:
-- a replay module These have a negative effect on replay, so care should be taken to avoid dropouts during recording.
+
+- A replay module These have a negative effect on replay, so care should be taken to avoid dropouts during recording.
 - It is currently only possible to replay in 'real-time': as fast as the recording was done.
 
 The replay module reads the log and publishes the messages at the same speed as they were recorded. A constant offset is added to the timestamp of each message to match the current system time (this is the reason why all other timestamps need to be relative). The command `replay tryapplyparams` is executed before all other modules are loaded and applies the parameters from the log and user-set parameters. Then as the last command, `replay trystart` will again apply the parameters and start the actual replay. Both commands do nothing if the environment variable `replay` is not set.

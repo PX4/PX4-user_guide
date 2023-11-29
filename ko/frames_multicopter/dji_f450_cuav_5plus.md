@@ -5,7 +5,7 @@
 주요 내용
 
 - **프레임:** DJI F450
-- 0>비행 컨트롤러:</strong> [CUAV V5+](../flight_controller/cuav_v5_plus.md)
+- **Flight controller:** [CUAV V5+](../flight_controller/cuav_v5_plus.md)
 - **조립 시간 (예상):** 90 분 (프레임 조립에 45분, 오토파일럿 설치와 설정에 45분)
 
 ![성절 완료 1](../../assets/airframes/multicopter/dji_f450_cuav_5plus/f450_cuav5_plus_complete.png)

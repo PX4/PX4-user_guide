@@ -1,11 +1,11 @@
-# MAVROS *Offboard* 控制示例 (Python)
+# MAVROS _Offboard_ control example (Python)
 
-本教程使用 [Gazebo Classic](../sim_gazebo_classic/README.md) 模拟的Iris四旋翼无人机，用MAVROS Python来展示 *OFFBOARD* 控制的基础知识。 该教程提供分步指示，说明如何开始开发控制无人机以及在仿真环境中运行代码。
+This tutorial shows the basics of _OFFBOARD_ control with MAVROS Python, using an Iris quadcopter simulated in [Gazebo Classic](../sim_gazebo_classic/README.md). 该教程提供分步指示，说明如何开始开发控制无人机以及在仿真环境中运行代码。
 
 在教程结束时, 你应该看到与下面的视频相同的行为, 即缓慢起飞到2米的高度。
 
 :::warning
-*OFFBOARD* 控制模式是危险的。 如果你是在一个真正的无人机平台上进行试验，请保证你已经设置了切换回手动的开关来防止紧急情况的发生。
+_OFFBOARD_ control is dangerous. 如果你是在一个真正的无人机平台上进行试验，请保证你已经设置了切换回手动的开关来防止紧急情况的发生。
 :::
 
 :::tip
@@ -13,6 +13,7 @@
 :::
 
 <a id="offb_video"></a>
+
 <video width="100%" autoplay="true" controls="true">
  <source src="../../assets/simulation/gazebo_classic/gazebo_offboard.webm" type="video/webm">
 </video>
@@ -21,49 +22,49 @@
 
 1. 打开终端到 `~/catkin_ws/src` 目录
 
-    ```sh
-    roscd  # Should cd into ~/catkin_ws/devel
-    cd ..
-    cd src
-    ```
+   ```sh
+   roscd  # Should cd into ~/catkin_ws/devel
+   cd ..
+   cd src
+   ```
 
 2. 在 `~/catkin_ws/src 中` 目录创建一个新包，名为 `offboard_py` (在这种情况下) 依赖 `rospy` ：
 
-    ```sh
-    catkin_create_pkg offboard_py rospy
-    ```
+   ```sh
+   catkin_create_pkg offboard_py rospy
+   ```
 
 3. 在 `~/catkin_ws/` 目录中构建新的软件包：
 
-    ```sh
-    cd .. # Assuming previous directory to be ~/catkin_ws/src
-    catkin build
-    source devel/setup.bash
-    ```
+   ```sh
+   cd .. # Assuming previous directory to be ~/catkin_ws/src
+   catkin build
+   source devel/setup.bash
+   ```
 
 4. 您现在应该能够通过使用以下方法切换至包目录：
 
-    ```sh
-    roscd offboard_py
-    ```
+   ```sh
+   roscd offboard_py
+   ```
 
 5. 在包目录下创建一个新的文件夹 `/scripts`来存储Python文件：
 
-    ```sh
-    mkdir scripts
-    cd scripts
-    ```
+   ```sh
+   mkdir scripts
+   cd scripts
+   ```
 
 ## 代码
 
-创建ROS包和scripts文件夹后，可以开始编写Python脚本了。 在scripts文件夹中创建 `offb_node.py` 文件，并赋予它可执行权限：
+After creating the ROS package and scripts folder you are ready to start your Python script. Inside the scripts folder create the `offb_node.py` file and give it executable permissions:
 
 ```sh
 touch offb_node.py
 chmod +x offb_node.py
 ```
 
-然后，打开 `offb_node.py` 文件并粘贴以下代码：
+After that, open `offb_node.py` file and paste the following code:
 
 ```py
 """
@@ -149,7 +150,7 @@ if __name__ == "__main__":
 
 ## 代码解释
 
-` mavros_msgs ` 功能包中包含操作 mavros 包中服务和主题所需的全部自定义消息文件。 所有服务和主题及其相应的消息类型都可以在 [ mavros wiki ](http://wiki.ros.org/mavros) 中找到。
+The `mavros_msgs` package contains all of the custom messages required to operate services and topics provided by the MAVROS package. All services and topics as well as their corresponding message types are documented in the [mavros wiki](http://wiki.ros.org/mavros).
 
 ```py
 import rospy
@@ -158,7 +159,7 @@ from mavros_msgs.msg import State
 from mavros_msgs.srv import CommandBool, CommandBoolRequest, SetMode, SetModeRequest
 ```
 
-我们创建了一个简单的回调函数来储存飞控当前的状态。 这将使得我们可以检查连接状态，加解锁状态以及*OFFBOARD* 标志位。
+We create a simple callback which will save the current state of the autopilot. This will allow us to check connection, arming and _OFFBOARD_ flags.:
 
 ```py
 current_state = State()
@@ -168,7 +169,7 @@ def state_cb(msg):
     current_state = msg
 ```
 
-我们构建了一个发布者来发布本地位置指令并请求客户端进行加解锁状态及控制模式的切换。 请注意，对于您自己的系统，"mavros" 前缀可能不同，取决于节点启动文件中指定的名称。
+We instantiate a publisher to publish the commanded local position and the appropriate clients to request arming and mode change. Note that for your own system, the "mavros" prefix might be different as it will depend on the name given to the node in it's launch file.
 
 ```py
 state_sub = rospy.Subscriber("mavros/state", State, callback = state_cb)
@@ -182,16 +183,16 @@ rospy.wait_for_service("/mavros/set_mode")
 set_mode_client = rospy.ServiceProxy("mavros/set_mode", SetMode)
 ```
 
-PX4 在两个 *OFFBOARD* 命令之间设置了500毫秒的超时检查。 一但发生超时，飞控组件中的commander模块会立即切换回进入 *OFFBOARD* 模式之前的飞行模式。 这也是为什么发布频率 **必须** 大于2Hz的原因。 这也是我们**推荐从 *Position* 模式进入 *OFFBOARD* 模式的原因，因为在这种情况下如果无人机退出 *OFFBOARD* 模式**，它将会悬停于当前位置。
+PX4 has a timeout of 500ms between two _OFFBOARD_ commands. If this timeout is exceeded, the commander will fall back to the last mode the vehicle was in before entering _OFFBOARD_ mode. This is why the publishing rate **must** be faster than 2 Hz to also account for possible latencies. This is also the same reason why it is **recommended to enter _OFFBOARD_ mode from _Position_ mode**, this way if the vehicle drops out of _OFFBOARD_ mode it will stop in its tracks and hover.
 
-我们在这里设置发布速率：
+Here we set the publishing rate appropriately:
 
 ```py
 # Setpoint publishing MUST be faster than 2Hz
 rate = rospy.Rate(20)
 ```
 
-在发布任何消息之前，我们需要等待飞控和MAVROS建立连接。 在收到心跳包之后，代码便会跳出这个循环。
+Before publishing anything, we wait for the connection to be established between MAVROS and the autopilot. This loop should exit as soon as a heartbeat message is received.
 
 ```py
 # Wait for Flight Controller connection
@@ -199,7 +200,7 @@ while(not rospy.is_shutdown() and not current_state.connected):
     rate.sleep()
 ```
 
-尽管PX4在航空航天常用的NED坐标系下操控飞机，但MAVROS将自动将该坐标系切换至常规的ENU坐标系下，反之亦然。 这也就是为什么我们设置`z`为+2。
+Even though PX4 operates in the aerospace NED coordinate frame, MAVROS translates these coordinates to the standard ENU frame and vice-versa. This is why we set `z` to positive 2:
 
 ```py
 pose = PoseStamped()
@@ -209,7 +210,7 @@ pose.pose.position.y = 0
 pose.pose.position.z = 2
 ```
 
-在切换到*OFFBOARD*模式之前，你必须先发送一些设定值信息到飞控中。 否则，模式切换将被拒绝。 这里的` 100 ` 可以被设置为任意数。
+Before entering _OFFBOARD_ mode, you must have already started streaming setpoints. Otherwise the mode switch will be rejected. Below, `100` was chosen as an arbitrary amount.
 
 ```py
 # Send a few setpoints before starting
@@ -221,14 +222,14 @@ for i in range(100):
     rate.sleep()
 ```
 
-创建一个消息请求以用于将自定义模式设置为 `OFFBOARD` 。 [支持模式](http://wiki.ros.org/mavros/CustomModes#PX4_native_flight_stack) 列表可供参考。
+We prepare the message request used to set the custom mode to `OFFBOARD`. A list of [supported modes](http://wiki.ros.org/mavros/CustomModes#PX4_native_flight_stack) is available for reference.
 
 ```py
 offb_set_mode = SetModeRequest()
 offb_set_mode.custom_mode = 'OFFBOARD'
 ```
 
-该代码的其余部分完全是自解释性的。 我们尝试切换到 *Offboard* 模式，然后解锁四旋翼飞行器以允许其飞行。 我们每隔五秒去调用一次该服务，避免飞控被大量的请求阻塞。 在同一个循环中，我们按照前面定义的频率持续发送期望点设定值信息给飞控。
+The rest of the code is largely self explanatory. We attempt to switch to _Offboard_ mode, after which we arm the quad to allow it to fly. We space out the service calls by 5 seconds so to not flood the autopilot with the requests. In the same loop, we continue sending the requested pose at the rate previously defined.
 
 ```py
 arm_cmd = CommandBoolRequest()
@@ -255,13 +256,13 @@ while(not rospy.is_shutdown()):
 ```
 
 :::tip
-该示例代码非常简单仅为了说明使用方法。
-在一个复杂的系统中，通常需要创建新的进程来负责周期性的发送位置期望值给飞控。
+This code has been simplified to the bare minimum for illustration purposes.
+In larger systems, it is often useful to create a new thread which will be in charge of periodically publishing the setpoints.
 :::
 
 ## 创建ROS启动文件
 
-在您的 `offboard_py` 软件包中，在 `~/catkin_ws/src/offboard_py/src` 目录下创建名为 `launch` 的文件夹。 包的启动文件将存储在这里。 然后创建您的第一个启动文件，在这种情况下我们以 `start_offb.launch`命名。
+In your `offboard_py` package, create another folder inside the `~/catkin_ws/src/offboard_py/src` directory named `launch`. This is where your launch files for the package will be stored. After that, create your first launch file, in this case we will call it `start_offb.launch`.
 
 ```sh
 roscd offboard_py
@@ -270,7 +271,7 @@ cd launch
 touch start_offb.launch
 ```
 
-将以下代码复制到 `start_offb.launch` 中：
+For the `start_offb.launch` copy the following code:
 
 ```xml
 <?xml version="1.0"?>
@@ -284,12 +285,12 @@ touch start_offb.launch
 </launch>
 ```
 
-如你所见， `mavros_posix_sitl.launch` 文件已被包含。 此文件负责启动 MAVROS、PX4 SITL、 Gazebo Classic 环境并在给定的世界中放置一架无人机(更多信息见文件 [这里](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch))。
+As you can see, the `mavros_posix_sitl.launch` file is included. This file is responsible for launching MAVROS, the PX4 SITL, the Gazebo Classic Environment and for spawning a vehicle in a given world (for further information see the file [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)).
 
 :::tip
-`mavros_posix_sitl.launch` 文件拥有几个可以配置参数，如生成或Gazebo Classic 世界的无人机(参见 [这里](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)以获取完整的列表)。
+The `mavros_posix_sitl.launch` file takes several arguments that can be set according to your preferences such as the vehicle to spawn or the Gazebo Classic world (refer to [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)) for a complete list).
 
-你可以通过在 *include*标签中声明这些参数以覆盖在 `mavros_posix_sitl.launch`定义的默认值。 例如，如果你想要在 `warehouse.world`放置无人机，你可以按如下方式声明：
+You can override the default value of these arguments defined in `mavros_posix_sitl.launch` by declaring them inside the _include_ tags. As an example, if you wanted to spawn the vehicle in the `warehouse.world`, you would write the following:
 
 ```xml
 <!-- Include the MAVROS node with SITL and Gazebo -->
@@ -297,26 +298,27 @@ touch start_offb.launch
     <arg name="world" default="$(find mavlink_sitl_gazebo)/worlds/warehouse.world"/>
 </include>
 ```
+
 :::
 
 ## 启动您的脚本
 
-如果完成了一切，你现在应该能够启动和测试你的脚本。
+If everything is done, you should now be able to launch and test your script.
 
-在终端中输入：
+In the terminal write:
 
 ```sh
 roslaunched offboard_py start_offb.launch
 ```
 
-您现在应该看到PX4固件启动和 Gazebo Classic 应用程序运行。 在 *OFFBOARD* 模式设置后, 无人机将解锁, 无人机动作状态将如[视频](#offb_video) 中所示。
+You should now see the PX4 firmware initiating and the Gazebo Classic application running. After the _OFFBOARD_ mode is set and the vehicle is armed, the behavior shown in the [video](#offb_video) should be observed.
 
 :::warning
-运行脚本时可能出现错误:
+It is possible that when running the script an error appears saying:
 
 > Resource not found: px4 ROS path [0] = ... ...
 
-这意味着PX4 SITL未包括在路径中。 若要解决这个问题，请在 `.bashrc` 文件末尾添加这些行：
+This means that PX4 SITL was not included in the path. To solve this add these lines at the end of the `.bashrc` file:
 
 ```sh
 source ~/PX4-Autopilot/Tools/simulation/gazebo/setup_gazebo.bash ~/PX4-Autopilot ~/PX4-Autopilot/build/px4_sitl_default
@@ -325,11 +327,11 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4-Autopilot/Tools/simulation/gazeb
 export GAZEBO_PLUGIN_PATH=$GAZEBO_PLUGIN_PATH:/usr/lib/x86_64-linux-gnu/gazebo-9/plugins
 ```
 
-在终端中切换至home目录，运行下面的命令将上面的更改应用到当前终端：
+Now in the terminal, go to the home directory and run the following command to apply the changes above to the current terminal:
 
 ```sh
 source .bashrc
 ```
 
-在这个步骤之后，每次您打开一个新的终端窗口，您都不应该再担心这个错误。 如果再次出现，通过 `source .bashrc` 修复。 这个解决方案在这个 [issue](https://github.com/mzahana/px4_fast_planner/issues/4) 提出，在这里你可以获得更多关于这个问题的信息。
+After this step, every time you open a new terminal window you should not have to worry about this error anymore. If it appears again, a simple `source .bashrc` should fix it. This solution was obtained from this [issue](https://github.com/mzahana/px4_fast_planner/issues/4) thread, where you can get more information about the problem.
 :::

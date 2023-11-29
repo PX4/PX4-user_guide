@@ -1,9 +1,11 @@
 # Flight Modes
 
-*Flight Modes* define how the autopilot responds to user input and controls vehicle movement. The tables below summarizes flight modes for fixed-wing and copter ([table key is below](#key)). Note that this is the "high level" default behaviour, and may vary based on vehicle parameters. The linked topics (sidebar) provide more detailed information about individual modes, including their tuning parameters.
+_Flight Modes_ define how the autopilot responds to user input and controls vehicle movement.
+The tables below summarizes flight modes for fixed-wing and copter ([table key is below](#key)). Note that this is the "high level" default behaviour, and may vary based on vehicle parameters.
+The linked topics (sidebar) provide more detailed information about individual modes, including their tuning parameters.
 
 :::tip
-A *beginner friendly* explanation of all flight modes is provided in [Getting Started > Flight Modes](../getting_started/flight_modes.md).
+A _beginner friendly_ explanation of all flight modes is provided in [Getting Started > Flight Modes](../getting_started/flight_modes.md).
 :::
 
 <!-- Styles used for tables below -->
@@ -24,17 +26,9 @@ tr td:nth-last-child(1) {
     text-align:left;
 }
 
-/*
-  .col_summary {
-    width:50px;
-  }
-*/
-
-
 th {
   font-size:1.0rem;
 }
-
 
 @media (min-width: 1500px){
 .page-inner {
@@ -53,7 +47,6 @@ th {
   max-width: 800px;
   }
 }
-
 </style>
 
 ## Fixed-wing
@@ -66,7 +59,7 @@ th {
      <th class="col_yaw">Yaw</th>
      <th class="col_throttle">Throttle</th>
      <th class="col_sensor">Position Sensors</th>
-     <th class="col_summary">Summary</th></tr>
+     <th class="col_summary">Summary</th>
    </tr>
  </thead>
 <tbody>
@@ -95,7 +88,6 @@ th {
   </td>
 </tr>
 
-
 <tr id="altitude_fw">
  <td><a href="../flight_modes_mc/altitude.html">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
@@ -112,6 +104,7 @@ th {
        <li>Autopilot maintains altitude with wings also level.</li> 
        <li>Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected (without airspeed sensor, the user cannot control throttle).</li>
     </ul>
+	</li>
     <li>Outside center:
       <ul>
        <li>Pitch stick controls altitude.</li>
@@ -123,7 +116,6 @@ th {
  </p>
  </td>
 </tr>
-
 
 <tr id="stabilized_fw">
  <td><a href="../flight_modes_fw/stabilized.html">Stabilized</a>
@@ -156,7 +148,6 @@ th {
 <p>RPY stick inputs are translated to angular rate commands that are stabilized by autopilot. Throttle is passed directly to control allocation.</p></td>
 </tr>
 
-
 <tr id="manual_fw">
  <td><a href="../flight_modes_fw/manual.html">Manual</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
@@ -171,14 +162,12 @@ th {
   </td>
 </tr>
 
-
 <tr id="takeoff_fw">
  <td><a href="../flight_modes_fw/takeoff.html">Takeoff</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle initiates the takeoff sequence using either <em>catapult/hand-launch mode</em> or <em>runway takeoff mode</em> (in the current direction).</td>
 </tr>
-
 
 <tr id="land_fw">
  <td><a href="../flight_modes_fw/land.html">Land</a></td>
@@ -201,7 +190,6 @@ th {
  <td>Vehicle flies a clear path to a safe location. The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined).</td>
 </tr>
 
-
 <tr id="mission_fw">
  <td><a href="../flight_modes_fw/mission.html">Mission</a></td>
  <td colspan="3">Auto</td>
@@ -218,8 +206,6 @@ th {
  
 </tbody></table>
 
-
-
 ## Multicopter
 
 <table>
@@ -230,11 +216,10 @@ th {
      <th>Yaw</th>
      <th>Throttle</th>
      <th>Position Sensors</th>
-     <th class="col_summary">Summary</th></tr>
+     <th class="col_summary">Summary</th>
    </tr>
  </thead>
 <tbody>
-
 
 <tr id="position_mc">
  <td><a href="../flight_modes_mc/position.html">Position</a>
@@ -259,8 +244,6 @@ th {
        <li>When landed, the vehicle will take off if the throttle stick is raised above 62.5% percent (of the full range from bottom).</li>
       </ul>
     </li>
-    </ul>
-  </li>
   </ul>
  </p>
 </td>
@@ -281,6 +264,7 @@ th {
        <li>RPY sticks levels vehicle.</li> 
        <li>Throttle (~50%) holds current altitude steady against wind.</li>
     </ul>
+	</li>
     <li>Outside center:
       <ul>
        <li>Roll/Pitch sticks control tilt angle in respective orientations, resulting in corresponding left-right and forward-back movement.</li>
@@ -297,7 +281,6 @@ th {
  </p>
  </td>
 </tr>
-
 
 <tr id="manual_stabilized_mc">
  <td><a href="../flight_modes_mc/manual_stabilized.html">Manual/ Stabilized</a>
@@ -335,7 +318,6 @@ th {
   <p>RC RPY stick inputs control the rate of angular rotation around the respective axes. Throttle is passed directly to control allocation.  When sticks are centered the vehicle will stop rotating, but remain in its current orientation (e.g. possibly inverted) and moving according to its current momentum.</p>
  </td>
 </tr>
-
 
 <tr id="orbit_mc">
  <td><a href="../flight_modes_mc/orbit.html">Orbit</a>
@@ -378,7 +360,6 @@ th {
  <td>Vehicle flies a clear path to a safe location. The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined).</td>
 </tr>
 
-
 <tr id="mission_mc">
  <td><a href="../flight_modes_mc/mission.html">Mission</a></td>
  <td colspan="3">Auto</td>
@@ -402,13 +383,11 @@ th {
  
 </tbody></table>
 
-
 ## VTOL
 
 VTOL vehicles support both fixed-wing and multicopter flight modes, executing them based on the current vehicle mode (MC or FW).
 
 VTOL supports [Offboard](../flight_modes/offboard.md) mode in either configuration.
-
 
 ## Key
 

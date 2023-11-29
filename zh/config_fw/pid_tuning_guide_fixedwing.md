@@ -29,7 +29,6 @@ This guide explains how to manually tune the fixed-wing PID loop. 它是为高�
 
 本指南将使用这些参数来设置控制器的部分增益。
 
-
 ## 滚转调参
 
 先调节滚转通道，然后俯仰通道。 滚转更安全，因为不准确只会导致运动，而不会导致掉高。
@@ -42,7 +41,6 @@ This guide explains how to manually tune the fixed-wing PID loop. 它是为高�
 
 - [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I)
 - [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P)
-
 
 #### 待调整增益
 
@@ -71,7 +69,7 @@ This guide explains how to manually tune the fixed-wing PID loop. 它是为高�
 
 #### 待调整增益
 
-- [FW_PR_FF](../advanced_config/parameter_reference.md#FW_PR_FF) - 以0.4作为初始值。 增加该参数值 (每次翻倍) 直到飞机俯仰响应特性良好并到达设置值。 最后将增益降低20%。
+- [FW_PR_FF](../advanced_config/parameter_reference.md#FW_PR_FF) - 以0.4作为初始值。 Increase this value (doubling each time) until the plane pitches satisfactory and reaches the setpoint. 最后将增益降低20%。
 
 ### 调整角速率增益
 
@@ -81,14 +79,12 @@ This guide explains how to manually tune the fixed-wing PID loop. 它是为高�
 
 - [FW_RR_I](../advanced_config/parameter_reference.md#FW_PR_I) - 以0.01作为初始值。 增加这个值(每次翻倍)，直到命令和实际俯仰角之间没有偏差(这很可能需要查看日志文件)。
 
-
 ## 调整外环时间常数
 
 控制环的整体响应偏软/偏硬可通过时间常数调整。 预设值0.5秒对常规固定翼是个合适的值，通常不需要调整。
 
 - [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC) - 设置为默认值0.5秒, 增加以使俯仰响应变得更加软, 减少以使俯仰响应变得更加硬。
 - [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) - 设置为默认值0.5秒, 增加以使滚转响应变得更加软, 减少以使滚转响应变得更加硬。
-
 
 ## 其他调整参数
 

@@ -1,6 +1,5 @@
 # Frequently Asked Questions
 
-
 ## Build Errors
 
 ### Flash Overflow
@@ -25,10 +24,9 @@ To remove a module, just comment it out:
 
 The command below will list the largest static allocations:
 
-```bash
+```sh
 arm-none-eabi-nm --size-sort --print-size --radix=dec build/px4_fmu-v5_default/px4_fmu-v5_default.elf | grep " [bBdD] "
 ```
-
 
 ## USB Errors
 

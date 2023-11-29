@@ -119,9 +119,9 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
 in the toolchain should be compatible with kernel in _BeagleBone Blue_. General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on _BeagleBone Blue_.
 :::
 
-         Download and unpack [gcc-linaro-13.0.0-2022.06-x86_64_arm-linux-gnueabihf.tar.xz](https://snapshots.linaro.org/gnu-toolchain/13.0-2022.06-1/arm-linux-gnueabihf/gcc-linaro-13.0.0-2022.06-x86_64_arm-linux-gnueabihf.tar.xz) to the bbblue_toolchain folder.
+         sudo su connmanctl connmanctl&gt;scan wifi connmanctl&gt;services #(at this point you should see your network SSID appear.) connmanctl&gt;agent on connmanctl&gt;connect &lt;SSID&gt; Enter Passphrase connmanctl&gt;quit connmanctl&gt;agent on connmanctl&gt;connect &lt;SSID&gt; Enter Passphrase connmanctl&gt;quit
 
-         Different ARM Cross Compiler versions for _BeagleBone Blue_ can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/).
+         Different ARM Cross Compiler versions for _BeagleBone Blue_ can be found at \[Linaro Toolchain Binaries site\](http://www.linaro.org/downloads/).
 
          ```sh
          wget https://snapshots.linaro.org/gnu-toolchain/13.0-2022.06-1/arm-linux-gnueabihf/gcc-linaro-13.0.0-2022.06-x86_64_arm-linux-gnueabihf.tar.xz
@@ -140,8 +140,7 @@ The GCC version of the toolchain should be compatible with kernel in _BeagleBone
          export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-13.0.0-2022.06-x86_64_arm-linux-gnueabihf/bin
          ```
 
-         :::note
-Logout and Login to apply the change, or execute the same line on your current shell.
+         Logout and Login to apply the change, or execute the same line on your current shell.
 :::
 
       1. Setup other dependencies by downloading the PX4 source code and then running the setup scripts:
@@ -159,7 +158,7 @@ Logout and Login to apply the change, or execute the same line on your current s
          # in row 37 change debian@beaglebone.lan TO root@beaglebone (or root@<IP>)
          ````
 
-         See the [Development Environment Setup](../dev_setup/dev_env_linux_ubuntu.md) instructions for additional information.
+         See the \[Development Environment Setup\](../dev_setup/dev_env_linux_ubuntu.md) instructions for additional information.
 
 ### Cross Compile and Upload
 

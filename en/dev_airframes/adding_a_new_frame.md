@@ -49,13 +49,12 @@ A frame configuration file to be launched from SD card is the same as one stored
 To make PX4 launch with a frame configuration, renamed it to `rc.autostart` and copy it to the SD card at `/ext_autostart/rc.autostart`.
 PX4 will find any linked files in firmware.
 
-
 ## Configuration File Overview
 
 The configuration file consists of several main blocks:
 
-- Documentation (used in the [Airframes Reference](../airframes/airframe_reference.md) and *QGroundControl*).
- Airframe-specific parameter settings
+- Documentation (used in the [Airframes Reference](../airframes/airframe_reference.md) and _QGroundControl_).
+  Airframe-specific parameter settings
   - The configuration and geometry using [control allocation](../concept/control_allocation.md) parameters
   - [Tuning gains](#tuning-gains)
 - The controllers and apps it should start, such as multicopter or fixed-wing controllers, land detectors etc.
@@ -72,14 +71,15 @@ The configuration file for a generic Quad X copter is shown below ([original fil
 This is very simple, because it defines only the minimal setup common to all quadcopters.
 
 The first line is a shebang, which tells the NuttX operating system (on which PX4 runs) that the configuration file is an executable shell script.
-```
+
+```c
 #!/bin/sh
 ```
 
 This is followed by the frame documentation.
 The `@name`, `@type` and `@class` are used to identify and group the frame in the [API Reference](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) and QGroundControl Airframe Selection.
 
-```
+```plain
 # @name Generic Quadcopter
 #
 # @type Quadrotor x
@@ -91,14 +91,14 @@ The `@name`, `@type` and `@class` are used to identify and group the frame in th
 
 The next line imports generic parameters that are appropriate for all vehicles of the specified type (see [init.d/rc.mc_defaults](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rc.mc_defaults)).
 
-```
+```plain
 . ${R}etc/init.d/rc.mc_defaults
 ```
 
 Finally the file lists the control allocation parameters (starting with `CA_` that define the default geometry for the frame.
 These may be modified for your frame geometry in the [Actuators Configuration](../config/actuators.md), and output mappings may be added.
 
-```
+```sh
 param set-default CA_ROTOR_COUNT 4
 param set-default CA_ROTOR0_PX 0.15
 param set-default CA_ROTOR0_PY 0.15
@@ -120,7 +120,7 @@ This is the configuration for the Baby Shark [Standard VTOL](../frames_vtol/stan
 The shebang and documentation sections are similar to those for the generic frame, but here we also document what `outputs` are mapped to each motor and actuator.
 Note that these outputs are documentation only; the actual mapping is done using parameters.
 
-```bash
+```sh
 #!/bin/sh
 #
 # @name BabyShark VTOL
@@ -147,13 +147,13 @@ Note that these outputs are documentation only; the actual mapping is done using
 
 As for the generic frame, we then include the generic VTOL defaults.
 
-```bash
+```sh
 . ${R}etc/init.d/rc.vtol_defaults
 ```
 
 Then we define configuration parameters and [tuning gains](#tuning-gains):
 
-```
+```sh
 param set-default MAV_TYPE 22
 
 param set-default BAT1_N_CELLS 6
@@ -221,7 +221,7 @@ param set-default VT_TYPE 2
 
 Last of all, the file defines the control allocation parameters for the geometry and the parameters that set which outputs map to different motors and servos.
 
-```bash
+```sh
 param set-default CA_AIRFRAME 2
 param set-default CA_ROTOR_COUNT 5
 param set-default CA_ROTOR0_PX 1
@@ -269,14 +269,16 @@ param set-default PWM_MAIN_DIS4 1500
 Airframe "groups" are used to group similar airframes for selection in [QGroundControl](https://docs.qgroundcontrol.com/master/en/SetupView/Airframe.html) and in the [Airframe Reference](../airframes/airframe_reference.md).
 Every group has a name, and an associated svg image which shows the common geometry, number of motors, and direction of motor rotation for the grouped airframes.
 
-The airframe metadata files used by *QGroundControl* and the documentation source code are generated from the airframe description, via a script, using the build command: `make airframe_metadata`
+The airframe metadata files used by _QGroundControl_ and the documentation source code are generated from the airframe description, via a script, using the build command: `make airframe_metadata`
 
 For a new frame belonging to an existing group, you don't need to do anything more than provide documentation in the airframe description located at
 [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d).
 
 If the airframe is for a **new group** you additionally need to:
+
 1. Add the svg image for the group into user guide documentation (if no image is provided a placeholder image is displayed): [assets/airframes/types](https://github.com/PX4/PX4-user_guide/tree/master/assets/airframes/types)
-1. Add a mapping between the new group name and image filename in the [srcparser.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/srcparser.py) method `GetImageName()` (follow the pattern below): 
+1. Add a mapping between the new group name and image filename in the [srcparser.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/srcparser.py) method `GetImageName()` (follow the pattern below):
+
    ```python
    def GetImageName(self):
        """
@@ -290,10 +292,13 @@ If the airframe is for a **new group** you additionally need to:
     ...
        return "AirframeUnknown"
    ```
-1. Update *QGroundControl*:
-   * Add the svg image for the group into: [src/AutopilotPlugins/Common/images](https://github.com/mavlink/qgroundcontrol/tree/master/src/AutoPilotPlugins/Common/Images)
-   * Add reference to the svg image into [qgcimages.qrc](https://github.com/mavlink/qgroundcontrol/blob/master/qgcimages.qrc), following the pattern below:
-     ```
+
+1. Update _QGroundControl_:
+
+   - Add the svg image for the group into: [src/AutopilotPlugins/Common/images](https://github.com/mavlink/qgroundcontrol/tree/master/src/AutoPilotPlugins/Common/Images)
+   - Add reference to the svg image into [qgcimages.qrc](https://github.com/mavlink/qgroundcontrol/blob/master/qgcimages.qrc), following the pattern below:
+
+     ```xml
      <qresource prefix="/qmlimages">
         ...
         <file alias="Airframe/AirframeSimulation">src/AutoPilotPlugins/Common/Images/AirframeSimulation.svg</file>
@@ -302,32 +307,33 @@ If the airframe is for a **new group** you additionally need to:
         <file alias="Airframe/FlyingWing">src/AutoPilotPlugins/Common/Images/FlyingWing.svg</file>
         ...
      ```
-   :::note
-   The remaining airframe metadata should be automatically included in the firmware (once **srcparser.py** is updated).
-   :::
+
+     :::note
+     The remaining airframe metadata should be automatically included in the firmware (once **srcparser.py** is updated).
+     :::
 
 ## Tuning Gains
 
 The following topics explain how to tune the parameters that will be specified in the config file:
 
-* [Autotuning](../config/autotune.md)
-* [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md)
-* [Fixed-wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
-* [VTOL Configuration](../config_vtol/README.md)
-
+- [Autotuning](../config/autotune.md)
+- [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md)
+- [Fixed-wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
+- [VTOL Configuration](../config_vtol/README.md)
 
 ## Add Frame to QGroundControl
 
-To make a new airframe available for section in the *QGroundControl* [frame configuration](../config/airframe.md):
+To make a new airframe available for section in the _QGroundControl_ [frame configuration](../config/airframe.md):
 
 1. Make a clean build (e.g. by running `make clean` and then `make px4_fmu-v5_default`)
 1. Open QGC and select **Custom firmware file...** as shown below:
 
-  ![QGC flash custom firmware](../../assets/gcs/qgc_flash_custom_firmware.png)
-  
-  You will be asked to choose the **.px4** firmware file to flash (this file is a zipped JSON file and contains the airframe metadata).
+![QGC flash custom firmware](../../assets/gcs/qgc_flash_custom_firmware.png)
+
+You will be asked to choose the **.px4** firmware file to flash (this file is a zipped JSON file and contains the airframe metadata).
+
 1. Navigate to the build folder and select the firmware file (e.g. **PX4-Autopilot/build/px4_fmu-v5_default/px4_fmu-v5_default.px4**).
 1. Press **OK** to start flashing the firmware.
-1. Restart *QGroundControl*.
+1. Restart _QGroundControl_.
 
-The new frame will then be available for selection in *QGroundControl*.
+The new frame will then be available for selection in _QGroundControl_.

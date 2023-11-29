@@ -30,9 +30,8 @@ VMWare performance is acceptable for basic usage (building Firmware) but not for
 1. Open _VMWare Player_.
 1. Enable 3D acceleration in the VM's settings: **VM > Settings > Hardware > Display > Accelerate 3D graphics**
 
-   :::note
+   We recommend this is done before installing Linux in the virtual environment. :::note
 This option is required to properly run 3D simulation environments like jMAVSim and Gazebo Classic.
-We recommend this is done before installing Linux in the virtual environment.
 :::
 
 1. Select the option to create a new virtual machine.

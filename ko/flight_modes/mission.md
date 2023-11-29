@@ -6,11 +6,16 @@ _Mission mode_ causes the vehicle to execute a predefined autonomous [mission](.
 
 :::note
 
-- This mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
-- 이 모드를 사용하려면 기체의 시동을 걸어야합니다.
-- This mode is automatic - no user intervention is _required_ to control the vehicle.
+- Mode is automatic - no user intervention is _required_ to control the vehicle.
+- Mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+  - Flying vehicles can't switch to this mode without global position.
+  - Flying vehicles will failsafe if they lose the position estimate.
+  - Disarmed vehicles can switch to mode without valid position estimate but can't arm.
+- Mode requires wind and flight time are within allowed limits (specified via parameters).
 - RC 무선 조종기 스위치는 기체의 비행 모드를 변경할 수 있습니다.
 - RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
+
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
 :::
 

@@ -4,10 +4,9 @@
 
 <img src="../../assets/hardware/sensors/leddar_one.jpg" alt="LeddarOne 라이다 거리계" width="200px" />
 
-
 ## 하드웨어 설정
 
-LeddarOne은 *직렬 포트* UART (예 : TELEM2, TELEM3, GPS2 등)에 연결됩니다.
+LeddarOne can be connected to any unused _serial port_ (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
 
 보드 핀배열과 LeddarOne 핀배열(아래 참조)에 따라 적절한 케이블을 사용합니다. 5V, TX, RX 및 GND 핀만 연결하면 됩니다.
 
@@ -20,18 +19,19 @@ LeddarOne은 *직렬 포트* UART (예 : TELEM2, TELEM3, GPS2 등)에 연결됩�
 | 5 | TX        |
 | 6 | -         |
 
-
 ## 매개변수 설정
 
 [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG)를 사용하여 LIDAR가 실행되는 [직렬 포트를 설정](../peripherals/serial_configuration.md)합니다. 포트 전송속도는 드라이버에 의해 설정되므로, 추가로 설정할 필요는 없습니다.
 
 :::note
-*QGroundControl*에서 설정 매개변수를 사용할 수 없는 경우에는 [펌웨어에 드라이버를 추가](../peripherals/serial_configuration.md#parameter_not_in_firmware)하여야 합니다:
-```
+If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+
+```plain
 CONFIG_DRIVERS_DISTANCE_SENSOR_LEDDAR_ONE=y
 ```
+
 :::
 
 ## 추가 정보
 
-* [LeddarOne 사양 시트](https://leddartech.com/app/uploads/dlm_uploads/2021/04/Spec-Sheet_LeddarOne_V10.0_EN-1.pdf)
+- [LeddarOne 사양 시트](https://leddartech.com/app/uploads/dlm_uploads/2021/04/Spec-Sheet_LeddarOne_V10.0_EN-1.pdf)

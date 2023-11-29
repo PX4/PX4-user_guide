@@ -128,8 +128,6 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 
 ## 更多信息
 
--
-FMUv5参考设计</0 >。</li> 
-  
-  - [CUAV v5 docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5.html)
-- [CUAV Github库](https://github.com/cuav)</ul>
+- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
+- [CUAV v5 docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5.html)
+- [CUAV Github库](https://github.com/cuav)

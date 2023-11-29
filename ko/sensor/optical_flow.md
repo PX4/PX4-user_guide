@@ -1,8 +1,9 @@
 # 광류
 
-*광류*는 속도 추정을 위하여 하향 카메라와 하향 거리 센서를 사용합니다.
+_Optical Flow_ uses a downward facing camera and a downward facing distance sensor for velocity estimation.
 
-@[youtube](https://youtu.be/aPQKgUof3Pc) *Video: PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes_mc/position.md)).* 
+@[youtube](https://youtu.be/aPQKgUof3Pc) _Video: PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes_mc/position.md))._
+
 <!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
 
 ## 설정
@@ -30,7 +31,6 @@ If connected to PX4 via MAVLink the Optical Flow device must publish to the [OPT
 
 광류 데이터는 다른 속도 데이터 소스와 융합됩니다. 센서 데이터와 차량 중앙으로부터의 오프셋을 융합 방식은 [추정기](#estimators)에서 설정합니다.
 
-
 ## 유량 센서/카메라
 
 ### ARK Flow
@@ -45,11 +45,9 @@ If connected to PX4 via MAVLink the Optical Flow device must publish to the [OPT
 
 카메라 통합 보드를 사용할 수 있습니다. [Optical Flow repo](https://github.com/PX4/OpticalFlow)를 사용할 수도 있습니다 ([snap_cam](https://github.com/PX4/snap_cam) 참조).
 
-
 ## 거리 측정기
 
 더 자세한 정보는 [거리 센서](../sensor/rangefinders.md)를 참고하십시오. 그러나 견고성과 정확성 측면에서는 음향 센서보다 LIDAR를 사용하는 것이 좋습니다.
-
 
 ## 추정기
 
@@ -74,6 +72,3 @@ For optical flow fusion using EKF2, set [EKF2_OF_CTRL](../advanced_config/parame
 | <a id="EKF2_OF_POS_X"></a>[EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X) | 바디 프레임에서 광류 초점의 X 위치 (기본값은 0.0m). |
 | <a id="EKF2_OF_POS_Y"></a>[EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) | 바디 프레임에서 광류 초점의 Y 위치 (기본값은 0.0m). |
 | <a id="EKF2_OF_POS_Z"></a>[EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) | 바디 프레임에서 광류 초점의 Z 위치 (기본값은 0.0m). |
-
-
-

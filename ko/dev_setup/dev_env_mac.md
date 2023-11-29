@@ -1,9 +1,10 @@
 # MacOS 개발 환경
 
 아래에서 macOS용 PX4 개발 환경 설정 방법을 설명합니다. PX4 빌드에 사용되어 집니다.
-* Pixhawk와 기타 NuttX 기반 하드웨어
-* [jMAVSim 시뮬레이션](../sim_jmavsim/README.md)
-* [Gazebo Classic Simulation](../sim_gazebo_classic/README.md)
+
+- Pixhawk와 기타 NuttX 기반 하드웨어
+- [jMAVSim 시뮬레이션](../sim_jmavsim/README.md)
+- [Gazebo Classic Simulation](../sim_gazebo_classic/README.md)
 
 :::tip
 이 설정은 PX4 개발 팀에서 지원합니다. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported development environment](../advanced/community_supported_dev_env.md)).
@@ -12,7 +13,6 @@
 ## 영상 가이드
 
 @[유투브](https://youtu.be/tMbMGiMs1cQ)
-
 
 ## Base Setup
 
@@ -24,11 +24,11 @@ The "base" macOS setup installs the tools needed for building firmware, and incl
 애플 M1 맥북 사용자 Apple M1 Macbook이 있는 경우 x86 터미널을 설정하여 터미널을 x86으로 실행해야 합니다.
 
 1. 유틸리티 폴더(**Finder > 이동 메뉴 > 유틸리티**)에서 터미널 애플리케이션을 찾습니다.
-2. *Terminal.app*을 선택하고 마우스 오른쪽 버튼으로 클릭한 다음 **복제**를 선택합니다.
-3. 복제된 터미널 앱의 이름을 변경합니다(예: *x86 터미널*으로)
-4. 이름이 변경된 *x86 Terminal* 앱을 선택하고 마우스 오른쪽 버튼을 클릭하고 **정보 입수*를 선택합니다.
+2. Select _Terminal.app_ and right-click on it, then choose **Duplicate**.
+3. Rename the duplicated Terminal app, e.g. to _x86 Terminal_
+4. Now select the renamed _x86 Terminal_ app and right-click and choose \*_Get Info_
 5. **Rosetta를 사용하여 열기** 확인란을 선택하고, 창을 닫습니다.
-6. Run the *x86 Terminal* as usual, which will fully support the current PX4 toolchain
+6. Run the _x86 Terminal_ as usual, which will fully support the current PX4 toolchain
 :::
 
 First set up the environment
@@ -61,6 +61,7 @@ To setup the environment to be able to build for Pixhawk/NuttX hardware (and ins
    brew tap PX4/px4
    brew install px4-dev
    ```
+
 1. Install the required Python packages:
 
    ```sh
@@ -131,6 +132,7 @@ Once you have finished setting up the command-line toolchain:
 - Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html)
 
 :::tip
-The *daily build* includes development tools that are hidden in release builds. 또한, 릴리스 빌드에서 아직 지원되지 않는 새로운 PX4 기능에 대한 액세스를 제공할 수도 있습니다.
+The _daily build_ includes development tools that are hidden in release builds. 또한, 릴리스 빌드에서 아직 지원되지 않는 새로운 PX4 기능에 대한 액세스를 제공할 수도 있습니다.
 :::
+
 - [빌드 지침](../dev_setup/building_px4.md)을 계속 진행합니다.

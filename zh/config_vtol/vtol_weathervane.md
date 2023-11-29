@@ -1,6 +1,6 @@
 # VTOL Weather Vane Feature
 
-The *weather vane* feature automatically turns a VTOL vehicle to face its nose into the relative wind during hover flight. This improves stability (reducing the chance that wind from the side will pick-up the wind-facing wing and flip the vehicle).
+The _weather vane_ feature automatically turns a VTOL vehicle to face its nose into the relative wind during hover flight. This improves stability (reducing the chance that wind from the side will pick-up the wind-facing wing and flip the vehicle).
 
 The feature is [enabled by default](#configuration) on VTOL hybrid vehicles flying in multicopter mode.
 
@@ -22,14 +22,13 @@ In [Mission mode](../flight_modes/mission.md) the weather vane feature will alwa
 
 ## 配置
 
-This functionality is configured using the [WV_* parameters](../advanced_config/parameter_reference.md#WV_EN).
+This functionality is configured using the [WV\_\* parameters](../advanced_config/parameter_reference.md#WV_EN).
 
 | 参数                                                                       | 描述                                                                           |
 | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
 | [WV_EN](../advanced_config/parameter_reference.md#WV_EN)                 | Enable weather vane.                                                         |
 | [WV_ROLL_MIN](../advanced_config/parameter_reference.md#WV_ROLL_MIN)   | Minimum roll angle setpoint for weathervane controller to demand a yaw-rate. |
 | [WV_YRATE_MAX](../advanced_config/parameter_reference.md#WV_YRATE_MAX) | Maximum yawrate the weathervane controller is allowed to demand.             |
-
 
 ## How Does it Work?
 

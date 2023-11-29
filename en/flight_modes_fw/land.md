@@ -14,13 +14,16 @@ Where possible, instead use [Return mode](../flight_modes/return.md) with a pred
 
 :::note
 
-- This mode requires a valid global position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
-- In a failsafe the mode only requires altitude (typically a barometer is built into the flight controller).
-- This mode is automatic - no user intervention is _required_ to control the vehicle.
+- Mode is automatic - no user intervention is _required_ to control the vehicle.
+- Mode requires at least a valid local position estimate (does not require a global position).
+  - Flying vehicles can't switch to this mode without valid local position.
+  - Flying vehicles will failsafe if they lose the position estimate.
+- Mode prevents arming (vehicle must be armed when switching to this mode).
 - RC control switches can be used to change flight modes on any vehicle.
 - RC stick movement is ignored.
 - The mode can be triggered using the [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) MAVLink command, or by explicitly switching to Land mode.
 
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 :::
 
 ## Technical Summary

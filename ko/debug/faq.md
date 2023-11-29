@@ -1,6 +1,5 @@
 # 자주 묻는 질문
 
-
 ## 빌드 오류
 
 ### 플래시 오버플로우
@@ -24,7 +23,6 @@ region `flash' overflowed by 12456 bytes
 ```bash
 arm-none-eabi-nm --size-sort --print-size --radix=dec build/px4_fmu-v5_default/px4_fmu-v5_default.elf | grep " [bBdD] "
 ```
-
 
 ## USB 오류
 

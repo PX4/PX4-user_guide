@@ -34,7 +34,6 @@ Pixhawk flight controllers usually come with a [Pixhawk Connector Standard Debug
 
 These ports have pins for console TX and RX which can connect to an FTDI cable. The mapping for the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) to FTDI is shown below.
 
-
 | Connecting via FTDI 3.3V Cable | -         | FTDI | -             |
 | ------------------------------ | --------- | ---- | ------------- |
 | 2                              | + 5v (红色) |      | N/C           |
@@ -54,7 +53,7 @@ After the console connection is wired up, use the default serial port tool of yo
 
 下载 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 并启动它。
 
-```bash
+```sh
 sudo apt-get install screen
 ```
 
@@ -62,7 +61,7 @@ sudo apt-get install screen
 
 Connect screen at BAUDRATE baud, 8 data bits, 1 stop bit to the right serial port (use `ls /dev/tty*` and watch what changes when unplugging / replugging the USB device). Common names are `/dev/ttyUSB0` and `/dev/ttyACM0` for Linux and `/dev/tty.usbserial-ABCBD` for Mac OS.
 
-```bash
+```sh
 screen /dev/ttyXXX BAUDRATE 8N1
 ```
 

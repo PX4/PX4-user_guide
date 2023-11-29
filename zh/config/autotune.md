@@ -6,13 +6,14 @@ Tuning only needs to be done once, and is recommended unless you're using a vehi
 
 :::warning
 Auto-tuning is performed while flying. The airframe must fly well enough to handle moderate disturbances, and should be closely attended:
+
 - Test that your vehicle is [stable enough for autotuning](#pre-tuning-test).
 - Be ready to abort the autotuning process. You can do this by changing flight modes or using an auto-tune enable/disable switch ([if configured](#enable-disable-autotune-switch-fixed-wing)).
 - Verify that the vehicle flies well after tuning.
+
 :::
 
 @[youtube](https://youtu.be/5xswOhhqrIQ)
-
 
 ## Pre-tuning Test
 
@@ -35,7 +36,6 @@ To make sure the vehicle is stable enough for auto-tuning:
 If the drone can stabilize itself within 2 oscillations it is ready for the auto-tuning procedure.
 
 If not, go to the [troubleshooting](#troubleshooting) section, which explains the minimal manual tuning to prepare the vehicle for auto-tuning.
-
 
 ### Auto-tuning Procedure
 
@@ -62,17 +62,18 @@ If an [Enable/Disable Autotune Switch](#enable-disable-autotune-switch-fixed-win
    1. In QGroundControl, open the menu: **Vehicle setup > PID Tuning**
 
       ![Tuning Setup > Autotune Enabled](../../assets/qgc/setup/autotune/autotune.png)
-   1. Select either the *Rate Controller* or *Attitude Controller* tabs.
+
+   1. Select either the _Rate Controller_ or _Attitude Controller_ tabs.
    1. Ensure that the **Autotune enabled** button is enabled (this will display the **Autotune** button and remove the manual tuning selectors).
    1. Read the warning popup and click on **OK** to start tuning.
+
 1. The drone will first start to perform quick roll motions followed by pitch and yaw motions. The progress is shown in the progress bar, next to the _Autotune_ button.
 1. Apply the tuning:
 
    - **Fixed-Wing:** The tuning will be immediately/automatically be applied and tested in flight (by default). PX4 will then run a 4 second test and revert the new tuning if a problem is detected.
    - **Multicopters:** Manually land and disarm to apply the new tuning parameters. Takeoff carefully and manually test that the vehicle is stable.
+
 1. If any strong oscillations occur, land immediately and follow the instructions in the [Troubleshooting](#troubleshooting) section below.
-
-
 
 Additional notes:
 
@@ -85,12 +86,12 @@ Additional notes:
 
 #### The drone oscillates when performing the testing maneuvers prior to the auto-tuning
 
-* slow oscillations (1 oscillation per second or slower): this often occurs on large platforms and means that the attitude loop is too fast compared to the rate loop.
-   - **Multicopter:** decrease [MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P) and [MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P) by steps of 1.0.
-   - **Fixed-wing:** increase [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) and [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC) by steps of 0.1.
-* fast oscillations (more than 1 oscillation per second): this is because the gain of the rate loop is too high.
-   - **Multicopter:** decrease `MC_[ROLL|PITCH|YAW]RATE_K` by steps of 0.02
-   - **Fixed-wing:** decrease [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P), [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_P), [FW_YR_P](../advanced_config/parameter_reference.md#FW_YR_P) by steps of 0.01.
+- slow oscillations (1 oscillation per second or slower): this often occurs on large platforms and means that the attitude loop is too fast compared to the rate loop.
+  - **Multicopter:** decrease [MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P) and [MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P) by steps of 1.0.
+  - **Fixed-wing:** increase [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) and [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC) by steps of 0.1.
+- fast oscillations (more than 1 oscillation per second): this is because the gain of the rate loop is too high.
+  - **Multicopter:** decrease `MC_[ROLL|PITCH|YAW]RATE_K` by steps of 0.02
+  - **Fixed-wing:** decrease [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P), [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_P), [FW_YR_P](../advanced_config/parameter_reference.md#FW_YR_P) by steps of 0.01.
 
 #### The auto-tuning sequence fails
 
@@ -103,10 +104,10 @@ Due to effects not included in the mathematical model such as delays, saturation
 #### I still can't get it to work
 
 Attempt manual tuning using the appropriate guides:
+
 - [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter_basic.md) (Manual/Simple)
 - [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) (Advanced/Detailed)
 - [Fixed-Wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
-
 
 ## Optional Configuration
 
@@ -114,9 +115,9 @@ Attempt manual tuning using the appropriate guides:
 
 By default MC vehicles land before parameters are applied, while FW vehicles apply the parameters in-air and then test that the controllers work properly. This behaviour can be configured using the [MC_AT_APPLY](../advanced_config/parameter_reference.md#MC_AT_APPLY) and [FW_AT_APPLY](../advanced_config/parameter_reference.md#FW_AT_APPLY) parameters respectively:
 
-* `0`: the gains are not applied. This is used for testing purposes if the user wants to inspect results of the auto-tuning algorithm without using them directly.
-* `1`: apply the gains after disarm (default for multirotors). The operator can then test the new tuning while taking-off carefully.
-* `2`: apply immediately (default for fixed-fings). The new tuning is applied, disturbances are sent to the controller and the stability is monitored during the next 4 seconds. If the control loop is unstable, the control gains are immediately reverted back to their previous value. If the test passes, the pilot can then use the new tuning.
+- `0`: the gains are not applied. This is used for testing purposes if the user wants to inspect results of the auto-tuning algorithm without using them directly.
+- `1`: apply the gains after disarm (default for multirotors). The operator can then test the new tuning while taking-off carefully.
+- `2`: apply immediately (default for fixed-fings). The new tuning is applied, disturbances are sent to the controller and the stability is monitored during the next 4 seconds. If the control loop is unstable, the control gains are immediately reverted back to their previous value. If the test passes, the pilot can then use the new tuning.
 
 ### Enable/Disable Autotune Switch (Fixed-Wing)
 
@@ -136,10 +137,9 @@ If using an RC AUX switch to enable autotuning, make sure to [select the tuning 
 
 Fixed-wing vehicles (only) can select which axes are tuned using the [FW_AT_AXES](../advanced_config/parameter_reference.md#FW_AT_AXES) bitmask parameter:
 
-* bit `0`: roll (default)
-* bit `1`: pitch (default)
-* bit `2`: yaw
-
+- bit `0`: roll (default)
+- bit `1`: pitch (default)
+- bit `2`: yaw
 
 ## Developers/SDKs
 
@@ -166,7 +166,6 @@ Automatic tuning works well for the multicopter and fixed-wing vehicle configura
 The vehicle must be flying in an altitude-stabilized mode (such as [Altitude mode](../flight_modes_mc/altitude.md), [Hold mode](../flight_modes_mc/hold.md), or [Position mode](../flight_modes_mc/position.md)). The flight stack will apply a small disturbance to the vehicle in each axis and then attempt to calculate the new tuning parameters. For fixed-wing vehicles the new tuning is applied in-air by default, after which the vehicle tests the new settings and reverts the tuning if the controllers are not stable. For multicopter, the vehicle lands and applies the new tuning parameters after disarming; the pilot is expected to then take off carefully and test the tuning.
 
 The tuning process takes about 40 seconds ([between 19 and 68 seconds](#how-long-does-autotuning-take)). The default behaviour can be configured using [parameters](#optional-configuration).
-
 
 ### FAQ
 
@@ -195,7 +194,7 @@ Note however that the above settings are defaults. A multicopter can choose to r
 Anecdotally, it usually takes around 40s for either vehicle.
 
 
-<!-- 
+<!--
 #### How vigorous is the disturbance applied by tuning
 
 This might be added later. I'd like to just point to a video.
@@ -203,7 +202,6 @@ This might be added later. I'd like to just point to a video.
 If not, perhaps say "not very" but you should expect that the vehicle might deflect by as much as 20degrees and so should be able to cope with that deflection with default tuning.
 
 -->
-
 
 ## See also
 

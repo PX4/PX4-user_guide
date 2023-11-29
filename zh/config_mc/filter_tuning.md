@@ -10,30 +10,35 @@ Before filter tuning you should do a first pass at [Basic MC PID tuning](../conf
 
 ## Control Latency
 
-The *control latency* is the delay from a physical disturbance of the vehicle until the motors react to the change.
+The _control latency_ is the delay from a physical disturbance of the vehicle until the motors react to the change.
 
 :::tip
 Lowering latency allows you to increase the rate **P** gains, which results in better flight performance. Even one millisecond difference in the latency can have a significant impact.
 :::
 
 The following factors affect control latency:
+
 - A soft airframe or soft vibration mounting increases latency (they act as a filter).
 - Low-pass filters in software and on the sensor chip trade off increased latency for improved noise filtering.
 - PX4 software internals: the sensor signals need to be read in the driver and then pass through the controller to the output driver.
 - The maximum gyro publication rate (configured with [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX)). A higher rate reduces latency but is computationally intensive/can starve other processes. 4 kHz or higher is only recommended for controllers with STM32H7 processor or newer (2 kHz value is near the limit for less capable processors).
-- The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a *Pixracer* or *Omnibus F4*, but does apply to a Pixhawk). To avoid the IO delay, disable [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and attach the motors to the AUX pins instead.
-- PWM 输出信号：启用 Dshot 或 One-Shot 以减少延迟。 The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
+- The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a _Pixracer_ or _Omnibus F4_, but does apply to a Pixhawk). To avoid the IO delay attach the motors to the AUX pins instead.
+- PWM output signal: enable [Dshot](../peripherals/dshot.md) by preference to reduce latency (or One-Shot if DShot is not supported). The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
 
 Below we look at the impact of the low pass filters.
 
 ## Filters
 
 This is the filtering pipeline for the controllers in PX4:
+
 - On-chip DLPF for the gyro sensor. This is disabled on all chips where it can be disabled (if not, the cutoff frequency is set to the highest level of the chip).
 - A notch filter on the gyro sensor data that is used to filter out narrow band noise, for example harmonics at the rotor blade pass frequency. 此过滤器可以使用 [IMU_GYRO_NF0_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_BW) 和 [IMU_GYRO_NF0_FRQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_FRQ) 进行配置。
-- Low-pass filter on the gyro sensor data. 它可以使用 [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) 参数进行配置。 :::note
+- Low-pass filter on the gyro sensor data. It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
+
+  :::note
 Sampling and filtering is always performed at the full raw sensor rate (commonly 8kHz, depending on the IMU).
 :::
+
 - A separate low-pass filter on the D-term. The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance. For this reason the D-term has a separately-configurable low-pass filter, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
 - A slewrate filter on the motor outputs ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX)). Generally not used.
 
@@ -46,6 +51,7 @@ To reduce the control latency, we want to increase the cutoff frequency for the 
 | 120          | 1.9                |
 
 However this is a trade-off as increasing `IMU_GYRO_CUTOFF` will also increase the noise of the signal that is fed to the motors. Noise on the motors has the following consequences:
+
 - Motors and ESCs can get hot, to the point where they get damaged.
 - Reduced flight time because the motors continuously change their speed.
 - Visible random small twitches.
@@ -53,7 +59,8 @@ However this is a trade-off as increasing `IMU_GYRO_CUTOFF` will also increase t
 Setups that have a significant lower-frequency noise spike (e.g. due to harmonics at the rotor blade pass frequency) can benefit from using the notch filter to clean the signal before it is passed to the low pass filter (these harmonics have a similar detrimental impact on motors as other sources of noise). Without the notch filter you'd have to set the low pass filter cuttoff much lower (increasing the latency) in order to avoid passing this noise to the motors.
 
 :::note
-Only one notch filter is provided. Airframes with more than one low frequency noise spike typically clean the first spike with the notch filter, and subsequent spikes using the low pass filter.
+Only one notch filter is provided.
+Airframes with more than one low frequency noise spike typically clean the first spike with the notch filter, and subsequent spikes using the low pass filter.
 :::
 
 The best filter settings depend on the vehicle. The defaults are set conservatively — such that they work on lower-quality setups as well.
@@ -63,6 +70,7 @@ The best filter settings depend on the vehicle. The defaults are set conservativ
 First make sure to have the high-rate logging profile activated ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter). [Flight Review](../getting_started/flight_reporting.md) will then show an FFT plot for the roll, pitch and yaw controls.
 
 :::warning
+
 - Do not try to fix a vehicle that suffers from high vibrations with filter tuning! Instead fix the vehicle hardware setup.
 - Confirm that PID gains, in particular D, are not set too high as this can show up as vibrations.
 :::
@@ -71,7 +79,7 @@ Filter tuning is best done by reviewing flight logs. You can do multiple flights
 
 The performed flight maneuver can simply be hovering in [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md) with some rolling and pitching to all directions and some increased throttle periods. The total duration does not need to be more than 30 seconds. In order to better compare, the maneuver should be similar in all tests.
 
-First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30). Upload the logs to [Flight Review](https://logs.px4.io) and compare the *Actuator Controls FFT* plot. Set the cutoff frequency to a value before the noise starts to increase noticeably (for frequencies around and above 60 Hz).
+First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30). Upload the logs to [Flight Review](https://logs.px4.io) and compare the _Actuator Controls FFT_ plot. Set the cutoff frequency to a value before the noise starts to increase noticeably (for frequencies around and above 60 Hz).
 
 Then tune the D-term filter (`IMU_DGYRO_CUTOFF`) in the same way. 请注意，如果 `IMU_GYRO_CUTOFF` 和 `IMU_DGYRO_CUTOFF` 设置太远(差别必须是重要的，尽管-e)。 . D=15, gyro=80。
 

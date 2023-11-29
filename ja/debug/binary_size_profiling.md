@@ -6,14 +6,16 @@ The `bloaty_compare_master` build target allows you to get a better understandin
 This can help analyse changes that (may) cause `px4_fmu-v2_default` to hit the 1MB flash limit.
 :::
 
-*Bloaty* must be in your path and found at *cmake* configure time. The PX4 [docker files](https://github.com/PX4/containers/blob/master/docker/Dockerfile_nuttx-bionic) install *bloaty* as shown:
-```
+_Bloaty_ must be in your path and found at _cmake_ configure time. The PX4 [docker files](https://github.com/PX4/containers/blob/master/docker/Dockerfile_nuttx-bionic) install _bloaty_ as shown:
+
+```sh
 git clone --recursive https://github.com/google/bloaty.git /tmp/bloaty \
     && cd /tmp/bloaty && cmake -GNinja . && ninja bloaty && cp bloaty /usr/local/bin/ \
     && rm -rf /tmp/*
 ```
 
-The example below shows how you might see the impact of removing the *mpu9250* driver from `px4_fmu-v2_default`. First it locally sets up a build without the driver:
+The example below shows how you might see the impact of removing the _mpu9250_ driver from `px4_fmu-v2_default`. First it locally sets up a build without the driver:
+
 ```sh
  % git diff
 diff --git a/boards/px4/fmu-v2/default.px4board b/boards/px4/fmu-v2/default.px4board
@@ -24,7 +26,9 @@ index 40d7778..2ce7972 100644
 -               CONFIG_DRIVERS_IMU_INVENSENSE_MPU9250=y
 +               CONFIG_DRIVERS_IMU_INVENSENSE_MPU9250=n
 ```
+
 Then use the make target, specifying the target build to compare (`px4_fmu-v2_default` in this case):
+
 ```sh
 % make px4_fmu-v2_default bloaty_compare_master
 ...
@@ -46,4 +50,5 @@ Then use the make target, specifying the target build to compare (`px4_fmu-v2_de
   -1.0% -1.05Ki [Unmapped]                                                                       +24.2Ki  +0.2%
   -1.0% -10.3Ki TOTAL                                                                            +14.9Ki  +0.1%
 ```
-This shows that removing *mpu9250* from `px4_fmu-v2_default` would save 10.3 kB of flash. It also shows the sizes of different pieces of the *mpu9250* driver.
+
+This shows that removing _mpu9250_ from `px4_fmu-v2_default` would save 10.3 kB of flash. It also shows the sizes of different pieces of the _mpu9250_ driver.

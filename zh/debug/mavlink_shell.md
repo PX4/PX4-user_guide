@@ -1,8 +1,8 @@
 # MAVLink Shell
 
-MAVLink Shell 是一个可以通过串口（USB、数传或基于WIFI的UDP/TCP链路）使用MAVLink协议访问的 *NSH 控制台* 。只适用于基于NuttX的系统，如：Pixhawk、Pixracer等。
+The MAVLink Shell is an _NSH console_ that can be accessed via MAVLink over serial (USB/Telemetry) or WiFi (UDP/TCP) links (in particular, on NuttX-based systems like: Pixhawk, Pixracer, etc.).
 
-它可用于启动系统指令与模块，并得到输出信息。 尽管它不能*直接*显示那些不是由它启动的模块的输出，但是可以间接的使用 `dmesg` 命令来查询。执行 `dmesg -f &` 可以打印出工作队列中其它模块和任务的输出信息。
+它可用于启动系统指令与模块，并得到输出信息。 While the shell cannot _directly_ display the output of modules that it does not start, it can do so indirectly using the `dmesg` command (`dmesg -f &` can be used to display the output of other modules and tasks running on the work queue).
 
 :::tip
 The [QGroundControl MAVLink Console](#qgroundcontrol) is the easiest way to access the console. If the system does not start properly you should instead use the [System Console](../debug/system_console.md).
@@ -19,17 +19,22 @@ The easiest way to access shell is to use the [QGroundControl MAVLink Console](h
 ### mavlink_shell.py
 
 执行 `mavlink_shell.py -h` 获取所有可用参数的描述。
-1. 关闭 *QGroundControl*.
+
+1. Shut down _QGroundControl_.
 1. 安装依赖项
+
    ```sh
    pip3 install --user pymavlink pyserial
    ```
+
 1. Open terminal (in PX4-Autopilot directory) and start the shell:
+
    ```sh
    # 通过串口
    ./Tools/mavlink_shell.py /dev/ttyACM0
    ```
-    ```sh
+
+   ```sh
    # 通过 WiFi 连接
    ./Tools/mavlink_shell.py 0.0.0.0:14550
    ```

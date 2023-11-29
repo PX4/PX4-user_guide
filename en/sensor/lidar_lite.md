@@ -2,29 +2,28 @@
 
 LIDAR-Lite is a compact, high-performance optical distant measurement sensor solution for drone, robot or unmanned vehicle applications. It can be connected to either I2C or PWM.
 
- ![LidarLite v3](../../assets/hardware/sensors/lidar_lite/lidar_lite_v3.jpg)
+![LidarLite v3](../../assets/hardware/sensors/lidar_lite/lidar_lite_v3.jpg)
 
 ## Where to Buy
 
-* [LIDAR-Lite v3](https://buy.garmin.com/en-AU/AU/p/557294) (5cm - 40m)
+- [LIDAR-Lite v3](https://buy.garmin.com/en-AU/AU/p/557294) (5cm - 40m)
 
 ## Pinouts
 
 The Lidar-Lite (v2, v3) pinout is shown below.
 
-Pin | Name | Description
---- | ---   | ---
-1   | POWER_IN | Power supply. 4.75-5.5V DC Nominal, Maximum 6V DC.
-2   | POWER_EN | Active high, enables operation of the 3.3V micro-controller regulator. Low puts board to sleep, draws <40 μA. (Internal 100K pull-up)
-3   | Mode Select Control | Provides trigger (high-low edge) PWM out (high)
-4   | SCL | I2C Clock
-5   | SDA | I2C Data
-6   | GND | Signal/power ground.
-
+| Pin | Name                | Description                                                                                                                           |
+| --- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | POWER_IN            | Power supply. 4.75-5.5V DC Nominal, Maximum 6V DC.                                                                                    |
+| 2   | POWER_EN            | Active high, enables operation of the 3.3V micro-controller regulator. Low puts board to sleep, draws <40 μA. (Internal 100K pull-up) |
+| 3   | Mode Select Control | Provides trigger (high-low edge) PWM out (high)                                                                                       |
+| 4   | SCL                 | I2C Clock                                                                                                                             |
+| 5   | SDA                 | I2C Data                                                                                                                              |
+| 6   | GND                 | Signal/power ground.                                                                                                                  |
 
 ## Wiring
 
-The *Lidar-Lite v3* can be used with either PWM or I2C. 
+The _Lidar-Lite v3_ can be used with either PWM or I2C.
 PWM is recommended if using an older model.
 The rangefinder must be separately powered via some ESC/BEC (whether connected via PWM or I2C).
 
@@ -41,19 +40,18 @@ Lidar-Lite v2 and v3 are the same, except that the order of pins in the connecto
 
 ![LidarLite v3 - Standard Wiring from Garmin Specification](../../assets/hardware/sensors/lidar_lite/lidar_lite2_standard_wiring_spec.jpg)
 
-
 ### PWM Interface Wiring
 
-The pin connections for wiring LidarLite to the *Pixhawk 1* AUX ports (PWM interface) are shown below.
+The pin connections for wiring LidarLite to the _Pixhawk 1_ AUX ports (PWM interface) are shown below.
 
-Pin | Lidar-Lite (v2, v3) | Pixhawk AUX Servo | Comment
---- | ---   | --- | ---
-1   | VCC   | AUX 6 (center) | Power supply. 4.75-5.5V DC Nominal, Maximum 6V DC.
-2   | RESET | AUX 6 (bottom) | Reset line of the sensor
-3   | PWM   | AUX 5 (bottom) | PWM output of the Lidar Lite. **Needs a 470 Ohm pull-down (to GND), Do not use a 1 K0hm resistor.**
-4   | SCL   | - | Not connected
-5   | SDA   | - | Not connected
-6   | GND   | AUX 6 (top) | Ground
+| Pin | Lidar-Lite (v2, v3) | Pixhawk AUX Servo | Comment                                                                                             |
+| --- | ------------------- | ----------------- | --------------------------------------------------------------------------------------------------- |
+| 1   | VCC                 | AUX 6 (center)    | Power supply. 4.75-5.5V DC Nominal, Maximum 6V DC.                                                  |
+| 2   | RESET               | AUX 6 (bottom)    | Reset line of the sensor                                                                            |
+| 3   | PWM                 | AUX 5 (bottom)    | PWM output of the Lidar Lite. **Needs a 470 Ohm pull-down (to GND), Do not use a 1 K0hm resistor.** |
+| 4   | SCL                 | -                 | Not connected                                                                                       |
+| 5   | SDA                 | -                 | Not connected                                                                                       |
+| 6   | GND                 | AUX 6 (top)       | Ground                                                                                              |
 
 :::note
 On a flight controller that has no AUX port the equivalent MAIN pins are used (e.g. the PWM output on the lidar instead maps to MAIN 5).
@@ -69,12 +67,10 @@ Lidar-Lite v3 is wired similarly, except that the pin-numbering on the connector
 
 ![Lidar Lite 2 pins/cabling](../../assets/hardware/sensors/lidar_lite/lidarlite_wiring_pins_cables.jpg)
 
-
 ### I2C Interface Wiring
 
 The I2C wiring is the same for any other distance sensor.
 Simply connect the SLA, SLC, GND and VCC to the corresponding (same) pins on the flight controller and the sensor.
-
 
 ## Software Configuration
 
@@ -87,4 +83,4 @@ If missing, you would also need to add the driver (`drivers/ll40ls`) to the boar
 
 ## Further Information
 
-* [LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf](http://static.garmin.com/pumac/LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf) (Garmin)
+- [LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf](http://static.garmin.com/pumac/LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf) (Garmin)

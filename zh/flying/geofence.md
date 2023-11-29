@@ -3,6 +3,7 @@
 围栏是一个虚拟边界，用于定义机体可以在哪些地方行驶。 围栏可用于防止机体飞出遥控器的范围，或进入不安全或受限制的空域。
 
 PX4提供了两个独立的机制来指定围栏：
+
 - 一个是基本的“故障保护”地理围栏，定义了一个简单的圆柱体。
 - 可以使用围栏规划(*QGroundControl*)定义更复杂的几何图形。
 
@@ -15,7 +16,7 @@ PX4提供了两个独立的机制来指定围栏：
 
 设置中还包括越界时的故障保护动作。 可能只是一个警告通知，但更常见的是机体会立即[返回](../flight_modes/return.md)一个安全位置。
 
-For more information see: [Safety > GeoFence Failsafe](../config/safety.md#geofence-failsafe).
+For more information see: [Safety > Geofence Failsafe](../config/safety.md#geofence-failsafe).
 
 ## 地理围栏规划
 
@@ -25,10 +26,11 @@ PX4 支持由多个圆形和多边形区域组成的复杂地理围栏边界，�
 
 ![围栏规划](../../assets/qgc/plan_geofence/geofence_overview.jpg)
 
-GeoFence planning is fully documented in [Plan View > GeoFence](https://docs.qgroundcontrol.com/master/en/PlanView/PlanGeoFence.html) (QGroundControl User Guide).
+Geofence planning is fully documented in [Plan View > GeoFence](https://docs.qgroundcontrol.com/master/en/PlanView/PlanGeoFence.html) (QGroundControl User Guide).
 
 总结：
-1. Open *QGroundControl > Plan View*.
+
+1. Open _QGroundControl > Plan View_.
 1. 选择 *规划类型* 单选按钮： **围栏**。 这将显示 *地理围栏编辑器*。 ![地理围栏规划](../../assets/qgc/plan_geofence/geofence_editor.jpg)
 1. 选择多边形围栏或圆形围栏按钮，可将添加所需基本类型的围栏到地图中。 这也在编辑器中增加了此类围栏的条目。
 1. 在地图上调整围栏的形状和位置。
@@ -39,6 +41,11 @@ GeoFence planning is fully documented in [Plan View > GeoFence](https://docs.qgr
 1. 可添加任意数量的围栏
 1. 完成后，点击(右上角) **上传** 按钮向车辆发送围栏(连同集结和任务)。
 1. 在围栏故障保护中设置越界动作。
+
+:::note
+Any geofence that does not include the Home position will be rejected by the flight controller and not uploaded.
+If the vehicle is flying, also any geofence that would immediately get breached after the upload is rejected.
+:::
 
 :::note PX4 实现了 MAVLink [微服务](https://mavlink.io/en/services/mission.html), 其中包括支持围栏.
 :::

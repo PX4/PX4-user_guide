@@ -531,7 +531,7 @@ ina220 <command> [arguments...]
      [-a <val>]  I2C address
                  default: 65
      [-k]        if initialization (probing) fails, keep retrying periodically
-     [-t <val>]  battery index for calibration values (1 or 2)
+     [-t <val>]  battery index for calibration values (1 or 3)
                  default: 1
      [-T <val>]  Type
                  values: VBATT|VREG, default: VBATT
@@ -570,7 +570,7 @@ ina226 <command> [arguments...]
      [-a <val>]  I2C address
                  default: 65
      [-k]        if initialization (probing) fails, keep retrying periodically
-     [-t <val>]  battery index for calibration values (1 or 2)
+     [-t <val>]  battery index for calibration values (1 or 3)
                  default: 1
 
    stop
@@ -607,7 +607,7 @@ ina228 <command> [arguments...]
      [-a <val>]  I2C address
                  default: 69
      [-k]        if initialization (probing) fails, keep retrying periodically
-     [-t <val>]  battery index for calibration values (1 or 2)
+     [-t <val>]  battery index for calibration values (1 or 3)
                  default: 1
 
    stop
@@ -644,7 +644,7 @@ ina238 <command> [arguments...]
      [-a <val>]  I2C address
                  default: 69
      [-k]        if initialization (probing) fails, keep retrying periodically
-     [-t <val>]  battery index for calibration values (1 or 2)
+     [-t <val>]  battery index for calibration values (1 or 3)
                  default: 1
 
    stop
@@ -1105,6 +1105,8 @@ px4io <command> [arguments...]
 
    sbus2_out     enable sbus2 out
 
+   supported     Returns 0 if px4io is supported
+
    test_fmu_fail test: turn off IO updates
 
    test_fmu_ok   re-enable IO updates
@@ -1223,6 +1225,33 @@ rgbled_lp5562 <command> [arguments...]
                  default: 48
      [-u <val>]  Current in mA
                  default: 17.5
+
+   stop
+
+   status        print status info
+```
+## roboclaw
+Source: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/roboclaw)
+
+
+### Description
+
+This driver communicates over UART with the [Roboclaw motor driver](https://www.basicmicro.com/motor-controller). It performs two tasks:
+
+ - Control the motors based on the OutputModuleInterface.
+ - Read the wheel encoders and publish the raw data in the `wheel_encoders` uORB topic
+
+In order to use this driver, the Roboclaw should be put into Packet Serial mode (see the linked documentation), and your flight controller's UART port should be connected to the Roboclaw as shown in the documentation. The driver needs to be enabled using the parameter `RBCLW_SER_CFG`, the baudrate needs to be set correctly and the address `RBCLW_ADDRESS` needs to match the ESC configuration.
+
+The command to start this driver is: `$ roboclaw start <UART device> <baud rate>`
+
+<a id="roboclaw_usage"></a>
+
+### Usage
+```
+roboclaw <command> [arguments...]
+ Commands:
+   start
 
    stop
 

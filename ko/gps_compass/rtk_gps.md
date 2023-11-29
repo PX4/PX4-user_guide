@@ -153,10 +153,6 @@ GPS 정확도를 센티미터가 아닌 미터 단위로 가정하여 기본 매
 - something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey.
 -->
 
-### 기체 설정 예
-
-[거리 센서 및 RTK GPS가 있는 DJI Flamewheel 450](../frames_multicopter/dji_flamewheel_450.md)에서는 Here + RTK GPS와 Pixhawk 3 Pro를 사용한 기체 설정 방법에 대하여 설명합니다.
-
 
 ## 추가 정보
 

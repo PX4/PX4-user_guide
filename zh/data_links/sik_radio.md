@@ -2,13 +2,14 @@
 
 [SiK radio](https://github.com/LorenzMeier/SiK) is a collection of firmware and tools for telemetry radios.
 
-Information about *using* SiK Radio can be found it the *PX4 User Guide*: [Telemetry > SiK Radio](http://docs.px4.io/en/telemetry/sik_radio.html)
+Information about _using_ SiK Radio can be found in [Peripheral Hardware > Telemetry > SiK Radio](../telemetry/sik_radio.md)
 
 The ("developer") information below explains how to build SiK firmware from source and configure it using AT commands.
 
 ## 构建说明
 
 The SiK repository includes bootloaders and firmware for the following telemetry radios (2020-02-25):
+
 - HopeRF HM-TRP
 - HopeRF RF50-DEMO
 - RFD900
@@ -24,6 +25,7 @@ The SiK repository does not currently firmware for RFD900x or RFD900ux telemetry
 1. Download the appropriate firmware from the [RFDesign website](https://files.rfdesign.com.au/firmware/).
 1. On a Windows PC, download and install [RFD Modem Tools](https://files.rfdesign.com.au/tools/).
 1. Use the RFD Modem Tools GUI to upload the firmware to your RFD900x or RFD900ux telemetry radio.
+
 :::
 
 ## 配置说明
@@ -66,20 +68,19 @@ Then start command mode:
 DO NOT TYPE ANYTHING ONE SECOND BEFORE AND AFTER
 :::
 
-
-```
+```sh
 +++
 ```
 
 List the current settings:
 
-```
+```sh
 ATI5
 ```
 
 Then set the net ID, write settings and reboot radio:
 
-```
+```sh
 ATS3=55
 AT&W
 ATZ

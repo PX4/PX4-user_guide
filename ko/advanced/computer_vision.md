@@ -6,7 +6,7 @@ PX4 uses computer vision systems (primarily running on [Companion Computers](../
 
 - [광류(Optical flow)](#optical-flow)는 2D 속도 추정을 제공합니다(아래로 향하는 카메라와 아래로 향하는 거리 센서 사용).
 - [Motion Capture](#motion-capture) provides 3D pose estimation using a vision system that is _external_ to the vehicle. 주로 실내 내비게이션에 사용됩니다.
-- [Visual Inertial Odometry](#visual-inertial-odometry-vio)는 온보드 비전 시스템과 IMU를 사용하여 3D 자세 및 속도 추정을 제공합니다. 전역 위치 정보가 없거나, 신뢰할 수 없는 경우에 네비게이션용으로 사용됩니다.
+- [Visual Inertial Odometry](#visual-inertial-odometry-vio)는 온보드 비전 시스템과 IMU를 사용하여 3D 자세 및 속도 추정을 제공합니다. It is used for navigation when GNSS position information is absent or unreliable.
 - [장애물 회피](../computer_vision/obstacle_avoidance.md)는 계획된 경로를 비행시 장애물 주위를 탐색합니다(현재 임무가 지원됨). This uses [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) running on a companion computer.
 - [충돌 방지](../computer_vision/collision_prevention.md)는 장애물에 충돌하기 전에 차량을 멈추는 데 사용됩니다(주로 수동 모드에서 비행할 때).
 

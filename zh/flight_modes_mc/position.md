@@ -36,24 +36,19 @@ While very rare on a well calibrated vehicle, sometimes there may be problems wi
 
 遥控模式下，横滚、俯仰、油门 (RPT) 杆控制相应轴/方向的运动。 摇杆居中使机体水平并将其保持在固定的高度和位置并抗风。
 
-- 摇杆处于滚动、俯仰、油门杆中位（遥控死区
-
-内）时，机体保持 x、y、z 位置稳定，抵抗任意干扰，如风。</li> 
-  
-  - 中位以外： 
-    - 横滚/俯仰杆控制机体左右和前后方向（分别）在地面上的水平加速度。
-  - 油门杆控制上升下降速度。
+- Centered roll, pitch, throttle sticks (within RC deadzone [MPC_HOLD_DZ](../advanced_config/parameter_reference.md#MPC_HOLD_DZ)) hold x, y, z position steady against any disturbance like wind.
+- Outside center:
+  - Roll/Pitch sticks control horizontal acceleration over ground in the vehicle's left-right and forward-back directions (respectively).
+  - Throttle stick controls speed of ascent-descent.
   - 偏航杆控制水平面上方的角旋转速率。
-- 起飞： 
-    - 在地面时，如果油门杆升高到 62.5% 以上（从底部的全范围），机体将起飞。</ul> 
+- 起飞：
+  - 在地面时，如果油门杆升高到 62.5% 以上（从底部的全范围），机体将起飞。
 
 :::note
 
 - 手动输入信号是必须的（遥控器，或通过 MAVLink 的游戏手柄/拇指摇杆）。
 - 此模式需要 GPS。
 :::
-
-
 
 ### 参数
 
@@ -73,12 +68,7 @@ While very rare on a well calibrated vehicle, sometimes there may be problems wi
 | <a id="MPC_VEL_MANUAL"></a>[MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL)       | 最大水平速度。                                                                                                                                                                                                                                                                                                                                             |
 | <a id="MPC_LAND_SPEED"></a>[MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)      | Landing descend rate. Landing descend rate. Default 0.7 m/s.                                                                                                                                                                                                                                                                                        |
 
-
-
-
 ## 附加信息
-
-
 
 ### 位置丢失/安全
 

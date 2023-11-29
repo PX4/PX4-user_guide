@@ -6,7 +6,6 @@ The sections below provide high-level overview of the PX4 hardware and software 
 The [PX4 Architectural Overview](../concept/architecture.md) provides information about the flight stack and middleware. Offboard APIs are covered in [ROS](../ros/README.md) and [MAVSDK](https://mavsdk.mavlink.io/main/en/).
 :::
 
-
 ## Flight Controller (only)
 
 The diagram below provides a high level overview of a typical "simple" PX4 system based around a flight controller.
@@ -16,6 +15,7 @@ The diagram below provides a high level overview of a typical "simple" PX4 syste
 <!-- Source for drawing: https://docs.google.com/drawings/d/1_2n43WrbkWTs1kz0w0avVEeebJbfTj5SSqvCmvSOBdU/edit -->
 
 The hardware consists of
+
 - [Flight controller](../flight_controller/README.md) (running the PX4 flight stack). This often includes internal IMUs, compass and barometer.
 - [Motor ESCs](../peripherals/esc_motors.md) connected to [PWM outputs](../peripherals/pwm_escs_and_servo.md), [DroneCAN](../dronecan/escs.md) (DroneCAN allows two-way communication, not single direction as shown) or some other bus.
 - Sensors ([GPS](../gps_compass/README.md), [compass](../gps_compass/README.md), distance sensors, barometers, optical flow, barometers, ADSB transponders, etc.) connected via I2C, SPI, CAN, UART etc.
@@ -24,9 +24,9 @@ The hardware consists of
 - [RC Control System](../getting_started/rc_transmitter_receiver.md) for manual control
 
 The left hand side of the diagram shows the software stack, which is horizontally aligned (approximately) with the hardware parts of the diagram.
+
 - The ground station computer typically runs [QGroundControl](../getting_started/px4_basic_concepts.md#qgroundcontrol) (or some other ground station software). It may also run robotics software like [MAVSDK](https://mavsdk.mavlink.io/) or [ROS](../ros/README.md).
 - The PX4 flight stack running on the flight controller includes [drivers](../modules/modules_driver.md), [comms modules](../modules/modules_communication.md), [controllers](../modules/modules_controller.md), [estimators](../modules/modules_controller.md) and other [middleware and system modules](../modules/modules_main.md).
-
 
 ## FC and Companion Computer
 
@@ -42,6 +42,5 @@ PX4 systems typically run a Linux OS on the companion computer (because the [PX4
 
 :::note
 The diagram shows a cloud or ground station connection via LTE, an approach that has been used a number of PX4-based systems.
-PX4 does not deliver software specifically for LTE and/or cloud integration (this requires custom development). 
+PX4 does not deliver software specifically for LTE and/or cloud integration (this requires custom development).
 :::
-

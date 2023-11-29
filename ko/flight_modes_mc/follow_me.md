@@ -1,8 +1,26 @@
-# Follow-Me Mode (Multicopter)
+# 추적 모드 (멀티콥터)
 
 [<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 _Follow Me_ mode allows a multicopter to autonomously hold position and altitude relative to another system that is broadcasting its position (and optionally velocity) using the [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) MAVLink message.
+
+:::note
+
+- Mode is automatic - no user intervention is _required_ to control the vehicle.
+- Mode requires at least a valid local position estimate (does not require a global position).
+  - Flying vehicles can't switch to this mode without valid local position.
+  - Flying vehicles will failsafe if they lose the position estimate.
+- Mode prevents arming (vehicle must be armed when switching to this mode).
+- Mode requires wind and flight time are within allowed limits (specified via parameters).
+- This mode is currently only supported on multicopter (or VTOL in MC mode).
+- The follow target must also be able to supply position information.
+- Follow-me mode is supported by _QGroundControl_ on Android devices with a GPS module, and [MAVSDK](#follow-me-with-mavsdk).
+
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
+
+:::
+
+## Overview
 
 ![Follow-me Concept](../../assets/flight_modes/followme_concept.png)
 
@@ -28,19 +46,7 @@ Demo video:
 
 @[youtube](https://youtu.be/csuMtU6seXI?t=155)
 
-## How to Use Follow Me
-
-Follow-me mode is supported by _QGroundControl_ on Android devices with a GPS module, and [MAVSDK](#follow-me-with-mavsdk).
-
-:::note
-
-- 이 모드는 GPS가 필요합니다.
-- *이 모드는 현재 멀티콥터에서만 지원됩니다.
-- The follow target must also be able to supply position information.
-- _QGroundControl_ only supports this mode on Android devices that have GPS.
-:::
-
-### 안전 주의 사항
+### Safety Precautions
 
 :::warning
 **Follow-me mode** does not implement any type of obstacle avoidance. 이 모드를 사용시에는 특별한 주의가 필요합니다.

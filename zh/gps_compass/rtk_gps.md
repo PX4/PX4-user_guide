@@ -153,10 +153,6 @@ A second GPS receiver can be used as a backup (either RTK or non RTK). See the [
 - something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey.
 -->
 
-### Vehicle Setup Example
-
-The airframe build topic [DJI Flamewheel 450 with distance sensor and RTK GPS](../frames_multicopter/dji_flamewheel_450.md) describes an airframe setup with the Here+ RTK GPS and a Pixhawk 3 Pro.
-
 
 ## Further Information
 

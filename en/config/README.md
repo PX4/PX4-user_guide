@@ -35,14 +35,13 @@ Then open the QGC application menu ("Q" icon in the top-left corner) and choose 
 
 > **Note:** Setup for optional sensors and specific hardware is provided in [Flight Controller Peripherals](../peripherals/README.md).
 
-
 ### Manual Control Setup
 
 Radio Control:
 
 - [Radio Controller (RC) Setup](../config/radio.md)
 - [Flight Mode Configuration](../config/flight_mode.md)
-  
+
 Joystick/GamePad:
 
 - [Joystick Setup](../config/joystick.md)

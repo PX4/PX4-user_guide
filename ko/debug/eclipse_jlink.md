@@ -69,7 +69,9 @@ To install the _Segger Jlink_ tools:
 1. 빌드 구성을 설정합니다.
 
    - Give it a name and set the _C/C++ Application_ to the corresponding **.elf** file.
-   - Choose _Disable Auto build_ :::note
+   - Choose _Disable Auto build_
+
+     :::note
 Remember that you must build the target from the command line before starting a debug session.
 :::
 
@@ -86,13 +88,18 @@ Task-aware debugging (also known as [thread-aware debugging](https://www.segger.
 To enable this feature for use in Eclipse:
 
 1. You first need to enable `CONFIG_DEBUG_TCBINFO` in the NuttX configuration for your build (to expose the TCB offsets).
+
    - Open a terminal in the root of your PX4-Autopilot source code
    - In the terminal, open `menuconfig` using the appropriate make target for the build. This will be something like:
-     ```
+
+     ```sh
      make px4_fmu-v5_default boardguiconfig
      ```
+
      (See [PX4 Menuconfig Setup](../hardware/porting_guide_config.md#px4-menuconfig-setup) for more information) on using the config tools).
+
    - Ensure that the _Enable TCBinfo struct for debug_ is selected as shown: ![NuttX: Menuconfig: CONFIG_DEBUG_TCBINFO](../../assets/debug/nuttx_tcb_task_aware.png)
+
 1. Compile the **jlink-nuttx.so** library in the terminal by running the following command in the terminal: `make jlink-nuttx`
 1. Modify Eclipse to use this libary. In the _J-Link GDB Server Setup_ configuration, update **Other options** to include `-rtos /home/<PX4 path>/Tools/jlink-nuttx.so`, as shown in the image below.
 
@@ -114,7 +121,12 @@ To enable this feature for use in Eclipse:
 
 Adding missing SVD files for the _Peripheral View_:
 
-1. MCU Eclipse가 패키지를 저장하는 위치를 찾으십시오(**환경 설정 > C/C++ > MCU 패키지**). ![Eclipse: MCU 패키지](../../assets/debug/eclipse_mcu_packages.png)
+1. MCU Eclipse가 패키지를 저장하는 위치를 찾으십시오(**환경 설정 > C/C++ > MCU 패키지**).
+
+   ![Eclipse: MCU 패키지](../../assets/debug/eclipse_mcu_packages.png)
+
 2. http://www.keil.com/dd2/Pack/ 에서 누락된 패키지를 다운로드하십시오
 3. 압축 해제 도구로 다운로드한 팩을 열고 **/CMSIS/SVD**에서 **.SVD** 파일의 압축을 풉니다.
-4. **디버그 옵션 > GDB SEGGER JLink 디버깅 > SVD 경로**에서 원하는 **.SVD** 파일을 선택하십시오. ![Eclipse: SVD 파일 경로](../../assets/debug/eclipse_svd_file_path.png)
+4. **디버그 옵션 > GDB SEGGER JLink 디버깅 > SVD 경로**에서 원하는 **.SVD** 파일을 선택하십시오.
+
+   ![Eclipse: SVD 파일 경로](../../assets/debug/eclipse_svd_file_path.png)

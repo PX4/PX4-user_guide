@@ -1,6 +1,5 @@
 # 常见问题
 
-
 ## 编译错误
 
 ### 闪存溢出
@@ -24,7 +23,6 @@ The command below will list the largest static allocations:
 ```bash
 sudo apt-get remove modemmanager
 ```
-
 
 ## USB 错误
 

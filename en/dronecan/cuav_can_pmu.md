@@ -25,8 +25,8 @@ It is recommended for use in large commercial vehicles, but might also be used f
 - **Power port output:** 5.4V/5A
 - **Operating temp:** -20~+100
 - **Firmware upgrade:** Supported.
-* **Calibration:** Not needed.
-* **Interface Type:**
+- **Calibration:** Not needed.
+- **Interface Type:**
   - **IN/OUT:** XT90\(Cable）/Amass 8.0\(Module）
   - **Power port:** 5025850670
   - **CAN:** GHR-04V-S
@@ -43,7 +43,7 @@ It is recommended for use in large commercial vehicles, but might also be used f
 ### Pinouts
 
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu_pinouts_en.png)
- 
+
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu_pinouts_en2.png)
 
 ## Wiring
@@ -51,21 +51,21 @@ It is recommended for use in large commercial vehicles, but might also be used f
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu_connection_en.png)
 
 The connection steps are:
-* Connect the flight control CAN1/2 and the module CAN interface.
-* Connect the V5 series power cable to the V5 Flight Control Power2 (if other flight controllers are connect to the Power interface) and the module Power interface.
+
+- Connect the flight control CAN1/2 and the module CAN interface.
+- Connect the V5 series power cable to the V5 Flight Control Power2 (if other flight controllers are connect to the Power interface) and the module Power interface.
 
 ## Flight Controller Setup
 
-Set the following parameters in *QGroundControl* [Vehicle Setup > Parameters](../advanced_config/parameters.md) and then restart:
+Set the following parameters in _QGroundControl_ [Vehicle Setup > Parameters](../advanced_config/parameters.md) and then restart:
 
-* [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE): set to: *Sensors Automatic Config*
+- [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE): set to: _Sensors Automatic Config_
 
   ![qgc set](../../assets/hardware/power_module/cuav_can/qgc_set_en.png)
 
-* [UAVCAN_SUB_BAT](../advanced_config/parameter_reference.md#UAVCAN_SUB_BAT): set to: *Raw data*
+- [UAVCAN_SUB_BAT](../advanced_config/parameter_reference.md#UAVCAN_SUB_BAT): set to: _Raw data_
 
   ![QGC - Set UAVCAN_SUB_BAT parameter to raw data](../../assets/hardware/power_module/cuav_can/qgc_set_usavcan_sub_bat.png)
-
 
 ## Further Information
 

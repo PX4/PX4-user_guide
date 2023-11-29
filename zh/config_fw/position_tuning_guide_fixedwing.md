@@ -26,6 +26,7 @@ TECS（总能量控制系统）是一种用于固定翼飞机的制导算法，�
 Fly in [stabilized mode](../flight_modes_fw/stabilized.md) and find trim values for both throttle and pitch angle for level flight at trim airspeed. 使用油门去调节空速和俯仰以保持水平飞行。
 
 设置以下参数：
+
 - [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) - 设置为操作过程中所需要的平衡空速。
 - [FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_TRIM) - 设置为以配平空速飞行所需要油门。
 - [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF) - 设置为维持水平飞行所需要俯仰角。
@@ -35,6 +36,7 @@ Fly in [stabilized mode](../flight_modes_fw/stabilized.md) and find trim values 
 Fly in [stabilized mode](../flight_modes_fw/stabilized.md) and increase throttle while maintaining level flight using pitch control - until the vehicle reaches the maximum allowed airspeed.
 
 设置以下参数：
+
 - [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX) - 设置水平飞行时到达最大空速所需油门。
 - [FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN) - 设置为飞行时的最小油门。
 - [FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX) - 水平飞行时以`FW_THR_MAX`得到的最大空速。
@@ -46,18 +48,20 @@ Fly in [stabilized mode](../flight_modes_fw/stabilized.md) and increase throttle
 :::
 
 以稳定模式飞行，使用最大油门`FW_THR_MAX`并缓慢增加俯仰角直到飞行器空速达到`FW_AIRSPD_TRIM`。
+
 - [FW_P_LIM_MAX](../advanced_config/parameter_reference.md#FW_P_LIM_MAX) - 设置为油门为`FW_THR_MAX`时以配平空速爬升所需要的俯仰角。
 - [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) - 设置为以`FW_AIRSPD_TRIM`爬升时的爬升速率。
 
 以稳定模式飞行，减小油门到`FW_THR_MIN`并缓慢减小俯仰角直到飞机达到`FW_AIRSPD_MAX`。
+
 - [FW_P_LIM_MIN](../advanced_config/parameter_reference.md#FW_P_LIM_MIN) - 设定为在`FW_THR_MIN`状态下达到 `FW_AIRSPD_MAX`所需要俯仰角。
 - [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX) - 设置为下降期间达到的下降速率。
 
 以稳定模式飞行，减小油门到`FW_THR_MIN`并调整俯仰角使飞机保持`FW_AIRSPD_TRIM`。
+
 - [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) - 设置为保持`FW_AIRSPD_TRIM`所需的下降速率。
 
 通过调整[FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP)和[FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP)来确定自动任务的目标爬升率和下降率。 这些参数指定了飞行器改变高度时的爬升率和下降率。 Furthermore, these two values define the height rate limits commanded by the user in [Altitude mode](../flight_modes_fw/altitude.md) and [Position mode](../flight_modes_fw/position.md).
-
 
 ### 固定翼轨迹控制调整（位置）
 

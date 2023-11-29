@@ -2,11 +2,11 @@
 
 LIDAR-Lite는 드론, 로봇 또는 무인 차량용 소형 고성능 광학 원거리 측정 센서입니다. I2C 또는 PWM에 연결됩니다.
 
- ![LidarLite v3](../../assets/hardware/sensors/lidar_lite/lidar_lite_v3.jpg)
+![LidarLite v3](../../assets/hardware/sensors/lidar_lite/lidar_lite_v3.jpg)
 
 ## 구매처
 
-* [LIDAR-Lite v3](https://buy.garmin.com/en-AU/AU/p/557294) (5cm - 40m)
+- [LIDAR-Lite v3](https://buy.garmin.com/en-AU/AU/p/557294) (5cm - 40m)
 
 ## 핀배열
 
@@ -21,10 +21,9 @@ Lidar-Lite (v2, v3) 핀배열은 아래와 같습니다.
 | 5 | SDA      | I2C 데이터                                                                                              |
 | 6 | GND      | 신호/전원 접지.                                                                                            |
 
-
 ## 배선
 
-*Lidar-Lite v3*는 PWM 또는 I2C와 함께 사용합니다. 구형 모델에서는 PWM을 권장합니다. 거리계는 일부 ESC/BEC(PWM 또는 I2C를 통해 연결됨)로 별도 전원이 공급되어야합니다.
+The _Lidar-Lite v3_ can be used with either PWM or I2C. 구형 모델에서는 PWM을 권장합니다. 거리계는 일부 ESC/BEC(PWM 또는 I2C를 통해 연결됨)로 별도 전원이 공급되어야합니다.
 
 :::note
 블루 라벨이 아닌 Lidar-Lite (v1) 장치의 I2C 인터페이스에는 안정성 제한이 있으며, 따라서 모든 실버 라벨 세대의 Lidar-Lite 센서는 I2C 인터페이스에서 제외됩니다.
@@ -38,10 +37,9 @@ Lidar-Lite 3([작동 설명서](http://static.garmin.com/pumac/LIDAR_Lite_v3_Ope
 
 ![LidarLite v3 - Garmin 사양의 표준 배선](../../assets/hardware/sensors/lidar_lite/lidar_lite2_standard_wiring_spec.jpg)
 
-
 ### PWM 인터페이스 배선
 
-LidarLite를 *Pixhawk 1* AUX 포트 (PWM 인터페이스) 핀 연결은 아래와 같습니다.
+The pin connections for wiring LidarLite to the _Pixhawk 1_ AUX ports (PWM interface) are shown below.
 
 | 핀 | Lidar-Lite (v2, v3) | Pixhawk AUX Servo | 설명                                                                      |
 | - | ------------------- | ----------------- | ----------------------------------------------------------------------- |
@@ -65,11 +63,9 @@ LidarLite v2의 배선은 아래와 같습니다. Lidar-Lite v3는 커넥터의 
 
 ![Lidar Lite 2 핀/케이블](../../assets/hardware/sensors/lidar_lite/lidarlite_wiring_pins_cables.jpg)
 
-
 ### I2C 인터페이스 배선
 
 I2C 배선은 다른 거리 센서에 대해서도 동일합니다. SLA, SLC, GND 및 VCC를 비행 콘트롤러와 센서의 해당 (동일한) 핀에 연결하면 됩니다.
-
 
 ## 소프트웨어 설정
 
@@ -81,4 +77,4 @@ I2C 배선은 다른 거리 센서에 대해서도 동일합니다. SLA, SLC, GN
 
 ## 추가 정보
 
-* [LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf](http://static.garmin.com/pumac/LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf) (Garmin)
+- [LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf](http://static.garmin.com/pumac/LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf) (Garmin)

@@ -36,9 +36,8 @@ The System Console UART pinouts/debug ports are typically documented in [autopil
 
 Pixhawk flight controllers usually come with a [Pixhawk Connector Standard Debug Port](../debug/swd_debug.md#pixhawk-connector-standard-debug-ports) which will be either the 10 pin [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) or 6 pin [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) port.
 
-These ports have pins for console TX and RX which can connect to an FTDI cable. 
+These ports have pins for console TX and RX which can connect to an FTDI cable.
 The mapping for the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) to FTDI is shown below.
-
 
 | Pixhawk Debug Port | -                        | FTDI | -                                 |
 | ------------------ | ------------------------ | ---- | --------------------------------- |
@@ -59,7 +58,7 @@ After the console connection is wired up, use the default serial port tool of yo
 
 Install screen on Ubuntu (Mac OS already has it installed):
 
-```bash
+```sh
 sudo apt-get install screen
 ```
 
@@ -67,7 +66,7 @@ sudo apt-get install screen
 
 Connect screen at BAUDRATE baud, 8 data bits, 1 stop bit to the right serial port (use `ls /dev/tty*` and watch what changes when unplugging / replugging the USB device). Common names are `/dev/ttyUSB0` and `/dev/ttyACM0` for Linux and `/dev/tty.usbserial-ABCBD` for Mac OS.
 
-```bash
+```sh
 screen /dev/ttyXXX BAUDRATE 8N1
 ```
 

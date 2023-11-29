@@ -5,6 +5,7 @@ This document is meant to be the ULog File Format Spec Documentation.
 It is intended especially for anyone who is interested in writing a ULog parser / serializer and needs to decode / encode files.
 
 PX4 uses ULog to log uORB topics as messages related to (but not limited to) the following sources:
+
 - **Device inputs:** Sensors, RC input, etc.
 - **Internal states:** CPU load, attitude, EKF state, etc.
 - **String messages:** `printf` statements, including `PX4_INFO()` and `PX4_ERR()`.
@@ -16,14 +17,14 @@ The format uses [little endian](https://en.wikipedia.org/wiki/Endianness) memory
 The following binary types are used for logging. They all correspond to the types in C.
 
 | Type              | Size in Bytes |
-| ----              | ------------- |
-|int8_t,  uint8_t   |  1            |
-|int16_t, uint16_t  |  2            |
-|int32_t, uint32_t  |  4            |
-|int64_t, uint64_t  |  8            |
-|float              |  4            |
-|double             |  8            |
-|bool, char         |  1            |
+| ----------------- | ------------- |
+| int8_t, uint8_t   | 1             |
+| int16_t, uint16_t | 2             |
+| int32_t, uint32_t | 4             |
+| int64_t, uint64_t | 8             |
+| float             | 4             |
+| double            | 8             |
+| bool, char        | 1             |
 
 Additionally the types can be used as an array: e.g. `float[5]`.
 
@@ -49,12 +50,11 @@ ULog files have the following three sections:
 
 A description of each section is provided below.
 
-
 ### Header Section
 
 The header is a fixed-size section and has the following format (16 bytes):
 
-```
+```plain
 ----------------------------------------------------------------------
 | 0x55 0x4c 0x6f 0x67 0x01 0x12 0x35 | 0x01         | uint64_t       |
 | File magic (7B)                    | Version (1B) | Timestamp (8B) |
@@ -83,19 +83,18 @@ struct message_header_s {
 Message sections below are prefixed with the character that corresponds to it's `msg_type`.
 :::
 
-
 ### Definitions Section
 
 The definitions section contains basic information such as software version, message format, initial parameter values, and so on.
 
 The message types in this section are:
+
 1. [Flag Bits](#b-flag-bits-message)
 2. [Format Definition](#f-format-message)
 3. [Information](#i-information-message)
 4. [Multi Information](#m-multi-information-message)
 5. [Parameter](#p-parameter-message)
 6. [Default Parameter](#q-default-parameter-message)
-
 
 #### 'B': Flag Bits Message
 
@@ -115,25 +114,30 @@ struct ulog_message_flag_bits_s {
 ```
 
 - `compat_flags`: compatible flag bits
+
   - These flags indicate the presence of features in the log file that are compatible with any ULog parser.
-  - `compat_flags[0]`: *DEFAULT_PARAMETERS* (Bit 0): if set, the log contains [default parameters message](#q-default-parameter-message)
+  - `compat_flags[0]`: _DEFAULT_PARAMETERS_ (Bit 0): if set, the log contains [default parameters message](#q-default-parameter-message)
 
   The rest of the bits are currently not defined and must be set to 0.
   These bits can be used for future ULog changes that are compatible with existing parsers.
   For example, adding a new message type can be indicated by defining a new bit in the standard, and existing parsers will ignore the new message type.
   It means parsers can just ignore the bits if one of the unknown bits is set.
+
 - `incompat_flags`: incompatible flag bits.
-  - `incompat_flags[0]`: *DATA_APPENDED* (Bit 0): if set, the log contains appended data and at least one of the `appended_offsets` is non-zero.
-  
+
+  - `incompat_flags[0]`: _DATA_APPENDED_ (Bit 0): if set, the log contains appended data and at least one of the `appended_offsets` is non-zero.
+
   The rest of the bits are currently not defined and must be set to 0.
-  This can be used to introduce breaking changes that existing parsers cannot handle. For example, when an old ULog parser that didn't have the concept of *DATA_APPENDED* reads the newer ULog, it would stop parsing the log as the log will contain out-of-spec messages / concepts.
+  This can be used to introduce breaking changes that existing parsers cannot handle. For example, when an old ULog parser that didn't have the concept of _DATA_APPENDED_ reads the newer ULog, it would stop parsing the log as the log will contain out-of-spec messages / concepts.
   If a parser finds any of these bits set that isn't specified, it must refuse to parse the log.
+
 - `appended_offsets`: File offset (0-based) for appended data.
   If no data is appended, all offsets must be zero.
   This can be used to reliably append data for logs that may stop in the middle of a message.
   For example, crash dumps.
 
   A process appending data should do:
+
   - set the relevant `incompat_flags` bit
   - set the first `appended_offsets` that is currently 0 to the length of the log file without the appended data, as that is where the new data will start
   - append any type of messages that are valid for the Data section.
@@ -159,12 +163,14 @@ struct message_format_s {
 A `field` has the format: `type field_name`, or for an array: `type[array_length] field_name` is used (only fixed size arrays are supported).
 
 A `type` is one of the [basic binary types](#data-types) or a `message_name` of another format definition (nested usage).
+
 - A type can be used before it's defined.
   - e.g. The message `MessageA:MessageB[2] msg_b` can come before the `MessageB:uint_8[3] data`
 - There can be arbitrary nesting but **no circular dependencies**
   - e.g. `MessageA:MessageB[2] msg_b` & `MessageB:MessageA[4] msg_a`
 
 Some field names are special:
+
 - `timestamp`: every [Subscription Message](#a-subscription-message) must include a timestamp field
   - Its type can be: `uint64_t` (currently the only one used), `uint32_t`, `uint16_t` or `uint8_t`.
   - The unit is always microseconds, except for in `uint8_t` where the unit is in milliseconds.
@@ -202,24 +208,24 @@ Parsers can store information messages as a dictionary.
 
 Predefined information messages are:
 
-key | Description | Example for value
---- | ---  | ---
-`char[value_len] sys_name` | Name of the system |  "PX4"
-`char[value_len] ver_hw` | Hardware version (board) |  "PX4FMU_V4"
-`char[value_len] ver_hw_subtype` | Board subversion (variation)|  "V2"
-`char[value_len] ver_sw` | Software version (git tag)|  "7f65e01"
-`char[value_len] ver_sw_branch` | git branch |  "master"
-`uint32_t ver_sw_release` | Software version (see below)|  0x010401ff
-`char[value_len] sys_os_name` | Operating System Name |  "Linux"
-`char[value_len] sys_os_ve`r | OS version (git tag) |  "9f82919"
-`uint32_t ver_os_release` | OS version (see below) |  0x010401ff
-`char[value_len] sys_toolchain` | Toolchain Name |  "GNU GCC"
-`char[value_len] sys_toolchain_ver` | Toolchain Version |  "6.2.1"
-`char[value_len] sys_mcu` | Chip name and revision |  "STM32F42x, rev A"
-`char[value_len] sys_uuid` | Unique identifier for vehicle (eg. MCU ID) |  "392a93e32fa3"...
-`char[value_len] log_type` | Type of the log (full log if not specified) | "mission"
-`char[value_len] replay` | File name of replayed log if in replay mode | "log001.ulg"
-`int32_t time_ref_utc` | UTC Time offset in seconds | -3600 |
+| key                                 | Description                                 | Example for value  |
+| ----------------------------------- | ------------------------------------------- | ------------------ |
+| `char[value_len] sys_name`          | Name of the system                          | "PX4"              |
+| `char[value_len] ver_hw`            | Hardware version (board)                    | "PX4FMU_V4"        |
+| `char[value_len] ver_hw_subtype`    | Board subversion (variation)                | "V2"               |
+| `char[value_len] ver_sw`            | Software version (git tag)                  | "7f65e01"          |
+| `char[value_len] ver_sw_branch`     | git branch                                  | "master"           |
+| `uint32_t ver_sw_release`           | Software version (see below)                | 0x010401ff         |
+| `char[value_len] sys_os_name`       | Operating System Name                       | "Linux"            |
+| `char[value_len] sys_os_ve`r        | OS version (git tag)                        | "9f82919"          |
+| `uint32_t ver_os_release`           | OS version (see below)                      | 0x010401ff         |
+| `char[value_len] sys_toolchain`     | Toolchain Name                              | "GNU GCC"          |
+| `char[value_len] sys_toolchain_ver` | Toolchain Version                           | "6.2.1"            |
+| `char[value_len] sys_mcu`           | Chip name and revision                      | "STM32F42x, rev A" |
+| `char[value_len] sys_uuid`          | Unique identifier for vehicle (eg. MCU ID)  | "392a93e32fa3"...  |
+| `char[value_len] log_type`          | Type of the log (full log if not specified) | "mission"          |
+| `char[value_len] replay`            | File name of replayed log if in replay mode | "log001.ulg"       |
+| `int32_t time_ref_utc`              | UTC Time offset in seconds                  | -3600              |
 
 :::note
 `value_len` represents the data size of the `value`. This is described in the `key`.
@@ -245,7 +251,7 @@ struct ulog_message_info_multiple_header_s {
 };
 ```
 
-* `is_continued` can be used for split-up messages: if set to 1, it is part of the previous message with the same key.
+- `is_continued` can be used for split-up messages: if set to 1, it is part of the previous message with the same key.
 
 Parsers can store all information multi messages as a 2D list, using the same order as the messages occur in the log.
 
@@ -280,10 +286,10 @@ struct ulog_message_parameter_default_header_s {
 };
 ```
 
-* `default_types` is a bitfield and defines to which group(s) the value belongs to.
-  * At least one bit must be set:
-    * `1<<0`: system wide default
-    * `1<<1`: default for the current configuration (e.g. an airframe)
+- `default_types` is a bitfield and defines to which group(s) the value belongs to.
+  - At least one bit must be set:
+    - `1<<0`: system wide default
+    - `1<<1`: default for the current configuration (e.g. an airframe)
 
 A log may not contain default values for all parameters.
 In those cases the default is equal to the parameter value, and different default types are treated independently.
@@ -291,7 +297,6 @@ In those cases the default is equal to the parameter value, and different defaul
 This message can also be used in the Data section, and the data type is restricted to `int32_t` and `float`.
 
 This section ends before the start of the first [Subscription Message](#a-subscription-message) or [Logging](#l-logged-string-message) message, whichever comes first.
-
 
 ### Data Section
 
@@ -327,7 +332,7 @@ struct message_add_logged_s {
 - `msg_id`: unique id to match [Logged data Message](#d-logged-data-message) data. The first use must set this to 0, then increase it.
   - The same `msg_id` must not be used twice for different subscriptions.
 - `message_name`: message name to subscribe to.
-Must match one of the [Format Message](#f-format-message) definitions.
+  Must match one of the [Format Message](#f-format-message) definitions.
 
 #### `R`: Unsubscription Message
 
@@ -368,19 +373,19 @@ struct message_logging_s {
 };
 ```
 
-* `timestamp`: in microseconds
-* `log_level`: same as in the Linux kernel:
+- `timestamp`: in microseconds
+- `log_level`: same as in the Linux kernel:
 
-| Name       | Level value  | Meaning                              |
-| ----       | -----------  | -------                              |
-| EMERG      |      '0'     | System is unusable                   |
-| ALERT      |      '1'     | Action must be taken immediately     |
-| CRIT       |      '2'     | Critical conditions                  |
-| ERR        |      '3'     | Error conditions                     |
-| WARNING    |      '4'     | Warning conditions                   |
-| NOTICE     |      '5'     | Normal but significant condition     |
-| INFO       |      '6'     | Informational                        |
-| DEBUG      |      '7'     | Debug-level messages                 |
+| Name    | Level value | Meaning                          |
+| ------- | ----------- | -------------------------------- |
+| EMERG   | '0'         | System is unusable               |
+| ALERT   | '1'         | Action must be taken immediately |
+| CRIT    | '2'         | Critical conditions              |
+| ERR     | '3'         | Error conditions                 |
+| WARNING | '4'         | Warning conditions               |
+| NOTICE  | '5'         | Normal but significant condition |
+| INFO    | '6'         | Informational                    |
+| DEBUG   | '7'         | Debug-level messages             |
 
 #### 'C': Tagged Logged String Message
 
@@ -394,8 +399,9 @@ struct message_logging_tagged_s {
 };
 ```
 
-* `tag`: id representing source of logged message string. It could represent a process, thread or a class depending upon the system architecture.
-  * For example, a reference implementation for an onboard computer running multiple processes to control different payloads, external disks, serial devices etc can encode these process identifiers using a `uint16_t enum` into the `tag` attribute of struct as follows:
+- `tag`: id representing source of logged message string. It could represent a process, thread or a class depending upon the system architecture.
+
+  - For example, a reference implementation for an onboard computer running multiple processes to control different payloads, external disks, serial devices etc can encode these process identifiers using a `uint16_t enum` into the `tag` attribute of struct as follows:
 
   ```c
   enum class ulog_tag : uint16_t {
@@ -412,19 +418,19 @@ struct message_logging_tagged_s {
   };
   ```
 
-* `timestamp`: in microseconds
-* `log_level`: same as in the Linux kernel:
+- `timestamp`: in microseconds
+- `log_level`: same as in the Linux kernel:
 
-| Name       | Level value  | Meaning                              |
-| ----       | -----------  | -------                              |
-| EMERG      |      '0'     | System is unusable                   |
-| ALERT      |      '1'     | Action must be taken immediately     |
-| CRIT       |      '2'     | Critical conditions                  |
-| ERR        |      '3'     | Error conditions                     |
-| WARNING    |      '4'     | Warning conditions                   |
-| NOTICE     |      '5'     | Normal but significant condition     |
-| INFO       |      '6'     | Informational                        |
-| DEBUG      |      '7'     | Debug-level messages                 |
+| Name    | Level value | Meaning                          |
+| ------- | ----------- | -------------------------------- |
+| EMERG   | '0'         | System is unusable               |
+| ALERT   | '1'         | Action must be taken immediately |
+| CRIT    | '2'         | Critical conditions              |
+| ERR     | '3'         | Error conditions                 |
+| WARNING | '4'         | Warning conditions               |
+| NOTICE  | '5'         | Normal but significant condition |
+| INFO    | '6'         | Informational                    |
+| DEBUG   | '7'         | Debug-level messages             |
 
 #### 'S': Synchronization message
 
@@ -437,7 +443,7 @@ struct message_sync_s {
 };
 ```
 
-* `sync_magic`: [0x2F, 0x73, 0x13, 0x20, 0x25, 0x0C, 0xBB, 0x12]
+- `sync_magic`: [0x2F, 0x73, 0x13, 0x20, 0x25, 0x0C, 0xBB, 0x12]
 
 #### 'O': Dropout message
 
@@ -490,12 +496,11 @@ A valid ULog parser must fulfill the following requirements:
 - [PlotJuggler](https://github.com/facontidavide/PlotJuggler): C++/Qt application to plot logs and time series. Supports ULog since version 2.1.3.
 - [ulogreader](https://github.com/maxsun/ulogreader): Javascript, ULog reader and parser outputs log in JSON object format.
 
-
 ## File Format Version History
 
 ### Changes in version 2
 
-* Addition of [Multi Information Message](#m-multi-information-message) and [Flag Bits Message](#b-flag-bits-message) and the ability to append data to a log.
-  * This is used to add crash data to an existing log.
-  * If data is appended to a log that is cut in the middle of a message, it cannot be parsed with version 1 parsers.
-* Other than that forward and backward compatibility is given if parsers ignore unknown messages.
+- Addition of [Multi Information Message](#m-multi-information-message) and [Flag Bits Message](#b-flag-bits-message) and the ability to append data to a log.
+  - This is used to add crash data to an existing log.
+  - If data is appended to a log that is cut in the middle of a message, it cannot be parsed with version 1 parsers.
+- Other than that forward and backward compatibility is given if parsers ignore unknown messages.

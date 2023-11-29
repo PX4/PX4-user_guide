@@ -128,8 +128,9 @@ To get the source code for a _specific older release_ (tag):
    cd PX4-Autopilot
    ```
 
-:::note
-You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
+   :::note
+
+   You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
 
    ```sh
    make clean
@@ -164,8 +165,9 @@ To get a release branch:
   cd PX4-Autopilot
   ```
 
-:::note
-You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
+  :::note
+
+  You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
 
   ```sh
   make clean
@@ -206,19 +208,26 @@ cd Firmware
 ```
 
 - Make a new branch that describes the fix / feature for the submodule update:
+
   ```sh
   git checkout -b pr-some-fix
   ```
+
 - Go to submodule subdirectory
+
   ```sh
   cd <path to submodule>
   ```
+
 - PX4 submodule might not necessarily point to the newest commit. Therefore, first checkout main and pull the newest upstream code.
+
   ```sh
   git checkout main
   git pull upstream main
   ```
+
 - Go back to Firmware directory, and as usual add, commit and push the changes.
+
   ```sh
   cd -
   git add <path to submodule>

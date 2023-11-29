@@ -4,7 +4,7 @@ _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자
 
 ## 개요
 
-여기에서 *QGroundControl* 보기를 오픈합니다. **"Q"(앱 메뉴) > 차량 설정 > 액추에이터**(탭). 표시되는 요소는 [선택한 프레임](../config/airframe.md)에 따라 달라지며, 출력은 [기체 참조](../airframes/airframe_reference.md)와 같이 기본적으로 매핑됩니다.
+Open the view in _QGroundControl_ here: **"Q" (app menu) > Vehicle Setup > Actuators** (tab). 표시되는 요소는 [선택한 프레임](../config/airframe.md)에 따라 달라지며, 출력은 [기체 참조](../airframes/airframe_reference.md)와 같이 기본적으로 매핑됩니다.
 
 보기에는 세 개의 섹션이 있습니다.
 
@@ -40,7 +40,6 @@ _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자
 
 코어 지오메트리 개념과 다양한 프레임에 대한 설정은 다음 섹션에서 제공됩니다.
 
-
 #### 모터 지오메트리: 멀티콥터
 
 The image below shows the geometry setup for a quadrotor multicopter frame with and without advanced settings.
@@ -70,7 +69,6 @@ The motor geometry for a [VTOL Quad Tailsitter](../airframes/airframe_reference.
 
 ![지오메트리 모터: 테일 시터 vtol](../../assets/config/actuators/qgc_geometry_tailsitter_motors.png)
 
-
 #### 모터 지오메트리: VTOL 틸트로터
 
 [일반 쿼드플레인 VTOL 틸트로터](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor)의 모터 지오메트리는 아래에 기술되어 있습니다(다른 [VTOL 틸트로터](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor)를 구성하는 방식도 유사함).
@@ -78,7 +76,6 @@ The motor geometry for a [VTOL Quad Tailsitter](../airframes/airframe_reference.
 ![지오메트리 모터: 틸트로터 vtol](../../assets/config/actuators/qgc_geometry_tiltrotor_motors.png)
 
 - `기울기`: 모터를 기울이는 데 사용되는 관련 서보입니다. 이 서보의 속성은 [모터 틸트 서보 지오메트리](#motor-tilt-servo-geometry)에 정의되어 있습니다.
-
 
 #### 모터 형상: 표준 VTOL
 
@@ -97,7 +94,6 @@ The motor geometry for a [Generic Standard VTOL](../airframes/airframe_reference
 
 예를 들어, 고정익에는 단일 푸셔 모터만 있을 수 있지만, 차동 조향 장치가 있는 로버에는 스로틀 및 조향용 모터가 있습니다.
 
-
 #### 모터 위치 좌표계
 
 모터 위치를 나타내는 좌표계는 FRD(몸체 프레임 내)이며, 여기서 X축은 앞쪽, Y축은 오른쪽, Z축은 아래쪽을 가르킵니다.
@@ -105,7 +101,6 @@ The motor geometry for a [Generic Standard VTOL](../airframes/airframe_reference
 원점은 차량의 **무게 중심(COG)**입니다. 이것은 자동조종장치 내부의 위치가 **아닐** 수 있습니다.
 
 ![액추에이터 CG 참조 다이어그램](../../assets/config/actuators/quadcopter_actuators_cg_reference.png)
-
 
 #### 양방향 모터
 
@@ -116,7 +111,6 @@ The motor geometry for a [Generic Standard VTOL](../airframes/airframe_reference
 ![역전 가능](../../assets/config/actuators/qgc_geometry_reversible_marked.png)
 
 양방향 모터와 연결된 ESC가 적절하게 구성되었는지도 확인하여야 합니다(예: [DShot 명령](../peripherals/dshot.md#commands)을 통해 달성할 수 있는 DShot ESC에 대해 활성화된 3D 모드).
-
 
 ### 조종면 지오메트리
 
@@ -137,8 +131,8 @@ The motor geometry for a [Generic Standard VTOL](../airframes/airframe_reference
 - `Yaw Torque`: Effectiveness of actuator around yaw axis (normalised: -1 to 1). [일반적으로 기본 액추에이터 값을 사용합니다](#actuator-roll-pitch-and-yaw-scaling).
 - `트림`: 입력 없이 중앙에 오도록 액추에이터에 추가된 오프셋입니다. 이것은 시행착오를 거쳐 결정될 수 있습니다.
 - (Advanced) `Slew Rate`: Minimum time allowed for the motor/servo signal to pass through the full output range, in seconds.
-  - 설정은 액츄에이터의 변화율을 제한합니다(지정하지 않으면 비율 제한이 적용되지 않음). 틸트로터 VTOL 차량의 틸팅 액추에이터와 같이 너무 빨리 움직일 경우 손상될 수 있는 액추에이터를 위한 것입니다.
-  - 예를 들어, 2.0으로 설정하면 모터 및 서보가 2초 이내에 작동을 완료하는 속도로 0에서 1로 이동하도록 명령되지 않음을 의미합니다(가역 모터의 경우 범위는 -1에서 1).
+  - The setting limits the rate of change of an actuator (if not specified then no rate limit is applied). It is intended for actuators that may be damaged if they move too fast — such as the tilting actuators on a tiltrotor VTOL vehicle.
+  - For example, a setting of 2.0 means that the motor/servo will not be commanded to move from 0 to 1 at a rate that completes the operation in less than 2 seconds (in case of reversible motors, the range is -1 to 1).
 - (Advanced) `Flap Scale`: How much this actuator is deflected at the "full flaps configuration" \[0, 1\] (see [Flap Scale and Spoiler Scale Configuration](#flap-scale-and-spoiler-scale-configuration) below). Can be used to configure aerodynamic surface as flap or to compensate for generated torque through main flaps.
 - (Advanced) `Spoiler Scale`: How much this actuator is deflected at the "full spoiler configuration" \[0, 1\] (see [Flap Scale and Spoiler Scale Configuration](#flap-scale-and-spoiler-scale-configuration) below). Can be used to configure aerodynamic surface as spoiler or to compensate for generated torque through main spoiler.
 - (VTOL only) `Lock control surfaces in hover`:
@@ -147,7 +141,7 @@ The motor geometry for a [Generic Standard VTOL](../airframes/airframe_reference
 
 #### Flap Scale and Spoiler Scale Configuration
 
-"Flap-control" and "Spoiler-control" are aerodynamic configurations that can either be commanded manually by the pilot (using RC, say), or are set automatically by the controller. For example, a  pilot or the landing system might engage "Spoiler-control" in order to reduce the airspeed before landing.
+"Flap-control" and "Spoiler-control" are aerodynamic configurations that can either be commanded manually by the pilot (using RC, say), or are set automatically by the controller. For example, a pilot or the landing system might engage "Spoiler-control" in order to reduce the airspeed before landing.
 
 The configurations are an _abstract_ way for the controller to tell the allocator how much it should adjust the aerodynamic properties of the wings relative to the "full flaps" or "full spoiler" configuration (between `[0,1]`, where "1" indicates the full range). The allocator then uses any of the available control surfaces it wants in order to achieve the requested configuration: usually flaps, ailerons, and elevator.
 
@@ -175,7 +169,6 @@ In the following example, the vehicle has two ailerons, one elevator, one rudder
 - 배율을 높이면 제어 표면의 처짐이 _감소_됩니다(역전될 때).
 
 <!-- For more information see: []() (PX4 Dev Summit, 2022) -->
-
 
 #### 조종면 처짐 규칙
 
@@ -210,7 +203,6 @@ In the following example, the vehicle has two ailerons, one elevator, one rudder
   - `요`: 요를 제어하는 데 사용되는 틸트 서보입니다.
   - `피치`: 피치를 제어하는 데 사용되는 틸트 서보입니다.
   - `요 및 피치 모두`: 틸트 서보는 요와 피치를 모두 제어하는 데 사용됩니다.
-
 
 #### 틸트 서보 좌표계
 
@@ -283,7 +275,7 @@ Functions include:
 - `Constant_Max`: Output is set to constant maximum value (+1).
 - `Motor 1` to `Motor 12`: Output is indicated motor. Only motors allowed for airframe are displayed.
 - `Servo 1` to `Servo 8`: Servo output. These are further assigned a specific meaning based on airframe, such as "tilt servo", "left aileron".
-- `Offboard Acutator Set 1` to `Offboard Acutator Set 6`: [Payloads > Generic Actuator Control with MAVLink](../payloads/README.md#generic-actuator-control-with-mavlink).
+- `Peripheral via Acutator Set 1` to `Peripheral via Acutator Set 6`: [Payloads > Generic Actuator Control with MAVLink](../payloads/README.md#generic-actuator-control-with-mavlink).
 - `Landing Gear`: Output is landing gear.
 - `Parachute`: Output is parachute. The minimum value is sent in normal use and the maximum value is emitted when a failsafe is triggered.
 - `RC Roll`: Output is passthrough roll from RC ([RC_MAP_ROLL](../advanced_config/parameter_reference.md#RC_MAP_ROLL) maps an RC channel to this output). An RC channel is mapped to the output using .
@@ -329,10 +321,9 @@ This list is correct at PX4 v1.13. The functions are defined in source at [/src/
 1. 모터 틸트 서보가 출력 값 `해제`에 대해 올바른 유휴 위치에 있습니다.
 1. Motor Tilt Servos move in the direction as defined in the [Tilt Servo Convention](#tilt-servo-coordinate-system)
 
-
 ## 출력 할당 및 설정
 
-Outputs are assigned to functions and configured in the [Actuator Outputs](#actuator-outputs) section, while the  [Actuator Testing](#actuator-testing) sliders are commonly used to determine appropriate configuration values to enter:
+Outputs are assigned to functions and configured in the [Actuator Outputs](#actuator-outputs) section, while the [Actuator Testing](#actuator-testing) sliders are commonly used to determine appropriate configuration values to enter:
 
 - MC vehicles that have connected motors to PWM outputs can use the [Identify & Assign Motors](#multicopter-pwm-motor-assignment) button to perform motor assignment "semi-automatically".
 - 모터와 액추에이터의 출력 할당은 슬라이더를 사용하여 수행/확인할 수 있습니다([출력 할당(수동)](#output-assignment-manual) 참조).
@@ -367,7 +358,6 @@ Outputs are assigned to functions and configured in the [Actuator Outputs](#actu
 
 1. 모든 모터를 할당한 후 도구는 출력에 대한 올바른 모터 매핑을 설정한 다음 종료됩니다.
 
-
 ### 출력 할당(수동)
 
 :::warning
@@ -389,7 +379,6 @@ Outputs are assigned to functions and configured in the [Actuator Outputs](#actu
    - 아무 것도 움직이지 않으면, 슬라이더를 범위 중간에 늘리고 필요한 경우 더 높입니다. 그 후 아무 것도 움직이지 않으면, 출력이 연결되지 않거나 모터에 전원이 공급되지 않거나 출력 설정에 오류가 있을 수 있습니다. 문제를 해결하여야 합니다("무엇이든"이 움직이는지 확인하기 위하여 다른 액추에이터 출력을 시도할 수 있음).
 1. 슬라이더를 "무장 해제" 위치로 되돌립니다(모터의 경우 슬라이더 하단, 서보의 경우 슬라이더 중앙).
 1. 모든 액추에이터에 대하여 반복합니다.
-
 
 ### 모터 설정
 
@@ -416,6 +405,7 @@ Remove propellers!
    - 모터가 이 위치에서 회전하지 않는 지 확인하십시오.
    - If the motor spins, reduce the corresponding PWM `disarmed` value in the [Actuator Outputs](#actuator-outputs) section to below the level at which it still spins.
 2. 슬라이더가 _최소_ 위치에 고정될 때까지 슬라이더를 천천히 위로 이동합니다. In this position the motor is set to the outputs `minimum` value.
+
    - 이 위치에서 모터가 매우 느리게 회전하는 지 확인합니다.
    - If the motor is not spinning, or spinning too fast you will need to adjust the corresponding PWM `minimum` value in the [Actuator Outputs](#actuator-outputs) such that the motors barely spin.
 
@@ -423,13 +413,14 @@ Remove propellers!
   For DShot output, this is not required.
 
 :::
-3. 모터가 올바른 방향으로 회전하고 있고 예상 방향으로 긍정적인 추진력을 제공하는 지 확인할 수 있는 수준으로 슬라이더 값을 증가시킵니다.
-   - 예상 추력 방향은 차량 유형에 따라 다를 수 있습니다. For example in multicopters the thrust should always point upwards, while in a fixed-wing vehicle the thrust will push the vehicle forwards.
+
+3. Increase the slider value to a level where you can verify that the motor is spinning in the correct direction and that it would give a positive thrust in the expected direction.
+
+   - The expected thrust direction can vary by vehicle type. For example in multicopters the thrust should always point upwards, while in a fixed-wing vehicle the thrust will push the vehicle forwards.
    - For VTOL, thrust should point upwards when the Tilt Servo is at 0 degrees as defined the [Tilt Servo Convention](#tilt-servo-coordinate-system). Testing of the [Tilt Servo](#tilt-servo-setup) is covered below as well.
-   - 추력이 잘못된 방향인 경우 [모터를 역전](#reversing-motors)해야 할 수 있습니다.
+   - If thrust is in the wrong direction, you may need to [reverse the motors](#reversing-motors).
 
 4. Increase the slider value to the maximum value, so the motor is spinning quickly. Reduce the value of the PWM output's `maximum` value just below the default. Listen to the tone of the motors as you increase the value in small (25us) increments. The "optimal" maximum value is the value at which you last hear a change in the tone.
-
 
 ### 조종면 설정
 
@@ -446,14 +437,16 @@ Remove propellers!
 1. 무장 해제 시 표면이 중립 위치를 유지하도록 `비시동 해제` 값을 설정합니다. 이것은 일반적으로 PWM 서보의 경우 약 `1500`입니다.
 2. Move the slider for the surface upwards (positive command) and verify that it moves in the direction defined in the [Control Surface Convention](#control-surface-deflection-convention).
    - 조종면이 반대 방향으로 이동하는 경우 `Rev Range` 확인란을 클릭하여 범위를 반대로 설정합니다.
-3. 슬라이더를 다시 가운데로 이동하고 조종면이 날개의 중립 위치에 정렬되어 있는 지 확인합니다.
-   - 정렬되지 않은 경우 조종면에 대한 **트림** 값을 설정할 수 있습니다. :::note 이것은 일반적으로 "시행 착오"를 통해 지오메트리 패널의 `자르기` 설정에서 수행됩니다. ![Control Surface Trimming](../../assets/config/actuators/control_surface_trim.png)
+3. Move the slider again to the middle and check if the Control Surfaces are aligned in the neutral position of the wing
+
+   - If it is not aligned, you can set the **Trim** value for the control surface. :::note This is done in the `Trim` setting of the Geometry panel, usually by "trial and error". ![Control Surface Trimming](../../assets/config/actuators/control_surface_trim.png)
 :::
 
-   - 조종면의 트림을 설정한 후 슬라이더를 중앙에서 멀리 이동하고 놓은 다음 다시 무장 해제(가운데) 위치로 되돌립니다. 표면이 중립 위치에 있는지 확인합니다.
+   - After setting the trim for a control surface, move its slider away from the center, release, and then back into disarmed (middle) position. Confirm that surface is in the neutral position.
 
-     슬라이더가 이미 중간 위치에 있더라도 _슬라이더를 **반드시** 움직여야 합니다_(움직일 때까지 명령을 받기 시작하지 않음).
+     ```
 
+     ```
 
 :::note
 Another way to test without using the sliders would be to set the [`COM_PREARM_MODE`](../advanced_config/parameter_reference.md#COM_PREARM_MODE) parameter to `Always`:
@@ -474,6 +467,7 @@ Another way to test without using the sliders would be to set the [`COM_PREARM_M
 2. 서보의 슬라이더를 가장 낮은 위치에 놓고 양수 값 증가가 `최소 기울기 각도`(기하학 섹션에 정의됨)를 가리키는 지 확인합니다.
 
    ![틸트 서보 지오메트리 설정](../../assets/config/actuators/tilt_servo_geometry_config.png)
+
 3. 서보의 슬라이더를 가장 높은 위치에 놓고 양의 모터 추력이 `최대 기울기 각도`를 가리키는 지 확인합니다(기하학 섹션에 정의됨).
 
 ### 기타 참고 사항

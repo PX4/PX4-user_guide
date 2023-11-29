@@ -136,8 +136,8 @@ If you work from a location outside of the WSL file system you'll run into issue
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
 
-:::note
-The environment setup scripts in the source usually work for recent PX4 releases. If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release).
+   If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release). :::note
+The environment setup scripts in the source usually work for recent PX4 releases.
 :::
 
 1. Run the **ubuntu.sh** installer script and acknowledge any prompts as the script progresses:

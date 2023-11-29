@@ -16,7 +16,6 @@ For a list of all supported logger commands and parameters, use:
 logger help
 ```
 
-
 ## 구성
 
 The logging system is configured by default to collect sensible logs for [flight reporting](../getting_started/flight_reporting.md) with [Flight Review](http://logs.px4.io).
@@ -27,8 +26,7 @@ The logging system is configured by default to collect sensible logs for [flight
 | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE)       | Logging Mode. Defines when logging starts and stops.<br />- `-1`: Logging disabled.<br />- `0`: Log when armed until disarm (default).<br />- `1`: Log from boot until disarm.<br />- `2`: Log from boot until shutdown.<br />- `3`: Log based on the [AUX1 RC channel](../advanced_config/parameter_reference.md#RC_MAP_AUX1).<br />- `4`: Log from first armed until shutdown. |
 | [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | 로깅 프로파일. 자주 사용되지 않는 로깅/분석을 활성화하려면 이것을 사용하십시오(예: EKF2 재생, PID 및 필터 튜닝을 위한 고속 로깅, 열 온도 보정).                                                                                                                                                                                                                                                                                                                            |
-| [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".<br>This log can *not* be used with [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), but is useful when you need a small log for geotagging or regulatory compliance.                                                                                                                                                                      |
-
+| [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".<br>This log can _not_ be used with [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), but is useful when you need a small log for geotagging or regulatory compliance.                                                                                                                                                                      |
 
 Useful settings for specific cases:
 
@@ -39,13 +37,14 @@ Useful settings for specific cases:
 
 _Developers_ can further configure what information is logged via the [logger](../modules/modules_system.md#logger) module. This allows, for example, logging of your own uORB topics.
 
-
 ### 진단SD 카드 설정
 
 Separately, the list of logged topics can also be customized with a file on the SD card. Create a file `etc/logging/logger_topics.txt` on the card with a list of topics (For SITL, it's `build/px4_sitl_default/rootfs/fs/microsd/etc/logging/logger_topics.txt`):
-```
+
+```plain
 <topic_name> <interval> <instance>
 ```
+
 `<interval>`은 선택 사항이며, 지정된 경우 이 항목에 대해 기록된 두 메시지 사이의 최소 시간 간격(ms)을 정의합니다. 지정하지 않으면, 주제가 최대 속도로 기록됩니다.
 
 `<instance>`은 선택 사항이며, 지정된 경우 기록할 인스턴스를 정의합니다. 지정하지 않으면, 토픽의 모든 인스턴스를 로깅합니다. `<instance>`를 지정하려면, `<interval>`을 반드시 지정하여야합니다. 0 값을 설정하면 최대 기록율로 지정할 수 있습니다.
@@ -54,7 +53,7 @@ Separately, the list of logged topics can also be customized with a file on the 
 
 예 :
 
-```
+```plain
 sensor_accel 0 0
 sensor_accel 100 1
 sensor_gyro 200
@@ -66,7 +65,6 @@ sensor_mag 200 1
 ## 스크립트
 
 [pyulog](https://github.com/PX4/pyulog) 저장소에 로깅 파일을 분석하고 변환하는 여러 스크립트가 있습니다.
-
 
 ## File size limitations
 
@@ -112,6 +110,7 @@ NuttX에 지원되는 최대 SD 카드 크기는 32GB(SD 메모리 카드 사양
 요구 사항은 최소 ~50KB/s 네트웍 속도입니다(예: WiFi 링크). 그리고, 한 클라이언트만 동시에 로그 스트리밍을 요청할 수 있습니다. 연결이 안정적일 필요는 없으며, 프로토콜은 드롭을 처리하도록 설계되었습니다.
 
 ulog 스트리밍을 지원하는 다양한 클라이언트가 있습니다.
+
 - PX4-Autopilot/Tools의 `mavlink_ulog_streaming.py` 스크립트
 - QGroundControl![QGC 로그 스트리밍 ](../../assets/gcs/qgc-log-streaming.png)
 - [MAVGCL](https://github.com/ecmnet/MAVGCL)
@@ -122,7 +121,7 @@ ulog 스트리밍을 지원하는 다양한 클라이언트가 있습니다.
 - 그래도 작동하지 않으면, MAVLink 2를 사용하고 있는지 확인하십시오. `MAV_PROTO_VER` 매개변수 값을 2로 강제 설정하십시오.
 - 로그 스트리밍은 구성된 MAVLink 속도(`-r` 매개변수)의 최대 70%를 사용합니다. 더 큰 전송율이 요구되는 상황에서는, 메세지가 사라집니다. 현재 사용된 백분율은 `mavlink 상태`로 검사할 수 있습니다(이 예에서는 1.8%가 사용됨).
 
-  ```
+  ```sh
   instance #0:
           GCS heartbeat:  160955 us ago
           mavlink chan: #0

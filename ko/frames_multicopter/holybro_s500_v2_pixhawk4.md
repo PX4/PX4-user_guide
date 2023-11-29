@@ -3,7 +3,7 @@
 키트 조립법과 *QGroundControl*의 PX4 설정 방법을 설명합니다.
 
 :::note
-Holybro initially supplied this kit with a [Holybro Pixhawk 4](../flight_controller/pixhawk4.md), but at time of writing this has been upgraded to a more recent Pixhawk. This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
+Holybro initially supplied this kit with a [Holybro Pixhawk 4](../flight_controller/pixhawk4.md), but at time of writing this has been upgraded to a more recent Pixhawk (6C). This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
 :::
 
 ## 주요 정보

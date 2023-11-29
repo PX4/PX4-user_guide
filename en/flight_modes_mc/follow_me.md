@@ -4,6 +4,24 @@
 
 _Follow Me_ mode allows a multicopter to autonomously hold position and altitude relative to another system that is broadcasting its position (and optionally velocity) using the [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) MAVLink message.
 
+:::note
+
+- Mode is automatic - no user intervention is _required_ to control the vehicle.
+- Mode requires at least a valid local position estimate (does not require a global position).
+  - Flying vehicles can't switch to this mode without valid local position.
+  - Flying vehicles will failsafe if they lose the position estimate.
+- Mode prevents arming (vehicle must be armed when switching to this mode).
+- Mode requires wind and flight time are within allowed limits (specified via parameters).
+- This mode is currently only supported on multicopter (or VTOL in MC mode).
+- The follow target must also be able to supply position information.
+- Follow-me mode is supported by _QGroundControl_ on Android devices with a GPS module, and [MAVSDK](#follow-me-with-mavsdk).
+
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
+
+:::
+
+## Overview
+
 ![Follow-me Concept](../../assets/flight_modes/followme_concept.png)
 
 The vehicle will automatically yaw to face and follow the target from a specified [relative angle](#FLW_TGT_FA), [distance](#FLW_TGT_DST) and [height](#FLW_TGT_HT) and altitude, depending on the [altitude control mode](#FLW_TGT_ALT_M).
@@ -32,18 +50,6 @@ If you exit Follow-Me mode and activate it again the values will be reset to the
 Demo video:
 
 @[youtube](https://youtu.be/csuMtU6seXI?t=155)
-
-## How to Use Follow Me
-
-Follow-me mode is supported by _QGroundControl_ on Android devices with a GPS module, and [MAVSDK](#follow-me-with-mavsdk).
-
-:::note
-
-- This mode requires GPS.
-- This mode is currently only supported on multicopter.
-- The follow target must also be able to supply position information.
-- _QGroundControl_ only supports this mode on Android devices that have GPS.
-  :::
 
 ### Safety Precautions
 

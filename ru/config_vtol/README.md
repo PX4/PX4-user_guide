@@ -4,7 +4,7 @@ First perform the [Standard Configuration](../config/README.md). As part of this
 
 Then perform VTOL-specific configuration and tuning:
 
-* [QuadPlane Configuration](../config_vtol/vtol_quad_configuration.md)
-* [Back-transition Tuning](../config_vtol/vtol_back_transition_tuning.md)
-* [VTOL w/o Airspeed Sensor](../config_vtol/vtol_without_airspeed_sensor.md)
-* [VTOL Weather Vane](../config_vtol/vtol_weathervane.md)
+- [QuadPlane Configuration](../config_vtol/vtol_quad_configuration.md)
+- [Back-transition Tuning](../config_vtol/vtol_back_transition_tuning.md)
+- [VTOL w/o Airspeed Sensor](../config_vtol/vtol_without_airspeed_sensor.md)
+- [VTOL Weather Vane](../config_vtol/vtol_weathervane.md)

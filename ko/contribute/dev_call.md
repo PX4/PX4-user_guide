@@ -7,13 +7,13 @@
 
 The PX4 dev team and community come together to discuss any topic of interest to the community, ranging from sorting out issues to satisfying your curiosity.
 
-## 참여 대상:
+## Who should attend?
 
-* 핵심 프로젝트 관리자
-* 구성요소 관리자
-* 테스트 팀 관리자
-* 드론코드 회원
-* Community members (you!)
+- 핵심 프로젝트 관리자
+- 구성요소 관리자
+- 테스트 팀 관리자
+- 드론코드 회원
+- Community members (you!)
 
 :::tip
 The Community Q&A call is open to all interested community members.
@@ -28,5 +28,6 @@ We publish a forum post per meeting a week before the call on [PX4 Discuss - wee
 Please add your topics for discussion to the agenda before the meeting begins, by replying to the meeting note. This will help you formulate your questions more clearly, and allow us to think about them in advance.
 
 ## 일정
-* TIME: Wednesday 17h00 CET ([subscribe to calendar](https://www.dronecode.org/calendar/))
-* **Join the call**: [https://discord.gg/BDYmr6FA6Q](https://discord.gg/BDYmr6FA6Q)
+
+- TIME: Wednesday 17h00 CET ([subscribe to calendar](https://www.dronecode.org/calendar/))
+- **Join the call**: [https://discord.gg/BDYmr6FA6Q](https://discord.gg/BDYmr6FA6Q)

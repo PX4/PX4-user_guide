@@ -13,18 +13,22 @@ PX4从核心控制器获取所需的扭矩和推力指令，并将它们转换�
 
 PX4将这个转换逻辑区分开，这个逻辑被称为从姿态/角速率控制器输出的“混控”。 这样可以确保核心控制器不需要对每个机型构型进行特殊处理，可以大大提高复用性。
 
-此外，PX4还将输出函数映射至指定的硬件输出。 这也意味着任何电机或舵机可以分配给几乎任何物理输出。 
+此外，PX4还将输出函数映射至指定的硬件输出。 这也意味着任何电机或舵机可以分配给几乎任何物理输出。
 
 <!-- https://docs.google.com/drawings/d/1Li9YhTLc3yX6mGX0iSOfItHXvaUhevO2DRZwuxPQ1PI/edit -->
+
 ![混控概览](../../assets/diagrams/mixing_overview.png)
 
 ## 作动器控制流程
 
 模块和uORB话题混控流程概览（点击全屏查看）：
+
 <!-- https://drive.google.com/file/d/1L2IoxsyB4GAWE-s82R_x42mVXW_IDlHP/view?usp=sharing -->
+
 ![Pipeline Overview](../../assets/concepts/control_allocation_pipeline.png)
 
-备注：
+Notes:
+
 - 角速率控制器输出力矩和推力设定值
 - `control_allocator` 模块：
   - 根据配置参数处理不同飞行器构型
@@ -40,18 +44,19 @@ PX4将这个转换逻辑区分开，这个逻辑被称为从姿态/角速率控�
 
 ## 添加新构型或输出函数
 
-请参阅该[提交](https://github.com/PX4/PX4-Autopilot/commit/5cdb6fbd8e1352dcb94bd58918da405f8ff930d7) 以了解如何添加新构型。 当 [CA_AIRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) 设置为新构型时，QGC 界面将自动显示正确的配置界面。
+See [this commit](https://github.com/PX4/PX4-Autopilot/commit/5cdb6fbd8e1352dcb94bd58918da405f8ff930d7) for how to add a new geometry. The QGC UI will then automatically show the right configuration UI when [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) is set to the new geometry.
 
-该[提交](https://github.com/PX4/PX4-Autopilot/commit/a65533b46986e32254b64b7c92469afb8178e370) 显示了如何添加新的输出函数。 任何uORB话题都可以被订阅并分配到一个函数。
+[This commit](https://github.com/PX4/PX4-Autopilot/commit/a65533b46986e32254b64b7c92469afb8178e370) shows how to add a new output function. Any uORB topic can be subscribed and assigned to a function.
 
-请注意，控制分配的参数是在 [src/modules/control_allocator/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/control_allocator/module.yaml)中定义的。 此文件的架构参见 [这里](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml#L440=) （典型的，搜索关键字 `mixer:`）
+Note that parameters for control allocation are defined in [src/modules/control_allocator/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/control_allocator/module.yaml) The schema for this file is [here](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml#L440=) (in particular, search for the key `mixer:`
 
 ## 设置默认机型构型
 
-当 [添加一个新的机型配置](../dev_airframes/adding_a_new_frame.md)，需要设置合适的 [CA_AIRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) 和其他默认的构型混控参数。
+When [adding a new frame configuration](../dev_airframes/adding_a_new_frame.md), set the appropriate [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) and other default mixer values for the geometry.
 
-例如，可以参见机型配置文件 [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter) 。
-```
+You can see this, for example, in the airframe configuration file [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter)
+
+```sh
 ...
 param set-default CA_AIRFRAME 4
 param set-default CA_ROTOR_COUNT 2
@@ -62,6 +67,6 @@ param set-default CA_ROTOR0_PY 0.2
 
 ## 设置构型和输出
 
-当通过 QGroundControl 中的 [Basic Configuration > Airframe](../config/airframe.md) 选择机型时，飞行器的几何构型和默认参数将为默认参数（来自frame configuration文件）。
+The broad geometry and default parameters for a vehicle are set (from the frame configuration file) when selecting the airframe in QGroundControl: [Basic Configuration > Airframe](../config/airframe.md).
 
-特定机型的几何构型参数和飞控硬件输出映射可通过 QGroundControl 中的 **Actuators** 设置页面： [Basic Configuration > 精Actuator Configuration and Testing](../config/actuators.md) 来设置。
+The geometry parameters and output mapping for the specific frame and flight controller hardware are then configured using the QGroundControl **Actuators** setup screen: [Basic Configuration > Actuator Configuration and Testing](../config/actuators.md).

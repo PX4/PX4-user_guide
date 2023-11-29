@@ -14,7 +14,7 @@ You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (co
 - [Pixhawk Standard/Supported Autopilots](../flight_controller/autopilot_pixhawk_standard.md)
   - [CUAV Pixhack v3 (FMUv3)](../flight_controller/pixhack_v3.md)
   - [CUAV Pixhawk V6X (FMUv6X)](../flight_controller/cuav_pixhawk_v6x.md)
-  - [Drotek Pixhawk 3 Pro (FMUv4pro)](../flight_controller/pixhawk3_pro.md)
+  - [Drotek Pixhawk 3 Pro (FMUv4pro)](../flight_controller/pixhawk3_pro.md) - Discontinued
   - [Hex Cube Black (FMUv3)](../flight_controller/pixhawk-2.md)
   - [Holybro Pixhawk 4 (FMUv5)](../flight_controller/pixhawk4.md)
   - [Holybro Pixhawk 4 Mini (FMUv5)](../flight_controller/pixhawk4_mini.md)

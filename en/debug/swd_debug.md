@@ -197,7 +197,7 @@ Some manufacturers provide cables to make it easy to connect the SWD interface a
 
 You can also create custom cables for connecting to different boards or probes:
 
-- Connect ` SWDIO`, `SWCLK` and `GND` pins on the debug probe to the corresponding pins on the debug port.
+- Connect `SWDIO`, `SWCLK` and `GND` pins on the debug probe to the corresponding pins on the debug port.
 - Connect the VREF pin, if supported by the debug probe.
 - Connect the remaining pins, if present.
 

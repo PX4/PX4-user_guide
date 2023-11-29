@@ -10,10 +10,17 @@ The following sections explain how to configure the [return type](#return_types)
 
 :::note
 
-- This mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
-- This mode is automatic - no user intervention is _required_ to control the vehicle.
+- Mode is automatic - no user intervention is _required_ to control the vehicle.
+- Mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+  - Flying vehicles can't switch to this mode without global position.
+  - Flying vehicles will failsafe if they lose the position estimate.
+- Mode requires home position is set.
+- Mode prevents arming (vehicle must be armed when switching to this mode).
 - RC control switches can be used to change flight modes on any vehicle.
 - RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
+
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
+
 :::
 
 <a id="return_types"></a>

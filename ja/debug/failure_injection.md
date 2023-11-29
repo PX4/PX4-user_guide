@@ -6,11 +6,12 @@ Failure injection is disabled by default, and can be enabled using the [SYS_FAIL
 
 :::warning
 Failure injection still in development. At time of writing (PX4 v1.14):
+
 - It can only be used in simulation (support for both failure injection in real flight is planned).
 - It requires support in the simulator. It is supported in Gazebo Classic
 - Many failure types are not broadly implemented. In those cases the command will return with an "unsupported" message.
-:::
 
+:::
 
 ## Failure System Command
 
@@ -19,10 +20,13 @@ Failures can be injected using the [failure system command](../modules/modules_c
 ### Syntax
 
 The full syntax of the [failure](../modules/modules_command.md#failure) command is:
-```
+
+```sh
 failure <component> <failure_type> [-i <instance_number>]
 ```
+
 where:
+
 - _component_:
   - Sensors:
     - `gyro`: Gyro.
@@ -52,14 +56,14 @@ where:
   - `intermittent`: Publish intermittently.
 - _instance number_ (optional): Instance number of affected sensor. 0 (default) indicates all sensors of specified type.
 
-
 ### Example
 
 To simulate losing RC signal without having to turn off your RC controller:
 
 1. Enable the parameter [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
-1. Enter the following commands on the MAVLink console or SITL *pxh shell*:
-   ```bash
+1. Enter the following commands on the MAVLink console or SITL _pxh shell_:
+
+   ```sh
    # Fail RC (turn publishing off)
    failure rc_signal off
 

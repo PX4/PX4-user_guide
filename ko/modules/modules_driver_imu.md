@@ -597,13 +597,41 @@ icm42688p <command> [arguments...]
    status        print status info
 ```
 ## l3gd20
-Source: [drivers/imu/invensense/icm45686](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/icm45686)
+Source: [drivers/imu/invensense/icm42688p](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/icm42688p)
 
 <a id="icm42688p_usage"></a>
 
 ### 사용법
 ```
 l3gd20 <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+     [-C <val>]  Input clock frequency (Hz)
+                 default: 0
+     [-6]        Drive ICM-42686
+
+   stop
+
+   status        print status info
+```
+## icm45686
+Source: [drivers/imu/invensense/icm45686](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/icm45686)
+
+<a id="icm45686_usage"></a>
+
+### 사용법
+```
+icm45686 <command> [arguments...]
  Commands:
    start
      [-s]        Internal SPI bus(es)
@@ -628,7 +656,7 @@ Source: [drivers/imu/invensense/iim42652](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="iim42652_usage"></a>
 
-### 사용법
+### Usage
 ```
 iim42652 <command> [arguments...]
  Commands:
@@ -655,7 +683,7 @@ Source: [drivers/imu/invensense/iim42653](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="iim42653_usage"></a>
 
-### Usage
+### 사용법
 ```
 iim42653 <command> [arguments...]
  Commands:
@@ -713,14 +741,15 @@ Source: [drivers/imu/st/lsm303d](https://github.com/PX4/PX4-Autopilot/tree/main/
 lsm9ds1 <command> [arguments...]
  Commands:
    start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
+     [-c <val>]  chip-select index (for external SPI)
+                 default: 1
+     [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 57
      [-R <val>]  Rotation
                  default: 0
 
@@ -764,15 +793,14 @@ mpu6000 <command> [arguments...]
 mpu9520 <command> [arguments...]
  Commands:
    start
-     [-s]        Internal SPI bus(es)
-     [-S]        External SPI bus(es)
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
-     [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 57
      [-R <val>]  Rotation
                  default: 0
 
@@ -781,7 +809,7 @@ mpu9520 <command> [arguments...]
    status        print status info
 ```
 ## mpu9250
-Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/mpu9250)
+Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/mpu9250)
 
 <a id="mpu9250_usage"></a>
 
@@ -808,7 +836,7 @@ mpu9250 <command> [arguments...]
    status        print status info
 ```
 ## mpu9250_i2c
-Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/mpu9250)
+Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/mpu9250)
 
 <a id="mpu9250_i2c_usage"></a>
 
@@ -837,7 +865,7 @@ mpu9250_i2c <command> [arguments...]
 
 <a id="mpu9520_usage"></a>
 
-### 사용법
+### Usage
 ```
 mpu9520_i2c <command> [arguments...]
  Commands:

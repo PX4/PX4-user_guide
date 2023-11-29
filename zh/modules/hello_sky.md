@@ -9,21 +9,21 @@
 ## 系统必备组件
 
 以下内容是您需要提前准备的：
-* [PX4 SITL 模拟器](../simulation/README.md) *或者* 一个 [兼容 PX4 的飞行控制器](https://docs.px4.io/en/flight_controller/#documented-boards) 。
-* 适用于期望平台的 [PX4 开发工具链](../setup/dev_env.md) 。
-* 从 Github [下载 PX4 源代码](../setup/building_px4.md#get_px4_code) 。
+* [PX4 SITL Simulator](../simulation/README.md) *or* a [PX4-compatible flight controller](../flight_controller/README.md).
+* [PX4 Development Toolchain](../dev_setup/dev_env.md) for the desired target.
+* [Download the PX4 Source Code](../dev_setup/building_px4.md#download-the-px4-source-code) from Github
 
 The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
 * 重命名 (或删除) **px4_simple_app** 目录。
 
 ## 最小的应用程序
 
-在本节中，我们创建一个*很小的应用程序*，只是打印出来`Hello Sky!`。 这包括一个*C*文件和一个*cmake*定义（它告诉工具链如何构建应用程序）。</p>
+在本节中，我们创建一个*很小的应用程序*，只是打印出来`Hello Sky!`。 This consists of a single *C* file and a *cmake* definition (which tells the toolchain how to build the application).
 
-1. 新建如下文件夹： **Firmware/src/examples/px4_simple_app**。
-1. 在该目录中新建一个名为 **px4_simple_app.c** 的 C 文件：
+1. Create a new directory **PX4-Autopilot/src/examples/px4_simple_app**.
+1. Create a new C file in that directory named **px4_simple_app.c**:
 
-   * 将下面的默认头部注释复制到文件页面的顶部， 该注释应出现在所有贡献的文件中！
+   * Copy in the default header to the top of the page. 该注释应出现在所有贡献的文件中！
 
      ```c
      /****************************************************************************
@@ -265,7 +265,10 @@ INFO  [px4_simple_app] Hello Sky!
 
 为了做一些实用的事情，应用程序需要订阅输入和发布输出（例如电机或伺服命令）。
 
-:::tip PX4 硬件抽象的好处在这里发挥作用！ 无需以任何方式与传感器驱动程序交互，如果板或传感器更新，也无需更新您的应用程序。 为了实现这一功能，我们使用了 POSIX 系统调用函数 [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) 。
+:::tip
+PX4 硬件抽象的好处在这里发挥作用！
+无需以任何方式与传感器驱动程序交互，如果板或传感器更新，也无需更新您的应用程序。
+:::
 
 应用程序之间的每个消息通道称为[主题](../middleware/uorb.md)。 For this tutorial, we are interested in the [SensorCombined](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg) topic, which holds the synchronized sensor data of the complete system.
 

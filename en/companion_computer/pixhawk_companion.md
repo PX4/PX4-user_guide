@@ -4,7 +4,6 @@ PX4 running on Pixhawk-series flight controllers can connect to a companion comp
 
 See [Companion Computers](../companion_computer/README.md) for information about supported hardware and general setup.
 
-
 ## Companion Computer Software
 
 The companion computer needs to run software that communicates with the flight controller, and which routes traffic to ground stations and the cloud.
@@ -36,22 +35,22 @@ If you're connecting using a serial port, wire the port according to the instruc
 All Pixhawk serial ports operate at 3.3V and are 5V level compatible.
 
 :::warning
-Many modern companion computers only support 1.8V levels on their hardware UART and can be damaged by 3.3V levels. 
+Many modern companion computers only support 1.8V levels on their hardware UART and can be damaged by 3.3V levels.
 Use a level shifter.
-In most cases the accessible hardware serial ports already have some function (modem or console) associated with them and need to be *reconfigured in Linux* before they can be used.
+In most cases the accessible hardware serial ports already have some function (modem or console) associated with them and need to be _reconfigured in Linux_ before they can be used.
 :::
 
 A safe and easy to set up option is to use an FTDI Chip USB-to-serial adapter board to connect from `TELEM2` on the Pixhawk to the USB port on the companion computer.
 The `TELEM2` to FTDI wiring map is shown below.
 
-TELEM2 | | FTDI | &nbsp;
---- | --- | --- | ---
-1 | +5V (red)| | DO NOT CONNECT!
-2 | Tx  (out)| 5 | FTDI RX (yellow) (in)
-3 | Rx  (in) | 4 | FTDI TX (orange) (out)
-4 | CTS (in) | 6 | FTDI RTS (green) (out)
-5 | RTS (out)| 2 | FTDI CTS (brown) (in)
-6 | GND     | 1 | FTDI GND (black)
+| TELEM2 |           | FTDI | &nbsp;                 |
+| ------ | --------- | ---- | ---------------------- |
+| 1      | +5V (red) |      | DO NOT CONNECT!        |
+| 2      | Tx (out)  | 5    | FTDI RX (yellow) (in)  |
+| 3      | Rx (in)   | 4    | FTDI TX (orange) (out) |
+| 4      | CTS (in)  | 6    | FTDI RTS (green) (out) |
+| 5      | RTS (out) | 2    | FTDI CTS (brown) (in)  |
+| 6      | GND       | 1    | FTDI GND (black)       |
 
 You may also be able to directly connect `TELEM2` directly to a companion computer serial port.
 This is demonstrated for the Raspberry Pi in [Raspberry Pi Companion with Pixhawk](../companion_computer/pixhawk_rpi.md).
@@ -60,7 +59,7 @@ This is demonstrated for the Raspberry Pi in [Raspberry Pi Companion with Pixhaw
 
 On Linux the default name of a USB FTDI would be like `\dev\ttyUSB0`.
 If you have a second FTDI linked on the USB or an Arduino, it will registered as `\dev\ttyUSB1`.
-To avoid the confusion between the first plugged and the second plugged, we recommend you to create a symlink from `ttyUSBx` to a friendly name, depending on the Vendor and Product ID of the USB device. 
+To avoid the confusion between the first plugged and the second plugged, we recommend you to create a symlink from `ttyUSBx` to a friendly name, depending on the Vendor and Product ID of the USB device.
 
 Using `lsusb` we can get the vendor and product IDs.
 

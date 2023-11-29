@@ -6,12 +6,11 @@ GPS模块使用 [DroneCAN](README.md) 协议进行通信。 DroneCAN连接比串
 
 <img src="../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps.jpg" width="400px" title="Hero diagram for the GPS module" />
 
-
 ## 购买途径
 
 通过以下途径购买模块：
 
-* [Holybro](https://holybro.com/products/dronecan-m8n-gps)
+- [Holybro](https://holybro.com/products/dronecan-m8n-gps)
 
 ## 硬件规格
 
@@ -62,7 +61,6 @@ The Holybro DroneCAN GPS is connected to the CAN bus using a Pixhawk standard 4 
 
 ![Diagram showing GPS dimensions](../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps_dimension.jpg)
 
-
 ## PX4配置
 
 You need to set necessary [DroneCAN](README.md) parameters and define offsets if the sensor is not centred within the vehicle. The required settings are outlined below.
@@ -77,7 +75,7 @@ In order to use the ARK GPS board, connect it to the Pixhawk CAN bus and enable 
 
 The steps are:
 
-- In *QGroundControl* set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
+- In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect GPS CAN to the Pixhawk CAN.
 
 Once enabled, the module will be detected on boot. GPS data should arrive at 5Hz.

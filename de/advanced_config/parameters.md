@@ -4,8 +4,7 @@ PX4 behaviour can be configured/tuned using [parameters](../advanced_config/para
 
 The _QGroundControl Parameters_ screen allows you to find and modify **any** of the parameters associated with the vehicle. The screen is accessed by clicking the **Q** application icon > **Vehicle Setup**, and then _Parameters_ in the sidebar.
 
-:::note
-Most of the more commonly used parameters are more conveniently set using the dedicated setup screens, as described in the [Standard Configuration](../config/README.md) section. The _Parameters_ screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
+The _Parameters_ screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle. :::note Most of the more commonly used parameters are more conveniently set using the dedicated setup screens, as described in the [Standard Configuration](../config/README.md) section.
 :::
 
 :::warning
@@ -48,7 +47,7 @@ You can usually find out what parameters are conditional by searching the [full 
 
 A parameter may not be present in the firmware because you're using a different version of PX4 or because you're using a build in which the associated module is not included.
 
-New parameters are added in each PX4 version, and existing parameters are sometimes removed or renamed. You can check whether a parameter _should_ be present by reviewing the [full parameter reference](../advanced_config/parameter_reference.md) for the version you're targeting. You can also search for the parameter in the source tree and in the release notes.
+New parameters are added in each PX4 version, and existing parameters are sometimes removed or renamed. You can also search for the parameter in the source tree and in the release notes. You can check whether a parameter _should_ be present by reviewing the [full parameter reference](../advanced_config/parameter_reference.md) for the version you're targeting.
 
 The other reason that a parameter might not be in firmware is if its associated module has not been included. This is a problem (in particular) for _FMUv2 firmware_, which omits many modules so that PX4 can fit into the 1MB of available flash. There are two options to solve this problem:
 

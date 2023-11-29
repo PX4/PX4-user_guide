@@ -17,8 +17,8 @@ Board startup and configuration files are located under [/boards](https://github
 * Build configuration: [/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board).<!-- NEED px4_version -->
 * Board-specific initialisation file: [/boards/px4/fmu-v5/init/rc.board_defaults](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/init/rc.board_defaults) <!-- NEED px4_version -->
   - 如果在飞控板平台目录下可以找到 **init/rc.board** 文件，则针对该飞控板平台的初始化文件将会自动包含在启动脚本中。
-  - 该文件用于启动仅存在于特定主板上的传感器 (和其他东西)。 The file is used to start sensors (and other things) that only exist on a particular board. It may also be used to set a board's default parameters, UART mappings, and any other special cases.
-  - For FMUv5 you can see all the Pixhawk 4 sensors being started, and it also sets a larger LOGGER_BUF, and in AUTOCNF section (fresh setups) it sets the [SYS_FMU_TASK](../advanced/parameter_reference.md#SYS_FMU_TASK) parameter.
+  - 该文件用于启动仅存在于特定主板上的传感器 (和其他东西)。 It may also be used to set a board's default parameters, UART mappings, and any other special cases.
+  - For FMUv5 you can see all the Pixhawk 4 sensors being started, and it also sets a larger LOGGER_BUF.
 
 ## 主机操作系统配置
 
@@ -84,8 +84,8 @@ You can reach out to the core developer team and community on the [official supp
 ## 相关信息
 
 * [Device Drivers](../middleware/drivers.md) - 如何支持新的外围硬件设备（设备驱动）
-* [Building the Code](../setup/building_px4.md) - How to build source and upload firmware
+* [Building the Code](../dev_setup/building_px4.md) - How to build source and upload firmware
 * 受支持的飞行控制器：
   * [自动驾驶仪硬件](../flight_controller/README.md)
-  * [Supported boards list](https://github.com/PX4/Firmware/#supported-hardware) (Github)
+  * [Supported boards list](https://github.com/PX4/PX4-Autopilot/#supported-hardware) (Github) - Boards for which PX4-Autopilot has specific code
 * [Supported Peripherals](../peripherals/README.md)

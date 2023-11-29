@@ -2,16 +2,16 @@
 
 PX4 has a flexible [control allocation system](../concept/control_allocation.md) that allows it to support almost any imaginable vehicle type/frame through a single codebase:
 
-* **고정익:** 일반 비행기, 비행 날개, 역 V 꼬리 비행기 등
-* **멀티콥터:** 다양한 형태의 헬리콥터, 트리콥터, 쿼드콥터, 헥사로터, 12개 로봇 등
-* **VTOL:** 테일시터, 테일로터 및 QuadPlanes(평면 + 쿼드)를 포함한 VTOL 구성.
-* **UGV/로버:** 무인 지상 차량에 대한  지원이 추가되어, 수동 및 임무 기반 제어가 가능합니다.
+- **고정익:** 일반 비행기, 비행 날개, 역 V 꼬리 비행기 등
+- **멀티콥터:** 다양한 형태의 헬리콥터, 트리콥터, 쿼드콥터, 헥사로터, 12개 로봇 등
+- **VTOL:** 테일시터, 테일로터 및 QuadPlanes(평면 + 쿼드)를 포함한 VTOL 구성.
+- **UGV/로버:** 무인 지상 차량에 대한  지원이 추가되어, 수동 및 임무 기반 제어가 가능합니다.
 
 지원되는 모든 프레임 유형과 모터 목록은 [기체 정의서](../airframes/airframe_reference.md)를 참고하십시오.
 
 이 섹션에서는 개발 중인 차량에 대한 빌드 로그를 포함하여, 신규 차량에 PX4를 지원하는 개발 정보를 제공합니다.
 
-:::note PX4는 또한 잠수함, 보트 또는 수륙양용 차량에서 실험용 항공기 및 로켓에 이르기까지 다향한 차량 유형과 일반 로봇 운용에 적합합니다. PX4에서 지원하고 싶은 새 차량이나 프레임 유형이 있으면 *알려주십시오*.
+:::note PX4는 또한 잠수함, 보트 또는 수륙양용 차량에서 실험용 항공기 및 로켓에 이르기까지 다향한 차량 유형과 일반 로봇 운용에 적합합니다. _Let us know_ if you have a new vehicle or frame-type you want to help support in PX4.
 :::
 
 :::note

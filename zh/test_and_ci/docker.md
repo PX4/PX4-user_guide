@@ -31,7 +31,6 @@ sudo usermod -aG docker $ USER
 ＃在使用 docker 之前再次登录/注销！
 ```
 
-
 <a id="px4_containers"></a>
 
 ## 本地编辑层次结构
@@ -40,7 +39,7 @@ The available containers are on [Github here](https://github.com/PX4/PX4-contain
 
 使用容器的最简单方法是通过 [docker_run.sh](https://github.com/PX4/Firmware/blob/master/Tools/docker_run.sh) 帮助程序脚本。 The containers are hierarchical, such that containers have the functionality of their parents. For example, the partial hierarchy below shows that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
 
-```
+```plain
 - px4io/px4-dev-base-focal
   - px4io/px4-dev-nuttx-focal
   - px4io/px4-dev-simulation-focal
@@ -51,7 +50,7 @@ The available containers are on [Github here](https://github.com/PX4/PX4-contain
   - px4io/px4-dev-nuttx-jammy
 ```
 
-The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx-focal:latest` (available tags are listed for each container on *hub.docker.com*. For example, the `px4io/px4-dev-nuttx-focal` tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx-focal/tags?page=1&ordering=last_updated)).
+The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx-focal:latest` (available tags are listed for each container on _hub.docker.com_. For example, the `px4io/px4-dev-nuttx-focal` tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx-focal/tags?page=1&ordering=last_updated)).
 
 :::tip
 Typically you should use a recent container, but not necessarily the `latest` (as this changes too often).
@@ -77,8 +76,10 @@ The easiest way to use the containers is via the [docker_run.sh](https://github.
 ```sh
 sudo ./Tools/docker_run.sh 'make px4_sitl_default'
 ```
+
 Or to start a bash session using the NuttX toolchain:
-```
+
+```sh
 sudo ./Tools/docker_run.sh 'bash'
 ```
 
@@ -89,7 +90,7 @@ sudo ./Tools/docker_run.sh 'bash'
 
 ### 手动调用 Docker
 
-The syntax of a typical command is shown below. This runs a Docker container that has support for X forwarding (makes the simulation GUI available from inside the container). It maps the directory `<host_src>` from your computer to `<container_src>` inside the container and forwards the UDP port needed to connect *QGroundControl*. With the `-–privileged` option it will automatically have access to the devices on your host (e.g. a joystick and GPU). If you connect/disconnect a device you have to restart the container.
+The syntax of a typical command is shown below. This runs a Docker container that has support for X forwarding (makes the simulation GUI available from inside the container). It maps the directory `<host_src>` from your computer to `<container_src>` inside the container and forwards the UDP port needed to connect _QGroundControl_. With the `-–privileged` option it will automatically have access to the devices on your host (e.g. a joystick and GPU). If you connect/disconnect a device you have to restart the container.
 
 ```sh
 # enable access to xhost from the container
@@ -104,14 +105,17 @@ docker run -it --privileged \
     -p 14556:14556/udp \
     --name=&lt;local_container_name&gt; &lt;container&gt;:&lt;tag&gt; &lt;build_command&gt;
 ```
+
 Where,
-* `<host_src>`: The host computer directory to be mapped to `<container_src>` in the container. This should normally be the **PX4-Autopilot** directory.
-* `<container_src>`: The location of the shared (source) directory when inside the container.
-* `<local_container_name>`: A name for the docker container being created. This can later be used if we need to reference the container again.
-* `<container>:<tag>`: The container with version tag to start - e.g.: `px4io/px4-dev-ros:2017-10-23`.
-* `<build_command>`: The command to invoke on the new container. E.g. `bash` is used to open a bash shell in the container.
+
+- `<host_src>`: The host computer directory to be mapped to `<container_src>` in the container. This should normally be the **PX4-Autopilot** directory.
+- `<container_src>`: The location of the shared (source) directory when inside the container.
+- `<local_container_name>`: A name for the docker container being created. This can later be used if we need to reference the container again.
+- `<container>:<tag>`: The container with version tag to start - e.g.: `px4io/px4-dev-ros:2017-10-23`.
+- `<build_command>`: The command to invoke on the new container. E.g. `bash` is used to open a bash shell in the container.
 
 The concrete example below shows how to open a bash shell and share the directory **~/src/PX4-Autopilot** on the host computer.
+
 ```sh
 # enable access to xhost from the container
 xhost +
@@ -131,7 +135,7 @@ We use the host network mode to avoid conflicts between the UDP port access cont
 :::
 
 :::note
-If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value. On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`. On other hosts you might iterate the value of `0` in  `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
+If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value. On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`. On other hosts you might iterate the value of `0` in `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
 :::
 
 运行模拟实例时，例如在 docker 容器内的 SITL 并通过 *QGroundControl* 从主机控制它，必须手动设置通信链接。 *QGroundControl* 的自动连接功能在此处不起作用。
@@ -140,7 +144,6 @@ If you encounter the error "Can't open display: :0", `DISPLAY` may need to be se
 cd src/PX4-Autopilot    #This is <container_src>
 make px4_sitl_default gazebo-classic
 ```
-
 
 ### 重新进入容器
 
@@ -158,30 +161,31 @@ If you need multiple shells connected to the container, just open a new shell an
 ### 清理容器
 
 Sometimes you may need to clear a container altogether. You can do so using its name:
+
 ```sh
-$ sudo docker rm mycontainer
+docker rm mycontainer
 ```
+
 If you can't remember the name, then you can list inactive container ids and then delete them, as shown below:
+
 ```sh
-$ sudo docker ps -a -q
+docker ps -a -q
 45eeb98f1dd9
-$ sudo docker rm 45eeb98f1dd9
+docker rm 45eeb98f1dd9
 ```
 
 ### QGroundControl
 
-在这种情况下，必须安装主机系统的本机图形驱动程序。 下载正确的驱动程序并将其安装在容器中。
+When running a simulation instance e.g. SITL inside the docker container and controlling it via _QGroundControl_ from the host, the communication link has to be set up manually. The autoconnect feature of _QGroundControl_ does not work here.
 
-In *QGroundControl*, navigate to [Settings](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) and select Comm Links. Create a new link that uses the UDP protocol. The port depends on the used [configuration](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS) e.g. port 14570 for the SITL config. The IP address is the one of your docker container, usually 172.17.0.1/16 when using the default network. The IP address of the docker container can be found with the following command (assuming the container name is `mycontainer`):
+In _QGroundControl_, navigate to [Settings](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) and select Comm Links. Create a new link that uses the UDP protocol. The port depends on the used [configuration](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS) e.g. port 14570 for the SITL config. The IP address is the one of your docker container, usually 172.17.0.1/16 when using the default network. The IP address of the docker container can be found with the following command (assuming the container name is `mycontainer`):
 
 ```sh
-<code>&lt;local_container_name&gt;</code>：正在创建的 docker 容器的名称 如果我们需要再次引用容器，以后可以使用它。
+$ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}' mycontainer
 ```
-：正在创建的 docker 容器的名称 如果我们需要再次引用容器，以后可以使用它。
-</code>
 
 :::note
-Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook). 
+Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook).
 :::
 
 ### 故障处理
@@ -191,7 +195,6 @@ Spaces between double curly braces above should be not be present (they are need
 The container creates files as needed with a default user - typically "root". This can lead to permission errors where the user on the host computer is not able to access files created by the container.
 
 The example above uses the line `--env=LOCAL_USER_ID="$(id -u)"` to create a user in the container with the same UID as the user on the host. This ensures that all files created within the container will be accessible on the host.
-
 
 #### 图形驱动问题
 
@@ -209,7 +212,6 @@ In that case the native graphics driver for your host system must be installed. 
 
 如果编译失败，则出现以下错误：
 
-
 <a id="virtual_machine"></a>
 
 ## 虚拟机支持
@@ -218,7 +220,7 @@ In that case the native graphics driver for your host system must be installed. 
 
 The following configuration is tested:
 
-  * OS X with VMWare Fusion and Ubuntu 14.04 (Docker container with GUI support on Parallels make the X-Server crash).
+- OS X with VMWare Fusion and Ubuntu 14.04 (Docker container with GUI support on Parallels make the X-Server crash).
 
 **Memory**
 
@@ -251,4 +253,3 @@ export DOCKER_HOST=tcp://&lt;ip of your VM&gt;:2375
 # run some docker command to see if it works, e.g. ps
 docker ps
 ```
-

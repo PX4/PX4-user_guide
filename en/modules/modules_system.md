@@ -98,7 +98,7 @@ commander <command> [arguments...]
 
    mode          Change flight mode
      manual|acro|offboard|stabilized|altctl|posctl|auto:mission|auto:loiter|auto
-                 :rtl|auto:takeoff|auto:land|auto:precland Flight mode
+                 :rtl|auto:takeoff|auto:land|auto:precland|ext1 Flight mode
 
    pair
 
@@ -248,6 +248,26 @@ This task can be started at boot from the startup scripts by setting SENS_EN_THE
 heater <command> [arguments...]
  Commands:
    start
+
+   stop
+
+   status        print status info
+```
+## i2c_launcher
+Source: [systemcmds/i2c_launcher](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/i2c_launcher)
+
+
+### Description
+Daemon that starts drivers based on found I2C devices.
+
+
+<a id="i2c_launcher_usage"></a>
+### Usage
+```
+i2c_launcher <command> [arguments...]
+ Commands:
+   start
+     -b <val>    Bus number
 
    stop
 

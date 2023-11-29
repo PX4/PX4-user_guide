@@ -18,18 +18,18 @@ Supported flight operations/features:
 
 To setup and configure a helicopter:
 
-1. Select a helicopter [Airframe](../config/airframe.md) in QGroundControl. At time of writing there is only _Generic Helicopter (Tail ESC)_ in the Helicopter group. This will configure the helicopter frame with a mechanically uncoupled tail  ([CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME): `10: Helicopter (tail ESC)`).
+1. Select a helicopter [Airframe](../config/airframe.md) in QGroundControl. At time of writing there is only _Generic Helicopter (Tail ESC)_ in the Helicopter group. This will configure the helicopter frame with a mechanically uncoupled tail ([CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME): `10: Helicopter (tail ESC)`).
 
    ![QGC - helicopter airframe](../../assets/config/airframe/airframe_heli_generic.png)
 
-:::note
-There is no separate airframe for the helicopter with tail servo. To select this configuration, set the parameter [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) to _Helicopter (tail Servo)_. The actuator configuration screen will then change to support this frame type.
+   :::note
+   There is no separate airframe for the helicopter with tail servo. To select this configuration, set the parameter [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) to _Helicopter (tail Servo)_. The actuator configuration screen will then change to support this frame type.
 :::
 
 1. Configure helicopter actuator geometry in **Vehicle Setup > Actuators**.
 
-:::note
-Actuator setup and testing is covered for most frames in [Actuators](../config/actuators.md). While that is referenced below, this is the main topic for helicopter setup information.
+   :::note
+   Actuator setup and testing is covered for most frames in [Actuators](../config/actuators.md). While that is referenced below, this is the main topic for helicopter setup information.
 :::
 
    The geometry for a [Generic Helicopter - with Tail ESC](../airframes/airframe_reference.md#copter_helicopter_generic_helicopter_%28tail_esc%29) is shown below.
@@ -108,7 +108,7 @@ The rate controller should be tuned in [Acro mode](../flight_modes_mc/acro.md), 
 
 1. Start off with disabled rate controller gains, and only a small feed forward:
 
-   ```
+   ```sh
    param set MC_ROLLRATE_P 0
    param set MC_ROLLRATE_I 0
    param set MC_ROLLRATE_D 0
@@ -126,11 +126,14 @@ The rate controller should be tuned in [Acro mode](../flight_modes_mc/acro.md), 
    Increase the roll and pitch feed forward gains [MC_ROLLRATE_FF](../advanced_config/parameter_reference.md#MC_ROLLRATE_FF), [MC_PITCHRATE_FF](../advanced_config/parameter_reference.md#MC_PITCHRATE_FF) until the response reaches the setpoint when giving a step input.
 
 3. Then enable the PID gains. Start off with following values:
+
    - [MC_ROLLRATE_P](../advanced_config/parameter_reference.md#MC_ROLLRATE_P), [MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P) a quarter of the value you found to work well as the corresponding feed forward value in the previous step. `P = FF / 4`
-   ```
+
+   ```sh
    param set MC_ROLLRATE_I 0.2
    param set MC_PITCHRATE_I 0.2
    param set MC_ROLLRATE_D 0.001
    param set MC_PITCHRATE_D 0.001
    ```
+
    Then increase the `P` and `D` gains as needed until it tracks well. It is expected that the `P` gain is considerably smaller than the `FF` gain.

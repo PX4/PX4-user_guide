@@ -29,7 +29,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 ## 在哪里买
 
-Pixracer is available from the [mRobotics.io](https://store.mrobotics.io/mRo-PixRacer-R15-Official-p/auav-pxrcr-r15-mr.htm).
+Pixracer is available from the [mRobotics.io](https://store.mrobotics.io/mRo-PixRacer-R15-Official-p/m10023a.htm).
 
 Accessories include:
 

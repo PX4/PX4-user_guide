@@ -1,9 +1,10 @@
 # MacOS Development Environment
 
 The following instructions set up a PX4 development environment for macOS. This environment can be used to build PX4 for:
-* Pixhawk and other NuttX-based hardware
-* [jMAVSim Simulation](../sim_jmavsim/README.md)
-* [Gazebo Classic Simulation](../sim_gazebo_classic/README.md)
+
+- Pixhawk and other NuttX-based hardware
+- [jMAVSim Simulation](../sim_jmavsim/README.md)
+- [Gazebo Classic Simulation](../sim_gazebo_classic/README.md)
 
 :::tip
 This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported development environment](../advanced/community_supported_dev_env.md)).
@@ -12,7 +13,6 @@ This setup is supported by the PX4 dev team. To build other targets you will nee
 ## Video Guide
 
 @[youtube](https://youtu.be/tMbMGiMs1cQ)
-
 
 ## Base Setup
 
@@ -24,11 +24,11 @@ The "base" macOS setup installs the tools needed for building firmware, and incl
 Apple M1 Macbook users! If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
 
 1. Locate the Terminal application within the Utilities folder (**Finder > Go menu > Utilities**)
-2. Select *Terminal.app* and right-click on it, then choose **Duplicate**.
-3. Rename the duplicated Terminal app, e.g. to *x86 Terminal*
-4. Now select the renamed *x86 Terminal* app and right-click and choose **Get Info*
+2. Select _Terminal.app_ and right-click on it, then choose **Duplicate**.
+3. Rename the duplicated Terminal app, e.g. to _x86 Terminal_
+4. Now select the renamed _x86 Terminal_ app and right-click and choose \*_Get Info_
 5. Check the box for **Open using Rosetta**, then close the window
-6. Run the *x86 Terminal* as usual, which will fully support the current PX4 toolchain
+6. Run the _x86 Terminal_ as usual, which will fully support the current PX4 toolchain
 :::
 
 First set up the environment
@@ -61,6 +61,7 @@ To setup the environment to be able to build for Pixhawk/NuttX hardware (and ins
    brew tap PX4/px4
    brew install px4-dev
    ```
+
 1. Install the required Python packages:
 
    ```sh
@@ -131,7 +132,7 @@ Once you have finished setting up the command-line toolchain:
 - Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
 - Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html)
 
-:::tip
-The *daily build* includes development tools that are hidden in release builds. It may also provide access to new PX4 features that are not yet supported in release builds.
+  It may also provide access to new PX4 features that are not yet supported in release builds. :::tip The _daily build_ includes development tools that are hidden in release builds.
 :::
+
 - Continue to the [build instructions](../dev_setup/building_px4.md).

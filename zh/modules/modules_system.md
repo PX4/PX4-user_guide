@@ -105,7 +105,7 @@ commander <command> [arguments...]
 
    mode          Change flight mode
      manual|acro|offboard|stabilized|altctl|posctl|auto:mission|auto:loiter|auto
-                 :rtl|auto:takeoff|auto:land|auto:precland Flight mode
+                 :rtl|auto:takeoff|auto:land|auto:precland|ext1 Flight mode
 
    pair
 
@@ -277,11 +277,32 @@ heater <command> [arguments...]
 
    status        打印状态信息
 ```
+## i2c_launcher
+Source: [systemcmds/i2c_launcher](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/i2c_launcher)
+
+
+### 用法
+Daemon that starts drivers based on found I2C devices.
+
+
+<a id="i2c_launcher_usage"></a>
+
+### 用法
+```
+i2c_launcher <command> [arguments...]
+ Commands:
+   start
+     -b <val>    Bus number
+
+   stop
+
+   status        print status info
+```
 ## load_mon
 Source: [modules/land_detector](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/land_detector)
 
 
-### 用法
+### 描述
 **ground_contact**: thrust setpoint and velocity in z-direction must be below a defined threshold for time GROUND_CONTACT_TRIGGER_TIME_US. When ground_contact is detected, the position controller turns off the thrust setpoint in body x and y. 当检测到 ground_contact 状态时，位置控制器将关闭机体 x 方向和 y 方向上的推力设定值。
 
 ### 描述
@@ -298,7 +319,7 @@ There are 2 environment variables used for configuration: `replay`, which must b
 
 <a id="land_detector_usage"></a>
 
-### 用法
+### 实现
 ```
 land_detector <command> [arguments...]
  load_mon <command> [arguments...]
@@ -313,14 +334,14 @@ land_detector <command> [arguments...]
 Source: [modules/load_mon](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/load_mon)
 
 
-### 描述
+### 示例
 源码：[modules/logger](https://github.com/PX4/Firmware/tree/master/src/modules/logger)
 
 On NuttX it also checks the stack usage of each process and if it falls below 300 bytes, a warning is output, which will also appear in the log file.
 
 <a id="load_mon_usage"></a>
 
-### 实现
+### 用法
 ```
 load_mon <command> [arguments...]
  Commands:
@@ -334,7 +355,7 @@ load_mon <command> [arguments...]
 Source: [modules/logger](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger)
 
 
-### 示例
+### 参数描述
 System logger which logs a configurable set of uORB topics and system printf messages (`PX4_WARN` and `PX4_ERR`) to ULog files. These can be used for system and flight performance evaluation, tuning, replay and crash analysis.
 
 It supports 2 backends:
@@ -365,7 +386,7 @@ logger on
 
 <a id="logger_usage"></a>
 
-### 用法
+### 实现
 ```
 logger <command> [arguments...]
  Commands:
@@ -402,12 +423,12 @@ logger <command> [arguments...]
 Source: [modules/mag_bias_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mag_bias_estimator)
 
 
-### 参数描述
+### 用法
 Online magnetometer bias estimator.
 
 <a id="mag_bias_estimator_usage"></a>
 
-### 实现
+### 参数描述
 ```
 mag_bias_estimator <command> [arguments...]
  wind_estimator &lt;command&gt; [arguments...]
@@ -422,13 +443,13 @@ mag_bias_estimator <command> [arguments...]
 Source: [modules/manual_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/manual_control)
 
 
-### 用法
+### Description
 Module consuming manual_control_inputs publishing one manual_control_setpoint.
 
 
 <a id="manual_control_usage"></a>
 
-### 参数描述
+### 用法
 ```
 manual_control <command> [arguments...]
  replay <command> [arguments...]
@@ -465,7 +486,7 @@ Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/main/src/s
 
 <a id="netman_usage"></a>
 
-### 用法
+### Usage
 ```
 netman <command> [arguments...]
  Commands:
@@ -488,7 +509,7 @@ Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes 
 
 <a id="pwm_input_usage"></a>
 
-### Usage
+### 用法
 ```
 pwm_input <command> [arguments...]
  Commands:
@@ -502,7 +523,7 @@ pwm_input <command> [arguments...]
 Source: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rc_update)
 
 
-### Description
+### 参数描述
 The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_input`.
 
 ### Implementation
@@ -511,7 +532,7 @@ To reduce control latency, the module is scheduled on input_rc publications.
 
 <a id="rc_update_usage"></a>
 
-### 用法
+### Usage
 ```
 rc_update <command> [arguments...]
  Commands:
@@ -525,7 +546,7 @@ rc_update <command> [arguments...]
 Source: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
 
 
-### 参数描述
+### Description
 This module is used to replay ULog files.
 
 There are 2 environment variables used for configuration: `replay`, which must be set to an ULog file name - it's the log file to be replayed. The second is the mode, specified via `replay_mode`:
@@ -623,7 +644,7 @@ Source: [modules/simulation/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot
 
 <a id="sensor_gps_sim_usage"></a>
 
-### Usage
+### 实现
 ```
 sensor_gps_sim <command> [arguments...]
  Commands:
@@ -637,13 +658,13 @@ sensor_gps_sim <command> [arguments...]
 Source: [modules/simulation/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_mag_sim)
 
 
-### Description
+### 描述
 
 
 
 <a id="sensor_mag_sim_usage"></a>
 
-### 实现
+### Usage
 ```
 sensor_mag_sim <command> [arguments...]
  Commands:
@@ -657,7 +678,7 @@ sensor_mag_sim <command> [arguments...]
 Source: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sensors)
 
 
-### 描述
+### Description
 The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
 
 The provided functionality includes:
@@ -774,7 +795,7 @@ tune_control <command> [arguments...]
 Source: [modules/uxrce_dds_client](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uxrce_dds_client)
 
 
-### Description
+### 描述
 UXRCE-DDS Client used to communicate uORB topics with an Agent over serial or UDP.
 
 ### Examples
@@ -785,7 +806,7 @@ uxrce_dds_client start -t udp -h 127.0.0.1 -p 15555
 
 <a id="uxrce_dds_client_usage"></a>
 
-### Usage
+### 实现
 ```
 uxrce_dds_client <command> [arguments...]
  Commands:
@@ -810,14 +831,14 @@ uxrce_dds_client <command> [arguments...]
 Source: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/work_queue)
 
 
-### 描述
+### Description
 
 Command-line tool to show work queue status.
 
 
 <a id="work_queue_usage"></a>
 
-### 实现
+### Usage
 ```
 work_queue <command> [arguments...]
  wind_estimator &lt;command&gt; [arguments...]

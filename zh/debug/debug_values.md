@@ -18,8 +18,8 @@ MAVLink调试消息转换为/自 uORB 主题。 为了发送或接收 MAVLink �
 
 本教程的代码可在此处找到：
 
-* [调试教程代码](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
-* [Enable the tutorial app](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board) by ensuring the MAVLink debug app (**CONFIG_EXAMPLES_PX4_MAVLINK_DEBUG**) is in the config of your board and set set to 'y'.
+- [调试教程代码](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
+- [Enable the tutorial app](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board) by ensuring the MAVLink debug app (**CONFIG_EXAMPLES_PX4_MAVLINK_DEBUG**) is in the config of your board and set set to 'y'.
 
 设置调试发布所需的只是此代码段。 首先添加头文件：
 
@@ -44,14 +44,13 @@ orb_publish(ORB_ID(debug_key_value), pub_dbg, &dbg);
 ```
 
 :::warning
-Multiple debug messages must have enough time between their respective publishings for Mavlink to process them. 
+Multiple debug messages must have enough time between their respective publishings for Mavlink to process them.
 This means that either the code must wait between publishing multiple debug messages, or alternate the messages on each function call iteration.
 :::
 
 The result in QGroundControl then looks like this on the real-time plot:
 
 ![QGC debugvalue plot](../../assets/gcs/qgc-debugval-plot.jpg)
-
 
 ## 教程：发送字符串/浮点配对
 
@@ -102,5 +101,4 @@ When a new message is available on the `debug_key_value` topic, do not forget to
         }
     }
 }
-
 ```

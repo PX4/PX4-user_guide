@@ -44,7 +44,7 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 
 배터리 1의 기본 설정 방법
 
-1. *QGroundControl*을 시작하고 기체를 연결합니다.
+1. Start _QGroundControl_ and connect the vehicle.
 1. 상단 도구 모음에서 **톱니 바퀴** 아이콘(기체 설정)을 선택한 다음 가장자리 표시줄에서 **파워**를 선택하십시오.
 
 배터리 특성을 나타내는 기본 설정이 제공됩니다. 아래 섹션에서는 각 필드에 대해 설정할 값들을 설명합니다.
@@ -52,7 +52,7 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 ![QGC 전원 설정](../../assets/qgc/setup/power/qgc_setup_power_px4.jpg)
 
 :::note
-*QGroundControl*을 설정시에 이 보기에서 배터리 1에 대한 값만을 설정할 수 있습니다. 배터리가 여러 개인 경우에는 다음 섹션에 설명 된대로 배터리 2 (`BAT2_*`)에 대한 [매개 변수를 직접 설정](../advanced_config/parameters.md) 하여야 합니다.
+At time of writing _QGroundControl_ only allows you to set values for battery 1 in this view. 배터리가 여러 개인 경우에는 다음 섹션에 설명 된대로 배터리 2 (`BAT2_*`)에 대한 [매개 변수를 직접 설정](../advanced_config/parameters.md) 하여야 합니다.
 :::
 
 ### 셀의 갯수(직렬 연결)
@@ -60,9 +60,7 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 이것은 배터리에 직렬로 연결된 셀 수를 설정합니다. 일반적으로 배터리에 "S"앞에 숫자로 표시합니다 (예 : "3S", "5S").
 
 :::note
-단일 갈바닉 배터리 셀의 전압은 배터리 유형의 화학적 특성에 따라 달라집니다.
-:::note
-단일 갈바닉 배터리 셀의 전압은 배터리 유형의 화학적 특성에 따라 달라집니다. 리튬 폴리머(LiPo) 배터리와 리튬 이온 배터리는 모두 3.7V의 동일한 *이름의* 셀 전압을 갖습니다. 터미널의 배터리 전압은 셀 전압의 배수입니다.
+단일 갈바닉 배터리 셀의 전압은 배터리 유형의 화학적 특성에 따라 달라집니다. Lithium-Polymer (LiPo) batteries and Lithium-Ion batteries both have the same _nominal_ cell voltage of 3.7V. In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in _series_. 터미널의 배터리 전압은 셀 전압의 배수입니다.
 :::
 
 셀 개수가 제공되지 않은 경우 배터리 전압을 단일 셀의 공칭 전압으로 나누어 계산할 수 있습니다. 아래의 표는 배터리의 전압-셀 관계를 나타냅니다.
@@ -82,12 +80,13 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 
 ### 충전 완료 전압 (셀당)
 
-이렇게하면 각 셀의 *공칭* 최대 전압(셀이 "최대"로 간주되는 최저 전압)이 설정됩니다.
+This sets the _nominal_ maximum voltage of each cell (the lowest voltage at which the cell will be considered "full").
 
 이 값은 배터리의 공칭 최대 셀 전압보다 약간 낮게 설정하여야하지만, 몇 분간의 비행후에도 예상 용량이 100%가 될 정도로 낮지 않아야 합니다.
 
 사용할 적절한 값은 다음과 같습니다.
-- **LiPo:** 4.05V (*QGroundControl*의 기본값)
+
+- **LiPo:** 4.05V (default in _QGroundControl_)
 - **LiIon:** 4.05V
 
 :::note
@@ -111,11 +110,11 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 
 최소 셀당 전압에 대한 경험 규칙
 
-| 단계                   | LiPo (V) | LiIon (V) |
-| -------------------- | -------- | --------- |
-| 보수적 (무부하 전압)         | 3.7      | 3         |
-| "실제"최소값 (부하/비행 중 전압) | 3.5      | 2.7       |
-| 배터리 손상 (부하 전압)       | 3.0      | 2.5       |
+| 단계                                               | LiPo (V) | LiIon (V) |
+| ------------------------------------------------ | -------- | --------- |
+| 보수적 (무부하 전압)                                     | 3.7      | 3         |
+| "Real" minimum (voltage under load/while flying) | 3.5      | 2.7       |
+| 배터리 손상 (부하 전압)                                   | 3.0      | 2.5       |
 
 :::tip
 안전을 위하여 배터리를 즉시 재충전할수록 더 좋습니다. 배터리를  장기간 사용할 수 있습니다.
@@ -125,12 +124,11 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 이 설정은 [매개변수](../advanced_config/parameters.md) : [BAT1_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY) 및 [BAT2_V_EMPTY](../advanced_config/parameter_reference.md#BAT2_V_EMPTY)에 해당합니다.
 :::
 
-
 ### 전압 분배기
 
 전원 모듈과 비행 컨트롤러의 ADC를 통해 전압을 측정하는 차량이 있는 경우 보드 당 한 번씩 측정을 확인하고 보정하여야 합니다. 보정 작업에는 멀티미터가 필요합니다.
 
-The easiest way to calibrate the divider is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Power.html) (QGroundControl User Guide).
+The easiest way to calibrate the divider is by using _QGroundControl_ and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Power.html) (QGroundControl User Guide).
 
 :::note
 이 설정은 [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) 및 [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV) 매개변수에 해당합니다.
@@ -146,7 +144,7 @@ The easiest way to calibrate the divider is by using *QGroundControl* and follow
 
 [전류 기반 부하 보상](#current_based_load_compensation) 또는 [전류 통합](#current_integration)을 사용하는 경우 전압 분배기 당 암페어를 보정하여야 합니다.
 
-The easiest way to calibrate the dividers is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Power.html) (QGroundControl User Guide).
+The easiest way to calibrate the dividers is by using _QGroundControl_ and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Power.html) (QGroundControl User Guide).
 
 :::note
 이 설정은 [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) 및 [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V) 매개변수에 해당합니다.
@@ -160,15 +158,16 @@ The easiest way to calibrate the dividers is by using *QGroundControl* and follo
 부하 보상값을 적절하게 설정하면 배터리 용량 추정의 전압이 훨씬 더 안정적이고 상하강 비행시 값의 변화가 줄어듭니다.
 :::
 
-부하 보상은 [기본 설정](#basic_settings)을 사용할 때 발생하는 전압/예상 용량의 측정값 변동에 대응하려고 합니다. 이는 *무부하* 배터리의 전압을 추정하고 남은 용량을 추정하기 위해 해당 전압 (측정 된 전압 대신)을 사용하여 작동합니다.
+부하 보상은 [기본 설정](#basic_settings)을 사용할 때 발생하는 전압/예상 용량의 측정값 변동에 대응하려고 합니다. This works by estimating what the voltage would be for the _unloaded_ battery, and using that voltage (instead of the measured voltage) for estimating the remaining capacity.
 
 :::note
-부하 보상을 사용하려면 [기본 설정](#basic_settings)을 사용하여 설정합니다. :::caution 이 방법은 추력 명령과 전류 사이에 지연이 있고 추력이 전류에 선형 적으로 비례하지 않기 때문에 정확하지 않습니다.
+부하 보상을 사용하려면 [기본 설정](#basic_settings)을 사용하여 설정합니다. The _Empty Voltage_ ([BAT_V_EMPTY](../advanced_config/parameter_reference.md#BAT_V_EMPTY)) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
 :::
 
 PX4는 아래 두개의 매개변수 중 하나를 [설정](../advanced_config/parameters.md)하여 활성화되는 두 가지 부하 보상 방법을 지원합니다.
-* [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) - [전류 기반 부하 보상](#current_based_load_compensation) (권장).
-* [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) - [추력 기반 부하 보상](#thrust_based_load_compensation).
+
+- [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) - [전류 기반 부하 보상](#current_based_load_compensation) (권장).
+- [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) - [추력 기반 부하 보상](#thrust_based_load_compensation).
 
 <a id="current_based_load_compensation"></a>
 
@@ -178,12 +177,13 @@ PX4는 아래 두개의 매개변수 중 하나를 [설정](../advanced_config/p
 
 이 기능을 활성화하려면:
 
-1. 매개변수 [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL)을 배터리 1의 내부 저항으로 설정합니다 (다른 배터리에 대해서도 반복).
+1. Set the parameter [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) to the internal resistance of battery 1 (and repeat for other batteries).
 
    :::tip
 배터리의 내부 저항을 측정 할 수있는 LiPo 충전기가 있습니다.
 일반적인 값은 셀당 5mΩ이지만 방전 전류 등급, 수명 및 셀 상태에 따라 달라질 수 있습니다.
 :::
+
 1. 기본 설정 화면에서 [전압 분배기당 전류값](#current_divider)을 보정하여야 합니다.
 
 <a id="thrust_based_load_compensation"></a>
@@ -200,7 +200,6 @@ This method is not particularly accurate because there's a delay between thrust 
 
 1. 매개변수 [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP)를 최대 추력 부하에서 셀에 표시되는 전압 강하량으로 설정합니다.
 
-
 <a id="current_integration"></a>
 
 ## 전류 통합과 융합된 전압 기반 추정
@@ -210,7 +209,7 @@ This method is not particularly accurate because there's a delay between thrust 
 부팅시마다 새로 충전한 배터리를 정확하게 설정하면, 추정 품질이 스마트 배터리의 품질과 비슷해질 것입니다 (이론적으로 정확한 잔여 비행 시간 추정이 가능합니다).
 :::
 
-이 방법은 사용 가능한 용량에 대한 전압 기반 추정치를 소비 된 충전의 전류 기반 추정치와 *융합*하여 남은 배터리 용량을 평가합니다. 전류를 정확하게 측정할 수있는 장치가 필요합니다.
+This method evaluates the remaining battery capacity by _fusing_ the voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed. 전류를 정확하게 측정할 수있는 장치가 필요합니다.
 
 이 기능을 활성화하려면:
 
@@ -237,18 +236,17 @@ This method is not particularly accurate because there's a delay between thrust 
 항상 정상적인 전체 배터리로 시작하는 경우이 방법은 스마트 배터리에서 사용하는 방법과 유사합니다.
 
 :::note
-전류 통합은 *초기* 용량을 결정할 수있는 방법이 없기 때문에 자체적으로 (전압 기반 추정없이) 사용할 수 없습니다. 전압 추정을 사용하면 초기 용량을 추정하고 가능한 오류에 대한 지속적인 피드백을 제공할 수 있습니다 (예 : 배터리에 결함이 있거나 다른 방법을 사용하여 계산된 용량간에 불일치가 있는 경우).
+Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the _initial_ capacity. 전압 추정을 사용하면 초기 용량을 추정하고 가능한 오류에 대한 지속적인 피드백을 제공할 수 있습니다 (예 : 배터리에 결함이 있거나 다른 방법을 사용하여 계산된 용량간에 불일치가 있는 경우).
 :::
 
-
-## 매개변수 마이그레이션 참고 사항
+## Parameter Migration Notes
 
 PX4 v1.10 이후 다중 배터리 지원이 추가되어 `BAT_` 접두사가있는 모든 이전 매개변수에 해당하는 접두사 `BAT1_`이 있는 새로운 매개변수가 추가되었습니다. `BAT_` 및 `BAT1_`에 대한 변경 사항은 현재 동기화되어 있습니다.
+
 - 이전 매개변수 또는 새 매개변수가 변경되면 값이 다른 매개변수에 복사됩니다 (양방향으로 동기화된 상태로 유지됨).
 - 부팅시 이전 새 매개변수가 다른 경우 이전 `BAT_` 매개변수의 값이 새 `BAT1_` 매개변수에 복사됩니다.
 
-
-## 배터리 유형 비교
+## Battery-Type Comparison
 
 이 섹션에서는 여러가지 유형의 배터리(특히 LiPo 및 Li-Ion)를 개략적으로 비교합니다.
 
@@ -258,10 +256,10 @@ PX4 v1.10 이후 다중 배터리 지원이 추가되어 `BAT_` 접두사가있�
 - LiPo 배터리는 구매가 편리하며, 멀티콥터에서 자주 발생하는 높은 방전율을 견딜수 있습니다.
 - 비행기의 종류와 임무에 따라 적절한 것을 선택하여야 합니다. 리튬이온 배터리가 내구성에 이점이 많지만, 조심하여 사용하여야 합니다. 따라서, 비행 목적과 상황에 따라 결정하여야 합니다.
 
-
 ### 장점
 
 LiPo
+
 - 보편적으로 사용됨.
 - 다양한 크기, 용량 및 전압
 - 저렴한 가격
@@ -269,16 +267,18 @@ LiPo
 - 높은 충전율
 
 Li-Ion
-- 높은 에너지 밀도 (최대 60 % 더 높음)
 
+- 높은 에너지 밀도 (최대 60 % 더 높음)
 
 ### 단점:
 
 LiPo
+
 - 낮은 에너지 밀도(상대적임)
 - 공급 업체가 많아지면 품질이 높아질 것 입니다.
 
 Li-Ion
+
 - 일반적으로 사용되지 않음.
 - 가격이 비쌈.
 - 대형 기체에서는 널리 사용되지 않음
@@ -290,7 +290,6 @@ Li-Ion
 - 최대 용량을 사용하려면 ESC에서 설정을 변경하여야합니다 ( "표준"ESC 저전압 설정이 너무 높음).
 - 거의 비었을 때 배터리의 전압은 Lipo와 Li-ion 사이에 약 3V 차이가 발생할 수 있습니다 (6S 배터리 사용시). 추력 기대치에 영향을 미칠 수 있습니다.
 
-
 ### C 등급
 
 - C 등급은 단순히 모든 배터리 유형의 명시된 용량의 배수입니다.
@@ -299,7 +298,6 @@ Li-Ion
 - C 등급은 항상 제조업체에서 제공합니다 (종종 배터리 팩 외부에 있음). 정확한 값을 계산할 수 있지만 추가 정보가 필요하고 베터리 셀의 내부 저항을 측정하여야 합니다.
 - LiPo 배터리는 항상 리튬이온 배터리보다 높은 C 등급을 갖습니다. 이는 화학적 성질과 셀당 내부 저항으로 인하여 LiPo 배터리의 방전 속도가 더 높습니다.
 - C 등급의 충전 및 방전에 대한 제조업체 지침을 준수하는 것은 배터리의 상태와 기체를 안전하게 작동하는 데 매우 중요합니다 (예 : 충전 및 방전 중 화재, "퍼핑"팩 및 기타 차선 상태).
-
 
 ### 에너지 밀도
 

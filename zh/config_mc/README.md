@@ -39,6 +39,7 @@ The next step is to define your vehicle [geometry](../config/actuators.md#motor-
 If using PWM ESCs and OneShot ESCs (but not DShot and DroneCAN/Cyphal ESC) you should then perform [ESC Calibration](../advanced_config/esc_calibration.md) before proceeding to [Motor Configuration](../config/actuators.md#motor-configuration). This ensures that all ESC provide exactly the same output for a given input (ideally we'd calibrate ESCs first, but you can't calibrate your ESCs until outputs are mapped).
 
 The final step is [Motor Configuration](../config/actuators.md#motor-configuration):
+
 - [Reverse any motors](../config/actuators.md#reversing-motors) that don't match the spin direction configured in the Geometry. For DShot ESC you can do this through the Acuator Testing UI.
 - PWM, OneShot, and CAN ESC, set the motor input limits for disarmed, low and high speed (not needed for DShot ESC)
 
@@ -71,6 +72,7 @@ Sensors that you don't need to calibrate/configure include:
 - [Level Horizon](../config/level_horizon_calibration.md) calibration isn't usually needed if you have mounted the flight controller level.
 - Sensors that are not present, or that are not used by PX4 multicopter for flight control, such as [Airspeed sensors](../config/airspeed.md).
 - Sensors that don't need calibration, including: Barometers and GNSS.
+
 :::
 
 ## Manual Control Setup

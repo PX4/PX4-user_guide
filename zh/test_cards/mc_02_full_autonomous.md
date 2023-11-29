@@ -16,7 +16,6 @@
 
 ❏ 使用 *QGroundControl* 将任务上传到无人机
 
-
 ## 解锁并起飞
 
 ❏ 在任何手动模式下解锁
@@ -25,21 +24,17 @@
 
 ❏ 观察跟踪，转弯和正确的 RTL 性能
 
-❏ 接地后，旋翼机将在2秒内自动上锁（上锁时间由参数设置：[COM_DISARM_LAND](../advanced/parameter_reference.md#COM_DISARM_LAND)）
-
-
+❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
 
 ## 预期结果
 
-* 当油门升高时，起飞应该是平稳的
-* 任务应该在第一次尝试时上传
-* 使用 Auto 时飞机应自动起飞
-* 着陆时，飞机没有在地面上反弹
+- 当油门升高时，起飞应该是平稳的
+- 任务应该在第一次尝试时上传
+- 使用 Auto 时飞机应自动起飞
+- 着陆时，飞机没有在地面上反弹
 
 
-
-
-<!-- 
+<!--
 MC_002 - Full autonomous
 
 -   Make sure the auto-disarm is enabled

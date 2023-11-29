@@ -56,6 +56,13 @@ The supported vehicles and `make` commands are listed below.
 | [Plane](../sim_gazebo_gz/vehicles.md#standard-plane)                                                     | `make px4_sitl gz_rc_cessna`      | 4003                |
 | [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane)                                            | `make px4_sitl gz_advanced_plane` | 4008                |
 
+:::warning
+(09.11.2023) The Advanced Lift Drag Plugin that is required to run the Advanced Plane is not yet part of the Gazebo distribution, so the Advanced Plane will not yet fly: [PX4-Autopilot Github issues page](https://github.com/PX4/PX4-Autopilot/issues/22337).
+
+As a workaround to enable Advanced Plane, you can compile the gz-sim library from [Gazebo source code](https://github.com/gazebosim/gz-sim), go into the `build/lib` directory, copy out the advanced lift drag plugin `.so` file (depending on the exact Gazebo Version this is called something along the lines of `libgz-sim7-advanced-lift-drag-system.so`), and paste this into the `~/.gz/sim/plugins` folder.
+:::
+
+
 The commands above launch a single vehicle with the full UI.
 _QGroundControl_ should be able to automatically connect to the simulated vehicle.
 
@@ -66,7 +73,7 @@ This makes it faster to load and run, and for many simple use cases may be all y
 
 The simulation can be run in headless mode by prefixing the command with the `HEADLESS=1` environment variable:
 
-```bash
+```sh
 HEADLESS=1 make px4_sitl gz_x500
 ```
 
@@ -75,7 +82,7 @@ HEADLESS=1 make px4_sitl gz_x500
 The simulation can be run inside a particular world by concatenating the desired world to the name of the desired vehicle.
 For example, to run the windy world with the `x500` vehicle you can specify:
 
-```bash
+```sh
 make px4_sitl gz_x500_windy
 ```
 
@@ -196,7 +203,7 @@ To add a new model:
 1. Define an [airframe configuration file](../dev_airframes/adding_a_new_frame.md).
 1. Define the default parameters for Gazebo in the airframe configuration file (this example is from [x500 quadcopter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/4001_gz_x500)):
 
-   ```conf
+   ```ini
    PX4_SIMULATOR=${PX4_SIMULATOR:=gz}
    PX4_GZ_WORLD=${PX4_GZ_WORLD:=default}
    PX4_SIM_MODEL=${PX4_SIM_MODEL:=<your model name>}
@@ -213,7 +220,7 @@ To add a new model:
      ```
 
 :::note
-As long as the world file and the model file are in the Gazebo search path `IGN_GAZEBO_RESOURCE_PATH` it is not necessary to add them to the PX4 world and model directories.
+As long as the world file and the model file are in the Gazebo search path `GZ_SIM_RESOURCE_PATH` it is not necessary to add them to the PX4 world and model directories.
 However, `make px4_sitl gz_<model>_<world>` won't work with them.
 :::
 

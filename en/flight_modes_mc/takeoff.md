@@ -6,12 +6,16 @@ The _Takeoff_ flight mode causes the vehicle to take off to a specified height a
 
 :::note
 
-- This mode requires a good position estimate (e.g. from GPS).
-- The vehicle must be armed before this mode will activate.
-- This mode is automatic - no user intervention is _required_ to control the vehicle.
+- Mode is automatic - no user intervention is _required_ to control the vehicle.
+- Mode requires at least a valid local position estimate (does not require a global position).
+  - Flying vehicles can't switch to this mode without valid local position.
+  - Flying vehicles will failsafe if they lose the position estimate.
+  - Disarmed vehicles can switch to mode without valid position estimate but can't arm.
 - RC control switches can be used to change flight modes.
 - RC stick movement will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
 - The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff.
+
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
 :::
 
@@ -34,6 +38,7 @@ Takeoff is affected by the following parameters:
 
 ## See Also
 
+- [Throw Launch (MC)](../flight_modes_mc/throw_launch.md)
 - [Takeoff Mode (FW)](../flight_modes_fw/takeoff.md)
 
 <!-- this maps to AUTO_TAKEOFF in dev -->

@@ -9,17 +9,16 @@ It is not needed if you're building an existing airframe or flying using a PX4 v
 
 It explains how to:
 
-* Get a [minimum developer setup](../dev_setup/config_initial.md), [build PX4 from source](../dev_setup/building_px4.md) and deploy on [numerous supported autopilots](../flight_controller/README.md).
-* Understand the [PX4 System Architecture](../concept/architecture.md) and other core concepts.
-* Learn how to modify the flight stack and middleware:
+- Get a [minimum developer setup](../dev_setup/config_initial.md), [build PX4 from source](../dev_setup/building_px4.md) and deploy on [numerous supported autopilots](../flight_controller/README.md).
+- Understand the [PX4 System Architecture](../concept/architecture.md) and other core concepts.
+- Learn how to modify the flight stack and middleware:
   - Modify flight algorithms and add new [flight modes](../concept/flight_modes.md).
   - Support new [airframes](../dev_airframes/README.md).
-* Learn how to integrate PX4 with new hardware:
+- Learn how to integrate PX4 with new hardware:
   - Support new sensors and actuators, including cameras, rangefinders, etc.
   - Modify PX4 to run on new autopilot hardware.
-* [Simulate](../simulation/README.md), [test](../test_and_ci/README.md) and [debug/log](../debug/README.md) PX4.
-* Communicate/integrate with external robotics APIs.
-
+- [Simulate](../simulation/README.md), [test](../test_and_ci/README.md) and [debug/log](../debug/README.md) PX4.
+- Communicate/integrate with external robotics APIs.
 
 ## Key Developer Links
 

@@ -4,7 +4,7 @@ Zubax Telega is a high end, proprietary sensorless FOC motor control technology.
 
 While Telega can be controlled using traditional PWM input, it is designed to operate over CAN bus using [DroneCAN](README.md).
 
-:::note ESCs based on Zubax Telega  require non-trivial tuning of the propulsion system in order to deliver adequate performance and ensure robust operation. Users who lack the necessary tuning expertise are advised to either [purchase pre-tuned UAV propulsion kits](https://zubax.com/products/uav_propulsion_kits) or to use Zubax Robotic's professional tuning service. Questions on this matter should be addressed to: [support@zubax.com](mailto:support@zubax.com).
+:::note ESCs based on Zubax Telega require non-trivial tuning of the propulsion system in order to deliver adequate performance and ensure robust operation. Users who lack the necessary tuning expertise are advised to either [purchase pre-tuned UAV propulsion kits](https://zubax.com/products/uav_propulsion_kits) or to use Zubax Robotic's professional tuning service. Questions on this matter should be addressed to: [support@zubax.com](mailto:support@zubax.com).
 :::
 
 ![Sadulli - Top](../../assets/peripherals/esc_usavcan_zubax_sadulli/sadulli_top.jpg)

@@ -6,12 +6,11 @@ For airframe specific documentation and build instructions see [VTOL Framebuilds
 
 ## Firmware & Basic Settings
 
-1. Run *QGroundControl*
+1. Run _QGroundControl_
 2. Flash the firmware for your current release or master (PX4 `main` branch build).
 3. In the [Frame setup](../config/airframe.md) section select the appropriate VTOL airframe.
 
    If your airframe is not listed select the [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) frame.
-
 
 ### Flight / Transition Mode Switch
 
@@ -25,7 +24,6 @@ This is done in [Flight Mode](../config/flight_mode.md) configuration, where you
 
 The switch in the off-position means that you are flying in multicopter mode.
 
-
 ### Multirotor / Fixed-wing Tuning
 
 Before you attempt your first transition to fixed-wing flight you need to make absolutely sure that your VTOL is well tuned in multirotor mode. One reason is this is the mode you will return to if something goes wrong with a transition and it could be it will be moving fairly quickly already. If it isn’t well tuned bad things might happen.
@@ -33,7 +31,6 @@ Before you attempt your first transition to fixed-wing flight you need to make a
 If you have a runway available and the total weight isn’t too high you will also want to tune fixed-wing flight as well. If not then you will be attempting this when it switches to fixed-wing mode. If something goes wrong you need to be ready (and able) to switch back to multirotor mode.
 
 Follow the respective tuning guides on how to tune multirotors and fixed-wings.
-
 
 ### Transition Tuning
 
@@ -57,9 +54,7 @@ A forward transition refers to the transition from multirotor to fixed-wing mode
 
 A value of 0 will result in commanding the transition throttle value being set immediately. By default the slew rate is set to 0.33, meaning that it will take 3s to ramp up to 100% throttle. If you wish to make throttling-up smoother you can reduce this value.
 
-
 Note that once the ramp up period ends throttle will be at its target setting and will remain there until (hopefully) the transition speed is reached.
-
 
 #### Blending Airspeed
 
@@ -68,7 +63,6 @@ Parameter: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLE
 By default, as the airspeed gets close to the transition speed, multirotor attitude control will be reduced and fixed-wing control will start increasing continuously until the transition occurs.
 
 Disable blending by setting this parameter to 0 which will keep full multirotor control and zero fixed-wing control until the transition occurs.
-
 
 #### Transition Airspeed
 
@@ -92,16 +86,17 @@ Transition into the wind, whenever possible otherwise it will travel further fro
 
 Make sure the VTOL is in a stable hover before you start the transition.
 
-
 #### Transition: Multirotor to Fixed-wing (Front-transition)
 
-Start your transition. It should transition within 50 – 100 meters. If it doesn’t or it isn’t flying in a stable fashion abort the transition (see below) and land or hover back to the start position and land. Try increasing the [transition throttle](#transition-throttle) (`VT_F_TRANS_THR`) value. Also consider reducing the transition duration (`VT_F_TRANS_DUR`) if you are not using an airspeed sensor. If you are using an airspeed sensor consider lowering the transition airspeed but stay well above the stall speed.
+Start your transition. It should transition within 50 – 100 meters. If it doesn’t or it isn’t flying in a stable fashion abort the transition (see below) and land or hover back to the start position and land. If you are using an airspeed sensor consider lowering the transition airspeed but stay well above the stall speed. Try increasing the [transition throttle](#transition-throttle) (`VT_F_TRANS_THR`) value. Also consider reducing the transition duration (`VT_F_TRANS_DUR`) if you are not using an airspeed sensor.
 
 As soon as you notice the transition happen be ready to handle height loss which may include throttling up quickly.
 
 :::warning
 The following feature has been discussed but not implemented yet:
-- Once the transition happens the multirotor motors will stop and the pusher/puller throttle will remain at the `VT_F_TRANS_THR` level until you move the throttle stick, assuming you are in manual mode. :::
+
+- Once the transition happens the multirotor motors will stop and the pusher/puller throttle will remain at the `VT_F_TRANS_THR` level until you move the throttle stick, assuming you are in manual mode.
+:::
 
 #### Transition: Fixed-wing to Multirotor (Back-transition)
 
@@ -113,12 +108,11 @@ For advanced tuning of the back-transition please refer to the [Back-transition 
 
 #### Aborting a Transition
 
-It’s important to know what to expect when you revert a transition command *during* a transition.
+It’s important to know what to expect when you revert a transition command _during_ a transition.
 
-When transitioning from **multirotor to fixed-wing** (transition switch is on/fixed-wing) then reverting the switch back (off/multirotor position) *before* the transition happens it will immediately return to multirotor mode.
+When transitioning from **multirotor to fixed-wing** (transition switch is on/fixed-wing) then reverting the switch back (off/multirotor position) _before_ the transition happens it will immediately return to multirotor mode.
 
 When transitioning from **fixed-wing to multirotor** for this type of VTOL the switch is immediate so there isn’t really a backing out option here, unlike for tilt rotor VTOLs. If you want it to go back into fixed-wing you will need to go through the full transition. If it’s still travelling fast this should happen quickly.
-
 
 ### Support
 

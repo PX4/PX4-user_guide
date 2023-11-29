@@ -6,7 +6,7 @@
 
 A ready-to-fly racing beast running full PX4/MindPX stack. Can reach maximum 10:1 thrust-to-weight ratio!
 
-MR210 uses MindRacer as flight controller.  MR210 is a fully modularized, stackable RTF racing drone. The soldering-free SEP/WEP sockets allow pilots to quickly replace broken parts without the needs for soldering iron. Pilots can further easily customize the build by adding-to or replacing stacking parts to make a more powerful drone.
+MR210 uses MindRacer as flight controller. MR210 is a fully modularized, stackable RTF racing drone. The soldering-free SEP/WEP sockets allow pilots to quickly replace broken parts without the needs for soldering iron. Pilots can further easily customize the build by adding-to or replacing stacking parts to make a more powerful drone.
 
 ### Highlights
 

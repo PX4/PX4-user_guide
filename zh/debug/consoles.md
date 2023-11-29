@@ -22,7 +22,8 @@ Shell 提供对系统的上层访问能力：
 - 无法_直接_显示运行在工作队列上的任务输出。
 - 在 PX4 系统无法启动时无助于调试（它并没有运行）。
 
-支持来自串口或 MAVLink 的多个shell同时运行。 由于 MAVLink 能提供更加灵活的使用方式，所以目前只使用了 [MAVLink Shell](../debug/mavlink_shell.md) 。
+:::note
+The `dmesg` command is now available through the shell on some boards, enabling much lower level debugging than previously possible. For example, with `dmesg -f &` you also see the output of background tasks.
 :::
 
 [系统控制台（System Console）](../debug/system_console.md)在调试系统无法启动时十分必要，它会在飞控板上电后输出启动日志。 但是 [MAVLink Shell](../debug/mavlink_shell.md) 则更加易于配置使用，因此通常都推荐用它调试。
@@ -33,11 +34,11 @@ The [System Console](../debug/system_console.md) is essential when the system do
 
 ## 使用控制台/Shell
 
-举例来说，可以输入 `ls` 查看本地文件系统；输入 `free` 查看剩余可用RAM；输入 `dmesg` 查看启动日志。
+The MAVLink shell/console and the [System Console](../debug/system_console.md) are used in much the same way.
 
-其它更多的系统命令与模块被列举在 [模块和命令参考](../middleware/modules_main.md) 中。（比如 `top`、`listener` 等）
+For example, type `ls` to view the local file system, `free` to see the remaining free RAM, `dmesg` to look at boot output.
 
-```bash
+```sh
 nsh> ls
 nsh> free
 nsh> dmesg
@@ -47,13 +48,13 @@ nsh> dmesg
 
 此 NSH 命令提供剩余的可用内存：
 
-```bash
+```sh
 free
 ```
 
 top命令显示每个应用成虚使用的堆栈情况：
 
-```
+```sh
 top
 ```
 
@@ -61,19 +62,19 @@ top
 
 要查看工作队列的运行抢空以及运行速度，使用：
 
-```
+```sh
 work_queue status
 ```
 
 调试 uORB 主题：
 
-```
+```sh
 uorb top
 ```
 
 检查特定的 uORB 主题：
 
-```
+```sh
 listener <topic_name>
 ```
 

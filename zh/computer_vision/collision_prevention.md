@@ -139,14 +139,9 @@ The obstacle overlay in QGC will look like this:
 
 其他传感器的使能需要修改驱动代码来设置传感器方向和视觉范围。
 
-- 在特定端口上连接并配置距离传感器（请参阅
-
-
-特殊传感器文档</ 0>），并使用 CP_DIST </ 1>使能防撞功能。</li> 
-  
-  - 修改驱动程序以设置方向。 This should be done by mimicking the `SENS_CM8JL65_R_0` parameter (though you might also hard-code the orientation in the sensor _module.yaml_ file to something like `sf0x start -d ${SERIAL_DEV} -R 25` - where 25 is equivalent to `ROTATION_DOWNWARD_FACING`).
-
-- Modify the driver to set the _field of view_ in the distance sensor UORB topic (`distance_sensor_s.h_fov`).</ul> 
+- 在特定端口上连接并配置距离传感器（请参阅[特殊传感器文档](../sensor/rangefinders.md)），并使用[ CP_DIST ](#CP_DIST)使能防撞功能。
+- 修改驱动程序以设置方向。 This should be done by mimicking the `SENS_CM8JL65_R_0` parameter (though you might also hard-code the orientation in the sensor _module.yaml_ file to something like `sf0x start -d ${SERIAL_DEV} -R 25` - where 25 is equivalent to `ROTATION_DOWNWARD_FACING`).
+- Modify the driver to set the _field of view_ in the distance sensor UORB topic (`distance_sensor_s.h_fov`).
 
 :::tip
 您可以从 [功能 PR](https://github.com/PX4/PX4-Autopilot/pull/12179) 中看到所需的修改。 请回馈你的更改！
@@ -169,8 +164,6 @@ The tested companion software is the _local_planner_ from the [PX4/PX4-Avoidance
 <!-- hardware platform used for testing not readily available, so have removed -->
 
 软硬件的配置应遵照 [PX4/avoidance](https://github.com/PX4/PX4-Avoidance) 代码仓库的说明。 In order to emit `OBSTACLE_DISTANCE` messages you must use the _rqt_reconfigure_ tool and set the parameter `send_obstacles_fcu` to true.
-
-
 
 ## Gazebo设置
 

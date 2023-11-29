@@ -26,6 +26,7 @@ If the board has an internal magnetometer, it should not be used (small racers a
 Racers typically do not have a GPS as it adds some weight and is prone to damage during crashes (a GPS + external magnetometer must be placed on a GPS mast away from high currents to avoid magnetic interference, which unfortunately means that it is easy to break).
 
 There are however some benefits in adding GPS, particularly for beginners:
+
 - You can go into position hold and the vehicle will just stay in one place. This is handy if you lose the orientation or need a brake. It can also be used to land safely.
 - [Return mode](../flight_modes/return.md) can be used, either on a switch or as RC loss/low battery failsafe.
 - You will have the last position when it crashes.
@@ -73,6 +74,7 @@ These parameters are important:
 If you use a GPS you can skip this section and use the default estimator. Otherwise you should switch to the Q attitude estimator, which works without a magnetometer or barometer.
 
 To select it, set [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) to 1, and change the following parameters:
+
 - Set [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) to 0 if the system does not have a magnetometer.
 - Set [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) to 0 if the system does not have a barometer.
 - Configure the Q estimator: set [ATT_ACC_COMP](../advanced_config/parameter_reference.md#ATT_ACC_COMP) to 0, [ATT_W_ACC](../advanced_config/parameter_reference.md#ATT_W_ACC) to 0.4 and [ATT_W_GYRO_BIAS](../advanced_config/parameter_reference.md#ATT_W_GYRO_BIAS) to 0. You can tune these later if you wish.
@@ -82,7 +84,6 @@ To select it, set [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#S
 Configure [RC loss and low battery failsafe](../config/safety.md). Configure [RC loss and low battery failsafe](../config/safety.md). Test RC loss on the bench without props attached by turning off the remote when the vehicle is armed.
 
 Make sure to assign a [kill switch](../config/safety.md#kill-switch) or an [arming switch](../config/safety.md#arm-disarm-switch). Test it and train to use it!
-
 
 ### PID Tuning
 
@@ -94,21 +95,21 @@ At this point you should be ready for a first test flight.
 
 Assuming the vehicle is able to fly using the default settings, we then do a first pass of [Basic MC PID tuning](../config_mc/pid_tuning_guide_multicopter_basic.md). Assuming the vehicle is able to fly using the default settings, we then do a first pass of [Basic MC PID tuning](../config_mc/pid_tuning_guide_multicopter_basic.md). This is important for the [filter tuning](#filter-tuning) (there will be a second PID tuning round later).
 
-
 ### Control Latency
 
-The *control latency* is the delay from a physical disturbance of the vehicle until the motors react to the change.
+The _control latency_ is the delay from a physical disturbance of the vehicle until the motors react to the change.
 
 :::tip
-It is *crucial* to reduce the control latency as much as possible! A lower latency allows you to increase the rate **P** gains, which means better flight performance. Even one millisecond added to the latency makes a difference.
+It is _crucial_ to reduce the control latency as much as possible! A lower latency allows you to increase the rate **P** gains, which means better flight performance. Even one millisecond added to the latency makes a difference.
 :::
 
 These are the factors that affect the latency:
+
 - A soft airframe or soft vibration mounting increases latency (they act as a filter).
 - [Low-pass filters](../config_mc/filter_tuning.md) in software and on the sensor chip trade off increased latency for improved noise filtering.
 - PX4 software internals: the sensor signals need to be read in the driver and then pass through the controller to the output driver.
-- The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a *Pixracer* or *Omnibus F4*, but does apply to a Pixhawk). To avoid the IO delay, disable [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and attach the motors to the AUX pins instead.
-- PWM output signal: enable the One-Shot protocol to reduce latency. The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
+- The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a _Pixracer_ or _Omnibus F4_, but does apply to a Pixhawk). To avoid the IO delay attach the motors to the AUX pins instead.
+- PWM output signal: enable [Dshot](../peripherals/dshot.md) by preference to reduce latency (or One-Shot if DShot is not supported). The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
 
 ### Filter Tuning
 

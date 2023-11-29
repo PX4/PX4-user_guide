@@ -10,7 +10,7 @@ The [Avionics Anonymous Laser Altimeter Interface](https://www.tindie.com/produc
 
 ## Where to Buy
 
-* [AvAnon Laser Interface](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/)
+- [AvAnon Laser Interface](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/)
 
 <a id="supported_rangefinders"></a>
 

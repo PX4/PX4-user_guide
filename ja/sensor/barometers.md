@@ -16,7 +16,6 @@ They are also present in other hardware:
 
 The supported baro part numbers can be inferred from the driver names, which are listed in [PX4-Autopilot/src/drivers/barometer](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer) and from the [Modules Reference: Baro (Driver)](../modules/modules_driver_baro.md) documentation. At time of writing, drivers/parts include: bmp280, bmp388 (and BMP380), dps310, goertek (spl06), invensense (icp10100, icp10111, icp101xx, icp201xx), lps22hb, lps25h, lps33hw, maiertek (mpc2520), mpl3115a2, ms5611, ms5837, tcbp001ta
 
-
 ## PX4 Configuration
 
 Generally barometers require no user configuration. If needed, you can:
@@ -35,7 +34,6 @@ Barometers don't require calibration.
 - There is usually a scale factor error but it's compensated by the GNSS altitude using a bias estimator in EKF2 (we don't provide a way to calibrate that). This method is fine as long as the height change of the drone isn't too fast (below 200-300km/h probably; don't have real data on that).
 - The baro readings can be corrected using a param SENS_BARO_QNH (https://en.wikipedia.org/wiki/Altimeter_setting) parameter, but again, it is only necessary to adjust it if the absolute barometric altitude is required by the pilot.
 -->
-
 
 ## Developer Information
 

@@ -495,7 +495,7 @@ ina220 <command> [arguments...]
      [-a <val>]  I2C address
                  default: 65
      [-k]        if initialization (probing) fails, keep retrying periodically
-     [-t <val>]  battery index for calibration values (1 or 2)
+     [-t <val>]  battery index for calibration values (1 or 3)
                  default: 1
      [-T <val>]  Type
                  values: VBATT|VREG, default: VBATT
@@ -534,7 +534,7 @@ ina226 <command> [arguments...]
      [-a <val>]  I2C address
                  default: 65
      [-k]        if initialization (probing) fails, keep retrying periodically
-     [-t <val>]  battery index for calibration values (1 or 2)
+     [-t <val>]  battery index for calibration values (1 or 3)
                  default: 1
 
    stop
@@ -571,7 +571,7 @@ ina228 <command> [arguments...]
      [-a <val>]  I2C address
                  default: 69
      [-k]        if initialization (probing) fails, keep retrying periodically
-     [-t <val>]  battery index for calibration values (1 or 2)
+     [-t <val>]  battery index for calibration values (1 or 3)
                  default: 1
 
    stop
@@ -608,7 +608,7 @@ ina238 <command> [arguments...]
      [-a <val>]  I2C address
                  default: 69
      [-k]        if initialization (probing) fails, keep retrying periodically
-     [-t <val>]  battery index for calibration values (1 or 2)
+     [-t <val>]  battery index for calibration values (1 or 3)
                  default: 1
 
    stop
@@ -1069,6 +1069,8 @@ px4io <command> [arguments...]
 
    sbus2_out     enable sbus2 out
 
+   supported     Returns 0 if px4io is supported
+
    test_fmu_fail test: turn off IO updates
 
    test_fmu_ok   re-enable IO updates
@@ -1192,6 +1194,33 @@ rgbled_lp5562 <command> [arguments...]
 
    status        print status info
 ```
+## roboclaw
+Source: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/roboclaw)
+
+
+### 描述
+
+This driver communicates over UART with the [Roboclaw motor driver](https://www.basicmicro.com/motor-controller). It performs two tasks:
+
+ - Control the motors based on the OutputModuleInterface.
+ - Read the wheel encoders and publish the raw data in the `wheel_encoders` uORB topic
+
+In order to use this driver, the Roboclaw should be put into Packet Serial mode (see the linked documentation), and your flight controller's UART port should be connected to the Roboclaw as shown in the documentation. The driver needs to be enabled using the parameter `RBCLW_SER_CFG`, the baudrate needs to be set correctly and the address `RBCLW_ADDRESS` needs to match the ESC configuration.
+
+The command to start this driver is: `$ roboclaw start <UART device> <baud rate>`
+
+<a id="roboclaw_usage"></a>
+
+### 描述
+```
+roboclaw <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## safety_button
 Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/safety_button)
 
@@ -1205,12 +1234,13 @@ This module is responsible for the safety button. Pressing the safety button 3 t
 ### 描述
 ```
 safety_button <command> [arguments...]
+ mc_att_control <command> [arguments...]
  Commands:
    start
 
    stop
 
-   status        print status info
+   status        打印状态信息
 ```
 ## sht3x
 Source: [drivers/hygrometer/sht3x](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/hygrometer/sht3x)
@@ -1244,7 +1274,7 @@ sht3x reset
 
 <a id="sht3x_usage"></a>
 
-### 描述
+### Usage
 ```
 sht3x <command> [arguments...]
  Commands:
@@ -1271,7 +1301,7 @@ sht3x <command> [arguments...]
 Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tap_esc)
 
 
-### 描述
+### Description
 
 This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
@@ -1312,13 +1342,12 @@ This module is responsible for the tone alarm.
 ### 描述
 ```
 tone_alarm <command> [arguments...]
- mc_att_control <command> [arguments...]
  Commands:
    start
 
    stop
 
-   status        打印状态信息
+   status        print status info
 ```
 ## uwb
 Source: [drivers/uwb/uwb_sr150](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/uwb/uwb_sr150)
@@ -1381,13 +1410,13 @@ voxlpm [arguments...]
 Source: [modules/zenoh](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/zenoh)
 
 
-### 描述
+### Description
 
 Zenoh demo bridge
 
 <a id="zenoh_usage"></a>
 
-### 描述
+### Usage
 ```
 zenoh <command> [arguments...]
  Commands:

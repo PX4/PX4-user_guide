@@ -77,19 +77,19 @@ Intro to DroneCAN (UAVCANv0) and practical example with setup in QGroundControl:
 
 @[youtube](https://youtu.be/IZMTq9fTiOM)
 
-
 ### Cyphal
 
 UAVCAN v1 for drones — PX4 Developer Summit Virtual 2020
 
 @[youtube](https://youtu.be/6Bvtn_g8liU)
 
-----
+---
 
 Getting started using UAVCAN v1 with PX4 on the NXP UAVCAN Board — PX4 Developer Summit Virtual 2020
 @[youtube](https://youtu.be/MwdHwjaXYKs)
 
-----
-UAVCAN: a highly dependable publish-subscribe protocol for hard real-time intra-vehicular networking  — PX4 Developer Summit Virtual 2019
+---
+
+UAVCAN: a highly dependable publish-subscribe protocol for hard real-time intra-vehicular networking — PX4 Developer Summit Virtual 2019
 
 @[youtube](https://youtu.be/MBtROivYPik)
