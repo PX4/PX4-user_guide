@@ -360,7 +360,7 @@
     * [Writing your First Application](modules/hello_sky.md)
     * [Application/Module Template](modules/module_template.md)
   * [Concepts](concept/README.md)
-    * [PX4 Architecture](concept/px4_systems_architecture.md)
+    * [PX4 System Architecture](concept/px4_systems_architecture.md)
     * [PX4 Flight Stack Architecture](concept/architecture.md)
       * [Controller Diagrams](flight_stack/controller_diagrams.md)
     * [Parameters & Configs](advanced/parameters_and_configurations.md)
