@@ -34,8 +34,8 @@ At high level all vehicle types behave in the same way when MISSION mode is enga
 
 1. If a mission is stored and PX4 is flying it will execute the [mission/flight plan](../flying/missions.md) from the current step.
    - A takeoff mission item will be treated as a normal waypoint.
-1. If a mission is stored and the vehicle is landed it will not automatically take off (the autopilot will detect the lack of movement and set the throttle to zero).
-   If the currently active waypoint is a Takeoff, the system will automatically takeoff (see [FW Takeoff/Landing in Mission](#mission-takeoff)).
+1. If a mission is stored and the vehicle is landed it will only takeoff if the active waypoint is a `Takeoff`.
+   If configured for catapult launch, the vehicle must also be launched (see [FW Takeoff/Landing in Mission](#mission-takeoff)).
 1. If no mission is stored, or if PX4 has finished executing all mission commands:
    - If flying the vehicle will loiter.
    - If landed the vehicle will "wait".
