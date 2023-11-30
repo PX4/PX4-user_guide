@@ -16355,9 +16355,16 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="MPC_YAWRAUTO_ACC">MPC_YAWRAUTO_ACC</strong> (FLOAT)</td>
+ <td>Maximum yaw acceleration in autonomous modes <p><strong>Comment:</strong> Limits the acceleration of the yaw setpoint to avoid large control output and mixer saturation.</p>   </td>
+ <td>[5, 360] (5)</td>
+ <td>60.</td>
+ <td>deg/s^2</td>
+</tr>
+<tr>
  <td><strong id="MPC_YAWRAUTO_MAX">MPC_YAWRAUTO_MAX</strong> (FLOAT)</td>
- <td>Max yaw rate in autonomous modes <p><strong>Comment:</strong> Limits the rate of change of the yaw setpoint to avoid large control output and mixer saturation.</p>   </td>
- <td>[0, 360] (5)</td>
+ <td>Maximum yaw rate in autonomous modes <p><strong>Comment:</strong> Limits the rate of change of the yaw setpoint to avoid large control output and mixer saturation.</p>   </td>
+ <td>[5, 360] (5)</td>
  <td>45.</td>
  <td>deg/s</td>
 </tr>
