@@ -16355,9 +16355,16 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="MPC_YAWRAUTO_ACC">MPC_YAWRAUTO_ACC</strong> (FLOAT)</td>
+ <td>Maximum yaw acceleration in autonomous modes <p><strong>Comment:</strong> Limits the acceleration of the yaw setpoint to avoid large control output and mixer saturation.</p>   </td>
+ <td>[5, 360] (5)</td>
+ <td>60.</td>
+ <td>deg/s^2</td>
+</tr>
+<tr>
  <td><strong id="MPC_YAWRAUTO_MAX">MPC_YAWRAUTO_MAX</strong> (FLOAT)</td>
- <td>Max yaw rate in autonomous modes <p><strong>Comment:</strong> Limits the rate of change of the yaw setpoint to avoid large control output and mixer saturation.</p>   </td>
- <td>[0, 360] (5)</td>
+ <td>Maximum yaw rate in autonomous modes <p><strong>Comment:</strong> Limits the rate of change of the yaw setpoint to avoid large control output and mixer saturation.</p>   </td>
+ <td>[5, 360] (5)</td>
  <td>45.</td>
  <td>deg/s</td>
 </tr>
@@ -17282,7 +17289,7 @@ table {
  <td>RC channel 10 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC10_REV">RC10_REV</strong> (FLOAT)</td>
@@ -17320,7 +17327,7 @@ table {
  <td>RC channel 11 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC11_REV">RC11_REV</strong> (FLOAT)</td>
@@ -17358,7 +17365,7 @@ table {
  <td>RC channel 12 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC12_REV">RC12_REV</strong> (FLOAT)</td>
@@ -17396,7 +17403,7 @@ table {
  <td>RC channel 13 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC13_REV">RC13_REV</strong> (FLOAT)</td>
@@ -17434,7 +17441,7 @@ table {
  <td>RC channel 14 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC14_REV">RC14_REV</strong> (FLOAT)</td>
@@ -17472,7 +17479,7 @@ table {
  <td>RC channel 15 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC15_REV">RC15_REV</strong> (FLOAT)</td>
@@ -17510,7 +17517,7 @@ table {
  <td>RC channel 16 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC16_REV">RC16_REV</strong> (FLOAT)</td>
@@ -17548,7 +17555,7 @@ table {
  <td>RC channel 17 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC17_REV">RC17_REV</strong> (FLOAT)</td>
@@ -17586,7 +17593,7 @@ table {
  <td>RC channel 18 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC18_REV">RC18_REV</strong> (FLOAT)</td>
@@ -17662,7 +17669,7 @@ table {
  <td>RC channel 2 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000.0</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC2_REV">RC2_REV</strong> (FLOAT)</td>
@@ -26273,7 +26280,7 @@ table {
  <td>Enable uXRCE-DDS system clock synchronization <p><strong>Comment:</strong> When enabled along with UXRCE_DDS_SYNCT, uxrce_dds_client will set the system clock using the agents UTC timestamp.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td></td>
- <td>Enabled (1)</td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
