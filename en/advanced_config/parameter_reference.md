@@ -26273,7 +26273,7 @@ table {
  <td>Enable uXRCE-DDS system clock synchronization <p><strong>Comment:</strong> When enabled along with UXRCE_DDS_SYNCT, uxrce_dds_client will set the system clock using the agents UTC timestamp.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td></td>
- <td>Enabled (1)</td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
