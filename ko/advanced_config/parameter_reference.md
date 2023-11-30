@@ -16323,9 +16323,16 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="MPC_YAWRAUTO_ACC">MPC_YAWRAUTO_ACC</strong> (FLOAT)</td>
+ <td>Maximum yaw acceleration in autonomous modes <p><strong>Comment:</strong> Limits the acceleration of the yaw setpoint to avoid large control output and mixer saturation.</p>   </td>
+ <td>[5, 360] (5)</td>
+ <td>60.</td>
+ <td>deg/s^2</td>
+</tr>
+<tr>
  <td><strong id="MPC_YAWRAUTO_MAX">MPC_YAWRAUTO_MAX</strong> (FLOAT)</td>
- <td>Max yaw rate in autonomous modes <p><strong>Comment:</strong> Limits the rate of change of the yaw setpoint to avoid large control output and mixer saturation.</p>   </td>
- <td>[0, 360] (5)</td>
+ <td>Maximum yaw rate in autonomous modes <p><strong>Comment:</strong> Limits the rate of change of the yaw setpoint to avoid large control output and mixer saturation.</p>   </td>
+ <td>[5, 360] (5)</td>
  <td>45.</td>
  <td>deg/s</td>
 </tr>
@@ -26241,7 +26248,7 @@ table {
  <td>Enable uXRCE-DDS system clock synchronization <p><strong>Comment:</strong> When enabled along with UXRCE_DDS_SYNCT, uxrce_dds_client will set the system clock using the agents UTC timestamp.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td></td>
- <td>Enabled (1)</td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
