@@ -73,6 +73,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [GimbalManagerSetAttitude](GimbalManagerSetAttitude.md)
 - [GimbalManagerSetManualControl](GimbalManagerSetManualControl.md)
 - [GimbalManagerStatus](GimbalManagerStatus.md)
+- [GotoSetpoint](GotoSetpoint.md) — Position and (optional) heading setpoints with corresponding speed constraints Setpoints are intended as inputs to position and heading smoothers, respectively Setpoints do not need to be kinematically consistent Optional heading setpoints may be specified as controlled by the respective flag Unset optional setpoints are not controlled Unset optional constraints default to vehicle specifications
 - [GpioConfig](GpioConfig.md) — GPIO configuration
 - [GpioIn](GpioIn.md) — GPIO mask and state
 - [GpioOut](GpioOut.md) — GPIO mask and state
