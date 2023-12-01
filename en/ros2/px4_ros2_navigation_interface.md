@@ -1,4 +1,4 @@
-# PX4 ROS 2 Interface Library: Navigation
+# PX4 ROS 2 Navigation Interface
 
 :::warning Experimental
 At time of writing parts of the PX4 ROS 2 Interface Library is experimental, and hence subject to change.
