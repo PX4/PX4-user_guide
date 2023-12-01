@@ -10264,6 +10264,38 @@ table {
  <td>m/s^2</td>
 </tr>
 <tr>
+ <td><strong id="EKF2_AGP_CTRL">EKF2_AGP_CTRL</strong> (INT32)</td>
+ <td>Aux global position (AGP) sensor aiding <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Horizontal position fusion 1 : Vertical position fusion</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Horizontal position</li>
+  <li><strong>1:</strong> Vertical position</li>
+</ul>
+ </td>
+ <td>[0, 3] </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="EKF2_AGP_DELAY">EKF2_AGP_DELAY</strong> (FLOAT)</td>
+ <td>Aux global position estimator delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 300] </td>
+ <td>0</td>
+ <td>ms</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_AGP_GATE">EKF2_AGP_GATE</strong> (FLOAT)</td>
+ <td>Gate size for aux global position fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
+ <td>[1.0, ?] </td>
+ <td>3.0</td>
+ <td>SD</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_AGP_NOISE">EKF2_AGP_NOISE</strong> (FLOAT)</td>
+ <td>Measurement noise for aux global position observations used to lower bound or replace the uncertainty included in the message    </td>
+ <td>[0.01, ?] </td>
+ <td>0.9</td>
+ <td>m</td>
+</tr>
+<tr>
  <td><strong id="EKF2_ANGERR_INIT">EKF2_ANGERR_INIT</strong> (FLOAT)</td>
  <td>1-sigma tilt angle uncertainty after gravity vector alignment    <p><b>Reboot required:</b> true</p>
 </td>
