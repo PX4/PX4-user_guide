@@ -347,10 +347,6 @@ div.frame_variant td, div.frame_variant th {
    <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
-<tr id="copter_quadrotor_h_reaper_500_quad">
- <td>Reaper 500 Quad</td>
- <td>Maintainer: Blankered<p><code>SYS_AUTOSTART</code> = 4040</p></td>
-</tr>
 <tr id="copter_quadrotor_h_betafpv_beta75x_2s_brushless_whoop">
  <td>BetaFPV Beta75X 2S Brushless Whoop</td>
  <td>Maintainer: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4041</p></td>
@@ -426,10 +422,6 @@ div.frame_variant td, div.frame_variant th {
 <tr id="copter_quadrotor_x_coex_clover_4">
  <td>COEX Clover 4</td>
  <td>Maintainer: Oleg Kalachev &lt;okalachev@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4500</p></td>
-</tr>
-<tr id="copter_quadrotor_x_crazyflie_2">
- <td>Crazyflie 2</td>
- <td>Maintainer: Dennis Shtatov &lt;densht@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4900</p></td>
 </tr>
 <tr id="copter_quadrotor_x_crazyflie_2.1">
  <td>Crazyflie 2.1</td>
