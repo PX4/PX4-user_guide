@@ -347,10 +347,6 @@ div.frame_variant td, div.frame_variant th {
    <tr><th>이름</th><th></th></tr>
  </thead>
 <tbody>
-<tr id="copter_quadrotor_h_reaper_500_quad">
- <td>리퍼 500 쿼드</td>
- <td>유지관리자: Blankered<p><code>SYS_AUTOSTART</code> = 4040</p></td>
-</tr>
 <tr id="copter_quadrotor_h_betafpv_beta75x_2s_brushless_whoop">
  <td>BetaFPV Beta75X 2S Brushless Whoop</td>
  <td>유지보수: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4041</p></td>
@@ -381,7 +377,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="copter_quadrotor_x_holybro_s500">
  <td>Holybro S500</td>
- <td>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4015</p></td>
+ <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4015</p></td>
 </tr>
 <tr id="copter_quadrotor_x_px4_vision_dev_kit_v1">
  <td>PX4 Vision Dev Kit v1</td>
@@ -423,15 +419,11 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="copter_quadrotor_x_uvify_ifo">
  <td>UVify IFO</td>
- <td>유지보수: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 4073</p></td>
+ <td>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 4073</p></td>
 </tr>
 <tr id="copter_quadrotor_x_coex_clover_4">
  <td>COEX Clover 4</td>
  <td>유지보수: Oleg Kalachev &lt;okalachev@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4500</p></td>
-</tr>
-<tr id="copter_quadrotor_x_crazyflie_2">
- <td>Crazyflie 2</td>
- <td>유지보수: Dennis Shtatov &lt;densht@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4900</p></td>
 </tr>
 <tr id="copter_quadrotor_x_crazyflie_2.1">
  <td>Crazyflie 2.1</td>
@@ -575,7 +567,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="plane_standard_plane_generic_standard_plane">
@@ -712,7 +704,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="vtol_standard_vtol_hil_standard_vtol_quadplane">
@@ -764,7 +756,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>이름</th><th></th></tr>
+   <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor">
