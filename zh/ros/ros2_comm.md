@@ -119,7 +119,7 @@ For more information and troubleshooting see: [Ubuntu Development Environment](.
 1. 一些Python 依赖关系也必须安装 (使用 **`pip`** 或 **`apt`**):
 
    ```sh
-   pip install --user -U empy pyros-genmsg setuptools
+   pip install --user -U empy==3.3.4 pyros-genmsg setuptools
    ```
 
 
