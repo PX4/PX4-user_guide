@@ -89,10 +89,10 @@ During PX4 setup and configuration the USB connection with your ground station l
 
 ## PX4 Setup
 
-These instructions rely on PX4 code to support ROS 2 that isn't yet in a release build (arrives in PX4 v1.14).
-You will therefore need to install a build off the current PX4-Autopilot `main` branch.
+These instructions work on PX4 v1.14 and later.
 
-Connect the Pixhawk to your laptop/desktop via the `USB` port and use QGroundControl to update the firmware to the "Master" version as described in [Firmware > Installing PX4 Master, Beta or Custom Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware).
+If you need to update the firmware then connect the Pixhawk to your laptop/desktop via the `USB` port and use QGroundControl to update the firmware as described [Firmware > Install Stable PX4](../config/firmware.md#install-stable-px4). 
+If you want the latest developer version then update the firmware to the "main" as described in [Firmware > Installing PX4 Master, Beta or Custom Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware).
 
 :::note
 You can alternatively [setup a development environment](../dev_setup/dev_env.md), [build](../dev_setup/building_px4.md#building-for-nuttx) and [upload](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board) the firmware manually.
