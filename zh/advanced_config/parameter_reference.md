@@ -10264,6 +10264,38 @@ table {
  <td>m/s^2</td>
 </tr>
 <tr>
+ <td><strong id="EKF2_AGP_CTRL">EKF2_AGP_CTRL</strong> (INT32)</td>
+ <td>Aux global position (AGP) sensor aiding <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Horizontal position fusion 1 : Vertical position fusion</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Horizontal position</li>
+  <li><strong>1:</strong> Vertical position</li>
+</ul>
+ </td>
+ <td>[0, 3] </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="EKF2_AGP_DELAY">EKF2_AGP_DELAY</strong> (FLOAT)</td>
+ <td>Aux global position estimator delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 300] </td>
+ <td>0</td>
+ <td>ms</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_AGP_GATE">EKF2_AGP_GATE</strong> (FLOAT)</td>
+ <td>Gate size for aux global position fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
+ <td>[1.0, ?] </td>
+ <td>3.0</td>
+ <td>SD</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_AGP_NOISE">EKF2_AGP_NOISE</strong> (FLOAT)</td>
+ <td>Measurement noise for aux global position observations used to lower bound or replace the uncertainty included in the message    </td>
+ <td>[0.01, ?] </td>
+ <td>0.9</td>
+ <td>m</td>
+</tr>
+<tr>
  <td><strong id="EKF2_ANGERR_INIT">EKF2_ANGERR_INIT</strong> (FLOAT)</td>
  <td>1-sigma tilt angle uncertainty after gravity vector alignment    <p><b>Reboot required:</b> true</p>
 </td>
@@ -17306,7 +17338,7 @@ table {
  <td>RC channel 10 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC11_DZ">RC11_DZ</strong> (FLOAT)</td>
@@ -17320,7 +17352,7 @@ table {
  <td>RC channel 11 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC11_MIN">RC11_MIN</strong> (FLOAT)</td>
@@ -17344,7 +17376,7 @@ table {
  <td>RC channel 11 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC12_DZ">RC12_DZ</strong> (FLOAT)</td>
@@ -17358,7 +17390,7 @@ table {
  <td>RC channel 12 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC12_MIN">RC12_MIN</strong> (FLOAT)</td>
@@ -17382,7 +17414,7 @@ table {
  <td>RC channel 12 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC13_DZ">RC13_DZ</strong> (FLOAT)</td>
@@ -17396,7 +17428,7 @@ table {
  <td>RC channel 13 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC13_MIN">RC13_MIN</strong> (FLOAT)</td>
@@ -17420,7 +17452,7 @@ table {
  <td>RC channel 13 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC14_DZ">RC14_DZ</strong> (FLOAT)</td>
@@ -17434,7 +17466,7 @@ table {
  <td>RC channel 14 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC14_MIN">RC14_MIN</strong> (FLOAT)</td>
@@ -17458,7 +17490,7 @@ table {
  <td>RC channel 14 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC15_DZ">RC15_DZ</strong> (FLOAT)</td>
@@ -17472,7 +17504,7 @@ table {
  <td>RC channel 15 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC15_MIN">RC15_MIN</strong> (FLOAT)</td>
@@ -17496,7 +17528,7 @@ table {
  <td>RC channel 15 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC16_DZ">RC16_DZ</strong> (FLOAT)</td>
@@ -17510,7 +17542,7 @@ table {
  <td>RC channel 16 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC16_MIN">RC16_MIN</strong> (FLOAT)</td>
@@ -17572,7 +17604,7 @@ table {
  <td>RC channel 17 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC18_DZ">RC18_DZ</strong> (FLOAT)</td>
@@ -17586,7 +17618,7 @@ table {
  <td>RC channel 18 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC18_MIN">RC18_MIN</strong> (FLOAT)</td>
@@ -17800,7 +17832,7 @@ table {
  <td>RC channel 5 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC6_DZ">RC6_DZ</strong> (FLOAT)</td>
@@ -17838,7 +17870,7 @@ table {
  <td>RC channel 6 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC7_DZ">RC7_DZ</strong> (FLOAT)</td>
@@ -17876,7 +17908,7 @@ table {
  <td>RC channel 7 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC8_DZ">RC8_DZ</strong> (FLOAT)</td>
@@ -17914,7 +17946,7 @@ table {
  <td>RC channel 8 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC9_DZ">RC9_DZ</strong> (FLOAT)</td>
@@ -18024,7 +18056,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_AUX3">RC_MAP_AUX3</strong> (INT32)</td>
- <td>AUX3 Passthrough RC channel <p><strong>Comment:</strong> Default function: Camera azimuth / yaw</p> <strong>参数对照:</strong><ul>
+ <td>AUX3 Passthrough RC channel <p><strong>Comment:</strong> Default function: Camera azimuth / yaw</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
 <li><strong>1:</strong> Channel 1</li>
 <li><strong>2:</strong> Channel 2</li>
@@ -18375,7 +18407,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_RSSI_PWM_CHAN">RC_RSSI_PWM_CHAN</strong> (INT32)</td>
- <td>PWM input channel that provides RSSI <p><strong>Comment:</strong> 0: do not read RSSI from input channel 1-18: read RSSI from specified input channel Specify the range for RSSI input with RC_RSSI_PWM_MIN and RC_RSSI_PWM_MAX parameters.</p> <strong>参数对照:</strong><ul>
+ <td>PWM input channel that provides RSSI <p><strong>Comment:</strong> 0: do not read RSSI from input channel 1-18: read RSSI from specified input channel Specify the range for RSSI input with RC_RSSI_PWM_MIN and RC_RSSI_PWM_MAX parameters.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
 <li><strong>1:</strong> Channel 1</li>
 <li><strong>2:</strong> Channel 2</li>
@@ -19099,7 +19131,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="RBCLW_ADDRESS">RBCLW_ADDRESS</strong> (INT32)</td>
- <td>Address of the ESC on the bus <p><strong>Comment:</strong> The ESC has to be configured to have an address from 0x80 to 0x87. This parameter needs to match the configured value.</p> <strong>参数对照:</strong><ul>
+ <td>Address of the ESC on the bus <p><strong>Comment:</strong> The ESC has to be configured to have an address from 0x80 to 0x87. This parameter needs to match the configured value.</p> <strong>Values:</strong><ul>
 <li><strong>128:</strong> 0x80</li>
 <li><strong>129:</strong> 0x81</li>
 <li><strong>130:</strong> 0x82</li>
