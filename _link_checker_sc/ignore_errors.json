@@ -564,5 +564,32 @@
     "type": "OrphanedImage",
     "fileRelativeToRoot": "assets\\simulation\\gazebo_classic\\gazebo_offboard.webm",
     "hideReason": "Its fine"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_fw/mission.html#mission-landing",
+      "text": "fixed-wing landing"
+    },
+    "hideReason": "Expected"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_fw/mission.html",
+      "text": "Mission"
+    },
+    "hideReason": "Expected"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_mc/mission.html",
+      "text": "Mission"
+    },
+    "hideReason": "Expected"
   }
 ]
