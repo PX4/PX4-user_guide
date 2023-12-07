@@ -31,15 +31,14 @@ sudo apt-get install gz-garden
 
 ## Running the Simulation
 
-Gazebo SITL simulation can be conveniently run through a `make` command as shown below:
+The simplest way to start Gazebo SITL simulation is to start the simulation-gazebo script found in the [PX4-gazebo-models repository](https://github.com/PX4/PX4-gazebo-models). This will launch a gz-server instance which can be started with any world and vehicle. You can run the `make` command as shown below:
 
 ```sh
 cd /path/to/PX4-Autopilot
 make px4_sitl gz_x500
 ```
 
-This will run both the PX4 SITL instance and the Gazebo client.
-Note that all gazebo make targets have the prefix `gz_`.
+This will appear the model to appear in the Gazebo GUI. In case you have not started gz-server and run the `make` command, you will see the following warning: `WARN  [gz bridge] Service call timed out as Gazebo has not been detected`. This warning will continue to appear until gazebo has been started and an instance of gz-server is detected by PX4. Note that all gazebo make targets have the prefix `gz_`.
 
 :::note
 If `make px4_sitl gz_x500` gives the error `ninja: error: unknown target 'gz_x500'` then run `make distclean` to start from a clean slate, and try running `make px4_sitl gz_x500` again.
@@ -65,6 +64,16 @@ As a workaround to enable Advanced Plane, you can compile the gz-sim library fro
 
 The commands above launch a single vehicle with the full UI.
 _QGroundControl_ should be able to automatically connect to the simulated vehicle.
+
+### Direct Connection
+It is also possible to connect to Gazebo directly without requiring the launch of a separate gz-server instance. This requires setting the GZ_SIM_RESOURCE_PATH, which should point to a directory containing the desired model. Since there is some path substitution taking place, it is important to let the `GZ_SIM_RESOURCE_PATH` end in `/models`. The make command will then look as follows:
+
+```sh
+GZ_SIM_RESOURCE_PATH=/path/to/directory/containing/models PX4_GZ_SIM=1 make px4_sitl gz_x500
+```
+
+Note that is is important to set the environmental variable `PX4_GZ_SIM` in order to let PX4 know that it should launch a gz-server instance. Furthermore, if you do not set the `GZ_SIM_RESOURCE_PATH` environmental variable, PX4 will throw an error asking you to set the variable. More information concerning the `GZ_SIM_RESOURCE_PATH` can be found [here](https://github.com/gazebosim/gz-sim/blob/gz-sim7/tutorials/resources.md).
+
 
 ### Headless Mode
 
@@ -141,7 +150,7 @@ where `ARGS` is a list of environment variables including:
   - The setting is mutually exclusive with `PX4_GZ_MODEL_NAME`.
 
   :::note
-  The environmental variable `PX4_GZ_MODEL` has been deprecated and its functionality merged into `PX4_SIM_MODEL`. 
+  The environmental variable `PX4_GZ_MODEL` has been deprecated and its functionality merged into `PX4_SIM_MODEL`.
   :::
 
 - `PX4_GZ_MODEL_POSE`:
@@ -163,8 +172,10 @@ where `ARGS` is a list of environment variables including:
   Sets the simulator, which for Gz must be `gz`.
   - This value should be [set for the selected airframe](#adding-new-worlds-and-models), in which case it does not need to be set as an argument.
 
-The PX4 Gazebo worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-Autopilot/tree/main/Tools/simulation/gz).
-They are added to the Gazebo search `PATH` by [gz_env.sh.in](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/gz_bridge/gz_env.sh.in) during the simulation startup phase.
+- `PX4_GZ_SIM`:
+  Lets PX4 know that it should launch an instance of Gazebo.
+
+The PX4 Gazebo worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-gazebo-models).
 
 :::note
 `gz_env.sh.in` is compiled and made available in `$PX4_DIR/build/px4_sitl_default/rootfs/gz_env.sh`
@@ -194,13 +205,13 @@ Here are some examples of the different scenarios covered above.
 
 ## Adding New Worlds and Models
 
-New worlds files can simply be copied into the PX4 Gazebo [world directory](https://github.com/PX4/PX4-Autopilot/tree/main/Tools/simulation/gz/worlds).
+Sdf files, mesh files, textures and anything else to do with the functionality and appearance in Gazebo for worlds and models can be placed in the appropriate `/worlds` and `/models` directories in [PX4-gazebo-models](https://github.com/PX4/PX4-gazebo-models).
+Within PX4 follow the below steps to add models and worlds:
 
 To add a new model:
 
-1. Add an **sdf** file in the PX4 Gazebo [model directory](https://github.com/PX4/PX4-Autopilot/tree/main/Tools/simulation/gz/models).
 1. Define an [airframe configuration file](../dev_airframes/adding_a_new_frame.md).
-1. Define the default parameters for Gazebo in the airframe configuration file (this example is from [x500 quadcopter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/4001_gz_x500)):
+2. Define the default parameters for Gazebo in the airframe configuration file (this example is from [x500 quadcopter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/4001_gz_x500)):
 
    ```ini
    PX4_SIMULATOR=${PX4_SIMULATOR:=gz}
@@ -217,6 +228,11 @@ To add a new model:
      ```sh
      PX4_SYS_AUTOSTART=<your new airframe id> ./build/px4_sitl_default/bin/px4
      ```
+
+To add a new world:
+
+1. Add your world to the list of worlds found [here](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/gz_bridge/worlds_list). This is required in order to allow CMake to generate correct targets.
+
 
 :::note
 As long as the world file and the model file are in the Gazebo search path `GZ_SIM_RESOURCE_PATH` it is not necessary to add them to the PX4 world and model directories.
