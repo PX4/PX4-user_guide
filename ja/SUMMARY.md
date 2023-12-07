@@ -474,6 +474,7 @@
       * [GimbalManagerSetAttitude](msg_docs/GimbalManagerSetAttitude.md)
       * [GimbalManagerSetManualControl](msg_docs/GimbalManagerSetManualControl.md)
       * [GimbalManagerStatus](msg_docs/GimbalManagerStatus.md)
+      * [GotoSetpoint](msg_docs/GotoSetpoint.md)
       * [GpioConfig](msg_docs/GpioConfig.md)
       * [GpioIn](msg_docs/GpioIn.md)
       * [GpioOut](msg_docs/GpioOut.md)

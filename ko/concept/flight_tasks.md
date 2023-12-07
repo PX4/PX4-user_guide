@@ -93,11 +93,15 @@ The instructions below might be used to create a task named _MyTask_:
 6. Add the new task to the list of tasks to be built in [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/CMakeLists.txt#L40):
 
    ```cmake
-   list(APPEND flight_tasks_to_add
-      Orbit
-      MyTask
-   )
-   )
+   ...
+   if(NOT px4_constrained_flash_build)
+    list(APPEND flight_tasks_all
+     AutoFollowTarget
+     Orbit
+     MyTask
+    )
+   endif()
+   ...
    ```
 
 7. 작업이 호출되도록 비행 모드를 업데이트합니다. 일반적으로, 매개변수는 특정 비행 작업을 사용해야 하는 시기를 선택합니다.
@@ -111,9 +115,10 @@ The instructions below might be used to create a task named _MyTask_:
       * @value 0 Direct velocity
       * @value 3 Smoothed velocity
       * @value 4 Acceleration based
+      * @value 5 My task
       * @group Multicopter Position Control
       */
-     PARAM_DEFINE_INT32(MPC_POS_MODE, 4);
+     PARAM_DEFINE_INT32(MPC_POS_MODE, 5);
      ```
 
    - `_param_mpc_pos_mode`에 올바른 값이 있을 때 작업을 활성화하려면 [FlightModeManager.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/FlightModeManager.cpp#L266-L285) 매개변수의 스위치에 새 옵션에 대한 사례를 추가하십시오.
@@ -140,20 +145,36 @@ The instructions below might be used to create a task named _MyTask_:
 비행 작업을 테스트하려면, 작업이 활성화된 상태에서 기체를 실행하여야 합니다. For the example above, this means setting the parameter `MPC_POS_MODE` to 5, taking off, and switching the vehicle to [Position mode](../flight_modes_mc/position.md).
 
 :::note
-위에 정의된 작업은 시뮬레이터에서만 테스트하여야 합니다. 코드는 실제로 설정값을 생성하지 않으므로 기체는 비행하지 않습니다.
+위에 정의된 작업은 시뮬레이터에서만 테스트하여야 합니다.
+코드는 실제로 설정값을 생성하지 않으므로 기체는 비행하지 않습니다.
 :::
+
+Build SITL simulation (gazebo-classic)
+
+```sh
+make px4_sitl gazebo-classic
+```
+
+Open QGroundControl (if not open, no message information will be printed out). In the console, takeoff and switch to Position mode:
+
+```sh
+pxh> commander takeoff
+pxh> commander mode posctl
+```
+
+The console will continuously display: `INFO [FlightTaskMyTask] FlightTaskMyTask update was called!`. If you want to change to another flight mode, you can type a command to change the mode, such as `commander mode altctl`.
 
 ## 비디오
 
 다음 비디오는 PX4의 비행 작업에 대한 개요를 제공합니다. 첫 번째는 PX4 v1.9의 비행 작업 프레임워크 상태를 다룹니다. 두 번째는 PX4 v1.11의 변경 사항을 다루는 업데이트입니다.
 
-#### PX4 Flight Task Architecture 개요(PX4 개발자 회의 2019)
+### PX4 Flight Task Architecture 개요(PX4 개발자 회의 2019)
 
 PX4 v1.9의 비행 모드 작동 방식 설명(Dennis Mannhart, Matthias Grob).
 
 @[유투브](https://youtu.be/-dkQG8YLffc) <!-- datestamp:video:youtube:20190704:PX4 Flight Task Architecture Overview — PX4 Developer Summit 2019 -->
 
-#### 센서에서 모터에 이르는 멀티콥터 제어 개요(PX4 가상 개발자 회의 2020)
+### 센서에서 모터에 이르는 멀티콥터 제어 개요(PX4 가상 개발자 회의 2020)
 
 @[유투브](https://youtu.be/orvng_11ngQ?t=560) <!-- datestamp:video:youtube:20200720:Overview of multicopter control from sensors to motors — PX4 Developer Summit Virtual 2020 From 9min20sec - Section on flight tasks-->
 
