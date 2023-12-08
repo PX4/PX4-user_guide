@@ -42,6 +42,7 @@ TBD ...
 - [Gazebo] The environment variable `PX4_SIM_MODEL` can now be used to indicate the simulation model.
   This supersedes `PX4_GZ_MODEL`, which is now deprecated.
   Added to PX4 in [PX4-Autopilot#22400](https://github.com/PX4/PX4-Autopilot/pull/22400).
+- [Gazebo] Separation of Gazebo and PX4. The two are now separated entirely and should be launched independently. It retains all functionality it previously had and now also supports drag-and-drop via the resource spawner in Gazebo GUI.
 
 ### uXRCE-DDS / ROS2
 
