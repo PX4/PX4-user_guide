@@ -23,9 +23,9 @@ There are also several arguments that can be passed to the simulation-gazebo scr
 
 `--world` A string variable that names the sdf file which runs the simulation world. Default argument is "default", which links to the default world.
 
-`--gz_partition` A string variable that sets the gazebo partition to run in (more information [here]([https://gazebosim.org/api/transport/13/envvars.html))
+`--gz_partition` A string variable that sets the gazebo partition to run in (more information [here](https://gazebosim.org/api/transport/13/envvars.html))
 
-`--gz_ip` A string variable that sets the IP of the outgoing network interface (more information [here]([https://gazebosim.org/api/transport/13/envvars.html))
+`--gz_ip` A string variable that sets the IP of the outgoing network interface (more information [here](https://gazebosim.org/api/transport/13/envvars.html))
 
 `--interactive` A boolean variable that requires the ability to run the code in interactive mode, allowing for custom paths for `--model_download_source`. If this is not set, `--model_download_source` will only download from the default Github repo.
 
