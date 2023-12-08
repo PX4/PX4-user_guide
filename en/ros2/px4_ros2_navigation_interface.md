@@ -96,7 +96,7 @@ The following steps are required to get started:
 
 ## How to Use the Library
 
-To send position measurement, populate a struct with the fields you have measured.
+To send a position measurement, populate a struct with the fields you have measured.
 Then call the interface’s update function with that struct as the argument.
 
 :::note
@@ -112,7 +112,7 @@ To send a local position measurement to PX4:
 2. Populate a `LocalPositionMeasurement` [struct](https://auterion.github.io/px4-ros2-interface-lib/structpx4__ros2_1_1LocalPositionMeasurement.html) with your measurements.
 3. Pass the struct to the `LocalPositionMeasurementInterface`'s [update](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1LocalPositionMeasurementInterface.html#a6fd180b944710716d418b2cfe1c0c8e3) method.
 
-The available pose and velocity reference frames for your measurements are defined by the following `enum`'s:
+The available pose and velocity reference frames for your measurements are defined by the following `enum`s:
 ```cpp
 enum class PoseFrame
 {
