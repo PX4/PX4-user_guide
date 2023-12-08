@@ -16,8 +16,6 @@ The library provides two high-level interfaces for developers:
 
 <!--
 ## Overview
-
-TODO: Needed?
 -->
 
 ## Installation in a ROS 2 Workspace
@@ -41,14 +39,12 @@ To get started using the library within an existing ROS 2 workspace:
 
    ```sh
    cd ..
-   source install/setup.bash
    colcon build
+   source install/setup.bash
    ```
 
 <!--
 ## How to Use the Library
-
-TODO: Maybe not needed here. Could keep it in the individual interface pages.
 -->
 
 ## CI: Integration Tests

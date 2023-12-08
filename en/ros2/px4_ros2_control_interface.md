@@ -115,8 +115,8 @@ The following steps are required to get started:
 
    ```sh
    cd ..
-   source install/setup.bash
    colcon build
+   source install/setup.bash
    ```
 
 4. In a different shell, start PX4 SITL:
