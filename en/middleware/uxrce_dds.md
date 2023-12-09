@@ -199,7 +199,7 @@ When working with real hardware, the setup depends on the hardware, OS, and chan
 For example, if you're using the RasPi `UART0` serial port, you might connect using this command (based on the information in [Raspberry Pi Documentation > Configuring UARTS](https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts)):
 
 ```sh
-sudo MicroXRCEAgent serial --dev /dev/AMA0 -b 921600
+sudo MicroXRCEAgent serial --dev /dev/ACM0 -b 921600
 ```
 
 :::note
