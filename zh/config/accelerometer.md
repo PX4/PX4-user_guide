@@ -1,9 +1,9 @@
-# Accelerometer Calibration
+# 加速度计校准
 
-You will need to calibrate your accelerometer on first use or if the flight controller orientation is changed. Otherwise you should not need to recalibrate (except perhaps in winter, if you have a flight controller that was not [thermally calibrated](../advanced_config/sensor_thermal_calibration.md) in the factory).
+您需要在首次使用时，或者如果飞行控制器方向改变时，校准您的加速计。 否则您不需要重新校正(除非可能在冬季， 如果你有一个飞行控制器，在工厂中没有 [的热校准](../advanced_config/sensor_thermal_calibration.md)
 
 :::note
-Poor accelerometer calibration is generally caught by preflight checks and arming-denied messages (QGC warnings typically refer to "high accelerometer bias" and "consistency check failures").
+加速计校准效果不佳，通常通过飞行前检查和防护被拒绝的消息捕获(典型的QGC 警告提示“高加速计偏差”和“一致性检查失败”)。
 :::
 
 _QGroundControl_ will guide you to place and hold your vehicle in a number of orientations (you will be prompted when to move between positions).

@@ -1,6 +1,6 @@
 # 避障功能
 
-*自主避障* 可以使飞机在沿预定路线前进时，能够自动绕开障碍物。
+*自主避障* 可以使载具在沿预定路线前进时，能够自动绕开障碍物。
 
 该功能需要运行计算机视觉软件的机载计算机。 该软件对期望路线重新规划，在导航绕开障碍物，并选取最佳路径。
 
@@ -13,7 +13,7 @@
 - 自主避障的最大速度当前约为 3m/s（由于计算避障路径的开销）。
 
 :::note
-Obstacle avoidance can use the _local planner_ (emits messages at ~30Hz and can move at around 3 m/s) or _global planner_ (emits messages at ~10Hz and mission speed with obstacle avoidance is around 1-1.5 m/s).
+避障可以使用 _局部规划器_ 以约 30Hz 的速度发出消息，并且以约 3m/s的速度移动）或全局规划器（以约 10Hz 和任务速度发出消息，自主避障速度约为 1-1.5 m/s）。
 :::
 
 <a id="offboard_mode"></a>
