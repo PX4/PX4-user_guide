@@ -31,14 +31,29 @@ sudo apt-get install gz-garden
 
 ## Running the Simulation
 
-The simplest way to start Gazebo SITL simulation is to start the simulation-gazebo script found in the [PX4-gazebo-models repository](https://github.com/PX4/PX4-gazebo-models). This will launch a gz-server instance which can be started with any world and vehicle. You can run the `make` command as shown below:
+Gazebo SITL simulation can be conveniently run through a `make` command as shown below:
 
 ```sh
 cd /path/to/PX4-Autopilot
 make px4_sitl gz_x500
 ```
 
-This will appear the model to appear in the Gazebo GUI. In case you have not started gz-server and run the `make` command, you will see the following warning: `WARN  [gz bridge] Service call timed out as Gazebo has not been detected`. This warning will continue to appear until gazebo has been started and an instance of gz-server is detected by PX4. Note that all gazebo make targets have the prefix `gz_`.
+This will run both the PX4 SITL instance and the Gazebo client.
+Note that all gazebo make targets have the prefix `gz_`.
+
+Another way that Gazebo SITL can be connected is in standalone mode. This means that PX4 and Gazebo will be started in separate terminals. You can start PX4 with:
+
+```sh
+cd /path/to/PX4-Autopilot
+GZ_PX4_STANDALONE=1 make px4_sitl gz_x500
+```
+
+In case you have not started gz-server and run the `make` command, you will see the following warning: `WARN  [gz bridge] Service call timed out as Gazebo has not been detected`. This warning will continue to appear until gazebo has been started and an instance of gz-server is detected by PX4. The simplest way to start the simulation is to run the `simulation-gazebo` script found in the [PX4-gazebo-models repository](https://github.com/PX4/PX4-gazebo-models). This will launch a gz-server instance which can be started with any world and vehicle. For more information and arguments, checkout the [sub-page](./gazebo-models.md). The script can be started with:
+
+```sh
+cd /path/to/PX4-gazebo-models
+python3 simulation-gazebo
+```
 
 :::note
 If `make px4_sitl gz_x500` gives the error `ninja: error: unknown target 'gz_x500'` then run `make distclean` to start from a clean slate, and try running `make px4_sitl gz_x500` again.
@@ -64,15 +79,6 @@ As a workaround to enable Advanced Plane, you can compile the gz-sim library fro
 
 The commands above launch a single vehicle with the full UI.
 _QGroundControl_ should be able to automatically connect to the simulated vehicle.
-
-### Direct Connection
-It is also possible to connect to Gazebo directly without requiring the launch of a separate gz-server instance. This requires setting the GZ_SIM_RESOURCE_PATH, which should point to a directory containing the desired model. Since there is some path substitution taking place, it is important to let the `GZ_SIM_RESOURCE_PATH` end in `/models`. The make command will then look as follows:
-
-```sh
-GZ_SIM_RESOURCE_PATH=/path/to/directory/containing/models PX4_GZ_SIM=1 make px4_sitl gz_x500
-```
-
-Note that is is important to set the environmental variable `PX4_GZ_SIM` in order to let PX4 know that it should launch a gz-server instance. Furthermore, if you do not set the `GZ_SIM_RESOURCE_PATH` environmental variable, PX4 will throw an error asking you to set the variable. More information concerning the `GZ_SIM_RESOURCE_PATH` can be found [here](https://github.com/gazebosim/gz-sim/blob/gz-sim7/tutorials/resources.md).
 
 
 ### Headless Mode
@@ -172,8 +178,11 @@ where `ARGS` is a list of environment variables including:
   Sets the simulator, which for Gz must be `gz`.
   - This value should be [set for the selected airframe](#adding-new-worlds-and-models), in which case it does not need to be set as an argument.
 
-- `PX4_GZ_SIM`:
-  Lets PX4 know that it should launch an instance of Gazebo.
+- `PX4_GZ_STANDALONE`:
+  Lets PX4 know that it should not launch an instance of Gazebo.
+
+- `PX4_GZ_OVERWRITE`:
+  This environmental varialbes allows you to download the newest set of models and worlds from PX4-gazebo-models. All worlds and models are stored in `~/.simulation-gazebo` and are accessed by PX4 at runtime. Without setting this variable, the models will only be downloaded once at the beginning and then never again. If a model or a file has changed on PX4-gazebo-models then you might want to update the models and worlds to the newest versions and that is when this variable can be used.
 
 The PX4 Gazebo worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-gazebo-models).
 
@@ -201,6 +210,18 @@ Here are some examples of the different scenarios covered above.
 
    ```sh
    PX4_SYS_AUTOSTART=4001 PX4_GZ_MODEL_NAME=x500 ./build/px4_sitl_default/bin/px4
+   ```
+
+4. **Start simulator in standalone mode + connect to Gazebo instance running default world**
+
+   ```sh
+   PX4_GZ_STANDALONE=1 PX4_SYS_AUTOSTART=4001 PX4_SIM_MODEL=gz_x500 ./build/px4_sitl_default/bin/px4
+   ```
+
+   In a separate terminal run:
+
+   ```sh
+   python simulation-gazebo --world default
    ```
 
 ## Adding New Worlds and Models
