@@ -38,7 +38,7 @@ To install the toolchain:
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
 
-   Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html) :::tip The _daily build_ includes development tools that hidden in release builds. It may also provide access to new PX4 features that are not yet supported in release builds.
+   Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html) :::tip The _daily build_ includes development tools that hidden in release builds. It may also provide access to new PX4 features that are not yet supported in release builds.
 :::
 
 1. Run the **ubuntu.sh** with no arguments (in a bash shell) to install everything:
