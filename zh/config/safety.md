@@ -2,12 +2,12 @@
 
 PX4有许多安全功能，可以在发生故障时保护并恢复您的机体：
 
-- _Failsafes_ allow you to specify areas and conditions under which you can safely fly, and the [action](#failsafe-actions) that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point). The most important failsafe settings are configured in the _QGroundControl_ [Safety Setup](#qgroundcontrol-safety-setup) page. Others must be configured via [parameters](#other-safety-settings).
-- [Safety switches](#emergency-switches) on the remote control can be used to immediately stop motors or return the vehicle in the event of a problem.
+- _故障保护_允许您指定可以安全飞行的区域和条件，以及在触发故障保护时将执行的[操作](#failsafe-actions)（例如着陆、定点悬停或返回指定点）。 最重要的故障保护设置在 _QGroundControl_ 的[安全设置](#qgroundcontrol-safety-setup)页面中配置。 其他设置必须通过[参数](#other-safety-settings)页面配置。
+- [安全开关](#emergency-switches) 在遥控器上可以用于立即停止发动机或在出现问题时返回车辆。
 
 ## 故障保护动作
 
-When a failsafe is triggered, the default behavior (for most failsafes) is to enter Hold for [COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T) seconds before performing an associated failsafe action. This gives the user time to notice what is happening and override the failsafe if needed. In most cases this can be done by using RC or a GCS to switch modes (note that during the failsafe-hold, moving the RC sticks does not trigger an override).
+当触发故障安全时， 默认行为 (大多数失败安全) 是在执行相关故障安全动作之前输入 [COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T) 秒钟。 This gives the user time to notice what is happening and override the failsafe if needed. In most cases this can be done by using RC or a GCS to switch modes (note that during the failsafe-hold, moving the RC sticks does not trigger an override).
 
 The list below shows the set of all failsafe actions, ordered in increasing severity. Note that different types of failsafe may not support all of these actions.
 
@@ -275,35 +275,42 @@ A kill switch immediately stops all motor outputs (and if flying, the vehicle wi
 
 ### 解锁/上锁开关
 
-The arm/disarm switch is a _direct replacement_ for the default stick-based arming/disarming mechanism (and serves the same purpose: making sure there is an intentional step involved before the motors start/stop). It might be used in preference to the default mechanism because:
+解锁/上锁开关是对默认杆状安全开关机制的_直接替换_（二者作用相同：确保在电机启动/停止之前有一个需要用户留意的步骤）。 它可能优先于默认机制使用，原因如下：
 
 - 这种机制偏向于切换动作而不是持续运动。
 - 这种机制可以避免因为某种意外误触而引发的飞行期间解锁/上锁。
 - 这种机制没有延迟（立即作出反应）。
 
-The arm/disarm switch immediately disarms (stop) motors for those [flight modes](../getting_started/flight_modes.md) that _support disarming in flight_. This includes:
+对于那些_支持在飞行期间上锁_的
+
+飞行模式<1>，解锁/上锁开关会立即上锁（制动）电机。 其中包括：</p> 
 
 - _手动模式_
 - _特技模式_
 - _自稳模式_
 
-For modes that do not support disarming in flight, the switch is ignored during flight, but may be used after landing is detected. This includes _Position mode_ and autonomous modes (e.g. _Mission_, _Land_ etc.).
+对于不支持在飞行期间上锁的模式，在飞行期间会忽略该开关信号，但在检测到着陆后可以使用该开关。 不支持飞行期间上锁的模式包括_定点模式_和自主模式（例如_任务模式_、_降落模式_等）。
 
 :::note
 [Auto disarm timeouts](#auto-disarming-timeouts) (e.g. via [COM_DISARM_LAND](#COM_DISARM_LAND)) are independent of the arm/disarm switch - ie even if the switch is armed the timeouts will still work.
 :::
-
 
 <!--
 **Note** This can also be done by [manually setting](../advanced_config/parameters.md) the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter to the corresponding switch RC channel.
   If the switch positions are reversed, change the sign of the parameter [RC_ARMSWITCH_TH](../advanced_config/parameter_reference.md#RC_ARMSWITCH_TH) (or also change its value to alter the threshold value).
 -->
 
+
+
 ### 返航开关
 
 A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
 
+
+
 ## 其他安全设置
+
+
 
 ### 超时自动上锁
 
@@ -315,6 +322,9 @@ The [relevant parameters](../advanced_config/parameters.md) are shown below:
 | ---------------------------------------------------------------------------------------------------------- | ----------------- |
 | <a id="COM_DISARM_LAND"></a>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | 降落后自动上锁的超时时间。     |
 | <a id="COM_DISARM_PRFLT"></a>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | 如果起飞速度太慢，将启动自动上锁。 |
+
+
+
 
 ## 更多信息
 
