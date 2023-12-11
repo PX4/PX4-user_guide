@@ -1,17 +1,17 @@
 # Visual Studio Code IDE (VSCode)
 
-[Visual Studio Code](https://code.visualstudio.com/) is a powerful cross-platform source code editor/IDE that can be used for PX4 development on Ubuntu 18.04 LTS and macOS (Windows support coming soon).
+[Visual Studio Code](https://code.visualstudio.com/) 是一个强大的跨平台源代码编辑器/IDE，可用于在 Ubuntu 18.04  LTS 和 macOS (即将提供Windows支持)的 PX4 开发。
 
-There are a number of reasons to use VSCode for PX4 development:
+使用 VSCode 进行PX4 开发的原因：
 
-- Getting setup _really_ only takes a few minutes.
-- A rich extension ecosystem that enables a huge range of tools needed for PX4 development: C/C++ (with solid _cmake_ integration), _Python_, _Jinja2_, ROS messages, and even UAVCAN dsdl.
-- Excellent Github integration.
+- 仅需数分钟即可完成设置
+- 丰富的扩展生态系统，能够用于PX4开发所需的大量工具：C/C++ (有固体的 _cmake_ 整合)， _Python_, _Jinja2_, ROS消息, 甚至UAVCAN dsdl.
+- 非常好的Github 集成功能
 
-This topic explains how to setup the IDE and start developing.
+本主题解释了如何设置IDE并开始开发。
 
 :::note
-There are other powerful IDEs, but they typically take more effort to integrate with PX4. With _VScode_, configuration is stored in the PX4/PX4-Autopilot tree ([PX4-Autopilot/.vscode](https://github.com/PX4/PX4-Autopilot/tree/main/.vscode)) so the setup process is as simple as adding the project folder.
+还有其他强大的IDE，但它们通常需要更多的努力与 PX4 集成。 使用 _VScode_的配置存储在 PX4/PX4-Autopilot 树中([PX4-Autopilot/vscode](https://github.com/PX4/PX4-Autopilot/tree/main/.vscode)因此安装过程像添加项目文件夹一样简单。
 :::
 
 ## 前置条件
