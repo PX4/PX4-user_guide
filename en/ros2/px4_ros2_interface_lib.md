@@ -193,6 +193,8 @@ The following steps are required to get started:
 The following sections describe specific functionality provided by this library.
 In addition, any other PX4 topic can be subscribed or published.
 
+Detailed API usage can be found here: https://auterion.github.io/px4-ros2-interface-lib/modules.html
+
 ### Mode Class Definition
 
 This section steps through an example of how to create a class for a custom mode.
