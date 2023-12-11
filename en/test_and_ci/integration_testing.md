@@ -9,6 +9,11 @@ Use the ROS-based integration test framework for use cases that _require_ ROS (e
 All PX4 integraton tests are executed automatically by our [Continuous Integration](../test_and_ci/continous_integration.md) system.
 :::
 
+:::note
+This page is about MAVROS integration tests.
+If you are looking for PX4 ROS 2 Interface Library integration tests, see [here](../ros2/px4_ros2_interface_lib.md#ci-integration-tests).
+:::
+
 ## Prerequisites:
 
 - [jMAVSim Simulator](../sim_jmavsim/README.md)
