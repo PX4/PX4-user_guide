@@ -51,31 +51,31 @@ VIO使用[视觉里程计](https://en.wikipedia.org/wiki/Visual_odometry)从视�
 - [光流](../sensor/optical_flow.md)
 - [EKF > 光流](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
 
-## Comparisons
+## 比较
 
-### Optical Flow vs VIO for Local Position Estimation
+### 本地位置估计 光学流 对 VIO
 
-Both these techniques use cameras and measure differences between frames. Optical flow uses a downward facing camera, while VIO uses a stereo camera or a 45 degree tracking camera. Assuming both are well calibrated, which is better for local position estimation?
+这两种技术都使用照相机并测量帧之间的差异。 光学流使用向下照相机，而VIO则使用立体照相机或45度跟踪照相机。 假定两者的校准都很好，哪个对本地地位置估计更好？
 
-The consensus [appears to be](https://discuss.px4.io/t/vio-vs-optical-flow/34680):
+[的共识似乎是](https://discuss.px4.io/t/vio-vs-optical-flow/34680)
 
 Optical flow:
 
-- Downward facing optical flow gives you a planar velocity thats corrected for angular velocity with the gyro.
-- Requires an accurate distance to the ground and assumes a planar surface. Given those conditions it can be just as accurate/reliable as VIO (such as indoor flight)
-- Is more robust than VIO as it has fewer states.
-- Is significantly cheaper and easier to set up as it only requires a flow sensor, a rangefinder, and setting up a few parameters (which can be connected to the flight controller).
+- 向下光学流使得你能够通过陀螺仪的角速度来校正角平面速度。
+- 需要准确的地面距离并假定地面为平面。 在这种情况下，它可能与VIO一样准确可靠(例如室内飞行)
+- 它比VIO更健壮，因为它的状态较少。
+- 更便宜和更容易设置，因为它只需要一个流传感器，一个范围探测器。 并设置几个参数（可以连接到飞行控制器）。
 
-VIO:
+VIO
 
-- Is more expensive to purchase and harder to set up. It requires a separate companion computer, calibration, software, configuration and so on.
-- Will be less effective if there are no point features to track (in practice the real world generally has point features).
-- Is more flexible, allowing additional features such as obstacle avoidance and mapping.
+- 购买更加昂贵，设置更加困难。 它需要一台单独的配套计算机、校准、软件、配置等等。
+- 如果没有可跟踪的点特征（实际上现实世界一般有点特征），效果将会减弱。
+- 较为灵活，可以增加诸如避免障碍和制图等其他功能。
 
-A combination (fusing both) is probably the most reliable, though not necessary in most real-world scenarios. Normally you will select the system that suits your operating environment, required features, and cost constraints:
+组合(两者兼用)可能是最可靠的，但在大多数现实世界的情景中并不必要。 通常您将选择适合您的运行环境、所需功能和成本限制的系统：
 
-- Use VIO if you plan on flying outdoors without GPS (or outdoors and indoors), or if you need to support obstacle avoidance and other computer vision features.
-- Use Optical Flow if you plan on only flying indoors (without GPS) and cost is an important consideration.
+- 如果您打算在没有GPS的情况下在室外飞行（或室外和室内飞行），请使用 VIO 或者如果您需要支持避障碍和其他计算机视觉特性。
+- 如果您只计划在室内飞行（不使用 GPS），且成本是一个重要的考虑因素，使用Optical Flow。
 
 ## 外部资源
 
