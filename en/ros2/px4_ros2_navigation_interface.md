@@ -266,7 +266,7 @@ public:
 
          // Send measurement to PX4 using the interface [3]
          try {
-            _global_position_measurement_interface->update(local_position_measurement);
+            _global_position_measurement_interface->update(global_position_measurement);
          } catch (const px4_ros2::NavigationInterfaceInvalidArgument & e) {
             // Handle exceptions caused by invalid global_position_measurement definition
             RCLCPP_ERROR(get_logger(), "Exception caught: %s", e.what());
