@@ -7,18 +7,19 @@ PX4使用计算机视觉系统(主要在[机载计算机](../companion_computer/
 - [光流](#optical_flow)提供 2D 速度估计（使用向下的相机和向下的距离传感器）。
 - [运动捕捉](#motion-capture)使用载具_外部_的视觉系统进行3D姿态估计。 它主要用于室内导航。
 - [视觉惯性测距 （VIO）](#visual-inertial-odometry-vio) 使用机载视觉系统和 IMU 来提供 3D 姿态和速度估计。 用于在GNSS位置信息不存在或不可靠时的导航。
-- [Obstacle Avoidance](https://docs.px4.io/en/computer_vision/obstacle_avoidance.html) provides navigation around obstacles when flying a planned path (currently missions are supported). This uses [PX4/avoidance](https://github.com/PX4/avoidance) running on a companion computer. 利用机载计算机上运行的[PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance)
-- [Collision Prevention](https://docs.px4.io/en/computer_vision/collision_prevention.html) is used to stop vehicles before they can crash into an obstacle (primarily when flying in manual modes).
+- [避障](../computer_vision/obstacle_avoidance.md) 为飞行计划路径时，提供完整的障碍绕行导航（支持当前任务）。 这将使用运行在同伴计算机上的[PX4/PX4-avoidance](https://github.com/PX4/PX4-Avoidance) 。
+- [防碰](../computer_vision/collision_prevention.md)用于载具在撞到障碍物之前刹车（主要是在手动模式下飞行时）。
 
-Motion Capture (MoCap) is a technique for estimating the 3D *pose* (position and orientation) of a vehicle using a positioning mechanism that is *external* to the vehicle. MoCap systems most commonly detect motion using infrared cameras, but other types of cameras, Lidar, or Ultra Wideband (UWB) may also be used. It comes with no pre-installed software, but does include an example implementation of obstacle avoidance to demonstrate the capabilities of the platform.
+:::tip
+[PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) (Holybro) 是一个健壮且不贵的工具包，供开发者在 PX4 上使用计算机视觉技术。 它提供了无需预先安装的软件，且包含一个为展示平台能力而实现的避障实例。
 :::
 
 ## 运动捕捉
 
-Motion Capture (MoCap) is a technique for estimating the 3D _pose_ (position and orientation) of a vehicle using a positioning mechanism that is _external_ to the vehicle. MoCap systems most commonly detect motion using infrared cameras, but other types of cameras, Lidar, or Ultra Wideband (UWB) may also be used.
+运动捕捉（MoCap）是一种利用载具_外部_定位设备估计载具3D _姿态_（位置和方向）的技术。 MoCap 系统最常使用红外相机检测运动，但也可以使用其他类型的相机，激光雷达或者超宽带 （UWB）。
 
 :::note
-MoCap is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors), and provides position relative to a _local_ coordinate system. 它通常用于在GPS不存在（例如室内）或不可靠的情况下（例如在桥下飞行时）导航载具。
+MoCap 通常用于无GPS的情况下进行载具的导航(例如室内)，并提供在本地坐标系下的相对位置。 它通常用于在GPS不存在（例如室内）或不可靠的情况下（例如在桥下飞行时）导航载具。
 
 有关 MoCap 的信息，请参阅：
 
@@ -28,12 +29,12 @@ MoCap is commonly used to navigate a vehicle in situations where GPS is absent (
 
 ## 视觉惯性里程计（VIO）
 
-Visual Inertial Odometry (VIO) is used for estimating the 3D _pose_ (position and orientation) and _velocity_ of a moving vehicle relative to a _local_ starting position. 它通常用于在 GPS 不存在（例如室内）或不可靠的情况下（例如在桥下飞行时）给无人机导航。
+视觉惯性里程计（VIO）被用于估计运动载具相对于本地起始位置的3D_姿态_（位置和方向）和_速度_。 它通常用于在 GPS 不存在（例如室内）或不可靠的情况下（例如在桥下飞行时）给载具导航。
 
-VIO uses [Visual Odometry](https://en.wikipedia.org/wiki/Visual_odometry) to estimate vehicle _pose_ from visual information, combined with inertial measurements from an IMU (to correct for errors associated with rapid vehicle movement resulting in poor image capture).
+VIO使用[视觉里程计](https://en.wikipedia.org/wiki/Visual_odometry)从视觉信息估计载具的_姿态_，融合来自IMU的惯性测量（以校正载具快速移动导致不良图像捕获）。
 
 :::note VIO
-和 [MoCap](#mocap) 之间的区别在于 VIO 相机或者 IMU 是基于无人机的，并且额外提供速度信息。
+和 [MoCap](#motion-capture) 之间的一个区别是，VIO 照相机/IMU 是基于载具的，并且还提供了速度信息。
 :::
 
 关于在 PX4 上配置 VIO 的信息，请参阅：
