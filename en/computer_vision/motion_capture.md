@@ -15,5 +15,5 @@ The main difference is that in VIO the vision system runs on the vehicle, and ad
 For information about MoCap see:
 
 - [Using Vision or Motion Capture Systems for Position Estimation](../ros/external_position_estimation.md). <!-- bring across info into user guide? -->
-- [Flying with Motion Capture (VICON, Optitrack)](../tutorials/motion-capture.md). <!-- bring across info into user guide? -->
+- [Flying with Motion Capture (VICON, NOKOV, Optitrack)](../tutorials/motion-capture.md). <!-- bring across info into user guide? -->
 - [EKF > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
