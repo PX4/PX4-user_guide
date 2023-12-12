@@ -604,6 +604,7 @@
       * [VehicleTorqueSetpoint](msg_docs/VehicleTorqueSetpoint.md)
       * [VehicleTrajectoryBezier](msg_docs/VehicleTrajectoryBezier.md)
       * [VehicleTrajectoryWaypoint](msg_docs/VehicleTrajectoryWaypoint.md)
+      * [VelocityLimits](msg_docs/VelocityLimits.md)
       * [VtolVehicleStatus](msg_docs/VtolVehicleStatus.md)
       * [WheelEncoders](msg_docs/WheelEncoders.md)
       * [Wind](msg_docs/Wind.md)
