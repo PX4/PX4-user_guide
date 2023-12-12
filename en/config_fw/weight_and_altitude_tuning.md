@@ -23,7 +23,7 @@ From the steady state equations of motions of an airplane we find that the maxim
 
 $$ \dot{h}_{max} = { V * ( Thrust - Drag ) \over{m*g}}  $$
 
-where V is the true airspeed and m is the vehicle mass. As the vehicle weight appears linearly in the denominator we scaling is straightforward. The air density affects the airspeed, the thrust and the drag and modelling this effects is not straight forward. However, we can refer to literature and experience, which suggest that for a propeller airplane the maximum climb rate reduces approximately linear with the air density. Therefore, we can write the maximum climb rate as
+where V is the true airspeed and m is the vehicle mass. Therefore, we can write the maximum climb rate as
 
 
 $$ \dot{h}_{max} = \hat{\dot{h}}_{max} * {m_{base} \over{m_{gross}}} $$
