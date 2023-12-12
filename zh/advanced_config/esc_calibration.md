@@ -1,32 +1,31 @@
 # 电调（ESC）校准
 
 :::note
-These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md) and [OneShot ESCs](../peripherals/oneshot.md). [DShot](../peripherals/dshot.md) and [CAN](../can/README.md) ESCs ([DroneCAN](../dronecan/escs.md)/Cyphal) do not require this kind of calibration.
+此处指定仅限于[PWM ESCs](../peripherals/pwm_escs_and_servo.md) 和 [OneShot ESCs](../peripherals/oneshot.md). [DShot](../peripherals/dshot.md) and [CAN](../can/README.md) ESCs ([DroneCAN](../dronecan/escs.md)/Cyphal) 不需要这种校准。
 :::
 
-Electronic Speed Controllers (ESCs) regulate motor speed (and direction) based on their input command from the flight controller (FC). The range of input commands to which an ESC will respond is often configurable, and the default range can differ even between ESCs of the same model.
+电子速度控制器(ESC)根据飞行控制器的输入指令（FC）调节电机的速度（和方向）。 电调响应的输入范围是可配置的，甚至同一型号的不同电调之间的默认范围也是不同的。
 
-This calibration updates all the ESCs with a fixed maximum (2000us) and minimum (1000us) PWM input from the flight controller. Subsequently all the ESCs/motors on the vehicle will respond to flight controller input in the same way, across the whole input range.
+此校准将使用来自飞行控制器的固定最大值 (2000us) 和最小值 (1000us) PWM 输入更新所有ESC。 因此，载具上的所有ESC/电机都将以同样的方式在整个输入范围内响应飞行控制器的输入。
 
-Calibration using this tool is recommended for all PWM/OneShot ESCs that support it.
+建议使用此工具校准支持它的所有 PWM/OneShot ESC。
 
 :::note
-Calibration is particularly important for low-cost ESC, as they commonly vary a lot in their response to input.
+校准对于低成本的 ESC具有特别重要的意义，因为它们通常在响应输入时会有很多变化。
 
-However it is also recommended for high-quality controllers. Even though these are factory calibrated and should all respond the same way, in practice the input range can differ. For example if a controller has been manually calibrated after leaving the factory it may no longer behave in the same way.
+然而，也建议为高质量的控制员提供这种校准。 即使这些都是工厂校准的，而且都应以同样的方式作出反应，但实际上输入范围可能有所不同。 例如，如果控制器在离开工厂后被手动校准，它可能不再以同样的方式动作。
 :::
 
-:::warning
-If you want to use an ESC that does not support this calibration, then it must be factory calibrated and respond consistently out of the box. This should be verified using [Actuator Testing](../config/actuators.md#actuator-testing). Jump to the [actuator configuration step (7)](#actuatorconfig_step) (which is still important).
+:::警告 如果您想使用不支持此校准的 ESC ，则必须是工厂进行校准过的，开箱后不变的产品。 应该使用[Actuator Testing](../config/actuators.md#actuator-testing)进行验证。 跳转到 [促动器配置步骤 (7)](#actuatorconfig_step) (仍然很重要)。
 :::
 
-OneShot ESCs should be [configured to use OneShot](../peripherals/oneshot.md#px4-configuration) before calibration. You should calibrate the ESCs after switching, even if you have previously calibrated.
+OneShot ESC应配置为 [在校准前使用 OneShot](../peripherals/oneshot.md#px4-configuration)。 您应该在更换ESC后校准，即使您先前已校准。
 
 ## 前置条件
 
-The calibration sequence requires that you are able keep the flight controller powered while manually power-cyling the ESCs.
+校准序列要求您能够保持飞行控制器的供电，同时手动对ESC进行上电循环。
 
-If using a Pixhawk flight controller, the recommended way to do this is to separately power the flight controller via USB, and connect/disconnect the battery to power the ESCs when needed. Flight control systems that can't power the autopilot via USB will need a [different approach](#problem_power_module).
+如果使用 Pixhawk 飞行控制器，推荐这样做的方式是通过USB单独为飞行控制器提供电力。 并在需要时连接/断开ESC的电池供电。 Flight control systems that can't power the autopilot via USB will need a [different approach](#problem_power_module).
 
 If the battery is connected via a power module the calibration procedure can detect the battery connection and use it to drive the calibration sequence. If battery power can't be detected the calibration sequence is performed based on timeouts.
 
