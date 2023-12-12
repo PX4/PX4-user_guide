@@ -27,5 +27,5 @@ The _supported platforms_ for PX4 development are:
 위의 명령줄 도구 모음 중 하나를 설정하고, 다음 단계를 실행합니다.
 
 - [VSCode](../dev_setup/vscode.md)를 설치합니다(명령줄에 IDE 사용을 선호하는 경우).
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html)
+- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html)
 - [PX4 소프트웨어를 구축](../dev_setup/building_px4.md)합니다.
