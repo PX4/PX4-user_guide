@@ -25,9 +25,9 @@ OneShot ESC应配置为 [在校准前使用 OneShot](../peripherals/oneshot.md#p
 
 校准序列要求您能够保持飞行控制器的供电，同时手动对ESC进行上电循环。
 
-如果使用 Pixhawk 飞行控制器，推荐这样做的方式是通过USB单独为飞行控制器提供电力。 并在需要时连接/断开ESC的电池供电。 Flight control systems that can't power the autopilot via USB will need a [different approach](#problem_power_module).
+如果使用 Pixhawk 飞行控制器，推荐这样做的方式是通过USB单独为飞行控制器提供电力。 并在需要时连接/断开ESC的电池供电。 无法通过 USB 为自动飞行供电的飞行控制系统将需要 [不同的](#problem_power_module)步骤。
 
-If the battery is connected via a power module the calibration procedure can detect the battery connection and use it to drive the calibration sequence. If battery power can't be detected the calibration sequence is performed based on timeouts.
+如果电池通过电源模块连接，校准程序可以检测电池连接并用它来驱动校准序列。 如果无法检测到电池电力，则根据超时执行校准顺序。
 
 ## 步骤
 
@@ -35,21 +35,20 @@ If the battery is connected via a power module the calibration procedure can det
 
 1. 卸下螺旋桨。
 
-:::warning
-Never attempt ESC calibration with propellers on!
+   :::警告 切勿带桨进行电调校准。
 
-   The motors _should_ not spin during ESC calibration. However if calibration starts when the ESC is already powered, or if the ESC doesn't properly support/detect the calibration sequence, then it will respond to the PWM input by running the motor at maximum speed.
+   电调校准期间电机不应旋转。 但是，如果校准是在ESC 已经供电后开始的，或者如果ESC 对校准序列支持/检测不恰当， 它将响应PWM的输入，以最大速度运行电机。
 :::
 
-1. Map the ESCs you're calibrating as motors in the vehicle's [Actuator Configuration](../config/actuators.md). Only mapped actuators get an output and only ESCs mapped as motors will be calibrated.
+1. 在 载具的[驱动器配置](../config/actuators.md)中，映射需要校准的ESC为电机。 只有映射的驱动器才能获得输出，并且只有被映射为电机的ESC将被校准。
 
-1. Unpower the ESCs by unplugging the battery. The flight controller must stay powered, for example, by keeping the USB connected to the ground station.
+1. 拔下电池，断开ESC电源。 飞行控制器必须保持供电，例如将USB连接到地面站。
 
-1. Open the _QGroundControl_ **Settings > Power**, then press the **Calibrate** button.
+1. 打开 _ QGroundControl _** 设置 > 电源**界面，然后按 **校准** 按钮。
 
    ![电调校准步骤 1](../../assets/qgc/setup/esc/qgc_esc_calibration.png)
 
-1. After starting the calibration sequence without error, directly power the ESCs (you should be prompted):
+1. 启动校准序列后，在没有错误的情况下，直接给 ESC供电 (您应该被提示):
 
    ![电调校准步骤 2](../../assets/qgc/setup/esc/esc_calibration_step_2.png)
 
@@ -57,30 +56,30 @@ Never attempt ESC calibration with propellers on!
 
    ![电调校准步骤 3](../../assets/qgc/setup/esc/esc_calibration_step_3.png)
 
-1. During the calibration you should hear model-specific beeping from the ESC, which indicates the individual steps of the calibration.
+1. 在校准过程中，您应该听到来自ESC的特定模型不同的嘀音，它表明校准的各个步骤。
 
-   You will be prompted when the calibration completes.<a id="actuatorconfig_step"></a>
+   校准完成后会提示您。<a id="actuatorconfig_step"></a>
    ![电调校准步骤 4](../../assets/qgc/setup/esc/esc_calibration_step_4.png)
 
-1. Go back to the [Actuator Configuration](../config/actuators.md) section.
+1. 返回到 [驱动器配置](../config/actuators.md) 部分。
 
-   Following ESC calibration all motors with the same (re)calibrated ESCs should behave in the same way for the same inputs. The default PWM settings for motor outputs in the actuator configuration should now work out of the box.
+   在ESC 校准后，所有具有相同(重新)校准的 ESC的电机对同样的输入应以同样的方式动作。 驱动器配置中默认的 PWM 输出设置现在应该能开箱即用。
 
-   You need to confirm that the motors do indeed work correctly. Since the default configuration values have been set conservatively, you may also wish to tune them for your particular ESCs.
+   你需要确认电机确实正常工作。 由于默认配置值已经设置为保守的设置，您可能也希望调整它们以适用于您的特定的 ESC。
 
 :::note
-The steps below are similar to those described in [Actuator Configuration > Motor Configuration](../config/actuators.md#motor-configuration).
+下面的步骤类似于 [A驱动器配置 > 电机配置](../config/actuators.md#motor-configuration)中所描述
 :::
 
-   Verify the following values:
+   验证以下值：
 
-   - The minimum value for a motor (default: `1100us`) should make the motor spin slowly but reliably, and also spin up reliably after it was stopped.
+   - 电机的最小值 (默认： `1100us`) 应该使电机缓慢且可靠地转动， 并在停止后可靠地转速增高。
 
-     You can confirm that a motor spins at minimum (still without propellers) in [Actuator Testing](../config/actuators.md#actuator-testing), by enabling the sliders, and then moving the test output slider for the motor to the first snap position from the bottom. The correct value should make the motor spin immediately and reliably as you move the slider from disarmed to minimum.
+     使能滑条后，可以确认 [驱动器测试](../config/actuators.md#actuator-testing)中电机以最低速度旋转(仍然没有安装桨叶)，然后将电机的测试输出滑块从底部移动到第一个吸附位置。 当你将滑块从解锁到最小值时，正确的值应该使电机立即和可靠地旋转。
 
-     To find the "optimal" minimum value, move the slider to the bottom (disarmed). Then increase the PWM output's `disarmed` setting in small increments (e.g. 1025us, 1050us, etc), until the motor starts to spin reliably (it is better to be a little too high than a little too low). Enter this value into the `minimum` setting for all the motor PWM outputs, and restore the `disarmed` output to `1100us`.
+     要找到“最佳”最小值，请将滑块移动到底部(禁用)。 然后少量(例如1025us，1050us)增加PWM输出的 `解锁` 设置，直到电机开始可靠地旋转之前（稍高一点比稍低一点更合适）。 将此值输入所有电机PWM输出的 `最小` 设置。 并还原 `禁用` 输出到 `1100us`
 
-   - The maximum value for a motor (default: `1900us`) should be chosen such that increasing the value doesn't make the motor spin any faster.
+   - 电机的最大值 (默认： `1900us`)应选择继续增加这个数值，也不会使发动机旋转速度更快的值。
 
      You can confirm that the motor spins quickly at the maximum setting in [Actuator Testing](../config/actuators.md#actuator-testing), by moving the associated test output slider to the top position.
 
