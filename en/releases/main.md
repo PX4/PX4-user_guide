@@ -58,6 +58,8 @@ TBD ...
 
 - [Throw launch](../flight_modes_mc/throw_launch.md): Start a multicopter by throwing it into the air.
   Added to PX4 in [PX4-Autopilot#21170](https://github.com/PX4/PX4-Autopilot/pull/21170).
+- [Position Slow Mode](../flight_modes_mc/position_slow.md): A slower version of _Position mode_, where the maximum horizontal velocity, vertical velocity and yaw-rate axes can be configured to lower values (using parameters, RC controller knobs/switches, or MAVLink).
+  Added to PX4 in [PX4-Autopilot#22102](https://github.com/PX4/PX4-Autopilot/pull/22102).
 
 ### VTOL
 

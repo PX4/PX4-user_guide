@@ -1,15 +1,15 @@
-# Position Slow Mode (Multicopter)
+# Position Slow Mode (Multicopter) <Badge type="warning" text="main (v1.15+)" vertical="top" />
 
 [<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-_Position Slow_ is a velocity and yaw rate limited version of the regular [Position mode](../flight_modes_mc/position.md).
+_Position Slow_ mode is a velocity and yaw rate limited version of the regular [Position mode](../flight_modes_mc/position.md).
 
-The mode works in exactly the same way as _Position mode_ but with the vehicle scales the stick deflection to lower maximum velocities.
+The mode works in exactly the same way as _Position mode_ but with the controller stick deflection re-scaled to lower maximum velocities (and proportionally lower acceleration).
 You can use it to quickly slow down the vehicle to a safe speed (if it is moving faster than the maximum velocity in the limited axis).
 You can also use it to get more precision from stick input, in particular when flying close to obstacles, or to comply with regulations such as [EASA's low-speed mode/function](https://www.easa.europa.eu/en/light/topics/flying-drones-close-people).
 
-The velocity limits can be set using parameters, from a rotary knob, slider, or switch on an RC control, or using MAVLink.
-Limits set using RC control override those set by MAVLink, which in turn override those set using parameters.
+The velocity limits can be set using parameters, from an [RC Controller](../getting_started/rc_transmitter_receiver.md) rotary knob, slider, or switch, or using MAVLink.
+Limits set using an RC controller override those set by MAVLink, which in turn override those set using parameters.
 The limits can only be reduced below those for normal _Position_ mode.
 
 ## Set Limits using Parameters
@@ -42,12 +42,12 @@ Note that the parameters are used only if limits are not provided by from RC or 
 
 ## Set Limits using RC Control
 
-You can map a rotary knob or slider on a [remote controller](../getting_started/rc_transmitter_receiver.md) to control the maximum velocity of an axis (horizontal/vertical/yaw).
+You can map a rotary knob, slider, or switch, on a [RC Controller](../getting_started/rc_transmitter_receiver.md) to set the maximum velocity of an axis (horizontal/vertical/yaw).
 This approach is useful when the appropriate slow-mode maximum values can vary while flying.
 
-If the knob is set to its highest value the vehicle will go as fast as in _Position_ mode.
-If the knob is turned all the way down the vehicle maximum velocity is set to the value in the corresponding `MC_SLOW_MIN_` parameter shown in the table below.
-If an RC knob is mapped for an axis it has priority over all other inputs.
+If the input control is set to its highest value the vehicle will go as fast as in _Position_ mode.
+If the input is set to its lowest value, the vehicle maximum velocity is set to the value in the corresponding `MC_SLOW_MIN_` parameter (shown in the table below).
+If an RC control input is mapped for an axis it has priority over all other inputs.
 
 The table below lists each axis along with the parameter used to select which RC AUX channel corresponds to the control knob, and the parameter that sets the lowest possible "maximum value" for the axis.
 
@@ -73,7 +73,7 @@ To use this approach:
 3. Map that auxiliary input using the appropriate `MC_SLOW_MAP_` parameter for the axis you want it to control (see table above).
 
 For example, if you want to map RC channel `8` to limit the horizontal velocity you could set [RC_MAP_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) to the value `8` and [MC_SLOW_MAP_HVEL][mc_slow_map_hvel] to the value `1`.
-The knob from channel 8 then sets a horizontal velocity limit between [MC_SLOW_MIN_HVEL][mc_slow_min_hvel] and [MPC_VEL_MANUAL][mpc_vel_manual].
+The RC input from channel 8 then sets a horizontal velocity limit between [MC_SLOW_MIN_HVEL][mc_slow_min_hvel] and [MPC_VEL_MANUAL][mpc_vel_manual].
 
 ## Set Limits using MAVLink
 
@@ -85,3 +85,7 @@ This overrides limit values set in parameters, but is ignored if the axis is map
 The value can be updated from a message at any time, and is latched until either the next message or a mode switch.
 
 Note that PX4 does not provide velocity limit telemetry (i.e. it does not support streaming the [VELOCITY_LIMITS](https://mavlink.io/en/messages/development.html#VELOCITY_LIMITS) message).
+
+## See Also
+
+- [Position Slow Mode](../flight_modes_mc/position.md)

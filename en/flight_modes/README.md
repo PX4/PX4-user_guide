@@ -249,6 +249,17 @@ th {
 </td>
 </tr>
 
+<tr id="position_slow_mc">
+ <td><a href="../flight_modes_mc/position_slow.html">Position Slow</a>
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
+ </td>
+ <td>S<sup>+</sup></td>
+ <td>S<sub>rate</sub></td>
+ <td>S<sup>+</sup></td>
+ <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
+ <td><p>A velocity and yaw rate limited version of the regular <a href="#position_slow_mc">Position mode</a>.</p></td>
+</tr>
+
 <tr id="altitude_mc">
  <td><a href="../flight_modes_mc/altitude.html">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
