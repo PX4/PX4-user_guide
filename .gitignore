@@ -23,3 +23,11 @@ logs
 #Sublime Projects
 *.sublime-project
 *.sublime-workspace
+
+
+# vitepress - user guide
+node_modules/
+#docs/.vitepress/cache/
+#docs/.vitepress/dist/
+.vitepress/cache/
+.vitepress/dist/
