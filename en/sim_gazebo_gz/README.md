@@ -31,24 +31,31 @@ sudo apt-get install gz-garden
 
 ## Running the Simulation
 
-Gazebo SITL simulation can be conveniently run through a `make` command as shown below:
+Gazebo SITL simulation can be conveniently run using a `make` command as shown below:
 
 ```sh
 cd /path/to/PX4-Autopilot
 make px4_sitl gz_x500
 ```
 
-This will run both the PX4 SITL instance and the Gazebo client.
+This runs both the PX4 SITL instance and the Gazebo client.
 Note that all gazebo make targets have the prefix `gz_`.
 
-Another way that Gazebo SITL can be connected is in standalone mode. This means that PX4 and Gazebo will be started in separate terminals. You can start PX4 with:
+Another way that Gazebo SITL can be connected is in standalone mode.
+This means that PX4 and Gazebo will be started in separate terminals.
+You can start PX4 with:
 
 ```sh
 cd /path/to/PX4-Autopilot
 GZ_PX4_STANDALONE=1 make px4_sitl gz_x500
 ```
 
-In case you have not started gz-server and run the `make` command, you will see the following warning: `WARN  [gz bridge] Service call timed out as Gazebo has not been detected`. This warning will continue to appear until gazebo has been started and an instance of gz-server is detected by PX4. The simplest way to start the simulation is to run the `simulation-gazebo` script found in the [PX4-gazebo-models repository](https://github.com/PX4/PX4-gazebo-models). This will launch a gz-server instance which can be started with any world and vehicle. For more information and arguments, checkout the [sub-page](./gazebo-models.md). The script can be started with:
+In case you have not started gz-server and run the `make` command, you will see the following warning: `WARN [gz bridge] Service call timed out as Gazebo has not been detected`.
+This warning will continue to appear until gazebo has been started and an instance of gz-server is detected by PX4.
+The simplest way to start the simulation is to run the `simulation-gazebo` script found in the [PX4-gazebo-models repository](https://github.com/PX4/PX4-gazebo-models).
+This will launch a gz-server instance which can be started with any world and vehicle.
+For more information and arguments, checkout the [sub-page](./gazebo-models.md).
+The script can be started with:
 
 ```sh
 cd /path/to/PX4-gazebo-models
@@ -76,10 +83,8 @@ The supported vehicles and `make` commands are listed below.
 As a workaround to enable Advanced Plane, you can compile the gz-sim library from [Gazebo source code](https://github.com/gazebosim/gz-sim), go into the `build/lib` directory, copy out the advanced lift drag plugin `.so` file (depending on the exact Gazebo Version this is called something along the lines of `libgz-sim7-advanced-lift-drag-system.so`), and paste this into the `~/.gz/sim/plugins` folder.
 :::
 
-
 The commands above launch a single vehicle with the full UI.
 _QGroundControl_ should be able to automatically connect to the simulated vehicle.
-
 
 ### Headless Mode
 
@@ -176,6 +181,7 @@ where `ARGS` is a list of environment variables including:
 
 - `PX4_SIMULATOR=GZ`:
   Sets the simulator, which for Gz must be `gz`.
+
   - This value should be [set for the selected airframe](#adding-new-worlds-and-models), in which case it does not need to be set as an argument.
 
 - `PX4_GZ_STANDALONE`:
@@ -253,7 +259,6 @@ To add a new model:
 To add a new world:
 
 1. Add your world to the list of worlds found [here](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/gz_bridge/worlds_list). This is required in order to allow CMake to generate correct targets.
-
 
 :::note
 As long as the world file and the model file are in the Gazebo search path `GZ_SIM_RESOURCE_PATH` it is not necessary to add them to the PX4 world and model directories.
