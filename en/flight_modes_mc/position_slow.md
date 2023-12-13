@@ -4,7 +4,7 @@
 
 _Position Slow_ is a velocity and yaw rate limited version of the regular [Position mode](../flight_modes_mc/position.md).
 
-The mode works in exactly the same way as _Position mode_ but with the vehicle clamped to lower maximum velocities.
+The mode works in exactly the same way as _Position mode_ but with the vehicle scales the stick deflection to lower maximum velocities.
 You can use it to quickly slow down the vehicle to a safe speed (if it is moving faster than the maximum velocity in the limited axis).
 You can also use it to get more precision from stick input, in particular when flying close to obstacles, or to comply with regulations such as [EASA's low-speed mode/function](https://www.easa.europa.eu/en/light/topics/flying-drones-close-people).
 
@@ -17,13 +17,13 @@ The limits can only be reduced below those for normal _Position_ mode.
 The maximum values for slow mode horizontal velocity, vertical velocity, and yaw rate can be set using parameters.
 This approach is useful when the maximum desired speed in slow mode is fixed, and you just want to be able to quickly drop to a safer speed range (perhaps using a switch on your controller).
 
-The table below shows the parameters used to set the maximum values for _Position slow_ mode and _Position_ mode, respectively, along with their default values (in m/s and deg/s).
+The table below shows the parameters used to set the maximum values for _Position slow_ mode and _Position_ mode, respectively, along with their default values.
 
-| Axis                | Position slow mode                        | Position mode                                                                         |
-| ------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------- |
-| Horizontal velocity | [MC_SLOW_DEF_HVEL][mc_slow_def_hvel] (3)  | [MPC_VEL_MANUAL][mpc_vel_manual] (10)                                                 |
-| Vertical velocity   | [MC_SLOW_DEF_VVEL][mc_slow_def_vvel] (1)  | [MPC_Z_VEL_MAX_UP][mpc_z_vel_max_up] (3) / [MPC_Z_VEL_MAX_DN][mpc_z_vel_max_dn] (1.5) |
-| Yaw rate            | [MC_SLOW_DEF_YAWR][mc_slow_def_yawr] (45) | [MPC_MAN_Y_MAX][mpc_man_y_max] (150)                                                  |
+| Axis                | Position slow mode                            | Position mode                                                                                 |
+| ------------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Horizontal velocity | [MC_SLOW_DEF_HVEL][mc_slow_def_hvel] (3 m/s)  | [MPC_VEL_MANUAL][mpc_vel_manual] (10 m/s)                                                     |
+| Vertical velocity   | [MC_SLOW_DEF_VVEL][mc_slow_def_vvel] (1 m/s)  | [MPC_Z_VEL_MAX_UP][mpc_z_vel_max_up] (3 m/s) / [MPC_Z_VEL_MAX_DN][mpc_z_vel_max_dn] (1.5 m/s) |
+| Yaw rate            | [MC_SLOW_DEF_YAWR][mc_slow_def_yawr] (45 °/s) | [MPC_MAN_Y_MAX][mpc_man_y_max] (150 °/s)                                                      |
 
 From this you can see, for example, that when switching from Position mode to Position slow mode, the default maximum upward horizontal velocity is reduced from 10 m/s to 3 m/s.
 If traveling faster than 3 m/s horizontally you'd be slowed to 3 m/s.
