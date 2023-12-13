@@ -22,7 +22,7 @@ These classes abstract the internal setpoints used by PX4, and that can therefor
 
 ## Overview
 
-This diagram provides a conceptual overview of how PX4 ROS 2 Interface Library modes and mode executors interact with PX4.
+This diagram provides a conceptual overview of how the control interface modes and mode executors interact with PX4.
 
 ![ROS2 modes overview diagram](../../assets/middleware/ros2/px4_ros2_interface_lib/ros2_modes_overview.svg)
 
@@ -188,7 +188,7 @@ The following steps are required to get started:
 
 11. Now you are ready to create your own mode.
 
-## How to Use the Library
+## How to use the Library
 
 The following sections describe specific functionality provided by this library.
 In addition, any other PX4 topic can be subscribed or published.

@@ -6,12 +6,12 @@ At the time of writing, parts of the PX4 ROS 2 Interface Library are experimenta
 
 The [PX4 ROS 2 Interface Library](../ros2/px4_ros2_interface_lib.md) navigation interface enables developers to send their position measurements to PX4 directly from ROS 2 applications, such as a VIO system or a map matching system.
 The interface provides a layer of abstraction from PX4 and the uORB messaging framework, and introduces a few sanity checks on the requested state estimation updates sent via the interface.
-These measurements are then fused into the EKF as internal PX4 measurements would.
+These measurements are then fused into the EKF just as though they were internal PX4 measurements.
 
-The library provides two classes, `LocalPositionMeasurementInterface` and `GlobalPositionMeasurementInterface` which both expose a similar `update` method to provide either a local position or global position update to PX4, respectively.
-The `update` method expects a position measurement `struct` (defined below) which developers can populate with their own generated position measurements.
+The library provides two classes, [`LocalPositionMeasurementInterface`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1LocalPositionMeasurementInterface.html) and [`GlobalPositionMeasurementInterface`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1GlobalPositionMeasurementInterface.html), which both expose a similar `update` method to provide either a local position or global position update to PX4, respectively.
+The `update` method expects a position measurement `struct` ([`LocalPositionMeasurement`](https://auterion.github.io/px4-ros2-interface-lib/structpx4__ros2_1_1LocalPositionMeasurement.html) or [`GlobalPositionMeasurement`](https://auterion.github.io/px4-ros2-interface-lib/structpx4__ros2_1_1GlobalPositionMeasurement.html)) which developers can populate with their own generated position measurements.
 
-## Example and First Test
+## Installation and First Test
 
 The following steps are required to get started:
 
@@ -50,7 +50,7 @@ The following steps are required to get started:
    MicroXRCEAgent udp4 -p 8888
    ```
 
-6. Back in the ROS 2 terminal, source the workspace you just built (in step 3) and run one of the examples which periodically sends dummy global position updates:
+6. Back in the ROS 2 terminal, source the workspace you just built (in step 3) and run the [global_navigation](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/examples/cpp/navigation/global_navigation) example, which periodically sends dummy global position updates:
 
    ```sh
    source install/setup.bash
@@ -94,9 +94,9 @@ The following steps are required to get started:
 
 8. Now you are ready to use the navigation interface to send your own position updates.
 
-## How to Use the Library
+## How to use the Library
 
-To send a position measurement, populate a struct with the fields you have measured.
+To send a position measurement, you populate the position struct with the values you have measured.
 Then call the interface’s update function with that struct as the argument.
 
 :::note
@@ -104,7 +104,7 @@ Using multiple instances of the same interface (e.g. local and local) to send es
 This should not affect measurement fusion into the EKF, but different measurement sources will become indistinguishable.
 :::
 
-For a simple example using the interface, check out the [examples](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/examples/cpp/navigation) in the `Auterion/px4-ros2-interface-lib` repository, such as [examples/cpp/navigation/local_navigation](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/navigation/local_navigation/include/local_navigation.hpp) or [examples/cpp/navigation/global_navigation](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/navigation/local_navigation/include/global_navigation.hpp).
+For a basic example of how to use this interface, check out the [examples](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/examples/cpp/navigation) in the `Auterion/px4-ros2-interface-lib` repository, such as [examples/cpp/navigation/local_navigation](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/navigation/local_navigation/include/local_navigation.hpp) or [examples/cpp/navigation/global_navigation](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/navigation/local_navigation/include/global_navigation.hpp).
 
 ### Local Position Updates
 First ensure that the PX4 parameter [`EKF2_EV_CTRL`](../advanced_config/parameter_reference.md#EKF2_EV_CTRL) is properly configured to fuse external local measurements, by setting the appropriate bits to `true`:
