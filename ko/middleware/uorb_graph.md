@@ -3,11 +3,11 @@
 모듈들간의 통신을 보여주는 uORB Pub/Sub 그래프를 제공합니다. It is based on information that is extracted directly from the source code. 사용 명령어는 [아래](#graph-properties)을 참고하십시오.
 
 
-검색: <input id="search" type="text" /> 재설정 <select id ="select-graph" name="select-graph"> <option value='graph_full_no_mavlink.json'>모든 모듈(mavlink 없음)</option> <option value='graph_full.json'>모든 모듈</option> <option value='graph_px4_sitl.json'>SITL 모듈</option> <option value='graph_px4_fmu-v5.json'>FMUv5 모듈</option> <option value='graph_px4_fmu-v4.json'>FMUv4 모듈</option> <option value='graph_px4_fmu-v2.json'>FMUv2 모듈</option> </select>
-<br/>
-<svg id="svg-graph" width="1200" height="1400" style="text-align: center; margin-left: -230px; margin-right: -230px;"></svg>
-<script type="application/javascript" src="https://d3js.org/d3.v4.min.js" asysc></script>
-<script type="application/javascript" src="uorb_graph.js" asysc></script>
+<iframe :src="withBase('/middleware/index.html')" frameborder="0" width="1300" height="1450px" style="text-align: center; margin-left: 0px; margin-right: 0px;"></iframe>
+
+<script setup>
+import { withBase } from 'vitepress';
+</script>
 
 ## 그래프 속성
 
