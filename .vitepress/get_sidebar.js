@@ -248,7 +248,7 @@ function parseGitbookSidebarToVuepress(sidebarContent, lang) {
 module.exports = {
   sidebar: function (lang) {
     const summaryfile_path = path.resolve(__dirname, "..", lang, "SUMMARY.md");
-    console.log("DEBUG: summaryfile_path: " + summaryfile_path);
+    //console.log("DEBUG: summaryfile_path: " + summaryfile_path);
     let data = "";
 
     try {
@@ -259,10 +259,9 @@ module.exports = {
     }
 
     const module_sidebar = parseGitbookSidebarToVuepress(data, lang);
-    console.log(`DEBUG: Before`);
-    console.log(`DEBUG: ${JSON.stringify(module_sidebar)}`);
-
-    console.log(`DEBUG: After`);
+    //console.log(`DEBUG: Before`);
+    //console.log(`DEBUG: ${JSON.stringify(module_sidebar)}`);
+    //console.log(`DEBUG: After`);
     return module_sidebar;
   },
 };
