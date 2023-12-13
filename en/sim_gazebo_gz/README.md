@@ -41,20 +41,25 @@ make px4_sitl gz_x500
 This runs both the PX4 SITL instance and the Gazebo client.
 Note that all gazebo make targets have the prefix `gz_`.
 
-Another way that Gazebo SITL can be connected is in standalone mode.
-This means that PX4 and Gazebo will be started in separate terminals.
-You can start PX4 with:
+Another way that Gazebo SITL can be connected is in _standalone mode_.
+In standalone mode PX4 SITL and Gazebo are started separately in their own terminals.
+You start PX4 in standalone mode by prefixing the make command with `GZ_PX4_STANDALONE=1`:
 
 ```sh
 cd /path/to/PX4-Autopilot
 GZ_PX4_STANDALONE=1 make px4_sitl gz_x500
 ```
 
-In case you have not started gz-server and run the `make` command, you will see the following warning: `WARN [gz bridge] Service call timed out as Gazebo has not been detected`.
-This warning will continue to appear until gazebo has been started and an instance of gz-server is detected by PX4.
-The simplest way to start the simulation is to run the `simulation-gazebo` script found in the [PX4-gazebo-models repository](https://github.com/PX4/PX4-gazebo-models).
-This will launch a gz-server instance which can be started with any world and vehicle.
-For more information and arguments, checkout the [sub-page](./gazebo-models.md).
+If you have not yet started _gz-server_ when you run the `make` command, you will see the following warning until gazebo has been started and an instance of _gz-server_ is detected by PX4:
+
+```sh
+WARN [gz bridge] Service call timed out as Gazebo has not been detected
+```
+
+The simplest way to start the simulation is to run the `simulation-gazebo` script found in the [PX4-gazebo-models](https://github.com/PX4/PX4-gazebo-models) repository.
+This will launch a _gz-server_ instance that can be started with any world and vehicle.
+For more information and arguments, see [Gazebo Models](./gazebo-models.md).
+
 The script can be started with:
 
 ```sh
@@ -258,7 +263,8 @@ To add a new model:
 
 To add a new world:
 
-1. Add your world to the list of worlds found [here](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/gz_bridge/worlds_list). This is required in order to allow CMake to generate correct targets.
+1. Add your world to the list of worlds found [here](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/gz_bridge/worlds_list).
+   This is required in order to allow CMake to generate correct targets.
 
 :::note
 As long as the world file and the model file are in the Gazebo search path `GZ_SIM_RESOURCE_PATH` it is not necessary to add them to the PX4 world and model directories.
