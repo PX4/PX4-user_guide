@@ -232,7 +232,7 @@ Here are some examples of the different scenarios covered above.
    In a separate terminal run:
 
    ```sh
-   python simulation-gazebo --world default
+   python /path/to/simulation-gazebo
    ```
 
 ## Adding New Worlds and Models

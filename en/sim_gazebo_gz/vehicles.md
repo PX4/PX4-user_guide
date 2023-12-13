@@ -1,6 +1,6 @@
 # Gazebo Vehicles
 
-This topic lists/displays the vehicles supported by the PX4 [Gazebo](../sim_gazebo_gz/README.md) simulation, and the `make` commands required to run them (the commands are run from a terminal in the **PX4-Autopilot** directory).
+This topic lists/displays the vehicles supported by the PX4 [Gazebo](../sim_gazebo_gz/README.md) simulation, and the `make` commands required to run them (the commands are run from a terminal in the **PX4-Autopilot** directory). On first run, all models are fetched from the [PX4-gazebo-models](https://github.com/PX4/PX4-gazebo-models) repository and placed in the `/.simulation-gazebo` repository.
 
 Supported vehicle types include: mutirotor, VTOL, Plane.
 

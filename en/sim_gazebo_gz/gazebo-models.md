@@ -1,6 +1,6 @@
 # Gazebo Models Repository (PX4-gazebo-models)
 
-The [PX4-gazebo-models](https://github.com/PX4/PX4-gazebo-models) repository is used to store all [Gazebo](../sim_gazebo_gz/README.md) models and worlds that are supported by PX4.
+The [PX4-gazebo-models](https://github.com/PX4/PX4-gazebo-models) repository is used to store all [Gazebo](../sim_gazebo_gz/README.md) models and worlds that are supported by PX4. When running PX4 normally, like `make px4_sitl gz_x500`, PX4 will automatically fetch this directory when it is not detected, and place the models and worlds folders in `/.simulation-gazebo`. You can re-initiate the download of these models, for example when an update has occurred to one of the models, by setting: `PX4_GZ_OVERWRITE=1 make px4_sitl gz_x500`.
 
 - Models are stored in the `/models` directory and worlds are stored in the `/worlds` directory.
 - The [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) Python script is used for starting Gazebo in standalone mode.
@@ -21,8 +21,9 @@ If if does not, all models and worlds will be downloaded from [PX4 gazebo models
 Then, a _gz-server_ instance will be launched using the default grey plane world.
 There are then multiple ways to connect a PX4-enabled vehicle to this instance of _gz-server_.
 
-1. In a new terminal, run PX4 using `make px4_sitl gz_<vehicle>` and you will observe a vehicle appearing in Gazebo.
-2. Use the gazebo resource spawner to look for px4 vehicles on fuel.
+- In a new terminal, run PX4 using `PX4_GZ_STANDALONE=1 make px4_sitl gz_<vehicle>` and you will observe a vehicle appearing in Gazebo.
+
+- Gazebo also has its own, built-in "resource spawner". It can be called up by clicking on the three dots in the top right corner of the Gazebo GUI. There enter "resource spawner" and, under "Fuel resources", add the owner "px4". You can then drag and drop any PX4 model into your simulation. These models are taken from an web-server called [Gazebo Fuel](https://app.gazebosim.org/dashboard), which essential acts as an online database for all types of models and worlds that can be launched in Gazebo.
    Drag and drop the vehicle of your choice into Gazebo and then launch PX4 with:
 
    ```sh
