@@ -25,4 +25,9 @@ The simulation can also be executed locally in order to test a specific version 
 make run_failsafe_web_server
 ```
 
- <iframe src="failsafe/index.html?no-title=1" frameborder="0" height="1400px" style="text-align: center; margin-left: -230px; margin-right: -230px;" width="1200"></iframe>
+<iframe :src="withBase('/config/failsafe/index.html')" frameborder="0" height="1400px" style="text-align: center; margin-left: -20px; margin-right: -230px;" width="1200"></iframe>
+
+<script setup>
+import { withBase } from 'vitepress';
+</script>
+
