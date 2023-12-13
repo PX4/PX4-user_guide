@@ -32,6 +32,9 @@ Device | GPS | Compass | [RTK](../gps_compass/rtk_gps.md) | [GPS Yaw Output](#co
 [ARK GPS](https://arkelectron.com/product/ark-gps/) | M9N  | ICM42688p | | | |
 [ARK RTK GPS](https://arkelectron.com/product/ark-rtk-gps/) | F9P  | ICM42688p | &check; | | &check; |
 [Avionics Anonymous UAVCAN GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) | SAM-M8Q | MMC5983MA | | | |
+[CUAV Neo 3 Pro GPS](../gps_compass/gps_cuav_neo_3pro.md) | M9N | RM3100 |  | | |
+[CUAV Neo 3 GPS](../gps_compass/rtk_gps_cuav_neo_3.md) | M9N | IST8310 |  | | |
+[CUAV Neo 3X GPS](../gps_compass/rtk_gps_cuav_neo_3x.md) | M9N | RM3100 |  | | |
 [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md) | M8P/M8N | &check; | &check; | | |
 [CUAV C-RTK 9Ps GPS](../gps_compass/rtk_gps_cuav_c-rtk-9ps.md) | F9P | RM3100 | &check; | | &check; |
 [CUAV C-RTK2 PPK/RTK GNSS](../gps_compass/rtk_gps_cuav_c-rtk.md) | F9P | RM3100 | &check; | | | &check;
