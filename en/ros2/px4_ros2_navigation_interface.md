@@ -97,28 +97,27 @@ The following steps are required to get started:
 ## How to use the Library
 
 To send a position measurement, you populate the position struct with the values you have measured.
-Then call the interface’s update function with that struct as the argument.
-
-:::note
-Using multiple instances of the same interface (e.g. local and local) to send estimation updates will stream all update messages to the same topic and result in cross-talk.
-This should not affect measurement fusion into the EKF, but different measurement sources will become indistinguishable.
-:::
+Then call the interface's update function with that struct as the argument.
 
 For a basic example of how to use this interface, check out the [examples](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/examples/cpp/navigation) in the `Auterion/px4-ros2-interface-lib` repository, such as [examples/cpp/navigation/local_navigation](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/navigation/local_navigation/include/local_navigation.hpp) or [examples/cpp/navigation/global_navigation](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/navigation/local_navigation/include/global_navigation.hpp).
 
 ### Local Position Updates
+
 First ensure that the PX4 parameter [`EKF2_EV_CTRL`](../advanced_config/parameter_reference.md#EKF2_EV_CTRL) is properly configured to fuse external local measurements, by setting the appropriate bits to `true`:
+
 - `0`: Horizontal position data
 - `1`: Vertical position data
 - `2`: Velocity data
 - `3`: Yaw data
 
 To send a local position measurement to PX4:
-1. Create a `LocalPositionMeasurementInterface` [instance](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1LocalPositionMeasurementInterface.html) by providing it with: a ROS node, and the pose and velocity reference frames of your measurements.
-2. Populate a `LocalPositionMeasurement` [struct](https://auterion.github.io/px4-ros2-interface-lib/structpx4__ros2_1_1LocalPositionMeasurement.html) with your measurements.
-3. Pass the struct to the `LocalPositionMeasurementInterface`'s [update](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1LocalPositionMeasurementInterface.html#a6fd180b944710716d418b2cfe1c0c8e3) method.
 
-The available pose and velocity reference frames for your measurements are defined by the following `enum`s:
+1. Create a [`LocalPositionMeasurementInterface`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1LocalPositionMeasurementInterface.html) instance by providing it with: a ROS node, and the pose and velocity reference frames of your measurements.
+2. Populate a [`LocalPositionMeasurement`](https://auterion.github.io/px4-ros2-interface-lib/structpx4__ros2_1_1LocalPositionMeasurement.html) `struct` with your measurements.
+3. Pass the `struct` to the `LocalPositionMeasurementInterface` [`update()`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1LocalPositionMeasurementInterface.html#a6fd180b944710716d418b2cfe1c0c8e3) method.
+
+The available pose and velocity reference frames for your measurements are defined by the following `enum`:
+
 ```cpp
 enum class PoseFrame
 {
@@ -137,6 +136,7 @@ enum class VelocityFrame
 ```
 
 The `LocalPositionMeasurement` struct is defined as follows:
+
 ```cpp
 struct LocalPositionMeasurement
 {
@@ -156,13 +156,15 @@ struct LocalPositionMeasurement
    std::optional<Eigen::Vector3f> attitude_variance {std::nullopt};
 };
 ```
-The `update` method of the local interface expects the following conditions to hold for `LocalPositionMeasurement`:
+
+The `update()` method of the local interface expects the following conditions to hold for `LocalPositionMeasurement`:
+
 - The sample timestamp is defined.
-- Values do not have a NAN.
+- Values do not have a `NAN``.
 - If a measurement value is provided, its associated variance value is well defined (e.g. if `position_xy` is defined, then `position_xy_variance` must be defined).
 - If a measurement value is provided, its associated reference frame is not unknown (e.g. if `position_xy` is defined, then the interface was initialised with a pose frame different from `PoseFrame::Unknown`).
 
-The following code snippet is an example of a ROS 2 node which uses the local navigation interface to send 3D pose updates in the North-East-Down reference frame to PX4:
+The following code snippet is an example of a ROS 2 node which uses the local navigation interface to send 3D pose updates in the North-East-Down (NED) reference frame to PX4:
 
 ```cpp
 class MyLocalMeasurementUpdateNode : public rclcpp::Node
@@ -215,16 +217,20 @@ private:
 ```
 
 ### Global Position Updates
+
 First ensure that the PX4 parameter [`EKF2_AGP_CTRL`](../advanced_config/parameter_reference.md#EKF2_AGP_CTRL) is properly configured to fuse external global measurements, by setting the appropriate bits to `true`:
+
 - `0`: Horizontal position data
 - `1`: Vertical position data
 
 To send a global position measurement to PX4:
-1. Create a `GlobalPositionMeasurementInterface` [instance](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1GlobalPositionMeasurementInterface.html) by providing it with a ROS node.
-2. Populate a `GlobalPositionMeasurement` [struct](https://auterion.github.io/px4-ros2-interface-lib/structpx4__ros2_1_1GlobalPositionMeasurement.html) with your measurements.
-3. Pass the struct to the `GlobalPositionMeasurementInterface`'s [update](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1GlobalPositionMeasurementInterface.html#a1a183b595ef7f6a22f3a83ba543fe86d) method.
+
+1. Create a [`GlobalPositionMeasurementInterface`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1GlobalPositionMeasurementInterface.html) instance by providing it with a ROS node.
+2. Populate a [`GlobalPositionMeasurement`](https://auterion.github.io/px4-ros2-interface-lib/structpx4__ros2_1_1GlobalPositionMeasurement.html) `struct` with your measurements.
+3. Pass the struct to the `GlobalPositionMeasurementInterface` [update()](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1GlobalPositionMeasurementInterface.html#a1a183b595ef7f6a22f3a83ba543fe86d) method.
 
 The `GlobalPositionMeasurement` struct is defined as follows:
+
 ```cpp
 struct GlobalPositionMeasurement
 {
@@ -237,8 +243,10 @@ struct GlobalPositionMeasurement
    std::optional<float> vertical_variance {std::nullopt};
 };
 ```
-The `update` method of the global interface expects the following conditions to hold for `GlobalPositionMeasurement`:
-- The sample timestamp is defined.
+
+The `update()` method of the global interface expects the following conditions to hold for `GlobalPositionMeasurement`:
+
+- The sample `timestamp_sample` is defined.
 - Values do not have a NAN.
 - If a measurement value is provided, its associated variance value is well defined (e.g. if `lat_lon` is defined, then `horizontal_variance` must be defined).
 
@@ -288,3 +296,8 @@ private:
    std::shared_ptr<px4_ros2::GlobalPositionMeasurementInterface> _global_position_measurement_interface;
 };
 ```
+
+## Multiple Instances of an Interface
+
+Using multiple instances of the same interface (e.g. local and local) to send estimation updates will stream all update messages to the same topic and result in cross-talk.
+This should not affect measurement fusion into the EKF, but different measurement sources will become indistinguishable.

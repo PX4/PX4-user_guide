@@ -2,7 +2,6 @@
 
 :::warning Experimental
 At the time of writing, parts of the PX4 ROS 2 Interface Library are experimental, and hence subject to change.
-
 :::
 
 The [PX4 ROS 2 Interface Library](https://github.com/Auterion/px4-ros2-interface-lib) is a C++ library that simplifies controlling and interacting with PX4 from ROS 2.
@@ -12,7 +11,6 @@ The library provides two high-level interfaces for developers:
 1. The [Control Interface](./px4_ros2_control_interface.md) allows developers to create and dynamically register modes written using ROS 2.
    It provides classes for sending different types of setpoints, ranging from high-level navigation tasks all the way down to direct actuator controls.
 2. The [Navigation Interface](./px4_ros2_navigation_interface.md) enables sending vehicle position estimates to PX4 from ROS 2 applications, such as a VIO system.
-
 
 <!--
 ## Overview

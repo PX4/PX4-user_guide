@@ -239,7 +239,7 @@ private:
 };
 ```
 
-- `[1]`: First we create a class that inherits from `px4_ros2::ModeBase`
+- `[1]`: First we create a class that inherits from [`px4_ros2::ModeBase`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1ModeBase.html).
 - `[2]`: In the constructor, we pass the mode name. This also allows us to configure some other things, like replacing a flight controller internal mode.
 - `[3]`: This is where we create all objects that we want to use later on.
   This can be RC input, setpoint type(s), or telemetry. `*this` is passed as a `Context` to each object, which associates the object with the mode.
@@ -318,7 +318,7 @@ private:
 };
 ```
 
-- `[1]`: First we create a class that inherits from `px4_ros2::ModeExecutorBase`.
+- `[1]`: First we create a class that inherits from [`px4_ros2::ModeExecutorBase`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1ModeExecutorBase.html).
 - `[2]`: The constructor takes our custom mode that is associated with the executor and passes it to the constructor of `ModeExecutorBase`.
 - `[3]`: We define an enum for the states we want to run through.
 - `[4]`: `onActivate` gets called when the executor becomes active. At this point we can start to run through our states.
@@ -351,7 +351,7 @@ TODO
 
 #### Direct Actuator Control Setpoint (DirectActuatorsSetpointType)
 
-Actuators can be directly controlled using the [px4_ros2::DirectActuatorsSetpointType](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/control/setpoint_types/direct_actuators.hpp) setpoint type.
+Actuators can be directly controlled using the [px4_ros2::DirectActuatorsSetpointType](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1DirectActuatorsSetpointType.html) setpoint type.
 Motors and servos can be set independently.
 Be aware that the assignment is vehicle and setup-specific.
 For example to control a quadrotor, you need to set the first 4 motors according to its [output configuration](../concept/control_allocation.md).
@@ -365,16 +365,16 @@ If you want to control an actuator that does not control the vehicle's motion, b
 If you want to control an independent actuator (a servo), follow these steps:
 
 1. [Configure the output](../payloads/#generic-actuator-control-with-mavlink)
-2. Create an instance of [px4_ros2::PeripheralActuatorControls](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/control/peripheral_actuators.hpp) in the constructor of your mode.
-3. Call the `set` method to control the actuator(s).
+2. Create an instance of [px4_ros2::PeripheralActuatorControls](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1PeripheralActuatorControls.html) in the constructor of your mode.
+3. Call the `set()` method to control the actuator(s).
    This can be done independently of any active setpoints.
 
 ### Telemetry
 
 Telemetry topics include:
 
-- [OdometryGlobalPosition](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/odometry/global_position.hpp): Global position
-- [OdometryLocalPosition](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/odometry/local_position.hpp): Local position, velocity and acceleration.
+- [OdometryGlobalPosition](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1OdometryGlobalPosition.html): Global position
+- [OdometryLocalPosition](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1OdometryLocalPosition.html): Local position, velocity and acceleration.
 
 :::note
 These topics provide a wrapper around the internal PX4 topics, allowing the library to maintain compatibility if the internal topics change.
@@ -416,8 +416,8 @@ The full list of flags can be found in [requirement_flags.hpp](https://github.co
 
 #### Deferring Failsafes
 
-A mode or mode executor can temporarily defer non-essential failsafes by calling the method `deferFailsafesSync()`.
-To get notified when a failsafe would be triggered, override the method `void onFailsafeDeferred()`.
+A mode or mode executor can temporarily defer non-essential failsafes by calling the method [`deferFailsafesSync()`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1ModeExecutorBase.html#a16ec5be6ebe70e1d0625bf696c3e29ae).
+To get notified when a failsafe would be triggered, override the method [`void onFailsafeDeferred()`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1ModeExecutorBase.html#ad80a234c8cb2f4c186fa2b7bffd1a1dd).
 
 Check the [integration test](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/test/integration/overrides.cpp) for an example.
 
