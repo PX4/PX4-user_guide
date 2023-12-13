@@ -3,11 +3,11 @@
 This page provides a uORB publication/subscription graph that shows the communication between modules. It is based on information that is extracted directly from the source code. Usage instructions are provided [below](#graph-properties).
 
 
-Search: <input id="search" type="text" /> Preset: <select id ="select-graph" name="select-graph"> <option value='graph_full_no_mavlink.json'>All Modules (w/o mavlink)</option> <option value='graph_full.json'>All Modules</option> <option value='graph_px4_sitl.json'>SITL Modules</option> <option value='graph_px4_fmu-v5.json'>FMUv5 Modules</option> <option value='graph_px4_fmu-v4.json'>FMUv4 Modules</option> <option value='graph_px4_fmu-v2.json'>FMUv2 Modules</option> </select>
-<br/>
-<svg id="svg-graph" width="1200" height="1400" style="text-align: center; margin-left: -230px; margin-right: -230px;"></svg>
-<script type="application/javascript" src="https://d3js.org/d3.v4.min.js" asysc></script>
-<script type="application/javascript" src="uorb_graph.js" asysc></script>
+<iframe :src="withBase('/middleware/index.html')" frameborder="0" width="1300" height="1450px" style="text-align: center; margin-left: 0px; margin-right: 0px;"></iframe>
+
+<script setup>
+import { withBase } from 'vitepress';
+</script>
 
 ## Graph Properties
 
