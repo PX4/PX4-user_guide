@@ -26744,6 +26744,17 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="SF1XX_MODE">SF1XX_MODE</strong> (INT32)</td>
+ <td>Lightware SF1xx/SF20/LW20 Operation Mode  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Enabled</li>
+<li><strong>2:</strong> Disabled during VTOL fast forward flight</li>
+</ul>  </td>
+ <td>[0, 2] </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="UUV_SKIP_CTRL">UUV_SKIP_CTRL</strong> (INT32)</td>
  <td>Skip the controller  <strong>Values:</strong><ul>
 <li><strong>0:</strong> use the module&#x27;s controller</li>

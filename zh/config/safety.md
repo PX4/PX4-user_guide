@@ -281,9 +281,7 @@ A kill switch immediately stops all motor outputs (and if flying, the vehicle wi
 - 这种机制可以避免因为某种意外误触而引发的飞行期间解锁/上锁。
 - 这种机制没有延迟（立即作出反应）。
 
-对于那些_支持在飞行期间上锁_的
-
-飞行模式<1>，解锁/上锁开关会立即上锁（制动）电机。 其中包括：</p> 
+The arm/disarm switch immediately disarms (stop) motors for those [flight modes](../getting_started/flight_modes.md) that _support disarming in flight_. 其中包括：
 
 - _手动模式_
 - _特技模式_
@@ -295,22 +293,17 @@ A kill switch immediately stops all motor outputs (and if flying, the vehicle wi
 [Auto disarm timeouts](#auto-disarming-timeouts) (e.g. via [COM_DISARM_LAND](#COM_DISARM_LAND)) are independent of the arm/disarm switch - ie even if the switch is armed the timeouts will still work.
 :::
 
+
 <!--
 **Note** This can also be done by [manually setting](../advanced_config/parameters.md) the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter to the corresponding switch RC channel.
   If the switch positions are reversed, change the sign of the parameter [RC_ARMSWITCH_TH](../advanced_config/parameter_reference.md#RC_ARMSWITCH_TH) (or also change its value to alter the threshold value).
 -->
 
-
-
 ### 返航开关
 
 A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
 
-
-
 ## 其他安全设置
-
-
 
 ### 超时自动上锁
 
@@ -322,9 +315,6 @@ The [relevant parameters](../advanced_config/parameters.md) are shown below:
 | ---------------------------------------------------------------------------------------------------------- | ----------------- |
 | <a id="COM_DISARM_LAND"></a>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | 降落后自动上锁的超时时间。     |
 | <a id="COM_DISARM_PRFLT"></a>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | 如果起飞速度太慢，将启动自动上锁。 |
-
-
-
 
 ## 更多信息
 
