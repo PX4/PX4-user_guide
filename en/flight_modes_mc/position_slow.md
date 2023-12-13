@@ -4,7 +4,7 @@
 
 _Position Slow_ is a velocity and yaw rate limited version of the regular [Position mode](../flight_modes_mc/position.md).
 
-The mode works in exactly the same way as _Position mode_ but with vehicle speed clamped to lower maximum velocities.
+The mode works in exactly the same way as _Position mode_ but with the vehicle clamped to lower maximum velocities.
 You can use it to quickly slow down the vehicle to a safe speed (if it is moving faster than the maximum velocity in the limited axis).
 You can also use it to get more precision from stick input, in particular when flying close to obstacles, or to comply with regulations such as [EASA's low-speed mode/function](https://www.easa.europa.eu/en/light/topics/flying-drones-close-people).
 
