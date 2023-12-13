@@ -195,14 +195,15 @@ After acquiring the pre-built library,
 Run the following commands on the BeagleBone Blue (i.e. via SSH):
 
 1. 종속성 설치:
+
    ```sh
    종속성 설치: 
      sh
      sudo apt-get update
      sudo apt-get install cmake python-empy
    ```
-2. PX4 펌웨어를 BeagleBone Blue에 복제합니다.
-3. [표준 빌드 시스템 설치](../dev_setup/dev_env_linux.md)를 계속 진행합니다.
+1. PX4 펌웨어를 BeagleBone Blue에 복제합니다.
+1. [표준 빌드 시스템 설치](../dev_setup/dev_env_linux.md)를 계속 진행합니다.
 
 ## Changes in config
 
