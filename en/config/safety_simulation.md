@@ -1,4 +1,4 @@
-# Failsafe State Machine Simulation
+# Failsafe State Machine Simulation <Badge type="tip" text="v1.14" vertical="top" />
 
 This page can be used to simulate the actions of the PX4 failsafe state machine under all possible configurations and conditions.
 

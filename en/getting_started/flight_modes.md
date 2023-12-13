@@ -99,7 +99,7 @@ Unlike [Altitude](#altitude-mode-mc) and [Manual/Stabilized](#manual_stabilized_
 [Position Slow mode](../flight_modes_mc/position_slow.md) is a velocity and yaw rate limited version of the regular [Position mode](#position-mode-mc).
 
 The mode works in exactly the same way as _Position mode_ but with the controller stick deflection re-scaled to lower maximum velocities (and proportionally lower acceleration).
-You can use it to quickly slow down the vehicle to a safe speed (if it is moving faster than the maximum velocity in the limited axis).
+You can use it to quickly slow down the vehicle to a safe speed.
 You can also use it to get more precision from stick input, in particular when flying close to obstacles, or to comply with regulations such as [EASA's low-speed mode/function](https://www.easa.europa.eu/en/light/topics/flying-drones-close-people).
 
 ### Altitude Mode (MC)
