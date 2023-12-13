@@ -208,7 +208,7 @@ Run the following commands on the BeagleBone Blue (i.e. via SSH):
 
    ```sh
    sudo apt-get update
-   sudo apt-get install cmake python3-empy=3.3.4_2
+   sudo apt-get install cmake python3-empy=3.3.4-2
    ```
 1. Clone the PX4 Firmware directly onto the BeagleBone Blue.
 1. Continue with the [standard build system installation](../dev_setup/dev_env_linux.md).
