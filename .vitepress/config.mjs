@@ -11,7 +11,7 @@ export default defineConfig({
   base: process.env.BRANCH_NAME
     ? "/" + process.env.BRANCH_NAME + "/"
     : "/px4_user_guide/",
-  srcExclude: ["de/**/*.md", "ja/**/*.md", "ru/**/*.md"],
+  srcExclude: ["de/**/*.md", "ja/**/*.md", "ru/**/*.md", "tr/**/*.md"],
   markdown: {
     math: true,
 
