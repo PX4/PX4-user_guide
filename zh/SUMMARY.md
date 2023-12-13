@@ -116,6 +116,7 @@
   * [安全点规划](flying/plan_safety_points.md)
   * [飞行模式](flight_modes/README.md)
     * [位置模式（多旋翼）](flight_modes_mc/position.md)
+    * [Position Slow Mode (MC)](flight_modes_mc/position_slow.md)
     * [高度模式（多旋翼）](flight_modes_mc/altitude.md)
     * [手动／自稳模式（多旋翼）](flight_modes_mc/manual_stabilized.md)
     * [特技模式（多旋翼）](flight_modes_mc/acro.md)
