@@ -4,7 +4,7 @@
 At the time of writing, parts of the PX4 ROS 2 Interface Library are experimental, and hence subject to change.
 :::
 
-The PX4 ROS 2 Interface Library for navigation enables developers to send their position measurements to PX4 directly from ROS 2 applications, such as a VIO system or a map matching system.
+The [PX4 ROS 2 Interface Library](../ros2/px4_ros2_interface_lib.md) navigation interface enables developers to send their position measurements to PX4 directly from ROS 2 applications, such as a VIO system or a map matching system.
 The interface provides a layer of abstraction from PX4 and the uORB messaging framework, and introduces a few sanity checks on the requested state estimation updates sent via the interface.
 These measurements are then fused into the EKF as internal PX4 measurements would.
 
