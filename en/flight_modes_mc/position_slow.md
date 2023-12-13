@@ -8,7 +8,7 @@ The mode works in exactly the same way as _Position mode_ but with the vehicle s
 You can use it to quickly slow down the vehicle to a safe speed (if it is moving faster than the maximum velocity in the limited axis).
 You can also use it to get more precision from stick input, in particular when flying close to obstacles, or to comply with regulations such as [EASA's low-speed mode/function](https://www.easa.europa.eu/en/light/topics/flying-drones-close-people).
 
-The velocity limits can be set using parameters, from a rotary knob or slider on an RC control, or using MAVLink.
+The velocity limits can be set using parameters, from a rotary knob, slider, or switch on an RC control, or using MAVLink.
 Limits set using RC control override those set by MAVLink, which in turn override those set using parameters.
 The limits can only be reduced below those for normal _Position_ mode.
 
