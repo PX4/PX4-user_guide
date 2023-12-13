@@ -54,7 +54,7 @@ The following steps are required to get started:
 
    ```sh
    source install/setup.bash
-   ros2 run example_global_navigation_cpp example_global_navigation_cpp
+   ros2 run example_global_navigation_cpp example_global_navigation
    ```
 
    You should get an output like this showing that the global interface is successfully sending position updates:
