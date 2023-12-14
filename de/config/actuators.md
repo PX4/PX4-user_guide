@@ -1,4 +1,4 @@
-# Actuator Configuration and Testing
+# Actuator Configuration and Testing <Badge type="tip" text="v1.14" vertical="top" />
 
 The _Actuators Setup_ view is used to customize the specific geometry of the vehicle, assign actuators and motors to flight controller outputs, and test the actuator and motor response.
 

@@ -116,6 +116,7 @@
   * [Safety Point Planning](flying/plan_safety_points.md)
   * [フライトモード](flight_modes/README.md)
     * [Position モード(マルチコプター)](flight_modes_mc/position.md)
+    * [Position Slow Mode (MC)](flight_modes_mc/position_slow.md)
     * [Altitude モード (マルチコプター)](flight_modes_mc/altitude.md)
     * [Manual/Stabilized モード(マルチコプター)](flight_modes_mc/manual_stabilized.md)
     * [Acro Mode (MC)](flight_modes_mc/acro.md)

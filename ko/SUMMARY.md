@@ -116,6 +116,7 @@
   * [안전 지점 설정하기](flying/plan_safety_points.md)
   * [비행 모드 ](flight_modes/README.md)
     * [위치 모드 (멀티콥터)](flight_modes_mc/position.md)
+    * [Position Slow Mode (MC)](flight_modes_mc/position_slow.md)
     * [고도 모드 (멀티콥터)](flight_modes_mc/altitude.md)
     * [수동안정화 모드 (멀티콥터)](flight_modes_mc/manual_stabilized.md)
     * [아크로 모드 (멀티콥터)](flight_modes_mc/acro.md)

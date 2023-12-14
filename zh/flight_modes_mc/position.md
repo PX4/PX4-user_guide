@@ -73,3 +73,7 @@ While very rare on a well calibrated vehicle, sometimes there may be problems wi
 ### 位置丢失/安全
 
 位置模式依赖于一个可接受的位置估计。 If the estimate falls below acceptable levels, for example due to GPS loss, this may trigger a [Position (GPS) Loss Failsafe](../config/safety.md#position-gps-loss-failsafe). 如果估计值低于可接受的水平，例如由于 GPS 丢失，这可能会触发位置 (GPS) 丢失故障保护 根据配置，是否有遥控器，以及是否有足够的高度估计，PX4 可能会切换到高度模式、手动模式、降落模式或终止。
+
+## See Also
+
+- [Position Slow Mode](../flight_modes_mc/position_slow.md)
