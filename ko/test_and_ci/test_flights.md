@@ -1,10 +1,5 @@
 # 시험 비행
 
-<div v-if="$themeConfig.px4_version != 'main'">
-  <div class="custom-block danger"><p class="custom-block-title">이 페이지는 오래되었습니다.</p>. <p>The latest version <a href="https://docs.px4.io/main/en/test_and_ci/test_flights.html">can be found here</a>.</p>
-  </div>
-</div>
-
 시험 비행은 품질 보증에 매우 중요한 과정입니다.
 
 When submitting [Pull Requests](../contribute/code.md#pull-requests) for new functionality or bug fixes you should provide information about the feature-relative tests performed, along with accompanying flight logs.

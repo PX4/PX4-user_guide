@@ -1,10 +1,5 @@
 # Tests Flights
 
-<div v-if="$themeConfig.px4_version != 'main'">
-  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p>. <p>The latest version <a href="https://docs.px4.io/main/en/test_and_ci/test_flights.html">can be found here</a>.</p>
-  </div>
-</div>
-
 Test flights are important for quality assurance.
 
 When submitting [Pull Requests](../contribute/code.md#pull-requests) for new functionality or bug fixes you should provide information about the feature-relative tests performed, along with accompanying flight logs.

@@ -1,10 +1,5 @@
 # Community
 
-<div v-if="$themeConfig.px4_version != 'main'">
-  <div class="custom-block danger"><p class="custom-block-title">이 페이지는 오래된 페이지입니다.</p>. <p>The latest version <a href="https://docs.px4.io/main/en/contribute/">can be found here</a>.</p>
-  </div>
-</div>
-
 Welcome to the PX4 Community!
 
 :::tip
