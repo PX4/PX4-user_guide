@@ -702,6 +702,8 @@
       * [ROS 2 Offboard Control Example](ros/ros2_offboard_control.md)
       * [ROS 2 Multi Vehicle Simulation](ros/ros2_multi_vehicle.md)
       * [PX4 ROS 2 Interface Library](ros2/px4_ros2_interface_lib.md)
+        * [Control Interface](ros2/px4_ros2_control_interface.md)
+        * [Navigation Interface](ros2/px4_ros2_navigation_interface.md)
     * [ROS 1 with MAVROS](ros/ros1.md)
       * [ROS/MAVROS安装指南](ros/mavros_installation.md)
       * [ROS/MAVROS Offboard Example (C++)](ros/mavros_offboard_cpp.md)
