@@ -91,6 +91,49 @@ The following arguments can be passed to the `simulation-gazebo` script:
 None of these arguments are required for `simulation-gazebo` to work.
 They are needed when you want to provide custom model downloads, other worlds, or you want to run Gazebo and PX4 on separate hosts.
 
+## Example
+
+The following example will illustrate how you can set up a distributed system, running PX4 on one host (called "PX4-host") and Gazebo on another (called "Gazebo-host"). This will result in two Gazebo nodes running on two different hosts in the same network and communicating using the gz-transport library.
+
+We first have to figure out what IP address we can use to send out messages on both hosts. To do this we can run:
+
+```sh
+sudo apt update
+sudo apt install iproute2
+```
+
+Then type:
+
+```sh
+ip a
+```
+
+If you are connected to a network via WiFi, then the desired address will usually have a name along the lines of `wlp12345`. Take down the IPv4 address listed with this interface by noting the number listed next to `inet`. It should be four numbers, separated by points and followed by a slash and another number. A valid IPv4 address would be for example: `192.168.24.89/24`. You only require the first four numbers. So in the example's case, the desired IP address would be: `192.168.24.89`. This will be the IP address of the PX4-host. In case you are connected via Ethernet the network interface might start with `eth` or `en`, however this is not standardized.
+
+Repeat the same procedure on the second host and note down the second IPv4 address. For this example we will take `192.168.24.107`. This will be the IP address of the Gazebo-host. We can now start setting up the hosts. We first set up the PX4-host:
+
+```sh
+GZ_PARTITION=relay GZ_RELAY=192.168.24.107 GZ_IP=192.168.24.89 PX4_GZ_STANDALONE=1 PX4_SYS_AUTOSTART=4001 PX4_SIM_MODEL=gz_x500 PX4_GZ_WORLD=baylands ./build/px4_sitl_default/bin/px4
+```
+
+Explanation of the environment variables:
+
+- `GZ_PARTITION` declares the partition name that the two gazebo nodes will run in. This **has** to be same across all connected notes.
+- `GZ_RELAY` points to the target IP address on the other host (in this case the Gazebo-host). This environment variable is necessary to connect the two nodes to each other. Note that this connection is bidirectional, so `GZ_RELAY` only has to be set on one host.
+- `GZ_IP` tells the current host what network interface to use to send out messages. This is required when advertising topics or services.
+
+We can then set up the Gazebo-host. Note that the actual setup order (PX4-host first or Gazebo-host first) is not actually important. Both will continuously look for other Gazebo nodes until they find one. On your Gazebo-host, in a terminal, run:
+
+```sh
+python3 /path/to/simulation-gazebo --gz_partition relay --gz_ip 192.168.24.107 --world baylands
+```
+
+Here we pass same environmental variables as arguments. Note that the worlds have to match in order to be able to connect. If you accidentally set `baylands` in one host and say `default` in the other, then the two nodes will not be able to connect.
+
+If everything worked correctly, then the two hosts should now be connected and you should be able to fly your vehicle in the command line on the PX4-host. Furthermore, you could also set up QGC and fly your vehicle that way. In addition it is also possible to connect multiple PX4-hosts to the same Gazebo-host by setting the `-i` flag as shown on the [multi-vehicle simulation](./multi_vehicle_simulation.md) page. For more information, concerning the environment variables, you can also refer to the [gz-transport documentation](https://gazebosim.org/api/transport/12/envvars.html).
+
+A connection over VPN and hence multiple networks is also possible. However, this is currently not well documented.
+
 ## Workflow
 
 When a branch gets merged onto the main branch (this could be a model addition, deletion or a something like a parameter change), all models that have received any sort of change will automatically be updated and uploaded to the PX4 account on [Gazebo Fuel](https://app.gazebosim.org/PX4).
