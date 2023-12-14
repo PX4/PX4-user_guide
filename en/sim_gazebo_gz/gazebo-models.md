@@ -91,7 +91,25 @@ The following arguments can be passed to the `simulation-gazebo` script:
 None of these arguments are required for `simulation-gazebo` to work.
 They are needed when you want to provide custom model downloads, other worlds, or you want to run Gazebo and PX4 on separate hosts.
 
-## Example
+## Example running one host with multiple terminals
+
+This example explains how you can run standalone mode PX4 via two terminals on one host.
+
+1. In one terminal run
+
+```sh
+PX4_GZ_STANDALONE=1 PX4_SYS_AUTOSTART=4001 PX4_SIM_MODEL=gz_x500 PX4_GZ_WORLD=windy ./build/px4_sitl_default/bin/px4
+```
+
+2. In a second terminal window run:
+
+```sh
+python3 /path/to/simulation-gazebo --world windy
+```
+
+No additional parameters have to be passed to the simulation-gazebo script in order for this example to work, as all Gazebo nodes run on the same host. See the example below for a more involved scenario with different hosts.
+
+## Example running multiple hosts
 
 The following example will illustrate how you can set up a distributed system, running PX4 on one host (called "PX4-host") and Gazebo on another (called "Gazebo-host"). This will result in two Gazebo nodes running on two different hosts in the same network and communicating using the gz-transport library.
 
