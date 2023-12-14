@@ -44,7 +44,7 @@ Main features :
 
 ## Wiring and Connections
 
-<img src="../../assets/hardware/gps/cuav_gps/neo_3x/neo_3x_connect.jpg" width="500px" /> 
+<img src="../../assets/hardware/gps/cuav_gps/neo_3x_connect.jpg" width="500px" /> 
 
 * NEO 3X connected to autopilot CAN1/CAN2 interface
 
@@ -55,7 +55,7 @@ Open QGroundControl>Parameters and modify the following parameters
 * `UAVCAN_ENABLE`Set to `Sensors Automatic config` .
 * `UAVCAN_SUB_GPS` Set to `Enable`.
 
-<img src="../../assets/hardware/gps/cuav_gps/px4-can.png" width="500px" /> 
+<img src="../../assets/hardware/gps/cuav_gps/px4_can.png" width="500px" /> 
 
 
 ## More info

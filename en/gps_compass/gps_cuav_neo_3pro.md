@@ -59,7 +59,7 @@ Open QGroundControl>Parameters and modify the following parameters
 * `UAVCAN_ENABLE`Set to `Sensors Automatic config` .
 * `UAVCAN_SUB_GPS` Set to `Enable`.
 
-<img src="../../assets/hardware/gps/cuav_gps/px4-can.png" width="500px" /> 
+<img src="../../assets/hardware/gps/cuav_gps/px4_can.png" width="500px" /> 
 
 
 ## More info
