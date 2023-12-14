@@ -1,4 +1,4 @@
-# uXRCE-DDS (PX4-ROS 2/DDS Bridge)
+# uXRCE-DDS (PX4-ROS 2/DDS Bridge) <Badge type="tip" text="v1.14" vertical="top" />
 
 :::note
 uXRCE-DDS replaces the [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge) used in PX4 v1.13. If you were using the Fast-RTPS Bridge, please follow the [migration guidelines](#fast-rtps-to-uxrce-dds-migration-guidelines).
