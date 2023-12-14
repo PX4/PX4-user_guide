@@ -1,10 +1,5 @@
 # Weekly Community Q&A Call (Previously "Dev Call")
 
-<div v-if="$themeConfig.px4_version != 'main'">
-  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p>. <p>The latest version <a href="https://docs.px4.io/main/en/contribute/dev_call.html">can be found here</a>.</p>
-  </div>
-</div>
-
 The PX4 dev team and community come together to discuss any topic of interest to the community, ranging from sorting out issues to satisfying your curiosity.
 
 ## Who should attend?
