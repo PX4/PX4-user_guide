@@ -62,8 +62,8 @@ export default defineConfig({
     },
 
     search: {
-      provider: process.env.BRANCH_NAME ? "algolia" : "local",
-      //provider: "local",
+      //provider: process.env.BRANCH_NAME ? "algolia" : "local",
+      provider: "local",
       //provider: "algolia",
       options: {
         appId: "HHWW7I44JO",
