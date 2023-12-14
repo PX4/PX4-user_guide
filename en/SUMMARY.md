@@ -688,7 +688,7 @@
       * [Test MC_05 - Indoor Flight (Manual Modes)](test_cards/mc_05_indoor_flight_manual_modes.md)
     * [Unit Tests](test_and_ci/unit_tests.md)
     * [Continuous Integration](test_and_ci/continous_integration.md)
-    * [ROS Integration Testing](test_and_ci/integration_testing.md)
+    * [Integration Testing](test_and_ci/integration_testing.md)
       * [MAVSDK Integration Testing](test_and_ci/integration_testing_mavsdk.md)
       * [PX4 ROS2 Interface Library Integration Testing](test_and_ci/integration_testing_px4_ros2_interface.md)
       * [ROS 1 Integration Testing](test_and_ci/integration_testing_ros1_mavros.md)
