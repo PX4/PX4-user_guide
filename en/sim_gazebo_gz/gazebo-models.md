@@ -1,40 +1,59 @@
 # Gazebo Models Repository (PX4-gazebo-models)
 
-The [PX4-gazebo-models](https://github.com/PX4/PX4-gazebo-models) repository is used to store all [Gazebo](../sim_gazebo_gz/README.md) models and worlds that are supported by PX4. When running PX4 normally, like `make px4_sitl gz_x500`, PX4 will automatically fetch this directory when it is not detected, and place the models and worlds folders in `/.simulation-gazebo`. You can re-initiate the download of these models, for example when an update has occurred to one of the models, by setting: `PX4_GZ_OVERWRITE=1 make px4_sitl gz_x500`.
+The [PX4-gazebo-models](https://github.com/PX4/PX4-gazebo-models) repository is used to store all [Gazebo](../sim_gazebo_gz/README.md) models and worlds that are supported by PX4.
 
 - Models are stored in the `/models` directory and worlds are stored in the `/worlds` directory.
-- The [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) Python script is used for starting Gazebo in standalone mode.
-  This script can communicate with a PX4 SITL instance on the same host by default.
-  If the script parameters are set correctly, it can also communicate with any PX4 instance on any machine within the same network.
+- The [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) Python script is used for [starting Gazebo in standalone mode](../sim_gazebo_gz/README.md#standalone-mode).
 
-## Simulation Start-up
+PX4 will automatically fetch the repository world and model folders the first time it is built with a "normal" Gazebo `make` target, such as `make px4_sitl gz_x500`.
+These are placed in the folder `/.simulation-gazebo` within the user's home directory.
+The build system won't automatically update the local copy again if the `.simulation-gazebo` folder is detected, but you can force it to update to the latest models and vehicles by building a Gazebo target with the `PX4_GZ_OVERWRITE` environment variable: `PX4_GZ_OVERWRITE=1 make px4_sitl gz_x500`.
+
+For standalone builds you first have obtain the [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) script, and then it will similarly fetch the models and worlds to `~/.simulation-gazebo` if that directory is not present.
+
+## simulation-gazebo (Standalone Simulation Start-up Script)
+
+The [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) Python script is used for starting Gazebo in[standalone mode](../sim_gazebo_gz/README.md#standalone-mode).
+The script can communicate with a PX4 SITL instance on the same host by default.
+If the script arguments are set correctly, it can also communicate with any PX4 instance on any machine within the same network.
 
 The `simulation-gazebo` script does not require any additional libraries and should work out of the box.
+
+### Basic Usage
+
 The default `simulation-script` can be run with:
 
 ```sh
 python simulation-gazebo
 ```
 
-With these default parameters, there will first be a check whether a folder called `/.simulation-gazebo` already exists.
-If if does not, all models and worlds will be downloaded from [PX4 gazebo models repository](https://github.com/PX4/PX4-gazebo-models) and placed there.
-Then, a _gz-server_ instance will be launched using the default grey plane world.
-There are then multiple ways to connect a PX4-enabled vehicle to this instance of _gz-server_.
+This will fetch the models and worlds from the [PX4 gazebo models repository](https://github.com/PX4/PX4-gazebo-models) into subfolders of the `~/.simulation-gazebo` directory the first time it is called (or more precisely, if the directory is not detected).
+
+A _gz-server_ instance will then be launched using the default grey plane world.
+You can connect a PX4-enabled vehicle to this instance of _gz-server_ using several approaches:
 
 - In a new terminal, run PX4 using `PX4_GZ_STANDALONE=1 make px4_sitl gz_<vehicle>` and you will observe a vehicle appearing in Gazebo.
 
-- Gazebo also has its own, built-in "resource spawner". It can be called up by clicking on the three dots in the top right corner of the Gazebo GUI. There enter "resource spawner" and, under "Fuel resources", add the owner "px4". You can then drag and drop any PX4 model into your simulation. These models are taken from an web-server called [Gazebo Fuel](https://app.gazebosim.org/dashboard), which essential acts as an online database for all types of models and worlds that can be launched in Gazebo.
-   Drag and drop the vehicle of your choice into Gazebo and then launch PX4 with:
+- Gazebo also has its own, built-in "resource spawner".
+  It can be called up by clicking on the three dots in the top right corner of the Gazebo GUI.
+  There enter "resource spawner" and, under "Fuel resources", add the owner "px4".
+  You can then drag and drop any PX4 model into your simulation.
 
-   ```sh
-   PX4_SYS_AUTOSTART=<airframe-number-of-choice> PX4_GZ_MODEL_NAME=<vehicle-of-choice> ./build/px4_sitl_default/bin/px4`
-   ```
+  ::: note
+  These models are taken from an web-server called [Gazebo Fuel](https://app.gazebosim.org/dashboard), which essentially acts as an online database for all types of models and worlds that can be launched in Gazebo.
+  :::
 
-   This will connect PX4 to the running instance of Gazebo.
+  After dropping the vehicle of your choice into Gazebo, launch PX4 SITL with:
+
+  ```sh
+  PX4_SYS_AUTOSTART=<airframe-number-of-choice> PX4_GZ_MODEL_NAME=<vehicle-of-choice> ./build/px4_sitl_default/bin/px4`
+  ```
+
+  This will connect PX4 SITL to the running instance of Gazebo.
 
 All the functionality and flexibility that exists for PX4 is applicable and directly works in the Gazebo instance.
 
-### Arguments for simulation-gazebo
+### Command line arguments
 
 The following arguments can be passed to the `simulation-gazebo` script:
 

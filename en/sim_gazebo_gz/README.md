@@ -39,39 +39,9 @@ make px4_sitl gz_x500
 ```
 
 This runs both the PX4 SITL instance and the Gazebo client.
-Note that all gazebo make targets have the prefix `gz_`.
-
-Another way that Gazebo SITL can be connected is in _standalone mode_.
-In standalone mode PX4 SITL and Gazebo are started separately in their own terminals.
-You start PX4 in standalone mode by prefixing the make command with `GZ_PX4_STANDALONE=1`:
-
-```sh
-cd /path/to/PX4-Autopilot
-GZ_PX4_STANDALONE=1 make px4_sitl gz_x500
-```
-
-If you have not yet started _gz-server_ when you run the `make` command, you will see the following warning until gazebo has been started and an instance of _gz-server_ is detected by PX4:
-
-```sh
-WARN [gz bridge] Service call timed out as Gazebo has not been detected
-```
-
-The simplest way to start the simulation is to run the `simulation-gazebo` script found in the [PX4-gazebo-models](https://github.com/PX4/PX4-gazebo-models) repository.
-This will launch a _gz-server_ instance that can be started with any world and vehicle.
-For more information and arguments, see [Gazebo Models](./gazebo-models.md).
-
-The script can be started with:
-
-```sh
-cd /path/to/PX4-gazebo-models
-python3 simulation-gazebo
-```
-
-:::note
-If `make px4_sitl gz_x500` gives the error `ninja: error: unknown target 'gz_x500'` then run `make distclean` to start from a clean slate, and try running `make px4_sitl gz_x500` again.
-:::
 
 The supported vehicles and `make` commands are listed below.
+Note that all gazebo make targets have the prefix `gz_`.
 
 | Vehicle                                                                                                  | Command                           | `PX4_SYS_AUTOSTART` |
 | -------------------------------------------------------------------------------------------------------- | --------------------------------- | ------------------- |
@@ -82,6 +52,8 @@ The supported vehicles and `make` commands are listed below.
 | [Plane](../sim_gazebo_gz/vehicles.md#standard-plane)                                                     | `make px4_sitl gz_rc_cessna`      | 4003                |
 | [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane)                                            | `make px4_sitl gz_advanced_plane` | 4008                |
 
+All [vehicle models](../sim_gazebo_gz/vehicles.md) (and [worlds](#specify-world)) are automatically fetched from the [Gazebo Models Repository](../sim_gazebo_gz/gazebo-models.md) repository on first run, and placed in the `~/.simulation-gazebo` repository.
+
 :::warning
 (09.11.2023) The Advanced Lift Drag Plugin that is required to run the Advanced Plane is not yet part of the Gazebo distribution, so the Advanced Plane will not yet fly: [PX4-Autopilot Github issues page](https://github.com/PX4/PX4-Autopilot/issues/22337).
 
@@ -90,6 +62,52 @@ As a workaround to enable Advanced Plane, you can compile the gz-sim library fro
 
 The commands above launch a single vehicle with the full UI.
 _QGroundControl_ should be able to automatically connect to the simulated vehicle.
+
+### Standalone Mode
+
+Another way that Gazebo SITL can be connected is in _standalone mode_.
+In standalone mode PX4 SITL and Gazebo are started separately in their own terminals.
+By default these terminals are on the same host, but you can also connect SITL and Gazebo instances running on any two devices on the network (or even different networks if you use a VPN to connect them).
+
+You start PX4 in standalone mode by prefixing the `make` command with `GZ_PX4_STANDALONE=1`:
+
+```sh
+cd /path/to/PX4-Autopilot
+GZ_PX4_STANDALONE=1 make px4_sitl gz_x500
+```
+
+PX4 SITL will then wait until it detects an instance of _gz-server_, and then connect to it.
+
+:::note
+If you have not yet started _gz-server_ when you run the `make` command, you will see the following warning until gazebo has been started and an instance of _gz-server_ is detected by PX4:
+
+```sh
+WARN [gz bridge] Service call timed out as Gazebo has not been detected
+```
+:::
+
+The simplest way to start the simulation is to use the Python script [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo), which can be found in the [Gazebo Models Repository](../sim_gazebo_gz/gazebo-models.md) repository.
+This can be used to launch a _gz-server_ instance with any supported world and vehicle.
+
+The script can be used without installing any additional dependencies, and will fetch the supported PX4 models and worlds on first use (by default).
+You can fetch the script locally using any method you like, such as wget:
+
+```sh
+wget https://raw.githubusercontent.com/PX4/PX4-gazebo-models/main/simulation-gazebo
+```
+
+The script can be started with:
+
+```sh
+cd /path/to/simulation-gazebo/
+python3 simulation-gazebo
+```
+
+For more information and arguments, see [Gazebo Models](./gazebo-models.md).
+
+:::note
+If `make px4_sitl gz_x500` gives the error `ninja: error: unknown target 'gz_x500'` then run `make distclean` to start from a clean slate, and try running `make px4_sitl gz_x500` again.
+:::
 
 ### Headless Mode
 
