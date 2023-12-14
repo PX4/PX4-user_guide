@@ -31,3 +31,5 @@ node_modules/
 #docs/.vitepress/dist/
 .vitepress/cache/
 .vitepress/dist/
+.vitepress/.temp/
+
