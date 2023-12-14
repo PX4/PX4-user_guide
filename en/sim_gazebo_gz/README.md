@@ -52,7 +52,7 @@ Note that all gazebo make targets have the prefix `gz_`.
 | [Plane](../sim_gazebo_gz/vehicles.md#standard-plane)                                                     | `make px4_sitl gz_rc_cessna`      | 4003                |
 | [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane)                                            | `make px4_sitl gz_advanced_plane` | 4008                |
 
-All [vehicle models](../sim_gazebo_gz/vehicles.md) (and [worlds](#specify-world)) are automatically fetched from the [Gazebo Models Repository](../sim_gazebo_gz/gazebo-models.md) repository on first run, and placed in the `~/.simulation-gazebo` repository.
+All [vehicle models](../sim_gazebo_gz/vehicles.md) (and [worlds](#specify-world)) are included as a submodule from the [Gazebo Models Repository](../sim_gazebo_gz/gazebo-models.md) repository.
 
 :::warning
 (09.11.2023) The Advanced Lift Drag Plugin that is required to run the Advanced Plane is not yet part of the Gazebo distribution, so the Advanced Plane will not yet fly: [PX4-Autopilot Github issues page](https://github.com/PX4/PX4-Autopilot/issues/22337).
@@ -89,7 +89,7 @@ WARN [gz bridge] Service call timed out as Gazebo has not been detected
 The simplest way to start the simulation is to use the Python script [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo), which can be found in the [Gazebo Models Repository](../sim_gazebo_gz/gazebo-models.md) repository.
 This can be used to launch a _gz-server_ instance with any supported world and vehicle.
 
-The script can be used without installing any additional dependencies, and will fetch the supported PX4 models and worlds on first use (by default).
+The script can be used without installing any additional dependencies, and will fetch the supported PX4 models and worlds on first use (by default) and save them to `~/.simulation-gazebo`. When calling future iterations of this script, it will always refer to this directory to fetch models and worlds. Therefore if you want to use your own model and run it in standalone mode, you will have to place its source code in `~/.simulation-gazebo`.
 You can fetch the script locally using any method you like, such as wget:
 
 ```sh
@@ -210,9 +210,6 @@ where `ARGS` is a list of environment variables including:
 - `PX4_GZ_STANDALONE`:
   Lets PX4 know that it should not launch an instance of Gazebo.
 
-- `PX4_GZ_OVERWRITE`:
-  This environmental varialbes allows you to download the newest set of models and worlds from PX4-gazebo-models. All worlds and models are stored in `~/.simulation-gazebo` and are accessed by PX4 at runtime. Without setting this variable, the models will only be downloaded once at the beginning and then never again. If a model or a file has changed on PX4-gazebo-models then you might want to update the models and worlds to the newest versions and that is when this variable can be used.
-
 The PX4 Gazebo worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-gazebo-models).
 
 :::note
@@ -279,10 +276,22 @@ To add a new model:
      PX4_SYS_AUTOSTART=<your new airframe id> ./build/px4_sitl_default/bin/px4
      ```
 
+3. Add CMake Target for the [airframe](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/CMakeLists.txt).
+
+- If you plan to use "regular" mode, add your model sdf to `Tools/simulation/gz/models/`.
+
+- If you plan to use _standalone_ mode, add your model sdf to `~/.simulation-gazebo/models/`
+
+You can of course also use both.
+
 To add a new world:
 
-1. Add your world to the list of worlds found [here](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/gz_bridge/worlds_list).
+1. Add your world to the list of worlds found in the CMake [here](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/gz_bridge/CMakeLists.txt).
    This is required in order to allow CMake to generate correct targets.
+
+- If you plan to use "regular" mode, add your world sdf to `Tools/simulation/gz/worlds/`.
+
+- If you plan to use _standalone_ mode, add your world sdf to `~/.simulation-gazebo/worlds/`
 
 :::note
 As long as the world file and the model file are in the Gazebo search path `GZ_SIM_RESOURCE_PATH` it is not necessary to add them to the PX4 world and model directories.

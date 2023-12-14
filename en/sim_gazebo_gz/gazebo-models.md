@@ -5,11 +5,10 @@ The [PX4-gazebo-models](https://github.com/PX4/PX4-gazebo-models) repository is 
 - Models are stored in the `/models` directory and worlds are stored in the `/worlds` directory.
 - The [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) Python script is used for [starting Gazebo in standalone mode](../sim_gazebo_gz/README.md#standalone-mode).
 
-PX4 will automatically fetch the repository world and model folders the first time it is built with a "normal" Gazebo `make` target, such as `make px4_sitl gz_x500`.
-These are placed in the folder `/.simulation-gazebo` within the user's home directory.
-The build system won't automatically update the local copy again if the `.simulation-gazebo` folder is detected, but you can force it to update to the latest models and vehicles by building a Gazebo target with the `PX4_GZ_OVERWRITE` environment variable: `PX4_GZ_OVERWRITE=1 make px4_sitl gz_x500`.
+As PX4-gazebo-models is included in PX4 as a submodule, no additional work is required with a "normal" Gazebo `make` target, such as `make px4_sitl gz_x500`.
 
-For standalone builds you first have obtain the [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) script, and then it will similarly fetch the models and worlds to `~/.simulation-gazebo` if that directory is not present.
+For standalone builds you first have obtain the [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) script, and then it will fetch the models and worlds to `~/.simulation-gazebo` if that directory is not present.
+The build system won't automatically update the local copy again if the `.simulation-gazebo` folder is detected, but you can force it to update to the latest models and vehicles by passing the `overwrite` flag to the script. The resulting command will look something like: .
 
 ## simulation-gazebo (Standalone Simulation Start-up Script)
 
@@ -28,9 +27,14 @@ python simulation-gazebo
 ```
 
 This will fetch the models and worlds from the [PX4 gazebo models repository](https://github.com/PX4/PX4-gazebo-models) into subfolders of the `~/.simulation-gazebo` directory the first time it is called (or more precisely, if the directory is not detected).
-
 A _gz-server_ instance will then be launched using the default grey plane world.
-You can connect a PX4-enabled vehicle to this instance of _gz-server_ using several approaches:
+The build system won't automatically update the local copy again if the `.simulation-gazebo` folder is detected, but you can force it to update to the latest models and vehicles by passing the `overwrite` flag to the script. The resulting command will look something like:
+
+```sh
+python simulation-gazebo --overwrite
+```
+
+You can connect a PX4-enabled vehicle to an instance of _gz-server_ using several approaches:
 
 - In a new terminal, run PX4 using `PX4_GZ_STANDALONE=1 make px4_sitl gz_<vehicle>` and you will observe a vehicle appearing in Gazebo.
 
