@@ -1,6 +1,6 @@
 # Auterion Skynode
 
-[Skynode](https://auterion.com/product/skynode/) is a powerful flight computer that combines a mission computer, flight controller, video streaming, networking, and cellular connection, in a single tightly integrated device.
+[Skynode](https://auterion.com/product/skynode/) 是一个强大的飞行计算机，它将飞行任务计算机、飞行控制器、视频流、联网和手机连接，组合在一个单一的集成设备中。
 
 ![Auterion Skynode (Enterprise)](../../assets/companion_computer/auterion_skynode/skynode_small.png)
 

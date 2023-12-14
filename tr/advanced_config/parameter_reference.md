@@ -9437,6 +9437,7 @@ table {
 <li><strong>6:</strong> Acro</li>
 <li><strong>7:</strong> Offboard</li>
 <li><strong>8:</strong> Stabilized</li>
+<li><strong>9:</strong> Position Slow</li>
 <li><strong>10:</strong> Takeoff</li>
 <li><strong>11:</strong> Land</li>
 <li><strong>12:</strong> Follow Me</li>
@@ -9467,6 +9468,7 @@ table {
 <li><strong>6:</strong> Acro</li>
 <li><strong>7:</strong> Offboard</li>
 <li><strong>8:</strong> Stabilized</li>
+<li><strong>9:</strong> Position Slow</li>
 <li><strong>10:</strong> Takeoff</li>
 <li><strong>11:</strong> Land</li>
 <li><strong>12:</strong> Follow Me</li>
@@ -9497,6 +9499,7 @@ table {
 <li><strong>6:</strong> Acro</li>
 <li><strong>7:</strong> Offboard</li>
 <li><strong>8:</strong> Stabilized</li>
+<li><strong>9:</strong> Position Slow</li>
 <li><strong>10:</strong> Takeoff</li>
 <li><strong>11:</strong> Land</li>
 <li><strong>12:</strong> Follow Me</li>
@@ -9527,6 +9530,7 @@ table {
 <li><strong>6:</strong> Acro</li>
 <li><strong>7:</strong> Offboard</li>
 <li><strong>8:</strong> Stabilized</li>
+<li><strong>9:</strong> Position Slow</li>
 <li><strong>10:</strong> Takeoff</li>
 <li><strong>11:</strong> Land</li>
 <li><strong>12:</strong> Follow Me</li>
@@ -9557,6 +9561,7 @@ table {
 <li><strong>6:</strong> Acro</li>
 <li><strong>7:</strong> Offboard</li>
 <li><strong>8:</strong> Stabilized</li>
+<li><strong>9:</strong> Position Slow</li>
 <li><strong>10:</strong> Takeoff</li>
 <li><strong>11:</strong> Land</li>
 <li><strong>12:</strong> Follow Me</li>
@@ -9587,6 +9592,7 @@ table {
 <li><strong>6:</strong> Acro</li>
 <li><strong>7:</strong> Offboard</li>
 <li><strong>8:</strong> Stabilized</li>
+<li><strong>9:</strong> Position Slow</li>
 <li><strong>10:</strong> Takeoff</li>
 <li><strong>11:</strong> Land</li>
 <li><strong>12:</strong> Follow Me</li>
@@ -16884,6 +16890,103 @@ table {
  <td>Maximum yawrate the weathervane controller is allowed to demand    </td>
  <td>[0, 120] </td>
  <td>90.0</td>
+ <td>deg/s</td>
+</tr>
+</tbody></table>
+
+## Multicopter Position Slow Mode
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="MC_SLOW_DEF_HVEL">MC_SLOW_DEF_HVEL</strong> (FLOAT)</td>
+ <td>Default horizontal velocity limit <p><strong>Comment:</strong> This value is used in slow mode if no aux channel is mapped and no limit is commanded through MAVLink.</p>   </td>
+ <td>[0.1, ?] (0.1)</td>
+ <td>3.</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MC_SLOW_DEF_VVEL">MC_SLOW_DEF_VVEL</strong> (FLOAT)</td>
+ <td>Default vertical velocity limit <p><strong>Comment:</strong> This value is used in slow mode if no aux channel is mapped and no limit is commanded through MAVLink.</p>   </td>
+ <td>[0.1, ?] (0.1)</td>
+ <td>1.</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MC_SLOW_DEF_YAWR">MC_SLOW_DEF_YAWR</strong> (FLOAT)</td>
+ <td>Default yaw rate limit <p><strong>Comment:</strong> This value is used in slow mode if no aux channel is mapped and no limit is commanded through MAVLink.</p>   </td>
+ <td>[1, ?] (0.1)</td>
+ <td>45.</td>
+ <td>deg/s</td>
+</tr>
+<tr>
+ <td><strong id="MC_SLOW_MAP_HVEL">MC_SLOW_MAP_HVEL</strong> (INT32)</td>
+ <td>Manual input mapped to scale horizontal velocity in position slow mode  <strong>Values:</strong><ul>
+<li><strong>0:</strong> No rescaling</li>
+<li><strong>1:</strong> AUX1</li>
+<li><strong>2:</strong> AUX2</li>
+<li><strong>3:</strong> AUX3</li>
+<li><strong>4:</strong> AUX4</li>
+<li><strong>5:</strong> AUX5</li>
+<li><strong>6:</strong> AUX6</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MC_SLOW_MAP_VVEL">MC_SLOW_MAP_VVEL</strong> (INT32)</td>
+ <td>Manual input mapped to scale vertical velocity in position slow mode  <strong>Values:</strong><ul>
+<li><strong>0:</strong> No rescaling</li>
+<li><strong>1:</strong> AUX1</li>
+<li><strong>2:</strong> AUX2</li>
+<li><strong>3:</strong> AUX3</li>
+<li><strong>4:</strong> AUX4</li>
+<li><strong>5:</strong> AUX5</li>
+<li><strong>6:</strong> AUX6</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MC_SLOW_MAP_YAWR">MC_SLOW_MAP_YAWR</strong> (INT32)</td>
+ <td>Manual input mapped to scale yaw rate in position slow mode  <strong>Values:</strong><ul>
+<li><strong>0:</strong> No rescaling</li>
+<li><strong>1:</strong> AUX1</li>
+<li><strong>2:</strong> AUX2</li>
+<li><strong>3:</strong> AUX3</li>
+<li><strong>4:</strong> AUX4</li>
+<li><strong>5:</strong> AUX5</li>
+<li><strong>6:</strong> AUX6</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MC_SLOW_MIN_HVEL">MC_SLOW_MIN_HVEL</strong> (FLOAT)</td>
+ <td>Horizontal velocity lower limit <p><strong>Comment:</strong> The lowest input maps and is clamped to this velocity.</p>   </td>
+ <td>[0.1, ?] (0.1)</td>
+ <td>.3</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MC_SLOW_MIN_VVEL">MC_SLOW_MIN_VVEL</strong> (FLOAT)</td>
+ <td>Vertical velocity lower limit <p><strong>Comment:</strong> The lowest input maps and is clamped to this velocity.</p>   </td>
+ <td>[0.1, ?] (0.1)</td>
+ <td>.3</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MC_SLOW_MIN_YAWR">MC_SLOW_MIN_YAWR</strong> (FLOAT)</td>
+ <td>Yaw rate lower limit <p><strong>Comment:</strong> The lowest input maps and is clamped to this rate.</p>   </td>
+ <td>[1, ?] (0.1)</td>
+ <td>3.</td>
  <td>deg/s</td>
 </tr>
 </tbody></table>
@@ -26640,6 +26743,17 @@ table {
    <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
+<tr>
+ <td><strong id="SF1XX_MODE">SF1XX_MODE</strong> (INT32)</td>
+ <td>Lightware SF1xx/SF20/LW20 Operation Mode  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Enabled</li>
+<li><strong>2:</strong> Disabled during VTOL fast forward flight</li>
+</ul>  </td>
+ <td>[0, 2] </td>
+ <td>1</td>
+ <td></td>
+</tr>
 <tr>
  <td><strong id="UUV_SKIP_CTRL">UUV_SKIP_CTRL</strong> (INT32)</td>
  <td>Skip the controller  <strong>Values:</strong><ul>

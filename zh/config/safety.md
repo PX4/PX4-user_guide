@@ -2,29 +2,29 @@
 
 PX4有许多安全功能，可以在发生故障时保护并恢复您的机体：
 
-- _Failsafes_ allow you to specify areas and conditions under which you can safely fly, and the [action](#failsafe-actions) that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point). The most important failsafe settings are configured in the _QGroundControl_ [Safety Setup](#qgroundcontrol-safety-setup) page. Others must be configured via [parameters](#other-safety-settings).
-- [Safety switches](#emergency-switches) on the remote control can be used to immediately stop motors or return the vehicle in the event of a problem.
+- _故障保护_允许您指定可以安全飞行的区域和条件，以及在触发故障保护时将执行的[操作](#failsafe-actions)（例如着陆、定点悬停或返回指定点）。 最重要的故障保护设置在 _QGroundControl_ 的[安全设置](#qgroundcontrol-safety-setup)页面中配置。 其他设置必须通过[参数](#other-safety-settings)页面配置。
+- [安全开关](#emergency-switches) 在遥控器上可以用于立即停止发动机或在出现问题时返回车辆。
 
 ## 故障保护动作
 
-When a failsafe is triggered, the default behavior (for most failsafes) is to enter Hold for [COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T) seconds before performing an associated failsafe action. This gives the user time to notice what is happening and override the failsafe if needed. In most cases this can be done by using RC or a GCS to switch modes (note that during the failsafe-hold, moving the RC sticks does not trigger an override).
+当触发故障保护时， 默认行为 (针对大多数故障保护情况) 是在执行相关故障保护动作之前保持 [COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T) 秒钟。 这使用户有时间注意到正在发生的情况，并在需要时取消故障保护。 在大多数情况下，可以通过使用 RC或 GCS 切换模式来做到这一点(注意在故障保护保持期间， 移动 RC操纵杆不会触发取消操作)。
 
-The list below shows the set of all failsafe actions, ordered in increasing severity. Note that different types of failsafe may not support all of these actions.
+下面的列表显示了所有故障保护动作的集合，按其严重程度升序排列。 请注意，不同类型的故障保护可能无法支持所有这些操作。
 
-| 动作                                                         | 描述                                                                                                                                                                                                                      |
-| ---------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="act_none"></a>无/禁用                              | No action. The failsafe will be ignored.                                                                                                                                                                                |
-| <a id="act_warn"></a>警告                                | A warning message will be sent (i.e. to _QGroundControl_).                                                                                                                                                              |
-| <a id="act_hold"></a>Hold mode                         | The vehicle will enter [Hold mode (MC)](../flight_modes_mc/hold.md) or [Hold mode (FW)](../flight_modes_fw/hold.md) and hover or circle, respectively. VTOL vehicles will hold according to their current mode (MC/FW). |
-| <a id="act_return"></a>[Return mode][return]             | The vehicle will enter _Return mode_. Return behaviour can be set in the [Return Home Settings](#return-mode-settings) (below).                                                                                         |
-| <a id="act_land"></a>Land mode                         | The vehicle will enter [Land mode (MC)](../flight_modes_mc/land.md) or [Land mode (FW)](../flight_modes_fw/land.md), and land. A VTOL will first transition to MC mode.                                                 |
-| <a id="act_disarm"></a>Disarm                            | Stops the motors immediately.                                                                                                                                                                                           |
-| <a id="act_term"></a>[Flight termination][flight_term] | Turns off all controllers and sets all PWM outputs to their failsafe values (e.g. [PWM_MAIN_FAILn][pwm_main_failn], [PWM_AUX_FAILn][pwm_main_failn]). 故障保护输出可用于启动降落伞、起落架或执行其他操作。 对于固定翼飞行器，这可能允许您将机体滑翔至安全位置。         |
+| 动作                                           | 描述                                                                                                                                                             |
+| -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="act_none"></a>无/禁用                | 无操作. 故障保护将被忽略。                                                                                                                                                 |
+| <a id="act_warn"></a>警告                  | 警告信息将会被发送(例如到 _QGroundControl_)。                                                                                                                               |
+| <a id="act_hold"></a>保持模式                | 载具将分别进入 [保持模式 (MC)](../flight_modes_mc/hold.md) 或 [保持模式 (FW)](../flight_modes_fw/hold.md) 和悬停或圆运动。 VTOL车辆将保持其目前的模式（MC/FW）。                                     |
+| <a id="act_return"></a>[返航模式][return]      | 载具将进入 _返航模式_。 返航行为可以在[返回原点设置](#return-mode-settings)（如下文所示）中设置。                                                                                                |
+| <a id="act_land"></a>降落模式                | 载具将进入 [降落模式 (MC)](../flight_modes_mc/land.md) 或 [降落模式 (FW)](../flight_modes_fw/land.md) 并着陆。 VTAL 将首先过渡到 MC 模式。                                                |
+| <a id="act_disarm"></a>Disarm              | 马达立即停止。                                                                                                                                                        |
+| <a id="act_term"></a>[飞行终止][flight_term] | 关闭所有控制器，并将所有PWM输出设置为其故障保护安全值(例如， [PWM_MAIN_FAILn][pwm_main_failn], [PWM_AUX_FAILn][pwm_main_failn])。 故障保护输出可用于启动降落伞、起落架或执行其他操作。 对于固定翼飞行器，这可能允许您将机体滑翔至安全位置。 |
 
-If multiple failsafes are triggered, the more severe action is taken. For example if both RC and GPS are lost, and manual control loss is set to [Return mode](#act_return) and GCS link loss to [Land](#act_land), Land is executed.
+如果多个故障保险被触发，将采取高级别的操作。 例如， RC和 GPS 都丢失， 手动控制丢失设置为 [返航模式](#act_return) 和 GCS 链路丢失到 [降落模式](#act_land), 将土执行降落着陆。
 
 :::tip
-The exact behavior when different failsafes are triggered can be tested with the [Failsafe State Machine Simulation](safety_simulation.md).
+当不同的故障保护被触发时精确的动作行为，可以通过[故障保护状态机仿真](safety_simulation.md)测试。
 :::
 
 ## QGroundControl 安全设置
@@ -275,19 +275,19 @@ A kill switch immediately stops all motor outputs (and if flying, the vehicle wi
 
 ### 解锁/上锁开关
 
-The arm/disarm switch is a _direct replacement_ for the default stick-based arming/disarming mechanism (and serves the same purpose: making sure there is an intentional step involved before the motors start/stop). It might be used in preference to the default mechanism because:
+解锁/上锁开关是对默认杆状安全开关机制的_直接替换_（二者作用相同：确保在电机启动/停止之前有一个需要用户留意的步骤）。 它可能优先于默认机制使用，原因如下：
 
 - 这种机制偏向于切换动作而不是持续运动。
 - 这种机制可以避免因为某种意外误触而引发的飞行期间解锁/上锁。
 - 这种机制没有延迟（立即作出反应）。
 
-The arm/disarm switch immediately disarms (stop) motors for those [flight modes](../getting_started/flight_modes.md) that _support disarming in flight_. This includes:
+The arm/disarm switch immediately disarms (stop) motors for those [flight modes](../getting_started/flight_modes.md) that _support disarming in flight_. 其中包括：
 
 - _手动模式_
 - _特技模式_
 - _自稳模式_
 
-For modes that do not support disarming in flight, the switch is ignored during flight, but may be used after landing is detected. This includes _Position mode_ and autonomous modes (e.g. _Mission_, _Land_ etc.).
+对于不支持在飞行期间上锁的模式，在飞行期间会忽略该开关信号，但在检测到着陆后可以使用该开关。 不支持飞行期间上锁的模式包括_定点模式_和自主模式（例如_任务模式_、_降落模式_等）。
 
 :::note
 [Auto disarm timeouts](#auto-disarming-timeouts) (e.g. via [COM_DISARM_LAND](#COM_DISARM_LAND)) are independent of the arm/disarm switch - ie even if the switch is armed the timeouts will still work.

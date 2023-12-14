@@ -13,5 +13,5 @@ _MoCap_ is conceptually similar to [Visual Inertial Odometry (VIO)](../computer_
 자세한 모션 캡쳐 기술은 다음을 참고하십시오:
 
 - [위치 추정용 시각/움직임 감지 시스템 활용](../ros/external_position_estimation.md) <!-- bring across info into user guide? -->
-- [Flying with Motion Capture (VICON, Optitrack)](../tutorials/motion-capture.md). <!-- bring across info into user guide? -->
+- [Flying with Motion Capture (VICON, NOKOV, Optitrack)](../tutorials/motion-capture.md). <!-- bring across info into user guide? -->
 - [EKF > 외부 비전 시스템 ](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)

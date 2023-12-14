@@ -5,20 +5,21 @@
 PX4使用计算机视觉系统(主要在[机载计算机](../companion_computer/README.md)上运行)以支持下列功能：
 
 - [光流](#optical_flow)提供 2D 速度估计（使用向下的相机和向下的距离传感器）。
-- [Motion Capture](#motion-capture) provides 3D pose estimation using a vision system that is _external_ to the vehicle. 它主要用于室内导航。
-- [Visual Inertial Odometry](#vio) provides 3D pose and velocity estimation using an onboard vision system and IMU. It is used for navigation when global position information is absent or unreliable. It is used for navigation when GNSS position information is absent or unreliable.
-- [Obstacle Avoidance](https://docs.px4.io/en/computer_vision/obstacle_avoidance.html) provides navigation around obstacles when flying a planned path (currently missions are supported). This uses [PX4/avoidance](https://github.com/PX4/avoidance) running on a companion computer. 利用机载计算机上运行的[PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance)
-- [Collision Prevention](https://docs.px4.io/en/computer_vision/collision_prevention.html) is used to stop vehicles before they can crash into an obstacle (primarily when flying in manual modes).
+- [运动捕捉](#motion-capture)使用载具_外部_的视觉系统进行3D姿态估计。 它主要用于室内导航。
+- [视觉惯性测距 （VIO）](#visual-inertial-odometry-vio) 使用机载视觉系统和 IMU 来提供 3D 姿态和速度估计。 用于在GNSS位置信息不存在或不可靠时的导航。
+- [避障](../computer_vision/obstacle_avoidance.md) 为飞行计划路径时，提供完整的障碍绕行导航（支持当前任务）。 这将使用运行在同伴计算机上的[PX4/PX4-avoidance](https://github.com/PX4/PX4-Avoidance) 。
+- [防碰](../computer_vision/collision_prevention.md)用于载具在撞到障碍物之前刹车（主要是在手动模式下飞行时）。
 
-Motion Capture (MoCap) is a technique for estimating the 3D *pose* (position and orientation) of a vehicle using a positioning mechanism that is *external* to the vehicle. MoCap systems most commonly detect motion using infrared cameras, but other types of cameras, Lidar, or Ultra Wideband (UWB) may also be used. It comes with no pre-installed software, but does include an example implementation of obstacle avoidance to demonstrate the capabilities of the platform.
+:::tip
+[PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) (Holybro) 是一个健壮且不贵的工具包，供开发者在 PX4 上使用计算机视觉技术。 它提供了无需预先安装的软件，且包含一个为展示平台能力而实现的避障实例。
 :::
 
 ## 运动捕捉
 
-Motion Capture (MoCap) is a technique for estimating the 3D _pose_ (position and orientation) of a vehicle using a positioning mechanism that is _external_ to the vehicle. MoCap systems most commonly detect motion using infrared cameras, but other types of cameras, Lidar, or Ultra Wideband (UWB) may also be used.
+运动捕捉（MoCap）是一种利用载具_外部_定位设备估计载具3D _姿态_（位置和方向）的技术。 MoCap 系统最常使用红外相机检测运动，但也可以使用其他类型的相机，激光雷达或者超宽带 （UWB）。
 
 :::note
-MoCap is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors), and provides position relative to a _local_ coordinate system. 它通常用于在GPS不存在（例如室内）或不可靠的情况下（例如在桥下飞行时）导航载具。
+MoCap 通常用于无GPS的情况下进行载具的导航(例如室内)，并提供在本地坐标系下的相对位置。 它通常用于在GPS不存在（例如室内）或不可靠的情况下（例如在桥下飞行时）导航载具。
 
 有关 MoCap 的信息，请参阅：
 
@@ -28,12 +29,12 @@ MoCap is commonly used to navigate a vehicle in situations where GPS is absent (
 
 ## 视觉惯性里程计（VIO）
 
-Visual Inertial Odometry (VIO) is used for estimating the 3D _pose_ (position and orientation) and _velocity_ of a moving vehicle relative to a _local_ starting position. 它通常用于在 GPS 不存在（例如室内）或不可靠的情况下（例如在桥下飞行时）给无人机导航。
+视觉惯性里程计（VIO）被用于估计运动载具相对于本地起始位置的3D_姿态_（位置和方向）和_速度_。 它通常用于在 GPS 不存在（例如室内）或不可靠的情况下（例如在桥下飞行时）给载具导航。
 
-VIO uses [Visual Odometry](https://en.wikipedia.org/wiki/Visual_odometry) to estimate vehicle _pose_ from visual information, combined with inertial measurements from an IMU (to correct for errors associated with rapid vehicle movement resulting in poor image capture).
+VIO使用[视觉里程计](https://en.wikipedia.org/wiki/Visual_odometry)从视觉信息估计载具的_姿态_，融合来自IMU的惯性测量（以校正载具快速移动导致不良图像捕获）。
 
 :::note VIO
-和 [MoCap](#mocap) 之间的区别在于 VIO 相机或者 IMU 是基于无人机的，并且额外提供速度信息。
+和 [MoCap](#motion-capture) 之间的一个区别是，VIO 照相机/IMU 是基于载具的，并且还提供了速度信息。
 :::
 
 关于在 PX4 上配置 VIO 的信息，请参阅：
@@ -50,31 +51,31 @@ VIO uses [Visual Odometry](https://en.wikipedia.org/wiki/Visual_odometry) to est
 - [光流](../sensor/optical_flow.md)
 - [EKF > 光流](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
 
-## Comparisons
+## 比较
 
-### Optical Flow vs VIO for Local Position Estimation
+### 本地位置估计 光学流 对 VIO
 
-Both these techniques use cameras and measure differences between frames. Optical flow uses a downward facing camera, while VIO uses a stereo camera or a 45 degree tracking camera. Assuming both are well calibrated, which is better for local position estimation?
+这两种技术都使用照相机并测量帧之间的差异。 光学流使用向下照相机，而VIO则使用立体照相机或45度跟踪照相机。 假定两者的校准都很好，哪个对本地地位置估计更好？
 
-The consensus [appears to be](https://discuss.px4.io/t/vio-vs-optical-flow/34680):
+[的共识似乎是](https://discuss.px4.io/t/vio-vs-optical-flow/34680)
 
 Optical flow:
 
-- Downward facing optical flow gives you a planar velocity thats corrected for angular velocity with the gyro.
-- Requires an accurate distance to the ground and assumes a planar surface. Given those conditions it can be just as accurate/reliable as VIO (such as indoor flight)
-- Is more robust than VIO as it has fewer states.
-- Is significantly cheaper and easier to set up as it only requires a flow sensor, a rangefinder, and setting up a few parameters (which can be connected to the flight controller).
+- 向下光学流使得你能够通过陀螺仪的角速度来校正角平面速度。
+- 需要准确的地面距离并假定地面为平面。 在这种情况下，它可能与VIO一样准确可靠(例如室内飞行)
+- 它比VIO更健壮，因为它的状态较少。
+- 更便宜和更容易设置，因为它只需要一个流传感器，一个范围探测器。 并设置几个参数（可以连接到飞行控制器）。
 
-VIO:
+VIO
 
-- Is more expensive to purchase and harder to set up. It requires a separate companion computer, calibration, software, configuration and so on.
-- Will be less effective if there are no point features to track (in practice the real world generally has point features).
-- Is more flexible, allowing additional features such as obstacle avoidance and mapping.
+- 购买更加昂贵，设置更加困难。 它需要一台单独的配套计算机、校准、软件、配置等等。
+- 如果没有可跟踪的点特征（实际上现实世界一般有点特征），效果将会减弱。
+- 较为灵活，可以增加诸如避免障碍和制图等其他功能。
 
-A combination (fusing both) is probably the most reliable, though not necessary in most real-world scenarios. Normally you will select the system that suits your operating environment, required features, and cost constraints:
+组合(两者兼用)可能是最可靠的，但在大多数现实世界的情景中并不必要。 通常您将选择适合您的运行环境、所需功能和成本限制的系统：
 
-- Use VIO if you plan on flying outdoors without GPS (or outdoors and indoors), or if you need to support obstacle avoidance and other computer vision features.
-- Use Optical Flow if you plan on only flying indoors (without GPS) and cost is an important consideration.
+- 如果您打算在没有GPS的情况下在室外飞行（或室外和室内飞行），请使用 VIO 或者如果您需要支持避障碍和其他计算机视觉特性。
+- 如果您只计划在室内飞行（不使用 GPS），且成本是一个重要的考虑因素，使用Optical Flow。
 
 ## 外部资源
 

@@ -200,15 +200,10 @@ module.exports = {
                 ariaLabel: "MAVLINK site",
               },
               {
-                text: "QGroundControl User Guide",
-                link: "https://docs.qgroundcontrol.com/en/",
+                text: "QGroundControl Guide",
+                link:
+                  "https://docs.qgroundcontrol.com/master/en/qgc-user-guide/",
               },
-              {
-                text: "QGroundControl Developer Guide",
-                link: "https://dev.qgroundcontrol.com/en/",
-              },
-              { text: "MAVLink Guide", link: "https://mavlink.io/en/" },
-              { text: "MAVSDK", link: "https://mavsdk.mavlink.io/" },
               {
                 text: "Dronecode Camera Manager",
                 link: "https://camera-manager.dronecode.org/en/",
@@ -231,16 +226,6 @@ module.exports = {
               { text: "v1.13", link: "https://docs.px4.io/v1.13/en/" },
               { text: "v1.12", link: "https://docs.px4.io/v1.12/en/" },
               { text: "v1.11", link: "https://docs.px4.io/v1.11/en/" },
-              {
-                text: "DevGuide (Old/Merged)",
-                ariaLabel: "Old Devguide",
-                items: [
-                  {
-                    text: "DevGuide v1.11",
-                    link: "https://dev.px4.io/v1.11_noredirect/en/",
-                  },
-                ],
-              },
             ],
           },
         ],
@@ -322,15 +307,10 @@ module.exports = {
                 ariaLabel: "MAVLINK site",
               },
               {
-                text: "QGroundControl User Guide",
-                link: "https://docs.qgroundcontrol.com/en/",
+                text: "QGroundControl Guide",
+                link:
+                  "https://docs.qgroundcontrol.com/master/en/qgc-user-guide/",
               },
-              {
-                text: "QGroundControl Developer Guide",
-                link: "https://dev.qgroundcontrol.com/en/",
-              },
-              { text: "MAVLink Guide", link: "https://mavlink.io/en/" },
-              { text: "MAVSDK", link: "https://mavsdk.mavlink.io/" },
               {
                 text: "Dronecode Camera Manager",
                 link: "https://camera-manager.dronecode.org/en/",
@@ -353,16 +333,6 @@ module.exports = {
               { text: "v1.13", link: "https://docs.px4.io/v1.13/en/" },
               { text: "v1.12", link: "https://docs.px4.io/v1.12/en/" },
               { text: "v1.11", link: "https://docs.px4.io/v1.11/en/" },
-              {
-                text: "DevGuide (Old/Merged)",
-                ariaLabel: "Old Devguide",
-                items: [
-                  {
-                    text: "DevGuide v1.11",
-                    link: "https://dev.px4.io/v1.11_noredirect/en/",
-                  },
-                ],
-              },
             ],
           },
         ],
@@ -437,15 +407,10 @@ module.exports = {
                 ariaLabel: "MAVLINK site",
               },
               {
-                text: "QGroundControl User Guide",
-                link: "https://docs.qgroundcontrol.com/en/",
+                text: "QGroundControl Guide",
+                link:
+                  "https://docs.qgroundcontrol.com/master/en/qgc-user-guide/",
               },
-              {
-                text: "QGroundControl Developer Guide",
-                link: "https://dev.qgroundcontrol.com/en/",
-              },
-              { text: "MAVLink Guide", link: "https://mavlink.io/en/" },
-              { text: "MAVSDK", link: "https://mavsdk.mavlink.io/" },
               {
                 text: "Dronecode Camera Manager",
                 link: "https://camera-manager.dronecode.org/en/",
@@ -468,16 +433,6 @@ module.exports = {
               { text: "v1.13", link: "https://docs.px4.io/v1.13/en/" },
               { text: "v1.12", link: "https://docs.px4.io/v1.12/en/" },
               { text: "v1.11", link: "https://docs.px4.io/v1.11/en/" },
-              {
-                text: "DevGuide (Old/Merged)",
-                ariaLabel: "Old Devguide",
-                items: [
-                  {
-                    text: "DevGuide v1.11",
-                    link: "https://dev.px4.io/v1.11_noredirect/en/",
-                  },
-                ],
-              },
             ],
           },
         ],

@@ -1,6 +1,6 @@
-# MC Filter Tuning & Control Latency
+# MC 过滤器调节 & 控制延迟
 
-Filters can be used to trade off [control latency](#control-latency), which affects flight performance, and noise filtering, which impacts both flight performance and motor health.
+过滤器可用来平衡影响飞行性能的 [控制延迟](#control-latency)，和同时影响飞行性能和电机健康的噪音过滤。
 
 This topic provides an overview of control latency and PX4 filter tuning.
 
