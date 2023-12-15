@@ -98,6 +98,7 @@ The supported worlds are listed below.
 | --------- | ----------------------- | ----------------------------- |
 | `default` | `make px4_sitl *`       | Empty world (a grey plane)    |
 | `windy`   | `make px4_sitl *_windy` | Empty world with wind enabled |
+| `baylands` | `make px4_sitl *_baylands` | Baylands world surrounded by water |
 
 :::warning
 Note that if no world is specified, PX4 will use the `default` world.
@@ -141,7 +142,7 @@ where `ARGS` is a list of environment variables including:
   - The setting is mutually exclusive with `PX4_GZ_MODEL_NAME`.
 
   :::note
-  The environmental variable `PX4_GZ_MODEL` has been deprecated and its functionality merged into `PX4_SIM_MODEL`. 
+  The environmental variable `PX4_GZ_MODEL` has been deprecated and its functionality merged into `PX4_SIM_MODEL`.
   :::
 
 - `PX4_GZ_MODEL_POSE`:
