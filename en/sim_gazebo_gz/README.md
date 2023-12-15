@@ -62,7 +62,6 @@ The supported vehicles and `make` commands are listed below.
 As a workaround to enable Advanced Plane, you can compile the gz-sim library from [Gazebo source code](https://github.com/gazebosim/gz-sim), go into the `build/lib` directory, copy out the advanced lift drag plugin `.so` file (depending on the exact Gazebo Version this is called something along the lines of `libgz-sim7-advanced-lift-drag-system.so`), and paste this into the `~/.gz/sim/plugins` folder.
 :::
 
-
 The commands above launch a single vehicle with the full UI.
 _QGroundControl_ should be able to automatically connect to the simulated vehicle.
 
@@ -94,10 +93,10 @@ PX4_GZ_WORLD=windy make px4_sitl gz_x500
 
 The supported worlds are listed below.
 
-| World     | Command                 | Description                   |
-| --------- | ----------------------- | ----------------------------- |
-| `default` | `make px4_sitl *`       | Empty world (a grey plane)    |
-| `windy`   | `make px4_sitl *_windy` | Empty world with wind enabled |
+| World      | Command                    | Description                        |
+| ---------- | -------------------------- | ---------------------------------- |
+| `default`  | `make px4_sitl *`          | Empty world (a grey plane)         |
+| `windy`    | `make px4_sitl *_windy`    | Empty world with wind enabled      |
 | `baylands` | `make px4_sitl *_baylands` | Baylands world surrounded by water |
 
 :::warning
