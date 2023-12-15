@@ -41,6 +41,15 @@ make px4_sitl gz_x500_depth
 
 ![x500 with depth camera in Gazebo](../../assets/simulation/gazebo/vehicles/x500_depth.png)
 
+### X500 Quadrotor with Monocular Camera
+
+This models has a simple monocular camera sensor attached (there is no physical camera visualization on the model itself).
+
+```sh
+make px4_sitl gz_x500_mono_cam
+```
+
+
 ## Plane/Fixed-wing
 
 ### Standard Plane
