@@ -64,8 +64,8 @@ To tune this gain, set the other gains to their minimum values.
 
 #### Gains to set to minimum values
 
-- [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I)
-- [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P)
+- [FW_PR_I](../advanced_config/parameter_reference.md#FW_PR_I)
+- [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_I)
 
 #### 튜닝 대상 게인
 

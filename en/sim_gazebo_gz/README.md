@@ -62,7 +62,6 @@ The supported vehicles and `make` commands are listed below.
 As a workaround to enable Advanced Plane, you can compile the gz-sim library from [Gazebo source code](https://github.com/gazebosim/gz-sim), go into the `build/lib` directory, copy out the advanced lift drag plugin `.so` file (depending on the exact Gazebo Version this is called something along the lines of `libgz-sim7-advanced-lift-drag-system.so`), and paste this into the `~/.gz/sim/plugins` folder.
 :::
 
-
 The commands above launch a single vehicle with the full UI.
 _QGroundControl_ should be able to automatically connect to the simulated vehicle.
 
@@ -73,7 +72,7 @@ This makes it faster to load and run, and for many simple use cases may be all y
 
 The simulation can be run in headless mode by prefixing the command with the `HEADLESS=1` environment variable:
 
-```bash
+```sh
 HEADLESS=1 make px4_sitl gz_x500
 ```
 
@@ -82,7 +81,7 @@ HEADLESS=1 make px4_sitl gz_x500
 The simulation can be run inside a particular world by concatenating the desired world to the name of the desired vehicle.
 For example, to run the windy world with the `x500` vehicle you can specify:
 
-```bash
+```sh
 make px4_sitl gz_x500_windy
 ```
 
@@ -94,10 +93,11 @@ PX4_GZ_WORLD=windy make px4_sitl gz_x500
 
 The supported worlds are listed below.
 
-| World     | Command                 | Description                   |
-| --------- | ----------------------- | ----------------------------- |
-| `default` | `make px4_sitl *`       | Empty world (a grey plane)    |
-| `windy`   | `make px4_sitl *_windy` | Empty world with wind enabled |
+| World      | Command                    | Description                        |
+| ---------- | -------------------------- | ---------------------------------- |
+| `default`  | `make px4_sitl *`          | Empty world (a grey plane)         |
+| `windy`    | `make px4_sitl *_windy`    | Empty world with wind enabled      |
+| `baylands` | `make px4_sitl *_baylands` | Baylands world surrounded by water |
 
 :::warning
 Note that if no world is specified, PX4 will use the `default` world.
@@ -132,26 +132,25 @@ where `ARGS` is a list of environment variables including:
   Sets the name of an _existing_ model in the gazebo simulation.
   If provided, the startup script tries to bind a new PX4 instance to the Gazebo resource matching exactly that name.
 
-  - The setting is mutually exclusive with `PX4_GZ_MODEL`.
+  - The setting is mutually exclusive with `PX4_SIM_MODEL`.
 
-- `PX4_GZ_MODEL`:
+- `PX4_SIM_MODEL`:
   Sets the name of a new Gazebo model to be spawned in the simulator.
   If provided, the startup script looks for a model in the Gazebo resource path that matches the given variable, spawns it and binds a new PX4 instance to it.
 
   - The setting is mutually exclusive with `PX4_GZ_MODEL_NAME`.
 
   :::note
-  If both `PX4_GZ_MODEL_NAME` and `PX4_GZ_MODEL` are not given, then PX4 looks for `PX4_SIM_MODEL` and uses it as an alias for `PX4_GZ_MODEL`.
-  However, this prevents the use of `PX4_GZ_MODEL_POSE`.
+  The environmental variable `PX4_GZ_MODEL` has been deprecated and its functionality merged into `PX4_SIM_MODEL`.
   :::
 
 - `PX4_GZ_MODEL_POSE`:
-  Sets the spawning position and orientation of the model when `PX4_GZ_MODEL` is adopted.
+  Sets the spawning position and orientation of the model when `PX4_SIM_MODEL` is adopted.
   If provided, the startup script spawns the model at a pose following the syntax `"x,y,z,roll,pitch,yaw"`, where the positions are given in metres and the angles are in radians.
 
   - If omitted, the zero pose `[0,0,0,0,0,0]` is used.
   - If less then 6 values are provided, the missing ones are fixed to zero.
-  - This can only be used with `PX4_GZ_MODEL` (not `PX4_GZ_MODEL_NAME`).
+  - This can only be used with `PX4_SIM_MODEL` (not `PX4_GZ_MODEL_NAME`).
 
 - `PX4_GZ_WORLD`:
   Sets the Gazebo world file for a new simulation.
@@ -184,7 +183,7 @@ Here are some examples of the different scenarios covered above.
 2. **Start simulator + default world + spawn vehicle at custom pose (y=2m)**
 
    ```sh
-   PX4_SYS_AUTOSTART=4001 PX4_GZ_MODEL_POSE="0,2" PX4_GZ_MODEL=x500 ./build/px4_sitl_default/bin/px4
+   PX4_SYS_AUTOSTART=4001 PX4_GZ_MODEL_POSE="0,2" PX4_SIM_MODEL=gz_x500 ./build/px4_sitl_default/bin/px4
    ```
 
 3. **Start simulator + default world + link to existing vehicle**
@@ -203,7 +202,7 @@ To add a new model:
 1. Define an [airframe configuration file](../dev_airframes/adding_a_new_frame.md).
 1. Define the default parameters for Gazebo in the airframe configuration file (this example is from [x500 quadcopter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/4001_gz_x500)):
 
-   ```conf
+   ```ini
    PX4_SIMULATOR=${PX4_SIMULATOR:=gz}
    PX4_GZ_WORLD=${PX4_GZ_WORLD:=default}
    PX4_SIM_MODEL=${PX4_SIM_MODEL:=<your model name>}

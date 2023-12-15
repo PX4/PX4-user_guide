@@ -77,7 +77,7 @@ MAVLink system id 1 is skipped.
 
 1. Run `MicroXRCEAgent`. It will automatically connect to all four vehicles:
 
-   ```bash
+   ```sh
    MicroXRCEAgent udp4 -p 8888
    ```
 

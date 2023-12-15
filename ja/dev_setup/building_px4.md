@@ -199,7 +199,7 @@ sudo ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /us
 
 `arm_none_eabi_gcc`に関連するビルドの問題は、g++ ツールチェーンのインストールが壊れていることが原因の可能性があります。 以下を使用して不足している依存関係を確認することで、この場合であることを確認できます。
 
-```bash
+```sh
 arm-none-eabi-gcc --version
 arm-none-eabi-g++ --version
 arm-none-eabi-gdb --version
@@ -208,7 +208,7 @@ arm-none-eabi-size --version
 
 依存関係が不足しているbash出力の例:
 
-```bash
+```sh
 arm-none-eabi-gdb --version
 arm-none-eabi-gdb: command not found
 ```

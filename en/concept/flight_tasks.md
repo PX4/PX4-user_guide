@@ -100,10 +100,15 @@ The instructions below might be used to create a task named _MyTask_:
 6. Add the new task to the list of tasks to be built in [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/CMakeLists.txt#L40):
 
    ```cmake
-   list(APPEND flight_tasks_to_add
-      Orbit
-      MyTask
-   )
+   ...
+   if(NOT px4_constrained_flash_build)
+    list(APPEND flight_tasks_all
+     AutoFollowTarget
+     Orbit
+     MyTask
+    )
+   endif()
+   ...
    ```
 
 7. Update a flight mode to ensure that the task is called.
@@ -118,9 +123,10 @@ The instructions below might be used to create a task named _MyTask_:
       * @value 0 Direct velocity
       * @value 3 Smoothed velocity
       * @value 4 Acceleration based
+      * @value 5 My task
       * @group Multicopter Position Control
       */
-     PARAM_DEFINE_INT32(MPC_POS_MODE, 4);
+     PARAM_DEFINE_INT32(MPC_POS_MODE, 5);
      ```
 
    - Add a case for your new option in the switch for the parameter [FlightModeManager.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/FlightModeManager.cpp#L266-L285) to enable the task when `_param_mpc_pos_mode` has the right value.
@@ -148,8 +154,26 @@ To test the flight task you need to run the vehicle with the task enabled.
 For the example above, this means setting the parameter `MPC_POS_MODE` to 5, taking off, and switching the vehicle to [Position mode](../flight_modes_mc/position.md).
 
 :::note
-The task defined above should only be tested on the simulator. The code doesn't actually create setpoints so the vehicle will not fly.
+The task defined above should only be tested on the simulator.
+The code doesn't actually create setpoints so the vehicle will not fly.
 :::
+
+Build SITL simulation (gazebo-classic)
+
+```sh
+make px4_sitl gazebo-classic
+```
+
+Open QGroundControl (if not open, no message information will be printed out).
+In the console, takeoff and switch to Position mode:
+
+```sh
+pxh> commander takeoff
+pxh> commander mode posctl
+```
+
+The console will continuously display: `INFO [FlightTaskMyTask] FlightTaskMyTask update was called!`.
+If you want to change to another flight mode, you can type a command to change the mode, such as `commander mode altctl`.
 
 ## Video
 
@@ -157,13 +181,13 @@ The following videos provide an overview of flight tasks in PX4.
 The first covers the state of the flight task framework in PX4 v1.9.
 The second is an update, which covers the changes in PX4 v1.11.
 
-#### PX4 Flight Task Architecture Overview (PX4 Developer Summit 2019)
+### PX4 Flight Task Architecture Overview (PX4 Developer Summit 2019)
 
 A description of how flight modes work in PX4 v1.9 (Dennis Mannhart, Matthias Grob).
 
 @[youtube](https://youtu.be/-dkQG8YLffc) <!-- datestamp:video:youtube:20190704:PX4 Flight Task Architecture Overview — PX4 Developer Summit 2019 -->
 
-#### Overview of multicopter control from sensors to motors (PX4 Developer Summit Virtual 2020)
+### Overview of multicopter control from sensors to motors (PX4 Developer Summit Virtual 2020)
 
 @[youtube](https://youtu.be/orvng_11ngQ?t=560) <!-- datestamp:video:youtube:20200720:Overview of multicopter control from sensors to motors — PX4 Developer Summit Virtual 2020 From 9min20sec - Section on flight tasks-->
 

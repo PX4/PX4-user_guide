@@ -22,7 +22,7 @@ ARGS ./build/px4_sitl_default/bin/px4 [-i <instance>]
 
 - `<instance>`: The instance number of the vehicle.
   - Each vehicle must have a unique instance number. If not given, the instance number defaults to zero.
-  - When used with `PX4_GZ_MODEL`, Gazebo will automatically pick a unique model name in the form `${PX4_GZ_MODEL}_instance`.
+  - When used with `PX4_SIM_MODEL`, Gazebo will automatically pick a unique model name in the form `${PX4_SIM_MODEL}_instance`.
 - `ARGS`: A list of environmental variables, as described in [Gazebo Simulation > Usage/Configuration Options](../sim_gazebo_gz/README.md#usage-configuration-options).
 
 This allows for greater flexibility and customization.
@@ -33,18 +33,18 @@ This allows for greater flexibility and customization.
 
 - First follow the installation instructions for [Gazebo](../sim_gazebo_gz/README.md).
 - Then configure your system for [ROS 2 / PX4 operations](../ros/ros2_comm.md#installation-setup).
-- In different terminals manually start a multi vehicle simulation. This example spawns 2 X500 Quadrotors and a fixed-wing:
+- In different terminals manually start a multi vehicle simulation. This example spawns 2 X500 Quadrotors and aFPX fixed-wing:
 
   ```sh
-  PX4_SYS_AUTOSTART=4001 PX4_GZ_MODEL=x500 ./build/px4_sitl_default/bin/px4 -i 1
+  PX4_SYS_AUTOSTART=4001 PX4_SIM_MODEL=gz_x500 ./build/px4_sitl_default/bin/px4 -i 1
   ```
 
   ```sh
-  PX4_SYS_AUTOSTART=4001 PX4_GZ_MODEL_POSE="0,1" PX4_GZ_MODEL=x500 ./build/px4_sitl_default/bin/px4 -i 2
+  PX4_SYS_AUTOSTART=4001 PX4_GZ_MODEL_POSE="0,1" PX4_SIM_MODEL=gz_x500 ./build/px4_sitl_default/bin/px4 -i 2
   ```
 
   ```sh
-  PX4_SYS_AUTOSTART=4003 PX4_GZ_MODEL_POSE="0,2" PX4_GZ_MODEL=rc_cessna ./build/px4_sitl_default/bin/px4 -i 3
+  PX4_SYS_AUTOSTART=4003 PX4_GZ_MODEL_POSE="0,2" PX4_SIM_MODEL=gz_rc_cessna ./build/px4_sitl_default/bin/px4 -i 3
   ```
 
 - Start the agent:

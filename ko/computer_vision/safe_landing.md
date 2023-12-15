@@ -1,11 +1,10 @@
 # Safe Landing (Multicopter + Companion Computer)
 
-The *Safe Landing* computer-vision feature ensures that multicopter vehicles only land on flat terrain.
+The _Safe Landing_ computer-vision feature ensures that multicopter vehicles only land on flat terrain.
 
-The feature can be enabled in both [Land mode](../flight_modes_mc/land.md) and [Mission mode](../flight_modes/mission.md) on multicopter vehicles that have a companion computer running the appropriate vision software. 멀티콥터 모드의 VTOL에서도 사용할 수 있습니다.
+The feature can be enabled in both [Land mode](../flight_modes_mc/land.md) and [Mission mode](../flight_modes_mc/mission.md) on multicopter vehicles that have a companion computer running the appropriate vision software. 멀티콥터 모드의 VTOL에서도 사용할 수 있습니다.
 
 착륙 명령을 받으면 기체는 먼저 표면을 측정할 수있는 높이로 하강합니다 (보조 컴퓨터 `loiter_height` 매개 변수). 착륙 영역이 충분히 평평하지 않은 경우에는 비행기는 정사각형 나선형 패턴으로 바깥쪽으로 이동하여 주기적으로 정지하여 너무 거칠지 않은 착륙 지점을 다시 검색합니다.
-
 
 ## 제약 사항과 성능
 
@@ -14,7 +13,6 @@ The feature can be enabled in both [Land mode](../flight_modes_mc/land.md) and [
 - 도로에 착륙하는 것은 방지되지는 않습니다. 자동차가 감지되어 지나가면 "잊혀집니다".
 - 레이더 또는 초음파 센서를 사용하는 경우 물에 착륙 할 수 있지만, 스테레오 카메라 또는 LIDAR를 사용하는 경우 발생하지 않아야 합니다.
   - 시스템은 접지를 감지할 수있는 경우에만 착륙합니다. 스테레오 카메라의 경우 분석을 위한 충분한 구별 기능을 가질 수 있을 정도로 거친 물은 착륙하기에 충분히 평평하지 않습니다.
-
 
 ## PX4 설정
 
@@ -29,11 +27,11 @@ The feature can be enabled in both [Land mode](../flight_modes_mc/land.md) and [
 Companion-side setup and configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
 
 여기에는 장애물 회피 및 충돌 방지를위한 일반적인 설정이 포함되며 *안전 착륙 플래너* (이 기능은 보조컴퓨터에서 제공)를 사용하기위한 특정 섹션이 포함됩니다.
-* [시뮬레이션 설정](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
-* [Hardware setup](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)
+
+- [시뮬레이션 설정](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
+- [Hardware setup](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)
 
 구성 정보에는 다양한 카메라, 차량 크기 및 착륙 여부를 결정하는 높이에 대한 안전 착륙을 설정 방법이 포함하고 있습니다.
-
 
 <a id="interface"></a>
 
@@ -43,14 +41,13 @@ PX4는 [임무중 장애물 회피](../computer_vision/obstacle_avoidance.md#mis
 
 PX4와 보조 컴퓨터간의 인터페이스(전송된 메시지)는 다른 경로 계획 서비스와 정확히 동일합니다. 그러나 안전 착륙 계획자는 원하는 경로에 대한 `TRAJECTORY_REPRESENTATION_WAYPOINTS` 메시지의 Point 0에있는 정보만 사용합니다.
 
-
 ## 지원 하드웨어
 
 Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 
 ## 추가 정보
 
-* [비전 및 보드 외부 제어 인터페이스](https://youtu.be/CxIsJWtVaTA?t=963) (PX4 개발자 서밋 2019: Martina Rivizzigno, Auterion Computer Vision Engineer)
-* [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance)
-  * [시뮬레이션 설정 > 안전 착륙 플래너](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
-  * [하드웨어 설정 > 안전 착륙 플래너](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)
+- [비전 및 보드 외부 제어 인터페이스](https://youtu.be/CxIsJWtVaTA?t=963) (PX4 개발자 서밋 2019: Martina Rivizzigno, Auterion Computer Vision Engineer)
+- [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance)
+  - [시뮬레이션 설정 > 안전 착륙 플래너](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
+  - [하드웨어 설정 > 안전 착륙 플래너](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)

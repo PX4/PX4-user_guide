@@ -18,7 +18,8 @@ The following sections are split according to the operating system that PX4 runs
 On Posix, the system shell is used as script interpreter (e.g. /bin/sh, being symlinked to dash on Ubuntu).
 For that to work, a few things are required:
 
-- PX4 modules need to look like individual executables to the system. This is done via symbolic links.
+- PX4 modules need to look like individual executables to the system.
+  This is done via symbolic links.
   For each module a symbolic link `px4-<module> -> px4` is created in the `bin` directory of the build folder.
   When executed, the binary path is checked (`argv[0]`), and if it is a module (starts with `px4-`), it sends the command to the main px4 instance (see below).
 
@@ -33,14 +34,16 @@ For that to work, a few things are required:
   This is done through a [UNIX socket](http://man7.org/linux/man-pages/man7/unix.7.html).
   The server listens on a socket, to which clients can connect and send a command.
   The server then sends the output and return code back to the client.
-- The startup scripts call the module directly, e.g. `commander start`, rather than using the `px4-` prefix. This works via aliases: for each module an alias in the form of `alias <module>=px4-<module>` is created in the file `bin/px4-alias.sh`.
+- The startup scripts call the module directly, e.g. `commander start`, rather than using the `px4-` prefix.
+  This works via aliases: for each module an alias in the form of `alias <module>=px4-<module>` is created in the file `bin/px4-alias.sh`.
 - The `rcS` script is executed from the main px4 instance.
   It does not start any modules, but first updates the `PATH` variable and then simply runs a shell with the `rcS` file as argument.
 - In addition to that, multiple server instances can be started for multi-vehicle simulations.
   A client selects the instance via `--instance`.
   The instance is available in the script via `$px4_instance` variable.
 
-The modules can be executed from any terminal when PX4 is already running on a system. For example:
+The modules can be executed from any terminal when PX4 is already running on a system.
+For example:
 
 ```sh
 cd <PX4-Autopilot>/build/px4_sitl_default/bin
@@ -71,7 +74,8 @@ The resulting boot log has detailed information about the boot sequence and shou
 
 #### Common boot failure causes
 
-- For custom applications: The system was out of RAM. Run the `free` command to see the amount of free RAM.
+- For custom applications: The system was out of RAM.
+  Run the `free` command to see the amount of free RAM.
 - A software fault or assertion resulting in a stack trace
 
 ### Replacing the System Startup

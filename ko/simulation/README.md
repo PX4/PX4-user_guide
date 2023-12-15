@@ -257,7 +257,7 @@ The simulated camera is a gazebo classic plugin that implements the [MAVLink Cam
 
 - Use a _mavlink-router_ conf file.
 
-  ```conf
+  ```ini
   [UdpEndpoint QGC]
   Mode = Normal
   Address = 10.73.41.30

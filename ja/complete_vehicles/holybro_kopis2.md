@@ -6,13 +6,14 @@ The [Holybro Kopis 2](https://holybro.com/products/kopis2-hdv-free-shipping) is 
 
 ## Where to Buy
 
-The *Kopis 2* can be bought from a number of vendors, including:
-- [Holybro](https://holybro.com/products/kopis2-hdv-free-shipping)  <!-- item code 30069, 30070 -->
+The _Kopis 2_ can be bought from a number of vendors, including:
+
+- [Holybro](https://holybro.com/products/kopis2-hdv-free-shipping) <!-- item code 30069, 30070 -->
 - [GetFPV](https://www.getfpv.com/holybro-kopis-2-fpv-racing-drone-pnp.html)
 
 In addition you will need:
 
-- An RC transmitter. The *Kopis 2* can ship with an FrSky receiver or no receiver at all.
+- An RC transmitter. The _Kopis 2_ can ship with an FrSky receiver or no receiver at all.
 - LiPo battery and charger.
 - FPV goggles if you want to fly FPV. There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product-page/dominator-v3). You can also use DJI FPV goggles if you have the HDV version of the Kopis 2.
 
@@ -22,9 +23,9 @@ FPV support is completely independent of PX4/flight controller.
 
 ## Flashing PX4 Bootloader
 
-The *Kopis 2* comes preinstalled with Betaflight.
+The _Kopis 2_ comes preinstalled with Betaflight.
 
-Before loading PX4 firmware you must first install the PX4 bootloader. Instructions for installing the bootloader can be found in the [Kakute F7](../flight_controller/kakutef7.md#bootloader) topic (this is the flight controller board on the *Kopis 2*).
+Before loading PX4 firmware you must first install the PX4 bootloader. Instructions for installing the bootloader can be found in the [Kakute F7](../flight_controller/kakutef7.md#bootloader) topic (this is the flight controller board on the _Kopis 2_).
 
 :::tip
 You can always [reinstall Betaflight](../advanced_config/bootloader_update_from_betaflight.md#reinstall-betaflight) later if you want!
@@ -32,14 +33,14 @@ You can always [reinstall Betaflight](../advanced_config/bootloader_update_from_
 
 ## Installation/Configuration
 
-Once the bootloader is installed, you should be able to connect the vehicle to *QGroundControl* via a USB cable.
+Once the bootloader is installed, you should be able to connect the vehicle to _QGroundControl_ via a USB cable.
 
 :::note
-At time of writing *Kopis 2* is supported on the QGroundControl *Daily Build*, and prebuilt firmware is provided for the master branch only (stable releases are not yet available).
+At time of writing _Kopis 2_ is supported on the QGroundControl _Daily Build_, and prebuilt firmware is provided for the master branch only (stable releases are not yet available).
 :::
 
 To install and configure PX4:
-- [Load PX4 Firmware](../config/firmware.md).
-- [Set the Airframe](../config/airframe.md) to *Holybro Kopis 2*.
-- Continue with [basic configuration](../config/README.md), including sensor calibration and radio setup.
 
+- [Load PX4 Firmware](../config/firmware.md).
+- [Set the Airframe](../config/airframe.md) to _Holybro Kopis 2_.
+- Continue with [basic configuration](../config/README.md), including sensor calibration and radio setup.

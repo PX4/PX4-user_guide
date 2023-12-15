@@ -19,5 +19,4 @@ int8 mode_executor_id     # assigned mode executor ID (-1 if invalid)
 
 uint8 ORB_QUEUE_LENGTH = 2
 
-
 ```

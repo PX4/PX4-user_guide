@@ -127,13 +127,13 @@ GTest 기능 시험은 매개변수, uORB 메세지, 고급 GTest 기능에 따�
 
    `OPTION`은 `OPT_NOALLTEST`,`OPT_NOJIGTEST`, `0` 중 한가지 값이 들어갈 수 있으며, px4 셸에서 한두가지 명령을 호출했을 때 고려합니다.
 
-   ```bash
+   ```sh
    pxh> tests all
    ```
 
    또는
 
-   ```bash
+   ```sh
    pxh> tests jig
    ```
 
@@ -145,7 +145,7 @@ GTest 기능 시험은 매개변수, uORB 메세지, 고급 GTest 기능에 따�
 
 GTest 단위 시험, GTest 기능 시험, SITL 단위 시험 전체를 Bash 쉘에서 실행하십시오.
 
-```bash
+```sh
 make tests
 ```
 
@@ -153,7 +153,7 @@ make tests
 
 테스트 하위 집합만 따로 실행하려면 이 명령에서 ctest 명칭에 대해 정규 표현식을 적용하여 걸러내십시오:
 
-```bash
+```sh
 make tests TESTFILTER=<regex filter expression>
 ```
 

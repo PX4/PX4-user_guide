@@ -51,8 +51,8 @@ NuttX에는 통합된 쉘 인터프리터([NuttShell(NSH)](https://cwiki.apache.
 
 #### 일반적인 부팅 실패 사례
 
-- 맞춤형 애플리케이션의 경우: 시스템에 RAM이 부족합니다. `free` 명령을 실행하여 사용 가능한 RAM의 용량을 확인합니다.
-- 스택 추적을 초래하는 소프트웨어 오류 또는 주장
+- For custom applications: The system was out of RAM. Run the `free` command to see the amount of free RAM.
+- A software fault or assertion resulting in a stack trace
 
 ### 시스템 시작 변경
 

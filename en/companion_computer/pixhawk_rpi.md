@@ -13,8 +13,7 @@ Other common ways to connect RaPi and Pixhawk are:
 - Serial connection to the RPi USB port.
   This is simple and reliable, but requires an additional FTDI Chip USB-to-serial adapter board.
   This option is covered in [Pixhawk Companion > Serial Port Setup](../companion_computer/pixhawk_companion.md#serial-port-setup).
-:::
-
+  :::
 
 ## Wiring
 
@@ -28,33 +27,34 @@ Pixhawk ports can be located anywhere on the flight controller, but are almost a
 
 Connect the Pixhawk `TELEM2` `TX`/`RX`/`GND` pins to the complementary `RXD`/`TXD`/`Ground` pins on the RPi GPIO board:
 
-PX4 TELEM2 Pin | RPi GPIO Pin
---- | ---
-UART5_TX (2) | RXD (GPIO 15 - pin 10)
-UART5_RX (3) | TXD (GPIO 14 - pin 8)
-GND (6)      | Ground (pin 6)
+| PX4 TELEM2 Pin | RPi GPIO Pin           |
+| -------------- | ---------------------- |
+| UART5_TX (2)   | RXD (GPIO 15 - pin 10) |
+| UART5_RX (3)   | TXD (GPIO 14 - pin 8)  |
+| GND (6)        | Ground (pin 6)         |
 
 The diagram shows Pixhawk `TELEM2` port pins on the left and RPi GPIO board pins on the right.
 The pins on the `TELEM2` port are normally numbered right-to-left as shown.
 
-`TELEM2` | RPi GPIO
---- | ---
-![Pin numbering showing left-most pin is pin 1](../../assets/companion_computer/pixhawk_rpi/pins_numbers.png) | ![](../../assets/companion_computer/pixhawk_rpi/rpi_gpio.png)
+| `TELEM2`                                                                                                      | RPi GPIO                                                      |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| ![Pin numbering showing left-most pin is pin 1](../../assets/companion_computer/pixhawk_rpi/pins_numbers.png) | ![](../../assets/companion_computer/pixhawk_rpi/rpi_gpio.png) |
 
 :::note
-Almost all recent Pixhawk boards, such as the Pixhawk-6C, use the same connectors and pin numbers for correpsponding ports, as defined in the Pixhawk Connector Standard.
+Almost all recent Pixhawk boards, such as the Pixhawk-6C, use the same connectors and pin numbers for corresponding ports, as defined in the Pixhawk Connector Standard.
 You can check the specific board documentation to confirm the pin layout.
 
 The standard `TELEM2` pin assignments are shown below.
 
-Pins | Signal | Voltage
---- | --- | ---
-1 (Red)   | VCC             | +5V
-2 (Black) | UART5_TX (out)  |  +3.3V
-3 (Black) | UART5_RX (in)   | +3.3V
-4 (Black) | UART5_CTS (in)  | +3.3V
-5 (Black) | UART5_RTS (out) | +3.3V
-6 (Black) | GND             | GND
+| Pins      | Signal          | Voltage |
+| --------- | --------------- | ------- |
+| 1 (Red)   | VCC             | +5V     |
+| 2 (Black) | UART5_TX (out)  | +3.3V   |
+| 3 (Black) | UART5_RX (in)   | +3.3V   |
+| 4 (Black) | UART5_CTS (in)  | +3.3V   |
+| 5 (Black) | UART5_RTS (out) | +3.3V   |
+| 6 (Black) | GND             | GND     |
+
 :::
 
 ### TELEM1/Telemetry Radio
@@ -71,11 +71,12 @@ Pixhawk boards usually require a reliable 5V DC supply, which is commonly suppli
 
 The instructions for your flight controller will normally explain the recommended setup.
 For example:
+
 - [Holybro Pixhawk 6C > Voltage Ratings](../flight_controller/pixhawk6c.md#voltage-ratings)
 - [Holybro Pixhawk 6C Wiring Quick Start > Power](../assembly/quick_start_pixhawk6c.md#power)
 
 Pixhawk controllers can supply power to a _small_ number of low-power peripherals, such as GPS modules and low-range telemetry radios.
-The RPi companion computer, servos, high power radios, and other peripherals require a separate power supply, which is usually from a battery elimination circuit (BEC) wired to the same or another battery. 
+The RPi companion computer, servos, high power radios, and other peripherals require a separate power supply, which is usually from a battery elimination circuit (BEC) wired to the same or another battery.
 Some power modules have a separate BEC included.
 
 :::warning
@@ -83,15 +84,15 @@ Overloading your Pixhawk is a good way to destroy it.
 :::
 
 :::note
-During PX4 setup and configuration the USB connection with your ground station laptop is suffient to power the Pixhawk board, and your companion computer might be powered from a desktop charger.
-::: 
+During PX4 setup and configuration the USB connection with your ground station laptop is sufficient to power the Pixhawk board, and your companion computer might be powered from a desktop charger.
+:::
 
 ## PX4 Setup
 
-These instructions rely on PX4 code to support ROS 2 that isn't yet in a release build (arrives in PX4 v1.14).
-You will therefore need to install a build off the current PX4-Autopilot `main` branch.
+These instructions work on PX4 v1.14 and later.
 
-Connect the Pixhawk to your laptop/desktop via the `USB` port and use QGroundControl to update the firmware to the "Master" version as described in [Firmware > Installing PX4 Master, Beta or Custom Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware).
+If you need to update the firmware then connect the Pixhawk to your laptop/desktop via the `USB` port and use QGroundControl to update the firmware as described [Firmware > Install Stable PX4](../config/firmware.md#install-stable-px4). 
+If you want the latest developer version then update the firmware to the "main" as described in [Firmware > Installing PX4 Master, Beta or Custom Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware).
 
 :::note
 You can alternatively [setup a development environment](../dev_setup/dev_env.md), [build](../dev_setup/building_px4.md#building-for-nuttx) and [upload](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board) the firmware manually.
@@ -112,7 +113,6 @@ make px4_fmu-v6c_default upload
 ```
 -->
 
-
 ## Ubuntu Setup on RPi
 
 The following steps show how to install and setup Ubuntu 22.04 on the RPi.
@@ -130,50 +130,53 @@ Enter the following commands (in sequence) a terminal to configure Ubuntu for RP
 
 1. Install `raspi-config`:
 
-   ```
+   ```sh
    sudo apt update
    sudo apt upgrade
-   sudo apt-get install raspi-config 
+   sudo apt-get install raspi-config
    ```
+
 1. Open `raspi-config`:
 
-   ```
+   ```sh
    sudo raspi-config
    ```
 
 1. Go to the **Interface Option** and then click **Serial Port**.
+
    - Select **No** to disable serial login shell.
    - Select **Yes** to enable the serial interface.
    - Click **Finish** and restart the RPi.
 
 1. Open the firmware boot configuration file in the `nano` editor on RaPi:
 
-   ```bash
+   ```sh
    sudo nano /boot/firmware/config.txt
    ```
+
 1. Append the following text to the end of the file (after the last line):
 
-   ```bash
+   ```sh
    enable_uart=1
    dtoverlay=disable-bt
    ```
 
 1. Then save the file and restart the RPi.
+
    - In `nano` you can save the file using the following sequence of keyboard shortcuts: **ctrl+x**, **ctrl+y**, **Enter**.
 
 1. Check that the serial port is available.
    In this case we use the following terminal commands to list the serial devices:
 
-   ```bash
+   ```sh
    cd /
    ls /dev/ttyAMA0
    ```
 
    The result of the command should include the RX/TX connection `/dev/ttyAMA0` (note that this serial port is also available as `/dev/serial0`).
-   
-The RPi is now setup to work with RPi and communicate using the `/dev/ttyAMA0` serial port. 
-Note that we'll install more software in the following sections to work with MAVLink and ROS 2.
 
+The RPi is now setup to work with RPi and communicate using the `/dev/ttyAMA0` serial port.
+Note that we'll install more software in the following sections to work with MAVLink and ROS 2.
 
 ## MAVLink Communication
 
@@ -194,21 +197,20 @@ First check the Pixhawk `TELEM 2` configuration:
 1. Open QGroundControl (the vehicle should connect).
 1. [Check/change the following parameters](../advanced_config/parameters.md) in QGroundControl:
 
-   ```
+   ```ini
    MAV_1_CONFIG = TELEM2
    UXRCE_DDS_CFG = 0 (Disabled)
    SER_TEL2_BAUD = 57600
    ```
-   
+
    Note that the parameters may already be set appropriately.
    For information about how serial ports and MAVLink configuration work see [Serial Port Configuration](../peripherals/serial_configuration.md) and [MAVLink Peripherals](../peripherals/mavlink_peripherals.md).
-
 
 Then install setup MAVProxy on the RPi using the following terminal commands:
 
 1. Install MAVProxy:
 
-   ```bash
+   ```sh
    sudo apt install python3-pip
    sudo pip3 install mavproxy
    sudo apt remove modemmanager
@@ -216,18 +218,19 @@ Then install setup MAVProxy on the RPi using the following terminal commands:
 
 1. Run MAVProxy, setting the port to connect to `/dev/ttyAMA0` and the baud rate to match the PX4:
 
-   ```
+   ```sh
    sudo mavproxy.py --master=/dev/serial0 --baudrate 57600
    ```
-   
+
    :::note
    Note that above we used `/dev/serial0`, but we could equally well have used `/dev/ttyAMA0`.
    If we were connecting via USB then we would instead set the port as `/dev/ttyACM0`:
-   
-   ```bash
+
+   ```sh
    sudo chmod a+rw /dev/ttyACM0
    sudo mavproxy.py --master=/dev/ttyACM0 --baudrate 57600
    ```
+
    :::
 
 MAVProxy on RPi should now connect to the Pixhawk, via RX/TX pins.
@@ -252,31 +255,31 @@ The configuration steps are:
 1. Connect the Pixhawk with the laptop using a USB cable and open QGroundControl (if not currently connected).
 1. [Check/change the following parameters](../advanced_config/parameters.md) in QGroundControl:
 
-   ```
+   ```ini
    MAV_1_CONFIG = 0 (Disabled)
    UXRCE_DDS_CFG = 102 (TELEM2)
    SER_TEL2_BAUD = 921600
    ```
 
    [MAV_1_CONFIG=0](../advanced_config/parameter_reference.md#MAV_1_CONFIG) and [UXRCE_DDS_CFG=102](../advanced_config/parameter_reference.md#UXRCE_DDS_CFG) disable MAVLink on TELEM2 and enable the uXRCE-DDS client on TELEM2, respectively.
-   The `SER_TEL2_BAUD` rate sets the comms link data rate.   
+   The `SER_TEL2_BAUD` rate sets the comms link data rate.  
    You could similarly configure a connection to `TELEM1` using either `MAV_1_CONFIG` or `MAV_0_CONFIG`.
-   
+
    :::note
    You will need to reboot the flight controller to apply any changes to these parameters.
    :::
-   
-1. Check that the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) module is now running.
-   YOu can do this by running the following command in the QGroundControl [MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html): 
 
-   ```
+1. Check that the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) module is now running.
+   YOu can do this by running the following command in the QGroundControl [MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html):
+
+   ```sh
    uxrce_dds_client status
    ```
-   
-:::note
-If the client module is not running you can start it manually in the MAVLink console: 
 
-```
+:::note
+If the client module is not running you can start it manually in the MAVLink console:
+
+```sh
 uxrce_dds_client start -t serial -d /dev/ttyS3 -b 921600
 ```
 
@@ -291,12 +294,13 @@ The steps to setup ROS 2 and the Micro XRCE-DDS Agent on the RPi are:
 1. Install ROS 2 Humble by following the [official tutorial](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
 2. Install the git using the RPi terminal:
 
-   ```bash
+   ```sh
    sudo apt install git
    ```
+
 3. Install the uXRCE_DDS agent:
 
-   ```bash
+   ```sh
    git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
    cd Micro-XRCE-DDS-Agent
    mkdir build
@@ -306,20 +310,21 @@ The steps to setup ROS 2 and the Micro XRCE-DDS Agent on the RPi are:
    sudo make install
    sudo ldconfig /usr/local/lib/
    ```
-   
+
    See [uXRCE-DDS > Micro XRCE-DDS Agent Installation](../middleware/uxrce_dds.md#micro-xrce-dds-agent-installation) for alternative ways of installing the agent.
+
 4. Start the agent in the RPi terminal:
 
-   ```bash
+   ```sh
    sudo MicroXRCEAgent serial --dev /dev/serial0 -b 921600
    ```
-   
+
    Note how we use the serial port set up earlier and the same baud rate as for PX4.
 
 Now that both the agent and client are running, you should see activity on both the MAVLink console and the RPi terminal.
 You can view the available topics using the following command on the RPi:
 
-```bash
+```sh
 source /opt/ros/humble/setup.bash
 ros2 topic list
 ```

@@ -72,6 +72,7 @@
 - [GimbalManagerSetAttitude](GimbalManagerSetAttitude.md)
 - [GimbalManagerSetManualControl](GimbalManagerSetManualControl.md)
 - [GimbalManagerStatus](GimbalManagerStatus.md)
+- [GotoSetpoint](GotoSetpoint.md) — Position and (optional) heading setpoints with corresponding speed constraints Setpoints are intended as inputs to position and heading smoothers, respectively Setpoints do not need to be kinematically consistent Optional heading setpoints may be specified as controlled by the respective flag Unset optional setpoints are not controlled Unset optional constraints default to vehicle specifications
 - [GpioConfig](GpioConfig.md) — GPIO configuration
 - [GpioIn](GpioIn.md) — GPIO mask and state
 - [GpioOut](GpioOut.md) — GPIO mask and state
@@ -201,6 +202,7 @@
 - [VehicleTorqueSetpoint](VehicleTorqueSetpoint.md)
 - [VehicleTrajectoryBezier](VehicleTrajectoryBezier.md) — Vehicle Waypoints Trajectory description. See also MAVLink MAV_TRAJECTORY_REPRESENTATION msg The topic vehicle_trajectory_bezier is used to send a smooth flight path from the companion computer / avoidance module to the position controller.
 - [VehicleTrajectoryWaypoint](VehicleTrajectoryWaypoint.md) — Vehicle Waypoints Trajectory description. See also MAVLink MAV_TRAJECTORY_REPRESENTATION msg The topic vehicle_trajectory_waypoint_desired is used to send the user desired waypoints from the position controller to the companion computer / avoidance module. The topic vehicle_trajectory_waypoint is used to send the adjusted waypoints from the companion computer / avoidance module to the position controller.
+- [VelocityLimits](VelocityLimits.md) — Velocity and yaw rate limits for a multicopter position slow mode only
 - [VtolVehicleStatus](VtolVehicleStatus.md) — VEHICLE_VTOL_STATE, should match 1:1 MAVLinks's MAV_VTOL_STATE
 - [WheelEncoders](WheelEncoders.md)
 - [Wind](Wind.md)

@@ -195,12 +195,13 @@ After acquiring the pre-built library,
 Run the following commands on the BeagleBone Blue (i.e. via SSH):
 
 1. 安装依赖项
+
    ```sh
    sudo apt-get update
-   sudo apt-get install cmake python-empy
+   sudo apt-get install cmake python3-empy=3.3.4-2
    ```
-2. 将 PX4 固件直接克隆到 BeagleBone Blue 上。
-3. 继续 [标准构建系统安装](../dev_setup/dev_env_linux.md)。
+1. 将 PX4 固件直接克隆到 BeagleBone Blue 上。
+1. 继续 [标准构建系统安装](../dev_setup/dev_env_linux.md)。
 
 ## Changes in config
 

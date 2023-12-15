@@ -9,14 +9,14 @@
 
 이 섹션에는 PX4가 설치된 상태에서 즉시 비행 가능한 완전 조립품으로 판매되는 차량을 설명합니다.
 
-* Autogyro
-  * [ThunderFly TF-G2](https://www.thunderfly.cz/tf-g2.html)
-* 멀티콥터
-  * [Teal One](https://tealdrones.com/teal-one/)
-  * [ModalAI Starling](../complete_vehicles/modalai_starling.md)
-  * [ModalAI Sentinel](https://www.modalai.com/sentinel)
-* VTOL
-  * [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
+- Autogyro
+  - [ThunderFly TF-G2](https://www.thunderfly.cz/tf-g2.html)
+- 멀티콥터
+  - [Teal One](https://tealdrones.com/teal-one/)
+  - [ModalAI Starling](../complete_vehicles/modalai_starling.md)
+  - [ModalAI Sentinel](https://www.modalai.com/sentinel)
+- VTOL
+  - [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
 
 ## 완전 조립품(PX4 사전 설치됨)
 
@@ -44,24 +44,24 @@ This section lists fully assembled vehicles where you can update the software to
 작동 부품을 사용하여 적절하게 튜닝된 기체를 비행할 수 있습니다.
 :::
 
-* 멀티콥터
-  * [PX4 Development Kit - X500 V2](https://holybro.com/collections/x500-kits) ([holybro.com](https://holybro.com/))
-  * [Holybro X500 Kit](../frames_multicopter/holybro_x500_pixhawk4.md)
-  * [Holybro S500 Kit](../frames_multicopter/holybro_s500_v2_pixhawk4.md)
-  * [Holybro QAV250 Kit](../frames_multicopter/holybro_qav250_pixhawk4_mini.md)
-  * [NXP HoverGames KIT-HGDRONEK66](https://www.nxp.com/KIT-HGDRONEK66) ([hovergames.com](https://www.hovergames.com/))
+- 멀티콥터
+  - [PX4 Development Kit - X500 V2](https://holybro.com/collections/x500-kits) ([holybro.com](https://holybro.com/))
+  - [Holybro X500 Kit](../frames_multicopter/holybro_x500_pixhawk4.md)
+  - [Holybro S500 Kit](../frames_multicopter/holybro_s500_v2_pixhawk4.md)
+  - [Holybro QAV250 Kit](../frames_multicopter/holybro_qav250_pixhawk4_mini.md)
+  - [NXP HoverGames KIT-HGDRONEK66](https://www.nxp.com/KIT-HGDRONEK66) ([hovergames.com](https://www.hovergames.com/))
 
 ## 완전 조립품(PX4 최적화 가능)
 
 이 섹션에는 PX4의 *맞춤* 버전(공급업체에서 지원)을 실행하는 소비자용 차량을 설명합니다. "바닐라" PX4를 실행하기 위히여 필요에 따라 업데이트할 수 있습니다.
 
-* 멀티콥터
-  * [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus/)
-  * [Yuneec Mantis Q](https://px4.io/portfolio/yuneec-mantis-q/)
-  * [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
-  * [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/)
-* Fixed-Wing:
-  * [Sentera PXH](https://sentera.com/products/fieldcapture/ag-drones/phx/)
-* VTOL
-  * [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
-  * [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)
+- 멀티콥터
+  - [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus/)
+  - [Yuneec Mantis Q](https://px4.io/portfolio/yuneec-mantis-q/)
+  - [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
+  - [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/)
+- Fixed-Wing:
+  - [Sentera PXH](https://sentera.com/products/fieldcapture/ag-drones/phx/)
+- VTOL
+  - [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
+  - [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)

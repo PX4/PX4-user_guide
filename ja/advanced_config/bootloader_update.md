@@ -94,13 +94,13 @@ The following steps explain how you can "manually" update the bootloader using t
 1. Connect the Dronecode probe to your PC via USB.
 1. Go into the directory containing the binary and run the following command in the terminal:
 
-   ```bash
+   ```sh
    arm-none-eabi-gdb px4fmuv5_bl.elf
    ```
 
 1. The _gdb terminal_ appears and it should display the following output:
 
-   ```bash
+   ```sh
    GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git
    Copyright (C) 2017 Free Software Foundation, Inc.
    License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
@@ -121,7 +121,7 @@ The following steps explain how you can "manually" update the bootloader using t
 1. Find your `<dronecode-probe-id>` by running an ls command in the **/dev/serial/by-id** directory.
 1. Now connect to the Dronecode probe with the following command:
 
-   ```bash
+   ```sh
    tar ext /dev/serial/by-id/<dronecode-probe-id>
    ```
 
@@ -133,14 +133,14 @@ To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to
 
 1. Use the following command to scan for the Pixhawk’s swd and connect to it:
 
-   ```bash
+   ```sh
    (gdb) mon swdp_scan
  (gdb) attach 1
    ```
 
 1. Load the binary into the Pixhawk:
 
-   ```bash
+   ```sh
    (gdb) load
    ```
 

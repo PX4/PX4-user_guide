@@ -1,4 +1,4 @@
-# Throw Launch (Multicopter)
+# Throw Launch (Multicopter) <Badge type="warning" text="main (v1.15+)" vertical="top" />
 
 :::warning
 Experimental

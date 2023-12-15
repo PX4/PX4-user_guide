@@ -1,4 +1,4 @@
-# Package Delivery in Missions (Development)
+# Package Delivery in Missions <Badge type="tip" text="v1.14" vertical="top" />
 
 A package delivery mission is an extension of a waypoint mission, where a user can plan delivering a package as a waypoint.
 

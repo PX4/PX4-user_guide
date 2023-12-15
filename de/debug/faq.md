@@ -20,7 +20,7 @@ To remedy it, either use more recent hardware or remove modules from the build w
 
 The command below will list the largest static allocations:
 
-```bash
+```sh
 arm-none-eabi-nm --size-sort --print-size --radix=dec build/px4_fmu-v5_default/px4_fmu-v5_default.elf | grep " [bBdD] "
 ```
 

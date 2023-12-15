@@ -39,6 +39,9 @@ TBD ...
 
 - [Gazebo] Support for [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane), a simulated fixed-wing vehicle that provides better aerodynamic simulation than the regular plane.
   Added to PX4 in [PX4-Autopilot#22167](https://github.com/PX4/PX4-Autopilot/pull/22167) and [gz-sim#2185](https://github.com/gazebosim/gz-sim/pull/2185) (advanced lift drag plugin).
+- [Gazebo] The environment variable `PX4_SIM_MODEL` can now be used to indicate the simulation model.
+  This supersedes `PX4_GZ_MODEL`, which is now deprecated.
+  Added to PX4 in [PX4-Autopilot#22400](https://github.com/PX4/PX4-Autopilot/pull/22400).
 
 ### uXRCE-DDS / ROS2
 
@@ -55,6 +58,8 @@ TBD ...
 
 - [Throw launch](../flight_modes_mc/throw_launch.md): Start a multicopter by throwing it into the air.
   Added to PX4 in [PX4-Autopilot#21170](https://github.com/PX4/PX4-Autopilot/pull/21170).
+- [Position Slow Mode](../flight_modes_mc/position_slow.md): A slower version of _Position mode_, where the maximum horizontal velocity, vertical velocity and yaw-rate axes can be configured to lower values (using parameters, RC controller knobs/switches, or MAVLink).
+  Added to PX4 in [PX4-Autopilot#22102](https://github.com/PX4/PX4-Autopilot/pull/22102).
 
 ### VTOL
 

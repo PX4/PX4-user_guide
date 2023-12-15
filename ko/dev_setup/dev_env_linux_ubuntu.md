@@ -34,7 +34,7 @@ Use the [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/u
 
 1. [PX4 소스 코드 다운로드합니다](../dev_setup/building_px4.md):
 
-   ```bash
+   ```sh
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
 
@@ -43,7 +43,7 @@ The environment setup scripts in the source usually work for recent PX4 releases
 :::
 
 1. 인수 없이 (bash 셸에서) **ubuntu.sh**를 실행합니다.
-   ```bash
+   ```sh
    bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
    ```
    - 스크립트가 진행되는 동안 모든 프롬프트를 확인합니다.
@@ -56,7 +56,7 @@ Additional notes These notes are provided "for information only":
 - If you want to use Gazebo on Ubuntu 20.04 you can add it manually. See [Gazebo > Installation](../sim_gazebo_gz/README.md#installation-ubuntu-linux).
 - 다음과 같이 gcc 버전을 확인하여 NuttX 설치를 확인할 수 있습니다.
 
-  ```bash
+  ```sh
   $arm-none-eabi-gcc --version
 
   arm-none-eabi-gcc (GNU Arm Embedded Toolchain 9-2020-q2-update) 9.3.1 20200408 (release)
@@ -67,7 +67,7 @@ Additional notes These notes are provided "for information only":
 
 - 어쨌든 PX4 소스 코드가 필요합니다. 그러나 모든 소스 코드를 가져오지 않고 개발 환경을 설정하려는 경우 대신 [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) 및 [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt)를 다운로드한 다음 **ubuntu.sh**를 실행할 수 있습니다.:
 
-  ```bash
+  ```sh
   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/ubuntu.sh
   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/requirements.txt
   bash ubuntu.sh
@@ -96,7 +96,7 @@ Ubuntu 20.04(focal)용으로 빌드하려면 docker를 사용하여야 합니다
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt
    ```
 1. 터미널에서 **ubuntu.sh**를 실행하여 공통 종속성만 가져옵니다.
-   ```bash
+   ```sh
    bash ubuntu.sh --no-nuttx --no-sim-tools
    ```
 1. 그런 다음 다음 섹션에 설명된 대로 크로스 컴파일러(GCC 또는 clang)를 설정합니다.
@@ -182,13 +182,13 @@ If you're working with [ROS Noetic](http://wiki.ros.org/noetic) on Ubuntu 20.04:
 
    1. [Download PX4 Source Code](../dev_setup/building_px4.md):
 
-      ```bash
+      ```sh
       git clone https://github.com/PX4/PX4-Autopilot.git --recursive
       ```
 
    1. Run the **ubuntu.sh** the `--no-sim-tools` (and optionally `--no-nuttx`):
 
-      ```bash
+      ```sh
       bash ./PX4-Autopilot/Tools/setup/ubuntu.sh --no-sim-tools --no-nuttx
       ```
 
@@ -211,13 +211,13 @@ If you're working with ROS "Melodic on Ubuntu 18.04:
 
 1. Download the [ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh) script in a bash shell:
 
-   ```bash
+   ```sh
    wget https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh
    ```
 
 1. 스크립트를 실행하십시오:
 
-   ```bash
+   ```sh
    bash ubuntu_sim_ros_melodic.sh
    ```
 
@@ -235,6 +235,6 @@ If you're working with ROS "Melodic on Ubuntu 18.04:
 명령줄 도구 모음 설정후, 다음을 수행합니다.
 
 - [VSCode](../dev_setup/vscode.md)를 설치합니다(명령줄에 IDE 사용을 선호하는 경우).
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html) :::tip The _daily build_ includes development tools that hidden in release builds. 또한, 릴리스 빌드에서 아직 지원되지 않는 새로운 PX4 기능에 대한 액세스를 제공할 수도 있습니다.
+- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html) :::tip The _daily build_ includes development tools that hidden in release builds. 또한, 릴리스 빌드에서 아직 지원되지 않는 새로운 PX4 기능에 대한 액세스를 제공할 수도 있습니다.
 :::
 - [빌드 지침](../dev_setup/building_px4.md)을 계속 진행합니다.

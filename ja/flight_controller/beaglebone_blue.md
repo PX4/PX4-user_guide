@@ -195,14 +195,15 @@ After acquiring the pre-built library,
 Run the following commands on the BeagleBone Blue (i.e. via SSH):
 
 1. Install dependencies:
+
    ```sh
    Install dependencies: 
      sh
      sudo apt-get update
      sudo apt-get install cmake python-empy
    ```
-2. Clone the PX4 Firmware directly onto the BeagleBone Blue.
-3. Continue with the [standard build system installation](../dev_setup/dev_env_linux.md).
+1. Clone the PX4 Firmware directly onto the BeagleBone Blue.
+1. Continue with the [standard build system installation](../dev_setup/dev_env_linux.md).
 
 ## Changes in config
 

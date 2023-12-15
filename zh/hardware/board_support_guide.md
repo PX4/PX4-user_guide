@@ -17,20 +17,22 @@ The general requirements for all supported boards are:
 1. The hardware must be available in the market.
 1. The boards may not have blocking hardware bugs or unacceptable quality that make it impossible or dangerous to use the board with PX4 on a UAV. Board needs to pass acceptance criteria to ensure quality of parts and assembly.
 1. A clear and easy way to contact customer support for customers. One or more of the following is accepted:
+
    - PX4 Discord server presence
    - Support email
    - Phone number
 
-2. Point of contact (PoC) for the PX4 maintainers (direct email or available in Slack/Forum/Github)
-3. The board needs to use the [PX4 bootloader protocol](https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/bootloader). For more information on bootloaders see: [PX4 Nuttx Porting Guide > Bootloader](../hardware/porting_guide_nuttx.md#bootloader).
-4. Adequate documentation, which includes, but is not limited to:
+1. Point of contact (PoC) for the PX4 maintainers (direct email or available in Slack/Forum/Github)
+1. The board needs to use the [PX4 bootloader protocol](https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/bootloader). For more information on bootloaders see: [PX4 Nuttx Porting Guide > Bootloader](../hardware/porting_guide_nuttx.md#bootloader).
+1. Adequate documentation, which includes, but is not limited to:
 
-    - A complete pinout made available publicly that maps PX4 pin definitions to:
-      1. Microcontroller pins
-      2. Physical external connectors
-    - A block diagram or full schematic of the main components (sensors, power supply, etc.) that allows to infer software requirements and boot order
-    - A manual of the finished product detailing its use
-5. There must be a dedicated webpage for the board with PX4, which lists the features and limitations for usage with PX4, and includes or links to the above described documentation.
+   - A complete pinout made available publicly that maps PX4 pin definitions to:
+     1. Microcontroller pins
+     2. Physical external connectors
+   - A block diagram or full schematic of the main components (sensors, power supply, etc.) that allows to infer software requirements and boot order
+   - A manual of the finished product detailing its use
+
+1. There must be a dedicated webpage for the board with PX4, which lists the features and limitations for usage with PX4, and includes or links to the above described documentation.
 
 ## Board Support Categories
 
@@ -77,10 +79,8 @@ These boards are all boards that don't fall in the above categories, or don't fa
 - The board must be working with at least one PX4 release for a defined vehicle type, but not necessarily the latest release.
 
 :::note
-Experimental boards that were _previously_ Pixhawk or Manufacturer supported will have/retain their original IDs. *New* experimental boards are allocated [VER and REV IDs](#ver_rev_id) based on compatibility, in the same way as Manufacturer Supported boards.
+Experimental boards that were _previously_ Pixhawk or Manufacturer supported will have/retain their original IDs. _New_ experimental boards are allocated [VER and REV IDs](#ver_rev_id) based on compatibility, in the same way as Manufacturer Supported boards.
 :::
-
-<a id="unsupported"></a>
 
 ## Unsupported
 
@@ -103,7 +103,7 @@ When a new board is brought to market that falls into the manufacturer supported
 
 Contact PX4 board maintainers at [boards@px4.io](mailto:boards@px4.io) and request the following:
 
-1. The assignment of a *board id* for bootloader and firmware selection in QGC.
+1. The assignment of a _board id_ for bootloader and firmware selection in QGC.
 2. The assignment of REV and VER ID resistor values.
 3. If the board supports USB: Either request the assignment of a USB VID and PID or provide the USB VID and PID.
 

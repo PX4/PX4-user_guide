@@ -64,8 +64,8 @@ This guide explains how to manually tune the fixed-wing PID loop. 它是为高�
 
 #### 设为最小增益
 
-- [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I)
-- [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P)
+- [FW_RR_I](../advanced_config/parameter_reference.md#FW_PR_I)
+- [FW_RR_P](../advanced_config/parameter_reference.md#FW_PR_I)
 
 #### 待调整增益
 

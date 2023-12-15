@@ -18,7 +18,7 @@ The target yaw rate is the sum of weather vane yaw rate and user commanded yaw r
 
 ## Mission Mode Behaviour
 
-In [Mission mode](../flight_modes/mission.md) the weather vane feature will always be active when the parameter is enabled.
+In [Mission mode](../flight_modes_vtol/mission.md) the weather vane feature will always be active when the parameter is enabled.
 Any yaw angle commanded in a mission will be ignored.
 
 <a id="configuration"></a>

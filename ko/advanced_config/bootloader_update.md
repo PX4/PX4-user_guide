@@ -94,14 +94,14 @@ If the hardware has the [Silicon Errata](../flight_controller/silicon_errata.md#
 1. USB로 컴퓨터와 Dronecode probe를 연결하십시오.
 1. 바이너리가 들어 있는 디렉토리에서 아래 커맨드를 터미널에 입력하십시오.
 
-   ```bash
+   ```sh
    bash
      arm-none-eabi-gdb px4fmuv5_bl.elf
    ```
 
 1. The _gdb terminal_ appears and it should display the following output:
 
-   ```bash
+   ```sh
    bash
      GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git
      Copyright (C) 2017 Free Software Foundation, Inc. License GPLv3+: GNU GPL version 3 or later <a href="http://gnu.org/licenses/gpl.html" x-nc="1">http://gnu.org/licenses/gpl.html</a>
@@ -122,7 +122,7 @@ If the hardware has the [Silicon Errata](../flight_controller/silicon_errata.md#
 1. **/dev/serial/by-id** 디렉토리에서 ls 커맨드를 입력해 `<dronecode-probe-id>`를 찾으십시오.
 1. 아래 커맨드로 Dronecode probe에 연결하십시오:
 
-   ```bash
+   ```sh
    tar ext /dev/serial/by-id/<dronecode-probe-id>
    ```
 
@@ -134,14 +134,14 @@ Dronecode 프로브를 FMU-DEBUG 포트에 연결하려면 케이스를 제거�
 
 1. 아래 커맨드로 Pixhawk의 swd를 스캔하고 연결하십시오:
 
-   ```bash
+   ```sh
    (gdb) mon swdp_scan
  (gdb) attach 1
    ```
 
 1. 이제 바이너리를 픽스호크에 로드하십시오:
 
-   ```bash
+   ```sh
    (gdb) load
    ```
 

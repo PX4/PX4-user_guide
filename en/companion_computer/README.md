@@ -14,7 +14,6 @@ They are connected using a fast serial or Ethernet link, and typically communica
 
 Communications with the ground stations and the cloud are usually routed via the companion computer (e.g. using the [MAVLink Router](https://github.com/mavlink-router/mavlink-router)).
 
-
 ## Integrated Companion/Flight Controller Boards
 
 Controller boards that come with a pre-integrated companion computer and flight controller can significantly ease both software and hardware setup.
@@ -30,7 +29,6 @@ The following integrated companion computer/flight controller systems use manage
 They are listed here as they can be updated with "vanilla" PX4 firmware for testing/rapid development.
 
 - [Auterion Skynode](../companion_computer/auterion_skynode.md)
-
 
 ## Companion Computer Options
 
@@ -59,7 +57,7 @@ Popular alternatives include:
 - [ROS 2](../ros/ros2.md) to communicate to ROS 2 nodes (may also be used).
 - [ROS 1 and MAVROS](../ros/mavros_installation.md)
 
-MAVSDK is generally easier to learn and use, while ROS provides more pre-written software for advanced cases like computer vision. 
+MAVSDK is generally easier to learn and use, while ROS provides more pre-written software for advanced cases like computer vision.
 [Drone APIs and SDKs > What API Should I Use?](../robotics/README.md#what-api-should-i-use) explains the different options in detail.
 
 You can also write your own custom MAVLink libraries from scratch:
@@ -70,6 +68,7 @@ You can also write your own custom MAVLink libraries from scratch:
 #### Routers
 
 You will need a router if you need to bridge MAVLink from the vehicle to a ground station or IP network, or if you need multiple connections:
+
 - [MAVLink Router](https://github.com/intel/mavlink-router) (recommended)
 - [MAVProxy](https://ardupilot.org/mavproxy/)
 
@@ -84,9 +83,7 @@ The following topics explain how to set up companion computers for specific flig
 
 - [Using a Companion Computer with Pixhawk Controllers](../companion_computer/pixhawk_companion.md)
 
-
 ## Additional Information
 
 - [Companion Computer Peripherals](../companion_computer/companion_computer_peripherals.md)
 - [PX4 System Architecture > FC and Companion Computer](../concept/px4_systems_architecture.md#fc-and-companion-computer)
-

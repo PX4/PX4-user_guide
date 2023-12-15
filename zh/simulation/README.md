@@ -257,7 +257,7 @@ To route packets between SITL running on one computer (sending MAVLink traffic t
 
 - Use a _mavlink-router_ conf file.
 
-  ```conf
+  ```ini
   [UdpEndpoint QGC]
   Mode = Normal
   Address = 10.73.41.30

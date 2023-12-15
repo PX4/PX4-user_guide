@@ -8,15 +8,13 @@
 
 두 가지 모드에서 기능을 설정하고 활성화하는 방법에 대하여 설명합니다.
 
-
 ## 제약 사항과 성능
 
 - 장애물 회피를 위한 최대 속도는 현재 약 3m/s입니다 (회피 경로 계산 비용으로 인해).
 
 :::note
-Obstacle avoidance can use the *local planner* (emits messages at ~30Hz and can move at around 3 m/s) or *global planner* (emits messages at ~10Hz and mission speed with obstacle avoidance is around 1-1.5 m/s).
+Obstacle avoidance can use the _local planner_ (emits messages at ~30Hz and can move at around 3 m/s) or _global planner_ (emits messages at ~10Hz and mission speed with obstacle avoidance is around 1-1.5 m/s).
 :::
-
 
 <a id="offboard_mode"></a>
 
@@ -30,7 +28,6 @@ PX4는 [오프 보드 모드](../flight_modes/offboard.md)에서 장애물 회�
 
 Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
 
-
 <a id="mission_mode"></a>
 
 ## 임무 모드 회피
@@ -42,10 +39,11 @@ PX4는 보조 컴퓨터의 회피 소프트웨어를 사용하여 [임무 모드
 PX4는 보조 컴퓨터의 회피 소프트웨어를 사용하여 [임무 모드](../flight_modes/mission.md)에서 장애물 회피를 지원합니다.
 
 회피가 활성화된 경우 차이점은 다음과 같습니다.
+
 - 웨이포인트는 기체의 방향과 관계없이 허용 반경내에 있을 때 "도달"한 것으로 간주됩니다.
   - 이것은 기체의 특정 방향 (즉, 이전 웨이포인트에서 "가까운"직선)으로 웨이포인트에 도달해야하는 일반 임무와의 차이점입니다. 장애물 회피 알고리즘이 기체 방향을 완전히 제어하고, 기체는 항상 현재 시야에서 움직이기 때문에 장애물 회피가 활성화된 경우이 제약 조건을 충족할 수 없습니다.
 - PX4 starts emitting a new current/next waypoint once the previous waypoint is reached (i.e. as soon as the vehicle enters its acceptance radius).
-- If a waypoint is *inside* an obstacle it may be unreachable (and the mission will be stuck).
+- If a waypoint is _inside_ an obstacle it may be unreachable (and the mission will be stuck).
   - 이전-현재 웨이포인트 라인의 기체 투영이 현재 웨이포인트를 통과하면 수락 반경이 확대되어 현재 웨이포인트에 도달한 것으로 설정됩니다.
   - If the vehicle is within the x-y acceptance radius, the altitude acceptance is modified such that the mission progresses (even if it is not in the altitude acceptance radius).
 - 원래의 미션 속도 (*QGroundControl*/PX4에 설정 됨)는 무시됩니다. 속도는 회피 소프트웨어에 의해 결정됩니다.
@@ -53,7 +51,6 @@ PX4는 보조 컴퓨터의 회피 소프트웨어를 사용하여 [임무 모드
   - *글로벌 플래너* 임무 속도는 약 1~1.5m/s입니다.
 
 If PX4 stops receiving setpoint updates for more than half a second it will switch into [Hold mode](../flight_modes_mc/hold.md).
-
 
 ### PX4 설정
 
@@ -69,7 +66,6 @@ Companion-side hardware setup and hardware/software configuration is provided in
 
 보조 컴퓨터 하드웨어와 소프트웨어 구성과 설정은 [PX4 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github 저장소에서 제공됩니다.
 
-
 <a id="interface"></a>
 
 ## 장애물 회피 인터페이스
@@ -81,4 +77,3 @@ PX4는 [임무중 장애물 회피](../computer_vision/obstacle_avoidance.md#mis
 ## 지원 하드웨어
 
 Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
-

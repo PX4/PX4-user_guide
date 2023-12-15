@@ -31,12 +31,12 @@ Rotoye Batmon 시스템은 I2C 핀이 있는 XT-90 배터리 커넥터와 광절
 ### PX4 펌웨어 빌드
 
 1. [ Rotoye의 PX4 포크](https://github.com/rotoye/PX4-Autopilot/tree/batmon_4.03) 복제 또는 다운로드:
-   ```bash
+   ```sh
    git clone https://github.com/rotoye/PX4-Autopilot.git
    cd PX4-Autopilot
    ```
 1. *batmon_4.03* 브랜치 확인
-   ```bash
+   ```sh
    git fetch origin batmon_4.03
    git checkout batmon_4.03
    ```

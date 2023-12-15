@@ -48,5 +48,5 @@ Any geofence that does not include the Home position will be rejected by the fli
 If the vehicle is flying, also any geofence that would immediately get breached after the upload is rejected.
 :::
 
-:::note PX4 implements the MAVLink [Mission Microservice](https://mavlink.io/en/services/mission.html), which includes support for GeoFences.
+:::note PX4 implements the MAVLink [Mission microservice](https://mavlink.io/en/services/mission.html), which includes support for GeoFences.
 :::

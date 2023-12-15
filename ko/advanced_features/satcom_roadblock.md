@@ -107,7 +107,7 @@ RockBlock의 첫 번째 모듈을 구입시의 첫 번째 단계는 사용자 �
 
 1. 브로커 자격 증명을 구성합니다(암호를 PWD로 변경).
 
-   ```bash
+   ```sh
    bash
     sudo rabbitmqctl add_user iridiumsbd PWD
     sudo rabbitmqctl set_permissions iridiumsbd ".<em x-id="3">" ".</em>" ".*"

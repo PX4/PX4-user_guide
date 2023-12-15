@@ -30,7 +30,7 @@ Poorly tuned [P/PID Gains](../config_mc/pid_tuning_guide_multicopter.md) can lea
 
 ## Flight Modes Trajectory Support
 
-[Mission mode](../flight_modes/mission.md) used the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory all the time.
+[Mission mode](../flight_modes_mc/mission.md) used the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory all the time.
 
 [Position mode](../flight_modes_mc/position.md) supports the [implementations](#position-mode-implementations) listed below. It uses the acceleration based mapping by default; other types can be set using [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 

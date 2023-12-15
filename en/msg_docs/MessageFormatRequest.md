@@ -15,5 +15,4 @@ uint16 protocol_version           # Must be set to LATEST_PROTOCOL_VERSION. Do n
 
 char[50] topic_name  # E.g. /fmu/in/vehicle_command
 
-
 ```

@@ -9437,6 +9437,7 @@ table {
 <li><strong>6:</strong> Acro</li>
 <li><strong>7:</strong> Offboard</li>
 <li><strong>8:</strong> Stabilized</li>
+<li><strong>9:</strong> Position Slow</li>
 <li><strong>10:</strong> Takeoff</li>
 <li><strong>11:</strong> Land</li>
 <li><strong>12:</strong> Follow Me</li>
@@ -9467,6 +9468,7 @@ table {
 <li><strong>6:</strong> Acro</li>
 <li><strong>7:</strong> Offboard</li>
 <li><strong>8:</strong> Stabilized</li>
+<li><strong>9:</strong> Position Slow</li>
 <li><strong>10:</strong> Takeoff</li>
 <li><strong>11:</strong> Land</li>
 <li><strong>12:</strong> Follow Me</li>
@@ -9497,6 +9499,7 @@ table {
 <li><strong>6:</strong> Acro</li>
 <li><strong>7:</strong> Offboard</li>
 <li><strong>8:</strong> Stabilized</li>
+<li><strong>9:</strong> Position Slow</li>
 <li><strong>10:</strong> Takeoff</li>
 <li><strong>11:</strong> Land</li>
 <li><strong>12:</strong> Follow Me</li>
@@ -9527,6 +9530,7 @@ table {
 <li><strong>6:</strong> Acro</li>
 <li><strong>7:</strong> Offboard</li>
 <li><strong>8:</strong> Stabilized</li>
+<li><strong>9:</strong> Position Slow</li>
 <li><strong>10:</strong> Takeoff</li>
 <li><strong>11:</strong> Land</li>
 <li><strong>12:</strong> Follow Me</li>
@@ -9557,6 +9561,7 @@ table {
 <li><strong>6:</strong> Acro</li>
 <li><strong>7:</strong> Offboard</li>
 <li><strong>8:</strong> Stabilized</li>
+<li><strong>9:</strong> Position Slow</li>
 <li><strong>10:</strong> Takeoff</li>
 <li><strong>11:</strong> Land</li>
 <li><strong>12:</strong> Follow Me</li>
@@ -9587,6 +9592,7 @@ table {
 <li><strong>6:</strong> Acro</li>
 <li><strong>7:</strong> Offboard</li>
 <li><strong>8:</strong> Stabilized</li>
+<li><strong>9:</strong> Position Slow</li>
 <li><strong>10:</strong> Takeoff</li>
 <li><strong>11:</strong> Land</li>
 <li><strong>12:</strong> Follow Me</li>
@@ -10262,6 +10268,38 @@ table {
  <td>[0.01, 1.0] </td>
  <td>3.5e-1</td>
  <td>m/s^2</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_AGP_CTRL">EKF2_AGP_CTRL</strong> (INT32)</td>
+ <td>Aux global position (AGP) sensor aiding <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Horizontal position fusion 1 : Vertical position fusion</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Horizontal position</li>
+  <li><strong>1:</strong> Vertical position</li>
+</ul>
+ </td>
+ <td>[0, 3] </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="EKF2_AGP_DELAY">EKF2_AGP_DELAY</strong> (FLOAT)</td>
+ <td>Aux global position estimator delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 300] </td>
+ <td>0</td>
+ <td>ms</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_AGP_GATE">EKF2_AGP_GATE</strong> (FLOAT)</td>
+ <td>Gate size for aux global position fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
+ <td>[1.0, ?] </td>
+ <td>3.0</td>
+ <td>SD</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_AGP_NOISE">EKF2_AGP_NOISE</strong> (FLOAT)</td>
+ <td>Measurement noise for aux global position observations used to lower bound or replace the uncertainty included in the message    </td>
+ <td>[0.01, ?] </td>
+ <td>0.9</td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_ANGERR_INIT">EKF2_ANGERR_INIT</strong> (FLOAT)</td>
@@ -16355,9 +16393,16 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="MPC_YAWRAUTO_ACC">MPC_YAWRAUTO_ACC</strong> (FLOAT)</td>
+ <td>Maximum yaw acceleration in autonomous modes <p><strong>Comment:</strong> Limits the acceleration of the yaw setpoint to avoid large control output and mixer saturation.</p>   </td>
+ <td>[5, 360] (5)</td>
+ <td>60.</td>
+ <td>deg/s^2</td>
+</tr>
+<tr>
  <td><strong id="MPC_YAWRAUTO_MAX">MPC_YAWRAUTO_MAX</strong> (FLOAT)</td>
- <td>Max yaw rate in autonomous modes <p><strong>Comment:</strong> Limits the rate of change of the yaw setpoint to avoid large control output and mixer saturation.</p>   </td>
- <td>[0, 360] (5)</td>
+ <td>Maximum yaw rate in autonomous modes <p><strong>Comment:</strong> Limits the rate of change of the yaw setpoint to avoid large control output and mixer saturation.</p>   </td>
+ <td>[5, 360] (5)</td>
  <td>45.</td>
  <td>deg/s</td>
 </tr>
@@ -16849,6 +16894,103 @@ table {
 </tr>
 </tbody></table>
 
+## Multicopter Position Slow Mode
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="MC_SLOW_DEF_HVEL">MC_SLOW_DEF_HVEL</strong> (FLOAT)</td>
+ <td>Default horizontal velocity limit <p><strong>Comment:</strong> This value is used in slow mode if no aux channel is mapped and no limit is commanded through MAVLink.</p>   </td>
+ <td>[0.1, ?] (0.1)</td>
+ <td>3.</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MC_SLOW_DEF_VVEL">MC_SLOW_DEF_VVEL</strong> (FLOAT)</td>
+ <td>Default vertical velocity limit <p><strong>Comment:</strong> This value is used in slow mode if no aux channel is mapped and no limit is commanded through MAVLink.</p>   </td>
+ <td>[0.1, ?] (0.1)</td>
+ <td>1.</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MC_SLOW_DEF_YAWR">MC_SLOW_DEF_YAWR</strong> (FLOAT)</td>
+ <td>Default yaw rate limit <p><strong>Comment:</strong> This value is used in slow mode if no aux channel is mapped and no limit is commanded through MAVLink.</p>   </td>
+ <td>[1, ?] (0.1)</td>
+ <td>45.</td>
+ <td>deg/s</td>
+</tr>
+<tr>
+ <td><strong id="MC_SLOW_MAP_HVEL">MC_SLOW_MAP_HVEL</strong> (INT32)</td>
+ <td>Manual input mapped to scale horizontal velocity in position slow mode  <strong>Values:</strong><ul>
+<li><strong>0:</strong> No rescaling</li>
+<li><strong>1:</strong> AUX1</li>
+<li><strong>2:</strong> AUX2</li>
+<li><strong>3:</strong> AUX3</li>
+<li><strong>4:</strong> AUX4</li>
+<li><strong>5:</strong> AUX5</li>
+<li><strong>6:</strong> AUX6</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MC_SLOW_MAP_VVEL">MC_SLOW_MAP_VVEL</strong> (INT32)</td>
+ <td>Manual input mapped to scale vertical velocity in position slow mode  <strong>Values:</strong><ul>
+<li><strong>0:</strong> No rescaling</li>
+<li><strong>1:</strong> AUX1</li>
+<li><strong>2:</strong> AUX2</li>
+<li><strong>3:</strong> AUX3</li>
+<li><strong>4:</strong> AUX4</li>
+<li><strong>5:</strong> AUX5</li>
+<li><strong>6:</strong> AUX6</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MC_SLOW_MAP_YAWR">MC_SLOW_MAP_YAWR</strong> (INT32)</td>
+ <td>Manual input mapped to scale yaw rate in position slow mode  <strong>Values:</strong><ul>
+<li><strong>0:</strong> No rescaling</li>
+<li><strong>1:</strong> AUX1</li>
+<li><strong>2:</strong> AUX2</li>
+<li><strong>3:</strong> AUX3</li>
+<li><strong>4:</strong> AUX4</li>
+<li><strong>5:</strong> AUX5</li>
+<li><strong>6:</strong> AUX6</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MC_SLOW_MIN_HVEL">MC_SLOW_MIN_HVEL</strong> (FLOAT)</td>
+ <td>Horizontal velocity lower limit <p><strong>Comment:</strong> The lowest input maps and is clamped to this velocity.</p>   </td>
+ <td>[0.1, ?] (0.1)</td>
+ <td>.3</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MC_SLOW_MIN_VVEL">MC_SLOW_MIN_VVEL</strong> (FLOAT)</td>
+ <td>Vertical velocity lower limit <p><strong>Comment:</strong> The lowest input maps and is clamped to this velocity.</p>   </td>
+ <td>[0.1, ?] (0.1)</td>
+ <td>.3</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MC_SLOW_MIN_YAWR">MC_SLOW_MIN_YAWR</strong> (FLOAT)</td>
+ <td>Yaw rate lower limit <p><strong>Comment:</strong> The lowest input maps and is clamped to this rate.</p>   </td>
+ <td>[1, ?] (0.1)</td>
+ <td>3.</td>
+ <td>deg/s</td>
+</tr>
+</tbody></table>
+
 ## Multicopter Rate Control
 
 <table>
@@ -17282,7 +17424,7 @@ table {
  <td>RC channel 10 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC10_REV">RC10_REV</strong> (FLOAT)</td>
@@ -17299,7 +17441,7 @@ table {
  <td>RC channel 10 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC11_DZ">RC11_DZ</strong> (FLOAT)</td>
@@ -17313,14 +17455,14 @@ table {
  <td>RC channel 11 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC11_MIN">RC11_MIN</strong> (FLOAT)</td>
  <td>RC channel 11 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC11_REV">RC11_REV</strong> (FLOAT)</td>
@@ -17337,7 +17479,7 @@ table {
  <td>RC channel 11 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC12_DZ">RC12_DZ</strong> (FLOAT)</td>
@@ -17351,14 +17493,14 @@ table {
  <td>RC channel 12 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC12_MIN">RC12_MIN</strong> (FLOAT)</td>
  <td>RC channel 12 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC12_REV">RC12_REV</strong> (FLOAT)</td>
@@ -17375,7 +17517,7 @@ table {
  <td>RC channel 12 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC13_DZ">RC13_DZ</strong> (FLOAT)</td>
@@ -17389,14 +17531,14 @@ table {
  <td>RC channel 13 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC13_MIN">RC13_MIN</strong> (FLOAT)</td>
  <td>RC channel 13 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC13_REV">RC13_REV</strong> (FLOAT)</td>
@@ -17413,7 +17555,7 @@ table {
  <td>RC channel 13 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC14_DZ">RC14_DZ</strong> (FLOAT)</td>
@@ -17427,14 +17569,14 @@ table {
  <td>RC channel 14 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC14_MIN">RC14_MIN</strong> (FLOAT)</td>
  <td>RC channel 14 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC14_REV">RC14_REV</strong> (FLOAT)</td>
@@ -17451,7 +17593,7 @@ table {
  <td>RC channel 14 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC15_DZ">RC15_DZ</strong> (FLOAT)</td>
@@ -17465,14 +17607,14 @@ table {
  <td>RC channel 15 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC15_MIN">RC15_MIN</strong> (FLOAT)</td>
  <td>RC channel 15 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC15_REV">RC15_REV</strong> (FLOAT)</td>
@@ -17489,7 +17631,7 @@ table {
  <td>RC channel 15 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC16_DZ">RC16_DZ</strong> (FLOAT)</td>
@@ -17503,14 +17645,14 @@ table {
  <td>RC channel 16 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC16_MIN">RC16_MIN</strong> (FLOAT)</td>
  <td>RC channel 16 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC16_REV">RC16_REV</strong> (FLOAT)</td>
@@ -17548,7 +17690,7 @@ table {
  <td>RC channel 17 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC17_REV">RC17_REV</strong> (FLOAT)</td>
@@ -17565,7 +17707,7 @@ table {
  <td>RC channel 17 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC18_DZ">RC18_DZ</strong> (FLOAT)</td>
@@ -17586,7 +17728,7 @@ table {
  <td>RC channel 18 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC18_REV">RC18_REV</strong> (FLOAT)</td>
@@ -17641,7 +17783,7 @@ table {
  <td>RC channel 1 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500.0</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC2_DZ">RC2_DZ</strong> (FLOAT)</td>
@@ -17662,7 +17804,7 @@ table {
  <td>RC channel 2 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000.0</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC2_REV">RC2_REV</strong> (FLOAT)</td>
@@ -17693,7 +17835,7 @@ table {
  <td>RC channel 3 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC3_MIN">RC3_MIN</strong> (FLOAT)</td>
@@ -17724,21 +17866,21 @@ table {
  <td>RC channel 4 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
  <td>[0.0, 100.0] </td>
  <td>10.0</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC4_MAX">RC4_MAX</strong> (FLOAT)</td>
  <td>RC channel 4 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
  <td>[1500.0, 2200.0] </td>
  <td>2000</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC4_MIN">RC4_MIN</strong> (FLOAT)</td>
  <td>RC channel 4 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
  <td>[800.0, 1500.0] </td>
  <td>1000</td>
- <td>us</td>
+ <td>µs</td>
 </tr>
 <tr>
  <td><strong id="RC4_REV">RC4_REV</strong> (FLOAT)</td>
@@ -17793,7 +17935,7 @@ table {
  <td>RC channel 5 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC6_DZ">RC6_DZ</strong> (FLOAT)</td>
@@ -17831,7 +17973,7 @@ table {
  <td>RC channel 6 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC7_DZ">RC7_DZ</strong> (FLOAT)</td>
@@ -17869,7 +18011,7 @@ table {
  <td>RC channel 7 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC8_DZ">RC8_DZ</strong> (FLOAT)</td>
@@ -17907,7 +18049,7 @@ table {
  <td>RC channel 8 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
- <td>µs</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC9_DZ">RC9_DZ</strong> (FLOAT)</td>
@@ -18017,7 +18159,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_AUX3">RC_MAP_AUX3</strong> (INT32)</td>
- <td>AUX3 Passthrough RC channel <p><strong>Comment:</strong> Default function: Camera azimuth / yaw</p> <strong>参数对照:</strong><ul>
+ <td>AUX3 Passthrough RC channel <p><strong>Comment:</strong> Default function: Camera azimuth / yaw</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
 <li><strong>1:</strong> Channel 1</li>
 <li><strong>2:</strong> Channel 2</li>
@@ -18368,7 +18510,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_RSSI_PWM_CHAN">RC_RSSI_PWM_CHAN</strong> (INT32)</td>
- <td>PWM input channel that provides RSSI <p><strong>Comment:</strong> 0: do not read RSSI from input channel 1-18: read RSSI from specified input channel Specify the range for RSSI input with RC_RSSI_PWM_MIN and RC_RSSI_PWM_MAX parameters.</p> <strong>参数对照:</strong><ul>
+ <td>PWM input channel that provides RSSI <p><strong>Comment:</strong> 0: do not read RSSI from input channel 1-18: read RSSI from specified input channel Specify the range for RSSI input with RC_RSSI_PWM_MIN and RC_RSSI_PWM_MAX parameters.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
 <li><strong>1:</strong> Channel 1</li>
 <li><strong>2:</strong> Channel 2</li>
@@ -19092,7 +19234,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="RBCLW_ADDRESS">RBCLW_ADDRESS</strong> (INT32)</td>
- <td>Address of the ESC on the bus <p><strong>Comment:</strong> The ESC has to be configured to have an address from 0x80 to 0x87. This parameter needs to match the configured value.</p> <strong>参数对照:</strong><ul>
+ <td>Address of the ESC on the bus <p><strong>Comment:</strong> The ESC has to be configured to have an address from 0x80 to 0x87. This parameter needs to match the configured value.</p> <strong>Values:</strong><ul>
 <li><strong>128:</strong> 0x80</li>
 <li><strong>129:</strong> 0x81</li>
 <li><strong>130:</strong> 0x82</li>
@@ -19120,7 +19262,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -19252,7 +19394,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -22137,6 +22279,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_IMU_CLPNOTI">SENS_IMU_CLPNOTI</strong> (INT32)</td>
+ <td>IMU notify clipping <p><strong>Comment:</strong> Notify the user if the IMU is clipping</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_IMU_MODE">SENS_IMU_MODE</strong> (INT32)</td>
  <td>Sensors hub IMU mode  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
@@ -22239,7 +22388,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MAG_SIDES">SENS_MAG_SIDES</strong> (INT32)</td>
- <td>Bitfield selecting mag sides for calibration <p><strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: ORIENTATION_TAIL_DOWN = 1 ORIENTATION_NOSE_DOWN = 2 ORIENTATION_LEFT = 4 ORIENTATION_RIGHT = 8 ORIENTATION_UPSIDE_DOWN = 16 ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>参数对照:</strong><ul>
+ <td>Bitfield selecting mag sides for calibration <p><strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: ORIENTATION_TAIL_DOWN = 1 ORIENTATION_NOSE_DOWN = 2 ORIENTATION_LEFT = 4 ORIENTATION_RIGHT = 8 ORIENTATION_UPSIDE_DOWN = 16 ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>Values:</strong><ul>
 <li><strong>34:</strong> Two side calibration</li>
 <li><strong>38:</strong> Three side calibration</li>
 <li><strong>63:</strong> Six side calibration</li>
@@ -22985,7 +23134,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SER_GPS2_BAUD">SER_GPS2_BAUD</strong> (INT32)</td>
- <td>Baudrate for the GPS 2 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the GPS 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>参数对照:</strong><ul>
+ <td>Baudrate for the GPS 2 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the GPS 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>50:</strong> 50 8N1</li>
 <li><strong>75:</strong> 75 8N1</li>
@@ -23020,7 +23169,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SER_GPS3_BAUD">SER_GPS3_BAUD</strong> (INT32)</td>
- <td>Baudrate for the GPS 3 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the GPS 3 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>参数对照:</strong><ul>
+ <td>Baudrate for the GPS 3 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the GPS 3 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>50:</strong> 50 8N1</li>
 <li><strong>75:</strong> 75 8N1</li>
@@ -25647,7 +25796,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MXS_TARG_PORT">MXS_TARG_PORT</strong> (INT32)</td>
- <td>Sagetech MXS Participant Configuration <p><strong>Comment:</strong> The MXS communication port to receive Target data from</p> <strong>参数对照:</strong><ul>
+ <td>Sagetech MXS Participant Configuration <p><strong>Comment:</strong> The MXS communication port to receive Target data from</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>1:</strong> COM0</li>
 <li><strong>2:</strong> COM1</li>
@@ -25736,7 +25885,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_LGT_ANTCL">UAVCAN_LGT_ANTCL</strong> (INT32)</td>
- <td>UAVCAN ANTI_COLLISION light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the ANTI_COLLISION lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
+ <td>UAVCAN ANTI_COLLISION light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the ANTI_COLLISION lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Always off</li>
 <li><strong>1:</strong> When autopilot is armed</li>
 <li><strong>2:</strong> When autopilot is prearmed</li>
@@ -25749,7 +25898,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_LGT_LAND">UAVCAN_LGT_LAND</strong> (INT32)</td>
- <td>UAVCAN LIGHT_ID_LANDING light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the LIGHT_ID_LANDING lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>参数对照:</strong><ul>
+ <td>UAVCAN LIGHT_ID_LANDING light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the LIGHT_ID_LANDING lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Always off</li>
 <li><strong>1:</strong> When autopilot is armed</li>
 <li><strong>2:</strong> When autopilot is prearmed</li>
@@ -26091,7 +26240,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -26266,7 +26415,7 @@ table {
  <td>Enable uXRCE-DDS system clock synchronization <p><strong>Comment:</strong> When enabled along with UXRCE_DDS_SYNCT, uxrce_dds_client will set the system clock using the agents UTC timestamp.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td></td>
- <td>Enabled (1)</td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -26594,6 +26743,17 @@ table {
    <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
+<tr>
+ <td><strong id="SF1XX_MODE">SF1XX_MODE</strong> (INT32)</td>
+ <td>Lightware SF1xx/SF20/LW20 Operation Mode  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Enabled</li>
+<li><strong>2:</strong> Disabled during VTOL fast forward flight</li>
+</ul>  </td>
+ <td>[0, 2] </td>
+ <td>1</td>
+ <td></td>
+</tr>
 <tr>
  <td><strong id="UUV_SKIP_CTRL">UUV_SKIP_CTRL</strong> (INT32)</td>
  <td>Skip the controller  <strong>Values:</strong><ul>
