@@ -338,6 +338,7 @@ The used types also define the compatibility with different vehicle types.
 
 The following sections provide a list of supported setpoint types:
 
+- [GotoSetpointType](#go-to-setpoint-gotosetpointtype): Smooth position and (optionally) heading control
 - [DirectActuatorsSetpointType](#direct-actuator-control-setpoint-directactuatorssetpointtype): Direct control of motors and flight surface servo setpoints
 
 :::tip
@@ -346,11 +347,56 @@ The other setpoint types are currently experimental, and can be found in: [px4\_
 You can add your own setpoint types by adding a class that inherits from `px4_ros2::SetpointBase`, sets the configuration flags according to what the setpoint requires, and then publishes any topic containing a setpoint.
 :::
 
-<!--
-#### GoTo Position Setpoints
+#### Go-to Setpoint (GotoSetpointType)
 
-TODO
--->
+:::note
+This setpoint type is currently only supported for multicopters.
+:::
+
+Smoothly control position and (optionally) heading setpoints with the [px4\_ros2::GotoSetpointType](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/control/setpoint_types/goto.hpp) setpoint type.
+The setpoint type is streamed to FMU based position and heading smoothers formulated with time-optimal, maximum-jerk trajectories, with velocity and acceleration constraints.
+
+The most trivial use is simply inputting a 3D position into the update method:
+
+```cpp
+const Eigen::Vector3f target_position_m{-10.F, 0.F, 3.F};
+_goto_setpoint->update(target_position_m);
+```
+
+In this case, heading will remain _uncontrolled_.
+To additionally control heading, specify it as the second input argument:
+
+```cpp
+const Eigen::Vector3f target_position_m{-10.F, 0.F, 3.F};
+const float heading_rad = 3.14F;
+_goto_setpoint->update(
+  target_position_m,
+  heading_rad);
+```
+
+An additional feature of the go-to setpoint is dynamic control on the underlying smoothers' speed limits (i.e. maximum horizontal and vertical translational velocities as well as heading rate).
+If, as above, left unspecified, the smoothers will default to the vehicle's default maximums (typically set to the physical limitations).
+The smoothers will _only_ decrease speed limits, never increase.
+
+```cpp
+_goto_setpoint->update(
+  target_position_m,
+  heading_rad,
+  max_horizontal_velocity_m_s,
+  max_vertical_velocity_m_s,
+  max_heading_rate_rad_s);
+```
+
+All arguments in the update method except the position are templated as `std::optional<float>`, meaning that if one desires constraining the heading rate, but not the translating velocities, this is possible using a `std::nullopt`:
+
+```cpp
+_goto_setpoint->update(
+  target_position_m,
+  heading_rad,
+  std::nullopt,
+  std::nullopt,
+  max_heading_rate_rad_s);
+```
 
 #### Direct Actuator Control Setpoint (DirectActuatorsSetpointType)
 
