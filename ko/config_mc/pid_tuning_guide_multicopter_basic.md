@@ -31,7 +31,7 @@ _QGroundControl_ **PID 튜닝** 설정은 기체 설정점과 응답 곡선의 �
 
 - You have selected the closest matching [default frame configuration](../config/airframe.md) for your vehicle. 이것은 이미 비행한 기체를 제공할 것입니다.
 - [ESC 보정](../advanced_config/esc_calibration.md)을 완료하여야 합니다.
-- If using PWM outputs their minimum values should be set correctly in the [Actuator Configuration](../config/actuators.md#actuator-configuration-and-testing). These need to be set low, but such that the **motors never stop** when the vehicle is armed.
+- If using PWM outputs their minimum values should be set correctly in the [Actuator Configuration](../config/actuators.md). These need to be set low, but such that the **motors never stop** when the vehicle is armed.
 
   This can be tested in [Acro mode](../flight_modes_mc/acro.md) or in [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md):
 

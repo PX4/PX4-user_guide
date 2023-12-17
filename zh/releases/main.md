@@ -62,4 +62,4 @@ TBD ...
 
 ### ROS 2
 
-- [Experimental] [PX4 ROS 2 Interface Library](../ros2/px4_ros2_interface_lib.md): A new C++ library that simplifies controlling PX4 from ROS 2. Supports adding flight modes in ROS 2 that are peers of the PX4 modes running on the flight controller. Added to PX4 in [PX4-Autopilot#20707](https://github.com/PX4/PX4-Autopilot/pull/20707) (initial support).
+- [Experimental] [PX4 ROS 2 Interface Library](../ros2/px4_ros2_interface_lib.md): A new C++ library that simplifies controlling PX4 from ROS 2. Supports adding flight modes in ROS 2 that are peers of the PX4 modes running on the flight controller. Added to PX4 in [PX4-Autopilot#20707](https://github.com/PX4/PX4-Autopilot/pull/20707) (initial support). Goto Setpoint: https://github.com/PX4/PX4-Autopilot/pull/22375
