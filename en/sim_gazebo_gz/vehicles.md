@@ -49,7 +49,6 @@ This models has a simple monocular camera sensor attached (there is no physical 
 make px4_sitl gz_x500_mono_cam
 ```
 
-
 ## Plane/Fixed-wing
 
 ### Standard Plane
