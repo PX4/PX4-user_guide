@@ -44,7 +44,7 @@ TBD ...
   Added to PX4 in [PX4-Autopilot#22400](https://github.com/PX4/PX4-Autopilot/pull/22400).
 - [Gazebo] Separation of Gazebo and PX4 SITL.
   The two are now separated and can be launched independently.
-  Gazebo retains all functionality it previously, but now also supports drag-and-drop via the resource spawner in Gazebo GUI.
+  Gazebo retains all functionality it previously had, but now also supports drag-and-drop via the resource spawner in Gazebo GUI.
   Added to PX4 in [PX4-Autopilot#22467](https://github.com/PX4/PX4-Autopilot/pull/22467).
 
 ### uXRCE-DDS / ROS2
