@@ -106,10 +106,10 @@ In other words, use `make px4_sitl gz_x500` instead of `make px4_sitl gz_x500_de
 :::
 
 :::note
-Baylands throws the following error which can be ignored:
+Baylands throws the following error, which can be ignored:
 
 ```
-[Err] [SDFFeatures.cc:843] The geometry element of collision [collision] couldn't be created`
+[Err] [SDFFeatures.cc:843] The geometry element of collision [collision] couldn't be created
 ```
 
 This occurs because Baylands has a lot of meshes.
