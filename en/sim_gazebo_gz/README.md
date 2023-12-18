@@ -105,8 +105,9 @@ However you must not _explicitly_ specify `_default` on the model as this will p
 In other words, use `make px4_sitl gz_x500` instead of `make px4_sitl gz_x500_default` for the default.
 :::
 
-:::warning
-Baylands has a lot of meshes and will throw the following error: `[Err] [SDFFeatures.cc:843] The geometry element of collision [collision] couldn't be created`. This is expected and does not break the functionality of Gazebo. In the newest release, Gazebo Harmonic, this has been downgraded to a [warning](https://github.com/gazebosim/gz-physics/pull/531). As such, it can be ignored when using baylands. If you are particularly worried about it, you can also [install gz-garden from source](https://gazebosim.org/docs/garden/install_ubuntu_src) as the warning has been backported as well.
+:::note
+Baylands throws the following error which can be ignored:
+
 :::
 
 ## Usage/Configuration Options
