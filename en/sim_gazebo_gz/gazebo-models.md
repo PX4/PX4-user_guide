@@ -8,7 +8,6 @@ The [PX4-gazebo-models](https://github.com/PX4/PX4-gazebo-models) repository is 
 As PX4-gazebo-models is included in PX4 as a submodule, no additional work is required with a "normal" Gazebo `make` target, such as `make px4_sitl gz_x500`.
 
 For standalone builds you first have obtain the [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) script, and then it will fetch the models and worlds to `~/.simulation-gazebo` if that directory is not present.
-The build system won't automatically update the local copy again if the `.simulation-gazebo` folder is detected, but you can force it to update to the latest models and vehicles by passing the `overwrite` flag to the script. The resulting command will look something like:
 
 ## simulation-gazebo (Standalone Simulation Start-up Script)
 
