@@ -98,10 +98,10 @@ Note that if no world is specified, PX4 will use the `default` world. However yo
 :::
 
 :::note
-Baylands throws the following error which can be ignored:
+Baylands throws the following error, which can be ignored:
 
 ```
-[Err] [SDFFeatures.cc:843] The geometry element of collision [collision] couldn't be created`
+[Err] [SDFFeatures.cc:843] The geometry element of collision [collision] couldn't be created
 ```
 
 This occurs because Baylands has a lot of meshes. However it does not break Gazebo and the error has been downgraded to a warning in Gazebo Harmonic: [gz-physics/pull/531](https://github.com/gazebosim/gz-physics/pull/531). You can also replace the error with a warning by [installing gz-garden from source](https://gazebosim.org/docs/garden/install_ubuntu_src).
