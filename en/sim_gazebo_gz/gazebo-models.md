@@ -12,7 +12,7 @@ The build system won't automatically update the local copy again if the `.simula
 
 ## simulation-gazebo (Standalone Simulation Start-up Script)
 
-The [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) Python script is used for starting Gazebo in[standalone mode](../sim_gazebo_gz/README.md#standalone-mode).
+The [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) Python script is used for starting Gazebo in [standalone mode](../sim_gazebo_gz/README.md#standalone-mode).
 The script can communicate with a PX4 SITL instance on the same host by default.
 If the script arguments are set correctly, it can also communicate with any PX4 instance on any machine within the same network.
 
