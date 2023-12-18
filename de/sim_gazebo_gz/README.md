@@ -59,7 +59,6 @@ The supported vehicles and `make` commands are listed below.
 As a workaround to enable Advanced Plane, you can compile the gz-sim library from [Gazebo source code](https://github.com/gazebosim/gz-sim), go into the `build/lib` directory, copy out the advanced lift drag plugin `.so` file (depending on the exact Gazebo Version this is called something along the lines of `libgz-sim7-advanced-lift-drag-system.so`), and paste this into the `~/.gz/sim/plugins` folder.
 :::
 
-
 The commands above launch a single vehicle with the full UI. _QGroundControl_ should be able to automatically connect to the simulated vehicle.
 
 ### Headless Mode
@@ -88,13 +87,24 @@ PX4_GZ_WORLD=windy make px4_sitl gz_x500
 
 The supported worlds are listed below.
 
-| World     | Command                 | Description                   |
-| --------- | ----------------------- | ----------------------------- |
-| `default` | `make px4_sitl *`       | Empty world (a grey plane)    |
-| `windy`   | `make px4_sitl *_windy` | Empty world with wind enabled |
+| World      | Command                    | Description                        |
+| ---------- | -------------------------- | ---------------------------------- |
+| `default`  | `make px4_sitl *`          | Empty world (a grey plane)         |
+| `windy`    | `make px4_sitl *_windy`    | Empty world with wind enabled      |
+| `baylands` | `make px4_sitl *_baylands` | Baylands world surrounded by water |
 
 :::warning
 Note that if no world is specified, PX4 will use the `default` world. However you must not _explicitly_ specify `_default` on the model as this will prevent PX4 from launching. In other words, use `make px4_sitl gz_x500` instead of `make px4_sitl gz_x500_default` for the default.
+:::
+
+:::note
+Baylands throws the following error, which can be ignored:
+
+```
+[Err] [SDFFeatures.cc:843] The geometry element of collision [collision] couldn't be created
+```
+
+This occurs because Baylands has a lot of meshes. However it does not break Gazebo and the error has been downgraded to a warning in Gazebo Harmonic: [gz-physics/pull/531](https://github.com/gazebosim/gz-physics/pull/531). You can also replace the error with a warning by [installing gz-garden from source](https://gazebosim.org/docs/garden/install_ubuntu_src).
 :::
 
 ## Usage/Configuration Options
