@@ -97,6 +97,16 @@ The supported worlds are listed below.
 Note that if no world is specified, PX4 will use the `default` world. However you must not _explicitly_ specify `_default` on the model as this will prevent PX4 from launching. In other words, use `make px4_sitl gz_x500` instead of `make px4_sitl gz_x500_default` for the default.
 :::
 
+:::note
+Baylands throws the following error which can be ignored:
+
+```
+[Err] [SDFFeatures.cc:843] The geometry element of collision [collision] couldn't be created`
+```
+
+This occurs because Baylands has a lot of meshes. However it does not break Gazebo and the error has been downgraded to a warning in Gazebo Harmonic: [gz-physics/pull/531](https://github.com/gazebosim/gz-physics/pull/531). You can also replace the error with a warning by [installing gz-garden from source](https://gazebosim.org/docs/garden/install_ubuntu_src).
+:::
+
 ## Usage/Configuration Options
 
 The startup pipeline allows for highly flexible configuration. In particular, it is possible to:
