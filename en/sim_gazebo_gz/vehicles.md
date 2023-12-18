@@ -49,6 +49,10 @@ This models has a simple monocular camera sensor attached (there is no physical 
 make px4_sitl gz_x500_mono_cam
 ```
 
+:::note
+(18.12.2023) To enjoy the full functionality of the camera, a camera manager and ideally a GST plugin need to be provided. This is currently not available, but an [issue](https://github.com/PX4/PX4-Autopilot/issues/22563) has been opened to request these features.
+:::
+
 ## Plane/Fixed-wing
 
 ### Standard Plane
