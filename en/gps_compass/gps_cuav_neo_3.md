@@ -32,7 +32,6 @@ It integrates Ublox M9N, IST8310, three-color LED lights and safety switches, an
 | Wave filtering                                    | SAW+LNA+SAW                                                                    |
 | Anti-Electromagnetic/radio frequency interference | EMI+RFI                                                                        |
 | Upgrade firmware                                  | support                                                                        |
-| Support Flight control type                       | Ardupilot/PX4\*(PX4 is still working hard to adapt to the clock)               |
 | Input voltage                                     | 5V                                                                             |
 | Operating temperature                             | -10~70℃                                                                        |
 | Size                                              | 60\*60\*16MM                                                                   |
