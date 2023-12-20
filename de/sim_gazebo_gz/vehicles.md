@@ -2,11 +2,9 @@
 
 This topic lists/displays the vehicles supported by the PX4 [Gazebo](../sim_gazebo_gz/README.md) simulation, and the `make` commands required to run them (the commands are run from a terminal in the **PX4-Autopilot** directory).
 
-Supported vehicle types include: mutirotor, VTOL, Plane.
+The models are included in PX4 as a submodule that is fetched from the [Gazebo Models Repository](../sim_gazebo_gz/gazebo_models.md).
 
-:::note
-The [Gazebo](../sim_gazebo_gz/README.md) page shows how to install Gazebo.
-:::
+Supported vehicle types include: mutirotor, VTOL, Plane.
 
 :::warning
 See [Gazebo Classic Vehicles](../sim_gazebo_classic/vehicles.md) for vehicles that work with the older [Gazebo "Classic" simulation](../sim_gazebo_classic/README.md). Note that vehicle models are not interchangable between the two versions of the simulator: the vehicles on this page only work with (new) [Gazebo](../sim_gazebo_gz/README.md).
