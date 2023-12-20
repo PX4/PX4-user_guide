@@ -52,7 +52,7 @@ Note that all gazebo make targets have the prefix `gz_`.
 | [Plane](../sim_gazebo_gz/vehicles.md#standard-plane)                                                     | `make px4_sitl gz_rc_cessna`      | 4003                |
 | [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane)                                            | `make px4_sitl gz_advanced_plane` | 4008                |
 
-All [vehicle models](../sim_gazebo_gz/vehicles.md) (and [worlds](#specify-world)) are included as a submodule from the [Gazebo Models Repository](../sim_gazebo_gz/gazebo-models.md) repository.
+All [vehicle models](../sim_gazebo_gz/vehicles.md) (and [worlds](#specify-world)) are included as a submodule from the [Gazebo Models Repository](../sim_gazebo_gz/gazebo_models.md) repository.
 
 :::warning
 (09.11.2023) The Advanced Lift Drag Plugin that is required to run the Advanced Plane is not yet part of the Gazebo distribution, so the Advanced Plane will not yet fly: [PX4-Autopilot Github issues page](https://github.com/PX4/PX4-Autopilot/issues/22337).
@@ -86,7 +86,7 @@ WARN [gz bridge] Service call timed out as Gazebo has not been detected
 ```
 :::
 
-The simplest way to start the simulation is to use the Python script [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo), which can be found in the [Gazebo Models Repository](../sim_gazebo_gz/gazebo-models.md) repository.
+The simplest way to start the simulation is to use the Python script [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo), which can be found in the [Gazebo Models Repository](../sim_gazebo_gz/gazebo_models.md) repository.
 This can be used to launch a _gz-server_ instance with any supported world and vehicle.
 
 The script can be used without installing any additional dependencies, and will fetch the supported PX4 models and worlds on first use (by default) and save them to `~/.simulation-gazebo`. When calling future iterations of this script, it will always refer to this directory to fetch models and worlds. Therefore if you want to use your own model and run it in standalone mode, you will have to place its source code in `~/.simulation-gazebo`.
@@ -103,7 +103,7 @@ cd /path/to/simulation-gazebo/
 python3 simulation-gazebo
 ```
 
-For more information and arguments, see [Gazebo Models](./gazebo-models.md).
+For more information and arguments, see [Gazebo Models](./gazebo_models.md).
 
 :::note
 If `make px4_sitl gz_x500` gives the error `ninja: error: unknown target 'gz_x500'` then run `make distclean` to start from a clean slate, and try running `make px4_sitl gz_x500` again.
