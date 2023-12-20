@@ -55,7 +55,7 @@ Note that all gazebo make targets have the prefix `gz_`.
 All [vehicle models](../sim_gazebo_gz/vehicles.md) (and [worlds](#specify-world)) are included as a submodule from the [Gazebo Models Repository](../sim_gazebo_gz/gazebo_models.md) repository.
 
 :::warning
-(09.11.2023) The Advanced Lift Drag Plugin that is required to run the Advanced Plane is not yet part of the Gazebo distribution, so the Advanced Plane will not yet fly: [PX4-Autopilot Github issues page](https://github.com/PX4/PX4-Autopilot/issues/22337).
+The Advanced Lift Drag Plugin that is required to run the Advanced Plane is not yet part of the Gazebo distribution, so the Advanced Plane will not yet fly: [PX4-Autopilot#22337](https://github.com/PX4/PX4-Autopilot/issues/22337).
 
 As a workaround to enable Advanced Plane, you can compile the gz-sim library from [Gazebo source code](https://github.com/gazebosim/gz-sim), go into the `build/lib` directory, copy out the advanced lift drag plugin `.so` file (depending on the exact Gazebo Version this is called something along the lines of `libgz-sim7-advanced-lift-drag-system.so`), and paste this into the `~/.gz/sim/plugins` folder.
 :::
@@ -66,7 +66,7 @@ _QGroundControl_ should be able to automatically connect to the simulated vehicl
 ### Standalone Mode
 
 Another way that Gazebo SITL can be connected is in _standalone mode_.
-In standalone mode PX4 SITL and Gazebo are started separately in their own terminals.
+In this mode PX4 SITL and Gazebo are started separately in their own terminals.
 By default these terminals are on the same host, but you can also connect SITL and Gazebo instances running on any two devices on the network (or even different networks if you use a VPN to connect them).
 
 You start PX4 in standalone mode by prefixing the `make` command with `GZ_PX4_STANDALONE=1`:
@@ -84,13 +84,17 @@ If you have not yet started _gz-server_ when you run the `make` command, you wil
 ```sh
 WARN [gz bridge] Service call timed out as Gazebo has not been detected
 ```
+
 :::
 
 The simplest way to start the simulation is to use the Python script [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo), which can be found in the [Gazebo Models Repository](../sim_gazebo_gz/gazebo_models.md) repository.
 This can be used to launch a _gz-server_ instance with any supported world and vehicle.
 
-The script can be used without installing any additional dependencies, and will fetch the supported PX4 models and worlds on first use (by default) and save them to `~/.simulation-gazebo`. When calling future iterations of this script, it will always refer to this directory to fetch models and worlds. Therefore if you want to use your own model and run it in standalone mode, you will have to place its source code in `~/.simulation-gazebo`.
-You can fetch the script locally using any method you like, such as wget:
+The script can be used without installing any additional dependencies, and will fetch the supported PX4 models and worlds on first use (by default) and save them to `~/.simulation-gazebo`.
+If called again the script will use this directory to get models and worlds.
+Therefore if you want to use your own model and run it in standalone mode, you will have to place its source code in `~/.simulation-gazebo`.
+
+You can fetch the script locally using any method you like, such as `wget`:
 
 ```sh
 wget https://raw.githubusercontent.com/PX4/PX4-gazebo-models/main/simulation-gazebo
@@ -99,11 +103,11 @@ wget https://raw.githubusercontent.com/PX4/PX4-gazebo-models/main/simulation-gaz
 The script can be started with:
 
 ```sh
-cd /path/to/simulation-gazebo/
+cd /path/to/script/
 python3 simulation-gazebo
 ```
 
-For more information and arguments, see [Gazebo Models](./gazebo_models.md).
+For more information and arguments, see [Gazebo Models](../sim_gazebo_gz/gazebo_models.md).
 
 :::note
 If `make px4_sitl gz_x500` gives the error `ninja: error: unknown target 'gz_x500'` then run `make distclean` to start from a clean slate, and try running `make px4_sitl gz_x500` again.
@@ -203,12 +207,13 @@ where `ARGS` is a list of environment variables including:
   - This value should be [specified for the selected airframe](#adding-new-worlds-and-models) but may be overridden using this argument.
 
 - `PX4_SIMULATOR=GZ`:
-  Sets the simulator, which for Gz must be `gz`.
+  Sets the simulator, which for Gazebo must be `gz`.
 
   - This value should be [set for the selected airframe](#adding-new-worlds-and-models), in which case it does not need to be set as an argument.
 
 - `PX4_GZ_STANDALONE`:
   Lets PX4 know that it should not launch an instance of Gazebo.
+  Gazebo will need to be launched separately, as described in [Standalone Mode](#standalone-mode).
 
 The PX4 Gazebo worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-gazebo-models).
 
@@ -252,13 +257,16 @@ Here are some examples of the different scenarios covered above.
 
 ## Adding New Worlds and Models
 
-Sdf files, mesh files, textures and anything else to do with the functionality and appearance in Gazebo for worlds and models can be placed in the appropriate `/worlds` and `/models` directories in [PX4-gazebo-models](https://github.com/PX4/PX4-gazebo-models).
-Within PX4 follow the below steps to add models and worlds:
+SDF files, mesh files, textures and anything else to do with the functionality and appearance in Gazebo for worlds and models can be placed in the appropriate `/worlds` and `/models` directories in [PX4-gazebo-models](https://github.com/PX4/PX4-gazebo-models).
+
+Within PX4 follow the below steps to add models and worlds.
+
+### Adding a Model
 
 To add a new model:
 
 1. Define an [airframe configuration file](../dev_airframes/adding_a_new_frame.md).
-2. Define the default parameters for Gazebo in the airframe configuration file (this example is from [x500 quadcopter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/4001_gz_x500)):
+1. Define the default parameters for Gazebo in the airframe configuration file (this example is from [x500 quadcopter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/4001_gz_x500)):
 
    ```ini
    PX4_SIMULATOR=${PX4_SIMULATOR:=gz}
@@ -267,7 +275,6 @@ To add a new model:
    ```
 
    - `PX4_SIMULATOR=${PX4_SIMULATOR:=gz}` sets the default simulator (Gz) for that specific airframe.
-
    - `PX4_GZ_WORLD=${PX4_GZ_WORLD:=default}` sets the [default world](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf) for that specific airframe.
 
    - Setting the default value of `PX4_SIM_MODEL` lets you start the simulation with just:
@@ -276,33 +283,35 @@ To add a new model:
      PX4_SYS_AUTOSTART=<your new airframe id> ./build/px4_sitl_default/bin/px4
      ```
 
-3. Add CMake Target for the [airframe](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/CMakeLists.txt).
+1. Add CMake Target for the [airframe](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/CMakeLists.txt).
 
-- If you plan to use "regular" mode, add your model sdf to `Tools/simulation/gz/models/`.
+   - If you plan to use "regular" mode, add your model SDF to `Tools/simulation/gz/models/`.
+   - If you plan to use _standalone_ mode, add your model SDF to `~/.simulation-gazebo/models/`
 
-- If you plan to use _standalone_ mode, add your model sdf to `~/.simulation-gazebo/models/`
+   You can of course also use both.
 
-You can of course also use both.
+### Adding a World
 
 To add a new world:
 
-1. Add your world to the list of worlds found in the CMake [here](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/gz_bridge/CMakeLists.txt).
-   This is required in order to allow CMake to generate correct targets.
+1. Add your world to the list of worlds found in the [`CMakeLists.txt` here](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/gz_bridge/CMakeLists.txt).
+   This is required in order to allow `CMake` to generate correct targets.
 
-- If you plan to use "regular" mode, add your world sdf to `Tools/simulation/gz/worlds/`.
-
-- If you plan to use _standalone_ mode, add your world sdf to `~/.simulation-gazebo/worlds/`
+   - If you plan to use "normal" mode, add your world sdf to `Tools/simulation/gz/worlds/`.
+   - If you plan to use _standalone_ mode, add your world SDF to `~/.simulation-gazebo/worlds/`
 
 :::note
-As long as the world file and the model file are in the Gazebo search path `GZ_SIM_RESOURCE_PATH` it is not necessary to add them to the PX4 world and model directories.
+As long as the world file and the model file are in the Gazebo search path (`GZ_SIM_RESOURCE_PATH`) it is not necessary to add them to the PX4 world and model directories.
 However, `make px4_sitl gz_<model>_<world>` won't work with them.
 :::
 
 ## PX4-Gazebo Time Synchronization
 
 Unlike the Gazebo Classic and jMAVSim simulators, PX4 and Gazebo do not implement a lockstep mechanism.
+
 During Gazebo simulations PX4 subscribes to the Gazebo `\clock` topic and uses it as clock source.
 This guarantees that PX4 will always wait for Gazebo before moving forward in time, even if Gazebo is running with real time factors different from 1.
+
 Note, however, that as the lockstep is missing, Gazebo will never wait for PX4 to finish its computations.
 In the worst case scenario, PX4 can completely go offline and Gazebo will keep running, with obvious crashes of the simulated drone.
 
