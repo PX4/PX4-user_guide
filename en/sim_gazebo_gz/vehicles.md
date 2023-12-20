@@ -50,7 +50,8 @@ make px4_sitl gz_x500_mono_cam
 ```
 
 :::note
-(18.12.2023) To enjoy the full functionality of the camera, a camera manager and ideally a GST plugin need to be provided. This is currently not available, but an [issue](https://github.com/PX4/PX4-Autopilot/issues/22563) has been opened to request these features.
+The camera cannot yet be used to stream video or for image capture in QGroundControl.
+[PX4-Autopilot#22563](https://github.com/PX4/PX4-Autopilot/issues/22563) can be used to track the additional work needed to fully enable these use cases.
 :::
 
 ## Plane/Fixed-wing
