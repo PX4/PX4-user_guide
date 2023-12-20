@@ -52,7 +52,7 @@ Open **QGroundControl > Parameters** and modify the following parameters:
 - `UAVCAN_ENABLE`Set to `Sensors Automatic config` .
 - `UAVCAN_SUB_GPS` Set to `Enable`.
 
-![QGC Full Parameter screen showing DroneCan (UAVCAN) parameters](../../assets/hardware/gps/cuav_gps_neo3/px4_can.png)
+![QGC Full Parameter screen showing DroneCan (UAVCAN) parameters](../../assets/hardware/gps/cuav_gps_neo3/px4_can.jpg)
 
 ## More info
 
