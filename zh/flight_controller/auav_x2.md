@@ -1,5 +1,7 @@
 # AUAV-X2 自动驾驶仪 (停产)
 
+<Badge type="error" text="Discontinued" />
+
 :::warning
 This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
