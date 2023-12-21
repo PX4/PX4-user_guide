@@ -1,4 +1,6 @@
-# PX4 ROS 2 Navigation Interface <Badge type="warning" text="main (v1.15+)" vertical="top" />
+# PX4 ROS 2 Navigation Interface
+
+<Badge type="warning" text="main (PX4 v1.15)" /> <Badge type="warning" text="Experimental" />
 
 :::warning
 Experimental
@@ -26,7 +28,7 @@ The following steps are required to get started:
    ```
 
    :::note
-   To ensure compatibility, use the latest _main_ branches for PX4, _px4\_msgs_ and the library.
+   To ensure compatibility, use the latest _main_ branches for PX4, _px4_msgs_ and the library.
    See also [here](https://github.com/Auterion/px4-ros2-interface-lib#compatibility-with-px4).
 
 :::
@@ -53,7 +55,7 @@ The following steps are required to get started:
    MicroXRCEAgent udp4 -p 8888
    ```
 
-6. Back in the ROS 2 terminal, source the workspace you just built (in step 3) and run the [global\_navigation](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/examples/cpp/navigation/global_navigation) example, which periodically sends dummy global position updates:
+6. Back in the ROS 2 terminal, source the workspace you just built (in step 3) and run the [global_navigation](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/examples/cpp/navigation/global_navigation) example, which periodically sends dummy global position updates:
 
    ```sh
    source install/setup.bash
@@ -102,7 +104,7 @@ The following steps are required to get started:
 To send a position measurement, you populate the position struct with the values you have measured.
 Then call the interface's update function with that struct as the argument.
 
-For a basic example of how to use this interface, check out the [examples](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/examples/cpp/navigation) in the `Auterion/px4-ros2-interface-lib` repository, such as [examples/cpp/navigation/local\_navigation](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/navigation/local_navigation/include/local_navigation.hpp) or [examples/cpp/navigation/global\_navigation](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/navigation/local_navigation/include/global_navigation.hpp).
+For a basic example of how to use this interface, check out the [examples](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/examples/cpp/navigation) in the `Auterion/px4-ros2-interface-lib` repository, such as [examples/cpp/navigation/local_navigation](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/navigation/local_navigation/include/local_navigation.hpp) or [examples/cpp/navigation/global_navigation](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/navigation/local_navigation/include/global_navigation.hpp).
 
 ### Local Position Updates
 
