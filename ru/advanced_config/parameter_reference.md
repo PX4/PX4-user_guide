@@ -8408,7 +8408,6 @@ table {
 <tr>
  <td><strong id="ASPD_PRIMARY">ASPD_PRIMARY</strong> (INT32)</td>
  <td>Index or primary airspeed measurement source  <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Disabled</li>
 <li><strong>0:</strong> Groundspeed minus windspeed</li>
 <li><strong>1:</strong> First airspeed sensor</li>
 <li><strong>2:</strong> Second airspeed sensor</li>
@@ -9132,14 +9131,6 @@ table {
    <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
-<tr>
- <td><strong id="CBRK_AIRSPD_CHK">CBRK_AIRSPD_CHK</strong> (INT32)</td>
- <td>Circuit breaker for airspeed sensor <p><strong>Comment:</strong> Setting this parameter to 162128 will disable the check for an airspeed sensor. The sensor driver will not be started and it cannot be calibrated. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 162128] </td>
- <td>0</td>
- <td></td>
-</tr>
 <tr>
  <td><strong id="CBRK_BUZZER">CBRK_BUZZER</strong> (INT32)</td>
  <td>Circuit breaker for disabling buzzer <p><strong>Comment:</strong> Setting this parameter to 782097 will disable the buzzer audio notification. Setting this parameter to 782090 will disable the startup tune, while keeping all others enabled.</p>   <p><b>Reboot required:</b> true</p>
@@ -11871,16 +11862,6 @@ table {
  <td>deg</td>
 </tr>
 <tr>
- <td><strong id="FW_ARSP_MODE">FW_ARSP_MODE</strong> (INT32)</td>
- <td>Airspeed mode <p><strong>Comment:</strong> On vehicles without airspeed sensor this parameter can be used to enable flying without an airspeed reading</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Use airspeed in controller</li>
-<li><strong>1:</strong> Do not use airspeed in controller</li>
-</ul>  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="FW_ARSP_SCALE_EN">FW_ARSP_SCALE_EN</strong> (INT32)</td>
  <td>Enable airspeed scaling <p><strong>Comment:</strong> This enables a logic that automatically adjusts the output of the rate controller to take into account the real torque produced by an aerodynamic control surface given the current deviation from the trim airspeed (FW_AIRSPD_TRIM). Enable when using aerodynamic control surfaces (e.g.: plane) Disable when using rotor wings (e.g.: autogyro)</p>   </td>
  <td></td>
@@ -12057,6 +12038,13 @@ table {
 </ul>  </td>
  <td></td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_USE_AIRSPD">FW_USE_AIRSPD</strong> (INT32)</td>
+ <td>Use airspeed for control <p><strong>Comment:</strong> If set to 1, the airspeed measurement data, if valid, is used in the following controllers: - Rate controller: output scaling - Attitude controller: coordinated turn controller - Position controller: airspeed setpoint tracking, takeoff logic - VTOL: transition logic</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
@@ -23832,6 +23820,13 @@ table {
 </td>
  <td></td>
  <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SYS_HAS_NUM_ASPD">SYS_HAS_NUM_ASPD</strong> (INT32)</td>
+ <td>Control if the vehicle has an airspeed sensor <p><strong>Comment:</strong> Set this to 0 if the board has no airspeed sensor. If set to 0, the preflight checks will not check for the presence of an airspeed sensor.</p>   </td>
+ <td>[0, 1] </td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
