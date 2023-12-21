@@ -1,5 +1,7 @@
 # Crazyflie 2.0 (Discontinued)
 
+<Badge type="error" text="Discontinued" />
+
 :::warning
 _Crazyflie 2.0_ has been [discontinued/superseded](../flight_controller/autopilot_experimental.md). Try [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md) instead!
 :::
@@ -12,14 +14,11 @@ _Crazyflie 2.0_ has been [discontinued/superseded](../flight_controller/autopilo
 
 The Crazyflie line of micro quads was created by Bitcraze AB. An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/crazyflie-2/).
 
-![Crazyflie2 이미지](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
+![Crazyflie2 Image](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
 
 ## 요약
 
-:::note
-주요 하드웨어 문서는 여기를 참고하십시오.
-https://wiki.bitcraze.io/projects:crazyflie2:index
-:::
+PX4 개발 환경 설정후 Crazyflie 2.0에 PX4를 설치합니다.
 
 - Main System-on-Chip: STM32F405RG
   - CPU: 168 MHz ARM Cortex M4 with single-precision FPU
@@ -40,7 +39,7 @@ https://wiki.bitcraze.io/projects:crazyflie2:index
 
 ## PX4 플래싱
 
-PX4 개발 환경 설정후 Crazyflie 2.0에 PX4를 설치합니다.
+After setting up the PX4 development environment, follow these steps to install the PX4 Autopilot on the Crazyflie 2.0:
 
 1. PX4 부트 로더 소스 코드를 다운로드합니다.
 
@@ -91,34 +90,35 @@ PX4 개발 환경 설정후 Crazyflie 2.0에 PX4를 설치합니다.
 1. Wait for completion.
 1. Done! Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/master/en/SetupView/Sensors.html).
 
-:::note QGroundControl이 기체와 연결되지 않으면 crazyflie의 [nuttx-config](https://github.com/PX4/PX4-Autopilot/blob/master/boards/bitcraze/crazyflie/nuttx-config/nsh/defconfig)에서 `# CONFIG_DEV_LOWCONSOLE이 설정되지 않음`이 `CONFIG_DEV_LOWCONSOLE = y`로 대체되었는 지 확인하십시오. 이 작업은 *menuconfig*를 사용하여 수행하여야 합니다.
+:::note
+If QGroundControl does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/PX4-Autopilot/blob/main/boards/bitcraze/crazyflie/nuttx-config/nsh/defconfig) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`. This should be done using _menuconfig_:
 
 ```sh
 make bitcraze_crazyflie_default menuconfig
 ```
 
-또는 *qconfig* (GUI의 *직렬 드라이버 지원*에서 *저수준 콘솔 지원* 확인) :
+or _qconfig_ (Check _Low-level console support_ under _Serial Driver Support_ in GUI):
 
 ```sh
 make bitcraze_crazyflie_default qconfig
 ```
 
-:::
+온보드 nRF 모듈을 사용하여 Bluetooth나 2.4GHz Nordic ESB 프로토콜로 보드에 연결할 수 있습니다.
 
 ## 무선 설정 지침
 
-온보드 nRF 모듈을 사용하여 Bluetooth나 2.4GHz Nordic ESB 프로토콜로 보드에 연결할 수 있습니다.
+공식 Bitcraze** Crazyflie 앱** 사용 :
 
 - A [Crazyradio PA](https://www.bitcraze.io/crazyradio-pa/) is recommended.
 - To fly the Crazyflie 2.0 right away, the Crazyflie phone app is supported via Bluetooth.
 
-공식 Bitcraze** Crazyflie 앱** 사용 :
+**MAVLink** 연결 :
 
 - Connect via Bluetooth.
 - Change mode in settings to 1 or 2.
 - Calibrate via QGroundControl.
 
-**MAVLink** 연결 :
+Connecting via **MAVLink**:
 
 - Use a Crazyradio PA alongside a compatible GCS.
 - Navigate to the crazyflie-lib-python folder and type: `make venv`
@@ -128,7 +128,7 @@ make bitcraze_crazyflie_default qconfig
   ```
 
 :::note
-[cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py)를 사용하여 Crazyflie 2.0(PX4로 깜박임)과 QGroundControl간의 무선 MAVlink 통신 링크를 설정합니다. :::note [cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py)를 사용하여 Crazyflie 2.0(PX4로 깜박임)과 QGroundControl간의 무선 MAVlink 통신 링크를 설정합니다. *Cfbridge*를 사용하여 QGroundControl에서 crazyradio PA와 통신할 수 있습니다.
+We will use [cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py) to setup a wireless MAVlink communication link between Crazyflie 2.0 (flashed with PX4) and QGroundControl. _Cfbridge_ enables QGroundControl to communicate with the crazyradio PA. The [C based cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, which is why we have chosen to use **cfbridge.py**.
 :::
 
 - Make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/installation/usb_permissions/) and **restart** your computer.
@@ -157,7 +157,7 @@ make bitcraze_crazyflie_default qconfig
   pip install -r requirements.txt --user
   ```
 
-Crazyflie 2.0을 crazyradio와 연결하기 위하여 아래의 단계에 따라 **cfbridge를 시작**합니다.
+To connect Crazyflie 2.0 with crazyradio, **launch cfbridge** by following these steps:
 
 - Power off and power on Crazyflie 2.0 and wait for it to boot up.
 - Connect a Crazyflie radio device via USB.
@@ -209,9 +209,9 @@ Crazyflie 2.0 is able to fly with precise control in [Stabilized mode](../flight
 - You will need the [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck) to fly in _Altitude_ mode. If you also want to fly in the _Position_ mode, it is recommended you buy the [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck) which also has the integrated Z-ranger sensor.
 - The onboard barometer is highly susceptible to any external wind disturbances including those created by Crazyflie's own propellers. Hence, we isolated the barometer with a piece of foam, and then mounted the distance sensor on top of it as shown below:
 
-![Crazyflie 기압계 폼](../../assets/flight_controller/crazyflie/crazyflie_barometer.jpg)
+![Crazyflie 광류](../../assets/flight_controller/crazyflie/crazyflie_barometer.jpg)
 
-![Crazyflie 광류](../../assets/flight_controller/crazyflie/crazyflie_baro_foam.jpg)
+![Crazyflie barometer foam](../../assets/flight_controller/crazyflie/crazyflie_baro_foam.jpg)
 
 ![Crazyflie optical flow](../../assets/flight_controller/crazyflie/crazyflie_opticalflow.jpg)
 
@@ -225,15 +225,14 @@ Then, you need to stick the battery on top of the SD card deck using a double si
 
 ## 고도 제어
 
-:::tip
-Crazyflie 2.0 높이가 *고도 모드* 또는 *위치 모드*의 중간 스로틀 명령에서 드리프트되면 먼저 기체를 재부팅 하십시오. 그래도 문제가 해결되지 않으면, 가속계와 자기(나침반) 센서를 다시 보정하십시오.   
-::: However, when tested on dark surfaces this value decreases to 0.5 m. On a light floor, it goes up to max 1.3 m. This means you cannot hold altitudes above this value in _Altitude_ or _Position_ flight modes.
-
 :::note
-온보드 기압계는 Crazyflie의 자체 프로펠러 바람에 민감하기 때문에 고도 유지용으로 사용하는 것은 적절하지 않습니다. If this does not fix the problem, recalibrate the accel and mag (compass).  
+온보드 기압계는 Crazyflie의 자체 프로펠러 바람에 민감하기 때문에 고도 유지용으로 사용하는 것은 적절하지 않습니다. According to the datasheet, the maximum height (above ground) the range finder can sense is 2 m. However, when tested on dark surfaces this value decreases to 0.5 m. On a light floor, it goes up to max 1.3 m. This means you cannot hold altitudes above this value in _Altitude_ or _Position_ flight modes.
+
+[플로우 데크](https://store.bitcraze.io/collections/decks/products/flow-deck)을 사용하면 *위치 모드*에서 Crazyflie 2.0을 비행할 수 있습니다. If this does not fix the problem, recalibrate the accel and mag (compass).  
 :::
 
-[플로우 데크](https://store.bitcraze.io/collections/decks/products/flow-deck)을 사용하면 *위치 모드*에서 Crazyflie 2.0을 비행할 수 있습니다.
+:::note
+Since the onboard barometer is highly susceptible to wind disturbances created by the Crazyflie's own propellers, you cannot rely on it to hold altitude.
 :::
 
 ## 위치 제어
@@ -242,7 +241,7 @@ With [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck)
 
 ## FrSky Taranis RC 송신기를 조이스틱으로 사용
 
-Taranis 스위치를 사용하여 시동/시동 해제 및 다른 비행 모드로 전환하려면 :
+MAVROS를 통해 Crazyflie 2.0에 연결하려면 :
 
 - Create a new model in Taranis.
 
@@ -256,7 +255,7 @@ Taranis 스위치를 사용하여 시동/시동 해제 및 다른 비행 모드�
 
   ![Taranis - outputs](../../assets/flight_controller/crazyflie/taranis_outputs.jpg)
 
-MAVROS를 통해 Crazyflie 2.0에 연결하려면 :
+[유투브](https://youtu.be/2Bcy3k1h5uc)
 
 - In Taranis UI _MIXER_ menu page, you can assign the switches to any channel in the range channel 9-16 which map to the buttons 0-7 in the QGroundControl Joystick setup. For example, Taranis “SD” switch can be set to channel 9 in Taranis UI:
 
@@ -269,7 +268,7 @@ MAVROS를 통해 Crazyflie 2.0에 연결하려면 :
 
 ### ROS
 
-[유투브](https://youtu.be/2Bcy3k1h5uc)
+To connect to Crazyflie 2.0 via MAVROS:
 
 - Start up _cfbridge_ using the above instructions.
 - Change the UDP port QGroundControl listens to:
