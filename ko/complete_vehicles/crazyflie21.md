@@ -1,10 +1,9 @@
 # Crazyflie 2.1
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://www.bitcraze.io/)에 문의하십시오.
-:::
+<LinkedBadge type="warning" text="Experimental" url="../flight_controller/autopilot_experimental.html"/>
 
 :::warning
-이 비행 컨트롤러에 대한 PX4 지원은 [테스트중](../flight_controller/autopilot_experimental.md)입니다.
+이 비행 컨트롤러에 대한 PX4 지원은 [테스트중](../flight_controller/autopilot_experimental.md)입니다. Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or compliance issues.
 :::
 
 :::warning
