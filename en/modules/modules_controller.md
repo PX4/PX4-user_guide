@@ -45,6 +45,24 @@ control_allocator <command> [arguments...]
 
    status        print status info
 ```
+## differential_drive_control
+Source: [modules/differential_drive_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/differential_drive_control)
+
+
+### Description
+Rover Differential Drive controller.
+
+<a id="differential_drive_control_usage"></a>
+### Usage
+```
+differential_drive_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## flight_mode_manager
 Source: [modules/flight_mode_manager](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/flight_mode_manager)
 
