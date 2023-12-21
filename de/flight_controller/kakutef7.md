@@ -1,5 +1,7 @@
 # Holybro Kakute F7 (Discontinued)
 
+<Badge type="error" text="Discontinued" />
+
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
@@ -68,7 +70,7 @@ This is the silkscreen for the _Kakute F7_, showing the top of the board:
 
 ## PX4 Bootloader Update
 
-The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Download the [kakutef7_bl.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakutef7/kakutef7_bl_0b3fbe2da0.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions. Before PX4 firmware can be installed, the _PX4 bootloader_ must be flashed.
+The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Before PX4 firmware can be installed, the _PX4 bootloader_ must be flashed. Download the [kakutef7_bl.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakutef7/kakutef7_bl_0b3fbe2da0.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 
 ## Building Firmware
 
