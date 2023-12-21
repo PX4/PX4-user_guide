@@ -2,7 +2,7 @@
 
 [MAVLink](https://mavlink.io/en/) is a very lightweight messaging protocol that has been designed for the drone ecosystem.
 
-PX4 uses *MAVLink* to communicate with *QGroundControl* (and other ground stations), and as the integration mechanism for connecting to drone components outside of the flight controller: companion computers, MAVLink enabled cameras etc.
+PX4 uses _MAVLink_ to communicate with _QGroundControl_ (and other ground stations), and as the integration mechanism for connecting to drone components outside of the flight controller: companion computers, MAVLink enabled cameras etc.
 
 The protocol defines a number of standard [messages](https://mavlink.io/en/messages/) and [microservices](https://mavlink.io/en/services/) for exchanging data (many, but not all, messages/services have been implemented in PX4).
 
@@ -35,7 +35,6 @@ Inspect the build log for information.
 :::note
 The [MAVLink Developer guide](https://mavlink.io/en/getting_started/) has more information about using the MAVLink toolchain.
 :::
-
 
 ## Sending Custom MAVLink Messages
 
@@ -105,7 +104,7 @@ protected:
             _msg_ca_trajectory.seq_id = _ca_trajectory.seq_id;
 
             mavlink_msg_ca_trajectory_send_struct(_mavlink->get_channel(), &_msg_ca_trajectory);
-            
+
             return true;
         }
 
@@ -131,10 +130,10 @@ mavlink stream -r 50 -s CA_TRAJECTORY -u 14556
 ```
 
 :::tip
-You can use the `uorb top [<message_name>]` command to verify in real-time that your message is published and the rate (see [uORB Messaging](../middleware/uorb.md#uorb-top-command)). 
+You can use the `uorb top [<message_name>]` command to verify in real-time that your message is published and the rate (see [uORB Messaging](../middleware/uorb.md#uorb-top-command)).
 This approach can also be used to test incoming messages that publish a uORB topic (for other messages you might use `printf` in your code and test in SITL).
 
-To see the message on *QGroundControl* you will need to [build it with your MAVLink library](https://dev.qgroundcontrol.com/en/getting_started/), and then verify that the message is received using [MAVLink Inspector Widget](https://docs.qgroundcontrol.com/master/en/app_menu/mavlink_inspector.html) (or some other MAVLink tool).
+To see the message on _QGroundControl_ you will need to [build it with your MAVLink library](https://dev.qgroundcontrol.com/en/getting_started/), and then verify that the message is received using [MAVLink Inspector Widget](https://docs.qgroundcontrol.com/master/en/app_menu/mavlink_inspector.html) (or some other MAVLink tool).
 :::
 
 ## Receiving Custom MAVLink Messages
@@ -155,6 +154,7 @@ Add a function that handles the incoming MAVLink message in the `MavlinkReceiver
 ```C
 void handle_message_ca_trajectory_msg(mavlink_message_t *msg);
 ```
+
 Add an uORB publisher in the `MavlinkReceiver` class in
 [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L195)
 
@@ -179,7 +179,7 @@ void MavlinkReceiver::handle_message_ca_trajectory_msg(mavlink_message_t *msg)
     f.time_stop_usec = traj.time_stop_usec;
     for(int i=0;i<28;i++)
         f.coefficients[i] = traj.coefficients[i];
-        
+
     _ca_traj_msg_pub.publish(f);
 }
 ```
@@ -205,7 +205,7 @@ Sometimes there is the need for a custom MAVLink message with content that is no
 For example when using MAVLink to interface PX4 with an embedded device, the messages that are exchanged between the autopilot and the device may go through several iterations before they are stabilized.
 In this case, it can be time-consuming and error-prone to regenerate the MAVLink headers, and make sure both devices use the same version of the protocol.
 
-An alternative - and temporary - solution is to re-purpose debug messages. 
+An alternative - and temporary - solution is to re-purpose debug messages.
 Instead of creating a custom MAVLink message `CA_TRAJECTORY`, you can send a message `DEBUG_VECT` with the string key `CA_TRAJ` and data in the `x`, `y` and `z` fields.
 See [this tutorial](../debug/debug_values.md). for an example usage of debug messages.
 
@@ -220,8 +220,9 @@ Ultimately you'll want to test your new MAVLink interface is working by providin
 As a first step, and while debugging, commonly you'll just want to confirm that any messages you've created are being sent/received as you expect.
 
 There are several approaches you can use to view traffic:
+
 - Create a [Wireshark MAVLink plugin](https://mavlink.io/en/guide/wireshark.html) for your dialect.
-  This allows you to inspect MAVLink traffic on an IP interface - for example between *QGroundControl* or MAVSDK and your real or simulated version of PX4. 
+  This allows you to inspect MAVLink traffic on an IP interface - for example between _QGroundControl_ or MAVSDK and your real or simulated version of PX4.
 - [Log uORB topics](../dev_log/logging.md) associate with your MAVLink message.
 - View received messages in the QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html).
   For the messages to appear you will need to [Build QGroundControl](https://dev.qgroundcontrol.com/master/en/getting_started/) including a pre-built C library that contains your custom messages.
@@ -229,20 +230,22 @@ There are several approaches you can use to view traffic:
     By default this is pre-included as a submodule from https://github.com/mavlink/c_library_v2 but you can [generate your own MAVLink Libraries](https://mavlink.io/en/getting_started/generate_libraries.html)
   - QGC uses the ArduPilotMega.xml dialect by default, which includes **common.xml**.
     You can include your messages in either file or in your own dialect.
-    However if you use your own dialect then it should include ArduPilotMega.xml (or it will miss all the existing messages), and you will need to change the dialect used by setting it in [`MAVLINK_CONF`](https://github.com/mavlink/qgroundcontrol/blob/master/QGCExternalLibs.pri#L52) when running *qmake*.
-
+    However if you use your own dialect then it should include ArduPilotMega.xml (or it will miss all the existing messages), and you will need to change the dialect used by setting it in [`MAVLINK_CONF`](https://github.com/mavlink/qgroundcontrol/blob/master/QGCExternalLibs.pri#L52) when running _qmake_.
 
 ## General
 
 ### Set streaming rate
 
-Sometimes it is useful to increase the streaming rate of individual topics (e.g. for inspection in QGC). 
+Sometimes it is useful to increase the streaming rate of individual topics (e.g. for inspection in QGC).
 This can be achieved by typing the following line in the shell:
+
 ```sh
 mavlink stream -u <port number> -s <mavlink topic name> -r <rate>
 ```
-You can get the port number with `mavlink status` which will output (amongst others) `transport protocol: UDP (<port number>)`. 
+
+You can get the port number with `mavlink status` which will output (amongst others) `transport protocol: UDP (<port number>)`.
 An example would be:
+
 ```sh
 mavlink stream -u 14556 -s OPTICAL_FLOW_RAD -r 300
 ```
