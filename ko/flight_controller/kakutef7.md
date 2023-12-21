@@ -1,6 +1,8 @@
 # Holybro Kakute F7 (Discontinued)
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+<Badge type="error" text="Discontinued" />
+
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 The _Kakute F7_ from Holybro is a flight controller board designed for racers.
@@ -8,7 +10,7 @@ The _Kakute F7_ from Holybro is a flight controller board designed for racers.
 <img src="../../assets/flight_controller/kakutef7/board.jpg" width="400px" title="Kakute F7" />
 
 :::note
-이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## 주요 특징
@@ -28,7 +30,7 @@ The _Kakute F7_ from Holybro is a flight controller board designed for racers.
 
 ## 구매처
 
-보드는 아래의 상점들에서 구매할 수 있습니다.
+The board can be bought from one of the following shops (for example):
 
 - [getfpv](https://www.getfpv.com/holybro-kakute-f7-tekko32-f3-metal-65a-4-in-1-esc-combo.html)
 
@@ -40,7 +42,7 @@ The _Kakute F7_ is designed to work with the _Tekko32_ 4-in-1 ESC and they can b
 
 This is the silkscreen for the _Kakute F7_, showing the top of the board:
 
-![Kakute F7 실크스크린](../../assets/flight_controller/kakutef7/silk.png)
+![Kakute F7 Silkscreen](../../assets/flight_controller/kakutef7/silk.png)
 
 | 핀        | 기능                                                | 기본값          |
 | -------- | ------------------------------------------------- | ------------ |
@@ -68,11 +70,11 @@ This is the silkscreen for the _Kakute F7_, showing the top of the board:
 
 ## 부트로더 업데이트
 
-보드에는 [Betaflight](https://github.com/betaflight/betaflight/wiki)가 사전 설치되어 있습니다. Before PX4 firmware can be installed, the _PX4 bootloader_ must be flashed. [kakutef7_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/kakutef7/kakutef7_bl_0b3fbe2da0.hex) 부트로더 바이너리를 다운로드하고 [이 페이지](../advanced_config/bootloader_update_from_betaflight.md)에서 플래시 방법을 참고하십시오.
+The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Before PX4 firmware can be installed, the _PX4 bootloader_ must be flashed. Download the [kakutef7_bl.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakutef7/kakutef7_bl_0b3fbe2da0.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 
 ## 펌웨어 빌드
 
-이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
+펌웨어는 일반적인 방법으로 설치할 수 있습니다.
 
 ```
 make holybro_kakutef7_default
@@ -80,7 +82,7 @@ make holybro_kakutef7_default
 
 ## 펌웨어 설치
 
-펌웨어는 일반적인 방법으로 설치할 수 있습니다.
+The firmware can be installed in any of the normal ways:
 
 - 소스 빌드 및 업로드
   ```
@@ -90,9 +92,9 @@ make holybro_kakutef7_default
 
 ## 설정
 
-If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment you can use the [Actuator](../config/actuators.md) configuration UI to set the motor ordering appropriately.
-
 [기본 설정](../config/README.md) 외에도 아래의 매개변수가 중요합니다.
+
+UART3 RX와 TX는 [시스템 콘솔](../debug/system_console.md)을 사용하도록 설정됩니다.
 
 | 매개변수                                                                   | 설정                                                         |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------- |
@@ -115,17 +117,17 @@ If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment you can use
 
 ### 시스템 콘솔
 
-UART3 RX와 TX는 [시스템 콘솔](../debug/system_console.md)을 사용하도록 설정됩니다.
+UART3 RX and TX are configured for use as the [System Console](../debug/system_console.md).
 
 ### SWD
 
-The [SWD interface](../debug/swd_debug.md) (JTAG) pins are:
+이 내용을 아래의 그림으로 정리하였습니다.
 
 - `SWCLK`: 테스트 포인트 2(CPU의 핀 72)
 - `SWDIO`: 테스트 포인트 3(CPU의 핀 76)
 - `GND`: 보드에 표시됨.
 - `VDD_3V3`: 보드에 표시됨.
 
-이 내용을 아래의 그림으로 정리하였습니다.
+These are shown below.
 
-![Kakute F7의 SWD 핀 - CLK SWO](../../assets/flight_controller/kakutef7/debug_swd_port.jpg) ![Kakute F7의 SWD 핀: GND 및 VDD_3V3](../../assets/flight_controller/kakutef7/debug_swd_port_gnd_vcc3_3.jpg)
+![SWD Pins on Kakute F7 - CLK SWO](../../assets/flight_controller/kakutef7/debug_swd_port.jpg) ![SWD Pins on Kakute F7:  GND and VDD_3V3](../../assets/flight_controller/kakutef7/debug_swd_port_gnd_vcc3_3.jpg)
