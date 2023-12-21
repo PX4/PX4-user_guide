@@ -38,6 +38,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [DebugKeyValue](DebugKeyValue.md)
 - [DebugValue](DebugValue.md)
 - [DebugVect](DebugVect.md)
+- [DifferentialDriveSetpoint](DifferentialDriveSetpoint.md)
 - [DifferentialPressure](DifferentialPressure.md)
 - [DistanceSensor](DistanceSensor.md) — DISTANCE_SENSOR message data
 - [Ekf2Timestamps](Ekf2Timestamps.md) — this message contains the (relative) timestamps of the sensor inputs used by EKF2. It can be used for reproducible replay.
