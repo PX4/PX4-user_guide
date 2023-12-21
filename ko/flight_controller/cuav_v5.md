@@ -1,15 +1,16 @@
 # CUAV v5 (단종)
 
+<Badge type="error" text="Discontinued" />
+
 :::warning
 This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
-:::
+:::warning PX4 does not manufacture this (or any) autopilot. 이 보드는 [Pixhawk 프로젝트](https://pixhawk.org/) **FMUv5** 개방형 하드웨어 설계에 기반합니다. [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행하며, PX4 펌웨어와 호환됩니다.
 
-_CUAV v5_<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>. 이 보드는 [Pixhawk 프로젝트](https://pixhawk.org/) **FMUv5** 개방형 하드웨어 설계에 기반합니다. [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행하며, PX4 펌웨어와 호환됩니다. 주로 학술 및 상업 개발자를 대상으로합니다.
+_CUAV v5_<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>. The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design. It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS, and is fully compatible with PX4 firmware. It is intended primarily for academic and commercial developers.
 
-![CUAV V5](../../assets/flight_controller/cuav_v5/pixhack_v5.jpg)
+![CUAV v5](../../assets/flight_controller/cuav_v5/pixhack_v5.jpg)
 
 ## 요약
 
@@ -48,37 +49,38 @@ _CUAV v5_<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot des
 
 ## Where to Buy
 
-[CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz)에서 주문하십시오.
+Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz).
 
 ## 연결
 
-![CUAV V5](../../assets/flight_controller/cuav_v5/pixhack_v5_connector.jpg)
+![CUAV v5](../../assets/flight_controller/cuav_v5/pixhack_v5_connector.jpg)
 
 :::warning
-RCIN 포트는 RC 수신기의 전원 공급으로 제한되며, 전원에 연결할 수 없습니다.
-:::
+The RCIN interface is limited to powering the rc receiver and cannot be connected to any power/load. 이 세개의 파워 레일은: **POWER1**, **POWER2** 그리고 **USB** 입니다.
 
 ## 정격 전압
 
-_CUAV v5_ can be triple-redundant on the power supply if three power sources are supplied. 이 세개의 파워 레일은: **POWER1**, **POWER2** 그리고 **USB** 입니다.
-
 :::note
 출력 전원 레일인 **FMU PWM OUT**과 **I/O PWM OUT** (0V to 36V) 은 비행제어보드에 전원을 공급하지 않습니다.(공급받지도 않습니다). **POWER1**, **POWER2** 또는 **USB**중 하나에서 전원을 공급하여야 합니다.
+
+:::note
+The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
 :::
 
-**정상 작동 최대 정격 전압**
+**Normal Operation Maximum Ratings**
 
-이러한 조건에서 전원은 아래의 순서대로 시스템에 전원을 공급하여야 합니다.
+Under these conditions all power sources will be used in this order to power the system:
 
 1. **POWER1**과 **POWER2** 입력 (4.3V ~ 5.4V)
 1. **USB** 입력 (4.75V ~ 5.25V)
 
 ## 펌웨어 빌드
 
-::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
-이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
 make px4_fmu-v5_default
@@ -86,11 +88,11 @@ make px4_fmu-v5_default
 
 ## 디버그 포트
 
-[PX4 시스템 콘솔](../debug/system_console.md)과 [SWD 인터페이스](../debug/swd_debug.md)는 **FMU 디버그** 포트에서 동작합니다. FTDI 케이블을 디버그나 F7 SWD 커넥터에 연결하면 됩니다. I/O 디버그 포트에 액세스하려면 사용자는 CUAV v5 셸을 제거하여야 합니다. 두 포트 모두 표준 직렬 핀이 있으며, 표준 FTDI 케이블 (3.3V, 5V 허용)에 연결할 수 있습니다.
+The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) operate on the **FMU Debug** port. Simply connect the FTDI cable to the Debug & F7 SWD connector. To access the I/O Debug port, the user must remove the CUAV v5 shell. Both ports have standard serial pins and can be connected to a standard FTDI cable (3.3V, but 5V tolerant).
 
-핀배열은 그림과 같습니다.
+The pinout is as shown.
 
-![CUAV v5 디버그](../../assets/flight_controller/cuav_v5/pixhack_v5_debug.jpg)
+![CUAV v5 debug](../../assets/flight_controller/cuav_v5/pixhack_v5_debug.jpg)
 
 | 핀 | CUAV v5 디버그 |
 | - | ----------- |
@@ -123,7 +125,7 @@ make px4_fmu-v5_default
 
 ## 지원 플랫폼 및 기체
 
-일반 RC 서보 또는 Futaba S-Bus 서보로 제어 가능한 모든 멀티콥터/비행기/로버 또는 보트. 지원되는 운송체의 설정은 [기체 정의서](../airframes/airframe_reference.md)를 참고하십시오.
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ## 추가 정보
 
