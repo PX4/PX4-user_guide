@@ -1,31 +1,30 @@
-# 作动器配置和测试<Badge type="tip" text="v1.14" vertical="top" />
+# 作动器配置和测试
 
-_作动器设置_ 界面用于自定义飞行器的特定几何构型，将作动器和电机绑定至飞行控制器输出，并测试作动器和电机响应。
+<Badge type="tip" text="PX4 v1.14" />
+
+The _Actuators Setup_ view is used to customize the specific geometry of the vehicle, assign actuators and motors to flight controller outputs, and test the actuator and motor response.
 
 ## 概述
 
-Open the view in _QGroundControl_ here: **"Q" (app menu) > Vehicle Setup > Actuators** (tab). 界面中显示的元素依赖于 [选定的飞行器构型](../config/airframe.md)，默认的输出绑定参见 [飞行器构型参考](../airframes/airframe_reference.md) 。
+Open the view in _QGroundControl_ here: **"Q" (app menu) > Vehicle Setup > Actuators** (tab). The displayed elements depend on the [selected frame](../config/airframe.md), with outputs mapped by default as shown in the [Airframe Reference](../airframes/airframe_reference.md).
 
-该界面有三个部分：
+The view has three sections:
 
 - [几何构型](#geometry): 配置 [选定机型](../config/airframe.md)的几何构型。 该设置包含电机的数量、位置和特性，同时包含控制舵面、电机倾转舵机的数量和特性。
 - [控制器输出](#actuator-outputs): 将电机、控制面和其他执行器对应到指定的输出端口上。
 - [作动器测试](#actuator-testing): 测试电机或舵机按照期望的方向或速度直接运动。
 
-四旋翼应该会有一个类似下图的设置界面。 其中定义了一个X构型的4旋翼飞行器。 4个电机控制分别配置到AUX1至AUX4输出上，并选择使用DShot1200电调。 其中还使用了PWM400的AUX输出来控制降落伞和起落架。
+A quadcopter might have an setup screen similar to the one shown below. This defines a 4-rotor copter with X-geometry. It maps the 4 motors to the AUX1 to AUX4 outputs, and specifies that the connect to DShot1200 ESC. It also maps PWM400 AUX outputs for controlling a parachute and landing gear.
 
 ![Actuators MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_aux.png)
 
-:::note
-默认只显示最常见的设置。 在右上角选择 **高级** 复选框以显示所有设置。
-:::
+几何设置区段用于为所选的 [机架](../config/airframe.md) 设置几何相关的可配置参数。 其中包括 [电机](#motor-geometry)的数量和位置，以及 [舵面](#control-surfaces-geometry) 的数量、功能和属性。 针对倾转式VTOL飞行器，也包含 [倾转舵机](#motor-tilt-servo-geometry)的数量和特性。
 
 ## 几何
 
-几何设置区段用于为所选的 [机架](../config/airframe.md) 设置几何相关的可配置参数。 其中包括 [电机](#motor-geometry)的数量和位置，以及 [舵面](#control-surfaces-geometry) 的数量、功能和属性。 针对倾转式VTOL飞行器，也包含 [倾转舵机](#motor-tilt-servo-geometry)的数量和特性。
+The geometry section is used to set any configurable geometry-related parameters for the selected [airframe](../config/airframe.md). This includes the number and position of [motors](#motor-geometry), and the number, function, and properties of [control surfaces](#control-surfaces-geometry). For VTOL tiltrotor vehicles, it will also include the number and properties of [tilt servos](#motor-tilt-servo-geometry)
 
-:::note
-界面是根据所选择的机架自行匹配的：
+电机几何位置设置界面允许设置电机数量、相对位置以及每一个电机的其他特性。
 
 - 仅显示当前机架类型_可配置_参数，不可配置参数将隐藏。
 - 电机位置图仅对多旋翼类型机架显示。
@@ -33,23 +32,23 @@ Open the view in _QGroundControl_ here: **"Q" (app menu) > Vehicle Setup > Actua
 
 ### Motor Geometry
 
-电机几何位置设置界面允许设置电机数量、相对位置以及每一个电机的其他特性。
+The motor geometry section lets you set the number of motors, the relative position, and other properties of each motor.
 
-大部分电机特性对所有机架有效。 部分特性对特定机架有效。 例如， `Tilted-by` 和 `axis` 仅与 [倾转旋翼VTOL](#motor-geometry-vtol-tiltrotor) 和 [常规VTOL](#motor-geometry-standard-vtol) 飞行器相关。
+多旋翼机架几何设置提供了一个图显示每一个电机的x，y相对位置。 参见 [机架构型参考](../airframes/airframe_reference.md)以更广泛的了解其他机架构型的电机位置。 For example, `Tilted-by` and `axis` are only relevant for [Tiltrotor VTOL](#motor-geometry-vtol-tiltrotor) and [Standard VTOL](#motor-geometry-standard-vtol) vehicles, respectively.
 
-多旋翼机架几何设置提供了一个图显示每一个电机的x，y相对位置。 参见 [机架构型参考](../airframes/airframe_reference.md)以更广泛的了解其他机架构型的电机位置。
-
-以下各节提供核心几何概念和若干不同机架构型的配置。
-
-#### 电机几何形状: 多旋翼
+The geometry configuration for multicopter airframes provides a diagram showing the relative x,y positions for each of the motors. See the [Airframe Reference](../airframes/airframe_reference.md) for an broad understanding of the motor positions for other frames.
 
 下图显示了含和不包含高级设置的四旋翼多旋翼机架构型几何设置。
 
+#### 电机几何形状: 多旋翼
+
+The image below shows the geometry setup for a quadrotor multicopter frame with and without advanced settings.
+
 ![Geometry MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_geometry_marked.png)
 
-首先， **电机** 下拉设置让您选择电机的数量 (示例中为4)。
-
 针对每个电机，可设置参数如下：
+
+For each motor you can then set:
 
 - `位置 X`: [X-位置](#motor-position-coordinate-system), 以米为单位。
 - `位置 Y`: [Y-位置](#motor-position-coordinate-system), 以米为单位。
@@ -59,20 +58,20 @@ Open the view in _QGroundControl_ here: **"Q" (app menu) > Vehicle Setup > Actua
 - (高级) `加速速率`: 参考 [舵面几何参数](#control-surfaces-geometry) 部分以获取更多信息。
 
 :::note
-`X`, `Y`, `Z` 是以 _重心_为原点的 [FRD坐标系](#motor-position-coordinate-system)下的位置。 注意，这可能与飞行控制器的位置不同！
+The `X`, `Y`, `Z` positions are in [FRD coordinate frame, relative to the _centre of gravity_](#motor-position-coordinate-system). Note, this may not be the same as the position of the flight controller!
 :::
 
 #### 电机几何形状: 尾座式四旋翼VTOL
 
-[尾座式四旋翼VTOL](../airframes/airframe_reference.md#vtol-tailsitter) 的电机几何参数如下所示(配置其他类型尾座式VTOL的方法类似)。
-
 电机可配置属性与[多旋翼几何参数](#motor-geometry-multicopter)介绍页面相同。
+
+Motors have the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter).
 
 ![Geometry motor: tailsitter vtol](../../assets/config/actuators/qgc_geometry_tailsitter_motors.png)
 
 #### 电机几何形状: 倾转旋翼VTOL
 
-[倾转旋翼VTOL](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) 的电机几何参数如下所示(配置其他类型倾转旋翼VTOL的方法类似)。
+The motor geometry for a [Generic Quadplane VTOL Tiltrotor](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) is shown below (the approach for configuring other [VTOL tiltrotors](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) will be similar).
 
 ![Geometry motor: tiltrotor vtol](../../assets/config/actuators/qgc_geometry_tiltrotor_motors.png)
 
@@ -80,11 +79,11 @@ Open the view in _QGroundControl_ here: **"Q" (app menu) > Vehicle Setup > Actua
 
 #### 电机几何参数：标准VTOL
 
-[标准VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) 的电机几何参数如下所示(配置其他类型标准VTOL的方法类似)。
+The motor geometry for a [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) is shown below (the approach for configuring other "Standard VTOL" will be similar).
 
 ![Geometry motor: standard vtol](../../assets/config/actuators/qgc_geometry_standard_vtol_motors.png)
 
-电机可配置属性与[多旋翼几何参数](#motor-geometry-multicopter)介绍页面大致相同。 其中多了一个用于表示电机驱动飞行器运动方向的属性(对于标准VTOL，悬停电机通常被设置为“向上”，而推力电机则被设置为“向前”）。
+Motors have most of the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter). There is an additional field to indicate the direction in which the motor moves the vehicle (for a standard VTOL, the hover motors are usually set "upwards" and the pusher motor is set to "forwards").
 
 - `轴`: 为`向上`, `向下`, `向前`, `向后`, `向左`, `向右`, `自定义`其中之一。
   - 如果选择 `自定义` ，那么用户界面会显示三个额外的属性来设置电机方向。
