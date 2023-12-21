@@ -328,7 +328,7 @@ QGC uses a pre-built C library that must be located at [/qgroundcontrol/libs/mav
 
 By default this is pre-included as a submodule from <https://github.com/mavlink/c_library_v2> but you can [generate your own MAVLink Libraries](https://mavlink.io/en/getting_started/generate_libraries.html).
 
-QGC uses the ArduPilotMega.xml dialect by default, which includes **common.xml**.
+QGC uses the all.xml dialect by default, which includes **common.xml**.
 You can include your messages in either file or in your own dialect.
 However if you use your own dialect then it should include ArduPilotMega.xml (or it will miss all the existing messages), and you will need to change the dialect used by setting it in [`MAVLINK_CONF`](https://github.com/mavlink/qgroundcontrol/blob/master/QGCExternalLibs.pri#L52) when running _qmake_.
 
