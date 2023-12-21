@@ -44,6 +44,25 @@ control_allocator <command> [arguments...]
 
    status        print status info
 ```
+## differential_drive_control
+Source: [modules/differential_drive_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/differential_drive_control)
+
+
+### 설명
+Rover Differential Drive controller.
+
+<a id="differential_drive_control_usage"></a>
+
+### 사용법
+```
+differential_drive_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info 
+```
 ## flight_mode_manager
 소스: [modules/flight_mode_manager](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/flight_mode_manager)
 
@@ -62,7 +81,7 @@ flight_mode_manager <command> [arguments...]
 
    stop
 
-   status        print status info 
+   status        print status info
 ```
 ## fw_att_control
 소스: [modules/fw_att_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/fw_att_control)
@@ -335,12 +354,12 @@ uuv_pos_control <command> [arguments...]
 소스: [modules/vtol_att_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/vtol_att_control)
 
 
-### 설명
+### Description
 fw_att_control은 고정익 자세 컨트롤러입니다.
 
 <a id="vtol_att_control_usage"></a>
 
-### 사용법
+### Usage
 ```
 vtol_att_control <command> [arguments...]
  Commands:
