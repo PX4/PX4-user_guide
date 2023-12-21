@@ -1,21 +1,23 @@
 # BetaFPV Beta75X 2S 穿越机
 
+<Badge type="error" text="Discontinued" />
+
 :::warning
 This frame has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
 
-BetaFPV的这款Beta75X 小型四旋翼穿越机, 可以进行室内或室外的FPV飞行或者是肉眼直飞。
+The [BetaFPV Beta75X](https://betafpv.com/products/beta75x-2s-whoop-quadcopter) is a very small quadrotor that can be flown indoors or outdoors, FPV or line-of-sight.
 
 ![BetaFPV Beta75X](../../assets/hardware/betafpv_beta75x.jpg)
 
 ## 购买渠道
 
-The _Beta75X_ can be bought from a number of vendors, including:
+另外你还需要一些其它的配件：
 
 - [GetFPV](https://www.getfpv.com/beta75x-2s-brushless-whoop-micro-quadcopter-xt30-frsky.html)
 - [Amazon](https://www.amazon.com/BETAFPV-Beta75X-Brushless-Quadcopter-Smartaudio/dp/B07H86XSPW)
 
-另外你还需要一些其它的配件：
+In addition you will need:
 
 - 一个遥控器以及接收机。 _Beta75X_ can ship with a number of receivers. PX4 能够兼容这些版本的接收机, 但请务必选择与您的遥控器 匹配的版本。
 - 锂电池充电器 (飞机发货时包含一块电池, 但你可能想要额外备用的)。
@@ -29,7 +31,7 @@ FPV support is completely independent of PX4/flight controller.
 
 The _Beta75X_ comes preinstalled with Betaflight.
 
-在刷 PX4 固件之前，您必须先安装 PX4 的bootloader。 Instructions for installing the bootloader can be found in the [Omnibus F4](../flight_controller/omnibus_f4_sd.md#bootloader) topic (this is the flight controller board on the _Beta75X_).
+Before loading PX4 firmware you must first install the PX4 bootloader. Instructions for installing the bootloader can be found in the [Omnibus F4](../flight_controller/omnibus_f4_sd.md#bootloader) topic (this is the flight controller board on the _Beta75X_).
 
 :::tip
 You can always [reinstall Betaflight](../advanced_config/bootloader_update_from_betaflight.md#reinstall-betaflight) later if you want!

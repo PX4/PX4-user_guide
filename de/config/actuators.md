@@ -1,4 +1,6 @@
-# Actuator Configuration and Testing <Badge type="tip" text="v1.14" vertical="top" />
+# Actuator Configuration and Testing
+
+<Badge type="tip" text="PX4 v1.14" />
 
 The _Actuators Setup_ view is used to customize the specific geometry of the vehicle, assign actuators and motors to flight controller outputs, and test the actuator and motor response.
 

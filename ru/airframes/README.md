@@ -17,6 +17,14 @@ The frame types that have a maintainer and are well tested and supported are:
 
 ## Experimental Vehicles
 
+Experimental frames are those vehicle types that:
+
+- Do not have a maintainer.
+- Are not regularly tested by the core development team.
+- May not be tested in CI.
+- May lack features required for production-ready vehicles.
+- May not support some common vehicle configurations for the vehicle type.
+
 The following vehicle types are considered experimental:
 
 - [Airships](../frames_airship/README.md)
@@ -27,13 +35,6 @@ The following vehicle types are considered experimental:
 - [Submarines](../frames_sub/README.md)
 
 :::note
-Experimental frames are those vehicle types that:
-
-- Do not have a maintainer.
-- Are not regularly tested by the core development team.
-- May lack features required for production-ready vehicles.
-- May not support some common vehicle configurations for the vehicle type.
-
 Maintainer volunteers, [contribution](../contribute/README.md) of new features, new frame configurations, or other improvements would all be very welcome! :::
 
 ## Other Vehicles

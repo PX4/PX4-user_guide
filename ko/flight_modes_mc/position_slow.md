@@ -1,4 +1,6 @@
-# Position Slow Mode (Multicopter) <Badge type="warning" text="main (v1.15+)" vertical="top" />
+# Position Slow Mode (Multicopter)
+
+<Badge type="warning" text="main (PX4 v1.15)" />
 
 [<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
@@ -80,7 +82,7 @@ The table below lists each axis along with the parameter used to select which RC
 To use this approach:
 
 1. Make sure you have a remote with an extra input and an extra RC channel to transmit it's position.
-2. Map the channel which contains the knobs position as one of the 6 auxiliary passthrough inputs by setting [RC\_MAP\_AUXn](../advanced_config/parameter_reference.md#RC_MAP_AUX1) to the corresponding RC channel number.
+2. Map the channel which contains the knobs position as one of the 6 auxiliary passthrough inputs by setting [RC_MAP_AUXn](../advanced_config/parameter_reference.md#RC_MAP_AUX1) to the corresponding RC channel number.
 3. Map that auxiliary input using the appropriate `MC_SLOW_MAP_` parameter for the axis you want it to control (see table above).
 
 For example, if you want to map RC channel `8` to limit the horizontal velocity you could set [RC\_MAP\_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) to the value `8` and [MC\_SLOW\_MAP\_HVEL][mc_slow_map_hvel] to the value `1`.
@@ -88,14 +90,14 @@ The RC input from channel 8 then sets a horizontal velocity limit between [MC\_S
 
 ## Set Limits using MAVLink
 
-You can adjust the velocity limits using the MAVLink message [SET\_VELOCITY\_LIMITS](https://mavlink.io/en/messages/development.html#SET_VELOCITY_LIMITS).
+You can adjust the velocity limits using the MAVLink message [SET_VELOCITY_LIMITS](https://mavlink.io/en/messages/development.html#SET_VELOCITY_LIMITS).
 This approach is used primarily by automatic systems, for example to slow a vehicle when zooming a camera.
 
 The message can set the maximum value on any of the axes by supplying a non-`NAN` limit value.
 This overrides limit values set in parameters, but is ignored if the axis is mapped to an RC knob.
 The value can be updated from a message at any time, and is latched until either the next message or a mode switch.
 
-Note that PX4 does not provide velocity limit telemetry (i.e. it does not support streaming the [VELOCITY\_LIMITS](https://mavlink.io/en/messages/development.html#VELOCITY_LIMITS) message).
+Note that PX4 does not provide velocity limit telemetry (i.e. it does not support streaming the [VELOCITY_LIMITS](https://mavlink.io/en/messages/development.html#VELOCITY_LIMITS) message).
 
 ## See Also
 

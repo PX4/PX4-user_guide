@@ -1,12 +1,15 @@
 # Submarines (Unmanned Underwater Vehicles - UUV)
 
+<LinkedBadge type="warning" text="Experimental" url="../airframes/#experimental-vehicles"/>
+
 :::warning
-Support for UUVs is _experimental_. The platform does not support all features needed in a product-quality UUV, and the platform is not regularly tested by the core development team.
+Support for UUVs is [experimental](../airframes/README.md#experimental-vehicles). Maintainer volunteers, [contribution](../contribute/README.md) of new features, new frame configurations, or other improvements would all be very welcome!
 
 At time of writing it has only been tested using ROS in offboard mode. The following features have not been implemented:
 
 - Modes like missions, depth hold, stabilised manual control, etc.
 - BlueRobotics gripper support.
+
 :::
 
 PX4 enables a number of unmanned underwater vehicle (UUV) frames:

@@ -1,4 +1,6 @@
-# PX4 ROS 2 Control Interface <Badge type="warning" text="main (v1.15+)" vertical="top" />
+# PX4 ROS 2 Control Interface
+
+<Badge type="warning" text="main (PX4 v1.15)" /> <Badge type="warning" text="Experimental" />
 
 :::warning
 Experimental
@@ -108,7 +110,7 @@ The following steps are required to get started:
    ```
 
    :::note
-   To ensure compatibility, use the latest _main_ branches for PX4, _px4\_msgs_ and the library.
+   To ensure compatibility, use the latest _main_ branches for PX4, _px4_msgs_ and the library.
    See also [here](https://github.com/Auterion/px4-ros2-interface-lib#compatibility-with-px4).
 
 :::
@@ -353,7 +355,7 @@ You can add your own setpoint types by adding a class that inherits from `px4_ro
 This setpoint type is currently only supported for multicopters.
 :::
 
-Smoothly control position and (optionally) heading setpoints with the [px4\_ros2::GotoSetpointType](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/control/setpoint_types/goto.hpp) setpoint type.
+Smoothly control position and (optionally) heading setpoints with the [px4_ros2::GotoSetpointType](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/control/setpoint_types/goto.hpp) setpoint type.
 The setpoint type is streamed to FMU based position and heading smoothers formulated with time-optimal, maximum-jerk trajectories, with velocity and acceleration constraints.
 
 The most trivial use is simply inputting a 3D position into the update method:
@@ -400,7 +402,7 @@ _goto_setpoint->update(
 
 #### Direct Actuator Control Setpoint (DirectActuatorsSetpointType)
 
-Actuators can be directly controlled using the [px4\_ros2::DirectActuatorsSetpointType](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1DirectActuatorsSetpointType.html) setpoint type.
+Actuators can be directly controlled using the [px4_ros2::DirectActuatorsSetpointType](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1DirectActuatorsSetpointType.html) setpoint type.
 Motors and servos can be set independently.
 Be aware that the assignment is vehicle and setup-specific.
 For example to control a quadrotor, you need to set the first 4 motors according to its [output configuration](../concept/control_allocation.md).
@@ -414,7 +416,7 @@ If you want to control an actuator that does not control the vehicle's motion, b
 If you want to control an independent actuator (a servo), follow these steps:
 
 1. [Configure the output](../payloads/#generic-actuator-control-with-mavlink)
-2. Create an instance of [px4\_ros2::PeripheralActuatorControls](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1PeripheralActuatorControls.html) in the constructor of your mode.
+2. Create an instance of [px4_ros2::PeripheralActuatorControls](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1PeripheralActuatorControls.html) in the constructor of your mode.
 3. Call the `set()` method to control the actuator(s).
    This can be done independently of any active setpoints.
 
@@ -427,7 +429,7 @@ Telemetry topics include:
 
 :::note
 These topics provide a wrapper around the internal PX4 topics, allowing the library to maintain compatibility if the internal topics change.
-Check [px4\_ros2/odometry](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/px4_ros2_cpp/include/px4_ros2/odometry) for new topics, and of course you can use any ROS 2 topic published from PX4.
+Check [px4_ros2/odometry](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/px4_ros2_cpp/include/px4_ros2/odometry) for new topics, and of course you can use any ROS 2 topic published from PX4.
 :::
 
 ### Failsafes and Mode Requirements
@@ -461,7 +463,7 @@ For example to add home position as requirement:
 modeRequirements().home_position = true;
 ```
 
-The full list of flags can be found in [requirement\_flags.hpp](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/common/requirement_flags.hpp).
+The full list of flags can be found in [requirement_flags.hpp](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/common/requirement_flags.hpp).
 
 #### Deferring Failsafes
 

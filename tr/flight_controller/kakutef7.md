@@ -1,5 +1,7 @@
 # Holybro Kakute F7 (Discontinued)
 
+<Badge type="error" text="Discontinued" />
+
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 

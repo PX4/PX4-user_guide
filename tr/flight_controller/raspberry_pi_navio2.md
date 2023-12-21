@@ -1,9 +1,8 @@
 # Raspberry Pi 2/3/4 Navio2 Autopilot
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://emlid.com/) for hardware support or compliance issues.
-:::
+<LinkedBadge type="warning" text="Experimental" url="../flight_controller/autopilot_experimental.html"/>
 
-:::warning PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://emlid.com/) for hardware support or compliance issues.
 :::
 
 This is the developer "quickstart" for Raspberry Pi 2/3/4 Navio2 autopilots. It allows you to build PX4 and transfer to the RasPi, or build natively.

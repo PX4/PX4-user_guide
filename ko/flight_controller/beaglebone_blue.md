@@ -1,10 +1,9 @@
 # 비글본 블루
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://beagleboard.org/blue)에 문의하십시오.
-:::
+<LinkedBadge type="warning" text="Experimental" url="../flight_controller/autopilot_experimental.md"/>
 
 :::warning
-이 비행 컨트롤러에 대한 PX4 지원은 [테스트 단계](../flight_controller/autopilot_experimental.md)입니다.
+이 비행 컨트롤러에 대한 PX4 지원은 [테스트 단계](../flight_controller/autopilot_experimental.md)입니다. Contact the [manufacturer](https://beagleboard.org/blue) for hardware support or compliance issues.
 :::
 
 [BeagleBone Blue](https://beagleboard.org/blue)는 올인원 리눅스 기반 컴퓨터입니다. 로봇 공학에 최적화되어 있지만, 이 작고 저렴한 보드에는 비행 콘트롤러에 필요한 모든 센서와 주변 장치가 있습니다. 이 항목에서는 [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) 로봇 패키지로 PX4를 실행하기 위한 보드 설정 방법을 설명합니다.

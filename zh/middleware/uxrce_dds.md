@@ -1,18 +1,20 @@
-# uXRCE-DDS (PX4-ROS 2/DDS Bridge) <Badge type="tip" text="v1.14" vertical="top" />
+# uXRCE-DDS (PX4-ROS 2/DDS Bridge)
+
+<Badge type="tip" text="PX4 v1.14" />
 
 :::note
-uXRCE-DDS replaces the [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge) used in PX4 v1.13. If you were using the Fast-RTPS Bridge, please follow the [migration guidelines](#fast-rtps-to-uxrce-dds-migration-guidelines).
+uXRCE-DDS replaces the [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge) used in PX4 v1.13. 该特性可支持PX4和ROS2之间的快速、可靠的集成， 并且使ROS2应用程序更容易获得飞行器信息并向其发送命令。
 :::
 
-PX4 uses uXRCE-DDS middleware to allow [uORB messages](../middleware/uorb.md) to be published and subscribed on a companion computer as though they were [ROS 2](../ros/ros2_comm.md) topics. 该特性可支持PX4和ROS2之间的快速、可靠的集成， 并且使ROS2应用程序更容易获得飞行器信息并向其发送命令。
+PX4 uses uXRCE-DDS middleware to allow [uORB messages](../middleware/uorb.md) to be published and subscribed on a companion computer as though they were [ROS 2](../ros/ros2_comm.md) topics. This provides a fast and reliable integration between PX4 and ROS 2, and makes it much easier for ROS 2 applications to get vehicle information and send commands.
 
-PX4 使用 [eProsima Micro XRCE-DDS](https://micro-xrce-dds.docs.eprosima.com/en/stable/introduction.html) 来实现XRCE-DDS。
+PX4 uses an XRCE-DDS implementation that leverages [eProsima Micro XRCE-DDS](https://micro-xrce-dds.docs.eprosima.com/en/stable/introduction.html).
 
-本指南描述了软件架构以及建立客户和代理所需要的操作。 尤其是，它涵盖了对于PX4用户最重要的选项。
+The following guide describes the architecture and various options for setting up the client and agent. 代理端(Agent)充当客户端的代理，使其能够在DDS全局数据空间中发布和订阅话题。
 
 ## 软件架构
 
-The uXRCE-DDS middleware consists of a client running on PX4 and an agent running on the companion computer, with bi-directional data exchange between them over a serial or UDP link. 代理端(Agent)充当客户端的代理，使其能够在DDS全局数据空间中发布和订阅话题。
+The uXRCE-DDS middleware consists of a client running on PX4 and an agent running on the companion computer, with bi-directional data exchange between them over a serial or UDP link. The agent acts as a proxy for the client, enabling it to publish and subscribe to topics in the global DDS data space.
 
 ![Architecture uXRCE-DDS with ROS 2](../../assets/middleware/xrce_dds/architecture_xrce-dds_ros2.svg)
 
@@ -20,25 +22,25 @@ In order for PX4 uORB topics to be shared on the DDS network you will need _uXRC
 
 The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) publishes to/from a defined set of uORB topics to the global DDS data space.
 
-The [eProsima micro XRCE-DDS _agent_](https://github.com/eProsima/Micro-XRCE-DDS-Agent) runs on the companion computer and acts as a proxy for the client in the DDS/ROS 2 network.
-
 代理(Agent)本身不依赖客户端测代码，可以独立于PX4或ROS编译或安装。
+
+The agent itself has no dependency on client-side code and can be built and/or installed independent of PX4 or ROS.
 
 Code that wants to subscribe/publish to PX4 does have a dependency on client-side code; it requires uORB message definitions that match those used to create the PX4 uXRCE-DDS client so that it can interpret the messages.
 
 ## 代码生成
 
-The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) is generated at build time and included in PX4 firmare by default. 代理不依赖客户端代码。 它可以单独构建或在ROS2工作区中构建，也可以在Ubuntu上采用snap包安装。
-
-When PX4 is built, a code generator uses the uORB message definitions in the source tree ([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg)) to compile support for the subset of uORB topics in [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) into [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client).
+The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) is generated at build time and included in PX4 firmare by default. The agent has no dependency on client code. It can be built standalone or in a ROS 2 workspace, or installed as a snap package on Ubuntu.
 
 PX4 main分支或release版本构建将自动从当前分支的 [PX4/px4_msgs](https://github.com/PX4/px4_msgs) 中导出 uORB 消息子集。
 
-ROS 2 applications need to be built in a workspace that includes the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware. 可以通过将接口包 [PX4/px4_msgs](https://github.com/PX4/px4_msgs) 克隆到你的 ROS 2 工作空间并切换到正确的分支来实现。 请注意，所有与消息相关联的代码生成都是由 ROS 2 处理的。
+PX4 main or release builds automatically export the set of uORB messages definitions in the build to an associated branch in [PX4/px4_msgs](https://github.com/PX4/px4_msgs).
+
+ROS 2 applications need to be built in a workspace that includes the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware. 所有这些方法都需要获取 _全部_ 与客户端通信所需的依赖项 (例如FastCDR)。 Note that all code generation associated with the messages is handled by ROS 2.
 
 ## Micro XRCE-DDS Agent Installation
 
-The Micro XRCE-DDS Agent can be installed on the companion computer using a binary package, built and installed from source, or built and run from within a ROS 2 workspace. 所有这些方法都需要获取 _全部_ 与客户端通信所需的依赖项 (例如FastCDR)。
+The Micro XRCE-DDS Agent can be installed on the companion computer using a binary package, built and installed from source, or built and run from within a ROS 2 workspace. All of these methods fetch _all_ the dependencies needed to communicate with the client (such as FastCDR)
 
 :::note
 The official (and more complete) installation guide is the Eprosima: [micro XRCE-DDS Installation Guide](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html). This section summarises the options that have been tested with PX4 during creation of these docs.
@@ -46,7 +48,7 @@ The official (and more complete) installation guide is the Eprosima: [micro XRCE
 
 ### 源码安装
 
-在 Ubuntu 上，您可以使用以下命令从源代码构建并单独安装代理：
+On Ubuntu you can build from source and install the Agent standalone using the following commands:
 
 ```sh
 git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
@@ -60,10 +62,10 @@ sudo ldconfig /usr/local/lib/
 ```
 
 :::note
-在 [官方指南](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html#installing-the-agent-standalone)中有从相应主题链接的各种构建配置选项， 但尚未对其进行测试。
+There are various build configuration options linked from the corresponding topic in the [official guide](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html#installing-the-agent-standalone), but these have not been tested.
 :::
 
-To start the agent with settings for connecting to the uXRCE-DDS client running on the simulator:
+使用以下命令从 Ubuntu 的 snap 软件包安装：
 
 ```sh
 MicroXRCEAgent udp4 -p 8888
@@ -71,7 +73,7 @@ MicroXRCEAgent udp4 -p 8888
 
 ### 从 Snap 软件包安装
 
-使用以下命令从 Ubuntu 的 snap 软件包安装：
+Install from a snap package on Ubuntu using the following command:
 
 ```sh
 sudo snap install microxrce-ds-agent --edge
@@ -84,7 +86,7 @@ micro-xrce-dds-agent udp4 -p 8888
 ```
 
 :::note
-在编写该文档时，从snap仓库安装的稳定版本在与PX4连接时会报创建话题错误。 开发版本(使用 `--edge` 控制字段获取安装)可以正常工作。
+At time of writing the stable of version installed from snap connects to PX4 but reports errors creating topics. The development version, fetched using `--edge` above, does work.
 :::
 
 ### Build/Run within ROS 2 Workspace

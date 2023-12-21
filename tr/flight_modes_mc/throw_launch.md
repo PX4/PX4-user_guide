@@ -1,4 +1,6 @@
-# Throw Launch (Multicopter) <Badge type="warning" text="main (v1.15+)" vertical="top" />
+# Throw Launch (Multicopter)
+
+<Badge type="warning" text="main (PX4 v1.15)" /> <Badge type="warning" text="Experimental" />
 
 :::warning
 Experimental
@@ -60,7 +62,7 @@ A throw launch without propellers can be used to confirm that arming does not oc
 The steps for this test are:
 
 1. Dismount the propellers.
-2. Set [COM\_THROW\_EN](../advanced_config/parameter_reference.md#COM_THROW_EN) to `Enabled`.
+2. Set [COM_THROW_EN](../advanced_config/parameter_reference.md#COM_THROW_EN) to `Enabled`.
 3. Arm the aircraft.
    The engines should not spin, but the vehicle should be armed and keep playing the arming tune.
 4. Throw the aircraft about 2m into the air.
@@ -74,11 +76,11 @@ The steps for this test are:
 
 The steps for a throw launch are:
 
-1. Set [COM\_THROW\_EN](../advanced_config/parameter_reference.md#COM_THROW_EN) to `Enabled`.
+1. Set [COM_THROW_EN](../advanced_config/parameter_reference.md#COM_THROW_EN) to `Enabled`.
 2. Arm the aircraft.
    The propellers should not spin, but the vehicle should be armed and keep playing the arming tune.
 3. Throw the aircraft away from you, forward and up (about 2m away and 2m up is recommended).
-   - The vehicle must reach the speed of [COM\_THROW\_SPEED](../advanced_config/parameter_reference.md#COM_THROW_SPEED) to detect launch, which by default is set to 5 m/s.
+   - The vehicle must reach the speed of [COM_THROW_SPEED](../advanced_config/parameter_reference.md#COM_THROW_SPEED) to detect launch, which by default is set to 5 m/s.
      If this speed is not achieved, the motors will not start and the aircraft will fall to the ground.
    - Try to avoid excessive rotation during the throw, as this might cause the drone to fail or behave unpredictably.
      The exact meaning of "excessive rotation" depends on the platform: for instance, [PX4Vision](../complete_vehicles/px4_vision_kit.md) used for the testing, still managed to recover after 2-3 full rotations.
@@ -88,8 +90,8 @@ The steps for a throw launch are:
 
 The following parameters can be used to enable and configure throw launch:
 
-- [COM\_THROW\_EN](../advanced_config/parameter_reference.md#COM_THROW_EN) enables the feature.
-- [COM\_THROW\_SPEED](../advanced_config/parameter_reference.md#COM_THROW_SPEED) determines the minimum speed the aircraft should reach to detect the throw.
+- [COM_THROW_EN](../advanced_config/parameter_reference.md#COM_THROW_EN) enables the feature.
+- [COM_THROW_SPEED](../advanced_config/parameter_reference.md#COM_THROW_SPEED) determines the minimum speed the aircraft should reach to detect the throw.
   If it is not reached, the engines will not turn on.
 
 ## See Also
