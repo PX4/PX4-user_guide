@@ -9,7 +9,7 @@ The protocol defines a number of standard [messages](https://mavlink.io/en/messa
 This tutorial explains how you can add PX4 support for your own new "custom" messages.
 
 :::note
-The tutorial assumes you have a [custom uORB](../middleware/uorb.md) `ca_trajectory` message in `msg/ca_trajectory.msg` and a custom MAVLink `ca_trajectory` message in `mavlink/include/mavlink/v2.0/custom_messages/mavlink_msg_ca_trajectory.h`.
+The tutorial assumes you have created your own [custom uORB](../middleware/uorb.md) message named `CaTrajectory` in `msg/CaTrajectory.msg` and a corresponding custom MAVLink `CA_TRAJECTORY` message that is defined in `\src\modules\mavlink\mavlink\message_definitions\v1.0\custom_messages.xml` (code for this will be generated as part of the build to `/build/px4_sitl_default/mavlink/custom_messages/mavlink_msg_ca_trajectory.h`).
 :::
 
 ## Defining Custom MAVLink Messages
@@ -38,22 +38,34 @@ The [MAVLink Developer guide](https://mavlink.io/en/getting_started/) has more i
 
 ## Sending Custom MAVLink Messages
 
-This section explains how to use a custom uORB message and send it as a MAVLink message.
+This section explains how to stream the content of a custom uORB message as a MAVLink message.
 
-Add the headers of the MAVLink and uORB messages to
-[mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp)
+### Define the Streaming Class
+
+First create a file named `CA_TRAJECTORY.hpp` for your streaming class inside the [/src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams) directory (named after the corresponding MAVLink message).
+
+Add the headers for the MAVLink and uORB messages to the top of the file:
 
 ```C
 #include <uORB/topics/ca_trajectory.h>
 #include <v2.0/custom_messages/mavlink.h>
 ```
 
-Create a new class in [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp#L2193)
+:::note
+The uORB topic's snake-case header file is generated from the CamelCase uORB filename at build time.
+The `custom_messages/mavlink.h` header is also generated at build time.
+:::
+
+Then copy the streaming class definition below into the file:
 
 ```C
 class MavlinkStreamCaTrajectory : public MavlinkStream
 {
 public:
+    static MavlinkStream *new_instance(Mavlink *mavlink)
+    {
+        return new MavlinkStreamCaTrajectory(mavlink);
+    }
     const char *get_name() const
     {
         return MavlinkStreamCaTrajectory::get_name_static();
@@ -69,10 +81,6 @@ public:
     uint16_t get_id()
     {
         return get_id_static();
-    }
-    static MavlinkStream *new_instance(Mavlink *mavlink)
-    {
-        return new MavlinkStreamCaTrajectory(mavlink);
     }
     unsigned get_size()
     {
@@ -113,28 +121,83 @@ protected:
 };
 ```
 
+All streaming classes are very similar, with most of the "significant" differences in the `send()` method:
+
+- The streaming class derives from [`MavlinkStream`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_stream.h).
+- The `public` definitions are "near-boilerplate", allowing PX4 to get an instance of the class (`new_instance()`), and then to use it to fetch the name, id, and size of the message from the MAVLink headers (`get_name()`, `get_name_static()`, `get_id_static()`, `get_id()`, `get_size()`).
+  For your own streaming classes these can just be copied and modified to match the values for your MAVLink message.
+- The `private` definitions subscribe to the uORB topics that need to be published.
+  Here we also define constructors to prevent the definition being copied.
+- The `protected` section is where the important work takes place!
+  Here we override the `send()` method, copying values from the subscribed uORB topic(s) into appropriate fields in the MAVLink message, and then send the message.
+
+Next we include our new class in [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp#L2193).
+Add the line below to the part of the file where all the other streams are included:
+
+```cpp
+#include "streams/CA_TRAJECTORY.hpp"
+```
+
 Finally append the stream class to the `streams_list` at the bottom of
 [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp)
 
 ```C
 StreamListItem *streams_list[] = {
 ...
-create_stream_list_item<MavlinkStreamCaTrajectory>(),
+#if defined(CA_TRAJECTORY_HPP)
+    create_stream_list_item<MavlinkStreamCaTrajectory>(),
+#endif // CA_TRAJECTORY_HPP
 ...
+}
 ```
 
-Then make sure to enable the stream, for example by adding the following line to the [startup script](../concept/system_startup.md) (e.g. [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS) on NuttX or [ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS)) on SITL. Note that `-r` configures the streaming rate and `-u` identifies the MAVLink channel on UDP port 14556).
+The class is now available for streaming, but won't be streamed by default.
+We cover that in the next sections.
 
+### Streaming by Default
+
+The easiest way to stream your messages by default (as part of a build) is to add them to [mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_main.cpp) in the appropriate message group.
+
+If you search in the file you'll find groups of messages defined in a switch statement:
+
+- `MAVLINK_MODE_NORMAL`: Streamed to a GCS.
+- `MAVLINK_MODE_ONBOARD`: Streamed to a companion computer on a fast link, such as Ethernet
+- `MAVLINK_MODE_ONBOARD_LOW_BANDWIDTH`: Streamed to a companion computer on slower link
+- `MAVLINK_MODE_GIMBAL`: Streamed to a gimbal
+- `MAVLINK_MODE_EXTVISION`: Streamed to an external vision system
+- `MAVLINK_MODE_EXTVISIONMIN`: Streamed to an external vision system on a slower link
+- `MAVLINK_MODE_OSD`: Streamed to an OSD, such as an FPV headset.
+- `MAVLINK_MODE_CUSTOM`: Stream nothing by default. Used when configuring streaming using MAVLink.
+- `MAVLINK_MODE_MAGIC`: Same as `MAVLINK_MODE_CUSTOM`
+- `MAVLINK_MODE_CONFIG`: ?
+- `MAVLINK_MODE_MINIMAL`: Stream a minimal set of messages. Normally used for poor telemetry links.
+- `MAVLINK_MODE_IRIDIUM`: Streamed to an iridium satellite phone
+
+Normally you'll be testing on a GCS, so you could just add the message to the `MAVLINK_MODE_NORMAL` case using the `configure_stream_local()` method.
+For example, to stream CA_TRAJECTORY at 5 Hz:
+
+```cpp
+	case MAVLINK_MODE_CONFIG: // USB
+		// Note: streams requiring low latency come first
+		...
+		configure_stream_local("CA_TRAJECTORY", 5.0f);
+        ...
 ```
+
+It is also possible to add a stream by calling the [mavlink](../modules/modules_communication.html#mavlink) module with the `stream` argument in a [startup script](../concept/system_startup.md).
+For example, you might add the following line to [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink) in order to stream `CA_TRAJECTORY` at 50Hz on UDP port `14556` (`-r` configures the streaming rate and `-u` identifies the MAVLink channel on UDP port 14556).
+
+```sh
 mavlink stream -r 50 -s CA_TRAJECTORY -u 14556
 ```
 
-:::tip
-You can use the `uorb top [<message_name>]` command to verify in real-time that your message is published and the rate (see [uORB Messaging](../middleware/uorb.md#uorb-top-command)).
-This approach can also be used to test incoming messages that publish a uORB topic (for other messages you might use `printf` in your code and test in SITL).
+### Streaming on Request
 
-To see the message on _QGroundControl_ you will need to [build it with your MAVLink library](https://dev.qgroundcontrol.com/en/getting_started/), and then verify that the message is received using [MAVLink Inspector Widget](https://docs.qgroundcontrol.com/master/en/app_menu/mavlink_inspector.html) (or some other MAVLink tool).
-:::
+Some messages are only needed once, when particular hardware is connected, or under other circumstances.
+In order to avoid clogging communications links with messages that aren't needed you may not stream all messages by default, even at low rate.
+
+If you needed, a GCS or other MAVLink API can request that particular messages are streamed at a particular rate using [MAV_CMD_SET_MESSAGE_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL).
+A particular message can be requested just once using [MAV_CMD_REQUEST_MESSAGE](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_MESSAGE).
 
 ## Receiving Custom MAVLink Messages
 
@@ -143,7 +206,7 @@ This section explains how to receive a message over MAVLink and publish it to uO
 Add a function that handles the incoming MAVLink message in
 [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L77)
 
-```C
+```cpp
 #include <uORB/topics/ca_trajectory.h>
 #include <v2.0/custom_messages/mavlink_msg_ca_trajectory.h>
 ```
@@ -151,20 +214,20 @@ Add a function that handles the incoming MAVLink message in
 Add a function that handles the incoming MAVLink message in the `MavlinkReceiver` class in
 [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L140)
 
-```C
+```cpp
 void handle_message_ca_trajectory_msg(mavlink_message_t *msg);
 ```
 
 Add an uORB publisher in the `MavlinkReceiver` class in
 [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L195)
 
-```C
-uORB::Publication<ca_trajectory_s>			_ca_traj_msg_pub{ORB_ID(ca_trajectory)};
+```cpp
+uORB::Publication<ca_trajectory_s> _ca_traj_msg_pub{ORB_ID(ca_trajectory)};
 ```
 
 Implement the `handle_message_ca_trajectory_msg` function in [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp)
 
-```C
+```cpp
 void MavlinkReceiver::handle_message_ca_trajectory_msg(mavlink_message_t *msg)
 {
     mavlink_ca_trajectory_t traj;
@@ -186,7 +249,7 @@ void MavlinkReceiver::handle_message_ca_trajectory_msg(mavlink_message_t *msg)
 
 and finally make sure it is called in [MavlinkReceiver::handle_message()](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp#L228)
 
-```C
+```cpp
 MavlinkReceiver::handle_message(mavlink_message_t *msg)
  {
     switch (msg->msgid) {
@@ -207,7 +270,7 @@ In this case, it can be time-consuming and error-prone to regenerate the MAVLink
 
 An alternative - and temporary - solution is to re-purpose debug messages.
 Instead of creating a custom MAVLink message `CA_TRAJECTORY`, you can send a message `DEBUG_VECT` with the string key `CA_TRAJ` and data in the `x`, `y` and `z` fields.
-See [this tutorial](../debug/debug_values.md). for an example usage of debug messages.
+See [this tutorial](../debug/debug_values.md) for an example usage of debug messages.
 
 :::note
 This solution is not efficient as it sends character string over the network and involves comparison of strings.
@@ -216,28 +279,28 @@ It should be used for development only!
 
 ## Testing
 
-Ultimately you'll want to test your new MAVLink interface is working by providing the corresponding ground station or MAVSDK implementation.
 As a first step, and while debugging, commonly you'll just want to confirm that any messages you've created are being sent/received as you expect.
 
-There are several approaches you can use to view traffic:
+You should should first use the `uorb top [<message_name>]` command to verify in real-time that your message is published and the rate (see [uORB Messaging](../middleware/uorb.md#uorb-top-command)).
+This approach can also be used to test incoming messages that publish a uORB topic (for other messages you might use `printf` in your code and test in SITL).
+
+There are several approaches you can use to view MAVLink traffic:
 
 - Create a [Wireshark MAVLink plugin](https://mavlink.io/en/guide/wireshark.html) for your dialect.
   This allows you to inspect MAVLink traffic on an IP interface - for example between _QGroundControl_ or MAVSDK and your real or simulated version of PX4.
+
+  :::tip
+  It is much easier to generate a wireshark plugin and inspect traffic in Wireshark, than to rebuild QGroundControl with your dialect and use MAVLink Inspector.
+  :::
+
 - [Log uORB topics](../dev_log/logging.md) associate with your MAVLink message.
-- View received messages in the QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html).
-  For the messages to appear you will need to [Build QGroundControl](https://dev.qgroundcontrol.com/master/en/getting_started/) including a pre-built C library that contains your custom messages.
-  - QGC uses a pre-built C library that must be located at [/qgroundcontrol/libs/mavlink/include/mavlink](https://github.com/mavlink/qgroundcontrol/tree/master/libs/mavlink/include/mavlink) in the QGC source.
-    By default this is pre-included as a submodule from https://github.com/mavlink/c_library_v2 but you can [generate your own MAVLink Libraries](https://mavlink.io/en/getting_started/generate_libraries.html)
-  - QGC uses the ArduPilotMega.xml dialect by default, which includes **common.xml**.
-    You can include your messages in either file or in your own dialect.
-    However if you use your own dialect then it should include ArduPilotMega.xml (or it will miss all the existing messages), and you will need to change the dialect used by setting it in [`MAVLINK_CONF`](https://github.com/mavlink/qgroundcontrol/blob/master/QGCExternalLibs.pri#L52) when running _qmake_.
+- View received messages in the QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html).
+  You will need to rebuild QGroundControl with the custom message definitions, [as described below](h#updating-qgroundcontrol)
 
-## General
+### Set Streaming Rate using a Shell
 
-### Set streaming rate
-
-Sometimes it is useful to increase the streaming rate of individual topics (e.g. for inspection in QGC).
-This can be achieved by typing the following line in the shell:
+For testing, it is sometimes useful to increase the streaming rate of individual topics at runtime (e.g. for inspection in QGC).
+This can be achieved using by calling the [mavlink](../modules/modules_communication.html#mavlink) module through the [QGC MAVLink console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (or some other shell):
 
 ```sh
 mavlink stream -u <port number> -s <mavlink topic name> -r <rate>
@@ -247,5 +310,28 @@ You can get the port number with `mavlink status` which will output (amongst oth
 An example would be:
 
 ```sh
-mavlink stream -u 14556 -s OPTICAL_FLOW_RAD -r 300
+mavlink stream -u 14556 -s CA_TRAJECTORY -r 300
 ```
+
+## Updating Ground Stations
+
+Ultimately you'll want to use your new MAVLink interface by providing the corresponding ground station or MAVSDK implementation.
+
+The important thing to remember here is that MAVLink requires that you use a version of the library that is built to the same definition (XML file).
+So if you have created a custom message in PX4 you won't be able to use it unless you build QGC or MAVSDK with that same definition.
+
+### Updating QGroundControl
+
+You will need to [Build QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-dev-guide/getting_started/index.html) including a pre-built C library that contains your custom messages.
+
+QGC uses a pre-built C library that must be located at [/qgroundcontrol/libs/mavlink/include/mavlink](https://github.com/mavlink/qgroundcontrol/tree/master/libs/mavlink/include/mavlink) in the QGC source.
+
+By default this is pre-included as a submodule from <https://github.com/mavlink/c_library_v2> but you can [generate your own MAVLink Libraries](https://mavlink.io/en/getting_started/generate_libraries.html).
+
+QGC uses the ArduPilotMega.xml dialect by default, which includes **common.xml**.
+You can include your messages in either file or in your own dialect.
+However if you use your own dialect then it should include ArduPilotMega.xml (or it will miss all the existing messages), and you will need to change the dialect used by setting it in [`MAVLINK_CONF`](https://github.com/mavlink/qgroundcontrol/blob/master/QGCExternalLibs.pri#L52) when running _qmake_.
+
+### Updating MAVSDK
+
+See the MAVSDK docs for information about how to work with [MAVLink headers and dialects](https://mavsdk.mavlink.io/main/en/cpp/guide/build.html#mavlink-headers-and-dialects).
