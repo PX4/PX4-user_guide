@@ -57,4 +57,3 @@ Select the **Apply and Restart** button.
 This video shows the [Traxxas Stampede Rover](../frames_rover/traxxas_stampede.md) (an Ackermann vehicle).
 
 @[youtube](https://youtu.be/N3HvSKS3nCw)
-
