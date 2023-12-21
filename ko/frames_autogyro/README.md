@@ -1,11 +1,9 @@
 # Autogyro Frames
 
-:::warning
-Support for autogyro frames is [experimental](../airframes/README.md#experimental-vehicles).
+<LinkedBadge type="warning" text="Experimental" url="../airframes/#experimental-vehicles"/>
 
-- Does not have a maintainer.
-- Not regularly tested by the core development team.
-- May not support all features needed in a product-quality UUV (feature support not known/documented). :::
+:::warning
+Support for autogyro frames is [experimental](../airframes/README.md#experimental-vehicles). Maintainer volunteers, [contribution](../contribute/README.md) of new features, new frame configurations, or other improvements would all be very welcome! :::
 
 [오토자이로](https://en.wikipedia.org/wiki/Autogyro)는 [회전익](https://en.wikipedia.org/wiki/Rotorcraft) 비행기입니다. 다른 유형의 회전익과 비교하여 다음과 같은 장점들이 있습니다.
 
