@@ -1,12 +1,10 @@
 # RPi PilotPi Shield
 
+<LinkedBadge type="warning" text="Experimental" url="../flight_controller/autopilot_experimental.html"/>
+
 :::warning
 PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](mailto:lhf2613@gmail.com) for hardware support or compliance issues.
-:::
-
-:::warning
-PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 :::
 
 The _PilotPi_ shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi.
