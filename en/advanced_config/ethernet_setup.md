@@ -35,7 +35,7 @@ To connect systems over Ethernet you need to configure them to run on the same I
 This might be done using a DHCP server to allocate addresses, or by manually configuring the addresses of each system on the network.
 
 There is no single "out of the box configuration" that we can provide that will necessarily work in your local network.
-Therefore as an example of the kind of configuration you might do, below we show how to set up the systems on an IP network with static addresses in the range `10.41.10.Xxx`, where PX4 has a statically allocated address `10.41.10.2` and the computer has address `10.41.10.1`.
+Therefore as an example of the kind of configuration you might do, below we show how to set up the systems on an IP network with static addresses in the range `10.41.10.Xxx`, where PX4 has a statically allocated address `10.41.10.2` (PX4-default) and the computer has address `10.41.10.1`.
 If you wanted to connect a companion computer or other system to the network you could use a similar approach to allocate a static address.
 
 ::: info
@@ -49,11 +49,18 @@ Which is to say that a knowledge of how IP networks work is highly desirable!
 
 PX4 uses the [netman](../modules/modules_system.md#netman) module to apply and update network settings.
 
+The default configuration first requests an IP address from DHCP, and if that fails will fallback to the default static address `10.41.10.2`.
+You can explicitly set any static IP address (including the default address), to bypass the initial DHCP check and make the connection a little faster.
+
+:::note
+If you want to use the default static IP address for PX4 you can skip forward to the next section.
+:::
+
 Network settings are defined in the configuration file `/fs/microsd/net.cfg` on the SD card.
 This is a text file, that defines each setting on a new line as a `name=value` pair.
 A configuration file might look like this:
 
-```
+```ini
 DEVICE=eth0
 BOOTPROTO=fallback
 IPADDR=10.41.10.2
