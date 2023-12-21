@@ -1,15 +1,17 @@
 # AUAV-X2 자동조종장치 (단종됨)
 
+<Badge type="error" text="Discontinued" />
+
 :::warning
 This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. PX4는 [NuttX](https://nuttx.apache.org/) OS에서 실행됩니다.
 :::
 
-The [AUAV<sup>&reg;</sup>](http://www.auav.com/) _AUAV-X2 autopilot_ is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design.  PX4는 [NuttX](https://nuttx.apache.org/) OS에서 실행됩니다.
+The [AUAV<sup>&reg;</sup>](http://www.auav.com/) _AUAV-X2 autopilot_ is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
 
-![AUAVX2 케이스 2](../../assets/flight_controller/auav_x2/auavx2_case2.jpg)
+![AUAVX2_case2](../../assets/flight_controller/auav_x2/auavx2_case2.jpg)
 
 ## 요약
 
@@ -47,7 +49,7 @@ The [AUAV<sup>&reg;</sup>](http://www.auav.com/) _AUAV-X2 autopilot_ is based on
 
 ## 구매처
 
-더 이상 생산되지 않습니다. This has been superseded by the [mRo X2.1](mro_x2.1.md). mRobotics는 2017년 8월부터 AUAV 유통 업체입니다.
+No longer in production. This has been superseded by the [mRo X2.1](mro_x2.1.md). mRobotics is the distributor for the AUAV Products from August 2017.
 
 ## 주요 링크
 
@@ -56,21 +58,22 @@ The [AUAV<sup>&reg;</sup>](http://www.auav.com/) _AUAV-X2 autopilot_ is based on
 
 ## 배선 가이드
 
-![AUAV-X2 기본 설정 3](../../assets/flight_controller/auav_x2/auav_x2_basic_setup_3.png)
+![AUAV-X2 기본 설정 2](../../assets/flight_controller/auav_x2/auav_x2_basic_setup_3.png)
 
-![AUAV-X2 기본 설정 2](../../assets/flight_controller/auav_x2/auav_x2_basic_setup_2.jpg)
+![AUAV-X2 기본 설정 1](../../assets/flight_controller/auav_x2/auav_x2_basic_setup_2.jpg)
 
-![AUAV-X2 기본 설정 1](../../assets/flight_controller/auav_x2/auav_x2_basic_setup_1.png)
+![AUAV-X2- 대기 속도 설정 3](../../assets/flight_controller/auav_x2/auav_x2_basic_setup_1.png)
 
-![AUAV-X2- 대기 속도 설정 3](../../assets/flight_controller/auav_x2/auav_x2_airspeed_setup_3.png)
+![AUAV-X2-airspeed-setup 3](../../assets/flight_controller/auav_x2/auav_x2_airspeed_setup_3.png)
 
 ## 회로도
 
-이 보드는 [Pixhawk 프로젝트](https://pixhawk.org/) **FMUv2** 개방형 하드웨어 설계에 기반합니다.
+The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open hardware design.
 
 - [FMUv2 + IOv2 회로도](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) - 회로도 및 레이아웃
 
-:::note CC-BY-SA 3.0 라이센스 오픈 하드웨어 설계로 모든 회로도와 설계 파일을 [사용할 수 있습니다](https://github.com/PX4/Hardware).
+:::note
+As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
 :::
 
 ## 시리얼 포트 매핑
