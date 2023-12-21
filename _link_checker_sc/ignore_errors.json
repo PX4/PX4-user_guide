@@ -591,5 +591,41 @@
       "text": "Mission"
     },
     "hideReason": "Expected"
+  },
+  {
+    "type": "LinkedFileMissingAnchor",
+    "fileRelativeToRoot": "en\\config_heli\\README.md",
+    "link": {
+      "url": "../airframes/airframe_reference.md#copter_helicopter_generic_helicopter_%28tail_esc%29",
+      "text": "Generic Helicopter - with Tail ESC"
+    },
+    "hideReason": "Link OK. Deferring tool fix."
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes_mc/position_slow.html",
+      "text": "Position Slow"
+    },
+    "hideReason": "Link OK. Is inside HTML"
+  },
+  {
+    "type": "LinkedFileMissingAnchor",
+    "fileRelativeToRoot": "en\\frames_rover\\traxxas_stampede.md",
+    "link": {
+      "url": "../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle_(ackermann",
+      "text": "Generic ground vehicle (Ackermann)"
+    },
+    "hideReason": "Link OK. Deferring tool fix."
+  },
+  {
+    "type": "LinkedFileMissingAnchor",
+    "fileRelativeToRoot": "en\\frames_sub\\README.md",
+    "link": {
+      "url": "../airframes/airframe_reference.md#underwater_robot_underwater_robot_hippocampus_uuv_%28unmanned_underwater_vehicle%29",
+      "text": "Airframe Reference"
+    },
+    "hideReason": "Link OK. Deferring tool fix."
   }
 ]
