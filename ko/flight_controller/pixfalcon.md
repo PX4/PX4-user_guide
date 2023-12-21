@@ -1,15 +1,19 @@
 # Pixfalcon 비행 콘트롤러 (단종됨)
 
+<Badge type="error" text="Discontinued" />
+
 :::warning
 This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+소형화를 위하여 가진 IO가 적습니다.
 :::
 
-The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](https://holybro.com/)) is binary-compatible (FMUv2) derivative of the [Pixhawk 1](../flight_controller/pixhawk.md) design that has been optimized for space-constrained applications such as FPV racers. 소형화를 위하여 가진 IO가 적습니다.
+The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](https://holybro.com/)) is binary-compatible (FMUv2) derivative of the [Pixhawk 1](../flight_controller/pixhawk.md) design that has been optimized for space-constrained applications such as FPV racers. It has less IO to allow for the reduction in size.
 
-![Pixfalcon 대표 이미지](../../assets/hardware/hardware-pixfalcon.png)
+![Pixfalcon hero image](../../assets/hardware/hardware-pixfalcon.png)
 
 ## 요약
 
@@ -30,9 +34,9 @@ The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](https://holybro.c
 
 ## 구매처:
 
-유통 업체 [Hobbyking<sup>&reg;</sup>](https://hobbyking.com/en_us/pixfalcon-micro-px4-autopilot-plus-micro-m8n-gps-and-mega-pbd-power-module.html)
-
 하드웨어 옵션:
+
+Optional hardware:
 
 - Optical flow: PX4 Flow unit from manufacturer [Holybro](https://holybro.com/products/px4flow)
 - Digital Airspeed sensor from manufacturer [Holybro](https://holybro.com/products/digital-air-speed-sensor) or distributor [Hobbyking](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
@@ -44,10 +48,11 @@ The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](https://holybro.c
 
 ## 펌웨어 빌드
 
-::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
-이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
+이 보드에는 디버그 포트가 없습니다. 즉, [시스템 콘솔](../debug/system_console.md) 이나 [SWD 인터페이스](../debug/swd_debug.md) (JTAG)에 접속 포트가 존재하지 않습니다.
 
 ```
 make px4_fmu-v2_default
@@ -55,9 +60,9 @@ make px4_fmu-v2_default
 
 ## 디버그 포트
 
-이 보드에는 디버그 포트가 없습니다. 즉, [시스템 콘솔](../debug/system_console.md) 이나 [SWD 인터페이스](../debug/swd_debug.md) (JTAG)에 접속 포트가 존재하지 않습니다.
-
 개발자는 SWD용 보드 테스트 패드와 STM32F4 (IC) TX와 RX에 와이어를 납땜하여 콘솔을 획득할 수 있습니다.
+
+Developers will need to solder wires to the board test pads for SWD, and to the STM32F4 (IC) TX and RX to get a console.
 
 ## 시리얼 포트 매핑
 
