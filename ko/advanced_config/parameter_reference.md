@@ -8376,7 +8376,6 @@ table {
 <tr>
  <td><strong id="ASPD_PRIMARY">ASPD_PRIMARY</strong> (INT32)</td>
  <td>Index or primary airspeed measurement source  <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Disabled</li>
 <li><strong>0:</strong> Groundspeed minus windspeed</li>
 <li><strong>1:</strong> First airspeed sensor</li>
 <li><strong>2:</strong> Second airspeed sensor</li>
@@ -9101,14 +9100,6 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="CBRK_AIRSPD_CHK">CBRK_AIRSPD_CHK</strong> (INT32)</td>
- <td>Circuit breaker for airspeed sensor <p><strong>Comment:</strong> Setting this parameter to 162128 will disable the check for an airspeed sensor. The sensor driver will not be started and it cannot be calibrated. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 162128] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="CBRK_BUZZER">CBRK_BUZZER</strong> (INT32)</td>
  <td>Circuit breaker for disabling buzzer <p><strong>Comment:</strong> Setting this parameter to 782097 will disable the buzzer audio notification. Setting this parameter to 782090 will disable the startup tune, while keeping all others enabled.</p>   <p><b>Reboot required:</b> true</p>
 </td>
@@ -9317,7 +9308,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_ARM_SDCARD">COM_ARM_SDCARD</strong> (INT32)</td>
- <td>Enable FMU SD card detection check <p><strong>Comment:</strong> This check detects if the FMU SD card is missing. Depending on the value of the parameter, the check can be disabled, warn only or deny arming.</p> <strong>값:</strong><ul>
+ <td>Enable FMU SD card detection check <p><strong>Comment:</strong> This check detects if the FMU SD card is missing. Depending on the value of the parameter, the check can be disabled, warn only or deny arming.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Warning only</li>
 <li><strong>2:</strong> Enforce SD card presence</li>
@@ -11839,16 +11830,6 @@ table {
  <td>deg</td>
 </tr>
 <tr>
- <td><strong id="FW_ARSP_MODE">FW_ARSP_MODE</strong> (INT32)</td>
- <td>Airspeed mode <p><strong>Comment:</strong> On vehicles without airspeed sensor this parameter can be used to enable flying without an airspeed reading</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> Use airspeed in controller</li>
-<li><strong>1:</strong> Do not use airspeed in controller</li>
-</ul>  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="FW_ARSP_SCALE_EN">FW_ARSP_SCALE_EN</strong> (INT32)</td>
  <td>Enable airspeed scaling <p><strong>Comment:</strong> This enables a logic that automatically adjusts the output of the rate controller to take into account the real torque produced by an aerodynamic control surface given the current deviation from the trim airspeed (FW_AIRSPD_TRIM). Enable when using aerodynamic control surfaces (e.g.: plane) Disable when using rotor wings (e.g.: autogyro)</p>   </td>
  <td></td>
@@ -12025,6 +12006,13 @@ table {
 </ul>  </td>
  <td></td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_USE_AIRSPD">FW_USE_AIRSPD</strong> (INT32)</td>
+ <td>Use airspeed for control <p><strong>Comment:</strong> If set to 1, the airspeed measurement data, if valid, is used in the following controllers: - Rate controller: output scaling - Attitude controller: coordinated turn controller - Position controller: airspeed setpoint tracking, takeoff logic - VTOL: transition logic</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
@@ -12609,7 +12597,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_UBX_MODE">GPS_UBX_MODE</strong> (INT32)</td>
- <td>u-blox GPS Mode <p><strong>Comment:</strong> Select the u-blox configuration setup. Most setups will use the default, including RTK and dual GPS without heading. If rover has RTCM corrections from a static base (or other static correction source) coming in on UART2, then select Mode 5. The Heading mode requires 2 F9P devices to be attached. The main GPS will act as rover and output heading information, whereas the secondary will act as moving base. Modes 1 and 2 require each F9P UART1 to be connected to the Autopilot. In addition, UART2 on the F9P units are connected to each other. Modes 3 and 4 only require UART1 on each F9P connected to the Autopilot or Can Node. UART RX DMA is required. RTK is still possible with this setup.</p> <strong>Values:</strong><ul>
+ <td>u-blox GPS Mode <p><strong>Comment:</strong> Select the u-blox configuration setup. Most setups will use the default, including RTK and dual GPS without heading. If rover has RTCM corrections from a static base (or other static correction source) coming in on UART2, then select Mode 5. The Heading mode requires 2 F9P devices to be attached. The main GPS will act as rover and output heading information, whereas the secondary will act as moving base. Modes 1 and 2 require each F9P UART1 to be connected to the Autopilot. In addition, UART2 on the F9P units are connected to each other. Modes 3 and 4 only require UART1 on each F9P connected to the Autopilot or Can Node. UART RX DMA is required. RTK is still possible with this setup.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Default</li>
 <li><strong>1:</strong> Heading (Rover With Moving Base UART1 Connected To Autopilot, UART2 Connected To Moving Base)</li>
 <li><strong>2:</strong> Moving Base (UART1 Connected To Autopilot, UART2 Connected To Rover)</li>
@@ -12685,7 +12673,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GF_SOURCE">GF_SOURCE</strong> (INT32)</td>
- <td>Geofence source <p><strong>Comment:</strong> Select which position source should be used. Selecting GPS instead of global position makes sure that there is no dependence on the position estimator 0 = global position, 1 = GPS</p> <strong>값:</strong><ul>
+ <td>Geofence source <p><strong>Comment:</strong> Select which position source should be used. Selecting GPS instead of global position makes sure that there is no dependence on the position estimator 0 = global position, 1 = GPS</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> GPOS</li>
 <li><strong>1:</strong> GPS</li>
 </ul>  </td>
@@ -13744,7 +13732,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR9_TILT">CA_ROTOR9_TILT</strong> (INT32)</td>
- <td>Rotor 9 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>Values:</strong><ul>
+ <td>Rotor 9 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> Tilt 1</li>
 <li><strong>2:</strong> Tilt 2</li>
@@ -14588,7 +14576,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL2_TD">CA_SV_TL2_TD</strong> (INT32)</td>
- <td>Tilt Servo 2 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>값:</strong><ul>
+ <td>Tilt Servo 2 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Towards Front</li>
 <li><strong>90:</strong> Towards Right</li>
 </ul>  </td>
@@ -14598,7 +14586,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL3_CT">CA_SV_TL3_CT</strong> (INT32)</td>
- <td>Tilt 3 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>Values:</strong><ul>
+ <td>Tilt 3 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> Yaw</li>
 <li><strong>2:</strong> Pitch</li>
@@ -14624,7 +14612,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL3_TD">CA_SV_TL3_TD</strong> (INT32)</td>
- <td>Tilt Servo 3 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>값:</strong><ul>
+ <td>Tilt Servo 3 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Towards Front</li>
 <li><strong>90:</strong> Towards Right</li>
 </ul>  </td>
@@ -15251,7 +15239,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="MAV_0_BROADCAST">MAV_0_BROADCAST</strong> (INT32)</td>
- <td>Broadcast heartbeats on local network for MAVLink instance 0 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
+ <td>Broadcast heartbeats on local network for MAVLink instance 0 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Never broadcast</li>
 <li><strong>1:</strong> Always broadcast</li>
 <li><strong>2:</strong> Only multicast</li>
@@ -15262,7 +15250,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_0_CONFIG">MAV_0_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MAVLink (instance 0) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>값:</strong><ul>
+ <td>Serial Configuration for MAVLink (instance 0) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -15356,7 +15344,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_1_BROADCAST">MAV_1_BROADCAST</strong> (INT32)</td>
- <td>Broadcast heartbeats on local network for MAVLink instance 1 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
+ <td>Broadcast heartbeats on local network for MAVLink instance 1 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Never broadcast</li>
 <li><strong>1:</strong> Always broadcast</li>
 <li><strong>2:</strong> Only multicast</li>
@@ -15367,7 +15355,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_1_CONFIG">MAV_1_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MAVLink (instance 1) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>값:</strong><ul>
+ <td>Serial Configuration for MAVLink (instance 1) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -15461,7 +15449,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_2_BROADCAST">MAV_2_BROADCAST</strong> (INT32)</td>
- <td>Broadcast heartbeats on local network for MAVLink instance 2 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
+ <td>Broadcast heartbeats on local network for MAVLink instance 2 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Never broadcast</li>
 <li><strong>1:</strong> Always broadcast</li>
 <li><strong>2:</strong> Only multicast</li>
@@ -15472,7 +15460,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_2_CONFIG">MAV_2_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MAVLink (instance 2) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>값:</strong><ul>
+ <td>Serial Configuration for MAVLink (instance 2) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -16575,7 +16563,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_POS_MODE">MPC_POS_MODE</strong> (INT32)</td>
- <td>Position/Altitude mode variant <p><strong>Comment:</strong> The supported sub-modes are: 0 Sticks directly map to velocity setpoints without smoothing. Also applies to vertical direction and Altitude mode. Useful for velocity control tuning. 3 Sticks map to velocity but with maximum acceleration and jerk limits based on jerk optimized trajectory generator (different algorithm than 1). 4 Sticks map to acceleration and there&#x27;s a virtual brake drag</p> <strong>Values:</strong><ul>
+ <td>Position/Altitude mode variant <p><strong>Comment:</strong> The supported sub-modes are: 0 Sticks directly map to velocity setpoints without smoothing. Also applies to vertical direction and Altitude mode. Useful for velocity control tuning. 3 Sticks map to velocity but with maximum acceleration and jerk limits based on jerk optimized trajectory generator (different algorithm than 1). 4 Sticks map to acceleration and there&#x27;s a virtual brake drag</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Direct velocity</li>
 <li><strong>3:</strong> Smoothed velocity</li>
 <li><strong>4:</strong> Acceleration based</li>
@@ -17133,7 +17121,7 @@ table {
 </tr>
 <tr>
  <td><strong id="OSD_ATXXXX_CFG">OSD_ATXXXX_CFG</strong> (INT32)</td>
- <td>Enable/Disable the ATXXX OSD Chip <p><strong>Comment:</strong> Configure the ATXXXX OSD Chip (mounted on the OmnibusF4SD board) and select the transmission standard.</p> <strong>값:</strong><ul>
+ <td>Enable/Disable the ATXXX OSD Chip <p><strong>Comment:</strong> Configure the ATXXXX OSD Chip (mounted on the OmnibusF4SD board) and select the transmission standard.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> NTSC</li>
 <li><strong>2:</strong> PAL</li>
@@ -17662,7 +17650,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC17_REV">RC17_REV</strong> (FLOAT)</td>
- <td>RC channel 17 reverse <p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td>RC channel 17 reverse <p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>값:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li>
 <li><strong>1.0:</strong> Normal</li>
 </ul>  </td>
@@ -17738,7 +17726,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC1_REV">RC1_REV</strong> (FLOAT)</td>
- <td>RC channel 1 reverse <p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>값:</strong><ul>
+ <td>RC channel 1 reverse <p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li>
 <li><strong>1.0:</strong> Normal</li>
 </ul>  </td>
@@ -18127,7 +18115,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_AUX3">RC_MAP_AUX3</strong> (INT32)</td>
- <td>AUX3 Passthrough RC channel <p><strong>Comment:</strong> Default function: Camera azimuth / yaw</p> <strong>Values:</strong><ul>
+ <td>AUX3 Passthrough RC channel <p><strong>Comment:</strong> Default function: Camera azimuth / yaw</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
 <li><strong>1:</strong> Channel 1</li>
 <li><strong>2:</strong> Channel 2</li>
@@ -18289,7 +18277,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_PARAM1">RC_MAP_PARAM1</strong> (INT32)</td>
- <td>PARAM1 tuning channel <p><strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 1st parameter channel. Set to 0 to deactivate *</p> <strong>값:</strong><ul>
+ <td>PARAM1 tuning channel <p><strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 1st parameter channel. Set to 0 to deactivate *</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
 <li><strong>1:</strong> Channel 1</li>
 <li><strong>2:</strong> Channel 2</li>
@@ -18478,7 +18466,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_RSSI_PWM_CHAN">RC_RSSI_PWM_CHAN</strong> (INT32)</td>
- <td>PWM input channel that provides RSSI <p><strong>Comment:</strong> 0: do not read RSSI from input channel 1-18: read RSSI from specified input channel Specify the range for RSSI input with RC_RSSI_PWM_MIN and RC_RSSI_PWM_MAX parameters.</p> <strong>Values:</strong><ul>
+ <td>PWM input channel that provides RSSI <p><strong>Comment:</strong> 0: do not read RSSI from input channel 1-18: read RSSI from specified input channel Specify the range for RSSI input with RC_RSSI_PWM_MIN and RC_RSSI_PWM_MAX parameters.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
 <li><strong>1:</strong> Channel 1</li>
 <li><strong>2:</strong> Channel 2</li>
@@ -18612,7 +18600,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_ARM_SW">RC_MAP_ARM_SW</strong> (INT32)</td>
- <td>Arm switch channel <p><strong>Comment:</strong> Use it to arm/disarm via switch instead of default throttle stick. If this is assigned, arming and disarming via stick is disabled.</p> <strong>값:</strong><ul>
+ <td>Arm switch channel <p><strong>Comment:</strong> Use it to arm/disarm via switch instead of default throttle stick. If this is assigned, arming and disarming via stick is disabled.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
 <li><strong>1:</strong> Channel 1</li>
 <li><strong>2:</strong> Channel 2</li>
@@ -19202,7 +19190,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="RBCLW_ADDRESS">RBCLW_ADDRESS</strong> (INT32)</td>
- <td>Address of the ESC on the bus <p><strong>Comment:</strong> The ESC has to be configured to have an address from 0x80 to 0x87. This parameter needs to match the configured value.</p> <strong>Values:</strong><ul>
+ <td>Address of the ESC on the bus <p><strong>Comment:</strong> The ESC has to be configured to have an address from 0x80 to 0x87. This parameter needs to match the configured value.</p> <strong>값:</strong><ul>
 <li><strong>128:</strong> 0x80</li>
 <li><strong>129:</strong> 0x81</li>
 <li><strong>130:</strong> 0x82</li>
@@ -19319,7 +19307,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GND_SP_CTRL_MODE">GND_SP_CTRL_MODE</strong> (INT32)</td>
- <td>Control mode for speed <p><strong>Comment:</strong> This allows the user to choose between closed loop gps speed or open loop cruise throttle speed</p> <strong>값:</strong><ul>
+ <td>Control mode for speed <p><strong>Comment:</strong> This allows the user to choose between closed loop gps speed or open loop cruise throttle speed</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> open loop control</li>
 <li><strong>1:</strong> close the loop with gps speed</li>
 </ul>  </td>
@@ -21510,7 +21498,7 @@ table {
 </tr>
 <tr>
  <td><strong id="IMU_GYRO_RATEMAX">IMU_GYRO_RATEMAX</strong> (INT32)</td>
- <td>Gyro control data maximum publication rate (inner loop rate) <p><strong>Comment:</strong> The maximum rate the gyro control data (vehicle_angular_velocity) will be allowed to publish at. This is the loop rate for the rate controller and outputs. Note: sensor data is always read and filtered at the full raw rate (eg commonly 8 kHz) regardless of this setting.</p> <strong>Values:</strong><ul>
+ <td>Gyro control data maximum publication rate (inner loop rate) <p><strong>Comment:</strong> The maximum rate the gyro control data (vehicle_angular_velocity) will be allowed to publish at. This is the loop rate for the rate controller and outputs. Note: sensor data is always read and filtered at the full raw rate (eg commonly 8 kHz) regardless of this setting.</p> <strong>값:</strong><ul>
 <li><strong>100:</strong> 100 Hz</li>
 <li><strong>250:</strong> 250 Hz</li>
 <li><strong>400:</strong> 400 Hz</li>
@@ -21525,7 +21513,7 @@ table {
 </tr>
 <tr>
  <td><strong id="IMU_INTEG_RATE">IMU_INTEG_RATE</strong> (INT32)</td>
- <td>IMU integration rate <p><strong>Comment:</strong> The rate at which raw IMU data is integrated to produce delta angles and delta velocities. Recommended to set this to a multiple of the estimator update period (currently 10 ms for ekf2).</p> <strong>값:</strong><ul>
+ <td>IMU integration rate <p><strong>Comment:</strong> The rate at which raw IMU data is integrated to produce delta angles and delta velocities. Recommended to set this to a multiple of the estimator update period (currently 10 ms for ekf2).</p> <strong>Values:</strong><ul>
 <li><strong>100:</strong> 100 Hz</li>
 <li><strong>200:</strong> 200 Hz</li>
 <li><strong>250:</strong> 250 Hz</li>
@@ -21708,7 +21696,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_BOARD_ROT">SENS_BOARD_ROT</strong> (INT32)</td>
- <td>Board rotation <p><strong>Comment:</strong> This parameter defines the rotation of the FMU board relative to the platform.</p> <strong>Values:</strong><ul>
+ <td>Board rotation <p><strong>Comment:</strong> This parameter defines the rotation of the FMU board relative to the platform.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -21779,7 +21767,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_CM8JL65_CFG">SENS_CM8JL65_CFG</strong> (INT32)</td>
- <td>Serial Configuration for Lanbao PSK-CM8JL65-CC5 <p><strong>Comment:</strong> Configure on which serial port to run Lanbao PSK-CM8JL65-CC5.</p> <strong>값:</strong><ul>
+ <td>Serial Configuration for Lanbao PSK-CM8JL65-CC5 <p><strong>Comment:</strong> Configure on which serial port to run Lanbao PSK-CM8JL65-CC5.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -22356,7 +22344,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MAG_SIDES">SENS_MAG_SIDES</strong> (INT32)</td>
- <td>Bitfield selecting mag sides for calibration <p><strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: ORIENTATION_TAIL_DOWN = 1 ORIENTATION_NOSE_DOWN = 2 ORIENTATION_LEFT = 4 ORIENTATION_RIGHT = 8 ORIENTATION_UPSIDE_DOWN = 16 ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>Values:</strong><ul>
+ <td>Bitfield selecting mag sides for calibration <p><strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: ORIENTATION_TAIL_DOWN = 1 ORIENTATION_NOSE_DOWN = 2 ORIENTATION_LEFT = 4 ORIENTATION_RIGHT = 8 ORIENTATION_UPSIDE_DOWN = 16 ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>값:</strong><ul>
 <li><strong>34:</strong> Two side calibration</li>
 <li><strong>38:</strong> Three side calibration</li>
 <li><strong>63:</strong> Six side calibration</li>
@@ -22367,7 +22355,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MB12_0_ROT">SENS_MB12_0_ROT</strong> (INT32)</td>
- <td>MaxBotix MB12XX Sensor 0 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>값:</strong><ul>
+ <td>MaxBotix MB12XX Sensor 0 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -22673,7 +22661,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MPDT4_ROT">SENS_MPDT4_ROT</strong> (INT32)</td>
- <td>MappyDot Sensor 4 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td>MappyDot Sensor 4 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -22690,7 +22678,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MPDT5_ROT">SENS_MPDT5_ROT</strong> (INT32)</td>
- <td>MappyDot Sensor 5 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>값:</strong><ul>
+ <td>MappyDot Sensor 5 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -22856,7 +22844,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_ULAND_CFG">SENS_ULAND_CFG</strong> (INT32)</td>
- <td>Serial Configuration for uLanding Radar <p><strong>Comment:</strong> Configure on which serial port to run uLanding Radar.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for uLanding Radar <p><strong>Comment:</strong> Configure on which serial port to run uLanding Radar.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -22898,7 +22886,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SF45_ORIENT_CFG">SF45_ORIENT_CFG</strong> (INT32)</td>
- <td>Orientation upright or facing downward <p><strong>Comment:</strong> The SF45 mounted facing upward or downward on the frame</p> <strong>값:</strong><ul>
+ <td>Orientation upright or facing downward <p><strong>Comment:</strong> The SF45 mounted facing upward or downward on the frame</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Rotation upward</li>
 <li><strong>1:</strong> Rotation downward</li>
 </ul>  <p><b>Reboot required:</b> True</p>
@@ -23102,7 +23090,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SER_GPS2_BAUD">SER_GPS2_BAUD</strong> (INT32)</td>
- <td>Baudrate for the GPS 2 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the GPS 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+ <td>Baudrate for the GPS 2 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the GPS 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>50:</strong> 50 8N1</li>
 <li><strong>75:</strong> 75 8N1</li>
@@ -23172,7 +23160,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SER_MXS_BAUD">SER_MXS_BAUD</strong> (INT32)</td>
- <td>MXS Serial Communication Baud rate <p><strong>Comment:</strong> Baudrate for the Serial Port connected to the MXS Transponder</p> <strong>값:</strong><ul>
+ <td>MXS Serial Communication Baud rate <p><strong>Comment:</strong> Baudrate for the Serial Port connected to the MXS Transponder</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> 38400</li>
 <li><strong>1:</strong> 600</li>
 <li><strong>2:</strong> 4800</li>
@@ -23803,6 +23791,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SYS_HAS_NUM_ASPD">SYS_HAS_NUM_ASPD</strong> (INT32)</td>
+ <td>Control if the vehicle has an airspeed sensor <p><strong>Comment:</strong> Set this to 0 if the board has no airspeed sensor. If set to 0, the preflight checks will not check for the presence of an airspeed sensor.</p>   </td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SYS_HAS_NUM_DIST">SYS_HAS_NUM_DIST</strong> (INT32)</td>
  <td>Number of distance sensors to check being available <p><strong>Comment:</strong> The preflight check will fail if fewer than this number of distance sensors with valid data is present. Disable the check with 0.</p>   </td>
  <td>[0, 4] </td>
@@ -23811,7 +23806,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_HITL">SYS_HITL</strong> (INT32)</td>
- <td>Enable HITL/SIH mode on next boot <p><strong>Comment:</strong> While enabled the system will boot in Hardware-In-The-Loop (HITL) or Simulation-In-Hardware (SIH) mode and not enable all sensors and checks. When disabled the same vehicle can be flown normally. Set to &#x27;external HITL&#x27;, if the system should perform as if it were a real vehicle (the only difference to a real system is then only the parameter value, which can be used for log analysis).</p> <strong>Values:</strong><ul>
+ <td>Enable HITL/SIH mode on next boot <p><strong>Comment:</strong> While enabled the system will boot in Hardware-In-The-Loop (HITL) or Simulation-In-Hardware (SIH) mode and not enable all sensors and checks. When disabled the same vehicle can be flown normally. Set to &#x27;external HITL&#x27;, if the system should perform as if it were a real vehicle (the only difference to a real system is then only the parameter value, which can be used for log analysis).</p> <strong>값:</strong><ul>
 <li><strong>-1:</strong> external HITL</li>
 <li><strong>0:</strong> HITL and SIH disabled</li>
 <li><strong>1:</strong> HITL enabled</li>
@@ -23824,7 +23819,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_MC_EST_GROUP">SYS_MC_EST_GROUP</strong> (INT32)</td>
- <td>Set multicopter estimator group <p><strong>Comment:</strong> Set the group of estimators used for multicopters and VTOLs</p> <strong>값:</strong><ul>
+ <td>Set multicopter estimator group <p><strong>Comment:</strong> Set the group of estimators used for multicopters and VTOLs</p> <strong>Values:</strong><ul>
 <li><strong>1:</strong> local_position_estimator, attitude_estimator_q (unsupported)</li>
 <li><strong>2:</strong> ekf2 (recommended)</li>
 <li><strong>3:</strong> Q attitude estimator (no position)</li>
@@ -23868,7 +23863,7 @@ table {
 </tr>
 <tr>
  <td><strong id="TEL_FRSKY_CONFIG">TEL_FRSKY_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for FrSky Telemetry <p><strong>Comment:</strong> Configure on which serial port to run FrSky Telemetry.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for FrSky Telemetry <p><strong>Comment:</strong> Configure on which serial port to run FrSky Telemetry.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -25730,7 +25725,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MXS_OP_MODE">MXS_OP_MODE</strong> (INT32)</td>
- <td>Sagetech MXS mode configuration <p><strong>Comment:</strong> This parameter defines the operating mode of the MXS</p> <strong>값:</strong><ul>
+ <td>Sagetech MXS mode configuration <p><strong>Comment:</strong> This parameter defines the operating mode of the MXS</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Off</li>
 <li><strong>1:</strong> On</li>
 <li><strong>2:</strong> Standby</li>
@@ -25764,7 +25759,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MXS_TARG_PORT">MXS_TARG_PORT</strong> (INT32)</td>
- <td>Sagetech MXS Participant Configuration <p><strong>Comment:</strong> The MXS communication port to receive Target data from</p> <strong>Values:</strong><ul>
+ <td>Sagetech MXS Participant Configuration <p><strong>Comment:</strong> The MXS communication port to receive Target data from</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>1:</strong> COM0</li>
 <li><strong>2:</strong> COM1</li>
@@ -25840,7 +25835,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_ENABLE">UAVCAN_ENABLE</strong> (INT32)</td>
- <td>UAVCAN mode <p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.</p> <strong>값:</strong><ul>
+ <td>UAVCAN mode <p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Sensors Manual Config</li>
 <li><strong>2:</strong> Sensors Automatic Config</li>
@@ -25866,7 +25861,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_LGT_LAND">UAVCAN_LGT_LAND</strong> (INT32)</td>
- <td>UAVCAN LIGHT_ID_LANDING light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the LIGHT_ID_LANDING lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
+ <td>UAVCAN LIGHT_ID_LANDING light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the LIGHT_ID_LANDING lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Always off</li>
 <li><strong>1:</strong> When autopilot is armed</li>
 <li><strong>2:</strong> When autopilot is prearmed</li>
@@ -25879,7 +25874,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_LGT_NAV">UAVCAN_LGT_NAV</strong> (INT32)</td>
- <td>UAVCAN RIGHT_OF_WAY light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the RIGHT_OF_WAY lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>값:</strong><ul>
+ <td>UAVCAN RIGHT_OF_WAY light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the RIGHT_OF_WAY lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Always off</li>
 <li><strong>1:</strong> When autopilot is armed</li>
 <li><strong>2:</strong> When autopilot is prearmed</li>
@@ -26255,7 +26250,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UWB_SENS_ROT">UWB_SENS_ROT</strong> (INT32)</td>
- <td>UWB sensor orientation <p><strong>Comment:</strong> The orientation of the sensor relative to the forward direction of the body frame. Look up table in src/lib/conversion/rotation.h Default position is the antannaes downward facing, UWB board parallel with body frame.</p> <strong>Values:</strong><ul>
+ <td>UWB sensor orientation <p><strong>Comment:</strong> The orientation of the sensor relative to the forward direction of the body frame. Look up table in src/lib/conversion/rotation.h Default position is the antannaes downward facing, UWB board parallel with body frame.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> ROTATION_NONE</li>
 <li><strong>1:</strong> ROTATION_YAW_45</li>
 <li><strong>2:</strong> ROTATION_YAW_90</li>
