@@ -1,4 +1,6 @@
-# PX4 ROS 2 Interface Library <Badge type="warning" text="main (v1.15+)" vertical="top" />
+# PX4 ROS 2 Interface Library
+
+<Badge type="warning" text="main (PX4 v1.15)" /> <Badge type="warning" text="Experimental" />
 
 :::warning
 Experimental
@@ -31,7 +33,7 @@ To get started using the library within an existing ROS 2 workspace:
    ```
 
    :::note
-   To ensure compatibility, use the latest _main_ branches for PX4, _px4\_msgs_ and the library.
+   To ensure compatibility, use the latest _main_ branches for PX4, _px4_msgs_ and the library.
    See also [here](https://github.com/Auterion/px4-ros2-interface-lib#compatibility-with-px4).
 
 :::
