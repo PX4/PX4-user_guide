@@ -1,6 +1,6 @@
 # CUAV NEO 3 GPS
 
-<Badge type="tip" text="PX4 v1.13+" />
+<Badge type="tip" text="PX4 v1.13" />
 
 This NEO 3 GPS is manufactured by CUAV.
 It integrates Ublox M9N, IST8310, three-color LED lights and safety switches, and is compatible with CUAV and Pixhawk standard controllers.

@@ -1,14 +1,16 @@
 # Helicopters
 
+<LinkedBadge type="warning" text="Experimental" url="../airframes/#experimental-vehicles"/>
+
 :::warning
 Support for helicopters is [experimental](../airframes/README.md#experimental-vehicles).
+Maintainer volunteers, [contribution](../contribute/README.md) of new features, new frame configurations, or other improvements would all be very welcome!
 
-- Does not have a maintainer.
-- Not regularly tested by the core development team.
+Issues include:
+
 - Limited support for different types of helicopters.
   For example, PX4 does not support helicopters with coaxial or dual rotor types, and features such as RPM governor and autorotation.
 
-Maintainer volunteers, [contribution](../contribute/README.md) of new features, new frame configurations, or other improvements would all be very welcome!
 :::
 
 <!-- image here please of PX4 helicopter -->

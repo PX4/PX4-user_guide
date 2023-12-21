@@ -1,4 +1,6 @@
-# Throw Launch (Multicopter) <Badge type="warning" text="main (v1.15+)" vertical="top" />
+# Throw Launch (Multicopter)
+
+ <Badge type="warning" text="main (PX4 v1.15)" /> <Badge type="warning" text="Experimental" />
 
 :::warning Experimental
 This feature was introduced after PX4 v1.14.

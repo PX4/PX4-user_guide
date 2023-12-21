@@ -1,4 +1,6 @@
-# Package Delivery in Missions <Badge type="tip" text="v1.14" vertical="top" />
+# Package Delivery in Missions
+
+<Badge type="tip" text="PX4 v1.14" />
 
 A package delivery mission is an extension of a waypoint mission, where a user can plan delivering a package as a waypoint.
 

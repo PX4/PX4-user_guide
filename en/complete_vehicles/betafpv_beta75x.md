@@ -1,5 +1,7 @@
 # BetaFPV Beta75X 2S Brushless Whoop
 
+<Badge type="error" text="Discontinued" />
+
 :::warning
 This frame has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
