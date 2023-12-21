@@ -50,6 +50,12 @@ TBD ...
   Gazebo additional supports drag-and-drop via the resource spawner in Gazebo GUI.
   Added to PX4 in [PX4-Autopilot#22467](https://github.com/PX4/PX4-Autopilot/pull/22467).
 
+### Ethernet
+
+- [Ethernet](../advanced_config/ethernet_setup.md): The default static IP address (used as a fallback for DHCP) has changed from `192.168.0.3` to `10.41.10.2`.
+  This avoids potential conflicts where the`192.168.0.x` range is used by routers for WIFI/ethernet networks.
+  Changed in PX4 in [PX4-Autopilot#22517](https://github.com/PX4/PX4-Autopilot/pull/22517).
+
 ### uXRCE-DDS / ROS2
 
 - [uXRCE-DDS](../middleware/uxrce_dds.md): [DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml) now allows the use of `subscription_multi` to specify that indicated ROS 2 topics are sent to a separate uORB topic instance reserved for ROS 2.
