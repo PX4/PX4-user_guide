@@ -73,9 +73,9 @@ TBD ...
 ### Fixed-wing
 
 - [Simplified airspeed sensor configuration](../config_vtol/vtol_without_airspeed_sensor.md): 
-Replace parameter CBRK_AIRSPD_CHK by [SYS_HAS_NUM_ASPD](../advanced_config/parameter_reference.md#SYS_HAS_NUM_ASPD) and rename parameter FW_ARSP_MODE to [FW_USE_AIRSPD](../advanced_config/parameter_reference.md#FW_USE_AIRSPD).
-To be able to arm without an airspeed sensor set SYS_HAS_NUM_ASPD to 0.
-To not use the airspeed sensor data in the controller, set FW_USE_AIRSPD to 0.
+  Replacef parameter `CBRK_AIRSPD_CHK` with [SYS_HAS_NUM_ASPD](../advanced_config/parameter_reference.md#SYS_HAS_NUM_ASPD) and renamed parameter `FW_ARSP_MODE` to [FW_USE_AIRSPD](../advanced_config/parameter_reference.md#FW_USE_AIRSPD).
+  To be able to arm without an airspeed sensor set `SYS_HAS_NUM_ASPD` to 0.
+  To not use the airspeed sensor data in the controller, set `FW_USE_AIRSPD` to 0.
   Added to PX4 in [PX4-Autopilot#22510](https://github.com/PX4/PX4-Autopilot/pull/22510).
 
 ### ROS 2
