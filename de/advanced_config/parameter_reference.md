@@ -5332,6 +5332,182 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SIM_GZ_WH_DIS1">SIM_GZ_WH_DIS1</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 200] </td>
+ <td>100</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_DIS2">SIM_GZ_WH_DIS2</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 200] </td>
+ <td>100</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_FAIL1">SIM_GZ_WH_FAIL1</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 1 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_WH_FUNC1).</p>   </td>
+ <td>[-1, 200] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_FAIL2">SIM_GZ_WH_FAIL2</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 2 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_WH_FUNC2).</p>   </td>
+ <td>[-1, 200] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_FUNC1">SIM_GZ_WH_FUNC1</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 1 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Wheels 1. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Constant Min</li>
+<li><strong>2:</strong> Constant Max</li>
+<li><strong>101:</strong> Motor 1</li>
+<li><strong>102:</strong> Motor 2</li>
+<li><strong>103:</strong> Motor 3</li>
+<li><strong>104:</strong> Motor 4</li>
+<li><strong>105:</strong> Motor 5</li>
+<li><strong>106:</strong> Motor 6</li>
+<li><strong>107:</strong> Motor 7</li>
+<li><strong>108:</strong> Motor 8</li>
+<li><strong>109:</strong> Motor 9</li>
+<li><strong>110:</strong> Motor 10</li>
+<li><strong>111:</strong> Motor 11</li>
+<li><strong>112:</strong> Motor 12</li>
+<li><strong>201:</strong> Servo 1</li>
+<li><strong>202:</strong> Servo 2</li>
+<li><strong>203:</strong> Servo 3</li>
+<li><strong>204:</strong> Servo 4</li>
+<li><strong>205:</strong> Servo 5</li>
+<li><strong>206:</strong> Servo 6</li>
+<li><strong>207:</strong> Servo 7</li>
+<li><strong>208:</strong> Servo 8</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
+<li><strong>400:</strong> Landing Gear</li>
+<li><strong>401:</strong> Parachute</li>
+<li><strong>402:</strong> RC Roll</li>
+<li><strong>403:</strong> RC Pitch</li>
+<li><strong>404:</strong> RC Throttle</li>
+<li><strong>405:</strong> RC Yaw</li>
+<li><strong>406:</strong> RC Flaps</li>
+<li><strong>407:</strong> RC AUX 1</li>
+<li><strong>408:</strong> RC AUX 2</li>
+<li><strong>409:</strong> RC AUX 3</li>
+<li><strong>410:</strong> RC AUX 4</li>
+<li><strong>411:</strong> RC AUX 5</li>
+<li><strong>412:</strong> RC AUX 6</li>
+<li><strong>420:</strong> Gimbal Roll</li>
+<li><strong>421:</strong> Gimbal Pitch</li>
+<li><strong>422:</strong> Gimbal Yaw</li>
+<li><strong>430:</strong> Gripper</li>
+<li><strong>440:</strong> Landing Gear Wheel</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_FUNC2">SIM_GZ_WH_FUNC2</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 2 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Wheels 2. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Constant Min</li>
+<li><strong>2:</strong> Constant Max</li>
+<li><strong>101:</strong> Motor 1</li>
+<li><strong>102:</strong> Motor 2</li>
+<li><strong>103:</strong> Motor 3</li>
+<li><strong>104:</strong> Motor 4</li>
+<li><strong>105:</strong> Motor 5</li>
+<li><strong>106:</strong> Motor 6</li>
+<li><strong>107:</strong> Motor 7</li>
+<li><strong>108:</strong> Motor 8</li>
+<li><strong>109:</strong> Motor 9</li>
+<li><strong>110:</strong> Motor 10</li>
+<li><strong>111:</strong> Motor 11</li>
+<li><strong>112:</strong> Motor 12</li>
+<li><strong>201:</strong> Servo 1</li>
+<li><strong>202:</strong> Servo 2</li>
+<li><strong>203:</strong> Servo 3</li>
+<li><strong>204:</strong> Servo 4</li>
+<li><strong>205:</strong> Servo 5</li>
+<li><strong>206:</strong> Servo 6</li>
+<li><strong>207:</strong> Servo 7</li>
+<li><strong>208:</strong> Servo 8</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
+<li><strong>400:</strong> Landing Gear</li>
+<li><strong>401:</strong> Parachute</li>
+<li><strong>402:</strong> RC Roll</li>
+<li><strong>403:</strong> RC Pitch</li>
+<li><strong>404:</strong> RC Throttle</li>
+<li><strong>405:</strong> RC Yaw</li>
+<li><strong>406:</strong> RC Flaps</li>
+<li><strong>407:</strong> RC AUX 1</li>
+<li><strong>408:</strong> RC AUX 2</li>
+<li><strong>409:</strong> RC AUX 3</li>
+<li><strong>410:</strong> RC AUX 4</li>
+<li><strong>411:</strong> RC AUX 5</li>
+<li><strong>412:</strong> RC AUX 6</li>
+<li><strong>420:</strong> Gimbal Roll</li>
+<li><strong>421:</strong> Gimbal Pitch</li>
+<li><strong>422:</strong> Gimbal Yaw</li>
+<li><strong>430:</strong> Gripper</li>
+<li><strong>440:</strong> Landing Gear Wheel</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_MAX1">SIM_GZ_WH_MAX1</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 200] </td>
+ <td>200</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_MAX2">SIM_GZ_WH_MAX2</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 200] </td>
+ <td>200</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_MIN1">SIM_GZ_WH_MIN1</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 200] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_MIN2">SIM_GZ_WH_MIN2</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 200] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_REV">SIM_GZ_WH_REV</strong> (INT32)</td>
+ <td>Reverse Output Range for SIM_GZ <p><strong>Comment:</strong> Allows to reverse the output range for each channel. Note: this is only useful for servos.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> SIM_GZ Wheels 1</li>
+  <li><strong>1:</strong> SIM_GZ Wheels 2</li>
+</ul>
+ </td>
+ <td>[0, 3] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="TAP_ESC_FUNC1">TAP_ESC_FUNC1</strong> (INT32)</td>
  <td>TAP ESC Output ESC 1 Output Function <p><strong>Comment:</strong> Select what should be output on TAP ESC Output ESC 1. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
@@ -8408,7 +8584,6 @@ table {
 <tr>
  <td><strong id="ASPD_PRIMARY">ASPD_PRIMARY</strong> (INT32)</td>
  <td>Index or primary airspeed measurement source  <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Disabled</li>
 <li><strong>0:</strong> Groundspeed minus windspeed</li>
 <li><strong>1:</strong> First airspeed sensor</li>
 <li><strong>2:</strong> Second airspeed sensor</li>
@@ -9132,14 +9307,6 @@ table {
    <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
-<tr>
- <td><strong id="CBRK_AIRSPD_CHK">CBRK_AIRSPD_CHK</strong> (INT32)</td>
- <td>Circuit breaker for airspeed sensor <p><strong>Comment:</strong> Setting this parameter to 162128 will disable the check for an airspeed sensor. The sensor driver will not be started and it cannot be calibrated. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 162128] </td>
- <td>0</td>
- <td></td>
-</tr>
 <tr>
  <td><strong id="CBRK_BUZZER">CBRK_BUZZER</strong> (INT32)</td>
  <td>Circuit breaker for disabling buzzer <p><strong>Comment:</strong> Setting this parameter to 782097 will disable the buzzer audio notification. Setting this parameter to 782090 will disable the startup tune, while keeping all others enabled.</p>   <p><b>Reboot required:</b> true</p>
@@ -11772,7 +11939,7 @@ table {
 <tr>
  <td><strong id="FW_AIRSPD_TRIM">FW_AIRSPD_TRIM</strong> (FLOAT)</td>
  <td>Trim (Cruise) Airspeed <p><strong>Comment:</strong> The trim CAS (calibrated airspeed) of the vehicle. If an airspeed controller is active, this is the default airspeed setpoint that the controller will try to achieve. This value corresponds to the trim airspeed with the default load factor (level flight, default weight).</p>   </td>
- <td>[0.5, ?] (0.5) (0.5)</td>
+ <td>[0.5, ?] (0.5)</td>
  <td>15.0</td>
  <td>m/s</td>
 </tr>
@@ -11869,16 +12036,6 @@ table {
  <td>[10, 720] </td>
  <td>45</td>
  <td>deg</td>
-</tr>
-<tr>
- <td><strong id="FW_ARSP_MODE">FW_ARSP_MODE</strong> (INT32)</td>
- <td>Airspeed mode <p><strong>Comment:</strong> On vehicles without airspeed sensor this parameter can be used to enable flying without an airspeed reading</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Use airspeed in controller</li>
-<li><strong>1:</strong> Do not use airspeed in controller</li>
-</ul>  </td>
- <td></td>
- <td>0</td>
- <td></td>
 </tr>
 <tr>
  <td><strong id="FW_ARSP_SCALE_EN">FW_ARSP_SCALE_EN</strong> (INT32)</td>
@@ -12057,6 +12214,13 @@ table {
 </ul>  </td>
  <td></td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_USE_AIRSPD">FW_USE_AIRSPD</strong> (INT32)</td>
+ <td>Use airspeed for control <p><strong>Comment:</strong> If set to 1, the airspeed measurement data, if valid, is used in the following controllers: - Rate controller: output scaling - Attitude controller: coordinated turn controller - Position controller: airspeed setpoint tracking, takeoff logic - VTOL: transition logic</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
@@ -19257,6 +19421,51 @@ table {
 </tr>
 </tbody></table>
 
+## Rover Differential Drive
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="RDD_ANG_SCALE">RDD_ANG_SCALE</strong> (FLOAT)</td>
+ <td>Manual angular velocity scale    </td>
+ <td>[0, 1.0] (0.01)</td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RDD_SPEED_SCALE">RDD_SPEED_SCALE</strong> (FLOAT)</td>
+ <td>Manual speed scale    </td>
+ <td>[0, 1.0] (0.01)</td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RDD_WHEEL_BASE">RDD_WHEEL_BASE</strong> (FLOAT)</td>
+ <td>Wheel base <p><strong>Comment:</strong> Distance from the center of the right wheel to the center of the left wheel</p>   </td>
+ <td>[0.001, 100] (0.001)</td>
+ <td>0.5</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="RDD_WHEEL_RADIUS">RDD_WHEEL_RADIUS</strong> (FLOAT)</td>
+ <td>Wheel radius <p><strong>Comment:</strong> Size of the wheel, half the diameter of the wheel</p>   </td>
+ <td>[0.001, 100] (0.001)</td>
+ <td>0.1</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="RDD_WHL_SPEED">RDD_WHL_SPEED</strong> (FLOAT)</td>
+ <td>Maximum wheel speed    </td>
+ <td>[0, 100] (0.01)</td>
+ <td>10</td>
+ <td>rad/s</td>
+</tr>
+</tbody></table>
+
 ## Rover Position Control
 
 <table>
@@ -23832,6 +24041,13 @@ table {
 </td>
  <td></td>
  <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SYS_HAS_NUM_ASPD">SYS_HAS_NUM_ASPD</strong> (INT32)</td>
+ <td>Control if the vehicle has an airspeed sensor <p><strong>Comment:</strong> Set this to 0 if the board has no airspeed sensor. If set to 0, the preflight checks will not check for the presence of an airspeed sensor.</p>   </td>
+ <td>[0, 1] </td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>

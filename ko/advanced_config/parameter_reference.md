@@ -5300,6 +5300,182 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SIM_GZ_WH_DIS1">SIM_GZ_WH_DIS1</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 200] </td>
+ <td>100</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_DIS2">SIM_GZ_WH_DIS2</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 200] </td>
+ <td>100</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_FAIL1">SIM_GZ_WH_FAIL1</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 1 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_WH_FUNC1).</p>   </td>
+ <td>[-1, 200] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_FAIL2">SIM_GZ_WH_FAIL2</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 2 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_WH_FUNC2).</p>   </td>
+ <td>[-1, 200] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_FUNC1">SIM_GZ_WH_FUNC1</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 1 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Wheels 1. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Constant Min</li>
+<li><strong>2:</strong> Constant Max</li>
+<li><strong>101:</strong> Motor 1</li>
+<li><strong>102:</strong> Motor 2</li>
+<li><strong>103:</strong> Motor 3</li>
+<li><strong>104:</strong> Motor 4</li>
+<li><strong>105:</strong> Motor 5</li>
+<li><strong>106:</strong> Motor 6</li>
+<li><strong>107:</strong> Motor 7</li>
+<li><strong>108:</strong> Motor 8</li>
+<li><strong>109:</strong> Motor 9</li>
+<li><strong>110:</strong> Motor 10</li>
+<li><strong>111:</strong> Motor 11</li>
+<li><strong>112:</strong> Motor 12</li>
+<li><strong>201:</strong> Servo 1</li>
+<li><strong>202:</strong> Servo 2</li>
+<li><strong>203:</strong> Servo 3</li>
+<li><strong>204:</strong> Servo 4</li>
+<li><strong>205:</strong> Servo 5</li>
+<li><strong>206:</strong> Servo 6</li>
+<li><strong>207:</strong> Servo 7</li>
+<li><strong>208:</strong> Servo 8</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
+<li><strong>400:</strong> Landing Gear</li>
+<li><strong>401:</strong> Parachute</li>
+<li><strong>402:</strong> RC Roll</li>
+<li><strong>403:</strong> RC Pitch</li>
+<li><strong>404:</strong> RC Throttle</li>
+<li><strong>405:</strong> RC Yaw</li>
+<li><strong>406:</strong> RC Flaps</li>
+<li><strong>407:</strong> RC AUX 1</li>
+<li><strong>408:</strong> RC AUX 2</li>
+<li><strong>409:</strong> RC AUX 3</li>
+<li><strong>410:</strong> RC AUX 4</li>
+<li><strong>411:</strong> RC AUX 5</li>
+<li><strong>412:</strong> RC AUX 6</li>
+<li><strong>420:</strong> Gimbal Roll</li>
+<li><strong>421:</strong> Gimbal Pitch</li>
+<li><strong>422:</strong> Gimbal Yaw</li>
+<li><strong>430:</strong> Gripper</li>
+<li><strong>440:</strong> Landing Gear Wheel</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_FUNC2">SIM_GZ_WH_FUNC2</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 2 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Wheels 2. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Constant Min</li>
+<li><strong>2:</strong> Constant Max</li>
+<li><strong>101:</strong> Motor 1</li>
+<li><strong>102:</strong> Motor 2</li>
+<li><strong>103:</strong> Motor 3</li>
+<li><strong>104:</strong> Motor 4</li>
+<li><strong>105:</strong> Motor 5</li>
+<li><strong>106:</strong> Motor 6</li>
+<li><strong>107:</strong> Motor 7</li>
+<li><strong>108:</strong> Motor 8</li>
+<li><strong>109:</strong> Motor 9</li>
+<li><strong>110:</strong> Motor 10</li>
+<li><strong>111:</strong> Motor 11</li>
+<li><strong>112:</strong> Motor 12</li>
+<li><strong>201:</strong> Servo 1</li>
+<li><strong>202:</strong> Servo 2</li>
+<li><strong>203:</strong> Servo 3</li>
+<li><strong>204:</strong> Servo 4</li>
+<li><strong>205:</strong> Servo 5</li>
+<li><strong>206:</strong> Servo 6</li>
+<li><strong>207:</strong> Servo 7</li>
+<li><strong>208:</strong> Servo 8</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
+<li><strong>400:</strong> Landing Gear</li>
+<li><strong>401:</strong> Parachute</li>
+<li><strong>402:</strong> RC Roll</li>
+<li><strong>403:</strong> RC Pitch</li>
+<li><strong>404:</strong> RC Throttle</li>
+<li><strong>405:</strong> RC Yaw</li>
+<li><strong>406:</strong> RC Flaps</li>
+<li><strong>407:</strong> RC AUX 1</li>
+<li><strong>408:</strong> RC AUX 2</li>
+<li><strong>409:</strong> RC AUX 3</li>
+<li><strong>410:</strong> RC AUX 4</li>
+<li><strong>411:</strong> RC AUX 5</li>
+<li><strong>412:</strong> RC AUX 6</li>
+<li><strong>420:</strong> Gimbal Roll</li>
+<li><strong>421:</strong> Gimbal Pitch</li>
+<li><strong>422:</strong> Gimbal Yaw</li>
+<li><strong>430:</strong> Gripper</li>
+<li><strong>440:</strong> Landing Gear Wheel</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_MAX1">SIM_GZ_WH_MAX1</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 200] </td>
+ <td>200</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_MAX2">SIM_GZ_WH_MAX2</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 200] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_MIN1">SIM_GZ_WH_MIN1</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 200] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_MIN2">SIM_GZ_WH_MIN2</strong> (INT32)</td>
+ <td>SIM_GZ Wheels 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 200] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_WH_REV">SIM_GZ_WH_REV</strong> (INT32)</td>
+ <td>Reverse Output Range for SIM_GZ <p><strong>Comment:</strong> Allows to reverse the output range for each channel. Note: this is only useful for servos.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> SIM_GZ Wheels 1</li>
+  <li><strong>1:</strong> SIM_GZ Wheels 2</li>
+</ul>
+ </td>
+ <td>[0, 3] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="TAP_ESC_FUNC1">TAP_ESC_FUNC1</strong> (INT32)</td>
  <td>TAP ESC Output ESC 1 Output Function <p><strong>Comment:</strong> Select what should be output on TAP ESC Output ESC 1. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
@@ -5576,7 +5752,7 @@ table {
 </tr>
 <tr>
  <td><strong id="TAP_ESC_FUNC6">TAP_ESC_FUNC6</strong> (INT32)</td>
- <td>TAP ESC Output ESC 6 Output Function <p><strong>Comment:</strong> Select what should be output on TAP ESC Output ESC 6. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>값:</strong><ul>
+ <td>TAP ESC Output ESC 6 Output Function <p><strong>Comment:</strong> Select what should be output on TAP ESC Output ESC 6. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Constant Min</li>
 <li><strong>2:</strong> Constant Max</li>
@@ -5631,7 +5807,7 @@ table {
 </tr>
 <tr>
  <td><strong id="TAP_ESC_FUNC7">TAP_ESC_FUNC7</strong> (INT32)</td>
- <td>TAP ESC Output ESC 7 Output Function <p><strong>Comment:</strong> Select what should be output on TAP ESC Output ESC 7. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>값:</strong><ul>
+ <td>TAP ESC Output ESC 7 Output Function <p><strong>Comment:</strong> Select what should be output on TAP ESC Output ESC 7. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Constant Min</li>
 <li><strong>2:</strong> Constant Max</li>
@@ -5686,7 +5862,7 @@ table {
 </tr>
 <tr>
  <td><strong id="TAP_ESC_FUNC8">TAP_ESC_FUNC8</strong> (INT32)</td>
- <td>TAP ESC Output ESC 8 Output Function <p><strong>Comment:</strong> Select what should be output on TAP ESC Output ESC 8. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>값:</strong><ul>
+ <td>TAP ESC Output ESC 8 Output Function <p><strong>Comment:</strong> Select what should be output on TAP ESC Output ESC 8. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Constant Min</li>
 <li><strong>2:</strong> Constant Max</li>
@@ -6088,7 +6264,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_FUNC6">UAVCAN_EC_FUNC6</strong> (INT32)</td>
- <td>UAVCAN ESC 6 Output Function <p><strong>Comment:</strong> Select what should be output on UAVCAN ESC 6. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>값:</strong><ul>
+ <td>UAVCAN ESC 6 Output Function <p><strong>Comment:</strong> Select what should be output on UAVCAN ESC 6. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Constant Min</li>
 <li><strong>2:</strong> Constant Max</li>
@@ -6143,7 +6319,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_FUNC7">UAVCAN_EC_FUNC7</strong> (INT32)</td>
- <td>UAVCAN ESC 7 Output Function <p><strong>Comment:</strong> Select what should be output on UAVCAN ESC 7. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>값:</strong><ul>
+ <td>UAVCAN ESC 7 Output Function <p><strong>Comment:</strong> Select what should be output on UAVCAN ESC 7. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Constant Min</li>
 <li><strong>2:</strong> Constant Max</li>
@@ -6198,7 +6374,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_FUNC8">UAVCAN_EC_FUNC8</strong> (INT32)</td>
- <td>UAVCAN ESC 8 Output Function <p><strong>Comment:</strong> Select what should be output on UAVCAN ESC 8. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>값:</strong><ul>
+ <td>UAVCAN ESC 8 Output Function <p><strong>Comment:</strong> Select what should be output on UAVCAN ESC 8. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Constant Min</li>
 <li><strong>2:</strong> Constant Max</li>
@@ -6768,7 +6944,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_FUNC6">UAVCAN_SV_FUNC6</strong> (INT32)</td>
- <td>UAVCAN Servo 6 Output Function <p><strong>Comment:</strong> Select what should be output on UAVCAN Servo 6. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>값:</strong><ul>
+ <td>UAVCAN Servo 6 Output Function <p><strong>Comment:</strong> Select what should be output on UAVCAN Servo 6. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Constant Min</li>
 <li><strong>2:</strong> Constant Max</li>
@@ -7173,7 +7349,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_FUNC1">UCAN1_ESC_FUNC1</strong> (INT32)</td>
- <td>UAVCANv1 ESC 1 Output Function <p><strong>Comment:</strong> Select what should be output on UAVCANv1 ESC 1. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>값:</strong><ul>
+ <td>UAVCANv1 ESC 1 Output Function <p><strong>Comment:</strong> Select what should be output on UAVCANv1 ESC 1. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Constant Min</li>
 <li><strong>2:</strong> Constant Max</li>
@@ -7228,7 +7404,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_FUNC10">UCAN1_ESC_FUNC10</strong> (INT32)</td>
- <td>UAVCANv1 ESC 10 Output Function <p><strong>Comment:</strong> Select what should be output on UAVCANv1 ESC 10. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>값:</strong><ul>
+ <td>UAVCANv1 ESC 10 Output Function <p><strong>Comment:</strong> Select what should be output on UAVCANv1 ESC 10. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Constant Min</li>
 <li><strong>2:</strong> Constant Max</li>
@@ -8376,7 +8552,6 @@ table {
 <tr>
  <td><strong id="ASPD_PRIMARY">ASPD_PRIMARY</strong> (INT32)</td>
  <td>Index or primary airspeed measurement source  <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Disabled</li>
 <li><strong>0:</strong> Groundspeed minus windspeed</li>
 <li><strong>1:</strong> First airspeed sensor</li>
 <li><strong>2:</strong> Second airspeed sensor</li>
@@ -8960,7 +9135,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -9100,14 +9275,6 @@ table {
    <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
-<tr>
- <td><strong id="CBRK_AIRSPD_CHK">CBRK_AIRSPD_CHK</strong> (INT32)</td>
- <td>Circuit breaker for airspeed sensor <p><strong>Comment:</strong> Setting this parameter to 162128 will disable the check for an airspeed sensor. The sensor driver will not be started and it cannot be calibrated. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 162128] </td>
- <td>0</td>
- <td></td>
-</tr>
 <tr>
  <td><strong id="CBRK_BUZZER">CBRK_BUZZER</strong> (INT32)</td>
  <td>Circuit breaker for disabling buzzer <p><strong>Comment:</strong> Setting this parameter to 782097 will disable the buzzer audio notification. Setting this parameter to 782090 will disable the startup tune, while keeping all others enabled.</p>   <p><b>Reboot required:</b> true</p>
@@ -9288,7 +9455,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_ARM_MAG_STR">COM_ARM_MAG_STR</strong> (INT32)</td>
- <td>Enable mag strength preflight check <p><strong>Comment:</strong> Check if the estimator detects a strong magnetic disturbance (check enabled by EKF2_MAG_CHECK)</p> <strong>값:</strong><ul>
+ <td>Enable mag strength preflight check <p><strong>Comment:</strong> Check if the estimator detects a strong magnetic disturbance (check enabled by EKF2_MAG_CHECK)</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Deny arming</li>
 <li><strong>2:</strong> Warning only</li>
@@ -9817,7 +9984,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_PREARM_MODE">COM_PREARM_MODE</strong> (INT32)</td>
- <td>Condition to enter prearmed mode <p><strong>Comment:</strong> Condition to enter the prearmed state, an intermediate state between disarmed and armed in which non-throttling actuators are active.</p> <strong>값:</strong><ul>
+ <td>Condition to enter prearmed mode <p><strong>Comment:</strong> Condition to enter the prearmed state, an intermediate state between disarmed and armed in which non-throttling actuators are active.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Safety button</li>
 <li><strong>2:</strong> Always</li>
@@ -9902,7 +10069,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_TAKEOFF_ACT">COM_TAKEOFF_ACT</strong> (INT32)</td>
- <td>Action after TAKEOFF has been accepted <p><strong>Comment:</strong> The mode transition after TAKEOFF has completed successfully.</p> <strong>Values:</strong><ul>
+ <td>Action after TAKEOFF has been accepted <p><strong>Comment:</strong> The mode transition after TAKEOFF has completed successfully.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Hold</li>
 <li><strong>1:</strong> Mission (if valid)</li>
 </ul>  </td>
@@ -11839,16 +12006,6 @@ table {
  <td>deg</td>
 </tr>
 <tr>
- <td><strong id="FW_ARSP_MODE">FW_ARSP_MODE</strong> (INT32)</td>
- <td>Airspeed mode <p><strong>Comment:</strong> On vehicles without airspeed sensor this parameter can be used to enable flying without an airspeed reading</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> Use airspeed in controller</li>
-<li><strong>1:</strong> Do not use airspeed in controller</li>
-</ul>  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="FW_ARSP_SCALE_EN">FW_ARSP_SCALE_EN</strong> (INT32)</td>
  <td>Enable airspeed scaling <p><strong>Comment:</strong> This enables a logic that automatically adjusts the output of the rate controller to take into account the real torque produced by an aerodynamic control surface given the current deviation from the trim airspeed (FW_AIRSPD_TRIM). Enable when using aerodynamic control surfaces (e.g.: plane) Disable when using rotor wings (e.g.: autogyro)</p>   </td>
  <td></td>
@@ -12025,6 +12182,13 @@ table {
 </ul>  </td>
  <td></td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_USE_AIRSPD">FW_USE_AIRSPD</strong> (INT32)</td>
+ <td>Use airspeed for control <p><strong>Comment:</strong> If set to 1, the airspeed measurement data, if valid, is used in the following controllers: - Rate controller: output scaling - Attitude controller: coordinated turn controller - Position controller: airspeed setpoint tracking, takeoff logic - VTOL: transition logic</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
@@ -12595,7 +12759,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_UBX_DYNMODEL">GPS_UBX_DYNMODEL</strong> (INT32)</td>
- <td>u-blox GPS dynamic platform model <p><strong>Comment:</strong> u-blox receivers support different dynamic platform models to adjust the navigation engine to the expected application environment.</p> <strong>값:</strong><ul>
+ <td>u-blox GPS dynamic platform model <p><strong>Comment:</strong> u-blox receivers support different dynamic platform models to adjust the navigation engine to the expected application environment.</p> <strong>Values:</strong><ul>
 <li><strong>2:</strong> stationary</li>
 <li><strong>4:</strong> automotive</li>
 <li><strong>6:</strong> airborne with &lt;1g acceleration</li>
@@ -13675,7 +13839,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR8_TILT">CA_ROTOR8_TILT</strong> (INT32)</td>
- <td>Rotor 8 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>값:</strong><ul>
+ <td>Rotor 8 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> Tilt 1</li>
 <li><strong>2:</strong> Tilt 2</li>
@@ -14562,7 +14726,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL2_CT">CA_SV_TL2_CT</strong> (INT32)</td>
- <td>Tilt 2 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>Values:</strong><ul>
+ <td>Tilt 2 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> Yaw</li>
 <li><strong>2:</strong> Pitch</li>
@@ -14588,7 +14752,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL2_TD">CA_SV_TL2_TD</strong> (INT32)</td>
- <td>Tilt Servo 2 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>값:</strong><ul>
+ <td>Tilt Servo 2 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Towards Front</li>
 <li><strong>90:</strong> Towards Right</li>
 </ul>  </td>
@@ -14598,7 +14762,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL3_CT">CA_SV_TL3_CT</strong> (INT32)</td>
- <td>Tilt 3 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>Values:</strong><ul>
+ <td>Tilt 3 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> Yaw</li>
 <li><strong>2:</strong> Pitch</li>
@@ -14925,7 +15089,7 @@ table {
 </tr>
 <tr>
  <td><strong id="LTEST_SENS_ROT">LTEST_SENS_ROT</strong> (INT32)</td>
- <td>Rotation of IRLOCK sensor relative to airframe <p><strong>Comment:</strong> Default orientation of Yaw 90°</p> <strong>값:</strong><ul>
+ <td>Rotation of IRLOCK sensor relative to airframe <p><strong>Comment:</strong> Default orientation of Yaw 90°</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -15251,7 +15415,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="MAV_0_BROADCAST">MAV_0_BROADCAST</strong> (INT32)</td>
- <td>Broadcast heartbeats on local network for MAVLink instance 0 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
+ <td>Broadcast heartbeats on local network for MAVLink instance 0 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Never broadcast</li>
 <li><strong>1:</strong> Always broadcast</li>
 <li><strong>2:</strong> Only multicast</li>
@@ -15304,7 +15468,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_0_MODE">MAV_0_MODE</strong> (INT32)</td>
- <td>MAVLink Mode for instance 0 <p><strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle&#x27;s attitude) and their sending rates.</p> <strong>값:</strong><ul>
+ <td>MAVLink Mode for instance 0 <p><strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle&#x27;s attitude) and their sending rates.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Normal</li>
 <li><strong>1:</strong> Custom</li>
 <li><strong>2:</strong> Onboard</li>
@@ -15356,7 +15520,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_1_BROADCAST">MAV_1_BROADCAST</strong> (INT32)</td>
- <td>Broadcast heartbeats on local network for MAVLink instance 1 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
+ <td>Broadcast heartbeats on local network for MAVLink instance 1 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Never broadcast</li>
 <li><strong>1:</strong> Always broadcast</li>
 <li><strong>2:</strong> Only multicast</li>
@@ -15409,7 +15573,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_1_MODE">MAV_1_MODE</strong> (INT32)</td>
- <td>MAVLink Mode for instance 1 <p><strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle&#x27;s attitude) and their sending rates.</p> <strong>값:</strong><ul>
+ <td>MAVLink Mode for instance 1 <p><strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle&#x27;s attitude) and their sending rates.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Normal</li>
 <li><strong>1:</strong> Custom</li>
 <li><strong>2:</strong> Onboard</li>
@@ -15461,7 +15625,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_2_BROADCAST">MAV_2_BROADCAST</strong> (INT32)</td>
- <td>Broadcast heartbeats on local network for MAVLink instance 2 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
+ <td>Broadcast heartbeats on local network for MAVLink instance 2 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Never broadcast</li>
 <li><strong>1:</strong> Always broadcast</li>
 <li><strong>2:</strong> Only multicast</li>
@@ -16586,7 +16750,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_THR_CURVE">MPC_THR_CURVE</strong> (INT32)</td>
- <td>Thrust curve mapping in Stabilized Mode <p><strong>Comment:</strong> This parameter defines how the throttle stick input is mapped to collective thrust in Stabilized mode. In case the default is used (&#x27;Rescale to hover thrust&#x27;), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select &#x27;No Rescale&#x27; to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, then 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: In case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.</p> <strong>값:</strong><ul>
+ <td>Thrust curve mapping in Stabilized Mode <p><strong>Comment:</strong> This parameter defines how the throttle stick input is mapped to collective thrust in Stabilized mode. In case the default is used (&#x27;Rescale to hover thrust&#x27;), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select &#x27;No Rescale&#x27; to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, then 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: In case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Rescale to hover thrust</li>
 <li><strong>1:</strong> No Rescale</li>
 </ul>  </td>
@@ -17112,7 +17276,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="MSP_OSD_CONFIG">MSP_OSD_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MSP OSD <p><strong>Comment:</strong> Configure on which serial port to run MSP OSD.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for MSP OSD <p><strong>Comment:</strong> Configure on which serial port to run MSP OSD.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -17624,7 +17788,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC16_REV">RC16_REV</strong> (FLOAT)</td>
- <td>RC channel 16 reverse <p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>값:</strong><ul>
+ <td>RC channel 16 reverse <p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li>
 <li><strong>1.0:</strong> Normal</li>
 </ul>  </td>
@@ -17738,7 +17902,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC1_REV">RC1_REV</strong> (FLOAT)</td>
- <td>RC channel 1 reverse <p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>값:</strong><ul>
+ <td>RC channel 1 reverse <p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li>
 <li><strong>1.0:</strong> Normal</li>
 </ul>  </td>
@@ -18100,7 +18264,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_AUX2">RC_MAP_AUX2</strong> (INT32)</td>
- <td>AUX2 Passthrough RC channel <p><strong>Comment:</strong> Default function: Camera roll</p> <strong>값:</strong><ul>
+ <td>AUX2 Passthrough RC channel <p><strong>Comment:</strong> Default function: Camera roll</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
 <li><strong>1:</strong> Channel 1</li>
 <li><strong>2:</strong> Channel 2</li>
@@ -18451,7 +18615,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_YAW">RC_MAP_YAW</strong> (INT32)</td>
- <td>Yaw control channel mapping <p><strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading yaw inputs from. A value of zero indicates the switch is not assigned.</p> <strong>값:</strong><ul>
+ <td>Yaw control channel mapping <p><strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading yaw inputs from. A value of zero indicates the switch is not assigned.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
 <li><strong>1:</strong> Channel 1</li>
 <li><strong>2:</strong> Channel 2</li>
@@ -18478,7 +18642,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_RSSI_PWM_CHAN">RC_RSSI_PWM_CHAN</strong> (INT32)</td>
- <td>PWM input channel that provides RSSI <p><strong>Comment:</strong> 0: do not read RSSI from input channel 1-18: read RSSI from specified input channel Specify the range for RSSI input with RC_RSSI_PWM_MIN and RC_RSSI_PWM_MAX parameters.</p> <strong>Values:</strong><ul>
+ <td>PWM input channel that provides RSSI <p><strong>Comment:</strong> 0: do not read RSSI from input channel 1-18: read RSSI from specified input channel Specify the range for RSSI input with RC_RSSI_PWM_MIN and RC_RSSI_PWM_MAX parameters.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
 <li><strong>1:</strong> Channel 1</li>
 <li><strong>2:</strong> Channel 2</li>
@@ -19171,7 +19335,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="RBCLW_SER_CFG">RBCLW_SER_CFG</strong> (INT32)</td>
- <td>Serial Configuration for Roboclaw Driver <p><strong>Comment:</strong> Configure on which serial port to run Roboclaw Driver.</p> <strong>값:</strong><ul>
+ <td>Serial Configuration for Roboclaw Driver <p><strong>Comment:</strong> Configure on which serial port to run Roboclaw Driver.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -19202,7 +19366,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="RBCLW_ADDRESS">RBCLW_ADDRESS</strong> (INT32)</td>
- <td>Address of the ESC on the bus <p><strong>Comment:</strong> The ESC has to be configured to have an address from 0x80 to 0x87. This parameter needs to match the configured value.</p> <strong>Values:</strong><ul>
+ <td>Address of the ESC on the bus <p><strong>Comment:</strong> The ESC has to be configured to have an address from 0x80 to 0x87. This parameter needs to match the configured value.</p> <strong>값:</strong><ul>
 <li><strong>128:</strong> 0x80</li>
 <li><strong>129:</strong> 0x81</li>
 <li><strong>130:</strong> 0x82</li>
@@ -19225,12 +19389,57 @@ table {
 </tr>
 </tbody></table>
 
-## Rover Position Control
+## Rover Differential Drive
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="RDD_ANG_SCALE">RDD_ANG_SCALE</strong> (FLOAT)</td>
+ <td>Manual angular velocity scale    </td>
+ <td>[0, 1.0] (0.01)</td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RDD_SPEED_SCALE">RDD_SPEED_SCALE</strong> (FLOAT)</td>
+ <td>Manual speed scale    </td>
+ <td>[0, 1.0] (0.01)</td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RDD_WHEEL_BASE">RDD_WHEEL_BASE</strong> (FLOAT)</td>
+ <td>Wheel base <p><strong>Comment:</strong> Distance from the center of the right wheel to the center of the left wheel</p>   </td>
+ <td>[0.001, 100] (0.001)</td>
+ <td>0.5</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="RDD_WHEEL_RADIUS">RDD_WHEEL_RADIUS</strong> (FLOAT)</td>
+ <td>Wheel radius <p><strong>Comment:</strong> Size of the wheel, half the diameter of the wheel</p>   </td>
+ <td>[0.001, 100] (0.001)</td>
+ <td>0.1</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="RDD_WHL_SPEED">RDD_WHL_SPEED</strong> (FLOAT)</td>
+ <td>Maximum wheel speed    </td>
+ <td>[0, 100] (0.01)</td>
+ <td>10</td>
+ <td>rad/s</td>
+</tr>
+</tbody></table>
+
+## Rover Position Control
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -21339,7 +21548,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_AIR_CMODEL">CAL_AIR_CMODEL</strong> (INT32)</td>
- <td>Airspeed sensor compensation model for the SDP3x <p><strong>Comment:</strong> Model with Pitot CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Model without Pitot (1.5 mm tubes) CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Tube Pressure Drop CAL_AIR_TUBED_MM: Diameter in mm of the pitot and tubes, must have the same diameter. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor and the static + dynamic port length of the pitot.</p> <strong>값:</strong><ul>
+ <td>Airspeed sensor compensation model for the SDP3x <p><strong>Comment:</strong> Model with Pitot CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Model without Pitot (1.5 mm tubes) CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Tube Pressure Drop CAL_AIR_TUBED_MM: Diameter in mm of the pitot and tubes, must have the same diameter. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor and the static + dynamic port length of the pitot.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Model with Pitot</li>
 <li><strong>1:</strong> Model without Pitot (1.5 mm tubes)</li>
 <li><strong>2:</strong> Tube Pressure Drop</li>
@@ -21510,7 +21719,7 @@ table {
 </tr>
 <tr>
  <td><strong id="IMU_GYRO_RATEMAX">IMU_GYRO_RATEMAX</strong> (INT32)</td>
- <td>Gyro control data maximum publication rate (inner loop rate) <p><strong>Comment:</strong> The maximum rate the gyro control data (vehicle_angular_velocity) will be allowed to publish at. This is the loop rate for the rate controller and outputs. Note: sensor data is always read and filtered at the full raw rate (eg commonly 8 kHz) regardless of this setting.</p> <strong>Values:</strong><ul>
+ <td>Gyro control data maximum publication rate (inner loop rate) <p><strong>Comment:</strong> The maximum rate the gyro control data (vehicle_angular_velocity) will be allowed to publish at. This is the loop rate for the rate controller and outputs. Note: sensor data is always read and filtered at the full raw rate (eg commonly 8 kHz) regardless of this setting.</p> <strong>값:</strong><ul>
 <li><strong>100:</strong> 100 Hz</li>
 <li><strong>250:</strong> 250 Hz</li>
 <li><strong>400:</strong> 400 Hz</li>
@@ -21667,7 +21876,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_AFBR_MODE">SENS_AFBR_MODE</strong> (INT32)</td>
- <td>AFBR Rangefinder Mode <p><strong>Comment:</strong> This parameter defines the mode of the AFBR Rangefinder.</p> <strong>값:</strong><ul>
+ <td>AFBR Rangefinder Mode <p><strong>Comment:</strong> This parameter defines the mode of the AFBR Rangefinder.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Short Range Mode</li>
 <li><strong>1:</strong> Long Range Mode</li>
 <li><strong>2:</strong> High Speed Short Range Mode</li>
@@ -21708,7 +21917,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_BOARD_ROT">SENS_BOARD_ROT</strong> (INT32)</td>
- <td>Board rotation <p><strong>Comment:</strong> This parameter defines the rotation of the FMU board relative to the platform.</p> <strong>Values:</strong><ul>
+ <td>Board rotation <p><strong>Comment:</strong> This parameter defines the rotation of the FMU board relative to the platform.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -22302,7 +22511,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_LEDDAR1_CFG">SENS_LEDDAR1_CFG</strong> (INT32)</td>
- <td>Serial Configuration for LeddarOne Rangefinder <p><strong>Comment:</strong> Configure on which serial port to run LeddarOne Rangefinder.</p> <strong>값:</strong><ul>
+ <td>Serial Configuration for LeddarOne Rangefinder <p><strong>Comment:</strong> Configure on which serial port to run LeddarOne Rangefinder.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -22356,7 +22565,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MAG_SIDES">SENS_MAG_SIDES</strong> (INT32)</td>
- <td>Bitfield selecting mag sides for calibration <p><strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: ORIENTATION_TAIL_DOWN = 1 ORIENTATION_NOSE_DOWN = 2 ORIENTATION_LEFT = 4 ORIENTATION_RIGHT = 8 ORIENTATION_UPSIDE_DOWN = 16 ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>Values:</strong><ul>
+ <td>Bitfield selecting mag sides for calibration <p><strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: ORIENTATION_TAIL_DOWN = 1 ORIENTATION_NOSE_DOWN = 2 ORIENTATION_LEFT = 4 ORIENTATION_RIGHT = 8 ORIENTATION_UPSIDE_DOWN = 16 ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>값:</strong><ul>
 <li><strong>34:</strong> Two side calibration</li>
 <li><strong>38:</strong> Three side calibration</li>
 <li><strong>63:</strong> Six side calibration</li>
@@ -22656,7 +22865,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MPDT3_ROT">SENS_MPDT3_ROT</strong> (INT32)</td>
- <td>MappyDot Sensor 3 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>값:</strong><ul>
+ <td>MappyDot Sensor 3 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -22877,7 +23086,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_VN_CFG">SENS_VN_CFG</strong> (INT32)</td>
- <td>Serial Configuration for VectorNav (VN-100, VN-200, VN-300) <p><strong>Comment:</strong> Configure on which serial port to run VectorNav (VN-100, VN-200, VN-300).</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for VectorNav (VN-100, VN-200, VN-300) <p><strong>Comment:</strong> Configure on which serial port to run VectorNav (VN-100, VN-200, VN-300).</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -23067,7 +23276,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SER_GPS1_BAUD">SER_GPS1_BAUD</strong> (INT32)</td>
- <td>Baudrate for the GPS 1 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the GPS 1 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>값:</strong><ul>
+ <td>Baudrate for the GPS 1 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the GPS 1 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>50:</strong> 50 8N1</li>
 <li><strong>75:</strong> 75 8N1</li>
@@ -23137,7 +23346,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SER_GPS3_BAUD">SER_GPS3_BAUD</strong> (INT32)</td>
- <td>Baudrate for the GPS 3 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the GPS 3 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+ <td>Baudrate for the GPS 3 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the GPS 3 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>50:</strong> 50 8N1</li>
 <li><strong>75:</strong> 75 8N1</li>
@@ -23762,7 +23971,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_FAC_CAL_MODE">SYS_FAC_CAL_MODE</strong> (INT32)</td>
- <td>Enable factory calibration mode <p><strong>Comment:</strong> If enabled, future sensor calibrations will be stored to /fs/mtd_caldata. Note: this is only supported on boards with a separate calibration storage /fs/mtd_caldata.</p> <strong>값:</strong><ul>
+ <td>Enable factory calibration mode <p><strong>Comment:</strong> If enabled, future sensor calibrations will be stored to /fs/mtd_caldata. Note: this is only supported on boards with a separate calibration storage /fs/mtd_caldata.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> All sensors</li>
 <li><strong>2:</strong> All sensors except mag</li>
@@ -23803,6 +24012,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SYS_HAS_NUM_ASPD">SYS_HAS_NUM_ASPD</strong> (INT32)</td>
+ <td>Control if the vehicle has an airspeed sensor <p><strong>Comment:</strong> Set this to 0 if the board has no airspeed sensor. If set to 0, the preflight checks will not check for the presence of an airspeed sensor.</p>   </td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SYS_HAS_NUM_DIST">SYS_HAS_NUM_DIST</strong> (INT32)</td>
  <td>Number of distance sensors to check being available <p><strong>Comment:</strong> The preflight check will fail if fewer than this number of distance sensors with valid data is present. Disable the check with 0.</p>   </td>
  <td>[0, 4] </td>
@@ -23811,7 +24027,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_HITL">SYS_HITL</strong> (INT32)</td>
- <td>Enable HITL/SIH mode on next boot <p><strong>Comment:</strong> While enabled the system will boot in Hardware-In-The-Loop (HITL) or Simulation-In-Hardware (SIH) mode and not enable all sensors and checks. When disabled the same vehicle can be flown normally. Set to &#x27;external HITL&#x27;, if the system should perform as if it were a real vehicle (the only difference to a real system is then only the parameter value, which can be used for log analysis).</p> <strong>Values:</strong><ul>
+ <td>Enable HITL/SIH mode on next boot <p><strong>Comment:</strong> While enabled the system will boot in Hardware-In-The-Loop (HITL) or Simulation-In-Hardware (SIH) mode and not enable all sensors and checks. When disabled the same vehicle can be flown normally. Set to &#x27;external HITL&#x27;, if the system should perform as if it were a real vehicle (the only difference to a real system is then only the parameter value, which can be used for log analysis).</p> <strong>값:</strong><ul>
 <li><strong>-1:</strong> external HITL</li>
 <li><strong>0:</strong> HITL and SIH disabled</li>
 <li><strong>1:</strong> HITL enabled</li>
@@ -23824,7 +24040,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_MC_EST_GROUP">SYS_MC_EST_GROUP</strong> (INT32)</td>
- <td>Set multicopter estimator group <p><strong>Comment:</strong> Set the group of estimators used for multicopters and VTOLs</p> <strong>값:</strong><ul>
+ <td>Set multicopter estimator group <p><strong>Comment:</strong> Set the group of estimators used for multicopters and VTOLs</p> <strong>Values:</strong><ul>
 <li><strong>1:</strong> local_position_estimator, attitude_estimator_q (unsupported)</li>
 <li><strong>2:</strong> ekf2 (recommended)</li>
 <li><strong>3:</strong> Q attitude estimator (no position)</li>
@@ -23889,7 +24105,7 @@ table {
 </tr>
 <tr>
  <td><strong id="TEL_HOTT_CONFIG">TEL_HOTT_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for HoTT Telemetry <p><strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for HoTT Telemetry <p><strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -25743,7 +25959,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MXS_SER_CFG">MXS_SER_CFG</strong> (INT32)</td>
- <td>Serial Configuration for Sagetech MXS Serial Port <p><strong>Comment:</strong> Configure on which serial port to run Sagetech MXS Serial Port.</p> <strong>값:</strong><ul>
+ <td>Serial Configuration for Sagetech MXS Serial Port <p><strong>Comment:</strong> Configure on which serial port to run Sagetech MXS Serial Port.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -25764,7 +25980,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MXS_TARG_PORT">MXS_TARG_PORT</strong> (INT32)</td>
- <td>Sagetech MXS Participant Configuration <p><strong>Comment:</strong> The MXS communication port to receive Target data from</p> <strong>Values:</strong><ul>
+ <td>Sagetech MXS Participant Configuration <p><strong>Comment:</strong> The MXS communication port to receive Target data from</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>1:</strong> COM0</li>
 <li><strong>2:</strong> COM1</li>
@@ -25853,7 +26069,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_LGT_ANTCL">UAVCAN_LGT_ANTCL</strong> (INT32)</td>
- <td>UAVCAN ANTI_COLLISION light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the ANTI_COLLISION lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>값:</strong><ul>
+ <td>UAVCAN ANTI_COLLISION light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the ANTI_COLLISION lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Always off</li>
 <li><strong>1:</strong> When autopilot is armed</li>
 <li><strong>2:</strong> When autopilot is prearmed</li>
@@ -25866,7 +26082,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_LGT_LAND">UAVCAN_LGT_LAND</strong> (INT32)</td>
- <td>UAVCAN LIGHT_ID_LANDING light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the LIGHT_ID_LANDING lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
+ <td>UAVCAN LIGHT_ID_LANDING light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the LIGHT_ID_LANDING lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Always off</li>
 <li><strong>1:</strong> When autopilot is armed</li>
 <li><strong>2:</strong> When autopilot is prearmed</li>
@@ -26146,7 +26362,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -26234,7 +26450,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UWB_PORT_CFG">UWB_PORT_CFG</strong> (INT32)</td>
- <td>Serial Configuration for Ultrawideband position sensor driver <p><strong>Comment:</strong> Configure on which serial port to run Ultrawideband position sensor driver.</p> <strong>값:</strong><ul>
+ <td>Serial Configuration for Ultrawideband position sensor driver <p><strong>Comment:</strong> Configure on which serial port to run Ultrawideband position sensor driver.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
