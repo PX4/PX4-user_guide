@@ -69,11 +69,11 @@ Another way that Gazebo SITL can be connected is in _standalone mode_.
 In this mode PX4 SITL and Gazebo are started separately in their own terminals.
 By default these terminals are on the same host, but you can also connect SITL and Gazebo instances running on any two devices on the network (or even different networks if you use a VPN to connect them).
 
-You start PX4 in standalone mode by prefixing the `make` command with `GZ_PX4_STANDALONE=1`:
+You start PX4 in standalone mode by prefixing the `make` command with `PX4_GZ_STANDALONE=1`:
 
 ```sh
 cd /path/to/PX4-Autopilot
-GZ_PX4_STANDALONE=1 make px4_sitl gz_x500
+PX4_GZ_STANDALONE=1 make px4_sitl gz_x500
 ```
 
 PX4 SITL will then wait until it detects an instance of _gz-server_, and then connect to it.
