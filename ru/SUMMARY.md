@@ -444,6 +444,7 @@
       * [DebugKeyValue](msg_docs/DebugKeyValue.md)
       * [DebugValue](msg_docs/DebugValue.md)
       * [DebugVect](msg_docs/DebugVect.md)
+      * [DifferentialDriveSetpoint](msg_docs/DifferentialDriveSetpoint.md)
       * [DifferentialPressure](msg_docs/DifferentialPressure.md)
       * [DistanceSensor](msg_docs/DistanceSensor.md)
       * [Ekf2Timestamps](msg_docs/Ekf2Timestamps.md)
