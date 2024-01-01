@@ -36,7 +36,7 @@ Finally take note of the groundspeed during cruise flight. This can be used to t
 
 To bypass the airspeed preflight check you need to set [SYS_HAS_NUM_ASPD](../advanced_config/parameter_reference.md#SYS_HAS_NUM_ASPD) to 0.
 
-To prevent an installed airspeed sensor being used for feedback control set [FW_USE_AIRSPEED](../advanced_config/parameter_reference.md#FW_USE_AIRSPEED) to `False`. This allows you to test the system's behavior in the airspeed-less setting while still having the actual airspeed reading available to check the safety margin to stall speed etc.
+To prevent an installed airspeed sensor being used for feedback control set [FW_USE_AIRSPD](../advanced_config/parameter_reference.md#FW_USE_AIRSPD) to `False`. This allows you to test the system's behavior in the airspeed-less setting while still having the actual airspeed reading available to check the safety margin to stall speed etc.
 
 Set the trim throttle ([FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM)) to the percentage as determined from the log of the reference flight. Note that QGC scales this from `1..100` and the thrust value from the log is scaled from `0..1`. So a thrust of 0.65 should be entered as 65. For safety reasons it is recommended to add +- 10% throttle to the determined value for testing a first flight.
 
