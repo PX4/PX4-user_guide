@@ -48,7 +48,7 @@ This can be used to tune your throttle setting after the first flight without an
 
 To bypass the airspeed preflight check you need to set [SYS_HAS_NUM_ASPD](../advanced_config/parameter_reference.md#SYS_HAS_NUM_ASPD) to 0.
 
-To prevent an installed airspeed sensor being used for feedback control set [FW_USE_AIRSPEED](../advanced_config/parameter_reference.md#FW_USE_AIRSPEED) to `False`.
+To prevent an installed airspeed sensor being used for feedback control set [FW_USE_AIRSPD](../advanced_config/parameter_reference.md#FW_USE_AIRSPD) to `False`.
 This allows you to test the system's behavior in the airspeed-less setting while still having the actual airspeed reading available to check the safety margin to stall speed etc.
 
 Set the trim throttle ([FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM)) to the percentage as determined from the log of the reference flight.
