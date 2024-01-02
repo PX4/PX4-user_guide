@@ -162,14 +162,14 @@ If you search in the file you'll find groups of messages defined in a switch sta
 
 - `MAVLINK_MODE_NORMAL`: Streamed to a GCS.
 - `MAVLINK_MODE_ONBOARD`: Streamed to a companion computer on a fast link, such as Ethernet
-- `MAVLINK_MODE_ONBOARD_LOW_BANDWIDTH`: Streamed to a companion computer on slower link
+- `MAVLINK_MODE_ONBOARD_LOW_BANDWIDTH`: Streamed to a companion computer for re-routing to a reduced-traffic link, such as a GCS.
 - `MAVLINK_MODE_GIMBAL`: Streamed to a gimbal
 - `MAVLINK_MODE_EXTVISION`: Streamed to an external vision system
 - `MAVLINK_MODE_EXTVISIONMIN`: Streamed to an external vision system on a slower link
 - `MAVLINK_MODE_OSD`: Streamed to an OSD, such as an FPV headset.
 - `MAVLINK_MODE_CUSTOM`: Stream nothing by default. Used when configuring streaming using MAVLink.
 - `MAVLINK_MODE_MAGIC`: Same as `MAVLINK_MODE_CUSTOM`
-- `MAVLINK_MODE_CONFIG`: ?
+- `MAVLINK_MODE_CONFIG`: Streaming over USB with higher rates than `MAVLINK_MODE_NORMAL`.
 - `MAVLINK_MODE_MINIMAL`: Stream a minimal set of messages. Normally used for poor telemetry links.
 - `MAVLINK_MODE_IRIDIUM`: Streamed to an iridium satellite phone
 
