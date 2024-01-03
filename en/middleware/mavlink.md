@@ -2,29 +2,79 @@
 
 [MAVLink](https://mavlink.io/en/) is a very lightweight messaging protocol that has been designed for the drone ecosystem.
 
-PX4 uses _MAVLink_ to communicate with _QGroundControl_ (and other ground stations), and as the integration mechanism for connecting to drone components outside of the flight controller: companion computers, MAVLink enabled cameras etc.
+PX4 uses _MAVLink_ to communicate with ground stations and MAVLink SDKs, such as _QGroundControl_ and [MAVSDK](https://mavsdk.mavlink.io/), and as the integration mechanism for connecting to drone components outside of the flight controller: companion computers, MAVLink enabled cameras, and so on.
 
-The protocol defines a number of standard [messages](https://mavlink.io/en/messages/) and [microservices](https://mavlink.io/en/services/) for exchanging data (many, but not all, messages/services have been implemented in PX4).
-
-This tutorial explains how you can add PX4 support for your own new "custom" messages.
+This topic provides a brief overview of fundamental MAVLink concepts, such as messages, commands, and microservices, and provides tutorial instructions for how you can add PX4 support for streaming MAVLink messages.
 
 :::note
-The tutorial assumes you have created your own [custom uORB](../middleware/uorb.md) message named `CaTrajectory` in `msg/CaTrajectory.msg` and a corresponding custom MAVLink `CA_TRAJECTORY` message that is defined in `\src\modules\mavlink\mavlink\message_definitions\v1.0\custom_messages.xml` (code for this will be generated as part of the build to `/build/px4_sitl_default/mavlink/custom_messages/mavlink_msg_ca_trajectory.h`).
+The topic does not (yet) cover handling incoming messages, _command_ handling and sending, or how to implement your own microservices.
 :::
 
-## Defining Custom MAVLink Messages
+## MAVLink Overview
+
+MAVLink is a lightweight protocol that was designed for efficiently sending messages over unreliable low-bandwidth radio links.
+
+_Messages_ are simplest and most "fundamental" definition in MAVLink, consisting of a name (e.g. [ATTITUDE](https://mavlink.io/en/messages/common.html#ATTITUDE)), id, and a fields containing relevant data.
+They are deliberately lightweight, with a constrained size, and no semantics for resending and acknowledgement.
+Stand-alone messages are commonly used for streaming telemetry or status information, and for sending commands where no acknowledgement is required - such as setpoint commands sent at high rate.
+
+The [Command Protocol](https://mavlink.io/en/services/command.html) is a higher level protocol for sending commands that may need acknowledgement.
+The protocol sends a command, defined as up to 7 numeric values packed in a `COMMAND_INT` or `COMMAND_LONG` message, and waits for an acknowledgement with a result in a `COMMAND_ACK`.
+The command is resent automatically if no acknowledgment is received.
+
+[Microservices](https://mavlink.io/en/services/) are other higher level protocols build on top of MAVLink messages.
+They are used to communicate information that cannot be sent in a single message, and to deliver features such as reliable communication.
+The command protocol described above is one such service.
+Others include the [File Transfer Protocol](https://mavlink.io/en/services/ftp.html), [Camera Protocol](https://mavlink.io/en/services/camera.html) and [Mission Protocol](https://mavlink.io/en/services/mission.html).
+
+MAVLink messages, commands and enumerations are defined in [XML definition files](https://mavlink.io/en/guide/define_xml_element.html) (commands are defined as enumerated values of the [MAV_CMD](https://mavlink.io/en/messages/common.html#mav_commands) enumeration).
+The MAVLink toolchain includes code generators that create programming-language-specific libraries from these definitions for sending and receiving messages.
+Note that most generated libraries do not create code for microservices.
+
+The MAVLink project defines a number of [standard messages, commands](https://mavlink.io/en/messages/common.html) and [microservices](https://mavlink.io/en/services/) for exchanging data.
+These are the definitions that most flight stacks, ground stations, and MAVLink peripherals, are likely to support.
+The project also hosts [dialect XML definitions](https://mavlink.io/en/messages/#dialects), which contain MAVLink definitions that are specific to a flight stack or other stakeholder.
+
+The protocol relies on each end of the communication having a shared definition of what messages are being sent.
+What this means is that in order to communicate both ends of the communication must use libraries generated from the same XML definition.
+
+<!--
+The messages are sent over-the-wire in the "payload" of a [MAVLink packet](https://mavlink.io/en/guide/serialization.html#mavlink2_packet_format).
+In order to reduce the amount of information that must be sent, the packet does not include the message metadata, such as what fields are in the message and so on.
+Instead, the fields are serialized in a predefined order based on data size and XML definition order, and MAVLink relies on each end of the communication having a shared definition of what messages are being sent.
+The shared identity of the message is conveyed by the message id, along with a CRC ("`CRC_EXTRA`") that uniquely identifies the message based on its name and id, and the field names and types.
+The receiving end of the communication will discard any packet for which the message id and the `CRC_EXTRA` do not match.
+-->
+
+## PX4 and MAVLink
+
+PX4 uses _standard_ MAVLink definitions by default for the greatest compatibility with MAVLink ground stations, libraries, and external components such as MAVLink cameras.
+These are included from `development.xml` (by default) in the `main` branch.
+
+:::note
+Not all "standard" messages, commands and microservices are _implemented_.
+:::
 
 PX4 includes the [mavlink/mavlink](https://github.com/mavlink/mavlink) repo as a submodule under [/src/modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink), and generates the MAVLink 2 C header files at build time.
 
 There are are number of XML dialect files in [/mavlink/messages/1.0/](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/).
-The dialect that is built is specified using the variable `MAVLINK_DIALECT` in [/src/modules/mavlink/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/CMakeLists.txt#L34); by default this is [development.xml](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/development.xml).
+The dialect that is built is defined in the variable `CONFIG_MAVLINK_DIALECT` used in [/src/modules/mavlink/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/CMakeLists.txt).
+The value is set in [default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board#L36) to [development.xml](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/development.xml), which includes [common.xml](https://mavlink.io/en/messages/common.html) and hence [minimal.xml](https://mavlink.io/en/messages/minimal.html).
 The files are generated into the build directory: `/build/<build target>/mavlink/`.
 
-In order to add your message we recommend that you create your messages in a new dialect file in the same directory, for example `PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0/custom_messages.xml`, and set `MAVLINK_DIALECT` to build the new file.
-This dialect file should include `development.xml`.
+## Custom MAVLink Messages
 
-You can alternatively add your messages to `common.xml` or `development.xml`.
-Whatever dialect file you use must eventually be built in QGroundControl (or whatever software you use to communicate with PX4).
+A custom MAVLink message is one that isn't in the default definitions included into PX4.
+
+:::note
+If you use a custom definition you will need maintain the definition in PX4, your ground station, and any other SDKs that communicate with it.
+Generally you should use (or add to) the standard definitions if at all possible to reduce the maintenance burden.
+:::
+
+Custom definitions can be added in a new dialect file in the same directory as the standard XML definitions.
+For example, create `PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0/custom_messages.xml`, and set `CONFIG_MAVLINK_DIALECT` to build the new file.
+This dialect file should include `development.xml` so that all the standard definitions are also included.
+You can also add your messages to `common.xml` or `development.xml` for testing.
 
 The MAVLink developer guide explains how to define new messages in [How to Define MAVLink Messages & Enums](https://mavlink.io/en/guide/define_xml_element.html).
 
@@ -32,51 +82,83 @@ You can check that your new messages are built by inspecting the headers generat
 If your messages are not built they may be incorrectly formatted, or use clashing ids.
 Inspect the build log for information.
 
+Once the message is being built you can stream, receive, or otherwise use it, as described in the following sections.
+
 :::note
 The [MAVLink Developer guide](https://mavlink.io/en/getting_started/) has more information about using the MAVLink toolchain.
 :::
 
-## Sending Custom MAVLink Messages
+## Streaming MAVLink Messages
 
-This section explains how to stream the content of a custom uORB message as a MAVLink message.
+MAVLink messages are streamed using a streaming class, derived from `MavlinkStream`, that has been added to the PX4 stream list.
+The class has framework methods that you implement so PX4 can get information it needs from the generated MAVLink message definition.
+It also has a `send()` method that is called each time the message needs to be sent — you override this to copy information from a uORB subscription to the MAVLink message object that is to be sent.
+
+This tutorial demonstrates how to stream a uORB message as a MAVLink message, and applies to both standard and custom messages.
+
+### Preconditions
+
+Generally you will already have a [uORB](../middleware/uorb.md) message that contains information you'd like to stream and a definition of a MAVLink message that you'd like to stream it with.
+
+For this example we're going to assume that you want to stream the (existing) [BatteryStatus uORB message](../msg_docs/BatteryStatus.md) to a new MAVLink battery status message, which we will name `BATTERY_STATUS_DEMO`.
+
+Copy this `BATTERY_STATUS_DEMO` message into the message section of `development.xml` in your PX4 source code, which will be located at: `\src\modules\mavlink\mavlink\message_definitions\v1.0\development.xml`.
+
+```xml
+    <message id="11514" name="BATTERY_STATUS_DEMO">
+      <description>Simple demo battery.</description>
+      <field type="uint8_t" name="id" instance="true">Battery ID</field>
+      <field type="int16_t" name="temperature" units="cdegC" invalid="INT16_MAX">Temperature of the whole battery pack (not internal electronics). INT16_MAX field not provided.</field>
+      <field type="uint8_t" name="percent_remaining" units="%" invalid="UINT8_MAX">Remaining battery energy. Values: [0-100], UINT8_MAX: field not provided.</field>
+    </message>
+```
+
+:::note
+Note that this is a cut-down version of the not-yet-implemented [BATTERY_STATUS_V2](https://mavlink.io/en/messages/development.html#BATTERY_STATUS_V2) message with randomly chosen unused id of `11514`.
+Here we've put the message in `development.xml`, which is fine for testing and if the message is intended to eventually be part of the standard message set, but you might also put a [custom message](#custom-mavlink-messages) in its own dialect file.
+:::
+
+Build PX4 for SITL and confirm that the associated message is generated in `/build/px4_sitl_default/mavlink/common/mavlink_msg_battery_status_demo.h`.
+
+Because `BatteryStatus` already exists you will not need to do anything to create or build it.
 
 ### Define the Streaming Class
 
-First create a file named `CA_TRAJECTORY.hpp` for your streaming class inside the [/src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams) directory (named after the corresponding MAVLink message).
+First create a file named `BATTERY_STATUS_DEMO.hpp` for your streaming class (named after the message to stream) inside the [/src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams) directory.
 
 Add the headers for the MAVLink and uORB messages to the top of the file:
 
 ```C
-#include <uORB/topics/ca_trajectory.h>
-#include <v2.0/custom_messages/mavlink.h>
+#include <uORB/topics/battery_status.h>
+#include <v2.0/common/mavlink.h>
 ```
 
 :::note
 The uORB topic's snake-case header file is generated from the CamelCase uORB filename at build time.
-The `custom_messages/mavlink.h` header is also generated at build time.
+The `common/mavlink.h` header is also generated at build time (where "common" in the path comes from the XML file name).
 :::
 
 Then copy the streaming class definition below into the file:
 
-```C
-class MavlinkStreamCaTrajectory : public MavlinkStream
+```cpp
+class MavlinkStreamBatteryStatusDemo : public MavlinkStream
 {
 public:
     static MavlinkStream *new_instance(Mavlink *mavlink)
     {
-        return new MavlinkStreamCaTrajectory(mavlink);
+        return new MavlinkStreamBatteryStatusDemo(mavlink);
     }
     const char *get_name() const
     {
-        return MavlinkStreamCaTrajectory::get_name_static();
+        return MavlinkStreamBatteryStatusDemo::get_name_static();
     }
     static const char *get_name_static()
     {
-        return "CA_TRAJECTORY";
+        return "BATTERY_STATUS_DEMO";
     }
     static uint16_t get_id_static()
     {
-        return MAVLINK_MSG_ID_CA_TRAJECTORY;
+        return MAVLINK_MSG_ID_BATTERY_STATUS_DEMO;
     }
     uint16_t get_id()
     {
@@ -84,44 +166,60 @@ public:
     }
     unsigned get_size()
     {
-        return MAVLINK_MSG_ID_CA_TRAJECTORY_LEN + MAVLINK_NUM_NON_PAYLOAD_BYTES;
+        return MAVLINK_MSG_ID_BATTERY_STATUS_DEMO_LEN + MAVLINK_NUM_NON_PAYLOAD_BYTES;
     }
 
 private:
-    uORB::Subscription _sub{ORB_ID(ca_trajectory)};
+    //Subscription to array of uORB battery status instances
+    uORB::SubscriptionMultiArray<battery_status_s, battery_status_s::MAX_INSTANCES> _battery_status_subs{ORB_ID::battery_status};
+    // SubscriptionMultiArray subscription is needed because battery has multiple instances.
+    // uORB::Subscription is used to subscribe to a single-instance topic
 
     /* do not allow top copying this class */
-    MavlinkStreamCaTrajectory(MavlinkStreamCaTrajectory &);
-    MavlinkStreamCaTrajectory& operator = (const MavlinkStreamCaTrajectory &);
+    MavlinkStreamBatteryStatusDemo(MavlinkStreamBatteryStatusDemo &);
+    MavlinkStreamBatteryStatusDemo& operator = (const MavlinkStreamBatteryStatusDemo &);
 
 protected:
-    explicit MavlinkStreamCaTrajectory(Mavlink *mavlink) : MavlinkStream(mavlink)
+    explicit MavlinkStreamBatteryStatusDemo(Mavlink *mavlink) : MavlinkStream(mavlink)
     {}
 
-    bool send() override
-    {
-        struct ca_traj_struct_s _ca_trajectory;    //make sure ca_traj_struct_s is the definition of your uORB topic
+	bool send() override
+	{
+		bool updated = false;
 
-        if (_sub.update(&_ca_trajectory)) {
-            mavlink_ca_trajectory_t _msg_ca_trajectory;  //make sure mavlink_ca_trajectory_t is the definition of your custom MAVLink message
+		// Loop through _battery_status_subs (subscription to array of BatteryStatus instances)
+		for (auto &battery_sub : _battery_status_subs) {
+            // battery_status_s is a struct that can hold the battery object topic
+			battery_status_s battery_status;
 
-            _msg_ca_trajectory.timestamp = _ca_trajectory.timestamp;
-            _msg_ca_trajectory.time_start_usec = _ca_trajectory.time_start_usec;
-            _msg_ca_trajectory.time_stop_usec  = _ca_trajectory.time_stop_usec;
-            _msg_ca_trajectory.coefficients =_ca_trajectory.coefficients;
-            _msg_ca_trajectory.seq_id = _ca_trajectory.seq_id;
+			// Update battery_status and publish only if the status has changed
+			if (battery_sub.update(&battery_status)) {
+                // mavlink_battery_status_demo_t is the MAVLink message object
+				mavlink_battery_status_demo_t bat_msg{};
 
-            mavlink_msg_ca_trajectory_send_struct(_mavlink->get_channel(), &_msg_ca_trajectory);
+				bat_msg.id = battery_status.id - 1;
+				bat_msg.battery_remaining = (battery_status.connected) ? roundf(battery_status.remaining * 100.f) : -1;
 
-            return true;
-        }
+				// check if temperature valid
+				if (battery_status.connected && PX4_ISFINITE(battery_status.temperature)) {
+					bat_msg.temperature = battery_status.temperature * 100.f;
+				} else {
+					bat_msg.temperature = INT16_MAX;
+				}
 
-        return false;
-    }
+                //Send the message
+				mavlink_msg_battery_status_demo_send_struct(_mavlink->get_channel(), &bat_msg);
+				updated = true;
+			}
+		}
+
+		return updated;
+	}
+
 };
 ```
 
-All streaming classes are very similar, with most of the "significant" differences in the `send()` method:
+Most streaming classes are very similar (see examples in [/src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams)):
 
 - The streaming class derives from [`MavlinkStream`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_stream.h).
 - The `public` definitions are "near-boilerplate", allowing PX4 to get an instance of the class (`new_instance()`), and then to use it to fetch the name, id, and size of the message from the MAVLink headers (`get_name()`, `get_name_static()`, `get_id_static()`, `get_id()`, `get_size()`).
@@ -131,11 +229,52 @@ All streaming classes are very similar, with most of the "significant" differenc
 - The `protected` section is where the important work takes place!
   Here we override the `send()` method, copying values from the subscribed uORB topic(s) into appropriate fields in the MAVLink message, and then send the message.
 
+  In this case the uORB topic has multiple instances: one for each battery.
+  We use `uORB::SubscriptionMultiArray` to get an array of battery status subscriptions.
+  In the `send()` function we iterate the array and use `update()` on the subscription to check if it has changed (and update a structure with the current data).
+  This allows us to send the MAVLink message only if the battery messages have changed:
+
+  ```cpp
+  // Struct to hold current topic data.
+  battery_status_s battery_status;
+
+  // update() populates battery_status and returns true if the status has changed
+  if (battery_sub.update(&battery_status)) {
+     // Use battery_status to populate message and send
+  }
+  ```
+
+  If wanted to send a MAVLink message whether or not the data changed, we could instead use `copy()` as shown:
+
+  ```cpp
+  battery_status_s battery_status;
+  battery_sub.copy(&battery_status);
+  ```
+
+  :::note
+  For a single-instance topic like [VehicleStatus](../msg_docs/VehicleStatus.md) we would subscribe like this:
+
+  ```cpp
+  // Create subscription _vehicle_status_sub
+  uORB::Subscription _vehicle_status_sub{ORB_ID(vehicle_status)};
+  ```
+
+  And we could use the resulting subscription in the same way with update or copy.
+
+  ```cpp
+  vehicle_status_s vehicle_status{}; // vehicle_status_s is the definition of the uORB topic
+  if (_vehicle_status_sub.update(&vehicle_status)) {
+    // Use the vehicle_status as it has been updated.
+  }
+  ```
+
+  :::
+
 Next we include our new class in [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp#L2193).
 Add the line below to the part of the file where all the other streams are included:
 
 ```cpp
-#include "streams/CA_TRAJECTORY.hpp"
+#include "streams/BATTERY_STATUS_DEMO.hpp"
 ```
 
 Finally append the stream class to the `streams_list` at the bottom of
@@ -144,9 +283,9 @@ Finally append the stream class to the `streams_list` at the bottom of
 ```C
 StreamListItem *streams_list[] = {
 ...
-#if defined(CA_TRAJECTORY_HPP)
-    create_stream_list_item<MavlinkStreamCaTrajectory>(),
-#endif // CA_TRAJECTORY_HPP
+#if defined(BATTERY_STATUS_DEMO_HPP)
+    create_stream_list_item<MavlinkStreamBatteryStatusDemo>(),
+#endif // BATTERY_STATUS_DEMO_HPP
 ...
 }
 ```
@@ -180,15 +319,15 @@ For example, to stream CA_TRAJECTORY at 5 Hz:
 	case MAVLINK_MODE_CONFIG: // USB
 		// Note: streams requiring low latency come first
 		...
-		configure_stream_local("CA_TRAJECTORY", 5.0f);
+		configure_stream_local("BATTERY_STATUS_DEMO", 5.0f);
         ...
 ```
 
-It is also possible to add a stream by calling the [mavlink](../modules/modules_communication.html#mavlink) module with the `stream` argument in a [startup script](../concept/system_startup.md).
-For example, you might add the following line to [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink) in order to stream `CA_TRAJECTORY` at 50Hz on UDP port `14556` (`-r` configures the streaming rate and `-u` identifies the MAVLink channel on UDP port 14556).
+It is also possible to add a stream by calling the [mavlink](../modules/modules_communication.md#mavlink) module with the `stream` argument in a [startup script](../concept/system_startup.md).
+For example, you might add the following line to [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink) in order to stream `BATTERY_STATUS_DEMO` at 50Hz on UDP port `14556` (`-r` configures the streaming rate and `-u` identifies the MAVLink channel on UDP port 14556).
 
 ```sh
-mavlink stream -r 50 -s CA_TRAJECTORY -u 14556
+mavlink stream -r 50 -s BATTERY_STATUS_DEMO -u 14556
 ```
 
 ### Streaming on Request
@@ -300,7 +439,7 @@ There are several approaches you can use to view MAVLink traffic:
 ### Set Streaming Rate using a Shell
 
 For testing, it is sometimes useful to increase the streaming rate of individual topics at runtime (e.g. for inspection in QGC).
-This can be achieved using by calling the [mavlink](../modules/modules_communication.html#mavlink) module through the [QGC MAVLink console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (or some other shell):
+This can be achieved using by calling the [mavlink](../modules/modules_communication.md#mavlink) module through the [QGC MAVLink console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (or some other shell):
 
 ```sh
 mavlink stream -u <port number> -s <mavlink topic name> -r <rate>
