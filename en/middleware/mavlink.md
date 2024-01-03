@@ -4,10 +4,14 @@
 
 PX4 uses _MAVLink_ to communicate with ground stations and MAVLink SDKs, such as _QGroundControl_ and [MAVSDK](https://mavsdk.mavlink.io/), and as the integration mechanism for connecting to drone components outside of the flight controller: companion computers, MAVLink enabled cameras, and so on.
 
-This topic provides a brief overview of fundamental MAVLink concepts, such as messages, commands, and microservices, and provides tutorial instructions for how you can add PX4 support for streaming MAVLink messages.
+This topic provides a brief overview of fundamental MAVLink concepts, such as messages, commands, and microservices.
+It also provides tutorial instructions for how you can add PX4 support for:
+
+- Streaming MAVLink messages
+- Handling incoming MAVLink messages and writing to a uORB topic.
 
 :::note
-The topic does not (yet) cover handling incoming messages, _command_ handling and sending, or how to implement your own microservices.
+The topic does not cover _command_ handling and sending, or how to implement your own microservices.
 :::
 
 ## MAVLink Overview
@@ -100,7 +104,7 @@ This tutorial demonstrates how to stream a uORB message as a MAVLink message, an
 
 Generally you will already have a [uORB](../middleware/uorb.md) message that contains information you'd like to stream and a definition of a MAVLink message that you'd like to stream it with.
 
-For this example we're going to assume that you want to stream the (existing) [BatteryStatus uORB message](../msg_docs/BatteryStatus.md) to a new MAVLink battery status message, which we will name `BATTERY_STATUS_DEMO`.
+For this example we're going to assume that you want to stream the (existing) [BatteryStatus](../msg_docs/BatteryStatus.md) uORB message to a new MAVLink battery status message, which we will name `BATTERY_STATUS_DEMO`.
 
 Copy this `BATTERY_STATUS_DEMO` message into the message section of `development.xml` in your PX4 source code, which will be located at: `\src\modules\mavlink\mavlink\message_definitions\v1.0\development.xml`.
 
@@ -128,7 +132,7 @@ First create a file named `BATTERY_STATUS_DEMO.hpp` for your streaming class (na
 
 Add the headers for the MAVLink and uORB messages to the top of the file:
 
-```C
+```cpp
 #include <uORB/topics/battery_status.h>
 #include <v2.0/common/mavlink.h>
 ```
@@ -338,53 +342,64 @@ In order to avoid clogging communications links with messages that aren't needed
 If you needed, a GCS or other MAVLink API can request that particular messages are streamed at a particular rate using [MAV_CMD_SET_MESSAGE_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL).
 A particular message can be requested just once using [MAV_CMD_REQUEST_MESSAGE](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_MESSAGE).
 
-## Receiving Custom MAVLink Messages
+## Receiving MAVLink Messages
 
 This section explains how to receive a message over MAVLink and publish it to uORB.
 
-Add a function that handles the incoming MAVLink message in
-[mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L77)
+It assumes that we are receiving the `BATTERY_STATUS_DEMO` message, which is perhaps published by a MAVLink battery, and we want to update the (existing) [BatteryStatus uORB message](../msg_docs/BatteryStatus.md) with the contained information.
+
+Add the headers for the incoming MAVLink message and the uORB topic to publish to in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L77):
 
 ```cpp
-#include <uORB/topics/ca_trajectory.h>
-#include <v2.0/custom_messages/mavlink_msg_ca_trajectory.h>
+#include <uORB/topics/battery_status.h>
+#include <v2.0/common/mavlink.h>
 ```
 
-Add a function that handles the incoming MAVLink message in the `MavlinkReceiver` class in
-[mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L140)
+Add a function signature for a function that handles the incoming MAVLink message in the `MavlinkReceiver` class in
+[mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L126)
 
 ```cpp
-void handle_message_ca_trajectory_msg(mavlink_message_t *msg);
+void handle_message_battery_status_demo(mavlink_message_t *msg);
 ```
 
-Add an uORB publisher in the `MavlinkReceiver` class in
-[mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L195)
+Normally you would add a uORB publisher for the uORB topic to publish in the `MavlinkReceiver` class in
+[mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L296).
+In this case the [BatteryStatus](../msg_docs/BatteryStatus.md) uORB topic already exists:
 
 ```cpp
-uORB::Publication<ca_trajectory_s> _ca_traj_msg_pub{ORB_ID(ca_trajectory)};
+uORB::Publication<battery_status_s> _battery_pub{ORB_ID(battery_status)};
 ```
 
-Implement the `handle_message_ca_trajectory_msg` function in [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp)
+Implement the `handle_message_battery_status_demo` function in [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp).
 
 ```cpp
-void MavlinkReceiver::handle_message_ca_trajectory_msg(mavlink_message_t *msg)
+void
+MavlinkReceiver::handle_message_battery_status_demo(mavlink_message_t *msg)
 {
-    mavlink_ca_trajectory_t traj;
-    mavlink_msg_ca_trajectory_decode(msg, &traj);
+	if ((msg->sysid != mavlink_system.sysid) || (msg->compid == mavlink_system.compid)) {
+		// ignore battery status coming from other systems or from the autopilot itself
+		return;
+	}
 
-    struct ca_traj_struct_s f;
-    memset(&f, 0, sizeof(f));
+	// external battery measurements
+	mavlink_battery_status_t battery_mavlink;
+	mavlink_msg_battery_status_decode(msg, &battery_mavlink);
 
-    f.timestamp = hrt_absolute_time();
-    f.seq_id = traj.seq_id;
-    f.time_start_usec = traj.time_start_usec;
-    f.time_stop_usec = traj.time_stop_usec;
-    for(int i=0;i<28;i++)
-        f.coefficients[i] = traj.coefficients[i];
+	battery_status_s battery_status{};
+	battery_status.timestamp = hrt_absolute_time();
 
-    _ca_traj_msg_pub.publish(f);
+	battery_status.remaining = (float)battery_mavlink.battery_remaining / 100.0f;
+	battery_status.temperature = (float)battery_mavlink.temperature;
+	battery_status.connected = true;
+
+	_battery_pub.publish(battery_status);
 }
 ```
+
+:::note
+Above we only write to the battery fields that are defined in the topic.
+In practice you'd update all fields with either valid or invalid values: this has been cut back for brevity.
+:::
 
 and finally make sure it is called in [MavlinkReceiver::handle_message()](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp#L228)
 
@@ -393,11 +408,12 @@ MavlinkReceiver::handle_message(mavlink_message_t *msg)
  {
     switch (msg->msgid) {
         ...
-    case MAVLINK_MSG_ID_CA_TRAJECTORY:
-        handle_message_ca_trajectory_msg(msg);
+    case MAVLINK_MSG_ID_BATTERY_STATUS_DEMO:
+        handle_message_battery_status_demo(msg);
         break;
         ...
     }
+ }
 ```
 
 ## Alternative to Creating Custom MAVLink Messages
