@@ -47,11 +47,11 @@ PX4 可以自动为已连接的 PWM 云台或第一个在任何接口上检测�
 
 可以通过设置输出模式为`MNT_MODE_OUT=AUX`，把云台连接到飞控的 3个PWM 端口。
 
-The output pins that are used to control the gimbal are set in the [Acuator Configuration > Outputs](../config/actuators.md#actuator-outputs) by selecting any three unused Actuator Outputs and assigning them the following output functions:
+用于控制云台的输出引脚设置在 [Acuator 配置 > 输出](../config/actuators.md#actuator-outputs) 中通过选择任何三个未使用的驱动输出并赋予它们以下输出功能：
 
-- `Gimbal Roll`: Output controls gimbal roll.
-- `Gimbal Pitch`: Output controls Gimbal pitch.
-- `Gimbal Yaw`: Output controls Gimbal pitch.
+- `Gimbal Roll<0>：输出控制云台滚动</li>
+<li><code>Gimbal Pitch`：输出控制俯仰
+- `Gimbal Yaw`：输出控制云台转动
 
 For example, you might have the following settings to assign the gimbal roll, pitch and yaw to AUX1-3 outputs.
 
