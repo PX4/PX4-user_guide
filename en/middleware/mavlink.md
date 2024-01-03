@@ -134,12 +134,12 @@ Add the headers for the MAVLink and uORB messages to the top of the file:
 
 ```cpp
 #include <uORB/topics/battery_status.h>
-#include <v2.0/common/mavlink.h>
+#include <v2.0/development/mavlink.h>
 ```
 
 :::note
 The uORB topic's snake-case header file is generated from the CamelCase uORB filename at build time.
-The `common/mavlink.h` header is also generated at build time (where "common" in the path comes from the XML file name).
+The `development/mavlink.h` header is also generated at build time (where "development" in the path comes from the XML definition file name).
 :::
 
 Then copy the streaming class definition below into the file:
@@ -346,13 +346,14 @@ A particular message can be requested just once using [MAV_CMD_REQUEST_MESSAGE](
 
 This section explains how to receive a message over MAVLink and publish it to uORB.
 
-It assumes that we are receiving the `BATTERY_STATUS_DEMO` message, which is perhaps published by a MAVLink battery, and we want to update the (existing) [BatteryStatus uORB message](../msg_docs/BatteryStatus.md) with the contained information.
+It assumes that we are receiving the `BATTERY_STATUS_DEMO` message and we want to update the (existing) [BatteryStatus uORB message](../msg_docs/BatteryStatus.md) with the contained information.
+This is the kind of implementation that you would provide to support a MAVLink battery integration with PX4.
 
 Add the headers for the incoming MAVLink message and the uORB topic to publish to in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L77):
 
 ```cpp
 #include <uORB/topics/battery_status.h>
-#include <v2.0/common/mavlink.h>
+#include <v2.0/development/mavlink.h>
 ```
 
 Add a function signature for a function that handles the incoming MAVLink message in the `MavlinkReceiver` class in
