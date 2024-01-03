@@ -21,31 +21,31 @@ PX4接收输入信号并将其经过路由/转换发送至输出。 任何输入
 
 ## MAVLink 云台(MNT_MODE_OUT=MAVLINK)
 
-Each physical gimbal device on the system must have its own high level gimbal manager, which is discoverable by a ground station using the MAVLink gimbal protocol. The ground station sends high level [MAVLink Gimbal Manager](https://mavlink.io/en/services/gimbal_v2.html#gimbal-manager-messages) commands to the manager of the gimbal it wants to control, and the manager will in turn send appropriate lower level "gimbal device" commands to control the gimbal.
+系统上的每个物理云台装置必须有自己的高级云台管理器， 地面站通过使用MAVLink云台协议发现它。 地面站将高级 [MAVLink Gimbal Manager](https://mavlink.io/en/services/gimbal_v2.html#gimbal-manager-messages) 命令发送给它想要控制的云台管理器。 而管理器则会发送适当的较低级别的“云台设备”命令来控制云台。
 
-PX4 can be configured as the gimbal manager to control a single gimbal device (which can either be physically connected or be a MAVLink gimbal that implements the [gimbal device interface](https://mavlink.io/en/services/gimbal_v2.html#gimbal-device-messages)).
+PX4可以配置为云台管理器以控制耽搁云台设备（可以是物理连接的设备，或者实现云台设备接口[gimbal device interface](https://mavlink.io/en/services/gimbal_v2.html#gimbal-device-messages)的MAVLink云台
 
-To enable a MAVLink gimbal, first set parameter [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN) to `MAVlink gimbal protocol v2` and [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) to `MAVLink gimbal protocol v2`.
+要启用 MAVLink云台 ，首先设置参数 [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN) 为 `MAVlink gimbal protocol v2` 和 [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) 为 `MAVlink gimbal protocol v2`
 
-The gimbal can be connected to _any free serial port_ using the instructions in [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md) (also see [Serial Port Configuration](../peripherals/serial_configuration.md#serial-port-configuration)). For example, if the `TELEM2` port on the flight controller is unused you can connect it to the gimbal and set the following PX4 parameters:
+云台使用[MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md)中的指导可以连接到_任意未用串口_（参见[串口配置](../peripherals/serial_configuration.md#serial-port-configuration)） 例如， 如果飞行控制器上的 `TELEM2` 端口未被使用，您可以将其连接到云台并设置下面的 PX4 参数：
 
 - [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG)为**TELEM2**（如果`MAV_1_CONFIG`已经用于连接机载计算机，使用`MAV_2_CONFIG`）。
 - [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE)为**NORMAL**
 - [SER_TEL2)BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD)设置为厂家建议的波特率。
 
-### Multiple Gimbal Support
+### 多云台支持
 
-PX4 can automatically create a gimbal manager for a connected PWM gimbal or the first MAVLink gimbal device with the same system id it detects on any interface. It does not automatically create gimbal manager for any other MAVLink gimbal devices that it detects.
+PX4 可以自动为已连接的 PWM 云台或第一个在任何接口上检测到相同的系统 id的MAVLink 云台设备创建一个云台管理器。 它不会自动为它检测到的其他MAVLink云台设备创建云台管理器。
 
-You can support additional gimbals provided that they:
+您可以支持额外的云台 ，但他们必须：
 
-- implement the gimbal _manager_ protocol
-- Are visible to the ground station and PX4 on the MAVLink network. This may require that traffic forwarding be configured between PX4, the GCS, and the gimbal.
-- Each gimbal must have a unique component id. For a PWM connected gimbal this will be the component ID of the autopilot
+- 实现 云台 _管理器_ 协议
+- 在 MAVLink 网络上对地面站和 PX4 可见。 这可能需要在PX4、GCS和云台之间配置流量转接。
+- 每个云台必须有一个独特的ID。 对于已连接的 PWM 云台，这将是飞控系统的组件 ID
 
-## Gimbal on FC PWM Output (MNT_MODE_OUT=AUX)
+## 飞控PWM 输出上的云台(MNT_MODE_OUT=AUX)
 
-The gimbal can also be controlled by connecting it to up to three flight controller PWM ports and setting the output mode to `MNT_MODE_OUT=AUX`.
+可以通过设置输出模式为`MNT_MODE_OUT=AUX`，把云台连接到飞控的 3个PWM 端口。
 
 The output pins that are used to control the gimbal are set in the [Acuator Configuration > Outputs](../config/actuators.md#actuator-outputs) by selecting any three unused Actuator Outputs and assigning them the following output functions:
 
