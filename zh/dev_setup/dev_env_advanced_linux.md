@@ -27,7 +27,7 @@ sudo mv $HOME/rule.tmp /etc/udev/rules.d/10-px4.rules
 sudo /etc/init.d/udev restart
 ```
 
-The user needs to be added to the group **plugdev**:
+将当前用户加入用户组 “uucp” ：
 
 ```sh
 sudo usermod -a -G plugdev $USER
