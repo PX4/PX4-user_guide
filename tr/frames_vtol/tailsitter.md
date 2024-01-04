@@ -69,8 +69,9 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
 
 ---
 
-[ax1800](http://www.uav-cas.ac.cn/) *PX4 Tailsitter prototype* - Tailsitter takeoff, transition, landing. 
+[Woshark](http://uav-cas.ac.cn/WOSHARK/) *PX4 Tailsitter prototype* - Tailsitter takeoff, transition, landing. 
 <!-- provided by slack user xdwgood: https://github.com/PX4/PX4-user_guide/issues/2328#issuecomment-1467234118 -->
+<!-- Update issue https://github.com/PX4/PX4-user_guide/issues/3007 -->
 @[youtube](https://youtu.be/gjHj6YsxcZk)
 
 ### Quad
@@ -107,9 +108,9 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
     </div>
   </div>
   <div class="grid_item">
-    <div class="grid_item_heading"><big><a href="http://www.uav-cas.ac.cn/">ax1800</a></big></div>
+    <div class="grid_item_heading"><big><a href="http://uav-cas.ac.cn/WOSHARK/">Woshark</a></big></div>
     <div class="grid_text">
-      <img title="ax1800" src="../../assets/airframes/vtol/xdwgood_ax1800/hero.jpg" />
+      <img title="Woshark" src="../../assets/airframes/vtol/xdwgood_ax1800/hero.jpg" />
     </div>
   </div>
   <div class="grid_item">

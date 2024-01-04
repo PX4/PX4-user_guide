@@ -69,8 +69,9 @@ The main frame-specific differences are the motor wiring, and some aspects of tu
 
 ---
 
-[ax1800](http://www.uav-cas.ac.cn/) *PX4 Tailsitter prototype* - Tailsitter takeoff, transition, landing. 
+[Woshark](http://uav-cas.ac.cn/WOSHARK/) *PX4 Tailsitter prototype* - Tailsitter takeoff, transition, landing. 
 <!-- provided by slack user xdwgood: https://github.com/PX4/PX4-user_guide/issues/2328#issuecomment-1467234118 -->
+<!-- Update issue https://github.com/PX4/PX4-user_guide/issues/3007 -->
 @[youtube](https://youtu.be/gjHj6YsxcZk)
 
 ### Quad
@@ -107,7 +108,7 @@ The main frame-specific differences are the motor wiring, and some aspects of tu
     </div>
   </div>
   <div class="grid_item">
-    <div class="grid_item_heading"><big><a href="http://www.uav-cas.ac.cn/">ax1800</a></big></div>
+    <div class="grid_item_heading"><big><a href="http://uav-cas.ac.cn/WOSHARK/">ax1800</a></big></div>
     <div class="grid_text">
       <img title="ax1800" src="../../assets/airframes/vtol/xdwgood_ax1800/hero.jpg" />
     </div>
