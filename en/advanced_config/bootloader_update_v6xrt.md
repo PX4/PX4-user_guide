@@ -104,7 +104,7 @@ After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.
 
 ## Dronecode Probe Bootloader Update
 
-The following steps explain how you can "manually" update the bootloader using the dronecode probe:
+The following steps explain how you can "manually" update the bootloader using the [dronecode probe](../debug/probe_bmp.md):
 
 1. Get a binary containing the bootloader (either from dev team or build it yourself).
 1. Connect the Dronecode probe to your PC via USB.
