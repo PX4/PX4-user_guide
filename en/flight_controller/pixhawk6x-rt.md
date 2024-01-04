@@ -241,6 +241,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 ## Further info
 
+- [Update Pixhawk 6X-RT Bootloader](../advanced_config/bootloader_update_v6xrt.md)
 - [Holybro Docs](https://docs.holybro.com/) (Holybro)
 - [Pixhawk 6X Wiring QuickStart](../assembly/quick_start_pixhawk6x.md)
 - [PM02D Power Module](../power_module/holybro_pm02d.md)
