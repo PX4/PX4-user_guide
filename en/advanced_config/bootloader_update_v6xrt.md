@@ -3,13 +3,12 @@
 The _PX4 Bootloader_ is used to load firmware for [Pixhawk boards](../flight_controller/pixhawk_series.md) (PX4FMU, PX4IO).
 
 Pixhawk controllers usually comes with an appropriate bootloader version pre-installed.
-However in some case it is not present, or an older version is present that needs to be updated.
-Or it could happen the device is bricked and the device has to be erased and a new bootloader has to be flashed.
+However in some cases it may not be present, or an older version may be present that needs to be updated.
+It is also possible that the device is bricked, so the device has to be erased and a new bootloader must be flashed.
 
 This topic explains several methods for updating/unbricking the Pixhawk bootloader.
 
 ## Building the PX4 V6X-RT Bootloader
-
 
 This can be built from within the PX4-Autopilot folder using the `make` command and the board-specific target with a `_bootloader` suffix.
 For FMUv6X the command is:
@@ -29,63 +28,76 @@ arm-none-eabi-objcopy -O ihex build/px4_fmu-v6xrt_bootloader/px4_fmu-v6xrt_bootl
 
 ## Flashing the bootloader through USB
 
-The Pixhawk V6X-RT comes with a build-in bootloader located on the ROM. To flash a new bootloader through USB you've to download the [NXP MCUXpresso Secure Provisioning tool](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-secure-provisioning-tool:MCUXPRESSO-SECURE-PROVISIONING) . The tool is available for Windows, Linux and macOS.
+The Pixhawk V6X-RT comes with a build-in bootloader located on the ROM.
+To flash a new bootloader through USB you've got to download the [NXP MCUXpresso Secure Provisioning tool](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-secure-provisioning-tool:MCUXPRESSO-SECURE-PROVISIONING).
+The tool is available for Windows, Linux and macOS.
 
-![Flash bootloader through Secure provisioning - Step 1](../../assets/advanced_config/bootloader_update_v6xrt_step1.png)
+1. Install the _MCUXpresso Secure Provisioning_ application and launch the application:
 
-After installing MCUXpresso Secure Provisioning launch the application.
-![Flash bootloader through Secure provisioning - Step 2](../../assets/advanced_config/bootloader_update_v6xrt_step2.png)
+   ![Flash bootloader through Secure provisioning - Step 1](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step1.png)
 
-At the first start you've create a "New Workspace", select `i.mX RT11xx` and then select `MIMXRT1176`
+1. On first start you have to create a "New Workspace".
+   Select `i.mX RT11xx` and then select `MIMXRT1176`
 
-![Flash bootloader through Secure provisioning - Step 3](../../assets/advanced_config/bootloader_update_v6xrt_step3.png)
+   ![Flash bootloader through Secure provisioning - Step 2](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step2.png)
 
-After creating a "New Workspace" clock on the "FlexSPI NOR - simplified" button
+1. After creating a "New Workspace" click on the **FlexSPI NOR - simplified** button
 
-![Flash bootloader through Secure provisioning - Step 4](../../assets/advanced_config/bootloader_update_v6xrt_step4.png)
+   ![Flash bootloader through Secure provisioning - Step 3](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step3.png)
 
-On the "Boot Memory Configuration" windows change the "Device type" to `Macronix Octal DDR` and press OK
+1. On the _Boot Memory Configuration_ window change the "Device type" to `Macronix Octal DDR` and press **OK**.
 
-![Flash bootloader through Secure provisioning - Step 5](../../assets/advanced_config/bootloader_update_v6xrt_step5.png)
+![Flash bootloader through Secure provisioning - Step 4](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step4.png)
 
-On the menu bar select Tools -> Flash Programmer
+1. On the menu bar select **Tools > Flash Programmer**:
 
-![Flash bootloader through Secure provisioning - Step 6](../../assets/advanced_config/bootloader_update_v6xrt_step6.png)
+   ![Flash bootloader through Secure provisioning - Step 5](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step5.png)
 
-You should get this pop-up indicating the Pixhawk V6X-RT is not in the "ISP bootloader mode". To get the Pixhawk V6X-RT into "ISP bootloader mode" there are 2 options:
+1. You should get this pop-up indicating the Pixhawk V6X-RT is not in the "ISP bootloader mode".
 
-1. Launch QGC connect the Pixhawk select "Analayze Tools" and then "MAVLINK Console" on the console type `reboot -i`this will put the Pixhawk V6X-RT into "ISP bootloader mode"
+   ![Flash bootloader through Secure provisioning - Step 6](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step6.png)
 
-   ![](../../assets/advanced_config/bootloader_update_v6xrt_enter_isp_qgc.png)
+   To get the Pixhawk V6X-RT into "ISP bootloader mode" there are 2 options:
 
-2. If the board is bricked and connecting to QGC is not possible you've open the FMUM module and press the BOOT button (circled in red in the picture below) while powering the board.
+   1. Launch QGC connect the Pixhawk select **Analayze Tools** and then **MAVLINK Console**.
+      On the console type `reboot -i`.
+      This will put the Pixhawk V6X-RT into "ISP bootloader mode"
 
-   <img src="../../assets/advanced_config/bootloader_update_v6xrt_enter_isp_button.jpg" style="zoom:67%;" />
+      ![ISP bootloader mode](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_enter_isp_qgc.png)
 
-   No on the PC press YES to launch the "Flash Programmer Tool"
+   2. If the board is bricked and connecting to QGC is not possible you've open the FMUM module and press the BOOT button (circled in red in the picture below) while powering the board.
 
-![Flash bootloader through Secure provisioning - Step 7](../../assets/advanced_config/bootloader_update_v6xrt_step7.png)
+      <img src="../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_enter_isp_button.jpg" style="zoom:67%;" />
 
-When the Flash Programming has started you get a popup to configure the target memory press Yes
-![Flash bootloader through Secure provisioning - Step 8](../../assets/advanced_config/bootloader_update_v6xrt_step8.png)
+      Press **YES** to launch the _Flash Programmer Tool_.
 
-When the Target Memory configuration is succesful you can press the the ''Erase All" button
+1. When the Flash Programming has started you get a popup to configure the target memory press **Yes**
 
-![Flash bootloader through Secure provisioning - Step 9](../../assets/advanced_config/bootloader_update_v6xrt_step9.png)
+   ![Flash bootloader through Secure provisioning - Step 7](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step7.png)
 
-After erasing the flash press the "Load ..." button and then press the "Browse" button
+1. When the Target Memory configuration is succesful you can press the the **Erase All** button
 
-![Flash bootloader through Secure provisioning - Step 10](../../assets/advanced_config/bootloader_update_v6xrt_step10.png)Locate the `px4_fmu-v6xrt_bootloader.bin` file and press "Open" and then press on "Load"
+   ![Flash bootloader through Secure provisioning - Step 8](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step8.png)
 
-![Flash bootloader through Secure provisioning - Step 11](../../assets/advanced_config/bootloader_update_v6xrt_step11.png)
+1. After erasing the flash press the **Load ...** button and then press the **Browse** button
 
-If the load is successful you should see the "Success: load from file" at the bottom right
-![Flash bootloader through Secure provisioning - Step 12](../../assets/advanced_config/bootloader_update_v6xrt_step12.png)
+   ![Flash bootloader through Secure provisioning - Step 9](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step9.png)
 
-Press the "Write" button to flash the PX4 bootloader
-![Flash bootloader through Secure provisioning - Step 13](../../assets/advanced_config/bootloader_update_v6xrt_step13.png)
+1. Locate the `px4_fmu-v6xrt_bootloader.bin` file and press **Open** and then press on **Load**.
 
-On success it should show "Success: Write memory 0x30000000 - 0x3XXXXXXX" Note: values might differ due to bootloader changes.
+   ![Flash bootloader through Secure provisioning - Step 10](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step10.png)
+
+1. If the load is successful you should see the "Success: load from file" at the bottom right
+
+   ![Flash bootloader through Secure provisioning - Step 11](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step11.png)
+
+1. Press the **Write** button to flash the PX4 bootloader
+
+![Flash bootloader through Secure provisioning - Step 12](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step12.png)
+
+1. On success it should show "Success: Write memory 0x30000000 - 0x3XXXXXXX" Note: values might differ due to bootloader changes.
+
+   ![Flash bootloader through Secure provisioning - Step 13](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step13.png)
 
 Now unplug the Pixhawk V6X-RT and re-power the board.
 After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using _QGroundControl_.
@@ -149,4 +161,3 @@ The following steps explain how you can "manually" update the bootloader using t
    ```
 
 After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using _QGroundControl_.
-
