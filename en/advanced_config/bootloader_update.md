@@ -43,7 +43,9 @@ The easiest approach is to first use _QGroundControl_ to install firmware that c
 You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 
 :::note
-This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware (currently just FMUv2 and some custom firmware).
+This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware (currently just FMUv2 and some custom firmware). 
+
+As of now the FMUv6X-RT doesn't have [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) support please refer to the [Debug Probe](#debug-probe-bootloader-update) method or [FMUv6X-RT USB](./bootloader_update_v6xrt.md) method
 :::
 
 The steps are:
@@ -96,17 +98,23 @@ To update the bootloader:
    In this case you will not be able to install FMUv3 hardware.
    :::
 
-## Dronecode Probe Bootloader Update
+## Debug Probe Bootloader Update
 
-The following steps explain how you can "manually" update the bootloader using the dronecode probe:
+The following steps explain how you can "manually" update the bootloader using the a debug probe:
 
 1. Get a binary containing the bootloader (either from dev team or build it yourself).
-1. Connect the Dronecode probe to your PC via USB.
+
+1. Get a [Debug Probe](../debug/swd_debug.md#debug-probes-for-px4-hardware) connect the probe your PC via USB and setup the gdbserver
+
 1. Go into the directory containing the binary and run the following command in the terminal:
 
    ```sh
    arm-none-eabi-gdb px4fmuv5_bl.elf
    ```
+
+   :::note
+   If the hardware is FMUv6X or newer use the in-tree PX4 bootloader.
+   :::
 
 1. The _gdb terminal_ appears and it should display the following output:
 
@@ -129,6 +137,7 @@ The following steps explain how you can "manually" update the bootloader using t
    ```
 
 1. Find your `<dronecode-probe-id>` by running an ls command in the **/dev/serial/by-id** directory.
+
 1. Now connect to the Dronecode probe with the following command:
 
    ```sh

@@ -1,4 +1,4 @@
-# Bootloader Update Pixhawk V6X-RT
+# Bootloader Update Pixhawk V6X-RT through USB
 
 The _PX4 Bootloader_ is used to load firmware for [Pixhawk boards](../flight_controller/pixhawk_series.md) (PX4FMU, PX4IO).
 
@@ -6,12 +6,14 @@ Pixhawk controllers usually comes with an appropriate bootloader version pre-ins
 However in some cases it may not be present, or an older version may be present that needs to be updated.
 It is also possible that the device is bricked, so the device has to be erased and a new bootloader must be flashed.
 
-This topic explains several methods for updating/unbricking the Pixhawk bootloader.
+This topic explains explains to flash Pixhawk FMUv6X-RT bootloader through USB without a debug probe. 
 
-## Building the PX4 V6X-RT Bootloader
+To flash the Pixhawk FMUv6X-RT bootloader using a debug probe please refer to this [guide](./bootloader_update.md#debug-probe-bootloader-update) 
+
+## Building the PX4 FMUv6X-RT Bootloader
 
 This can be built from within the PX4-Autopilot folder using the `make` command and the board-specific target with a `_bootloader` suffix.
-For FMUv6X the command is:
+For FMUv6X-RT the command is:
 
 ```sh
 make px4_fmu-v6xrt_bootloader
@@ -100,64 +102,4 @@ The tool is available for Windows, Linux and macOS.
    ![Flash bootloader through Secure provisioning - Step 13](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step13.png)
 
 Now unplug the Pixhawk V6X-RT and re-power the board.
-After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using _QGroundControl_.
-
-## Dronecode Probe Bootloader Update
-
-The following steps explain how you can "manually" update the bootloader using the [dronecode probe](../debug/probe_bmp.md):
-
-1. Get a binary containing the bootloader (either from dev team or build it yourself).
-1. Connect the Dronecode probe to your PC via USB.
-1. Go into the directory containing the binary and run the following command in the terminal:
-
-   ```sh
-   arm-none-eabi-gdb px4_fmu-v6xrt_default.elf
-   ```
-
-1. The _gdb terminal_ appears and it should display the following output:
-
-   ```sh
-   GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git
-   Copyright (C) 2017 Free Software Foundation, Inc.
-   License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-   This is free software: you are free to change and redistribute it.
-   There is NO WARRANTY, to the extent permitted by law.
-   Type "show copying"    and "show warranty" for details.
-   This GDB was configured as "--host=x86_64-linux-gnu --target=arm-none-eabi".
-   Type "show configuration" for configuration details.
-   For bug reporting instructions, please see:
-   <http://www.gnu.org/software/gdb/bugs/>.
-   Find the GDB manual and other documentation resources online at:
-   <http://www.gnu.org/software/gdb/documentation/>.
-   For help, type "help".
-   Type "apropos word" to search for commands related to "word"...
-   Reading symbols from px4_fmu-v6xrt_default.elf...done.
-   ```
-
-1. Find your `<dronecode-probe-id>` by running an ls command in the **/dev/serial/by-id** directory.
-1. Now connect to the Dronecode probe with the following command:
-
-   ```sh
-   tar ext /dev/serial/by-id/<dronecode-probe-id>
-   ```
-
-1. Power on the Pixhawk with another USB cable and connect the Dronecode probe to the FMU-DEBUG port.
-
-   :::note
-   To be able to connect the Dronecode probe to the FMU-DEBUG port
-   :::
-
-1. Use the following command to scan for the Pixhawk’s swd and connect to it:
-
-   ```sh
-   (gdb) mon swdp_scan
-   (gdb) attach 1
-   ```
-
-1. Load the binary into the Pixhawk:
-
-   ```sh
-   (gdb) load
-   ```
-
 After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using _QGroundControl_.
