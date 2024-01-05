@@ -469,6 +469,7 @@ Reboot the system
 ```
 reboot [arguments...]
      [-b]        Reboot into bootloader
+     [-i]        Reboot into ISP (1st stage bootloader)
      [lock|unlock] Take/release the shutdown lock (for testing)
 ```
 ## sd_bench
