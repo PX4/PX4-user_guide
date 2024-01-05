@@ -219,4 +219,3 @@ This reduces the risk or poor wiring contributing to debugging problems, and has
 [etm]: https://developer.arm.com/documentation/ihi0064/latest/
 [bm06b-ghs-tbt(lf)(sn)(n)]: https://www.digikey.com/products/en?keywords=455-1582-1-ND
 [sm06b-ghs-tbt(lf)(sn)(n)]: https://www.digikey.com/products/en?keywords=455-1568-1-ND
-[holybro pixhawk 5x]: 
