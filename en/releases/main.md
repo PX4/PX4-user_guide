@@ -74,6 +74,10 @@ TBD ...
 
 - TBD
 
+### Rover 
+
+- [Aion R1](../frames_rover/aion_r1.md)<Badge text="Experimental" type="warning"/>: Introducing the Aion R1, a new differential drive rover. This release includes build instructions and support for the Aion R1, along with information about integrating the Roboclaw motor controller.
+
 ### ROS 2
 
 - [PX4 ROS 2 Interface Library](../ros2/px4_ros2_interface_lib.md)<Badge text="Experimental" type="warning"/>: A new C++ library that simplifies controlling PX4 from ROS 2.
