@@ -10,7 +10,7 @@ Pixhawk controllers usually comes with an appropriate bootloader version pre-ins
 However in some cases it may not be present, or an older version may be present that needs to be updated.
 It is also possible that the device is bricked, so the device has to be erased and a new bootloader must be flashed.
 
-Most flight controllers require a Debug probe in order to update the bootloader, as discussed in [Bootloader Update > Debug Probe Bootloader Update](../bootloader_update.md#debug-probe-bootloader-update).
+Most flight controllers require a Debug probe in order to update the bootloader, as discussed in [Bootloader Update > Debug Probe Bootloader Update](../advanced_config/bootloader_update.md#debug-probe-bootloader-update).
 You can use this approach for the Pixhawk FMUv6X-RT, but if you don't have a debug probe you can use the instructions outlined in this topic instead.
 
 ## Building the PX4 FMUv6X-RT Bootloader

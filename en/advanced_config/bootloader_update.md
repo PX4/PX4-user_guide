@@ -35,68 +35,6 @@ PX4 boards up to FMUv5X (before STM32H7) used a legacy [PX4 bootloader](https://
 
 Please refer to the instructions in the README to learn how to use it.
 
-## QGC Bootloader Update
-
-The easiest approach is to first use _QGroundControl_ to install firmware that contains the desired/latest bootloader.
-You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
-
-This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware.
-
-:::warning
-Currently only FMUv2 and some custom firmware includes the desired bootloader.
-Most other boards will need to use the [Debug Probe](#debug-probe-bootloader-update) method, or on [FMUv6X-RT you can install/unbrick boards via USB](./bootloader_update_v6xrt.md).
-:::
-
-The steps are:
-
-1. Insert an SD card (enables boot logging to debug any problems).
-1. [Update the Firmware](../config/firmware.md#custom) with an image containing the new/desired bootloader.
-
-   :::note
-   The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest main branch.
-   :::
-
-1. Wait for the vehicle to reboot.
-1. [Find and enable](../advanced_config/parameters.md) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
-1. Reboot (disconnect/reconnect the board).
-   The bootloader update will only take a few seconds.
-
-Generally at this point you may then want to [update the firmware](../config/firmware.md) again using the correct/newly installed bootloader.
-
-An specific example of this process for updating the FMUv2 bootloader is given below.
-
-### FMUv2 Bootloader Update
-
-If _QGroundControl_ installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
-
-:::note
-Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata) that restricted them to using 1MB of flash memory.
-The problem is fixed on newer boards, but you may need to update the factory-provided bootloader in order to install FMUv3 Firmware and access all 2MB available memory.
-:::
-
-To update the bootloader:
-
-1. Insert an SD card (enables boot logging to debug any problems).
-1. [Update the Firmware](../config/firmware.md) to PX4 _master_ version (when updating the firmware, check **Advanced settings** and then select **Developer Build (master)** from the dropdown list).
-   _QGroundControl_ will automatically detect that the hardware supports FMUv2 and install the appropriate Firmware.
-
-   ![FMUv2 update](../../assets/qgc/setup/firmware/bootloader_update.jpg)
-
-   Wait for the vehicle to reboot.
-
-1. [Find and enable](../advanced_config/parameters.md) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
-1. Reboot (disconnect/reconnect the board).
-   The bootloader update will only take a few seconds.
-1. Then [Update the Firmware](../config/firmware.md) again.
-   This time _QGroundControl_ should autodetect the hardware as FMUv3 and update the Firmware appropriately.
-
-   ![FMUv3 update](../../assets/qgc/setup/firmware/bootloader_fmu_v3_update.jpg)
-
-   :::note
-   If the hardware has the [Silicon Errata](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata) it will still be detected as FMUv2 and you will see that FMUv2 was re-installed (in console).
-   In this case you will not be able to install FMUv3 hardware.
-   :::
-
 ## Debug Probe Bootloader Update
 
 The following steps explain how you can "manually" update the bootloader using a [compatible Debug Probe](../debug/swd_debug.md#debug-probes-for-px4-hardware):
@@ -164,6 +102,68 @@ The following steps explain how you can "manually" update the bootloader using a
    ```
 
 After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using _QGroundControl_.
+
+## QGC Bootloader Update
+
+The easiest approach is to first use _QGroundControl_ to install firmware that contains the desired/latest bootloader.
+You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+
+This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware.
+
+:::warning
+Currently only FMUv2 and some custom firmware includes the desired bootloader.
+Most other boards will need to use the [Debug Probe](#debug-probe-bootloader-update) method, or on [FMUv6X-RT you can install/unbrick boards via USB](./bootloader_update_v6xrt.md).
+:::
+
+The steps are:
+
+1. Insert an SD card (enables boot logging to debug any problems).
+1. [Update the Firmware](../config/firmware.md#custom) with an image containing the new/desired bootloader.
+
+   :::note
+   The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest main branch.
+   :::
+
+1. Wait for the vehicle to reboot.
+1. [Find and enable](../advanced_config/parameters.md) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+1. Reboot (disconnect/reconnect the board).
+   The bootloader update will only take a few seconds.
+
+Generally at this point you may then want to [update the firmware](../config/firmware.md) again using the correct/newly installed bootloader.
+
+An specific example of this process for updating the FMUv2 bootloader is given below.
+
+### FMUv2 Bootloader Update
+
+If _QGroundControl_ installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
+
+:::note
+Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata) that restricted them to using 1MB of flash memory.
+The problem is fixed on newer boards, but you may need to update the factory-provided bootloader in order to install FMUv3 Firmware and access all 2MB available memory.
+:::
+
+To update the bootloader:
+
+1. Insert an SD card (enables boot logging to debug any problems).
+1. [Update the Firmware](../config/firmware.md) to PX4 _master_ version (when updating the firmware, check **Advanced settings** and then select **Developer Build (master)** from the dropdown list).
+   _QGroundControl_ will automatically detect that the hardware supports FMUv2 and install the appropriate Firmware.
+
+   ![FMUv2 update](../../assets/qgc/setup/firmware/bootloader_update.jpg)
+
+   Wait for the vehicle to reboot.
+
+1. [Find and enable](../advanced_config/parameters.md) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+1. Reboot (disconnect/reconnect the board).
+   The bootloader update will only take a few seconds.
+1. Then [Update the Firmware](../config/firmware.md) again.
+   This time _QGroundControl_ should autodetect the hardware as FMUv3 and update the Firmware appropriately.
+
+   ![FMUv3 update](../../assets/qgc/setup/firmware/bootloader_fmu_v3_update.jpg)
+
+   :::note
+   If the hardware has the [Silicon Errata](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata) it will still be detected as FMUv2 and you will see that FMUv2 was re-installed (in console).
+   In this case you will not be able to install FMUv3 hardware.
+   :::
 
 ## Other Boards (Non-Pixhawk)
 
