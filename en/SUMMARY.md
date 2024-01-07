@@ -160,7 +160,7 @@
   * [MAVLink Telemetry (OSD/GCS)](peripherals/mavlink_peripherals.md)
   * [PX4 Ethernet Setup](advanced_config/ethernet_setup.md)
   * [Bootloader Update](advanced_config/bootloader_update.md)
-  * [Bootloader Update (FMUv6X-RT)](advanced_config/bootloader_update_v6xrt.md)
+    * [Bootloader Update FMUv6X-RT via USB](advanced_config/bootloader_update_v6xrt.md)
 * [Hardware (Drones&Parts)](hardware/drone_parts.md)
   * [Complete Vehicles](complete_vehicles/README.md)
     * [ModalAI Starling](complete_vehicles/modalai_starling.md)

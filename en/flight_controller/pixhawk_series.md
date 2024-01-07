@@ -87,8 +87,14 @@ At very high level, the main differences are:
   More Redundancy.
   More RAM.
   More CAN buses.
-  Much more configurable & customizable
-  .([Pixhawk 5X](../flight_controller/pixhawk5x.md), Skynode)
+  Much more configurable & customizable.
+  ([Pixhawk 5X](../flight_controller/pixhawk5x.md), Skynode)
+- **FMUv6C:** 
+  ([Holybro Pixhawk 6C Mini](../flight_controller/pixhawk6c_mini.md), [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md))
+- **FMUv6X:** 
+  ([CUAV Pixhawk V6X](../flight_controller/cuav_pixhawk_v6x.md),[Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md))
+- **FMUv6X-RT:**
+  ([Holybro Pixhawk 6X-RT](../flight_controller/pixhawk6x-rt.md))
 
 <a id="licensing-and-trademarks"></a>
 

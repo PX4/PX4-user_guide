@@ -3,15 +3,13 @@
 The _PX4 Bootloader_ is used to load firmware for [Pixhawk boards](../flight_controller/pixhawk_series.md) (PX4FMU, PX4IO).
 
 Pixhawk controllers usually comes with an appropriate bootloader version pre-installed.
-However in some case it is not present, or an older version is present that needs to be updated.
+However in some cases it is not present, or an older version is present that needs to be updated, or the board has been bricked and needs to be erased and the bootloader reinstalled.
 
-This topic explains several methods for updating the Pixhawk bootloader.
-
-:::note
-A case where you may need to update Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
-:::
+This topic explains how to build the PX4 bootloader, and several methods for flashing it to a board.
 
 ## Building the PX4 Bootloader
+
+### PX4 Bootloader from FMUv6X
 
 Boards starting with FMUv6X (STM32H7) use the in-tree PX4 bootloader.
 
@@ -31,7 +29,7 @@ If you need a HEX file instead of an ELF file, use objcopy:
 arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf px4_fmu-v6x_bootloader.hex
 ```
 
-## Building the Legacy PX4 Bootloader
+### Legacy PX4 Bootloader (FMUv5X and earlier)
 
 PX4 boards up to FMUv5X (before STM32H7) used a legacy [PX4 bootloader](https://github.com/PX4/Bootloader) repository.
 
@@ -42,10 +40,11 @@ Please refer to the instructions in the README to learn how to use it.
 The easiest approach is to first use _QGroundControl_ to install firmware that contains the desired/latest bootloader.
 You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 
-:::note
-This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware (currently just FMUv2 and some custom firmware). 
+This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware.
 
-As of now the FMUv6X-RT doesn't have [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) support please refer to the [Debug Probe](#debug-probe-bootloader-update) method or [FMUv6X-RT USB](./bootloader_update_v6xrt.md) method
+:::warning
+Currently only FMUv2 and some custom firmware includes the desired bootloader.
+Most other boards will need to use the [Debug Probe](#debug-probe-bootloader-update) method, or on [FMUv6X-RT you can install/unbrick boards via USB](./bootloader_update_v6xrt.md).
 :::
 
 The steps are:
@@ -54,7 +53,7 @@ The steps are:
 1. [Update the Firmware](../config/firmware.md#custom) with an image containing the new/desired bootloader.
 
    :::note
-   The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest master.
+   The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest main branch.
    :::
 
 1. Wait for the vehicle to reboot.
@@ -100,11 +99,12 @@ To update the bootloader:
 
 ## Debug Probe Bootloader Update
 
-The following steps explain how you can "manually" update the bootloader using the a debug probe:
+The following steps explain how you can "manually" update the bootloader using a [compatible Debug Probe](../debug/swd_debug.md#debug-probes-for-px4-hardware):
 
 1. Get a binary containing the bootloader (either from dev team or build it yourself).
 
-1. Get a [Debug Probe](../debug/swd_debug.md#debug-probes-for-px4-hardware) connect the probe your PC via USB and setup the gdbserver
+1. Get a [Debug Probe](../debug/swd_debug.md#debug-probes-for-px4-hardware).
+   Connect the probe your PC via USB and setup the `gdbserver`.
 
 1. Go into the directory containing the binary and run the following command in the terminal:
 
@@ -136,21 +136,21 @@ The following steps explain how you can "manually" update the bootloader using t
    Reading symbols from px4fmuv5_bl.elf...done.
    ```
 
-1. Find your `<dronecode-probe-id>` by running an ls command in the **/dev/serial/by-id** directory.
+1. Find your `<dronecode-probe-id>` by running an `ls` command in the **/dev/serial/by-id** directory.
 
-1. Now connect to the Dronecode probe with the following command:
+1. Now connect to the debug probe with the following command:
 
    ```sh
    tar ext /dev/serial/by-id/<dronecode-probe-id>
    ```
 
-1. Power on the Pixhawk with another USB cable and connect the Dronecode probe to the FMU-DEBUG port.
+1. Power on the Pixhawk with another USB cable and connect the probe to the `FMU-DEBUG` port.
 
    :::note
-   To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to remove the case (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
+   To be able to connect a Dronecode probe to the `FMU-DEBUG` port, you may need to remove the case (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
    :::
 
-1. Use the following command to scan for the Pixhawk’s swd and connect to it:
+1. Use the following command to scan for the Pixhawk`s SWD and connect to it:
 
    ```sh
    (gdb) mon swdp_scan

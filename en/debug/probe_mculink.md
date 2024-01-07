@@ -18,7 +18,7 @@ The MCU-Link provides for NXP (FMUv6X-RT) chips the [LinkServer](https://www.nxp
 
 [Download](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/linkserver-for-microcontrollers:LINKERSERVER#downloads) the Linkserver for your operating system and follow the installation instructions.
 
-On Windows LinkServer gets installed to `C:\NXP\LinkServer_x.x.x` 
+On Windows LinkServer gets installed to `C:\NXP\LinkServer_x.x.x`
 On Linux LinkServer gets installed `/usr/local/LinkServer/LinkServer`
 
 To flash you can use the `LinkServer flash` command with target `MIMXRT1176xxxxx:MIMXRT1170-EVK-CM7-ONLY` for the FMUv6X-RT

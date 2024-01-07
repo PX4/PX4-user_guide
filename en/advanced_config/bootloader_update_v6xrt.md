@@ -1,4 +1,8 @@
-# Bootloader Update Pixhawk V6X-RT through USB
+# Bootloader Update Pixhawk V6X-RT via USB
+
+This topic explains explains to flash [Pixhawk FMUv6X-RT](../flight_controller/pixhawk6x-rt.md) bootloader via USB _without needing a debug probe_.
+
+## Overview
 
 The _PX4 Bootloader_ is used to load firmware for [Pixhawk boards](../flight_controller/pixhawk_series.md) (PX4FMU, PX4IO).
 
@@ -6,9 +10,8 @@ Pixhawk controllers usually comes with an appropriate bootloader version pre-ins
 However in some cases it may not be present, or an older version may be present that needs to be updated.
 It is also possible that the device is bricked, so the device has to be erased and a new bootloader must be flashed.
 
-This topic explains explains to flash Pixhawk FMUv6X-RT bootloader through USB without a debug probe. 
-
-To flash the Pixhawk FMUv6X-RT bootloader using a debug probe please refer to this [guide](./bootloader_update.md#debug-probe-bootloader-update) 
+Most flight controllers require a Debug probe in order to update the bootloader, as discussed in [Bootloader Update > Debug Probe Bootloader Update](../bootloader_update.md#debug-probe-bootloader-update).
+You can use this approach for the Pixhawk FMUv6X-RT, but if you don't have a debug probe you can use the instructions outlined in this topic instead.
 
 ## Building the PX4 FMUv6X-RT Bootloader
 
