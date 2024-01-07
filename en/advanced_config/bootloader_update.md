@@ -7,6 +7,15 @@ However in some cases it is not present, or an older version is present that nee
 
 This topic explains how to build the PX4 bootloader, and several methods for flashing it to a board.
 
+:::note
+
+- Most boards will need to use the [Debug Probe](#debug-probe-bootloader-update) to update the bootloader.
+- On [FMUv6X-RT](../flight_controller/pixhawk6x-rt.md) you can [install bootloader/unbrick boards via USB](bootloader_update_v6xrt.md).
+  This is useful if you don't have a debug probe.
+- On FMUv2 and some custom firmware (only) you can use [QGC Bootloader Update](#qgc-bootloader-update).
+:::
+
+
 ## Building the PX4 Bootloader
 
 ### PX4 Bootloader from FMUv6X
@@ -112,7 +121,6 @@ This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_r
 
 :::warning
 Currently only FMUv2 and some custom firmware includes the desired bootloader.
-Most other boards will need to use the [Debug Probe](#debug-probe-bootloader-update) method, or on [FMUv6X-RT you can install/unbrick boards via USB](./bootloader_update_v6xrt.md).
 :::
 
 The steps are:
