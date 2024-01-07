@@ -76,7 +76,7 @@ TBD ...
 
 ### Rover 
 
-- [Aion R1](../frames_rover/aion_r1.md)<Badge text="Experimental" type="warning"/>: Introducing the Aion R1, a new differential drive rover. This release includes build instructions and support for the Aion R1, along with information about integrating the Roboclaw motor controller.
+- [Aion R1](../frames_rover/aion_r1.md)<Badge text="Experimental" type="warning"/>: ESC Driver for Roboclaw motor controller. This comes with build instructions and support for the Aion R1, a new differential drive rover, along with information about integrating the Roboclaw motor controller.
 
 ### ROS 2
 
