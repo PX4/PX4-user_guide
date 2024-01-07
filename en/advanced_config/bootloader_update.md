@@ -147,7 +147,7 @@ The following steps explain how you can "manually" update the bootloader using a
 1. Power on the Pixhawk with another USB cable and connect the probe to the `FMU-DEBUG` port.
 
    :::note
-   To be able to connect a Dronecode probe to the `FMU-DEBUG` port, you may need to remove the case (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
+   If using a Dronecode probe you may need to remove the case in order to connect to the `FMU-DEBUG` port (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
    :::
 
 1. Use the following command to scan for the Pixhawk`s SWD and connect to it:
