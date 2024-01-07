@@ -1,6 +1,8 @@
 # MCU-Link Debug Probe
 
-The [MCU-Link Debug Probe](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/mcu-link-debug-probe:MCU-LINK) is a cheap, fast and highly capable debug probe that can serve as a stand-alone debug and console communicator for a PX4 developer:
+The [MCU-Link Debug Probe](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/mcu-link-debug-probe:MCU-LINK) is a cheap, fast and highly capable debug probe that can serve as a stand-alone debug and console communicator whn working with Pixhawk boards.
+
+Key features:
 
 - Just one single USB-C connection for Reset, SWD, SWO, and serial in a very small package!
 - Up to 9.6MBit/s SWO connection.
@@ -9,8 +11,11 @@ The [MCU-Link Debug Probe](https://www.nxp.com/design/design-center/software/dev
 - Driven by NXP LinkServer or pyOCD software with wide device support.
 - Much cheaper (<15€) than a Pixhawk Debug Adapter (~20€) with a JLink EDU mini (~55€) or JLink BASE (~400€) while having better hardware specs.
 
-The MCU-Link Debug Probe does not come with an adapter for working with Pixhawk flight controllers.
-The [Pixhawk Debug Adapter](https://holybro.com/products/pixhawk-debug-adapter) is an easy to connect a Pixhawk to a MCU-Link.
+The [Pixhawk Debug Adapter](https://holybro.com/products/pixhawk-debug-adapter) provides an easy way to connect a Pixhawk to an MCU-Link (the probe does not come with an adapter for working with Pixhawk flight controllers).
+
+:::note
+These instructions have been tested on: FMUv6X-RT, FMUv6X, 6c, FMUv5X.
+:::
 
 ## Debugging Configuration using NXP LinkServer
 
@@ -33,7 +38,7 @@ You can launch the GDB server in a new terminal shell:
 /usr/local/LinkServer/LinkServer gdbserver MIMXRT1176xxxxx:MIMXRT1170-EVK-CM7-ONLY
 ```
 
-You can then connect to port 3333 via GDB:
+Then connect to port 3333 via GDB:
 
 ```sh
 arm-none-eabi-gdb build/px4_fmu-v6xrt_default/px4_fmu-v6xrt_default.elf -ex "target extended-remote :3333"
@@ -59,9 +64,9 @@ You can launch the GDB server in a new terminal shell:
 pyocd gdb -t mimxrt1170_cm7
 ```
 
-The target needs to be:
+The target needs to be one of:
 
-- FMUv6XRT: `mimxrt1170_cm7`
+- FMUv6X-RT: `mimxrt1170_cm7`
 - FMUv6X: `stm32h743xx`
 - FMUv5X: `stm32f767zi`
 
