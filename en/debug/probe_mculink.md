@@ -14,7 +14,7 @@ Key features:
 The [Pixhawk Debug Adapter](https://holybro.com/products/pixhawk-debug-adapter) provides an easy way to connect a Pixhawk to an MCU-Link (the probe does not come with an adapter for working with Pixhawk flight controllers).
 
 :::note
-These instructions have been tested on: FMUv6X-RT, FMUv6X, 6c, FMUv5X.
+These instructions have been tested on: FMUv6X-RT, FMUv6X, FMUv6c, FMUv5X.
 :::
 
 ## Debugging Configuration using NXP LinkServer
