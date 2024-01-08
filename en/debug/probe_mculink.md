@@ -68,6 +68,7 @@ The target needs to be one of:
 
 - FMUv6X-RT: `mimxrt1170_cm7`
 - FMUv6X: `stm32h743xx`
+- FMUv6C: `stm32h743xx`
 - FMUv5X: `stm32f767zi`
 
 You can then connect to port 3333 via GDB:
