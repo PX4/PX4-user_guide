@@ -2,7 +2,9 @@
 
 <Badge type="warning" text="main (PX4 v1.15)" />
 
-This vehicle was chosen to test and improve the differential drive support for PX4.
+The [Aion R1](https://www.aionrobotics.com/)vehicle was chosen to test and improve the differential drive support for PX4, and to improve driver support for Roboclaw Motor Controllers, such as the [RoboClaw 2x15A](https://www.basicmicro.com/RoboClaw-2x15A-Motor-Controller_p_10.html).
+
+The documentation and driver information here should also make it easier to work with Roboclaw controllers on other vehicles, and to work with vehicles like the [Aion R6](https://www.aionrobotics.com/r6).
 
 Currently, PX4 supports MANUAL mode for this setup.
 
@@ -52,9 +54,13 @@ First configure the serial connection:
    - Set the [RBCLW_SER_CFG](../advanced_config/parameter_reference.md#RBCLW_SER_CFG) parameter to the serial port to which the RoboClaw is connected (such as `GPS2`).
    - [RBCLW_COUNTS_REV](../advanced_config/parameter_reference.md#RBCLW_COUNTS_REV) specifies the number of encoder counts required for one wheel revolution.
      This value should be left at `1200` for the tested `RoboClaw 2x15A Motor Controller`.
-     Adjust the value based on your specific encoder and wheel setup:
-   - If using several RoboClaw motor controllers, each can be assigned a unique address on the bus, with the default address being 128.
-     To set a different address, specify it in the [RBCLW_ADDRESS](../advanced_config/parameter_reference.md#RBCLW_ADDRESS) parameter.
+     Adjust the value based on your specific encoder and wheel setup.
+   - RoboClaw motor controllers must be assigned a unique address on the bus.
+     The default address is 128 and you should not need to change this (if you do, update the PX4 parameter [RBCLW_ADDRESS](../advanced_config/parameter_reference.md#RBCLW_ADDRESS) to match).
+
+     :::note
+     PX4 does not support multiple RoboClaw motor controllers in the same vehicle — each controller needs a unique address on the bus, and there is only one parameter for setting the address in PX4 (`RBCLW_ADDRESS`).
+     :::
 
 Then configure the actuator configuration:
 
@@ -76,3 +82,4 @@ Then configure the actuator configuration:
 ## See also
 
 - [roboclaw](../modules/modules_driver.md#roboclaw) driver
+- [Roboclaw User Manual](https://downloads.basicmicro.com/docs/roboclaw_user_manual.pdf)
