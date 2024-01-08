@@ -78,6 +78,10 @@ TBD ...
   To not use the airspeed sensor data in the controller, set `FW_USE_AIRSPD` to 0.
   Added to PX4 in [PX4-Autopilot#22510](https://github.com/PX4/PX4-Autopilot/pull/22510).
 
+### Rover 
+
+- [Aion R1](../frames_rover/aion_r1.md)<Badge text="Experimental" type="warning"/>: ESC Driver for Roboclaw motor controller. This comes with build instructions and support for the Aion R1, a new differential drive rover, along with information about integrating the Roboclaw motor controller.
+
 ### ROS 2
 
 - [PX4 ROS 2 Interface Library](../ros2/px4_ros2_interface_lib.md)<Badge text="Experimental" type="warning"/>: A new C++ library that simplifies controlling PX4 from ROS 2.
