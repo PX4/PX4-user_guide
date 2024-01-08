@@ -120,6 +120,7 @@ These are the externally visible LED's, not the board LED's
 - [Mission](Mission.md)
 - [MissionResult](MissionResult.md)
 - [ModeCompleted](ModeCompleted.md) — Mode completion result, published by an active mode.
+The possible values of nav_state are defined in the VehicleStatus msg.
 Note that this is not always published (e.g. when a user switches modes or on
 failsafe activation)
 - [MountOrientation](MountOrientation.md)
