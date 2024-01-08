@@ -36,7 +36,7 @@ $$ \dot{h}_{max} = { V * ( Thrust - Drag ) \over{m*g}}  $$
 where V is the true airspeed and m is the vehicle mass.
 Therefore, we can write the maximum climb rate as
 
-$$ \\dot{h}_{max} = \\hat{\dot{h}}_{max} * {m_{base} \\frac{m_{gross}}} $$
+$$ \\dot{h}_{max} = \\hat{\\dot{h}}_{max} * {m_{base} \\frac{m_{gross}}} $$
 
 ### Scale the Minimum Sink Rate
 
