@@ -61,7 +61,7 @@ $$ Lift = mg = {1\over{2}} \rho c_A F V^2 $$
 
 rearranging this equation for airspeed gives:
 
-$$ V = \sqrt{{2mg}\over{\rho c_A F}} $$
+$$ V = \\sqrt{\\frac{2mg}{\\rho c_A F}} $$
 
 From this equation we see that if we assume a constant angle of attack (which we generally desire), the vehicle weight affects airspeed with a square root relation.
 Therefore, we scale the vehicle stall airspeed, minimum airspeed and trim airspeed as follows:
