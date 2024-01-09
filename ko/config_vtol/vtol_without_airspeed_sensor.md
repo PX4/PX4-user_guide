@@ -7,9 +7,14 @@ Support for VTOLs without an airspeed sensor is considered experimental and shou
 The use of an airspeed sensor is recommended.
 :::
 
-Fixed-wing vehicles use airspeed sensors to determine the speed at which the airplane is moving through the air. Depending on wind this could vary from groundspeed. Every airplane has a minimum airspeed below which the airplane will stall. In mild weather conditions and with settings significantly above stall speed a VTOL can operate without the use of an airspeed sensor. The settings should also be applicable to non-VTOL fixed-wings but this is currently untested.
+Fixed-wing vehicles use airspeed sensors to determine the speed at which the airplane is moving through the air. Depending on wind this could vary from groundspeed. Every airplane has a minimum airspeed below which the airplane will stall. In mild weather conditions and with settings significantly above stall speed a VTOL can operate without the use of an airspeed sensor.
 
 This guide will outline the parameter settings required to bypass the airspeed sensor for VTOL planes.
+
+::: note
+Most settings described here should also be applicable to fixed-wing vehicles that are not VTOL, but this is currently untested.
+Transition turning and quad-chute are VTOL-specific.
+:::
 
 ## 준비
 

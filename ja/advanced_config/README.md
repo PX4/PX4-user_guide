@@ -31,6 +31,7 @@ This section contains contains more advanced configuration topics, and those for
 ### Miscellaneous
 
 - [Bootloader Update](../advanced_config/bootloader_update.md)
+  - [Bootloader Update FMUv6X-RT via USB](../advanced_config/bootloader_update_v6xrt.md)
 
 ## See Also
 
