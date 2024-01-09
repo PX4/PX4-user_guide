@@ -85,7 +85,7 @@ At very high level, the main differences are:
   Much faster, Modular design.
   More reliable.
   More Redundancy.
-  More RAM.
+  More RAM (1MB).
   More CAN buses.
   Much more configurable & customizable.
   ([Pixhawk 5X](../flight_controller/pixhawk5x.md), Skynode)
@@ -93,7 +93,9 @@ At very high level, the main differences are:
   ([Holybro Pixhawk 6C Mini](../flight_controller/pixhawk6c_mini.md), [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md))
 - **FMUv6X:** 
   ([CUAV Pixhawk V6X](../flight_controller/cuav_pixhawk_v6x.md),[Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md))
-- **FMUv6X-RT:**
+- **FMUv6X-RT:** Faster MCU core (1GHz) (vs 480Mhz on 6X).
+  More RAM (2Mb).
+  More flash (64Mb) (2Mb on v6X/v5X).
   ([Holybro Pixhawk 6X-RT](../flight_controller/pixhawk6x-rt.md))
 
 <a id="licensing-and-trademarks"></a>
