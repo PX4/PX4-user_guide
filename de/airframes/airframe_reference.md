@@ -327,9 +327,9 @@ div.frame_variant td, div.frame_variant th {
    <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
-<tr id="copter_quadrotor_+_generic_10__quad_+_geometry">
- <td>Generic 10" Quad + geometry</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 5001</p></td>
+<tr id="copter_quadrotor_+_generic_quad_+_geometry">
+ <td>Generic Quad + geometry</td>
+ <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 5001</p></td>
 </tr>
 </tbody>
 </table>
@@ -347,10 +347,6 @@ div.frame_variant td, div.frame_variant th {
    <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
-<tr id="copter_quadrotor_h_reaper_500_quad">
- <td>Reaper 500 Quad</td>
- <td>Maintainer: Blankered<p><code>SYS_AUTOSTART</code> = 4040</p></td>
-</tr>
 <tr id="copter_quadrotor_h_betafpv_beta75x_2s_brushless_whoop">
  <td>BetaFPV Beta75X 2S Brushless Whoop</td>
  <td>Maintainer: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4041</p></td>
@@ -426,10 +422,6 @@ div.frame_variant td, div.frame_variant th {
 <tr id="copter_quadrotor_x_coex_clover_4">
  <td>COEX Clover 4</td>
  <td>Maintainer: Oleg Kalachev &lt;okalachev@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4500</p></td>
-</tr>
-<tr id="copter_quadrotor_x_crazyflie_2">
- <td>Crazyflie 2</td>
- <td>Maintainer: Dennis Shtatov &lt;densht@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4900</p></td>
 </tr>
 <tr id="copter_quadrotor_x_crazyflie_2.1">
  <td>Crazyflie 2.1</td>
@@ -629,7 +621,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="underwater_robot_underwater_robot_generic_underwater_robot">
  <td>Generic Underwater Robot</td>
- <td><p><code>SYS_AUTOSTART</code> = 60000</p></td>
+ <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 60000</p></td>
 </tr>
 <tr id="underwater_robot_underwater_robot_hippocampus_uuv_(unmanned_underwater_vehicle)">
  <td>HippoCampus UUV (Unmanned Underwater Vehicle)</td>
