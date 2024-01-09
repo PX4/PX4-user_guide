@@ -2,7 +2,7 @@
 
 Airspeed sensors are _highly recommended_ for fixed-wing and VTOL frames.
 They are so important because the autopilot does not have other means to detect stall.
-For fixed-wing flight it is the airspeed that guarantees lift not ground speed!
+For fixed-wing flight it is the airspeed that guarantees lift — not ground speed!
 
 ![Digital airspeed sensor](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
@@ -57,7 +57,7 @@ If you have multiple airspeed sensors then you can select which sensor is _prefe
 
 The airspeed selector validates the indicated sensor _first_ and only falls back to other sensors if the indicated sensor fails airspeed checks ([ASPD_DO_CHECKS](../advanced_config/parameter_reference.md#ASPD_DO_CHECKS) is used to configure the checks).
 
-The selected sensor is then used to supply data to the estimator (EKF2) and the controllers.
+The selected sensor is then used to [supply data to the estimator (EKF2)](../advanced_config/tuning_the_ecl_ekf.md#airspeed) and the controllers.
 
 ### Sensor-specific Configuration
 
@@ -72,6 +72,8 @@ The specific configuration for sensors that do not have a separate page is liste
 
 Airspeed sensors should be calibrated by following the instructions: [Basic Configuration > Airspeed](../config/airspeed.md).
 
-## Developer Information
+## See Also
 
+- [Using the ECL EKF > Airspeed](../advanced_config/tuning_the_ecl_ekf.md#airspeed)
 - [Airspeed drivers](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure) (source code)
+- [VTOL Without an Airspeed Sensor](../config_vtol/vtol_without_airspeed_sensor.md)
