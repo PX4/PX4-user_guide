@@ -327,9 +327,9 @@ div.frame_variant td, div.frame_variant th {
    <tr><th>이름</th><th></th></tr>
  </thead>
 <tbody>
-<tr id="copter_quadrotor_+_generic_10__quad_+_geometry">
- <td>일반 10" 쿼드 + 기하 구조</td>
- <td>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 5001</p></td>
+<tr id="copter_quadrotor_+_generic_quad_+_geometry">
+ <td>Generic Quad + geometry</td>
+ <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 5001</p></td>
 </tr>
 </tbody>
 </table>
@@ -624,7 +624,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="underwater_robot_underwater_robot_generic_underwater_robot">
  <td>일반 수중 로봇</td>
- <td><p><code>SYS_AUTOSTART</code> = 60000</p></td>
+ <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 60000</p></td>
 </tr>
 <tr id="underwater_robot_underwater_robot_hippocampus_uuv_(unmanned_underwater_vehicle)">
  <td>HippoCampus UUV (무인 수중선)</td>
@@ -741,7 +741,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="vtol_vtol_tailsitter_generic_vtol_tailsitter">
  <td>Generic VTOL Tailsitter</td>
- <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13200</p></td>
+ <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13200</p></td>
 </tr>
 </tbody>
 </table>
@@ -765,7 +765,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="vtol_vtol_tiltrotor_generic_tiltrotor_vtol">
  <td>Generic Tiltrotor VTOL</td>
- <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13100</p></td>
+ <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13100</p></td>
 </tr>
 </tbody>
 </table>
