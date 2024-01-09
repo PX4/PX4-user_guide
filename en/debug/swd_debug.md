@@ -42,7 +42,9 @@ The debug port location and pinouts for a subset of autopilots are linked below:
 
 | Autopilot                                                                           | Debug Port                                                                                                                                                        |
 | :---------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Holybro Pixhawk 5X][holybro pixhawk 5x] (FMUv5x)                                   | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                         |
+| Holybro Pixhawk 6X-RT (FMUv6X-RT)                                                   | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                         |
+| Holybro Pixhawk 6X (FMUv6x)                                                         | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                         |
+| Holybro Pixhawk 5X (FMUv5x)                                                         | [Pixhawk Debug Full](#pixhawk-debug-full)                                                                                                                         |
 | [Holybro Durandal](../flight_controller/durandal.md#debug-port)                     | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                         |
 | [Holybro Kakute F7](../flight_controller/kakutef7.md#debug-port)                    | Solder pads                                                                                                                                                       |
 | [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md#debug-port) (FMUv5)  | [Pixhawk Debug Mini](#pixhawk-debug-mini)                                                                                                                         |
@@ -71,6 +73,7 @@ Check your [specific board](#port-information) to confirm the port used.
 | FMUv5X      | Pixhawk 5X                                                      | [Pixhawk Debug Full](#pixhawk-debug-full) |
 | FMUv6       | Pixhawk 6                                                       | [Pixhawk Debug Full](#pixhawk-debug-full) |
 | FMUv6X      | Pixhawk 6X                                                      | [Pixhawk Debug Full](#pixhawk-debug-full) |
+| FMUv6X-RT   | Pixhawk 6X-RT                                                   | [Pixhawk Debug Full](#pixhawk-debug-full) |
 
 :::note
 There FMU and Pixhawk versions are (only) consistent after FMUv5X.
@@ -150,6 +153,7 @@ There are several debug probes that are tested and supported for connecting to o
 - [SEGGER J-Link](../debug/probe_jlink.md): commercial probe, no built-in serial console, requires adapter.
 - [Black Magic Probe](../debug/probe_bmp.md): integrated GDB server and serial console, requires adapter.
 - [STLink](../debug/probe_stlink): best value, integrated serial console, adapter must be soldered.
+- [MCU-Link](../debug/probe_mculink): best value, integrated serial console, requires adapter.
 
 An adapter to connect to the debug port may come with your flight controller or debug probe.
 Other options are given below.
