@@ -53,8 +53,9 @@ If you have multiple airspeed sensors then you can select which sensor is _prefe
 
 The airspeed selector validates the indicated sensor _first_ and only falls back to other sensors if the indicated sensor fails airspeed checks ([ASPD_DO_CHECKS](../advanced_config/parameter_reference.md#ASPD_DO_CHECKS) is used to configure the checks).
 
-The selected sensor is then used to supply data to the estimator (EKF2).
+The selected sensor is then used to supply data to the estimator (EKF2) and the controlllers.
 The EKF fuses the airspeed data if it's above [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR) and has a low innovation compared to groundspeed minus windspeed.
+The useage of the airspeed data in the controllers (fixed-wing rate, attitude and position controllers) can be disabled by setting [FW_USE_AIRSPD](../advanced_config/parameter_reference.md#FW_USE_AIRSPD) to False.
 
 ### Sensor-specific Configuration
 
