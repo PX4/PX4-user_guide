@@ -31,12 +31,12 @@ The maximum climb rate ([FW_T_CLMB_MAX](../advanced_config/parameter_reference.m
 
 From the steady state equations of motions of an airplane we find that the maximum climb rate can be written as
 
-$$ \dot{h}_{max} = { V * ( Thrust - Drag ) \over{m*g}}  $$
+$$\dot{h}_{max} = { V * ( Thrust - Drag ) \over{m*g}}$$
 
-where V is the true airspeed and m is the vehicle mass.
+where `V` is the true airspeed and `m` is the vehicle mass.
 Therefore, we can write the maximum climb rate as
 
-$$ \dot{h}_{max} = \hat{\\dot{h}}_{max} * m_{base} \over{m_{gross}} $$
+$$\dot{h}_{max} = \hat{\\dot{h}}_{max} * m_{base} \over{m_{gross}}$$
 
 ### Scale the Minimum Sink Rate
 
@@ -44,12 +44,12 @@ The minimum sink rate ([FW_T_SINK_MIN](../advanced_config/parameter_reference.md
 
 The minimum sink rate can be written as:
 
-$$ \dot{h}_{min} = \sqrt{2mg\over{\rho F}} f(c_A, c_W) $$
+$$\dot{h}_{min} = \sqrt{2mg\over{\rho F}} f(c_A, c_W)$$
 
 where $\rho$ is the air density, F is the wing area and f(c_A, c_W) is a function of the polars.
 Therefore, we can compute the minimum sink rate as:
 
-$$ \dot{h}_{min} = \hat{\dot{h}}_{min}  \sqrt{m_{gross}\over{m_{base}}} $$
+$$\dot{h}_{min} = \hat{\dot{h}}_{min}  \sqrt{m_{gross}\over{m_{base}}}$$
 
 ### Adjust Minimum, Stall, and Trim Airspeed Limits According to the Weight Ratio
 
@@ -57,20 +57,20 @@ Next adjust airspeed limits such as minimum airspeed ([FW_AIRSPD_MIN](../advance
 
 In steady state flight we can demand that lift should equal weight of the vehicle:
 
-$$ Lift = mg = {1\over{2}} \rho c_A F V^2 $$
+$$Lift = mg = {1\over{2}} \rho c_A F V^2$$
 
 rearranging this equation for airspeed gives:
 
-$$ V = \\sqrt{\\frac{2mg}{\\rho c_A F}} $$
+$$V = \\sqrt{\\frac{2mg}{\\rho c_A F}}$$
 
 From this equation we see that if we assume a constant angle of attack (which we generally desire), the vehicle weight affects airspeed with a square root relation.
 Therefore, we scale the vehicle stall airspeed, minimum airspeed and trim airspeed as follows:
 
-$$ V_{stall} = \hat{V}_{stall} * \sqrt{m_{gross} \over{m_{base}}}  $$
+$$V_{stall} = \hat{V}_{stall} * \sqrt{m_{gross} \over{m_{base}}}$$
 
-$$ V_{min} = \hat{V}_{min} * \sqrt{m_{gross} \over{m_{base}}}  $$
+$$V_{min} = \hat{V}_{min} * \sqrt{m_{gross} \over{m_{base}}}$$
 
-$$ V_{trim} = \hat{V}_{trim} * \sqrt{m_{gross} \over{m_{base}}}  $$
+$$V_{trim} = \hat{V}_{trim} * \sqrt{m_{gross} \over{m_{base}}}$$
 
 ## Compensating for Air Density
 
@@ -84,13 +84,13 @@ The maximum climb rate is set using [FW_T_CLMB_MAX](../advanced_config/parameter
 
 As we have seen previously, the maximum climb rate can be formulated as
 
-$$ \dot{h}_{max} = { V * ( Thrust - Drag ) \over{m*g}}  $$
+$$\dot{h}_{max} = { V * ( Thrust - Drag ) \over{m*g}}$$
 
 The air density affects the airspeed, the thrust and the drag and modelling this effects is not straight forward.
 However, we can refer to literature and experience, which suggest that for a propeller airplane the maximum climb rate reduces approximately linear with the air density.
 Therefore, we can write the maximum climb rate as
 
-$$ \dot{h}_{max} = \hat{\dot{h}} * {\rho_{sealevel} \over{\rho}} K$$
+$$\dot{h}_{max} = \hat{\dot{h}} * {\rho_{sealevel} \over{\rho}} K$$
 
 where $\rho_{sealevel}$ is the air density at sea level in the standard atmosphere and K is a scaling factor which determines the slope of the function.
 Rather than trying to identify this constants, the usual practice in aviation is to specify a service ceiling altitude at which the vehicle is still able to achieve a minimum specified climb rate.
@@ -104,15 +104,15 @@ The minimum sink rate is set using [FW_T_SINK_MIN](../advanced_config/parameter_
 
 In previous sections we have seen the formula for the minimum sink rate:
 
-$$ \dot{h}_{min} = \sqrt{2mg\over{\rho F}} f(c_A, c_W)  $$
+$$\dot{h}_{min} = \sqrt{2mg\over{\rho F}} f(c_A, c_W)$$
 
 which we can write as follows in terms of air density
 
-$$ \dot{h}_{min} = \hat{\dot{h}}  \sqrt{\rho_{sealevel}\over{\rho}}$$
+$$\dot{h}_{min} = \hat{\dot{h}}  \sqrt{\rho_{sealevel}\over{\rho}}$$
 
 If the tuning is not done in standard sea level conditions then the calibrated value for [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) needs to be calculated as follows:
 
-$$ \hat{\dot{h}} = \dot{h} * \sqrt{\rho\over{\rho_{sealevel}}}  $$
+$$\hat{\dot{h}} = \dot{h} * \sqrt{\rho\over{\rho_{sealevel}}}$$
 
 where $\rho$ is the air density during tuning, $\dot{h}$ is the minimum sink rate derived during flying and $\hat{\dot{h}}$ is the calibrated value for [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN).
 
@@ -120,8 +120,8 @@ where $\rho$ is the air density during tuning, $\dot{h}$ is the minimum sink rat
 
 Trim throttle ([FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM)) varies with air density and can be written as:
 
-$$ \delta_{trim} = \hat\delta_{trim} * \sqrt{\rho_{sealevel}\over{\rho}}$$
+$$\delta_{trim} = \hat\delta_{trim} * \sqrt{\rho_{sealevel}\over{\rho}}$$
 
 If the tuning is not done in standard sealevel conditions then true value for [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM) needs to be calculated as follows:
 
-$$ \hat\delta_{trim} = \delta_{trim} *  \sqrt{\rho\over{\rho_{sealevel}}}$$
+$$\hat\delta_{trim} = \delta_{trim} *  \sqrt{\rho\over{\rho_{sealevel}}}$$
