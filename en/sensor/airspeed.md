@@ -44,6 +44,10 @@ You should also check [ASPD_PRIMARY](../advanced_config/parameter_reference.md#A
 
 ### Multiple Airspeed Sensors
 
+:::warning Experimental
+Using multiple airspeed sensors is experimental.
+:::
+
 If you have multiple airspeed sensors then you can select which sensor is _preferred_ as the primary source using [ASPD_PRIMARY](../advanced_config/parameter_reference.md#ASPD_PRIMARY), where `1`, `2` and `3` reflect the order in which the airspeed sensors were started:
 
 - `0`: Synthetic airspeed estimation (groundspeed minus windspeed)
