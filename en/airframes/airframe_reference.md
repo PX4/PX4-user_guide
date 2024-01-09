@@ -329,9 +329,9 @@ div.frame_variant td, div.frame_variant th {
    <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
-<tr id="copter_quadrotor_+_generic_10__quad_+_geometry">
- <td>Generic 10" Quad + geometry</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 5001</p></td>
+<tr id="copter_quadrotor_+_generic_quad_+_geometry">
+ <td>Generic Quad + geometry</td>
+ <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 5001</p></td>
 </tr>
 </tbody>
 </table>
@@ -623,7 +623,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="underwater_robot_underwater_robot_generic_underwater_robot">
  <td>Generic Underwater Robot</td>
- <td><p><code>SYS_AUTOSTART</code> = 60000</p></td>
+ <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 60000</p></td>
 </tr>
 <tr id="underwater_robot_underwater_robot_hippocampus_uuv_(unmanned_underwater_vehicle)">
  <td>HippoCampus UUV (Unmanned Underwater Vehicle)</td>
