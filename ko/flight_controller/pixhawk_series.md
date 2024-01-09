@@ -71,7 +71,10 @@ PX4 _developers_ need to know the FMU version of their board, as this is require
 - **FMUv4:** RAM 증가. 더 빨라진 CPU. 더 많은 직렬 포트. IO 프로세서 없음 ([Pixracer](../flight_controller/pixracer.md))
 - **FMUv4-PRO:** 약간 증가된 RAM. 더 많은 직렬 포트. IO 프로세서 ([Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md))
 - **FMUv5:** 새 프로세서 (F7). 훨씬 더 빨라짐. 더 많은 RAM. More CAN buses. Much more configurable. ([Pixhawk 4](../flight_controller/pixhawk4.md),[CUAV v5](../flight_controller/cuav_v5.md),[CUAV V5+](../flight_controller/cuav_v5_plus.md),[CUAV V5 nano](../flight_controller/cuav_v5_nano.md))
-- **FMUv5X:** New processor (F7). Much faster, Modular design. More reliable. More Redundancy. 더 많은 RAM. More CAN buses. Much more configurable & customizable .([Pixhawk 5X](../flight_controller/pixhawk5x.md), Skynode)
+- **FMUv5X:** New processor (F7). Much faster, Modular design. More reliable. More Redundancy. 더 많은 RAM. More CAN buses. Much more configurable & customizable. ([Pixhawk 5X](../flight_controller/pixhawk5x.md), Skynode)
+- **FMUv6C:** ([Holybro Pixhawk 6C Mini](../flight_controller/pixhawk6c_mini.md), [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md))
+- **FMUv6X:** ([CUAV Pixhawk V6X](../flight_controller/cuav_pixhawk_v6x.md),[Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md))
+- **FMUv6X-RT:** Faster MCU core (1GHz) (vs 480Mhz on 6X). More RAM (2Mb). More flash (64Mb) (2Mb on v6X/v5X). ([Holybro Pixhawk 6X-RT](../flight_controller/pixhawk6x-rt.md))
 
 <a id="licensing-and-trademarks"></a>
 
