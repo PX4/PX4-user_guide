@@ -7,7 +7,7 @@ Support for VTOLs without an airspeed sensor is considered experimental and shou
 The use of an airspeed sensor is recommended.
 :::
 
-Fixed-wing vehicles use airspeed sensors to determine the speed at which the airplane is moving through the air.
+Fixed-wing vehicles use [airspeed sensors](../sensor/airspeed.md) to determine the speed at which the airplane is moving through the air.
 Depending on wind this could vary from groundspeed.
 Every airplane has a minimum airspeed below which the airplane will stall.
 In mild weather conditions and with settings significantly above stall speed a VTOL can operate without the use of an airspeed sensor.
