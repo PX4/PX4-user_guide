@@ -13,16 +13,16 @@ This topic explains how to build the PX4 bootloader, and several methods for fla
 - On [FMUv6X-RT](../flight_controller/pixhawk6x-rt.md) you can [install bootloader/unbrick boards via USB](bootloader_update_v6xrt.md).
   This is useful if you don't have a debug probe.
 - On FMUv2 and some custom firmware (only) you can use [QGC Bootloader Update](#qgc-bootloader-update).
-:::
-
+  :::
 
 ## Building the PX4 Bootloader
 
-### PX4 Bootloader from FMUv6X
+### PX4 Bootloader FMUv6X and later
 
 Boards starting with FMUv6X (STM32H7) use the in-tree PX4 bootloader.
 
-This can be built from within the PX4-Autopilot folder using the `make` command and the board-specific target with a `_bootloader` suffix.
+This can be built from within the [PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) directory using the `make` command and the board-specific target with a `_bootloader` suffix.
+
 For FMUv6X the command is:
 
 ```sh
@@ -38,29 +38,44 @@ If you need a HEX file instead of an ELF file, use objcopy:
 arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf px4_fmu-v6x_bootloader.hex
 ```
 
-### Legacy PX4 Bootloader (FMUv5X and earlier)
+### PX4 Bootloader FMUv5X and earlier
 
-PX4 boards up to FMUv5X (before STM32H7) used a legacy [PX4 bootloader](https://github.com/PX4/Bootloader) repository.
+PX4 boards up to FMUv5X (before STM32H7) used the [PX4 bootloader](https://github.com/PX4/Bootloader) repository.
 
-Please refer to the instructions in the README to learn how to use it.
+The instructions in the repo README explain how to use it.
 
 ## Debug Probe Bootloader Update
 
 The following steps explain how you can "manually" update the bootloader using a [compatible Debug Probe](../debug/swd_debug.md#debug-probes-for-px4-hardware):
 
-1. Get a binary containing the bootloader (either from dev team or build it yourself).
+1. Get a binary containing the bootloader (either from dev team or [build it yourself](#building-the-px4-bootloader)).
 
 1. Get a [Debug Probe](../debug/swd_debug.md#debug-probes-for-px4-hardware).
    Connect the probe your PC via USB and setup the `gdbserver`.
 
-1. Go into the directory containing the binary and run the following command in the terminal:
+1. Go into the directory containing the binary and run the command for your target bootloader in the terminal:
 
-   ```sh
-   arm-none-eabi-gdb px4fmuv5_bl.elf
-   ```
+   - FMUv6X
+
+     ```sh
+     arm-none-eabi-gdb px4_fmu-v6x_bootloader.elf
+     ```
+
+   - FMUv6X-RT
+
+     ```sh
+     arm-none-eabi-gdb px4_fmu-v6xrt_bootloader.elf
+     ```
+
+   - FMUv5
+
+     ```sh
+     arm-none-eabi-gdb px4fmuv5_bl.elf
+     ```
 
    :::note
-   If the hardware is FMUv6X or newer use the in-tree PX4 bootloader.
+   H7 Bootloaders from [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) are named with pattern `*._bootloader.elf`.
+   Bootloaders from [PX4/PX4-Bootloader](https://github.com/PX4/PX4-Bootloader) are named with the pattern `*_bl.elf`.
    :::
 
 1. The _gdb terminal_ appears and it should display the following output:
