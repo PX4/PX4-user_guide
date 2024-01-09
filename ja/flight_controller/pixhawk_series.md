@@ -71,7 +71,10 @@ At very high level, the main differences are:
 - **FMUv4:** Increased RAM. Faster CPU. More serial ports. No IO processor ([Pixracer](../flight_controller/pixracer.md))
 - **FMUv4-PRO:** Slightly increased RAM. More serial ports. IO processor ([Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md))
 - **FMUv5:** New processor (F7). Much faster. More RAM. More CAN buses. Much more configurable. ([Pixhawk 4](../flight_controller/pixhawk4.md),[CUAV v5](../flight_controller/cuav_v5.md),[CUAV V5+](../flight_controller/cuav_v5_plus.md),[CUAV V5 nano](../flight_controller/cuav_v5_nano.md))
-- **FMUv5X:** New processor (F7). Much faster, Modular design. More reliable. More Redundancy. More RAM. More CAN buses. Much more configurable & customizable .([Pixhawk 5X](../flight_controller/pixhawk5x.md), Skynode)
+- **FMUv5X:** New processor (F7). Much faster, Modular design. More reliable. More Redundancy. More RAM (1MB). More CAN buses. Much more configurable & customizable. ([Pixhawk 5X](../flight_controller/pixhawk5x.md), Skynode)
+- **FMUv6C:** ([Holybro Pixhawk 6C Mini](../flight_controller/pixhawk6c_mini.md), [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md))
+- **FMUv6X:** ([CUAV Pixhawk V6X](../flight_controller/cuav_pixhawk_v6x.md),[Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md))
+- **FMUv6X-RT:** Faster MCU core (1GHz) (vs 480Mhz on 6X). More RAM (2Mb). More flash (64Mb) (2Mb on v6X/v5X). ([Holybro Pixhawk 6X-RT](../flight_controller/pixhawk6x-rt.md))
 
 <a id="licensing-and-trademarks"></a>
 
