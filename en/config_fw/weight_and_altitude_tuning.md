@@ -4,14 +4,16 @@ Before following the guidance provided by this section you should have completed
 While those limitations have been defined using constant parameters, in reality vehicle performance is not constant and is affected by various factors.
 This section specifically looks at how vehicle weight and air density affect performance and what you can do do compensate for those effects.
 
-Both the vehicle weight and the air density (depends on altitude and air temperature) affect vehicle performance.
-For example, when a vehicle climbs to a higher altitude the air density decreases and usually the maximum climb rate reduces.
+Both the vehicle weight and the air density, which depends on altitude and air temperature, affect vehicle performance.
+For example, when a vehicle climbs to a higher altitude the air density decreases, and usually the maximum climb rate reduces.
 Similarly, the maximum climb rate of a vehicle will reduce with the weight of the vehicle.
 
 If changes in weight and air density are not taken into account, altitude and airspeed tracking will likely deteriorate in the case where the configuration (air density and weight) deviate significantly from the configuration at which the vehicle was tuned.
 
-In the following we will use the notation $\hat X$ to specify that this value is a calibrated value of the variable $X$.
-By calibrated we mean the value of that variable measured at sea level in standard atmospheric conditions and when vehicle weight was equal to [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE).
+## Notation
+
+In the following sections we will use the notation $\hat X$ to specify that this value is a calibrated value of the variable $X$.
+By calibrated we mean the value of that variable measured at sea level in standard atmospheric conditions, and when vehicle weight was equal to [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE).
 
 E.g. by $\hat{\dot{h}}_{max}$ we specify the maximum climb rate the vehicle can achieve at [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE) at sea level in standard atmospheric conditions.
 
@@ -21,9 +23,10 @@ E.g. by $\hat{\dot{h}}_{max}$ we specify the maximum climb rate the vehicle can 
 The weight of the vehicle in the tuning configuration should be measured with a scale and the parameter should be set accordingly.
 
 [WEIGHT_GROSS](../advanced_config/parameter_reference.md#WEIGHT_BASE) specifies the actual weight of the vehicle at any given time.
-This parameter can be set to reflect e.g. a payload attached to the vehicle which was not present during the tuning phase.
+This parameter can be set to reflect, for example, a payload attached to the vehicle that was not present during the tuning phase.
 
-When both [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE) and [WEIGHT_GROSS](../advanced_config/parameter_reference.md#WEIGHT_GROSS) are set to a number larger than 0 PX4 will use this information to:
+When both [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE) and [WEIGHT_GROSS](../advanced_config/parameter_reference.md#WEIGHT_GROSS) are set to a number larger than `0`, PX4 will use this information to scale the maximum climb rate, minimum sink rate, and adjust airspeed limits according to the weight ratio.
+The scaling/adjustments are described below.
 
 ### Scale the Maximum Climb Rate
 
@@ -46,7 +49,7 @@ The minimum sink rate can be written as:
 
 $$\dot{h}_{min} = \sqrt{2mg\over{\rho F}} f(c_A, c_W)$$
 
-where $\rho$ is the air density, F is the wing area and f(c_A, c_W) is a function of the polars.
+where $\rho$ is the air density, F is the wing area and $f(c_A, c_W)$ is a function of the polars.
 Therefore, we can compute the minimum sink rate as:
 
 $$\dot{h}_{min} = \hat{\dot{h}}_{min}  \sqrt{m_{gross}\over{m_{base}}}$$
@@ -75,8 +78,9 @@ $$V_{trim} = \hat{V}_{trim} * \sqrt{m_{gross} \over{m_{base}}}$$
 ## Compensating for Air Density
 
 PX4 automatically compensates various parameters such as trim throttle or minimum sink rate for changing air density.
-However, it's important to understand that when the [basic TECS tuning](../config_fw/position_tuning_guide_fixedwing.md#tecs-tuning-altitude-and-airspeed) has been done at non-standard sea level conditions, some of the parameters needs to be back-calculated to calibrated values.
-In the following we will list each parameter which is compensated based on air density and how you can calculate the calibrated value.
+However, it's important to understand that when the [basic TECS tuning](../config_fw/position_tuning_guide_fixedwing.md#tecs-tuning-altitude-and-airspeed) has been done at non-standard sea level conditions, so some of the parameters need to be back-calculated to calibrated values.
+
+In the sections below we list each parameter that is compensated based on air density, and how you can calculate the calibrated value.
 
 ### Maximum Climb Rate
 
