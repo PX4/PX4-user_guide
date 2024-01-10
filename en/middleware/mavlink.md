@@ -18,22 +18,24 @@ The topic does not cover _command_ handling and sending, or how to implement you
 
 MAVLink is a lightweight protocol that was designed for efficiently sending messages over unreliable low-bandwidth radio links.
 
-_Messages_ are simplest and most "fundamental" definition in MAVLink, consisting of a name (e.g. [ATTITUDE](https://mavlink.io/en/messages/common.html#ATTITUDE)), id, and a fields containing relevant data.
+_Messages_ are simplest and most "fundamental" definition in MAVLink, consisting of a name (e.g. [ATTITUDE](https://mavlink.io/en/messages/common.html#ATTITUDE)), id, and fields containing relevant data.
 They are deliberately lightweight, with a constrained size, and no semantics for resending and acknowledgement.
 Stand-alone messages are commonly used for streaming telemetry or status information, and for sending commands where no acknowledgement is required - such as setpoint commands sent at high rate.
 
 The [Command Protocol](https://mavlink.io/en/services/command.html) is a higher level protocol for sending commands that may need acknowledgement.
-The protocol sends a command, defined as up to 7 numeric values packed in a `COMMAND_INT` or `COMMAND_LONG` message, and waits for an acknowledgement with a result in a `COMMAND_ACK`.
+Specific commands are defined as values of the [MAV_CMD](https://mavlink.io/en/messages/common.html#mav_commands) enumeration, such as the takeoff command [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF), and include up to 7 numeric "param" values.
+The protocol sends a command by packaging the parameter values in a `COMMAND_INT` or `COMMAND_LONG` message, and waits for an acknowledgement with a result in a `COMMAND_ACK`.
 The command is resent automatically if no acknowledgment is received.
+Note that [MAV_CMD](https://mavlink.io/en/messages/common.html#mav_commands) definitions are also used to define mission actions, and that not all definitions are supported for use in commands/missions on PX4.
 
 [Microservices](https://mavlink.io/en/services/) are other higher level protocols build on top of MAVLink messages.
 They are used to communicate information that cannot be sent in a single message, and to deliver features such as reliable communication.
 The command protocol described above is one such service.
 Others include the [File Transfer Protocol](https://mavlink.io/en/services/ftp.html), [Camera Protocol](https://mavlink.io/en/services/camera.html) and [Mission Protocol](https://mavlink.io/en/services/mission.html).
 
-MAVLink messages, commands and enumerations are defined in [XML definition files](https://mavlink.io/en/guide/define_xml_element.html) (commands are defined as enumerated values of the [MAV_CMD](https://mavlink.io/en/messages/common.html#mav_commands) enumeration).
+MAVLink messages, commands and enumerations are defined in [XML definition files](https://mavlink.io/en/guide/define_xml_element.html).
 The MAVLink toolchain includes code generators that create programming-language-specific libraries from these definitions for sending and receiving messages.
-Note that most generated libraries do not create code for microservices.
+Note that most generated libraries do not create code to implement microservices.
 
 The MAVLink project defines a number of [standard messages, commands](https://mavlink.io/en/messages/common.html) and [microservices](https://mavlink.io/en/services/) for exchanging data.
 These are the definitions that most flight stacks, ground stations, and MAVLink peripherals, are likely to support.
@@ -53,17 +55,20 @@ The receiving end of the communication will discard any packet for which the mes
 ## PX4 and MAVLink
 
 PX4 uses _standard_ MAVLink definitions by default for the greatest compatibility with MAVLink ground stations, libraries, and external components such as MAVLink cameras.
-These are included from `development.xml` (by default) in the `main` branch.
+In the `main` branch these are included from `development.xml` on SITL, and `common.xml` for other boards, by default.
 
 :::note
-Not all "standard" messages, commands and microservices are _implemented_.
+Not all common and development messages, commands and microservices are _implemented_.
 :::
 
 PX4 includes the [mavlink/mavlink](https://github.com/mavlink/mavlink) repo as a submodule under [/src/modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink), and generates the MAVLink 2 C header files at build time.
 
 There are are number of XML dialect files in [/mavlink/messages/1.0/](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/).
-The dialect that is built is defined in the variable `CONFIG_MAVLINK_DIALECT` used in [/src/modules/mavlink/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/CMakeLists.txt).
-The value is set in [default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board#L36) to [development.xml](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/development.xml), which includes [common.xml](https://mavlink.io/en/messages/common.html) and hence [minimal.xml](https://mavlink.io/en/messages/minimal.html).
+
+- For SITL the dialect that is built is defined in the variable `CONFIG_MAVLINK_DIALECT`, which is set in [boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board#L36) to [development.xml](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/development.xml) (this file includes [common.xml](https://mavlink.io/en/messages/common.html) and hence [minimal.xml](https://mavlink.io/en/messages/minimal.html)).
+  The `CONFIG_MAVLINK_DIALECT` is used in [/src/modules/mavlink/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/CMakeLists.txt).
+- For other boards the default dialect is set to [common.xml](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/common.xml) in [src/modules/mavlink/Kconfig](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/Kconfig#L10) (search for `menuconfig MAVLINK_DIALECT`).
+
 The files are generated into the build directory: `/build/<build target>/mavlink/`.
 
 ## Custom MAVLink Messages
@@ -76,9 +81,11 @@ Generally you should use (or add to) the standard definitions if at all possible
 :::
 
 Custom definitions can be added in a new dialect file in the same directory as the standard XML definitions.
-For example, create `PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0/custom_messages.xml`, and set `CONFIG_MAVLINK_DIALECT` to build the new file.
+For example, create `PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0/custom_messages.xml`, and set `CONFIG_MAVLINK_DIALECT` to build the new file for SITL.
 This dialect file should include `development.xml` so that all the standard definitions are also included.
-You can also add your messages to `common.xml` or `development.xml` for testing.
+
+For initial prototyping, or if you intend your message to be "standard", you can also add your messages to `common.xml` (or `development.xml`).
+This simplifies building, because you don't need to modify the dialect that is built.
 
 The MAVLink developer guide explains how to define new messages in [How to Define MAVLink Messages & Enums](https://mavlink.io/en/guide/define_xml_element.html).
 
@@ -130,16 +137,14 @@ Because `BatteryStatus` already exists you will not need to do anything to creat
 
 First create a file named `BATTERY_STATUS_DEMO.hpp` for your streaming class (named after the message to stream) inside the [/src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams) directory.
 
-Add the headers for the MAVLink and uORB messages to the top of the file:
+Add the headers for the uORB message(s) to the top of the file (the required MAVLink headers should already be available):
 
 ```cpp
 #include <uORB/topics/battery_status.h>
-#include <v2.0/development/mavlink.h>
 ```
 
 :::note
 The uORB topic's snake-case header file is generated from the CamelCase uORB filename at build time.
-The `development/mavlink.h` header is also generated at build time (where "development" in the path comes from the XML definition file name).
 :::
 
 Then copy the streaming class definition below into the file:
@@ -225,7 +230,7 @@ protected:
 
 Most streaming classes are very similar (see examples in [/src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams)):
 
-- The streaming class derives from [`MavlinkStream`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_stream.h) and is named using the pattern `MavlinkStream``<CamelCaseMessageName>`.
+- The streaming class derives from [`MavlinkStream`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_stream.h) and is named using the pattern ` MavlinkStream``<CamelCaseMessageName> `.
 - The `public` definitions are "near-boilerplate", allowing PX4 to get an instance of the class (`new_instance()`), and then to use it to fetch the name, id, and size of the message from the MAVLink headers (`get_name()`, `get_name_static()`, `get_id_static()`, `get_id()`, `get_size()`).
   For your own streaming classes these can just be copied and modified to match the values for your MAVLink message.
 - The `private` definitions subscribe to the uORB topics that need to be published.
@@ -236,7 +241,7 @@ Most streaming classes are very similar (see examples in [/src/modules/mavlink/s
   In this case the uORB topic has multiple instances: one for each battery.
   We use `uORB::SubscriptionMultiArray` to get an array of battery status subscriptions.
   In the `send()` function we iterate the array and use `update()` on the subscription to check if it has changed (and update a structure with the current data).
-  This allows us to send the MAVLink message only if the battery messages have changed:
+  This allows us to send the MAVLink message only if the associated battery uORB topic has changed:
 
   ```cpp
   // Struct to hold current topic data.
@@ -349,11 +354,10 @@ This section explains how to receive a message over MAVLink and publish it to uO
 It assumes that we are receiving the `BATTERY_STATUS_DEMO` message and we want to update the (existing) [BatteryStatus uORB message](../msg_docs/BatteryStatus.md) with the contained information.
 This is the kind of implementation that you would provide to support a MAVLink battery integration with PX4.
 
-Add the headers for the incoming MAVLink message and the uORB topic to publish to in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L77):
+Add the headers for the uORB topic to publish to in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L77):
 
 ```cpp
 #include <uORB/topics/battery_status.h>
-#include <v2.0/development/mavlink.h>
 ```
 
 Add a function signature for a function that handles the incoming MAVLink message in the `MavlinkReceiver` class in
