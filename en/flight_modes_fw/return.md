@@ -44,7 +44,7 @@ A mission landing pattern consists of a [MAV_CMD_DO_LAND_START](https://mavlink.
 When this return type is set PX4 will reject a mission without a valid landing pattern.
 :::
 
-When the destination is a rally point or the home location, on arrival the vehicle will rapidly descend to the altitude defined by [RTL_DESCEND_ALT](#RTL_DESCEND_ALT), and by default circle above the destination indefinitely at radius [NAV_LOITER_RAD](#NAV_LOITER_RAD).
+When the destination is a rally point or the home location, on arrival the vehicle will rapidly descend to the altitude defined by [RTL_DESCEND_ALT](#RTL_DESCEND_ALT), and by default circle above the destination indefinitely at radius [RTL_LOITER_RAD](#RTL_LOITER_RAD).
 The vehicle can be forced to land at the destination by changing [RTL_LAND_DELAY](#RTL_LAND_DELAY) so it is not -1.
 In this case the vehicle will land in the same way as [Land mode](../flight_modes_fw/land.md).
 

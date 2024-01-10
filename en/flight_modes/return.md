@@ -136,7 +136,7 @@ In this return type the vehicle:
 - Ascends to a safe [minimum return altitude](#minimum-return-altitude) (above any expected obstacles).
 - Flies a direct path to the closest destination of: home location, mission landing pattern or rally point.
 - If the destination is a [mission landing pattern](#mission-landing-pattern) the vehicle will follow the pattern to land.
-- If the destination is a home location or rally point, the vehicle will descend to the descent altitude ([RTL_DESCEND_ALT](#RTL_DESCEND_ALT)) and then [Land or waits](#loiter-landing-at-destination).
+- If the destination is a home location or rally point, the vehicle will descend to the descent altitude ([RTL_DESCEND_ALT](#RTL_DESCEND_ALT)) and then [lands or waits](#loiter-landing-at-destination).
 
 ## Minimum Return Altitude
 
