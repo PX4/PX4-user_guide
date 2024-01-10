@@ -185,7 +185,7 @@ It can be activated with a pre-programmed RC switch or the _QGroundControl_ **Pa
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Return mode](../flight_modes/return.md) causes the vehicle to fly a clear path to a safe location.
+[Return mode](../flight_modes_mc/return.md) causes the vehicle to fly a clear path to a safe location.
 The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a [failsafe](../config/safety.md) being triggered).
 
 The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined).
@@ -352,7 +352,7 @@ It can be activated with a pre-programmed RC switch or the _QGroundControl_ **Pa
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Return mode](../flight_modes/return.md) causes the vehicle to fly a clear path to a safe location.
+[Return mode](../flight_modes_fw/return.md) causes the vehicle to fly a clear path to a safe location.
 The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a [failsafe](../config/safety.md) being triggered).
 
 The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined).
@@ -412,7 +412,7 @@ The switch between modes is initiated either by the pilot using an RC switch or 
 
 A few notes:
 
-- VTOL [Return mode](../flight_modes/return.md) uses a mission landing by default, if defined.
+- VTOL [Return mode](../flight_modes_vtol/return.md) uses a mission landing by default, if defined.
 
 <a id="ugv_flight_modes"></a>
 

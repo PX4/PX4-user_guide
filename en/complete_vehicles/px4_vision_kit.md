@@ -175,7 +175,7 @@ In addition, users will need ground station hardware/software:
 
    - [Position Mode](../flight_modes_mc/position.md) - a safe manual flight mode that can be used to test collision prevention.
    - [Mission Mode](../flight_modes_mc/mission.md) - run missions and test obstacle avoidance.
-   - [Return Mode](../flight_modes/return.md) - return vehicle safely to its launch point and land.
+   - [Return Mode](../flight_modes_mc/return.md) - return vehicle safely to its launch point and land.
 
 1. Attach the propellers with the rotations as shown:
 
