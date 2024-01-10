@@ -184,9 +184,9 @@ If not using a mission landing, the default configuration is to loiter indefinit
 ## Mission Landing Pattern
 
 A mission landing pattern is a landing pattern defined as part of a mission plan.
-It consists of a [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), one or more position waypoints, and a [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND).
+This consists of a [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), one or more position waypoints, and a [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) (or [MAV_CMD_NAV_VTOL_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_LAND) for a VTOL Vehicle).
 
-Landing patterns defined in missions are the safest way to automatically land a fixed-wing vehicle on PX4.
+Landing patterns defined in missions are the safest way to automatically land a _fixed-wing_ vehicle on PX4.
 For this reason fixed-wing vehicles are configured to use [Mission landing/really point return](#mission-landing-rally-point-return-type-rtl-type-1) by default.
 
 ## Parameters

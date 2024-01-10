@@ -40,7 +40,7 @@ In this return type the vehicle:
 - If the destination is a rally point or home it will transition to a multicopter at the descent altitude and then land.
   Note that [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT) is igored: the vehicle will always land as a multicopter for these destinations.
 
-A mission landing pattern consists of a [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), one or more position waypoints, and a [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND).
+A mission landing pattern for a VTOL vehicle consists of a [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), one or more position waypoints, and a [MAV_CMD_NAV_VTOL_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_LAND).
 
 ## Parameters
 

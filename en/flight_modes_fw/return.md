@@ -38,7 +38,7 @@ In this return type the vehicle:
 - If the destination is a rally point or home it will descend to the descent altitude, and then loiter or land (depending on landing parameters).
 
 A fixed-wing vehicle is expected to use a landing pattern defined in a mission as the return destination, as this is the safest way to land automatically.
-This requirement is enforced by the [MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ) parameter.
+This requirement is usually enforced by the [MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ) parameter.
 
 A mission landing pattern consists of a [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), one or more position waypoints, and a [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND).
 
