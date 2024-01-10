@@ -20,6 +20,9 @@ The following topics should be read first if you're using these vehicle types:
 - Mode prevents arming (vehicle must be armed when switching to this mode).
 - RC control switches can be used to change flight modes on any vehicle.
 - RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
+- A VTOL will return as MC or FW based on its mode at the point the return mode was triggered.
+  In MC mode it will respect multicopter parameters, such as the landing "cone".
+  In FW mode it will respect fixed-wing parameters (ignore the cone), but unless using a mission landing, will transition to MC mode and land at the destination after loitering at the descent altitude.
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
@@ -68,7 +71,9 @@ In this return type the vehicle:
 - Flies via direct path to the home position or a rally point (whichever is closest)
 - On [arrival](#loiter-landing-at-destination) descends to "descent altitude" and waits for a configurable time.
   This time may be used to deploy landing gear.
-- Lands or waits (this depends on landing parameters: a fixed-wing vehicle circles at the descent altitude).
+- Lands or waits (this depends on landing parameters),
+  By default an MC or VTOL in MC mode will land and a fixed-wing vehicle circles at the descent altitude.
+  A VTOL in FW mode aligns its heading to the destination point, transitions to MC mode, and then lands.
 
 :::note
 If no rally points are defined, this is the same as a _Return to Launch_ (RTL)/_Return to Home_ (RTH).
@@ -86,6 +91,8 @@ In this return type the vehicle:
   If no mission landing or rally points are defined the vehicle instead returns home via a direct path.
 - If the destination is a mission landing pattern it will follow the pattern to land.
 - If the destination is a rally point or home it will [land or wait](#loiter-landing-at-destination) at descent altitude (depending on landing parameters).
+  By default an MC or VTOL in MC mode will land, and a fixed-wing vehicle circles at the descent altitude.
+  A VTOL in FW mode aligns its heading to the destination point, transitions to MC mode, and then lands.
 
 :::note
 Fixed wing vehicles commonly also set [MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ) to _require_ a mission landing pattern.
@@ -93,7 +100,7 @@ Fixed wing vehicles commonly also set [MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ) to _
 
 ### Mission Path Return Type (RTL_TYPE=2)
 
-This return type uses the mission (if defined) to provide a safe return _path_, and the mission landing pattern (if defined) to provide landing behaviour.
+This return type uses the mission (if defined) to provide a safe return _path_, and the [mission landing pattern](#mission-landing-pattern) (if defined) to provide landing behaviour.
 If there is a mission but no mission landing pattern, the mission is flown _in reverse_.
 Rally points, if any, are ignored.
 
@@ -137,6 +144,8 @@ In this return type the vehicle:
 - Flies a direct path to the closest destination of: home location, mission landing pattern or rally point.
 - If the destination is a [mission landing pattern](#mission-landing-pattern) the vehicle will follow the pattern to land.
 - If the destination is a home location or rally point, the vehicle will descend to the descent altitude ([RTL_DESCEND_ALT](#RTL_DESCEND_ALT)) and then [lands or waits](#loiter-landing-at-destination).
+  By default an MC or VTOL in MC mode will land, and a fixed-wing vehicle circles at the descent altitude.
+  A VTOL in FW mode aligns its heading to the destination point, transitions to MC mode, and then lands.
 
 ## Minimum Return Altitude
 
@@ -147,9 +156,9 @@ The exception is when executing a [mission path return](#mission-path-return-typ
 In this case the vehicle follows mission waypoints, which we assume are planned to avoid any obstacles.
 :::
 
-The return altitude for a fixed-wing vehicle is configured using the parameter [RTL_RETURN_ALT](#RTL_RETURN_ALT).
+The return altitude for a fixed-wing vehicle or a VTOL in fixed-wing mode is configured using the parameter [RTL_RETURN_ALT](#RTL_RETURN_ALT) (does not use the code described in the next paragraph).
 
-The return altitude for multicopter and VTOL vehicles is configured using the parameters [RTL_RETURN_ALT](#RTL_RETURN_ALT) and [RTL_CONE_ANG](#RTL_CONE_ANG), which define a half cone centered around the destination (home location or safety point).
+The return altitude for a multicopter or a VTOL vehicles in MC mode is configured using the parameters [RTL_RETURN_ALT](#RTL_RETURN_ALT) and [RTL_CONE_ANG](#RTL_CONE_ANG), which define a half cone centered around the destination (home location or safety point).
 
 ![Return mode cone](../../assets/flying/rtl_cone.jpg)
 
@@ -176,10 +185,13 @@ Note:
 Unless executing a [mission landing pattern](#mission-landing-pattern) as part of the return mode, the vehicle will arrive at its destination, and rapidly descend to the [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) altitude, where it will loiter for [RTL_LAND_DELAY](#RTL_LAND_DELAY) before landing.
 If `RTL_LAND_DELAY=-1` it will loiter indefinitely.
 
-Generally multicopters and VTOLs (after transitioning to MC mode) are configured to hover for a short while, deploying landing gear if needed, and then land.
+The default landing configuration is vehicle dependent:
 
-The default configuration for fixed-wing vehicles is to use a return mode with a [mission landing pattern](#mission-landing-pattern), as this enables automated landing.
-If not using a mission landing, the default configuration is to loiter indefinitely, so the user can take over and manually land.
+- Multicopters are configured to hover for a short while, deploying landing gear if needed, and then land.
+- Fixed-wing vehicles use a return mode with a [mission landing pattern](#mission-landing-pattern), as this enables automated landing.
+  If not using a mission landing, the default configuration is to loiter indefinitely, so the user can take over and manually land.
+- VTOLs in MC mode fly and land exactly as a multicopter.
+- VTOLS in FW mode head towards the landing point, transition to MC mode, and then land on the destination.
 
 ## Mission Landing Pattern
 
