@@ -155,6 +155,6 @@ You can clear all parameter/tuning channel mappings by selecting menu **Tools > 
 
 ## Further Information
 
-- [QGroundControl > Radio Control](https://docs.qgroundcontrol.com/master/en/SetupView/Radio.html)
+- [QGroundControl > Radio Control](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/radio.html)
 - [PX4 Setup Video - @4m30s](https://youtu.be/91VGmdSlbo4?t=4m30s) (Youtube)
 - [RC System Selection](../getting_started/rc_transmitter_receiver.md) - Choose a compatible RC system.
