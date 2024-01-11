@@ -18,7 +18,7 @@ In consequence, a joystick-based controller system requires a reliable high band
 
 ## Enabling PX4 Joystick Support
 
-Information about how to set up a joystick is covered in: [QGroundControl > Joystick Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html).
+Information about how to set up a joystick is covered in: [QGroundControl > Joystick Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/joystick.html).
 
 In summary:
 
