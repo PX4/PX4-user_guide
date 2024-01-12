@@ -12347,16 +12347,9 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_T_I_GAIN_PIT">FW_T_I_GAIN_PIT</strong> (FLOAT)</td>
- <td>Integrator gain pitch <p><strong>Comment:</strong> This is the integrator gain on the pitch part of the control loop. Increasing this gain increases the speed at which speed and height offsets are trimmed out, but reduces damping and increases overshoot. Set this value to zero to completely disable all integrator action.</p>   </td>
+ <td>Integrator gain pitch <p><strong>Comment:</strong> Integrator gain on the pitch part of the control loop. Increase it to trim out speed and height offsets faster, with the downside of possible overshoots and oscillations.</p>   </td>
  <td>[0.0, 2.0] (0.05)</td>
  <td>0.1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_T_I_GAIN_THR">FW_T_I_GAIN_THR</strong> (FLOAT)</td>
- <td>Integrator gain throttle <p><strong>Comment:</strong> This is the integrator gain on the throttle part of the control loop. Increasing this gain increases the speed at which speed and height offsets are trimmed out, but reduces damping and increases overshoot. Set this value to zero to completely disable all integrator action.</p>   </td>
- <td>[0.0, 2.0] (0.05)</td>
- <td>0.05</td>
  <td></td>
 </tr>
 <tr>
@@ -12437,10 +12430,17 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="FW_T_THR_DAMP">FW_T_THR_DAMP</strong> (FLOAT)</td>
+ <td><strong id="FW_T_THR_DAMPING">FW_T_THR_DAMPING</strong> (FLOAT)</td>
  <td>Throttle damping factor <p><strong>Comment:</strong> This is the damping gain for the throttle demand loop. Increase to add damping to correct for oscillations in speed and height.</p>   </td>
- <td>[0.0, 2.0] (0.1)</td>
- <td>0.1</td>
+ <td>[0.0, 1.0] (0.01)</td>
+ <td>0.05</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_T_THR_INTEG">FW_T_THR_INTEG</strong> (FLOAT)</td>
+ <td>Integrator gain throttle <p><strong>Comment:</strong> Integrator gain on the throttle part of the control loop. Increase it to trim out speed and height offsets faster, with the downside of possible overshoots and oscillations.</p>   </td>
+ <td>[0.0, 1.0] (0.005)</td>
+ <td>0.02</td>
  <td></td>
 </tr>
 <tr>
