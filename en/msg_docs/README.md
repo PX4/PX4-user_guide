@@ -23,6 +23,7 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 - [ArmingCheckRequest](ArmingCheckRequest.md)
 - [AutotuneAttitudeControlStatus](AutotuneAttitudeControlStatus.md)
 - [BatteryStatus](BatteryStatus.md)
+- [Buffer128](Buffer128.md)
 - [ButtonEvent](ButtonEvent.md)
 - [CameraCapture](CameraCapture.md)
 - [CameraStatus](CameraStatus.md)

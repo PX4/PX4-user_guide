@@ -748,65 +748,6 @@ lsm303agr <command> [arguments...]
 
    status        print status info
 ```
-## modal_io
-Source: [drivers/actuators/modal_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/modal_io)
-
-
-### Description
-This module is responsible for...
-
-### Implementation
-By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
-
-### Examples
-It is typically started with:
-```
-todo
-```
-
-
-<a id="modal_io_usage"></a>
-### Usage
-```
-modal_io <command> [arguments...]
- Commands:
-   start         Start the task
-
-   reset         Send reset request to ESC
-     -i <val>    ESC ID, 0-3
-
-   version       Send version request to ESC
-     -i <val>    ESC ID, 0-3
-
-   version-ext   Send extended version request to ESC
-     -i <val>    ESC ID, 0-3
-
-   rpm           Closed-Loop RPM test control request
-     -i <val>    ESC ID, 0-3
-     -r <val>    RPM, -32,768 to 32,768
-     -n <val>    Command repeat count, 0 to INT_MAX
-     -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
-
-   pwm           Open-Loop PWM test control request
-     -i <val>    ESC ID, 0-3
-     -r <val>    Duty Cycle value, 0 to 800
-     -n <val>    Command repeat count, 0 to INT_MAX
-     -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
-
-   tone          Send tone generation request to ESC
-     -i <val>    ESC ID, 0-3
-     -p <val>    Period of sound, inverse frequency, 0-255
-     -d <val>    Duration of the sound, 0-255, 1LSB = 13ms
-     -v <val>    Power (volume) of sound, 0-100
-
-   led           Send LED control request
-     -l <val>    Bitmask 0x0FFF (12 bits) - ESC0 (RGB) ESC1 (RGB) ESC2 (RGB)
-                 ESC3 (RGB)
-
-   stop
-
-   status        print status info
-```
 ## msp_osd
 Source: [drivers/osd/msp_osd](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/osd/msp_osd)
 
@@ -1409,6 +1350,100 @@ uwb <command> [arguments...]
    stop
 
    status
+```
+## voxl2_io
+Source: [drivers/voxl2_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/voxl2_io)
+
+
+### Description
+This module is responsible for driving the output pins. For boards without a separate IO chip
+(eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the
+px4io driver is used for main ones.
+
+
+<a id="voxl2_io_usage"></a>
+### Usage
+```
+voxl2_io <command> [arguments...]
+ Commands:
+   start         Start the task
+     -v          Verbose messages
+     -d          Disable PWM
+     -e          Disable RC
+     -p <val>    UART port
+
+   calibrate_escs Calibrate ESCs min/max range
+
+   calibrate_escs Calibrate ESCs min/max range
+
+   pwm           Open-Loop PWM test control request
+     -c <val>    PWM OUTPUT Channel, 0-3
+     -r <val>    Duty Cycle value, 0 to 800
+     -n <val>    Command repeat count, 0 to INT_MAX
+     -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
+
+   stop
+
+   status        print status info
+```
+## voxl_esc
+Source: [drivers/actuators/voxl_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/voxl_esc)
+
+
+### Description
+This module is responsible for...
+
+### Implementation
+By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
+
+### Examples
+It is typically started with:
+```
+todo
+```
+
+
+<a id="voxl_esc_usage"></a>
+### Usage
+```
+voxl_esc <command> [arguments...]
+ Commands:
+   start         Start the task
+
+   reset         Send reset request to ESC
+     -i <val>    ESC ID, 0-3
+
+   version       Send version request to ESC
+     -i <val>    ESC ID, 0-3
+
+   version-ext   Send extended version request to ESC
+     -i <val>    ESC ID, 0-3
+
+   rpm           Closed-Loop RPM test control request
+     -i <val>    ESC ID, 0-3
+     -r <val>    RPM, -32,768 to 32,768
+     -n <val>    Command repeat count, 0 to INT_MAX
+     -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
+
+   pwm           Open-Loop PWM test control request
+     -i <val>    ESC ID, 0-3
+     -r <val>    Duty Cycle value, 0 to 800
+     -n <val>    Command repeat count, 0 to INT_MAX
+     -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
+
+   tone          Send tone generation request to ESC
+     -i <val>    ESC ID, 0-3
+     -p <val>    Period of sound, inverse frequency, 0-255
+     -d <val>    Duration of the sound, 0-255, 1LSB = 13ms
+     -v <val>    Power (volume) of sound, 0-100
+
+   led           Send LED control request
+     -l <val>    Bitmask 0x0FFF (12 bits) - ESC0 (RGB) ESC1 (RGB) ESC2 (RGB)
+                 ESC3 (RGB)
+
+   stop
+
+   status        print status info
 ```
 ## voxlpm
 Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/voxlpm)

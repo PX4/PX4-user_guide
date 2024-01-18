@@ -427,238 +427,6 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="MODAL_IO_FUNC1">MODAL_IO_FUNC1</strong> (INT32)</td>
- <td>MODAL IO Output ESC 1 Output Function <p><strong>Comment:</strong> Select what should be output on MODAL IO Output ESC 1. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li>
-<li><strong>1:</strong> Constant Min</li>
-<li><strong>2:</strong> Constant Max</li>
-<li><strong>101:</strong> Motor 1</li>
-<li><strong>102:</strong> Motor 2</li>
-<li><strong>103:</strong> Motor 3</li>
-<li><strong>104:</strong> Motor 4</li>
-<li><strong>105:</strong> Motor 5</li>
-<li><strong>106:</strong> Motor 6</li>
-<li><strong>107:</strong> Motor 7</li>
-<li><strong>108:</strong> Motor 8</li>
-<li><strong>109:</strong> Motor 9</li>
-<li><strong>110:</strong> Motor 10</li>
-<li><strong>111:</strong> Motor 11</li>
-<li><strong>112:</strong> Motor 12</li>
-<li><strong>201:</strong> Servo 1</li>
-<li><strong>202:</strong> Servo 2</li>
-<li><strong>203:</strong> Servo 3</li>
-<li><strong>204:</strong> Servo 4</li>
-<li><strong>205:</strong> Servo 5</li>
-<li><strong>206:</strong> Servo 6</li>
-<li><strong>207:</strong> Servo 7</li>
-<li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
-<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
-<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
-<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
-<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
-<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
-<li><strong>400:</strong> Landing Gear</li>
-<li><strong>401:</strong> Parachute</li>
-<li><strong>402:</strong> RC Roll</li>
-<li><strong>403:</strong> RC Pitch</li>
-<li><strong>404:</strong> RC Throttle</li>
-<li><strong>405:</strong> RC Yaw</li>
-<li><strong>406:</strong> RC Flaps</li>
-<li><strong>407:</strong> RC AUX 1</li>
-<li><strong>408:</strong> RC AUX 2</li>
-<li><strong>409:</strong> RC AUX 3</li>
-<li><strong>410:</strong> RC AUX 4</li>
-<li><strong>411:</strong> RC AUX 5</li>
-<li><strong>412:</strong> RC AUX 6</li>
-<li><strong>420:</strong> Gimbal Roll</li>
-<li><strong>421:</strong> Gimbal Pitch</li>
-<li><strong>422:</strong> Gimbal Yaw</li>
-<li><strong>430:</strong> Gripper</li>
-<li><strong>440:</strong> Landing Gear Wheel</li>
-</ul>  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MODAL_IO_FUNC2">MODAL_IO_FUNC2</strong> (INT32)</td>
- <td>MODAL IO Output ESC 2 Output Function <p><strong>Comment:</strong> Select what should be output on MODAL IO Output ESC 2. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li>
-<li><strong>1:</strong> Constant Min</li>
-<li><strong>2:</strong> Constant Max</li>
-<li><strong>101:</strong> Motor 1</li>
-<li><strong>102:</strong> Motor 2</li>
-<li><strong>103:</strong> Motor 3</li>
-<li><strong>104:</strong> Motor 4</li>
-<li><strong>105:</strong> Motor 5</li>
-<li><strong>106:</strong> Motor 6</li>
-<li><strong>107:</strong> Motor 7</li>
-<li><strong>108:</strong> Motor 8</li>
-<li><strong>109:</strong> Motor 9</li>
-<li><strong>110:</strong> Motor 10</li>
-<li><strong>111:</strong> Motor 11</li>
-<li><strong>112:</strong> Motor 12</li>
-<li><strong>201:</strong> Servo 1</li>
-<li><strong>202:</strong> Servo 2</li>
-<li><strong>203:</strong> Servo 3</li>
-<li><strong>204:</strong> Servo 4</li>
-<li><strong>205:</strong> Servo 5</li>
-<li><strong>206:</strong> Servo 6</li>
-<li><strong>207:</strong> Servo 7</li>
-<li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
-<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
-<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
-<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
-<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
-<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
-<li><strong>400:</strong> Landing Gear</li>
-<li><strong>401:</strong> Parachute</li>
-<li><strong>402:</strong> RC Roll</li>
-<li><strong>403:</strong> RC Pitch</li>
-<li><strong>404:</strong> RC Throttle</li>
-<li><strong>405:</strong> RC Yaw</li>
-<li><strong>406:</strong> RC Flaps</li>
-<li><strong>407:</strong> RC AUX 1</li>
-<li><strong>408:</strong> RC AUX 2</li>
-<li><strong>409:</strong> RC AUX 3</li>
-<li><strong>410:</strong> RC AUX 4</li>
-<li><strong>411:</strong> RC AUX 5</li>
-<li><strong>412:</strong> RC AUX 6</li>
-<li><strong>420:</strong> Gimbal Roll</li>
-<li><strong>421:</strong> Gimbal Pitch</li>
-<li><strong>422:</strong> Gimbal Yaw</li>
-<li><strong>430:</strong> Gripper</li>
-<li><strong>440:</strong> Landing Gear Wheel</li>
-</ul>  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MODAL_IO_FUNC3">MODAL_IO_FUNC3</strong> (INT32)</td>
- <td>MODAL IO Output ESC 3 Output Function <p><strong>Comment:</strong> Select what should be output on MODAL IO Output ESC 3. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li>
-<li><strong>1:</strong> Constant Min</li>
-<li><strong>2:</strong> Constant Max</li>
-<li><strong>101:</strong> Motor 1</li>
-<li><strong>102:</strong> Motor 2</li>
-<li><strong>103:</strong> Motor 3</li>
-<li><strong>104:</strong> Motor 4</li>
-<li><strong>105:</strong> Motor 5</li>
-<li><strong>106:</strong> Motor 6</li>
-<li><strong>107:</strong> Motor 7</li>
-<li><strong>108:</strong> Motor 8</li>
-<li><strong>109:</strong> Motor 9</li>
-<li><strong>110:</strong> Motor 10</li>
-<li><strong>111:</strong> Motor 11</li>
-<li><strong>112:</strong> Motor 12</li>
-<li><strong>201:</strong> Servo 1</li>
-<li><strong>202:</strong> Servo 2</li>
-<li><strong>203:</strong> Servo 3</li>
-<li><strong>204:</strong> Servo 4</li>
-<li><strong>205:</strong> Servo 5</li>
-<li><strong>206:</strong> Servo 6</li>
-<li><strong>207:</strong> Servo 7</li>
-<li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
-<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
-<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
-<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
-<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
-<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
-<li><strong>400:</strong> Landing Gear</li>
-<li><strong>401:</strong> Parachute</li>
-<li><strong>402:</strong> RC Roll</li>
-<li><strong>403:</strong> RC Pitch</li>
-<li><strong>404:</strong> RC Throttle</li>
-<li><strong>405:</strong> RC Yaw</li>
-<li><strong>406:</strong> RC Flaps</li>
-<li><strong>407:</strong> RC AUX 1</li>
-<li><strong>408:</strong> RC AUX 2</li>
-<li><strong>409:</strong> RC AUX 3</li>
-<li><strong>410:</strong> RC AUX 4</li>
-<li><strong>411:</strong> RC AUX 5</li>
-<li><strong>412:</strong> RC AUX 6</li>
-<li><strong>420:</strong> Gimbal Roll</li>
-<li><strong>421:</strong> Gimbal Pitch</li>
-<li><strong>422:</strong> Gimbal Yaw</li>
-<li><strong>430:</strong> Gripper</li>
-<li><strong>440:</strong> Landing Gear Wheel</li>
-</ul>  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MODAL_IO_FUNC4">MODAL_IO_FUNC4</strong> (INT32)</td>
- <td>MODAL IO Output ESC 4 Output Function <p><strong>Comment:</strong> Select what should be output on MODAL IO Output ESC 4. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li>
-<li><strong>1:</strong> Constant Min</li>
-<li><strong>2:</strong> Constant Max</li>
-<li><strong>101:</strong> Motor 1</li>
-<li><strong>102:</strong> Motor 2</li>
-<li><strong>103:</strong> Motor 3</li>
-<li><strong>104:</strong> Motor 4</li>
-<li><strong>105:</strong> Motor 5</li>
-<li><strong>106:</strong> Motor 6</li>
-<li><strong>107:</strong> Motor 7</li>
-<li><strong>108:</strong> Motor 8</li>
-<li><strong>109:</strong> Motor 9</li>
-<li><strong>110:</strong> Motor 10</li>
-<li><strong>111:</strong> Motor 11</li>
-<li><strong>112:</strong> Motor 12</li>
-<li><strong>201:</strong> Servo 1</li>
-<li><strong>202:</strong> Servo 2</li>
-<li><strong>203:</strong> Servo 3</li>
-<li><strong>204:</strong> Servo 4</li>
-<li><strong>205:</strong> Servo 5</li>
-<li><strong>206:</strong> Servo 6</li>
-<li><strong>207:</strong> Servo 7</li>
-<li><strong>208:</strong> Servo 8</li>
-<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
-<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
-<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
-<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
-<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
-<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
-<li><strong>400:</strong> Landing Gear</li>
-<li><strong>401:</strong> Parachute</li>
-<li><strong>402:</strong> RC Roll</li>
-<li><strong>403:</strong> RC Pitch</li>
-<li><strong>404:</strong> RC Throttle</li>
-<li><strong>405:</strong> RC Yaw</li>
-<li><strong>406:</strong> RC Flaps</li>
-<li><strong>407:</strong> RC AUX 1</li>
-<li><strong>408:</strong> RC AUX 2</li>
-<li><strong>409:</strong> RC AUX 3</li>
-<li><strong>410:</strong> RC AUX 4</li>
-<li><strong>411:</strong> RC AUX 5</li>
-<li><strong>412:</strong> RC AUX 6</li>
-<li><strong>420:</strong> Gimbal Roll</li>
-<li><strong>421:</strong> Gimbal Pitch</li>
-<li><strong>422:</strong> Gimbal Yaw</li>
-<li><strong>430:</strong> Gripper</li>
-<li><strong>440:</strong> Landing Gear Wheel</li>
-</ul>  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MODAL_IO_REV">MODAL_IO_REV</strong> (INT32)</td>
- <td>Reverse Output Range for MODAL IO Output <p><strong>Comment:</strong> Allows to reverse the output range for each channel. Note: this is only useful for servos.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> MODAL IO Output ESC 1</li>
-  <li><strong>1:</strong> MODAL IO Output ESC 2</li>
-  <li><strong>2:</strong> MODAL IO Output ESC 3</li>
-  <li><strong>3:</strong> MODAL IO Output ESC 4</li>
-</ul>
- </td>
- <td>[0, 15] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="PCA9685_DIS1">PCA9685_DIS1</strong> (INT32)</td>
  <td>PCA9685 Output Channel 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
@@ -8507,6 +8275,470 @@ table {
  <td>0</td>
  <td></td>
 </tr>
+<tr>
+ <td><strong id="VOXL2_IO_FUNC1">VOXL2_IO_FUNC1</strong> (INT32)</td>
+ <td>VOXL2 IO Output PWM Channel 1 Output Function <p><strong>Comment:</strong> Select what should be output on VOXL2 IO Output PWM Channel 1. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Constant Min</li>
+<li><strong>2:</strong> Constant Max</li>
+<li><strong>101:</strong> Motor 1</li>
+<li><strong>102:</strong> Motor 2</li>
+<li><strong>103:</strong> Motor 3</li>
+<li><strong>104:</strong> Motor 4</li>
+<li><strong>105:</strong> Motor 5</li>
+<li><strong>106:</strong> Motor 6</li>
+<li><strong>107:</strong> Motor 7</li>
+<li><strong>108:</strong> Motor 8</li>
+<li><strong>109:</strong> Motor 9</li>
+<li><strong>110:</strong> Motor 10</li>
+<li><strong>111:</strong> Motor 11</li>
+<li><strong>112:</strong> Motor 12</li>
+<li><strong>201:</strong> Servo 1</li>
+<li><strong>202:</strong> Servo 2</li>
+<li><strong>203:</strong> Servo 3</li>
+<li><strong>204:</strong> Servo 4</li>
+<li><strong>205:</strong> Servo 5</li>
+<li><strong>206:</strong> Servo 6</li>
+<li><strong>207:</strong> Servo 7</li>
+<li><strong>208:</strong> Servo 8</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
+<li><strong>400:</strong> Landing Gear</li>
+<li><strong>401:</strong> Parachute</li>
+<li><strong>402:</strong> RC Roll</li>
+<li><strong>403:</strong> RC Pitch</li>
+<li><strong>404:</strong> RC Throttle</li>
+<li><strong>405:</strong> RC Yaw</li>
+<li><strong>406:</strong> RC Flaps</li>
+<li><strong>407:</strong> RC AUX 1</li>
+<li><strong>408:</strong> RC AUX 2</li>
+<li><strong>409:</strong> RC AUX 3</li>
+<li><strong>410:</strong> RC AUX 4</li>
+<li><strong>411:</strong> RC AUX 5</li>
+<li><strong>412:</strong> RC AUX 6</li>
+<li><strong>420:</strong> Gimbal Roll</li>
+<li><strong>421:</strong> Gimbal Pitch</li>
+<li><strong>422:</strong> Gimbal Yaw</li>
+<li><strong>430:</strong> Gripper</li>
+<li><strong>440:</strong> Landing Gear Wheel</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL2_IO_FUNC2">VOXL2_IO_FUNC2</strong> (INT32)</td>
+ <td>VOXL2 IO Output PWM Channel 2 Output Function <p><strong>Comment:</strong> Select what should be output on VOXL2 IO Output PWM Channel 2. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Constant Min</li>
+<li><strong>2:</strong> Constant Max</li>
+<li><strong>101:</strong> Motor 1</li>
+<li><strong>102:</strong> Motor 2</li>
+<li><strong>103:</strong> Motor 3</li>
+<li><strong>104:</strong> Motor 4</li>
+<li><strong>105:</strong> Motor 5</li>
+<li><strong>106:</strong> Motor 6</li>
+<li><strong>107:</strong> Motor 7</li>
+<li><strong>108:</strong> Motor 8</li>
+<li><strong>109:</strong> Motor 9</li>
+<li><strong>110:</strong> Motor 10</li>
+<li><strong>111:</strong> Motor 11</li>
+<li><strong>112:</strong> Motor 12</li>
+<li><strong>201:</strong> Servo 1</li>
+<li><strong>202:</strong> Servo 2</li>
+<li><strong>203:</strong> Servo 3</li>
+<li><strong>204:</strong> Servo 4</li>
+<li><strong>205:</strong> Servo 5</li>
+<li><strong>206:</strong> Servo 6</li>
+<li><strong>207:</strong> Servo 7</li>
+<li><strong>208:</strong> Servo 8</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
+<li><strong>400:</strong> Landing Gear</li>
+<li><strong>401:</strong> Parachute</li>
+<li><strong>402:</strong> RC Roll</li>
+<li><strong>403:</strong> RC Pitch</li>
+<li><strong>404:</strong> RC Throttle</li>
+<li><strong>405:</strong> RC Yaw</li>
+<li><strong>406:</strong> RC Flaps</li>
+<li><strong>407:</strong> RC AUX 1</li>
+<li><strong>408:</strong> RC AUX 2</li>
+<li><strong>409:</strong> RC AUX 3</li>
+<li><strong>410:</strong> RC AUX 4</li>
+<li><strong>411:</strong> RC AUX 5</li>
+<li><strong>412:</strong> RC AUX 6</li>
+<li><strong>420:</strong> Gimbal Roll</li>
+<li><strong>421:</strong> Gimbal Pitch</li>
+<li><strong>422:</strong> Gimbal Yaw</li>
+<li><strong>430:</strong> Gripper</li>
+<li><strong>440:</strong> Landing Gear Wheel</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL2_IO_FUNC3">VOXL2_IO_FUNC3</strong> (INT32)</td>
+ <td>VOXL2 IO Output PWM Channel 3 Output Function <p><strong>Comment:</strong> Select what should be output on VOXL2 IO Output PWM Channel 3. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Constant Min</li>
+<li><strong>2:</strong> Constant Max</li>
+<li><strong>101:</strong> Motor 1</li>
+<li><strong>102:</strong> Motor 2</li>
+<li><strong>103:</strong> Motor 3</li>
+<li><strong>104:</strong> Motor 4</li>
+<li><strong>105:</strong> Motor 5</li>
+<li><strong>106:</strong> Motor 6</li>
+<li><strong>107:</strong> Motor 7</li>
+<li><strong>108:</strong> Motor 8</li>
+<li><strong>109:</strong> Motor 9</li>
+<li><strong>110:</strong> Motor 10</li>
+<li><strong>111:</strong> Motor 11</li>
+<li><strong>112:</strong> Motor 12</li>
+<li><strong>201:</strong> Servo 1</li>
+<li><strong>202:</strong> Servo 2</li>
+<li><strong>203:</strong> Servo 3</li>
+<li><strong>204:</strong> Servo 4</li>
+<li><strong>205:</strong> Servo 5</li>
+<li><strong>206:</strong> Servo 6</li>
+<li><strong>207:</strong> Servo 7</li>
+<li><strong>208:</strong> Servo 8</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
+<li><strong>400:</strong> Landing Gear</li>
+<li><strong>401:</strong> Parachute</li>
+<li><strong>402:</strong> RC Roll</li>
+<li><strong>403:</strong> RC Pitch</li>
+<li><strong>404:</strong> RC Throttle</li>
+<li><strong>405:</strong> RC Yaw</li>
+<li><strong>406:</strong> RC Flaps</li>
+<li><strong>407:</strong> RC AUX 1</li>
+<li><strong>408:</strong> RC AUX 2</li>
+<li><strong>409:</strong> RC AUX 3</li>
+<li><strong>410:</strong> RC AUX 4</li>
+<li><strong>411:</strong> RC AUX 5</li>
+<li><strong>412:</strong> RC AUX 6</li>
+<li><strong>420:</strong> Gimbal Roll</li>
+<li><strong>421:</strong> Gimbal Pitch</li>
+<li><strong>422:</strong> Gimbal Yaw</li>
+<li><strong>430:</strong> Gripper</li>
+<li><strong>440:</strong> Landing Gear Wheel</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL2_IO_FUNC4">VOXL2_IO_FUNC4</strong> (INT32)</td>
+ <td>VOXL2 IO Output PWM Channel 4 Output Function <p><strong>Comment:</strong> Select what should be output on VOXL2 IO Output PWM Channel 4. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Constant Min</li>
+<li><strong>2:</strong> Constant Max</li>
+<li><strong>101:</strong> Motor 1</li>
+<li><strong>102:</strong> Motor 2</li>
+<li><strong>103:</strong> Motor 3</li>
+<li><strong>104:</strong> Motor 4</li>
+<li><strong>105:</strong> Motor 5</li>
+<li><strong>106:</strong> Motor 6</li>
+<li><strong>107:</strong> Motor 7</li>
+<li><strong>108:</strong> Motor 8</li>
+<li><strong>109:</strong> Motor 9</li>
+<li><strong>110:</strong> Motor 10</li>
+<li><strong>111:</strong> Motor 11</li>
+<li><strong>112:</strong> Motor 12</li>
+<li><strong>201:</strong> Servo 1</li>
+<li><strong>202:</strong> Servo 2</li>
+<li><strong>203:</strong> Servo 3</li>
+<li><strong>204:</strong> Servo 4</li>
+<li><strong>205:</strong> Servo 5</li>
+<li><strong>206:</strong> Servo 6</li>
+<li><strong>207:</strong> Servo 7</li>
+<li><strong>208:</strong> Servo 8</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
+<li><strong>400:</strong> Landing Gear</li>
+<li><strong>401:</strong> Parachute</li>
+<li><strong>402:</strong> RC Roll</li>
+<li><strong>403:</strong> RC Pitch</li>
+<li><strong>404:</strong> RC Throttle</li>
+<li><strong>405:</strong> RC Yaw</li>
+<li><strong>406:</strong> RC Flaps</li>
+<li><strong>407:</strong> RC AUX 1</li>
+<li><strong>408:</strong> RC AUX 2</li>
+<li><strong>409:</strong> RC AUX 3</li>
+<li><strong>410:</strong> RC AUX 4</li>
+<li><strong>411:</strong> RC AUX 5</li>
+<li><strong>412:</strong> RC AUX 6</li>
+<li><strong>420:</strong> Gimbal Roll</li>
+<li><strong>421:</strong> Gimbal Pitch</li>
+<li><strong>422:</strong> Gimbal Yaw</li>
+<li><strong>430:</strong> Gripper</li>
+<li><strong>440:</strong> Landing Gear Wheel</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL2_IO_REV">VOXL2_IO_REV</strong> (INT32)</td>
+ <td>Reverse Output Range for VOXL2 IO Output <p><strong>Comment:</strong> Allows to reverse the output range for each channel. Note: this is only useful for servos.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> VOXL2 IO Output PWM Channel 1</li>
+  <li><strong>1:</strong> VOXL2 IO Output PWM Channel 2</li>
+  <li><strong>2:</strong> VOXL2 IO Output PWM Channel 3</li>
+  <li><strong>3:</strong> VOXL2 IO Output PWM Channel 4</li>
+</ul>
+ </td>
+ <td>[0, 15] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_FUNC1">VOXL_ESC_FUNC1</strong> (INT32)</td>
+ <td>VOXL ESC Output ESC 1 Output Function <p><strong>Comment:</strong> Select what should be output on VOXL ESC Output ESC 1. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Constant Min</li>
+<li><strong>2:</strong> Constant Max</li>
+<li><strong>101:</strong> Motor 1</li>
+<li><strong>102:</strong> Motor 2</li>
+<li><strong>103:</strong> Motor 3</li>
+<li><strong>104:</strong> Motor 4</li>
+<li><strong>105:</strong> Motor 5</li>
+<li><strong>106:</strong> Motor 6</li>
+<li><strong>107:</strong> Motor 7</li>
+<li><strong>108:</strong> Motor 8</li>
+<li><strong>109:</strong> Motor 9</li>
+<li><strong>110:</strong> Motor 10</li>
+<li><strong>111:</strong> Motor 11</li>
+<li><strong>112:</strong> Motor 12</li>
+<li><strong>201:</strong> Servo 1</li>
+<li><strong>202:</strong> Servo 2</li>
+<li><strong>203:</strong> Servo 3</li>
+<li><strong>204:</strong> Servo 4</li>
+<li><strong>205:</strong> Servo 5</li>
+<li><strong>206:</strong> Servo 6</li>
+<li><strong>207:</strong> Servo 7</li>
+<li><strong>208:</strong> Servo 8</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
+<li><strong>400:</strong> Landing Gear</li>
+<li><strong>401:</strong> Parachute</li>
+<li><strong>402:</strong> RC Roll</li>
+<li><strong>403:</strong> RC Pitch</li>
+<li><strong>404:</strong> RC Throttle</li>
+<li><strong>405:</strong> RC Yaw</li>
+<li><strong>406:</strong> RC Flaps</li>
+<li><strong>407:</strong> RC AUX 1</li>
+<li><strong>408:</strong> RC AUX 2</li>
+<li><strong>409:</strong> RC AUX 3</li>
+<li><strong>410:</strong> RC AUX 4</li>
+<li><strong>411:</strong> RC AUX 5</li>
+<li><strong>412:</strong> RC AUX 6</li>
+<li><strong>420:</strong> Gimbal Roll</li>
+<li><strong>421:</strong> Gimbal Pitch</li>
+<li><strong>422:</strong> Gimbal Yaw</li>
+<li><strong>430:</strong> Gripper</li>
+<li><strong>440:</strong> Landing Gear Wheel</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_FUNC2">VOXL_ESC_FUNC2</strong> (INT32)</td>
+ <td>VOXL ESC Output ESC 2 Output Function <p><strong>Comment:</strong> Select what should be output on VOXL ESC Output ESC 2. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Constant Min</li>
+<li><strong>2:</strong> Constant Max</li>
+<li><strong>101:</strong> Motor 1</li>
+<li><strong>102:</strong> Motor 2</li>
+<li><strong>103:</strong> Motor 3</li>
+<li><strong>104:</strong> Motor 4</li>
+<li><strong>105:</strong> Motor 5</li>
+<li><strong>106:</strong> Motor 6</li>
+<li><strong>107:</strong> Motor 7</li>
+<li><strong>108:</strong> Motor 8</li>
+<li><strong>109:</strong> Motor 9</li>
+<li><strong>110:</strong> Motor 10</li>
+<li><strong>111:</strong> Motor 11</li>
+<li><strong>112:</strong> Motor 12</li>
+<li><strong>201:</strong> Servo 1</li>
+<li><strong>202:</strong> Servo 2</li>
+<li><strong>203:</strong> Servo 3</li>
+<li><strong>204:</strong> Servo 4</li>
+<li><strong>205:</strong> Servo 5</li>
+<li><strong>206:</strong> Servo 6</li>
+<li><strong>207:</strong> Servo 7</li>
+<li><strong>208:</strong> Servo 8</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
+<li><strong>400:</strong> Landing Gear</li>
+<li><strong>401:</strong> Parachute</li>
+<li><strong>402:</strong> RC Roll</li>
+<li><strong>403:</strong> RC Pitch</li>
+<li><strong>404:</strong> RC Throttle</li>
+<li><strong>405:</strong> RC Yaw</li>
+<li><strong>406:</strong> RC Flaps</li>
+<li><strong>407:</strong> RC AUX 1</li>
+<li><strong>408:</strong> RC AUX 2</li>
+<li><strong>409:</strong> RC AUX 3</li>
+<li><strong>410:</strong> RC AUX 4</li>
+<li><strong>411:</strong> RC AUX 5</li>
+<li><strong>412:</strong> RC AUX 6</li>
+<li><strong>420:</strong> Gimbal Roll</li>
+<li><strong>421:</strong> Gimbal Pitch</li>
+<li><strong>422:</strong> Gimbal Yaw</li>
+<li><strong>430:</strong> Gripper</li>
+<li><strong>440:</strong> Landing Gear Wheel</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_FUNC3">VOXL_ESC_FUNC3</strong> (INT32)</td>
+ <td>VOXL ESC Output ESC 3 Output Function <p><strong>Comment:</strong> Select what should be output on VOXL ESC Output ESC 3. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Constant Min</li>
+<li><strong>2:</strong> Constant Max</li>
+<li><strong>101:</strong> Motor 1</li>
+<li><strong>102:</strong> Motor 2</li>
+<li><strong>103:</strong> Motor 3</li>
+<li><strong>104:</strong> Motor 4</li>
+<li><strong>105:</strong> Motor 5</li>
+<li><strong>106:</strong> Motor 6</li>
+<li><strong>107:</strong> Motor 7</li>
+<li><strong>108:</strong> Motor 8</li>
+<li><strong>109:</strong> Motor 9</li>
+<li><strong>110:</strong> Motor 10</li>
+<li><strong>111:</strong> Motor 11</li>
+<li><strong>112:</strong> Motor 12</li>
+<li><strong>201:</strong> Servo 1</li>
+<li><strong>202:</strong> Servo 2</li>
+<li><strong>203:</strong> Servo 3</li>
+<li><strong>204:</strong> Servo 4</li>
+<li><strong>205:</strong> Servo 5</li>
+<li><strong>206:</strong> Servo 6</li>
+<li><strong>207:</strong> Servo 7</li>
+<li><strong>208:</strong> Servo 8</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
+<li><strong>400:</strong> Landing Gear</li>
+<li><strong>401:</strong> Parachute</li>
+<li><strong>402:</strong> RC Roll</li>
+<li><strong>403:</strong> RC Pitch</li>
+<li><strong>404:</strong> RC Throttle</li>
+<li><strong>405:</strong> RC Yaw</li>
+<li><strong>406:</strong> RC Flaps</li>
+<li><strong>407:</strong> RC AUX 1</li>
+<li><strong>408:</strong> RC AUX 2</li>
+<li><strong>409:</strong> RC AUX 3</li>
+<li><strong>410:</strong> RC AUX 4</li>
+<li><strong>411:</strong> RC AUX 5</li>
+<li><strong>412:</strong> RC AUX 6</li>
+<li><strong>420:</strong> Gimbal Roll</li>
+<li><strong>421:</strong> Gimbal Pitch</li>
+<li><strong>422:</strong> Gimbal Yaw</li>
+<li><strong>430:</strong> Gripper</li>
+<li><strong>440:</strong> Landing Gear Wheel</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_FUNC4">VOXL_ESC_FUNC4</strong> (INT32)</td>
+ <td>VOXL ESC Output ESC 4 Output Function <p><strong>Comment:</strong> Select what should be output on VOXL ESC Output ESC 4. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>1:</strong> Constant Min</li>
+<li><strong>2:</strong> Constant Max</li>
+<li><strong>101:</strong> Motor 1</li>
+<li><strong>102:</strong> Motor 2</li>
+<li><strong>103:</strong> Motor 3</li>
+<li><strong>104:</strong> Motor 4</li>
+<li><strong>105:</strong> Motor 5</li>
+<li><strong>106:</strong> Motor 6</li>
+<li><strong>107:</strong> Motor 7</li>
+<li><strong>108:</strong> Motor 8</li>
+<li><strong>109:</strong> Motor 9</li>
+<li><strong>110:</strong> Motor 10</li>
+<li><strong>111:</strong> Motor 11</li>
+<li><strong>112:</strong> Motor 12</li>
+<li><strong>201:</strong> Servo 1</li>
+<li><strong>202:</strong> Servo 2</li>
+<li><strong>203:</strong> Servo 3</li>
+<li><strong>204:</strong> Servo 4</li>
+<li><strong>205:</strong> Servo 5</li>
+<li><strong>206:</strong> Servo 6</li>
+<li><strong>207:</strong> Servo 7</li>
+<li><strong>208:</strong> Servo 8</li>
+<li><strong>301:</strong> Peripheral via Actuator Set 1</li>
+<li><strong>302:</strong> Peripheral via Actuator Set 2</li>
+<li><strong>303:</strong> Peripheral via Actuator Set 3</li>
+<li><strong>304:</strong> Peripheral via Actuator Set 4</li>
+<li><strong>305:</strong> Peripheral via Actuator Set 5</li>
+<li><strong>306:</strong> Peripheral via Actuator Set 6</li>
+<li><strong>400:</strong> Landing Gear</li>
+<li><strong>401:</strong> Parachute</li>
+<li><strong>402:</strong> RC Roll</li>
+<li><strong>403:</strong> RC Pitch</li>
+<li><strong>404:</strong> RC Throttle</li>
+<li><strong>405:</strong> RC Yaw</li>
+<li><strong>406:</strong> RC Flaps</li>
+<li><strong>407:</strong> RC AUX 1</li>
+<li><strong>408:</strong> RC AUX 2</li>
+<li><strong>409:</strong> RC AUX 3</li>
+<li><strong>410:</strong> RC AUX 4</li>
+<li><strong>411:</strong> RC AUX 5</li>
+<li><strong>412:</strong> RC AUX 6</li>
+<li><strong>420:</strong> Gimbal Roll</li>
+<li><strong>421:</strong> Gimbal Pitch</li>
+<li><strong>422:</strong> Gimbal Yaw</li>
+<li><strong>430:</strong> Gripper</li>
+<li><strong>440:</strong> Landing Gear Wheel</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_REV">VOXL_ESC_REV</strong> (INT32)</td>
+ <td>Reverse Output Range for VOXL ESC Output <p><strong>Comment:</strong> Allows to reverse the output range for each channel. Note: this is only useful for servos.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> VOXL ESC Output ESC 1</li>
+  <li><strong>1:</strong> VOXL ESC Output ESC 2</li>
+  <li><strong>2:</strong> VOXL ESC Output ESC 3</li>
+  <li><strong>3:</strong> VOXL ESC Output ESC 4</li>
+</ul>
+ </td>
+ <td>[0, 15] </td>
+ <td>0</td>
+ <td></td>
+</tr>
 </tbody></table>
 
 ## Airspeed Validator
@@ -15857,147 +16089,6 @@ table {
 </tr>
 </tbody></table>
 
-## MODAL IO
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="MODAL_IO_BAUD">MODAL_IO_BAUD</strong> (INT32)</td>
- <td>UART ESC baud rate <p><strong>Comment:</strong> Default rate is 250Kbps, which is used in off-the-shelf MoadalAI ESC products.</p>   </td>
- <td></td>
- <td>250000</td>
- <td>bit/s</td>
-</tr>
-<tr>
- <td><strong id="MODAL_IO_CONFIG">MODAL_IO_CONFIG</strong> (INT32)</td>
- <td>UART ESC configuration <p><strong>Comment:</strong> Selects what type of UART ESC, if any, is being used.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> - Disabled</li>
-<li><strong>1:</strong> - VOXL ESC</li>
-</ul>  <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 1] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MODAL_IO_MODE">MODAL_IO_MODE</strong> (INT32)</td>
- <td>UART ESC Mode <p><strong>Comment:</strong> Selects what type of mode is enabled, if any</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> - None</li>
-<li><strong>1:</strong> - Turtle Mode enabled via AUX1</li>
-<li><strong>2:</strong> - Turtle Mode enabled via AUX2</li>
-<li><strong>3:</strong> - UART Passthrough Mode</li>
-</ul>  <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MODAL_IO_RPM_MAX">MODAL_IO_RPM_MAX</strong> (INT32)</td>
- <td>UART ESC RPM Max <p><strong>Comment:</strong> Maximum RPM for ESC</p>   </td>
- <td></td>
- <td>15000</td>
- <td>rpm</td>
-</tr>
-<tr>
- <td><strong id="MODAL_IO_RPM_MIN">MODAL_IO_RPM_MIN</strong> (INT32)</td>
- <td>UART ESC RPM Min <p><strong>Comment:</strong> Minimum RPM for ESC</p>   </td>
- <td></td>
- <td>5500</td>
- <td>rpm</td>
-</tr>
-<tr>
- <td><strong id="MODAL_IO_SDIR1">MODAL_IO_SDIR1</strong> (INT32)</td>
- <td>UART ESC ID 1 Spin Direction Flag  <strong>Values:</strong><ul>
-<li><strong>0:</strong> - Default</li>
-<li><strong>1:</strong> - Reverse</li>
-</ul>  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MODAL_IO_SDIR2">MODAL_IO_SDIR2</strong> (INT32)</td>
- <td>UART ESC ID 2 Spin Direction Flag  <strong>Values:</strong><ul>
-<li><strong>0:</strong> - Default</li>
-<li><strong>1:</strong> - Reverse</li>
-</ul>  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MODAL_IO_SDIR3">MODAL_IO_SDIR3</strong> (INT32)</td>
- <td>UART ESC ID 3 Spin Direction Flag  <strong>Values:</strong><ul>
-<li><strong>0:</strong> - Default</li>
-<li><strong>1:</strong> - Reverse</li>
-</ul>  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MODAL_IO_SDIR4">MODAL_IO_SDIR4</strong> (INT32)</td>
- <td>UART ESC ID 4 Spin Direction Flag  <strong>Values:</strong><ul>
-<li><strong>0:</strong> - Default</li>
-<li><strong>1:</strong> - Reverse</li>
-</ul>  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MODAL_IO_T_COSP">MODAL_IO_T_COSP</strong> (FLOAT)</td>
- <td>UART ESC Turtle Mode Cosphi    </td>
- <td>[0.000, 1.000] (0.001)</td>
- <td>0.990</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MODAL_IO_T_DEAD">MODAL_IO_T_DEAD</strong> (INT32)</td>
- <td>UART ESC Turtle Mode Crash Flip Motor Deadband    </td>
- <td>[0, 100] (1)</td>
- <td>20</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MODAL_IO_T_EXPO">MODAL_IO_T_EXPO</strong> (INT32)</td>
- <td>UART ESC Turtle Mode Crash Flip Motor expo    </td>
- <td>[0, 100] (1)</td>
- <td>35</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MODAL_IO_T_MINF">MODAL_IO_T_MINF</strong> (FLOAT)</td>
- <td>UART ESC Turtle Mode Crash Flip Motor STICK_MINF    </td>
- <td>[0.0, 100.0] (1.0)</td>
- <td>0.15</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MODAL_IO_T_PERC">MODAL_IO_T_PERC</strong> (INT32)</td>
- <td>UART ESC Turtle Mode Crash Flip Motor Percent    </td>
- <td>[1, 100] (1)</td>
- <td>90</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MODAL_IO_VLOG">MODAL_IO_VLOG</strong> (INT32)</td>
- <td>UART ESC verbose logging  <strong>Values:</strong><ul>
-<li><strong>0:</strong> - Disabled</li>
-<li><strong>1:</strong> - Enabled</li>
-</ul>  <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 1] </td>
- <td>0</td>
- <td></td>
-</tr>
-</tbody></table>
-
 ## Magnetometer Bias Estimator
 
 <table>
@@ -16247,6 +16338,24 @@ table {
 <li><strong>1:</strong> Roll/Pitch</li>
 <li><strong>2:</strong> Roll/Pitch/Yaw</li>
 </ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+</tbody></table>
+
+## ModalAI Custom Configuration
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="MODALAI_CONFIG">MODALAI_CONFIG</strong> (INT32)</td>
+ <td>Custom configuration for ModalAI drones <p><strong>Comment:</strong> This can be set to indicate that drone behavior needs to be changed to match a custom setting</p>   <p><b>Reboot required:</b> True</p>
+</td>
  <td></td>
  <td>0</td>
  <td></td>
@@ -26641,6 +26750,189 @@ table {
  <td></td>
  <td>Enabled (1)</td>
  <td></td>
+</tr>
+</tbody></table>
+
+## VOXL ESC
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="VOXL_ESC_BAUD">VOXL_ESC_BAUD</strong> (INT32)</td>
+ <td>UART ESC baud rate <p><strong>Comment:</strong> Default rate is 250Kbps, which is used in off-the-shelf MoadalAI ESC products.</p>   </td>
+ <td></td>
+ <td>250000</td>
+ <td>bit/s</td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_CONFIG">VOXL_ESC_CONFIG</strong> (INT32)</td>
+ <td>UART ESC configuration <p><strong>Comment:</strong> Selects what type of UART ESC, if any, is being used.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Disabled</li>
+<li><strong>1:</strong> - VOXL ESC</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_MODE">VOXL_ESC_MODE</strong> (INT32)</td>
+ <td>UART ESC Mode <p><strong>Comment:</strong> Selects what type of mode is enabled, if any</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> - None</li>
+<li><strong>1:</strong> - Turtle Mode enabled via AUX1</li>
+<li><strong>2:</strong> - Turtle Mode enabled via AUX2</li>
+<li><strong>3:</strong> - UART Passthrough Mode</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 2] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_PUB_BST">VOXL_ESC_PUB_BST</strong> (INT32)</td>
+ <td>UART ESC Enable publishing of battery status <p><strong>Comment:</strong> Only applicable to ESCs that report total battery voltage and current</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Disabled</li>
+<li><strong>1:</strong> - Enabled</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 1] </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_RPM_MAX">VOXL_ESC_RPM_MAX</strong> (INT32)</td>
+ <td>UART ESC RPM Max <p><strong>Comment:</strong> Maximum RPM for ESC</p>   </td>
+ <td></td>
+ <td>15000</td>
+ <td>rpm</td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_RPM_MIN">VOXL_ESC_RPM_MIN</strong> (INT32)</td>
+ <td>UART ESC RPM Min <p><strong>Comment:</strong> Minimum RPM for ESC</p>   </td>
+ <td></td>
+ <td>5500</td>
+ <td>rpm</td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_SDIR1">VOXL_ESC_SDIR1</strong> (INT32)</td>
+ <td>UART ESC ID 1 Spin Direction Flag  <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Default</li>
+<li><strong>1:</strong> - Reverse</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_SDIR2">VOXL_ESC_SDIR2</strong> (INT32)</td>
+ <td>UART ESC ID 2 Spin Direction Flag  <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Default</li>
+<li><strong>1:</strong> - Reverse</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_SDIR3">VOXL_ESC_SDIR3</strong> (INT32)</td>
+ <td>UART ESC ID 3 Spin Direction Flag  <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Default</li>
+<li><strong>1:</strong> - Reverse</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_SDIR4">VOXL_ESC_SDIR4</strong> (INT32)</td>
+ <td>UART ESC ID 4 Spin Direction Flag  <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Default</li>
+<li><strong>1:</strong> - Reverse</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_T_COSP">VOXL_ESC_T_COSP</strong> (FLOAT)</td>
+ <td>UART ESC Turtle Mode Cosphi    </td>
+ <td>[0.000, 1.000] (0.001)</td>
+ <td>0.990</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_T_DEAD">VOXL_ESC_T_DEAD</strong> (INT32)</td>
+ <td>UART ESC Turtle Mode Crash Flip Motor Deadband    </td>
+ <td>[0, 100] (1)</td>
+ <td>20</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_T_EXPO">VOXL_ESC_T_EXPO</strong> (INT32)</td>
+ <td>UART ESC Turtle Mode Crash Flip Motor expo    </td>
+ <td>[0, 100] (1)</td>
+ <td>35</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_T_MINF">VOXL_ESC_T_MINF</strong> (FLOAT)</td>
+ <td>UART ESC Turtle Mode Crash Flip Motor STICK_MINF    </td>
+ <td>[0.0, 100.0] (1.0)</td>
+ <td>0.15</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_T_PERC">VOXL_ESC_T_PERC</strong> (INT32)</td>
+ <td>UART ESC Turtle Mode Crash Flip Motor Percent    </td>
+ <td>[1, 100] (1)</td>
+ <td>90</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_VLOG">VOXL_ESC_VLOG</strong> (INT32)</td>
+ <td>UART ESC verbose logging  <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Disabled</li>
+<li><strong>1:</strong> - Enabled</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+</tbody></table>
+
+## VOXL2 IO
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="VOXL2_IO_BAUD">VOXL2_IO_BAUD</strong> (INT32)</td>
+ <td>UART M0065 baud rate <p><strong>Comment:</strong> Default rate is 921600, which is used for communicating with M0065.</p>   </td>
+ <td></td>
+ <td>921600</td>
+ <td>bit/s</td>
+</tr>
+<tr>
+ <td><strong id="VOXL2_IO_MAX">VOXL2_IO_MAX</strong> (INT32)</td>
+ <td>M0065 PWM Max <p><strong>Comment:</strong> Maximum duration (microseconds) for M0065 PWM</p>   </td>
+ <td>[0, 2000] </td>
+ <td>2000</td>
+ <td>us</td>
+</tr>
+<tr>
+ <td><strong id="VOXL2_IO_MIN">VOXL2_IO_MIN</strong> (INT32)</td>
+ <td>M0065 PWM Min <p><strong>Comment:</strong> Minimum duration (microseconds) for M0065 PWM</p>   </td>
+ <td>[0, 2000] </td>
+ <td>1000</td>
+ <td>us</td>
 </tr>
 </tbody></table>
 
