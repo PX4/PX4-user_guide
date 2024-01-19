@@ -11040,8 +11040,8 @@ table {
  <td><strong id="EKF2_GRAV_NOISE">EKF2_GRAV_NOISE</strong> (FLOAT)</td>
  <td>Accelerometer measurement noise for gravity based observations    </td>
  <td>[0.1, 10.0] </td>
- <td>5.0</td>
- <td>m/s^2</td>
+ <td>1.0</td>
+ <td>g</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GSF_TAS">EKF2_GSF_TAS</strong> (FLOAT)</td>
