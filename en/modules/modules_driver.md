@@ -385,6 +385,38 @@ fake_magnetometer <command> [arguments...]
 
    status        print status info
 ```
+## ft_technologies_serial
+Source: [drivers/wind_sensor/ft_technologies](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/wind_sensor/ft_technologies)
+
+
+### Description
+
+Serial bus driver for the FT Technologies Digital Wind Sensor FT742. This driver is required to operate alongside
+a RS485 to UART signal transfer module.
+
+Most boards are configured to enable/start the driver on a specified UART using the SENS_FTX_CFG parameter.
+
+### Examples
+
+Attempt to start driver on a specified serial device.
+```
+ft_technologies_serial start -d /dev/ttyS1
+```
+Stop driver
+```
+ft_technologies_serial stop
+```
+
+<a id="ft_technologies_serial_usage"></a>
+### Usage
+```
+ft_technologies_serial <command> [arguments...]
+ Commands:
+   start         Start driver
+     -d <val>    Serial device
+
+   stop          Stop driver
+```
 ## gimbal
 Source: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gimbal)
 

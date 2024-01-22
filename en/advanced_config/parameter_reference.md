@@ -22565,6 +22565,27 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_FTX_CFG">SENS_FTX_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for FT Technologies Digital Wind Sensor (serial) <p><strong>Comment:</strong> Configure on which serial port to run FT Technologies Digital Wind Sensor (serial).</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+<li><strong>6:</strong> UART 6</li>
+<li><strong>101:</strong> TELEM 1</li>
+<li><strong>102:</strong> TELEM 2</li>
+<li><strong>103:</strong> TELEM 3</li>
+<li><strong>104:</strong> TELEM/SERIAL 4</li>
+<li><strong>201:</strong> GPS 1</li>
+<li><strong>202:</strong> GPS 2</li>
+<li><strong>203:</strong> GPS 3</li>
+<li><strong>300:</strong> Radio Controller</li>
+<li><strong>301:</strong> Wifi Port</li>
+<li><strong>401:</strong> EXT2</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_GPS_MASK">SENS_GPS_MASK</strong> (INT32)</td>
  <td>Multi GPS Blending Control Mask <p><strong>Comment:</strong> Set bits in the following positions to set which GPS accuracy metrics will be used to calculate the blending weight. Set to zero to disable and always used first GPS instance. 0 : Set to true to use speed accuracy 1 : Set to true to use horizontal position accuracy 2 : Set to true to use vertical position accuracy</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> use speed accuracy</li>
   <li><strong>1:</strong> use hpos accuracy</li>

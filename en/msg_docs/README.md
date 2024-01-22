@@ -160,6 +160,7 @@ This are the three next waypoints (or just the next two or one).
 - [SatelliteInfo](SatelliteInfo.md)
 - [SensorAccel](SensorAccel.md)
 - [SensorAccelFifo](SensorAccelFifo.md)
+- [SensorAirflow](SensorAirflow.md)
 - [SensorBaro](SensorBaro.md)
 - [SensorCombined](SensorCombined.md) — Sensor readings in SI-unit form.
 These fields are scaled and offset-compensated where possible and do not
