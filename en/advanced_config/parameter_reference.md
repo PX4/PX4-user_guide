@@ -26367,6 +26367,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="UAVCAN_SUB_GPS_R">UAVCAN_SUB_GPS_R</strong> (INT32)</td>
+ <td>subscription GPS Relative <p><strong>Comment:</strong> Enable UAVCAN GPS Relative subscription. ardupilot::gnss::RelPosHeading</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="UAVCAN_SUB_HYGRO">UAVCAN_SUB_HYGRO</strong> (INT32)</td>
  <td>subscription hygrometer <p><strong>Comment:</strong> Enable UAVCAN hygrometer subscriptions. dronecan::sensors::hygrometer::Hygrometer</p>   <p><b>Reboot required:</b> true</p>
 </td>
