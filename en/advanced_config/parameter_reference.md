@@ -9306,6 +9306,85 @@ table {
  <td>V</td>
 </tr>
 <tr>
+ <td><strong id="BAT3_CAPACITY">BAT3_CAPACITY</strong> (FLOAT)</td>
+ <td>Battery 3 capacity <p><strong>Comment:</strong> Defines the capacity of battery 3 in mAh.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[-1.0, 100000] (50)</td>
+ <td>-1.0</td>
+ <td>mAh</td>
+</tr>
+<tr>
+ <td><strong id="BAT3_N_CELLS">BAT3_N_CELLS</strong> (INT32)</td>
+ <td>Number of cells for battery 3 <p><strong>Comment:</strong> Defines the number of cells the attached battery consists of.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Unknown</li>
+<li><strong>1:</strong> 1S Battery</li>
+<li><strong>2:</strong> 2S Battery</li>
+<li><strong>3:</strong> 3S Battery</li>
+<li><strong>4:</strong> 4S Battery</li>
+<li><strong>5:</strong> 5S Battery</li>
+<li><strong>6:</strong> 6S Battery</li>
+<li><strong>7:</strong> 7S Battery</li>
+<li><strong>8:</strong> 8S Battery</li>
+<li><strong>9:</strong> 9S Battery</li>
+<li><strong>10:</strong> 10S Battery</li>
+<li><strong>11:</strong> 11S Battery</li>
+<li><strong>12:</strong> 12S Battery</li>
+<li><strong>13:</strong> 13S Battery</li>
+<li><strong>14:</strong> 14S Battery</li>
+<li><strong>15:</strong> 15S Battery</li>
+<li><strong>16:</strong> 16S Battery</li>
+</ul>  <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="BAT3_R_INTERNAL">BAT3_R_INTERNAL</strong> (FLOAT)</td>
+ <td>Explicitly defines the per cell internal resistance for battery 3 <p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT3_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[-1.0, 0.2] (0.0005)</td>
+ <td>0.005</td>
+ <td>Ohm</td>
+</tr>
+<tr>
+ <td><strong id="BAT3_SOURCE">BAT3_SOURCE</strong> (INT32)</td>
+ <td>Battery 3 monitoring source <p><strong>Comment:</strong> This parameter controls the source of battery data. The value &#x27;Power Module&#x27; means that measurements are expected to come from a power module. If the value is set to &#x27;External&#x27; then the system expects to receive mavlink battery status messages. If the value is set to &#x27;ESCs&#x27;, the battery information are taken from the esc_status message. This requires the ESC to provide both voltage as well as current.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Disabled</li>
+<li><strong>0:</strong> Power Module</li>
+<li><strong>1:</strong> External</li>
+<li><strong>2:</strong> ESCs</li>
+</ul>  <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="BAT3_V_CHARGED">BAT3_V_CHARGED</strong> (FLOAT)</td>
+ <td>Full cell voltage (5C load) <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered full under a mild load. This will never be the nominal voltage of 4.2V</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>(0.01)</td>
+ <td>4.05</td>
+ <td>V</td>
+</tr>
+<tr>
+ <td><strong id="BAT3_V_EMPTY">BAT3_V_EMPTY</strong> (FLOAT)</td>
+ <td>Empty cell voltage (5C load) <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>(0.01)</td>
+ <td>3.6</td>
+ <td>V</td>
+</tr>
+<tr>
+ <td><strong id="BAT3_V_LOAD_DROP">BAT3_V_LOAD_DROP</strong> (FLOAT)</td>
+ <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitly defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT3_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0.07, 0.5] (0.01)</td>
+ <td>0.1</td>
+ <td>V</td>
+</tr>
+<tr>
  <td><strong id="BAT_ADC_CHANNEL">BAT_ADC_CHANNEL</strong> (INT32)</td>
  <td>This parameter is deprecated. Please use BAT1_I_CHANNEL    </td>
  <td></td>
