@@ -11120,7 +11120,7 @@ table {
  <td>Accelerometer measurement noise for gravity based observations    </td>
  <td>[0.1, 10.0] </td>
  <td>1.0</td>
- <td>g</td>
+ <td>g0</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GSF_TAS">EKF2_GSF_TAS</strong> (FLOAT)</td>
