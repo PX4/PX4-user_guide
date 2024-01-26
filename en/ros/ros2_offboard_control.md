@@ -146,6 +146,8 @@ void OffboardControl::publish_offboard_control_mode()
 	msg.acceleration = false;
 	msg.attitude = false;
 	msg.body_rate = false;
+	msg.thrust_and_torque = false;
+	msg.direct_actuator = false;
 	msg.timestamp = this->get_clock()->now().nanoseconds() / 1000;
 	offboard_control_mode_publisher_->publish(msg);
 }
