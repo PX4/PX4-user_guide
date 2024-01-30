@@ -121,7 +121,7 @@ UART signals are common sources of low frequency EMI, therefore the length of th
 ### GPS(UART) & SAFETY
 
 [GPS receivers and magnetometers](../gps_compass/README.md) are generally very sensitive to EMI.
-Therefore thse should be mounted far away from RF sources (high-power cabling, ESCs, radio modems and its antenna).
+Therefore these should be mounted far away from RF sources (high-power cabling, ESCs, radio modems and its antenna).
 This may be insufficient if the cabling is badly designed.
 
 | Signal        | Pixhawk Color             | ThunderFly color          |
