@@ -87,7 +87,7 @@ If you're using a module with any other WiFi name you will need to manually set 
 _QGroundControl_ will automatically connect to the vehicle when the ground station computer is attached to the "Pixracer" WiFi access point.
 For any other access point name you will need to manually create a custom comm link:
 
-1. Go to [Application Settings > Comm Links](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html)
+1. Go to [Application Settings > Comm Links](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/settings_view.html)
 2. Add new connection with appropriate settings.
 3. Select the new connection, and click **Connect**.
 4. The vehicle should now connect
@@ -99,7 +99,7 @@ You should now see HUD movement on your QGC computer via wireless link and be ab
 ![QGC Summary showing Wifi Bridge](../../assets/qgc/summary/wifi_bridge.png)
 
 :::tip
-If you have any problem connecting, see [QGC Usage Problems](https://docs.qgroundcontrol.com/master/en/troubleshooting/qgc_usage.html).
+If you have any problem connecting, see [QGC Usage Problems](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/troubleshooting/qgc_usage.html).
 :::
 
 ## ESP8266 Flashing/Firmware (Advanced)

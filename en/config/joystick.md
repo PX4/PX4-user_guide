@@ -24,7 +24,7 @@ In summary:
 
 - Open _QGroundControl_
 - Set the parameter [COM_RC_IN_MODE=1](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) - `Joystick`
-  - See [Parameters](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html) for information about setting parameters
+  - See [Parameters](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/parameters.html) for information about setting parameters
   - Setting the parameter to `2` or `3` also enables Joystick under some circumstances.
 - Connect the joystick
 - Configure the connected joystick in: **Vehicle Setup > Joystick**.

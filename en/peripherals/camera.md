@@ -18,7 +18,7 @@ This allows more precise mapping of images to GPS position for geotagging, or th
 
 ## Trigger Configuration
 
-Camera triggering is usually configured from the _QGroundControl_ [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/master/en/SetupView/Camera.html#px4-camera-setup) section.
+Camera triggering is usually configured from the _QGroundControl_ [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/camera.html#px4-camera-setup) section.
 
 ![Trigger pins](../../assets/camera/trigger_pins.png)
 

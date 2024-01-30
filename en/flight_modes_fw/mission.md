@@ -16,7 +16,7 @@ The mission is typically created and uploaded with a Ground Control Station (GCS
 
 ## Description
 
-Missions are usually created in a ground control station (e.g. [QGroundControl](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html)) and uploaded prior to launch.
+Missions are usually created in a ground control station (e.g. [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html)) and uploaded prior to launch.
 They may also be created by a developer API, and/or uploaded in flight.
 
 [Mission commands](#mission-commands) are handled in a way that is appropriate for each fixed-wing flight characteristics (for example loiter is implemented as flying in a circle).
@@ -49,7 +49,7 @@ At high level all vehicle types behave in the same way when MISSION mode is enga
 1. The mission will only reset when the vehicle is disarmed or when a new mission is uploaded.
 
    :::tip
-   To automatically disarm the vehicle after it lands, in _QGroundControl_ go to [Vehicle Setup > Safety](https://docs.qgroundcontrol.com/master/en/SetupView/Safety.html), navigate to _Land Mode Settings_ and check the box labeled _Disarm after_.
+   To automatically disarm the vehicle after it lands, in _QGroundControl_ go to [Vehicle Setup > Safety](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/safety.html), navigate to _Land Mode Settings_ and check the box labeled _Disarm after_.
    Enter the time to wait after landing before disarming the vehicle.
    :::
 
@@ -72,7 +72,7 @@ We recommend you centre the control sticks before switching to any other mode.
 For more information about mission planning, see:
 
 - [Mission Planning](../flying/missions.md)
-- [Plan View](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html) (_QGroundControl_ User Guide)
+- [Plan View](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html) (_QGroundControl_ User Guide)
 
 ## Mission Feasibility Checks
 
@@ -94,8 +94,8 @@ _QGroundControl_ provides additional GCS-level mission handling support (in addi
 
 For more information see:
 
-- [Remove mission after vehicle lands](https://docs.qgroundcontrol.com/master/en/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands)
-- [Resume mission after Return mode](https://docs.qgroundcontrol.com/master/en/releases/stable_v3.2_long.html#resume-mission)
+- [Remove mission after vehicle lands](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands)
+- [Resume mission after Return mode](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/stable_v3.2_long.html#resume-mission)
 
 ## Mission Parameters
 
@@ -230,7 +230,7 @@ For more infomormation about takeoff behaviour and configuration see [Takeoff mo
 ## Mission Landing
 
 Fixed-wing mission landing is the recommended way to land a plane autonomously.
-This can be planned in _QGroundControl_ using [fixed-wing landing pattern](https://docs.qgroundcontrol.com/master/en/PlanView/pattern_fixed_wing_landing.html).
+This can be planned in _QGroundControl_ using [fixed-wing landing pattern](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/pattern_fixed_wing_landing.html).
 
 If possible, always plan the landing such that it does the approach into the wind.
 

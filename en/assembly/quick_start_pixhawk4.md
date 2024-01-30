@@ -115,7 +115,7 @@ A lower voltage of 5V is still acceptable, but discouraged.
 | 6(black) | GND     | GND   |
 
 :::note
-Using the Power Module that comes with the kit you will need to configure the _Number of Cells_ in the [Power Settings](https://docs.qgroundcontrol.com/master/en/SetupView/Power.html) but you won't need to calibrate the _voltage divider_.
+Using the Power Module that comes with the kit you will need to configure the _Number of Cells_ in the [Power Settings](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) but you won't need to calibrate the _voltage divider_.
 You will have to update the _voltage divider_ if you are using any other power module (e.g. the one from the Pixracer).
 :::
 

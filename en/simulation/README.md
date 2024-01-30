@@ -253,8 +253,8 @@ If you don't have a joystick you can alternatively control the vehicle using QGr
 
 For setup information see the _QGroundControl User Guide_:
 
-- [Joystick Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html)
-- [Virtual Joystick](https://docs.qgroundcontrol.com/master/en/SettingsView/VirtualJoystick.html)
+- [Joystick Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/joystick.html)
+- [Virtual Joystick](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/virtual_joystick.html)
 
 <!-- FYI Airsim info on this setting up remote controls: https://github.com/Microsoft/AirSim/blob/master/docs/remote_controls.md -->
 

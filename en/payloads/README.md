@@ -74,7 +74,7 @@ In this case the sprayer must be controlled as a [generic actuator](#generic-act
 
 - The [Generic Actuator Control with MAVLink](#generic-actuator-control-with-mavlink) section explains how you can connect flight controller outputs to your sprayer so that they can be controlled using MAVLink.
   Most sprayers provide controls to activate/deactivate a pump; some also allow control over the rate of flow or the spray field (i.e. by controlling the nozzle shape, or using a spinner to distribute the payload).
-- You can define the area to spray using a [Survey pattern](https://docs.qgroundcontrol.com/master/en/PlanView/pattern_survey.html), or you can define the grid to fly using waypoints.
+- You can define the area to spray using a [Survey pattern](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/pattern_survey.html), or you can define the grid to fly using waypoints.
   In either case, it is important to ensure that the vehicle flight path and altitude provide adequate coverage for your particular spray being used.
 - You should add a ["Set actuator" mission item](#generic-actuator-control-in-missions) to your mission before and after the survey pattern in order to enable and disable the sprayer.
 
