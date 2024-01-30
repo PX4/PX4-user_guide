@@ -156,7 +156,7 @@ To setup the ground station:
    git clone https://github.com/acfloria/SatComInfrastructure.git
    ```
 1. Edit the **udp2rabbit.cfg** configuration file to reflect your settings.
-1. [Install *QGroundControl*](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html) (daily build).
+1. [Install *QGroundControl*](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html) (daily build).
 1. Add a UDP connection in QGC with the parameters:
 
    * Listening port: 10000

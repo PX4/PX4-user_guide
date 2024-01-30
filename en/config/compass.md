@@ -111,6 +111,6 @@ See [Logging](../dev_log/logging.md) for more information.
 - [Peripherals > GPS & Compass](../gps_compass/README.md)
 - [Basic Assembly](../assembly/README.md) (setup guides for each flight controller)
 - [Compass Power Compensation](../advanced_config/compass_power_compensation.md) (Advanced Configuration)
-- [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#compass)
+- [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.htmll#compass)
 - [PX4 Setup Video - @2m38s](https://youtu.be/91VGmdSlbo4?t=2m38s) (Youtube)
 

@@ -39,4 +39,4 @@ To calibrate the airspeed sensor:
 
 ## Further Information
 
-* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#airspeed)
+* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.htmll#airspeed)

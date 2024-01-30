@@ -146,4 +146,4 @@ Make sure *QGroundControl* is not running!
 
 ## Fly an Autonomous Mission in HITL
 
-You should be able to use *QGroundControl* to [run missions](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#missions) and otherwise control the vehicle.
+You should be able to use *QGroundControl* to [run missions](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/fly_view/fly_view.html#missions) and otherwise control the vehicle.

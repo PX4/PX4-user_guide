@@ -59,7 +59,7 @@ All values are automatically saved as they are changed.
 ## RC Transmitter Setup
 
 This section contains a small number of possible setup configurations for taranis.
-QGroundControl _may_ have [setup information for other transmitters here](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#transmitter-setup).
+QGroundControl _may_ have [setup information for other transmitters here](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/flight_modes.html#transmitter-setup).
 
 
 <a id="taranis_setup"></a>
@@ -108,7 +108,7 @@ The *QGroundControl* configuration is then [as described above](#flight-mode-sel
 ## Further Information
 
 * [Flight Modes Overview](../flight_modes/README.md)
-* [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
+* [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/flight_modes.html#px4-pro-flight-mode-setup)
 * [PX4 Setup Video - @6m53s](https://youtu.be/91VGmdSlbo4?t=6m53s) (Youtube)
 * [Radio switch parameters](../advanced_config/parameter_reference.md#radio-switches) - Can be used to set mappings via parameters
 

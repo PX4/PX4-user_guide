@@ -118,7 +118,7 @@ Pin | Signal | Volt
 6(black) | GND | GND
 
 :::note
-Using the Power Module that comes with the kit you will need to configure the *Number of Cells* in the [Power Settings](https://docs.qgroundcontrol.com/master/en/SetupView/Power.html) but you won't need to calibrate the *voltage divider*.
+Using the Power Module that comes with the kit you will need to configure the *Number of Cells* in the [Power Settings]https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) but you won't need to calibrate the *voltage divider*.
 You will have to update the *voltage divider* if you are using any other power module (e.g. the one from the Pixracer).
 :::
 
