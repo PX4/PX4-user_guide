@@ -133,10 +133,6 @@ Each type has a specific type and a fixed maximum amount of storage items, so th
 ### Implementation
 Reading and writing a single item is always atomic.
 
-**DM_KEY_FENCE_POINTS** and **DM_KEY_SAFE_POINTS** items: the first data element is a `mission_stats_entry_s` struct,
-which stores the number of items for these types. These items are always updated atomically in one transaction (from
-the mavlink mission manager).
-
 
 <a id="dataman_usage"></a>
 ### Usage
