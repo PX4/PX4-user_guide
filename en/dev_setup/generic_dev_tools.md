@@ -4,7 +4,7 @@ This section lists useful additional development tools that are not part of the 
 
 ## Ground Control Software
 
-Download and install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html).
+Download and install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html).
 
 :::tip
 The *daily build* includes development tools that hidden in release builds. 

@@ -47,11 +47,11 @@ Both transmissive and reflective sensor types may be used for pulse generation.
 ### Starting driver
 
 The driver is not started automatically (in any airframe).
-You will need to start it manually, either using the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) or by adding the driver to the [startup script](../concept/system_startup.md#customizing-the-system-startup) on an SD card.
+You will need to start it manually, either using the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) or by adding the driver to the [startup script](../concept/system_startup.md#customizing-the-system-startup) on an SD card.
 
 #### Start driver from console
 
-Start the driver from the [console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) using the command:
+Start the driver from the [console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) using the command:
 ```
 pcf8583 start -X -b <bus number>
 ```
@@ -78,7 +78,7 @@ You can verify the counter is working using several methods
 
 #### PX4 (NuttX) MAVLink Console
 
-The [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) can also be used to check that the driver is running and the UORB topics it is outputting. 
+The [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) can also be used to check that the driver is running and the UORB topics it is outputting. 
 
 To check the status of the TFRPM01 driver run the command: 
 ```
@@ -95,7 +95,7 @@ For periodic display, you can add `-n 50` parameter after the command, which pri
 
 #### QGroundControl MAVLink Inspector
 
-The QGroundControl [Mavlink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) can be used to observe MAVLink messages from PX4, including [RAW_RPM](https://mavlink.io/en/messages/common.html#RAW_RPM) emitted by the driver:
+The QGroundControl [Mavlink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) can be used to observe MAVLink messages from PX4, including [RAW_RPM](https://mavlink.io/en/messages/common.html#RAW_RPM) emitted by the driver:
 
 1. Start the inspector from the QGC menu: **Analyze tools > Mavlink Inspector**
 1. Check that `RAW_RPM` is present in the list of messages (if it is missing, check that the driver is running).

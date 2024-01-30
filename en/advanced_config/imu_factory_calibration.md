@@ -27,4 +27,4 @@ Subsequent user calibrations will then take effect as usual (factory calibration
 
 ## Further Information
 
-- [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html)
+- [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.htmll)

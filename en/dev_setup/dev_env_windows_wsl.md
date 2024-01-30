@@ -210,7 +210,7 @@ If you need to [flash a flight control board](#flash-a-flight-control-board) wit
 The easiest way to set up and use QGroundControl is to download the Linux version into your WSL.
 
 You can do this using from within the WSL shell.
-1. In a web browser, navigate to the QGC [Ubuntu download section](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html#ubuntu)
+1. In a web browser, navigate to the QGC [Ubuntu download section](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#ubuntu)
 1. Right-click on the **QGroundControl.AppImage** link, and select "Copy link address".
    This will be something like _https://d176td9ibe4jno.cloudfront.net/builds/master/QGroundControl.AppImage_
 1. [Open a WSL shell](#opening-a-wsl-shell) and enter the following commands to download the appimage and make it executable (replace the AppImage URL where indicated):
@@ -231,7 +231,7 @@ You will not be able to use it to install PX4 firmware because WSL does not allo
 
 ### QGroundcontrol on Windows
 
-Install [QGroundControl on Windows](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html#windows) if you want to be able to update hardware with firmware created within PX4.
+Install [QGroundControl on Windows](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#windows) if you want to be able to update hardware with firmware created within PX4.
 
 These steps describe how you can connect to the simulation running in the WSL:
 

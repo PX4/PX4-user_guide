@@ -15,7 +15,7 @@ The mission is typically created and uploaded with a Ground Control Station (GCS
 
 ## Description
 
-Missions are usually created in a ground control station (e.g. [QGroundControl](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html)) and uploaded prior to launch. 
+Missions are usually created in a ground control station (e.g. [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html)) and uploaded prior to launch. 
 They may also be created by a developer API, and/or uploaded in flight. 
 
 Individual [mission commands](#mission_commands) are handled in a way that is appropriate for each vehicle's flight characteristics (for example loiter is implemented as *hover* for copter and *circle* for fixed-wing).
@@ -50,7 +50,7 @@ At high level all vehicle types behave in the same way when MISSION mode is enga
 1. The mission will only reset when the vehicle is disarmed or when a new mission is uploaded.
 
    :::tip
-   To automatically disarm the vehicle after it lands, in *QGroundControl* go to [Vehicle Setup > Safety](https://docs.qgroundcontrol.com/master/en/SetupView/Safety.html), navigate to *Land Mode Settings* and check the box labeled *Disarm after*.
+   To automatically disarm the vehicle after it lands, in *QGroundControl* go to [Vehicle Setup > Safety](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/safety.html), navigate to *Land Mode Settings* and check the box labeled *Disarm after*.
    Enter the time to wait after landing before disarming the vehicle.
    :::
 
@@ -67,7 +67,7 @@ We recommend you centre the control sticks before switching to any other mode.
 For more information about mission planning, see:
 
 - [Mission Planning](../flying/missions.md)
-- [Plan View](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html) (*QGroundControl* User Guide)
+- [Plan View](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html) (*QGroundControl* User Guide)
 
 ## Mission Feasibility Checks
 
@@ -88,8 +88,8 @@ A subset of the most important checks are listed below:
 *QGroundControl* provides additional GCS-level mission handling support (in addition to that provided by the flight controller).
 
 For more information see:
-- [Remove mission after vehicle lands](https://docs.qgroundcontrol.com/master/en/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands) 
-- [Resume mission after Return mode](https://docs.qgroundcontrol.com/master/en/releases/stable_v3.2_long.html#resume-mission)
+- [Remove mission after vehicle lands](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands) 
+- [Resume mission after Return mode](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/stable_v3.2_long.html#resume-mission)
 
 
 ## Mission Parameters

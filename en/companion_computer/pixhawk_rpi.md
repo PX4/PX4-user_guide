@@ -267,7 +267,7 @@ The configuration steps are:
    :::
    
 1. Check that the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) module is now running.
-   YOu can do this by running the following command in the QGroundControl [MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html): 
+   YOu can do this by running the following command in the QGroundControl [MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html): 
 
    ```
    uxrce_dds_client status

@@ -113,7 +113,7 @@ The kit contains all the essential drone hardware except a battery and a radio c
 - An H2.0 Hex Key (to unscrew the top plate so that an RC receiver can be connected)
 
 In addition, users will need ground station hardware/software:
-- Laptop or tablet running [QGroundControl](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html) (QGC).
+- Laptop or tablet running [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html) (QGC).
 
 ## First-time Setup
 

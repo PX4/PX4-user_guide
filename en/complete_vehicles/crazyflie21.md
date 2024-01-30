@@ -107,7 +107,7 @@ After setting up the PX4 development environment, follow these steps to install 
    The yellow LED should start blinking indicating bootloader mode. 
    Then the red LED should turn on indicating that the flashing process has started.
 1. Wait for completion.
-1. Done! Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/master/en/SetupView/Sensors.html).
+1. Done! Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors.html).
 
 ## Flashing Original Bitcraze Firmware
 
