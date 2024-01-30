@@ -130,7 +130,7 @@ The following settings may need to be changed (using *QGroundControl*).
 
 #### RTK GPS settings
 
-The RTK GPS settings are specified in the *QGroundControl* [General Settings](https://docs.qgroundcontrol.com/master/en/SettingsView/General.html#rtk_gps) (**SettingsView > General Settings > RTK GPS**).
+The RTK GPS settings are specified in the *QGroundControl* [General Settings](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/general.html#rtk_gps) (**SettingsView > General Settings > RTK GPS**).
 
 ![RTK GPS Setup](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
 
@@ -147,8 +147,8 @@ The MAVLink2 protocol must be used because it makes more efficient use of lower-
 This should be enabled by default on recent builds.
 
 To ensure MAVLink2 is used:
-* Update the telemetry module firmware to the latest version (see [QGroundControl > Setup > Firmware](https://docs.qgroundcontrol.com/master/en/SetupView/Firmware.html)).
-* Set [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) to 2 (see [QGroundControl Setup > Parameters](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html))
+* Update the telemetry module firmware to the latest version (see [QGroundControl > Setup > Firmware](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/firmware.html)).
+* Set [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) to 2 (see [QGroundControl Setup > Parameters](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/parameters.html))
 
 
 #### Tuning

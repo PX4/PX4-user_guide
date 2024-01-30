@@ -360,4 +360,4 @@ The [relevant parameters](../advanced_config/parameters.md) are shown below:
 
 ## Further Information
 
-- [QGroundControl User Guide > Safety Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Safety.html)
+- [QGroundControl User Guide > Safety Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/safety.html)

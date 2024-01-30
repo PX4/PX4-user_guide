@@ -228,7 +228,7 @@ Prearmed and disarmed should both safe, and a particular vehicle may support eit
 
 :::tip
 Sometimes a vehicle will not arm for reasons that are not obvious.
-QGC v4.2.0 (Daily build at time of writing) and later provide an arming check report in [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#arm).
+QGC v4.2.0 (Daily build at time of writing) and later provide an arming check report in [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/fly_view/fly_view.html#arm).
 From PX4 v1.14 this provides comprehensive information about arming problems along with possible solutions.
 :::
 

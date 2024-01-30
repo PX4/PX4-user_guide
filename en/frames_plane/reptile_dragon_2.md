@@ -364,7 +364,7 @@ make ark_fmu-v6x_default upload
 ### Parameter Config
 
 This param file contains the custom PX4 parameter configuration for this build, including radio setup, tuning and sensor config.
-Load the file via QGC using the instructions at [Parameters> Tools](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html#tools) (QGC User Guide).
+Load the file via QGC using the instructions at [Parameters> Tools](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/parameters.html#tools) (QGC User Guide).
 
 - [Snapshot of PX4 airframe params](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/reptile_dragon_2/reptile_dragon_2_params.params)
 

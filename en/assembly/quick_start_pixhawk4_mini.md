@@ -87,7 +87,7 @@ Be careful with the voltage of servo you are going to use here.
 <!--In the future, when Pixhawk 4 kit is available, add wiring images/videos for different airframes.-->
 
 :::note
-Using the Power Module that comes with the kit you will need to configure the _Number of Cells_ in the [Power Settings](https://docs.qgroundcontrol.com/master/en/SetupView/Power.html) but you won't need to calibrate the _voltage divider_.
+Using the Power Module that comes with the kit you will need to configure the _Number of Cells_ in the [Power Settings](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) but you won't need to calibrate the _voltage divider_.
 You will have to update the _voltage divider_ if you are using any other power module (e.g. the one from the Pixracer).
 :::
 

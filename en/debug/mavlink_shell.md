@@ -16,7 +16,7 @@ If the system does not start properly you should instead use the [System Console
 
 ### QGroundControl MAVLink Console
 
-The easiest way to access shell is to use the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) (see **Analyze View > Mavlink Console**).
+The easiest way to access shell is to use the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (see **Analyze View > Mavlink Console**).
 
 ### mavlink_shell.py
 

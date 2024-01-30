@@ -43,7 +43,7 @@ This will bring up the PX4 console below:
 
 :::note
 You may need to start _QGroundControl_ before proceeding, as the default PX4 configuration requires a ground control connection before takeoff.
-This can be [downloaded from here](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html).
+This can be [downloaded from here](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html).
 :::
 
 The drone can be flown by typing:
