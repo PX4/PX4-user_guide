@@ -243,18 +243,22 @@ protected:
 
 Most streaming classes are very similar (see examples in [/src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams)):
 
-- The streaming class derives from [`MavlinkStream`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_stream.h) and is named using the pattern ` MavlinkStream``<CamelCaseMessageName> `.
+- The streaming class derives from [`MavlinkStream`](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_stream.h) and is named using the pattern `MavlinkStream<CamelCaseMessageName>`.
 - The `public` definitions are "near-boilerplate", allowing PX4 to get an instance of the class (`new_instance()`), and then to use it to fetch the name, id, and size of the message from the MAVLink headers (`get_name()`, `get_name_static()`, `get_id_static()`, `get_id()`, `get_size()`).
   For your own streaming classes these can just be copied and modified to match the values for your MAVLink message.
 - The `private` definitions subscribe to the uORB topics that need to be published.
-  Here we also define constructors to prevent the definition being copied.
-- The `protected` section is where the important work takes place!
-  Here we override the `send()` method, copying values from the subscribed uORB topic(s) into appropriate fields in the MAVLink message, and then send the message.
-
   In this case the uORB topic has multiple instances: one for each battery.
   We use `uORB::SubscriptionMultiArray` to get an array of battery status subscriptions.
-  In the `send()` function we iterate the array and use `update()` on the subscription to check if it has changed (and update a structure with the current data).
-  This allows us to send the MAVLink message only if the associated battery uORB topic has changed:
+
+  Here we also define constructors to prevent the definition being copied.
+
+- The `protected` section is where the important work takes place!
+
+  Here we override the `send()` method, copying values from the subscribed uORB topic(s) into appropriate fields in the MAVLink message, and then send the message.
+
+  In this particular example we have an array of uORB instances `_battery_status_subs` (because we have multiple batteries).
+  We iterate the array and use `update()` on each subscription to check if the associated battery instance has changed (and update a structure with the current data).
+  This allows us to send the MAVLink message _only_ if the associated battery uORB topic has changed:
 
   ```cpp
   // Struct to hold current topic data.
@@ -387,6 +391,13 @@ In this case the [BatteryStatus](../msg_docs/BatteryStatus.md) uORB topic alread
 ```cpp
 uORB::Publication<battery_status_s> _battery_pub{ORB_ID(battery_status)};
 ```
+
+This creates a publication to a single uORB topic instance, which by default will be the _first_ instance.
+
+:::note
+This implementation won't work on multi-battery systems, because several batteries might be publishing data to the first instance of the topic, and there is no way to differentiate them.
+To support multiple batteries we'd need to use `PublicationMulti` and map the MAVLink message instance IDs to specific uORB topic instances.
+:::
 
 Implement the `handle_message_battery_status_demo` function in [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp).
 
