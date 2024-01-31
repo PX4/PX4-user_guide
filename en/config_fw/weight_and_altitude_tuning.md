@@ -11,7 +11,7 @@ Similarly, the maximum climb rate of a vehicle will reduce with the weight of th
 If changes in weight and air density are not taken into account, altitude and airspeed tracking will likely deteriorate in the case where the configuration (air density and weight) deviate significantly from the configuration at which the vehicle was tuned.
 
 In section [Specify the Weight of the Vehicle](../config_fw/weight_and_altitude_tuning.md#specify-the-weight-of-the-vehicle) and [Compensation for Air Density](../config_fw/weight_and_altitude_tuning.md#compensation-for-air-density) you will find the parameters you need to adjust for weight and density compensation to take place.
-In the [Notes](../config_fw/weight_and_altitude_tuning.md#compensating-for-weight) section the curious reader can find more details on theory of each compensation.
+In the [Notes](../config_fw/weight_and_altitude_tuning.md#notes-to-the-derivation-of-weight-and-density-compensation) section the curious reader can find more details on theory of each compensation.
 
 ## Specify the Weight of the Vehicle
 
