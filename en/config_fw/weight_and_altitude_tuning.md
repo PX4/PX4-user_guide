@@ -10,14 +10,10 @@ Similarly, the maximum climb rate of a vehicle will reduce with the weight of th
 
 If changes in weight and air density are not taken into account, altitude and airspeed tracking will likely deteriorate in the case where the configuration (air density and weight) deviate significantly from the configuration at which the vehicle was tuned.
 
-## Notation
+In section [Specify the Weight of the Vehicle](../config_fw/weight_and_altitude_tuning.md#specify-the-weight-of-the-vehicle) and [Compensation for Air Density](../config_fw/weight_and_altitude_tuning.md#compensation-for-air-density) you will find the parameters you need to adjust for weight and density compensation to take place.
+In the [Notes](../config_fw/weight_and_altitude_tuning.md#compensating-for-weight) section the curious reader can find more details on theory of each compensation.
 
-In the following sections we will use the notation $\hat X$ to specify that this value is a calibrated value of the variable $X$.
-By calibrated we mean the value of that variable measured at sea level in standard atmospheric conditions, and when vehicle weight was equal to [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE).
-
-E.g. by $\hat{\dot{h}}_{max}$ we specify the maximum climb rate the vehicle can achieve at [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE) at sea level in standard atmospheric conditions.
-
-## Compensating for Weight
+## Specify the Weight of the Vehicle
 
 [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE) specifies the base weight of the vehicle at which the [TECS tuning](position_tuning_guide_fixedwing.md#tecs-tuning-altitude-and-airspeed) was performed.
 The weight of the vehicle in the tuning configuration should be measured with a scale and the parameter should be set accordingly.
@@ -26,9 +22,41 @@ The weight of the vehicle in the tuning configuration should be measured with a 
 This parameter can be set to reflect, for example, a payload attached to the vehicle that was not present during the tuning phase.
 
 When both [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE) and [WEIGHT_GROSS](../advanced_config/parameter_reference.md#WEIGHT_GROSS) are set to a number larger than `0`, PX4 will use this information to scale the maximum climb rate, minimum sink rate, and adjust airspeed limits according to the weight ratio.
-The scaling/adjustments are described below.
+The interested reader is referred to [the note section](../config_fw/weight_and_altitude_tuning.md#notes-to-the-derivation-of-weight-and-density-compensation) below for further details.
 
-### Scale the Maximum Climb Rate
+## Compensation for Air Density
+
+### Specify a Service Ceiling
+In PX4 the service ceiling [FW_SERVICE_CEIL](../advanced_config/parameter_reference.md#FW_SERVICE_CEIL) specifies the altitude in standard atmospheric conditions at which the vehicle is still able to achieve a maximum climb rate of 0.5 m/s at maximum throttle and weight equal to [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE).
+By default this parameter is disabled and no compensation will take place.
+This parameter needs to be estimated experimentally. It is always better to set a conservative value (lower value) than an optimistic value.
+
+### Apply Density Correction to Minimum Sink Rate
+During the initial tuning the minimum sink rate is set using [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN).
+
+If the initial tuning is not done in standard sea level conditions then [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) needs to be multiplied with correction factor P:
+
+$$P = \sqrt{\rho\over{\rho_{sealevel}}}$$
+
+where $\rho$ is the air density during tuning.
+
+### Apply Density Correction to Trim Throttle
+
+If the tuning is not done in standard sealevel conditions then true value for [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM) needs to be multiplied with correction factor P:
+$$P = \sqrt{\rho\over{\rho_{sealevel}}}$$
+
+
+## Notes to the Derivation of Weight and Density Compensation
+
+### Notation
+
+In the following sections we will use the notation $\hat X$ to specify that this value is a calibrated value of the variable $X$.
+By calibrated we mean the value of that variable measured at sea level in standard atmospheric conditions, and when vehicle weight was equal to [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE).
+
+E.g. by $\hat{\dot{h}}_{max}$ we specify the maximum climb rate the vehicle can achieve at [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE) at sea level in standard atmospheric conditions.
+
+
+### Effect of Weight on Maximum Climb Rate
 
 The maximum climb rate ([FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)) must be scaled as a function of the weight ratio.
 
@@ -37,11 +65,9 @@ From the steady state equations of motions of an airplane we find that the maxim
 $$\dot{h}_{max} = { V * ( Thrust - Drag ) \over{m*g}}$$
 
 where `V` is the true airspeed and `m` is the vehicle mass.
-Therefore, we can write the maximum climb rate as
+It's easy to see from this equation that the maximum climb rates scales with vehicle mass.
 
-$$\dot{h}_{max} = \hat{\\dot{h}}_{max} * m_{base} \over{m_{gross}}$$
-
-### Scale the Minimum Sink Rate
+### Effect of Weight on Minimum Sink Rate
 
 The minimum sink rate ([FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN)) must be scaled as a function of weight ratio
 
@@ -50,13 +76,11 @@ The minimum sink rate can be written as:
 $$\dot{h}_{min} = \sqrt{2mg\over{\rho F}} f(c_A, c_W)$$
 
 where $\rho$ is the air density, F is the wing area and $f(c_A, c_W)$ is a function of the polars.
-Therefore, we can compute the minimum sink rate as:
+It's easy to see that the minimum sink rate scales with the square root of the weight ratio.
 
-$$\dot{h}_{min} = \hat{\dot{h}}_{min}  \sqrt{m_{gross}\over{m_{base}}}$$
+### Effect of Weight on Airspeed Limits
 
-### Adjust Minimum, Stall, and Trim Airspeed Limits According to the Weight Ratio
-
-Next adjust airspeed limits such as minimum airspeed ([FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)), the stall airspeed ([FW_AIRSPD_STALL](../advanced_config/parameter_reference.md#FW_AIRSPD_STALL)) and trim airspeed ([FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM)) according to the weight ratio.
+The minimum airspeed ([FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)), the stall airspeed ([FW_AIRSPD_STALL](../advanced_config/parameter_reference.md#FW_AIRSPD_STALL)) and trim airspeed ([FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM)) are adjusted based on the weight ratio specified by [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE) and [WEIGHT_GROSS](../advanced_config/parameter_reference.md#WEIGHT_GROSS).
 
 In steady state flight we can demand that lift should equal weight of the vehicle:
 
@@ -67,22 +91,9 @@ rearranging this equation for airspeed gives:
 $$V = \\sqrt{\\frac{2mg}{\\rho c_A F}}$$
 
 From this equation we see that if we assume a constant angle of attack (which we generally desire), the vehicle weight affects airspeed with a square root relation.
-Therefore, we scale the vehicle stall airspeed, minimum airspeed and trim airspeed as follows:
+Therefore, the airspeed limits mentioned above are all scaled using the square root of the weight ratio.
 
-$$V_{stall} = \hat{V}_{stall} * \sqrt{m_{gross} \over{m_{base}}}$$
-
-$$V_{min} = \hat{V}_{min} * \sqrt{m_{gross} \over{m_{base}}}$$
-
-$$V_{trim} = \hat{V}_{trim} * \sqrt{m_{gross} \over{m_{base}}}$$
-
-## Compensating for Air Density
-
-PX4 automatically compensates various parameters such as trim throttle or minimum sink rate for changing air density.
-However, it's important to understand that when the [basic TECS tuning](../config_fw/position_tuning_guide_fixedwing.md#tecs-tuning-altitude-and-airspeed) has been done at non-standard sea level conditions, so some of the parameters need to be back-calculated to calibrated values.
-
-In the sections below we list each parameter that is compensated based on air density, and how you can calculate the calibrated value.
-
-### Maximum Climb Rate
+### Effect of Density on Maximum Climb Rate
 
 The maximum climb rate is set using [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX).
 
@@ -99,10 +110,7 @@ $$\dot{h}_{max} = \hat{\dot{h}} * {\rho_{sealevel} \over{\rho}} K$$
 where $\rho_{sealevel}$ is the air density at sea level in the standard atmosphere and K is a scaling factor which determines the slope of the function.
 Rather than trying to identify this constants, the usual practice in aviation is to specify a service ceiling altitude at which the vehicle is still able to achieve a minimum specified climb rate.
 
-In PX4 the service ceiling [FW_SERVICE_CEIL](../advanced_config/parameter_reference.md#FW_SERVICE_CEIL) specifies the altitude in standard atmospheric conditions at which the vehicle is still able to achieve a maximum climb rate of 0.5 m/s at maximum throttle and weight equal to [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE).
-By default this parameter is disabled and no compensation will take place.
-
-### Minimum Sink Rate
+### Effect of Density on Minimum Sink Rate
 
 The minimum sink rate is set using [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN).
 
@@ -110,22 +118,8 @@ In previous sections we have seen the formula for the minimum sink rate:
 
 $$\dot{h}_{min} = \sqrt{2mg\over{\rho F}} f(c_A, c_W)$$
 
-which we can write as follows in terms of air density
+It is easy to see that the minimum sink rate scales with the square root of the inverse air density.
 
-$$\dot{h}_{min} = \hat{\dot{h}}  \sqrt{\rho_{sealevel}\over{\rho}}$$
+### Effect of Density on Trim Throttle
 
-If the tuning is not done in standard sea level conditions then the calibrated value for [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) needs to be calculated as follows:
-
-$$\hat{\dot{h}} = \dot{h} * \sqrt{\rho\over{\rho_{sealevel}}}$$
-
-where $\rho$ is the air density during tuning, $\dot{h}$ is the minimum sink rate derived during flying and $\hat{\dot{h}}$ is the calibrated value for [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN).
-
-### Trim Throttle
-
-Trim throttle ([FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM)) varies with air density and can be written as:
-
-$$\delta_{trim} = \hat\delta_{trim} * \sqrt{\rho_{sealevel}\over{\rho}}$$
-
-If the tuning is not done in standard sealevel conditions then true value for [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM) needs to be calculated as follows:
-
-$$\hat\delta_{trim} = \delta_{trim} *  \sqrt{\rho\over{\rho_{sealevel}}}$$
+TODO: Add derivation here.
