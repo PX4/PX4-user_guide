@@ -4,7 +4,7 @@ heroImage: /logo_pro_small.png
 heroText: PX4 User Guide
 tagline: PX4 is the *Professional Autopilot*, powering vehicles from cargo, mapping and surveillance drones through to ground vehicles and submersibles.
 actionText: Learn More →
-actionLink: /en/
+actionLink: /ua/
 search: false
 features:
 - title: Modular Architecture
@@ -27,4 +27,4 @@ features:
 
 footer: BSD 3-clause license
 ---
-<Redirect to="/en/" />
+<Redirect to="/ua/" />
