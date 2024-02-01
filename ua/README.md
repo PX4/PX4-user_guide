@@ -1,6 +1,6 @@
 <div style="float:right; padding:10px; margin-right:20px;"><a href="https://px4.io/"><img src="../assets/site/logo_pro_small.png" title="PX4 Logo" width="180px" /></a></div>
 
-# PX4 Autopilot User Посібник користувача автопілота
+# PX4 Посібник користувача автопілота
 
 [![Releases](https://img.shields.io/badge/release-main-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![Discuss](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](https://discuss.px4.io//) [![Discord](https://discordapp.com/api/guilds/1022170275984457759/widget.png?style=shield)](https://discord.gg/dronecode)
 
@@ -13,28 +13,28 @@ PX4 це _Професійний автопілот_.
 
 ## З чого мені почати?
 
-[Getting Started](getting_started/README.md) should be read by all users!
-It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
+[Getting Started](getting_started/README.md) повинні прочитати всі користувачі!
+Він надає огляд PX4, включаючи функції, які надає стек польотів (режими польоту та функції безпеки) і підтримуване обладнання (контролер польоту, транспортні засоби, планери, системи телеметрії, системи керування RC).
 
-Depending on what you want to achieve, the following tips will help you navigate through this guide:
+Залежно від того, чого ви хочете досягти, наведені нижче поради допоможуть вам орієнтуватися в цьому посібнику.
 
-**I already have a drone and I just want to fly:**
+**У мене вже є дрон, і я просто хочу полетіти:**
 
-If you have a Ready To Fly (RTF) vehicle that supports PX4:
+Якщо у вас готовий до польоту (RTF) транспортний засіб, який підтримує PX4:
 
 - [Basic Configuration](config/README.md) explains how to update your firmware to the latest version, calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
 - [Flying](flying/README.md) teaches flight essentials, including where and how to fly safely, and how to debug arming and flight issues. It also provides detailed information about flight modes.
 
-**I want to build a drone with PX4 from scratch:**
+**Я хочу створити дрон з PX4 з нуля:**
 
 :::tip
 
-The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md).
-These are vehicles that have tested and tuned configurations that you can download using _QGroundControl_.
+«Підтримувані» транспортні засоби перераховані в [Airframes Reference](airframes/airframe_reference.md).
+Це транспортні засоби, які перевірені та налаштовані конфігурації, які ви можете завантажити за допомогою _QGroundControl_.
 
 :::
 
-If you want to build a vehicle from scratch:
+Якщо ви хочете створити автомобіль з нуля:
 
 - Choose a frame - [Airframe Builds](airframes/README.md) lists the supported frames and provides detailed instructions for how to construct a subset of vehicles.
 - Choose a flight controller - see [Getting Started > Flight Controllers](getting_started/flight_controller_selection.md) and [Autopilot Hardware](flight_controller/README.md).
@@ -42,24 +42,24 @@ If you want to build a vehicle from scratch:
 - [Basic Configuration](config/README.md) shows how to update your firmware and configure it with settings appropriate for your airframe.
   This section also explains how to calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
 
-Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) section.
+Коли ви будете готові керувати своїм транспортним засобом, відвідайте [Flying](flying/README.md) секцію.
 
-**I want to add payload or a camera:**
+**Я хочу додати навантаження або камеру:**
 
-The payloads section describes how to add a camera or how to configure PX4 to enable you to deliver packages.
+У розділі корисних навантажень описано, як додати камеру або як налаштувати PX4, щоб ви могли доставляти пакети.
 
 - [Payloads](payloads/README.md) describes how to integrate payloads
 
-**I am modifying a supported vehicle:**
+**Я модифікую категорії підтримуванних засобів:**
 
-Modifications of the flight controller and basic sensors are covered above.
-In order to use new sensors, or if you have made changes that significantly affect flight characteristics:
+Вище описано модифікації контролера польоту та основних датчиків.
+Для того, щоб використовувати нові датчики, або якщо ви внесли зміни, які істотно впливають на характеристики польоту:
 
 - [Peripheral Hardware](peripherals/README.md) provides additional information about using external sensors.
 - [Basic Configuration](config/README.md) explains how to calibrate the main sensors.
 - [Advanced Configuration](advanced_config/README.md) should be used to re/fine-tune the airframe.
 
-**I want to run PX4 on new hardware and extend the platform:**
+**Я хочу запустити PX4 на новому обладнанні та розширити платформу:**
 
 - [Development](development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
 
