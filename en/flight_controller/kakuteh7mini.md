@@ -38,8 +38,6 @@ PX4 runs on the H7 mini v1.3 and later.
 - Dimensions: 30x31x6mm
 - Weight: 5.5g
 
-<img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_pinout.jpg" width="300px" title="KakuteH7Mini Pinout Image" /> 
-
 ## Where to Buy
 
 The board can be bought from one of the following shops (for example):
@@ -47,6 +45,8 @@ The board can be bought from one of the following shops (for example):
 - [Holybro](https://holybro.com/products/kakute-h7-mini)
 
 ## Connectors and Pins
+
+<img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_pinout.jpg" width="300px" title="KakuteH7Mini Pinout Image" /> 
 
 | Pin      | Function                                                          | PX4 default         |
 | -------- | ----------------------------------------------------------------- | ------------------- |
