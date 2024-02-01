@@ -1,17 +1,17 @@
 <div style="float:right; padding:10px; margin-right:20px;"><a href="https://px4.io/"><img src="../assets/site/logo_pro_small.png" title="PX4 Logo" width="180px" /></a></div>
 
-# PX4 Autopilot User Guide
+# PX4 Autopilot User Посібник користувача автопілота
 
 [![Releases](https://img.shields.io/badge/release-main-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![Discuss](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](https://discuss.px4.io//) [![Discord](https://discordapp.com/api/guilds/1022170275984457759/widget.png?style=shield)](https://discord.gg/dronecode)
 
-PX4 is the _Professional Autopilot_.
-Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.
+PX4 це _Професійний автопілот_.
+Розроблений розробниками світового класу з промисловості та академічних кіл і підтримується активною світовою спільнотою, він приводить в дію всі види транспортних засобів від гоночних і вантажних дронів до наземних транспортних засобів і підводних апаратів.
 
 :::tip
-This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle. Interested in contributing? Check out the [Development](development/development.md) section.
+У цьому посібнику міститься все, що вам потрібно, щоб зібрати, налаштувати та безпечно керувати транспортним засобом на базі PX4. Зацікавлені зробити власний внескок в розвиток цієї технології? Перейдіть в  [Development](development/development.md) секцію.
 :::
 
-## How Do I Get Started?
+## З чого мені почати?
 
 [Getting Started](getting_started/README.md) should be read by all users!
 It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
