@@ -1,6 +1,6 @@
 # Advanced TECS Tuning (Weight and Altitude)
 
-This topic shows how you can compensate for changes to the [weight of the vehicle](#specify-the-weight-of-the-vehicle) and the [air density](#compensation-for-air-density), along with information about the [algorithms](#weight-and-density-compensation-algorithms) that are used.
+This topic shows how you can compensate for changes to the [weight of the vehicle](#vehicle-weight-compensation) and the [air density](#air-density-compensation), along with information about the [algorithms](#weight-and-density-compensation-algorithms) that are used.
 
 :::warning
 This topic requires that you have already performed [basic TECS tuning](../config_fw/position_tuning_guide_fixedwing.md#tecs-tuning-altitude-and-airspeed).
@@ -22,7 +22,7 @@ Set (both) the following parameters to scale the maximum climb rate, minimum sin
 You can determine the values by measuring the weight of the vehicle using a scale in the tuning configuration and when flying with a payload.
 
 Scaling is performed when _both_ `WEIGHT_BASE` and `WEIGHT_GROSS` are greater than `0`, and will have no effect if the values are the same.
-See [the note section](#notes-to-the-derivation-of-weight-and-density-compensation) for information about the scaling algorithm.
+See the [algorithms](#weight-and-density-compensation-algorithms) section below for more information.
 
 ## Air Density Compensation
 
