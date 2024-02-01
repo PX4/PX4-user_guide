@@ -91,13 +91,14 @@ Before using offboard mode with ROS 2, please spend a few minutes understanding 
     - Velocity setpoint (`velocity` different from `NaN` and `position` set to `NaN`). Non-`NaN` values acceleration are used as feedforward terms for the inner loop controllers.
     - Acceleration setpoint (`acceleration` different from `NaN` and `position` and `velocity` set to `NaN`)
 
-  * All values are interpreted in NED (Nord, East, Down) coordinate system and the units are \[m\], \[m/s\] and \[m/s^2\] for position, velocity and acceleration, respectively.
+  - All values are interpreted in NED (Nord, East, Down) coordinate system and the units are \[m\], \[m/s\] and \[m/s^2\] for position, velocity and acceleration, respectively.
 
 - [px4_msgs::msg::VehicleAttitudeSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitudeSetpoint.msg)
 
   - The following input combination is supported:
 
-    - quaterion `q_d` + thrust setpoint `thrust_body`. Non-`NaN` values of `yaw_sp_move_rate` are used as feedforward terms expressed in Earth frame and in \[rad/s\].
+    - quaternion `q_d` + thrust setpoint `thrust_body`.
+      Non-`NaN` values of `yaw_sp_move_rate` are used as feedforward terms expressed in Earth frame and in \[rad/s\].
 
   - The quaternion represents the rotation between the drone body FRD (front, right, down) frame and the NED frame. The thrust is in the drone body FRD frame and expressed in normalized \[-1, 1\] values.
 
@@ -126,7 +127,7 @@ The following offboard control modes bypass all internal PX4 control loops and s
 
 ## MAVLink Messages
 
-The following MAVLink messages and their particular fields and field values are allowed for the specified frames.
+The following MAVLink messages and their particular fields and field values are allowed for the specified vehicle frames.
 
 ### Copter/VTOL
 
