@@ -65,25 +65,25 @@ In order to use new sensors, or if you have made changes that significantly affe
 
 ## Отримати допомогу
 
-The [Support](contribute/support.md) page explains how to get help from the core dev team and the wider community.
+[Support](contribute/support.md) сторінка пояснює, як отримати допомогу від основної команди розробників і всієї  спільноти.
 
-Among other things it covers:
+Серед іншого він охоплює:
 
 - [Forums where you can get help](contribute/support.md#forums-and-chat)
 - [Diagnosing issues](contribute/support.md#diagnosing-problems)
 - [How to report bugs](contribute/support.md#issue-bug-reporting)
 - [Weekly dev call](contribute/support.md#weekly-dev-call)
 
-## Reporting Bugs & Issues
+## Повідомлення про помилки та проблеми
 
 If you have any problems using PX4 first post them on the [support forums](contribute/support.md#forums-and-chat) (as they may be caused by vehicle configuration).
 
 If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/PX4-Autopilot/issues).
 Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
 
-## Внести власний вклад в розвиток спільноти
+## Долучитись
 
-Information on how to contribute to code and documentation can be found in the [Contributing](contribute/README.md) section:
+Хочете внести власний вклад в розвиток спільноти? Про те, як зробити власний внесок у код і документацію, можна знайти за посиланням в [Contributing](contribute/README.md) секції:
 
 - [Code](contribute/README.md)
 - [Documentation](contribute/docs.md)
