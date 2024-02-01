@@ -63,7 +63,7 @@ In order to use new sensors, or if you have made changes that significantly affe
 
 - [Development](development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
 
-## Getting Help
+## Отримати допомогу
 
 The [Support](contribute/support.md) page explains how to get help from the core dev team and the wider community.
 
@@ -81,7 +81,7 @@ If you have any problems using PX4 first post them on the [support forums](contr
 If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/PX4-Autopilot/issues).
 Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
 
-## Contributing
+## Внести власний вклад в розвиток спільноти
 
 Information on how to contribute to code and documentation can be found in the [Contributing](contribute/README.md) section:
 
@@ -89,30 +89,30 @@ Information on how to contribute to code and documentation can be found in the [
 - [Documentation](contribute/docs.md)
 - [Translation](contribute/translation.md)
 
-## Translations
+## Переклади
 
 There are several [translations](contribute/translation.md) of this guide.
 You can access these from the Languages menu (top right):
 
 ![Language Selector](../assets/vuepress/language_selector.png)
 
-## License
+## Ліцензії
 
 PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause).
 This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 For more information see: [Licences](contribute/licenses.md).
 
-## Calendar & Events
+## Календар & Події
 
-The _Dronecode Calendar_ shows important community events for platform users and developers.
-Select the links below to display the calendar in your timezone (and to add it to your own calendar):
+ _Dronecode Calendar_ показує важливі події спільноти для користувачів і розробників платформи.
+Виберіть посилання нижче, щоб відобразити календар у вашому часовому поясі (і додати його до власного календаря):
 
 - [Switzerland – Zurich](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
 - [Pacific Time – Tijuana](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
 - [Australia – Melbourne/Sydney/Hobart](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
 
 :::tip
-The calendar default timezone is Central European Time (CET).
+Часовий пояс календаря за замовчуванням – центральноєвропейський час (CET).
 
 :::
 
@@ -120,7 +120,7 @@ The calendar default timezone is Central European Time (CET).
 
 ### Icons
 
-The following icons used in this library are licensed separately (as shown below):
+Наступні значки, що використовуються в цій бібліотеці, ліцензуються окремо (як показано нижче):
 
 <img src="../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /> _placeholder_ icon made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
