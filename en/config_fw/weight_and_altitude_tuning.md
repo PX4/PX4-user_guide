@@ -31,7 +31,7 @@ See the [algorithms](#weight-and-density-compensation-algorithms) section below 
 In PX4 the service ceiling [FW_SERVICE_CEIL](../advanced_config/parameter_reference.md#FW_SERVICE_CEIL) specifies the altitude in standard atmospheric conditions at which the vehicle is still able to achieve a maximum climb rate of 0.5 m/s at maximum throttle and weight equal to [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE).
 By default this parameter is disabled and no compensation will take place.
 
-This parameter needs to be estimated experimentally.
+This parameter needs to be determined experimentally.
 It is always better to set a conservative value (lower value) than an optimistic value.
 
 ### Apply Density Correction to Minimum Sink Rate
