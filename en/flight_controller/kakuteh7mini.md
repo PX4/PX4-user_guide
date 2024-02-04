@@ -46,7 +46,7 @@ The board can be bought from one of the following shops (for example):
 
 ## Connectors and Pins
 
-<img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_pinout.jpg" width="300px" title="KakuteH7Mini Pinout Image" /> 
+<img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_pinout.jpg" width="300px" title="KakuteH7Mini Pinout Image" />
 
 | Pin      | Function                                                          | PX4 default         |
 | -------- | ----------------------------------------------------------------- | ------------------- |
@@ -61,7 +61,7 @@ The board can be bought from one of the following shops (for example):
 | G or GND | Ground                                                            |                     |
 | RSI      | Analog RSSI (0-3.3V) input from receiver                          |                     |
 | R1, T1   | UART1 RX and TX                                                   | TELEM1              |
-| R2, T2   | UART2 RX and TX                                                                 | TELEM2              |
+| R2, T2   | UART2 RX and TX                                                   | TELEM2              |
 | R3, T3   | UART3 RX and TX                                                   | NuttX debug console |
 | R4, T4   | UART4 RX and TX                                                   | GPS1                |
 | R6, T6   | UART6 RX and TX (R6 also located in the GH plug)                  | RC port             |
