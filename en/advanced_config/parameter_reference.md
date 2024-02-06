@@ -19989,6 +19989,13 @@ table {
  <td>s</td>
 </tr>
 <tr>
+ <td><strong id="SIM_BAT_ENABLE">SIM_BAT_ENABLE</strong> (INT32)</td>
+ <td>Simulator Battery enabled <p><strong>Comment:</strong> Enable or disable the internal battery simulation. This is useful when the battery is simulated externally and interfaced with PX4 through MAVLink for example.</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SIM_BAT_MIN_PCT">SIM_BAT_MIN_PCT</strong> (FLOAT)</td>
  <td>Simulator Battery minimal percentage <p><strong>Comment:</strong> Can be used to alter the battery level during SITL- or HITL-simulation on the fly. Particularly useful for testing different low-battery behaviour.</p>   </td>
  <td>[0, 100] (0.1)</td>
