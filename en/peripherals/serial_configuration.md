@@ -32,7 +32,7 @@ At time of writing the current set is:
 - GPS configuration: [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)
 - [Iridium Satellite radio](../advanced_features/satcom_roadblock.md): [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG)
 - [MAVLink Ports](../peripherals/mavlink_peripherals.md): [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG), [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG)
-- Modal IO ESC: [MODAL_IO_CONFIG](../advanced_config/parameter_reference.md#MODAL_IO_CONFIG)
+- VOXL ESC: [VOXL_ESC_CONFIG](../advanced_config/parameter_reference.md#VOXL_ESC_CONFIG)
 - MSP OSD: [MSP_OSD_CONFIG](../advanced_config/parameter_reference.md#MSP_OSD_CONFIG)
 - RC Port: [RC_PORT_CONFIG](../advanced_config/parameter_reference.md#RC_PORT_CONFIG)
 - [FrSky Telemetry](../peripherals/frsky_telemetry.md): [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG)
