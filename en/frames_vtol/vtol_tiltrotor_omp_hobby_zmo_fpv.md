@@ -361,8 +361,8 @@ The direction can't be changed in software because the vehicle does not use [DSh
 ## First Flight
 
 - Check tilt rotor reactions in [Stabilized mode](../flight_modes_fw/stabilized.md). Keep the throttle stick at the minimum and place the vehicle at the ground. To enable the tilt servos you need to arm the vehicle.
-  - Yaw the vehicle to the right (nose to the right) -> right motor should tilt down
-  - Yaw the vehicle to the left (nose to the left) -> left motor should tilt down
+  - Yaw the vehicle to the right (nose to the right) -> left motor should tilt down
+  - Yaw the vehicle to the left (nose to the left) -> right motor should tilt down
 - Mount the propellers.
 - Check center of gravity (GG).
   Switch the vehicle into forward flight mode.
