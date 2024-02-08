@@ -2,7 +2,7 @@
 
 <img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />&nbsp;
 
-_Acro mode_ is the RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+_Acro mode_ is the manual mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
 
 The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation.
 When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
@@ -11,9 +11,9 @@ When sticks are centered the vehicle will stop rotating, but remain in its curre
 
 ## Technical Description
 
-RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+Manual mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
 
-RPY stick inputs are translated to angular rate commands that are stabilized by autopilot.
+Roll-pitch-yaw stick inputs are translated to angular rate commands that are stabilized by autopilot.
 Throttle is passed directly to control allocation.
 
 ## Parameters
