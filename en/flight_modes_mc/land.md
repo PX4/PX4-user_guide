@@ -1,6 +1,6 @@
 # Land Mode (Multicopter)
 
-[<img src="../../assets/site/position_fixed.svg" title="Position estimate required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+<img src="../../assets/site/position_fixed.svg" title="Position estimate required (e.g. GPS)" width="30px" />
 
 The _Land_ flight mode causes the vehicle to land at the position where the mode was engaged.
 The vehicle will disarm shortly after landing (by default).

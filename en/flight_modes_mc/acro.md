@@ -1,12 +1,12 @@
 # Acro Mode (Multicopter)
 
-[<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />&nbsp;
 
 _Acro mode_ is the RC mode for performing acrobatic maneuvers e.g. flips, rolls and loops.
 
 The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
 
-![MC Manual Acrobatic Flight](../../assets/flight_modes/manual_acrobatic_MC.png)
+![MC Manual Acrobatic Flight](../../assets/flight_modes/acrobatic_mc.png)
 
 <!-- image above incorrect: https://github.com/PX4/PX4-user_guide/issues/182 -->
 
