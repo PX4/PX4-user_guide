@@ -224,7 +224,7 @@ By default, vehicles are:
 - Arming is prevented if a VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
 
 When prearmed you can still use actuators, while disarming unpowers everything.
-Prearmed and disarmed should both safe, and a particular vehicle may support either or both.
+Prearmed and disarmed should both be safe, and a particular vehicle may support either or both.
 
 :::tip
 Sometimes a vehicle will not arm for reasons that are not obvious.
