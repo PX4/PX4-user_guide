@@ -90,7 +90,7 @@ Position mode is the safest manual mode for new fliers.
 Unlike [Altitude](#altitude-mode-mc) and [Manual/Stabilized](#manual_stabilized_mc) modes the vehicle will stop when the sticks are centered rather than continuously drifting without constant manual guidance.
 :::
 
-![MC Position Mode](../../assets/flight_modes/position_MC.png)
+![MC Position Mode](../../assets/flight_modes/position_mc.png)
 
 ### Position Slow Mode (MC)
 
@@ -116,7 +116,7 @@ If the wind blows the aircraft will drift in the direction of the wind.
 _Altitude mode_ is the safest non-GPS manual mode for new fliers. It is just like [Manual/Stabilized](#manual_stabilized_mc) mode but additionally stabilizes the vehicle altitude when the sticks are released.
 :::
 
-![MC Altitude Mode](../../assets/flight_modes/altitude_MC.png)
+![MC Altitude Mode](../../assets/flight_modes/altitude_mc.png)
 
 <a id="manual_stabilized_mc"></a>
 
@@ -138,7 +138,7 @@ The multicopter will level out and stop once the roll and pitch sticks are cente
 The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately, and no external forces are applied (e.g. wind).
 The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
 
-![MC Manual Flight](../../assets/flight_modes/manual_stabilized_MC.png)
+![MC Manual Flight](../../assets/flight_modes/stabilized_mc.png)
 
 <a id="acro_mc"></a>
 
@@ -151,7 +151,7 @@ The craft will drift in the direction of any wind and you have to control the th
 The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation.
 When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
 
-![MC Manual Acrobatic Flight](../../assets/flight_modes/manual_acrobatic_MC.png)
+![MC Manual Acrobatic Flight](../../assets/flight_modes/acrobatic_mc.png)
 
 <!-- image above incorrect: https://github.com/PX4/PX4-user_guide/issues/182 -->
 
@@ -167,7 +167,7 @@ A GCS is _required_ to enable the mode, and to set the center position and initi
 By default the vehicle will then perform a slow ongoing orbit around the center position (1m/s) in a clockwise direction.
 RC control is optional, and can be used to change the orbit altitude, radius, speed, and direction.
 
-![Orbit Mode - MC](../../assets/flight_modes/orbit_MC.png)
+![Orbit Mode - MC](../../assets/flight_modes/orbit_mc.png)
 
 <a id="hold_mc"></a>
 
@@ -261,7 +261,7 @@ Pitch is used to ascend/descend. Roll, pitch and yaw are all angle-controlled (s
 Position mode is the safest fixed-wing manual mode for new fliers.
 :::
 
-![FW Position Mode](../../assets/flight_modes/position_FW.png)
+![FW Position Mode](../../assets/flight_modes/position_fw.png)
 
 <a id="altitude_fw"></a>
 
@@ -283,7 +283,7 @@ _Altitude mode_ is the safest non GPS guided mode appropriate for beginners lear
 It is just like [Stabilized](#stabilized_fw) mode but additionally stabilizes the vehicle altitude and airspeed.
 :::
 
-![FW Altitude Mode](../../assets/flight_modes/altitude_FW.png)
+![FW Altitude Mode](../../assets/flight_modes/altitude_fw.png)
 
 <a id="stabilized_fw"></a>
 
@@ -303,7 +303,7 @@ _Stabilized mode_ is much easier to fly than [Manual mode](#manual_fw) because y
 The vehicle will glide if the throttle is lowered to 0% (motor stops).
 In order to perform a turn the command must beheld throughout the maneuver because if the roll is released the plane will stop turning and level itself (the same is true for pitch and yaw commands).
 
-![FW Manual Flight](../../assets/flight_modes/manual_stabilized_FW.png)
+![FW Manual Flight](../../assets/flight_modes/stabilized_fw.png)
 
 <a id="acro_fw"></a>
 
@@ -316,7 +316,7 @@ In order to perform a turn the command must beheld throughout the maneuver becau
 The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation.
 When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
 
-![FW Manual Acrobatic Flight](../../assets/flight_modes/manual_acrobatic_FW.png)
+![FW Manual Acrobatic Flight](../../assets/flight_modes/acrobatic_fw.png)
 
 <a id="manual_fw"></a>
 
