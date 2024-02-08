@@ -2,7 +2,7 @@
 
 Flight modes define how the autopilot responds to remote control input, and how it manages vehicle movement during fully autonomous flight.
 
-The modes provide different types/levels of autopilot assistance to the user (pilot), ranging from automation of common tasks like takeoff and landing, through to mechanisms that make it easier to regain level flight, hold the vehicle to a fixed path or position, etc.
+The modes provide different types/levels of autopilot assistance to the user (pilot). This assistance ranges from automation of common tasks like takeoff and landing, mechanisms that make it easier to regain level flight, hold the vehicle to a fixed path or position, etc.
 
 This topic provides an overview of the available the flight modes for different frame types: [multicopter/helicopter](#multicopter-helicopter) (MC), [fixed-wing](#fixed-wing) (FW), [VTOL](#vertical-take-off-and-landing-vtol), [rovers](#rover).
 
