@@ -24,14 +24,14 @@ Manual mode where centered sticks put vehicle into straight and level flight whe
 - Centered Roll/Pitch/Yaw sticks
   - Level flight that follows a straight line ground track in the current direction against any wind.
 - Outside center:
-  - Pitch stick controls altitude (same as <a href="#altitude_fw">Altitude</a>).
-  - Roll stick controls roll angle. Autopilot will maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a> (same as <a href="#stabilized_fw">Stabilized</a>).
-  - Throttle sets airspeed (same as <a href="#altitude_fw">Altitude</a>).
+  - Pitch stick controls altitude (same as [Altitude mode](../flight_modes_fw/altitude.md)).
+  - Roll stick controls roll angle. Autopilot will maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight) (same as [Stabilized mode](../flight_modes_fw/stabilized.md)).
+  - Throttle sets airspeed (same as [Altitude mode](../flight_modes_fw/altitude.md)).
   - Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).
-  - Yaw stick adds an additional yaw rate setpoint (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). This is the same as <a href="#stabilized_fw">Stabilized</a>.
+  - Yaw stick adds an additional yaw rate setpoint (signal will be added to the one calculated by the autopilot to maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight)). This is the same as [Stabilized mode](../flight_modes_fw/stabilized.md).
 - Global position estimate is required.
-- Manual control input is required.
-- Roll, Pitch, Yaw, Throttle: Assistance from autopilot to hold position or altitude against wind.
+- Manual control input is required (such as RC control, joystick).
+- Roll, Pitch, Yaw, Throttle: Assistance from autopilot to hold position against wind.
 
 ## Parameters
 
