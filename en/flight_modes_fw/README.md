@@ -64,9 +64,9 @@ Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over o
 
 [Altitude mode](../flight_modes_fw/altitude.md) is the safest and easiest non-GPS manual mode.
 
-:::tip
+:::note
 _Altitude mode_ is similar to [Position mode](#position-mode).
-Both modes level the vehicle and maintain altitude and course when sticks are released, but position mode holds the actutal flight path steady against wind, while altitude just holds the heading.
+Both modes level the vehicle and maintain altitude and course when sticks are released, but position mode holds the actual flight path steady against wind, while altitude just holds the heading.
 :::
 
 The roll stick controls left/right horizontal movement and the pitch stick controls the rate of ascent/descent.
@@ -82,7 +82,7 @@ Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over o
 
 [Stabilized mode](../flight_modes_fw/stabilized.md) is a manual mode were centering the sticks levels the vehicle attitude (roll and pitch) and maintains the horizontal posture.
 
-:::tip
+:::note
 _Stabilized mode_ is similar to [Altitude mode](#position-mode) in that releasing the sticks levels the vehicle, but unlike altitude mode it does not maintain altitude or heading.
 It is much easier to fly than [Manual mode](#manual-mode) because you can't roll or flip it, and if needed it is easy to level the vehicle (by centering the control sticks).
 :::
@@ -91,7 +91,7 @@ The vehicle climb/descends based on pitch input and performs a [coordinated turn
 Roll and pitch are angle controlled (you can't roll upside down or loop).
 
 The vehicle will glide if the throttle is lowered to 0% (motor stops).
-In order to perform a turn the command must beheld throughout the maneuver because if the roll is released the plane will stop turning and level itself (the same is true for pitch and yaw commands).
+In order to perform a turn the command must be held throughout the maneuver because if the roll is released the plane will stop turning and level itself (the same is true for pitch and yaw commands).
 
 ![FW Manual Flight](../../assets/flight_modes/stabilized_fw.png)
 
@@ -113,7 +113,7 @@ When sticks are centered the vehicle will stop rotating, but remain in its curre
 
 ### Manual Mode
 
-[Manual mode](../flight_modes_fw/manual.md) sends RC stick input directly to control allocation for "fully" manual control.
+[Manual mode](../flight_modes_fw/manual.md) sends manual stick input directly to control allocation for "fully" manual control.
 
 This is the hardest mode to fly, because nothing is stabilised.
 Unlike [Acro Mode](#acro-fw) if the RP stick is centered the vehicle will not automatically stop rotating around the axis — the pilot actually has to move the stick to apply force in the other direction.
