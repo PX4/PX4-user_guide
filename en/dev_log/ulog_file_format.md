@@ -395,7 +395,7 @@ struct message_logging_tagged_s {
   uint8_t log_level;
   uint16_t tag;
   uint64_t timestamp;
-  char message[header.msg_size-9]
+  char message[header.msg_size-11]
 };
 ```
 
