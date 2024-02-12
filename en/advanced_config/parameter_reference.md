@@ -19620,15 +19620,64 @@ table {
 <tr>
  <td><strong id="RDD_ANG_SCALE">RDD_ANG_SCALE</strong> (FLOAT)</td>
  <td>Manual angular velocity scale    </td>
- <td>[0, 1.0] (0.01)</td>
- <td>1.0</td>
+ <td>[0, 1] (0.01)</td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RDD_I_ANG_VEL">RDD_I_ANG_VEL</strong> (FLOAT)</td>
+ <td>Integral gain for angular velocity controller    </td>
+ <td>[0, 100] (0.01)</td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RDD_I_SPEED">RDD_I_SPEED</strong> (FLOAT)</td>
+ <td>Integral gain for ground speed controller    </td>
+ <td>[0, 100] (0.01)</td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RDD_MAX_ACCEL">RDD_MAX_ACCEL</strong> (FLOAT)</td>
+ <td>Maximum acceleration <p><strong>Comment:</strong> Maximum acceleration is used to limit the acceleration of the rover</p>   </td>
+ <td>[0, 100] (0.01)</td>
+ <td>0.5</td>
+ <td>m/s^2</td>
+</tr>
+<tr>
+ <td><strong id="RDD_MAX_JERK">RDD_MAX_JERK</strong> (FLOAT)</td>
+ <td>Maximum jerk <p><strong>Comment:</strong> Limit for forwards acc/deceleration change.</p>   </td>
+ <td>[0, 100] (0.01)</td>
+ <td>0.5</td>
+ <td>m/s^3</td>
+</tr>
+<tr>
+ <td><strong id="RDD_P_ANG_VEL">RDD_P_ANG_VEL</strong> (FLOAT)</td>
+ <td>Proportional gain for angular velocity controller    </td>
+ <td>[0, 100] (0.01)</td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RDD_P_HEADING">RDD_P_HEADING</strong> (FLOAT)</td>
+ <td>Proportional gain for heading controller    </td>
+ <td>[0, 100] (0.01)</td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RDD_P_SPEED">RDD_P_SPEED</strong> (FLOAT)</td>
+ <td>Proportional gain for speed controller    </td>
+ <td>[0, 100] (0.01)</td>
+ <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RDD_SPEED_SCALE">RDD_SPEED_SCALE</strong> (FLOAT)</td>
  <td>Manual speed scale    </td>
- <td>[0, 1.0] (0.01)</td>
- <td>1.0</td>
+ <td>[0, 1] (0.01)</td>
+ <td>1</td>
  <td></td>
 </tr>
 <tr>
@@ -19646,10 +19695,10 @@ table {
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="RDD_WHL_SPEED">RDD_WHL_SPEED</strong> (FLOAT)</td>
+ <td><strong id="RDD_WHEEL_SPEED">RDD_WHEEL_SPEED</strong> (FLOAT)</td>
  <td>Maximum wheel speed    </td>
  <td>[0, 100] (0.01)</td>
- <td>10</td>
+ <td>0.3</td>
  <td>rad/s</td>
 </tr>
 </tbody></table>
