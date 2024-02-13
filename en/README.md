@@ -11,6 +11,11 @@ Developed by world-class developers from industry and academia, and supported by
 This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle. Interested in contributing? Check out the [Development](development/development.md) section.
 :::
 
+:::note
+This is the current stable version of PX4.
+If you're migrating from an earlier version, see the [Upgrade Guide](../releases/1.14.md#upgrade-guide) in the release notes.
+:::
+
 ## How Do I Get Started?
 
 [Getting Started](getting_started/README.md) should be read by all users!
