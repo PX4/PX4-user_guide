@@ -15,7 +15,7 @@ This guide contains everything you need to assemble, configure, and safely fly a
 This guide is for the _development_ version of PX4 (`main` branch).
 Use the **Version** selector for the current _stable_ version.
 
-Documented changes since the stable release are captured in the evolving [release note](../releases/main.md).
+Documented changes since the stable release are captured in the evolving [release note](releases/main.md).
 :::
 
 ## How Do I Get Started?
