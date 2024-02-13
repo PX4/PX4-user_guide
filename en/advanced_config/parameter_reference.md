@@ -19451,17 +19451,6 @@ table {
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="RTL_HDG_MD">RTL_HDG_MD</strong> (INT32)</td>
- <td>RTL heading mode <p><strong>Comment:</strong> Defines the heading behavior during RTL</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Towards next waypoint.</li>
-<li><strong>1:</strong> Heading matches destination.</li>
-<li><strong>2:</strong> Use current heading.</li>
-</ul>  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="RTL_LAND_DELAY">RTL_LAND_DELAY</strong> (FLOAT)</td>
  <td>Return mode delay <p><strong>Comment:</strong> Delay before landing (after initial descent) in Return mode. If set to -1 the system will not land but loiter at RTL_DESCEND_ALT.</p>   </td>
  <td>[-1, ?] (0.5)</td>
