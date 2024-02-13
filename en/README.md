@@ -7,6 +7,10 @@
 PX4 is the *Professional Autopilot*.
 Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.
 
+:::warning
+Please upgrade to [PX4 v1.14]([https://docs.px4.io/v1.14/en/](https://docs.px4.io/v1.14/en/releases/1.14.html)) or later (this version has been superseded).
+:::
+
 :::tip
 This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle. Interested in contributing? Check out the [Development](development/development.md) section.
 :::
