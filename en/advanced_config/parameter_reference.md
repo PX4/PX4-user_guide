@@ -24124,27 +24124,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_HOME_ALT">SIM_GZ_HOME_ALT</strong> (FLOAT)</td>
- <td>simulator origin altitude    </td>
- <td></td>
- <td>488.0</td>
- <td>m</td>
-</tr>
-<tr>
- <td><strong id="SIM_GZ_HOME_LAT">SIM_GZ_HOME_LAT</strong> (FLOAT)</td>
- <td>simulator origin latitude    </td>
- <td></td>
- <td>47.397742</td>
- <td>deg</td>
-</tr>
-<tr>
- <td><strong id="SIM_GZ_HOME_LON">SIM_GZ_HOME_LON</strong> (FLOAT)</td>
- <td>simulator origin longitude    </td>
- <td></td>
- <td>8.545594</td>
- <td>deg</td>
-</tr>
-<tr>
  <td><strong id="SIM_MAG_OFFSET_X">SIM_MAG_OFFSET_X</strong> (FLOAT)</td>
  <td>simulated magnetometer X offset    </td>
  <td></td>
