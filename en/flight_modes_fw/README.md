@@ -33,7 +33,7 @@ Autonomous:
 - [Mission](#mission-mode) — Vehicle executes a [predefined mission/flight plan](../flying/missions.md) that has been uploaded to the flight controller.
   This requires a global position estimate (GPS).
 - [Takeoff](#takeoff-mode) — Vehicle initiates the takeoff sequence using either _catapult/hand-launch mode_ or _runway takeoff mode_ (in the current direction).
-- [Land](#land-mode) — Vehicle initiates the [fixed-wing landing sequence](./flight_modes_fw/mission.md#mission-landing).
+- [Land](#land-mode) — Vehicle initiates the [fixed-wing landing sequence](../flight_modes_fw/mission.md#mission-landing).
 - [Offboard](#offboard-mode) — Vehicle obeys attitude setpoints provided via MAVLink or ROS 2.
 
 Pilots transition between flight modes using switches on the remote control or with a ground control station (see [Flight Mode Configuration](../config/flight_mode.md)).
@@ -117,7 +117,7 @@ When sticks are centered the vehicle will stop rotating, but remain in its curre
 [Manual mode](../flight_modes_fw/manual.md) sends manual stick input directly to control allocation for "fully" manual control.
 
 This is the hardest mode to fly, because nothing is stabilised.
-Unlike [Acro Mode](#acro-fw) if the RP stick is centered the vehicle will not automatically stop rotating around the axis — the pilot actually has to move the stick to apply force in the other direction.
+Unlike [Acro Mode](#acro-mode) if the RP stick is centered the vehicle will not automatically stop rotating around the axis — the pilot actually has to move the stick to apply force in the other direction.
 
 :::note
 This is the only mode that overrides the FMU (commands are sent via the safety coprocessor).

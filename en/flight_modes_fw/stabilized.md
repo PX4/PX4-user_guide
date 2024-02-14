@@ -5,8 +5,8 @@
 _Stabilized mode_ puts the vehicle into straight and level flight when the RC sticks are centered, maintaining the horizontal posture against wind (but not vehicle heading and altitude).
 
 :::note
-_Stabilized mode_ is similar to [Altitude mode](#position-mode) in that releasing the sticks levels the vehicle, but unlike altitude mode it does not maintain altitude or heading.
-It is much easier to fly than [Manual mode](#manual-mode) because you can't roll or flip it, and if needed it is easy to level the vehicle (by centering the control sticks).
+_Stabilized mode_ is similar to [Altitude mode](../flight_modes_fw/altitude.md) in that releasing the sticks levels the vehicle, but unlike altitude mode it does not maintain altitude or heading.
+It is much easier to fly than [Manual mode](../flight_modes_fw/manual.md) because you can't roll or flip it, and if needed it is easy to level the vehicle (by centering the control sticks).
 :::
 
 The vehicle climb/descends based on pitch input and performs a [coordinated turn](https://en.wikipedia.org/wiki/Coordinated_flight) if the roll/pitch sticks are non-zero.

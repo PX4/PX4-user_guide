@@ -7,8 +7,8 @@ It makes it easier for pilots to control vehicle altitude, and in particular to 
 The mode will not attempt to hold the vehicle course against wind.
 
 :::tip
-_Altitude mode_ is similar to [Position mode](#position-mode).
-Both modes level the vehicle and maintain altitude and course when sticks are released, but position mode holds the actual flight path steady against wind, while altitude just holds the heading.
+_Altitude mode_ is similar to [Position mode](../flight_modes_fw/position.md) in that both modes level the vehicle and maintain altitude and course when sticks are released.
+The difference is that position mode holds the actual flight path steady against wind, while altitude just holds the heading.
 :::
 
 The roll stick controls left/right horizontal movement.

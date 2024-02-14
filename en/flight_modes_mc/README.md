@@ -64,7 +64,7 @@ When the sticks are released/centered the vehicle will actively brake, level, an
 This makes it easy to recover from any problems when flying.
 
 :::tip
-Unlike [Altitude](#altitude-mode-mc) and [Manual/Stabilized](#manual_stabilized_mc) modes the vehicle will stop when the sticks are centered rather than continuously drifting without constant manual guidance.
+Unlike [Altitude](#altitude-mode) and [Manual/Stabilized](#manual-stabilized-mode) modes the vehicle will stop when the sticks are centered rather than continuously drifting without constant manual guidance.
 :::
 
 Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).
@@ -73,7 +73,7 @@ Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over o
 
 ### Position Slow Mode
 
-[Position Slow mode](../flight_modes_mc/position_slow.md) is a velocity and yaw rate limited version of the regular [Position mode](#position-mode-mc).
+[Position Slow mode](../flight_modes_mc/position_slow.md) is a velocity and yaw rate limited version of the regular [Position mode](#position-mode).
 
 The mode works in exactly the same way as _Position mode_ but with the controller stick deflection re-scaled to lower maximum velocities (and proportionally lower acceleration).
 You can use it to quickly slow down the vehicle to a safe speed.
