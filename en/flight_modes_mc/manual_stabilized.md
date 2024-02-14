@@ -17,12 +17,25 @@ The vehicle will then hover in place/maintain altitude - provided it is properly
 
 ## Technical Description
 
-The pilot's inputs are passed as roll and pitch angle commands and a yaw rate command. Throttle is rescaled (see [below](#params)) and passed directly to control allocation. The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered inside the controller deadzone (consequently leveling-out the attitude). The autopilot does not compensate for drift due to wind (or other sources).
+RC mode where centered sticks level vehicle (only - position is not stabilized).
 
-:::note
+The pilot's inputs are passed as roll and pitch angle commands and a yaw rate command.
+Throttle is rescaled (see [below](#params)) and passed directly to control allocation.
+The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered inside the controller deadzone (consequently leveling-out the attitude).
+The autopilot does not compensate for drift due to wind (or other sources).
 
-- Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
-  :::
+- Centered sticks (inside deadband):
+  - Roll/Pitch sticks level vehicle.
+- Outside center:
+  - Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.
+  - Throttle stick controls up/down speed (and movement speed in other axes).
+  - Yaw stick controls rate of angular rotation above the horizontal plane.
+- Manual control input is required (such as RC control, joystick).
+  - Roll, Pitch: Assistance from autopilot to stabilize the attitude.
+    Position of RC stick maps to the orientation of vehicle.
+  - Throttle: Manual control via RC sticks. RC input is sent directly to control allocation.
+  - Yaw: Assistance from autopilot to stabilize the attitude rate.
+    Position of RC stick maps to the rate of rotation of vehicle in that orientation.
 
 <a id="params"></a>
 
