@@ -12,9 +12,18 @@ The roll, pitch and yaw sticks control the rate of angular rotation around the r
 
 ## Technical Description
 
-RC/manual mode for performing acrobatic maneuvers e.g. flips, rolls and loops.
+Manual mode for performing acrobatic maneuvers e.g. flips, rolls and loops.
 
-RC RPY stick inputs control the rate of angular rotation around the respective axes. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (not necessarily level).
+RC Roll/Pitch/Yaw (RPY) stick inputs control the rate of angular rotation around the respective axes.
+Throttle is passed directly to control allocation.
+When sticks are centered the vehicle will stop rotating, but remain in its current orientation (not necessarily level) and moving according to its current momentum.
+
+Manual control input is required (such as RC control, joystick):
+
+- Roll, Pitch, Yaw: Assistance from autopilot to stabilize the attitude rate.
+  Position of RC stick maps to the rate of rotation of vehicle in that orientation.
+- Throttle: Manual control via RC sticks.
+  RC input is sent directly to control allocation.
 
 ## Stick Input Mapping
 
