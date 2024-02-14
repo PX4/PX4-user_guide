@@ -9,7 +9,7 @@ Developed by world-class developers from industry and academia, and supported by
 
 :::warning
 Please upgrade to [PX4 v1.14](https://docs.px4.io/v1.14/en/) or later.
-PX4 v1.12 is an old version, and lacks many features and improvements.
+PX4 v1.12 is an older version, and lacks many new features and bug fixes.
 :::
 
 :::tip
