@@ -7,7 +7,15 @@ After landing, vehicles will disarm after a short timeout (by default).
 
 A VTOL follows the land mode behavior and parameters of [Fixed-wing](../flight_modes_fw/land.md) when in FW mode, and of [Multicopter](../flight_modes_mc/land.md) when in MC mode.
 
-When [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT) is set (default: on) a VTOL in FW mode will transition back to MC just before landing.
+By default a VTOL in FW mode will transition back to MC just before landing.
+
+## Parameters
+
+The VTOL-specific parameters are:
+
+| Parameter                                                              | Description                                                     |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------- |
+| [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT) | Force VTOL to takeoff and land as a multicopter (default: true) |
 
 ## See Also
 
