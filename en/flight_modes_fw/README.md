@@ -11,35 +11,36 @@ Manual modes provide different levels of autopilot support when flying manually 
 
 Manual-Easy:
 
-- [Position](#position-mode) - Easiest and safest manual mode for vehicles that have a position fix/GPS.
+- [Position](#position-mode) — Easiest and safest manual mode for vehicles that have a position fix/GPS.
   Releasing sticks levels the vehicle and locks it to a straight flight path, even against wind.
-- [Altitude](#altitude-mode) - Easiest and safest _non-GPS_ manual mode.
+- [Altitude](#altitude-mode) — Easiest and safest _non-GPS_ manual mode.
   Releasing sticks levels the vehicle and maintain heading (unlike with position mode, wind can move the vehicle off the original track).
-- [Stabilized](#stabilized-mode) - Releasing the sticks levels the vehicle and maintains the horizontal posture.
+- [Stabilized](#stabilized-mode) — Releasing the sticks levels the vehicle and maintains the horizontal posture.
 
 Manual-Acrobatic
 
-- [Acro](#acro-mode) - Manual mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+- [Acro](#acro-mode) — Manual mode for performing acrobatic maneuvers, such as rolls and flips, stalls and acrobatic figures.
   Releasing the sticks stops the vehicle rotating in the roll, pitch, yaw axes, but does not otherwise stabilise the vehicle.
-- [Manual](#manual-mode) - Hardest manual flight mode.
+- [Manual](#manual-mode) — Hardest manual flight mode.
   This sends stick input directly to control allocation for "fully" manual control.
 
 Autonomous:
 
-- [Hold](#hold-mode) - Vehicle circles around the GPS hold position at the current altitude.
-- [Return](#return-mode) - Vehicle flies a clear path to a safe location. The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined).
+- [Hold](#hold-mode) — Vehicle circles around the GPS hold position at the current altitude.
+- [Return](#return-mode) — Vehicle flies a clear path to land at a safe location.
+  By default the destination is a mission landing pattern.
   This requires a global position estimate (GPS).
-- [Mission](#mission-mode) - Vehicle executes a [predefined mission/flight plan](../flying/missions.md) that has been uploaded to the flight controller.
+- [Mission](#mission-mode) — Vehicle executes a [predefined mission/flight plan](../flying/missions.md) that has been uploaded to the flight controller.
   This requires a global position estimate (GPS).
-- [Takeoff](#takeoff-mode) - Vehicle initiates the takeoff sequence using either _catapult/hand-launch mode_ or _runway takeoff mode_ (in the current direction).
-- [Land](#land-mode) - Vehicle initiates the [fixed-wing landing sequence](./flight_modes_fw/mission.md#mission-landing).
-- [Offboard](#offboard-mode) - Vehicle obeys attitude setpoints provided via MAVLink or ROS 2.
+- [Takeoff](#takeoff-mode) — Vehicle initiates the takeoff sequence using either _catapult/hand-launch mode_ or _runway takeoff mode_ (in the current direction).
+- [Land](#land-mode) — Vehicle initiates the [fixed-wing landing sequence](./flight_modes_fw/mission.md#mission-landing).
+- [Offboard](#offboard-mode) — Vehicle obeys attitude setpoints provided via MAVLink or ROS 2.
 
 Pilots transition between flight modes using switches on the remote control or with a ground control station (see [Flight Mode Configuration](../config/flight_mode.md)).
 Some flight modes make sense only under specific pre-flight and in-flight conditions (e.g. GPS lock, airspeed sensor, vehicle attitude sensing along an axis).
 PX4 will not allow transitions to those modes until the right conditions are met.
 
-An high level description of the modes is provided below (select the mode-specific sidebar topics for detailed technical information).
+A high level description of the modes is provided below (select the mode-specific sidebar topics for detailed technical information).
 
 ## Easy Manual Modes
 
@@ -65,8 +66,8 @@ Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over o
 [Altitude mode](../flight_modes_fw/altitude.md) is the safest and easiest non-GPS manual mode.
 
 :::note
-_Altitude mode_ is similar to [Position mode](#position-mode).
-Both modes level the vehicle and maintain altitude and course when sticks are released, but position mode holds the actual flight path steady against wind, while altitude just holds the heading.
+_Altitude mode_ is similar to [Position mode](#position-mode) in that when the sticks are released/centred, both modes level the vehicle and maintain altitude and course.
+The difference is that position mode holds the actual flight path steady against wind, while altitude just holds the heading.
 :::
 
 The roll stick controls left/right horizontal movement and the pitch stick controls the rate of ascent/descent.
@@ -83,7 +84,7 @@ Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over o
 [Stabilized mode](../flight_modes_fw/stabilized.md) is a manual mode were centering the sticks levels the vehicle attitude (roll and pitch) and maintains the horizontal posture.
 
 :::note
-_Stabilized mode_ is similar to [Altitude mode](#position-mode) in that releasing the sticks levels the vehicle, but unlike altitude mode it does not maintain altitude or heading.
+_Stabilized mode_ is similar to [Altitude mode](#altitude-mode) in that releasing the sticks levels the vehicle, but unlike altitude mode it does not maintain altitude or heading.
 It is much easier to fly than [Manual mode](#manual-mode) because you can't roll or flip it, and if needed it is easy to level the vehicle (by centering the control sticks).
 :::
 
@@ -104,9 +105,9 @@ RC sticks control the rate of angular rotation (around the respective axis).
 
 ### Acro Mode
 
-[Acro mode](../flight_modes_fw/acro.md) is the RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+[Acro mode](../flight_modes_fw/acro.md) is the RC mode for performing acrobatic maneuvers, such as rolls, flips, stalls, and acrobatic figures.
 
-The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation.
+The roll, pitch, and yaw, sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation.
 When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
 
 ![FW Manual Acrobatic Flight](../../assets/flight_modes/acrobatic_fw.png)
@@ -126,9 +127,9 @@ It provides a safety mechanism that allows full control of throttle, elevator, a
 ## Automatic Modes
 
 Automatic or _autonomous_ modes are fully controlled by the autopilot.
-The don't _require_ manual input from a pilot, but may use it some cases.
+They don't _require_ manual input from a pilot, but may use it some cases.
 Most automatic modes require a local position estimate.
-Some, like [Return mode](#return-mode) and [Mission mode](#mission-mode) need a global position estimate (i.e. GPS).
+A few, such as [Return mode](#return-mode) and [Mission mode](#mission-mode), need a global position estimate (i.e. GPS).
 
 ### Hold Mode
 
@@ -161,7 +162,7 @@ Fixed-wing landing logic and parameters are explained in the topic: [Mission > F
 
 ### Offboard Mode
 
-[Offboard mode](../flight_modes/offboard.md) causes the fixed-wing vehicle to obey attitude setpoints provided over MAVLink.
+[Offboard mode](../flight_modes/offboard.md) causes the fixed-wing vehicle to obey attitude setpoints provided via MAVLink or ROS 2.
 
 :::note
 This mode is intended for vehicle control from companion computers and ground stations!
