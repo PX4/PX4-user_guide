@@ -19,6 +19,7 @@ The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](
 ## Technical Summary
 
 RC/manual mode like [Manual/Stabilized (MC)](../flight_modes_mc/manual_stabilized.md) mode but with _altitude stabilization_ (centered sticks level vehicle and hold it to fixed altitude).
+The horizontal position of the vehicle can move due to wind (or pre-existing momentum).
 
 - Centered sticks (inside deadband):
   - RPY sticks levels vehicle.
@@ -29,13 +30,14 @@ RC/manual mode like [Manual/Stabilized (MC)](../flight_modes_mc/manual_stabilize
   - Yaw stick controls rate of angular rotation above the horizontal plane.
 - Takeoff:
   - When landed, the vehicle will take off if the throttle stick is raised above 62.5% percent (of the full range from bottom).
-
-:::note
-
-- Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
-- The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions.
+- Altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions.
   Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy.
-  :::
+- Manual control input is required (such as RC control, joystick).
+  - Roll, Pitch: Assistance from autopilot to stabilize the attitude.
+    Position of RC stick maps to the orientation of vehicle.
+  - Throttle: Assistance from autopilot to hold position against wind.
+  - Yaw: Assistance from autopilot to stabilize the attitude rate.
+    Position of RC stick maps to the rate of rotation of vehicle in that orientation.
 
 ## Parameters
 
