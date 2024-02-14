@@ -114,7 +114,7 @@
     * [Flight Modes](flight_modes_vtol/README.md)
       * [Mission Mode (VTOL)](flight_modes_vtol/mission.md)
       * [Return Mode (VTOL)](flight_modes_vtol/return.md)
-      * [Land Mode (VTOL)](flight_modes/land.md)
+      * [Land Mode (VTOL)](flight_modes_vtol/land.md)
     * [Standard VTOL](frames_vtol/standardvtol.md)
       * [Build: Foxtech Loong 2160 VTOL](frames_vtol/vtol_quadplane_foxtech_loong_2160.md)
       * [FunCub QuadPlane (Pixhawk)](frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md)
