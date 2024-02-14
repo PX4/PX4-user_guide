@@ -41,4 +41,4 @@ Land mode behaviour can be configured using the parameters below.
 ## See Also
 
 - [Land Mode (FW)](../flight_modes_fw/land.md)
-- [Land Mode (VTOL)](../flight_modes/land.md)
+- [Land Mode (VTOL)](../flight_modes_vtol/land.md)
