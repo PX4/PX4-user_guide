@@ -46,9 +46,6 @@ A high level description of the modes is provided below (select the mode-specifi
 
 ## Easy Manual Modes
 
-In the easy manual modes, roll and pitch sticks set the vehicle angle, resulting in left-right and forward-back movement _in the horizontal plane_ (respectively).
-Not only does this make movement predictable, but because angles are controlled, the vehicle is impossible to flip.
-
 ### Position Mode
 
 [Position mode](../flight_modes_fw/position.md) is the easiest and safest manual mode.
