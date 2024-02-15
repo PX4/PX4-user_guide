@@ -30,6 +30,13 @@ Manual mode where centered sticks put vehicle into straight and level flight whe
 
 ## Parameters
 
-| Parameter | Description |
-| --------- | ----------- |
-| &nbsp;    | &nbsp;      |
+The mode is affected by the following parameters:
+
+| Parameter                                                                                             | Description                                                                                                              |
+| ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| <a id="FW_AIRSPD_MIN"></a>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)   | Min airspeed/throttle. Default: 10 m/s.                                                                                  |
+| <a id="FW_AIRSPD_MAX"></a>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)   | Max airspeed/throttle. Default: 20 m/s.                                                                                  |
+| <a id="FW_AIRSPD_TRIM"></a>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) | Cruise speed. Default: 15 m/s.                                                                                           |
+| <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)     | Max pitch for manual control in attitude stabilized mode. Default: 45 degrees.                                           |
+| <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)     | Max roll for manual control in attitude stabilized mode. Default: 45 degrees.                                            |
+| <a id="FW_NPFG_CONTROL"></a>[FW NPFG Control](../advanced_config/parameter_reference.md#fw-npfg-control) | The roll/yaw needed to maintain the commanded altitude and airspeed are also affected by the FW NPFG Control parameters. |
