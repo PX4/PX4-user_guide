@@ -1,9 +1,9 @@
-# Getting Started
+# Початок роботи
 
-This section contains topics about getting started with PX4 development:
+Цей розділ містить теми про те, як почати PX4 розробку:
 
-- [Initial Setup](../dev_setup/config_initial.md)
-- [Toolchain Installation](../dev_setup/dev_env.md)
-- [Building the Code](../dev_setup/building_px4.md)
-- [Writing an Application](../modules/hello_sky.md)
-- [Application/Module Template](../modules/module_template.md)
+- [Попереднє налаштування](../dev_setup/config_initial.md)
+- [Інсталяція тулчейну](../dev_setup/dev_env.md)
+- [Збірка коду](../dev_setup/building_px4.md)
+- [Написання програми](../modules/hello_sky.md)
+- [Шаблон додатку/модуля](../modules/module_template.md)
