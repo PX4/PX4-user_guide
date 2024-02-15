@@ -14,6 +14,7 @@ module.exports = {
     // 'de/**/*.md',
     // 'ja/**/*.md',
     // 'ru/**/*.md',
+    // 'uk/**/*.md',
     "!**/node_modules",
     "!**/scripts",
   ],
