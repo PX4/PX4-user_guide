@@ -116,6 +116,8 @@ The following settings also apply, but are not displayed in the QGC UI.
 
 ### Return Mode Settings
 
+<!-- Propose replace section by a summary and links - return mode is complicated -->
+
 _Return_ is a common [failsafe action](#failsafe-actions) that engages [Return mode](../flight_modes/return.md) to return the vehicle to the home position. This section shows how to set the land/loiter behaviour after returning.
 
 ![Safety - Return Home Settings (QGC)](../../assets/qgc/setup/safety/safety_return_home.png)
@@ -281,7 +283,7 @@ The arm/disarm switch is a _direct replacement_ for the default stick-based armi
 - It avoids accidentally triggering arming/disarming in-air with a certain stick motion.
 - There is no delay (it reacts immediately).
 
-The arm/disarm switch immediately disarms (stop) motors for those [flight modes](../getting_started/flight_modes.md) that _support disarming in flight_. This includes:
+The arm/disarm switch immediately disarms (stop) motors for those [flight modes](../flight_modes/README.md#flight-modes) that _support disarming in flight_. This includes:
 
 - _Manual mode_
 - _Acro mode_
@@ -292,7 +294,6 @@ For modes that do not support disarming in flight, the switch is ignored during 
 :::note
 [Auto disarm timeouts](#auto-disarming-timeouts) (e.g. via [COM_DISARM_LAND](#COM_DISARM_LAND)) are independent of the arm/disarm switch - ie even if the switch is armed the timeouts will still work.
 :::
-
 
 <!--
 **Note** This can also be done by [manually setting](../advanced_config/parameters.md) the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter to the corresponding switch RC channel.
@@ -318,7 +319,7 @@ The [relevant parameters](../advanced_config/parameters.md) are shown below:
 
 ## Further Information
 
-- [QGroundControl User Guide > Safety Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Safety.html)
+- [QGroundControl User Guide > Safety Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/safety.html)
 
 [flight_term]: ../advanced_config/flight_termination.md
 [return]: ../flight_modes/return.md
