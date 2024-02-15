@@ -171,7 +171,7 @@ If necessary, the 10V output of the radio port on the PM can also be exposed via
 
 :::note
 A lidar is recommended!
-If no lidar is mounted you should disable using fixed-wing actuation in hover to accelerate forward (set [VT\_FWD\_THRUST\_EN](../advanced_config/parameter_reference.md#VT_FWD_THRUST_EN) to `0` instead of `1`).
+If no lidar is mounted you should disable using fixed-wing actuation in hover to accelerate forward (set [VT_FWD_THRUST_EN](../advanced_config/parameter_reference.md#VT_FWD_THRUST_EN) to `0` instead of `1`).
 :::
 
 1. Mark the location to install the lidar with some tape or a pen.
@@ -303,9 +303,9 @@ To load the file:
 
 ### Sensor Selection
 
-- If the [Lidar Lightware lw20-c (included in Skynode eval. kit)](../sensor/sfxx_lidar.md) is used, [SENS\_EN\_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX) needs to be set to 6 (SF/LW/20c).
+- If the [Lidar Lightware lw20-c (included in Skynode eval. kit)](../sensor/sfxx_lidar.md) is used, [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX) needs to be set to 6 (SF/LW/20c).
 - Make that the correct airspeed sensor is selected.
-  If you use the recommended [SDP33 airspeed sensor](https://www.dualrc.com/parts/airspeed-sensor-sdp33) no changes will be needed as [SENS\_EN\_SDP3X](../advanced_config/parameter_reference.md#SENS_EN_SDP3X) is enabled (set to `1`) in the parameter file.
+  If you use the recommended [SDP33 airspeed sensor](https://www.dualrc.com/parts/airspeed-sensor-sdp33) no changes will be needed as [SENS_EN_SDP3X](../advanced_config/parameter_reference.md#SENS_EN_SDP3X) is enabled (set to `1`) in the parameter file.
 
 ### Sensor Calibration
 

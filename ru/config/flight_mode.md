@@ -1,6 +1,6 @@
 # Flight Mode Configuration
 
-This topic explains how to map [flight modes](../getting_started/flight_modes.md) and other functions to the switches on your radio control transmitter.
+This topic explains how to map [flight modes](../getting_started/px4_basic_concepts.md#flight-modes) and other functions to the switches on your radio control transmitter.
 
 :::tip
 In order to set up flight modes you must already have:
@@ -10,17 +10,18 @@ In order to set up flight modes you must already have:
 
 ## What Flight Modes and Switches Should I Set?
 
-*Flight Modes* provide different types of *autopilot-assisted flight*, and *fully autonomous flight*. You can set any (or none) of the flight modes [described here](../getting_started/flight_modes.md). Most users should set the following functions, as these make the vehicle easier and safer to fly:
+Flight Modes provide different types of *autopilot-assisted flight*, and *fully autonomous flight*. You can set any (or none) of the flight modes [available to your vehicle](../flight_modes/README.md#flight-modes).
 
-- **Position mode** ([multicopter](../getting_started/flight_modes.md#position-mode-mc), [fixed-wing](../getting_started/flight_modes.md#position-mode-fw)) - Easiest and safest mode for manual flight.
-- [Return mode](../flight_modes/return.md) - Return to launch position by safe path and land (by default).
-- **VTOL Transition Switch** - Toggle between fixed-wing and multicopter flight configuration on VTOL vehicles.
+Most users should set the following modes and functions, as these make the vehicle easier and safer to fly:
+
+- **Position mode** — Easiest and safest mode for manual flight.
+- **Return mode** — Return to launch position by safe path and land.
+- (VTOL only) **VTOL Transition Switch** — Toggle between fixed-wing and multicopter flight configuration on VTOL vehicles.
 
 It is also common to map switches to:
 
-- [Mission](../flight_modes_vtol/mission.md) - This mode runs a pre-programmed mission sent by the ground control station.
+- **Mission mode** — This mode runs a pre-programmed mission sent by the ground control station.
 - <a id="kill_switch"></a> [Kill Switch](../config/safety.md#kill-switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
-
 
 ## Flight Mode Selection
 
@@ -51,7 +52,7 @@ All values are automatically saved as they are changed.
 
 ## RC Transmitter Setup
 
-This section contains a small number of possible setup configurations for taranis. QGroundControl *may* have [setup information for other transmitters here](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#transmitter-setup).
+This section contains a small number of possible setup configurations for taranis. QGroundControl _may_ have [setup information for other transmitters here](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/flight_modes.html#transmitter-setup).
 
 
 <a id="taranis_setup"></a>
@@ -90,6 +91,6 @@ The *QGroundControl* configuration is then [as described above](#flight-mode-sel
 ## Further Information
 
 * [Flight Modes Overview](../flight_modes/README.md)
-* [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
+* [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/flight_modes.html#px4-pro-flight-mode-setup)
 * [PX4 Setup Video - @6m53s](https://youtu.be/91VGmdSlbo4?t=6m53s) (Youtube)
 * [Radio switch parameters](../advanced_config/parameter_reference.md#radio-switches) - Can be used to set mappings via parameters

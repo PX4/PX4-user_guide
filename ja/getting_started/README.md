@@ -12,8 +12,6 @@
 
 [RCシステム](../getting_started/rc_transmitter_receiver.md) — 手動操縦に必要な操縦デバイスについて．
 
-[フライトモード](../getting_started/flight_modes.md) — 手動・操縦アシスト・自動操縦用のフライトモードについて．
-
 [Payloads & Cameras](../payloads/README.md)
 
 [Flight Reporting](../getting_started/flight_reporting.md) — Download detailed flight logs for debugging and analysis.

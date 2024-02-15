@@ -9,8 +9,10 @@ _Flight Modes_ define how the autopilot responds to user input and controls vehi
 :::note
 사용자 대면 비행 모드 문서는 다음을 참고하십시오.
 
-- [시작 > 비행 모드](../getting_started/flight_modes.md): 모든 비행 모드에 기초적인 설명
-- [Flying > Flight Modes](../flight_modes/README.md): Detailed documentation of each mode.
+- [Flight Modes (Multicopter)](../flight_modes_mc/README.md)
+- [Flight Modes (Fixed-wing)](../flight_modes_fw/README.md)
+- [Flight Modes (VTOL)](../flight_modes_vtol/README.md)
+- [Flight/Drive Modes (Rover)](../flight_modes_rover/README.md)
 
 :::
 

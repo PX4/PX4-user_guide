@@ -1,6 +1,6 @@
 # Altitude Mode (Multicopter)
 
-[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" />](../getting_started/flight_modes.md#altitude_only)
+<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />&nbsp;<img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" />
 
 _Altitude mode_ is a _relatively_ easy-to-fly RC mode in which roll and pitch sticks control vehicle movement in the left-right and forward-back directions (relative to the "front" of the vehicle), yaw stick controls rate of rotation over the horizontal plane, and throttle controls speed of ascent-descent.
 
@@ -12,11 +12,11 @@ _Altitude mode_ is the safest non-GPS manual mode for new fliers. It is just lik
 
 The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
-![Altitude Control MC - Mode2 RC Controller](../../assets/flight_modes/altitude_control_mode_copter.png)
+![Altitude Control MC - Mode2 RC Controller](../../assets/flight_modes/altitude_mc.png)
 
 ## Technical Summary
 
-RC/manual mode like [Manual/Stabilized (MC)](../flight_modes_mc/manual_stabilized.md) mode but with _altitude stabilization_ (centered sticks level vehicle and hold it to fixed altitude).
+RC/manual mode like [Manual/Stabilized (MC)](../flight_modes_mc/manual_stabilized.md) mode but with _altitude stabilization_ (centered sticks level vehicle and hold it to fixed altitude). The horizontal position of the vehicle can move due to wind (or pre-existing momentum).
 
 - Centered sticks (inside deadband):
   - RPY sticks levels vehicle.
@@ -27,12 +27,11 @@ RC/manual mode like [Manual/Stabilized (MC)](../flight_modes_mc/manual_stabilize
   - Yaw stick controls rate of angular rotation above the horizontal plane.
 - Takeoff:
   - When landed, the vehicle will take off if the throttle stick is raised above 62.5% percent (of the full range from bottom).
-
-:::note
-
-- Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
-- The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy.
-:::
+- Altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy.
+- Manual control input is required (such as RC control, joystick).
+  - Roll, Pitch: Assistance from autopilot to stabilize the attitude. Position of RC stick maps to the orientation of vehicle.
+  - Throttle: Assistance from autopilot to hold position against wind.
+  - Yaw: Assistance from autopilot to stabilize the attitude rate. Position of RC stick maps to the rate of rotation of vehicle in that orientation.
 
 ## Parameters
 

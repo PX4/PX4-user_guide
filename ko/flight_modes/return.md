@@ -1,12 +1,14 @@
 # 귀환 모드
 
-[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />
 
-The _Return_ flight mode is used to _fly a vehicle to safety_ on an unobstructed path to a safe destination, where it may either wait (hover or circle) or land.
+The _Return_ flight mode is used to _fly a vehicle to safety_ on an unobstructed path to a safe destination, where it should land.
 
 PX4는 홈 위치, 집결 ( "안전") 지점, 임무 경로 및 임무 착륙 시퀀스 사용을 포함하여 안전한 복귀 경로, 목적지 착륙을 위한 다양한 메커니즘을 제공합니다.
 
-다음 섹션에서는 [복귀 유형 ](#return_types), [복귀 고도](#return_altitude) 및 [착륙/도착 동작](#arrival) 설정 방법을 설명합니다. At the end there are sections explaining the _default_ (preconfigured) behaviour for each [vehicle type](#default_configuration).
+- [Multicopter](../flight_modes_mc/return.md)
+- [Fixed-wing (Plane)](../flight_modes_fw/return.md)
+- [수직이착륙기](../flight_modes_vtol/return.md)
 
 :::note
 
@@ -18,21 +20,34 @@ PX4는 홈 위치, 집결 ( "안전") 지점, 임무 경로 및 임무 착륙 �
 - Mode prevents arming (vehicle must be armed when switching to this mode).
 - RC 제어 스위치는 기체의 비행 모드를 변경할 수 있습니다.
 - RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
+- A VTOL will return as MC or FW based on its mode at the point the return mode was triggered. In MC mode it will respect multicopter parameters, such as the landing "cone". In FW mode it will respect fixed-wing parameters (ignore the cone), but unless using a mission landing, will transition to MC mode and land at the destination after loitering at the descent altitude.
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
 :::
 
+## Overview
+
+PX4 provides several mechanisms for choosing a safe return path, destination and landing, including using home location, rally ("safe") points, mission paths, and landing sequences defined in a mission.
+
+All vehicles _nominally_ support all of these mechanisms, but not all of them make as much sense for particular vehicles. For example, a multicopter can land virtually anywhere, so it doesn't make sense for it to use a landing sequence except in rare cases. Similarly, a fixed-wing vehicle needs to fly a safe landing path: it can use the home location as a return point, but it won't try and land on it by default.
+
+This topic covers all the possible return types that any vehicle _might_ be configured to use — the vehicle-specific return mode topics cover the default/recommended return type and configuration for each vehicle.
+
+The following sections explain how to configure the [return type](#return_types), [minimum return altitude](#minimum-return-altitude) and [landing/arrival behaviour](#loiter-landing-at-destination).
+
 <a id="return_types"></a>
 
 ## 복귀 유형(RTL_TYPE)
 
-PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 검색하는 네 가지 대체 접근 방식 ([RTL_TYPE](#RTL_TYPE))을 제공합니다.
+PX4 provides four alternative approaches for finding an unobstructed path to a safe destination and/or landing, which are set using the [RTL_TYPE](#RTL_TYPE) parameter.
+
+At high level these are:
 
 - [홈/랠리 포인트 복귀](#home_return) (`RTL_TYPE = 0 `) : 안전한 고도로 상승하여 가장 가까운 랠리 포인트 또는 홈 위치로 직접 경로를 통하여 복귀합니다.
-- [Mission landing/rally point return](#mission_landing_return) (`RTL_TYPE=1`): Ascend to a safe altitude, fly direct to the closest destination _other than home_: rally point or start of mission landing. 임무 착륙 또는 집결 지점이 정의되지 않은 경우에는 직접 경로를 통해 홈으로 복귀합니다.
-- [미션 경로 복귀](#mission_path_return) (`RTL_TYPE = 2`) : 임무 경로를 사용하고 임무 착륙을 신속하게 진행합니다 (정의된 경우). 임무 착륙이 정의되지 않은 경우 홈으로 빠르게 역회전합니다. 정의된 임무가 없으면 집으로 직접 돌아갑니다 (랠리 포인트는 무시됨).
-- [가장 가까운 안전한 목적지 복귀](#safety_point_return) (`RTL_TYPE = 3`) : 안전한 고도로 상승하여 가장 가까운 목적지 (홈, 임무 시작 착지 패턴 또는 집결지)로 직접 경로를 통하여 복귀합니다. 목적지가 임무 착륙 패턴인 경우 패턴을 따라 착륙합니다.
+- [Mission landing/rally point return](#mission-landing-rally-point-return-type-rtl-type-1) (`RTL_TYPE=1`): Ascend to a safe altitude, fly direct to the closest destination _other than home_: rally point or start of mission landing. 임무 착륙 또는 집결 지점이 정의되지 않은 경우에는 직접 경로를 통해 홈으로 복귀합니다.
+- [Mission path return](#mission-path-return-type-rtl-type-2) (`RTL_TYPE=2`): Use mission path and fast-continue to mission landing (if defined). If no mission _landing_ defined, fast-reverse mission to home. If no _mission_ defined, return direct to home (rally points are ignored).
+- [Closest safe destination return](#closest-safe-destination-return-type-rtl-type-3) (`RTL_TYPE=3`): Ascend to a safe altitude and return via direct path to closest destination: home, start of mission landing pattern, or rally point. 목적지가 임무 착륙 패턴인 경우 패턴을 따라 착륙합니다.
 
 각 유형에 대한 자세한 설명은 다음 섹션에서 제공됩니다.
 
@@ -40,42 +55,37 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 
 ### 홈/랠리 포인트 복귀 유형 (RTL_TYPE = 0)
 
+This is the default return type for a [multicopter](../flight_modes_mc/return.md) (see topic for more information).
+
 이 복귀 유형에서 기체의 동작:
 
 - 안전한 [복귀 고도](#return_altitude) (예상 장애물 위)로 상승합니다.
 - 홈 포지션 또는 랠리 포인트 (둘 중 가장 가까운 지점) 로의 직접 경로로 비행합니다.
-- 하강 고도에서 [착륙 또는 대기](#arrival) (착륙 매개 변수에 따라 다름).
+- On [arrival](#loiter-landing-at-destination) descends to "descent altitude" and waits for a configurable time. This time may be used to deploy landing gear.
+- Lands or waits (this depends on landing parameters), By default an MC or VTOL in MC mode will land and a fixed-wing vehicle circles at the descent altitude. A VTOL in FW mode aligns its heading to the destination point, transitions to MC mode, and then lands.
 
 :::note
 If no rally points are defined, this is the same as a _Return to Launch_ (RTL)/_Return to Home_ (RTH).
 :::
 
-<a id="mission_landing_return"></a>
-
 ### 임무 착륙/랠리 포인트 복귀 유형 (RTL_TYPE = 1)
+
+This is the default return type for a [fixed-wing](../flight_modes_fw/return.md) or [VTOL](../flight_modes_vtol/return.md) vehicle (see topics for more information).
 
 이 복귀 유형에서 기체의 동작:
 
-- 안전한 [복귀 고도](#return_altitude) (예상 장애물 위)로 상승합니다.
-- 랠리 지점 또는 [임무 착륙 패턴](#mission_landing_pattern)의 시작점 (둘 중 가장 가까운 지점)으로 직접 이동합니다. 임무 착륙 또는 집결 지점이 정의되지 않은 경우에는 기체는 직접 경로를 통하여 홈으로 복귀합니다.
+- Ascends to a safe [minimum return altitude](#minimum-return-altitude) (above any expected obstacles) if needed. The vehicle maintains its initial altitude if that is higher than the minimum return altitude.
+- Flies via direct constant-altitude path to a rally point or the start of a [mission landing pattern](#mission-landing-pattern) (whichever is closest). 임무 착륙 또는 집결 지점이 정의되지 않은 경우에는 기체는 직접 경로를 통하여 홈으로 복귀합니다.
 - 목적지가 임무 착륙 패턴인 경우 패턴을 따라 착륙합니다.
-- 목적지가 집결지 또는 홈인 경우에는 하강 고도에서 [착륙또는 대기](#arrival)합니다 (착륙 매개 변수에 따라 다름).
-
-<a id="mission_landing_pattern"></a>
+- If the destination is a rally point or home it will [land or wait](#loiter-landing-at-destination) at descent altitude (depending on landing parameters). By default an MC or VTOL in MC mode will land, and a fixed-wing vehicle circles at the descent altitude. A VTOL in FW mode aligns its heading to the destination point, transitions to MC mode, and then lands.
 
 :::note
-미션 착륙 패턴은 [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), 하나 이상의 위치 웨이포인트 및 [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)로 구성됩니다.
+Fixed wing vehicles commonly also set [MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ) to _require_ a mission landing pattern.
 :::
-
-:::warning
-이 유형이 설정되면 PX4는 유효한 착지 패턴이 없는 임무를 거부합니다.
-:::
-
-<a id="mission_path_return"></a>
 
 ### 임무 경로 복귀 유형 (RTL_TYPE = 2)
 
-This return type uses the mission (if defined) to provide a safe return _path_, and the mission landing pattern (if defined) to provide landing behaviour. If there is a mission but no mission landing pattern, the mission is flown _in reverse_. 랠리 포인트는 무시됩니다.
+This return type uses the mission (if defined) to provide a safe return _path_, and the [mission landing pattern](#mission-landing-pattern) (if defined) to provide landing behaviour. If there is a mission but no mission landing pattern, the mission is flown _in reverse_. 랠리 포인트는 무시됩니다.
 
 :::note
 비행 모드와 임무 및 임무 착륙이 정의 여부에 따라 동작이 매우 복잡해집니다.
@@ -85,11 +95,11 @@ Mission _with_ landing pattern:
 
 - **임무 모드 :** 임무는 "빨리 감기 모드"(점프, 지연 및 기타 비위치 명령 무시, 선회 및 기타 위치 웨이포인트가 간단한 웨이포인트로 변환 됨)에서 수행한 다음 착륙합니다.
 - **임무 모드 이외의 자동 모드 :**
-  - 안전한 [복귀 고도](#return_altitude) (예상 장애물 위)로 상승합니다.
+  - Ascend to a safe [minimum return altitude](#minimum-return-altitude) above any expected obstacles.
   - 가장 가까운 웨이포인트 (착륙 WP가 아닌 FW의 경우)로 직접 비행하고 웨이포인트 고도로 하강합니다.
   - 그 웨이포인트에서 빨리 감기 모드로 임무를 계속 수행합니다.
 - **수동 모드:**
-  - Ascend to a safe [return altitude](#return_altitude) above any expected obstacles.
+  - Ascend to a safe [minimum return altitude](#minimum-return-altitude) above any expected obstacles.
   - 착륙 순서 위치로 직접 비행하고 웨이포인트 고도로 하강합니다.
   - 임무 착륙 패턴을 사용하는 착륙
 
@@ -99,7 +109,7 @@ Mission _without_ landing pattern defined:
   - 이전 웨이포인트에서 시작하여 "빨리 후진"(역방향) 비행한 미션
     - 점프, 지연 및 기타 위치가 아닌 명령은 무시되며, 선회 및 기타 위치 웨이포인트는 단순 웨이포인트로 변환됩니다.
     - VTOL은 임무를 역으로 비행하기 전에 필요한 경우에는 고정익 모드로 전환합니다.
-  - 웨이 포인트 1에 도달하면 기체는 [복귀 고도](#return_altitude)로 상승하여 홈 위치 ([착륙 또는 대기](#arrival))로 비행합니다.
+  - On reaching waypoint 1, the vehicle ascends to the [minimum return altitude](#minimum-return-altitude) and flies to the home position (where it [lands or waits](#loiter-landing-at-destination)).
 - **임무 모드 이외의 자동 모드 :**
   - 가장 가까운 웨이포인트 (착륙 WP가 아닌 FW의 경우)로 직접 비행하고 웨이포인트 고도로 하강합니다.
   - 미션 모드 (위)에서 복귀 모드가 시작된 것처럼 임무를 반대로 계속 수행합니다.
@@ -109,28 +119,26 @@ Mission _without_ landing pattern defined:
 
 복귀 모드에서 임무가 변경되면 위와 동일한 규칙에 따라 새 임무에 따라 행동이 재평가됩니다 (예 : 새 임무에 착륙 순서가없고 임무를 수행중인 경우 임무가 반전 됨).
 
-<a id="safety_point_return"></a>
-
 ### 가장 가까운 안전한 대상 복귀 유형 (RTL_TYPE = 3)
 
 이 복귀 유형에서 기체의 동작:
 
-- 안전한 [복귀 고도](#return_altitude) (예상 장애물 위)로 상승합니다.
+- Ascends to a safe [minimum return altitude](#minimum-return-altitude) (above any expected obstacles).
 - 홈 위치, 미션 착륙 패턴 또는 집결 지점의 가장 가까운 목적지로 직접 이동합니다.
-- 목적지가 임무 착륙 패턴인 경우 패턴을 따라 착륙합니다
-- 목적지가 홈 위치 또는 집결지인 경우 기체는 하강 고도 ([RTL_DESCEND_ALT](#RTL_DESCEND_ALT))로 하강한 다음 [착륙 또는 대기](#arrival)합니다.
+- If the destination is a [mission landing pattern](#mission-landing-pattern) the vehicle will follow the pattern to land.
+- If the destination is a home location or rally point, the vehicle will descend to the descent altitude ([RTL_DESCEND_ALT](#RTL_DESCEND_ALT)) and then [lands or waits](#loiter-landing-at-destination). By default an MC or VTOL in MC mode will land, and a fixed-wing vehicle circles at the descent altitude. A VTOL in FW mode aligns its heading to the destination point, transitions to MC mode, and then lands.
 
-<a id="return_altitude"></a>
+## 목적지에 호버링/착륙
 
-## 복귀 고도
-
-기체는 목적지까지의 장애물을 피하여 복귀하기 이전에 안전한 고도로 먼저 상승합니다.
+For most [return types](#return_types) a vehicle will ascend to a _minimum safe altitude_ before returning (unless already above that altitude), in order to avoid any obstacles between it and the destination.
 
 :::note
-이것은 대부분의 [복귀 유형](#return_types)에 해당됩니다. 예외는 기체가 미션 웨이포인트를 비행중에 [미션 경로 복귀](#mission_path_return)을 실행하는 경우입니다 (장애물을 피할 수 있다고 가정할 수 있음).
+The exception is when executing a [mission path return](#mission-path-return-type-rtl-type-2) from _within a mission_. In this case the vehicle follows mission waypoints, which we assume are planned to avoid any obstacles.
 :::
 
-고정익 복귀 고도는 매개 변수 [RTL_RETURN_ALT](#RTL_RETURN_ALT)를 사용하여 설정됩니다. 멀티 콥터 및 VTOL 차량의 복귀 고도는 [RTL_RETURN_ALT](#RTL_RETURN_ALT) 및 [RTL_CONE_ANG](#RTL_CONE_ANG) 매개 변수를 사용하여 구성되며, 이는 목적지 (홈 위치 또는 안전 지점)를 중심으로 한 반 원뿔을 정의합니다.
+The return altitude for a fixed-wing vehicle or a VTOL in fixed-wing mode is configured using the parameter [RTL_RETURN_ALT](#RTL_RETURN_ALT) (does not use the code described in the next paragraph).
+
+The return altitude for a multicopter or a VTOL vehicles in MC mode is configured using the parameters [RTL_RETURN_ALT](#RTL_RETURN_ALT) and [RTL_CONE_ANG](#RTL_CONE_ANG), which define a half cone centered around the destination (home location or safety point).
 
 ![복귀 모드 원뿔](../../assets/flying/rtl_cone.jpg)
 
@@ -152,67 +160,36 @@ Mission _without_ landing pattern defined:
 - [RTL_CONE_ANG](#RTL_CONE_ANG)이 90도이면 기체는 `RTL_DESCEND_ALT`와 현재 고도 중 높은 고도로 복귀합니다.
 - 기체는 복귀를 위해 항상 최소 [RTL_DESCEND_ALT](#RTL_DESCEND_ALT)으로 상승합니다.
 
-<a id="arrival"></a>
-
-## 목적지에 호버링/착륙
-
-임무 착륙을 실행하지 않으면 (예 : [홈 위치 복귀](#home_return) 또는 [최인접 안전 목적지 복귀](#safety_point_return)을 실행하는 경우) 기체는 목적지에 도착하여 [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) 고도로 빠르게 하강합니다.
-
-기체는 지정된 시간 ([RTL_LAND_DELAY](#RTL_LAND_DELAY)) 동안 배회후에 착륙합니다. [RTL_LAND_DELAY = -1](#RTL_LAND_DELAY)이면 무기한 배회합니다.
-
-<a id="default_configuration"></a>
-
 ## 기체 기본 동작
 
-The mode is _implemented_ in almost exactly the same way in all vehicle types (the exception being that fixed-wing vehicles will circle rather than hover when waiting), and are hence tuned using the same parameters.
+Unless executing a [mission landing pattern](#mission-landing-pattern) as part of the return mode, the vehicle will arrive at its destination, and rapidly descend to the [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) altitude, where it will loiter for [RTL_LAND_DELAY](#RTL_LAND_DELAY) before landing. If `RTL_LAND_DELAY=-1` it will loiter indefinitely.
 
-However the _default configuration_ is tailored to suit the vehicle type, as described below.
-
-### 멀티콥터 (MC)
-
-멀티콥터는 기본적으로 [홈 위치 복귀](#home_return)나 다음 설정을 사용합니다.
-
-- [RTL_RETURN_ALT](#RTL_RETURN_ALT) ([RTL_CONE_ANG = 0](#RTL_CONE_ANG)-원뿔 사용 안 함)로 상승합니다.
-- 직선과 일정한 고도로 홈 위치로 비행합니다 (현제 고도가 복귀 고도보다 높은 경우 현재 고도로 복귀합니다).
-- [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) 고도까지 빠르게 하강합니다.
-- 거의 즉시 착륙합니다. (작은 [RTL_LAND_DELAY](#RTL_LAND_DELAY)).
-
-### Fixed-wing (FW)
-
-고정익은 기본적으로 [임무 착륙 복귀 유형](#mission_landing_return)을 사용합니다.
+The default landing configuration is vehicle dependent:
 
 - 임무 착륙이 정의된 경우 임무 착륙 시작 지점으로 직접 비행후 착륙합니다.
-- 그렇지 않으면, 홈 위치로 직접 비행하고 그 위 반경 [NAV_LOITER_RAD](#NAV_LOITER_RAD)에서 선회 비행합니다.
+- Fixed-wing vehicles use a return mode with a [mission landing pattern](#mission-landing-pattern), as this enables automated landing. If not using a mission landing, the default configuration is to loiter indefinitely, so the user can take over and manually land.
+- VTOLs in MC mode fly and land exactly as a multicopter.
+- VTOLS in FW mode head towards the landing point, transition to MC mode, and then land on the destination.
 
-If not following a mission landing, and [RTL_LAND_DELAY](#RTL_LAND_DELAY) is set to -1, the vehicle will land in the same way as [Land mode](../flight_modes_fw/land.md).
+## Mission Landing Pattern
 
-The fixed-wing [safe return altitude](#return_altitude) depends only on [RTL_RETURN_ALT](#RTL_RETURN_ALT) (the cone defined by [RTL_CONE_ANG](#RTL_CONE_ANG) is not used)
+A mission landing pattern is a landing pattern defined as part of a mission plan. This consists of a [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), one or more position waypoints, and a [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) (or [MAV_CMD_NAV_VTOL_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_LAND) for a VTOL Vehicle).
 
-RC 스틱 이동은 무시됩니다.
-
-### 수직이착륙기
-
-고정익은 기본적으로 [임무 착륙 복귀 유형](#mission_landing_return)을 사용합니다.
-
-- 임무 착륙이 정의된 경우 임무 착륙 시작 지점으로 직접 비행후 착륙합니다.
-- 그렇지 않으면, 홈 위치로 직접 비행하고 멀티콥터 모드로 전환후 착륙합니다.
-
-:::note
-If not in a mission landing, a VTOL in FW mode will _always_ transition back to MC just before landing (ignoring [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)).
-:::
+Landing patterns defined in missions are the safest way to automatically land a _fixed-wing_ vehicle on PX4. For this reason fixed-wing vehicles are configured to use [Mission landing/really point return](#mission-landing-rally-point-return-type-rtl-type-1) by default.
 
 ## 매개변수
 
 RTL 매개 변수는 [매개변수 정의 > 복귀 모드](../advanced_config/parameter_reference.md#return-mode)에 기술되어 있습니다 (아래에 요약되어 있음).
 
-| 매개변수                                                                                                     | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="RTL_TYPE"></a>[RTL_TYPE](../advanced_config/parameter_reference.md#RTL_TYPE)                  | 복귀 메커니즘 (경로 및 목적지). <br> `0` : 직접 경로를 통해 집회 지점 또는 홈(둘 중 가장 가까운 곳)으로 복귀합니다. <br> `1` : 복귀 직접 경로를 통해 집결지 또는 임무 착륙 패턴 시작 지점 (둘 중 가장 가까운 지점) 임무 착륙 또는 집결 지점이 모두 정의되지 않은 경우에는 직접 경로를 통해 홈으로 복귀합니다. 목적지가 임무 착륙 패턴인 경우 착륙 패턴을 따릅니다. <br>`2` : 착륙 패턴이 정의 된 경우 착륙까지 빨리 감기 경로를 사용하고 그렇지 않으면 홈으로 빠르게 되감기합니다. 랠리포인트를 무시합니다. 임무 계획이 정의되지 않은 경우 홈으로 직접 비행합니다. <br>`3` : 가장 가까운 목적지 (집, 임무 시작 착륙 패턴 또는 안전 지점)까지 직접 경로를 통해 복귀합니다. 목적지가 임무 착륙 패턴인 경우 패턴을 따라 착륙합니다. |
-| <a id="RTL_RETURN_ALT"></a>[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | [RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)이 0 인 경우 고도를 미터 단위 (기본값 : 60m)로 반환합니다. 이미 이 값을 초과하면 기체는 현재 고도로 복귀합니다.                                                                                                                                                                                                                                                                                                                             |
-| <a id="RTL_DESCEND_ALT"></a>[RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 기체가 더 높은 복귀 고도에서 감속하거나 초기 하강을 중지할 최소 복귀 고도 및 고도 (기본값 : 30m)                                                                                                                                                                                                                                                                                                                                                                                                               |
-| <a id="RTL_LAND_DELAY"></a>[RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | 착륙 전 `RTL_DESCEND_ALT`에서 호버링하는 시간(기본값 : 0.5 초) - 기본적으로 이 시간은 짧아서 기체는 감속후 즉시 착륙합니다. -1로 설정하면 착륙하지 않고 `RTL_DESCEND_ALT`에서 배회합니다. 이 지연은 랜딩 기어가 배치될 시간을 설정합니다. (자동으로 동작함).                                                                                                                                                                                                                                                                                                    |
-| <a id="RTL_MIN_DIST"></a>[RTL_MIN_DIST](../advanced_config/parameter_reference.md#RTL_MIN_DIST)       | 홈 위치에서 "원뿔"에 지정된 복귀 고도까지 상승을 시작하는 최소 수평 거리. 차량이 홈까지의이 거리보다 수평으로 가까우면 먼저 RTL_RETURN_ALT로 상승하지 않고 현재 고도 또는 `RTL_DESCEND_ALT` (둘 중 더 높은 쪽)고도로 복귀합니다.                                                                                                                                                                                                                                                                                                                       |
-| <a id="RTL_CONE_ANG"></a>[RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)       | 기체 RTL 리턴 고도를 정의하는 원뿔의 반각. 값 (도) : 0, 25, 45, 65, 80, 90. 0은 "원뿔 없음" (항상 `RTL_RETURN_ALT` 이상에서 반환)이고, 90은 차량이 현재 고도 또는 `RTL_DESCEND_ALT` (둘 중 더 높은 고도)에서 복귀함을 나타냅니다.                                                                                                                                                                                                                                                                                                      |
-| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Controls whether stick movement on a multicopter (or VTOL in MC mode) causes a mode change to [Position mode](../flight_modes_mc/position.md) (except when vehicle is handling a critical battery failsafe). 자동 모드와 오프보드 모드에 대해 별도로 활성화할 수 있으며, 기본적으로 자동 모드에서 활성화됩니다.                                                                                                                                                                                                     |
-| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | The amount of stick movement that causes a transition to [Position mode](../flight_modes_mc/position.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled).                                                                                                                                                                                                                                                                                                           |
-| <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)   | [Fixed-wing Only] The radius of the loiter circle (at [RTL_LAND_DELAY](#RTL_LAND_DELAY).                                                                                                                                                                                                                                                                                                                                                                                |
+| 매개변수                                                                                                       | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="RTL_TYPE"></a>[RTL_TYPE](../advanced_config/parameter_reference.md#RTL_TYPE)                    | 복귀 메커니즘 (경로 및 목적지). <br> `0` : 직접 경로를 통해 집회 지점 또는 홈(둘 중 가장 가까운 곳)으로 복귀합니다. <br> `1` : 복귀 직접 경로를 통해 집결지 또는 임무 착륙 패턴 시작 지점 (둘 중 가장 가까운 지점) 임무 착륙 또는 집결 지점이 모두 정의되지 않은 경우에는 직접 경로를 통해 홈으로 복귀합니다. 목적지가 임무 착륙 패턴인 경우 착륙 패턴을 따릅니다. <br>`2` : 착륙 패턴이 정의 된 경우 착륙까지 빨리 감기 경로를 사용하고 그렇지 않으면 홈으로 빠르게 되감기합니다. 랠리포인트를 무시합니다. 임무 계획이 정의되지 않은 경우 홈으로 직접 비행합니다. <br>`3` : 가장 가까운 목적지 (집, 임무 시작 착륙 패턴 또는 안전 지점)까지 직접 경로를 통해 복귀합니다. 목적지가 임무 착륙 패턴인 경우 패턴을 따라 착륙합니다. |
+| <a id="RTL_RETURN_ALT"></a>[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)      | [RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)이 0 인 경우 고도를 미터 단위 (기본값 : 60m)로 반환합니다. 이미 이 값을 초과하면 기체는 현재 고도로 복귀합니다.                                                                                                                                                                                                                                                                                                                             |
+| <a id="RTL_DESCEND_ALT"></a>[RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT)    | 기체가 더 높은 복귀 고도에서 감속하거나 초기 하강을 중지할 최소 복귀 고도 및 고도 (기본값 : 30m)                                                                                                                                                                                                                                                                                                                                                                                                               |
+| <a id="RTL_LAND_DELAY"></a>[RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)      | 착륙 전 `RTL_DESCEND_ALT`에서 호버링하는 시간(기본값 : 0.5 초) - 기본적으로 이 시간은 짧아서 기체는 감속후 즉시 착륙합니다. -1로 설정하면 착륙하지 않고 `RTL_DESCEND_ALT`에서 배회합니다. 이 지연은 랜딩 기어가 배치될 시간을 설정합니다. (자동으로 동작함).                                                                                                                                                                                                                                                                                                    |
+| <a id="RTL_MIN_DIST"></a>[RTL_MIN_DIST](../advanced_config/parameter_reference.md#RTL_MIN_DIST)          | 홈 위치에서 "원뿔"에 지정된 복귀 고도까지 상승을 시작하는 최소 수평 거리. 차량이 홈까지의이 거리보다 수평으로 가까우면 먼저 RTL_RETURN_ALT로 상승하지 않고 현재 고도 또는 `RTL_DESCEND_ALT` (둘 중 더 높은 쪽)고도로 복귀합니다.                                                                                                                                                                                                                                                                                                                       |
+| <a id="RTL_CONE_ANG"></a>[RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)          | 기체 RTL 리턴 고도를 정의하는 원뿔의 반각. 값 (도) : 0, 25, 45, 65, 80, 90. 0은 "원뿔 없음" (항상 `RTL_RETURN_ALT` 이상에서 반환)이고, 90은 차량이 현재 고도 또는 `RTL_DESCEND_ALT` (둘 중 더 높은 고도)에서 복귀함을 나타냅니다.                                                                                                                                                                                                                                                                                                      |
+| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE)    | Controls whether stick movement on a multicopter (or VTOL in MC mode) causes a mode change to [Position mode](../flight_modes_mc/position.md) (except when vehicle is handling a critical battery failsafe). 자동 모드와 오프보드 모드에 대해 별도로 활성화할 수 있으며, 기본적으로 자동 모드에서 활성화됩니다.                                                                                                                                                                                                     |
+| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV)    | The amount of stick movement that causes a transition to [Position mode](../flight_modes_mc/position.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled).                                                                                                                                                                                                                                                                                                           |
+| <a id="RTL_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)     | [Fixed-wing Only] The radius of the loiter circle (at [RTL_LAND_DELAY](#RTL_LAND_DELAY)).                                                                                                                                                                                                                                                                                                                                                                               |
+| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Specify whether a mission landing or takeoff pattern is _required_. Generally fixed-wing vehicles set this to require a landing pattern but VTOL do not.                                                                                                                                                                                                                                                                                                                  |

@@ -117,6 +117,8 @@ The _Geofence Failsafe_ is triggered when the drone breaches a "virtual" perimet
 
 ### 복귀 설정
 
+<!-- Propose replace section by a summary and links - return mode is complicated -->
+
 _Return_ is a common [failsafe action](#failsafe-actions) that engages [Return mode](../flight_modes/return.md) to return the vehicle to the home position. 이 섹션에서는 귀환 후 착륙/배회 동작을 설정 방법에 대하여 설명합니다.
 
 ![안전 - 귀한 설정 (QGC)](../../assets/qgc/setup/safety/safety_return_home.png)
@@ -282,7 +284,7 @@ The arm/disarm switch is a _direct replacement_ for the default stick-based armi
 - 특정 스틱 동작으로 공중에서 실수로 시동/비시동 하는 것을 방지합니다.
 - 지연 시간이 없습니다 (즉시 동작합니다).
 
-The arm/disarm switch immediately disarms (stop) motors for those [flight modes](../getting_started/flight_modes.md) that _support disarming in flight_. 여기에는 다음의 항목들이 포함됩니다.
+The arm/disarm switch immediately disarms (stop) motors for those [flight modes](../flight_modes/README.md#flight-modes) that _support disarming in flight_. 여기에는 다음의 항목들이 포함됩니다.
 
 - _수동 모드_
 - _Acro 모드_
@@ -293,7 +295,6 @@ The arm/disarm switch immediately disarms (stop) motors for those [flight modes]
 :::note
 [자동 비시동 시간 제한](#auto-disarming-timeouts)(예 : [COM_DISARM_LAND](#COM_DISARM_LAND)을 통해)은 설정/해제 스위치와 독립적입니다. 즉, 스위치가 설정되어 있어도 시간 제한이 작동합니다.
 :::
-
 
 <!--
 **Note** This can also be done by [manually setting](../advanced_config/parameters.md) the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter to the corresponding switch RC channel.
@@ -319,7 +320,7 @@ The arm/disarm switch immediately disarms (stop) motors for those [flight modes]
 
 ## 추가 정보
 
-- [QGroundControl 사용 설명서 > 안전 설정](https://docs.qgroundcontrol.com/master/en/SetupView/Safety.html)
+- [QGroundControl 사용 설명서 > 안전 설정](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/safety.html)
 
 [flight_term]: ../advanced_config/flight_termination.md
 [return]: ../flight_modes/return.md

@@ -1,6 +1,6 @@
 # 고도 모드 (멀티콥터)
 
-[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="필요한 고도 (예 : 기압계, 거리계)" width="30px" />](../getting_started/flight_modes.md#altitude_only)
+<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />&nbsp;<img src="../../assets/site/altitude_icon.svg" title="필요한 고도 (예 : 기압계, 거리계)" width="30px" />
 
 _Altitude mode_ is a _relatively_ easy-to-fly RC mode in which roll and pitch sticks control vehicle movement in the left-right and forward-back directions (relative to the "front" of the vehicle), yaw stick controls rate of rotation over the horizontal plane, and throttle controls speed of ascent-descent.
 
@@ -12,11 +12,11 @@ _Altitude mode_ is the safest non-GPS manual mode for new fliers. [수동 / 안�
 
 아래 다이어그램은 모드 동작을 시각적으로 보여줍니다 ([모드 2 송신기](../getting_started/rc_transmitter_receiver.md#transmitter_modes)의 경우).
 
-![고도 제어 MC-Mode2 RC 컨트롤러](../../assets/flight_modes/altitude_control_mode_copter.png)
+![고도 제어 MC-Mode2 RC 컨트롤러](../../assets/flight_modes/altitude_mc.png)
 
 ## 기술 요약
 
-RC/manual mode like [Manual/Stabilized (MC)](../flight_modes_mc/manual_stabilized.md) mode but with _altitude stabilization_ (centered sticks level vehicle and hold it to fixed altitude).
+RC/manual mode like [Manual/Stabilized (MC)](../flight_modes_mc/manual_stabilized.md) mode but with _altitude stabilization_ (centered sticks level vehicle and hold it to fixed altitude). The horizontal position of the vehicle can move due to wind (or pre-existing momentum).
 
 - 중앙 스틱 (데드밴드 내부) :
   - RPY sticks levels vehicle.
@@ -27,12 +27,11 @@ RC/manual mode like [Manual/Stabilized (MC)](../flight_modes_mc/manual_stabilize
   - 요 스틱은 수평면 위의  회전 각속도를 제어합니다.
 - 이륙:
   - 착륙했을 때 스로틀 스틱을 62.5 % (하단에서 전체 범위) 이상으로 올리면 기체가 이륙합니다.
-
-:::note
-
-- 수동 입력이 필요합니다 (RC 컨트롤러 또는 MAVLink를 통한 게임 패드/엄지 스틱).
-- 고도는 일반적으로 기압계로 측정되며 극단적인 기상 조건에서는 정확하지 않을 수 있습니다. LIDAR/거리 센서가 장착된 기체는 높은 정확도로 고도를 제어할 수 있습니다.
-:::
+- Altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. LIDAR/거리 센서가 장착된 기체는 높은 정확도로 고도를 제어할 수 있습니다.
+- Manual control input is required (such as RC control, joystick).
+  - Roll, Pitch: Assistance from autopilot to stabilize the attitude. Position of RC stick maps to the orientation of vehicle.
+  - Throttle: Assistance from autopilot to hold position against wind.
+  - Yaw: Assistance from autopilot to stabilize the attitude rate. Position of RC stick maps to the rate of rotation of vehicle in that orientation.
 
 ## 매개 변수
 

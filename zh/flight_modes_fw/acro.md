@@ -1,12 +1,12 @@
 # Acro Mode (Fixed-wing)
 
-[<img src="../../assets/site/difficulty_hard.png" title="很难飞" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+<img src="../../assets/site/difficulty_hard.png" title="很难飞" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />&nbsp;
 
-_Acro mode_ is the RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+_Acro mode_ is the manual mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
 
 The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation. 当操纵杆居中时，飞机将停止旋转，但保持其当前朝向（在其侧面，倒置或任何其他方向）并根据当前动量移动。 When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
 
-![固定翼手动特技飞行](../../assets/flight_modes/manual_acrobatic_FW.png)
+![固定翼手动特技飞行](../../assets/flight_modes/acrobatic_fw.png)
 
 ## 技术描述
 

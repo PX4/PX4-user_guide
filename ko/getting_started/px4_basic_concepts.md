@@ -190,12 +190,11 @@ To reduce accidents, vehicles should be armed as little as possible when the veh
 - Arming is prevented if the vehicle has a [safety switch](#safety-switch) that has not been engaged.
 - 수직이착륙기는 고정익 모드에서는 시동이 걸리지 않습니다([기본 설정](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
 
-When prearmed you can still use actuators, while disarming unpowers everything. Prearmed and disarmed should both safe, and a particular vehicle may support either or both.
+When prearmed you can still use actuators, while disarming unpowers everything. Prearmed and disarmed should both be safe, and a particular vehicle may support either or both.
 
 :::tip
-Sometimes a vehicle will not arm for reasons that are not obvious. QGC v4.2.0 (Daily build at time of writing) and later provide an arming check report in [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#arm). From PX4 v1.14 this provides comprehensive information about arming problems along with possible solutions.
+Sometimes a vehicle will not arm for reasons that are not obvious. QGC v4.2.0 (Daily build at time of writing) and later provide an arming check report in [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/fly_view/fly_view.html#arm). From PX4 v1.14 this provides comprehensive information about arming problems along with possible solutions.
 :::
-
 
 시동 및 해제에 관한 자세한 내용은 [시동 준비, 시동, 시동 해제](../advanced_config/prearm_arm_disarm.md)를 참고하십시오.
 
@@ -209,7 +208,14 @@ _Manual modes_ are controlled by the user (via the RC control sticks/joystick) w
 모든 기체마다 모든 비행 모드가 적용되지 않습니다. 비행 모드는 조건이 충족된 기체에만 적용할 수 있습니다. 대부분의 모드에서는 GPS 위치 정보가 필요합니다.
 :::
 
-비행 모드에 자세한 정보는 [비행 모드](../getting_started/flight_modes.md)를 참고하십시오. RC 스위치로 비행 모드를 변경하는 방법은 [비행 모드 설정](../config/flight_mode.md)을 참고하십시오.
+An overview of the available flight modes for each vehicle can be found below:
+
+- [Flight Modes (Multicopter)](../flight_modes_mc/README.md)
+- [Flight Modes (Fixed-wing)](../flight_modes_fw/README.md)
+- [Flight Modes (VTOL)](../flight_modes_vtol/README.md)
+- [Flight Modes (Rover)](../flight_modes_rover/README.md)
+
+Instructions for how to set up your remote control switches to enable different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
 
 ## 안전 설정(사고 방지)
 

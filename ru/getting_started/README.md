@@ -12,8 +12,6 @@ This section provides an overview of the basic concepts you need to understand i
 
 [Remote Control Systems](../getting_started/rc_transmitter_receiver.md) — Handheld systems for manually controlling a vehicle.
 
-[Flight Modes](../getting_started/flight_modes.md) — Control modes for manual, assisted and autonomous movement.
-
 [Payloads & Cameras](../payloads/README.md)
 
 [Flight Reporting](../getting_started/flight_reporting.md) — Download detailed flight logs for debugging and analysis.

@@ -1,0 +1,284 @@
+# Приклад GIT
+
+<a id="contributing_code"></a>
+
+## Внесок коду у PX4
+
+Додавання функції до PX4 слідує за визначеним робочим процесом. Щоб поділитися своїми внесками на PX4, ви можете наслідувати приклад.
+
+- [Зареєструватися](https://github.com/join) на github якщо ви ще не маєте там акаунту
+- Форк репо PX4-Autopilot (див. [тут](https://docs.github.com/en/get-started/quickstart/fork-a-repo))
+- Клонуйте ваш форкнутий репозиторій на локальний комп'ютер
+
+  ```sh
+  cd ~/wherever/
+  git clone https://github.com/<your git name>/PX4-Autopilot.git
+  ```
+
+- Зайдіть в новий каталог, ініціалізуйте та оновіть підмодулі, і додайте оригінальні upstream PX4-Autopilot
+
+  ```sh
+  cd PX4-Autopilot
+  git submodule update --init --recursive
+  git remote add upstream https://github.com/PX4/PX4-Autopilot.git
+  ```
+
+- Тепер у вас має бути два віддалених сховища: одне сховище називається `upstream`, яке вказує на PX4/PX4-Autopilot, і одне сховище `origin`, яке вказує на вашу розгалужену копію сховища PX4 .
+- Це може бути відмічено наступною командою:
+
+  ```sh
+  git remote -v
+  ```
+
+- Внесіть зміни, які ви хочете додати до основного.
+- Створіть нову гілку з значущим ім'ям, яке репрезентує вашу функцію
+
+  ```sh
+  git checkout -b <your feature branch name>
+  ```
+
+  ви можете використати команду `git branch` щоб переконатися, що ви знаходитесь в правій гілці.
+
+- Додайте зміни, які ви хочете бути частиною коміту, додавши відповідні файли
+
+  ```sh
+  git add <file name>
+  ```
+
+  Якщо ви віддаєте перевагу створенню інтерфейсу, щоб додати свої файли див. [Gitk](https://git-scm.com/book/en/v2/Git-in-Other-Environments-Graphical-Interfaces) або [`git add -p`](http://nuclearsquid.com/writings/git-add/).
+
+-
+
+  ```sh
+  git commit -m "<your commit message>"
+  ```
+
+  Щоб отримати гарне повідомлення про фіксацію, зверніться до розділу [Керування вихідним кодом](../contribute//code.md#commits-and-commit-messages).
+
+- Можливо, минув деякий час, і [головний вихідний канал](https://github.com/PX4/PX4-Autopilot.git) змінився. PX4 віддає перевагу лінійній журнал комітів і використовує [git rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing). Щоб включити найновіші зміни з початкової версії до локальної гілки, перейдіть до головної гілки
+
+  ```sh
+  git checkout main
+  ```
+
+  Потім зтягнути найновіші коміти з upstream main
+
+  ```sh
+  git pull upstream main
+  ```
+
+  Тепер ваш локальний головний  репозиторій оновлений. Поверніться до своєї функціональної гілки та перебазуйте свою оновлену основну
+
+  ```sh
+  git checkout <your feature branch name>
+  git rebase main
+  ```
+
+- Тепер ви можете відправляти свої локальні коміти у свій форкований репозиторій
+
+  ```sh
+  git push origin <your feature branch name>
+  ```
+
+- Ви можете переконатися, що надсилання було успішним, перейшовши до свого розгалуженого сховища у своєму браузері: `https://github.com/<your git name>/PX4-Autopilot.git`
+
+  Там ви повинні побачити повідомлення, що нова гілка була відправлена у ваш форкнутий репозиторій.
+
+- Тепер настав час створити запит на злиття (PR). Праворуч від «повідомлення про нове розгалуження» (див. за крок до цього) ви маєте побачити зелену кнопку з написом «Порівняти та створити запит на отримання». Потім у ньому має бути перелік ваших змін, і ви можете (обов’язково) додати змістовний заголовок (у випадку PR з одним комітом, зазвичай це повідомлення коміту) і повідомлення (<span style="color:orange">пояснити, що ви зробили, з якої причини</span>. Перевірте [інші pull запитів](https://github.com/PX4/PX4-Autopilot/pulls) для порівняння)
+- Готово! Відповідальні учасники PX4 тепер побачать ваш внесок і вирішать, чи хочуть вони інтегрувати його. Перевірте, чи є у них питання питання через будь-який час.
+
+##
+
+Ми рекомендуємо використовувати команди PX4 `make` для перемикання між гілками вихідного коду. Це позбавить вас від необхідності запам’ятовувати команди для оновлення підмодулів і очищення артефактів збірки (файли збірки, які не видалено, призведуть до помилок «невідстежуваних файлів» після перемикання).
+
+Переключитися між гілками:
+
+1. Очистити поточну гілку, деініціалізувати підмодуль та видалити всі артефакти збірки:
+
+   ```sh
+   make clean
+   make distclean
+   ```
+
+1. Перейдіть до нової гілки або тегу (тут ми спочатку отримуємо вигадану гілку "PR_test_branch" з віддаленого `верхнього потоку`):
+
+   ```sh
+   git fetch upstream PR_test_branch
+   git checkout PR_test_branch
+   ```
+
+1. Отримати підмодулі для нової гілки:
+
+   ```sh
+   make submodulesclean
+   ```
+
+<!-- FYI: Cleaning commands in https://github.com/PX4/PX4-Autopilot/blob/main/Makefile#L494 -->
+
+## Отримання конкретного  релізу
+
+Конкретні випуски точки PX4 створюються як теги [гілок випуску](#get-a-release-branch) та мають назву у форматі `v<release>`. Вони [перелічені на Github тут](https://github.com/PX4/PX4-Autopilot/releases?q=release&expanded=true) (або ви можете запитати всі теги за допомогою `git tag -l`).
+
+To get the source code for a _specific older release_ (tag):
+
+1. Клонуйте репо PX4-Autopilot і перейдіть до каталогу _PX4-Autopilot_:
+
+   ```sh
+   git clone https://github.com/PX4/PX4-Autopilot.git
+   cd PX4-Autopilot
+   ```
+
+   :::note
+
+   Ви можете повторно використовувати існуючий репозиторій, а не клонувати новий. У цьому випадку очистіть середовище збірки (див. [зміна дерев вихідних кодів](#changing-source-trees)):
+
+   ```sh
+   make clean
+   make distclean
+   ```
+
+
+:::
+
+1. Checkout code for particular tag (e.g. for tag v1.13.0-beta2)
+
+   ```sh
+   git checkout v1.13.0-beta2
+   ```
+
+1. Оновити підмодулі:
+
+   ```sh
+   make submodulesclean
+   ```
+
+## Get a Release Branch
+
+Стрічки з `основної`та використовуються для backport необхідних змін з основного релізу. Гілки називаються використовуючи формат `release/<release_number>` (напр. `release/v1.13`). Перераховані [тут](https://github.com/PX4/PX4-Autopilot/branches/all?query=release).
+
+Щоб отримати гілку релізу:
+
+- Clone the PX4-Autopilot repo and navigate into _PX4-Autopilot_ directory:
+
+  ```sh
+  git clone https://github.com/PX4/PX4-Autopilot.git
+  cd PX4-Autopilot
+  ```
+
+  :::note
+
+  Ви можете повторно використовувати існуючий репозиторій, а не клонувати новий. У цьому випадку очистіть середовище збірки (див. [зміна дерев вихідних кодів](#changing-source-trees)):
+
+  ```sh
+  make clean
+  make distclean
+  ```
+
+
+:::
+
+- Отримати бажану гілку релізу. Наприклад, припустимо, що ви хочете джерело для PX4 v1.14:
+
+  ```sh
+  git fetch origin release/1.14
+  ```
+
+- Checkout the code for the branch
+
+  ```sh
+  git checkout release/1.14
+  ```
+
+- Оновити підмодулі:
+
+  ```sh
+  make submodulesclean
+  ```
+
+## Update Submodule
+
+Існує кілька способів оновлення підмодуля. Ви клонуєте репозиторій або зайдете в каталог підмодулів і виконаєте ту ж процедуру, що і в [спільний код для PX4](#contributing_code).
+
+## Do a PR for a submodule update
+
+Це необхідно після того, як ви зробили PR для репозиторію підмодуля X і виправлення помилки/додавання функції є в поточному основному основному підмодулю X. Оскільки прошивка все ще вказує на твердження до вашого оновлення, підмодуль запит на злиття обов'язковий таким чином, щоб підмодуль використовувався точками прошивки до найновішого коміту.
+
+```sh
+cd Firmware
+```
+
+- Створити нову гілку, яка описує виправлення / функцію оновлення підмодулів:
+
+  ```sh
+  git checkout -b pr-some-fix
+  ```
+
+- Перейти до підкаталогу підмодулів
+
+  ```sh
+  cd <path to submodule>
+  ```
+
+- Підмодуль PX4 не обов'язково вказує на найновіший коміт. Тому для того, для того, щоб оформити замовлення основного і витягнути найновіший код першоджерела.
+
+  ```sh
+  git checkout main
+  git pull upstream main
+  ```
+
+- Go back to Firmware directory, and as usual add, commit and push the changes.
+
+  ```sh
+  cd -
+  git add <path to submodule>
+  git commit -m "Update submodule to include ..."
+  git push upstream pr-some-fix
+  ```
+
+## Checkout pull requests
+
+Ви можете перевірити чийсь запит на злиття (зміни ще не злиті), навіть якщо гілка зливання існує лише на форку з цієї людини. Do the following:
+
+```sh
+git fetch upstream  pull/<PR ID>/head:<branch name>
+```
+
+`PR ID` це число навпроти PR's заголовку (без #) and the `<branch name>`також можна знайти прямо під `PR ID`, e.g. `<the other persons git name>:<branch name>`. Після цього ви зможете побачити новостворену гілку локально за допомогою
+
+```sh
+git branch
+```
+
+Потім перейдіть на цю гілку
+
+```sh
+git checkout <branch name>
+```
+
+## Common pitfalls
+
+### Force push to forked repository
+
+Після завершення першого PR, люди зі спільноти PX4 переглянуть ваші зміни. У більшості випадків це означає, що ви повинні виправити свою місцеву гілку відповідно до розгляду. Після локальної зміни файлів гілку функцій потрібно знову базувати з останньою версією upstream/main. Однак після перебазування більше неможливо надіслати гілку функцій у ваш розгалужений репозиторій напряму, замість цього вам потрібно використати force push:
+
+```sh
+
+```
+
+### Rebase merge conflicts
+
+Якщо під час `git rebase` виникає конфлікт, зверніться до [цього посібника](https://docs.github.com/en/get-started/using-git/resolving-merge-conflicts-after-a-git-rebase).
+
+### Pull merge conflicts
+
+Якщо під час `git pull` виникає конфлікт, зверніться до [цього посібника](https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/#competing-line-change-merge-conflicts).
+
+### Помилка збірки через застарілі git теги
+
+Помилка збірки `Помилка: надто низька версія PX4, очікується принаймні vx.x.x` виникає, якщо теги git застаріли.
+
+Це можна вирішити шляхом отримання тегів репозиторію upstream :
+
+```sh
+git fetch upstream --tags
+```

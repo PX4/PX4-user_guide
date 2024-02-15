@@ -1,6 +1,6 @@
 # 定高模式（多旋翼）
 
-[<img src="../../assets/site/difficulty_easy.png" title="飞行难度：简单" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动/遥控器控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="需要高度传感器（例如气压计、测距仪）" width="30px" />](../getting_started/flight_modes.md#altitude_only)
+<img src="../../assets/site/difficulty_easy.png" title="飞行难度：简单" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="需要手动/遥控器控制" width="30px" />&nbsp;<img src="../../assets/site/altitude_icon.svg" title="需要高度传感器（例如气压计、测距仪）" width="30px" />
 
 _高度模式_是一个_相对_容易的遥控模式，其中滚转和俯仰控制机体在左右和前后方向上的运动（相对于机体“前方”），偏航摇杆控制水平面上的旋转速度，油门控制升降速度。
 
@@ -12,11 +12,11 @@ _高度模式_ 是新飞手最安全的非GPS 手动模式。 就像[手动/自�
 
 下图直观的显示了模式行为（对于一个[模式 2 发送器](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
 
-![高度控制MC - Mode2 RC控制器](../../assets/flight_modes/altitude_control_mode_copter.png)
+![高度控制MC - Mode2 RC控制器](../../assets/flight_modes/altitude_mc.png)
 
 ## 技术摘要
 
-遥控/手动模式就像 [手动/自稳（多旋翼）](../flight_modes_mc/manual_stabilized.md)模式，但具有_高度稳定_ （摇杆中位能够使无人机水平并且保持固定高度）。
+遥控/手动模式就像 [手动/自稳（多旋翼）](../flight_modes_mc/manual_stabilized.md)模式，但具有_高度稳定_ （摇杆中位能够使无人机水平并且保持固定高度）。 The horizontal position of the vehicle can move due to wind (or pre-existing momentum).
 
 - 回正摇杆（内带死区）：
   - RPY摇杆使飞机水平。
@@ -27,12 +27,11 @@ _高度模式_ 是新飞手最安全的非GPS 手动模式。 就像[手动/自�
   - 偏航摇杆控制水平面上方的角度旋转速率。
 - 起飞：
   - 降落时，如果将油门杆抬高至 62.5%（从油门杆最低开始的整个范围），无人机将起飞。
-
-:::note
-
-- 需要手动输入（遥控器，或者通过 MAVLink 连接的游戏手柄/拇指摇杆）。
-- 通常使用气压计测量高度，在极端天气条件下可能会变的不准确。 带有激光雷达/距离传感器的飞机将能够以更高的可靠性和准确性控制高度。
-:::
+- Altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. 带有激光雷达/距离传感器的飞机将能够以更高的可靠性和准确性控制高度。
+- Manual control input is required (such as RC control, joystick).
+  - Roll, Pitch: Assistance from autopilot to stabilize the attitude. Position of RC stick maps to the orientation of vehicle.
+  - Throttle: Assistance from autopilot to hold position against wind.
+  - Yaw: Assistance from autopilot to stabilize the attitude rate. Position of RC stick maps to the rate of rotation of vehicle in that orientation.
 
 ## 参数
 

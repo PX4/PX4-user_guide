@@ -1,6 +1,6 @@
 # 手动/自稳模式（多旋翼）
 
-[<img src="../../assets/site/difficulty_medium.png" title="飞行难度：中等" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动/遥控器控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+<img src="../../assets/site/difficulty_medium.png" title="飞行难度：中等" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="需要手动/遥控器控制" width="30px" />&nbsp;
 
 _手动/自稳_模式当遥控杆居中时多旋翼无人机将自稳。 要手动使机体移动/飞行您需要移动遥杆使其偏离居中位置。
 
@@ -12,16 +12,24 @@ _手动/自稳_模式当遥控杆居中时多旋翼无人机将自稳。 要手�
 
 一旦释放摇杆，它们将会返回中心停顿区。 一旦横滚和俯仰摇杆居中，多旋翼无人机将平稳并停止运动。 然后机体将悬停在适当的位置/保持高度 - 前提是平衡得当，油门设置适当（在[下方](#params)查看），并且没有施加任何外力（例如风）。 飞行器将朝着任何风的方向漂移，您必须控制油门以保持高度。
 
-![多旋翼手动飞行](../../assets/flight_modes/manual_stabilized_MC.png)
+![多旋翼手动飞行](../../assets/flight_modes/stabilized_mc.png)
 
 ## 技术描述
 
+RC mode where centered sticks level vehicle (only - position is not stabilized).
+
 飞手的输入通过横滚和俯仰角度以及偏航角速率指令传递给自驾仪。 油门被重新定位(见[下面的 ](#params))，并直接传递到控制分配。 自动驾驶仪控制着飞机的姿态角，这意味着当 RC 摇杆居中时自驾仪调整飞机的滚转和俯仰角为零（从而实现飞机姿态的改平）。 自动驾驶仪不能补偿由于风（或其他来源）引起的漂移。
 
-:::note
-
-- 手动输入信号是必须的（遥控器，或通过 MAVLink 的游戏手柄/拇指摇杆）。
-:::
+- Centered sticks (inside deadband):
+  - Roll/Pitch sticks level vehicle.
+- Outside center:
+  - Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.
+  - Throttle stick controls up/down speed (and movement speed in other axes).
+  - Yaw stick controls rate of angular rotation above the horizontal plane.
+- Manual control input is required (such as RC control, joystick).
+  - Roll, Pitch: Assistance from autopilot to stabilize the attitude. Position of RC stick maps to the orientation of vehicle.
+  - Throttle: Manual control via RC sticks. RC input is sent directly to control allocation.
+  - Yaw: Assistance from autopilot to stabilize the attitude rate. Position of RC stick maps to the rate of rotation of vehicle in that orientation.
 
 <a id="params"></a>
 

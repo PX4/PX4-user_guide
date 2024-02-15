@@ -1,6 +1,6 @@
 # 保持模式 (多旋翼)
 
-[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
 
 _保持_飞行模式使飞行器停止并悬停在当前的 GPS 位置和高度。
 

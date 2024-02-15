@@ -31,11 +31,11 @@ Before you can fly the vehicle it must first be [armed](../getting_started/px4_b
 
 ### Multicopter Takeoff
 
-Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by enabling any manual mode, arming the vehicle and then raising the throttle stick until the motors produce enough thrust to leave the ground. In [Position mode (MC)](../flight_modes/README.md#position_mc) or [Altitude mode (MC)](../flight_modes/README.md#altitude_mc) the throttle stick has to be increased to above 62.5% to command a climb rate and make the vehicle leave the ground. 高于此值，所有控制器都被启用，无人机将输出悬停所需的油门值（[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)）。
+Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by enabling any manual mode, arming the vehicle and then raising the throttle stick until the motors produce enough thrust to leave the ground. In [Position mode](../flight_modes_mc/position.md) or [Altitude mode](../flight_modes_mc/altitude.md) the throttle stick has to be increased to above 62.5% to command a climb rate and make the vehicle leave the ground. 高于此值，所有控制器都被启用，无人机将输出悬停所需的油门值（[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)）。
 
 [Throw Launch](../flight_modes_mc/throw_launch.md) is also supported, in which the vehicle activates motors after it detects that it has reached the apex of a throw, and then operates according to its current mode.
 
-Alternatively the takeoff can performed using the automatic [Takeoff mode (MC)](../flight_modes_mc/takeoff.md).
+Alternatively the takeoff can performed using the automatic [Takeoff mode](../flight_modes_mc/takeoff.md).
 
 :::note
 如果机体在解锁后过长时间没有起飞，无人机将会加锁（使用[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)调整超时时间）。 :::
@@ -50,7 +50,7 @@ Taking off manually (and landing) is not easy!
 We recommend using with the automatic modes instead, especially for inexperienced pilots.
 :::
 
-[Stabilized mode](../flight_modes/README.md#stabilized_fw), [Acro mode](../flight_modes/README.md#acro_fw) or [Manual mode](../flight_modes/README.md#manual_fw) mode are recommended for manual takeoff. [Position mode](../flight_modes/README.md#position_fw) and [Altitude mode](../flight_modes/README.md#altitude_fw) can also be used, but it is important to accelerate the vehicle sufficiently before bringing them airborne — strong thrust if hand-launched, long runway phase for runway takeoff (this is required because the controller in these modes can prioritize airspeed over altitude tracking).
+[Stabilized mode](../flight_modes_fw/stabilized.md), [Acro mode](../flight_modes_fw/acro.md) or [Manual mode](../flight_modes_fw/manual.md) mode are recommended for manual takeoff. [Position mode](../flight_modes_fw/position.md) and [Altitude mode](../flight_modes_fw/altitude.md) can also be used, but it is important to accelerate the vehicle sufficiently before bringing them airborne — strong thrust if hand-launched, long runway phase for runway takeoff (this is required because the controller in these modes can prioritize airspeed over altitude tracking).
 
 Manual takeoffs with hand-launched planes:
 - Ramp up the motor and throw the vehicle horizontally.
@@ -75,7 +75,7 @@ Multicopters can be landed in any manual mode. Make sure to keep the throttle st
 - 通过[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)来设置降落后自动加锁的时间（或完全禁用它）。
 - 通过将油门杆放在左下角手动加锁。
 
-There is also the option to let the vehicle land autonomously. For that engage the [Land mode](../flight_modes_mc/land.md) or [Return mode](../flight_modes/return.md).
+There is also the option to let the vehicle land autonomously. For that engage the [Land mode](../flight_modes_mc/land.md) or [Return mode](../flight_modes_mc/return.md).
 
 :::note
 如果您在降落期间看到车辆“抽搐” (电机不停的在关闭打开状态快速切换) 这可能是由于 [降落检测器配置](../advanced_config/land_detector.md)不当（特别是[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)设置不当）造成的。 :::
@@ -83,9 +83,9 @@ There is also the option to let the vehicle land autonomously. For that engage t
 
 ### Fixed-wing Landing
 
-[Stabilized mode](../flight_modes/README.md#stabilized_fw), [Acro mode](../flight_modes/README.md#acro_fw) or [Manual mode](../flight_modes/README.md#manual_fw) are recommended for landing (just as they are for takeoff). In these modes the pilot has full control over the motor thrust, which is required to perform a manual flaring maneuver when close to the ground (raising the vehicle nose without increasing throttle). You should perform the landing in headwind to reduce the groundspeed before touching down.
+[Stabilized mode](../flight_modes_fw/stabilized.md), [Acro mode](../flight_modes_fw/acro.md) or [Manual mode](../flight_modes_fw/manual.md) are recommended for landing (just as they are for takeoff). In these modes the pilot has full control over the motor thrust, which is required to perform a manual flaring maneuver when close to the ground (raising the vehicle nose without increasing throttle). You should perform the landing in headwind to reduce the groundspeed before touching down.
 
-For auto landings you should use a [Fixed-Wing Mission Landing](../flight_modes_fw/mission.md#mission-landing). This landing is defined in a mission, and can be used in either [Mission](../flight_modes_fw/mission.md) or [Return](../flight_modes/return.md) modes.
+For auto landings you should use a [Fixed-Wing Mission Landing](../flight_modes_fw/mission.md#mission-landing). This landing is defined in a mission, and can be used in either [Mission](../flight_modes_fw/mission.md) or [Return](../flight_modes_fw/return.md) modes.
 
 The automatic [Land mode](../flight_modes_fw/land.md) mode is not recommended unless absolutely necessary, as it cannot account for underlying terrain.
 <!-- Added this to make it more generic: We'll split this out later -->

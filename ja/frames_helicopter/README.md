@@ -21,7 +21,7 @@ PX4 supports helicopters with a single main rotor with a swash-plate controlled 
 - a mechanically uncoupled tail rotor driven by an ESC, or
 - a mechanically coupled tail controlled by a servo on the tail motor.
 
-The allowed flight operations and [flight modes](../getting_started/flight_modes.md#multicopter-helicopter) are the same as for multicopter. Note however that (at the time of writing) 3D flying with negative thrust is not supported in autonomous/guided modes.
+The allowed flight operations and [flight modes](../flight_modes_mc/README.md) are the same as for multicopter. Note however that (at the time of writing) 3D flying with negative thrust is not supported in autonomous/guided modes.
 
 ## Assembly
 

@@ -45,7 +45,7 @@ For more information see: [Flight Controller Selection](flight_controller_select
 
 ## Sensors
 
-PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The system _minimally requires_ a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed-wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
+PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The system _minimally requires_ a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic flight modes and some manual modes. Fixed-wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
 
 For more information see:
 
@@ -190,12 +190,11 @@ To reduce accidents, vehicles should be armed as little as possible when the veh
 - Arming is prevented if the vehicle has a [safety switch](#safety-switch) that has not been engaged.
 - Arming is prevented if a VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
 
-When prearmed you can still use actuators, while disarming unpowers everything. Prearmed and disarmed should both safe, and a particular vehicle may support either or both.
+When prearmed you can still use actuators, while disarming unpowers everything. Prearmed and disarmed should both be safe, and a particular vehicle may support either or both.
 
 :::tip
-Sometimes a vehicle will not arm for reasons that are not obvious. QGC v4.2.0 (Daily build at time of writing) and later provide an arming check report in [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#arm). From PX4 v1.14 this provides comprehensive information about arming problems along with possible solutions.
+Sometimes a vehicle will not arm for reasons that are not obvious. QGC v4.2.0 (Daily build at time of writing) and later provide an arming check report in [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/fly_view/fly_view.html#arm). From PX4 v1.14 this provides comprehensive information about arming problems along with possible solutions.
 :::
-
 
 A detailed overview of arming and disarming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
 
@@ -209,7 +208,14 @@ _Manual modes_ are controlled by the user (via the RC control sticks/joystick) w
 Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
 :::
 
-An overview of the available flight modes [can be found here](../getting_started/flight_modes.md). Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
+An overview of the available flight modes for each vehicle can be found below:
+
+- [Flight Modes (Multicopter)](../flight_modes_mc/README.md)
+- [Flight Modes (Fixed-wing)](../flight_modes_fw/README.md)
+- [Flight Modes (VTOL)](../flight_modes_vtol/README.md)
+- [Flight Modes (Rover)](../flight_modes_rover/README.md)
+
+Instructions for how to set up your remote control switches to enable different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
 
 ## Safety Settings (Failsafe)
 

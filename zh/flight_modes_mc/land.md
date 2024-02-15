@@ -1,6 +1,6 @@
 # 着陆模式（多旋翼）
 
-[<img src="../../assets/site/position_fixed.svg" title="需要定位估计（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+<img src="../../assets/site/position_fixed.svg" title="需要定位估计（例如GPS）" width="30px" />
 
 _着陆_飞行模式使飞机降落在指定点。 这辆车在降落后不久将被解除武装(默认)。
 
@@ -39,4 +39,4 @@ _着陆_飞行模式使飞机降落在指定点。 这辆车在降落后不久�
 ## 另请参阅
 
 - [着陆模式（固定翼）](../flight_modes_fw/land.md)
-- [着陆模式（垂直起降）](../flight_modes/land.md)
+- [着陆模式（垂直起降）](../flight_modes_vtol/land.md)

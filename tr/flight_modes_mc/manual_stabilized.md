@@ -1,6 +1,6 @@
 # Manual/Stabilized Mode (Multicopter)
 
-[<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />&nbsp;
 
 The _Manual/Stabilized_ mode stabilizes the multicopter when the RC control sticks are centred. To manually move/fly the vehicle you move the sticks outside of the centre.
 
@@ -12,16 +12,24 @@ When under manual control the roll and pitch sticks control the _angle_ of the v
 
 As soon as you release the control sticks they will return to the center deadzone. The multicopter will level out and stop once the roll and pitch sticks are centered. The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately (see [below](#params)), and no external forces are applied (e.g. wind). The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
 
-![MC Manual Flight](../../assets/flight_modes/manual_stabilized_MC.png)
+![MC Manual Flight](../../assets/flight_modes/stabilized_mc.png)
 
 ## Technical Description
 
+RC mode where centered sticks level vehicle (only - position is not stabilized).
+
 The pilot's inputs are passed as roll and pitch angle commands and a yaw rate command. Throttle is rescaled (see [below](#params)) and passed directly to control allocation. The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered inside the controller deadzone (consequently leveling-out the attitude). The autopilot does not compensate for drift due to wind (or other sources).
 
-:::note
-
-- Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
-:::
+- Centered sticks (inside deadband):
+  - Roll/Pitch sticks level vehicle.
+- Outside center:
+  - Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.
+  - Throttle stick controls up/down speed (and movement speed in other axes).
+  - Yaw stick controls rate of angular rotation above the horizontal plane.
+- Manual control input is required (such as RC control, joystick).
+  - Roll, Pitch: Assistance from autopilot to stabilize the attitude. Position of RC stick maps to the orientation of vehicle.
+  - Throttle: Manual control via RC sticks. RC input is sent directly to control allocation.
+  - Yaw: Assistance from autopilot to stabilize the attitude rate. Position of RC stick maps to the rate of rotation of vehicle in that orientation.
 
 <a id="params"></a>
 

@@ -12,8 +12,6 @@
 
 [遥控系统](../getting_started/rc_transmitter_receiver.md) - 手动控制飞机的手持系统。
 
-[飞行模式](../getting_started/flight_modes.md) — 手动、辅助、全自动的控制模式。
-
 [载荷 & 相机](../payloads/README.md)
 
 [飞行报告](../getting_started/flight_reporting.md) — 下载详细的飞行日志用于调试分析。

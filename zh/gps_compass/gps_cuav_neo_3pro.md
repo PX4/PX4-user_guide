@@ -1,6 +1,6 @@
 # CUAV NEO 3 Pro
 
-<Badge type="tip" text="PX4 v1.13+" />
+<Badge type="tip" text="PX4 v1.13" />
 
 NEO 3Pro is a DroneCan GPS receiver produced by CUAV.
 It integrates UBLOX M9N, STM32F4 MCU, RM3100 compass, three-color LED light and safety switch.

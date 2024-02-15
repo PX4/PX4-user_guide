@@ -1,6 +1,6 @@
 # CUAV NEO 3X GPS
 
-<Badge type="tip" text="PX4 v1.13+" />
+<Badge type="tip" text="PX4 v1.13" />
 
 CUAV Neo 3X is a GNSS receiver that is waterproof and dustproof.
 It has IP66 protection capability and integrates UBLOX M9N module, RM3100 compass, color LED light and safety switch.
