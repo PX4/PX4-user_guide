@@ -1,11 +1,11 @@
-# Vehicle Status Notifications
+# Повідомлення про статус літального апарату
 
-PX4 provides vehicle-based visual (LED) and audible (Buzzer) notifications of "high level" vehicle status and readiness to fly. These notifications indicate, for example, whether or not the vehicle is properly calibrated, has an SD card, has position lock, is safe to approach, whether or not it is armed, when it is ready to fly, etc.
+PX4 надає візуальні (LED) та звукові (Buzzer) сповіщення про "високий рівень" стану транспортного засобу та його готовність до польоту на базі транспортного засобу. Ці сповіщення вказують, наприклад, чи правильно відкалібрований транспортний засіб, чи має він SD-карту, чи має фіксатор положення, чи безпечно до нього наближатися, чи він озброєний, коли він готовий до польоту тощо.
 
-In addition, PX4 provides more fine-grained information about readiness to fly in GCS notifications resulting from pre-flight checks.
+Крім того, PX4 надає більш детальну інформацію про готовність до польоту в повідомленнях GCS, отриманих в результаті передпольотних перевірок.
 
-The LED, tune and GCS notifications are linked below:
+Світлодіодні, звукові та GCS сповіщення:
 
 * [LED Meanings](../getting_started/led_meanings.md)
-* [Tune/Sound Meanings](../getting_started/tunes.md)
-* [Preflight Checks (Internal)](../flying/pre_flight_checks.md)
+* [Значення звуків та мелодій](../getting_started/tunes.md)
+* [Передпольотні перевірки (внутрішні)](../flying/pre_flight_checks.md)
