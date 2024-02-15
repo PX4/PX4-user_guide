@@ -10,6 +10,6 @@ For information about flight modes available to specific frames see the followin
 - [Flight/Drive Modes (Rover)](../flight_modes_rover/README.md)
 
 :::note
-The sub-topics in this section contain information that is common to all vehicles, but is may not be relevant to the normal/default setup.
+The mode sub-topics in this section contain information that is common to all vehicles, but may not be relevant to the normal/default setup.
 Generally you should see the vehicle-specific topics first, and navigate to these generalized topics when it becomes relevant.
 :::
