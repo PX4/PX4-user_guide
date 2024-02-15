@@ -1,6 +1,6 @@
 # 位置模式（多旋翼）
 
-[<img src="../../assets/site/difficulty_easy.png" title="飞行难度：简单" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动/遥控器控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="需要定位锁定（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+<img src="../../assets/site/difficulty_easy.png" title="飞行难度：简单" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="需要手动/遥控器控制" width="30px" />&nbsp;<img src="../../assets/site/position_fixed.svg" title="需要定位锁定（例如GPS）" width="30px" />
 
 _Position_ is an easy-to-fly RC mode in which roll and pitch sticks control acceleration over ground in the vehicle's left-right and forward-back directions (similar to a car's accelerator pedal), and throttle controls speed of ascent-descent. When the sticks are released/centered the vehicle will actively brake, level, and be locked to a position in 3D space — compensating for wind and other forces. 摇杆满偏时，机体以[MPC_ACC_HOR_MAX](#MPC_ACC_HOR_MAX)开始加速减小到达到最终的速度[MPC_VEL_MANUAL](#MPC_VEL_MANUAL)。
 
@@ -10,7 +10,7 @@ Position mode is the safest manual mode for new fliers. 不同于[定高模式](
 
 The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
 
-![MC Position Mode](../../assets/flight_modes/position_MC.png)
+![MC Position Mode](../../assets/flight_modes/position_mc.png)
 
 ### 降落
 
@@ -30,6 +30,7 @@ While very rare on a well calibrated vehicle, sometimes there may be problems wi
   - 降落后检查 GPS 和磁罗盘方向，并校准。
 - If the vehicle does not detect the ground/landing and disarm:
   - 机体落地后切换到[手动/自稳模式](../flight_modes/manual_stabilized_mc.md)，保持油门杆低位，并使用手势或其他命令手动落锁。 或者，当机体已经在地面上时，您也可以使用断电开关。
+
 :::
 
 ## 技术摘要
@@ -43,12 +44,10 @@ While very rare on a well calibrated vehicle, sometimes there may be problems wi
   - 偏航杆控制水平面上方的角旋转速率。
 - 起飞：
   - 在地面时，如果油门杆升高到 62.5% 以上（从底部的全范围），机体将起飞。
-
-:::note
-
-- 手动输入信号是必须的（遥控器，或通过 MAVLink 的游戏手柄/拇指摇杆）。
-- 此模式需要 GPS。
-:::
+- Global position estimate is required.
+- Manual control input is required (such as RC control, joystick).
+  - Roll, Pitch, Throttle: Assistance from autopilot to hold position against wind.
+  - Yaw: Assistance from autopilot to stabilize the attitude rate. Position of RC stick maps to the rate of rotation of vehicle in that orientation.
 
 ### 参数
 
