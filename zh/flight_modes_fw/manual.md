@@ -2,13 +2,11 @@
 
 <!-- this requires review -->
 
-[<img src="../../assets/site/difficulty_hard.png" title="很难飞" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+<img src="../../assets/site/difficulty_hard.png" title="很难飞" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />&nbsp;
 
-_Manual mode_ sends RC stick input directly to control allocation for fully manual control.
+_Manual mode_ sends manual stick input directly to control allocation for fully manual control.
 
-:::tip
-This is the hardest mode to fly, because nothing is stabilized. 不同于[特技模式](../flight_modes/acro_fw.md)，如果 RP （俯仰和横滚） 摇杆居中，无人机不会自动停止绕轴转；飞手实际上必须移动摇杆向另一个方向施力。
-:::
+This is the hardest mode to fly, because nothing is stabilised. 不同于[特技模式](../flight_modes/acro_fw.md)，如果 RP （俯仰和横滚） 摇杆居中，无人机不会自动停止绕轴转；飞手实际上必须移动摇杆向另一个方向施力。
 
 :::note
 This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). 该模式提供了一个安全机制，允许在 FMU 固件故障时通过遥控器完全控制油门，升降舵，副翼和方向舵。
