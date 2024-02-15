@@ -121,7 +121,7 @@ S-Port receivers transmit the following messages from PX4 (from [here](https://g
 - **Hdg:** Heading (degrees - North is 0°).
 - **VFAS:** Actual battery voltage value (Voltage FrSky Ampere Sensor).
 - **VSpd:** Vertical speed (cm/s).
-- **Tmp1:** [Flight mode](../getting_started/flight_modes.md), sent as an integer: 18 - Manual, 23 - Altitude, 22 - Position, 27 - Mission, 26 - Hold, 28 - Return, 19 - Acro, 24 0 Offboard, 20 - Stabilized, 25 - Takeoff, 29 - Land, 30 - Follow Me.
+- **Tmp1:** [Flight mode](../flight_modes/README.md#flight-modes), sent as an integer: 18 - Manual, 23 - Altitude, 22 - Position, 27 - Mission, 26 - Hold, 28 - Return, 19 - Acro, 24 0 Offboard, 20 - Stabilized, 25 - Takeoff, 29 - Land, 30 - Follow Me.
 - **Tmp2:** GPS information. Right-most digit is GPS fix type (0 = none, 2 = 2D, 3 = 3D). Other digits are number of satellites.
 
 :::note
