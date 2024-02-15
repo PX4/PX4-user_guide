@@ -10,4 +10,5 @@ uint32 device_id                # unique device ID for the sensor that does not 
 float32 speed			# the speed being reported by the wind / airflow sensor
 float32 direction		# the direction bein report by the wind / airflow sensor
 uint8 status			# Status code from the sensor
+
 ```
