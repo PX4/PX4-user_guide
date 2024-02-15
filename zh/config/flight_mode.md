@@ -1,6 +1,6 @@
 # 飞行模式有关配置
 
-This topic explains how to map [flight modes](../getting_started/flight_modes.md) and other functions to the switches on your radio control transmitter.
+This topic explains how to map [flight modes](../getting_started/px4_basic_concepts.md#flight-modes) and other functions to the switches on your radio control transmitter.
 
 :::tip
 In order to set up flight modes you must already have:
@@ -10,17 +10,18 @@ In order to set up flight modes you must already have:
 
 ## What Flight Modes and Switches Should I Set?
 
-*Flight Modes* provide different types of *autopilot-assisted flight*, and *fully autonomous flight*. You can set any (or none) of the flight modes [described here](../getting_started/flight_modes.md). Most users should set the following functions, as these make the vehicle easier and safer to fly:
+Flight Modes provide different types of *autopilot-assisted flight*, and *fully autonomous flight*. You can set any (or none) of the flight modes [available to your vehicle](../flight_modes/README.md#flight-modes).
+
+Most users should set the following modes and functions, as these make the vehicle easier and safer to fly:
 
 - **位置模式** ([多旋翼飞行器](../getting_started/flight_modes.md#position-mode-mc), [固定翼飞行器](../getting_started/flight_modes.md#position-mode-fw)- 手动飞行最简单和最安全的模式。
-- [Return mode](../flight_modes/return.md) - Return to launch position by safe path and land (by default).
+- **Return mode** — Return to launch position by safe path and land.
 - **垂直起降开关**-在 VTOL 飞行器上的固定翼和多旋翼飞行配置之间切换。
 
 It is also common to map switches to:
 
-- [Mission](../flight_modes_vtol/mission.md) - This mode runs a pre-programmed mission sent by the ground control station.
+- **Mission mode** — This mode runs a pre-programmed mission sent by the ground control station.
 - <a id="kill_switch"></a> [Kill Switch](../config/safety.md#kill-switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
-
 
 ## Flight Mode Selection
 
@@ -51,7 +52,7 @@ All values are automatically saved as they are changed.
 
 ## RC Transmitter Setup
 
-This section contains a small number of possible setup configurations for taranis. QGroundControl _可能_在[这里有其他遥控器的设置信息](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#transmitter-setup)。
+This section contains a small number of possible setup configurations for taranis. QGroundControl _may_ have [setup information for other transmitters here](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/flight_modes.html#transmitter-setup).
 
 
 <a id="taranis_setup"></a>
@@ -63,7 +64,7 @@ If you only need to support selecting between two or three modes then you can ma
 :::note
 This example shows how to set up the popular *FrSky Taranis* transmitter. Transmitter setup will be different on other transmitters. :::
 
-打开Taranis UI**MIXER**页面，向下滚动道**CH5**，如下：
+Open the Taranis UI **MIXER** page and scroll down to **CH5**, as shown below:
 
 ![Taranis - Map channel to switch](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_1.png)
 
@@ -71,7 +72,7 @@ Press **ENT(ER)** to edit the **CH5** configuration then change the **Source** t
 
 ![Taranis - Configure channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_2.png)
 
-That's it! 通道5现在将为三个不同的**SD**开关位置输出3个不同的PWM的值。
+That's it! Channel 5 will now output 3 different PWM values for the three different **SD** switch positions.
 
 The *QGroundControl* configuration is then as described in the previous section.
 
@@ -90,6 +91,6 @@ The *QGroundControl* configuration is then [as described above](#flight-mode-sel
 ## Further Information
 
 * [Flight Modes Overview](../flight_modes/README.md)
-* [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
+* [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/flight_modes.html#px4-pro-flight-mode-setup)
 * [PX4 Setup Video - @6m53s](https://youtu.be/91VGmdSlbo4?t=6m53s) (Youtube)
 * [Radio switch parameters](../advanced_config/parameter_reference.md#radio-switches) - Can be used to set mappings via parameters
