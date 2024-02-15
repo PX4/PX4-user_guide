@@ -132,6 +132,7 @@
   * [Helicopter (experimental)](frames_helicopter/README.md)
     * [Helicopter Config/Tuning](config_heli/README.md)
   * [Rovers (experimental)](frames_rover/README.md)
+    * [Flight Modes](flight_modes_rover/README.md)
     * [Aion Robotics R1](frames_rover/aion_r1.md)
     * [Traxxas Stampede](frames_rover/traxxas_stampede.md)
   * [Submarines (experimental)](frames_sub/README.md)
