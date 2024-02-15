@@ -51,7 +51,7 @@ A high level description of the modes is provided below (select the mode-specifi
 [Position mode](../flight_modes_fw/position.md) is the easiest and safest manual mode.
 It is supported on vehicles that have a position estimate (e.g. GPS).
 
-The roll stick controls left/right horizontal movement and the pitch stick is used to ascend/descend.
+The vehicle performs a [coordinated turn](https://en.wikipedia.org/wiki/Coordinated_flight) if the roll sticks are non-zero, while the pitch stick controls the rate of ascent/descent.
 The throttle determines airspeed — at 50% throttle the aircraft will hold its current altitude with a preset cruise speed.
 
 When all sticks are released/centered (no roll, pitch, yaw, and ~50% throttle) the aircraft will return to straight, level flight, and keep its current altitude and flight path irrespective of wind.
@@ -72,7 +72,7 @@ _Altitude mode_ is similar to [Position mode](#position-mode) in that when the s
 The difference is that position mode holds the actual flight path steady against wind, while altitude just holds the heading.
 :::
 
-The roll stick controls left/right horizontal movement and the pitch stick controls the rate of ascent/descent.
+The vehicle performs a [coordinated turn](https://en.wikipedia.org/wiki/Coordinated_flight) if the roll sticks are non-zero, while the pitch stick controls the rate of ascent/descent.
 The throttle determines airspeed — at 50% throttle the aircraft will hold its current altitude with a preset cruise speed.
 
 When all sticks are released/centered (no roll, pitch, yaw, and ~50% throttle) the aircraft will return to straight, level flight (subject to wind) and keep its current altitude.
@@ -93,11 +93,11 @@ _Stabilized mode_ is similar to [Altitude mode](#altitude-mode) in that releasin
 It is much easier to fly than [Manual mode](#manual-mode) because you can't roll or flip it, and if needed it is easy to level the vehicle (by centering the control sticks).
 :::
 
-The vehicle climb/descends based on pitch input and performs a [coordinated turn](https://en.wikipedia.org/wiki/Coordinated_flight) if the roll/pitch sticks are non-zero.
+The vehicle climb/descends based on pitch and throttle input and performs a [coordinated turn](https://en.wikipedia.org/wiki/Coordinated_flight) if the roll sticks are non-zero.
 Roll and pitch are angle controlled (you can't roll upside down or loop).
 
 The vehicle will glide if the throttle is lowered to 0% (motor stops).
-In order to perform a turn the command must be held throughout the maneuver because if the roll is released the plane will stop turning and level itself (the same is true for pitch and yaw commands).
+In order to perform a turn the command must be held throughout the maneuver because if the roll is released the plane will stop turning and level itself (the same is true for pitch commands).
 
 The yaw stick can be used to increase/reduce the yaw rate of the vehicle in turns.
 If left at center the controller does the turn coordination by itself, meaning that it will apply the necessary yaw rate for the current roll angle to perform a smooth turn.
