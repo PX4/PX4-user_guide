@@ -1,6 +1,6 @@
 # Follow-Me Mode (Multicopter)
 
-[<img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+<img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="30px" />
 
 _Follow Me_ mode allows a multicopter to autonomously hold position and altitude relative to another system that is broadcasting its position (and optionally velocity) using the [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) MAVLink message.
 
