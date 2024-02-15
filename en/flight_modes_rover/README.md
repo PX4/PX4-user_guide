@@ -15,10 +15,6 @@ As soon as you release the control sticks they will return to the center deadzon
 This will turn off the motors and center the wheels.
 There is no active braking, so the vehicle may continue to move until its momentum dissipates.
 
-:::note
-This mode is enabled unless [Mission mode](#mission-mode) is set.
-:::
-
 ### Mission Mode
 
 [Mission mode](../flight_modes/mission.md) is an automatic mode that causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) plan that has been uploaded to the flight controller.
