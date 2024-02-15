@@ -116,6 +116,8 @@ The following settings also apply, but are not displayed in the QGC UI.
 
 ### 返航设置
 
+<!-- Propose replace section by a summary and links - return mode is complicated -->
+
 _Return_ is a common [failsafe action](#failsafe-actions) that engages [Return mode](../flight_modes/return.md) to return the vehicle to the home position. This section shows how to set the land/loiter behaviour after returning.
 
 ![Safety - Return Home Settings (QGC)](../../assets/qgc/setup/safety/safety_return_home.png)
@@ -293,7 +295,6 @@ The arm/disarm switch immediately disarms (stop) motors for those [flight modes]
 [Auto disarm timeouts](#auto-disarming-timeouts) (e.g. via [COM_DISARM_LAND](#COM_DISARM_LAND)) are independent of the arm/disarm switch - ie even if the switch is armed the timeouts will still work.
 :::
 
-
 <!--
 **Note** This can also be done by [manually setting](../advanced_config/parameters.md) the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter to the corresponding switch RC channel.
   If the switch positions are reversed, change the sign of the parameter [RC_ARMSWITCH_TH](../advanced_config/parameter_reference.md#RC_ARMSWITCH_TH) (or also change its value to alter the threshold value).
@@ -318,7 +319,7 @@ The [relevant parameters](../advanced_config/parameters.md) are shown below:
 
 ## 更多信息
 
-- [QGroundControl User Guide > Safety Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Safety.html)
+- [QGroundControl User Guide > Safety Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/safety.html)
 
 [flight_term]: ../advanced_config/flight_termination.md
 [return]: ../flight_modes/return.md
