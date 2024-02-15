@@ -55,7 +55,7 @@ For more information see: [Flight Controller Selection](flight_controller_select
 
 PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control).
 The system _minimally requires_ a gyroscope, accelerometer, magnetometer (compass) and barometer.
-A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes.
+A GPS or other positioning system is needed to enable all automatic flight modes and some manual modes.
 Fixed-wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
 
 For more information see:
@@ -232,7 +232,6 @@ QGC v4.2.0 (Daily build at time of writing) and later provide an arming check re
 From PX4 v1.14 this provides comprehensive information about arming problems along with possible solutions.
 :::
 
-
 A detailed overview of arming and disarming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
 
 ## Flight Modes
@@ -250,8 +249,14 @@ while others are impossible to flip and will hold position/course against wind.
 Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
 :::
 
-An overview of the available flight modes [can be found here](../getting_started/flight_modes.md).
-Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
+An overview of the available flight modes for each vehicle can be found below:
+
+- [Flight Modes (Multicopter)](../flight_modes_mc/README.md)
+- [Flight Modes (Fixed-wing)](../flight_modes_fw/README.md)
+- [Flight Modes (VTOL)](../flight_modes_vtol/README.md)
+- [Flight Modes (Rover)](../flight_modes_rover/README.md)
+
+Instructions for how to set up your remote control switches to enable different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
 
 ## Safety Settings (Failsafe)
 

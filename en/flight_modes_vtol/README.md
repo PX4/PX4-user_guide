@@ -6,7 +6,7 @@ VTOL vehicles can fly as either a multicopter or a fixed-wing vehicle, and will 
 
 VTOL-specific flight mode behaviour is covered in:
 
-- [Land Mode](../flight_modes_vtol/land.md): A VTOL flying as a fixed-wing vehicle will transition to MC before landing.
+- [Land mode](../flight_modes_vtol/land.md): A VTOL flying as a fixed-wing vehicle will transition to MC before landing.
 - [Mission mode](../flight_modes_vtol/mission.md): Missions support VTOL-specific mission commands for taking off, landing, and transitioning between vehicle types.
 - [Return mode](../flight_modes_vtol/return.md): VTOL vehicles behave slightly differently they return as an MC or FW than the corresponding vehicles.
 

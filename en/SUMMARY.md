@@ -5,7 +5,6 @@
   * [Flight Controllers](getting_started/flight_controller_selection.md)
   * [Sensors](getting_started/sensor_selection.md)
   * [Radio Systems](getting_started/rc_transmitter_receiver.md)
-  * [Flight Modes](getting_started/flight_modes.md)
   * [Vehicle Status Notifications](getting_started/vehicle_status.md)
     * [LED Meanings](getting_started/led_meanings.md)
     * [Tune/Sound Meanings](getting_started/tunes.md)

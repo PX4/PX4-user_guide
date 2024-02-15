@@ -172,3 +172,5 @@ This mode is intended for vehicle control from companion computers and ground st
 
 - [Basic Configuration > Flight Modes](../config/flight_mode.md) - How to map RC control switches to specific flight modes
 - [Flight Modes (Multicopter)](../flight_modes_mc/README.md)
+- [Flight Modes (VTOL)](../flight_modes_vtol/README.md)
+- [Flight Modes (Rover)](../flight_modes_rover/README.md)

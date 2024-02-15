@@ -1,6 +1,6 @@
 # Flight Mode Configuration
 
-This topic explains how to map [flight modes](../getting_started/flight_modes.md) and other functions to the switches on your radio control transmitter.
+This topic explains how to map [flight modes](../getting_started/px4_basic_concepts.md#flight-modes) and other functions to the switches on your radio control transmitter.
 
 :::tip
 In order to set up flight modes you must already have:
@@ -12,19 +12,19 @@ In order to set up flight modes you must already have:
 
 ## What Flight Modes and Switches Should I Set?
 
-*Flight Modes* provide different types of *autopilot-assisted flight*, and *fully autonomous flight*.
-You can set any (or none) of the flight modes [described here](../getting_started/flight_modes.md).
-Most users should set the following functions, as these make the vehicle easier and safer to fly:
+Flight Modes provide different types of *autopilot-assisted flight*, and *fully autonomous flight*.
+You can set any (or none) of the flight modes [available to your vehicle](../flight_modes/README.md#flight-modes).
 
-- **Position mode** ([multicopter](../flight_modes_mc/README.md#position-mode), [fixed-wing](../flight_modes_fw/README.md#position-mode)) - Easiest and safest mode for manual flight.
-- **Return mode** ([multicopter](../flight_modes_mc/README.md#return-mode),[fixed-wing](../flight_modes_fw/README.md#return-mode)) - Return to launch position by safe path and land.
-- **VTOL Transition Switch** - Toggle between fixed-wing and multicopter flight configuration on VTOL vehicles.
+Most users should set the following modes and functions, as these make the vehicle easier and safer to fly:
+
+- **Position mode** — Easiest and safest mode for manual flight.
+- **Return mode** — Return to launch position by safe path and land.
+- (VTOL only) **VTOL Transition Switch** — Toggle between fixed-wing and multicopter flight configuration on VTOL vehicles.
 
 It is also common to map switches to:
 
-- [Mission](../flight_modes_vtol/mission.md) - This mode runs a pre-programmed mission sent by the ground control station.
+- **Mission mode** — This mode runs a pre-programmed mission sent by the ground control station.
 - <a id="kill_switch"></a> [Kill Switch](../config/safety.md#kill-switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
-
 
 ## Flight Mode Selection
 
