@@ -1,6 +1,6 @@
 # Offboard 模式
 
-[<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />
 
 飞行器根据飞行控制栈外部（如机载计算机）提供的设定值控制位置、速度、加速度、姿态以及推力/力矩。 设置值可以经由 MAVLink 提供(也可以是一个类似 [MAVSDK](https://mavsdk.mavlink.io/)的MAVLink API)或者经由 [ROS 2](../ros/ros2.md) 提供。
 
@@ -56,10 +56,10 @@ The fields are ordered in terms of priority such that `position` takes precedenc
 | ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | --------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------- |
 | 位置 (NED)                 | &check; | -       | -       | -       | -       | -       | -                     | 位置     | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                       |
 | 速度 (NED)                 | &cross; | &check; | -       | -       | -       | -       | -                     | 速度     | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                       |
-| 加速度（NED）                 | &cross; | &cross; | &check; | -       | -       | -       | -                     | 速度     | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                       |
-| 姿态(FRD)                  | &cross; | &cross; | &cross; | &check; | -       | -       | -                     | 无      | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                             |
-| 体轴角速率 (FRD)              | &cross; | &cross; | &cross; | &cross; | &check; | -       | -                     | 无      | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                   |
-| 推力和力矩(FRD)               | &cross; | &cross; | &cross; | &cross; | &cross; | &check; | -                     | 无      | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) 和 [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
+| 加速度（NED）                 | &cross; | ✗       | &check; | -       | -       | -       | -                     | 速度     | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                       |
+| 姿态(FRD)                  | &cross; | &cross; | ✗       | &check; | -       | -       | -                     | 无      | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                             |
+| 体轴角速率 (FRD)              | &cross; | &cross; | &cross; | ✗       | &check; | -       | -                     | 无      | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                   |
+| 推力和力矩(FRD)               | &cross; | &cross; | &cross; | &cross; | ✗       | &check; | -                     | 无      | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) 和 [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
 | direct motors and servos | ✗       | ✗       | ✗       | ✗       | ✗       | ✗       | ✓                     | none   | [ActuatorMotors](../msg_docs/ActuatorMotors.md) and [ActuatorServos](../msg_docs/ActuatorServos.md)                           |
 
 where &check; means that the bit is set, &cross; means that the bit is not set and `-` means that the bit is value is irrelevant.
@@ -77,7 +77,7 @@ Before using offboard mode with ROS 2, please spend a few minutes understanding 
     - 速度设定值(`velocity` 不为 `NaN` 同时 `position` 为 `NaN`). 非-`NaN` 加速度被用作内环控制律的前馈项。
     - 加速度设定值(`acceleration` 不为 `NaN` 同时 `position` 和  `velocity` 为 `NaN`)。
 
-  * 所有值都是基于NED(北, 东, 地)坐标系，位置、速度和加速的单位分别为\[m\], \[m/s\] 和\[m/s^2\] 。
+  - 所有值都是基于NED(北, 东, 地)坐标系，位置、速度和加速的单位分别为\[m\], \[m/s\] 和\[m/s^2\] 。
 
 - [px4_msgs::msg::VehicleAttitudeSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitudeSetpoint.msg)
 
@@ -112,7 +112,7 @@ The following offboard control modes bypass all internal PX4 control loops and s
 
 ## MAVLink 消息
 
-The following MAVLink messages and their particular fields and field values are allowed for the specified frames.
+The following MAVLink messages and their particular fields and field values are allowed for the specified vehicle frames.
 
 ### 直升机/垂直起降
 
