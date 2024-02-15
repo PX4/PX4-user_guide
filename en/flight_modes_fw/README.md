@@ -89,7 +89,7 @@ If left at center the controller does the turn coordination by itself, meaning t
 [Stabilized mode](../flight_modes_fw/stabilized.md) is a manual mode were centering the sticks levels the vehicle attitude (roll and pitch) and maintains the horizontal posture.
 
 :::note
-_Stabilized mode_ is similar to [Altitude mode](#altitude-mode) in that releasing the sticks levels the vehicle, but unlike altitude mode it does not maintain altitude or heading.
+_Stabilized mode_ is similar to [Altitude mode](#altitude-mode) in that releasing the sticks levels the vehicle, but unlike altitude mode it does not maintain altitude or airspeed.
 It is much easier to fly than [Manual mode](#manual-mode) because you can't roll or flip it, and if needed it is easy to level the vehicle (by centering the control sticks).
 :::
 
