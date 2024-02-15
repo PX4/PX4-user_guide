@@ -13,8 +13,10 @@ Manual-Easy:
 
 - [Position](#position-mode) — Easiest and safest manual mode for vehicles that have a position fix/GPS.
   Releasing sticks levels the vehicle and locks it to a straight flight path, even against wind.
+  Airspeed is actively controlled if an airspeed sensor is installed.
 - [Altitude](#altitude-mode) — Easiest and safest _non-GPS_ manual mode.
   Releasing sticks levels the vehicle and maintain heading (unlike with position mode, wind can move the vehicle off the original track).
+  Airspeed is actively controlled if an airspeed sensor is installed.
 - [Stabilized](#stabilized-mode) — Releasing the sticks levels the vehicle and maintains the horizontal posture.
 
 Manual-Acrobatic
@@ -25,7 +27,7 @@ Manual-Acrobatic
   This sends stick input directly to control allocation for "fully" manual control.
 
 Autonomous:
-
+Airspeed is actively controlled if an airspeed sensor is installed in any autonomous flight mode.
 - [Hold](#hold-mode) — Vehicle circles around the GPS hold position at the current altitude.
 - [Return](#return-mode) — Vehicle flies a clear path to land at a safe location.
   By default the destination is a mission landing pattern.
