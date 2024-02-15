@@ -32,11 +32,11 @@ A VTOL vehicle can only arm in multicopter mode (by default - arming in fixed-wi
 
 ### Multicopter Takeoff
 
-Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by enabling any manual mode, arming the vehicle and then raising the throttle stick until the motors produce enough thrust to leave the ground. In [Position mode (MC)](../flight_modes/README.md#position_mc) or [Altitude mode (MC)](../flight_modes/README.md#altitude_mc) the throttle stick has to be increased to above 62.5% to command a climb rate and make the vehicle leave the ground. Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
+Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by enabling any manual mode, arming the vehicle and then raising the throttle stick until the motors produce enough thrust to leave the ground. In [Position mode](../flight_modes_mc/position.md) or [Altitude mode](../flight_modes_mc/altitude.md) the throttle stick has to be increased to above 62.5% to command a climb rate and make the vehicle leave the ground. Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
 
 [Throw Launch](../flight_modes_mc/throw_launch.md) is also supported, in which the vehicle activates motors after it detects that it has reached the apex of a throw, and then operates according to its current mode.
 
-Alternatively the takeoff can performed using the automatic [Takeoff mode (MC)](../flight_modes_mc/takeoff.md).
+Alternatively the takeoff can performed using the automatic [Takeoff mode](../flight_modes_mc/takeoff.md).
 
 :::note
 The vehicle may disarm if you take too long to take off after arming (tune the timeout using [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)). :::
@@ -51,7 +51,7 @@ Taking off manually (and landing) is not easy!
 We recommend using with the automatic modes instead, especially for inexperienced pilots.
 :::
 
-[Stabilized mode](../flight_modes/README.md#stabilized_fw), [Acro mode](../flight_modes/README.md#acro_fw) or [Manual mode](../flight_modes/README.md#manual_fw) mode are recommended for manual takeoff. [Position mode](../flight_modes/README.md#position_fw) and [Altitude mode](../flight_modes/README.md#altitude_fw) can also be used, but it is important to accelerate the vehicle sufficiently before bringing them airborne — strong thrust if hand-launched, long runway phase for runway takeoff (this is required because the controller in these modes can prioritize airspeed over altitude tracking).
+[Stabilized mode](../flight_modes_fw/stabilized.md), [Acro mode](../flight_modes_fw/acro.md) or [Manual mode](../flight_modes_fw/manual.md) mode are recommended for manual takeoff. [Position mode](../flight_modes_fw/position.md) and [Altitude mode](../flight_modes_fw/altitude.md) can also be used, but it is important to accelerate the vehicle sufficiently before bringing them airborne — strong thrust if hand-launched, long runway phase for runway takeoff (this is required because the controller in these modes can prioritize airspeed over altitude tracking).
 
 Manual takeoffs with hand-launched planes:
 - Ramp up the motor and throw the vehicle horizontally.
@@ -76,7 +76,7 @@ Note that vehicles automatically disarm on landing by default:
 - Use [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to set the time to auto-disarm after landing (or disable it altogether).
 - Manually disarm by putting the throttle stick in the bottom left corner.
 
-There is also the option to let the vehicle land autonomously. For that engage the [Land mode](../flight_modes_mc/land.md) or [Return mode](../flight_modes/return.md).
+There is also the option to let the vehicle land autonomously. For that engage the [Land mode](../flight_modes_mc/land.md) or [Return mode](../flight_modes_mc/return.md).
 
 :::note
 If you see the vehicle "twitch" during landing (turn down the motors, and then immediately turn them back up) this is probably caused by a poor [Land Detector Configuration](../advanced_config/land_detector.md) (specifically, a poorly set [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)). :::
@@ -84,9 +84,9 @@ If you see the vehicle "twitch" during landing (turn down the motors, and then i
 
 ### Fixed-wing Landing
 
-[Stabilized mode](../flight_modes/README.md#stabilized_fw), [Acro mode](../flight_modes/README.md#acro_fw) or [Manual mode](../flight_modes/README.md#manual_fw) are recommended for landing (just as they are for takeoff). In these modes the pilot has full control over the motor thrust, which is required to perform a manual flaring maneuver when close to the ground (raising the vehicle nose without increasing throttle). You should perform the landing in headwind to reduce the groundspeed before touching down.
+[Stabilized mode](../flight_modes_fw/stabilized.md), [Acro mode](../flight_modes_fw/acro.md) or [Manual mode](../flight_modes_fw/manual.md) are recommended for landing (just as they are for takeoff). In these modes the pilot has full control over the motor thrust, which is required to perform a manual flaring maneuver when close to the ground (raising the vehicle nose without increasing throttle). You should perform the landing in headwind to reduce the groundspeed before touching down.
 
-For auto landings you should use a [Fixed-Wing Mission Landing](../flight_modes_fw/mission.md#mission-landing). This landing is defined in a mission, and can be used in either [Mission](../flight_modes_fw/mission.md) or [Return](../flight_modes/return.md) modes.
+For auto landings you should use a [Fixed-Wing Mission Landing](../flight_modes_fw/mission.md#mission-landing). This landing is defined in a mission, and can be used in either [Mission](../flight_modes_fw/mission.md) or [Return](../flight_modes_fw/return.md) modes.
 
 The automatic [Land mode](../flight_modes_fw/land.md) mode is not recommended unless absolutely necessary, as it cannot account for underlying terrain.
 <!-- Added this to make it more generic: We'll split this out later -->
