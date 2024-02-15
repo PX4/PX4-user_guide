@@ -16,7 +16,6 @@ If changes in weight and air density are not taken into account, altitude and ai
 Set (both) the following parameters to scale the maximum climb rate, minimum sink rate, and adjust airspeed limits for weight:
 
 - [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE) — the weight of the vehicle at which the [Basic TECS tuning](../config_fw/position_tuning_guide_fixedwing.md#tecs-tuning-altitude-and-airspeed) was performed.
-
 - [WEIGHT_GROSS](../advanced_config/parameter_reference.md#WEIGHT_BASE) — the actual weight of the vehicle at any given time, for example when using a larger battery, or with a payload that was not present during tuning.
 
 You can determine the values by measuring the weight of the vehicle using a scale in the tuning configuration and when flying with a payload.
