@@ -77,7 +77,7 @@ The supported set is listed in [Airframes Reference > VTOL](../airframes/airfram
 A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle.
 Multicopter mode is mainly used for take off and landing while the fixed-wing mode is used for efficient travel and/or mission execution.
 
-The flight modes for VTOL vehicles are the same as for [multicopter](../getting_started/flight_modes.md#mc_flight_modes) when flying in MC mode and [fixed-wing](../getting_started/flight_modes.md#fw_flight_modes) when flying in FW mode.
+The flight modes for VTOL vehicles are the same as for [multicopter](../flight_modes_mc/README.md) when flying in MC mode and [fixed-wing](../flight_modes_fw/README.md) when flying in FW mode.
 
 The transition between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in missions or other auto modes.
 

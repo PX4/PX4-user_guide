@@ -1,4 +1,4 @@
-# Flight Modes
+# Flight Modes (Developers) 
 
 _Flight Modes_ define how the autopilot responds to user input and controls vehicle movement.
 They are loosely grouped into _manual_, _assisted_ and _auto_ modes, based on the level/type of control provided by the autopilot.
@@ -13,8 +13,10 @@ The sections below provide an overview of the modes, followed by a [flight mode 
 :::note
 User-facing flight mode documentation can be found in:
 
-- [Getting Started > Flight Modes](../getting_started/flight_modes.md): Beginner friendly explanation of all flight modes.
-- [Flying > Flight Modes](../flight_modes/README.md): Detailed documentation of each mode.
+- [Flight Modes (Multicopter)](../flight_modes_mc/README.md)
+- [Flight Modes (Fixed-wing)](../flight_modes_fw/README.md)
+- [Flight Modes (VTOL)](../flight_modes_vtol/README.md)
+- [Flight/Drive Modes (Rover)](../flight_modes_rover/README.md)
 
 :::
 

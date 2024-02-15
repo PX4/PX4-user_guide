@@ -1,6 +1,6 @@
 # Position Mode (Multicopter)
 
-[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />&nbsp;<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
 
 _Position_ is an easy-to-fly RC mode in which roll and pitch sticks control acceleration over ground in the vehicle's left-right and forward-back directions (similar to a car's accelerator pedal), and throttle controls speed of ascent-descent.
 When the sticks are released/centered the vehicle will actively brake, level, and be locked to a position in 3D space — compensating for wind and other forces.
@@ -13,7 +13,7 @@ Unlike [Altitude](../flight_modes_mc/altitude.md) and [Manual/Stabilized](../fli
 
 The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
 
-![MC Position Mode](../../assets/flight_modes/position_MC.png)
+![MC Position Mode](../../assets/flight_modes/position_mc.png)
 
 ### Landing
 
@@ -35,7 +35,8 @@ While very rare on a well calibrated vehicle, sometimes there may be problems wi
 - If the vehicle does not detect the ground/landing and disarm:
   - After the vehicle is on the ground switch to [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md) keeping the throttle stick low, and manually disarm using a gesture or other command.
     Alternatively you can also use the kill switch when the vehicle is already on the ground.
-    :::
+
+:::
 
 ## Technical Summary
 
@@ -49,12 +50,11 @@ Centered sticks level vehicle and hold it to fixed altitude and position against
   - Yaw stick controls rate of angular rotation above the horizontal plane.
 - Takeoff:
   - When landed, the vehicle will take off if the throttle stick is raised above 62.5% percent (of the full range from bottom).
-
-:::note
-
-- Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
-- This mode requires GPS.
-  :::
+- Global position estimate is required.
+- Manual control input is required (such as RC control, joystick).
+  - Roll, Pitch, Throttle: Assistance from autopilot to hold position against wind.
+  - Yaw: Assistance from autopilot to stabilize the attitude rate.
+    Position of RC stick maps to the rate of rotation of vehicle in that orientation.
 
 ### Parameters
 
