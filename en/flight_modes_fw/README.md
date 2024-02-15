@@ -56,7 +56,10 @@ The throttle determines airspeed — at 50% throttle the aircraft will hold its 
 
 When all sticks are released/centered (no roll, pitch, yaw, and ~50% throttle) the aircraft will return to straight, level flight, and keep its current altitude and flight path irrespective of wind.
 This makes it easy to recover from any problems when flying.
-Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).
+Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).
+
+The yaw stick can be used to increase/reduce the yaw rate of the vehicle in turns.
+If left at center the controller does the turn coordination by itself, meaning that it will apply the necessary yaw rate for the current roll angle to perform a smooth turn.
 
 ![FW Position Mode](../../assets/flight_modes/position_fw.png)
 
@@ -76,6 +79,9 @@ When all sticks are released/centered (no roll, pitch, yaw, and ~50% throttle) t
 This makes it easy to recover from any problems when flying.
 Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).
 
+The yaw stick can be used to increase/reduce the yaw rate of the vehicle in turns.
+If left at center the controller does the turn coordination by itself, meaning that it will apply the necessary yaw rate for the current roll angle to perform a smooth turn.
+
 ![FW Altitude Mode](../../assets/flight_modes/altitude_fw.png)
 
 ### Stabilized Mode
@@ -92,6 +98,9 @@ Roll and pitch are angle controlled (you can't roll upside down or loop).
 
 The vehicle will glide if the throttle is lowered to 0% (motor stops).
 In order to perform a turn the command must be held throughout the maneuver because if the roll is released the plane will stop turning and level itself (the same is true for pitch and yaw commands).
+
+The yaw stick can be used to increase/reduce the yaw rate of the vehicle in turns.
+If left at center the controller does the turn coordination by itself, meaning that it will apply the necessary yaw rate for the current roll angle to perform a smooth turn.
 
 ![FW Manual Flight](../../assets/flight_modes/stabilized_fw.png)
 
