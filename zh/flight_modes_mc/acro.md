@@ -1,12 +1,12 @@
 # 特技模式（多旋翼）
 
-[<img src="../../assets/site/difficulty_hard.png" title="飞行难度：困难" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动/遥控器控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+<img src="../../assets/site/difficulty_hard.png" title="飞行难度：困难" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="需要手动/遥控器控制" width="30px" />&nbsp;
 
 _Acro mode_ is the RC mode for performing acrobatic maneuvers e.g. flips, rolls and loops.
 
 RPY摇杆输入控制围绕各自轴的角度旋转速率。 当操纵杆居中时，飞机将停止旋转，但保持其当前朝向（不一定是水平）。
 
-![手动特技飞行](../../assets/flight_modes/manual_acrobatic_MC.png)
+![手动特技飞行](../../assets/flight_modes/acrobatic_mc.png)
 
 <!-- image above incorrect: https://github.com/PX4/PX4-user_guide/issues/182 -->
 
@@ -14,7 +14,12 @@ RPY摇杆输入控制围绕各自轴的角度旋转速率。 当操纵杆居中�
 
 用于执行特技动作的R遥控/手动模式，例如翻转，滚转和环绕。
 
-RC RPY stick inputs control the rate of angular rotation around the respective axes. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (not necessarily level).
+RC Roll/Pitch/Yaw (RPY) stick inputs control the rate of angular rotation around the respective axes. Throttle is passed directly to control allocation. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (not necessarily level) and moving according to its current momentum.
+
+Manual control input is required (such as RC control, joystick):
+
+- Roll, Pitch, Yaw: Assistance from autopilot to stabilize the attitude rate. Position of RC stick maps to the rate of rotation of vehicle in that orientation.
+- Throttle: Manual control via RC sticks. RC input is sent directly to control allocation.
 
 ## 杆输入映射
 
@@ -36,12 +41,12 @@ $$\mathrm{y} = r(f\cdot x^3 + x(1-f)) (1-g)/(1-g|x|)$$, 其中 `f = MC_ACRO_EXPO
 
 ## 参数
 
-| 参数                                                                                                        | 描述                                                                                                                       |
-| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| <a id="MC_ACRO_EXPO"></a>[MC_ACRO_EXPO](../advanced_config/parameter_reference.md#MC_ACRO_EXPO)         | 特技模式“指数”因子，用于调整滚转和俯仰轴的杆输入曲线形状。 值：0表示纯线性输入曲线，1表示纯三次输入曲线。 默认：0.69                                                          |
-| <a id="MC_ACRO_EXPO_Y"></a>[MC_ACRO_EXPO_Y](../advanced_config/parameter_reference.md#MC_ACRO_EXPO_Y)     | 特技模式“指数”因子，用于调整偏航轴的杆输入曲线形状。 值：0表示纯线性输入曲线，1表示纯三次输入曲线。 默认：0.69                                                             |
-| <a id="MC_ACRO_SUPEXPO"></a>[MC_ACRO_SUPEXPO](../advanced_config/parameter_reference.md#MC_ACRO_SUPEXPO)   | 特技模式“超级指数”因子，用于精细调整滚动轴和俯仰轴的杆输入曲线形状（使用`MC_ACRO_EXPO`进行调整）。 值：0——纯指数函数，0.7——合理增强直观操纵感的形状，0.95——非常弯曲的输入曲线，仅在最大值附近有效。 默认：0.7 |
-| <a id="MC_ACRO_SUPEXPOY"></a>[MC_ACRO_SUPEXPOY](../advanced_config/parameter_reference.md#MC_ACRO_SUPEXPOY) | 特技模式“超级指数”因子用于精细调整偏航轴的杆输入曲线形状（使用`MC_ACRO_EXPO_Y`进行调整）。 值：0——纯指数函数，0.7——合理增强直观操纵感的形状，0.95——非常弯曲的输入曲线，仅在最大值附近有效。 默认：0.7    |
-| <a id="MC_ACRO_P_MAX"></a>[MC_ACRO_P_MAX](../advanced_config/parameter_reference.md#MC_ACRO_P_MAX)       | Max acro pitch rate. Default: 2 turns per second (720.0 deg/s).                                                          |
-| <a id="MC_ACRO_R_MAX"></a>[MC_ACRO_R_MAX](../advanced_config/parameter_reference.md#MC_ACRO_R_MAX)       | Max acro roll rate. 最大特技滚转速率 默认：每秒2转（720度/秒）                                                                             |
-| <a id="MC_ACRO_Y_MAX"></a>[MC_ACRO_Y_MAX](../advanced_config/parameter_reference.md#MC_ACRO_Y_MAX)       | Max acro yaw rate. 最大特技偏航速率 默认： 1.5转每秒（540度/秒）                                                                           |
+| 参数                                                                                                        | 描述                                                                                                                                                                                                                            |
+| --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="MC_ACRO_EXPO"></a>[MC_ACRO_EXPO](../advanced_config/parameter_reference.md#MC_ACRO_EXPO)         | 特技模式“指数”因子，用于调整滚转和俯仰轴的杆输入曲线形状。 值：0表示纯线性输入曲线，1表示纯三次输入曲线。 默认：0.69                                                                                                                                                               |
+| <a id="MC_ACRO_EXPO_Y"></a>[MC_ACRO_EXPO_Y](../advanced_config/parameter_reference.md#MC_ACRO_EXPO_Y)     | 特技模式“指数”因子，用于调整偏航轴的杆输入曲线形状。 Values: 0 Purely linear input curve 1 Purely cubic input curve. Default: 0.69.                                                                                                                    |
+| <a id="MC_ACRO_SUPEXPO"></a>[MC_ACRO_SUPEXPO](../advanced_config/parameter_reference.md#MC_ACRO_SUPEXPO)   | 特技模式“超级指数”因子，用于精细调整滚动轴和俯仰轴的杆输入曲线形状（使用`MC_ACRO_EXPO`进行调整）。 值：0——纯指数函数，0.7——合理增强直观操纵感的形状，0.95——非常弯曲的输入曲线，仅在最大值附近有效。 默认：0.7                                                                                                      |
+| <a id="MC_ACRO_SUPEXPOY"></a>[MC_ACRO_SUPEXPOY](../advanced_config/parameter_reference.md#MC_ACRO_SUPEXPOY) | 特技模式“超级指数”因子用于精细调整偏航轴的杆输入曲线形状（使用`MC_ACRO_EXPO_Y`进行调整）。 Values: 0 Pure Expo function, 0.7 reasonable shape enhancement for intuitive stick feel, 0.95 very strong bent input curve only near maxima have effect. Default: 0.7. |
+| <a id="MC_ACRO_P_MAX"></a>[MC_ACRO_P_MAX](../advanced_config/parameter_reference.md#MC_ACRO_P_MAX)       | Max acro pitch rate. Default: 2 turns per second (720.0 deg/s).                                                                                                                                                               |
+| <a id="MC_ACRO_R_MAX"></a>[MC_ACRO_R_MAX](../advanced_config/parameter_reference.md#MC_ACRO_R_MAX)       | Max acro roll rate. 最大特技滚转速率 默认：每秒2转（720度/秒）                                                                                                                                                                                  |
+| <a id="MC_ACRO_Y_MAX"></a>[MC_ACRO_Y_MAX](../advanced_config/parameter_reference.md#MC_ACRO_Y_MAX)       | Max acro yaw rate. 最大特技偏航速率 默认： 1.5转每秒（540度/秒）                                                                                                                                                                                |
