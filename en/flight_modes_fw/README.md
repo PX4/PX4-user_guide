@@ -12,28 +12,34 @@ Manual modes provide different levels of autopilot support when flying manually 
 Manual-Easy:
 
 - [Position](#position-mode) — Easiest and safest manual mode for vehicles that have a position fix/GPS.
-  Releasing sticks levels the vehicle and locks it to a straight flight path, even against wind.
+  The vehicle performs a [coordinated turn](https://en.wikipedia.org/wiki/Coordinated_flight) if the roll stick is non-zero, while the pitch stick controls the rate of ascent/descent.
+  If the sticks are released the vehicle levels out and holds a straight flight path, even against wind.
   Airspeed is actively controlled if an airspeed sensor is installed.
 - [Altitude](#altitude-mode) — Easiest and safest _non-GPS_ manual mode.
-  Releasing sticks levels the vehicle and maintain heading (unlike with position mode, wind can move the vehicle off the original track).
-  Airspeed is actively controlled if an airspeed sensor is installed.
-- [Stabilized](#stabilized-mode) — Releasing the sticks levels the vehicle and maintains the horizontal posture.
+  The only difference compared to Position mode is that the pilot always directly controls the roll angle of the plane and there is no automatic course holding.
+- [Stabilized](#stabilized-mode) — The pilot directly commands the roll and pitch angle and the vehicle keeps the setpoint until the sticks are moved again.
+  Thrust is directly set by the pilot.
+  Turn coordination is still handled by the controller.
+  Height and airspeed are not controlled, in particular it is the pilot's responsibility to not stall the vehicle.
 
 Manual-Acrobatic
 
 - [Acro](#acro-mode) — Manual mode for performing acrobatic maneuvers, such as rolls and flips, stalls and acrobatic figures.
-  Releasing the sticks stops the vehicle rotating in the roll, pitch, yaw axes, but does not otherwise stabilise the vehicle.
+  The roll, pitch, and yaw, sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
 - [Manual](#manual-mode) — Hardest manual flight mode.
   This sends stick input directly to control allocation for "fully" manual control.
+  No sensor feedback is used to compensate for disturbances.
 
 Autonomous:
+All autonomous flight modes require a valid position estimate (GPS).
 Airspeed is actively controlled if an airspeed sensor is installed in any autonomous flight mode.
 - [Hold](#hold-mode) — Vehicle circles around the GPS hold position at the current altitude.
+  The mode can be used to pause a mission or to help regain control of a vehicle in an emergency.
+  It can be activated with a pre-programmed RC switch or the QGroundControl Pause button.
 - [Return](#return-mode) — Vehicle flies a clear path to land at a safe location.
   By default the destination is a mission landing pattern.
-  This requires a global position estimate (GPS).
+  The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a failsafe being triggered).
 - [Mission](#mission-mode) — Vehicle executes a [predefined mission/flight plan](../flying/missions.md) that has been uploaded to the flight controller.
-  This requires a global position estimate (GPS).
 - [Takeoff](#takeoff-mode) — Vehicle initiates the takeoff sequence using either _catapult/hand-launch mode_ or _runway takeoff mode_ (in the current direction).
 - [Land](#land-mode) — Vehicle initiates the [fixed-wing landing sequence](../flight_modes_fw/mission.md#mission-landing).
 - [Offboard](#offboard-mode) — Vehicle obeys attitude setpoints provided via MAVLink or ROS 2.
