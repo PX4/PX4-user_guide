@@ -22,6 +22,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [ArmingCheckRequest](ArmingCheckRequest.md)
 - [AutotuneAttitudeControlStatus](AutotuneAttitudeControlStatus.md)
 - [BatteryStatus](BatteryStatus.md)
+- [Buffer128](Buffer128.md)
 - [ButtonEvent](ButtonEvent.md)
 - [CameraCapture](CameraCapture.md)
 - [CameraStatus](CameraStatus.md)
@@ -61,6 +62,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [FailsafeFlags](FailsafeFlags.md) — Input flags for the failsafe state machine set by the arming & health checks.
 - [FailureDetectorStatus](FailureDetectorStatus.md)
 - [FigureEightStatus](FigureEightStatus.md)
+- [FlightPhaseEstimation](FlightPhaseEstimation.md)
 - [FollowTarget](FollowTarget.md)
 - [FollowTargetEstimator](FollowTargetEstimator.md)
 - [FollowTargetStatus](FollowTargetStatus.md)
@@ -140,10 +142,12 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [RegisterExtComponentReply](RegisterExtComponentReply.md)
 - [RegisterExtComponentRequest](RegisterExtComponentRequest.md) — Request to register an external component
 - [Rpm](Rpm.md)
+- [RtlStatus](RtlStatus.md)
 - [RtlTimeEstimate](RtlTimeEstimate.md)
 - [SatelliteInfo](SatelliteInfo.md)
 - [SensorAccel](SensorAccel.md)
 - [SensorAccelFifo](SensorAccelFifo.md)
+- [SensorAirflow](SensorAirflow.md)
 - [SensorBaro](SensorBaro.md)
 - [SensorCombined](SensorCombined.md) — Sensor readings in SI-unit form. These fields are scaled and offset-compensated where possible and do not change with board revisions and sensor updates.
 - [SensorCorrection](SensorCorrection.md) — Sensor corrections in SI-unit form for the voted sensor
