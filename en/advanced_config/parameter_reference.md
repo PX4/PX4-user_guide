@@ -16285,6 +16285,7 @@ table {
 <li><strong>2:</strong> Require a landing</li>
 <li><strong>3:</strong> Require a takeoff and a landing</li>
 <li><strong>4:</strong> Require both a takeoff and a landing, or neither</li>
+<li><strong>5:</strong> Same as previous, but require a landing if in air and no valid VTOL landing approach is present</li>
 </ul>  </td>
  <td></td>
  <td>0</td>

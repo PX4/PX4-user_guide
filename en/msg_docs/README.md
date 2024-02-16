@@ -157,6 +157,7 @@ This are the three next waypoints (or just the next two or one).
 - [RegisterExtComponentReply](RegisterExtComponentReply.md)
 - [RegisterExtComponentRequest](RegisterExtComponentRequest.md) — Request to register an external component
 - [Rpm](Rpm.md)
+- [RtlStatus](RtlStatus.md)
 - [RtlTimeEstimate](RtlTimeEstimate.md)
 - [SatelliteInfo](SatelliteInfo.md)
 - [SensorAccel](SensorAccel.md)
