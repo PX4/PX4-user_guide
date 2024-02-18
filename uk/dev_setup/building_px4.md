@@ -1,30 +1,29 @@
 # Building PX4 Software
 
-PX4 firmware can be built from source code on the console or in an IDE, for both simulated and hardware targets.
+Збірку прошивки PX4 для модельованих і апаратних цілей можна здійснити з вихідного коду в консолі або в IDE.
 
-You need to build PX4 in order to use [simulators](../simulation/README.md), or if you want to modify PX4 and create a custom build. If you just want to try out PX4 on real hardware then [load the prebuilt binaries](../config/firmware.md) using QGroundControl (there is no need to follow these instructions).
+Ви повинні створити PX4 для того, щоб використовувати [симулятори](../simulation/README.md), або якщо ви хочете модифікувати PX4 і створити свою збірку. Якщо ви просто хочете спробувати PX4 на реальному обладнанні, тоді [завантажте попередньо побудовані бінарні файли](../config/firmware.md) за допомогою QGroundControl (відслідковувати зміни в цих інструкція не потрібно).
 
-:::note
-Before following these instructions you must first install the [Developer Toolchain](../dev_setup/dev_env.md) for your host operating system and target hardware. If you have any problems after following these steps see the [Troubleshooting](#troubleshooting) section below.
+Перед виконанням цих інструкцій вам слід встановити [Developer Toolchain](../dev_setup/dev_env.md) для вашої операційної системи та цільового обладнання. Якщо у вас виникли проблеми після виконання цих кроків, див. розділ [Усунення несправностей](#troubleshooting) нижче.
 :::
 
-## Download the PX4 Source Code
+## Завантаження вихідного коду PX4
 
-The PX4 source code is stored on Github in the [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) repository.
+Вихідний код PX4 зберігається на Github в репозиторії [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot).
 
-To get the _very latest_ ("main") version onto your computer, enter the following command into a terminal:
+Для завантаження _найсвіжішої_ ("основної") версії на свій комп'ютер, введіть у терміналі наступну команду:
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note
-This is all you need to do just to build the latest code. If needed you can also [get the source code specific to a particular release](../contribute/git_examples.md#get-a-specific-release). [GIT Examples](../contribute/git_examples.md) provides a lot more information working with releases and contributing to PX4.
+Це все, що вам необхідно для збірки останнього коду. За потреби ви також можете [отримати вихідний код окремого випуску](../contribute/git_examples.md#get-a-specific-release). [Приклади GIT](../contribute/git_examples.md) пропонують значно більше інформації про роботу з релізами і сприяють PX4.
 :::
 
-## First Build (Using the jMAVSim Simulator)
+## Перша збірка (з використанням симулятору jMAVSim)
 
-First we'll build a simulated target using a console environment. This allows us to validate the system setup before moving on to real hardware and an IDE.
+Спочатку ми створимо імітовану ціль з використанням консольного середовища. Це дозволяє нам перевірити налаштування системи перед її запуском на реальному обладнанні та IDE.
 
 Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../sim_jmavsim/README.md) using the following command:
 
@@ -32,7 +31,7 @@ Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../sim_jmavsim
 make px4_sitl jmavsim
 ```
 
-This will bring up the PX4 console below:
+Цей пакет виведе на консоль PX4 нижче:
 
 ![PX4 Console (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
 
