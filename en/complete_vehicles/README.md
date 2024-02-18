@@ -54,6 +54,7 @@ They allow you to use parts that are known to work, and to fly a vehicle that is
   - [Holybro S500 Kit](../frames_multicopter/holybro_s500_v2_pixhawk4.md)
   - [Holybro QAV250 Kit](../frames_multicopter/holybro_qav250_pixhawk4_mini.md)
   - [NXP HoverGames KIT-HGDRONEK66](https://www.nxp.com/KIT-HGDRONEK66) ([hovergames.com](https://www.hovergames.com/))
+  - [3dr Quad Zero](https://store.3dr.com/3dr-quad-zero-kit/)
 
 ## Fully Assembled (Custom PX4)
 
