@@ -1,245 +1,245 @@
-# Tune Meanings (Pixhawk Series)
+# Значення мелодії (серія Pixhawk)
 
-[Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) use audible tones/tunes and [LEDs](../getting_started/led_meanings.md) to indicate vehicle state and events (e.g. arming success and failure, low battery warnings).
+[ Контролери польоту серії Pixhawk](../flight_controller/pixhawk_series.md) використовують звукові сигнали/мелодії та [ світлодіоди](../getting_started/led_meanings.md) для індикації стану та подій (наприклад, успішне або невдале приведення в бойове положення, попередження про низький рівень заряду батареї).
 
-The set of standard sounds are listed below.
+Набір стандартних звуків наведено нижче.
 
 :::note
-**Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc) and can be tested using the [tune-control](../modules/modules_system.md#tune-control) module. You can search for tune use using the string `TUNE_ID_name`(e.g. `TUNE_ID_PARACHUTE_RELEASE)
+**Розробникам:** Мелодії визначено у [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc) і їх можна протестувати за допомогою модуля [tune-control](../modules/modules_system.md#tune-control). Ви можете шукати використання мелодії за допомогою рядка `TUNE_ID_name` (наприклад, `TUNE_ID_PARACHUTE_RELEASE)
 :::
 
 
-## Boot/Startup
+## Завантаження/запуск
 
-These tunes are played during the boot sequence.
+Ці мелодії відтворюються під час завантаження.
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS --> 
 
 
-#### Startup Tone
+#### Сигнал запуску
 
 <audio controls>
   <source src="../../assets/tunes/1_startup_tone.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- tune: 1, STARTUP -->
 
-- microSD card successfully mounted (during boot).
+- карту microSD успішно встановлено (під час завантаження).
 
-#### Error Tune
+#### Сигнал помилки
 
 <audio controls>
   <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- tune 2, ERROR_TUNE -->
 
-- Hard fault has caused a system reboot.
-- System set to use PX4IO but no IO present.
-- UAVCAN is enabled but driver can't start.
-- SITL/HITL enabled but *pwm_out_sim* driver can't start.
-- FMU startup failed.
+- Серйозна несправність призвела до перезавантаження системи.
+- Система налаштована на використання PX4IO, але немає IO (input-output).
+- UAVCAN увімкнено, але драйвер не може запуститися.
+- SITL/HITL увімкнено, але драйвер *pwm_out_sim* не може запуститися.
+- Помилка запуску FMU.
 
 
-#### Make File System
+#### Створення файлової системи
 
 <audio controls>
   <source src="../../assets/tunes/16_make_fs.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 14, SD_INIT (previously tune 16) -->
 
-- Formatting microSD card.
-- Mounting failed (if formatting succeeds boot sequence will try to mount again).
-- No microSD card.
+- Форматування карти microSD.
+- Невдалий монтаж (якщо форматування буде успішним, завантажувальна послідовність спробує змонтувати ще раз).
+- Немає карти microSD.
 
 
-#### Format Failed
+#### Помилка форматування
 
 <audio controls>
   <source src="../../assets/tunes/17_format_failed.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 15, SD_ERROR (previously 17) -->
 
-- Formatting microSD card failed (following previous attempt to mount card).
+- Не вдалося відформатувати карту microSD (після попередньої спроби змонтувати карту).
 
 
-#### Program PX4IO
+#### Програма PX4IO
 
 <audio controls>
   <source src="../../assets/tunes/18_program_px4io.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 16, PROG_PX4IO (previously id 18) -->
 
-- Starting to program PX4IO.
+- Початок програми PX4IO.
 
-#### Program PX4IO Success
+#### Успіх програми PX4IO
 
 <audio controls>
   <source src="../../assets/tunes/19_program_px4io_success.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 17, PROG_PX4IO_OK (previously tune 19) -->
 
-- PX4IO programming succeeded.
+- Програмування PX4IO пройшло успішно.
 
 #### Program PX4IO Fail
 
 <audio controls>
   <source src="../../assets/tunes/20_program_px4io_fail.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 18, PROG_PX4IO_ERR (previously tune 20) -->
 
-- PX4IO programming failed.
-- PX4IO couldn't start.
-- AUX Mixer not found.
+- Програмування PX4IO завершилося невдачею.
+- PX4IO не зміг запуститися.
+- AUX Mixer не знайдено.
 
 
-## Operational
+## Операційні
 
-These tones/tunes are emitted during normal operation.
+Ці тони/мелодії видаються під час нормальної роботи.
 
 <a id="error_tune_operational"></a>
 
-#### Error Tune
+#### Сигнал помилки
 
 <audio controls>
   <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 2, ERROR_TUNE -->
 
-- RC Loss
+- Втрата RC
 
-#### Notify Positive Tone
+#### Сигнали успіху
 
 <audio controls>
   <source src="../../assets/tunes/3_notify_positive_tone.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 3, NOTIFY_POSITIVE -->
 
-- Calibration succeeded.
-- Successful mode change.
-- Command accepted (e.g. from MAVLink command protocol).
-- Safety switch off (vehicle can be armed).
+- Калібрування пройшло успішно.
+- Успішна зміна режиму.
+- Команда прийнята (наприклад, з протоколу команд MAVLink).
+- Вимкнення запобіжника.
 
-#### Notify Neutral Tone
+#### Нейтральні сигнали
 
 <audio controls>
   <source src="../../assets/tunes/4_notify_neutral_tone.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 4, NOTIFY_NEUTRAL -->
 
-- Mission is valid and has no warnings.
-- Airspeed calibration: supply more air pressure, or calibration complete.
-- Safety switch turned on/disarmed (safe to approach vehicle).
+- Місія дійсна і не має застережень.
+- Калібрування швидкості повітря: збільште тиск повітря, або калібрування завершено.
+- Запобіжний вимикач увімкнено/вимкнено (безпечно наближатися до апарату).
 
-#### Notify Negative Tone
+#### Сигнали невдачі
 
 <audio controls>
   <source src="../../assets/tunes/5_notify_negative_tone.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 5, NOTIFY_NEGATIVE -->
 
-- Calibration failed.
-- Calibration already completed.
-- Mission is invalid.
-- Command denied, failed, temporarily rejected (e.g. from MAVLink command protocol).
-- Arming/disarming transition denied (e.g. pre-flight checks failed, safety not disabled, system not in manual mode).
-- Reject mode transition.
+- Помилка калібрування.
+- Калібрування вже завершено.
+- Місія недійсна.
+- Команда відхилена, не виконана, тимчасово відхилена (наприклад, з протоколу команд MAVLink).
+- Приведення в бойове/небойове положення відхилення (наприклад, не пройдено передпольотну перевірку, не відключено систему безпеки, система не перебуває в ручному режимі).
+- Перехід у режим відхилено.
 
-#### Arming Warning
+#### Попередження про приведення в бойове положення
 
 <audio controls>
   <source src="../../assets/tunes/6_arming_warning.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 6, ARMING_WARNING -->
 
-- Vehicle is now armed.
+- Апарат приведений в бойове положення.
 
-#### Arming Failure Tune
+#### Сигнали невдачі при приведенні в бойове положення
 
 <audio controls>
   <source src="../../assets/tunes/10_arming_failure_tune.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 10, ARMING_FAILURE -->
 
-- Arming failed
+- Невдача приведення в бойове положення
 
-#### Battery Warning Slow
+#### Попередження про низький заряд акумулятора - повільне
 
 <audio controls>
   <source src="../../assets/tunes/7_battery_warning_slow.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 7,  BATTERY_WARNING_SLOW -->
 
-- Low battery warning ([failsafe](../config/safety.md#low-battery-failsafe)).
+- Попередження про низький заряд батареї ([failsafe](../config/safety.md#low-battery-failsafe)).
 
-#### Battery Warning Fast
+#### Попередження про низький заряд акумулятора - швидке
 
 <audio controls>
   <source src="../../assets/tunes/8_battery_warning_fast.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 8, BATTERY_WARNING_FAST -->
 
-- Critical low battery warning ([failsafe](../config/safety.md#low-battery-failsafe)).
+- Попередження про критично низький заряд батареї ([failsafe](../config/safety.md#low-battery-failsafe)).
 
 
-#### GPS Warning Slow
+#### Попередження GPS - повільне
 
 <audio controls>
   <source src="../../assets/tunes/9_gps_warning_slow.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 9,  GPS_WARNING -->
 
-#### Parachute Release
+#### Випуск парашута
 
 <audio controls>
   <source src="../../assets/tunes/11_parachute_release.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 11, PARACHUTE_RELEASE -->
 
-- Parachute release triggered.
+- Спрацював випуск парашута.
 
 
-#### Single Beep
+#### Один сигнал
 
 <audio controls>
   <source src="../../assets/tunes/14_single_beep.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 12, SINGLE_BEEP (previously was id 14 -->
 
-- Magnetometer/Compass calibration: Notify user to start rotating vehicle.
+- Калібрування магнітометра/компаса: Сповістити користувача про початок обертання транспортного засобу.
 
-#### Home Set Tune
+#### Сигнали початкової позиції
 
 <audio controls>
   <source src="../../assets/tunes/15_home_set_tune.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 13, HOME_SET (previously id 15) -->
 
-- Home position initialised (first time only).
+- Ініціалізовано початкову позицію (лише вперше).
 
-#### Power Off Tune
+#### Сигнал вимкнення
 
 <audio controls>
   <source src="../../assets/tunes/power_off_tune.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
 
-- Vehicle powering off.
+- Літальний апарат вимикається.
 
 <!--19, POWER_OFF -->
