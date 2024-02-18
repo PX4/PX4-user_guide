@@ -36,10 +36,10 @@ make px4_sitl jmavsim
 ![PX4 Console (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
 
 :::note
-You may need to start _QGroundControl_ before proceeding, as the default PX4 configuration requires a ground control connection before takeoff. This can be [downloaded from here](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html).
+Можливо, ще знадобиться запустити _QGroundControl_ перед тим, як рушити далі, запуск PX4 у стандартних налащтуваннях вимагає наявність звʼязку з наземним оператором перед злітом. Його можна завантажити [звідси](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html).
 :::
 
-The drone can be flown by typing:
+Для злету дрону наберіть наступну команду:
 
 ```sh
 pxh> commander takeoff
@@ -47,13 +47,13 @@ pxh> commander takeoff
 
 ![jMAVSim UI](../../assets/toolchain/jmavsim_first_takeoff.png)
 
-The drone can be landed by typing `commander land` and the whole simulation can be stopped by doing **CTRL+C** (or by entering `shutdown`).
+Дрон можна приземлити, набравши `commander land`. Зупинити симуляцію можна через клавіатурну комбінацію  **CTRL+C** (або через введення `shutdown`).
 
-Flying the simulation with the ground control station is closer to the real operation of the vehicle. Click on a location in the map while the vehicle is flying (takeoff flight mode) and enable the slider. This will reposition the vehicle.
+Симуляція польоту з управлінням з боку наземного оператора є ближчою до реального запуску дрону. В момент зльоту (режим takeoff flight) натисніть на місце розташування на карті пересуньте (увімкніть) повзунковий перемикач. ПРри цьому здійсниться репозиціонування літального засобу.
 
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
-:::tip PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md) and [AirSim](../sim_airsim/README.md). These are also started with _make_ - e.g.
+PX4 можна використовувати з низкою інших [симуляторів](../simulation/README.md), включаючи [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md) і [AirSim](../sim_airsim/README.md). These are also started with _make_ - e.g.
 
 ```sh
 make px4_sitl gazebo-classic
@@ -61,62 +61,60 @@ make px4_sitl gazebo-classic
 
 :::
 
-## NuttX / Pixhawk Based Boards
+## Плати на основі NuttX / Pixhawk
 
-### Building for NuttX
+### Збірка під NuttX
 
 To build for NuttX- or Pixhawk- based boards, navigate into the **PX4-Autopilot** directory and then call `make` with the build target for your board.
 
-For example, to build for [Pixhawk 4](../flight_controller/pixhawk4.md) hardware you could use the following command:
+Наприклад, збірка для плат на основі [Pixhawk 4](../flight_controller/pixhawk4.md) запускається наступною командою:
 
 ```sh
 cd PX4-Autopilot
 make px4_fmu-v5_default
 ```
 
-A successful run will end with similar output to:
+При успішному запуску в консолі відобразиться приблизно наступне:
 
 ```sh
 -- Build files have been written to: /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default
 [954/954] Creating /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
 ```
 
-The first part of the build target `px4_fmu-v4` indicates the target flight controller hardware for the firmware. The suffix, in this case `_default`, indicates a firmware _configuration_, such as supporting or omitting particular features.
+Суфікс, у цьому випадку  - `_default`, вказує на _конфігурацію прошивки_, наприклад, підтримку або відсутність певних функцій.
 
-:::note
-The `_default` suffix is optional. For example, `make px4_fmu-v5` and `px4_fmu-v5_default` result in the same firmware.
+Суфікс `_default` вказувати не обовʼязково. Наприклад, вказування `px4_fmu-v5` чи `px4_fmu-v5_default` приведе до збірки тієї самої прошивки.
 :::
 
-The following list shows the build commands for the [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) boards:
+У наведеному нижче списку показано команди збірки для плат [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md):
 
 - [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): `make px4_fmu-v6x_default`
-- [Holybro Pixhawk 6C (FMUv6C)](../flight_controller/pixhawk6c.md): `make px4_fmu-v6c_default`
-- [Holybro Pixhawk 6C Mini (FMUv6C)](../flight_controller/pixhawk6c_mini.md): `make px4_fmu-v6c_default`
-- [Holybro Pix32 v6 (FMUv6C)](../flight_controller/holybro_pix32_v6.md): `make px4_fmu-v6c_default`
-- [Holybro Pixhawk 5X (FMUv5X)](../flight_controller/pixhawk5x.md): `make px4_fmu-v5x_default`
-- [Pixhawk 4 (FMUv5)](../flight_controller/pixhawk4.md): `make px4_fmu-v5_default`
-- [Pixhawk 4 Mini (FMUv5)](../flight_controller/pixhawk4_mini.md): `make px4_fmu-v5_default`
-- [CUAV V5+ (FMUv5)](../flight_controller/cuav_v5_plus.md): `make px4_fmu-v5_default`
-- [CUAV V5 nano (FMUv5)](../flight_controller/cuav_v5_nano.md): `make px4_fmu-v5_default`
-- [Pixracer (FMUv4)](../flight_controller/pixracer.md): `make px4_fmu-v4_default`
-- [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md): `make px4_fmu-v4pro_default`
-- [Pixhawk Mini](../flight_controller/pixhawk_mini.md): `make px4_fmu-v3_default`
-- [Pixhawk 2 (Cube Black) (FMUv3)](../flight_controller/pixhawk-2.md): `make px4_fmu-v3_default`
-- [mRo Pixhawk (FMUv3)](../flight_controller/mro_pixhawk.md): `make px4_fmu-v3_default` (supports 2MB Flash)
-- [Holybro pix32 (FMUv2)](../flight_controller/holybro_pix32.md): `make px4_fmu-v2_default`
-- [Pixfalcon (FMUv2)](../flight_controller/pixfalcon.md): `make px4_fmu-v2_default`
-- [Dropix (FMUv2)](../flight_controller/dropix.md): `make px4_fmu-v2_default`
-- [Pixhawk 1 (FMUv2)](../flight_controller/pixhawk.md): `make px4_fmu-v2_default`
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): `make px4_fmu-v6x_default`
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
+- [mRo Pixhawk (FMUv3)](../flight_controller/mro_pixhawk.md): `make px4_fmu-v3_default` (підтримка до 2MB флеш-памʼяті)
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
 
-:::warning
-You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
+  Для збірки прошивки для цієї плати вам **необхідно** використовувати саме ту версію GCC, яка підтримується (наприклад, ту саму, що використовується у [CI/docker](../test_and_ci/docker.md)), або вилучити ці модулі зі збірки. Процес збірки прошивки за допомогою компілятора GCC, який не підтримується, може зазнати невдачі, оскільки обсяг памʼяті, який займає PX4, близький до ліміту прошивки в 1 МБ.
 :::
 
-- Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
+- Pixhawk 1 з 2 Мб флеш-памʼяті: ` make px4_fmu-v3_default`
 
-Build commands for non-Pixhawk NuttX fight controllers (and for all other-boards) are provided in the documentation for the individual [flight controller boards](../flight_controller/README.md).
+Команди збірки для польотних контролерів на основі non-Pixhawk NuttX (і на основі всіх інших плат) надаються в документації для окремих [ для польотних контролерів ](../flight_controller/README.md).
 
-### Uploading Firmware (Flashing the board)
+### Завантаження прошивки (Прошивка плати)
 
 Append `upload` to the make commands to upload the compiled binary to the autopilot hardware via USB. For example
 
@@ -124,36 +122,34 @@ Append `upload` to the make commands to upload the compiled binary to the autopi
 make px4_fmu-v4_default upload
 ```
 
-A successful run will end with this output:
-
 ```sh
-Erase  : [====================] 100.0%
-Program: [====================] 100.0%
-Verify : [====================] 100.0%
-Rebooting.
+Erase : [======================] 100.0%
+Програма: [==================100.0%
+Перевірка : [================================] 100.0%
+Перезавантаження .
 
 [100%] Built target upload
 ```
 
-## Other Boards
+## Інші плати
 
 Build commands for other boards are given the [board-specific flight controller pages](../flight_controller/README.md) (usually under a heading _Building Firmware_).
 
-You can also list all configuration targets using the command:
+Список усіх конфігурацій й цілей можна викликати командою:
 
 ```sh
 make list_config_targets
 ```
 
-## Compiling in a Graphical IDE
+## Компіляція в графічному IDE
 
-[VSCode](../dev_setup/vscode.md) is the officially supported (and recommended) IDE for PX4 development. It is easy to set up and can be used to compile PX4 for both simulation and hardware environments.
+[VSCode](../dev_setup/vscode.md) офіційно підтримується (і рекомендується) в якості IDE для PX4-розробки. VSCode є зручним для налаштування й використання PX4 для моделювання й роботи в апаратному середовищі.
 
-## Troubleshooting
+##
 
 ### General Build Errors
 
-Many build problems are caused by either mismatching submodules or an incompletely cleaned-up build environment. Updating the submodules and doing a `distclean` can fix these kinds of errors:
+Більшість проблем, які виникають при збірці, обумовлені використанням невідповідних підмодулів або не до кінця очищеним середовищем. Усунути такі помилки можна через оновлення підмодулів або командою  `distclean`
 
 ```sh
 git submodule update --recursive
@@ -162,9 +158,9 @@ make distclean
 
 ### Flash overflowed by XXX bytes
 
-The `region 'flash' overflowed by XXXX bytes` error indicates that the firmware is too large for the target hardware platform. This is common for `make px4_fmu-v2_default` builds, where the flash size is limited to 1MB.
+Помилка ` region 'flash' overflowed by XXXX bytes ` вказує на те, що обсяг прошивки перевищує обʼєм доступної памʼяті для цільової платформи. Така помилка найчастіше виникає при виконанні команди `make px4_fmu-v2_default`, де обʼєм памʼяті обмежений 1МБ.
 
-If you're building the _vanilla_ master branch, the most likely cause is using an unsupported version of GCC. In this case, install the version specified in the [Developer Toolchain](../dev_setup/dev_env.md) instructions.
+In this case, install the version specified in the [Developer Toolchain](../dev_setup/dev_env.md) instructions.
 
 If building your own branch, it is possibly you have increased the firmware size over the 1MB limit. In this case you will need to remove any drivers/modules that you don't need from the build.
 
