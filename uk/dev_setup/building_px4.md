@@ -160,39 +160,39 @@ make distclean
 
 Помилка ` region 'flash' overflowed by XXXX bytes ` вказує на те, що обсяг прошивки перевищує обʼєм доступної памʼяті для цільової платформи. Така помилка найчастіше виникає при виконанні команди `make px4_fmu-v2_default`, де обʼєм памʼяті обмежений 1МБ.
 
-In this case, install the version specified in the [Developer Toolchain](../dev_setup/dev_env.md) instructions.
+При збірці _vanilla_ майстер-гілки (тобто "чистої" майстер-гілки), найімовірнішою причиною виникнення помилки є використання непідтримуваної версії GCC. У даному випадку встановіть версію, зазначену в [Інструментарій розробника](../dev_setup/dev_env.md).
 
-If building your own branch, it is possibly you have increased the firmware size over the 1MB limit. In this case you will need to remove any drivers/modules that you don't need from the build.
+При збірці своєї гілки варто по можливості збільшити розмір прошивки вище ліміту 1 МБ. В цьому випадку вам доведеться видалити всі не потрібні при цій збірці модулі драйвера.
 
-### macOS: Too many open files error
+### macOS: Помилка "надто багато відкритих файлів"
 
-MacOS allows a default maximum of 256 open files in all running processes. The PX4 build system opens a large number of files, so you may exceed this number.
+MacOS (за стандартними налаштуваннями) дозволяє тримати відкритими щонайбільше 256 файлів у всіх процесах. При збірці PX4 відкривається велика кількість файлів, тож може статися перевищення цього ліміту.
 
-The build toolchain will then report `Too many open files` for many files, as shown below:
+У ланцюжку збірки (build toolchain) зʼявиться повідомлення `Надто багато відкритих файлів`, як показано нижче:
 
 ```sh
 /usr/local/Cellar/gcc-arm-none-eabi/20171218/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/bin/ld: cannot find NuttX/nuttx/fs/libfs.a: Too many open files
 ```
 
-The solution is to increase the maximum allowed number of open files (e.g. to 300). You can do this in the macOS _Terminal_ for each session:
+Рішення полягає в збільшенні максимально дозволеної кількості відкритих файлів (наприклад, до 300). В macOS це можна зробити _Терміналі_ для кожного сеансу:
 
-- Run this script [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/mac_set_ulimit.sh), or
-- Enter this command:
+- Запустіть цей скрипт [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/mac_set_ulimit.sh) або
+- Введіть наступну команду:
 
   ```sh
   ulimit -S -n 300
   ```
 
-### macOS Catalina: Problem running cmake
+### macOS Catalina: Складнощі при використанні cmake
 
-As of macOS Catalina 10.15.1 there may be problems when trying to build the simulator with _cmake_. If you have build problems on this platform then try run the following command in your terminal:
+При роботі в macOS Catalina 10.15.1 можуть виникнути складнощі при збірці симулятору за допомогою _cmake_. Якщо у вас виникли проблеми на цій платформі, спробуйте виконати наступну команду в терміналі:
 
 ```sh
 xcode-select --install
 sudo ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /usr/local/include/
 ```
 
-### Ubuntu 18.04: Compile errors involving arm_none_eabi_gcc
+### Ubuntu 18.04: Помилки компіляції в arm_none_eabi_gcc
 
 Build issues related to `arm_none_eabi_gcc`may be due to a broken g++ toolchain installation. You can verify that this is the case by checking for missing dependencies using:
 
