@@ -1,6 +1,6 @@
 # Значення мелодії (серія Pixhawk)
 
-[ Контролери польоту серії Pixhawk](../flight_controller/pixhawk_series.md) використовують звукові сигнали/мелодії та [ світлодіоди](../getting_started/led_meanings.md) для індикації стану та подій (наприклад, успішне або невдале встановлення під охорону, попередження про низький рівень заряду батареї).
+[ Контролери польоту серії Pixhawk](../flight_controller/pixhawk_series.md) використовують звукові сигнали/мелодії та [ світлодіоди](../getting_started/led_meanings.md) для індикації стану та подій (наприклад, успішне або невдале приведення в бойове положення, попередження про низький рівень заряду батареї).
 
 Набір стандартних звуків наведено нижче.
 
@@ -150,96 +150,96 @@
 - Калібрування вже завершено.
 - Місія недійсна.
 - Команда відхилена, не виконана, тимчасово відхилена (наприклад, з протоколу команд MAVLink).
-- Arming/disarming transition denied (e.g. pre-flight checks failed, safety not disabled, system not in manual mode).
+- Приведення в бойове/небойове положення відхилення (наприклад, не пройдено передпольотну перевірку, не відключено систему безпеки, система не перебуває в ручному режимі).
 - Перехід у режим відхилено.
 
-#### Arming Warning
+#### Попередження про приведення в бойове положення
 
 <audio controls>
   <source src="../../assets/tunes/6_arming_warning.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 6, ARMING_WARNING -->
 
-- Vehicle is now armed.
+- Апарат приведений в бойове положення.
 
-#### Arming Failure Tune
+#### Сигнали невдачі при приведенні в бойове положення
 
 <audio controls>
   <source src="../../assets/tunes/10_arming_failure_tune.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 10, ARMING_FAILURE -->
 
-- Arming failed
+- Невдача приведення в бойове положення
 
-#### Battery Warning Slow
+#### Попередження про низький заряд акумулятора - повільне
 
 <audio controls>
   <source src="../../assets/tunes/7_battery_warning_slow.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 7,  BATTERY_WARNING_SLOW -->
 
-- Low battery warning ([failsafe](../config/safety.md#low-battery-failsafe)).
+- Попередження про низький заряд батареї ([failsafe](../config/safety.md#low-battery-failsafe)).
 
-#### Battery Warning Fast
+#### Попередження про низький заряд акумулятора - швидке
 
 <audio controls>
   <source src="../../assets/tunes/8_battery_warning_fast.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 8, BATTERY_WARNING_FAST -->
 
-- Critical low battery warning ([failsafe](../config/safety.md#low-battery-failsafe)).
+- Попередження про критично низький заряд батареї ([failsafe](../config/safety.md#low-battery-failsafe)).
 
 
-#### GPS Warning Slow
+#### Попередження GPS - повільне
 
 <audio controls>
   <source src="../../assets/tunes/9_gps_warning_slow.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 9,  GPS_WARNING -->
 
-#### Parachute Release
+#### Випуск парашута
 
 <audio controls>
   <source src="../../assets/tunes/11_parachute_release.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 11, PARACHUTE_RELEASE -->
 
-- Parachute release triggered.
+- Спрацював випуск парашута.
 
 
-#### Single Beep
+#### Один сигнал
 
 <audio controls>
   <source src="../../assets/tunes/14_single_beep.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 12, SINGLE_BEEP (previously was id 14 -->
 
-- Magnetometer/Compass calibration: Notify user to start rotating vehicle.
+- Калібрування магнітометра/компаса: Сповістити користувача про початок обертання транспортного засобу.
 
-#### Home Set Tune
+#### Сигнали початкової позиції
 
 <audio controls>
   <source src="../../assets/tunes/15_home_set_tune.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
+Ваш браузер не підтримує аудіо елемент.
 </audio>
 <!-- 13, HOME_SET (previously id 15) -->
 
-- Home position initialised (first time only).
+- Ініціалізовано початкову позицію (лише вперше).
 
-#### Power Off Tune
+#### Сигнал вимкнення
 
 <audio controls>
   <source src="../../assets/tunes/power_off_tune.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
 
-- Vehicle powering off.
+- Літальний апарат вимикається.
 
 <!--19, POWER_OFF -->
