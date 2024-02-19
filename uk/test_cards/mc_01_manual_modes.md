@@ -1,4 +1,4 @@
-# Test MC_01 - Manual Modes
+#
 
 ## Arm and Take-off
 
@@ -6,9 +6,9 @@
 
 ❏ Take-off by raising the throttle
 
-## Flight
+##
 
-❏ Stabilized
+Стабілізований
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response 1:1
 
@@ -42,4 +42,4 @@
 
 - Take-off should be smooth as throttle is raised
 - No oscillations should present in any of the above flight modes
-- Upon landing, copter should not bounce on the ground
+- Після посадки, коптер не повинен підскакувати на землі
