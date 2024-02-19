@@ -559,6 +559,7 @@
       * [RegisterExtComponentReply](msg_docs/RegisterExtComponentReply.md)
       * [RegisterExtComponentRequest](msg_docs/RegisterExtComponentRequest.md)
       * [Rpm](msg_docs/Rpm.md)
+      * [RtlStatus](msg_docs/RtlStatus.md)
       * [RtlTimeEstimate](msg_docs/RtlTimeEstimate.md)
       * [SatelliteInfo](msg_docs/SatelliteInfo.md)
       * [SensorAccel](msg_docs/SensorAccel.md)
