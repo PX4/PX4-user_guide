@@ -21,6 +21,7 @@ The following kits are currently available:
 - [Holybro S500 Kit v2](https://holybro.com/collections/s500/products/s500-v2-development-kit) (Pixhawk 6c)
 - [Holybro QAV250 Kit](https://holybro.com/products/qav250-kit) (Pixhawk 6c)
 - [NXP HoverGames KIT-HGDRONEK66](https://www.nxp.com/KIT-HGDRONEK66) ([hovergames.com](https://www.hovergames.com/))
+- [3DR Quad Zero](https://store.3dr.com/3dr-quad-zero-kit/)
 
 ## Build Guides
 
