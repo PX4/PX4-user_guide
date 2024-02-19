@@ -1,24 +1,24 @@
-# Test MC_04 - Failsafe Testing
+# Тест MC_04 - Тестування безаварійності
 
 ❏ Verify RC Loss action is Return to Land
 
 ❏ Verify Data Link Loss action is Return to Land and the timeout is 10 seconds
 
-❏ Verify Battery failsafe
+Перевірте безвідмовність батареї
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Action is Return to Land
+&nbsp;&nbsp;&nbsp;&nbsp;Дія повернутися до землі
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Warn Level is 25%
+&nbsp;&nbsp;&nbsp;&nbsp;Рівень попередження про заряд батареї є 25%
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Failsafe Level is 20%
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Emergency Level is 15%
+&nbsp;&nbsp;&nbsp;&nbsp;Критичний рівень батареї 15%
 
-❏ Take off in Altitude mode
+Зупинка в режимі висоти
 
-❏ Move at least 20 meters away home position
+Перемістіть принаймні на 20 метрів від домашньої позиції
 
-❏ RC loss
+❏ Втрата RC
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏Turn off RC and check the vehicle returns to home position, wait for the descent and turn on the RC and take over.
 
@@ -26,7 +26,7 @@
 
 ❏ Disconnect telemetry, vehicle should return to home position after 10 seconds, wait for the descent and reconnect the telemetry radio
 
-## Switch to Altitude Mode
+## Перемкнутись у режим висоти
 
 ❏ Make sure roll, pitch and yaw sticks respond like in Stabilize mode
 
@@ -34,7 +34,7 @@
 
 ## Switch to Position Mode
 
-❏ When the sticks are centered, it must maintain position
+<unk> коли ручки в центрі, вони повинні утримувати позицію
 
 ❏ Move roll, pitch and yaw and check the vehicle is moving according to the inputs
 
@@ -42,8 +42,8 @@
 
 ## Wait for Battery Failsafe to Trigger
 
-❏ Confirm the warning message is received in QGC
+Підтвердіть, що отримано попереджувальне повідомлення в QGC
 
-❏ Confirm the vehicle returns to land
+Підтвердьте повернення машини на землю
 
-❏ Confirm the vehicle lands.
+Підтвердьте приземлення машини
