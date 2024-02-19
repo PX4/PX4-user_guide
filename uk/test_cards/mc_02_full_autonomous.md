@@ -1,20 +1,20 @@
-# Test MC_02 - Full Autonomous
+# Тест MC_02 - Повна автономність
 
-## Create and upload mission
+## Створити та завантажити місію
 
-❏ Mission Criteria
+Критерії Місії
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Auto take-off
+&nbsp;&nbsp;&nbsp;&nbsp;Включити автозняття
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Changes in Altitude throughout the mission
+&nbsp;&nbsp;&nbsp;&nbsp;Зміни у висоті протягом місії
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ First waypoint set to Takeoff
+&nbsp;&nbsp;&nbsp;&nbsp;Встановіть значення на перший маршрут в режимі очікування
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Enable Mission End RTL
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Duration of 5 to 6 minutes
+&nbsp;&nbsp;&nbsp;&nbsp;Тривалість від 5 до 6 хвилин
 
-❏ Upload mission to vehicle using _QGroundControl_
+Відправка даних на автомобіль за допомогою QGroundControl
 
 ## Arm and Take-off
 
@@ -22,16 +22,16 @@
 
 ❏ Engage Auto to trigger take-off
 
-❏ Observe tracking, cornering and proper RTL performance
+Спостереження відстеження, поворот і належна продуктивність RTL
 
-❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+Після торкання землі коптер повинен автоматично роззброїтись протягом 2 секунд (час роззброєння встановлюється параметром: COM_DISARM_LAND)
 
-## Expected Results
+## Очікувані результати
 
 - Take-off should be smooth as throttle is raised
-- Mission should upload on first attempt
+- Місія має бути завантажена при першій спробі
 - Vehicle should automatically take-off upon engaging Auto
-- Upon landing, copter should not bounce on the ground
+- Після посадки, коптер не повинен підскакувати на землі
 
 
 <!--
