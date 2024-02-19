@@ -1,41 +1,41 @@
-# Test MC_03 - Auto Manual Mix
+# Тест MC_03 - поєднання автоматичного і ручного керування
 
-## Create and Upload Mission
+## Створити та завантажити місію
 
-❏ Mission Criteria
+Критерії Місії
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Changes in Altitude throughout the mission
+&nbsp;&nbsp;&nbsp;&nbsp;Зміни у висоті протягом місії
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Mission should end in the air and NOT Land/RTL
+&nbsp;&nbsp;&nbsp;&nbsp;Місія повинна закінчитись в повітрі і НЕ на землі/RTL
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Duration of 3 to 4 minutes
+&nbsp;&nbsp;&nbsp;&nbsp;Тривалість від 3 до 4 хвилин
 
-❏ Upload mission to vehicle using _QGroundControl_
+Завантаження місії на машину за допомогою QGroundControl
 
-## Flight
+## Політ
 
 ❏ Arm and take-off in Position mode
 
-❏ Engage Auto
+Авто Залучення
 
-❏ Observe tracking and cornering
+Спостереження відстеження та поворот
 
 ❏ Once mission has completed, switch back to Position mode
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Horizontal position should hold current value with stick centered
+&nbsp;&nbsp;&nbsp;&nbsp;Горизонтальна позиція повинна містити поточне значення з ручкою в центрі
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Vertical position should hold current value with stick centered
+&nbsp;&nbsp;&nbsp;&nbsp;Вертикальна позиція повинна містити поточне значення з ручкою в центрі
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response set to Climbs/Descend rate
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response set to Pitch/Roll/Yaw rates
+&nbsp;&nbsp;&nbsp;&nbsp;Pitch/Roll/Yaw відповідь встановлена на відмітку/Roll/Yaw
 
-❏ Engage RTL
+Залучення RTL
 
-❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+Після торкання землі коптер повинен автоматично роззброїтись протягом 2 секунд (час роззброєння встановлюється параметром: COM_DISARM_LAND)
 
-## Expected Results
+## Очікувані результати
 
 - Take-off should be smooth as throttle is raised
-- No oscillations should present in any of the above flight modes
-- Upon landing, copter should not bounce on the ground
+- Немає коливання в жодному з перерахованих режимів польоту
+- Після посадки, коптер не повинен підскакувати на землі
