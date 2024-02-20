@@ -19,11 +19,11 @@ PX4 не потребує систему ручного керування дл�
 <!-- image showing the different parts here would be nice -->
 
 :::note
-The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*. The RC controller and it's included radio module are commonly referred to as a "transmitter". :::
+Наземний та розташований на засобі радіомодулі називаються передавачем та приймачем відповідно (навіть якщо вони підтримують двосторонню передачу) та загалом називаються *пара передавач/приймач*. Контролер РК та включений в нього радіомодуль часто називають просто "передавачем". :::
 
-An important quality of an RC system is how many "channels" it supports. The number of channels defines how many different physical controls on the remote control can be used to send commands to the vehicle (e.g. how many switches, dials, control sticks can actually be used).
+Важлива якість системи РК це кількість "каналів", яку вона підтримує. Кількість каналів визначає скільки різних фізичних елементів керування на пульті можна використовувати для відправлення команд рухомому засобу (наприклад скільки перемикачів, стіків керування можна використовувати).
 
-An aircraft must use a system that supports at least 4 channels (for roll, pitch, yaw, thrust). Ground vehicles need at least two channels (steering + throttle). An 8 or 16 channel transmitter provides additional channels that can be used to control other mechanisms or activate different [flight modes](../flight_modes/README.md) provided by the autopilot.
+Літальний апарат повинен використовувати систему, яка підтримує щонайменше 4 канали (для крену, тангажу, рискання, тяги). Наземні транспортні засоби потребують не менше двох каналів (кермо + газ). An 8 or 16 channel transmitter provides additional channels that can be used to control other mechanisms or activate different [flight modes](../flight_modes/README.md) provided by the autopilot.
 
 ## Types of Remote Controllers
 
