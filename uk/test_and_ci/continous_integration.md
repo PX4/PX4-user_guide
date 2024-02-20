@@ -1,3 +1,3 @@
-# PX4 Continuous Integration
+# Безперервна інтеграція
 
-PX4 builds and testing are performed using GitHub actions and a Jenkins server.
+PX4 збірки і тестування виконуються використовуючи GitHub і сервер Jenkins .
