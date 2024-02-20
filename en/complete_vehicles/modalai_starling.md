@@ -12,7 +12,7 @@ This development drone is meant to help you get to market faster and accelerate 
 This guide explains the minimal additional setup required to get the UAV ready to fly. It also covers a hardware overview, first flight, setting up WiFi, and more.
 
 :::note
-For complete and regularly updated documentation, please visit <https://docs.modalai.com/starling-v2>.  
+For complete and regularly updated documentation, please visit <https://docs.modalai.com/starling-v2>
 :::
 
 :::note
@@ -80,13 +80,23 @@ Binding your ELRS (ExpressLRS) receiver to a transmitter is a crucial step in pr
 
 1. **Power On the Receiver**: Once your drone is powered on, you'll notice the ELRS receiver's blue LED flashing. This is an indication that the receiver is on but has not yet established a connection with a transmitter.
 
+![Starling Receiver](../../assets/hardware/complete_vehicles/modalai_starling/starling-photo.png)
+
 2. Enter Binding Mode: To initiate binding, open a terminal and execute the adb shell  and voxl-elrs -bind commands. You'll observe the receiver's LED switch to a flashing in a heartbeat pattern, signaling that it is now in binding mode.
+
+
+![Boot Screenshot](../../assets/hardware/complete_vehicles/modalai_starling/screenshot-boot.png)
 
 **Setting Up the Transmitter**
 
 1. **Access the Menu**: On your Commando 8 radio transmitter included in the kit, press the left mode button to open the menu system.
+
+![Press Menu on RC](../../assets/hardware/complete_vehicles/modalai_starling/radio-1.png)
+
 2. **Navigate to ExpressLRS**: Use the right button to select the first menu entry, which should be "ExpressLRS."
 3. **Find the Bind Option**: With the "ExpressLRS" option selected, scroll down to the bottom of the menu to locate the "Bind" section. This can be done by pressing the right button downwards until you reach the "Bind" option.
+
+![Press Binding on RC](../../assets/hardware/complete_vehicles/modalai_starling/radio-2.png)
 
 4. **Initiate Binding**: Select "Bind" to put the transmitter into binding mode. You will know the process has been successful when the transmitter emits a beep, indicating a successful bind.
 
