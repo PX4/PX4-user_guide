@@ -12,11 +12,11 @@ This development drone is meant to help you get to market faster and accelerate 
 This guide explains the minimal additional setup required to get the UAV ready to fly. It also covers a hardware overview, first flight, setting up WiFi, and more.
 
 :::note
-For complete and regularly updated documentation, please visit <https://docs.modalai.com/starling-v2>
+For complete and regularly updated documentation, please visit <https://docs.modalai.com/starling-v2>.
 :::
 
 :::note
-If you are new to VOXL, be sure to familiarize yourself with the core features of VOXL hardware and software by reviewing the [VOXL Bootcamp](https://docs.modalai.com/voxl-developer-bootcamp/)
+If you are new to VOXL, be sure to familiarize yourself with the core features of VOXL hardware and software by reviewing the [VOXL Bootcamp](https://docs.modalai.com/voxl-developer-bootcamp/).
 :::
 
 ## Where to Buy
@@ -74,44 +74,46 @@ If you are new to VOXL, be sure to familiarize yourself with the core features o
 
 ### ELRS Set Up
 
-Binding your ELRS (ExpressLRS) receiver to a transmitter is a crucial step in preparing your VOXL 2 based PX4 Autonomy Developer Kit by ModalAI for flight. This process ensures a secure and responsive connection between your drone and its control system. Follow this detailed guide to successfully bind your ELRS receiver to your transmitter.
+Binding your ELRS (ExpressLRS) receiver to a transmitter is a crucial step in preparing your VOXL 2 based PX4 Autonomy Developer Kit by ModalAI for flight.
+This process ensures a secure and responsive connection between your drone and its control system.
 
-**Initial Steps**
+Follow this guide to bind your ELRS receiver to your transmitter.
 
-1. **Power On the Receiver**: Once your drone is powered on, you'll notice the ELRS receiver's blue LED flashing. This is an indication that the receiver is on but has not yet established a connection with a transmitter.
+#### Setting up the Receiver
 
-![Starling Receiver](../../assets/hardware/complete_vehicles/modalai_starling/starling-photo.png)
+1. **Power On the Receiver**: Once your drone is powered on, you'll notice the ELRS receiver's blue LED flashing.
+   This is an indication that the receiver is on but has not yet established a connection with a transmitter.
 
-2. Enter Binding Mode: To initiate binding, open a terminal and execute the adb shell  and voxl-elrs -bind commands. You'll observe the receiver's LED switch to a flashing in a heartbeat pattern, signaling that it is now in binding mode.
+   ![Starling Receiver](../../assets/hardware/complete_vehicles/modalai_starling/starling-photo.png)
 
+2. **Enter Binding Mode**: To initiate binding, open a terminal and execute the `adb shell` and `voxl-elrs -bind` commands.
+   You'll observe the receiver's LED switch to a flashing in a heartbeat pattern, signaling that it is now in binding mode.
 
-![Boot Screenshot](../../assets/hardware/complete_vehicles/modalai_starling/screenshot-boot.png)
+   ![Boot Screenshot](../../assets/hardware/complete_vehicles/modalai_starling/screenshot-boot.png)
 
-**Setting Up the Transmitter**
+#### Setting up the Transmitter
 
 1. **Access the Menu**: On your Commando 8 radio transmitter included in the kit, press the left mode button to open the menu system.
 
-![Press Menu on RC](../../assets/hardware/complete_vehicles/modalai_starling/radio-1.png)
+   ![Press Menu on RC](../../assets/hardware/complete_vehicles/modalai_starling/radio-1.png)
 
 2. **Navigate to ExpressLRS**: Use the right button to select the first menu entry, which should be "ExpressLRS."
 3. **Find the Bind Option**: With the "ExpressLRS" option selected, scroll down to the bottom of the menu to locate the "Bind" section. This can be done by pressing the right button downwards until you reach the "Bind" option.
 
-![Press Binding on RC](../../assets/hardware/complete_vehicles/modalai_starling/radio-2.png)
+   ![Press Binding on RC](../../assets/hardware/complete_vehicles/modalai_starling/radio-2.png)
 
 4. **Initiate Binding**: Select "Bind" to put the transmitter into binding mode. You will know the process has been successful when the transmitter emits a beep, indicating a successful bind.
 
-**Completing the Binding Process**
+#### Completing the Binding Process
 
 Once the transmitter is set to bind mode, the ELRS receiver on the drone will change its LED from flashing to a steady light, signifying a successful connection between the receiver and the transmitter.
 
-**Final Steps**
+- **Power Cycle**: After the binding process is complete, it's essential to power cycle the VOXL 2 before attempting to fly.
+  This means turning off the VOXL 2 and then turning it back on.
+  This step ensures that all settings are properly applied and that the system recognizes the newly established connection.
 
-- **Power Cycle**: After the binding process is complete, it's essential to power cycle the VOXL 2 before attempting to fly. This means turning off the VOXL 2 and then turning it back on. This step ensures that all settings are properly applied and that the system recognizes the newly established connection.
-
-**Conclusion**
-
-By following these instructions, you should now have a successfully bound ELRS receiver to your transmitter, ready for use with the PX4 Autonomy Kit by ModalAI. Remember, a secure connection is vital for the reliable operation of your drone, so always confirm the binding status before flight. For further assistance and troubleshooting, the provided ancillary sources can offer additional insights and support.
-
+You should now have a successfully bound ELRS receiver to your transmitter, ready for use with the PX4 Autonomy Kit by ModalAI.
+A secure connection is vital for the reliable operation of your drone, so always confirm the binding status before flight.
 
 ### Videos
 
