@@ -1,19 +1,19 @@
-# LED Meanings (Pixhawk Series)
+# Значення світлодіодів LED (серія Pixhawk)
 
-[Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) use LEDs to indicate the current status of the vehicle.
-- The [UI LED](#ui_led) provides user-facing status information related to *readiness for flight*.
-- The [Status LEDs](#status_led) provide status for the PX4IO and FMU SoC. They indicate power, bootloader mode and activity, and errors.
+[ Контролери польоту серії Pixhawk](../flight_controller/pixhawk_series.md) використовують світлодіоди для індикації поточного стану літального апарату.
+- [Світлодіод інтерфейсу користувача (UI LED)](#ui_led) надає користувачеві інформацію про стан, пов'язаний з *готовністю до польоту*.
+- Світлодіоди [Статус](#status_led) показують стан PX4IO і FMU SoC. Вони показують заряд, режим і стан бутлоадера, а також помилки.
 
 <a id="ui_led"></a>
 
-## UI LED
+## Індикатори інтерфейсу (UI LED)
 
-The RGB *UI LED* indicates the current *readiness for flight* status of the vehicle. This is typically a superbright I2C peripheral, which may or may not be mounted on the flight controller board (i.e. FMUv4 does not have one on board, and typically uses an LED mounted on the GPS).
+RGB *індикатори інтерфейсу* вказують на поточний стан *готовності до польоту* апарату. Зазвичай це дуже яскравий периферійний пристрій I2C, який може бути встановлений або не встановлений на платі польотного контролера (наприклад,  FMUv4 не має такого на борту, і зазвичай використовує світлодіод, встановлений на GPS).
 
-The image below shows the relationship between LED and vehicle status.
+На зображенні нижче показано взаємозв'язок між світлодіодом і станом апарату.
 
 :::warning
-It is possible to have a GPS lock (Green LED) and still not be able to arm the vehicle because PX4 has not yet [passed preflight checks](../flying/pre_flight_checks.md). **A valid global position estimate is required to takeoff!**
+Ви можете мати блокування GPS (зелений світлодіод), але не мати можливості привести апарат в бойову готовність, оскільки PX4 ще не [ пройшов передпольотну перевірку](../flying/pre_flight_checks.md). ** Для зльоту потрібна коректна оцінка глобального положення!**
 :::
 
 :::tip
