@@ -17,8 +17,8 @@ They may not be compatible with the current PX4 release, and compatibility is no
 
 ## Experimental Vehicles
 
-These are [complete vehicles](../complete_vehicles/README.md) that have a fully integrated autopilot and other hardware (i.e. unlike the other autopilots listed, you can't use them in your own builds).
+These are [complete vehicles](../complete_vehicles_mc/README.md) that have a fully integrated autopilot and other hardware (i.e. unlike the other autopilots listed, you can't use them in your own builds).
 They are listed in this page because from a PX4 software perspective, they are another autopilot.
 
-- [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md) ([Complete Vehicle](../complete_vehicles/README.md))
-- [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md) ([Complete Vehicle](../complete_vehicles/README.md))
+- [Bitcraze Crazyflie 2.0](../complete_vehicles_mc/crazyflie2.md) ([Complete Vehicle](../complete_vehicles_mc/README.md))
+- [Bitcraze Crazyflie 2.1](../complete_vehicles_mc/crazyflie21.md) ([Complete Vehicle](../complete_vehicles_mc/README.md))
