@@ -14,7 +14,7 @@ PX4 не потребує систему ручного керування дл�
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-The ground based RC controller contains a radio module that is bound to, and communicates with, a (compatible) radio module on the vehicle. The vehicle-based unit is connected to the flight controller. The flight controller determines how to interpret the commands based on the current autopilot flight mode and vehicle state, and drives the vehicle motors and actuators appropriately.
+Наземний контролер РК містить радіомодуль, який пов'язаний із (сумісним) радіомодулем у рухомому засобі та спілкується з ним. Пристрій радіомодуля на засобі під'єднано до польотного контролера. Контролер польоту визначає, як інтерпретувати команди в залежності від поточного режиму польоту автопілота, і відповідно керує двигунами  та актуаторами транспортного засобу.
 
 <!-- image showing the different parts here would be nice -->
 
