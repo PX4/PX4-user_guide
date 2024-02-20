@@ -121,7 +121,7 @@ The **.test** files launch the corresponding Python tests defined in `integratio
      roslaunch launch/mavros_posix_sitl.launch
      ```
 
-   - Run test (in a new shell):
+   - Запустити тест (в новій оболонці):
 
      ```sh
      cd <PX4-Autopilot_clone>
@@ -129,22 +129,22 @@ The **.test** files launch the corresponding Python tests defined in `integratio
      rosrun px4 mavros_new_test.py
      ```
 
-1. Add new test node to a launch file
+1. Додати новий тестовий вузол до файлу запуску
 
    - In `test/` create a new `<test_name>.test` ROS launch file.
-   - Call the test file using one of the base scripts _rostest_px4_run.sh_ or _rostest_avoidance_run.sh_
+   - Викличте тестовий файл, використовуючи один з базових скриптів _rostest_px4_run.sh_ або _rostest_avoidancance_run.sh_
 
-1. (Optional) Create a new target in the Makefile
+1. (Необов'язково) Створити нову ціль в Makefile
 
-   - Open the Makefile
+   - Відкрийте Makefile
    - Search the _Testing_ section
-   - Add a new target name and call the test
+   - Додати нову назву цілі та викликати тест
 
-   For example:
+   Наприклад:
 
    ```sh
    tests_<new_test_target_name>: rostest
     @"$(SRC_DIR)"/test/rostest_px4_run.sh mavros_posix_tests_<new_test>.test
    ```
 
-Run the tests as described above.
+Запустити тести, як описані вище.
