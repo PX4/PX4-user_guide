@@ -4,7 +4,7 @@
 
 :::warning
 _Crazyflie 2.0_ has been [discontinued/superseded](../flight_controller/autopilot_experimental.md).
-Try [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md) instead!
+Try [Bitcraze Crazyflie 2.1](../complete_vehicles_mc/crazyflie21.md) instead!
 :::
 
 :::warning

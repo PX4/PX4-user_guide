@@ -16,7 +16,7 @@ This section lists vehicles that are sold fully assembled and ready to fly (RTF)
   - [ThunderFly TF-G2](https://www.thunderfly.cz/tf-g2.html)
 - Multicopter
   - [Teal One](https://tealdrones.com/teal-one/)
-  - [ModalAI Starling](../complete_vehicles/modalai_starling.md)
+  - [ModalAI Starling](../complete_vehicles_mc/modalai_starling.md)
   - [ModalAI Sentinel](https://www.modalai.com/sentinel)
 - VTOL
   - [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
@@ -26,8 +26,8 @@ This section lists vehicles that are sold fully assembled and ready to fly (RTF)
 This section lists fully assembled vehicles where you can update the software to run PX4.
 
 - Multicopter
-  - [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md)
-  - [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles/betafpv_beta75x.md)
+  - [Bitcraze Crazyflie 2.1](../complete_vehicles_mc/crazyflie21.md)
+  - [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles_mc/betafpv_beta75x.md)
 - Underwater Vehicles
   - [BlueROV2](../frames_sub/bluerov2.md)
 
@@ -36,8 +36,8 @@ This section lists fully assembled vehicles where you can update the software to
 This section lists drone kits that are intended as platforms for further development.
 They may come either fully assembled or in parts.
 
-- [ModalAI Starling](../complete_vehicles/modalai_starling.md)
-- [PX4 Vision DevKit](../complete_vehicles/px4_vision_kit.md) - Multicopter used for PX4 computer vision development
+- [ModalAI Starling](../complete_vehicles_mc/modalai_starling.md)
+- [PX4 Vision DevKit](../complete_vehicles_mc/px4_vision_kit.md) - Multicopter used for PX4 computer vision development
 
 ## UAV Kits
 
