@@ -21,7 +21,7 @@ A Taranis RC plus a Note 4 tablet make up for a very inexpensive field kit.
   - 任意 MacBook 或者 Ubuntu Linux 笔记本电脑（可使用开发用计算机兼任）
   - Samsung Note 4 or equivalent (any recent Android tablet or phone with a large enough screen to run _QGroundControl_ effectively).
 - **Vehicle capable of running PX4**:
-  - [Get a prebuilt vehicle](../complete_vehicles/README.md)
+  - [Get a prebuilt vehicle](../complete_vehicles_mc/README.md)
   - [Build your own](../airframes/README.md)
 - **Safety glasses**
 - **Tether** (multicopter only - for more risky tests)

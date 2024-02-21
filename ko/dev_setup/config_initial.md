@@ -21,7 +21,7 @@ Taranis RC와 Note 4 태블릿은 매우 저렴한 현장 키트를 구성합니
   - 모든 MacBook 또는 Ubuntu Linux 노트북(개발 컴퓨터일 수 있음)
   - Samsung Note 4 or equivalent (any recent Android tablet or phone with a large enough screen to run _QGroundControl_ effectively).
 - **PX4를 실행 가능한 기체**:
-  - [사전 제작된 기체를 준비하십시오.](../complete_vehicles/README.md)
+  - [사전 제작된 기체를 준비하십시오.](../complete_vehicles_mc/README.md)
   - [나만의 빌드를 만드십시오.](../airframes/README.md)
 - **보안경**
 - **테더**(멀티콥터 전용 - 더 위험한 테스트용)
