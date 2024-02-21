@@ -3,7 +3,7 @@
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
 :::
 
-The AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) series is a fully stackable flight _platform_ for miniature UAVs. The platform currently has two RTF vehicles: [MindRacer 210](../complete_vehicles/mindracer210.md) and [NanoMind 110](../complete_vehicles/nanomind110.md).
+The AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) series is a fully stackable flight _platform_ for miniature UAVs. The platform currently has two RTF vehicles: [MindRacer 210](../complete_vehicles_mc/mindracer210.md) and [NanoMind 110](../complete_vehicles_mc/nanomind110.md).
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
