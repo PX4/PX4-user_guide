@@ -17,13 +17,13 @@ RGB *індикатори інтерфейсу* вказують на поточ
 :::
 
 :::tip
-In the event of an error (blinking red), or if the vehicle can't achieve GPS lock (change from blue to green),   check for more detailed status information in *QGroundControl* including calibration status, and errors messages reported by the [Preflight Checks (Internal)](../flying/pre_flight_checks.md). Also check that the GPS module is properly attached, Pixhawk is reading your GPS properly, and that the GPS is sending a proper GPS position.
+У разі виникнення помилки (блимає червоним кольором), або якщо апарат не може досягти блокування GPS (зміна кольору з синього на зелений), перевірте більш детальну інформацію про стан у *QGroundControl*, включно зі станом калібрування та повідомленнями про помилки, які з'являються у [Передпольотна перевірка (внутрішня)](../flying/pre_flight_checks.md). Також перевірте, чи правильно підключений GPS-модуль, чи правильно Pixhawk зчитує ваш GPS, і чи правильно GPS передає дані про місцеперебування.
 :::
 
 ![LED meanings](../../assets/flight_controller/pixhawk_led_meanings.gif)
 
 
-* **[Solid Blue] Armed, No GPS Lock:** Indicates vehicle has been armed and has no position lock from a GPS unit. When vehicle is armed, PX4 will unlock control of the motors, allowing you to fly your drone. As always, exercise caution when arming, as large propellers can be dangerous at high revolutions. Vehicle cannot perform guided missions in this mode.
+* **[Безперервний синій] Стан бойової готовності, без блокування GPS:** Вказує на те, що автомобіль перебуває в стані бойової готовності й не має блокування положення від GPS-пристрою. Коли апарат в стані готовності, PX4 розблокує керування двигунами, що дозволить вам керувати дроном. Як завжди, будьте обережні під час увімкнення, оскільки великі гвинти можуть бути небезпечними на високих обертах. У цьому режимі апарат не може виконувати керовані місії.
 
 * **[Pulsing Blue] Disarmed, No GPS Lock:** Similar to above, but your vehicle is disarmed. This means you will not be able to control motors, but all other subsystems are working.
 
