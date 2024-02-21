@@ -26,7 +26,7 @@ Manual-Acrobatic
 
 - [Acro mode](../flight_modes_fw/acro.md) — Manual mode for performing acrobatic maneuvers, such as rolls and flips, stalls and acrobatic figures.
   The roll, pitch, and yaw, sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
-- [Manual](#../flight_modes_fw/manual.md) — Hardest manual flight mode.
+- [Manual](../flight_modes_fw/manual.md) — Hardest manual flight mode.
   This sends stick input directly to control allocation for "fully" manual control.
   No sensor feedback is used to compensate for disturbances.
 
