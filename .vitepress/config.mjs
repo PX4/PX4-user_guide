@@ -11,7 +11,13 @@ export default defineConfig({
   base: process.env.BRANCH_NAME
     ? "/" + process.env.BRANCH_NAME + "/"
     : "/px4_user_guide/",
-  srcExclude: ["de/**/*.md", "ja/**/*.md", "ru/**/*.md", "tr/**/*.md"],
+  srcExclude: [
+    "de/**/*.md",
+    "ja/**/*.md",
+    "ru/**/*.md",
+    "tr/**/*.md",
+    "uk/**/*.md",
+  ],
   ignoreDeadLinks: true,
   markdown: {
     math: true,
@@ -51,7 +57,9 @@ export default defineConfig({
       // other locale specific properties...
     },
   },
-
+  async transformPageData(pageData, { siteConfig }) {
+    console.log(pageData.filePath);
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: "/px4-logo.svg",
