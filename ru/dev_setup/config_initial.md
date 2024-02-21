@@ -21,7 +21,7 @@ The equipment below is highly recommended:
   - Any MacBook or Ubuntu Linux laptop (can be the development computer)
   - Samsung Note 4 or equivalent (any recent Android tablet or phone with a large enough screen to run _QGroundControl_ effectively).
 - **Vehicle capable of running PX4**:
-  - [Get a prebuilt vehicle](../complete_vehicles/README.md)
+  - [Get a prebuilt vehicle](../complete_vehicles_mc/README.md)
   - [Build your own](../airframes/README.md)
 - **Safety glasses**
 - **Tether** (multicopter only - for more risky tests)
