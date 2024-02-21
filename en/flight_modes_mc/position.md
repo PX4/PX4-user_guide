@@ -51,10 +51,10 @@ Centered sticks level vehicle and hold it to fixed altitude and position against
 - Takeoff:
   - When landed, the vehicle will take off if the throttle stick is raised above 62.5% percent (of the full range from bottom).
 - Global position estimate is required.
-- Manual control input is required (such as RC control, joystick).
-  - Roll, Pitch, Throttle: Assistance from autopilot to hold position against wind.
-  - Yaw: Assistance from autopilot to stabilize the attitude rate.
-    Position of RC stick maps to the rate of rotation of vehicle in that orientation.
+- Manual control input is required (such as RC control, joystick). 
+  - Roll, Pitch, Throttle: Assistance from autopilot to hold position against wind. 
+  - Yaw: Assistance from autopilot to stabilize the attitude rate. 
+    Position of RC stick maps to the rate of rotation of vehicle in that orientation. 
 
 ### Parameters
 
