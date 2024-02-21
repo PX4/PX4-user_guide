@@ -73,5 +73,5 @@ The parameters that are relevant to multicopter (assuming the [RTL_TYPE](../adva
 ## See Also
 
 - [Return Mode (Generic)](../flight_modes/return.md)
-- [Return Mode (Fixed-wing)](../flight_modes_fw/return.md)
+- [Return Mode (Fixed-Wing)](../flight_modes_fw/return.md)
 - [Return Mode (VTOL)](../flight_modes_vtol/return.md)

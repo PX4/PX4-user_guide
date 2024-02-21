@@ -1,4 +1,4 @@
-# Stabilized Mode (Fixed-wing)
+# Stabilized Mode (Fixed-Wing)
 
 <img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />
 
@@ -9,7 +9,7 @@ _Stabilized mode_ is similar to [Altitude mode](../flight_modes_fw/altitude.md) 
 It is much easier to fly than [Manual mode](../flight_modes_fw/manual.md) because you can't roll or flip it, and if needed it is easy to level the vehicle (by centering the control sticks).
 :::
 
-he vehicle climb/descends based on pitch and throttle input and performs a [coordinated turn](https://en.wikipedia.org/wiki/Coordinated_flight) if the roll sticks are non-zero.
+The vehicle climbs/descends based on pitch and throttle input and performs a [coordinated turn](https://en.wikipedia.org/wiki/Coordinated_flight) if the roll sticks are non-zero.
 Roll and pitch are angle controlled (you can't roll upside down or loop).
 
 The vehicle will glide if the throttle is lowered to 0% (motor stops).
@@ -34,18 +34,18 @@ The vehicle course and altitude are not maintained, and can drift due to wind.
 - Pitch stick controls pitch angle around the defined offset [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF)
 - Throttle stick controls throttle directly.
 - Yaw stick adds an additional yaw rate setpoint (added to the one calculated by the autopilot to maintain coordinated flight).
-Can be used to manually change the side slip of the vehicle.
+  Can be used to manually change the side slip of the vehicle.
 - Manual control input is required (such as RC control, joystick).
 
 ## Parameters
 
 The mode is affected by the following parameters:
 
-| Parameter                                                                                                | Description                                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-<a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)          | Max pitch for manual control in attitude stabilized mode. Default: 45 degrees.                                           |
-| <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)          | Max roll for manual control in attitude stabilized mode. Default: 45 degrees.                                            |
-| <a id="FW_MAN_YR_MAX"></a>[FW_MAN_YR_MAX](../advanced_config/parameter_reference.md#FW_MAN_YR_MAX)     | Maximum manually added yaw rate . Default: 30 degrees per second.                                            |
-| <a id="FW_PSP_OFF"></a>[FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF)          | Pitch setpoint offset (pitch at level flight). Default: 0 degrees.                                            |
+| Parameter                                                                                          | Description                                                                    |
+| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)    | Max pitch for manual control in attitude stabilized mode. Default: 45 degrees. |
+| <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)    | Max roll for manual control in attitude stabilized mode. Default: 45 degrees.  |
+| <a id="FW_MAN_YR_MAX"></a>[FW_MAN_YR_MAX](../advanced_config/parameter_reference.md#FW_MAN_YR_MAX) | Maximum manually added yaw rate . Default: 30 degrees per second.              |
+| <a id="FW_PSP_OFF"></a>[FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF)          | Pitch setpoint offset (pitch at level flight). Default: 0 degrees.             |
 
 <!-- this document needs to be extended -->

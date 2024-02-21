@@ -13,7 +13,7 @@ This section explains how to assemble, configure, and tune PX4-based autopilot s
 The frame types that have a maintainer and are well tested and supported are:
 
 - [Multicopters](../frames_multicopter/README.md) (tri-, quad-, hexa-, octa-, and even [omnicopter](../frames_multicopter/omnicopter.md) vehicles)
-- [Planes (Fixed-wing)](../frames_plane/README.md)
+- [Planes (Fixed-Wing)](../frames_plane/README.md)
 - [VTOL](../frames_vtol/README.md): [Standard VTOL](../frames_vtol/standardvtol.md), [Tailsitter VTOL](../frames_vtol/tailsitter.md), [Tiltrotor VTOL](../frames_vtol/tiltrotor.md)
 
 ## Experimental Vehicles

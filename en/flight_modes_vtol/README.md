@@ -13,7 +13,7 @@ VTOL-specific flight mode behaviour is covered in:
 For other flight modes see the vehicle-specific behaviour:
 
 - [Flight Modes (Multicopter)](../flight_modes_mc/README.md)
-- [Flight Modes (Fixed-wing)](../flight_modes_fw/README.md)
+- [Flight Modes (Fixed-Wing)](../flight_modes_fw/README.md)
 
 ## Further Information
 

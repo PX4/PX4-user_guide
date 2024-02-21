@@ -51,7 +51,7 @@ The auto-tuning sequence must be performed in a **safe flight zone, with enough 
 It takes about 40 seconds ([between 19 and 68 seconds](#how-long-does-autotuning-take)).
 For best results, we recommend running the test in calm weather conditions.
 
-The recommended modes for autotuning are [Hold mode](../flight_modes_fw/hold.md) (fixed-wing) and [Altitude mode](../flight_modes_mc/altitude.md) (MC), but any other flight mode can be used.
+The recommended modes for autotuning are [Hold mode](../flight_modes_fw/hold.md) (FW) and [Altitude mode](../flight_modes_mc/altitude.md) (MC), but any other flight mode can be used.
 During auto tuning, the RC sticks can still be used to fly the vehicle.
 
 :::note
