@@ -1,4 +1,4 @@
-# Return Mode (Fixed-wing)
+# Return Mode (Fixed-Wing)
 
 <img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
 
