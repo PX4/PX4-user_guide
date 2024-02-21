@@ -57,6 +57,7 @@ export default defineConfig({
       // other locale specific properties...
     },
   },
+  //Logs every page loaded on build. Good way to catch errors not caught by other things.
   async transformPageData(pageData, { siteConfig }) {
     console.log(pageData.filePath);
   },
