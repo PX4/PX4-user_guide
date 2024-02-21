@@ -1,4 +1,4 @@
-# Acro Mode (Fixed-wing)
+# Acro Mode (Fixed-Wing)
 
 <img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />&nbsp;
 

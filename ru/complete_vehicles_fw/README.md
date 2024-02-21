@@ -1,4 +1,4 @@
-# Complete Vehicles (Fixed-wing)
+# Complete Vehicles (Fixed-Wing)
 
 This section contains information about fully assembled ready to fly (RTF) or near-RTF vehicles that either run PX4 by default or can/may be usable with PX4.
 

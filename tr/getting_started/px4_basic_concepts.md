@@ -211,7 +211,7 @@ Not all flight modes are available on all vehicle types, and some modes can only
 An overview of the available flight modes for each vehicle can be found below:
 
 - [Flight Modes (Multicopter)](../flight_modes_mc/README.md)
-- [Flight Modes (Fixed-wing)](../flight_modes_fw/README.md)
+- [Flight Modes (Fixed-Wing)](../flight_modes_fw/README.md)
 - [Flight Modes (VTOL)](../flight_modes_vtol/README.md)
 - [Flight Modes (Rover)](../flight_modes_rover/README.md)
 

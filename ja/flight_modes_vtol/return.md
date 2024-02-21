@@ -85,4 +85,4 @@ The others are relevant if the destination is a rally point or the home location
 
 - [Return Mode (Generic)](../flight_modes/return.md)
 - [Return Mode (Multicopter)](../flight_modes_mc/return.md)
-- [Return Mode (Fixed-wing)](../flight_modes_fw/return.md)
+- [Return Mode (Fixed-Wing)](../flight_modes_fw/return.md)
