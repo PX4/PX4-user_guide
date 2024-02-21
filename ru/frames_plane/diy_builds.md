@@ -1,4 +1,4 @@
-# DIY Builds (Fixed-wing)
+# DIY Builds (Fixed-Wing)
 
 Do-it-yourself (DIY) builds describe how to assemble a vehicle from parts that are sourced separately.
 
