@@ -9,7 +9,7 @@ _Stabilized mode_ is similar to [Altitude mode](../flight_modes_fw/altitude.md) 
 It is much easier to fly than [Manual mode](../flight_modes_fw/manual.md) because you can't roll or flip it, and if needed it is easy to level the vehicle (by centering the control sticks).
 :::
 
-The vehicle climbs/descends based on pitch and throttle input and performs a [coordinated turn](https://en.wikipedia.org/wiki/Coordinated_flight) if the roll sticks are non-zero.
+The vehicle climbs/descends based on pitch and throttle input and performs a [coordinated turn](https://en.wikipedia.org/wiki/Coordinated_flight) if the roll stick is non-zero.
 Roll and pitch are angle controlled (you can't roll upside down or loop).
 
 The vehicle will glide if the throttle is lowered to 0% (motor stops).

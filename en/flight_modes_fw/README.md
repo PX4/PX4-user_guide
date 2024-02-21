@@ -16,7 +16,7 @@ Manual-Easy:
   If the sticks are released the vehicle levels out and holds a straight flight path, even against wind.
   Airspeed is actively controlled if an airspeed sensor is installed.
 - [Altitude](../flight_modes_fw/altitude.md) — Easiest and safest _non-GPS_ manual mode.
-  The only difference compared to Position mode is that the pilot always directly controls the roll angle of the plane and there is no automatic course holding.
+  The only difference compared to _Position mode_ is that the pilot always directly controls the roll angle of the plane and there is no automatic course holding.
 - [Stabilized mode](../flight_modes_fw/stabilized.md) — The pilot directly commands the roll and pitch angle and the vehicle keeps the setpoint until the sticks are moved again.
   Thrust is directly set by the pilot.
   Turn coordination is still handled by the controller.
