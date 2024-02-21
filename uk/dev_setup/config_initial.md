@@ -1,39 +1,39 @@
-# Initial Setup & Configuration
+# Початкове налаштування та конфігурація
 
-We recommend that developers obtain the basic equipment and software described below (or similar)
+Ми рекомендуємо розробникам отримати базове обладнання та програмне забезпечення, описане нижче (або подібне).
 
-## Basic Equipment
+## Базове обладнання
 
 :::tip
-PX4 can be used with a much wider range of equipment than described here, but new developers will benefit from going with one of the standard setups.
-A Taranis RC plus a Note 4 tablet make up for a very inexpensive field kit.
+PX4 можна використовувати з набагато ширшим діапазоном обладнання, ніж описано тут, але для нових розробників корисніше працювати з одним із стандартних налаштувань.
+Пульт Taranis Plus та планшет Note 4 складають дуже недорогий робочий комплект.
 :::
 
-The equipment below is highly recommended:
+Нижченаведене обладнання дуже рекомендується:
 
-- **Remote control** for the safety pilot
-  - Taranis Plus remote control (or equivalent)
-- **Development computer**
-  - MacBook Pro (early 2015 and later) with OSX 10.15 or later
-  - Lenovo Thinkpad 450 (i5) with Ubuntu Linux 18.04 or later
-- **Ground control station** (computer or tablet):
-  - iPad (requires Wifi telemetry adapter)
-  - Any MacBook or Ubuntu Linux laptop (can be the development computer)
-  - Samsung Note 4 or equivalent (any recent Android tablet or phone with a large enough screen to run _QGroundControl_ effectively).
-- **Vehicle capable of running PX4**:
-  - [Get a prebuilt vehicle](../complete_vehicles_mc/README.md)
-  - [Build your own](../airframes/README.md)
-- **Safety glasses**
-- **Tether** (multicopter only - for more risky tests)
+- **Пульт дистанційного керування** для безпечності пілотування
+  - Пристрій дистанційного керування Taranis Plus (або еквівалент)
+- **Комп'ютер для розробки**
+  - MacBook Pro (початку 2015 та пізніше) з OSX 10.15 або новіше
+  - Lenovo Thinkpad 450 (i5) з Ubuntu Linux 18.04 або новіше
+- **Наземна станція керування** (комп'ютер або планшет):
+  - iPad (потрібен телеметричний адаптер з WiFi)
+  - Будь-який ноутбук MacBook або Ubuntu Linux (може бути комп'ютером для розробки)
+  - Samsung Note 4 або еквівалент (будь-який сучасний Android планшет або телефон з достатньо великим екраном, щоб ефективно користуватися _QGroundControl_).
+- **Рухомий засіб, здатний до роботи з PX4**:
+  - [Візьміть готовий рухомий засіб](../complete_vehicles_mc/README.md)
+  - [Створіть свій власний](../airframes/README.md)
+- **Захисні окуляри**
+- **Трос** (тільки для мультикоптерів - для ризикованих експериментів)
 
-## Vehicle Configuration
+## Конфігурація рухомого засобу
 
-Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html) for a **desktop OS**.
+Встановіть [денну збірку QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html) для **для операційної системи настільного комп'ютера**.
 
-To configure the vehicle:
+Для налаштування засобу:
 
-1. [Install PX4 firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware) (including "custom" firmware with your own changes).
-1. [Start with the airframe](../config/airframe.md) that best-matches your vehicle from the [airframe reference](../airframes/airframe_reference.md).
+1. [Встановіть прошивку PX4](../config/firmware.md#installing-px4-main-beta-or-custom-firmware) (включаючи "спеціальну" прошивку з вашими змінами).
+1. [Почніть з планера](../config/airframe.md) що найбільше підходить до вашого засобу з [довідника планерів](../airframes/airframe_reference.md).
 1. [Basic Configuration](../config/README.md) explains how to perform basic configuration.
 1. [Parameter Configuration](../advanced_config/parameters.md) explains how you can find and modify individual parameters.
 
