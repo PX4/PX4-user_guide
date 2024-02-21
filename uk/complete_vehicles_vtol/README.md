@@ -29,3 +29,8 @@ These may or may not be updatable to run "vanilla" PX4.
 
 - [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
 - [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)
+
+## See Also
+
+- [Complete Vehicles (Fixed-wing)](../complete_vehicles_fw/README.md)
+- [Complete Vehicles (MC)](../complete_vehicles_mc/README.md)
