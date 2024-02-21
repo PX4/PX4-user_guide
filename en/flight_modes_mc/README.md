@@ -28,16 +28,16 @@ Manual-Acrobatic
 
 Autonomous:
 
-- [Hold](#hold-mode) — Vehicle stops and hovers at its current position and altitude, maintaining its position against wind and other forces.
+- [Hold](../flight_modes_mc/hold.md) — Vehicle stops and hovers at its current position and altitude, maintaining its position against wind and other forces.
 - [Return](../flight_modes_mc/return.md) — Vehicle ascends to a safe altitude, flies a clear path to a safe location (home or a rally point) and then lands.
   This requires a global position estimate (GPS).
 - [Mission](../flight_modes_mc/mission.md) — Vehicle executes a [predefined mission/flight plan](../flying/missions.md) that has been uploaded to the flight controller.
   This requires a global position estimate (GPS).
-- [Takeoff](../flight_modes_mc/takeoff.md) — Vehicle takes off vertically and then switches to [Hold mode](#hold-mode).
+- [Takeoff](../flight_modes_mc/takeoff.md) — Vehicle takes off vertically and then switches to _Hold mode_.
 - [Land](../flight_modes_mc/land.md) — Vehicle lands immediately.
 - [Orbit](../flight_modes_mc/orbit.md) - Vehicle flys in a circle, yawing so that it always faces towards the center.
   RC control can optionally be used to change the orbit radius, direction, speed and so on.
-- [Follow Me](#follow-me-mode) — Vehicle follows a beacon that is providing position setpoints.
+- [Follow Me](../flight_modes_mc/follow_me.md) — Vehicle follows a beacon that is providing position setpoints.
   RC control can optionally be used to set the follow position.
 - [Offboard](../flight_modes_mc/offboard.md) — Vehicle obeys position, velocity, or attitude, setpoints provided via MAVLink or ROS 2.
 
