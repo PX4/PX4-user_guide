@@ -51,9 +51,9 @@ PX4 не потребує систему ручного керування дл�
 
 ## Вибір компонентів системи РК
 
-Вам потрібно буде обрати пару передача/приймача сумісні між собою. На додаток приймачі мають бути [сумісні з PX4](#compatible_receivers) та апаратним забезпеченням польотного контролера.
+Вам потрібно буде обрати пару передача/приймача сумісних між собою. На додаток приймачі мають бути [сумісні з PX4](#compatible_receivers) та апаратним забезпеченням польотного контролера.
 
-Сумісні радіосистеми часто продаються разом. На приклад популярна комбінація [FrSky Taranis X9D та FrSky X8R](https://hobbyking.com/en_us/frsky-2-4ghz-accst-taranis-x9d-plus-and-x8r-combo-digital-telemetry-radio-system-mode-2.html?___store=en_us).
+Сумісні радіосистеми часто продаються разом. Наприклад популярна комбінація [FrSky Taranis X9D та FrSky X8R](https://hobbyking.com/en_us/frsky-2-4ghz-accst-taranis-x9d-plus-and-x8r-combo-digital-telemetry-radio-system-mode-2.html?___store=en_us).
 
 
 ### Пари передавач/приймач
@@ -65,36 +65,36 @@ PX4 не потребує систему ручного керування дл�
 
 Інші популярні пари передавач/приймач
 
-* Turnigy remote using, for example, the FrSky transmitter/receiver modules.
-* Futaba Transmitters and compatible Futaba S-Bus receivers.
-* Long range ~900MHz, low latency: "Team Black Sheep Crossfire" or "Crossfire Micro" set with a compatible remote (e.g. Taranis)
-* Long Range ~433MHz: ImmersionRC EzUHF set with a compatible remote (e.g. Taranis)
+* Пульт Turnigy із, наприклад, парою модулів FrSky.
+* Передавачі Futaba та сумісні S-Bus приймачі Futaba.
+* Передавачі на далеку відстань у діапазоні ~900 МГц з низькою затримкою: набори "Team Black Sheep Crossfire" або "Crossfire Micro" із сумісним пультом (наприклад Taranis).
+* Передавач на далеку відстань у діапазоні ~433 МГц: набір ImmersionRC EzUHF із сумісним пультом (наприклад Taranis).
 
 
 <a id="compatible_receivers"></a>
 
-### PX4-Compatible Receivers
+### PX4-сумісні приймачі
 
-In addition to the transmitter/receiver pairs being compatible, the receiver must also be compatible with PX4 and the flight controller hardware.
+На додачу до пари передавач/приймач, приймач також повинен бути сумісним з PX4 та пристроєм польотного контролера.
 
-*PX4* and *Pixhawk* have been validated with:
+*PX4* та *Pixhawk* були перевірені з:
 
-- All Spektrum DSM RC receivers
-- All Futaba S.BUS and S.BUS2 RC receivers
-- All FrSky PPM and S.Bus models
+- Всіма приймачами Spektrum DSM RC
+- Всіма приймачами Futaba S.BUS та S.BUS2
+- Всіма моделями FrSky PPM та S.Bus
 - Graupner HoTT
-- All PPM models from other manufacturers
-- TBS Crossfire/Express LRS Receivers using [CRSF Telemetry](../telemetry/crsf_telemetry.md) (UART connection).
+- Усіма PPM моделями від інших виробників
+- Приймачами TBS Crossfire/Express LRS за допомогою [CRSF телеметрії](../telemetry/crsf_telemetry.md) (UART з'єднання).
 
 
-## Connecting Receivers
+## Підключення приймачів
 
-As general guidance, receivers connect to the flight controller using the port appropriate to their supported protocol:
+В якості загальної настанови: приймачі з'єднуються з контролером польоту використовуючи порт відповідного протоколу що ним підтримується.
 
-- Spektrum and DSM receivers must connect to a **SPKT/DSM** input.
-- Graupner HoTT receivers: SUMD output must connect to a **SPKT/DSM** input.
-- PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins (typically labeled RC or RCIN)
-- PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+- Приймачі Spektrum і DSM повинні підключатися до входу **SPKT/DSM**.
+- Graupner HoTT приймач: SUMD вихід повинен під'єднуватися до **SPKT/DSM** входу.
+- PPM-Sum та S.BUS приймачі повинні під'єднуватися напряму до **RC** штирків заземлення, живлення та сигналу (типово позначені як RC або RCIN).
+- PPM приймачі, які мають окремі дроти для кожного каналу повинні підключатися до каналу RCIN *через*  PPM перетворювач [на зразок цього](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum приймачі використовують єдиний сигнальний дріт для всіх каналів).
 
 Instructions for connecting to specific flight controllers are given in their [quick-start](../assembly/README.md) guides (such as [CUAV Pixhawk V6X Wiring Quick Start: Radio Control](../assembly/quick_start_cuav_pixhawk_v6x.md#radio-control) or [Holybro Pixhawk 6X Wiring Quick Start: Radio Control](../assembly/quick_start_pixhawk6x.md#radio-control)).
 
