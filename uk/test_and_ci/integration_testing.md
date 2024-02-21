@@ -1,4 +1,4 @@
-# Integration Testing using ROS
+# Тестування інтеграції з використанням ROS
 
 This topic explains how to run (and extend) PX4's ROS-based integration tests.
 
@@ -8,15 +8,15 @@ This topic explains how to run (and extend) PX4's ROS-based integration tests.
 All PX4 integraton tests are executed automatically by our [Continuous Integration](../test_and_ci/continous_integration.md) system.
 :::
 
-## Prerequisites:
+## Попередня підготовка:
 
-- [jMAVSim Simulator](../sim_jmavsim/README.md)
-- [Gazebo Classic Simulator](../sim_gazebo_classic/README.md)
+- [JSBSim симулятор](../sim_jmavsim/README.md)
+- [Gazebo Класичний Симулятор ](../sim_gazebo_classic/README.md)
 - [ROS and MAVROS](../simulation/ros_interface.md)
 
-## Execute Tests
+## Виконати тести
 
-To run the MAVROS tests:
+Щоб запустити тести MAVROS:
 
 ```sh
 source <catkin_ws>/devel/setup.bash
@@ -50,15 +50,15 @@ Tests can also be run with a GUI to see what's happening (by default the tests r
 
 The **.test** files launch the corresponding Python tests defined in `integrationtests/python_src/px4_it/mavros/`
 
-## Write a New MAVROS Test (Python)
+## Напишіть новий MAVROS-тест (Python)
 
-This section explains how to write a new python test using ROS 1/MAVROS, test it, and add it to the PX4 test suite.
+Цей розділ пояснює, як написати новий python тест з використанням ROS 1/MAVROS, протестувати його та додати до набору тестів PX4.
 
-We recommend you review the existing tests as examples/inspiration ([integrationtests/python_src/px4_it/mavros/](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros)). The official ROS documentation also contains information on how to use [unittest](http://wiki.ros.org/unittest) (on which this test suite is based).
+Ми рекомендуємо вам переглянути існуючі тести як приклади/натхнення ([integrationtests/python_src/px4_it/mavros/](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros)). В офіційній документації ROS також міститься інформація про те, як використовувати [unittest](http://wiki.ros.org/unittest) (на якому базується цей тестовий набір).
 
-To write a new test:
+Щоб написати новий тест:
 
-1. Create a new test script by copying the empty test skeleton below:
+1. Створити новий тестовий скрипт, копіюючи порожній тестовий каркас нижче:
 
    ```python
    #!/usr/bin/env python
@@ -111,9 +111,9 @@ To write a new test:
     rostest.rosrun(PKG, 'mavros_new_test', MavrosNewTest)
    ```
 
-1. Run the new test only
+1. Запустити лише новий тест
 
-   - Start the simulator:
+   - Запустити симулятор
 
      ```sh
      cd <PX4-Autopilot_clone>
@@ -121,7 +121,7 @@ To write a new test:
      roslaunch launch/mavros_posix_sitl.launch
      ```
 
-   - Run test (in a new shell):
+   - Запустити тест (в новій оболонці):
 
      ```sh
      cd <PX4-Autopilot_clone>
@@ -129,22 +129,22 @@ To write a new test:
      rosrun px4 mavros_new_test.py
      ```
 
-1. Add new test node to a launch file
+1. Додати новий тестовий вузол до файлу запуску
 
    - In `test/` create a new `<test_name>.test` ROS launch file.
-   - Call the test file using one of the base scripts _rostest_px4_run.sh_ or _rostest_avoidance_run.sh_
+   - Викличте тестовий файл, використовуючи один з базових скриптів _rostest_px4_run.sh_ або _rostest_avoidancance_run.sh_
 
-1. (Optional) Create a new target in the Makefile
+1. (Необов'язково) Створити нову ціль в Makefile
 
-   - Open the Makefile
+   - Відкрийте Makefile
    - Search the _Testing_ section
-   - Add a new target name and call the test
+   - Додати нову назву цілі та викликати тест
 
-   For example:
+   Наприклад:
 
    ```sh
    tests_<new_test_target_name>: rostest
     @"$(SRC_DIR)"/test/rostest_px4_run.sh mavros_posix_tests_<new_test>.test
    ```
 
-Run the tests as described above.
+Запустити тести, як описані вище.

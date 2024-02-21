@@ -16908,7 +16908,7 @@ table {
 <tr>
  <td><strong id="MPC_MAN_TILT_MAX">MPC_MAN_TILT_MAX</strong> (FLOAT)</td>
  <td>Maximal tilt angle in Stabilized or Altitude mode    </td>
- <td>[0, 90] (1)</td>
+ <td>[1, 70] (1)</td>
  <td>35.</td>
  <td>deg</td>
 </tr>
