@@ -92,7 +92,7 @@
     * [Features](features_mc/README.md)
       * [Throw Launch](flight_modes_mc/throw_launch.md)
       * [Precision Landing](advanced_features/precland.md)
-  * [Planes (Fixed-wing)](frames_plane/README.md)
+  * [Planes (Fixed-Wing)](frames_plane/README.md)
     * [Config/Tuning](config_fw/README.md)
       * [Rate/Attitude Controller Tuning Guide](config_fw/pid_tuning_guide_fixedwing.md)
       * [Altitude/Position Controller Tuning Guide](config_fw/position_tuning_guide_fixedwing.md)
