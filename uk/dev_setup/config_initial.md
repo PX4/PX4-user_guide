@@ -34,13 +34,13 @@ PX4 можна використовувати з набагато ширшим �
 
 1. [Встановіть прошивку PX4](../config/firmware.md#installing-px4-main-beta-or-custom-firmware) (включаючи "спеціальну" прошивку з вашими змінами).
 1. [Почніть з планера](../config/airframe.md) що найбільше підходить до вашого засобу з [довідника планерів](../airframes/airframe_reference.md).
-1. [Basic Configuration](../config/README.md) explains how to perform basic configuration.
-1. [Parameter Configuration](../advanced_config/parameters.md) explains how you can find and modify individual parameters.
+1. [Основне налаштування](../config/README.md) пояснює як виконати основне налаштування.
+1. [Налаштування параметрів](../advanced_config/parameters.md) пояснює як знайти та змінити окремі параметри.
 
 :::note
 
-- _QGroundControl_ mobile variants do not support vehicle configuration.
-- The _daily build_ includes development tools and new features that are not available in the official release.
-- Configuration in the airframe reference have been flown on real vehicles, and are a good starting point for "getting off the ground".
+- Варіант _QGroundControl_ для мобільних пристроїв не підтримує налаштування рухомого засобу.
+- _Денні збірки_ включають інструменти розробника, а також нові можливості, які недоступні в офіційних релізах.
+- Конфігурації в довіднику планерів літали на реальних засобах та є хорошою стартовою точкою для "відриву від землі".
 
 :::
