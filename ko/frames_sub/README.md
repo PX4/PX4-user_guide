@@ -13,12 +13,19 @@ At time of writing it has only been tested using ROS in offboard mode. The follo
 
 [유투브](https://youtu.be/1sUaURmlmT8)
 
-- [BlueROV2](../frames_sub/bluerov2.md) : 벡터화된 6 DOF UUV
-- HippoCampus UUV: [Airframe Reference](../airframes/airframe_reference.md#underwater_robot_underwater_robot_hippocampus_uuv_%28unmanned_underwater_vehicle%29), [Gazebo Classic Simulation](../sim_gazebo_classic/vehicles.md#hippocampus-tuhh-uuv)
+## Supported Frames
 
-:::note
-Other UUVs may be listed in [Airframe Reference > Underwater Robots](../airframes/airframe_reference.md#underwater-robot).
-:::
+PX4 supports several unmanned underwater vehicle (UUV) frames. The set of supported configurations can be seen in [Airframe Reference > Underwater Robots](../airframes/airframe_reference.md#underwater-robot).
+
+### PX4 Compatible (Fully Assembled)
+
+This section lists fully assembled vehicles where you can update the software to run PX4.
+
+- [BlueROV2](../frames_sub/bluerov2.md) : 벡터화된 6 DOF UUV
+
+### Other Frames
+
+- HippoCampus UUV: [Airframe Reference](../airframes/airframe_reference.md#underwater_robot_underwater_robot_hippocampus_uuv_%28unmanned_underwater_vehicle%29), [Gazebo Classic Simulation](../sim_gazebo_classic/vehicles.md#hippocampus-tuhh-uuv)
 
 ## 비디오
 
