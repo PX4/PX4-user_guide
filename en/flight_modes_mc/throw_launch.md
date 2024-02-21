@@ -83,7 +83,7 @@ The steps for a throw launch are:
    - The vehicle must reach the speed of [COM_THROW_SPEED](../advanced_config/parameter_reference.md#COM_THROW_SPEED) to detect launch, which by default is set to 5 m/s.
      If this speed is not achieved, the motors will not start and the aircraft will fall to the ground.
    - Try to avoid excessive rotation during the throw, as this might cause the drone to fail or behave unpredictably.
-     The exact meaning of "excessive rotation" depends on the platform: for instance, [PX4Vision](../complete_vehicles/px4_vision_kit.md) used for the testing, still managed to recover after 2-3 full rotations.
+     The exact meaning of "excessive rotation" depends on the platform: for instance, [PX4Vision](../complete_vehicles_mc/px4_vision_kit.md) used for the testing, still managed to recover after 2-3 full rotations.
 1. After a downward velocity is detected (the vehicle reaches its apex and starts falling down), the motors should turn on and the vehicle will start flying in the current mode.
 
 ## Parameters
