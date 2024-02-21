@@ -10,15 +10,15 @@ The _supported platforms_ for PX4 development are:
 
 下表显示了您可以在每个操作系统上构建何种 PX平台的固件编译。
 
-| 平台                                                                                                                                  | Linux (Ubuntu) |   Mac   | Windows |
-| ----------------------------------------------------------------------------------------------------------------------------------- |:--------------:|:-------:|:-------:|
-| **NuttX based hardware:** [Pixhawk Series](../flight_controller/pixhawk_series.md), [Crazyflie](../complete_vehicles/crazyflie2.md) |       X        |    X    |    X    |
-| **Linux-based hardware:** [Raspberry Pi 2/3](../flight_controller/raspberry_pi_navio2.md)                                           |       X        |         |         |
-| **Simulation:** [Gazebo SITL](../sim_gazebo_gz/README.md)                                                                           |       X        | &check; | &check; |
-| **Simulation:** [Gazebo Classic SITL](../sim_gazebo_classic/README.md)                                                              |       X        |    X    |    X    |
-| **Simulation:** [jMAVSim SITL](../sim_jmavsim/README.md)                                                                            |       X        |    X    |    X    |
-| **Simulation:** [ROS with Gazebo Classic](../simulation/ros_interface.md)                                                           |       X        |         |    X    |
-| **Simulation:** ROS 2 with Gazebo                                                                                                   |    &check;     |         | &check; |
+| 平台                                                                                                                                     | Linux (Ubuntu) |   Mac   | Windows |
+| -------------------------------------------------------------------------------------------------------------------------------------- |:--------------:|:-------:|:-------:|
+| **NuttX based hardware:** [Pixhawk Series](../flight_controller/pixhawk_series.md), [Crazyflie](../complete_vehicles_mc/crazyflie2.md) |       X        |    X    |    X    |
+| **Linux-based hardware:** [Raspberry Pi 2/3](../flight_controller/raspberry_pi_navio2.md)                                              |       X        |         |         |
+| **Simulation:** [Gazebo SITL](../sim_gazebo_gz/README.md)                                                                              |       X        | &check; | &check; |
+| **Simulation:** [Gazebo Classic SITL](../sim_gazebo_classic/README.md)                                                                 |       X        |    X    |    X    |
+| **Simulation:** [jMAVSim SITL](../sim_jmavsim/README.md)                                                                               |       X        |    X    |    X    |
+| **Simulation:** [ROS with Gazebo Classic](../simulation/ros_interface.md)                                                              |       X        |         |    X    |
+| **Simulation:** ROS 2 with Gazebo                                                                                                      |    &check;     |         | &check; |
 
 不同操作系统的开发环境的安装请参阅：
 
