@@ -1,31 +1,31 @@
-# Arch Linux Development Environment
+# Середовище розробки Arch Linux
 
 :::warning
-This development environment is [community supported and maintained](../advanced/community_supported_dev_env). It may or may not work with current versions of PX4.
+Це середовище розробки [підтримується та утримується спільнотою](../advanced/community_supported_dev_env). Воно може працювати або не працювати з поточними версіями PX4.
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, які підтримуються основною командою розробників.
 :::
 
-The PX4-Autopilot repository provides a convenient script to set your Arch installation up for PX4 development: [Tools/setup/arch.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/arch.sh). <!-- NEED px4_version -->
+Репозиторій PX4-Autopilot надає зручний скрипт для налаштування вашого Arch для розробки з PX4: [Tools/setup/arch.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/arch.sh). <!-- NEED px4_version -->
 
-The script installs (by default) all tools to build PX4 for NuttX targets and run simulation with _jMAVsim_. You can additionally install the _Gazebo-Classic_ simulator by specifying the command line argument: `--gazebo`.
+Скрипт встановлює за замовчуванням всі інструменти, щоб побудувати PX4 для цільової платформи NuttX і запустити симуляцію з _jMAVsim_. Ви можете додатково встановити симулятор _Gazebo-Classic_ вказавши параметр командного рядка: `--gazebo`.
 
-![Gazebo on Arch](../../assets/simulation/gazebo_classic/arch-gazebo.png)
+![Gazebo на Arch](../../assets/simulation/gazebo_classic/arch-gazebo.png)
 
 :::note
-The instructions have been tested on [Manjaro](https://manjaro.org/) (Arch based distribution) as it is much easier to set up than Arch Linux.
+Ці інструкції були перевірені на [Manjaro](https://manjaro.org/) (дистрибутиві на основі Arch) тому що його набагато простіше встановити ніж Arch Linux.
 :::
 
-To get and run the scripts, do either of:
+Щоб отримати та запустити скрипти, виконайте одне із наступного:
 
-- [Download PX4 Source Code](../dev_setup/building_px4.md) and run the scripts in place:
+- [Завантажте вихідний код PX4](../dev_setup/building_px4.md) та запустіть скрипти на місці:
 
   ```sh
   git clone https://github.com/PX4/PX4-Autopilot.git
   bash PX4-Autopilot/Tools/setup/arch.sh
   ```
 
-- Download just the needed scripts and then run them:
+- Завантажте лише необхідні скрипти та запустіть їх:
 
   ```sh
   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/arch.sh
@@ -33,13 +33,13 @@ To get and run the scripts, do either of:
   bash arch.sh
   ```
 
-The script takes the following optional parameters:
+Скрипт приймає наступні параметри:
 
-- `--gazebo`: Add this parameter to install Gazebo from the [AUR](https://aur.archlinux.org/packages/gazebo/).
+- `--gazebo`: Додайте цей параметр для встановлення Gazebo з [AUR](https://aur.archlinux.org/packages/gazebo/).
 
 :::note
-Gazebo gets compiled from source. It takes some time to install and requires entering the `sudo` password multiple times (for dependencies).
+Gazebo буде скомпільовано з вихідного коду. Це займає деякий час та потребує введення паролю `sudo` багато разів (для залежностей).
 :::
 
-- `--no-nuttx`: Do not install the NuttX/Pixhawk toolchain (i.e. if only using simulation).
-- `--no-sim-tools`: Do not install jMAVSim/Gazebo (i.e. if only targeting Pixhawk/NuttX targets)
+- `--no-nuttx`: Не встановлювати інструментарій NuttX/Pixhawk (тобто тільки якщо використовувати симуляцію).
+- `--no-sim-tools`: Не встановлювати jMAVSim/Gazebo (тобто якщо цільова платформа - Pixhawk/NuttX)

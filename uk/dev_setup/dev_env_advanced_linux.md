@@ -1,20 +1,19 @@
-# Advanced Linux Installation Use-Cases
+# Розширені варіанти налаштування Linux
 
-## Using JTAG Programming Adapters
+## Використання адаптерів з програмування JTAG
 
-Linux users need to explicitly allow access to the USB bus for JTAG programming adapters.
+Користувачам Linux потрібно явно дозволити доступ до USB шини для адаптерів програмування JTAG.
 
 :::note
-For Archlinux: replace the group plugdev with uucp in the following commands
-:::
+Для Archlinux: замінить групу користувачів plugdev на групу uucp в нижченаведених командах:::
 
-Run a simple `ls` in `sudo` mode to ensure the commands below succeed:
+Просто запустіть `ls` в режимі `sudo` для того, щоб переконатися, що команди нижче виконаються:
 
 ```sh
 sudo ls
 ```
 
-Then with `sudo` rights temporarily granted, run this command:
+Тоді з тимчасово отриманими правами `sudo` запустіть наступну команду:
 
 ```sh
 cat > $HOME/rule.tmp <<_EOF
@@ -29,7 +28,7 @@ sudo mv $HOME/rule.tmp /etc/udev/rules.d/10-px4.rules
 sudo /etc/init.d/udev restart
 ```
 
-The user needs to be added to the group **plugdev**:
+Вашого користувача потрібно додати до групи **plugdev**:
 
 ```sh
 sudo usermod -a -G plugdev $USER

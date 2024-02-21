@@ -1,4 +1,4 @@
-# CentOS Development Environment
+# Середовище розробки CentOS
 
 :::warning
 This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md). It may or may not work with current versions of PX4.
