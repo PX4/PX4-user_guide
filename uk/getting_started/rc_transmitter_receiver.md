@@ -44,21 +44,21 @@ PX4 не потребує систему ручного керування дл�
 
 ## Пристрої керування для наземних засобів
 
-Безпілотний транспортний засіб (UGV)/автомобіль мінімально потребує передавача з 2 каналами для того, щоб відправляти значення для керування та швидкості. Часто передавачі відправляють ці значення за допомогою колеса (керма) та тригера, двома одновісними стіками керування або одним двовісним стіком.
+Безпілотний транспортний засіб (UGV)/автомобіль мінімально потребує передавача з 2 каналами для того, щоб передавати дані для керування та швидкості. Часто передавачі змінюють ці дані за допомогою колеса (керма) та тригера, двома одновісними стіками керування або одним двовісним стіком.
 
 Вам ніщо не заважає користуватися додатковими каналами або механізмами керування і це може бути дуже корисно для залучення додаткових актуаторів та режимів автопілота.
 
 
-## Choosing RC System Components
+## Вибір компонентів системи РК
 
-You will need to select a transmitter/receiver pair that are compatible with each other. In addition, receivers have to be [compatible with PX4](#compatible_receivers) and the flight controller hardware.
+Вам потрібно буде обрати пару передача/приймача сумісні між собою. На додаток приймачі мають бути [сумісні з PX4](#compatible_receivers) та апаратним забезпечення польотного контролера.
 
-Compatible radio systems are often sold together. For example, [FrSky Taranis X9D and FrSky X8R](https://hobbyking.com/en_us/frsky-2-4ghz-accst-taranis-x9d-plus-and-x8r-combo-digital-telemetry-radio-system-mode-2.html?___store=en_us) are a popular combination.
+Сумісні радіосистеми часто продаються разом. На приклад популярна комбінація [FrSky Taranis X9D та FrSky X8R](https://hobbyking.com/en_us/frsky-2-4ghz-accst-taranis-x9d-plus-and-x8r-combo-digital-telemetry-radio-system-mode-2.html?___store=en_us).
 
 
-### Transmitter/Receiver Pairs
+### Пари передач/приймач
 
-One of the most popular RC units is the *FrSky Taranis X9D*. It has an internal transmitter module can be used with the recommended *FrSky X4R-SB* (S-BUS, low delay) or *X4R* (PPM-Sum, legacy) receivers out of the box. It also has a custom radio transmitter module slot and customizable open source OpenTX Firmware.
+Один з найбільш популярних пристроїв РК - це *Fry Taranis X9D*. Він має внутрішній передавач, який може бути використано одразу з рекомендованим приймачами *FrSky X4R-SB* (S-BUS, низька затримка) або *X4R* (PPM-Sum, застарілий). It also has a custom radio transmitter module slot and customizable open source OpenTX Firmware.
 
 :::note
 This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) or [TBS Crossfire](../telemetry/crsf_telemetry.md) radio modules. :::
