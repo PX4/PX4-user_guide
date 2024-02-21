@@ -5,7 +5,7 @@ Flight modes provide autopilot support to make it easier to manually fly the veh
 For information about flight modes available to specific frames see the following topics:
 
 - [Flight Modes (Multicopter)](../flight_modes_mc/README.md)
-- [Flight Modes (Fixed-wing)](../flight_modes_fw/README.md)
+- [Flight Modes (Fixed-Wing)](../flight_modes_fw/README.md)
 - [Flight Modes (VTOL)](../flight_modes_vtol/README.md)
 - [Flight/Drive Modes (Rover)](../flight_modes_rover/README.md)
 

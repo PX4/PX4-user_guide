@@ -1,4 +1,4 @@
-# Mission Mode (Fixed-wing)
+# Mission Mode (Fixed-Wing)
 
 <img src="../../assets/site/position_fixed.svg" title="Global position fix required (e.g. GPS)" width="30px" />
 

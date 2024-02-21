@@ -51,4 +51,4 @@ These may or may not be updatable to run "vanilla" PX4.
 - [Kits (MC)](../frames_multicopter/kits.md)
 - [DIY Builds](../frames_multicopter/diy_builds.md)
 - [Complete Vehicles (VTOL)](../complete_vehicles_vtol/README.md)
-- [Complete Vehicles (Fixed-wing)](../complete_vehicles_fw/README.md)
+- [Complete Vehicles (Fixed-Wing)](../complete_vehicles_fw/README.md)

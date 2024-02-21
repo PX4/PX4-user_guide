@@ -96,4 +96,4 @@ The following parameters can be used to enable and configure throw launch:
 
 ## See Also
 
-- [Takeoff Mode (Fixed Wing) > Catapult/Hand Launch](../flight_modes_fw/takeoff.md#catapult-hand-launch).
+- [Takeoff Mode (Fixed-Wing) > Catapult/Hand Launch](../flight_modes_fw/takeoff.md#catapult-hand-launch).

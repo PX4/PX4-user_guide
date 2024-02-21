@@ -14,7 +14,7 @@ The sections below provide an overview of the modes, followed by a [flight mode 
 User-facing flight mode documentation can be found in:
 
 - [Flight Modes (Multicopter)](../flight_modes_mc/README.md)
-- [Flight Modes (Fixed-wing)](../flight_modes_fw/README.md)
+- [Flight Modes (Fixed-Wing)](../flight_modes_fw/README.md)
 - [Flight Modes (VTOL)](../flight_modes_vtol/README.md)
 - [Flight/Drive Modes (Rover)](../flight_modes_rover/README.md)
 
