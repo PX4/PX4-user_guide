@@ -8,6 +8,8 @@ import { onMounted, watch, nextTick } from "vue";
 import { useRoute } from "vitepress";
 import mediumZoom from "medium-zoom";
 
+import Redirect from "./components/Redirect.vue";
+
 /** @type {import('vitepress').Theme} */
 export default {
   extends: DefaultTheme,
@@ -17,7 +19,7 @@ export default {
     });
   },
   enhanceApp({ app, router, siteData }) {
-    // ...
+    app.component("Redirect", Redirect);
   },
 
   // to support medium zoom: https://github.com/vuejs/vitepress/issues/854
