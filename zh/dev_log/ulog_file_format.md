@@ -24,7 +24,7 @@ The following binary types are used for logging. They all correspond to the type
 | double              | 8          |
 | bool, char          | 1          |
 
-Additionally the types can be used as an array: e.g. `float[5]`.
+Additionally the types can be used as a fixed-size array: e.g. `float[5]`.
 
 Strings (`char[length]`) do not contain the termination NULL character `'\0'` at the end.
 
@@ -75,7 +75,7 @@ struct message_header_s {
 ```
 
 - `msg_size` is the size of the message in bytes without the header.
-- `msg_type` defines the content, and is a single character.
+- `msg_type` defines the content, and is a single byte.
 
 :::note
 Message sections below are prefixed with the character that corresponds to it's `msg_type`.
@@ -136,7 +136,7 @@ It is possible that there are more fields appended at the end of this message in
 
 #### 'F': Format Message
 
-Format message defines a single message name and it's inner fields in a single string.
+Format message defines a single message name and its inner fields in a single string.
 
 ```c
 struct message_format_s {
@@ -147,8 +147,9 @@ struct message_format_s {
 
 - `format` is a plain-text string with the following format: `message_name:field0;field1;`
   - There can be an arbitrary amount of fields (minimum 1), separated by `;`.
+  - `message_name`: an arbitrary non-empty string with these allowed characters: `a-zA-Z0-9_-/` (and different from any of the [basic types](#data-types)).
 
-A `field` has the format: `type field_name`, or for an array: `type[array_length] field_name` is used (only fixed size arrays are supported).
+A `field` has the format: `type field_name`, or for an array: `type[array_length] field_name` is used (only fixed size arrays are supported). `field_name` must consist of the characters in the set `a-zA-Z0-9_`.
 
 A `type` is one of the [basic binary types](#data-types) or a `message_name` of another format definition (nested usage).
 
@@ -159,17 +160,16 @@ A `type` is one of the [basic binary types](#data-types) or a `message_name` of 
 
 有些字段名是特殊的：
 
-- `timestamp`: every [Subscription Message](#a-subscription-message) must include a timestamp field
+- `timestamp`: every message format with a [Subscription Message](#a-subscription-message) must include a timestamp field (for example a message format only used as part of a nested definition by another format may not include a timestamp field)
   - 它的类型可以是：`uint64_t` (目前唯一使用的)，`uint32_t`, `uint16_t` 或者是 `uint8_t` 。
-  - The unit is always microseconds, except for in `uint8_t` where the unit is in milliseconds.
+  - The unit is microseconds.
   - 对于具有相同 `msg_id` 报文的时间戳必须是单调递增的。
-  - Optionally, when using a small timestamp datatype such as `uint8_t`, the log writer must make sure to log messages often enough to be able to detect **wrap-arounds** (when the timestamp overflows the data type and goes back to 0)
-  - In that case, the log reader must handle wrap-arounds as well, and take into account dropouts.
 - `_padding{}`: field names that start with `_padding` (e.g. `_padding[3]`) should not be displayed and their data must be ignored by a reader.
   - 写入器可以通过插入这个字段确保正确对齐。
   - If the padding field is the last field, then this field may not be logged, to avoid writing unnecessary data.
   - 这意味着 `message_data_s.data` 会因为填充大小而更短。
   - 但是当报文在嵌套定义中使用时任然需要填充。
+- In general, message fields are not necessarily aligned (i.e. the field offset within the message is not necessarily a multiple of its data size), so a reader must always use appropriate memory copy methods to access individual fields.
 
 #### 'I': Information Message
 
@@ -185,11 +185,11 @@ struct ulog_message_info_header_s {
 ```
 
 - `key_len`: Length of the key value
-- `key`: Contains the key string. eg. `char[value_len] sys_toolchain_ver`
+- `key`: Contains the key string in the form`type name`, e.g. `char[value_len] sys_toolchain_ver`. Valid characters for the name: `a-zA-Z0-9_-/`. The type may be one of the [basic types including arrays](#data-types).
 - `value`: Contains the data (with the length `value_len`) corresponding to the `key` e.g. `9.4.0`.
 
 :::note
-A key : value pair defined in the Information message should be unique. Meaning there shouldn't be more than one definition with the same key value!
+A key defined in the Information message must be unique. Meaning there must not be more than one definition with the same key value.
 :::
 
 解析器可以将报文信息存储为字典。
@@ -243,6 +243,8 @@ struct ulog_message_info_multiple_header_s {
 
 解析器可以将所有多报文信息存储为一个 2D 列表，使用与日志中报文相同的顺序。
 
+Valid names and types are the same as for the Information message.
+
 #### 'P': Parameter Message
 
 Parameter message in the _Definitions_ section defines the parameter values of the vehicle when logging is started. It uses the same format as the [Information Message](#i-information-message).
@@ -258,7 +260,7 @@ struct message_info_s {
 
 If a parameter dynamically changes during runtime, this message can also be [used in the Data section](#messages-shared-with-the-definitions-section) as well.
 
-The data type is restricted to `int32_t` and `float`.
+The data type is restricted to `int32_t` and `float`. Valid characters for the name: `a-zA-Z0-9_-/`.
 
 #### 'Q': Default Parameter Message
 
@@ -281,7 +283,7 @@ struct ulog_message_parameter_default_header_s {
 
 A log may not contain default values for all parameters. In those cases the default is equal to the parameter value, and different default types are treated independently.
 
-This message can also be used in the Data section, and the data type is restricted to `int32_t` and `float`.
+This message can also be used in the Data section, and the same data type and naming applies as for the Parameter message.
 
 This section ends before the start of the first [Subscription Message](#a-subscription-message) or [Logging](#l-logged-string-message) message, whichever comes first.
 
@@ -479,6 +481,7 @@ Since the Definitions and Data Sections use the same message header format, they
 - [MAVGAnalysis](https://github.com/ecmnet/MAVGCL)：Java，通过 MAVLink 的数据流和日志的绘制、分析。
 - [PlotJuggler](https://github.com/facontidavide/PlotJuggler): 绘制日志和时间序列的 C++/Qt 应用。 自版本2.1.3支持 ULog。
 - [ulogreader](https://github.com/maxsun/ulogreader): Javascript, ULog reader and parser outputs log in JSON object format.
+- [Foxglove Studio](https://github.com/foxglove/studio): an integrated visualization and diagnosis tool for robotics (Typescript ULog parser: https://github.com/foxglove/ulog).
 
 ## 文件格式版本历史
 
