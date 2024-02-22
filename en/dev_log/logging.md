@@ -100,33 +100,27 @@ amount of dropouts:
 
 ## SD Cards
 
-The following provides performance results for different SD cards.
-Tests were done on a Pixracer; the results are applicable to Pixhawk as well.
+The maximum supported SD card size for NuttX is 32GB (SD Memory Card Specifications Version 2.0).
+The **SanDisk Extreme U3 32GB** is recommended as it does not exhibit write-time spikes (and thus virtually no dropouts).
+
+Logging bandwidth with the default topics is around 50 KB/s, which almost all SD cards satisfy in terms of their mean sequential write speed (many cards, such as the SanDisk Extreme U3, have mean sequential write speed of 2000KB/s).
+
+More important than the mean write speed is spikes (or generally high values) in the maximum write time per block (of 4 KB) or `fsync` times, as a long write time means a larger log buffer is needed to avoid dropouts.
+
+PX4 uses bigger buffers on F7/H7 and read caching, which is enough to compensate for spikes in many poor cards.
+That said, if your card has an `fsync` of several 100ms then it is probably unusable. 
+You can check the value by running [sd_bench](../modules/modules_command.md#sd-bench) should be run with more iterations (around 100 should do). 
+
+```sh
+sd_bench -r 100
+```
+
+This defines the minimum buffer size: the larger this maximum, the larger the log buffer needs to be to avoid dropouts.
+PX4 uses bigger buffers on F7/H7 and read caching to make up for some of these issues.
 
 :::note
-The maximum supported SD card size for NuttX is 32GB (SD Memory Card Specifications Version 2.0).
+If you have concerns about a particular card you can run the above test and report the results to https://github.com/PX4/PX4-Autopilot/issues/4634.
 :::
-
-| SD Card                                                       | Mean Seq. Write Speed [KB/s] | Max Write Time / Block (average) [ms] |
-| ------------------------------------------------------------- | ---------------------------- | ------------------------------------- |
-| SanDisk Extreme U3 32GB                                       | 461                          | **15**                                |
-| Sandisk Ultra Class 10 8GB                                    | 348                          | 40                                    |
-| Sandisk Class 4 8GB                                           | 212                          | 60                                    |
-| SanDisk Class 10 32 GB (High Endurance Video Monitoring Card) | 331                          | 220                                   |
-| Lexar U1 (Class 10), 16GB High-Performance                    | 209                          | 150                                   |
-| Sandisk Ultra PLUS Class 10 16GB                              | 196                          | 500                                   |
-| Sandisk Pixtor Class 10 16GB                                  | 334                          | 250                                   |
-| Sandisk Extreme PLUS Class 10 32GB                            | 332                          | 150                                   |
-
-More important than the mean write speed is the maximum write time per block (of 4 KB).
-This defines the minimum buffer size: the larger this maximum, the larger the log buffer needs to be to avoid dropouts.
-Logging bandwidth with the default topics is around 50 KB/s, which all of the SD cards satisfy.
-
-By far the best card we know so far is the **SanDisk Extreme U3 32GB**.
-This card is recommended, because it does not exhibit write time spikes (and thus virtually no dropouts).
-Different card sizes might work equally well, but the performance is usually different.
-
-You can test your own SD card with `sd_bench -r 50`, and report the results to https://github.com/PX4/PX4-Autopilot/issues/4634.
 
 ## Log Streaming
 
