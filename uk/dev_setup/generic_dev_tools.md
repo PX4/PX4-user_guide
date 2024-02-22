@@ -1,27 +1,27 @@
-# General Development Tools
+# Загальні інструменти розробника
 
-This section lists useful additional development tools that are not part of the core PX4 build toolchain.
+Цей розділ містить корисні додаткові інструменти розробки, які не є частиною основного інструментарію для збірки PX4.
 
-## Ground Control Software
+## Програмне забезпечення наземного керування
 
-Download and install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html).
+Завантажте і встановіть [денну збірку QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html).
 
 :::tip
-The _daily build_ includes development tools that hidden in release builds. It may also provide access to new PX4 features that are not yet supported in release builds.
+_Денна збірка_ включає інструменти розробки яких немає в релізних збірках. Вона також може надати доступ до нових функцій PX4, які ще не підтримуються в релізних збірках.
 :::
 
 ![QGroundControl](../../assets/toolchain/qgc_goto.jpg)
 
-## IDE / Code Editors
+## IDE / Редактори коду
 
-The development team recommend [Visual Studio Code (VSCode)](../dev_setup/vscode.md), a popular open source IDE. VSCode is the "officially supported" IDE, primarily because it is the easiest of the IDEs to set up and use with PX4.
+Команда розробників рекомендує [Visual Studio Code (VSCode)](../dev_setup/vscode.md), популярне інтегроване середовище розробки з відкритим вихідним кодом. VSCode є "офіційно підтримуваним" IDE, в першу чергу тому, що є найпростішим IDE для налаштування та використання з PX4.
 
-The following IDEs also work (but are not recommended unless you're an expert):
+Наступні IDE також працюють (але не рекомендуються, якщо ви не є експертом):
 
-- [Eclipse for C/C++](https://www.eclipse.org/downloads/eclipse-packages/): Feature rich Java based IDE
-- [Sublime Text](https://www.sublimetext.com): Fast and lean text editor.
-- [Qt Creator IDE](../dev_setup/qtcreator.md): Popular cross-platform open-source IDE.
+- [Eclipse для C/C++](https://www.eclipse.org/downloads/eclipse-packages/): багатофункціональне IDE побудоване на Java
+- [Sublime Text](https://www.sublimetext.com): Швидкий і невеликий текстовий редактор.
+- [Qt Creator IDE](../dev_setup/qtcreator.md): Популярне крос-платформне IDE з відкритим кодом.
 
 :::note
-There is an [Eclipse project](https://github.com/PX4/PX4-Autopilot/blob/main/eclipse.project) and a [Sublime project](https://github.com/PX4/PX4-Autopilot/blob/main/Firmware.sublime-project) in the source tree.
+У дереві коду є [проєкт Eclipse ](https://github.com/PX4/PX4-Autopilot/blob/main/eclipse.project) та [проєкт Sublime](https://github.com/PX4/PX4-Autopilot/blob/main/Firmware.sublime-project).
 :::

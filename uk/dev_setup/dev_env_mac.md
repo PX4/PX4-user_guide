@@ -1,68 +1,65 @@
-# MacOS Development Environment
+# Середовище розробки MacOS
 
-The following instructions set up a PX4 development environment for macOS. This environment can be used to build PX4 for:
+Наступні інструкції для встановлення середовища розробки PX4 для macOS. Це середовище може бути використане для збірки PX4 для:
 
-- Pixhawk and other NuttX-based hardware
-- [jMAVSim Simulation](../sim_jmavsim/README.md)
-- [Gazebo Classic Simulation](../sim_gazebo_classic/README.md)
+- Pixhawk та іншого апаратного забезпечення на основі NuttX
+- [Симуляція jMAVSim](../sim_jmavsim/README.md)
+- [Симуляція Gazebo Classic](../sim_gazebo_classic/README.md)
 
 :::tip
-This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported development environment](../advanced/community_supported_dev_env.md)).
+Ця установка підтримується командою розробників PX4. Для збірки для інших цільових платформ потрібно використати [інші ОС](../dev_setup/dev_env.md#supported-targets) (або [середовище розробки що не підтримується](../advanced/community_supported_dev_env.md)).
 :::
 
-## Video Guide
+## Відеоінструкція
 
 @[youtube](https://youtu.be/tMbMGiMs1cQ)
 
-## Base Setup
+## Базове налаштування
 
-The "base" macOS setup installs the tools needed for building firmware, and includes the common tools that will be needed for installing/using the simulators.
+"Базове" налаштування macOS встановлює інструменти, необхідні для збірки прошивки та включає загальні інструменти, які будуть потрібні для встановлення/використання симуляторів.
 
-### Environment Setup
+### Налаштування середовища
 
 :::details
-Apple M1 Macbook users! If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
+Користувачі Apple M1 Macbook! Якщо у вас є Apple M1 Macbook, переконайтеся, що запускаєте x86 термінал шляхом налаштування термінала:
 
-1. Locate the Terminal application within the Utilities folder (**Finder > Go menu > Utilities**)
-2. Select _Terminal.app_ and right-click on it, then choose **Duplicate**.
-3. Rename the duplicated Terminal app, e.g. to _x86 Terminal_
-4. Now select the renamed _x86 Terminal_ app and right-click and choose \*_Get Info_
-5. Check the box for **Open using Rosetta**, then close the window
-6. Run the _x86 Terminal_ as usual, which will fully support the current PX4 toolchain
-:::
+1. Знайдіть термінальний додаток в теці Utilities (**Finder > Меню > Utilities**)
+2. Виберіть _Terminal.app_ та клацніть правою кнопкою миші, а потім оберіть **Копіювати**
+3. Перейменуйте скопійований додаток терміналу, наприклад _x86 Terminal_
+4. Тепер оберіть перейменований додаток _x86 Terminal_ і клацніть правою кнопкою миші та оберіть _Отримати Інформацію_
+5. Поставте відмітку **Відкрити з Rosetta** та закрийте вікно
+6. Запустіть _x86 Terminal_ як зазвичай, який тепер повинен підтримувати інструментарій PX4 ::
 
-First set up the environment
+Спочатку налаштуйте середовище
 
-1. Enable more open files by appending the following line to the `~/.zshenv` file (creating it if necessary):
+1. Збільште кількість одночасно відкритих файлів додавши наступний рядок у файл `~/.zshenv` (створивши його якщо необхідно):
 
    ```sh
    echo ulimit -S -n 2048 >> ~/.zshenv
    ```
 
-:::note
-If you don't do this, the build toolchain may report the error: `"LD: too many open files"`
-:::
+   ::::note Якщо ви цього не зробите, інструментарій збірки може повідомити про помилку: `"LD: too many open files"` :: :
 
-1. Enforce Python 3 by appending the following lines to `~/.zshenv`
+1. Забезпечте виконання Python 3 додаванням наступних рядків до `~/.zshenv`
 
    ```sh
-   # Point pip3 to MacOS system python 3 pip
+   # Направляємо pip3 на системний pip MacOS 
    alias pip3=/usr/bin/pip3
    ```
 
-### Common Tools
+### Загальні інструменти
 
-To setup the environment to be able to build for Pixhawk/NuttX hardware (and install the common tools for using simulators):
+Для налаштування середовища з можливістю збірки для обладнання Pixhawk/NuttX (і встановлення загальних інструментів для використання симуляторів):
 
-1. Install Homebrew by following these [installation instructions](https://brew.sh).
-1. Run these commands in your shell to install the common tools:
+1. Встановіть Homebrew дотримуючись наступних [інструкцій установки](https://brew.sh).
+1. Виконайте ці команди в командній оболонці для встановлення загальних інструментів:
 
    ```sh
    brew tap PX4/px4
    brew install px4-dev
    ```
 
-1. Install the required Python packages:
+1. Встановіть необхідні пакети Python:
 
    ```sh
    # install required packages using pip3
@@ -71,11 +68,11 @@ To setup the environment to be able to build for Pixhawk/NuttX hardware (and ins
    sudo -H python3 -m pip install --user pyserial empty toml numpy pandas jinja2 pyyaml pyros-genmsg packaging kconfiglib future jsonschema
    ```
 
-## Gazebo Classic Simulation
+## Симуляція Gazebo Classic
 
-To setup the environment for [Gazebo Classic](../sim_gazebo_classic/README.md) simulation:
+Для встановлення середовища [Gazebo Classic](../sim_gazebo_classic/README.md):
 
-1. Run the following commands in your shell:
+1. Виконайте наступні команди в командній оболонці:
 
    ```sh
    brew unlink tbb
@@ -84,11 +81,10 @@ To setup the environment for [Gazebo Classic](../sim_gazebo_classic/README.md) s
    brew link tbb@2020
    ```
 
-:::note
-September 2021: The commands above are a workaround to this bug: [PX4-Autopilot#17644](https://github.com/PX4/PX4-Autopilot/issues/17644). They can be removed once it is fixed (along with this note).
+   ::note Станом на вересень 2021: Команди вище - це обхідний шлях для помилки: [PX4-Autopilot#17644](https://github.com/PX4/PX4-Autopilot/issues/17644). Вони можуть бути видалені після того, як вона буде виправлена (разом з цією нотаткою).
 :::
 
-1. To install SITL simulation with Gazebo Classic:
+1. Для встановлення симуляції SITL з Gazebo Classic:
 
    ```sh
    brew install --cask temurin
@@ -96,7 +92,7 @@ September 2021: The commands above are a workaround to this bug: [PX4-Autopilot#
    brew install px4-sim-gazebo
    ```
 
-1. Run the macOS setup script: `PX4-Autopilot/Tools/setup/macos.sh` The easiest way to do this is to clone the PX4 source, and then run the script from the directory, as shown:
+1. Запустіть скрипт налаштування macOS: `PX4-Autopilot/Tools/setup/macos.sh` Найпростіший спосіб зробити це - клонувати вихідний код PX4 і потім виконати скрипт з директорії, як показано:
 
    ```sh
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
@@ -104,36 +100,36 @@ September 2021: The commands above are a workaround to this bug: [PX4-Autopilot#
    sh macos.sh
    ```
 
-## jMAVSim Simulation
+## Симуляція jMAVSim
 
-To setup the environment for [jMAVSim](../sim_jmavsim/README.md) simulation:
+Для встановлення середовища для симуляції [jMAVSim](../sim_jmavsim/README.md):
 
-1. Install a recent version of Java (e.g. Java 15). You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) or use [Eclipse Temurin](https://adoptium.net):
+1. Встановіть останню версію Java (наприклад, Java 15). Ви можете завантажити [Java 15 (або новіше) від Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) або використати [Eclipse Temurin](https://adoptium.net):
 
    ```sh
    brew install --cask temurin
    ```
 
-1. Install jMAVSim:
+1. Встановіть jMAVSim:
 
    ```sh
    brew install px4-sim-jmavsim
    ```
 
-   :::warning PX4 v1.11 and beyond require at least JDK 15 for jMAVSim simulation.
+   :::warning PX4 v1.11 і далі вимагає щонайменше JDK 15 для симуляції jMAVSim.
 
-   For earlier versions, macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. You can find the fix in the [jMAVSim with SITL > Troubleshooting](../sim_jmavsim/README.md#troubleshooting)).
+   Для попередніх версій, користувачі macOS можуть побачити помилку `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. Знайти виправлення можна в розділі [jMAVSim з SITL > Усунення проблем](../sim_jmavsim/README.md#troubleshooting)).
 :::
 
-## Next Steps
+## Наступні кроки
 
-Once you have finished setting up the command-line toolchain:
+Після того, як ви закінчите налаштування інструментів командного рядка:
 
-- Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html)
+- Встановіть [VSCode](../dev_setup/vscode.md) (якщо ви надаєте перевагу IDE ніж командному рядку).
+- Встановіть [денну збірку QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html).
 
 :::tip
-The _daily build_ includes development tools that are hidden in release builds. It may also provide access to new PX4 features that are not yet supported in release builds.
+_Денна збірка_ включає інструменти розробки яких немає в релізних збірках. Вона також може надати доступ до нових функцій PX4, які ще не підтримуються в релізних збірках.
 :::
 
-- Continue to the [build instructions](../dev_setup/building_px4.md).
+- Переходьте до [інструкцій збірки](../dev_setup/building_px4.md).

@@ -6,7 +6,7 @@ Bash скрипти надаються для спрощення процесу.
 
 [Цільові платформи що підтримуються](../dev_setup/dev_env.md#supported-targets):
 
-- [Цільові платформи Симуляція та NuttX (Pixhawk)](#simulation-and-nuttx-pixhawk-targets). Це включає: [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md), [jMAVSim](../sim_jmavsim/README.md), [Pixhawk та інші основані на NuttX апаратні платформи](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)).
+- [Симуляція та NuttX (Pixhawk)](#simulation-and-nuttx-pixhawk-targets). Це включає: [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md), [jMAVSim](../sim_jmavsim/README.md), [Pixhawk та інші основані на NuttX апаратні платформи](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)).
 - [Raspberry Pi](#raspberry-pi)
 - [ROS 2](#ros-2) (Робототехнічна операційна система)
 - [ROS 1](#ros-gazebo-classic) (Робототехнічна операційна система)
@@ -18,43 +18,43 @@ Bash скрипти надаються для спрощення процесу.
 
 ## Відеоінструкція
 
-Це відео показує як встановити інструментарій для цільових платформ NuttX та симуляції ([як пояснено нижче](#simulation-and-nuttx-pixhawk-targets)) разом із базовим тестуванням охопленим в розділі [Збірка програмного забезпечення PX4](../dev_setup/building_px4.md).
+Це відео показує як встановити інструментарій для цільових платформ NuttX та симуляції ([описано нижче](#simulation-and-nuttx-pixhawk-targets)) разом із базовим тестуванням що охоплено в розділі [Збірка програмного забезпечення PX4](../dev_setup/building_px4.md).
 
 @[youtube](https://youtu.be/OtValQdAdrU).
 
-## Simulation and NuttX (Pixhawk) Targets
+## Симуляція та NuttX (Pixhawk)
 
-:::warning ROS
-users should first read/skip ahead to the [ROS/Gazebo](#rosgazebo) or [ROS 2](#ros-2) sections.
+:::warning
+Користувачам ROS слід спочатку прочитати/пропустити до секції [ROS/Gazebo](#rosgazebo) або [ROS 2](#ros-2).
 :::
 
-Use the [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) script to set up a development environment that allows you to build for simulators and/or the [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) toolchain. The script installs [jMAVSim](../sim_jmavsim/README.md) on all targets, [Gazebo Classic](../sim_gazebo_classic/README.md) 9 on Ubuntu 18.04, Gazebo Classic 11 on Ubuntu 20.04, and [Gazebo](../sim_gazebo_gz/README.md) "Garden" on Ubuntu 22.04.
+Використовуйте скрипт [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) для встановлення інструментарію середовища розробника який дозволяє робити збірки для симуляторів або [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards). Скрипт встановлює [jMAVSim](../sim_jmavsim/README.md) для всіх варіантів встановлення, [Gazebo Classic](../sim_gazebo_classic/README.md) 9 на Ubuntu 18. 4, Gazebo Classic 11 на Ubuntu 20.04 та "Сад" [Gazebo](../sim_gazebo_gz/README.md)  на Ubuntu 22.04.
 
-To install the toolchain:
+Щоб встановити інструментарій:
 
-1. [Download PX4 Source Code](../dev_setup/building_px4.md):
+1. [Завантажте вихідний код PX4](../dev_setup/building_px4.md):
 
    ```sh
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
 
 :::note
-The environment setup scripts in the source usually work for recent PX4 releases. If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release).
+Скрипти налаштування середовища у вихідному коді зазвичай працюють для останніх версій PX4. Якщо ви працюєте зі старішою версією PX4, то може знадобитися [отримати вихідний код для конкретного релізу](../contribute/git_examples.md#get-a-specific-release).
 :::
 
-1. Run the **ubuntu.sh** with no arguments (in a bash shell) to install everything:
+1. Запустіть **ubuntu.sh** без аргументів (в оболонці bash), щоб встановити все:
    ```sh
    bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
    ```
-   - Acknowledge any prompts as the script progress.
-   - You can use the `--no-nuttx` and `--no-sim-tools` options to omit the NuttX and/or simulation tools.
-1. Restart the computer on completion.
+   - При появі підказки по ходу виконання скрипту підтвердить вибір.
+   - Також можна використовувати опції `--no-nuttx` та `--no-sim-tools`, щоб пропустити встановлення інструментів для NuttX та/або симуляції.
+1. Перезавантажте комп'ютер при завершенні.
 
 :::details
-Additional notes These notes are provided "for information only":
+Додаткові примітки Ці замітки надаються лише тільки "для інформації":
 
-- If you want to use Gazebo on Ubuntu 20.04 you can add it manually. See [Gazebo > Installation](../sim_gazebo_gz/README.md#installation-ubuntu-linux).
-- You can verify the NuttX installation by confirming the gcc version as shown:
+- Якщо ви хочете використовувати Gazebo на Ubuntu 20.04 можна додати його вручну. Дивіться розділ [Gazebo > Встановлення](../sim_gazebo_gz/README.md#installation-ubuntu-linux).
+- Ви можете перевірити встановлення NuttX, підтвердивши версію gcc як показано нижче:
 
   ```sh
   $arm-none-eabi-gcc --version
@@ -65,7 +65,7 @@ Additional notes These notes are provided "for information only":
   warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
   ```
 
-- You're going to need the PX4 source code anyway. But if you just wanted to set up the development environment without getting all the source code you could instead just download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/requirements.txt) and then run **ubuntu.sh**:
+- Вам все одно потрібен вихідний код PX4. Однак якщо ви просто хочете встановити середовище розробки без того, щоб завантажувати весь код, замість цього ви можете просто завантажити  [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) та [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/requirements.txt) після чого виконати **ubuntu.sh**:
 
   ```sh
   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/ubuntu.sh
@@ -82,34 +82,34 @@ Additional notes These notes are provided "for information only":
 
 ## Raspberry Pi
 
-The following instructions explain how to set up a build toolchain for RasPi on _Ubuntu 18.04_.
+Наступні інструкції пояснюють як встановити та зібрати набір інструментів для RasPi на _Ubuntu 18.04_.
 
 :::warning
-To build for Ubuntu 20.04 (focal) you must use docker (the GCC toolchain on Ubuntu 20.04 can build PX4, but the generated binary files are too new to run on actual Pi). For more information see [PilotPi with Raspberry Pi OS Developer Quick Start > Alternative build method using docker](../flight_controller/raspberry_pi_pilotpi_rpios.md#alternative-build-method-using-docker).
+Для збірки на Ubuntu 20.04 (focal) потрібно використовувати Docker (інструментарій GCC на Ubuntu 20.04 може зібрати PX4, але згенеровані бінарні файли занадто нові, щоб запустити їх на реальній Pi). Для отримання додаткової інформації дивіться [PilotPi з Raspberry Pi OS Швидкий старт розробки > Альтернативний метод збірки використовуючи Docker](../flight_controller/raspberry_pi_pilotpi_rpios.md#alternative-build-method-using-docker).
 :::
 
-To get the common dependencies for Raspberry Pi:
+Щоб отримати загальні залежності для Raspberry Pi:
 
-1. Download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/requirements.txt) from the PX4 source repository (**/Tools/setup/**): <!-- NEED px4_version -->
+1. Завантажте [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> та [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/requirements.txt) з репозиторію PX4 (**/Tools/setup/**): <!-- NEED px4_version -->
    ```
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/ubuntu.sh
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/requirements.txt
    ```
-1. Run **ubuntu.sh** in a terminal to get just the common dependencies:
+1. Запустіть **ubuntu.sh** в терміналі для отримання тільки загальних залежностей:
    ```sh
    bash ubuntu.sh --no-nuttx --no-sim-tools
    ```
-1. Then setup an cross-compiler (either GCC or clang) as described in the following sections.
+1. Потім налаштуйте крос-компілятор (або GCC або clang) як описано в наступних розділах.
 
 ### GCC (armhf)
 
-Ubuntu software repository provides a set of pre-compiled toolchains. Note that Ubuntu Focal comes up with `gcc-9-arm-linux-gnueabihf` as its default installation which is not fully supported, so we must manually install `gcc-8-arm-linux-gnueabihf` and set it as the default toolchain. This guide also applies to earlier Ubuntu releases (Bionic). The following instruction assumes you haven't installed any version of arm-linux-gnueabihf, and will set up the default executable with `update-alternatives`. Install them with the terminal command:
+Репозиторій програмного забезпечення Ubuntu надає набір попередньо скомпільованих інструментаріїв. Зверніть увагу, що Ubuntu Focal має в складі інструментарій версії `gc-9-arm-linux-gnueabihf`, бо це встановлення за замовчуванням, і яке не підтримується повністю, тому потрібно вручну встановити версію `gc-8-arm-linux-gnueabihf` і встановити його як інструментарій за замовчуванням. Ці інструкції також поширюється на більш ранні релізи Ubuntu (наприклад Bionic). Наступна інструкція припускає, що у вас не встановлено жодної версії arm-linux-gnueabihf й встановить виконуваний файл за замовчуванням за допомогою `update-alternatives`. Встановіть інструментарій за допомогою команди терміналу:
 
 ```sh
 sudo apt-get install -y gcc-8-arm-linux-gnueabihf g++-8-arm-linux-gnueabihf
 ```
 
-Set them as default:
+Налаштуйте їх як інструментарій за замовчуванням:
 
 ```sh
 sudo update-alternatives --install /usr/bin/arm-linux-gnueabihf-gcc arm-linux-gnueabihf-gcc /usr/bin/arm-linux-gnueabihf-gcc-8 100 --slave /usr/bin/arm-linux-gnueabihf-g++ arm-linux-gnueabihf-g++ /usr/bin/arm-linux-gnueabihf-g++-8
@@ -118,7 +118,7 @@ sudo update-alternatives --config arm-linux-gnueabihf-gcc
 
 ### GCC (aarch64)
 
-If you want to build PX4 for ARM64 devices, this section is required.
+Якщо ви хочете зібрати PX4 для пристроїв на архітектурі ARM64, необхідний цей розділ.
 
 ```sh
 sudo apt-get install -y gcc-8-aarch64-linux-gnu g++-8-aarch64-linux-gnu
@@ -126,17 +126,17 @@ sudo update-alternatives --install /usr/bin/aarch64-linux-gnu-gcc aarch64-linux-
 sudo update-alternatives --config aarch64-linux-gnu-gcc
 ```
 
-### Clang (optional)
+### Clang (необов'язково)
 
-First install GCC (needed to use clang).
+Спочатку встановіть GCC (потрібно для використання clang).
 
-We recommend you to get clang from the Ubuntu software repository, as shown below:
+Ми рекомендуємо брати clang з репозиторію програмного забезпечення Ubuntu, як показано нижче:
 
 ```
 sudo apt-get install clang
 ```
 
-Example below for building PX4 firmware out of tree, using _CMake_.
+Приклад нижче для побудови прошивки PX4 з дерева вихідного коду, використовуючи _CMake_.
 
 ```sh
 cd <PATH-TO-PX4-SRC>
@@ -153,88 +153,88 @@ cmake \
 make
 ```
 
-### Detailed Information
+### Подробиці
 
-Additional developer information for using PX4 on Raspberry Pi (including building PX4 natively) can be found here:
+Додаткова інформація розробника для використання PX4 на Raspberry Pi (включаючи нативну збірку PX4) наведена тут:
 
-- [Raspberry Pi 2/3 Navio2 Autopilot](../flight_controller/raspberry_pi_navio2.md).
-- [Raspberry Pi 2/3/4 PilotPi Shield](../flight_controller/raspberry_pi_pilotpi.md).
+- [Автопілот Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md).
+- [Плата розширення Raspberry Pi 2/3/4 PilotPi](../flight_controller/raspberry_pi_pilotpi.md).
 
 ## ROS 2
 
-Information about ROS 2 setup and development with PX4 can be found in the [ROS 2 User Guide](../ros/ros2_comm.md).
+Інформацію про встановлення ROS 2 та розробку з PX4 можна знайти в [Інструкції користувача ROS 2](../ros/ros2_comm.md).
 
-Generally speaking if you're working with hardware and don't need to modify PX4 itself, then you do not need a PX4 development environment (dependencies for working with ROS 2 are included and built into PX4 firmware by default).
+В цілому, якщо ви працюєте з апаратним забезпеченням та вам не потрібно змінювати PX4, тоді вам не потрібне середовище розробки PX4 (залежності для роботи з ROS 2 включені та вбудовані в прошивку PX4 за замовчуванням).
 
-You will need to install the normal development [simulator environment](#simulation-and-nuttx-pixhawk-targets) in order to work with the PX4 simulator.
+Вам потрібно буде встановити звичайне середовище розробки [симулятора](#simulation-and-nuttx-pixhawk-targets) для того, щоб працювати з симулятором PX4.
 
 <a id="rosgazebo"></a>
 
 ## ROS/Gazebo Classic
 
-This section explains how to install [ROS 1](../ros/README.md) with PX4. ROS 1 full desktop builds come with Gazebo Classic, so normally you will not install PX4 simulator dependencies yourself!
+Ця секція пояснює як встановити [ROS 1](../ros/README.md) з PX4. Повна збірка ROS 1 для настільного комп'ютера йде разом з Gazebo Classic, тому зазвичай вам не потрібно встановлювати залежності симулятора PX4 самостійно!
 
 ### ROS Noetic/Ubuntu 20.04
 
-If you're working with [ROS Noetic](http://wiki.ros.org/noetic) on Ubuntu 20.04:
+Якщо ви працюєте з [ROS Noetic](http://wiki.ros.org/noetic) на Ubuntu 20.04:
 
-1. Install PX4 without the simulator toolchain:
+1. Встановлення PX4 без інструментарію симулятора:
 
-   1. [Download PX4 Source Code](../dev_setup/building_px4.md):
+   1. [Завантажте вихідний код PX4](../dev_setup/building_px4.md):
 
       ```sh
       git clone https://github.com/PX4/PX4-Autopilot.git --recursive
       ```
 
-   1. Run the **ubuntu.sh** the `--no-sim-tools` (and optionally `--no-nuttx`):
+   1. Запустіть **ubuntu.sh** `--no-sim-tools` (та опціонально `--no-nuttx`):
 
       ```sh
       bash ./PX4-Autopilot/Tools/setup/ubuntu.sh --no-sim-tools --no-nuttx
       ```
 
-      - Acknowledge any prompts as the script progress.
+      - При появі підказки по ходу виконання скрипту підтвердить вибір.
 
-   1. Restart the computer on completion.
+   1. Перезавантажте комп'ютер при завершенні.
 
-1. You _may_ need to install the following additional dependencies:
+1. Вам _можливо_ потрібно встановити наступні додаткові залежності:
 
    ```
    sudo apt-get install protobuf-compiler libeigen3-dev libopencv-dev -y
    ```
 
-1. Follow the [Noetic Installation instructions](http://wiki.ros.org/noetic/Installation/Ubuntu#Installation) (ros-noetic-desktop-full is recommended).
-1. Intall MAVROS by following the [MAVROS Installation Guide](../ros/mavros_installation.md).
+1. Дотримуйтесь [інструкцій із встановлення Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu#Installation) (рекомендовано варіант ros-noetic-desktop-full).
+1. Встановіть MAVROS дотримуючись [інструкцій із встановлення MAVROS](../ros/mavros_installation.md).
 
 ### ROS Melodic/Ubuntu 18.04
 
-If you're working with ROS "Melodic on Ubuntu 18.04:
+Якщо ви працюєте з ROS Melodic на Ubuntu 18.04:
 
-1. Download the [ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh) script in a bash shell:
+1. Завантажте скрипт [ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh) в оболонці bash:
 
    ```sh
    wget https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh
    ```
 
-1. Run the script:
+1. Запустіть скрипт:
 
    ```sh
    bash ubuntu_sim_ros_melodic.sh
    ```
 
-   You may need to acknowledge some prompts as the script progresses.
+   Можливо, вам буде потрібно підтвердити вибір, коли з'являться підказки по ходу виконання скрипту.
 
 :::note
 
-- ROS Melodic is installed with Gazebo (Classic) 9 by default.
-- Your catkin (ROS build system) workspace is created at **~/catkin_ws/**.
-- The script uses instructions from the ROS Wiki "Melodic" [Ubuntu page](http://wiki.ros.org/melodic/Installation/Ubuntu).
+- ROS Melodic встановлено в Gazebo (Classic) 9 за замовчуванням.
+- Робоче середовище catkin (система збірки ROS) створено за шляхом **~/catkin_ws/**.
+- Скрипт використовує інструкції зі  сторінки Wiki ROS "Melodic" [Ubuntu](http://wiki.ros.org/melodic/Installation/Ubuntu).
 :::
 
-## Next Steps
+## Наступні кроки
 
-Once you have finished setting up the command-line toolchain:
+Після того, як ви закінчите налаштування інструментів командного рядка:
 
-- Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html) :::tip The _daily build_ includes development tools that hidden in release builds. It may also provide access to new PX4 features that are not yet supported in release builds.
+- Встановіть [VSCode](../dev_setup/vscode.md) (якщо ви надаєте перевагу IDE ніж командному рядку).
+- Встановіть [денну збірку QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html) :::tip _Денна збірка_ включає інструменти розробки яких немає в релізних збірках. Вона також може надати доступ до нових функцій PX4, які ще не підтримуються в релізних збірках.
 :::
-- Continue to the [build instructions](../dev_setup/building_px4.md).
+- Переходьте до [інструкцій збірки](../dev_setup/building_px4.md).
