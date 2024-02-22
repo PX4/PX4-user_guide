@@ -103,7 +103,7 @@ amount of dropouts:
 The maximum supported SD card size for NuttX is 32GB (SD Memory Card Specifications Version 2.0).
 The **SanDisk Extreme U3 32GB** and **Samsung EVO Plus 32** known to be reliable cards (do not exhibit write-time spikes, and thus virtually no dropouts).
 
-Logging bandwidth with the default topics is around 50 KB/s, which almost all SD cards satisfy in terms of their mean sequential write speed (many cards, such as the SanDisk Extreme U3, have mean sequential write speed of 2000KB/s).
+Logging bandwidth with the default topics is around 50 KB/s, which almost all SD cards satisfy in terms of their mean sequential write speed (many cards, such as the SanDisk Extreme U3, have mean sequential write speed of 2000KB/s under NuttX).
 
 More important than the mean write speed is spikes (or generally high values) in the maximum write time per block (of 4 KB) or `fsync` times, as a long write time means a larger log buffer is needed to avoid dropouts.
 
