@@ -6,7 +6,7 @@ Bash скрипти надаються для спрощення процесу.
 
 [Цільові платформи що підтримуються](../dev_setup/dev_env.md#supported-targets):
 
-- [Цільові платформи Симуляція та NuttX (Pixhawk)](#simulation-and-nuttx-pixhawk-targets). Це включає: [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md), [jMAVSim](../sim_jmavsim/README.md), [Pixhawk та інші основані на NuttX апаратні платформи](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)).
+- [Симуляція та NuttX (Pixhawk)](#simulation-and-nuttx-pixhawk-targets). Це включає: [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md), [jMAVSim](../sim_jmavsim/README.md), [Pixhawk та інші основані на NuttX апаратні платформи](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)).
 - [Raspberry Pi](#raspberry-pi)
 - [ROS 2](#ros-2) (Робототехнічна операційна система)
 - [ROS 1](#ros-gazebo-classic) (Робототехнічна операційна система)
@@ -22,7 +22,7 @@ Bash скрипти надаються для спрощення процесу.
 
 @[youtube](https://youtu.be/OtValQdAdrU).
 
-## Цільові платформи Симуляція та NuttX (Pixhawk)
+## Симуляція та NuttX (Pixhawk)
 
 :::warning
 Користувачам ROS слід спочатку прочитати/пропустити до секції [ROS/Gazebo](#rosgazebo) або [ROS 2](#ros-2).
@@ -155,86 +155,86 @@ make
 
 ### Подробиці
 
-Additional developer information for using PX4 on Raspberry Pi (including building PX4 natively) can be found here:
+Додаткова інформація розробника для використання PX4 на Raspberry Pi (включаючи нативну збірку PX4) наведена тут:
 
-- [Raspberry Pi 2/3 Navio2 Autopilot](../flight_controller/raspberry_pi_navio2.md).
-- [Raspberry Pi 2/3/4 PilotPi Shield](../flight_controller/raspberry_pi_pilotpi.md).
+- [Автопілот Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md).
+- [Плата розширення Raspberry Pi 2/3/4 PilotPi](../flight_controller/raspberry_pi_pilotpi.md).
 
 ## ROS 2
 
-Information about ROS 2 setup and development with PX4 can be found in the [ROS 2 User Guide](../ros/ros2_comm.md).
+Інформацію про встановлення ROS 2 та розробку з PX4 можна знайти в [Інструкції користувача ROS 2](../ros/ros2_comm.md).
 
-Generally speaking if you're working with hardware and don't need to modify PX4 itself, then you do not need a PX4 development environment (dependencies for working with ROS 2 are included and built into PX4 firmware by default).
+В цілому, якщо ви працюєте з апаратним забезпеченням та вам не потрібно змінювати PX4, тоді вам не потрібне середовище розробки PX4 (залежності для роботи з ROS 2 включені та вбудовані в прошивку PX4 за замовчуванням).
 
-You will need to install the normal development [simulator environment](#simulation-and-nuttx-pixhawk-targets) in order to work with the PX4 simulator.
+Вам потрібно буде встановити звичайне середовище розробки [симулятора](#simulation-and-nuttx-pixhawk-targets) для того, щоб працювати з симулятором PX4.
 
 <a id="rosgazebo"></a>
 
 ## ROS/Gazebo Classic
 
-This section explains how to install [ROS 1](../ros/README.md) with PX4. ROS 1 full desktop builds come with Gazebo Classic, so normally you will not install PX4 simulator dependencies yourself!
+Ця секція пояснює як встановити [ROS 1](../ros/README.md) з PX4. Повна збірка ROS 1 для настільного комп'ютера йде разом з Gazebo Classic, тому зазвичай вам не потрібно встановлювати залежності симулятора PX4 самостійно!
 
 ### ROS Noetic/Ubuntu 20.04
 
-If you're working with [ROS Noetic](http://wiki.ros.org/noetic) on Ubuntu 20.04:
+Якщо ви працюєте з [ROS Noetic](http://wiki.ros.org/noetic) на Ubuntu 20.04:
 
-1. Install PX4 without the simulator toolchain:
+1. Встановлення PX4 без інструментарію симулятора:
 
-   1. [Download PX4 Source Code](../dev_setup/building_px4.md):
+   1. [Завантажте вихідний код PX4](../dev_setup/building_px4.md):
 
       ```sh
       git clone https://github.com/PX4/PX4-Autopilot.git --recursive
       ```
 
-   1. Run the **ubuntu.sh** the `--no-sim-tools` (and optionally `--no-nuttx`):
+   1. Запустіть **ubuntu.sh** `--no-sim-tools` (та опціонально `--no-nuttx`):
 
       ```sh
       bash ./PX4-Autopilot/Tools/setup/ubuntu.sh --no-sim-tools --no-nuttx
       ```
 
-      - Acknowledge any prompts as the script progress.
+      - При появі підказки по ходу виконання скрипту підтвердить вибір.
 
-   1. Restart the computer on completion.
+   1. Перезавантажте комп'ютер при завершенні.
 
-1. You _may_ need to install the following additional dependencies:
+1. Вам _можливо_ потрібно встановити наступні додаткові залежності:
 
    ```
    sudo apt-get install protobuf-compiler libeigen3-dev libopencv-dev -y
    ```
 
-1. Follow the [Noetic Installation instructions](http://wiki.ros.org/noetic/Installation/Ubuntu#Installation) (ros-noetic-desktop-full is recommended).
-1. Intall MAVROS by following the [MAVROS Installation Guide](../ros/mavros_installation.md).
+1. Дотримуйтесь [інструкцій із встановлення Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu#Installation) (рекомендовано варіант ros-noetic-desktop-full).
+1. Встановіть MAVROS дотримуючись [інструкцій із встановлення MAVROS](../ros/mavros_installation.md).
 
 ### ROS Melodic/Ubuntu 18.04
 
-If you're working with ROS "Melodic on Ubuntu 18.04:
+Якщо ви працюєте з ROS Melodic на Ubuntu 18.04:
 
-1. Download the [ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh) script in a bash shell:
+1. Завантажте скрипт [ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh) в оболонці bash:
 
    ```sh
    wget https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh
    ```
 
-1. Run the script:
+1. Запустіть скрипт:
 
    ```sh
    bash ubuntu_sim_ros_melodic.sh
    ```
 
-   You may need to acknowledge some prompts as the script progresses.
+   Можливо, вам буде потрібно підтвердити вибір, коли з'являться підказки по ходу виконання скрипту.
 
 :::note
 
-- ROS Melodic is installed with Gazebo (Classic) 9 by default.
-- Your catkin (ROS build system) workspace is created at **~/catkin_ws/**.
-- The script uses instructions from the ROS Wiki "Melodic" [Ubuntu page](http://wiki.ros.org/melodic/Installation/Ubuntu).
+- ROS Melodic встановлено в Gazebo (Classic) 9 за замовчуванням.
+- Робоче середовище catkin (система збірки ROS) створено за шляхом **~/catkin_ws/**.
+- Скрипт використовує інструкції зі  сторінки Wiki ROS "Melodic" [Ubuntu](http://wiki.ros.org/melodic/Installation/Ubuntu).
 :::
 
-## Next Steps
+## Наступні кроки
 
-Once you have finished setting up the command-line toolchain:
+Після того, як ви закінчите налаштування інструментів командного рядка:
 
-- Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html) :::tip The _daily build_ includes development tools that hidden in release builds. It may also provide access to new PX4 features that are not yet supported in release builds.
+- Встановіть [VSCode](../dev_setup/vscode.md) (якщо ви надаєте перевагу IDE ніж командному рядку).
+- Встановіть [денну збірку QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html) :::tip _Денна збірка_ включає інструменти розробки яких немає в релізних збірках. Вона також може надати доступ до нових функцій PX4, які ще не підтримуються в релізних збірках.
 :::
-- Continue to the [build instructions](../dev_setup/building_px4.md).
+- Переходьте до [інструкцій збірки](../dev_setup/building_px4.md).
