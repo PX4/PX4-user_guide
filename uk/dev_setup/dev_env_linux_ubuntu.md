@@ -1,24 +1,24 @@
-# Ubuntu Development Environment
+# Середовище розробки Ubuntu
 
-The following instructions set up a PX4 development environment on the [Ubuntu Linux LTS](https://wiki.ubuntu.com/LTS) versions supported by PX4. This includes: 18.04 (Bionic Beaver), 20.04 (Focal Fossa), and Ubuntu 22.04 (Jammy Jellyfish).
+Наступні інструкції налаштування середовища розробки з PX4 на версіях [Ubuntu Linux LTS](https://wiki.ubuntu.com/LTS) підтримуються розробниками PX4. Ці версії Ubuntu включають: 18.04 (Bionic Beaver), 20.04 (Focal Fossa) і Ubuntu 22.04 (Jammy Jellyfish).
 
-Bash scripts are provided to simplify the process. They are intended to be run on _clean_ Ubuntu LTS installations, and may not work if run "on top" of an existing system, or on a different Ubuntu release.
+Bash скрипти надаються для спрощення процесу. Задумувалося що вони будуть запускатися на _чистих_ інсталяціях Ubuntu LTS та можуть не працювати, якщо запускаються "поверх" наявної операційної системи або на інших релізах Ubuntu.
 
-The [supported targets](../dev_setup/dev_env.md#supported-targets) are:
+[Цільові платформи що підтримуються](../dev_setup/dev_env.md#supported-targets):
 
-- [Simulation and NuttX (Pixhawk) Targets](#simulation-and-nuttx-pixhawk-targets). This includes: [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md), [jMAVSim](../sim_jmavsim/README.md), [Pixhawk and other NuttX-based hardware](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)).
+- [Цільові платформи Симуляція та NuttX (Pixhawk)](#simulation-and-nuttx-pixhawk-targets). Це включає: [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md), [jMAVSim](../sim_jmavsim/README.md), [Pixhawk та інші основані на NuttX апаратні платформи](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)).
 - [Raspberry Pi](#raspberry-pi)
-- [ROS 2](#ros-2) (Robotics Operating System)
-- [ROS 1](#ros-gazebo-classic) (Robotics Operating System)
+- [ROS 2](#ros-2) (Робототехнічна операційна система)
+- [ROS 1](#ros-gazebo-classic) (Робототехнічна операційна система)
 
 :::tip
-This setup is supported by the PX4 dev team.
-The instructions may also work on other Debian Linux based systems.
+Ця установка підтримується командою розробників PX4.
+Інструкції також можуть працювати на інших системах заснованих на Debian Linux.
 :::
 
-## Video Guide
+## Відеоінструкція
 
-This video shows how to install the toolchain for NuttX and simulation targets ([as covered below](#simulation-and-nuttx-pixhawk-targets)) along with the basic testing covered in [Building PX4 Software](../dev_setup/building_px4.md).
+Це відео показує як встановити інструментарій для цільових платформ NuttX та симуляції ([як пояснено нижче](#simulation-and-nuttx-pixhawk-targets)) разом із базовим тестуванням охопленим в розділі [Збірка програмного забезпечення PX4](../dev_setup/building_px4.md).
 
 @[youtube](https://youtu.be/OtValQdAdrU).
 

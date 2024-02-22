@@ -1,16 +1,16 @@
 # Середовище розробки CentOS
 
 :::warning
-This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md). It may or may not work with current versions of PX4.
+Це середовище розробки [підтримується та утримується спільнотою](../advanced/community_supported_dev_env.md). Воно може працювати або не працювати з поточними версіями PX4.
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, які підтримуються основною командою розробників.
 :::
 
-The build requires Python 2.7.5. Therefore as of this writing Centos 7 should be used. (For earlier Centos releases a side-by-side install of python v2.7.5 may be done. But it is not recommended because it can break yum.)
+Збірка потребує Python 2.7.5. Тому потрібно використовувати CentOS 7 на момент написання. (Для попередніх релізів CentOS можна встановити python v2.7.5 поряд із версією із дистрибутиву. Але це не рекомендується тому що можна зламати yum.)
 
-## Common Dependencies
+## Загальні залежності
 
-The EPEL repositories are required for openocd libftdi-devel libftdi-python
+Репозиторії EPEL необхідні для пакетів openocd libftdi-devel libftdi-python
 
 ```sh
 wget https://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
@@ -27,17 +27,17 @@ yum install openocd libftdi-devel libftdi-python python-argparse flex bison-deve
 ```
 
 :::note
-You may want to also install `python-pip` and `screen`.
+Можливо вам може знадобитися встановити `python-pip` та `screen`.
 :::
 
-## GCC Toolchain Installation
+## Встановлення інструментарію GCC.
 
 <!-- GCC toolchain documentation used for all Linux platforms to build NuttX -->
 
-Execute the script below to install GCC 7-2017-q4:
+Виконайте скрипт нижче для встановлення GCC 7-2017-q4:
 
 :::warning
-This version of GCC is out of date. At time of writing the current version on Ubuntu is `9-2020-q2-update` (see [focal nuttx docker file](https://github.com/PX4/PX4-containers/blob/master/docker/Dockerfile_nuttx-focal#L28))
+Ця версія GCC застаріла. На момент написання поточна версія на Ubuntu `9-2020-q2-update` (дивіться [focal nuttx docker файл](https://github.com/PX4/PX4-containers/blob/master/docker/Dockerfile_nuttx-focal#L28))
 :::
 
 ```sh
@@ -50,17 +50,17 @@ if grep -Fxq "$exportline" ~/.profile; then echo nothing to do ; else echo $expo
 popd
 ```
 
-Now restart your machine.
+Тепер перезавантажте комп'ютер.
 
-**Troubleshooting**
+**Усунення проблем**
 
-Check the version by entering the following command:
+Перевірте версію, ввівши наступну команду:
 
 ```sh
 arm-none-eabi-gcc --version
 ```
 
-The output should be something similar to:
+Результат повинен бути схожий на:
 
 ```sh
 arm-none-eabi-gcc (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM/embedded-7-branch revision 255204]
@@ -71,17 +71,17 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 <!-- import docs ninja build system -->
 
-## Ninja Build System
+## Система збірки Ninja
 
-[Ninja](https://ninja-build.org/) is a faster build system than _Make_ and the PX4 _CMake_ generators support it.
+[Ninja](https://ninja-build.org/) є швидшою системою збірки ніж _Make_ й генератори коду PX4 _CMake_ підтримують її.
 
-On Ubuntu Linux you can install this automatically from normal repos.
+На Ubuntu Linux ви можете встановити її автоматично зі звичайних репозиторіїв.
 
 ```sh
 sudo apt-get install ninja-build -y
 ```
 
-Other systems may not include Ninja in the package manager. In this case an alternative is to download the binary and add it to your path:
+Інші системи можуть не включати Ninja в менеджер пакетів. В цьому випадку альтернатива - завантажити бінарний файл і додати його до вашого шляху:
 
 ```sh
 mkdir -p $HOME/ninja
