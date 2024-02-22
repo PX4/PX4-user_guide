@@ -23,17 +23,17 @@ RGB *індикатори інтерфейсу* вказують на поточ
 ![LED meanings](../../assets/flight_controller/pixhawk_led_meanings.gif)
 
 
-* **[Безперервний синій] Стан бойової готовності, без блокування GPS:** Вказує на те, що автомобіль перебуває в стані бойової готовності й не має блокування положення від GPS-пристрою. Коли апарат в стані готовності, PX4 розблокує керування двигунами, що дозволить вам керувати дроном. Як завжди, будьте обережні під час увімкнення, оскільки великі гвинти можуть бути небезпечними на високих обертах. У цьому режимі апарат не може виконувати керовані місії.
+* **[Безперервний синій] Стан готовності, без блокування GPS:** Вказує на те, що апарат перебуває в стані готовності й не має блокування положення від GPS-пристрою. Коли апарат в стані готовності, PX4 розблокує керування двигунами, що дозволить вам керувати дроном. Як завжди, будьте обережні під час увімкнення, оскільки великі гвинти можуть бути небезпечними на високих обертах. У цьому режимі апарат не може виконувати керовані місії.
 
-* **[Pulsing Blue] Disarmed, No GPS Lock:** Similar to above, but your vehicle is disarmed. This means you will not be able to control motors, but all other subsystems are working.
+* **[Пульсуючий синій] Приведення в непрацездатний стан, немає блокування GPS:** Подібно до вищесказаного, але ваш апарат приведено в непрацездатний стан. Це означає, що ви не зможете керувати двигунами, але всі інші підсистеми працюють.
 
-* **[Solid Green] Armed, GPS Lock:** Indicates vehicle has been armed and has a valid position lock from a GPS unit. When vehicle is armed, PX4 will unlock control of the motors, allowing you to fly your drone. As always, exercise caution when arming, as large propellers can be dangerous at high revolutions. In this mode, vehicle can perform guided missions.
+* **[Безперервний зелений] Стан готовності, блокування GPS:** Вказує на те, що апарат перебуває в стані готовності та має блокування місцезнаходження від GPS-пристрою. Коли апарат в стані готовності, PX4 розблокує керування двигунами, що дозволить вам керувати дроном. Як завжди, будьте обережні під час увімкнення, оскільки великі гвинти можуть бути небезпечними на високих обертах. У цьому режимі апарат може виконувати керовані місії.
 
-* **[Pulsing Green] Disarmed, GPS Lock:** Similar to above, but your vehicle is disarmed. This means you will not be able to control motors, but all other subsystems including GPS position lock are working.
+* **[Пульсуючий зелений] Приведення в непрацездатний стан, блокування GPS:** Подібно до вищесказаного, але ваш апарат приведено в непрацездатний стан. Це означає, що ви не зможете керувати двигунами, але всі інші підсистеми, включаючи GPS-фіксацію положення, працюють.
 
-* **[Solid Purple] Failsafe Mode:** This mode will activate whenever vehicle encounters an issue during flight, such as losing manual control, a critically low battery, or an internal error. During failsafe mode, vehicle will attempt to return to its takeoff location, or may simply descend where it currently is.
+* **[Постійний фіолетовий] Відмовобезпечний (аварійний) режим:** Цей режим активується щоразу, коли апарат стикається з проблемою під час польоту, наприклад, втрата ручного керування, критично низький заряд батареї або внутрішня помилка. Під час аварійного режиму апарат намагатиметься повернутися до місця зльоту або може просто знизитися там, де він зараз перебуває.
 
-* **[Solid Amber] Low Battery Warning:** Indicates your vehicle's battery is running dangerously low. After a certain point, vehicle will go into failsafe mode. However, this mode should signal caution that it's time to end this flight.
+* **[Постійний жовтий] Попередження про низький рівень заряду акумулятора:** Вказує на небезпечний розряд акумулятора вашого апарату. Після певного моменту пристрій перейде в відмовобезпечний режим. Однак цей режим повинен сигналізувати про те, що настав час завершити цей політ.
 
 * **[Blinking Red] Error / Setup Required:** Indicates that your autopilot needs to be configured or calibrated before flying. Attach your autopilot to a Ground Control Station to verify what the problem is. If you have completed the setup process and autopilot still appears as red and flashing, there may be another error.
 
