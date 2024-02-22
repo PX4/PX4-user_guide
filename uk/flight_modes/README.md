@@ -1,15 +1,15 @@
-# Flight Modes
+# Режими польоту
 
-Flight modes provide autopilot support to make it easier to manually fly the vehicle, to automate common tasks such as takeoff and landing, to execute autonomous missions, or to defer flight control to an external system.
+Режими польоту забезпечують підтримку автопілота, щоб полегшити ручне керування апаратом, автоматизувати звичайні завдання, такі як зліт і посадка, виконувати автономні місії або передати керування польотом зовнішній системі.
 
-For information about flight modes available to specific frames see the following topics:
+Для отримання інформації про режими польоту, доступні для певних моделей, дивіться наступні теми:
 
-- [Flight Modes (Multicopter)](../flight_modes_mc/README.md)
-- [Flight Modes (Fixed-Wing)](../flight_modes_fw/README.md)
-- [Flight Modes (VTOL)](../flight_modes_vtol/README.md)
-- [Flight/Drive Modes (Rover)](../flight_modes_rover/README.md)
+- [Режими польоту (Мультикоптер)](../flight_modes_mc/README.md)
+- [Режими польоту (Літак з нерухомим крилом (Fixed-Wing))](../flight_modes_fw/README.md)
+- [Режими польоту (VTOL)](../flight_modes_vtol/README.md)
+- [Режими польоту/djlsyyz (Rover)](../flight_modes_rover/README.md)
 
 :::note
-The mode sub-topics in this section contain information that is common to all vehicles, but may not be relevant to the normal/default setup.
-Generally you should see the vehicle-specific topics first, and navigate to these generalized topics when it becomes relevant.
+Підтеми режимів у цьому розділі містять інформацію, яка є спільною для всіх апаратів, але може не мати відношення до налаштувань за замовчуванням.
+Як правило, спочатку слід переглянути теми, що стосуються конкретних апаратів, а потім перейти до цих узагальнених тем, коли вони стануть доречними.
 :::
