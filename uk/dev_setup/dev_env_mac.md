@@ -14,43 +14,40 @@
 
 @[youtube](https://youtu.be/tMbMGiMs1cQ)
 
-## Основне налаштування
+## Базове налаштування
 
 "Базове" налаштування macOS встановлює інструменти, необхідні для збірки прошивки та включає загальні інструменти, які будуть потрібні для встановлення/використання симуляторів.
 
 ### Налаштування середовища
 
 :::details
-Користувачі Apple M1 Macbook! If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
+Користувачі Apple M1 Macbook! Якщо у вас є Apple M1 Macbook, переконайтеся, що запускаєте x86 термінал шляхом налаштування термінала:
 
-1. Locate the Terminal application within the Utilities folder (**Finder > Go menu > Utilities**)
-2. Select _Terminal.app_ and right-click on it, then choose **Duplicate**.
-3. Rename the duplicated Terminal app, e.g. to _x86 Terminal_
-4. Now select the renamed _x86 Terminal_ app and right-click and choose \*_Get Info_
-5. Check the box for **Open using Rosetta**, then close the window
-6. Run the _x86 Terminal_ as usual, which will fully support the current PX4 toolchain
-:::
+1. Знайдіть термінальний додаток в теці Utilities (**Finder > Меню > Utilities**)
+2. Виберіть _Terminal.app_ та клацніть правою кнопкою миші, а потім оберіть **Копіювати**
+3. Перейменуйте скопійований додаток терміналу, наприклад _x86 Terminal_
+4. Тепер оберіть перейменований додаток _x86 Terminal_ і клацніть правою кнопкою миші та оберіть _Отримати Інформацію_
+5. Поставте відмітку **Відкрити з Rosetta** та закрийте вікно
+6. Запустіть _x86 Terminal_ як зазвичай, який тепер повинен підтримувати інструментарій PX4 ::
 
-First set up the environment
+Спочатку налаштуйте середовище
 
-1. Enable more open files by appending the following line to the `~/.zshenv` file (creating it if necessary):
+1. Збільште кількість одночасно відкритих файлів додавши наступний рядок у файл `~/.zshenv` (створивши його якщо необхідно):
 
    ```sh
    echo ulimit -S -n 2048 >> ~/.zshenv
    ```
 
-:::note
-If you don't do this, the build toolchain may report the error: `"LD: too many open files"`
-:::
+   ::::note Якщо ви цього не зробите, інструментарій збірки може повідомити про помилку: `"LD: too many open files"` :: :
 
-1. Enforce Python 3 by appending the following lines to `~/.zshenv`
+1. Забезпечте виконання Python 3 додаванням наступних рядків до `~/.zshenv`
 
    ```sh
-   # Point pip3 to MacOS system python 3 pip
+   # Направляємо pip3 на системний pip MacOS 
    alias pip3=/usr/bin/pip3
    ```
 
-### Common Tools
+### Загальні інструменти
 
 To setup the environment to be able to build for Pixhawk/NuttX hardware (and install the common tools for using simulators):
 
