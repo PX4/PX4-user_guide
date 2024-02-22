@@ -108,7 +108,7 @@ Logging bandwidth with the default topics is around 50 KB/s, which almost all SD
 More important than the mean write speed is spikes (or generally high values) in the maximum write time per block (of 4 KB) or `fsync` times, as a long write time means a larger log buffer is needed to avoid dropouts.
 
 PX4 uses bigger buffers on F7/H7 and read caching, which is enough to compensate for spikes in many poor cards.
-That said, if your card has an `fsync` of several 100ms then it is probably unusable. 
+That said, if your card has an `fsync` or write duration of several 100ms it is should not be preferred for use with PX4. 
 You can check the value by running [sd_bench](../modules/modules_command.md#sd-bench) should be run with more iterations (around 100 should do). 
 
 ```sh
