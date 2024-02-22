@@ -1,27 +1,27 @@
-# MacOS Development Environment
+# Середовище розробки MacOS
 
-The following instructions set up a PX4 development environment for macOS. This environment can be used to build PX4 for:
+Наступні інструкції для встановлення середовища розробки PX4 для macOS. Це середовище може бути використане для збірки PX4 для:
 
-- Pixhawk and other NuttX-based hardware
-- [jMAVSim Simulation](../sim_jmavsim/README.md)
-- [Gazebo Classic Simulation](../sim_gazebo_classic/README.md)
+- Pixhawk та іншого апаратного забезпечення на основі NuttX
+- [Симуляція jMAVSim](../sim_jmavsim/README.md)
+- [Симуляція Gazebo Classic](../sim_gazebo_classic/README.md)
 
 :::tip
-This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported development environment](../advanced/community_supported_dev_env.md)).
+Ця установка підтримується командою розробників PX4. Для збірки для інших цільових платформ потрібно використати [інші ОС](../dev_setup/dev_env.md#supported-targets) (або [середовище розробки що не підтримується](../advanced/community_supported_dev_env.md)).
 :::
 
-## Video Guide
+## Відеоінструкція
 
 @[youtube](https://youtu.be/tMbMGiMs1cQ)
 
-## Base Setup
+## Основне налаштування
 
-The "base" macOS setup installs the tools needed for building firmware, and includes the common tools that will be needed for installing/using the simulators.
+"Базове" налаштування macOS встановлює інструменти, необхідні для збірки прошивки та включає загальні інструменти, які будуть потрібні для встановлення/використання симуляторів.
 
-### Environment Setup
+### Налаштування середовища
 
 :::details
-Apple M1 Macbook users! If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
+Користувачі Apple M1 Macbook! If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
 
 1. Locate the Terminal application within the Utilities folder (**Finder > Go menu > Utilities**)
 2. Select _Terminal.app_ and right-click on it, then choose **Duplicate**.
