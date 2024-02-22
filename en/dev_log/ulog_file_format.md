@@ -26,7 +26,7 @@ The following binary types are used for logging. They all correspond to the type
 | double            | 8             |
 | bool, char        | 1             |
 
-Additionally the types can be used as an array: e.g. `float[5]`.
+Additionally the types can be used as a fixed-size array: e.g. `float[5]`.
 
 Strings (`char[length]`) do not contain the termination NULL character `'\0'` at the end.
 
@@ -77,7 +77,7 @@ struct message_header_s {
 ```
 
 - `msg_size` is the size of the message in bytes without the header.
-- `msg_type` defines the content, and is a single character.
+- `msg_type` defines the content, and is a single byte.
 
 :::note
 Message sections below are prefixed with the character that corresponds to it's `msg_type`.
@@ -148,7 +148,7 @@ If the `msg_size` is bigger than expected (currently 40), any additional bytes m
 
 #### 'F': Format Message
 
-Format message defines a single message name and it's inner fields in a single string.
+Format message defines a single message name and its inner fields in a single string.
 
 ```c
 struct message_format_s {
@@ -159,8 +159,10 @@ struct message_format_s {
 
 - `format` is a plain-text string with the following format: `message_name:field0;field1;`
   - There can be an arbitrary amount of fields (minimum 1), separated by `;`.
+  - `message_name`: an arbitrary non-empty string with these allowed characters: `a-zA-Z0-9_-/` (and different from any of the [basic types](#data-types)).
 
 A `field` has the format: `type field_name`, or for an array: `type[array_length] field_name` is used (only fixed size arrays are supported).
+`field_name` must consist of the characters in the set `a-zA-Z0-9_`.
 
 A `type` is one of the [basic binary types](#data-types) or a `message_name` of another format definition (nested usage).
 
@@ -171,17 +173,16 @@ A `type` is one of the [basic binary types](#data-types) or a `message_name` of 
 
 Some field names are special:
 
-- `timestamp`: every [Subscription Message](#a-subscription-message) must include a timestamp field
-  - Its type can be: `uint64_t` (currently the only one used), `uint32_t`, `uint16_t` or `uint8_t`.
-  - The unit is always microseconds, except for in `uint8_t` where the unit is in milliseconds.
-  - The timestamp must always be monotonic increasing for a message series with the same `msg_id`.
-  - Optionally, when using a small timestamp datatype such as `uint8_t`, the log writer must make sure to log messages often enough to be able to detect **wrap-arounds** (when the timestamp overflows the data type and goes back to 0)
-  - In that case, the log reader must handle wrap-arounds as well, and take into account dropouts.
+- `timestamp`: every message format with a [Subscription Message](#a-subscription-message) must include a timestamp field (for example a message format only used as part of a nested definition by another format may not include a timestamp field)
+  - Its type must be `uint64_t`.
+  - The unit is microseconds.
+  - The timestamp must always be monotonic increasing for a message series with the same `msg_id` (same subscription).
 - `_padding{}`: field names that start with `_padding` (e.g. `_padding[3]`) should not be displayed and their data must be ignored by a reader.
   - These fields can be inserted by a writer to ensure correct alignment.
   - If the padding field is the last field, then this field may not be logged, to avoid writing unnecessary data.
   - This means the `message_data_s.data` will be shorter by the size of the padding.
   - However the padding is still needed when the message is used in a nested definition.
+- In general, message fields are not necessarily aligned (i.e. the field offset within the message is not necessarily a multiple of its data size), so a reader must always use appropriate memory copy methods to access individual fields.
 
 #### 'I': Information Message
 
@@ -197,11 +198,11 @@ struct ulog_message_info_header_s {
 ```
 
 - `key_len`: Length of the key value
-- `key`: Contains the key string. eg. `char[value_len] sys_toolchain_ver`
+- `key`: Contains the key string in the form`type name`, e.g. `char[value_len] sys_toolchain_ver`. Valid characters for the name: `a-zA-Z0-9_-/`. The type may be one of the [basic types including arrays](#data-types).
 - `value`: Contains the data (with the length `value_len`) corresponding to the `key` e.g. `9.4.0`.
 
 :::note
-A key : value pair defined in the Information message should be unique. Meaning there shouldn't be more than one definition with the same key value!
+A key defined in the Information message must be unique. Meaning there must not be more than one definition with the same key value.
 :::
 
 Parsers can store information messages as a dictionary.
@@ -255,6 +256,8 @@ struct ulog_message_info_multiple_header_s {
 
 Parsers can store all information multi messages as a 2D list, using the same order as the messages occur in the log.
 
+Valid names and types are the same as for the Information message.
+
 #### 'P': Parameter Message
 
 Parameter message in the _Definitions_ section defines the parameter values of the vehicle when logging is started. It uses the same format as the [Information Message](#i-information-message).
@@ -270,7 +273,7 @@ struct message_info_s {
 
 If a parameter dynamically changes during runtime, this message can also be [used in the Data section](#messages-shared-with-the-definitions-section) as well.
 
-The data type is restricted to `int32_t` and `float`.
+The data type is restricted to `int32_t` and `float`. Valid characters for the name: `a-zA-Z0-9_-/`.
 
 #### 'Q': Default Parameter Message
 
@@ -294,7 +297,7 @@ struct ulog_message_parameter_default_header_s {
 A log may not contain default values for all parameters.
 In those cases the default is equal to the parameter value, and different default types are treated independently.
 
-This message can also be used in the Data section, and the data type is restricted to `int32_t` and `float`.
+This message can also be used in the Data section, and the same data type and naming applies as for the Parameter message.
 
 This section ends before the start of the first [Subscription Message](#a-subscription-message) or [Logging](#l-logged-string-message) message, whichever comes first.
 
@@ -495,6 +498,8 @@ A valid ULog parser must fulfill the following requirements:
 - [MAVGAnalysis](https://github.com/ecmnet/MAVGCL): Java, ULog streaming via MAVLink and parser for plotting and analysis.
 - [PlotJuggler](https://github.com/facontidavide/PlotJuggler): C++/Qt application to plot logs and time series. Supports ULog since version 2.1.3.
 - [ulogreader](https://github.com/maxsun/ulogreader): Javascript, ULog reader and parser outputs log in JSON object format.
+- [Foxglove Studio](https://github.com/foxglove/studio): an integrated visualization and diagnosis tool for robotics
+  (Typescript ULog parser: https://github.com/foxglove/ulog).
 
 ## File Format Version History
 
