@@ -20,51 +20,51 @@ RGB *індикатори інтерфейсу* вказують на поточ
 У разі виникнення помилки (блимає червоним кольором), або якщо апарат не може досягти блокування GPS (зміна кольору з синього на зелений), перевірте більш детальну інформацію про стан у *QGroundControl*, включно зі станом калібрування та повідомленнями про помилки, які з'являються у [Передпольотна перевірка (внутрішня)](../flying/pre_flight_checks.md). Також перевірте, чи правильно підключений GPS-модуль, чи правильно Pixhawk зчитує ваш GPS, і чи правильно GPS передає дані про місцеперебування.
 :::
 
-![LED meanings](../../assets/flight_controller/pixhawk_led_meanings.gif)
+![Значення світлодіодів](../../assets/flight_controller/pixhawk_led_meanings.gif)
 
 
-* **[Безперервний синій] Стан бойової готовності, без блокування GPS:** Вказує на те, що автомобіль перебуває в стані бойової готовності й не має блокування положення від GPS-пристрою. Коли апарат в стані готовності, PX4 розблокує керування двигунами, що дозволить вам керувати дроном. Як завжди, будьте обережні під час увімкнення, оскільки великі гвинти можуть бути небезпечними на високих обертах. У цьому режимі апарат не може виконувати керовані місії.
+* **[Безперервний синій] Стан готовності, без блокування GPS:** Вказує на те, що апарат перебуває в стані готовності й не має блокування положення від GPS-пристрою. Коли апарат в стані готовності, PX4 розблокує керування двигунами, що дозволить вам керувати дроном. Як завжди, будьте обережні під час увімкнення, оскільки великі гвинти можуть бути небезпечними на високих обертах. У цьому режимі апарат не може виконувати керовані місії.
 
-* **[Pulsing Blue] Disarmed, No GPS Lock:** Similar to above, but your vehicle is disarmed. This means you will not be able to control motors, but all other subsystems are working.
+* **[Пульсуючий синій] Приведення в непрацездатний стан, немає блокування GPS:** Подібно до вищесказаного, але ваш апарат приведено в непрацездатний стан. Це означає, що ви не зможете керувати двигунами, але всі інші підсистеми працюють.
 
-* **[Solid Green] Armed, GPS Lock:** Indicates vehicle has been armed and has a valid position lock from a GPS unit. When vehicle is armed, PX4 will unlock control of the motors, allowing you to fly your drone. As always, exercise caution when arming, as large propellers can be dangerous at high revolutions. In this mode, vehicle can perform guided missions.
+* **[Безперервний зелений] Стан готовності, блокування GPS:** Вказує на те, що апарат перебуває в стані готовності та має блокування місцезнаходження від GPS-пристрою. Коли апарат в стані готовності, PX4 розблокує керування двигунами, що дозволить вам керувати дроном. Як завжди, будьте обережні під час увімкнення, оскільки великі гвинти можуть бути небезпечними на високих обертах. У цьому режимі апарат може виконувати керовані місії.
 
-* **[Pulsing Green] Disarmed, GPS Lock:** Similar to above, but your vehicle is disarmed. This means you will not be able to control motors, but all other subsystems including GPS position lock are working.
+* **[Пульсуючий зелений] Приведення в непрацездатний стан, блокування GPS:** Подібно до вищесказаного, але ваш апарат приведено в непрацездатний стан. Це означає, що ви не зможете керувати двигунами, але всі інші підсистеми, включаючи GPS-фіксацію положення, працюють.
 
-* **[Solid Purple] Failsafe Mode:** This mode will activate whenever vehicle encounters an issue during flight, such as losing manual control, a critically low battery, or an internal error. During failsafe mode, vehicle will attempt to return to its takeoff location, or may simply descend where it currently is.
+* **[Постійний фіолетовий] Відмовобезпечний (аварійний) режим:** Цей режим активується щоразу, коли апарат стикається з проблемою під час польоту, наприклад, втрата ручного керування, критично низький заряд батареї або внутрішня помилка. Під час аварійного режиму апарат намагатиметься повернутися до місця зльоту або може просто знизитися там, де він зараз перебуває.
 
-* **[Solid Amber] Low Battery Warning:** Indicates your vehicle's battery is running dangerously low. After a certain point, vehicle will go into failsafe mode. However, this mode should signal caution that it's time to end this flight.
+* **[Постійний помаранчевий] Попередження про низький рівень заряду акумулятора:** Вказує на небезпечний розряд акумулятора вашого апарату. Після певного моменту пристрій перейде в відмовобезпечний режим. Однак цей режим повинен сигналізувати про те, що настав час завершити цей політ.
 
-* **[Blinking Red] Error / Setup Required:** Indicates that your autopilot needs to be configured or calibrated before flying. Attach your autopilot to a Ground Control Station to verify what the problem is. If you have completed the setup process and autopilot still appears as red and flashing, there may be another error.
+* **[Блимаючий червоний] Помилка/потрібне налаштування:** Вказує на те, що автопілот потрібно налаштувати або відкалібрувати перед польотом. Підключіть автопілот до наземної станції керування, щоб перевірити, в чому проблема. Якщо ви завершили процес налаштування, а автопілот все ще відображається червоним і блимає, можливо, виникла інша помилка.
 
 
 <a id="status_led"></a>
 
-## Status LED
+## Індикатор стану
 
-Three *Status LEDs* provide status for the FMU SoC, and three more provide status for the PX4IO (if present). They indicate power, bootloader mode and activity, and errors.
+Три світлодіоди *індикатори стану* показують стан мікросхеми FMU, а ще три - стан PX4IO (за наявності). Вони показують заряд, режим і стан бутлоадера, а також помилки.
 
 ![Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_status_leds.jpg)
 
-From power on, the FMU and PX4IO CPUs first run the bootloader (BL) and then the application (APP). The table below shows how the Bootloader and then APP use the LEDs to indicate condition.
+Після ввімкнення живлення процесори FMU та PX4IO спочатку запускають бутлоадер (BL), а потім додаток (APP). У таблиці нижче показано, як завантажувач, а потім додаток використовують світлодіоди для індикації стану.
 
-| Color     | Label                       | Bootloader usage                               | APP usage               |
-| --------- | --------------------------- | ---------------------------------------------- | ----------------------- |
-| Blue      | ACT (Activity)              | Flutters when the bootloader is receiving data | Indication of ARM state |
-| Red/Amber | B/E (In Bootloader / Error) | Flutters when in the bootloader                | Indication of an ERROR  |
-| Green     | PWR (Power)                 | Not used by bootloader                         | Indication of ARM state |
+| Колір                 | Позначка                     | Використання бутлоадера                | Використання додатку (APP) |
+| --------------------- | ---------------------------- | -------------------------------------- | -------------------------- |
+| Синій                 | ACT (активність)             | Мерехтить, коли бутлоадер отримує дані | Індикація стану ARM        |
+| Червоний/помаранчевий | B/E (В бутлоадері / помилка) | Мерехтить, коли в бутлоадері           | Індикація ERROR            |
+| Зелений               | PWR (потужність)             | Не використовується в бутлоадері       | Індикація стану ARM        |
 
 :::note
-The LED labels shown above are commonly used, but might differ on some boards.
+Світлодіодні позначення, показані вище, є загальноприйнятими, але можуть відрізнятися на деяких панелях.
 :::
 
-More detailed information for how to interpret the LEDs is given below (where "x" means "any state")
+Більш детальна інформація про те, як інтерпретувати світлодіоди наведені нижче (де "х" означає "будь-який стан")
 
-| Red/Amber | Blue | Green | Meaning                                                      |
-| --------- | ---- | ----- | ------------------------------------------------------------ |
-| 10Hz      | x    | x     | Overload CPU load > 80%, or RAM usage > 98%                  |
-| OFF       | x    | x     | Overload CPU load <= 80%, or RAM usage <= 98%                |
-| NA        | OFF  | 4 Hz  | actuator_armed->armed && failsafe                            |
-| NA        | ON   | 4 Hz  | actuator_armed->armed && !failsafe                           |
-| NA        | OFF  | 1 Hz  | !actuator_armed-> armed && actuator_armed->ready_to_arm  |
-| NA        | OFF  | 10 Hz | !actuator_armed->armed  && !actuator_armed->ready_to_arm | 
+| Червоний/помаранчевий | Синій  | Зелений | Значення                                                                       |
+| --------------------- | ------ | ------- | ------------------------------------------------------------------------------ |
+| 10 Гц                 | x      | x       | Перевантаження CPU  > 80%, або використання RAM (оперативної памʼяті) > 98%    |
+| ВИМК.                 | x      | x       | Перевантаження CPU  <= 80%,, або використання RAM (оперативної памʼяті) <= 98% |
+| NA                    | ВИМК.  | 4 Гц    | actuator_armed->armed && failsafe                                              |
+| NA                    | УВІМК. | 4 Гц    | actuator_armed->armed && !failsafe                                             |
+| NA                    | ВИМК.  | 1 Гц    | !actuator_armed-> armed && actuator_armed->ready_to_arm                    |
+| NA                    | ВИМК.  | 10 Гц   | !actuator_armed->armed  && !actuator_armed->ready_to_arm                   | 
