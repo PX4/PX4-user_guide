@@ -1,35 +1,35 @@
-# Windows Development Environment (Cygwin-based)
+# Середовище розробки Windows (засноване на Cygwin)
 
 :::warning
-This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md). It may or may not work with current versions of PX4.
+Це середовище розробки [підтримується та утримується спільнотою](../advanced/community_supported_dev_env.md). Воно може працювати або не працювати з поточними версіями PX4.
 
-The toolchain was previously recommended, but does not work with PX4 v1.12 and later due to packaging issues. The [Windows WSL2-Based Development Environment](../dev_setup/dev_env_windows_wsl.md) should be used by preference.
+Цей інструментарій був рекомендований раніше, але наразі не працює з PX4 v1.12 і новіше через проблеми з пакетами. Слід надавати перевагу [Середовищу розробки Windows заснованому на WSL2](../dev_setup/dev_env_windows_wsl.md).
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, які підтримуються основною командою розробників.
 :::
 
-The following instructions explain how to set up a (Cygwin-based) PX4 development environment on Windows 10. This environment can be used to build PX4 for:
+Наступні інструкції пояснюють як налаштувати (засноване на Cygwin) середовище розробки на Windows 10 для PX4. Це середовище може бути використане для збірки PX4 для:
 
-- Pixhawk and other NuttX-based hardware
-- [jMAVSim Simulation](../sim_jmavsim/README.md)
+- Pixhawk та іншого апаратного забезпечення на основі NuttX
+- [Симуляція jMAVSim](../sim_jmavsim/README.md)
 
 <a id="installation"></a>
 
-## Installation Instructions
+## Інструкції з установки
 
-1. Download the latest version of the ready-to-use MSI installer from: [Github releases](https://github.com/PX4/windows-toolchain/releases) or [Amazon S3](https://s3-us-west-2.amazonaws.com/px4-tools/PX4+Windows+Cygwin+Toolchain/PX4+Windows+Cygwin+Toolchain+0.9.msi) (fast download).
-1. Run it, choose your desired installation location, let it install:
+1. Завантажте останню версію готового до використання MSI інсталятора з: [Github сторінки релізів](https://github.com/PX4/windows-toolchain/releases) або [Amazon S3](https://s3-us-west-2.amazonaws.com/px4-tools/PX4+Windows+Cygwin+Toolchain/PX4+Windows+Cygwin+Toolchain+0.9.msi) (швидке завантаження).
+1. Запустіть, оберіть потрібне місце установки, дочекайтесь встановлення:
 
    ![jMAVSimOnWindows](../../assets/toolchain/cygwin_toolchain_installer.png)
 
-1. Tick the box at the end of the installation to _clone the PX4 repository, build and run simulation with jMAVSim_ (this simplifies the process to get you started).
+1. Позначте прапорець в кінці інсталяції _клонувати репозиторій PX4, зібрати та запустити симуляцію з jMAVSim_ (це спрощує процес, щоб ви могли почати).
 
 :::note
-If you missed this step you will need to [clone the PX4-Autopilot repository manually](#getting-started).
+Якщо ви пропустили цей крок, потрібно [клонувати репозиторій PX4-Autopilot вручну](#getting-started).
 :::
 
 :::warning
-At time of writing the installer is missing some dependencies (and cannot yet be rebuilt to add them - see [PX4-windows-toolchain#31](https://github.com/PX4/PX4-windows-toolchain/issues/31)).
+На момент написання встановлювачу бракує деяких залежностей (й ви не можете зібрати та додати їх, дивіться [PX4-windows-toolchain#31](https://github.com/PX4/PX4-windows-toolchain/issues/31)).
 
 To add these yourself:
 
