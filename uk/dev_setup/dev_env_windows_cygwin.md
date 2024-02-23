@@ -31,11 +31,11 @@
 :::warning
 На момент написання встановлювачу бракує деяких залежностей (й ви не можете зібрати та додати їх, дивіться [PX4-windows-toolchain#31](https://github.com/PX4/PX4-windows-toolchain/issues/31)).
 
-To add these yourself:
+Щоб додати їх самостійно:
 
-1. Browse to the toolchain installation directory (default **C:\\PX4\\**)
-1. Run **run-console.bat** (double click) to start the linux-like Cygwin bash console
-1. Enter the following command in the console:
+1. Перейдіть в директорію встановлення інструментів (за замовчуванням **C:\\PX4\\**)
+1. Запустіть **run-console.bat** (подвійний клік), щоб запустити bash консоль у середовищі Cygwin подібному до Linux.
+1. Введіть в консолі наступну команду:
 
    ```sh
    pip3 install --user kconfiglib jsonschema future
@@ -43,75 +43,75 @@ To add these yourself:
 
 :::
 
-## Getting Started
+## Початок роботи
 
-The toolchain uses a specially configured console window (started by running the **run-console.bat** script) from which you can call the normal PX4 build commands:
+Інструментарій використовує спеціально налаштовану консоль (яка запускається скриптом **run-console.bat**) з якої ви можете запускати звичайні команди збірки PX4:
 
-1. Browse to the toolchain installation directory (default **C:\\PX4\\**)
-1. Run **run-console.bat** (double click) to start the linux-like Cygwin bash console (you must use this console to build PX4).
-1. Clone the PX4 PX4-Autopilot repository from within the console:
+1. Перейдіть в директорію встановлення інструментів (за замовчуванням **C:\\PX4\\**)
+1. Запустіть **run-console.bat** (подвійний клік), щоб запустити bash консоль у Cygwin  (потрібно використовувати цю консоль для збірки PX4).
+1. Клонуйте репозиторій PX4 PX4-Autopilot з цієї консолі:
 
 :::note
-Skip this step if you ticked the installer option to _clone the PX4 repository, build and run simulation with jMAVSim_. Cloning only needs to be done once!
+Пропустіть цей крок, якщо ви обрали у встановлювачі _клонувати репозитарій PX4, зібрати та запустити симуляцію з jMAVSim_. Клонування потрібно зробити тільки один раз!
 :::
 
    ```sh
-   # Clone the PX4-Autopilot repository into the home folder & loads submodules in parallel
+   # Клонувати репозиторій PX4-Autopilot в домашню теку & підмодулі завантажують паралельно
    git clone --recursive -j8 https://github.com/PX4/PX4-Autopilot.git
    ```
 
-   You can now use the console/PX4-Autopilot repository to build PX4.
+   Тепер можна використовувати консоль/PX4-Autopilot репозиторій для збірки PX4.
 
-1. For example, to run JMAVSim:
+1. Наприклад, для запуску JMAVSim:
 
    ```sh
-   # Navigate to PX4-Autopilot repo
+   # Перейдіть до репозиторію PX4-Autopilot
    cd Firmware
-   # Build and runs SITL simulation with jMAVSim to test the setup
+   # Збирає і запускає SITL симуляцію з jMAVSim, щоб протестувати налаштування
    make px4_sitl jmavsim
    ```
 
-   The console will then display:
+   Після цього консоль покаже:
 
    ![jMAVSimOnWindows](../../assets/simulation/jmavsim/jmavsim_windows_cygwin.png)
 
-## Next Steps
+## Наступні кроки
 
-Once you have finished setting up the command-line toolchain:
+Після того, як ви закінчите налаштування інструментів командного рядка:
 
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html)
-- Continue to the [build instructions](../dev_setup/building_px4.md).
+- Встановіть [денну збірку QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html).
+- Переходьте до [інструкцій збірки](../dev_setup/building_px4.md).
 
-## Troubleshooting
+## Усунення проблем
 
-### File Monitoring Tools vs Toolchain Speed
+### Інструменти моніторингу файлів проти швидкості інструментарію
 
-Antivirus and other background file monitoring tools can significantly slow down both installation of the toolchain and PX4 build times.
+Антивірус та інші інструменти моніторингу файлів у фоні можуть суттєво сповільнити встановлення інструментів та збірки PX4.
 
-You may wish to halt them temporarily during builds (at your own risk).
+Можливо знадобиться тимчасово зупинити їх під час збірки (на власний розсуд).
 
-### Windows & Git Special Cases
+### Особливі випадки Windows & Git
 
-#### Windows CR+LF vs Unix LF Line Endings
+#### Символи закінчення рядків Windows CR+LF проти Unix LF
 
-We recommend that you force Unix style LF endings for every repository you're working with using this toolchain (and use an editor which preserves them when saving your changes - e.g. Eclipse or VS Code). Compilation of source files also works with CR+LF endings checked out locally, but there are cases in Cygwin (e.g. execution of shell scripts) that require Unix line endings (otherwise you get errors like `$'\r': Command not found.`). Luckily git can do this for you when you execute the two commands in the root directory of your repo:
+Ми рекомендуємо примусити використання закінчення рядків Unix LF для кожного репозиторію, з яким ви працюєте з цим інструментарієм (також використовуйте редактор, який залишає  їх незмінними під час збереження змін, тобто Eclipse або VSCode). Компіляція файлів вихідного коду також працює з закінченнями рядків CR+LF отриманих локально, але є випадки у Cygwin (наприклад виконання скриптів оболонки) які потребують закінчення рядків Unix (інакше ви отримаєте помилки типу `$'\r': Command not found.`). На щастя, git може це зробити для вас, якщо виконаєте дві команди в кореневому каталозі вашого репозиторію:
 
 ```sh
 git config core.autocrlf false
 git config core.eol lf
 ```
 
-If you work with this toolchain on multiple repositories you can also set these two configurations globally for your machine:
+Якщо ви працюєте з цим інструментарієм в декількох репозиторіях, ви також можете встановити ці дві конфігурації глобально для вашого комп'ютера:
 
 ```sh
 git config --global ...
 ```
 
-This is not recommended because it may affect any other (unrelated) git use on your Windows machine.
+Це не рекомендується, оскільки це може вплинути на будь-які інші (непов'язані) випадки використання git на вашій Windows машині.
 
-#### Unix Permissions Execution Bit
+#### Біт виконання прав доступу Unix
 
-Under Unix there's a flag in the permissions of each file that tells the OS whether or not the file is allowed to be executed. _git_ under Cygwin supports and cares about that bit (even though the Windows NTFS file system does not use it). This often results in _git_ finding "false-positive" differences in permissions. The resulting diff might look like this:
+Під Unix є прапорець в правах доступу кожного файлу, який вказує на те, чи дозволено файлу виконуватись. _git_ під Cygwin підтримує і враховує цей біт (навіть якщо файлова система Windows NTFS не використовує його). Це часто призводить до того що _git_ знаходить "хибнопозитивну" різницю в правах доступу. Вивід diff в результаті може виглядати так:
 
 ```sh
 diff --git ...
@@ -119,20 +119,20 @@ old mode 100644
 new mode 100755
 ```
 
-We recommend globally disabling the permission check on Windows to avoid the problem:
+Ми рекомендуємо відключити глобально перевірку прав доступу у Windows, щоб уникнути проблем:
 
 ```sh
-# disable execution bit check globally for the machine
+# глобально відключити перевірку біту виконання для комп'ютера
 git config --global core.fileMode false
 ```
 
-For existing repositories that have this problem caused by a local configuration, additionally:
+Для наявних репозиторіїв, що мають цю проблему викликану локальною конфігурацією, додатково виконайте:
 
 ```sh
-# remove the local option for this repository to apply the global one
+# прибрати локальну конфігурацію, щоб застосувати глобальну
 git config --unset core.filemode
 
-# remove the local option for all submodules
+# прибрати локальну конфігурацію для всіх підмодулів
 git submodule foreach --recursive git config --unset core.filemode
 ```
 
