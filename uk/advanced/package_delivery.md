@@ -1,13 +1,13 @@
-# Package Delivery in Missions
+# Доставка пакунків у місіях
 
 <Badge type="tip" text="PX4 v1.14" />
 
-A package delivery mission is an extension of a waypoint mission, where a user can plan delivering a package as a waypoint.
+Місія доставки пакунка - це розширення операції з шляховою точкою, де користувач може планувати призначення пакету в якості шляхової точки.
 
-This topic explains the architecture for the package delivery feature. It is intended for developers working on extending the architecture, for example to support new payload delivery mechanisms.
+Ця тема пояснює архітектуру функції доставки пакету. Він призначений для розробників, які працюють над розширенням архітектури, наприклад, для підтримки нових механізмів доставки вантажу.
 
-:::note
-Currently only [Grippers](../peripherals/gripper.md) can be used for package delivery. Winches are not yet supported.
+::::note
+Зараз лише [Grippers](../peripherals/gripper.md) може бути використано для доставки пакету. Winches are not yet supported.
 :::
 
 :::note
@@ -26,11 +26,11 @@ Because PX4 automatically broadcasts the `VehicleCommand` uORB message to a UART
 
 Likewise, since PX4 automatically translates the [`COMMAND_ACK`](https://mavlink.io/en/messages/common.html#COMMAND_ACK) message coming in from an external source through a UART port configured for MAVLink into a `vehicle_command_ack` uORB message, an external payload's acknowledgement for a successful package deployment can be received by PX4's `navigator` module.
 
-Below, each entity involved in the package delivery architecture is explained.
+Нижче є пояснено кожен об'єкт, що бере участь в архітектурі доставки пакету.
 
-## Navigator
+## Навігатор
 
-Navigator handles the reception of the vehicle command ACK (described below). Upon reception of a successful deployment ack message, it sets the flag in Mission block level to signal that the payload deployment has been successful.
+Навігатор обробляє приймання команди ТЗ (описано нижче). Upon reception of a successful deployment ack message, it sets the flag in Mission block level to signal that the payload deployment has been successful.
 
 This allows the mission to proceed to a next item (e.g. Waypoint) safely, as we are sure with the acknowledgement that the deployment has been successful.
 
