@@ -14,11 +14,11 @@
 
 Відомо що наступні можливості працюють (версія 2.0):
 
-- Building and running SITL with jMAVSim with significantly better performance than a VM (it generates a native windows binary **px4.exe**).
-- Building and uploading NuttX builds (e.g.: px4_fmu-v2 and px4_fmu-v4)
-- Style check with _astyle_ (supports the command: `make format`)
-- Command line auto completion
-- Non-invasive installer! The installer does NOT affect your system and global path (it only modifies the selected installation directory e.g. \*\*C:\PX4\*\* and uses a temporary local path).
+- Збірка та запуск SITL з jMAVSim зі значно кращою ефективністю, ніж у VM (створюється нативний бінарний файл Windows **px4.exe**).
+- Збірка та завантаження NuttX збірок (напр.: px4_fmu-v2 та px4_fmu-v4)
+- Перевірка стилю з _astyle_ (підтримує команду: `make format`)
+- Автодоповнення в командному рядку
+- Неінвазивний встановлювач! The installer does NOT affect your system and global path (it only modifies the selected installation directory e.g. \*\*C:\PX4\*\* and uses a temporary local path).
 - The installer supports updating to a new version keeping your personal changes inside the toolchain folder
 
 Omissions:
