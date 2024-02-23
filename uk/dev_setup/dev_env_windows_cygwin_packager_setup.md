@@ -1,63 +1,63 @@
-# Windows Cygwin Development Environment (Maintenance Instructions)
+# Середовище розробки Windows Cygwin (Інструкції з обслуговування)
 
 :::warning
-This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md). It may or may not work with current versions of PX4.
+Це середовище розробки [підтримується та утримується спільнотою](../advanced/community_supported_dev_env.md). Воно може працювати або не працювати з поточними версіями PX4.
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, які підтримуються основною командою розробників.
 :::
 
-This topic explains how to construct and extend the development environment used for the no-longer-supported [Cygwin-based Windows Development Environment](../dev_setup/dev_env_windows_cygwin.md).
+Ця тема пояснює, як побудувати та розширити середовище розробки, яке використовується для [середовища розробника Windows (заснованого на Cygwin)](../dev_setup/dev_env_windows_cygwin.md) яке вже не підтримується.
 
-## Additional Information
+## Додаткова інформація
 
-### Features / Issues
+### Можливості / Проблеми
 
-The following features are known to work (version 2.0):
+Відомо що наступні можливості працюють (версія 2.0):
 
-- Building and running SITL with jMAVSim with significantly better performance than a VM (it generates a native windows binary **px4.exe**).
-- Building and uploading NuttX builds (e.g.: px4_fmu-v2 and px4_fmu-v4)
-- Style check with _astyle_ (supports the command: `make format`)
-- Command line auto completion
-- Non-invasive installer! The installer does NOT affect your system and global path (it only modifies the selected installation directory e.g. \*\*C:\PX4\*\* and uses a temporary local path).
-- The installer supports updating to a new version keeping your personal changes inside the toolchain folder
+- Збірка та запуск SITL з jMAVSim зі значно кращою ефективністю, ніж у VM (створюється нативний бінарний файл Windows **px4.exe**).
+- Збірка та завантаження NuttX збірок (напр.: px4_fmu-v2 та px4_fmu-v4)
+- Перевірка стилю з _astyle_ (підтримує команду: `make format`)
+- Автодоповнення в командному рядку
+- Неінвазивний встановлювач! Встановлювач НЕ впливає на систему і глобальний шлях (лише змінює вибрану директорію установки, наприклад \*\*C:\PX4\*\* і використовує тимчасовий локальний шлях).
+- Встановлювач підтримує оновлення до нової версії зі збереженням ваших особистих змін у теці інструментарію.
 
-Omissions:
+Відсутні:
 
-- Simulation: Gazebo and ROS are not supported.
-- Only NuttX and JMAVSim/SITL builds are supported.
-- [Known problems](https://github.com/orgs/PX4/projects/6) (Also use to report issues).
+- Симуляція: Gazebo та ROS не підтримуються.
+- Підтримуються лише збірки NuttX і JMAVSim/SITL.
+- [Відомі проблеми](https://github.com/orgs/PX4/projects/6) (використовуйте для звіту про проблеми).
 
-### Shell Script Installation
+### Встановлення за допомогою скриптів оболонки
 
-You can also install the environment using shell scripts in the Github project.
+Ви також можете встановити середовище за допомогою скриптів в Github проєкті.
 
-1. Make sure you have [Git for Windows](https://git-scm.com/download/win) installed.
-1. Clone the repository https://github.com/PX4/windows-toolchain to the location you want to install the toolchain. Default location and naming is achieved by opening the `Git Bash` and executing:
+1. Переконайтеся, що у вас встановлено [Git для Windows](https://git-scm.com/download/win).
+1. Клонуйте репозиторій https://github.com/PX4/windows-toolchain туди куди ви хочете встановити інструментарій. Розташування і ім'я теки за замовчуванням досягаються шляхом відкриття `Git Bash` і виконання:
 
    ```sh
    cd /c/
    git clone https://github.com/PX4/windows-toolchain PX4
    ```
 
-1. If you want to install all components navigate to the freshly cloned folder and double click on the script `install-all-components.bat` located in the folder `toolchain`. If you only need certain components and want to safe Internet traffic and or disk space you can navigate to the different component folders like e.g. `toolchain\cygwin64` and click on the **install-XXX.bat** scripts to only fetch something specific.
-1. Continue with [Getting Started](../dev_setup/dev_env_windows_cygwin.md#getting-started).
+1. Якщо бажаєте встановити усі компоненти, перейдіть до недавно клонованої директорії та запустіть скрипт подвійним кліком `install-all-components.bat`, що розташовано у директорії `toolchain`. Якщо вам потрібні лише певні компоненти і ви бажаєте зберегти інтернет-трафік або дисковий простір, ви можете перейти до різних директорій компонентів, таких як `toolchain\cygwin64` та запустити один із скриптів **install-XXX.bat** для отримання чогось конкретного.
+1. Переходьте до [Початок роботи](../dev_setup/dev_env_windows_cygwin.md#getting-started).
 
-### Manual Installation (for Toolchain Developers)
+### Ручне встановлення (для розробників інструментарію)
 
-This section describes how to setup the Cygwin toolchain manually yourself while pointing to the corresponding scripts from the script based installation repo. The result should be the same as using the scripts or MSI installer.
+Цей розділ описує як налаштувати інструментарій Cygwin вручну самостійно, із вказанням на відповідні скрипти з репозитарію установки за допомогою скриптів. Результат повинен бути таким самим як при використанні скриптів, так і встановлювачі MSI.
 
 :::note
-The toolchain gets maintained and hence these instructions might not cover every detail of all the future changes.
+Інструментарій поновлюється, тому ці інструкції можуть не покривати кожну деталь всіх змін в майбутньому.
 :::
 
-1. Create the _folders_: **C:\PX4\*\*, **C:\PX4\toolchain\*\* and \*\*C:\PX4\home\*\*
-1. Download the _Cygwin installer_ file [setup-x86_64.exe](https://cygwin.com/setup-x86_64.exe) from the [official Cygwin website](https://cygwin.com/install.html)
-1. Run the downloaded setup file
-1. In the wizard choose to install into the folder: \*\*C:\PX4\toolchain\cygwin64\*\*
-1. Select to install the default Cygwin base and the newest available version of the following additional packages:
+1. Створіть _теки_: **C:\PX4\*\*, **C:\PX4\toolchain\*\* та \*\*C:\PX4\home\*\*
+1. Завантажте файл _встановлювача Cygwin_ [setup-x86_64.exe](https://cygwin.com/setup-x86_64.exe) із [офіційного сайту Cygwin](https://cygwin.com/install.html)
+1. Запустіть завантажений файл встановлювача
+1. У майстрі оберіть встановлення в теку: \*\*C:\PX4\toolchain\cygwin64\*\*
+1. Оберіть для встановлення стандартні основні пакети Cygwin і найновішу версію додаткових пакетів:
 
-   - **Category:Packagename**
-   - Devel:cmake (3.3.2 gives no deprecated warnings, 3.6.2 works but has the warnings)
+   - **Категорія:Пакет**
+   - Devel:cmake (3.3.2 не дає попереджень про застарілість, 3.6.2 працює, але попереджає про це)
    - Devel:gcc-g++
    - Devel:gdb
    - Devel:git
@@ -65,7 +65,7 @@ The toolchain gets maintained and hence these instructions might not cover every
    - Devel:ninja
    - Devel:patch
    - Editors:xxd
-   - Editors:nano (unless you're the vim pro)
+   - Editors:nano (якщо ви не професіонал із vim)
    - Python:python2
    - Python:python2-pip
    - Python:python2-numpy
@@ -78,20 +78,20 @@ The toolchain gets maintained and hence these instructions might not cover every
    - Web:wget
 
    :::note
-Do not select as many packages as possible which are not on this list, there are some which conflict and break the builds.
+Не обирайте якомога більше пакетів які не в цьому списку, серед них є ті, що конфліктують між собою і можуть зламати збірку.
 :::
 
 :::note
-That's what [cygwin64/install-cygwin-px4.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-px4.bat) does.
+Саме це робить [cygwin64/install-cygwin-px4.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-px4.bat).
 :::
 
-1. Write up or copy the **batch scripts** [`run-console.bat`](https://github.com/MaEtUgR/PX4Toolchain/blob/master/run-console.bat) and [`setup-environment.bat`](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat).
+1. Зробіть або скопіюйте **пакетні скрипти** [`run-console.bat`](https://github.com/MaEtUgR/PX4Toolchain/blob/master/run-console.bat) та [`setup-environment.bat`](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat).
 
-   The reason to start all the development tools through the prepared batch script is they preconfigure the starting program to use the local, portable Cygwin environment inside the toolchain's folder. This is done by always first calling the script [**setup-environment.bat**](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat) and the desired application like the console after that.
+   Причиною запуску всіх інструментів розробки через підготовлений пакетні скрипти є те, що вони налаштовують початкову програму використовувати локальне, портативне середовище Cygwin всередині директорії інструментарію. Це робиться завжди шляхом спочатку виконанням скрипту [**setup-environment.bat**](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat) і бажаного додатку типу консолі після цього.
 
-   The script [setup-environment.bat](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat) locally sets environmental variables for the workspace root directory `PX4_DIR`, all binary locations `PATH`, and the home directory of the unix environment `HOME`.
+   Скрипт [setup-environment.bat](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat) налаштовує змінні середовища для кореневого каталогу робочого простору `PX4_DIR`, розташування усіх бінарних файлів `PATH`, та домашньої директорії Unix середовища `HOME` локально.
 
-1. Add necessary **python packages** to your setup by opening the Cygwin toolchain console (double clicking **run-console.bat**) and executing
+1. Додайте необхідні **пакети python** до вашого встановлення відкривши консоль інструментарію Cygwin (подвійне натискання на **run-console.bat**) та виконавши
 
    ```sh
    pip2 install toml
@@ -100,52 +100,52 @@ That's what [cygwin64/install-cygwin-px4.bat](https://github.com/MaEtUgR/PX4Tool
    ```
 
 :::note
-That's what [cygwin64/install-cygwin-python-packages.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-python-packages.bat) does.
+Саме це робить [cygwin64/install-cygwin-python-packages.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-python-packages.bat).
 :::
 
-1. Download the [**ARM GCC compiler**](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads) as zip archive of the binaries for Windows and unpack the content to the folder `C:\PX4\toolchain\gcc-arm`.
+1. Завантажте компілятор [**ARM GCC**](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads) як архів бінарних файлів для Windows і розпакуйте вміст до директорії `C:\PX4\tochain\gcc-arm`.
 
 :::note
-This is what the toolchain does in: [gcc-arm/install-gcc-arm.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/gcc-arm/install-gcc-arm.bat).
+Це те що інструментарій робить в: [gcc-arm/install-gcc-arm.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/gcc-arm/install-gcc-arm.bat).
 :::
 
-1. Install the JDK:
+1. Встановіть JDK:
 
-   - Download Java 14 from [Oracle](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) or [AdoptOpenJDK](https://adoptopenjdk.net/).
-   - Because sadly there is no portable archive containing the binaries directly you have to install it.
-   - Find the binaries and move/copy them to **C:\PX4\toolchain\jdk**.
-   - You can uninstall the Kit from your Windows system again, we only needed the binaries for the toolchain.
+   - Завантажте Java 14 з сайту [Oracle](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) або [AdoptOpenJDK](https://adoptopenjdk.net/).
+   - Оскільки, на жаль, не існує портативного архіву, який містить безпосередньо бінарні файли вам потрібно встановити Java.
+   - Знайдіть встановлені бінарні файли та скопіюйте/перемістіть їх у **C:\PX4\toolchain\jdk**.
+   - Ви можете видалити Java із вашої системи Windows, нам були потрібні лише бінарні файли для набору інструментів.
 
 :::note
-This is what the toolchain does in: [jdk/install-jdk.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat).
+Це те що інструментарій робить в: [jdk/install-jdk.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat).
 :::
 
-1. Download [**Apache Ant**](https://ant.apache.org/bindownload.cgi) as zip archive of the binaries for Windows and unpack the content to the folder `C:\PX4\toolchain\apache-ant`.
+1. Завантажте [**Apache Ant**](https://ant.apache.org/bindownload.cgi)  як архів бінарних файлів для Windows і розпакуйте вміст до директорії `C:\PX4\toolchain\apache-ant`.
 
    :::tip
-Make sure you don't have an additional folder layer from the folder which is inside the downloaded archive.
+Переконайтеся що немає додаткового рівня директорій в директорії в архіві що ви завантажили.
 :::
 
 :::note
-This is what the toolchain does in: [apache-ant/install-apache-ant.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat).
+Це те що інструментарій робить в:  [apache-ant/install-apache-ant.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat).
 :::
 
-1. Download, build and add _genromfs_ to the path:
+1. Завантажте, зберіть та додайте _genromfs_ до шляху:
 
-   - Clone the source code to the folder **C:\PX4\toolchain\genromfs\genromfs-src** with
+   - Клонуйте вихідний код в директорію **C:\PX4\toolchain\genromfs\genromfs-src**
 
      ```sh
      cd /c/toolchain/genromfs
      git clone https://github.com/chexum/genromfs.git genromfs-src
      ```
 
-   - Compile it with:
+   - Скомпілюйте це:
 
      ```sh
      cd genromfs-src
      make all
      ```
 
-   - Copy the resulting binary **genromfs.exe** one folder level out to: **C:\PX4\toolchain\genromfs**
+   - Скопіюйте бінарний файл **genromfs.exe** на один рівень вище в: **C:\PX4\toolchain\genromfs**
 
-1. Make sure all the binary folders of all the installed components are correctly listed in the `PATH` variable configured by [**setup-environment.bat**](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat).
+1. Переконайтеся, що всі бінарні файли усіх компонентів що встановлено коректно перелічені в змінній `PATH` яка налаштована [**setup-environment.bat**](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat).
