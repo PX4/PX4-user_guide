@@ -18,31 +18,31 @@
 - Збірка та завантаження NuttX збірок (напр.: px4_fmu-v2 та px4_fmu-v4)
 - Перевірка стилю з _astyle_ (підтримує команду: `make format`)
 - Автодоповнення в командному рядку
-- Неінвазивний встановлювач! The installer does NOT affect your system and global path (it only modifies the selected installation directory e.g. \*\*C:\PX4\*\* and uses a temporary local path).
-- The installer supports updating to a new version keeping your personal changes inside the toolchain folder
+- Неінвазивний встановлювач! Встановлювач НЕ впливає на систему і глобальний шлях (лише змінює вибрану директорію установки, наприклад \*\*C:\PX4\*\* і використовує тимчасовий локальний шлях).
+- Встановлювач підтримує оновлення до нової версії зі збереженням ваших особистих змін у теці інструментарію.
 
-Omissions:
+Відсутні:
 
-- Simulation: Gazebo and ROS are not supported.
-- Only NuttX and JMAVSim/SITL builds are supported.
-- [Known problems](https://github.com/orgs/PX4/projects/6) (Also use to report issues).
+- Симуляція: Gazebo та ROS не підтримуються.
+- Підтримуються лише збірки NuttX і JMAVSim/SITL.
+- [Відомі проблеми](https://github.com/orgs/PX4/projects/6) (використовуйте для звіту про проблеми).
 
-### Shell Script Installation
+### Встановлення за допомогою скриптів оболонки
 
-You can also install the environment using shell scripts in the Github project.
+Ви також можете встановити середовище за допомогою скриптів в Github проєкті.
 
-1. Make sure you have [Git for Windows](https://git-scm.com/download/win) installed.
-1. Clone the repository https://github.com/PX4/windows-toolchain to the location you want to install the toolchain. Default location and naming is achieved by opening the `Git Bash` and executing:
+1. Переконайтеся, що у вас встановлено [Git для Windows](https://git-scm.com/download/win).
+1. Клонуйте репозиторій https://github.com/PX4/windows-toolchain туди куди ви хочете встановити інструментарій. Розташування і ім'я теки за замовчуванням досягаються шляхом відкриття `Git Bash` і виконання:
 
    ```sh
    cd /c/
    git clone https://github.com/PX4/windows-toolchain PX4
    ```
 
-1. If you want to install all components navigate to the freshly cloned folder and double click on the script `install-all-components.bat` located in the folder `toolchain`. If you only need certain components and want to safe Internet traffic and or disk space you can navigate to the different component folders like e.g. `toolchain\cygwin64` and click on the **install-XXX.bat** scripts to only fetch something specific.
-1. Continue with [Getting Started](../dev_setup/dev_env_windows_cygwin.md#getting-started).
+1. Якщо бажаєте встановити усі компоненти, перейдіть до недавно клонованої директорії та запустіть скрипт подвійним кліком `install-all-components.bat`, що розташовано у директорії `toolchain`. Якщо вам потрібні лише певні компоненти і ви бажаєте зберегти інтернет-трафік або дисковий простір, ви можете перейти до різних директорій компонентів, таких як `toolchain\cygwin64` та запустити один із скриптів **install-XXX.bat** для отримання чогось конкретного.
+1. Переходьте до [Початок роботи](../dev_setup/dev_env_windows_cygwin.md#getting-started).
 
-### Manual Installation (for Toolchain Developers)
+### Ручне встановлення (для розробників інструментарію)
 
 This section describes how to setup the Cygwin toolchain manually yourself while pointing to the corresponding scripts from the script based installation repo. The result should be the same as using the scripts or MSI installer.
 
