@@ -1,18 +1,18 @@
-# Windows Cygwin Development Environment (Maintenance Instructions)
+# Середовище розробки Windows Cygwin (Інструкції з обслуговування)
 
 :::warning
-This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md). It may or may not work with current versions of PX4.
+Це середовище розробки [підтримується та утримується спільнотою](../advanced/community_supported_dev_env.md). Воно може працювати або не працювати з поточними версіями PX4.
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, які підтримуються основною командою розробників.
 :::
 
-This topic explains how to construct and extend the development environment used for the no-longer-supported [Cygwin-based Windows Development Environment](../dev_setup/dev_env_windows_cygwin.md).
+Ця тема пояснює, як побудувати та розширити середовище розробки, яке використовується для [середовища розробника Windows (заснованого на Cygwin)](../dev_setup/dev_env_windows_cygwin.md) яке вже не підтримується.
 
-## Additional Information
+## Додаткова інформація
 
-### Features / Issues
+### Можливості / Проблеми
 
-The following features are known to work (version 2.0):
+Відомо що наступні можливості працюють (версія 2.0):
 
 - Building and running SITL with jMAVSim with significantly better performance than a VM (it generates a native windows binary **px4.exe**).
 - Building and uploading NuttX builds (e.g.: px4_fmu-v2 and px4_fmu-v4)
