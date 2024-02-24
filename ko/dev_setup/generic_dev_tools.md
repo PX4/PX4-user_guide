@@ -21,7 +21,7 @@ The _daily build_ includes development tools that hidden in release builds. 또�
 - [Visual Studio Code](https://code.visualstudio.com/): 꽤 새롭고 인기있는 오픈 소스 IDE
 - [C/C++를 위한 Eclipse](https://www.eclipse.org/downloads/eclipse-packages/): 많은 기능을 갖고 있는 Java 기반 IDE
 - [Sublime Text](https://www.sublimetext.com): 빠르고 군더더기 없는 텍스트 에디터
-
+- [CodeLobster](https://codelobster.com): 무료 스마트 코드 편집기
 :::note
 소스 트리에는 [Eclipse 프로젝트](https://github.com/PX4/PX4-Autopilot/blob/master/eclipse.project)와 [Sublime 프로젝트](https://github.com/PX4/PX4-Autopilot/blob/master/Firmware.sublime-project)가 있습니다.
 :::
