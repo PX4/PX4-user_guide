@@ -1,23 +1,23 @@
-# Simulation
+# Симулятор
 
-Simulators allow PX4 flight code to control a computer modeled vehicle in a simulated "world". You can interact with this vehicle just as you might with a real vehicle, using _QGroundControl_, an offboard API, or a radio controller/gamepad.
+Симулятори дозволяють польотному коду PX4 керувати комп'ютерно змодельованим апаратом у змодельованому "світі". Ви можете взаємодіяти з цим апаратом так само, як і зі справжнім, використовуючи _QGroundControl_, позабортовий API або радіоконтролер/ігровий пульт.
 
 :::tip
-Simulation is a quick, easy, and most importantly, _safe_ way to test changes to PX4 code before attempting to fly in the real world. It is also a good way to start flying with PX4 when you haven't yet got a vehicle to experiment with.
+Симуляція - це швидкий, простий, а головне, _безпечний_ спосіб протестувати зміни в коді PX4 перед тим, як спробувати літати в реальному світі. Це також хороший спосіб почати літати з PX4, якщо у вас ще немає апарату для експериментів.
 :::
 
-PX4 supports both _Software In the Loop (SITL)_ simulation, where the flight stack runs on computer (either the same computer or another computer on the same network) and _Hardware In the Loop (HITL)_ simulation using a simulation firmware on a real flight controller board.
+PX4 підтримує як симуляцію _Software In the Loop (SITL)_, де польотний стек працює на комп'ютері (або на тому ж комп'ютері, або на іншому комп'ютері в тій же мережі), так і симуляцію _Hardware In the Loop (HITL)_ з використанням симуляційної прошивки на реальній платі польотного контролера.
 
-Information about available simulators and how to set them up are provided in the next section. The other sections provide general information about how the simulator works, and are not required to _use_ the simulators.
+Інформація про доступні тренажери та способи їх налаштування наведена в наступному розділі. Інші розділи надають загальну інформацію про те, як працює симулятор, і не є обов'язковими для _використання_ симуляторів.
 
-## Supported Simulators
+## Підтримувані симулятори
 
-The following simulators are supported by the PX4 core development team.
+Наступні симулятори підтримуються основною командою розробників PX4.
 
 
-| Simulator                                         | Description                                                                                                                                             |
+| Симулятор                                         | Опис                                                                                                                                                    |
 | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Gazebo](../sim_gazebo_gz/README.md)              | <p><strong>This simulator is highly recommended.</strong></p><p>Gazebo supersedes [Gazebo Classic](../sim_gazebo_classic/README.md), featuring more advanced rendering, physics and sensor models. It is the only version of Gazebo available from Ubuntu Linux 22.04</p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) and is commonly used with [ROS](../simulation/ros_interface.md), a collection of tools for automating vehicle control. </p><p><strong>Supported Vehicles:</strong> Quad, Standard VTOL, Plane</p>                                                    |
+| [Gazebo](../sim_gazebo_gz/README.md)              | <p><strong>Ми дуже рекомендуємо цей тренажер.</strong></p><p>Gazebo supersedes [Gazebo Classic](../sim_gazebo_classic/README.md), з більш досконалими моделями рендерингу, фізики та сенсорів. Це єдина версія Gazebo, доступна з Ubuntu Linux 22.04.</p><p>Потужне середовище 3D-симуляції, яке особливо підходить для тестування обходу перешкод та комп'ютерного зору. Він також може бути використаний для [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) і зазвичай використовується з [ROS](../simulation/ros_interface.md), набором інструментів для автоматизації керування апаратами. </p><p><strong> Підтримувані транспортні засоби:</strong> Quad, Standard VTOL, Літак</p>                                                    |
 | [Gazebo Classic](../sim_gazebo_classic/README.md) | <p><strong>This simulator is highly recommended.</strong></p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) and is commonly used with [ROS](../simulation/ros_interface.md), a collection of tools for automating vehicle control.</p><p><strong>Supported Vehicles:</strong> Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter), Hex (Typhoon H480), [Generic Standard VTOL (QuadPlane)](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), Tailsitter, Plane, Rover, Submarine </p>                                                                             |
 | [jMAVSim](../sim_jmavsim/README.md)               | A simple multirotor simulator that allows you to fly _copter_ type vehicles around a simulated world. <p>It is easy to set up and can be used to test that your vehicle can take off, fly, land, and responds appropriately to various fail conditions (e.g. GPS failure). It can also be used for [multi-vehicle simulation](../sim_jmavsim/multi_vehicle.md).</p><p><strong>Supported Vehicles:</strong> Quad</p> |
 
