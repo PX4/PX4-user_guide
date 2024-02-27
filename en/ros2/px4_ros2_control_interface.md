@@ -419,10 +419,24 @@ If you want to control an independent actuator (a servo), follow these steps:
 
 ### Telemetry
 
-Telemetry topics include:
+You can access PX4 telemetry topics directly via the following classes:
 
 - [OdometryGlobalPosition](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1OdometryGlobalPosition.html): Global position
-- [OdometryLocalPosition](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1OdometryLocalPosition.html): Local position, velocity and acceleration.
+- [OdometryLocalPosition](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1OdometryLocalPosition.html): Local position, velocity, acceleration, and heading.
+- [OdometryAttitude](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1OdometryAttitude.html): Vehicle attitude
+
+For example, you can query the vehicle's current position estimate as follows:
+
+```cpp
+std::shared_ptr<px4_ros2::OdometryLocalPosition> _vehicle_local_position;
+...
+
+// Get vehicle's last local position
+_vehicle_local_position->positionNed();
+
+// Check last horizontal position is valid
+_vehicle_local_position->positionXYValid();
+```
 
 :::note
 These topics provide a wrapper around the internal PX4 topics, allowing the library to maintain compatibility if the internal topics change.
