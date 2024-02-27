@@ -82,9 +82,9 @@ The minimum sink rate ([FW_T_SINK_MIN](../advanced_config/parameter_reference.md
 
 The minimum sink rate can be written as:
 
-$$\dot{h}_{min} = \sqrt{2mg\over{\rho F}} f(c_A, c_W)$$
+$$\dot{h}_{min} = \sqrt{2mg\over{\rho S}} f(C_L, C_D)$$
 
-where $\rho$ is the air density, F is the wing area and $f(c_A, c_W)$ is a function of the polars.
+where $\rho$ is the air density, S is the wing surface reference area and $f(C_L, C_D)$ is a function of the polars, lift and drag.
 
 From this equation we see that the minimum sink rate scales with the square root of the weight ratio.
 
@@ -94,11 +94,11 @@ The minimum airspeed ([FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#
 
 In steady state flight we can demand that lift should equal weight of the vehicle:
 
-$$Lift = mg = {1\over{2}} \rho c_A F V^2$$
+$$Lift = mg = {1\over{2}} \rho V^2 S C_L$$
 
 rearranging this equation for airspeed gives:
 
-$$V = \\sqrt{\\frac{2mg}{\\rho c_A F}}$$
+$$V = \\sqrt{\\frac{2mg}{\\rho S C_D }}$$
 
 From this equation we see that if we assume a constant angle of attack (which we generally desire), the vehicle weight affects airspeed with a square root relation.
 Therefore, the airspeed limits mentioned above are all scaled using the square root of the weight ratio.
@@ -126,7 +126,7 @@ The minimum sink rate is set using [FW_T_SINK_MIN](../advanced_config/parameter_
 
 In previous sections we have seen the formula for the minimum sink rate:
 
-$$\dot{h}_{min} = \sqrt{2mg\over{\rho F}} f(c_A, c_W)$$
+$$\dot{h}_{min} = \sqrt{2mg\over{\rho S}} f(C_L, C_D)$$
 
 This shows that the minimum sink rate scales with the square root of the inverse air density.
 
