@@ -61,19 +61,19 @@ PX4 підтримує як симуляцію _Software In the Loop (SITL)_, д
 За замовчуванням PX4 використовує загальноприйняті порти UDP для зв'язку MAVLink з наземними станціями управління (наприклад, _QGroundControl_), позабортовими API (наприклад, MAVSDK, MAVROS) і API симуляторів (наприклад, Gazebo). Ці порти:
 
 - Віддалений UDP-порт PX4 **14550** використовується для зв'язку з наземними станціями управління. Очікується, що GCS прослуховуватиме з'єднання на цьому порту. _QGroundControl_ слухає цей порт за замовчуванням.
-- Віддалений UDP-порт PX4 **14540** використовується для зв'язку з зовнішніми API. Очікується, що зовнішні API будуть чекати на з'єднання через цей порт. :::note Multi-vehicle simulations use a separate remote port for each instance, allocated sequentially from `14540` to `14549` (additional instances all use port `14549`).
+- Віддалений UDP-порт PX4 **14540** використовується для зв'язку з зовнішніми API. Очікується, що зовнішні API будуть чекати на з'єднання через цей порт. :::note Для симуляцій з кількома апаратами використовується окремий віддалений порт для кожного екземпляра, який розподіляється послідовно від `14540` до `14549`. (додаткові екземпляри використовують порт `14549`).
 :::
-- The simulator's local TCP Port, **4560**, is used for communication with PX4. The simulator listens to this port, and PX4 initiates a TCP connection to it.
+- Для зв'язку з PX4 використовується локальний TCP-порт симулятора **4560**. Симулятор слухає цей порт, і PX4 ініціює TCP-з'єднання з ним.
 
 :::note
-The ports for the GCS, offboard APIs and simulator are specified by startup scripts. See [System Startup](../concept/system_startup.md) to learn more.
+Порти для GCS, зовнішніх API та симулятора визначаються скриптами запуску. Щоб дізнатися більше, див. розділ [Запуск системи](../concept/system_startup.md).
 :::
 
 <!-- A useful discussion about UDP ports here: https://github.com/PX4/PX4-user_guide/issues/1035#issuecomment-777243106 -->
 
-## SITL Simulation Environment
+## Середовище симуляції SITL
 
-The diagram below shows a typical SITL simulation environment for any of the supported simulators that use MAVLink (i.e. all of them except Gazebo).
+На схемі нижче показано типове середовище симуляції SITL для будь-якого з підтримуваних тренажерів, що використовують MAVLink (тобто всіх, окрім Gazebo).
 
 ![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.svg)
 
