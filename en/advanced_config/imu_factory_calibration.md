@@ -1,6 +1,6 @@
 # IMU/Compass Factory Calibration
 
-PX4 OEM manufacturers can perform an IMU and compass factory calibration in order to store persistent values for the accelerometer, gyroscope and magnetometer calibration into persistent storage (usually EEPROM).
+PX4 OEM manufacturers can perform an IMU and compass factory calibration in order to store values for the accelerometer, gyroscope and magnetometer calibration into persistent storage (usually EEPROM).
 This ensures that end users can always reset vehicle configurations and tuning to a safe state for flying.
 
 This procedure will write the following parameters to `/fs/mtd_caldata`: [CAL_ACC\*](../advanced_config/parameter_reference.md#CAL_ACC0_ID), [CAL_GYRO\*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID), [CAL_MAG\*](../advanced_config/parameter_reference.md#CAL_MAG0_ID).
@@ -24,7 +24,7 @@ These values cannot be stored in the [frame configuration](../dev_airframes/addi
 1. Set the parameter `SYS_FAC_CAL_MODE` back to 0 (default).
 
 :::note
-If you only want to factory calibrate the accelerometer and the gyroscope you can set [SYS_FAC_CAL_MODE](../advanced_config/parameter_reference.md#SYS_FAC_CAL_MODE) to 2, in whic case the magnetometer is omitted.
+If you only want to factory calibrate the accelerometer and the gyroscope you can set [SYS_FAC_CAL_MODE](../advanced_config/parameter_reference.md#SYS_FAC_CAL_MODE) to 2, in which case the magnetometer is omitted.
 :::
 
 Subsequent user calibrations will then take effect as usual (factory calibration data is only used for the parameter default values).
