@@ -101,15 +101,29 @@ amount of dropouts:
 ## SD Cards
 
 The maximum supported SD card size for NuttX is 32GB (SD Memory Card Specifications Version 2.0).
-The **SanDisk Extreme U3 32GB** and **Samsung EVO Plus 32** known to be reliable cards (do not exhibit write-time spikes, and thus virtually no dropouts).
+The **SanDisk Extreme U3 32GB** and **Samsung EVO Plus 32** are known to be reliable cards (do not exhibit write-time spikes, and thus virtually no dropouts).
 
-Logging bandwidth with the default topics is around 50 KB/s, which almost all SD cards satisfy in terms of their mean sequential write speed (many cards, such as the SanDisk Extreme U3, have mean sequential write speed of 2000KB/s under NuttX).
+The table below shows the **mean sequential write speed [KB/s]** / **maximum write time per block (average) [ms]** for F4- (Pixracer), F7-, and H7-based flight controllers.
+
+| SD Card                                                       | F4           | F7  | H7  |
+| ------------------------------------------------------------- | ------------ | --- | --- |
+| SanDisk Extreme U3 32GB                                       | 461 / **15** | ?/? | ?/? |
+| Samsung EVO Plus 32                                           | ?/?          | ?/? | ?/? |
+| Sandisk Ultra Class 10 8GB                                    | 348 / 40     | ?/? | ?/? |
+| Sandisk Class 4 8GB                                           | 212 / 60     | ?/? | ?/? |
+| SanDisk Class 10 32 GB (High Endurance Video Monitoring Card) | 331 / 220    | ?/? | ?/? |
+| Lexar U1 (Class 10), 16GB High-Performance                    | 209 / 150    | ?/? | ?/? |
+| Sandisk Ultra PLUS Class 10 16GB                              | 196 /500     | ?/? | ?/? |
+| Sandisk Pixtor Class 10 16GB                                  | 334 / 250    | ?/? | ?/? |
+| Sandisk Extreme PLUS Class 10 32GB                            | 332 / 150    | ?/? | ?/? |
+
+Logging bandwidth with the default topics is around 50 KB/s, which almost all SD cards satisfy in terms of their mean sequential write speed.
 
 More important than the mean write speed is spikes (or generally high values) in the maximum write time per block (of 4 KB) or `fsync` times, as a long write time means a larger log buffer is needed to avoid dropouts.
 
 PX4 uses bigger buffers on F7/H7 and read caching, which is enough to compensate for spikes in many poor cards.
-That said, if your card has an `fsync` or write duration of several 100ms it is should not be preferred for use with PX4. 
-You can check the value by running [sd_bench](../modules/modules_command.md#sd-bench) should be run with more iterations (around 100 should do). 
+That said, if your card has an `fsync` or write duration of several 100ms it is should not be preferred for use with PX4.
+You can check the value by running [sd_bench](../modules/modules_command.md#sd-bench) should be run with more iterations (around 100 should do).
 
 ```sh
 sd_bench -r 100
