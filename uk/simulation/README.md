@@ -61,49 +61,49 @@ PX4 підтримує як симуляцію _Software In the Loop (SITL)_, д
 За замовчуванням PX4 використовує загальноприйняті порти UDP для зв'язку MAVLink з наземними станціями управління (наприклад, _QGroundControl_), позабортовими API (наприклад, MAVSDK, MAVROS) і API симуляторів (наприклад, Gazebo). Ці порти:
 
 - Віддалений UDP-порт PX4 **14550** використовується для зв'язку з наземними станціями управління. Очікується, що GCS прослуховуватиме з'єднання на цьому порту. _QGroundControl_ слухає цей порт за замовчуванням.
-- Віддалений UDP-порт PX4 **14540** використовується для зв'язку з зовнішніми API. Очікується, що зовнішні API будуть чекати на з'єднання через цей порт. :::note Multi-vehicle simulations use a separate remote port for each instance, allocated sequentially from `14540` to `14549` (additional instances all use port `14549`).
+- Віддалений UDP-порт PX4 **14540** використовується для зв'язку з зовнішніми API. Очікується, що зовнішні API будуть чекати на з'єднання через цей порт. :::note Для симуляцій з кількома апаратами використовується окремий віддалений порт для кожного екземпляра, який розподіляється послідовно від `14540` до `14549`. (додаткові екземпляри використовують порт `14549`).
 :::
-- The simulator's local TCP Port, **4560**, is used for communication with PX4. The simulator listens to this port, and PX4 initiates a TCP connection to it.
+- Для зв'язку з PX4 використовується локальний TCP-порт симулятора **4560**. Симулятор слухає цей порт, і PX4 ініціює TCP-з'єднання з ним.
 
 :::note
-The ports for the GCS, offboard APIs and simulator are specified by startup scripts. See [System Startup](../concept/system_startup.md) to learn more.
+Порти для GCS, зовнішніх API та симулятора визначаються скриптами запуску. Щоб дізнатися більше, див. розділ [Запуск системи](../concept/system_startup.md).
 :::
 
 <!-- A useful discussion about UDP ports here: https://github.com/PX4/PX4-user_guide/issues/1035#issuecomment-777243106 -->
 
-## SITL Simulation Environment
+## Середовище симуляції SITL
 
-The diagram below shows a typical SITL simulation environment for any of the supported simulators that use MAVLink (i.e. all of them except Gazebo).
+На схемі нижче показано типове середовище симуляції SITL для будь-якого з підтримуваних тренажерів, що використовують MAVLink (тобто всіх, окрім Gazebo).
 
 ![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.svg)
 
-The different parts of the system connect via UDP, and can be run on either the same computer or another computer on the same network.
+Різні частини системи з'єднуються через протокол UDP і можуть працювати як на одному комп'ютері, так і на іншому комп'ютері в тій самій мережі.
 
-- PX4 uses a simulation-specific module to connect to the simulator's local TCP port 4560. Simulators then exchange information with PX4 using the [Simulator MAVLink API](#simulator-mavlink-api) described above. PX4 on SITL and the simulator can run on either the same computer or different computers on the same network.
+- PX4 використовує спеціальний модуль для підключення до локального TCP-порту 4560 симулятора. Потім симулятори обмінюються інформацією з PX4 за допомогою [Симулятор MAVLink API](#simulator-mavlink-api), описаного вище. PX4 на SITL і симулятор можуть працювати як на одному комп'ютері, так і на різних комп'ютерах в одній мережі.
 
 :::note
-Simulators can also use the _uxrce-dds bridge_ ([XRCE-DDS](../middleware/uxrce_dds.md)) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink). This approach _may_ used by Gazebo Classic for [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation.md#build-and-test-xrce-dds).
+Симулятори також можуть використовувати міст _uxrce-dds_ ([XRCE-DDS](../middleware/uxrce_dds.md)) для безпосередньої взаємодії з PX4 (тобто через [UORB topics](../middleware/uorb.md), а не MAVLink). Цей підхід _може_ використовуватися Gazebo Classic для моделювання [кількох апаратів](../sim_gazebo_classic/multi_vehicle_simulation.md#build-and-test-xrce-dds).
 :::
 
-- PX4 uses the normal MAVLink module to connect to ground stations and external developer APIs like MAVSDK or ROS
-  - Ground stations listen to PX4's remote UDP port: `14550`
-  - External developer APIs listen to PX4's remote UDP port: `14540`. For multi-vehicle simulations, PX4 sequentially allocates a separate remote port for each instance from `14540` to `14549` (additional instances all use port `14549`).
-- PX4 defines a number of _local_ UDP ports (`14580`,`18570`), which are sometimes used when networking with PX4 running in a container or virtual machine. These are not recommended for "general" use and may change in future.
-- A serial connection may be used to connect [Joystick/Gamepad](../config/joystick.md) hardware via _QGroundControl_.
+- PX4 використовує звичайний модуль MAVLink для підключення до наземних станцій і зовнішніх API розробників, таких як MAVSDK або ROS
+  - Наземні станції слухають віддалений UDP-порт PX4: `14550`
+  - Зовнішні API розробника слухають віддалений UDP-порт PX4: `14540`. Для симуляції декількох апаратів PX4 послідовно виділяє окремий віддалений порт для кожного екземпляра від `14540` до `14549` (додаткові екземпляри використовують порт `14549`).
+- PX4 визначає ряд _локальних_ UDP-портів (`14580`,`18570`), які іноді використовуються при роботі в мережі з PX4, запущеним у контейнері або віртуальній машині. Вони не рекомендуються для "загального" використання і можуть змінюватися в майбутньому.
+- Послідовне з'єднання можна використовувати для підключення [джойстика/геймпада](../config/joystick.md) через _QGroundControl_.
 
-If you use the normal build system SITL `make` configuration targets (see next section) then both SITL and the Simulator will be launched on the same computer and the ports above will automatically be configured. You can configure additional MAVLink UDP connections and otherwise modify the simulation environment in the build configuration and initialisation files.
+Якщо ви використовуєте звичайну систему побудови SITL `для створення` конфігураційних цілей (див. наступний розділ), то і SITL, і симулятор будуть запущені на одному комп'ютері, і наведені вище порти будуть автоматично налаштовані. Ви можете налаштувати додаткові UDP-з'єднання MAVLink та іншим чином змінити середовище моделювання у файлах конфігурації та ініціалізації збірки.
 
-### Starting/Building SITL Simulation
+### Запуск/створення симуляції SITL
 
-The build system makes it very easy to build and start PX4 on SITL, launch a simulator, and connect them. The syntax (simplified) looks like this:
+Система збірки дозволяє дуже легко зібрати і запустити PX4 на SITL, активувати симулятор і з'єднати їх. Синтаксис (спрощений) виглядає наступним чином:
 
 ```sh
 make px4_sitl simulator[_vehicle-model]
 ```
 
-where `simulator` is `gz` (for Gazebo), `gazebo-classic`, `jmavsim` or some other simulator, and vehicle-model is a particular vehicle type supported by that simulator ([Gazebo](../sim_gazebo_gz/README.md) and [jMAVSim](../sim_jmavsim/README.md) only support multicopters at time of writing, while [Gazebo Classic](../sim_gazebo_classic/README.md) supports many different types).
+де `simulator` - це `gz` (для Gazebo), `gazebo-classic`, `jmavsim` або інший симулятор, а vehicle-model - це конкретний тип транспортного засобу, який підтримується цим симулятором ([Gazebo](../sim_gazebo_gz/README.md) та [jMAVSim](../sim_jmavsim/README.md) на момент написання статті підтримують лише мультикоптери, тоді як [Gazebo Classic](../sim_gazebo_classic/README.md) підтримує багато різних типів).
 
-A number of examples are shown below, and there are many more in the individual pages for each of the simulators:
+Нижче наведено кілька прикладів, і їх набагато більше на окремих сторінках для кожного з симуляторів:
 
 ```sh
 # Start Gazebo with the x500 multicopter
@@ -122,31 +122,31 @@ make px4_sitl jmavsim
 make px4_sitl none_iris
 ```
 
-The simulation can be further configured via environment variables:
+Симуляцію можна додатково налаштувати за допомогою змінних середовища:
 
-- `PX4_ESTIMATOR`: This variable configures which estimator to use. Possible options are: `ekf2` (default), `lpe` (deprecated). It can be set via `export PX4_ESTIMATOR=lpe` before running the simulation.
+- `PX4_ESTIMATOR`: Ця змінна визначає, який естіматор використовувати. Можливі варіанти: `ekf2` (за замовчуванням), `lpe` (застаріла). Його можна встановити через `export PX4_ESTIMATOR=lpe` перед запуском симуляції.
 
-The syntax described here is simplified, and there are many other options that you can configure via _make_ - for example, to set that you wish to connect to an IDE or debugger. For more information see: [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#px4-make-build-targets).
+Описаний тут синтаксис є спрощеним, і існує багато інших опцій, які можна налаштувати за допомогою _make_ - наприклад, вказати, що ви бажаєте під'єднатися до IDE або дебаггера. Для отримання додаткової інформації дивіться: [Збірка коду > PX4 Make Build Targets](../dev_setup/building_px4.md#px4-make-build-targets).
 
 <a id="simulation_speed"></a>
 
-### Run Simulation Faster than Realtime
+### Запуск симуляції швидше, ніж у реальному часі
 
-SITL can be run faster or slower than realtime when using jMAVSim or Gazebo Classic.
+SITL можна запустити швидше або повільніше, ніж у реальному часі, використовуючи jMAVSim або Gazebo Classic.
 
-The speed factor is set using the environment variable `PX4_SIM_SPEED_FACTOR`. For example, to run the jMAVSim simulation at 2 times the real time speed:
+Коефіцієнт швидкості задається за допомогою змінної оточення `PX4_SIM_SPEED_FACTOR`. Наприклад, запустити симуляцію jMAVSim зі швидкістю у 2 рази більшою за швидкість реального часу:
 
 ```sh
 PX4_SIM_SPEED_FACTOR=2 make px4_sitl jmavsim
 ```
 
-To run at half real-time:
+Запустити в половину реального часу:
 
 ```sh
 PX4_SIM_SPEED_FACTOR=0.5 make px4_sitl jmavsim
 ```
 
-You can apply the factor to all SITL runs in the current session using `EXPORT`:
+Ви можете застосувати коефіцієнт до всіх запусків SITL у поточній сесії за допомогою `EXPORT`:
 
 ```sh
 export PX4_SIM_SPEED_FACTOR=2
@@ -154,72 +154,72 @@ make px4_sitl jmavsim
 ```
 
 :::note
-At some point IO or CPU will limit the speed that is possible on your machine and it will be slowed down "automatically".
-Powerful desktop machines can usually run the simulation at around 6-10x, for notebooks the achieved rates can be around 3-4x.
+У певний момент введення-виведення або процесор обмежать швидкість, яка можлива на вашому комп'ютері, і він буде сповільнюватися "автоматично".
+Потужні комп'ютери зазвичай можуть запускати симуляцію зі швидкістю близько 6-10 разів, для ноутбуків досягається швидкість близько 3-4 разів.
 :::
 
 :::note
-To avoid PX4 detecting data link timeouts, increase the value of param [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) proportional to the simulation rate. For example, if `COM_DL_LOSS_T` is 10 in realtime, at 10x simulation rate increase to 100.
+Щоб PX4 не помічав тайм-аутів каналу передачі даних, збільште значення параметра [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) пропорційно до швидкості моделювання. Наприклад, якщо `COM_DL_LOSS_T` дорівнює 10 в реальному часі, при 10-кратному моделюванні швидкість збільшиться до 100.
 :::
 
-### Lockstep Simulation
+### Симуляція Lockstep
 
-PX4 SITL and the simulators (jMAVSim or Gazebo Classic) have been set up to run in _lockstep_. What this means is that PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
+PX4 SITL і симулятори (jMAVSim або Gazebo Classic) налаштовані на роботу з кроком _lockstep_. Це означає, що PX4 і симулятор чекають один на одного для отримання повідомлень від датчиків і приводів, а не працюють зі своїми власними швидкостями.
 
 :::note
-Lockstep makes it possible to [run the simulation faster or slower than realtime](#simulation_speed), and also to pause it in order to step through code.
+Lockstep дозволяє [ запускати симуляцію швидше або повільніше, ніж у реальному часі](#simulation_speed), а також призупиняти її для того, щоб переходити між елементами коду.
 :::
 
-The sequence of steps for lockstep are:
+Послідовність кроків для lockstep наступна:
 
-1. The simulation sends a sensor message [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR) including a timestamp `time_usec` to update the sensor state and time of PX4.
-1. PX4 receives this and does one iteration of state estimation, controls, etc. and eventually sends an actuator message [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS).
-1. The simulation waits until it receives the actuator/motor message, then simulates the physics and calculates the next sensor message to send to PX4 again.
+1. Симуляція надсилає повідомлення датчика [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR) з міткою часу `time_usec` для оновлення стану та часу датчика PX4.
+1. PX4 отримує це повідомлення, виконує одну ітерацію оцінювання стану, керування тощо і врешті-решт надсилає актуатору повідомлення [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS).
+1. Симуляція чекає, поки не отримає повідомлення від приводу/двигуна, потім моделює фізику і обчислює наступне повідомлення від датчика, яке знову надсилається до PX4.
 
-The system starts with a "freewheeling" period where the simulation sends sensor messages including time and therefore runs PX4 until it has initialized and responds with an actuator message.
+Система починається з "вільного ходу", під час якого симуляція надсилає повідомлення від датчиків, зокрема про час, і, таким чином, запускає PX4, доки він не ініціалізується і не надішле відповідне повідомлення від приводу.
 
-#### Disable Lockstep Simulation
+#### Вимкнення Lockstep симуляції
 
-The lockstep simulation can be disabled if, for example, SITL is to be used with a simulator that does not support this feature. In this case the simulator and PX4 use the host system time and do not wait on each other.
+Lockstep симуляцію можна вимкнути, якщо, наприклад, SITL потрібно використовувати з тренажером, який не підтримує цю функцію. У цьому випадку симулятор і PX4 використовують системний час хоста і не чекають один на одного.
 
-To disable lockstep in PX4, run `make px4_sitl_default boardconfig` and set the `BOARD_NOLOCKSTEP` "Force disable lockstep" symbol which is located under toolchain.
+Щоб вимкнути lockstep у PX4, виконайте `make px4_sitl_default boardconfig` і встановіть символ `BOARD_NOLOCKSTEP` "Force disable lockstep", який знаходиться під панеллю інструментів.
 
-To disable lockstep in Gazebo, edit [the model SDF file](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) and set `<enable_lockstep>false</enable_lockstep>`.
+Щоб вимкнути lockstep у Gazebo, відредагуйте [файл SDF моделі](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) і встановіть `<enable_lockstep>false</enable_lockstep>`.
 
-To disable lockstep in jMAVSim, remove `-l` in [sitl_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/jsbsim/sitl_run.sh#L40), or make sure otherwise that the java binary is started without the `-lockstep` flag.
+Щоб вимкнути lockstep у jMAVSim, видаліть `-l` у [sitl_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/jsbsim/sitl_run.sh#L40) або іншим чином переконайтеся, що java-двійник запускається без прапора `-lockstep`.
 
 <!-- Relevant lines in sitl_run.sh are: -->
 <!-- # Start Java simulator -->
 <!-- "$src_path"/Tools/simulation/jmavsim/jmavsim_run.sh -r 250 -l & SIM_PID=$! -->
 
-### Startup Scripts
+### Сценарії запуску
 
-Scripts are used to control which parameter settings to use or which modules to start. They are located in the [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix) directory, the `rcS` file is the main entry point. See [System Startup](../concept/system_startup.md) for more information.
+Scripts are used to control which parameter settings to use or which modules to start. Вони знаходяться у каталозі [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix), файл `rcS` є основною точкою входу. Докладнішу інформацію наведено у розділі [Запуск системи](../concept/system_startup.md).
 
-### Simulating Failsafes and Sensor/Hardware Failure
+### Імітація збоїв та відмов датчиків/обладнання
 
-[Simulate Failsafes](../simulation/failsafes.md) explains how to trigger safety failsafes like GPS failure and battery drain.
+[Імітація збоїв](../simulation/failsafes.md) пояснює, як викликати збої безпеки, такі як відмова GPS і розряд акумулятора.
 
-## HITL Simulation Environment
+## Середовище симуляції HITL
 
-With Hardware-in-the-Loop (HITL) simulation the normal PX4 firmware is run on real hardware. The HITL Simulation Environment in documented in: [HITL Simulation](../simulation/hitl.md).
+За допомогою симуляції Hardware-in-the-Loop (HITL) звичайна прошивка PX4 запускається на реальному обладнанні. Середовище моделювання HITL задокументовано: [HITL симуляція](../simulation/hitl.md).
 
-## Joystick/Gamepad Integration
+## Інтеграція джойстиків/геймпада
 
-_QGroundControl_ desktop versions can connect to a USB Joystick/Gamepad and send its movement commands and button presses to PX4 over MAVLink. This works on both SITL and HITL simulations, and allows you to directly control the simulated vehicle. If you don't have a joystick you can alternatively control the vehicle using QGroundControl's onscreen virtual thumbsticks.
+_QGroundControl_ для ПК може підключатися до USB-джойстика/геймпада і надсилати команди руху та натискання кнопок на PX4 через MAVLink. Це працює як на SITL, так і на HITL симуляціях, і дозволяє вам безпосередньо керувати симульованим апаратом. Якщо у вас немає джойстика, ви можете керувати апаратом за допомогою екранних віртуальних паличок QGroundControl.
 
-For setup information see the _QGroundControl User Guide_:
+Для отримання інформації про налаштування див. _Посібник користувача QGroundControl_:
 
-- [Joystick Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html)
-- [Virtual Joystick](https://docs.qgroundcontrol.com/master/en/SettingsView/VirtualJoystick.html)
+- [Налаштування пульта](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html)
+- [Віртуальний джойстик](https://docs.qgroundcontrol.com/master/en/SettingsView/VirtualJoystick.html)
 
 <!-- FYI Airsim info on this setting up remote controls: https://github.com/Microsoft/AirSim/blob/master/docs/remote_controls.md -->
 
 ## Camera Simulation
 
-PX4 supports capture of both still images and video from within the [Gazebo Classic](../sim_gazebo_classic/README.md) simulated environment. This can be enabled/set up as described in [Gazebo Glassic > Video Streaming](../sim_gazebo_classic/README.md#video-streaming).
+PX4 підтримує захоплення як нерухомих зображень, так і відео з симулятора [Gazebo Classic](../sim_gazebo_classic/README.md). Це можна ввімкнути/налаштувати, як описано в розділі [Gazebo Glassic > Потокове відео](../sim_gazebo_classic/README.md#video-streaming).
 
-The simulated camera is a gazebo classic plugin that implements the [MAVLink Camera Protocol](https://mavlink.io/en/protocol/camera.html) <!-- **PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/src/gazebo_geotagged_images_plugin.cpp -->. PX4 connects/integrates with this camera in _exactly the same way_ as it would with any other MAVLink camera:
+Симуляція камери - це класичний gazebo плагін, який реалізує [MAVLink Camera Protocol](https://mavlink.io/en/protocol/camera.html). <!-- **PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/src/gazebo_geotagged_images_plugin.cpp -->. PX4 з'єднується/інтегрується з цією камерою _точно так само_, як і з будь-якою іншою камерою MAVLink:
 
 1. [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) must be set to `3` to configure the camera trigger driver for use with a MAVLink camera :::tip In this mode the driver just sends a [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message whenever an image capture is requested. For more information see [Camera](../peripherals/camera.md).
 :::
