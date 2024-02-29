@@ -1,12 +1,12 @@
-# Windows Virtual Machine-Hosted Toolchain
+# Інструментарій на віртуальних машинах Windows
 
 :::warning
-This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md). It may or may not work with current versions of PX4.
+Це середовище розробки [підтримується та утримується спільнотою](../advanced/community_supported_dev_env.md). Воно може працювати або не працювати з поточними версіями PX4.
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, які підтримуються основною командою розробників.
 :::
 
-Windows developers can run the PX4 toolchain in a virtual machine (VM) with Linux as the guest operating system. After setting up the virtual machine, the installation and setup of PX4 within the VM is exactly the same as on a native Linux computer.
+Розробники на Windows можуть використовувати інструментарій PX4 у віртуальній машині (VM) з гостьовою операційною системою Linux. After setting up the virtual machine, the installation and setup of PX4 within the VM is exactly the same as on a native Linux computer.
 
 While using a VM is a very easy way to set up and test an environment for building firmware, users should be aware:
 
