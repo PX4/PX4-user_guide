@@ -1,7 +1,7 @@
-# GPS & Compass
+# Global Navigation Satellite Systems (GNSS)
 
-PX4 supports global navigation satellite systems (GNSS) (including GPS, GLONASS, Galileo, BeiDou, QZSS and SBAS) using receivers that communicate via the u-blox, MTK Ashtech or Emlid protocols, or via UAVCAN.
-It also supports [Real Time Kinematic (RTK)](../gps_compass/rtk_gps.md) and **Post-Processing Kinematic (PPK)** GPS Receivers, which extend GPS systems to centimetre-level precision.
+PX4 supports Global Navigation Satellite Systems (GNSS) such as GPS, GLONASS, Galileo, Beidou, QZSS and SBAS, etc. using receivers that communicate via the u-blox, MTK Ashtech or Emlid protocols, or via UAVCAN.
+A GNSS system is needed for missions, and some other automatic and manual/assisted modes.
 
 PX4 can be used with the following compass parts (magnetometers): Bosch BMM 150 MEMS (via I2C bus), HMC5883 / HMC5983 (I2C or SPI), IST8310 (I2C) and LIS3MDL (I2C or SPI).
 Up to 4 internal or external magnetometers can be connected, though only one will actually be used as a heading source.
@@ -12,9 +12,13 @@ If it fails before flight, arming will be denied.
 
 ![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
+:::note
+PX4 also supports [Real Time Kinematic (RTK)](../gps_compass/rtk_gps.md) and **Post-Processing Kinematic (PPK)** GPS Receivers, which extend GPS systems to centimetre-level precision.
+:::
+
 :::tip
-When using [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers, we recommend using a *combined GPS + Compass* mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing).
-The internal compass *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines.
+When using [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers, we recommend using a _combined GPS + Compass_ mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing).
+The internal compass _may_ be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines.
 On small vehicles an external compass is almost always required.
 :::
 
@@ -81,23 +85,9 @@ Notes:
 - Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
 - The list may omit some discontinued hardware that is still supported.
   For example [CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md) is discontinued and may be removed from the list in a future release.
-  The original *Here* has already been removed.
+  The original _Here_ has already been removed.
   Check earlier versions if a discontinued module is not mentioned here.
 
-### Compass/Magnetometer (Only)
-
-This list contains compasses (magnetometers) without GNSS.
-
-Device | Compass | DroneCan
-:--- | :---: | :---: 
-[Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) | ? | 
-[Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/products/dronecan-rm3100-compass) | RM3100 |  &check;
-
-Note:
-
-- &check; or a specific part number indicate that a features is supported, while &cross; or empty show that the feature is not supported.
-  "?" indicates "unknown".
-  
 ## Hardware Setup
 
 Instructions for connecting the GPS (and compass, if present) are usually provided by the manufacturer (at least for more common [Autopilot Hardware](../flight_controller/README.md)).
@@ -106,12 +96,10 @@ Instructions for connecting the GPS (and compass, if present) are usually provid
 
 The [ARK GPS](../dronecan/ark_gps.md), [ARK RTK GPS](../dronecan/ark_rtk_gps.md), [Zubax GNSS 2](https://zubax.com/products/gnss_2), [CUAV C-RTK2](../gps_compass/rtk_gps_cuav_c-rtk.md), [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3), and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [DroneCAN](../dronecan/README.md).
 
-
 :::warning
 Pay attention to pinout when connecting the GPS module.
 While these are all software-compatible, there are several different pin orderings.
 :::
-
 
 ## GNSS Configuration
 
@@ -129,38 +117,40 @@ GPS configuration on Pixhawk is handled transparently for the user - simply conn
 
 :::note
 The default [Serial Port Configuration](../peripherals/serial_configuration.md#default_port_mapping) works for most devices.
-If you are using the *Trimble MB-Two* you will need to modify the configuration to explicitly set the rate to 115200 baud.
+If you are using the _Trimble MB-Two_ you will need to modify the configuration to explicitly set the rate to 115200 baud.
 :::
 
 <a id="dual_gps"></a>
+
 ### Configuring a Secondary GPS (Dual GPS System)
 
 To use a secondary GPS, attach it to any free port, and then perform a [Serial Port Configuration](../peripherals/serial_configuration.md) to assign [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to the selected port.
 
-The following steps show how to configure a secondary GPS on the `TELEM 2` port in *QGroundControl*:
+The following steps show how to configure a secondary GPS on the `TELEM 2` port in _QGroundControl_:
 
 1. [Find and set](../advanced_config/parameters.md) the parameter [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to **TELEM 2**.
-   - Open *QGroundControl* and navigate to the **Vehicle Setup > Parameters** section.
-   - Select the **GPS** tab (1), then open the [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter (2) and select *TELEM 2* from the dropdown list (3).
+   - Open _QGroundControl_ and navigate to the **Vehicle Setup > Parameters** section.
+   - Select the **GPS** tab (1), then open the [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter (2) and select _TELEM 2_ from the dropdown list (3).
      ![QGC Serial Example](../../assets/peripherals/qgc_serial_config_example.png)
 1. Reboot the vehicle in order to make the other parameters visible.
-1. Select the **Serial** tab, and open the [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) parameter (`TELEM 2` port baud rate): set it to *Auto*.
-  ![QGC Serial Baudrate Example](../../assets/peripherals/qgc_serial_baudrate_example.png)
+1. Select the **Serial** tab, and open the [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) parameter (`TELEM 2` port baud rate): set it to _Auto_.
+   ![QGC Serial Baudrate Example](../../assets/peripherals/qgc_serial_baudrate_example.png)
 
 After setting up the second GPS port:
+
 1. Configure the ECL/EKF2 estimator to blend data from both GPS systems.
    For detailed instructions see: [Using the ECL EKF > Dual Receivers](../advanced_config/tuning_the_ecl_ekf.md#dual-receivers).
 
 ### Configuring GPS as Yaw/Heading Source
 
-GPS can be used as a source for yaw fusion when using modules where *yaw output is supported by the device* (e.g. [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)) or when using some [RTK GPS Setups with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
+GPS can be used as a source for yaw fusion when using modules where _yaw output is supported by the device_ (e.g. [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)) or when using some [RTK GPS Setups with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
 
 When using GPS for yaw fusion you will need to configure the following parameters:
 
 Parameter | Setting
 --- | ---
 [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) |  The angle made by the *baseline* (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)).
-[EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) | Set bit position 3 "Dual antenna heading" to `1` (i.e. add 8 to the parameter value).
+[EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) | Set bit position 3 "Dual antenna heading" to `1` (i.e. add 8 to the parameter value).                                                                                                                        |
 
 :::tip
 If using this feature, all other configuration should be setup up as normal (e.g. [RTK Positioning](../gps_compass/rtk_gps.md#positioning-setup-configuration)).
@@ -170,7 +160,6 @@ If using this feature, all other configuration should be setup up as normal (e.g
 
 Compass calibration is covered in: [Compass Configuration](../config/compass.md).
 The process is straightforward and will autodetect, [set default rotations](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT), calibrate, and prioritise, all connected magnetometers.
-
 
 ## Developer Information
 

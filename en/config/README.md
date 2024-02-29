@@ -27,13 +27,15 @@ Then open the QGC application menu ("Q" icon in the top-left corner) and choose 
 ### Sensor Calibration
 
 - [Sensor Orientation](../config/flight_controller_orientation.md)
-- [Compass](../config/compass.md)
+- [Magnetometer (Compass)](../config/compass.md)
 - [Gyroscope](../config/gyroscope.md)
 - [Accelerometer](../config/accelerometer.md)
 - [Level Horizon](../config/level_horizon_calibration.md)
 - [Airspeed](../config/airspeed.md) (Fixed-wing/VTOL only)
 
-> **Note:** Setup for optional sensors and specific hardware is provided in [Flight Controller Peripherals](../peripherals/README.md).
+:::note
+Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/README.md).
+:::
 
 ### Manual Control Setup
 

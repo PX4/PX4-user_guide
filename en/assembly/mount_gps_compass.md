@@ -1,4 +1,4 @@
-# Mounting a GPS/Compass
+# Mounting a Compass (or GNSS/Compass)
 
 GPS/Compasses should be mounted on the frame as far away from other electronics as possible, [oriented](#compass-orientation) upright and with the direction marker pointing towards the front of the vehicle.
 You should also configure PX4 to [set the position](#position) of the receiver relative to the centre-of-gravity (CoG).

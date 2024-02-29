@@ -1,6 +1,8 @@
 # Hardware Hardware Selection & Setup
 
-This section contains information the components that mauy be used in a drone, and how they are set up.
+This section contains information the components that might be used in a drone, and how they are set up.
+
+
 
 <!-- Add new list here
 

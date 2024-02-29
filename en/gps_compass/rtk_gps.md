@@ -1,15 +1,15 @@
-# RTK GPS
+# RTK GNSS (GPS)
 
 [Real Time Kinematic (RTK)](https://en.wikipedia.org/wiki/Real_Time_Kinematic) GNSS/GPS systems provide centimeter-level accuracy, allowing PX4 to be used in applications like precision surveying (where pinpoint accuracy is essential).
 
-This feature requires *QGroundControl* running on a laptop/PC and a vehicle with a WiFi or Telemetry radio link to the ground station laptop.
+This feature requires _QGroundControl_ running on a laptop/PC and a vehicle with a WiFi or Telemetry radio link to the ground station laptop.
 
 :::note
 Some RTK GPS setups can provide yaw/heading information, as an alternative to the compass:
+
 - [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
 - GPS directly output yaw (see table below).
-:::
-
+  :::
 
 ## Supported RTK Devices
 
@@ -49,17 +49,17 @@ Some RTK modules can only be used in a particular role (base or rover), while ot
 
 ## Positioning Setup/Configuration
 
-RTK positioning requires a *pair* of [RTK GPS devices](#supported-rtk-devices): a "base" for the ground station and a "rover" for the vehicle.
+RTK positioning requires a _pair_ of [RTK GPS devices](#supported-rtk-devices): a "base" for the ground station and a "rover" for the vehicle.
 
 In addition you will need:
-- A *laptop/PC* with QGroundControl (QGroundControl for Android/iOS do not support RTK)
+
+- A _laptop/PC_ with QGroundControl (QGroundControl for Android/iOS do not support RTK)
 - A vehicle with a WiFi or Telemetry radio link to the laptop.
 
 :::note
-*QGroundControl* with a base module can theoretically enable RTK GPS for multiple vehicles/rover modules.
+_QGroundControl_ with a base module can theoretically enable RTK GPS for multiple vehicles/rover modules.
 At time of writing this use case has not been tested.
 :::
-
 
 ### Hardware Setup
 
@@ -74,7 +74,7 @@ See [documentation for the selected device](#supported-rtk-devices) and [DroneCA
 
 #### Base RTK Module (Ground)
 
-Connect the base module to *QGroundControl* via USB.
+Connect the base module to _QGroundControl_ via USB.
 The base module must not be moved while it is being used.
 
 :::tip
@@ -86,24 +86,24 @@ Often it is helpful to elevate the base GPS, by using a tripod or mounting it on
 
 The vehicle and ground control laptop must be connected via [wifi or a radio telemetry link](../telemetry/README.md).
 
-The link *must* use the MAVLink 2 protocol as it makes more efficient use of the channel.
+The link _must_ use the MAVLink 2 protocol as it makes more efficient use of the channel.
 This should be set by default, but if not, follow the [MAVLink2 configuration instructions](#mavlink2) below.
-
 
 ### RTK Connection Process
 
 The RTK GPS connection is essentially plug and play:
 
-1. Start *QGroundControl* and attach the base RTK GPS via USB to the ground station.
+1. Start _QGroundControl_ and attach the base RTK GPS via USB to the ground station.
    The device is recognized automatically.
-1. Start the vehicle and make sure it is connected to *QGroundControl*.
+1. Start the vehicle and make sure it is connected to _QGroundControl_.
 
    :::tip
-   *QGroundControl* displays an RTK GPS status icon in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon).
+   _QGroundControl_ displays an RTK GPS status icon in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon).
    The icon is red while RTK is being set up, and then changes to white once RTK GPS is active.
    You can click the icon to see the current state and RTK accuracy.
    :::
-1. *QGroundControl* then starts the RTK setup process (known as "Survey-In").
+
+1. _QGroundControl_ then starts the RTK setup process (known as "Survey-In").
 
    Survey-In is a startup procedure to get an accurate position estimate of the base station.
    The process typically takes several minutes (it ends after reaching the minimum time and accuracy specified in the [RTK settings](#rtk-gps-settings)).
@@ -114,30 +114,29 @@ The RTK GPS connection is essentially plug and play:
 
 1. Once Survey-in completes:
 
-   - The RTK GPS icon changes to white and *QGroundControl* starts to stream position data to the vehicle:
+   - The RTK GPS icon changes to white and _QGroundControl_ starts to stream position data to the vehicle:
 
      ![RTK streaming](../../assets/qgc/setup/rtk/qgc_rtk_streaming.png)
 
    - Vehicle GPS switches to RTK mode.
-     The new mode is displayed in the *normal* GPS status icon (`3D RTK GPS Lock`):
+     The new mode is displayed in the _normal_ GPS status icon (`3D RTK GPS Lock`):
 
      ![RTK GPS Status](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
 
-
 ### Optional PX4 Configuration
 
-The following settings may need to be changed (using *QGroundControl*).
+The following settings may need to be changed (using _QGroundControl_).
 
 #### RTK GPS settings
 
-The RTK GPS settings are specified in the *QGroundControl* [General Settings](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/general.html#rtk_gps) (**SettingsView > General Settings > RTK GPS**).
+The RTK GPS settings are specified in the _QGroundControl_ [General Settings](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/general.html#rtk_gps) (**SettingsView > General Settings > RTK GPS**).
 
 ![RTK GPS Setup](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
 
 These settings define the minimum duration and minimum accuracy for completing the RTK GPS setup process (known as "Survey-In).
 
 :::tip
-You can save and reuse a base position in order to save time: perform Survey-In once, select *Use Specified Base Position* and press **Save Current Base Position** to copy in the values for the last survey.
+You can save and reuse a base position in order to save time: perform Survey-In once, select _Use Specified Base Position_ and press **Save Current Base Position** to copy in the values for the last survey.
 The values will then persist across QGC reboots until they are changed.
 :::
 
@@ -147,15 +146,14 @@ The MAVLink2 protocol must be used because it makes more efficient use of lower-
 This should be enabled by default on recent builds.
 
 To ensure MAVLink2 is used:
-* Update the telemetry module firmware to the latest version (see [QGroundControl > Setup > Firmware](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/firmware.html)).
-* Set [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) to 2 (see [QGroundControl Setup > Parameters](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/parameters.html))
 
+- Update the telemetry module firmware to the latest version (see [QGroundControl > Setup > Firmware](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/firmware.html)).
+- Set [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) to 2 (see [QGroundControl Setup > Parameters](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/parameters.html))
 
 #### Tuning
 
 You may also need to tune some parameters as the default parameters are tuned assuming a GPS accuracy in the order of meters, not centimeters.
 For example, you can decrease [EKF2_GPS_V_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_V_NOISE) and [EKF2_GPS_P_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_P_NOISE) to 0.2.
-
 
 #### Dual Receivers
 
@@ -166,7 +164,6 @@ See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#gps) s
 - Video demonstration would be nice.
 - something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey.
 -->
-
 
 ## Further Information
 
