@@ -1,97 +1,97 @@
-# Windows Virtual Machine-Hosted Toolchain
+# Інструментарій на віртуальних машинах Windows
 
 :::warning
-This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md). It may or may not work with current versions of PX4.
+Це середовище розробки [підтримується та утримується спільнотою](../advanced/community_supported_dev_env.md). Воно може працювати або не працювати з поточними версіями PX4.
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, які підтримуються основною командою розробників.
 :::
 
-Windows developers can run the PX4 toolchain in a virtual machine (VM) with Linux as the guest operating system. After setting up the virtual machine, the installation and setup of PX4 within the VM is exactly the same as on a native Linux computer.
+Розробники на Windows можуть використовувати інструментарій PX4 у віртуальній машині (VM) з гостьовою операційною системою Linux. Після створення віртуальної машини, установка та налаштування PX4 у VM така сама, як і на звичайному комп'ютері з Linux.
 
-While using a VM is a very easy way to set up and test an environment for building firmware, users should be aware:
+Хоч використання віртуальної машини - це простий спосіб налаштувати та протестувати середовище для збірки прошивки, користувачі повинні взяти до уваги:
 
-1. Firmware building will be slower than native building on Linux.
-1. The JMAVSim simulation, frame rate be much slower than on native Linux. In some cases the vehicle may crash due to issues related to insufficient VM resources.
-1. Gazebo and ROS can be installed, but are unusably slow.
+1. Збірка прошивки буде повільніша, ніж нативна збірка на Linux.
+1. У симуляції JMAVSim частота кадрів набагато повільніша, ніж на рідному Linux. В деяких випадках засіб може розбитися через проблеми, пов'язані з недостатніми ресурсами віртуальної машини.
+1. Gazebo та ROS встановлюються, але повільні настільки що ними неможливо користуватись.
 
 :::tip
-Allocate as many CPU cores and memory resources to the VM as possible.
+Виділіть якомога більше ресурсів процесора і пам'яті для VM.
 :::
 
-There are multiple ways to setup a VM which is capable of executing the PX4 environment on your system. This guide walks you through a VMWare setup. There is also an incomplete section for VirtualBox at the end (we'd welcome expansion of this section from a community member).
+Існує кілька способів налаштування VM, яка здатна виконувати PX4 середовище на вашій системі. Цей посібник допоможе вам налаштувати VMWare. В кінці є неповний розділ для VirtualBox (і ми запрошуємо до розширення цього розділу когось з членів спільноти).
 
-## VMWare Setup
+## Налаштування VMWare
 
-VMWare performance is acceptable for basic usage (building Firmware) but not for running ROS or Gazebo Classic.
+Ефективність VMWare прийнятна для основного застосування (збірки прошивки) але не для запуску ROS чи Gazebo Classic.
 
-1. Download [VMWare Player Freeware](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)
-1. Install it on your Windows system
-1. Download the desired version of [Ubuntu Desktop ISO Image](https://www.ubuntu.com/download/desktop). (see [Linux Instructions Page](../dev_setup/dev_env_linux.md) for recommended Ubuntu version).
-1. Open _VMWare Player_.
-1. Enable 3D acceleration in the VM's settings: **VM > Settings > Hardware > Display > Accelerate 3D graphics**
+1. Завантажте [VMWare Player Freeware](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)
+1. Установіть його на вашу Windows систему
+1. Завантажте бажану версію [ISO образу Ubuntu Desktop](https://www.ubuntu.com/download/desktop). (див. [сторінку інструкцій для Linux](../dev_setup/dev_env_linux.md) для рекомендованої версії Ubuntu).
+1. Відкрийте _VMWare Player_.
+1. Увімкніть 3D прискорення в налаштуваннях VM: **VM > Settings > Hardware > Display > Accelerate 3D graphics**
 
    :::note
-This option is required to properly run 3D simulation environments like jMAVSim and Gazebo Classic.
-We recommend this is done before installing Linux in the virtual environment.
+Цей параметр необхідний для належного запуску 3D середовищ симуляції на зразок jMAVSim та Gazebo Classic.
+Рекомендуємо зробити це перед встановленням Linux у віртуальному середовищі.
 :::
 
-1. Select the option to create a new virtual machine.
-1. In the VM creation wizard choose the downloaded Ubuntu ISO image as your installation medium and will automatically detect the operating system you want to use.
-1. Also in the wizard, select the resources you want to allocate to your virtual machine while it is running. Allocate as much memory and as many CPU cores as you can without rendering your host Windows system unusable.
-1. Run your new VM at the end of the wizard and let it install Ubuntu following the setup instructions. Remember all settings are only for within your host operating system usage and hence you can disable any screen saver and local workstation security features which do not increase risk of a network attack.
-1. Once the new VM is booted up make sure you install _VMWare tools drivers and tools extension_ inside your guest system. This will enhance performance and usability of your VM usage:
+1. Перейдіть до створення нової віртуальної машини.
+1. У майстрі створення VM оберіть завантажений ISO образ з Ubuntu як носій установки з якого буде автоматично виявлено операційну систему, яку ви хочете використати.
+1. Також у майстрі, оберіть ресурси, які ви хочете виділити віртуальній машині під час роботи. Виділіть стільки пам'яті та ядер процесора скільки зможете таким чином щоб вашою основною Windows системою можна було продовжити користуватись.
+1. Запустіть нову VM в кінці майстра та завершіть встановлення Ubuntu відповідно до інструкцій з установки. Запам'ятайте, всі налаштування потрібні тільки для використання у вашій основній операційній системі, тому можна вимкнути будь-який режим збереження екрана та функції безпеки локальні робочої станції, що не збільшують ризик мережевої атаки.
+1. Після того, як нова VM завантажиться, переконайтеся, що ви встановили _допоміжні драйвери та розширення VMWare_ в гостьовій системі. Це підвищить продуктивність та зручність користування віртуальною машиною:
 
-   - Significantly enhanced graphics performance
-   - Proper support for hardware device usage like USB port allocation (important for target upload), proper mouse wheel scrolling, sound support
-   - Guest display resolution adaption to the window size
-   - Clipboard sharing to host system
-   - File sharing to host system
+   - Значно поліпшена продуктивність графіки
+   - Належна підтримка використання апаратного забезпечення, наприклад розподілу портів USB (важливо для завантаження прошивок), прокручування коліщатком миші, підтримка звуку
+   - Адаптація роздільної здатності дисплею гостя до розміру вікна емулятора
+   - Спільний доступ до буфера обміну з основної ОС
+   - Спільний доступ до файлів з основної ОС
 
-1. Continue with [PX4 environment setup for Linux](../dev_setup/dev_env_linux.md)
+1. Переходьте до встановлення середовища [PX4 для Linux](../dev_setup/dev_env_linux.md).
 
-## VirtualBox 7 Setup
+## Налаштування VirtualBox 7
 
-The setup for VirtualBox is similar to VMWare. Community members, we'd welcome a step-by-step guide here!
+Налаштування VirtualBox схоже на VMWare. Учасники спільноти, запрошуємо до створення покрокових інструкцій для цього розділу!
 
-### USB passthrough for QGroundControl / Firmware Flashing
+### Пропускання USB для QGroundControl / запису прошивки
 
 :::tip
-This section has been tested for VirtualBox 7 running Ubuntu 20.04 LTS on a Windows 10 host machine.
+Цей розділ було протестовано на Ubuntu 20.04 LTS яка була запущена у VirtualBox 7 на основній машині з Windows 10.
 :::
 
-One limitation of virtual machines is that you can't automatically connect to a flight controller attached to the host computer USB port in order to [build and upload PX4 firmware from a terminal](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board). You also can't connect to the flight controller from QGroundControl in the virtual machine.
+Єдине обмеження віртуальних машин - ви не можете автоматично під'єднатися до польотного контролера з'єднаного з USB портом основного комп'ютера для того, щоб [зібрати та завантажити прошивку PX4 з термінала](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board). Також, не можна приєднатися до польотного контролера з QGroundControl в віртуальній машині.
 
-To allow this, you need to configure USB passthrough settings:
+Щоб дозволити це, необхідно налаштувати параметри пропуску USB:
 
-1. Ensure that the user has been added to the dialout group in the VM using the terminal command:
+1. Переконайтеся, що користувач був доданий в групу dialout в VM використовуючи команду терміналу:
 
    ```sh
    sudo usermod -a -G dialout $USER
    ```
 
-   Then restart Ubuntu in the virtual machine.
+   Потім перезавантажте Ubuntu у віртуальній машині.
 
-1. Enable serial port(s) in VM: **VirtualBox > Settings > Serial Ports 1/2/3/etc...**
-1. Enable USB controller in VM: **VirtualBox > Settings > USB**
-1. Add USB filters for the bootloader in VM: **VirtualBox > Settings > USB > Add new USB filter**.
+1. Увімкніть послідовний порт(и) в VM: **VirtualBox > Settings > Serial Ports 1/2/3/etc...**
+1. Увімкніть контролер USB у VM: **VirtualBox > Settings > USB**
+1. Додайте фільтри USB для завантажувача в VM: **VirtualBox > Settings > USB > Add new USB filter**.
 
-   - Open the menu and plug in the USB cable connected to your autopilot. Select the `...Bootloader` device when it appears in the UI.
+   - Відкрийте меню і під'єднайте USB-кабель, підключений до автопілота. Оберіть пристрій `...Bootloader` коли він з'явиться в інтерфейсі.
 
      :::note
-The bootloader device only appears for a few seconds after connecting USB.
-If it disappears before you can select it, disconnect and then reconnect USB.
+Пристрій завантажувача з'являється тільки на кілька секунд після під'єднання USB.
+Якщо він зникає до того як ви змогли обрати його, від'єднайте та повторно під'єднайте USB.
 :::
 
-   - Select the `...Autopilot` device when it appears (this happens after the bootloader completes).
+   - Оберіть пристрій `...Autopilot` коли він з'явиться (це станеться коли завантажувач завершить роботу).
 
-1. Select the device in the VM instance's dropdown menu **VirtualBox > Devices > your_device**
+1. Оберіть пристрій у меню що випадає у відкритій VM **VirtualBox > Devices > your_device**
 
-If successful, your device will show up with `lsusb` and QGroundControl will connect to the device automatically. You should also be able to build and upload firmware using a command like:
+У разі успіху ваш пристрій з'явиться у виводі команди `lsusb` і QGroundControl буде підключатися до пристрою автоматично. Ви також матимете можливість збирати та завантажувати прошивку за допомогою команди:
 
 ```sh
 make px4_fmu-v5_default upload
 ```
 
-### Telemetry over WiFi for QGroundControl
+### Телеметрія через WiFi для QGroundControl
 
-If using _QGroundControl_ within a virtual machine you should set the VM networking settings to "Bridged Adapter" mode. This gives the guest OS direct access to networking hardware on the host. If you use the Network Address Translation (NAT), which is set by default for VirtualBox 7 running Ubuntu 20.04 LTS, this will block the outbound UDP packets that QGroundControl uses to communicate with the vehicle.
+При використанні _QGroundControl_ у віртуальній машині, потрібно встановити мережеві параметри VM в режим "Bridged Adapter". Це дає гостьовій ОС прямий доступ до мережевого обладнання на основній машині. Якщо ви використовуєте режим трансляції мережевих адрес (NAT), який встановлюється за замовчуванням для VirtualBox 7 для Ubuntu 20.04 LTS, це заблокує вихідні UDP-пакети, які використовує QGroundControl для зв'язку з рухомим засобом.

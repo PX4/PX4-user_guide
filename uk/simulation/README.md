@@ -221,19 +221,19 @@ PX4 підтримує захоплення як нерухомих зображ
 
 Симуляція камери - це класичний gazebo плагін, який реалізує [MAVLink Camera Protocol](https://mavlink.io/en/protocol/camera.html). <!-- **PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/src/gazebo_geotagged_images_plugin.cpp -->. PX4 з'єднується/інтегрується з цією камерою _точно так само_, як і з будь-якою іншою камерою MAVLink:
 
-1. [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) must be set to `3` to configure the camera trigger driver for use with a MAVLink camera :::tip In this mode the driver just sends a [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message whenever an image capture is requested. For more information see [Camera](../peripherals/camera.md).
+1. [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) має бути встановлено у `3`, щоб налаштувати драйвер тригера камери для використання з камерою MAVLink :::tip У цьому режимі драйвер просто надсилає повідомлення [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) щоразу, коли запитується захоплення зображення. Для отримання додаткової інформації див. [Камера](../peripherals/camera.md).
 :::
-1. PX4 must forward all camera commands between the GCS and the (simulator) MAVLink Camera. You can do this by starting [MAVLink](../modules/modules_communication.md#mavlink) with the `-f` flag as shown, specifying the UDP ports for the new connection.
+1. PX4 повинен перенаправляти всі команди камери між GCS і (симулятором) MAVLink Camera. Ви можете зробити це, запустивши [MAVLink](../modules/modules_communication.md#mavlink) з прапором `-f`, як показано на малюнку, вказавши UDP-порти для нового з'єднання.
 
    ```sh
    mavlink start -u 14558 -o 14530 -r 4000 -f -m camera
    ```
 
    :::note
-More than just the camera MAVLink messages will be forwarded, but the camera will ignore those that it doesn't consider relevant.
+Повідомлення MAVLink пересилатимуться не лише на камеру, але камера ігноруватиме ті, які вона вважає неважливими.
 :::
 
-The same approach can be used by other simulators to implement camera support.
+Інші симулятори можуть використовувати такий самий підхід для реалізації підтримки камери.
 
 ## Running Simulation on a Remote Server
 

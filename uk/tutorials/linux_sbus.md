@@ -1,8 +1,8 @@
-# Connecting an RC Receiver to a PX4 Linux-based Autopilot
+# Підключення RC-приймача до автопілота на базі Linux PX4
 
-This topic shows how to setup a PX4 Linux-based autopilot to connect and use a [supported RC receiver](../getting_started/rc_transmitter_receiver.md) on any serial port.
+Ця тема показує, як налаштувати автопілот на базі Linux PX4 для підключення та використання  [ підтримуваного RC-приймача](../getting_started/rc_transmitter_receiver.md)  на будь-якому серійному порту
 
-For RC types other than S.Bus, you can just connect the receiver directly to the serial ports, or to USB via a USB to TTY serial cable (e.g. like PL2302 USB to Serial TTL converter).
+Для типів RC, крім S.Bus, ви можете просто під'єднати приймач безпосередньо до серійних портів або до USB через USB до TTY серійного кабелю (наприклад, PL2302 USB в Serial TTL)
 
 :::note
 For an S.Bus receiver (or encoder - e.g. from Futaba, RadioLink, etc.) you will usually need to connect the receiver and device via a [signal inverter circuit](#signal_inverter_circuit), but otherwise the setup is the same.

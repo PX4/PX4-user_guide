@@ -1,44 +1,45 @@
-# PX4 Docker Containers
+# Docker контейнери для PX4
 
-Docker containers are provided for the complete [PX4 development toolchain](../dev_setup/dev_env.md#supported-targets) including NuttX and Linux based hardware, [Gazebo Classic](../sim_gazebo_classic/README.md) simulation, and [ROS](../simulation/ros_interface.md).
+Для повного [інструментарію розробника PX4](../dev_setup/dev_env.md#supported-targets)надаються Docker контейнери, включаючи апаратне забезпечення, основане на NuttX та Linux, симуляція [Gazebo Classic](../sim_gazebo_classic/README.md) та [ROS](../simulation/ros_interface.md).
 
-This topic shows how to use the [available docker containers](#px4_containers) to access the build environment in a local Linux computer.
+Цей розділ розповідає як використовувати [Наявні docker контейнери](#px4_containers), щоб отримати доступ до середовища збірки на локальному Linux комп'ютері.
 
 :::note
-Dockerfiles and README can be found on [Github here](https://github.com/PX4/containers/blob/master/README.md). They are built automatically on [Docker Hub](https://hub.docker.com/u/px4io/).
+Ви можете знайти Dockerfile та README на [Github](https://github.com/PX4/containers/blob/master/README.md). Вони автоматично збираються на [Docker Hub](https://hub.docker.com/u/px4io/).
 :::
 
-## Prerequisites
+## Необхідні умови
 
-:::note PX4 containers are currently only supported on Linux (if you don't have Linux you can run the container [inside a virtual machine](#virtual_machine)). Do not use `boot2docker` with the default Linux image because it contains no X-Server.
+:::note
+На цей момент контейнери для PX4 підтримуються лише для Linux (якщо немає Linux ви можете запустити контейнер [всередині віртуальної машини](#virtual_machine)). Не використовуйте `boot2docker` із образом за замовчуванням, тому що він не містить X-Server.
 :::
 
-[Install Docker](https://docs.docker.com/installation/) for your Linux computer, preferably using one of the Docker-maintained package repositories to get the latest stable version. You can use either the _Enterprise Edition_ or (free) _Community Edition_.
+[Встановіть Docker](https://docs.docker.com/installation/) для Linux, бажано використовувати один з репозиторіїв пакетів, які підтримуються Docker, щоб отримати останню стабільну версію. Ви можете використовувати або _Enterprise Edition_ або (безплатну) _Community Edition_.
 
-For local installation of non-production setups on _Ubuntu_, the quickest and easiest way to install Docker is to use the [convenience script](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-convenience-script) as shown below (alternative installation methods are found on the same page):
+Для локального встановлення для позавиробничих установок на _Ubuntu_, найшвидший і найпростіший спосіб встановити Docker - це скористатися [ зручним скриптом](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-convenience-script) як показано нижче (альтернативні методи встановлення вказані там же):
 
 ```sh
 curl -fsSL get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
 
-The default installation requires that you invoke _Docker_ as the root user (i.e. using `sudo`). However, for building the PX4 firmware we suggest to [use docker as a non-root user](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user). That way, your build folder won't be owned by root after using docker.
+Встановлення за замовчуванням потребує використання root користувача для запуску _Docker_ (тобто за допомогою `sudo`). Однак для збірки прошивок PX4 пропонуємо [використовувати docker від імені непривілейованого користувача](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user). Таким чином, директорія для збірки не буде належати користувачу root після використання docker.
 
 ```sh
-# Create docker group (may not be required)
+# Створіть групу docker (можливо не потрібно)
 sudo groupadd docker
-# Add your user to the docker group.
+# Додайте вашого користувача в групу docker.
 sudo usermod -aG docker $USER
-# Log in/out again before using docker!
+# Вийдіть та увійдіть перед використанням docker!
 ```
 
 <a id="px4_containers"></a>
 
-## Container Hierarchy
+## Ієрархія контейнерів
 
-The available containers are on [Github here](https://github.com/PX4/PX4-containers/blob/master/README.md#container-hierarchy).
+Усі доступні контейнери можна знайти на [Github](https://github.com/PX4/PX4-containers/blob/master/README.md#container-hierarchy).
 
-These allow testing of various build targets and configurations (the included tools can be inferred from their names). The containers are hierarchical, such that containers have the functionality of their parents. For example, the partial hierarchy below shows that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
+Вони дозволяють тестувати різні цілі збірки та конфігурації (включені інструменти можна зрозуміти з їх назв). Контейнери є ієрархічними, тобто такими, що мають функціональність вихідних контейнерів. Наприклад, часткова ієрархія нижче показує, що docker контейнер з  інструментами збірки nuttx (`px4-dev-nuttx-focal`) не містить ROS 2, на відміну від контейнерів симуляції:
 
 ```plain
 - px4io/px4-dev-base-focal
@@ -51,15 +52,15 @@ These allow testing of various build targets and configurations (the included to
   - px4io/px4-dev-nuttx-jammy
 ```
 
-The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx-focal:latest` (available tags are listed for each container on _hub.docker.com_. For example, the `px4io/px4-dev-nuttx-focal` tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx-focal/tags?page=1&ordering=last_updated)).
+Найновіша версія доступна з використанням тегу `latest`: `px4io/px4-dev-nuttx-focal:latest` (доступні теги перелічені для кожного контейнеру на _hub.docker.com_. Наприклад теги для `px4io/px4-dev-nuttx-focal` можна знайти [тут](https://hub.docker.com/r/px4io/px4-dev-nuttx-focal/tags?page=1&ordering=last_updated)).
 
 :::tip
-Typically you should use a recent container, but not necessarily the `latest` (as this changes too often).
+Зазвичай потрібно використовувати свіжий контейнер, але не обов'язково `latest` (т. як вони часто змінюються).
 :::
 
-## Use the Docker Container
+## Використання Docker контейнера
 
-The following instructions show how to build PX4 source code on the host computer using a toolchain running in a docker container. The information assumes that you have already downloaded the PX4 source code to **src/PX4-Autopilot**, as shown:
+Наступні інструкції показують, як зібрати вихідний код PX4 на основному комп'ютері за допомогою інструментарію, що працює у docker контейнері. Передбачається, що ви вже завантажили вихідний код PX4 в **src/PX4-Autopilot**, як показано:
 
 ```sh
 mkdir src
@@ -68,37 +69,37 @@ git clone https://github.com/PX4/PX4-Autopilot.git
 cd PX4-Autopilot
 ```
 
-### Helper Script (docker_run.sh)
+### Допоміжний скрипт (docker_run.sh)
 
-The easiest way to use the containers is via the [docker_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/docker_run.sh) helper script. This script takes a PX4 build command as an argument (e.g. `make tests`). It starts up docker with a recent version (hard coded) of the appropriate container and sensible environment settings.
+Найпростіший спосіб використовувати контейнери - разом із допоміжним скриптом [docker_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/docker_run.sh). Цей скрипт приймає команду збірки PX4 як аргумент (наприклад, `make tests`). Він запускає docker із найновішою версією відповідного контейнера (вказано в коді) і слушними налаштуваннями середовища.
 
-For example, to build SITL you would call (from within the **/PX4-Autopilot** directory):
+Наприклад, щоб зібрати SITL потрібно виконати (із директорії **/PX4-Autopilot**):
 
 ```sh
 ./Tools/docker_run.sh 'make px4_sitl_default'
 ```
 
-Or to start a bash session using the NuttX toolchain:
+Або почати сеанс bash використовуючи інструментарій NuttX:
 
 ```sh
 ./Tools/docker_run.sh 'bash'
 ```
 
 :::tip
-The script is easy because you don't need to know anything much about _Docker_ or think about what container to use. However it is not particularly robust! The manual approach discussed in the [section below](#manual_start) is more flexible and should be used if you have any problems with the script.
+Цей скрипт легко використовувати тому що вам не потрібно знати багато про _Docker_ або думати який контейнер взяти. Однак він не дуже надійний! Ручний підхід, що обговорюється в [наступній частині](#manual_start) більш гнучкий і повинен використовуватися якщо є якісь проблеми зі скриптом.
 :::
 
 <a id="manual_start"></a>
 
-### Calling Docker Manually
+### Запуск Docker вручну
 
-The syntax of a typical command is shown below. This runs a Docker container that has support for X forwarding (makes the simulation GUI available from inside the container). It maps the directory `<host_src>` from your computer to `<container_src>` inside the container and forwards the UDP port needed to connect _QGroundControl_. With the `-–privileged` option it will automatically have access to the devices on your host (e.g. a joystick and GPU). If you connect/disconnect a device you have to restart the container.
+Синтаксис типової команди показано нижче. Це запускає Docker контейнер з підтримкою переадресації X (що робить графічний інтерфейс симуляції доступним з середини контейнера). Каталог `<host_src>` комп'ютера відображається на каталог `<container_src>` всередині контейнера, а також переадресується UDP порт, потрібний для з'єднання з  _QGroundControl_. З параметром `-–privileged` контейнер автоматично матиме доступ до апаратного забезпечення на вашому комп'ютері  (наприклад до джойстика або GPU). Якщо ви під'єднуєте/від'єднуєте пристрій, вам слід перезапустити контейнер.
 
 ```sh
-# enable access to xhost from the container
+# дозвольте доступ до xhost з контейнера
 xhost +
 
-# Run docker
+# запуск docker
 docker run -it --privileged \
     --env=LOCAL_USER_ID="$(id -u)" \
     -v <host_src>:<container_src>:rw \
@@ -108,21 +109,21 @@ docker run -it --privileged \
     --name=<local_container_name> <container>:<tag> <build_command>
 ```
 
-Where,
+Де:
 
-- `<host_src>`: The host computer directory to be mapped to `<container_src>` in the container. This should normally be the **PX4-Autopilot** directory.
-- `<container_src>`: The location of the shared (source) directory when inside the container.
-- `<local_container_name>`: A name for the docker container being created. This can later be used if we need to reference the container again.
-- `<container>:<tag>`: The container with version tag to start - e.g.: `px4io/px4-dev-ros:2017-10-23`.
-- `<build_command>`: The command to invoke on the new container. E.g. `bash` is used to open a bash shell in the container.
+- `<host_src>`: Директорія комп'ютера для відображення на директорію `<container_src>` у контейнері. Зазвичай потрібно щоб це була директорія **PX4-Autopilot**.
+- `<container_src>`: Розташування спільної (вихідної) директорії всередині контейнера.
+- `<local_container_name>`: Ім'я docker контейнера, що створюється. Це потім можна використовувати, якщо потрібно посилатись на контейнер знову.
+- `<container>:<tag>`: Контейнер з тегом версії для запуску, наприклад: `px4io/px4-dev-ros:2017-10-23`.
+- `<build_command>`: Команда яку потрібно виконати на новому контейнері. Наприклад, `bash` для запуску оболонки bash у контейнері.
 
-The concrete example below shows how to open a bash shell and share the directory **~/src/PX4-Autopilot** on the host computer.
+Наведений нижче приклад показує як запустити консоль bash і розділити каталог **~/src/PX4-Autopilot** між контейнером і основним комп'ютером.
 
 ```sh
-# enable access to xhost from the container
+# дозвольте доступ до xhost з контейнера
 xhost +
 
-# Run docker and open bash shell
+# запуск docker та оболонки bash
 docker run -it --privileged \
 --env=LOCAL_USER_ID="$(id -u)" \
 -v ~/src/PX4-Autopilot:/src/PX4-Autopilot/:rw \
@@ -133,42 +134,42 @@ docker run -it --privileged \
 ```
 
 :::note
-We use the host network mode to avoid conflicts between the UDP port access control when using QGroundControl on the same system as the docker container.
+Ми використовуємо режим прямого доступу до мережі основного комп'ютера (host network), щоб уникнути конфліктів контролю доступу до UDP портів при використанні QGroundControl у тій самій системі, що і docker контейнер.
 :::
 
 :::note
-If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value. On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`. On other hosts you might iterate the value of `0` in `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
+Якщо ви зіткнулися з помилкою "Can't open display: :0", можливо змінній `DISPLAY` потрібно встановити інше значення. На комп'ютерах з Linux (XWindow) ви можете змінити параметр `-e DISPLAY=:0` на `-e DISPLAY=$DISPLAY`. На інших системах вам можливо знадобиться послідовно змінити `0` в `-e DISPLAY=:0` допоки помилка "Can't open display: :0" не зникне.
 :::
 
-If everything went well you should be in a new bash shell now. Verify if everything works by running, for example, SITL:
+Якщо все пройшло добре, ви повинні бути в новій оболонці bash. Перевірте, чи все працює запустивши, наприклад, SITL:
 
 ```sh
-cd src/PX4-Autopilot    #This is <container_src>
+cd src/PX4-Autopilot    #це <container_src>
 make px4_sitl_default gazebo-classic
 ```
 
-### Re-enter the Container
+### Повторний вхід в контейнер
 
-The `docker run` command can only be used to create a new container. To get back into this container (which will retain your changes) simply do:
+Команда `docker run` використовується тільки для створення нового контейнеру. Щоб повернутися у цей контейнер (що збереже ваші зміни) просто зробіть:
 
 ```sh
-# start the container
+# запуск контейнера
 docker start container_name
-# open a new bash shell in this container
+# запуск нової оболонки bash shell в цьому контейнері
 docker exec -it container_name bash
 ```
 
-If you need multiple shells connected to the container, just open a new shell and execute that last command again.
+Якщо вам потрібні кілька консолей, підключених до контейнера, просто відкрийте нову оболонку і виконайте останню команду знову.
 
-### Clearing the Container
+### Видалення контейнера
 
-Sometimes you may need to clear a container altogether. You can do so using its name:
+Іноді може знадобитися взагалі видалити контейнер. Це можна зробити, використовуючи його ім'я:
 
 ```sh
 docker rm mycontainer
 ```
 
-If you can't remember the name, then you can list inactive container ids and then delete them, as shown below:
+Якщо ви не можете згадати назву, ви можете знайти неактивні ідентифікатори контейнерів і видалити їх, як показано нижче:
 
 ```sh
 docker ps -a -q
@@ -178,79 +179,79 @@ docker rm 45eeb98f1dd9
 
 ### QGroundControl
 
-When running a simulation instance e.g. SITL inside the docker container and controlling it via _QGroundControl_ from the host, the communication link has to be set up manually. The autoconnect feature of _QGroundControl_ does not work here.
+При виконанні екземпляра симуляції, напр. SITL всередині контейнерів і керування ним через _QGroundControl_ з основного комп'ютера, канали зв'язку потрібно встановити вручну. Функція автопідключення _QGroundControl_ тут не працює.
 
-In _QGroundControl_, navigate to [Settings](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) and select Comm Links. Create a new link that uses the UDP protocol. The port depends on the used [configuration](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS) e.g. port 14570 for the SITL config. The IP address is the one of your docker container, usually 172.17.0.1/16 when using the default network. The IP address of the docker container can be found with the following command (assuming the container name is `mycontainer`):
+В _QGroundControl_, перейдіть до [Налаштувань](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) та оберіть Канали зв'язку. Створіть новий канал, що використовує UDP-протокол. Номер порту залежить від використаних [налаштувань](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS), наприклад порт 14570 для конфігурації SITL. IP-адреса є адресою одного з ваших контейнерів, зазвичай це адреса з мережі 172.17.0.1/16 при використанні мережі за замовчуванням. IP-адресу Docker контейнера можна знайти за допомогою наступної команди (якщо припустити, що ім'я контейнера `mycontainer`):
 
 ```sh
 $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}' mycontainer
 ```
 
 :::note
-Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook).
+Проміжки між подвійними фігурними дужками не повинні бути (вони потрібні для уникнення проблем з візуалізацією у gitbook).
 :::
 
-### Troubleshooting
+### Усунення проблем
 
-#### Permission Errors
+#### Помилки з правами доступу
 
-The container creates files as needed with a default user - typically "root". This can lead to permission errors where the user on the host computer is not able to access files created by the container.
+Контейнер створює файли, необхідні для роботи від імені стандартного користувача, як правило, "root". Це може призвести до помилок прав доступу, коли користувач на основному комп'ютері не має доступу до файлів, створених контейнером.
 
-The example above uses the line `--env=LOCAL_USER_ID="$(id -u)"` to create a user in the container with the same UID as the user on the host. This ensures that all files created within the container will be accessible on the host.
+Приклад вище використовує рядок `--env=LOCAL_USER_ID="$(id -u)"`, щоб створити користувача в контейнері з тим же UID що і користувач на основній машині. Це гарантує, що всі файли, створені у контейнері, будуть доступні з основного комп'ютера.
 
-#### Graphics Driver Issues
+#### Проблеми з драйверами графіки
 
-It's possible that running Gazebo Classic will result in a similar error message like the following:
+Можливо, що запуск Gazebo Classic призведе до подібного повідомлення про помилку:
 
 ```sh
 libGL error: failed to load driver: swrast
 ```
 
-In that case the native graphics driver for your host system must be installed. Download the right driver and install it inside the container. For Nvidia drivers the following command should be used (otherwise the installer will see the loaded modules from the host and refuse to proceed):
+У цьому випадку необхідно встановити нативний графічний драйвер для вашої системи. Завантажте відповідний драйвер і встановіть його всередині контейнера. Для драйверів Nvidia слід використовувати наступну команду (інакше встановлювач побачить завантажені модулі на головній машині та відмовиться продовжувати):
 
 ```sh
 ./NVIDIA-DRIVER.run -a -N --ui=none --no-kernel-module
 ```
 
-More information on this can be found [here](http://gernotklingler.com/blog/howto-get-hardware-accelerated-opengl-support-docker/).
+Більше інформації можна знайти [тут](http://gernotklingler.com/blog/howto-get-hardware-accelerated-opengl-support-docker/).
 
 <a id="virtual_machine"></a>
 
-## Virtual Machine Support
+## Підтримка віртуальних машин
 
-Any recent Linux distribution should work.
+Будь-який останній дистрибутив Linux повинен працювати.
 
-The following configuration is tested:
+Наступна конфігурація протестована:
 
-- OS X with VMWare Fusion and Ubuntu 14.04 (Docker container with GUI support on Parallels make the X-Server crash).
+- OS X з підтримкою VMWare Fusion і Ubuntu 14.04 (Docker контейнер з підтримкою GUI в Parallels призводить до падіння X-Server).
 
-**Memory**
+**Оперативна Пам'ять**
 
-Use at least 4GB memory for the virtual machine.
+Потрібно не менше 4 ГБ пам'яті для віртуальної машини.
 
-**Compilation problems**
+**Проблеми компіляції**
 
-If compilation fails with errors like this:
+Якщо компіляція завершується з помилками на кшталт:
 
 ```sh
 The bug is not reproducible, so it is likely a hardware or OS problem.
 c++: internal compiler error: Killed (program cc1plus)
 ```
 
-Try disabling parallel builds.
+Спробуйте вимкнути паралельну збірку.
 
-**Allow Docker Control from the VM Host**
+**Дозволити керувати Docker з основної машини для VM**
 
-Edit `/etc/defaults/docker` and add this line:
+Змініть `/etc/defaults/docker` і додайте наступний рядок:
 
 ```sh
 DOCKER_OPTS="${DOCKER_OPTS} -H unix:///var/run/docker.sock -H 0.0.0.0:2375"
 ```
 
-You can then control docker from your host OS:
+Тепер можна керувати docker на вашій основній ОС:
 
 ```sh
-export DOCKER_HOST=tcp://<ip of your VM>:2375
-# run some docker command to see if it works, e.g. ps
+експорт DOCKER_HOST=tcp://<ip of your VM>:2375
+# запустіть якусь команду docker щоб подивитися, чи все працює, наприклад, ps
 docker ps
 ```
