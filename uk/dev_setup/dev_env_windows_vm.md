@@ -38,60 +38,60 @@
 1. Перейдіть до створення нової віртуальної машини.
 1. У майстрі створення VM оберіть завантажений ISO образ з Ubuntu як носій установки з якого буде автоматично виявлено операційну систему, яку ви хочете використати.
 1. Також у майстрі, оберіть ресурси, які ви хочете виділити віртуальній машині під час роботи. Виділіть стільки пам'яті та ядер процесора скільки зможете таким чином щоб вашою основною Windows системою можна було продовжити користуватись.
-1. Run your new VM at the end of the wizard and let it install Ubuntu following the setup instructions. Remember all settings are only for within your host operating system usage and hence you can disable any screen saver and local workstation security features which do not increase risk of a network attack.
-1. Once the new VM is booted up make sure you install _VMWare tools drivers and tools extension_ inside your guest system. This will enhance performance and usability of your VM usage:
+1. Запустіть нову VM в кінці майстра та завершіть встановлення Ubuntu відповідно до інструкцій з установки. Запам'ятайте, всі налаштування потрібні тільки для використання у вашій основній операційній системі, тому можна вимкнути будь-який режим збереження екрана та функції безпеки локальні робочої станції, що не збільшують ризик мережевої атаки.
+1. Після того, як нова VM завантажиться, переконайтеся, що ви встановили _допоміжні драйвери та розширення VMWare_ в гостьовій системі. Це підвищить продуктивність та зручність користування віртуальною машиною:
 
-   - Significantly enhanced graphics performance
-   - Proper support for hardware device usage like USB port allocation (important for target upload), proper mouse wheel scrolling, sound support
-   - Guest display resolution adaption to the window size
-   - Clipboard sharing to host system
-   - File sharing to host system
+   - Значно поліпшена продуктивність графіки
+   - Належна підтримка використання апаратного забезпечення, наприклад розподілу портів USB (важливо для завантаження прошивок), прокручування коліщатком миші, підтримка звуку
+   - Адаптація роздільної здатності дисплею гостя до розміру вікна емулятора
+   - Спільний доступ до буфера обміну з основної ОС
+   - Спільний доступ до файлів з основної ОС
 
-1. Continue with [PX4 environment setup for Linux](../dev_setup/dev_env_linux.md)
+1. Переходьте до встановлення середовища [PX4 для Linux](../dev_setup/dev_env_linux.md).
 
-## VirtualBox 7 Setup
+## Налаштування VirtualBox 7
 
-The setup for VirtualBox is similar to VMWare. Community members, we'd welcome a step-by-step guide here!
+Налаштування VirtualBox схоже на VMWare. Учасники спільноти, запрошуємо до створення покрокових інструкцій для цього розділу!
 
-### USB passthrough for QGroundControl / Firmware Flashing
+### Пропускання USB для QGroundControl / запису прошивки
 
 :::tip
-This section has been tested for VirtualBox 7 running Ubuntu 20.04 LTS on a Windows 10 host machine.
+Цей розділ було протестовано на Ubuntu 20.04 LTS яка була запущена у VirtualBox 7 на основній машині з Windows 10.
 :::
 
-One limitation of virtual machines is that you can't automatically connect to a flight controller attached to the host computer USB port in order to [build and upload PX4 firmware from a terminal](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board). You also can't connect to the flight controller from QGroundControl in the virtual machine.
+Єдине обмеження віртуальних машин - ви не можете автоматично під'єднатися до польотного контролера з'єднаного з USB портом основного комп'ютера для того, щоб [зібрати та завантажити прошивку PX4 з термінала](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board). Також, не можна приєднатися до польотного контролера з QGroundControl в віртуальній машині.
 
-To allow this, you need to configure USB passthrough settings:
+Щоб дозволити це, необхідно налаштувати параметри пропуску USB:
 
-1. Ensure that the user has been added to the dialout group in the VM using the terminal command:
+1. Переконайтеся, що користувач був доданий в групу dialout в VM використовуючи команду терміналу:
 
    ```sh
    sudo usermod -a -G dialout $USER
    ```
 
-   Then restart Ubuntu in the virtual machine.
+   Потім перезавантажте Ubuntu у віртуальній машині.
 
-1. Enable serial port(s) in VM: **VirtualBox > Settings > Serial Ports 1/2/3/etc...**
-1. Enable USB controller in VM: **VirtualBox > Settings > USB**
-1. Add USB filters for the bootloader in VM: **VirtualBox > Settings > USB > Add new USB filter**.
+1. Увімкніть послідовний порт(и) в VM: **VirtualBox > Settings > Serial Ports 1/2/3/etc...**
+1. Увімкніть контролер USB у VM: **VirtualBox > Settings > USB**
+1. Додайте фільтри USB для завантажувача в VM: **VirtualBox > Settings > USB > Add new USB filter**.
 
-   - Open the menu and plug in the USB cable connected to your autopilot. Select the `...Bootloader` device when it appears in the UI.
+   - Відкрийте меню і під'єднайте USB-кабель, підключений до автопілота. Оберіть пристрій `...Bootloader` коли він з'явиться в інтерфейсі.
 
      :::note
-The bootloader device only appears for a few seconds after connecting USB.
-If it disappears before you can select it, disconnect and then reconnect USB.
+Пристрій завантажувача з'являється тільки на кілька секунд після під'єднання USB.
+Якщо він зникає до того як ви змогли обрати його, від'єднайте та повторно під'єднайте USB.
 :::
 
-   - Select the `...Autopilot` device when it appears (this happens after the bootloader completes).
+   - Оберіть пристрій `...Autopilot` коли він з'явиться (це станеться коли завантажувач завершить роботу).
 
-1. Select the device in the VM instance's dropdown menu **VirtualBox > Devices > your_device**
+1. Оберіть пристрій у меню що випадає у відкритій VM **VirtualBox > Devices > your_device**
 
-If successful, your device will show up with `lsusb` and QGroundControl will connect to the device automatically. You should also be able to build and upload firmware using a command like:
+У разі успіху ваш пристрій з'явиться у виводі команди `lsusb` і QGroundControl буде підключатися до пристрою автоматично. Ви також матимете можливість збирати та завантажувати прошивку за допомогою команди:
 
 ```sh
 make px4_fmu-v5_default upload
 ```
 
-### Telemetry over WiFi for QGroundControl
+### Телеметрія через WiFi для QGroundControl
 
-If using _QGroundControl_ within a virtual machine you should set the VM networking settings to "Bridged Adapter" mode. This gives the guest OS direct access to networking hardware on the host. If you use the Network Address Translation (NAT), which is set by default for VirtualBox 7 running Ubuntu 20.04 LTS, this will block the outbound UDP packets that QGroundControl uses to communicate with the vehicle.
+При використанні _QGroundControl_ у віртуальній машині, потрібно встановити мережеві параметри VM в режим "Bridged Adapter". Це дає гостьовій ОС прямий доступ до мережевого обладнання на основній машині. If you use the Network Address Translation (NAT), which is set by default for VirtualBox 7 running Ubuntu 20.04 LTS, this will block the outbound UDP packets that QGroundControl uses to communicate with the vehicle.
