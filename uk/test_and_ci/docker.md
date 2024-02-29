@@ -181,77 +181,77 @@ docker rm 45eeb98f1dd9
 
 При виконанні екземпляра симуляції, напр. SITL всередині контейнерів і керування ним через _QGroundControl_ з основного комп'ютера, канали зв'язку потрібно встановити вручну. Функція автопідключення _QGroundControl_ тут не працює.
 
-В _QGroundControl_, перейдіть до [Налаштувань](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) та оберіть Канали зв'язку. Створити новий канал, що використовує UDP-протокол. Номер порту залежить від використаних [налаштувань](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS), наприклад порт 14570 для конфігурації SITL. The IP address is the one of your docker container, usually 172.17.0.1/16 when using the default network. The IP address of the docker container can be found with the following command (assuming the container name is `mycontainer`):
+В _QGroundControl_, перейдіть до [Налаштувань](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) та оберіть Канали зв'язку. Створіть новий канал, що використовує UDP-протокол. Номер порту залежить від використаних [налаштувань](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS), наприклад порт 14570 для конфігурації SITL. IP-адреса є адресою одного з ваших контейнерів, зазвичай це адреса з мережі 172.17.0.1/16 при використанні мережі за замовчуванням. IP-адресу Docker контейнера можна знайти за допомогою наступної команди (якщо припустити, що ім'я контейнера `mycontainer`):
 
 ```sh
 $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}' mycontainer
 ```
 
 :::note
-Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook).
+Проміжки між подвійними фігурними дужками не повинні бути (вони потрібні для уникнення проблем з візуалізацією у gitbook).
 :::
 
-### Troubleshooting
+### Усунення проблем
 
-#### Permission Errors
+#### Помилки з правами доступу
 
-The container creates files as needed with a default user - typically "root". This can lead to permission errors where the user on the host computer is not able to access files created by the container.
+Контейнер створює файли, необхідні для роботи від імені стандартного користувача, як правило, "root". Це може призвести до помилок прав доступу, коли користувач на основному комп'ютері не має доступу до файлів, створених контейнером.
 
-The example above uses the line `--env=LOCAL_USER_ID="$(id -u)"` to create a user in the container with the same UID as the user on the host. This ensures that all files created within the container will be accessible on the host.
+Приклад вище використовує рядок `--env=LOCAL_USER_ID="$(id -u)"`, щоб створити користувача в контейнері з тим же UID що і користувач на основній машині. Це гарантує, що всі файли, створені у контейнері, будуть доступні з основного комп'ютера.
 
-#### Graphics Driver Issues
+#### Проблеми з драйверами графіки
 
-It's possible that running Gazebo Classic will result in a similar error message like the following:
+Можливо, що запуск Gazebo Classic призведе до подібного повідомлення про помилку:
 
 ```sh
 libGL error: failed to load driver: swrast
 ```
 
-In that case the native graphics driver for your host system must be installed. Download the right driver and install it inside the container. For Nvidia drivers the following command should be used (otherwise the installer will see the loaded modules from the host and refuse to proceed):
+У цьому випадку необхідно встановити нативний графічний драйвер для вашої системи. Завантажте відповідний драйвер і встановіть його всередині контейнера. Для драйверів Nvidia слід використовувати наступну команду (інакше встановлювач побачить завантажені модулі на головній машині та відмовиться продовжувати):
 
 ```sh
 ./NVIDIA-DRIVER.run -a -N --ui=none --no-kernel-module
 ```
 
-More information on this can be found [here](http://gernotklingler.com/blog/howto-get-hardware-accelerated-opengl-support-docker/).
+Більше інформації можна знайти [тут](http://gernotklingler.com/blog/howto-get-hardware-accelerated-opengl-support-docker/).
 
 <a id="virtual_machine"></a>
 
-## Virtual Machine Support
+## Підтримка віртуальних машин
 
-Any recent Linux distribution should work.
+Будь-який останній дистрибутив Linux повинен працювати.
 
-The following configuration is tested:
+Наступна конфігурація протестована:
 
-- OS X with VMWare Fusion and Ubuntu 14.04 (Docker container with GUI support on Parallels make the X-Server crash).
+- OS X з підтримкою VMWare Fusion і Ubuntu 14.04 (Docker контейнер з підтримкою GUI в Parallels призводить до падіння X-Server).
 
-**Memory**
+**Оперативна Пам'ять**
 
-Use at least 4GB memory for the virtual machine.
+Потрібно не менше 4 ГБ пам'яті для віртуальної машини.
 
-**Compilation problems**
+**Проблеми компіляції**
 
-If compilation fails with errors like this:
+Якщо компіляція завершується з помилками на кшталт:
 
 ```sh
 The bug is not reproducible, so it is likely a hardware or OS problem.
 c++: internal compiler error: Killed (program cc1plus)
 ```
 
-Try disabling parallel builds.
+Спробуйте вимкнути паралельну збірку.
 
-**Allow Docker Control from the VM Host**
+**Дозволити керувати Docker з основної машини для VM**
 
-Edit `/etc/defaults/docker` and add this line:
+Змініть `/etc/defaults/docker` і додайте наступний рядок:
 
 ```sh
 DOCKER_OPTS="${DOCKER_OPTS} -H unix:///var/run/docker.sock -H 0.0.0.0:2375"
 ```
 
-You can then control docker from your host OS:
+Тепер можна керувати docker на вашій основній ОС:
 
 ```sh
-export DOCKER_HOST=tcp://<ip of your VM>:2375
-# run some docker command to see if it works, e.g. ps
+експорт DOCKER_HOST=tcp://<ip of your VM>:2375
+# запустіть якусь команду docker щоб подивитися, чи все працює, наприклад, ps
 docker ps
 ```
