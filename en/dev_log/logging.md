@@ -105,17 +105,17 @@ The **SanDisk Extreme U3 32GB** and **Samsung EVO Plus 32** are known to be reli
 
 The table below shows the **mean sequential write speed [KB/s]** / **maximum write time per block (average) [ms]** for F4- (Pixracer), F7-, and H7-based flight controllers.
 
-| SD Card                                                       | F4           | F7  | H7  |
-| ------------------------------------------------------------- | ------------ | --- | --- |
-| SanDisk Extreme U3 32GB                                       | 461 / **15** | ?/? | ?/? |
-| Samsung EVO Plus 32                                           | ?/?          | ?/? | ?/? |
-| Sandisk Ultra Class 10 8GB                                    | 348 / 40     | ?/? | ?/? |
-| Sandisk Class 4 8GB                                           | 212 / 60     | ?/? | ?/? |
-| SanDisk Class 10 32 GB (High Endurance Video Monitoring Card) | 331 / 220    | ?/? | ?/? |
-| Lexar U1 (Class 10), 16GB High-Performance                    | 209 / 150    | ?/? | ?/? |
-| Sandisk Ultra PLUS Class 10 16GB                              | 196 /500     | ?/? | ?/? |
-| Sandisk Pixtor Class 10 16GB                                  | 334 / 250    | ?/? | ?/? |
-| Sandisk Extreme PLUS Class 10 32GB                            | 332 / 150    | ?/? | ?/? |
+| SD Card                                                       | F4            | F7         | H7        |
+| ------------------------------------------------------------- | ------------- | ---------- | --------- |
+| SanDisk Extreme U3 32GB                                       | 1500 / **15** | 1800/10    | 2900/8    |
+| Samsung EVO Plus 32GB                                         | 1700/10-60    | 1800/10-60 | 1900/9-60 |
+| Sandisk Ultra Class 10 8GB                                    | 348 / 40      | ?/?        | ?/?       |
+| Sandisk Class 4 8GB                                           | 212 / 60      | ?/?        | ?/?       |
+| SanDisk Class 10 32 GB (High Endurance Video Monitoring Card) | 331 / 220     | ?/?        | ?/?       |
+| Lexar U1 (Class 10), 16GB High-Performance                    | 209 / 150     | ?/?        | ?/?       |
+| Sandisk Ultra PLUS Class 10 16GB                              | 196 /500      | ?/?        | ?/?       |
+| Sandisk Pixtor Class 10 16GB                                  | 334 / 250     | ?/?        | ?/?       |
+| Sandisk Extreme PLUS Class 10 32GB                            | 332 / 150     | ?/?        | ?/?       |
 
 Logging bandwidth with the default topics is around 50 KB/s, which almost all SD cards satisfy in terms of their mean sequential write speed.
 
