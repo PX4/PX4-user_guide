@@ -94,4 +94,4 @@ make px4_fmu-v5_default upload
 
 ### Телеметрія через WiFi для QGroundControl
 
-При використанні _QGroundControl_ у віртуальній машині, потрібно встановити мережеві параметри VM в режим "Bridged Adapter". Це дає гостьовій ОС прямий доступ до мережевого обладнання на основній машині. If you use the Network Address Translation (NAT), which is set by default for VirtualBox 7 running Ubuntu 20.04 LTS, this will block the outbound UDP packets that QGroundControl uses to communicate with the vehicle.
+При використанні _QGroundControl_ у віртуальній машині, потрібно встановити мережеві параметри VM в режим "Bridged Adapter". Це дає гостьовій ОС прямий доступ до мережевого обладнання на основній машині. Якщо ви використовуєте режим трансляції мережевих адрес (NAT), який встановлюється за замовчуванням для VirtualBox 7 для Ubuntu 20.04 LTS, це заблокує вихідні UDP-пакети, які використовує QGroundControl для зв'язку з рухомим засобом.
