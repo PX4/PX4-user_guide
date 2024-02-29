@@ -6,38 +6,38 @@
 Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, які підтримуються основною командою розробників.
 :::
 
-Розробники на Windows можуть використовувати інструментарій PX4 у віртуальній машині (VM) з гостьовою операційною системою Linux. After setting up the virtual machine, the installation and setup of PX4 within the VM is exactly the same as on a native Linux computer.
+Розробники на Windows можуть використовувати інструментарій PX4 у віртуальній машині (VM) з гостьовою операційною системою Linux. Після створення віртуальної машини, установка та налаштування PX4 у VM така сама, як і на звичайному комп'ютері з Linux.
 
-While using a VM is a very easy way to set up and test an environment for building firmware, users should be aware:
+Хоч використання віртуальної машини - це простий спосіб налаштувати та протестувати середовище для збірки прошивки, користувачі повинні взяти до уваги:
 
-1. Firmware building will be slower than native building on Linux.
-1. The JMAVSim simulation, frame rate be much slower than on native Linux. In some cases the vehicle may crash due to issues related to insufficient VM resources.
-1. Gazebo and ROS can be installed, but are unusably slow.
+1. Збірка прошивки буде повільніша, ніж нативна збірка на Linux.
+1. У симуляції JMAVSim частота кадрів набагато повільніша, ніж на рідному Linux. В деяких випадках засіб може розбитися через проблеми, пов'язані з недостатніми ресурсами віртуальної машини.
+1. Gazebo та ROS встановлюються, але повільні настільки що ними неможливо користуватись.
 
 :::tip
-Allocate as many CPU cores and memory resources to the VM as possible.
+Виділіть якомога більше ресурсів процесора і пам'яті для VM.
 :::
 
-There are multiple ways to setup a VM which is capable of executing the PX4 environment on your system. This guide walks you through a VMWare setup. There is also an incomplete section for VirtualBox at the end (we'd welcome expansion of this section from a community member).
+Існує кілька способів налаштування VM, яка здатна виконувати PX4 середовище на вашій системі. Цей посібник допоможе вам налаштувати VMWare. В кінці є неповний розділ для VirtualBox (і ми запрошуємо до розширення цього розділу когось з членів спільноти).
 
-## VMWare Setup
+## Налаштування VMWare
 
-VMWare performance is acceptable for basic usage (building Firmware) but not for running ROS or Gazebo Classic.
+Ефективність VMWare прийнятна для основного застосування (збірки прошивки) але не для запуску ROS чи Gazebo Classic.
 
-1. Download [VMWare Player Freeware](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)
-1. Install it on your Windows system
-1. Download the desired version of [Ubuntu Desktop ISO Image](https://www.ubuntu.com/download/desktop). (see [Linux Instructions Page](../dev_setup/dev_env_linux.md) for recommended Ubuntu version).
-1. Open _VMWare Player_.
-1. Enable 3D acceleration in the VM's settings: **VM > Settings > Hardware > Display > Accelerate 3D graphics**
+1. Завантажте [VMWare Player Freeware](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)
+1. Установіть його на вашу Windows систему
+1. Завантажте бажану версію [ISO образу Ubuntu Desktop](https://www.ubuntu.com/download/desktop). (див. [сторінку інструкцій для Linux](../dev_setup/dev_env_linux.md) для рекомендованої версії Ubuntu).
+1. Відкрийте _VMWare Player_.
+1. Увімкніть 3D прискорення в налаштуваннях VM: **VM > Settings > Hardware > Display > Accelerate 3D graphics**
 
    :::note
-This option is required to properly run 3D simulation environments like jMAVSim and Gazebo Classic.
-We recommend this is done before installing Linux in the virtual environment.
+Цей параметр необхідний для належного запуску 3D середовищ симуляції на зразок jMAVSim та Gazebo Classic.
+Рекомендуємо зробити це перед встановленням Linux у віртуальному середовищі.
 :::
 
-1. Select the option to create a new virtual machine.
-1. In the VM creation wizard choose the downloaded Ubuntu ISO image as your installation medium and will automatically detect the operating system you want to use.
-1. Also in the wizard, select the resources you want to allocate to your virtual machine while it is running. Allocate as much memory and as many CPU cores as you can without rendering your host Windows system unusable.
+1. Перейдіть до створення нової віртуальної машини.
+1. У майстрі створення VM оберіть завантажений ISO образ з Ubuntu як носій установки з якого буде автоматично виявлено операційну систему, яку ви хочете використати.
+1. Також у майстрі, оберіть ресурси, які ви хочете виділити віртуальній машині під час роботи. Виділіть стільки пам'яті та ядер процесора скільки зможете таким чином щоб вашою основною Windows системою можна було продовжити користуватись.
 1. Run your new VM at the end of the wizard and let it install Ubuntu following the setup instructions. Remember all settings are only for within your host operating system usage and hence you can disable any screen saver and local workstation security features which do not increase risk of a network attack.
 1. Once the new VM is booted up make sure you install _VMWare tools drivers and tools extension_ inside your guest system. This will enhance performance and usability of your VM usage:
 
