@@ -1,21 +1,21 @@
-# Windows Development Environment (WSL2-Based)
+# Середовище розробки Windows (засноване на WSL2)
 
-The following instructions explain how to set up a PX4 development environment on Windows 10 or 11, running on Ubuntu Linux within [WSL2](https://docs.microsoft.com/en-us/windows/wsl/about).
+Наступні інструкції пояснюють як налаштувати середовище розробки PX4 на Windows 10 або 11, запущене на Ubuntu Linux у [WSL2](https://docs.microsoft.com/en-us/windows/wsl/about).
 
-This environment can be used to build PX4 for:
+Це середовище може бути використане для збірки PX4 для:
 
-- [Pixhawk and other NuttX-based hardware](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
-- [Gazebo Simulation](../sim_gazebo_gz/README.md)
-- [Gazebo-Classic Simulation](../sim_gazebo_classic/README.md)
-- [jMAVSim Simulation](../sim_jmavsim/README.md)
+- [Pixhawk та іншого апаратного забезпечення на основі NuttX](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
+- [Симуляція Gazebo](../sim_gazebo_gz/README.md)
+- [Симуляція Gazebo Classic](../sim_gazebo_classic/README.md)
+- [Симуляція jMAVSim](../sim_jmavsim/README.md)
 
 :::tip
-This setup is supported by the PX4 dev team.
-The environment should in theory be able to build any target that can be built on Ubuntu.
-The list above are those targets that have been tested.
+Ця установка підтримується командою розробників PX4.
+Середовище в теорії має бути здатне збирати будь-яку ціль збірки, яку можна зібрати на Ubuntu.
+Список вище - ті цілі, що були перевірені.
 :::
 
-## Overview
+## Загальний огляд
 
 The [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about) ([WSL2](https://docs.microsoft.com/en-us/windows/wsl/compare-versions)) allows users to install and run the [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) on Windows, _almost_ as though we were running it on a Linux computer.
 
