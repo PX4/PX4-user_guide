@@ -42,60 +42,59 @@ _QGroundControl для Windows_ необхідна додатково, якщо 
 
 ### Встановлення WSL2
 
-To install WSL2 with Ubuntu on a new installation of Windows 10 or 11:
+Щоб встановити WSL2 з Ubuntu на новій установці Windows 10 або 11:
 
-1. Make sure your computer your computer's virtualization feature is enabled in the BIOS. It's usually referred as "Virtualization Technology", "Intel VT-x" or "AMD-V" respectively
-1. Open _cmd.exe_ as administrator. This can be done by pressing the start key, typing `cmd`, right-clicking on the _Command prompt_ entry and selecting **Run as administrator**.
-1. Execute the following commands to install WSL2 and a particular Ubuntu version:
+1. Переконайтеся, що функція віртуалізації увімкнена в BIOS вашого комп'ютера. Зазвичай її називають "Virtualization Technology", "Intel VT-x" чи "AMD-V" відповідно.
+1. Відкрийте _cmd.exe_ від імені адміністратора. Це можна зробити натиснувши кнопку "Пуск", надрукувати `cmd`, натиснути правою кнопкою миші на пункті _Command prompt_ та обрати **Run as administrator**.
+1. Виконайте наступні команди для встановлення WSL2 та певної версії Ubuntu:
 
-   - Default version (Ubuntu 22.04):
+   - Версія за замовчуванням (Ubuntu 22.04):
 
      ```sh
      wsl --install
      ```
 
-   - Ubuntu 20.04 ([Gazebo-Classic Simulation](../sim_gazebo_classic/README.md))
+   - Ubuntu 20.04 ([Симуляція Gazebo-Classic](../sim_gazebo_classic/README.md))
 
      ```sh
      wsl --install -d Ubuntu-20.04
      ```
 
-   - Ubuntu 22.04 ([Gazebo Simulation](../sim_gazebo_gz/README.md))
+   - Ubuntu 22.04 ([Симуляція Gazebo](../sim_gazebo_gz/README.md))
 
      ```sh
      wsl --install -d Ubuntu-22.04
      ```
 
 :::note
-You can also install[Ubuntu 20.04](https://www.microsoft.com/store/productId/9MTTCL66CPXJ) and [Ubuntu 22.04](https://www.microsoft.com/store/productId/9PN20MSR04DW) from the store, which allows you to delete the application using the normal Windows Add/Remove settings:
-:::
+Ви також можете встановити[Ubuntu 20.04](https://www.microsoft.com/store/productId/9MTTCL66CPXJ) та [Ubuntu 22.04](https://www.microsoft.com/store/productId/9PN20MSR04DW) з магазину застосунків, який дозволяє видалити програму за допомогою звичайної функції Windows Додати/Видалити: ::
 
-1. WSL will prompt you for a user name and password for the Ubuntu installation. Record these credentials as you will need them later on!
+1. WSL запитає про ім'я користувача та пароль для встановлення Ubuntu. Запишіть ці облікові дані, оскільки вони знадобляться пізніше!
 
-The command prompt is now a terminal within the newly installed Ubuntu environment.
+Тепер командний рядок є терміналом в нововстановленому середовищі Ubuntu.
 
-### Opening a WSL Shell
+### Відкриття оболонки WSL
 
-All operations to install and build PX4 must be done within a WSL Shell (you can use the same shell that was used to install WSL2 or open a new one).
+Всі операції для встановлення та збірки PX4 повинні бути виконані в оболонці WSL (можна використати ту саму оболонку в якій встановлювалася WSL2 або відкрити нову).
 
-If you're using [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/install) you can open a shell into an installed WSL environment as shown, and exit it by closing the tab.
+Якщо ви використовуєте [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/install) ви можете відкрити консоль у встановленому WSL середовищі, як показано, та вийти з нього, закривши вкладку.
 
 ![Windows Terminal showing how to select a Ubuntu shell](../../assets/toolchain/wsl_windows_terminal.png)
 
-To open a WSL shell using a command prompt:
+Щоб відкрити оболонку WSL за допомогою командного рядка:
 
-1. Open a command prompt:
+1. Відкрийте командний рядок:
 
-   - Press the Windows **Start** key.
-   - Type `cmd` and press **Enter** to open the prompt.
+   - Натисніть кнопку Windows **Пуск**.
+   - Введіть `cmd` і натисніть **Enter**, щоб відкрити консоль.
 
-1. To start WSL and access the WSL shell, execute the command:
+1. Щоб запустити WSL і отримати доступ до WSL оболонки, виконайте команду:
 
    ```sh
    wsl -d <distribution_name>
    ```
 
-   For example:
+   Наприклад:
 
    ```sh
    wsl -d Ubuntu
@@ -105,16 +104,16 @@ To open a WSL shell using a command prompt:
    wsl -d Ubuntu-20.04
    ```
 
-   If you only have one version of Ubuntu, you can just use `wsl`.
+   Якщо у вас тільки одна версія Ubuntu, ви можете просто використати `wsl`.
 
-Enter the following commands to first close the WSL shell, and then shut down WSL:
+Введіть наступні команди, щоб спочатку закрити WSL оболонку, а потім завершити WSL:
 
 ```sh
 exit
 wsl -d <distribution_name> --shutdown
 ```
 
-Alternatively, after entering `exit` you can just close the prompt.
+Як варіант, після введення `exit` можна просто закрити консоль.
 
 ### Install PX4 Toolchain
 
