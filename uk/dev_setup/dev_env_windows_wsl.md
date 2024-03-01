@@ -79,7 +79,7 @@ _QGroundControl для Windows_ необхідна додатково, якщо 
 
 Якщо ви використовуєте [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/install) ви можете відкрити консоль у встановленому WSL середовищі, як показано, та вийти з нього, закривши вкладку.
 
-![Windows Terminal showing how to select a Ubuntu shell](../../assets/toolchain/wsl_windows_terminal.png)
+![Windows Terminal показує, як вибрати оболонку Ubuntu](../../assets/toolchain/wsl_windows_terminal.png)
 
 Щоб відкрити оболонку WSL за допомогою командного рядка:
 
@@ -208,7 +208,7 @@ VS Code на Windows добре інтегрований з WSL.
 
 ## QGroundControl
 
-Для підключення до запущеної симуляції, ви можете запустити QGroundControl або в WSL або у Windows. Якщо вам потрібно [завантажити у плату керування польотом](#flash-a-flight-control-board) нову прошивку, ви можете зробити це лише у QGroundControl для Windows.
+Для підключення до запущеної симуляції, ви можете запустити QGroundControl або в WSL або у Windows. Якщо вам потрібно [записати у плату керування польотом](#flash-a-flight-control-board) нову прошивку, ви можете зробити це лише у QGroundControl для Windows.
 
 ### QGroundControl у WSL
 
@@ -238,12 +238,12 @@ QGroundControl запуститься та автоматично приєдна
 
 ### QGroundcontrol на Windows
 
-Install [QGroundControl on Windows](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html#windows) if you want to be able to update hardware with firmware created within PX4.
+Встановіть [QGroundControl для Windows](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html#windows) якщо ви хочете мати змогу оновити апаратне забезпечення за допомогою прошивки, створеної у PX4.
 
-These steps describe how you can connect to the simulation running in the WSL:
+Ці кроки описують, як ви можете під'єднатися до симуляції, яке працює в WSL:
 
-1. [Open a WSL shell](#opening-a-wsl-shell)
-2. Check the IP address of the WSL virtual machine by running the command `ip addr | grep eth0`:
+1. [Відкрийте оболонку WSL](#opening-a-wsl-shell)
+2. Перевірте IP-адресу віртуальної машини WSL запустивши команду `ip addr | grep eth0`:
 
    ```sh
    $ ip addr | grep eth0
@@ -252,49 +252,49 @@ These steps describe how you can connect to the simulation running in the WSL:
        inet 172.18.46.131/20 brd 172.18.47.255 scope global eth0
    ```
 
-   Copy the first part of the `eth0` interface `inet` address to the clipboard. In this case: `172.18.46.131`.
+   Скопіюйте першу `inet` частину адреси інтерфейсу `eth0` у буфер обміну. В цьому випадку: `172.18.46.131`.
 
-3. In QGC go to **Q > Application Settings > Comm Links**
-4. Add a UDP Link called "WSL" to port `18570` of the IP address copied above.
-5. Save it and connect to it.
+3. У QGC перейдіть у **Q > Налаштування додатку > Канали зв'язку**
+4. Додайте UDP канал з назвою "WSL" до порту `18570` з IP-адресою скопійованою вище.
+5. Збережіть і під'єднайтеся до нього.
 
 :::note
-You will have to update the WSL comm link in QGC every time WSL restarts (because it gets a dynamic IP address).
+Вам доведеться оновляти канал зв'язку з WSL у QGC щоразу, коли WSL буде перезапущено (тому що вона отримує динамічну IP-адресу).
 :::
 
-## Flash a Flight Control Board
+## Прошивка плати керування польотом
 
-Flashing a custom built PX4 binary has to be done using [QGroundControl for Windows](#qgroundcontrol-on-windows) since WSL2 does not natively offer direct access to serial devices like Pixhawk boards.
+Запис нестандартного двійкового файлу PX4 повинно бути зроблено за допомогою [QGroundControl для Windows](#qgroundcontrol-on-windows), оскільки WSL2 не надає прямий доступ до послідовних пристроїв, таких як плати Pixhawk.
 
-Do the following steps to flash your custom binary built in WSL:
+Зробіть наступні кроки для прошивки вашого бінарного файлу, зібраного у WSL:
 
-1. If you haven't already build the binary in WSL e.g. with a [WSL shell](dev_env_windows_wsl.md#opening-a-wsl-shell) and by running:
+1. Зберіть, якщо ще це не зробили, бінарний файл у WSL, тобто за допомогою [WSL shell](dev_env_windows_wsl.md#opening-a-wsl-shell) та виконавши:
 
    ```sh
    cd ~/PX4-Autopilot
    make px4_fmu-v5
    ```
 
-   Note: Use the correct target for your board. "px4_fmu-v5" can be used for a Pixhawk 4 board.
+   Примітка: використовуйте правильну ціль збірки для вашої плати. Для плати Pixhawk 4 можна використати "px4_fmu-v5".
 
-1. Detach the USB cable of your Pixhawk board from the computer if it was plugged.
-1. Open QGC.
-1. In QGC go to **Q > Vehicle Setup > Firmware**
-1. Plug your pixhawk board via USB
-1. Once connected select "PX4 Flight Stack", check "Advanced settings" and choose "Custom firmware file ..." from the drop down below.
-1. Continue and select the firmware binary you just built before. In the open dialog look for the "Linux" location with the penguin icon in the left pane. It's usually all the way at the bottom. Choose the file in the path: `Ubuntu\home\{your WSL user name}\PX4-Autopilot\build\{your build target}\{your build target}.px4`
+1. Від'єднайте USB-кабель плати Pixhawk від комп'ютера, якщо він був підключений.
+1. Відкрийте QGC.
+1. У QGC перейдіть у **Q > Налаштування рухомого засобу > Прошивка**
+1. Під'єднайте Pixhawk плату через USB
+1. Після підключення оберіть "Польотний набір PX4", відмітьте "Просунуті налаштування" і оберіть "Користувацький файл прошивки ..." зі списку що розкрився нижче.
+1. Оберіть бінарний файл прошивки, який ви щойно зібрали. У відкритому діалозі знайдіть розташування "Linux" з іконкою пінгвіна на лівій панелі. Зазвичай, вона в самому низу. Оберіть файл за шляхом: `Ubuntu\home\{ваш користувач у WSL}\PX4-Autopilot\build\{ціль збурки}\{ціль збірки}.px4`
 
    :::note
-You can add the folder to the favourites to access it quickly next time.
+Ви можете додати директорію до обраного, щоб швидко отримати доступ до неї.
 :::
 
-1. Start the flashing.
+1. Почніть прошивку.
 
-## Troubleshooting
+## Усунення проблем
 
-If you have any problems with your setup, check the current [Microsoft WSL installation documentation](https://learn.microsoft.com/en-us/windows/wsl/install).
+Якщо маєте будь-які проблеми з установкою, перевірте наявну [документацію із встановлення Microsoft WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
 
-We also recommend that you have the latest Windows GPU drivers installed and also install a recent version of [kisak mesa](https://launchpad.net/~kisak/+archive/ubuntu/kisak-mesa) in your Ubuntu environment so that most OpenGL features get emulated:
+Ми також рекомендуємо мати останню версію Windows-драйвера GPU, а також встановити останню версію [kisak mesa](https://launchpad.net/~kisak/+archive/ubuntu/kisak-mesa) в середовищі Ubuntu для того, щоб більшість емулювалась більшість функцій OpenGL:
 
 ```sh
 sudo add-apt-repository ppa:kisak/kisak-mesa
