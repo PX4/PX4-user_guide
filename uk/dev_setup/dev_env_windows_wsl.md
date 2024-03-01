@@ -5,9 +5,9 @@
 Це середовище може бути використане для збірки PX4 для:
 
 - [Pixhawk та іншого апаратного забезпечення на основі NuttX](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
-- [Симуляція Gazebo](../sim_gazebo_gz/README.md)
-- [Симуляція Gazebo Classic](../sim_gazebo_classic/README.md)
-- [Симуляція jMAVSim](../sim_jmavsim/README.md)
+- [Симуляції Gazebo](../sim_gazebo_gz/README.md)
+- [Симуляції Gazebo Classic](../sim_gazebo_classic/README.md)
+- [Симуляції jMAVSim](../sim_jmavsim/README.md)
 
 :::tip
 Ця установка підтримується командою розробників PX4.
@@ -17,30 +17,30 @@
 
 ## Загальний огляд
 
-The [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about) ([WSL2](https://docs.microsoft.com/en-us/windows/wsl/compare-versions)) allows users to install and run the [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) on Windows, _almost_ as though we were running it on a Linux computer.
+[Windows Subsystem для Linux](https://docs.microsoft.com/en-us/windows/wsl/about) ([WSL2](https://docs.microsoft.com/en-us/windows/wsl/compare-versions)) дозволяє користувачам встановлювати й запускати [середовище розробки Ubuntu](../dev_setup/dev_env_linux_ubuntu.md) на Windows, _майже_ так само як би його запустили на комп'ютері Linux.
 
-With this environment developers can:
+В цьому середовищі розробники можуть:
 
-- Build any simulator or hardware target supported by [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) in the WSL Shell. (Ubuntu is the best supported and tested PX4 development platform).
-- Debug code in [Visual Studio Code](dev_env_windows_wsl.md#visual-studio-code-integration) running on Windows.
-- Monitor a _simulation_ using _QGroundControl for Linux_ running in WSL. QGC for Linux connects automatically to the simulation.
+- Зібрати в оболонці WSL будь-який симулятор або цільову апаратну платформу, яка підтримується [середовищем розробки Ubuntu](../dev_setup/dev_env_linux_ubuntu.md). (Ubuntu є платформою розробки PX4, яка підтримується та протестована найкраще).
+- Налагоджувати код в [Visual Studio Code](dev_env_windows_wsl.md#visual-studio-code-integration) запущений на Windows.
+- Спостерігати за _симуляцією_, яка запущена в WSL використовуючи _QGroundControl для Linux_. QGC для Linux автоматично під'єднується до симуляції.
 
-_QGroundControl for Windows_ is additionally required if you need to:
+_QGroundControl для Windows_ необхідна додатково, якщо потрібно:
 
-- [Update firmware](#flash-a-flight-control-board) on a real vehicle.
-- Monitor a real vehicle. Note that you can also use it to monitor a simulation, but you must manually [connect to the simulation running in WSL](#qgroundcontrol-on-windows).
+- [Поновлення прошивки](#flash-a-flight-control-board) на реальному рухомому засобі.
+- Спостерігати за справжнім засобом. Зауважте, що також можна спостерігати за симуляцією, але потрібно вручну [під'єднатися до симуляції, що запущена у WSL](#qgroundcontrol-on-windows).
 
 :::note
-Connecting to a USB device from within WSL is not supported, so you can't update firmware using the [`upload`](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board) option when building on the command line, or from _QGroundControl for Linux_.
+Підключення до USB пристрою з WSL не підтримується, тому неможливо поновити прошивку за допомогою параметру [`upload`](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board) під час збірки у командній оболонці, або з _QGroundControl для Linux_.
 :::
 
 :::note
-The approach is similar to installing PX4 in your _own_ virtual machine, as described in [Windows VM-Hosted Toolchain](../dev_setup/dev_env_windows_vm.md). The benefit of WSL2 is that its virtual machine is deeply integrated into Windows, system-managed, and performance optimised.
+Цей підхід схожий на встановлення PX4 на _власну_ віртуальну машину, як описано в [інструментарії на VM Windows](../dev_setup/dev_env_windows_vm.md). Перевага WSL2 полягає в тому, що її віртуальна машина глибоко інтегрована в Windows, керується системою та оптимізована для ефективності.
 :::
 
-## Installation
+## Встановлення
 
-### Install WSL2
+### Встановлення WSL2
 
 To install WSL2 with Ubuntu on a new installation of Windows 10 or 11:
 
