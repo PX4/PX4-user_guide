@@ -1,14 +1,14 @@
 # Qt Creator IDE
 
 :::warning
-This development environment is [community supported and maintained](../advanced/community_supported_dev_env.md). It may or may not work with current versions of PX4.
+Це середовище розробки [підтримується та утримується спільнотою](../advanced/community_supported_dev_env.md). Воно може працювати або не працювати з поточними версіями PX4.
 
-Qt Creator has been replaced by [VSCode](../dev_setup/vscode.md) as the officially supported (and recommended) IDE for PX4 development. See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+Qt Creator було замінено на [VSCode](../dev_setup/vscode.md), який офіційно підтримується (і рекомендується) в якості IDE для розробки з PX4. Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, які підтримуються основною командою розробників.
 :::
 
-[Qt Creator](https://www.qt.io/download-open-source) is a popular cross-platform open-source IDE that can be used to compile and debug PX4.
+[Qt Creator](https://www.qt.io/download-open-source) - це популярний IDE для багатьох платформ з відкритим вихідним кодом, який може бути використаний для компіляції та налагодження PX4.
 
-## Qt Creator Functionality
+## Функціональні можливості Qt Creator
 
 Qt creator offers clickable symbols, auto-completion of the complete codebase and building and flashing firmware.
 
