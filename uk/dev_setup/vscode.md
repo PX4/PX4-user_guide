@@ -23,16 +23,16 @@
 1. [Завантажте та встановіть VSCode](https://code.visualstudio.com/) (вам буде запропоновано правильну версію для вашої ОС).
 1. Відкрийте VSCode і додайте вихідний код PX4:
 
-   - Оберіть _Open folder ..._ варіант на вітальній сторінці (або використовуючи меню:  **File > Open Folder**): ![Open Folder](../../assets/toolchain/vscode/welcome_open_folder.jpg)
+   - Оберіть _Open folder ..._ варіант на вітальній сторінці (або використовуючи меню:  **File > Open Folder**): ![Відкрити каталог](../../assets/toolchain/vscode/welcome_open_folder.jpg)
    - З'явиться діалогове вікно вибору файлу. Оберіть директорію **PX4-Autopilot** та натисніть **OK**.
 
    Файли та налаштування проєкту будуть завантажені в _VSCode_.
 
-1. Натисніть **Install All** на підказці _This workspace has extension recommendations_ (вона з'явиться в нижній правій частині IDE). ![Install extensions](../../assets/toolchain/vscode/prompt_install_extensions.jpg)
+1. Натисніть **Install All** на підказці _This workspace has extension recommendations_ (вона з'явиться в нижній правій частині IDE). ![Встановити розширення](../../assets/toolchain/vscode/prompt_install_extensions.jpg)
 
    VSCode відкриє панель _Extensions_ в лівій частині тому ви зможете спостерігати за прогресом установки.
 
-   ![PX4 loaded into VSCode Explorer](../../assets/toolchain/vscode/installing_extensions.jpg)
+   ![PX4 завантажено в VSCode Explorer](../../assets/toolchain/vscode/installing_extensions.jpg)
 
 1. Багато повідомлень/підказок може з'явитися в правому нижньому куті
 
@@ -54,7 +54,7 @@
 
 1. Оберіть свою ціль збірки ("cmake build config"):
 
-   - Поточна _ціль збірки cmake_ показується на синій панелі _config_ внизу (якщо це бажана ціль, пропустіть наступний крок). ![Select Cmake build target](../../assets/toolchain/vscode/cmake_build_config.jpg)
+   - Поточна _ціль збірки cmake_ показується на синій панелі _config_ внизу (якщо це бажана ціль, пропустіть наступний крок). ![Вибрати ціль збірки Cmake](../../assets/toolchain/vscode/cmake_build_config.jpg)
 
 :::note
 Ціль збірки cmake яку ви обрали впливає на цілі, які пропонуються при  [збірці/налагодженні](#debugging) (наприклад для апаратного налагодження потрібно обрати цільову платформу на кшталт `px4_fmu-v5`).
@@ -64,7 +64,7 @@
    - _Cmake_ згодом налаштує ваш проєкт (див. сповіщення внизу праворуч). ![Cmake config project](../../assets/toolchain/vscode/cmake_configuring_project.jpg)
    - Зачекайте, поки налаштування завершиться. Коли це буде зроблено, сповіщення зникнуть і буде показано розташування збірки: ![Cmake config project](../../assets/toolchain/vscode/cmake_configuring_project_done.jpg).
 
-1. Тоді ви зможете почати збірку з панелі config (оберіть або **Build** або **Debug**). ![Run debug or build](../../assets/toolchain/vscode/run_debug_build.jpg)
+1. Тоді ви зможете почати збірку з панелі config (оберіть або **Build** або **Debug**). ![Запустити налагодження або зібрати](../../assets/toolchain/vscode/run_debug_build.jpg)
 
 Після збірки принаймні раз ви зможете використовувати автодоповнення коду та інші функції _VSCode_.
 
@@ -76,7 +76,7 @@
 
 Для налагодження PX4 в SITL:
 
-1. Виберіть іконку debug на бічній панелі (позначена червоним) щоб показати панель налагодження.![Run debug](../../assets/toolchain/vscode/vscode_debug.jpg)
+1. Виберіть іконку debug на бічній панелі (позначена червоним) щоб показати панель налагодження.![Запустити налагодження](../../assets/toolchain/vscode/vscode_debug.jpg)
 
 1. Потім виберіть ціль для налагодження (наприклад, _Debug SITL (Gazebo Iris)_ з верхньої панелі налагодження (позначено пурпуровою рамкою).
 
@@ -93,30 +93,30 @@
 
 Інструкції в розділі [Порт налагодження SWD](../debug/swd_debug.md) пояснюють як під'єднатися для інтерфейсу SWD на розповсюджених політних контролерах (наприклад, використовуючи зонди Dronecode або Blackmagic).
 
-After connecting to the SWD interface, hardware debugging in VSCode is then the same as for [SITL Debugging](#debugging_sitl) except that you select a debug target appropriate for your debugger type (and firmware) - e.g. `jlink (px4_fmu-v5)`.
+Після під'єднання до інтерфейсу SWD, апаратне налагодження в VSCode таке ж саме як і для [Налагодження SITL](#debugging_sitl), за винятком того, що обирається ціль налагодження відповідна до типу налагоджувача (та прошивки), наприклад `jlink (px4_fmu-v5)`.
 
 :::tip
-To see the `jlink` option you must have selected a [cmake target for building firmware](#building-px4).
+Щоб побачити варіант `jlink` ви повинні обрати [cmake ціль для збірки прошивки](#building-px4).
 :::
 
-![Image showing hardware targets with options for the different probes](../../assets/toolchain/vscode/vscode_hardware_debugging_options.png)
+![Зображення, яке показує апаратні цілі з вибором для різних зондів](../../assets/toolchain/vscode/vscode_hardware_debugging_options.png)
 
 <a id="code completion"></a>
 
-## Code Completion
+## Автодоповнення коду
 
-In order for the code completion to work (and other IntelliSense magic) you need an active configuration and to have [built the code](#building).
+Для того щоб автодоповнення коду працювало (та інша магія IntelliSense) вам потрібна активна конфігурація та код повинен бути [зібраний](#building).
 
-Once that is done you don't need to do anything else; the toolchain will automatically offer you symbols as you type.
+Після того, як це зроблено, вам не потрібно нічого робити; інструментарій автоматично запропонує вам символи мови поки ви друкуєте.
 
 ![IntelliSense](../../assets/toolchain/vscode/vscode_intellisense.jpg)
 
-## Troubleshooting
+## Усунення проблем
 
-This section includes guidance on setup and build errors.
+Цей розділ включає вказівки для помилок з налаштування та збірки.
 
-### Ubuntu 18.04: "Visual Studio Code is unable to watch for file changes in this large workspace"
+### Ubuntu 18.04: "Visual Studio Code не може спостерігати за змінами в коді у великому робочому середовищі"
 
-This error surfaces on startup. On some systems, there is an upper-limit of 8192 file handles imposed on applications, which means that VSCode might not be able to detect file modifications in `/PX4-Autopilot`.
+Ця помилка з'являється при старті. На деяких системах існує обмеження зверху накладене на застосунки оперувати лише 8192 файлами, що означає VSCode можливо не матиме можливості  виявити зміни у файлах у `/PX4-Autopilot`.
 
-You can increase this limit to avoid the error, at the expense of memory consumption. Follow the [instructions here](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc). A value of 65536 should be more than sufficient.
+Ви можете збільшити цей ліміт, щоб уникнути помилки, коштом споживання пам'яті. Слідуйте [інструкціям тут](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc). Значення 65536 має бути більш ніж достатнім.
