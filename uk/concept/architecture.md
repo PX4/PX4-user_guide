@@ -1,12 +1,12 @@
-# PX4 Architectural Overview
+# Огляд архітектури PX4
 
-PX4 consists of two main layers: the [flight stack](#flight-stack) is an estimation and flight control system, and the [middleware](#middleware) is a general robotics layer that can support any type of autonomous robot, providing internal/external communications and hardware integration.
+PX4 складається із двох головних шарів: [набору політного ПЗ](#flight-stack), що є системою керування та оцінки польоту, та [проміжного ПЗ](#middleware), яке є загальним робототехнічним прошарком ПЗ, що може підтримувати будь-який тип автономного робота, забезпечуючи внутрішній та зовнішній зв'язок та інтеграцію апаратного забезпечення.
 
-All PX4 [airframes](../airframes/README.md) share a single codebase (this includes other robotic systems like boats, rovers, submarines etc.). The complete system design is [reactive](http://www.reactivemanifesto.org), which means that:
+Всі [планери](../airframes/README.md) PX4 мають окрему кодову базу (включаючи й інші роботизовані системи, такі як човни, ровери, підводні човни тощо). Побудова системи є [реакційною](http://www.reactivemanifesto.org), це означає що:
 
-- All functionality is divided into exchangeable and reusable components
-- Communication is done by asynchronous message passing
-- The system can deal with varying workload
+- Весь функціонал розділений на взаємозамінні та придатні для повторного використання компоненти
+- Зв'язок зроблено через асинхронне передавання повідомлень
+- Система може дати раду різним робочим навантаженням
 
 <a id="architecture"></a>
 

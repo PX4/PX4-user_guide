@@ -11211,7 +11211,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_ACCLIM">EKF2_MAG_ACCLIM</strong> (FLOAT)</td>
- <td>Horizontal acceleration threshold used by automatic selection of magnetometer fusion method <p><strong>Comment:</strong> This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered horizontal acceleration is greater than this parameter value, then the EKF will use 3-axis magnetometer fusion.</p>   </td>
+ <td>Horizontal acceleration threshold used for heading observability check <p><strong>Comment:</strong> The heading is assumed to be observable when the body acceleration is greater than this parameter when a global position/velocity aiding source is active.</p>   </td>
  <td>[0.0, 5.0] </td>
  <td>0.5</td>
  <td>m/s^2</td>
@@ -11295,13 +11295,6 @@ table {
  <td></td>
  <td>0</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="EKF2_MAG_YAWLIM">EKF2_MAG_YAWLIM</strong> (FLOAT)</td>
- <td>Yaw rate threshold used by automatic selection of magnetometer fusion method <p><strong>Comment:</strong> This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered yaw rate is greater than this parameter value, then the EKF will use 3-axis magnetometer fusion.</p>   </td>
- <td>[0.0, 1.0] </td>
- <td>0.20</td>
- <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_MCOEF">EKF2_MCOEF</strong> (FLOAT)</td>

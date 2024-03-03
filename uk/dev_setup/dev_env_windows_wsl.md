@@ -1,101 +1,100 @@
-# Windows Development Environment (WSL2-Based)
+# Середовище розробки Windows (засноване на WSL2)
 
-The following instructions explain how to set up a PX4 development environment on Windows 10 or 11, running on Ubuntu Linux within [WSL2](https://docs.microsoft.com/en-us/windows/wsl/about).
+Наступні інструкції пояснюють як налаштувати середовище розробки PX4 на Windows 10 або 11, запущене на Ubuntu Linux у [WSL2](https://docs.microsoft.com/en-us/windows/wsl/about).
 
-This environment can be used to build PX4 for:
+Це середовище може бути використане для збірки PX4 для:
 
-- [Pixhawk and other NuttX-based hardware](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
-- [Gazebo Simulation](../sim_gazebo_gz/README.md)
-- [Gazebo-Classic Simulation](../sim_gazebo_classic/README.md)
-- [jMAVSim Simulation](../sim_jmavsim/README.md)
+- [Pixhawk та іншого апаратного забезпечення на основі NuttX](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
+- [Симуляції Gazebo](../sim_gazebo_gz/README.md)
+- [Симуляції Gazebo Classic](../sim_gazebo_classic/README.md)
+- [Симуляції jMAVSim](../sim_jmavsim/README.md)
 
 :::tip
-This setup is supported by the PX4 dev team.
-The environment should in theory be able to build any target that can be built on Ubuntu.
-The list above are those targets that have been tested.
+Ця установка підтримується командою розробників PX4.
+Середовище в теорії має бути здатне збирати будь-яку ціль збірки, яку можна зібрати на Ubuntu.
+Список вище - ті цілі, що були перевірені.
 :::
 
-## Overview
+## Загальний огляд
 
-The [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about) ([WSL2](https://docs.microsoft.com/en-us/windows/wsl/compare-versions)) allows users to install and run the [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) on Windows, _almost_ as though we were running it on a Linux computer.
+[Windows Subsystem для Linux](https://docs.microsoft.com/en-us/windows/wsl/about) ([WSL2](https://docs.microsoft.com/en-us/windows/wsl/compare-versions)) дозволяє користувачам встановлювати й запускати [середовище розробки Ubuntu](../dev_setup/dev_env_linux_ubuntu.md) на Windows, _майже_ так само як би його запустили на комп'ютері Linux.
 
-With this environment developers can:
+В цьому середовищі розробники можуть:
 
-- Build any simulator or hardware target supported by [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) in the WSL Shell. (Ubuntu is the best supported and tested PX4 development platform).
-- Debug code in [Visual Studio Code](dev_env_windows_wsl.md#visual-studio-code-integration) running on Windows.
-- Monitor a _simulation_ using _QGroundControl for Linux_ running in WSL. QGC for Linux connects automatically to the simulation.
+- Зібрати в оболонці WSL будь-який симулятор або цільову апаратну платформу, яка підтримується [середовищем розробки Ubuntu](../dev_setup/dev_env_linux_ubuntu.md). (Ubuntu є платформою розробки PX4, яка підтримується та протестована найкраще).
+- Налагоджувати код в [Visual Studio Code](dev_env_windows_wsl.md#visual-studio-code-integration) запущений на Windows.
+- Спостерігати за _симуляцією_, яка запущена в WSL використовуючи _QGroundControl для Linux_. QGC для Linux автоматично під'єднується до симуляції.
 
-_QGroundControl for Windows_ is additionally required if you need to:
+_QGroundControl для Windows_ необхідна додатково, якщо потрібно:
 
-- [Update firmware](#flash-a-flight-control-board) on a real vehicle.
-- Monitor a real vehicle. Note that you can also use it to monitor a simulation, but you must manually [connect to the simulation running in WSL](#qgroundcontrol-on-windows).
+- [Поновлення прошивки](#flash-a-flight-control-board) на реальному рухомому засобі.
+- Спостерігати за справжнім засобом. Зауважте, що також можна спостерігати за симуляцією, але потрібно вручну [під'єднатися до симуляції, що запущена у WSL](#qgroundcontrol-on-windows).
 
 :::note
-Connecting to a USB device from within WSL is not supported, so you can't update firmware using the [`upload`](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board) option when building on the command line, or from _QGroundControl for Linux_.
+Підключення до USB пристрою з WSL не підтримується, тому неможливо поновити прошивку за допомогою параметру [`upload`](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board) під час збірки у командній оболонці, або з _QGroundControl для Linux_.
 :::
 
 :::note
-The approach is similar to installing PX4 in your _own_ virtual machine, as described in [Windows VM-Hosted Toolchain](../dev_setup/dev_env_windows_vm.md). The benefit of WSL2 is that its virtual machine is deeply integrated into Windows, system-managed, and performance optimised.
+Цей підхід схожий на встановлення PX4 на _власну_ віртуальну машину, як описано в [інструментарії на VM Windows](../dev_setup/dev_env_windows_vm.md). Перевага WSL2 полягає в тому, що її віртуальна машина глибоко інтегрована в Windows, керується системою та оптимізована для ефективності.
 :::
 
-## Installation
+## Встановлення
 
-### Install WSL2
+### Встановлення WSL2
 
-To install WSL2 with Ubuntu on a new installation of Windows 10 or 11:
+Щоб встановити WSL2 з Ubuntu на новій установці Windows 10 або 11:
 
-1. Make sure your computer your computer's virtualization feature is enabled in the BIOS. It's usually referred as "Virtualization Technology", "Intel VT-x" or "AMD-V" respectively
-1. Open _cmd.exe_ as administrator. This can be done by pressing the start key, typing `cmd`, right-clicking on the _Command prompt_ entry and selecting **Run as administrator**.
-1. Execute the following commands to install WSL2 and a particular Ubuntu version:
+1. Переконайтеся, що функція віртуалізації увімкнена в BIOS вашого комп'ютера. Зазвичай її називають "Virtualization Technology", "Intel VT-x" чи "AMD-V" відповідно.
+1. Відкрийте _cmd.exe_ від імені адміністратора. Це можна зробити натиснувши кнопку "Пуск", надрукувати `cmd`, натиснути правою кнопкою миші на пункті _Command prompt_ та обрати **Run as administrator**.
+1. Виконайте наступні команди для встановлення WSL2 та певної версії Ubuntu:
 
-   - Default version (Ubuntu 22.04):
+   - Версія за замовчуванням (Ubuntu 22.04):
 
      ```sh
      wsl --install
      ```
 
-   - Ubuntu 20.04 ([Gazebo-Classic Simulation](../sim_gazebo_classic/README.md))
+   - Ubuntu 20.04 ([Симуляція Gazebo-Classic](../sim_gazebo_classic/README.md))
 
      ```sh
      wsl --install -d Ubuntu-20.04
      ```
 
-   - Ubuntu 22.04 ([Gazebo Simulation](../sim_gazebo_gz/README.md))
+   - Ubuntu 22.04 ([Симуляція Gazebo](../sim_gazebo_gz/README.md))
 
      ```sh
      wsl --install -d Ubuntu-22.04
      ```
 
 :::note
-You can also install[Ubuntu 20.04](https://www.microsoft.com/store/productId/9MTTCL66CPXJ) and [Ubuntu 22.04](https://www.microsoft.com/store/productId/9PN20MSR04DW) from the store, which allows you to delete the application using the normal Windows Add/Remove settings:
-:::
+Ви також можете встановити[Ubuntu 20.04](https://www.microsoft.com/store/productId/9MTTCL66CPXJ) та [Ubuntu 22.04](https://www.microsoft.com/store/productId/9PN20MSR04DW) з магазину застосунків, який дозволяє видалити програму за допомогою звичайної функції Windows Додати/Видалити: ::
 
-1. WSL will prompt you for a user name and password for the Ubuntu installation. Record these credentials as you will need them later on!
+1. WSL запитає про ім'я користувача та пароль для встановлення Ubuntu. Запишіть ці облікові дані, оскільки вони знадобляться пізніше!
 
-The command prompt is now a terminal within the newly installed Ubuntu environment.
+Тепер командний рядок є терміналом в нововстановленому середовищі Ubuntu.
 
-### Opening a WSL Shell
+### Відкриття оболонки WSL
 
-All operations to install and build PX4 must be done within a WSL Shell (you can use the same shell that was used to install WSL2 or open a new one).
+Всі операції для встановлення та збірки PX4 повинні бути виконані в оболонці WSL (можна використати ту саму оболонку в якій встановлювалася WSL2 або відкрити нову).
 
-If you're using [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/install) you can open a shell into an installed WSL environment as shown, and exit it by closing the tab.
+Якщо ви використовуєте [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/install) ви можете відкрити консоль у встановленому WSL середовищі, як показано, та вийти з нього, закривши вкладку.
 
-![Windows Terminal showing how to select a Ubuntu shell](../../assets/toolchain/wsl_windows_terminal.png)
+![Windows Terminal показує, як вибрати оболонку Ubuntu](../../assets/toolchain/wsl_windows_terminal.png)
 
-To open a WSL shell using a command prompt:
+Щоб відкрити оболонку WSL за допомогою командного рядка:
 
-1. Open a command prompt:
+1. Відкрийте командний рядок:
 
-   - Press the Windows **Start** key.
-   - Type `cmd` and press **Enter** to open the prompt.
+   - Натисніть кнопку Windows **Пуск**.
+   - Введіть `cmd` і натисніть **Enter**, щоб відкрити консоль.
 
-1. To start WSL and access the WSL shell, execute the command:
+1. Щоб запустити WSL і отримати доступ до WSL оболонки, виконайте команду:
 
    ```sh
    wsl -d <distribution_name>
    ```
 
-   For example:
+   Наприклад:
 
    ```sh
    wsl -d Ubuntu
@@ -105,55 +104,55 @@ To open a WSL shell using a command prompt:
    wsl -d Ubuntu-20.04
    ```
 
-   If you only have one version of Ubuntu, you can just use `wsl`.
+   Якщо у вас тільки одна версія Ubuntu, ви можете просто використати `wsl`.
 
-Enter the following commands to first close the WSL shell, and then shut down WSL:
+Введіть наступні команди, щоб спочатку закрити WSL оболонку, а потім завершити WSL:
 
 ```sh
 exit
 wsl -d <distribution_name> --shutdown
 ```
 
-Alternatively, after entering `exit` you can just close the prompt.
+Як варіант, після введення `exit` можна просто закрити консоль.
 
-### Install PX4 Toolchain
+### Встановлення інструментарію PX4
 
-Next we download the PX4 source code within the WSL2 environment, and use the normal _Ubuntu installer script_ to to set up the developer environment. This will install the toolchain for Gazebo Classic simulation, JMAVSim simulation and Pixhawk/NuttX hardware.
+Далі ми завантажуємо вихідний код PX4 у середовищі WSL2 і використовуємо звичайний _скрипт встановлювання для Ubuntu_ для налаштування середовища розробника. Це встановить інструментарій для симуляції Gazebo Classic, JMAVSim та апаратного забезпечення Pixhawk/NuttX.
 
-To install the development toolchain:
+Щоб встановити інструментарій розробки:
 
-1. [Open a WSL2 Shell](#opening-a-wsl-shell) (if it is still open you can use the same one that was used to install WSL2).
-1. Execute the command `cd ~` to switch to the home folder of WSL for the next steps.
+1. [Відкрийте оболонку WSL2](#opening-a-wsl-shell) (якщо вона ще відкрита, ви можете використати ту саму що для встановлення WSL2).
+1. Виконайте команду `cd ~` для переходу в домашню директорію WSL для подальших кроків.
 
    :::warning
-This is important!
-If you work from a location outside of the WSL file system you'll run into issues such as very slow execution and access right/permission errors.
+Це важливо!
+Якщо ви працюєте за межами файлової системи WSL, то ви стикнетесь з такими проблемами, як дуже повільне виконання та помилки прав доступу/дозволів.
 :::
 
-1. Download the PX4 source code using `git` (which is already installed in WSL2):
+1. Завантажте вихідний код PX4 за допомогою `git` (вже встановлений у WSL2):
 
    ```sh
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
 
 :::note
-The environment setup scripts in the source usually work for recent PX4 releases. If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release).
+Скрипти налаштування середовища у вихідному коді зазвичай працюють для останніх релізів PX4. Якщо ви працюєте зі старішою версією PX4, то може знадобитися [отримати вихідний код для конкретного релізу](../contribute/git_examples.md#get-a-specific-release).
 :::
 
-1. Run the **ubuntu.sh** installer script and acknowledge any prompts as the script progresses:
+1. Запустіть скрипт встановлення **ubuntu.sh** і зробіть вибір у будь-яких підказках по ходу виконання скрипту:
 
    ```sh
    bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
    ```
 
 :::note
-This installs tools to build PX4 for Pixhawk, Gazebo Classic and JMAVSim targets:
+Це встановить інструменти для збірки PX4 для Pixhawk, Gazebo Classic та JMAVSim:
 
-   - You can use the `--no-nuttx` and `--no-sim-tools` options to omit the NuttX and/or simulation tools.
-   - Other Linux build targets are untested (you can try these by entering the appropriate commands in [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) into the WSL shell).
+   - Також можна використовувати опції `--no-nuttx` та `--no-sim-tools`, щоб пропустити встановлення інструментів для NuttX та/або симуляції.
+   - Інші цілі збірки Linux не перевірені (ви можете спробувати їх, ввівши відповідні команди у [середовищі розробки Ubuntu](../dev_setup/dev_env_linux_ubuntu.md) в оболонці WSL).
 :::
 
-1. Restart the "WSL computer" after the script completes (exit the shell, shutdown WSL, and restart WSL):
+1. Перезапустіть "комп'ютер WSL" після завершення скрипту (вийти з оболонки, вимкнути WSL та перезапустити WSL):
 
    ```sh
    exit
@@ -161,65 +160,65 @@ This installs tools to build PX4 for Pixhawk, Gazebo Classic and JMAVSim targets
    wsl
    ```
 
-1. Switch to the PX4 repository in the WSL home folder:
+1. Перейдіть в репозиторій PX4 в домашній директорії WSL:
 
    ```sh
    cd ~/PX4-Autopilot
    ```
 
-1. Build the PX4 SITL target and test your environment:
+1. Зберіть ціль PX4 SITL та перевірте середовище:
 
    ```sh
    make px4_sitl
    ```
 
-For more build options see [Building PX4 Software](../dev_setup/building_px4.md).
+Для додаткових варіантів збірки дивіться [Збірка програмного забезпечення PX4](../dev_setup/building_px4.md).
 
-## Visual Studio Code Integration
+## Інтеграція з Visual Studio Code
 
-VS Code running on Windows is well integrated with WSL.
+VS Code на Windows добре інтегрований з WSL.
 
-To set up the integration:
+Для налаштування інтеграції:
 
-1. [Download](https://code.visualstudio.com/) and install Visual Studio Code (VS Code) on Windows,
-2. Open _VS Code_.
-3. Install the extension called [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) (marketplace)
-4. [Open a WSL shell](#opening-a-wsl-shell)
-5. In the WSL shell, switch to the PX4 folder:
+1. [Завантажте](https://code.visualstudio.com/) і встановіть Visual Studio Code (VS Code) на Windows.
+2. Відкрийте _VS Code_.
+3. Встановіть розширення під назвою [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) (з магазину)
+4. [Відкрийте оболонку WSL](#opening-a-wsl-shell)
+5. У WSL оболонці перейдіть у директорію PX4:
 
    ```sh
    cd ~/PX4-Autopilot
    ```
 
-6. In the WSL shell, start VS Code:
+6. В оболонці WSL запустіть VS Code:
 
    ```sh
    code .
    ```
 
-   This will open the IDE fully integrated with the WSL shell.
+   Це відкриє IDE повністю інтегроване в WSL оболонку.
 
-   Make sure you always open the PX4 repository in the Remote WSL mode.
+   Переконайтеся, що ви завжди відкриваєте PX4 репозиторій у режимі Remote WSL.
 
-7. Next time you want to develop WSL2 you can very easily open it again in Remote WSL mode by selecting **Open Recent** (as shown below). This will start WSL for you.
+7. Наступного разу, коли ви захочете розробляти у WSL2, ви легко зможете відкрити його знову в режимі Remote WSL, обравши **Open Recent** (як показано нижче). Це запустить WSL.
 
    ![](../../assets/toolchain/vscode/vscode_wsl.png)
 
-   Note however that the IP address of the WSL virtual machine will have changed, so you won't be able to monitor simulation from QGC for Windows (you can still monitor using QGC for Linux)
+   Зверніть увагу, що IP-адреса віртуальної машини WSL буде змінена, так що ви не зможете контролювати симуляцію з QGC для Windows (ви все ще можете використовувати QGC для Linux)
 
 ## QGroundControl
 
-You can run QGroundControl in either WSL or Windows to connect to the running simulation. If you need to [flash a flight control board](#flash-a-flight-control-board) with new firmware you can only do this from the QGroundControl for Windows.
+Для підключення до запущеної симуляції, ви можете запустити QGroundControl або в WSL або у Windows. Якщо вам потрібно [записати у плату керування польотом](#flash-a-flight-control-board) нову прошивку, ви можете зробити це лише у QGroundControl для Windows.
 
-### QGroundControl in WSL
+### QGroundControl у WSL
 
-The easiest way to set up and use QGroundControl is to download the Linux version into your WSL.
+Найпростіший спосіб налаштувати та використовувати QGroundControl - це завантажити версію для Linux у WSL.
 
-You can do this using from within the WSL shell.
+Це можна зробити з оболонки WSL.
 
-1. In a web browser, navigate to the QGC [Ubuntu download section](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html#ubuntu)
-1. Right-click on the **QGroundControl.AppImage** link, and select "Copy link address". This will be something like _https://d176td9ibe4jno.cloudfront.net/builds/master/QGroundControl.AppImage_
-1. [Open a WSL shell](#opening-a-wsl-shell) and enter the following commands to download the appimage and make it executable (replace the AppImage URL where indicated):
+1. У браузері перейдіть в [розділ завантажень для Ubuntu](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html#ubuntu) QGC
+1. Клацніть правою кнопкою миші на посилання **QGroundControl.AppImage**  та виберіть "Копіювати адресу посилання". Це буде щось на зразок _https://d176td9ibe4jno.cloudfront.net/builds/master/QGroundControl.AppImage_
+1. [Відкрийте оболонку WSL](#opening-a-wsl-shell) і введіть наступні команди щоб завантажити AppImage та зробити його виконуваним (замінить URL до AppImage, де зазначено):
 
    ```sh
    cd ~
@@ -227,24 +226,24 @@ You can do this using from within the WSL shell.
    chmod +x QGroundControl.AppImage
    ```
 
-1. Run QGroundControl:
+1. Запустіть QGroundControl:
 
    ```sh
    ./QGroundControl.AppImage
    ```
 
-QGroundControl will launch and automatically connect to a running simulation and allow you to monitor and control your vehicle(s).
+QGroundControl запуститься та автоматично приєднається до запущеної симуляції, що дозволить вам спостерігати та контролювати ваші рухомі засоби.
 
-You will not be able to use it to install PX4 firmware because WSL does not allow access to serial devices.
+Ви не зможете використовувати його для встановлення прошивки PX4, оскільки WSL не надає доступу до послідовних пристроїв.
 
-### QGroundcontrol on Windows
+### QGroundcontrol на Windows
 
-Install [QGroundControl on Windows](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html#windows) if you want to be able to update hardware with firmware created within PX4.
+Встановіть [QGroundControl для Windows](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html#windows) якщо ви хочете мати змогу оновити апаратне забезпечення за допомогою прошивки, створеної у PX4.
 
-These steps describe how you can connect to the simulation running in the WSL:
+Ці кроки описують, як ви можете під'єднатися до симуляції, яке працює в WSL:
 
-1. [Open a WSL shell](#opening-a-wsl-shell)
-2. Check the IP address of the WSL virtual machine by running the command `ip addr | grep eth0`:
+1. [Відкрийте оболонку WSL](#opening-a-wsl-shell)
+2. Перевірте IP-адресу віртуальної машини WSL запустивши команду `ip addr | grep eth0`:
 
    ```sh
    $ ip addr | grep eth0
@@ -253,49 +252,49 @@ These steps describe how you can connect to the simulation running in the WSL:
        inet 172.18.46.131/20 brd 172.18.47.255 scope global eth0
    ```
 
-   Copy the first part of the `eth0` interface `inet` address to the clipboard. In this case: `172.18.46.131`.
+   Скопіюйте першу `inet` частину адреси інтерфейсу `eth0` у буфер обміну. В цьому випадку: `172.18.46.131`.
 
-3. In QGC go to **Q > Application Settings > Comm Links**
-4. Add a UDP Link called "WSL" to port `18570` of the IP address copied above.
-5. Save it and connect to it.
+3. У QGC перейдіть у **Q > Налаштування додатку > Канали зв'язку**
+4. Додайте UDP канал з назвою "WSL" до порту `18570` з IP-адресою скопійованою вище.
+5. Збережіть і під'єднайтеся до нього.
 
 :::note
-You will have to update the WSL comm link in QGC every time WSL restarts (because it gets a dynamic IP address).
+Вам доведеться оновляти канал зв'язку з WSL у QGC щоразу, коли WSL буде перезапущено (тому що вона отримує динамічну IP-адресу).
 :::
 
-## Flash a Flight Control Board
+## Прошивка плати керування польотом
 
-Flashing a custom built PX4 binary has to be done using [QGroundControl for Windows](#qgroundcontrol-on-windows) since WSL2 does not natively offer direct access to serial devices like Pixhawk boards.
+Запис нестандартного двійкового файлу PX4 повинно бути зроблено за допомогою [QGroundControl для Windows](#qgroundcontrol-on-windows), оскільки WSL2 не надає прямий доступ до послідовних пристроїв, таких як плати Pixhawk.
 
-Do the following steps to flash your custom binary built in WSL:
+Зробіть наступні кроки для прошивки вашого бінарного файлу, зібраного у WSL:
 
-1. If you haven't already build the binary in WSL e.g. with a [WSL shell](dev_env_windows_wsl.md#opening-a-wsl-shell) and by running:
+1. Зберіть, якщо ще це не зробили, бінарний файл у WSL, тобто за допомогою [WSL shell](dev_env_windows_wsl.md#opening-a-wsl-shell) та виконавши:
 
    ```sh
    cd ~/PX4-Autopilot
    make px4_fmu-v5
    ```
 
-   Note: Use the correct target for your board. "px4_fmu-v5" can be used for a Pixhawk 4 board.
+   Примітка: використовуйте правильну ціль збірки для вашої плати. Для плати Pixhawk 4 можна використати "px4_fmu-v5".
 
-1. Detach the USB cable of your Pixhawk board from the computer if it was plugged.
-1. Open QGC.
-1. In QGC go to **Q > Vehicle Setup > Firmware**
-1. Plug your pixhawk board via USB
-1. Once connected select "PX4 Flight Stack", check "Advanced settings" and choose "Custom firmware file ..." from the drop down below.
-1. Continue and select the firmware binary you just built before. In the open dialog look for the "Linux" location with the penguin icon in the left pane. It's usually all the way at the bottom. Choose the file in the path: `Ubuntu\home\{your WSL user name}\PX4-Autopilot\build\{your build target}\{your build target}.px4`
+1. Від'єднайте USB-кабель плати Pixhawk від комп'ютера, якщо він був підключений.
+1. Відкрийте QGC.
+1. У QGC перейдіть у **Q > Налаштування рухомого засобу > Прошивка**
+1. Під'єднайте Pixhawk плату через USB
+1. Після підключення оберіть "Польотний набір PX4", відмітьте "Просунуті налаштування" і оберіть "Користувацький файл прошивки ..." зі списку що розкрився нижче.
+1. Оберіть бінарний файл прошивки, який ви щойно зібрали. У відкритому діалозі знайдіть розташування "Linux" з іконкою пінгвіна на лівій панелі. Зазвичай, вона в самому низу. Оберіть файл за шляхом: `Ubuntu\home\{ваш користувач у WSL}\PX4-Autopilot\build\{ціль збурки}\{ціль збірки}.px4`
 
    :::note
-You can add the folder to the favourites to access it quickly next time.
+Ви можете додати директорію до обраного, щоб швидко отримати доступ до неї.
 :::
 
-1. Start the flashing.
+1. Почніть прошивку.
 
-## Troubleshooting
+## Усунення проблем
 
-If you have any problems with your setup, check the current [Microsoft WSL installation documentation](https://learn.microsoft.com/en-us/windows/wsl/install).
+Якщо маєте будь-які проблеми з установкою, перевірте наявну [документацію із встановлення Microsoft WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
 
-We also recommend that you have the latest Windows GPU drivers installed and also install a recent version of [kisak mesa](https://launchpad.net/~kisak/+archive/ubuntu/kisak-mesa) in your Ubuntu environment so that most OpenGL features get emulated:
+Ми також рекомендуємо мати останню версію Windows-драйвера GPU, а також встановити останню версію [kisak mesa](https://launchpad.net/~kisak/+archive/ubuntu/kisak-mesa) в середовищі Ubuntu для того, щоб більшість емулювалась більшість функцій OpenGL:
 
 ```sh
 sudo add-apt-repository ppa:kisak/kisak-mesa

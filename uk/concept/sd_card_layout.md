@@ -1,24 +1,24 @@
-# PX4 SD Card Layout
+# Структура файлів на SD картках для PX4
 
-The PX4 SD Card is used for storing configuration files, flight logs, mission information etc.
+SD картка у PX4 використовуються для зберігання файлів налаштування, журналів польотів, інформації щодо польотного завдання тощо.
 
 :::tip
-The SD card should be FAT32 formatted for use with PX4 (this is the default for SD cards).
-We recommend that you reformat cards that are using a different file system.
+SD картку слід відформатувати у FAT32 для використання з PX4 (за замовчуванням для SD карток).
+Рекомендуємо відформатувати картки, які використовують іншу файлову систему.
 :::
 
-The directory structure/layout is shown below.
+Структуру директорій/розкладку показано нижче.
 
-| Directory/File(s)             | Description                                                                              |
-| ----------------------------- | ---------------------------------------------------------------------------------------- |
-| `/etc/`                       | Extra config. See [System Startup > Replacing the System Startup][replace system start]. |
-| `/log/`                       | Full [flight logs](../dev_log/logging.md)                                                |
-| `/mission_log/`               | Reduced flight logs                                                                      |
-| `/fw/`                        | [DroneCAN](../dronecan/README.md) firmware                                               |
-| `/uavcan.db/`                 | DroneCAN DNA server DB + logs                                                            |
-| `/params`                     | Parameters (if not in FRAM/FLASH)                                                        |
-| `/dataman`                    | Mission storage file                                                                     |
-| `/fault_<datetime>.txt` | Hardfault files                                                                          |
-| `/bootlog.txt`                | Boot log file                                                                            |
+| Директорія/Файл(и)            | Опис                                                                                              |
+| ----------------------------- | ------------------------------------------------------------------------------------------------- |
+| `/etc/`                       | Додаткові налаштування. Дивіться [Запуск системи > заміна запуску системи][replace system start]. |
+| `/log/`                       | Повні [журнали польоту](../dev_log/logging.md)                                                    |
+| `/mission_log/`               | Скорочені журнали польоту                                                                         |
+| `/fw/`                        | Прошивка [DroneCAN](../dronecan/README.md)                                                        |
+| `/uavcan.db/`                 | Сервер DB DroneCAN DNA + журнали                                                                  |
+| `/params`                     | Параметри (якщо вони не в FRAM/FLASH)                                                             |
+| `/dataman`                    | Файл сховища польотних завдань                                                                    |
+| `/fault_<datetime>.txt` | Файли журналу апаратних відмов                                                                    |
+| `/bootlog.txt`                | Журнал завантаження                                                                               |
 
 [replace system start]: ../concept/system_startup.md#replacing-the-system-startup
