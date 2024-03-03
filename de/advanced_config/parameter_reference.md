@@ -11211,7 +11211,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_ACCLIM">EKF2_MAG_ACCLIM</strong> (FLOAT)</td>
- <td>Horizontal acceleration threshold used by automatic selection of magnetometer fusion method <p><strong>Comment:</strong> This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered horizontal acceleration is greater than this parameter value, then the EKF will use 3-axis magnetometer fusion.</p>   </td>
+ <td>Horizontal acceleration threshold used for heading observability check <p><strong>Comment:</strong> The heading is assumed to be observable when the body acceleration is greater than this parameter when a global position/velocity aiding source is active.</p>   </td>
  <td>[0.0, 5.0] </td>
  <td>0.5</td>
  <td>m/s^2</td>
@@ -11297,13 +11297,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="EKF2_MAG_YAWLIM">EKF2_MAG_YAWLIM</strong> (FLOAT)</td>
- <td>Yaw rate threshold used by automatic selection of magnetometer fusion method <p><strong>Comment:</strong> This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered yaw rate is greater than this parameter value, then the EKF will use 3-axis magnetometer fusion.</p>   </td>
- <td>[0.0, 1.0] </td>
- <td>0.20</td>
- <td>rad/s</td>
-</tr>
-<tr>
  <td><strong id="EKF2_MCOEF">EKF2_MCOEF</strong> (FLOAT)</td>
  <td>Propeller momentum drag coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by the propellers when flying a multi-copter, which enables estimation of wind drift when enabled by the EKF2_DRAG_CTRL parameter. The drag produced by this effect scales with speed not speed squared and is produced because some of the air velocity normal to the propeller axis of rotation is lost when passing through the rotor disc. This  changes the momentum of the flow which creates a drag reaction force. When comparing un-ducted propellers of the same diameter, the effect is roughly proportional to the area of the propeller blades when viewed side on and changes with propeller selection. Momentum drag is significantly higher for ducted rotors. To account for the drag produced by the body which scales with speed squared, see documentation for the EKF2_BCOEF_X and EKF2_BCOEF_Y parameters. Set this parameter to zero to turn off the momentum drag model for both axis.</p>   </td>
  <td>[0, 1.0] </td>
@@ -11319,7 +11312,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MULTI_IMU">EKF2_MULTI_IMU</strong> (INT32)</td>
- <td>Multi-EKF IMUs <p><strong>Comment:</strong> Maximum number of IMUs to use for Multi-EKF. Set 0 to disable. Requires SENS_IMU_MODE 0.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Multi-EKF IMUs <p><strong>Comment:</strong> Maximum number of IMUs to use for Multi-EKF. Requires SENS_MAG_MODE 0. Requires SENS_IMU_MODE 0.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 4] </td>
  <td>0</td>
@@ -11327,7 +11320,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MULTI_MAG">EKF2_MULTI_MAG</strong> (INT32)</td>
- <td>Multi-EKF Magnetometers <p><strong>Comment:</strong> Maximum number of magnetometers to use for Multi-EKF. Requires SENS_MAG_MODE 0. Set 0 to disable.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Multi-EKF Magnetometers <p><strong>Comment:</strong> Maximum number of magnetometers to use for Multi-EKF. Set 0 to disable. Set 0 to disable.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 4] </td>
  <td>0</td>
@@ -12243,7 +12236,7 @@ table {
 <tr>
  <td><strong id="FW_AIRSPD_STALL">FW_AIRSPD_STALL</strong> (FLOAT)</td>
  <td>Stall Airspeed (CAS) <p><strong>Comment:</strong> The stall airspeed (calibrated airspeed) of the vehicle. It is used for airspeed sensor failure detection and for the control surface scaling airspeed limits.</p>   </td>
- <td>[0.5, ?] (0.5) (0.5)</td>
+ <td>[0.5, ?] (0.5)</td>
  <td>7.0</td>
  <td>m/s</td>
 </tr>
@@ -23979,28 +23972,28 @@ table {
 <tr>
  <td><strong id="SIH_IXZ">SIH_IXZ</strong> (FLOAT)</td>
  <td>Vehicle cross term inertia xz <p><strong>Comment:</strong> The inertia is a 3 by 3 symmetric matrix. This value can be set to 0 for a quad symmetric about its center of mass.</p>   </td>
- <td>(0.005)</td>
+ <td>[0.0, ?] (0.005)</td>
  <td>0.0</td>
  <td>kg m^2</td>
 </tr>
 <tr>
  <td><strong id="SIH_IYY">SIH_IYY</strong> (FLOAT)</td>
  <td>Vehicle inertia about Y axis <p><strong>Comment:</strong> The inertia is a 3 by 3 symmetric matrix. It represents the difficulty of the vehicle to modify its angular rate.</p>   </td>
- <td>[0.0, ?] [0.0, ?] (0.005)</td>
+ <td>[0.0, ?] (0.005)</td>
  <td>0.025</td>
  <td>kg m^2</td>
 </tr>
 <tr>
  <td><strong id="SIH_IYZ">SIH_IYZ</strong> (FLOAT)</td>
  <td>Vehicle cross term inertia yz <p><strong>Comment:</strong> The inertia is a 3 by 3 symmetric matrix. This value can be set to 0 for a quad symmetric about its center of mass.</p>   </td>
- <td>(0.005)</td>
+ <td>[0.0, ?] (0.005)</td>
  <td>0.0</td>
  <td>kg m^2</td>
 </tr>
 <tr>
  <td><strong id="SIH_IZZ">SIH_IZZ</strong> (FLOAT)</td>
  <td>Vehicle inertia about Z axis <p><strong>Comment:</strong> The inertia is a 3 by 3 symmetric matrix. It represents the difficulty of the vehicle to modify its angular rate.</p>   </td>
- <td>[0.0, ?] [0.0, ?] (0.005)</td>
+ <td>[0.0, ?] (0.005)</td>
  <td>0.030</td>
  <td>kg m^2</td>
 </tr>
@@ -24020,7 +24013,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SIH_LOC_H0">SIH_LOC_H0</strong> (FLOAT)</td>
- <td>Initial AMSL ground altitude <p><strong>Comment:</strong> This value represents the Above Mean Sea Level (AMSL) altitude where the simulation begins. If using FlightGear as a visual animation, this value can be tweaked such that the vehicle lies on the ground at takeoff. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
+ <td>Initial AMSL ground altitude <p><strong>Comment:</strong> This value represents the Above Mean Sea Level (AMSL) altitude where the simulation begins. If using FlightGear as a visual animation, this value can be tweaked such that the vehicle lies on the ground at takeoff. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
  <td>[-420.0, 8848.0] (0.01)</td>
  <td>32.34</td>
  <td>m</td>
@@ -24034,7 +24027,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SIH_LOC_LON0">SIH_LOC_LON0</strong> (INT32)</td>
- <td>Initial geodetic longitude <p><strong>Comment:</strong> This value represents the East-West location on Earth where the simulation begins. A value of 45 deg should be written 450000000. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
+ <td>Initial geodetic longitude <p><strong>Comment:</strong> This value represents the East-West location on Earth where the simulation begins. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
  <td>[-1800000000, 1800000000] </td>
  <td>-737578370</td>
  <td>deg*1e7</td>
@@ -24049,7 +24042,7 @@ table {
 <tr>
  <td><strong id="SIH_L_ROLL">SIH_L_ROLL</strong> (FLOAT)</td>
  <td>Roll arm length <p><strong>Comment:</strong> This is the arm length generating the rolling moment This value can be measured with a ruler. This corresponds to half the distance between the left and right motors.</p>   </td>
- <td>[0.0, ?] [0.0, ?] (0.05)</td>
+ <td>[0.0, ?] (0.05)</td>
  <td>0.2</td>
  <td>m</td>
 </tr>
