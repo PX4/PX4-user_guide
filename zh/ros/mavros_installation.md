@@ -64,10 +64,9 @@ $ wstool init ~/catkin_ws/src
 Now you are ready to do the build:
 
 1. 安装Mavlink
-   ```
-   安装Mavlink 
-     # We use the Kinetic reference for all ROS distros as it's not distro-specific and up to date
-     rosinstall_generator --rosdistro kinetic mavlink | tee /tmp/mavros.rosinstall
+  ```
+   # We use the Kinetic reference for all ROS distros as it's not distro-specific and up to date
+   rosinstall_generator --rosdistro kinetic mavlink | tee /tmp/mavros.rosinstall
    ```
 1. 安装MAVROS最新的版本：
    * 发行版 / 稳定版
@@ -80,12 +79,13 @@ Now you are ready to do the build:
      ```
 
      ```sh
-  # For fetching all the dependencies into your catkin_ws, 
-  # just add '--deps' to the above scripts, E.g.:
-  #   rosinstall_generator --upstream mavros --deps | tee -a /tmp/mavros.rosinstall
+     # For fetching all the dependencies into your catkin_ws, 
+     # just add '--deps' to the above scripts, E.g.:
+     #   rosinstall_generator --upstream mavros --deps | tee -a /tmp/mavros.rosinstall
      ```
 
 1. 创建工作区 & 安装依赖
+
    ```sh
    wstool merge -t src /tmp/mavros.rosinstall
    wstool update -t src -j4
