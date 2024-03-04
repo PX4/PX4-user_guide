@@ -1,13 +1,13 @@
-# Basic Assembly
+# Базова збірка
 
-A typical autopilot "minimal" system running PX4 consists of a flight controller connected to a power system, GPS, external compass (optional), radio control system (optional) and/or telemetry radio system (optional).
+Типова "мінімальна" система автопілота під управлінням PX4 складається з польотного контролера, підключеного до системи живлення, GPS, зовнішнього компаса (опціонально), системи радіоуправління (опціонально) і/або телеметричної радіосистеми (опціонально).
 
-This section contains topics that explain how to assemble such a system for different [flight controllers](../flight_controller/README.md).
+Цей розділ містить теми, які пояснюють, як зібрати таку систему для різних [контролерів польоту](../flight_controller/README.md).
 
 :::tip
-Quickstart guides are only provided for a few controllers. Other controllers will have similar connections. Additional information may be available in [flight controllers](../flight_controller/README.md) pages or in manufacturer documentation.
+Посібники Quickstart підтримуються лише для декількох контролерів. Інші контролери матимуть аналогічні з'єднання. Додаткову інформацію можна знайти на сторінках [контролерів польоту](../flight_controller/README.md) або в документації виробника.
 :::
 
-- See [Peripherals](../peripherals/README.md) for information about connecting sensors and other peripherals (e.g. airspeed sensor for planes).
+- Інформацію про підключення датчиків та інших периферійних пристроїв (наприклад, датчика швидкості для літаків) див. у розділі [Периферія](../peripherals/README.md).
 - See [Airframe Builds](../airframes/README.md) for complete assembly examples on different vehicle frames.
 - See [Multicopter Racer Setup](../config_mc/racer_setup.md) for racer-specific assembly and configuration information.
