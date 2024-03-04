@@ -31,7 +31,7 @@ PX4 підтримує як симуляцію _Software In the Loop (SITL)_, д
 
 Всі симулятори, крім Gazebo, взаємодіють з PX4 за допомогою API симулятора MAVLink. Цей API визначає набір повідомлень MAVLink, які передають дані датчиків з модельованого світу в PX4 і повертають значення двигуна і приводу з польотного коду, які будуть застосовані до модельованого апарату. На зображенні нижче показано потік повідомлень.
 
-![Simulator MAVLink API](../../assets/simulation/px4_simulator_messages.svg)
+![Симулятор MAVLink API](../../assets/simulation/px4_simulator_messages.svg)
 
 :::note SITL-збірка PX4 використовує [SimulatorMavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/simulator_mavlink/SimulatorMavlink.cpp) для обробки цих повідомлень, тоді як апаратна збірка у режимі HIL використовує [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp). Дані датчиків з симулятора записуються в теми PX4 uORB. Всі двигуни/приводи заблоковані, але внутрішнє програмне забезпечення повністю функціонує.
 :::
@@ -75,7 +75,7 @@ PX4 підтримує як симуляцію _Software In the Loop (SITL)_, д
 
 На схемі нижче показано типове середовище симуляції SITL для будь-якого з підтримуваних тренажерів, що використовують MAVLink (тобто всіх, окрім Gazebo).
 
-![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.svg)
+![Огляд PX4 SITL](../../assets/simulation/px4_sitl_overview.svg)
 
 Різні частини системи з'єднуються через протокол UDP і можуть працювати як на одному комп'ютері, так і на іншому комп'ютері в тій самій мережі.
 
@@ -277,56 +277,56 @@ PX4 підтримує захоплення як нерухомих зображ
 
 [Mavlink module](../modules/modules_communication.md#mavlink_usage) за замовчуванням маршрутизує до _localhost_, але ви можете увімкнути UDP-трансляцію за допомогою його опції `-p`. Будь-який віддалений комп'ютер у мережі може підключитися до симулятора, прослуховуючи відповідний порт (наприклад, 14550 для _QGroundControl_).
 
-:::note UDP-трансляція забезпечує простий спосіб встановлення з'єднання, коли в мережі працює лише одна симуляція. Do not use this approach if there are multiple simulations running on the network (you might instead [publish to a specific address](#enable-streaming-to-specific-address)).
+:::note UDP-трансляція забезпечує простий спосіб встановлення з'єднання, коли в мережі працює лише одна симуляція. Не використовуйте цей підхід, якщо у мережі запущено декілька симуляцій (ви можете замість цього  [publish to a specific address](#enable-streaming-to-specific-address)).
 :::
 
-This should be done in an appropriate configuration file where `mavlink start` is called. For example: [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink).
+Це слід зробити у відповідному конфігураційному файлі, де викликається `mavlink start`. Наприклад: [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink).
 
-### Enable Streaming to Specific Address
+### Увімкнення стрімінгу на певну адресу
 
-The [mavlink module](../modules/modules_communication.md#mavlink_usage) routes to _localhost_ by default, but you can specify an external IP address to stream to using its `-t` option. The specified remote computer can then connect to the simulator by listening to the appropriate port (i.e. 14550 for _QGroundControl_).
+[Mavlink module](../modules/modules_communication.md#mavlink_usage) за замовчуванням спрямовує на _localhost_, але ви можете вказати зовнішню IP-адресу для потокового передавання за допомогою його параметра `-t`. Вказаний віддалений комп'ютер може підключитися до симулятора, прослуховуючи відповідний порт (наприклад, 14550 для _QGroundControl_).
 
-This should be done in various configuration files where `mavlink start` is called. For example: [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink).
+Це слід зробити у різних конфігураційних файлах, де викликається `mavlink start`. Наприклад: [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink).
 
-### SSH Tunneling
+### Тунелювання по SSH
 
-SSH tunneling is a flexible option because the simulation computer and the system using it need not be on the same network.
+Тунелювання SSH є гнучким варіантом, оскільки комп'ютер для моделювання та система, що його використовує, не обов'язково повинні знаходитися в одній мережі.
 
 :::note
-You might similarly use VPN to provide a tunnel to an external interface (on the same network or another network).
+Ви також можете використовувати VPN для створення тунелю до зовнішнього інтерфейсу (в тій самій або іншій мережі).
 :::
 
-One way to create the tunnel is to use SSH tunneling options. The tunnel itself can be created by running the following command on _localhost_, where `remote.local` is the name of a remote computer:
+Одним із способів створення тунелю є використання параметрів тунелювання SSH. Сам тунель можна створити, виконавши наступну команду на _localhost_, де `remote.local` - ім'я віддаленого комп'ютера:
 
 ```sh
 ssh -C -fR 14551:localhost:14551 remote.local
 ```
 
-The UDP packets need to be translated to TCP packets so they can be routed over SSH. The [netcat](https://en.wikipedia.org/wiki/Netcat) utility can be used on both sides of the tunnel - first to convert packets from UDP to TCP, and then back to UDP at the other end.
+UDP-пакети потрібно перетворити на TCP-пакети, щоб їх можна було перенаправляти через SSH. За допомогою утиліти [netcat](https://en.wikipedia.org/wiki/Netcat) можна працювати по обидва боки тунелю - спочатку для перетворення пакетів з UDP в TCP, а потім назад в UDP на іншому кінці.
 
 :::tip QGC
 must be running before executing _netcat_.
 :::
 
-On the _QGroundControl_ computer, UDP packet translation may be implemented by running following commands:
+На комп'ютері _QGroundControl_ трансляцію UDP-пакетів можна здійснити за допомогою наступних команд:
 
 ```sh
 mkfifo /tmp/tcp2udp
 netcat -lvp 14551 < /tmp/tcp2udp | netcat -u localhost 14550 > /tmp/tcp2udp
 ```
 
-On the simulator side of the SSH tunnel, the command is:
+Команда на стороні симулятора тунелю SSH:
 
 ```sh
 mkfifo /tmp/udp2tcp
 netcat -lvup 14550 < /tmp/udp2tcp | netcat localhost 14551 > /tmp/udp2tcp
 ```
 
-The port number `14550` is valid for connecting to QGroundControl or another GCS, but should be adjusted for other endpoints (e.g. developer APIs etc.).
+Номер порту `14550` дійсний для підключення до QGroundControl або іншої GCS, але повинен бути скоригований для інших кінцевих точок (наприклад, API розробника тощо).
 
-The tunnel may in theory run indefinitely, but _netcat_ connections may need to be restarted if there is a problem.
+Теоретично тунель може працювати нескінченно довго, але з'єднання _netcat_ доведеться перезапустити, якщо є якась проблема.
 
-The [QGC_remote_connect.bash](https://raw.githubusercontent.com/ThunderFly-aerospace/sitl_gazebo/autogyro-sitl/scripts/QGC_remote_connect.bash) script can be run on the QGC computer to automatically setup/run the above instructions. The simulation must already be running on the remote server, and you must be able to SSH into that server.
+Скрипт [QGC_remote_connect.bash](https://raw.githubusercontent.com/ThunderFly-aerospace/sitl_gazebo/autogyro-sitl/scripts/QGC_remote_connect.bash) можна запустити на комп'ютері QGC для автоматичного налаштування/запуску вищевказаних інструкцій. Симуляція вже має бути запущена на віддаленому сервері, і ви повинні мати доступ по SSH до цього сервера.
 
 [mav_mode_flag_hil_enabled]: https://mavlink.io/en/messages/common.html#MAV_MODE_FLAG_HIL_ENABLED
 [hil_actuator_controls]: https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS
