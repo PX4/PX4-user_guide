@@ -235,27 +235,27 @@ PX4 підтримує захоплення як нерухомих зображ
 
 Інші симулятори можуть використовувати такий самий підхід для реалізації підтримки камери.
 
-## Running Simulation on a Remote Server
+## Запуск симуляції на віддаленому сервері
 
-It is possible to run the simulator on one computer, and access it from another computer on the same network (or on another network with appropriate routing). This might be useful, for example, if you want to test a drone application running on real companion computer hardware running against a simulated vehicle.
+Симулятор можна запустити на одному комп'ютері, а доступ до нього отримати з іншого комп'ютера в тій же мережі (або в іншій мережі з відповідною маршрутизацією). Це може бути корисно, наприклад, якщо ви хочете протестувати програму для безпілотника, що працює на реальному комп'ютері-компаньйоні на фоні змодельованого транспортного засобу.
 
-This does not work "out of the box" because PX4 does not route packets to external interfaces by default (in order to avoid spamming the network and different simulations interfering with each other). Instead it routes traffic internally - to "localhost".
+Це не працює "з коробки", оскільки PX4 за замовчуванням не маршрутизує пакети на зовнішні інтерфейси (щоб уникнути спаму в мережі та втручання різних симуляцій одна в одну). Замість цього він спрямовує трафік всередину - на "localhost".
 
-There are a number of ways to make the UDP packets available on external interfaces, as outlined below.
+Існує декілька способів зробити UDP-пакети доступними на зовнішніх інтерфейсах, як описано нижче.
 
-### Use MAVLink Router
+### Використання MAVLink Router
 
-The [mavlink-router](https://github.com/mavlink-router/mavlink-router) can be used to route packets from localhost to an external interface.
+[Mavlink-router](https://github.com/mavlink-router/mavlink-router) можна використовувати для маршрутизації пакетів з localhost на зовнішній інтерфейс.
 
-To route packets between SITL running on one computer (sending MAVLink traffic to localhost on UDP port 14550), and QGC running on another computer (e.g. at address `10.73.41.30`) you could:
+Ви можете маршрутизувати пакети між SITL, запущеним на одному комп'ютері (що надсилає трафік MAVLink на localhost через UDP-порт 14550), і QGC, запущеним на іншому комп'ютері (наприклад, за адресою `10.73.41.30`):
 
-- Start _mavlink-router_ with the following command:
+- Запустіть _mavlink-router_ за допомогою наступної команди:
 
   ```sh
   mavlink-routerd -e 10.73.41.30:14550 127.0.0.1:14550
   ```
 
-- Use a _mavlink-router_ conf file.
+- Використовуйте конфігураційний файл _mavlink-router_.
 
   ```ini
   [UdpEndpoint QGC]
@@ -270,15 +270,14 @@ To route packets between SITL running on one computer (sending MAVLink traffic t
   ```
 
 :::note
-More information about _mavlink-router_ configuration can be found [here](https://github.com/mavlink-router/mavlink-router#running).
+Більш детальну інформацію про конфігурацію _mavlink-router_ можна знайти [тут](https://github.com/mavlink-router/mavlink-router#running).
 :::
 
-### Enable UDP Broadcasting
+### Увімкнення трансляції UDP
 
-The [mavlink module](../modules/modules_communication.md#mavlink_usage) routes to _localhost_ by default, but you can enable UDP broadcasting of heartbeats using its `-p` option. Any remote computer on the network can then connect to the simulator by listening to the appropriate port (i.e. 14550 for _QGroundControl_).
+[Mavlink module](../modules/modules_communication.md#mavlink_usage) за замовчуванням маршрутизує до _localhost_, але ви можете увімкнути UDP-трансляцію за допомогою його опції `-p`. Будь-який віддалений комп'ютер у мережі може підключитися до симулятора, прослуховуючи відповідний порт (наприклад, 14550 для _QGroundControl_).
 
-:::note UDP
-broadcasting provides a simple way to set up the connection when there is only one simulation running on the network. Do not use this approach if there are multiple simulations running on the network (you might instead [publish to a specific address](#enable-streaming-to-specific-address)).
+:::note UDP-трансляція забезпечує простий спосіб встановлення з'єднання, коли в мережі працює лише одна симуляція. Do not use this approach if there are multiple simulations running on the network (you might instead [publish to a specific address](#enable-streaming-to-specific-address)).
 :::
 
 This should be done in an appropriate configuration file where `mavlink start` is called. For example: [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink).
