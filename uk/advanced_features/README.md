@@ -1,15 +1,15 @@
-# Advanced Features
+# Просунутий функціонал
 
-This section contains topics related to some of the more advanced features of the PX4 autopilot:
+Цей розділ містить теми, пов'язані з деякими більш розширеними функціями автопілота PX4:
 
 - [Air Traffic Avoidance: ADS-B/FLARM/UTM](../peripherals/adsb_flarm.md)
-- [Computer Vision](../computer_vision/README.md)
-  - [Obstacle Avoidance](../computer_vision/obstacle_avoidance.md) (needs companion computer)
-  - [Safe Landing](../computer_vision/safe_landing.md) (needs companion computer)
-  - [Collision Prevention](../computer_vision/collision_prevention.md) (can use companion computer or sensors on flight controller)
-  - [Path Planning Interface](../computer_vision/path_planning_interface.md) (Developer Interface)
-  - [Motion Capture (MoCap)](../computer_vision/motion_capture.md)
-  - [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md)
-- [Iridium/RockBlock Satellite Communication System](../advanced_features/satcom_roadblock.md)
-- [Precision Landing](../advanced_features/precland.md)
+- [Комп'ютерний зір](../computer_vision/README.md)
+  - [Уникнення перешкод](../computer_vision/obstacle_avoidance.md) (потрібен комп'ютер-компаньйон)
+  - [Безпечна посадка](../computer_vision/safe_landing.md) (потрібен комп'ютер-компаньйон)
+  - [Попередження зіткнень](../computer_vision/collision_prevention.md) (може використовувати комп'ютер-компаньйон або датчики на польотному контролері)
+  - [Інтерфейс планування шляху](../computer_vision/path_planning_interface.md) (інтерфейс розробника)
+  - [Захоплення руху (MoCap)](../computer_vision/motion_capture.md)
+  - [Візуальна інерційна одометрія (VIO)](../computer_vision/visual_inertial_odometry.md)
+- [Система супутникового зв'язку Iridium/RockBlock](../advanced_features/satcom_roadblock.md)
+- [Точна посадка](../advanced_features/precland.md)
 - [RTK GPS](../gps_compass/rtk_gps.md)
