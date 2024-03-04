@@ -9,5 +9,5 @@
 :::
 
 - Інформацію про підключення датчиків та інших периферійних пристроїв (наприклад, датчика швидкості для літаків) див. у розділі [Периферія](../peripherals/README.md).
-- See [Airframe Builds](../airframes/README.md) for complete assembly examples on different vehicle frames.
-- See [Multicopter Racer Setup](../config_mc/racer_setup.md) for racer-specific assembly and configuration information.
+- Дивіться [Airframe Builds](../airframes/README.md) для  повного переліку прикладів збірки на різних фреймах апаратів.
+- Дивіться [Налаштування Multicopter Racer](../config_mc/racer_setup.md) для отримання інформації про збірку та конфігурацію для конкретного дрона.
