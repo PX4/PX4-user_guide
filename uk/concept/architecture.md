@@ -10,9 +10,9 @@ PX4 складається із двох головних шарів: [набо�
 
 <a id="architecture"></a>
 
-## High-Level Software Architecture
+## Високорівнева архітектура ПЗ
 
-The diagram below provides a detailed overview of the building blocks of PX4. The top part of the diagram contains middleware blocks, while the lower section shows the components of the flight stack.
+На діаграмі нижче показано детальний огляд будівельних блоків PX4. Верхня частина діаграми містить блоки проміжного ПЗ, тоді як нижня частина - компоненти набору польотного ПЗ.
 
 ![PX4 Architecture](../../assets/diagrams/PX4_Architecture.svg)
 
@@ -25,10 +25,10 @@ Caution: it can happen that after exporting some of the arrows are wrong. In
 that case zoom into the graph until the arrows are correct, and then export
 again. -->
 
-The source code is split into self-contained modules/programs (shown in `monospace` in the diagram). Usually a building block corresponds to exactly one module.
+Вихідний код розділено на самодостатні модулі/програми (показано на діаграмі `моноширинним` шрифтом). Зазвичай один блок відповідає одному модулю.
 
 :::tip
-At runtime, you can inspect which modules are executed with the `top` command in shell, and each module can be started/stopped individually via `<module_name> start/stop`. While `top` command is specific to NuttX shell, the other commands can be used in the SITL shell (pxh>) as well. For more information about each of these modules see the [Modules & Commands Reference](../modules/modules_main.md).
+Під час виконання можна переглянути який з модулів виконується за допомогою команди `top` в консолі, а кожен модуль може бути запущено окремо за допомогою `<module_name> start/stop`. While `top` command is specific to NuttX shell, the other commands can be used in the SITL shell (pxh>) as well. For more information about each of these modules see the [Modules & Commands Reference](../modules/modules_main.md).
 :::
 
 The arrows show the information flow for the _most important_ connections between the modules. In reality, there are many more connections than shown, and some data (e.g. for parameters) is accessed by most of the modules.
