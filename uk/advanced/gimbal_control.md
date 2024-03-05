@@ -1,8 +1,8 @@
-# Gimbal Configuration
+# Конфігурація стабілізатора
 
-This page explains how to configure and control a gimbal that has an attached camera (or any other payload).
+Ця сторінка пояснює, як налаштувати та контролювати стабілізатор, що має приєднану камеру (або будь-який інший вантаж).
 
-## Overview
+## Загальний огляд
 
 PX4 contains a generic mount/gimbal control driver that supports different input and output methods:
 
