@@ -28,10 +28,10 @@ again. -->
 Вихідний код розділено на самодостатні модулі/програми (показано на діаграмі `моноширинним` шрифтом). Зазвичай один блок відповідає одному модулю.
 
 :::tip
-Під час виконання можна переглянути який з модулів виконується за допомогою команди `top` в консолі, а кожен модуль може бути запущено окремо за допомогою `<module_name> start/stop`. While `top` command is specific to NuttX shell, the other commands can be used in the SITL shell (pxh>) as well. For more information about each of these modules see the [Modules & Commands Reference](../modules/modules_main.md).
+Під час виконання можна переглянути який з модулів виконується за допомогою команди `top` в консолі, а кожен модуль може бути запущено окремо за допомогою `<module_name> start/stop`. Хоча команда `top` характерна для оболонки NuttX, інші команди можуть бути використані також в оболонці SITL (pxh>). Для додаткової інформації про кожен з цих модулів дивіться [Довідник команд та модулів](../modules/modules_main.md).
 :::
 
-The arrows show the information flow for the _most important_ connections between the modules. In reality, there are many more connections than shown, and some data (e.g. for parameters) is accessed by most of the modules.
+Стрілки показують плин інформації для _найважливіших_ зв'язків між модулями. В реальності зв'язків набагато більше ніж показано, а деякі дані (наприклад параметри) отримуються більшістю модулів.
 
 Modules communicate with each other through a publish-subscribe message bus named [uORB](../middleware/uorb.md). The use of the publish-subscribe scheme means that:
 
