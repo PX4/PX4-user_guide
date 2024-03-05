@@ -1,28 +1,28 @@
-# Companion Computers
+# Супутні комп'ютери
 
-Companion computers ("mission computers"), are separate on-vehicle computers that are connected to the flight controller, and which enable computationally expensive features like [object avoidance](../computer_vision/obstacle_avoidance.md) and [collision prevention](../computer_vision/collision_prevention.md).
+Супутні комп'ютери ("комп'ютери місії") - це окремі бортові комп'ютери, які під'єднані до контролера польоту, і які забезпечують такі дорогі в обчислювальному плані функції, як [обхід об'єктів](../computer_vision/obstacle_avoidance.md) і [запобігання зіткненням](../computer_vision/collision_prevention.md).
 
-The diagram below shows a possible architecture for an unmanned vehicle architecture that includes a flight controller and companion computer.
+На схемі нижче показана можлива архітектура безпілотного транспортного засобу, яка включає в себе контролер польоту і супутній комп'ютер.
 
 ![PX4 architecture - FC + Companion Computer](../../assets/diagrams/px4_companion_computer_simple.svg)
 
 <!-- source for drawing: https://docs.google.com/drawings/d/1ZDSyj5djKCEbabgx8K4ESdTeEUizgEt8spUWrMGbHUE/edit?usp=sharing -->
 
-The flight controller runs PX4 on NuttX, and provides core flight and safety code. The companion computer usually runs Linux, as this is a much better platform for "general" software development. They are connected using a fast serial or Ethernet link, and typically communicate using the [MAVLink protocol](https://mavlink.io/en/) or uXRCE-DDS.
+Польотний контролер працює під керуванням PX4 на NuttX і забезпечує основний код польоту та безпеки. На комп'ютері-компаньйоні зазвичай працює Linux, оскільки це значно краща платформа для розробки "загального" програмного забезпечення. Вони підключаються за допомогою швидкого послідовного або Ethernet-з'єднання і зазвичай взаємодіють за допомогою протоколу [MAVLink](https://mavlink.io/en/) або uXRCE-DDS.
 
-Communications with the ground stations and the cloud are usually routed via the companion computer (e.g. using the [MAVLink Router](https://github.com/mavlink-router/mavlink-router)).
+Зв'язок з наземними станціями і хмарою зазвичай маршрутизується через супутній комп'ютер (наприклад, за допомогою [MAVLink Router](https://github.com/mavlink-router/mavlink-router)).
 
-## Integrated Companion/Flight Controller Boards
+## Інтегровані плати супутнього компьютера/контролера польоту
 
-Controller boards that come with a pre-integrated companion computer and flight controller can significantly ease both software and hardware setup. In some cases the boards are set up to allow easy replacement of flight controller and/or companion computer parts.
+Плати контролерів, які постачаються з попередньо інтегрованим комп'ютером-компаньйоном і польотним контролером, можуть значно полегшити як програмне, так і апаратне налаштування. У деяких випадках плати налаштовані так, щоб можна було легко замінити контролер польоту та/або деталі супутнього комп'ютера.
 
-The following boards are known to provide a good integration with PX4:
+Відомо, що наступні плати забезпечують хорошу інтеграцію з PX4:
 
 - [Holybro Pixhawk RPI CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
 
-## Managed Integrated Systems
+## Керовані інтегровані системи
 
-The following integrated companion computer/flight controller systems use managed/custom versions of flight controller and companion computer software by default. They are listed here as they can be updated with "vanilla" PX4 firmware for testing/rapid development.
+Наступні інтегровані системи супутній комп'ютер/пілотажний контролер за замовчуванням використовують керовані/кастомізовані версії програмного забезпечення пілотажного контролера та супутнього комп'ютера. Вони перераховані тут, оскільки можуть бути оновлені "лайтовою" прошивкою PX4 для тестування/швидкої розробки.
 
 - [Auterion Skynode](../companion_computer/auterion_skynode.md)
 
