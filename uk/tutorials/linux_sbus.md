@@ -5,30 +5,30 @@
 Для типів RC, крім S.Bus, ви можете просто під'єднати приймач безпосередньо до серійних портів або до USB через USB до TTY серійного кабелю (наприклад, PL2302 USB в Serial TTL)
 
 :::note
-For an S.Bus receiver (or encoder - e.g. from Futaba, RadioLink, etc.) you will usually need to connect the receiver and device via a [signal inverter circuit](#signal_inverter_circuit), but otherwise the setup is the same.
+Для отримувача S.Bus (або кодера - наприклад, від Futaba, RadioLink тощо) вам зазвичай потрібно підключити приймач та пристрій через [схему інвертування сигналу](#signal_inverter_circuit), але в іншому випадку налаштування залишається таким же.
 :::
 
-Then [Start the PX4 RC Driver](#start_driver) on the device, as shown below.
+Тоді [Запустіть PX4 RC драйвер](#start_driver) на пристрої, як показано нижче.
 
 <a id="start_driver"></a>
 
-## Starting the Driver
+## Запуск драйвера
 
-To start the RC driver on a particular UART (e.g. in this case `/dev/ttyS2`):
+Щоб запустити драйвер RC в певному UART (наприклад, в цьому випадку `/dev/ttyS2`):
 
 ```sh
 rc_input start -d /dev/ttyS2
 ```
 
-For other driver usage information see: [rc_input](../modules/modules_driver.md#rc-input).
+Для іншої інформації про використання драйвера дивися: [rc_input](../modules/modules_driver.md#rc-input).
 
 <a id="signal_inverter_circuit"></a>
 
-## Signal Inverter Circuit (S.Bus only)
+## Схема інвертування сигналу (лише для S.Bus)
 
-S.Bus is an _inverted_ UART communication signal.
+S.Bus - це _інвертований_ сигнал комунікації UART.
 
-While some serial ports/flight controllers can read an inverted UART signal, most require a signal inverter circuit between the receiver and serial port to un-invert the signal.
+Хоча деякі серійні порти / контролери польоту можуть читати інвертований сигнал UART, більшість вимагає схеми інвертування сигналу між приймачем та серійним портом для деінвертації сигналу.
 
 :::tip
 This circuit is also required to read S.Bus remote control signals through the serial port or USB-to-TTY serial converter.
