@@ -161,7 +161,7 @@ PX4는 [비행 로그](../getting_started/flight_reporting.md)를 SD 카드에 �
 기본적으로, PX4는 부팅 과정에 SD 카드가 없으면, [포맷 실패](../getting_started/tunes.md#format-failed) 경고음을 두 번 울립니다. 그리고, 위에서 설명한 다수의 기능들이 작동하지 않습니다.
 
 :::tip
-픽스호크 보드에서 지원하는 SD 카드의 최대 용량은 32GB입니다. The _SanDisk Extreme U3 32GB_ is [highly recommended](../dev_log/logging.md#sd-cards).
+픽스호크 보드에서 지원하는 SD 카드의 최대 용량은 32GB입니다. The _SanDisk Extreme U3 32GB_ and _Samsung EVO Plus 32_ are [highly recommended](../dev_log/logging.md#sd-cards).
 :::
 
 SD 카드는 선택 사항입니다. SD 카드가 없는 비행 콘트롤어는 다음의 작업들을 수행하여야 합니다.
