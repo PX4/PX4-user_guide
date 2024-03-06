@@ -65,16 +65,13 @@ Now you are ready to do the build:
 
 1. 安装Mavlink
    ```
-   安装Mavlink 
-     # We use the Kinetic reference for all ROS distros as it's not distro-specific and up to date
-     rosinstall_generator --rosdistro kinetic mavlink | tee /tmp/mavros.rosinstall
+   # We use the Kinetic reference for all ROS distros as it's not distro-specific and up to date
+   rosinstall_generator --rosdistro kinetic mavlink | tee /tmp/mavros.rosinstall
    ```
 1. 安装MAVROS最新的版本：
    * 发行版 / 稳定版
      ```sh
-     最新源码 
-      sh
-      rosinstall_generator --upstream-development mavros | tee -a /tmp/mavros.rosinstall
+     rosinstall_generator --upstream mavros | tee -a /tmp/mavros.rosinstall
      ```
    * Latest source
      ```sh
@@ -82,18 +79,17 @@ Now you are ready to do the build:
      ```
 
      ```sh
-     sh
-  # For fetching all the dependencies into your catkin_ws, 
-  # just add '--deps' to the above scripts, E.g.:
-  #   rosinstall_generator --upstream mavros --deps | tee -a /tmp/mavros.rosinstall
+     # For fetching all the dependencies into your catkin_ws, 
+     # just add '--deps' to the above scripts, E.g.:
+     #   rosinstall_generator --upstream mavros --deps | tee -a /tmp/mavros.rosinstall
      ```
 
 1. 创建工作区 & 安装依赖
 
    ```sh
    wstool merge -t src /tmp/mavros.rosinstall
- wstool update -t src -j4
- rosdep install --from-paths src --ignore-src -y
+   wstool update -t src -j4
+   rosdep install --from-paths src --ignore-src -y
    ```
 
 1. 安装 [GeographicLib](https://geographiclib.sourceforge.io/) 数据集：
@@ -110,7 +106,6 @@ Now you are ready to do the build:
 
    ```sh
    #Needed or rosrun can't find nodes from this workspace.
- source devel/setup.bash
    source devel/setup.bash
    ```
 
