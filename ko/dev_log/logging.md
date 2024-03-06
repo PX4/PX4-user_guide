@@ -83,25 +83,34 @@ The maximum file size depends on the file system and OS. The size limit on NuttX
 
 다음은 다양한 SD 카드에 대한 성능 테스트 결과입니다. 테스트는 Pixracer에서 수행되었습니다. 결과는 Pixhawk에도 적용됩니다.
 
+The table below shows the **mean sequential write speed [KB/s]** / **maximum write time per block (average) [ms]** for F4- (Pixracer), F7-, and H7-based flight controllers.
+
+| SD 카드                                                         | F4        | 최대 기록 시간 / 블록 (평균) [ms] | H7        |
+| ------------------------------------------------------------- | --------- | ----------------------- | --------- |
+| SanDisk Extreme U3 32GB                                       | 461       | 1800/10                 | 2900/8    |
+| Samsung EVO Plus 32GB                                         | 348       | 40                      | 1900/9-60 |
+| Sandisk Ultra Class 10 8GB                                    | 212       | 60                      | ?/?       |
+| Sandisk Class 4 8GB                                           | 331       | 220                     | ?/?       |
+| SanDisk Class 10 32 GB (High Endurance Video Monitoring Card) | 209       | 150                     | ?/?       |
+| Lexar U1 (Class 10), 16GB High-Performance                    | 196       | 500                     | ?/?       |
+| Sandisk Ultra PLUS Class 10 16GB                              | 334       | 250                     | ?/?       |
+| Sandisk Pixtor Class 10 16GB                                  | 332       | 150                     | ?/?       |
+| Sandisk Extreme PLUS Class 10 32GB                            | 332 / 150 | ?/?                     | ?/?       |
+
+Logging bandwidth with the default topics is around 50 KB/s, which almost all SD cards satisfy in terms of their mean sequential write speed.
+
+More important than the mean write speed is spikes (or generally high values) in the maximum write time per block (of 4 KB) or `fsync` times, as a long write time means a larger log buffer is needed to avoid dropouts.
+
+PX4 uses bigger buffers on F7/H7 and read caching, which is enough to compensate for spikes in many poor cards. That said, if your card has an `fsync` or write duration of several 100ms it is should not be preferred for use with PX4. You can check the value by running [sd_bench](../modules/modules_command.md#sd-bench) should be run with more iterations (around 100 should do).
+
+```sh
+sd_bench -r 100
+```
+
+이것은 최소 버퍼 크기를 정의합니다. 이 최대값이 클수록 드롭아웃을 피하기 위하여 더 큰 로그 버퍼가 필요합니다. PX4 uses bigger buffers on F7/H7 and read caching to make up for some of these issues.
+
 :::note
-NuttX에 지원되는 최대 SD 카드 크기는 32GB(SD 메모리 카드 사양 버전 2.0)입니다. `<instance>`를 지정하려면, `<interval>`을 반드시 지정해야합니다.
-
-| SD 카드                                                         | 평균 시퀀스 기록 속도 [KB/s] | 최대 기록 시간 / 블록 (평균) [ms] |
-| ------------------------------------------------------------- | ------------------- | ----------------------- |
-| SanDisk Extreme U3 32GB                                       | 461                 | **15**                  |
-| Sandisk Ultra Class 10 8GB                                    | 348                 | 40                      |
-| Sandisk Class 4 8GB                                           | 212                 | 60                      |
-| SanDisk Class 10 32 GB (High Endurance Video Monitoring Card) | 331                 | 220                     |
-| Lexar U1 (Class 10), 16GB High-Performance                    | 209                 | 150                     |
-| Sandisk Ultra PLUS Class 10 16GB                              | 196                 | 500                     |
-| Sandisk Pixtor Class 10 16GB                                  | 334                 | 250                     |
-| Sandisk Extreme PLUS Class 10 32GB                            | 332                 | 150                     |
-
-평균 쓰기 속도보다 더 중요한 것은 블록당 최대 쓰기 시간(4KB)입니다. 이것은 최소 버퍼 크기를 정의합니다. 이 최대값이 클수록 드롭아웃을 피하기 위하여 더 큰 로그 버퍼가 필요합니다. 기본 항목의 로깅 대역폭은 약 50KB/s로 모든 SD 카드가 충족합니다.
-
-지금까지 우리가 알고 있는 최고의 SD 카드는 **SanDisk Extreme U3 32GB**입니다. 이 카드는 쓰기 시간 스파이크를 나타내지 않으므로(따라서 드롭아웃이 거의 없음) 권장됩니다. 다른 카드 크기도 똑같이 잘 작동할 수 있지만, 일반적으로 성능은 차이가 납니다.
-
-`sd_bench -r 50`으로 자신의 SD 카드를 테스트하고, 결과를 https://github.com/PX4/PX4-Autopilot/issues/4634에 보고할 수 있습니다.
+If you have concerns about a particular card you can run the above test and report the results to https://github.com/PX4/PX4-Autopilot/issues/4634. `<instance>`를 지정하려면, `<interval>`을 반드시 지정해야합니다.
 
 ## 로그 스트리밍
 
