@@ -160,8 +160,8 @@ PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_rep
 
 By default, if no SD card is present PX4 will play the [format failed (2-beep)](../getting_started/tunes.md#format-failed) tune twice during boot (and none of the above features will be available).
 
-:::tip
-The maximum supported SD card size on Pixhawk boards is 32GB. The _SanDisk Extreme U3 32GB_ is [highly recommended](../dev_log/logging.md#sd-cards).
+::: tip
+The maximum supported SD card size on Pixhawk boards is 32GB. The _SanDisk Extreme U3 32GB_ and _Samsung EVO Plus 32_ are [highly recommended](../dev_log/logging.md#sd-cards).
 :::
 
 SD cards are never-the-less optional. Flight controllers that do not include an SD Card slot may:
