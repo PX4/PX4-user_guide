@@ -161,7 +161,7 @@ PX4 使用 SD 储存卡存储 [飞行日志](../getting_started/flight_reporting
 默认情况下，如果没有 SD 卡，PX4 将在启动时播放 [格式化失败（2-声短响）](../getting_started/tunes.md#format-failed) 两次（且上述需要储存卡的功能都不可用）。
 
 :::tip
-Pixhawk 飞控板支持的最大 SD 卡大小为 32 GB 。 The _SanDisk Extreme U3 32GB_ is [highly recommended](../dev_log/logging.md#sd-cards).
+Pixhawk 飞控板支持的最大 SD 卡大小为 32 GB 。 The _SanDisk Extreme U3 32GB_ and _Samsung EVO Plus 32_ are [highly recommended](../dev_log/logging.md#sd-cards).
 :::
 
 尽管如此，SD卡也只是可选的。 不包含 SD 卡槽的飞行控制器可以：
