@@ -14,7 +14,7 @@ PX4 складається із двох головних шарів: [набо�
 
 На діаграмі нижче показано детальний огляд будівельних блоків PX4. Верхня частина діаграми містить блоки проміжного ПЗ, тоді як нижня частина - компоненти набору польотного ПЗ.
 
-![PX4 Architecture](../../assets/diagrams/PX4_Architecture.svg)
+![Архітектура PX4](../../assets/diagrams/PX4_Architecture.svg)
 
 
 <!-- This diagram can be updated from
@@ -33,23 +33,23 @@ again. -->
 
 Стрілки показують плин інформації для _найважливіших_ зв'язків між модулями. В реальності зв'язків набагато більше ніж показано, а деякі дані (наприклад параметри) отримуються більшістю модулів.
 
-Modules communicate with each other through a publish-subscribe message bus named [uORB](../middleware/uorb.md). The use of the publish-subscribe scheme means that:
+Модулі спілкуються один з одним через шину повідомлень публікації/підписки яка називається [uORB](../middleware/uorb.md). Використання схеми публікації/підписки означає, що:
 
-- The system is reactive — it is asynchronous and will update instantly when new data is available
-- All operations and communication are fully parallelized
-- A system component can consume data from anywhere in a thread-safe fashion
+- Система реакційна — тобто є асинхронною та миттєво оновиться при наявності нових даних
+- Всі операції та комунікації повністю розпаралелено
+- Системний компонент може споживати дані звідки завгодно у спосіб безпечний для потоків
 
 :::note
-This architecture allows every single one of these blocks to be rapidly and easily replaced, even at runtime.
+Ця архітектура дозволяє швидко і легко замінити кожен з цих блоків навіть під час виконання.
 :::
 
-### Flight Stack
+### Набір польотного ПЗ
 
-The flight stack is a collection of guidance, navigation and control algorithms for autonomous drones. It includes controllers for fixed-wing, multirotor and VTOL airframes as well as estimators for attitude and position.
+Набір польотного ПЗ є колекцією алгоритмів керування, навігації та спрямування для автономних дронів. Він включає контролери для планерів з фіксованим крилом, мультироторів та ВЗІП, а також спостерігача орієнтації та позиції.
 
-The following diagram shows an overview of the building blocks of the flight stack. It contains the full pipeline from sensors, RC input and autonomous flight control (Navigator), down to the motor or servo control (Actuators).
+У наступній діаграмі показано огляд будівельних блоків набору ПЗ для польоту. Він містить повний конвеєр від датчиків, вхідних даних РК та контролера автономного польоту (Navigator), до двигуна або управління сервоприводами (Actuators).
 
-![PX4 High-Level Flight Stack](../../assets/diagrams/PX4_High-Level_Flight-Stack.svg)
+![Високорівнева схема набору політного ПЗ у PX4](../../assets/diagrams/PX4_High-Level_Flight-Stack.svg)
 
 
 <!-- This diagram can be updated from
@@ -60,79 +60,79 @@ Caution: it can happen that after exporting some of the arrows are wrong. In
 that case zoom into the graph until the arrows are correct, and then export
 again. -->
 
-An **estimator** takes one or more sensor inputs, combines them, and computes a vehicle state (for example the attitude from IMU sensor data).
+**Спостерігач** приймає вхідні дані з одного або більше датчиків, поєднує їх та обчислює стан рухомого засобу (наприклад орієнтацію з даних датчика ІВП або ж IMU).
 
-A **controller** is a component that takes a setpoint and a measurement or estimated state (process variable) as input. Its goal is to adjust the value of the process variable such that it matches the setpoint. The output is a correction to eventually reach that setpoint. For example the position controller takes position setpoints as inputs, the process variable is the currently estimated position, and the output is an attitude and thrust setpoint that move the vehicle towards the desired position.
+**Контролер** - це компонент, який приймає на вхід заданий і виміряний або ж визначений стан (змінну процесу). Його мета - скорегувати значення змінної процесу, таким чином, щоб вона відповідала заданому значенню. Вихідні дані - це корекційні значення, щоб врешті-решт досягти заданих. Наприклад, контролер позиції приймає задані значення позиції на вході, змінна процесу є значенням позиції що оцінюється, а вихід - це орієнтація та задане значення газу, що рухає засіб до потрібної позиції.
 
-A **mixer** takes force commands (such as "turn right") and translates them into individual motor commands, while ensuring that some limits are not exceeded. This translation is specific for a vehicle type and depends on various factors, such as the motor arrangements with respect to the center of gravity, or the vehicle's rotational inertia.
+**Змішувач** приймає команди примусу (наприклад "повернути вправо") і перекладає їх на окремі команди двигуна, при цьому гарантуючи, що певні межі не перевищено. Цей переклад є специфічним для типу засобу і залежить від різних факторів такі як розташування двигунів відносно центру мас або інерція обертання засобу.
 
 <a id="middleware"></a>
 
-### Middleware
+### Проміжне програмне забезпечення
 
-The [middleware](../middleware/README.md) consists primarily of device drivers for embedded sensors, communication with the external world (companion computer, GCS, etc.) and the uORB publish-subscribe message bus.
+[Проміжне ПЗ](../middleware/README.md) головним чином складається з драйверів для вбудованих датчиків, зв'язку із зовнішнім світом (допоміжним комп'ютером, GCS і т. ін.) та шиною повідомлень uORB.
 
-In addition, the middleware includes a [simulation layer](../simulation/README.md) that allows PX4 flight code to run on a desktop operating system and control a computer modeled vehicle in a simulated "world".
+Крім того, в проміжне ПЗ включено [шар симуляції](../simulation/README.md), який дозволяє коду PX4 запускатися на настільній операційній системі та контролювати модельований комп'ютером рухомий засіб у симульованому "світі".
 
-## Update Rates
+## Темпи оновлення даних
 
-Since the modules wait for message updates, typically the drivers define how fast a module updates. Most of the IMU drivers sample the data at 1kHz, integrate it and publish with 250Hz. Other parts of the system, such as the `navigator`, don't need such a high update rate, and thus run considerably slower.
+Оскільки модулі очікують оновлень повідомлень, зазвичай драйвери визначають як швидко оновлюється стан модуля. Більшість драйверів ІВП роблять вибірку даних на частоті 1 кГц, інтегрують їх і публікують з частотою 250 Гц. Інші частини системи, такі як `navigator` не потребують такої високої швидкості поновлення даних тому виконуються значно повільніше.
 
-The message update rates can be [inspected](../middleware/uorb.md) in real-time on the system by running `uorb top`.
+Частота оновлення повідомлень на системі може бути [перевірена](../middleware/uorb.md) в реальному часі, запустивши команду `uorb top`.
 
 <a id="runtime-environment"></a>
 
-## Runtime Environment
+## Середовище виконання
 
-PX4 runs on various operating systems that provide a POSIX-API (such as Linux, macOS, NuttX or QuRT). It should also have some form of real-time scheduling (e.g. FIFO).
+PX4 запускається на різних операційних системах які надають POSIX-API (наприклад, Linux, macOS, NuttX або QuRT). Вони також повинні мати якусь форму планування завдань в реальному часі (наприклад FIFO).
 
-The inter-module communication (using [uORB](../middleware/uorb.md)) is based on shared memory. The whole PX4 middleware runs in a single address space, i.e. memory is shared between all modules.
-
-:::note
-The system is designed such that with minimal effort it would be possible to run each module in separate address space (parts that would need to be changed include `uORB`, `parameter interface`, `dataman` and `perf`).
-:::
-
-There are 2 different ways that a module can be executed:
-
-- **Tasks**: The module runs in its own task with its own stack and process priority.
-- **Work queue tasks**: The module runs on a shared work queue, sharing the same stack and work queue thread priority as other modules on the queue.
-
-  - All the tasks must behave co-operatively as they cannot interrupt each other.
-  - Multiple _work queue tasks_ can run on a queue, and there can be multiple queues.
-  - A _work queue task_ is scheduled by specifying a fixed time in the future, or via uORB topic update callback.
-
-  The advantage of running modules on a work queue is that it uses less RAM, and potentially results in fewer task switches. The disadvantages are that _work queue tasks_ are not allowed to sleep or poll on a message, or do blocking IO (such as reading from a file). Long-running tasks (doing heavy computation) should potentially also run in a separate task or at least a separate work queue.
+Комунікація між модулями (за допомогою [uORB](../middleware/uorb.md)) заснована на розділюваній пам'яті. Усе проміжне ПЗ PX4 виконується в єдиному адресному просторі, тобто пам'ять розділена між усіма модулями.
 
 :::note
-Tasks running on a work queue do not show up in [`top`](../modules/modules_command.md#top) (only the work queues themselves can be seen - e.g. as `wq:lp_default`). Use [`work_queue status`](../modules/modules_system.md#work-queue) to display all active work queue items.
+Система створена так, щоб з мінімальними зусиллями, можна було б запустити кожен модуль в окремому адресному просторі (частини, які необхідно буде змінити включають `uORB`, `parameter interface`, `dataman` та `perf`).
 :::
 
-### Background Tasks
+Існує 2 різні способи запуску модуля:
 
-`px4_task_spawn_cmd()` is used to launch new tasks (NuttX) or threads (POSIX - Linux/macOS) that run independently from the calling (parent) task:
+- **Завдання**: Модуль виконується у своєму власному завданні з власним стеком і пріоритетом процесу.
+- **Завдання робочої черги**: Модуль виконується в спільній робочій черзі, розділяючи той самий стек та пріоритет потоку робочої черги як і інші модулі в черзі.
+
+  - Усі завдання повинні поводитися скооперовано, оскільки вони не можуть переривати одне одного.
+  - Декілька _завдань робочої черги_ можуть запускатися у черзі, а також може бути кілька черг.
+  - _Завдання робочої черги_ планується вказанням визначеного часу у майбутньому або через зворотний виклик "поновлення теми" uORB.
+
+  Перевага запуску модулів у робочій черзі полягає в тому, що це використовує менше ОЗП, і потенційно призводить до меншої кількості перемикань завдань. Недоліки в тому, що _завданням робочої черги_ не дозволено перебувати в режимі сну або опитувати наявність повідомлення, або виконувати блокуючу операцію вводу/виводу (наприклад, читання з файлу). Довгострокові завдання (що виконують важкі обчислення) повинні потенційно також запускатися в окремому завданні або принаймні в окремій робочий черзі.
+
+:::note
+Завдання запущені в робочій черзі не з'являються у виводі [`top`](../modules/modules_command.md#top) (видно тільки робочі як такі, наприклад `wq:lp_default`). Використовуйте [`work_queue status`](../modules/modules_system.md#work-queue) для показу всіх активних елементів черги.
+:::
+
+### Фонові завдання
+
+`px4_task_spawn_cmd()` використовується для запуску нових завдань (NuttX) або потоків (POSIX - Linux/macOS), які працюють незалежно від (батьківського) завдання, що їх викликало:
 
 ```cpp
 independent_task = px4_task_spawn_cmd(
-    "commander",                    // Process name
-    SCHED_DEFAULT,                  // Scheduling type (RR or FIFO)
-    SCHED_PRIORITY_DEFAULT + 40,    // Scheduling priority
-    3600,                           // Stack size of the new task or thread
-    commander_thread_main,          // Task (or thread) main function
-    (char * const *)&argv[0]        // Void pointer to pass to the new task
-                                    // (here the commandline arguments).
+    "commander",                    // Ім'я процесу
+    SCHED_DEFAULT,                  // Тип планування (RR or FIFO)
+    SCHED_PRIORITY_DEFAULT + 40,    // Пріоритет планування
+    3600,                           // Розмір стеку нового завдання або потоку
+    commander_thread_main,          // Головна функція задання або потоку
+    (char * const *)&argv[0]        // Вказівник на процедуру для передачі новому завданню
+                                    // (аргументи командного рядка).
     );
 ```
 
-### OS-Specific Information
+### Інформація для певної ОС
 
 #### NuttX
 
-[NuttX](https://nuttx.apache.org//) is the primary RTOS for running PX4 on a flight-control board. It is open source (BSD license), light-weight, efficient and very stable.
+[NuttX](https://nuttx.apache.org//) є основною RTOS для запуску PX4 на платі керування польотами. Вона має відкритий вихідний код (під BSD ліцензією), легка, ефективна і дуже стабільна.
 
-Modules are executed as tasks: they have their own file descriptor lists, but they share a single address space. A task can still start one or more threads that share the file descriptor list.
+Модулі виконуються як завдання: вони мають свої списки дескрипторів файлів, але мають єдиний адресний простір. Завдання все ще може запустити один або кілька потоків, які розділяють той самий список дескрипторів файлів.
 
-Each task/thread has a fixed-size stack, and there is a periodic task which checks that all stacks have enough free space left (based on stack coloring).
+Кожне завдання/поток має стек фіксованого розміру, є періодичне завдання, яке перевіряє, що в всіх стеках залишилося достатньо вільного місця (засновано на розфарбовуванні стеку).
 
 #### Linux/macOS
 
-On Linux or macOS, PX4 runs in a single process, and the modules run in their own threads (there is no distinction between tasks and threads as on NuttX).
+На Linux або macOS, PX4 виконується в одному процесі, а модулі запускаються у своїх потоках (бо немає різниці між завданнями та потоками як на NuttX).
