@@ -82,17 +82,17 @@ again. -->
 
 <a id="runtime-environment"></a>
 
-## Runtime Environment
+## Середовище виконання
 
-PX4 runs on various operating systems that provide a POSIX-API (such as Linux, macOS, NuttX or QuRT). It should also have some form of real-time scheduling (e.g. FIFO).
+PX4 запускається на різних операційних системах які надають POSIX-API (наприклад, Linux, macOS, NuttX або QuRT). Вони також повинні мати якусь форму планування завдань в реальному часі (наприклад FIFO).
 
-The inter-module communication (using [uORB](../middleware/uorb.md)) is based on shared memory. The whole PX4 middleware runs in a single address space, i.e. memory is shared between all modules.
+Комунікація між модулями (за допомогою [uORB](../middleware/uorb.md)) заснована на розділюваній пам'яті. Усе проміжне ПЗ PX4 виконується в єдиному адресному просторі, тобто пам'ять розділена між усіма модулями.
 
 :::note
-The system is designed such that with minimal effort it would be possible to run each module in separate address space (parts that would need to be changed include `uORB`, `parameter interface`, `dataman` and `perf`).
+Система створена так, щоб з мінімальними зусиллями, можна було б запустити кожен модуль в окремому адресному просторі (частини, які необхідно буде змінити включають `uORB`, `parameter interface`, `dataman` та `perf`).
 :::
 
-There are 2 different ways that a module can be executed:
+Існує 2 різні способи запуску модуля:
 
 - **Tasks**: The module runs in its own task with its own stack and process priority.
 - **Work queue tasks**: The module runs on a shared work queue, sharing the same stack and work queue thread priority as other modules on the queue.
