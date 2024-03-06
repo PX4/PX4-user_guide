@@ -33,21 +33,21 @@ again. -->
 
 Стрілки показують плин інформації для _найважливіших_ зв'язків між модулями. В реальності зв'язків набагато більше ніж показано, а деякі дані (наприклад параметри) отримуються більшістю модулів.
 
-Modules communicate with each other through a publish-subscribe message bus named [uORB](../middleware/uorb.md). The use of the publish-subscribe scheme means that:
+Модулі спілкуються один з одним через шину повідомлень публікації/підписки яка називається [uORB](../middleware/uorb.md). Використання схеми публікації/підписки означає, що:
 
-- The system is reactive — it is asynchronous and will update instantly when new data is available
-- All operations and communication are fully parallelized
-- A system component can consume data from anywhere in a thread-safe fashion
+- Система реакційна — тобто є асинхронною та миттєво оновиться при наявності нових даних
+- Всі операції та комунікації повністю розпаралелено
+- Системний компонент може споживати дані звідки завгодно у спосіб безпечний для потоків
 
 :::note
-This architecture allows every single one of these blocks to be rapidly and easily replaced, even at runtime.
+Ця архітектура дозволяє швидко і легко замінити кожен з цих блоків навіть під час виконання.
 :::
 
-### Flight Stack
+### Набір польотного ПЗ
 
-The flight stack is a collection of guidance, navigation and control algorithms for autonomous drones. It includes controllers for fixed-wing, multirotor and VTOL airframes as well as estimators for attitude and position.
+Набір польотного ПЗ є колекцією алгоритмів керування, навігації та спрямування для автономних дронів. Він включає контролери для планерів з фіксованим крилом, мультироторів та ВЗІП, а також оцінювачі орієнтації та позиції.
 
-The following diagram shows an overview of the building blocks of the flight stack. It contains the full pipeline from sensors, RC input and autonomous flight control (Navigator), down to the motor or servo control (Actuators).
+У наступній діаграмі показано огляд будівельних блоків набору ПЗ для польоту. Він містить повний конвеєр від датчиків, вхідних даних РК та контролера автономного польоту (Navigator), до двигуна або управління сервоприводами (Actuators).
 
 ![PX4 High-Level Flight Stack](../../assets/diagrams/PX4_High-Level_Flight-Stack.svg)
 
@@ -60,15 +60,15 @@ Caution: it can happen that after exporting some of the arrows are wrong. In
 that case zoom into the graph until the arrows are correct, and then export
 again. -->
 
-An **estimator** takes one or more sensor inputs, combines them, and computes a vehicle state (for example the attitude from IMU sensor data).
+**Оцінювач** приймає вхідні дані з одного або більше датчиків, поєднує їх та обчислює стан рухомого засобу (наприклад орієнтацію з даних датчика ІВП або ж IMU).
 
-A **controller** is a component that takes a setpoint and a measurement or estimated state (process variable) as input. Its goal is to adjust the value of the process variable such that it matches the setpoint. The output is a correction to eventually reach that setpoint. For example the position controller takes position setpoints as inputs, the process variable is the currently estimated position, and the output is an attitude and thrust setpoint that move the vehicle towards the desired position.
+**Контролер** - це компонент, який приймає на вхід заданий і виміряний або ж визначений стан (змінну процесу). Його мета - скорегувати значення змінної процесу, таким чином, щоб вона відповідала заданому значенню. Вихідні дані - це корекційні значення, щоб врешті-решт досягти заданих. Наприклад, контролер позиції приймає задані значення позиції на вході, змінна процесу є значенням позиції що оцінюється, а вихід - це орієнтація та задане значення газу, що рухає засіб до потрібної позиції.
 
-A **mixer** takes force commands (such as "turn right") and translates them into individual motor commands, while ensuring that some limits are not exceeded. This translation is specific for a vehicle type and depends on various factors, such as the motor arrangements with respect to the center of gravity, or the vehicle's rotational inertia.
+**Змішувач** приймає команди примусу (наприклад "повернути вправо") і перекладає їх на окремі команди двигуна, при цьому гарантуючи, що певні межі не перевищено. Цей переклад є специфічним для типу засобу і залежить від різних факторів такі як розташування двигунів відносно центру мас або інерція обертання засобу.
 
 <a id="middleware"></a>
 
-### Middleware
+### Проміжне програмне забезпечення
 
 The [middleware](../middleware/README.md) consists primarily of device drivers for embedded sensors, communication with the external world (companion computer, GCS, etc.) and the uORB publish-subscribe message bus.
 
