@@ -14,7 +14,7 @@ PX4 складається із двох головних шарів: [набо�
 
 На діаграмі нижче показано детальний огляд будівельних блоків PX4. Верхня частина діаграми містить блоки проміжного ПЗ, тоді як нижня частина - компоненти набору польотного ПЗ.
 
-![PX4 Architecture](../../assets/diagrams/PX4_Architecture.svg)
+![Архітектура PX4](../../assets/diagrams/PX4_Architecture.svg)
 
 
 <!-- This diagram can be updated from
@@ -49,7 +49,7 @@ again. -->
 
 У наступній діаграмі показано огляд будівельних блоків набору ПЗ для польоту. Він містить повний конвеєр від датчиків, вхідних даних РК та контролера автономного польоту (Navigator), до двигуна або управління сервоприводами (Actuators).
 
-![PX4 High-Level Flight Stack](../../assets/diagrams/PX4_High-Level_Flight-Stack.svg)
+![Високорівнева схема набору політного ПЗ у PX4](../../assets/diagrams/PX4_High-Level_Flight-Stack.svg)
 
 
 <!-- This diagram can be updated from
@@ -94,45 +94,45 @@ PX4 запускається на різних операційних систе
 
 Існує 2 різні способи запуску модуля:
 
-- **Tasks**: The module runs in its own task with its own stack and process priority.
-- **Work queue tasks**: The module runs on a shared work queue, sharing the same stack and work queue thread priority as other modules on the queue.
+- **Завдання**: Модуль виконується у своєму власному завданні з власним стеком і пріоритетом процесу.
+- **Завдання робочої черги**: Модуль виконується в спільній робочій черзі, розділяючи той самий стек та пріоритет потоку робочої черги як і інші модулі в черзі.
 
-  - All the tasks must behave co-operatively as they cannot interrupt each other.
-  - Multiple _work queue tasks_ can run on a queue, and there can be multiple queues.
-  - A _work queue task_ is scheduled by specifying a fixed time in the future, or via uORB topic update callback.
+  - Усі завдання повинні поводитися скооперовано, оскільки вони не можуть переривати одне одного.
+  - Декілька _завдань робочої черги_ можуть запускатися у черзі, а також може бути кілька черг.
+  - _Завдання робочої черги_ планується вказанням визначеного часу у майбутньому або через зворотний виклик "поновлення теми" uORB.
 
-  The advantage of running modules on a work queue is that it uses less RAM, and potentially results in fewer task switches. The disadvantages are that _work queue tasks_ are not allowed to sleep or poll on a message, or do blocking IO (such as reading from a file). Long-running tasks (doing heavy computation) should potentially also run in a separate task or at least a separate work queue.
+  Перевага запуску модулів у робочій черзі полягає в тому, що це використовує менше ОЗП, і потенційно призводить до меншої кількості перемикань завдань. Недоліки в тому, що _завданням робочої черги_ не дозволено перебувати в режимі сну або опитувати наявність повідомлення, або виконувати блокуючу операцію вводу/виводу (наприклад, читання з файлу). Довгострокові завдання (що виконують важкі обчислення) повинні потенційно також запускатися в окремому завданні або принаймні в окремій робочий черзі.
 
 :::note
-Tasks running on a work queue do not show up in [`top`](../modules/modules_command.md#top) (only the work queues themselves can be seen - e.g. as `wq:lp_default`). Use [`work_queue status`](../modules/modules_system.md#work-queue) to display all active work queue items.
+Завдання запущені в робочій черзі не з'являються у виводі [`top`](../modules/modules_command.md#top) (видно тільки робочі як такі, наприклад `wq:lp_default`). Використовуйте [`work_queue status`](../modules/modules_system.md#work-queue) для показу всіх активних елементів черги.
 :::
 
-### Background Tasks
+### Фонові завдання
 
-`px4_task_spawn_cmd()` is used to launch new tasks (NuttX) or threads (POSIX - Linux/macOS) that run independently from the calling (parent) task:
+`px4_task_spawn_cmd()` використовується для запуску нових завдань (NuttX) або потоків (POSIX - Linux/macOS), які працюють незалежно від (батьківського) завдання, що їх викликало:
 
 ```cpp
 independent_task = px4_task_spawn_cmd(
-    "commander",                    // Process name
-    SCHED_DEFAULT,                  // Scheduling type (RR or FIFO)
-    SCHED_PRIORITY_DEFAULT + 40,    // Scheduling priority
-    3600,                           // Stack size of the new task or thread
-    commander_thread_main,          // Task (or thread) main function
-    (char * const *)&argv[0]        // Void pointer to pass to the new task
-                                    // (here the commandline arguments).
+    "commander",                    // Ім'я процесу
+    SCHED_DEFAULT,                  // Тип планування (RR or FIFO)
+    SCHED_PRIORITY_DEFAULT + 40,    // Пріоритет планування
+    3600,                           // Розмір стеку нового завдання або потоку
+    commander_thread_main,          // Головна функція задання або потоку
+    (char * const *)&argv[0]        // Вказівник на процедуру для передачі новому завданню
+                                    // (аргументи командного рядка).
     );
 ```
 
-### OS-Specific Information
+### Інформація для певної ОС
 
 #### NuttX
 
-[NuttX](https://nuttx.apache.org//) is the primary RTOS for running PX4 on a flight-control board. It is open source (BSD license), light-weight, efficient and very stable.
+[NuttX](https://nuttx.apache.org//) є основною RTOS для запуску PX4 на платі керування польотами. Вона має відкритий вихідний код (під BSD ліцензією), легка, ефективна і дуже стабільна.
 
-Modules are executed as tasks: they have their own file descriptor lists, but they share a single address space. A task can still start one or more threads that share the file descriptor list.
+Модулі виконуються як завдання: вони мають свої списки дескрипторів файлів, але мають єдиний адресний простір. Завдання все ще може запустити один або кілька потоків, які розділяють той самий список дескрипторів файлів.
 
-Each task/thread has a fixed-size stack, and there is a periodic task which checks that all stacks have enough free space left (based on stack coloring).
+Кожне завдання/поток має стек фіксованого розміру, є періодичне завдання, яке перевіряє, що в всіх стеках залишилося достатньо вільного місця (засновано на розфарбовуванні стеку).
 
 #### Linux/macOS
 
-On Linux or macOS, PX4 runs in a single process, and the modules run in their own threads (there is no distinction between tasks and threads as on NuttX).
+На Linux або macOS, PX4 виконується в одному процесі, а модулі запускаються у своїх потоках (бо немає різниці між завданнями та потоками як на NuttX).
