@@ -1,11 +1,11 @@
-# Payloads and Cameras
+# Приводи та камери
 
-PX4 supports a wide range of payloads and cameras.
+PX4 підтримує широкий спектр приводів та камер.
 
-Payloads are connected to [Fight Controller outputs](../getting_started/px4_basic_concepts.md#outputs-motors-servos-actuators), and can generally be triggered automatically in missions, or manually using RC passthrough, mapping to a joystick, or MAVLink/MAVSDK commands.
+Приводи підключаються до [виходів Політного Контролера](../getting_started/px4_basic_concepts.md#outputs-motors-servos-actuators) і, як правило, можуть активовуватися автоматично в місіях, або вручну за допомогою Пульта Дистанційного Керування, маппінгу на джойстик, або командами MAVLink/MAVSDK.
 
 :::note
-Payloads (actuators) can be tested in the [pre-arm state](../getting_started/px4_basic_concepts.md#arming-and-disarming), which disables motors but allows actuators to move. This may be safer than testing when the vehicle is armed.
+Приводи (актуатори) можуть бути протестовані в [pre-arm стані](../getting_started/px4_basic_concepts.md#arming-and-disarming), який деактивує мотори, але дозволяє актуаторам рухатися. This may be safer than testing when the vehicle is armed.
 :::
 
 ## Mapping Drones
