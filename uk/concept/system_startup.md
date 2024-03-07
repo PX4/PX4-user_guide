@@ -1,30 +1,30 @@
 # Запуск системи
 
-Запуск PX4 контрольований скриптами оболонки. На NuttX вони знаходяться у директорії [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d), деякі з них також використовуються на Posix системах (Linux/MacOS). The scripts that are only used on Posix are located in [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix).
+Запуск PX4 контрольований скриптами оболонки. На NuttX вони знаходяться у директорії [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d), деякі з них також використовуються на Posix системах (Linux/MacOS). Скрипти які використовуються тільки на Posix системах знаходяться у [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix).
 
-All files starting with a number and underscore (e.g. `10000_airplane`) are predefined airframe configurations. They are exported at build-time into an `airframes.xml` file which is parsed by [QGroundControl](http://qgroundcontrol.com) for the airframe selection UI. Adding a new configuration is covered [here](../dev_airframes/adding_a_new_frame.md).
+Усі файли, які починаються з числа і підкреслення (наприклад, `10000_airaipl`) є попередньо визначеними конфігураціями планерів. Вони експортуються під час збірки в файл `airframes.xml` який потім аналізується  [QGroundControl](http://qgroundcontrol.com) для користувацького інтерфейсу вибору планера. Як додати нову конфігурацію описано [тут](../dev_airframes/adding_a_new_frame.md).
 
-The remaining files are part of the general startup logic. The first executed file is the [init.d/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS) script (or [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS) on Posix), which calls all other scripts.
+Файли що залишилися є частиною загальної логіки запуску. Перший файл що виконується є скрипт [init.d/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS) (або [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS) на Posix), який викликає інші скрипти.
 
-The following sections are split according to the operating system that PX4 runs on.
+Наступні секції розділені відповідно до операційної системи, на яких виконується PX4.
 
 ## Posix (Linux/MacOS)
 
-On Posix, the system shell is used as script interpreter (e.g. /bin/sh, being symlinked to dash on Ubuntu). For that to work, a few things are required:
+На Posix системна оболонка використовується як інтерпретатор скриптів (наприклад, /bin/sh що є символьним посиланням на dash в Ubuntu). Щоб це працювало потрібно кілька речей:
 
-- PX4 modules need to look like individual executables to the system. This is done via symbolic links. For each module a symbolic link `px4-<module> -> px4` is created in the `bin` directory of the build folder. When executed, the binary path is checked (`argv[0]`), and if it is a module (starts with `px4-`), it sends the command to the main px4 instance (see below).
+- Модулі PX4 повинні виглядати для системи як окремі виконувані файли. Це робиться за допомогою символьних посилань. Для кожного модуля створюється символьне посилання `px4-<module> -> px4` в каталозі збірки `bin`. При виконанні двійкового файлу перевіряється його шлях (`argv[0]`) і якщо це модуль (починається з `px4-`) він відправляє команду на основний екземпляр px4 (див. нижче).
 
 :::tip
-The `px4-` prefix is used to avoid conflicts with system commands (e.g. `shutdown`), and it also allows for simple tab completion by typing `px4-<TAB>`.
+Префікс `px4-` використовується для уникнення конфліктів з системними командами (наприклад `shutdown`), також це дозволяє просте автодоповнення за допомогою клавіші `Tab` при вводі <0>px4-&lt;TAB&gt;</0>.
 :::
 
-- The shell needs to know where to find the symbolic links. For that the `bin` directory with the symbolic links is added to the `PATH` variable right before executing the startup scripts.
-- The shell starts each module as a new (client) process. Each client process needs to communicate with the main instance of px4 (the server), where the actual modules are running as threads. This is done through a [UNIX socket](http://man7.org/linux/man-pages/man7/unix.7.html). The server listens on a socket, to which clients can connect and send a command. The server then sends the output and return code back to the client.
-- The startup scripts call the module directly, e.g. `commander start`, rather than using the `px4-` prefix. This works via aliases: for each module an alias in the form of `alias <module>=px4-<module>` is created in the file `bin/px4-alias.sh`.
-- The `rcS` script is executed from the main px4 instance. It does not start any modules, but first updates the `PATH` variable and then simply runs a shell with the `rcS` file as argument.
-- In addition to that, multiple server instances can be started for multi-vehicle simulations. A client selects the instance via `--instance`. The instance is available in the script via `$px4_instance` variable.
+- Оболонка повинна знати, де шукати символьні посилання. Для цього директорія `bin` із символьними посиланнями додається до змінної `PATH` одразу перед виконанням скриптів запуску.
+- Оболонка запускає кожен модуль як новий (клієнтський) процес. Кожен клієнтський процес повинен спілкуватися з головним екземпляром px4 (сервером), де справжні модулі працюють як потоки. Це зроблено через [сокет UNIX](http://man7.org/linux/man-pages/man7/unix.7.html). Сервер прослуховує сокет, до якого клієнти можуть під'єднатися та надіслати команду. Сервер відправляє вихідні дані та код повернення назад до клієнта.
+- Стартові скрипти викликають модулі безпосередньо, наприклад `commander start`, замість використання префікса `px4-`. Це працює через псевдоніми: для кожного модуля створюється псевдонім у формі `alias <module>=px4-<module>` файлом `bin/px4-alias.sh`.
+- Скрипт `rcS` виконується з основного екземпляра px4. Він не запускає жодних модулів, але спочатку оновлює змінну `PATH`, а потім просто запускає оболонку з файлом `rcS` як аргумент.
+- Крім того, декілька екземплярів серверу можуть бути запущені для симуляції кількох засобів. Клієнт обирає екземпляр через параметр `--instance`. В скрипті екземпляр доступний за допомогою змінної `$px4_instance`.
 
-The modules can be executed from any terminal when PX4 is already running on a system. For example:
+Модулі можна виконувати з будь-якого терміналу, коли PX4 вже запущено в системі. Наприклад:
 
 ```sh
 cd <PX4-Autopilot>/build/px4_sitl_default/bin
@@ -32,9 +32,9 @@ cd <PX4-Autopilot>/build/px4_sitl_default/bin
 ./px4-listener sensor_accel
 ```
 
-### Dynamic Modules
+### Динамічні модулі
 
-Normally, all modules are compiled into a single PX4 executable. However, on Posix, there's the option of compiling a module into a separate file, which can be loaded into PX4 using the `dyn` command.
+Зазвичай всі модулі компілюються в єдиний виконуваний файл PX4. Однак, на Posix системах, є можливість компіляції модуля в окремий файл, який можна завантажити в PX4 використовуючи команду `dyn`.
 
 ```sh
 dyn ./test.px4mod
@@ -42,7 +42,7 @@ dyn ./test.px4mod
 
 ## NuttX
 
-NuttX has an integrated shell interpreter ([NuttShell (NSH)](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=139629410)), and thus scripts can be executed directly.
+NuttX має інтегрований інтерпретатор оболонки ([NuttShell (NSH)](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=139629410)), тому скрипти можуть бути виконані безпосередньо.
 
 ### Debugging the System Boot
 
