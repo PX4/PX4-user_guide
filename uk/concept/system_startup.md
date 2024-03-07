@@ -65,56 +65,56 @@ NuttX має інтегрований інтерпретатор оболонк�
 
 Найкращий спосіб змінити запуск системи - це ввести [нову конфігурацію планера](../dev_airframes/adding_a_new_frame.md). Файл конфігурації планеру може бути включений у прошивку або на SD карту.
 
-If you only need to "tweak" the existing configuration, such as starting one more application or setting the value of a few parameters, you can specify these by creating two files in the `/etc/` directory of the SD Card:
+Якщо вам потрібно "підлаштувати" конфігурацію що існує, наприклад запустити один або більше застосунків або встановити значення кількох параметрів, можна вказати це створивши два файли у директорії `/etc/` на SD картці:
 
-- [/etc/config.txt](#customizing-the-configuration-config-txt): modify parameter values
-- [/etc/extras.txt](#starting-additional-applications-extras-txt): start applications
+- [/etc/config.txt](#customizing-the-configuration-config-txt): для зміни значення параметрів
+- [/etc/extras.txt](#starting-additional-applications-extras-txt): для запуску застосунків
 
-The files are described below.
+Ці файли описані нижче.
 
 :::warning
-The system boot files are UNIX FILES which require UNIX LINE ENDINGS.
-If editing on Windows use a suitable editor.
+Системні файли завантаження - це UNIX файли, які потребують закінчення рядків UNIX.
+Якщо редагуєте їх на Windows - використовуйте відповідний редактор.
 :::
 
 :::note
-These files are referenced in PX4 code as `/fs/microsd/etc/config.txt` and `/fs/microsd/etc/extras.txt`, where the root folder of the microsd card is identified by the path `/fs/microsd`.
+Ці файли згадуються в коді PX4 як `/fs/microsd/etc/config.txt` та `/fs/microsd/etc/extras.txt`, де коренева директорія microSD карти визначається шляхом `/fs/microsd`.
 :::
 
-#### Customizing the Configuration (config.txt)
+#### Налаштування конфігурації (config.txt)
 
-The `config.txt` file can be used to modify parameters. It is loaded after the main system has been configured and _before_ it is booted.
+Файл `config.txt` можна використовувати для зміни параметрів. Він завантажується після того, як головна система була налаштована та _перед тим_ як завантажена.
 
-For example, you could create a file on the SD card, `etc/config.txt` with that sets parameter values as shown:
+Наприклад, ви можете створити файл на SD картці, `etc/config.txt` з такими значеннями параметрів як показано:
 
 ```sh
 param set-default PWM_MAIN_DIS3 1000
 param set-default PWM_MAIN_MIN3 1120
 ```
 
-#### Starting Additional Applications (extras.txt)
+#### Запуск додаткових застосунків (extras.txt)
 
-The `extras.txt` can be used to start additional applications after the main system boot. Typically these would be payload controllers or similar optional custom components.
+`extras.txt` можна використовувати для запуску додаткових застосунків після завантаження основної системи. Зазвичай це будуть контролери корисного навантаження або подібні необов'язкові користувацькі компоненти.
 
 :::warning
-Calling an unknown command in system boot files may result in boot failure.
-Typically the system does not stream mavlink messages after boot failure, in this case check the error messages that are printed on the system console.
+Виклик невідомої команди в файлах завантаження системи може призвести до збою завантаження.
+Зазвичай система не транслює повідомлення mavlink після збою при завантаженні, в такій ситуації перевірте повідомлення про помилки, які виведено в системній консолі.
 :::
 
-The following example shows how to start custom applications:
+Наступний приклад показує, як запускати користувацькі застосунки:
 
-- Create a file on the SD card `etc/extras.txt` with this content:
+- Створіть файл на SD картці `etc/extras.txt` із цим вмістом:
 
   ```sh
   custom_app start
   ```
 
-- A command can be made optional by gating it with the `set +e` and `set -e` commands:
+- Команду можна зробити необов'язковою шляхом оздоблення команди директивами `set +e` та `set -e`:
 
   ```sh
   set +e
-  optional_app start      # Will not result in boot failure if optional_app is unknown or fails
+  optional_app start      # Не призведе до помилки при завантаженні якщо optional_app не знайдено або відмовить
   set -e
 
-  mandatory_app start     # Will abort boot if mandatory_app is unknown or fails
+  mandatory_app start     # Перерве завантаження якщо mandatory_app не знайдено або відмовить
   ```
