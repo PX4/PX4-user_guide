@@ -1,31 +1,31 @@
-# PX4 System Architecture
+# Архітектура системи PX4
 
-The sections below provide high-level overview of the PX4 hardware and software stack for two "typical" PX4 systems; one that has just a flight controller, and another that has a flight controller and a companion computer (also known as a "mission computer").
+Нижче наведено огляд апаратного та програмного забезпечення на PX4 для двох "типових" систем PX4; перша має лише польотний контролер, а друга має польотний контролер і супутній комп'ютер (також відомий як "комп'ютер політних завдань").
 
 :::note
-The [PX4 Architectural Overview](../concept/architecture.md) provides information about the flight stack and middleware. Offboard APIs are covered in [ROS](../ros/README.md) and [MAVSDK](https://mavsdk.mavlink.io/main/en/).
+[Огляд архітектури PX4](../concept/architecture.md) надає інформацію про набір польотного програмного забезпечення та проміжного ПЗ. Зовнішні API охоплено в розділах [ROS](../ros/README.md) та [MAVSDK](https://mavsdk.mavlink.io/main/en/).
 :::
 
-## Flight Controller (only)
+## Лише польотний контролер
 
-The diagram below provides a high level overview of a typical "simple" PX4 system based around a flight controller.
+На діаграмі нижче показано загальний огляд типової "простої" системи PX4 на основі польотного контролера.
 
 ![PX4 architecture - FC only system](../../assets/diagrams/px4_arch_fc.svg)
 
 <!-- Source for drawing: https://docs.google.com/drawings/d/1_2n43WrbkWTs1kz0w0avVEeebJbfTj5SSqvCmvSOBdU/edit -->
 
-The hardware consists of
+Апаратне забезпечення складається з
 
-- [Flight controller](../flight_controller/README.md) (running the PX4 flight stack). This often includes internal IMUs, compass and barometer.
-- [Motor ESCs](../peripherals/esc_motors.md) connected to [PWM outputs](../peripherals/pwm_escs_and_servo.md), [DroneCAN](../dronecan/escs.md) (DroneCAN allows two-way communication, not single direction as shown) or some other bus.
-- Sensors ([GPS](../gps_compass/README.md), [compass](../gps_compass/README.md), distance sensors, barometers, optical flow, barometers, ADSB transponders, etc.) connected via I2C, SPI, CAN, UART etc.
-- [Camera](../peripherals/camera.md) or other payload. Cameras can be connected to PWM outputs or via MAVLink.
-- [Telemetry radios](../telemetry/README.md) for connecting to a ground station computer/software.
-- [RC Control System](../getting_started/rc_transmitter_receiver.md) for manual control
+- [Політного контролера](../flight_controller/README.md) (запускає набір польотного ПЗ PX4). Часто включає внутрішні ІВП, компас та барометр.
+- [Електронного регулятора ходу двигунів](../peripherals/esc_motors.md) під'єднаного до [виводів ШІМ](../peripherals/pwm_escs_and_servo.md), [DroneCAN](../dronecan/escs.md) (DroneCAN дозволяє двонапрямну комунікацію, не в одному напрямку як показано) або іншої шини.
+- Датчиків ([GPS](../gps_compass/README.md), [компас](../gps_compass/README.md), датчики відстані, барометри, датчики оптичного потоку, ADSB транспондери і т. ін.) під'єднані через I2C, SPI, CAN, UART тощо.
+- [Камери](../peripherals/camera.md) або іншого корисне навантаження. Камери можуть бути підключені до ШІМ виходів або за допомогою MAVLink.
+- [Радіопередавачі телеметрії](../telemetry/README.md) для з'єднання з комп'ютером або ПЗ наземної станції.
+- [Система радіо керування](../getting_started/rc_transmitter_receiver.md) для ручного керування
 
-The left hand side of the diagram shows the software stack, which is horizontally aligned (approximately) with the hardware parts of the diagram.
+Ліва частина діаграми показує набір програмного забезпечення, що по горизонталі (приблизно) вирівняно згідно з апаратними частинами діаграми.
 
-- The ground station computer typically runs [QGroundControl](../getting_started/px4_basic_concepts.md#qgroundcontrol) (or some other ground station software). It may also run robotics software like [MAVSDK](https://mavsdk.mavlink.io/) or [ROS](../ros/README.md).
+- Комп'ютер наземної станції зазвичай виконує [QGroundControl](../getting_started/px4_basic_concepts.md#qgroundcontrol) (або інше ПЗ для наземних станцій). Він також може виконувати робототехнічне ПЗ [MAVSDK](https://mavsdk.mavlink.io/) або [ROS](../ros/README.md).
 - The PX4 flight stack running on the flight controller includes [drivers](../modules/modules_driver.md), [comms modules](../modules/modules_communication.md), [controllers](../modules/modules_controller.md), [estimators](../modules/modules_controller.md) and other [middleware and system modules](../modules/modules_main.md).
 
 ## FC and Companion Computer
