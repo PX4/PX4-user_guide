@@ -9,9 +9,10 @@ Some RTK GPS setups can provide yaw/heading information, as an alternative to th
 
 - [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
 - GPS directly output yaw (see table below).
-  :::
 
-## Supported RTK Devices
+:::
+
+## Supported Devices
 
 PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module) and the [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) GPS, and products that incorporate them.
 
@@ -19,33 +20,44 @@ The RTK compatible devices below that are expected to work with PX4 (it omits di
 The table indicates devices that also output yaw, and that can provide yaw when two on-vehicle units are used.
 It also highlights devices that connect via the CAN bus, and those which support PPK (Post-Processing Kinematic).
 
-GPS | Yaw Output | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) | [DroneCAN](../dronecan/README.md) | PPK
-:--- | :---: | :---: | :---: | :---:
-[ARK RTK GPS](../dronecan/ark_rtk_gps.md) | | &check; | &check; |
-[CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md) | | | |
-[CUAV C-RTK2 ](../gps_compass/rtk_gps_cuav_c-rtk2.md) | | | | &check;
-[CUAV C-RTK 9Ps GPS](../gps_compass/rtk_gps_cuav_c-rtk-9ps.md) | | &check; | | 
-[Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) | | | |
-[Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P) | | | |
-[CubePilot Here3](https://www.cubepilot.org/#/here/here3) | | | &check; |
-[Holybro H-RTK F9P Helical or Base](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | | &check; | |
-[Holybro DroneCAN H-RTK F9P Helical](https://holybro.com/products/dronecan-h-rtk-f9p-helical) | | &check; | &check; |
-[Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | | | |
-[Holybro DroneCAN H-RTK F9P Rover](https://holybro.com/products/dronecan-h-rtk-f9p-rover) | | | &check; |
-[Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md) | | | |
-[Holybro H-RTK UM982 GPS](../gps_compass/rtk_gps_holybro_unicore_um982.md) | &check; | | |
-[LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md) | | | |
-[LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md) | &check; | | |
-[Septentrio AsteRx-RIB](../gps_compass/septentrio_asterx-rib.md) |  &check;   |Septentrio dual antenna heading | | &check;
-[Septentrio mosaic-go](../gps_compass/septentrio_mosaic-go.md) |  &check;   |Septentrio dual antenna heading | | &check;
-[SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) | | &check; | |
-[SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html) | | &check; | |
-[mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm) | | &check; | |
-[Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)  | &check; | | |
+Device | GPS | Compass | [DroneCAN](../dronecan/README.md) | [GPS Yaw](#configuring-gps-as-yaw-heading-source) | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) | PPK
+:--- | :---: | :---:  | :---:  | :---:  | :---: | :---:
+[ARK RTK GPS](https://arkelectron.com/product/ark-rtk-gps/) | F9P  | ICM42688p | &check; | | &check; |
+[CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md) | M8P/M8N | &check; | | | |
+[CUAV C-RTK2](../gps_compass/rtk_gps_cuav_c-rtk2.md) | F9P |  &check; | | | &check; |
+[CUAV C-RTK 9Ps GPS](../gps_compass/rtk_gps_cuav_c-rtk-9ps.md) | F9P | RM3100 | | | &check; |
+[CUAV C-RTK2 PPK/RTK GNSS](../gps_compass/rtk_gps_cuav_c-rtk.md) | F9P | RM3100 | | | | &check;
+[CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md) | M8P | HMC5983 | | | |
+[CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3) | M8P | ICM20948 | &check; | | |
+[Drotek SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html) | F9P | RM3100 | | | &check; |
+[Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) | FB672, FB6A0 | &check; | | | |
+[Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) | F9P | IST8310 | | | |
+[Holybro H-RTK F9P Ultralight](https://holybro.com/products/h-rtk-f9p-ultralight) | F9P | IST8310 | | | &check;|
+[Holybro H-RTK F9P Helical or Base](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | F9P | IST8310 | | | &check;|
+[Holybro DroneCAN H-RTK F9P Helical](https://holybro.com/products/dronecan-h-rtk-f9p-helical) | F9P | BMM150 | &check; | | &check; |
+[Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | F9P | IST8310 | | | | |
+[Holybro DroneCAN H-RTK F9P Rover](https://holybro.com/products/dronecan-h-rtk-f9p-rover) | F9P | BMM150 | | | &check; |
+[Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md) | M8P | IST8310 | | |
+[Holybro H-RTK Unicore UM982 GPS](../gps_compass/rtk_gps_holybro_unicore_um982.md) | UM982 | IST8310 | | &check; | |
+[LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md) | MC-1612-V2b | | | | |
+[LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md) | MC-1612-V2b | IST8310 | | | |
+[mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm) | F9P | &check; | | | &check; |
+[Septentrio AsteRx-RIB](../gps_compass/septentrio_asterx-rib.md) | AsteRx               | &check; | | &check; | Septentrio dual antenna heading | &check; |
+[Septentrio mosaic-go](../gps_compass/septentrio_mosaic-go.md)   | mosaic X5 / mosaic H | &check; | | &check; | Septentrio dual antenna heading | &check; |
+[SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html) | F9P |  &check; | | | &check; |
+[SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) | F9P |  &check; | | | &check; |
+[Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md) | F9P | &check; | | &check; | | |
 
-:::note
-Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
-:::
+Notes:
+
+- &check; or a specific part number indicate that a features is supported, while &cross; or empty show that the feature is not supported.
+  "?" indicates "unknown".
+- Where possible and relevant the part name is used (i.e. &check; in the GPS column indicates that a GPS module is present but the part is not known).
+- Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
+- The list may omit some discontinued hardware that is still supported.
+  For example [CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md) is discontinued and may be removed from the list in a future release.
+  Check earlier versions if a discontinued module is not mentioned here.
+
 
 ## Positioning Setup/Configuration
 

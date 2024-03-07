@@ -28,7 +28,7 @@ These parts are included in stand alone compass modules, combined compass/GNSS m
 
 ### Combined GNSS/Compass Modules
 
-See [Global Navigation Satellite Systems (GNSS)](../gps_compass/README.md#supported-gnss-and-or-compass) for a list of appropriate modules.
+See [Global Navigation Satellite Systems (GNSS)](../gps_compass/README.md#supported-gnss) for a list of appropriate modules.
 
 ::: note
 If GNSS is required, then a combined GNSS/Compass module will be preferred over the stand-alone modules below.
