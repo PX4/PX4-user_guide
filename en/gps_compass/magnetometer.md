@@ -3,9 +3,10 @@
 PX4 uses a magnetometer (compass) for determining the yaw and heading of the vehicle relative to the earth's magnetic field.
 
 [Pixhawk series](../flight_controller/pixhawk_series.md) flight controllers, and many others, include an internal compass.
-Generally the performance of the internal compass is poor, because the flight controller has to be mounted close to power lines and other sources of electromagnetic interference.
+On small vehicles the performance of the internal compass is almost always poor, because the flight controller has to be mounted close to motor/ESC power lines and other sources of electromagnetic interference.
+The internal compass _may_ be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the flight controller a long way from power supply lines.
 
-In most cases you will prefer to use an external compass, [mounted as far away from other electronics as possible](../assembly/mount_gps_compass.md).
+On most vehicles, and in particular on small vehicles, we recommend using a _combined GPS + Compass_ [mounted as far away from the motor/ESC power supply lines as possible](../assembly/mount_gps_compass.md) - typically on a pedestal or wing (for fixed-wing).
 While you can use a [stand-alone external compass](#stand-alone-compass-modules) (as listed below) it is far more common to use a [combined GPS/Compass module](#combined-gnss-compass-modules).
 
 Magnetometers support connection to either the I2C/SPI-bus (Pixhawk `GPS1` or `GPS2` ports) or to the CAN bus.
