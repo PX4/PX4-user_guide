@@ -1,12 +1,12 @@
-# Fixed-wing Vehicle Configuration
+# Конфігурація літального апарату  з нерухомим крилом
 
-This section contains configuration and tuning topics related to fixed-wing vehicles.
+Цей розділ містить теми конфігурації та налаштування, пов'язані з літаками з фіксованим крилом.
 
-- [Autotune](../config/autotune.md) - PID Tuning
+- [Autotune](../config/autotune.md) - PID налаштування
 
 :::note
-Autotune simplifies the manual process described in: [Fixed-wing Rate/Attitude Controller Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md).
+Автоналаштування спрощує процес ручного налаштування, описаний у..: [Посібник з налаштування регулятора швидкості/висоти літального апарата](../config_fw/pid_tuning_guide_fixedwing.md).
 :::
 
-- [Fixed-wing Altitude/Position Controller Tuning Guide](../config_fw/position_tuning_guide_fixedwing.md)
+- [Посібник з налаштування регулятора висоти/положення літака](../config_fw/position_tuning_guide_fixedwing.md)
 - [Fixed-wing Trimming Guide](../config_fw/trimming_guide_fixedwing.md)
