@@ -3,13 +3,13 @@
 GPS/Compasses should be mounted on the frame as far away from other electronics as possible, [oriented](#compass-orientation) upright and with the direction marker pointing towards the front of the vehicle.
 You should also configure PX4 to [set the position](#position) of the receiver relative to the centre-of-gravity (CoG).
 
-The diagram below shows the heading marker on the Pixhawk 4 and compass.
+The diagram below shows the heading marker on the Pixhawk 4 flight controller and compass.
 
 ![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
 
 ## Compass Orientation
 
-The compass should ideally be oriented so that it is upright and facing towards the front of the vehicle, but if needed can be oriented at multiples of 45° from this attitude (in any axis) as defined in the [standard MAVLink orientations](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION).
+The compass should ideally be oriented so that it is upright and facing towards the front of the vehicle, but if needed can be oriented at multiples of 45° from this attitude (in any axis) as defined in the [standard MAVLink orientations](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION) (these follow the same frame convention as when [orienting the flight controller](../config/flight_controller_orientation.md#calculating-orientation)).
 
 PX4 will automatically detect the orientation for any of these standard orientations during [compass calibration](../config/compass.md) ([by default](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT)).
 

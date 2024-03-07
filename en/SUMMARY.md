@@ -246,7 +246,7 @@
     * [Gyroscope](sensor/gyroscope.md)
       * [Calibration](config/gyroscope.md)
     * [Magnetometer (Compass)](gps_compass/magnetometer.md)
-      * [Mounting the Compass](assembly/mount_gps_compass.md)
+      * [Mounting a Compass](assembly/mount_gps_compass.md)
       * [Calibration](config/compass.md)
       * [Compass Power Compensation](advanced_config/compass_power_compensation.md)
     * [Airspeed Sensors](sensor/airspeed.md)
