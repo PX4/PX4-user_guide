@@ -168,7 +168,7 @@
   * [Flight Controllers (Autopilots)](flight_controller/README.md)
     * [Mounting the Flight Controller](assembly/mount_and_orient_controller.md)
     * [Updating Firmware](config/firmware.md)
-    * [Sensor Orientation](config/flight_controller_orientation.md)
+    * [Flight Controller/Sensor Orientation](config/flight_controller_orientation.md)
     * [Level Horizon Calibration](config/level_horizon_calibration.md)
     * [Advanced Controller Orientation](advanced_config/advanced_flight_controller_orientation_leveling.md)
     * [Bootloader Update](advanced_config/bootloader_update.md)

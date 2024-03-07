@@ -14,7 +14,7 @@ The controller should be placed on the frame top-side up, oriented so that the a
 ![FC Orientation](../../assets/qgc/setup/sensor/fc_orientation_1.png)
 
 :::note
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to physical constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+If the controller cannot be mounted in the recommended/default orientation due to physical constraints, you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 :::
 
 ## Position
