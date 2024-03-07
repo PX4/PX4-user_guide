@@ -243,7 +243,7 @@
   * [Sensors](sensor/README.md)
     * [Accelerometer](sensor/accelerometer.md)
       * [Calibration](config/accelerometer.md)
-    * [Gyroscope](../sensor/gyroscope.md)
+    * [Gyroscope](sensor/gyroscope.md)
       * [Calibration](config/gyroscope.md)
     * [Magnetometer (Compass)](gps_compass/magnetometer.md)
       * [Mounting the Compass](assembly/mount_gps_compass.md)
