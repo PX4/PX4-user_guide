@@ -1,26 +1,26 @@
-# Parameters & Configurations
+# Параметри та налаштування
 
-PX4 uses the _param subsystem_ (a flat table of `float` and `int32_t` values) and text files (for startup scripts) to store its configuration.
+PX4 використовує _param subsystem_ (таблицю значень `float` і `int32_t`) і текстові файли (для скриптів запуску) для створення конфігурації.
 
-This section discusses the _param_ subsystem in detail. It covers how to list, save and load parameters, and how to define them and make them available to ground stations.
+У цьому розділі детально розглянуто підсистему _param_. У ньому описано, як відображати, зберігати і завантажувати параметри, а також як їх описувати і робити доступними для наземних станцій.
 
 :::tip
-[System startup](../concept/system_startup.md) and the way that [frame configuration](../dev_airframes/adding_a_new_frame.md) startup scripts work are detailed on other pages.
+[Запуск системи](../concept/system_startup.md) та роботу скриптів запуску [конфігурації фреймів](../dev_airframes/adding_a_new_frame.md) описано на інших сторінках.
 :::
 
-## Command Line Usage
+## Використання командного рядка
 
-The PX4 [system console](../debug/system_console.md) offers the [param](../modules/modules_command.md#param) tool, which can be used to set parameters, read their value, save them, and export and restore to/from files.
+[Системна консоль PX4](../debug/system_console.md) пропонує інструмент [param](../modules/modules_command.md#param), за допомогою якого можна встановлювати параметри, зчитувати їх значення, зберігати їх, а також експортувати й зберігати у файлах та відновлювати з них.
 
-### Getting and Setting Parameters
+### Отримання та встановлення параметрів
 
-The `param show` command lists all system parameters:
+Команда `param show` виводить усі параметри системи:
 
 ```sh
 param show
 ```
 
-To be more selective, a partial parameter name with wildcard "\*" can be used:
+Для більшої вибірковості можна використовувати часткове ім'я параметра з символом підстановки "\*":
 
 ```sh
 nsh> param show RC_MAP_A*
@@ -33,40 +33,40 @@ x   RC_MAP_ACRO_SW [375,514] : 0
  723 parameters total, 532 used.
 ```
 
-You can use the `-c` flag to show all parameters that have changed (from their defaults):
+Ви можете використовувати прапорець `-c`, щоб показати всі параметри, які було змінено (порівняно з їх значеннями за замовчуванням):
 
 ```sh
 param show -c
 ```
 
-You can use `param show-for-airframe` to show all parameters that have changed from their defaults for just the current airframe's definition file (and defaults it imports).
+Ви можете використати `param show-for-airframe`, щоб показати всі параметри, які було змінено від значень за замовчуванням лише для поточного файлу літального апарату (та значень за замовчуванням, які він імпортує).
 
-### Exporting and Loading Parameters
+### Параметри експорту та завантаження
 
-You can save any parameters that have been _changed_ (that are different from airframe defaults).
+Ви можете зберігати будь-які параметри, які були _змінені_ (які відрізняються від параметрів за замовчуванням).
 
-The standard `param save` command will store the parameters in the current default file:
+Стандартна команда `param save` збереже параметри у поточному файлі за замовчуванням:
 
 ```sh
 param save
 ```
 
-If provided with an argument, it will store the parameters instead to this new location:
+Якщо вказати аргумент, вона збереже параметри у новому каталозі:
 
 ```sh
 param save /fs/microsd/vtol_param_backup
 ```
 
-There are two different commands to _load_ parameters:
+Існує дві різні команди для _завантаження_ параметрів:
 
-- `param load` first does a full reset of all parameters to their defaults, and then overwrites parameter values with any values stored in the file.
-- `param import` just overwrites parameter values with the values from the file and then saves the result (i.e. effectively calls `param save`).
+- `param load` спочатку виконує повне скидання всіх параметрів до значень за замовчуванням, а потім перезаписує значення параметрів будь-якими значеннями, збереженими у файлі.
+- `param import` просто перезаписує значення параметрів значеннями з файлу, а потім зберігає результат (тобто фактично викликає `param save`).
 
-The `load` effectively resets the parameters to the state when the parameters were saved (we say "effectively" because any parameters saved in the file will be updated, but other parameters may have different firmware-defined default values than when the parameters file was created).
+Команда `load` ефективно скидає параметри до стану, у якому вони були збережені (ми говоримо "ефективно", тому що будь-які параметри, збережені у файлі, буде оновлено, але інші параметри можуть мати інші значення за замовчуванням, визначені у прошивці, ніж під час створення файлу параметрів).
 
-By contrast, `import` merges the parameters in the file with the current state of the vehicle. This can be used, for example, to just import a parameter file containing calibration data, without overwriting the rest of the system configuration.
+На противагу цьому, `import` об'єднує параметри у файлі з поточним станом апарату. Наприклад, можна просто імпортувати файл параметрів, що містить дані калібрування, не перезаписуючи решту конфігурації системи.
 
-Examples for both cases are shown below:
+Приклади для обох випадків показані нижче:
 
 ```sh
 # Reset the parameters to when file was saved
@@ -80,60 +80,60 @@ param save
 param import /fs/microsd/vtol_param_backup
 ```
 
-## Creating/Defining Parameters
+## Створення/визначення параметрів
 
-Parameters definitions have two parts:
+Опис параметрів складається з двох частин:
 
-- [Parameter metadata](#parameter-metadata) specifies the default value for each parameter in firmware along with other metadata for presentation (and editing) of parameters in ground control stations and documentation.
-- [C/C++ Code](#c-c-api) that provides access to get and/or subscribe to parameter values from within PX4 modules and drivers.
+- [Метадані параметрів](#parameter-metadata) визначають значення за замовчуванням для кожного параметра у прошивці разом з іншими метаданими для відображення (і редагування) параметрів на наземних станціях керування та у документації.
+- [Код C/C++](#c-c-api), який надає доступ до отримання та/або зміни значень параметрів з модулів та драйверів PX4.
 
-Several approaches are described below for writing both the metadata and code. Where possible code should use newer [YAML metadata](#yaml-metadata) and [C++ API](#c-api) over the older C parameter/code definitions, as these are more flexible and robust.
+Нижче описано кілька підходів до написання метаданих та коду. Де це можливо, код повинен використовувати оновлені [метадані YAML](#yaml-metadata) та [C++ API](#c-api), а не старі визначення параметрів/коду C, оскільки вони є більш гнучкими та надійними.
 
-Parameter metadata is [compiled into the firmware](#publishing-parameter-metadata-to-a-gcs), and made available to ground stations via the [MAVLink Component Information service](https://mavlink.io/en/services/component_information.html).
+Метадані параметрів [компілюються у прошивку](#publishing-parameter-metadata-to-a-gcs), і надаються наземним станціям за посередництвом служби [MAVLink Component Information service](https://mavlink.io/en/services/component_information.html).
 
-### Parameter Names
+### Назви параметрів:
 
-Parameter names must be no more than 16 ASCII characters.
+Назви параметрів не повинні перевищувати 16 ASCII символів.
 
-By convention, every parameter in a group should share the same (meaningful) string prefix followed by an underscore, and `MC_` and `FW_` are used for parameters related specifically to Multicopter or Fixed-wing systems. This convention is not enforced.
+За загальним правилом, кожен параметр у групі повинен мати однаковий (значущий) префікс, за яким слідує символ підкреслення, а `MC_` і `FW_` використовуються для параметрів, що відносяться саме до мультикоптерних або систем з фіксованим крилом. Ця конвенція не є обов'язковою.
 
-The name must match in both code and [parameter metadata](#parameter-metadata) to correctly associate the parameter with its metadata (including default value in Firmware).
+Назва має збігатися як у коді, так і у метаданих [параметру](#parameter-metadata), щоб правильно асоціювати параметр з його метаданими (включно зі значенням за замовчуванням у прошивці).
 
 ### C / C++ API
 
-There are separate C and C++ APIs that can be used to access parameter values from within PX4 modules and drivers.
+Існують окремі C і C++ API, які можна використовувати для отримання доступу до значень параметрів з модулів і драйверів PX4.
 
-One important difference between the APIs is that the C++ version has a more efficient standardized mechanism to synchronize with changes to parameter values (i.e. from a GCS).
+Однією з важливих відмінностей між API є те, що версія на C++ має більш ефективний стандартизований механізм синхронізації зі змінами значень параметрів (наприклад, з GCS).
 
-Synchronization is important because a parameter can be changed to another value at any time. Your code should _always_ use the current value from the parameter store. If getting the latest version is not possible, then a reboot will be required after the parameter is changed (set this requirement using the `@reboot_required` metadata).
+Синхронізація важлива, оскільки параметр може бути змінений на інше значення в будь-який момент. Ваш код повинен _завжди_ використовувати поточне значення зі сховища даних. Якщо отримати останню версію неможливо, то після зміни параметра буде потрібно перезавантаження ( вкажіть цю вимогу за допомогою метаданих `@reboot_required`).
 
-In addition, the C++ version has also better type-safety and less overhead in terms of RAM. The drawback is that the parameter name must be known at compile-time, while the C API can take a dynamically created name as a string.
+Крім того, версія на C++ має кращу типізацію та менші витрати оперативної пам'яті. Недоліком є те, що ім'я параметра має бути відоме під час компіляції, тоді як C API може приймати динамічно створене ім'я як рядок.
 
 #### C++ API
 
-The C++ API provides macros to declare parameters as _class attributes_. You add some "boilerplate" code to regularly listen for changes in the [uORB Topic](../middleware/uorb.md) associated with _any_ parameter update. Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync. In the rest of the code you can just use the defined parameter attributes and they will always be up to date!
+C++ API надає макроси для оголошення параметрів як _атрибутів класу_. Ви додаєте якийсь "шаблонний" код для регулярного виявлення змін у [uORB Topic](../middleware/uorb.md), пов'язаних з _будь-яким_ оновленням параметрів. Потім код фреймворку (невидимо) відстежує повідомлення uORB, які впливають на атрибути ваших параметрів, і підтримує їх синхронізацію. У решті коду ви можете просто використовувати визначені атрибути параметрів, і вони завжди будуть актуальними!
 
-First include the required needed headers in the class header for your module or driver:
+Насамперед включіть необхідні заголовки до заголовка класу вашого модуля або драйвера:
 
-- **px4_platform_common/module_params.h** to get the `DEFINE_PARAMETERS` macro:
+- **px4_platform_common/module_params.h** для отримання макросу `DEFINE_PARAMETERS`:
 
   ```cpp
   #include <px4_platform_common/module_params.h>
   ```
 
-- **parameter_update.h** to access the uORB `parameter_update` message:
+- **parameter_update.h** для доступу до повідомлень uORB `parameter_update`:
 
   ```cpp
   #include <uORB/topics/parameter_update.h>
   ```
 
-- **Subscription.hpp** for the uORB C++ subscription API:
+- **Subscription.hpp** для uORB C++ API підписки:
 
   ```cpp
   #include <uORB/Subscription.hpp>
   ```
 
-Derive your class from `ModuleParams`, and use `DEFINE_PARAMETERS` to specify a list of parameters and their associated parameter attributes. The names of the parameters must be the same as their parameter metadata definitions.
+Створіть свій клас з `ModuleParams` і використовуйте `DEFINE_PARAMETERS`, щоб вказати список параметрів і пов'язані з ними атрибути класу. Назви параметрів мають збігатися з визначеннями метаданих параметрів.
 
 ```cpp
 class MyModule : ..., public ModuleParams
@@ -159,9 +159,9 @@ private:
 };
 ```
 
-Update the cpp file with boilerplate to check for the uORB message related to parameter updates.
+Оновіть файл cpp за допомогою шаблону, щоб перевірити наявність повідомлення uORB, пов'язаного з оновленням параметрів.
 
-Call `parameters_update();` periodically in code to check if there has been an update:
+Періодично викликайте `parameters_update();` у коді, щоб перевірити, чи відбулося оновлення:
 
 ```cpp
 void Module::parameters_update()
@@ -177,29 +177,29 @@ void Module::parameters_update()
 }
 ```
 
-In the above method:
+У наведеному вище методі:
 
-- `_parameter_update_sub.updated()` tells us if there is _any_ update to the `param_update` uORB message (but not what parameter is affected).
-- If there has been "some" parameter updated, we copy the update into a `parameter_update_s` (`param_update`), to clear the pending update.
-- Then we call `ModuleParams::updateParams()`. This "under the hood" updates all parameter attributes listed in our `DEFINE_PARAMETERS` list.
+- `_param_update_sub.updated()` повідомляє нам, чи є _будь-яке_ оновлення в uORB-повідомленні `param_update` (але не вказує, який саме параметр змінено).
+- Якщо було оновлено "деякий" параметр, ми копіюємо оновлення у `parameter_update_s` (`param_update`), щоб очистити очікуване оновлення.
+- Потім викликаємо `ModuleParams::updateParams()`. Це "під капотом" оновлює всі атрибути параметрів, перелічені у нашому списку `DEFINE_PARAMETERS`.
 
-The parameter attributes (`_sys_autostart` and `_att_bias_max` in this case) can then be used to represent the parameters, and will be updated whenever the parameter value changes.
+Атрибути параметрів (`_sys_autostart` і `_att_bias_max` у цьому випадку) можна використовувати для відображення параметрів, і вони будуть оновлюватися щоразу, коли значення параметра змінюватиметься.
 
 :::tip
-The [Application/Module Template](../modules/module_template.md) uses the new-style C++ API but does not include [parameter metadata](#parameter-metadata).
+Шаблон [Програми/Модуля](../modules/module_template.md) використовує новий стиль C++ API, але не включає метадані [параметрів](#parameter-metadata).
 :::
 
 #### C API
 
-The C API can be used within both modules and drivers.
+C API можна використовувати як у модулях, так і в драйверах.
 
-First include the parameter API:
+Спочатку включіть параметр API:
 
 ```C
 #include <parameters/param.h>
 ```
 
-Then retrieve the parameter and assign it to a variable (here `my_param`), as shown below for `PARAM_NAME`. The variable `my_param` can then be used in your module code.
+Потім отримайте параметр і присвойте його змінній (тут `my_param`), як показано нижче для `PARAM_NAME`. Змінна `my_param` може бути використана в коді вашого модуля.
 
 ```C
 int32_t my_param = 0;
@@ -207,10 +207,10 @@ param_get(param_find("PARAM_NAME"), &my_param);
 ```
 
 :::note
-If `PARAM_NAME` was declared in parameter metadata then its default value will be set, and the above call to find the parameter should always succeed.
+Якщо у метаданих параметра було оголошено `PARAM_NAME`, то буде встановлене його значення за замовчуванням, і наведений вище виклик для пошуку параметра завжди буде успішним.
 :::
 
-`param_find()` is an "expensive" operation, which returns a handle that can be used by `param_get()`. If you're going to read the parameter multiple times, you may cache the handle and use it in `param_get()` when needed
+`param_find()` є "дорогою" операцією, яка повертає хендл, що може бути використаний `param_get()`. Якщо ви збираєтеся читати параметр багато разів, ви можете кешувати хендл і використовувати його в `param_get()` за потреби
 
 ```cpp
 # Get the handle to the parameter
@@ -222,46 +222,46 @@ int32_t my_param = 0;
 param_get(my_param_handle, &my_param);
 ```
 
-### Parameter Metadata
+### Метадані параметра
 
-PX4 uses an extensive parameter metadata system to drive the user-facing presentation of parameters, and to set the default value for each parameter in firmware.
+PX4 використовує розгалужену систему метаданих параметрів для управління дружнім до користувача представленням параметрів, а також для встановлення значень за замовчуванням для кожного параметра у прошивці.
 
 :::tip
-Correct metadata is critical for good user experience in a ground station.
+Правильні метадані мають вирішальне значення для якісного користувацького досвіду на наземній станції.
 :::
 
-Parameter metadata can be stored anywhere in the source tree as either **.c** or **.yaml** parameter definitions (the YAML definition is newer, and more flexible). Typically it is stored alongside its associated module.
+Метадані параметрів можна зберігати будь-де у дереві коду у вигляді визначень параметрів **.c** або **.yaml** (визначення параметрів у форматі YAML є новішим і гнучкішим). Зазвичай він зберігається разом з відповідним модулем.
 
-The build system extracts the metadata (using `make parameters_metadata`) to build the [parameter reference](../advanced_config/parameter_reference.md) and the parameter information [used by ground stations](#publishing-parameter-metadata-to-a-gcs).
+Система збірки витягує метадані (за допомогою `make parameters_metadata`) для створення [довідника параметрів](../advanced_config/parameter_reference.md) та інформації про параметри, [що використовуються наземними станціями](#publishing-parameter-metadata-to-a-gcs).
 
 :::warning
-After adding a _new_ parameter file you should call `make clean` before building to generate the new parameters (parameter files are added as part of the _cmake_ configure step, which happens for clean builds and if a cmake file is modified).
+Після додавання файлу параметрів _new_ вам слід викликати `make clean` перед збіркою, щоб згенерувати нові параметри (файли параметрів додаються як частина кроку конфігурації _cmake_, який відбувається для чистих збірок і якщо файл cmake змінено).
 :::
 
-#### YAML Metadata
+#### Метадані YAML
 
 :::note
-At time of writing YAML parameter definitions cannot be used in _libraries_.
+На момент написання статті визначення параметрів YAML не можна використовувати у _бібліотеках_.
 :::
 
-YAML meta data is intended as a full replacement for the **.c** definitions. It supports all the same metadata, along with new features like multi-instance definitions.
+Метадані YAML призначені для повної заміни **.c** визначень. Він підтримує ті самі метадані, а також нові можливості, такі як множинні визначення.
 
-- The YAML parameter metadata schema is here: [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml).
-- An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml).
-- A YAML file is registered in the cmake build system by adding
+- Схема метаданих параметрів YAML знаходиться тут: [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml).
+- Приклад використання визначень YAML можна знайти у визначенні параметрів MAVLink: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml).
+- YAML-файл реєструється у системі збірки cmake шляхом додавання
 
   ```cmake
   MODULE_CONFIG
     module.yaml
   ```
 
-  to the `px4_add_module` section of the `CMakeLists.txt` file of that module.
+  до секції `px4_add_module` файлу `CMakeLists.txt` цього модуля.
 
-#### Multi-Instance (Templated) YAML Meta Data
+#### Мета-дані YAML з багатьма екземплярами (шаблонами)
 
-Templated parameter definitions are supported in [YAML parameter definitions](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) (templated parameter code is not supported).
+Шаблонні визначення параметрів підтримуються у [YAML визначеннях параметрів](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) (шаблонний код параметрів не підтримується).
 
-The YAML allows you to define instance numbers in parameter names, descriptions, etc. using `${i}`. For example, below will generate MY_PARAM_1_RATE, MY_PARAM_2_RATE etc.
+YAML дозволяє визначати кількість екземплярів у назвах параметрів, описах, тощо за допомогою `${i}`. Наприклад, нижче буде згенеровано MY_PARAM_1_RATE, MY_PARAM_2_RATE і т.д.
 
 ```yaml
 MY_PARAM_${i}_RATE:
@@ -269,7 +269,7 @@ MY_PARAM_${i}_RATE:
     short: Maximum rate for instance ${i}
 ```
 
-The following YAML definitions provide the start and end indexes.
+Наступні визначення YAML містять початковий та кінцевий індекси.
 
 - `num_instances` (default 1): Number of instances to generate (>=1)
 - `instance_start` (default 0): First instance number. If 0, `${i}` expands to [0, N-1]`.

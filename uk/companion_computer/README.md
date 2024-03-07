@@ -4,7 +4,7 @@
 
 На схемі нижче показана можлива архітектура безпілотного транспортного засобу, яка включає в себе контролер польоту і супутній комп'ютер.
 
-![PX4 architecture - FC + Companion Computer](../../assets/diagrams/px4_companion_computer_simple.svg)
+![Архітектура PX4 - система з політним контролером і супутнім комп'ютером](../../assets/diagrams/px4_companion_computer_simple.svg)
 
 <!-- source for drawing: https://docs.google.com/drawings/d/1ZDSyj5djKCEbabgx8K4ESdTeEUizgEt8spUWrMGbHUE/edit?usp=sharing -->
 
@@ -26,57 +26,57 @@
 
 - [Auterion Skynode](../companion_computer/auterion_skynode.md)
 
-## Companion Computer Options
+## Параметри супутнього комп'ютера
 
-PX4 can be used with computers that can be configured to communicate via MAVLink or microROS/uXRCE-DDS over over a serial port (or Ethernet port, if present).
+PX4 можна використовувати з комп'ютерами, які можна сконфігурувати для зв'язку через MAVLink або microROS/uXRCE-DDS через послідовний порт (або порт Ethernet, якщо є).
 
-A small subset of possible alternatives are listed below:
+Нижче наведено невелику підгрупу можливих альтернатив:
 
 - Raspberry Pi
 - Odroid
 - Tegra K1
 
 :::note
-The choice of computer will depend on the usual tradeoffs: cost, weight, power consumption, ease of setup, and computational resources required.
+Вибір комп'ютера буде залежати від стандартних критеріїв: вартості, ваги, потужності, простоти налаштування та необхідних обчислювальних ресурсів.
 :::
 
-## Companion Computer Software
+## Програмне забезпечення супутнього комп'ютера
 
-The companion computer needs to run software that communicates with the flight controller, and which routes traffic to ground stations and the cloud.
+На супутньому комп'ютері має бути встановлене програмне забезпечення, яке зв'язується з диспетчером польоту і спрямовує трафік на наземні станції та в хмару.
 
-#### Drone Apps
+#### Програми для дронів
 
-Drone APIs and SDKs allow you to write software that can control PX4. Popular alternatives include:
+API та SDK для дронів дозволяють писати програмне забезпечення, яке може керувати PX4. Популярні альтернативи:
 
-- [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) - libraries in various programming languages to interface with MAVLink systems such as drones, cameras or ground systems.
-- [ROS 2](../ros/ros2.md) to communicate to ROS 2 nodes (may also be used).
-- [ROS 1 and MAVROS](../ros/mavros_installation.md)
+- [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) - бібліотеки на різних мовах програмування для взаємодії з системами MAVLink, такими як дрони, камери або наземні системи.
+- [ROS 2](../ros/ros2.md) для зв'язку з вузлами ROS 2 ( також може бути використано).
+- [ROS 1 і MAVROS](../ros/mavros_installation.md)
 
-MAVSDK is generally easier to learn and use, while ROS provides more pre-written software for advanced cases like computer vision. [Drone APIs and SDKs > What API Should I Use?](../robotics/README.md#what-api-should-i-use) explains the different options in detail.
+MAVSDK, як правило, є простішим у вивченні та використанні, в той час як ROS надає більше вбудованого програмного забезпечення для складних задач, таких як комп'ютерний зір. [ API та SDK для дронів > Який API використовувати? ](../robotics/README.md#what-api-should-i-use) детально описує можливі опції.
 
-You can also write your own custom MAVLink libraries from scratch:
+Ви також можете написати власні бібліотеки MAVLink з нуля:
 
-- [C/C++ example code](https://github.com/mavlink/c_uart_interface_example) shows how to connect custom code
-- MAVLink also can also be used with [many other programming languages](https://mavlink.io/en/#mavlink-project-generatorslanguages)
+- [Приклад коду на C/C++](https://github.com/mavlink/c_uart_interface_example) показує, як підключити кастомний код
+- MAVLink також можна використовувати з [багатьма іншими мовами програмування](https://mavlink.io/en/#mavlink-project-generatorslanguages).
 
-#### Routers
+#### Маршрутизатори
 
-You will need a router if you need to bridge MAVLink from the vehicle to a ground station or IP network, or if you need multiple connections:
+Вам знадобиться маршрутизатор, якщо вам потрібен міст MAVLink від апарату до наземної станції або IP-мережі, або якщо вам потрібно кілька з'єднань:
 
-- [MAVLink Router](https://github.com/intel/mavlink-router) (recommended)
+- [MAVLink Router](https://github.com/intel/mavlink-router) (рекомендується)
 - [MAVProxy](https://ardupilot.org/mavproxy/)
 
-## Ethernet Setup
+## Налаштування Ethernet
 
-Ethernet is the recommended connection, if supported by your flight controller. See [Ethernet Setup](../advanced_config/ethernet_setup.md) for instructions.
+Ethernet - рекомендоване з'єднання, якщо воно підтримується вашим польотним контролером. Інструкції див. у розділі [Налаштування Ethernet](../advanced_config/ethernet_setup.md).
 
-## Flight Controller Specific Setup
+## Налаштування для окремих контролерів польоту
 
-The following topics explain how to set up companion computers for specific flight controllers, in particular when you are not using an Ethernet connection.
+У наступних темах пояснюється, як налаштувати комп'ютери-компаньйони для конкретних польотних контролерів, зокрема, коли ви не використовуєте з'єднання Ethernet.
 
-- [Using a Companion Computer with Pixhawk Controllers](../companion_computer/pixhawk_companion.md)
+- [Використання комп'ютера-компаньйона з контролерами Pixhawk](../companion_computer/pixhawk_companion.md)
 
-## Additional Information
+## Додаткова інформація
 
-- [Companion Computer Peripherals](../companion_computer/companion_computer_peripherals.md)
-- [PX4 System Architecture > FC and Companion Computer](../concept/px4_systems_architecture.md#fc-and-companion-computer)
+- [Периферійні пристрої супутнього комп'ютера](../companion_computer/companion_computer_peripherals.md)
+- [Архітектура системи PX4; FC і супутній комп'ютер](../concept/px4_systems_architecture.md#fc-and-companion-computer)
