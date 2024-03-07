@@ -10,7 +10,7 @@
 
 На діаграмі нижче показано загальний огляд типової "простої" системи PX4 на основі польотного контролера.
 
-![PX4 architecture - FC only system](../../assets/diagrams/px4_arch_fc.svg)
+![Архітектура PX4 — система лише з політним контролером](../../assets/diagrams/px4_arch_fc.svg)
 
 <!-- Source for drawing: https://docs.google.com/drawings/d/1_2n43WrbkWTs1kz0w0avVEeebJbfTj5SSqvCmvSOBdU/edit -->
 
@@ -26,21 +26,21 @@
 Ліва частина діаграми показує набір програмного забезпечення, що по горизонталі (приблизно) вирівняно згідно з апаратними частинами діаграми.
 
 - Комп'ютер наземної станції зазвичай виконує [QGroundControl](../getting_started/px4_basic_concepts.md#qgroundcontrol) (або інше ПЗ для наземних станцій). Він також може виконувати робототехнічне ПЗ [MAVSDK](https://mavsdk.mavlink.io/) або [ROS](../ros/README.md).
-- The PX4 flight stack running on the flight controller includes [drivers](../modules/modules_driver.md), [comms modules](../modules/modules_communication.md), [controllers](../modules/modules_controller.md), [estimators](../modules/modules_controller.md) and other [middleware and system modules](../modules/modules_main.md).
+- Набір політного ПО PX4, що запущено на польотному контролері включає [драйвери](../modules/modules_driver.md), [модулі каналів зв'язку](../modules/modules_communication.md), [контролери](../modules/modules_controller.md), [спостерігачі](../modules/modules_controller.md) та інше [проміжне ПЗ та системні модулі](../modules/modules_main.md).
 
-## FC and Companion Computer
+## Польотний контролер та супутній комп'ютер
 
-The diagram below shows a PX4 system that includes both a flight controller and a companion computer (here referred to as a "mission computer").
+На діаграмі показано систему PX4, яка включає як політний контролер, так і супутній комп'ютер (тут згадується як "комп'ютер політного завдання").
 
-![PX4 architecture - FC + Companion Computer](../../assets/diagrams/px4_arch_fc_companion.svg)
+![Архітектура PX4 - система з політним контролером і супутнім комп'ютером](../../assets/diagrams/px4_arch_fc_companion.svg)
 
 <!-- source for drawing: https://docs.google.com/drawings/d/1zFtvA_B-BmfmxFmAd-XIvAZ-jRqOydj0aBtqSolBcqI/edit -->
 
-The flight controller runs the normal PX4 flight stack, while a companion computer provides advanced features like [object avoidance](../computer_vision/obstacle_avoidance.md) and [collision prevention](../computer_vision/collision_prevention.md). The two systems are connected using a fast serial or IP link, and typically communicate using the [MAVLink protocol](https://mavlink.io/en/). Communications with the ground stations and the cloud are usually routed via the companion computer (e.g. using the [MAVLink Router](https://github.com/mavlink-router/mavlink-router) (from Intel)).
+Польотний контролер виконує звичайний набір ПЗ PX4, тоді як супутній комп'ютер забезпечує просунуті функції наприклад [уникнення об'єктів](../computer_vision/obstacle_avoidance.md) та [запобігання зіткненням](../computer_vision/collision_prevention.md). Дві системи з'єднані за допомогою швидкого послідовного або IP-з'єднання і зазвичай взаємодіють за допомогою протоколу [MAVLink](https://mavlink.io/en/). Зв'язок з наземними станціями та хмарою зазвичай направляється через супутній комп'ютер (наприклад, за допомогою [MAVLink Router](https://github.com/mavlink-router/mavlink-router) від Intel).
 
-PX4 systems typically run a Linux OS on the companion computer (because the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) project delivers ROS-based avoidance libraries designed for Linux). Linux is a much better platform for "general" software development than NuttX; there are many more Linux developers and a lot of useful software has already been written (e.g. for computer vision, communications, cloud integrations, hardware drivers). Companion computers sometimes run Android for the same reason.
+Системи PX4 зазвичай виконують ОС Linux на супутньому комп'ютері (тому що проєкт [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) поставляє засновані на ROS бібліотеки уникнення розроблені для Linux). Linux є набагато кращою платформою для "загальної" розробки програмного забезпечення, ніж NuttX; у Linux багато розробників і вже написано багато корисного програмного забезпечення (наприклад для комп'ютерного бачення, зв'язку, інтеграції з хмарою, апаратні драйвери). Супутні комп'ютери іноді працюють на Android з тієї ж причини.
 
 :::note
-The diagram shows a cloud or ground station connection via LTE, an approach that has been used a number of PX4-based systems.
-PX4 does not deliver software specifically for LTE and/or cloud integration (this requires custom development).
+Діаграма показує підключення до хмарних або наземних станцій через LTE, підхід, який був використаний в ряді систем заснованих на PX4.
+PX4 не надає програмного забезпечення для LTE та/або хмарної інтеграції (це потребує додаткової розробки).
 :::
