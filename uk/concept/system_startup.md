@@ -44,26 +44,26 @@ dyn ./test.px4mod
 
 NuttX має інтегрований інтерпретатор оболонки ([NuttShell (NSH)](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=139629410)), тому скрипти можуть бути виконані безпосередньо.
 
-### Debugging the System Boot
+### Налагодження завантаження системи
 
-A failure of a driver of software component will not lead to an aborted boot. This is controlled via `set +e` in the startup script.
+Відмова драйверу програмного компонента не призведе до перерваного завантаження. Це контролюється директивою `set +e` в скрипті запуску.
 
-The boot sequence can be debugged by connecting the [system console](../debug/system_console.md) and power-cycling the board. The resulting boot log has detailed information about the boot sequence and should contain hints why the boot aborted.
+Послідовність завантаження можна налагодити під'єднавши [системну консоль](../debug/system_console.md) та перезавантажити плату за живленням. Отриманий журнал завантаження містить детальну інформацію про послідовність завантажування і має містити підказки, чому завантаження переривалось.
 
-#### Common boot failure causes
+#### Основні причини невдалого завантаження
 
-- For custom applications: The system was out of RAM. Run the `free` command to see the amount of free RAM.
-- A software fault or assertion resulting in a stack trace
+- Для користувацьких додатків: у системі закінчилася оперативна пам'ять. Виконайте команду `free` , щоб побачити кількість вільної оперативної пам'яті.
+- Відмова програмного забезпечення або припущення яке призвело до трасування стеку.
 
-### Replacing the System Startup
+### Заміна запуску системи
 
-The whole boot can be replaced by creating a file `/etc/rc.txt` on the microSD card with a new configuration (nothing in the old configuration will be auto-started, and if the file is empty, nothing at all will be started).
+Весь процес завантаження може бути замінений шляхом створення файлу з новою конфігурацією `/etc/rc.txt` на картці microSD (ніщо в старій конфігурації не буде автоматично запущено, і якщо файл порожній, зовсім нічого не буде запущено).
 
-Customizing the default boot is almost always a better approach. This is documented below.
+Налаштування стандартного завантаження майже завжди є кращим підходом. Це описано нижче.
 
-### Customizing the System Startup
+### Налаштування запуску системи
 
-The best way to customize the system startup is to introduce a [new frame configuration](../dev_airframes/adding_a_new_frame.md). The frame configuration file can be included in the firmware or on an SD Card.
+Найкращий спосіб змінити запуск системи - це ввести [нову конфігурацію планера](../dev_airframes/adding_a_new_frame.md). Файл конфігурації планеру може бути включений у прошивку або на SD карту.
 
 If you only need to "tweak" the existing configuration, such as starting one more application or setting the value of a few parameters, you can specify these by creating two files in the `/etc/` directory of the SD Card:
 
