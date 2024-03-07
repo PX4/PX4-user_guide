@@ -1,24 +1,19 @@
 # Accelerometer Calibration
 
-You will need to calibrate your accelerometer on first use or if the flight controller orientation is changed.
-Otherwise you should not need to recalibrate (except perhaps in winter, if you have a flight controller that was not [thermally calibrated](../advanced_config/sensor_thermal_calibration.md) in the factory).
+The accelerometer must be calibrated on first use or if the flight controller orientation is changed.
+Otherwise it should not need to recalibrated (except perhaps in winter, if the flight controller was not [thermally calibrated](../advanced_config/sensor_thermal_calibration.md) in the factory).
 
 :::note
 Poor accelerometer calibration is generally caught by preflight checks and arming-denied messages (QGC warnings typically refer to "high accelerometer bias" and "consistency check failures").
 :::
 
-_QGroundControl_ will guide you to place and hold your vehicle in a number of orientations (you will be prompted when to move between positions).
-
 :::tip
 This is similar to [compass calibration](../config/compass.md) except that you hold the vehicle still (rather than rotate it) in each orientation.
 :::
 
-:::note
-The calibration uses a least squares 'fit' algorithm that doesn't require you to have "perfect" 90 degree orientations.
-Provided each axis is pointed mostly up and down at some time in the calibration sequence, and the vehicle is held stationary, the precise orientation doesn't matter.
-:::
-
 ## Performing the Calibration
+
+_QGroundControl_ will guide you to place and hold your vehicle in a number of orientations (you will be prompted when to move between positions).
 
 The calibration steps are:
 
@@ -38,7 +33,12 @@ The calibration steps are:
    Once prompted (the orientation-image turns yellow) hold the vehicle still.
    Once the calibration is complete for the current orientation the associated image on the screen will turn green.
 
-![Accelerometer calibration](../../assets/qgc/setup/sensor/accelerometer_positions_px4.jpg)
+   :::note
+   The calibration uses a least squares 'fit' algorithm that doesn't require you to have "perfect" 90 degree orientations.
+   Provided each axis is pointed mostly up and down at some time in the calibration sequence, and the vehicle is held stationary, the precise orientation doesn't matter.
+   :::
+
+   ![Accelerometer calibration](../../assets/qgc/setup/sensor/accelerometer_positions_px4.jpg)
 
 1. Repeat the calibration process for all vehicle orientations.
 
