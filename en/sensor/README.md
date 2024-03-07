@@ -22,7 +22,7 @@ Mandatory (included in Pixhawk series FCs):
 - [Gyroscope](../sensor/gyroscope.md) — Measures orientation.
 - [Magnetometer (Compass)](../gps_compass/magnetometer.md) — Measures heading/direction.
   External compass recommended!
-- [Barometers](../sensor/barometers.md) — Measures altitude (via air pressure).
+- [Barometers](../sensor/barometer.md) — Measures altitude (via air pressure).
 
 Recommended:
 

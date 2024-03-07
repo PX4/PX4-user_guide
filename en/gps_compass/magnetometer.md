@@ -2,11 +2,11 @@
 
 PX4 uses a magnetometer (compass) for determining the yaw and heading of the vehicle relative to the earth's magnetic field.
 
-[Pixhawk series](../flight_controller/pixhawk_series.md) flight controllers, and many others include a compass by default.
-Generally the performance of the flight controller magnetometer is very poor, because the flight controller is mounted close to power lines and other sources of electromagnetic interference.
+[Pixhawk series](../flight_controller/pixhawk_series.md) flight controllers, and many others, include an internal compass.
+Generally the performance of the internal compass is poor, because the flight controller has to be mounted close to power lines and other sources of electromagnetic interference.
 
 In most cases you will prefer to use an external compass, [mounted as far away from other electronics as possible](../assembly/mount_gps_compass.md).
-While it is possible to get a stand-alone compass it is far more common to use a [combined GPS/Compass module](../gps_compass/README.md#supported-gnss-and-or-compass).
+While you can use a [stand-alone external compass](#stand-alone-compass-modules) (as listed below) it is far more common to use a [combined GPS/Compass module](#combined-gnss-compass-modules).
 
 Magnetometers support connection to either the I2C/SPI-bus (Pixhawk `GPS1` or `GPS2` ports) or to the CAN bus.
 If a module doesn't include "CAN" in its product name then it is probably an I2C/SPI compass.
@@ -18,7 +18,9 @@ If it fails before flight, arming will be denied.
 
 ## Supported Compasses
 
-PX4 can be used with many magnetometer parts, including: Bosch BMM 150 MEMS (via I2C bus), HMC5883 / HMC5983 (I2C or SPI), IST8310 (I2C), LIS3MDL (I2C or SPI), RM3100, and more 
+### Compass Parts
+
+PX4 can be used with many magnetometer parts, including: Bosch BMM 150 MEMS (via I2C bus), HMC5883 / HMC5983 (I2C or SPI), IST8310 (I2C), LIS3MDL (I2C or SPI), RM3100, and more.
 Other supported magnetometer parts and their busses can be inferred from the drivers listed in [Modules Reference: Magnetometer (Driver)](../modules/modules_driver_magnetometer.md).
 
 These parts are included in stand alone compass modules, combined compass/GNSS modules, and also in many flight controllers,

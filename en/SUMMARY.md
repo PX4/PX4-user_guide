@@ -252,7 +252,7 @@
     * [Airspeed Sensors](sensor/airspeed.md)
       * [Calibration](config/airspeed.md)
       * [TFSlot Airspeed Sensor](sensor/airspeed_tfslot.md)
-    * [Barometers](sensor/barometers.md)
+    * [Barometers](sensor/barometer.md)
     * [Distance Sensors \(Rangefinders\)](sensor/rangefinders.md)
       * [Lightware SFxx Lidar](sensor/sfxx_lidar.md)
       * [Ainstein US-D1 Standard Radar Altimeter](sensor/ulanding_radar.md)
