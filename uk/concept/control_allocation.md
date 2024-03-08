@@ -17,7 +17,7 @@ PX4 відокремлює цю логіку перекладу, що назив
 
 <!-- https://docs.google.com/drawings/d/1Li9YhTLc3yX6mGX0iSOfItHXvaUhevO2DRZwuxPQ1PI/edit -->
 
-![Mixing Overview](../../assets/diagrams/mixing_overview.png)
+![Огляд змішування](../../assets/diagrams/mixing_overview.png)
 
 ## Конвеєр керування приводами
 
@@ -25,7 +25,7 @@ PX4 відокремлює цю логіку перекладу, що назив
 
 <!-- https://drive.google.com/file/d/1L2IoxsyB4GAWE-s82R_x42mVXW_IDlHP/view?usp=sharing -->
 
-![Pipeline Overview](../../assets/concepts/control_allocation_pipeline.png)
+![Огляд конвеєра](../../assets/concepts/control_allocation_pipeline.png)
 
 Примітки:
 
@@ -69,4 +69,4 @@ param set-default CA_ROTOR0_PY 0.2
 
 Геометрія для плати та параметри за замовчуванням для рухомого засобу встановлюються (з файлу налаштувань планера) коли планер обирається у QGroundControl: [Основне налаштування > Планери](../config/airframe.md).
 
-The geometry parameters and output mapping for the specific frame and flight controller hardware are then configured using the QGroundControl **Actuators** setup screen: [Basic Configuration > Actuator Configuration and Testing](../config/actuators.md).
+Параметри геометрії та відображення виводу для певних планерів та апаратного забезпечення польотних контролерів потім налаштовується у QGroundControl на екрані **Приводи**: [Базове налаштування > Налаштування та перевірка приводу](../config/actuators.md).
