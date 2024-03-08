@@ -1,41 +1,41 @@
 # Розподіл керування (змішування)
 
 :::note
-Control allocation replaces the legacy mixing approach used in PX4 v1.13 and earlier. For PX4 v1.13 documentation see: [Mixing & Actuators](https://docs.px4.io/v1.13/en/concept/mixing.html), [Geometry Files](https://docs.px4.io/v1.13/en/concept/geometry_files.html) and [Adding a New Airframe Configuration](https://docs.px4.io/v1.13/en/dev_airframes/adding_a_new_frame.html).
+Розподіл керування замінює застарілий підхід змішування, який використовувався в PX4 v1.13 або раніше. Документацію по PX4 v1.13 дивіться в: [Змішування та приводи](https://docs.px4.io/v1.13/en/concept/mixing.html), [Файли геометрії](https://docs.px4.io/v1.13/en/concept/geometry_files.html) та [Додавання налаштувань нового планера](https://docs.px4.io/v1.13/en/dev_airframes/adding_a_new_frame.html).
 :::
 
-PX4 takes desired torque and thrust commands from the core controllers and translates them to actuator commands which control motors or servos.
+PX4 приймає бажані команди моменту та тяги від основних контролерів і перекладає їх у команди приводів, які керують двигунами чи сервоприводами.
 
-The translation depends on the physical geometry of the airframe. For example, given a torque command to "turn right" (say):
+Переклад залежить від фізичної геометрії планеру. Скажемо наприклад, за командою моменту "повернути праворуч":
 
-- A plane with one servo per aileron will command one of servo high and the other low.
-- A multicopter will yaw right by changing the speed of all motors.
+- Літак з одним сервоприводом на елерон накаже одному сервоприводу підняти, а іншому опустити їх.
+- Мультикоптер порине вправо змінивши швидкість всіх двигунів.
 
-PX4 separates this translation logic, which is referred to as "mixing" from the attitude/rate controller. This ensures that the core controllers do not require special handling for each airframe geometry, and greatly improves reusability.
+PX4 відокремлює цю логіку перекладу, що називається "змішуванням", від контролера позиції/швидкості. Це гарантує, що основним контролерам не потрібна особлива обробка для кожної геометрії планерів і значно покращує повторне використання.
 
-In addition, PX4 abstracts the mapping of output functions to specific hardware outputs. This means that any motor or servo can be assigned to almost any physical output.
+Крім того, PX4 абстрагує відображення функцій виводу до конкретних апаратних виходів. Це означає, що будь-який двигун або сервопривід може бути призначений майже на будь-який фізичний вивід.
 
 <!-- https://docs.google.com/drawings/d/1Li9YhTLc3yX6mGX0iSOfItHXvaUhevO2DRZwuxPQ1PI/edit -->
 
 ![Mixing Overview](../../assets/diagrams/mixing_overview.png)
 
-## Actuator Control Pipeline
+## Конвеєр керування приводами
 
-Overview of the mixing pipeline in terms of modules and uORB topics (press to show full-screen):
+Огляд конвеєрів змішування в термінах модулів та uORB (натисніть для показу в повноекранному режимі):
 
 <!-- https://drive.google.com/file/d/1L2IoxsyB4GAWE-s82R_x42mVXW_IDlHP/view?usp=sharing -->
 
 ![Pipeline Overview](../../assets/concepts/control_allocation_pipeline.png)
 
-Notes:
+Примітки:
 
-- The rate controller outputs torque and thrust setpoints
-- the `control_allocator` module:
-  - handles different geometries based on configuration parameters
-  - does the mixing
-  - handles motor failures
-  - publishes the motor and servo control signals
-  - publishes the servo trims separately so they can be added as an offset when [testing actuators](../config/actuators.md#actuator-testing) (using the test sliders).
+- Регулятор швидкості видає задані значення моменту та тяги
+- Модуль `control_allocator`:
+  - обробляє різні геометрії на основі параметрів конфігурації
+  - робить змішування
+  - обробляє відмови двигунів
+  - публікує сигнали керування двигуном та сервоприводами
+  - публікує корекції для сервоприводів окремо щоб їх можна було додати як відхилення при  [перевірці приводів](../config/actuators.md#actuator-testing) (використовуючи тестувальні повзунки).
 - the output drivers:
   - handle the hardware initialization and update
   - use a shared library [src/libs/mixer_module](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/). The driver defines a parameter prefix, e.g. `PWM_MAIN` that the library then uses for configuration. Its main task is to select from the input topics and assign the right data to the outputs based on the user set `<param_prefix>_FUNCx` parameter values. For example if `PWM_MAIN_FUNC3` is set to **Motor 2**, the 3rd output is set to the 2nd motor from `actuator_motors`.
