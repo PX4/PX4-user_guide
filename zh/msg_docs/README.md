@@ -67,6 +67,7 @@
 - [FollowTargetStatus](FollowTargetStatus.md)
 - [GeneratorStatus](GeneratorStatus.md)
 - [GeofenceResult](GeofenceResult.md)
+- [GeofenceStatus](GeofenceStatus.md)
 - [GimbalControls](GimbalControls.md)
 - [GimbalDeviceAttitudeStatus](GimbalDeviceAttitudeStatus.md)
 - [GimbalDeviceInformation](GimbalDeviceInformation.md)
