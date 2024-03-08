@@ -68,6 +68,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [FollowTargetStatus](FollowTargetStatus.md)
 - [GeneratorStatus](GeneratorStatus.md)
 - [GeofenceResult](GeofenceResult.md)
+- [GeofenceStatus](GeofenceStatus.md)
 - [GimbalControls](GimbalControls.md)
 - [GimbalDeviceAttitudeStatus](GimbalDeviceAttitudeStatus.md)
 - [GimbalDeviceInformation](GimbalDeviceInformation.md)
