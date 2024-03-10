@@ -2,32 +2,32 @@
 
 У цьому розділі описано загальну конфігурацію програмного забезпечення та калібрування, необхідні для більшості пристроїв PX4.
 
-Спочатку потрібно [ завантажити прошивку і вибрати каркас/тип вашого апарату](#firmware-vehicle-selection). Most other steps can be done out of order, except for [tuning](#tuning), which must be done last.
+Спочатку потрібно [ завантажити прошивку і вибрати каркас/тип вашого апарату](#firmware-vehicle-selection). Більшість інших кроків можна виконувати у довільному порядку, за винятком [налаштування](#tuning), яке має бути виконано в кінці.
 
-## Preconditions
+## Попередні вимоги
 
-Before starting you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer. Then open the QGC application menu ("Q" icon in the top-left corner) and choose **Vehicle Setup** in the _Select Tool_ popup:
+Перед початком роботи вам слід [завантажити QGroundControl](http://qgroundcontrol.com/downloads/) і встановити його на ваш **робочий** комп'ютер. Потім відкрийте меню програми QGC (піктограма "Q" у верхньому лівому куті) і виберіть **Vehicle Setup** у спливаючому вікні _Select Tool_:
 
 ![QGC Main Menu Popup: highlighting Vehicle Setup](../../assets/qgc/setup/menu_setup.png)
 
-## Configuration Steps
+## Етапи конфігурації
 
-### Firmware/Vehicle Selection
+### Вибір прошивки/апарату
 
-- [Loading Firmware](../config/firmware.md)
-- [Vehicle (Frame) Selection](../config/airframe.md)
+- [Завантаження прошивки](../config/firmware.md)
+- [Вибір апарату (каркасу)](../config/airframe.md)
 
-### Motor/Actuator Setup
+### Налаштування двигуна/приводу
 
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [Actuator Configuration and Testing](../config/actuators.md)
+- [Калібрування ESC (плати контролю двигунів)](../advanced_config/esc_calibration.md)
+- [Конфігурація та тестування приводу](../config/actuators.md)
 
-### Sensor Calibration
+### Калібрування датчика
 
-- [Sensor Orientation](../config/flight_controller_orientation.md)
-- [Compass](../config/compass.md)
-- [Gyroscope](../config/gyroscope.md)
-- [Accelerometer](../config/accelerometer.md)
+- [Орієнтація сенсорів](../config/flight_controller_orientation.md)
+- [Компас](../config/compass.md)
+- [Гіроскоп](../config/gyroscope.md)
+- [Акселерометр](../config/accelerometer.md)
 - [Level Horizon](../config/level_horizon_calibration.md)
 - [Airspeed](../config/airspeed.md) (Fixed-wing/VTOL only)
 
