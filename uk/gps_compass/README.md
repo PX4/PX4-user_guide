@@ -1,26 +1,26 @@
-# GPS & Compass
+# GPS та компас
 
-PX4 supports global navigation satellite systems (GNSS) (including GPS, GLONASS, Galileo, BeiDou, QZSS and SBAS) using receivers that communicate via the u-blox, MTK Ashtech or Emlid protocols, or via UAVCAN. It also supports [Real Time Kinematic (RTK)](../gps_compass/rtk_gps.md) and **Post-Processing Kinematic (PPK)** GPS Receivers, which extend GPS systems to centimetre-level precision.
+PX4 підтримує глобальні навігаційні супутникові системи (GNSS) (включаючи GPS, ГЛОНАСС, Galileo, BeiDou, QZSS і SBAS) за допомогою приймачів, які підтримують зв'язок через протоколи u-blox, MTK Ashtech або Emlid, або через UAVCAN. Він також підтримує [Real Time Kinematic (RTK)](../gps_compass/rtk_gps.md) і **Post-Processing Kinematic (PPK)** GPS-приймачі, які розширюють можливості GPS-систем до сантиметрової точності.
 
-PX4 can be used with the following compass parts (magnetometers): Bosch BMM 150 MEMS (via I2C bus), HMC5883 / HMC5983 (I2C or SPI), IST8310 (I2C) and LIS3MDL (I2C or SPI). Up to 4 internal or external magnetometers can be connected, though only one will actually be used as a heading source.
+PX4 можна використовувати з наступними частинами компаса (магнітометрами): Bosch BMM 150 MEMS (через шину I2C), HMC5883 / HMC5983 (I2C або SPI), IST8310 (I2C) і LIS3MDL (I2C або SPI). Можна підключити до 4 внутрішніх або зовнішніх магнітометрів, хоча тільки один з них буде використовуватися як джерело курсу.
 
-The system automatically chooses the best available compass based on their _priority_ (external magnetometers have a higher priority than internal magnetometers). If the primary compass fails in-flight, it will failover to the next one. If it fails before flight, arming will be denied.
+Система автоматично вибирає найкращий з доступних компасів на основі їхнього _пріоритету_ (зовнішні магнітометри мають вищий пріоритет, ніж внутрішні магнітометри). Якщо основний компас виходить з ладу в польоті, він перемикається на наступний. Якщо він вийде з ладу до вильоту, в приведенні в стан готовності буде відмовлено.
 
 ![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
 :::tip
-When using [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers, we recommend using a *combined GPS + Compass* mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing). The internal compass *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. On small vehicles an external compass is almost always required.
+При використанні [контролерів польоту серії Pixhawk](../flight_controller/pixhawk_series.md) ми рекомендуємо використовувати *комбінований GPS + компас*, встановлений якомога далі від ліній живлення двигуна/ESC - зазвичай на підставці або крилі (для фіксованого крила). Внутрішній компас *може* бути корисним на великих апаратах (наприклад, VTOL), де можна зменшити електромагнітні перешкоди, встановивши Pixhawk на великій відстані від джерел живлення. На невеликих апаратах майже завжди потрібен зовнішній компас.
 :::
 
-## Supported GNSS and/or Compass
+## Підтримка GNSS та/або компаса
 
-PX4 should work with any unit that communicates via the u-blox, MTK Ashtech or Emlid protocols, or via UAVCAN.
+PX4 повинен працювати з будь-яким пристроєм, що підтримує зв'язок через протоколи u-blox, MTK Ashtech або Emlid, або через UAVCAN.
 
-### GNSS & Compass
+### GNSS та компас
 
-This list contains GNSS units (most of which also have a compass). These have been tested by the PX4 dev team, or which are popular within the PX4 community.
+Цей список містить GNSS-пристрої (більшість з яких також мають компас). Вони були протестовані командою розробників PX4 або користуються популярністю у спільноті PX4.
 
-| Device                                                                                                                                                                                                                                      |         GPS          |          Compass          | [RTK](../gps_compass/rtk_gps.md) | [GPS Yaw Output](#configuring-gps-as-yaw-heading-source) | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) |   PPK   |
+| Пристрій                                                                                                                                                                                                                                    |         GPS          |          Компас           | [RTK](../gps_compass/rtk_gps.md) | [GPS Yaw Output](#configuring-gps-as-yaw-heading-source) | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) |   PPK   |
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:--------------------:|:-------------------------:|:--------------------------------:|:--------------------------------------------------------:|:------------------------------------------------------------:|:-------:|
 | [ARK GPS](https://arkelectron.com/product/ark-gps/)                                                                                                                                                                                         |         M9N          |         ICM42688p         |                                  |                                                          |                                                              |         |
 | [ARK RTK GPS](https://arkelectron.com/product/ark-rtk-gps/)                                                                                                                                                                                 |         F9P          |         ICM42688p         |             &check;              |                                                          |                           &check;                            |         |
