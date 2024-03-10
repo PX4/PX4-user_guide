@@ -1,8 +1,8 @@
-# Standard Configuration
+# Стандартні налаштування
 
-This section covers the common software configuration and calibration needed for most PX4 vehicles.
+У цьому розділі описано загальну конфігурацію програмного забезпечення та калібрування, необхідні для більшості пристроїв PX4.
 
-You must first [load firmware and select your vehicle frame/type](#firmware-vehicle-selection). Most other steps can be done out of order, except for [tuning](#tuning), which must be done last.
+Спочатку потрібно [ завантажити прошивку і вибрати каркас/тип вашого апарату](#firmware-vehicle-selection). Most other steps can be done out of order, except for [tuning](#tuning), which must be done last.
 
 ## Preconditions
 
