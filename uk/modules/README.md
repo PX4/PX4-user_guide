@@ -1,5 +1,5 @@
 <Redirect to="modules_main" />
 
-# Modules
+# Модулі
 
-This is a placholder for modules docs. Built but not in sidebar.
+Це заповнювач для документів модулів. Створений, але не в бічній панелі.
