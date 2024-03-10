@@ -1,7 +1,7 @@
-# Middleware
+# Проміжне програмне забезпечення
 
-This section contains topics about PX4 middleware, including PX4 internal communication mechanisms ([uORB](../middleware/uorb.md)), and between PX4 and offboard systems like companion computers and GCS (e.g. [MAVLink](../middleware/mavlink.md), [uXRCE-DDS](../middleware/uxrce_dds.md)).
+Цей розділ містить теми про міжпрограмне забезпечення PX4, зокрема про внутрішні механізми зв'язку PX4 ([uORB](../middleware/uorb.md)), а також про зв'язок між PX4 та позабортовими системами, такими як супутні комп'ютери та GCS (наприклад, [MAVLink](../middleware/mavlink.md), [uXRCE-DDS](../middleware/uxrce_dds.md)).
 
 :::tip
-For a detailed overview of the platform architecture see the [Architectural Overview](../concept/architecture.md).
+Для детального огляду архітектури платформи дивіться [Огляд архітектури](../concept/architecture.md).
 :::
