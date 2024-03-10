@@ -1,4 +1,4 @@
-# Multicopter Configuration
+# Конфігурація мультикоптера
 
 Multicopter configuration and calibration follows the same high level steps as other frames: selection of firmware, configuration of the frame including actuator/motor geometry and output mappings, sensor configuration and calibration, configuration of safety and other features, and finally tuning.
 
@@ -145,7 +145,7 @@ Yes but it must be physically feasible. E.g. if you make a quadrotor where all m
 - [Flight Controller Peripherals](../peripherals/README.md) - Setup specific sensors, optional sensors, actuators, and so on.
 - [Advanced Configuration](../advanced_config/README.md) - Factory/OEM calibration, configuring advanced features, less-common configuration.
 - Vehicle-Centric Config/Tuning:
-  - **Multicopter Config/Tuning**
-  - [Helicopter Config/Tuning](../config_heli/README.md)
-  - [Fixed Wing Config/Tuning](../config_fw/README.md)
-  - [VTOL Config/Tuning](../config_vtol/README.md)
+  - **Конфігурація/налаштування мультикоптера**
+  - [Конфігурація/налаштування гелікоптера](../config_heli/README.md)
+  - [Конфігурація/налаштування літака (з нерухомим крилом)](../config_fw/README.md)
+  - [Конфігурація/налаштування VTOL](../config_vtol/README.md)
