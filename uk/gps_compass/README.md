@@ -34,9 +34,9 @@ PX4 повинен працювати з будь-яким пристроєм, �
 | [CubePilot Here2 GNSS GPS (M8N)](../gps_compass/gps_hex_here2.md)                                                                                                                                                                           |         M8N          |         ICM20948          |                                  |                                                          |                                                              |         |
 | [CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md)                                                                                                                                                                           |         M8P          |          HMC5983          |             &check;              |                                                          |                                                              |         |
 | [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3)                                                                                                                                                                |         M8P          |         ICM20948          |             &check;              |                                                          |                                                              |         |
-| [Drotek DP0804](https://store-drotek.com/920-DP0804.html) (and other [Drotek u-blox GPS/Compasses](https://store-drotek.com/index.php?controller=search&s=ublox+compass))                                                                   |         M9N          |          LIS3MDL          |                                  |                                                          |                                                              |         |
+| [Drotek DP0804](https://store-drotek.com/920-DP0804.html) (і інші [Drotek u-blox GPS/Compasses](https://store-drotek.com/index.php?controller=search&s=ublox+compass))                                                                      |         M9N          |          LIS3MDL          |                                  |                                                          |                                                              |         |
 | [Drotek SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html)                                                                                                                                           |         F9P          |          RM3100           |             &check;              |                                                          |                           &check;                            |         |
-| [Emlid Reach M+](https://emlid.com/reach/)  - PX4 only supports "ordinary" GPS with this module. RTK support is expected in the near future.                                                                                                |       &check;        |          &cross;          |                                  |                                                          |                                                              | &check; |
+| [Emlid Reach M+](https://emlid.com/reach/) - PX4 підтримує лише "звичайний" GPS з цим модулем. Підтримка RTK очікується найближчим часом.                                                                                                   |       &check;        |          &cross;          |                                  |                                                          |                                                              | &check; |
 | [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md)                                                                                                                                                                              |     FB672, FB6A0     |          &check;          |             &check;              |                                                          |                                                              |         |
 | [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md)                                                                                                                                                                                        |         F9P          |          IST8310          |             &check;              |                                                          |                                                              |         |
 | [Holybro DroneCAN M8N GPS](../dronecan/holybro_m8n_gps.md)                                                                                                                                                                                  |         M8N          |          BMM150           |                                  |                                                          |                                                              |         |
@@ -53,7 +53,7 @@ PX4 повинен працювати з будь-яким пристроєм, �
 | [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)                                                                                                                                                                       |         M8P          |          IST8310          |             &check;              |                                                          |                                                              |         |
 | [Holybro H-RTK Unicore UM982 GPS](../gps_compass/rtk_gps_holybro_unicore_um982.md)                                                                                                                                                          |        UM982         |          IST8310          |             &check;              |                         &check;                          |                                                              |         |
 | [Hobbyking u-blox Neo-M8N GPS with Compass](https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html?gclid=Cj0KCQjwqM3VBRCwARIsAKcekb3ojv1ZhLz1-GuvCsUuGT8ZZuw8meMIV_I6pgUCj6DJRzHBY9OApekaAgI5EALw_wcB&gclsrc=aw.ds&___store=en_us) |         M8N          |          &check;          |                                  |                                                          |                                                              |         |
-| [LOCOSYS Hawk A1 GNSS receiver](../gps_compass/gps_locosys_hawk_a1.md)                                                                                                                                                                      |     MC-1612-V2b      |         optional          |             &cross;              |                                                          |                                                              |         |
+| [LOCOSYS Hawk A1 GNSS receiver](../gps_compass/gps_locosys_hawk_a1.md)                                                                                                                                                                      |     MC-1612-V2b      |       опціональний        |             &cross;              |                                                          |                                                              |         |
 | [LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md)                                                                                                                                                                                     |     MC-1612-V2b      |                           |             &cross;              |                                                          |                                                              |         |
 | [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md)                                                                                                                                                                                     |     MC-1612-V2b      |          IST8310          |             &cross;              |                                                          |                                                              |         |
 | [mRo GPS u-blox Neo-M8N Dual Compass](https://store.mrobotics.io/product-p/m10034-8308.htm)                                                                                                                                                 |         M8N          |     LIS3MDL, IST8308      |                                  |                                                          |                                                              |         |
@@ -65,70 +65,70 @@ PX4 повинен працювати з будь-яким пристроєм, �
 | [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)                                                                                                                                                                                  |         F9P          |          &cross;          |             &check;              |                         &check;                          |                                                              |         |
 | [Zubax GNSS 2](https://zubax.com/products/gnss_2)                                                                                                                                                                                           |       MAX-M8Q        |          LIS3MDL          |                                  |                                                          |                                                              |         |
 
-Notes:
+Примітки:
 
-- &check; or a specific part number indicate that a features is supported, while &cross; or empty show that the feature is not supported. "?" indicates "unknown".
-- Where possible and relevant the part name is used (i.e. &check; in the GPS column indicates that a GPS module is present but the part is not known).
-- [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) and [Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/collections/gps-rtk-systems/products/dronecan-rm3100-compass) is a compass (not a GPS).
-- Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
-- The list may omit some discontinued hardware that is still supported. For example [CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md) is discontinued and may be removed from the list in a future release. The original *Here* has already been removed. Check earlier versions if a discontinued module is not mentioned here.
+- &check; або конкретний номер артикулу вказує на те, що функція підтримується, тоді як &cross; або пусте поле вказує на те, що функція не підтримується. "?" означає "невідомо".
+- Там, де це можливо і доречно, використовується назва деталі (наприклад, &check; у колонці GPS вказує на наявність GPS-модуля, але деталь невідома).
+- [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) and [Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/collections/gps-rtk-systems/products/dronecan-rm3100-compass) - компас (не GPS).
+- Деякі RTK-модулі можна використовувати лише в певній ролі (база або ровер), тоді як інші можна використовувати як взаємозамінні.
+- У списку може бути відсутнє деяке зняте з виробництва обладнання, яке все ще підтримується. Наприклад, [CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md) більше не випускається і може бути вилучений зі списку у наступному релізі. Оригінальне *Тут* вже видалено. Перевірте попередні версії, якщо тут не згадано модуль, який перестали випускати.
 
-### Compass/Magnetometer (Only)
+### Компас/Магнітометр (тільки)
 
-This list contains compasses (magnetometers) without GNSS.
+Цей список містить компаси (магнітометри) без GNSS.
 
-| Device                                                                                                           | Compass | DroneCan |
-|:---------------------------------------------------------------------------------------------------------------- |:-------:|:--------:|
-| [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) |    ?    |          |
-| [Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/products/dronecan-rm3100-compass)             | RM3100  | &check;  |
+| Пристрій                                                                                                         | Компас | DroneCan |
+|:---------------------------------------------------------------------------------------------------------------- |:------:|:--------:|
+| [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) |   ?    |          |
+| [Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/products/dronecan-rm3100-compass)             | RM3100 | &check;  |
 
-Note:
+Примітка:
 
-- &check; or a specific part number indicate that a features is supported, while &cross; or empty show that the feature is not supported. "?" indicates "unknown".
+- &check; або конкретний номер артикулу вказує на те, що функція підтримується, тоді як &cross; або пусте поле вказує на те, що функція не підтримується. "?" означає "невідомо".
 
-## Hardware Setup
+## Налаштування обладнання
 
-Instructions for connecting the GPS (and compass, if present) are usually provided by the manufacturer (at least for more common [Autopilot Hardware](../flight_controller/README.md)).
+Інструкції з підключення GPS (і компаса, якщо він є) зазвичай надаються виробником (принаймні для більш поширеного [Автопілотного обладнання](../flight_controller/README.md)).
 
-[Pixhawk Series](../flight_controller/pixhawk_series.md) controllers typically have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device).
+[Контролери серії Pixhawk](../flight_controller/pixhawk_series.md) зазвичай мають чітко позначений порт для підключення GPS, а компас підключається до порту/шини I2C або SPI (залежно від пристрою).
 
-The [ARK GPS](../dronecan/ark_gps.md), [ARK RTK GPS](../dronecan/ark_rtk_gps.md), [Zubax GNSS 2](https://zubax.com/products/gnss_2), [CUAV C-RTK2](../gps_compass/rtk_gps_cuav_c-rtk.md), [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3), and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [DroneCAN](../dronecan/README.md).
+[ARK GPS](../dronecan/ark_gps.md), [ARK RTK GPS](../dronecan/ark_rtk_gps.md), [Zubax GNSS 2](https://zubax.com/products/gnss_2), [CUAV C-RTK2](../gps_compass/rtk_gps_cuav_c-rtk.md), [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3) та [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) також можна під'єднати через [DroneCAN](../dronecan/README.md).
 
 
 :::warning
-Pay attention to pinout when connecting the GPS module.
-While these are all software-compatible, there are several different pin orderings.
+Зверніть увагу на розкладку контактів при підключенні GPS-модуля.
+Хоча всі вони сумісні з програмним забезпеченням, існує кілька варіантів розташування пінів.
 :::
 
 
-## GNSS Configuration
+## GNSS конфігурація
 
-The "standard" GPS configuration is provided below. Additional device-specific configuration may be provided in PX4 or manufacturer device documentation (e.g. [Trimble MB-Two > Configuration](../gps_compass/rtk_gps_trimble_mb_two.md#configuration)).
+Нижче наведено "стандартну" конфігурацію GPS. Додаткова конфігурація для конкретного пристрою може бути надана в PX4 або в документації виробника пристрою (наприклад, [Trimble MB-Two > Конфігурація](../gps_compass/rtk_gps_trimble_mb_two.md#configuration)).
 
 :::warning
-The GPS protocol expected by PX4 defaults to u-blox (by default other GPS types like Trimble, Emlid, MTK, will not be detected) The protocol can be configured with [GPS_x_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL).
+Протокол GPS, який очікує PX4, за замовчуванням є u-blox (за замовчуванням інші типи GPS, такі як Trimble, Emlid, MTK, не будуть виявлені) Протокол можна налаштувати за допомогою [GPS_x_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL).
 :::
 
-### Configuring the Primary GPS
+### Налаштування основного GPS
 
-GPS configuration on Pixhawk is handled transparently for the user - simply connect the GPS module to the port labeled **GPS** and everything should work.
+Налаштування GPS на Pixhawk відбувається досить легко для користувача - просто підключіть GPS-модуль до порту з міткою **GPS** і все повинно запрацювати.
 
 :::note
-The default [Serial Port Configuration](../peripherals/serial_configuration.md#default_port_mapping) works for most devices. If you are using the *Trimble MB-Two* you will need to modify the configuration to explicitly set the rate to 115200 baud.
+Стандартна [Конфігурація послідовного порту](../peripherals/serial_configuration.md#default_port_mapping) працює для більшості пристроїв. Якщо ви використовуєте *Trimble MB-Two*, вам потрібно змінити конфігурацію, щоб явно встановити швидкість 115200 бод.
 :::
 
 <a id="dual_gps"></a>
 
-### Configuring a Secondary GPS (Dual GPS System)
+### Налаштування додаткового GPS (подвійна система GPS)
 
-To use a secondary GPS, attach it to any free port, and then perform a [Serial Port Configuration](../peripherals/serial_configuration.md) to assign [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to the selected port.
+Щоб використовувати додатковий GPS, підключіть його до будь-якого вільного порту, а потім виконайте [Конфігурацію послідовного порту](../peripherals/serial_configuration.md), щоб призначити [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) вибраному порту.
 
-The following steps show how to configure a secondary GPS on the `TELEM 2` port in *QGroundControl*:
+Наступні кроки демонструють, як налаштувати вторинний GPS на порту `TELEM 2` у *QGroundControl*:
 
-1. [Find and set](../advanced_config/parameters.md) the parameter [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to **TELEM 2**.
-   - Open *QGroundControl* and navigate to the **Vehicle Setup > Parameters** section.
-   - Select the **GPS** tab (1), then open the [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter (2) and select *TELEM 2* from the dropdown list (3). ![QGC Serial Example](../../assets/peripherals/qgc_serial_config_example.png)
-1. Reboot the vehicle in order to make the other parameters visible.
+1. [Знайдіть та встановіть](../advanced_config/parameters.md) параметр [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) у значення **TELEM 2**.
+   - Відкрийте *QGroundControl* і перейдіть до розділу **Vehicle Setup > Parameters**.
+   - Виберіть вкладку **GPS** (1), потім відкрийте параметр [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) (2) і виберіть *TELEM 2* з випадаючого списку (3). ![QGC Serial Example](../../assets/peripherals/qgc_serial_config_example.png)
+1. Перезавантажте апарат, щоб побачити інші параметри.
 1. Select the **Serial** tab, and open the [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) parameter (`TELEM 2` port baud rate): set it to *Auto*. ![QGC Serial Baudrate Example](../../assets/peripherals/qgc_serial_baudrate_example.png)
 
 After setting up the second GPS port:
