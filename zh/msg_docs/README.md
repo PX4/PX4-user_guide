@@ -122,6 +122,10 @@
 - [OrbTestLarge](OrbTestLarge.md)
 - [OrbTestMedium](OrbTestMedium.md)
 - [OrbitStatus](OrbitStatus.md) — ORBIT_YAW_BEHAVIOUR
+- [ParameterResetRequest](ParameterResetRequest.md) — ParameterResetRequest : Used by the primary to reset one or all parameter value(s) on the remote
+- [ParameterSetUsedRequest](ParameterSetUsedRequest.md) — ParameterSetUsedRequest : Used by a remote to update the used flag for a parameter on the primary
+- [ParameterSetValueRequest](ParameterSetValueRequest.md) — ParameterSetValueRequest : Used by a remote or primary to update the value for a parameter at the other end
+- [ParameterSetValueResponse](ParameterSetValueResponse.md) — ParameterSetValueResponse : Response to a set value request by either primary or secondary
 - [ParameterUpdate](ParameterUpdate.md) — This message is used to notify the system about one or more parameter changes
 - [Ping](Ping.md)
 - [PositionControllerLandingStatus](PositionControllerLandingStatus.md)
