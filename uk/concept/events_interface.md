@@ -138,26 +138,26 @@ events::send<uint8_t, float>(events::ID("event_name"),
     - m_v: вертикальна відстань в метрах
     - m^2: площа в метрах квадратних
     - m/s: швидкість у метрах в секунду
-    - C: temperature in degrees celsius
+    - C: температура у градусах Цельсія
 
-  - `NUM_DECIMAL_DIGITS` only makes sense for real number arguments.
+  - `NUM_DECIMAL_DIGITS` підходить тільки для аргументів у вигляді дійсних чисел.
 
-## Logging
+## Журналювання
 
-Events are logged according to the internal log level, and [Flight Review](../log/flight_review.md) displays events.
+Події записуються відповідно до рівня внутрішнього журналювання, а [Огляд польоту](../log/flight_review.md) показує події.
 
 :::note
-Flight review downloads metadata based on PX4 master, so if a definition is not yet on master, it will only be able to display the event ID.
+Огляд польоту завантажує метадані на основі головної гілки PX4, тому, якщо визначення ще немає на головній гілці, огляд зможе показати тільки ID події.
 :::
 
-## Implementation
+## Реалізація
 
-During PX4 build, only the code is added directly to the binary by the compiler (i.e. the event ID, log level(s) and any arguments).
+Під час збірки PX4 компілятором у двійковий файл безпосередньо додається тільки вихідний код (тобто ID події, рівень журналювання та будь-які аргументи).
 
-The metadata for all events is built into a separate JSON metadata file (using a python script that scans the whole source code for event calls).
+Метадані для всіх подій вбудовані в окремий JSON файл метаданих (з використанням python скрипту, який сканує весь вихідний код у пошуках викликів подій).
 
-### Publishing Event Metadata to a GCS
+### Публікація метаданих події в GCS
 
-The event metadata JSON file is compiled into firmware (and/or hosted on the Internet), and made available to ground stations via the [MAVLink Component Metadata service](https://mavlink.io/en/services/component_information.html). This ensures that metadata is always up-to-date with the code running on the vehicle.
+JSON-файл метаданих подій компілюється у прошивку (або розміщено в Інтернеті) і стає доступним наземним станціям через [службу метаданих компонентів MAVLink](https://mavlink.io/en/services/component_information.html). Це гарантує, що метадані завжди актуальні для коду, який виконується на рухомому засобі.
 
-This process is the same as for [parameter metadata](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs). For more information see [PX4 Metadata (Translation & Publication)](../advanced/px4_metadata.md)
+Цей процес такий самий як і для [метаданих параметрів](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs). Для отримання додаткової інформації див. [ Метадані PX4 (трансляція і публікація)](../advanced/px4_metadata.md).
