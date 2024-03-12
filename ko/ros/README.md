@@ -28,5 +28,5 @@ Note that ROS 2 can be installed on Ubuntu Linux, macOS, Windows, while ROS 1 is
 [PX4 Developer Summit 2020](https://www.youtube.com/watch?v=lZ8crGI16qA)(및 [ROS World 2020](https://www.youtube.com/watch?v=8XRkzHqQSf0))에서 공개된 PX4 개발팀은 microROS 지원 계획을 발표하였습니다.
 
 * microRTPS: microRTPS bridge with Fast DDS (The ROS 2 interface in PX4 v1.13 and earlier)
-* micro XRCE-DDS: DDS on PX4 (The ROS 2 interface for releases after PX4 v1.13 and in mainline)
+* micro XRCE-DDS: DDS on PX4 (The ROS 2 interface for PX4 v1.14 and later)
 * micro ROS: ROS 2 running in PX4 - "microROS" (Our Target!)
