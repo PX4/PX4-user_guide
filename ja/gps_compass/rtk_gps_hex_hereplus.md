@@ -1,5 +1,7 @@
 # HEX/ProfiCNC Here+ RTK GPS (Discontinued)
 
+<Badge type="error" text="Discontinued" />
+
 :::note
 This GPS is no longer available for purchase but is still compatible with PX4.
 
