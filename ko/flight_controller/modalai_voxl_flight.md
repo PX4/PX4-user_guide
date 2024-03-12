@@ -1,14 +1,16 @@
 # ModalAI VOXL Flight
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://forum.modalai.com/)에 문의하십시오.<br/>
-:::
+<Badge type="tip" text="PX4 v1.11" />
 
 ModalAI [VOXL Flight](https://modalai.com/voxl-flight) ([데이터시트](https://docs.modalai.com/voxl-flight-datasheet))는 Snapdragon의 강력함과 정교함을 STM32F7에서 PX4의 유연성과 사용자 용이성이 결합한 최초의 컴퓨팅 플랫폼중 하나입니다. 미국에서 제작된 VOXL Flight는 단일 PCB에서 PX4 비행 컨트롤러와 결합된 장애물 회피와 GPS 거부 (실내) 내비게이션을 지원합니다.
+:::
+
+The ModalAI [VOXL Flight](https://modalai.com/voxl-flight) ([Datasheet](https://docs.modalai.com/voxl-flight-datasheet)) is one of the first computing platforms to combine the power and sophistication of Snapdragon with the flexibility and ease of use of PX4 on an STM32F7. Made in the USA, VOXL Flight supports obstacle avoidance and GPS-denied (indoor) navigation fused with a PX4 flight controller on a single PCB.
 
 ![VOXL-Flight](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-dk.jpg)
 
 :::note
-이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
+자세한 하드웨어 문서는 [여기](https://docs.modalai.com/voxl-flight-datasheet/)를 참고하십시오.
 :::
 
 ## 사양
@@ -70,26 +72,26 @@ ModalAI [VOXL Flight](https://modalai.com/voxl-flight) ([데이터시트](https:
 <!-- reference links for above table (improve layout) -->
 
 :::note
-자세한 하드웨어 문서는 [여기](https://docs.modalai.com/voxl-flight-datasheet/)를 참고하십시오.
+More detailed hardware documentation can be found [here](https://docs.modalai.com/voxl-flight-datasheet/).
 :::
 
 ## 크기
 
-![FlightCoreV1 크기](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-dimensions.jpg)
+![FlightCoreV1Dimensions](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-dimensions.jpg)
 
-[3D STEP 파일](https://storage.googleapis.com/modalai_public/modal_drawings/M0019_VOXL-Flight.zip)
+[3D STEP File](https://storage.googleapis.com/modalai_public/modal_drawings/M0019_VOXL-Flight.zip)
 
 ## PX4 Firmware Compatibility
 
 _VOXL Flight_ is fully compatible with the official PX4 Firmware from PX4 v1.11.
 
-ModalAI는 PX4 v1.11용 [분기 PX4 버전](https://github.com/modalai/px4-firmware/tree/modalai-1.11)을 유지합니다. 여기에는 UART ESC 지원과 업스트림 예정인 VIO와 VOA의 개선 사항이 포함됩니다.
+ModalAI maintains a [branched PX4 version](https://github.com/modalai/px4-firmware/tree/modalai-1.11) for PX4 v1.11. This includes UART ESC support and improvements in VIO and VOA that are planned to be upstreamed.
 
-펌웨어에 관련된 더 많은 정보는 [여기](https://docs.modalai.com/flight-core-firmware/)를 참고하십시오.
+이 보드는 QGroundControl 4.0 이상에서 지원됩니다.
 
 ## QGroundControl 지원
 
-이 보드는 QGroundControl 4.0 이상에서 지원됩니다.
+공급 업체의 퀵 스타트 가이드는 [여기](https://docs.modalai.com/voxl-flight-quickstart/)를 참고하십시오.
 
 ## 구매처
 
@@ -100,21 +102,21 @@ ModalAI는 PX4 v1.11용 [분기 PX4 버전](https://github.com/modalai/px4-firmw
 
 ## 빠른 시작
 
-공급 업체의 퀵 스타트 가이드는 [여기](https://docs.modalai.com/voxl-flight-quickstart/)를 참고하십시오.
+A quickstart from the vendor is located [here](https://docs.modalai.com/voxl-flight-quickstart/).
 
 ### voxl-vision-px4
 
-The VOXL Flight runs [voxl-vision-px4](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4) on the companion computer portion of the hardware serving as a sort of MAVLink proxy. 자세한 내용은 [여기](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4)에서 소스 코드를 참고할 수 있습니다.
+The VOXL Flight runs [voxl-vision-px4](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4) on the companion computer portion of the hardware serving as a sort of MAVLink proxy. For details, the source code is available [here](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4)
 
 ### 커넥터
 
-핀배열에 관련된 더 많은 정보는 [여기](https://docs.modalai.com/voxl-flight-datasheet-connectors/)을 참고하십시오.
+Detailed information about the pinouts can be found [here](https://docs.modalai.com/voxl-flight-datasheet-connectors/).
 
 #### 상단
 
-![VOXLFlight 상단](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-top.jpg)
+![VOXLFlightTop](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-top.jpg)
 
-_참고 : STM32/PX4에서 액세스 가능한 1000 시리즈 커넥터_
+_Note: 1000 Series connectors accessible from the STM32/PX4_
 
 | 커넥터   | 요약                              | 사용처                               |
 | ----- | ------------------------------- | --------------------------------- |
@@ -139,9 +141,9 @@ _참고 : STM32/PX4에서 액세스 가능한 1000 시리즈 커넥터_
 
 #### 하단
 
-![VOXLFlight 하단](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-bottom.jpg)
+![VOXLFlightBottom](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-bottom.jpg)
 
-_참고 : STM32/PX4에서 액세스 가능한 1000 시리즈 커넥터_
+_Note: 1000 Series connectors accessible from the STM32/PX4_
 
 | 커넥터          | 요약                     | 사용처                       |
 | ------------ | ---------------------- | ------------------------- |
@@ -155,11 +157,11 @@ _참고 : STM32/PX4에서 액세스 가능한 1000 시리즈 커넥터_
 
 ### 사용자 가이드
 
-전체 사용자 가이드는 [여기](https://docs.modalai.com/voxl-flight-quickstart)를 참고하십시오.
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
 
 ### 빌드 방법
 
-이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
 make modalai_fc-v1
@@ -167,7 +169,7 @@ make modalai_fc-v1
 
 ## 시리얼 포트 매핑
 
-_참고: 표시된 매핑은 PX4 제어 인터페이스 전용입니다._
+_Note: mappings shown are for the PX4 controlled interfaces only_
 
 | UART   | 장치         | 포트                 |
 | ------ | ---------- | ------------------ |
@@ -184,7 +186,7 @@ _참고: 표시된 매핑은 PX4 제어 인터페이스 전용입니다._
 
 ## 지원
 
-자세한 내용은 [ModalAI 포럼](https://forum.modalai.com/category/8/voxl-flight)을 참고하십시오.
+Please visit the [ModalAI Forum](https://forum.modalai.com/category/8/voxl-flight) for more information.
 
 [stm32f765ii]: https://www.st.com/en/microcontrollers-microprocessors/stm32f765ii.html
 [px4]: https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/fc-v1
