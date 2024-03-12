@@ -271,16 +271,16 @@ MY_PARAM_${i}_RATE:
 
 Наступні визначення YAML містять початковий та кінцевий індекси.
 
-- `num_instances` (default 1): Number of instances to generate (>=1)
-- `instance_start` (default 0): First instance number. If 0, `${i}` expands to [0, N-1]`.
+- `num_instances` (за замовчуванням 1): Кількість інстансів, які потрібно згенерувати (>=1)
+- `instance_start` (за замовчуванням 0): Номер першого інстансу. Якщо 0, `${i}` розширюється до [0, N-1]`.
 
-For a full example see the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml)
+Повний приклад див. у визначенні параметрів MAVLink: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml).
 
-#### c Parameter Metadata
+#### c параметр метаданих
 
-The legacy approach for defining parameter metadata is in a file with extension **.c** (at time of writing this is the approach most commonly used in the source tree).
+Застарілий підхід для визначення метаданих параметрів знаходиться у файлі з розширенням **.c** (на момент написання цієї статті це підхід, який найчастіше використовується у дереві коду).
 
-Parameter metadata sections look like the following examples:
+Розділи метаданих параметрів виглядають так, як показано в наступних прикладах:
 
 ```cpp
 /**
@@ -310,9 +310,9 @@ PARAM_DEFINE_FLOAT(MC_PITCH_P, 6.5f);
 PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
 ```
 
-The `PARAM_DEFINE_*` macro at the end specifies the type of parameter (`PARAM_DEFINE_FLOAT` or `PARAM_DEFINE_INT32`), the name of the parameter (which must match the name used in code), and the default value in firmware.
+Макрос `PARAM_DEFINE_*` в кінці визначає тип параметра (`PARAM_DEFINE_FLOAT` або `PARAM_DEFINE_INT32`), ім'я параметра (яке має відповідати імені, що використовується у коді) та значення за замовчуванням у прошивці.
 
-The lines in the comment block are all optional, and are primarily used to control display and editing options within a ground station. The purpose of each line is given below (for more detail see [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml)).
+Рядки в блоці коментарів є необов'язковими, і в основному використовуються для керування параметрами відображення та редагування на наземній станції. Призначення кожного рядка наведено нижче (докладніше див. [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml)).
 
 ```cpp
 /**
@@ -331,14 +331,14 @@ The lines in the comment block are all optional, and are primarily used to contr
  */
 ```
 
-## Publishing Parameter Metadata to a GCS
+## Публікація метаданих параметрів у GCS
 
-The parameter metadata JSON file is compiled into firmware (or hosted on the Internet), and made available to ground stations via the [MAVLink Component Metadata service](https://mavlink.io/en/services/component_information.html). This ensures that metadata is always up-to-date with the code running on the vehicle.
+JSON-файл метаданих параметрів компілюється у прошивку (або хоститься в Інтернеті) і стає доступним наземним станціям через службу [MAVLink Component Metadata Service](https://mavlink.io/en/services/component_information.html). Це гарантує, що метадані завжди актуальні для коду, який виконується на апараті.
 
-This process is the same as for [events metadata](../concept/events_interface.md#publishing-event-metadata-to-a-gcs). For more information see [PX4 Metadata (Translation & Publication)](../advanced/px4_metadata.md)
+Цей процес такий самий, як і для метаданих [подій](../concept/events_interface.md#publishing-event-metadata-to-a-gcs). Для отримання додаткової інформації див. [ Метадані PX4 (Переклад і публікація)](../advanced/px4_metadata.md).
 
-## Further Information
+## Подальша інформація
 
-- [Finding/Updating Parameters](../advanced_config/parameters.md)
-- [Parameter Reference](../advanced_config/parameter_reference.md)
-- [Param implementation](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/param.h#L129) (information on `.get()`, `.commit()`, and other methods)
+- [Пошук/оновлення параметрів](../advanced_config/parameters.md)
+- [Довідник параметрів](../advanced_config/parameter_reference.md)
+- [Реалізація параметрів](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/param.h#L129) (інформація про `.get()`, `.commit()` та інші методи)

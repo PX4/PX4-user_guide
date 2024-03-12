@@ -10057,6 +10057,17 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="COM_FLTT_LOW_ACT">COM_FLTT_LOW_ACT</strong> (INT32)</td>
+ <td>Remaining flight time low failsafe <p><strong>Comment:</strong> Action the system takes when the remaining flight time is below the estimated time it takes to reach the RTL destination.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> None</li>
+<li><strong>1:</strong> Warning</li>
+<li><strong>3:</strong> Return</li>
+</ul>  </td>
+ <td>(1)</td>
+ <td>3</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="COM_FLT_PROFILE">COM_FLT_PROFILE</strong> (INT32)</td>
  <td>User Flight Profile <p><strong>Comment:</strong> Describes the intended use of the vehicle. Can be used by ground control software or log post processing. This param does not influence the behavior within the firmware. This means for example the control logic is independent of the setting of this param (but depends on other params).</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Default</li>
@@ -12479,7 +12490,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_SPOILERS_MAN">FW_SPOILERS_MAN</strong> (INT32)</td>
- <td>Spoiler input in manual flight <p><strong>Comment:</strong> Chose source for manual setting of spoilers in manual flight modes.</p> <strong>값:</strong><ul>
+ <td>Spoiler input in manual flight <p><strong>Comment:</strong> Chose source for manual setting of spoilers in manual flight modes.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Flaps channel</li>
 <li><strong>2:</strong> Aux1</li>
@@ -12945,7 +12956,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_1_PROTOCOL">GPS_1_PROTOCOL</strong> (INT32)</td>
- <td>Protocol for Main GPS <p><strong>Comment:</strong> Select the GPS protocol over serial. Auto-detection will probe all protocols, and thus is a bit slower.</p> <strong>Values:</strong><ul>
+ <td>Protocol for Main GPS <p><strong>Comment:</strong> Select the GPS protocol over serial. Auto-detection will probe all protocols, and thus is a bit slower.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Auto detect</li>
 <li><strong>1:</strong> u-blox</li>
 <li><strong>2:</strong> MTK</li>
@@ -13660,7 +13671,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR1_TILT">CA_ROTOR1_TILT</strong> (INT32)</td>
- <td>Rotor 1 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>값:</strong><ul>
+ <td>Rotor 1 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> Tilt 1</li>
 <li><strong>2:</strong> Tilt 2</li>
@@ -14074,7 +14085,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR7_TILT">CA_ROTOR7_TILT</strong> (INT32)</td>
- <td>Rotor 7 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>Values:</strong><ul>
+ <td>Rotor 7 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> Tilt 1</li>
 <li><strong>2:</strong> Tilt 2</li>
@@ -14143,7 +14154,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR8_TILT">CA_ROTOR8_TILT</strong> (INT32)</td>
- <td>Rotor 8 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>값:</strong><ul>
+ <td>Rotor 8 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> Tilt 1</li>
 <li><strong>2:</strong> Tilt 2</li>
@@ -14212,7 +14223,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_ROTOR9_TILT">CA_ROTOR9_TILT</strong> (INT32)</td>
- <td>Rotor 9 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>Values:</strong><ul>
+ <td>Rotor 9 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> Tilt 1</li>
 <li><strong>2:</strong> Tilt 2</li>
@@ -14984,7 +14995,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL0_TD">CA_SV_TL0_TD</strong> (INT32)</td>
- <td>Tilt Servo 0 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>값:</strong><ul>
+ <td>Tilt Servo 0 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Towards Front</li>
 <li><strong>90:</strong> Towards Right</li>
 </ul>  </td>
@@ -15030,7 +15041,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL2_CT">CA_SV_TL2_CT</strong> (INT32)</td>
- <td>Tilt 2 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>Values:</strong><ul>
+ <td>Tilt 2 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> Yaw</li>
 <li><strong>2:</strong> Pitch</li>
@@ -15056,7 +15067,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL2_TD">CA_SV_TL2_TD</strong> (INT32)</td>
- <td>Tilt Servo 2 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>값:</strong><ul>
+ <td>Tilt Servo 2 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Towards Front</li>
 <li><strong>90:</strong> Towards Right</li>
 </ul>  </td>
@@ -15066,7 +15077,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL3_CT">CA_SV_TL3_CT</strong> (INT32)</td>
- <td>Tilt 3 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>Values:</strong><ul>
+ <td>Tilt 3 is used for control <p><strong>Comment:</strong> Define if this servo is used for additional control.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> None</li>
 <li><strong>1:</strong> Yaw</li>
 <li><strong>2:</strong> Pitch</li>
@@ -15092,7 +15103,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_SV_TL3_TD">CA_SV_TL3_TD</strong> (INT32)</td>
- <td>Tilt Servo 3 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>값:</strong><ul>
+ <td>Tilt Servo 3 Tilt Direction <p><strong>Comment:</strong> Defines the direction the servo tilts towards when moving towards the maximum tilt angle. For example if the minimum tilt angle is -90, the maximum 90, and the direction &#x27;Towards Front&#x27;, the motor axis aligns with the XZ-plane, points towards -X at the minimum and +X at the maximum tilt.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Towards Front</li>
 <li><strong>90:</strong> Towards Right</li>
 </ul>  </td>
@@ -15177,7 +15188,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="ISBD_CONFIG">ISBD_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for Iridium (with MAVLink) <p><strong>Comment:</strong> Configure on which serial port to run Iridium (with MAVLink).</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for Iridium (with MAVLink) <p><strong>Comment:</strong> Configure on which serial port to run Iridium (with MAVLink).</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -15393,7 +15404,7 @@ table {
 </tr>
 <tr>
  <td><strong id="LTEST_SENS_ROT">LTEST_SENS_ROT</strong> (INT32)</td>
- <td>Rotation of IRLOCK sensor relative to airframe <p><strong>Comment:</strong> Default orientation of Yaw 90°</p> <strong>값:</strong><ul>
+ <td>Rotation of IRLOCK sensor relative to airframe <p><strong>Comment:</strong> Default orientation of Yaw 90°</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -15730,7 +15741,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_0_CONFIG">MAV_0_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MAVLink (instance 0) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for MAVLink (instance 0) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -15824,7 +15835,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_1_BROADCAST">MAV_1_BROADCAST</strong> (INT32)</td>
- <td>Broadcast heartbeats on local network for MAVLink instance 1 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>값:</strong><ul>
+ <td>Broadcast heartbeats on local network for MAVLink instance 1 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Never broadcast</li>
 <li><strong>1:</strong> Always broadcast</li>
 <li><strong>2:</strong> Only multicast</li>
@@ -15835,7 +15846,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_1_CONFIG">MAV_1_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MAVLink (instance 1) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for MAVLink (instance 1) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -15929,7 +15940,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_2_BROADCAST">MAV_2_BROADCAST</strong> (INT32)</td>
- <td>Broadcast heartbeats on local network for MAVLink instance 2 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>값:</strong><ul>
+ <td>Broadcast heartbeats on local network for MAVLink instance 2 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Never broadcast</li>
 <li><strong>1:</strong> Always broadcast</li>
 <li><strong>2:</strong> Only multicast</li>
@@ -15940,7 +15951,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_2_CONFIG">MAV_2_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MAVLink (instance 2) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for MAVLink (instance 2) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -16413,7 +16424,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="MNT_DO_STAB">MNT_DO_STAB</strong> (INT32)</td>
- <td>Stabilize the mount <p><strong>Comment:</strong> Set to true for servo gimbal, false for passthrough. This is required for a gimbal which is not capable of stabilizing itself and relies on the IMU&#x27;s attitude estimation.</p> <strong>값:</strong><ul>
+ <td>Stabilize the mount <p><strong>Comment:</strong> Set to true for servo gimbal, false for passthrough. This is required for a gimbal which is not capable of stabilizing itself and relies on the IMU&#x27;s attitude estimation.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disable</li>
 <li><strong>1:</strong> Stabilize all axis</li>
 <li><strong>2:</strong> Stabilize yaw for absolute/lock mode.</li>
@@ -16512,7 +16523,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MNT_MODE_OUT">MNT_MODE_OUT</strong> (INT32)</td>
- <td>Mount output mode <p><strong>Comment:</strong> This is the protocol used between the autopilot and a connected gimbal. Recommended is the MAVLink gimbal protocol v2 if the gimbal supports it.</p> <strong>Values:</strong><ul>
+ <td>Mount output mode <p><strong>Comment:</strong> This is the protocol used between the autopilot and a connected gimbal. Recommended is the MAVLink gimbal protocol v2 if the gimbal supports it.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> AUX</li>
 <li><strong>1:</strong> MAVLink gimbal protocol v1</li>
 <li><strong>2:</strong> MAVLink gimbal protocol v2</li>
@@ -17780,7 +17791,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC11_REV">RC11_REV</strong> (FLOAT)</td>
- <td>RC channel 11 reverse <p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>값:</strong><ul>
+ <td>RC channel 11 reverse <p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li>
 <li><strong>1.0:</strong> Normal</li>
 </ul>  </td>
@@ -17932,7 +17943,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC15_REV">RC15_REV</strong> (FLOAT)</td>
- <td>RC channel 15 reverse <p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td>RC channel 15 reverse <p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>값:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li>
 <li><strong>1.0:</strong> Normal</li>
 </ul>  </td>
@@ -18274,7 +18285,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC6_REV">RC6_REV</strong> (FLOAT)</td>
- <td>RC channel 6 reverse <p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>값:</strong><ul>
+ <td>RC channel 6 reverse <p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li>
 <li><strong>1.0:</strong> Normal</li>
 </ul>  </td>
@@ -18388,7 +18399,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC9_REV">RC9_REV</strong> (FLOAT)</td>
- <td>RC channel 9 reverse <p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td>RC channel 9 reverse <p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>값:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li>
 <li><strong>1.0:</strong> Normal</li>
 </ul>  </td>
@@ -18662,7 +18673,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_PARAM2">RC_MAP_PARAM2</strong> (INT32)</td>
- <td>PARAM2 tuning channel <p><strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 2nd parameter channel. Set to 0 to deactivate *</p> <strong>값:</strong><ul>
+ <td>PARAM2 tuning channel <p><strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 2nd parameter channel. Set to 0 to deactivate *</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
 <li><strong>1:</strong> Channel 1</li>
 <li><strong>2:</strong> Channel 2</li>
@@ -18689,7 +18700,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_PARAM3">RC_MAP_PARAM3</strong> (INT32)</td>
- <td>PARAM3 tuning channel <p><strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 3th parameter channel. Set to 0 to deactivate *</p> <strong>Values:</strong><ul>
+ <td>PARAM3 tuning channel <p><strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 3th parameter channel. Set to 0 to deactivate *</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
 <li><strong>1:</strong> Channel 1</li>
 <li><strong>2:</strong> Channel 2</li>
@@ -19173,7 +19184,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_MODE_SW">RC_MAP_MODE_SW</strong> (INT32)</td>
- <td>Mode switch channel mapping (deprecated) <p><strong>Comment:</strong> This is the main flight mode selector. The channel index (starting from 1 for channel 1) indicates which channel should be used for deciding about the main mode. A value of zero indicates the switch is not assigned.</p> <strong>값:</strong><ul>
+ <td>Mode switch channel mapping (deprecated) <p><strong>Comment:</strong> This is the main flight mode selector. The channel index (starting from 1 for channel 1) indicates which channel should be used for deciding about the main mode. A value of zero indicates the switch is not assigned.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li>
 <li><strong>1:</strong> Channel 1</li>
 <li><strong>2:</strong> Channel 2</li>
@@ -19393,7 +19404,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="RTL_CONE_ANG">RTL_CONE_ANG</strong> (INT32)</td>
- <td>Half-angle of the return mode altitude cone <p><strong>Comment:</strong> Defines the half-angle of a cone centered around the destination position that affects the altitude at which the vehicle returns.</p> <strong>Values:</strong><ul>
+ <td>Half-angle of the return mode altitude cone <p><strong>Comment:</strong> Defines the half-angle of a cone centered around the destination position that affects the altitude at which the vehicle returns.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> No cone, always climb to RTL_RETURN_ALT above destination.</li>
 <li><strong>25:</strong> 25 degrees half cone angle.</li>
 <li><strong>45:</strong> 45 degrees half cone angle.</li>
@@ -20994,7 +21005,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_ROT">CAL_MAG0_ROT</strong> (INT32)</td>
- <td>Magnetometer 0 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero. Set to &quot;Custom Euler Angle&quot; to define the rotation using CAL_MAG0_ROLL, CAL_MAG0_PITCH and CAL_MAG0_YAW.</p> <strong>값:</strong><ul>
+ <td>Magnetometer 0 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero. Set to &quot;Custom Euler Angle&quot; to define the rotation using CAL_MAG0_ROLL, CAL_MAG0_PITCH and CAL_MAG0_YAW.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
@@ -21172,7 +21183,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_ROT">CAL_MAG1_ROT</strong> (INT32)</td>
- <td>Magnetometer 1 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero. Set to &quot;Custom Euler Angle&quot; to define the rotation using CAL_MAG1_ROLL, CAL_MAG1_PITCH and CAL_MAG1_YAW.</p> <strong>Values:</strong><ul>
+ <td>Magnetometer 1 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero. Set to &quot;Custom Euler Angle&quot; to define the rotation using CAL_MAG1_ROLL, CAL_MAG1_PITCH and CAL_MAG1_YAW.</p> <strong>값:</strong><ul>
 <li><strong>-1:</strong> Internal</li>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
@@ -21528,7 +21539,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_ROT">CAL_MAG3_ROT</strong> (INT32)</td>
- <td>Magnetometer 3 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero. Set to &quot;Custom Euler Angle&quot; to define the rotation using CAL_MAG3_ROLL, CAL_MAG3_PITCH and CAL_MAG3_YAW.</p> <strong>값:</strong><ul>
+ <td>Magnetometer 3 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero. Set to &quot;Custom Euler Angle&quot; to define the rotation using CAL_MAG3_ROLL, CAL_MAG3_PITCH and CAL_MAG3_YAW.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
@@ -21775,7 +21786,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_AIR_CMODEL">CAL_AIR_CMODEL</strong> (INT32)</td>
- <td>Airspeed sensor compensation model for the SDP3x <p><strong>Comment:</strong> Model with Pitot CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Model without Pitot (1.5 mm tubes) CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Tube Pressure Drop CAL_AIR_TUBED_MM: Diameter in mm of the pitot and tubes, must have the same diameter. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor and the static + dynamic port length of the pitot.</p> <strong>Values:</strong><ul>
+ <td>Airspeed sensor compensation model for the SDP3x <p><strong>Comment:</strong> Model with Pitot CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Model without Pitot (1.5 mm tubes) CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Tube Pressure Drop CAL_AIR_TUBED_MM: Diameter in mm of the pitot and tubes, must have the same diameter. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor and the static + dynamic port length of the pitot.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Model with Pitot</li>
 <li><strong>1:</strong> Model without Pitot (1.5 mm tubes)</li>
 <li><strong>2:</strong> Tube Pressure Drop</li>
@@ -22236,7 +22247,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_CM8JL65_R_0">SENS_CM8JL65_R_0</strong> (INT32)</td>
- <td>Distance Sensor Rotation <p><strong>Comment:</strong> Distance Sensor Rotation as MAV_SENSOR_ORIENTATION enum</p> <strong>값:</strong><ul>
+ <td>Distance Sensor Rotation <p><strong>Comment:</strong> Distance Sensor Rotation as MAV_SENSOR_ORIENTATION enum</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> ROTATION_FORWARD_FACING</li>
 <li><strong>2:</strong> ROTATION_RIGHT_FACING</li>
 <li><strong>6:</strong> ROTATION_LEFT_FACING</li>
@@ -22526,7 +22537,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_EN_SF45_CFG">SENS_EN_SF45_CFG</strong> (INT32)</td>
- <td>Serial Configuration for Lightware SF45 Rangefinder (serial) <p><strong>Comment:</strong> Configure on which serial port to run Lightware SF45 Rangefinder (serial).</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for Lightware SF45 Rangefinder (serial) <p><strong>Comment:</strong> Configure on which serial port to run Lightware SF45 Rangefinder (serial).</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -22636,7 +22647,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_FLOW_ROT">SENS_FLOW_ROT</strong> (INT32)</td>
- <td>Optical flow rotation <p><strong>Comment:</strong> This parameter defines the yaw rotation of the optical flow relative to the vehicle body frame. Zero rotation is defined as X on flow board pointing towards front of vehicle.</p> <strong>값:</strong><ul>
+ <td>Optical flow rotation <p><strong>Comment:</strong> This parameter defines the yaw rotation of the optical flow relative to the vehicle body frame. Zero rotation is defined as X on flow board pointing towards front of vehicle.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -22652,7 +22663,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_FTX_CFG">SENS_FTX_CFG</strong> (INT32)</td>
- <td>Serial Configuration for FT Technologies Digital Wind Sensor (serial) <p><strong>Comment:</strong> Configure on which serial port to run FT Technologies Digital Wind Sensor (serial).</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for FT Technologies Digital Wind Sensor (serial) <p><strong>Comment:</strong> Configure on which serial port to run FT Technologies Digital Wind Sensor (serial).</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -22813,7 +22824,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MAG_SIDES">SENS_MAG_SIDES</strong> (INT32)</td>
- <td>Bitfield selecting mag sides for calibration <p><strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: ORIENTATION_TAIL_DOWN = 1 ORIENTATION_NOSE_DOWN = 2 ORIENTATION_LEFT = 4 ORIENTATION_RIGHT = 8 ORIENTATION_UPSIDE_DOWN = 16 ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>값:</strong><ul>
+ <td>Bitfield selecting mag sides for calibration <p><strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: ORIENTATION_TAIL_DOWN = 1 ORIENTATION_NOSE_DOWN = 2 ORIENTATION_LEFT = 4 ORIENTATION_RIGHT = 8 ORIENTATION_UPSIDE_DOWN = 16 ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>Values:</strong><ul>
 <li><strong>34:</strong> Two side calibration</li>
 <li><strong>38:</strong> Three side calibration</li>
 <li><strong>63:</strong> Six side calibration</li>
@@ -23028,7 +23039,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MPDT0_ROT">SENS_MPDT0_ROT</strong> (INT32)</td>
- <td>MappyDot Sensor 0 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>값:</strong><ul>
+ <td>MappyDot Sensor 0 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -23062,7 +23073,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MPDT11_ROT">SENS_MPDT11_ROT</strong> (INT32)</td>
- <td>MappyDot Sensor 12 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td>MappyDot Sensor 12 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -23198,7 +23209,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MPDT8_ROT">SENS_MPDT8_ROT</strong> (INT32)</td>
- <td>MappyDot Sensor 8 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>값:</strong><ul>
+ <td>MappyDot Sensor 8 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -23215,7 +23226,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MPDT9_ROT">SENS_MPDT9_ROT</strong> (INT32)</td>
- <td>MappyDot Sensor 9 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td>MappyDot Sensor 9 Rotation <p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> No rotation</li>
 <li><strong>1:</strong> Yaw 45°</li>
 <li><strong>2:</strong> Yaw 90°</li>
@@ -23355,7 +23366,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SF45_ORIENT_CFG">SF45_ORIENT_CFG</strong> (INT32)</td>
- <td>Orientation upright or facing downward <p><strong>Comment:</strong> The SF45 mounted facing upward or downward on the frame</p> <strong>값:</strong><ul>
+ <td>Orientation upright or facing downward <p><strong>Comment:</strong> The SF45 mounted facing upward or downward on the frame</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Rotation upward</li>
 <li><strong>1:</strong> Rotation downward</li>
 </ul>  <p><b>Reboot required:</b> True</p>
@@ -23366,7 +23377,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SF45_UPDATE_CFG">SF45_UPDATE_CFG</strong> (INT32)</td>
- <td>Update rate in Hz <p><strong>Comment:</strong> The SF45 sets the update rate in Hz to allow greater resolution</p> <strong>Values:</strong><ul>
+ <td>Update rate in Hz <p><strong>Comment:</strong> The SF45 sets the update rate in Hz to allow greater resolution</p> <strong>값:</strong><ul>
 <li><strong>1:</strong> 50hz</li>
 <li><strong>2:</strong> 100hz</li>
 <li><strong>3:</strong> 200hz</li>
@@ -23387,7 +23398,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SF45_YAW_CFG">SF45_YAW_CFG</strong> (INT32)</td>
- <td>Sensor facing forward or backward <p><strong>Comment:</strong> The usb port on the sensor indicates 180deg, opposite usb is forward facing</p> <strong>값:</strong><ul>
+ <td>Sensor facing forward or backward <p><strong>Comment:</strong> The usb port on the sensor indicates 180deg, opposite usb is forward facing</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Rotation forward</li>
 <li><strong>1:</strong> Rotation backward</li>
 <li><strong>2:</strong> Rotation right</li>
@@ -23447,7 +23458,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="RC_CRSF_PRT_CFG">RC_CRSF_PRT_CFG</strong> (INT32)</td>
- <td>Serial Configuration for CRSF RC Input Driver <p><strong>Comment:</strong> Configure on which serial port to run CRSF RC Input Driver. Crossfire RC (CRSF) driver.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for CRSF RC Input Driver <p><strong>Comment:</strong> Configure on which serial port to run CRSF RC Input Driver. Crossfire RC (CRSF) driver.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -23754,7 +23765,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SER_TEL3_BAUD">SER_TEL3_BAUD</strong> (INT32)</td>
- <td>Baudrate for the TELEM 3 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the TELEM 3 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>값:</strong><ul>
+ <td>Baudrate for the TELEM 3 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the TELEM 3 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>50:</strong> 50 8N1</li>
 <li><strong>75:</strong> 75 8N1</li>
@@ -23789,7 +23800,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SER_TEL4_BAUD">SER_TEL4_BAUD</strong> (INT32)</td>
- <td>Baudrate for the TELEM/SERIAL 4 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the TELEM/SERIAL 4 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+ <td>Baudrate for the TELEM/SERIAL 4 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the TELEM/SERIAL 4 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>50:</strong> 50 8N1</li>
 <li><strong>75:</strong> 75 8N1</li>
@@ -23824,7 +23835,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SER_URT6_BAUD">SER_URT6_BAUD</strong> (INT32)</td>
- <td>Baudrate for the UART 6 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the UART 6 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>값:</strong><ul>
+ <td>Baudrate for the UART 6 Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the UART 6 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto</li>
 <li><strong>50:</strong> 50 8N1</li>
 <li><strong>75:</strong> 75 8N1</li>
@@ -24118,7 +24129,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="SYS_AUTOCONFIG">SYS_AUTOCONFIG</strong> (INT32)</td>
- <td>Automatically configure default values <p><strong>Comment:</strong> Set to 1 to reset parameters on next system startup (setting defaults). Platform-specific values are used if available. RC* parameters are preserved.</p> <strong>Values:</strong><ul>
+ <td>Automatically configure default values <p><strong>Comment:</strong> Set to 1 to reset parameters on next system startup (setting defaults). Platform-specific values are used if available. RC* parameters are preserved.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Keep parameters</li>
 <li><strong>1:</strong> Reset parameters to airframe defaults</li>
 </ul>  </td>
@@ -24254,7 +24265,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_HITL">SYS_HITL</strong> (INT32)</td>
- <td>Enable HITL/SIH mode on next boot <p><strong>Comment:</strong> While enabled the system will boot in Hardware-In-The-Loop (HITL) or Simulation-In-Hardware (SIH) mode and not enable all sensors and checks. When disabled the same vehicle can be flown normally. Set to &#x27;external HITL&#x27;, if the system should perform as if it were a real vehicle (the only difference to a real system is then only the parameter value, which can be used for log analysis).</p> <strong>값:</strong><ul>
+ <td>Enable HITL/SIH mode on next boot <p><strong>Comment:</strong> While enabled the system will boot in Hardware-In-The-Loop (HITL) or Simulation-In-Hardware (SIH) mode and not enable all sensors and checks. When disabled the same vehicle can be flown normally. Set to &#x27;external HITL&#x27;, if the system should perform as if it were a real vehicle (the only difference to a real system is then only the parameter value, which can be used for log analysis).</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> external HITL</li>
 <li><strong>0:</strong> HITL and SIH disabled</li>
 <li><strong>1:</strong> HITL enabled</li>
@@ -24267,7 +24278,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_MC_EST_GROUP">SYS_MC_EST_GROUP</strong> (INT32)</td>
- <td>Set multicopter estimator group <p><strong>Comment:</strong> Set the group of estimators used for multicopters and VTOLs</p> <strong>Values:</strong><ul>
+ <td>Set multicopter estimator group <p><strong>Comment:</strong> Set the group of estimators used for multicopters and VTOLs</p> <strong>값:</strong><ul>
 <li><strong>1:</strong> local_position_estimator, attitude_estimator_q (unsupported)</li>
 <li><strong>2:</strong> ekf2 (recommended)</li>
 <li><strong>3:</strong> Q attitude estimator (no position)</li>
@@ -24332,7 +24343,7 @@ table {
 </tr>
 <tr>
  <td><strong id="TEL_HOTT_CONFIG">TEL_HOTT_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for HoTT Telemetry <p><strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.</p> <strong>값:</strong><ul>
+ <td>Serial Configuration for HoTT Telemetry <p><strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -26173,7 +26184,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MXS_OP_MODE">MXS_OP_MODE</strong> (INT32)</td>
- <td>Sagetech MXS mode configuration <p><strong>Comment:</strong> This parameter defines the operating mode of the MXS</p> <strong>Values:</strong><ul>
+ <td>Sagetech MXS mode configuration <p><strong>Comment:</strong> This parameter defines the operating mode of the MXS</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Off</li>
 <li><strong>1:</strong> On</li>
 <li><strong>2:</strong> Standby</li>
@@ -26296,7 +26307,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_LGT_ANTCL">UAVCAN_LGT_ANTCL</strong> (INT32)</td>
- <td>UAVCAN ANTI_COLLISION light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the ANTI_COLLISION lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>값:</strong><ul>
+ <td>UAVCAN ANTI_COLLISION light operating mode <p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the ANTI_COLLISION lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Always off</li>
 <li><strong>1:</strong> When autopilot is armed</li>
 <li><strong>2:</strong> When autopilot is prearmed</li>

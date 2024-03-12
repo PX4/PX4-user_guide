@@ -1,51 +1,51 @@
-# Payloads and Cameras
+# Приводи та камери
 
-PX4 supports a wide range of payloads and cameras.
+PX4 підтримує широкий спектр приводів та камер.
 
-Payloads are connected to [Fight Controller outputs](../getting_started/px4_basic_concepts.md#outputs-motors-servos-actuators), and can generally be triggered automatically in missions, or manually using RC passthrough, mapping to a joystick, or MAVLink/MAVSDK commands.
-
-:::note
-Payloads (actuators) can be tested in the [pre-arm state](../getting_started/px4_basic_concepts.md#arming-and-disarming), which disables motors but allows actuators to move. This may be safer than testing when the vehicle is armed.
-:::
-
-## Mapping Drones
-
-Mapping drones use cameras to capture images at time or distance intervals during surveys.
-
-MAVLink cameras that support the [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html) provide the best integration with PX4 and QGroundControl. The MAVSDK provides simple APIs to use this protocol for both [standalone camera operations](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html) and in [missions](https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4).
-
-Cameras can also be connected directly to a flight controller using PWM or GPI outputs. PX4 supports the following set of MAVLink commands/mission items for cameras that are connected to the flight controller:
-
-- [MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL) - set time interval between captures.
-- [MAV_CMD_DO_SET_CAM_TRIGG_DIST](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_DIST) - set distance between captures
-- [MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - start/stop capturing (using distance or time, as defined using above messages).
-
-The following topics show how to *connect* and configure a camera:
-
-- [Camera Triggering](../peripherals/camera.md) from flight controller PWM or GPIO outputs, or via MAVLink.
-- [Camera Capture](../peripherals/camera.md#camera-capture) feedback via hotshoe input.
-
-
-## Cargo Drones (Package Delivery)
-
-Cargo drones commonly use grippers, winches, and other mechanisms to release packages at their destinations.
-
-PX4 supports _package delivery in missions_ using a [gripper](../peripherals/gripper.md). Grippers can also be triggering using the [MAV_CMD_DO_GRIPPER](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GRIPPER) MAVLink command, or manually via a Joystick button.
-
-For setup and usage information see:
-
-- [Gripper](../peripherals/gripper.md)
-- [Flying > Package Delivery Mission Planning](../flying/package_delivery_mission.md)
+Приводи підключаються до [виходів Політного Контролера](../getting_started/px4_basic_concepts.md#outputs-motors-servos-actuators) і, як правило, можуть активовуватися автоматично в місіях, або вручну за допомогою Пульта Дистанційного Керування, маппінгу на джойстик, або командами MAVLink/MAVSDK.
 
 :::note
-Support for winches and other release mechanisms is also intended.
-
-If you need to perform cargo delivery using hardware that is not yet integrated, you can use [Generic Actuator Control](#generic-actuator-control).
+Приводи (актуатори) можуть бути протестовані в [pre-arm стані](../getting_started/px4_basic_concepts.md#arming-and-disarming), який деактивує мотори, але дозволяє актуаторам рухатися. Це може бути безпечнішим, ніж тестування коли апарат активований.
 :::
 
-## Surveillance, Search & Rescue
+## Дрони для картографування
 
-Surveillance and Search & Rescue drones have similar requirements to mapping drones. The main differences are that, in addition to flying a planned survey area, they typically need good standalone control over the camera for image and video capture, and they may need to be able to work during both day and night
+Дрони для картографування використовують камери для захоплення зображень з інтервалами у часі або відстані під час обстежень.
+
+MAVLink камери які підтримують протокол [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html) забезпечують найкращу інтеграцію з PX4 і QGroundControl. MAVSDK надає простий API для використання цього протоколу як в [окремих діях камери](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html) так і в [місіях](https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4).
+
+Камери також можуть безпосередньо підключатися до політного контролера за допомогою PWM або GPI виходів. PX4 підтримує наступний набір MAVLink команд/елементів місій для камер, які підключені до політного контролера:
+
+- [MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL) - встановити інтервал часу між захопленнями.
+- [MAV_CMD_DO_SET_CAM_TRIGG_DIST](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_DIST) - встановити відстань між захопленнями
+- [MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - почати/зупинити захоплення (використовуючи відстань або час, як визначено попередніми командами).
+
+Наступні розділи показують як *під'єднати* та налаштувати камеру:
+
+- [Активація Камери](../peripherals/camera.md) через PWM або GPIO виходи політного контролера, або за допомогою MAVLink.
+- Результат [Захоплення Камери](../peripherals/camera.md#camera-capture) через вхід hotshoe.
+
+
+## Вантажні дрони (Доставка посилок)
+
+Вантажні дрони зазвичай використовують захоплювачі, лебідки та інші механізми, щоб розвантажувати пакунки в місцях призначення.
+
+PX4 підтримує _доставку посилок в місіях_ за допомогою [захоплювача](../peripherals/gripper.md). Захоплювачі також можна активовувати за допомогою MAVLink команди [MAV_CMD_DO_GRIPPER](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GRIPPER) або вручну за допомогою кнопки джойстика.
+
+Для встановлення і інформації про використання:
+
+- [Захоплювач](../peripherals/gripper.md)
+- [Політ > Планування Місії Доставки Посилок](../flying/package_delivery_mission.md)
+
+:::note
+Також передбачена підтримка для лебідок та інших механізмів розвантаження.
+
+Якщо вам необхідно здійснити доставку вантажу, використовуючи hardware компоненти, які ще не інтегровані, ви можете використати [Управління Загальним Приводом](#generic-actuator-control).
+:::
+
+## Спостереження, Пошук і Порятунок
+
+Дрони Спостереження, Пошуку і Порятунку мають подібні вимоги до картографічних дронів. The main differences are that, in addition to flying a planned survey area, they typically need good standalone control over the camera for image and video capture, and they may need to be able to work during both day and night
 
 Use a camera that supports the [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html) as this supports image and video capture, zooming, storage management, multiple cameras on the same vehicle and switching between them, etc. These cameras can be controlled either manually from QGroundControl or via MAVSDK (for both [standalone camera operations](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html) and in [missions](https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4)). See [Camera triggering](../peripherals/camera.md) for information on how to configure your camera to work with MAVLink.
 

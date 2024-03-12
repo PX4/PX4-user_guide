@@ -10089,6 +10089,17 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="COM_FLTT_LOW_ACT">COM_FLTT_LOW_ACT</strong> (INT32)</td>
+ <td>Remaining flight time low failsafe <p><strong>Comment:</strong> Action the system takes when the remaining flight time is below the estimated time it takes to reach the RTL destination.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> None</li>
+<li><strong>1:</strong> Warning</li>
+<li><strong>3:</strong> Return</li>
+</ul>  </td>
+ <td>(1)</td>
+ <td>3</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="COM_FLT_PROFILE">COM_FLT_PROFILE</strong> (INT32)</td>
  <td>User Flight Profile <p><strong>Comment:</strong> Describes the intended use of the vehicle. Can be used by ground control software or log post processing. This param does not influence the behavior within the firmware. This means for example the control logic is independent of the setting of this param (but depends on other params).</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Default</li>

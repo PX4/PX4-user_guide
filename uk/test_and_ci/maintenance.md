@@ -1,18 +1,18 @@
-# Maintenance Notes
+# Вказівки щодо підтримки
 
-This picks and describes some tools to help analyze the state of the codebase and support its maintenance.
+Тут зібрані та описані деякі інструменти, які допомагають аналізувати стан кодової бази та підтримувати її роботу.
 
-## Analyze churn
+## Аналіз змін
 
-The amount of churn, so the number of changes done to a file can be an indicator which files/parts might need refactoring.
+Кількість змін, зроблених у файлі, може бути індикатором того, які файли/частини можуть потребувати рефакторингу.
 
-To find churn metrics a tool such as [Churn](https://github.com/danmayer/churn) can be used:
+Для знаходження метрик змін можна використовувати такий інструмент, як [Churn](https://github.com/danmayer/churn):
 
 ```sh
 gem install churn
 ```
 
-An example output as of `v1.6.0-rc2` would be:
+Приклад виводу з `v1.6.0-rc2` буде таким:
 
 ```sh
 cd src/PX4-Autopilot

@@ -1,76 +1,76 @@
-# Standard Configuration
+# Стандартні налаштування
 
-This section covers the common software configuration and calibration needed for most PX4 vehicles.
+У цьому розділі описано загальну конфігурацію програмного забезпечення та калібрування, необхідні для більшості пристроїв PX4.
 
-You must first [load firmware and select your vehicle frame/type](#firmware-vehicle-selection). Most other steps can be done out of order, except for [tuning](#tuning), which must be done last.
+Спочатку потрібно [ завантажити прошивку і вибрати каркас/тип вашого апарату](#firmware-vehicle-selection). Більшість інших кроків можна виконувати у довільному порядку, за винятком [налаштування](#tuning), яке має бути виконано в кінці.
 
-## Preconditions
+## Попередні вимоги
 
-Before starting you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer. Then open the QGC application menu ("Q" icon in the top-left corner) and choose **Vehicle Setup** in the _Select Tool_ popup:
+Перед початком роботи вам слід [завантажити QGroundControl](http://qgroundcontrol.com/downloads/) і встановити його на ваш **робочий** комп'ютер. Потім відкрийте меню програми QGC (піктограма "Q" у верхньому лівому куті) і виберіть **Vehicle Setup** у спливаючому вікні _Select Tool_:
 
-![QGC Main Menu Popup: highlighting Vehicle Setup](../../assets/qgc/setup/menu_setup.png)
+![Спливаюче вікно головного меню QGC: виділення пункту Налаштування апарату](../../assets/qgc/setup/menu_setup.png)
 
-## Configuration Steps
+## Етапи конфігурації
 
-### Firmware/Vehicle Selection
+### Вибір прошивки/апарату
 
-- [Loading Firmware](../config/firmware.md)
-- [Vehicle (Frame) Selection](../config/airframe.md)
+- [Завантаження прошивки](../config/firmware.md)
+- [Вибір апарату (каркасу)](../config/airframe.md)
 
-### Motor/Actuator Setup
+### Налаштування двигуна/приводу
 
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [Actuator Configuration and Testing](../config/actuators.md)
+- [Калібрування ESC (плати контролю двигунів)](../advanced_config/esc_calibration.md)
+- [Конфігурація та тестування приводу](../config/actuators.md)
 
-### Sensor Calibration
+### Калібрування датчика
 
-- [Sensor Orientation](../config/flight_controller_orientation.md)
-- [Compass](../config/compass.md)
-- [Gyroscope](../config/gyroscope.md)
-- [Accelerometer](../config/accelerometer.md)
+- [Орієнтація сенсорів](../config/flight_controller_orientation.md)
+- [Компас](../config/compass.md)
+- [Гіроскоп](../config/gyroscope.md)
+- [Акселерометр](../config/accelerometer.md)
 - [Level Horizon](../config/level_horizon_calibration.md)
-- [Airspeed](../config/airspeed.md) (Fixed-wing/VTOL only)
+- Швидкість польоту (тільки для літаків / VTOL)
 
-> **Note:** Setup for optional sensors and specific hardware is provided in [Flight Controller Peripherals](../peripherals/README.md).
+> **Примітка:** Налаштування додаткових датчиків та спеціального обладнання наведено у розділі [Периферія контролера польоту](../peripherals/README.md).
 
-### Manual Control Setup
+### Налаштування ручного керування
 
-Radio Control:
+Радіоуправління:
 
-- [Radio Controller (RC) Setup](../config/radio.md)
-- [Flight Mode Configuration](../config/flight_mode.md)
+- [Налаштування радіоконтролера (РК)](../config/radio.md)
+- [Налаштування режиму польоту](../config/flight_mode.md)
 
-Joystick/GamePad:
+Джойстик/Ґеймпад
 
-- [Joystick Setup](../config/joystick.md)
+- [Налаштування джойстика](../config/joystick.md)
 
-### Safety Configuration
+### Налаштування безпеки
 
-- [Battery/Power Module Setup](../config/battery.md)
-- [Safety Configuration (Failsafes)](../config/safety.md)
+- [Налаштування акумулятора/модуля живлення](../config/battery.md)
+- [Конфігурація безпеки (запобіжники)](../config/safety.md)
 
-### Tuning
+### Тюнінг
 
-- [Autotune](../config/autotune.md) (Recommended on vehicles and frames that support it)
+- [Autotune](../config/autotune.md) (Рекомендовано для апаратів та платформ, які підтримують цю функцію)
 
-## Video Guide
+## Відеоінструкція
 
-The video below shows most of the calibration process (it uses an older version of _QGroundControl_, but most of the process is unchanged).
+На відео нижче показано більшу частину процесу калібрування (використовується стара версія _QGroundControl_, але більша частина процесу залишилася незмінною).
 
 @[youtube](https://youtu.be/91VGmdSlbo4)
 
-## Support
+## Підтримка
 
-If you need help with the configuration you can ask for help on the [QGroundControl Support forum](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage).
+Якщо вам потрібна допомога з конфігурацією, ви можете звернутися за допомогою на форумі підтримки [QGroundControl](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage).
 
-## See Also
+## Дивіться також
 
-- [QGroundControl > Setup](https://docs.qgroundcontrol.com/master/en/SetupView/SetupView.html)
-- [Flight Controller Peripherals](../peripherals/README.md) - Setup specific sensors, optional sensors, actuators, and so on.
-- [Advanced Configuration](../advanced_config/README.md) - Factory/OEM calibration, configuring advanced features, less-common configuration.
-- Vehicle-Centric Config/Tuning:
+- [QGroundControl > Налаштування](https://docs.qgroundcontrol.com/master/en/SetupView/SetupView.html)
+- [Периферія контролера польоту](../peripherals/README.md) - налаштування конкретних датчиків, опціональних датчиків, актуаторів тощо.
+- [Розширена конфігурація](../advanced_config/README.md) - заводське калібрування/OEM, налаштування додаткових функцій, менш поширені конфігурації.
+- Конфігурація/налаштування, що залежать від апарату:
 
-  - [Multicopter Config/Tuning](../config_mc/README.md)
-  - [Helicopter Config/Tuning](../config_heli/README.md)
-  - [Fixed-wing Config/Tuning](../config_fw/README.md)
-  - [VTOL Config/Tuning](../config_vtol/README.md)
+  - [Конфігурація/налаштування мультикоптера](../config_mc/README.md)
+  - [Конфігурація/налаштування гелікоптера](../config_heli/README.md)
+  - [Конфігурація/налаштування літака (з нерухомим крилом)](../config_fw/README.md)
+  - [Конфігурація/налаштування VTOL](../config_vtol/README.md)

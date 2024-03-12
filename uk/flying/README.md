@@ -1,21 +1,21 @@
-# Flying
+# Політ
 
-This section contains topics about flying your (fully configured) autopilot controlled vehicle. It covers both (autopilot-assisted) manual flight and mission planning for fully autonomous flight.
+Цей розділ містить теми про керування вашим (повністю сконфігурованим) апаратом, керованим автопілотом. Він охоплює як ручний політ (з автопілотом), так і планування місії для повністю автономного керування.
 
-[First Flight Guidelines](../flying/first_flight_guidelines.md) — Guidelines to ensure that your first flight is enjoyable, educational, and safe.
+[Посібник з першого польоту](../flying/first_flight_guidelines.md) - Поради, які допоможуть зробити ваш перший політ комфортним, пізнавальним і безпечним.
 
-[Manual Flying](../flying/basic_flying.md) — How to fly a vehicle manually, using an RC Transmitter.
+[Ручний політ](../flying/basic_flying.md) - Як керувати апаратом вручну, використовуючи пульт дистанційного керування.
 
-[Missions](../flying/missions.md) — How to fly an autonomous mission.
+[Місії](../flying/missions.md) - Як виконати автономну місію.
 
-[Geofence](../flying/geofence.md) — How to set a geofence.
+[Геозона](../flying/geofence.md) - Як встановити геозону.
 
-[Rally Points](../flying/plan_safety_points.md) — How to plan safe-return landing points (rally points).
+[Точки приземлення](../flying/plan_safety_points.md) - Як планувати місця безпечної посадки (точки приземлення).
 
-[Flight Modes](../flight_modes/README.md) — Summary table + detailed information about flight modes.
+[Режими польоту](../flight_modes/README.md) - Зведена таблиця + детальна інформація про режими польоту.
 
-[Terrain Follow/Hold & Range Assistance](../flying/terrain_following_holding.md) — How to enable terrain following.
+[Terrain Follow/Hold & Range Assistance](../flying/terrain_following_holding.md) - Як увімкнути стеження за рельєфом місцевості.
 
 :::tip
-[Vehicle Status Notifications](../getting_started/vehicle_status.md) can help you work out when your vehicle is ready to fly (and if not, why not).
+[Сповіщення про стан апарату](../getting_started/vehicle_status.md) допоможуть вам з'ясувати, коли ваш апарат готовий до польоту (а якщо ні, то чому ні).
 :::
