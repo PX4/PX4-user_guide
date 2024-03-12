@@ -1,5 +1,7 @@
 # Holybro Kakute H7 mini
 
+<Badge type="tip" text="PX4 v1.13" />
+
 :::warning
 PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
@@ -45,6 +47,8 @@ The board can be bought from one of the following shops (for example):
 
 ## Connectors and Pins
 
+<img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_pinout.jpg" width="300px" title="KakuteH7Mini Pinout Image" />
+
 | Pin      | Function                                                          | PX4 default         |
 | -------- | ----------------------------------------------------------------- | ------------------- |
 | B+       | Battery positive voltage (2S-6S)                                  |                     |
@@ -58,6 +62,7 @@ The board can be bought from one of the following shops (for example):
 | G or GND | Ground                                                            |                     |
 | RSI      | Analog RSSI (0-3.3V) input from receiver                          |                     |
 | R1, T1   | UART1 RX and TX                                                   | TELEM1              |
+| R2, T2   | UART2 RX and TX                                                   | TELEM2              |
 | R3, T3   | UART3 RX and TX                                                   | NuttX debug console |
 | R4, T4   | UART4 RX and TX                                                   | GPS1                |
 | R6, T6   | UART6 RX and TX (R6 also located in the GH plug)                  | RC port             |
@@ -85,7 +90,7 @@ make holybro_kakuteh7mini_default
 ## Installing PX4 Firmware
 
 :::note
-KakuteH7 is supported with PX4 master & PX4 v1.13 or newer. If you are loading the pre-built firmware via QGroundcontrol, you must use QGC Daily or QGC version newer than 4.1.7. Prior to that release you will need to manually build and install the firmware.
+If you are loading the pre-built firmware via QGroundcontrol, you must use QGC Daily or QGC version newer than 4.1.7. Prior to that release you will need to manually build and install the firmware.
 :::
 
 Firmware can be manually installed in any of the normal ways:
@@ -115,6 +120,7 @@ In addition to the [basic configuration](../config/README.md), the following par
 | UART   | Device     | Port                  |
 | ------ | ---------- | --------------------- |
 | USART1 | /dev/ttyS0 | TELEM1                |
+| UART2  | /dev/ttyS1 | TELEM2                |
 | USART3 | /dev/ttyS2 | Debug Console         |
 | UART4  | /dev/ttyS3 | GPS1                  |
 | USART6 | /dev/ttyS4 | RC SBUS               |
