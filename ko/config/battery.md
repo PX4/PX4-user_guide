@@ -128,7 +128,7 @@ This sets the _nominal_ maximum voltage of each cell (the lowest voltage at whic
 
 전원 모듈과 비행 컨트롤러의 ADC를 통해 전압을 측정하는 차량이 있는 경우 보드 당 한 번씩 측정을 확인하고 보정하여야 합니다. 보정 작업에는 멀티미터가 필요합니다.
 
-The easiest way to calibrate the divider is by using _QGroundControl_ and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Power.html) (QGroundControl User Guide).
+The easiest way to calibrate the divider is by using _QGroundControl_ and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) (QGroundControl User Guide).
 
 :::note
 이 설정은 [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) 및 [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV) 매개변수에 해당합니다.
@@ -144,7 +144,7 @@ The easiest way to calibrate the divider is by using _QGroundControl_ and follow
 
 [전류 기반 부하 보상](#current_based_load_compensation) 또는 [전류 통합](#current_integration)을 사용하는 경우 전압 분배기 당 암페어를 보정하여야 합니다.
 
-The easiest way to calibrate the dividers is by using _QGroundControl_ and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Power.html) (QGroundControl User Guide).
+The easiest way to calibrate the dividers is by using _QGroundControl_ and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) (QGroundControl User Guide).
 
 :::note
 이 설정은 [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) 및 [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V) 매개변수에 해당합니다.
@@ -238,13 +238,6 @@ This method evaluates the remaining battery capacity by _fusing_ the voltage-bas
 :::note
 Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the _initial_ capacity. 전압 추정을 사용하면 초기 용량을 추정하고 가능한 오류에 대한 지속적인 피드백을 제공할 수 있습니다 (예 : 배터리에 결함이 있거나 다른 방법을 사용하여 계산된 용량간에 불일치가 있는 경우).
 :::
-
-## Parameter Migration Notes
-
-PX4 v1.10 이후 다중 배터리 지원이 추가되어 `BAT_` 접두사가있는 모든 이전 매개변수에 해당하는 접두사 `BAT1_`이 있는 새로운 매개변수가 추가되었습니다. `BAT_` 및 `BAT1_`에 대한 변경 사항은 현재 동기화되어 있습니다.
-
-- 이전 매개변수 또는 새 매개변수가 변경되면 값이 다른 매개변수에 복사됩니다 (양방향으로 동기화된 상태로 유지됨).
-- 부팅시 이전 새 매개변수가 다른 경우 이전 `BAT_` 매개변수의 값이 새 `BAT1_` 매개변수에 복사됩니다.
 
 ## Battery-Type Comparison
 
