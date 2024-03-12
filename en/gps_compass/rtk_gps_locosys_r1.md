@@ -1,5 +1,7 @@
 # LOCOSYS Hawk R1 RTK GPS
 
+<Badge type="tip" text="PX4 v1.13" />
+
 The [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) receiver designed for compatibility with Pixhawk.
 
 The module can act as an RTK GPS rover when installed on the aircraft.
@@ -25,10 +27,6 @@ For an equivalent GPS module with a compass try: [LOCOSYS Hawk R2](../gps_compas
 - Free hybrid ephemeris prediction to achieve faster cold start
 - Default 5Hz, up to 10 Hz update rate (SBAS support 5Hz only).
 - Build-in super capacitor to reserve system data for rapid satellite acquisition
-
-:::note
-This module can be used with PX4 v1.13 or above.
-:::
 
 ![LOCOSYS Hawk R1](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_gps.png)
 
