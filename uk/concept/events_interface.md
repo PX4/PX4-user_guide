@@ -2,76 +2,76 @@
 
 _Інтерфейс подій_ забезпечує загальносистемне API для повідомлень про події, які публікуються у GCS через _сервіс подій MAVLink_ (в GCS та інші компоненти), а також зберігаються у [системних журналах](../dev_log/logging.md).
 
-The interface can be used for publishing events for state changes or any other type of occurrence, including things like arming readiness, calibration completion, and reaching the target takeoff height.
+Інтерфейс може використовуватися для публікації подій змін стану або будь-якого іншого типу події, включаючи такі речі, як стан готовності, завершення калібрування і досягнення цільової висоти злету.
 
 :::note
-The events interface will replace the use of `mavlink_log_*` calls in PX4 code, (and `STATUS_TEXT` messages in MAVLink) for event notification in the release after PX4 v1.12. There will be an intermediate period where [both approaches are supported](#backward-compatibility).
+інтерфейс подій замінить використання викликів `mavlink_log_*` у коді PX4, (а також повідомлень `STATUS_TEXT` у MAVLink) для сповіщення про події в релізах PX4 після v1.12. Буде проміжний період коли [обидва підходи будуть підтримуватися](#backward-compatibility).
 :::
 
-## Usage
+## Застосування
 
-### Basic
+### Основне
 
-To use the API, add this include:
+Щоб використовувати API, додайте це включення:
 
 ```cpp
 #include <px4_platform_common/events.h>
 ```
 
-And then define and send the event from the desired code location:
+А потім визначте та надішліть подію з бажаного місця коду:
 
 ```cpp
 events::send(events::ID("mymodule_test"), events::Log::Info, "Test Message");
 ```
 
-#### Backward compatibility
+#### Зворотна сумісність
 
-For older GCS versions without events interface support, PX4 currently sends out all events also as `mavlink_log_*` `STATUSTEXT` message. In addition, the message must be tagged with an appended tab (`\t`) so that newer GCS's can ignore that and only show the event.
+Для старих версій GCS без підтримки інтерфейсу подій, PX4 на цей момент надсилає також всі події як `mavlink_log_*` `STATUSTEXT` повідомлення. Крім того, повідомлення має бути промарковано додатковою табуляцією (`\t`), щоб нові GCS змогли проігнорувати це і показати тільки подію.
 
-So whenever adding an event, be sure to also add a `mavlink_log_` call. For example:
+Отже, коли ви додаєте подію, не забудьте також додати виклик `mavlink_log_`. Наприклад:
 
 ```cpp
 mavlink_log_info(mavlink_log_pub, "Test Message\t");
 events::send(events::ID("mymodule_test"), events::Log::Info, "Test Message");
 ```
 
-All such `mavlink_log_` calls will be removed after the next release.
+Після наступного релізу всі виклики `mavlink_log_` будуть видалені.
 
-### Detailed
+### Докладно
 
-The above is a minimal example, this is a more extensive one:
+Вище - мінімальний приклад, цей - у більш розширеному вигляді:
 
 ```cpp
 uint8_t arg1 = 0;
 float arg2 = -1.f;
 /* EVENT
  * @description
- * This is the detailed event description.
+ * Це докладний опис події.
  *
- * - value of arg1: {1}
- * - value of arg2: {2:.1}
+ * - значення arg1: {1}
+ * - значення arg2: {2:.1}
  *
  * <profile name="dev">
- * (This paragraph is only meant to be shown to developers).
- * This behavior can be configured with the parameter <param>COM_EXAMPLE</param>.
+ * (Цей абзац призначено для показу тільки розробникам).
+ * Цю поведінку можна налаштувати за допомогою параметра <param>COM_EXAMPLE</param>.
  * </profile>
  *
- * Link to documentation: <a>https://docs.px4.io</a>
+ * Посилання на документацію: <a>https://docs.px4.io</a>
  */
 events::send<uint8_t, float>(events::ID("event_name"),
     {events::Log::Error, events::LogInternal::Info}, "Event Message", arg1, arg2);
 ```
 
-Explanations and requirements:
+Пояснення та вимоги:
 
-- `/* EVENT`: This tag indicates that a comment defines metadata for the following event.
-- **event_name**: the event name (`events::ID(event_name)`).
-  - must be unique within the whole source code of PX4. As a general convention, prefix it with the module name, or the source file for larger modules.
-  - must be a valid variable name, i.e. must not contain spaces, colons, etc.
-  - from that name, a 24 bit event ID is derived using a hash function. This means as long as the event name stays the same, so will the ID.
-- **Log Level**:
+- `/* EVENT`: Цей тег вказує, що коментар описує метадані для наступної події.
+- **event_name**: ім'я події (`events::ID(event_name)`).
+  - повинно бути унікальним в межах всього вихідного коду PX4. Як загальне правило, додайте префікс з назвою модуля або вихідного файлу для великих модулів.
+  - має бути дійсна назва змінної, тобто не повинна містити пробіли, двокрапки тощо.
+  - з цього імені отримується 24-бітний ID події за допомогою геш-функції. Це означає, що до тих пір, поки ім'я події залишається однаковим, ID залишиться тим же.
+- **Рівень журналювання**:
 
-  - valid log levels are the same as used in the MAVLink [MAV_SEVERITY](https://mavlink.io/en/messages/common.html#MAV_SEVERITY) enum. In order of descending importance these are:
+  - припустимі рівні журналювання такі ж, як і у перерахуванні MAVLink [MAV_SEVERITY](https://mavlink.io/en/messages/common.html#MAV_SEVERITY). Рівні перелічені за зменшенням важливості:
 
     ```plain
     Emergency,
@@ -86,58 +86,58 @@ Explanations and requirements:
     ```
 
   ```
-  - Above we specify a separate external and internal log level, which are the levels displayed to GCS users and in the log file, respectively: `{events::Log::Error, events::LogInternal::Info}`.
-    For the majority of cases you can pass a single log level, and this will be used for both exernal and internal cases.
-  There are cases it makes sense to have two different log levels.
-  For example an RTL failsafe action: the user should see it as Warning/Error, whereas in the log, it is an expected system response, so it can be set to `Info`.
+  - Попередньо ми вказали окремий зовнішній і внутрішній рівень журналювання, які є рівнями для користувачів GCS і в файлі журналу, відповідно: `{events::Log::Error, events::LogInternal::Info}`.
+    Для більшості випадків ви можете передати один рівень журналювання, і це буде використовуватися як для зовнішніх, так і для внутрішніх випадків.
+  Є випадки, коли є сенс мати два різних рівні журналювання.
+  Наприклад, дія запобігання RTL: користувач повинен бачити його як Warning/Error, тоді як в журналі це очікувана відповідь системи, тому його можна встановити в `Info`.
   ```
 
-- **Event Message**:
-  - Single-line, short message of the event. It may contain template placeholders for arguments (e.g. `{1}`). For more information see below.
-- **Event Description**:
-  - Detailed, optional event description.
-  - Can be multiple lines/paragraphs.
-  - It may contain template placeholders for arguments (e.g. `{2}`) and supported tags (see below)
+- **Повідомлення про подію**:
+  - Коротке повідомлення про подію в один рядок. Може мати шаблонні замінники для аргументів (наприклад `{1}`). Для додаткової інформації дивіться нижче.
+- **Опис події**:
+  - Докладний, необов'язковий опис події.
+  - Може бути кілька рядів/абзаців.
+  - Може мати шаблонні замінники для аргументів (тобто `{2}`) та тегів що підтримуються (дивіться нижче).
 
-#### Arguments and Enums
+#### Аргументи та перерахування
 
-Events can have a fixed set of arguments that can be inserted into the message or description using template placeholders (e.g. `{2:.1m}` - see next section).
+Події можуть мати незмінний набір аргументів, які можна вкласти у повідомлення або опис використовуючи шаблонні замінники (наприклад `{2:.1m}`, дивіться наступний розділ).
 
-Valid types: `uint8_t`, `int8_t`, `uint16_t`, `int16_t`, `uint32_t`, `int32_t`, `uint64_t`, `int64_t` and `float`.
+Припустимі типи: `uint8_t`, `int8_t`, `uint16_t`, `int16_t`, `uint32_t`, `int32_t`, `uint64_t`, `int64_t` та `float`.
 
-You can also use enumerations as arguments:
+Ви також можете використати перерахування як аргументи:
 
-- PX4-specific/custom enumerations for events should be defined in [src/lib/events/enums.json](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/events/enums.json), and can then be used as event argument in the form of `events::send<events::px4::enums::my_enum_t>(...)`.
-- MAVLink "common" events are defined in [mavlink/libevents/events/common.json](https://github.com/mavlink/libevents/blob/master/events/common.json) and can be used as event argument in the form of `events::send<events::common::enums::my_enum_t>(...)`.
+- Користувацькі або характерні для PX4 перерахування для подій повинні бути визначені у [src/lib/events/enums.json](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/events/enums.json), та можуть бути використані як аргументи події у формі `events::send<events::px4::enums::my_enum_t>(...)`.
+- "Загальні" події MAVLink визначені у [mavlink/libevents/events/common.json](https://github.com/mavlink/libevents/blob/master/events/common.json) та можуть бути використані як аргументи подій у формі `events::send<events::common::enums::my_enum_t>(...)`.
 
-#### Text format
+#### Формат тексту
 
-Text format for event message description:
+Формат тексту для опису повідомлення події:
 
-- characters can be escaped with \\
+- символи можна екранувати за допомогою \\
 
-  These have to be escaped: '\\\\', '\\<', '\\{'.
+  Ці символи повинні бути екрановані: '\\\\', '\\<', '\\{'.
 
-- supported tags:
+- теги що підтримуються:
 
-  - Profiles: `<profile name="[!]NAME">CONTENT</profile>`
+  - Профілі: `<profile name="[!]NAME">CONTENT</profile>`
 
-    `CONTENT` will only be shown if the name matches the configured profile. This can be used for example to hide developer information from end-users.
+    `CONTENT` буде показано, лише якщо назва збігається з налаштованим профілем. Це може бути використано, наприклад, щоб приховати інформацію для розробників від кінцевих користувачів.
 
-  - URLs: `<a [href="URL"]>CONTENT</a>`. If `href` is not set, use `CONTENT` as `URL` (i.e.`<a>https://docs.px4.io</a>` is interpreted as `<a href="https://docs.px4.io">https://docs.px4.io</a>`)
-  - Parameters: `<param>PARAM_NAME</param>`
-  - no nested tags of the same type are allowed
+  - URL: `<a [href="URL"]>CONTENT</a>`. Якщо `href` не встановлено, використовуйте `CONTENT` як `URL` (наприклад `<a>https://docs.px4.io</a>`  сприймається як `<a href="https://docs.px4.io">https://docs.px4.io</a>`)
+  - Параметри: `<param>PARAM_NAME</param>`
+  - не дозволено використовувати вкладені теги того ж типу
 
-- arguments: template placeholders that follow python syntax, with 1-based indexing (instead of 0)
+- аргументи: шаблонні замінники, що відповідають синтаксису python з індексацією що починається з 1 (замість 0)
 
-  - general form: `{ARG_IDX[:.NUM_DECIMAL_DIGITS][UNIT]}`
+  - загальна форма: `{ARG_IDX[:.NUM_DECIMAL_DIGITS][UNIT]}`
 
     UNIT:
 
-    - m: horizontal distance in meters
-    - m_v: vertical distance in meters
-    - m^2: area in m^2
-    - m/s: speed in m/s
+    - m: горизонтальна відстань в метрах
+    - m_v: вертикальна відстань в метрах
+    - m^2: площа в метрах квадратних
+    - m/s: швидкість у метрах в секунду
     - C: temperature in degrees celsius
 
   - `NUM_DECIMAL_DIGITS` only makes sense for real number arguments.
