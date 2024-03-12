@@ -1,26 +1,26 @@
-# PWM_limit State Machine
+# Скінченний автомат PWM_limit
 
-The`PWM_limit State Machine` controls PWM outputs as a function of pre-armed and armed inputs. Provides a delay between assertion of "armed" and a ramp-up of throttle on assertion of the armed signal.
+`Скінченний автомат PWM_limit` керує виходами ШІМ як функцією входів готового і попередньо готового стану. Забезпечує затримку між твердженням стану "готовності" та нарощуванням тяги при твердженні сигналу готовності.
 
-## Quick Summary
+## Короткий опис
 
-**Inputs**
+**Вхідні дані**
 
-- armed: asserted to enable dangerous behaviors such as spinning propellers
-- pre-armed: asserted to enable benign behaviors such as moving control surfaces
-- this input overrides the current state
-- assertion of pre-armed immediately forces behavior of state ON, regardless of current state
-- deassertion of pre-armed reverts behavior to current state
+- готовий: стверджено щоб дозволити небезпечні дії, такі як обертання пропелерів
+- попередньо готовий: стверджено щоб дозволити безпечні дії, такі як рух керівних поверхонь
+- цей вхід перекриває поточний стан
+- ствердження попередньо готового стану негайно примушує до поведінки стану ON незалежно від поточного стану
+- відкидання попередньо готового стану повертає поведінку до поточного стану
 
-**States**
+**Стани**
 
-- INIT and OFF
-  - pwm outputs set to disarmed values.
+- INIT та OFF
+  - ШІМ виходи встановлені у стан неготовності.
 - RAMP
-  - pwm outputs ramp from disarmed values to min values.
+  - ШІМ виходи нарощуються зі стану неготовності до мінімальних значень.
 - ON
-  - pwm outputs set according to control values.
+  - ШІМ виходи встановлюються відповідно до керівних значень.
 
-## State Transition Diagram
+## Діаграма зміну стану
 
-![PWM Limit state machine diagram](../../assets/diagrams/pwm_limit_state_diagram.svg)
+![Діаграма скінченного автомата PWM Limit](../../assets/diagrams/pwm_limit_state_diagram.svg)
