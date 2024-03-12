@@ -1,6 +1,6 @@
-# Events Interface
+# Інтерфейс подій
 
-The _Events Interface_ provides a system-wide API for notification of events, which are published to GCSs via the _MAVLink Events Service_ (to GCSs and other components) and also stored in [system logs](../dev_log/logging.md).
+_Інтерфейс подій_ забезпечує загальносистемне API для повідомлень про події, які публікуються у GCS через _сервіс подій MAVLink_ (в GCS та інші компоненти), а також зберігаються у [системних журналах](../dev_log/logging.md).
 
 The interface can be used for publishing events for state changes or any other type of occurrence, including things like arming readiness, calibration completion, and reaching the target takeoff height.
 
