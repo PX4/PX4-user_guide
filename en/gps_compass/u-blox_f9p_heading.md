@@ -26,7 +26,7 @@ The following devices are supported:
 Ideally the two antennas should be identical, on the same level/horizontal plane and oriented the same way, and on an identical ground plane size and shape ([Application note](https://www.u-blox.com/sites/default/files/ZED-F9P-MovingBase_AppNote_%28UBX-19009093%29.pdf), section *System Level Considerations*).
 - The application note does not state the minimal required separation between modules (50cm has been used in test vehicles running PX4).
 - The antennas can be positioned as needed, but the [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) must be configured:
-  [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source).
+  [RTK GPS > GPS as Yaw/Heading Source](../gps_compass/rtk_gps.md#configuring-gps-as-yaw-heading-source).
 
 ### UART Setup
 
@@ -36,8 +36,8 @@ Ideally the two antennas should be identical, on the same level/horizontal plane
   - Main GPS = Rover
   - Secondary GPS = Moving Base
 - Set [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `Heading` (1)
-- [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter bit 3 must be set (see [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)).
-- [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) may need to be set (see [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)).
+- [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter bit 3 must be set (see [RTK GPS > GPS as Yaw/Heading Source](../gps_compass/rtk_gps.md#configuring-gps-as-yaw-heading-source)).
+- [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) may need to be set (see [RTK GPS > GPS as Yaw/Heading Source](../gps_compass/rtk_gps.md#configuring-gps-as-yaw-heading-source)).
 - Reboot and wait until both devices have GPS reception.
   `gps status` should then show the Main GPS going into RTK mode, which means the heading angle is available.
 
@@ -54,4 +54,4 @@ If using RTK with a fixed base station the secondary GPS will show the RTK state
 ## Further Information
 
 - [ZED-F9P Moving base applications (Application note)](https://www.u-blox.com/sites/default/files/ZED-F9P-MovingBase_AppNote_%28UBX-19009093%29.pdf) - General setup/instructions.
-- [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)
+- [RTK GPS > GPS as Yaw/Heading Source](../gps_compass/rtk_gps.md#configuring-gps-as-yaw-heading-source)

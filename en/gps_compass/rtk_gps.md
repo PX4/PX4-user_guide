@@ -5,7 +5,7 @@
 This feature requires _QGroundControl_ running on a laptop/PC and a vehicle with a WiFi or Telemetry radio link to the ground station laptop.
 
 :::note
-Some RTK GPS setups can provide yaw/heading information, as an alternative to the compass:
+Some RTK GNSS setups can provide yaw/heading information, as an alternative to the compass:
 
 - [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
 - GPS directly output yaw (see table below).
@@ -61,7 +61,7 @@ Notes:
 
 ## Positioning Setup/Configuration
 
-RTK positioning requires a _pair_ of [RTK GPS devices](#supported-rtk-devices): a "base" for the ground station and a "rover" for the vehicle.
+RTK positioning requires a _pair_ of [RTK GNSS devices](#supported-devices): a "base" for the ground station and a "rover" for the vehicle.
 
 In addition you will need:
 
@@ -82,7 +82,7 @@ The connection method and cables/connectors required depends on the selected RTK
 Most are connected via the flight controller's GPS port, in the same way as any other GPS module.
 Some are connected to the [CAN](../can/README.md) bus (i.e. using [DroneCAN](../dronecan/README.md)).
 
-See [documentation for the selected device](#supported-rtk-devices) and [DroneCAN](../dronecan/README.md) for more information on wiring and configuration.
+See [documentation for the selected device](#supported-devices) and [DroneCAN](../dronecan/README.md) for more information on wiring and configuration.
 
 #### Base RTK Module (Ground)
 
@@ -134,6 +134,21 @@ The RTK GPS connection is essentially plug and play:
      The new mode is displayed in the _normal_ GPS status icon (`3D RTK GPS Lock`):
 
      ![RTK GPS Status](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
+
+### Configuring GPS as Yaw/Heading Source
+
+GPS can be used as a source for yaw fusion when using modules where _yaw output is supported by the device_ (e.g. [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)) or when using some [RTK GPS Setups with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
+
+When using GPS for yaw fusion you will need to configure the following parameters:
+
+Parameter | Setting
+--- | ---
+[GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) |  The angle made by the *baseline* (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)).
+[EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) | Set bit position 3 "Dual antenna heading" to `1` (i.e. add 8 to the parameter value).                                                                                                                        |
+
+:::tip
+If using this feature, all other configuration should be setup up as normal (e.g. [RTK Positioning](../gps_compass/rtk_gps.md#positioning-setup-configuration)).
+:::
 
 ### Optional PX4 Configuration
 

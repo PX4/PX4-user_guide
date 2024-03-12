@@ -1,10 +1,10 @@
-# RTK GPS (PX4 Integration)
+# RTK GNSS/GPS (PX4 Integration)
 
 [Real Time Kinematic](https://en.wikipedia.org/wiki/Real_Time_Kinematic) (RTK) provides centimeter-level GPS accuracy.
 This page explains how RTK is integrated into PX4.
 
 :::tip
-Instructions for _using_ RTK GPS are provided in [Peripheral Hardware > RTK GPS](../gps_compass/rtk_gps.md).
+Instructions for _using_ RTK GNSS are provided in [Hardware > RTK GPS](../gps_compass/rtk_gps.md).
 :::
 
 ## Overview
@@ -12,16 +12,16 @@ Instructions for _using_ RTK GPS are provided in [Peripheral Hardware > RTK GPS]
 RTK uses measurements of the phase of the signal's carrier wave, rather than the information content of the signal.
 It relies on a single reference station to provide real-time corrections, which can work with multiple mobile stations.
 
-Two RTK GPS modules and a datalink are required to setup RTK with PX4.
+Two RTK GNSS modules and a datalink are required to setup RTK with PX4.
 The fixed-position ground-based GPS unit is called the _Base_ and the in-air unit is called the _Rover_.
 The Base unit connects to _QGroundControl_ (via USB) and uses the datalink to stream RTCM corrections to the vehicle (using the MAVLink [GPS_RTCM_DATA](https://mavlink.io/en/messages/common.html#GPS_RTCM_DATA) message).
 On the autopilot, the MAVLink packets are unpacked and sent to the Rover unit, where they are processed to get the RTK solution.
 
 The datalink should typically be able to handle an uplink rate of 300 bytes per second (see the [Uplink Datarate](#uplink-datarate) section below for more information).
 
-## Supported RTK GPS modules
+## Supported RTK GNSS modules
 
-The list of devices that we have tested can be found [in the user guide](../gps_compass/rtk_gps.md#supported-rtk-devices).
+The list of devices that we have tested can be found [in the user guide](../gps_compass/rtk_gps.md#supported-devices).
 
 :::note
 Most devices come with two variants, a base and a rover.

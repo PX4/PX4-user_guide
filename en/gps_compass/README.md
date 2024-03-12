@@ -117,18 +117,11 @@ After setting up the second GPS port:
 
 ### Configuring GPS as Yaw/Heading Source
 
-GPS can be used as a source for yaw fusion when using modules where _yaw output is supported by the device_ (e.g. [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)) or when using some [RTK GPS Setups with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
+GPS can be used as a source for yaw fusion when using modules where _yaw output.
+This is supporte
 
-When using GPS for yaw fusion you will need to configure the following parameters:
-
-Parameter | Setting
---- | ---
-[GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) |  The angle made by the *baseline* (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)).
-[EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) | Set bit position 3 "Dual antenna heading" to `1` (i.e. add 8 to the parameter value).                                                                                                                        |
-
-:::tip
-If using this feature, all other configuration should be setup up as normal (e.g. [RTK Positioning](../gps_compass/rtk_gps.md#positioning-setup-configuration)).
-:::
+GPS can be used as a source for yaw fusion when using modules where _yaw output is supported by the device_.
+This is documented in [RTK GPS > Configuring GPS as Yaw/Heading Source](../gps_compass/rtk_gps.md#configuring-gps-as-yaw-heading-source).
 
 ## Compass Configuration
 
