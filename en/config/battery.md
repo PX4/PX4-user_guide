@@ -258,14 +258,6 @@ Current integration cannot be used on its own (without voltage-based estimation)
 Voltage-estimation allows you to estimate the initial capacity and provides ongoing feedback of possible errors (e.g. if the battery is faulty, or if there is a mismatch between capacity calculated using different methods).
 :::
 
-## Parameter Migration Notes
-
-Multiple battery support was added after PX4 v1.10, resulting in the creation of new parameters with prefix `BAT1_` corresponding to all the old parameters with prefix `BAT_`.
-Changes to `BAT_` and `BAT1_` are currently synchronised:
-
-- If either the old or new parameters is changed, the value is copied into the other parameter (they are kept in sync in both directions).
-- If the old/new parameters are different at boot, then the value of the old `BAT_` parameter is copied into the new `BAT1_` parameter.
-
 ## Battery-Type Comparison
 
 This section provides a comparative overview of several different battery types (in particular LiPo and Li-Ion).
