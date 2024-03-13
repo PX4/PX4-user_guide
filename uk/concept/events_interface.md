@@ -4,10 +4,10 @@
 
 Інтерфейс може використовуватися для публікації подій змін стану або будь-якого іншого типу події, включаючи такі речі, як стан готовності, завершення калібрування і досягнення цільової висоти злету.
 
-The interface can be used for publishing events for state changes or any other type of occurrence, including things like arming readiness, calibration completion, and reaching the target takeoff height.
+Інтерфейс може використовуватися для публікації подій змін стану або будь-якого іншого типу події, включаючи такі речі, як стан готовності, завершення калібрування і досягнення цільової висоти злету.
 
 :::note
-The events interface will replace the use of `mavlink_log_*` calls in PX4 code, (and `STATUS_TEXT` messages in MAVLink) for event notification in PX4 v1.13 and later. There will be an intermediate period where [both approaches are supported](#backward-compatibility).
+інтерфейс подій замінить використання викликів `mavlink_log_*` у коді PX4, (а також повідомлень `STATUS_TEXT` у MAVLink) для сповіщення про події в релізах PX4 після v1.13 та новіше. Буде проміжний період коли [обидва підходи будуть підтримуватися](#backward-compatibility).
 :::
 
 ## Застосування
@@ -20,7 +20,7 @@ The events interface will replace the use of `mavlink_log_*` calls in PX4 code, 
 #include <px4_platform_common/events.h>
 ```
 
-And then define and send the event from the desired code location:
+А потім визначте та надішліть подію з бажаного місця коду:
 
 ```cpp
 events::send(events::ID("mymodule_test"), events::Log::Info, "Test Message");
