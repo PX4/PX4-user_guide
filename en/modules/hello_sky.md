@@ -163,11 +163,11 @@ This consists of a single _C_ file and a _cmake_ definition (which tells the too
    Copy in the text below:
 
    ```
-   P
-   "
-   n
-   -
-   p
+   menuconfig EXAMPLES_PX4_SIMPLE_APP
+   	bool "px4_simple_app"
+   	default n
+   	---help---
+   		Enable support for px4_simple_app
    ```
 
 ## Build the Application/Firmware
