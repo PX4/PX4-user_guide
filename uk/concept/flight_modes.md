@@ -1,15 +1,15 @@
-# Flight Modes (Developers)
+# Режими польоту (для розробників)
 
-_Flight Modes_ define how the autopilot responds to user input and controls vehicle movement. They are loosely grouped into _manual_, _assisted_ and _auto_ modes, based on the level/type of control provided by the autopilot. The pilot transitions between flight modes using switches on the remote control or with a ground control station.
+_Режими польоту_ визначають як автопілот реагує на дії користувача та керує пересуванням рухомого засобу. Вони вільним чином згруповані у _ручні_, _допоміжні_ та _автономні_ режими, засновуючись на рівні/типі керування що надається автопілотом. Пілот перемикається між режимами польоту за допомогою перемикачів на пульті дистанційного керування або за допомогою наземної станції керування.
 
-Not all flight modes are available on all vehicle types, and some modes behave differently on different vehicle types (as described below). Finally, some flight modes make sense only under specific pre-flight and in-flight conditions (e.g. GPS lock). The system will not allow transitions to those modes until the right conditions are met.
+Не всі режими польоту доступні на всіх типах апаратів, а деякі режими поводяться по-різному на різних типах апаратів (як описано нижче). Нарешті, деякі режими польоту мають сенс лише за особливих умов перед та під час польоту (напр. блокування GPS). Система не дозволить переходи в ці режими, поки не будуть виконані відповідні умови.
 
-The sections below provide an overview of the modes, followed by a [flight mode evaluation diagram](#flight-mode-evaluation-diagram) that shows the conditions under which PX4 will transition into a new mode.
+Подальші розділи надають огляд цих режимів, за якими йде [діаграма оцінки режимів польоту](#flight-mode-evaluation-diagram) яка показує умови за яких PX4 перейде до нового режиму.
 
 :::note
-User-facing flight mode documentation can be found in:
+Ви можете знайти документацію по режимах польоту орієнтовану на користувача в:
 
-- [Flight Modes (Multicopter)](../flight_modes_mc/README.md)
+- [Режими польоту (Мультикоптер)](../flight_modes_mc/README.md)
 - [Flight Modes (Fixed-Wing)](../flight_modes_fw/README.md)
 - [Flight Modes (VTOL)](../flight_modes_vtol/README.md)
 - [Flight/Drive Modes (Rover)](../flight_modes_rover/README.md)
