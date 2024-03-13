@@ -1,5 +1,7 @@
 # Holybro Kakute H7
 
+<Badge type="tip" text="PX4 v1.13" />
+
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
@@ -96,7 +98,7 @@ The firmware can be installed in any of the normal ways:
 - [Load the firmware](../config/firmware.md) using _QGroundControl_. You can use either pre-built firmware or your own custom firmware.
 
 :::note
-KakuteH7 is supported with PX4 master & PX4 v1.13 or newer. If you are loading the pre-built firmware via QGroundcontrol, you must use QGC Daily or QGC verision newer than 4.1.7.
+If you are loading the pre-built firmware via QGroundcontrol, you must use QGC Daily or QGC version newer than 4.1.7.
 :::
 
 ## PX4 Configuration

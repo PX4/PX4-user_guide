@@ -1,5 +1,7 @@
 # ModalAI VOXL Flight
 
+<Badge type="tip" text="PX4 v1.11" />
+
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://forum.modalai.com/) for hardware support or compliance issues.
 :::
 
@@ -104,7 +106,7 @@ A quickstart from the vendor is located [here](https://docs.modalai.com/voxl-fli
 
 ### voxl-vision-px4
 
-For details, the source code is available [here](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4) The VOXL Flight runs [voxl-vision-px4](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4) on the companion computer portion of the hardware serving as a sort of MAVLink proxy.
+The VOXL Flight runs [voxl-vision-px4](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4) on the companion computer portion of the hardware serving as a sort of MAVLink proxy. For details, the source code is available [here](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4)
 
 ### Connectors
 

@@ -1,16 +1,18 @@
 # ModalAI 플라이트 코어 v1
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://forum.modalai.com/)에 문의하십시오.<br/>
-:::
+<Badge type="tip" text="PX4 v1.11" />
 
 ModalAI [Flight Core v1](https://modalai.com/flight-core) ([데이터시트](https://docs.modalai.com/flight-core-datasheet))은 미국에서 제작된 PX4 용 비행 콘트롤러입니다. Flight Core는 장애물 회피와 GPS 거부 내비게이션을 위해 ModalAI [VOXL](https://modalai.com/voxl)([데이터시트](https://docs.modalai.com/voxl-datasheet/))과 페어링하거나 독립형 비행 콘트롤러로 독립적으로 사용할 수 있습니다.
+:::
+
+The ModalAI [Flight Core v1](https://modalai.com/flight-core) ([Datasheet](https://docs.modalai.com/flight-core-datasheet)) is a flight controller for PX4, made in the USA. The Flight Core can be paired with ModalAI [VOXL](https://modalai.com/voxl) ([Datasheet](https://docs.modalai.com/voxl-datasheet/)) for obstacle avoidance and GPS-denied navigation, or used independently as a standalone flight controller.
 
 ![FlightCoreV1](../../assets/flight_controller/modalai/fc_v1/main.jpg)
 
-Flight Core는 VOXL Companion Computer와 Flight Core를 단일 PCB에 통합하는 [VOXL Flight](https://www.modalai.com/voxl-flight) ([데이터시트](https://docs.modalai.com/voxl-flight-datasheet/))의 PX4 비행 콘트롤러 부분과 동일합니다.
+Flight Core is identical to the PX4 Flight Controller portion of [VOXL Flight](https://www.modalai.com/voxl-flight) ([Datasheet](https://docs.modalai.com/voxl-flight-datasheet/)) which integrates the VOXL Companion Computer and Flight Core into a single PCB.
 
 :::note
-이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
+자세한 하드웨어 문서는 [여기](https://docs.modalai.com/flight-core-datasheet/)를 참고하십시오.
 :::
 
 ## 사양
@@ -41,25 +43,25 @@ Flight Core는 VOXL Companion Computer와 Flight Core를 단일 PCB에 통합하
 |            | GPIO                                             |
 
 :::note
-자세한 하드웨어 문서는 [여기](https://docs.modalai.com/flight-core-datasheet/)를 참고하십시오.
+More detailed hardware documentation can be found [here](https://docs.modalai.com/flight-core-datasheet/).
 :::
 
 <!-- reference links for table above (improve layout) -->
 ## 크기
 
-![FlightCoreV1 크기](../../assets/flight_controller/modalai/fc_v1/dimensions.png)
+![FlightCoreV1Dimensions](../../assets/flight_controller/modalai/fc_v1/dimensions.png)
 
 ## PX4 Firmware Compatibility
 
 _Flight Core v1_ is fully compatible with the official PX4 Firmware from PX4 v1.11.
 
-ModalAI는 PX4 v1.11용 [분기 PX4 버전](https://github.com/modalai/px4-firmware/tree/modalai-1.11)을 유지합니다. 여기에는 UART ESC 지원과 업스트림 예정인 VIO와 VOA의 개선 사항이 포함됩니다.
+ModalAI maintains a [branched PX4 version](https://github.com/modalai/px4-firmware/tree/modalai-1.11) for PX4 v1.11. This includes UART ESC support and improvements in VIO and VOA that are planned to be upstreamed.
 
-펌웨어에 관련된 더 많은 정보는 [여기](https://docs.modalai.com/flight-core-firmware/)를 참고하십시오.
+이 보드는 QGroundControl 4.0 이상에서 지원됩니다.
 
 ## QGroundControl 지원
 
-이 보드는 QGroundControl 4.0 이상에서 지원됩니다.
+아래 다이어그램은 PX4 v1.11(및 [ModalAI가 유지하는 PX4 v1.10 브랜치](https://github.com/modalai/px4-firmware/tree/modalai-1.10))부터 `ROTATION_NONE` 권장 방향을 나타냅니다.
 
 ## 구매처
 
@@ -72,13 +74,9 @@ ModalAI는 PX4 v1.11용 [분기 PX4 버전](https://github.com/modalai/px4-firmw
 
 ### 방향
 
-아래 다이어그램은 PX4 v1.11(및 [ModalAI가 유지하는 PX4 v1.10 브랜치](https://github.com/modalai/px4-firmware/tree/modalai-1.10))부터 `ROTATION_NONE` 권장 방향을 나타냅니다.
+The diagram below shows the recommended orientation, which corresponds to `ROTATION_NONE` starting with PX4 v1.11.
 
-![FlightCoreV1 방향](../../assets/flight_controller/modalai/fc_v1/orientation.png)
-
-:::warning
-For _PX4 v1.10_ stable releases from _QGroundControl_ use `ROTATION_YAW_180` for the above orientation.
-:::
+![FlightCoreV1Orientation](../../assets/flight_controller/modalai/fc_v1/orientation.png)
 
 ### 커넥터
 

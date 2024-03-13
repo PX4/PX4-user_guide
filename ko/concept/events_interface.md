@@ -1,11 +1,13 @@
 # 이벤트 인터페이스
 
+<Badge type="tip" text="PX4 v1.13" />
+
 The _Events Interface_ provides a system-wide API for notification of events, which are published to GCSs via the _MAVLink Events Service_ (to GCSs and other components) and also stored in [system logs](../dev_log/logging.md).
 
 The interface can be used for publishing events for state changes or any other type of occurrence, including things like arming readiness, calibration completion, and reaching the target takeoff height.
 
 :::note
-The events interface will replace the use of `mavlink_log_*` calls in PX4 code, (and `STATUS_TEXT` messages in MAVLink) for event notification in the release after PX4 v1.12. There will be an intermediate period where [both approaches are supported](#backward-compatibility).
+The events interface will replace the use of `mavlink_log_*` calls in PX4 code, (and `STATUS_TEXT` messages in MAVLink) for event notification in PX4 v1.13 and later. There will be an intermediate period where [both approaches are supported](#backward-compatibility).
 :::
 
 ## 사용법
