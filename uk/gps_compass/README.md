@@ -6,7 +6,7 @@ PX4 можна використовувати з наступними части
 
 Система автоматично вибирає найкращий з доступних компасів на основі їхнього _пріоритету_ (зовнішні магнітометри мають вищий пріоритет, ніж внутрішні магнітометри). Якщо основний компас виходить з ладу в польоті, він перемикається на наступний. Якщо він вийде з ладу до вильоту, в приведенні в стан готовності буде відмовлено.
 
-![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
+![GPS + Компас](../../assets/hardware/gps/gps_compass.jpg)
 
 :::tip
 При використанні [контролерів польоту серії Pixhawk](../flight_controller/pixhawk_series.md) ми рекомендуємо використовувати *комбінований GPS + компас*, встановлений якомога далі від ліній живлення двигуна/ESC - зазвичай на підставці або крилі (для фіксованого крила). Внутрішній компас *може* бути корисним на великих апаратах (наприклад, VTOL), де можна зменшити електромагнітні перешкоди, встановивши Pixhawk на великій відстані від джерел живлення. На невеликих апаратах майже завжди потрібен зовнішній компас.
@@ -127,12 +127,12 @@ PX4 повинен працювати з будь-яким пристроєм, �
 
 1. [Знайдіть та встановіть](../advanced_config/parameters.md) параметр [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) у значення **TELEM 2**.
    - Відкрийте *QGroundControl* і перейдіть до розділу **Vehicle Setup > Parameters**.
-   - Виберіть вкладку **GPS** (1), потім відкрийте параметр [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) (2) і виберіть *TELEM 2* з випадаючого списку (3). ![QGC Serial Example](../../assets/peripherals/qgc_serial_config_example.png)
+   - Виберіть вкладку **GPS** (1), потім відкрийте параметр [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) (2) і виберіть *TELEM 2* з випадаючого списку (3). ![Приклад серії QGC](../../assets/peripherals/qgc_serial_config_example.png)
 1. Перезавантажте апарат, щоб побачити інші параметри.
-1. Select the **Serial** tab, and open the [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) parameter (`TELEM 2` port baud rate): set it to *Auto*. ![QGC Serial Baudrate Example](../../assets/peripherals/qgc_serial_baudrate_example.png)
+1. Перейдіть на вкладку **Serial** і відкрийте параметр [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) (швидкість передачі даних у порту `TELEM 2`): встановіть для нього значення *Auto*. ![Приклад послідовної швидкості передачі QGC](../../assets/peripherals/qgc_serial_baudrate_example.png)
 
-After setting up the second GPS port:
-1. Configure the ECL/EKF2 estimator to blend data from both GPS systems. For detailed instructions see: [Using the ECL EKF > Dual Receivers](../advanced_config/tuning_the_ecl_ekf.md#dual-receivers).
+Після налаштування другого GPS-порту:
+1. Налаштуйте обчислювач ECL/EKF2, щоб об'єднати дані з обох GPS-систем. Докладні інструкції див. тут:[Using the ECL EKF > Dual Receivers](../advanced_config/tuning_the_ecl_ekf.md#dual-receivers).
 
 ### Configuring GPS as Yaw/Heading Source
 
@@ -140,25 +140,25 @@ GPS can be used as a source for yaw fusion when using modules where *yaw output 
 
 When using GPS for yaw fusion you will need to configure the following parameters:
 
-| Parameter                                                                    | Setting                                                                                                                                                                                                         |
-| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) | The angle made by the *baseline* (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)). |
-| [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)   | Set bit position 3 "Dual antenna heading" to `1` (i.e. add 8 to the parameter value).                                                                                                                           |
+| Параметр                                                                     | Налаштування                                                                                                                                                                                                     |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) | Кут, який утворює *базова лінія* (лінія між двома GPS антенами) відносно осі x транспортного засобу (передня/задня вісь, як показано [тут](../config/flight_controller_orientation.md#calculating-orientation)). |
+| [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)   | Встановіть бітову позицію 3 "Напрямок подвійної антени" на `1` (тобто додайте 8 до значення параметра).                                                                                                          |
 
 :::tip
-If using this feature, all other configuration should be setup up as normal (e.g. [RTK Positioning](../gps_compass/rtk_gps.md#positioning-setup-configuration)).
+Якщо ви використовуєте цю функцію, всі інші конфігурації мають бути налаштовані стандартно (наприклад, [RTK Positioning](../gps_compass/rtk_gps.md#positioning-setup-configuration)).
 :::
 
-## Compass Configuration
+## Конфігурація компасу
 
-Compass calibration is covered in: [Compass Configuration](../config/compass.md). The process is straightforward and will autodetect, [set default rotations](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT), calibrate, and prioritise, all connected magnetometers.
+Калібрування компаса описано: [Конфігурація компаса](../config/compass.md). Процес є простим і автоматично виявляє, [встановлює обертання за замовчуванням](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT), калібрує і розставляє пріоритети для всіх підключених магнітометрів.
 
 
-## Developer Information
+## Інформація про розробника
 
 - GPS/RTK-GPS
   - [RTK-GPS](../advanced/rtk_gps.md)
   - [GPS driver](../modules/modules_driver.md#gps)
-  - [DroneCAN Example](../dronecan/README.md)
-- Compass
-  - [Driver source code](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer) (Compasses)
+  - [Приклад DroneCAN](../dronecan/README.md)
+- Компас
+  - [Вихідний код драйверів](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer) (Компаси)

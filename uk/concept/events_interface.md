@@ -4,10 +4,10 @@
 
 Інтерфейс може використовуватися для публікації подій змін стану або будь-якого іншого типу події, включаючи такі речі, як стан готовності, завершення калібрування і досягнення цільової висоти злету.
 
-The interface can be used for publishing events for state changes or any other type of occurrence, including things like arming readiness, calibration completion, and reaching the target takeoff height.
+Інтерфейс може використовуватися для публікації подій змін стану або будь-якого іншого типу події, включаючи такі речі, як стан готовності, завершення калібрування і досягнення цільової висоти злету.
 
 :::note
-The events interface will replace the use of `mavlink_log_*` calls in PX4 code, (and `STATUS_TEXT` messages in MAVLink) for event notification in PX4 v1.13 and later. There will be an intermediate period where [both approaches are supported](#backward-compatibility).
+інтерфейс подій замінить використання викликів `mavlink_log_*` у коді PX4, (а також повідомлень `STATUS_TEXT` у MAVLink) для сповіщення про події в релізах PX4 після v1.13 та новіше. Буде проміжний період коли [обидва підходи будуть підтримуватися](#backward-compatibility).
 :::
 
 ## Застосування
@@ -20,7 +20,7 @@ The events interface will replace the use of `mavlink_log_*` calls in PX4 code, 
 #include <px4_platform_common/events.h>
 ```
 
-And then define and send the event from the desired code location:
+А потім визначте та надішліть подію з бажаного місця коду:
 
 ```cpp
 events::send(events::ID("mymodule_test"), events::Log::Info, "Test Message");
@@ -28,9 +28,9 @@ events::send(events::ID("mymodule_test"), events::Log::Info, "Test Message");
 
 #### Зворотна сумісність
 
-Отже, коли ви додаєте подію, не забудьте також додати виклик `mavlink_log_`. Наприклад:
+Для старих версій GCS без підтримки інтерфейсу подій, PX4 на цей момент надсилає також всі події як `mavlink_log_*` `STATUSTEXT` повідомлення. Крім того, повідомлення має бути промарковано додатковою табуляцією (`\t`), щоб нові GCS змогли проігнорувати це і показати тільки подію.
 
-So whenever adding an event, be sure to also add a `mavlink_log_` call. For example:
+Отже, коли ви додаєте подію, не забудьте також додати виклик `mavlink_log_`.
 
 ```cpp
 mavlink_log_info(mavlink_log_pub, "Test Message\t");
@@ -146,20 +146,20 @@ events::send<uint8_t, float>(events::ID("event_name"),
 
 ## Журналювання
 
-Events are logged according to the internal log level, and [Flight Review](../log/flight_review.md) displays events.
+Події записуються відповідно до рівня внутрішнього журналювання, а [Огляд польоту](../log/flight_review.md) показує події.
 
 :::note
-Flight review downloads metadata based on PX4 master, so if a definition is not yet on master, it will only be able to display the event ID.
+Огляд польоту завантажує метадані на основі головної гілки PX4, тому, якщо визначення ще немає на головній гілці, огляд зможе показати тільки ID події.
 :::
 
 ## Реалізація
 
 Метадані для всіх подій вбудовані в окремий JSON файл метаданих (з використанням python скрипту, який сканує весь вихідний код у пошуках викликів подій).
 
-The metadata for all events is built into a separate JSON metadata file (using a python script that scans the whole source code for event calls).
+Метадані для всіх подій вбудовані в окремий JSON файл метаданих (з використанням python скрипту, який сканує весь вихідний код у пошуках викликів подій).
 
 ### Публікація метаданих події в GCS
 
 Цей процес такий самий як і для [метаданих параметрів](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs). Для отримання додаткової інформації див. [ Метадані PX4 (трансляція і публікація)](../advanced/px4_metadata.md).
 
-This process is the same as for [parameter metadata](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs). For more information see [PX4 Metadata (Translation & Publication)](../advanced/px4_metadata.md)
+Цей процес такий самий як і для [метаданих параметрів](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs). Для отримання додаткової інформації див. [ Метадані PX4 (трансляція і публікація)](../advanced/px4_metadata.md).
