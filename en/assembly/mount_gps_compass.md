@@ -1,7 +1,7 @@
 # Mounting a GPS/Compass
 
 GPS/Compasses should be mounted on the frame as far away from other electronics as possible, with the direction marker pointing towards the front of the vehicle.
-If mounted in this way you can immediately proceed to [compass calibration](../config/compass.md#performing-the-calibration).
+You should also configure PX4 to [set the position](#position) of the receiver relative to the centre-of-gravity (CoG).
 
 The diagram below shows the heading marker on the Pixhawk 4 and compass.
 
@@ -21,3 +21,7 @@ You must mount the compass in a supported orientation!
 If you mount the compass at an orientation that isn't supported, for example `Yaw 30`, PX4 will detect the closest supported value.
 This will result in errors/warnings, even if the calibration appeared to succeed.
 :::
+
+## Position
+
+In order to compensate for the relative motion between the receiver and the CoG, [configure](../advanced_config/parameters.md) the following parameters to set the offsets: [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z).
