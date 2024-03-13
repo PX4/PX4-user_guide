@@ -153,11 +153,11 @@
 1. Create and open a new _Kconfig_ definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4-kconfig-symbol-naming-convention)). Copy in the text below:
 
    ```
-   P
-   "
-   n
-   -
-   p
+   menuconfig EXAMPLES_PX4_SIMPLE_APP
+    bool "px4_simple_app"
+    default n
+    ---help---
+        Enable support for px4_simple_app
    ```
 
 ## 애플리케이션/펌웨어 빌드
@@ -517,7 +517,7 @@ int px4_simple_app_main(int argc, char *argv[])
 px4_simple_app
 ```
 
-If you start _QGroundControl_, you can check the sensor values in the real time plot ([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)).
+If you start _QGroundControl_, you can check the sensor values in the real time plot ([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html)).
 
 ## 마무리
 

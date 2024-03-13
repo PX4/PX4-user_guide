@@ -118,7 +118,7 @@ Alternatively, after entering `exit` you can just close the prompt.
 
 ### Install PX4 Toolchain
 
-Next we download the PX4 source code within the WSL2 environment, and use the normal _Ubuntu installer script_ to to set up the developer environment. This will install the toolchain for Gazebo Classic simulation, JMAVSim simulation and Pixhawk/NuttX hardware.
+Next we download the PX4 source code within the WSL2 environment, and use the normal _Ubuntu installer script_ to set up the developer environment. This will install the toolchain for Gazebo Classic simulation, JMAVSim simulation and Pixhawk/NuttX hardware.
 
 To install the development toolchain:
 
@@ -215,9 +215,9 @@ You can run QGroundControl in either WSL or Windows to connect to the running si
 
 The easiest way to set up and use QGroundControl is to download the Linux version into your WSL.
 
-You can do this using from within the WSL shell.
+You can do this from within the WSL shell.
 
-1. In a web browser, navigate to the QGC [Ubuntu download section](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html#ubuntu)
+1. In a web browser, navigate to the QGC [Ubuntu download section](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#ubuntu)
 1. Right-click on the **QGroundControl.AppImage** link, and select "Copy link address". This will be something like _https://d176td9ibe4jno.cloudfront.net/builds/master/QGroundControl.AppImage_
 1. [Open a WSL shell](#opening-a-wsl-shell) and enter the following commands to download the appimage and make it executable (replace the AppImage URL where indicated):
 
@@ -239,7 +239,7 @@ You will not be able to use it to install PX4 firmware because WSL does not allo
 
 ### QGroundcontrol on Windows
 
-Install [QGroundControl on Windows](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html#windows) if you want to be able to update hardware with firmware created within PX4.
+Install [QGroundControl on Windows](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#windows) if you want to be able to update hardware with firmware created within PX4.
 
 These steps describe how you can connect to the simulation running in the WSL:
 
@@ -269,7 +269,7 @@ Flashing a custom built PX4 binary has to be done using [QGroundControl for Wind
 
 Do the following steps to flash your custom binary built in WSL:
 
-1. If you haven't already build the binary in WSL e.g. with a [WSL shell](dev_env_windows_wsl.md#opening-a-wsl-shell) and by running:
+1. If you haven't already built the binary in WSL e.g. with a [WSL shell](dev_env_windows_wsl.md#opening-a-wsl-shell) and by running:
 
    ```sh
    cd ~/PX4-Autopilot
