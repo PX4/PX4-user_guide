@@ -71,9 +71,9 @@ _Режими польоту_ визначають як автопілот ре�
   - **Мультикоптери:** Мультикоптер повертається прямою лінією на поточній висоті (якщо поточна висота вища, ніж домашнє положення + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)або на висоті [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) (якщо [RTL_RETURN_RETALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) вище за поточну висоту), а потім приземлиться автоматично.
 
 - **AUTO_MISSION** (Завдання)
-  - **All system types:** The aircraft obeys the programmed mission sent by the ground control station (GCS). If no mission received, aircraft will LOITER at current position instead.
-  - **_OFFBOARD_** (Offboard) In this mode the position, velocity or attitude reference / target / setpoint is provided by a companion computer connected via serial cable and MAVLink. The offboard setpoint can be provided by APIs like [MAVSDK](http://mavsdk.mavlink.io) or [MAVROS](https://github.com/mavlink/mavros).
+  - **Усі типи літальних апаратів:** Літальний апарат дотримується запрограмованого завдання що відправляється наземною станцією керування (GCS). Якщо завдання не отримано, замість цього ЛА буде в режимі LOITER в поточному положенні.
+  - **_OFFBOARD_** (Зовнішній комп'ютер) В цьому режимі опорне/цільове/задане значення позиції, швидкості або положення надається супутнім комп'ютером під'єднаним через послідовний кабель та MAVLink. Заданні значення для зовнішніх комп'ютерів може бути надано API на зразок [MAVSDK](http://mavsdk.mavlink.io) або [MAVROS](https://github.com/mavlink/mavros).
 
-## Flight Mode Evaluation Diagram
+## Діаграма оцінки режимів польоту
 
-![Commander Flow diagram](../../assets/diagrams/commander-flow-diagram.png)
+![Діаграма плину команд](../../assets/diagrams/commander-flow-diagram.png)
