@@ -153,11 +153,11 @@ If you specify `DYNAMIC` as an option to `px4_add_module`, a _shared library_ is
 1. Create and open a new _Kconfig_ definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4-kconfig-symbol-naming-convention)). Copy in the text below:
 
    ```
-   P
-   "
-   n
-   -
-   p
+   menuconfig EXAMPLES_PX4_SIMPLE_APP
+    bool "px4_simple_app"
+    default n
+    ---help---
+        Enable support for px4_simple_app
    ```
 
 ## Build the Application/Firmware
@@ -516,7 +516,7 @@ And finally run your app:
 px4_simple_app
 ```
 
-If you start _QGroundControl_, you can check the sensor values in the real time plot ([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)).
+If you start _QGroundControl_, you can check the sensor values in the real time plot ([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html)).
 
 ## Wrap-Up
 
