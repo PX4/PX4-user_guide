@@ -28,9 +28,9 @@ events::send(events::ID("mymodule_test"), events::Log::Info, "Test Message");
 
 #### Зворотна сумісність
 
-Отже, коли ви додаєте подію, не забудьте також додати виклик `mavlink_log_`. Наприклад:
+Для старих версій GCS без підтримки інтерфейсу подій, PX4 на цей момент надсилає також всі події як `mavlink_log_*` `STATUSTEXT` повідомлення. Крім того, повідомлення має бути промарковано додатковою табуляцією (`\t`), щоб нові GCS змогли проігнорувати це і показати тільки подію.
 
-So whenever adding an event, be sure to also add a `mavlink_log_` call. For example:
+Отже, коли ви додаєте подію, не забудьте також додати виклик `mavlink_log_`.
 
 ```cpp
 mavlink_log_info(mavlink_log_pub, "Test Message\t");
@@ -146,20 +146,20 @@ events::send<uint8_t, float>(events::ID("event_name"),
 
 ## Журналювання
 
-Events are logged according to the internal log level, and [Flight Review](../log/flight_review.md) displays events.
+Події записуються відповідно до рівня внутрішнього журналювання, а [Огляд польоту](../log/flight_review.md) показує події.
 
 :::note
-Flight review downloads metadata based on PX4 master, so if a definition is not yet on master, it will only be able to display the event ID.
+Огляд польоту завантажує метадані на основі головної гілки PX4, тому, якщо визначення ще немає на головній гілці, огляд зможе показати тільки ID події.
 :::
 
 ## Реалізація
 
 Метадані для всіх подій вбудовані в окремий JSON файл метаданих (з використанням python скрипту, який сканує весь вихідний код у пошуках викликів подій).
 
-The metadata for all events is built into a separate JSON metadata file (using a python script that scans the whole source code for event calls).
+Метадані для всіх подій вбудовані в окремий JSON файл метаданих (з використанням python скрипту, який сканує весь вихідний код у пошуках викликів подій).
 
 ### Публікація метаданих події в GCS
 
 Цей процес такий самий як і для [метаданих параметрів](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs). Для отримання додаткової інформації див. [ Метадані PX4 (трансляція і публікація)](../advanced/px4_metadata.md).
 
-This process is the same as for [parameter metadata](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs). For more information see [PX4 Metadata (Translation & Publication)](../advanced/px4_metadata.md)
+Цей процес такий самий як і для [метаданих параметрів](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs). Для отримання додаткової інформації див. [ Метадані PX4 (трансляція і публікація)](../advanced/px4_metadata.md).
