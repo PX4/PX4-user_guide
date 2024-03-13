@@ -10,67 +10,67 @@ _Режими польоту_ визначають як автопілот ре�
 Ви можете знайти документацію по режимах польоту орієнтовану на користувача в:
 
 - [Режими польоту (Мультикоптер)](../flight_modes_mc/README.md)
-- [Flight Modes (Fixed-Wing)](../flight_modes_fw/README.md)
-- [Flight Modes (VTOL)](../flight_modes_vtol/README.md)
-- [Flight/Drive Modes (Rover)](../flight_modes_rover/README.md)
+- [Режими польоту (Фіксоване крило)](../flight_modes_fw/README.md)
+- [Режими польоту (ВЗІП)](../flight_modes_vtol/README.md)
+- [Режими польоту/їзди (Ровер)](../flight_modes_rover/README.md)
 
 :::
 
-## Flight Mode Summary
+## Опис режимів польоту
 
-### Manual Flight Modes
+### Ручні режими польотів
 
-"Manual" modes are those where the user has direct control over the vehicle via the RC control (or joystick). Vehicle movement always follows stick movement, but the level/type of response changes depending on the mode. For example, experienced fliers can use modes that provide direct passthrough of stick positions to actuators, while beginners will often choose modes that are less responsive to sudden stick-position changes.
+"Ручні" режими - це ті, де користувач має прямий контроль над засобом за допомогою пульту радіо керування (або джойстика). Рух рухомого засобу завжди слідує за рухом органів управління, але рівень/тип реакція змінюється в залежності від режиму. Наприклад, досвідчені пілоти можуть використовувати режими, які дають пряму передачу позицій органів управління до приводів, тоді як початківці часто будуть обирати режими, яки менше реагують на раптові зміни положень органів управління.
 
-- **Rovers / Boats:**
+- **Ровери/човни**
 
-  - **MANUAL/STABILIZED/ACRO:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to control allocation.
+  - **MANUAL/STABILIZED/ACRO:** Керуючи вхідні команди пілота (необроблені вхідні дані користувача з передавача радіо керування) передаються напряму до розподілу керування.
 
-- **Fixed-wing aircraft:**
+- **Літальний апарат з фіксованим крилом:**
 
-  - **MANUAL:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to control allocation.
-  - **STABILIZED:** The pilot's pitch and roll inputs are passed as angle commands to the autopilot, while the yaw input is sent directly via control allocation to the rudder (manual control). If the RC roll and pitch sticks are centered, the autopilot regulates the roll and pitch angles to zero, hence stabilizing (leveling-out) the attitude against any wind disturbances. However, in this mode the position of the aircraft is not controlled by the autopilot, hence the position can drift due to wind. With nonzero roll input the vehicle does a coordinated turn to achieve zero sideslip (the acceleration in y-direction (sidewards) is zero). During a coordinated turn, the rudder is used to control the sideslip and any manual yaw input is added to that.
-  - **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw _rate_ commands to the autopilot. The autopilot controls the angular rates. Throttle is passed directly to control allocation.
+  - **MANUAL:** Керуючи вхідні команди пілота (необроблені вхідні дані користувача з передавача радіо керування) передаються напряму до розподілу керування.
+  - **STABILIZED:** Вхідні команди крену та тангажу пілота передаються до автопілота як кутові команди, тоді як команди рискання відправляються напряму на кермо через розподіл керування (ручне управління) Якщо органи управління для крену та тангажу пульту РК центровані, автопілот регулює кути нахилу крену та тангажу до нуля, отже стабілізуючи (вирівнюючи) положення відносно будь-яких збурень вітру. Однак у цьому режимі положення літального апарату не контролюється автопілотом, тому положення може плисти через вітер. З ненульовими значеннями крену, рухомий засіб здійснює скоординований поворот щоб досягти нульового бічного зсуву (прискорення у напрямку осі Y, тобто вбік є нульовим). Під час скоординованого повороту для керування бічним зсувом використовується кермо, а будь-які ручні команди рискання додаються до цього.
+  - **ACRO:** Вхідні команди пілота передаються як команди _швидкості_ крену, тангажу та рискання до автопілота. Автопілот контролює кутові швидкості. Тяга передається напряму до розподілу керування.
 
-- **Multirotors:**
+- **Мультикоптери:**
 
-  - **MANUAL/STABILIZED** The pilot's inputs are passed as roll and pitch _angle_ commands and a yaw _rate_ command. Throttle is passed directly to control allocation. The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered, consequently leveling-out the attitude. However, in this mode the position of the vehicle is not controlled by the autopilot, hence the position can drift due to wind.
+  - **MANUAL/STABILIZED** Команди пілота передаються як команди _кутів_ крену та тангажу, а рискання як команда _швидкості_. Тяга передається напряму до розподілу керування. Автопілот контролює положення, це означає що він регулює кути крену та тангажу до нуля коли органи керування пульту РК центровані, як наслідок вирівнюючи положення. Однак у цьому режимі положення літального апарату не контролюється автопілотом, тому положення може плисти через вітер.
 
     :::note
-For Multirotors, Manual and Stabilized modes are the same.
+Для мультиротора, ручний та стабілізований режими однакові.
 :::
 
-  - **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw _rate_ commands to the autopilot. The autopilot controls the angular rates, but not the attitude. Hence, if the RC sticks are centered the vehicle will not level-out. This allows the multirotor to become completely inverted. Throttle is passed directly to control allocation.
+  - **ACRO:** Вхідні команди пілота передаються як команди _швидкості_ крену, тангажу та рискання до автопілота. Автопілот контролює кутові швидкості, але не положення. Отже, якщо органи керування пульту РК центровані, рухомий засіб не буде вирівняно. Це дозволяє мультиротору повністю обернутись. Тяга передається напряму до розподілу керування.
 
-### Assisted flight modes
+### Допоміжні режими польоту
 
-"Assisted" modes are also user controlled but offer some level of "automatic" assistance - for example, automatically holding position/direction, against wind. Assisted modes often make it much easier to gain or restore controlled flight.
+"Допоміжні" режими також контролюються користувачем, але пропонують певний рівень "автоматичної" допомоги, наприклад автоматично тримаючи позицію/гапрямок проти вітру. Допоміжні режими часто полегшують здобуття або відновлення контрольованого польоту.
 
-- **ALTCTL** (Altitude Control)
+- **ALTCTL** (Управління висотою)
 
-  - **Fixed-wing aircraft:** When the roll, pitch and yaw (RPY) RC sticks are all centered (or less than some specified deadband range) the aircraft will return to straight and level flight and keep its current altitude. Its x and y position will drift with the wind.
-  - **Multirotors:** Roll, pitch and yaw inputs are as in Stabilised mode. Throttle inputs indicate climb or sink at a predetermined maximum rate. Throttle has large deadzone. Centered Throttle holds altitude steady. The autopilot only controls altitude so the x,y position of the vehicle can drift due to wind.
+  - **Літальний апарат з фіксованим крилом:** коли органи керування пульту РК для крену, тангажу та рискання (КТР) центровані (або менше деякого визначеного граничного діапазону) апарат повернеться до прямого та вирівняного польоту та буде тримати поточну висоту. Його позиція по x та y буде плисти за вітром.
+  - **Мультикоптери:** Команди крену, тангажу та рискання такі ж самі як у режимі Stabilised. Вхідні команди тяги вказують зростання або зменшення висоти із заздалегідь визначеною швидкістю. Тяга має велику мертву зону. Центрований орган керування тягою тримає стабільну висоту. Автопілот контролює тільки висоту, тому положення x,y може плисти через вітер.
 
-- **POSCTL** (Position Control)
+- **POSCTL** (Управління позицією)
 
-  - **Fixed-wing aircraft:** Neutral inputs (centered RC sticks) give level flight and it will crab against the wind if needed to maintain a straight line.
-  - **Multirotors** Roll controls left-right speed, pitch controls front-back speed over ground. Yaw controls yaw rate as in MANUAL mode. Throttle controls climb/descent rate as in ALTCTL mode. This means that the x, y, z position of the vehicle is held steady by the autopilot against any wind disturbances, when the roll, pitch and throttle sticks are centered.
+  - **Літальний апарат з фіксованим крилом:** Нульові вхідні команди (центровані органи керування) дають рівномірний політ та він буде рухатися проти вітру якщо потрібно підтримувати пряму лінію.
+  - **Мультикоптери:** Крен керує швидкістю "вліво-вправо", тангаж контролює швидкість вперед-назад над землею. Рискання контролює швидкість рискання як в режимі MANUAL. Тяга контролює зростання/зменшення висоти як в режимі ALTCTL. Це означає що позиція апарату x, y, z утримується автопілотом стабільною проти будь-яких збурень вітру, коли органи управління КТР центровані.
 
-### Auto flight modes
+### Режими автоматичного польоту
 
-"Auto" modes are those where the controller requires little to no user input (e.g. to takeoff, land and fly missions).
+"Автоматичні" режими - це ті, коли контролер майже не потребує користувацьких команд (наприклад зліт, посадка та польотні завдання).
 
-- **AUTO_LOITER** (Loiter)
+- **AUTO_LOITER** (Блукання)
 
-  - **Fixed-wing aircraft:** The aircraft loiters around the current position at the current altitude (or possibly slightly above the current altitude, good for 'I'm losing it').
-  - **Multirotors:** The multirotor hovers / loiters at the current position and altitude.
+  - **Літальний апарат з фіксованим крилом:** Літальний апарат блукає навколо поточної позиції на поточній висоті (або можливо дещо вище, що добре для ситуацій 'втрачаємо його').
+  - **Мультикоптери:** Мультикоптер ширяє/блукає у поточному положенні на поточній висоті.
 
-- **AUTO_RTL** (Return to Launch)
+- **AUTO_RTL** (Повернення до старту)
 
-  - **Fixed-wing aircraft:** The aircraft returns to the home position and loiters in a circle above the home position.
-  - **Multirotors:** The multirotor returns in a straight line on the current altitude (if the current altitude is higher than the home position + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)) or on the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) (if the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) is higher than the current altitude), then lands automatically.
+  - **Літальний апарат з фіксованим крилом:** Літальний апарат повертається до домашньої позиції та блукає колами навколо цієї позиції.
+  - **Мультикоптери:** Мультикоптер повертається прямою лінією на поточній висоті (якщо поточна висота вища, ніж домашнє положення + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)або на висоті [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) (якщо [RTL_RETURN_RETALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) вище за поточну висоту), а потім приземлиться автоматично.
 
-- **AUTO_MISSION** (Mission)
+- **AUTO_MISSION** (Завдання)
   - **All system types:** The aircraft obeys the programmed mission sent by the ground control station (GCS). If no mission received, aircraft will LOITER at current position instead.
   - **_OFFBOARD_** (Offboard) In this mode the position, velocity or attitude reference / target / setpoint is provided by a companion computer connected via serial cable and MAVLink. The offboard setpoint can be provided by APIs like [MAVSDK](http://mavsdk.mavlink.io) or [MAVROS](https://github.com/mavlink/mavros).
 
