@@ -1,36 +1,36 @@
 # PX4 Vision Autonomy Development Kit
 
-The [_PX4 Vision Autonomy Development Kit_](https://holybro.com/collections/multicopter-kit/PX4-Vision) is a robust and inexpensive kit for enabling computer vision development on autonomous vehicles.
+[_PX4 Vision Autonomy Development Kit_] (https\://holybro.com/collections/multicopter-kit/PX4-Vision) - це надійний і недорогий комплект для створення систем комп'ютерного зору на автономних пристроях.
 
 ![Overview](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_front.png)
 
-The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a _Pixhawk 4_ or _Pixhawk 6C_ (on V1.5) flight controller, a _UP Core_ companion computer (4GB memory & 64GB eMMC), and a Occipital _Structure Core_ depth camera sensor.
+Комплект містить майже готовий до польоту квадрокоптер з вуглецевого волокна, оснащений польотним контролером _Pixhawk 4_ або _Pixhawk 6C_ (на версії 1.5), комп'ютером-компаньйоном _UP Core_ (4 ГБ пам'яті та 64 ГБ eMMC), а також камерою глибини Occipital _Structure Core_ .
 
 :::note
-This vehicle comes with no pre-installed software.
-A USB stick is included in the kit with an example of an [obstacle avoidance](../computer_vision/obstacle_avoidance.md) feature implementation, based on the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance) project. This example is intended as a reference only and serves to demonstrate the capabilities of the platform. The software is not compatible with the latest version of PX4, nor is it actively maintained or supported.
+Цей пристрій не має попередньо встановленого програмного забезпечення.
+До комплекту входить карта пам'яті USB з прикладом реалізації функції [уникнення перешкод](../computer_vision/obstacle_avoidance.md), на основі проекту [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance). Цей приклад є орієнтовним і слугує для демонстрації можливостей платформи. Програмне забезпечення не сумісне з останньою версією PX4, а також не підтримується і не обслуговується.
 :::
 
-The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery). It also covers the first flight, and how to get started with modifying the computer vision code.
+Посібник надає інформацію про мінімальне додаткове налаштування, потрібне для того, щоб підготувати апарат до польоту (встановлення системи дистанційного керування та акумулятора). Він також описує перший політ і те, як почати модифікацію коду комп'ютерного зору.
 
-## Where to Buy
+## Де купити
 
 - [PX4 Vision Dev Kit v1.5](https://holybro.com/collections/multicopter-kit/products/px4-vision-dev-kit-v1-5)
-- [PX4 Vision Dev Kit v1 (Discontinued)](https://holybro.com/collections/multicopter-kit/products/px4-vision)
+- [PX4 Vision Dev Kit v1 (Знято з виробництва)](https://holybro.com/collections/multicopter-kit/products/px4-vision)
 
-## Px4 Vision Guide Content
+## Зміст посібника Px4 Vision Guide
 
-- [Warnings & Notifications](#warnings-and-notifications)
-- [What is Inside](#what-is-inside)
-- [What Else Do You Need](#what-else-do-you-need)
-- [First-time Setup](#first-time-setup)
-- [Fly the Drone with avoidance](#fly-the-drone-with-avoidance)
-- [Development using the Kit](#development-using-the-kit)
-- [PX4 Vision Carrier Board Pinouts](#px4-vision-carrier-board-pinouts)
-- [Other Development Resources](#other-development-resources)
-- [How to get Technical Support](#how-to-get-technical-support)
+- [Попередження та сповіщення](#warnings-and-notifications)
+- [Що всередині](#what-is-inside)
+- [Що ще вам потрібно](#what-else-do-you-need)
+- [Первинне налаштування](#first-time-setup)
+- [Керування дроном з запобіганням зіткнень](#fly-the-drone-with-avoidance)
+- [Розробка з використанням комплекту](#development-using-the-kit)
+- [Розпіновка плати PX4 Vision Carrier](#px4-vision-carrier-board-pinouts)
+- [Інші ресурси для розробників](#other-development-resources)
+- [Як отримати технічну підтримку](#how-to-get-technical-support)
 
-## Warnings and Notifications
+## Попередження та сповіщення
 
 1. The kit is intended for computer vision projects that use a forward-facing camera (it does not have downward or rear-facing depth cameras).
    Consequently it can't be used (without modification) for testing [Safe Landing](../computer_vision/safe_landing.md), or other features that require a downward-facing camera.
