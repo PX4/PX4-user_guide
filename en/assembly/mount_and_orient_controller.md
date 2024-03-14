@@ -1,5 +1,9 @@
 # Mounting the Flight Controller
 
+The flight controller should be placed on the frame as close as possible to the centre-of-gravity (CoG), top-side up, and oriented so that the _heading mark arrow_ points towards the front of the vehicle.
+[Vibration isolation](#vibration-isolation) is often needed, and you should follow the manufacturer recommendations.
+If mounted in this way, no further PX4 configuration is required.
+
 ## Orientation
 
 Almost all Flight Controllers have a _heading mark arrow_ (shown below).
@@ -11,6 +15,24 @@ The controller should be placed on the frame top-side up, oriented so that the a
 
 :::note
 If the controller cannot be mounted in the recommended/default orientation (e.g. due to physical constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+:::
+
+## Position
+
+The flight controller should be placed on the frame as close as possible to the centre-of-gravity.
+
+If you can't mount the controller in this position, then you should [configure](../advanced_config/parameters.md) the following parameters to set offset relative to the CoG: [EKF2_IMU_POS_X](../advanced_config/parameter_reference.md#EKF2_IMU_POS_X), [EKF2_IMU_POS_Y](../advanced_config/parameter_reference.md#EKF2_IMU_POS_Y), [EKF2_IMU_POS_Z](../advanced_config/parameter_reference.md#EKF2_IMU_POS_Z) (for the default EKF2 estimator).
+
+Note that if you don't set these offsets then EKF2 position/velocity estimates will be at the IMU location rather that at the CoG.
+This may result in undesirable oscillations, depending on how far away the IMU is from the CoG.
+
+::: details Explanation
+To understand the impact of not setting these offsets, consider the case when the flight controller (IMU) is in front of the CoG, you're flying in position mode, and there is a forward pitching motion around the CoG.
+The altitude estimate will go down, because the IMU has in fact moved down.
+As a reaction, the altitude controller will give more thrust to compensate.
+The amplitude depends on how far the IMU is located from the CoG.
+It might be negligible, but it is still some unneeded control effort that is constantly applied.
+If the offsets are specified, a pure pitch motion would not create any change in the altitude estimate so there will be less parasitic corrections.
 :::
 
 ## Vibration Isolation
