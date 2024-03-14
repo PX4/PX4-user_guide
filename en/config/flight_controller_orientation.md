@@ -13,7 +13,7 @@ The axes to rotate around stay the same from one rotation step to the next one.
 So the frame to perform the rotation in stays fixed.
 This is also known as _extrinsic rotation_.
 
-<img src="../../assets/qgc/setup/sensor/fc_orientation_1.png" style="width: 600px;"/>
+![Vehicle orientation](../../assets/qgc/setup/sensor/fc_orientation_1.png)
 
 For example, the vehicles shown below have rotations around the z-axis (i.e. yaw only) corresponding to: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
 
@@ -31,16 +31,15 @@ For more information see [Basic Concepts](../getting_started/px4_basic_concepts.
 To set the orientations:
 
 1. Start _QGroundControl_ and connect the vehicle.
-1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
-1. Select the **Set Orientations** button.
+1. Select the **Q** icon (top left), **Vehicle Setup** in the popup.
+1. Select **Sensors** in the sidebar and then the **Orientations** button.
 
-   <img src="../../assets/qgc/setup/sensor/sensor_orientation_set_orientations.jpg" style="width: 600px;"/>
+   ![Set sensor orientations](../../assets/qgc/setup/sensor/sensor_orientation_set_orientations.jpg)
 
 1. Select the **AutoPilot Orientation** (as [calculated above](#calculating-orientation)).
 
-   <img src="../../assets/qgc/setup/sensor/sensor_orientation_selector_values.jpg" style="width: 200px;"/>
+   ![Orientation options](../../assets/qgc/setup/sensor/sensor_orientation_selector_values.jpg)
 
-1. Select the **External Compass Orientation** in the same way (this option will only be displayed if your vehicle has an external compass).
 1. Press **OK**.
 
 ## Fine Tuning
