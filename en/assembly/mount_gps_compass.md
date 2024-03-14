@@ -15,13 +15,6 @@ The orientation follows the same frame convention as when [orienting the flight 
 If you're using the normal [Compass Calibration](../config/compass.md) process (with parameter [SENS_MAG_AUTOROT](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT) enabled), the orientation should be detected automatically.
 Otherwise you can directly select the appropriate value in [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG1_ROT) for up to three compasses.
 
-:::warning
-You must mount the compass in a supported orientation!
-
-If you mount the compass at an orientation that isn't supported, for example `Yaw 30`, PX4 will detect the closest supported value.
-This will result in errors/warnings, even if the calibration appeared to succeed.
-:::
-
 ## Position
 
 In order to compensate for the relative motion between the receiver and the CoG, you should [configure](../advanced_config/parameters.md) the following parameters to set the offsets: [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z).
