@@ -10,7 +10,7 @@
 
 회전 축은 한 회전 단계에서 다음 단계까지 동일하게 유지됩니다. 따라서 회전을 수행하는 프레임은 고정되어 있습니다. This is also known as _extrinsic rotation_.
 
-<img src="../../assets/qgc/setup/sensor/fc_orientation_1.png" style="width: 600px;" />
+![Vehicle orientation](../../assets/qgc/setup/sensor/fc_orientation_1.png)
 
 예를 들어, 아래에 표시된 기체는 z축을 중심으로 각각 다음과 같이 회전합니다: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
 
@@ -30,13 +30,12 @@ Tailsitter 기체의 경우 모든 센서 보정에 대한 멀티콥터 설정(�
 1. 상단 툴바에서 **톱니바퀴** 아이콘(기체 설정)을 선택한 다음 사이드 바에서 **센서**를 선택하십시오.
 1. **방향 설정** 버튼을 클릭합니다.
 
-   <img src="../../assets/qgc/setup/sensor/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
+   ![Set sensor orientations](../../assets/qgc/setup/sensor/sensor_orientation_set_orientations.jpg)
 
 1. **비행 콘트롤러 방향**을 선택합니다([위에서 계산한 방법](#calculating-orientation)대로 선택하십시오).
 
-   <img src="../../assets/qgc/setup/sensor/sensor_orientation_selector_values.jpg" style="width: 200px;" />
+   ![Orientation options](../../assets/qgc/setup/sensor/sensor_orientation_selector_values.jpg)
 
-1. 동일한 방법으로 **외부 나침반 방향 **을 선택합니다(이 선택 사항은 기체에 외부 나침반이 있을 경우에만 표시됩니다).
 1. **확인**을 누릅니다.
 
 ## 미세 보정
@@ -46,4 +45,4 @@ Tailsitter 기체의 경우 모든 센서 보정에 대한 멀티콥터 설정(�
 ## 추가 정보
 
 - [고급 방향 보정](../advanced_config/advanced_flight_controller_orientation_leveling.md) (고급 사용자)
-- [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#flight_controller_orientation)
+- [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#flight_controller_orientation)
