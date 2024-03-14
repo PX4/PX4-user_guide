@@ -1,5 +1,10 @@
 # Peripherals
 
-This section contains topics related to external sensors and other optional peripheral hardware that can be _connected to a flight controller_.
+This section contains topics related to external sensors and other optional peripheral hardware that can be connected to a flight controller.
 
-<!-- requires update as this is now things like cameras, ADSB, not sensors. I was going to suggest payloads, but this isn't if we have ADSB stuff -->
+- [ADSB/FLARM/UTM (Traffic Avoidance)](../peripherals/adsb_flarm.md)
+- [Camera](peripherals/camera.md)
+- [Gimbal \(Mount\) Configuration](advanced/gimbal_control.md)
+- [Grippers](peripherals/gripper.md)
+- [Parachute](peripherals/parachute.md)
+- [Remote ID](peripherals/remote_id.md)
