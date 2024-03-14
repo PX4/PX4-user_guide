@@ -117,16 +117,12 @@ After setting up the second GPS port:
 
 ### Configuring GPS as Yaw/Heading Source
 
-GPS can be used as a source for yaw fusion when using modules where _yaw output.
-This is supporte
-
 GPS can be used as a source for yaw fusion when using modules where _yaw output is supported by the device_.
 This is documented in [RTK GPS > Configuring GPS as Yaw/Heading Source](../gps_compass/rtk_gps.md#configuring-gps-as-yaw-heading-source).
 
 ## Compass Configuration
 
-Compass calibration is covered in: [Compass Configuration](../config/compass.md).
-The process is straightforward and will autodetect, [set default rotations](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT), calibrate, and prioritise, all connected magnetometers.
+Compass calibration for an included compass part is covered in: [Compass Configuration](../config/compass.md).
 
 ## Developer Information
 
