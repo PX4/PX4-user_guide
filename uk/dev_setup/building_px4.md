@@ -33,7 +33,7 @@ make px4_sitl jmavsim
 
 Це запустить консоль PX4 як показано нижче:
 
-![PX4 Console (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
+![Консоль PX4 (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
 
 :::note
 Можливо, ще знадобиться запустити _QGroundControl_ перед тим, як рушити далі, оскільки стандартне налаштування PX4 вимагає наявність звʼязку з наземним оператором перед злетом. Його можна завантажити [звідси](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html).
@@ -263,18 +263,18 @@ make list_config_targets
 
 **VIEWER_MODEL_DEBUGGER_WORLD:**
 
-- **VIEWER:** This is the simulator ("viewer") to launch and connect: `gz`, `gazebo`, `jmavsim`, `none` <!-- , ?airsim -->
+- **VIEWER:** Це симуляція ("оглядач") яку потрібно запустити та з'єднатися з: `gz`, `gazebo`, `jmavsim`, `none` <!-- , ?airsim -->
 
 :::tip
-`none` can be used if you want to launch PX4 and wait for a simulator (jmavsim, Gazebo, Gazebo Classic, or some other simulator). For example, `make px4_sitl none_iris` launches PX4 without a simulator (but with the iris airframe).
+`none` можна використовувати для запуску PX4 так очікування симуляції (jmavsim, Gazebo, Gazebo Classic або іншої симуляції). Наприклад `make px4_sitl none_iris` запустить PX4 без симуляції (але з планером iris).
 :::
 
-- **MODEL:** The _vehicle_ model to use (e.g. `iris` (_default_), `rover`, `tailsitter`, etc), which will be loaded by the simulator. The environment variable `PX4_SIM_MODEL` will be set to the selected model, which is then used in the [startup script](../simulation/README.md#startup-scripts) to select appropriate parameters.
-- **DEBUGGER:** Debugger to use: `none` (_default_), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. For more information see [Simulation Debugging](../debug/simulation_debugging.md).
-- **WORLD:** (Gazebo Classic only). Set the world ([PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/main/worlds)) that is loaded. Default is [empty.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/empty.world). For more information see [Gazebo Classic > Loading a Specific World](../sim_gazebo_classic/README.md#loading-a-specific-world).
+- **MODEL:** Модель _засобу_ (наприклад `iris` (_default_), `rover`, `tailsitter` тощо), яка буде завантажена симуляцією. Змінна середовища `PX4_SIM_MODEL` буде встановлена в обрану модель, яка потім використовується в [скрипті запуску](../simulation/README.md#startup-scripts) для вибору відповідних параметрів.
+- **DEBUGGER:** Налагоджувач який буде використано: `none` (_default_), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. Для додаткової інформації дивіться [Налагодження симуляції](../debug/simulation_debugging.md).
+- **WORLD:** (тільки для Gazebo Classic). Встановити світ ([PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worl](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/main/worlds), який завантажити. За замовчуванням це [empty.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/empty.world). Для отримання додаткової інформації див. [Gazebo Classic > Завантаження певного світу](../sim_gazebo_classic/README.md#loading-a-specific-world).
 
 :::tip
-You can get a list of _all_ available `VIEWER_MODEL_DEBUGGER_WORLD` options using the command below:
+Ви можете отримати список _всіх_ доступних параметрів `VIEWER_MODEL_DEBUGGER_WORLD` використавши наступну команду:
 
 ```sh
 make px4_sitl list_vmd_make_targets
@@ -282,27 +282,27 @@ make px4_sitl list_vmd_make_targets
 
 :::
 
-Notes:
+Примітки:
 
-- Most of the values in the `CONFIGURATION_TARGET` and `VIEWER_MODEL_DEBUGGER` have defaults, and are hence optional. For example, `gazebo-classic` is equivalent to `gazebo-classic_iris` or `gazebo-classic_iris_none`.
-- You can use three underscores if you want to specify a default value between two other settings. For example, `gazebo-classic___gdb` is equivalent to `gazebo-classic_iris_gdb`.
-- You can use a `none` value for `VIEWER_MODEL_DEBUGGER` to start PX4 and wait for a simulator. For example start PX4 using `make px4_sitl_default none` and jMAVSim using `./Tools/simulation/jmavsim/jmavsim_run.sh -l`.
+- Більшість значень у `CONFIGURATION_TARGET` та `VIEWER_MODEL_DEBUGGER` мають значення за замовчуванням і тому є необов'язковими. Наприклад, `gazebo-classic` еквівалентна `gazebo-classic_iris` або `gazebo-classic_iris_none`.
+- Ви можете використати три підкреслювання, якщо хочете вказати значення за замовчуванням між двома іншими налаштуваннями. Наприклад, `gazebo-classic___gdb` еквівалентно `gazebo-classic_iris_gdb`.
+- Ви можете використати значення `none` для `VIEWER_MODEL_DEBUGGER` для запуску PX4 та очікування симуляції. Наприклад запустити PX4 з `make px4_sitl_default none` та jMAVSim за допомогою `./Tools/simulation/jmavsim/jmavsim_run.sh -l`.
 
-The `VENDOR_MODEL_VARIANT` options map to particular _px4board_ configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards) directory. Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.px4board** (e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board)).
+Параметри `VENDOR_MODEL_VARIANT` відображаються на певні файли налаштувань _px4board_ у вихідному коду PX4 в директорії [/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards). Зокрема `VENDOR_MODEL_VARIANT` відповідає файлу **boards/VENDOR/MODEL/VARIANT.px4board** (наприклад `px4_fmu-v5_default` відповідає [boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board)).
 
-Additional make targets are discussed in relevant sections:
+Додаткові цілі збірки обговорюються в відповідних розділах:
 
-- `bloaty_compare_master`: [Binary Size Profiling](../debug/binary_size_profiling.md)
+- `bloaty_compare_master`: [Профілювання розміру бінарного файлу](../debug/binary_size_profiling.md)
 - ...
 
-## Firmware Version & Git Tags
+## Версія прошивки та git теги
 
-The _PX4 Firmware Version_ and _Custom Firmware Version_ are published using the MAVLink [AUTOPILOT_VERSION](https://mavlink.io/en/messages/common.html#AUTOPILOT_VERSION) message, and displayed in the _QGroundControl_ **Setup > Summary** airframe panel:
+_Версія прошивки_ та _Користувацька версія прошивки_ публікується за допомогою повідомлення MAVLink [AUTOPILOT_VERSION](https://mavlink.io/en/messages/common.html#AUTOPILOT_VERSION) та показується в панелі планера _QGroundControl_ **Налаштування > Огляд**:
 
-![Firmware info](../../assets/gcs/qgc_setup_summary_airframe_firmware.jpg)
+![Інформація прошивки](../../assets/gcs/qgc_setup_summary_airframe_firmware.jpg)
 
-These are extracted at build time from the active _git tag_ for your repo tree. The git tag should be formatted as `<PX4-version>-<vendor-version>` (e.g. the tag in the image above was set to `v1.8.1-2.22.1`).
+Вони беруться під час збірки з поточного _тегу git_ вашого репозиторію. Тег git повинно бути відформатовано як `<PX4-version>-<vendor-version>` (наприклад тег у малюнку вище встановлений у `v1.8.1-2.22.1`).
 
 :::warning
-If you use a different git tag format, versions information may not be displayed properly.
+Якщо ви використовуєте інший формат git тегів, інформацію про версії може бути показано неналежним чином.
 :::
