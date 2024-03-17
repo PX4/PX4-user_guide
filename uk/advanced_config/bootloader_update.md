@@ -1,10 +1,10 @@
 # Bootloader Update
 
-The _PX4 Bootloader_ is used to load firmware for [Pixhawk boards](../flight_controller/pixhawk_series.md) (PX4FMU, PX4IO).
+Завантажувач PX4 використовується для завантаження прошивки для плат [Pixhawk](../flight_controller/pixhawk_series.md) (PX4FMU, PX4IO).
 
-Pixhawk controllers usually comes with an appropriate bootloader version pre-installed. However in some cases it is not present, or an older version is present that needs to be updated, or the board has been bricked and needs to be erased and the bootloader reinstalled.
+Зазвичай контролери Pixhawk поставляються з попередньо встановленою відповідною версією завантажувача. Однак у деяких випадках його може бути відсутній, або може бути присутня старіша версія, яку потрібно оновити, або плата може бути відключена і потребує стирання та перевстановлення завантажувача.
 
-This topic explains how to build the PX4 bootloader, and several methods for flashing it to a board.
+Ця тема пояснює, як побудувати завантажувач PX4 та кілька методів для його прошивки на плату.
 
 :::note
 
@@ -15,7 +15,7 @@ This topic explains how to build the PX4 bootloader, and several methods for fla
 
 ## Building the PX4 Bootloader
 
-### PX4 Bootloader FMUv6X and later
+### PX4 Bootloader FMUv6X та новіші
 
 Boards starting with FMUv6X (STM32H7) use the in-tree PX4 bootloader.
 
@@ -141,7 +141,7 @@ The steps are:
 The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest main branch.
 :::
 
-1. Wait for the vehicle to reboot.
+1. Зачекайте, доки транспортний засіб перезавантажиться.
 1. [Find and enable](../advanced_config/parameters.md) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 1. Reboot (disconnect/reconnect the board). The bootloader update will only take a few seconds.
 
@@ -151,10 +151,10 @@ An specific example of this process for updating the FMUv2 bootloader is given b
 
 ### FMUv2 Bootloader Update
 
-If _QGroundControl_ installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
+Якщо _QGroundControl_ встановлює ціль FMUv2 (див. консоль під час встановлення), і у вас є новіша плата, вам може знадобитися оновити завантажувальник, щоб мати доступ до всієї пам'яті на вашому контролері польоту.
 
 :::note
-Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata) that restricted them to using 1MB of flash memory. The problem is fixed on newer boards, but you may need to update the factory-provided bootloader in order to install FMUv3 Firmware and access all 2MB available memory.
+Ранні контролери польоту FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) мали [апаратну проблему](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata), яка обмежувала їх використання 1 Мб флеш-пам’яті. Проблема виправлена на новіших платах, але вам може знадобитися оновити заводський завантажувальник, щоб встановити прошивку FMUv3 та мати доступ до всієї доступної пам'яті у 2 МБ.
 :::
 
 To update the bootloader:
@@ -178,6 +178,6 @@ If the hardware has the [Silicon Errata](../flight_controller/silicon_errata.md#
 
 ## Other Boards (Non-Pixhawk)
 
-Boards that are not part of the [Pixhawk Series](../flight_controller/pixhawk_series.md) will have their own mechanisms for bootloader update.
+Плати, які не є частиною серії [Pixhawk](../flight_controller/pixhawk_series.md), матимуть власні механізми оновлення завантажувача.
 
 For boards that are preflashed with Betaflight, see [Bootloader Flashing onto Betaflight Systems](bootloader_update_from_betaflight.md).
