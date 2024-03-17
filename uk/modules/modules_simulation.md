@@ -1,18 +1,18 @@
-# Modules Reference: Simulation
+# Посилання на модулі: Симуляція
 
 ## simulator_sih
-Source: [modules/simulation/simulator_sih](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/simulator_sih)
+Джерело: [modules/simulation/simulator_sih](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/simulator_sih)
 
 
-### Description
-This module provides a simulator for quadrotors and fixed-wings running fully inside the hardware autopilot.
+### Опис
+Цей модуль надає симулятор для квадрокоптерів та фіксованих крил, що повністю працює всередині апаратного автопілота.
 
-This simulator subscribes to "actuator_outputs" which are the actuator pwm signals given by the control allocation module.
+Цей симулятор підписується на "actuator_outputs", які є сигналами ШІМ, наданими модулем розподілу керування.
 
-This simulator publishes the sensors signals corrupted with realistic noise in order to incorporate the state estimator in the loop.
+Цей симулятор публікує сигнали датчиків, спотворені реалістичним шумом, щоб включити оцінювання стану в петлю.
 
-### Implementation
-The simulator implements the equations of motion using matrix algebra. Quaternion representation is used for the attitude. Forward Euler is used for integration. Most of the variables are declared global in the .hpp file to avoid stack overflow.
+### Реалізація
+Симулятор реалізує рівняння руху за допомогою матричної алгебри. Використовується кватерніонне представлення для орієнтації. Для інтегрування використовується пряма схема Ейлера. Більшість змінних оголошуються глобальними в файлі .hpp, щоб уникнути переповнення стеку.
 
 
 
