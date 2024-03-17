@@ -1,20 +1,20 @@
-# Finding/Updating Parameters
+# Пошук/оновлення параметрів
 
-PX4 behaviour can be configured/tuned using [parameters](../advanced_config/parameter_reference.md) (e.g. [Multicopter PID gains](../config_mc/pid_tuning_guide_multicopter.md), calibration information, etc.).
+Поведінку PX4 можна налаштувати/настроїти за допомогою [параметрів](../advanced_config/parameter_reference.md) (наприклад, [Коефіцієнти PID для багатокоптерів](../config_mc/pid_tuning_guide_multicopter.md), інформація про калібрування і т. д.).
 
-The _QGroundControl Parameters_ screen allows you to find and modify **any** of the parameters associated with the vehicle. The screen is accessed by clicking the **Q** application icon > **Vehicle Setup**, and then _Parameters_ in the sidebar.
+Екран _Параметри QGroundControl_ дозволяє вам знайти та змінити **будь-які** параметри, пов'язані з транспортним засобом. Доступ до цього екрану здійснюється за допомогою натискання значка застосунка **Q** > **Налаштування транспортного засобу**, а потім _Параметри_ у бічному меню.
 
 :::note
-Most of the more commonly used parameters are more conveniently set using the dedicated setup screens, as described in the [Standard Configuration](../config/README.md) section. The _Parameters_ screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
+Більшість з найбільш поширених параметрів зручніше налаштовувати за допомогою відповідних екранів налаштувань, як описано в розділі [Стандартна конфігурація](../config/README.md). The _Parameters_ screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
 :::
 
 :::warning
-While some parameters can be changed in flight, this is not recommended (except where explicitly stated in the guide).
+Хоча деякі параметри можна змінювати в польоті, це не рекомендується (за винятком випадків, якщо це явно зазначено в керівництві).
 :::
 
 <a id="finding"></a>
 
-## Finding a Parameter
+## Пошук параметра
 
 You can search for a parameter by entering a term in the _Search_ field. This will show you a list of all parameter names and descriptions that contain the entered substring (press **Clear** to reset the search, and use the **Show modified only** checkbox to filter out unchanged parameters).
 
@@ -34,11 +34,11 @@ If you can't find an expected parameter, see the [next section](#missing).
 
 <a id="missing"></a>
 
-## Missing Parameters
+## Відсутні Параметри
 
 Parameters are usually not visible because either they are conditional on other parameters, or they are not present in the firmware (see below).
 
-### Conditional Parameters
+### Умовні параметри
 
 A parameter may not be displayed if it is conditional on another parameter that is not enabled.
 
@@ -72,20 +72,20 @@ To change the value of a parameter click on the parameter row in a group or sear
 When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
 :::
 
-## Tools
+## Інструменти
 
-You can select additional options from the **Tools** menu on the top right hand side of the screen.
+Ви можете вибрати додаткові опції у меню **Інструменти** у верхньому правому куті екрану.
 
 ![Tools menu](../../assets/qgc/setup/parameters/parameters_tools_menu.png)
 
-**Refresh** <br>Refresh the parameter values by re-requesting all of them from the vehicle.
+**Оновити** <br>Оновити значення параметрів, повторно запросивши їх усі від транспортного засобу.
 
-**Reset all to firmware defaults** <br>Reset all parameters to their original default values in the firmware.
+**Скинути все на заводські налаштування прошивки** <br>Скидання всіх параметрів до їхніх початкових значень за замовчуванням в прошивці.
 
-**Reset to vehicle's configuration defaults** <br>Reset all parameters to their original default values for the particular selected airfame configuration.
+**Скинути на налаштування за замовчуванням транспортного засобу** <br>Скидання всіх параметрів до їхніх початкових значень за замовчуванням для вибраної конфігурації транспортного засобу.
 
-**Load from file / Save to file** <br>Load parameters from an existing file or save your current parameter settings to a file.
+**Завантажити з файлу / Зберегти до файлу** <br>Завантажте параметри з існуючого файлу або збережіть поточні налаштування параметрів у файл.
 
-**Clear all RC to Param** <br>This clears all associations between RC transmitter controls and parameters. For more information see: [Radio Setup > Param Tuning Channels](../config/radio.md#param-tuning-channels).
+**Очистити всі RC до Param** <br>Це очищає всі асоціації між керуванням радіо передавача та параметрами. For more information see: [Radio Setup > Param Tuning Channels](../config/radio.md#param-tuning-channels).
 
-**Reboot Vehicle** <br>Reboot the vehicle (required after changing some parameters).
+**Перезавантажити Транспортний Засіб** <br>Перезавантажити транспортний засіб (необхідно після зміни деяких параметрів).v
