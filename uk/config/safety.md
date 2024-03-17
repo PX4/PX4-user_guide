@@ -1,17 +1,17 @@
-# Safety Configuration (Failsafes)
+# Конфігурація безпеки (аварійні режими)
 
 PX4 має кілька функцій безпеки для захисту та відновлення вашого транспортного засобу в разі виникнення проблем:
 
-- _Аварійні режими_ дозволяють вам визначати зони та умови, за яких ви можете безпечно літати, і [дію](#failsafe-actions), яка буде виконана, якщо спрацює аварійний режим (наприклад, посадка, утримання позиції або повернення до вказаної точки). The most important failsafe settings are configured in the _QGroundControl_ [Safety Setup](#qgroundcontrol-safety-setup) page. Others must be configured via [parameters](#other-safety-settings).
-- [Safety switches](#emergency-switches) on the remote control can be used to immediately stop motors or return the vehicle in the event of a problem.
+- _Аварійні режими_ дозволяють вам визначати зони та умови, за яких ви можете безпечно літати, і [дію](#failsafe-actions), яка буде виконана, якщо спрацює аварійний режим (наприклад, посадка, утримання позиції або повернення до вказаної точки). Найважливіші налаштування аварійних режимів конфігуруються на сторінці [Налаштування безпеки](#qgroundcontrol-safety-setup) в _QGroundControl_. Інші потрібно налаштовувати через [параметри](#other-safety-settings).
+- [Перемикачі безпеки](#emergency-switches) на пульті дистанційного керування можуть використовуватися для негайного зупинення двигунів або повернення транспортного засобу у випадку проблеми.
 
-## Failsafe Actions
+## Дії аварійного режиму
 
-When a failsafe is triggered, the default behavior (for most failsafes) is to enter Hold for [COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T) seconds before performing an associated failsafe action. This gives the user time to notice what is happening and override the failsafe if needed. In most cases this can be done by using RC or a GCS to switch modes (note that during the failsafe-hold, moving the RC sticks does not trigger an override).
+Коли спрацьовує аварійний режим, типова поведінка (для більшості аварійних режимів) полягає в тому, що він входить у режим утримання протягом [COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T) секунд перед виконанням відповідної дії аварійного режиму. Це дає користувачу час помітити, що відбувається, і перевизначити аварійний режим, якщо це необхідно. У більшості випадків це можна зробити, використовуючи RC або GCS для перемикання режимів (зверніть увагу, що під час утримання аварійного режиму переміщення пультів RC не спричиняє перезапуску).
 
-The list below shows the set of all failsafe actions, ordered in increasing severity. Note that different types of failsafe may not support all of these actions.
+Нижче наведений список всіх дій аварійного режиму, впорядкованих за зростанням серйозності. Зверніть увагу, що різні типи аварійного режиму можуть не підтримувати всі ці дії.
 
-| Action                                                     | Description                                                                                                                                                                                                                                                                                                                                |
+| Action                                                     | Опис                                                                                                                                                                                                                                                                                                                                       |
 | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | <a id="act_none"></a>None/Disabled                     | No action. The failsafe will be ignored.                                                                                                                                                                                                                                                                                                   |
 | <a id="act_warn"></a>Warning                           | A warning message will be sent (i.e. to _QGroundControl_).                                                                                                                                                                                                                                                                                 |
@@ -27,32 +27,32 @@ If multiple failsafes are triggered, the more severe action is taken. For exampl
 The exact behavior when different failsafes are triggered can be tested with the [Failsafe State Machine Simulation](safety_simulation.md).
 :::
 
-## QGroundControl Safety Setup
+## Налаштування безпеки QGroundControl
 
-The _QGroundControl_ Safety Setup page is accessed by clicking the _QGroundControl_ icon, **Vehicle Setup**, and then **Safety** in the sidebar). This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the triggered actions _Return_ and _Land_.
+Сторінка налаштувань безпеки в _QGroundControl_ доступна за допомогою кліку на значок _QGroundControl_, вибору **Налаштування транспортного засобу**, а потім **Безпека** у бічній панелі. Це включає найважливіші налаштування аварійного режиму (батарея, втрата RC тощо) та налаштування спрацьованих дій _Повернення_ та _Посадка_.
 
 ![Safety Setup(QGC)](../../assets/qgc/setup/safety/safety_setup.png)
 
-### Low Battery Failsafe
+### Аварійний режим в разі низького рівня заряду батареї
 
-The low battery failsafe is triggered when the battery capacity drops below one (or more warning) level values.
+Аварійний режим при низькому заряді батареї спрацьовує, коли ємність батареї падає нижче одного (або кількох) значень рівня попередження.
 
 ![Safety - Battery (QGC)](../../assets/qgc/setup/safety/safety_battery.png)
 
-The most common configuration is to set the values and action as above (with `Warn > Failsafe > Emergency`). With this configuration the failsafe will trigger warning, then return, and finally landing if capacity drops below the respective levels.
+Найпоширеніша конфігурація полягає в встановленні значень та дій, як описано вище (з `Попередження > Аварійний режим > Екстрена ситуація`). З такою конфігурацією аварійний режим спочатку викличе попередження, потім повернення, і, нарешті, посадку, якщо ємність впаде нижче відповідних рівнів.
 
-It is also possible to set the _Failsafe Action_ to warn, return, or land when the [Battery Failsafe Level](#BAT_CRIT_THR) failsafe level is reached.
+Також можливо встановити _Дію аварійного режиму_ на попередження, повернення або посадку, коли досягнуто [Рівень аварійного режиму батареї](#BAT_CRIT_THR).
 
-The settings and underlying parameters are shown below.
+Налаштування та вибрані параметри показані нижче.
 
-| Setting                                         | Parameter                                                                      | Description                                                                                                                                                               |
+| Налаштування                                    | Параметр                                                                       | Опис                                                                                                                                                                      |
 | ----------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Failsafe Action                                 | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | Warn, Return, or Land based when capacity drops below [Battery Failsafe Level](#BAT_CRIT_THR), OR Warn, then return, then land based on each of the level settings below. |
 | Battery Warn Level                              | [BAT_LOW_THR](../advanced_config/parameter_reference.md#BAT_LOW_THR)         | Percentage capacity for warnings (or other actions).                                                                                                                      |
 | <a id="BAT_CRIT_THR"></a>Battery Failsafe Level | [BAT_CRIT_THR](../advanced_config/parameter_reference.md#BAT_CRIT_THR)       | Percentage capacity for Return action (or other actions if a single action selected).                                                                                     |
 | Battery Emergency Level                         | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | Percentage capacity for triggering Land (immediately) action.                                                                                                             |
 
-### Manual Control Loss failsafe
+### Аварійний режим втрати ручного керування
 
 The manual control loss failsafe may be triggered if the connection to the [RC transmitter](../getting_started/rc_transmitter_receiver.md) or [joystick](../config/joystick.md) is lost, and there is no fallback. If using an [RC transmitter](../getting_started/rc_transmitter_receiver.md) this is triggered if the RC [transmitter link is lost](../getting_started/rc_transmitter_receiver.md#set-signal-loss-behaviour). If using [joysticks](../config/joystick.md) connected over a MAVLink data link, this is triggered if the joysticks are disconnected or the data link is lost.
 
@@ -63,9 +63,9 @@ The manual control loss failsafe may be triggered if the connection to the [RC t
 
 The QGCroundControl Safety UI allows you to set the [failsafe action](#failsafe-actions) and [RC Loss timeout](#COM_RC_LOSS_T). Users that want to disable the RC loss failsafe in specific automatic modes (mission, hold, offboard) can do so using the parameter [COM_RCL_EXCEPT](#COM_RCL_EXCEPT).
 
-Additional (and underlying) parameter settings are shown below.
+Нижче наведено додаткові (і базові) налаштування параметрів.
 
-| Parameter                                                                                              | Setting                     | Description                                                                                                                                                                                                                                                                                                                                                                                              |
+| Параметр                                                                                               | Налаштування                | Опис                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------------------------------------------------------------------------------------------------------ | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="COM_RC_LOSS_T"></a>[COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T)    | Manual Control Loss Timeout | Time after last setpoint received from the selected manual control source after which manual control is considered lost. This must be kept short because the vehicle will continue to fly using the old manual control setpoint until the timeout triggers.                                                                                                                                              |
 | <a id="COM_FAIL_ACT_T"></a>[COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T)  | Failsafe Reaction Delay     | Delay in seconds between failsafe condition being triggered (`COM_RC_LOSS_T`) and failsafe action (RTL, Land, Hold). In this state the vehicle waits in hold mode for the manual control source to reconnect. This might be set longer for long-range flights so that intermittent connection loss doesn't immediately invoke the failsafe. It can be to zero so that the failsafe triggers immediately. |
@@ -80,18 +80,18 @@ The Data Link Loss failsafe is triggered if a telemetry link (connection to grou
 
 The settings and underlying parameters are shown below.
 
-| Setting                | Parameter                                                                  | Description                                                                       |
+| Налаштування           | Параметр                                                                   | Опис                                                                              |
 | ---------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | Data Link Loss Timeout | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | Amount of time after losing the data connection before the failsafe will trigger. |
 | Failsafe Action        | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT)     | Disabled, Hold mode, Return mode, Land mode, Disarm, Terminate.                   |
 
-### Geofence Failsafe
+### Аварійний режим "обмеження зони політів"
 
-The _Geofence Failsafe_ is triggered when the drone breaches a "virtual" perimeter. In its simplest form, the perimeter is set up as a cylinder centered around the home position. If the vehicle moves outside the radius or above the altitude the specified _Failsafe Action_ will trigger.
+Аварійний режим "обмеження зони політів" спрацьовує, коли дрон перетинає "віртуальний" периметр. У найпростішій формі периметр налаштовується як циліндр, центрований навколо домашньої позиції. Якщо транспортний засіб виходить за межі радіуса або вище вказаної висоти, спрацьовує вказана _Дія аварійного режиму_.
 
 ![Safety - Geofence (QGC)](../../assets/qgc/setup/safety/safety_geofence.png)
 
-:::tip PX4 separately supports more complicated Geofence geometries with multiple arbitrary polygonal and circular inclusion and exclusion areas: [Flying > Geofence](../flying/geofence.md).
+:::tip PX4 окремо підтримує більш складні геофенси з багатьма довільними полігональними та круговими областями включення та виключення: [Політ > Геофенс](../flying/geofence.md).
 :::
 
 The settings and underlying [geofence parameters](../advanced_config/parameter_reference.md#geofence) are shown below.
@@ -108,7 +108,7 @@ Setting `GF_ACTION` to terminate will kill the vehicle on violation of the fence
 
 The following settings also apply, but are not displayed in the QGC UI.
 
-| Setting                                                          | Parameter                                                                    | Description                                                                                                                                         |
+| Налаштування                                                     | Параметр                                                                     | Опис                                                                                                                                                |
 | ---------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="GF_SOURCE"></a>Geofence source                        | [GF_SOURCE](../advanced_config/parameter_reference.md#GF_SOURCE)             | Set whether position source is estimated global position or direct from the GPS device.                                                             |
 | <a id="GF_PREDICT"></a>Preemptive geofence triggering         | [GF_PREDICT](../advanced_config/parameter_reference.md#GF_PREDICT)           | (Experimental) Trigger geofence if current motion of the vehicle is predicted to trigger the breach (rather than late triggering after the breach). |
@@ -124,7 +124,7 @@ _Return_ is a common [failsafe action](#failsafe-actions) that engages [Return m
 
 The settings and underlying parameters are shown below:
 
-| Setting                                     | Parameter                                                                      | Description                                                                                            |
+| Налаштування                                | Параметр                                                                       | Опис                                                                                                   |
 | ------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
 | <a id="RTL_RETURN_ALT"></a>Climb to altitude | [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | Vehicle ascend to this minimum height (if below it) for the return flight.                             |
 | Return behaviour                            |                                                                                | Choice list of _Return then_: Land, Loiter and do not land, or Loiter and land after a specified time. |
@@ -148,11 +148,11 @@ The settings and underlying parameters are shown below:
 | Disarm After                   | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Select checkbox to specify that the vehicle will disarm after landing. The value must be non-zero but can be a fraction of a second. |
 | Landing Descent Rate (MC only) | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | Rate of descent.                                                                                                                     |
 
-## Other Failsafe Settings
+## Інші налаштування аварійного режиму
 
 This section contains information about failsafe settings that cannot be configured through the _QGroundControl_ [Safety Setup](#qgroundcontrol-safety-setup) page.
 
-### Position (GPS) Loss Failsafe
+### Аварійний режим втрати позиції (GPS)
 
 The _Position Loss Failsafe_ is triggered if the quality of the PX4 position estimate falls below acceptable levels (this might be caused by GPS loss) while in a mode that requires an acceptable position estimate.
 
@@ -165,48 +165,48 @@ Fixed-wing vehicles and VTOLs in fixed-wing flight additionally have a parameter
 
 The relevant parameters for all vehicles shown below.
 
-| Parameter                                                                                                  | Description                                                                                               |
+| Параметр                                                                                                   | Опис                                                                                                      |
 | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | <a id="COM_POS_FS_DELAY"></a>[COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | Delay after loss of position before the failsafe is triggered.                                            |
 | <a id="COM_POSCTL_NAVL"></a>[COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL)   | Position control navigation loss response during mission. Values: 0 - assume use of RC, 1 - Assume no RC. |
 
 Parameters that only affect Fixed-wing vehicles:
 
-| Parameter                                                                                      | Description                                                                                                 |
+| Параметр                                                                                       | Опис                                                                                                        |
 | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | <a id="FW_GPSF_LT"></a>[FW_GPSF_LT](../advanced_config/parameter_reference.md#FW_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into land or flight termination). Set to 0 to disable. |
 | <a id="FW_GPSF_R"></a>[FW_GPSF_R](../advanced_config/parameter_reference.md#FW_GPSF_R)   | Fixed roll/bank angle while circling.                                                                       |
 
-### Offboard Loss Failsafe
+### Аварійний режим втрати управління з пульта
 
-The _Offboard Loss Failsafe_ is triggered if the offboard link is lost while under Offboard control. Different failsafe behaviour can be specified based on whether or not there is also an RC connection available.
+The _Offboard Loss Failsafe_ is triggered if the offboard link is lost while under Offboard control. Можна вказати різні дії аварійного режиму в залежності від наявності зв'язку з RC.
 
-The relevant parameters are shown below:
+Відповідні параметри наведено нижче:
 
-| Parameter                                                                    | Description                                                                                                       |
+| Параметр                                                                     | Опис                                                                                                              |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | [COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)   | Delay after loss of offboard connection before the failsafe is triggered.                                         |
 | [COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | Failsafe action if RC is available: Position mode, Altitude mode, Manual mode, Return mode, Land mode, Hold mode. |
 
-### Mission Feasibility Checks
+### Перевірки можливості місії
 
 A number of checks are run to ensure that a mission can only be started if it is _feasible_. For example, the checks ensures that the first waypoint isn't too far away, and that the mission flight path doesn't conflict with any geofences.
 
 As these are not strictly speaking "failsafes" they are documented in [Mission Mode (FW) > Mission Feasibility Checks](../flight_modes_fw/mission.md#mission-feasibility-checks) and [Mission Mode (MC) > Mission Feasibility Checks](../flight_modes_mc/mission.md#mission-feasibility-checks).
 
-### Traffic Avoidance Failsafe
+### Аварійний режим уникнення трафіку
 
-The Traffic Avoidance Failsafe allows PX4 to respond to transponder data (e.g. from [ADSB transponders](../advanced_features/traffic_avoidance_adsb.md)) during missions.
+Аварійний режим уникнення трафіку дозволяє PX4 реагувати на дані від транспондерів (наприклад, від [ADS-B транспондерів](../advanced_features/traffic_avoidance_adsb.md)) під час місій.
 
-The relevant parameters are shown below:
+Відповідні параметри наведено нижче:
 
-| Parameter                                                                      | Description                                                      |
+| Параметр                                                                       | Опис                                                             |
 | ------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
 | [NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | Set the failsafe action: Disabled, Warn, Return mode, Land mode. |
 
 ### Quad-chute Failsafe
 
-Failsafe for when a VTOL vehicle can no longer fly in fixed-wing mode, perhaps due to the failure of a pusher motor, airspeed sensor, or control surface. If the failsafe is triggered, the vehicle will immediately switch to multicopter mode and execute the action defined in parameter [COM_QC_ACT](#COM_QC_ACT).
+Аварійний режим для випадку, коли БЛА типу VTOL більше не може летіти у режимі фіксованого крила, наприклад, через відмову тягового мотора, датчика швидкості повітря або керованої поверхні. Якщо спрацьовує аварійний режим, транспортний засіб негайно перейде у режим багтороторного літання і виконає дію, визначену у параметрі [COM_QC_ACT](#COM_QC_ACT).
 
 :::note
 The quad-chute can also be triggered by sending a MAVLINK [MAV_CMD_DO_VTOL_TRANSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_VTOL_TRANSITION) message with `param2` set to `1`.
@@ -224,7 +224,7 @@ The parameters that control when the quad-chute will trigger are listed in the t
 | <a id="VT_FW_QC_R"></a>[VT_FW_QC_R](../advanced_config/parameter_reference.md#VT_FW_QC_R)               | Absolute roll threshold for quad-chute triggering in FW mode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | <a id="VT_FW_QC_P"></a>[VT_FW_QC_P](../advanced_config/parameter_reference.md#VT_FW_QC_P)               | Absolute pitch threshold for quad-chute triggering in FW mode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-## Failure Detector
+## Виявлення відмов
 
 The failure detector allows a vehicle to take protective action(s) if it unexpectedly flips, or if it is notified by an external failure detection system.
 
@@ -260,22 +260,22 @@ The [failure detector](#failure-detector), if [enabled](#CBRK_FLIGHTTERM), can a
 External ATS is required by [ASTM F3322-18](https://webstore.ansi.org/Standards/ASTM/ASTMF332218). One example of an ATS device is the [FruityChutes Sentinel Automatic Trigger System](https://fruitychutes.com/uav_rpv_drone_recovery_parachutes/sentinel-automatic-trigger-system.htm).
 :::
 
-| Parameter                                                                                                | Description                                                                                                                                      |
+| Параметр                                                                                                 | Опис                                                                                                                                             |
 | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | <a id="FD_EXT_ATS_EN"></a>[FD_EXT_ATS_EN](../advanced_config/parameter_reference.md#FD_EXT_ATS_EN)     | Enable PWM input on AUX5 or MAIN5 (depending on board) for engaging failsafe from an external automatic trigger system (ATS). Default: Disabled. |
 | <a id="FD_EXT_ATS_TRIG"></a>[FD_EXT_ATS_TRIG](../advanced_config/parameter_reference.md#FD_EXT_ATS_TRIG) | The PWM threshold from external automatic trigger system for engaging failsafe. Default: 1900 ms.                                                |
 
-## Emergency Switches
+## Перемикачі екстренного виклику
 
-Remote control switches can be configured (as part of _QGroundControl_ [Flight Mode Setup](../config/flight_mode.md)) to allow you to take rapid corrective action in the event of a problem or emergency; for example, to stop all motors, or activate [Return mode](#return-switch).
+Пультові перемикачі можуть бути налаштовані (як частина налаштувань _QGroundControl_ [Режиму польоту](../config/flight_mode.md)) для того, щоб ви могли швидко вжити корекційних дій у разі проблеми або екстренної ситуації; наприклад, для зупинки всіх моторів або активації режиму [Повернення](#return-switch).
 
-This section lists the available emergency switches.
+Цей розділ перелічує доступні аварійні вимикачі.
 
-### Kill Switch
+### Перемикач вимкнення
 
-A kill switch immediately stops all motor outputs (and if flying, the vehicle will start to fall)! The motors will restart if the switch is reverted within 5 seconds. After 5 seconds the vehicle will automatically disarm; you will need to arm it again in order to start the motors.
+Кнопка "вимкнення" негайно припиняє всі виходи мотора (і, якщо транспортний засіб у повітрі, він почне падати)! Мотори будуть перезапускатися, якщо перемикач буде повернуто назад протягом 5 секунд. Після 5 секунд транспортний засіб автоматично вимкнеться; вам потрібно буде знову ввімкнути його для запуску моторів.
 
-### Arm/Disarm Switch
+### Перемикач увімкнення/вимкнення
 
 The arm/disarm switch is a _direct replacement_ for the default stick-based arming/disarming mechanism (and serves the same purpose: making sure there is an intentional step involved before the motors start/stop). It might be used in preference to the default mechanism because:
 
@@ -283,16 +283,16 @@ The arm/disarm switch is a _direct replacement_ for the default stick-based armi
 - It avoids accidentally triggering arming/disarming in-air with a certain stick motion.
 - There is no delay (it reacts immediately).
 
-The arm/disarm switch immediately disarms (stop) motors for those [flight modes](../flight_modes/README.md#flight-modes) that _support disarming in flight_. This includes:
+Перемикач увімкнення/вимкнення негайно вимикає (зупиняє) мотори для тих [режимів польоту](../flight_modes/README.md#flight-modes), які _підтримують вимикання в повітрі_. This includes:
 
 - _Manual mode_
 - _Acro mode_
 - _Stabilized_
 
-For modes that do not support disarming in flight, the switch is ignored during flight, but may be used after landing is detected. This includes _Position mode_ and autonomous modes (e.g. _Mission_, _Land_ etc.).
+Для режимів, які не підтримують вимикання в повітрі, перемикач ігнорується під час польоту, але може бути використаний після виявлення посадки. Це включає режим позиціонування та автономні режими (наприклад, місію, посадку і т. д.).
 
 :::note
-[Auto disarm timeouts](#auto-disarming-timeouts) (e.g. via [COM_DISARM_LAND](#COM_DISARM_LAND)) are independent of the arm/disarm switch - ie even if the switch is armed the timeouts will still work.
+Часові обмеження автоматичного вимкнення (наприклад, через параметр [COM_DISARM_LAND](#COM_DISARM_LAND)) незалежні від перемикача увімкнення/вимкнення - іншими словами, навіть якщо перемикач увімкнений, часові обмеження все одно працюватимуть.
 :::
 
 <!--
@@ -300,24 +300,24 @@ For modes that do not support disarming in flight, the switch is ignored during 
   If the switch positions are reversed, change the sign of the parameter [RC_ARMSWITCH_TH](../advanced_config/parameter_reference.md#RC_ARMSWITCH_TH) (or also change its value to alter the threshold value).
 -->
 
-### Return Switch
+### Перемикач повернення
 
-A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
+Повернення перемикач може бути використаний для негайного ввімкнення режиму [Повернення](../flight_modes/return.md).
 
-## Other Safety Settings
+## Інші налаштування безпеки
 
-### Auto-disarming Timeouts
+### Таймаути автоматичного вимкнення
 
-You can set timeouts to automatically disarm a vehicle if it is too slow to takeoff, and/or after landing (disarming the vehicle removes power to the motors, so the propellers won't spin).
+Ви можете встановити таймаути для автоматичного вимкнення транспортного засобу, якщо він занадто повільно збирається на зліт і/або після посадки (вимкнення транспортного засобу вимикає живлення моторів, тому пропелери не будуть обертатися).
 
-The [relevant parameters](../advanced_config/parameters.md) are shown below:
+Відповідні параметри наведено нижче:
 
-| Parameter                                                                                                  | Description                                                |
+| Параметр                                                                                                   | Опис                                                       |
 | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
 | <a id="COM_DISARM_LAND"></a>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | Timeout for auto-disarm after landing.                     |
 | <a id="COM_DISARM_PRFLT"></a>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Timeout for auto disarm if vehicle is too slow to takeoff. |
 
-## Further Information
+## Додаткова інформація
 
 - [QGroundControl User Guide > Safety Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/safety.html)
 
