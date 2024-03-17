@@ -1,11 +1,11 @@
 # Parameter Reference
 
 :::note
-This documentation was auto-generated from the source code for this PX4 version (using `make parameters_metadata`).
+Ця документація була автоматично створена за допомогою вихідного коду для цієї версії PX4 (використовуючи `зробити parameters_metadata`).
 :::
 
 :::tip
-If a listed parameter is missing from the Firmware see: [Finding/Updating Parameters](../advanced_config/parameters.md#parameter-not-in-firmware).
+Якщо в прошивці відсутній параметр без списку: [Знайти/Оновлення параметрів](../advanced_config/parameters.md#parameter-not-in-firmware).
 :::
 
 <!-- markdown generator: src/lib/parameters/px4params/markdownout.py -->
@@ -27,7 +27,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -170,7 +170,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -192,7 +192,7 @@ table {
         uavcan.equipment.gnss.Fix alongside the new alternative
         uavcan.equipment.gnss.Fix2. It is recommended to
         disable this feature to reduce the CAN bus traffic.
-      </p> <strong>Values:</strong><ul>
+      </p> <strong>Значення</strong><ul>
 <li><strong>0:</strong> Fix2</li>
 <li><strong>1:</strong> Fix and Fix2</li>
 </ul>  </td>
@@ -206,7 +206,7 @@ table {
               the GNSS solution is less than this value. 3 for the full (3D)
               solution, 2 for planar (2D) solution, 1 for time-only solution,
               0 disables the feature.
-      </p> <strong>Values:</strong><ul>
+      </p> <strong>Значення</strong><ul>
 <li><strong>0:</strong> disables the feature</li>
 <li><strong>1:</strong> time-only solution</li>
 <li><strong>2:</strong> planar (2D) solution</li>
@@ -243,7 +243,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -2829,7 +2829,7 @@ table {
 </tr>
 <tr>
  <td><strong id="PWM_AUX_TIM3">PWM_AUX_TIM3</strong> (INT32)</td>
- <td>Output Protocol Configuration for PWM Capture 1-3 <p><strong>Comment:</strong> Select which Output Protocol to use for outputs PWM Capture 1-3. Custom PWM rates can be used by directly setting any value &gt;0.</p> <strong>Values:</strong><ul>
+ <td>Output Protocol Configuration for PWM Capture 1-3 <p><strong>Comment:</strong> Select which Output Protocol to use for outputs PWM Capture 1-3. Custom PWM rates can be used by directly setting any value &gt;0.</p> <strong>Значення</strong><ul>
 <li><strong>-1:</strong> OneShot</li>
 <li><strong>50:</strong> PWM 50 Hz</li>
 <li><strong>100:</strong> PWM 100 Hz</li>
@@ -3065,7 +3065,7 @@ table {
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FUNC3">PWM_MAIN_FUNC3</strong> (INT32)</td>
- <td>MAIN 3 Output Function <p><strong>Comment:</strong> Select what should be output on MAIN 3. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Values:</strong><ul>
+ <td>MAIN 3 Output Function <p><strong>Comment:</strong> Select what should be output on MAIN 3. The default failsafe value is set according to the selected function: - &#x27;Min&#x27; for ConstantMin - &#x27;Max&#x27; for ConstantMax - &#x27;Max&#x27; for Parachute - (&#x27;Max&#x27;+&#x27;Min&#x27;)/2 for Servos - &#x27;Disarmed&#x27; for the rest</p> <strong>Значення</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Constant Min</li>
 <li><strong>2:</strong> Constant Max</li>
@@ -26702,7 +26702,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -26803,7 +26803,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>За замовчуванням</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -27350,7 +27350,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -27367,7 +27367,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -27380,12 +27380,12 @@ table {
 </tr>
 </tbody></table>
 
-## Miscellaneous
+## Інше
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
