@@ -1,6 +1,6 @@
-# Complete Vehicles
+# Повністю зібрані транспортні засоби
 
-For frame-type specific information about fully-assembled vehicles that can run PX4 see:
+Для конкретної інформації щодо типу конструкції повністю зібраних транспортних засобів, які можуть працювати з PX4, див.:
 
 - Multicopters: [Complete Vehicles (MC)](../complete_vehicles_mc/README.md) (also see [Kits (MC)](../frames_multicopter/kits.md), [DIY Builds](../frames_multicopter/diy_builds.md))
 - VTOL: [Complete Vehicles (VTOL)](../complete_vehicles_vtol/README.md)
