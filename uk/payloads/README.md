@@ -50,34 +50,34 @@ PX4 підтримує _доставку посилок в місіях_ за д
 Використовуйте камеру, яка підтримує протокол [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html), оскільки він підтримує захоплення зображень і відео, масштабування, керування сховищем, кілька камер на одному апараті та перемикання між ними тощо. Цими камерами можна керувати вручну з QGroundControl або через MAVSDK (як для [окремих операцій камери](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html), так і для [місій](https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4)). Перегляньте розділ [Запуск камери](../peripherals/camera.md), щоб дізнатися, як налаштувати камеру для роботи з MAVLink.
 
 :::note
-Cameras connected directly to the flight controller _only_ support camera triggering, and are unlikely to be suitable for most surveillance/search work.
+Камери, підключені безпосередньо до політного контролера, підтримують _тільки_ активацію камери та навряд чи підходять для більшості діяльностей зі спостереження/пошуку.
 :::
 
-A search and rescue drone may also need to carry cargo, for example, emergency supplies for a stranded hiker. See [Cargo Drones](#cargo-drones-package-delivery) above for information about payload delivery.
+Пошуково-рятувальному безпілотнику також може знадобитися транспортувати вантажі, наприклад, для екстреної допомоги туристу, що застряг. Перегляньте [Вантажні дрони](#cargo-drones-package-delivery) вище, щоб отримати інформацію про доставлення корисного вантажу.
 
-## Agricultural Drones/Crop Spraying
+## Сільськогосподарські дрони/Обприскування насаджень
 
-Agricultural drones are commonly used for mapping crop health and pest detection and animal management (herding, tracking, etc.). These cases are similar to the [mapping](#mapping-drones) and [surveillance, search & rescue](#surveillance-search-rescue) cases above. While specific crops/animals may need specialist cameras, the integration with PX4 is the same.
+Сільськогосподарські безпілотні літальні апарати зазвичай використовуються для картографування стану рослин, виявлення шкідників і догляду за тваринами (випасання, відстеження тощо). Ці варіанти використання подібні до [картографування](#mapping-drones) та [спостереження, пошуку & порятунку](#surveillance-search-rescue) наведених вище. Хоча для окремих культур/тварин можуть знадобитися спеціальні камери, інтеграція з PX4 незмінна.
 
-Agricultural drone may also be used for crop spraying. In this case the sprayer must be controlled as a [generic actuator](#generic-actuator-control):
+Сільськогосподарський дрон також можна використовувати для обприскування посівів. У цьому випадку обприскувач має керуватися як [загальний привід](#generic-actuator-control):
 
-- The [Generic Actuator Control with MAVLink](#generic-actuator-control-with-mavlink) section explains how you can connect flight controller outputs to your sprayer so that they can be controlled using MAVLink. Most sprayers provide controls to activate/deactivate a pump; some also allow control over the rate of flow or the spray field (i.e. by controlling the nozzle shape, or using a spinner to distribute the payload).
-- You can define the area to spray using a [Survey pattern](https://docs.qgroundcontrol.com/master/en/PlanView/pattern_survey.html), or you can define the grid to fly using waypoints. In either case, it is important to ensure that the vehicle flight path and altitude provide adequate coverage for your particular spray being used.
-- You should add a ["Set actuator" mission item](#generic-actuator-control-in-missions) to your mission before and after the survey pattern in order to enable and disable the sprayer.
+- У розділі [Керування Загальним Приводом за допомогою MAVLink](#generic-actuator-control-with-mavlink) пояснюється, як можна під'єднати виходи політного контролера до розпилювача, щоб ним можна було керувати за допомогою MAVLink. Більшість розпилювачів мають засоби керування для ввімкнення/вимкнення помпи; деякі також дозволяють контролювати швидкість потоку або поле розпилення (тобто, керуючи формою сопла або використовуючи спінер для розподілу корисного навантаження).
+- Ви можете визначити область розпилювання за допомогою [ Survey патерну](https://docs.qgroundcontrol.com/master/en/PlanView/pattern_survey.html) або визначити сітку для польоту за допомогою маршрутних точок. У будь-якому випадку важливо переконатися, що траєкторія польоту апарату та його висота забезпечують належне покриття для конкретного спрею, що використовується.
+- Щоб увімкнути та вимкнути розпилювач, ви повинні додати [елемент "Set actuator"](#generic-actuator-control-in-missions) до вашої місії до та після survey патерну.
 
 
-## Generic Actuator Control
+## Керування Загальним Приводом
 
-You can connect arbitrary hardware to unused PX4 outputs and control it using [RC Control](#generic-actuator-control-with-rc) or [MAVLink](#generic-actuator-control-with-mavlink) (either as commands or in a [mission](#generic-actuator-control-in-missions)).
+Ви можете під'єднати будь-яке обладнання до невикористаних виходів PX4 і керувати ним за допомогою [Пульту керування](#generic-actuator-control-with-rc) або [MAVLink](#generic-actuator-control-with-mavlink) (у вигляді команд або в [місії](#generic-actuator-control-in-missions)).
 
-This is useful when you need to use a payload type for which there is no associated MAVLink command, or that is not supported by PX4.
+Це корисно, коли вам потрібно використовувати тип корисного навантаження, для якого немає відповідної команди MAVLink, або який не підтримується PX4.
 
 :::note
-Prefer using integrated hardware and hardware-specific MAVLink commands to generic actuator control when possible.
-Using integrated hardware allows optimised mission planning and behaviour.
+Якщо це можливо, надавайте перевагу використанню інтегрованого обладнання та MAVLink команд що відповідають конкретному типу обладнання, для керування загальним приводом.
+Використання інтегрованого обладнання сприяє оптимізованому плануванню місії та поведінці.
 :::
 
-### Generic Actuator Control with MAVLink
+### Керування Загальним Приводом за допомогою MAVLink
 
 [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) can be used to set the value of up to 6 actuators (at a time). This command can be used in [missions](#generic-actuator-control-in-missions) by creating a "Set actuator" mission item, or as a stand alone command.
 
