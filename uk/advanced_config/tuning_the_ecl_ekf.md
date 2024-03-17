@@ -1,6 +1,6 @@
-# Using the ECL EKF
+# Використання ECL EKF
 
-This tutorial answers common questions about use of the ECL EKF algorithm.
+Цей підручник відповідає на поширені запитання щодо використання алгоритму ECL EKF.
 
 :::tip
 The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the _PX4 Developer Summit 2019_ (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, and the expected improvements through 2020.
@@ -8,7 +8,7 @@ The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the
 
 ## What is the ECL EKF?
 
-The Estimation and Control Library (ECL) uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
+Бібліотека оцінок і керування (ECL) використовує алгоритм розширеного фільтра Калмана (EKF) для обробки вимірювань датчиків і надання оцінки таких станів:
 
 - Quaternion defining the rotation from North, East, Down local earth frame to X, Y, Z body frame
 - Velocity at the IMU - North, East, Down (m/s)
@@ -640,21 +640,21 @@ The simulated GPS was made to lose lock at 73 seconds. Note the NED velocity inn
 
 ![GPS Data Loss - in SITL](../../assets/ecl/gps_data_loss_-_velocity_innovations.png)
 
-### Barometer Ground Effect Compensation
+### Компенсація впливу землі на барометр
 
-If the vehicle has the tendency during landing to climb back into the air when close to the ground, the most likely cause is barometer ground effect.
+Якщо під час посадки транспортний засіб має тенденцію підніматися у повітря, коли він наближається до землі, найбільш ймовірна причина - це вплив землі на барометр.
 
-This is caused when air pushed down by the propellers hits the ground and creates a high pressure zone below the drone. The result is a lower reading of pressure altitude, leading to an unwanted climb being commanded. The figure below shows a typical situation where the ground effect is present. Note how the barometer signal dips at the beginning and end of the flight.
+Це відбувається, коли повітря, виштовхуване гвинтами, вдаряє в землю і утворює зону високого тиску під дроном. Результатом є менше вимірювання висоти тиску, що призводить до непотрібної команди на підйом. На малюнку нижче показано типову ситуацію, коли присутній ефект землі. Note how the barometer signal dips at the beginning and end of the flight.
 
 ![Barometer ground effect](../../assets/ecl/gnd_effect.png)
 
-You can enable _ground effect compensation_ to fix this problem:
+Ви можете ввімкнути _компенсацію ефекту землі_, щоб вирішити цю проблему:
 
 - From the plot estimate the magnitude of the barometer dip during takeoff or landing. In the plot above one can read a barometer dip of about 6 meters during landing.
 - Then set the parameter [EKF2_GND_EFF_DZ](../advanced_config/parameter_reference.md#EKF2_GND_EFF_DZ) to that value and add a 10 percent margin. Therefore, in this case a value of 6.6 meters would be a good starting point.
 
 If a terrain estimate is available (e.g. the vehicle is equipped with a range finder) then you can additionally specify [EKF2_GND_MAX_HGT](../advanced_config/parameter_reference.md#EKF2_GND_MAX_HGT), the above ground-level altitude below which ground effect compensation should be activated. If no terrain estimate is available this parameter will have no effect and the system will use heuristics to determine if ground effect compensation should be activated.
 
-## Further Information
+## Подальша інформація
 
-- [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ), _PX4 Developer Summit 2019_, Dr. Paul Riseborough): Overview of the estimator, and major changes from 2018/19, and the expected improvements through 2019/20.
+- [Огляд оцінки стану PX4](https://youtu.be/HkYRJJoyBwQ), _Саміт розробників PX4 2019_, д-р Пол Райзборо: Огляд оцінювача та основні зміни з 2018/19, а також очікувані покращення до 2019/ 20.
