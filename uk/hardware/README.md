@@ -1,4 +1,4 @@
-# Hardware Integration
+# Інтеграція з обладнанням
 
 This section contains topics about integrating PX4 with _new_ autopilot and peripheral hardware, including:
 
