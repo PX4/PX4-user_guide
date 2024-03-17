@@ -1,40 +1,40 @@
-# PX4-Autopilot Main Release Notes
+# PX4-Autopilot Головна нотатка щодо релізу
 
-This contains changes to PX4 since the last major release (v1.14).
+Це містить зміни до PX4 з останнього основного релізу (v1.14).
 
-## Read Before Upgrading
+## Прочитай перед оновленням
 
 TBD ...
 
-## Major Changes
+## Основні зміни
 
 - TBD
 
-## Upgrade Guide
+## Інструкції для оновлення
 
-## Other changes
+## Інші зміни
 
-### Hardware Support
-
-- TBD
-
-### Common
+### Підтримка апаратного забезпечення
 
 - TBD
 
-### Control
+### Загальні
+
+- TBD
+
+### Управління
 
 - [offboard][ros2 offboard control](../flight_modes/offboard.md#ros-2-messages) allows for direct motors and servo control. Added in PX4 in [PX4-Autopilot#22222](https://github.com/PX4/PX4-Autopilot/pull/22222).
 
-### Estimation
+### Оцінки
 
 - TBD
 
-### Sensors
+### Сенсори
 
 - TBD
 
-### Simulation
+### Моделювання
 
 - [Gazebo](../sim_gazebo_gz/README.md): Support for [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane), a simulated fixed-wing vehicle that provides better aerodynamic simulation than the regular plane. Added to PX4 in [PX4-Autopilot#22167](https://github.com/PX4/PX4-Autopilot/pull/22167) and [gz-sim#2185](https://github.com/gazebosim/gz-sim/pull/2185) (advanced lift drag plugin).
 - [Gazebo](../sim_gazebo_gz/README.md): The environment variable `PX4_SIM_MODEL` can now be used to indicate the simulation model. This supersedes `PX4_GZ_MODEL`, which is now deprecated. Added to PX4 in [PX4-Autopilot#22400](https://github.com/PX4/PX4-Autopilot/pull/22400).
