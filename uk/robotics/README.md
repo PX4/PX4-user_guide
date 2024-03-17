@@ -1,8 +1,8 @@
 # Drone додатки & API
 
-Drone APIs let you write code to control and integrate with PX4-powered vehicles, without having to understand intimate details of the vehicle and flight stack, or having to think about safety-critical behaviour.
+API дронів дозволяють вам писати код для керування та інтеграції з транспортними засобами на базі PX4, не потребуючи ретельного розуміння деталей транспортного засобу та стеку польоту, або думати про критичну безпекову поведінку.
 
-For example, you might want to create new "smart" flight modes, or custom geofence modes, or integrate new hardware. Drone APIs allow you to do this using high level instructions in your programming language of choice, and the code can then run on-vehicle in a [companion computer](../companion_computer/README.md) or from a ground station. Under the the hood the APIs communicate with PX4 using [MAVLink](../middleware/mavlink.md) or [uXRCE-DDS](../middleware/uxrce_dds.md).
+Наприклад, ви можете створити нові "розумні" режими польоту, або власні режими геозон, або інтегрувати нове обладнання. API дронів дозволяють вам робити це, використовуючи високорівневі інструкції у вашій обраній мові програмування, і код може потім виконуватися на транспортному засобі у [компаньйонному комп'ютері](../companion_computer/README.md) або зі станції на землі. В основі API здійснюється спілкування з PX4 за допомогою [MAVLink](../middleware/mavlink.md) або [uXRCE-DDS](../middleware/uxrce_dds.md).
 
 PX4 підтримує наступні інструменти SDK/робототехніки:
 - [MAVSDK](https://mavsdk.mavlink.io/)
