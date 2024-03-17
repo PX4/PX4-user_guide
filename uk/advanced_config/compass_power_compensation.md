@@ -1,66 +1,66 @@
-# Compass Power Compensation
+# Компенсація потужності компасу
 
-Compasses (magnetometers) should be mounted as far as possible from cables that carry large currents, as these induce magnetic fields that may corrupt the compass readings.
+Компаси (магнітометри) повинні бути встановлені якнайдалі від кабелів, які переносять великі струми, оскільки вони створюють магнітні поля, які можуть вплинути на показання компасу.
 
 This topic explains how to compensate for the induced magnetic fields in the cases where moving the compass is not realistic.
 
 :::tip
-Moving the compass away from power-carrying cables is the easiest and most effective way to fix this issue, because the strength of the magnetic fields decreases quadratically with the distance from the cable.
+Переміщення компасу подалі від кабелів, що переносять потужність, є найпростішим і найефективнішим способом вирішення цієї проблеми, оскільки сила магнітних полів зменшується квадратично з відстані від кабелю.
 :::
 
 :::note
-The process is demonstrated for a multicopter, but is equally valid for other vehicle types.
+Процес продемонстрований для багатороторного вертольота, але є так само ефективним для інших типів транспортних засобів.
 :::
 
 <a id="when"></a>
 
-## When is Power Compensation Applicable?
+## Коли застосовна компенсація потужності?
 
-Performing this power compensation is advisable only if all the following statements are true:
+Виконання компенсації потужності рекомендується лише у випадку, якщо виконуються всі наступні умови:
 
-1. The compass cannot be moved away from the power-carrying cables.
-1. There is a strong correlation between the compass readings and the thrust setpoint, and/or the battery current.
+1. Компас не може бути віддалений від кабелів, які переносять потужність.
+1. Існує сильна кореляція між показаннями компасу та встановленим значенням тяги та/або поточним зарядом батареї.
 
    ![Corrupted mag](../../assets/advanced_config/corrupted_mag.png)
 
-1. The drone cables are all fixed in place/do not move (calculated compensation parameters will be invalid if the current-carrying cables can move).
+1. Кабелі дрона всі закріплені на місці / не рухаються (розраховані параметри компенсації будуть недійсними, якщо кабелі, які переносять струм, можуть рухатися).
 
 <a id="how"></a>
 
-## How to Compensate the Compass
+## Як компенсувати компас
 
-1. Make sure your drone runs a Firmware version supporting power compensation (current master, or releases from v.1.11.0).
-1. Perform the [standard compass calibration](../config/compass.md#compass-calibration).
-1. Set the parameter [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) to 2 to enable logging of data from boot.
-1. Set the parameter [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for _Sensor comparison_ (bit 6) to get more data points.
-1. Secure the drone so that it cannot move, and attach the propellers (so the motors can draw the same current as in flight). This example secures the vehicle using straps.
+1. Переконайтеся, що ваш дрон працює на версії прошивки, що підтримує компенсацію потужності (поточний майстер або версії від v.1.11.0).
+1. Виконайте [стандартну калібрування компасу](../config/compass.md#compass-calibration).
+1. Встановіть параметр [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) на 2, щоб увімкнути журналювання даних після завантаження.
+1. Встановіть прапорець параметра [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) для _Порівняння датчиків_ (біт 6), щоб отримати більше точок даних.
+1. Закріпіть дрон таким чином, щоб він не міг рухатися, та прикріпіть пропелери (щоб двигуни могли витягувати такий самий струм, як у повітрі). У цьому прикладі транспортний засіб закріплюється за допомогою ременів.
 
    ![strap](../../assets/advanced_config/strap.png)
 
-1. Power the vehicle and switch into [ACRO flight mode](../flight_modes_mc/acro.md) (using this mode ensures the vehicle won't attempt to compensate for movement resulting from the straps).
+1. Увімкніть живлення транспортного засобу та переключіться у режим польоту [ACRO](../flight_modes_mc/acro.md) (використання цього режиму забезпечує, що транспортний засіб не намагатиметься компенсувати рух, що виникає від ременів).
 
-   - Arm the vehicle and slowly raise the throttle to the maximum
-   - Slowly lower the throttle down to zero
+   - Збройте транспортний засіб і повільно підніміть оберти двигунів до максимуму.
+   - Повільно знизьте швидкість обертання двигунів до нуля.
    - Disarm the vehicle
 
    :::note
-Perform the test carefully and closely monitor the vibrations.
+Проведіть тест обережно і уважно моніторте вібрації.
 :::
 
-1. Retrieve the ulog and use the python script [mag_compensation.py](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/sensors/vehicle_magnetometer/mag_compensation/python/mag_compensation.py) to identify the compensation parameters.
+1. Отримайте ulog та скористайтеся Python-скриптом [mag_compensation.py](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/sensors/vehicle_magnetometer/mag_compensation/python/mag_compensation.py), щоб ідентифікувати параметри компенсації.
 
    ```sh
    python mag_compensation.py ~/path/to/log/logfile.ulg
    ```
 
    :::note
-If your log does not contain battery current measurements, you will need to comment out the respective lines in the Python script, such that it does the calculation for thrust only.
+Якщо ваш журнал не містить вимірювань поточного заряду батареї, вам потрібно закоментувати відповідні рядки у Python-скрипті, щоб він робив розрахунок тільки для тяги.
 :::
 
-1. The script will return the parameter identification for thrust as well as for current and print them to the console. The figures that pop up from the script show the "goodness of fit" for each compass instance, and how the data would look if compensated with the suggested values. If a current measurement is available, using the current-compensation usually yields the better results. Here is an example of a log, where the current fit is good, but the thrust parameters are unusable as the relationship is not linear.
+1. Скрипт поверне ідентифікацію параметрів для тяги, а також для поточного і виведе їх у консоль. Цифри, які з'являються зі скрипту, показують "якість підгонки" для кожного екземпляру компасу, а також те, як виглядатиме дані після компенсації за запропонованими значеннями. Якщо є вимірювання струму, використання компенсації поточного звичайно дає кращі результати. Ось приклад журналу, де відповідність струму добра, але параметри тяги непридатні, оскільки відношення не є лінійним.
 
    ![line fit](../../assets/advanced_config/line_fit.png)
 
-1. Once the parameters are identified, the power compensation must be enabled by setting [CAL_MAG_COMP_TYP](../advanced_config/parameter_reference.md#CAL_MAG_COMP_TYP) to 1 (when using thrust parameters) or 2 (when using current parameters). Additionally, the compensation parameters for each axis of each compass must be set.
+1. Після ідентифікації параметрів, компенсацію потужності потрібно ввімкнути, встановивши [CAL_MAG_COMP_TYP](../advanced_config/parameter_reference.md#CAL_MAG_COMP_TYP) на значення 1 (при використанні параметрів тяги) або 2 (при використанні параметрів струму). Додатково, параметри компенсації для кожної вісі кожного компасу повинні бути встановлені.
 
    ![comp params](../../assets/advanced_config/comp_params.png)
