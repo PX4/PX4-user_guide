@@ -26,7 +26,7 @@ The Rotoye Batmon system uses an XT-90 battery connector with I2C pins, and an o
 More details can be found [here](https://github.com/rotoye/batmon_reader)
 
 
-## Software Setup
+## Налаштування програмного забезпечення
 
 ### Build PX4 Firmware
 
@@ -42,9 +42,9 @@ More details can be found [here](https://github.com/rotoye/batmon_reader)
    ```
 1. [Build and upload the firmware](../dev_setup/building_px4.md) for your target board
 
-### Configure Parameters
+### Налаштування параметрів
 
-In *QGroundControl*:
+У *QGroundControl*:
 1. Set the following [parameters](../advanced_config/parameters.md):
    - `BATx_SOURCE` to `External`,
    - `SENS_EN_BAT` to `true`,
@@ -56,6 +56,6 @@ In *QGroundControl*:
    batt_smbus start -X -b 1 -a 12 # External bus 1, address 0x0c
    ```
 
-## Further Information
+## Детальна інформація
 
 [Quick Start Guide](https://rotoye.com/batmon-tutorial/) (Rotoye)
