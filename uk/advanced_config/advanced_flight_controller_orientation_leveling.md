@@ -1,31 +1,31 @@
 # Advanced Flight Controller Orientation Tuning
 
-These instructions can be used to manually fine-tune the orientation and horizon level, for example to correct for small sensor board misalignments or minor calibration errors.
+Ці інструкції можна використовувати для ручного налаштування орієнтації та рівня горизонту, наприклад, для виправлення невеликих відхилень датчиків або незначних помилок під час калібрування.
 
-If there is a persistent drift bias (often seen in multirotors but not limited to them), it is a good strategy to trim it with the help of these fine-tuning offset angle parameters, instead of using the trimmers of your RC Transmitter. This ensures the vehicle will maintain the trimming when in fully autonomous flight.
+Якщо існує постійне відхилення (часто спостерігається у багатороторних апаратах, але не обмежується ними), це хороша стратегія виправити його за допомогою цих параметрів зміщення дрібної настройки кута, замість використання ручок регулювання на вашому радіокеруванні. Це забезпечує, що апарат буде зберігати налаштування під час повністю автономного польоту.
 
 :::note
-These instructions are "advanced", and not recommended for regular users (the broad tuning is generally sufficient).
+Ці інструкції є "продвинутими" і не рекомендуються для звичайних користувачів (загальна настройка зазвичай достатня).
 :::
 
-## Setting Orientation Parameters
+## Налаштування параметрів орієнтації
 
-The [SENS_BOARD_ROT](../advanced_config/parameter_reference.md#SENS_BOARD_ROT) parameter defines the rotation of the flight controller board relative to the vehicle frame, while the fine tuning offsets ([SENS_BOARD_X_OFF](../advanced_config/parameter_reference.md#SENS_BOARD_X_OFF), [SENS_BOARD_Y_OFF](../advanced_config/parameter_reference.md#SENS_BOARD_Y_OFF), [SENS_BOARD_Z_OFF](../advanced_config/parameter_reference.md#SENS_BOARD_Z_OFF)) set the rotation of the sensors relative to the board itself. The fine tuning offsets are added to the `SENS_BOARD_ROT` angle in order to determine the total offset angles for the Yaw, Pitch and Roll orientation of the flight controller.
+Параметр [SENS_BOARD_ROT](../advanced_config/parameter_reference.md#SENS_BOARD_ROT) визначає обертання плати контролера польоту відносно конструкції транспортного засобу, тоді як дрібна настройка зміщень ([SENS_BOARD_X_OFF](../advanced_config/parameter_reference.md#SENS_BOARD_X_OFF), [SENS_BOARD_Y_OFF](../advanced_config/parameter_reference.md#SENS_BOARD_Y_OFF), [SENS_BOARD_Z_OFF](../advanced_config/parameter_reference.md#SENS_BOARD_Z_OFF)) встановлює обертання датчиків відносно самої плати. Дрібні настройки зміщень додаються до кута `SENS_BOARD_ROT`, щоб визначити загальні кутові зміщення для орієнтації по крену, тангажу та рулону контролера польоту.
 
-First perform the normal calibration for [Flight Controller Orientation](../config/flight_controller_orientation.md) and [Level Horizon Calibration](../config/level_horizon_calibration.md) to set the [SENS_BOARD_ROT](../advanced_config/parameter_reference.md#SENS_BOARD_ROT) parameter.
+Спочатку виконайте звичайну калібрування для [Орієнтації контролера польоту](../config/flight_controller_orientation.md) та [Калібрування горизонту на рівні](../config/level_horizon_calibration.md), щоб встановити параметр [SENS_BOARD_ROT](../advanced_config/parameter_reference.md#SENS_BOARD_ROT).
 
-The other parameters can then be set in order to fine-tune the orientation of the IMU sensors relative to the board itself.
+Інші параметри можна встановити для точної настройки орієнтації датчиків ІМПУ відносно самої плати.
 
-You can locate the parameters in QGroundControl as shown below:
+Ви можете знайти параметри в QGroundControl, як показано нижче:
 
-1. Open QGroundControl menu: **Settings > Parameters > Sensor Calibration**.
+1. Відкрийте меню QGroundControl: **Settings > Parameters > Sensor Calibration**.
 1. The parameters as located in the section as shown below (or you can search for them):
 
    ![FC Orientation QGC v2](../../assets/qgc/setup/sensor/fc_orientation_qgc_v2.png)
 
 ## Parameter Summary
 
-- [SENS_BOARD_ROT](../advanced_config/parameter_reference.md#SENS_BOARD_ROT): Rotation of the FMU board relative to the vehicle frame.
-- [SENS_BOARD_X_OFF](../advanced_config/parameter_reference.md#SENS_BOARD_X_OFF): Rotation, in degrees, around PX4FMU's X axis or Roll axis. Positive angles increase in CCW direction, negative angles increase in CW direction.
-- [SENS_BOARD_Y_OFF](../advanced_config/parameter_reference.md#SENS_BOARD_Y_OFF): Rotation, in degrees, around PX4FMU's Y axis or Pitch axis. Positive angles increase in CCW direction, negative angles increase in CW direction.
-- [SENS_BOARD_Z_OFF](../advanced_config/parameter_reference.md#SENS_BOARD_Z_OFF): Rotation, in degrees, around PX4FMU's Z axis Yaw axis. Positive angles increase in CCW direction, negative angles increase in CW direction.
+- [SENS_BOARD_ROT](../advanced_config/parameter_reference.md#SENS_BOARD_ROT): Поворот плати FMU відносно рами транспортного засобу.
+- [SENS_BOARD_X_OFF](../advanced_config/parameter_reference.md#SENS_BOARD_X_OFF): Поворот, у градусах, навколо осі X PX4FMU або вісі Крену. Позитивні кути збільшуються в протипротивна годинниковій стрілці (CCW) напрямку, від'ємні кути збільшуються в напрямку за годинниковою стрілкою (CW).
+- [SENS_BOARD_Y_OFF](../advanced_config/parameter_reference.md#SENS_BOARD_Y_OFF): Поворот, в градусах, навколо осі Y PX4FMU або вісі Крену. Позитивні кути збільшуються в напрямку CCW, негативні кути збільшуються в напрямку CW.
+- [SENS_BOARD_Z_OFF](../advanced_config/parameter_reference.md#SENS_BOARD_Z_OFF): Поворот, у градусах, навколо осі Z PX4FMU або вісі Yaw . Позитивні кути збільшуються в напрямку CCW, негативні кути збільшуються в напрямку CW.
