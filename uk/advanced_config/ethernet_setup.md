@@ -1,8 +1,8 @@
-# PX4 Ethernet Setup
+# Налаштування PX4 Ethernet
 
-Ethernet connectivity provides a fast, reliable, and flexible communication alternative to using USB or other serial connections.
+Підключення через Ethernet надає швидкий, надійний та гнучкий спосіб зв'язку, який може бути альтернативою використанню USB або інших послідовних з'єднань.
 
-It can be used to connect to ground stations, companion computers, and other MAVLink systems. It is particularly recommended when connecting to systems that "natively" use Ethernet - for example IP radios.
+Воно може бути використане для підключення до наземних станцій, супутникових комп'ютерів та інших систем MAVLink. Це особливо рекомендується при підключенні до систем, які «природно» використовують Ethernet, наприклад, IP-радіо.
 
 This topic covers:
 
@@ -19,7 +19,7 @@ This topic covers:
 
 ## Supported Flight Controllers
 
-PX4 supports Ethernet connectivity on [Pixhawk 5X-standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-011%20Pixhawk%20Autopilot%20v5X%20Standard.pdf) flight controllers (and later) that have an Ethernet port. It may also be supported on other boards.
+PX4 підтримує підключення по Ethernet на контролерах польоту [Pixhawk 5X-standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-011%20Pixhawk%20Autopilot%20v5X%20Standard.pdf) (і пізніше), які мають порт Ethernet. It may also be supported on other boards.
 
 Supported flight controllers include:
 
@@ -27,14 +27,14 @@ Supported flight controllers include:
 - [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md)
 - [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md)
 
-## Setting up the Ethernet Network
+## Налаштування мережі Ethernet
 
-To connect systems over Ethernet you need to configure them to run on the same IP network, so that each system has a unique IP address and can find the other systems. This might be done using a DHCP server to allocate addresses, or by manually configuring the addresses of each system on the network.
+Для підключення систем по Ethernet потрібно налаштувати їх на роботу в одній IP-мережі, щоб кожна система мала унікальну IP-адресу та могла знаходити інші системи. Це можна зробити за допомогою DHCP-сервера для призначення адрес або вручну налаштувавши адреси кожної системи в мережі.
 
-There is no single "out of the box configuration" that we can provide that will necessarily work in your local network. Therefore as an example of the kind of configuration you might do, below we show how to set up the systems on an IP network with static addresses in the range `192.168.0.Xxx`, where PX4 has a statically allocated address `192.168.0.4` and the computer has address `192.168.0.1`. If you wanted to connect a companion computer or other system to the network you could use a similar approach to allocate a static address.
+There is no single "out of the box configuration" that we can provide that will necessarily work in your local network. Отже, як приклад того, як можна налаштувати системи в IP-мережі зі статичними адресами в діапазоні `192.168.0.Xxx`, де PX4 має статично призначену адресу `192.168.0.4`, а комп'ютер має адресу `192.168.0.1`. If you wanted to connect a companion computer or other system to the network you could use a similar approach to allocate a static address.
 
 :::note
-There is nothing "special" about the network configuration (other than perhaps the tools used to modify the network settings); it works much the same as any home or business network.
+Немає нічого «особливого» щодо конфігурації мережі (крім можливо інструментів, які використовуються для зміни налаштувань мережі); вона працює майже так само, як будь-яка домашня або корпоративна мережа.
 Which is to say that a knowledge of how IP networks work is highly desirable!
 :::
 
@@ -155,11 +155,11 @@ For more information on MAVLink serial port configuration see [MAVLink Periphera
 
 ## QGroundControl Setup Example
 
-Assuming you have already [Set up the Ethernet Network](#setting-up-the-ethernet-network) so your ground station computer and PX4 run on the same network, and
+Припускаючи, що ви вже налаштували [мережу Ethernet](#setting-up-the-ethernet-network), щоб ваш комп'ютер земної станції та PX4 працювали в одній мережі, і
 
-To connect QGroundControl to PX4 over Ethernet:
+Для підключення QGroundControl до PX4 по Ethernet:
 
-1. [Set up the Ethernet Network](#setting-up-the-ethernet-network) so your ground station computer and PX4 run on the same network.
+1. [Налаштуйте мережу Ethernet](#setting-up-the-ethernet-network)  так, щоб ваш комп'ютер земної станції та PX4 працювали в одній мережі.
 1. Connect the ground station computer and PX4 using an Ethernet cable.
 1. Start QGroundControl and [define a comm link](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) (**Application Settings > Comm Links**) specifying the _server address_ and port as the IP address and port assigned in PX4, respectively.
 
@@ -170,7 +170,7 @@ To connect QGroundControl to PX4 over Ethernet:
 1. QGroundControl should then connect if you select this link.
 
 :::note
-[PX4 Ethernet Port Configuration](#px4-ethernet-network-setup) should not be needed (the default are appropriate for a GCS).
+Конфігурація [порту Ethernet PX4](#px4-ethernet-network-setup) не повинна бути потрібною (за замовчуванням вона відповідна для GCS).
 :::
 
 ## MAVSDK-Python Setup Example
