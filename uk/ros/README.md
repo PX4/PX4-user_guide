@@ -1,31 +1,31 @@
 # ROS  (Робототехнічна операційна система)
 
-[ROS](http://www.ros.org/) is a general purpose robotics library that can be used with PX4 for drone application development.
+[ROS](http://www.ros.org/) - загальнопризначена бібліотека робототехніки, яку можна використовувати з PX4 для розробки додатків для дронів.
 
-ROS benefits from an active ecosystem of developers solving common robotics problems, and access to other software libraries written for Linux. It has been used, for example, as part of the PX4 [computer vision](../computer_vision/README.md) solutions, including [obstacle avoidance](../computer_vision/obstacle_avoidance.md) and [collision prevention](../computer_vision/collision_prevention.md).
+ROS користується активною екосистемою розробників, які вирішують загальні проблеми робототехніки, а також має доступ до інших бібліотек програмного забезпечення, написаних для Linux. Він використовувався, наприклад, як частина рішень [комп’ютерного зору](../computer_vision/README.md) PX4, включаючи [уникнення перешкод](../computer_vision/obstacle_avoidance.md) і [запобігання зіткненням](../computer_vision/collision_prevention.md).
 
 :::warning
-tip [ROS 2](../ros/ros2.md) is the "latest and greatest" version of ROS. The PX4 development team recommend that all users [upgrade to ROS 2](../ros/ros2.md)!
+tip [ROS 2](../ros/ros2.md) – це «остання та найкраща» версія ROS. Команда розробників PX4 рекомендує всім користувачам [оновитися до ROS 2](../ros/ros2.md)!
 :::
 
 
-## ROS Setups
+## ROS Установки
 
-PX4 supports both ROS 2 and ROS 1, with the following configurations:
+PX4 підтримує як ROS 2 так і ROS 1 з наступними конфігураціями:
 
-- **[ROS 2](../ros/ros2.md): (Recommended)** PX4 and ROS 2 communicate over the [PX4-ROS 2 bridge](../ros/ros2_comm.md), an interface that provides a direct bridge between PX4 uORB messages and ROS 2 DDS messages/types. This effectively allows direct access to PX4 internals from ROS 2 workflows and nodes in realtime.
-- **[ROS 1 via MAVROS](../ros/ros1.md):** PX4 and ROS 1 communicate over [MAVLink](../middleware/mavlink.md), using the [MAVROS](../ros/mavros_installation.md) package to bridge ROS topics to MAVLink.
+- **[ROS 2](../ros/ros2.md): (рекомендовано)** PX4 і ROS 2 обмінюються даними через [міст PX4-ROS 2](../ros/ros2_comm.md), інтерфейс, який забезпечує прямий міст між PX4 uORB повідомлення та типи повідомлень/типів ROS 2 DDS. Це забезпечує прямий доступ до внутрішніх елементів PX4 із робочих процесів і вузлів ROS 2 у реальному часі.
+- **[ROS 1 через MAVROS](../ros/ros1.md):** PX4 і ROS 1 обмінюються даними через [MAVLink](../middleware/mavlink.md), використовуючи пакет [MAVROS](../ros/mavros_installation.md) для зв’язку тем ROS з MAVLink.
 
 :::note ROS
-2 can also connect with PX4 using [MAVROS](https://github.com/mavlink/mavros/tree/ros2/mavros) (instead of XRCE-DDS). This option is supported by the MAVROS project.
+2 також може з’єднуватися з PX4 за допомогою [MAVROS](https://github.com/mavlink/mavros/tree/ros2/mavros) (замість XRCE-DDS). Цей параметр підтримується проектом MAVROS.
 :::
 
-Note that ROS 2 can be installed on Ubuntu Linux, macOS, Windows, while ROS 1 is only available on Linux. Although it might work on the other platforms, PX4 primarily tests and documents ROS on _Linux_.
+Зверніть увагу, що ROS 2 може бути встановлена на Ubuntu Linux, macOS, Windows, коли ROS 1 доступний лише на Linux. Хоча він може працювати на інших платформах, PX4 переважно тестує та документує ROS на _Linux_.
 
 
 ## ROS Support Roadmap
 
-Unveiled at the [PX4 Developer Summit 2020](https://www.youtube.com/watch?v=lZ8crGI16qA) (and [ROS World 2020](https://www.youtube.com/watch?v=8XRkzHqQSf0)), the PX4 Development team, announced the plans to support microROS.
+На [PX4 Developer Summit  2020](https://www.youtube.com/watch?v=lZ8crGI16qA) (і [ROS World 2020](https://www.youtube.com/watch?v=8XRkzHqQSf0)), команда розробників PX4 оголосила плани підтримки microROS.
 
 * microRTPS: microRTPS bridge with Fast DDS (The ROS 2 interface in PX4 v1.13 and earlier)
 * micro XRCE-DDS: DDS on PX4 (The ROS 2 interface for PX4 v1.14 and later)
