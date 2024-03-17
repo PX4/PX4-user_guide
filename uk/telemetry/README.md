@@ -2,7 +2,7 @@
 
 Telemetry Radios can (optionally) be used to provide a wireless MAVLink connection between a ground control station like _QGroundControl_ and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
 
-PX4 supports a number of types of telemetry radios:
+PX4 підтримує ряд типів телеметрійних радіозон:
 
 - [SiK Radio](../telemetry/sik_radio.md) based firmware (more generally, any radio with a UART interface should work).
   - [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
@@ -25,7 +25,7 @@ WiFi telemetry typically has shorter range, higher data rates, and makes it easi
 :::note PX4 does not support connecting an LTE USB module to the flight controller (and sending MAVLink traffic via the Internet). You can however connect an LTE module to a companion computer and use it to route MAVLink traffic from the flight controller. For more information see: [Companion Computer Peripherals > Data Telephony](../companion_computer/companion_computer_peripherals.md#data-telephony-lte).
 :::
 
-## Allowed Frequency Bands
+## Дозволені частоти
 
 Radio bands allowed for use with drones differ between continents, regions, countries, and even states. You should select a telemetry radio that uses a frequency range that is allowed in the areas where you plan on using the drone.
 
