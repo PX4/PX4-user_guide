@@ -79,15 +79,15 @@ PX4 підтримує _доставку посилок в місіях_ за д
 
 ### Керування Загальним Приводом за допомогою MAVLink
 
-[MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) can be used to set the value of up to 6 actuators (at a time). This command can be used in [missions](#generic-actuator-control-in-missions) by creating a "Set actuator" mission item, or as a stand alone command.
+[MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) може використовуватися для встановлення значень до 6 приводів (одночасно). Цю команду можна використовувати в [місіях](#generic-actuator-control-in-missions) шляхом створення елемента місії "Set actuator" або як окрему команду.
 
-The outputs that are to be controlled are specified in the [Actuators](../config/actuators.md#actuator-outputs) configuration screen by assigning the functions `Peripheral via Actuator Set 1` to `Peripheral via Actuator Set 6` to the desired [actuator outputs](../config/actuators.md#actuator-outputs).
+Виходи, якими потрібно керувати, вказуються на екрані конфігурації [Actuators](../config/actuators.md#actuator-outputs) шляхом призначення функцій `Peripheral via Actuator Set 1` до `Peripheral via Actuator Set 6` до бажаних [виходів приводу](../config/actuators.md#actuator-outputs).
 
 ![Generic actuator output setting in QGC](../../assets/peripherals/qgc_generic_actuator_output_setting_example.png)
 
-`MAV_CMD_DO_SET_ACTUATOR` `param1` to `param6` control the outputs mapped by `Peripheral via Actuator Set 1` to `Peripheral via Actuator Set 6` respectively.
+`MAV_CMD_DO_SET_ACTUATOR` `param1` до `param6` керують виходами, що замаплені від `Peripheral via Actuator Set 1` до `Peripheral via Actuator Set 6` відповідно.
 
-For example, in the image above, the `AUX5` output is assigned the function `Peripheral via Actuator Set 1` function. To control the actuator attached to `AUX5` you would set the value of `MAV_CMD_DO_SET_ACTUATOR.param1`.
+Наприклад, на зображенні вище вихід `AUX5` призначений функцією `Peripheral via Actuator Set 1`. Щоб керувати приводом, підключеним до `AUX5`, потрібно встановити значення `MAV_CMD_DO_SET_ACTUATOR.param1`.
 
 <!-- PX4 v1.14 bug https://github.com/PX4/PX4-Autopilot/issues/21966 -->
 
