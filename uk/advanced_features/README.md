@@ -1,8 +1,8 @@
-# Просунутий функціонал
+# Розширені функції
 
 Цей розділ містить теми, пов'язані з деякими більш розширеними функціями автопілота PX4:
 
-- [Air Traffic Avoidance: ADS-B/FLARM/UTM](../peripherals/adsb_flarm.md)
+- [Уникнення повітряного трафіку: ADS-B/FLARM/UTM](../peripherals/adsb_flarm.md)
 - [Комп'ютерний зір](../computer_vision/README.md)
   - [Уникнення перешкод](../computer_vision/obstacle_avoidance.md) (потрібен комп'ютер-компаньйон)
   - [Безпечна посадка](../computer_vision/safe_landing.md) (потрібен комп'ютер-компаньйон)
