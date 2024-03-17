@@ -19,8 +19,8 @@ Releases up to PX4 v1.14, do not support thermal calibration of the magnetometer
 [Процедури калібрування](#calibration_procedures), описані в наступних розділах, ідеально виконувати в _камері для навколишнього середовища_ (середовищі з контрольованою температурою та вологістю), оскільки плата нагрівається від найнижчої до найвищої робочої/ температура калібрування. Перед початком калібрування плату спочатку _замочують_ (охолоджують до мінімальної температури та дають їй досягти рівноваги).
 
 :::note
-Active electric heating elements will affect the magnetometer calibration values.
-Ensure that heating elements are either inactive or sufficiently far from the sensor to avoid injecting noise into the magnetometer calibration.
+Активні електронагрівальні елементи впливатимуть на значення калібрування магнітометра.
+Переконайтеся, що нагрівальні елементи або неактивні, або достатньо далеко від датчика, щоб уникнути введення шуму в калібрування магнітометра.
 :::
 
 For the cold soak you can use a regular home freezer to achieve -20C, and commercial freezers can achieve of the order of -40C. The board should be placed in a ziplock/anti-static bag containing a silica packet, with a power lead coming out through a sealed hole. After the cold soak the bag can be moved to the test environment and the test continued in the same bag.
@@ -113,7 +113,7 @@ To perform an offboard calibration:
 
 ### Calibration Parameter Storage
 
-With the existing parameter system implementation we are limited to storing each value in the struct as a separate entry. To work around this limitation the following logical naming convention is used for the [thermal compensation parameters](../advanced_config/parameter_reference.md#thermal-compensation):
+З існуючою реалізацією системи параметрів ми обмежені збереженням кожного значення в структурі як окремого запису. Щоб обійти це обмеження, для [параметрів теплової компенсації](../advanced_config/parameter_reference.md#thermal-compensation) використовується така логічна домовленість про найменування:
 
 ```sh
 TC_[type][instance]_[cal_name]_[axis]
@@ -140,7 +140,7 @@ Examples:
 
 ### Calibration Parameter Usage
 
-The correction for thermal offsets (using the calibration parameters) is performed in the [sensors module](../modules/modules_system.md#sensors). The reference temperature is subtracted from the measured temperature to obtain a delta temperature where:
+Корекція теплового зсуву (за допомогою параметрів калібрування) виконується в [модулі датчиків](../modules/modules_system.md#sensors). Еталонна температура віднімається від виміряної температури, щоб отримати дельта-температуру, де:
 
 ```
 delta = measured_temperature - reference_temperature
@@ -152,36 +152,45 @@ The delta temperature is then used to calculate a offset, where:
 offset = X0 + X1*delta + X2*delta**2 + ... + Xn*delta**n
 ```
 
-The offset and temperature scale factor are then used to correct the sensor measurement where:
+Зсув і температурний масштабний коефіцієнт потім використовуються для корекції вимірювання датчика, де:
 
 ```
 corrected_measurement = (raw_measurement - offset) * scale_factor
 ```
 
-If the temperature is above the test range set by the `*_TMIN` and `*_TMAX` parameters, then the measured temperature will be clipped to remain within the limits.
+Якщо температура перевищує тестовий діапазон, установлений параметрами `*_TMIN` і `*_TMAX`, тоді виміряна температура буде обрізана, щоб залишатися в межах.
 
-Correction of the accelerometer, gyroscope, magnetometer, or barometer data is enabled by setting [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE), [TC_M_ENABLE](../advanced_config/parameter_reference.md#TC_M_ENABLE), or [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) parameters to 1 respectively.
+Корекція даних акселерометра, гіроскопа, магнітометра або барометра вмикається, налаштувавши [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE), [TC_M_ENABLE](../advanced_config/parameter_reference.md#TC_M_ENABLE) або
+TC_B_ENABLE</ 3> параметри до 1 відповідно.</p> 
+
+
 
 ### Compatibility with legacy `CAL_*` parameters and commander controlled calibration
 
-The legacy temperature-agnostic PX4 rate gyro and accelerometer sensor calibration is performed by the commander module and involves adjusting offset, and in the case of accelerometer calibration, scale factor calibration parameters. The offset and scale factor parameters are applied within the driver for each sensor. These parameters are found in the [CAL parameter group](../advanced_config/parameter_reference.md#sensor-calibration).
+Застаріле калібрування гіроскопа й датчика акселерометра PX4 із температурним агностиком виконується модулем керування та передбачає налаштування зміщення, а у випадку калібрування акселерометра — параметрів калібрування масштабного коефіцієнта. Параметри зсуву та масштабного коефіцієнта застосовуються в драйвері для кожного датчика. Ці параметри знаходяться в [групі параметрів CAL](../advanced_config/parameter_reference.md#sensor-calibration).
 
-Onboard temperature calibration is controlled by the events module and the corrections are applied within the sensors module before the sensor combined uORB topic is published. This means that if thermal compensation is being used, all of the corresponding legacy offset and scale factor parameters must be set to defaults of zero and unity before a thermal calibration is performed. If an on-board temperature calibration is performed, this will be done automatically, however if an offboard calibration is being performed it is important that the legacy `CAL*OFF` and `CAL*SCALE` parameters be reset before calibration data is logged.
+Калібрування бортової температури контролюється модулем подій, а виправлення застосовуються в модулі датчиків перед тим, як буде опубліковано тему комбінованого датчика uORB. Це означає, що якщо використовується термокомпенсація, для всіх відповідних попередніх параметрів зміщення та масштабного коефіцієнта потрібно встановити значення за замовчуванням нуль і одиницю перед виконанням теплового калібрування. Якщо виконується вбудоване калібрування температури, це буде зроблено автоматично, однак якщо виконується зовнішнє калібрування, важливо, щоб застарілі параметри `CAL*OFF` і `CAL*SCALE</0 > параметри потрібно скинути перед реєстрацією даних калібрування.</p>
 
-If accel thermal compensation has been enabled by setting the `TC_A_ENABLE` parameter to 1, then the commander controlled 6-point accel calibration can still be performed. However, instead of adjusting the `*OFF` and `*SCALE` parameters in the `CAL` parameter group, these parameters are set to defaults and the thermal compensation `X0` and `SCL` parameters are adjusted instead.
+<p spaces-before="0">Якщо термокомпенсацію прискорення було ввімкнено шляхом встановлення параметра <code>TC_A_ENABLE` на 1, тоді контрольоване 6-точковим калібруванням прискорення все ще можна виконати. Однак замість налаштування параметрів `*OFF` і `*SCALE` у групі параметрів `CAL` ці параметри встановлюються за замовчуванням, а теплова компенсація < Натомість налаштовуються параметри 0>X0</code> та `SCL`.
 
-If gyro thermal compensation has been enabled by setting the `TC_G_ENABLE` parameter to 1, then the commander controlled gyro calibration can still be performed, however it will be used to shift the compensation curve up or down by the amount required to zero the angular rate offset. It achieves this by adjusting the X0 coefficients.
+Якщо теплову компенсацію гіроскопа було ввімкнено шляхом встановлення параметра `TC_G_ENABLE` на 1, тоді контрольоване калібрування гіроскопа, кероване командиром, усе ще можна виконувати, однак воно використовуватиметься для зміщення кривої компенсації вгору або вниз на необхідну величину до нуля зміщення кутової швидкості. Це досягається шляхом регулювання коефіцієнтів X0.
 
 Якщо термокомпенсацію магнітометра було ввімкнено шляхом установлення параметра `TC_M_ENABLE` на 1, тоді контрольоване 6-точковим калібруванням прискорення все ще можна виконати. Однак замість налаштування параметрів `*OFF` і `*SCALE` у групі параметрів `CAL` ці параметри встановлюються за замовчуванням, а теплова компенсація < Натомість налаштовуються параметри 0>X0</code> та `SCL`.
+
+
 
 ### Обмеження
 
 Припустимо, що масштабні фактори незмінні температури внаслідок труднощів, пов'язаних з вимірюванням їх за різних температур. Це обмежує корисність калібрування акселерометра в цих сенсорних моделях з факторами стабільного масштабу. Виносне калібрування виконується на комп’ютері розробки з використанням даних, зібраних під час випробування калібрування. Через складність інтеграції необхідного руху дошки з алгоритмом калібрування ця можливість не включена.
 
+
+
 ---
 
-[^1]: Параметри [SYS_CAL_ACCEL](../advanced_config/parameter_reference.md#SYS_CAL_ACCEL), [SYS_CAL_BARO](../advanced_config/parameter_reference.md#SYS_CAL_BARO) та [SYS_CAL_GYRO](../advanced_config/parameter_reference.md#SYS_CAL_GYRO) скидаються до 0 після початку калібрування.&#160;
-&#8617;< /3></p> </fn>
+
+
+[^1]:    
+    Параметри [SYS_CAL_ACCEL](../advanced_config/parameter_reference.md#SYS_CAL_ACCEL), [SYS_CAL_BARO](../advanced_config/parameter_reference.md#SYS_CAL_BARO) та [SYS_CAL_GYRO](../advanced_config/parameter_reference.md#SYS_CAL_GYRO) скидаються до 0 після початку калібрування.&#160;&#8617;< /3></p> </fn>
     
     
 [^2]:    
