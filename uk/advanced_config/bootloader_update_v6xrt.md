@@ -1,31 +1,31 @@
 # Bootloader Update Pixhawk V6X-RT via USB
 
-This topic explains explains to flash [Pixhawk FMUv6X-RT](../flight_controller/pixhawk6x-rt.md) bootloader via USB _without needing a debug probe_.
+У цій темі пояснюється флеш-завантажувач [Pixhawk FMUv6X-RT](../flight_controller/pixhawk6x-rt.md) через USB _без необхідності перевірки налагодження_.
 
-## Overview
+## Загальний огляд
 
 The _PX4 Bootloader_ is used to load firmware for [Pixhawk boards](../flight_controller/pixhawk_series.md) (PX4FMU, PX4IO).
 
-Pixhawk controllers usually comes with an appropriate bootloader version pre-installed.
-However in some cases it may not be present, or an older version may be present that needs to be updated.
-It is also possible that the device is bricked, so the device has to be erased and a new bootloader must be flashed.
+Контролери Pixhawk зазвичай постачаються з попередньо встановленою відповідною версією завантажувача.
+Однак у деяких випадках він може бути відсутнім або може бути присутня старіша версія, яку потрібно оновити.
+Також можливо, що пристрій заблоковано, тому пристрій потрібно стерти та встановити новий завантажувач.
 
 Most flight controllers require a Debug probe in order to update the bootloader, as discussed in [Bootloader Update > Debug Probe Bootloader Update](../advanced_config/bootloader_update.md#debug-probe-bootloader-update).
-You can use this approach for the Pixhawk FMUv6X-RT, but if you don't have a debug probe you can use the instructions outlined in this topic instead.
+Ви можете використовувати цей підхід для Pixhawk FMUv6X-RT, але якщо у вас немає зонда для налагодження, ви можете скористатися інструкціями, викладеними в цьому розділі.
 
 ## Building the PX4 FMUv6X-RT Bootloader
 
-This can be built from within the PX4-Autopilot folder using the `make` command and the board-specific target with a `_bootloader` suffix.
+Це можна створити з папки PX4-Autopilot за допомогою команди `make` і спеціальної цілі плати з суфіксом `_bootloader`.
 For FMUv6X-RT the command is:
 
 ```sh
 make px4_fmu-v6xrt_bootloader
 ```
 
-This will build the bootloader binary as `build/px4_fmu-v6xrt_bootloader/px4_fmu-v6xrt_bootloader.bin`, which can be flashed via SWD or ISP.
-If you are building the bootloader you should be familiar with one of these options already.
+Це створить двійковий файл завантажувача як `build/px4_fmu-v6xrt_bootloader/px4_fmu-v6xrt_bootloader.bin`, який можна завантажувати через SWD або ISP.
+Якщо ви створюєте завантажувач, ви вже повинні бути знайомі з одним із цих варіантів.
 
-If you need a HEX file instead of an ELF file, use objcopy:
+Якщо вам потрібен файл HEX замість файлу ELF, використовуйте objcopy:
 
 ```sh
 arm-none-eabi-objcopy -O ihex build/px4_fmu-v6xrt_bootloader/px4_fmu-v6xrt_bootloader.elf px4_fmu-v6xrt_bootloader.hex
@@ -105,4 +105,4 @@ The tool is available for Windows, Linux and macOS.
    ![Flash bootloader through Secure provisioning - Step 13](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step13.png)
 
 Now unplug the Pixhawk V6X-RT and re-power the board.
-After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using _QGroundControl_.
+Після оновлення завантажувача ви можете [завантажити прошивку PX4](../config/firmware.md) за допомогою _QGroundControl_.
