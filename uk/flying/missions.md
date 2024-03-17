@@ -1,6 +1,6 @@
-# Missions
+# Місії
 
-## Planning Missions
+## Планувальння місії
 
 Manually planning missions is straightforward:
 - Switch to the mission view
@@ -12,11 +12,11 @@ Manually planning missions is straightforward:
 You can also use the *Pattern* tool to automate creation of survey grids.
 
 :::tip
-For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html). :::
+Для отримання додаткової інформації дивіться [Керівництво з контролю QGroundControl](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html). :::
 
 ![planning-mission](../../assets/flying/planning_mission.jpg)
 
-### Mission Feasibility Checks
+### Перевірка легкості місій
 
 PX4 runs some basic sanity checks to determine if a mission is feasible. For example, whether the mission is close enough to the vehicle, if the mission will conflict with a geofence, or if a mission landing pattern is required but is not present.
 
@@ -47,9 +47,9 @@ The speed in the turn is automatically computed based on the acceptance radius (
 :::tip
 For more information about the impact of the acceptance radius around the waypoint see: [Mission Mode > Inter-waypoint Trajectory](../flight_modes_fw/mission.md#rounded-turns-inter-waypoint-trajectory). :::
 
-## Flying Missions
+## Літаючі місії
 
-Once the mission is uploaded, switch to the flight view. The mission is displayed in a way that makes it easy to track progress (it cannot be modified in this view).
+Після того, як місію буде завантажено, перейдіть до перегляду польоту. Місія відображається в певному сенсі, що дозволяє легко відстежувати прогрес (його не можна змінити на цьому перегляді).
 
 ![flying-mission](../../assets/flying/flying_mission.jpg)
 
