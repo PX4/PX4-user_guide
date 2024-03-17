@@ -1,8 +1,8 @@
-# Hardware (Drones & Drone Parts)
+# Апаратне забезпечення (Дрони та Деталі Дронів)
 
-This section contains information about complete pre-built PX4 vehicles, and components that you can use if building your own drones:
+У цьому розділі міститься інформація про повністю готові транспортні засоби PX4 і компоненти, які ви можете використовувати для створення власних дронів:
 
-- [Complete Vehicles](../complete_vehicles/README.md) - Complete Ready to Fly (RTF) or near-RTF vehicles (i.e. may require battery, RC controller)
-- [Flight Controllers (Autopilots)](../flight_controller/README.md) - Autopilot hardware options (including [Pixhawk Series](../flight_controller/pixhawk_series.md))
-- [Flight Controller Peripherals](../peripherals/README.md) - Components that can be attached to the flight controller (GPS, compass, motors, rangefinders, etc.). The device pages also explain how to configure the components to work with PX4.
-- [Companion Computers](../companion_computer/README.md) - Separate "mission computers" that enable advanced flight control features such as [Computer Vision](../computer_vision/README.md) (and their [peripherals](../companion_computer/companion_computer_peripherals.md)).
+- [Повністю зібрані транспортні засоби](../complete_vehicles/README.md) - Повністю готові до польоту (RTF) або майже готові до польоту транспортні засоби (тобто може знадобитися акумулятор, пульт дистанційного керування).
+- [Керуючі Плати (Автопілоти)](../flight_controller/README.md) - Варіанти апаратного забезпечення автопілота (включаючи [Серію Pixhawk](../flight_controller/pixhawk_series.md))
+- [Периферійне обладнання керування польотом](../peripherals/README.md) - Компоненти, які можуть бути приєднані до контролера польоту (GPS, компас, двигуни, дальномери і т. д.). Сторінки пристроїв також пояснюють, як налаштувати компоненти для роботи з PX4.
+- [Компаньйонні комп'ютери](../companion_computer/README.md) - Окремі "місійні комп'ютери", які дозволяють розширені функції керування польотом, такі як [Комп'ютерний Зір](../computer_vision/README.md) (і їхнє [периферійне](../companion_computer/companion_computer_peripherals.md) обладнання).
