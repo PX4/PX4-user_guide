@@ -2,33 +2,33 @@
 
 Система супутникового зв'язку може використовуватись для забезпечення високого діапазону між наземною станцією та транспортним засобом.
 
-This topic describes how to set up a system that uses RockBlock as the service provider for the Iridium SBD Satellite Communication System. Given good signal quality, users can expect a latency between 10 to 15 seconds.
+Ця тема описує спосіб налаштування системи, яка використовує RockBlock як постачальника послуг для системи зв'язку зі супутниковими системами SBD. З огляду на хорошу якість сигналу, користувачі можуть очікувати затримки від 10 до 15 секунд.
 
 ## Загальний огляд
 
-The following components are needed for the satellite communication link:
+Для посилання на супутникове зв'язку потрібні наступні компоненти:
 
 - A [RockBlock 9603 Iridium Satellite Modem](https://www.iridium.com/products/rock-seven-rockblock-9603/) module connected to a Pixhawk flashed with the PX4 Autopilot.
-- A message relay server running Ubuntu Linux.
-- A ground station computer running _QGroundControl_ on Ubuntu Linux
+- Сервер повторного повідомлення працює Ubuntu Linux.
+- Автономний комп'ютер запущено _QGroundControl_ на Ubuntu Linux
 
-The full system architecture is shown below:
+Нижче показана вся архітектура системи:
 
 ![Architecture](../../assets/satcom/architecture.jpg)
 
 :::note
 The setup was tested with the current release of _QGroundControl_ running on Ubuntu 14.04 and 16.04.
 
-- It may be possible to run the system on other ground stations and operating systems, but this has not been tested (and is not guaranteed to work).
-- The [RockBlock MK2](https://www.groundcontrol.com/us/product/rockblock-9602-satellite-modem/) module can also be used. The RockBlock 9603 module is recommended because it is smaller and lighter, while providing the same functionality.
+- Можливо запустити систему на інших наземних станціях та операційних системах, але це не було перевірено (і не гарантовано працює).
+- The [RockBlock MK2](https://www.groundcontrol.com/us/product/rockblock-9602-satellite-modem/) module can also be used. Модуль RockBlock 9603 рекомендується оскільки він є меншим та легшим, одночасно забезпечує той самий функціонал.
 
 :::
 
 ## Витрати
 
-The UK link running cost consists of a line rental and per message cost:
+Посилання на посилання, що працює в Великобританії, складається з вартості оренди лінії та витрат на повідомлення:
 
-- Each module needs to be activated which costs £10.00 per month
+- Кожен модуль повинен бути активований, який коштує 10,00 в місяць
 - Each message transmitted over the system costs one _credit_ per 50 bytes. Bundles of credits can be bought from RockBlock for £0.04-£0.11 per credit, depending on the bundle size.
 
 Refer to the [RockBlock Documentation](https://docs.rockblock.rock7.com/docs) for a detailed explanation of the modules, running costs and _RockBlock_ in general.
@@ -39,7 +39,7 @@ Refer to the [RockBlock Documentation](https://docs.rockblock.rock7.com/docs) fo
 
 Connect the RockBlock module to a serial port of the Pixhawk. Due to the power requirements of the module it can only be powered over a high-power serial port as a maximum of 0.5 A at 5 V are required. If none is available/free then another power source which has the same ground level as the Pixhawk and can provide required power has to be setup. The details of the [connectors](https://docs.rockblock.rock7.com/docs/connectors) and the [power requirements](https://docs.rockblock.rock7.com/docs/power-supply) can be found in the RockBlock documentation.
 
-### Module
+### Модулі
 
 The module can either use the internal antenna or an external one connected to the SMA connector. To [switch between the two antennas modes](https://docs.rockblock.rock7.com/docs/switching-rockblock-9603-antenna-mode) the position of a small RF link cable needs to changed. If an external antenna is used always make sure that the antenna is connected to the module before powering it up to avoid damage to the module.
 
@@ -60,7 +60,7 @@ The default baud rate of the module is 19200. However, the PX4 _iridiumsbd_ driv
 
 The module is now ready to be used with PX4.
 
-### Software
+### Програмне забезпечення
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the RockBlock module will run using [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG). There is no need to set the baud rate for the port, as this is configured by the driver.
 
@@ -225,7 +225,7 @@ If in the terminal where the `udp2rabbit.py` script is running within a couple o
 
      ![Prioritylink Selection](../../assets/satcom/linkselection.png)
 
-## Troubleshooting
+## Вирішення проблем
 
 - Satellite communication messages from the airplane are received but no commands can be transmitted (the vehicle does not react)
   - Check the settings of the relay server and make sure that they are correct, especially the IMEI.
