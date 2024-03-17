@@ -1,10 +1,10 @@
-# Iridium/RockBlock Satellite Communication System
+# Система супутникового зв'язку Iridium/RockBlock
 
-A satellite communication system can be used to provide long range high latency link between a ground station and a vehicle.
+Система супутникового зв'язку може використовуватись для забезпечення високого діапазону між наземною станцією та транспортним засобом.
 
 This topic describes how to set up a system that uses RockBlock as the service provider for the Iridium SBD Satellite Communication System. Given good signal quality, users can expect a latency between 10 to 15 seconds.
 
-## Overview
+## Загальний огляд
 
 The following components are needed for the satellite communication link:
 
@@ -24,7 +24,7 @@ The setup was tested with the current release of _QGroundControl_ running on Ubu
 
 :::
 
-## Costs
+## Витрати
 
 The UK link running cost consists of a line rental and per message cost:
 
