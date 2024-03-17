@@ -84,12 +84,12 @@
 
 ## Декоратори:
 
-| Декоратор     | Опис               |
-| ------------- | ------------------ |
-| $()^*$        | Complex conjugate. |
-| $\dot{()}$   | Time derivative.   |
-| $\hat{()}$   | Estimate.          |
-| $\bar{()}$   | Mean.              |
-| $()^{-1}$     | Matrix inverse.    |
-| $()^T$        | Matrix transpose.  |
-| $\tilde{()}$ | Quaternion.        |
+| Декоратор     | Опис                   |
+| ------------- | ---------------------- |
+| $()^*$        | Complex conjugate.     |
+| $\dot{()}$   | Time derivative.       |
+| $\hat{()}$   | Estimate.              |
+| $\bar{()}$   | Середнє                |
+| $()^{-1}$     | Обернена матриця       |
+| $()^T$        | Матрична транспозиція. |
+| $\tilde{()}$ | Quaternion.            |
