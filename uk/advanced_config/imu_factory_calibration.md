@@ -1,15 +1,15 @@
 # IMU/Compass Factory Calibration
 
-PX4 OEM manufacturers can perform an IMU and compass factory calibration in order to store values for the accelerometer, gyroscope and magnetometer calibration into persistent storage (usually EEPROM). This ensures that end users can always reset vehicle configurations and tuning to a safe state for flying.
+Виробники PX4 OEM можуть виконувати IMU і компасувати завод для збереження значень для акселерометра, калібрування гіроскопа та магнітометра у постійне сховище (зазвичай ЕЗПМ). This ensures that end users can always reset vehicle configurations and tuning to a safe state for flying.
 
 This procedure will write the following parameters to `/fs/mtd_caldata`: [CAL_ACC\*](../advanced_config/parameter_reference.md#CAL_ACC0_ID), [CAL_GYRO\*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID), [CAL_MAG\*](../advanced_config/parameter_reference.md#CAL_MAG0_ID). This data will then be used when the parameters are set (or reset) to their default values.
 
 :::warning
-This feature relies on the FMU having a dedicated EEPROM chip or an accompanying IMU PCBA that has sufficient space for the data. PX4 will store the data to `/fs/mtd_caldata`, creating the file if necessary.
+Ця функція спирається на FMU наявності спеціального архіву EEPROM або супроводжуючого IMU PCBA, який має достатньо місця для даних. PX4 will store the data to `/fs/mtd_caldata`, creating the file if necessary.
 :::
 
 :::note
-These values cannot be stored in the [frame configuration](../dev_airframes/adding_a_new_frame.md) because they vary from device to device (the frame configuration defines the set of parameters that are applicable across all vehicles of the same type, such as the enabled sensors, [autopilot rotation](../config/flight_controller_orientation.md) and PID tuning).
+Ці значення не можуть бути збережені в [конфігурації кадрів](../dev_airframes/adding_a_new_frame.md) оскільки вони відрізняються від пристрою в пристрої (конфігурація рамки визначає набір параметрів, які застосовуються на всіх автомобілях того ж типу, такі, як увімкнені датчики, [обертання автопілота](../config/flight_controller_orientation.md) і настроювання PID).
 :::
 
 ## Performing the Factory Calibration
@@ -25,6 +25,6 @@ If you only want to factory calibrate the accelerometer and the gyroscope you ca
 
 Subsequent user calibrations will then take effect as usual (factory calibration data is only used for the parameter default values).
 
-## Further Information
+## Подальша інформація
 
 - [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html)
