@@ -1,6 +1,6 @@
-# Precision Landing
+# Точна посадка
 
-PX4 supports precision landing for _multicopters_ on either stationary or moving targets. The target may be provided by an onboard IR sensor and a landing beacon, or by an offboard positioning system.
+PX4 підтримує точне приземлення для _Multicopters_ на стаціонарних або рухомих цілях. Ціль може бути надана вбудованим ІЧ-датчиком та приземленням, або зовнішньою системою позиціонування.
 
 Precision landing can be [started/initiated](#initiating-a-precision-landing) as part of a [mission](#mission), in a [Return mode](#return-mode-precision-landing) landing, or by entering the [_Precision Land_ flight mode](#precision-landing-flight-mode).
 
@@ -8,25 +8,25 @@ Precision landing can be [started/initiated](#initiating-a-precision-landing) as
 Precision landing is only possible with a valid global position (due to a limitation in the current implementation of the position controller).
 :::
 
-## Overview
+## Загальний огляд
 
 ### Land Modes
 
-A precision landing can be configured to either be "required" or "opportunistic". The choice of mode affects how a precision landing is performed.
+Точну посадку можна налаштувати як "обов'язкову" або "вигідну". Вибір режиму впливає на те, як виконується точна посадка.
 
 #### Required Mode
 
-In _Required Mode_ the vehicle will search for a target if none is visible when landing is initiated. The vehicle will perform a precision landing if a target is located.
+У _Required Mode_ транспортний засіб буде шукати ціль, якщо нічого не видно під час початку посадки. Транспортний засіб виконає точну посадку, якщо ціль буде знайдена.
 
-The search procedure consists of climbing to the search altitude ([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)). If the target is still not visible at the search altitude and after a search timeout ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT)), a normal landing is initiated at the current position.
+Процедура пошуку полягає у підйомі на висоту пошуку ([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)). Якщо мішень все ще не видно на висоті пошуку після закінчення часу пошуку ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT)), то ініціюється звичайна посадка на поточному місці.
 
 :::note
-If using an offboard positioning system PX4 assumes that the target is visible when it is receiving MAVLink [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET) messages.
+Якщо використовується позамежна система позиціонування, PX4 передбачає, що ціль буде видима, коли отримує повідомлення MAVLink [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET).
 :::
 
 #### Opportunistic Mode
 
-In _Opportunistic Mode_ the vehicle will use precision landing _if_ (and only if) the target is visible when landing is initiated. If it is not visible the vehicle immediately performs a _normal_ landing at the current position.
+У режимі _Opportunistic Mode_ транспортний засіб використовуватиме точну посадку, _якщо_ (і тільки якщо) ціль буде видима, коли розпочинається посадка. Якщо ціль не видно, транспортний засіб негайно виконує _звичайну_ посадку на поточному місці.
 
 ### Landing Phases
 
@@ -130,7 +130,7 @@ The IR-Lock sensor is disabled by default. Enable it by setting [SENS_EN_IRLOCK]
 
 Other relevant parameters are listed in the parameter reference under [Landing_target estimator](../advanced_config/parameter_reference.md#landing-target-estimator) and [Precision land](../advanced_config/parameter_reference.md#precision-land) parameters. Some of the most useful ones are listed below.
 
-| Parameter                                                                                             | Description                                                                                                         |
+| Параметр                                                                                              | Опис                                                                                                                |
 | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | <a id="SENS_EN_IRLOCK"></a>[SENS_EN_IRLOCK](../advanced_config/parameter_reference.md#SENS_EN_IRLOCK) | IR-LOCK Sensor (external I2C). Disable: `0` (default): Enable: `1`).                                                |
 | <a id="LTEST_MODE"></a>[LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE)           | Landing target is moving (`0`) or stationary (`1`). Default is moving.                                              |
@@ -140,7 +140,7 @@ Other relevant parameters are listed in the parameter reference under [Landing_t
 | <a id="PLD_MAX_SRCH"></a>[PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH)     | Maximum number of search attempts in an required landing.                                                           |
 | <a id="RTL_PLD_MD"></a>[RTL_PLD_MD](../advanced_config/parameter_reference.md#RTL_PLD_MD)         | RTL precision land mode. `0`: disabled, `1`: [Opportunistic](#opportunistic-mode), `2`: [Required](#required-mode). |
 
-### IR Beacon Scaling
+### Масштабування ІЧ-маяка
 
 Measurement scaling may be necessary due to lens distortions of the IR-LOCK sensor.
 
@@ -150,7 +150,7 @@ To calibrate these scale parameters, set `LTEST_MODE` to moving, fly your multic
 
 If you observe slow sideways oscillations of the vehicle while doing a precision landing with `LTEST_MODE` set to stationary, the beacon measurements are likely scaled too high and you should reduce the scale parameter in the relevant direction.
 
-## Simulation
+## Моделювання
 
 Precision landing with the IR-LOCK sensor and beacon can be simulated in [Gazebo Classic](../sim_gazebo_classic/README.md).
 
@@ -164,20 +164,20 @@ You can change the location of the beacon either by moving it in the Gazebo Clas
 
 ## Operating Principles
 
-### Landing Target Estimator
+### Оцінювач цілей посадки
 
-The `landing_target_estimator` takes measurements from the `irlock` driver as well as the estimated terrain height to estimate the beacon's position relative to the vehicle.
+`landing_target_estimator` бере вимірювання з драйвера irlock, а також оцінює висоту місцевості для оцінки позиції маяка відносно транспортного засобу.
 
-The measurements in `irlock_report` contain the tangent of the angles from the image center to the beacon. In other words, the measurements are the x and y components of the vector pointing towards the beacon, where the z component has length "1". This means that scaling the measurement by the distance from the camera to the beacon results in the vector from the camera to the beacon. This relative position is then rotated into the north-aligned, level body frame using the vehicle's attitude estimate. Both x and y components of the relative position measurement are filtered in separate Kalman Filters, which act as simple low-pass filters that also produce a velocity estimate and allow for outlier rejection.
+The measurements in `irlock_report` містять тангенс кутів від центру зображення до маяка. In other words, the measurements are the x and y components of the vector pointing towards the beacon, where the z component has length "1". This means that scaling the measurement by the distance from the camera to the beacon results in the vector from the camera to the beacon. This relative position is then rotated into the north-aligned, level body frame using the vehicle's attitude estimate. Both x and y components of the relative position measurement are filtered in separate Kalman Filters, which act as simple low-pass filters that also produce a velocity estimate and allow for outlier rejection.
 
 The `landing_target_estimator` publishes the estimated relative position and velocity whenever a new `irlock_report` is fused into the estimate. Nothing is published if the beacon is not seen or beacon measurements are rejected. The landing target estimate is published in the `landing_target_pose` uORB message.
 
-### Enhanced Vehicle Position Estimation
+### Покращена оцінка положення транспортного засобу
 
 If the target is specified to be stationary using the parameter `LTEST_MODE`, the vehicle's position/velocity estimate can be improved with the help of the target measurements. This is done by fusing the target's velocity as a measurement of the negative velocity of the vehicle.
 
-### Landing Phases Flow Diagram
+### Діаграма потоку фаз посадки
 
-This image shows the [landing phases](#landing-phases) as a flow diagram.
+Це зображення показує [фази посадки](#landing-phases) у вигляді діаграми потоку.
 
 ![Precision Landing Flow Diagram](../../assets/precision_land/precland-flow-diagram.png)
