@@ -1,14 +1,14 @@
-# Flight Tasks
+# Польотні завдання
 
-_Flight Tasks_ are used within [Flight Modes](../concept/flight_modes.md) to provide specific movement behaviours: e.g. follow me, or flight smoothing.
+_Польотні завдання_ використовуються у [Режимах польоту](../concept/flight_modes.md) для забезпечення певної поведінки під час руху, наприклад "слідуй за мною" або пом'якшування польоту.
 
-## Overview
+## Загальний огляд
 
-A flight task is a class in the flight task framework derived from the base class [FlightTask](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/tasks/FlightTask/FlightTask.hpp). Its goal is to generate setpoints for the controller from arbitrary input data, where each task implements the desired vehicle behavior for a specific mode. Programmers typically override the `activate()` and `update()` virtual methods by calling the base task's minimal implementation and extending with the implementation of the desired behavior. The `activate()` method is called when switching to the task and allows to initialize its state and take over gently from the passed over setpoints the previous task was just applying.
+Польотне завдання є класом в програмному каркасі польотних завдань похідним від базового класу [FlightTask](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/tasks/FlightTask/FlightTask.hpp). Його мета - генерувати задані значення для контролера з довільних вхідних даних, де кожне завдання реалізує бажану поведінку рухомого засобу для певного режиму. Розробники як правило перевизначаються віртуальні методи `activate()` та `update()` викликаючи мінімальну реалізацію базового завдання та розширяючи її реалізацією бажаної поведінки. Метод `activate()` викликається при перемиканні на завдання та дозволяє ініціалізувати його стан й м'яко перебрати на себе функціонал базуючись на заданих значеннях які попереднє завдання тільки передало.
 
-`update()` is called on every loop iteration during the execution and contains the core behavior implementation producing setpoints.
+`update()` викликається на кожній ітерації циклу під час виконання і містить реалізацію базової поведінки створення заданих значень.
 
-By convention tasks are contained in a subfolder of [PX4-Autopilot/src/modules/flight_mode_manager/tasks](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/flight_mode_manager/tasks) named after the task, and the source files are named with the prefix "FlightTask".
+За загальним правилом, завдання містяться у піддиректорії [PX4-Autopilot/src/modules/flight_mode_manager/tasks](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/flight_mode_manager/tasks) за назвою завдання, а назви файлів вихідного коду мають префікс "FlightTask".
 
 :::note
 Video overviews from PX4 developer summits are [provided below](#video).
