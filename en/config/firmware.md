@@ -62,6 +62,7 @@ To install a different version of PX4:
    - **Developer Build (master):** The latest build of PX4/PX4-Autopilot _main_ branch.
    - **Custom Firmware file...:** A custom firmware file (e.g. that you have built locally).
      If you select this you will have to choose the custom firmware from the file system in the next step.
+     You can check [here](../../dev_setup/building_px4.md) to compile a specific custom firmware
 
 Firmware update then continues as before.
 
