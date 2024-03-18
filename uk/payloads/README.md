@@ -91,15 +91,15 @@ PX4 підтримує _доставку посилок в місіях_ за д
 
 <!-- PX4 v1.14 bug https://github.com/PX4/PX4-Autopilot/issues/21966 -->
 
-### Generic Actuator Control with RC
+### Керування Загальним Приводом за допомогою Пульта дистанційного керування (RC)
 
-Up to 6 autopilot PWM or CAN outputs can be controlled using RC channels. The outputs that are to be controlled are specified in the [Actuators](../config/actuators.md#actuator-outputs) configuration screen by assigning the functions `RC AUX 1` to `RC AUX 6` to the desired [actuator outputs](../config/actuators.md#actuator-outputs).
+За допомогою каналів RC можна керувати до 6 PWM або CAN виходами автопілота. Виходи, якими потрібно керувати, вказуються на екрані конфігурації [Actuators](../config/actuators.md#actuator-outputs) шляхом призначення функцій від `RC AUX 1` до `RC AUX 6` для потрібних < 0>виходів приводів</a>.
 
-To map a particular RC channel to an output function `RC AUX n` (and hence it's assigned output) you use the [RC_MAP_AUXn](../advanced_config/parameter_reference.md#RC_MAP_AUX1) parameter that has the same `n` number.
+Щоб пов'язати певний RC канал із функцією виведення `RC AUX n` (і, отже, з її призначеним виходом), ви використовуєте параметр [RC_MAP_AUXn](../advanced_config/parameter_reference.md#RC_MAP_AUX1), який має той самий `n</0 > номер.</p>
 
-For example, to control an actuator attached to AUX pin 3 (say) you would assign the output function `RC AUX 5` to the output `AUX3`. You could then use set the RC channel to control the `AUX3` output using `RC_MAP_AUX5`.
+<p spaces-before="0">Наприклад, щоб керувати приводом, приєднаним до AUX контакту 3 (скажімо), ви повинні призначити вихідну функцію <code>RC AUX 3` для виходу `AUX3`. Потім ви можете використовувати RC канал для керування виходом `AUX3` за допомогою `RC_MAP_AUX3`.
 
-### Generic Actuator Control in Missions
+### Керування Загальним Приводом в Місіях
 
 To use generic actuator control in a mission you must first [configure the outputs that you want to control using MAVLink](#generic-actuator-control-with-mavlink).
 
