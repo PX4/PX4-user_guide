@@ -32,20 +32,20 @@
 
 ## Попередження та сповіщення
 
-1. The kit is intended for computer vision projects that use a forward-facing camera (it does not have downward or rear-facing depth cameras).
-   Consequently it can't be used (without modification) for testing [Safe Landing](../computer_vision/safe_landing.md), or other features that require a downward-facing camera.
+1. Комплект призначений для проєктів комп'ютерного зору, які використовують камеру, спрямовану вперед (він не має камер глибини, спрямованих вниз або назад).
+   Отже, його не можна використовувати (без модифікації) для тестування [Безпечної посадки] (../computer_vision/safe_landing.md) або інших функцій, для яких потрібна камера, спрямована вниз.
 
-2. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS coordinates).
-   Collision prevention can be tested in position mode provided there is a good position lock from either GPS or optical flow.
+2. Уникання перешкод у місіях можна тестувати лише за наявності сигналу GPS (місії використовують GPS-координати).
+   Запобігання зіткненням можна перевірити в режимі позиціювання за умови, що є стійке захоплення позиції, отримане або з GPS, або з оптичного потоку.
 
-3. The port labeled `USB1` may jam the GPS if used with a _USB3_ peripheral (disable GPS-dependent functionality including missions).
-   This is why the boot image is supplied on a _USB2.0_ memory stick.
+3. Порт, позначений `USB1`, може глушити GPS, якщо його використовувати з периферійним пристроєм _USB3_ (вимкніть GPS-залежні функції, зокрема місії).
+   Саме тому образ завантаження постачається на флешці _USB2.0_.
 
-4. PX4 Vision v1 with ECN 010 or above (carrier board RC05 and up), the _UP Core_ can be powered by either the DC plug or with battery.
+4. PX4 Vision v1 з ECN 010 або вище (несуча плата RC05 і вище), _UP Core_ може живитися як від розетки постійного струму, так і від акумулятора.
 
    ![RC Number](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN Number](../../assets/hardware/px4_vision_devkit/serial_number_update.jpg)
 
-5. All PX4 Vision v1.5 _UP Core_ can be powered by either the DC plug or with battery.
+5. Всі PX4 Vision v1.5 _UP Core_ можна живити як від мережі постійного струму, так і від батареї.
 
 :::warning
 For PX4 Vision v1 with ECN below 010/carrier board below RC04, the _UP Core_ should only be powered using the battery (do not remove the _UP Core power_ socket safety cover). This does not apply to PX4 Vision v1.5
@@ -53,71 +53,71 @@ For PX4 Vision v1 with ECN below 010/carrier board below RC04, the _UP Core_ sho
 ![Warning - do not connect power port](../../assets/hardware/px4_vision_devkit/warning_power_port_update.png)
 :::
 
-## What is Inside
+## Що всередині
 
 :::note
-Difference between the PX4 Vision V1 and V1.5 can be found [here](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5/v1-and-v1.5-difference)
+Відмінності між PX4 Vision V1 і V1.5 можна знайти [тут](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5/v1-and-v1.5-difference)
 :::
 
 ![PV4 Vision v1.5](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_whats_inside.jpg)
 
-What's inside the PX4 Vision V1 can be found here in the [PX4 v1.13 Docs here](https://docs.px4.io/v1.13/en/complete_vehicles/px4_vision_kit.html#what-is-inside).
+Про те, що знаходиться всередині PX4 Vision V1, можна дізнатися тут [PX4 v1.13 Docs here] (https\://docs.px4.io/v1.13/en/complete_vehicles/px4_vision_kit.html#what-is-inside).
 
-The PX4 Vision DevKit contains following components:
+PX4 Vision DevKit містить наступні компоненти:
 
-- Core Components:
+- Основні компоненти:
 
-  - 1x Pixhawk 4 or Pixhawk 6C (for v1.5) flight controller
-  - 1x PMW3901 optical flow sensor
-  - 1x TOF Infrared distance sensor (PSK‐CM8JL65‐CC5)
-  - 1x Structure Core depth camera
-    - 160 deg wide vision camera
-    - Stereo infrared cameras
-    - Onboard IMU
-    - Powerful NU3000 Multi-core depth Processor
-  - 1x _UP Core_ computer (4GB memory & 64GB eMMC with Ubuntu and PX4 avoidance)
-    - Intel® Atom™ x5-z8350 (up to 1.92 GHz)
-    - Compatible OS: Microsoft Windows 10 full version, Linux (ubilinux, Ubuntu, Yocto), Android
-    - FTDI UART connected to flight controller
-    - `USB1`: USB3.0 A port used for booting PX4 avoidance environment from a USB2.0 stick (connecting a USB3.0 peripheral may jam GPS).
-    - `USB2`: USB2.0 port on a JST-GH connector. Can be used for second camera, LTE, etc. (or keyboard/mouse during development).
-    - `USB3`: USB2.0 JST-GH port connected to depth camera
-    - `HDMI`: HDMI out
-    - SD card slot
-    - WiFi 802.11 b/g/n @ 2.4 GHz (attached to external antenna #1). Allows computer to access home WiFi network for Internet access/updates.
+  - 1x Pixhawk 4 або Pixhawk 6C (для v1.5) польотний контролер
+  - 1x оптичний датчик потоку PMW3901
+  - 1x датчик відстані TOF інфрачервоного діапазону (PSK‐CM8JL65‐CC5)
+  - 1x камера глибини Structure Core
+    - Камера з широким кутом огляду 160 градусів
+    - Стерео-інфрачервоні камери
+    - Вбудований ІМП (інерціальний модуль)
+    - Потужний багатоядерний процесор глибини NU3000
+  - 1x комп'ютер _UP Core_ (4 ГБ оперативної пам'яті та 64 ГБ eMMC з Ubuntu та PX4 униканням)
+    - Intel® Atom™ x5-z8350 (до1.92 GHz)
+    - Сумісні ОС: повна версія Microsoft Windows 10, Linux (ubilinux, Ubuntu, Yocto), Android
+    - FTDI UART підключений до контролера польоту
+    - `USB1`: USB3.0 Порт, який використовується для завантаження середовища уникнення PX4 з флешки USB2.0 (підключення периферійного пристрою USB3.0 може заглушити GPS).
+    - `USB2`: Порт USB2.0 на роз'ємі JST-GH. Може бути використаний для другої камери, LTE тощо (або клавіатури/миші під час розробки).
+    - `USB3`: Порт USB2.0 JST-GH, підключений до камери глибини
+    - `HDMI`: HDMI вихід
+    - SD карта
+    - WiFi 802.11 b/g/n @ 2,4 ГГц (підключений до зовнішньої антени №1). Дозволяє комп'ютеру отримати доступ до домашньої WiFi-мережі для доступу до Інтернету та оновлень.
 
-- Mechanical Specification:
+- Механічні характеристики:
 
-  - Frame: Full 5mm 3k carbon fiber twill
-  - Motors: T-MOTOR KV1750
+  - Каркас: Цілісна 5-міліметрова саржа з вуглецевого волокна 3k
+  - Мотори: T-MOTOR KV1750
   - ESC: BEHEli-S 20A ESC
-  - GPS: M8N GPS module
-  - Power module: Holybro PM07
-  - Wheelbase: 286mm
-  - Weight: 854 grams without battery or props
-  - Telemetry: ESP8266 connected to flight controller (attached to external antenna #2). Enables wireless connection to the ground station.
+  - GPS: M8N GPS модуль
+  - Модуль живлення: Holybro PM07
+  - Колісна база: 286мм
+  - Вага: 854 грами без акумулятора або гвинтів
+  - Телеметрія: ESP8266 підключений до польотного контролера (приєднаний до зовнішньої антени №2). Вмикає бездротове з'єднання з наземною станцією.
 
-- A USB2.0 stick with pre-flashed software that bundles:
+- Флеш-накопичувач USB2.0 з попередньо завантаженим програмним забезпеченням, яке включає в себе:
 
   - Ubuntu 18.04 LTS
   - ROS Melodic
-  - Occipital Structure Core ROS driver
+  - Occipital Structure Core ROS драйвер
   - MAVROS
   - [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance)
 
-- Assorted cables, 8x propellers, 2x battery straps (installed) and other accessories (these can be used to attach additional peripherals).
+- Різноманітні кабелі, 8x гвинти, 2x ремінці для акумулятора (встановлені) та інші аксесуари (їх можна використовувати для підключення додаткових периферійних пристроїв).
 
-## What Else Do You Need
+## Що ще потрібно
 
-The kit contains all the essential drone hardware except a battery and a radio control system, which must be purchased separately:
+Комплект містить усе необхідне обладнання для керування дроном, окрім акумулятора та системи радіоуправління, які необхідно придбати окремо:
 
-- Battery:
-  - 4S LiPo with XT60 female connector
-  - Less than 115mm long (to fit between power connector and GPS mast)
-- Radio control system
-  - Any [PX4-compatible RC System](../getting_started/rc_transmitter_receiver.md) can be used.
-  - An _FrSky Taranis_ transmitter with R-XSR receiver is one of the more popular setups.
-- An H2.0 Hex Key (to unscrew the top plate so that an RC receiver can be connected)
+- Батарея:
+  - 4S LiPo з гніздом XT60
+  - Довжина менше 115 мм (щоб поміститися між роз'ємом живлення та GPS-антеною)
+- Системи радіо керування
+  - Будь-яка [PX4-сумісна RC система](../getting_started/rc_transmitter_receiver.md) може бути використана.
+  - Передавач _FrSky Taranis_ з приймачем R-XSR - одна з найпопулярніших комбінацій.
+- Шестигранний ключ H2.0 (для відкручування верхньої панелі, з метою підключення пульта дистанційного керування)
 
 In addition, users will need ground station hardware/software:
 
