@@ -1,19 +1,19 @@
-# PX4 ROS 2 Control Interface
+# Інтерфейс керування PX4 ROS 2
 
 <Badge type="warning" text="main (PX4 v1.15)" /> <Badge type="warning" text="Experimental" />
 
 :::warning
 Experimental
 
-- The architecture and core interfaces for defining modes in ROS 2 modes are largely stable, and are tested in CI.
-  The library offers significant benefits over using offboard mode in its current state.
-- Only a few setpoint types have settled (the others are still under development).
-  You may need to use internal PX4 topics which may not remain backwards-compatible over time.
-- The API is not fully documented.
+- Архітектура та основні інтерфейси для визначення режимів ROS 2 є значною мірою стабільними і перевіряються в ІК.
+  Бібліотека надає значні переваги в режимі офборду в поточному стані.
+- Лише кілька типів значень було врегульовано (інші все ще в розробці).
+  Вам можуть знадобитися внутрішні теми PX4, які можуть не залишитись серверно-сумісними з часом.
+- API не повністю задокументований.
 
 :::
 
-The [PX4 ROS 2 Interface Library](../ros2/px4_ros2_interface_lib.md) is a C++ library that simplifies controlling PX4 from ROS 2.
+[PX4 ROS 2 Interface бібліотека](../ros2/px4_ros2_interface_lib.md) - це бібліотека C++++, яка спрощує контроль PX4 з ROS 2.
 
 Developers use the library to create and dynamically register modes written using ROS 2.
 These modes are dynamically registered with PX4, and appear to be part of PX4 to a ground station or other external system.
@@ -22,23 +22,23 @@ They can even replace the default modes in PX4 with enhanced ROS 2 versions, fal
 The library also provides classes for sending different types of setpoints, ranging from high-level navigation tasks all the way down to direct actuator controls.
 These classes abstract the internal setpoints used by PX4, and that can therefore be used to provide a consistent ROS 2 interface for future PX4 and ROS releases.
 
-## Overview
+## Загальний огляд
 
-This diagram provides a conceptual overview of how the control interface modes and mode executors interact with PX4.
+Ця діаграма надає концептуального уявлення про те, як режими інтерфейсу і режими керування будуть взаємодіяти з PX4.
 
 ![ROS2 modes overview diagram](../../assets/middleware/ros2/px4_ros2_interface_lib/ros2_modes_overview.svg)
 
 <!-- Source: https://docs.google.com/drawings/d/1WByCfgcytnaow7r41VhYJL8OGrw1RjFO51GoPMQBCNA/edit -->
 
-The following sections define and explain the terms used in the diagram.
+Наступні розділи визначають та пояснюють терміни, що використовуються в діаграмі.
 
-### Definitions
+### Означення
 
-#### Mode
+#### Режим
 
-A mode defined using the interface library has the following properties:
+Режим визначений за допомогою бібліотеки інтерфейсу має такі властивості:
 
-- A mode is a component that can send setpoints to the vehicle in order to control its motion (such as velocity or direct actuator commands).
+- Режим - це компонент, який може передавати вказані точки автомобіля для керування рухом (такі як швидкість або прямі вимикачі).
 - A mode selects a setpoint type and sends it while it is active.
   It can switch between multiple setpoint types.
 - A mode can't activate other modes, and must be activated by the user (through RC/GCS), the flight controller in a failsafe situation, a _mode executor_, or some other external system.
