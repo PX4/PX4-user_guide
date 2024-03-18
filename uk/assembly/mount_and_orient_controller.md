@@ -1,6 +1,6 @@
-# Mounting the Flight Controller
+# Монтаж Політного Контролера
 
-The flight controller should be placed on the frame as close as possible to the centre-of-gravity (CoG), top-side up, and oriented so that the _heading mark arrow_ points towards the front of the vehicle. [Vibration isolation](#vibration-isolation) is often needed, and you should follow the manufacturer recommendations. If mounted in this way, no further PX4 configuration is required.
+Політний контролер слід розташувати на рамі якомога ближче до центру маси (CoG), верхньою стороною вгору, та орієнтувати так, щоб _стрілка позначки курсу_ вказувала на передню частину апарату. Часто необхідна [віброізоляція](#vibration-isolation), тому слід дотримуватися рекомендацій виробника. Якщо змонтовано таким чином, подальша конфігурація PX4 не потрібна.
 
 ## Orientation
 

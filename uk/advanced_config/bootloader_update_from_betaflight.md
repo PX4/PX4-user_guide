@@ -18,11 +18,11 @@ _Betaflight Configurator_ може не підтримувати оновлен�
 
 Для встановлення завантажувача PX4 за допомогою _Конфігуратора Betaflight_:
 
-1. Download or build [bootloader firmware](#bootloader-firmware) for the board you want to flash.
+1. Завантажте або зіберіть [прошивку завантажувача](#bootloader-firmware) для плати, яку ви хочете прошивати.
 1. Завантажте [Конфігуратор Betaflight](https://github.com/betaflight/betaflight-configurator/releases) для вашої платформи.
 
 :::tip
-If using the _Chrome_ web browser, a simple cross-platform alternative is to install the configurator as an [extension from here](https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao).
+Якщо ви користуєтеся веб-браузером _Chrome_, простий крос-платформений альтернативний варіант - встановити конфігуратор як [розширення звідси](https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao).
 :::
 
 1. Підключіть плату до комп'ютера і запустіть конфігуратор.
@@ -33,44 +33,44 @@ If using the _Chrome_ web browser, a simple cross-platform alternative is to ins
 
 ## Оновлення завантажувача через DFU
 
-This section explains how to flash the PX4 bootloader using the [dfu-util](http://dfu-util.sourceforge.net/) or the graphical [dfuse](https://www.st.com/en/development-tools/stsw-stm32080.html) tool (Windows only).
+Цей розділ пояснює, як перепрошити завантажувач PX4 за допомогою інструменту [dfu-util](http://dfu-util.sourceforge.net/) або графічного інструменту [dfuse](https://www.st.com/en/development-tools/stsw-stm32080.html) (тільки для Windows).
 
 Спершу вам потрібно завантажити або зібрати [прошивку завантажувача](#bootloader-firmware) для плати, яку ви хочете прошивати (нижче це зазначено як `<target.bin>`).
 
 :::note
-All of the methods below are safe as the STM32 MCU cannot be bricked!
-DFU cannot be overwritten by flashing and will always allow you to install a new firmware, even if flashing fails.
+Усі наведені нижче методи є безпечними, оскільки мікроконтролер STM32 не може бути "заблокованим"!
+DFU не може бути перезаписано при прошивці і завжди дозволяє встановити нову прошивку, навіть якщо процес прошивки завершиться невдало.
 :::
 
 ### DFU mode
 
-Both tools require the board to be in DFU mode. To enter DFU mode, hold the boot button down while connecting the USB cable to your computer. The button can be released after the board has powered up.
+Обидва інструменти вимагають, щоб плата перебувала в режимі DFU. Щоб увійти в режим DFU, утримуйте кнопку завантаження (boot button) натиснутою під час підключення USB-кабеля до вашого комп'ютера. Кнопку можна відпустити після того, як плата буде ввімкнена.
 
 ### dfu-util
 
 :::note
-The [Holybro Kakute H7 v2](../flight_controller/kakuteh7v2.md) and mini flight controllers may require that you first run an additional command to erase flash parameters (in order to fix problems with parameter saving):
+Контролери польоту [Holybro Kakute H7 v2](../flight_controller/kakuteh7v2.md) м та міні можуть вимагати виконання додаткової команди для стирання параметрів флеш-пам'яті (щоб виправити проблеми зі збереженням параметрів):
 
 ```
 dfu-util -a 0 --dfuse-address 0x08000000:force:mass-erase:leave -D build/<target>/<target>.bin
 ```
 
-The command may generate an error which can be ignored. Once completed, enter DFU mode again to complete the regular flashing.
+Ця команда може викликати помилку, яку можна ігнорувати. Після завершення введіть режим DFU ще раз, щоб завершити звичайне оновлення.
 :::
 
-To flash the bootloader onto the flight controller:
+Для прошивки загрузчика на контролер польоту:
 
 ```
 dfu-util -a 0 --dfuse-address 0x08000000 -D  build/<target>/<target>.bin
 ```
 
-Reboot the flight controller and it let it boot without holding the boot button.
+Перезавантажте контролер польоту і дайте йому завантажитися без утримування кнопки завантаження.
 
 ### dfuse
 
-The dfuse manual can be found here: https://www.st.com/resource/en/user_manual/cd00155676.pdf
+Керівництво dfuse можна знайти тут: https://www.st.com/resource/en/user_manual/cd00155676.pdf
 
-Use the tool to flash the `<target>.bin` file.
+Використовуйте інструмент для прошивки `<target>.bin` файлу.
 
 ## Прошивка завантажувача
 

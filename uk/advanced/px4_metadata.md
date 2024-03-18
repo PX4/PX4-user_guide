@@ -1,70 +1,70 @@
-# PX4 Metadata: Translation & Publishing (Params, Events)
+# Метадані PX4: Переклад і публікація (Параметри, Події)
 
-PX4 uses and generates data that has associated human- and machine- readable metadata:
+PX4 використовує та генерує дані, які мають відповідні метадані, зрозумілі людині й машині:
 
-- [Parameters](../advanced_config/parameters.md) configure PX4 behaviour.
-  - A parameter is represented by an ID string that maps to a value stored in PX4.
-  - The associated metadata includes a description of the setting, its possible values, information about how the value might be presented (say for bitmasks).
-- [Events](../concept/events_interface.md) provide notification of events, such as reasons for a failsafe, low battery warnings, end of calibration, and so on.
-  - An event is represented by an id, and is sent with a log level, some message, and arguments.
-  - The associated metadata includes a description of the event and the arguments.
+- [Параметри](../advanced_config/parameters.md) налаштовують поведінку PX4.
+  - Параметр представлено рядком ідентифікатора, який зіставляється зі значенням, що зберігається у PX4.
+  - Відповідні метадані включають опис параметра, його можливі значення, інформацію про те, як значення може бути представлено (наприклад, для бітових масок).
+- [Події](../concept/events_interface.md) повідомляють про події, такі як причини збою, попередження про низький заряд батареї, кінець калібрування і так далі.
+  - Подія позначається ідентифікатором і надсилається з відповідним рівнем журналу, деяким повідомленням та аргументами.
+  - Пов'язані метадані включають опис події та аргументи.
 
-The metadata and metadata translations are shared with external systems, such as QGroundControl, allowing them to display information about parameters and events as a string in the user's own language.
+Метадані та переклади метаданих надаються зовнішнім системам, таким як QGroundControl, що дозволяє їм відображати інформацію про параметри та події у вигляді рядка рідною мовою користувача.
 
-This topic explains how you can define metadata and help translate strings (and "just for your information", how it all works).
+У цій темі пояснюється, як можна визначити метадані та допомогти перекладати рядки (а також "просто для інформації", як це все працює).
 
-## Metadata Translation
+## Переклад метаданих
 
-Translations for PX4 metadata are done using Crowdin in the [PX4-Metadata-Translations](https://crowdin.com/project/px4-metadata-translations) project.
-For more information about working with PX4 and Crowdin see [Translation](../contribute/translation.md).
+Переклад метаданих PX4 виконується за допомогою Crowdin у проєкті [PX4-Metadata-Translations](https://crowdin.com/project/px4-metadata-translations).
+Для отримання додаткової інформації про роботу з PX4 та Crowdin див. [Переклад](../contribute/translation.md).
 
-## Defining Metadata
+## Визначення метаданих
 
-PX4 metadata is defined in PX4 source code alongside its associated data.
-Often this is done in a C/C++ comment with special markup to indicate metadata fields and their values.
-In some cases YAML files are used.
+Метадані PX4 визначаються у вихідному коді PX4 разом з відповідними даними.
+Часто це робиться у C/C++-коментарі зі спеціальною розміткою для позначення полів метаданих та їхніх значень.
+В деяких випадках використовуються YAML файли.
 
-For more information see the topics for each data type:
+Докладнішу інформацію див. у темах для кожного типу даних:
 
-- [Parameters & Configurations > Creating/Defining Parameters](../advanced/parameters_and_configurations.md#creating-defining-parameters)
-- [Events Interface](../concept/events_interface.md)
+- [Параметри та конфігурації > Створення/визначення параметрів](../advanced/parameters_and_configurations.md#creating-defining-parameters)
+- [Інтерфейс подій](. ./concept/events_interface.md)
 
-## Metadata Toolchain
+## Інструментарій метаданих
 
-The process for handling metadata is the same for both event and parameter metadata.
+Процес обробки метаданих однаковий для метаданих події та метаданих параметрів.
 
-Metadata is collected into JSON and XML files every time PX4 is built.
+Метадані збираються у файли JSON та XML кожного разу, коли збирається PX4.
 
-For most flight controllers (as most have enough FLASH available), the JSON file is xz-compressed and stored within the generated binary.
-The file is then shared to ground stations using the MAVLink [Component Information Protocol](https://mavlink.io/en/services/component_information.html).
-Using the component metadata protocol ensures that the recipient can always fetch up-to-date metadata for the code running on the vehicle.
+Для більшості польотних контролерів (оскільки більшість з них мають достатньо доступного FLASH), файл JSON стискається xz-стисненням і зберігається у згенерованому бінарному файлі.
+Потім файл передається наземним станціям за допомогою протоколу MAVLink [Component Information Protocol] (https\://mavlink.io/en/services/component_information.html).
+Використання протоколу метаданих компонентів гарантує, що одержувач завжди отримує актуальні метадані для коду, що виконується на апараті.
 
-Binaries for flight controller targets with constrained memory do not store the parameter metadata in the binary, but instead reference the same data stored on `px4-travis.s3.amazonaws.com`.
-This applies, for example, to the [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md).
-The metadata is uploaded via [github CI](https://github.com/PX4/PX4-Autopilot/blob/main/.github/workflows/metadata.yml) for all build targets (and hence will only be available once parameters have been merged into main).
+Бінарні файли для контролерів польоту з обмеженим обсягом пам'яті не зберігають метадані параметрів у бінарному файлі, а натомість посилаються на ті самі дані, що зберігаються на `px4-travis.s3.amazonaws.com`.
+Це стосується, наприклад, [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md).
+Метадані завантажуються через [github CI](https://github.com/PX4/PX4-Autopilot/blob/main/.github/workflows/metadata.yml) для всіх цілей збірки (таким чином, вони будуть доступні лише після того, як параметри будуть об'єднані в main).
 
 :::note
 You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/main/boards/omnibus/f4sd/default.px4board).
 
-If doing custom development on a FLASH-constrained board you can adjust the URL [here](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/component_information/CMakeLists.txt#L41) to point to another server.
+Якщо ви виконуєте індивідуальну розробку на платі з обмеженою FLASH-пам'яттю, ви можете змінити URL-адресу [тут](https\://github. com/PX4/PX4-Autopilot/blob/main/src/lib/component_information/CMakeLists.txt#L41), щоб вказати на інший сервер.
 :::
 
-The metadata on `px4-travis.s3.amazonaws.com` is used if parameter metadata is not present on the vehicle.
-It may also be used as a fallback to avoid a very slow download over a low-rate telemetry link.
+Метадані на `px4-travis.s3.amazonaws.com` використовуються, якщо метадані параметрів відсутні на бортовому комп'ютері безпілотника.
+Він також може використовуватися як запасний варіант, щоб уникнути дуже повільного завантаження через низькошвидкісне телеметричне з'єднання.
 
-The metadata JSON files for CI builds of `main` are also copied to the github repo: [PX4/PX4-Metadata-Translations](https://github.com/PX4/PX4-Metadata-Translations/).
-This integrates with Crowdin to get translations, which are stored in the [translated](https://github.com/PX4/PX4-Metadata-Translations/tree/main/translated) folder as xz-compressed translation files for each language.
-These are referenced by the vehicle component metadata, and are downloaded when needed.
-For more information see [PX4-Metadata-Translations](https://github.com/PX4/PX4-Metadata-Translations/) and [Component Metadata Protocol > Translation](https://mavlink.io/en/services/component_information.html#translation).
+JSON-файли метаданих для CI-збірок `main` також копіюються до репозиторію github: [PX4/PX4-Metadata-Translations](https://github.com/PX4/PX4-Metadata-Translations/).
+Це інтегрується з Crowdin для отримання перекладів, які зберігаються у теці [translated](https://github.com/PX4/PX4-Metadata-Translations/tree/main/translated) як xz-стиснуті файли перекладу для кожної мови.
+На них посилаються метадані компонентів безпілотника, і вони завантажуються за необхідності.
+Для отримання додаткової інформації див. [PX4-Metadata-Translations](https://github.com/PX4/PX4-Metadata-Translations/) та [Протокол метаданих компонентів > Переклад](https://mavlink.io/en/services/component_information.html#translation).
 
 :::note
-The parameter XML file of the main branch is copied into the QGC source tree via CI and is used as a fallback in cases where no metadata is available via the component metadata protocol (this approach predates the existence of the component metadata protocol).
+Файл параметрів XML з головної гілки проєкту PX4 копіюється до дерева джерел QGC за допомогою безперервної інтеграції (CI). Цей файл використовується як резервний варіант у випадках, коли метадані недоступні через протокол метаданих компонентів (цей підхід передує появі протоколу метаданих компонентів).
 :::
 
-## Further Information
+## Додаткова інформація
 
-- [Parameters & Configurations](../advanced/parameters_and_configurations.md)
-- [Events Interface](../concept/events_interface.md)
-- [Translation](../contribute/translation.md)
-- [Component Metadata Protocol](https://mavlink.io/en/services/component_information.html) (mavlink.io)
+- [Параметри та конфігурації](../advanced/parameters_and_configurations.md)
+- [Інтерфейс подій](. ./concept/events_interface.md)
+- [Переклад](../contribute/translation.md)
+- [Протокол метаданих компонентів](https://mavlink.io/en/services/component_information.html) (mavlink.io)
 - [PX4-Metadata-Translations](https://github.com/PX4/PX4-Metadata-Translations/) (Github)

@@ -75,5 +75,5 @@ You can update it by following the instructions in [Bootloader update > FMUv2 Bo
 
 ## 추가 정보
 
-- [QGroundControl User Guide > Firmware](https://docs.qgroundcontrol.com/master/en/SetupView/Firmware.html).
+- [QGroundControl User Guide > Firmware](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/firmware.html).
 - [PX4 설정 비디오](https://youtu.be/91VGmdSlbo4) (유튜브)

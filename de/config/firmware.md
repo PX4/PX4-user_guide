@@ -56,7 +56,7 @@ To install a different version of PX4:
    - **Standard Version (stable):** The default version (i.e. no need to use advanced settings to install this!)
    - **Beta Testing (beta):** A beta/candidate release. Only available when a new release is being prepared.
    - **Developer Build (master):** The latest build of PX4/PX4-Autopilot _main_ branch.
-   - **Custom Firmware file...:** A custom firmware file (e.g. that you have built locally). If you select this you will have to choose the custom firmware from the file system in the next step.
+   - **Custom Firmware file...:** A custom firmware file (e.g. [that you have built locally](../dev_setup/building_px4.md)). If you select this you will have to choose the custom firmware from the file system in the next step.
 
 Firmware update then continues as before.
 
@@ -74,5 +74,5 @@ You can update it by following the instructions in [Bootloader update > FMUv2 Bo
 
 ## Further Information
 
-- [QGroundControl User Guide > Firmware](https://docs.qgroundcontrol.com/master/en/SetupView/Firmware.html).
+- [QGroundControl User Guide > Firmware](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/firmware.html).
 - [PX4 Setup Video](https://youtu.be/91VGmdSlbo4) (Youtube)
