@@ -1,34 +1,34 @@
-# Vehicle Types & Setup
+# Типи транспортних засобів та налаштування
 
-PX4 supports numerous types of vehicles, including different configurations of multicopters, planes, VTOL vehicles, ground vehicles, and so on.
+PX4 підтримує численні типи транспортних засобів, включаючи різні конфігурації мультикоптерів, літаків, засобів вертикального злету та посадки(VTOL), наземних засобів, тощо.
 
-This section explains how to assemble, configure, and tune PX4-based autopilot systems for each type (much of this setup is common to all types).
+Цей розділ пояснює, як збирати, конфігурувати та налаштовувати системи автопілотів на основі PX4 для кожного типу (багато з цих налаштувань є спільними для всіх типів).
 
 :::note
-[Vehicle Selection](../getting_started/frame_selection.md) provides high level information about the types of vehicles and the use cases for which they are best suited. :::
+[Vehicle Selection](../getting_started/frame_selection.md) надає високорівневу інформацію про типи транспортних засобів і сценарії використання для яких вони найкраще підходять. :::
 
 ## Підтримувані транспортні засоби
 
-The frame types that have a maintainer and are well tested and supported are:
+Типи рам, які мають розробників, добре тестовані та підтримуються:
 
 - [Multicopters](../frames_multicopter/README.md) (tri-, quad-, hexa-, octa-, and even [omnicopter](../frames_multicopter/omnicopter.md) vehicles)
-- [Planes (Fixed-Wing)](../frames_plane/README.md)
+- [Літаки (Фіксоване крило)](../frames_plane/README.md)
 - [VTOL](../frames_vtol/README.md): [Standard VTOL](../frames_vtol/standardvtol.md), [Tailsitter VTOL](../frames_vtol/tailsitter.md), [Tiltrotor VTOL](../frames_vtol/tiltrotor.md)
 
-## Experimental Vehicles
+## Експериментальні транспортні засоби
 
-Experimental frames are those vehicle types that:
+Експериментальні рами - це ті типи транспортних засобів, які:
 
-- Do not have a maintainer.
-- Are not regularly tested by the core development team.
-- May not be tested in CI.
-- May lack features required for production-ready vehicles.
-- May not support some common vehicle configurations for the vehicle type.
+- У неї немає технічного обслуговування.
+- Не регулярно тестується головною командою розробки.
+- Можливо, не тестуються в CI.
+- Не має необхідних характеристик для готових до виробництва засобів.
+- Може не підтримувати деякі загальні конфігурації для типу транспортного засобу.
 
-The following vehicle types are considered experimental:
+Наступні типи транспортних засобів вважаються експериментальними:
 
 - [Дирижаблі](../frames_airship/README.md)
-- [Autogyros](../frames_autogyro/README.md)
+- [Автожири](../frames_autogyro/README.md)
 - [Повітряні кулі](../frames_balloon/README.md)
 - [Вертоліт](../frames_helicopter/README.md)
 - [Марсохід](../frames_rover/README.md)
