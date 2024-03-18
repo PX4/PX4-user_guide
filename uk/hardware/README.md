@@ -1,6 +1,6 @@
-# Hardware Integration
+# Інтеграція з обладнанням
 
-This section contains topics about integrating PX4 with _new_ autopilot and peripheral hardware, including:
+Цей розділ містить теми про інтеграцію PX4 з _новим_ автопілотом та периферійним обладнанням, включаючи:
 
 - [Flight Controller Reference Design](../hardware/reference_design.md)
 - [Manufacturer’s Board Support Guide](../hardware/board_support_guide.md)
@@ -13,5 +13,5 @@ This section contains topics about integrating PX4 with _new_ autopilot and peri
 - [RTK GPS (Integration)](../advanced/rtk_gps.md)
 
 :::tip
-Other sections show how to _use_ and _configure_ supported [autopilot](../flight_controller/README.md), [companion computer](../companion_computer/README.md) and [peripheral](../peripherals/README.md) hardware.
+Інші розділи показують, як _використовувати_ та _налаштовувати_ підтримувані [автопілоти](../flight_controller/README.md), [компаньйон комп'ютери](../companion_computer/README.md) та [периферійне](../peripherals/README.md) обладнання.
 :::

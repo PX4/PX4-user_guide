@@ -1,16 +1,16 @@
-# Land Detector Configuration
+# Конфігурація детектора посадки
 
-The land detector is a dynamic vehicle model representing key vehicle states from ground contact through to landed. This topic explains the main parameters you may wish to tune in order to improve landing behaviour.
+Детектор посадки - динамічна модель транспортного засобу, що представляє ключові стани транспортного засобу від контакту з землею до посадки. Ця тема пояснює основні параметри, які ви, можливо, захочете налаштувати для покращення поведінки при посадці.
 
-## Auto-Disarming
+## Автоматичне вимкнення
 
-The land-detector automatically disarms the vehicle on landing.
+Детектор посадки автоматично вимикає управління дроном при посадці.
 
-You can set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to specify the number of seconds after landing that the system should disarm (or turn off auto-disarming by setting the parameter to -1).
+Ви можете встановити [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) , щоб вказати кількість секунд після посадки, протягом яких система повинна вимкнутися (або вимкнути автоматичне вимикання, встановивши параметр на -1).
 
 ## Multicopter Configuration
 
-The complete set of relevant landing detector parameters are listed in the parameter reference with the prefix [LNDMC](../advanced_config/parameter_reference.md#land-detector) (these can be edited in QGroundControl via the [parameter editor](../advanced_config/parameters.md)).
+Повний набір відповідних параметрів детектора приземлення перераховано в посиланні на параметри з префіксом [LNDMC](../advanced_config/parameter_reference.md#land-detector) (їх можна редагувати в QGroundControl через [редактор параметрів](../advanced_config/parameters.md)).
 
 :::tip
 Information about how the parameters affect landing can be found below in [Land Detector States](#mc-land-detector-states).

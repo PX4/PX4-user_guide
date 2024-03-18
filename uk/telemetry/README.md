@@ -1,10 +1,10 @@
-# Telemetry Radios/Modems
+# Телеметричні радіо/модеми
 
-Telemetry Radios can (optionally) be used to provide a wireless MAVLink connection between a ground control station like _QGroundControl_ and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
+Бездротові телеметричні радіо можуть (за потреби) використовуватися для забезпечення бездротового підключення MAVLink між станцією земного контролю, такою як _QGroundControl_, та транспортним засобом, що працює на PX4. Це дозволяє налаштовувати параметри під час польоту, перевіряти телеметрію в реальному часі, змінювати місію на льоту тощо.
 
-PX4 supports a number of types of telemetry radios:
+PX4 підтримує ряд типів телеметрійних радіозон:
 
-- [SiK Radio](../telemetry/sik_radio.md) based firmware (more generally, any radio with a UART interface should work).
+- Прошивка на базі радіо [SiK](../telemetry/sik_radio.md) (загалом, будь-яке радіо з інтерфейсом UART повинно працювати).
   - [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
   - [HolyBro SiK Telemetry Radio](../telemetry/holybro_sik_radio.md)
   - <del>_HKPilot Telemetry Radio_</del> (Discontinued)
@@ -18,15 +18,15 @@ PX4 supports a number of types of telemetry radios:
 - XBee Serial Telemetry Radio
   - [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md) (Discontinued)
 
-PX4 is protocol compatible with [SiK Radio](../telemetry/sik_radio.md) and will generally work out of the box (though you may need to change/use an appropriate connector).
+PX4 є протоколом, сумісним із [SiK Radio](../telemetry/sik_radio.md), і, як правило, працюватиме з коробки (хоча вам може знадобитися змінити/використати відповідний роз’єм).
 
-WiFi telemetry typically has shorter range, higher data rates, and makes it easier to support FPV/video feeds. One benefit of WiFi radios is that you only need to purchase a single radio unit for your vehicle (assuming the ground station already has WiFi).
+Телеметрія по WiFi зазвичай має менший радіус дії, вищі швидкості передачі даних і спрощує підтримку FPV/відеопотоків. One benefit of WiFi radios is that you only need to purchase a single radio unit for your vehicle (assuming the ground station already has WiFi).
 
-:::note PX4 does not support connecting an LTE USB module to the flight controller (and sending MAVLink traffic via the Internet). You can however connect an LTE module to a companion computer and use it to route MAVLink traffic from the flight controller. For more information see: [Companion Computer Peripherals > Data Telephony](../companion_computer/companion_computer_peripherals.md#data-telephony-lte).
+:::note PX4 не підтримує підключення LTE USB-модуля до контролера польоту (і передачу трафіку MAVLink через Інтернет). Однак ви можете підключити модуль LTE до компаньйонного комп'ютера і використовувати його для маршрутизації трафіку MAVLink від контролера польоту. Для отримання додаткової інформації дивіться: [Периферійні пристрої компаньйонного комп'ютера > Дані телефонії](../companion_computer/companion_computer_peripherals.md#data-telephony-lte).
 :::
 
-## Allowed Frequency Bands
+## Дозволені частоти
 
-Radio bands allowed for use with drones differ between continents, regions, countries, and even states. You should select a telemetry radio that uses a frequency range that is allowed in the areas where you plan on using the drone.
+Діапазони радіочастот, дозволені для використання з дронами, відрізняються між континентами, регіонами, країнами, а навіть штатами. Вам слід вибрати телеметричне радіо, яке використовує діапазон частот, дозволений у тих областях, де ви плануєте використовувати дрона.
 
-Low power [SiK radios](../telemetry/sik_radio.md), such as the [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md), are often available in 915 MHz and 433 MHz variants. While you should check applicable laws in your country/state, broadly speaking 915 MHz can be used in the US, while 433 MHz can be used in EU, Africa, Oceania, and most of Asia.
+Радіо низької потужності [SiK](../telemetry/sik_radio.md), такі як [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md), часто доступні у варіантах 915 МГц та 433 МГц. Хоча вам слід перевірити діючі закони у своїй країні/штаті, загалом кажучи, 915 МГц можна використовувати у США, тоді як 433 МГц можна використовувати в ЄС, Африці, Океанії та більшості Азії.

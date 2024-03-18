@@ -7,7 +7,7 @@ This section explains how to assemble, configure, and tune PX4-based autopilot s
 :::note
 [Vehicle Selection](../getting_started/frame_selection.md) provides high level information about the types of vehicles and the use cases for which they are best suited. :::
 
-## Supported Vehicles
+## Підтримувані транспортні засоби
 
 The frame types that have a maintainer and are well tested and supported are:
 
@@ -27,16 +27,16 @@ Experimental frames are those vehicle types that:
 
 The following vehicle types are considered experimental:
 
-- [Airships](../frames_airship/README.md)
+- [Дирижаблі](../frames_airship/README.md)
 - [Autogyros](../frames_autogyro/README.md)
-- [Balloons](../frames_balloon/README.md)
-- [Helicopter](../frames_helicopter/README.md)
-- [Rovers](../frames_rover/README.md)
-- [Submarines](../frames_sub/README.md)
+- [Повітряні кулі](../frames_balloon/README.md)
+- [Вертоліт](../frames_helicopter/README.md)
+- [Марсохід](../frames_rover/README.md)
+- [Субмарини](../frames_sub/README.md)
 
 :::note
 Maintainer volunteers, [contribution](../contribute/README.md) of new features, new frame configurations, or other improvements would all be very welcome! :::
 
-## Other Vehicles
+## Інші транспортні засоби
 
-The complete set of supported vehicle types and their configurations can be found in the [Airframes Reference](../airframes/airframe_reference.md).
+Повний набір підтримуваних типів транспортних засобів і їх конфігурації можна знайти в [Airframes](../airframes/airframe_reference.md).

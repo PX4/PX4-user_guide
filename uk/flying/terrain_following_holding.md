@@ -9,15 +9,15 @@ PX4 supports [Terrain Following](#terrain_following) and [Terrain Hold](#terrain
 
 ## Terrain Following
 
-*Terrain following* enables a vehicle to automatically maintain a relatively constant height above ground level when traveling at low altitudes. This is useful for avoiding obstacles and for maintaining constant height when flying over varied terrain (e.g. for aerial photography).
+*Слідування за місцевістю* дозволяє транспортному засобу автоматично підтримувати відносно сталу висоту над рівнем землі при переміщенні на низьких висотах. Це корисно для уникнення перешкод і для підтримки постійної висоти під час польоту над різноманітним рельєфом (наприклад, для аерофотозйомки).
 
 :::tip
-This feature can be enabled in [Position](../flight_modes_mc/position.md) and [Altitude modes](../flight_modes_mc/altitude.md), on *multicopters* and *VTOL vehicles in MC mode* that have a [distance sensor](../sensor/rangefinders.md).
+Цю функцію можна активувати в режимах [Положення](../flight_modes_mc/position.md) та [Висота](../flight_modes_mc/altitude.md) на *багтрокерах* та *вертикально-взлітно-посадкових апаратах в режимі MC*, які мають [датчик відстані](../sensor/rangefinders.md).
 :::
 
-When *terrain following* is enabled, PX4 uses the output of the EKF estimator to provide the altitude estimate, and the estimated terrain altitude (calculated from distance sensor measurements using another estimator) to provide the altitude setpoint. As the distance to ground changes, the altitude setpoint adjusts to keep the height above ground constant.
+Коли ввімкнено *слідування за місцевістю*, PX4 використовує вихід оцінювача EKF для надання оцінки висоти, а оцінена висота місцевості (обчислена з вимірів датчиків відстані за допомогою іншого оцінювача) - для надання установленої точки висоти. При зміні відстані до землі установлена точка висоти коригується так, щоб зберегти висоту над землею постійною.
 
-At higher altitudes (when the estimator reports that the distance sensor data is invalid) the vehicle switches to *altitude following*, and will typically fly at a near-constant height above mean sea level (AMSL) using an absolute height sensor for altitude data.
+На великих висотах (коли оцінювач повідомляє, що дані від датчика відстані недійсні), транспортний засіб переходить до *слідування за висотою*, і, як правило, літає практично на постійній висоті над середнім рівнем моря (AMSL), використовуючи абсолютний висотомір для даних про висоту.
 
 :::note
 More precisely, the vehicle will use the available selected sources of altitude data as defined [here](../advanced_config/tuning_the_ecl_ekf.md#height).
@@ -41,5 +41,5 @@ When moving horizontally (`speed >` [MPC_HOLD_MAX_XY](../advanced_config/paramet
 Terrain holding is enabled by setting [MPC_ALT_MODE](../advanced_config/parameter_reference.md#MPC_ALT_MODE) to `2`.
 
 :::note
-*Terrain hold* is implemented similarly to [terrain following](#terrain_following). It uses the output of the EKF estimator to provide the altitude estimate, and the estimated terrain altitude (calculated from distance sensor measurements using a separate, single state terrain estimator) to provide the altitude setpoint. If the distance to ground changes due to external forces, the altitude setpoint adjusts to keep the height above ground constant.
+*Terrain hold* is implemented similarly to [terrain following](#terrain_following). Вона використовує вихід оцінювача EKF для надання оцінки висоти та оцінку висоти місцевості (розраховану на основі вимірів датчика відстані за допомогою окремого однорівневого оцінювача місцевості), щоб надати точку установки висоти. Якщо відстань до землі змінюється через зовнішні сили, точка установки висоти коригується, щоб забезпечити постійну висоту над землею.
 :::

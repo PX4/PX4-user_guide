@@ -12,7 +12,7 @@ At time of writing you can only use Batmon by [building a custom branch of PX4](
 ![Pre-assembled Rotoye smart battery](../../assets/hardware/smart_batteries/rotoye_batmon/smart-battery-rotoye-pack.jpg)
 
 
-## Where to Buy
+## Де купити
 
 [Rotoye Store](https://rotoye.com/batmon/): Batmon kits, custom smart-batteries, and accessories
 
@@ -23,12 +23,12 @@ The Rotoye Batmon system uses an XT-90 battery connector with I2C pins, and an o
 
 ![Board connections](../../assets/hardware/smart_batteries/rotoye_batmon/smart-battery-rotoye-connection.png)
 
-More details can be found [here](https://github.com/rotoye/batmon_reader)
+Більш детальну інформацію можна знайти [тут](https://github.com/rotoye/batmon_reader)
 
 
-## Software Setup
+## Налаштування програмного забезпечення
 
-### Build PX4 Firmware
+### Створення прошивки PX4
 
 1. Clone or download [Rotoye's fork of PX4:](https://github.com/rotoye/PX4-Autopilot/tree/batmon_4.03)
    ```sh
@@ -42,9 +42,9 @@ More details can be found [here](https://github.com/rotoye/batmon_reader)
    ```
 1. [Build and upload the firmware](../dev_setup/building_px4.md) for your target board
 
-### Configure Parameters
+### Налаштування параметрів
 
-In *QGroundControl*:
+У *QGroundControl*:
 1. Set the following [parameters](../advanced_config/parameters.md):
    - `BATx_SOURCE` to `External`,
    - `SENS_EN_BAT` to `true`,
@@ -56,6 +56,6 @@ In *QGroundControl*:
    batt_smbus start -X -b 1 -a 12 # External bus 1, address 0x0c
    ```
 
-## Further Information
+## Детальна інформація
 
 [Quick Start Guide](https://rotoye.com/batmon-tutorial/) (Rotoye)
