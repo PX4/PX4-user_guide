@@ -54,17 +54,17 @@ You can identify memory constrained boards because they specify `CONFIG_BOARD_CO
 
 JSON-файли метаданих для CI-збірок `main` також копіюються до репозиторію github: [PX4/PX4-Metadata-Translations](https://github.com/PX4/PX4-Metadata-Translations/).
 Це інтегрується з Crowdin для отримання перекладів, які зберігаються у теці [translated](https://github.com/PX4/PX4-Metadata-Translations/tree/main/translated) як xz-стиснуті файли перекладу для кожної мови.
-These are referenced by the vehicle component metadata, and are downloaded when needed.
-For more information see [PX4-Metadata-Translations](https://github.com/PX4/PX4-Metadata-Translations/) and [Component Metadata Protocol > Translation](https://mavlink.io/en/services/component_information.html#translation).
+На них посилаються метадані компонентів безпілотника, і вони завантажуються за необхідності.
+Для отримання додаткової інформації див. [PX4-Metadata-Translations](https://github.com/PX4/PX4-Metadata-Translations/) та [Протокол метаданих компонентів > Переклад](https://mavlink.io/en/services/component_information.html#translation).
 
 :::note
-The parameter XML file of the main branch is copied into the QGC source tree via CI and is used as a fallback in cases where no metadata is available via the component metadata protocol (this approach predates the existence of the component metadata protocol).
+Файл параметрів XML з головної гілки проєкту PX4 копіюється до дерева джерел QGC за допомогою безперервної інтеграції (CI). Цей файл використовується як резервний варіант у випадках, коли метадані недоступні через протокол метаданих компонентів (цей підхід передує появі протоколу метаданих компонентів).
 :::
 
-## Further Information
+## Додаткова інформація
 
-- [Parameters & Configurations](../advanced/parameters_and_configurations.md)
-- [Events Interface](../concept/events_interface.md)
-- [Translation](../contribute/translation.md)
-- [Component Metadata Protocol](https://mavlink.io/en/services/component_information.html) (mavlink.io)
+- [Параметри та конфігурації](../advanced/parameters_and_configurations.md)
+- [Інтерфейс подій](. ./concept/events_interface.md)
+- [Переклад](../contribute/translation.md)
+- [Протокол метаданих компонентів](https://mavlink.io/en/services/component_information.html) (mavlink.io)
 - [PX4-Metadata-Translations](https://github.com/PX4/PX4-Metadata-Translations/) (Github)
