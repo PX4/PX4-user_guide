@@ -60,7 +60,7 @@ To install a different version of PX4:
    - **Beta Testing (beta):** A beta/candidate release.
      Only available when a new release is being prepared.
    - **Developer Build (master):** The latest build of PX4/PX4-Autopilot _main_ branch.
-   - **Custom Firmware file...:** A custom firmware file (e.g. that you have built locally).
+   - **Custom Firmware file...:** A custom firmware file (e.g. [that you have built locally](../dev_setup/building_px4.md)).
      If you select this you will have to choose the custom firmware from the file system in the next step.
 
 Firmware update then continues as before.
