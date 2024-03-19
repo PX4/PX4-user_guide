@@ -53,7 +53,7 @@ pxh> commander takeoff
 
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
-PX4 можна використовувати з низкою інших [симуляторів](../simulation/README.md), включаючи [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md) і [AirSim](../sim_airsim/README.md). Вони також запускаються за допомогою _make_, наприклад:
+:::tip PX4 можна використовувати з низкою інших [симуляторів](../simulation/README.md), включаючи [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md) і [AirSim](../sim_airsim/README.md). Вони також запускаються за допомогою _make_, наприклад:
 
 ```sh
 make px4_sitl gazebo-classic
@@ -83,31 +83,33 @@ make px4_fmu-v5_default
 
 Перша частина параметру збірки `px4_fmu-v4` вказує на програмне та апаратне забезпечення цільового контролера польоту. Суфікс, у цьому випадку  - `_default`, вказує на _конфігурацію прошивки_, наприклад, підтримку або відсутність певних функцій.
 
+:::note
 Суфікс `_default` вказувати не обовʼязково. Наприклад, вказування `px4_fmu-v5` чи `px4_fmu-v5_default` приведе до збірки тієї самої прошивки.
 :::
 
 У наведеному нижче списку показано команди збірки для плат [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md):
 
 - [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): `make px4_fmu-v6x_default`
-- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): `make px4_fmu-v6x_default`
-- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
-- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
-- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
-- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
-- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
-- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
-- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
-- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
-- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
-- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
-- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
+- [Holybro Pixhawk 6C (FMUv6C)](../flight_controller/pixhawk6c.md): `make px4_fmu-v6c_default`
+- [Holybro Pixhawk 6C Mini (FMUv6C)](../flight_controller/pixhawk6c_mini.md): `make px4_fmu-v6c_default`
+- [Holybro Pix32 v6 (FMUv6C)](../flight_controller/holybro_pix32_v6.md): `make px4_fmu-v6c_default`
+- [Holybro Pixhawk 5X (FMUv5X)](../flight_controller/pixhawk5x.md): `make px4_fmu-v5x_default`
+- [Pixhawk 4 (FMUv5)](../flight_controller/pixhawk4.md): `make px4_fmu-v5_default`
+- [Pixhawk 4 Mini (FMUv5)](../flight_controller/pixhawk4_mini.md): `make px4_fmu-v5_default`
+- [CUAV V5+ (FMUv5)](../flight_controller/cuav_v5_plus.md): `make px4_fmu-v5_default`
+- [CUAV V5 nano (FMUv5)](../flight_controller/cuav_v5_nano.md): `make px4_fmu-v5_default`
+- [Pixracer (FMUv4)](../flight_controller/pixracer.md): `make px4_fmu-v4_default`
+- [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md): `make px4_fmu-v4pro_default`
+- [Pixhawk Mini](../flight_controller/pixhawk_mini.md): `make px4_fmu-v3_default`
+- [Pixhawk 2 (Cube Black) (FMUv3)](../flight_controller/pixhawk-2.md): `make px4_fmu-v3_default`
 - [mRo Pixhawk (FMUv3)](../flight_controller/mro_pixhawk.md): `make px4_fmu-v3_default` (підтримка до 2MB флеш-памʼяті)
-- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
-- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
-- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
-- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): ` make px4_fmu-v6x_default`
+- [Holybro pix32 (FMUv2)](../flight_controller/holybro_pix32.md): `make px4_fmu-v2_default`
+- [Pixfalcon (FMUv2)](../flight_controller/pixfalcon.md): `make px4_fmu-v2_default`
+- [Dropix (FMUv2)](../flight_controller/dropix.md): `make px4_fmu-v2_default`
+- [Pixhawk 1 (FMUv2)](../flight_controller/pixhawk.md): `make px4_fmu-v2_default`
 
-  Для збірки прошивки для цієї плати вам **необхідно** використовувати саме ту версію GCC, яка підтримується (наприклад, ту саму, що використовується у [CI/docker](../test_and_ci/docker.md)), або вилучити ці модулі зі збірки. Збірка прошивки за допомогою компілятора GCC, який не підтримується може зазнати невдачі, оскільки обсяг памʼяті, який займає PX4, близький до ліміту пам'яті плати в 1 МБ.
+:::warning
+Для збірки прошивки для цієї плати вам **необхідно** використовувати саме ту версію GCC, яка підтримується (наприклад, ту саму, що використовується у [CI/docker](../test_and_ci/docker.md)), або вилучити ці модулі зі збірки. Збірка прошивки за допомогою компілятора GCC, який не підтримується може зазнати невдачі, оскільки обсяг памʼяті, який займає PX4, близький до ліміту пам'яті плати в 1 МБ.
 :::
 
 - Pixhawk 1 з 2 Мб флеш-памʼяті: ` make px4_fmu-v3_default`
@@ -271,7 +273,7 @@ make list_config_targets
 
 - **MODEL:** Модель _засобу_ (наприклад `iris` (_default_), `rover`, `tailsitter` тощо), яка буде завантажена симуляцією. Змінна середовища `PX4_SIM_MODEL` буде встановлена в обрану модель, яка потім використовується в [скрипті запуску](../simulation/README.md#startup-scripts) для вибору відповідних параметрів.
 - **DEBUGGER:** Налагоджувач який буде використано: `none` (_default_), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. Для додаткової інформації дивіться [Налагодження симуляції](../debug/simulation_debugging.md).
-- **WORLD:** (тільки для Gazebo Classic). Встановити світ ([PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worl](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/main/worlds), який завантажити. За замовчуванням це [empty.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/empty.world). Для отримання додаткової інформації див. [Gazebo Classic > Завантаження певного світу](../sim_gazebo_classic/README.md#loading-a-specific-world).
+- **WORLD:** (тільки для Gazebo Classic). Встановити світ ([PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/main/worlds)), який завантажити. За замовчуванням це [empty.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/empty.world). Для отримання додаткової інформації див. [Gazebo Classic > Завантаження певного світу](../sim_gazebo_classic/README.md#loading-a-specific-world).
 
 :::tip
 Ви можете отримати список _всіх_ доступних параметрів `VIEWER_MODEL_DEBUGGER_WORLD` використавши наступну команду:
