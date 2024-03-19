@@ -36,9 +36,9 @@ PX4 can be used with computers that can be configured to communicate via MAVLink
 
 A small subset of possible alternatives are listed below:
 
-- Raspberry Pi
-- Odroid
-- Tegra K1
+- [ModalAI VOXL 2](https://docs.modalai.com/voxl2-external-flight-controller/)
+- [NXP NavQPlus](https://nxp.gitbook.io/navqplus)
+- [ARK Jetson PAB Carrier](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-jetson-pab-carrier)
 
 :::note
 The choice of computer will depend on the usual tradeoffs: cost, weight, power consumption, ease of setup, and computational resources required.
