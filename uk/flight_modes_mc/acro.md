@@ -1,4 +1,4 @@
-# Acro Mode (Multicopter)
+# Acro Режим (Мультикоптер)
 
 <img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />&nbsp;
 
@@ -10,13 +10,13 @@ The roll, pitch and yaw sticks control the rate of angular rotation around the r
 
 <!-- image above incorrect: https://github.com/PX4/PX4-user_guide/issues/182 -->
 
-## Technical Description
+## Технічний опис
 
 Manual mode for performing acrobatic maneuvers e.g. flips, rolls and loops.
 
 RC Roll/Pitch/Yaw (RPY) stick inputs control the rate of angular rotation around the respective axes. Throttle is passed directly to control allocation. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (not necessarily level) and moving according to its current momentum.
 
-Manual control input is required (such as RC control, joystick):
+Потрібен ручний ввід управління (наприклад, за допомогою пульта дистанційного керування, джойстика):
 
 - Roll, Pitch, Yaw: Assistance from autopilot to stabilize the attitude rate. Position of RC stick maps to the rate of rotation of vehicle in that orientation.
 - Throttle: Manual control via RC sticks. RC input is sent directly to control allocation.
