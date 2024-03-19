@@ -16,19 +16,19 @@
 
 ## Приведіть професіонала
 
-Приведіть когось із досвідом на свій перший політ. Get them to help you to run through the pre-flight checks and let them intervene if something goes wrong!
+Приведіть когось із досвідом на свій перший політ. Попросіть допомогти вам пройти передпольотні перевірки та якщо щось піде не так!
 
-## Plan the Flight
+## Плануйте політ
 
-Plan the flight before taking off. Make sure you know the whole route and where/how the vehicle will land.
+Плануйте політ перед зльотом. Переконайтеся, що ви знаєте весь маршрут і де/як апарат приземлиться.
 
-## Limit the Damage
+## Обмежте пошкодження
 
-Damaging property or injuring people with your UAV can have significant legal and financial consequences (far in excess of the value of the UAV itself).
+Пошкодження майна або поранення людей вашим БПЛА може мати значні юридичні та фінансові наслідки (які значно перевищують вартість самого БПЛА).
 
-The UAV should always be manually flown within a safe zone where there are no obstacles or people, and it must be clearly visible at all times.
+БПЛА завжди слід керувати вручну в межах безпечної зони, де немає перешкод або людей, і він повинен бути добре видимим у будь-який час.
 
-If you start to lose control over the vehicle, and cannot bring it back under control, crash it in an empty area as soon as possible.
+Якщо ви починаєте втрачати керування апаратом і не можете повернути його під контроль, якнайшвидше розбийте його на порожньому місці.
 
 :::note
-It can be useful to [set a safety switch on your transmitter](../config/safety.md#emergency-switches). This allows you to immediately return or crash your drone if necessary. :::
+Може бути корисно [встановити захисний switch на вашому передавачі](../config/safety.md#emergency-switches). Це дозволяє вам негайно повернути або розбити дрон, якщо необхідно. :::
