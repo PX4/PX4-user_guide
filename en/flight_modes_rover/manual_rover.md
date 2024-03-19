@@ -12,53 +12,40 @@ This rover mode is enabled if you set _Manual_ mode.
 
 (**Ackermann Drive Rover**) When under manual control the throttle and roll sticks control the _thrust_ and _torque_ of the vehicle. 
 
-Upon releasing the control sticks, they automatically revert to the central deadzone, halting the rover as the throttle and roll controls align at the center. Subsequently, the vehicle maintains its position and yaw, assuming the terrain is sufficiently level and unaffected by external forces like wind. However, the rover may drift in the direction of any incline if not properly oriented against the slope.
+## Technical Description (Differential Drive)
 
-<!-- ![MC Manual Flight](../../assets/flight_modes/stabilized_mc.png) -->
-![](../../assets/flight_modes/manual_differential_rover_new.png)
+### Manual Mode
 
+In manual mode, the left and right joystick/stick inputs directly control (open-loop) the rover's forward speed and yaw rate (rotation rate), respectively. The rover does not attempt to maintain a specific position or heading but instead responds directly to the user's inputs, without any closed-loop feedback control.
 
-<!-- ## Technical Description
+![Rover Manual Sticks](../../assets/flight_modes/manual_differential_rover_new.png)
 
-RC mode where centered sticks level vehicle (only - position is not stabilized).
+- Left Stick:
+  - Centered: Rover stops moving forward/backward.
+  - Pushed forward: Rover moves forward, with speed increasing as the stick is pushed further.
+  - Pulled backward: Rover moves in reverse, with speed increasing as the stick is pulled further back.
 
-The pilot's inputs are passed as roll and pitch angle commands and a yaw rate command.
-Throttle is rescaled (see [below](#params)) and passed directly to control allocation.
-The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered inside the controller deadzone (consequently leveling-out the attitude).
-The autopilot does not compensate for drift due to wind (or other sources).
+- Right Stick:
+  - Centered: Rover maintains its current heading and does not rotate.
+  - Pushed left/right: Rover rotates counter-clockwise/clockwise, with the rotation rate increasing as the stick is pushed further in that direction.
+  
+The rover's motion is controlled using a differential drive mechanism, where the left and right wheel speeds are adjusted independently to achieve the desired forward speed and yaw rate.
 
-- Centered sticks (inside deadband):
-  - Roll/Pitch sticks level vehicle.
-- Outside center:
-  - Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.
-  - Throttle stick controls up/down speed (and movement speed in other axes).
-  - Yaw stick controls rate of angular rotation above the horizontal plane.
-- Manual control input is required (such as RC control, joystick).
-  - Roll, Pitch: Assistance from autopilot to stabilize the attitude.
-    Position of RC stick maps to the orientation of vehicle.
-  - Throttle: Manual control via RC sticks. RC input is sent directly to control allocation.
-  - Yaw: Assistance from autopilot to stabilize the attitude rate.
-    Position of RC stick maps to the rate of rotation of vehicle in that orientation. -->
+Forward motion is achieved by driving both wheels at the same speed in the same direction.
+Rotation is achieved by driving the wheels at different speeds in opposite directions, allowing the rover to turn on the spot.
+The left stick input directly maps to the forward component of the wheel speeds, while the right stick input maps to the differential component between the left and right wheel speeds for rotation.
 
-## Technical Description
+It's important to note that in this manual mode, the rover does not attempt to maintain a specific orientation or compensate for external factors like slopes or uneven terrain. The user is responsible for making the necessary adjustments to the stick inputs to keep the rover on the desired course.
 
-In RC mode, centered sticks aim to level the vehicle (position is not stabilized).
+### Acro Mode
 
-Pilot inputs translate into roll and pitch angle commands, along with a yaw rate command.
-The throttle is scaled according to the [parameters below](#params) and passed directly to control allocation.
-The autopilot adjusts the attitude, aiming to zero the roll and pitch angles when the RC sticks are within the controller's deadzone, thus leveling the attitude. It does not counteract drift caused by wind or other factors.
+Acro Mode is similar to Manual Mode, but with a closed-loop yaw rate control. In this mode, the left stick input remains open-loop for forward speed control, while the right stick input commands a desired yaw rate setpoint, which is then maintained by the rover's closed-loop control system.
 
-- Centered sticks (within deadband):
-  - Level the vehicle using Roll/Pitch sticks.
-- Outside center:
-  - Control tilt angle and thus left-right and forward-back movement through Roll/Pitch sticks.
-  - Adjust up/down speed (and speed in other axes) with the Throttle stick.
-  - Yaw stick adjusts the angular rotation rate.
-- Manual input is necessary (e.g., RC control, joystick) for:
-  - Roll, Pitch: Autopilot assists in stabilizing attitude. Stick position correlates with vehicle orientation.
-  - Throttle: Manually controlled via RC sticks. Input is sent straight to control allocation.
-  - Yaw: Autopilot assists in stabilizing the rate of attitude change. Stick position corresponds to vehicle's rotation rate.
-
+- Left Stick:
+Behavior remains the same as in Manual Mode, directly controlling the rover's forward speed in an open-loop manner.
+- Right Stick:
+  - Centered: Rover stops rotating and tries to maintains its current heading.
+  - Pushed left/right: Rover rotates counter-clockwise/clockwise at the rate commanded by the stick input, using a closed-loop controller (e.g., PID) to try to ensure the vehicle yaw rate matches the given setpoint.
 
 <a id="params"></a>
 
