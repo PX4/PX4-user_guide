@@ -14,14 +14,14 @@ They are connected using a fast serial or Ethernet link, and typically communica
 
 Communications with the ground stations and the cloud are usually routed via the companion computer (e.g. using the [MAVLink Router](https://github.com/mavlink-router/mavlink-router)).
 
-## Integrated Companion/Flight Controller Boards
+## Pixhawk Autopilot Bus Carrier Boards
 
-Controller boards that come with a pre-integrated companion computer and flight controller can significantly ease both software and hardware setup.
-In some cases the boards are set up to allow easy replacement of flight controller and/or companion computer parts.
+Carrier boards implementing the Pixhawk Autopilot Bus Open Standard with integrated support for advanced companion computer options.
 
 The following boards are known to provide a good integration with PX4:
 
 - [Holybro Pixhawk RPI CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
+- [ARK Jetson PAB Carrier](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-jetson-pab-carrier)
 
 ## Managed Integrated Systems
 
@@ -38,7 +38,6 @@ A small subset of possible alternatives are listed below:
 
 - [ModalAI VOXL 2](https://docs.modalai.com/voxl2-external-flight-controller/)
 - [NXP NavQPlus](https://nxp.gitbook.io/navqplus)
-- [ARK Jetson PAB Carrier](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-jetson-pab-carrier)
 
 :::note
 The choice of computer will depend on the usual tradeoffs: cost, weight, power consumption, ease of setup, and computational resources required.
