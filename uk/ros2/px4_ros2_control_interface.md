@@ -3,7 +3,7 @@
 <Badge type="warning" text="main (PX4 v1.15)" /> <Badge type="warning" text="Experimental" />
 
 :::warning
-Experimental
+Експериментальні налаштування
 
 - Архітектура та основні інтерфейси для визначення режимів ROS 2 є значною мірою стабільними і перевіряються в ІК.
   Бібліотека надає значні переваги в режимі офборду в поточному стані.
@@ -40,385 +40,238 @@ Experimental
 
 - Режим - це компонент, який може передавати вказані точки автомобіля для керування рухом (такі як швидкість або прямі вимикачі).
 - Режим вибирає тип значень і відправляє його під час активності.
-  It can switch between multiple setpoint types.
+  Він може переключитися між різними типами множин.
 - Режим не може активувати інші режими, і він повинен бути активований користувачем (через RC/GCS), контролер польоту в безпечній ситуації _mode executor_, або деяких інших зовнішніх системах.
-- Has a name displayed by the GCS.
-- Can configure its mode requirements (for example that it requires a valid position estimate).
-- A mode can perform different tasks, such as flying to a target, lowering a winch, releasing a payload and then fly back.
-- A mode can replace a mode defined in PX4.
+- Має ім'я, яке відображається у GCS.
+- Можна налаштувати вимоги до його режиму (наприклад, що він вимагає достовірної оцінки позиції).
+- Режим може виконувати різні завдання, такі як польот до цілі, спуск лебідки, скидання вантажу та повернення назад.
+- Режим може замінити режим, визначений у PX4.
 
-#### Mode Executor
+#### Виконавець Режимів
 
-A mode executor is an optional component for scheduling modes.
-For example, the mode executor for a custom payload delivery or survey mode might first trigger a take-off, then switch to the custom mode, and when that completes trigger an RTL.
+Виконавець режимів - це необов'язковий компонент для розкладання режимів.
+Наприклад, виконавець режимів для індивідуальної доставки вантажу або режиму обстеження може спочатку ініціювати злет, потім переключитися на індивідуальний режим, і коли він завершиться, ініціювати повернення на базу (RTL).
 
-Specifically, it has the following properties:
+Зокрема, він має наступні властивості:
 
-- A mode executor is an optional component one level higher than a mode.
-  It is a state machine that can activate modes, and wait for their completion.
-- It can only do so while it is in charge.
-  For that, an executor has exactly one _owned mode_ (and a mode can be owned by at most one executor).
-  This mode serves as activation for the executor: when the user selects the mode, the owning executor gets activated and can select any mode.
-  It stays in charge until the user switches modes (by RC or from a GCS), or a failsafe triggers a mode switch.
-  Should the failsafe clear, the executor gets reactivated.
-- This allows multiple executors to coexist.
-- Executors cannot activate other executors.
-- Within the library, a mode executor is always implemented in combination with a custom mode.
+- Виконавець режимів - це необов'язковий компонент, який знаходиться на рівень вище за режим.
+  Це скінченний автомат, який може активувати режими і чекати їх завершення.
+- Це може зробити лише поки він є відповідним.
+  Для цього виконавець має лише один власний режим (і режим може належати лише одному виконавцю).
+  Цей режим служить для активації виконавця: коли користувач вибирає режим, активується власник-виконавець, який може вибрати будь-який режим.
+  Він залишається відповідальним до того моменту, поки користувач не змінить режими (через RC або з GCS), або не спрацює аварійний перехід в інший режим.
+  Якщо аварійна ситуація знімається, виконавець знову активується.
+- Це дозволяє існувати декільком виконавцям одночасно.
+- Виконувачі не можуть активувати інших виконавців.
+- У бібліотеці виконавець режимів завжди реалізується в комбінації з індивідуальним режимом.
 
 :::note
 
-- These definitions guarantee that a user can take away control from a custom mode or executor at any point in time by commanding a mode switch through RC or a GCS.
-- A mode executor is transparent to the user.
-  It gets indirectly selected and activated through the owning mode, and thus the mode should be named accordingly.
+- Ці визначення гарантують, що користувач може в будь-який момент забрати контроль від індивідуального режиму або виконавця, командуючи переключення режиму через RC або GCS.
+  Виконавець режимів є прозорим для користувача.
+- Виконавець режиму є прозорий для користувача.
+  Він вибирається і активується опосередковано через власний режим, і тому режим має бути відповідно названий.
 
 :::
 
-#### Configuration Overrides
+#### Перевизначення конфігурації
 
-Both modes and executors can define configuration overrides, allowing customisation of certain behaviors while the mode or executor is active.
+Обидва режими і виконавці можуть визначати заміну конфігурації, дозволяючи персоналізацію певних поведінок, коли режим або виконавець активний.
 
-These are currently implemented:
+Наразі реалізовано наступне:
 
-- _Disabling auto-disarm_.
-  This permits landing and then taking off again (e.g. to release a payload).
-- _Ability to defer non-essential failsafes_.
-  This allows an executor to run an action without being interrupted by non-critical failsafe.
-  For example, ignoring a low-battery failsafe so that a winch operation can complete.
+- _Вимкнення автоматичного роз'єднання_.
+  Це дозволяє здійснити посадку та знову злетіти (наприклад, для скидання вантажу).
+- _Можливість відкласти неістотні збої помилки_.
+  Це дозволяє виконавцю проводити дію без переривання через некритичні заходи безпеки.
+  Наприклад, ігнорування заходу безпеки через низький заряд батареї, щоб операція з лебідкою могла бути завершена.
 
-### Comparison to Offboard Control
+### Порівняння з управлінням з віддаленої платформи
 
-The above concepts provide a number of advantages over traditional [offboard control](../ros/offboard_control.md):
+Вищезазначені концепції мають кілька переваг перед традиційним управлінням з віддаленої платформи:
 
-- Multiple nodes or applications can coexist and even run at the same time.
-  But only one node can _control the vehicle_ at a given time, and this node is well defined.
-- Modes have a distinct name and be displayed/selected in the GCS.
-- Modes are integrated with the failsafe state machine and arming checks.
-- The setpoint types that can be sent are well defined.
-- ROS 2 modes can replace flight controller internal modes (such as [Return mode](../flight_modes/return.md)).
+- Декілька вузлів або додатків можуть співіснувати і навіть працювати одночасно.
+  Але лише один вузол може керувати транспортним засобом у певний момент, і цей вузол чітко визначений.
+- Режими мають відмінну назву і можуть бути відображені / вибрані в GCS.
+- Режими інтегровані з аварійною машиною стану та перевірками настроювання.
+- Типи установок, які можуть бути відправлені, чітко визначені.
+- Режими ROS 2 можуть замінити внутрішні режими контролера польоту (такі як режим повернення).
 
-## Installation and First Test
+## Установка та перший тест
 
-The following steps are required to get started:
+Для початку роботи потрібно виконати наступні кроки:
 
-1. Make sure you have a working [ROS 2 setup](../ros/ros2_comm.md), with [`px4_msgs`](https://github.com/PX4/px4_msgs) in the ROS 2 workspace.
+1. Переконайтеся, що у вас є працююче налаштування ROS 2 з px4_msgs у робочому просторі ROS 2.
 
-2. Clone the repository into the workspace:
+2. Клонуйте репозиторій в робочий простір:
 
    ```sh
-   cd $ros_workspace/src
-   git clone --recursive https://github.com/Auterion/px4-ros2-interface-lib
    ```
+
+   ::::note
+   Для забезпечення сумісності, використовуйте останні _main_ гілки для PX4, _px4_msgs_ та бібліотеки.
+
+3. Побудуйте робочий простір:
+
+   ```sh
+   ```
+
+4. У іншій оболонці запустіть PX4 SITL:
+
+   ```sh
+   ```
+
+   (тут ми використовуємо Gazebo-Classic, але ви можете використовувати будь-яку модель або симулятор)
+
+5. Запустіть агента micro XRCE в новій оболонці (після цього ви можете залишити його запущеним):
+
+   ```sh
+   ```
+
+6. Запустіть QGroundControl.
 
    :::note
-   To ensure compatibility, use the latest _main_ branches for PX4, _px4_msgs_ and the library.
-   See also [here](https://github.com/Auterion/px4-ros2-interface-lib#compatibility-with-px4).
+   Використовувати QGroundControl Daily, яка підтримує динамічне оновлення списку режимів.
 
-:::
-
-3. Build the workspace:
-
-   ```sh
-   cd ..
-   colcon build
-   source install/setup.bash
-   ```
-
-4. In a different shell, start PX4 SITL:
-
-   ```sh
-   cd $px4-autopilot
-   make px4_sitl gazebo-classic
-   ```
-
-   (here we use Gazebo-Classic, but you can use any model or simulator)
-
-5. Run the micro XRCE agent in a new shell (you can keep it running afterward):
-
-   ```sh
-   MicroXRCEAgent udp4 -p 8888
-   ```
-
-6. Start QGroundControl.
-
-   :::note
-   Use QGroundControl Daily, which supports dynamically updating the list of modes.
-
-:::
-
-7. Back in the ROS 2 terminal, run one of the example modes:
+7. Повернутись до терміналу 2 ROS, запустити один із прикладів:
 
    ```shell
-   ros2 run example_mode_manual_cpp example_mode_manual
    ```
 
-   You should get an output like this showing 'My Manual Mode' mode being registered:
+   Ви повинні отримати на виході режим 'Мій ручний режим' зареєстрований:
 
    ```sh
-   [DEBUG] [example_mode_manual]: Checking message compatibility...
-   [DEBUG] [example_mode_manual]: Subscriber found, continuing
-   [DEBUG] [example_mode_manual]: Publisher found, continuing
-   [DEBUG] [example_mode_manual]: Registering 'My Manual Mode' (arming check: 1, mode: 1, mode executor: 0)
-   [DEBUG] [example_mode_manual]: Subscriber found, continuing
-   [DEBUG] [example_mode_manual]: Publisher found, continuing
-   [DEBUG] [example_mode_manual]: Got RegisterExtComponentReply
-   [DEBUG] [example_mode_manual]: Arming check request (id=1, only printed once)
    ```
 
-8. On the PX4 shell, you can check that PX4 registered the new mode:
+8. На PX4 оболонці ви можете перевірити, що PX4 зареєстрував новий режим:
 
    ```sh
-   commander status
    ```
 
-   The output should contain:
+   Вихід має містити:
 
    ```{5}
-   INFO  [commander] Disarmed
-   INFO  [commander] navigation mode: Position
-   INFO  [commander] user intended navigation mode: Position
-   INFO  [commander] in failsafe: no
-   INFO  [commander] External Mode 1: nav_state: 23, name: My Manual Mode
    ```
 
-9. At this point you should be able to see the mode in QGroundControl as well:
+9. У цій точці ви також повинні побачити режим в QGroundControl :
 
-   ![QGC Modes](../../assets/middleware/ros2/px4_ros2_interface_lib/qgc_modes.png)
 
-10. Select the mode, make sure you have a manual control source (physical or virtual joystick), and arm the vehicle.
-    The mode will then activate, and it should print the following output:
+
+10. Виберіть режим, переконайтеся, що у вас є ручне джерело управління (фізичний або віртуальний джойстик), та озброєння транспорту.
+    Тоді режим активується, і він має вивести наступний вивід:
 
     ```sh
-    [DEBUG] [example_mode_manual]: Mode 'My Manual Mode' activated
     ```
 
-11. Now you are ready to create your own mode.
+11. Тепер ви готові створити свій власний режим.
 
-## How to use the Library
+## Як користуватися бібліотекою
 
-The following sections describe specific functionality provided by this library.
-In addition, any other PX4 topic can be subscribed or published.
+Наступні розділи описують конкретні функціональні можливості, які надає ця бібліотека.
+Крім того, можна підписуватися на будь-яку іншу тему PX4 або публікувати у неї.
 
-### Mode Class Definition
+### Визначення класу режиму
 
-This section steps through an example of how to create a class for a custom mode.
+У цьому розділі розглядається приклад створення класу для власного режиму.
 
-For a complete application, check out the [examples in the `Auterion/px4-ros2-interface-lib` repository](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/examples/cpp), such as [examples/cpp/modes/manual](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/modes/manual/include/mode.hpp).
+Для повного застосування перегляньте приклади в репозиторії Auterion/px4-ros2-interface-lib, такі як examples/cpp/modes/manual.
 
 ```cpp{1,5,7-9,24-31}
-class MyMode : public px4_ros2::ModeBase // [1]
-{
-public:
-  explicit MyMode(rclcpp::Node & node)
-  : ModeBase(node, Settings{"My Mode"}) // [2]
-  {
-    // [3]
-    _manual_control_input = std::make_shared<px4_ros2::ManualControlInput>(*this);
-    _rates_setpoint = std::make_shared<px4_ros2::RatesSetpointType>(*this);
-  }
-
-  void onActivate() override
-  {
-    // Called whenever our mode gets selected
-  }
-
-  void onDeactivate() override
-  {
-    // Called when our mode gets deactivated
-  }
-
-  void updateSetpoint(const rclcpp::Duration & dt) override
-  {
-    // [4]
-    const Eigen::Vector3f thrust_sp{0.F, 0.F, -_manual_control_input->throttle()};
-    const Eigen::Vector3f rates_sp{
-      _manual_control_input->roll() * 150.F * M_PI / 180.F,
-      -_manual_control_input->pitch() * 150.F * M_PI / 180.F,
-      _manual_control_input->yaw() * 100.F * M_PI / 180.F
-    };
-    _rates_setpoint->update(rates_sp, thrust_sp);
-  }
-
-private:
-  std::shared_ptr<px4_ros2::ManualControlInput> _manual_control_input;
-  std::shared_ptr<px4_ros2::RatesSetpointType> _rates_setpoint;
-};
 ```
 
-- `[1]`: First we create a class that inherits from [`px4_ros2::ModeBase`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1ModeBase.html).
-- `[2]`: In the constructor, we pass the mode name. This also allows us to configure some other things, like replacing a flight controller internal mode.
-- `[3]`: This is where we create all objects that we want to use later on.
-  This can be RC input, setpoint type(s), or telemetry. `*this` is passed as a `Context` to each object, which associates the object with the mode.
-- `[4]`: Whenever the mode is active, this method gets called regularly (the update rate depends on the setpoint type).
-  Here is where we can do our work and generate a new setpoint.
+- `[1]`: Спочатку ми створюємо клас, який успадковується від [`px4_ros2::ModeBase`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1ModeBase.html).
+- `[2]`: У конструкторі ми передаємо назву режиму. Це також дозволяє нам налаштувати деякі інші речі, наприклад, замінити внутрішній режим польоту.
+- `[3]`: Саме тут ми створюємо всі об'єкти, через які ми хочемо використовувати пізніше.
+  Це може бути RC на виведення, значення типу або телеметрія. `*this` передається як `Контекст` до кожного об'єкту, який асоціює об'єкт з режимом.
+- `[4]`: Кожен раз, коли режим активний, цей метод викликається регулярно (частота оновлення залежить від типу вказаної точки).
+  Ось де ми можемо працювати і створювати нову установку.
 
-After creating an instance of that mode, `mode->doRegister()` must be called which does the actual registration with the flight controller and returns `false` if it fails.
-In case a mode executor is used, `doRegister()` must be called on the mode executor, instead of for the mode.
+Після створення екземпляру цього режиму потрібно викликати mode->doRegister(), яке фактично реєструється з контролером польоту і повертає false у разі невдачі.
+У разі використання виконавця режиму, doRegister() повинно бути викликано на виконавці режиму, а не на самому режимі.
 
-### Mode Executor Class Definition
+### Визначення класу виконавця режиму
 
-This section steps through an example of how to create a mode executor class.
+У цьому розділі розглядається приклад створення класу для власного режиму.
 
 ```cpp{1,4-5,9-16,20,33-57}
-class MyModeExecutor : public px4_ros2::ModeExecutorBase // [1]
-{
-public:
-  MyModeExecutor(rclcpp::Node & node, px4_ros2::ModeBase & owned_mode) // [2]
-  : ModeExecutorBase(node, px4_ros2::ModeExecutorBase::Settings{}, owned_mode),
-    _node(node)
-  { }
-
-  enum class State // [3]
-  {
-    Reset,
-    TakingOff,
-    MyMode,
-    RTL,
-    WaitUntilDisarmed,
-  };
-
-  void onActivate() override
-  {
-    runState(State::TakingOff, px4_ros2::Result::Success); // [4]
-  }
-
-  void onDeactivate(DeactivateReason reason) override { }
-
-  void runState(State state, px4_ros2::Result previous_result)
-  {
-    if (previous_result != px4_ros2::Result::Success) {
-      RCLCPP_ERROR(_node.get_logger(), "State %i: previous state failed: %s", (int)state,
-        resultToString(previous_result));
-      return;
-    }
-
-    switch (state) { // [5]
-      case State::Reset:
-        break;
-
-      case State::TakingOff:
-        takeoff([this](px4_ros2::Result result) {runState(State::MyMode, result);});
-        break;
-
-      case State::MyMode: // [6]
-        scheduleMode(
-          ownedMode().id(), [this](px4_ros2::Result result) {
-            runState(State::RTL, result);
-          });
-        break;
-
-      case State::RTL:
-        rtl([this](px4_ros2::Result result) {runState(State::WaitUntilDisarmed, result);});
-        break;
-
-      case State::WaitUntilDisarmed:
-        waitUntilDisarmed([this](px4_ros2::Result result) {
-            RCLCPP_INFO(_node.get_logger(), "All states complete (%s)", resultToString(result));
-          });
-        break;
-    }
-  }
-
-private:
-  rclcpp::Node & _node;
-};
 ```
 
-- `[1]`: First we create a class that inherits from [`px4_ros2::ModeExecutorBase`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1ModeExecutorBase.html).
-- `[2]`: The constructor takes our custom mode that is associated with the executor and passes it to the constructor of `ModeExecutorBase`.
-- `[3]`: We define an enum for the states we want to run through.
-- `[4]`: `onActivate` gets called when the executor becomes active. At this point we can start to run through our states.
-  How you do this is up to you, in this example a method `runState` is used to execute the next state.
-- `[5]`: On switching to a state we call an asynchronous method from `ModeExecutorBase` to start the desired mode: `run`, `takeoff`, `rtl`, and so on.
-  These methods are passed a function that is called on completion; the callback provides a `Result` argument that tells you whether the operation succeeded or not.
-  The callback runs the next state on success.
-- `[6]`: We use the `scheduleMode()` method to start the executor's "owned mode", following the same pattern as the other state handlers.
+- [1]: Спочатку ми створюємо клас, який успадковується від px4_ros2::ModeExecutorBase.
+- [2]: Конструктор приймає наш власний режим, який пов'язаний з виконавцем, і передає його в конструктор ModeExecutorBase.
+- [3]: Ми визначаємо перерахування для станів, через які ми хочемо пройти.
+- [4]: Метод onActivate викликається, коли виконавець стає активним.  На цій точці ми можемо почати проходити через наші стани.
+  Як ви це робите - це на ваш розсуд, у цьому прикладі використовується метод runState для виконання наступного стану.
+- [5]: При переході до стану ми викликаємо асинхронний метод від ModeExecutorBase для запуску бажаного режиму: run, takeoff, rtl і так далі.
+  Ці методи передають функцію, яка викликається при завершенні; зворотний виклик надає аргумент Result, який вказує, чи вдалося виконання чи ні.
+  У разі успіху зворотний виклик запускає наступний стан.
+- [6]: Ми використовуємо метод scheduleMode(), щоб запустити "власний режим" виконавця, слідуючи тому ж шаблону, що й інші обробники станів.
 
-### Setpoint Types
+### Типи установок
 
-A mode can choose its setpoint type(s) it wants to use to control the vehicle.
-The used types also define the compatibility with different vehicle types.
+Режим може вибрати тип(и) установки, які він хоче використовувати для керування транспортним засобом.
+Використані типи також визначають сумісність з різними типами транспортних засобів.
 
-The following sections provide a list of supported setpoint types:
+Наступні розділи надають список підтримуваних типів установок:
 
-- [GotoSetpointType](#go-to-setpoint-gotosetpointtype): Smooth position and (optionally) heading control
-- [DirectActuatorsSetpointType](#direct-actuator-control-setpoint-directactuatorssetpointtype): Direct control of motors and flight surface servo setpoints
+- GotoSetpointType: Плавне позиціонування та (за бажанням) керування курсом
+- DirectActuatorsSetpointType: Пряме керування моторами та установками сервоприводів польотних поверхонь
 
 :::tip
 The other setpoint types are currently experimental, and can be found in: [px4\_ros2/control/setpoint\_types/experimental](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/px4_ros2_cpp/include/px4_ros2/control/setpoint_types/experimental).
 
-You can add your own setpoint types by adding a class that inherits from `px4_ros2::SetpointBase`, sets the configuration flags according to what the setpoint requires, and then publishes any topic containing a setpoint.
-:::
+Ви можете додати свої власні типи установок, додавши клас, який успадковується від px4_ros2::SetpointBase, встановлює прапорці конфігурації відповідно до того, що вимагає установка, а потім публікує будь-яку тему, що містить установку
 
-#### Go-to Setpoint (GotoSetpointType)
-
-:::note
-This setpoint type is currently only supported for multicopters.
-:::
-
-Smoothly control position and (optionally) heading setpoints with the [px4_ros2::GotoSetpointType](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/control/setpoint_types/goto.hpp) setpoint type.
-The setpoint type is streamed to FMU based position and heading smoothers formulated with time-optimal, maximum-jerk trajectories, with velocity and acceleration constraints.
-
-The most trivial use is simply inputting a 3D position into the update method:
-
-```cpp
-const Eigen::Vector3f target_position_m{-10.F, 0.F, 3.F};
-_goto_setpoint->update(target_position_m);
-```
-
-In this case, heading will remain _uncontrolled_.
-To additionally control heading, specify it as the second input argument:
-
-```cpp
-const Eigen::Vector3f target_position_m{-10.F, 0.F, 3.F};
-const float heading_rad = 3.14F;
-_goto_setpoint->update(
-  target_position_m,
-  heading_rad);
-```
-
-An additional feature of the go-to setpoint is dynamic control on the underlying smoothers' speed limits (i.e. maximum horizontal and vertical translational velocities as well as heading rate).
-If, as above, left unspecified, the smoothers will default to the vehicle's default maximums (typically set to the physical limitations).
-The smoothers will _only_ decrease speed limits, never increase.
-
-```cpp
-_goto_setpoint->update(
-  target_position_m,
-  heading_rad,
-  max_horizontal_velocity_m_s,
-  max_vertical_velocity_m_s,
-  max_heading_rate_rad_s);
-```
-
-All arguments in the update method except the position are templated as `std::optional<float>`, meaning that if one desires constraining the heading rate, but not the translating velocities, this is possible using a `std::nullopt`:
-
-```cpp
-_goto_setpoint->update(
-  target_position_m,
-  heading_rad,
-  std::nullopt,
-  std::nullopt,
-  max_heading_rate_rad_s);
-```
-
-#### Direct Actuator Control Setpoint (DirectActuatorsSetpointType)
-
-Actuators can be directly controlled using the [px4_ros2::DirectActuatorsSetpointType](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1DirectActuatorsSetpointType.html) setpoint type.
-Motors and servos can be set independently.
-Be aware that the assignment is vehicle and setup-specific.
-For example to control a quadrotor, you need to set the first 4 motors according to its [output configuration](../concept/control_allocation.md).
+#### Установка "перейти до" (GotoSetpointType)
 
 :::note
-If you want to control an actuator that does not control the vehicle's motion, but for example a payload servo, see [below](#controlling-an-independent-actuator-servo).
+Цей тип установки наразі підтримується лише для багтрикоптерів.
 :::
 
-### Controlling an Independent Actuator/Servo
+Плавне керування позицією та (за бажанням) керуванням установками курсу за допомогою типу установки px4_ros2::GotoSetpointType.
+Тип установки транслюється до плавних позиційних та курсових вирівнювачів на основі FMU, сформульованих з оптимальним за часом, максимальною швидкістю зміни прискорення, з обмеженнями швидкості та прискорення.
 
-If you want to control an independent actuator (a servo), follow these steps:
+Найбільш тривіальне використання полягає в простому введенні 3D-позиції в метод оновлення:
 
-1. [Configure the output](../payloads/#generic-actuator-control-with-mavlink)
-2. Create an instance of [px4_ros2::PeripheralActuatorControls](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1PeripheralActuatorControls.html) in the constructor of your mode.
-3. Call the `set()` method to control the actuator(s).
-   This can be done independently of any active setpoints.
+```cpp
+```
+
+У цьому випадку заголовок залишиться _uncontrolled_.
+Для додаткового контрольного заголовку, вкажіть його в якості другого вхідного аргументу:
+
+```cpp
+```
+
+Додатковою особливістю установки цільової точки є динамічний контроль за межами швидкості плавних рухів (тобто максимальні горизонтальні та вертикальні швидкості трансляції, а також швидкість руху по курсу).
+Якщо, як вище, не вказано, то плавники за замовчуванням приймуть максимальні значення за замовчуванням транспортного засобу (зазвичай встановлені на фізичні обмеження).
+Плавники можуть тільки зменшувати межі швидкості, але ніколи не збільшувати.
+
+```cpp
+```
+
+Усі аргументи у методі оновлення, крім позиції, є зразками у вигляді std::optional<float>, що означає, що якщо хтось бажає обмежити швидкість руху по курсу, але не швидкості трансляції, це можливо за допомогою std::nullopt:
+
+```cpp
+```
+
+#### Безпосереднє значення параметра Control (DirectActuatorsSetpointType)
+
+Клапани можна безпосередньо керувати, використовуючи тип встановлення px4_ros2::DirectActuatorsSetpointType.
+Мотори і сервоприводи можна встановити незалежно один від одного.
+Будьте уважні, що призначення є транспортним засобом та специфікацією.
+Наприклад, для управління квадрокоптером потрібно встановити перші 4 мотори відповідно до його конфігурації виводу.
+
+:::note
+Якщо ви хочете керувати клапаном, який не контролює рух транспортного засобу, але, наприклад, сервопривід навантаження, подивіться нижче.
+:::
+
+### Керування незалежним клапаном/сервоприводом
+
+Якщо ви хочете керувати незалежним клапаном (сервоприводом), дотримуйтесь цих кроків:
+
+1. Налаштуйте вивід
+2. Створіть екземпляр px4_ros2::PeripheralActuatorControls у конструкторі вашого режиму.
+3. Викличте метод set(), щоб керувати клапаном(-ами).
+   Це може бути зроблено незалежно від будь-яких активних встановлень.
 
 ### Telemetry
 
@@ -507,14 +360,13 @@ PX4 ensures a given mode is always assigned to the same index by storing a hash 
 This makes it independent of startup ordering in case of multiple external modes.
 :::
 
-### Replacing an Internal Mode
+### Заміна внутрішнього режиму
 
-An external mode can replace an existing internal mode, such as [Return](../flight_modes/return.md) mode (RTL).
-By doing so, whenever RTL gets selected (through the user or a failsafe situation), the external mode is used instead of the internal one.
-The internal one is only used as a fallback when the external one becomes unresponsive or crashes.
+Зовнішній режим може замінити існуючий внутрішній режим, наприклад, режим Повернення (RTL).
+При цьому кожного разу, коли вибирається RTL (через користувача або ситуацію аварійного виклику), замість внутрішнього режиму використовується зовнішній. Внутрішній режим використовується лише як резервний випадок.
+Внутрішній режим використовується лише як резервний випадок, коли зовнішній стає недоступним або відмовляє.
 
-The replacement mode can be set in the settings of the `ModeBase` constructor:
+Замінений режим можна встановити в налаштуваннях конструктора ModeBase:
 
 ```cpp
-Settings{kName, false, ModeBase::kModeIDRtl}
 ```
