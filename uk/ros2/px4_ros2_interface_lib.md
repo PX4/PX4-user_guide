@@ -28,8 +28,6 @@ To get started using the library within an existing ROS 2 workspace:
 2. Clone the repository into the workspace:
 
    ```sh
-   cd $ros_workspace/src
-   git clone --recursive https://github.com/Auterion/px4-ros2-interface-lib
    ```
 
    :::note
@@ -41,9 +39,6 @@ To get started using the library within an existing ROS 2 workspace:
 3. Build the workspace:
 
    ```sh
-   cd ..
-   colcon build
-   source install/setup.bash
    ```
 
 <!--
@@ -58,17 +53,14 @@ These test that mode registration, failsafes, and mode replacement, work as expe
 The tests can also be run locally from PX4:
 
 ```sh
-./test/ros_test_runner.py
 ```
 
 And to run only a single case:
 
 ```sh
-./test/ros_test_runner.py --verbose --case <case>
 ```
 
 You can list the available test cases with:
 
 ```sh
-./test/ros_test_runner.py --list-cases
 ```
