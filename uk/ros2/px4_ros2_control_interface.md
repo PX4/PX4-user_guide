@@ -15,12 +15,12 @@ Experimental
 
 [PX4 ROS 2 Interface бібліотека](../ros2/px4_ros2_interface_lib.md) - це бібліотека C++++, яка спрощує контроль PX4 з ROS 2.
 
-Developers use the library to create and dynamically register modes written using ROS 2.
-These modes are dynamically registered with PX4, and appear to be part of PX4 to a ground station or other external system.
-They can even replace the default modes in PX4 with enhanced ROS 2 versions, falling back to the original version if the ROS2 mode fails.
+Розробники використовують бібліотеку для створення і динамічної реєстрації режимів, написаних за допомогою ROS 2.
+Ці режими динамічно реєструються в PX4 і здаються частиною PX4 для наземної станції або іншої зовнішньої системи.
+Вони навіть можуть замінити стандартні режими в PX4 на покращені версії ROS 2, відновлюючи оригінальну версію, якщо режим ROS2 не вдасться.
 
-The library also provides classes for sending different types of setpoints, ranging from high-level navigation tasks all the way down to direct actuator controls.
-These classes abstract the internal setpoints used by PX4, and that can therefore be used to provide a consistent ROS 2 interface for future PX4 and ROS releases.
+Бібліотека також надає класи для надсилання різних типів налаштувань, починаючи від багаторівневих навігаційних завдань на високому рівні аж до прямого контролю приводу.
+Ці класи абстрагують внутрішні встановлені точки, які використовуються PX4, і, отже, їх можна використовувати для надання послідовного інтерфейсу ROS 2 для майбутніх версій PX4 і ROS.
 
 ## Загальний огляд
 
@@ -39,9 +39,9 @@ These classes abstract the internal setpoints used by PX4, and that can therefor
 Режим визначений за допомогою бібліотеки інтерфейсу має такі властивості:
 
 - Режим - це компонент, який може передавати вказані точки автомобіля для керування рухом (такі як швидкість або прямі вимикачі).
-- A mode selects a setpoint type and sends it while it is active.
+- Режим вибирає тип значень і відправляє його під час активності.
   It can switch between multiple setpoint types.
-- A mode can't activate other modes, and must be activated by the user (through RC/GCS), the flight controller in a failsafe situation, a _mode executor_, or some other external system.
+- Режим не може активувати інші режими, і він повинен бути активований користувачем (через RC/GCS), контролер польоту в безпечній ситуації _mode executor_, або деяких інших зовнішніх системах.
 - Has a name displayed by the GCS.
 - Can configure its mode requirements (for example that it requires a valid position estimate).
 - A mode can perform different tasks, such as flying to a target, lowering a winch, releasing a payload and then fly back.
