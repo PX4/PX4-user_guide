@@ -217,7 +217,7 @@ VS Code на Windows добре інтегрований з WSL.
 
 Це можна зробити з оболонки WSL.
 
-1. У браузері перейдіть в [розділ завантажень для Ubuntu](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html#ubuntu) QGC
+1. У браузері перейдіть в QGC [Ubuntu download section](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#ubuntu)
 1. Клацніть правою кнопкою миші на посилання **QGroundControl.AppImage**  та виберіть "Копіювати адресу посилання". Це буде щось на зразок _https://d176td9ibe4jno.cloudfront.net/builds/master/QGroundControl.AppImage_
 1. [Відкрийте оболонку WSL](#opening-a-wsl-shell) і введіть наступні команди щоб завантажити AppImage та зробити його виконуваним (замінить URL до AppImage, де зазначено):
 
@@ -239,7 +239,7 @@ QGroundControl запуститься та автоматично приєдна
 
 ### QGroundcontrol на Windows
 
-Встановіть [QGroundControl для Windows](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html#windows) якщо ви хочете мати змогу оновити апаратне забезпечення за допомогою прошивки, створеної у PX4.
+Встановіть [QGroundControl on Windows](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#windows) якщо ви хочете мати змогу оновити апаратне забезпечення за допомогою прошивки, створеної у PX4.
 
 Ці кроки описують, як ви можете під'єднатися до симуляції, яке працює в WSL:
 
@@ -283,7 +283,7 @@ QGroundControl запуститься та автоматично приєдна
 1. У QGC перейдіть у **Q > Налаштування рухомого засобу > Прошивка**
 1. Під'єднайте Pixhawk плату через USB
 1. Після підключення оберіть "Польотний набір PX4", відмітьте "Просунуті налаштування" і оберіть "Користувацький файл прошивки ..." зі списку що розкрився нижче.
-1. Оберіть бінарний файл прошивки, який ви щойно зібрали. У відкритому діалозі знайдіть розташування "Linux" з іконкою пінгвіна на лівій панелі. Зазвичай, вона в самому низу. Оберіть файл за шляхом: `Ubuntu\home\{ваш користувач у WSL}\PX4-Autopilot\build\{ціль збурки}\{ціль збірки}.px4`
+1. Оберіть бінарний файл прошивки, який ви щойно зібрали. У відкритому діалозі знайдіть розташування "Linux" з іконкою пінгвіна на лівій панелі. Зазвичай, вона в самому низу. Оберіть файл за шляхом: `Ubuntu\home\{ваш користувач у WSL}\PX4-Autopilot\build\{ціль збірки}\{ціль збірки}.px4`
 
    :::note
 Ви можете додати директорію до обраного, щоб швидко отримати доступ до неї.

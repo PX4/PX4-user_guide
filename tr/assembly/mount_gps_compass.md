@@ -1,6 +1,6 @@
 # Mounting a GPS/Compass
 
-GPS/Compasses should be mounted on the frame as far away from other electronics as possible, with the direction marker pointing towards the front of the vehicle. You should also configure PX4 to [set the position](#position) of the receiver relative to the centre-of-gravity (CoG).
+GPS/Compasses should be mounted on the frame as far away from other electronics as possible, [oriented](#compass-orientation) upright and with the direction marker pointing towards the front of the vehicle. You should also configure PX4 to [set the position](#position) of the receiver relative to the centre-of-gravity (CoG).
 
 The diagram below shows the heading marker on the Pixhawk 4 and compass.
 
@@ -8,15 +8,11 @@ The diagram below shows the heading marker on the Pixhawk 4 and compass.
 
 ## Compass Orientation
 
-The compass can be mounted in any of the standard MAVLink orientations defined in [MAV_SENSOR_ORIENTATION](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION). The orientation follows the same frame convention as when [orienting the flight controller](../config/flight_controller_orientation.md#calculating-orientation).
+The compass should ideally be oriented so that it is upright and facing towards the front of the vehicle, but if needed can be oriented at multiples of 45° from this attitude (in any axis) as defined in the [standard MAVLink orientations](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION).
 
-If you're using the normal [Compass Calibration](../config/compass.md) process (with parameter [SENS_MAG_AUTOROT](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT) enabled), the orientation should be detected automatically. Otherwise you can directly select the appropriate value in [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG1_ROT) for up to three compasses.
+PX4 will automatically detect the orientation for any of these standard orientations during [compass calibration](../config/compass.md) ([by default](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT)).
 
-:::warning
-You must mount the compass in a supported orientation!
-
-If you mount the compass at an orientation that isn't supported, for example `Yaw 30`, PX4 will detect the closest supported value. This will result in errors/warnings, even if the calibration appeared to succeed.
-:::
+The compass can also be mounted at any other "custom euler angles", but in this case you will need to manually configure the orientations. For more information see [Setting the Compass Orientation](../config/flight_controller_orientation.md#setting-the-compass-orientation) in _Flight Controller/Sensor Orientation_.
 
 ## Position
 

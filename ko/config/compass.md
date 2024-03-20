@@ -2,6 +2,10 @@
 
 나침반 보정은 내부 및 외부 [나침반 센서](../gps_compass/README.md)들을 설정합니다. _QGroundControl_ will guide you to position the vehicle in a number of set orientations and rotate the vehicle about the specified axis.
 
+:::note
+Compass calibration also auto-detects the compass orientation ([by default](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT)). If you have [mounted the compass](../assembly/mount_gps_compass.md#compass-orientation) at a non-standard angle you will need to [manually set the compass orientation](../config/flight_controller_orientation.md#setting-the-compass-orientation) before calibrating.
+:::
+
 ## Overview
 
 최초 사용시에는 나침반을 보정하여야하며, 차량이 매우 강한 자기장에 노출되었거나 비정상적인 자기 특성이있는 지역에서 사용되는 경우에는 나침반을 다시 보정하는 것이 좋습니다.
@@ -98,5 +102,5 @@ Raw comparison data for magnetometers (in fact, for all sensors) can be logged b
 - [Peripherals > GPS & Compass](../gps_compass/README.md)
 - [Basic Assembly](../assembly/README.md) (setup guides for each flight controller)
 - [나침반 전력 보정](../advanced_config/compass_power_compensation.md) (고급 설정)
-- [QGroundControl 사용 설명서 &gt; 센서](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#compass)
+- [QGroundControl 사용 설명서 &gt; 센서](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#compass)
 - [PX4 설정 비디오 - @2m38s](https://youtu.be/91VGmdSlbo4?t=2m38s) (유튜브)
