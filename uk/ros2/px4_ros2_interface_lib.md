@@ -1,42 +1,39 @@
-# PX4 ROS 2 Interface Library
+# Інтерфейсна бібліотека PX4 ROS 2
 
 <Badge type="warning" text="main (PX4 v1.15)" /> <Badge type="warning" text="Experimental" />
 
 :::warning
-Experimental
-At the time of writing, parts of the PX4 ROS 2 Interface Library are experimental, and hence subject to change.
-:::
+Експериментальні налаштування
+На момент написання частини PX4 ROS 2 Interface Library є експериментальними і, отже, можуть бути змінені.:::
 
-The [PX4 ROS 2 Interface Library](https://github.com/Auterion/px4-ros2-interface-lib) is a C++ library that simplifies controlling and interacting with PX4 from ROS 2.
+[PX4 ROS 2 Інтерфейс бібліотеки](https://github.com/Auterion/px4-ros2-interface-lib) є бібліотекою C+++, яка спрощує контроль і взаємодіє з PX4 з ROS 2.
 
-The library provides two high-level interfaces for developers:
+Бібліотека надає два інтерфейси високого рівня для розробників:
 
-1. The [Control Interface](./px4_ros2_control_interface.md) allows developers to create and dynamically register modes written using ROS 2.
-   It provides classes for sending different types of setpoints, ranging from high-level navigation tasks all the way down to direct actuator controls.
-2. The [Navigation Interface](./px4_ros2_navigation_interface.md) enables sending vehicle position estimates to PX4 from ROS 2 applications, such as a VIO system.
+1. [Control Interface](./px4_ros2_interface.md) дозволяє розробникам створювати та динамічно реєструвати режими, написані з використанням ROS 2.
+   Бібліотека також надає класи для надсилання різних типів налаштувань, починаючи від багаторівневих навігаційних завдань на високому рівні аж до прямого контролю приводу.
+2. [Навігаційний інтерфейс](./px4_ros2_navigation_interface.md) дозволяє надсилати позицію автомобіля з позиції PX4 з ROS 2 додатків, таких як система VIO.
 
 <!--
 ## Overview
 -->
 
-## Installation in a ROS 2 Workspace
+## Встановлення в робочому просторі ROS 2
 
-To get started using the library within an existing ROS 2 workspace:
+Щоб почати використовувати бібліотеку в існуючому робочому просторі ROS 2:
 
-1. Make sure you have a working [ROS 2 setup](../ros/ros2_comm.md), with [`px4_msgs`](https://github.com/PX4/px4_msgs) in the ROS 2 workspace.
+1. Переконайтеся, що у вас є працююче налаштування ROS 2 з px4_msgs у робочому просторі ROS 2.
 
-2. Clone the repository into the workspace:
+2. Клонуйте репозиторій в робочий простір:
 
    ```sh
    ```
 
-   :::note
-   To ensure compatibility, use the latest _main_ branches for PX4, _px4_msgs_ and the library.
-   See also [here](https://github.com/Auterion/px4-ros2-interface-lib#compatibility-with-px4).
+   ::::note
+   Для забезпечення сумісності, використовуйте останні _main_ гілки для PX4, _px4_msgs_ та бібліотеки.
+   Також подивіться тут
 
-:::
-
-3. Build the workspace:
+3. Побудуйте робочий простір:
 
    ```sh
    ```
@@ -45,22 +42,21 @@ To get started using the library within an existing ROS 2 workspace:
 ## How to Use the Library
 -->
 
-## CI: Integration Tests
+##
 
-When opening a pull request to PX4, CI runs the library integration tests.
-These test that mode registration, failsafes, and mode replacement, work as expected.
+При відкритті запиту на PX4, CI запускає тест з інтеграції до бібліотеки.
 
-The tests can also be run locally from PX4:
-
-```sh
-```
-
-And to run only a single case:
+Тести можуть також бути виконані локально з PX4:
 
 ```sh
 ```
 
-You can list the available test cases with:
+І щоб керувати лише одним випадком:
+
+```sh
+```
+
+Ви можете скласти список доступних тестових кейсів з:
 
 ```sh
 ```
