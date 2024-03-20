@@ -27,14 +27,13 @@ The ROS repository has binary packages for Ubuntu x86, amd64 (x86\_64) and armhf
 Use `apt-get` for installation, where `${ROS_DISTRO}` below should resolve to `kinetic` or `noetic`, depending on your version of ROS:
 
 ```
-sudo apt-get install ros-${ROS_DISTRO}-mavros ros-${ROS_DISTRO}-mavros-extras ros-${ROS_DISTRO}-mavros-msgs
+
 ```
 
 Then install [GeographicLib](https://geographiclib.sourceforge.io/) datasets by running the `install_geographiclib_datasets.sh` script:
 
 ```
-wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/install_geographiclib_datasets.sh
-sudo bash ./install_geographiclib_datasets.sh   
+   
 ```
 
 ### Source Installation
@@ -42,10 +41,7 @@ sudo bash ./install_geographiclib_datasets.sh
 This installation assumes you have a catkin workspace located at `~/catkin_ws` If you don't create one with:
 
 ```sh
-mkdir -p ~/catkin_ws/src
-cd ~/catkin_ws
-catkin init
-wstool init src
+
 ```
 
 You will be using the ROS Python tools: *wstool* (for retrieving sources), *rosinstall*, and *catkin_tools* (building) for this installation. While they may have been installed during your installation of ROS you can also install them with:
@@ -60,7 +56,7 @@ While the package can be built using **catkin_make** the preferred method is usi
 
 If this is your first time using wstool you will need to initialize your source space with:
 ```sh
-$ wstool init ~/catkin_ws/src
+
 ```
 
 Now you are ready to do the build:
