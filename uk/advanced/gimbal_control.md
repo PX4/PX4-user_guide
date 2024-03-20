@@ -11,7 +11,7 @@ PX4 містить універсальний драйвер керування 
 
 PX4 приймає вхідний сигнал і маршрутизує/перекладає його для відправлення на вивід. Будь-який метод введення може бути обраний для керування будь-яким виводом.
 
-Both the input and output are configured using parameters. The input is set using the parameter [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN). By default this is set to `Disabled (-1)` and the driver does not run. After selecting the input mode, reboot the vehicle to start the mount driver.
+Як вхід, так і вихід налаштовуються за допомогою параметрів. The input is set using the parameter [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN). By default this is set to `Disabled (-1)` and the driver does not run. After selecting the input mode, reboot the vehicle to start the mount driver.
 
 You should set `MNT_MODE_IN` to one of: `RC (1)`, `MAVlink gimbal protocol v2 (4)` or `Auto (0)` (the other options are deprecated). If you select `Auto (0)`, the gimbal will automatically select either RC or or MAVLink input based on the latest input. Note that the auto-switch from MAVLink to RC requires a large stick motion!
 
@@ -25,9 +25,9 @@ The full list of parameters for setting up the mount driver can be found in [Par
 
 PX4 може бути налаштований як менеджер гімбала для керування одним пристроєм гімбала (який може бути або фізично підключений, або бути гімбалом MAVLink, який реалізує інтерфейс пристрою гімбала).
 
-To enable a MAVLink gimbal, first set parameter [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN) to `MAVlink gimbal protocol v2` and [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) to `MAVLink gimbal protocol v2`.
+Щоб увімкнути гімбал по протоколу MAVLink, спочатку встановіть параметр [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN) на `Протокол гімбала MAVLink v2` і [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) на `Протокол гімбала MAVLink v2`.
 
-The gimbal can be connected to _any free serial port_ using the instructions in [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md) (also see [Serial Port Configuration](../peripherals/serial_configuration.md#serial-port-configuration)). For example, if the `TELEM2` port on the flight controller is unused you can connect it to the gimbal and set the following PX4 parameters:
+Гімбал можна підключити до _будь-якого вільного послідовного порту_, використовуючи інструкції у розділі [Послідовні пристрої MAVLink (GCS/OSD/Компаньйон)](../peripherals/mavlink_peripherals.md) (див. також [Конфігурація послідовного порту](../peripherals/serial_configuration.md#serial-port-configuration)). Наприклад, якщо порт `TELEM2` на контролері польоту не використовується, ви можете підключити його до гімбала і встановити наступні параметри PX4:
 
 - [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) to **TELEM2** (if `MAV_1_CONFIG` is already used for a companion computer (say), use `MAV_2_CONFIG`).
 - [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) to **NORMAL**
@@ -40,8 +40,8 @@ PX4 може автоматично створити менеджер гімба
 Ви можете підтримувати додаткові гімбали, забезпечивши, що вони:
 
 - implement the gimbal _manager_ protocol
-- Are visible to the ground station and PX4 on the MAVLink network. This may require that traffic forwarding be configured between PX4, the GCS, and the gimbal.
-- Each gimbal must have a unique component id. For a PWM connected gimbal this will be the component ID of the autopilot
+- Становлять видимими для наземної станції та PX4 у мережі MAVLink. Це може вимагати налаштування пересилання трафіку між PX4, НЗП та гімбалем.
+- Кожен гімбал повинен мати унікальний ідентифікатор компонента. Так, кожен гімбал повинен мати унікальний ідентифікатор компонента.
 
 ## Gimbal on FC PWM Output (MNT_MODE_OUT=AUX)
 
@@ -53,11 +53,11 @@ Gimbal також можна контролювати шляхом підклю�
 - `Gimbal Pitch`: Output controls Gimbal pitch.
 - `Gimbal Yaw`: Output controls Gimbal pitch.
 
-For example, you might have the following settings to assign the gimbal roll, pitch and yaw to AUX1-3 outputs.
+Наприклад, у вас можуть бути наступні налаштування для призначення кочення, тангажу та рида гімбала на виведення AUX1-3.
 
 ![Gimbal Actuator config](../../assets/config/actuators/qgc_actuators_gimbal.png)
 
-The PWM values to use for the disarmed, maximum and minimum values can be determined in the same way as other servo, using the [Actuator Test sliders](../config/actuators.md#actuator-testing) to confirm that each slider moves the appropriate axis, and changing the values so that the gimbal is in the appropriate position at the disarmed, low and high position in the slider. The values may also be provided in gimbal documentation.
+PWM значення для використання при відблокованому, максимальному та мінімальному значеннях можна визначити так само, як і для інших сервоприводів, використовуючи [повзунки тесту приводу](../config/actuators.md#actuator-testing), щоб підтвердити, що кожний повзунок переміщує відповідну вісь, і змінюючи значення так, щоб гімбал знаходився у відповідному положенні при відблокованому стані, низькому і високому положенні повзунка. Значення також можуть бути наведені у документації гімбала.
 
 ## SITL
 
