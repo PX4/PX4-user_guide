@@ -24,7 +24,7 @@
 
 ```
 
-Next (still in your workspace folder), source and make your files.
+Далі (досі у вашому робочому середовищі)
 
 ```sh
 
