@@ -8,7 +8,7 @@ While MAVROS can be used to communicate with any MAVLink-enabled autopilot, this
 The PX4 development team recommend that all users [upgrade to ROS 2](../ros/ros2.md). This documentation reflects the "old approach".
 :::
 
-## Installation
+## Встановлення
 
 :::note
 First install ROS and PX4 following the instructions in [Development Environment on Linux > ROS/Gazebo Classic](../dev_setup/dev_env_linux_ubuntu.md#ros-gazebo-classic).
@@ -121,7 +121,7 @@ The [MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md), will show yo
 If you have an example app using the PX4 Autopilot and MAVROS, we can help you get it on our docs.
 :::
 
-## See Also
+## Дивіться також
 
 - [mavros ROS Package Summary](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status)
 - [mavros source](https://github.com/mavlink/mavros/)
