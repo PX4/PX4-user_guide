@@ -20,7 +20,7 @@ Although this step isn't mandatory since you can activate offboard mode using a 
 
 Enable MAVLink on the serial port that you connect to the companion computer (see [Companion Computers](../companion_computer/README.md)).
 
-## Hardware setup
+## Налаштування обладнання
 
 Usually, there are three ways of setting up offboard communication.
 
