@@ -447,6 +447,7 @@
       * [CameraCapture](msg_docs/CameraCapture.md)
       * [CameraStatus](msg_docs/CameraStatus.md)
       * [CameraTrigger](msg_docs/CameraTrigger.md)
+      * [CanInterfaceStatus](msg_docs/CanInterfaceStatus.md)
       * [CellularStatus](msg_docs/CellularStatus.md)
       * [CollisionConstraints](msg_docs/CollisionConstraints.md)
       * [CollisionReport](msg_docs/CollisionReport.md)
