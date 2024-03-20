@@ -38,9 +38,21 @@ Tailsitter 기체의 경우 모든 센서 보정에 대한 멀티콥터 설정(�
 
 1. **확인**을 누릅니다.
 
+:::note
+You can use [Level Horizon Calibration](../config/level_horizon_calibration.md) to compensate for small miss-alignments in controller orientation and to level the horizon in flight view.
+:::
+
 ## 미세 보정
 
-[수평 보정](../config/level_horizon_calibration.md)을 사용하여 콘트롤러 방향에서 작은 정렬 에러를 보정하고, 비행 보기에서 수평을 조정할 수 있습니다.
+PX4 will automatically detect the compass orientation as part of [compass calibration](../config/compass.md) ([by default](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT)) for any of the [standard MAVLink orientations](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION) (upright and facing forward, or any multiple of 45° offset in any axis) .
+
+:::note
+You can confirm that auto detection worked by looking at the [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG0_ROT) parameters.
+:::
+
+If a non-standard orientation has been used you will need to set the [CAL_MAGx_ROLL](../advanced_config/parameter_reference.md#CAL_MAG0_ROLL), [CAL_MAGx_PITCH](../advanced_config/parameter_reference.md#CAL_MAG0_PITCH), and [CAL_MAGx_YAW](../advanced_config/parameter_reference.md#CAL_MAG0_YAW) parameters for each compass to the angles that were used.
+
+This will automatically set [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG0_ROT) to "custom euler angle". Note that you will need to disable the [SENS_MAG_AUTOROT](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT) parameter before performing compass calibration, as this will map the angle to some multiple of 45° in all axes (so 30° would be detected as 0° or 45°).
 
 ## 추가 정보
 
