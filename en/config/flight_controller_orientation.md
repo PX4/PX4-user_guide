@@ -1,7 +1,7 @@
 # Flight Controller/Sensor Orientation
 
-By default the flight controller (and external compass(es), if present) should be placed on the frame top-side up, oriented so that the arrow points towards the front of the vehicle.
-If the board or an external compass are mounted in any other orientation then you will need configure this in the firmware.
+By default the flight controller and external compass(es) (if present) should be placed on the frame top-side up, oriented so that the arrow points towards the front of the vehicle.
+If the board or any external compasses are mounted in any other orientation then you will need configure this in the firmware.
 
 ## Calculating Orientation
 
@@ -26,7 +26,7 @@ The axis are normally relative to the orientation of the vehicle during steady f
 For more information see [Basic Concepts](../getting_started/px4_basic_concepts.md#heading-and-directions).
 :::
 
-## Setting the Orientation
+## Setting the Flight Controller Orientation
 
 To set the orientations:
 
@@ -42,9 +42,22 @@ To set the orientations:
 
 1. Press **OK**.
 
-## Fine Tuning
-
+:::note
 You can use [Level Horizon Calibration](../config/level_horizon_calibration.md) to compensate for small miss-alignments in controller orientation and to level the horizon in flight view.
+:::
+
+## Setting the Compass Orientation
+
+PX4 will automatically detect the compass orientation as part of [compass calibration](../config/compass.md) ([by default](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT)) for any of the [standard MAVLink orientations](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION) (upright and facing forward, or any multiple of 45° offset in any axis) .
+
+:::note
+You can confirm that auto detection worked by looking at the [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG0_ROT) parameters.
+:::
+
+If a non-standard orientation has been used you will need to set the [CAL_MAGx_ROLL](../advanced_config/parameter_reference.md#CAL_MAG0_ROLL), [CAL_MAGx_PITCH](../advanced_config/parameter_reference.md#CAL_MAG0_PITCH), and [CAL_MAGx_YAW](../advanced_config/parameter_reference.md#CAL_MAG0_YAW) parameters for each compass to the angles that were used.
+
+This will automatically set [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG0_ROT) to "custom euler angle".
+Note that you will need to disable the [SENS_MAG_AUTOROT](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT) parameter before performing compass calibration, as this will map the angle to some multiple of 45° in all axes (so 30° would be detected as 0° or 45°).
 
 ## Further Information
 
