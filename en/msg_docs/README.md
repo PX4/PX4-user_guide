@@ -28,6 +28,7 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 - [CameraCapture](CameraCapture.md)
 - [CameraStatus](CameraStatus.md)
 - [CameraTrigger](CameraTrigger.md)
+- [CanInterfaceStatus](CanInterfaceStatus.md)
 - [CellularStatus](CellularStatus.md)
 - [CollisionConstraints](CollisionConstraints.md) — Local setpoint constraints in NED frame
 setting something to NaN means that no limit is provided
