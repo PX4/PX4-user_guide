@@ -1,28 +1,28 @@
-# Vibration Isolation
+# Ізоляція Вібрацій
 
-This topic shows how to determine whether vibration levels are too high, and lists some simple steps to improve vibration characteristics.
+Ця тема показує, як визначити, чи рівні вібрацій занадто високі, і пропонує деякі прості кроки для покращення характеристик вібрацій.
 
-## Overview
+## Огляд
 
-Flight Control boards with in-built accelerometers or gyros are sensitive to vibrations. High vibration levels can cause a range of problems, including reduced flight efficiency/performance, shorter flight times and increased vehicle wear-and-tear. In extreme cases vibration may lead to sensor clipping/failures, possibly resulting in estimation failures and fly-aways.
+Плати управління польотом з вбудованими акселерометрами або гіроскопами чутливі до вібрацій. Високі рівні вібрацій можуть викликати ряд проблем, включаючи зниження ефективності/продуктивності польоту, скорочення часу польоту та збільшення зносу транспортного засобу. У крайніх випадках вібрація може призвести до обрізання сигналу датчиків/відмов, що може спричинити за собою збої у вимірах та неконтрольовані польоти.
 
-Well-designed airframes damp/reduce the amplitude of specific structural resonances at the autopilot mounting location. Further isolation may be needed in order to reduce vibration to the level that sensitive components can handle (e.g. some flight controllers must be attached to the airframe using some form of anti-vibration foam/mount - while others are internally isolated).
+Добре спроектовані повітряні рами гасять/зменшують амплітуду певних структурних резонансів у місці кріплення автопілота. Додаткова ізоляція може знадобитися для зниження вібрацій до рівня, який чутливі компоненти можуть витримати (наприклад, деякі польотні контролери мають бути прикріплені до повітряної рами за допомогою якоїсь форми противібраційної піни/кріплення, тоді як інші ізольовані внутрішньо).
 
-## Vibration Analysis
+## Аналіз Вібрацій
 
-[Log Analysis using Flight Review > Vibration](../log/flight_review.md#vibration) explains how to use logs to confirm whether vibration is a probable cause of flight problems.
+[Аналіз Логів за допомогою Flight Review > Вібрація](../log/flight_review.md#vibration) пояснює, як використовувати логи для підтвердження того, чи є вібрація ймовірною причиною проблем з польотом.
 
-## Basic Vibration Fixes
+## Основні Способи Усунення Вібрацій
 
-A few of simple steps that may reduce vibrations are:
+Декілька простих кроків, які можуть знизити вібрації:
 
-- Make sure everything is firmly attached on the vehicle (landing gear, GPS mast, etc.).
-- Use balanced propellers.
-- Make sure to use high-quality components for the propellers, motors, ESC and airframe. Each of these components can make a big difference.
-- Use a vibration-isolation method to mount the autopilot. Many flight controllers come with _mounting foam_ that you can use for this purpose, while others have inbuilt vibration-isolation mechanisms.
-- As a _last_ measure, adjust the [software filters](../config_mc/filter_tuning.md). It is better to reduce the source of vibrations, rather than filtering them out in software.
+- Переконайтеся, що все міцно прикріплено до транспортного засобу (шасі, мачта GPS тощо).
+- Використовуйте збалансовані пропелери.
+- Переконайтеся, що для пропелерів, моторів, регуляторів швидкості (ESC) та повітряної рами використовуються високоякісні компоненти. Кожен з цих компонентів може зробити значний вплив.
+- Використовуйте метод ізоляції вібрацій для монтажу автопілота. Багато польотних контролерів постачаються з _монтажною піною_, яку можна використовувати для цієї мети, тоді як інші мають вбудовані механізми ізоляції вібрацій.
+- Як _останній_ захід, налаштуйте [програмні фільтри](../config_mc/filter_tuning.md). Краще зменшити джерело вібрацій, аніж фільтрувати їх за допомогою програмного забезпечення.
 
-## References
+## Джерела
 
 Some references that you may find useful are:
 
