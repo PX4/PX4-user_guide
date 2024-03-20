@@ -16809,6 +16809,13 @@ table {
  <td>s</td>
 </tr>
 <tr>
+ <td><strong id="MPC_ACC_DECOUPLE">MPC_ACC_DECOUPLE</strong> (INT32)</td>
+ <td>Acceleration to tilt coupling <p><strong>Comment:</strong> Set to decouple tilt from vertical acceleration.</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="MPC_ACC_DOWN_MAX">MPC_ACC_DOWN_MAX</strong> (FLOAT)</td>
  <td>Maximum downwards acceleration in climb rate controlled modes    </td>
  <td>[2, 15] (1)</td>

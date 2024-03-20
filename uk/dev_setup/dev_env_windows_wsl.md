@@ -67,7 +67,8 @@ _QGroundControl для Windows_ необхідна додатково, якщо 
      ```
 
 :::note
-Ви також можете встановити[Ubuntu 20.04](https://www.microsoft.com/store/productId/9MTTCL66CPXJ) та [Ubuntu 22.04](https://www.microsoft.com/store/productId/9PN20MSR04DW) з магазину застосунків, який дозволяє видалити програму за допомогою звичайної функції Windows Додати/Видалити: ::
+Ви також можете встановити[Ubuntu 20.04](https://www.microsoft.com/store/productId/9MTTCL66CPXJ) та [Ubuntu 22.04](https://www.microsoft.com/store/productId/9PN20MSR04DW) з магазину застосунків, який дозволяє видалити програму за допомогою звичайної функції Windows Додати/Видалити:
+:::
 
 1. WSL запитає про ім'я користувача та пароль для встановлення Ubuntu. Запишіть ці облікові дані, оскільки вони знадобляться пізніше!
 
