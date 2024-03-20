@@ -56,13 +56,13 @@ Conditions for this state:
 - has low thrust `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`
 - no freefall detected
 
-If the vehicle only has knowledge of thrust and angular rate, in order to proceed to the next state the vehicle has to have low thrust and no rotation for 8.0 seconds.
+Якщо транспортний засіб знає лише про тягу та кутову швидкість, щоб перейти до наступного стану, транспортний засіб повинен мати низьку тягу та відсутність обертання протягом 8,0 секунд.
 
-If the vehicle is in position or velocity control and maybe landed was detected, the position controller will set the thrust vector to zero.
+Якщо транспортний засіб перебуває у керуванні положенням або швидкістю, і, можливо, виявлено приземлення, контролер положення встановить вектор тяги на нуль.
 
 #### Landed
 
-Conditions for this state:
+Умови для цього стану:
 
 - all conditions of the [maybe landed](#maybe-landed) state are true
 
