@@ -27,6 +27,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [CameraCapture](CameraCapture.md)
 - [CameraStatus](CameraStatus.md)
 - [CameraTrigger](CameraTrigger.md)
+- [CanInterfaceStatus](CanInterfaceStatus.md)
 - [CellularStatus](CellularStatus.md)
 - [CollisionConstraints](CollisionConstraints.md) — Local setpoint constraints in NED frame setting something to NaN means that no limit is provided
 - [CollisionReport](CollisionReport.md)

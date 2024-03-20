@@ -1,4 +1,4 @@
-# ROS 2 User Guide
+# ROS 2 Посібник користувача
 
 The ROS 2-PX4 architecture provides a deep integration between ROS 2 and PX4, allowing ROS 2 subscribers or publisher nodes to interface directly with PX4 uORB topics.
 
@@ -13,7 +13,7 @@ If you're still working on PX4 v1.13, please follow the instructions in the [PX4
 <!-- remove this when there are PX4 v1.14 docs for some months -->
 :::
 
-## Overview
+## Загальний огляд
 
 The application pipeline for ROS 2 is very straightforward, thanks to the use of the [uXRCE-DDS](../middleware/uxrce_dds.md) communications middleware.
 
@@ -36,7 +36,7 @@ In PX4v1.13 and earlier, ROS 2 was dependent on definitions in [px4_ros_com](htt
 :::
 
 
-## Installation & Setup
+## Встановлення та налаштування
 
 The supported ROS 2 platforms for PX4 development are ROS 2 "Humble" on Ubuntu 22.04, and ROS 2 "Foxy" on Ubuntu 20.04.
 
@@ -55,7 +55,7 @@ To setup ROS 2 for use with PX4:
 Other dependencies of the architecture that are installed automatically, such as _Fast DDS_, are not covered.
 
 
-### Install PX4
+### Встановлення PX4
 
 You need to install the PX4 development toolchain in order to use the simulator.
 
@@ -77,7 +77,7 @@ Note that the above commands will install the recommended simulator for your ver
 
 For more information and troubleshooting see: [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) and [Download PX4 source](../dev_setup/building_px4.md).
 
-### Install ROS 2
+### Встановлення ROS 2
 
 To install ROS 2 and its dependencies:
 

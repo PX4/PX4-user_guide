@@ -23,15 +23,14 @@ This example uses Python. Other examples in Python can be found here: [integrati
 1. Open the terminal and go to `~/catkin_ws/src` directory
 
    ```sh
-   roscd  # Should cd into ~/catkin_ws/devel
-   cd ..
-   cd src
+   
+   
    ```
 
 2. In the `~/catkin_ws/src` directory create a new package named `offboard_py` (in this case) with the `rospy` dependency:
 
    ```sh
-   catkin_create_pkg offboard_py rospy
+   
    ```
 
 3. Build the new package in the `~/catkin_ws/` directory:
@@ -45,14 +44,13 @@ This example uses Python. Other examples in Python can be found here: [integrati
 4. You should now be able to cd into the package by using:
 
    ```sh
-   roscd offboard_py
+   
    ```
 
 5. To store your Python files, create a new folder called `/scripts` on the package:
 
    ```sh
-   mkdir scripts
-   cd scripts
+   
    ```
 
 ## Code
@@ -72,115 +70,28 @@ After that, open `offb_node.py` file and paste the following code:
  * Stack and tested in Gazebo Classic 9 SITL
 """
 
-#! /usr/bin/env python
-
-import rospy
-from geometry_msgs.msg import PoseStamped
-from mavros_msgs.msg import State
-from mavros_msgs.srv import CommandBool, CommandBoolRequest, SetMode, SetModeRequest
-
-current_state = State()
-
-def state_cb(msg):
-    global current_state
-    current_state = msg
-
-
-if __name__ == "__main__":
-    rospy.init_node("offb_node_py")
-
-    state_sub = rospy.Subscriber("mavros/state", State, callback = state_cb)
-
-    local_pos_pub = rospy.Publisher("mavros/setpoint_position/local", PoseStamped, queue_size=10)
-
-    rospy.wait_for_service("/mavros/cmd/arming")
-    arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)
-
-    rospy.wait_for_service("/mavros/set_mode")
-    set_mode_client = rospy.ServiceProxy("mavros/set_mode", SetMode)
-
-
-    # Setpoint publishing MUST be faster than 2Hz
-    rate = rospy.Rate(20)
-
-    # Wait for Flight Controller connection
-    while(not rospy.is_shutdown() and not current_state.connected):
-        rate.sleep()
-
-    pose = PoseStamped()
-
-    pose.pose.position.x = 0
-    pose.pose.position.y = 0
-    pose.pose.position.z = 2
-
-    # Send a few setpoints before starting
-    for i in range(100):
-        if(rospy.is_shutdown()):
-            break
-
-        local_pos_pub.publish(pose)
-        rate.sleep()
-
-    offb_set_mode = SetModeRequest()
-    offb_set_mode.custom_mode = 'OFFBOARD'
-
-    arm_cmd = CommandBoolRequest()
-    arm_cmd.value = True
-
-    last_req = rospy.Time.now()
-
-    while(not rospy.is_shutdown()):
-        if(current_state.mode != "OFFBOARD" and (rospy.Time.now() - last_req) > rospy.Duration(5.0)):
-            if(set_mode_client.call(offb_set_mode).mode_sent == True):
-                rospy.loginfo("OFFBOARD enabled")
-
-            last_req = rospy.Time.now()
-        else:
-            if(not current_state.armed and (rospy.Time.now() - last_req) > rospy.Duration(5.0)):
-                if(arming_client.call(arm_cmd).success == True):
-                    rospy.loginfo("Vehicle armed")
-
-                last_req = rospy.Time.now()
-
-        local_pos_pub.publish(pose)
-
-        rate.sleep()
+#! 
 
 ```
 
-## Code explanation
+## Пояснення коду
 
 The `mavros_msgs` package contains all of the custom messages required to operate services and topics provided by the MAVROS package. All services and topics as well as their corresponding message types are documented in the [mavros wiki](http://wiki.ros.org/mavros).
 
 ```py
-import rospy
-from geometry_msgs.msg import PoseStamped
-from mavros_msgs.msg import State
-from mavros_msgs.srv import CommandBool, CommandBoolRequest, SetMode, SetModeRequest
+
 ```
 
 We create a simple callback which will save the current state of the autopilot. This will allow us to check connection, arming and _OFFBOARD_ flags.:
 
 ```py
-current_state = State()
 
-def state_cb(msg):
-    global current_state
-    current_state = msg
 ```
 
 We instantiate a publisher to publish the commanded local position and the appropriate clients to request arming and mode change. Note that for your own system, the "mavros" prefix might be different as it will depend on the name given to the node in it's launch file.
 
 ```py
-state_sub = rospy.Subscriber("mavros/state", State, callback = state_cb)
 
-local_pos_pub = rospy.Publisher("mavros/setpoint_position/local", PoseStamped, queue_size=10)
-
-rospy.wait_for_service("/mavros/cmd/arming")
-arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)
-
-rospy.wait_for_service("/mavros/set_mode")
-set_mode_client = rospy.ServiceProxy("mavros/set_mode", SetMode)
 ```
 
 PX4 has a timeout of 500ms between two _OFFBOARD_ commands. If this timeout is exceeded, the commander will fall back to the last mode the vehicle was in before entering _OFFBOARD_ mode. This is why the publishing rate **must** be faster than 2 Hz to also account for possible latencies. This is also the same reason why it is **recommended to enter _OFFBOARD_ mode from _Position_ mode**, this way if the vehicle drops out of _OFFBOARD_ mode it will stop in its tracks and hover.

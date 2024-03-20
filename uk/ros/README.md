@@ -23,10 +23,10 @@ PX4 підтримує як ROS 2 так і ROS 1 з наступними кон
 Зверніть увагу, що ROS 2 може бути встановлена на Ubuntu Linux, macOS, Windows, коли ROS 1 доступний лише на Linux. Хоча він може працювати на інших платформах, PX4 переважно тестує та документує ROS на _Linux_.
 
 
-## ROS Support Roadmap
+## Підтримка ROS
 
 На [PX4 Developer Summit  2020](https://www.youtube.com/watch?v=lZ8crGI16qA) (і [ROS World 2020](https://www.youtube.com/watch?v=8XRkzHqQSf0)), команда розробників PX4 оголосила плани підтримки microROS.
 
-* microRTPS: microRTPS bridge with Fast DDS (The ROS 2 interface in PX4 v1.13 and earlier)
-* micro XRCE-DDS: DDS on PX4 (The ROS 2 interface for PX4 v1.14 and later)
-* micro ROS: ROS 2 running in PX4 - "microROS" (Our Target!)
+* microRTPS: microRTPS міст з Fast DDS (ROS 2 інтерфейс PX4 v1.13 та попередні)
+* micro XRCE-DS: DDS на PX4 (ROS 2 інтерфейс PX4 v1.14 і пізніше)
+* micro ROS: ROS 2 працює в PX4 - "microROS" (Наша Ціль!)

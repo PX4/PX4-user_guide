@@ -1,6 +1,6 @@
-# Collision Prevention
+# Запобігання зіткнення
 
-_Collision Prevention_ may be used to automatically slow and stop a vehicle before it can crash into an obstacle.
+_Запобігання зіткнення_ може бути використано для автоматичного сповільнення і зупинки транспортного засобу, перш ніж він потрапить в перешкоду.
 
 It can be enabled for multicopter vehicles in [Position mode](../flight_modes_mc/position.md), and can use sensor data from an offboard companion computer, offboard rangefinders over MAVLink, a rangefinder attached to the flight controller, or any combination of the above.
 
@@ -14,7 +14,7 @@ If high flight speeds are critical, consider disabling collision prevention when
 Ensure that you have sensors/sensor data in all directions that you want to fly (when collision prevention is enabled).
 :::
 
-## Overview
+## Загальний огляд
 
 _Collision Prevention_ is enabled on PX4 by setting the parameter for minimum allowed approach distance ([CP_DIST](#CP_DIST)).
 
@@ -44,7 +44,7 @@ Configure collision prevention by [setting the following parameters](../advanced
 
 <a id="algorithm"></a>
 
-## Algorithm Description
+## Опис алгоритму
 
 The data from all sensors are fused into an internal representation of 36 sectors around the vehicle, each containing either the sensor data and information about when it was last observed, or an indication that no data for the sector was available. When the vehicle is commanded to move in a particular direction, all sectors in the hemisphere of that direction are checked to see if the movement will bring the vehicle closer to any obstacles. If so, the vehicle velocity is restricted.
 

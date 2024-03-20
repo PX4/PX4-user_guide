@@ -1,4 +1,4 @@
-# Bootloader Update
+# Оновлення завантажувача
 
 Завантажувач PX4 використовується для завантаження прошивки для плат [Pixhawk](../flight_controller/pixhawk_series.md) (PX4FMU, PX4IO).
 
@@ -17,39 +17,39 @@
 
 ### PX4 Bootloader FMUv6X та новіші
 
-Boards starting with FMUv6X (STM32H7) use the in-tree PX4 bootloader.
+Плати, що починаються з FMUv6X (STM32H7), використовують вбудований завантажувач PX4.
 
-This can be built from within the [PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) directory using the `make` command and the board-specific target with a `_bootloader` suffix.
+Це можна побудувати з каталогу [PX4-Autopilot](https://github.com/PX4/PX4-Autopilot), використовуючи команду `make` та конкретну для плати ціль з суфіксом `_bootloader`.
 
-For FMUv6X the command is:
+Для FMUv6X команда наступна:
 
 ```sh
 make px4_fmu-v6x_bootloader
 ```
 
-This will build the bootloader binary as `build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf`, which can be flashed via SWD or DFU. If you are building the bootloader you should be familiar with one of these options already.
+Це збудує бінарний файл завантажувача як `build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf`, який можна прошити через SWD або DFU. Якщо ви збираєте завантажувач, вам вже повинні бути знайомі з одним із цих варіантів.
 
-If you need a HEX file instead of an ELF file, use objcopy:
+Якщо вам потрібний файл у форматі HEX замість ELF файлу, використовуйте objcopy:
 
 ```sh
 arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf px4_fmu-v6x_bootloader.hex
 ```
 
-### PX4 Bootloader FMUv5X and earlier
+### PX4 Bootloader FMUv5X та раніші версії
 
-PX4 boards up to FMUv5X (before STM32H7) used the [PX4 bootloader](https://github.com/PX4/Bootloader) repository.
+Плата PX4 до FMUv5X (до STM32H7) використовувала репозиторій [завантажувача PX4](https://github.com/PX4/Bootloader).
 
-The instructions in the repo README explain how to use it.
+Інструкції в README репозиторію пояснюють, як його використовувати.
 
-## Debug Probe Bootloader Update
+## Оновлення завантажувача Debug Probe
 
-The following steps explain how you can "manually" update the bootloader using a [compatible Debug Probe](../debug/swd_debug.md#debug-probes-for-px4-hardware):
+Наступні кроки пояснюють, як ви можете "вручну" оновити завантажувач за допомогою сумісного [Відладного пристрою](../debug/swd_debug.md#debug-probes-for-px4-hardware):
 
-1. Get a binary containing the bootloader (either from dev team or [build it yourself](#building-the-px4-bootloader)).
+1. Отримайте бінарний файл, який містить завантажувальник (або від команди розробників, або [зіберіть його самостійно](#building-the-px4-bootloader)).
 
-1. Get a [Debug Probe](../debug/swd_debug.md#debug-probes-for-px4-hardware). Connect the probe your PC via USB and setup the `gdbserver`.
+1. Get a [Debug Probe](../debug/swd_debug.md#debug-probes-for-px4-hardware). Підключіть зонд до комп'ютера за допомогою USB та налаштуйте `gdbserver`.
 
-1. Go into the directory containing the binary and run the command for your target bootloader in the terminal:
+1. Перейдіть до каталогу, що містить бінарний файл, і запустіть команду для обраного вами завантажувача в терміналі:
 
    - FMUv6X
 
@@ -70,10 +70,10 @@ The following steps explain how you can "manually" update the bootloader using a
      ```
 
 :::note
-H7 Bootloaders from [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) are named with pattern `*._bootloader.elf`. Bootloaders from [PX4/PX4-Bootloader](https://github.com/PX4/PX4-Bootloader) are named with the pattern `*_bl.elf`.
+H7 Завантажувачі з [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) мають назву за шаблоном `*._bootloader.elf`. Завантажувачі з [PX4/PX4-Bootloader](https://github.com/PX4/PX4-Bootloader) мають назву за шаблоном `*_bl.elf`.
 :::
 
-1. The _gdb terminal_ appears and it should display the following output:
+1. Термінал _gdb_ з'являється, і він повинен відображати такий вивід:
 
    ```sh
    GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git
@@ -95,7 +95,7 @@ H7 Bootloaders from [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) ar
 
 1. Find your `<dronecode-probe-id>` by running an `ls` command in the **/dev/serial/by-id** directory.
 
-1. Now connect to the debug probe with the following command:
+1. Тепер підключіться до debug probe з наступною командою:
 
    ```sh
    tar ext /dev/serial/by-id/<dronecode-probe-id>
@@ -114,7 +114,7 @@ If using a Dronecode probe you may need to remove the case in order to connect t
    (gdb) attach 1
    ```
 
-1. Load the binary into the Pixhawk:
+1. Завантажте двійковий файл в Pixhawk:
 
    ```sh
    (gdb) load
@@ -122,34 +122,34 @@ If using a Dronecode probe you may need to remove the case in order to connect t
 
 After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using _QGroundControl_.
 
-## QGC Bootloader Update
+## Оновлення завантажувача QGC
 
-The easiest approach is to first use _QGroundControl_ to install firmware that contains the desired/latest bootloader. You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+Найпростіший підхід - спочатку використовуйте _QGroundControl_, щоб встановити прошивку, яка містить потрібний/останній завантажувач. Ви можете ініціювати оновлення завантажувача при наступному перезавантаженні, встановивши параметр: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 
-This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware.
+Такий підхід можна використовувати лише у випадку, якщо параметр [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) присутній у прошивці.
 
 :::warning
-Currently only FMUv2 and some custom firmware includes the desired bootloader.
+Наразі бажаний завантажувач міститься лише в FMUv2 та деяких спеціальних програмних вибірках.
 :::
 
-The steps are:
+Кроки такі:
 
-1. Insert an SD card (enables boot logging to debug any problems).
-1. [Update the Firmware](../config/firmware.md#custom) with an image containing the new/desired bootloader.
+1. Вставте SD-карту (це дозволяє реєструвати журнали завантаження для відлагодження будь-яких проблем).
+1. [Оновіть прошивку](../config/firmware.md#custom) з образом, що містить новий/потрібний завантажувач.
 
    :::note
-The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest main branch.
+Оновлений завантажувач може бути постачений у власній прошивці (наприклад, від команди розробників), або він може бути включений у останню головну гілку.
 :::
 
 1. Зачекайте, доки транспортний засіб перезавантажиться.
-1. [Find and enable](../advanced_config/parameters.md) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
-1. Reboot (disconnect/reconnect the board). The bootloader update will only take a few seconds.
+1. [Знайдіть](../advanced_config/parameters.md) та увімкніть параметр [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+1. Перезавантажте (відключіть / підключіть плату). The bootloader update will only take a few seconds.
 
-Generally at this point you may then want to [update the firmware](../config/firmware.md) again using the correct/newly installed bootloader.
+Зазвичай на цьому етапі ви можливо захочете [оновити прошивку](../config/firmware.md) ще раз, використовуючи правильно/ново встановлений загрузчик.
 
 An specific example of this process for updating the FMUv2 bootloader is given below.
 
-### FMUv2 Bootloader Update
+### Оновлення завантажувача FMUv2
 
 Якщо _QGroundControl_ встановлює ціль FMUv2 (див. консоль під час встановлення), і у вас є новіша плата, вам може знадобитися оновити завантажувальник, щоб мати доступ до всієї пам'яті на вашому контролері польоту.
 
@@ -157,27 +157,27 @@ An specific example of this process for updating the FMUv2 bootloader is given b
 Ранні контролери польоту FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) мали [апаратну проблему](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata), яка обмежувала їх використання 1 Мб флеш-пам’яті. Проблема виправлена на новіших платах, але вам може знадобитися оновити заводський завантажувальник, щоб встановити прошивку FMUv3 та мати доступ до всієї доступної пам'яті у 2 МБ.
 :::
 
-To update the bootloader:
+Щоб оновити завантажувач:
 
-1. Insert an SD card (enables boot logging to debug any problems).
-1. [Update the Firmware](../config/firmware.md) to PX4 _master_ version (when updating the firmware, check **Advanced settings** and then select **Developer Build (master)** from the dropdown list). _QGroundControl_ will automatically detect that the hardware supports FMUv2 and install the appropriate Firmware.
+1. Вставте карту SD (це дозволить вести журналювання завантаження для відлагодження будь-яких проблем).
+1. [Оновіть програмне забезпечення](../config/firmware.md) до версії PX4 _master_ (під час оновлення програмного забезпечення перевірте **Розширені налаштування** і виберіть **Розробницьку збірку (master)** із випадаючого списку). _QGroundControl_ автоматично виявить, що апаратне забезпечення підтримує FMUv2 і встановить відповідне програмне забезпечення.
 
    ![FMUv2 update](../../assets/qgc/setup/firmware/bootloader_update.jpg)
 
-   Wait for the vehicle to reboot.
+   Зачекайте, доки  пристрій перезавантажиться.
 
-1. [Find and enable](../advanced_config/parameters.md) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
-1. Reboot (disconnect/reconnect the board). The bootloader update will only take a few seconds.
-1. Then [Update the Firmware](../config/firmware.md) again. This time _QGroundControl_ should autodetect the hardware as FMUv3 and update the Firmware appropriately.
+1. [Знайдіть та увімкніть](../advanced_config/parameters.md) параметр [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+1. Перезавантажте (відключіть / підключіть плату). Оновлення завантажувача займе лише кілька секунд.
+1. Тоді знову [Оновити програмне забезпечення](../config/firmware.md). На цей раз _QGroundControl_ повинен автоматично визначити обладнання як FMUv3 і відповідним чином оновити програмне забезпечення.
 
    ![FMUv3 update](../../assets/qgc/setup/firmware/bootloader_fmu_v3_update.jpg)
 
 :::note
-If the hardware has the [Silicon Errata](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata) it will still be detected as FMUv2 and you will see that FMUv2 was re-installed (in console). In this case you will not be able to install FMUv3 hardware.
+Якщо апаратне забезпечення має [Помилки в кремнієвій мікросхемі](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata), воно все одно буде виявлене як FMUv2, і ви побачите, що FMUv2 було знову встановлено (у консолі). У цьому випадку ви не зможете встановити апаратне забезпечення FMUv3.
 :::
 
-## Other Boards (Non-Pixhawk)
+## Інші плати (не Pixhawk)
 
 Плати, які не є частиною серії [Pixhawk](../flight_controller/pixhawk_series.md), матимуть власні механізми оновлення завантажувача.
 
-For boards that are preflashed with Betaflight, see [Bootloader Flashing onto Betaflight Systems](bootloader_update_from_betaflight.md).
+Для плат, які передвстановлені за допомогою Betaflight, дивіться [Flash пусковика на системи Betaflight](bootloader_update_from_betaflight.md).

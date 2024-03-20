@@ -18,26 +18,26 @@ Information about how the parameters affect landing can be found below in [Land 
 
 Other key parameters that you may need to tune in order to improve landing behaviour on particular airframes are:
 
-- [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - the hover throttle of the system (default is 50%). It is important to set this correctly as it makes altitude control more accurate and ensures correct land detection. A racer or a big camera drone without payload mounted might need a much lower setting (e.g. 35%).
+- [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - the hover throttle of the system (default is 50%). It is important to set this correctly as it makes altitude control more accurate and ensures correct land detection. Гоночний або великий квадрокоптер для зйомки без встановленого вантажу може потребувати набагато нижчого налаштування (наприклад, 35%).
 
 :::note
-Incorrectly setting `MPC_THR_HOVER` may result in ground-contact or maybe-landed detection while still in air (in particular, while descending in [Position mode](../flight_modes_mc/position.md) or [Altitude mode](../flight_modes_mc/altitude.md)). This causes the vehicle to "twitch" (turn down the motors, and then immediately turn them back up).
+Неправильне встановлення параметра `MPC_THR_HOVER` може призвести до виявлення контакту з землею або, можливо, приземлення, коли транспортний засіб все ще знаходиться в повітрі (зокрема, під час спуску в режимі [Позиції](../flight_modes_mc/position.md) або [Висоти](../flight_modes_mc/altitude.md)). Це призводить до "тремтіння" транспортного засобу (зниження обертів двигуна, а потім негайне збільшення їх).
 :::
 
-- [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - the overall minimum throttle of the system. This should be set to enable a controlled descent.
-- [MPC_LAND_CRWL](../advanced_config/parameter_reference.md#MPC_LAND_CRWL) - the vertical speed applied in the last stage of autonomous landing if the system has a distance sensor and it is present and working. Has to be set larger than LNDMC_Z_VEL_MAX.
+- [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - загальний мінімум газу системи. This should be set to enable a controlled descent.
+- [MPC_LAND_CRWL](../advanced_config/parameter_reference.md#MPC_LAND_CRWL) - вертикальна швидкість, яка застосовується в останній стадії автономного приземлення, якщо система має датчик відстані, і він присутній і працює. Повинен бути встановлений більшим, ніж LNDMC_Z_VEL_MAX.
 
 ### MC Land Detector States
 
-In order to detect landing, the multicopter first has to go through three different states, where each state contains the conditions from the previous states plus tighter constraints. If a condition cannot be reached because of missing sensors, then the condition is true by default. For instance, in [Acro mode](../flight_modes_mc/acro.md) and no sensor is active except for the gyro sensor, then the detection solely relies on thrust output and time.
+Для виявлення посадки багтороте повітряне судно спочатку повинно пройти три різні стани, кожен з яких містить умови попередніх станів плюс більш жорсткі обмеження. Якщо умова не може бути досягнута через відсутність сенсорів, то умова, за замовчуванням, є істинною. Наприклад, у режимі [Acro](../flight_modes_mc/acro.md), коли жоден сенсор, крім гіроскопа, не активний, виявлення базується лише на виводі потужності і часі.
 
-In order to proceed to the next state, each condition has to be true for a third of the configured total land detector trigger time [LNDMC_TRIG_TIME](../advanced_config/parameter_reference.md#LNDMC_TRIG_TIME). If the vehicle is equipped with a distance sensor, but the distance to ground is currently not measurable (usually because it is too large), the trigger time is increased by a factor of 3.
+Для переходу до наступного стану кожна умова повинна бути виконана протягом однієї третини загального налаштованого часу спрацювання детектора посадки [LNDMC_TRIG_TIME](../advanced_config/parameter_reference.md#LNDMC_TRIG_TIME). Якщо транспортний засіб обладнаний датчиком відстані, але відстань до землі в даний момент не вимірюється (зазвичай через те, що вона занадто велика), час спрацювання збільшується втричі.
 
-If one condition fails, the land detector drops out of the current state immediately.
+Якщо одна умова не виконується, виявник посадки негайно виходить з поточного стану.
 
 #### Ground Contact
 
-Conditions for this state:
+Умови для цього стану:
 
 - no vertical movement ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_Z_VEL_MAX))
 - no horizontal movement ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
@@ -45,7 +45,7 @@ Conditions for this state:
 - additional check if vehicle is currently in a height-rate controlled flight mode: the vehicle has to have the intent to descend (vertical velocity setpoint above LNDMC_Z_VEL_MAX).
 - additional check for vehicles with a distance sensor: current distance to ground is below 1m.
 
-If the vehicle is in position- or velocity-control and ground contact was detected, the position controller will set the thrust vector along the body x-y-axis to zero.
+Якщо повітряне судно знаходиться у режимі керування позицією або швидкістю, і виявлено контакт з землею, контролер позиції встановить вектор тяги вздовж осі х-у тіла рівним нулю.
 
 #### Maybe Landed
 
@@ -56,15 +56,15 @@ Conditions for this state:
 - has low thrust `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`
 - no freefall detected
 
-If the vehicle only has knowledge of thrust and angular rate, in order to proceed to the next state the vehicle has to have low thrust and no rotation for 8.0 seconds.
+Якщо транспортний засіб знає лише про тягу та кутову швидкість, щоб перейти до наступного стану, транспортний засіб повинен мати низьку тягу та відсутність обертання протягом 8,0 секунд.
 
-If the vehicle is in position or velocity control and maybe landed was detected, the position controller will set the thrust vector to zero.
+Якщо транспортний засіб перебуває у керуванні положенням або швидкістю, і, можливо, виявлено приземлення, контролер положення встановить вектор тяги на нуль.
 
 #### Landed
 
-Conditions for this state:
+Умови для цього стану:
 
-- all conditions of the [maybe landed](#maybe-landed) state are true
+- усі умови стану [maybe landed](#maybe-landed) вірні
 
 ## Fixed-wing Configuration
 
