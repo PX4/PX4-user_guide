@@ -1,22 +1,22 @@
-# Bootloader Update Pixhawk V6X-RT via USB
+# Оновлення завантажувача Pixhawk V6X-RT через USB
 
 У цій темі пояснюється флеш-завантажувач [Pixhawk FMUv6X-RT](../flight_controller/pixhawk6x-rt.md) через USB _без необхідності перевірки налагодження_.
 
 ## Загальний огляд
 
-The _PX4 Bootloader_ is used to load firmware for [Pixhawk boards](../flight_controller/pixhawk_series.md) (PX4FMU, PX4IO).
+_PX4 Bootloader_ використовується для завантаження прошивки для [Pixhawk boards](../flight_controller/pixhawk_series.md) (PX4FMU, PX4IO).
 
 Контролери Pixhawk зазвичай постачаються з попередньо встановленою відповідною версією завантажувача.
 Однак у деяких випадках він може бути відсутнім або може бути присутня старіша версія, яку потрібно оновити.
 Також можливо, що пристрій заблоковано, тому пристрій потрібно стерти та встановити новий завантажувач.
 
-Most flight controllers require a Debug probe in order to update the bootloader, as discussed in [Bootloader Update > Debug Probe Bootloader Update](../advanced_config/bootloader_update.md#debug-probe-bootloader-update).
+Більшість контролерів польоту вимагають використання зонду для відлагодження для оновлення завантажувальної програми, як обговорено в [Оновлення завантажувальної програми > Оновлення завантажувальної програми за допомогою Debug Probe](../advanced_config/bootloader_update.md#debug-probe-bootloader-update).
 Ви можете використовувати цей підхід для Pixhawk FMUv6X-RT, але якщо у вас немає зонда для налагодження, ви можете скористатися інструкціями, викладеними в цьому розділі.
 
-## Building the PX4 FMUv6X-RT Bootloader
+## Створення завантажувача PX4 FMUv6X-RT
 
 Це можна створити з папки PX4-Autopilot за допомогою команди `make` і спеціальної цілі плати з суфіксом `_bootloader`.
-For FMUv6X-RT the command is:
+Для FMUv6X команда наступна:
 
 ```sh
 make px4_fmu-v6xrt_bootloader
@@ -31,18 +31,18 @@ make px4_fmu-v6xrt_bootloader
 arm-none-eabi-objcopy -O ihex build/px4_fmu-v6xrt_bootloader/px4_fmu-v6xrt_bootloader.elf px4_fmu-v6xrt_bootloader.hex
 ```
 
-## Flashing the bootloader through USB
+## Прошивання завантажувальної програми через USB.
 
-The Pixhawk V6X-RT comes with a build-in bootloader located on the ROM.
-To flash a new bootloader through USB you've got to download the [NXP MCUXpresso Secure Provisioning tool](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-secure-provisioning-tool:MCUXPRESSO-SECURE-PROVISIONING).
-The tool is available for Windows, Linux and macOS.
+Pixhawk V6X-RT постачається з вбудованим завантажувачем, розміщеним у ПЗУ.
+Щоб прошити новий завантажувач через USB, потрібно завантажити [NXP MCUXpresso Secure Provisioning](https\://www\.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and- tools-/mcuxpresso-secure-provisioning-tool:MCUXPRESSO-SECURE-PROVIZIONING).
+Інструмент доступний для Windows, Linux і macOS.
 
-1. Install the _MCUXpresso Secure Provisioning_ application and launch the application:
+1. Встановіть програму _MCUXpresso Secure Provisioning_ і запустіть додаток:
 
    ![Flash bootloader through Secure provisioning - Step 1](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step1.png)
 
-2. On first start you have to create a "New Workspace".
-   Select `i.mX RT11xx` and then select `MIMXRT1176`
+2. Спочатку потрібно створити «Новий Workspace».
+   Виберіть `i.mX RT11xx` і потім оберіть `MIMXRT1176`
 
    ![Flash bootloader through Secure provisioning - Step 2](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step2.png)
 
@@ -50,11 +50,11 @@ The tool is available for Windows, Linux and macOS.
 
    ![Flash bootloader through Secure provisioning - Step 3](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step3.png)
 
-4. On the _Boot Memory Configuration_ window change the "Device type" to `Macronix Octal DDR` and press **OK**.
+4. У вікні _Конфігурація пам'яті завантажувальної програми_ змініть "Тип пристрою" на `Macronix Octal DDR` і натисніть **ОК**.
 
 ![Flash bootloader through Secure provisioning - Step 4](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step4.png)
 
-1. On the menu bar select **Tools > Flash Programmer**:
+1. На панелі меню виберіть **Інструменти > Програматор Flash**:
 
    ![Flash bootloader through Secure provisioning - Step 5](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step5.png)
 
@@ -100,7 +100,7 @@ The tool is available for Windows, Linux and macOS.
 
 ![Flash bootloader through Secure provisioning - Step 12](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step12.png)
 
-1. On success it should show "Success: Write memory 0x30000000 - 0x3XXXXXXX" Note: values might differ due to bootloader changes.
+1. У випадку успішного виконання воно повинно відображати "Success: Запис пам'яті 0x30000000 - 0x3XXXXXXX". Зауваження: значення можуть відрізнятися через зміни завантажувальної програми.
 
    ![Flash bootloader through Secure provisioning - Step 13](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step13.png)
 
