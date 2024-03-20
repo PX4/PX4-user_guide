@@ -1,4 +1,4 @@
-# ROS with Gazebo Classic Simulation
+# ROS з симулятором Gazebo Classic
 
 [ROS](../ros/README.md) (Robot Operating System) can be used with PX4 and the [Gazebo Classic](../sim_gazebo_classic/README.md) simulator. It uses the [MAVROS](../ros/mavros_installation.md) MAVLink node to communicate with PX4.
 
