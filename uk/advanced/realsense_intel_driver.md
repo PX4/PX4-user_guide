@@ -1,10 +1,10 @@
-# Installing driver on Ubuntu for Intel RealSense R200
+# Встановлення драйвера на Ubuntu для Intel RealSense R200
 
-This tutorial aims to give instructions on how to install the camera driver of the Intel RealSense R200 camera head in Linux environment such that the gathered images can be accessed via the Robot Operation System (ROS). The RealSense R200 camera head is depicted below:
+Цей навчальний посібник має на меті надати інструкції щодо встановлення драйвера камери Intel RealSense R200 у середовищі Linux, так щоб зібрані зображення можна було доступити через систему робототехніки (ROS). Головка камери RealSense R200 зображена нижче:
 
 ![Intel Realsense Camera front view](../../assets/hardware/sensors/realsense/intel_realsense.png)
 
-The installation of the driver package is executed on a Ubuntu operation system (OS) that runs as a guest OS in a Virtual Box. The specifications of the host computer where the Virtual Box is running, the Virtual Box and the guest system are given below:
+Встановлення пакету драйвера виконується на операційній системі Ubuntu, яка працює як гостьова ОС у Virtual Box. Специфікації хост-комп'ютера, на якому запущено Virtual Box, самого Virtual Box та гостьової системи подано нижче:
 
 - Host Operation System: Windows 8
 - Processor: Intel(R) Core(TM) i7-4702MQ CPU @ 2.20GHz
