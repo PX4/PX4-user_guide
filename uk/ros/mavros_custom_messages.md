@@ -2,8 +2,8 @@
 
 :::warning
 This article has been tested against:
-- **Ubuntu:** 20.04
-- **ROS:** Noetic
+-
+-
 - **PX4 Firmware:** v1.13
 
 However these steps are fairly general and so it should work with other distros/versions with little to no modifications.
@@ -21,73 +21,24 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
 
    The code subscribes a 'char' message from ROS topic `/mavros/keyboard_command/keyboard_sub` and sends it as a MAVLink message.
    ```c
-    #include <mavros/mavros_plugin.h>
-    #include <pluginlib/class_list_macros.h>
-    #include <iostream>
-    #include <std_msgs/Char.h>
-
-    namespace mavros {
-    namespace extra_plugins{
-
-    class KeyboardCommandPlugin : public plugin::PluginBase {
-    public:
-        KeyboardCommandPlugin() : PluginBase(),
-            nh("~keyboard_command")
-
-       { };
-
-        void initialize(UAS &uas_)
-        {
-            PluginBase::initialize(uas_);
-            keyboard_sub = nh.subscribe("keyboard_sub", 10, &KeyboardCommandPlugin::keyboard_cb, this);
-        };
-
-        Subscriptions get_subscriptions()
-        {
-            return {/* RX disabled */ };
-        }
-
-    private:
-        ros::NodeHandle nh;
-        ros::Subscriber keyboard_sub;
-
-       void keyboard_cb(const std_msgs::Char::ConstPtr &req)
-        {
-            std::cout << "Got Char : " << req->data <<  std::endl;
-            mavlink::common::msg::KEY_COMMAND kc {};
-            kc.command = req->data;
-            UAS_FCU(m_uas)->send_message_ignore_drop(kc);
-        }
-    };
-    }   // namespace extra_plugins
-    }   // namespace mavros
-
-   PLUGINLIB_EXPORT_CLASS(mavros::extra_plugins::KeyboardCommandPlugin, mavros::plugin::PluginBase)
+    
    ```
 
 1. Edit **mavros_plugins.xml** (in **workspace/src/mavros/mavros_extras**) and add the following lines:
    ```xml
-   <class name="keyboard_command" type="mavros::extra_plugins::KeyboardCommandPlugin" base_class_type="mavros::plugin::PluginBase">
-        <description>Accepts keyboard command.</description>
-   </class>
+   
    ```
 
 1. Edit **CMakeLists.txt** (in **workspace/src/mavros/mavros_extras**) and add the following line in `add_library`.
    ```cmake
-   add_library( 
-   ...
-     src/plugins/keyboard_command.cpp 
-   )
+   
+     
    ```
 
 1. Inside **common.xml** in (**workspace/src/mavlink/message_definitions/v1.0**), copy the following lines to add your MAVLink message:
    ```xml
    ...
-     <message id="229" name="KEY_COMMAND">
-        <description>Keyboard char command.</description>
-        <field type="char" name="command"> </field>
-      </message>
-   ...
+     
    ```
 
 ## PX4 Changes
@@ -95,11 +46,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
 1. Inside **common.xml** (in **PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0**), add your MAVLink message as following (same procedure as for MAVROS section above):
    ```xml
    ...
-     <message id="229" name="KEY_COMMAND">
-        <description>Keyboard char command.</description>
-        <field type="char" name="command"> </field>
-      </message>
-   ...
+     
    ```
 
 :::warning
