@@ -1,20 +1,20 @@
-# Thermal Calibration and Compensation
+# Термальне калібрування та компенсація
 
 PX4 містить функцію калібрування та компенсації акселерометра, гіроскопа, магнітометра та датчиків барометричного тиску для впливу зміни температури датчика на зміщення датчика.
 
-This topic details the [test environment](#test_setup) and [calibration procedures](#calibration_procedures). At the end there is a description of the [implementation](#implementation).
+Ця тема розглядає [середовище тестування](#test_setup) та [процедури калібрування](#calibration_procedures). В кінці надається опис [впровадження](#implementation).
 
 :::note
-After thermal calibration, the thermal calibration parameters (`TC_*`) are used for _all_ calibration/compensation of the respective sensors. Any subsequent standard calibration will therefore update `TC_*` parameters and not the "normal" `SYS_CAL_*` calibration parameters (and in some cases these parameters may be reset).
+Після термокалібрування параметри термокалібрування (`TC_*`) використовуються для _всієї_ калібрування/компенсації відповідних датчиків. Отже, будь-яке наступне стандартне калібрування оновить параметри `TC_*`, а не "звичайні" параметри калібрування `SYS_CAL_*` (і в деяких випадках ці параметри можуть бути скинуті).
 :::
 
 :::note
-Releases up to PX4 v1.14, do not support thermal calibration of the magnetometer.
+Випуски до PX4 v1.14 не підтримують термокалібрування магнітометра.
 :::
 
 <a id="test_setup"></a>
 
-## Test Setup/Best Practice
+## Тестування налаштувань та найкращі практики
 
 [Процедури калібрування](#calibration_procedures), описані в наступних розділах, ідеально виконувати в _камері для навколишнього середовища_ (середовищі з контрольованою температурою та вологістю), оскільки плата нагрівається від найнижчої до найвищої робочої/ температура калібрування. Перед початком калібрування плату спочатку _замочують_ (охолоджують до мінімальної температури та дають їй досягти рівноваги).
 
@@ -23,36 +23,37 @@ Releases up to PX4 v1.14, do not support thermal calibration of the magnetometer
 Переконайтеся, що нагрівальні елементи або неактивні, або достатньо далеко від датчика, щоб уникнути введення шуму в калібрування магнітометра.
 :::
 
-For the cold soak you can use a regular home freezer to achieve -20C, and commercial freezers can achieve of the order of -40C. The board should be placed in a ziplock/anti-static bag containing a silica packet, with a power lead coming out through a sealed hole. After the cold soak the bag can be moved to the test environment and the test continued in the same bag.
+Для заморожування можна використовувати звичайну домашню морозильну камеру для досягнення температури -20°C, а комерційні морозильні камери можуть досягати температури приблизно -40°C. Дошку слід помістити в пакет з антистатичної плівки або замкнуту у спеціальну сумку з силікагелем, з проводом живлення, який виходить через герметично закриту отвір. Після заморожування пакет можна перемістити до тестового середовища, і тест можна продовжити в тому ж пакеті.
 
 :::note
-The bag/silica is to prevent condensation from forming on the board.
+Мішок / силіка слугує для запобігання конденсації на платі.
+
 :::
 
-It possible to perform the calibration without a commercial-grade environment chamber. A simple environment container can be created using a styrofoam box with a very small internal volume of air. This allows the autopilot to self-heat the air relatively quickly (be sure that the box has a small hole to equalize to ambient room pressure, but still be able to heat up inside).
+Так, можливо провести калібрування без камери комерційного класу. A simple environment container can be created using a styrofoam box with a very small internal volume of air. Це дозволяє автопілоту самостійно нагрівати повітря досить швидко (переконайтеся, що коробка має невелике отвірчик, щоб вирівняти тиск з оточуючим повітрям, але все ж може нагрітися всередині).
 
-Using this sort of setup it is possible to heat a board to ~70C. Anecdotal evidence suggests that many common boards can be heated to this temperature without adverse side effects. If in doubt, check the safe operating range with your manufacturer.
+За допомогою такого типу установки можна нагріти плату приблизно до 70 °C. Анекдотичні дані свідчать, що багато поширених плат можна нагріти до цієї температури без негативних побічних ефектів. If in doubt, check the safe operating range with your manufacturer.
 
 :::tip
-To check the status of the onboard thermal calibration use the MAVlink console (or NuttX console) to check the reported internal temp from the sensor.
+Щоб перевірити статус калібрування вбудованої термічної системи, скористайтеся консоллю MAVlink (або консоллю NuttX), щоб перевірити звітовану внутрішню температуру від датчика.
 :::
 
 <a id="calibration_procedures"></a>
 
-## Calibration Procedures
+## Принципи калібрування
 
-PX4 supports two calibration procedures:
+PX4 підтримує два процедури калібрування:
 
-- [onboard](#onboard_calibration) - calibration is run on the board itself. This method requires knowledge of the amount of temperature rise that is achievable with the test setup.
-- [offboard](#offboard_calibration) - compensation parameters are calculated on a development computer based on log information collected during the calibration procedure. This method allows users to visually check the quality of the data and curve-fit.
+- [onboard](#onboard_calibration) - калібрування запускається на самій платі. Цей метод вимагає знань про те, наскільки можливе підвищення температури з використанням тестового устаткування.
+- [offboard](#offboard_calibration) - компенсаційні параметри обчислюються на розробницькому комп'ютері на основі інформації журналу, зібраної під час процедури калібрування. Цей метод дозволяє користувачам візуально перевіряти якість даних та підгонку кривої.
 
-The offboard approach is more complex and slower, but requires less knowledge of the test setup and is easier to validate.
+Підхід offboard є складнішим і повільнішим, але вимагає менше знань про тестове обладнання і є легше перевірити.
 
 <a id="onboard_calibration"></a>
 
 ### Onboard Calibration Procedure
 
-Onboard calibration is run entirely on the device. It require knowledge of the amount of temperature rise that is achievable with the test setup.
+Онбордне калібрування виконується повністю на пристрої. Для цього потрібно мати уявлення про те, наскільки можна підвищити температуру за допомогою тестового обладнання.
 
 To perform and onboard calibration:
 
@@ -65,7 +66,7 @@ To perform and onboard calibration:
 7. Keeping the board stationary[^2], apply power and warm to a temperature high enough to achieve the temperature rise specified by the `SYS_CAL_TDEL` parameter. The completion percentage is printed to the system console during calibration. [^3]
 8. When the calibration completes, remove power, allow the board to cool to a temperature that is within the calibration range before performing the next step.
 9. Perform a 6-point accel calibration via the system console using `commander calibrate accel` or via _QGroundControl_. If the board is being set-up for the first time, the gyro and magnetometer calibration will also need to be performed.
-10. The board should always be re-powered before flying after any sensor calibration, because sudden offset changes from calibration can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup.
+10. Після калібрування датчиків до політів завжди потрібно перезавантажити плату, оскільки раптові зміни зміщень від калібрування можуть спотворити навігаційний оцінювач, і деякі параметри не завантажуються алгоритмами, які використовують їх, до наступного запуску.
 
 <a id="offboard_calibration"></a>
 
@@ -81,7 +82,7 @@ To perform an offboard calibration:
 1. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot.
 1. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for _thermal calibration_ (bit 2) to log the raw sensor data required for calibration.
 1. Cold soak the board to the minimum temperature it will be required to operate in.
-1. Apply power and keeping the board still [^2], warm it slowly to the maximum required operating temperature. [^3]
+1. Підключіть живлення та, не рухаючи плату, <sup id="fnref2:2">поступово нагрійте її до максимально необхідної робочої температури.</sup> [^3]
 1. Remove power and extract the .ulog file.
 1. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script:
 
@@ -91,13 +92,13 @@ To perform an offboard calibration:
 
    This will generate a **.pdf** file showing the measured data and curve fits for each sensor, and a **.params** file containing the calibration parameters.
 
-1. Power the board, connect _QGroundControl_ and load the parameter from the generated **.params** file onto the board using _QGroundControl_. Due to the number of parameters, loading them may take some time.
+1. Увімкніть плату, підключіть _QGroundControl_ та завантажте параметри зі створеного файлу **.params** на плату за допомогою _QGroundControl_. Due to the number of parameters, loading them may take some time.
 1. After parameters have finished loading, set `SDLOG_MODE` to 1 to re-enable normal logging and remove power.
-1. Power the board and perform a normal accelerometer sensor calibration using _QGroundControl_. It is important that this step is performed when board is within the calibration temperature range. The board must be repowered after this step before flying as the sudden offset changes can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup.
+1. Power the board and perform a normal accelerometer sensor calibration using _QGroundControl_. It is important that this step is performed when board is within the calibration temperature range. Після цього кроку плата повинна бути знову увімкнена перед польотом, оскільки раптові зміни зміщення можуть налякати оцінювач навігації, і деякі параметри не завантажуються алгоритмами, що використовують їх, до наступного запуску.
 
 <a id="implementation"></a>
 
-## Implementation Detail
+## Деталі реалізації
 
 Калібрування відноситься до процесу зміни датчиків через діапазон внутрішніх температур, і виконання полінома відповідно до даних для обчислення набору коефіцієнтів (збережених як параметри), що може бути використане для виправлення даних датчика. Компенсація відноситься до процесу використання внутрішньої температури для обчислення зсуву, яке віднімається від читача датчика для виправлення температури
 
@@ -119,7 +120,7 @@ To perform an offboard calibration:
 TC_[type][instance]_[cal_name]_[axis]
 ```
 
-Where:
+Де:
 
 - `type`: is a single character indicating the type of sensor where `A` = accelerometer, `G` = rate gyroscope, `M` = magnetometer, and `B` = barometer.
 - `instance`: is an integer 0,1 or 2 allowing for calibration of up to three sensors of the same `type`.
