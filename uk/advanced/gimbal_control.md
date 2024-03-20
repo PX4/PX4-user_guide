@@ -1,29 +1,29 @@
-# Конфігурація стабілізатора
+# Конфігурація  Gimbal (стабілізатора)
 
 Ця сторінка пояснює, як налаштувати та контролювати стабілізатор, що має приєднану камеру (або будь-який інший вантаж).
 
 ## Загальний огляд
 
-PX4 contains a generic mount/gimbal control driver that supports different input and output methods:
+PX4 містить універсальний драйвер керування кріпленням/гімбалем, який підтримує різні методи введення та виведення:
 
 - The input method defines the protocol used to command a gimbal mount that is managed by PX4. This might be an RC controller, a MAVLink command sent by a GCS, or both — automatically switching between them.
 - The output method defines how PX4 communicates with the connected gimbal. The recommended protocol is MAVLink v2, but you can also connect directly to a flight controller PWM output port.
 
-PX4 takes the input signal and routes/translates it to be sent through to the output. Any input method can be selected to drive any output.
+PX4 приймає вхідний сигнал і маршрутизує/перекладає його для відправлення на вивід. Будь-який метод введення може бути обраний для керування будь-яким виводом.
 
 Both the input and output are configured using parameters. The input is set using the parameter [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN). By default this is set to `Disabled (-1)` and the driver does not run. After selecting the input mode, reboot the vehicle to start the mount driver.
 
 You should set `MNT_MODE_IN` to one of: `RC (1)`, `MAVlink gimbal protocol v2 (4)` or `Auto (0)` (the other options are deprecated). If you select `Auto (0)`, the gimbal will automatically select either RC or or MAVLink input based on the latest input. Note that the auto-switch from MAVLink to RC requires a large stick motion!
 
-The output is set using the [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) parameter. By default the output is set to a PXM port (`AUX (0)`). If the [MAVLink Gimbal Protocol v2](https://mavlink.io/en/services/gimbal_v2.html) is supported by your gimbal, you should instead select `MAVLink gimbal protocol v2 (2)`.
+The output is set using the [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) parameter. By default the output is set to a PXM port (`AUX (0)`). Якщо ваш гімбал підтримує [Протокол гімбала MAVLink v2](https://mavlink.io/en/services/gimbal_v2.html), ви повинні замість цього вибрати `Протокол гімбала MAVLink v2 (2)`.
 
-The full list of parameters for setting up the mount driver can be found in [Parameter Reference > Mount](../advanced_config/parameter_reference.md#mount). The relevant settings for a number of common gimbal configurations are described below.
+The full list of parameters for setting up the mount driver can be found in [Parameter Reference > Mount](../advanced_config/parameter_reference.md#mount). Нижче наведено відповідні налаштування для декількох поширених конфігурацій гімбалів.
 
 ## MAVLink Gimbal (MNT_MODE_OUT=MAVLINK)
 
-Each physical gimbal device on the system must have its own high level gimbal manager, which is discoverable by a ground station using the MAVLink gimbal protocol. The ground station sends high level [MAVLink Gimbal Manager](https://mavlink.io/en/services/gimbal_v2.html#gimbal-manager-messages) commands to the manager of the gimbal it wants to control, and the manager will in turn send appropriate lower level "gimbal device" commands to control the gimbal.
+Кожен фізичний пристрій гімбала в системі повинен мати свій власний високорівневий менеджер гімбала, який може бути виявлений наземною станцією за допомогою протоколу MAVLink для гімбалів. Наземна станція надсилає високорівневі команди [MAVLink Gimbal Manager](https://mavlink.io/en/services/gimbal_v2.html#gimbal-manager-messages) менеджеру гімбала, який вона хоче керувати, а менеджер, в свою чергу, надсилає відповідні команди нижчого рівня "пристрою гімбала", щоб керувати гімбалом.
 
-PX4 can be configured as the gimbal manager to control a single gimbal device (which can either be physically connected or be a MAVLink gimbal that implements the [gimbal device interface](https://mavlink.io/en/services/gimbal_v2.html#gimbal-device-messages)).
+PX4 може бути налаштований як менеджер гімбала для керування одним пристроєм гімбала (який може бути або фізично підключений, або бути гімбалом MAVLink, який реалізує інтерфейс пристрою гімбала).
 
 To enable a MAVLink gimbal, first set parameter [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN) to `MAVlink gimbal protocol v2` and [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) to `MAVLink gimbal protocol v2`.
 
@@ -35,9 +35,9 @@ The gimbal can be connected to _any free serial port_ using the instructions in 
 
 ### Multiple Gimbal Support
 
-PX4 can automatically create a gimbal manager for a connected PWM gimbal or the first MAVLink gimbal device with the same system id it detects on any interface. It does not automatically create gimbal manager for any other MAVLink gimbal devices that it detects.
+PX4 може автоматично створити менеджер гімбала для підключеного гімбала з PWM або першого пристрою гімбала MAVLink з тим самим ідентифікатором системи, який виявляється на будь-якому інтерфейсі. Він не автоматично створює менеджер гімбала для будь-яких інших пристроїв гімбала MAVLink, які виявляються.
 
-You can support additional gimbals provided that they:
+Ви можете підтримувати додаткові гімбали, забезпечивши, що вони:
 
 - implement the gimbal _manager_ protocol
 - Are visible to the ground station and PX4 on the MAVLink network. This may require that traffic forwarding be configured between PX4, the GCS, and the gimbal.
@@ -45,9 +45,9 @@ You can support additional gimbals provided that they:
 
 ## Gimbal on FC PWM Output (MNT_MODE_OUT=AUX)
 
-The gimbal can also be controlled by connecting it to up to three flight controller PWM ports and setting the output mode to `MNT_MODE_OUT=AUX`.
+Gimbal також можна контролювати шляхом підключення до трьох портів польоту контролера польоту і налаштування режиму виводу в `MNT_MODE_OUT=AUX`.
 
-The output pins that are used to control the gimbal are set in the [Acuator Configuration > Outputs](../config/actuators.md#actuator-outputs) by selecting any three unused Actuator Outputs and assigning them the following output functions:
+Вихідні піни, які використовуються для керування гімбалем, встановлюються в [Конфігурація приводів > Виведення](../config/actuators.md#actuator-outputs), вибравши будь-які три невикористані виводи приводів та призначивши їм наступні функції виводу:
 
 - `Gimbal Roll`: Output controls gimbal roll.
 - `Gimbal Pitch`: Output controls Gimbal pitch.
@@ -61,17 +61,17 @@ The PWM values to use for the disarmed, maximum and minimum values can be determ
 
 ## SITL
 
-The [Gazebo Classic](../sim_gazebo_classic/README.md) simulation [Typhoon H480 model](../sim_gazebo_classic/vehicles.md#typhoon-h480-hexrotor) comes with a preconfigured simulated gimbal.
+Симуляція [Gazebo Classic](../sim_gazebo_classic/README.md) моделі [Typhoon H480](../sim_gazebo_classic/vehicles.md#typhoon-h480-hexrotor) поставляється з передконфігурованим симульованим гімбалем.
 
-To run it, use:
+Щоб запустити, використовуйте:
 
 ```sh
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
-To just test the [gimbal driver](../modules/modules_driver.md#gimbal) on other models or simulators, make sure the driver runs (using `gimbal start`), then configure its parameters.
+Щоб просто перевірити роботу драйвера [гімбала](../modules/modules_driver.md#gimbal) на інших моделях або симуляторах, переконайтеся, що драйвер працює (за допомогою `gimbal start`), а потім налаштуйте його параметри.
 
-## Testing
+## Тестування
 
 The driver provides a simple test command. The following describes testing in SITL, but the commands also work on a real device.
 

@@ -58,45 +58,45 @@ Pixhawk V6X-RT постачається з вбудованим завантаж
 
    ![Flash bootloader through Secure provisioning - Step 5](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step5.png)
 
-2. You should get this pop-up indicating the Pixhawk V6X-RT is not in the "ISP bootloader mode".
+2. Ви повинні отримати спливаюче вікно, що показує, що Pixhawk V6X-RT не знаходиться в режимі "завантажувальної програми ISP".
 
    ![Flash bootloader through Secure provisioning - Step 6](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step6.png)
 
-   To get the Pixhawk V6X-RT into "ISP bootloader mode" there are 2 options:
+   Щоб перевести Pixhawk V6X-RT у режим "завантажувальної програми ISP", є два варіанти:
 
-   1. Launch QGC connect the Pixhawk select **Analayze Tools** and then **MAVLINK Console**.
-      On the console type `reboot -i`.
-      This will put the Pixhawk V6X-RT into "ISP bootloader mode"
+   1. Запустіть QGC, підключіть Pixhawk, виберіть **Аналітичні інструменти**, а потім **Консоль MAVLINK**.
+      На тип консолі `reboot -i`.
+      Це переведе Pixhawk V6X-RT у режим "завантажувальної програми ISP".
 
       ![ISP bootloader mode](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_enter_isp_qgc.png)
 
-   2. If the board is bricked and connecting to QGC is not possible you've open the FMUM module and press the BOOT button (circled in red in the picture below) while powering the board.
+   2. Якщо плата "заблокована" (заблокована завантажувальна програма) і підключення до QGC неможливе, відкрийте модуль FMUM і натисніть кнопку BOOT (помічена червоним кружечком на зображенні нижче), утримуючи її натиснутою під час включення живлення до плати.
 
       <img src="../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_enter_isp_button.jpg" style="zoom:67%;" />
 
-      Press **YES** to launch the _Flash Programmer Tool_.
+      Натисніть **ТАК** для запуску інструменту _Flash програми_.
 
-3. When the Flash Programming has started you get a popup to configure the target memory press **Yes**
+3. Коли починається програмування флеш-пам'яті, ви отримаєте спливаюче вікно для налаштування цільової пам'яті. Натисніть **Так**.
 
    ![Flash bootloader through Secure provisioning - Step 7](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step7.png)
 
-4. When the Target Memory configuration is succesful you can press the the **Erase All** button
+4. Коли конфігурація цільової пам'яті успішна, ви можете натиснути кнопку **Стерти все**
 
    ![Flash bootloader through Secure provisioning - Step 8](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step8.png)
 
-5. After erasing the flash press the **Load ...** button and then press the **Browse** button
+5. Після очищення флеш-пам'яті натисніть кнопку **Завантажити ...**, а потім натисніть кнопку **Огляд**.
 
    ![Flash bootloader through Secure provisioning - Step 9](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step9.png)
 
-6. Locate the `px4_fmu-v6xrt_bootloader.bin` file and press **Open** and then press on **Load**.
+6. Знайдіть файл `px4_fmu-v6xrt_bootloader.bin` і натисніть **Відкрити**, а потім натисніть **Завантажити**.
 
    ![Flash bootloader through Secure provisioning - Step 10](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step10.png)
 
-7. If the load is successful you should see the "Success: load from file" at the bottom right
+7. Якщо завантаження пройшло успішно, ви повинні побачити «Успіх: завантажити з файлу» внизу праворуч
 
    ![Flash bootloader through Secure provisioning - Step 11](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step11.png)
 
-8. Press the **Write** button to flash the PX4 bootloader
+8. Натисніть кнопку **Запис**, щоб прошити завантажувальну програму PX4.
 
 ![Flash bootloader through Secure provisioning - Step 12](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step12.png)
 

@@ -273,90 +273,77 @@ The other setpoint types are currently experimental, and can be found in: [px4\_
 3. Викличте метод set(), щоб керувати клапаном(-ами).
    Це може бути зроблено незалежно від будь-яких активних встановлень.
 
-### Telemetry
+### Телеметрія
 
-You can access PX4 telemetry topics directly via the following classes:
+Ви можете отримати доступ до телеметрії PX4 безпосередньо через наступні класи:
 
-- [OdometryGlobalPosition](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1OdometryGlobalPosition.html): Global position
-- [OdometryLocalPosition](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1OdometryLocalPosition.html): Local position, velocity, acceleration, and heading
-- [OdometryAttitude](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1OdometryAttitude.html): Vehicle attitude
+-
+-
+-
 
-For example, you can query the vehicle's current position estimate as follows:
+Наприклад, ви можете надати запит на поточну позицію автомобіля наступним чином:
 
 ```cpp
-std::shared_ptr<px4_ros2::OdometryLocalPosition> _vehicle_local_position;
-...
-
-// Get vehicle's last local position
-_vehicle_local_position->positionNed();
-
-// Check last horizontal position is valid
-_vehicle_local_position->positionXYValid();
 ```
 
 :::note
-These topics provide a wrapper around the internal PX4 topics, allowing the library to maintain compatibility if the internal topics change.
-Check [px4_ros2/odometry](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/px4_ros2_cpp/include/px4_ros2/odometry) for new topics, and of course you can use any ROS 2 topic published from PX4.
+Ці теми надають обгортку навколо внутрішніх тем PX4, що дозволяє бібліотеці підтримувати сумісність у випадку зміни внутрішніх тем.
+Перевірте px4_ros2/odometry для нових тем, і, звісно, ви можете використовувати будь-яку тему ROS 2, опубліковану з PX4.
 :::
 
-### Failsafes and Mode Requirements
+### Аварійні вимкнення та вимоги до режимів
 
-Each mode has a set of requirement flags.
-These are generally automatically set, depending on which objects are used within the context of a mode.
-For example when adding manual control input with the code below the requirement flag for manual control gets set:
+Кожен режим має набір прапорців вимог.
+Ці прапорці, як правило, автоматично встановлюються в залежності від об'єктів, які використовуються в контексті режиму.
+Наприклад, коли додається керування вручну за допомогою коду нижче, прапорець вимог для керування вручну встановлюється:
 
 ```cpp
-_manual_control_input = std::make_shared<px4_ros2::ManualControlInput>(*this);
 ```
 
-Specifically, setting a flag has the following consequences in PX4, if the condition is not met:
+Зокрема, встановлення прапорця має наступні наслідки в PX4, якщо умова не виконується:
 
-- arming is not allowed, while the mode is selected
-- when already armed, the mode cannot be selected
-- when armed and the mode is selected, the relevant failsafe is triggered (e.g. RC loss for the manual control requirement).
-  Check the [safety page](../config/safety.md) for how to configure failsafe behavior.
-  A failsafe is also triggered when the mode crashes or becomes unresponsive while it is selected.
+- Озброєння неможливе, коли вибрано режим
+- коли вже озброєний, режим не можна вибрати
+- коли озброєний і обраний режим, відповідний аварійний режим спрацьовує (наприклад, втрата RC для вимоги до керування вручну).
+  Перевірте [сторінку безпеки](../config/safety.md), щоб налаштувати безпечну поведінку.
+  Аварійний режим також спрацьовує, коли режим аварійно завершується або стає несприйнятливим, коли він обраний.
 
-This is the corresponding flow diagram for the manual control flag:
+Ось відповідна блок-схема для прапорця керування вручну:
 
-![Mode requirements diagram](../../assets/middleware/ros2/px4_ros2_interface_lib/mode_requirements_diagram.png)
+
 
 <!-- source: https://drive.google.com/file/d/1g_NlQlw7ROLP_mAi9YY2nDwP0zTNsFlB/view -->
 
-It is possible to manually update any mode requirement after the mode is registered.
-For example to add home position as requirement:
+Можна вручну оновити будь-які вимоги до режиму після реєстрації.
 
 ```cpp
-modeRequirements().home_position = true;
 ```
 
-The full list of flags can be found in [requirement_flags.hpp](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/common/requirement_flags.hpp).
 
-#### Deferring Failsafes
 
-A mode or mode executor can temporarily defer non-essential failsafes by calling the method [`deferFailsafesSync()`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1ModeExecutorBase.html#a16ec5be6ebe70e1d0625bf696c3e29ae).
-To get notified when a failsafe would be triggered, override the method [`void onFailsafeDeferred()`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1ModeExecutorBase.html#ad80a234c8cb2f4c186fa2b7bffd1a1dd).
+#### Відкладення аварійних режимів
 
-Check the [integration test](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/test/integration/overrides.cpp) for an example.
+Режим або режим виконавця може тимчасово відкласти неістотні збої, викликаючи метод [`deferFailsafesSync()`](https://auterion.github.io/px4-2-interface-lib/classpx4__ros2_1_1ModeExecutorBase.html#a16ec5be6e70e1d0625bf696c3e29ae).
 
-### Assigning a Mode to an RC Switch or Joystick Action
 
-External modes can be assigned to [RC switches](../config/flight_mode.md) or joystick actions.
-When assigning a mode to an RC switch, you need to know the index (because the parameter metadata does not contain the dynamic mode name).
-Use `commander status` while the mode is running to get that information.
 
-For example:
+### Призначення режиму для RC-перемикача або дії джойстика
+
+Зовнішні режими можуть бути призначені на [RC перемикачі](../config/flight_mode.md) або дії джойстика.
+При призначенні режиму для RC-перемикача вам потрібно знати індекс (тому що параметри метаданих не містять динамічне ім'я режиму).
+Використовуйте статус `commander `, коли режим запущено, щоб отримати цю інформацію.
+
+
 
 ```plain
-   INFO  [commander] External Mode 1: nav_state: 23, name: My Manual Mode
 ```
 
-means you would select **External Mode 1** in QGC:
+означає, що ви б обрали **Зовнішній режим 1** в QGC:
 
-![QGC Mode Assignment](../../assets/middleware/ros2/px4_ros2_interface_lib/qgc_mode_assignment.png)
+
 
 :::note
-PX4 ensures a given mode is always assigned to the same index by storing a hash of the mode name.
+PX4 забезпечує, що певний режим завжди призначається тому ж індексу, зберігаючи хеш назви режиму.
 This makes it independent of startup ordering in case of multiple external modes.
 :::
 

@@ -138,18 +138,18 @@ The `GlobalPositionMeasurement` struct is defined as follows:
 ```cpp
 ```
 
-The `update()` method of the global interface expects the following conditions to hold for `GlobalPositionMeasurement`:
+Метод `update()` глобального інтерфейсу очікує дотримання наступних умов для `GlobalPositionMeasment`:
 
-- The sample `timestamp_sample` is defined.
-- Values do not have a NAN.
-- If a measurement value is provided, its associated variance value is well defined (e.g. if `lat_lon` is defined, then `horizontal_variance` must be defined).
+-
+- Значення не мають NAN.
+- Якщо надано значення вимірювання, його відповідне значення розбіжності добре визначено (наприклад, якщо `lat_lon` визначено, то необхідно вказати `horizontal_variance`).
 
 The following code snippet is an example of a ROS 2 node which uses the global navigation interface to send a measurement with latitude, longitude and altitude to PX4:
 
 ```cpp
 ```
 
-## Multiple Instances of an Interface
+## Кілька екземплярів інтерфейсу
 
-Using multiple instances of the same interface (e.g. local and local) to send estimation updates will stream all update messages to the same topic and result in cross-talk.
-This should not affect measurement fusion into the EKF, but different measurement sources will become indistinguishable.
+Використання кількох екземплярів одного інтерфейсу (напр. локально та локально) для надсилання повідомлень про розрахунок буде передавати всі оновлення до однієї теми і що призведе до перехресної розмови.
+Це не повинно впливати на об'єднання вимірювань в EKF, але різні джерела вимірювань стануть нерозрізненними.
