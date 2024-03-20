@@ -1,20 +1,20 @@
-# Safe Landing (Multicopter + Companion Computer)
+# Безпечна посадка (Мультикоптер + комп'ютер-компаньйон)
 
-The _Safe Landing_ computer-vision feature ensures that multicopter vehicles only land on flat terrain.
+_Безпечна посадка_ - функція комп'ютерного зору що забезпечує посадку мультикоптера тільки на рівній місцевості.
 
-The feature can be enabled in both [Land mode](../flight_modes_mc/land.md) and [Mission mode](../flight_modes_mc/mission.md) on multicopter vehicles that have a companion computer running the appropriate vision software. It can also be used for VTOL vehicles in MC mode.
+Ця функція може бути увімкнута в [Land mode](../flight_modes_mc/land.md) та [Mission mode](../flight_modes_mc/mission.md) на мультикоптері з комп'ютером-компаньйоном, який виконує відповідне програмне забезпечення комп'ютерного зору. Також він може бути використаний для VTOL засобів у MC режимі.
 
 If commanded to land, the vehicle first descends to a height where it can measure the surface (companion computer `loiter_height` parameter). If the landing area is not sufficiently flat, the vehicle moves outwards in a square-spiral pattern, periodically stopping to re-check the terrain for a landing spot that isn't too rough.
 
-## Limitations/Capabilities
+## Обмеження/Можливості
 
-Safe landing is designed for finding flat areas in rough terrain.
+Безпечна посадка призначена для пошуку плоских ділянок на пересіченій місцевості.
 
 - Landing on a road is not prevented; if a car is detected it will be "forgotten" once it moves past.
 - Landing on water may occur if using radar or ultrasound sensors, but should not occur if using stereo cameras or LIDAR.
   - The system will only land if it is able to detect ground. For stereo cameras, water that is rough enough to have sufficient distinguishing features for analysis will not be flat enough to land on.
 
-## PX4 Configuration
+## Конфігурація PX4
 
 Safe landing is enabled within PX4 by [setting](../advanced_config/parameters.md) the [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) to 1.
 
