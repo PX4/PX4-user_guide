@@ -43,6 +43,8 @@
       * [Setpoint Tuning (Trajectory Generator)](config_mc/mc_trajectory_tuning.md)
         * [Jerk-limited Type Trajectory](config_mc/mc_jerk_limited_type_trajectory.md)
       * [Multicopter Racer Setup](config_mc/racer_setup.md)
+      * [Land Detector Configuration](advanced_config/land_detector.md)
+      * [Static Pressure Buildup](advanced_config/static_pressure_buildup.md)
     * [Flight Modes](flight_modes_mc/README.md)
       * [Position Mode (MC)](flight_modes_mc/position.md)
       * [Position Slow Mode (MC)](flight_modes_mc/position_slow.md)
@@ -155,7 +157,6 @@
   * [Full Parameter Reference](advanced_config/parameter_reference.md)
   * [ECL/EKF Overview & Tuning](advanced_config/tuning_the_ecl_ekf.md)
   * [Flight Termination Configuration](advanced_config/flight_termination.md)
-  * [Land Detector Configuration](advanced_config/land_detector.md)
   * [Prearm/Arm/Disarm Configuration](advanced_config/prearm_arm_disarm.md)
 
 * [Hardware Selection & Setup](hardware/drone_parts.md)
@@ -369,7 +370,6 @@
         * [Realsense T265 Tracking Camera (VIO)](peripherals/camera_t265_vio.md)
     * [Video Streaming](companion_computer/video_streaming.md)
       * [Video Streaming using WFB-ng Wifi (Long range)](companion_computer/video_streaming_wfb_ng_wifi.md)
-  * [Static Pressure Buildup](advanced_config/static_pressure_buildup.md)
   * [Serial Port Configuration](peripherals/serial_configuration.md)
   * [PX4 Ethernet Setup](advanced_config/ethernet_setup.md)
 
