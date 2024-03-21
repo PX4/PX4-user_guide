@@ -34,7 +34,7 @@
 
 ## Switch to Position Mode
 
-<unk> коли ручки в центрі, вони повинні утримувати позицію
+❏ коли ручки в центрі, вони повинні утримувати позицію
 
 ❏ Move roll, pitch and yaw and check the vehicle is moving according to the inputs
 
