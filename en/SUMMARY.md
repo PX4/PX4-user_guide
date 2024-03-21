@@ -157,9 +157,6 @@
   * [Flight Termination Configuration](advanced_config/flight_termination.md)
   * [Land Detector Configuration](advanced_config/land_detector.md)
   * [Prearm/Arm/Disarm Configuration](advanced_config/prearm_arm_disarm.md)
-  * [Static Pressure Buildup](advanced_config/static_pressure_buildup.md)
-  * [Serial Port Configuration](peripherals/serial_configuration.md)
-  * [PX4 Ethernet Setup](advanced_config/ethernet_setup.md)
 
 * [Hardware Selection & Setup](hardware/drone_parts.md)
   * [Flight Controllers (Autopilots)](flight_controller/README.md)
@@ -372,6 +369,10 @@
         * [Realsense T265 Tracking Camera (VIO)](peripherals/camera_t265_vio.md)
     * [Video Streaming](companion_computer/video_streaming.md)
       * [Video Streaming using WFB-ng Wifi (Long range)](companion_computer/video_streaming_wfb_ng_wifi.md)
+  * [Static Pressure Buildup](advanced_config/static_pressure_buildup.md)
+  * [Serial Port Configuration](peripherals/serial_configuration.md)
+  * [PX4 Ethernet Setup](advanced_config/ethernet_setup.md)
+
 * [Development](development/development.md)
   * [Getting Started](dev_setup/getting_started.md)
     * [Recommended Hardware/Setup](dev_setup/config_initial.md)
