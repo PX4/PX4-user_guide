@@ -44,7 +44,7 @@ Before starting the calibration:
 The calibration steps are:
 
 1. Start _QGroundControl_ and connect the vehicle.
-1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
+1. Select **"Q" icon > Vehicle Setup > Sensors** (sidebar) to open _Sensor Setup_.
 1. Click the **Compass** sensor button.
 
    ![Select Compass calibration PX4](../../assets/qgc/setup/sensor/sensor_compass_select_px4.jpg)

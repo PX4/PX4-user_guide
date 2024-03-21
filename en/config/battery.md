@@ -1,15 +1,16 @@
-# Battery and Power Module Setup
+# Battery Estimation Tuning
 
-This topic explains how to configure power settings.
+This topic explains how to configure power settings so that PX4 can estimate the available battery capacity.
 
 :::note
-The battery monitoring features of PX4 can only be used if you have compatible hardware.
-In most cases this means a power module that measures the battery voltage, and may also measure the current between battery and vehicle.
+These instructions require that the vehicle has a [Power Module (PM)](../power_module/README.md), or other hardware that can measure the battery voltage and (optionally) the current.
+
+This tuning is not needed for [Smart/MAVLink Batteries](../smart_batteries/README.md).
 :::
 
 ## Overview
 
-The goal of the power setup is to provide a good estimate of remaining battery percentage (and capacity), so that the vehicle is not used to the point that it runs out of power and crashes (or the battery is damaged due to deep-discharge).
+Battery Estimation Tuning uses the measured voltage and current (if available) to estimate the remaining battery capacity, so that the vehicle is not used to the point that it runs out of power and crashes (or the battery is damaged due to deep-discharge).
 
 PX4 provides a number of (progressively more effective) methods that can be used to estimate the capacity:
 
@@ -258,7 +259,7 @@ Current integration cannot be used on its own (without voltage-based estimation)
 Voltage-estimation allows you to estimate the initial capacity and provides ongoing feedback of possible errors (e.g. if the battery is faulty, or if there is a mismatch between capacity calculated using different methods).
 :::
 
-## Battery-Type Comparison
+## Battery-Chemistry Comparison
 
 This section provides a comparative overview of several different battery types (in particular LiPo and Li-Ion).
 

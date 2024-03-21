@@ -6,7 +6,9 @@ _QGroundControl_ will guide you to place the vehicle on a flat surface and keep 
 
 The calibration steps are:
 
-1. Click the **Gyroscope** sensor button
+1. Start _QGroundControl_ and connect the vehicle.
+1. Select **"Q" icon > Vehicle Setup > Sensors** (sidebar) to open _Sensor Setup_.
+1. Click the **Gyroscope** sensor button.
 
    ![Select Gyroscope calibration PX4](../../assets/qgc/setup/sensor/gyroscope_calibrate_px4.jpg)
 

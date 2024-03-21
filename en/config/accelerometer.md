@@ -18,7 +18,7 @@ _QGroundControl_ will guide you to place and hold your vehicle in a number of or
 The calibration steps are:
 
 1. Start _QGroundControl_ and connect the vehicle.
-1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
+1. Select **"Q" icon > Vehicle Setup > Sensors** (sidebar) to open _Sensor Setup_.
 1. Click the **Accelerometer** sensor button.
 
    ![Accelerometer calibration](../../assets/qgc/setup/sensor/accelerometer.jpg)

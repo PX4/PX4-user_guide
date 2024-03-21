@@ -50,7 +50,7 @@ Joystick/GamePad:
 
 ### Safety Configuration
 
-- [Battery/Power Module Setup](../config/battery.md)
+- [Battery Estimation Tuning](../config/battery.md) (requires [Power Module](../power_module/README.md))
 - [Safety Configuration (Failsafes)](../config/safety.md)
 
 ### Tuning
