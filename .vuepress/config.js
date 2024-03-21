@@ -14,7 +14,7 @@ module.exports = {
     // 'de/**/*.md',
     // 'ja/**/*.md',
     // 'ru/**/*.md',
-    // 'uk/**/*.md',
+    "uk/**/*.md",
     "!**/node_modules",
     "!**/scripts",
   ],
@@ -98,6 +98,12 @@ module.exports = {
     "/zh/": {
       lang: "zh-CN",
       title: "PX4 自动驾驶用户指南 (main)",
+      description:
+        "PX4 is the Professional Autopilot. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.",
+    },
+    "/uk/": {
+      lang: "uk-UA",
+      title: "PX4 Автопілот керівництво користувача (main)",
       description:
         "PX4 is the Professional Autopilot. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.",
     },
@@ -339,6 +345,112 @@ module.exports = {
         ],
         sidebar: {
           "/ko/": getSidebar.sidebar("ko"),
+        },
+      },
+
+      //Ukraine
+      "/uk/": {
+        // text for the language dropdown
+        selectText: "Мови",
+        // label for this locale in the language dropdown
+        label: "Україна",
+        // Aria Label for locale in the dropdown
+        ariaLabel: "Languages",
+        // text for the edit-on-github link
+        editLinkText: "Edit this page on GitHub",
+        // config for Service Worker
+        serviceWorker: {
+          updatePopup: {
+            message: "New content is available.",
+            buttonText: "Refresh",
+          },
+        },
+        // algolia docsearch options for current locale
+        algolia: process.env.BRANCH_NAME
+          ? {
+              appId: "HHWW7I44JO",
+              apiKey: "48919e1dffc6e0ce4c0d6331343d2c0e",
+              indexName: "px4",
+              algoliaOptions: {
+                hitsPerPage: 10,
+                facetFilters: [`version:${process.env.BRANCH_NAME}`],
+              },
+            }
+          : {},
+        //algolia: process.env.BRANCH_NAME ? {apiKey: 'c944f3489b25a87a95e33d9386025057',indexName: 'px4'} : {} ,
+        nav: [
+          {
+            text: "PX4",
+            ariaLabel: "PX4 Menu",
+            items: [
+              {
+                text: "Website",
+                link: "https://px4.io/",
+                ariaLabel: "PX4 website link",
+              },
+              {
+                text: "Autopilot Source Code",
+                link: "https://github.com/PX4/PX4-Autopilot",
+                ariaLabel: "Source code for PX4 autopilot",
+              },
+              {
+                text: "Docs Source Code",
+                link: "https://github.com/PX4/PX4-user_guide",
+                ariaLabel: "Source code for PX4 user guide documentation",
+              },
+            ],
+          },
+          {
+            text: "Dronecode",
+            ariaLabel: "Dronecode Menu",
+            items: [
+              {
+                text: "QGroundControl",
+                link: "http://qgroundcontrol.com/",
+                ariaLabel: "QGC",
+              },
+              {
+                text: "MAVSDK",
+                link: "https://mavsdk.mavlink.io/",
+                ariaLabel: "MAVSDK",
+              },
+              {
+                text: "MAVLINK",
+                link: "https://mavlink.io/en/",
+                ariaLabel: "MAVLINK site",
+              },
+              {
+                text: "QGroundControl Guide",
+                link:
+                  "https://docs.qgroundcontrol.com/master/en/qgc-user-guide/",
+              },
+              {
+                text: "Dronecode Camera Manager",
+                link: "https://camera-manager.dronecode.org/en/",
+              },
+            ],
+          },
+          {
+            text: "Support",
+            link: "https://docs.px4.io/main/en/contribute/support.html",
+            rel: false,
+            target: "_self",
+            ariaLabel: "Support information",
+          },
+          {
+            text: "Version",
+            ariaLabel: "Versions Menu",
+            items: [
+              { text: "main", link: "https://docs.px4.io/main/en/" },
+              { text: "v1.14", link: "https://docs.px4.io/v1.14/en/" },
+              { text: "v1.13", link: "https://docs.px4.io/v1.13/en/" },
+              { text: "v1.12", link: "https://docs.px4.io/v1.12/en/" },
+              { text: "v1.11", link: "https://docs.px4.io/v1.11/en/" },
+            ],
+          },
+        ],
+        sidebar: {
+          "/uk/": getSidebar.sidebar("uk"),
         },
       },
 
