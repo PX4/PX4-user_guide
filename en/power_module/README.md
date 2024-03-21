@@ -7,7 +7,7 @@ This in turn allows the flight controller to provide failsafe warnings and other
 Power Distribution Boards (PDB) include a power module, and additionally have wiring to supply power to motors.
 They may also include a BEC to supply power to servos and other actuators.
 
-The PX4 battery/power module configuration (via the ADC interface) is covered in: [Power Module Setup](../config/battery.md).
+The PX4 battery/power module configuration (via the ADC interface) is covered in: [Battery Estimation Tuning](../config/battery.md).
 
 This section provides links/information about supported power modules and power distribution boards:
 

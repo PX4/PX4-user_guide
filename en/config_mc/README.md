@@ -110,7 +110,7 @@ Joystick/GamePad:
 
 PX4 can be configured to automatically handle conditions such as low battery, losing radio or data links, flying too far from the home location, and so on:
 
-- [Battery/Power Module Setup](../config/battery.md) — estimate remaining power (needed for low power failsafe).
+- [Battery Estimation Tuning](../config/battery.md) — estimate remaining power (needed for low power failsafe).
 - [Safety Configuration (Failsafes)](../config/safety.md)
 
 ## Tuning

@@ -31,7 +31,7 @@ SmartAP PDB makes connecting high-power lines easier and much more reliable.
 
 ## PX4 Configuration
 
-[Battery and Power Module Setup](../config/battery.md) describes how to configure the battery setting for a power module.
+[Battery Estimation Tuning](../config/battery.md) describes how to configure the battery setting for a power module.
 
 The key configuration settings are:
 

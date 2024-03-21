@@ -107,11 +107,9 @@ For information about what ESC/Motors are supported by PX4 see:
 ## Battery/Power
 
 PX4 drones are mostly commonly powered from Lithium-Polymer (LiPo) batteries.
-The battery is typically connected to the system using a _Power Module_ or _Power Management Board_,
-which provide separate power for the flight controller and to the ESCs (for the motors).
+The battery is typically connected to the system using a [Power Module](../power_module/README.md) or _Power Management Board_, which provide separate power for the flight controller and to the ESCs (for the motors).
 
-Information about batteries and battery configuration can be found in [Battery Configuration](../config/battery.md)
-and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
+Information about batteries and battery configuration can be found in [Battery Estimation Tuning](../config/battery.md) and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
 
 ## Manual Control
 

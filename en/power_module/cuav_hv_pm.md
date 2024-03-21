@@ -28,7 +28,7 @@ It can be used with other flight controllers, but you may need to modify the cab
 
 ## Enable HV PM
 
-[Battery and Power Module Setup](../config/battery.md) describes how to configure the battery and power module.
+[Battery Estimation Tuning](../config/battery.md) describes how to configure the battery and power module.
 
 The key configuration settings for `HV_PM` are:
 - **Voltage divider:** 18
