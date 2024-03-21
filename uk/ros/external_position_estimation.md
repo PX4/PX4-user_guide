@@ -154,12 +154,12 @@ The setup for specific systems is covered [below](#setup_specific_systems). For 
 
 MAVROS has plugins to relay a visual estimation from a VIO or MoCap system using the following pipelines:
 
-| ROS                                                                    | MAVLink                                                                                                                                                                | uORB                      |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| /mavros/vision_pose/pose                                               | [VISION_POSITION_ESTIMATE](https://mavlink.io/en/messages/common.html#VISION_POSITION_ESTIMATE)                                                                      | `vehicle_visual_odometry` |
-| /mavros/odometry/out (`frame_id = odom`, `child_frame_id = base_link`) | [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) (`frame_id =` [MAV_FRAME_LOCAL_FRD](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_FRD)) | `vehicle_visual_odometry` |
-| /mavros/mocap/pose                                                     | [ATT_POS_MOCAP](https://mavlink.io/en/messages/common.html#ATT_POS_MOCAP)                                                                                            | `vehicle_mocap_odometry`  |
-| /mavros/odometry/out (`frame_id = odom`, `child_frame_id = base_link`) | [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) (`frame_id =` [MAV_FRAME_LOCAL_FRD](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_FRD)) | `vehicle_mocap_odometry`  |
+|  |                                                                         |    |
+|  | ----------------------------------------------------------------------- | -- |
+|  | [](https://mavlink.io/en/messages/common.html#VISION_POSITION_ESTIMATE) | `` |
+|  |                                                                         | `` |
+|  | [](https://mavlink.io/en/messages/common.html#ATT_POS_MOCAP)            | `` |
+|  |                                                                         | `` |
 
 You can use any of the above pipelines with LPE.
 
@@ -198,13 +198,11 @@ Using MAVROS, this operation is straightforward. ROS uses ENU frames as conventi
 The MAVROS odometry plugin makes it easy to handle the coordinate frames. It uses ROS's tf package. Your external pose system might have a completely different frame convention that does not match the one of PX4. The body frame of the external pose estimate can depend on how you set the body frame in the MOCAP software or on how you mount the VIO sensor on the drone. The MAVROS odometry plugin needs to know how the external pose's child frame is oriented with respect to either the airframe's FRD or FLU body frame known by MAVROS. You therefore have to add the external pose's body frame to the tf tree. This can be done by including an adapted version of the following line into your ROS launch file.
 
 ```
-  <node pkg="tf" type="static_transform_publisher" name="tf_baseLink_externalPoseChildFrame"
-        args="0 0 0 <yaw> <pitch> <roll> base_link <external_pose_child_frame> 1000"/>
+  
 ```
 Make sure that you change the values of yaw, pitch and roll such that it properly attaches the external pose's body frame to the `base_link` or `base_link_frd`. Have a look at the [tf package](http://wiki.ros.org/tf#static_transform_publisher) for further help on how to specify the transformation between the frames. You can use rviz to check if you attached the frame right. The name of the `external_pose_child_frame` has to match the child_frame_id of your `nav_msgs/Odometry` message. The same also applies for the reference frame of the external pose. You have to attach the reference frame of the external pose as child to either the `odom` or `odom_frd` frame. Adapt therefore the following code line accordingly.
 ```
-  <node pkg="tf" type="static_transform_publisher" name="tf_odom_externalPoseParentFrame"
-        args="0 0 0 <yaw> <pitch> <roll> odom <external_pose_parent_frame> 1000"/>
+  
 ```
 If the reference frame has the z axis pointing upwards you can attached it without any rotation (yaw=0, pitch=0, roll=0) to the `odom` frame. The name of `external_pose_parent_frame` has to match the frame_id of the odometry message.
 
@@ -232,7 +230,7 @@ The following steps explain how to feed position estimates from an [OptiTrack](h
 * Install the `vrpn_client_ros` package
 * You can get each rigid body pose on an individual topic by running
   ```sh
-  roslaunch vrpn_client_ros sample.launch server:=<mocap machine ip>
+  
   ```
 
 If you named the rigidbody as `robot1`, you will get a topic like `/vrpn_client_node/robot1/pose`
