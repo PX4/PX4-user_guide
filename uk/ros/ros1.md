@@ -6,16 +6,16 @@
 
 [ROS](../ros/README.md) (Robot Operating System) це бібліотека загального призначення для робототехніки, яку можна використовувати для створення потужних додатків для дронів разом з PX4 Autopilot.
 
-This section contains topics related to using the "original version of ROS" and the [MAVROS](../ros/mavros_installation.md) package to communicate with PX4 over [MAVLink](../middleware/mavlink.md) (MAVROS bridges ROS topics to MAVLink and PX4 conventions).
+Цей розділ містить теми, пов'язані з використанням "оригінальної версії ROS" та пакету  [MAVROS](../ros/mavros_installation.md) для комунікації з PX4 через [MAVLink](../middleware/mavlink.md) (MAVROS переходить від ROS-тем до протоколу MAVLink та конвенцій PX4).
 
 Основні охоплені тут теми:
 - [ROS/MAVROS Installation Guide](../ros/mavros_installation.md): Налаштування середовища розробки PX4 з ROS 1 та MAVROS.
-- [ROS/MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md): Tutorial showing the main concepts related to writing a C++ MAVROS/ROS node.
-- [ROS MAVROS Sending Custom Messages](../ros/mavros_custom_messages.md)
+- [ROS/MAVROS (C++)](../ros/mavros_offboard_cpp.md): Розділ, що показує основні концепції, пов'язані з написанням C++ вузла MAVROS/ROS.
+- [ROS/MAVROS Надсилання Custom Messages](../ros/mavros_custom_messages.md)
 - [ROS з симулятором Gazebo Classic](../simulation/ros_interface.md)
-- [Gazebo Classic OctoMap Models with ROS](../sim_gazebo_classic/octomap.md)
+- [Gazebo Classic OctoMap Models з ROS](../sim_gazebo_classic/octomap.md)
 - [Встановлення ROS на RPI](../ros/raspberrypi_installation.md)
-- [External Position Estimation (Vision/Motion based)](../ros/external_position_estimation.md)
+- [Оцінка зовнішньої позиції (заснована на спостережені/русі)](../ros/external_position_estimation.md)
 
 
 ## Інші ресурси
