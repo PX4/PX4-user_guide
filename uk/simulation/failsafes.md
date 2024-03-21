@@ -1,34 +1,34 @@
-# Симуляція відмовостійкості
+# Симуляція запобігання відмовам
 
-[Failsafes](../config/safety.md) define the safe limits/conditions under which you can safely use PX4, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
+[Запобіжники відмов](../config/safety.md) визначають безпечні межі/умови за яких можна безпечно використовувати PX4, та дію яка буде виконана якщо спрацює запобіжник відмови (наприклад посадка, утримання позиції або повернення до зазначеної точки).
 
-In SITL some failsafes are disabled by default to enable easier simulation usage. This topic explains how you can test safety-critical behavior in SITL simulation before attempting it in the real world.
-
-:::note
-You can also test failsafes using [HITL simulation](../simulation/hitl.md). HITL uses the normal configuration parameters of your flight controller.
-:::
-
-## Data Link Loss
-
-The _Data Link Loss_ failsafe (unavailability of external data via MAVLink) is enabled by default. This makes the simulation only usable with a connected GCS, SDK, or other MAVLink application.
-
-Set the parameter [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) to the desired failsafe action to change the behavior. For example, set to `0` to disable it.
+У SITL деякі запобіжники відмов за замовчуванням вимкнені, щоб забезпечити простіше використання симуляції. Ця тема пояснює, як ви можете перевірити критично важливу для безпеки поведінку в симуляції SITL перед тим, як спробувати її в реальному світі.
 
 :::note
-All parameters in SITL including this one get reset when you do `make clean`.
+Також можна перевірити запобіжники відмов використовуючи [HITL симуляцію](../simulation/hitl.md). HITL використовує нормальні параметри налаштувань вашого контролера польоту.
 :::
 
-## RC Link Loss
+## Втрата каналу зв'язку
 
-The _RC Link Loss_ failsafe (unavailability of data from a remote control) is enabled by default. This makes the simulation only usable with either an active MAVLink or remote control connection.
+Запобіжник _Втрати каналу зв'язку_ (недоступність зовнішніх даних через MAVLink) увімкнений за замовчуванням. Це робить симуляцію придатною до використання тільки з під'єднаним GCS, SDK або іншим додатком MAVLink.
 
-Set the parameter [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) to the desired failsafe action to change the behavior. For example, set to `0` to disable it.
+Встановіть параметр [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) на бажану дію запобігання відмові для зміни поведінки. Наприклад встановіть у `0`, щоб вимкнути її.
 
 :::note
-All parameters in SITL including this one get reset when you do `make clean`.
+Всі параметри в SITL, включаючи цей, скидається якщо ви виконаєте `make clean`.
 :::
 
-## Low Battery
+## Втрата каналу радіо керування
+
+Запобіжник _Втрати каналу РК_ (недоступність зовнішніх даних дистанційного керування) увімкнений за замовчуванням. Це робить симуляцію придатною до використання тільки з активним з'єднанням MAVLink або дистанційного керування.
+
+Встановіть параметр [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) на бажану дію запобігання відмові для зміни поведінки. Наприклад встановіть у `0`, щоб вимкнути її.
+
+:::note
+Всі параметри в SITL, включаючи цей, скидається якщо ви виконаєте `make clean`.
+:::
+
+## Низький заряд батареї
 
 The simulated battery is implemented to never run out of energy, and by default only depletes to 50% of its capacity and hence reported voltage. This enables testing of battery indication in GCS UIs without triggering low battery reactions that might interrupt other testing.
 
