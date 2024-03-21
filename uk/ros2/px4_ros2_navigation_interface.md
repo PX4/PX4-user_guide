@@ -1,51 +1,47 @@
-# PX4 ROS 2 Navigation Interface
+# Інтерфейс навігації PX4 ROS 2
 
 <Badge type="warning" text="main (PX4 v1.15)" /> <Badge type="warning" text="Experimental" />
 
 :::warning
-Experimental
-At the time of writing, parts of the PX4 ROS 2 Interface Library are experimental, and hence subject to change.
+Експериментальні налаштування
+На момент написання цієї статті, деякі частини бібліотеки інтерфейсу PX4 ROS 2 є експериментальними і, отже, можуть бути змінені.
 :::
 
-The [PX4 ROS 2 Interface Library](../ros2/px4_ros2_interface_lib.md) navigation interface enables developers to send their position measurements to PX4 directly from ROS 2 applications, such as a VIO system or a map matching system.
-The interface provides a layer of abstraction from PX4 and the uORB messaging framework, and introduces a few sanity checks on the requested state estimation updates sent via the interface.
-These measurements are then fused into the EKF just as though they were internal PX4 measurements.
+[PX4 ROS 2 Interface бібліотека](../ros2/px4_ros2_interface_lib. d) інтерфейс навігації дозволяє розробникам надсилати дані щодо позиції PX4 безпосередньо з ROS 2 додатків, така як система VIO або система відповідності мап.
+Цей інтерфейс надає шар абстракції від PX4 та каркасу обміну повідомленнями uORB і вводить деякі перевірки на розумність стану оцінки оновлень, надісланих через інтерфейс.
+Ці вимірювання потім об'єднуються в EKF так само, як внутрішні вимірювання PX4.
 
-The library provides two classes, [`LocalPositionMeasurementInterface`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1LocalPositionMeasurementInterface.html) and [`GlobalPositionMeasurementInterface`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1GlobalPositionMeasurementInterface.html), which both expose a similar `update` method to provide either a local position or global position update to PX4, respectively.
-The `update` method expects a position measurement `struct` ([`LocalPositionMeasurement`](https://auterion.github.io/px4-ros2-interface-lib/structpx4__ros2_1_1LocalPositionMeasurement.html) or [`GlobalPositionMeasurement`](https://auterion.github.io/px4-ros2-interface-lib/structpx4__ros2_1_1GlobalPositionMeasurement.html)) which developers can populate with their own generated position measurements.
+Бібліотека надає два класи: LocalPositionMeasurementInterface та GlobalPositionMeasurementInterface, які обидва використовують схожий метод оновлення для надання оновлення локальної позиції або глобальної позиції до PX4 відповідно.
+Метод `update` очікує від позиції вимірювання `struct` ([`LocalPositionMeasurement`](https://auterion.github.io/px4-ros2-interface-lib/structpx4__ros2_1_1__ros2_1_LocalPositionMeasurement.html) або [`GlobalPositionMeasurement`](https://auterion.github.io/px4-ros2-interface-lib/structpx__ros2_1_GlobalitionMeasurement.html)), які розробники можуть народитися власними вимірюваннями.
 
-## Installation and First Test
+## Установка та перший тест
 
-The following steps are required to get started:
+Для початку роботи необхідно виконати наступні кроки:
 
-1. Make sure you have a working [ROS 2 setup](../ros/ros2_comm.md), with [`px4_msgs`](https://github.com/PX4/px4_msgs) in the ROS 2 workspace.
+1. Переконайтеся, що у вас працює налаштована система ROS 2 з px4_msgs у робочому просторі ROS 2.
 
-2. Clone the repository into the workspace:
-
-   ```sh
-   cd $ros_workspace/src
-   git clone --recursive https://github.com/Auterion/px4-ros2-interface-lib
-   ```
-
-   :::note
-   To ensure compatibility, use the latest _main_ branches for PX4, _px4_msgs_ and the library.
-   See also [here](https://github.com/Auterion/px4-ros2-interface-lib#compatibility-with-px4).
-
-:::
-
-3. Build the workspace:
+2. Клонуйте репозиторій в робочий простір:
 
    ```sh
    ```
 
-4. In a different shell, start PX4 SITL:
+:::note
+Для забезпечення сумісності використовуйте останні гілки main для PX4, px4_msgs та бібліотеки.
+   Дивіться також тут.
+
+3. Побудуйте робочий простір:
 
    ```sh
    ```
 
-   (here we use Gazebo-Classic, but you can use any model or simulator)
+4. У іншій оболонці запустіть PX4 SITL:
 
-5. In yet a different shell, run the micro XRCE agent (you can keep it running afterward):
+   ```sh
+   ```
+
+   (тут ми використовуємо Gazebo-Classic, але ви можете використовувати будь-яку модель або симулятор)
+
+5. У іншій оболонці запустіть агента micro XRCE (ви можете залишити його запущеним після цього):
 
    ```sh
    ```
@@ -55,85 +51,81 @@ The following steps are required to get started:
    ```sh
    ```
 
-   You should get an output like this showing that the global interface is successfully sending position updates:
-
-   ```sh
-   [INFO] [1702030701.836897756] [example_global_navigation_node]: example_global_navigation_node running!
-   [DEBUG] [1702030702.837279784] [example_global_navigation_node]: Successfully sent position update to navigation interface.
-   [DEBUG] [1702030703.837223884] [example_global_navigation_node]: Successfully sent position update to navigation interface.
-   ```
-
-7. In the PX4 shell, you can check that PX4 receives global position updates:
-
-   ```sh
-   listener aux_global_position
-   ```
-
-   The output should look like:
+   Ви повинні отримати вивід, подібний до цього, що показує, що глобальний інтерфейс успішно надсилає оновлення позиції:
 
    ```sh
    ```
 
-8. Now you are ready to use the navigation interface to send your own position updates.
+7. У PX4 оболонці можна перевірити, що PX4 отримує глобальні оновлення позиції:
 
-## How to use the Library
+   ```sh
+   ```
 
-To send a position measurement, you populate the position struct with the values you have measured.
-Then call the interface's update function with that struct as the argument.
+   Вихід має містити:
 
-For a basic example of how to use this interface, check out the [examples](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/examples/cpp/navigation) in the `Auterion/px4-ros2-interface-lib` repository, such as [examples/cpp/navigation/local_navigation](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/navigation/local_navigation/include/local_navigation.hpp) or [examples/cpp/navigation/global_navigation](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/examples/cpp/navigation/local_navigation/include/global_navigation.hpp).
+   ```sh
+   ```
 
-### Local Position Updates
+8. Тепер ви готові використовувати навігаційний інтерфейс для надсилання своїх оновлень.
 
-First ensure that the PX4 parameter [`EKF2_EV_CTRL`](../advanced_config/parameter_reference.md#EKF2_EV_CTRL) is properly configured to fuse external local measurements, by setting the appropriate bits to `true`:
+## Як користуватися бібліотекою
 
-- `0`: Horizontal position data
-- `1`: Vertical position data
-- `2`: Velocity data
-- `3`: Yaw data
+Для надсилання вимірювання позиції ви заповнюєте структуру позиції з виміряними значеннями.
+Потім викликаєте функцію оновлення інтерфейсу з цією структурою як аргументом.
 
-To send a local position measurement to PX4:
+Для базового прикладу, як користуватися цим інтерфейсом, ознайомтеся з [examples](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/examples/cpp/navigation) в `Auterion/px4-rosface-lib` репозиторію, наприклад [examples/cpp/navigation/local_navigation](https://github.com/Auterion/px4-ros2-interface-lib/b/main/examples/cpp/navigation/local_navigation/inclation/inclde/local_localation.hppation.hpp) або examples/cpps/cppation/globation](https\://github.com/Auter/intertere-face-face-face-facb/mainb/mppation/mppation/example/example/navigation/navigation/navigation/navig/navigation/navigation/navig/navig/navig/navighblob/navig
 
-1. Create a [`LocalPositionMeasurementInterface`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1LocalPositionMeasurementInterface.html) instance by providing it with: a ROS node, and the pose and velocity reference frames of your measurements.
-2. Populate a [`LocalPositionMeasurement`](https://auterion.github.io/px4-ros2-interface-lib/structpx4__ros2_1_1LocalPositionMeasurement.html) `struct` with your measurements.
-3. Pass the `struct` to the `LocalPositionMeasurementInterface` [`update()`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1LocalPositionMeasurementInterface.html#a6fd180b944710716d418b2cfe1c0c8e3) method.
+### Оновлення локальної позиції
 
-The available pose and velocity reference frames for your measurements are defined by the following `enum`:
+Спочатку переконайтеся, що параметр PX4 [`EKF2_EV_CTRL`](../advanced_config/parameter_reference.md#EKF2_EV_CTRL) налаштований належним чином для ефективного використання зовнішніх локальних вимірів, встановивши відповідні біти в `true`:
+
+- 0: Дані горизонтальної позиції
+- 1: Дані вертикальної позиції
+- 2: Дані швидкості
+- 3: Дані кута yaw
+
+
+
+1. Створіть [`LocalPositionMeasurementInterface`](https://auterion.github.io/px4-ros2-interface-lib/classpx4ros2_1_1__ros2_1_1LocalPositionMeasurementInterface.html), надаючи йому речі: ID ROS вузол, а також посилання на швидкість вашого вимірювання.
+2. Заповніть [`LocalPositionMeasurement`](https://auterion.github.io/px4-ros2-interface-lib/structpx4__ros2_1_1_1_LocalPositionMeasurement.html) `struct` своїми вимірюваннями.
+3. Передайте `struct` на `LocalPositionMeasurementInterface` [`update()`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1LocalPositionMeasureInterface.html#a6fd180b944710716d418b2cfe1c0c8e3) метод.
+
+Доступні рамки посилання на положення та швидкість для ваших вимірювань визначаються наступним переліком:
 
 ```cpp
 ```
 
-The `LocalPositionMeasurement` struct is defined as follows:
+Структура `LocalPositionMeasment` визначено таким чином:
 
 ```cpp
 ```
 
-The `update()` method of the local interface expects the following conditions to hold for `LocalPositionMeasurement`:
+Метод `update()` глобального інтерфейсу очікує дотримання наступних умов для `GlobalPositionMeasment`:
 
-- The sample timestamp is defined.
-- Values do not have a \`NAN\`\`.
-- If a measurement value is provided, its associated variance value is well defined (e.g. if `position_xy` is defined, then `position_xy_variance` must be defined).
-- If a measurement value is provided, its associated reference frame is not unknown (e.g. if `position_xy` is defined, then the interface was initialised with a pose frame different from `PoseFrame::Unknown`).
+- Час відбору вибіркових вимірювань визначений.
+- Значення не мають NAN\`\`.
+- Якщо надано значення вимірювання, його відповідне значення розбіжності добре визначено (наприклад, якщо `lat_lon` визначено, то необхідно вказати `horizontal_variance`).
+- Якщо надано значення вимірювання, його пов'язана рамка посилання не є невідомою (наприклад, якщо визначено `position_xy`, то інтерфейс було ініціалізовано з подовжувачем кадру, відмінного від `PoseFrame:Unknown`).
 
-The following code snippet is an example of a ROS 2 node which uses the local navigation interface to send 3D pose updates in the North-East-Down (NED) reference frame to PX4:
+Наступний фрагмент коду є прикладом вузла ROS 2, який використовує локальний інтерфейс навігації для надсилання оновлень 3D-позиції у рамці посилання Північ-Схід-Дон (NED) до PX4:
 
 ```cpp
 ```
 
 ###
 
-First ensure that the PX4 parameter [`EKF2_AGP_CTRL`](../advanced_config/parameter_reference.md#EKF2_AGP_CTRL) is properly configured to fuse external global measurements, by setting the appropriate bits to `true`:
+Спочатку переконайтеся, що параметр PX4 [`EKF2_EV_CTRL`](../advanced_config/parameter_reference.md#EKF2_EV_CTRL) налаштований належним чином для ефективного використання зовнішніх локальних вимірів, встановивши відповідні біти в `true`:
 
-- `0`: Horizontal position data
-- `1`: Vertical position data
+- 0: Дані вертикальної позиції
+- 1: Дані вертикальної позиції
 
-To send a global position measurement to PX4:
+Щоб надіслати глобальне вимірювання на PX4:
 
-1. Create a [`GlobalPositionMeasurementInterface`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1GlobalPositionMeasurementInterface.html) instance by providing it with a ROS node.
-2. Populate a [`GlobalPositionMeasurement`](https://auterion.github.io/px4-ros2-interface-lib/structpx4__ros2_1_1GlobalPositionMeasurement.html) `struct` with your measurements.
-3. Pass the struct to the `GlobalPositionMeasurementInterface` [update()](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1GlobalPositionMeasurementInterface.html#a1a183b595ef7f6a22f3a83ba543fe86d) method.
+1. Створіть [`LocalPositionMeasurementInterface`](https://auterion.github.io/px4-ros2-interface-lib/classpx4ros2_1_1__ros2_1_1LocalPositionMeasurementInterface.html), надаючи йому речі: ID ROS вузол, а також посилання на швидкість вашого вимірювання.
+2. Заповніть [`LocalPositionMeasurement`](https://auterion.github.io/px4-ros2-interface-lib/structpx4__ros2_1_1_1_LocalPositionMeasurement.html) `struct` своїми вимірюваннями.
+3. Передайте `struct` на `LocalPositionMeasurementInterface` [`update()`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1LocalPositionMeasureInterface.html#a6fd180b944710716d418b2cfe1c0c8e3) метод.
 
-The `GlobalPositionMeasurement` struct is defined as follows:
+Структуру `LocalPositionMeasment` визначено таким чином:
 
 ```cpp
 ```
@@ -144,7 +136,7 @@ The `GlobalPositionMeasurement` struct is defined as follows:
 - Значення не мають NAN.
 - Якщо надано значення вимірювання, його відповідне значення розбіжності добре визначено (наприклад, якщо `lat_lon` визначено, то необхідно вказати `horizontal_variance`).
 
-The following code snippet is an example of a ROS 2 node which uses the global navigation interface to send a measurement with latitude, longitude and altitude to PX4:
+Наступний фрагмент коду є прикладом вузла ROS 2, який використовує локальний інтерфейс навігації для надсилання оновлень 3D-позиції у рамці посилання Північ-Схід-Дон (NED) до PX4:
 
 ```cpp
 ```
