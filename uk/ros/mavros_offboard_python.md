@@ -1,4 +1,4 @@
-# MAVROS _Offboard_ control example (Python)
+# MAVROS приклад _Зовнішнього_ керування (Python)
 
 Цей посібник показує основи _OFFBOARD_ контроль за MAVROS Python, використовуючи Iris quadcopter, імітований в [Gazebo Classic](../sim_gazebo_classic/README.md). Він надає покрокові інструкції, що демонструють як почати розробку програм для керування засобом та виконання коду в симуляції.
 
