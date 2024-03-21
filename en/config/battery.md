@@ -35,7 +35,7 @@ This ensures that the battery failsafe behaviour is managed by PX4, and that ESC
 :::
 
 :::tip
-[Battery-Type Comparison](#battery-type-comparison) below explains the difference between the main battery types, and how that impacts the battery settings.
+[Battery-Type Comparison](#battery-chemistry-comparison) below explains the difference between the main battery types, and how that impacts the battery settings.
 :::
 
 <a id="basic_settings"></a>
@@ -57,7 +57,7 @@ To configure the basic settings for battery 1:
 You are presented with the basic settings that characterize the battery.
 The sections below explain what values to set for each field.
 
-![QGC Power Setup](../../assets/qgc/setup/power/qgc_setup_power_px4.jpg)
+![QGC Power Setup](../../assets/qgc/setup/power/qgc_setup_power_px4.png)
 
 :::note
 At time of writing _QGroundControl_ only allows you to set values for battery 1 in this view.

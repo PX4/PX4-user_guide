@@ -47,7 +47,7 @@ The calibration steps are:
 1. Select **"Q" icon > Vehicle Setup > Sensors** (sidebar) to open _Sensor Setup_.
 1. Click the **Compass** sensor button.
 
-   ![Select Compass calibration PX4](../../assets/qgc/setup/sensor/sensor_compass_select_px4.jpg)
+   ![Select Compass calibration PX4](../../assets/qgc/setup/sensor/sensor_compass_select_px4.png)
 
    :::note
    You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
@@ -56,7 +56,7 @@ The calibration steps are:
 1. Click **OK** to start the calibration.
 1. Place the vehicle in any of the orientations shown in red (incomplete) and hold it still. Once prompted (the orientation-image turns yellow) rotate the vehicle around the specified axis in either/both directions. Once the calibration is complete for the current orientation the associated image on the screen will turn green.
 
-   ![Compass calibration steps on PX4](../../assets/qgc/setup/sensor/sensor_compass_calibrate_px4.jpg)
+   ![Compass calibration steps on PX4](../../assets/qgc/setup/sensor/sensor_compass_calibrate_px4.png)
 
 1. Repeat the calibration process for all vehicle orientations.
 
