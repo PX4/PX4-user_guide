@@ -10,7 +10,7 @@ PX4 реєструє детальний стан апарату і дані да
 
 Журнали можна завантажити за допомогою [QGroundControl](http://qgroundcontrol.com/): **[Analyze View > Log Download](https://docs.qgroundcontrol.com/master/en/analyze_view/log_download.html)**.
 
-![Завантаження бортового журналу](../../assets/qgc/analyze/log_download.jpg)
+![Завантаження журналу польоту](../../assets/qgc/analyze/log_download.jpg)
 
 
 ## Аналіз журналів
