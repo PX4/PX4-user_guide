@@ -17,7 +17,7 @@ The tutorial is ordered in the following way: In a first part it is shown how to
 - Virtual Box (VB): Program that runs different Virtual Machines. In this case the Oracle VM.
 - Virtual Machine (VM): The operation system that runs in the Virtual Box as a guest system. In this case Ubuntu.
 
-## Installing Ubuntu 14.04.3 LTS in Virtual Box
+## Встановлення Ubuntu 14.04.3 LTS в Virtual Box
 
 - Create a new Virtual Machine (VM): Linux 64-Bit.
 - Download the iso file of Ubuntu 14.04.3 LTS: ([ubuntu-14.04.3-desktop-amd64.iso](https://ubuntu.com/download/desktop)).
