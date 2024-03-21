@@ -30,31 +30,31 @@
 
 ## Низький заряд батареї
 
-The simulated battery is implemented to never run out of energy, and by default only depletes to 50% of its capacity and hence reported voltage. This enables testing of battery indication in GCS UIs without triggering low battery reactions that might interrupt other testing.
+Батарею, що моделюється реалізовано таким чином щоб енергія ніколи не закінчувалась та за замовчуванням вона виснажується тільки до 50% її заряду, а отже і напруги, що доповідається. Це дозволяє тестувати індикацію батареї в GCS Ui без спрацювання реакцій на низький заряд, що може перервати інші тести.
 
-To change this minimal battery percentage value use the parameter [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_MIN_PCT).
+Щоб змінити це мінімальне значення проценту заряду батареї, використовуйте параметр [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_MIN_PCT).
 
-To control how fast the battery depletes to the minimal value use the parameter [SIM_BAT_DRAIN](../advanced_config/parameter_reference.md#SIM_BAT_DRAIN).
+Для керування тим як швидко батарея вичерпається до мінімального значення використовуйте параметр [SIM_BAT_DRAIN](../advanced_config/parameter_reference.md#SIM_BAT_DRAIN).
 
 :::tip
-By changing [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_MIN_PCT) in flight, you can also test regaining capacity to simulate inaccurate battery state estimation or in-air charging technology.
+Змінивши [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_MIN_PCT) в польоті, ви також можете перевірити відновлення працездатності для симуляції неточної оцінки стану батареї або технології заряджання в повітрі.
 :::
 
-## Sensor/System Failure
+## Помилка датчику/системи
 
-[Failure injection](../debug/failure_injection.md) can be used to simulate different types of failures in many sensors and systems. For example, this can be used to simulate absent or intermittent GPS, RC signal that has stopped or got stuck on a particular value, failure of the avoidance system, and much more.
+[Введення помилок](../debug/failure_injection.md) може бути використано для симуляції різного типу відмов у багатьох датчиках та системах. Наприклад, це може бути використано для імітації відсутнього або переривчастого сигналу GPS, сигналу РК який перервався або застиг на певному значенні, збої в системі уникнення, і багато іншого.
 
-For example, to simulate GPS failure:
+Наприклад, для імітації відмови сигналу GPS:
 
-1. Enable the parameter [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
-1. Enter the following commands on the SITL instance _pxh shell_:
+1. Увімкніть параметр [SYS_FAILURE_E_N](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
+1. Введіть наступні команди на SITL екземплярі _pxh оболонки_:
 
    ```sh
-   # Turn (all) GPS off
+   # Вимкнути (усі) GPS
    failure gps off
 
-   # Turn (all) GPS on
+   # Увімкнути (усі) GPS
    failure gps ok
    ```
 
-See [System Failure Injection](../debug/failure_injection.md) for a list of supported target sensors and failure modes.
+Дивіться [Введення системних помилок](../debug/failure_injection.md) для списку цільових датчиків і режимів відмови, що підтримуються.
