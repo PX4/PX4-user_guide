@@ -351,7 +351,7 @@ module.exports = {
       //Ukraine
       "/uk/": {
         // text for the language dropdown
-        selectText: "Мови",
+        selectText: "Мови (Ukrainian)",
         // label for this locale in the language dropdown
         label: "Україна",
         // Aria Label for locale in the dropdown
