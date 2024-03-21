@@ -1,60 +1,60 @@
-# Simulate Failsafes
+# Симуляція запобігання відмовам
 
-[Failsafes](../config/safety.md) define the safe limits/conditions under which you can safely use PX4, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
+[Запобіжники відмов](../config/safety.md) визначають безпечні межі/умови за яких можна безпечно використовувати PX4, та дію яка буде виконана якщо спрацює запобіжник відмови (наприклад посадка, утримання позиції або повернення до зазначеної точки).
 
-In SITL some failsafes are disabled by default to enable easier simulation usage. This topic explains how you can test safety-critical behavior in SITL simulation before attempting it in the real world.
-
-:::note
-You can also test failsafes using [HITL simulation](../simulation/hitl.md). HITL uses the normal configuration parameters of your flight controller.
-:::
-
-## Data Link Loss
-
-The _Data Link Loss_ failsafe (unavailability of external data via MAVLink) is enabled by default. This makes the simulation only usable with a connected GCS, SDK, or other MAVLink application.
-
-Set the parameter [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) to the desired failsafe action to change the behavior. For example, set to `0` to disable it.
+У SITL деякі запобіжники відмов за замовчуванням вимкнені, щоб забезпечити простіше використання симуляції. Ця тема пояснює, як ви можете перевірити критично важливу для безпеки поведінку в симуляції SITL перед тим, як спробувати її в реальному світі.
 
 :::note
-All parameters in SITL including this one get reset when you do `make clean`.
+Також можна перевірити запобіжники відмов використовуючи [HITL симуляцію](../simulation/hitl.md). HITL використовує нормальні параметри налаштувань вашого контролера польоту.
 :::
 
-## RC Link Loss
+## Втрата каналу зв'язку
 
-The _RC Link Loss_ failsafe (unavailability of data from a remote control) is enabled by default. This makes the simulation only usable with either an active MAVLink or remote control connection.
+Запобіжник _Втрати каналу зв'язку_ (недоступність зовнішніх даних через MAVLink) увімкнений за замовчуванням. Це робить симуляцію придатною до використання тільки з під'єднаним GCS, SDK або іншим додатком MAVLink.
 
-Set the parameter [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) to the desired failsafe action to change the behavior. For example, set to `0` to disable it.
+Встановіть параметр [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) на бажану дію запобігання відмові для зміни поведінки. Наприклад встановіть у `0`, щоб вимкнути її.
 
 :::note
-All parameters in SITL including this one get reset when you do `make clean`.
+Всі параметри в SITL, включаючи цей, скидається якщо ви виконаєте `make clean`.
 :::
 
-## Low Battery
+## Втрата каналу радіо керування
 
-The simulated battery is implemented to never run out of energy, and by default only depletes to 50% of its capacity and hence reported voltage. This enables testing of battery indication in GCS UIs without triggering low battery reactions that might interrupt other testing.
+Запобіжник _Втрати каналу РК_ (недоступність зовнішніх даних дистанційного керування) увімкнений за замовчуванням. Це робить симуляцію придатною до використання тільки з активним з'єднанням MAVLink або дистанційного керування.
 
-To change this minimal battery percentage value use the parameter [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_MIN_PCT).
+Встановіть параметр [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) на бажану дію запобігання відмові для зміни поведінки. Наприклад встановіть у `0`, щоб вимкнути її.
 
-To control how fast the battery depletes to the minimal value use the parameter [SIM_BAT_DRAIN](../advanced_config/parameter_reference.md#SIM_BAT_DRAIN).
+:::note
+Всі параметри в SITL, включаючи цей, скидається якщо ви виконаєте `make clean`.
+:::
+
+## Низький заряд батареї
+
+Батарею, що моделюється реалізовано таким чином щоб енергія ніколи не закінчувалась та за замовчуванням вона виснажується тільки до 50% її заряду, а отже і напруги, що доповідається. Це дозволяє тестувати індикацію батареї в GCS Ui без спрацювання реакцій на низький заряд, що може перервати інші тести.
+
+Щоб змінити це мінімальне значення проценту заряду батареї, використовуйте параметр [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_MIN_PCT).
+
+Для керування тим як швидко батарея вичерпається до мінімального значення використовуйте параметр [SIM_BAT_DRAIN](../advanced_config/parameter_reference.md#SIM_BAT_DRAIN).
 
 :::tip
-By changing [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_MIN_PCT) in flight, you can also test regaining capacity to simulate inaccurate battery state estimation or in-air charging technology.
+Змінивши [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_MIN_PCT) в польоті, ви також можете перевірити відновлення працездатності для симуляції неточної оцінки стану батареї або технології заряджання в повітрі.
 :::
 
-## Sensor/System Failure
+## Помилка датчику/системи
 
-[Failure injection](../debug/failure_injection.md) can be used to simulate different types of failures in many sensors and systems. For example, this can be used to simulate absent or intermittent GPS, RC signal that has stopped or got stuck on a particular value, failure of the avoidance system, and much more.
+[Введення помилок](../debug/failure_injection.md) може бути використано для симуляції різного типу відмов у багатьох датчиках та системах. Наприклад, це може бути використано для імітації відсутнього або переривчастого сигналу GPS, сигналу РК який перервався або застиг на певному значенні, збої в системі уникнення, і багато іншого.
 
-For example, to simulate GPS failure:
+Наприклад, для імітації відмови сигналу GPS:
 
-1. Enable the parameter [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
-1. Enter the following commands on the SITL instance _pxh shell_:
+1. Увімкніть параметр [SYS_FAILURE_E_N](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
+1. Введіть наступні команди на SITL екземплярі _pxh оболонки_:
 
    ```sh
-   # Turn (all) GPS off
+   # Вимкнути (усі) GPS
    failure gps off
 
-   # Turn (all) GPS on
+   # Увімкнути (усі) GPS
    failure gps ok
    ```
 
-See [System Failure Injection](../debug/failure_injection.md) for a list of supported target sensors and failure modes.
+Дивіться [Введення системних помилок](../debug/failure_injection.md) для списку цільових датчиків і режимів відмови, що підтримуються.

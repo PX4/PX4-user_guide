@@ -1,12 +1,12 @@
-# Airframes Reference
+# Довідка Планера
 
 :::note
-**This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py) from the source code** using the build command: `make airframe_metadata`.
+**Цей список є [автоствореним](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py) з вихідного коду** за допомогою команди збірки: `make airframe_metadata`.
 :::
 
-This page lists all supported airframes and types including the motor assignment and numbering. The motors in **green** rotate clockwise, the ones in **blue** counterclockwise.
+Сторінка перелічує всі підтримувані планери й типи, включаючи призначення та нумерацію двигуна. Мотори у **зеленому** обертаються за годинниковою стрілкою, у **синьому** - проти.
 
-**AUX** channels may not be present on some flight controllers. If present, PWM AUX channels are commonly labelled **AUX OUT**.
+**Канали AUX** можуть бути відсутніми на деяких польотних контролерах. У разі присутності ШІМ(PWM) канали AUX зазвичай позначаються як **AUX OUT**.
 
 <style>
 div.frame_common table, div.frame_common table {

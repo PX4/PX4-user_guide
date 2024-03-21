@@ -14,7 +14,7 @@ The only requirements are
 In simulation each PX4 instance receives a unique `px4_instance` number starting from `0`. This value is used to assign a unique value to [UXRCE_DDS_KEY](../advanced_config/parameter_reference.md#UXRCE_DDS_KEY):
 
 ```sh
-param set UXRCE_DDS_KEY $((px4_instance+1))
+
 ```
 
 :::note
@@ -24,7 +24,7 @@ By doing so, `UXRCE_DDS_KEY` will always coincide with [MAV_SYS_ID](../advanced_
 Moreover, when `px4_instance` is greater than zero, a unique ROS 2 [namespace prefix](../middleware/uxrce_dds.md#customizing-the-topic-namespace) in the form `px4_$px4_instance` is added:
 
 ```sh
-uxrce_dds_ns="-n px4_$px4_instance"
+
 ```
 
 :::note
@@ -35,12 +35,12 @@ The first instance (`px4_instance=0`) does not have an additional namespace in o
 
 The default client configuration in simulation is summarized as follows:
 
-| `PX4_UXRCE_DDS_NS` | `px4_instance` | `UXRCE_DDS_KEY`  | client namespace      |
-| ------------------ | -------------- | ---------------- | --------------------- |
-| not provided       | 0              | `px4_instance+1` | none                  |
-| provided           | 0              | `px4_instance+1` | `PX4_UXRCE_DDS_NS`    |
-| not provided       | >0             | `px4_instance+1` | `px4_${px4_instance}` |
-| provided           | >0             | `px4_instance+1` | `PX4_UXRCE_DDS_NS`    |
+| `` | `` | `` |    |
+| -- | -- | -- | -- |
+|    |    | `` |    |
+|    |    | `` | `` |
+|    |    | `` | `` |
+|    |    | `` | `` |
 
 ## Adjusting the `target_system` value
 
