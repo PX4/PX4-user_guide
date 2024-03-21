@@ -20,6 +20,6 @@ This section contains topics related to using the "original version of ROS" and 
 
 ## Інші ресурси
 
-- [PX4 ROS Setups](../ros/README.md#ros-setups).
-- [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - ROS + PX4 simulation environment for computer vision. The [XTDrone Manual](https://www.yuque.com/xtdrone/manual_en) has everything you need to get started!
-- [Prometheus Autonomous Drone Project](https://github.com/amov-lab/Prometheus/blob/master/README_EN.md) - Prometheus is a ROS 1 based, BSD-3 licensed collection of autonomous drone software packages from [AMOVLab](https://github.com/amov-lab), which provides a full set of solutions for the intelligent and autonomous flight of drones, such as mapping, localization, planning, control, and target detection, fully integrated with the [Gazebo Classic](../sim_gazebo_classic/README.md) Simulator.
+- [Системи PX4 ROS](../ros/README.md#ros-setups).
+- [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - ROS + середовище симуляцій PX4 для комп'ютерного зору. У посібнику [XTDrone](https://www.yuque.com/xtdrone/manual_en) є все необхідне для початку роботи!
+- [Prometheus Autonomous Drone Project](https://github.com/amov-lab/Prometheus/blob/master/README_EN.md) - Prometheus це колекція програмних пакунків з ліцензією BSD-3 від [AMOVLab](https://github.com/amov-lab) на основі ROS 1, який надає повний набір рішень для розумного та автономного польоту дронів, таких як картографування, локалізація, планування, керування та виявлення цілі, повністю інтегроване з Симулятором [Gazebo Classic](../sim_gazebo_classic/README.md)
