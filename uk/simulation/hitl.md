@@ -1,32 +1,32 @@
-# Hardware in the Loop Simulation (HITL)
+# Симуляція з апаратним забезпеченням в контурі (HITL)
 
 :::warning HITL
-is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4.
+[підтримується та утримується спільнотою](../simulation/community_supported_simulators.md). Це може працювати або не працювати з поточними версіями PX4.
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для інформації про середовища та інструменти, які підтримуються основною розробницькою командою.
 :::
 
-Hardware-in-the-Loop (HITL or HIL) is a simulation mode in which normal PX4 firmware is run on real flight controller hardware. This approach has the benefit of testing most of the actual flight code on the real hardware.
+Апаратне забезпечення в контурі (HITL або HIL) режим симуляції в якому звичайна прошивка PX4 виконується на реальному пристрої польотного контролера. Цей підхід має перевагу у вигляді можливості тестування більшості коду для польоту на реальному апаратному забезпеченні.
 
-PX4 supports HITL for multicopters (using jMAVSim or Gazebo Classic) and VTOL (using Gazebo Classic).
+PX4 підтримує HITL для мультикоптерів (за допомогою jMAVSim або Gazebo Classic) та ВЗІП (за допомогою Gazebo Classic).
 
 <a id="compatible_airframe"></a>
 
-## HITL-Compatible Airframes
+## Планери сумісні з HITL
 
-The current set of compatible airframes vs Simulators is:
+Поточний набір сумісних планерів проти симуляторів:
 
-| Airframe                                                                                                         | `SYS_AUTOSTART` | Gazebo Classic | jMAVSim |
-| ---------------------------------------------------------------------------------------------------------------- | --------------- | -------------- | ------- |
-| [HIL Quadcopter X](../airframes/airframe_reference.md#copter_simulation_hil_quadcopter_x)                        | 1001            | Y              | Y       |
-| [HIL Standard VTOL QuadPlane](../airframes/airframe_reference.md#vtol_standard_vtol_hil_standard_vtol_quadplane) | 1002            | Y              |         |
-| [Generic Quadrotor x](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) copter           | 4001            | Y              | Y       |
+| Планер                                                                                                               | `SYS_AUTOSTART` | Gazebo Classic | jMAVSim |
+| -------------------------------------------------------------------------------------------------------------------- | --------------- | -------------- | ------- |
+| [HIL квадрокоптер у конфігурації X](../airframes/airframe_reference.md#copter_simulation_hil_quadcopter_x)           | 1001            | Y              | Y       |
+| [HIL ВЗІП квадроплан стандартний](../airframes/airframe_reference.md#vtol_standard_vtol_hil_standard_vtol_quadplane) | 1002            | Y              |         |
+| [Загальний квадрокоптер у конфігурації X](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter)  | 4001            | Y              | Y       |
 
 <a id="simulation_environment"></a>
 
-## HITL Simulation Environment
+## Середовище симуляції HITL
 
-With Hardware-in-the-Loop (HITL) simulation the normal PX4 firmware is run on real hardware. JMAVSim or Gazebo Classic (running on a development computer) are connected to the flight controller hardware via USB/UART. The simulator acts as gateway to share MAVLink data between PX4 and _QGroundControl_.
+У симуляції з апаратним забезпеченням у контурі (HITL) звичайна прошивка PX4 виконується на реальному обладнані. JMAVSim або Gazebo Classic (які працюють на комп'ютері розробки) підключені до пристрою польотного контролера через USB/UART. Симулятор діє як шлюз для спільного використання даних MAVLink між PX4 та _QGroundControl_.
 
 :::note
 The simulator can also be connected via UDP if the flight controller has networking support and uses a stable, low-latency connection (e.g. a wired Ethernet connection - WiFi is usually not sufficiently reliable). For example, this configuration has been tested with PX4 running on a Raspberry Pi connected via Ethernet to the computer (a startup configuration that includes the command for running jMAVSim can be found [here](https://github.com/PX4/PX4-Autopilot/blob/main/posix-configs/rpi/px4_hil.config)).
