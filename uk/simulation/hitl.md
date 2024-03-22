@@ -1,149 +1,149 @@
-# Hardware in the Loop Simulation (HITL)
+# Симуляція з апаратним забезпеченням в контурі (HITL)
 
 :::warning HITL
-is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4.
+[підтримується та утримується спільнотою](../simulation/community_supported_simulators.md). Це може працювати або не працювати з поточними версіями PX4.
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для інформації про середовища та інструменти, які підтримуються основною розробницькою командою.
 :::
 
-Hardware-in-the-Loop (HITL or HIL) is a simulation mode in which normal PX4 firmware is run on real flight controller hardware. This approach has the benefit of testing most of the actual flight code on the real hardware.
+Апаратне забезпечення в контурі (HITL або HIL) режим симуляції в якому звичайна прошивка PX4 виконується на реальному пристрої польотного контролера. Цей підхід має перевагу у вигляді можливості тестування більшості коду для польоту на реальному апаратному забезпеченні.
 
-PX4 supports HITL for multicopters (using jMAVSim or Gazebo Classic) and VTOL (using Gazebo Classic).
+PX4 підтримує HITL для мультикоптерів (за допомогою jMAVSim або Gazebo Classic) та ВЗІП (за допомогою Gazebo Classic).
 
 <a id="compatible_airframe"></a>
 
-## HITL-Compatible Airframes
+## Планери сумісні з HITL
 
-The current set of compatible airframes vs Simulators is:
+Поточний набір сумісних планерів проти симуляторів:
 
-| Airframe                                                                                                         | `SYS_AUTOSTART` | Gazebo Classic | jMAVSim |
-| ---------------------------------------------------------------------------------------------------------------- | --------------- | -------------- | ------- |
-| [HIL Quadcopter X](../airframes/airframe_reference.md#copter_simulation_hil_quadcopter_x)                        | 1001            | Y              | Y       |
-| [HIL Standard VTOL QuadPlane](../airframes/airframe_reference.md#vtol_standard_vtol_hil_standard_vtol_quadplane) | 1002            | Y              |         |
-| [Generic Quadrotor x](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) copter           | 4001            | Y              | Y       |
+| Планер                                                                                                               | `SYS_AUTOSTART` | Gazebo Classic | jMAVSim |
+| -------------------------------------------------------------------------------------------------------------------- | --------------- | -------------- | ------- |
+| [HIL квадрокоптер у конфігурації X](../airframes/airframe_reference.md#copter_simulation_hil_quadcopter_x)           | 1001            | Y              | Y       |
+| [HIL ВЗІП квадроплан стандартний](../airframes/airframe_reference.md#vtol_standard_vtol_hil_standard_vtol_quadplane) | 1002            | Y              |         |
+| [Загальний квадрокоптер у конфігурації X](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter)  | 4001            | Y              | Y       |
 
 <a id="simulation_environment"></a>
 
-## HITL Simulation Environment
+## Середовище симуляції HITL
 
-With Hardware-in-the-Loop (HITL) simulation the normal PX4 firmware is run on real hardware. JMAVSim or Gazebo Classic (running on a development computer) are connected to the flight controller hardware via USB/UART. The simulator acts as gateway to share MAVLink data between PX4 and _QGroundControl_.
+У симуляції з апаратним забезпеченням у контурі (HITL) звичайна прошивка PX4 виконується на реальному обладнані. JMAVSim або Gazebo Classic (які працюють на комп'ютері розробки) підключені до пристрою польотного контролера через USB/UART. Симулятор діє як шлюз для спільного використання даних MAVLink між PX4 та _QGroundControl_.
 
 :::note
-The simulator can also be connected via UDP if the flight controller has networking support and uses a stable, low-latency connection (e.g. a wired Ethernet connection - WiFi is usually not sufficiently reliable). For example, this configuration has been tested with PX4 running on a Raspberry Pi connected via Ethernet to the computer (a startup configuration that includes the command for running jMAVSim can be found [here](https://github.com/PX4/PX4-Autopilot/blob/main/posix-configs/rpi/px4_hil.config)).
+Симулятор також може бути підключений за допомогою UDP якщо політний контролер має підтримку мережі та використовує стабільне з'єднання з низькою затримкою (наприклад дротове Ethernet підключення, WiFi підключення зазвичай недостатньо надійне). Наприклад, ця конфігурація була перевірена з PX4, що виконується на Raspberry Pi який підключений через Ethernet до комп'ютера (налаштування запуску яке включає команди для запуску jMAVSim можна знайти [тут](https://github.com/PX4/PX4-Autopilot/blob/main/posix-configs/rpi/px4_hil.config)).
 :::
 
-The diagram below shows the simulation environment:
+Діаграма нижче показує середовище симуляції:
 
-- A HITL configuration is selected (via _QGroundControl_) that doesn't start any real sensors.
-- _jMAVSim_ or _Gazebo Classic_ are connected to the flight controller via USB.
-- The simulator is connected to _QGroundControl_ via UDP and bridges its MAVLink messages to PX4.
-- _Gazebo Classic_ and _jMAVSim_ can also connect to an offboard API and bridge MAVLink messages to PX4.
-- (Optional) A serial connection can be used to connect Joystick/Gamepad hardware via _QGroundControl_.
+- Обрано конфігурацію HITL (у _QGroundControl_), яка не запускає ніяких реальних датчиків.
+- _jMAVSim_ або _Gazebo Classic_ підключені до політного контролера через USB.
+- Симулятор підключено до _QGroundControl_ через UDP і передає повідомлення MAVLink до PX4.
+- _Gazebo Classic_ та _jMAVSim_ можуть також підключатися до зовнішнього API та передавати повідомлення MAVLink до PX4.
+- (Необов'язково) Для підключення джойстика/геймпада через _QGroundControl_ може бути використано послідовне з'єднання.
 
-![HITL Setup - jMAVSim and Gazebo Classic](../../assets/simulation/px4_hitl_overview_jmavsim_gazebo.svg)
+![Налаштування HITL - jMAVSim та Gazebo Classic](../../assets/simulation/px4_hitl_overview_jmavsim_gazebo.svg)
 
-## HITL vs SITL
+## HITL у порівнянні з SITL
 
-SITL runs on a development computer in a simulated environment, and uses firmware specifically generated for that environment. Other than simulation drivers to provide fake environmental data from the simulator the system behaves normally.
+SITL працює на комп'ютері розробки в модельованому середовищі та використовує прошивку спеціально створену для цього середовища. Крім драйверів симуляції для забезпечення підроблених даних середовища від симулятора система поводиться як зазвичай.
 
-By contrast, HITL runs normal PX4 firmware in "HITL mode", on normal hardware. The simulation data enters the system at a different point than for SITL. Core modules like commander and sensors have HITL modes at startup that bypass some of the normal functionality.
+На противагу, HITL виконує звичайну прошивку PX4 в "режимі HITL" на звичайному обладнані. Дані симуляції потрапляють в систему в іншій точці ніж для SITL. Основні модулі на кшталт командного або датчиків мають режими HITL, що оминають частину звичайної функціональності при старті.
 
-In summary, HITL runs PX4 on the actual hardware using standard firmware, but SITL actually executes more of the standard system code.
+Підсумовуючи, HITL виконує PX4 на реальному обладнанні за допомогою стандартної прошивки, а SITL фактично більше виконує стандартний системний код.
 
-## Setting up HITL
+## Налаштування HITL
 
-### PX4 Configuration
+### Налаштування PX4
 
-1. Connect the autopilot directly to _QGroundControl_ via USB.
-1. Enable HITL Mode
+1. З'єднайте автопілот безпосередньо з _QGroundControl_ за допомогою USB.
+1. Увімкніть режим HITL
 
-   1. Open **Setup > Safety** section.
-   1. Enable HITL mode by selecting **Enabled** from the _HITL Enabled_ list:
+   1. Відкрийте розділ **Налаштування > Безпека**.
+   1. Увімкніть режим HITL обравши **Увімкнено** в переліку _HITL увімкнено_:
 
-      ![QGroundControl HITL configuration](../../assets/gcs/qgc_hitl_config.png)
+      ![Налаштування QGroundControl HITL](../../assets/gcs/qgc_hitl_config.png)
 
-1. Select Airframe
+1. Оберіть планер
 
-   1. Open **Setup > Airframes**
-   1. Select a [compatible airframe](#compatible_airframe) you want to test. Then click **Apply and Restart** on top-right of the _Airframe Setup_ page.
+   1. Відкрийте **Налаштування > Планери**
+   1. Оберіть [сумісний планер](#compatible_airframe) який потрібно перевірити. Потім натисніть **Застосувати та перезапустити** у верхній правій частині сторінки _Налаштування планера_.
 
-      ![Select Airframe](../../assets/gcs/qgc_hil_config.png)
+      ![Вибір планера](../../assets/gcs/qgc_hil_config.png)
 
-1. Calibrate your RC or Joystick, if needed.
-1. Setup UDP
+1. При необхідності відкалібруйте пульт РК або джойстик.
+1. Налаштування UDP
 
-   1. Under the _General_ tab of the settings menu, uncheck all _AutoConnect_ boxes except for **UDP**.
+   1. У вкладці _Загальне_ меню налаштувань приберіть усі прапорці _AutoConnect_ окрім **UDP**.
 
-      ![QGC Auto-connect settings for HITL](../../assets/gcs/qgc_hitl_autoconnect.png)
+      ![Параметри автоматичного підключення QGC для HITL](../../assets/gcs/qgc_hitl_autoconnect.png)
 
-1. (Optional) Configure Joystick and Failsafe. Set the following [parameters](../advanced_config/parameters.md) in order to use a joystick instead of an RC remote control transmitter:
+1. (Необов'язково) Налаштуйте джойстик та запобіжник відмови. Встановіть наступні [параметри](../advanced_config/parameters.md) для того щоб використовувати джойстик замість передавача РК пульту:
 
-   - [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) to "Joystick/No RC Checks". This allows joystick input and disables RC input checks.
-   - [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) to "Disabled". This ensures that no RC failsafe actions interfere when not running HITL with a radio control.
+   - [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) у "Joystick/No RC Checks". Це дозволить керування джойстиком та відключить перевірки пульту РК.
+   - [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) у "Вимкнено". Це гарантує, що ніякі дії запобігання відмові не будуть перешкоджати коли не виконується HITL з радіо керуванням.
 
 :::tip
-The _QGroundControl User Guide_ also has instructions on [Joystick](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html) and [Virtual Joystick](https://docs.qgroundcontrol.com/master/en/SettingsView/VirtualJoystick.html) setup.
+_Посібник користувача QGroundControl_ має інструкції для налаштування [Джойстика](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html) та [Віртуального джойстика](https://docs.qgroundcontrol.com/master/en/SettingsView/VirtualJoystick.html).
 :::
 
-Once configuration is complete, **close** _QGroundControl_ and disconnect the flight controller hardware from the computer.
+Як тільки налаштування завершене, **закрийте** _QGroundControl_ та від'єднайте політний контролер від комп'ютера.
 
-### Simulator-Specific Setup
+### Налаштування відповідних симуляторів
 
-Follow the appropriate setup steps for the specific simulator in the following sections.
+Дотримуйтесь відповідних кроків для певного симулятора в наступних розділах.
 
 #### Gazebo Classic
 
 :::note
-Make sure _QGroundControl_ is not running!
+Переконайтеся, що _QGroundControl_ не запущено!
 :::
 
-1. Build PX4 with [Gazebo Classic](../sim_gazebo_classic/README.md) (in order to build the Gazebo Classic plugins).
+1. Зберіть PX4 з [Gazebo Classic](../sim_gazebo_classic/README.md) (щоб зібрати плагіни Gazebo Classic).
 
    ```sh
    cd <Firmware_clone>
    DONT_RUN=1 make px4_sitl_default gazebo-classic
    ```
 
-1. Open the vehicle model's sdf file (e.g. **Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/iris_hitl/iris_hitl.sdf**).
-1. Replace the `serialDevice` parameter (`/dev/ttyACM0`) if necessary.
+1. Відкрийте sdf файл моделі рухомого засобу (наприклад **Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/iris_hitl/iris_hitl.sdf**).
+1. Якщо необхідно, замінить параметр `serialDevice` (`/dev/ttyACM0`).
 
 :::note
-The serial device depends on what port is used to connect the vehicle to the computer (this is usually `/dev/ttyACM0`). An easy way to check on Ubuntu is to plug in the autopilot, open up a terminal, and type `dmesg | grep "tty"`. The correct device will be the last one shown.
+Пристрій послідовного порту залежить від порту, що використано для під'єднання засобу до комп'ютера (зазвичай це `/dev/ttyACM0`). Простий спосіб перевірити це на Ubuntu - під'єднати автопілот, відкрити термінал та ввести `dmesg | grep "tty"`. Останній показаний пристрій і буде тим що потрібно.
 :::
 
-1. Set up the environment variables:
+1. Налаштуйте змінні середовища:
 
    ```sh
    source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
    ```
 
-   and run Gazebo Classic in HITL mode:
+   та запустіть Gazebo Classic в режимі HITL:
 
    ```sh
    gazebo Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds/hitl_iris.world
    ```
 
-1. Start _QGroundControl_. It should autoconnect to PX4 and Gazebo Classic.
+1. Запустіть _QGroundControl_. Воно повинно автоматично підключитися до PX4 та Gazebo Classic.
 
-#### jMAVSim (Quadrotor only)
+#### jMAVSim (тільки квадрокоптер)
 
 :::note
-Make sure _QGroundControl_ is not running!
+Переконайтеся, що _QGroundControl_ не запущено!
 :::
 
-1. Connect the flight controller to the computer and wait for it to boot.
-1. Run jMAVSim in HITL mode:
+1. Під'єднайте політний контролер до комп'ютера та дочекайтесь коли він завантажиться.
+1. Запустіть jMAVSim в режимі HITL:
 
    ```sh
    ./Tools/simulation/jmavsim/jmavsim_run.sh -q -s -d /dev/ttyACM0 -b 921600 -r 250
    ```
 
 :::note
-Replace the serial port name `/dev/ttyACM0` as appropriate. On macOS this port would be `/dev/tty.usbmodem1`. On Windows (including Cygwin) it would be the COM1 or another port - check the connection in the Windows Device Manager.
+Замінить ім'я послідовного порту `/dev/ttyACM0` на відповідний. На macOS цей порт буде `/dev/tty.usbmodem1`. На Windows (включно з Cygwin) це буде COM1 або інший порт - перевірте з'єднання в менеджері пристроїв Windows.
 :::
 
-1. Start _QGroundControl_. It should autoconnect to PX4 and jMAVSim.
+1. Запустіть _QGroundControl_. Воно повинно автоматично підключитися до PX4 та jMAVSim.
 
-## Fly an Autonomous Mission in HITL
+## Політ за автономним завданням у HITL
 
-You should be able to use _QGroundControl_ to [run missions](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#missions) and otherwise control the vehicle.
+Ви повинні мати можливість використовувати _QGroundControl_ для [запуску політних завдань](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#missions) та іншим чином керувати рухомим засобом.

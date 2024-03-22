@@ -82,7 +82,7 @@ To perform an offboard calibration:
 1. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot.
 1. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for _thermal calibration_ (bit 2) to log the raw sensor data required for calibration.
 1. Cold soak the board to the minimum temperature it will be required to operate in.
-1. Підключіть живлення та, не рухаючи плату, <sup id="fnref2:2">поступово нагрійте її до максимально необхідної робочої температури.</sup> [^3]
+1. Apply power and keeping the board still [^2], warm it slowly to the maximum required operating temperature. [^3]
 1. Remove power and extract the .ulog file.
 1. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script:
 
@@ -161,10 +161,7 @@ corrected_measurement = (raw_measurement - offset) * scale_factor
 
 Якщо температура перевищує тестовий діапазон, установлений параметрами `*_TMIN` і `*_TMAX`, тоді виміряна температура буде обрізана, щоб залишатися в межах.
 
-Корекція даних акселерометра, гіроскопа, магнітометра або барометра вмикається, налаштувавши [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE), [TC_M_ENABLE](../advanced_config/parameter_reference.md#TC_M_ENABLE) або
-TC_B_ENABLE</ 3> параметри до 1 відповідно.</p> 
-
-
+Корекція даних акселерометра, гіроскопа, магнітометра або барометра вмикається, налаштувавши [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE), [TC_M_ENABLE](../advanced_config/parameter_reference.md#TC_M_ENABLE) або [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) параметри до 1 відповідно.
 
 ### Compatibility with legacy `CAL_*` parameters and commander controlled calibration
 
@@ -178,25 +175,12 @@ TC_B_ENABLE</ 3> параметри до 1 відповідно.</p>
 
 Якщо термокомпенсацію магнітометра було ввімкнено шляхом установлення параметра `TC_M_ENABLE` на 1, тоді контрольоване 6-точковим калібруванням прискорення все ще можна виконати. Однак замість налаштування параметрів `*OFF` і `*SCALE` у групі параметрів `CAL` ці параметри встановлюються за замовчуванням, а теплова компенсація < Натомість налаштовуються параметри `X0` та `SCL`.
 
-
-
 ### Обмеження
 
 Припустимо, що масштабні фактори незмінні температури внаслідок труднощів, пов'язаних з вимірюванням їх за різних температур. Це обмежує корисність калібрування акселерометра в цих сенсорних моделях з факторами стабільного масштабу. Виносне калібрування виконується на комп’ютері розробки з використанням даних, зібраних під час випробування калібрування. Через складність інтеграції необхідного руху дошки з алгоритмом калібрування ця можливість не включена.
 
-
-
 ---
 
-
-
-[^1]:    
-    Параметри [SYS_CAL_ACCEL](../advanced_config/parameter_reference.md#SYS_CAL_ACCEL), [SYS_CAL_BARO](../advanced_config/parameter_reference.md#SYS_CAL_BARO) та [SYS_CAL_GYRO](../advanced_config/parameter_reference.md#SYS_CAL_GYRO) скидаються до 0 після початку калібрування.
-
-
-[^2]:    
-    Для калібрування зсувів датчика барометричного тиску потрібен стабільний тиск повітря. Тиск повітря змінюватиметься повільно через погоду, а всередині будівель може швидко змінюватися через коливання зовнішнього вітру та роботу системи ОВК.&#8617;</1 ></p> </fn>
-    
-    
-[^3]:    
-        Слід бути обережним під час нагрівання холодної дошки, щоб уникнути утворення конденсату на дошці, який за певних обставин може спричинити її пошкодження.</footnotes>
+[^1]: Параметри [SYS_CAL_ACCEL](../advanced_config/parameter_reference.md#SYS_CAL_ACCEL), [SYS_CAL_BARO](../advanced_config/parameter_reference.md#SYS_CAL_BARO) та [SYS_CAL_GYRO](../advanced_config/parameter_reference.md#SYS_CAL_GYRO) скидаються до 0 після початку калібрування.
+[^2]: Для калібрування зсувів датчика барометричного тиску потрібен стабільний тиск повітря. Тиск повітря змінюватиметься повільно через погоду, а всередині будівель може швидко змінюватися через коливання зовнішнього вітру та роботу системи ОВК.
+[^3]: Слід бути обережним під час нагрівання холодної дошки, щоб уникнути утворення конденсату на дошці, який за певних обставин може спричинити її пошкодження.
