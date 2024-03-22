@@ -5,13 +5,13 @@
 Цей список не є вичерпним (він охоплює контролери, задокументовані у цій бібліотеці). Існують інші сумісні контролери польоту та варіанти, в тому числі [задокументовані тут на Github](https://github.com/PX4/PX4-Autopilot/#supported-hardware).
 
 :::tip
-Ви також можете спробувати PX4 на завершеному апараті
- (побутові дрони та референсні платформи, які можуть працювати з PX4). :::</p> 
+Ви також можете спробувати PX4 на завершеному апараті [ (побутові дрони та референсні платформи, які можуть працювати з PX4)](../complete_vehicles/README.md).
+:::
 
-- [Pixhawk Series](../flight_controller/pixhawk_series.md) 
-    - [Silicon Errata](../flight_controller/silicon_errata.md)
-- [Стандартні/підтримувані автопілоти Pixhawk](../flight_controller/autopilot_pixhawk_standard.md) 
-    - [CUAV Pixhack v3 (FMUv3)](../flight_controller/pixhack_v3.md)
+- [Pixhawk Series](../flight_controller/pixhawk_series.md)
+  - [Silicon Errata](../flight_controller/silicon_errata.md)
+- [Стандартні/підтримувані автопілоти Pixhawk](../flight_controller/autopilot_pixhawk_standard.md)
+  - [CUAV Pixhack v3 (FMUv3)](../flight_controller/pixhack_v3.md)
   - [CUAV Pixhawk V6X (FMUv6X)](../flight_controller/cuav_pixhawk_v6x.md)
   - [Drotek Pixhawk 3 Pro (FMUv4pro)](../flight_controller/pixhawk3_pro.md) - Знято з виробництва
   - [Hex Cube Black (FMUv3)](../flight_controller/pixhawk-2.md)
@@ -26,8 +26,8 @@
   - [Holybro pix32 v6 (FMUv6C)](../flight_controller/holybro_pix32_v6.md)
   - [mRo Pixracer (FMUv4)](../flight_controller/pixracer.md)
   - [mRo Pixhawk (FMUv2)](../flight_controller/mro_pixhawk.md)
-- [Автопілоти з підтримкою виробника](../flight_controller/autopilot_manufacturer_supported.md) 
-    - [AIRLink](../flight_controller/airlink.md)
+- [Автопілоти з підтримкою виробника](../flight_controller/autopilot_manufacturer_supported.md)
+  - [AIRLink](../flight_controller/airlink.md)
   - [AirMind MindPX](../flight_controller/mindpx.md)
   - [AirMind MindRacer](../flight_controller/mindracer.md)
   - [ARK Electronics ARKV6X](../flight_controller/arkv6x.md) (і [ARK Electronics Pixhawk Autopilot Bus Carrier](../flight_controller/arkpab.md))
@@ -51,14 +51,14 @@
   - [SP Racing H7 EXTREME](../flight_controller/spracingh7extreme.md)
   - [ThePeach FCC-K1](../flight_controller/thepeach_k1.md)
   - [ThePeach FCC-R1](../flight_controller/thepeach_r1.md)
-- [Експериментальні автопілоти](../flight_controller/autopilot_experimental.md) 
-    - [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
+- [Експериментальні автопілоти](../flight_controller/autopilot_experimental.md)
+  - [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
   - [Raspberry Pi 2/3/4 PilotPi](../flight_controller/raspberry_pi_pilotpi.md)
   - [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
   - [Bitcraze Crazyflie 2.0](../complete_vehicles_mc/crazyflie2.md)
   - [Bitcraze Crazyflie 2.1](../complete_vehicles_mc/crazyflie21.md)
-- [Знято з виробництва](../flight_controller/autopilot_discontinued.md) 
-    - [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
+- [Знято з виробництва](../flight_controller/autopilot_discontinued.md)
+  - [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
   - [3DR Pixhawk 1 (FMUv2)](../flight_controller/pixhawk.md)
   - [Aerotenna OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
   - [CUAV v5 (FMUv5)](../flight_controller/cuav_v5.md)
