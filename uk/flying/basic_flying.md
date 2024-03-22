@@ -1,4 +1,4 @@
-# Manual Flying
+# Ручний політ
 
 This topic explains the basics of flying a vehicle using an [RC Transmitter](../getting_started/rc_transmitter_receiver.md) in a manual or autopilot-assisted flight mode (for autonomous flight see: [Missions](../flying/missions.md)).
 
