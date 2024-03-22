@@ -29,47 +29,47 @@ PX4 підтримує HITL для мультикоптерів (за допом
 У симуляції з апаратним забезпеченням у контурі (HITL) звичайна прошивка PX4 виконується на реальному обладнані. JMAVSim або Gazebo Classic (які працюють на комп'ютері розробки) підключені до пристрою польотного контролера через USB/UART. Симулятор діє як шлюз для спільного використання даних MAVLink між PX4 та _QGroundControl_.
 
 :::note
-The simulator can also be connected via UDP if the flight controller has networking support and uses a stable, low-latency connection (e.g. a wired Ethernet connection - WiFi is usually not sufficiently reliable). For example, this configuration has been tested with PX4 running on a Raspberry Pi connected via Ethernet to the computer (a startup configuration that includes the command for running jMAVSim can be found [here](https://github.com/PX4/PX4-Autopilot/blob/main/posix-configs/rpi/px4_hil.config)).
+Симулятор також може бути підключений за допомогою UDP якщо політний контролер має підтримку мережі та використовує стабільне з'єднання з низькою затримкою (наприклад дротове Ethernet підключення, WiFi підключення зазвичай недостатньо надійне). Наприклад, ця конфігурація була перевірена з PX4, що виконується на Raspberry Pi який підключений через Ethernet до комп'ютера (налаштування запуску яке включає команди для запуску jMAVSim можна знайти [тут](https://github.com/PX4/PX4-Autopilot/blob/main/posix-configs/rpi/px4_hil.config)).
 :::
 
-The diagram below shows the simulation environment:
+Діаграма нижче показує середовище симуляції:
 
-- A HITL configuration is selected (via _QGroundControl_) that doesn't start any real sensors.
-- _jMAVSim_ or _Gazebo Classic_ are connected to the flight controller via USB.
-- The simulator is connected to _QGroundControl_ via UDP and bridges its MAVLink messages to PX4.
-- _Gazebo Classic_ and _jMAVSim_ can also connect to an offboard API and bridge MAVLink messages to PX4.
-- (Optional) A serial connection can be used to connect Joystick/Gamepad hardware via _QGroundControl_.
+- Обрано конфігурацію HITL (у _QGroundControl_), яка не запускає ніяких реальних датчиків.
+- _jMAVSim_ або _Gazebo Classic_ підключені до політного контролера через USB.
+- Симулятор підключено до _QGroundControl_ через UDP і передає повідомлення MAVLink до PX4.
+- _Gazebo Classic_ та _jMAVSim_ можуть також підключатися до зовнішнього API та передавати повідомлення MAVLink до PX4.
+- (Необов'язково) Для підключення джойстика/геймпада через _QGroundControl_ може бути використано послідовне з'єднання.
 
 ![HITL Setup - jMAVSim and Gazebo Classic](../../assets/simulation/px4_hitl_overview_jmavsim_gazebo.svg)
 
-## HITL vs SITL
+## HITL у порівнянні з SITL
 
-SITL runs on a development computer in a simulated environment, and uses firmware specifically generated for that environment. Other than simulation drivers to provide fake environmental data from the simulator the system behaves normally.
+SITL працює на комп'ютері розробки в модельованому середовищі та використовує прошивку спеціально створену для цього середовища. Крім драйверів симуляції для забезпечення підроблених даних середовища від симулятора система поводиться як зазвичай.
 
-By contrast, HITL runs normal PX4 firmware in "HITL mode", on normal hardware. The simulation data enters the system at a different point than for SITL. Core modules like commander and sensors have HITL modes at startup that bypass some of the normal functionality.
+На противагу, HITL виконує звичайну прошивку PX4 в "режимі HITL" на звичайному обладнані. Дані симуляції потрапляють в систему в іншій точці ніж для SITL. Основні модулі на кшталт командного або датчиків мають режими HITL, що оминають частину звичайної функціональності при старті.
 
-In summary, HITL runs PX4 on the actual hardware using standard firmware, but SITL actually executes more of the standard system code.
+Підсумовуючи, HITL виконує PX4 на реальному обладнанні за допомогою стандартної прошивки, а SITL фактично більше виконує стандартний системний код.
 
-## Setting up HITL
+## Налаштування HITL
 
-### PX4 Configuration
+### Налаштування PX4
 
-1. Connect the autopilot directly to _QGroundControl_ via USB.
-1. Enable HITL Mode
+1. З'єднайте автопілот безпосередньо з _QGroundControl_ за допомогою USB.
+1. Увімкніть режим HITL
 
-   1. Open **Setup > Safety** section.
-   1. Enable HITL mode by selecting **Enabled** from the _HITL Enabled_ list:
+   1. Відкрийте розділ **Налаштування > Безпека**.
+   1. Увімкніть режим HITL обравши **Увімкнено** в переліку _HITL увімкнено_:
 
       ![QGroundControl HITL configuration](../../assets/gcs/qgc_hitl_config.png)
 
-1. Select Airframe
+1. Оберіть планер
 
-   1. Open **Setup > Airframes**
-   1. Select a [compatible airframe](#compatible_airframe) you want to test. Then click **Apply and Restart** on top-right of the _Airframe Setup_ page.
+   1. Відкрийте **Налаштування > Планери**
+   1. Оберіть [сумісний планер](#compatible_airframe) який потрібно перевірити. Потім натисніть **Застосувати та перезапустити** у верхній правій частині сторінки _Налаштування планера_.
 
       ![Select Airframe](../../assets/gcs/qgc_hil_config.png)
 
-1. Calibrate your RC or Joystick, if needed.
+1. При необхідності відкалібруйте пульт РК або джойстик.
 1. Setup UDP
 
    1. Under the _General_ tab of the settings menu, uncheck all _AutoConnect_ boxes except for **UDP**.
