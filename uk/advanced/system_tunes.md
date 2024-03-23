@@ -40,34 +40,34 @@ PX4 визначає ряд [стандартних мелодій/тем](../ge
 
 1. Потім ви матимете можливість клацнути кілька екранів, а потім натиснути **1**, щоб відобразити _Master Melody_: ![Melody Master 2.1](../../assets/tunes/tunes_melody_master_2_1.jpg)
 
-   The lower half of the screen provides helpful advice on keyboard shortcuts for using the tool (arrows for moving in stave, and numbers for selecting the note length, etc.).
+   У нижній половині екрана надаються корисні поради щодо комбінацій клавіш для використання інструменту (стрілки для переміщення в ноті, цифри для вибору тривалості ноти тощо).
 
-1. When you're ready to save the music:
+1. Коли ви будете готові зберегти музику:
    - Press **F2** to give the tune a name and save it in the _/Music_ sub folder of your Melody Master installation.
    - Press **F7**, the scroll down the list of output formats on the right to get to ANSI. The file will be exported to the _root_ of the Melody Master directory (with the same name and a file-type specific extension).
-1. Open the file. The output might look like this:
+1. Відкрийте файл. Результат може виглядати так:
 
    ![ANSI Output from file](../../assets/tunes/tune_musicmaker_ansi_output.png)
 
-1. The string that can be played in PX4 is the bit between `MNT` and `P64`: `150L1O3DL16CL32<B>C<AEL16A`
+1. Рядок, який можна відтворити в PX4, це біт між `MNT` і `P64`: `150L1O3DL16CL32<B>C<AEL16A`
 
 ## Тестування тунелів
 
-When you're ready to try it out a new tune on PX4, use the [tune_control](../modules/modules_system.md#tune-control) library. For example, to test the tune we "created" above you would enter the following command on a console or shell (e.g. the [MAVLink Shell](../debug/mavlink_shell.md)):
+Коли ви будете готові спробувати нову мелодію на PX4, скористайтеся бібліотекою [tune_control](../modules/modules_system.md#tune-control). Наприклад, щоб перевірити мелодію, яку ми «створили» вище, ви повинні ввести таку команду на консолі чи оболонці (наприклад, [MAVLink Shell](../debug/mavlink_shell.md)):
 
 ```sh
 tune_control play -m "150L1O3DL16CL32<B>C<AEL16A"
 ```
 
 :::note
-Out of the box, the `tune_control` is only present on real hardware (not the simulator).
+За замовчуванням, `tune_control` присутній лише на реальному обладнанні (не у симуляторі).
 :::
 
 ## Заміна існуючих звукових повідомлень
 
-Tunes are defined within [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc).
+Мелодії визначаються в файлі [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc).
 
-If you just need to replace an existing tune, then you can replace the file in your own fork, and update the tune strings defined in `PX4_DEFINE_TUNE`.
+Якщо вам потрібно лише замінити існуючу мелодію, ви можете замінити файл у власному репозиторії (fork) та оновити рядки мелодій, визначені в `PX4_DEFINE_TUNE`.
 
 ## Додати нову мелодію
 
