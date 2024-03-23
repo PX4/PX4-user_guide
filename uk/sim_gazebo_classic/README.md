@@ -153,11 +153,11 @@ HEADLESS=1 make px4_sitl gazebo-classic_plane
 
 ### Встановлення користувацького місця зльоту
 
-Місце зльоту в Gazebo Classic можна встановити використовуючи змінні середовища. This will override both the default takeoff location, and any value [set for the world](#set-world-location).
+Місце зльоту в Gazebo Classic можна встановити використовуючи змінні середовища. Це замінить як стандартне місце зльоту, так й будь-яке значення [встановлене для світу](#set-world-location).
 
-The variables to set are: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
+Змінні які потрібно встановити: `PX4_HOME_LAT`, `PX4_HOME_LON` та `PX4_HOME_ALT`.
 
-For example:
+Наприклад:
 
 ```sh
 export PX4_HOME_LAT=28.452386
@@ -166,20 +166,20 @@ export PX4_HOME_ALT=28.5
 make px4_sitl gazebo-classic
 ```
 
-### Change Simulation Speed
+### Зміна швидкості симуляції
 
-The simulation speed can be increased or decreased with respect to realtime using the environment variable `PX4_SIM_SPEED_FACTOR`.
+Швидкість симуляції може бути збільшена або зменшена відносно реального часу за допомогою змінної середовища `PX4_SIM_SPEED_FACTOR`.
 
 ```sh
 export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl_default gazebo-classic
 ```
 
-For more information see: [Simulation > Run Simulation Faster than Realtime](../simulation/README.md#simulation_speed).
+Для додаткової інформації дивіться: [Симуляція > Запуск симуляції швидше реального часу](../simulation/README.md#simulation_speed).
 
-### Change Wind Speed
+### Зміна швидкості вітру
 
-To simulate wind speed, add this plugin to your world file and set `windVelocityMean` in m/s (replace `SET_YOUR_WIND_SPEED` with your desired speed). If needed, adapt the `windVelocityMax` parameter so that it is greater than `windVelocityMean`:
+Для симуляції швидкості вітру, додайте плагін у файл світу та встановіть `windVelocityMean` в м/с (замініть `SET_YOUR_WIND_SPEED` на бажану швидкість). Якщо потрібно, підлаштуйте параметр `windVelocityMax`, щоб він був більшим за `windVelocityMean`:
 
 ```xml
   <plugin name='wind_plugin' filename='libgazebo_wind_plugin.so'>
