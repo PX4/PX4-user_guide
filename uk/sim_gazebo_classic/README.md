@@ -201,40 +201,40 @@ make px4_sitl_default gazebo-classic
     </plugin>
 ```
 
-Wind direction is passed as a direction vector (standard ENU convention), which will be normalized in the gazebo plugin. Additionally you can state wind velocity variance in (m/s)² and direction variance based on a normal distribution to add some random factor into the simulation. Gust is internally handled in the same way as wind, with the slight difference that you can state start time and duration with the following two parameters `windGustStart` and `windGustDuration`.
+Напрямок вітру передається як вектор напрямку (за стандартною конвенцією ENU), який буде нормалізовано в плагіні gazebo. Додатково ви можете вказати відхилення швидкості вітру у (м/с)² та відхилення у напрямку на основі нормального розподілу, щоб додати випадковий фактор в симуляцію. Пориви вітру внутрішньо обробляються в такий самий спосіб що і вітер з невеликою різницею в тому, що ви можете вказати час їх початку та тривалість за допомогою наступних параметрів `windGustStart` та `windGustDuration`.
 
-You can see how this is done in [PX4/PX4-SITL_gazebo-classic/worlds/windy.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/windy.world#L15-L31).
+Ви можете побачити як це зроблено в [PX4/PX4-SITL_gazebo-classic/worlds/windy.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/windy.world#L15-L31).
 
-### Using a Joystick
+### Використання джойстика
 
-Joystick and thumb-joystick support are supported through _QGroundControl_ ([setup instructions here](../simulation/README.md#joystick-gamepad-integration)).
+Джойстик та підтримка джойстика для великого пальця підтримується через _QGroundControl_ ([тут інструкції налаштування](../simulation/README.md#joystick-gamepad-integration)).
 
-### Improving Distance Sensor Performance
+### Підвищення ефективності сенсору відстані
 
-The current default world is [PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds/**iris.world**](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/main/worlds)), which uses a heightmap as ground.
+Поточний світ за замовчуванням - [PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds/**iris.world**](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/main/worlds)), що використовує мапу висот в  якості землі.
 
-This can cause difficulty when using a distance sensor. If there are unexpected results we recommend you change the model in **iris.model** from `uneven_ground` to `asphalt_plane`.
+Це може викликати труднощі під час використання датчика відстані. Якщо присутні несподівані результати рекомендуємо змінити модель в **iris.model** з `uneven_ground` на `asphalt_plane`.
 
-### Simulating GPS Noise
+### Симуляція шуму GPS
 
-Gazebo Classic can simulate GPS noise that is similar to that typically found in real systems (otherwise reported GPS values will be noise-free/perfect). This is useful when working on applications that might be impacted by GPS noise - e.g. precision positioning.
+Gazebo Classic може симулювати шум GPS подібний до того, який зазвичай можна знайти в реальних системах (в іншому випадку значення GPS що передаються будуть вільними від шуму або ідеальними). Це корисно, якщо ви працюєте над додатками, на які може вплинути шум GPS, наприклад точного позиціювання.
 
-GPS noise is enabled if the target vehicle's SDF file contains a value for the `gpsNoise` element (i.e. it has the line: `<gpsNoise>true</gpsNoise>`). It is enabled by default in many vehicle SDF files: **solo.sdf**, **iris.sdf**, **standard_vtol.sdf**, **delta_wing.sdf**, **plane.sdf**, **typhoon_h480**, **tailsitter.sdf**.
+Шум GPS увімкнений якщо SDF файл цільового рухомого засобу містить значення для елементу `gpsNoise` (тобто має рядок `<gpsNoise>true</gpsNoise>`). Він увімкнений за замовчуванням у багатьох SDF файлах рухомих засобів: **solo.sdf**, **iris.sdf**, **standard_vtol.sdf**, **delta_wing.sdf**, **plane.sdf**, **typhoon_h480**, **tailsitter.sdf**.
 
-To enable/disable GPS noise:
+Щоб увімкнути/вимкнути шум GPS:
 
-1. Build any gazebo target in order to generate SDF files (for all vehicles). For example:
+1. Зберіть будь-яку ціль збірки gazebo, щоб згенерувати SDF файл (для всіх засобів). Наприклад:
 
    ```sh
    make px4_sitl gazebo-classic_iris
    ```
 
    :::tip
-The SDF files are not overwritten on subsequent builds.
+Файли SDF не перезаписуються у наступних збірках.
 :::
 
-2. Open the SDF file for your target vehicle (e.g. **./Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/iris/iris.sdf**).
-3. Search for the `gpsNoise` element:
+2. Відкрийте SDF файл цільового рухомого засобу (наприклад **./Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/iris/iris.sdf**).
+3. Знайдіть елемент `gpsNoise`:
 
    ```xml
    <plugin name='gps_plugin' filename='libgazebo_gps_plugin.so'>
@@ -243,18 +243,18 @@ The SDF files are not overwritten on subsequent builds.
    </plugin>
    ```
 
-   - If it is present, GPS is enabled. You can disable it by deleting the line: `<gpsNoise>true</gpsNoise>`
-   - If it is not present, GPS is disabled. You can enable it by adding the `gpsNoise` element to the `gps_plugin` section (as shown above).
+   - Якщо він присутній, GPS включений. Ви можете вимкнути його, видаливши рядок: `<gpsNoise>true</gpsNoise>`
+   - Якщо він відсутній, GPS вимкнено. Ви можете включити його, додавши елемент `gpsNoise`  до розділу `gps_plugin` (як показано вище).
 
-The next time you build/restart Gazebo Classic it will use the new GPS noise setting.
+Наступного разу, коли ви зберете/перезапустите Gazebo Classic він буде використовувати нове налаштування шуму GPS.
 
-## Loading a Specific World
+## Завантаження певного світу
 
-PX4 supports a number of [Worlds](../sim_gazebo_classic/worlds.md), which are stored in [PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/main/worlds). By default Gazebo Classic displays a flat featureless plane, as defined in [empty.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/empty.world).
+PX4 підтримує багато [світів](../sim_gazebo_classic/worlds.md), яки зберігаються у [PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/main/worlds). За замовчуванням Gazebo Classic показує пласку рівнину без функцій, як визначено в [empty.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/empty.world).
 
-You can load any of the worlds by specifying them as the final option in the PX4 configuration target.
+Можна завантажити будь-який зі світів вказавши їх як завершальний параметр в налаштуваннях цілі збірки PX4.
 
-For example, to load the _warehouse_ world, you can append it as shown:
+Наприклад для завантаження світу _склад_, ви можете додати його як показано:
 
 ```sh
 make px4_sitl_default gazebo-classic_plane_cam__warehouse
