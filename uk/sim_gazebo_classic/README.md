@@ -6,7 +6,7 @@ _Gazebo Classic_ підтримується з PX4 аж до Ubuntu Linux 20.04.
 
 Gazebo Classic - це потужне середовище 3D симуляції для автономних систем яке зокрема підходить для перевірки уникання об'єктів та комп'ютерного зору. Ця сторінка описує її використання з SITL та єдиним рухомим засобом. Gazebo Classic також може бути використано з [HITL](../simulation/hitl.md) та для [симуляції кількох засобів](../sim_gazebo_classic/multi_vehicle_simulation.md).
 
-**Supported Vehicles:** Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter), Hex (Typhoon H480), [Generic Standard VTOL (QuadPlane)](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), Tailsitter, Plane, Rover, Submarine/UUV.
+**Рухомі засоби що підтримуються:** квадрокоптер ([Iris](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter)), гексакоптер (Typhoon H480), [загальний стандартний ВЗІП (квадроплан)](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), засіб з ВЗІП з хвоста, літак, ровер, підводний рухомий засіб (UUV).
 
 @[youtube](https://www.youtube.com/watch?v=qfFF9-0k4KA&vq=hd720)
 
@@ -21,19 +21,19 @@ graph LR;
 -->
 
 :::note
-See [Simulation](../simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
+Дивіться [Симуляція](../simulation/README.md) для загальної інформації про симуляцію, середовище симуляції та налаштування симуляції (наприклад засоби, що підтримуються).
 :::
 
-## Installation
+## Встановлення
 
-Gazebo Classic 9 or 11 setup is included in our [standard build instructions}(../dev_setup/dev_env.md) for Linux, macOS, and Windows. Additional installation instructions can be found on [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
+Встановлення Gazebo Classic 9 або 11 включено в наші \[стандартні інструкції для збірки\](../dev_setup/dev_env.md) для Linux, macOS та Windows. Додаткові інструкції для встановлення можна знайти на [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
 
 :::note
-If you plan to use PX4 with ROS you **should follow the** [ROS Instructions](../simulation/ros_interface.md) to install both ROS and Gazebo Classic (and thereby avoid installation conflicts).
+Якщо ви плануєте використовувати PX4 з ROS вам **потрібно дотримуватись** [інструкцій ROS](../simulation/ros_interface.md) для встановлення ROS та Gazebo Classic (а також уникнення конфліктів установки).
 :::
 
 :::note
-The following commands can be used to remove [Gazebo (Garden)](../sim_gazebo_gz/README.md) and reinstall Gazebo-Classic 11:
+Наступні команди можна використати для видалення [Gazebo (Garden)](../sim_gazebo_gz/README.md) та перевстановлення Gazebo Classic 11:
 
 ```sh
 sudo apt remove gz-garden
@@ -41,58 +41,58 @@ sudo apt install aptitude
 sudo aptitude install gazebo libgazebo11 libgazebo-dev
 ```
 
-Note that `aptitude` is needed because it can resolve dependency conflicts (by removing certain packages) that `apt` is unable to handle.
+Зверніть увагу, що менеджер пакетів `aptitude` потрібен, оскільки він може вирішити конфлікти залежностей (шляхом видалення певних пакетів), які `apt` не в змозі обробити.
 :::
 
-## Running the Simulation
+## Запуск симуляції
 
-Run a simulation by starting PX4 SITL and Gazebo Classic with the airframe configuration to load (multicopters, planes, VTOL, optical flow and multi-vehicle simulations are supported).
+Виконайте симуляцію запустивши PX4 SITL та Gazebo Classic з налаштуванням планеру для завантаження (підтримуються мультикоптери, літаки, ВЗІП, оптичний потік так симуляції кількох засобів).
 
-The easiest way to do this is to open a terminal in the root directory of the PX4 _PX4-Autopilot_ repository and call `make` for the desired target. For example, to start a quadrotor simulation (the default):
+Найпростіший спосіб зробити це - відкрити термінал у кореневій директорії репозиторію PX4 _PX4-Autopilot_ і викликати `make` для потрібної цілі. Наприклад для запуску симуляції квадрокоптера (за замовчуванням):
 
 ```sh
 cd /path/to/PX4-Autopilot
 make px4_sitl gazebo-classic
 ```
 
-The supported vehicles and `make` commands are listed below (click links to see vehicle images).
+Нижче перелічено рухомі засоби, що підтримуються та команди `make` (клацніть по посиланнях, щоб побачити зображення засобу).
 
 :::note
-For the full list of build targets run `make px4_sitl list_vmd_make_targets` (and filter on those that start with `gazebo-classic_`).
+Для повного списку цілей збірки запустіть `make px4_sitl list_vmd_make_targets` (і відфільтруйте ті, що починаються з `gazebo-classic_`).
 :::
 
-| Vehicle                                                                                                                            | Command                                                   |
-| ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| [Quadrotor](../sim_gazebo_classic/vehicles.md#quadrotor-default)                                                                   | `make px4_sitl gazebo-classic`                            |
-| [Quadrotor with Optical Flow](../sim_gazebo_classic/vehicles.md#quadrotor-with-optical-flow)                                       | `make px4_sitl gazebo-classic_iris_opt_flow`              |
-| [Quadrotor with Depth Camera](../sim_gazebo_classic/vehicles.md#quadrotor-with-depth-camera) (forward-facing)                      | `make px4_sitl gazebo-classic_iris_depth_camera`          |
-| [Quadrotor with Depth Camera](../sim_gazebo_classic/vehicles.md#quadrotor-with-depth-camera) (downward-facing)                     | `make px4_sitl gazebo-classic_iris_downward_depth_camera` |
-| [3DR Solo (Quadrotor)](../sim_gazebo_classic/vehicles.md#3dr-solo-quadrotor)                                                       | `make px4_sitl gazebo-classic_solo`                       |
-| <a id="typhoon_h480"></a>[Typhoon H480 (Hexrotor)](../sim_gazebo_classic/vehicles.md#typhoon-h480-hexrotor) (with video streaming) | `make px4_sitl gazebo-classic_typhoon_h480`               |
-| [Standard Plane](../sim_gazebo_classic/vehicles.md#standard-plane)                                                                 | `make px4_sitl gazebo-classic_plane`                      |
-| [Standard Plane (with catapult launch)](../sim_gazebo_classic/vehicles.md#standard-plane-with-catapult-launch)                     | `make px4_sitl gazebo-classic_plane_catapult`             |
-| [Standard VTOL](../sim_gazebo_classic/vehicles.md#standard-vtol)                                                                   | `make px4_sitl gazebo-classic_standard_vtol`              |
-| [Tailsitter VTOL](../sim_gazebo_classic/vehicles.md#tailsitter-vtol)                                                               | `make px4_sitl gazebo-classic_tailsitter`                 |
-| [Ackerman UGV (Rover)](../sim_gazebo_classic/vehicles.md#ackermann-ugv)                                                            | `make px4_sitl gazebo-classic_rover`                      |
-| [Differential UGV (Rover)](../sim_gazebo_classic/vehicles.md#differential-ugv)                                                     | `make px4_sitl gazebo-classic_r1_rover`                   |
-| [HippoCampus TUHH (UUV: Unmanned Underwater Vehicle)](../sim_gazebo_classic/vehicles.md#unmanned-underwater-vehicle-uuv-submarine) | `make px4_sitl gazebo-classic_uuv_hippocampus`            |
-| [Boat (USV: Unmanned Surface Vehicle)](../sim_gazebo_classic/vehicles.md#hippocampus-tuhh-uuv)                                     | `make px4_sitl gazebo-classic_boat`                       |
-| [Cloudship (Airship)](../sim_gazebo_classic/vehicles.md#airship)                                                                   | `make px4_sitl gazebo-classic_cloudship`                  |
+| Рухомий засіб                                                                                                                       | Команда                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| [Квадрокоптер](../sim_gazebo_classic/vehicles.md#quadrotor-default)                                                                 | `make px4_sitl gazebo-classic`                            |
+| [Квадрокоптер з оптичним потоком](../sim_gazebo_classic/vehicles.md#quadrotor-with-optical-flow)                                    | `make px4_sitl gazebo-classic_iris_opt_flow`              |
+| [Квадрокоптер з камерою глибини](../sim_gazebo_classic/vehicles.md#quadrotor-with-depth-camera) (що направлено вперед)              | `make px4_sitl gazebo-classic_iris_depth_camera`          |
+| [Квадрокоптер з камерою глибини](../sim_gazebo_classic/vehicles.md#quadrotor-with-depth-camera) (що направлено вниз)                | `make px4_sitl gazebo-classic_iris_downward_depth_camera` |
+| [3DR Solo (квадрокоптер)](../sim_gazebo_classic/vehicles.md#3dr-solo-quadrotor)                                                     | `make px4_sitl gazebo-classic_solo`                       |
+| <a id="typhoon_h480"></a>[Typhoon H480 (гексакоптер)](../sim_gazebo_classic/vehicles.md#typhoon-h480-hexrotor) (з відеотрансляцією) | `make px4_sitl gazebo-classic_typhoon_h480`               |
+| [Стандартний літак](../sim_gazebo_classic/vehicles.md#standard-plane)                                                               | `make px4_sitl gazebo-classic_plane`                      |
+| [Стандартний літак (із запуском з катапульти)](../sim_gazebo_classic/vehicles.md#standard-plane-with-catapult-launch)               | `make px4_sitl gazebo-classic_plane_catapult`             |
+| [Стандартний ВЗІП](../sim_gazebo_classic/vehicles.md#standard-vtol)                                                                 | `make px4_sitl gazebo-classic_standard_vtol`              |
+| [ВЗІП з хвоста](../sim_gazebo_classic/vehicles.md#tailsitter-vtol)                                                                  | `make px4_sitl gazebo-classic_tailsitter`                 |
+| [UGV із трапецією Аккермана (ровер)](../sim_gazebo_classic/vehicles.md#ackermann-ugv)                                               | `make px4_sitl gazebo-classic_rover`                      |
+| [UGV з диференціалом (ровер)](../sim_gazebo_classic/vehicles.md#differential-ugv)                                                   | `make px4_sitl gazebo-classic_r1_rover`                   |
+| [HippoCampus TUHH (UUV: безпілотний підводний засіб)](../sim_gazebo_classic/vehicles.md#unmanned-underwater-vehicle-uuv-submarine)  | `make px4_sitl gazebo-classic_uuv_hippocampus`            |
+| [Човен (USV: безпілотний надводний засіб)](../sim_gazebo_classic/vehicles.md#hippocampus-tuhh-uuv)                                  | `make px4_sitl gazebo-classic_boat`                       |
+| [Cloudship (дирижабль)](../sim_gazebo_classic/vehicles.md#airship)                                                                  | `make px4_sitl gazebo-classic_cloudship`                  |
 
 :::note
-The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful reference if there are build errors.
+Посібник [Встановлення файлів і коду](../dev_setup/dev_env.md) є корисним довідником якщо виникнуть помилки збірки.
 :::
 
-The commands above launch a single vehicle with the full UI. Other options include:
+Вищенаведені команди запускають єдиний засіб з повним користувацьким інтерфейсом. Інші варіанти включають:
 
-- [Starting PX4 and Gazebo separately](#starting-gazebo-and-px4-separately) so that you can keep Gazebo Classic running and only re-launch PX4 when needed (quicker than restarting both).
-- Run the simulation in [Headless Mode](#headless-mode), which does not start the Gazebo Classic UI (this uses fewer resources and is much faster).
+- [Запуск PX4 та Gazebo окремо](#starting-gazebo-and-px4-separately), щоб можна було тримати Gazebo Classic запущеним та перезапускати тільки PX4 при необхідності (швидше ніж перезапускати обидва).
+- Запуск симуляції у[режимі без інтерфейсу](#headless-mode), який не запускає користувацький інтерфейс Gazebo Classic (це використовує менше ресурсів та працює набагато швидше).
 
-## Taking it to the Sky
+## Підйом у небо
 
-The `make` commands above first build PX4, and then run it along with the Gazebo Classic simulator.
+Згадані вище команди `make` спочатку збирають PX4, а потім запускають її разом із симулятором Gazebo Classic.
 
-Once PX4 has started it will launch the PX4 shell as shown below.
+Після запуску PX4 запуститься оболонка PX4, як показано нижче.
 
 ```sh
 ______  __   __    ___
@@ -117,33 +117,33 @@ http://gazebosim.org
 INFO  [ecl/EKF] 5188000: commencing GPS fusion
 ```
 
-The console will print out status as PX4 loads the airframe-specific initialisation and parameter files, waits for (and connects to) the simulator. Once there is an INFO print that [ecl/EKF] is `commencing GPS fusion` the vehicle is ready to arm.
+Консоль буде виводити статус поки PX4 завантажує файли ініціалізації та параметрів для певного планера, чекати та підключатися до симулятора. Як тільки з'явиться вивід INFO що [ecl/EKF] `commencing GPS fusion` рухомий засіб готовий до роботи.
 
 :::note
-Right-clicking the quadrotor model allows to enable follow mode from the context menu, which is handy to keep it in view.
+Натискання правою кнопкою миші на модель квадрокоптера дозволяє увімкнути режим слідування у контекстному меню, що зручно для того щоб тримати його у полі зору.
 :::
 
 ![Gazebo Classic UI](../../assets/simulation/gazebo_classic/gazebo_follow.jpg)
 
-You can bring it into the air by typing:
+Ви можете підняти його у повітря надрукувавши:
 
 ```sh
 pxh> commander takeoff
 ```
 
-## Usage/Configuration Options
+## Використання та варіанти налаштування
 
-Options that apply to all simulators are covered in the top level [Simulation](../simulation/README.md#sitl-simulation-environment) topic (some of these may be duplicated below).
+Параметри, які застосовуються до всіх симуляторів охоплені у темі [Симуляція](../simulation/README.md#sitl-simulation-environment) рівнем вище (деякі з них можуть бути продубльовані нижче).
 
-### Simulating Sensor/Hardware Failure
+### Симуляція відмов датчиків/апаратного забезпечення
 
-[Simulate Failsafes](../simulation/failsafes.md) explains how to trigger safety failsafes like GPS failure and battery drain.
+[Симуляція запобігання відмовам](../simulation/failsafes.md) пояснює як викликати запобіжники відмов, таких як відмова GPS або виснаження батареї.
 
-### Headless Mode
+### Режим без інтерфейсу
 
-Gazebo Classic can be run in a _headless_ mode in which the Gazebo Classic UI is not launched. This starts up more quickly and uses less system resources (i.e. it is a more "lightweight" way to run the simulation).
+Gazebo Classic можна запустити у режимі _без інтерфейсу_ в якому користувацький інтерфейс Gazebo Classic не запускається. Цей режим запускається швидше та використовує менше системних ресурсів (тобто більш "легкий" спосіб запускати симуляцію).
 
-Simply prefix the normal `make` command with `HEADLESS=1` as shown:
+Просто додайте перед командою `make` `HEADLESS=1` як показано:
 
 ```sh
 HEADLESS=1 make px4_sitl gazebo-classic_plane
@@ -151,9 +151,9 @@ HEADLESS=1 make px4_sitl gazebo-classic_plane
 
 <a id="custom_takeoff_location"></a>
 
-### Set Custom Takeoff Location
+### Встановлення користувацького місця зльоту
 
-The takeoff location in Gazebo Classic can be set using environment variables. This will override both the default takeoff location, and any value [set for the world](#set-world-location).
+Місце зльоту в Gazebo Classic можна встановити використовуючи змінні середовища. This will override both the default takeoff location, and any value [set for the world](#set-world-location).
 
 The variables to set are: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
 
