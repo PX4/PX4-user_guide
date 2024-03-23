@@ -1,62 +1,62 @@
-# ROS з симулятором Gazebo Classic
+# ROS з симуляцією Gazebo Classic
 
-[ROS](../ros/README.md) (Robot Operating System) can be used with PX4 and the [Gazebo Classic](../sim_gazebo_classic/README.md) simulator. It uses the [MAVROS](../ros/mavros_installation.md) MAVLink node to communicate with PX4.
+[ROS](../ros/README.md) (Робототехнічна операційна система) може бути використана з PX4 та симулятором [Gazebo Classic](../sim_gazebo_classic/README.md). Вона використовує [MAVROS](../ros/mavros_installation.md) вузол MAVLink для спілкування з PX4.
 
-The ROS/Gazebo Classic integration with PX4 follows the pattern in the diagram below (this shows the _generic_ [PX4 simulation environment](../simulation/README.md#sitl-simulation-environment)). PX4 communicates with the simulator (e.g. Gazebo Classic) to receive sensor data from the simulated world and send motor and actuator values. It communicates with the GCS and an Offboard API (e.g. ROS) to send telemetry from the simulated environment and receive commands.
+Інтеграція ROS/Gazebo Classic з PX4 дотримується шаблону на діаграмі нижче (показано _загальне_ [середовище симуляції PX4](../simulation/README.md#sitl-simulation-environment)) PX4 спілкується з симулятором (наприклад Gazebo Classic), щоб отримувати дані датчиків із модельованого світу і надсилає значення для двигунів та сервоприводів. Вона спілкується з GCS та зовнішнім API (наприклад ROS) щоб надіслати телеметрію із модельованого середовища та отримати команди.
 
-![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.png)
-
-:::note
-The only _slight_ difference to "normal behaviour" is that ROS initiates the connection on port 14557, while it is more typical for an offboard API to listen for connections on UDP port 14540.
-:::
-
-## Installing ROS and Gazebo Classic
+![Огляд PX4 SITL](../../assets/simulation/px4_sitl_overview.png)
 
 :::note
-_ROS_ is only supported on Linux (not macOS or Windows).
+Єдина _незначна_ різниця від "нормальної поведінки" полягає в тому, що ROS ініціює з'єднання на порту 14557, тоді як для зовнішнього API більш типово - це прослуховувати з'єднання на UDP порту 14540.
 :::
 
-The easiest way to setup PX4 simulation with ROS on Ubuntu Linux is to use the standard installation script that can be found at [Development Environment on Linux > Gazebo with ROS](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo). The script installs everything you need: PX4, ROS "Melodic", the Gazebo Classic 9 simulator, and [MAVROS](../ros/mavros_installation.md).
+## Встановлення ROS та Gazebo Classic
 
 :::note
-The script follows the [standard ROS "Melodic" installation instructions](http://wiki.ros.org/melodic/Installation/Ubuntu), which includes Gazebo 9.
+_ROS_ підтримується тільки на Linux (не macOS або Windows).
 :::
 
-## Launching ROS/Simulation
+Найпростіший спосіб налаштувати симуляцію PX4 з ROS на Ubuntu Linux це використати стандартний скрипт установки який можна знайти у [Середовище розробки на Linux > Gazebo з ROS](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo). Скрипт встановлює все, що вам потрібно: PX4, ROS "Melodic", симулятор Gazebo Classic 9, та [MAVROS](../ros/mavros_installation.md).
 
-The command below can be used to launch the simulation and connect ROS to it via [MAVROS](../ros/mavros_installation.md), where `fcu_url` is the IP / port of the computer running the simulation:
+:::note
+Скрипт дотримується [стандартних інструкцій з встановлення ROS "Melodic" ](http://wiki.ros.org/melodic/Installation/Ubuntu), які включають Gazebo 9.
+:::
+
+## Запуск ROS/симуляції
+
+Нижченаведена команда може бути використана для запуску симуляції та під'єднання ROS до неї через [MAVROS](../ros/mavros_installation.md), де `fcu_url` - це IP / порт комп'ютера, що виконує симуляцію:
 
 ```sh
 roslaunch mavros px4.launch fcu_url:="udp://:14540@192.168.1.36:14557"
 ```
 
-To connect to localhost, use this URL:
+Для з'єднання з localhost (локальним комп'ютером), використовуйте цей URL:
 
 ```sh
 roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
 
 :::note
-It can be useful to call _roslaunch_ with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. For example:
+Може бути корисно викликати _roslaunch_ з `-w NUM_WORKERS` (перевизначити кількість робочих потоків) та/або `-v` (verbose, або розлогий вивід), щоб отримати попередження про відсутні залежності у вашій установці. Наприклад:
 
 ```sh
-roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
+roslaunch -w 2 -v mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
 
 :::
 
-## Launching Gazebo Classic with ROS Wrappers
+## Запуск Gazebo Classic за допомогою обгорток ROS
 
-The Gazebo Classic simulation can be modified to integrate sensors publishing directly to ROS topics e.g. the Gazebo Classic ROS laser plugin. To support this feature, Gazebo Classic must be launched with the appropriate ROS wrappers.
+Симуляція Gazebo Classic може бути змінена для інтеграції публікації даних датчиків напряму в рубрики ROS наприклад ROS плагін лазера для Gazebo Classic. Для підтримки цієї функції, Gazebo Classic повинна бути запущена з відповідною обгорткою ROS.
 
-There are ROS launch scripts available to run the simulation wrapped in ROS:
+Доступні скрипти запуску ROS для запуску симуляції в обгортці ROS:
 
-- [posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/main/launch/posix_sitl.launch): plain SITL launch
-- [mavros_posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch): SITL and MAVROS
+- [posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/main/launch/posix_sitl.launch): звичайний запуск SITL
+- [mavros_posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch): SITL та MAVROS
 
-To run SITL wrapped in ROS the ROS environment needs to be updated, then launch as usual:
+Щоб запустити SITL обгорнуту в ROS, необхідно оновити середовище ROS, а потім запустити як завжди:
 
-(optional): only source the catkin workspace if you compiled MAVROS or other ROS packages from source:
+(необов'язково): виконувати команду source у робочому просторі catkin потрібно тільки якщо ви скомпілювали MAVROS або інші пакети ROS з вихідного коду:
 
 ```sh
 cd <PX4-Autopilot_clone>
@@ -68,15 +68,15 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo-classic
 roslaunch px4 posix_sitl.launch
 ```
 
-Include one of the above mentioned launch files in your own launch file to run your ROS application in the simulation.
+Включіть один зі згаданих вище файлів запуску у ваш власний файл запуску для запуску застосунку ROS в симуляції.
 
-## What's Happening Behind the Scenes
+## Що відбувається за лаштунками
 
-This section shows how the _roslaunch_ instructions provided previously actually work (you can follow them to manually launch the simulation and ROS).
+Цей розділ показує як інструкції _roslaunch_ надані раніше власне працюють (ви можете дотримуватися їх щоб запустити симуляція та ROS вручну).
 
-You will need three terminals, in all of them the ros environment must be sourced.
+Вам потрібно три термінали, у всіх потрібно запустити команду source у ROS середовищі.
 
-First start the simulator using the command below:
+Спочатку запустіть симулятор, використовуючи наступну команду:
 
 ```sh
 cd <PX4-Autopilot_clone>
@@ -84,7 +84,7 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
 roslaunch px4 px4.launch
 ```
 
-The console will look like this:
+У консолі буде приблизно це:
 
 ```sh
 INFO  [px4] instance: 0
@@ -110,7 +110,7 @@ INFO  [init] PX4_SIM_HOSTNAME: localhost
 INFO  [simulator_mavlink] Waiting for simulator to accept connection on TCP port 4560
 ```
 
-In the second terminal make sure you will be able to start gazebo with the world files defined in PX4-Autopilot. To do this set your environment variables to include the appropriate `sitl_gazebo-classic` folders.
+У другому терміналі переконайтесь, що зможете запустити gazebo з файлами світу, визначеними у PX4-Autopilot. Щоб зробити це, встановить змінні середовища, щоб включити відповідні директорії `sitl_gazebo-classic`.
 
 ```sh
 cd <PX4-Autopilot_clone>
@@ -118,13 +118,13 @@ source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd) $(pwd)/build/px4
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic
 ```
 
-Now start Gazebo Classic like you would when working with ROS
+Тепер запустіть з Gazebo Classic так, як ви хотіли б працювати з ROS:
 
 ```sh
 roslaunch gazebo_ros empty_world.launch world_name:=$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds/empty.world
 ```
 
-In the third terminal make sure you will be able to spawn the model with the sdf files defined in PX4-Autopilot. To do this set your environment variables to include the appropriate `sitl_gazebo-classic` folders.
+У третьому терміналі переконайтесь що зможете відтворити модель з sdf файлами, визначеними у PX4-Autopilot. Щоб зробити це, встановить змінні середовища, щоб включити відповідні директорії `sitl_gazebo-classic`.
 
 ```sh
 cd <PX4-Autopilot_clone>
@@ -132,7 +132,7 @@ source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd) $(pwd)/build/px4
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic
 ```
 
-Now insert the Iris quadcopter model like you would when working with ROS. Once the Iris is loaded it will automatically connect to the px4 app.
+Тепер додайте модель квадрокоптера Iris так, як ви б хотіли коли працюєте з ROS. Після завантаження Iris автоматично з'єднається із застосунком px4.
 
 ```sh
 rosrun gazebo_ros spawn_model -sdf -file $(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/iris/iris.sdf -model iris -x 0 -y 0 -z 0 -R 0 -P 0 -Y 0

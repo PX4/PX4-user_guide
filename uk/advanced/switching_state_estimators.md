@@ -1,28 +1,29 @@
-# Switching State Estimators
+# Перемикання оцінювачів стану
 
-This page shows you which state estimators are available and how you can switch between them.
+Ця сторінка показує вам доступні оцінювачі стану та як ви можете перемикатися між ними.
 
-:::tip EKF2 is highly recommended on vehicles with a GNSS/GPS. The Q-Estimator is recommended if you don't have GPS, and is commonly used in [multicopter racers](../config_mc/racer_setup.md).
+:::tip
+На транспортних засобах з GNSS/GPS настійно рекомендується використовувати EKF2. Рекомендовано використовувати Q-оцінювач, якщо у вас немає GPS, і це часто використовується у [multicopter racers](../config_mc/racer_setup.md).
 :::
 
-## Available Estimators
+## Доступні оцінювачі
 
-The available estimators are:
+Доступні оцінювачі:
 
-- **EKF2 attitude, position and wind states estimator** (_recommended_) - An extended Kalman filter estimating attitude, 3D position / velocity and wind states.
-- **LPE position estimator** (_deprecated_) - An extended Kalman filter for 3D position and velocity states.
+- **EKF2 оцінювач стану орієнтації, позиції та вітру** (_рекомендовано_) - Розширений фільтр Калмана, який оцінює орієнтацію, тривимірну позицію/швидкість та стани вітру.
+- **LPE оцінювач позиції** (_не рекомендовано_) - Розширений фільтр Калмана для тривимірної позиції та швидкості.
 
   :::warning
-LPE is deprecated.
-It works (at time of writing, in PX4 v1.14) but is no longer supported or maintained.
+LPE є застарілим.
+Він працює (на момент написання, у версії PX4 v1.14), але більше не підтримується або не обслуговується.
 :::
 
-- **Q attitude estimator** - A very simple, quaternion based complementary filter for attitude. It does not require a GPS, magnetometer, or barometer.
+- **Q оцінювач орієнтації** - Дуже простий комплементарний фільтр на основі кватерніонів для орієнтації. Він не вимагає наявності GPS, магнітомера або барометра.
   <!-- Q estimator is supported (at time of writing in PX4 v1.14). Test added in PX4-Autopilot/pull/21922 -->
 
-## How to Enable Different Estimators
+## Як увімкнути різні оцінювачі
 
-For multirotors and VTOL use the parameter [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) to choose between the following configurations (LPE is not supported for Fixed-wing).
+Для мультимоторних апаратів та Вертикальних злітно-посадкових апаратів (VTOL) використовуйте параметр [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP), щоб вибрати одну з наступних конфігурацій (LPE не підтримується для фіксованих крил):
 
 | SYS_MC_EST_GROUP | Q Estimator | LPE     | EKF2    |
 | ------------------ | ----------- | ------- | ------- |
@@ -31,5 +32,5 @@ For multirotors and VTOL use the parameter [SYS_MC_EST_GROUP](../advanced_config
 | 3                  | enabled     |         |         |
 
 :::note
-For FMU-v2 (only) you will also need to build PX4 to specifically include required estimator (e.g. EKF2: `make px4_fmu-v2`, LPE: `make px4_fmu-v2_lpe`). This is required because FMU-v2 is too resource constrained to include both estimators. Other Pixhawk FMU versions include both.
+Для FMU-v2 (тільки) вам також потрібно збудувати PX4 з включенням необхідного оцінювача (наприклад, EKF2: `make px4_fmu-v2`, LPE: `make px4_fmu-v2_lpe`). Це потрібно, оскільки FMU-v2 має недостатньо ресурсів для включення обох оцінювачів. Інші версії FMU для Pixhawk включають обидва оцінювачі.
 :::

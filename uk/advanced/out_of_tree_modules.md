@@ -5,7 +5,7 @@
 У цій темі пояснюється, як додати зовнішній модуль ("out of tree") до збірки PX4.
 
 :::tip
-Ми закликаємо вас внести ваші зміни до PX4, де можливо!
+Ми закликаємо вас внести ваші зміни до PX4, де це можливо!
 :::
 
 ## Використання
@@ -42,9 +42,9 @@
     )
   ```
 
-## Out-of-Tree uORB Message Definitions
+## Визначення повідомлень поза деревами uORB
 
-uORB messages can also be defined out-of-tree. Для цього має існувати папка `$EXTERNAL_MODULES_LOCATION/msg`.
+Повідомлення uORB також можна визначати поза деревом. Для цього має існувати папка `$EXTERNAL_MODULES_LOCATION/msg`.
 
 - Place all new message definitions within the `$EXTERNAL_MODULES_LOCATION/msg` directory. Формат цих нових визначень повідомлень поза деревом такий самий, як і для будь-якого іншого [визначення повідомлень uORB](../middleware/uorb.md#adding-a-new-topic).
 - Додати файл `$EXTERNAL_MODULES_LOCATION/msg/CMakeLists.txt` з змістом:
@@ -60,18 +60,19 @@ uORB messages can also be defined out-of-tree. Для цього має існу
 
   Нове повідомлення uORB можна використовувати як будь-яке інше повідомлення uORB, як описано `тут`.
 
-The out-of-tree uORB messages will be generated in the same locations as the normal uORB messages. Заголовки тем uORB генеруються в `<build_dir>/uORB/topics/`, а вихідні файли повідомлень – створено в `<build_dir>/msg/topics_sources/`.
+Поза деревом повідомлень uORB будуть створені в тих же місцях, що й звичайні повідомлення uORB. Заголовки тем uORB генеруються в `<build_dir>/uORB/topics/`, а вихідні файли повідомлень – створено в `<build_dir>/msg/topics_sources/`.
 
 Нові повідомлення uORB можна використовувати як будь-які інші повідомлення uORB, як описано [тут](../middleware/uorb.md#adding-a-new-topic).
 
 :::warning
-The out-of-tree uORB message definitions cannot have the same name as any of the normal uORB messages.
+Визначення повідомлень поза деревом uORB не можуть мати ті ж самі назви, що й будь-які звичайні повідомлення uORB.
+
 :::
 
 ## Побудова зовнішніх модулів та повідомлень uORB
 
 Execute `make px4_sitl EXTERNAL_MODULES_LOCATION=<path>`.
 
-Any other build target can be used, but the build directory must not yet exist. Якщо вона вже існує, ви також можете просто встановити змінну _cmake_ у папці збірки.
+Будь-яку іншу ціль збірки можна використовувати, але каталог для збирання не повинен існувати. Якщо вона вже існує, ви також можете просто встановити змінну _cmake_ у папці збірки.
 
 Для наступних поступових збірок `EXTERNAL_MODULES_LOCATION` не потрібно вказувати.

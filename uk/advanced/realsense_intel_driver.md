@@ -1,6 +1,6 @@
 # Встановлення драйвера на Ubuntu для Intel RealSense R200
 
-Цей навчальний посібник має на меті надати інструкції щодо встановлення драйвера камери Intel RealSense R200 у середовищі Linux, так щоб зібрані зображення можна було доступити через систему робототехніки (ROS). Головка камери RealSense R200 зображена нижче:
+Цей навчальний посібник має на меті надати інструкції щодо встановлення драйвера камери Intel RealSense R200 у середовищі Linux, так щоб зібрані зображення можна було доступити через систему робототехніки (ROS). Голова камери RealSense R200 зображена нижче:
 
 ![Intel Realsense Camera front view](../../assets/hardware/sensors/realsense/intel_realsense.png)
 
@@ -8,48 +8,48 @@
 
 - Host Operation System: Windows 8
 - Processor: Intel(R) Core(TM) i7-4702MQ CPU @ 2.20GHz
-- Virtual Box: Oracle VM. Version 5.0.14 r105127
-- Extensions: Extension package for Virtual Box installed (Needed for USB3 support)
-- Guest Operation System: Linux - Ubuntu 14.04.3 LTS
+- Віртуальний ящик: Oracle VM. Версія 5.0.14 r105127
+- Розширення: Встановлено пакет розширень для VirtualBox (необхідно для підтримки USB3)
+- Операційна система гостя: Linux - Ubuntu 14.04.3 LTS
 
-The tutorial is ordered in the following way: In a first part it is shown how to install Ubuntu 14.04 as a guest OS in the Virtual Box. In a second part is shown how to install ROS Indigo and the camera driver. The ensuing frequently used expressions have the following meaning:
+У наведеному порядку, в першій частині показано, як встановити Ubuntu 14.04 як гостьову операційну систему в Virtual Box. У другій частині показано, як встановити ROS Indigo та драйвер камери. Додатково часто вживані вирази мають наступне значення:
 
-- Virtual Box (VB): Program that runs different Virtual Machines. In this case the Oracle VM.
-- Virtual Machine (VM): The operation system that runs in the Virtual Box as a guest system. In this case Ubuntu.
+- Virtual Box (VB): Програма, яка запускає різні віртуальні машини. У цьому випадку  Oracle VM.
+- Віртуальна машина (VM): Операційна система, яка працює в Virtual Box як гостьова система. У цьому випадку Ubuntu.
 
 ## Встановлення Ubuntu 14.04.3 LTS в Virtual Box
 
-- Create a new Virtual Machine (VM): Linux 64-Bit.
-- Download the iso file of Ubuntu 14.04.3 LTS: ([ubuntu-14.04.3-desktop-amd64.iso](https://ubuntu.com/download/desktop)).
-- Installation of Ubuntu:
-  - During the installation procedure leave the following two options unchecked:
-    - Download updates while installing
-    - Install this third party software
-- After the installation you might need to enable the Virtual Box to display Ubuntu on the whole desktop:
-  - Start VM Ubuntu and login, Click on **Devices->Insert Guest Additions CD image** in the menu bar of the Virtual Box.
-  - Click on **Run** and enter password on the windows that pop up in Ubuntu.
-  - Wait until the installation is completed and then restart. Now, it should be possible to display the VM on the whole desktop.
-  - If a window pops up in Ubuntu that asks whether to update, reject to update at this point.
-- Enable USB 3 Controller in Virtual Box:
-  - Shut down Virtual Machine.
-  - Go to the settings of the Virtual Machine to the menu selection USB and choose: "USB 3.0(xHCI)". This is only possible if you have installed the extension package for the Virtual Box.
-  - Start the Virtual Machine again.
+- Створіть нову віртуальну машину (VM): Linux 64-Bit.
+- Завантажте файл iso з Ubuntu 14.04.3 LTS: ([ubuntu-14.04.3-desktop-amd64.iso](https://ubuntu.com/download/desktop)).
+- Установка Ubuntu:
+  - Під час процедури встановлення залиште непозначеними наступні дві опції:
+    - Завантажувати оновлення під час встановлення
+    - Встановити це програмне забезпечення третьої сторони
+- Після встановлення можливо знадобиться увімкнути VirtualBox для відображення Ubuntu на всьому робочому столі:
+  - Запустіть віртуальну машину Ubuntu та увійдіть у систему. Натисніть на меню **Devices->Insert Guest Additions CD image** на панелі інструментів VirtualBox.
+  - Натисніть **Run** і введіть пароль у вікнах, які з'являться в Ubuntu.
+  - Зачекайте, поки завершиться встановлення, а потім перезапустіть систему. Тепер систему можна відображати на всьому робочому столі.
+  - Якщо в Ubuntu з'явиться вікно, яке запитує про оновлення, відхиліть оновлення на цьому етапі.
+- Увімкніть контролер USB 3 в Virtual Box:
+  - Вимкнути віртуальну машину
+  - Перейдіть до налаштувань віртуальної машини у меню вибору USB і оберіть: "USB 3.0(xHCI)". Це можливо лише у випадку, якщо ви встановили пакет розширення для віртуальної машини Virtual Box.
+  - Запустіть віртуальну машину знову.
 
-## Installing ROS Indigo
+## Встановлення ROS Indigo
 
-- Follow instructions given at [ROS indigo installation guide](http://wiki.ros.org/indigo/Installation/Ubuntu):
-  - Install Desktop-Full version.
-  - Execute steps described in the sections "Initialize rosdep" and "Environment setup".
+- Слідуйте інструкціям, наведеним у [посібнику з встановлення ROS Indigo](http://wiki.ros.org/indigo/Installation/Ubuntu):
+  - Встановити версію Desktop-Full.
+  - Виконайте кроки, описані в розділах "Ініціалізація rosdep" та "Налаштування середовища".
 
-## Installing camera driver
+## Встановлення драйвера камери
 
-- Install git:
+- Встановіть Git
 
   ```sh
   sudo apt-get install git
   ```
 
-- Download and install the driver:
+- Завантажте та встановіть драйвер:
 
   - Clone [RealSense_ROS repository](https://github.com/bestmodule/RealSense_ROS):
 
@@ -57,9 +57,9 @@ The tutorial is ordered in the following way: In a first part it is shown how to
     git clone https://github.com/bestmodule/RealSense_ROS.git
     ```
 
-- Follow instructions given in [here](https://github.com/bestmodule/RealSense_ROS/tree/master/r200_install).
+- Дотримуйтеся інструкцій, наведених [тут](https://github.com/bestmodule/RealSense_ROS/tree/master/r200_install).
 
-  - Press the enter button when the questions whether to install the following installation packages show up:
+  - Натисніть кнопку "Enter", коли з'явиться питання про встановлення наступних пакетів:
 
     ```sh
     Intel Low Power Subsystem support in ACPI mode (MFD_INTEL_LPSS_ACPI) [N/m/y/?] (NEW)
@@ -73,29 +73,29 @@ The tutorial is ordered in the following way: In a first part it is shown how to
     Dell Airplane Mode Switch driver (DELL_RBTN) [N/m/y/?] (NEW)
     ```
 
-  - The following error message that can appear at the end of the installation process should not lead to a malfunction of the driver:
+  - Повідомлення про помилку, яке може з'явитися в кінці процесу встановлення, не повинно призводити до неполадок драйвера:
 
     ```sh
     rmmod: ERROR: Module uvcvideo is not currently loaded
     ```
 
-- After the installation has completed, reboot the Virtual Machine.
+- Після завершення встановлення перезавантажте віртуальну машину.
 
-- Test camera driver:
+- Тест драйвера камери:
 
-  - Connect the Intel RealSense camera head with the computer with a USB3 cable that is plugged into a USB3 receptacle on the computer.
-  - Click on Devices->USB-> Intel Corp Intel RealSense 3D Camera R200 in the menu bar of the Virtual Box, in order to forward the camera USB connection to the Virtual Machine.
-  - Execute the file [unpacked folder]/Bin/DSReadCameraInfo:
+  - Підключіть камеру Intel RealSense до комп'ютера за допомогою кабелю USB3, який вставлено в роз'єм USB3 на комп'ютері.
+  - Натисніть на Пристрої->USB-> Intel Corp Intel RealSense 3D Camera R200 у меню панелі Virtual Box, щоб переслати підключення USB камери в віртуальну машину.
+  - Виконайте файл [розпакованої теки]/Bin/DSReadCameraInfo:
 
-    - If the following error message appears, unplug the camera (physically unplug USB cable from the computer). Plug it in again + Click on Devices->USB-> Intel Corp Intel RealSense 3D Camera R200 in the menu bar of the Virtual Box again and execute again the file [unpacked folder]/Bin/DSReadCameraInfo.
+    - Якщо з'явиться наступне повідомлення про помилку, відключіть камеру (фізично від'єднайте USB-кабель від комп'ютера). Підключіть його знову + Натисніть на Пристрої->USB-> Intel Corp Intel RealSense 3D Camera R200 у меню панелі Virtual Box знову і виконайте знову файл [розпакованої теки]/Bin/DSReadCameraInfo.
 
       ```sh
       DSAPI call failed at ReadCameraInfo.cpp:134!
       ```
 
-    - If the camera driver works and recognises the Intel RealSense R200, you should see specific information about the Intel RealSense R200 camera head.
+    - Якщо драйвер камери працює і розпізнає камеру Intel RealSense R200, ви повинні побачити конкретну інформацію про камеру Intel RealSense R200.
 
-- Installation and testing of the ROS nodlet:
-  - Follow the installation instructions in the "Installation" section given [here](https://github.com/bestmodule/RealSense_ROS/blob/master/realsense_dist/2.3/doc/RealSense-ROS-R200-nodelet.md), to install the ROS nodlet.
-  - Follow the instructions in the "Running the R200 nodelet" section given [here](https://github.com/bestmodule/RealSense_ROS/blob/master/realsense_dist/2.3/doc/RealSense-ROS-R200-nodelet.md), to test the ROS nodlet together with the Intel RealSense R200 camera head.
-    - If everything works, the different data streams from the Intel RealSense R200 camera are published as ROS topics.
+- Інсталяція та тестування ROS nodelet:
+  - Дотримуйтеся інструкцій з розділу "Установка", наведеного [тут](https://github.com/bestmodule/RealSense_ROS/blob/master/realsense_dist/2.3/doc/RealSense-ROS-R200-nodelet.md), щоб встановити ROS nodelet.
+  - Дотримуйтеся інструкцій в розділі "Запуск R200 nodelet", наведеному [тут](https://github.com/bestmodule/RealSense_ROS/blob/master/realsense_dist/2.3/doc/RealSense-ROS-R200-nodelet.md), щоб протестувати ROS nodelet разом із камерою Intel RealSense R200.
+    - Якщо все працює правильно, різні потоки даних з камери Intel RealSense R200 публікуються як ROS-теми.

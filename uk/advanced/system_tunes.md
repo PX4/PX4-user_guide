@@ -1,75 +1,75 @@
-# System Notification Tunes
+# Системи звукового оповіщення
 
-PX4 defines a number of [standard tones/tunes](../getting_started/tunes.md) that are used to provide audio notification for important system states and problems (e.g. system startup, arming success, battery warnings, etc.)
+PX4 визначає ряд [стандартних мелодій/тем](../getting_started/tunes.md), які використовуються для забезпечення аудіо-повідомлень про важливі стани системи та проблеми (наприклад, запуск системи, успішне готування до роботи, попередження про заряд батареї і т. д.).
 
-Tunes are specified using strings (in [ANSI Music notation](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt)) and played by code using the [tunes](https://github.com/PX4/PX4-Autopilot/tree/main/src/lib/tunes) library. The tunes library also contains the list of default system tunes - see [lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc).
+Мелодії вказуються за допомогою рядків (у форматі [ANSI Music notation](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt)) та відтворюються за допомогою коду, використовуючи бібліотеку [tunes](https://github.com/PX4/PX4-Autopilot/tree/main/src/lib/tunes). Бібліотека мелодій також містить список стандартних мелодій системи - див. [lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc).
 
-PX4 also has a module that can be used to play (test) the default tunes or a user defined tune.
+У PX4 також є модуль, який можна використовувати для відтворення (тестування) стандартних мелодій або користувацьких мелодій.
 
-This topic provides general guidance on how to create your own tunes and add to/replace the system notification tones/tunes.
+У цій темі наведено загальні вказівки щодо створення власних мелодій і додавання/заміни системних тонів/мелодій сповіщень.
 
-## Creating Tunes
+## Формування Звукових Повідомлень
 
-Tune strings are defined using [ANSI Music notation](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt).
+Рядки мелодій визначаються за допомогою [ANSI Music notation](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt).
 
 :::tip
-More information about the format can be found in [QBasic PLAY statement](https://en.wikibooks.org/wiki/QBasic/Appendix#PLAY) (Wikibooks) and has been reproduced in [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc).
+Більше інформації про формат можна знайти в [QBasic PLAY statement](https://en.wikibooks.org/wiki/QBasic/Appendix#PLAY) (Wikibooks) та було відтворено в [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc).
 :::
 
-The easiest way to create a new tune is to use a music editor. This allows you to edit the music and play it back on your computer, then export it to a format that can be played by PX4.
+Найпростіший спосіб створити нову мелодію – скористатися музичним редактором. Це дозволяє редагувати музику та відтворювати її на вашому комп'ютері, а потім експортувати в формат, який можна відтворити за допомогою PX4.
 
-ANSI music was popular in the days of ANSI BBS systems, and so the best editing tools are DOS utilities. On Windows, one option is to use _Melody Master_ within _Dosbox_.
+Музика ANSI була популярною за часів систем ANSI BBS, тому найкращими інструментами редагування є утиліти DOS. У Windows одним із варіантів є використання _Melody Master_ у _Dosbox_.
 
-The steps for using the software are:
+Кроки використання програмного забезпечення:
 
-1. Download [DosBox](http://www.dosbox.com/) and install the app
-1. Download [Melody Master](ftp://archives.thebbs.org/ansi_utilities/melody21.zip) and unzip into a new directory
-1. Open the _Dosbox_ console
-1. Mount the melody master directory in Dosbox as shown below:
+1. Завантажити [DosBox](http://www.dosbox.com/) і встановити додаток
+1. Завантажити [Майстер Мелодій](ftp://archives.thebbs.org/ansi_utilities/melody21.zip) та розпакувати в нову директорію
+1. Відкрийте консоль _Dosbox_
+1. Змонтуйте основний каталог мелодій у Dosbox, як показано нижче:
 
    ```sh
    mount c C:\<path_to_directory\Melody21
    ```
 
-1. Start _Melody Master_ with the following commands
+1. Запустіть _Melody Master_ за допомогою таких команд
 
    ```sh
    c:
    start
    ```
 
-1. You will then have the option to click through a few screens, then press **1** to display _Melody Master_: ![Melody Master 2.1](../../assets/tunes/tunes_melody_master_2_1.jpg)
+1. Потім ви матимете можливість клацнути кілька екранів, а потім натиснути **1**, щоб відобразити _Master Melody_: ![Melody Master 2.1](../../assets/tunes/tunes_melody_master_2_1.jpg)
 
-   The lower half of the screen provides helpful advice on keyboard shortcuts for using the tool (arrows for moving in stave, and numbers for selecting the note length, etc.).
+   У нижній половині екрана надаються корисні поради щодо комбінацій клавіш для використання інструменту (стрілки для переміщення в ноті, цифри для вибору тривалості ноти тощо).
 
-1. When you're ready to save the music:
-   - Press **F2** to give the tune a name and save it in the _/Music_ sub folder of your Melody Master installation.
-   - Press **F7**, the scroll down the list of output formats on the right to get to ANSI. The file will be exported to the _root_ of the Melody Master directory (with the same name and a file-type specific extension).
-1. Open the file. The output might look like this:
+1. Коли ви будете готові зберегти музику:
+   - Натисніть **F2**, щоб дати мелодії назву та зберегти її у підпапці _/Music_ вашої інсталяції Melody Master.
+   - Натисніть **F7**, прокрутіть список вихідних форматів праворуч, щоб перейти до ANSI. Файл буде експортовано в _кореневий каталог_ каталогу Melody Master (з такою самою назвою та розширенням типу файлу).
+1. Відкрийте файл. Результат може виглядати так:
 
    ![ANSI Output from file](../../assets/tunes/tune_musicmaker_ansi_output.png)
 
-1. The string that can be played in PX4 is the bit between `MNT` and `P64`: `150L1O3DL16CL32<B>C<AEL16A`
+1. Рядок, який можна відтворити в PX4, це біт між `MNT` і `P64`: `150L1O3DL16CL32<B>C<AEL16A`
 
-## Testing Tunes
+## Тестування тунелів
 
-When you're ready to try it out a new tune on PX4, use the [tune_control](../modules/modules_system.md#tune-control) library. For example, to test the tune we "created" above you would enter the following command on a console or shell (e.g. the [MAVLink Shell](../debug/mavlink_shell.md)):
+Коли ви будете готові спробувати нову мелодію на PX4, скористайтеся бібліотекою [tune_control](../modules/modules_system.md#tune-control). Наприклад, щоб перевірити мелодію, яку ми «створили» вище, ви повинні ввести таку команду на консолі чи оболонці (наприклад, [MAVLink Shell](../debug/mavlink_shell.md)):
 
 ```sh
 tune_control play -m "150L1O3DL16CL32<B>C<AEL16A"
 ```
 
 :::note
-Out of the box, the `tune_control` is only present on real hardware (not the simulator).
+За замовчуванням, `tune_control` присутній лише на реальному обладнанні (не у симуляторі).
 :::
 
-## Replacing Existing Tunes
+## Заміна існуючих звукових повідомлень
 
-Tunes are defined within [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc).
+Мелодії визначаються в файлі [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc).
 
-If you just need to replace an existing tune, then you can replace the file in your own fork, and update the tune strings defined in `PX4_DEFINE_TUNE`.
+Якщо вам потрібно лише замінити існуючу мелодію, ви можете замінити файл у власному репозиторії (fork) та оновити рядки мелодій, визначені в `PX4_DEFINE_TUNE`.
 
-## Adding a New Tune
+## Додати нову мелодію
 
 TBD.
 
