@@ -1,36 +1,36 @@
-# ROS з симулятором Gazebo Classic
+# ROS з симуляцією Gazebo Classic
 
-[ROS](../ros/README.md) (Robot Operating System) can be used with PX4 and the [Gazebo Classic](../sim_gazebo_classic/README.md) simulator. It uses the [MAVROS](../ros/mavros_installation.md) MAVLink node to communicate with PX4.
+[ROS](../ros/README.md) (Робототехнічна операційна система) може бути використана з PX4 та симулятором [Gazebo Classic](../sim_gazebo_classic/README.md). Вона використовує [MAVROS](../ros/mavros_installation.md) вузол MAVLink для спілкування з PX4.
 
-The ROS/Gazebo Classic integration with PX4 follows the pattern in the diagram below (this shows the _generic_ [PX4 simulation environment](../simulation/README.md#sitl-simulation-environment)). PX4 communicates with the simulator (e.g. Gazebo Classic) to receive sensor data from the simulated world and send motor and actuator values. It communicates with the GCS and an Offboard API (e.g. ROS) to send telemetry from the simulated environment and receive commands.
+Інтеграція ROS/Gazebo Classic з PX4 дотримується шаблону на діаграмі нижче (показано _загальне_ [середовище симуляції PX4](../simulation/README.md#sitl-simulation-environment)) PX4 спілкується з симулятором (наприклад Gazebo Classic), щоб отримувати дані датчиків із модельованого світу і надсилає значення для двигунів та сервоприводів. Вона спілкується з GCS та зовнішнім API (наприклад ROS) щоб надіслати телеметрію із модельованого середовища та отримати команди.
 
 ![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.png)
 
 :::note
-The only _slight_ difference to "normal behaviour" is that ROS initiates the connection on port 14557, while it is more typical for an offboard API to listen for connections on UDP port 14540.
+Єдина _незначна_ різниця від "нормальної поведінки" полягає в тому, що ROS ініціює з'єднання на порту 14557, тоді як для зовнішнього API більш типово - це прослуховувати з'єднання на UDP порту 14540.
 :::
 
-## Installing ROS and Gazebo Classic
+## Встановлення ROS та Gazebo Classic
 
 :::note
-_ROS_ is only supported on Linux (not macOS or Windows).
+_ROS_ підтримується тільки на Linux (не macOS або Windows).
 :::
 
-The easiest way to setup PX4 simulation with ROS on Ubuntu Linux is to use the standard installation script that can be found at [Development Environment on Linux > Gazebo with ROS](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo). The script installs everything you need: PX4, ROS "Melodic", the Gazebo Classic 9 simulator, and [MAVROS](../ros/mavros_installation.md).
+Найпростіший спосіб налаштувати симуляцію PX4 з ROS на Ubuntu Linux це використати стандартний скрипт установки який можна знайти у [Середовище розробки на Linux > Gazebo з ROS](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo). Скрипт встановлює все, що вам потрібно: PX4, ROS "Melodic", симулятор Gazebo Classic 9, та [MAVROS](../ros/mavros_installation.md).
 
 :::note
-The script follows the [standard ROS "Melodic" installation instructions](http://wiki.ros.org/melodic/Installation/Ubuntu), which includes Gazebo 9.
+Скрипт дотримується [стандартних інструкцій з встановлення ROS "Melodic" ](http://wiki.ros.org/melodic/Installation/Ubuntu), які включають Gazebo 9.
 :::
 
-## Launching ROS/Simulation
+## Запуск ROS/симуляції
 
-The command below can be used to launch the simulation and connect ROS to it via [MAVROS](../ros/mavros_installation.md), where `fcu_url` is the IP / port of the computer running the simulation:
+Нижченаведена команда може бути використана для запуску симуляції та під'єднання ROS до неї через [MAVROS](../ros/mavros_installation.md), де `fcu_url` - це IP / порт комп'ютера, що виконує симуляцію:
 
 ```sh
 roslaunch mavros px4.launch fcu_url:="udp://:14540@192.168.1.36:14557"
 ```
 
-To connect to localhost, use this URL:
+Для з'єднання з localhost (локальним комп'ютером), використовуйте цей URL:
 
 ```sh
 roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
