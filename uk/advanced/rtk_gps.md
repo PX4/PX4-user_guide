@@ -40,14 +40,14 @@ RTK використовує виміри фази несучої хвилі с�
 
 ### RTCM повідомлення
 
-QGroundControl configures the RTK base station to output the following RTCM3.2 frames, each with 1 Hz, unless otherwise stated:
+QGroundControl налаштовує базову станцію RTK на вивід наступних рамок RTCM3.2, кожну з частотою 1 Гц, якщо не вказано інше:
 
-- **1005** - Station coordinates XYZ for antenna reference point (Base position), 0.2 Hz.
-- **1077** - Full GPS pseudo-ranges, carrier phases, Doppler and signal strength (high resolution).
-- **1087** - Full GLONASS pseudo-ranges, carrier phases, Doppler and signal strength (high resolution).
-- **1230** - GLONASS code-phase biases.
-- **1097** - Full Galileo pseudo-ranges, carrier phases, Doppler and signal strength (high resolution)
-- **1127** - Full BeiDou pseudo-ranges, carrier phases, Doppler and signal strength (high resolution)
+- **1005** - Координати станції XYZ для точки антени (Базова позиція), 0.2 Гц.
+- **1077** - Повні псевдодальності GPS, фази несучої, Доплер та сила сигналу (висока роздільна здатність).
+- **1087** - Повні псевдодальності ГЛОНАСС, фази несущої, Доплер і сила сигналу (висока роздільна здатність).
+- **1230** - Зміщення фаз коду ГЛОНАСС.
+- **1097** - Повні псевдодальності Галілео, фази несущої, Доплер і сила сигналу (висока роздільна здатність).
+- **1127** - Повні псевдодальності BeiDou, фази несущої, Доплер і сила сигналу (висока роздільна здатність).
 
 ## Uplink datarate
 
