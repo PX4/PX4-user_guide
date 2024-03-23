@@ -25,7 +25,7 @@ PX4 визначає ряд [стандартних мелодій/тем](../ge
 1. Завантажити [DosBox](http://www.dosbox.com/) і встановити додаток
 1. Завантажити [Майстер Мелодій](ftp://archives.thebbs.org/ansi_utilities/melody21.zip) та розпакувати в нову директорію
 1. Відкрийте консоль _Dosbox_
-1. Mount the melody master directory in Dosbox as shown below:
+1. Змонтуйте основний каталог мелодій у Dosbox, як показано нижче:
 
    ```sh
    mount c C:\<path_to_directory\Melody21
@@ -43,8 +43,8 @@ PX4 визначає ряд [стандартних мелодій/тем](../ge
    У нижній половині екрана надаються корисні поради щодо комбінацій клавіш для використання інструменту (стрілки для переміщення в ноті, цифри для вибору тривалості ноти тощо).
 
 1. Коли ви будете готові зберегти музику:
-   - Press **F2** to give the tune a name and save it in the _/Music_ sub folder of your Melody Master installation.
-   - Press **F7**, the scroll down the list of output formats on the right to get to ANSI. The file will be exported to the _root_ of the Melody Master directory (with the same name and a file-type specific extension).
+   - Натисніть **F2**, щоб дати мелодії назву та зберегти її у підпапці _/Music_ вашої інсталяції Melody Master.
+   - Натисніть **F7**, прокрутіть список вихідних форматів праворуч, щоб перейти до ANSI. Файл буде експортовано в _кореневий каталог_ каталогу Melody Master (з такою самою назвою та розширенням типу файлу).
 1. Відкрийте файл. Результат може виглядати так:
 
    ![ANSI Output from file](../../assets/tunes/tune_musicmaker_ansi_output.png)
