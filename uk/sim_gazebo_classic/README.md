@@ -1,10 +1,10 @@
-# Gazebo Classic Simulation
+# Симуляція Gazebo Classic
 
 :::warning
-_Gazebo Classic_ is supported with PX4 up to Ubuntu Linux 20.04. It has been superseded by [Gazebo](../sim_gazebo_gz/README.md) (which was [formerly known](https://www.openrobotics.org/blog/2022/4/6/a-new-era-for-gazebo) as "Gazebo Ignition") for use on Ubuntu 22.04 and later.
+_Gazebo Classic_ підтримується з PX4 аж до Ubuntu Linux 20.04. Він був замінений [Gazebo](../sim_gazebo_gz/README.md) ([раніше відомий](https://www.openrobotics.org/blog/2022/4/6/a-new-era-for-gazebo) як "Gazebo Ignition") для використання на Ubuntu 22.04 і новіше.
 :::
 
-Gazebo Classic is a powerful 3D simulation environment for autonomous robots that is particularly suitable for testing object-avoidance and computer vision. This page describes its use with SITL and a single vehicle. Gazebo Classic can also be used with [HITL](../simulation/hitl.md) and for [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation.md).
+Gazebo Classic - це потужне середовище 3D симуляції для автономних систем яке зокрема підходить для перевірки уникання об'єктів та комп'ютерного зору. Ця сторінка описує її використання з SITL та єдиним рухомим засобом. Gazebo Classic також може бути використано з [HITL](../simulation/hitl.md) та для [симуляції кількох засобів](../sim_gazebo_classic/multi_vehicle_simulation.md).
 
 **Supported Vehicles:** Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter), Hex (Typhoon H480), [Generic Standard VTOL (QuadPlane)](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), Tailsitter, Plane, Rover, Submarine/UUV.
 
