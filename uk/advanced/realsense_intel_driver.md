@@ -1,6 +1,6 @@
 # Встановлення драйвера на Ubuntu для Intel RealSense R200
 
-Цей навчальний посібник має на меті надати інструкції щодо встановлення драйвера камери Intel RealSense R200 у середовищі Linux, так щоб зібрані зображення можна було доступити через систему робототехніки (ROS). Головка камери RealSense R200 зображена нижче:
+Цей навчальний посібник має на меті надати інструкції щодо встановлення драйвера камери Intel RealSense R200 у середовищі Linux, так щоб зібрані зображення можна було доступити через систему робототехніки (ROS). Голова камери RealSense R200 зображена нижче:
 
 ![Intel Realsense Camera front view](../../assets/hardware/sensors/realsense/intel_realsense.png)
 
@@ -8,38 +8,38 @@
 
 - Host Operation System: Windows 8
 - Processor: Intel(R) Core(TM) i7-4702MQ CPU @ 2.20GHz
-- Virtual Box: Oracle VM. Version 5.0.14 r105127
-- Extensions: Extension package for Virtual Box installed (Needed for USB3 support)
-- Guest Operation System: Linux - Ubuntu 14.04.3 LTS
+- Віртуальний ящик: Oracle VM. Версія 5.0.14 r105127
+- Розширення: Встановлено пакет розширень для VirtualBox (необхідно для підтримки USB3)
+- Операційна система гостя: Linux - Ubuntu 14.04.3 LTS
 
-У наведеному порядку, в першій частині показано, як встановити Ubuntu 14.04 як гостьову операційну систему в Virtual Box. In a second part is shown how to install ROS Indigo and the camera driver. Додатково часто вживані вирази мають наступне значення:
+У наведеному порядку, в першій частині показано, як встановити Ubuntu 14.04 як гостьову операційну систему в Virtual Box. У другій частині показано, як встановити ROS Indigo та драйвер камери. Додатково часто вживані вирази мають наступне значення:
 
-- Virtual Box (VB): Program that runs different Virtual Machines. In this case the Oracle VM.
+- Virtual Box (VB): Програма, яка запускає різні віртуальні машини. У цьому випадку  Oracle VM.
 - Віртуальна машина (VM): Операційна система, яка працює в Virtual Box як гостьова система. У цьому випадку Ubuntu.
 
 ## Встановлення Ubuntu 14.04.3 LTS в Virtual Box
 
-- Create a new Virtual Machine (VM): Linux 64-Bit.
-- Download the iso file of Ubuntu 14.04.3 LTS: ([ubuntu-14.04.3-desktop-amd64.iso](https://ubuntu.com/download/desktop)).
-- Installation of Ubuntu:
-  - During the installation procedure leave the following two options unchecked:
-    - Download updates while installing
-    - Install this third party software
-- After the installation you might need to enable the Virtual Box to display Ubuntu on the whole desktop:
-  - Start VM Ubuntu and login, Click on **Devices->Insert Guest Additions CD image** in the menu bar of the Virtual Box.
-  - Click on **Run** and enter password on the windows that pop up in Ubuntu.
-  - Wait until the installation is completed and then restart. Now, it should be possible to display the VM on the whole desktop.
-  - If a window pops up in Ubuntu that asks whether to update, reject to update at this point.
-- Enable USB 3 Controller in Virtual Box:
-  - Shut down Virtual Machine.
-  - Go to the settings of the Virtual Machine to the menu selection USB and choose: "USB 3.0(xHCI)". This is only possible if you have installed the extension package for the Virtual Box.
-  - Start the Virtual Machine again.
+- Створіть нову віртуальну машину (VM): Linux 64-Bit.
+- Завантажте файл iso з Ubuntu 14.04.3 LTS: ([ubuntu-14.04.3-desktop-amd64.iso](https://ubuntu.com/download/desktop)).
+- Установка Ubuntu:
+  - Під час процедури встановлення залиште непозначеними наступні дві опції:
+    - Завантажувати оновлення під час встановлення
+    - Встановити це програмне забезпечення третьої сторони
+- Після встановлення можливо знадобиться увімкнути VirtualBox для відображення Ubuntu на всьому робочому столі:
+  - Запустіть віртуальну машину Ubuntu та увійдіть у систему. Натисніть на меню **Devices->Insert Guest Additions CD image** на панелі інструментів VirtualBox.
+  - Натисніть **Run** і введіть пароль у вікнах, які з'являться в Ubuntu.
+  - Зачекайте, поки завершиться встановлення, а потім перезапустіть систему. Тепер систему можна відображати на всьому робочому столі.
+  - Якщо в Ubuntu з'явиться вікно, яке запитує про оновлення, відхиліть оновлення на цьому етапі.
+- Увімкніть контролер USB 3 в Virtual Box:
+  - Вимкнути віртуальну машину
+  - Перейдіть до налаштувань віртуальної машини у меню вибору USB і оберіть: "USB 3.0(xHCI)". Це можливо лише у випадку, якщо ви встановили пакет розширення для віртуальної машини Virtual Box.
+  - Запустіть віртуальну машину знову.
 
-## Installing ROS Indigo
+## Встановлення ROS Indigo
 
-- Follow instructions given at [ROS indigo installation guide](http://wiki.ros.org/indigo/Installation/Ubuntu):
-  - Install Desktop-Full version.
-  - Execute steps described in the sections "Initialize rosdep" and "Environment setup".
+- Слідуйте інструкціям, наведеним у [посібнику з встановлення ROS Indigo](http://wiki.ros.org/indigo/Installation/Ubuntu):
+  - Встановити версію Desktop-Full.
+  - Виконайте кроки, описані в розділах "Ініціалізація rosdep" та "Налаштування середовища".
 
 ## Встановлення драйвера камери
 
