@@ -261,32 +261,32 @@ make px4_sitl_default gazebo-classic_plane_cam__warehouse
 ```
 
 :::note
-There are _two underscores_ after the model (`plane_cam`) indicating that the default debugger is used (none). See [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#px4-make-build-targets).
+_Два підкреслювання_ присутні після моделі (`plane_cam`) вказують на те, що використовується налагоджувач за замовчуванням (none). Дивіться [Збірка коду > Цілі збірки для PX4 Make](../dev_setup/building_px4.md#px4-make-build-targets).
 :::
 
-You can also specify the full path to a world to load using the `PX4_SITL_WORLD` environment variable. This is useful if testing a new world that is not yet included with PX4.
+Також можна вказати повний шлях до світу який потрібно завантажити використавши змінну середовища `PX4_SITL_WORLD`. Це підходить при тестуванні нового світу, який ще не включений до PX4.
 
 :::tip
-If the loaded world does not align with the map, you may need to [set the world location](#set-world-location).
+Якщо завантажений світ не вирівняний з мапою, можливо знадобиться [встановити розташування світу](#set-world-location).
 :::
 
-## Set World Location
+## Встановлення розташування світу
 
-The vehicle gets spawned very close to the origin of the world model at some simulated GPS location.
+Рухомий засіб відтворюється дуже близько до початкового положення моделі світу у певному симульованому GPS розташуванні.
 
 :::note
-The vehicle is not spawned exactly at the Gazebo origin (0,0,0), but using a slight offset, which can highlight a number of common coding issues.
+Засіб відтворюється не точно біля початкового положення Gazebo (0,0,0), а використовуючи невеличке зміщення, що може висвітлити ряд загальних проблем коду.
 :::
 
-If using a world that recreates a real location (e.g. a particular airport) this can result in a very obvious mismatch between what is displayed in the simulated world, and what is shown on the ground station map. To overcome this problem you can set the location of the world origin to the GPS coordinates where it would be in "real life".
+При використанні світу, що відтворює реальне місце (наприклад певний аеропорт) це може призвести до доволі наявної невідповідності між тим що показується у світі, що симулюється та тим, що показується на мапі наземної станції. Для подолання цієї проблеми ви можете встановити місце розташування початкового положення світу до GPS координат, де воно буде в "реальному житті".
 
 :::note
-You can also set a [Custom Takeoff Location](#custom_takeoff_location) that does the same thing. However adding the location to the map is easier (and can still be over-ridden by setting a custom location if needed).
+Ви також можете встановити [користувацьке положення злету](#custom_takeoff_location), що робить те ж саме. Однак додавання розташування на мапу простіше (і воно все ще може бути змінене шляхом встановлення користувацького розташування при необхідності).
 :::
 
-The location of the world is defined in the **.world** file by specifying the location of the origin using the `spherical_coordinates` tag. The latitude, longitude, elevation must all be specified (for this to be a valid).
+Розташування світу визначається у файлі **.world** шляхом вказання розташування початкового положення з використанням тегу `spherical_coordinates`. Щоб це було коректним, обов'язково треба вказати широту, довготу та висоту над рівнем моря.
 
-An example can be found in the [sonoma_raceway.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/sonoma_raceway.world):
+Приклад можна знайти у [sonoma_raceway.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/sonoma_raceway.world):
 
 ```xml
     <spherical_coordinates>
@@ -297,13 +297,13 @@ An example can be found in the [sonoma_raceway.world](https://github.com/PX4/PX4
     </spherical_coordinates>
 ```
 
-You can test this by spawning a rover in the [Sonoma Raceway World](../sim_gazebo_classic/worlds.md#sonoma-raceway) using the following `make` command (note that spawning takes longer the first time as the model needs to be downloaded from the model database):
+Можна перевірити це відтворивши ровер у [світі траси перегонів Сономи](../sim_gazebo_classic/worlds.md#sonoma-raceway) використовуючи наступну команду `make` (зверніть увагу, що відтворення займає більше часу перший раз оскільки модель потрібно завантажити з бази даних моделей):
 
 ```sh
 make px4_sitl gazebo-classic_rover__sonoma_raceway
 ```
 
-The video below shows that the location of the environment is aligned with the world:
+У наведеному нижче відео видно, що розташування середовища збігається зі світом:
 
 @[youtube](https://youtu.be/-a2WWLni5do)
 
