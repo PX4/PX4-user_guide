@@ -82,7 +82,7 @@ To perform an offboard calibration:
 1. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot.
 1. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for _thermal calibration_ (bit 2) to log the raw sensor data required for calibration.
 1. Cold soak the board to the minimum temperature it will be required to operate in.
-1. Apply power and keeping the board still [^2], warm it slowly to the maximum required operating temperature. [^3]
+1. [^3]
 1. Remove power and extract the .ulog file.
 1. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script:
 
