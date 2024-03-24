@@ -4,64 +4,64 @@
 
 Апарат зберігає данні про положення, швидкість, прискорення, орієнтацію, значення сили тяги, відповідно заданим значенням, наданим деяким джерелом, зовнішнім по відношенню до польотного контролера, наприклад комп’ютером. Задані значення можна ввести за допомогою MAVLink (або MAVLink API таких як [MAVSDK](https://mavsdk.mavlink.io/)) або за допомогою [ROS 2](../ros/ros2.md).
 
-PX4 requires that the external controller provides a continuous 2Hz "proof of life" signal, by streaming any of the supported MAVLink setpoint messages or the ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) message. PX4 enables offboard control only after receiving the signal for more than a second, and will regain control if the signal stops.
+PX4 вимагає, щоб зовнішній контролер забезпечив постійний 2Hz "доказ життя" сигналу, через потокове передавання будь-яких підтримуваних повідомлень для передання значень MAVLink або повідомлення з ROS 2 [ OffboardControl](../msg_docs/OffboardControlMode.md). PX4 вмикає функції в оф-борді лише після отримання сигналу протягом більш ніж секунди, і відновлює керування якщо зупиняється сигнал.
 
-:::note
+Примітка
 
-- This mode requires position or pose/attitude information - e.g. GPS, optical flow, visual-inertial odometry, mocap, etc.
-- RC control is disabled except to change modes (you can also fly without any manual controller at all by setting the parameter [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) to 4: Stick input disabled).
-- The vehicle must be already be receiving a stream of MAVLink setpoint messages or ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) messages before arming in offboard mode or switching to offboard mode when flying.
-- The vehicle will exit offboard mode if MAVLink setpoint messages or `OffboardControlMode` are not received at a rate of > 2Hz.
-- Not all coordinate frames and field values allowed by MAVLink are supported for all setpoint messages and vehicles. Read the sections below _carefully_ to ensure only supported values are used.
+- Для цього режиму потрібна інформація про позицію або орієнтацію за допомогою вказівника, наприклад, від GPS, оптичного потоку, візуально-інерційної одометрії, MoCap та ін.
+- Радіоуправління вимкнено, окрім ситуації, коли треба змінити режими (ви також можете літати без ручного контролера взагалі, встановивши параметр [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) до 4: введення з джойстиків вимкнено).
+- Літальний апарат має вже отримувати потік повідомлень MAVLink або ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) повідомлення перед тим, як увімкнути  офборд режим або переключитися в офборд режим під час польоту.
+- Літальний апарат буде виходити з офборд режиму, якщо MAVLink повідомлення або `OffboardControlMode` не будуть отримані зі швидкістю > 2Hz.
+- Не всі значення координат та параметрів, дозволені MAVLink підтримуються для усіх повідомлень та транспортних засобів. _Уважно_ прочитайте розділ нижче, щоб переконатися, що використовуються тільки підтримувані значення.
 
 :::
 
-## Description
+## Опис
 
-Offboard mode is used for controlling vehicle movement and attitude, by setting position, velocity, acceleration, attitude, attitude rates or thrust/torque setpoints.
+Режим офборду використовується для керування транспортним засобом, встановленням положення, швидкості, прискорення, відносним положенням або індексом тяги/заданими значеннями крутного моменту.
 
-PX4 must receive a stream of MAVLink setpoint messages or the ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) at 2 Hz as proof that the external controller is healthy. The stream must be sent for at least a second before PX4 will arm in offboard mode, or switch to offboard mode when flying. If the rate falls below 2Hz while under external control PX4 will switch out of offboard mode after a timeout ([COM_OF_LOSS_T](#COM_OF_LOSS_T)), and attempt to land or perform some other failsafe action. The action depends on whether or not RC control is available, and is defined in the parameter [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
+PX4 повинен отримати потік встановлюваних повідомлень MAVLink або ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) на 2 Гц як доказ того, що зовнішній контролер у порядку. Потік повинен бути відправлений як мінімум за секунду, перш ніж PX4 буде задіяно в режимі офборду, або переключено на режим офборду при польоті. Якщо частота впаде нижче 2Hz під зовнішнім контролем PX4 буде перемикатися з офборд режиму після тайм-ауту ([COM_OF_LOSS_T](#COM_OF_LOSS_T)) і спробує приземлитися або виконати інші безвідмовні дії. Дія залежить від того, чи доступне радіоуправління, і визначається в параметрі [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
 
-When using MAVLink the setpoint messages convey both the signal to indicate that the external source is "alive", and the setpoint value itself. In order to hold position in this case the vehicle must receive a stream of setpoints for the current position.
+При використанні MAVLink повідомлення передають обидва сигнали, щоб вказати, що зовнішнє джерело є "живим" і значення має цінність. Для того, щоб утримувати позицію в даному випадку, апарат повинен отримати потік заданих точок для поточного положення.
 
-When using ROS 2 the proof that the external source is alive is provided by a stream of [OffboardControlMode](../msg_docs/OffboardControlMode.md) messages, while the actual setpoint is provided by publishing to one of the setpoint uORB topics, such as [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md). In order to hold position in this case the vehicle must receive a stream of `OffboardControlMode` but would only need the `TrajectorySetpoint` once.
+При використанні ROS 2 докази того, що зовнішнє джерело "живе" надає потік [OffboardControlMode](../msg_docs/OffboardControlMode.md) повідомлень, поки надається фактична точка публікації в одну з тем uORB, наприклад [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md). Для того, щоб утримувати позицію в цьому випадку, апарат повинен отримати потік `OffboardControlMode`, але потребуватиме тільки `TrajectorySetpoint`.
 
-Note that offboard mode only supports a very limited set of MAVLink commands and messages. Operations, like taking off, landing, return to launch, may be best handled using the appropriate modes. Operations like uploading, downloading missions can be performed in any mode.
+Зверніть увагу, що офборд режим підтримує дуже обмежений набір команд MAVLink і повідомлень. Операції, як-от зліт, посадка, повернення на місце запуску, можуть найкраще бути виконаними з використанням відповідних режимів. Операції такі як завантаження, місії можуть бути виконані в будь-якому режимі.
 
-## ROS 2 Messages
+## Повідомлення ROS 2
 
-The following ROS 2 messages and their particular fields and field values are allowed for the specified frames. In addition to providing heartbeat functionality, `OffboardControlMode` has two other main purposes:
+Наступні повідомлення ROS 2 та їх конкретні поля та значення полів допускаються для вказаних кадрів. Крім надання функціональності «heartbeat», `OffboardControlMode` має ще дві основні цілі:
 
-1. Controls the level of the [PX4 control architecture](../flight_stack/controller_diagrams.md) at which offboard setpoints must be injected, and disables the bypassed controllers.
-1. Determines which valid estimates (position or velocity) are required, and also which setpoint messages should be used.
+1. Контролює рівень [архітектури керування PX4](../flight_stack/controller_diagrams.md), на якому необхідно впроваджувати відповідні величини керування з віддаленої системи та вимикає обхідні контролери.
+1. Визначає, які допустимі оцінки (положення або швидкості) необхідні, а також які повідомлення відповідно до заданих значень мають бути використані.
 
-The `OffboardControlMode` message is defined as shown.
+`OffboardControlMode` визначається як показане.
 
 ```sh
-# Off-board control mode
+# Off-board контрольний режим
 
-uint64 timestamp        # time since system start (microseconds)
+uint64 мітка часу # час, скільки система запущена (мікросекунди)
 
-bool position
-bool velocity
-bool acceleration
-bool attitude
-bool body_rate
-bool thrust_and_torque
-bool direct_actuator
+bool положення
+bool швидкість
+bool прискорення
+bool орієнтація
+bool кутова швидкість тіла
+bool тяга та крутний момент
+bool прямий привід
 ```
 
-The fields are ordered in terms of priority such that `position` takes precedence over `velocity` and later fields, `velocity` takes precedence over `acceleration`, and so on. The first field that has a non-zero value (from top to bottom) defines what valid estimate is required in order to use offboard mode, and the setpoint message(s) that can be used. For example, if the `acceleration` field is the first non-zero value, then PX4 requires a valid `velocity estimate`, and the setpoint must be specified using the `TrajectorySetpoint` message.
+Поля впорядковані за пріоритетом так, що `положення` має перевагу над `швидкістю` і іншими полями, `швидкість` має перевагу над `прискоренням`, і так далі. Перше поле, яке має ненульове значення (зверху вниз), визначає, яка допустима оцінка необхідна для використання режиму безпілотного керування, а також повідомлення заданих значень, які можуть бути використані. Наприклад, якщо поле `прискорення` є першим полем з ненульовим значенням, то PX4 вимагає наявності `дійсної оцінки швидкості`, а задане значення повинно бути вказане за допомогою повідомлення `TrajectorySetpoint`.
 
-| desired control quantity | position field | velocity field | acceleration field | attitude field | body_rate field | thrust_and_torque field | direct_actuator field | required estimate | required message                                                                                                                |
-| ------------------------ | -------------- | -------------- | ------------------ | -------------- | --------------- | ------------------------- | --------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| position (NED)           | ✓              | -              | -                  | -              | -               | -                         | -                     | position          | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
-| velocity (NED)           | ✗              | ✓              | -                  | -              | -               | -                         | -                     | velocity          | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
-| acceleration (NED)       | ✗              | ✗              | ✓                  | -              | -               | -                         | -                     | velocity          | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
-| attitude (FRD)           | ✗              | ✗              | ✗                  | ✓              | -               | -                         | -                     | none              | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                               |
-| body_rate (FRD)          | ✗              | ✗              | ✗                  | ✗              | ✓               | -                         | -                     | none              | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                     |
-| thrust and torque (FRD)  | ✗              | ✗              | ✗                  | ✗              | ✗               | ✓                         | -                     | none              | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) and [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
-| direct motors and servos | ✗              | ✗              | ✗                  | ✗              | ✗               | ✗                         | ✓                     | none              | [ActuatorMotors](../msg_docs/ActuatorMotors.md) and [ActuatorServos](../msg_docs/ActuatorServos.md)                             |
+| бажана кількість контролю | поле положення | поле швидкості | поле прискорення | attitude field | поле кутової швидкості тіла | поле тяги та крутного момент | поле прямого приводу | необхідна оцінка | необхідне повідомлення                                                                                                          |
+| ------------------------- | -------------- | -------------- | ---------------- | -------------- | --------------------------- | ---------------------------- | -------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| положення (NED)           | ✓              | -              | -                | -              | -                           | -                            | -                    | положення        | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
+| швидкість (NED)           | ✗              | ✓              | -                | -              | -                           | -                            | -                    | velocity         | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
+| acceleration (NED)        | ✗              | ✗              | ✓                | -              | -                           | -                            | -                    | velocity         | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
+| attitude (FRD)            | ✗              | ✗              | ✗                | ✓              | -                           | -                            | -                    | none             | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                               |
+| body_rate (FRD)           | ✗              | ✗              | ✗                | ✗              | ✓                           | -                            | -                    | none             | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                     |
+| thrust and torque (FRD)   | ✗              | ✗              | ✗                | ✗              | ✗                           | ✓                            | -                    | none             | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) and [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
+| direct motors and servos  | ✗              | ✗              | ✗                | ✗              | ✗                           | ✗                            | ✓                    | none             | [ActuatorMotors](../msg_docs/ActuatorMotors.md) and [ActuatorServos](../msg_docs/ActuatorServos.md)                             |
 
 where &check; means that the bit is set, &cross; means that the bit is not set and `-` means that the bit is value is irrelevant.
 
