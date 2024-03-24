@@ -83,13 +83,13 @@ bool прямий привід
 
   - Підтримується наступна комбінація введення:
 
-    - комбінація введення підтримується: кватерніон `q_d` + задання тяги `thrust_body`. Non-`NaN` values of `yaw_sp_move_rate` are used as feedforward terms expressed in Earth frame and in \[rad/s\].
+    - комбінація введення підтримується: кватерніон `q_d` + задання тяги `thrust_body`. Не-`NaN` значення `yaw_sp_move_rate` використовуються як терміни прямого зв’язку, виражені в координатах Землі та в \[рад/с\].
 
-  - The quaternion represents the rotation between the drone body FRD (front, right, down) frame and the NED frame. The thrust is in the drone body FRD frame and expressed in normalized \[-1, 1\] values.
+  - Кватерніон представляє обертання між корпусом дрона у системі координат FRD (перед, праворуч, вниз) та системою координат NED. Тяга у корпусі дрона виражена у системі координат FRD та у нормалізованих значеннях.
 
 - [px4_msgs::msg::VehicleRatesSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleRatesSetpoint.msg)
 
-  - The following input combination is supported:
+  - Підтримується наступна комбінація введення:
 
     - `roll`, `pitch`, `yaw` and `thrust_body`.
 
