@@ -494,18 +494,18 @@ The index map is as follows:
 
 ### Помилки EKF
 
-The EKF contains internal error checking for badly conditioned state and covariance updates. Refer to the `filter_fault_flags` in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
+EKF містить внутрішню перевірку помилок для погано обумовлених оновлень стану та коваріації. Зверніться до `filter_fault_flags` in [Estimator](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
 
 ### Помилки спостереження
 
-There are two categories of observation faults:
+Існує дві категорії помилок спостереження:
 
-- Loss of data. An example of this is a range finder failing to provide a return.
-- The innovation, which is the difference between the state prediction and sensor observation is excessive. An example of this is excessive vibration causing a large vertical position error, resulting in the barometer height measurement being rejected.
+- Втрата даних. Прикладом цього є далекомір, який не забезпечує повернення.
+- Інновація, яка є різницею між прогнозом стану та спостереженням датчика, є надмірною. Прикладом цього є надмірна вібрація, що викликає велику помилку у вертикальному положенні, що призводить до відхилення вимірювання висоти барометра.
 
 Обидва ці фактори можуть призвести до відкидання спостережень настільки довго, що ЕКФ спробує скинути стани, використовуючи спостереження датчика. До всіх спостережень застосовуються статистичні перевірки на впевненість у інноваціях. Кількість стандартних відхилень для перевірки контролюється параметром `EKF2_*_GATE` для кожного типу спостереження.
 
-Test levels are available in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg) as follows:
+Рівні тестування доступні в [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg) наступним чином:
 
 - `mag_test_ratio`: ratio of the largest magnetometer innovation component to the innovation test limit
 - `vel_test_ratio`: ratio of the largest velocity innovation component to the innovation test limit
@@ -514,11 +514,11 @@ Test levels are available in [EstimatorStatus](https://github.com/PX4/PX4-Autopi
 - `tas_test_ratio`: ratio of the true airspeed innovation to the innovation test limit
 - `hagl_test_ratio`: ratio of the height above ground innovation to the innovation test limit
 
-For a binary pass/fail summary for each sensor, refer to innovation_check_flags in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
+Для отримання бінарного підсумку "пройшов/не пройшов" для кожного датчика дивіться прапорці innovation_check_flags у [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
 
 ### Перевірка якості GPS
 
-The EKF applies a number of GPS quality checks before commencing GPS aiding. These checks are controlled by the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) and `EKF2_REQ_*` parameters. The pass/fail status for these checks is logged in the [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).gps_check_fail_flags message. This integer will be zero when all required GPS checks have passed. If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition `gps_check_fail_flags` in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
+EKF проводить кілька перевірок якості GPS перед початком допомоги GPS. These checks are controlled by the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) and `EKF2_REQ_*` parameters. Статус успішності/невдачі цих перевірок реєструється у повідомленні [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).gps_check_fail_flags. This integer will be zero when all required GPS checks have passed. Якщо EKF не розпочинає вирівнювання GPS, перевірте значення цілочисельної величини порівняно з визначенням бітової маски `gps_check_fail_flags` у [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
 
 ### Числові помилки EKF
 
@@ -538,10 +538,10 @@ After re-tuning the filter, particularly re-tuning that involve reducing the noi
 
 ## Що робити, якщо оцінка висоти розходиться?
 
-Найбільш поширену причину відхилення висоти ЕКФ від GPS та вимірів альтиметра під час польоту становить обрізання і/або аліасинг вимірів ІМУ, спричинене вібрацією. If this is occurring, then the following signs should be evident in the data
+Найбільш поширену причину відхилення висоти ЕКФ від GPS та вимірів альтиметра під час польоту становить обрізання і/або аліасинг вимірів ІМУ, спричинене вібрацією. Якщо це відбувається, то на даних мають бути видні наступні ознаки:
 
-- [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg).vel_pos_innov\[2\] and [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg).vel_pos_innov\[5\] will both have the same sign.
-- [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).hgt_test_ratio will be greater than 1.0
+- [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg).vel_pos_innov\[2\] та [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg).vel_pos_innov\[5\] матимуть однаковий знак.
+- [Статус оцінювання](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).hgt_test_ratio буде більшим за 1.0
 
 Рекомендований перший крок - переконатися, що автопілот відізолований від конструкції корпусу за допомогою ефективної системи кріплення з ізоляцією. Iзоляційний кріпиль має 6 ступенів свободи, і, отже, 6 резонансних частот. Загалом, шість резонансних частот автопілота на кріпленні з ізоляцією повинні бути вище 25 Гц, щоб уникнути взаємодії з динамікою автопілота та нижче частоти обертання моторів.
 
@@ -549,7 +549,7 @@ After re-tuning the filter, particularly re-tuning that involve reducing the noi
 
 EKF можна зробити більш стійким до розходження висоти, викликаного вібрацією, змінивши наступні параметри:
 
-- Double the value of the innovation gate for the primary height sensor. If using barometric height this is [EKF2_BARO_GATE](../advanced_config/parameter_reference.md#EKF2_BARO_GATE).
+- Подвійне значення інноваційних воріт для основного датчика висоти. If using barometric height this is [EKF2_BARO_GATE](../advanced_config/parameter_reference.md#EKF2_BARO_GATE).
 - Спочатку збільште значення [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) до 0,5. If divergence is still occurring, increase in further increments of 0.1 but do not go above 1.0
 
 Зверніть увагу, що ці зміни зроблять EKF більш чутливим до помилок у вертикальній швидкості GPS та барометричному тиску.
