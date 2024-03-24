@@ -64,7 +64,7 @@ The pin mapping to connect the J-Link Edu Mini to [Pixhawk Debug Mini](swd_debug
 
 Note that none of the JLink debug probes have a built in serial connection, so you need to connect the console separately.
 
-<!-- Image of SWD cable and connector to debug port? -->
+<!-- Image of SWD cable and connector to debug port - proposed? -->
 
 [jlink]: https://www.segger.com/products/debug-probes/j-link/
 [drivers]: https://www.segger.com/downloads/jlink/
