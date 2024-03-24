@@ -53,38 +53,37 @@ bool прямий привід
 
 Поля впорядковані за пріоритетом так, що `положення` має перевагу над `швидкістю` і іншими полями, `швидкість` має перевагу над `прискоренням`, і так далі. Перше поле, яке має ненульове значення (зверху вниз), визначає, яка допустима оцінка необхідна для використання режиму безпілотного керування, а також повідомлення заданих значень, які можуть бути використані. Наприклад, якщо поле `прискорення` є першим полем з ненульовим значенням, то PX4 вимагає наявності `дійсної оцінки швидкості`, а задане значення повинно бути вказане за допомогою повідомлення `TrajectorySetpoint`.
 
-| бажана кількість контролю | поле положення | поле швидкості | поле прискорення | attitude field | поле кутової швидкості тіла | поле тяги та крутного момент | поле прямого приводу | необхідна оцінка | необхідне повідомлення                                                                                                          |
-| ------------------------- | -------------- | -------------- | ---------------- | -------------- | --------------------------- | ---------------------------- | -------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| положення (NED)           | ✓              | -              | -                | -              | -                           | -                            | -                    | положення        | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
-| швидкість (NED)           | ✗              | ✓              | -                | -              | -                           | -                            | -                    | velocity         | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
-| acceleration (NED)        | ✗              | ✗              | ✓                | -              | -                           | -                            | -                    | velocity         | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
-| attitude (FRD)            | ✗              | ✗              | ✗                | ✓              | -                           | -                            | -                    | none             | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                               |
-| body_rate (FRD)           | ✗              | ✗              | ✗                | ✗              | ✓                           | -                            | -                    | none             | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                     |
-| thrust and torque (FRD)   | ✗              | ✗              | ✗                | ✗              | ✗                           | ✓                            | -                    | none             | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) and [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
-| direct motors and servos  | ✗              | ✗              | ✗                | ✗              | ✗                           | ✗                            | ✓                    | none             | [ActuatorMotors](../msg_docs/ActuatorMotors.md) and [ActuatorServos](../msg_docs/ActuatorServos.md)                             |
+| бажана кількість контролю    | поле положення | поле швидкості | поле прискорення | attitude field | поле кутової швидкості тіла | поле тяги та крутного момент | поле прямого приводу | необхідна оцінка | необхідне повідомлення                                                                                                          |
+| ---------------------------- | -------------- | -------------- | ---------------- | -------------- | --------------------------- | ---------------------------- | -------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| положення (NED)              | ✓              | -              | -                | -              | -                           | -                            | -                    | положення        | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
+| швидкість (NED)              | ✗              | ✓              | -                | -              | -                           | -                            | -                    | швидкість        | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
+| прискорення (NED)            | ✗              | ✗              | ✓                | -              | -                           | -                            | -                    | швидкість        | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
+| орієнтація (FRD)             | ✗              | ✗              | ✗                | ✓              | -                           | -                            | -                    | нічого           | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                               |
+| кутова швидкість (FRD)       | ✗              | ✗              | ✗                | ✗              | ✓                           | -                            | -                    | нічого           | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                     |
+| тяга та крутний момент (FRD) | ✗              | ✗              | ✗                | ✗              | ✗                           | ✓                            | -                    | нічого           | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) and [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
+| двигуни та серво             | ✗              | ✗              | ✗                | ✗              | ✗                           | ✗                            | ✓                    | нічого           | [ActuatorMotors](../msg_docs/ActuatorMotors.md) and [ActuatorServos](../msg_docs/ActuatorServos.md)                             |
 
-where &check; means that the bit is set, &cross; means that the bit is not set and `-` means that the bit is value is irrelevant.
+де &check; означає, що біт встановлено, &cross; означає, що біт не встановлено, а `-` означає, що значення біта неважливе.
 
-:::note
-Before using offboard mode with ROS 2, please spend a few minutes understanding the different [frame conventions](../ros/ros2_comm.md#ros-2-px4-frame-conventions) that PX4 and ROS 2 use.
+примітка Перед використанням режиму безпілотного керування з ROS 2, будь ласка, відведіть кілька хвилин на розуміння різних [конвенцій кадру](../ros/ros2_comm.md#ros-2-px4-frame-conventions), які використовують PX4 і ROS 2.
 :::
 
-### Copter
+### Коптер
 
 - [px4_msgs::msg::TrajectorySetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectorySetpoint.msg)
 
-  - The following input combinations are supported:
-    - Position setpoint (`position` different from `NaN`). Non-`NaN` values of velocity and acceleration are used as feedforward terms for the inner loop controllers.
-    - Velocity setpoint (`velocity` different from `NaN` and `position` set to `NaN`). Non-`NaN` values acceleration are used as feedforward terms for the inner loop controllers.
-    - Acceleration setpoint (`acceleration` different from `NaN` and `position` and `velocity` set to `NaN`)
+  - Підтримуються наступні вхідні комбінації:
+    - Задання точки положення (`положення` відмінне від `NaN`). Не - `NaN` значення швидкості та прискорення використовуються як вхідні дані для керування зворотним зв'язком внутрішнього контуру.
+    - Задання точки швидкості (`швидкість` відмінна від `NaN`, а `положення` встановлено на `NaN`). Не - `NaN` значення швидкості та прискорення використовуються як вхідні дані для керування зворотним зв'язком внутрішнього циклу.
+    - Задання точки прискорення (`прискорення` відмінне від `NaN`, а `положення` та `швидкість` встановлені на `NaN`)
 
-  - All values are interpreted in NED (Nord, East, Down) coordinate system and the units are \[m\], \[m/s\] and \[m/s^2\] for position, velocity and acceleration, respectively.
+  - Всі значення інтерпретуються в NED (Nord, East, Down) координатну систему і одиниці вимірювання, є \[m/s\] і \[m/s^2\] для позиції, швидкості і прискорення, відповідно.
 
 - [px4_msgs::msg::VehicleAttitudeSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitudeSetpoint.msg)
 
-  - The following input combination is supported:
+  - Підтримується наступна комбінація введення:
 
-    - quaternion `q_d` + thrust setpoint `thrust_body`. Non-`NaN` values of `yaw_sp_move_rate` are used as feedforward terms expressed in Earth frame and in \[rad/s\].
+    - комбінація введення підтримується: кватерніон `q_d` + задання тяги `thrust_body`. Non-`NaN` values of `yaw_sp_move_rate` are used as feedforward terms expressed in Earth frame and in \[rad/s\].
 
   - The quaternion represents the rotation between the drone body FRD (front, right, down) frame and the NED frame. The thrust is in the drone body FRD frame and expressed in normalized \[-1, 1\] values.
 
