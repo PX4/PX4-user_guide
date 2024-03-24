@@ -9,7 +9,7 @@ Since the Black Magic Probe is a generic debug probe, you will need an adapter t
 
 The [Dronecode Probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) is a specialization of the Black Magic Probe for debugging PX4 autopilots.
 
-The probe's USB interface exposes two separate virtual serial port interfaces: one for connecting to the [System Console](system_console) (UART) and the other for an embedded GDB server (SWD interface).
+The probe's USB interface exposes two separate virtual serial port interfaces: one for connecting to the [System Console](system_console.md) (UART) and the other for an embedded GDB server (SWD interface).
 
 The probe provides a DCD-M connector cable for attaching to the [Pixhawk Debug Mini](swd_debug.md#pixhawk-debug-mini).
 
