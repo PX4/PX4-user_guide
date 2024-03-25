@@ -218,19 +218,19 @@ bool прямий привід
 
 - [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
 
-  - The following input combinations are supported (in `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
-    - Position setpoint (only `lat_int`, `lon_int`, `alt`)
-  - Specify the _type_ of the setpoint in `type_mask` (not part of the MAVLink standard). The values are:
+  - Підтримуються такі комбінації вводу (учерез `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+    - Данні про положення (тільки `x`, `y`, `z`)
+  - Вкажіть _тип_ вказаної точки в `type_mask` (не частина стандарту MAVlink). Значення:
 
-    - Following bits not set then normal behaviour.
-    - 12288: Loiter setpoint (vehicle stops when close enough to setpoint).
+    - Якщо наступні біти не встановлені, то виконується звичайна поведінка.
+    - 12288: задане значення Loiter (пристрій зупиняється, коли вже достатньо близько до заданої точки).
 
-  - PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
+  - PX4 підтримує такі значення поля `coordinate_frame` (тільки): [MAV_FRAME_LOCAL_NED і MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
 
 - [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
-  - The following input combinations are supported:
-    - Attitude/orientation (`SET_ATTITUDE_TARGET.q`) with thrust setpoint (`SET_ATTITUDE_TARGET.thrust`). :::note
-Only the yaw setting is actually used/extracted.
+  - Підтримуються наступні вхідні комбінації:
+    - Орієнтація/положення (`SET_ATTITUDE_TARGET.q`) разом зі значенням тяги (`SET_ATTITUDE_TARGET.thrust`). :::note
+Фактично використовується/виділяється тільки параметр рискання.
 :::
 
 ## Offboard Parameters
