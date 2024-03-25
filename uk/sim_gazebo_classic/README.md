@@ -307,36 +307,36 @@ make px4_sitl gazebo-classic_rover__sonoma_raceway
 
 @[youtube](https://youtu.be/-a2WWLni5do)
 
-## Starting Gazebo and PX4 Separately
+## Запуск Gazebo та PX4 окремо
 
-For extended development sessions it might be more convenient to start Gazebo Classic and PX4 separately or even from within an IDE.
+Для розширених сеансів розробки можливо більш зручно запускати Gazebo Classic та PX4 окремо або навіть з IDE.
 
-In addition to the existing cmake targets that run `sitl_run.sh` with parameters for px4 to load the correct model it creates a launcher targets named `px4_<mode>` that is a thin wrapper around original sitl px4 app. This thin wrapper simply embeds app arguments like current working directories and the path to the model file.
+На додаток до наявних цілей збірки cmake, що виконують `sitl_run.sh` з параметрами для px4 для завантаження відповідної моделі, створюється ціль для запуску `px4_<mode>` яка є тонкою обгорткою для вихідного застосунку sitl px4. Ця тонка обгортка просто містить аргументи застосунку типу поточної робочої директорії та шляху до файлу моделі.
 
-To start Gazebo Classic and PX4 separately:
+Щоб запустити Gazebo Classic та PX4 окремо:
 
-- Run gazebo classic (or any other sim) server and client viewers via the terminal specifying an `_ide` variant:
+- Запустіть сервер gazebo classic (або іншого симулятора) та клієнтські переглядачі через термінал, вказавши варіант `_ide`:
 
   ```sh
   make px4_sitl gazebo-classic___ide
   ```
 
-  or
+  або
 
   ```sh
   make px4_sitl gazebo-classic_iris_ide
   ```
 
-- In your IDE select `px4_<mode>` target you want to debug (e.g. `px4_iris`)
-- Start the debug session directly from IDE
+- У IDE оберіть ціль `px4_<mode>` яку ви хочете налагодити (наприклад `px4_iris`)
+- Запустіть сеанс налагодження безпосередньо з IDE
 
-This approach significantly reduces the debug cycle time because simulator is always running in background and you only re-run the px4 process which is very light.
+Цей підхід суттєво зменшує час циклу налагодження, оскільки симулятор завжди працює у фоновому режимі та ви перезавантажуєте тільки процес px4, який дуже легкий.
 
-## Simulated Survey Camera
+## Симуляція камери спостереження
 
-The _Gazebo Classic_ survey camera simulates a [MAVLink camera](https://mavlink.io/en/services/camera.html) that captures geotagged JPEG images and sends camera capture information to a connected ground station. The camera also supports video streaming. It can be used to test camera capture, in particular within survey missions.
+Камера спостереження _Gazebo Classic_ моделює [камеру MAVLink](https://mavlink.io/en/services/camera.html) яка захоплює JPEG зображення з геотегами та передає інформацію захоплення з камери на під'єднану наземну станцію. Камера також підтримує відеотрансляцію. Вона може бути використана для перевірки захоплення камери, зокрема в політних завданнях спостереження.
 
-The camera emits the [CAMERA_IMAGE_CAPTURED](https://mavlink.io/en/messages/common.html#CAMERA_IMAGE_CAPTURED) message every time an image is captured. The captured images are saved to: **PX4-Autopilot/build/px4*sitle_default/tmp/frames/DSC_n*.jpg** (where _n_ starts as 00000 and is iterated by one on each capture).
+Камера генерує повідомлення [CAMERA_IMAGE_CAPTURED](https://mavlink.io/en/messages/common.html#CAMERA_IMAGE_CAPTURED) щоразу, коли захоплюється зображення. The captured images are saved to: **PX4-Autopilot/build/px4*sitle_default/tmp/frames/DSC_n*.jpg** (where _n_ starts as 00000 and is iterated by one on each capture).
 
 To simulate a plane with this camera:
 
