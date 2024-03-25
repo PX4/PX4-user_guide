@@ -1,4 +1,4 @@
-# ROS with MAVROS Installation Guide
+# Посібник із встановлення ROS з MAVROS
 
 [MAVROS](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status) is a ROS 1 package that enables MAVLink extendable communication between computers running ROS 1 for any MAVLink enabled autopilot, ground station, or peripheral. *MAVROS* is the "official" supported bridge between ROS 1 and the MAVLink protocol.
 
@@ -27,13 +27,14 @@ The ROS repository has binary packages for Ubuntu x86, amd64 (x86\_64) and armhf
 Use `apt-get` for installation, where `${ROS_DISTRO}` below should resolve to `kinetic` or `noetic`, depending on your version of ROS:
 
 ```
-
+sudo apt-get install ros-${ROS_DISTRO}-mavros ros-${ROS_DISTRO}-mavros-extras ros-${ROS_DISTRO}-mavros-msgs
 ```
 
 Then install [GeographicLib](https://geographiclib.sourceforge.io/) datasets by running the `install_geographiclib_datasets.sh` script:
 
 ```
-   
+wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/install_geographiclib_datasets.sh
+sudo bash ./install_geographiclib_datasets.sh   
 ```
 
 ### Source Installation
@@ -41,13 +42,16 @@ Then install [GeographicLib](https://geographiclib.sourceforge.io/) datasets by 
 This installation assumes you have a catkin workspace located at `~/catkin_ws` If you don't create one with:
 
 ```sh
-
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws
+catkin init
+wstool init src
 ```
 
 You will be using the ROS Python tools: *wstool* (for retrieving sources), *rosinstall*, and *catkin_tools* (building) for this installation. While they may have been installed during your installation of ROS you can also install them with:
 
 ```sh
-
+sudo apt-get install python-catkin-tools python-rosinstall-generator -y
 ```
 
 :::tip
@@ -56,7 +60,7 @@ While the package can be built using **catkin_make** the preferred method is usi
 
 If this is your first time using wstool you will need to initialize your source space with:
 ```sh
-
+$ wstool init ~/catkin_ws/src
 ```
 
 Now you are ready to do the build:
@@ -69,11 +73,11 @@ Now you are ready to do the build:
 1. Install MAVROS from source using either released or latest version:
    * Released/stable
      ```sh
-     
+     rosinstall_generator --upstream mavros | tee -a /tmp/mavros.rosinstall
      ```
    * Latest source
      ```sh
-     
+     rosinstall_generator --upstream-development mavros | tee -a /tmp/mavros.rosinstall
      ```
 
      ```sh
@@ -85,24 +89,26 @@ Now you are ready to do the build:
 1. Create workspace & deps
 
    ```sh
-   
+   wstool merge -t src /tmp/mavros.rosinstall
+   wstool update -t src -j4
+   rosdep install --from-paths src --ignore-src -y
    ```
 
 1. Install [GeographicLib](https://geographiclib.sourceforge.io/) datasets:
    ```sh
-   
+   ./src/mavros/mavros/scripts/install_geographiclib_datasets.sh
    ```
 
 1. Build source
    ```sh
-   
+   catkin build
    ```
 
-1. Make sure that you use setup.bash or setup.zsh from workspace.
+1. Переконайтеся, що ви використовуєте setup.bash або setup.zsh з робочого простору.
 
    ```sh
    #Needed or rosrun can't find nodes from this workspace.
-   
+   source devel/setup.bash
    ```
 
 In the case of error, there are addition installation and troubleshooting notes in the [mavros repo](https://github.com/mavlink/mavros/tree/master/mavros#installation).
