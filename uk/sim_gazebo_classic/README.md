@@ -336,63 +336,63 @@ make px4_sitl gazebo-classic_rover__sonoma_raceway
 
 Камера спостереження _Gazebo Classic_ моделює [камеру MAVLink](https://mavlink.io/en/services/camera.html) яка захоплює JPEG зображення з геотегами та передає інформацію захоплення з камери на під'єднану наземну станцію. Камера також підтримує відеотрансляцію. Вона може бути використана для перевірки захоплення камери, зокрема в політних завданнях спостереження.
 
-Камера генерує повідомлення [CAMERA_IMAGE_CAPTURED](https://mavlink.io/en/messages/common.html#CAMERA_IMAGE_CAPTURED) щоразу, коли захоплюється зображення. The captured images are saved to: **PX4-Autopilot/build/px4*sitle_default/tmp/frames/DSC_n*.jpg** (where _n_ starts as 00000 and is iterated by one on each capture).
+Камера генерує повідомлення [CAMERA_IMAGE_CAPTURED](https://mavlink.io/en/messages/common.html#CAMERA_IMAGE_CAPTURED) щоразу, коли захоплюється зображення. Захоплені зображення зберігаються у **PX4-Autopilot/build/px4*sitle_default/tmp/frames/DSC_n*.jpg** (де _n_ починається з 00000 та збільшується на один кожне захоплення).
 
-To simulate a plane with this camera:
+Для симуляції літака з цією камерою:
 
 ```sh
 make px4_sitl_default gazebo-classic_plane_cam
 ```
 
 :::note
-The camera also supports/responds to the following MAVLink commands: [MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS), [MAV_CMD_REQUEST_STORAGE_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_STORAGE_INFORMATION), [MAV_CMD_REQUEST_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_SETTINGS), [MAV_CMD_REQUEST_CAMERA_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_INFORMATION), [MAV_CMD_RESET_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_RESET_CAMERA_SETTINGS), [MAV_CMD_STORAGE_FORMAT](https://mavlink.io/en/messages/common.html#MAV_CMD_STORAGE_FORMAT), [MAV_CMD_SET_CAMERA_ZOOM](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_ZOOM), [MAV_CMD_IMAGE_START_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_START_CAPTURE), [MAV_CMD_IMAGE_STOP_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_STOP_CAPTURE), [MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION), [MAV_CMD_REQUEST_VIDEO_STREAM_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_STATUS), [MAV_CMD_SET_CAMERA_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_MODE).
+Камерта також підтримує/відповідає на наступні команди MAVLink: [MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS), [MAV_CMD_REQUEST_STORAGE_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_STORAGE_INFORMATION), [MAV_CMD_REQUEST_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_SETTINGS), [MAV_CMD_REQUEST_CAMERA_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_INFORMATION), [MAV_CMD_RESET_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_RESET_CAMERA_SETTINGS), [MAV_CMD_STORAGE_FORMAT](https://mavlink.io/en/messages/common.html#MAV_CMD_STORAGE_FORMAT), [MAV_CMD_SET_CAMERA_ZOOM](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_ZOOM), [MAV_CMD_IMAGE_START_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_START_CAPTURE), [MAV_CMD_IMAGE_STOP_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_STOP_CAPTURE), [MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION), [MAV_CMD_REQUEST_VIDEO_STREAM_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_STATUS), [MAV_CMD_SET_CAMERA_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_MODE).
 :::
 
 :::note
-The simulated camera is implemented in [PX4/PX4-SITL_gazebo-classic/main/src/gazebo_camera_manager_plugin.cpp](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/src/gazebo_camera_manager_plugin.cpp).
+Симуляція камери реалізована у [PX4/PX4-SITL_gazebo-classic/main/src/gazebo_camera_manager_plugin.cpp](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/src/gazebo_camera_manager_plugin.cpp).
 :::
 
-## Simulated Depth Camera
+## Симуляція камери глибини
 
-The _Gazebo Classic_ [depth camera model](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/depth_camera/depth_camera.sdf.jinja) simulates an Intel® RealSense™ D455 stereo depth camera using the [Openni Kinect plugin](https://classic.gazebosim.org/tutorials?tut=ros_gzplugins#OpenniKinect).
+_Модель камери глибини_ [Gazebo Classic](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/depth_camera/depth_camera.sdf.jinja) симулює стереокамеру глибини Intel® RealSense™ D455 використовуючи [плагін Openni Kinect](https://classic.gazebosim.org/tutorials?tut=ros_gzplugins#OpenniKinect).
 
-This publishes depth images and camera information on the `/camera/depth/image_raw` and `/camera/depth/camera_info` ROS topics respectively.
+Вона публікує зображення глибини та інформацію з камери у рубрики ROS `/camera/depth/image_raw` та `/camera/depth/camera_info` відповідно.
 
-To use these images, you will need to install ROS or ROS 2. Note the warning at the top of this page about how to "avoid installation conflicts" when installing ROS and Gazebo.
+Щоб використовувати ці зображення, потрібно встановити ROS або ROS 2. Зверніть увагу на попередження зверху цієї сторінки про те, як "уникнути конфліктів встановлення" під час встановлення ROS і Gazebo.
 
-You can simulate a quadrotor with a forward-facing depth camera:
+Можна симулювати квадрокоптер з камерою глибини що дивиться вперед:
 
 ```sh
 make px4_sitl gazebo-classic_iris_depth_camera
 ```
 
-or a quadrotor with a downward-facing depth camera:
+або квадрокоптер з камерою глибини, що дивиться вниз:
 
 ```sh
 make px4_sitl gazebo-classic_iris_downward_depth_camera
 ```
 
-## Simulated Parachute/Flight Termination
+## Симуляція парашутування при припиненні польоту
 
-_Gazebo Classic_ can be used to simulate deploying a [parachute](../peripherals/parachute.md) during [Flight Termination](../advanced_config/flight_termination.md) (flight termination is triggered by the PWM command that is simulated in _Gazebo Classic_).
+_Gazebo Classic_ можна використовувати для симуляції розгортання [парашуту](../peripherals/parachute.md) під час [Припинення польоту](../advanced_config/flight_termination.md) (припинення польоту викликається командою ШІМ що симулюється в _Gazebo Classic_).
 
-The `if750a` target has a parachute attached to the vehicle. To simulate the vehicle, run the following command:
+Ціль збірки `if750a` має парашут прикріплений до рухомого засобу. Для симуляції засобу виконайте наступну команду:
 
 ```sh
 make px4_sitl gazebo-classic_if750a
 ```
 
-To put the vehicle into flight termination state, you can force it to fail a [safety check](../config/safety.md) that has flight termination set as the failsafe action. For example, you could do this by forcing a [Geofence violation](../config/safety.md#geofence-failsafe).
+Для переведення рухомого засобу у стан припинення польоту, ви можете примусити його провалити [перевірку безпеки](../config/safety.md) яка має налаштування припинення польоту як дію для запобігання відмови. Наприклад ви можете зробити це примусивши [Порушити геозону](../config/safety.md#geofence-failsafe).
 
-For more information see:
+Для додаткової інформації дивіться:
 
-- [Flight Termination](../advanced_config/flight_termination.md)
-- [Parachute](../peripherals/parachute.md)
-- [Safety Configuration (Failsafes)](../config/safety.md)
+- [Припинення польоту](../advanced_config/flight_termination.md)
+- [Парашут](../peripherals/parachute.md)
+- [Конфігурація безпеки (запобіжники)](../config/safety.md)
 
-## Video Streaming
+## Трансляція відео
 
-PX4 SITL for Gazebo Classic supports UDP video streaming from a camera sensor attached to a simulated vehicle model. When streaming is enabled, you can connect to this stream from _QGroundControl_ (on UDP port 5600) and view video of the Gazebo Classic environment from the simulated vehicle - just as you would from a real camera. The video is streamed using a _gstreamer_ pipeline and can be enabled/disabled using a button in the Gazebo Classic UI.
+PX4 SITL для Gazebo Classic підтримує трансляцію відео по UDP з датчика камери, приєднаної до симуляції моделі рухомого засобу. When streaming is enabled, you can connect to this stream from _QGroundControl_ (on UDP port 5600) and view video of the Gazebo Classic environment from the simulated vehicle - just as you would from a real camera. The video is streamed using a _gstreamer_ pipeline and can be enabled/disabled using a button in the Gazebo Classic UI.
 
 The simulated camera sensor is supported/enabled on the following frames:
 
