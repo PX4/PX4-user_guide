@@ -10,7 +10,7 @@ Gazebo Classic - це потужне середовище 3D симуляції 
 
 @[youtube](https://www.youtube.com/watch?v=qfFF9-0k4KA&vq=hd720)
 
-[![Mermaid Graph: Gazebo plugin](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
+[![Діаграма: плагін Gazebo](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 
 
 <!-- original graph info
@@ -123,7 +123,7 @@ INFO  [ecl/EKF] 5188000: commencing GPS fusion
 Натискання правою кнопкою миші на модель квадрокоптера дозволяє увімкнути режим слідування у контекстному меню, що зручно для того щоб тримати його у полі зору.
 :::
 
-![Gazebo Classic UI](../../assets/simulation/gazebo_classic/gazebo_follow.jpg)
+![Інтерфейс Gazebo Classic](../../assets/simulation/gazebo_classic/gazebo_follow.jpg)
 
 Ви можете підняти його у повітря надрукувавши:
 
@@ -392,77 +392,77 @@ make px4_sitl gazebo-classic_if750a
 
 ## Трансляція відео
 
-PX4 SITL для Gazebo Classic підтримує трансляцію відео по UDP з датчика камери, приєднаної до симуляції моделі рухомого засобу. When streaming is enabled, you can connect to this stream from _QGroundControl_ (on UDP port 5600) and view video of the Gazebo Classic environment from the simulated vehicle - just as you would from a real camera. The video is streamed using a _gstreamer_ pipeline and can be enabled/disabled using a button in the Gazebo Classic UI.
+PX4 SITL для Gazebo Classic підтримує трансляцію відео по UDP з датчика камери, приєднаної до симуляції моделі рухомого засобу. Коли трансляцію увімкнено, можна під'єднатися до цього потоку з _QGroundControl_ (на UDP порту 5600) та переглянути відео середовища Gazebo Classic з засобу, що симулюється так само як з реальної камери. Відео транслюється за допомогою конвеєра _gstreamer_ та може бути увімкнене/вимкнене за допомогою кнопки в інтерфейсі Gazebo Classic.
 
-The simulated camera sensor is supported/enabled on the following frames:
+Симуляція датчику камери підтримується/увімкненно на наступних планерах:
 
 - [Typhoon H480](#typhoon_h480)
 
-### Prerequisites
+### Системні вимоги
 
-_Gstreamer 1.0_ is required for video streaming. The required dependencies should already have been [installed when you set up Gazebo Classic](#installation) (they are included in the standard PX4 installation scripts/instructions for macOS and Ubuntu Linux).
+Для відеотрансляції потрібний _Gstreamer 1.0_. Потрібні залежності вже повинні бути [встановленні при налаштуванні Gazebo Classic](#installation) (вони включені в стандартні скрипти/інструкції установки PX4 для macOS та Ubuntu Linux).
 
 :::note
-FYI only, the dependencies include: `gstreamer1.0-plugins-base`, `gstreamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
+Виключно для інформації, залежності включають: `gstreamer1.0-plugins-base`, `gstreamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
 :::
 
-### Start/Stop Video Streaming
+### Запустити/Зупинити відеотрансляцію
 
-Video streaming is automatically started when supported by the target vehicle. For example, to start streaming video on the Typhoon H480:
+Трансляція відео автоматично запускається, якщо підтримується цільовим засобом. Наприклад, щоб розпочати трансляцію відео на Typhoon H480:
 
 ```sh
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
-Streaming can be paused/restarted using the Gazebo UI _Video ON/OFF_ button..
+Трансляція може бути припинена/перезапущена за допомогою кнопки інтерфейсу Gazebo_Video ON/OFF_.
 
-![Video ON/OFF button](../../assets/simulation/gazebo_classic/sitl_video_stream.png)
+![Кнопка Video ON/OFF](../../assets/simulation/gazebo_classic/sitl_video_stream.png)
 
-### How to View Gazebo Video
+### Як переглянути відео Gazebo
 
-The easiest way to view the SITL/Gazebo Classic camera video stream is in _QGroundControl_. Simply open **Application Settings > General** and set **Video Source** to _UDP h.264 Video Stream_ and **UDP Port** to _5600_:
+Найпростіший спосіб переглянути відеопотік з камери SITL/Gazebo Classic - в _QGroundControl_. Просто відкрийте **Налаштування застосунку > Загальне** та встановіть **Джерело відео** у _UDP h.264 відеопотік_ та **UDP порт** у _5600_:
 
-![QGC Video Streaming Settings for Gazebo](../../assets/simulation/gazebo_classic/qgc_gazebo_video_stream_udp.png)
+![Налаштування відеотрансляції QGC для Gazebo](../../assets/simulation/gazebo_classic/qgc_gazebo_video_stream_udp.png)
 
-The video from Gazebo Classic should then display in _QGroundControl_ just as it would from a real camera.
+Відео з Gazebo Classic має показуватися в _QGroundControl_ так само як зі справжньої камери.
 
-![QGC Video Streaming Gazebo Example](../../assets/simulation/gazebo_classic/qgc_gazebo_video_stream_typhoon.jpg)
+![Приклад відеотрансляції Gazebo у QGC](../../assets/simulation/gazebo_classic/qgc_gazebo_video_stream_typhoon.jpg)
 
 :::note
-The Typhoon world is not very interesting.
+Світ моделі Typhoon не дуже цікавий.
 :::
 
-It is also possible to view the video using the _Gstreamer Pipeline_. Simply enter the following terminal command:
+Також можна переглянути відео, використовуючи _Конвеєр Gstreamer_. Просто введіть наступну команду терміналу:
 
 ```sh
 gst-launch-1.0  -v udpsrc port=5600 caps='application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264' \
 ! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink fps-update-interval=1000 sync=false
 ```
 
-### Verbose Logging
+### Ведення докладного журналу
 
-SITL fails silently when there is something wrong with the model. You can enable more verbose logging using `VERBOSE_SIM`, as shown:
+SITL нічого не виводить при помилці, коли щось не так з моделлю. Можна увімкнути більш детальне логування за допомогою `VERBOSE_SIM`, як показано:
 
 ```sh
 export VERBOSE_SIM=1
 make px4_sitl gazebo-classic
 ```
 
-or
+або
 
 ```sh
 VERBOSE_SIM=1 make px4_sitl gazebo-classic
 ```
 
-## Extending and Customizing
+## Розширення та персоналізація
 
-To extend or customize the simulation interface, edit the files in the `Tools/simulation/gazebo/sitl_gazebo` folder. The code is available on the [sitl_gazebo repository](https://github.com/PX4/PX4-SITL_gazebo) on Github.
+Для розширення та персоналізації інтерфейсу симуляції, відредагуйте файли у директорії `Tools/simulation/gazebo/sitl_gazebo`. Код доступний в репозиторії [sitl_gazebo](https://github.com/PX4/PX4-SITL_gazebo) на Github.
 
 :::note
-The build system enforces the correct GIT submodules, including the simulator. It will not overwrite changes in files in the directory.
+Система збірки дотримується правильних підмодулів GIT, включаючи симулятор. Вона перезапише зміни в файлах та директоріях.
 :::
 
-## Further Information
+## Додаткова інформація
 
-- [ROS with Gazebo Classic Simulation](../simulation/ros_interface.md)
+- [ROS з симуляцією Gazebo Classic](../simulation/ros_interface.md)
 - [Gazebo Classic Octomap](../sim_gazebo_classic/octomap.md)
