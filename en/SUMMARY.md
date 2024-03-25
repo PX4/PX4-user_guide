@@ -686,6 +686,7 @@
   * [Advanced Topics](advanced/README.md)
     * [PX4 Metadata (Publication)](advanced/px4_metadata.md)
     * [Package Delivery Architecture](advanced/package_delivery.md)
+    * [Magnetometer Calibration Algorithm](advanced/magnetometer_calibration_algorithm.md)
     * [Computer Vision](advanced/computer_vision.md)
       * [Motion Capture (VICON, Optitrack, NOKOV)](tutorials/motion-capture.md)
     * [Installing driver for Intel RealSense R200](advanced/realsense_intel_driver.md)
