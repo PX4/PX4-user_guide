@@ -140,19 +140,19 @@ Tools/simulation/gazebo-classic/sitl_multiple_run.sh [-m <model>] [-n <number_of
 
 Для кожного змодельованого засобу необхідно наступне:
 
-- **Модель Gazebo Classic**: визначена як файл `xacro` у `PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/rotors_description/urdf/<model>_base.xacro` дивіться [тут](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf). На цей момент, `xacro` файл моделі передбачається завершувати з **base.xacro**. This model should have an argument called `mavlink_udp_port` which defines the UDP port on which Gazebo Classic will communicate with PX4 node. The model's `xacro` file will be used to generate an `urdf` model that contains UDP port that you select. To define the UDP port, set the `mavlink_udp_port` in the launch file for each vehicle, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L37) as an example.
+- **Модель Gazebo Classic**: визначена як файл `xacro` у `PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/rotors_description/urdf/<model>_base.xacro` дивіться [тут](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf). На цей момент, `xacro` файл моделі передбачається завершувати з **base.xacro**. Ця модель повинна мати аргумент під назвою `mavlink_udp_port` який визначає UDP-порт, на якому Gazebo Classic буде спілкуватися з вузлом PX4. `xacro` файл моделі буде використаний для генерації `urdf` моделі, яка містить UDP-порт, який ви обрали. Для визначення порту UDP, вкажіть `mavlink_udp_port` у файлі запуску для кожного рухомого засобу, як приклад дивіться [тут](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L37).
 
 :::note
-If you are using the same vehicle model, you don't need a separate **`xacro`** file for each vehicle. The same **`xacro`** file is adequate.
+Якщо ви використовуєте одну і ту саму модель засобу, не потрібно відокремлювати **`xacro`** файл для кожного засобу. Той самий **`xacro`** файл підходить.
 :::
 
-- **PX4 node**: This is the SITL PX4 app. It communicates with the simulator, Gazebo Classic, through the same UDP port defined in the Gazebo Classic vehicle model, i.e. `mavlink_udp_port`. To set the UDP port on the PX4 SITL app side, you need to set the `SITL_UDP_PRT` parameter in the startup file to match the `mavlink_udp_port` discussed previously, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L46). The path of the startup file in the launch file is generated based on the `vehicle` and `ID` arguments, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L36). The `MAV_SYS_ID` for each vehicle in the startup file, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L4), should match the `ID` for that vehicle in the launch file [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L25). This will help make sure you keep the configurations consistent between the launch file and the startup file.
+- **Вузол PX4**: це застосунок SITL PX4. Він спілкується з симулятором Gazebo Classic через той самий UDP порт, що визначено в моделі засобу Gazebo Classic, тобто у `mavlink_udp_port`. Для налаштування UDP порту на стороні застосунку PX4 SITL, потрібно встановити параметр `SITL_UDP_PRT` у файлі запуску який збігається з `mavlink_udp_port`, що обговорювався раніше, дивіться [тут](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L46). Шлях стартового файлу у файлі запуску генерується на основі аргументів `vehicle` та `ID`, дивіться [тут](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L36). `MAV_SYS_ID` для кожного засобу в стартовому файлі, дивіться [тут](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L4), повинен збігатися з `ID` для цього засобу у файлі запуску [тут](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L25). Це допоможе переконатися, що ви тримаєте налаштування узгоджено між файлом запуску та стартовим файлом.
 
-- **MAVROS node** \(optional\): A separate MAVROS node can be run in the launch file, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L41), in order to connect to PX4 SITL app, if you want to control your vehicle through ROS. You need to start a MAVLink stream on a unique set of ports in the startup file, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_1#L68). Those unique set of ports need to match those in the launch file for the MAVROS node, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L26).
+- **Вузол MAVROS** \(не обов'язково\): окремий вузол MAVROS може бути запущено у файлі запуску, дивіться [тут](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L41), для того щоб під'єднатися до застосунку PX4 SITL, якщо ви бажаєте керувати своїм засобом через ROS. Ви повинні запустити потік MAVLink на індивідуальному наборі портів у стартовому файлі, дивіться [тут](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_1#L68). Цей набір портів повинен збігатися з тими, що у файлі запуску для вузла MAVROS, дивіться [тут](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L26).
 
-The launch file `multi_uav_mavros_sitl.launch`does the following,
+Файл запуску `multi_uav_mavros_sitl.launch`робить наступне,
 
-- loads a world in Gazebo Classic,
+- завантажує світ у Gazebo Classic,
 
   ```xml
     <!-- Gazebo sim -->
@@ -165,9 +165,9 @@ The launch file `multi_uav_mavros_sitl.launch`does the following,
     </include>
   ```
 
-- for each vehicle,
+- для кожного рухомого засобу,
 
-  - creates urdf model from xacro, loads gazebo classic model and runs PX4 SITL app instance
+  - створює модель urdf із xacro, завантажує модель gazebo classic і запускає екземпляр застосунку PX4 SITL
 
     ```xml
       <!-- PX4 SITL and vehicle spawn -->
@@ -185,7 +185,7 @@ The launch file `multi_uav_mavros_sitl.launch`does the following,
       </include>
     ```
 
-  - runs a mavros node
+  - запускає вузол Mavros
 
     ```xml
       <!-- MAVROS -->
@@ -198,70 +198,70 @@ The launch file `multi_uav_mavros_sitl.launch`does the following,
     ```
 
 :::note
-The complete block for each vehicle is enclosed in a set of `<group>` tags to separate the ROS namespaces of the vehicles.
+Повний блок налаштувань для кожного засобу обернений в набір тегів `<group>` для відокремлення простору імен ROS для рухомих засобів.
 :::
 
-To add a third iris to this simulation there are two main components to consider:
+Щоб додати третій засіб типу iris до цієї симуляції потрібно врахувати два основні компоненти:
 
-- add `UAV3` to **multi_uav_mavros_sitl.launch**
-  - duplicate the group of either existing vehicle (`UAV1` or `UAV2`)
-  - increment the `ID` arg to `3`
-  - select a different port for `mavlink_udp_port` arg for communication with Gazebo Classic
-  - selects ports for MAVROS communication by modifying both port numbers in the `fcu_url` arg
-- create a startup file, and change the file as follows:
+- додати `UAV3` до **multi_uav_mavros_sitl.launch**
+  - скопіювати групу наявного засобу (`UAV1` або `UAV2`)
+  - збільшити аргумент `ID` до `3`
+  - обрати інший порт для аргументу `mavlink_udp_port` для спілкування з Gazebo Classic
+  - обрати порти для спілкування з MAVROS шляхом модифікації обох номерів портів в аргументі `fcu_url`
+- створити стартовий файл і змінити файл наступним чином:
 
-  - make a copy of an existing iris rcS startup file (`iris_1` or `iris_2`) and rename it `iris_3`
-  - `MAV_SYS_ID` value to `3`
-  - `SITL_UDP_PRT` value to match that of the `mavlink_udp_port` launch file arg
-  - the first `mavlink start` port and the `mavlink stream` port values to the same values, which is to be used for QGC communication
-  - the second `mavlink start` ports need to match those used in the launch file `fcu_url` arg
+  - створити копію наявного стартового файлу rcS для iris (`iris_1` або `iris_2`) та перейменувати його `iris_3`
+  - встановити значення `MAV_SYS_ID` у `3`
+  - значення `SITL_UDP_PRT` узгодити з аргументом `mavlink_udp_port` у файлі запуску
+  - перші значення порту `mavlink start` та порту `mavlink stream` встановити в такі ж значення, що використовуються для спілкування з QGC
+  - другі порти `mavlink start` потрібно узгодити з тими, що використовуються в аргументі `fcu_url` файлу запуску
 
 :::note
-Be aware of which port is `src` and `dst` for the different endpoints.
+Будьте уважні який порт `src` і `dst` для різних кінцевих точок.
 :::
 
-## Multiple Vehicles using SDF Models
+## Кілька рухомих засобів з використанням моделей SDF
 
-This section shows how developers can simulate multiple vehicles using vehicle models defined in Gazebo Classic SDF files (instead of using models defined in the ROS Xacro file, as discussed in the rest of this topic).
+Цей розділ показує, як розробнику симулювати декілька засобів за допомогою моделей рухомих засобів, визначених у SDF файлах Gazebo Classic (замість використання моделей, визначених у ROS Xacro файлах, як обговорювалося у решті цієї теми).
 
-The steps are:
+Кроки наступні:
 
-1. Install _xmlstarlet_ from your Linux terminal:
+1. Встановіть _xmlstarlet_ з термінала Linux:
 
    ```sh
    sudo apt install xmlstarlet
    ```
 
-1. Use _roslaunch_ with the **multi_uav_mavros_sitl_sdf.launch** launch file:
+1. Використовуйте _roslaunch_ з файлом **multi_uav_mavros_sitl_sdf.launch**:
 
    ````sh
    roslaunch multi_uav_mavros_sitl_sdf.launch vehicle:=<model_file_name>
    ```
 
    :::note
-   Note that the vehicle model file name argument is optional (`vehicle:=<model_file_name>`); if omitted the [plane model](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/master/models/plane) will be used by default.
+   Зверніть увагу, що аргумент файлу моделі засобу (`vehicle:=<model_file_name>`) є необов'язковим; якщо його пропущено [модель літака](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/master/models/plane) буде використано за замовчуванням.
 
 :::
    ````
-This method is similar to using the xacro except that the SITL/Gazebo Classic port number is automatically inserted by _xmstarlet_ for each spawned vehicle, and does not need to be specified in the SDF file.
-To add a new vehicle, you need to make sure the model can be found (in order to spawn it in Gazebo Classic), and PX4 needs to have an appropriate corresponding startup script.
-1. You can choose to do either of:
-- modify the **single_vehicle_spawn_sdf.launch** file to point to the location of your model by changing the line below to point to your model:
+Цей метод подібний до використання xacro моделі за винятком того, що номери портів SITL/Gazebo Classic автоматично додаються _xmstarlet_ для кожного відтвореного засобу і його не потрібно вказувати у SDF файлі.
+Щоб додати новий рухомий засіб, вам потрібно переконатися, що модель можна знайти (для відтворення у Gazebo Classic) та PX4 повинен мати відповідний скрипт запуску.
+1. Можна обрати зробити щось одне з:
+- змінити **single_vehicle_spawn_sdf.launch**, щоб він вказував на розташування моделі, змінивши рядок нижче та вказавши на вашу модель:
 
      ```sh
      $(find px4)/Tools/simulation/gazebo/sitl_gazebo-classic/models/$(arg vehicle)/$(arg vehicle).sdf
      ```
 
 :::note
-Ensure you set the `vehicle` argument even if you hardcode the path to your model.
+Переконайтесь, що вказали аргумент `vehicle` навіть якщо ви явно закодували шлях до моделі.
 :::
 
-   - copy your model into the folder indicated above (following the same path convention).
+   - скопіювати свою модель в директорію, позначену вище (дотримуючись тих же правил шляху).
 
-1. The `vehicle` argument is used to set the `PX4_SIM_MODEL` environment variable, which is used by the default rcS (startup script) to find the corresponding startup settings file for the model. Within PX4 these startup files can be found in the **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/** directory. For example, here is the plane model's [startup script](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/1030_gazebo-classic_plane). For this to work, the PX4 node in the launch file is passed arguments that specify the _rcS_ file (**etc/init.d/rcS**) and the location of the rootfs etc directory (`$(find px4)/build_px4_sitl_default/etc`). For simplicity, it is suggested that the startup file for the model be placed alongside PX4's in **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/**.
+1. Аргумент `vehicle` використовується для встановлення змінної середовища `PX4_SIM_MODEL`, яка використовується rcS (стартовим скриптом) за замовчуванням щоб знайти відповідний файл налаштувань для моделі. У PX4 ці стартові файли можна знайти у директорії **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/**. Для прикладу ось [стартовий скрипт](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/1030_gazebo-classic_plane) моделі літака. Для того, щоб це працювало, вузлу PX4 у файлі запуску передаються аргументи що визначають файл _rcS_ (**etc/init.d/rcS**) та розташування etc директорії (`$(find px4)/build_px4_sitl_default/etc`) у корені файлової системи. Для спрощення пропонується, що початковий файл для моделі розміщується поруч з PX4 в **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/**.
 
-## Additional Resources
+## Додаткові ресурси
 
-- See [Simulation](../simulation/README.md) for a description of the UDP port configuration.
-- See [URDF in Gazebo](http://wiki.ros.org/urdf/Tutorials/Using%20a%20URDF%20in%20Gazebo) for more information about spawning the model with xacro.
-- See [RotorS](https://github.com/ethz-asl/rotors_simulator/tree/master/rotors_description/urdf) for more xacro models.
+- Дивіться [Симуляція](../simulation/README.md) для опису налаштувань UDP порту.
+- Дивіться [URDF у Gazebo](http://wiki.ros.org/urdf/Tutorials/Using%20a%20URDF%20in%20Gazebo) для додаткової інформації про відтворення моделі з xacro.
+- Дивіться [RotorS](https://github.com/ethz-asl/rotors_simulator/tree/master/rotors_description/urdf) для додаткових моделей xacro.
