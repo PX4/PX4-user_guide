@@ -53,15 +53,15 @@ bool прямий привід
 
 Поля впорядковані за пріоритетом так, що `положення` має перевагу над `швидкістю` і іншими полями, `швидкість` має перевагу над `прискоренням`, і так далі. Перше поле, яке має ненульове значення (зверху вниз), визначає, яка допустима оцінка необхідна для використання режиму безпілотного керування, а також повідомлення заданих значень, які можуть бути використані. Наприклад, якщо поле `прискорення` є першим полем з ненульовим значенням, то PX4 вимагає наявності `дійсної оцінки швидкості`, а задане значення повинно бути вказане за допомогою повідомлення `TrajectorySetpoint`.
 
-| бажана кількість контролю    | поле положення | поле швидкості | поле прискорення | attitude field | поле кутової швидкості тіла | поле тяги та крутного момент | поле прямого приводу | необхідна оцінка | необхідне повідомлення                                                                                                          |
-| ---------------------------- | -------------- | -------------- | ---------------- | -------------- | --------------------------- | ---------------------------- | -------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| положення (NED)              | ✓              | -              | -                | -              | -                           | -                            | -                    | положення        | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
-| швидкість (NED)              | ✗              | ✓              | -                | -              | -                           | -                            | -                    | швидкість        | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
-| прискорення (NED)            | ✗              | ✗              | ✓                | -              | -                           | -                            | -                    | швидкість        | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
-| орієнтація (FRD)             | ✗              | ✗              | ✗                | ✓              | -                           | -                            | -                    | нічого           | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                               |
-| кутова швидкість (FRD)       | ✗              | ✗              | ✗                | ✗              | ✓                           | -                            | -                    | нічого           | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                     |
-| тяга та крутний момент (FRD) | ✗              | ✗              | ✗                | ✗              | ✗                           | ✓                            | -                    | нічого           | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) and [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
-| двигуни та серво             | ✗              | ✗              | ✗                | ✗              | ✗                           | ✗                            | ✓                    | нічого           | [ActuatorMotors](../msg_docs/ActuatorMotors.md) and [ActuatorServos](../msg_docs/ActuatorServos.md)                             |
+| бажана кількість контролю    | поле положення | поле швидкості | поле прискорення | поле орієнтації | поле кутової швидкості тіла | поле тяги та крутного момент | поле прямого приводу | необхідна оцінка | необхідне повідомлення                                                                                                          |
+| ---------------------------- | -------------- | -------------- | ---------------- | --------------- | --------------------------- | ---------------------------- | -------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| положення (NED)              | ✓              | -              | -                | -               | -                           | -                            | -                    | положення        | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
+| швидкість (NED)              | ✗              | ✓              | -                | -               | -                           | -                            | -                    | швидкість        | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
+| прискорення (NED)            | ✗              | ✗              | ✓                | -               | -                           | -                            | -                    | швидкість        | [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)                                                                         |
+| орієнтація (FRD)             | ✗              | ✗              | ✗                | ✓               | -                           | -                            | -                    | нічого           | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                               |
+| кутова швидкість (FRD)       | ✗              | ✗              | ✗                | ✗               | ✓                           | -                            | -                    | нічого           | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                     |
+| тяга та крутний момент (FRD) | ✗              | ✗              | ✗                | ✗               | ✗                           | ✓                            | -                    | нічого           | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) and [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
+| двигуни та серво             | ✗              | ✗              | ✗                | ✗               | ✗                           | ✗                            | ✓                    | нічого           | [ActuatorMotors](../msg_docs/ActuatorMotors.md) and [ActuatorServos](../msg_docs/ActuatorServos.md)                             |
 
 де &check; означає, що біт встановлено, &cross; означає, що біт не встановлено, а `-` означає, що значення біта неважливе.
 
@@ -91,131 +91,130 @@ bool прямий привід
 
   - Підтримується наступна комбінація введення:
 
-    - `roll`, `pitch`, `yaw` and `thrust_body`.
+    - `крен`, `тангаж`, `крен` та `тяга`.
 
-  - All the values are in the drone body FRD frame. The rates are in \[rad/s\] while thrust_body is normalized in \[-1, 1\].
+  - Всі значення подані в для дрона в системі FRD. Значення в \[rad/s\] і thrust_body нормалізовано в \[-1, 1\].
 
-### Generic Vehicle
+### Універсальний апарат
 
-The following offboard control modes bypass all internal PX4 control loops and should be used with great care.
+Наступні режими керування з відбором оминуть всі внутрішні контрольні системи PX4 і повинні використовуватися з великою обережністю.
 
 - [px4_msgs::msg::VehicleThrustSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleThrustSetpoint.msg) + [px4_msgs::msg::VehicleTorqueSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleTorqueSetpoint.msg)
 
-  - The following input combination is supported:
-    - `xyz` for thrust and `xyz` for torque.
-  - All the values are in the drone body FRD frame and normalized in \[-1, 1\].
+  - Підтримується наступна комбінація введення:
+    - `xyz` для тяги та `xyz` для оберту.
+  - Усі значення виражені у системі координат тіла дрона FRD та нормалізовані у діапазоні \[-1, 1\].
 
 - [px4_msgs::msg::ActuatorMotors](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorMotors.msg) + [px4_msgs::msg::ActuatorServos](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ActuatorServos.msg)
-  - You directly control the motor outputs and/or servo outputs.
-  - All the values normalized in \[-1, 1\]. For outputs that do not support negative values, negative entries map to `NaN`.
-  - `NaN` maps to disarmed.
+  - Ви безпосередньо керуєте вихідними сигналами моторів та/або сервоприводів.
+  - Усі значення нормалізовані у діапазоні \[-1, 1\]. Для вихідних сигналів, які не підтримують від'ємні значення, від'ємні значення відображаються як `NaN`.
+  - `NaN` карти для роззброєння.
 
-## MAVLink Messages
+## Повідомлення MAVLink
 
-The following MAVLink messages and their particular fields and field values are allowed for the specified vehicle frames.
+Наступні повідомлення MAVLink та їх конкретні поля та значення полів дозволені для вказаних кадрів літального апарату.
 
 ### Copter/VTOL
 
 - [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
 
-  - The following input combinations are supported: <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - Підтримуються наступні вхідні комбінації: <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
-    - Position setpoint (only `x`, `y`, `z`)
-    - Velocity setpoint (only `vx`, `vy`, `vz`)
-    - Acceleration setpoint (only `afx`, `afy`, `afz`)
-    - Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
-    - Position setpoint **and** velocity setpoint **and** acceleration (the velocity and the acceleration setpoints are used as feedforwards; the velocity setpoint is added to the output of the position controller and the result is used as the input to the velocity controller; the acceleration setpoint is added to the output of the velocity controller and the result used to compute the thrust vector).
+    - Данні про положення (тільки `x`, `y`, `z`)
+    - Швидкість (лише `vx`, `vy`, `vz`)
+    - Прискорення (тільки `afx`, `afy`, `afz`)
+    - Задання точки положення **та** задання швидкості (задання швидкості використовується як вхідна величина; вона додається до вихідної величини контролера положення, і результат використовується як вхідні дані для контролера швидкості).
+    - Задання точки положення **та** задання швидкості **та** задання прискорення (задання швидкості та прискорення використовуються як вхідні величини; задання швидкості додається до вихідної величини контролера положення, і результат використовується як вхідні дані для контролера швидкості; задання прискорення додається до вихідної величини контролера швидкості, і результат використовується для обчислення вектора тяги).
 
-  - PX4 supports the following `coordinate_frame` values (only): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
-
-- [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
-
-  - The following input combinations are supported: <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
-
-    - Position setpoint (only `lat_int`, `lon_int`, `alt`)
-    - Velocity setpoint (only `vx`, `vy`, `vz`)
-    - _Thrust_ setpoint (only `afx`, `afy`, `afz`)
-
-      :::note
-Acceleration setpoint values are mapped to create a normalized thrust setpoint (i.e. acceleration setpoints are not "properly" supported).
-:::
-
-    - Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
-
-  - PX4 supports the following `coordinate_frame` values (only): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
-
-- [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
-  - The following input combinations are supported:
-    - Attitude/orientation (`SET_ATTITUDE_TARGET.q`) with thrust setpoint (`SET_ATTITUDE_TARGET.thrust`).
-    - Body rate (`SET_ATTITUDE_TARGET` `.body_roll_rate` ,`.body_pitch_rate`, `.body_yaw_rate`) with thrust setpoint (`SET_ATTITUDE_TARGET.thrust`).
-
-### Fixed-wing
-
-- [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
-
-  - The following input combinations are supported (via `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
-
-    - Position setpoint (`x`, `y`, `z` only; velocity and acceleration setpoints are ignored).
-
-      - Specify the _type_ of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern): :::note Some of the _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field.
-:::
-
-        The values are:
-
-        - 292: Gliding setpoint. This configures TECS to prioritize airspeed over altitude in order to make the vehicle glide when there is no thrust (i.e. pitch is controlled to regulate airspeed). It is equivalent to setting `type_mask` as `POSITION_TARGET_TYPEMASK_Z_IGNORE`, `POSITION_TARGET_TYPEMASK_VZ_IGNORE`, `POSITION_TARGET_TYPEMASK_AZ_IGNORE`.
-        - 4096: Takeoff setpoint.
-        - 8192: Land setpoint.
-        - 12288: Loiter setpoint (fly a circle centred on setpoint).
-        - 16384: Idle setpoint (zero throttle, zero roll / pitch).
-
-  - PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
+  - PX4 підтримує такі значення `coordinate_frame` (тільки): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) і [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 - [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
 
-  - The following input combinations are supported (via `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - Підтримуються наступні вхідні комбінації: <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
-    - Position setpoint (only `lat_int`, `lon_int`, `alt`)
+    - Данні про положення (тільки `x`, `y`, `z`)
+    - Швидкість (only `vx`, `vy`, `vz`)
+    - _Тяга_ (only `afx`, `afy`, `afz`)
 
-      - Specify the _type_ of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern):
-
-:::note
-The _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field.
+      Задані значення прискорення відображаються таким чином, щоб створити нормалізоване задання тяги (тобто задання прискорення "неправильно" підтримується).
 :::
 
-        The values are:
+    - Задання точки положення **та** задання швидкості (задання швидкості використовується як зворотній зв'язок; воно додається до вихідної величини контролера положення, і результат використовується як вхідні дані для контролера швидкості).
 
-        - 4096: Takeoff setpoint.
-        - 8192: Land setpoint.
-        - 12288: Loiter setpoint (fly a circle centred on setpoint).
-        - 16384: Idle setpoint (zero throttle, zero roll / pitch).
-
-  - PX4 supports the following `coordinate_frame` values (only): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
+  - PX4 підтримує такі значення `coordinate_frame` (тільки): [MAV_FRAME_LOCAL_NED і MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
 
 - [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
-  - The following input combinations are supported:
-    - Attitude/orientation (`SET_ATTITUDE_TARGET.q`) with thrust setpoint (`SET_ATTITUDE_TARGET.thrust`).
-    - Body rate (`SET_ATTITUDE_TARGET` `.body_roll_rate` ,`.body_pitch_rate`, `.body_yaw_rate`) with thrust setpoint (`SET_ATTITUDE_TARGET.thrust`).
+  - Підтримуються наступні вхідні комбінації:
+    - Орієнтація/положення (`SET_ATTITUDE_TARGET.q`) разом зі значенням тяги (`SET_ATTITUDE_TARGET.thrust`).
+    - Частота обертання тіла (`SET_ATTITUDE_TARGET` `.body_roll_rate`, `.body_pitch_rate`, `.body_yaw_rate`) зі значенням тяги (`SET_ATTITUDE_TARGET.thrust`).
 
-### Rover
+### Безпілотник-крило
 
 - [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
 
-  - The following input combinations are supported (in `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  - Підтримуються такі комбінації вводу (через `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
 
-    - Position setpoint (only `x`, `y`, `z`)
+    - Задання положення (`x`, `y`, `z` тільки; показники швидкості і прискорення проігноровані).
 
-      - Specify the _type_ of the setpoint in `type_mask`:
+      - Вкажіть _тип_ задання в `type_mask` (якщо ці біти не встановлені, апарат буде літати патерном квітки): :::note Деякі зі значень _типу задання_, наведених нижче, не є частиною стандарту MAVLink для поля `type_mask`.
+:::
+
+        Значення:
+
+        - 292: планування. Це налаштовує TECS на пріорітезацію швидкості над висотою, щоб змусити безпілотник планувати, коли немає тяги (тобто кут крену контролюється для регулювання швидкості). Це еквівалентно налаштуванням `type_mask` таким як `POSITION_TARGET_TYPEMASK_Z_IGNORE`, `POSITION_TARGET_TYPEMASK_VZ_IGNORE`, `POSITION_TARGET_TYPEMASK_AZ_IGNORE`.
+        - 4096: Точка взльоту.
+        - 8192: Точка посадки.
+        - 12288: Задання Loiter (політ по колу, центрованому на заданій точці).
+        - 16384: Задання бездіяльності (нульовий газ, нульовий крен/тангаж).
+
+  - PX4 підтримує такі значення поля `coordinate_frame` (тільки): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) і [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
+
+- [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
+
+  - Підтримуються такі комбінації вводу (через `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+
+    - Данні про положення (тільки `x`, `y`, `z`)
+
+      - Вкажіть _тип_ задання точки в `type_mask` (якщо ці біти не встановлені, транспортний засіб буде літати квіткоподібною траєкторією):
 
 :::note
-The _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field. ::
+Наведені нижче значення _типу задання_ не є частиною стандарту MAVLink для поля `type_mask`.
+:::
 
-        The values are:
+        Значення:
 
-        - 12288: Loiter setpoint (vehicle stops when close enough to setpoint).
+        - 4096: Точка взльоту.
+        - 8192: Точка посадки.
+        - 12288: Задання Loiter (політ по колу, центрованому на заданій точці).
+        - 16384: Задання бездіяльності (нульовий газ, нульовий крен/тангаж).
 
-    - Velocity setpoint (only `vx`, `vy`, `vz`)
+  - PX4 підтримує такі значення `coordinate_frame` (тільки): [MAV_FRAME_LOCAL_NED і MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
 
-  - PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
+- [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
+  - Підтримуються наступні вхідні комбінації:
+    - Орієнтація/положення (`SET_ATTITUDE_TARGET.q`) разом зі значенням тяги (`SET_ATTITUDE_TARGET.thrust`).
+    - Кутова швидкість (`SET_ATTITUDE_TARGET` `.body_roll_rate`, `.body_pitch_rate`, `.body_yaw_rate`) зі значенням тяги (`SET_ATTITUDE_TARGET.thrust`).
+
+### Землехід
+
+- [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
+
+  - Підтримуються такі комбінації вводу (через `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+
+    - Данні про положення (тільки `x`, `y`, `z`)
+
+      - Вкажіть _тип_ точки в `type_mask`:
+
+:::note
+Наведені нижче значення _типу задання_ не є частиною стандарту MAVLink для поля `type_mask`. ::
+
+        Значення:
+
+        - 12288: задане значення Loiter (пристрій зупиняється, коли вже достатньо близько, щоб встановити точку).
+
+    - Швидкість (лише `vx`, `vy`, `vz`)
+
+  - PX4 підтримує такі значення поля `coordinate_frame` (тільки): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) і [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 - [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
 
