@@ -1,36 +1,36 @@
 # Ручний політ
 
-This topic explains the basics of flying a vehicle using an [RC Transmitter](../getting_started/rc_transmitter_receiver.md) in a manual or autopilot-assisted flight mode (for autonomous flight see: [Missions](../flying/missions.md)).
+У цьому розділі пояснюються основи керування апаратом за допомогою [Радіопередавача](../getting_started/rc_transmitter_receiver.md) у ручному режимі або режимі польоту з автопілотом (про автономний політ див.: [Місії](../flying/missions.md)).
 
 :::note
-Before you fly for the first time you should read our [First Flight Guidelines](../flying/first_flight_guidelines.md). :::
+Перед першим польотом прочитайте наші [Рекомендації щодо першого польоту](../flying/first_flight_guidelines.md). :::
 
 <a id="arm"></a>
 
-## Arm the Vehicle
+## Увімкнення апарату
 
-Before you can fly the vehicle it must first be [armed](../getting_started/px4_basic_concepts.md#arming-and-disarming). This will power all motors and actuators; on a multicopter it will start propellers turning.
+Перед тим, як ви зможете літати апаратом, його спочатку потрібно [увімкнути](../getting_started/px4_basic_concepts.md#arming-and-disarming). Це подасть живлення на всі мотори та приводи; у мультикоптера це запустить обертання пропелерів.
 
-To arm the drone:
-- First disengage the [safety switch](../getting_started/px4_basic_concepts.md#safety-switch).
-- Use the arm command for your vehicle - put the throttle stick in the bottom right corner.
-  - Alternatively configure an [arm/disarm switch](../config/safety.md#arm-disarm-switch).
-  - You can also arm in *QGroundControl* (PX4 does not require a radio control for flying autonomously).
+Щоб увімкнути дрон:
+- Спочатку вимкніть [перемикач безпеки](../getting_started/px4_basic_concepts.md#safety-switch).
+- Використайте команду увімкнення для вашого апарата - переведіть стік газу в нижній правий кут.
+  - Або налаштуйте [перемикач увімкнення/вимкнення](../config/safety.md#arm-disarm-switch).
+  - Ви також можете увімкнути апарат в *QGroundControl* (PX4 не вимагає радіокерування для автономного польоту).
 
 :::tip
-The vehicle will not arm until it is [calibrated/configured](../config/README.md) and has a position lock. [Vehicle Status Notifications](../getting_started/vehicle_status.md) (including on-vehicle LEDs, audio notifications and *QGroundControl* updates) can tell you when the vehicle is ready to fly (and help you work out the cause when it is not ready to fly). :::
+Апарат не буде увімкнено, поки він не буде [відкалібрований/налаштований](../config/README.md) та не отримає локу позиції. [Сповіщення про стан апарата](../getting_started/vehicle_status.md) (включаючи світлодіоди на апараті, аудіосповіщення та оновлення в *QGroundControl*) можуть повідомити вас, коли апарат готовий до польоту (та допомогти вам з'ясувати причину, коли він не готовий до польоту). :::
 
 :::note
-The vehicle will (by [default](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)) automatically [disarm](../advanced_config/prearm_arm_disarm.md#auto-disarming) (turn off motors) if you take too long to take off! This is a safety measure to ensure that vehicles return to a safe state when not in use. :::
+Апарат (за [замовчанням](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)) автоматично [вимкнеться](../advanced_config/prearm_arm_disarm.md#auto-disarming) (вимкне мотори), якщо ви занадто довго готуєтесь до зльоту! Це заходи безпеки, щоб гарантувати, що апарати повертаються до безпечного стану, коли не використовуються. :::
 
 :::note
-A VTOL vehicle can only arm in multicopter mode (by default - arming in fixed-wing mode can be enabled using [CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)). :::
+Апарат VTOL може бути увімкнений лише в режимі мультикоптера (за замовчанням - увімкнення в режимі літака може бути активоване за допомогою [CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)). :::
 
 <a id="takeoff-and-landing"></a>
 
-## Takeoff
+## Зліт
 
-### Multicopter Takeoff
+### Зліт мультикоптера
 
 Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by enabling any manual mode, arming the vehicle and then raising the throttle stick until the motors produce enough thrust to leave the ground. In [Position mode](../flight_modes_mc/position.md) or [Altitude mode](../flight_modes_mc/altitude.md) the throttle stick has to be increased to above 62.5% to command a climb rate and make the vehicle leave the ground. Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
 
