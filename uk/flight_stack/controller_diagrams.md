@@ -25,10 +25,10 @@ The diagrams use the standard [PX4 notation](../contribute/notation.md) (and eac
 * K-PID controller. See [Rate Controller](../config_mc/pid_tuning_guide_multicopter.md#rate-controller) for more information.
 * The integral authority is limited to prevent wind up.
 * The outputs are limited (in the control allocation module), usually at -1 and 1.
-* A Low Pass Filter (LPF) is used on the derivative path to reduce noise (the gyro driver provides a filtered derivative to the controller).
+* Фільтр низьких частот (LPF) використовується на шляху похідної для зменшення шуму (драйвер гіроскопа забезпечує відфільтровану похідну для контролера).
 
 :::note
-The IMU pipeline is: gyro data > apply calibration parameters > remove estimated bias > notch filter (`IMU_GYRO_NF0_BW` and `IMU_GYRO_NF0_FRQ`) > low-pass filter (`IMU_GYRO_CUTOFF`) > vehicle_angular_velocity (*filtered angular rate used by the P and I controllers*) > derivative -> low-pass filter (`IMU_DGYRO_CUTOFF`) > vehicle_angular_acceleration (*filtered angular acceleration used by the D controller*)
+Потік IMU (інерціальної системи зоріентованості) включає наступні етапи: дані з гіроскопа > застосування параметрів калібрування > видалення оціненого зміщення > павуки-фільтри (`IMU_GYRO_NF0_BW` та `IMU_GYRO_NF0_FRQ`) > фільтр нижнього частотного діапазону (`IMU_GYRO_CUTOFF`) > кутова швидкість транспортного засобу (*фільтрована кутова швидкість, використовувана контролерами P та I*) > похідна -> фільтр нижнього частотного діапазону (`IMU_DGYRO_CUTOFF`) > кутове прискорення транспортного засобу (*фільтроване кутове прискорення, використовуване контролером D*)
 
   ![IMU pipeline](../../assets/diagrams/px4_imu_pipeline.png)
 :::
@@ -79,8 +79,8 @@ Implementation details can be found in `PositionControl.cpp` and `ControlMath.cp
 
 ![MC Position Controller Diagram](../../assets/diagrams/px4_mc_position_controller_diagram.png)
 
-* Mode dependent feedforwards (ff) - e.g. Mission mode trajectory generator (jerk-limited trajectory) computes position, velocity and acceleration setpoints.
-* Acceleration setpoints (inertial frame) will be transformed (with yaw setpoint) into attitude setpoints (quaternion) and collective thrust setpoint.
+* Залежні від режиму передачі вперед (ff) - наприклад, у режимі місії генератор траєкторій (траєкторія з обмеженням ривка) обчислює точки встановлення позиції, швидкості та прискорення.
+* Точки встановлення прискорення (в інерціальній системі координат) будуть перетворені (з установкою курсу) на точки встановлення орієнтації (кватерніон) та точки встановлення загального тяги.
 
 <!-- The drawing is on draw.io: https://drive.google.com/open?id=13Mzjks1KqBiZZQs15nDN0r0Y9gM_EjtX
 Request access from dev team. -->
@@ -109,34 +109,34 @@ TECS offers a solution by respresenting the problem in terms of energies rather 
 
 <!-- https://drive.google.com/file/d/1q12b6ASbQRkFWqLMXm92cryOI-cZnrKv/view?usp=sharing -->
 
-#### Total energy balance control loop
+#### Загальний цикл контролю балансу енергії
 
 ![Energy balance loop](../../assets/diagrams/TECS_pitch.png)
 
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/1bZtFULYmys-_EQNhC9MNcKLFauc7OYJZ/view -->
 
 
-The total energy of an aircraft is the sum of kinetic and potential energy:
+Загальна енергія літака - це сума кінетичної та потенціальної енергії:
 
 $$E_T = \frac{1}{2} m V_T^2 + m g h$$
 
-Taking the derivative with respect to time leads to the total energy rate:
+Проведення похідної відносно часу призводить до загальної швидкості енергії:
 
 $$\dot{E_T} = m V_T \dot{V_T} + m g \dot{h}$$
 
-From this, the specific energy rate can be formed as:
+З цього можна сформувати специфічну швидкість енергії:
 
 $$\dot{E} = \frac{\dot{E_T}}{mgV_T}  = \frac{\dot{V_T}}{g} + \frac{\dot{h}}{V_T} = \frac{\dot{V_T}}{g} + sin(\gamma)$$
 
-where $\gamma{}$ is the flight plan angle. For small $\gamma{}$ we can approximate this as:
+where $\gamma{}$ is the flight plan angle. Для невеликих $\gamma{}$ ми можемо наблизити це як:
 
 $$\dot{E} \approx  \frac{\dot{V_T}}{g} + \gamma$$
 
-From the dynamic equations of an aircraft we get the following relation:
+З рівнянь динаміки літака ми отримуємо таке співвідношення:
 
 $$T - D = mg(\frac{\dot{V_T}}{g} + sin(\gamma)) \approx mg(\frac{\dot{V_T}}{g} + \gamma)$$
 
-where T and D are the thrust and drag forces. In level flight, initial thrust is trimmed against the drag and a change in thrust results thus in:
+де T і D - сили тяги і опору. У горизонтальному польоті початкова тяга компенсується опором, а зміна тяги призводить до:
 
 $$\Delta T = mg(\frac{\dot{V_T}}{g} + \gamma)$$
 
@@ -146,98 +146,98 @@ Elevator control on the other hand is energy conservative, and is thus used for 
 
 $$\dot{B} = \gamma - \frac{\dot{V_T}}{g}$$
 
-## Fixed-Wing Attitude Controller
+## Контролер положення фіксованого крила
 
 ![FW Attitude Controller Diagram](../../assets/diagrams/px4_fw_attitude_controller_diagram.png)
 
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/1ibxekmtc6Ljq60DvNMplgnnU-JOvKYLQ/view?usp=sharing
 Request access from dev team. -->
 
-The attitude controller works using a cascaded loop method. The outer loop computes the error between the attitude setpoint and the estimated attitude that, multiplied by a gain (P controller), generates a rate setpoint. The inner loop then computes the error in rates and uses a PI (proportional + integral) controller to generate the desired angular acceleration.
+Контролер положення працює за допомогою методу каскадного циклу. Зовнішній цикл обчислює помилку між встановленим величиною орієнтації та оціненим значенням орієнтації, яка, помножена на коефіцієнт (контролер P), генерує встановлення швидкості. Внутрішній цикл обчислює помилку в швидкостях та використовує ПІ (пропорційний + інтегральний) контролер для генерації потрібного кутового прискорення.
 
-The angular position of the control effectors (ailerons, elevators, rudders, ...) is then computed using this desired angular acceleration and a priori knowledge of the system through control allocation (also known as mixing). Furthermore, since the control surfaces are more effective at high speed and less effective at low speed, the controller - tuned for cruise speed - is scaled using the airspeed measurements (if such a sensor is used).
+Кутове положення керуючих елементів (ельєрони, крейцери, рулі, ...) обчислюється за допомогою цього бажаного кутового прискорення та апріорних знань про систему за допомогою розподілу керування (також відомого як змішування). Крім того, оскільки керуючі поверхні ефективніші при високій швидкості і менш ефективні при низькій швидкості, контролер, налаштований на крейсерську швидкість, масштабується за допомогою вимірів швидкості повітря (якщо використовується такий датчик).
 
 :::note
-If no airspeed sensor is used then gain scheduling for the FW attitude controller is  disabled (it's open loop); no correction is/can be made in TECS using airspeed feedback.
+Якщо датчик швидкості повітря не використовується, то налаштування коефіцієнтів для контролера орієнтації фіксованого крила відключене (це відкритий цикл); корекція в ТЕСС за допомогою зворотного зв'язку по швидкості повітря відсутня або неможлива.
 :::
 
-The feedforward gain is used to compensate for aerodynamic damping. Basically, the two main components of body-axis moments on an aircraft are produced by the control surfaces (ailerons, elevators, rudders, - producing the motion) and the aerodynamic damping (proportional to the body rates - counteracting the motion). In order to keep a constant rate, this damping can be compensated using feedforward in the rate loop.
+The feedforward gain is used to compensate for aerodynamic damping. По суті, два основні компоненти моментів на осях тіла літака створюються керуючими поверхнями (ельєронами, крейцерами, рулями - які створюють рух) та аеродинамічним згасанням (пропорційним до швидкостей тіла - протидіють рухові). Щоб підтримувати постійну швидкість, це демпфування можна компенсувати за допомогою прямого зв’язку в циклі швидкості.
 
-### Turn coordination
+### Поворотна координація
 
-The roll and pitch controllers have the same structure and the longitudinal and lateral dynamics are assumed to be uncoupled enough to work independently. The yaw controller, however, generates its yaw rate setpoint using the turn coordination constraint in order to minimize lateral acceleration, generated when the aircraft is slipping.  The turn coordination algorithm is based solely on coordinated turn geometry calculation.
+Контролери крену та тангажу мають однакову структуру, і довжинна та поперечна динаміка вважаються достатньо роз'єднаними, щоб працювати незалежно один від одного. Контролер курсу, однак, генерує встановлення швидкості курсу, використовуючи обмеження координації повороту для мінімізації бокового прискорення, що виникає, коли літак слідкує.  Алгоритм узгодження повороту базується виключно на узгодженому розрахунку геометрії повороту.
 
 $$\dot{\Psi}_{sp} = \frac{g}{V_T} \tan{\phi_{sp}} \cos{\theta_{sp}}$$
 
-The yaw rate controller also helps to counteract [adverse yaw effects](https://youtu.be/sNV_SDDxuWk) and to damp the [Dutch roll mode](https://en.wikipedia.org/wiki/Dutch_roll) by providing extra directional damping.
+Контролер кутової швидкості по курсу також допомагає протидіяти [небажаним ефектам кутової швидкості](https://youtu.be/sNV_SDDxuWk) і гасити [датчик "гульби"](https://en.wikipedia.org/wiki/Dutch_roll), надаючи додаткового напрямного згасання.
 
 
 
-## VTOL Flight Controller
+## Диспетчер польотів VTOL
 
 ![VTOL Attitude Controller Diagram](../../assets/diagrams/VTOL_controller_diagram.png)
 
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/1tVpmFhLosYjAtVI46lfZkxBz_vTNi8VH/view?usp=sharing
 Request access from dev team. -->
 
-This section gives a short overview on the control structure of Vertical Take-off and Landing (VTOL) aircraft. The VTOL flight controller consists of both the multicopter and fixed-wing controllers, either running separately in the corresponding VTOL modes, or together during transitions. The diagram above presents a simplified control diagram. Note the VTOL attitude controller block, which mainly facilitates the necessary switching and blending logic for the different VTOL modes, as well as VTOL-type-specific control actions during transitions (e.g. ramping up the pusher motor of a standard VTOL during forward transition). The inputs into this block are called "virtual" as, depending on the current VTOL mode, some are ignored by the controller.
+Цей розділ розповідає про структуру управління вертикальним Зльотом і Посадкою літаків (VTOL). Контролер польоту VTOL складається з контролера багтропільного вертольота та контролера фіксованого крила, які працюють окремо в відповідних режимах VTOL або разом під час переходів. На діаграмі вище є спрощена діаграма управління. Зверніть увагу на блок контролера орієнтації VTOL, який передусім забезпечує необхідну логіку перемикання та змішування для різних режимів VTOL, а також дії з контролю, характерні для типів VTOL під час переходів (наприклад, плавне збільшення потужності реактивного двигуна стандартного VTOL під час переходу вперед). Входи до цього блоку називаються "віртуальними", оскільки, залежно від поточного режиму VTOL, деякі від них ігноруються контролером.
 
-For a standard and tilt-rotor VTOL, during transition the fixed-wing attitude controller produces the rate setpoints, which are then fed into the separate rate controllers, resulting in torque commands for the multicopter and fixed-wing actuators. For tailsitters, during transition the multicopter attitude controller is running.
+Для стандартного і кутового вертольота під час переходу контролер орієнтації фіксованого крила генерує встановлення швидкості, які потім подаються на окремі контролери швидкості, що призводить до команд моменту для приводів багтропільного вертольота та фіксованого крила. Для tailsitters під час переходу запущений контролер положення мультикоптера.
 
-The outputs of the VTOL attitude block are separate torque and force commands for the multicopter and fixed-wing actuators (two instances for `vehicle_torque_setpoint` and `vehicle_thrust_setpoint`). These are handled in an airframe-specific control allocation class.
+Виходи блока орієнтації VTOL розділені на команди моменту та сили для приводів багтропільного вертольота та фіксованого крила (два екземпляри для `vehicle_torque_setpoint` та `vehicle_thrust_setpoint`). Ці вихідні дані обробляються в класі розподілу керування, який специфікується для кожного типу повітряного судна.
 
-For more information on the tuning of the transition logic inside the VTOL block, see [VTOL Configuration](../config_vtol/README.md).
+Для отримання додаткової інформації про налаштування логіки переходу всередині блоку VTOL див. [Конфігурація VTOL](../config_vtol/README.md).
 
 
-### Airspeed Scaling
+### Масштабування швидкості повітря
 
-The objective of this section is to explain with the help of equations why and how the output of the rate PI and feedforward (FF) controllers can be scaled with airspeed to improve the control performance. We will first present the simplified linear dimensional moment equation on the roll axis, then show the influence of airspeed on the direct moment generation and finally, the influence of airspeed during a constant roll.
+Метою цього розділу є пояснення за допомогою рівнянь, чому і як вихід контролерів кутової швидкості PI та передачі подачі (FF) може бути масштабований за допомогою швидкості повітря для покращення роботи системи керування. Спочатку ми представимо спрощене лінійне розмірне рівняння моменту по коченню, потім покажемо вплив швидкості повітря на пряме створення моменту, і, нарешті, вплив швидкості повітря під час постійного кочення.
 
-As shown in the fixed-wing attitude controller above, the rate controllers produce angular acceleration setpoints for the control allocator (here named "mixer"). In order to generate these desired angular accelerations, the mixer produces torques using available aerodynamic control surfaces (e.g.: a standard airplane typically has two ailerons, two elevators and a rudder). The torques generated by those control surfaces is highly influenced by the relative airspeed and the air density, or more precisely, by the dynamic pressure. If no airspeed scaling is made, a controller tightly tuned for a certain cruise airspeed will make the aircraft oscillate at higher airspeed or will give bad tracking performance at low airspeed.
+Як показано в контролері орієнтації фіксованого крила вище, контролери швидкості створюють встановлення кутового прискорення для розподільника керування (тут названого "міксер"). Для створення цих бажаних кутових прискорень міксер виробляє моменти за допомогою наявних аеродинамічних поверхонь керування (наприклад, стандартний літак зазвичай має два ельєрона, два руля висоти та кормовий руль). Моменти, що створюються цими поверхнями керування, сильно впливають на відносну швидкість повітря та щільність повітря, або, точніше, на динамічний тиск. Якщо не виконується масштабування швидкості повітря, контролер, який тісно налаштований для певної крейсерської швидкості повітря, зробить літак коливатися при вищій швидкості повітря або буде погано відслідковувати рух при низькій швидкості повітря.
 
-The reader should be aware of the difference between the [true airspeed (TAS)](https://en.wikipedia.org/wiki/True_airspeed) and the [indicated airspeed (IAS)](https://en.wikipedia.org/wiki/Indicated_airspeed) as their values are significantly different when not flying at sea level.
+Читачу слід знати різницю між [істинною швидкістю повітря (TAS)](https://en.wikipedia.org/wiki/True_airspeed) та [індикованою швидкістю повітря (IAS)](https://en.wikipedia.org/wiki/Indicated_airspeed), оскільки їх значення значно відрізняються, коли не літають на рівні моря.
 
-The definition of the dynamic pressure is
+Визначення динамічного тиску таке
 
 $$\bar{q} = \frac{1}{2} \rho V_T^2$$
 
-where $\rho{}$ is the air density and $V_T{}$ the true airspeed (TAS).
+де $\rho{}$ - щільність повітря, а $V_T{}$ - істинна швидкість повітря (TAS).
 
-Taking the roll axis for the rest of this section as an example, the dimensional roll moment can be written
+Беручи в якості прикладу вісь крену для решти цього розділу, розмірний момент крену можна записати
 
 $$\ell = \frac{1}{2}\rho V_T^2 S b C_\ell = \bar{q} S b C_\ell$$
 
-where $\ell{}$ is the roll moment, $b{}$ the wing span and $S{}$ the reference surface.
+де $\ell{}$ момент крену, $b{}$ розмах крила і $S{}$ опорна поверхня.
 
-The nondimensional roll moment derivative $C_\ell{}$ can be modeled using the aileron effectiveness derivative $C_{\ell_{\delta_a}}{}$, the roll damping derivative $C_{\ell_p}{}$ and the dihedral derivative $C_{\ell_\beta}{}$
+Недименсійна похідна моменту кочення $C_\ell{}$ може бути моделювана за допомогою похідної ефективності ельєронів $C_{\ell_{\delta_a}}{}$, похідної згасання кочення $C_{\ell_p}{}$ та похідної дігонь-кутів $C_{\ell_\beta}{}$
 
 $$C_\ell = C_{\ell_0} + C_{\ell_\beta}\:\beta + C_{\ell_p}\:\frac{b}{2V_T}\:p + C_{\ell_{\delta_a}} \:\delta_a$$
 
-where $\beta{}$ is the sideslip angle, $p{}$ the body roll rate and $\delta_a{}$ the aileron deflection.
+де $\beta{}$ - кут бокового зносу, $p{}$ - кутова швидкість кочення корпусу, а $\delta_a{}$ - відхилення ельєронів.
 
-Assuming a symmetric ($C_{\ell_0} = 0{}$) and coordinated ($\beta = 0{}$) aircraft, the equation can be simplified using only the rollrate damping and the roll moment produced by the ailerons
+Припускаючи симетричний ($C_{\ell_0} = 0{}$) і координований ($\beta = 0{}$) літак, рівняння можна спростити, використовуючи лише згасання кутової швидкості по крену та момент кочення, створений ельєронами
 
 $$\ell = \frac{1}{2}\rho V_T^2 S b \left [C_{\ell_{\delta_a}} \:\delta_a + C_{\ell_p}\:\frac{b}{2V_T} \: p \right ]$$
 
-This final equation is then taken as a baseline for the two next subsections to determine the airspeed scaling expression required for the PI and the FF controllers.
+Це кінцеве рівняння потім використовується як базове для двох наступних підрозділів для визначення виразу масштабування швидкості повітря, необхідного для контролерів PI та FF.
 
 #### Static torque (PI) scaling
 
-At a zero rates condition ($p = 0{}$), the damping term vanishes and a constant - instantaneous - torque can be generated using:
+При умові нульових швидкостей ($p = 0{}$), згасаючий член зникає, і стале - моментальне - крутне зусилля може бути згенеровано за допомогою:
 
 $$\ell = \frac{1}{2}\rho V_T^2 S b \: C_{\ell_{\delta_a}} \:\delta_a = \bar{q} S b \: C_{\ell_{\delta_a}} \:\delta_a$$
 
-Extracting $\delta_a{}$ gives
+Витяг $\delta_a{}$ дає
 
 $$\delta_a = \frac{2bS}{C_{\ell_{\delta_a}}} \frac{1}{\rho V_T^2} \ell = \frac{bS}{C_{\ell_{\delta_a}}} \frac{1}{\bar{q}} \ell$$
 
-where the first fraction is constant and the second one depends on the air density and the true airspeed squared.
+де перший дріб є постійним, а другий залежить від щільності повітря та квадрата швидкості повітря (Tas).
 
-Furthermore, instead of scaling with the air density and the TAS, it can be shown that the indicated airspeed (IAS, $V_I{}$) is inherently adjusted by the air density since at low altitude and speed, IAS can be converted to TAS using a simple density error factor
+Крім того, замість масштабування за щільністю повітря та швидкістю повітря (TAS), можна показати, що індикована швидкість повітря (IAS, $V_I{}$) вже коригується за щільність повітря, оскільки на низькій висоті і швидкості ІAS може бути переведена в TAS за допомогою простого фактора помилки щільності
 
 $$V_T = V_I \sqrt{\frac{\rho_0}{\rho}}$$
 
-, where $\rho_o{}$ is the air density as sea level, 15°C.
+де $\rho_o{}$ - щільність повітря на рівні моря при 15°C.
 
 Squaring, rearranging and adding a 1/2 factor to both sides makes the dynamic pressure $\bar{q}{}$ expression appear
 
@@ -251,19 +251,19 @@ The scaler previously containing TAS and the air density can finally be written 
 
 $$\delta_a = \frac{2bS}{C_{\ell_{\delta_a}}\rho_0} \frac{1}{V_I^2} \ell$$
 
-#### Rate (FF) scaling
+#### Оцінити (FF) масштабування
 
-The main use of the feedforward of the rate controller is to compensate for the natural rate damping. Starting again from the baseline dimensional equation but this time, during a roll at constant speed, the torque produced by the ailerons should exactly compensate for the damping such as
+Головне використання впередньої подачі контролера кутової швидкості полягає у компенсації природного згасання кутової швидкості. Почнемо з базового розмірного рівняння, але на цей раз під час кочення зі сталою швидкістю момент, створений ельєронами, повинен точно компенсувати згасання, наприклад,
 
 $$- C_{\ell_{\delta_a}} \:\delta_a = C_{\ell_p} \frac{b}{2 V_T} \: p$$
 
-Rearranging to extract the ideal ailerons deflection gives
+Перегруповуючи для вилучення ідеального відхилення ельєронів, отримуємо
 
 $$\delta_a = -\frac{b \: C_{\ell_p}}{2 \: C_{\ell_{\delta_a}}} \frac{1}{V_T} \: p$$
 
-The first fraction gives the value of the ideal feedforward and we can see that the scaling is linear to the TAS. Note that the negative sign is then absorbed by the roll damping derivative which is also negative.
+Зазначте, що від'ємний знак потім поглинається похідною згасання кочення, яка також є від'ємною. Зауважте, що від'ємний знак потім поглинається похідною згасання кочення, яка також є від'ємною.
 
-#### Conclusion
+#### Висновок
 
 The output of the rate PI controller has to be scaled with the indicated airspeed (IAS) squared and the output of the rate feedforward (FF) has to be scaled with the true airspeed (TAS)
 
@@ -275,12 +275,12 @@ Finally, since the actuator outputs are normalized and that the mixer and the se
 
 $$\dot{\mathbf{\omega}}_{sp}^b = \frac{V_{I_0}^2}{V_I^2} \dot{\mathbf{\omega}}_{sp_{PI}}^b + \frac{V_{T_0}}{V_T} \dot{\mathbf{\omega}}_{sp_{FF}}^b$$
 
-and implement it directly in the rollrate, pitchrate and yawrate controllers.
+та реалізувати його безпосередньо в контролерах кутової швидкості по крену, тангажу та розвороту.
 
-In the case of airframes with controls performance that is not dependent directly on airspeed e.g. a rotorcraft like [autogyro](../frames_autogyro/README.md). There is possibility to disable airspeed scaling feature by [FW_ARSP_SCALE_EN](../advanced_config/parameter_reference.md#FW_ARSP_SCALE_EN) parameter.
+У випадку повітряних конструкцій, де продуктивність управління не залежить безпосередньо від швидкості повітря, наприклад, вертольота, такого як [autogyro](../frames_autogyro/README.md). Існує можливість вимкнути функцію масштабування швидкості повітря за допомогою [FW_ARSP_SCALE_EN](../advanced_config/parameter_reference.md#FW_ARSP_SCALE_EN)параметра.
 
-#### Tuning recommendations
+#### Рекомендації з налаштування
 
-The beauty of this airspeed scaling algorithm is that it does not require any specific tuning. However, the quality of the airspeed measurements directly influences its performance.
+Перевагою цього алгоритму масштабування швидкості повітря є те, що для його налагодження не потрібно ніяких специфічних дій.</3>. Однак якість вимірювань швидкості повітря безпосередньо впливає на його ефективність.
 
-Furthermore, to get the largest stable flight envelope, one should tune the attitude controllers at an airspeed value centered between the stall speed and the maximum airspeed of the vehicle (e.g.: an airplane that can fly between 15 and 25m/s should be tuned at 20m/s). This "tuning" airspeed should be set in the [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) parameter.
+Крім того, для отримання найбільш стабільного польотного енвелопу слід налаштувати контролери орієнтації на значенні швидкості повітря, яке знаходиться між швидкістю стійкості та максимальною швидкістю транспортного засобу (наприклад: літак, який може літати від 15 до 25 м/с, слід налаштувати на 20 м/с). Цю "настройку" швидкості повітря слід встановити в параметрі [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM).
