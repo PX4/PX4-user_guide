@@ -28,7 +28,7 @@ $ wstool merge -t src indigo-custom_ros.rosinstall
 $ wstool update -t src
 ```
 
-Далі (досі у вашому робочому середовищі)
+Далі (досі у вашому робочому середовищі).
 
 ```sh
 $ source /opt/ros/indigo/setup.bash

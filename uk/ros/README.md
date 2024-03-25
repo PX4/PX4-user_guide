@@ -1,4 +1,4 @@
-# ROS  (Робототехнічна операційна система)
+# ROS (Робототехнічна операційна система)
 
 [ROS](http://www.ros.org/) - загальнопризначена бібліотека робототехніки, яку можна використовувати з PX4 для розробки додатків для дронів.
 
@@ -25,7 +25,7 @@ PX4 підтримує як ROS 2 так і ROS 1 з наступними кон
 
 ## Підтримка ROS
 
-На [PX4 Developer Summit  2020](https://www.youtube.com/watch?v=lZ8crGI16qA) (і [ROS World 2020](https://www.youtube.com/watch?v=8XRkzHqQSf0)), команда розробників PX4 оголосила плани підтримки microROS.
+На [PX4 Developer Summit 2020](https://www.youtube.com/watch?v=lZ8crGI16qA) (і [ROS World 2020](https://www.youtube.com/watch?v=8XRkzHqQSf0)), команда розробників PX4 оголосила плани підтримки microROS.
 
 * microRTPS: microRTPS міст з Fast DDS (ROS 2 інтерфейс PX4 v1.13 та попередні)
 * micro XRCE-DS: DDS на PX4 (ROS 2 інтерфейс PX4 v1.14 і пізніше)

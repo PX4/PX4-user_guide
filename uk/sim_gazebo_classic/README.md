@@ -10,7 +10,7 @@ Gazebo Classic - це потужне середовище 3D симуляції 
 
 @[youtube](https://www.youtube.com/watch?v=qfFF9-0k4KA&vq=hd720)
 
-[![Mermaid Graph: Gazebo plugin](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
+[![Діаграма: плагін Gazebo](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 
 
 <!-- original graph info
@@ -123,7 +123,7 @@ INFO  [ecl/EKF] 5188000: commencing GPS fusion
 Натискання правою кнопкою миші на модель квадрокоптера дозволяє увімкнути режим слідування у контекстному меню, що зручно для того щоб тримати його у полі зору.
 :::
 
-![Gazebo Classic UI](../../assets/simulation/gazebo_classic/gazebo_follow.jpg)
+![Інтерфейс Gazebo Classic](../../assets/simulation/gazebo_classic/gazebo_follow.jpg)
 
 Ви можете підняти його у повітря надрукувавши:
 
@@ -307,162 +307,162 @@ make px4_sitl gazebo-classic_rover__sonoma_raceway
 
 @[youtube](https://youtu.be/-a2WWLni5do)
 
-## Starting Gazebo and PX4 Separately
+## Запуск Gazebo та PX4 окремо
 
-For extended development sessions it might be more convenient to start Gazebo Classic and PX4 separately or even from within an IDE.
+Для розширених сеансів розробки можливо більш зручно запускати Gazebo Classic та PX4 окремо або навіть з IDE.
 
-In addition to the existing cmake targets that run `sitl_run.sh` with parameters for px4 to load the correct model it creates a launcher targets named `px4_<mode>` that is a thin wrapper around original sitl px4 app. This thin wrapper simply embeds app arguments like current working directories and the path to the model file.
+На додаток до наявних цілей збірки cmake, що виконують `sitl_run.sh` з параметрами для px4 для завантаження відповідної моделі, створюється ціль для запуску `px4_<mode>` яка є тонкою обгорткою для вихідного застосунку sitl px4. Ця тонка обгортка просто містить аргументи застосунку типу поточної робочої директорії та шляху до файлу моделі.
 
-To start Gazebo Classic and PX4 separately:
+Щоб запустити Gazebo Classic та PX4 окремо:
 
-- Run gazebo classic (or any other sim) server and client viewers via the terminal specifying an `_ide` variant:
+- Запустіть сервер gazebo classic (або іншого симулятора) та клієнтські переглядачі через термінал, вказавши варіант `_ide`:
 
   ```sh
   make px4_sitl gazebo-classic___ide
   ```
 
-  or
+  або
 
   ```sh
   make px4_sitl gazebo-classic_iris_ide
   ```
 
-- In your IDE select `px4_<mode>` target you want to debug (e.g. `px4_iris`)
-- Start the debug session directly from IDE
+- У IDE оберіть ціль `px4_<mode>` яку ви хочете налагодити (наприклад `px4_iris`)
+- Запустіть сеанс налагодження безпосередньо з IDE
 
-This approach significantly reduces the debug cycle time because simulator is always running in background and you only re-run the px4 process which is very light.
+Цей підхід суттєво зменшує час циклу налагодження, оскільки симулятор завжди працює у фоновому режимі та ви перезавантажуєте тільки процес px4, який дуже легкий.
 
-## Simulated Survey Camera
+## Симуляція камери спостереження
 
-The _Gazebo Classic_ survey camera simulates a [MAVLink camera](https://mavlink.io/en/services/camera.html) that captures geotagged JPEG images and sends camera capture information to a connected ground station. The camera also supports video streaming. It can be used to test camera capture, in particular within survey missions.
+Камера спостереження _Gazebo Classic_ моделює [камеру MAVLink](https://mavlink.io/en/services/camera.html) яка захоплює JPEG зображення з геотегами та передає інформацію захоплення з камери на під'єднану наземну станцію. Камера також підтримує відеотрансляцію. Вона може бути використана для перевірки захоплення камери, зокрема в політних завданнях спостереження.
 
-The camera emits the [CAMERA_IMAGE_CAPTURED](https://mavlink.io/en/messages/common.html#CAMERA_IMAGE_CAPTURED) message every time an image is captured. The captured images are saved to: **PX4-Autopilot/build/px4*sitle_default/tmp/frames/DSC_n*.jpg** (where _n_ starts as 00000 and is iterated by one on each capture).
+Камера генерує повідомлення [CAMERA_IMAGE_CAPTURED](https://mavlink.io/en/messages/common.html#CAMERA_IMAGE_CAPTURED) щоразу, коли захоплюється зображення. Захоплені зображення зберігаються у **PX4-Autopilot/build/px4*sitle_default/tmp/frames/DSC_n*.jpg** (де _n_ починається з 00000 та збільшується на один кожне захоплення).
 
-To simulate a plane with this camera:
+Для симуляції літака з цією камерою:
 
 ```sh
 make px4_sitl_default gazebo-classic_plane_cam
 ```
 
 :::note
-The camera also supports/responds to the following MAVLink commands: [MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS), [MAV_CMD_REQUEST_STORAGE_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_STORAGE_INFORMATION), [MAV_CMD_REQUEST_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_SETTINGS), [MAV_CMD_REQUEST_CAMERA_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_INFORMATION), [MAV_CMD_RESET_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_RESET_CAMERA_SETTINGS), [MAV_CMD_STORAGE_FORMAT](https://mavlink.io/en/messages/common.html#MAV_CMD_STORAGE_FORMAT), [MAV_CMD_SET_CAMERA_ZOOM](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_ZOOM), [MAV_CMD_IMAGE_START_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_START_CAPTURE), [MAV_CMD_IMAGE_STOP_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_STOP_CAPTURE), [MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION), [MAV_CMD_REQUEST_VIDEO_STREAM_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_STATUS), [MAV_CMD_SET_CAMERA_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_MODE).
+Камерта також підтримує/відповідає на наступні команди MAVLink: [MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS), [MAV_CMD_REQUEST_STORAGE_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_STORAGE_INFORMATION), [MAV_CMD_REQUEST_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_SETTINGS), [MAV_CMD_REQUEST_CAMERA_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_INFORMATION), [MAV_CMD_RESET_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_RESET_CAMERA_SETTINGS), [MAV_CMD_STORAGE_FORMAT](https://mavlink.io/en/messages/common.html#MAV_CMD_STORAGE_FORMAT), [MAV_CMD_SET_CAMERA_ZOOM](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_ZOOM), [MAV_CMD_IMAGE_START_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_START_CAPTURE), [MAV_CMD_IMAGE_STOP_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_STOP_CAPTURE), [MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION), [MAV_CMD_REQUEST_VIDEO_STREAM_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_STATUS), [MAV_CMD_SET_CAMERA_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_MODE).
 :::
 
 :::note
-The simulated camera is implemented in [PX4/PX4-SITL_gazebo-classic/main/src/gazebo_camera_manager_plugin.cpp](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/src/gazebo_camera_manager_plugin.cpp).
+Симуляція камери реалізована у [PX4/PX4-SITL_gazebo-classic/main/src/gazebo_camera_manager_plugin.cpp](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/src/gazebo_camera_manager_plugin.cpp).
 :::
 
-## Simulated Depth Camera
+## Симуляція камери глибини
 
-The _Gazebo Classic_ [depth camera model](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/depth_camera/depth_camera.sdf.jinja) simulates an Intel® RealSense™ D455 stereo depth camera using the [Openni Kinect plugin](https://classic.gazebosim.org/tutorials?tut=ros_gzplugins#OpenniKinect).
+_Модель камери глибини_ [Gazebo Classic](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/depth_camera/depth_camera.sdf.jinja) симулює стереокамеру глибини Intel® RealSense™ D455 використовуючи [плагін Openni Kinect](https://classic.gazebosim.org/tutorials?tut=ros_gzplugins#OpenniKinect).
 
-This publishes depth images and camera information on the `/camera/depth/image_raw` and `/camera/depth/camera_info` ROS topics respectively.
+Вона публікує зображення глибини та інформацію з камери у рубрики ROS `/camera/depth/image_raw` та `/camera/depth/camera_info` відповідно.
 
-To use these images, you will need to install ROS or ROS 2. Note the warning at the top of this page about how to "avoid installation conflicts" when installing ROS and Gazebo.
+Щоб використовувати ці зображення, потрібно встановити ROS або ROS 2. Зверніть увагу на попередження зверху цієї сторінки про те, як "уникнути конфліктів встановлення" під час встановлення ROS і Gazebo.
 
-You can simulate a quadrotor with a forward-facing depth camera:
+Можна симулювати квадрокоптер з камерою глибини що дивиться вперед:
 
 ```sh
 make px4_sitl gazebo-classic_iris_depth_camera
 ```
 
-or a quadrotor with a downward-facing depth camera:
+або квадрокоптер з камерою глибини, що дивиться вниз:
 
 ```sh
 make px4_sitl gazebo-classic_iris_downward_depth_camera
 ```
 
-## Simulated Parachute/Flight Termination
+## Симуляція парашутування при припиненні польоту
 
-_Gazebo Classic_ can be used to simulate deploying a [parachute](../peripherals/parachute.md) during [Flight Termination](../advanced_config/flight_termination.md) (flight termination is triggered by the PWM command that is simulated in _Gazebo Classic_).
+_Gazebo Classic_ можна використовувати для симуляції розгортання [парашуту](../peripherals/parachute.md) під час [Припинення польоту](../advanced_config/flight_termination.md) (припинення польоту викликається командою ШІМ що симулюється в _Gazebo Classic_).
 
-The `if750a` target has a parachute attached to the vehicle. To simulate the vehicle, run the following command:
+Ціль збірки `if750a` має парашут прикріплений до рухомого засобу. Для симуляції засобу виконайте наступну команду:
 
 ```sh
 make px4_sitl gazebo-classic_if750a
 ```
 
-To put the vehicle into flight termination state, you can force it to fail a [safety check](../config/safety.md) that has flight termination set as the failsafe action. For example, you could do this by forcing a [Geofence violation](../config/safety.md#geofence-failsafe).
+Для переведення рухомого засобу у стан припинення польоту, ви можете примусити його провалити [перевірку безпеки](../config/safety.md) яка має налаштування припинення польоту як дію для запобігання відмови. Наприклад ви можете зробити це примусивши [Порушити геозону](../config/safety.md#geofence-failsafe).
 
-For more information see:
+Для додаткової інформації дивіться:
 
-- [Flight Termination](../advanced_config/flight_termination.md)
-- [Parachute](../peripherals/parachute.md)
-- [Safety Configuration (Failsafes)](../config/safety.md)
+- [Припинення польоту](../advanced_config/flight_termination.md)
+- [Парашут](../peripherals/parachute.md)
+- [Конфігурація безпеки (запобіжники)](../config/safety.md)
 
-## Video Streaming
+## Трансляція відео
 
-PX4 SITL for Gazebo Classic supports UDP video streaming from a camera sensor attached to a simulated vehicle model. When streaming is enabled, you can connect to this stream from _QGroundControl_ (on UDP port 5600) and view video of the Gazebo Classic environment from the simulated vehicle - just as you would from a real camera. The video is streamed using a _gstreamer_ pipeline and can be enabled/disabled using a button in the Gazebo Classic UI.
+PX4 SITL для Gazebo Classic підтримує трансляцію відео по UDP з датчика камери, приєднаної до симуляції моделі рухомого засобу. Коли трансляцію увімкнено, можна під'єднатися до цього потоку з _QGroundControl_ (на UDP порту 5600) та переглянути відео середовища Gazebo Classic з засобу, що симулюється так само як з реальної камери. Відео транслюється за допомогою конвеєра _gstreamer_ та може бути увімкнене/вимкнене за допомогою кнопки в інтерфейсі Gazebo Classic.
 
-The simulated camera sensor is supported/enabled on the following frames:
+Симуляція датчику камери підтримується/увімкненно на наступних планерах:
 
 - [Typhoon H480](#typhoon_h480)
 
-### Prerequisites
+### Системні вимоги
 
-_Gstreamer 1.0_ is required for video streaming. The required dependencies should already have been [installed when you set up Gazebo Classic](#installation) (they are included in the standard PX4 installation scripts/instructions for macOS and Ubuntu Linux).
+Для відеотрансляції потрібний _Gstreamer 1.0_. Потрібні залежності вже повинні бути [встановленні при налаштуванні Gazebo Classic](#installation) (вони включені в стандартні скрипти/інструкції установки PX4 для macOS та Ubuntu Linux).
 
 :::note
-FYI only, the dependencies include: `gstreamer1.0-plugins-base`, `gstreamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
+Виключно для інформації, залежності включають: `gstreamer1.0-plugins-base`, `gstreamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
 :::
 
-### Start/Stop Video Streaming
+### Запустити/Зупинити відеотрансляцію
 
-Video streaming is automatically started when supported by the target vehicle. For example, to start streaming video on the Typhoon H480:
+Трансляція відео автоматично запускається, якщо підтримується цільовим засобом. Наприклад, щоб розпочати трансляцію відео на Typhoon H480:
 
 ```sh
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
-Streaming can be paused/restarted using the Gazebo UI _Video ON/OFF_ button..
+Трансляція може бути припинена/перезапущена за допомогою кнопки інтерфейсу Gazebo_Video ON/OFF_.
 
-![Video ON/OFF button](../../assets/simulation/gazebo_classic/sitl_video_stream.png)
+![Кнопка Video ON/OFF](../../assets/simulation/gazebo_classic/sitl_video_stream.png)
 
-### How to View Gazebo Video
+### Як переглянути відео Gazebo
 
-The easiest way to view the SITL/Gazebo Classic camera video stream is in _QGroundControl_. Simply open **Application Settings > General** and set **Video Source** to _UDP h.264 Video Stream_ and **UDP Port** to _5600_:
+Найпростіший спосіб переглянути відеопотік з камери SITL/Gazebo Classic - в _QGroundControl_. Просто відкрийте **Налаштування застосунку > Загальне** та встановіть **Джерело відео** у _UDP h.264 відеопотік_ та **UDP порт** у _5600_:
 
-![QGC Video Streaming Settings for Gazebo](../../assets/simulation/gazebo_classic/qgc_gazebo_video_stream_udp.png)
+![Налаштування відеотрансляції QGC для Gazebo](../../assets/simulation/gazebo_classic/qgc_gazebo_video_stream_udp.png)
 
-The video from Gazebo Classic should then display in _QGroundControl_ just as it would from a real camera.
+Відео з Gazebo Classic має показуватися в _QGroundControl_ так само як зі справжньої камери.
 
-![QGC Video Streaming Gazebo Example](../../assets/simulation/gazebo_classic/qgc_gazebo_video_stream_typhoon.jpg)
+![Приклад відеотрансляції Gazebo у QGC](../../assets/simulation/gazebo_classic/qgc_gazebo_video_stream_typhoon.jpg)
 
 :::note
-The Typhoon world is not very interesting.
+Світ моделі Typhoon не дуже цікавий.
 :::
 
-It is also possible to view the video using the _Gstreamer Pipeline_. Simply enter the following terminal command:
+Також можна переглянути відео, використовуючи _Конвеєр Gstreamer_. Просто введіть наступну команду терміналу:
 
 ```sh
 gst-launch-1.0  -v udpsrc port=5600 caps='application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264' \
 ! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink fps-update-interval=1000 sync=false
 ```
 
-### Verbose Logging
+### Ведення докладного журналу
 
-SITL fails silently when there is something wrong with the model. You can enable more verbose logging using `VERBOSE_SIM`, as shown:
+SITL нічого не виводить при помилці, коли щось не так з моделлю. Можна увімкнути більш детальне логування за допомогою `VERBOSE_SIM`, як показано:
 
 ```sh
 export VERBOSE_SIM=1
 make px4_sitl gazebo-classic
 ```
 
-or
+або
 
 ```sh
 VERBOSE_SIM=1 make px4_sitl gazebo-classic
 ```
 
-## Extending and Customizing
+## Розширення та персоналізація
 
-To extend or customize the simulation interface, edit the files in the `Tools/simulation/gazebo/sitl_gazebo` folder. The code is available on the [sitl_gazebo repository](https://github.com/PX4/PX4-SITL_gazebo) on Github.
+Для розширення та персоналізації інтерфейсу симуляції, відредагуйте файли у директорії `Tools/simulation/gazebo/sitl_gazebo`. Код доступний в репозиторії [sitl_gazebo](https://github.com/PX4/PX4-SITL_gazebo) на Github.
 
 :::note
-The build system enforces the correct GIT submodules, including the simulator. It will not overwrite changes in files in the directory.
+Система збірки дотримується правильних підмодулів GIT, включаючи симулятор. Вона перезапише зміни в файлах та директоріях.
 :::
 
-## Further Information
+## Додаткова інформація
 
-- [ROS with Gazebo Classic Simulation](../simulation/ros_interface.md)
+- [ROS з симуляцією Gazebo Classic](../simulation/ros_interface.md)
 - [Gazebo Classic Octomap](../sim_gazebo_classic/octomap.md)

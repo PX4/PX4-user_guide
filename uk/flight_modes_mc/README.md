@@ -1,55 +1,55 @@
-# Flight Modes (Multicopter)
+# Режими польоту (мультикоптер)
 
-Flight modes provide autopilot support to make it easier to manually fly the vehicle, to automate common tasks such as takeoff and landing, to execute autonomous missions, or to defer flight control to an external system.
+Режими польоту надають підтримку автопілота для полегшення ручного керування транспортним засобом, автоматизації загальних завдань, таких як зльот та посадка, виконання автономних місій або передачі управління польотом зовнішній системі.
 
-This topic provides an overview of the available flight modes for multicopters and helicopters.
+Ця тема надає загальний огляд доступних режимів польоту для мультикоптерів та вертольотів.
 
-## Overview
+## Загальний огляд
 
-Flight Modes are either _manual_ or _autonomous_.
-Manual modes provide different levels of autopilot support when flying manually (using RC control sticks or a joystick), while _autonomous_ modes can be fully controlled by the autopilot.
+Режими польоту можуть бути або _ручними_, або _автономними_.
+Ручні режими забезпечують різні рівні підтримки автопілота при ручному керуванні (використовуючи керувальні палиці дистанційного керування або джойстик), тоді як _автономні_ режими можуть бути повністю контрольованими автопілотом.
 
 Manual-Easy:
 
-- [Position mode](../flight_modes_mc/position.md) — Easiest and safest manual mode for vehicles that have a position fix/GPS.
-  The roll and pitch sticks control _acceleration_ over ground in the vehicle's forward-back and left-right directions (similar to a car's accelerator pedal), the yaw stick controls horizontal rotation, and the throttle controls speed of ascent-descent.
-  Releasing sticks levels the vehicle, actively brakes it to a stop, and locks it to the current 3D position (even against wind and other forces).
-- [Position Slow mode](../flight_modes_mc/position_slow.md) — A velocity and yaw rate limited version of _Position mode_.
-  This is primarily used to temporarily limit speed when flying near obstacles, or when required by regulation.
-- [Altitude mode](../flight_modes_mc/altitude.md) — Easiest and safest _non-GPS_ manual mode.
-  The main difference when compared to _Position mode_ is that when the sticks are released the vehicle will level and maintain altitude, but there is no active breaking or holding of horizontal position (the vehicle moves with it's current momentum and drifts with wind).
-- [Manual/Stabilized](../flight_modes_mc/manual_stabilized.md) — Releasing the sticks levels and maintains the vehicle horizontal posture (but not altitude or position).
-  The vehicle will continue to move with momentum, and both altitude and horizontal position may be affected by wind.
+- [Режим позиції](../flight_modes_mc/position.md) — Найпростіший і найбезпечніший ручний режим для транспортних засобів, які мають фіксацію позиції/GPS.
+  Палиці крена та тангажу керують _прискоренням_ по землі у напрямках вперед-назад та ліво-право у транспортному засобі (аналогічно до педалі газу в автомобілі), палиця розвороту керує горизонтальним обертанням, а ручка газу керує швидкістю підйому-спуску.
+  Відпускання палиць вирівнює транспортний засіб, активно гальмує його до зупинки і фіксує його на поточній тривимірній позиції (навіть проти вітру та інших сил).
+- [Повільний режим позиції](../flight_modes_mc/position_slow.md) — Версія режиму _Позиція_ з обмеженою швидкістю руху і обертовим кутом розвороту.
+  Це використовується переважно для тимчасового обмеження швидкості під час польоту навколо перешкод або за вимогами регулятивних нормативних актів.
+- [Режим висоти](../flight_modes_mc/altitude.md) — Найпростіший і найбезпечніший _непідтримуваний GPS_ ручний режим.
+  Основна відмінність порівняно з режимом _Позиція_ полягає в тому, що під час відпускання палиць транспортний засіб вирівнюється і підтримує висоту, але відсутній активний гальмувальний або утримуючий горизонтальну позицію ефект (транспортний засіб рухається з поточним рухом і дрейфує з вітром).
+- [Ручний/Стабілізований](../flight_modes_mc/manual_stabilized.md) — Під час відпускання палиць транспортний засіб вирівнюється і підтримує горизонтальну поставу (але не висоту чи позицію).
+  Транспортний засіб продовжить рухатися з імпульсом, і як висота, так і горизонтальна позиція можуть бути піддані впливу вітру.
 
 Manual-Acrobatic
 
-- [Acro](../flight_modes_mc/acro.md) — Manual mode for performing acrobatic maneuvers, such as rolls and loops.
-  Releasing the sticks stops the vehicle rotating in the roll, pitch, yaw axes, but does not otherwise stabilise the vehicle.
+- [Acro](../flight_modes_mc/acro.md) — Ручний режим для виконання акробатичних маневрів, таких як креніння та петлі.
+  Відпускання палиць призупиняє обертання транспортного засобу в площині крена, тангажу та розвороту, але іншим чином не стабілізує транспортний засіб.
 
-Autonomous:
+Автономний:
 
-- [Hold](../flight_modes_mc/hold.md) — Vehicle stops and hovers at its current position and altitude, maintaining its position against wind and other forces.
-- [Return](../flight_modes_mc/return.md) — Vehicle ascends to a safe altitude, flies a clear path to a safe location (home or a rally point) and then lands.
-  This requires a global position estimate (GPS).
-- [Mission](../flight_modes_mc/mission.md) — Vehicle executes a [predefined mission/flight plan](../flying/missions.md) that has been uploaded to the flight controller.
-  This requires a global position estimate (GPS).
-- [Takeoff](../flight_modes_mc/takeoff.md) — Vehicle takes off vertically and then switches to _Hold mode_.
-- [Land](../flight_modes_mc/land.md) — Vehicle lands immediately.
-- [Orbit](../flight_modes_mc/orbit.md) - Vehicle flys in a circle, yawing so that it always faces towards the center.
-  RC control can optionally be used to change the orbit radius, direction, speed and so on.
-- [Follow Me](../flight_modes_mc/follow_me.md) — Vehicle follows a beacon that is providing position setpoints.
-  RC control can optionally be used to set the follow position.
-- [Offboard](../flight_modes_mc/offboard.md) — Vehicle obeys position, velocity, or attitude, setpoints provided via MAVLink or ROS 2.
+- [Утримання](../flight_modes_mc/hold.md) — Транспортний засіб зупиняється і утримується на своїй поточній позиції та висоті, утримуючи свою позицію проти вітру та інших сил.
+- [Повернення](../flight_modes_mc/return.md) — Транспортний засіб піднімається на безпечну висоту, летить чітким маршрутом до безпечного місця (додому або резервної точки) і потім сідає.
+  Для цього потрібна глобальна оцінка позиції (GPS).
+- [Місія](../flight_modes_mc/mission.md) — Транспортний засіб виконує [попередньо визначену місію/план польоту](../flying/missions.md), яка була завантажена до керувальної системи польоту.
+  Це вимагає глобальної оцінки позиції (GPS).
+- [Зльот](../flight_modes_mc/takeoff.md) — Транспортний засіб злітає вертикально, а потім переходить у режим _Утримання_.
+- [Посадка](../flight_modes_mc/land.md) — Транспортний засіб приземлюється негайно.
+- [Обертання](../flight_modes_mc/orbit.md) - Транспортний засіб летить по колу, повертаючи рульові пристрої так, щоб завжди бути оберненим в бік центру.
+  RC керування може опціонально використовуватися для зміни радіуса орбіти, напрямку, швидкості та іншого.
+- [Follow Me/Дотримуйся Мене](../flight_modes_mc/follow_me.md) — Транспортний засіб слідує за маяком, який надає точки встановлення позиції.
+  RC control може використовуватися для встановлення послідовної позиції.
+- [Offboard/Офборд](../flight_modes_mc/offboard.md) — Транспортний засіб слідкує за встановленими точками позиції, швидкості або орієнтації, що надаються через MAVLink або ROS 2.
 
-Pilots transition between flight modes using switches on the remote control or with a ground control station (see [Flight Mode Configuration](../config/flight_mode.md)).
-Some flight modes make sense only under specific pre-flight and in-flight conditions (e.g. GPS lock, airspeed sensor, vehicle attitude sensing along an axis).
-PX4 will not allow transitions to those modes until the right conditions are met.
+Пілоти переходять між режимами польоту за допомогою перемикачів на дистанційному керуванні або зі станції земного керування (див. [Конфігурацію режиму польоту](../config/flight_mode.md)).
+Деякі режими польоту мають сенс тільки при певних передпольотних та польотних умовах (наприклад, блокування GPS, датчик швидкості повітря, виявлення орієнтації транспортного засобу по вісі).
+PX4 не дозволить переходити до цих режимів, доки не будуть виконані відповідні умови.
 
-Select the mode-specific sidebar topics for more detailed technical information.
+Щоб отримати детальнішу технічну інформацію, виберіть розділи бічної панелі, що стосуються режиму.
 
-## Further Information
+## Додаткова інформація
 
-- [Basic Configuration > Flight Modes](../config/flight_mode.md) - How to map RC control switches to specific flight modes
-- [Flight Modes (Fixed-Wing)](../flight_modes_fw/README.md)
-- [Flight Modes (VTOL)](../flight_modes_vtol/README.md)
-- [Flight Modes (Rover)](../flight_modes_rover/README.md)
+- [Базова конфігурація > Режими польоту](../config/flight_mode.md) - Як відобразити перемикачі керування дистанційним керуванням на конкретні режими польоту
+- [Режими польоту (Фіксований крило)](../flight_modes_fw/README.md)
+- [Режими польоту (VTOL)](../flight_modes_vtol/README.md)
+- [Режими польоту (Rover)](../flight_modes_rover/README.md)

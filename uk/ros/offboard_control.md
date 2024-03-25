@@ -18,7 +18,7 @@
 
 ### Увімкніть інтерфейс комп'ютера-компаньйона
 
-Enable MAVLink on the serial port that you connect to the companion computer (see [Companion Computers](../companion_computer/README.md)).
+Увімкніть MAVLink у послідовному порті, який ви підключаєтеся до компаньйону (див. [Комп'ютер компаньйон](../companion_computer/README.md)).
 
 ## Налаштування обладнання
 

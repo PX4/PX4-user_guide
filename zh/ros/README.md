@@ -1,11 +1,10 @@
 # ROS (Robot Operating System)
 
-[ROS](http://www.ros.org/) is a general purpose robotics library that can be used with PX4 for drone application development.
+ROS是一个通用的机器人库，可以与PX4一起用于无人机应用程序开发。
 
-ROS benefits from an active ecosystem of developers solving common robotics problems, and access to other software libraries written for Linux. It has been used, for example, as part of the PX4 [computer vision](../computer_vision/README.md) solutions, including [obstacle avoidance](../computer_vision/obstacle_avoidance.md) and [collision prevention](../computer_vision/collision_prevention.md).
+ROS得益于一个活跃的生态系统，在这个生态系统里，开发者会解决常见的机器人问题，他们也有权使用为Linux编写的其他软件库。 例如，它已被用作PX4[计算机视觉](../computer_vision/README.md)解决方案的一部分，包括[自主避障](../computer_vision/obstacle_avoidance.md)和[防撞](../computer_vision/collision_prevention.md)。
 
-:::warning
-tip [ROS 2](../ros/ros2.md) is the "latest and greatest" version of ROS. The PX4 development team recommend that all users [upgrade to ROS 2](../ros/ros2.md)!
+:::注意：[ROS 2](../ros/ros2.md) 是ROS的“最新和最好的”版本。PX4开发团队建议所有用户升级到ROS 2! PX4开发团队建议所有用户[升级到ROS 2](../ros/ros2.md)!
 :::
 
 
