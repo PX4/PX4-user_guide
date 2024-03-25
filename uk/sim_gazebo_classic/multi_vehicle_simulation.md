@@ -1,32 +1,32 @@
-# Multi-Vehicle Simulation with Gazebo Classic
+# Симуляція кількох рухомих засобів з Gazebo Classic
 
-This topic explains how to simulate multiple UAV vehicles using [Gazebo Classic](../sim_gazebo_classic/README.md) and SITL (Linux only). A different approach is used for simulation with and without ROS.
+Цей розділ пояснює як моделювати кілька безпілотних ЛА використовуючи [Gazebo Classic](../sim_gazebo_classic/README.md) та SITL (тільки для Linux). Різний підхід використовуються для симуляції з та без ROS.
 
-## Multiple Vehicle with Gazebo Classic
+## Кілька рухомих засобів з Gazebo Classic
 
-To simulate multiple iris or plane vehicles in Gazebo Classic use the following commands in the terminal (from the root of the _Firmware_ tree):
+Щоб змоделювати кілька засобів типу iris або літаків в Gazebo Classic використовуйте наступні команди в терміналі (з кореня дерева вихідного коду _Прошивки_):
 
 ```sh
 Tools/simulation/gazebo-classic/sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
 ```
 
-- `<model>`: The [vehicle type/model](../sim_gazebo_classic/vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
-- `<number_of_vehicles>`: The number of vehicles to spawn. Default is 3. Maximum is 254.
-- `<world>`: The [world](../sim_gazebo_classic/worlds.md) that the vehicle should be spawned into, e.g.: `empty` (default)
-- `<script>`: Spawn multiple vehicles of different types (overriding the values in `-m` and `-n`). For example:
+- `<model>`: [Тип/модель засобу](../sim_gazebo_classic/vehicles.md) для відтворення, наприклад: `iris` (за замовчуванням), `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
+- `<number_of_vehicles>`: Кількість рухомих засобів для відтворення. Значення за замовчуванням - 3. Максимум - 254.
+- `<world>`: [Світ](../sim_gazebo_classic/worlds.md) в якому потрібно відтворити засоби, наприклад: `empty` (за замовчуванням)
+- `<script>`: Відтворити кілька засобів різних типів (замінюючи значення в `-m` та `-n`). Наприклад:
 
   ```sh
   -s "iris:3,plane:2,standard_vtol:3"
   ```
 
-  - Supported vehicle types are: `iris`, `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
-  - The number after the colon indicates the number of vehicles (of that type) to spawn.
-  - Maximum number of vehicles is 254.
+  - Типи засобів що підтримуються: `iris`, `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
+  - Число після двокрапки вказує на кількість рухомих засобів (цього типу) для відтворення.
+  - Максимальна кількість засобів - 254.
 
-- `<target>`: build target, e.g: `px4_sitl_default` (default), `px4_sitl_nolockstep`
-- `<label>` : specific label for model, e.g: `rplidar`
+- `<target>`: ціль збірки, наприклад: `px4_sitl_default` (за замовчуванням), `px4_sitl_nolockstep`
+- `<label>` : певна мітка для моделі, наприклад: `rplidar`
 
-Each vehicle instance is allocated a unique MAVLink system id (2, 3, 4, etc.). MAVLink system id 1 is skipped in order to have consistency among [namespaces](../ros/ros2_multi_vehicle.md#principle-of-operation). Vehicle instances are accessed from sequentially allocated PX4 remote UDP ports: `14541` - `14548` (additional instances are all accessed using the same remote UDP port: `14549`).
+Кожному екземпляр рухомого засобу виділяється унікальний системний ідентифікатор MAVLink (2, 3, 4 тощо). Системний ідентифікатор MAVLink 1 пропускається, щоб мати узгодженість у [просторі імен](../ros/ros2_multi_vehicle.md#principle-of-operation). Екземпляри засобів доступні з послідовно виділених віддалених UDP портів PX4: `14541` - `14548` (усі додаткові екземпляри доступні по тому ж самому UDP порту `14549`).
 
 :::note
 The 254-vehicle limitation occurs because mavlink `MAV_SYS_ID` only supports 255 vehicles in the same network (and the first one is skipped). The `MAV_SYS_ID` is allocated in the SITL rcS: [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS#L131)
