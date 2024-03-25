@@ -14,9 +14,9 @@ They are connected using a fast serial or Ethernet link, and typically communica
 
 Communications with the ground stations and the cloud are usually routed via the companion computer (e.g. using the [MAVLink Router](https://github.com/mavlink-router/mavlink-router)).
 
-## Pixhawk Autopilot Bus Carrier Boards
+## Pixhawk Autopilot Bus Carrier Boards with Companion Computers
 
-Carrier boards implementing the Pixhawk Autopilot Bus Open Standard with integrated support for advanced companion computer options.
+Carrier boards implementing the [Pixhawk Autopilot Bus (PAB)](../flight_controller/pixhawk_autopilot_bus.md) Open Standard with integrated support for advanced companion computer options.
 
 The following boards are known to provide a good integration with PX4:
 
@@ -36,8 +36,13 @@ PX4 can be used with computers that can be configured to communicate via MAVLink
 
 A small subset of possible alternatives are listed below:
 
+- [Raspberry Pi](../companion_computer/pixhawk_rpi.md)
 - [ModalAI VOXL 2](https://docs.modalai.com/voxl2-external-flight-controller/)
-- [NXP NavQPlus](https://nxp.gitbook.io/navqplus)
+- [NXP NavQPlus](https://nxp.gitbook.io/navqplus/user-contributed-content/ros2/microdds)
+
+Unverified but Known to Work options
+- Odroid
+- TegraK1
 
 :::note
 The choice of computer will depend on the usual tradeoffs: cost, weight, power consumption, ease of setup, and computational resources required.
