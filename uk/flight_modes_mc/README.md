@@ -35,17 +35,17 @@ Manual-Acrobatic
   Це вимагає глобальної оцінки позиції (GPS).
 - [Зльот](../flight_modes_mc/takeoff.md) — Транспортний засіб злітає вертикально, а потім переходить у режим _Утримання_.
 - [Посадка](../flight_modes_mc/land.md) — Транспортний засіб приземлюється негайно.
-- [Orbit](../flight_modes_mc/orbit.md) - Vehicle flys in a circle, yawing so that it always faces towards the center.
-  RC control can optionally be used to change the orbit radius, direction, speed and so on.
-- [Follow Me](../flight_modes_mc/follow_me.md) — Vehicle follows a beacon that is providing position setpoints.
-  RC control can optionally be used to set the follow position.
-- [Offboard](../flight_modes_mc/offboard.md) — Vehicle obeys position, velocity, or attitude, setpoints provided via MAVLink or ROS 2.
+- [Обертання](../flight_modes_mc/orbit.md) - Транспортний засіб летить по колу, повертаючи рульові пристрої так, щоб завжди бути оберненим в бік центру.
+  RC керування може опціонально використовуватися для зміни радіуса орбіти, напрямку, швидкості та іншого.
+- [Follow Me/Дотримуйся Мене](../flight_modes_mc/follow_me.md) — Транспортний засіб слідує за маяком, який надає точки встановлення позиції.
+  RC control може використовуватися для встановлення послідовної позиції.
+- [Offboard/Офборд](../flight_modes_mc/offboard.md) — Транспортний засіб слідкує за встановленими точками позиції, швидкості або орієнтації, що надаються через MAVLink або ROS 2.
 
-Pilots transition between flight modes using switches on the remote control or with a ground control station (see [Flight Mode Configuration](../config/flight_mode.md)).
-Some flight modes make sense only under specific pre-flight and in-flight conditions (e.g. GPS lock, airspeed sensor, vehicle attitude sensing along an axis).
-PX4 will not allow transitions to those modes until the right conditions are met.
+Пілоти переходять між режимами польоту за допомогою перемикачів на дистанційному керуванні або зі станції земного керування (див. [Конфігурацію режиму польоту](../config/flight_mode.md)).
+Деякі режими польоту мають сенс тільки при певних передпольотних та польотних умовах (наприклад, блокування GPS, датчик швидкості повітря, виявлення орієнтації транспортного засобу по вісі).
+PX4 не дозволить переходити до цих режимів, доки не будуть виконані відповідні умови.
 
-Select the mode-specific sidebar topics for more detailed technical information.
+Щоб отримати детальнішу технічну інформацію, виберіть розділи бічної панелі, що стосуються режиму.
 
 ## Додаткова інформація
 
