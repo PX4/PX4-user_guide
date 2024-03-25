@@ -30,8 +30,8 @@ Enable MAVLink on the serial port that you connect to the companion computer (se
 2. Один підключений до наземної станції
 
    Приклад радіомодулів включає:
-   * [](http://www.lairdtech.com/products/rm024)
-   * [](http://www.digi.com/products/xbee-rf-solutions/modules)
+   * [Lairdtech RM024](http://www.lairdtech.com/products/rm024)
+   * [Digi International XBee Pro](http://www.digi.com/products/xbee-rf-solutions/modules)
 
 [![Mermaid graph: mavlink channel](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGduZFtHcm91bmQgU3RhdGlvbl0gLS1NQVZMaW5rLS0-IHJhZDFbR3JvdW5kIFJhZGlvXTtcbiAgcmFkMSAtLVJhZGlvUHJvdG9jb2wtLT4gcmFkMltWZWhpY2xlIFJhZGlvXTtcbiAgcmFkMiAtLU1BVkxpbmstLT4gYVtBdXRvcGlsb3RdOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGduZFtHcm91bmQgU3RhdGlvbl0gLS1NQVZMaW5rLS0-IHJhZDFbR3JvdW5kIFJhZGlvXTtcbiAgcmFkMSAtLVJhZGlvUHJvdG9jb2wtLT4gcmFkMltWZWhpY2xlIFJhZGlvXTtcbiAgcmFkMiAtLU1BVkxpbmstLT4gYVtBdXRvcGlsb3RdOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
 
@@ -49,12 +49,12 @@ A small computer mounted onto the vehicle connected to the autopilot through a U
 
 Small low power examples:
 * [Odroid C1+](https://www.hardkernel.com/shop/odroid-c1/) або [Odroid XU4](https://magazine.odroid.com/odroid-xu4)
-* [](https://www.raspberrypi.org/)
+* [Raspberry Pi](https://www.raspberrypi.org/)
 
 Larger high power examples:
-* [](https://www.intel.com/content/www/us/en/products/details/nuc.html)
-* [](https://www.gigabyte.com/Mini-PcBarebone/BRIX)
-* [](https://developer.nvidia.com/embedded/jetson-tx2)
+* [Intel NUC](https://www.intel.com/content/www/us/en/products/details/nuc.html)
+* [Gigabyte Brix](https://www.gigabyte.com/Mini-PcBarebone/BRIX)
+* [Nvidia Jetson TX2](https://developer.nvidia.com/embedded/jetson-tx2)
 
 [![Mermaid diagram: Companion mavlink](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGNvbXBbQ29tcGFuaW9uIENvbXB1dGVyXSAtLU1BVkxpbmstLT4gdWFydFtVQVJUIEFkYXB0ZXJdO1xuICB1YXJ0IC0tTUFWTGluay0tPiBBdXRvcGlsb3Q7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGNvbXBbQ29tcGFuaW9uIENvbXB1dGVyXSAtLU1BVkxpbmstLT4gdWFydFtVQVJUIEFkYXB0ZXJdO1xuICB1YXJ0IC0tTUFWTGluay0tPiBBdXRvcGlsb3Q7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 

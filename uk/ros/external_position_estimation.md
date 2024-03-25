@@ -18,12 +18,12 @@ The instructions differ depending on whether you are using the EKF2 or LPE estim
 
 PX4 uses the following MAVLink messages for getting external position information, and maps them to [uORB topics](../middleware/uorb.md):
 
-|                                                                         | uORB |
-| ----------------------------------------------------------------------- | ---- |
-| [](https://mavlink.io/en/messages/common.html#VISION_POSITION_ESTIMATE) | ``   |
-|                                                                         | ``   |
-| [](https://mavlink.io/en/messages/common.html#ATT_POS_MOCAP)            | ``   |
-|                                                                         | ``   |
+| MAVLink                                                                                                                                                                | uORB                      |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| [VISION_POSITION_ESTIMATE](https://mavlink.io/en/messages/common.html#VISION_POSITION_ESTIMATE)                                                                      | `vehicle_visual_odometry` |
+| [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) (`frame_id =` [MAV_FRAME_LOCAL_FRD](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_FRD)) | `vehicle_visual_odometry` |
+| [ATT_POS_MOCAP](https://mavlink.io/en/messages/common.html#ATT_POS_MOCAP)                                                                                            | `vehicle_mocap_odometry`  |
+| [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) (`frame_id =` [MAV_FRAME_MOCAP_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_MOCAP_NED)) | `vehicle_mocap_odometry`  |
 
 EKF2 only subscribes to `vehicle_visual_odometry` topics and can hence only process the first two messages (a MoCap system must generate these messages to work with EKF2). The odometry message is the only message that can send also linear velocities to PX4. The LPE estimator subscribes to both topics, and can hence process all the above messages.
 
@@ -51,7 +51,9 @@ For example, if using the Optitrack framework the local frame has $x{}$ and $z{}
 
 If `x_{mav}`, `y_{mav}` and `z_{mav}` are the coordinates that are sent through MAVLink as position feedback, then we obtain:
 ```
-
+x_{mav} = x_{mocap}
+y_{mav} = z_{mocap}
+z_{mav} = - y_{mocap}
 ```
 
 Regarding the orientation, keep the scalar part *w* of the quaternion the same and swap the vector part *x*, *y* and *z* in the same way. You can apply this trick with every system - if you need to obtain a NED frame, look at your MoCap output and swap axis accordingly.
@@ -63,12 +65,12 @@ Note: this is a quick overview. For more detailed information, check the [EKF2 t
 
 The following parameters must be set to use external position information with EKF2 (these can be set in *QGroundControl* > **Vehicle Setup > Parameters > EKF2**).
 
-| Parameter                                                   | Setting for External Position Estimation                                                                                                               |
-| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [](../advanced_config/parameter_reference.md#EKF2_EV_CTRL)  | Set *horizontal position fusion*, *vertical vision fusion*, *velocity fusion*, and *yaw fusion*, according to your desired fusion model.               |
-| [](../advanced_config/parameter_reference.md#EKF2_HGT_REF)  | Set to *Vision* to use the vision as the reference source for altitude estimation.                                                                     |
-| [](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) | Set to the difference between the timestamp of the measurement and the "actual" capture time. For more information see [below](#tuning-EKF2_EV_DELAY). |
-|                                                             | Set the position of the vision sensor (or MoCap markers) with respect to the robot's body frame.                                                       |
+| Parameter                                                                                                                                                                                                                          | Setting for External Position Estimation                                                                                                               |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL)                                                                                                                                                           | Set *horizontal position fusion*, *vertical vision fusion*, *velocity fusion*, and *yaw fusion*, according to your desired fusion model.               |
+| [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)                                                                                                                                                           | Set to *Vision* to use the vision as the reference source for altitude estimation.                                                                     |
+| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                         | Set to the difference between the timestamp of the measurement and the "actual" capture time. For more information see [below](#tuning-EKF2_EV_DELAY). |
+| [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | Set the position of the vision sensor (or MoCap markers) with respect to the robot's body frame.                                                       |
 
 You can also disable GNSS, baro and range finder fusion using [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL), [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) and [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL), respectively.
 
@@ -109,10 +111,10 @@ If targeting `px4_fmu-v2` hardware you will also need to use a firmware version 
 
 The following parameters must be set to use external position information with LPE (these can be set in *QGroundControl* > **Vehicle Setup > Parameters > Local Position Estimator**).
 
-| Parameter                                                   | Setting for External Position Estimation                                                                                               |
-| ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| [](../advanced_config/parameter_reference.md#LPE_FUSION)    | Vision integration is enabled if *fuse vision position* is checked (it is enabled by default).                                         |
-| [](../advanced_config/parameter_reference.md#ATT_EXT_HDG_M) | Set to 1 or 2 to enable external heading integration. Setting it to 1 will cause vision to be used, while 2 enables MoCap heading use. |
+| Parameter                                                                  | Setting for External Position Estimation                                                                                               |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| [LPE_FUSION](../advanced_config/parameter_reference.md#LPE_FUSION)         | Vision integration is enabled if *fuse vision position* is checked (it is enabled by default).                                         |
+| [ATT_EXT_HDG_M](../advanced_config/parameter_reference.md#ATT_EXT_HDG_M) | Set to 1 or 2 to enable external heading integration. Setting it to 1 will cause vision to be used, while 2 enables MoCap heading use. |
 
 
 ### Disabling Barometer Fusion
@@ -154,12 +156,12 @@ The setup for specific systems is covered [below](#setup_specific_systems). For 
 
 MAVROS has plugins to relay a visual estimation from a VIO or MoCap system using the following pipelines:
 
-|  |                                                                         |    |
-|  | ----------------------------------------------------------------------- | -- |
-|  | [](https://mavlink.io/en/messages/common.html#VISION_POSITION_ESTIMATE) | `` |
-|  |                                                                         | `` |
-|  | [](https://mavlink.io/en/messages/common.html#ATT_POS_MOCAP)            | `` |
-|  |                                                                         | `` |
+| ROS                                                                    | MAVLink                                                                                                                                                                | uORB                      |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| /mavros/vision_pose/pose                                               | [VISION_POSITION_ESTIMATE](https://mavlink.io/en/messages/common.html#VISION_POSITION_ESTIMATE)                                                                      | `vehicle_visual_odometry` |
+| /mavros/odometry/out (`frame_id = odom`, `child_frame_id = base_link`) | [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) (`frame_id =` [MAV_FRAME_LOCAL_FRD](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_FRD)) | `vehicle_visual_odometry` |
+| /mavros/mocap/pose                                                     | [ATT_POS_MOCAP](https://mavlink.io/en/messages/common.html#ATT_POS_MOCAP)                                                                                            | `vehicle_mocap_odometry`  |
+| /mavros/odometry/out (`frame_id = odom`, `child_frame_id = base_link`) | [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) (`frame_id =` [MAV_FRAME_LOCAL_FRD](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_FRD)) | `vehicle_mocap_odometry`  |
 
 You can use any of the above pipelines with LPE.
 
@@ -202,7 +204,8 @@ The MAVROS odometry plugin makes it easy to handle the coordinate frames. It use
 ```
 Make sure that you change the values of yaw, pitch and roll such that it properly attaches the external pose's body frame to the `base_link` or `base_link_frd`. Have a look at the [tf package](http://wiki.ros.org/tf#static_transform_publisher) for further help on how to specify the transformation between the frames. You can use rviz to check if you attached the frame right. The name of the `external_pose_child_frame` has to match the child_frame_id of your `nav_msgs/Odometry` message. The same also applies for the reference frame of the external pose. You have to attach the reference frame of the external pose as child to either the `odom` or `odom_frd` frame. Adapt therefore the following code line accordingly.
 ```
-  
+  <node pkg="tf" type="static_transform_publisher" name="tf_odom_externalPoseParentFrame"
+        args="0 0 0 <yaw> <pitch> <roll> odom <external_pose_parent_frame> 1000"/>
 ```
 If the reference frame has the z axis pointing upwards you can attached it without any rotation (yaw=0, pitch=0, roll=0) to the `odom` frame. The name of `external_pose_parent_frame` has to match the frame_id of the odometry message.
 
@@ -230,7 +233,7 @@ The following steps explain how to feed position estimates from an [OptiTrack](h
 * Install the `vrpn_client_ros` package
 * You can get each rigid body pose on an individual topic by running
   ```sh
-  
+  roslaunch vrpn_client_ros sample.launch server:=<mocap machine ip>
   ```
 
 If you named the rigidbody as `robot1`, you will get a topic like `/vrpn_client_node/robot1/pose`
@@ -248,7 +251,7 @@ Assuming that you have configured EKF2 parameters as described above, PX4 now is
 You are now set to proceed to the first flight.
 
 
-## First Flight
+## Перший політ
 
 After setting up one of the (specific) systems described above you should now be ready to test. The instructions below show how to do so for MoCap and VIO systems
 
