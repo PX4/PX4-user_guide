@@ -101,81 +101,81 @@ AIRLink Enterprise прибуває з усім необхідним для на
 
 ## Видання
 
-There are AIRLink editions that offer different integration levels required by drone manufacturers: _Enterprise_ and _Core_. AIRLink Enterprise is ideal for a quick start, evaluation and prototyping while Core is optimised for deep integration and mid-high volume manufacturing.
+Існують версії AIRLink, які пропонують різні рівні інтеграції, необхідні виробникам дронів: _Enterprise_ та _Core_. AIRLink Enterprise ідеально підходить для швидкого старту, оцінки та створення прототипів, тоді як Core оптимізовано для глибокої інтеграції та середньо- і крупносерійного виробництва.
 
 **AIRLink Enterprise**
 
-SmartAP AIRLink's Enterprise edition is intended for prototyping and low to medium volume drone production. Quick and easy installation thanks to the dedicated mounting holes and integrated heatsink for power dissipation.
+Корпоративна версія SmartAP AIRLink призначена для створення прототипів та виробництва дронів у малих та середніх обсягах. Швидкий і простий процес підключення завдяки спеціальним монтажним отворам і вбудованому тепловідводу для розсіювання енергії.
 
 ![AIRLink Enterprise](../../assets/flight_controller/airlink/airlink-enterprise.jpg)
 
 **AIRLink Core**
 
-SmartAP AIRLink's Core edition is intended for medium to high volume production and deep integration with customer's hardware. It weighs only 89 g and can be attached to a metal frame for optimum cooling.
+Версія SmartAP AIRLink Core призначена для середніх і великих обсягів виробництва та глибокої інтеграції з обладнанням замовника. Він важить лише 89 г і може бути прикріплений до металевої рами для оптимального охолодження.
 
 ![AIRLink Core](../../assets/flight_controller/airlink/airlink-core.jpg)
 
-| Parameter           | AIRLink Enterprise                                          | AIRLink Core                                                                        |
-| ------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| Enclosure           | Aluminum, with integrated heatsink and fan mounting option. | External heatsink or reasonable power dissipation should be provided by the design. |
-| Dimensions          | L103 x W61 x H37 mm                                         | L100 x W57 x H22 mm                                                                 |
-| Weight              | 198 g                                                       | 89 g                                                                                |
-| Ambient temperature | -40°C-..+50°C                                               | -40°C-..+50°C                                                                       |
+| Параметр               | AIRLink Enterprise                                                               | AIRLink Core                                                                                |
+| ---------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Корпус                 | Алюмінієвий, з інтегрованим тепловідводом і можливістю встановлення вентилятора. | Зовнішній тепловідвід або достатнє розсіювання тепла повинно бути передбачено конструкцією. |
+| Розміри                | Д103 x Ш61 x В37 мм                                                              | Д100 x Ш57 x В22 мм                                                                         |
+| Вага                   | 198 г                                                                            | 89 г                                                                                        |
+| Температура середовища | -40°C-..+50°C                                                                    | -40°C-..+50°C                                                                               |
 
-## Key Features
+## Основні характеристики
 
-- **Easy to mount**
+- **Простий монтаж**
 
   ![Easy mount](../../assets/flight_controller/airlink/airlink-easy-to-mount.jpg)
 
-- **FPV camera comes as standard**
+- **FPV-камера входить до стандартної комплектації**
 
   ![FPV camera comes as standard](../../assets/flight_controller/airlink/airlink-fpv-camera.jpg)
 
-## Interfaces
+## Інтерфейси
 
-### Left Side
+### Лівий бік
 
 ![Left side](../../assets/flight_controller/airlink/airlink-interfaces-left.jpg)
 
-- **Left side interfaces:**
+- **Інтерфейси зліва:**
 
-  - Power input with voltage & current monitoring
-  - AI Mission Computer micro SD card
-  - Flight Controller micro SD card
-  - AI Mission Computer USB Type-C
-  - PPM input, SBUS output, RSSI monitor
+  - Вхід живлення з контролем напруги та струму
+  - Місійний комп'ютер зі ШІ з картою пам'яті micro SD
+  - Карта micro SD для польотного контролера
+  - Місійний комп'ютер зі ШІ USB Type-C
+  - Вхід PPM, вихід SBUS, монітор RSSI
 
-- **POWER - JST GH SM10B-GHS-TB**
+- **Живлення - JST GH SM10B-GHS-TB**
 
-  | Pin number | Pin name    | Direction | Voltage | Function                   |
-  | ---------- | ----------- | --------- | ------- | -------------------------- |
-  | 1          | 12V         | IN        | +12V    | Main power input           |
-  | 2          | 12V         | IN        | +12V    | Main power input           |
-  | 3          | 12V         | IN        | +12V    | Main power input           |
-  | 4          | BAT_CURRENT | IN        | +3.3V   | Battery current monitoring |
-  | 5          | BAT_VOLTAGE | IN        | +3.3V   | Battery voltage monitoring |
-  | 6          | 3V3         | OUT       | +3.3V   | 3.3V output                |
-  | 7          | PWR_KEY     | IN        | +3.3V   | Power key input            |
-  | 8          | GND         | Ground    |         |                            |
-  | 9          | GND         | Ground    |         |                            |
-  | 10         | GND         | Ground    |         |                            |
+  | Номер виводу | Назва виводу | Напрямок   | Напруга | Функція                        |
+  | ------------ | ------------ | ---------- | ------- | ------------------------------ |
+  | 1            | 12В          | IN         | +12В    | Основний вхід живлення         |
+  | 2            | 12В          | IN         | +12В    | Основний вхід живлення         |
+  | 3            | 12В          | IN         | +12В    | Основний вхід живлення         |
+  | 4            | BAT_CURRENT  | IN         | +3.3В   | Моніторинг струму акумулятора  |
+  | 5            | BAT_VOLTAGE  | IN         | +3.3В   | Моніторинг напруги акумулятора |
+  | 6            | 3V3          | OUT        | +3.3В   | Вихід 3.3В                     |
+  | 7            | PWR_KEY      | IN         | +3.3В   | Вхід клавіші живлення          |
+  | 8            | GND          | Заземлення |         |                                |
+  | 9            | GND          | Заземлення |         |                                |
+  | 10           | GND          | Заземлення |         |                                |
 
-- **CPU SD card - microSD**
+- **Карта пам'яті процесора - microSD**
 - **CPU USB - USB Type C**
-- **RC Connector - JST GH SM06B-GHS-TB**
+- **Роз'єм RC - JST GH SM06B-GHS-TB**
 
-  | Pin number | Pin name | Direction | Voltage | Function                       |
-  | ---------- | -------- | --------- | ------- | ------------------------------ |
-  | 1          | 5V       | OUT       | +5V     | 5V output                      |
-  | 2          | PPM_IN   | IN        | +3.3V   | PPM input                      |
-  | 3          | RSSI_IN  | IN        | +3.3V   | RSSI input                     |
-  | 4          | FAN_OUT  | OUT       | +5V     | Fan output                     |
-  | 5          | SBUS_OUT | OUT       | +3.3V   | SBUS output | 6 | GND | Ground |
+  | Номер виводу | Назва виводу | Напрямок | Напруга | Функція                           |
+  | ------------ | ------------ | -------- | ------- | --------------------------------- |
+  | 1            | 5В           | OUT      | +5В     | Вихід 5В                          |
+  | 2            | PPM_IN       | IN       | +3.3В   | PPM вхід                          |
+  | 3            | RSSI_IN      | IN       | +3.3В   | RSSI вхід                         |
+  | 4            | FAN_OUT      | OUT      | +5В     | Вихід вентилятора                 |
+  | 5            | SBUS_OUT     | OUT      | +3.3В   | SBUS вихід | 6 | GND | Заземлення |
 
-* **FMU SD card - microSD**
+* **FMU SD карта - microSD**
 
-### Right Side
+### Правий бік
 
 ![Right side](../../assets/flight_controller/airlink/airlink-interfaces-right.jpg)
 
