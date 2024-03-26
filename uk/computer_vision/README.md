@@ -1,4 +1,4 @@
-# Комп'ютерний зір ( Optical Flow, MoCap, VIO, Avoidance)
+# Комп'ютерний зір (Optical Flow, MoCap, VIO, Avoidance)
 
 [Технології комп'ютерного зору](https://en.wikipedia.org/wiki/Computer_vision) дозволяють комп'ютерам використовувати візуальні дані, щоб розпізнавати все навколо.
 
