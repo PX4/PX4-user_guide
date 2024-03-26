@@ -1,17 +1,17 @@
 # Adding a Frame Configuration
 
-PX4 [frame configuration files](#configuration-file-overview) are shell scripts that set up some (or all) of the parameters, controllers and apps needed for a particular vehicle frame, such as a quadcopter, ground vehicle, or boat. These scripts are executed when the corresponding [airframe is selected and applied](../config/airframe.md) in _QGroundControl_.
+PX4 [файли конфігурації фреймів](#configuration-file-overview) - це скрипти оболонки, які встановлюють деякі (або всі) з параметрів, контролери та додатки необхідні для певної системи транспортного засобу, наприклад, квадрокоптер, наземний транспорт або човен. Ці сценарії виконуються, коли відповідна [конфігурація рами обрана та застосована](../config/airframe.md) в _QGroundControl_.
 
-The configuration files that are compiled into firmware for NuttX targets are located in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d) folder (configuration files for POSIX simulators are stored in [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix/airframes)). The folder contains both complete and full configurations for specific vehicles, and partial "generic configurations" for different vehicle types. The generic configurations are often used as the starting point for creating new configuration files.
+Файли конфігурації, які компілюються в прошивку для цілей NuttX, розташовані в папці [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d) (файли конфігурації для POSIX симуляторів зберігаються в [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix/airframes)). Папка містить як повні конфігурації для конкретних транспортних засобів, так і часткові "загальні конфігурації" для різних типів транспортних засобів. Загальні конфігурації часто використовуються як вихідна точка для створення нових файлів конфігурації.
 
-In addition, a frame configuration file can also be loaded from an SD card.
+Додатково, файл конфігурації рами також може бути завантажений з SD-карти.
 
 :::note
-You can also "tweak" the current frame configuration using text files on the SD card. This is covered in [System Startup > Customizing the System Startup](../concept/system_startup.md#customizing-the-system-startup) page.
+Ви також можете "налаштувати" поточну конфігурацію рами, використовуючи текстові файли на SD-карті. Це описано на сторінці [Початок роботи системи > Налаштування запуску системи](../concept/system_startup.md#customizing-the-system-startup).
 :::
 
 :::note
-To determine which parameters/values need to be set in the configuration file, you can first assign a generic airframe and tune the vehicle, and then use [`param show-for-airframe`](../modules/modules_command.md#param) to list the parameters that changed.
+Щоб визначити, які параметри/значення потрібно встановити в конфігураційному файлі, спочатку визначте загальний тип літального апарату та налаштуйте транспортний засіб, а потім використовуйте [`param show-for-airframe`](../modules/modules_command.md#param) для переліку параметрів, які були змінені.
 :::
 
 ## Developing a Frame Configuration
@@ -24,9 +24,9 @@ The recommended process for developing a new frame configuration is:
 1. Tune the vehicle.
 1. Run the [`param show-for-airframe`](../modules/modules_command.md#param) console command to list the parameter difference compared to the original generic airfame.
 
-Once you have the parameters you can create a new frame configuration file by copying the configuration file for the generic configuration, and appending the new parameters.
+Після того, як ви маєте параметри, ви можете створити новий файл конфігурації рами, скопіювавши файл конфігурації для загальної конфігурації та додавши нові параметри.
 
-Alternatively you can just append the modified parameters to the startup configuration files described in [System Startup > Customizing the System Startup](../concept/system_startup.md#customizing-the-system-startup) ("tweaking the generic configuration").
+За іншою альтернативою, ви можете просто додати змінені параметри до файлів конфігурації запуску, описаних у [System Startup > Customizing the System Startup](../concept/system_startup.md#customizing-the-system-startup) ("налаштування загальної конфігурації").
 
 ## How to add a Configuration to Firmware
 
@@ -53,7 +53,7 @@ The configuration file consists of several main blocks:
   - [Tuning gains](#tuning-gains)
 - The controllers and apps it should start, such as multicopter or fixed-wing controllers, land detectors etc.
 
-These aspects are mostly independent, which means that many configurations share the same physical layout of the airframe, start the same applications and differ most in their tuning gains.
+Ці аспекти в основному незалежні, що означає, що багато конфігурацій використовують ту саму фізичну конструкцію літального апарату, запускають ті ж самі додатки і відрізняються переважно у своїх налаштуваннях.
 
 :::note
 New frame configuration files are only automatically added to the build system after a clean build (run `make clean`).
