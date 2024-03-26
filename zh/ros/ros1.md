@@ -1,13 +1,12 @@
-# ROS 1 with MAVROS
+# ROS 1 和 MAVROS
 
-:::tip
-The PX4 development team recommend that users migrate to [ROS 2](../ros/ros2.md) (i.e. skip this section)! 它使用 [MAVROS](../ros/mavros_installation.md) 节点与在硬件上运行或使用 [Gazebo 模拟器 ](../simulation/ros_interface.md) 的 PX4 进行通信。
+:::tip PX4开发团队建议用户迁移到 [ROS 2](../ros/ros2.md) (即跳过此章节)! 它使用 [MAVROS](../ros/mavros_installation.md) 节点与在硬件上运行或使用 [Gazebo 模拟器 ](../simulation/ros_interface.md) 的 PX4 进行通信。
 
-[ROS](../ros/README.md) (Robot Operating System) is a general-purpose robotics library that can be used to create powerful drone applications for the PX4 Autopilot.
+[ROS](../ros/README.md) (机器人操作系统) 是一个通用的机器人库，可以用于为 PX4 自动驾驶仪创建强大的无人机应用程序。
 
-This section contains topics related to using the "original version of ROS" and the [MAVROS](../ros/mavros_installation.md) package to communicate with PX4 over [MAVLink](../middleware/mavlink.md) (MAVROS bridges ROS topics to MAVLink and PX4 conventions).
+本节包含使用“原始版本的ROS”和[MAVROS](../ros/mavros_installation.md)包通过[MAVLink](../middleware/mavlink.md)与PX4通信相关的主题(MAVROS将ROS主题与MAVLink和PX4协议连接起来)
 
-The main topics covered are:
+主要的话题包括：
 - [ROS/MAVROS Installation Guide](../ros/mavros_installation.md): Setup a PX4 development environment with ROS 1 and MAVROS.
 - [ROS/MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md): Tutorial showing the main concepts related to writing a C++ MAVROS/ROS node.
 - [ROS MAVROS Sending Custom Messages](../ros/mavros_custom_messages.md)
