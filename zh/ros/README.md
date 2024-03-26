@@ -1,4 +1,4 @@
-# ROS (Robot Operating System)
+# ROS(机器人操作系统)
 
 ROS是一个通用的机器人库，可以与PX4一起用于无人机应用程序开发。
 
@@ -10,22 +10,21 @@ ROS得益于一个活跃的生态系统，在这个生态系统里，开发者�
 
 ## ROS设置
 
-PX4 supports both ROS 2 and ROS 1, with the following configurations:
+PX4同时支持ROS2和ROS1，配置如下：
 
-- **[ROS 2](../ros/ros2.md): (Recommended)** PX4 and ROS 2 communicate over the [PX4-ROS 2 bridge](../ros/ros2_comm.md), an interface that provides a direct bridge between PX4 uORB messages and ROS 2 DDS messages/types. This effectively allows direct access to PX4 internals from ROS 2 workflows and nodes in realtime.
-- **[ROS 1 via MAVROS](../ros/ros1.md):** PX4 and ROS 1 communicate over [MAVLink](../middleware/mavlink.md), using the [MAVROS](../ros/mavros_installation.md) package to bridge ROS topics to MAVLink.
+- **[ROS 2](../ros/ros2.md)：(推荐)**PX4和ROS 2通过[PX4-ROS 2桥接](../ros/ros2_comm.md)通信，PX4-ROS 2桥接是在PX4 uORB消息和ROS 2 DDS消息/类型之间提供直接桥接的接口 这允许实时地从ROS2工作流和节点直接访问PX4内部
+- **[ROS1通过MAVROS](../ros/ros1.md)：**PX4和ROS1通过[MAVLink](../middleware/mavlink.md)通信，使用[MAVROS](../ros/mavros_installation.md)包将ROS主题连接到MAVLink
 
-:::note ROS
-2 can also connect with PX4 using [MAVROS](https://github.com/mavlink/mavros/tree/ros2/mavros) (instead of XRCE-DDS). This option is supported by the MAVROS project.
+:::笔记 ROS 2 也可以用 [MAVROS](https://github.com/mavlink/mavros/tree/ros2/mavros) 与PX4连接(而不是 XRCE-DDS). MAVROS项目支持此选项。
 :::
 
-Note that ROS 2 can be installed on Ubuntu Linux, macOS, Windows, while ROS 1 is only available on Linux. Although it might work on the other platforms, PX4 primarily tests and documents ROS on _Linux_.
+请注意，ROS 2可以安装在Ubuntu Linux，MacOS，Windows，而ROS 1只能安装在Linux上。 虽然它可以在其他平台上工作，但PX4主要在_Linux_上测试和记录ROS
 
 
-## ROS Support Roadmap
+## ROS技术支持计划
 
-Unveiled at the [PX4 Developer Summit 2020](https://www.youtube.com/watch?v=lZ8crGI16qA) (and [ROS World 2020](https://www.youtube.com/watch?v=8XRkzHqQSf0)), the PX4 Development team, announced the plans to support microROS.
+在[2020年PX4开发者峰会](https://www.youtube.com/watch?v=lZ8crGI16qA)(以及[ROS World 2020](https://www.youtube.com/watch?v=8XRkzHqQSf0)) 上，PX4宣布了支持microROS的计划。
 
-* microRTPS: microRTPS bridge with Fast DDS (The ROS 2 interface in PX4 v1.13 and earlier)
-* micro XRCE-DDS: DDS on PX4 (The ROS 2 interface for PX4 v1.14 and later)
-* micro ROS: ROS 2 running in PX4 - "microROS" (Our Target!)
+* microRTPS: 具有快速DDS的microRTPS桥接 (PX4 v1.13 及更早版本的ROS 2 接口)
+* micro XRCE-DDS: PX4上的DDS(PX4 v1.14及更高版本的ROS 2 接口)
+* micro ROS: 在PX4上运行的ROS 2 - "microROS" (我们的目标!)
