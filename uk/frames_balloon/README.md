@@ -1,11 +1,11 @@
-# Balloons
+# Повітряні кулі
 
 <LinkedBadge type="warning" text="Experimental" url="../airframes/#experimental-vehicles"/>
 
 :::warning
 
-Support for balloons is [experimental](../airframes/README.md#experimental-vehicles). Maintainer volunteers, [contribution](../contribute/README.md) of new features, new frame configurations, or other improvements would all be very welcome!
+Підтримка повітряних куль є [експериментальною](../airframes/README.md#experimental-vehicles). Волонтери та контрибютори, [внесення](../contribute/README.md) нових функцій, нових конфігурацій каркасів або інших вдосконалень дуже вітається!
 :::
 
 
-PX4 supports a single balloon geometry with no flight controls. The frame configuration is shown in [Airframes Reference > Balloon](../airframes/airframe_reference.md#balloon).
+PX4 підтримує одну геометрію повітряної кулі без керування польотом. Конфігурація каркасу показана в [Довіднику з типами повітряних суден > Повітряна куля](../airframes/airframe_reference.md#balloon).
