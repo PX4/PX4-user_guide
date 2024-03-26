@@ -1,105 +1,105 @@
 # Sky-Drones AIRLink
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://sky-drones.com/) for hardware support or compliance issues.
+PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://sky-drones.com/) щодо підтримки обладнання або питань сумісності.
 :::
 
-[AIRLink](https://sky-drones.com/airlink) stands for Artificial Intelligence & Remote Link. The unit includes a cutting-edge drone autopilot, AI mission computer and LTE/5Gs connectivity unit. AIRLink helps to reduce the time to market for new drone manufacturers from years and months down to weeks.
+[AIRLink](https://sky-drones.com/airlink) розшифровується як Artificial Intelligence (штучний інтелект) & Remote Link (дистанційне з'єднання). Апарат складається з найсучаснішого автопілота безпілотника, комп'ютера зі штучним інтелектом та блоку зв'язку LTE/5G. AIRLink допомагає скоротити час виходу на ринок для нових виробників дронів з років і місяців до тижнів.
 
 ![AIRLink](../../assets/flight_controller/airlink/airlink-main.jpg)
 
 :::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+Цей польотний контролер підтримується [виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-AIRLink has two computers and integrated LTE Module:
+AIRLink має два комп'ютери та інтегрований LTE-модуль:
 
-- The flight control computer (autopilot) has a triple-redundant vibration-dampened and temperature-stabilized IMU.
-- The powerful AI mission computer enables advanced drone software features like computer vision and obstacle avoidance, digital HD video streaming, and payload data streaming.
-- LTE/5G and WiFi connectivity modules provide permanent broadband internet connection which is enabler for remote workflows.
+- Комп'ютер керування польотом (автопілот) має потрійне резервування з вібро- та термостабілізованим IMU.
+- Потужний місійний комп'ютер зі штучним інтелектом забезпечує такі передові функції програмного забезпечення безпілотника, як комп'ютерний зір і оминання перешкод, потокове передавання цифрового відео високої чіткості та потокове передавання даних корисного вантажу.
+- Модулі зв'язку LTE/5G та WiFi забезпечують постійне широкосмугове підключення до Інтернету, що дозволяє здійснювати віддалені робочі процеси.
 
-## Feature Highlights
+## Основні характеристики
 
 @[youtube](https://youtu.be/VcBx9DLPN54)
 
-## Specifications
+## Специфікації
 
-- **Sensors**
+- **Датчики (сенсори)**
 
-  - 3x Accelerometers, 3x Gyroscopes, 3x Magnetometers, 3x Pressure sensorss
-  - GNSS, Rangefinders, Lidars, Optical Flow, Cameras
-  - 3x-redundant IMU
-  - Vibration dampening
-  - Temperature stabilization
+  - 3x акселерометри, 3x гіроскопи, 3x магнітометри, 3x датчики тиску
+  - ГНСС, далекоміри, лідари, оптичний потік, камери
+  - 3x-кратне резервування IMU
+  - Гасіння вібрації
+  - Стабілізація температури
 
-- **Flight Controller**
+- **Політний контролер**
 
-  - STM32F7, ARM Cortex M7 with FPU, 216 MHz, 2MB Flash, 512 kB RAM
-  - STM32F1, I/O co-processor
-  - Ethernet, 10/100 Mbps
-  - LAN with AI Mission Computer
-  - 8x UARTs: Telemetry 1, Telemetry 2 (AI Mission Computer), Telemetry 3, GPS 1, GPS 2, Extra UART, Serial Debug Console, IO
+  - STM32F7, ARM Cortex M7 з FPU, 216 МГц, 2 МБ Flash, 512 кБ оперативної пам'яті
+  - STM32F1, співпроцесор вводу/виводу (IO)
+  - Ethernet, 10/100 Мбіт/с
+  - Локальна мережа з комп'ютером місії зі штучним інтелектом
+  - 8x UART: Телеметрія 1, Телеметрія 2 ( місійний комп'ютер зі ШІ), Телеметрія 3, GPS 1, GPS 2, додатковий UART, послідовна консоль налагодження, ввід-вивід (IO)
   - 2x CAN: CAN1, CAN2
-  - USB with MAVLink
-  - Serial console for debugging
-  - RC Input, SBUS input, RSSI input, PPM input
-  - 16x PWM servo outputs (8 from IO, 8 from FMU)
-  - 3x I2C ports
-  - High-powered piezo buzzer driver
-  - High-power RGB LED
-  - Safety switch / LED option
+  - USB з MAVLink
+  - Послідовна консоль для відладки
+  - Вхід RC, вхід SBUS, вхід RSSI, вхід PPM
+  - 16x PWM виходів сервоприводів (8 з IO, 8 з FMU)
+  - 3x I2C порти
+  - Потужний драйвер п'єзо-зуммера
+  - Високопотужний RGB LED
+  - Запобіжний вимикач / LED опція
 
-- **AI Mission Computer**
+- **Місійний комп'ютер зі штучним інтелектом**
 
-  - 6-Core CPU: Dual-Core Cortex-A72 + Quad-Core Cortex-A53
-  - GPU Mali-T864, OpenGL ES1.1/2.0/3.0/3.1
-  - VPU with 4K VP8/9, 4K 10bits H265/H264 60fps Decoding
-  - Remote power control, software reset, power down, RTC Wake-Up, sleep mode
-  - RAM Dual-Channel 4GB LPDDR4
+  - 6-ядерний процесор: двоядерний Cortex-A72 + чотирьохядерний Cortex-A53
+  - Графічний процесор Mali-T864, OpenGL ES1.1/2.0/3.0/3.1
+  - VPU з декодуванням 4K VP8/9, 4K 10bits H265/H264 60fps
+  - Дистанційне керування живленням, скидання програмного забезпечення, вимкнення живлення, пробудження RTC, сплячий режим
+  - Оперативна пам'ять Dual Channel 4GB LPDDR4
   - 16GB eMMC
-  - MicroSD up to 256GB
+  - MicroSD до 256 Гб
   - Ethernet 10/100/1000 Native Gigabit
   - WiFi 802.11a/b/g/n/ac, Bluetooth
   - USB 3.0 Type C
-  - 2x Video: 4-Lane MIPI CSI (FPV Camera) and 4-Lane MIPI CSI with HMDI Input (Payload Camera)
+  - 2х Video: 4-смугова MIPI CSI (FPV-камера) та 4-смугова MIPI CSI з входом HMDI (камера корисного навантаження)
 
-- **LTE/5G Connectivity Module**
+- **Модуль зв'язку LTE/5G**
 
-  - Up to 600 Mbps bandwidth
-  - 5G sub-6 and mmWave, SA and NSA operations
-  - 4G Cat 20, up to 7xCA, 256-QAM DL/UL, 2xCA UL
-  - 4 x 4 MIMO for 4G and 5G (sub-6 bands)
+  - Пропускна здатність до 600 Мбіт/с
+  - 5G sub-6 і mmWave, SA і NSA операції
+  - 4G Cat 20, до 7xCA, 256-QAM DL/UL, 2xCA UL
+  - 4 x 4 MIMO для 4G і 5G (до 6 діапазонів)
   - 3G HSPA+
-  - Approved by JRL/JTBL, FCC, PTCRB, RED, GCF
-  - Antenna, 4x4 MIMO
+  - Схвалено JRL/JTBL, FCC, PTCRB, RED, GCF
+  - Антена, 4x4 MIMO
   - Bands: Worldwide
 
-## Where to Buy
+## Де купити
 
-Purchase from the original Sky-Drones Store (worldwide shipping with 1-2 days order processing time):
+Купуйте в оригінальному магазині Sky-Drones (доставка по всьому світу з обробкою замовлення за 1-2 дні):
 
-- [Buy AIRLink Enterprise 4G](https://sky-drones.com/sets/airlink-enterprise-set.html)
-- [Buy AIRLink Enterprise 5G](https://sky-drones.com/sets/airlink-5g-enterprise-set.html)
-- [Buy AIRLink Core 4G](https://sky-drones.com/autopilots/airlink-core.html)
-- [Buy AIRLink Core 5G](https://sky-drones.com/store/airlink-5g-core.html)
+- [AIRLink Enterprise 4G](https://sky-drones.com/sets/airlink-enterprise-set.html)
+- [AIRLink Enterprise 5G](https://sky-drones.com/sets/airlink-5g-enterprise-set.html)
+- [AIRLink Core 4G](https://sky-drones.com/autopilots/airlink-core.html)
+- [AIRLink Core 5G](https://sky-drones.com/store/airlink-5g-core.html)
 
-## AIRLink Enterprise Kit Accessories
+## Аксесуари до AIRLink Enterprise Kit
 
 @[youtube](https://youtu.be/lex7axW8WQg)
 
-AIRLink Enterprise arrives with everything needed to setup the autopilot system.
+AIRLink Enterprise прибуває з усім необхідним для налаштування автопілота.
 
-The standard set contains:
+Стандартний набір містить:
 
 - 1x AIRLink Enterprise unit
-- 1x FPV camera with CSI cable
-- 1x WiFi antenna with MMCX connector
-- 2x/4x LTE/5G antenna with MMCX connector
-- 1x HDMI to mini HDMI cable1x set of cables (7 cables for all connectors)
+- 1x FPV камера з CSI кабелем
+- 1x WiFi антена з роз'ємом MMCX
+- 2x/4x LTE/5G антена з роз'ємом MMCX
+- 1x кабель HDMI на міні HDMI 1x набір кабелів (7 кабелів для всіх роз'ємів)
 
-[AIRLink Telemetry](https://sky-drones.com/sets/airlink-telemetry-set.html) based on the Microhard LAN/IP-based RF micromodule is available as an add-on and is fully compatible with AIRLink.
+[AIRLink Telemetry](https://sky-drones.com/sets/airlink-telemetry-set.html) на базі радіочастотного мікромодуля Microhard LAN/IP доступний як додатковий модуль і повністю сумісний з AIRLink.
 
-## Editions
+## Видання
 
 There are AIRLink editions that offer different integration levels required by drone manufacturers: _Enterprise_ and _Core_. AIRLink Enterprise is ideal for a quick start, evaluation and prototyping while Core is optimised for deep integration and mid-high volume manufacturing.
 
