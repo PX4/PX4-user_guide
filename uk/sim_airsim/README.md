@@ -1,4 +1,4 @@
-# AirSim Simulation
+# Симуляція AirSim
 
 :::warning
 This simulator is [community supported and maintained](../simulation/community_supported_simulators.md). Це може працювати або не працювати з поточними версіями PX4.
@@ -10,7 +10,7 @@ See [Toolchain Installation](../dev_setup/dev_env.md) for information about the 
 
 @[youtube](https://youtu.be/-WfTr1-OBGQ) <!-- datestamp:video:youtube:20170216:AirSim Demo -->
 
-## PX4 Setup
+## Налаштування PX4
 
 [PX4 Setup for AirSim](https://microsoft.github.io/AirSim/px4_setup/) describes how to use PX4 with AirSim using both [SITL](https://microsoft.github.io/AirSim/px4_sitl/) and [HITL](https://microsoft.github.io/AirSim/px4_setup/#setting-up-px4-hardware-in-loop).
 
