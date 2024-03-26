@@ -7,7 +7,14 @@
 PX4 is the _Professional Autopilot_. Akademi ve endüstriden birinci sınıf yazılım geliştiriciler tarafından geliştirilen ve dünyanın dört bir yanına uzanan aktif bir topluluk tarafından desteklenen PX4, yarış ve kargo dronlarından kara ve denizaltı araçlarına kadar birçok çeşit araca hayat vermektedir.
 
 :::tip
-Bu rehber, PX4 tabanlı bir aracı kurmak, yapılandırmak ve güvenli bir şekilde uçurmak için ihtiyacınız olan her şeyi içermektedir. Katkıda bulunmak ister misiniz?  [Development](development/development.md) bölümünü kontrol edin :::
+Bu rehber, PX4 tabanlı bir aracı kurmak, yapılandırmak ve güvenli bir şekilde uçurmak için ihtiyacınız olan her şeyi içermektedir. Katkıda bulunmak ister misiniz?  [Development](development/development.md) bölümünü kontrol edin
+
+:::
+
+:::warning
+This guide is for the _development_ version of PX4 (`main` branch). Use the **Version** selector for the current _stable_ version.
+
+Documented changes since the stable release are captured in the evolving [release note](releases/main.md). :::
 
 ## Nasıl Başlayabilirim?
 
