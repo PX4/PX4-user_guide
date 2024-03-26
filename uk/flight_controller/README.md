@@ -39,6 +39,8 @@
   - [Cube Orange](../flight_controller/cubepilot_cube_orange.md) (CubePilot)
   - [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) (CubePilot)
   - [Drotek Dropix (FMUv2)](../flight_controller/dropix.md)
+  - [Holybro Kakute H7 v2](../flight_controller/kakuteh7v2.md)
+  - [Holybro Kakute H7](../flight_controller/kakuteh7.md)
   - [Holybro Kakute F7](../flight_controller/kakutef7.md)
   - [Holybro Durandal](../flight_controller/durandal.md)
   - [Holybro Pix32 v5](../flight_controller/holybro_pix32_v5.md)
