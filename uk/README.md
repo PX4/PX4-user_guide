@@ -7,7 +7,14 @@
 PX4 це _Professional Autopilot_. Розроблений розробниками світового класу з індустрії та академічних кіл і підтримуваний активною світовою спільнотою, він керує всіма видами транспортних засобів від гоночних і вантажних дронів до наземних транспортних засобів і підводних апаратів.
 
 :::tip
-Цей посібник містить все, що вам потрібно зібрати, налаштувати, безпечно запускати пристрій на основі PX4. Хочете зробити внесок? Перегляньте розділ [Розробка](development/development.md). :::
+Цей посібник містить все, що вам потрібно зібрати, налаштувати, безпечно запускати пристрій на основі PX4. Хочете зробити внесок? Перегляньте розділ [Розробка](development/development.md).
+
+:::
+
+:::warning
+This guide is for the _development_ version of PX4 (`main` branch). Use the **Version** selector for the current _stable_ version.
+
+Documented changes since the stable release are captured in the evolving [release note](releases/main.md). :::
 
 ## Як почати?
 
