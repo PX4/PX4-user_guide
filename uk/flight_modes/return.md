@@ -12,14 +12,14 @@
 
 :::note
 
-- Mode is automatic - no user intervention is _required_ to control the vehicle.
-- Mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
-  - Flying vehicles can't switch to this mode without global position.
-  - Flying vehicles will failsafe if they lose the position estimate.
-- Mode requires home position is set.
-- Mode prevents arming (vehicle must be armed when switching to this mode).
-- RC control switches can be used to change flight modes on any vehicle.
-- RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes_mc/position.md) unless handling a critical battery failsafe.
+- Режим автоматичний - для керування автомобілем _не потрібно_ втручання користувача.
+- Режим вимагає глобальної тривимірної оцінки позиції (з GPS або виведеної з [локальної позиції](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+  - Літаючі апарати не можуть перемикатися в цей режим без глобальної позиції.
+  - Літаючі транспортні засоби будуть аварійно переходити в безпечний режим, якщо втрачають оцінку позиції.
+- Режим вимагає встановленої домашньої позиції.
+- Режим перешкоджає взброєнню (транспортний засіб повинен бути включеним при переході в цей режим).
+- Перемикачі керування RC можна використовувати для зміни режимів польоту на будь-якому автомобілі.
+- Рух палиць дистанційного керування в багатороторному літальному апараті (або ВТОЛ у режимі багатороторного літання) [за замовчуванням](#COM_RC_OVERRIDE) змінить режим транспортного засобу на [режим позиції](../flight_modes_mc/position.md), якщо не виникне критична аварія батареї.
 - A VTOL will return as MC or FW based on its mode at the point the return mode was triggered. In MC mode it will respect multicopter parameters, such as the landing "cone". In FW mode it will respect fixed-wing parameters (ignore the cone), but unless using a mission landing, will transition to MC mode and land at the destination after loitering at the descent altitude.
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
@@ -121,12 +121,12 @@ If the mission changes during return mode, then the behaviour is re-evaluated ba
 
 ### Closest Safe Destination Return Type (RTL_TYPE=3)
 
-In this return type the vehicle:
+У цьому типі повернення транспортний засіб:
 
-- Ascends to a safe [minimum return altitude](#minimum-return-altitude) (above any expected obstacles).
-- Flies a direct path to the closest destination of: home location, mission landing pattern or rally point.
-- If the destination is a [mission landing pattern](#mission-landing-pattern) the vehicle will follow the pattern to land.
-- If the destination is a home location or rally point, the vehicle will descend to the descent altitude ([RTL_DESCEND_ALT](#RTL_DESCEND_ALT)) and then [lands or waits](#loiter-landing-at-destination). By default an MC or VTOL in MC mode will land, and a fixed-wing vehicle circles at the descent altitude. A VTOL in FW mode aligns its heading to the destination point, transitions to MC mode, and then lands.
+- Піднімається на безпечну [мінімальну висоту повернення](#minimum-return-altitude) (вище будь-яких очікуваних перешкод).
+- Летить прямо до найближчої точки призначення: домашньої локації, шаблону посадки місії або точки ралі.
+- Якщо місце призначення - це [шаблон посадки місії](#mission-landing-pattern), транспортний засіб буде дотримуватися шаблону для посадки.
+- Якщо місце призначення - це домашнє місце або точка ралі, транспортний засіб спускається на висоту спуску ([RTL_DESCEND_ALT](#RTL_DESCEND_ALT)) і потім [посаджується або чекає](#loiter-landing-at-destination). By default an MC or VTOL in MC mode will land, and a fixed-wing vehicle circles at the descent altitude. A VTOL in FW mode aligns its heading to the destination point, transitions to MC mode, and then lands.
 
 ## Мінімальна висота повернення
 
@@ -146,12 +146,12 @@ In this return type the vehicle:
 
 Якщо транспорт є:
 
-- Above [RTL_RETURN_ALT](#RTL_RETURN_ALT) (1) it will return at its current altitude.
-- Below the cone it will return where it intersects the cone (2) or [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (whichever is higher).
-- Outside the cone (3) it will first climb until it reaches [RTL_RETURN_ALT](#RTL_RETURN_ALT).
-- Inside the cone:
-  - Above [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (4) it will return at its current altitude.
-  - Below [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (5) it will first ascend to `RTL_DESCEND_ALT`.
+- Вище [RTL_RETURN_ALT](#RTL_RETURN_ALT) (1) він повернеться на своїй поточній висоті.
+- Нижче конуса він повернеться туди, де він перетинається з конусом (2) або [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (яка б вища).
+- Поза конусом (3) спочатку підніметься до досягнення [RTL_RETURN_ALT](#RTL_RETURN_ALT).
+- У межах конуса:
+  - Вище [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (4) він повернеться на свою поточну висоту.
+  - Нижче [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (5) спочатку він підніметься до `RTL_DESCEND_ALT`.
 
 Примітка:
 
