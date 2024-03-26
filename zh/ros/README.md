@@ -8,7 +8,7 @@ ROS得益于一个活跃的生态系统，在这个生态系统里，开发者�
 :::
 
 
-## ROS Setups
+## ROS设置
 
 PX4 supports both ROS 2 and ROS 1, with the following configurations:
 
