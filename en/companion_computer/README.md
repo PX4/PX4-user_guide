@@ -32,17 +32,19 @@ They are listed here as they can be updated with "vanilla" PX4 firmware for test
 ## Companion Computer Options
 
 PX4 can be used with computers that can be configured to communicate via MAVLink or microROS/uXRCE-DDS over over a serial port (or Ethernet port, if present).
+A small subset of possible alternatives are listed below.
 
-A small subset of possible alternatives are listed below:
+Larger high power examples:
 
-- [Raspberry Pi](../companion_computer/pixhawk_rpi.md)
 - [ModalAI VOXL 2](https://docs.modalai.com/voxl2-external-flight-controller/)
 - [NXP NavQPlus](https://nxp.gitbook.io/navqplus/user-contributed-content/ros2/microdds)
+- [Nvidia Jetson TX2](https://developer.nvidia.com/embedded/jetson-tx2)
+* [Intel NUC](https://www.intel.com/content/www/us/en/products/details/nuc.html)
+* [Gigabyte Brix](https://www.gigabyte.com/Mini-PcBarebone/BRIX)
 
-Other options that have been previously shown to work but for which there is support:
+Small/lower power examples:
 
-- Odroid
-- TegraK1
+- [Raspberry Pi](../companion_computer/pixhawk_rpi.md)
 
 :::note
 The choice of computer will depend on the usual tradeoffs: cost, weight, power consumption, ease of setup, and computational resources required.
