@@ -161,4 +161,22 @@ export default defineConfig({
       { icon: "github", link: "https://github.com/PX4/PX4-user_guide" },
     ],
   },
+
+  head: [
+    [
+      "script",
+      {
+        async: "",
+        src: "https://www.googletagmanager.com/gtag/js?id=G-91EWVWRQ93",
+      },
+    ],
+    [
+      "script",
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-91EWVWRQ93');`,
+    ],
+  ],
 });
