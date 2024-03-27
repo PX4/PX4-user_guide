@@ -16,7 +16,9 @@ export default defineConfig({
     "ja/**/*.md",
     "ru/**/*.md",
     "tr/**/*.md",
-    "uk/**/*.md",
+    //"kr/**/*.md",
+    //"zh/**/*.md",
+    //"uk/**/*.md",
   ],
   ignoreDeadLinks: true,
   markdown: {
@@ -39,6 +41,7 @@ export default defineConfig({
         sidebar: getSidebar.sidebar("en"),
       },
     },
+
     zh: {
       label: "中文 (Chinese)",
       lang: "zh-CN", // optional, will be added  as `lang` attribute on `html` tag
@@ -52,6 +55,16 @@ export default defineConfig({
       lang: "ko-KR", // optional, will be added  as `lang` attribute on `html` tag
       themeConfig: {
         sidebar: getSidebar.sidebar("ko"),
+      },
+
+      // other locale specific properties...
+    },
+
+    uk: {
+      label: "Мови (Ukrainian)",
+      lang: "uk-UA", // optional, will be added  as `lang` attribute on `html` tag
+      themeConfig: {
+        sidebar: getSidebar.sidebar("uk"),
       },
 
       // other locale specific properties...

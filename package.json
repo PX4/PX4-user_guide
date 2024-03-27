@@ -4,7 +4,7 @@
   "repository": "https://github.com/PX4/px4_user_guide.git",
   "license": "CC-BY-4.0",
   "devDependencies": {
-    "vitepress": "^1.0.0-rc.25"
+    "vitepress": "^1.0.1"
   },
   "scripts": {
     "docs:dev": "vitepress dev .",
