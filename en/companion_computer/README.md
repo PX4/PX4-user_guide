@@ -16,9 +16,8 @@ Communications with the ground stations and the cloud are usually routed via the
 
 ## Pixhawk Autopilot Bus Carrier Boards with Companion Computers
 
-Carrier boards implementing the [Pixhawk Autopilot Bus (PAB)](../flight_controller/pixhawk_autopilot_bus.md) Open Standard with integrated support for advanced companion computer options.
-
-The following boards are known to provide a good integration with PX4:
+The following carrier boards make it easy to integrate Pixhawk flight controllers with a companion computer, significantly easing boh hardware and software setup.
+The boards support the [Pixhawk Autopilot Bus (PAB)](../flight_controller/pixhawk_autopilot_bus.md) open standard so you can plug in any compliant controller:
 
 - [Holybro Pixhawk RPI CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
 - [ARK Jetson PAB Carrier](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-jetson-pab-carrier)
@@ -40,7 +39,8 @@ A small subset of possible alternatives are listed below:
 - [ModalAI VOXL 2](https://docs.modalai.com/voxl2-external-flight-controller/)
 - [NXP NavQPlus](https://nxp.gitbook.io/navqplus/user-contributed-content/ros2/microdds)
 
-Unverified but Known to Work options
+Other options that have been previously shown to work but for which there is support:
+
 - Odroid
 - TegraK1
 
