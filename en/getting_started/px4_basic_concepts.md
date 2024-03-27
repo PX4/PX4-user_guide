@@ -124,7 +124,7 @@ Joystick systems use QGroundControl to encode the control information from a "st
 They can be used for most manual flight use cases such as taking off, surveys, and so on, provided your telemetry channel has a high enough bandwidth/low latency.
 
 Joysticks are often used in integrated GCS/manual control systems because it is cheaper and easier to integrate a joystick than a separate radio system, and for the majority of use cases, the lower latency does not matter.
-They are also prefect for flying the PX4 simulator, because you can plug them directly into your ground control computer.
+They are also perfect for flying the PX4 simulator, because you can plug them directly into your ground control computer.
 
 :::note
 PX4 does not _require_ a manual control system for autonomous flight modes.
