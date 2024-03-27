@@ -5,6 +5,8 @@ This section contains information the components that might be used in a drone, 
 - [Flight Controllers (Autopilots)](../flight_controller/README.md) - Pixhawk and other FCs, firmware updates, other bootloaders
 - [Sensors](../sensor/README.md) — accelerometer, gyroscope, compass, airspeed, barometer, rangefinders, GNSS, RTK GNSS, Optical Flow, Tachometers, Factory calibration, thermal calibration.
 - [Actuators](../actuators/README.md) — Allocation, ESC, motors, servos
+- [Radio Control (RC)](../getting_started/rc_transmitter_receiver.md) — Manual control using an RC system
+- [Joysticks](../config/joystick.md) — Manual control using a Joystick connected to QGroundControl
 - [Data Links](../data_links/README.md) — MAVLink, telemetry radios, satellite comms
 - [Power Systems](../power_systems/README.md) — Battery estimation tuning, power modules, smart batteries
 - [Peripherals](../peripherals/README.md) — camera, gimbal, grippers, parachute, RemoteID, traffic avoidance etc.
