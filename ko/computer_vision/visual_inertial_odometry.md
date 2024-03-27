@@ -34,7 +34,7 @@ To setup ROS and PX4:
 - 비행 컨트롤러 연결을 확인하십시오.
 
 :::tip
-You can use the _QGroundControl_ [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) to verify that you're getting `ODOMETRY` or `VISION_POSITION_ESTIMATE` messages (or check for `HEARTBEAT` messages that have the component id 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
+You can use the _QGroundControl_ [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) to verify that you're getting `ODOMETRY` or `VISION_POSITION_ESTIMATE` messages (or check for `HEARTBEAT` messages that have the component id 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
 :::
 
 - [Verify that VIO is set up correctly](#verify_estimate) before your first flight!
@@ -98,9 +98,13 @@ IMU 속도와 EV 속도 사이의 오프셋을 확인하여 로그에서 대략�
 
 ## VIO 예상치 확인
 
+::: note
+The [MAV_ODOM_LP](../advanced_config/parameter_reference.md#MAV_ODOM_LP) parameter mentioned below was removed in PX4 v1.14. This section needs to be updated. <!-- https://github.com/PX4/PX4-Autopilot/pull/20501#issuecomment-1993788815 -->
+:::
+
 첫 비행 *전에* VIO가 정상 작동 여부를 확인하려면 다음 검사를 수행하십시오.
 
-- PX4 매개변수 `MAV_ODOM_LP`를 1로 설정합니다. PX4는 수신된 외부 자세를 MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) 메시지로 재전송합니다. You can check these MAVLink messages with the _QGroundControl_ [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)
+- PX4 매개변수 `MAV_ODOM_LP`를 1로 설정합니다. PX4는 수신된 외부 자세를 MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) 메시지로 재전송합니다. You can check these MAVLink messages with the _QGroundControl_ [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html)
 - `ODOMETRY` 메시지의 쿼터니언이 단위 쿼터니언 (w = 1, x = y = z = 0)에 매우 가까워 질 때까지 차량을 요잉합니다.
   - At this point, the body frame is aligned with the reference frame of the external pose system.
   - 기체를 구르거나 피칭하지 않고 단위 쿼터니언에 가까운 쿼터니언을 얻을 수 없다면, 여전히 프레임에 피치 또는 롤 오프셋이 있을 수 있습니다. 이 경우에는 더 이상 진행하지 말고 좌표 프레임을 다시 확인하십시오.
@@ -130,7 +134,7 @@ First, make sure MAVROS is able to connect successfully to the flight controller
 
 - **문제 :** VIO가 활성화되면 변기 볼링이 발생합니다.
 
-  - 카메라의 방향이 시작 파일의 변환과 일치하는 지 확인합니다. Use the _QGroundControl_ [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) to verify that the velocities in the `ODOMETRY` message coming from MAVROS are aligned to the FRD coordinate system.
+  - 카메라의 방향이 시작 파일의 변환과 일치하는 지 확인합니다. Use the _QGroundControl_ [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) to verify that the velocities in the `ODOMETRY` message coming from MAVROS are aligned to the FRD coordinate system.
 
 - **문제 :** 비전 위치를 사용하여 루프를 닫고 GPS도 실행하고 싶습니다.
   - 이문제는 EKF를 혼란스럽게 할 것이기 때문에 정말 어렵습니다. 테스트에서 비전 속도를 사용하는 것이 더 안정적입니다 (이 설정을 신뢰할 수있는 방법을 찾으면 알려주십시오).
