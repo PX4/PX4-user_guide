@@ -1,4 +1,4 @@
-# Parameter Reference
+# Довідник параметрів
 
 :::note
 Ця документація була автоматично створена за допомогою вихідного коду для цієї версії PX4 (використовуючи `зробити parameters_metadata`).
@@ -22,12 +22,12 @@ table {
 }
 </style>
 
-## UAVCAN Motor Parameters
+## Параметри UAVCAN Motor
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>За замовчуванням</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -23981,7 +23981,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -24138,12 +24138,12 @@ table {
 </tr>
 </tbody></table>
 
-## Simulator
+## Симулятор
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -24190,12 +24190,12 @@ table {
 </tr>
 </tbody></table>
 
-## System
+## Система
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -24275,12 +24275,12 @@ table {
 </ul>  <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>Disabled (0)</td>
+ <td>Вимкнено (0)</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="SYS_FAC_CAL_MODE">SYS_FAC_CAL_MODE</strong> (INT32)</td>
- <td>Enable factory calibration mode <p><strong>Comment:</strong> If enabled, future sensor calibrations will be stored to /fs/mtd_caldata. Note: this is only supported on boards with a separate calibration storage /fs/mtd_caldata.</p> <strong>Values:</strong><ul>
+ <td>Enable factory calibration mode <p><strong>Comment:</strong> If enabled, future sensor calibrations will be stored to /fs/mtd_caldata. Note: this is only supported on boards with a separate calibration storage /fs/mtd_caldata.</p> <strong>Значення:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> All sensors</li>
 <li><strong>2:</strong> All sensors except mag</li>
@@ -24293,7 +24293,7 @@ table {
  <td><strong id="SYS_FAILURE_EN">SYS_FAILURE_EN</strong> (INT32)</td>
  <td>Enable failure injection <p><strong>Comment:</strong> If enabled allows MAVLink INJECT_FAILURE commands. WARNING: the failures can easily cause crashes and are to be used with caution!</p>   </td>
  <td></td>
- <td>Disabled (0)</td>
+ <td>Вимкнено (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -24301,7 +24301,7 @@ table {
  <td>Control if the vehicle has a barometer <p><strong>Comment:</strong> Disable this if the board has no barometer, such as some of the Omnibus F4 SD variants. If disabled, the preflight checks will not check for the presence of a barometer.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>Enabled (1)</td>
+ <td>Увімкнено (1)</td>
  <td></td>
 </tr>
 <tr>
@@ -24375,12 +24375,12 @@ table {
 </tr>
 </tbody></table>
 
-## Telemetry
+## Телеметрія
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -26589,7 +26589,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -27086,7 +27086,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -27117,7 +27117,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>Назва</th><th>Опис</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
