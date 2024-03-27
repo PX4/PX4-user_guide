@@ -2,21 +2,21 @@
 
 <Badge type="tip" text="PX4 v1.12" />
 
-The [BlueROV2](https://bluerobotics.com/store/rov/bluerov2-upgrade-kits/brov2-heavy-retrofit-r1-rp/BlueROV2) is an affordable high-performance underwater vehicle that is perfect for inspections, research, and adventuring.
+[BlueROV2](https://bluerobotics.com/store/rov/bluerov2-upgrade-kits/brov2-heavy-retrofit-r1-rp/BlueROV2) - це доступний високопродуктивний підводний апарат, який ідеально підходить для інспекцій, досліджень та пригод.
 
-PX4 provides [experimental support](README.md) for an 8-thrust vectored configuration, known as the _BlueROV2 Heavy Configuration_.
+PX4 забезпечує [експериментальну підтримку](README.md) восьмипропелерної конфігурації з векторним керуванням, відомої як _BlueROV2 Heavy Configuration_.
 
 ![Hero](../../assets/airframes/sub/bluerov/bluerov_hero.jpg)
 
-## Where to Buy
+## Де купити
 
-[BlueROV2](https://bluerobotics.com/store/rov/bluerov2/) + [BlueROV2 Heavy Configuration Retrofit Kit](https://bluerobotics.com/store/rov/bluerov2-upgrade-kits/brov2-heavy-retrofit-r1-rp/)
+[BlueROV2](https://bluerobotics.com/store/rov/bluerov2/) + [Комплект модернізації для важкої конфігурації BlueROV2](https://bluerobotics.com/store/rov/bluerov2-upgrade-kits/brov2-heavy-retrofit-r1-rp/)
 
-### Motor Mapping/Wiring
+### Відповідність двигунів/підключення
 
-The motors must be wired to the flight controller following the standard instructions supplied by BlueRobotics for this vehicle .
+Мотори повинні бути підключені до контролера польоту відповідно до стандартних інструкцій, наданих BlueRobotics для цього транспортного засобу.
 
-The vehicle will then match the configuration documented in the [Airframe Reference](../airframes/airframe_reference.md#vectored-6-dof-uuv):
+Транспортний засіб буде відповідати конфігурації, описаній в [Довіднику з конструкції літальних апаратів](../airframes/airframe_reference.md#vectored-6-dof-uuv):
 
 <img src="../../assets/airframes/types/Vectored6DofUUV.svg" width="29%" style="max-height: 180px;" />
 
@@ -31,14 +31,14 @@ The vehicle will then match the configuration documented in the [Airframe Refere
 
 ## Airframe Configuration
 
-BlueROV2 does not come with PX4 installed. You will need to:
+BlueROV2 не йде з предвстановленою версією з PX4. Вам потрібно:
 
-1. [Install PX4 Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware)
-1. [Set the Airframe](../config/airframe.md). You will need to select the "BlueROV2 Heavy Configuration" as shown: ![QGC - select airframe for BlueROV2 Heay configuration](../../assets/airframes/sub/bluerov/qgc_airframe.jpg)
+1. [Встановіть прошивку PX4](../config/firmware.md#installing-px4-main-beta-or-custom-firmware)
+1. [Налаштуйте планер](../config/airframe.md). Вам потрібно буде вибрати "BlueROV2 Важка конфігурація" як показано: ![QGC - select airframe for BlueROV2 Heay configuration](../../assets/airframes/sub/bluerov/qgc_airframe.jpg)
 
 <!-- what other tuning/testing/ etc? -->
 
-## Video
+## Відео
 
 @[youtube](https://www.youtube.com/watch?v=1sUaURmlmT8)
 
