@@ -1,8 +1,8 @@
 # CAN
 
-[Controller Area Network (CAN)](https://en.wikipedia.org/wiki/CAN_bus) is a robust wired network that allows drone components such as flight controller, ESCs, sensors, and other peripherals, to communicate with each other. Because it is designed to be democratic and uses differential signaling, it is very robust even over longer cable lengths (on large vehicles), and avoids a single point of failure. CAN also allows status feedback from peripherals and convenient firmware upgrades over the bus.
+[Мережа контролера (CAN)](https://en.wikipedia.org/wiki/CAN_bus) – це надійна дротова мережа, яка дозволяє компонентам дрона, таким як контролер польоту, ESC, датчики та інші периферійні пристрої, спілкуватися один з одним. Так як він розроблений, щоб бути демократичним та використовує диференційну сигналізацію, він є дуже надійним навіть на довгих кабельних ділянках (на великих транспортних засобах) і уникне виникнення однієї точки відмови. CAN також дозволяє отримання зворотного зв'язку від периферійних пристроїв та зручне оновлення прошивки через шину.
 
-PX4 supports two software protocols for communicating with CAN devices:
+PX4 підтримує два програмні протоколи для взаємодії з пристроями CAN:
 
 - [DroneCAN](../dronecan/README.md): PX4 recommends this for most common setups. It is well supported by PX4, is a mature product with extensive peripheral support, and has had years of testing.
 - [Cyphal](https://opencyphal.org): PX4 support is a "work in progress". Cyphal is a much newer protocol which allows more flexibility and configuration, especially on larger and more complex vehicles. It has not yet seen significant adoption.
@@ -12,26 +12,26 @@ Both DroneCAN and Cyphal originate from an earlier project named UAVCAN. In 2022
 :::
 
 :::warning
-PX4 does not support other CAN software protocols for drones such as KDECAN (at time of writing).
+У PX4 немає підтримки інших програмних протоколів CAN для безпілотних літальних апаратів, таких як KDECAN (на момент написання).
 :::
 
 ## Wiring
 
-The wiring for CAN networks is the same for both DroneCAN and Cyphal/CAN (in fact, for all CAN networks).
+Проводка для мереж CAN однакова як для DroneCAN, так і для Cyphal/CAN (фактично, для всіх мереж CAN).
 
-Devices are connected in a chain in any order. At either end of the chain, a 120Ω termination resistor should be connected between the two data lines. Flight controllers and some GNSS modules have built in termination resistors for convenience, thus should be placed at opposite ends of the chain. Otherwise, you can use a termination resistor such as [this one from Zubax Robotics](https://shop.zubax.com/products/uavcan-micro-termination-plug?variant=6007985111069), or solder one yourself if you have access to a JST-GH crimper.
+Devices are connected in a chain in any order. At either end of the chain, a 120Ω termination resistor should be connected between the two data lines. Польотні контролери та деякі модулі GNSS мають вбудовані резистори завершення для зручності, тому їх слід розміщувати на протилежних кінцях ланцюга. Otherwise, you can use a termination resistor such as [this one from Zubax Robotics](https://shop.zubax.com/products/uavcan-micro-termination-plug?variant=6007985111069), or solder one yourself if you have access to a JST-GH crimper.
 
-The following diagram shows an example of a CAN bus connecting a flight controller to 4 CAN ESCs and a GNSS.
+Наступна діаграма показує приклад шини CAN, що з'єднує автопілот з 4 контролерами ESC CAN та GNSS.
 
 ![CAN Wiring](../../assets/can/uavcan_wiring.svg)
 
-The diagram does not show any power wiring. Refer to your manufacturer instructions to confirm whether components require separate power or can be powered from the CAN bus itself.
+The diagram does not show any power wiring. Для підтвердження, чи компоненти потребують окремого живлення, чи можуть бути живлені від самої шини CAN, звертайтеся до інструкцій виробника.
 
 For more information, see [Cyphal/CAN device interconnection](https://kb.zubax.com/pages/viewpage.action?pageId=2195476) (kb.zubax.com). While the article is written with the Cyphal protocol in mind, it applies equally to DroneCAN hardware and any other CAN setup. For more advanced scenarios, consult with [On CAN bus topology and termination](https://forum.opencyphal.org/t/on-can-bus-topology-and-termination/1685).
 
 ### Connectors
 
-Pixhawk standard compatible CAN devices use 4 pin JST-GH connectors for CAN. Two connectors are used for input and output when wiring in a chain (except for flight controllers and some GNSS devices with builtin termination, which only have a single JST-GH connector).
+Pixhawk standard compatible CAN devices use 4 pin JST-GH connectors for CAN. Для підключення в ланцюг використовуються два роз'єми: для введення і виведення (крім контролерів польоту та деяких пристроїв GNSS з вбудованим завершенням, які мають лише один роз'єм JST-GH).
 
 Other (non-Pixhawk compatible) devices may use different connectors. However, as long as the device firmware supports DroneCAN or Cyphal, it can be used.
 
@@ -39,19 +39,19 @@ Other (non-Pixhawk compatible) devices may use different connectors. However, as
 
 DroneCAN and Cyphal/CAN support using a second (redundant) CAN interface. This is completely optional but increases the robustness of the connection. All Pixhawk flight controllers come with 2 CAN interfaces; if your peripherals support 2 CAN interfaces as well, it is recommended to wire both up for increased safety.
 
-## Firmware
+## Прошивка
 
 CAN peripherals may run proprietary or open source firmware (check manufacturer guides to confirm the required setup).
 
 PX4 can be built to run as open-source DroneCAN firmware on supported CAN hardware. See [PX4 DroneCAN Firmware](../dronecan/px4_cannode_fw.md) for more information.
 
-## Support and Configuration
+## Підтримка та конфігурація
 
 [DroneCAN Setup and Configuration](../dronecan/README.md)
 
 [PX4 DroneCAN Firmware](../dronecan/px4_cannode_fw.md)
 
-## Videos
+## Відео
 
 ### DroneCAN
 
