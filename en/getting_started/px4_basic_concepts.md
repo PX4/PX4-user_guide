@@ -7,28 +7,28 @@ To load firmware and set up the vehicle with _QGroundControl_, see [Basic Config
 
 ## What is a Drone?
 
-A drone is an unmanned "robotic" vehicle that can be remotely or autonomously controlled.
+A drone is an unmanned "robotic" vehicle that can be manually or autonomously controlled.
 
-Drones are used for many [consumer, industrial, government and military applications](https://px4.io/ecosystem/commercial-systems/).
-These include (non exhaustively): aerial photography/video, carrying cargo, racing, search and surveying etc.
+Drones are used for many [consumer, industrial, government and military applications](https://px4.io/ecosystem/commercial-systems/), including aerial photography/video, carrying cargo, racing, search and surveying, and so on.
 
 Different types of drones are used for air, ground, sea, and underwater.
 These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
 
 The "brain" of the drone is called an autopilot.
-It consists of _flight stack_ software running on _vehicle controller_ ("flight controller") hardware.
+It consists of _flight stack_ software running on _flight controller_ (FC) hardware.
+The flight stack provides essential stabilisation and safety features, and usually also some level of pilot assistance for manual flight and automating common tasks, such as taking off, landing, and executing predefined missions.
 
-Some drones also have a separate on-vehicle [companion computer](#offboard-companion-computer).
-These provide powerful general-purpose computing platform for networking, computer vision, and many other tasks.
+Some autopilots also include a general-purpose computing system that can provide "higher level" command and control, and that can support more advanced networking, computer vision, and other features.
+This might be implemented as a separate [companion computer](#offboard-companion-computer), but in future it is increasingly likely to be a fully integrated component.
 
-## PX4 Autopilot
+## PX4 Flight Stack
 
 [PX4](https://px4.io/) is powerful open source autopilot _flight stack_.
 
 Some of PX4's key features are:
 
 - Controls [many different vehicle frames/types](../airframes/airframe_reference.md), including: aircraft (multicopters, fixed-wing aircraft and VTOLs), ground vehicles and underwater vehicles.
-- Great choice of hardware for [vehicle controller](#vehicle-flight-controller-board), sensors and other peripherals.
+- Great choice of hardware for [flight controller](#flight-controller-board), sensors and other peripherals.
 - Flexible and powerful [flight modes](#flight-modes) and [safety features](#safety-settings-failsafe).
 - Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/README.md) ([ROS 2](../ros/ros2_comm.md), [MAVSDK](http://mavsdk.mavlink.io)).
 
@@ -37,14 +37,15 @@ PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
 
 ## QGroundControl
 
-The Dronecode ground control station is called [QGroundControl](http://qgroundcontrol.com/).
-You can use _QGroundControl_ to load (flash) PX4 onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information and create and execute fully autonomous missions.
+The Dronecode Ground Control Station (GCS) is called [QGroundControl](http://qgroundcontrol.com/).
+You can use _QGroundControl_ to load (flash) PX4 firmware onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information, and create and execute fully autonomous missions.
 
-_QGroundControl_ runs on Windows, Android, MacOS or Linux. Download and install it from [here](http://qgroundcontrol.com/downloads/).
+_QGroundControl_ runs on Windows, Android, MacOS or Linux.
+Download and install it from [here](http://qgroundcontrol.com/downloads/).
 
 ![QGC Main Screen](../../assets/concepts/qgc_main_screen.jpg)
 
-## Vehicle/Flight Controller Board
+## Flight Controller Board
 
 PX4 was initially designed to run on [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers, but can now run on Linux computers and other hardware.
 You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.
@@ -61,7 +62,6 @@ Fixed-wing and VTOL-vehicles should additionally include an airspeed sensor (ver
 For more information see:
 
 - [Sensors](../getting_started/sensor_selection.md)
-- [Peripherals](../peripherals/README.md)
 
 ## Outputs: Motors, Servos, Actuators
 
