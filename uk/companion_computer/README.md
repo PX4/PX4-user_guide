@@ -16,9 +16,8 @@
 
 Плати контролерів, які постачаються з попередньо інтегрованим комп'ютером-компаньйоном і польотним контролером, можуть значно полегшити як програмне, так і апаратне налаштування. У деяких випадках плати налаштовані так, щоб можна було легко замінити контролер польоту та/або деталі супутнього комп'ютера.
 
-Відомо, що наступні плати забезпечують хорошу інтеграцію з PX4:
-
 - [Holybro Pixhawk RPI CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
+- [ARK Jetson PAB Carrier](https://arkelectron.gitbook.io/ark-documentation/flight-controllers/ark-jetson-pab-carrier)
 
 ## Керовані інтегровані системи
 
@@ -28,13 +27,19 @@
 
 ## Параметри супутнього комп'ютера
 
-PX4 можна використовувати з комп'ютерами, які можна сконфігурувати для зв'язку через MAVLink або microROS/uXRCE-DDS через послідовний порт (або порт Ethernet, якщо є).
+PX4 можна використовувати з комп'ютерами, які можна сконфігурувати для зв'язку через MAVLink або microROS/uXRCE-DDS через послідовний порт (або порт Ethernet, якщо є). A small subset of possible alternatives are listed below.
+
+Larger high power examples:
+
+- [ModalAI VOXL 2](https://docs.modalai.com/voxl2-external-flight-controller/)
+- [NXP NavQPlus](https://nxp.gitbook.io/navqplus/user-contributed-content/ros2/microdds)
+- [Nvidia Jetson TX2](https://developer.nvidia.com/embedded/jetson-tx2)
+* [Intel NUC](https://www.intel.com/content/www/us/en/products/details/nuc.html)
+* [Gigabyte Brix](https://www.gigabyte.com/Mini-PcBarebone/BRIX)
 
 Нижче наведено невелику підгрупу можливих альтернатив:
 
-- Raspberry Pi
-- Odroid
-- Tegra K1
+- [Raspberry Pi](../companion_computer/pixhawk_rpi.md)
 
 :::note
 Вибір комп'ютера буде залежати від стандартних критеріїв: вартості, ваги, потужності, простоти налаштування та необхідних обчислювальних ресурсів.
