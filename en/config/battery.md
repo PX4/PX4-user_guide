@@ -1,4 +1,4 @@
-# Battery Estimation Tuning
+# Battery Estimation Tuning (Power Setup)
 
 This topic explains how to configure power settings so that PX4 can estimate the available battery capacity.
 
@@ -10,7 +10,8 @@ This tuning is not needed for [Smart/MAVLink Batteries](../smart_batteries/READM
 
 ## Overview
 
-Battery Estimation Tuning uses the measured voltage and current (if available) to estimate the remaining battery capacity, so that the vehicle is not used to the point that it runs out of power and crashes (or the battery is damaged due to deep-discharge).
+Battery Estimation Tuning uses the measured voltage and current (if available) to estimate the remaining battery capacity.
+This is important because it allows PX4 to take action when the vehicle is close to running out of power and crashing (and also to prevent battery damage due to deep-discharge).
 
 PX4 provides a number of (progressively more effective) methods that can be used to estimate the capacity:
 
@@ -52,7 +53,7 @@ This approach results in relatively coarse estimations due to fluctuations in th
 To configure the basic settings for battery 1:
 
 1. Start _QGroundControl_ and connect the vehicle.
-1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Power** in the sidebar.
+1. Select **"Q" icon > Vehicle Setup > Power** (sidebar) to open _Power Setup_.
 
 You are presented with the basic settings that characterize the battery.
 The sections below explain what values to set for each field.
