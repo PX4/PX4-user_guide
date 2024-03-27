@@ -9035,6 +9035,38 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="FW_AT_SYSID_F0">FW_AT_SYSID_F0</strong> (FLOAT)</td>
+ <td>Start frequency of the injected signal <p><strong>Comment:</strong> Can be set lower or higher than the end frequency</p>   </td>
+ <td>[0.1, 30.0] </td>
+ <td>1.</td>
+ <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="FW_AT_SYSID_F1">FW_AT_SYSID_F1</strong> (FLOAT)</td>
+ <td>End frequency of the injected signal <p><strong>Comment:</strong> Can be set lower or higher than the start frequency</p>   </td>
+ <td>[0.1, 30.0] </td>
+ <td>20.</td>
+ <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="FW_AT_SYSID_TIME">FW_AT_SYSID_TIME</strong> (FLOAT)</td>
+ <td>Maneuver time for each axis <p><strong>Comment:</strong> Duration of the input signal sent on each axis during system identification</p>   </td>
+ <td>[5, 120] </td>
+ <td>10.</td>
+ <td>s</td>
+</tr>
+<tr>
+ <td><strong id="FW_AT_SYSID_TYPE">FW_AT_SYSID_TYPE</strong> (INT32)</td>
+ <td>Input signal type <p><strong>Comment:</strong> Type of signal used during system identification to excite the system.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Step</li>
+<li><strong>1:</strong> Linear sine sweep</li>
+<li><strong>2:</strong> Logarithmic sine sweep</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="MC_AT_APPLY">MC_AT_APPLY</strong> (INT32)</td>
  <td>Controls when to apply the new gains <p><strong>Comment:</strong> After the auto-tuning sequence is completed, a new set of gains is available and can be applied immediately or after landing. WARNING Applying the gains in air is dangerous as there is no guarantee that those new gains will be able to stabilize the drone properly.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Do not apply the new gains (logging only)</li>
