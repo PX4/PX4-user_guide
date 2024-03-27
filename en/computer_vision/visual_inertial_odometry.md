@@ -104,9 +104,14 @@ The value can further be tuned by varying the parameter to find the value that y
 
 ## Check/Verify VIO Estimate
 
+::: note
+The [MAV_ODOM_LP](../advanced_config/parameter_reference.md#MAV_ODOM_LP) parameter mentioned below was removed in PX4 v1.14.
+This section needs to be updated. <!-- https://github.com/PX4/PX4-Autopilot/pull/20501#issuecomment-1993788815 -->
+:::
+
 Perform the following checks to verify that VIO is working properly _before_ your first flight:
 
-- Set the PX4 parameter `MAV_ODOM_LP` to `1``.
+- Set the PX4 parameter `MAV_ODOM_LP` to `1`.
   PX4 will then stream back the received external pose as MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) messages.
   You can check these MAVLink messages with the _QGroundControl_ [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html)
 - Yaw the vehicle until the quaternion of the `ODOMETRY` message is very close to a unit quaternion (w=1, x=y=z=0).
