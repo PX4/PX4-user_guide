@@ -7,7 +7,14 @@
 PX4 is the _Professional Autopilot_. 它由来自业界和学术界的世界级开发商开发，并得到活跃的全球社区的支持，为从竞速和物流无人机到地面车辆和潜水艇的各种载具提供动力。
 
 :::tip
-本指南包含了组装、配置和安全驾驶基于 PX4 的飞机所需的一切。 对贡献感兴趣吗 查看[开发](development/development.md)部分。 :::
+本指南包含了组装、配置和安全驾驶基于 PX4 的飞机所需的一切。 对贡献感兴趣吗 查看[开发](development/development.md)部分。
+
+:::
+
+:::warning
+This guide is for the _development_ version of PX4 (`main` branch). Use the **Version** selector for the current _stable_ version.
+
+Documented changes since the stable release are captured in the evolving [release note](releases/main.md). :::
 
 ## 如何开始？
 

@@ -44,16 +44,7 @@ graph TD;
 
 ### 板载处理器
 
-在飞行器上部署一台小型将计算机，用 UART 转 USB 适配器连接飞控。 这里有许多可能性，这将取决于您除了向自驾仪发送指令外，还想要做什么样的额外机载处理。
-
-低性能计算机：
-* [Odroid C1+](http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143703355573) 或 [Odroid XU4](http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143452239825)
-* [Raspberry Pi](https://www.raspberrypi.org/)
-
-高性能计算机：
-* [Intel NUC](https://www.intel.com/content/www/us/en/products/details/nuc.html)
-* [Gigabyte Brix](https://www.gigabyte.com/Mini-PcBarebone/BRIX)
-* [Nvidia Jetson TK1](https://developer.nvidia.com/embedded/jetson-tx2)
+在飞行器上部署一台小型将计算机，用 UART 转 USB 适配器连接飞控。 这里有许多可能性，这将取决于您除了向自驾仪发送指令外，还想要做什么样的额外机载处理。 Some examples are provided in [Companion Computers](../companion_computer/README.md#companion-computer-options).
 
 [![流程图：机载计算机Mavlink](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGNvbXBbQ29tcGFuaW9uIENvbXB1dGVyXSAtLU1BVkxpbmstLT4gdWFydFtVQVJUIEFkYXB0ZXJdO1xuICB1YXJ0IC0tTUFWTGluay0tPiBBdXRvcGlsb3Q7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGNvbXBbQ29tcGFuaW9uIENvbXB1dGVyXSAtLU1BVkxpbmstLT4gdWFydFtVQVJUIEFkYXB0ZXJdO1xuICB1YXJ0IC0tTUFWTGluay0tPiBBdXRvcGlsb3Q7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 

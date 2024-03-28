@@ -1,6 +1,6 @@
-# Запобігання зіткнення
+# Collision Prevention
 
-_Запобігання зіткнення_ може бути використано для автоматичного сповільнення і зупинки транспортного засобу, перш ніж він потрапить в перешкоду.
+_Collision Prevention_ може бути використано для автоматичного сповільнення і зупинки транспортного засобу, перш ніж він потрапить в перешкоду.
 
 It can be enabled for multicopter vehicles in [Position mode](../flight_modes_mc/position.md), and can use sensor data from an offboard companion computer, offboard rangefinders over MAVLink, a rangefinder attached to the flight controller, or any combination of the above.
 

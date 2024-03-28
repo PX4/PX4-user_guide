@@ -6,7 +6,14 @@
 
 PX4 is the _Professional Autopilot_. 世界中の産業界・アカデミアの開発者によって開発され，世界中のコミュニティによってサポートされており，レーシング用ドローンや運送用ドローンのみならず地上から潜水艇まで，様々なビークルに用いることができます．
 
-このガイドはPX4を搭載する機体を組立て、パラメタを調し、安全に飛ばすために必要な全てのことを含んでいます。 貢献することに興味がありますか？ [開発](development/development.md) セクションを確認してください。 :::
+このガイドはPX4を搭載する機体を組立て、パラメタを調し、安全に飛ばすために必要な全てのことを含んでいます。 貢献することに興味がありますか？ [開発](development/development.md) セクションを確認してください。
+
+:::
+
+:::warning
+This guide is for the _development_ version of PX4 (`main` branch). Use the **Version** selector for the current _stable_ version.
+
+Documented changes since the stable release are captured in the evolving [release note](releases/main.md). :::
 
 ## なにから始めればいいの？
 

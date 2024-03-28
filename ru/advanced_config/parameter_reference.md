@@ -9035,6 +9035,38 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="FW_AT_SYSID_F0">FW_AT_SYSID_F0</strong> (FLOAT)</td>
+ <td>Start frequency of the injected signal <p><strong>Comment:</strong> Can be set lower or higher than the end frequency</p>   </td>
+ <td>[0.1, 30.0] </td>
+ <td>1.</td>
+ <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="FW_AT_SYSID_F1">FW_AT_SYSID_F1</strong> (FLOAT)</td>
+ <td>End frequency of the injected signal <p><strong>Comment:</strong> Can be set lower or higher than the start frequency</p>   </td>
+ <td>[0.1, 30.0] </td>
+ <td>20.</td>
+ <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="FW_AT_SYSID_TIME">FW_AT_SYSID_TIME</strong> (FLOAT)</td>
+ <td>Maneuver time for each axis <p><strong>Comment:</strong> Duration of the input signal sent on each axis during system identification</p>   </td>
+ <td>[5, 120] </td>
+ <td>10.</td>
+ <td>s</td>
+</tr>
+<tr>
+ <td><strong id="FW_AT_SYSID_TYPE">FW_AT_SYSID_TYPE</strong> (INT32)</td>
+ <td>Input signal type <p><strong>Comment:</strong> Type of signal used during system identification to excite the system.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Step</li>
+<li><strong>1:</strong> Linear sine sweep</li>
+<li><strong>2:</strong> Logarithmic sine sweep</li>
+</ul>  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="MC_AT_APPLY">MC_AT_APPLY</strong> (INT32)</td>
  <td>Controls when to apply the new gains <p><strong>Comment:</strong> After the auto-tuning sequence is completed, a new set of gains is available and can be applied immediately or after landing. WARNING Applying the gains in air is dangerous as there is no guarantee that those new gains will be able to stabilize the drone properly.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Do not apply the new gains (logging only)</li>
@@ -9164,7 +9196,7 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT1_V_CHARGED">BAT1_V_CHARGED</strong> (FLOAT)</td>
- <td>Full cell voltage (5C load) <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered full under a mild load. This will never be the nominal voltage of 4.2V</p>   <p><b>Reboot required:</b> True</p>
+ <td>Full cell voltage <p><strong>Comment:</strong> Defines the voltage where a single cell of the battery is considered full. For a more accurate estimate set this below the nominal voltage of e.g. 4.2V</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>(0.01)</td>
  <td>4.05</td>
@@ -9180,7 +9212,7 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT1_V_EMPTY">BAT1_V_EMPTY</strong> (FLOAT)</td>
- <td>Empty cell voltage (5C load) <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Empty cell voltage <p><strong>Comment:</strong> Defines the voltage where a single cell of the battery is considered empty. The voltage should be chosen above the steep dropoff at 3.5V. A typical lithium battery can only be discharged under high load down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>(0.01)</td>
  <td>3.6</td>
@@ -9188,7 +9220,7 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT1_V_LOAD_DROP">BAT1_V_LOAD_DROP</strong> (FLOAT)</td>
- <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitly defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT1_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitly defines the internal resistance to maximum current ratio for the battery and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT1_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0.07, 0.5] (0.01)</td>
  <td>0.1</td>
@@ -9275,7 +9307,7 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT2_V_CHARGED">BAT2_V_CHARGED</strong> (FLOAT)</td>
- <td>Full cell voltage (5C load) <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered full under a mild load. This will never be the nominal voltage of 4.2V</p>   <p><b>Reboot required:</b> True</p>
+ <td>Full cell voltage <p><strong>Comment:</strong> Defines the voltage where a single cell of the battery is considered full. For a more accurate estimate set this below the nominal voltage of e.g. 4.2V</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>(0.01)</td>
  <td>4.05</td>
@@ -9291,7 +9323,7 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT2_V_EMPTY">BAT2_V_EMPTY</strong> (FLOAT)</td>
- <td>Empty cell voltage (5C load) <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Empty cell voltage <p><strong>Comment:</strong> Defines the voltage where a single cell of the battery is considered empty. The voltage should be chosen above the steep dropoff at 3.5V. A typical lithium battery can only be discharged under high load down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>(0.01)</td>
  <td>3.6</td>
@@ -9299,7 +9331,7 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT2_V_LOAD_DROP">BAT2_V_LOAD_DROP</strong> (FLOAT)</td>
- <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitly defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT2_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitly defines the internal resistance to maximum current ratio for the battery and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT2_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0.07, 0.5] (0.01)</td>
  <td>0.1</td>
@@ -9362,7 +9394,7 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT3_V_CHARGED">BAT3_V_CHARGED</strong> (FLOAT)</td>
- <td>Full cell voltage (5C load) <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered full under a mild load. This will never be the nominal voltage of 4.2V</p>   <p><b>Reboot required:</b> True</p>
+ <td>Full cell voltage <p><strong>Comment:</strong> Defines the voltage where a single cell of the battery is considered full. For a more accurate estimate set this below the nominal voltage of e.g. 4.2V</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>(0.01)</td>
  <td>4.05</td>
@@ -9370,7 +9402,7 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT3_V_EMPTY">BAT3_V_EMPTY</strong> (FLOAT)</td>
- <td>Empty cell voltage (5C load) <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Empty cell voltage <p><strong>Comment:</strong> Defines the voltage where a single cell of the battery is considered empty. The voltage should be chosen above the steep dropoff at 3.5V. A typical lithium battery can only be discharged under high load down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>(0.01)</td>
  <td>3.6</td>
@@ -9378,7 +9410,7 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT3_V_LOAD_DROP">BAT3_V_LOAD_DROP</strong> (FLOAT)</td>
- <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitly defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT3_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitly defines the internal resistance to maximum current ratio for the battery and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT3_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0.07, 0.5] (0.01)</td>
  <td>0.1</td>

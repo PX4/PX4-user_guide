@@ -1,37 +1,37 @@
-# Flight Modes (Rover)
+# Режими польоту (Ровер)
 
-Flight modes (or more accurately "Drive modes" for ground vehicles) provide autopilot support to make it easier to manually drive the vehicle, to execute autonomous missions, or to defer control to an external system.
+Режими польоту (або, точніше, "режими керування" для наземних транспортних засобів) забезпечують автопілоту підтримку, щоб полегшити ручне керування транспортним засобом, виконувати автономні місії або передавати керування зовнішній системі.
 
-PX4 ground vehicles only support [manual mode](#manual-mode), [mission mode](#mission-mode) and [offboard mode](#offboard-mode) (other modes may be offered in a ground station, but these all behave just like manual mode).
+У наземних транспортних засобах PX4 підтримуються лише [ручний режим](#manual-mode), [режим місії](#mission-mode) та [режим зовнішнього керування](#offboard-mode) (інші режими можуть бути доступні в наземній станції, але всі вони працюють так само, як ручний режим).
 
-### Manual Mode
+### Ручний режим
 
-_Manual mode_ is the only manual mode for ground vehicles on PX4, and requires a manual controller (RC controller, gamepad, joystick etc.).
+_Ручний режим_ - це єдиний ручний режим для наземних транспортних засобів на PX4 і вимагає ручного контролера (RC контролера, геймпада, джойстика тощо).
 
-In this mode, motors are stopped when RC control sticks are centered.
-To move the vehicle you move the sticks outside of the center.
+У цьому режимі двигуни зупиняються, коли джойстики RC знаходяться в центрі.
+Щоб перемістити транспортний засіб, ви пересуваєте палички за межі центру.
 
-As soon as you release the control sticks they will return to the center deadzone.
-This will turn off the motors and center the wheels.
-There is no active braking, so the vehicle may continue to move until its momentum dissipates.
+Як тільки ви відпустите ручки керування, вони повернуться до центральної мертвої зони.
+Це вимкне мотори та центр коліс.
+Активного гальмування немає, тому транспортний засіб може продовжувати рух, доки його імпульс не розсіється.
 
-### Mission Mode
+### Режим місії
 
-[Mission mode](../flight_modes/mission.md) is an automatic mode that causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) plan that has been uploaded to the flight controller.
-The mission is typically created and uploaded with a Ground Control Station (GCS) application, such as [QGroundControl](https://docs.qgroundcontrol.com/master/en/).
+[Режим місії](../flight_modes/mission.md) - це автоматичний режим, який змушує транспортний засіб виконувати передбачений автономний [план місії](../flying/missions.md), який був завантажений до керуючого пристрою польоту.
+Зазвичай місія створюється та завантажується за допомогою програми для керування наземною станцією (GCS), такої як [QGroundControl](https://docs.qgroundcontrol.com/master/en/).
 
-### Offboard Mode
+### Зовнішнє керування
 
-[Offboard mode](../flight_modes/offboard.md) causes the vehicle to obey position, velocity, or attitude, setpoints provided over MAVLink.
-Not all setpoint types make sense for a ground vehicle, or are supported.
+[Режим безпосереднього управління](../flight_modes/offboard.md) призводить до того, що транспортний засіб слухається позиції, швидкості або орієнтації, які задаються через MAVLink.
+Не всі типи заданих точок мають сенс для наземного транспортного засобу або підтримуються.
 
 :::note
-This mode is intended for vehicle control from companion computers and ground stations!
+Цей режим призначений для керування транспортним засобом з компаньйонних комп'ютерів та наземних станцій!
 :::
 
-## Further Information
+## Подальша інформація
 
-- [Basic Configuration > Flight Modes](../config/flight_mode.md) - How to map RC control switches to specific flight modes
-- [Flight Modes (Multicopter)](../flight_modes_mc/README.md)
-- [Flight Modes (Fixed-wing)](../flight_modes_fw/README.md)
-- [Flight Modes (VTOL)](../flight_modes_vtol/README.md)
+- [Основна конфігурація > Режими польоту](../config/flight_mode.md) - Як зв'язати перемикачі керування RC з конкретними режимами польоту
+- [Режими польоту (Мультикоптер)](../flight_modes_mc/README.md)
+- [Режими польоту (Фіксовані крила)](../flight_modes_fw/README.md)
+- [Режими польоту (VTOL)](../flight_modes_vtol/README.md)

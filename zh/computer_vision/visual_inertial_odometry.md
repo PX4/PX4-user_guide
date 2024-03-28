@@ -98,6 +98,10 @@ Technically this can be set to 0 if there is correct timestamping (not just arri
 
 ## 检查/校验 VIO 估计
 
+::: note
+The [MAV_ODOM_LP](../advanced_config/parameter_reference.md#MAV_ODOM_LP) parameter mentioned below was removed in PX4 v1.14. This section needs to be updated. <!-- https://github.com/PX4/PX4-Autopilot/pull/20501#issuecomment-1993788815 -->
+:::
+
 执行以下检查，以确保在首次飞行*之前* VIO 正常运行：
 
 - 设置 PX4 参数 `MAV_ODOM_LP` 为1。 然后PX4将接收到的外部姿态用MAVLink[ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY)消息回传。 您可以使用 *QGroundControl* 中的 [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) 查看这些MAVLink 消息。

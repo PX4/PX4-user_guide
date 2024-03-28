@@ -1,11 +1,11 @@
-# Airships
+# Дирижаблі
 
 <LinkedBadge type="warning" text="Experimental" url="../airframes/#experimental-vehicles"/>
 
 :::warning
 
-Support for airships is [experimental](../airframes/README.md#experimental-vehicles). Maintainer volunteers, [contribution](../contribute/README.md) of new features, new frame configurations, or other improvements would all be very welcome!
+Підтримка дирижаблів є [експериментальною](../airframes/README.md#experimental-vehicles). Волонтери та контрибютори, [внесення](../contribute/README.md) нових функцій, нових конфігурацій каркасів або інших вдосконалень дуже вітається!
 :::
 
 
-PX4 supports a single airship geometry with starboard, port and tail thrusters, and a thrust tilt server. The frame configuration is shown in [Airframes Reference > Airship](../airframes/airframe_reference.md#airship).
+PX4 підтримує одну геометрію дирижабля з правобортним, лівобортним і кормовим тяговими двигунами, а також сервоприводом нахилу тяги. Конфігурацію каркасу показано в [Довідник з типами повітряних суден> Дирижабль](../airframes/airframe_reference.md#airship).

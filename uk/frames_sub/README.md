@@ -1,34 +1,34 @@
-# Submarines (Unmanned Underwater Vehicles - UUV)
+# Підводні човни (Безпілотна Підводна Техніка- UUV)
 
 <LinkedBadge type="warning" text="Experimental" url="../airframes/#experimental-vehicles"/>
 
 :::warning
-Support for UUVs is [experimental](../airframes/README.md#experimental-vehicles). Maintainer volunteers, [contribution](../contribute/README.md) of new features, new frame configurations, or other improvements would all be very welcome!
+Підтримка підводних човнів є [експериментальною](../airframes/README.md#experimental-vehicles). Волонтери та контрибютори, [внесення](../contribute/README.md) нових функцій, нових конфігурацій каркасів або інших вдосконалень дуже вітається!
 
-At time of writing it has only been tested using ROS in offboard mode. The following features have not been implemented:
+На момент написання він був протестований лише з використанням ROS у автономному режимі. Наступні функції не були реалізовані:
 
-- Modes like missions, depth hold, stabilised manual control, etc.
-- BlueRobotics gripper support.
+- Такі режими, як місії, утримання глибини, стабілізоване ручне керування тощо.
+- Підтримка BlueRobotics.
 
 :::
 
-PX4 has basic support for UUVs.
+PX4 має базову підтримку UUV.
 
-## Supported Frames
+## Підтримувані плати
 
-PX4 supports several unmanned underwater vehicle (UUV) frames. The set of supported configurations can be seen in [Airframe Reference > Underwater Robots](../airframes/airframe_reference.md#underwater-robot).
+PX4 підтримує кілька безпілотних підводних апаратів (UUV). The set of supported configurations can be seen in [Airframe Reference > Underwater Robots](../airframes/airframe_reference.md#underwater-robot).
 
-### PX4 Compatible (Fully Assembled)
+### Сумісний з PX4 (повна збірка)
 
-This section lists fully assembled vehicles where you can update the software to run PX4.
+У цьому розділі перераховані повністю зібрані транспортні засоби, де ви можете оновити програмне забезпечення для роботи з PX4.
 
-- [BlueROV2](../frames_sub/bluerov2.md): Vectored 6 DOF UUV
+- [BlueROV2](../frames_sub/bluerov2.md): Векторизований 6 DOF UUV
 
-### Other Frames
+### Інші ресурси
 
-- HippoCampus UUV: [Airframe Reference](../airframes/airframe_reference.md#underwater_robot_underwater_robot_hippocampus_uuv_%28unmanned_underwater_vehicle%29), [Gazebo Classic Simulation](../sim_gazebo_classic/vehicles.md#hippocampus-tuhh-uuv)
+- HippoCampus UUV: [Airframe Reference](../airframes/airframe_reference.md#underwater_robot_underwater_robot_hippocampus_uuv_%28unmanned_underwater_vehicle%29), [Класична симуляція Gazebo ](../sim_gazebo_classic/vehicles.md#hippocampus-tuhh-uuv)
 
-## Videos
+## Відео
 
 @[youtube](https://youtu.be/1sUaURmlmT8)
 

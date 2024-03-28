@@ -7,7 +7,14 @@
 PX4 is the _Professional Autopilot_. 세계적인 수준의 개발자들이 산업계와 학계에서 참여하여 개발하였으며, 세계 각국에서 활동중인 여러 단체들의 지원을 받을 수 있습니다. PX4는 레이싱 드론, 운송용 드론, 자동차와 선박 등의 다양한 운송체에 적용하여 사용할 수 있습니다.
 
 :::tip
-이 안내서는 PX4를 이용한 기체조립 방법, 설정 방법 및 비행 방법에 대하여 설명합니다. 이 프로젝트에 기여하시려면,  [개발](development/development.md)편을 참고하여 주십시오. :::
+이 안내서는 PX4를 이용한 기체조립 방법, 설정 방법 및 비행 방법에 대하여 설명합니다. 이 프로젝트에 기여하시려면,  [개발](development/development.md)편을 참고하여 주십시오.
+
+:::
+
+:::warning
+This guide is for the _development_ version of PX4 (`main` branch). Use the **Version** selector for the current _stable_ version.
+
+Documented changes since the stable release are captured in the evolving [release note](releases/main.md). :::
 
 ## 시작하기
 

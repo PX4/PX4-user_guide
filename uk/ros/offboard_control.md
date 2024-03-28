@@ -45,16 +45,7 @@ graph TD;
 
 ### On-board processor
 
-A small computer mounted onto the vehicle connected to the autopilot through a UART to USB adapter. There are many possibilities here and it will depend on what kind of additional on-board processing you want to do in addition to sending commands to the autopilot.
-
-Small low power examples:
-* [Odroid C1+](https://www.hardkernel.com/shop/odroid-c1/) або [Odroid XU4](https://magazine.odroid.com/odroid-xu4)
-* [Raspberry Pi](https://www.raspberrypi.org/)
-
-Larger high power examples:
-* [Intel NUC](https://www.intel.com/content/www/us/en/products/details/nuc.html)
-* [Gigabyte Brix](https://www.gigabyte.com/Mini-PcBarebone/BRIX)
-* [Nvidia Jetson TX2](https://developer.nvidia.com/embedded/jetson-tx2)
+A small computer mounted onto the vehicle, connected to the autopilot through a serial port or Ehthernet port. There are many possibilities here and it will depend on what kind of additional on-board processing you want to do in addition to sending commands to the autopilot. Some examples are provided in [Companion Computers](../companion_computer/README.md#companion-computer-options).
 
 [![Mermaid diagram: Companion mavlink](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGNvbXBbQ29tcGFuaW9uIENvbXB1dGVyXSAtLU1BVkxpbmstLT4gdWFydFtVQVJUIEFkYXB0ZXJdO1xuICB1YXJ0IC0tTUFWTGluay0tPiBBdXRvcGlsb3Q7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGNvbXBbQ29tcGFuaW9uIENvbXB1dGVyXSAtLU1BVkxpbmstLT4gdWFydFtVQVJUIEFkYXB0ZXJdO1xuICB1YXJ0IC0tTUFWTGluay0tPiBBdXRvcGlsb3Q7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 

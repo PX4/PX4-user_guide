@@ -1,10 +1,10 @@
-# Helicopters
+# Гелікоптери
 
 <LinkedBadge type="warning" text="Experimental" url="../airframes/#experimental-vehicles"/>
 
 :::warning
 
-Support for helicopters is [experimental](../airframes/README.md#experimental-vehicles). Maintainer volunteers, [contribution](../contribute/README.md) of new features, new frame configurations, or other improvements would all be very welcome!
+Підтримка гелікоптерів є [експериментальною](../airframes/README.md#experimental-vehicles). Волонтери та контрибютори, [внесення](../contribute/README.md) нових функцій, нових конфігурацій каркасів або інших вдосконалень дуже вітається!
 
 Issues include:
 
@@ -35,7 +35,7 @@ Note that the flight controller cannot power motors and servos (only GPS module,
 :::
 
 
-## Configuration
+## Налаштування
 
 Helicopter configuration and setup is covered in:
 

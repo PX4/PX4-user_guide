@@ -1,37 +1,37 @@
-# Simulation-In-Hardware (SIH)
+# Моделювання в апаратному забезпеченні (SIH)
 
 :::warning
-This simulator is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4 (known to work in PX4 v1.14).
+Цей симулятор підтримується та обслуговується [спільнотою](../simulation/community_supported_simulators.md). Він може працювати або не працювати з поточними версіями PX4 (відомо, що він працює в PX4 v1.14).
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+Перегляньте розділ [Встановлення ланцюжка інструментів](../dev_setup/dev_env.md), щоб отримати інформацію про середовища та інструменти, які підтримуються основною командою розробників.
 :::
 
-Simulation-In-Hardware (SIH) is an alternative to [Hardware In The Loop simulation (HITL)](../simulation/hitl.md) for quadrotors, fixed-wing vehicles (airplane), and VTOL tailsitters.
+Симуляція у апаратному забезпеченні (SIH) - це альтернатива симуляції у [апаратному забезпеченні (HITL) ](../simulation/hitl.md) для квадрокоптерів, фіксованих крил (літаків) та VTOL хвостоподібних.
 
-SIH can be used by new PX4 users to get familiar with PX4 and the different modes and features, and of course to learn to fly a vehicle using an RC controller in simulation, which is not possible using SITL.
+SIH може бути використано новими користувачами PX4 для знайомства з PX4 та різними режимами та функціями, а також, звичайно, для навчання польоту транспортного засобу за допомогою пульту керування в симуляції, що неможливо з SITL.
 
-## Overview
+## Загальний огляд
 
-With SIH the whole simulation is running on embedded hardware: the controller, the state estimator, and the simulator. The Desktop computer is only used to display the virtual vehicle.
+З SIH вся симуляція працює на вбудованому обладнанні: контролер, оцінювач стану та симулятор. Комп'ютер на робочому столі використовується лише для відображення віртуального транспортного засобу.
 
 ![Simulator MAVLink API](../../assets/diagrams/SIH_diagram.png)
 
-### Compatibility
+### Сумісність
 
-- SIH is compatible with all Pixhawk-series boards except those based on FMUv2.
-- SIH for quadrotor is supported from PX4 v1.9.
-- SIH for fixed-wing (airplane) and VTOL tailsitter are supported from PX4 v1.13.
-- SIH as SITL (without hardware) from PX4 v1.14.
+- SIH сумісний з усіма платами серії Pixhawk, за винятком тих, що базуються на FMUv2.
+- SIH для квадрокоптера підтримується з версії PX4 v1.9.
+- SIH для фіксованих крил (літака) та VTOL-конвертоплана підтримується з версії PX4 v1.13.
+- SIH як SITL (без апаратного забезпечення) з версії PX4 v1.14.
 
-### Benefits
+### Переваги
 
-SIH provides several benefits over HITL:
+SIH має кілька переваг перед HITL:
 
 - It ensures synchronous timing by avoiding the bidirectional connection to the computer. As a result the user does not need such a powerful desktop computer.
-- The whole simulation remains inside the PX4 environment. Developers who are familiar with PX4 can more easily incorporate their own mathematical model into the simulator. They can, for instance, modify the aerodynamic model, or noise level of the sensors, or even add a sensor to be simulated.
-- The physical parameters representing the vehicle (such as mass, inertia, and maximum thrust force) can easily be modified from the [SIH parameters](../advanced_config/parameter_reference.md#simulation-in-hardware).
+- The whole simulation remains inside the PX4 environment. Розробники, які знайомі з PX4, можуть легше включити свою власну математичну модель в симулятор. Вони, наприклад, можуть змінити аеродинамічну модель або рівень шуму датчиків, або навіть додати датчик для симуляції.
+- Фізичні параметри, які представляють транспортний засіб (такі як маса, інерція та максимальна сила тяги), можна легко змінити з параметрів [SIH](../advanced_config/parameter_reference.md#simulation-in-hardware).
 
-## Requirements
+## Вимоги
 
 To run the SIH, you will need a:
 
@@ -43,7 +43,7 @@ From PX4 v1.14 you can run SIH "as SITL", in which case a flight controller is n
 
 ## Setting up SIH
 
-To set up SIH
+Щоб налаштувати SIH
 
 1. Connect the flight controller to the desktop computer with a USB cable
 1. Open QGroundControl and wait for the flight controller too boot and connect.
@@ -116,7 +116,7 @@ SITL allows the simulation to be run faster than real time. To run the airplane 
 PX4_SIM_SPEED_FACTOR=10 make px4_sitl sihsim_airplane
 ```
 
-## Dynamic Model
+## Динамічний режим
 
 The dynamic models for the various vehicles are:
 
@@ -124,11 +124,11 @@ The dynamic models for the various vehicles are:
 - Fixed-wing: Inspired by the PhD thesis: "Dynamics modeling of agile fixed-wing unmanned aerial vehicles." Khan, Waqas, supervised by Nahon, Meyer, McGill University, PhD thesis, 2016.
 - Tailsitter: Inspired by the master's thesis: "Modeling and control of a flying wing tailsitter unmanned aerial vehicle." Chiappinelli, Romain, supervised by Nahon, Meyer, McGill University, Masters thesis, 2018.
 
-## Video
+## Відео
 
 @[youtube](https://youtu.be/PzIpSCRD8Jo)
 
-## Credits
+## Подяка
 
 SIH was originally developed by Coriolis g Corporation. The airplane model and tailsitter models were added by Altitude R&D inc. Both are Canadian companies:
 
