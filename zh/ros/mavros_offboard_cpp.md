@@ -1,13 +1,13 @@
-# MAVROS _Offboard_ control example (C++)
+# MAVROS _Offboard_ 控制示例 (C++)
 
-This tutorial shows the basics of _Offboard_ control with MAVROS, using an Iris quadcopter simulated in Gazebo Classic/SITL. 在教程结束时，你应该看到与下面的视频相同的行为, 即缓慢起飞到2米的高度。
+本教程介绍了基于MAVROS的_Offboard_ 控制相关的基础知识，在Gazebo Classic/SITL使用Iris四旋翼进行仿真。 在教程结束时，你应该看到与下面的视频相同的行为, 即缓慢起飞到2米的高度。
 
 :::warning
-_Offboard_ control is dangerous. 如果你是在一个真正的无人机平台上进行试验，请保证你已经设置了切换回手动的开关来防止紧急情况的发生。
+_Offboard_ 控制很危险 如果你是在一个真正的无人机平台上进行试验，请保证你已经设置了切换回手动的开关来防止紧急情况的发生。
 :::
 
 :::tip
-该例程使用C++。 A very similar example for Python can be found in [ROS/MAVROS Offboard Example (Python)](../ros/mavros_offboard_python.md) (also see the examples in [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros)).
+该例程使用C++。 可以在[ROS/MAVROS Offboard 示例 (Python)](../ros/mavros_offboard_python.md)中找到一个非常相似的Python案例（也可以在[integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros)中找到）
 :::
 
 <video width="100%" autoplay="true" controls="true">
@@ -128,7 +128,7 @@ void state_cb(const mavros_msgs::State::ConstPtr& msg){
 }
 ```
 
-我们创建了一个简单的回调函数来储存飞控当前的状态。 This will allow us to check connection, arming and _Offboard_ flags.
+我们创建了一个简单的回调函数来储存飞控当前的状态。 这样我们就可以检查连接状态，是否解锁以及_Offboard_ 标志位。
 
 ```cpp
 ros::Subscriber state_sub = nh.subscribe<mavros_msgs::State>("mavros/state", 10, state_cb);
@@ -144,7 +144,7 @@ ros::ServiceClient set_mode_client = nh.serviceClient<mavros_msgs::SetMode>("mav
 ros::Rate rate(20.0);
 ```
 
-PX4 has a timeout of 500ms between two _Offboard_ commands. If this timeout is exceeded, the commander will fall back to the last mode the vehicle was in before entering _Offboard_ mode. 这也是为什么发布频率 **必须** 大于2Hz的原因。 This is also the same reason why it is recommended to enter _Offboard_ mode from _Position_ mode, this way if the vehicle drops out of _Offboard_ mode it will stop in its tracks and hover.
+PX4 在两个 _Offboard_ 命令之间设置了500毫秒的超时检查。 如果超时，飞控会立即切换回进入 _Offboard_ 模式之前的飞行模式。 这也是为什么发布频率 **必须** 大于2Hz的原因。 这样是为什么我们推荐从 _位置_ 模式进入 _offboard_ 模式，因为如果飞控掉出 _Offboard_ 模式，无人机会悬停于当前位置。
 
 ```cpp
 // wait for FCU connection
