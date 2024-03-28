@@ -27,8 +27,8 @@ The axis are normally relative to the orientation of the vehicle during steady f
 To set the orientations:
 
 1. Start _QGroundControl_ and connect the vehicle.
-1. Select the **Q** icon (top left), **Vehicle Setup** in the popup.
-1. Select **Sensors** in the sidebar and then the **Orientations** button.
+1. Select **"Q" icon > Vehicle Setup > Sensors** (sidebar) to open _Sensor Setup_.
+1. Select the **Orientations** button.
 
    ![Set sensor orientations](../../assets/qgc/setup/sensor/sensor_orientation_set_orientations.jpg)
 
