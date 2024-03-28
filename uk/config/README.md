@@ -31,7 +31,9 @@
 - [Level Horizon](../config/level_horizon_calibration.md)
 - Швидкість польоту (тільки для літаків / VTOL)
 
-> **Примітка:** Налаштування додаткових датчиків та спеціального обладнання наведено у розділі [Периферія контролера польоту](../peripherals/README.md).
+:::note
+Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/README.md).
+:::
 
 ### Налаштування ручного керування
 
@@ -46,7 +48,7 @@
 
 ### Налаштування безпеки
 
-- [Налаштування акумулятора/модуля живлення](../config/battery.md)
+- [Battery Estimation Tuning](../config/battery.md) (requires [Power Module](../power_module/README.md))
 - [Конфігурація безпеки (запобіжники)](../config/safety.md)
 
 ### Тюнінг
@@ -55,17 +57,17 @@
 
 ## Відеоінструкція
 
-На відео нижче показано більшу частину процесу калібрування (використовується стара версія _QGroundControl_, але більша частина процесу залишилася незмінною).
+[youtube](https://youtu.be/91VGmdSlbo4)
 
-@[youtube](https://youtu.be/91VGmdSlbo4)
+@Якщо вам потрібна допомога з конфігурацією, ви можете звернутися за допомогою на форумі підтримки [QGroundControl](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage).
 
 ## Підтримка
 
-Якщо вам потрібна допомога з конфігурацією, ви можете звернутися за допомогою на форумі підтримки [QGroundControl](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage).
+If you need help with the configuration you can ask for help on the [QGroundControl Support forum](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage).
 
 ## Дивіться також
 
-- [QGroundControl > Налаштування](https://docs.qgroundcontrol.com/master/en/SetupView/SetupView.html)
+- [QGroundControl > Налаштування](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
 - [Периферія контролера польоту](../peripherals/README.md) - налаштування конкретних датчиків, опціональних датчиків, актуаторів тощо.
 - [Розширена конфігурація](../advanced_config/README.md) - заводське калібрування/OEM, налаштування додаткових функцій, менш поширені конфігурації.
 - Конфігурація/налаштування, що залежать від апарату:
