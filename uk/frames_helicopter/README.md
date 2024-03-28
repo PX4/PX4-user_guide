@@ -6,42 +6,42 @@
 
 Підтримка гелікоптерів є [експериментальною](../airframes/README.md#experimental-vehicles). Волонтери та контрибютори, [внесення](../contribute/README.md) нових функцій, нових конфігурацій каркасів або інших вдосконалень дуже вітається!
 
-Issues include:
+Проблеми включають:
 
-- Limited support for different types of helicopters. For example, PX4 does not support helicopters with coaxial or dual rotor types, and features such as RPM governor and autorotation.
+- Обмежена підтримка різних типів гелікоптерів. Наприклад, PX4 не підтримує гелікоптери з коаксіальним або подвійним ротором, а також функції, такі як автоматичне регулювання обертів і авторотація.
 
 :::
 
 <!-- image here please of PX4 helicopter -->
 
-## Helicopter Types
+## Типи гелікоптерів
 
-PX4 supports helicopters with a single main rotor with a swash-plate controlled by up to 4 swash-plate servos, and:
+PX4 підтримує гелікоптери з одним головним ротором з рингом рушія, керованим рухомим майданчиком за допомогою до 4 рушійних сервоприводів рухомого майданчика, і:
 
-- a mechanically uncoupled tail rotor driven by an ESC, or
-- a mechanically coupled tail controlled by a servo on the tail motor.
+- механічно розділене хвостове вістря, приводиме в дію електронним регулятором, або
+- механічно з'єднане хвостове вістря, кероване сервоприводом на хвостовому двигуні.
 
-The allowed flight operations and [flight modes](../flight_modes_mc/README.md) are the same as for multicopter. Note however that (at the time of writing) 3D flying with negative thrust is not supported in autonomous/guided modes.
+Дозволені операції польоту та [режими польоту](../flight_modes_mc/README.md) такі ж, як і для мультикоптерів. Однак слід зауважити, що (на момент написання) 3D-польот з використанням негативного тяги не підтримується в автономних/керованих режимах.
 
-## Assembly
+## Збирання
 
-Assembly of the core autopilot components are similar for all frames. This is covered in [Basic Assembly](../assembly/README.md).
+Збирання основних компонентів автопілота схоже для всіх каркасів. Це описано в [Базовому збиранні](../assembly/README.md).
 
-Helicopter-specific assembly consists mostly of connecting and powering the motors and swash plate servos.
+Специфічне для гелікоптерів збирання в основному полягає в підключенні і живленні двигунів та сервоприводів рухомого майданчика.
 
 :::note
 
-Note that the flight controller cannot power motors and servos (only GPS module, RC receiver, and low power telemetry modules can be powered from Pixhawk flight controllers). Generally a power distribution board (PDB) is used to power motors, and a separate (or integrated) battery elimination circuit (BEC) is used to power each of the servos.
+Зауважте, що контролер польоту не може живити двигуни та сервоприводи (лише модуль GPS, приймач RC і модулі телеметрії малої потужності можуть живитися від контролерів польоту Pixhawk). Як правило, для живлення двигунів використовується плата розподілу електроенергії (PDB), а для живлення кожного з сервоприводів використовується окрема (або інтегрована) схема відключення батарей (BEC).
 :::
 
 
 ## Налаштування
 
-Helicopter configuration and setup is covered in:
+Конфігурацію та налаштування гелікооптера описано в:
 
-- [Helicopter configuration](../config_heli/README.md): Vehicle frame selection, actuator configuration and testing, and tuning.
-- [Standard Configuration](../config/README.md): The common configuration and calibration steps for most frames. This includes configuration/calibration of core components such as compass and gyroscope, setting flight mode mappings on a remote control, and safety settings.
+- [Конфігурація гелікоптера](../config_heli/README.md): вибір рами транспортного засобу, конфігурація та тестування приводу та налаштування.
+- [Стандартна конфігурація](../config/README.md): стандартна конфігурація та кроки калібрування для більшості рам. Це включає конфігурацію/калібрування основних компонентів, таких як компас і гіроскоп, налаштування режимів польоту на пульті дистанційного керування та налаштування безпеки.
 
-## Frame Builds
+## Каркасні конструкції
 
-None available.
+Недоступно.

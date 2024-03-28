@@ -2,7 +2,7 @@
 
 ::: попередження **РОБОТА В ПРОЦЕСІ**
 
-Ця тема має значні перекриття з [Зовнішня оцінка позиції (ROS)](../ros/external_position_estimation.md).
+Ця тема значно збігається з [Оцінкою зовнішньої позиції (ROS)](../ros/external_position_estimation.md).
 :::
 
 Системи захоплення руху у приміщенні, такі як VICON, NOKOV та Optitrack, можуть бути використані для надання даних про положення та орієнтацію для оцінки стану транспортного засобу або можуть бути використані як основа для аналізу. Дані з систем захоплення руху можуть бути використані для оновлення локальної оцінки положення PX4 відносно локального початку координат Курс (поворот) з системи захоплення руху також може бути опціонально інтегрований оцінювачем положення.
@@ -11,37 +11,37 @@
 
 ## Архітектура обчислювальних систем
 
-**Дуже рекомендується** надсилати дані захоплення руху через **бортовий** комп'ютер (наприклад, Raspberry Pi, ODroid і т. д.) для надійного зв'язку. The onboard computer can be connected to the motion capture computer through WiFi, which offers reliable, high-bandwidth connection.
+**Дуже рекомендується** надсилати дані захоплення руху через **бортовий** комп'ютер (наприклад, Raspberry Pi, ODroid і т. д.) для надійного зв'язку. Вбудований комп'ютер може бути підключений до комп'ютера руху за допомогою WiFi, що забезпечує надійне, високопропускне з'єднання.
 
-Most standard telemetry links like 3DR/SiK radios are **not** suitable for high-bandwidth motion capture applications.
+Більшість стандартних телеметричних зв'язків, таких як радіоприймачі 3DR/SiK, **не підходять** для застосувань з високою пропускною здатністю, пов'язаних з захопленням руху.
 
-## Coordinate Frames
+## Системи координат
 
-This section shows how to setup the system with the proper reference frames. There are various representations but we will use two of them: ENU and NED.
+У цьому розділі показано, як налаштувати систему з відповідними опорними системами. Існує різноманітні представлення, але ми використовуватимемо два з них: ENU і NED.
 
-- ENU is a ground-fixed frame where **X** axis points East, **Y** points North and **Z** up. The robot/vehicle body frame is **X** towards the front, **Z** up and **Y** towards the left.
-- NED has **X** towards North, **Y** East and **Z** down. The robot/vehicle body frame has **X** towards the front, **Z** down and **Y** accordingly.
+- ENU - це земельно-фіксована система, де вісь **X** вказує на схід, **Y** - на північ, а **Z** - вгору. Корпус робота/транспортного засобу відповідно до цього має вісь **X** наперед, **Z** вгору і **Y** ліворуч.
+- NED має вісь **X **направлену на північ, **Y** - на схід і **Z** - вниз. Корпус робота/транспортного засобу має вісь **X** наперед, **Z** вниз і **Y** відповідно.
 
-Frames are shown in the image below. NED on the left, ENU on the right:
+На зображенні нижче показані системи координат. NED ліворуч, ENU праворуч:
 
 ![Reference frames](../../assets/lpe/ref_frames.png)
 
-With the external heading estimation, however, magnetic North is ignored and faked with a vector corresponding to world _x_ axis (which can be placed freely at mocap calibration); yaw angle will be given respect to local _x_.
+Зовнішній оціночний заголовок, однак, ігнорує магнітний північ і підробляється вектором, що відповідає світовій вісі _X_ (який може бути розміщений вільно під час калібрування mocap); кут розвороту буде визначено щодо місцевої вісі _X_.
 
 :::warning
-When creating the rigid body in the motion capture software, remember to first align the robot with the world **X** axis otherwise yaw estimation will have an initial offset.
+При створенні жорсткого тіла в програмному забезпеченні захоплення руху спочатку вирівнюйте робота зі світовою віссю **X**, інакше оцінка розвороту матиме початкове зміщення.
 :::
 
-## Estimator Choice
+## Оціночники стану
 
-EKF2 is recommended for GPS-enabled systems (LPE is deprecated, and hence no longer supported or maintained). The Q-Estimator is recommended if you don't have GPS, as it works without a magnetometer or barometer.
+EKF2 рекомендується для систем з GPS (LPE застаріла, тому її більше не підтримується або не підтримується). Q-Estimator рекомендується, якщо у вас немає GPS, оскільки він працює без магнітометра або барометра.
 
-See [Switching State Estimators](../advanced/switching_state_estimators.md) for more information.
+Див. [Перемикання оціночників стану](../advanced/switching_state_estimators.md) для отримання додаткової інформації.
 
 ### EKF2
 
-The ROS topic for motion cap `mocap_pose_estimate` for mocap systems and `vision_pose_estimate` for vision. Check [mavros_extras](http://wiki.ros.org/mavros_extras) for further info.
+ROS-тема для motion cap `mocap_pose_estimate` для систем mocap та `vision_pose_estimate` для бачення. Перевірте [mavros_extras](http://wiki.ros.org/mavros_extras) для отримання додаткової інформації.
 
-## Testing
+## Тестування
 
-## Troubleshooting
+## Вирішення проблем

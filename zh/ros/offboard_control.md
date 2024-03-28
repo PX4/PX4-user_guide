@@ -19,7 +19,7 @@ Offboard控制背后的想法是能够使用在自动驾驶仪外运行的软件
 
 在连接任务计算机的串口上启动MAVLink （参见 [任务计算机](../companion_computer/README.md)）。
 
-## 硬件安装
+## 硬件设置
 
 通常，有三种方式设置Offboard模式通信。
 
