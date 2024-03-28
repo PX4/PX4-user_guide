@@ -21,15 +21,9 @@
 
 ## Автопілоти для завдань з інтенсивними обчисленнями
 
-Спеціалізовані політні контролери, такі як Pixhawk, зазвичай не дуже добре підходять для обчислень або виконання завдань з інтенсивними обчисленнями. Для збільшення обчислювальної потужності найпоширенішим підходом є запуск таких аплікацій на окремому бортовому [супутньому комп'ютері](../companion_computer/README.md).
+Спеціалізовані політні контролери, такі як Pixhawk, зазвичай не дуже добре підходять для обчислень або виконання завдань з інтенсивними обчисленнями. Для збільшення обчислювальної потужності найпоширенішим підходом є запуск таких аплікацій на окремому бортовому [супутньому комп'ютері](../companion_computer/README.md). Some companion computers can also run PX4 on a separate DSP, as part of the same autopilot board.
 
 Інтегровані рішення по супутнім комп'ютерам/політним контролерам включають:
-
-- [Holybro Pixhawk RPI CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
-- Інші опції в [Супутній комп'ютер> Інтегровані супутні плати / плати політного контролера](../companion_computer/README.md#integrated-companion-flight-controller-boards)
-
-
-PX4 також може нативно виконуватися на Raspberry Pi (цей підхід зазвичай не вважається таким же "надійним", як використання окремого супутнього комп'ютера):
 
 - [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
 - [Raspberry Pi 2/3/4 PilotPi Shield](../flight_controller/raspberry_pi_pilotpi.md)
