@@ -1,12 +1,12 @@
 # Розумні акумулятори
 
-Smart Batteries provide more accurate (and often more detailed) information about the state of a battery than an autopilot can estimate for "dumb" batteries. This allows for more more reliable flight planning notification of failure conditions. The information may include some of: remaining charge, time-to-empty (estimated), cell voltages (rated max/min, current voltage, etc.), temperature, currents, fault information, battery vendor, chemistry, etc.
+Розумні батареї надають більш точну (і часто більш детальну) інформацію про стан батареї, ніж автопілот може оцінити для «тупих» батарей. Це дозволяє забезпечити більш надійне сповіщення про умови випадкового відмовлення при плануванні польоту. Інформація може включати деякі з наступного: залишковий заряд, час до розряду (оцінений), напругу на елементах (оцінена максимальна/мінімальна, поточна напруга тощо), температуру, струми, інформацію про несправності, виробника батареї, хімічний склад тощо.
 
 PX4 підтримує (принаймні) наступні розумні батарейки:
 * [Rotoye Batmon](../smart_batteries/rotoye_batmon.md)
 
 ### Детальна інформація
 
-- [Mavlink Battery Protocol](https://mavlink.io/en/services/battery.html)
-- [batt_smbus](../modules/modules_driver.md) - PX4 SMBus Battery Driver docs
-- [Safety > Low Battery Failsafe](../config/safety.md#low-battery-failsafe).
+- [Протокол батареї Mavlink](https://mavlink.io/en/services/battery.html)
+- [batt_smbus](../modules/modules_driver.md) – Документи драйвера батареї PX4 SMBus
+- [Безпека > Захист від низького заряду батареї](../config/safety.md#low-battery-failsafe).
