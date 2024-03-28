@@ -3,6 +3,8 @@ const getSidebar = require("./get_sidebar.js");
 //import { getSidebar } from "./get_sidebar";
 
 import markdownItVideo from "markdown-it-video";
+// Tabs: https://github.com/Red-Asuka/vitepress-plugin-tabs
+import tabsPlugin from "@red-asuka/vitepress-plugin-tabs";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -31,6 +33,8 @@ export default defineConfig({
     config: (md) => {
       // use more markdown-it plugins!
       md.use(markdownItVideo);
+
+      tabsPlugin(md); //https://github.com/Red-Asuka/vitepress-plugin-tabs
     },
   },
   locales: {
@@ -74,6 +78,9 @@ export default defineConfig({
   async transformPageData(pageData, { siteConfig }) {
     console.log(pageData.filePath);
   },
+
+  //
+
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: "/px4-logo.svg",
