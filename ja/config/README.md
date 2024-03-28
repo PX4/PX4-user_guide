@@ -25,13 +25,15 @@ Before starting you should [Download QGroundControl](http://qgroundcontrol.com/d
 ### Sensor Calibration
 
 - [Sensor Orientation](../config/flight_controller_orientation.md)
-- [Compass](../config/compass.md)
+- [Magnetometer (Compass)](../config/compass.md)
 - [Gyroscope](../config/gyroscope.md)
 - [Accelerometer](../config/accelerometer.md)
 - [Level Horizon](../config/level_horizon_calibration.md)
 - [Airspeed](../config/airspeed.md) (Fixed-wing/VTOL only)
 
-> **Note:** Setup for optional sensors and specific hardware is provided in [Flight Controller Peripherals](../peripherals/README.md).
+:::note
+Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/README.md).
+:::
 
 ### Manual Control Setup
 
@@ -46,7 +48,7 @@ Joystick/GamePad:
 
 ### Safety Configuration
 
-- [Battery/Power Module Setup](../config/battery.md)
+- [Battery Estimation Tuning](../config/battery.md) (requires [Power Module](../power_module/README.md))
 - [Safety Configuration (Failsafes)](../config/safety.md)
 
 ### Tuning
@@ -65,7 +67,7 @@ If you need help with the configuration you can ask for help on the [QGroundCont
 
 ## See Also
 
-- [QGroundControl > Setup](https://docs.qgroundcontrol.com/master/en/SetupView/SetupView.html)
+- [QGroundControl > Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
 - [Flight Controller Peripherals](../peripherals/README.md) - Setup specific sensors, optional sensors, actuators, and so on.
 - [Advanced Configuration](../advanced_config/README.md) - Factory/OEM calibration, configuring advanced features, less-common configuration.
 - Vehicle-Centric Config/Tuning:
