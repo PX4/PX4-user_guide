@@ -1,4 +1,4 @@
-# Standard Configuration
+# 标准配置
 
 This section covers the common software configuration and calibration needed for most PX4 vehicles.
 
