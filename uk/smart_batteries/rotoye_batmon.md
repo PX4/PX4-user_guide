@@ -1,9 +1,9 @@
 # Rotoye Batmon
 
-[Rotoye Batmon](https://rotoye.com/batmon/) is a kit for adding smart battery functionality to off-the-shelf Lithium-Ion and LiPo batteries. It can be purchased as a standalone unit or as part of a factory-assembled smart-battery.
+[Rotoye Batmon](https://rotoye.com/batmon/) - це набір для додавання функціональності розумної батареї до готових літій-іонних та LiPo батарей. Його можна придбати як самостійний пристрій або як частину заводсько зібраної розумної батареї.
 
 :::note
-At time of writing you can only use Batmon by [building a custom branch of PX4](#build-px4-firmware). Support in the codeline is pending [PR approval](https://github.com/PX4/PX4-Autopilot/pull/16723).
+На момент написання цієї інформації ви можете використовувати Batmon, [створивши спеціальну гілку PX4](#build-px4-firmware). Підтримка в кодовій лінії очікує на [затвердження PR](https://github.com/PX4/PX4-Autopilot/pull/16723).
 :::
 
 
@@ -14,12 +14,12 @@ At time of writing you can only use Batmon by [building a custom branch of PX4](
 
 ## Де купити
 
-[Rotoye Store](https://rotoye.com/batmon/): Batmon kits, custom smart-batteries, and accessories
+[Магазин Rotoye](https://rotoye.com/batmon/): комплекти Batmon, розумні батареї на замовлення та аксесуари
 
 
-## Wiring/Connections
+## Проведення/Підключення
 
-The Rotoye Batmon system uses an XT-90 battery connector with I2C pins, and an opti-isolator board to transmit data.
+Система Rotoye Batmon використовує роз'єм батареї XT-90 з контактами I2C та оптоволоконно-ізоляційну плату для передачі даних.
 
 ![Board connections](../../assets/hardware/smart_batteries/rotoye_batmon/smart-battery-rotoye-connection.png)
 
