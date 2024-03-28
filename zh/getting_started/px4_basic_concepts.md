@@ -8,13 +8,13 @@
 
 无人机是无人驾驶的“机器人”设备，可以远程或自动控制。
 
-无人机可被用于 [消费级、工业级、政府、军工应用](https://px4.io/ecosystem/commercial-systems/)。 这包括（非详尽）：航空摄影/录像，载货，竞速，搜索和测绘等。
+Drones are used for many [consumer, industrial, government and military applications](https://px4.io/ecosystem/commercial-systems/), including aerial photography/video, carrying cargo, racing, search and surveying, and so on.
 
 Different types of drones are used for air, ground, sea, and underwater. 这些（更正式地）被称为无人驾驶飞行器（UAV），无人驾驶飞行器系统（UAS），无人驾驶地面车辆（UGV），无人驾驶水面船只（USV），无人驾驶水下潜航器（UUV）。
 
-无人机的“大脑”被称为自动驾驶仪。 It consists of _flight stack_ software running on _vehicle controller_ ("flight controller") hardware.
+无人机的“大脑”被称为自动驾驶仪。 It consists of _flight stack_ software running on _flight controller_ (FC) hardware. The flight stack provides essential stabilisation and safety features, and usually also some level of pilot assistance for manual flight and automating common tasks, such as taking off, landing, and executing predefined missions.
 
-Some drones also have a separate on-vehicle [companion computer](#offboard-companion-computer). These provide powerful general-purpose computing platform for networking, computer vision, and many other tasks.
+Some autopilots also include a general-purpose computing system that can provide "higher level" command and control, and that can support more advanced networking, computer vision, and other features. This might be implemented as a separate [companion computer](#offboard-companion-computer), but in future it is increasingly likely to be a fully integrated component.
 
 ## PX4 自动驾驶仪
 
@@ -31,7 +31,7 @@ PX4是一个大型无人机平台的核心部分，整个平台包括了[QGround
 
 ## QGroundControl
 
-Dronecode 地面控制站称为 [QGC 地面站](http://qgroundcontrol.com/)。 You can use _QGroundControl_ to load (flash) PX4 onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information and create and execute fully autonomous missions.
+Dronecode 地面控制站称为 [QGC 地面站](http://qgroundcontrol.com/)。 You can use _QGroundControl_ to load (flash) PX4 firmware onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information, and create and execute fully autonomous missions.
 
 _QGroundControl_ runs on Windows, Android, MacOS or Linux. 从[这里](http://qgroundcontrol.com/downloads/)下载并安装。
 
@@ -49,8 +49,7 @@ PX4使用传感器确定机体状态（这是稳定和启动自动控制所必�
 
 更多信息请参阅：
 
-- [传感器](../getting_started/sensor_selection.md)
-- [外设](../peripherals/README.md)
+- [Sensors](../getting_started/sensor_selection.md)
 
 ## 输出:电机，舵机，执行器
 
@@ -84,50 +83,26 @@ Many PX4 drones use brushless motors that are driven by the flight controller vi
 - [电调（ESC）校准](../advanced_config/esc_calibration.md)
 - [电调固件和协议概述](https://oscarliang.com/esc-firmware-protocols/)（oscarliang.com）
 
+
 ## 电池/电源
 
-PX4无人机最常使用的是锂聚合物（LiPo）电池。 The battery is typically connected to the system using a _Power Module_ or _Power Management Board_, which provide separate power for the flight controller and to the ESCs (for the motors).
+PX4无人机最常使用的是锂聚合物（LiPo）电池。 The battery is typically connected to the system using a [Power Module](../power_module/README.md) or _Power Management Board_, which provide separate power for the flight controller and to the ESCs (for the motors).
 
-Information about batteries and battery configuration can be found in [Battery Configuration](../config/battery.md) and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
+Information about batteries and battery configuration can be found in [Battery Estimation Tuning](../config/battery.md) and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
 
 ## Manual Control
 
-Pilots can control a vehicle manually using either a [Radio Control (RC) System](#radio-control-rc) or a [Joystick/Gamepad](#gcs-joystick-controller) controller connected via QGroundControl.
+Pilots can control a vehicle manually using either a [Radio Control (RC) System](../getting_started/rc_transmitter_receiver.md) or a [Joystick/Gamepad](../config/joystick.md) controller connected via QGroundControl.
+
+![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg) <img src="../../assets/peripherals/joystick/micronav.jpg" alt="Photo of MicroNav, a ground controller with integrated joysticks" width="400px" />
+
+RC systems use a dedicated ground-based radio transmitter and vehicle-based receiver for sending control information. They should always be used when first tuning/testing a new frame design, or when flying racers/acrobatically (and in other cases where low latency is important).
+
+Joystick systems use QGroundControl to encode the control information from a "standard" computer gaming joystick into MAVLink messages, and sent it to the vehicle using the (shared) telemetry radio channel. They can be used for most manual flight use cases such as taking off, surveys, and so on, provided your telemetry channel has a high enough bandwidth/low latency.
+
+Joysticks are often used in integrated GCS/manual control systems because it is cheaper and easier to integrate a joystick than a separate radio system, and for the majority of use cases, the lower latency does not matter. 一些遥控系统还可以额外接收自动驾驶仪传回的数传信息。
 
 :::note PX4 does not _require_ a manual control system for autonomous flight modes.
-:::
-
-:::note
-Both methods can be used for most manual control use cases, such as surveys.
-RC systems are recommended when first tuning/testing a new frame design or when flying racers/acrobatically (and in other cases where low latency is important).
-:::
-
-### 无线电控制（遥控）
-
-[Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) systems can be used to manually control PX4.
-
-They consist of a ground based RC controller that uses a radio transmitter to communicate stick/control positions to a receiver on the vehicle. 一些遥控系统还可以额外接收自动驾驶仪传回的数传信息。
-
-![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
-
-[遥控系统选择](../getting_started/rc_transmitter_receiver.md)解释了如何选择遥控系统。 其他相关主题包括：
-
-- [Radio/Remote Control Setup](../config/radio.md) - Remote control configuration in _QGroundControl_.
-- [Manual Flying](../flying/basic_flying.md) - Learn how to fly with a remote control.
-- [FrSky 数传](../peripherals/frsky_telemetry.md) - 设置遥控发射机以从 PX4 接收数传/状态更新。
-
-### 地面站游戏手柄控制器
-
-A [Joystick/Gamepad](../config/joystick.md) connected through _QGroundControl_ can also be used to manually control PX4.
-
-With this approach, QGroundControl translates stick/button information from a connected Joystick into MAVLink-protocol messages, which are then sent to PX4 using the shared telemetry radio link. The telemetry radio must have sufficient bandwidth for both manual control and other telemetry messages, and of course this approach means that you must have a ground station running QGroundControl.
-
-Joysticks are also used to manually fly PX4 in a [simulator](../simulation/README.md).
-
-:::note
-Controllers like the _Auterion_ [Skynav](https://auterion-gs.com/skynav/) and _UAVComponents_ [MicroNav](https://uxvtechnologies.com/ground-control-stations/micronav/) integrate QGC and a Joystick, and connect the vehicle via a high bandwidth telemetry radio link.
-
-![Photo of MicroNav, a ground controller with integrated joysticks](../../assets/peripherals/joystick/micronav.jpg)
 :::
 
 ## 安全开关
@@ -170,6 +145,17 @@ Pixhawk 飞控板支持的最大 SD 卡大小为 32 GB 。 The _SanDisk Extreme 
 - [推流日志](../dev_log/logging.md#log-streaming) 到另一个组件（机载计算机）。
 - Store missions in RAM/FLASH.
   <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/main/boards/intel/aerofc-v1/src/board_config.h#L115 -->
+
+
+## Payloads
+
+Payloads are equipment carried by the vehicle to meet user or mission objectives, such as cameras in surveying missions, instruments used in for inspections such as radiation detectors, and cargo that needs to be delivered. PX4 supports many cameras and a wide range of payloads.
+
+Payloads are connected to [Fight Controller outputs](#outputs-motors-servos-actuators), and can be triggered automatically in missions, or manually from an RC Controller or Joystick, or from a Ground Station (via MAVLink/MAVSDK commands).
+
+For more information see:
+
+- [Payloads & Cameras](../payloads/README.md)
 
 ## 解锁和加锁
 
