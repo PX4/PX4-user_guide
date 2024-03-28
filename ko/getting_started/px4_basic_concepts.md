@@ -8,13 +8,13 @@
 
 드론은 원격이나 자동으로 조종할 수 있는 무인 로봇입니다.
 
-드론은  [개인, 산업체, 공공기관 및 국방 분야](https://px4.io/ecosystem/commercial-systems/) 등의 다양한 분야에서 사용되고 있습니다. 또한, 항공 사진, 화물 운송, 경주, 수색 및 탐사 등의 분야에서 사용됩니다.
+Drones are used for many [consumer, industrial, government and military applications](https://px4.io/ecosystem/commercial-systems/), including aerial photography/video, carrying cargo, racing, search and surveying, and so on.
 
 Different types of drones are used for air, ground, sea, and underwater. 드론을 가르키는 공식 용어에는 UAV(Unmanned Aerial Vehicles), UAS(Unmanned Aerial Systems, UGV(Unmanned Ground Vehicles), USV(Unmanned Surface Vehicles)와 UUV(Unmanned Underwater Vehicles) 등이 있습니다.
 
-자율비행장치(오토파일럿)는 드론의 두뇌에 해당하는 장치입니다. It consists of _flight stack_ software running on _vehicle controller_ ("flight controller") hardware.
+자율비행장치(오토파일럿)는 드론의 두뇌에 해당하는 장치입니다. It consists of _flight stack_ software running on _flight controller_ (FC) hardware. The flight stack provides essential stabilisation and safety features, and usually also some level of pilot assistance for manual flight and automating common tasks, such as taking off, landing, and executing predefined missions.
 
-Some drones also have a separate on-vehicle [companion computer](#offboard-companion-computer). These provide powerful general-purpose computing platform for networking, computer vision, and many other tasks.
+Some autopilots also include a general-purpose computing system that can provide "higher level" command and control, and that can support more advanced networking, computer vision, and other features. This might be implemented as a separate [companion computer](#offboard-companion-computer), but in future it is increasingly likely to be a fully integrated component.
 
 ## PX4 자동비행장치
 
@@ -31,7 +31,7 @@ PX4는 [QGroundControl](#qgroundcontrol) 지상국, [픽스호크 하드웨어](
 
 ## QGroundControl
 
-드론코드에서 지원하는 지상제어 S/W는 [QGroundControl](http://qgroundcontrol.com/)입니다. You can use _QGroundControl_ to load (flash) PX4 onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information and create and execute fully autonomous missions.
+드론코드에서 지원하는 지상제어 S/W는 [QGroundControl](http://qgroundcontrol.com/)입니다. You can use _QGroundControl_ to load (flash) PX4 firmware onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information, and create and execute fully autonomous missions.
 
 _QGroundControl_ runs on Windows, Android, MacOS or Linux. [여기](http://qgroundcontrol.com/downloads/)에서 필요한 프로그램을 다운로드하여 설치할 수 있습니다.
 
@@ -49,8 +49,7 @@ PX4는 기체의 상태 측정하기 위하여 센서를 사용합니다. 이는
 
 더 자세한 정보는 다음을 참고하십시오.
 
-- [센서](../getting_started/sensor_selection.md)
-- [주변 장치](../peripherals/README.md)
+- [Sensors](../getting_started/sensor_selection.md)
 
 ## 출력 장치: 모터, 서보, 액츄에이터
 
@@ -84,50 +83,26 @@ PX4가 지원하는 전기변속기와 모터 정보는 여기를 참고하십�
 - [전기변속기 보정](../advanced_config/esc_calibration.md)
 - [전기변속기 펌웨어와 프로토콜 개요](https://oscarliang.com/esc-firmware-protocols/)(oscarliang.com)
 
+
 ## 배터리와 전원
 
-PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다. The battery is typically connected to the system using a _Power Module_ or _Power Management Board_, which provide separate power for the flight controller and to the ESCs (for the motors).
+PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다. The battery is typically connected to the system using a [Power Module](../power_module/README.md) or _Power Management Board_, which provide separate power for the flight controller and to the ESCs (for the motors).
 
 배터리와 배터리 설정 정보는 [배터리 설정](../config/battery.md)과 [ 기본 조립](../assembly/README.md)(예: [픽스호크 4 배선 빠른 시작 &gt; 전원](../assembly/quick_start_pixhawk4.md#power))를 참고하십시오.
 
 ## Manual Control
 
-Pilots can control a vehicle manually using either a [Radio Control (RC) System](#radio-control-rc) or a [Joystick/Gamepad](#gcs-joystick-controller) controller connected via QGroundControl.
+Pilots can control a vehicle manually using either a [Radio Control (RC) System](../getting_started/rc_transmitter_receiver.md) or a [Joystick/Gamepad](../config/joystick.md) controller connected via QGroundControl.
+
+![Taranis X9D 송신기](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg) <img src="../../assets/peripherals/joystick/micronav.jpg" alt="MicroNav와 지상제어S/W에서 조이스틱을 사용하는 그림" width="400px" />
+
+RC systems use a dedicated ground-based radio transmitter and vehicle-based receiver for sending control information. They should always be used when first tuning/testing a new frame design, or when flying racers/acrobatically (and in other cases where low latency is important).
+
+Joystick systems use QGroundControl to encode the control information from a "standard" computer gaming joystick into MAVLink messages, and sent it to the vehicle using the (shared) telemetry radio channel. They can be used for most manual flight use cases such as taking off, surveys, and so on, provided your telemetry channel has a high enough bandwidth/low latency.
+
+Joysticks are often used in integrated GCS/manual control systems because it is cheaper and easier to integrate a joystick than a separate radio system, and for the majority of use cases, the lower latency does not matter. 일부 RC에서는 자동조종장치에서 전송한 텔레메트리를 수신할 수 있습니다.
 
 :::note PX4 does not _require_ a manual control system for autonomous flight modes.
-:::
-
-:::note
-Both methods can be used for most manual control use cases, such as surveys.
-RC systems are recommended when first tuning/testing a new frame design or when flying racers/acrobatically (and in other cases where low latency is important).
-:::
-
-### 무선 조종(RC)
-
-[Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) systems can be used to manually control PX4.
-
-They consist of a ground based RC controller that uses a radio transmitter to communicate stick/control positions to a receiver on the vehicle. 일부 RC에서는 자동조종장치에서 전송한 텔레메트리를 수신할 수 있습니다.
-
-![Taranis X9D 송신기](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
-
-RC 선택 방법은 [RC 선택](../getting_started/rc_transmitter_receiver.md)을 참고하십시오. 다음과 같은 관련 주제들을 설명합니다.
-
-- [Radio/Remote Control Setup](../config/radio.md) - Remote control configuration in _QGroundControl_.
-- [Manual Flying](../flying/basic_flying.md) - Learn how to fly with a remote control.
-- [FrSky 텔레메트리](../peripherals/frsky_telemetry.md) - PX4의 텔레메트리 정보나 상태 정보를 수신을 위한 RC  송신기 설정방법을 설명합니다.
-
-### 지상제어 S/W와 조이스틱
-
-A [Joystick/Gamepad](../config/joystick.md) connected through _QGroundControl_ can also be used to manually control PX4.
-
-With this approach, QGroundControl translates stick/button information from a connected Joystick into MAVLink-protocol messages, which are then sent to PX4 using the shared telemetry radio link. The telemetry radio must have sufficient bandwidth for both manual control and other telemetry messages, and of course this approach means that you must have a ground station running QGroundControl.
-
-Joysticks are also used to manually fly PX4 in a [simulator](../simulation/README.md).
-
-:::note
-Controllers like the _Auterion_ [Skynav](https://auterion-gs.com/skynav/) and _UAVComponents_ [MicroNav](https://uxvtechnologies.com/ground-control-stations/micronav/) integrate QGC and a Joystick, and connect the vehicle via a high bandwidth telemetry radio link.
-
-![MicroNav와 지상제어S/W에서 조이스틱을 사용하는 그림](../../assets/peripherals/joystick/micronav.jpg)
 :::
 
 ## 안전 스위치
@@ -170,6 +145,17 @@ SD 카드는 선택 사항입니다. SD 카드가 없는 비행 콘트롤어는 
 - [스트림 로그](../dev_log/logging.md#log-streaming)를 다른 보조 장치에 기록합니다.
 - 비행 임무를 RAM/플래시에 저장합니다.
   <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/main/boards/intel/aerofc-v1/src/board_config.h#L115 -->
+
+
+## Payloads
+
+Payloads are equipment carried by the vehicle to meet user or mission objectives, such as cameras in surveying missions, instruments used in for inspections such as radiation detectors, and cargo that needs to be delivered. PX4 supports many cameras and a wide range of payloads.
+
+Payloads are connected to [Fight Controller outputs](#outputs-motors-servos-actuators), and can be triggered automatically in missions, or manually from an RC Controller or Joystick, or from a Ground Station (via MAVLink/MAVSDK commands).
+
+For more information see:
+
+- [Payloads & Cameras](../payloads/README.md)
 
 ## 시동 및 해제
 
