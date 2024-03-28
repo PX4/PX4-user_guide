@@ -28,6 +28,7 @@ The following integrated companion computer/flight controller systems use manage
 They are listed here as they can be updated with "vanilla" PX4 firmware for testing/rapid development.
 
 - [Auterion Skynode](../companion_computer/auterion_skynode.md)
+- [ModalAI VOXL 2](https://docs.modalai.com/voxl-2/)
 
 ## Companion Computer Options
 
