@@ -11,6 +11,10 @@ import mediumZoom from "medium-zoom";
 // Support redirect plugin
 import Redirect from "./components/Redirect.vue";
 
+// Tabs: https://github.com/Red-Asuka/vitepress-plugin-tabs
+import { Tab, Tabs } from "vue3-tabs-component";
+import "@red-asuka/vitepress-plugin-tabs/dist/style.css";
+
 /** @type {import('vitepress').Theme} */
 export default {
   extends: DefaultTheme,
@@ -21,6 +25,9 @@ export default {
   },
   enhanceApp({ app, router, siteData }) {
     app.component("Redirect", Redirect); //Redirect plugin
+    //Tabs: https://github.com/Red-Asuka/vitepress-plugin-tabs
+    app.component("Tab", Tab);
+    app.component("Tabs", Tabs);
   },
 
   // to support medium zoom: https://github.com/vuejs/vitepress/issues/854
