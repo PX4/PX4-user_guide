@@ -1,3 +1,3 @@
 <Redirect to="../flight_modes/offboard" />
 
-# Offboard Mode (Multicopter)
+# Offboard 模式(多旋翼)

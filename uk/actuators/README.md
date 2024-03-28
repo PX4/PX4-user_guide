@@ -1,13 +1,13 @@
-# Actuators
+# Приводи
 
-This section contains topics about the core actuators used for flight control (ESC/motors, and servos), and how they are assigned to the flight controller outputs, configured, and calibrated.
+У цьому розділі містяться теми про основні приводи, використовувані для керування польотом (ЕСП/двигуни та сервоприводи), а також про те, як вони призначаються виводам керуючого контролера, налаштовуються та калібруються.
 
-- [Actuator Allocation](../config/actuators.md) — Configure flight controller outputs for specific functions and ESC/servo types.
+- [Розподіл приводів](../config/actuators.md) — Налаштування виводів керуючого контролера для конкретних функцій та типів ЕСП/сервоприводів.
 
-- [ESCs & Motors](../peripherals/esc_motors.md) — ESCs such as [DShot](../peripherals/dshot.md) (recommended) and DroneCAN.
+- [ESCs & двигуни](../peripherals/esc_motors.md) — ESCs такі як[DShot](../peripherals/dshot.md) (рекомендовано) та DroneCAN.
 
-- [ESC Calibration](../advanced_config/esc_calibration.md) — Calibration for PWM ESC (not required for DShot/CAN ESC/servos).
+- [ESC Калібрування](../advanced_config/esc_calibration.md) — Калібрування для ЕСП зі звичайним PWM (не потрібно для ESC/сервоприводів з DShot/CAN).
 
-## See Also
+## Дивіться також
 
-- [Peripherals](../peripherals/README.md) - includes non-core actuators such as grippers, parachutes, etc.
+- [Периферійні пристрої](../peripherals/README.md) - включає неосновні приводи, такі як захвати, парашути, тощо.

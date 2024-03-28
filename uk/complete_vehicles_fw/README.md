@@ -1,16 +1,16 @@
-# Complete Vehicles (Fixed-Wing)
+# Повні транспортні засоби (Планери)
 
-This section contains information about fully assembled ready to fly (RTF) or near-RTF vehicles that either run PX4 by default or can/may be usable with PX4.
+У цьому розділі міститься інформація про повністю зібрані готові до польоту (RTF) або майже готові до польоту транспортні засоби, які або за замовчуванням працюють з PX4, або можуть/можуть бути використані з PX4.
 
 :::note
-Це маленький підмножина транспортних засобів, які можуть працювати на PX4.
-You can find others on [px4.io](https://px4.io/ecosystem/commercial-systems/) and in the [Airframes Reference](../airframes/airframe_reference.md).
+Це маленька підмножина транспортних засобів, які можуть працювати на PX4.
+Ви можете знайти інші на [px4.io](https://px4.io/ecosystem/commercial-systems/) і в [Посиланні на конструкції](../airframes/airframe_reference.md).
 :::
 
-## Custom PX4
+## Кастомне PX4
 
-This section contains consumer vehicles that run a _custom_ version of PX4 (supported by their vendors).
-These may or may not be updatable to run "vanilla" PX4.
+У цьому розділі містяться _користувацькі_ транспортні засоби, які працюють на спеціалізованій версії PX4 (підтримувані їхніми виробниками).
+Вони можуть бути оновлені або не оновлюватися для запуску "чистого" PX4.
 
 - [Sentera PXH](https://sentera.com/products/fieldcapture/ag-drones/phx/)
 
@@ -38,5 +38,5 @@ This section lists vehicles where you can update the software to run PX4.
 ## Дивись також
 
 - [DIY Builds](../frames_plane/diy_builds.md)
-- [Complete Vehicles (VTOL)](../complete_vehicles_vtol/README.md)
-- [Complete Vehicles (MC)](../complete_vehicles_mc/README.md)
+- [Повні транспортні засоби (VTOL)](../complete_vehicles_vtol/README.md)
+- [Повні транспортні засоби (MC)](../complete_vehicles_mc/README.md)

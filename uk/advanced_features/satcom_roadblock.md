@@ -45,20 +45,20 @@ The module can either use the internal antenna or an external one connected to t
 
 Стандартна швидкість передачі даних модуля - 19200. Однак драйвер _iridiumsbd_ PX4 вимагає швидкість передачі даних 115200, тому її потрібно змінити за допомогою [команд AT](https://www.groundcontrol.com/en/wp-content/uploads/2022/02/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf).
 
-1. Підключіться до модуля, встановивши параметри 19200/8-N-1, і перевірте роботу зв'язку за допомогою команди: `AT`. The response should be: `OK`.
-1. Change the baud rate:
+1. Підключіться до модуля, встановивши параметри 19200/8-N-1, і перевірте роботу зв'язку за допомогою команди: `AT`. Відповідь має бути: `OK`.
+1. Змінити швидкість передачі:
 
    ```
    AT+IPR=9
    ```
 
-1. Reconnect to the model now with a 115200/8-N-1 setting and save the configuration using:
+1. Знову підключіться до моделі з параметрами 115200/8-N-1 і збережіть конфігурацію за допомогою:
 
    ```
    AT&W0
    ```
 
-The module is now ready to be used with PX4.
+Модуль тепер готовий до використання з PX4.
 
 ### Програмне забезпечення
 

@@ -1,16 +1,16 @@
-# Power Systems
+# Системи живлення
 
-UAVs require a regulated power supply for the flight controller, along with separate power for the motors, servos, and any other peripherals.
-The power is usually supplied from a battery (or batteries), though generators and other systems can be used.
+БПЛА потребують регульованого джерела живлення для керуючого контролера, окрім окремого живлення для двигунів, сервоприводів та будь-яких інших периферійних пристроїв.
+Зазвичай живлення надходить від акумулятора (або акумуляторів), хоча можуть використовуватися також генератори та інші системи.
 
-Power modules are commonly used to "split off" a regulated power supply for the flight controller and also measure the battery voltage and total current consumed by the vehicle.
-PX4 can use this information to infer the remaining battery capacity and provide low-power warnings and other failsafe behaviour.
+Модулі живлення часто використовуються для "розгалуження" регульованого джерела живлення для керуючого контролера та вимірювання напруги батареї та загального струму, спожитого транспортним засобом.
+PX4 може використовувати цю інформацію для визначення залишкової ємності акумулятора та надання попереджень про низький заряд батареї та іншу аварійну поведінку.
 
-A Power Distribution Board (PDB) may be used to simplify the wiring for splitting the output of the battery to the flight controller, motors, and other peripherals.
-PDBs will sometimes include a power module, ESCs for motors, and a battery elimination circuit (BEC) for powering servos.
+Дошка розподілу живлення (PDB) може бути використана для спрощення проводки для розгалуження виводу батареї до керуючого контролера, двигунів та інших периферійних пристроїв.
+PDB іноді будуть включати модуль живлення, ЕСП для двигунів та ланцюг елімінації батареї (BEC) для живлення сервоприводів.
 
-PX4 can also receive more comprehensive battery/power-supply information as MAVLink telemetry instead of using a power module.
-Batteries that can _supply_ MAVLink information are sometimes referred to as "Smart Batteries" (this definition is open for debate).
+PX4 також може отримувати більш повну інформацію про батарею/живлення як телеметрію MAVLink замість використання модуля живлення.
+Батареї, що можуть надавати інформацію по MAVLink, іноді називаються "розумними батареями" (це визначення відкрите для обговорення).
 
-- [Power Modules/PDB](../power_module/README.md)
-- [Smart/MAVLink Batteries](../smart_batteries/README.md)
+- [Модулі живлення/PDB](../power_module/README.md)
+- [Розумні/MAVLink Батареї](../smart_batteries/README.md)
