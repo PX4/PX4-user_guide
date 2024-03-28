@@ -12,7 +12,7 @@ Performing this calibration step is only recommended if the autopilot's orientat
 
 1. Start _QGroundControl_ and connect the vehicle.
 1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
-1. Click the **Level Horizon** button. ![Level Horizon calibration](../../assets/qgc/setup/sensor/sensor_level_horizon.jpg) :::note You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
+1. Click the **Level Horizon** button. ![Level Horizon calibration](../../assets/qgc/setup/sensor/sensor_level_horizon.png) :::note You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
 :::
 1. Place the vehicle in its level flight orientation on a level surface:
 
@@ -29,5 +29,5 @@ Check that the artificial horizon displayed in the flight view has the indicator
 ## 추가 정보
 
 - [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md) (advanced users only).
-- [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#level-horizon)
+- [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#level-horizon)
 - [PX4 Setup Video "Gyroscope" - @1m14s](https://youtu.be/91VGmdSlbo4?t=1m14s) (Youtube)
