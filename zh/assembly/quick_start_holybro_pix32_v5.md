@@ -91,7 +91,7 @@ The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supp
 
 ### Battery Configuration
 
-The battery/power setup must be configured in [Power Settings](../config/battery.md). For either Power Module you will need to configure the _Number of Cells_.
+The battery/power setup must be configured in [Battery Estimation Tuning](../config/battery.md). For either Power Module you will need to configure the _Number of Cells_.
 
 You will not need to update the _voltage divider_ unless you are using some other power module (e.g. the one from the Pixracer).
 
