@@ -1,15 +1,16 @@
-# Battery and Power Module Setup
+# Battery Estimation Tuning (Power Setup)
 
-This topic explains how to configure power settings.
+This topic explains how to configure power settings so that PX4 can estimate the available battery capacity.
 
 :::note
-The battery monitoring features of PX4 can only be used if you have compatible hardware.
-In most cases this means a power module that measures the battery voltage, and may also measure the current between battery and vehicle.
+These instructions require that the vehicle has a [Power Module (PM)](../power_module/README.md), or other hardware that can measure the battery voltage and (optionally) the current.
+
+This tuning is not needed for [Smart/MAVLink Batteries](../smart_batteries/README.md).
 :::
 
 ## Overview
 
-The goal of the power setup is to provide a good estimate of remaining battery percentage (and capacity), so that the vehicle is not used to the point that it runs out of power and crashes (or the battery is damaged due to deep-discharge).
+Battery Estimation Tuning uses the measured voltage and current (if available) to estimate the remaining battery capacity. This is important because it allows PX4 to take action when the vehicle is close to running out of power and crashing (and also to prevent battery damage due to deep-discharge).
 
 PX4 provides a number of (progressively more effective) methods that can be used to estimate the capacity:
 
@@ -29,7 +30,7 @@ This ensures that the battery failsafe behaviour is managed by PX4, and that ESC
 :::
 
 :::tip
-[Battery-Type Comparison](#battery-type-comparison) below explains the difference between the main battery types, and how that impacts the battery settings.
+[Battery-Type Comparison](#battery-chemistry-comparison) below explains the difference between the main battery types, and how that impacts the battery settings.
 :::
 
 <a id="basic_settings"></a>
@@ -45,11 +46,11 @@ This approach results in relatively coarse estimations due to fluctuations in th
 To configure the basic settings for battery 1:
 
 1. Start _QGroundControl_ and connect the vehicle.
-1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Power** in the sidebar.
+1. Select **"Q" icon > Vehicle Setup > Power** (sidebar) to open _Power Setup_.
 
 You are presented with the basic settings that characterize the battery. The sections below explain what values to set for each field.
 
-![QGC Power Setup](../../assets/qgc/setup/power/qgc_setup_power_px4.jpg)
+![QGC Power Setup](../../assets/qgc/setup/power/qgc_setup_power_px4.png)
 
 :::note
 At time of writing _QGroundControl_ only allows you to set values for battery 1 in this view. For vehicles with multiple batteries you'll need to directly [set the parameters](../advanced_config/parameters.md) for battery 2 (`BAT2_*`), as described in the following sections.
@@ -239,7 +240,7 @@ If you always start with a healthy full battery, this approach is similar to tha
 Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the _initial_ capacity. Voltage-estimation allows you to estimate the initial capacity and provides ongoing feedback of possible errors (e.g. if the battery is faulty, or if there is a mismatch between capacity calculated using different methods).
 :::
 
-## Battery-Type Comparison
+## Battery-Chemistry Comparison
 
 This section provides a comparative overview of several different battery types (in particular LiPo and Li-Ion).
 
