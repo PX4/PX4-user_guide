@@ -1,18 +1,27 @@
 # 任务
 
+A mission is a predefined flight plan, which can be planned in QGroundControl and uploaded to the flight controller, and then executed autonomously in [Mission mode](../flight_modes_mc/mission.md).
+
+Missions typically include items for controlling taking off, flying a sequence of waypoints, capturing images and/or video, deploying cargo, and landing. QGroundControl allows you to plan missions using a fully manual approach, or you can use its more advanced features to plan ground area surveys, corridor surveys, or structure surveys.
+
+This topic provides an overview of how to plan and fly missions.
+
+
+
 ## 规划任务
 
 手动规划任务非常简单:
+
 - 切换到任务视图
 - 在左上角选择**添加航点**（“加号”）图标。
 - 点击地图添加航点。
 - 使用右侧的航点列表修改航点参数和类型。底部的高度指示器提供每个航点的相对高度。
 - 完成后，单机**上传**按钮（右上角）发送任务到飞行器。
 
-您也可以使用*图案*工具自动创建测绘网络。
+You can also use the _Pattern_ tool to automate creation of survey grids.
 
 :::tip
-有关更多信息，请参阅[QGroundControl 用户指南](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html)。 :::
+For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html). :::
 
 ![规划任务](../../assets/flying/planning_mission.jpg)
 
@@ -34,7 +43,7 @@ Vehicle types that cannot independently control yaw and direction of travel will
 
 ### 设置航点/转弯半径
 
-*航点半径*定义了一个以航点为圆心的圆，如果无人机叨叨半径内便认为到达航点，并且会立即前往（并开始转向）下一个航点。
+The _acceptance radius_ defines the circle around a waypoint within which a vehicle considers it has reached the waypoint, and will immediately switch to (and start turning towards) the next waypoint.
 
 对于多旋翼无人机，使用参数[NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)调整航点半径。 默认情况下，半径设置的很小以确保多旋翼无人机通过航路点上方，但可以增加半径以创建更平滑的路径，这时无人机在到达航路点之前便开始转弯。
 
@@ -47,9 +56,14 @@ Vehicle types that cannot independently control yaw and direction of travel will
 :::tip
 关于航点半径的更多信息，见： [任务模式 > 航点间的轨迹](../flight_modes/mission.md#rounded-turns-inter-waypoint-trajectory)。 :::
 
+### Package Delivery (Cargo) Missions
+
+PX4 supports cargo delivery in missions using a gripper.
+
+This kind of mission is planned in much the same as any other [waypoint mission](../flying/missions.md), with mission start, takeoff waypoint, various path waypoints, and possibly a return waypoint. The only difference is that a package delivery mission must include a mission items to indicate how the package is released and the deployment mechanism. For more information see: [Package Delivery Mission](../flying/package_delivery_mission.md).
+
 ## 飞行任务
 
 任务上传后，切换到飞行视图。 任务将显示为一条航线，这样可以方便跟踪（在此视图中无法修改）。
 
 ![飞行任务](../../assets/flying/flying_mission.jpg)
-

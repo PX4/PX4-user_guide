@@ -37,15 +37,15 @@ Refer to the [RockBlock Documentation](https://docs.rockblock.rock7.com/docs) fo
 
 ### Wiring
 
-Connect the RockBlock module to a serial port of the Pixhawk. Due to the power requirements of the module it can only be powered over a high-power serial port as a maximum of 0.5 A at 5 V are required. If none is available/free then another power source which has the same ground level as the Pixhawk and can provide required power has to be setup. The details of the [connectors](https://docs.rockblock.rock7.com/docs/connectors) and the [power requirements](https://docs.rockblock.rock7.com/docs/power-supply) can be found in the RockBlock documentation.
+Підключіть модуль RockBlock до послідовного порту Pixhawk. Через вимоги до живлення модуля його можна живити лише через високопотужний послідовний порт, оскільки для роботи необхідно максимум 0,5 А при 5 В. Якщо жоден з них недоступний або вільний, то інший джерело живлення, яке має той самий рівень землі, що й Pixhawk і може забезпечити необхідну потужність, повинно бути налаштоване. Деталі щодо [роз'ємів](https://docs.rockblock.rock7.com/docs/connectors) та вимог до [живлення](https://docs.rockblock.rock7.com/docs/power-supply) можна знайти в документації RockBlock.
 
 ### Модулі
 
-The module can either use the internal antenna or an external one connected to the SMA connector. To [switch between the two antennas modes](https://docs.rockblock.rock7.com/docs/switching-rockblock-9603-antenna-mode) the position of a small RF link cable needs to changed. If an external antenna is used always make sure that the antenna is connected to the module before powering it up to avoid damage to the module.
+The module can either use the internal antenna or an external one connected to the SMA connector. Для [перемикання між двома режимами антен](https://docs.rockblock.rock7.com/docs/switching-rockblock-9603-antenna-mode) потрібно змінити положення невеликого кабелю RF. Якщо використовується зовнішня антена, завжди переконуйтеся, що антена підключена до модуля перед включенням живлення, щоб уникнути пошкодження модуля.
 
-The default baud rate of the module is 19200. However, the PX4 _iridiumsbd_ driver requires a baud rate of 115200 so it needs to be changed using the [AT commands](https://www.groundcontrol.com/en/wp-content/uploads/2022/02/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf).
+Стандартна швидкість передачі даних модуля - 19200. Однак драйвер _iridiumsbd_ PX4 вимагає швидкість передачі даних 115200, тому її потрібно змінити за допомогою [команд AT](https://www.groundcontrol.com/en/wp-content/uploads/2022/02/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf).
 
-1. Connect to the module with using a 19200/8-N-1 setting and check if the communication is working using the command: `AT`. The response should be: `OK`.
+1. Підключіться до модуля, встановивши параметри 19200/8-N-1, і перевірте роботу зв'язку за допомогою команди: `AT`. The response should be: `OK`.
 1. Change the baud rate:
 
    ```

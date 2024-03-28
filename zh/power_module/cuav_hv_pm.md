@@ -26,7 +26,7 @@ The *HV_PM* is included in the CUAV V5+/V5 nano kit, but is also be sold separat
 
 ## Enable HV PM
 
-[Battery and Power Module Setup](../config/battery.md) describes how to configure the battery and power module.
+[Battery Estimation Tuning](../config/battery.md) describes how to configure the battery and power module.
 
 The key configuration settings for `HV_PM` are:
 - **Voltage divider:** 18

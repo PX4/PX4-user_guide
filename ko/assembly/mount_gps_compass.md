@@ -1,14 +1,16 @@
-# Mounting a GPS/Compass
+# Mounting a Compass (or GNSS/Compass)
 
-GPS/Compasses should be mounted on the frame as far away from other electronics as possible, [oriented](#compass-orientation) upright and with the direction marker pointing towards the front of the vehicle. You should also configure PX4 to [set the position](#position) of the receiver relative to the centre-of-gravity (CoG).
+Compass and GNSS/Compass modules should be mounted on the frame as far away from motor/ESC power lines and other sources of electromagnetic interference as possible, and [oriented](#compass-orientation) upright with the direction marker pointing towards the front of the vehicle. You should also configure PX4 to [set the position](#position) of the receiver relative to the centre-of-gravity (CoG).
 
 아래 다이어그램은 Pixhawk 4와 나침반의 전방 마커를 나타냅니다.
 
-![Pixhawk 4 -- 나침반/GPS 연결 ](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
-
 ## Compass Orientation
 
-The compass should ideally be oriented so that it is upright and facing towards the front of the vehicle, but if needed can be oriented at multiples of 45° from this attitude (in any axis) as defined in the [standard MAVLink orientations](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION).
+The compass should ideally be oriented so that it is upright and the direction marker is pointing towards the front of the vehicle (the default orientation), but if needed can be oriented at multiples of 45° from this attitude (in any axis) as defined in the [standard MAVLink orientations](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION) (these follow the same frame convention as when [orienting the flight controller](../config/flight_controller_orientation.md#calculating-orientation)).
+
+The diagram below shows the heading marker on the Pixhawk 4 flight controller and compass.
+
+![Pixhawk 4 -- 나침반/GPS 연결 ](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
 
 PX4 will automatically detect the orientation for any of these standard orientations during [compass calibration](../config/compass.md) ([by default](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT)).
 

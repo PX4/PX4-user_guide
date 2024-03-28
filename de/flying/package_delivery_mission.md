@@ -14,7 +14,6 @@ The configuration is largely hardware-specific, and is hence covered in the setu
 
 - [Gripper > Package Delivery Configuration](../peripherals/gripper.md#package-delivery-configuration)
 
-
 ## Mission Planning
 
 A package delivery mission is planned in much the same as any other [waypoint mission](../flying/missions.md), with mission start, takeoff waypoint, various path waypoints, and possibly a return waypoint. The only difference is that a package delivery mission must include a mission item that indicates whether the package should be released on the ground (`Land`) or in-air (`Waypoint`), followed by another mission item to deploy the package (`Gripper Mechanism`).
@@ -35,6 +34,7 @@ To create a package delivery mission (with a Gripper):
    - If you'd like to land the vehicle to make the delivery you will need to change the `Waypoint` to a `Land` mission item. Do this by selecting the mission item heading, then selecting `Land` in the popup dialog.
 
      ![Waypoint to Land mission item](../../assets/flying/package_delivery_land_waypoint.png)
+
 1. Add a waypoint on the map (anywhere) for the gripper release. To change this to a `Gripper Mechanism` select the "Waypoint" heading, and in the popup changing the group to "Advanced", then selecting `Gripper Mechanism`.
 
    ![Action waypoint](../../assets/flying/qgc_mission_gripper_mechanism_item_example.png)

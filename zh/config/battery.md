@@ -2,12 +2,15 @@
 
 该主题解释了如何进行电源设置
 
-PX4 的电池监控功能只有在您拥有支持的硬件时才能使用。 在大多数情况下，指的是一个电源模块，它可以测量电池电压，也可以测量电池和机体之间的电流。
+:::note
+These instructions require that the vehicle has a [Power Module (PM)](../power_module/README.md), or other hardware that can measure the battery voltage and (optionally) the current.
+
+This tuning is not needed for [Smart/MAVLink Batteries](../smart_batteries/README.md).
 :::
 
 ## 概述
 
-电源设置的目标是提供对剩余电池百分比（和容量）的良好估计，以便机体不会使用到电量耗尽和碰撞（或电池因深度放电而损坏）的程度）。
+Battery Estimation Tuning uses the measured voltage and current (if available) to estimate the remaining battery capacity. This is important because it allows PX4 to take action when the vehicle is close to running out of power and crashing (and also to prevent battery damage due to deep-discharge).
 
 PX4 提供了许多（逐渐变得更有效）可用于估计容量的方法：
 
@@ -27,7 +30,7 @@ PX4 提供了许多（逐渐变得更有效）可用于估计容量的方法：
 :::
 
 :::tip
-下面的[电池类型比较](#battery-type-comparison)解释了主要电池类型之间的差异，以及它如何影响电池设置。
+[Battery-Type Comparison](#battery-chemistry-comparison) below explains the difference between the main battery types, and how that impacts the battery settings.
 :::
 
 <a id="basic_settings"></a>
@@ -43,11 +46,11 @@ PX4 提供了许多（逐渐变得更有效）可用于估计容量的方法：
 配置电池1的基本参数：
 
 1. Start _QGroundControl_ and connect the vehicle.
-1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Power** in the sidebar.
+1. Select **"Q" icon > Vehicle Setup > Power** (sidebar) to open _Power Setup_.
 
 You are presented with the basic settings that characterize the battery. The sections below explain what values to set for each field.
 
-![QGC Power Setup](../../assets/qgc/setup/power/qgc_setup_power_px4.jpg)
+![QGC Power Setup](../../assets/qgc/setup/power/qgc_setup_power_px4.png)
 
 :::note
 At time of writing _QGroundControl_ only allows you to set values for battery 1 in this view. For vehicles with multiple batteries you'll need to directly [set the parameters](../advanced_config/parameters.md) for battery 2 (`BAT2_*`), as described in the following sections.
@@ -237,7 +240,7 @@ If you always start with a healthy full battery, this approach is similar to tha
 Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the _initial_ capacity. Voltage-estimation allows you to estimate the initial capacity and provides ongoing feedback of possible errors (e.g. if the battery is faulty, or if there is a mismatch between capacity calculated using different methods).
 :::
 
-## Battery-Type Comparison
+## Battery-Chemistry Comparison
 
 This section provides a comparative overview of several different battery types (in particular LiPo and Li-Ion).
 

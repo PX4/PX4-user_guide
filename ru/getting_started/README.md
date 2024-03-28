@@ -10,7 +10,7 @@ This section provides an overview of the basic concepts you need to understand i
 
 [Sensors](../getting_started/sensor_selection.md) — Sensors needed by the autopilot.
 
-[Remote Control Systems](../getting_started/rc_transmitter_receiver.md) — Handheld systems for manually controlling a vehicle.
+[Radio Control Systems](../getting_started/rc_transmitter_receiver.md) — Handheld systems for manually controlling a vehicle.
 
 [Payloads & Cameras](../payloads/README.md)
 

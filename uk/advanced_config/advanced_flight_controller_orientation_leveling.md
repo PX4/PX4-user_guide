@@ -29,3 +29,4 @@
 - [SENS_BOARD_X_OFF](../advanced_config/parameter_reference.md#SENS_BOARD_X_OFF): Поворот, у градусах, навколо осі X PX4FMU або вісі Крену. Позитивні кути збільшуються в протипротивна годинниковій стрілці (CCW) напрямку, від'ємні кути збільшуються в напрямку за годинниковою стрілкою (CW).
 - [SENS_BOARD_Y_OFF](../advanced_config/parameter_reference.md#SENS_BOARD_Y_OFF): Поворот, в градусах, навколо осі Y PX4FMU або вісі Крену. Позитивні кути збільшуються в напрямку CCW, негативні кути збільшуються в напрямку CW.
 - [SENS_BOARD_Z_OFF](../advanced_config/parameter_reference.md#SENS_BOARD_Z_OFF): Поворот, у градусах, навколо осі Z PX4FMU або вісі Yaw . Позитивні кути збільшуються в напрямку CCW, негативні кути збільшуються в напрямку CW.
+  

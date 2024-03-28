@@ -11,7 +11,7 @@ Almost all Flight Controllers have a _heading mark arrow_ (shown below). 기체�
 ![콘트롤러 방향 ](../../assets/qgc/setup/sensor/fc_orientation_1.png)
 
 :::note
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to physical constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+If the controller cannot be mounted in the recommended/default orientation due to physical constraints, you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 :::
 
 ## Position

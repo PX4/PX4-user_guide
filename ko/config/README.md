@@ -31,7 +31,9 @@ Before starting you should [Download QGroundControl](http://qgroundcontrol.com/d
 - [Level Horizon](../config/level_horizon_calibration.md)
 - [Airspeed](../config/airspeed.md) (Fixed-wing/VTOL only)
 
-> **Note:** Setup for optional sensors and specific hardware is provided in [Flight Controller Peripherals](../peripherals/README.md).
+:::note
+Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/README.md).
+:::
 
 ### Manual Control Setup
 
@@ -46,7 +48,7 @@ Joystick/GamePad:
 
 ### Safety Configuration
 
-- [Battery/Power Module Setup](../config/battery.md)
+- [Battery Estimation Tuning](../config/battery.md) (requires [Power Module](../power_module/README.md))
 - [Safety Configuration (Failsafes)](../config/safety.md)
 
 ### Tuning
@@ -55,17 +57,17 @@ Joystick/GamePad:
 
 ## 영상 가이드
 
-The video below shows most of the calibration process (it uses an older version of _QGroundControl_, but most of the process is unchanged).
+[유투브](https://youtu.be/91VGmdSlbo4)
 
-@[유투브](https://youtu.be/91VGmdSlbo4)
+@설정에 대한 도움이 필요한 경우 [QGroundControl 지원 포럼 ](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage)에서 도움을 요청할 수 있습니다
 
 ## 지원
 
-설정에 대한 도움이 필요한 경우 [QGroundControl 지원 포럼 ](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage)에서 도움을 요청할 수 있습니다
+If you need help with the configuration you can ask for help on the [QGroundControl Support forum](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage).
 
 ## See Also
 
-- [QGroundControl &gt; 설정](https://docs.qgroundcontrol.com/master/en/SetupView/SetupView.html)
+- [QGroundControl &gt; 설정](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
 - [Flight Controller Peripherals](../peripherals/README.md) - Setup specific sensors, optional sensors, actuators, and so on.
 - [Advanced Configuration](../advanced_config/README.md) - Factory/OEM calibration, configuring advanced features, less-common configuration.
 - Vehicle-Centric Config/Tuning:

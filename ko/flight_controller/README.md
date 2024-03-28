@@ -1,12 +1,18 @@
 # 비행 컨트롤러(자동 조종 장치) 하드웨어
 
-This section lists autopilot hardware that can be used to run the PX4 flight stack).
+Flight Controllers (FCs) are the autopilot hardware onto which PX4 firmware is uploaded.
 
-This list is not exhaustive (it covers controllers documented in this library). There are other compatible flight controllers and variants, including those [documented here on Github](https://github.com/PX4/PX4-Autopilot/#supported-hardware).
+This section provides information about how to mount the flight controller, upload firmware (replacing an incompatible bootloader if needed), and configure its orientation.
+
+- [Mounting the Flight Controller](../assembly/mount_and_orient_controller.md)
+- [Updating Firmware](../config/firmware.md)
+- [Sensor Orientation](../config/flight_controller_orientation.md)
+- [Level Horizon Calibration](../config/level_horizon_calibration.md)
+- [Advanced Controller Orientation](../advanced_config/advanced_flight_controller_orientation_leveling.md)
+- [Bootloader Update](../advanced_config/bootloader_update.md)
 
 :::tip
-[완제품 기체](../complete_vehicles/README.md)(PX4를 실행할 수있는 소비자용 드론 및 참조 플랫폼)에서 PX4를 사용할 수 있습니다.
-:::
+[완제품 기체](../complete_vehicles/README.md)(PX4를 실행할 수있는 소비자용 드론 및 참조 플랫폼)에서 PX4를 사용할 수 있습니다. There are other compatible flight controllers and variants, including those [documented here on Github](https://github.com/PX4/PX4-Autopilot/#supported-hardware).
 
 - [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)
   - [실리콘 정오표](../flight_controller/silicon_errata.md)

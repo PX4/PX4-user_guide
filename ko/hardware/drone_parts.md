@@ -3,6 +3,17 @@
 PX4 완제품 기체와 자체 제작 드론의 부품들에 대하여 설명합니다.
 
 - [완제품](../complete_vehicles/README.md) - 바로 비행 가능하거나(Ready to Fly, RTF) 준 RTF 기체입니다. 배터리와 RC 컨트롤러가 필요할 수 있습니다.
-- [Flight Controllers (Autopilots)](../flight_controller/README.md) - Autopilot hardware options (including [Pixhawk Series](../flight_controller/pixhawk_series.md))
-- [비행 컨트롤러 주변기기](../peripherals/README.md) - 비행 컨트롤러에 장착 가능한 부품(GPS, 나침반, 모터, 거리센서 등). 장치 페이지에서는 PX4 설정 방법을 설명합니다.
-- [Companion Computers](../companion_computer/README.md) - Separate "mission computers" that enable advanced flight control features such as [Computer Vision](../computer_vision/README.md) (and their [peripherals](../companion_computer/companion_computer_peripherals.md)).
+- [Sensors](../sensor/README.md) — accelerometer, gyroscope, compass, airspeed, barometer, rangefinders, GNSS, RTK GNSS, Optical Flow, Tachometers, Factory calibration, thermal calibration.
+- [Actuators](../actuators/README.md) — Allocation, ESC, motors, servos
+- [Radio Control (RC)](../getting_started/rc_transmitter_receiver.md) — Manual control using an RC system
+- [Joysticks](../config/joystick.md) — Manual control using a Joystick connected to QGroundControl
+- [Data Links](../data_links/README.md) — MAVLink, telemetry radios, satellite comms
+- [Power Systems](../power_systems/README.md) — Battery estimation tuning, power modules, smart batteries
+- [Peripherals](../peripherals/README.md) — camera, gimbal, grippers, parachute, RemoteID, traffic avoidance etc.
+- [I2C Peripherals](../sensor_bus/i2c_general.md)
+- [CAN Peripherals](../can/README.md)
+- [DroneCAN Peripherals](../dronecan/README.md)
+- [Cable Wiring](../assembly/cable_wiring.md)
+- [Companion Computers](../companion_computer/README.md) — Setup, peripherals, computer vision, obstacle avoidance etc.
+- [Serial Port Configuration](../peripherals/serial_configuration.md)
+- [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md)

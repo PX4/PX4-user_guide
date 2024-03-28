@@ -197,7 +197,7 @@ For this build we set up modes *Stabilized*, *Altitude* and *Position* on a thre
 
 Ideally you should also do:
 * [ESC Calibration](../advanced_config/esc_calibration.md)
-* [Battery](../config/battery.md)
+* [Battery Estimation Tuning](../config/battery.md)
 * [Safety](../config/safety.md)
 
 

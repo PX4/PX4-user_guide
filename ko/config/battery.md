@@ -3,13 +3,14 @@
 전원 설정 방법에 대하여 설명합니다.
 
 :::note
-PX4의 배터리 모니터링 기능은 호환되는 하드웨어에서 사용할 수 있습니다.
-보통은 배터리 전압을 측정하는 전원 모듈을 의미하며, 배터리와 차량 사이의 전류도 측정할 수 있습니다.
+These instructions require that the vehicle has a [Power Module (PM)](../power_module/README.md), or other hardware that can measure the battery voltage and (optionally) the current.
+
+This tuning is not needed for [Smart/MAVLink Batteries](../smart_batteries/README.md).
 :::
 
 ## 개요
 
-전원 설정의 목표는 배터리 잔량 비율 및 용량을 정확하게 추정하여 기체의 전원이 부족하여 충돌 사고가 발생하지 않도록 하는 것입니다 (또는 배터리가 과방 전으로 인해 손상되는 경우).
+Battery Estimation Tuning uses the measured voltage and current (if available) to estimate the remaining battery capacity. This is important because it allows PX4 to take action when the vehicle is close to running out of power and crashing (and also to prevent battery damage due to deep-discharge).
 
 PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 
@@ -29,7 +30,7 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 :::
 
 :::tip
-아래의 [배터리 유형 비교](#battery-type-comparison)는 기본 배터리 유형 간의 차이점과 배터리 설정에 미치는 영향을 설명합니다.
+[Battery-Type Comparison](#battery-chemistry-comparison) below explains the difference between the main battery types, and how that impacts the battery settings.
 :::
 
 <a id="basic_settings"></a>
@@ -49,7 +50,7 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 
 배터리 특성을 나타내는 기본 설정이 제공됩니다. 아래 섹션에서는 각 필드에 대해 설정할 값들을 설명합니다.
 
-![QGC 전원 설정](../../assets/qgc/setup/power/qgc_setup_power_px4.jpg)
+![QGC 전원 설정](../../assets/qgc/setup/power/qgc_setup_power_px4.png)
 
 :::note
 At time of writing _QGroundControl_ only allows you to set values for battery 1 in this view. 배터리가 여러 개인 경우에는 다음 섹션에 설명 된대로 배터리 2 (`BAT2_*`)에 대한 [매개 변수를 직접 설정](../advanced_config/parameters.md) 하여야 합니다.
@@ -239,7 +240,7 @@ This method evaluates the remaining battery capacity by _fusing_ the voltage-bas
 Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the _initial_ capacity. 전압 추정을 사용하면 초기 용량을 추정하고 가능한 오류에 대한 지속적인 피드백을 제공할 수 있습니다 (예 : 배터리에 결함이 있거나 다른 방법을 사용하여 계산된 용량간에 불일치가 있는 경우).
 :::
 
-## Battery-Type Comparison
+## Battery-Chemistry Comparison
 
 이 섹션에서는 여러가지 유형의 배터리(특히 LiPo 및 Li-Ion)를 개략적으로 비교합니다.
 
