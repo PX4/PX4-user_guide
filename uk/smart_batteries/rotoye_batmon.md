@@ -30,27 +30,27 @@
 
 ### Створення прошивки PX4
 
-1. Clone or download [Rotoye's fork of PX4:](https://github.com/rotoye/PX4-Autopilot/tree/batmon_4.03)
+1. Клонуйте або завантажте [репозиторій Rotoye для PX4:](https://github.com/rotoye/PX4-Autopilot/tree/batmon_4.03)
    ```sh
    git clone https://github.com/rotoye/PX4-Autopilot.git
    cd PX4-Autopilot
    ```
-1. Checkout the *batmon_4.03* branch
+1. Переключіться на гілку *batmon_4.03*
    ```sh
    git fetch origin batmon_4.03
    git checkout batmon_4.03
    ```
-1. [Build and upload the firmware](../dev_setup/building_px4.md) for your target board
+1. [Зібрати та завантажити прошивку](../dev_setup/building_px4.md) для вашої цільової плати
 
 ### Налаштування параметрів
 
 У *QGroundControl*:
-1. Set the following [parameters](../advanced_config/parameters.md):
-   - `BATx_SOURCE` to `External`,
-   - `SENS_EN_BAT` to `true`,
-   - `BAT_SMBUS_MODEL` to `3:Rotoye`
-1. Open the [MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html)
-1. Start the [batt_smbus driver](../modules/modules_driver.md) in the console. For example, to run two BatMons on the same bus:
+1. Встановить наступні [параметри](../advanced_config/parameters.md):
+   - `BATx_SOURCE` до `External`,
+   - `SENS_EN_BAT` до `true`,
+   - `BAT_SMBUS_MODEL` до `3:Rotoye`
+1. Відкрийте консоль [MAVLink](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html)
+1. Запустіть драйвер [batt_smbus](../modules/modules_driver.md) у консолі. Наприклад, для запуску двох BatMons у одному підключенні:
    ```sh 
    batt_smbus start -X -b 1 -a 11 # External bus 1, address 0x0b  
    batt_smbus start -X -b 1 -a 12 # External bus 1, address 0x0c
@@ -58,4 +58,4 @@
 
 ## Детальна інформація
 
-[Quick Start Guide](https://rotoye.com/batmon-tutorial/) (Rotoye)
+[Швидкий початок роботи](https://rotoye.com/batmon-tutorial/) (Rotoye)
