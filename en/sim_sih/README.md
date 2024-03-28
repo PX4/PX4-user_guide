@@ -42,7 +42,7 @@ To run the SIH, you will need a:
 
 - [Flight controller](../flight_controller/README.md), such as a Pixhawk-series board
 - Development computer for displaying the virtual vehicle.
-- [Manual controller](../getting_started/px4_basic_concepts.md#manual-control): either a [radio control system](../getting_started/px4_basic_concepts.md#radio-control-rc) or a [joystick](../getting_started/px4_basic_concepts.md#gcs-joystick-controller).
+- [Manual controller](../getting_started/px4_basic_concepts.md#manual-control): either a [radio control system](../getting_started/rc_transmitter_receiver.md) or a [joystick](../config/joystick.md).
 
 From PX4 v1.14 you can run SIH "as SITL", in which case a flight controller is not required.
 

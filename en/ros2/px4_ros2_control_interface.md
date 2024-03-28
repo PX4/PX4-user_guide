@@ -412,7 +412,7 @@ If you want to control an actuator that does not control the vehicle's motion, b
 
 If you want to control an independent actuator (a servo), follow these steps:
 
-1. [Configure the output](../payloads/#generic-actuator-control-with-mavlink)
+1. [Configure the output](../payloads/generic_actuator_control.md#generic-actuator-control-with-mavlink)
 2. Create an instance of [px4_ros2::PeripheralActuatorControls](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1PeripheralActuatorControls.html) in the constructor of your mode.
 3. Call the `set()` method to control the actuator(s).
    This can be done independently of any active setpoints.

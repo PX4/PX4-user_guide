@@ -104,6 +104,7 @@ For information about what ESC/Motors are supported by PX4 see:
 - [ESC Calibration](../advanced_config/esc_calibration.md)
 - [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
 
+
 ## Battery/Power
 
 PX4 drones are mostly commonly powered from Lithium-Polymer (LiPo) batteries.
@@ -174,6 +175,18 @@ Flight controllers that do not include an SD Card slot may:
 - [Stream logs](../dev_log/logging.md#log-streaming) to another component (companion).
 - Store missions in RAM/FLASH.
   <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/main/boards/intel/aerofc-v1/src/board_config.h#L115 -->
+
+
+## Payloads
+
+Payloads are equipment carried by the vehicle to meet user or mission objectives, such as cameras in surveying missions, instruments used in for inspections such as radiation detectors, and cargo that needs to be delivered.
+PX4 supports many cameras and a wide range of payloads.
+
+Payloads are connected to [Fight Controller outputs](#outputs-motors-servos-actuators), and can be triggered automatically in missions, or manually from an RC Controller or Joystick, or from a Ground Station (via MAVLink/MAVSDK commands).
+
+For more information see:
+
+- [Payloads & Cameras](../payloads/README.md)
 
 ## Arming and Disarming
 
