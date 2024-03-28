@@ -2,11 +2,17 @@
 
 У цьому розділі перераховано обладнання автопілота, яке можна використовувати для запуску польотного стеку PX4).
 
-Цей список не є вичерпним (він охоплює контролери, задокументовані у цій бібліотеці). Існують інші сумісні контролери польоту та варіанти, в тому числі [задокументовані тут на Github](https://github.com/PX4/PX4-Autopilot/#supported-hardware).
+This section provides information about how to mount the flight controller, upload firmware (replacing an incompatible bootloader if needed), and configure its orientation.
+
+- [Mounting the Flight Controller](../assembly/mount_and_orient_controller.md)
+- [Updating Firmware](../config/firmware.md)
+- [Sensor Orientation](../config/flight_controller_orientation.md)
+- [Level Horizon Calibration](../config/level_horizon_calibration.md)
+- [Advanced Controller Orientation](../advanced_config/advanced_flight_controller_orientation_leveling.md)
+- [Bootloader Update](../advanced_config/bootloader_update.md)
 
 :::tip
-Ви також можете спробувати PX4 на завершеному апараті [ (побутові дрони та референсні платформи, які можуть працювати з PX4)](../complete_vehicles/README.md).
-:::
+Ви також можете спробувати PX4 на завершеному апараті [ (побутові дрони та референсні платформи, які можуть працювати з PX4)](../complete_vehicles/README.md). Існують інші сумісні контролери польоту та варіанти, в тому числі [задокументовані тут на Github](https://github.com/PX4/PX4-Autopilot/#supported-hardware).
 
 - [Pixhawk Series](../flight_controller/pixhawk_series.md)
   - [Silicon Errata](../flight_controller/silicon_errata.md)
