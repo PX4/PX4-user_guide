@@ -1,9 +1,19 @@
-# Hardware (Drones & Drone Parts)
+# Hardware Hardware Selection & Setup
 
-This section contains information about complete pre-built PX4 vehicles, and components that you can use if building your own drones:
+This section contains information the components that might be used in a drone, and how they are set up.
 
-- [Complete Vehicles](../complete_vehicles/README.md) - Complete Ready to Fly (RTF) or near-RTF vehicles (i.e. may require battery, RC controller)
-- [Flight Controllers (Autopilots)](../flight_controller/README.md) - Autopilot hardware options (including [Pixhawk Series](../flight_controller/pixhawk_series.md))
-- [Flight Controller Peripherals](../peripherals/README.md) - Components that can be attached to the flight controller (GPS, compass, motors, rangefinders, etc.).
-  The device pages also explain how to configure the components to work with PX4.
-- [Companion Computers](../companion_computer/README.md) - Separate "mission computers" that enable advanced flight control features such as [Computer Vision](../computer_vision/README.md) (and their [peripherals](../companion_computer/companion_computer_peripherals.md)).
+- [Flight Controllers (Autopilots)](../flight_controller/README.md) - Pixhawk and other FCs, firmware updates, other bootloaders
+- [Sensors](../sensor/README.md) — accelerometer, gyroscope, compass, airspeed, barometer, rangefinders, GNSS, RTK GNSS, Optical Flow, Tachometers, Factory calibration, thermal calibration.
+- [Actuators](../actuators/README.md) — Allocation, ESC, motors, servos
+- [Radio Control (RC)](../getting_started/rc_transmitter_receiver.md) — Manual control using an RC system
+- [Joysticks](../config/joystick.md) — Manual control using a Joystick connected to QGroundControl
+- [Data Links](../data_links/README.md) — MAVLink, telemetry radios, satellite comms
+- [Power Systems](../power_systems/README.md) — Battery estimation tuning, power modules, smart batteries
+- [Peripherals](../peripherals/README.md) — camera, gimbal, grippers, parachute, RemoteID, traffic avoidance etc.
+- [I2C Peripherals](../sensor_bus/i2c_general.md)
+- [CAN Peripherals](../can/README.md)
+- [DroneCAN Peripherals](../dronecan/README.md)
+- [Cable Wiring](../assembly/cable_wiring.md)
+- [Companion Computers](../companion_computer/README.md) — Setup, peripherals, computer vision, obstacle avoidance etc.
+- [Serial Port Configuration](../peripherals/serial_configuration.md)
+- [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md)

@@ -7,7 +7,7 @@ PX4 allows grippers to be triggered automatically in [Payload Delivery Missions]
 ![High-load gripper example](../../assets/hardware/grippers/highload_gripper_example.jpg)
 
 :::note
-A gripper can instead be configured as a [generic RC or MAVLink actuator](../payloads/README.md#generic-actuator-control-with-rc).
+A gripper can instead be configured as a [generic RC or MAVLink actuator](../payloads/generic_actuator_control.md#generic-actuator-control-with-rc).
 A generic actuator cannot be used with a joystick or in payload missions, but it can be used with an RC Controller.
 :::
 

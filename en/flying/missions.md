@@ -1,16 +1,26 @@
 # Missions
 
+A mission is a predefined flight plan, which can be planned in QGroundControl and uploaded to the flight controller, and then executed autonomously in [Mission mode](../flight_modes_mc/mission.md).
+
+Missions typically include items for controlling taking off, flying a sequence of waypoints, capturing images and/or video, deploying cargo, and landing.
+QGroundControl allows you to plan missions using a fully manual approach, or you can use its more advanced features to plan ground area surveys, corridor surveys, or structure surveys.
+
+This topic provides an overview of how to plan and fly missions. 
+
+
+
 ## Planning Missions
 
 Manually planning missions is straightforward:
+
 - Switch to the mission view
-- Select the **Add Waypoint** ("plus") icon in the top left. 
+- Select the **Add Waypoint** ("plus") icon in the top left.
 - Click on the map to add waypoints.
 - Use the waypoint list on the right to modify the waypoint parameters/type
   The altitude indicator on the bottom provides a sense of the relative altitude of each waypoint.
 - Once finished, click on the **Upload** button (top right) to send the mission to the vehicle.
 
-You can also use the *Pattern* tool to automate creation of survey grids.
+You can also use the _Pattern_ tool to automate creation of survey grids.
 
 :::tip
 For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html).
@@ -39,7 +49,7 @@ Vehicle types that cannot independently control yaw and direction of travel will
 
 ### Setting Acceptance/Turning Radius
 
-The *acceptance radius* defines the circle around a waypoint within which a vehicle considers it has reached the waypoint, and will immediately switch to (and start turning towards) the next waypoint.
+The _acceptance radius_ defines the circle around a waypoint within which a vehicle considers it has reached the waypoint, and will immediately switch to (and start turning towards) the next waypoint.
 
 For a multi-rotor drones, the acceptance radius is tuned using the parameter [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD).
 By default, the radius is small to ensure that multirotors pass above the waypoints, but it can be increased to create a smoother path such that the drone starts to turn before reaching the waypoint.
@@ -54,10 +64,17 @@ The speed in the turn is automatically computed based on the acceptance radius (
 For more information about the impact of the acceptance radius around the waypoint see: [Mission Mode > Inter-waypoint Trajectory](../flight_modes_fw/mission.md#rounded-turns-inter-waypoint-trajectory).
 :::
 
+### Package Delivery (Cargo) Missions
+
+PX4 supports cargo delivery in missions using a gripper.
+
+This kind of mission is planned in much the same as any other [waypoint mission](../flying/missions.md), with mission start, takeoff waypoint, various path waypoints, and possibly a return waypoint.
+The only difference is that a package delivery mission must include a mission items to indicate how the package is released and the deployment mechanism.
+For more information see: [Package Delivery Mission](../flying/package_delivery_mission.md).
+
 ## Flying Missions
 
 Once the mission is uploaded, switch to the flight view.
-The mission is displayed in a way that makes it easy to track progress (it cannot be modified in this view). 
+The mission is displayed in a way that makes it easy to track progress (it cannot be modified in this view).
 
 ![flying-mission](../../assets/flying/flying_mission.jpg)
-

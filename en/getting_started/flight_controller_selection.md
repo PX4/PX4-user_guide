@@ -27,14 +27,9 @@ Note that manufacturer-supported controllers can be just as "good" (or better) t
 
 Dedicated flight controllers like Pixhawk are not usually well-suited for general purpose computing or running computationally intensive tasks.
 For more computing power, the most common approach is to run those applications on a separate onboard [Companion Computer](../companion_computer/README.md).
+Some companion computers can also run PX4 on a separate DSP, as part of the same autopilot board.
 
-Integrated companion computer/flight controller solutions include:
-
-- [Holybro Pixhawk RPI CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
-- Other options in [Companion Computer > Integrated Companion/Flight Controller Boards](../companion_computer/README.md#integrated-companion-flight-controller-boards)
-
-
-PX4 can also run natively on Raspberry Pi (this approach is not generally considered as "robust" as having a separate companion):
+Similarly, PX4 can also run natively Raspberry Pi (this approach is not generally considered as "robust" as having a separate companion or using a dedicated DSP):
 
 - [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
 - [Raspberry Pi 2/3/4 PilotPi Shield](../flight_controller/raspberry_pi_pilotpi.md)

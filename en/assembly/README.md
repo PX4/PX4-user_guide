@@ -9,6 +9,6 @@ Quickstart guides are only provided for a few controllers.
 Other controllers will have similar connections. Additional information may be available in [flight controllers](../flight_controller/README.md) pages or in manufacturer documentation.
 :::
 
-- See [Peripherals](../peripherals/README.md) for information about connecting sensors and other peripherals (e.g. airspeed sensor for planes).
+- See [Hardware Selection & Setup](../hardware/drone_parts.md) for information about connecting and configuring flight controllers, sensors and other peripherals (e.g. airspeed sensor for planes).
 - See [Airframe Builds](../airframes/README.md) for complete assembly examples on different vehicle frames.
 - See [Multicopter Racer Setup](../config_mc/racer_setup.md) for racer-specific assembly and configuration information.

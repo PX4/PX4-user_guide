@@ -264,7 +264,7 @@ Then perform the mandatory setup/calibration:
 Ideally you should also do:
 
 - [ESC Calibration](../advanced_config/esc_calibration.md)
-- [Battery](../config/battery.md)
+- [Battery Estimation Tuning](../config/battery.md)
   - 4S (4 cell LiPo) with charged cell voltage 4.15V and empty cell voltage 3.5V (or appropriate values for your battery).
 - [Safety](../config/safety.md)
 

@@ -627,5 +627,10 @@
       "text": "Airframe Reference"
     },
     "hideReason": "Link OK. Deferring tool fix."
+  },
+  {
+    "type": "PageNotInTOC",
+    "fileRelativeToRoot": "en\\complete_vehicles\\README.md",
+    "hideReason": "Split into per-vehicle. Could be deleted probably."
   }
 ]
