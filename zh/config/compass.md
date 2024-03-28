@@ -37,10 +37,10 @@ Calibration can even be affected if you're standing on a slab of concrete with u
 The calibration steps are:
 
 1. Start _QGroundControl_ and connect the vehicle.
-1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
+1. Select **"Q" icon > Vehicle Setup > Sensors** (sidebar) to open _Sensor Setup_.
 1. Click the **Compass** sensor button.
 
-   ![选择 Compass 校准 PX4](../../assets/qgc/setup/sensor/sensor_compass_select_px4.jpg)
+   ![选择 Compass 校准 PX4](../../assets/qgc/setup/sensor/sensor_compass_select_px4.png)
 
 :::note
 You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
@@ -49,7 +49,7 @@ You should already have set the [Autopilot Orientation](../config/flight_control
 1. Click **OK** to start the calibration.
 1. 把你的飞机放置在下面显示的某一个方向，并保持静止。 随后提示（方向图像变为黄色）在指定方向旋转飞行器。 该位置标定完成后，屏幕上的相应图示将变成绿色。
 
-   ![PX4 上的罗盘校准步骤](../../assets/qgc/setup/sensor/sensor_compass_calibrate_px4.jpg)
+   ![PX4 上的罗盘校准步骤](../../assets/qgc/setup/sensor/sensor_compass_calibrate_px4.png)
 
 1. 在机体的所有方向上重复校准步骤。
 
