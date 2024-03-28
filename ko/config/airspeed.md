@@ -18,23 +18,23 @@
 항속 센서 보정 절차
 
 1. Start _QGroundControl_ and connect the vehicle.
-2. Enable the airspeed sensors if not already done (as in _warning_ above).
-3. 상단 도구 모음에서 **톱니 바퀴** 아이콘(기체 설정)을 선택한 다음에, 가장자리 표시줄에서 **센서**를 선택합니다.
-4. **대기속도** 센서 버튼을 클릭합니다.
+1. Enable the airspeed sensors if not already done (as in _warning_ above).
+1. 상단 도구 모음에서 **톱니 바퀴** 아이콘(기체 설정)을 선택한 다음에, 가장자리 표시줄에서 **센서**를 선택합니다.
+1. **대기속도** 센서 버튼을 클릭합니다.
 
    ![대기속도 보정](../../assets/qgc/setup/sensor/sensor_airspeed.jpg)
 
-5. 센서로 부는 바람을 막으십시오 (예: 손을 컵 모양으로 감쌀 수 있습니다). 피톳 튜브의 구멍을 막지 않도록 주의하십시오.
-6. 보정을 시작하려면 **확인**을 클릭합니다.
-7. 피톳 튜브의 끝에 입으로 바람을 불어 보정 완료 신호를 보냅니다.
+1. 센서로 부는 바람을 막으십시오 (예: 손을 컵 모양으로 감쌀 수 있습니다). 피톳 튜브의 구멍을 막지 않도록 주의하십시오.
+1. 보정을 시작하려면 **확인**을 클릭합니다.
+1. 피톳 튜브의 끝에 입으로 바람을 불어 보정 완료 신호를 보냅니다.
 
    :::tip
 튜브에 분사하는 것은 동적 및 정적 포트가 올바르게 설치되었는지 확인하는 기본 검사이기도합니다.
 교체한  센서는 튜브에 바람을 불어 넣을 때 큰 음의 차압을 판독하고 보정이 오류와 함께 중단됩니다.
 :::
 
-8. _QGroundControl_ then tells you if the calibration was successful or not.
+1. _QGroundControl_ then tells you if the calibration was successful or not.
 
 ## 추가 정보
 
-- [QGroundControl 사용 설명서 &gt; 센서](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#airspeed)
+- [QGroundControl 사용 설명서 &gt; 센서](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#airspeed)
