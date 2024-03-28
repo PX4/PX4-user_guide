@@ -31,7 +31,7 @@ To configure single-channel flight mode selection:
 
 1. Start *QGroundControl* and connect the vehicle.
 1. Turn on your RC transmitter.
-1. Select **QGroundControl icon > Vehicle Setup**, and then **Flight Modes** in the sidebar.
+1. Select **"Q" icon > Vehicle Setup > Flight Modes** (sidebar) to open _Flight Modes Setup_.
 
    ![Flight modes single-channel](../../assets/qgc/setup/flight_modes/flight_modes_single_channel.jpg)
 
