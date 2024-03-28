@@ -1,6 +1,6 @@
 # Offboard Mode (Generic/All Frames)
 
-<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
+<img src="../../assets/site/position_fixed.svg" title="Фіксування положення є необхідним (e.g. GPS)" width="30px" />
 
 Апарат зберігає данні про положення, швидкість, прискорення, орієнтацію, значення сили тяги, відповідно заданим значенням, наданим деяким джерелом, зовнішнім по відношенню до польотного контролера, наприклад комп’ютером. Задані значення можна ввести за допомогою MAVLink (або MAVLink API таких як [MAVSDK](https://mavsdk.mavlink.io/)) або за допомогою [ROS 2](../ros/ros2.md).
 
@@ -235,21 +235,21 @@ bool прямий привід
 
 ## Offboard Parameters
 
-_Offboard mode_ is affected by the following parameters:
+На _Режим автопілота_ впливають наступні параметри:
 
-| Parameter                                                                                               | Description                                                                                                                                                                                      |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <a id="COM_OF_LOSS_T"></a>[COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)     | Time-out (in seconds) to wait when offboard connection is lost before triggering offboard lost failsafe (`COM_OBL_RC_ACT`)                                                                       |
-| <a id="COM_OBL_RC_ACT"></a>[COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT)   | Flight mode to switch to if offboard control is lost (Values are - `0`: _Position_, `1`: _Altitude_, `2`: _Manual_, `3`: *Return, `4`: *Land\*).                                             |
-| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Controls whether stick movement on a multicopter (or VTOL in MC mode) causes a mode change to [Position mode](../flight_modes_mc/position.md). This is not enabled for offboard mode by default. |
-| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | The amount of stick movement that causes a transition to [Position mode](../flight_modes_mc/position.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled).                                  |
-| <a id="COM_RCL_EXCEPT"></a>[COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT)   | Specify modes in which RC loss is ignored and the failsafe action not triggered. Set bit `2` to ignore RC loss in Offboard mode.                                                                 |
+| Параметр                                                                                                | Опис                                                                                                                                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="COM_OF_LOSS_T"></a>[COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)     | Час очікування (у секундах) при втраті з'єднання безпілотного керування, перш ніж спрацює аварійний захист в разі втрати безпілотного керування (`COM_OBL_RC_ACT`)                                               |
+| <a id="COM_OBL_RC_ACT"></a>[COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT)   | Режим польоту, на який перейти у випадку втрати керування безпілотним пунктом (Значення - `0`: _Положення_, `1`: _Орієнтація_, `2`: _Ручне_, `3`: *Повернення, `4`: *Посадка*).                                |
+| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Контролює переміщення джойстика на мультикоптері (або конвертоплані у режимі MC) зміну режиму на [Режим положення](../flight_modes_mc/position.md). За замовчуванням це неможливо ввімкнути в режимі автопілоту. |
+| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | Кількість рухів джойстика, яка викликає перехід у режим [Положення](../flight_modes_mc/position.md) (якщо [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) увімкнено).                                                      |
+| <a id="COM_RCL_EXCEPT"></a>[COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT)   | Вкажіть режими, в яких втрата радіокерування ігнорується, а запобіжний алгоритм не виконуватиметься. Встановіть біт `2`, щоб ігнорувати втрати радіоконтролю в режимі автопілоту.                                |
 
-## Developer Resources
+## Ресурси Розробника
 
-Typically developers do not directly work at the MAVLink layer, but instead use a robotics API like [MAVSDK](https://mavsdk.mavlink.io/) or [ROS](http://www.ros.org/) (these provide a developer friendly API, and take care of managing and maintaining connections, sending messages and monitoring responses - the minutiae of working with _Offboard mode_ and MAVLink).
+Зазвичай розробники не працюють безпосередньо на рівні MAVLink, а використовують API робототехніку, таку як [MAVSDK](https://mavsdk.mavlink.io/) або [ROS](http://www.ros.org/) (вони забезпечують зручний розробницький API і відповідають за управління та підтримку з'єднань, відправлення повідомлень і контроль відповідей - всі дрібниці роботи з _режимом автопілоту_ та MAVLink).
 
-The following resources may be useful for a developer audience:
+Наступні ресурси можуть бути корисними для аудиторії розробників:
 
 - [Offboard Control from Linux](../ros/offboard_control.md)
 - [ROS/MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md)
