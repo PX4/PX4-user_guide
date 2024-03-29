@@ -12,7 +12,7 @@
 
 ### Зв'язування RC перемикача з активацією режиму offboard.
 
-Щоб зробити це, завантажте параметри в *QGroundControl* і знайдіть параметр RC_MAP_OFFB_SW до якого ви можете призначити канал RC, яким ви хочете активувати offboard-режим. It can be useful to map things in such a way that when you fall out of offboard mode you go into position control.
+Щоб зробити це, завантажте параметри в *QGroundControl* і знайдіть параметр RC_MAP_OFFB_SW до якого ви можете призначити канал RC, яким ви хочете активувати offboard-режим. Це може бути корисно відобразити речі таким чином, щоб, коли ви виходите з режиму офборду, ви переходили до регулювання позиції.
 
 Хоча цей крок не є обов'язковим так як ви можете активувати offboard режим за допомогою MAVLink повідомлення. Ми вважаємо цей метод набагато безпечнішим.
 
@@ -43,9 +43,9 @@ graph TD;
   rad2 --MAVLink-- > a[Autopilot];
 -->
 
-### On-board processor
+### Бортовий процесор
 
-A small computer mounted onto the vehicle, connected to the autopilot through a serial port or Ehthernet port. There are many possibilities here and it will depend on what kind of additional on-board processing you want to do in addition to sending commands to the autopilot. Some examples are provided in [Companion Computers](../companion_computer/README.md#companion-computer-options).
+Невеликий комп'ютер, підключений до транспортного засобу, підключений до автопілота через послідовний порт або Ehthernet. Тут багато можливостей і це буде залежати від того, яку додаткову обробку ви хочете виконати на платі, а також від додаткової відправки команд до автопілота. Деякі приклади надаються в [Комп'ютери компаньйони](../companion_computer/README.md#companion-computer-options).
 
 [![Mermaid diagram: Companion mavlink](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGNvbXBbQ29tcGFuaW9uIENvbXB1dGVyXSAtLU1BVkxpbmstLT4gdWFydFtVQVJUIEFkYXB0ZXJdO1xuICB1YXJ0IC0tTUFWTGluay0tPiBBdXRvcGlsb3Q7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGNvbXBbQ29tcGFuaW9uIENvbXB1dGVyXSAtLU1BVkxpbmstLT4gdWFydFtVQVJUIEFkYXB0ZXJdO1xuICB1YXJ0IC0tTUFWTGluay0tPiBBdXRvcGlsb3Q7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 
@@ -56,9 +56,9 @@ graph TD;
   uart --MAVLink-- > Autopilot;
 -->
 
-### On-board processor and wifi link to ROS (***Recommended***)
+### Вбудований процесор та wifi link до ROS (***Recommended***)
 
-A small computer mounted onto the vehicle connected to the autopilot through a UART to USB adapter while also having a WiFi link to a ground station running ROS. Це може бути будь-який з комп'ютерів зазначеної секції в поєднанні з Wi-Fi адаптером.
+Невеликий комп'ютер, підключений до транспортного засобу, підключений до автопілота через UART до USB-адаптера в той час, як підключений WiFi до наземної станції з запущеним ROS. Це може бути будь-який з комп'ютерів зазначеної секції в поєднанні з Wi-Fi адаптером.
 
 [![Mermaid graph: ROS](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcbiAgc3ViZ3JhcGggR3JvdW5kICBTdGF0aW9uXG4gIGduZFtST1MgRW5hYmxlZCBDb21wdXRlcl0gLS0tIHFnY1txR3JvdW5kQ29udHJvbF1cbiAgZW5kXG4gIGduZCAtLU1BVkxpbmsvVURQLS0-IHdbV2lGaV07XG4gIHFnYyAtLU1BVkxpbmstLT4gdztcbiAgc3ViZ3JhcGggVmVoaWNsZVxuICBjb21wW0NvbXBhbmlvbiBDb21wdXRlcl0gLS1NQVZMaW5rLS0-IHVhcnRbVUFSVCBBZGFwdGVyXVxuICB1YXJ0IC0tLSBBdXRvcGlsb3RcbiAgZW5kXG4gIHcgLS0tIGNvbXAiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVERcbiAgc3ViZ3JhcGggR3JvdW5kICBTdGF0aW9uXG4gIGduZFtST1MgRW5hYmxlZCBDb21wdXRlcl0gLS0tIHFnY1txR3JvdW5kQ29udHJvbF1cbiAgZW5kXG4gIGduZCAtLU1BVkxpbmsvVURQLS0-IHdbV2lGaV07XG4gIHFnYyAtLU1BVkxpbmstLT4gdztcbiAgc3ViZ3JhcGggVmVoaWNsZVxuICBjb21wW0NvbXBhbmlvbiBDb21wdXRlcl0gLS1NQVZMaW5rLS0-IHVhcnRbVUFSVCBBZGFwdGVyXVxuICB1YXJ0IC0tLSBBdXRvcGlsb3RcbiAgZW5kXG4gIHcgLS0tIGNvbXAiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ)
 
