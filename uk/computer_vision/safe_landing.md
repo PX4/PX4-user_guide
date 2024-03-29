@@ -1,6 +1,6 @@
-# Безпечна посадка (Мультикоптер + комп'ютер-компаньйон)
+# Safe Landing (Мультикоптер + комп'ютер-компаньйон)
 
-_Безпечна посадка_ - функція комп'ютерного зору що забезпечує посадку мультикоптера тільки на рівній місцевості.
+_Safe Landing_ - функція комп'ютерного зору що забезпечує посадку мультикоптера тільки на рівній місцевості.
 
 Ця функція може бути увімкнута в [Land mode](../flight_modes_mc/land.md) та [Mission mode](../flight_modes_mc/mission.md) на мультикоптері з комп'ютером-компаньйоном, який виконує відповідне програмне забезпечення комп'ютерного зору. Також він може бути використаний для VTOL засобів у MC режимі.
 
@@ -16,13 +16,13 @@ _Безпечна посадка_ - функція комп'ютерного з�
 
 ## Конфігурація PX4
 
-Safe landing is enabled within PX4 by [setting](../advanced_config/parameters.md) the [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) to 1.
+Безпечна посадка увімкнена в PX4 шляхом встановлення [параметра](../advanced_config/parameters.md) [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) на значення 1.
 
 :::note
-`COM_OBS_AVOID` also enables [Obstacle Avoidance in Missions](../computer_vision/obstacle_avoidance.md#mission_mode) and any other features that use the [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) (Trajectory Interface) to integrate external path planning services with PX4.
+`COM_OBS_AVOID` також активує [Obstacle Avoidance у місіях](../computer_vision/obstacle_avoidance.md#mission_mode) та всі інші функції які використовують [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) (Trajectory Interface) щоб інтегрувати зовнішні служби планування маршруту з PX4.
 :::
 
-## Companion Computer Setup
+## Налаштування комп'ютера компаньйона
 
 Companion-side setup and configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
 
@@ -35,17 +35,17 @@ The configuration information includes, among other things, how to set up safe l
 
 <a id="interface"></a>
 
-## Safe Landing Interface
+## Інтерфейс Safe Landing
 
-PX4 uses the [Path Planning Interface](../computer_vision/path_planning_interface.md) for integrating path planning services from a companion computer (including [Obstacle Avoidance in missions](../computer_vision/obstacle_avoidance.md#mission_mode), [Safe Landing](../computer_vision/safe_landing.md), and future services).
+PX4 використовує [Path Planning Interface](../computer_vision/path_planning_interface.md) для інтеграції сервісів планування шляху з комп'ютера-компаньйона(включаючи [Obstacle Avoidance у місіях](../computer_vision/obstacle_avoidance.md#mission_mode), [Safe Landing](../computer_vision/safe_landing.md), та майбутні сервіси).
 
-The interface (messages sent) between PX4 and the companion are exactly the same as for any other path planning services. Note however that the safe landing planner only uses information in Point 0 of the `TRAJECTORY_REPRESENTATION_WAYPOINTS` message for the desired path.
+Інтерфейс (відправлення повідомлення) між PX4 і супутником точно такий же, як і для інших сервісів планування шляху. Note however that the safe landing planner only uses information in Point 0 of the `TRAJECTORY_REPRESENTATION_WAYPOINTS` message for the desired path.
 
-## Supported Hardware
+## Підтримуване обладнання
 
-Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
+Протестовані комп’ютери-компаньйони та камери перераховані в [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 
-## Further Information
+## Додаткова інформація
 
 - [Vision and offboard control interfaces](https://youtu.be/CxIsJWtVaTA?t=963) (PX4 Developer Summit 2019: Martina Rivizzigno, Auterion Computer Vision Engineer)
 - [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance)
