@@ -16,7 +16,7 @@ This example uses C++. A very similar example for Python can be found in [ROS/MA
 
 ## Код
 
-Create the `offb_node.cpp` file in your ROS package (by also adding it to your `CMakeList.txt` so it is compiled), and paste the following inside it:
+Створіть `offb_node.cpp` файл у вашому пакеті ROS (також додавши його в `CMakeList. xt`, щоб його скомпілювати) і вставте всередині нього:
 
 ```cpp
 /**
