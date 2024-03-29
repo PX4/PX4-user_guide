@@ -308,7 +308,7 @@ You can override the default value of these arguments defined in `mavros_posix_s
 В терміналі запустить:
 
 ```sh
-
+roslaunch offboard_py start_offb.launch
 ```
 
 Тепер ви повинні побачити ініціацію прошивки PX4 і виконання застосунку в Gazebo Classic. After the _OFFBOARD_ mode is set and the vehicle is armed, the behavior shown in the [video](#offb_video) should be observed.
