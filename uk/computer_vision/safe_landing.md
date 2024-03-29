@@ -24,14 +24,14 @@ _Safe Landing_ - функція комп'ютерного зору що забе
 
 ## Налаштування комп'ютера компаньйона
 
-Companion-side setup and configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
+Налаштування і конфігурація компаньйона-комп'ютера надані в [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github репозиторії.
 
-This covers the common setup for obstacle avoidance and collision prevention, and includes specific sections for using the _safe landing planner_ (which provides companion-side support for this feature):
+Це охоплює спільну конструкцію для уникнення перешкод та запобігання зіткненням, і включає в себе спеціальні розділи для використання _safe landing planner_ (яка надає підтримку компаньйона-комп'ютера для цієї функції):
 
-- [Simulation setup](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
-- [Hardware setup](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)
+- [Налаштування симуляції](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
+- [Налаштування обладнання](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)
 
-The configuration information includes, among other things, how to set up safe landing for different cameras, sizes of vehicles, and the height at which the decision to land or not is taken.
+Інформація про конфігурацію, включаючи й інші речі, як налаштувати safe landing для різних камер, розмірів транспортного засобу та висоти, на якій рішення про посадку буде приймається або ні.
 
 <a id="interface"></a>
 
@@ -39,7 +39,7 @@ The configuration information includes, among other things, how to set up safe l
 
 PX4 використовує [Path Planning Interface](../computer_vision/path_planning_interface.md) для інтеграції сервісів планування шляху з комп'ютера-компаньйона(включаючи [Obstacle Avoidance у місіях](../computer_vision/obstacle_avoidance.md#mission_mode), [Safe Landing](../computer_vision/safe_landing.md), та майбутні сервіси).
 
-Інтерфейс (відправлення повідомлення) між PX4 і супутником точно такий же, як і для інших сервісів планування шляху. Note however that the safe landing planner only uses information in Point 0 of the `TRAJECTORY_REPRESENTATION_WAYPOINTS` message for the desired path.
+Інтерфейс (відправлення повідомлення) між PX4 і супутником точно такий же, як і для інших сервісів планування шляху. Зверніть увагу, що safe landing planner використовує лише інформацію в Point 0 від `TRAJECTORY_REPRESENTON_WAYINTS` повідомлення для бажаного шляху.
 
 ## Підтримуване обладнання
 
