@@ -48,7 +48,7 @@ catkin init
 wstool init src
 ```
 
-You will be using the ROS Python tools: *wstool* (for retrieving sources), *rosinstall*, and *catkin_tools* (building) for this installation. While they may have been installed during your installation of ROS you can also install them with:
+You will be using the ROS Python tools: *wstool* (for retrieving sources), *rosinstall*, and *catkin_tools* (building) for this installation. Хоча вони могли бути встановлені під час інсталяції ROS, ви також можете встановити їх разом з ним:
 
 ```sh
 sudo apt-get install python-catkin-tools python-rosinstall-generator -y
