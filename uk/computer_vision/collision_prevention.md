@@ -4,35 +4,35 @@ _Collision Prevention_ може бути використано для авто�
 
 It can be enabled for multicopter vehicles in [Position mode](../flight_modes_mc/position.md), and can use sensor data from an offboard companion computer, offboard rangefinders over MAVLink, a rangefinder attached to the flight controller, or any combination of the above.
 
-Collision prevention may restrict vehicle maximum speed if the sensor range isn't large enough! It also prevents motion in directions where no sensor data is available (i.e. if you have no rear-sensor data, you will not be able to fly backwards).
+Запобігання зіткненням може обмежити максимальну швидкість автомобіля, якщо радіус дії датчика недостатньо великий! Він також запобігає руху в тих напрямках, де немає даних з датчиків (тобто, якщо у вас немає даних з заднього датчика, ви не зможете летіти назад).
 
 :::tip
-If high flight speeds are critical, consider disabling collision prevention when not needed.
+Якщо висока швидкість польоту є критично важливою, вимкніть функцію запобігання зіткненням, коли вона не потрібна.
 :::
 
 :::tip
-Ensure that you have sensors/sensor data in all directions that you want to fly (when collision prevention is enabled).
+Переконайтеся, що у вас є датчики/дані датчиків у всіх напрямках, в яких ви хочете летіти (коли увімкнено запобігання зіткненням).
 :::
 
 ## Загальний огляд
 
-_Collision Prevention_ is enabled on PX4 by setting the parameter for minimum allowed approach distance ([CP_DIST](#CP_DIST)).
+_Collision Prevention_ увімкнено на PX4 шляхом встановлення параметра мінімально допустимої відстані зближення ([CP_DIST](#CP_DIST)).
 
 The feature requires obstacle information from an external system (sent using the MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message) and/or a [distance sensor](../sensor/rangefinders.md) connected to the flight controller.
 
 :::note
-Multiple sensors can be used to get information about, and prevent collisions with, objects _around_ the vehicle. If multiple sources supply data for the _same_ orientation, the system uses the data that reports the smallest distance to an object.
+Для отримання інформації про об'єкти _навколо_ транспортного засобу та запобігання зіткненням з ними можна використовувати декілька датчиків. Якщо кілька джерел надають дані для _однакової_ орієнтації, система використовує дані, які повідомляють про найменшу відстань до об'єкта.
 :::
 
-The vehicle restricts the maximum velocity in order to slow down as it gets closer to obstacles, and will stop movement when it reaches the minimum allowed separation. In order to move away from (or parallel to) an obstacle, the user must command the vehicle to move toward a setpoint that does not bring the vehicle closer to the obstacle. The algorithm will make minor adjustments to the setpoint direction if it is determined that a "better" setpoint exists within a fixed margin on either side of the requested setpoint.
+Транспортний засіб обмежує максимальну швидкість, щоб сповільнитися, коли він наближається до перешкод, і припиняє рух, коли досягає мінімально допустимої дистанції. Для того, щоб відійти від перешкоди (або паралельно їй), користувач повинен наказати транспортному засобу рухатися до заданої точки, яка не наближає транспортний засіб до перешкоди. Алгоритм внесе незначні корективи в напрямок заданого значення, якщо буде визначено, що "краще" значення існує в межах фіксованого запасу по обидва боки від запитуваного заданого значення.
 
 Users are notified through _QGroundControl_ while _Collision Prevention_ is actively controlling velocity setpoints.
 
-PX4 software setup is covered in the next section. If you are using a distance sensor attached to your flight controller for collision prevention, it will need to be attached and configured as described in [PX4 Distance Sensor](#rangefinder). If you are using a companion computer to provide obstacle information see [companion setup](#companion).
+Налаштування програмного забезпечення PX4 оглянуто в наступному розділі. Якщо ви використовуєте датчик відстані, підключений до вашого польотного контролера для запобігання зіткненням, його потрібно підключити та налаштувати, як описано в розділі [Датчик відстані PX4](#rangefinder). Якщо ви використовуєте комп'ютер-компаньйон для надання інформації про перешкоди, див. [Налаштування компаньйона](#companion).
 
-## PX4 (Software) Setup
+## PX4 Налаштування (програмного забезпечення)
 
-Configure collision prevention by [setting the following parameters](../advanced_config/parameters.md) in _QGroundControl_:
+Налаштуйте запобігання зіткненням, встановивши [такі параметри](../advanced_config/parameters.md) у _QGroundControl_:
 
 | Parameter                                                                                           | Опис                                                                                                                                                                                                                                                                                                  |
 | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
