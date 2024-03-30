@@ -25,23 +25,23 @@ VIO використовує [Візуальну одометрію](https://en.
 
 ### Налаштування комп'ютера компаньйона
 
-To setup ROS and PX4:
+Для налаштування ROS та PX4:
 
-- On the companion computer, install and configure [MAVROS](../ros/mavros_installation.md).
-- Implement and run a ROS node to read data from the camera and publish the VIO odometry using MAVROS.
-  - See the [VIO ROS node](#vio_ros_node) section below for details of the requirements for this node.
-- Follow the instructions [below](#ekf2_tuning) for tuning the PX4 EKF2 estimator.
-- Verify the connection to the flight controller.
+- На комп'ютері-супутнику встановіть та налаштуйте [MAVROS](../ros/mavros_installation.md).
+- Реалізуйте та запустіть вузол ROS для зчитування даних з камери та публікації відомостей VIO за допомогою MAVROS.
+  - Дивіться розділ нижче про вузол [ROS VIO](#vio_ros_node) для подробиць щодо вимог до цього вузла.
+- Слідуйте інструкціям [нижче](#ekf2_tuning) для налаштування оцінювача EKF2 в PX4.
+- Перевірте підключення до керуючого контролера.
 
 :::tip
-You can use the _QGroundControl_ [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) to verify that you're getting `ODOMETRY` or `VISION_POSITION_ESTIMATE` messages (or check for `HEARTBEAT` messages that have the component id 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
+Ви можете використовувати _QGroundControl_ [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html), щоб переконатися, що ви отримуєте повідомлення `ODOMETRY` або `VISION_POSITION_ESTIMATE` (або перевірити наявність Повідомлення `HEARTBEAT`, які мають ідентифікатор компонента 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
 :::
 
-- [Verify that VIO is set up correctly](#verify_estimate) before your first flight!
+- [Перевірте, чи VIO налаштовано правильно](#verify_estimate) перед першим польотом!
 
 <a id="vio_ros_node"></a>
 
-### ROS VIO node
+### ROS VIO вузол
 
 У цьому рекомендованому налаштуванні ROS вузла VIO потрібно
 
@@ -53,32 +53,32 @@ You can use the _QGroundControl_ [MAVLink Inspector](https://docs.qgroundcontrol
 
 Повідомлення відомостей повинні бути типу [`nav_msgs/Odometry`](http://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html) та публікуватися на темі `/mavros/odometry/out`.
 
-Повідомлення стану системи типу [`mavros_msgs/CompanionProcessStatus`](https://github.com/mavlink/mavros/blob/master/mavros_msgs/msg/CompanionProcessStatus.msg) повинні публікуватися на темі `/mavros/companion_process/status`. These should identify the component as `MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY` (197) and indicate the `state` of the system. Рекомендовані значення статусу:
+Повідомлення стану системи типу [`mavros_msgs/CompanionProcessStatus`](https://github.com/mavlink/mavros/blob/master/mavros_msgs/msg/CompanionProcessStatus.msg) повинні публікуватися на темі `/mavros/companion_process/status`. Вони повинні ідентифікувати компонент як `MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY` (197) та вказувати `стан системи`. Рекомендовані значення статусу:
 
-- `MAV_STATE_ACTIVE` when the VIO system is functioning as expected,
-- `MAV_STATE_CRITICAL` when the VIO system is functioning, but with low confidence, and
-- `MAV_STATE_FLIGHT_TERMINATION` when the system has failed or the estimate confidence is unacceptably low.
+- `MAV_STATE_ACTIVE` коли система VIO працює як очікувалося,
+- `MAV_STATE_CRITICAL` коли система VIO працює, але з низькою впевненістю, та
+- `MAV_STATE_FLIGHT_TERMINATION` коли система зазнала відмови або впевненість в оцінці неприйнятно низька.
 
 <a id="ekf2_tuning"></a>
 
 ### PX4 Tuning
 
-The following parameters must be set to use external position information with EKF2.
+Наступні параметри повинні бути задані для використання зовнішньої позиції з EKF2.
 
-| Parameter                                                                                                                                                                                                                          | Setting for External Position Estimation                                                                                                               |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL)                                                                                                                                                           | Set _horizontal position fusion_, _vertical vision fusion_, _velocity fusion_, and _yaw fusion_ according to your desired fusion model.                |
-| [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)                                                                                                                                                           | Set to _Vision_ to use the vision as the reference sensor for altitude estimation.                                                                     |
-| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                         | Set to the difference between the timestamp of the measurement and the "actual" capture time. For more information see [below](#tuning-EKF2_EV_DELAY). |
-| [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | Set the position of the vision sensor with respect to the vehicle's body frame.                                                                        |
+| Параметр                                                                                                                                                                                                                           | Налаштуйте зовнішнє позиційне оцінювання                                                                                                                                                                     |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL)                                                                                                                                                           | Встановіть _горизонтальне об'єднання позиції_, _вертикальне об'єднання позиції_, _об'єднання швидкості_ та _об'єднання кута_ курсу згідно з вашою бажаною моделлю об'єднання.                                |
+| [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)                                                                                                                                                           | Встановіть на _Vision_, щоб використовувати візуальну інформацію як датчик відліку висоти.                                                                                                                   |
+| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                         | Встановіть різницю між міткою часу вимірювання та "фактичним" часом захоплення. Для отримання додаткової інформації дивіться нижче. Для отримання додаткової інформації див. [нижче](#tuning-EKF2_EV_DELAY). |
+| [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | Встановіть положення візуального датчика відносно корпусу транспортного засобу.                                                                                                                              |
 
-These can be set in _QGroundControl_ > **Vehicle Setup > Parameters > EKF2** (remember to reboot the flight controller in order for parameter changes to take effect).
+Їх можна встановити в _QGroundControl_ > **Налаштування автомобіля > Параметри > EKF2** (не забудьте перезавантажити контролер польоту, щоб зміни параметрів набули чинності).
 
-For more detailed/additional information, see: [ECL/EKF Overview & Tuning > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system).
+Для отримання додаткової детальної інформації дивіться: [ECL/EKF огляд і налаштування & Tuning> Зовнішня система візуальної оцінки](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system).
 
 <a id="tuning-EKF2_EV_DELAY"></a>
 
-#### Tuning EKF2_EV_DELAY
+#### Налаштування EKF2_EV_DELAY
 
 [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) - це _затримка оцінювача позиції за допомогою візійної системи відносно вимірювань_. Іншими словами, це різниця між міткою часу візійної системи та "фактичним" часом захоплення, який був би записаний годинником IMU (тобто "базовий годинник" для EKF2).
 
