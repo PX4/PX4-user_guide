@@ -38,7 +38,7 @@ Almost all recent Pixhawk boards, such as the Pixhawk-6C, use the same connector
 
 The standard `TELEM2` pin assignments are shown below.
 
-| Pins      | Signal          | Voltage |
+| Pins      | Сигнал          | Напруга |
 | --------- | --------------- | ------- |
 | 1 (Red)   | VCC             | +5V     |
 | 2 (Black) | UART5_TX (out)  | +3.3V   |
@@ -160,17 +160,17 @@ Enter the following commands (in sequence) a terminal to configure Ubuntu for RP
 
    The result of the command should include the RX/TX connection `/dev/ttyAMA0` (note that this serial port is also available as `/dev/serial0`).
 
-The RPi is now setup to work with RPi and communicate using the `/dev/ttyAMA0` serial port. Note that we'll install more software in the following sections to work with MAVLink and ROS 2.
+RPi наразі налаштований для роботи з RPi та зв'язку за допомогою послідовного порту `/dev/ttyAMA0`. Зверніть увагу, що ми встановимо додаткове програмне забезпечення в наступних розділах для роботи з MAVLink та ROS 2.
 
-## MAVLink Communication
+## Зв'язок MAVLink
 
-[MAVLink](https://mavlink.io/en/) is the default and stable communication interface for working with PX4. MAVLink applications running on the companion computer can connect to the `/dev/ttyAMA0` serial port you just set up on the RPi and should automatically (by default) connect to `TELEM 2` on the Pixhawk.
+[MAVLink](https://mavlink.io/en/) є стандартним і стабільним інтерфейсом зв'язку для роботи з PX4. Додатки MAVLink, які працюють на супутниковому комп'ютері, можуть підключатися до послідовного порту `/dev/ttyAMA0`, який ви щойно налаштували на RPi, і за замовчуванням повинні автоматично підключатися до `TELEM 2` на Pixhawk.
 
-PX4 recommends [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) for writing MAVLink companion computer applications, as it provides simple APIs for using many common MAVLink services in many different programming languages. You can also write applications using the libraries provided by [MAVLink](https://mavlink.io/en/#mavlink-project-generatorslanguages), such as [Pymavlink](https://mavlink.io/en/mavgen_python/), but then you are more likely to have to provide your own implementations of some microservices.
+PX4 рекомендує використовувати [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) для написання додатків супутникового комп'ютера, що використовують MAVLink, оскільки він надає прості API для використання багатьох загальних сервісів MAVLink на багатьох різних мов програмування. Ви також можете писати додатки, використовуючи бібліотеки, надані [MAVLink](https://mavlink.io/en/#mavlink-project-generatorslanguages), такі як [Pymavlink](https://mavlink.io/en/mavgen_python/), але в такому випадку вам, ймовірно, доведеться надати власні реалізації деяких мікрослужб.
 
-For this tutorial we're not going to go into MAVLink control in any detail (it is well covered in the respective SDKs). However we will install and use a simple developer MAVLink GCS called `mavproxy`. This will allow us to verify the MAVLink connection, and therefore that our physical connection has been set up properly. A very similar connection pattern would be used for MAVSDK and other MAVLink applications.
+У цьому підручнику ми не будемо вдаватися в докладності щодо управління MAVLink (воно добре описане в відповідних SDK). Однак ми встановимо та використаємо простий розробницький GCS MAVLink, званий `mavproxy`. Це дозволить нам перевірити підключення MAVLink, а отже, правильність налаштування нашого фізичного з'єднання. Дуже схожий шаблон підключення використовуватиметься для MAVSDK та інших додатків MAVLink.
 
-First check the Pixhawk `TELEM 2` configuration:
+Спочатку перевірте конфігурацію Pixhawk `TELEM 2`:
 
 1. Connect the Pixhawk with the laptop using a USB cable.
 1. Open QGroundControl (the vehicle should connect).
