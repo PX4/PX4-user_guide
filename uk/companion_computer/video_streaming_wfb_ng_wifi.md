@@ -1,68 +1,69 @@
-# Video Streaming Data-link using WiFi in Raw Mode (WFB-ng)
+# Посилання для передачі відео за допомогою бездротового зв'язку WiFi у режимі Raw (WFB-ng)
 
-This tutorial shows how to set up a [companion computer](../companion_computer/README.md) with a Logitech C920 or RaspberryPi camera, such that the video stream is transferred from the UAV to a ground computer and displayed in _QGroundControl_. The setup uses WiFi in unconnected (broadcast) mode and software from the [WFB-ng project](https://github.com/svpcom/wfb-ng).
+Цей посібник показує, як налаштувати [супутній комп'ютер](../companion_computer/README.md) з камерою Logitech C920 або RaspberryPi так, щоб відеопотік передавався з БЛА на земний комп'ютер і відображався в _QGroundControl_. Для налаштування використовується WiFi у режимі непідключеного (транслювання) та програмне забезпечення проекту [WFB-ng](https://github.com/svpcom/wfb-ng).
 
-The channel can also be used as a bidirectional [telemetry](../telemetry/README.md) link and TCP/IP tunnel for drone control during flight. If you manually control the drone with a Joystick from QGroundControl (which uses MAVLink) then you can use WFB-ng as single link for all drone communications (Video, MAVLink telemetry, remote control using a Joystick).
+Канал також може бути використаний як двосторонній [телеметричний](../telemetry/README.md) зв'язок та тунель TCP/IP для керування дроном під час польоту. Якщо ви керуєте дроном вручну за допомогою джойстика з QGroundControl (яке використовує MAVLink), то ви можете використовувати WFB-ng як єдине з'єднання для всіх комунікацій з дроном (відео, телеметрія MAVLink, дистанційне керування за допомогою джойстика).
 
 :::warning
-Before using _WFB-ng_ check regulators allow this kind of WiFi use in your country.
+Перш ніж використовувати _WFB-ng_, перевірте, чи дозволяють регулятори такий тип використання WiFi в вашій країні.
 :::
 
-## WFB-ng Overview
+## Загальний огляд WFB-ng
 
-The _WFB-ng project_ provides a data transport that use low-level WiFi packets to avoid the distance and latency limitations of the ordinary IEEE 802.11 stack.
+Проект _WFB-ng_ надає транспорт даних, який використовує низькорівневі пакети WiFi для уникнення обмежень відстані та затримки звичайного стеку IEEE 802.11.
 
-The high level benefits of _WFB-ng_ include:
+Основні переваги _WFB-ng_ включають:
 
-- Low-latency video link.
-- Bidirectional telemetry link (MAVLink).
-- TCP/IP tunnel.
-- Automatic TX diversity - use multiple cards on the ground to avoid antenna tracker.
-- Full link encryption and authentication (using [libsodium](https://download.libsodium.org/doc/)).
-- Aggregation of MAVLink packets (pack small packets into batches before transmitting).
-- Enhanced [OSD](https://github.com/svpcom/wfb-ng-osd) for Raspberry PI or generic linux desktop with gstreamer.
+- Низька затримка відеозв'язку.
+- Двосторонній телеметричний зв'язок (MAVLink).
+- TCP/IP тунель.
+- Автоматичне різноманіття передавача - використовуйте кілька карт на землі, щоб уникнути відслідковувача антен.
+- Повне шифрування та аутентифікація зв'язку (з використанням [libsodium](https://download.libsodium.org/doc/)).
+- Агрегація пакетів MAVLink (упаковка невеликих пакетів у партії перед передачею).
+- Покращений [OSD](https://github.com/svpcom/wfb-ng-osd) для Raspberry PI або загального лінуксового робочого стола з gstreamer.
 
-Additional information is provided in the [FAQ](#faq) below.
+Додаткова інформація наведена в [FAQ](#faq) нижче.
 
-## Hardware
+## Апаратне забезпечення
 
 ### Vehicle Setup
 
-The vehicle setup consists of:
+Налаштування транспортного засобу складається з такого:
 
 - Raspberry PI 3B/3B+/ZeroW
-- A camera. These have been tested:
+- Камера. Були протестовані наступні варіанти:
 
-  - [Raspberry Pi camera](https://www.raspberrypi.org/products/camera-module-v2/) connected via CSI.
-  - [Logitech camera C920](https://www.logitech.com/en-us/product/hd-pro-webcam-c920?crid=34) connected via USB
+  - [Камера Raspberry Pi](https://www.raspberrypi.org/products/camera-module-v2/), підключена через CSI.
+  - [Камера Logitech C920](https://www.logitech.com/en-us/product/hd-pro-webcam-c920?crid=34), підключена через USB
 
-- WiFi module [ALPHA AWUS036ACH](https://www.alfa.com.tw/products_detail/1.htm) or any other **RTL8812au** card.
+- Модуль WiFi [ALPHA AWUS036ACH](https://www.alfa.com.tw/products_detail/1.htm) або будь-яка інша карта на основі **RTL8812au**.
 
-### Ground Station
+### Наземна станція
 
-- Ground Station Computer. These options have been tested:
+- Наземний комп'ютер на станції. Ці варіанти були перевірені:
 
-  - Any Linux computer with a USB port (tested on Ubuntu 18.04 x86-64)
-  - A computer with any OS running QGround control and Raspberry PI connected via Ethernet (RasPi provides the wifi connection).
+  - Будь-який Linux комп'ютер з USB-портом (протестований на Ubuntu 18.04 x86-64)
+  - Комп’ютер із будь-якою ОС із керуванням QGround та Raspberry PI, під’єднаний через Ethernet (RasPi забезпечує з’єднання Wi-Fi).
 
-- WiFi module [ALPHA AWUS036ACH](https://www.alfa.com.tw/products_detail/1.htm) or any other **RTL8812au** card. See [WFB-ng wiki > WiFi hardware](https://github.com/svpcom/wfb-ng/wiki/WiFi-hardware) for more information on supported modules.
+- Модуль WiFi [ALPHA AWUS036ACH](https://www.alfa.com.tw/products_detail/1.htm) або будь-яка інша карта на основі **RTL8812au**. Див. вікі [WFB-ng > апаратне забезпечення WiFi](https://github.com/svpcom/wfb-ng/wiki/WiFi-hardware) для отримання додаткової інформації про підтримувані модулі.
 
-## Hardware Modification
+## Модифікація апаратного забезпечення
 
-Alpha AWUS036ACH is a medium power card that uses a lot of current while transmitting. If you power it from ordinary USB2 it will reset the port on most **ARM boards**. If you connect it to **USB3** port via **native USB3 cable** to a **Linux laptop** you can use it without modification.
+Alpha AWUS036ACH - це карта середньої потужності, яка використовує багато струму під час передачі. Якщо ви живите її від звичайного USB2, то на більшості **ARM-плат** вона скине порт. Якщо ви підключите її до порту **USB3** за допомогою **нативного кабелю USB3** до ноутбука на **Linux**, ви можете використовувати її без модифікацій.
 
-For **Raspberry PI** (UAV or ground) it must be directly connected to 5V BEC (or high current power adapter in case of ground pi) in one of two ways:
+Для **Raspberry PI** (UAV або земля) її необхідно підключити безпосередньо до 5V BEC (або адаптера високої потужності для земельного pi) одним із двох способів:
 
-- Make a custom USB cable ([cut `+5V` wire from USB plug and connect it to BEC])(https://electronics.stackexchange.com/questions/218500/usb-charge-and-data-separate-cables)
-- Cut a `+5V` wire on PCB near USB port and wire it to BEC (don't do this if doubt - use custom cable instead).
+- Зробіть власний USB-кабель ([відірвіть провід `+5V` від USB-штепселя і підключіть його до BEC])(https://electronics.stackexchange.com/questions/218500/usb-charge-and-data-separate-cables)
+- Відірвіть провід `+5V` на платі поруч із USB-портом і підключіть його до BEC (не робіть цього, якщо сумніваєтеся - використовуйте власний кабель).
 
-You must also add a 470uF **low ESR capacitor** (like ESC has) between **card +5v and ground** to filter voltage spikes. You should integrate the capacitor with a custom USB cable. Without the capacitor you can get packet corruption or packet loss. Be aware of [ground loop](https://en.wikipedia.org/wiki/Ground_loop_%28electricity%29) when using several ground wires.
+Вам також потрібно додати **конденсатор низького опору** з ємністю 470 мкФ (як у ESC) між **+5В карти та землею**, щоб фільтрувати перепади напруги. Ви повинні інтегрувати конденсатор з власним USB-кабелем. Без конденсатора ви можете отримати втрату пакетів або їх порушення. Будьте обережні з петлею маси при використанні декількох земляних проводів. Будьте обережні з [петлею маси](https://en.wikipedia.org/wiki/Ground_loop_%28electricity%29) при використанні декількох земляних проводів.
 
 :::note
-If you use a special "very" high power cards from Taobao/Aliexpress then you MUST power it as described above in ANY case.
+
+Якщо ви використовуєте спеціальні "дуже" потужні карти з Taobao/Aliexpress, то ВИ МАЄТЕ живити їх так, як описано вище в БУДЬ-ЯКОМУ випадку.
 :::
 
-### UAV Configuration
+### Конфігурація UAV
 
 1. Download Raspberry PI image from [latest wfb-ng release](https://github.com/svpcom/wfb-ng/releases/)
 2. Flash it to the **UAV** Raspberry PI
@@ -74,7 +75,7 @@ If you use a special "very" high power cards from Taobao/Aliexpress then you MUS
 
 ### Using a Linux Laptop as GCS (Harder than using a RasPi)
 
-1. On **ground** Linux development computer:
+1. На **наземному** Linux комп'ютері розробки:
 
    ```sh
    sudo apt install libpcap-dev libsodium-dev python3-all python3-twisted
