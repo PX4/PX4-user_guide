@@ -81,7 +81,7 @@ For more information and troubleshooting see: [Ubuntu Development Environment](.
 
 To install ROS 2 and its dependencies:
 
-1. Install ROS 2.
+1. Встановлення ROS 2.
 
    :::: tabs
 
@@ -116,7 +116,7 @@ To install ROS 2 and its dependencies:
 
    ::::
 
-1. Some Python dependencies must also be installed (using **`pip`** or **`apt`**):
+1. Деякі Python залежності також мають бути встановленні (використовуючи **`pip`** або **`apt`**):
 
    ```sh
    pip install --user -U empy==3.3.4 pyros-genmsg setuptools
@@ -134,7 +134,7 @@ The agent can be installed onto the companion computer in a [number of ways](../
 
 To setup and start the agent:
 
-1. Open a terminal.
+1. Відкрийте термінал.
 1. Enter the following commands to fetch and build the agent from source:
 
    ```sh
@@ -229,7 +229,7 @@ The example builds the [ROS 2 Listener](#ros-2-listener) example application, lo
 
 To create and build the workspace:
 
-1. Open a new terminal.
+1. Відкрийте новий термінал.
 1. Create and navigate into a new workspace directory using:
 
    ```sh
