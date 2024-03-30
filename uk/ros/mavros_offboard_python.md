@@ -1,4 +1,4 @@
-# MAVROS приклад _Зовнішнього_ керування (Python)
+# MAVROS _Offboard_ control приклад (Python)
 
 Цей посібник показує основи _OFFBOARD_ контроль за MAVROS Python, використовуючи Iris quadcopter, імітований в [Gazebo Classic](../sim_gazebo_classic/README.md). Він надає покрокові інструкції, що демонструють як почати розробку програм для керування засобом та виконання коду в симуляції.
 
@@ -20,7 +20,7 @@ _OFFBOARD_ керування небезпечно. Якщо ви керуєте
 
 ## Створення пакету ROS
 
-1. Відкрийте термінал і перейдіть до `~/catkin_ws/src` директорії
+1. Відкрийте термінал і перейдіть до директорії `~/catkin_ws/src`
 
    ```sh
    roscd  # Should cd into ~/catkin_ws/devel
@@ -200,7 +200,7 @@ while(not rospy.is_shutdown() and not current_state.connected):
     rate.sleep()
 ```
 
-Even though PX4 operates in the aerospace NED coordinate frame, MAVROS translates these coordinates to the standard ENU frame and vice-versa. Ось чому ми визначаємо `z` як 2:
+Попри те, що PX4 працює в координатній площині NED, MAVROS переводить ці координати до ENU стандарту та навпаки. Ось чому ми визначаємо `z` як 2:
 
 ```py
 pose = PoseStamped()
@@ -229,7 +229,7 @@ offb_set_mode = SetModeRequest()
 offb_set_mode.custom_mode = 'OFFBOARD'
 ```
 
-Решта коду є значною мірою поясненням. We attempt to switch to _Offboard_ mode, after which we arm the quad to allow it to fly. We space out the service calls by 5 seconds so to not flood the autopilot with the requests. In the same loop, we continue sending the requested pose at the rate previously defined.
+Решта коду є значною мірою поясненням. Ми намагаємося перейти в режим _Offboard_, після чого ставимо квадрокоптер в arm, щоб він міг злетіти. Ми визначаємо паузу виклику сервісів у 5 секунд, щоб не перевантажити автопілот запитами. В тому ж циклі ми продовжуємо надсилати запитану позицію за частотою, яка раніше визначена.
 
 ```py
 arm_cmd = CommandBoolRequest()
@@ -285,12 +285,12 @@ touch start_offb.launch
 </launch>
 ```
 
-Як бачите, `mavros_posix_sitl.launch` включено. This file is responsible for launching MAVROS, the PX4 SITL, the Gazebo Classic Environment and for spawning a vehicle in a given world (for further information see the file [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)).
+Як бачите, `mavros_posix_sitl.launch` включено. Цей файл відповідає за запуск MAVROS, PX4 SITL, Gazebo Classic Environment і за створення транспортного засобу в певному світі (для отримання додаткової інформації дивіться файл [тут](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)).
 
 :::tip
-The `mavros_posix_sitl.launch` file takes several arguments that can be set according to your preferences such as the vehicle to spawn or the Gazebo Classic world (refer to [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)) for a complete list).
+The `mavros_posix_sitl.launch` приймає кілька аргументів, які можна встановити відповідно до ваших уподобань, як-от транспортний засіб для створення чи класичний світ Gazebo (повний список див. [тут](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)).
 
-You can override the default value of these arguments defined in `mavros_posix_sitl.launch` by declaring them inside the _include_ tags. As an example, if you wanted to spawn the vehicle in the `warehouse.world`, you would write the following:
+Ви можете перевизначити значення за замовчуванням цих аргументів, визначених в `mavros_posix_sitl.launch` оголосивши їх у _include_ тегах. Як приклад, якщо ви хочете створити транспортний засіб у `warehouse.world`, ви повинні написати наступне:
 
 ```xml
 <!-- Include the MAVROS node with SITL and Gazebo -->
@@ -311,10 +311,10 @@ You can override the default value of these arguments defined in `mavros_posix_s
 roslaunch offboard_py start_offb.launch
 ```
 
-Тепер ви повинні побачити ініціацію прошивки PX4 і виконання застосунку в Gazebo Classic. After the _OFFBOARD_ mode is set and the vehicle is armed, the behavior shown in the [video](#offb_video) should be observed.
+Тепер ви повинні побачити ініціацію прошивки PX4 і виконання застосунку в Gazebo Classic. Після встановлення режиму _OFFBOARD_ та постановки транспортного засобу під arming, слід дотримуватися поведінки, показаної у [відео](#offb_video).
 
 :::warning
-It is possible that when running the script an error appears saying:
+Цілком можливо, що при запуску скрипта з'явиться помилка:
 
 > Resource not found: px4 ROS path [0] = ... ...
 
@@ -333,5 +333,5 @@ export GAZEBO_PLUGIN_PATH=$GAZEBO_PLUGIN_PATH:/usr/lib/x86_64-linux-gnu/gazebo-9
 source .bashrc
 ```
 
-After this step, every time you open a new terminal window you should not have to worry about this error anymore. If it appears again, a simple `source .bashrc` should fix it. This solution was obtained from this [issue](https://github.com/mzahana/px4_fast_planner/issues/4) thread, where you can get more information about the problem.
+Після цього кроку, кожного разу, коли ви відкриваєте нове вікно терміналу, вас не повинна турбувати ця помилка. Якщо вона з'явиться знову, просте `source .bashrc` має виправити це. Це рішення було отримано з цього обговорення [issue](https://github.com/mzahana/px4_fast_planner/issues/4), де ви можете отримати більше інформації про проблему.
 :::
