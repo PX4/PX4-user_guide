@@ -105,14 +105,14 @@ make px4_fmu-v6c_default upload
 
 The following steps show how to install and setup Ubuntu 22.04 on the RPi. Note that ROS 2 versions target particular Ubuntu versions. We're using Ubuntu 22.04 to match ROS 2 "Humble", so if you're working with ROS 2 "Foxy" you would instead install Ubuntu 20.04.
 
-First install Ubuntu onto the RPi:
+Спочатку встановіть Ubuntu на RPi:
 
-1. Prepare a Ubuntu 22.04 bootable Ubuntu Desktop SD card by following the official tutorial: [How to install Ubuntu Desktop on Raspberry Pi 4](https://ubuntu.com/tutorials/how-to-install-ubuntu-desktop-on-raspberry-pi-4#1-overview)
-1. Connect the mouse, keyboard, monitor and connect the RPi to a 5V Power Supply (external source/charger).
-1. Insert the SD card into the RPi and turn on the RPi to boot from the SD card.
-1. Follow the on-screen instructions to install Ubuntu.
+1. Підготуйте завантажувальну карту Ubuntu 22.04 Ubuntu Desktop SD слідуючи офіційному посібнику: [Як встановити Ubuntu Desktop на Raspberry Pi 4](https://ubuntu.com/tutorials/how-to-install-ubuntu-desktop-on-raspberry-pi-4#1-overview)
+1. Під'єднайте мишу, клавіатуру, монітор і підключіть RPi до джерела живлення 5 В (зовнішнє джерело/зарядний пристрій).
+1. Вставте SD-карту в RPi і увімкніть RPi для завантаження з карти SD.
+1. Дотримуйтесь інструкцій на екрані для встановлення Ubuntu.
 
-Enter the following commands (in sequence) a terminal to configure Ubuntu for RPi:
+Введіть наступні команди (у послідовності) у термінал для налаштування Ubuntu на RPi:
 
 1. Встановіть `raspi-config`:
 
@@ -147,11 +147,11 @@ Enter the following commands (in sequence) a terminal to configure Ubuntu for RP
    dtoverlay=disable-bt
    ```
 
-1. Then save the file and restart the RPi.
+1. Далі збережіть файл і перезапустіть RPi.
 
-   - In `nano` you can save the file using the following sequence of keyboard shortcuts: **ctrl+x**, **ctrl+y**, **Enter**.
+   - У `nano` ви можете зберегти файл за допомогою такої послідовності комбінацій клавіш: **ctrl+x**, **ctrl+y**, **Enter**.
 
-1. Check that the serial port is available. In this case we use the following terminal commands to list the serial devices:
+1. Перевірте, чи доступний послідовний порт. В даному випадку ми використовуємо наступні команди для перегляду серійних пристроїв:
 
    ```sh
    cd /
