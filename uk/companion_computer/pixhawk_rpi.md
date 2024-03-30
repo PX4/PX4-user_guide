@@ -172,8 +172,8 @@ PX4 рекомендує використовувати [MAVSDK](https://mavsdk.
 
 Спочатку перевірте конфігурацію Pixhawk `TELEM 2`:
 
-1. Connect the Pixhawk with the laptop using a USB cable.
-1. Open QGroundControl (the vehicle should connect).
+1. Підключіть Pixhawk до ноутбука за допомогою USB-кабеля.
+1. Відкрийте QGroundControl (повинно з'єднатися з транспортним засобом).
 1. [Check/change the following parameters](../advanced_config/parameters.md) in QGroundControl:
 
    ```ini
