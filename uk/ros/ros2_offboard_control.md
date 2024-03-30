@@ -4,10 +4,10 @@ The following C++ example shows how to do position control in [offboard mode](..
 
 The example starts sending setpoints, enters offboard mode, arms, ascends to 5 metres, and waits. While simple, it shows the main principles of how to use offboard control and how to send vehicle commands.
 
-It has been tested on Ubuntu 20.04 with ROS 2 Foxy and PX4 `main` after PX4 v1.13.
+Він був протестований на Ubuntu 20.04 з ROS 2 Foxy та PX4 `main` після PX4 v1.13.
 
 :::warning
-*Offboard* control is dangerous. If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
+*Offboard* керування небезпечне. Якщо ви керуєте реальним транспортним засобом, то обов'язково майте можливість отримати назад ручне керування на випадок, якщо щось піде не так.
 :::
 
 :::note ROS
