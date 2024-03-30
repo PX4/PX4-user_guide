@@ -97,18 +97,18 @@ If you have Windows or OSX, or don't want to setup WFB-ng to your Linux laptop t
 4. Connect your laptop and ground RasPi via ethernet and configure IP addresses
 5. Edit `/etc/wifibroadcast.cfg` and set the IP address of the laptop in `[gs_mavlink]` and `[gs_video]` sections (replacing `127.0.0.1`).
 
-### QGroundControl Setup
+### Налаштування QGroundControl
 
-1. Run _QGroundControl_ and set `RTP h264` on port 5600 as video source
-2. Use default settings (udp on port 14550) as mavlink source
+1. Запустіть _QGroundControl_ і встановіть `RTP h264` на порту 5600 як вихідне джерело відео
+2. Використовуйте налаштування за замовчуванням (udp на порту 14550) як джерело mavlink
 
-## Tuning Radio Settings
+## Налаштування радіо
 
-With default settings WFB use radio channel 165 (5825 MHz), width 20MHz, MCS #1 (QPSK 1/2) with long GI. This provides ~7 mbit/s of **effective** speed (i.e. usable speed after FEC and packet encoding) for **both directions** in sum, because WiFi is half-duplex. So it is suitable for video down stream 720p@49fps (4 mbit/s) + two full-speed telemetry streams (uplink and downlink). If you need a higher bandwidth you can use other MCS index (for example 2 or greater)
+With default settings WFB use radio channel 165 (5825 MHz), width 20MHz, MCS #1 (QPSK 1/2) with long GI. Це забезпечує приблизно 7 мбіт/с **ефективної** швидкості (тобто використовуваної швидкості після FEC та кодування пакетів) в **обох напрямках** разом, оскільки WiFi є напівдуплексом. Таким чином, він підходить для потокового відео 720p@49fps (4 мбіт/с) + два потоки телеметрії з повною швидкістю (вгору та вниз). Якщо вам потрібна вища пропускна здатність, ви можете використовувати індекси MCS (наприклад, 2 або більше)
 
-## Antennas and Diversity
+## Антени та інше
 
-For simple cases you can use omnidirectional antennas with linear (that bundled with wifi cards) or circular leaf ([circularly polarized Coverleaf Antenna](http://www.antenna-theory.com/antennas/cloverleaf.php)) polarization. If you want to setup long distance link you can use multiple wifi adapters with directional and omnidirectional antennas. TX/RX diversity for multiple adapters supported out of box (just add multiple NICs to `/etc/default/wifibroadcast`). If your WiFi adapter has two antennas (like Alfa AWU036ACH) TX diversity is implemented via [STBC](https://en.wikipedia.org/wiki/Space%E2%80%93time_block_code). Cards with 4 ports (like Alfa AWUS1900) are currently not supported.
+У простих випадках ви можете використовувати всенапрямлені антени з лінійною (які комплектуються з WiFi картами) або круговою листковою ([кругово-поляризована антена Coverleaf](http://www.antenna-theory.com/antennas/cloverleaf.php)) поляризацією. Якщо ви хочете налаштувати зв'язок на велику відстань, ви можете використовувати кілька WiFi адаптерів з напрямними та всенапрямленими антенами. TX/RX Підтримується різноманіття передачі/прийому для кількох адаптерів з коробки (просто додайте кілька мережевих інтерфейсів до `/etc/default/wifibroadcast`). Якщо ваш WiFi адаптер має дві антени (наприклад, Alfa AWU036ACH), різноманіття передачі втілено через [STBC](https://en.wikipedia.org/wiki/Space%E2%80%93time_block_code). Карти з 4 портами (наприклад, Alfa AWUS1900) наразі не підтримуються.
 
 ## FAQ
 
