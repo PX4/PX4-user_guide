@@ -1,12 +1,12 @@
-# Using a Companion Computer with Pixhawk Controllers
+# Використання супутнього комп'ютера з контролерами Pixhawk
 
-PX4 running on Pixhawk-series flight controllers can connect to a companion computer using any free configurable serial port, including the Ethernet port (if supported).
+PX4, що працює на контролерах польоту серії Pixhawk, може підключатися до супутнього комп'ютера за допомогою будь-якого вільного конфігурованого послідовного порту, включаючи Ethernet-порт (якщо підтримується).
 
-See [Companion Computers](../companion_computer/README.md) for information about supported hardware and general setup.
+Див. [Супутникові комп'ютери](../companion_computer/README.md) для інформації про підтримуваний обладнання та загальну настройку.
 
-## Companion Computer Software
+## Програмне забезпечення супутнього комп'ютера
 
-The companion computer needs to run software that communicates with the flight controller, and which routes traffic to ground stations and the cloud.
+Супутній комп'ютер повинен працювати під керуванням програмного забезпечення, яке взаємодіє з контролером польоту та маршрутизує трафік до наземних станцій та сховище в cloud.
 
 Common options are listed in [Companion Computers > Companion Computer Setup](../companion_computer/README.md#companion-computer-software).
 
