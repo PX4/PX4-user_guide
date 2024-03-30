@@ -1,4 +1,4 @@
-# ROS 2 Offboard Control Example
+# ROS 2 Offboard Control Приклад
 
 The following C++ example shows how to do position control in [offboard mode](../flight_modes/offboard.md) from a ROS 2 node.
 
@@ -24,7 +24,7 @@ After that we can follow a similar set of steps to those in [ROS 2 User Guide > 
 
 To build and run the example:
 
-1. Open a new terminal.
+1. Відкрийте новий термінал.
 1. Create and navigate into a new colcon workspace directory using:
 
    ```sh
@@ -82,7 +82,7 @@ To build and run the example:
 
 The vehicle should arm, ascend 5 metres, and then wait (perpetually).
 
-## Implementation
+## Імплементація
 
 The source code of the offboard control example can be found in [PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) in the directory [/src/examples/offboard/offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp).
 
