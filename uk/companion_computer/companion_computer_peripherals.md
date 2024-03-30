@@ -16,33 +16,33 @@ USB-адаптери FTDI є найбільш поширеним способо�
 
 Нижче наведено кілька опцій «turnkey»:
 
-| Пристрій                                                               | 3.3v IO (Default) | Flow Control | Tx/Rx LEDs | JST-GH |
-| ---------------------------------------------------------------------- | ----------------- | ------------ | ---------- | ------ |
-| [mRo USB FTDI Serial to JST-GH (Basic)][mro_usb_ftdi_serial_to_jst_gh] | Capable           | Capable      | Ні         | Так    |
-| \[SparkFun FTDI Basic Breakout\]\[sparkfun_ftdi__breakout\]          | Так               | Ні           | Так        | Ні     |
+| Пристрій                                                                      | 3.3v IO (Default) | Flow Control | Tx/Rx LEDs | JST-GH |
+| ----------------------------------------------------------------------------- | ----------------- | ------------ | ---------- | ------ |
+| [mRo USB FTDI Послідовний до JST-GH (базовий)][mro_usb_ftdi_serial_to_jst_gh] | Capable           | Capable      | Ні         | Так    |
+| \[SparkFun FTDI Basic Breakout\]\[sparkfun_ftdi__breakout\]                 | Так               | Ні           | Так        | Ні     |
 
 <!-- Reference links for above table -->
 
-You can also use an off-the-shelf FTDI cable [like this one](https://www.sparkfun.com/products/9717) and connect it to flight controller using the appropriate header adaptor (JST-GH connectors are specified in the Pixhawk standard, but you should confirm the connectors for your flight controller).
+Ви також можете використовувати готовий FTDI-кабель, [наприклад, такий](https://www.sparkfun.com/products/9717), і підключити його до польотного контролера за допомогою відповідного перехідника для заголовника (роз'єми JST-GH вказані у стандарті Pixhawk, але ви повинні підтвердити роз'єми для вашого польотного контролера).
 
-### Logic Level Shifters
+### Рівні логічних перетворювачів
 
-On occasion a companion computer may expose hardware level IO that is often run at 1.8v or 5v, while the Pixhawk hardware operates at 3.3v IO. In order to resolve this, a level shifter can be implemented to safely convert the transmitting/receiving signal voltage.
+Час від часу супутній комп'ютер може використовувати апаратні введення-виведення, які часто працюють на рівні 1,8 В або 5 В, тоді як апаратне забезпечення Pixhawk працює на рівні 3,3 В. Для вирішення цієї проблеми може бути використаний рівневий перетворювач, що безпечно конвертує напругу сигналів передачі/приймання.
 
-Options include:
+Інші варіанти включають:
 
-- [SparkFun Logic Level Converter - Bi-Directional](https://www.sparkfun.com/products/12009)
-- [4-channel I2C-safe Bi-directional Logic Level Converter - BSS138](https://www.adafruit.com/product/757)
+- [Перетворювач логічного рівня SparkFun - двонаправлений](https://www.sparkfun.com/products/12009)
+- [4-канальний I2C-безпечний двонаправлений перетворювач логічного рівня - BSS138](https://www.adafruit.com/product/757)
 
 ## Камери
 
-Cameras are used image and video capture, and more generally to provide data for [computer vision](../computer_vision/README.md) applications (in this case the "cameras" may only provide processed data, not raw images).
+Камери використовуються для захоплення зображень і відео, а також для надання даних для [програм комп’ютерного зору](../computer_vision/README.md) (у цьому випадку «камери» можуть надавати лише оброблені дані, а не необроблені зображення).
 
-### Stereo Cameras
+### Стереокамери
 
-Stereo cameras are typically used for depth perception, path planning and SLAM. They are in no way guaranteed to be plug and play with your companion computer.
+Стереокамери зазвичай використовуються для сприйняття глибини, планування шляху та SLAM. Жодним чином не гарантується, що вони підключаються та працюють із вашим комп’ютером-супутником.
 
-Popular stereo cameras include:
+Серед популярних стереокамер:
 
 - [Intel® RealSense™ Depth Camera D435](https://www.intelrealsense.com/depth-camera-d435/)
 - [Intel® RealSense™ Depth Camera D415](https://www.intelrealsense.com/depth-camera-d415/)
