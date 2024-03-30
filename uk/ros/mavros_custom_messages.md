@@ -13,13 +13,13 @@
 
 ## Встановлення MAVROS
 
-Follow *Source Installation* instructions from [mavlink/mavros](https://github.com/mavlink/mavros/blob/master/mavros/README.md) to install "ROS Kinetic".
+Дотримуйтесь інструкцій *Source Installation* з [mavlink/mavros](https://github.com/mavlink/mavros/blob/master/mavros/README.md), щоб встановити "ROS Kinetic".
 
 ## MAVROS
 
-1. We start by creating a new MAVROS plugin, in this example named **keyboard_command.cpp** (in **workspace/src/mavros/mavros_extras/src/plugins**) by using the code below:
+1. Почнемо зі створення нового плагіна MAVROS, у цьому прикладі з назвою **keyboard_command.cpp** (у **workspace/src/mavros/mavros_extras/src/plugins**) за допомогою наведеного нижче коду:
 
-   The code subscribes a 'char' message from ROS topic `/mavros/keyboard_command/keyboard_sub` and sends it as a MAVLink message.
+   Код підписується на повідомлення типу 'char' з теми ROS `/mavros/keyboard_command/keyboard_sub` і надсилає його як повідомлення MAVLink.
    ```c
     #include <mavros/mavros_plugin.h>
     #include <pluginlib/class_list_macros.h>
@@ -65,14 +65,14 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    PLUGINLIB_EXPORT_CLASS(mavros::extra_plugins::KeyboardCommandPlugin, mavros::plugin::PluginBase)
    ```
 
-1. Edit **mavros_plugins.xml** (in **workspace/src/mavros/mavros_extras**) and add the following lines:
+1. Відредагуйте **mavros_plugins.xml** (у **workspace/src/mavros/mavros_extras**) і додайте наступні рядки:
    ```xml
    <class name="keyboard_command" type="mavros::extra_plugins::KeyboardCommandPlugin" base_class_type="mavros::plugin::PluginBase">
         <description>Accepts keyboard command.</description>
    </class>
    ```
 
-1. Edit **CMakeLists.txt** (in **workspace/src/mavros/mavros_extras**) and add the following line in `add_library`.
+1. Відредагуйте **CMakeLists.txt** (у **workspace/src/mavros/mavros_extras**) і додайте наступний рядок у `add_library`.
    ```cmake
    add_library( 
    ...
@@ -80,7 +80,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    )
    ```
 
-1. Inside **common.xml** in (**workspace/src/mavlink/message_definitions/v1.0**), copy the following lines to add your MAVLink message:
+1. Усередині **common.xml** у (**workspace/src/mavlink/message_definitions/v1.0**) скопіюйте наступні рядки, щоб додати ваше повідомлення MAVLink:
    ```xml
    ...
      <message id="229" name="KEY_COMMAND">
