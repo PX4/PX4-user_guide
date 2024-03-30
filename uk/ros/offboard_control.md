@@ -1,7 +1,7 @@
-# Зовнішнє керування
+# Offboard Control
 
 :::warning
-[Зовнішнє управління](../flight_modes/offboard.md) небезпечно. Це відповідальність розробника переконатися в належній підготовці, тестуванні та заходах безпеки перед польотом.
+[Offboard control](../flight_modes/offboard.md) небезпечно. Це відповідальність розробника переконатися в належній підготовці, тестуванні та заходах безпеки перед польотом.
 :::
 
 Ідея за зовнішнього контролю полягає в можливості керування стеком керування PX4 за допомогою програмного забезпечення, яке виконується поза автопілотом. Це зроблено за допомогою протоколу MAVLink, зокрема [SET_POSION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED) та [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET) повідомлень.
