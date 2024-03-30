@@ -1,13 +1,13 @@
 # MAVROS _Offboard_ control приклад (C++)
 
-This tutorial shows the basics of _Offboard_ control with MAVROS, using an Iris quadcopter simulated in Gazebo Classic/SITL. At the end of the tutorial, you should see the same behaviour as in the video below, i.e. a slow takeoff to an altitude of 2 meters.
+Цей посібник показує основи _Offboard_ control з MAVROS, використовуючи Iris квадрокоптер симульований у Gazebo Classic/SITL. У кінці посібника ви повинні побачити таку ж поведінку, як і в нижченаведеному відео, повільний зліт на висоту 2 метри.
 
 :::warning
-_Offboard_ керування небезпечне. If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
+_Offboard_ керування небезпечне. Якщо ви керуєте реальним транспортним засобом, то обов'язково майте можливість отримати назад ручне керування на випадок, якщо щось піде не так.
 :::
 
 :::tip
-This example uses C++. A very similar example for Python can be found in [ROS/MAVROS Offboard Example (Python)](../ros/mavros_offboard_python.md) (also see the examples in [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros)).
+Цей приклад використовує C++. Дуже схожий приклад для Python може бути знайдений у [ROS/MAVROS Offboard Example (Python)](../ros/mavros_offboard_python.md) (також дивиться приклади в [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros)).
 :::
 
 <video width="100%" autoplay="true" controls="true">
@@ -119,7 +119,7 @@ int main(int argc, char **argv)
 #include <mavros_msgs/State.h>
 ```
 
-The `mavros_msgs` package contains all of the custom messages required to operate services and topics provided by the MAVROS package. All services and topics as well as their corresponding message types are documented in the [mavros wiki](http://wiki.ros.org/mavros).
+`mavros_msgs` package містить усі довільні повідомлення необхідні для роботи сервісів і тем наданих пакетом MAVROS. Усі сервіси та теми, а також їх відповідні типи повідомлень задокументовані в [mavros wiki](http://wiki.ros.org/mavros).
 
 ```cpp
 mavros_msgs::State current_state;
@@ -128,7 +128,7 @@ void state_cb(const mavros_msgs::State::ConstPtr& msg){
 }
 ```
 
-We create a simple callback which will save the current state of the autopilot. This will allow us to check connection, arming and _Offboard_ flags.
+Ми створюємо простий виклик, який буде зберігати поточний стан автопілота. Це дозволить нам перевірити підключення, arming та _Offboard_ параметри.
 
 ```cpp
 ros::Subscriber state_sub = nh.subscribe<mavros_msgs::State>("mavros/state", 10, state_cb);
@@ -137,14 +137,14 @@ ros::ServiceClient arming_client = nh.serviceClient<mavros_msgs::CommandBool>("m
 ros::ServiceClient set_mode_client = nh.serviceClient<mavros_msgs::SetMode>("mavros/set_mode");
 ```
 
-We instantiate a publisher to publish the commanded local position and the appropriate clients to request arming and mode change. Note that for your own system, the "mavros" prefix might be different as it will depend on the name given to the node in it's launch file.
+Ми створюємо екземпляр видавця для публікації командної локальної позиції та відповідних клієнтів для запиту на arming та зміни режиму. Зверніть увагу, що для вашої власної системи, префікс "mavros" може відрізнятися, так як це буде залежати від імені, даного вузлу в файлі запуску.
 
 ```cpp
 //the setpoint publishing rate MUST be faster than 2Hz
 ros::Rate rate(20.0);
 ```
 
-PX4 has a timeout of 500ms between two _Offboard_ commands. If this timeout is exceeded, the commander will fall back to the last mode the vehicle was in before entering _Offboard_ mode. This is why the publishing rate **must** be faster than 2 Hz to also account for possible latencies. This is also the same reason why it is recommended to enter _Offboard_ mode from _Position_ mode, this way if the vehicle drops out of _Offboard_ mode it will stop in its tracks and hover.
+PX4 має тайм-аут 500 мс між двома _Offboard_ командами. Якщо цей тайм-аут перевищено, командир повернеться до останнього режиму, до того як увійти у _Offboard_ режим. Ось чому швидкість публікації **має** бути вищою за 2 Гц, щоб також врахувати можливі затримки. Це також та сама причина, чому рекомендується перейти в режим _Offboard_ з режиму _Position_, таким чином, якщо транспортний засіб виходить із режиму _Offboard_ він зупиниться на місці й зависне.
 
 ```cpp
 // wait for FCU connection
@@ -154,7 +154,7 @@ while(ros::ok() && !current_state.connected){
 }
 ```
 
-Before publishing anything, we wait for the connection to be established between MAVROS and the autopilot. This loop should exit as soon as a heartbeat message is received.
+Перш ніж щось публікувати, ми чекаємо встановлення зв'язку між MAVROS і автопілотом. Цей цикл має закінчитись, щойно буде отримано повідомлення про hearbeat.
 
 ```cpp
 geometry_msgs::PoseStamped pose;
@@ -163,7 +163,7 @@ pose.pose.position.y = 0;
 pose.pose.position.z = 2;
 ```
 
-Even though the PX4 Pro Flight Stack operates in the aerospace NED coordinate frame, MAVROS translates these coordinates to the standard ENU frame and vice-versa. This is why we set `z` to positive 2.
+Попри те, що PX4 Pro Flight Stack працює в координатній площині NED, MAVROS переводить ці координати до ENU стандарту та навпаки. Ось чому ми визначаємо `z` як 2.
 
 ```cpp
 //send a few setpoints before starting
@@ -174,14 +174,14 @@ for(int i = 100; ros::ok() && i > 0; --i){
 }
 ```
 
-Before entering _Offboard_ mode, you must have already started streaming setpoints. Otherwise the mode switch will be rejected. Here, `100` was chosen as an arbitrary amount.
+Перш ніж увійти в режим _Offboard_, ви повинні вже розпочати потокове передавання заданих значень. В іншому випадку перемикач режиму буде відхилено. Нижче, `100` було обрано у якості довільного значення.
 
 ```cpp
 mavros_msgs::SetMode offb_set_mode;
 offb_set_mode.request.custom_mode = "OFFBOARD";
 ```
 
-We set the custom mode to `OFFBOARD`. A list of [supported modes](http://wiki.ros.org/mavros/CustomModes#PX4_native_flight_stack) is available for reference.
+Ми встановили довільний режим на `OFFBOARD`. Список [підтримуваних режимів](http://wiki.ros.org/mavros/CustomModes#PX4_native_flight_stack) доступні для довідки.
 
 ```cpp
 mavros_msgs::CommandBool arm_cmd;
@@ -212,9 +212,9 @@ while(ros::ok()){
 }
 ```
 
-The rest of the code is pretty self explanatory. We attempt to switch to _Offboard_ mode, after which we arm the quad to allow it to fly. We space out the service calls by 5 seconds so to not flood the autopilot with the requests. In the same loop, we continue sending the requested pose at the appropriate rate.
+Решта коду досить зрозуміла. Ми намагаємося перейти в режим _Offboard_, після чого ставимо квадрокоптер в arm, щоб він міг злетіти. Ми визначаємо паузу виклику сервісів у 5 секунд, щоб не перевантажити автопілот запитами. В тому ж циклі ми продовжуємо надсилати запитану позицію за частотою, яка раніше визначена.
 
 :::tip
-This code has been simplified to the bare minimum for illustration purposes.
-In larger systems, it is often useful to create a new thread which will be in charge of periodically publishing the setpoints.
+Цей код був спрощений до мінімуму для демонстрації.
+У великих системах часто корисно створити новий потік, який буде відповідати за періодичну публікацію заданих значень.
 :::
