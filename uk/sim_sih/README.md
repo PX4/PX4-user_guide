@@ -59,24 +59,24 @@ The airplane needs to takeoff in manual mode at full throttle.
 Also, if the airplane crashes the state estimator might lose its fix.
 :::
 
-## Setting up the Display
+## Налаштування відображення
 
-To display the simulated vehicle:
+Для відображення симульованого транспортного засобу:
 
-1. Close _QGroundControl_ (if open).
-1. Unplug and replug the flight controller (allow a few seconds for it to boot).
-1. Start jMAVSim by calling the script **jmavsim_run.sh** from a terminal:
+1. Закрийте _QGroundControl_ (якщо відкрито).
+1. Відключіть і знову підключіть контролер польоту (дайте декілька секунд на його завантаження).
+1. Запустіть jMAVSim, викликавши скрипт **jmavsim_run.sh** з терміналу:
 
    ```sh
    ./Tools/simulation/jmavsim/jmavsim_run.sh -q -d /dev/ttyACM0 -b 2000000 -o
    ```
 
-   where the flags are:
+   де прапорці такі:
 
-   - `-q` to allow the communication to _QGroundControl_ (optional).
-   - `-d` to start the serial device `/dev/ttyACM0` on Linux. On macOS this would be `/dev/tty.usbmodem1`.
-   - `-b` to set the serial baud rate to `2000000`.
-   - `-o` to start jMAVSim in _display Only_ mode (i.e. the physical engine is turned off and jMAVSim only displays the trajectory given by the SIH in real-time).
+   - `-q`, щоб дозволити зв'язок з _QGroundControl_ (необов'язково).
+   - `-d`, щоб розпочати роботу з послідовним пристроєм `/dev/ttyACM0` на Linux. На macOS це буде `/dev/tty.usbmodem1`.
+   - `-b`, щоб встановити швидкість передачі даних через послідовний порт на `2000000`.
+   - `-o`, щоб запустити jMAVSim тільки у _режимі відображення_ (тобто фізичний двигун вимкнено, і jMAVSim лише відображає траєкторію, надану SIH в реальному часі).
    - add a flag `-a` to display an aircraft or '-t' to display a tailsitter. If this flag is not present a quadrotor will be displayed by default.
 
 1. After few seconds, _QGroundControl_ can be opened again.
