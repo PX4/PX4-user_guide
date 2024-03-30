@@ -150,9 +150,9 @@ AIRLink Enterprise прибуває з усім необхідним для на
 
   | Номер виводу | Назва виводу | Напрямок   | Напруга | Функція                        |
   | ------------ | ------------ | ---------- | ------- | ------------------------------ |
-  | 1            | 12В          | IN         | +12В    | Основний вхід живлення         |
-  | 2            | 12В          | IN         | +12В    | Основний вхід живлення         |
-  | 3            | 12В          | IN         | +12В    | Основний вхід живлення         |
+  | 1            | 12V          | IN         | +12В    | Основний вхід живлення         |
+  | 2            | 12V          | IN         | +12В    | Основний вхід живлення         |
+  | 3            | 12V          | IN         | +12В    | Основний вхід живлення         |
   | 4            | BAT_CURRENT  | IN         | +3.3В   | Моніторинг струму акумулятора  |
   | 5            | BAT_VOLTAGE  | IN         | +3.3В   | Моніторинг напруги акумулятора |
   | 6            | 3V3          | OUT        | +3.3В   | Вихід 3.3В                     |
@@ -167,7 +167,7 @@ AIRLink Enterprise прибуває з усім необхідним для на
 
   | Номер виводу | Назва виводу | Напрямок | Напруга | Функція                           |
   | ------------ | ------------ | -------- | ------- | --------------------------------- |
-  | 1            | 5В           | OUT      | +5В     | Вихід 5В                          |
+  | 1            | 5V           | OUT      | +5В     | Вихід 5В                          |
   | 2            | PPM_IN       | IN       | +3.3В   | PPM вхід                          |
   | 3            | RSSI_IN      | IN       | +3.3В   | RSSI вхід                         |
   | 4            | FAN_OUT      | OUT      | +5В     | Вихід вентилятора                 |
@@ -179,112 +179,112 @@ AIRLink Enterprise прибуває з усім необхідним для на
 
 ![Right side](../../assets/flight_controller/airlink/airlink-interfaces-right.jpg)
 
-- **Right side interfaces:**
+- **Інтерфейси справа:**
 
-  - Ethernet port with power output
-  - Telemetry port
-  - Second GPS port
-  - Spare I2C / UART port
-  - Flight controller USB Type-C
-  - Micro SIM Card
-  - HDMI input port (payload camera)
+  - Ethernet-порт з виходом живлення
+  - Телеметричний порт
+  - Другий GPS-порт
+  - Запасний порт I2C / UART
+  - Польотний контролер USB Type-C
+  - Мікро SIM-карта
+  - Вхідний порт HDMI (камера корисного навантаження)
 
 - **ETHERNET - JST GH SM08B-GHS-TB**
 
-  | Pin number | Pin name | Direction | Voltage | Function                   |
-  | ---------- | -------- | --------- | ------- | -------------------------- |
-  | 1          | 5V       | OUT       | +5V     | Radio module power supply  |
-  | 2          | 5V       | OUT       | +5V     | Radio module power supply  |
-  | 3          | ETH_TXP  | OUT       | +3.3V   | Ethernet transmit positive |
-  | 4          | ETH_TXN  | OUT       | +3.3V   | Ethernet transmit negative |
-  | 5          | ETH_RXP  | IN        | +3.3V   | Ethernet receive positive  |
-  | 6          | ETH_RXN  | IN        | +3.3V   | Ethernet receive negative  |
-  | 7          | GND      | Ground    |         |                            |
-  | 8          | GND      | Ground    |         |                            |
+  | Номер виводу | Назва виводу | Напрямок   | Напруга | Функція                                |
+  | ------------ | ------------ | ---------- | ------- | -------------------------------------- |
+  | 1            | 5V           | OUT        | +5В     | Блок живлення радіомодуля              |
+  | 2            | 5V           | OUT        | +5В     | Блок живлення радіомодуля              |
+  | 3            | ETH_TXP      | OUT        | +3.3В   | Передача позитивного сигналу Ethernet  |
+  | 4            | ETH_TXN      | OUT        | +3.3В   | Передача негативного сигналу Ethernet  |
+  | 5            | ETH_RXP      | IN         | +3.3В   | Отримання позитивного сигналу Ethernet |
+  | 6            | ETH_RXN      | IN         | +3.3В   | Отримання негативного сигналу Ethernet |
+  | 7            | GND          | Заземлення |         |                                        |
+  | 8            | GND          | Заземлення |         |                                        |
 
 - **TEL3 - JST GH SM06B-GHS-TB**
 
-  | Pin number | Pin name   | Direction | Voltage | Function            |
-  | ---------- | ---------- | --------- | ------- | ------------------- |
-  | 1          | 5V         | OUT       | +5V     | Power supply output |
-  | 2          | USART2_TX  | OUT       | +3.3V   | Telemetry 3 TX      |
-  | 3          | USART2_RX  | IN        | +3.3V   | Telemetry 3 RX      |
-  | 4          | USART2_CTS | IN        | +3.3V   | Telemetry 3 CTS     |
-  | 5          | USART2_RTS | OUT       | +3.3V   | Telemetry 3 RTS     |
-  | 6          | GND        | Ground    |         |                     |
+  | Номер виводу | Назва виводу | Напрямок   | Напруга | Функція                |
+  | ------------ | ------------ | ---------- | ------- | ---------------------- |
+  | 1            | 5V           | OUT        | +5В     | Вихід джерела живлення |
+  | 2            | USART2_TX    | OUT        | +3.3В   | Телеметрія 3 TX        |
+  | 3            | USART2_RX    | IN         | +3.3В   | Телеметрія 3 RX        |
+  | 4            | USART2_CTS   | IN         | +3.3В   | Телеметрія 3 CTS       |
+  | 5            | USART2_RTS   | OUT        | +3.3В   | Телеметрія 3 RTS       |
+  | 6            | GND          | Заземлення |         |                        |
 
 - **I2C3 / UART4 - JST GH SM06B-GHS-TB**
 
-  | Pin number | Pin name  | Direction | Voltage | Function            |
-  | ---------- | --------- | --------- | ------- | ------------------- |
-  | 1          | 5V        | OUT       | +5V     | Power supply output |
-  | 2          | USART4_TX | OUT       | +3.3V   | UART 4 TX           |
-  | 3          | USART4_RX | IN        | +3.3V   | UART 4 RX           |
-  | 4          | I2C3_SCL  | I/O       | +3.3V   | I2C3 Clock          |
-  | 5          | I2C3_SDA  | I/O       | +3.3V   | I2C3 Data           |
-  | 6          | GND       | Ground    |         |                     |
+  | Номер виводу | Назва виводу | Напрямок   | Напруга | Функція                |
+  | ------------ | ------------ | ---------- | ------- | ---------------------- |
+  | 1            | 5V           | OUT        | +5В     | Вихід джерела живлення |
+  | 2            | USART4_TX    | OUT        | +3.3В   | UART 4 TX              |
+  | 3            | USART4_RX    | IN         | +3.3В   | UART 4 RX              |
+  | 4            | I2C3_SCL     | I/O        | +3.3В   | Годинник I2C3          |
+  | 5            | I2C3_SDA     | I/O        | +3.3В   | Дані I2C3              |
+  | 6            | GND          | Заземлення |         |                        |
 
 - **GPS2 - JST GH SM06B-GHS-TB**
 
-  | Pin number | Pin name  | Direction | Voltage | Function            |
-  | ---------- | --------- | --------- | ------- | ------------------- |
-  | 1          | 5V        | OUT       | +5V     | Power supply output |
-  | 2          | USART8_TX | OUT       | +3.3V   | UART 8 TX           |
-  | 3          | USART8_RX | IN        | +3.3V   | UART 8 RX           |
-  | 4          | I2C2_SCL  | I/O       | +3.3V   | I2C2 Clock          |
-  | 5          | I2C2_SDA  | I/O       | +3.3V   | I2C2 Data           |
-  | 6          | GND       | Ground    |         |                     |
+  | Номер виводу | Назва виводу | Напрямок   | Напруга | Функція                |
+  | ------------ | ------------ | ---------- | ------- | ---------------------- |
+  | 1            | 5V           | OUT        | +5В     | Вихід джерела живлення |
+  | 2            | USART8_TX    | OUT        | +3.3В   | UART 8 TX              |
+  | 3            | USART8_RX    | IN         | +3.3В   | UART 8 RX              |
+  | 4            | I2C2_SCL     | I/O        | +3.3В   | Годинник I2C2          |
+  | 5            | I2C2_SDA     | I/O        | +3.3В   | Дані I2C2              |
+  | 6            | GND          | Заземлення |         |                        |
 
 - **FMU USB - USB Type C**
 - **SIM Card - micro SIM**
 - **HDMI - mini HDMI**
 
-### Front Side
+### Лицьова Сторона
 
 ![Front side](../../assets/flight_controller/airlink/airlink-interfaces-front.jpg)
 
-- **Front side interfaces:**
+- **Інтерфейси спереду:**
 
-  - Main GNSS and compass port
-  - Main telemetry port
-  - CSI camera input
+  - Основний порт GNSS і компаса
+  - Основний телеметричний порт
+  - Вхід для камери CSI
   - CAN 1
   - CAN 2
 
 - **TEL1 - JST GH SM06B-GHS-TB**
 
-  | Pin number | Pin name   | Direction | Voltage | Function            |
-  | ---------- | ---------- | --------- | ------- | ------------------- |
-  | 1          | 5V         | OUT       | +5V     | Power supply output |
-  | 2          | USART7_TX  | OUT       | +3.3V   | Telemetry 1 TX      |
-  | 3          | USART7_RX  | IN        | +3.3V   | Telemetry 1 RX      |
-  | 4          | USART7_CTS | IN        | +3.3V   | Telemetry 1 CTS     |
-  | 5          | USART7_RTS | OUT       | +3.3V   | Telemetry 1 RTS     |
-  | 6          | GND        | Ground    |         |                     |
+  | Номер виводу | Назва виводу | Напрямок   | Напруга | Функція                |
+  | ------------ | ------------ | ---------- | ------- | ---------------------- |
+  | 1            | 5V           | OUT        | +5В     | Вихід джерела живлення |
+  | 2            | USART7_TX    | OUT        | +3.3В   | Телеметрія 1 TX        |
+  | 3            | USART7_RX    | IN         | +3.3В   | Телеметрія 1 RX        |
+  | 4            | USART7_CTS   | IN         | +3.3В   | Телеметрія 1 CTS       |
+  | 5            | USART7_RTS   | OUT        | +3.3В   | Телеметрія 1 RTS       |
+  | 6            | GND          | Заземлення |         |                        |
 
 - **GPS1 - JST GH SM10B-GHS-TB**
 
-  | Pin number | Pin name   | Direction | Voltage | Function            |
-  | ---------- | ---------- | --------- | ------- | ------------------- |
-  | 1          | 5V         | OUT       | +5V     | Power supply output |
-  | 2          | USART1_TX  | OUT       | +3.3V   | GPS 1 TX            |
-  | 3          | USART1_RX  | IN        | +3.3V   | GPS 1 RX            |
-  | 4          | I2C1_SCL   | I/O       | +3.3V   | Mag 1 Clock         |
-  | 5          | I2C1_SDA   | I/O       | +3.3V   | Mag 1 Data          |
-  | 6          | SAFETY_BTN | IN        | +3.3V   | Safety button       |
-  | 7          | SAFETY_LED | OUT       | +3.3V   | Safety LED          |
-  | 8          | +3V3       | OUT       | +3.3V   | 3.3V output         |
-  | 9          | BUZZER     | OUT       | +5V     | Buzzer output       |
-  | 10         | GND        | Ground    |         |                     |
+  | Номер виводу | Назва виводу | Напрямок   | Напруга | Функція                |
+  | ------------ | ------------ | ---------- | ------- | ---------------------- |
+  | 1            | 5V           | OUT        | +5В     | Вихід джерела живлення |
+  | 2            | USART1_TX    | OUT        | +3.3В   | GPS 1 TX               |
+  | 3            | USART1_RX    | IN         | +3.3В   | GPS 1 RX               |
+  | 4            | І2C1_SCL     | I/O        | +3.3В   | Годинник Mag 1         |
+  | 5            | I2C1_SDA     | I/O        | +3.3В   | Дані Mag 1             |
+  | 6            | SAFETY_BTN   | IN         | +3.3В   | Кнопка безпеки         |
+  | 7            | SAFETY_LED   | OUT        | +3.3В   | Індикатор безпеки      |
+  | 8            | +3V3         | OUT        | +3.3В   | Вихід 3.3В             |
+  | 9            | BUZZER       | OUT        | +5В     | Вихід зумера           |
+  | 10           | GND          | Заземлення |         |                        |
 
 - **CAN1 - JST GH SM04B-GHS-TB**
 
-  | Pin number | Pin name | Direction | Voltage | Function            |
-  | ---------- | -------- | --------- | ------- | ------------------- |
-  | 1          | 5V       | OUT       | +5V     | Power supply output |
-  | 2          | CAN1_H   | I/O       | +5V     | CAN 1 High (120Ω)   |
-  | 3          | CAN1_L   | I/O       | +5V     | CAN 1 Low (120Ω)    |
-  | 4          | GND      | Ground    |         |                     |
+  | Номер виводу | Назва виводу | Напрямок | Напруга | Функція                |
+  | ------------ | ------------ | -------- | ------- | ---------------------- |
+  | 1            | 5V           | OUT      | +5В     | Вихід джерела живлення |
+  | 2            | CAN1_H       | I/O      | +5В     | CAN 1 High (120Ω)      |
+  | 3            | CAN1_L       | I/O      | +5В     | CAN 1 Low (120Ω)       |
+  | 4            | GND          | Ground   |         |                        |
 
 - **CAN2 - JST GH SM04B-GHS-TB**
 
