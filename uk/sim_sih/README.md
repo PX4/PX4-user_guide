@@ -27,36 +27,36 @@ SIH може бути використано новими користувача
 
 SIH має кілька переваг перед HITL:
 
-- It ensures synchronous timing by avoiding the bidirectional connection to the computer. As a result the user does not need such a powerful desktop computer.
-- The whole simulation remains inside the PX4 environment. Розробники, які знайомі з PX4, можуть легше включити свою власну математичну модель в симулятор. Вони, наприклад, можуть змінити аеродинамічну модель або рівень шуму датчиків, або навіть додати датчик для симуляції.
+- Він забезпечує синхронізований час, уникаючи двостороннього з'єднання з комп'ютером. В результаті користувачеві не потрібен такий потужний настільний комп'ютер.
+- Усе моделювання залишається в середовищі PX4. Розробники, які знайомі з PX4, можуть легше включити свою власну математичну модель в симулятор. Вони, наприклад, можуть змінити аеродинамічну модель або рівень шуму датчиків, або навіть додати датчик для симуляції.
 - Фізичні параметри, які представляють транспортний засіб (такі як маса, інерція та максимальна сила тяги), можна легко змінити з параметрів [SIH](../advanced_config/parameter_reference.md#simulation-in-hardware).
 
 ## Вимоги
 
-To run the SIH, you will need a:
+Щоб запустити SIH, вам знадобиться:
 
-- [Flight controller](../flight_controller/README.md), such as a Pixhawk-series board
-- Development computer for displaying the virtual vehicle.
-- [Manual controller](../getting_started/px4_basic_concepts.md#manual-control): either a [radio control system](../getting_started/rc_transmitter_receiver.md) or a [joystick](../config/joystick.md).
+- [Контролер польоту](../flight_controller/README.md), наприклад плата серії Pixhawk
+- Розробка комп'ютера для відображення віртуального автомобіля.
+- [Ручне управління](../getting_started/px4_basic_concepts.md#manual-control): або [радіосистема управління,](../getting_started/rc_transmitter_receiver.md) або [джойстик](../config/joystick.md).
 
-From PX4 v1.14 you can run SIH "as SITL", in which case a flight controller is not required.
+Починаючи з PX4 v1.14, ви можете запускати SIH "як SITL", у цьому випадку контролер польоту не потрібен.
 
-## Setting up SIH
+## Налаштування SIH
 
 Щоб налаштувати SIH
 
-1. Connect the flight controller to the desktop computer with a USB cable
-1. Open QGroundControl and wait for the flight controller too boot and connect.
-1. Open [Vehicle Setup > Airframe](../config/airframe.md) then select the desired frame:
-   - [SIH Quadcopter X](../airframes/airframe_reference.md#copter_simulation_sih_quadcopter_x)
-   - [SIH plane AERT](../airframes/airframe_reference.md#plane_simulation_sih_plane_aert)
+1. Підключіть контролер польоту до настільного комп’ютера за допомогою кабелю USB
+1. Відкрийте QGroundControl і зачекайте, поки контролер польоту також завантажиться та підключиться.
+1. Відкрийте [Vehicle Setup > Airframe](../config/airframe.md), а потім виберіть потрібний каркас:
+   - [Квадрокоптер SIH X](../airframes/airframe_reference.md#copter_simulation_sih_quadcopter_x)
+   - [SIH літак AERT](../airframes/airframe_reference.md#plane_simulation_sih_plane_aert)
    - [SIH Tailsitter Duo](../airframes/airframe_reference.md#vtol_simulation_sih_tailsitter_duo)
 
-The autopilot will then reboot. Once restarted the `sih` module is started, and the vehicle should be displayed on the ground control station map.
+Потім автопілот перезавантажиться. Після перезапуску модуль `sih` запускається, і транспортний засіб має відображатися на карті наземної станції керування.
 
 :::warning
-The airplane needs to takeoff in manual mode at full throttle.
-Also, if the airplane crashes the state estimator might lose its fix.
+Літак повинен злітати в ручному режимі на повному газі.
+Крім того, якщо літак розбився, оцінювач стану може втратити своє виправлення.
 :::
 
 ## Налаштування відображення
@@ -77,28 +77,28 @@ Also, if the airplane crashes the state estimator might lose its fix.
    - `-d`, щоб розпочати роботу з послідовним пристроєм `/dev/ttyACM0` на Linux. На macOS це буде `/dev/tty.usbmodem1`.
    - `-b`, щоб встановити швидкість передачі даних через послідовний порт на `2000000`.
    - `-o`, щоб запустити jMAVSim тільки у _режимі відображення_ (тобто фізичний двигун вимкнено, і jMAVSim лише відображає траєкторію, надану SIH в реальному часі).
-   - add a flag `-a` to display an aircraft or '-t' to display a tailsitter. If this flag is not present a quadrotor will be displayed by default.
+   - додайте прапорець `-a`, щоб відобразити літак, або '-t', щоб відобразити вертикальнітник. Якщо цей прапорець не вказаний, за замовчуванням відображатиметься квадрокоптер.
 
-1. After few seconds, _QGroundControl_ can be opened again.
+1. Через кілька секунд можна знову відкрити _QGroundControl_.
 
-At this point, the system can be armed and flown. The vehicle can be observed moving in jMAVSim, and on the QGC _Fly_ view.
+На цьому етапі систему можна запустити та вивести в польот. Транспортний засіб можна спостерігати за рухом в jMAVSim та на екрані _польоту QGC_.
 
-## Running the SIH as SITL (without hardware)
+## Запуск SIH як SITL (без апаратних засобів)
 
-SIH can be run as SITL (Software-In-The-Loop) from v1.14. What this means is that the simulation code is executed on the laptop/computer, similar to Gazebo or jMAVSim. In this case you don't need the flight controller hardware.
+SIH можна запустити як SITL (Software-In-The-Loop) з версії 1.14. Це означає, що код симуляції виконується на ноутбуці/комп'ютері, подібно до Gazebo або jMAVSim. У цьому випадку не потрібне апаратне забезпечення контролера польоту.
 
-To run SIH as SITL:
+Для запуску SIH як SITL:
 
-1. Install the [PX4 Development toolchain](../dev_setup/dev_env.md).
-1. Run the appropriate make command for each vehicle type (at the root of the PX4-Autopilot repository):
+1. Встановіть [PX4 набір інструментів розробника](../dev_setup/dev_env.md).
+1. Виконайте відповідну команду make для кожного типу транспортного засобу (в корені репозиторію PX4-Autopilot):
 
-   - quadrotor:
+   - квадротор:
 
      ```sh
      make px4_sitl sihsim_quadx
      ```
 
-   - Fixed-wing (plane):
+   - Закріплені крила (літаки):
 
      ```sh
      make px4_sitl sihsim_airplane
@@ -110,7 +110,7 @@ To run SIH as SITL:
      make px4_sitl sihsim_xvert
      ```
 
-SITL allows the simulation to be run faster than real time. To run the airplane simulation 10 times faster than real time, run the commandL
+SITL дозволяє виконувати симуляцію швидше, ніж у реальному часі. Щоб запустити симуляцію літака в 10 разів швидше, ніж у реальному часі, запустіть команду L
 
 ```sh
 PX4_SIM_SPEED_FACTOR=10 make px4_sitl sihsim_airplane
@@ -118,21 +118,21 @@ PX4_SIM_SPEED_FACTOR=10 make px4_sitl sihsim_airplane
 
 ## Динамічний режим
 
-The dynamic models for the various vehicles are:
+Динамічні моделі для різних транспортних засобів:
 
-- Quadrotor: [pdf report](https://github.com/PX4/PX4-user_guide/raw/main/assets/simulation/SIH_dynamic_model.pdf).
-- Fixed-wing: Inspired by the PhD thesis: "Dynamics modeling of agile fixed-wing unmanned aerial vehicles." Khan, Waqas, supervised by Nahon, Meyer, McGill University, PhD thesis, 2016.
-- Tailsitter: Inspired by the master's thesis: "Modeling and control of a flying wing tailsitter unmanned aerial vehicle." Chiappinelli, Romain, supervised by Nahon, Meyer, McGill University, Masters thesis, 2018.
+- Квадротор: [pdf звіт](https://github.com/PX4/PX4-user_guide/raw/main/assets/simulation/SIH_dynamic_model.pdf).
+- З нерухомим крилом: на основі кандидатської дисертації: «Моделювання динаміки маневрених безпілотних літальних апаратів з нерухомим крилом» Khan, Waqas, під керівництвом Nahon, Meyer, Університет Макгілла, докторська дисертація, 2016.
+- Tailsitter: Натхненний магістерською дисертацією: «Моделювання та керування безпілотним літальним апаратом з літаючим крилом» Chiappinelli, Romain, під керівництвом Nahon, Meyer, Університет Макгілла, магістерська робота, 2018.
 
 ## Відео
 
 @[youtube](https://youtu.be/PzIpSCRD8Jo)
 
-## Подяка
+## Автори
 
-SIH was originally developed by Coriolis g Corporation. The airplane model and tailsitter models were added by Altitude R&D inc. Both are Canadian companies:
+SIH спочатку був розроблений компанією Coriolis g Corporation. Модель літака та моделі вертикальних засідателів були додані компанією Altitude R&D inc. Обидві ці компанії знаходяться в Канаді:
 
-- [Coriolis g](http://ww7.vogi-vtol.com) develops a new type of Vertical Takeoff and Landing (VTOL) vehicles based on passive coupling systems;
-- [Altitude R&D](https://www.altitude-rd.com/) is specialized in dynamics, control, and real-time simulation.
+- [Coriolis g](http://ww7.vogi-vtol.com) розробляє новий тип транспортних засобів вертикального зльоту та посадки (VTOL) на основі пасивних зв'язуючих систем;
+- [Altitude R&D](https://www.altitude-rd.com/) спеціалізується на динаміці, керуванні та реальному часім симуляціям.
 
-The simulator is released for free under BSD license.
+Симулятор випущений безкоштовно під ліцензією BSD.
