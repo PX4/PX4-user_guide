@@ -26,7 +26,7 @@
 
 ## Апаратне забезпечення
 
-### Vehicle Setup
+### Налаштування транспорту
 
 Налаштування транспортного засобу складається з такого:
 
@@ -65,15 +65,15 @@ Alpha AWUS036ACH - це карта середньої потужності, як
 
 ### Конфігурація UAV
 
-1. Download Raspberry PI image from [latest wfb-ng release](https://github.com/svpcom/wfb-ng/releases/)
-2. Flash it to the **UAV** Raspberry PI
-3. Reboot it and ssh with standard credentials (pi/raspberry).
-4. Run actions for **air** role as displayed in motd.
-5. Setup camera pipeline. Open `/etc/systemd/system/fpv-camera.service` and uncomment pipeline according to your camera (PI camera or Logitech camera)
-6. Open `/etc/wifibroadcast.cfg` and configure WiFi channel according to your antenna setup (or use default #165 for 5.8GHz)
-7. Configure PX4 to output telemetry stream at speed 1500 Kbps (other UART speeds doesn't match well to RPI frequency dividers). Connect Pixhawk UART to Raspberry PI UART. In `/etc/wifibroadcast.cfg` uncomment `peer = 'serial:ttyS0:1500000'` in `[drone_mavlink]` section.
+1. Завантажте образ Raspberry PI з [останнього випуску wfb-ng](https://github.com/svpcom/wfb-ng/releases/)
+2. Виконайте прошивку на Raspberry PI **UAV**
+3. Перезавантажте його і підключіться через ssh зі стандартними обліковими даними (pi/raspberry).
+4. Виконайте дії для ролі **повітря**, як показано в motd.
+5. Налаштуйте камерний канал. Відкрийте `/etc/systemd/system/fpv-camera.service` і розкоментуйте конвеєр відповідно до вашої камери (камера PI або камера Logitech)
+6. Відкрийте `/etc/wifibroadcast.cfg` і налаштуйте канал WiFi відповідно до налаштувань вашої антени (або використовуйте замовчуваний #165 для 5.8GHz)
+7. Налаштуйте PX4 на вивід потоку телеметрії зі швидкістю 1500 Кбіт/с (інші швидкості UART не добре відповідають дільникам частоти RPI). Підключіть UART Pixhawk до UART Raspberry PI. У розділі `/etc/wifibroadcast.cfg` файлу розкоментуйте `peer = 'serial:ttyS0:1500000'` секцію.
 
-### Using a Linux Laptop as GCS (Harder than using a RasPi)
+### Використання ноутбука Linux як GCS (важче, ніж використання RasPi)
 
 1. На **наземному** Linux комп'ютері розробки:
 
@@ -83,19 +83,19 @@ Alpha AWUS036ACH - це карта середньої потужності, як
    cd wfb-ng && make deb && sudo apt install ./deb_dist/wfb-ng*.deb
    ```
 
-2. Follow the [Setup HOWTO](https://github.com/svpcom/wfb-ng/wiki/Setup-HOWTO) to complete installation
-3. Don't forget to copy `/etc/gs.key` from **UAV** side to **ground** side to bind two setups.
-4. Also don't forget to use the same frequency channel as on the UAV side.
+2. Слідуйте інструкції з [Setup HOWTO](https://github.com/svpcom/wfb-ng/wiki/Setup-HOWTO) для завершення встановлення
+3. Не забудьте скопіювати `/etc/gs.key` з боку **UAV** на **бік землі**, щоб зв'язати два налаштування.
+4. Також не забудьте використовувати той самий канал частоти, що й на боці UAV.
 
-### Using Raspberry PI as GCS (Easier)
+### Використання Raspberry PI як БЗК (легше)
 
-If you have Windows or OSX, or don't want to setup WFB-ng to your Linux laptop then you can use the same prebuilt image and another Raspberry Pi:
+Якщо у вас є Windows або OSX, або ви не хочете налаштовувати WFB-ng на свій ноутбук з Linux, тоді ви можете використовувати той самий готовий образ і ще один Raspberry Pi:
 
-1. Flash image to the **ground** Raspberry Pi.
-2. Reboot it and SSH in with standard credentials (pi/raspberry).
-3. Run actions for **ground** role as displayed in motd, but skip setup of `fpv-video` service and `osd` service.
-4. Connect your laptop and ground RasPi via ethernet and configure IP addresses
-5. Edit `/etc/wifibroadcast.cfg` and set the IP address of the laptop in `[gs_mavlink]` and `[gs_video]` sections (replacing `127.0.0.1`).
+1. Запишіть образ на **ground** Raspberry Pi.
+2. Перезавантажте його і підключіться через SSH за стандартними обліковими даними (pi/raspberry).
+3. Виконайте дії для ролі **землі**, як показано в motd, але пропустіть налаштування служби `fpv-video` та `osd`.
+4. Підключіть ваш ноутбук та земельний RasPi через Ethernet та налаштуйте IP-адреси
+5. Відредагуйте `/etc/wifibroadcast.cfg` і встановіть IP-адресу ноутбука в розділах `[gs_mavlink]` та `[gs_video]` (замінивши `127.0.0.1`).
 
 ### Налаштування QGroundControl
 
@@ -104,7 +104,7 @@ If you have Windows or OSX, or don't want to setup WFB-ng to your Linux laptop t
 
 ## Налаштування радіо
 
-With default settings WFB use radio channel 165 (5825 MHz), width 20MHz, MCS #1 (QPSK 1/2) with long GI. Це забезпечує приблизно 7 мбіт/с **ефективної** швидкості (тобто використовуваної швидкості після FEC та кодування пакетів) в **обох напрямках** разом, оскільки WiFi є напівдуплексом. Таким чином, він підходить для потокового відео 720p@49fps (4 мбіт/с) + два потоки телеметрії з повною швидкістю (вгору та вниз). Якщо вам потрібна вища пропускна здатність, ви можете використовувати індекси MCS (наприклад, 2 або більше)
+З настройками WFB за замовчуванням використовуйте радіоканал 165 (5825 МГц), ширину 20 МГц, MCS #1 (QPSK 1/2) з довгим GI. Це забезпечує приблизно 7 мбіт/с **ефективної** швидкості (тобто використовуваної швидкості після FEC та кодування пакетів) в **обох напрямках** разом, оскільки WiFi є напівдуплексом. Таким чином, він підходить для потокового відео 720p@49fps (4 мбіт/с) + два потоки телеметрії з повною швидкістю (вгору та вниз). Якщо вам потрібна вища пропускна здатність, ви можете використовувати індекси MCS (наприклад, 2 або більше)
 
 ## Антени та інше
 
@@ -112,34 +112,34 @@ With default settings WFB use radio channel 165 (5825 MHz), width 20MHz, MCS #1 
 
 ## FAQ
 
-**Q:** _What type of data can be transmitted using wfb-ng?_
+**З:** _Який тип даних можна передавати за допомогою wfb-ng?_
 
-**A:** Any UDP with packet size <= 1445. For example x264 inside RTP or MAVLink.
+**A:** Будь-який UDP з розміром пакета <= 1445. Наприклад, x264 в середині RTP або MAVLink.
 
-**Q:** _What are transmission guarantees?_
+**Q:** _Які гарантії передачі?_
 
-**A:** Wifibroadcast uses FEC (forward error correction). You can tune it (both TX and RX simultaneously!) to fit your needs.
+**A:** Wifibroadcast використовує FEC (передню корекцію помилок). Ви можете налаштувати його як TX так і RX одночасно!), щоб відповідати вашим потребам.
 
-**Q** _How far I can fly and still connect?_
+**Q** _Яка максимальна відстань, на яку я можу летіти і все ще зберігати зв'язок?_
 
-**A** It depends on your antennas and WiFi cards. With Alfa AWU036ACH and 20dBi patch antenna on the ground ~20km is possible.
+**A**Це залежить від ваших антен та WiFi карт. З Alfa AWU036ACH і направленою антеною 20dBi на землі можливий польот на відстань приблизно 20 км.
 
 :::warning
-Don't use band that the RC TX operates on!
-Or setup RTL properly to avoid model loss.
+Не використовуйте діапазон, на якому працює RC TX!
+Або налаштуйте RTL належним чином, щоб уникнути втрати моделі.
 :::
 
-**Q:** _Is only Raspberry PI supported?_
+**Q:** _Чи підтримується лише Raspberry PI?_
 
-**A:** WFB-ng is not tied to any GPU - it operates with UDP packets. But to get RTP stream you need a video encoder (which encodes raw data from camera to x264 stream), or you must use a camera with a hardware video codec like Logitech C920 or Ethernet security cameras.
+**A:** WFB-ng не зв'язаний з жодним GPU - він працює з UDP-пакетами. Але для отримання потоку RTP вам потрібен відеокодер (який кодує вихідні дані з камери у потік x264) або ви повинні використовувати камеру з апаратним відеокодеком, таку як Logitech C920 або камери спостереження з Ethernet.
 
-#### What ARM Boards are Recommended for the UAV?
+#### Які ARM-плати рекомендуються для БПЛА?
 
-- RPI3b/3b+/ZeroW. Prebuilt images are available, but it supports only h264 video for CSI cameras.
-- Jetson Nano. It supports h264 and h265 but you need to setup it yourself according to [Setup HOWTO](https://github.com/svpcom/wfb-ng/wiki/Setup-HOWTO)
+- RPI3b/3b+/ZeroW. Існують готові образи, але вони підтримують лише відео h264 для камер CSI.
+- Jetson Nano. Він підтримує h264 і h265, але вам потрібно налаштувати його самостійно за [допомогою Setup HOWTO.](https://github.com/svpcom/wfb-ng/wiki/Setup-HOWTO)
 
-You can use any other Linux ARM board, but you need to use an Ethernet or USB camera with built-in hardware video codecs (such as Logitech C920).
+Ви можете використовувати будь-яку іншу ARM-плату з Linux, але вам потрібно використовувати камеру Ethernet або USB з вбудованими апаратними відеокодеками (наприклад, Logitech C920).
 
-## Theory
+## Теорія
 
-WFB-ng puts the WiFi cards into monitor mode. This mode allows to send and receive arbitrary packets without association and waiting for ACK packets. [Analysis of Injection Capabilities and Media Access of IEEE 802.11 Hardware in Monitor Mode](https://github.com/svpcom/wfb-ng/blob/master/doc/Analysis%20of%20Injection%20Capabilities%20and%20Media%20Access%20of%20IEEE%20802.11%20Hardware%20in%20Monitor%20Mode.pdf) [802.11 timings](https://github.com/ewa/802.11-data)
+WFB-ng переводить WiFi-карти у режим монітору. Цей режим дозволяє надсилати та отримувати довільні пакети без асоціації та очікування підтвердження (ACK). [Аналіз можливостей ін'єкції та доступу до медіа апаратного забезпечення IEEE 802.11 в режимі монітору](https://github.com/svpcom/wfb-ng/blob/master/doc/Analysis%20of%20Injection%20Capabilities%20and%20Media%20Access%20of%20IEEE%20802.11%20Hardware%20in%20Monitor%20Mode.pdf) [802.11 часів](https://github.com/ewa/802.11-data)
