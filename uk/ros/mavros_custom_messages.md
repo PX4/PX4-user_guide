@@ -90,9 +90,9 @@
    ...
    ```
 
-## PX4 Changes
+## Зміни PX4
 
-1. Inside **common.xml** (in **PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0**), add your MAVLink message as following (same procedure as for MAVROS section above):
+1. Всередині **common.xml** (в **PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0**), додайте ваше повідомлення MAVLink наступним чином (та ж процедура, що і для розділу MAVROS вище):
    ```xml
    ...
      <message id="229" name="KEY_COMMAND">
@@ -103,18 +103,18 @@
    ```
 
 :::warning
-Make sure that the **common.xml** files in the following directories are exactly the same:
+Переконайтеся, що файли **common.xml** у наступних каталогах абсолютно однакові:
    - `PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0`
-   - `workspace/src/mavlink/message_definitions/v1.0` are exactly the same.
+   - `workspace/src/mavlink/message_definitions/v1.0` абсолютно однаковий.
 :::
 
-1. Make your own uORB message file **key_command.msg** in (PX4-Autopilot/msg). For this example the "key_command.msg" has only the code:
+1. Створіть власний файл повідомлень uORB **key_command.msg** у (PX4-Autopilot/msg). У цьому прикладі файл "key_command.msg" містить лише код:
    ```
    uint64 timestamp # time since system start (microseconds)
    char cmd
    ```
 
-   Then, in **CMakeLists.txt** (in **PX4-Autopilot/msg**), include:
+   Потім до **CMakeLists.txt** (у **PX4-Autopilot/msg**) включить:
 
    ```cmake
    set(
@@ -123,7 +123,7 @@ Make sure that the **common.xml** files in the following directories are exactly
         )
    ```
 
-1. Edit **mavlink_receiver.h** (in **PX4-Autopilot/src/modules/mavlink**)
+1. Змініть **mavlink_receiver.h** (в **PX4-Autopilot/src/modules/mavlink**)
 
    ```cpp
    ...
@@ -139,7 +139,7 @@ Make sure that the **common.xml** files in the following directories are exactly
    }
    ```
 
-1. Edit **mavlink_receiver.cpp** (in **PX4-Autopilot/src/modules/mavlink**). This is where PX4 receives the MAVLink message sent from ROS, and publishes it as a uORB topic.
+1. Змініть **mavlink_receiver.cpp** (у **PX4-Autopilot/src/modules/mavlink**). Саме тут PX4 отримує повідомлення MAVLink від ROS, і публікує його як тему uORB.
    ```cpp
    ...
    void MavlinkReceiver::handle_message(mavlink_message_t *msg)
@@ -171,7 +171,7 @@ Make sure that the **common.xml** files in the following directories are exactly
    }
    ```
 
-1. Make your own uORB topic subscriber just like any example subscriber module. For this example lets create the model in (/PX4-Autopilot/src/modules/key_receiver). In this directory, create three files **CMakeLists.txt**, **key_receiver.cpp**, **Kconfig** Each one looks like the following.
+1. Створіть власну підписку на тему uORB так само, як і будь-який інший приклад модуля підписки. Для цього прикладу створимо модель у (/PX4-Autopilot/src/modules/key_receiver). У цьому каталозі створіть три файли **CMakeLists.txt**, **key_receiver.cpp**, **Kconfig** Кожен з них має наступний вигляд.
 
    -CMakeLists.txt
 
@@ -262,22 +262,22 @@ Make sure that the **common.xml** files in the following directories are exactly
 
    Для більш детального пояснення дивіться тему [Написання вашої першої програми](../modules/hello_sky.md).
 
-1. Lastly, add your module in the **default.px4board** file correspondent to your board in **PX4-Autopilot/boards/**. For example: -for the Pixhawk 4, add the following code in **PX4-Autopilot/boards/px4/fmu-v5/default.px4board**: -for the SITL, add the following code in **PX4-Autopilot/boards/px4/sitl/default.px4board**
+1. Нарешті, додайте ваш модуль у файл **default.px4board**, що відповідає вашій платі у **PX4-Autopilot/boards/**. Наприклад: -для Pixhawk 4, додайте наступний код у **PX4-Autopilot/boards/px4/fmu-v5/default.px4board**: -для, додайте наступний код у **PX4-Autopilot/boards/px4/sitl/default.px4board**
 
    ```
     CONFIG_MODULES_KEY_RECEIVER=y
    ```
 
-Now you are ready to build all your work!
+Тепер ви готові зібрати всю свою роботу!
 
-## Building
+## Збірка
 
-### Build for ROS
+### Збірка для ROS
 
-1. In your workspace enter: `catkin build`.
-1. Beforehand, you have to set your "px4.launch" in (/workspace/src/mavros/mavros/launch). Edit "px4.launch" as below. If you are using USB to connect your computer with Pixhawk, you have to set "fcu_url" as shown below. But, if you are using CP2102 to connect your computer with Pixhawk, you have to replace "ttyACM0" with "ttyUSB0". And if you are using the SITL to connect to your terminal, you have to replace "/dev/ttyACM0:57600" with "udp://:14540@127.0.0.1:14557". Modifying "gcs_url" is to connect your Pixhawk with UDP, because serial communication cannot accept MAVROS, and your nutshell connection simultaneously.
+1. У вашій робочому середовищі введіть: `catkin build`.
+1. Попередньо ви маєте встановити свій "px4.launch" у (/workspace/src/mavros/mavros/launch). Відредагуйте "px4.launch" як нижче. Якщо ви використовуєте USB для підключення комп'ютера до Pixhawk, ви повинні встановити "fcu_url" як показано нижче. Проте, якщо ви використовуєте CP2102 для підключення комп'ютера до Pixhawk, вам необхідно замінити "ttyACM0" на "ttyUSB0". І якщо ви використовуєте SITL для підключення до свого терміналу, ви повинні замінити "/dev/ttyACM0:57600" на "udp://:14540@127.0.0.1:14557". Зміна "gcs_url" означає підключення Pixhawk через UDP, оскільки послідовний зв'язок не може одночасно приймати MAVROS і ваше з'єднання з оболонкою.
 
-1. Write your IP address at "xxx.xx.xxx.xxx"
+1. Введіть свою IP-адресу у вигляді "xxx.xx.xxx.xxx"
    ```xml
    ...
      <arg name="fcu_url" default="/dev/ttyACM0:57600" />
@@ -285,33 +285,33 @@ Now you are ready to build all your work!
    ...
    ```
 
-### Build for PX4
+### Збірка для PX4
 
-1. Clean the previously built PX4-Autopilot directory. In the root of **PX4-Autopilot** directory:
+1. Очистіть попередньо зібраний каталог PX4-Autopilot. У корені каталогу **PX4-Autopilot**:
     ```sh
     make clean
     ```
 
-1. Build PX4-Autopilot and upload [in the normal way](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
+1. Зберіть PX4-Autopilot і завантажте [звичайним способом](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
 
-    For example:
+    Наприклад:
 
-    - to build for Pixhawk 4/FMUv5 execute the following command in the root of the PX4-Autopilot directory:
+    - щоб зібрати для Pixhawk 4/FMUv5, виконайте наступну команду у корені каталогу PX4-Autopilot:
     ```sh
     make px4_fmu-v5_default upload
     ```
-    - to build for SITL execute the following command in the root of the PX4-Autopilot directory (using jmavsim simulation):
+    - для SITL потрібно виконати наступну команду в кореневому каталозі PX4-Autopilot (використовуючи jmavsim simulation):
     ```sh
     make px4_sitl jmavsim
     ```
 
-## Running the Code
+## Запуск коду
 
-Next test if the MAVROS message is sent to PX4.
+Далі перевірте, чи надсилається повідомлення MAVROS на PX4.
 
-### Running ROS
+### Запуск ROS
 
-1. In a terminal enter
+1. У терміналі введіть
    ```sh
    roslaunch mavros px4.launch
    ```
@@ -319,11 +319,11 @@ Next test if the MAVROS message is sent to PX4.
    ```sh
    rostopic pub -r 10 /mavros/keyboard_command/keyboard_sub std_msgs/Char 97
    ```
-   This means, publish 97 ('a' in ASCII) to ROS topic "/mavros/keyboard_command/keyboard_sub" in message type "std_msgs/Char". "-r 10" means to publish continuously in "10Hz".
+   Це означає, що потрібно опублікувати 97 ('a' в ASCII) у темі ROS "/mavros/keyboard_command/keyboard_sub" з типом повідомлення "std_msgs/Char". "-r 10" означає безперервну публікацію з частотою "10 Гц".
 
-### Running PX4
+### Запуск PX4
 
-1. Enter the Pixhawk nutshell through UDP. Replace xxx.xx.xxx.xxx with your IP.
+1. Введіть оболонку Pixhawk через UDP. Замініть xxx.xx.xxx.xxx своїм IP.
    ```sh
    cd PX4-Autopilot/Tools
    ./mavlink_shell.py xxx.xx.xxx.xxx:14557 --baudrate 57600
@@ -334,9 +334,9 @@ Next test if the MAVROS message is sent to PX4.
    nsh>
    nsh>
    ```
-   Type "key_receiver", to run your subscriber module.
+   Введіть "key_receiver", щоб запустити модуль підписника.
    ```
    nsh> key_receiver
    ```
 
-Check if it successfully receives `a` from your ROS topic.
+Перевірте, чи успішно він отримує `a` з вашої теми ROS.
