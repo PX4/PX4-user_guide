@@ -10,16 +10,16 @@
 
 ## Акроніми
 
-| Акронім     | Розшифровка                                                                                                                                                                             |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AOA         | Кут атаки. Також називається _альфа_.                                                                                                                                                   |
-| AOS         | Кут бокового зсуву Також називається _бета_.                                                                                                                                            |
-| FRD         | Система координат, де вісь X вказує напрямок до передньої частини транспортного засобу, вісь Y вказує напрямок праворуч, а вісь Z вказує напрямок вниз, завершуючи правило правої руки. |
-| FW          | Закріплені крила (літаки).                                                                                                                                                              |
-| MC          | Мультикоптери.                                                                                                                                                                          |
-| MPC or MCPC | Контролер позиції багатокоптера MPC також використовується для Model Predictive Control (Модельно-прогностичне управління).                                                             |
-| NED         | Система координат, де вісь X вказує напрямок до справжнього Північного полюса, вісь Y вказує напрямок східної сторони, а вісь Z вказує напрямок вниз, завершуючи правило правої руки.   |
-| PID         | Контролер з пропорційною, інтегральною та диференціальною діями.                                                                                                                        |
+| Акронім      | Розшифровка                                                                                                                                                                             |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AOA          | Кут атаки. Також називається _альфа_.                                                                                                                                                   |
+| AOS          | Кут бокового зсуву Також називається _бета_.                                                                                                                                            |
+| FRD          | Система координат, де вісь X вказує напрямок до передньої частини транспортного засобу, вісь Y вказує напрямок праворуч, а вісь Z вказує напрямок вниз, завершуючи правило правої руки. |
+| FW           | Закріплені крила (літаки).                                                                                                                                                              |
+| MC           | Мультикоптери.                                                                                                                                                                          |
+| MPC або MCPC | Контролер позиції багатокоптера MPC також використовується для Model Predictive Control (Модельно-прогностичне управління).                                                             |
+| NED          | Система координат, де вісь X вказує напрямок до справжнього Північного полюса, вісь Y вказує напрямок східної сторони, а вісь Z вказує напрямок вниз, завершуючи правило правої руки.   |
+| PID          | Контролер з пропорційною, інтегральною та диференціальною діями.                                                                                                                        |
 
 ## Символи
 
@@ -57,7 +57,7 @@
 | $\boldsymbol{\omega}^b$            | Вектор кутової швидкості в тілесній системі координат: $\boldsymbol{\omega}^b = [p \quad q \quad r]^T$                                                                                    |
 | $\boldsymbol{\mathrm{x}}$          | Загальний вектор стану                                                                                                                                                                        |
 
-- `1` Hamiltonian attitude quaternion. $\boldsymbol{\mathrm{\tilde{q}}} = (q_0, q_1, q_2, q_3) = (q_0, \boldsymbol{\mathrm{q}})$.<br> $\boldsymbol{\mathrm{\tilde{q}}}{}$ describes the attitude relative to the local frame $\ell{}$. To represent a vector in local frame given a vector in body frame, the following operation can be used: $\boldsymbol{\mathrm{\tilde{v}}}^\ell = \boldsymbol{\mathrm{\tilde{q}}} \, \boldsymbol{\mathrm{\tilde{v}}}^b \, \boldsymbol{\mathrm{\tilde{q}}}^*{}$ (or $\boldsymbol{\mathrm{\tilde{q}}}^{-1}{}$ instead of $\boldsymbol{\mathrm{\tilde{q}}}^*{}$ if $\boldsymbol{\mathrm{\tilde{q}}}{}$ is not unitary). $\boldsymbol{\mathrm{\tilde{v}}}{}$ represents a _quaternionized_ vector: $\boldsymbol{\mathrm{\tilde{v}}} = (0,\boldsymbol{\mathrm{v}})$
+- `1` Гамільтонів кватерніон відношення. $\boldsymbol{\mathrm{\tilde{q}}} = (q_0, q_1, q_2, q_3) = (q_0, \boldsymbol{\mathrm{q}})$.<br> $\boldsymbol{\mathrm{\tilde{q}}}{}$ describes the attitude relative to the local frame $\ell{}$. Для представлення вектора в локальному фреймі, заданому вектором у кадрі тіла, можна використати таку операцію: $\boldsymbol{\mathrm{\tilde{v}}}^\ell = \boldsymbol{\mathrm{\tilde{q}}} \, \boldsymbol{\mathrm{\tilde{v}}}^b \, \boldsymbol{\mathrm{\tilde{q}}}^*{}$ (or $\boldsymbol{\mathrm{\tilde{q}}}^{-1}{}$ instead of $\boldsymbol{\mathrm{\tilde{q}}}^*{}$ if $\boldsymbol{\mathrm{\tilde{q}}}{}$ не є унітарним). $\boldsymbol{\mathrm{\tilde{v}}}{}$ represents a _quaternionized_ vector: $\boldsymbol{\mathrm{\tilde{v}}} = (0,\boldsymbol{\mathrm{v}})$
 
 ### Нижні індекси / Показники
 
