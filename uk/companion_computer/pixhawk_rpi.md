@@ -11,9 +11,9 @@ Other common ways to connect RaPi and Pixhawk are:
 - Serial connection to the RPi USB port. This is simple and reliable, but requires an additional FTDI Chip USB-to-serial adapter board. This option is covered in [Pixhawk Companion > Serial Port Setup](../companion_computer/pixhawk_companion.md#serial-port-setup).
 :::
 
-## Wiring
+## Підключення
 
-### Serial connection
+### Послідовне з'єднання
 
 First wire up the serial connection between the RPi and PX4 that is to be used for offboard control.
 
@@ -38,7 +38,7 @@ Almost all recent Pixhawk boards, such as the Pixhawk-6C, use the same connector
 
 The standard `TELEM2` pin assignments are shown below.
 
-| Pins      | Сигнал          | Напруга |
+| Піни      | Сигнал          | Напруга |
 | --------- | --------------- | ------- |
 | 1 (Red)   | VCC             | +5V     |
 | 2 (Black) | UART5_TX (out)  | +3.3V   |
@@ -74,7 +74,7 @@ Overloading your Pixhawk is a good way to destroy it.
 During PX4 setup and configuration the USB connection with your ground station laptop is sufficient to power the Pixhawk board, and your companion computer might be powered from a desktop charger.
 :::
 
-## PX4 Setup
+## Налаштування PX4
 
 These instructions work on PX4 v1.14 and later.
 
@@ -101,7 +101,7 @@ make px4_fmu-v6c_default upload
 ```
 -->
 
-## Ubuntu Setup on RPi
+## Налаштування Ubuntu на RPi
 
 The following steps show how to install and setup Ubuntu 22.04 on the RPi. Note that ROS 2 versions target particular Ubuntu versions. We're using Ubuntu 22.04 to match ROS 2 "Humble", so if you're working with ROS 2 "Foxy" you would instead install Ubuntu 20.04.
 
@@ -114,7 +114,7 @@ First install Ubuntu onto the RPi:
 
 Enter the following commands (in sequence) a terminal to configure Ubuntu for RPi:
 
-1. Install `raspi-config`:
+1. Встановіть `raspi-config`:
 
    ```sh
    sudo apt update
@@ -122,7 +122,7 @@ Enter the following commands (in sequence) a terminal to configure Ubuntu for RP
    sudo apt-get install raspi-config
    ```
 
-1. Open `raspi-config`:
+1. Відкрийте `raspi-config`:
 
    ```sh
    sudo raspi-config
