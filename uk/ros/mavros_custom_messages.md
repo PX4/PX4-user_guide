@@ -1,4 +1,4 @@
-# Sending a Custom Message from MAVROS to PX4
+# Надсилання довільних повідомлень з MAVROS до PX4
 
 :::warning
 Ця стаття була протестована на:
