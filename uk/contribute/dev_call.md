@@ -5,7 +5,7 @@
   </div>
 </div>
 
-The PX4 dev team and community come together to discuss any topic of interest to the community, ranging from sorting out issues to satisfying your curiosity.
+Команда розробників PX4 і спільнота збираються разом, щоб обговорити будь-яку тему, яка цікавить спільноту, починаючи від вирішення проблем і закінчуючи задоволенням вашої цікавості.
 
 ## Хто повинен відвідувати ці дзвінки?
 
