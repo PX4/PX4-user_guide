@@ -106,6 +106,8 @@
 2. Клонуйте репозиторій в робочий простір:
 
    ```sh
+   cd $ros_workspace/src
+   git clone --recursive https://github.com/Auterion/px4-ros2-interface-lib
    ```
 
    ::::note
@@ -114,11 +116,16 @@
 3. Побудуйте робочий простір:
 
    ```sh
+   cd ..
+   colcon build
+   source install/setup.bash
    ```
 
 4. У іншій оболонці запустіть PX4 SITL:
 
    ```sh
+   cd $px4-autopilot
+   make px4_sitl gazebo-classic
    ```
 
    (тут ми використовуємо Gazebo-Classic, але ви можете використовувати будь-яку модель або симулятор)
@@ -126,6 +133,7 @@
 5. Запустіть агента micro XRCE в новій оболонці (після цього ви можете залишити його запущеним):
 
    ```sh
+   MicroXRCEAgent udp4 -p 8888
    ```
 
 6. Запустіть QGroundControl.
@@ -136,21 +144,36 @@
 7. Повернутись до терміналу 2 ROS, запустити один із прикладів:
 
    ```shell
+   ros2 run example_mode_manual_cpp example_mode_manual
    ```
 
    Ви повинні отримати на виході режим 'Мій ручний режим' зареєстрований:
 
    ```sh
+   [DEBUG] [example_mode_manual]: Checking message compatibility...
+   [DEBUG] [example_mode_manual]: Subscriber found, continuing
+   [DEBUG] [example_mode_manual]: Publisher found, continuing
+   [DEBUG] [example_mode_manual]: Registering 'My Manual Mode' (arming check: 1, mode: 1, mode executor: 0)
+   [DEBUG] [example_mode_manual]: Subscriber found, continuing
+   [DEBUG] [example_mode_manual]: Publisher found, continuing
+   [DEBUG] [example_mode_manual]: Got RegisterExtComponentReply
+   [DEBUG] [example_mode_manual]: Arming check request (id=1, only printed once)
    ```
 
 8. На PX4 оболонці ви можете перевірити, що PX4 зареєстрував новий режим:
 
    ```sh
+   commander status
    ```
 
    Вихід має містити:
 
    ```{5}
+   INFO  [commander] Disarmed
+   INFO  [commander] navigation mode: Position
+   INFO  [commander] user intended navigation mode: Position
+   INFO  [commander] in failsafe: no
+   INFO  [commander] External Mode 1: nav_state: 23, name: My Manual Mode
    ```
 
 9. У цій точці ви також повинні побачити режим в QGroundControl :
@@ -161,6 +184,7 @@
     Тоді режим активується, і він має вивести наступний вивід:
 
     ```sh
+    [DEBUG] [example_mode_manual]: Mode 'My Manual Mode' activated
     ```
 
 11. Тепер ви готові створити свій власний режим.
@@ -177,6 +201,43 @@
 Для повного застосування перегляньте приклади в репозиторії Auterion/px4-ros2-interface-lib, такі як examples/cpp/modes/manual.
 
 ```cpp{1,5,7-9,24-31}
+class MyMode : public px4_ros2::ModeBase // [1]
+{
+public:
+  explicit MyMode(rclcpp::Node & node)
+  : ModeBase(node, Settings{"My Mode"}) // [2]
+  {
+    // [3]
+    _manual_control_input = std::make_shared<px4_ros2::ManualControlInput>(*this);
+    _rates_setpoint = std::make_shared<px4_ros2::RatesSetpointType>(*this);
+  }
+
+  void onActivate() override
+  {
+    // Called whenever our mode gets selected
+  }
+
+  void onDeactivate() override
+  {
+    // Called when our mode gets deactivated
+  }
+
+  void updateSetpoint(const rclcpp::Duration & dt) override
+  {
+    // [4]
+    const Eigen::Vector3f thrust_sp{0.F, 0.F, -_manual_control_input->throttle()};
+    const Eigen::Vector3f rates_sp{
+      _manual_control_input->roll() * 150.F * M_PI / 180.F,
+      -_manual_control_input->pitch() * 150.F * M_PI / 180.F,
+      _manual_control_input->yaw() * 100.F * M_PI / 180.F
+    };
+    _rates_setpoint->update(rates_sp, thrust_sp);
+  }
+
+private:
+  std::shared_ptr<px4_ros2::ManualControlInput> _manual_control_input;
+  std::shared_ptr<px4_ros2::RatesSetpointType> _rates_setpoint;
+};
 ```
 
 - `[1]`: Спочатку ми створюємо клас, який успадковується від [`px4_ros2::ModeBase`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1ModeBase.html).
@@ -194,9 +255,71 @@
 У цьому розділі розглядається приклад створення класу для власного режиму.
 
 ```cpp{1,4-5,9-16,20,33-57}
+class MyModeExecutor : public px4_ros2::ModeExecutorBase // [1]
+{
+public:
+  MyModeExecutor(rclcpp::Node & node, px4_ros2::ModeBase & owned_mode) // [2]
+  : ModeExecutorBase(node, px4_ros2::ModeExecutorBase::Settings{}, owned_mode),
+    _node(node)
+  { }
+
+  enum class State // [3]
+  {
+    Reset,
+    TakingOff,
+    MyMode,
+    RTL,
+    WaitUntilDisarmed,
+  };
+
+  void onActivate() override
+  {
+    runState(State::TakingOff, px4_ros2::Result::Success); // [4]
+  }
+
+  void onDeactivate(DeactivateReason reason) override { }
+
+  void runState(State state, px4_ros2::Result previous_result)
+  {
+    if (previous_result != px4_ros2::Result::Success) {
+      RCLCPP_ERROR(_node.get_logger(), "State %i: previous state failed: %s", (int)state,
+        resultToString(previous_result));
+      return;
+    }
+
+    switch (state) { // [5]
+      case State::Reset:
+        break;
+
+      case State::TakingOff:
+        takeoff([this](px4_ros2::Result result) {runState(State::MyMode, result);});
+        break;
+
+      case State::MyMode: // [6]
+        scheduleMode(
+          ownedMode().id(), [this](px4_ros2::Result result) {
+            runState(State::RTL, result);
+          });
+        break;
+
+      case State::RTL:
+        rtl([this](px4_ros2::Result result) {runState(State::WaitUntilDisarmed, result);});
+        break;
+
+      case State::WaitUntilDisarmed:
+        waitUntilDisarmed([this](px4_ros2::Result result) {
+            RCLCPP_INFO(_node.get_logger(), "All states complete (%s)", resultToString(result));
+          });
+        break;
+    }
+  }
+
+private:
+  rclcpp::Node & _node;
+};
 ```
 
-- [1]: Спочатку ми створюємо клас, який успадковується від px4_ros2::ModeExecutorBase.
+- `[1]`: Спочатку ми створюємо клас, який наслідується від [`px4_ros2::ModeExecutorBase`](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1ModeExecutorBase.html).
 - [2]: Конструктор приймає наш власний режим, який пов'язаний з виконавцем, і передає його в конструктор ModeExecutorBase.
 - [3]: Ми визначаємо перерахування для станів, через які ми хочемо пройти.
 - [4]: Метод onActivate викликається, коли виконавець стає активним.  На цій точці ми можемо почати проходити через наші стани.
@@ -233,12 +356,19 @@ The other setpoint types are currently experimental, and can be found in: [px4\_
 Найбільш тривіальне використання полягає в простому введенні 3D-позиції в метод оновлення:
 
 ```cpp
+const Eigen::Vector3f target_position_m{-10.F, 0.F, 3.F};
+_goto_setpoint->update(target_position_m);
 ```
 
 У цьому випадку заголовок залишиться _uncontrolled_.
 Для додаткового контрольного заголовку, вкажіть його в якості другого вхідного аргументу:
 
 ```cpp
+const Eigen::Vector3f target_position_m{-10.F, 0.F, 3.F};
+const float heading_rad = 3.14F;
+_goto_setpoint->update(
+  target_position_m,
+  heading_rad);
 ```
 
 Додатковою особливістю установки цільової точки є динамічний контроль за межами швидкості плавних рухів (тобто максимальні горизонтальні та вертикальні швидкості трансляції, а також швидкість руху по курсу).
@@ -246,11 +376,23 @@ The other setpoint types are currently experimental, and can be found in: [px4\_
 Плавники можуть тільки зменшувати межі швидкості, але ніколи не збільшувати.
 
 ```cpp
+_goto_setpoint->update(
+  target_position_m,
+  heading_rad,
+  max_horizontal_velocity_m_s,
+  max_vertical_velocity_m_s,
+  max_heading_rate_rad_s);
 ```
 
 Усі аргументи у методі оновлення, крім позиції, є зразками у вигляді `std::optional<float>`, що означає, що якщо хтось бажає обмежити швидкість руху по курсу, але не швидкості трансляції, це можливо за допомогою `std::nullopt`:
 
 ```cpp
+_goto_setpoint->update(
+  target_position_m,
+  heading_rad,
+  std::nullopt,
+  std::nullopt,
+  max_heading_rate_rad_s);
 ```
 
 #### Безпосереднє значення параметра Control (DirectActuatorsSetpointType)
@@ -277,13 +419,21 @@ The other setpoint types are currently experimental, and can be found in: [px4\_
 
 Ви можете отримати доступ до телеметрії PX4 безпосередньо через наступні класи:
 
--
--
--
+- [OdometryGlobalPosition](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1OdometryGlobalPosition.html): Global position
+- [OdometryLocalPosition](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1OdometryLocalPosition.html): Local position, velocity, acceleration, and heading
+- [OdometryAttitude](https://auterion.github.io/px4-ros2-interface-lib/classpx4__ros2_1_1OdometryAttitude.html): Vehicle attitude
 
 Наприклад, ви можете надати запит на поточну позицію автомобіля наступним чином:
 
 ```cpp
+std::shared_ptr<px4_ros2::OdometryLocalPosition> _vehicle_local_position;
+...
+
+// Get vehicle's last local position
+_vehicle_local_position->positionNed();
+
+// Check last horizontal position is valid
+_vehicle_local_position->positionXYValid();
 ```
 
 :::note
@@ -298,6 +448,7 @@ The other setpoint types are currently experimental, and can be found in: [px4\_
 Наприклад, коли додається керування вручну за допомогою коду нижче, прапорець вимог для керування вручну встановлюється:
 
 ```cpp
+_manual_control_input = std::make_shared<px4_ros2::ManualControlInput>(*this);
 ```
 
 Зокрема, встановлення прапорця має наступні наслідки в PX4, якщо умова не виконується:
@@ -317,15 +468,16 @@ The other setpoint types are currently experimental, and can be found in: [px4\_
 Можна вручну оновити будь-які вимоги до режиму після реєстрації.
 
 ```cpp
+modeRequirements().home_position = true;
 ```
 
-
+Повний список флагів може бути знайдений у [requirement_flags.hpp](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/include/px4_ros2/common/requirement_flags.hpp).
 
 #### Відкладення аварійних режимів
 
 Режим або режим виконавця може тимчасово відкласти неістотні збої, викликаючи метод [`deferFailsafesSync()`](https://auterion.github.io/px4-2-interface-lib/classpx4__ros2_1_1ModeExecutorBase.html#a16ec5be6e70e1d0625bf696c3e29ae).
 
-
+Переглянте [integration test](https://github.com/Auterion/px4-ros2-interface-lib/blob/main/px4_ros2_cpp/test/integration/overrides.cpp) for an example.
 
 ### Призначення режиму для RC-перемикача або дії джойстика
 
@@ -336,11 +488,12 @@ The other setpoint types are currently experimental, and can be found in: [px4\_
 
 
 ```plain
+   INFO  [commander] External Mode 1: nav_state: 23, name: My Manual Mode
 ```
 
 означає, що ви б обрали **Зовнішній режим 1** в QGC:
 
-
+![QGC Mode Assignment](../../assets/middleware/ros2/px4_ros2_interface_lib/qgc_mode_assignment.png)
 
 :::note
 PX4 забезпечує, що певний режим завжди призначається тому ж індексу, зберігаючи хеш назви режиму.
@@ -356,4 +509,5 @@ This makes it independent of startup ordering in case of multiple external modes
 Замінений режим можна встановити в налаштуваннях конструктора ModeBase:
 
 ```cpp
+Settings{kName, false, ModeBase::kModeIDRtl}
 ```
