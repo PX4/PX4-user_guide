@@ -1,9 +1,9 @@
-# MAVROS _Offboard_ control example (C++)
+# MAVROS _Offboard_ control приклад (C++)
 
 This tutorial shows the basics of _Offboard_ control with MAVROS, using an Iris quadcopter simulated in Gazebo Classic/SITL. At the end of the tutorial, you should see the same behaviour as in the video below, i.e. a slow takeoff to an altitude of 2 meters.
 
 :::warning
-_Offboard_ control is dangerous. If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
+_Offboard_ керування небезпечне. If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
 :::
 
 :::tip
