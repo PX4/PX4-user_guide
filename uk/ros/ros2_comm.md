@@ -2,7 +2,7 @@
 
 The ROS 2-PX4 architecture provides a deep integration between ROS 2 and PX4, allowing ROS 2 subscribers or publisher nodes to interface directly with PX4 uORB topics.
 
-This topic provides an overview of the architecture and application pipeline, and explains how to setup and use ROS 2 with PX4.
+Ця тема містить огляд архітектури та пайплайну додатків, а також пояснює, як налаштувати та використовувати ROS 2 з PX4.
 
 :::note
 From PX4 v1.14, ROS 2 uses [uXRCE-DDS](../middleware/uxrce_dds.md) middleware, replacing the _FastRTPS_ middleware that was used in version 1.13 (v1.13 does not support uXRCE-DDS).
@@ -45,10 +45,10 @@ ROS 2 "Humble" is recommended because it is the current ROS 2 LTS distribution. 
 :::note PX4 is not as well tested on Ubuntu 22.04 as it is on Ubuntu 20.04 (at time of writing), and Ubuntu 20.04 is needed if you want to use [Gazebo Classic](../sim_gazebo_classic/README.md).
 :::
 
-To setup ROS 2 for use with PX4:
+Для налаштування ROS 2 для використання з PX4:
 
-- [Install PX4](#install-px4) (to use the PX4 simulator)
-- [Install ROS 2](#install-ros-2)
+- [Встановити PX4](#install-px4) (для використання симулятора PX4)
+- [Встановіть ROS 2](#install-ros-2)
 - [Setup Micro XRCE-DDS Agent & Client](#setup-micro-xrce-dds-agent-client)
 - [Build & Run ROS 2 Workspace](#build-ros-2-workspace)
 
@@ -63,7 +63,7 @@ You need to install the PX4 development toolchain in order to use the simulator.
 The only dependency ROS 2 has on PX4 is the set of message definitions, which it gets from [px4_msgs](https://github.com/PX4/px4_msgs). You only need to install PX4 if you need the simulator (as we do in this guide), or if you are creating a build that publishes custom uORB topics.
 :::
 
-Set up a PX4 development environment on Ubuntu in the normal way:
+Налаштуйте середовище розробки PX4 на Ubuntu звичайним шляхом:
 
 ```sh
 cd
@@ -79,7 +79,7 @@ For more information and troubleshooting see: [Ubuntu Development Environment](.
 
 ### Встановлення ROS 2
 
-To install ROS 2 and its dependencies:
+Щоб встановити ROS 2 і його залежності:
 
 1. Встановлення ROS 2.
 
@@ -275,7 +275,7 @@ A naming convention for workspace folders can make it easier to manage workspace
    This builds all the folders under `/src` using the sourced toolchain.
 
 
-#### Running the Example
+#### Запуск прикладу
 
 To run the executables that you just built, you need to source `local_setup.bash`. This provides access to the "environment hooks" for the current workspace. In other words, it makes the executables that were just built available in the current terminal.
 
@@ -312,7 +312,7 @@ In a new terminal:
    ```sh
    source install/local_setup.bash
    ```
-1. Now launch the example. Note here that we use `ros2 launch`, which is described below.
+1. Тепер запустіть приклад. Note here that we use `ros2 launch`, which is described below.
 
    ```
    ros2 launch px4_ros_com sensor_combined_listener.launch.py
@@ -624,7 +624,7 @@ Changing the namespace at runtime will append the desired namespace as a prefix 
 uxrce_dds_client start -n uav_1
 ```
 
-or
+або
 
 ```sh
 PX4_UXRCE_DDS_NS=uav_1 make px4_sitl gz_x500
