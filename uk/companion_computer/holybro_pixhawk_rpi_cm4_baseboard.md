@@ -1,15 +1,15 @@
 # Holybro Pixhawk RPi CM4 Baseboard
 
-The [Holybro Pixhawk RPi CM4 Baseboard](https://holybro.com/products/pixhawk-rpi-cm4-baseboard) is a single-board solution that pre-integrates a (swappable) Pixhawk flight controller with the Raspberry Pi CM4 companion computer ("RPi"). The baseboard has a compact form factor with all the connections needed for development.
+[Holybro Pixhawk RPi CM4 Baseboard](https://holybro.com/products/pixhawk-rpi-cm4-baseboard) - це одноплатне рішення, яке передбачає попередню інтеграцію (змінну) контролера польоту Pixhawk з супутниковим комп'ютером Raspberry Pi CM4 ("RPi"). Базова плата має компактний форм-фактор з усіма необхідними з'єднаннями для розробки.
 
 ![RPi CM4 with Pixhawk](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_hero.jpg)
 
-The flight controller module is internally connected to RPi CM4 through `TELEM2`, but may alternatively be connected using Ethernet with the provided external cable.
+Модуль контролера польоту внутрішньо підключений до RPi CM4 через `TELEM2`, але також може бути підключений за допомогою Ethernet за допомогою зовнішнього кабелю, що надається.
 
-This baseboard is plug-in compatible with [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md), [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md), and any other Pixhawk controller that follows the [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf) guidelines for mechanical compatibility across vendors.
+Ця базова плата сумісна з [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md), [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md) та будь-яким іншим контролером Pixhawk, який відповідає стандартам роз'ємів [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf) для механічної сумісності між виробниками.
 
 :::note
-The board follows the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) and [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf) (including the guidelines for "mechanical compatibility across vendors").
+Плата відповідає стандарту роз'ємів [Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) і стандарту [Pixhawk Autopilot Bus](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf) (включаючи вказівки щодо "механічної сумісності між виробниками").
 :::
 
 ## Purchase
@@ -27,7 +27,7 @@ The board follows the [Pixhawk Connector Standard](https://github.com/pixhawk/Pi
     - eMMC: 16GB
     - Wireless: Yes
 
-## Connections & Ports
+## Підключення & Порти
 
 :::note
 The [Holybro Documentation](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-rpi-cm4-baseboard/connections-and-ports) has more detailed (and possibly more "up to date") port and connection information.
@@ -165,7 +165,7 @@ To enable this MAVLink instance on the FC:
    - `MAV_1_MODE = 2`
    - `SER_TEL2_BAUD` = `921600`
 
-1. Reboot the FC.
+1. Перезавантажте FC.
 
 ### RPi Serial Port Setup
 
@@ -292,7 +292,7 @@ However, it doesn’t have an IP yet. Set one that is similar to the one on the 
 ifconfig eth0 169.254.21.184
 ```
 
-Then check it:
+Далі перевірте:
 
 ```sh
 ifconfig
@@ -305,7 +305,7 @@ Now the devices should be able to ping each other.
 
 Note that this configuration is ephemeral and will be lost after a reboot, so we’ll need to find a way to configure it statically.
 
-#### Ping Test
+#### Тест пінгу
 
 First from the CM4:
 
@@ -356,7 +356,7 @@ This will send MAVLink traffic on UDP to port 14540 (the MAVSDK/MAVROS port) to 
 
 To run a MAVSDK example, install mavsdk via pip, and try out an example from [MAVSDK-Python/examples](https://github.com/mavlink/MAVSDK-Python/tree/main/examples).
 
-For instance:
+Наприклад:
 
 ```sh
 python3 -m pip install mavsdk
@@ -366,7 +366,7 @@ chmod +x tune.py
 ./tune.py
 ```
 
-## See Also
+## Дивіться також
 
 - [Get The Pixhawk Raspberry Pi CM4 Baseboard By Holybro Talking With PX4](https://px4.io/get-the-pixhawk-raspberry-pi-cm4-baseboard-by-holybro-talking-with-px4/) (px4.io blog):
   - Tutorial showing how to connect Pixhawk 6X + Raspberry Pi on CM4 baseboard via wired Ethernet.

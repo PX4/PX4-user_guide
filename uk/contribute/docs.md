@@ -1,4 +1,4 @@
-# Contributing to Documentation
+# Доповнення до документації
 
 Внески до Керівництва користувачів PX4 дуже вітаються; від простих виправлень до правопису та граматики, до створення абсолютно нових секцій.
 
@@ -12,7 +12,7 @@ Note Вам знадобиться обліковий запис (безкошт
 
 ## Швидкі зміни в Github
 
-Simple changes to _existing content_ can be made by clicking the **Edit this page on GitHub** link that appears at the bottom of every page (this opens the page on Github for editing).
+Прості зміни до _існуючого вмісту_ можна внести, клацнувши по посиланню **Редагувати цю сторінку на GitHub**, яке з'являється внизу кожної сторінки (це відкриває сторінку на GitHub для редагування).
 
 ![Vuepress: Edit Page button](../../assets/vuepress/vuepress_edit_page_on_github_link.png)
 
@@ -21,7 +21,7 @@ Simple changes to _existing content_ can be made by clicking the **Edit this pag
 1. Відкрийте сторінку
 1. Клацніть **Редагувати цю сторінку на GitHub** посилання під вмістом сторінки.
 1. Зробіть необхідні зміни.
-1. Below the Github page editor you'll be prompted to create a separate branch and then guided to submit a _pull request_.
+1. Нижче редактора сторінок GitHub вас запросять створити окрему гілку, після чого вас насамперед попросять подати запит на злиття (_pull request_).
 
 Команда документації перегляне запит і або об'єднає його, або працює з вами, щоб оновити його.
 
@@ -29,91 +29,91 @@ Simple changes to _existing content_ can be made by clicking the **Edit this pag
 
 ## Зміни за допомогою Git (Нові сторінки та зображення)
 
-More substantial changes, including adding new pages or adding/modifying images, aren't as easy to make (or properly test) on Github. For these kinds of changes we suggest using the same approach as for _code_:
+Більш суттєві зміни, включаючи додавання нових сторінок або додавання/зміну зображень, не такі прості для внесення (або належним чином протестувати) на Github. Для таких змін ми рекомендуємо використовувати той самий підхід, що й для _коду_:
 
-1. Use the _git_ toolchain to get the documentation source code onto your local computer.
-1. Modify the documentation as needed (add, change, delete).
-1. _Test_ that it builds properly using Vuepress.
-1. Create a branch for your changes and create a pull request (PR) to pull it back into the documentation.
+1. Використовуйте інструменти _git_, щоб отримати вихідний код документації на свій комп'ютер.
+1. Внесіть потрібні зміни в документацію (додайте, змініть, видаліть).
+1. _Test_ перевірте, що вона будується належним чином за допомогою Vuepress.
+1. Створіть гілку для ваших змін і створіть запит на витягнення (PR), щоб втягнути їх назад у документацію.
 
-The following explain how to get the source code, build locally (to test), and modify the code.
+Нижче пояснено, як отримати вихідний код, побудувати локально (для тестування) та внести зміни в код.
 
 ### Get/Push  документація вихідного коду
 
-To get the library(s) sources onto your local computer you will need to use the git toolchain. The instructions below explain how to get git and use it on your local computer.
+Щоб отримати джерела бібліотеки(ів) на свій локальний комп'ютер, вам потрібно використовувати інструментарій git. Нижче наведено інструкції, як отримати git і використовувати його на своєму локальному комп'ютері.
 
-1. Download git for your computer from [https://git-scm.com/downloads](https://git-scm.com/downloads)
-1. [Sign up](https://github.com/join) for Github if you haven't already
-1. Create a copy (Fork) of the [PX4 User Guide repo](https://github.com/PX4/PX4-user_guide) on Github ([instructions here](https://docs.github.com/en/get-started/quickstart/fork-a-repo)).
-1. Clone (copy) your forked repository to your local computer:
+1. Завантажте git для свого комп’ютера з [https://git-scm.com/downloads](https://git-scm.com/downloads)
+1. [Зареєструватися](https://github.com/join) на Github якщо ви ще не маєте акаунту
+1. Створіть копію (форк) [сховища посібника користувача PX4](https://github.com/PX4/PX4-user_guide) на Github ([інструкції тут](https://docs.github.com/en/get-started/quickstart/fork-a-repo)).
+1. Клонуйте ваш форкнутий репозиторій на локальний комп'ютер:
 
    ```sh
    cd ~/wherever/
    git clone https://github.com/<your git name>/PX4-user_guide.git
    ```
 
-   For example, to clone the PX4 userguide fork for a user with Github account "john_citizen":
+   Наприклад, щоб клонувати форк посібника користувача PX4 для користувача з обліковим записом Github "john_citizen":
 
    ```sh
    git clone https://github.com/john_citizen/PX4-user_guide.git
    ```
 
-1. Navigate to your local repository:
+1. Перейдіть до свого локального сховища:
 
    ```sh
    cd ~/wherever/PX4-user_guide
    ```
 
-1. Add a _remote_ called "upstream" to point to the PX4 version of the library:
+1. Додайте _remote_ під назвою "upstream", щоб вказувати на версію бібліотеки PX4:
 
    ```sh
    git remote add upstream https://github.com/PX4/PX4-user_guide.git
    ```
 
 :::tip
-A "remote" is a handle to a particular repository. The remote named _origin_ is created by default when you clone the repository, and points to _your fork_ of the guide. Above you create a new remote _upstream_ that points to the PX4 project version of the documents.
+"Віддалений" - це дескриптор певного сховища. Віддалене джерело з іменем _origin_ створюється за замовчуванням, коли ви клонуєте репозиторій, і вказує на вашу _your fork_ розгалуження довідника. Вище ви створюєте новий віддалений _ upstream /вихідний канал_, який вказує на версію документів проекту PX4.
 :::
 
-1. Create a branch for your changes:
+1. Створити гілку для ваших змін:
 
    ```sh
    git checkout -b <your_feature_branch_name>
    ```
 
-   This creates a local branch on your computer named `your_feature_branch_name`.
+   Це створює локальну гілку на вашому комп’ютері під назвою `your_feature_branch_name`.
 
-1. Make changes to the documentation as needed (general guidance on this in following sections)
-1. Once you are satisfied with your changes, you can add them to your local branch using a "commit":
+1. Внести зміни до документації за необхідною (загальний посібник по цьому в наступних розділах)
+1. Коли ви будете задоволені своїми змінами, ви можете додати їх до вашої локальної гілки за допомогою "commit":
 
    ```sh
    git add <file name>
    git commit -m "<your commit message>"
    ```
 
-   For a good commit message, please refer to the [Source Code Management](../contribute//code.md#commits-and-commit-messages) section.
+   Для зручного збереження змін, будь ласка, зверніться до розділу [Управління вихідним кодом](../contribute//code.md#commits-and-commit-messages) для отримання корисних порад щодо написання змістовних коментарів до комітів.
 
-1. Push your local branch (including commits added to it) to your forked repository on Github.
+1. Натисніть "Push" вашу локальну гілку (включаючи додані до неї коміти) у вашу репозиторію-форк на Github.
 
    ```sh
    git push origin your_feature_branch_name
    ```
 
-1. Go to your forked repository on Github in a web browser, e.g.: `https://github.com/<your git name>/PX4-user_guide.git`. There you should see the message that a new branch has been pushed to your forked repository.
-1. Create a pull request (PR):
-   - On the right hand side of the "new branch message" (see one step before), you should see a green button saying "Compare & Create Pull Request". Press it.
-   - A pull request template will be created. It will list your commits and you can (must) add a meaningful title (in case of a one commit PR, it's usually the commit message) and message (<span style="color:orange">explain what you did for what reason</span>. Check [other pull requests](https://github.com/PX4/PX4-user_guide/pulls) for comparison)
-1. You're done! Maintainers for the PX4 User Guide will now have a look at your contribution and decide if they want to integrate it. Check if they have questions on your changes every once in a while.
+1. Перейдіть до вашої репозиторії-форку на Github у веб-браузері, наприклад: `https://github.com/<your git name>/PX4-user_guide.git`. Там ви маєте побачити повідомлення, що нова гілка була відправлена у вашу репозиторію-форк.
+1. Створіть запит на витягнення (Pull Request, PR):
+   - На правому боці "повідомлення про нову гілку" (див. один крок перед цим), ви повинні побачити зелену кнопку з надписом "Compare & Create Pull Request". Натисніть на неї.
+   - Буде створено шаблон запиту на витягнення. Він буде перераховувати ваші коміти, і ви можете (маєте) додати значущий заголовок (у випадку одного коміту PR, це зазвичай повідомлення про коміт) та повідомлення (<span style="color:orange">поясніть, що ви зробили і для якої причини. </span>. Перевірте інші [Pr реквести](https://github.com/PX4/PX4-user_guide/pulls) для порівняння)
+1. Готово! Редактори PX4 User Guide зараз переглянуть вашу співпрацю і вирішать, чи хочуть вони інтегрувати її. Періодично перевіряйте, чи є у них питання по вашим змінам.
 
 ### Побудова бібліотеки локально
 
-Build the library locally to test that any changes you have made have rendered properly:
+Побудуйте бібліотеку локально, щоб перевірити, що будь-які зміни, які ви внесли, відображені належним чином:
 
-1. Install the [Vuepress prerequiresites](https://vuepress.vuejs.org/guide/getting-started.html#prerequisites):
+1. Встановіть [Vuepress prerequiresites](https://vuepress.vuejs.org/guide/getting-started.html#prerequisites):
 
    - [Nodejs 10+](https://nodejs.org/en)
 
 :::note
-For recent nodejs versions (after v16.15.0) you need to enable the node legacy OpenSSL provider. On Ubuntu you can do this by running the terminal command:
+Для останніх версій Node.js (після v16.15.0) вам потрібно включити застарілий постачальник OpenSSL для Node.js. На Ubuntu це можна зробити, виконавши наступну команду в терміналі:
 
      ```sh
      export NODE_OPTIONS=--openssl-legacy-provider
@@ -121,26 +121,26 @@ For recent nodejs versions (after v16.15.0) you need to enable the node legacy O
 
    - [Yarn classic](https://classic.yarnpkg.com/en/docs/install)
 
-1. Navigate to your local repository:
+1. Перейдіть до свого локального сховища:
 
    ```sh
    cd ~/wherever/PX4-user_guide
    ```
 
-1. Install dependencies (including Vuepress):
+1. Встановити залежності (включаючи Vuepress):
 
    ```sh
    yarn install
    ```
 
-1. Preview and serve the library:
+1. Попередній перегляд і обслуговування бібліотеки:
 
    ```sh
    yarn docs:dev
    ```
 
-   - Now you can browse the guide on http://localhost:8080/px4_user_guide/
-   - Stop serving using **CTRL+C** in the terminal prompt.
+   - Тепер ви можете переглянути посібник на http://localhost:8080/px4_user_guide/
+   - Зупиніть обслуговування за допомогою **CTRL+C** у підказці терміналу.
 
 1. Побудуйте бібліотеку за допомогою:
 
@@ -153,7 +153,7 @@ For recent nodejs versions (after v16.15.0) you need to enable the node legacy O
    ```
 
 :::tip
-Use `yarn docs:dev` to preview changes _as you make them_ (documents are updated and served very quickly). Before submitting a PR you should also build it using `docs:build`, as this can highlight issues that are not visible when using `docs:dev`.
+Використовуйте `yarn docs:dev` для попереднього перегляду _як ви їх робите_ внесених змін (документи оновлюються та подаються дуже швидко). Перш ніж подавати PR, ви також повинні створити його за допомогою `docs:build`, оскільки це може висвітлити проблеми, які не видно під час використання `docs:dev`.
 :::
 
 ### Структура Вихідного Коду
@@ -165,27 +165,27 @@ Use `yarn docs:dev` to preview changes _as you make them_ (documents are updated
 - Сторінки записуються окремими файлами, використовуючи markdown.
   - Синтаксис майже такий самий, як і Github wiki.
   - Vuepress також підтримує деякі [розширення markdown](https://vuepress.vuejs.org/guide/markdown.html). Ми спробуємо та уникаємо використання цього, окрім [tips, warning, etc.](https://vuepress.vuejs.org/guide/markdown.html#custom-containers).
-- This is a [multilingual](https://vuepress.vuejs.org/guide/i18n.html#default-theme-i18n-config) book:
+- Це [багатомовна](https://vuepress.vuejs.org/guide/i18n.html#default-theme-i18n-config) книга:
   - Сторінки для кожної мови зберігаються в папці з назвою для асоційованого мовного коду (наприклад, "zh" для китайської, "ko" для корейської).
-  - Редагувати лише версію файлів ENGLISH (**/en**). We use [Crowdin](../contribute/translation.md) to manage the translations.
-- All pages must be in an appropriately named sub-folder of **/en** (e.g. this page is in folder **en/contribute/**).
-  - This makes linking easier because other pages and images are always as the same relative levels
-- The _structure_ of the book is defined in **SUMMARY.md**
+  - Редагувати лише версію файлів ENGLISH (**/en**). Ми використовуємо [Crowdin](../contribute/translation.md) для керування перекладами.
+- Всі сторінки повинні бути в відповідно названих підпапках **/en** (наприклад, ця сторінка знаходиться в папці **en/contribute/**).
+  - Це полегшує створення посилань, оскільки інші сторінки і зображення завжди будуть на тому ж рівні
+- _Структура_ книги визначається у файлі **SUMMARY.md**
 
-  - If you add a new page to the guide you must also add an entry to this file!
+  - Якщо ви додаєте нову сторінку до посібника, вам також потрібно додати запис до цього файлу!
 
 :::tip
-This is not "standard vuepress" way to define the sidebar (the summary file is imported by [.vuepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/main/.vuepress/get_sidebar.js)).
+Це не "стандартний спосіб vuepress" для визначення бічної панелі (файл Summary імпортується в [.vuepress/get_sidebar.js)](https://github.com/PX4/PX4-user_guide/blob/main/.vuepress/get_sidebar.js).
 :::
 
-- Images must be stored in a sub folder of **/assets**. This is two folders down from content folders, so if you add an image you will reference it like:
+- Зображення повинні зберігатися в підпапці **/assets**. Це на два рівні нижче від папок з вмістом, тому якщо ви додаєте зображення, ви посилаєтеся на нього так:
 
   ```plain
   ![Image Description](../../assets/path_to_file/filename.jpg)
   ```
 
-- A file named **package.json** defines any dependencies of the build.
-- A web hook is used to track whenever files are merged into the master branch on this repository, causing the book to rebuild.
+- Файл з назвою **package.json** визначає будь-які залежності збірки.
+- Веб-хук використовується для відстеження моменту злиття файлів у головну гілку цього репозиторію, що призводить до перебудови книги.
 
 ### Додавання нових сторінок
 
@@ -195,24 +195,24 @@ This is not "standard vuepress" way to define the sidebar (the summary file is i
 
 1. Назви файлів/файлів
 
-   - Do not further nest folders.
-   - Use descriptive names. In particular, image filenames should describe what they contain.
-   - Use lower case filenames and separate words using underscores "\_"
+   - Розмістіть нові файли в відповідній підпапці **/en/**. Не створюйте додаткових вкладених папок.
+   - Використовуйте описові назви. Зокрема, назви файлів із зображеннями повинні описувати їх зміст.
+   - Використовуйте нижній регістр для назв файлів і розділяйте слова знаками підкреслення "\_"
 
 2. Зображення
 
-   - Use the smallest size and lowest resolution that makes the image still useful (this reduces download cost for users with poor bandwidth).
-   - New images should be created in a sub-folder of **/assets/** by default (so they can be shared between translations).
+   - Використовуйте найменший розмір і найнижчу роздільну здатність, яка все ще робить зображення корисним (це зменшує вартість завантаження для користувачів із слабким інтернет-з'єднанням).
+   - Нові зображення повинні створюватися за замовчуванням у підпапці **/assets/** (щоб їх можна було використовувати у всіх перекладах).
 
 3. Контент
 
-   - Use "style" \(bold, emphasis, etc\) consistently.
-     - **Bold** for button presses and menu definitions.
-     - _Emphasis_ for tool names. - Otherwise use as little as possible.
-   - Headings and page titles should use "First Letter Capitalisation"
-   - The page title should be a first level heading \(\#\). All other headings should be h2 \(\#\#\) or lower.
+   - Використовуйте "стиль" \(жирний, курсив і т. д.) послідовно.
+     - **Жирний** для натискання кнопок і визначень меню.
+     - _Курсив_ для назв інструментів. В інших випадках використовуйте якомога менше.
+   - Заголовки та назви сторінок повинні використовувати "Велику літеру на початку"
+   - Назва сторінки повинна бути заголовком першого рівня \(\#\). Усі інші заголовки повинні бути h2 \(\#\#\) або нижче.
    - Не додавати ніяких стилів до заголовків.
-   - Don't translate the _first part_ of a note, tip or warning declaration (e.g. `::: tip`) as this precise text is required to render the note properly.
+   - Не перекладайте _першу частину_ примітки, підказки чи попередження (наприклад, `::: tip`) оскільки цей точний текст потрібен для належного відтворення примітки.
 
 ## Де я можу додати зміни?
 
@@ -220,16 +220,16 @@ This is not "standard vuepress" way to define the sidebar (the summary file is i
 
 Деякі з основних категорій:
 
-- Development: content related to:
-  - Evolving the platform (new modes, modules, flight modes, hardware, software and hardware architecture and porting).
-  - "Experimental" work that requires developer expertise to reproduce.
-- Flying: content related to flying a standard vehicle (flight modes, arming, taking off, landing)
-- Basic configuration: Configuration that every vehicle will need to do
-- Advanced configuration: Configuration that is specific to a vehicle type, or some segment of users.
-- Peripherals: Documentation on different hardware that can be used.
-  - This also includes setup and configuration information for hardware that isn't covered in Basic configuration.
-- Basic Assembly: Assembly of an autopilot and its main peripherals
-- Airframe Builds: Examples of how to build a whole system.
+- Розробка: контент, пов’язаний із:
+  - Зміни на платформі (нові режими, модулі, режими польоту, апаратне та програмне забезпечення, архітектура апаратного забезпечення та портативність).
+  - "Експериментальна" робота, яка вимагає експертності розробника для відтворення.
+- Політ: Пов'язана з польотом стандартного літального апарата (режими польоту, озброєння, зльот, посадка)
+- Основні налаштування: Конфігурація, яку повинен виконати кожний літальний апарат
+- Розширена конфігурація: Конфігурація, яка є специфічною для типу літального апарата або для певного сегмента користувачів.
+- Периферії: Документація з іншого обладнання, яке можна використовувати.
+  - Це також включає інформацію про налаштування та конфігурацію апаратури, яка не охоплена в Базовій конфігурації.
+- Базові зборки: Збирання автопілота та його основних периферійних пристроїв
+- Airframe Builds: Приклади того, як побудувати цілу систему.
 
 ## Переклади
 

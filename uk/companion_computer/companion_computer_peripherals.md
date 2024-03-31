@@ -1,80 +1,80 @@
-# Companion Computer Peripherals
+# Периферійні пристрої супутнього комп'ютера
 
-This section contains information about companion computer peripherals. These include both components that might be connected to a companion computer (potentially triggered/accessed by PX4), and for connecting the computer to the flight controller.
+У цьому розділі міститься інформація про периферійні пристрої супутнього комп'ютера. Сюди включаються як компоненти, які можуть бути підключені до супутнього комп'ютера (потенційно активовані/звертані PX4), так і для підключення комп'ютера до контролера польоту.
 
-## Companion/Pixhawk Communication
+## Зв'язок Супутник/ Pixhawk
 
-This section lists devices that may be used for the physical serial/data connection between a companion computer and a flight controller.
+У цьому розділі перелічені пристрої, які можуть використовуватися для фізичного послідовного/даних з'єднання між супутнім комп'ютером та контролером польоту.
 
 :::note
-PX4 configuration for communicating with a companion computer over MAVLink via TELEM2 is covered in [MAVLink (OSD / Telemetry)](../peripherals/mavlink_peripherals.md#telem2). Other relevant topics/sections include: [Companion Computers](../companion_computer/README.md), [Robotics](../robotics/README.md) and [uXRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/uxrce_dds.md).
+Конфігурація PX4 для зв'язку з супутнім комп'ютером через MAVLink через TELEM2 описана в [MAVLink (OSD / Telemetry)](../peripherals/mavlink_peripherals.md#telem2). Інші відповідні теми/розділи включають: [Супутникові комп'ютери](../companion_computer/README.md), [Робототехніка](../robotics/README.md) та [uXRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/uxrce_dds.md).
 :::
 
-### FTDI Devices
+### Пристрої FTDI
 
-The FTDI USB adapters are the most common way of communicating between companion computer and Pixhawk. They are usually plug and play as long as the IO of the adapter is set to 3.3V. In order to utilize the full capability/reliability of the serial link offered on the Pixhawk hardware, flow control is recommended.
+USB-адаптери FTDI є найбільш поширеним способом зв'язку між супутнім комп'ютером та Pixhawk. Зазвичай вони прості у використанні, якщо IO адаптера встановлено на 3,3 В. Для використання повного потенціалу/надійності послідовного зв'язку, який пропонується в апаратній частині Pixhawk, рекомендується використовувати керування потоком.
 
-A few "turnkey" options are listed below:
+Нижче наведено кілька опцій «turnkey»:
 
-| Device                                                                 | 3.3v IO (Default) | Flow Control | Tx/Rx LEDs | JST-GH |
-| ---------------------------------------------------------------------- | ----------------- | ------------ | ---------- | ------ |
-| [mRo USB FTDI Serial to JST-GH (Basic)][mro_usb_ftdi_serial_to_jst_gh] | Capable           | Capable      | No         | Yes    |
-| \[SparkFun FTDI Basic Breakout\]\[sparkfun_ftdi__breakout\]          | Yes               | No           | Yes        | No     |
+| Пристрій                                                                      | 3.3v IO (Default) | Flow Control | Tx/Rx LEDs | JST-GH |
+| ----------------------------------------------------------------------------- | ----------------- | ------------ | ---------- | ------ |
+| [mRo USB FTDI Послідовний до JST-GH (базовий)][mro_usb_ftdi_serial_to_jst_gh] | Capable           | Capable      | Ні         | Так    |
+| \[SparkFun FTDI Basic Breakout\]\[sparkfun_ftdi__breakout\]                 | Так               | Ні           | Так        | Ні     |
 
 <!-- Reference links for above table -->
 
-You can also use an off-the-shelf FTDI cable [like this one](https://www.sparkfun.com/products/9717) and connect it to flight controller using the appropriate header adaptor (JST-GH connectors are specified in the Pixhawk standard, but you should confirm the connectors for your flight controller).
+Ви також можете використовувати готовий FTDI-кабель, [наприклад, такий](https://www.sparkfun.com/products/9717), і підключити його до польотного контролера за допомогою відповідного перехідника для заголовника (роз'єми JST-GH вказані у стандарті Pixhawk, але ви повинні підтвердити роз'єми для вашого польотного контролера).
 
-### Logic Level Shifters
+### Рівні логічних перетворювачів
 
-On occasion a companion computer may expose hardware level IO that is often run at 1.8v or 5v, while the Pixhawk hardware operates at 3.3v IO. In order to resolve this, a level shifter can be implemented to safely convert the transmitting/receiving signal voltage.
+Час від часу супутній комп'ютер може використовувати апаратні введення-виведення, які часто працюють на рівні 1,8 В або 5 В, тоді як апаратне забезпечення Pixhawk працює на рівні 3,3 В. Для вирішення цієї проблеми може бути використаний рівневий перетворювач, що безпечно конвертує напругу сигналів передачі/приймання.
 
-Options include:
+Інші варіанти включають:
 
-- [SparkFun Logic Level Converter - Bi-Directional](https://www.sparkfun.com/products/12009)
-- [4-channel I2C-safe Bi-directional Logic Level Converter - BSS138](https://www.adafruit.com/product/757)
+- [Перетворювач логічного рівня SparkFun - двонаправлений](https://www.sparkfun.com/products/12009)
+- [4-канальний I2C-безпечний двонаправлений перетворювач логічного рівня - BSS138](https://www.adafruit.com/product/757)
 
-## Cameras
+## Камери
 
-Cameras are used image and video capture, and more generally to provide data for [computer vision](../computer_vision/README.md) applications (in this case the "cameras" may only provide processed data, not raw images).
+Камери використовуються для захоплення зображень і відео, а також для надання даних для [програм комп’ютерного зору](../computer_vision/README.md) (у цьому випадку «камери» можуть надавати лише оброблені дані, а не необроблені зображення).
 
-### Stereo Cameras
+### Стереокамери
 
-Stereo cameras are typically used for depth perception, path planning and SLAM. They are in no way guaranteed to be plug and play with your companion computer.
+Стереокамери зазвичай використовуються для сприйняття глибини, планування шляху та SLAM. Жодним чином не гарантується, що вони підключаються та працюють із вашим комп’ютером-супутником.
 
-Popular stereo cameras include:
+Серед популярних стереокамер:
 
 - [Intel® RealSense™ Depth Camera D435](https://www.intelrealsense.com/depth-camera-d435/)
 - [Intel® RealSense™ Depth Camera D415](https://www.intelrealsense.com/depth-camera-d415/)
 - [DUO MLX](https://duo3d.com/product/duo-minilx-lv1)
 
-### VIO Cameras/Sensors
+### VIO Камера/Сенсори
 
-The following sensors can be used for [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md):
+Наступні датчики можуть бути використані для [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md):
 
 - [T265 Realsense Tracking Camera](../peripherals/camera_t265_vio.md)
 
-## Data Telephony (LTE)
+## Телефонія даних (LTE)
 
-An LTE USB module can be attached to a companion computer and used to route MAVLink traffic between the flight controller and the Internet.
+Модуль LTE USB може бути підключений до супутнього комп'ютера і використаний для маршрутизації трафіку MAVLink між контролером польоту та Інтернетом.
 
-There is no "standard method" for a ground station and companion to connect over the Internet. Generally you can't connect them directly because neither of them will have a public/static IP on the Internet.
-
-:::note
-Typically your router (or the mobile network) has a public IP address, and your GCS computer/vehicle are on a _local_ network. The router uses network address translation (NAT) to map _outgoing_ requests from your local network to the Internet, and can use the map to route the _responses_ back to requesting system. However NAT has no way to know where to direct the traffic from an arbitrary external system, so there is no way to _initiate_ a connection to a GCS or vehicle running in the local network.
-:::
-
-A common approach is to set up a virtual private network between the companion and GCS computer (i.e. install a VPN system like [zerotier](https://www.zerotier.com/) on both computers). The companion then uses [mavlink-router](https://github.com/intel/mavlink-router) to route traffic between the serial interface (flight controller) and GCS computer on the VPN network.
-
-This method has the benefit that the GCS computer address can be static within the VPN, so the configuration of the _mavlink router_ does not need to change over time. In addition, the communication link is secure because all VPN traffic is encrypted (MAVLink 2 itself does not support encryption).
+Немає "стандартного методу" для підключення наземної станції та супутника через Інтернет. Загалом ви не можете підключати їх безпосередньо, оскільки в обох немає публічної/статичної IP-адреси в Інтернеті.
 
 :::note
-You can also choose to route to the VPN broadcast address (i.e. `x.x.x.255:14550`, where 'x' depends on the VPN system). This approach means that you do not need to know the IP address of the GCS computer, but may result in more traffic than desired (since packets are broadcast to every computer on the VPN network).
+Зазвичай ваш маршрутизатор (або мобільна мережа) має публічну IP-адресу, а ваш комп'ютер GCS/транспортний засіб знаходиться в _локальній мережі_. Маршрутизатор використовує мережеве перетворення адрес (NAT), щоб відображати _outgoing_ вихідні запити з вашої локальної мережі в Інтернеті і може використовувати це відображення для маршрутизації _відповідей_ назад до запитаючої системи. Однак NAT не має способу знати, куди направити трафік з будь-якої зовнішньої системи, тому немає способу _ініціювати_ підключення до GCS або транспортного засобу, що працює в локальній мережі.
 :::
 
-Some USB modules that are known to work include:
+Загальним підходом є налаштування віртуальної приватної мережі між супутником та комп'ютером GCS (тобто встановлення системи VPN, такої як [zerotier](https://www.zerotier.com/), на обох комп'ютерах). Потім супутник використовує [mavlink-router](https://github.com/intel/mavlink-router) для маршрутизації трафіку між послідовним інтерфейсом (контролером польоту) та комп'ютером GCS в VPN-мережі.
 
-- [Huawei E8372](https://consumer.huawei.com/en/mobile-broadband/e8372/) and [Huawei E3372](https://consumer.huawei.com/en/mobile-broadband/e3372/)
-  - The _E8372_ includes WiFi which you can use to configure the SIM while it is plugged into the companion (making the development workflow a little easier). The _E3372_ lacks WiFi, so you have to configure it by plugging the stick into a laptop.
+Цей метод має перевагу у тому, що IP-адреса комп'ютера GCS може бути статичною в межах VPN, тому конфігурацію _маршрутизатора mavlink_ не потрібно змінювати з часом. Крім того, комунікаційний зв'язок є безпечним, оскільки весь трафік VPN зашифрований (сам MAVLink 2 не підтримує шифрування).
+
+:::note
+Ви також можете вибрати маршрутизацію на трансляцію VPN-адреси (тобто `x.x.x.255:14550`, де 'x' залежить від системи VPN). Цей підхід означає, що вам не потрібно знати IP-адресу комп'ютера GCS, але може призвести до більшого трафіку, ніж очікувалося (оскільки пакети транслюються на кожен комп'ютер в мережі VPN).
+:::
+
+Деякі USB-модулі, які відомі своєю сумісністю, включають:
+
+- [Huawei E8372](https://consumer.huawei.com/en/mobile-broadband/e8372/) та [Huawei E3372](https://consumer.huawei.com/en/mobile-broadband/e3372/)
+  - Модель _E8372_ має Wi-Fi, яке можна використовувати для налаштування SIM-карти, коли вона підключена до супутника (що полегшує процес розробки). Модель _E3372_ не має Wi-Fi, тому вам потрібно налаштувати її, підключивши пристрій до ноутбука.
 
 [mro_usb_ftdi_serial_to_jst_gh]: https://store.mrobotics.io/USB-FTDI-Serial-to-JST-GH-p/mro-ftdi-jstgh01-mr.htm

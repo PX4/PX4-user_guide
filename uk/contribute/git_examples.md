@@ -4,7 +4,7 @@
 
 ## Внесок коду у PX4
 
-Додавання функції до PX4 слідує за визначеним робочим процесом. Щоб поділитися своїми внесками на PX4, ви можете наслідувати приклад.
+Додавання функції до PX4 слідує за визначеним робочим процесом. Щоб поділитися своїми внесками в PX4, ви можете слідувати цьому прикладу.
 
 - [Зареєструватися](https://github.com/join) на github якщо ви ще не маєте там акаунту
 - Форк репо PX4-Autopilot (див. [тут](https://docs.github.com/en/get-started/quickstart/fork-a-repo))
@@ -119,7 +119,7 @@
 
 Конкретні випуски точки PX4 створюються як теги [гілок випуску](#get-a-release-branch) та мають назву у форматі `v<release>`. Вони [перелічені на Github тут](https://github.com/PX4/PX4-Autopilot/releases?q=release&expanded=true) (або ви можете запитати всі теги за допомогою `git tag -l`).
 
-To get the source code for a _specific older release_ (tag):
+Щоб отримати вихідний код для _специфічний старий реліз_ (тег):
 
 1. Клонуйте репо PX4-Autopilot і перейдіть до каталогу _PX4-Autopilot_:
 
@@ -140,7 +140,7 @@ To get the source code for a _specific older release_ (tag):
 
 :::
 
-1. Checkout code for particular tag (e.g. for tag v1.13.0-beta2)
+1. Код оформлення замовлення для конкретного тегу (наприклад, для мітки v1.13.0-beta2)
 
    ```sh
    git checkout v1.13.0-beta2
@@ -152,13 +152,13 @@ To get the source code for a _specific older release_ (tag):
    make submodulesclean
    ```
 
-## Get a Release Branch
+## Щоб отримати гілку релізу
 
 Стрічки з `основної`та використовуються для backport необхідних змін з основного релізу. Гілки називаються використовуючи формат `release/<release_number>` (напр. `release/v1.13`). Перераховані [тут](https://github.com/PX4/PX4-Autopilot/branches/all?query=release).
 
 Щоб отримати гілку релізу:
 
-- Clone the PX4-Autopilot repo and navigate into _PX4-Autopilot_ directory:
+- Клонуйте репо PX4-Autopilot і перейдіть до каталогу _PX4-Autopilot_:
 
   ```sh
   git clone https://github.com/PX4/PX4-Autopilot.git
@@ -183,7 +183,7 @@ To get the source code for a _specific older release_ (tag):
   git fetch origin release/1.14
   ```
 
-- Checkout the code for the branch
+- Перевірте код гілки
 
   ```sh
   git checkout release/1.14
@@ -195,11 +195,11 @@ To get the source code for a _specific older release_ (tag):
   make submodulesclean
   ```
 
-## Update Submodule
+## Оновити підмодулі
 
 Існує кілька способів оновлення підмодуля. Ви клонуєте репозиторій або зайдете в каталог підмодулів і виконаєте ту ж процедуру, що і в [спільний код для PX4](#contributing_code).
 
-## Do a PR for a submodule update
+## Робити PR для оновлення підмодуля
 
 Це необхідно після того, як ви зробили PR для репозиторію підмодуля X і виправлення помилки/додавання функції є в поточному основному основному підмодулю X. Оскільки прошивка все ще вказує на твердження до вашого оновлення, підмодуль запит на злиття обов'язковий таким чином, щоб підмодуль використовувався точками прошивки до найновішого коміту.
 
@@ -226,7 +226,7 @@ cd Firmware
   git pull upstream main
   ```
 
-- Go back to Firmware directory, and as usual add, commit and push the changes.
+- Поверніться до каталогу прошивки та, як зазвичай, додайте, зафіксуйте та надішліть зміни.
 
   ```sh
   cd -
@@ -237,7 +237,7 @@ cd Firmware
 
 ## Checkout pull requests
 
-Ви можете перевірити чийсь запит на злиття (зміни ще не злиті), навіть якщо гілка зливання існує лише на форку з цієї людини. Do the following:
+Ви можете перевірити чийсь запит на злиття (зміни ще не злиті), навіть якщо гілка зливання існує лише на форку з цієї людини. Зробіть наступне:
 
 ```sh
 git fetch upstream  pull/<PR ID>/head:<branch name>

@@ -1,150 +1,150 @@
-# Visual Inertial Odometry (VIO)
+# Візуально-інерційна одометрія (VIO)
 
-_Visual Inertial Odometry_ (VIO) is a [computer vision](../computer_vision/README.md) technique used for estimating the 3D _pose_ (local position and orientation) and _velocity_ of a moving vehicle relative to a _local_ starting position. It is commonly used to navigate a vehicle in situations where GPS is absent or unreliable (e.g. indoors, or when flying under a bridge).
+_Візуальна інерціальна одометрія_ (VIO) — це техніка [комп’ютерного бачення](../computer_vision/README.md), яка використовується для оцінки тривимірної _пози_ (локального положення та орієнтації) і _швидкості< /0> транспортного засобу, що рухається, відносно _локальної_ вихідної позиції. Він зазвичай використовується для навігації транспортного засобу в ситуаціях, коли GPS відсутній або ненадійний (наприклад, у приміщенні або під час прольоту під мостом).</p>
 
-VIO uses [Visual Odometry](https://en.wikipedia.org/wiki/Visual_odometry) to estimate vehicle _pose_ from camera images, combined with inertial measurements from the vehicle IMU (to correct for errors associated with rapid vehicle movement resulting in poor image capture).
+VIO використовує [Візуальну одометрію](https://en.wikipedia.org/wiki/Visual_odometry) для оцінки _позиції_ транспортного засобу на основі зображень із камери в поєднанні з інерційними вимірюваннями з IMU транспортного засобу (щоб виправити помилки, пов’язані зі швидким рухом транспортного засобу, що призводить до поганого захоплення зображення).
 
-This topic gives guidance on configuring PX4 and a companion computer for a VIO setup.
+Ця тема надає керівництво щодо налаштування PX4 та супутнього комп'ютера для налаштування VIO.
 
 :::note
-The suggested setup uses ROS for routing VIO information to PX4. However, PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](../ros/external_position_estimation.md#px4-mavlink-integration).
+Рекомендоване налаштування використовує ROS для передачі інформації VIO до PX4. Однак сам PX4 не цікавиться джерелом повідомлень, якщо вони надаються через відповідний [інтерфейс MAVLink](../ros/external_position_estimation.md#px4-mavlink-integration).
 :::
 
-## Suggested Setup
+## Рекомендована настройка
 
-A hardware and software setup for VIO is suggested in the sections below as an illustration of how to interface a VIO system with PX4. It makes use of an off-the-shelf tracking camera and a companion computer running ROS. ROS is used to read odometry information from the camera and supply it to PX4.
+Апаратна та програмна настройка для VIO запропонована в розділах нижче як ілюстрація того, як підключити систему VIO до PX4. Вона використовує готову систему відстеження камери та супутній комп'ютер, що працює під керуванням ROS. ROS використовується для зчитування інформації про одометрію з камери та подачі її до PX4.
 
-An example of a suitable tracking camera is the [Intel® RealSense™ Tracking Camera T265](../peripherals/camera_t265_vio.md).
+Прикладом підходящої відстежуючої камери є камера відстеження [Intel® RealSense™ T265](../peripherals/camera_t265_vio.md).
 
-### Camera Mounting
+### Встановлення камери
 
-Attach the camera to the companion computer and mount it to the frame:
+Прикріпіть камеру до супутнього комп'ютера та закріпіть її на рамі:
 
-- Mount the camera with lenses pointing down if at all possible (default).
-- Cameras are typically very sensitive to vibration; a soft mounting is recommended (e.g. using vibration isolation foam).
+- Прикріпіть камеру з лінзами, спрямованими вниз, якщо це можливо (за замовчуванням).
+- Камери зазвичай дуже чутливі до вібрацій; рекомендується використовувати м'яке кріплення (наприклад, за допомогою віброізоляційної піни).
 
-### Companion Setup
+### Налаштування комп'ютера компаньйона
 
-To setup ROS and PX4:
+Для налаштування ROS та PX4:
 
-- On the companion computer, install and configure [MAVROS](../ros/mavros_installation.md).
-- Implement and run a ROS node to read data from the camera and publish the VIO odometry using MAVROS.
-  - See the [VIO ROS node](#vio_ros_node) section below for details of the requirements for this node.
-- Follow the instructions [below](#ekf2_tuning) for tuning the PX4 EKF2 estimator.
-- Verify the connection to the flight controller.
+- На комп'ютері-супутнику встановіть та налаштуйте [MAVROS](../ros/mavros_installation.md).
+- Реалізуйте та запустіть вузол ROS для зчитування даних з камери та публікації відомостей VIO за допомогою MAVROS.
+  - Дивіться розділ нижче про вузол [ROS VIO](#vio_ros_node) для подробиць щодо вимог до цього вузла.
+- Слідуйте інструкціям [нижче](#ekf2_tuning) для налаштування оцінювача EKF2 в PX4.
+- Перевірте підключення до керуючого контролера.
 
 :::tip
-You can use the _QGroundControl_ [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) to verify that you're getting `ODOMETRY` or `VISION_POSITION_ESTIMATE` messages (or check for `HEARTBEAT` messages that have the component id 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
+Ви можете використовувати _QGroundControl_ [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html), щоб переконатися, що ви отримуєте повідомлення `ODOMETRY` або `VISION_POSITION_ESTIMATE` (або перевірити наявність Повідомлення `HEARTBEAT`, які мають ідентифікатор компонента 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
 :::
 
-- [Verify that VIO is set up correctly](#verify_estimate) before your first flight!
+- [Перевірте, чи VIO налаштовано правильно](#verify_estimate) перед першим польотом!
 
 <a id="vio_ros_node"></a>
 
-### ROS VIO node
+### ROS VIO вузол
 
-In this suggested setup, a ROS node is required to
+У цьому рекомендованому налаштуванні ROS вузла VIO потрібно
 
-1. interface with the chosen camera or sensor hardware,
-2. produce odometry messages containing the position estimate, which will be sent to PX4 using MAVROS, and
-3. publish messages to indicate the VIO system status.
+1. інтерфейс з обраною апаратурою камери або сенсора,
+2. створити повідомлення відомостей, що містять оцінку позиції, які будуть надіслані до PX4 за допомогою MAVROS, та
+3. публікувати повідомлення для вказівки стану системи VIO.
 
-The implementation of the ROS node will be specific to the camera used and will need to be developed to use the interface and drivers appropriate for the camera.
+Реалізація вузла ROS буде конкретною для використовуваної камери і буде потребувати розробки для використання відповідного інтерфейсу та драйверів для камери.
 
-The odometry messages should be of the type [`nav_msgs/Odometry`](http://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html) and published to the topic `/mavros/odometry/out`.
+Повідомлення відомостей повинні бути типу [`nav_msgs/Odometry`](http://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html) та публікуватися на темі `/mavros/odometry/out`.
 
-System status messages of the type [`mavros_msgs/CompanionProcessStatus`](https://github.com/mavlink/mavros/blob/master/mavros_msgs/msg/CompanionProcessStatus.msg) should be published to the topic `/mavros/companion_process/status`. These should identify the component as `MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY` (197) and indicate the `state` of the system. Recommended status values are:
+Повідомлення стану системи типу [`mavros_msgs/CompanionProcessStatus`](https://github.com/mavlink/mavros/blob/master/mavros_msgs/msg/CompanionProcessStatus.msg) повинні публікуватися на темі `/mavros/companion_process/status`. Вони повинні ідентифікувати компонент як `MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY` (197) та вказувати `стан системи`. Рекомендовані значення статусу:
 
-- `MAV_STATE_ACTIVE` when the VIO system is functioning as expected,
-- `MAV_STATE_CRITICAL` when the VIO system is functioning, but with low confidence, and
-- `MAV_STATE_FLIGHT_TERMINATION` when the system has failed or the estimate confidence is unacceptably low.
+- `MAV_STATE_ACTIVE` коли система VIO працює як очікувалося,
+- `MAV_STATE_CRITICAL` коли система VIO працює, але з низькою впевненістю, та
+- `MAV_STATE_FLIGHT_TERMINATION` коли система зазнала відмови або впевненість в оцінці неприйнятно низька.
 
 <a id="ekf2_tuning"></a>
 
 ### PX4 Tuning
 
-The following parameters must be set to use external position information with EKF2.
+Наступні параметри повинні бути задані для використання зовнішньої позиції з EKF2.
 
-| Parameter                                                                                                                                                                                                                          | Setting for External Position Estimation                                                                                                               |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL)                                                                                                                                                           | Set _horizontal position fusion_, _vertical vision fusion_, _velocity fusion_, and _yaw fusion_ according to your desired fusion model.                |
-| [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)                                                                                                                                                           | Set to _Vision_ to use the vision as the reference sensor for altitude estimation.                                                                     |
-| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                         | Set to the difference between the timestamp of the measurement and the "actual" capture time. For more information see [below](#tuning-EKF2_EV_DELAY). |
-| [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | Set the position of the vision sensor with respect to the vehicle's body frame.                                                                        |
+| Параметр                                                                                                                                                                                                                           | Налаштуйте зовнішнє позиційне оцінювання                                                                                                                                                                     |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL)                                                                                                                                                           | Встановіть _горизонтальне об'єднання позиції_, _вертикальне об'єднання позиції_, _об'єднання швидкості_ та _об'єднання кута_ курсу згідно з вашою бажаною моделлю об'єднання.                                |
+| [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)                                                                                                                                                           | Встановіть на _Vision_, щоб використовувати візуальну інформацію як датчик відліку висоти.                                                                                                                   |
+| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                         | Встановіть різницю між міткою часу вимірювання та "фактичним" часом захоплення. Для отримання додаткової інформації дивіться нижче. Для отримання додаткової інформації див. [нижче](#tuning-EKF2_EV_DELAY). |
+| [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | Встановіть положення візуального датчика відносно корпусу транспортного засобу.                                                                                                                              |
 
-These can be set in _QGroundControl_ > **Vehicle Setup > Parameters > EKF2** (remember to reboot the flight controller in order for parameter changes to take effect).
+Їх можна встановити в _QGroundControl_ > **Налаштування автомобіля > Параметри > EKF2** (не забудьте перезавантажити контролер польоту, щоб зміни параметрів набули чинності).
 
-For more detailed/additional information, see: [ECL/EKF Overview & Tuning > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system).
+Для отримання додаткової детальної інформації дивіться: [ECL/EKF огляд і налаштування & Tuning> Зовнішня система візуальної оцінки](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system).
 
 <a id="tuning-EKF2_EV_DELAY"></a>
 
-#### Tuning EKF2_EV_DELAY
+#### Налаштування EKF2_EV_DELAY
 
-[EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) is the _Vision Position Estimator delay relative to IMU measurements_. In other words, it is the difference between the vision system timestamp and the "actual" capture time that would have been recorded by the IMU clock (the "base clock" for EKF2).
+[EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) - це _затримка оцінювача позиції за допомогою візійної системи відносно вимірювань_. Іншими словами, це різниця між міткою часу візійної системи та "фактичним" часом захоплення, який був би записаний годинником IMU (тобто "базовий годинник" для EKF2).
 
-Technically this can be set to 0 if there is correct timestamping (not just arrival time) and timesync (e.g. NTP) between MoCap and (for example) ROS computers. In reality, this may need some empirical tuning because delays in the communication chain are very setup-specific. It is rare that a system is set up with an entirely synchronised chain!
+Технічно це може бути встановлено на 0, якщо є правильне відміткове (не тільки час прибуття) та синхронізація часу (наприклад, за допомогою NTP) між MoCap та (наприклад) комп'ютерами ROS. На практиці це може потребувати емпіричного налаштування, оскільки затримки в ланцюгу зв'язку дуже специфічні для конкретного обладнання. Рідко коли система налаштована з повністю синхронізованим ланцюгом!
 
-A rough estimate of the delay can be obtained from logs by checking the offset between IMU rates and the EV rates:
+Приблизна оцінка затримки може бути отримана з журналів, перевіряючи зсув між частотами IMU та частотами EV:
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
 :::note
-A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
+Графік зовнішніх даних проти вбудованої оцінки (як вище) може бути створений за допомогою [FlightPlot](../log/flight_log_analysis.md#flightplot) або подібних засобів аналізу польоту.
 :::
 
-The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.
+Значення може бути подальшим налаштоване шляхом зміни параметра для знаходження значення, яке дає найменші інновації EKF під час динамічних маневрів.
 
 <a id="verify_estimate"></a>
 
-## Check/Verify VIO Estimate
+## Перевірка/підтвердження оцінки VIO
 
 ::: note
-The [MAV_ODOM_LP](../advanced_config/parameter_reference.md#MAV_ODOM_LP) parameter mentioned below was removed in PX4 v1.14. This section needs to be updated. <!-- https://github.com/PX4/PX4-Autopilot/pull/20501#issuecomment-1993788815 -->
+Параметр [MAV_ODOM_LP](../advanced_config/parameter_reference.md#MAV_ODOM_LP), згаданий нижче, був вилучений у PX4 v1.14. Цей розділ потрібно оновити. <!-- https://github.com/PX4/PX4-Autopilot/pull/20501#issuecomment-1993788815 -->
 :::
 
-Perform the following checks to verify that VIO is working properly _before_ your first flight:
+Виконайте наступні перевірки, щоб переконатися, що VIO працює належним чином _перед_ першим польотом:
 
-- Set the PX4 parameter `MAV_ODOM_LP` to `1`. PX4 will then stream back the received external pose as MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) messages. You can check these MAVLink messages with the _QGroundControl_ [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html)
-- Yaw the vehicle until the quaternion of the `ODOMETRY` message is very close to a unit quaternion (w=1, x=y=z=0).
-  - At this point, the body frame is aligned with the reference frame of the external pose system.
-  - If you do not manage to get a quaternion close to the unit quaternion without rolling or pitching your vehicle, your frame probably still has a pitch or roll offset. Do not proceed if this is the case and check your coordinate frames again.
-- Once aligned, you can pick the vehicle up from the ground and you should see the position's z coordinate decrease. Moving the vehicle in the forward direction should increase the position's x coordinate. Moving the vehicle to the right should increase the y coordinate.
-- Check that linear velocities in the message are expressed in the _FRD_ body frame reference frame.
-- Set the PX4 parameter `MAV_ODOM_LP` back to 0. PX4 will stop streaming the `ODOMETRY` message back.
+- Встановіть параметр PX4 `MAV_ODOM_LP` на `1`. Після цього PX4 буде передавати отриману зовнішню позицію у вигляді повідомлень MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY). Ви можете перевірити ці повідомлення MAVLink за допомогою [інспектора MAVLink ](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) в _QGroundControl_
+- Поверніть літак так, щоб кватерніон повідомлення `ODOMETRY` був дуже близьким до одиничного кватерніону (w=1, x=y=z=0).
+  - На цьому етапі корпус виробу зорієнтований у відповідності з ориєнтацією відносно зовнішньої системи координат.
+  - Якщо вам не вдається отримати кватерніон, близький до одиничного, без обертання або нахилу вашого літака, це, ймовірно, означає, що ваша рама все ще має зміщення нахилу або кочування. У цьому випадку не продовжуйте і перевірте знову свої координатні рамки.
+- Після зорієнтування ви можете підняти літак з землі, і ви маєте бачити, як координата z позиції зменшується. Переміщення літака вперед повинно збільшувати координату x позиції, а переміщення вправо - збільшувати координату y. Переміщення засобу праворуч повинно збільшити координату Y.
+- Перевірте, що лінійні швидкості у повідомленні виражені в описаній відносно корпусу _FRD_ відліковій системі.
+- Встановіть параметр PX4 `MAV_ODOM_LP` назад на 0. PX4 припинить передавати повідомлення `ODOMETRY` назад.
 
-If those steps are consistent, you can try your first flight:
+Якщо ці кроки є послідовними, ви можете спробувати свій перший польот:
 
-1. Put the vehicle on the ground and start streaming `ODOMETRY` feedback (as above). Lower your throttle stick and arm the motors.
+1. Покладіть літак на землю і почніть передавати зворотний зв'язок `ODOMETRY` (як вище). Потягніть палицю газу вниз і зберметизуйте двигуни.
 
-   At this point, with the left stick at the lowest position, switch to position control. You should have a green light. The green light tells you that position feedback is available and position control is now activated.
+   На цьому етапі, зліва палиця на найнижчому положенні, перейдіть у режим позиціонного контролю. Ви повинні побачити зелену лампочку. Зелена лампочка свідчить про те, що доступний зворотний зв'язок позиції, і позиційний контроль активований.
 
-1. Put the throttle stick in the middle (the dead zone) so that the vehicle maintains its altitude. Raising the stick will increase the reference altitude while lowering the value will decrease it. Similarly, the other stick will change the position over the ground.
-1. Increase the value of the throttle stick and the vehicle will take off. Move it back to the middle immediately afterwards.
-1. Confirm that the vehicle can hold its position.
+1. Покладіть палицю газу в середину (мертву зону), щоб літак підтримував свою висоту. Підняття палиці збільшить висоту посилки, тоді як зниження значення зменшить її. Так само, інша палиця змінить положення над землею.
+1. Збільшуйте значення перемикача газу, і літак злетить. Відразу після цього поверніть його в середину.
+1. Переконайтеся, що літак може утримувати свою позицію.
 
-## Troubleshooting
+## Відстеження проблем
 
-First, make sure MAVROS is able to connect successfully to the flight controller.
+Спочатку переконайтеся, що MAVROS успішно підключається до автопілота.
 
-If it is connecting properly common problems/solutions are:
+Якщо підключення відбувається належним чином, можливі проблеми/рішення:
 
-- **Problem:** I get drift / flyaways when the drone flies, but not when I carry it around with the props off.
+- **Проблема:** У мене виникає дрейф / відліт дрона, коли він літає, але не коли я несу його без пропелерів.
 
-  - If using the [T265](../peripherals/camera_t265_vio.md) try soft-mounting it (this camera is very sensitive to high-frequency vibrations).
+  - Якщо використовуєте [T265](../peripherals/camera_t265_vio.md), спробуйте його м'яко кріпити (ця камера дуже чутлива до високочастотних вібрацій).
 
-- **Problem:** I get toilet-bowling when VIO is enabled.
+- **Проблема:** У мене виникає "туалетний боулінг", коли ввімкнено VIO.
 
-  - Make sure the orientation of the camera matches the transform in the launch file. Use the _QGroundControl_ [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) to verify that the velocities in the `ODOMETRY` message coming from MAVROS are aligned to the FRD coordinate system.
+  - Переконайтеся, що орієнтація камери відповідає трансформації в запущеному файлі. Використовуйте Інспектор MAVLink _QGroundControl_, щоб перевірити, що швидкості в повідомленні `ODOMETRY`, що надходить від MAVROS, вирівнані з системою координат FRD.
 
-- **Problem:** I want to use vision position to do loop closing, and also want to run GPS.
-  - This is really difficult, because when they disagree it will confuse the EKF. From testing it is more reliable to just use vision velocity (if you figure out a way to make this configuration reliable, let us know).
+- **Проблема:** Я хочу використовувати позицію зору для замикання петель, і також хочу запустити GPS.
+  - Це дійсно складно, оскільки коли вони не збігаються, це збентежить EKF. За результатами тестування, надійніше використовувати візійну швидкість (якщо ви знайдете спосіб зробити цю конфігурацію надійною, дайте нам знати).
 
-## Developer Information
+## Інформація для розробників
 
-Developers who are interested in extending this implementation (or writing a different one, which might not depend on ROS) should see [Using Vision or Motion Capture Systems for Position Estimation](../ros/external_position_estimation.md).
+Розробники, які зацікавлені в розширенні цієї реалізації (або написанні іншої, яка може не залежати від ROS), повинні подивитися [використання візійних або систем відстеження руху для оцінки позиції.](../ros/external_position_estimation.md).
 
-This topic also explains how to configure VIO for use with the LPE Estimator (deprecated).
+Ця тема також пояснює, як налаштувати VIO для використання з оцінювачем LPE (застарілим).
 
-## Further Information
+## Додаткова інформація
 
-- [ECL/EKF Overview & Tuning > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
+- [Огляд та налаштування & ECL/EKF > Зовнішня візійна система](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)

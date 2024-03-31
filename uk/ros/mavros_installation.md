@@ -1,36 +1,36 @@
 # Посібник із встановлення ROS з MAVROS
 
-[MAVROS](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status) is a ROS 1 package that enables MAVLink extendable communication between computers running ROS 1 for any MAVLink enabled autopilot, ground station, or peripheral. *MAVROS* is the "official" supported bridge between ROS 1 and the MAVLink protocol.
+[MAVROS](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status) – це пакет ROS 1, який забезпечує розширений зв’язок MAVLink між комп’ютерами, на яких працює ROS 1, для будь-якого автопілота, наземної станції чи периферійного пристрою з підтримкою MAVLink. *MAVROS* є "офіційним", підтримуваним мостом між ROS 1 та протоколом MAVLink.
 
-While MAVROS can be used to communicate with any MAVLink-enabled autopilot, this documentation explains how to set up communication between the PX4 Autopilot and a ROS 1 enabled companion computer.
+Хоча MAVROS можна використовувати для зв’язку з будь-яким автопілотом із підтримкою MAVLink, у цій документації пояснюється, як налаштувати зв’язок між автопілотом PX4 і комп’ютером-компаньйоном із підтримкою ROS 1.
 
 :::warning
-The PX4 development team recommend that all users [upgrade to ROS 2](../ros/ros2.md). This documentation reflects the "old approach".
+Команда розробників PX4 рекомендує усім користувачам [перейти на ROS 2](../ros/ros2.md). Ця документація відображає "старий підхід".
 :::
 
 ## Встановлення
 
 :::note
-First install ROS and PX4 following the instructions in [Development Environment on Linux > ROS/Gazebo Classic](../dev_setup/dev_env_linux_ubuntu.md#ros-gazebo-classic).
+Спершу встановіть ROS і PX4 слідуючи інструкціям у [Середа розробки у Linux > ROS/Gazebo Classic](../dev_setup/dev_env_linux_ubuntu.md#ros-gazebo-classic).
 :::
 
 :::tip
-These instructions are a simplified version of the [official installation guide](https://github.com/mavlink/mavros/tree/master/mavros#installation). They cover the *ROS Melodic and Noetic* releases.
+Ці інструкції спрощена версія [офіційного посібника з встановлення](https://github.com/mavlink/mavros/tree/master/mavros#installation). Вони охоплюють релізи *ROS Melodic and Noetic*.
 :::
 
-MAVROS can be installed either from source or binary. We recommend that developers use the source installation.
+MAVROS можна встановити як з вихідного коду, так і з бінарників. We recommend that developers use the source installation.
 
 ### Binary Installation (Debian / Ubuntu)
 
-The ROS repository has binary packages for Ubuntu x86, amd64 (x86\_64) and armhf (ARMv7). Kinetic also supports Debian Jessie amd64 and arm64 (ARMv8).
+У репозиторії ROS є бінарні пакети для Ubuntu x86, amd64 (x86\_64) та armhf (ARMv7). Kinetic також підтримує Debian Jessie amd64 і arm64 (ARMv8).
 
-Use `apt-get` for installation, where `${ROS_DISTRO}` below should resolve to `kinetic` or `noetic`, depending on your version of ROS:
+Для встановлення використовуйте `apt-get`, де `${ROS_DISTRO}` нижче має перетворитися на `kinetic` або `noetic`, залежно від вашої версії ROS:
 
 ```
 sudo apt-get install ros-${ROS_DISTRO}-mavros ros-${ROS_DISTRO}-mavros-extras ros-${ROS_DISTRO}-mavros-msgs
 ```
 
-Then install [GeographicLib](https://geographiclib.sourceforge.io/) datasets by running the `install_geographiclib_datasets.sh` script:
+Потім встановіть [GeographicLib](https://geographiclib.sourceforge.io/) датасет, виконавши цей `install_geographiclib_datasets.sh` скрипт:
 
 ```
 wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/install_geographiclib_datasets.sh
@@ -39,7 +39,7 @@ sudo bash ./install_geographiclib_datasets.sh
 
 ### Source Installation
 
-This installation assumes you have a catkin workspace located at `~/catkin_ws` If you don't create one with:
+Ця інсталяція передбачає, що у вас є робочий простір catkin, розташований у `~/catkin_ws` Якщо ви не створили його:
 
 ```sh
 mkdir -p ~/catkin_ws/src
@@ -48,7 +48,7 @@ catkin init
 wstool init src
 ```
 
-You will be using the ROS Python tools: *wstool* (for retrieving sources), *rosinstall*, and *catkin_tools* (building) for this installation. While they may have been installed during your installation of ROS you can also install them with:
+You will be using the ROS Python tools: *wstool* (for retrieving sources), *rosinstall*, and *catkin_tools* (building) for this installation. Хоча вони могли бути встановлені під час інсталяції ROS, ви також можете встановити їх разом з ним:
 
 ```sh
 sudo apt-get install python-catkin-tools python-rosinstall-generator -y
@@ -63,9 +63,9 @@ If this is your first time using wstool you will need to initialize your source 
 $ wstool init ~/catkin_ws/src
 ```
 
-Now you are ready to do the build:
+Тепер ви готові зробити збірку:
 
-1. Install MAVLink:
+1. Встановіть MAVLink:
    ```
    # We use the Kinetic reference for all ROS distros as it's not distro-specific and up to date
    rosinstall_generator --rosdistro kinetic mavlink | tee /tmp/mavros.rosinstall
@@ -94,7 +94,7 @@ Now you are ready to do the build:
    rosdep install --from-paths src --ignore-src -y
    ```
 
-1. Install [GeographicLib](https://geographiclib.sourceforge.io/) datasets:
+1. Встановіть [GeographicLib](https://geographiclib.sourceforge.io/) датасети:
    ```sh
    ./src/mavros/mavros/scripts/install_geographiclib_datasets.sh
    ```
@@ -111,18 +111,18 @@ Now you are ready to do the build:
    source devel/setup.bash
    ```
 
-In the case of error, there are addition installation and troubleshooting notes in the [mavros repo](https://github.com/mavlink/mavros/tree/master/mavros#installation).
+На випадок помилки є додаткові примітки щодо встановлення та усунення несправностей у [mavros repo](https://github.com/mavlink/mavros/tree/master/mavros#installation).
 
-## MAVROS Examples
+## MAVROS Приклади
 
-The [MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md), will show you the basics of MAVROS, from reading telemetry, checking the drone state, changing flight modes and controlling the drone.
+[MAVROS Offboard Приклад (C++)](../ros/mavros_offboard_cpp.md), показує базові можливості MAVROS, читання телеметрії, перевірка стану дрона, зміна режимів польоту і керування дроном.
 
 :::note
-If you have an example app using the PX4 Autopilot and MAVROS, we can help you get it on our docs.
+Якщо у вас є приклад додатку, що використовує PX4 Autopilot і MAVROS, ми можемо допомогти додати його у нашу документацію.
 :::
 
 ## Дивіться також
 
-- [mavros ROS Package Summary](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status)
+- [Огляд mavros ROS Package](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status)
 - [mavros source](https://github.com/mavlink/mavros/)
-- [ROS Melodic installation instructions](http://wiki.ros.org/melodic/Installation)
+- [ROS Melodic інструкція встановлення](http://wiki.ros.org/melodic/Installation)

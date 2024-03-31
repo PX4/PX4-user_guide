@@ -1,17 +1,17 @@
 # Motion Capture (MoCap)
 
-Motion Capture (MoCap) is a [computer vision](https://en.wikipedia.org/wiki/Computer_vision) technique for estimating the 3D _pose_ (position and orientation) of a vehicle using a positioning mechanism that is _external_ to the vehicle. It is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors), and provides position relative to a _local_ coordinate system.
+Захоплення руху (MoCap) — це техніка [комп’ютерного бачення](https://en.wikipedia.org/wiki/Computer_vision) для оцінки 3D _pose_ (положення та орієнтації) транспортного засобу за допомогою механізму позиціонування, який є _зовнішнім</1 > до засобу. Він зазвичай використовується для навігації транспортним засобом у ситуаціях, коли GPS відсутній (наприклад, у приміщенні), і надає положення відносно _локальної_ системи координат.</p>
 
-_MoCap_ systems most commonly detect motion using infrared cameras, but other types of cameras, Lidar, or Ultra Wideband (UWB) may also be used.
+Системи _MoCap_ найчастіше виявляють рух за допомогою інфрачервоних камер, але також можна використовувати інші типи камер, Lidar або Ultra Wideband (UWB).
 
 :::note
-_MoCap_ is conceptually similar to [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md). The main difference is that in VIO the vision system runs on the vehicle, and additionally makes use of the vehicle IMU to provide velocity information.
+_MoCap_ концептуально схожий на [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md). Основна відмінність полягає в тому, що у VIO система бачення працює на транспортному засобі та додатково використовує IMU транспортного засобу для надання інформації про швидкість.
 :::
 
-## MoCap Resources
+## MoCap Ресурси
 
-For information about MoCap see:
+Для отримання інформації про MoCap, перегляньте:
 
-- [Using Vision or Motion Capture Systems for Position Estimation](../ros/external_position_estimation.md). <!-- bring across info into user guide? -->
-- [Flying with Motion Capture (VICON, NOKOV, Optitrack)](../tutorials/motion-capture.md). <!-- bring across info into user guide? -->
+- [Використання Vision або Motion Capture систем для Position Estimation](../ros/external_position_estimation.md). <!-- bring across info into user guide? -->
+- [Політ з Motion Capture (VICON, NOKOV, Optitrack)](../tutorials/motion-capture.md). <!-- bring across info into user guide? -->
 - [EKF > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)

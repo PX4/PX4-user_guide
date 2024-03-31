@@ -11,9 +11,9 @@ Other common ways to connect RaPi and Pixhawk are:
 - Serial connection to the RPi USB port. This is simple and reliable, but requires an additional FTDI Chip USB-to-serial adapter board. This option is covered in [Pixhawk Companion > Serial Port Setup](../companion_computer/pixhawk_companion.md#serial-port-setup).
 :::
 
-## Wiring
+## Підключення
 
-### Serial connection
+### Послідовне з'єднання
 
 First wire up the serial connection between the RPi and PX4 that is to be used for offboard control.
 
@@ -38,7 +38,7 @@ Almost all recent Pixhawk boards, such as the Pixhawk-6C, use the same connector
 
 The standard `TELEM2` pin assignments are shown below.
 
-| Pins      | Signal          | Voltage |
+| Піни      | Сигнал          | Напруга |
 | --------- | --------------- | ------- |
 | 1 (Red)   | VCC             | +5V     |
 | 2 (Black) | UART5_TX (out)  | +3.3V   |
@@ -74,7 +74,7 @@ Overloading your Pixhawk is a good way to destroy it.
 During PX4 setup and configuration the USB connection with your ground station laptop is sufficient to power the Pixhawk board, and your companion computer might be powered from a desktop charger.
 :::
 
-## PX4 Setup
+## Налаштування PX4
 
 These instructions work on PX4 v1.14 and later.
 
@@ -101,20 +101,20 @@ make px4_fmu-v6c_default upload
 ```
 -->
 
-## Ubuntu Setup on RPi
+## Налаштування Ubuntu на RPi
 
 The following steps show how to install and setup Ubuntu 22.04 on the RPi. Note that ROS 2 versions target particular Ubuntu versions. We're using Ubuntu 22.04 to match ROS 2 "Humble", so if you're working with ROS 2 "Foxy" you would instead install Ubuntu 20.04.
 
-First install Ubuntu onto the RPi:
+Спочатку встановіть Ubuntu на RPi:
 
-1. Prepare a Ubuntu 22.04 bootable Ubuntu Desktop SD card by following the official tutorial: [How to install Ubuntu Desktop on Raspberry Pi 4](https://ubuntu.com/tutorials/how-to-install-ubuntu-desktop-on-raspberry-pi-4#1-overview)
-1. Connect the mouse, keyboard, monitor and connect the RPi to a 5V Power Supply (external source/charger).
-1. Insert the SD card into the RPi and turn on the RPi to boot from the SD card.
-1. Follow the on-screen instructions to install Ubuntu.
+1. Підготуйте завантажувальну карту Ubuntu 22.04 Ubuntu Desktop SD слідуючи офіційному посібнику: [Як встановити Ubuntu Desktop на Raspberry Pi 4](https://ubuntu.com/tutorials/how-to-install-ubuntu-desktop-on-raspberry-pi-4#1-overview)
+1. Під'єднайте мишу, клавіатуру, монітор і підключіть RPi до джерела живлення 5 В (зовнішнє джерело/зарядний пристрій).
+1. Вставте SD-карту в RPi і увімкніть RPi для завантаження з карти SD.
+1. Дотримуйтесь інструкцій на екрані для встановлення Ubuntu.
 
-Enter the following commands (in sequence) a terminal to configure Ubuntu for RPi:
+Введіть наступні команди (у послідовності) у термінал для налаштування Ubuntu на RPi:
 
-1. Install `raspi-config`:
+1. Встановіть `raspi-config`:
 
    ```sh
    sudo apt update
@@ -122,7 +122,7 @@ Enter the following commands (in sequence) a terminal to configure Ubuntu for RP
    sudo apt-get install raspi-config
    ```
 
-1. Open `raspi-config`:
+1. Відкрийте `raspi-config`:
 
    ```sh
    sudo raspi-config
@@ -147,11 +147,11 @@ Enter the following commands (in sequence) a terminal to configure Ubuntu for RP
    dtoverlay=disable-bt
    ```
 
-1. Then save the file and restart the RPi.
+1. Далі збережіть файл і перезапустіть RPi.
 
-   - In `nano` you can save the file using the following sequence of keyboard shortcuts: **ctrl+x**, **ctrl+y**, **Enter**.
+   - У `nano` ви можете зберегти файл за допомогою такої послідовності комбінацій клавіш: **ctrl+x**, **ctrl+y**, **Enter**.
 
-1. Check that the serial port is available. In this case we use the following terminal commands to list the serial devices:
+1. Перевірте, чи доступний послідовний порт. В даному випадку ми використовуємо наступні команди для перегляду серійних пристроїв:
 
    ```sh
    cd /
@@ -160,20 +160,20 @@ Enter the following commands (in sequence) a terminal to configure Ubuntu for RP
 
    The result of the command should include the RX/TX connection `/dev/ttyAMA0` (note that this serial port is also available as `/dev/serial0`).
 
-The RPi is now setup to work with RPi and communicate using the `/dev/ttyAMA0` serial port. Note that we'll install more software in the following sections to work with MAVLink and ROS 2.
+RPi наразі налаштований для роботи з RPi та зв'язку за допомогою послідовного порту `/dev/ttyAMA0`. Зверніть увагу, що ми встановимо додаткове програмне забезпечення в наступних розділах для роботи з MAVLink та ROS 2.
 
-## MAVLink Communication
+## Зв'язок MAVLink
 
-[MAVLink](https://mavlink.io/en/) is the default and stable communication interface for working with PX4. MAVLink applications running on the companion computer can connect to the `/dev/ttyAMA0` serial port you just set up on the RPi and should automatically (by default) connect to `TELEM 2` on the Pixhawk.
+[MAVLink](https://mavlink.io/en/) є стандартним і стабільним інтерфейсом зв'язку для роботи з PX4. Додатки MAVLink, які працюють на супутниковому комп'ютері, можуть підключатися до послідовного порту `/dev/ttyAMA0`, який ви щойно налаштували на RPi, і за замовчуванням повинні автоматично підключатися до `TELEM 2` на Pixhawk.
 
-PX4 recommends [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) for writing MAVLink companion computer applications, as it provides simple APIs for using many common MAVLink services in many different programming languages. You can also write applications using the libraries provided by [MAVLink](https://mavlink.io/en/#mavlink-project-generatorslanguages), such as [Pymavlink](https://mavlink.io/en/mavgen_python/), but then you are more likely to have to provide your own implementations of some microservices.
+PX4 рекомендує використовувати [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) для написання додатків супутникового комп'ютера, що використовують MAVLink, оскільки він надає прості API для використання багатьох загальних сервісів MAVLink на багатьох різних мов програмування. Ви також можете писати додатки, використовуючи бібліотеки, надані [MAVLink](https://mavlink.io/en/#mavlink-project-generatorslanguages), такі як [Pymavlink](https://mavlink.io/en/mavgen_python/), але в такому випадку вам, ймовірно, доведеться надати власні реалізації деяких мікрослужб.
 
-For this tutorial we're not going to go into MAVLink control in any detail (it is well covered in the respective SDKs). However we will install and use a simple developer MAVLink GCS called `mavproxy`. This will allow us to verify the MAVLink connection, and therefore that our physical connection has been set up properly. A very similar connection pattern would be used for MAVSDK and other MAVLink applications.
+У цьому підручнику ми не будемо вдаватися в докладності щодо управління MAVLink (воно добре описане в відповідних SDK). Однак ми встановимо та використаємо простий розробницький GCS MAVLink, званий `mavproxy`. Це дозволить нам перевірити підключення MAVLink, а отже, правильність налаштування нашого фізичного з'єднання. Дуже схожий шаблон підключення використовуватиметься для MAVSDK та інших додатків MAVLink.
 
-First check the Pixhawk `TELEM 2` configuration:
+Спочатку перевірте конфігурацію Pixhawk `TELEM 2`:
 
-1. Connect the Pixhawk with the laptop using a USB cable.
-1. Open QGroundControl (the vehicle should connect).
+1. Підключіть Pixhawk до ноутбука за допомогою USB-кабеля.
+1. Відкрийте QGroundControl (повинно з'єднатися з транспортним засобом).
 1. [Check/change the following parameters](../advanced_config/parameters.md) in QGroundControl:
 
    ```ini

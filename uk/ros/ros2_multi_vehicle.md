@@ -1,10 +1,10 @@
-# Multi-Vehicle Simulation with ROS 2
+# Multi-Vehicle Симуляція з ROS 2
 
-[XRCE-DDS](../middleware/uxrce_dds.md) allows for multiple clients to be connected to the same agent over UDP. This is particular useful in simulation as only one agent needs to be started.
+[XRCE-DDS](../middleware/uxrce_dds.md) allows for multiple clients to be connected to the same agent over UDP. Це особливо корисно в симуляції, якщо потрібно запустити лише один агент.
 
-## Setup and Requirements
+## Налаштування та вимоги
 
-The only requirements are
+Єдині вимоги
 
 - To be able to run [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) without ROS 2 with the desired simulator ([Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md), [Gazebo Classic](../sim_gazebo_classic/multi_vehicle_simulation.md#multiple-vehicle-with-gazebo-classic), [FlightGear](../sim_flightgear/multi_vehicle.md) and [JMAVSim](../sim_jmavsim/multi_vehicle.md)).
 - To be able to use [ROS 2](./ros2_comm.md) in a single vehicle simulation.
@@ -33,7 +33,7 @@ The environment variable `PX4_UXRCE_DDS_NS`, if set, will override the namespace
 
 The first instance (`px4_instance=0`) does not have an additional namespace in order to be consistent with the default behavior of the `xrce-dds` client on a real vehicle. This mismatch can be fixed by manually using `PX4_UXRCE_DDS_NS` on the first instance or by starting adding vehicles from index `1` instead of `0` (this is the default behavior adopted by [sitl_multiple_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gazebo-classic/sitl_multiple_run.sh) for Gazebo Classic).
 
-The default client configuration in simulation is summarized as follows:
+Типове налаштування клієнта у симуляції:
 
 | `PX4_UXRCE_DDS_NS` | `px4_instance` | `UXRCE_DDS_KEY`  | client namespace      |
 | ------------------ | -------------- | ---------------- | --------------------- |

@@ -16,7 +16,7 @@ The instructions differ depending on whether you are using the EKF2 or LPE estim
 
 ## Інтеграція PX4 з MAVLink
 
-PX4 uses the following MAVLink messages for getting external position information, and maps them to [uORB topics](../middleware/uorb.md):
+PX4 використовує наступні повідомлення MAVLink для отримання інформації про зовнішню позицію і зіставляє їх з темами [uORB](../middleware/uorb.md):
 
 | MAVLink                                                                                                                                                                | uORB                      |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |

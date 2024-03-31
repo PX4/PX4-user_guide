@@ -126,17 +126,17 @@ AIRLink Enterprise прибуває з усім необхідним для на
 
 - **Простий монтаж**
 
-  ![Easy mount](../../assets/flight_controller/airlink/airlink-easy-to-mount.jpg)
+  ![Простий монтаж](../../assets/flight_controller/airlink/airlink-easy-to-mount.jpg)
 
 - **FPV-камера входить до стандартної комплектації**
 
-  ![FPV camera comes as standard](../../assets/flight_controller/airlink/airlink-fpv-camera.jpg)
+  ![FPV-камера входить до стандартної комплектації](../../assets/flight_controller/airlink/airlink-fpv-camera.jpg)
 
 ## Інтерфейси
 
 ### Лівий бік
 
-![Left side](../../assets/flight_controller/airlink/airlink-interfaces-left.jpg)
+![Ліва сторона](../../assets/flight_controller/airlink/airlink-interfaces-left.jpg)
 
 - **Інтерфейси зліва:**
 
@@ -150,9 +150,9 @@ AIRLink Enterprise прибуває з усім необхідним для на
 
   | Номер виводу | Назва виводу | Напрямок   | Напруга | Функція                        |
   | ------------ | ------------ | ---------- | ------- | ------------------------------ |
-  | 1            | 12В          | IN         | +12В    | Основний вхід живлення         |
-  | 2            | 12В          | IN         | +12В    | Основний вхід живлення         |
-  | 3            | 12В          | IN         | +12В    | Основний вхід живлення         |
+  | 1            | 12V          | IN         | +12В    | Основний вхід живлення         |
+  | 2            | 12V          | IN         | +12В    | Основний вхід живлення         |
+  | 3            | 12V          | IN         | +12В    | Основний вхід живлення         |
   | 4            | BAT_CURRENT  | IN         | +3.3В   | Моніторинг струму акумулятора  |
   | 5            | BAT_VOLTAGE  | IN         | +3.3В   | Моніторинг напруги акумулятора |
   | 6            | 3V3          | OUT        | +3.3В   | Вихід 3.3В                     |
@@ -167,7 +167,7 @@ AIRLink Enterprise прибуває з усім необхідним для на
 
   | Номер виводу | Назва виводу | Напрямок | Напруга | Функція                           |
   | ------------ | ------------ | -------- | ------- | --------------------------------- |
-  | 1            | 5В           | OUT      | +5В     | Вихід 5В                          |
+  | 1            | 5V           | OUT      | +5В     | Вихід 5В                          |
   | 2            | PPM_IN       | IN       | +3.3В   | PPM вхід                          |
   | 3            | RSSI_IN      | IN       | +3.3В   | RSSI вхід                         |
   | 4            | FAN_OUT      | OUT      | +5В     | Вихід вентилятора                 |
@@ -177,216 +177,216 @@ AIRLink Enterprise прибуває з усім необхідним для на
 
 ### Правий бік
 
-![Right side](../../assets/flight_controller/airlink/airlink-interfaces-right.jpg)
+![Права сторона](../../assets/flight_controller/airlink/airlink-interfaces-right.jpg)
 
-- **Right side interfaces:**
+- **Інтерфейси справа:**
 
-  - Ethernet port with power output
-  - Telemetry port
-  - Second GPS port
-  - Spare I2C / UART port
-  - Flight controller USB Type-C
-  - Micro SIM Card
-  - HDMI input port (payload camera)
+  - Ethernet-порт з виходом живлення
+  - Телеметричний порт
+  - Другий GPS-порт
+  - Запасний порт I2C / UART
+  - Польотний контролер USB Type-C
+  - Мікро SIM-карта
+  - Вхідний порт HDMI (камера корисного навантаження)
 
 - **ETHERNET - JST GH SM08B-GHS-TB**
 
-  | Pin number | Pin name | Direction | Voltage | Function                   |
-  | ---------- | -------- | --------- | ------- | -------------------------- |
-  | 1          | 5V       | OUT       | +5V     | Radio module power supply  |
-  | 2          | 5V       | OUT       | +5V     | Radio module power supply  |
-  | 3          | ETH_TXP  | OUT       | +3.3V   | Ethernet transmit positive |
-  | 4          | ETH_TXN  | OUT       | +3.3V   | Ethernet transmit negative |
-  | 5          | ETH_RXP  | IN        | +3.3V   | Ethernet receive positive  |
-  | 6          | ETH_RXN  | IN        | +3.3V   | Ethernet receive negative  |
-  | 7          | GND      | Ground    |         |                            |
-  | 8          | GND      | Ground    |         |                            |
+  | Номер виводу | Назва виводу | Напрямок   | Напруга | Функція                                |
+  | ------------ | ------------ | ---------- | ------- | -------------------------------------- |
+  | 1            | 5V           | OUT        | +5В     | Блок живлення радіомодуля              |
+  | 2            | 5V           | OUT        | +5В     | Блок живлення радіомодуля              |
+  | 3            | ETH_TXP      | OUT        | +3.3В   | Передача позитивного сигналу Ethernet  |
+  | 4            | ETH_TXN      | OUT        | +3.3В   | Передача негативного сигналу Ethernet  |
+  | 5            | ETH_RXP      | IN         | +3.3В   | Отримання позитивного сигналу Ethernet |
+  | 6            | ETH_RXN      | IN         | +3.3В   | Отримання негативного сигналу Ethernet |
+  | 7            | GND          | Заземлення |         |                                        |
+  | 8            | GND          | Заземлення |         |                                        |
 
 - **TEL3 - JST GH SM06B-GHS-TB**
 
-  | Pin number | Pin name   | Direction | Voltage | Function            |
-  | ---------- | ---------- | --------- | ------- | ------------------- |
-  | 1          | 5V         | OUT       | +5V     | Power supply output |
-  | 2          | USART2_TX  | OUT       | +3.3V   | Telemetry 3 TX      |
-  | 3          | USART2_RX  | IN        | +3.3V   | Telemetry 3 RX      |
-  | 4          | USART2_CTS | IN        | +3.3V   | Telemetry 3 CTS     |
-  | 5          | USART2_RTS | OUT       | +3.3V   | Telemetry 3 RTS     |
-  | 6          | GND        | Ground    |         |                     |
+  | Номер виводу | Назва виводу | Напрямок   | Напруга | Функція                |
+  | ------------ | ------------ | ---------- | ------- | ---------------------- |
+  | 1            | 5V           | OUT        | +5В     | Вихід джерела живлення |
+  | 2            | USART2_TX    | OUT        | +3.3В   | Телеметрія 3 TX        |
+  | 3            | USART2_RX    | IN         | +3.3В   | Телеметрія 3 RX        |
+  | 4            | USART2_CTS   | IN         | +3.3В   | Телеметрія 3 CTS       |
+  | 5            | USART2_RTS   | OUT        | +3.3В   | Телеметрія 3 RTS       |
+  | 6            | GND          | Заземлення |         |                        |
 
 - **I2C3 / UART4 - JST GH SM06B-GHS-TB**
 
-  | Pin number | Pin name  | Direction | Voltage | Function            |
-  | ---------- | --------- | --------- | ------- | ------------------- |
-  | 1          | 5V        | OUT       | +5V     | Power supply output |
-  | 2          | USART4_TX | OUT       | +3.3V   | UART 4 TX           |
-  | 3          | USART4_RX | IN        | +3.3V   | UART 4 RX           |
-  | 4          | I2C3_SCL  | I/O       | +3.3V   | I2C3 Clock          |
-  | 5          | I2C3_SDA  | I/O       | +3.3V   | I2C3 Data           |
-  | 6          | GND       | Ground    |         |                     |
+  | Номер виводу | Назва виводу | Напрямок   | Напруга | Функція                |
+  | ------------ | ------------ | ---------- | ------- | ---------------------- |
+  | 1            | 5V           | OUT        | +5В     | Вихід джерела живлення |
+  | 2            | USART4_TX    | OUT        | +3.3В   | UART 4 TX              |
+  | 3            | USART4_RX    | IN         | +3.3В   | UART 4 RX              |
+  | 4            | I2C3_SCL     | I/O        | +3.3В   | Годинник I2C3          |
+  | 5            | I2C3_SDA     | I/O        | +3.3В   | Дані I2C3              |
+  | 6            | GND          | Заземлення |         |                        |
 
 - **GPS2 - JST GH SM06B-GHS-TB**
 
-  | Pin number | Pin name  | Direction | Voltage | Function            |
-  | ---------- | --------- | --------- | ------- | ------------------- |
-  | 1          | 5V        | OUT       | +5V     | Power supply output |
-  | 2          | USART8_TX | OUT       | +3.3V   | UART 8 TX           |
-  | 3          | USART8_RX | IN        | +3.3V   | UART 8 RX           |
-  | 4          | I2C2_SCL  | I/O       | +3.3V   | I2C2 Clock          |
-  | 5          | I2C2_SDA  | I/O       | +3.3V   | I2C2 Data           |
-  | 6          | GND       | Ground    |         |                     |
+  | Номер виводу | Назва виводу | Напрямок   | Напруга | Функція                |
+  | ------------ | ------------ | ---------- | ------- | ---------------------- |
+  | 1            | 5V           | OUT        | +5В     | Вихід джерела живлення |
+  | 2            | USART8_TX    | OUT        | +3.3В   | UART 8 TX              |
+  | 3            | USART8_RX    | IN         | +3.3В   | UART 8 RX              |
+  | 4            | I2C2_SCL     | I/O        | +3.3В   | Годинник I2C2          |
+  | 5            | I2C2_SDA     | I/O        | +3.3В   | Дані I2C2              |
+  | 6            | GND          | Заземлення |         |                        |
 
 - **FMU USB - USB Type C**
 - **SIM Card - micro SIM**
 - **HDMI - mini HDMI**
 
-### Front Side
+### Лицьова сторона
 
-![Front side](../../assets/flight_controller/airlink/airlink-interfaces-front.jpg)
+![Лицьова сторона](../../assets/flight_controller/airlink/airlink-interfaces-front.jpg)
 
-- **Front side interfaces:**
+- **Інтерфейси спереду:**
 
-  - Main GNSS and compass port
-  - Main telemetry port
-  - CSI camera input
+  - Основний порт GNSS і компаса
+  - Основний телеметричний порт
+  - Вхід для камери CSI
   - CAN 1
   - CAN 2
 
 - **TEL1 - JST GH SM06B-GHS-TB**
 
-  | Pin number | Pin name   | Direction | Voltage | Function            |
-  | ---------- | ---------- | --------- | ------- | ------------------- |
-  | 1          | 5V         | OUT       | +5V     | Power supply output |
-  | 2          | USART7_TX  | OUT       | +3.3V   | Telemetry 1 TX      |
-  | 3          | USART7_RX  | IN        | +3.3V   | Telemetry 1 RX      |
-  | 4          | USART7_CTS | IN        | +3.3V   | Telemetry 1 CTS     |
-  | 5          | USART7_RTS | OUT       | +3.3V   | Telemetry 1 RTS     |
-  | 6          | GND        | Ground    |         |                     |
+  | Номер виводу | Назва виводу | Напрямок   | Напруга | Функція                |
+  | ------------ | ------------ | ---------- | ------- | ---------------------- |
+  | 1            | 5V           | OUT        | +5В     | Вихід джерела живлення |
+  | 2            | USART7_TX    | OUT        | +3.3В   | Телеметрія 1 TX        |
+  | 3            | USART7_RX    | IN         | +3.3В   | Телеметрія 1 RX        |
+  | 4            | USART7_CTS   | IN         | +3.3В   | Телеметрія 1 CTS       |
+  | 5            | USART7_RTS   | OUT        | +3.3В   | Телеметрія 1 RTS       |
+  | 6            | GND          | Заземлення |         |                        |
 
 - **GPS1 - JST GH SM10B-GHS-TB**
 
-  | Pin number | Pin name   | Direction | Voltage | Function            |
-  | ---------- | ---------- | --------- | ------- | ------------------- |
-  | 1          | 5V         | OUT       | +5V     | Power supply output |
-  | 2          | USART1_TX  | OUT       | +3.3V   | GPS 1 TX            |
-  | 3          | USART1_RX  | IN        | +3.3V   | GPS 1 RX            |
-  | 4          | I2C1_SCL   | I/O       | +3.3V   | Mag 1 Clock         |
-  | 5          | I2C1_SDA   | I/O       | +3.3V   | Mag 1 Data          |
-  | 6          | SAFETY_BTN | IN        | +3.3V   | Safety button       |
-  | 7          | SAFETY_LED | OUT       | +3.3V   | Safety LED          |
-  | 8          | +3V3       | OUT       | +3.3V   | 3.3V output         |
-  | 9          | BUZZER     | OUT       | +5V     | Buzzer output       |
-  | 10         | GND        | Ground    |         |                     |
+  | Номер виводу | Назва виводу | Напрямок   | Напруга | Функція                |
+  | ------------ | ------------ | ---------- | ------- | ---------------------- |
+  | 1            | 5V           | OUT        | +5В     | Вихід джерела живлення |
+  | 2            | USART1_TX    | OUT        | +3.3В   | GPS 1 TX               |
+  | 3            | USART1_RX    | IN         | +3.3В   | GPS 1 RX               |
+  | 4            | І2C1_SCL     | I/O        | +3.3В   | Годинник Mag 1         |
+  | 5            | I2C1_SDA     | I/O        | +3.3В   | Дані Mag 1             |
+  | 6            | SAFETY_BTN   | IN         | +3.3В   | Кнопка безпеки         |
+  | 7            | SAFETY_LED   | OUT        | +3.3В   | Індикатор безпеки      |
+  | 8            | +3V3         | OUT        | +3.3В   | Вихід 3.3В             |
+  | 9            | BUZZER       | OUT        | +5В     | Вихід зумера           |
+  | 10           | GND          | Заземлення |         |                        |
 
 - **CAN1 - JST GH SM04B-GHS-TB**
 
-  | Pin number | Pin name | Direction | Voltage | Function            |
-  | ---------- | -------- | --------- | ------- | ------------------- |
-  | 1          | 5V       | OUT       | +5V     | Power supply output |
-  | 2          | CAN1_H   | I/O       | +5V     | CAN 1 High (120Ω)   |
-  | 3          | CAN1_L   | I/O       | +5V     | CAN 1 Low (120Ω)    |
-  | 4          | GND      | Ground    |         |                     |
+  | Номер виводу | Назва виводу | Напрямок   | Напруга | Функція                |
+  | ------------ | ------------ | ---------- | ------- | ---------------------- |
+  | 1            | 5V           | OUT        | +5В     | Вихід джерела живлення |
+  | 2            | CAN1_H       | I/O        | +5В     | CAN 1 High (120Ω)      |
+  | 3            | CAN1_L       | I/O        | +5В     | CAN 1 Low (120Ω)       |
+  | 4            | GND          | Заземлення |         |                        |
 
 - **CAN2 - JST GH SM04B-GHS-TB**
 
-  | Pin number | Pin name | Direction | Voltage | Function            |
-  | ---------- | -------- | --------- | ------- | ------------------- |
-  | 1          | 5V       | OUT       | +5V     | Power supply output |
-  | 2          | CAN2_H   | I/O       | +5V     | CAN 2 High (120Ω)   |
-  | 3          | CAN2_L   | I/O       | +5V     | CAN 2 Low (120Ω)    |
-  | 4          | GND      | Ground    |         |                     |
+  | Номер виводу | Назва виводу | Напрямок   | Напруга | Функція                |
+  | ------------ | ------------ | ---------- | ------- | ---------------------- |
+  | 1            | 5V           | OUT        | +5В     | Вихід джерела живлення |
+  | 2            | CAN2_H       | I/O        | +5В     | CAN 2 High (120Ω)      |
+  | 3            | CAN2_L       | I/O        | +5В     | CAN 2 Low (120Ω)       |
+  | 4            | GND          | Заземлення |         |                        |
 
 - **CAMERA - FPC 30 pin, 0.5mm pitch**
 
-### Rear Side
+### Задня сторона
 
-![Back side](../../assets/flight_controller/airlink/airlink-interfaces-back.jpg)
+![Задня сторона](../../assets/flight_controller/airlink/airlink-interfaces-back.jpg)
 
-- **Rear side interfaces:**
+- **Інтерфейси ззаду:**
 
-  - SBUS input
-  - 16 PWM output channels
-  - 2x LTE antenna sockets (MIMO)
-  - WiFi antenna socket (AP & Station modes)
+  - Вхід SBUS
+  - 16 вихідних каналів ШІМ
+  - 2 гнізда для антен LTE (MIMO)
+  - Гніздо для антени WiFi (режими точки доступу та станції)
 
-# Serial Mapping
+# Серійне мапування
 
-AIRLink has a large number of internal and external serial ports:
+AIRLink має велику кількість внутрішніх і зовнішніх послідовних портів:
 
-| Serial   | UART    | Function                                            |
-| -------- | ------- | --------------------------------------------------- |
-| Serial 0 | USB     | Console                                             |
-| Serial 1 | UART 7  | Telemetry 1                                         |
-| Serial 2 | UART 5  | Telemetry 2 (used internally with Mission Computer) |
-| Serial 3 | USART 1 | GPS 1                                               |
-| Serial 4 | UART 8  | GPS 2                                               |
-| Serial 5 | USART 3 | Debug console (internal connector)                  |
-| Serial 6 | USART 2 | Telemetry 3                                         |
-| Serial 7 | UART 4  | External UART                                       |
+| Серія   | UART    | Функція                                                    |
+| ------- | ------- | ---------------------------------------------------------- |
+| Серія 0 | USB     | Консоль                                                    |
+| Серія 1 | UART 7  | Телеметрія 1                                               |
+| Серія 2 | UART 5  | Телеметрія 2 (використовується всередині комп'ютера місії) |
+| Серія 3 | USART 1 | GPS 1                                                      |
+| Серія 4 | UART 8  | GPS 2                                                      |
+| Серія 5 | USART 3 | Консоль відладки (внутрішній роз'єм)                       |
+| Серія 6 | USART 2 | Телеметрія 3                                               |
+| Серія 7 | UART 4  | Зовнішній UART                                             |
 
-## RC Input
+## RC-вхід
 
-RC input is configured on the SBUS pin and is connected to IO MCU via an inverter internally. For PPM receivers please use RC Connector PPM pin located on the left side of the unit.
+RC-вхід конфігурується на виводі SBUS і підключається до IO MCU через внутрішній інвертор. Для PPM-приймачів, будь ласка, використовуйте штифт PPM роз'єму RC, розташований на лівій стороні пристрою.
 
-![RC Input](../../assets/flight_controller/airlink/airlink-rc-input.jpg)
+![RC-вхід](../../assets/flight_controller/airlink/airlink-rc-input.jpg)
 
-## Outputs
+## Виходи
 
-AIRLink has 16 PWM ouputs. Main outputs 1-8 and connected to IO MCU. AUX outputs 1-8 are connected to FMU.
+AIRLink має 16 ШІМ-виходів. Основні виходи 1-8 і підключені до IO MCU. Виходи AUX 1-8 підключено до FMU.
 
-| Output | Timer    | Channel   |
-| ------ | -------- | --------- |
-| AUX 1  | Timer 1  | Channel 4 |
-| AUX 2  | Timer 1  | Channel 3 |
-| AUX 3  | Timer 1  | Channel 2 |
-| AUX 4  | Timer 1  | Channel 1 |
-| AUX 5  | Timer 4  | Channel 2 |
-| AUX 6  | Timer 4  | Channel 3 |
-| AUX 7  | Timer 12 | Channel 1 |
-| AUX 8  | Timer 12 | Channel 2 |
+| Вивід | Таймер   | Канал     |
+| ----- | -------- | --------- |
+| AUX 1 | Timer 1  | Channel 4 |
+| AUX 2 | Timer 1  | Channel 3 |
+| AUX 3 | Timer 1  | Channel 2 |
+| AUX 4 | Timer 1  | Channel 1 |
+| AUX 5 | Timer 4  | Channel 2 |
+| AUX 6 | Timer 4  | Channel 3 |
+| AUX 7 | Timer 12 | Channel 1 |
+| AUX 8 | Timer 12 | Channel 2 |
 
-[DShot](../peripherals/dshot.md) can be used on the first four AUX pins.
+[DShot](../peripherals/dshot.md) можна використовувати на перших чотирьох контактах AUX.
 
-## Building Firmware
+## Збірка прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно збирати цю прошивку! Він попередньо створений і автоматично встановлюється за допомогою _QGroundControl_ при підключенні відповідного обладнання.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [ зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make sky-drones_smartap-airlink
 ```
 
-## Peripherals
+## Периферія
 
-- [SmartAP GPS](../gps_compass/gps_smartap.md) - GPS module with compass, pressure sensor and RGB LED
-- [SmartAP PDB](../power_module/sky-drones_smartap-pdb.md) - Power Distribution Board
+- [SmartAP GPS](../gps_compass/gps_smartap.md) - GPS-модуль з компасом, датчиком тиску та RGB-світлодіодом
+- [SmartAP PDB](../power_module/sky-drones_smartap-pdb.md) - плата розподілу живлення
 
-## Reference Design
+## Еталонний проєкт
 
-![Reference design](../../assets/flight_controller/airlink/airlink-reference-design.png)
+![Еталонний проєкт](../../assets/flight_controller/airlink/airlink-reference-design.png)
 
-AIRLink CAD model is available [here](https://docs.sky-drones.com/airlink/cad-model)
+CAD модель AIRLink доступна [тут](https://docs.sky-drones.com/airlink/cad-model)
 
-AIRLink Reference design can be provided by request. Get in touch at [Sky-Drones contact page](https://sky-drones.com/contact-us)
+Еталонний дизайн AIRLink може бути наданий за запитом. Зв'яжіться з нами на [контактній сторінці Sky-Drones](https://sky-drones.com/contact-us).
 
-## More Information
+## Докладніше
 
-For more information and instructions on setting up and using the AIRLink system see [AIRLink Documentation](https://docs.sky-drones.com/airlink/).
+Для отримання додаткової інформації та інструкцій щодо налаштування та використання системи AIRLink див. [Документація AIRLink](https://docs.sky-drones.com/airlink/).
 
-For technical help, support and customization please get in touch at [Sky-Drones contact page](https://sky-drones.com/contact-us).
+Для технічної допомоги, підтримки та налаштування, будь ласка, зв'яжіться з нами на [Контактній сторінці Sky-Drones](https://sky-drones.com/contact-us).
 
-More information can be found at [www.sky-drones.com](https://sky-drones.com).
+Більше інформації можна знайти на [www.sky-drones.com](https://sky-drones.com).
 
-Frequently asked questions are answered in [FAQ](https://docs.sky-drones.com/airlink/faq).
+Відповіді на поширені запитання можна знайти в розділі [FAQ](https://docs.sky-drones.com/airlink/faq).
 
-## Useful Links
+## Корисні посилання
 
-- [AIRLink product page](https://sky-drones.com/airlink)
-- [AIRLink documentation](https://docs.sky-drones.com/avionics/airlink)
-- [AIRLink datasheet](https://3182378893-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-MTMlWysgDtJq8Hid1v7%2Fuploads%2F8AiuNNSwLYnZSscj7uIV%2FAIRLink-Datasheet.pdf?alt=media&token=cbf0c4bf-9ab1-40c5-a0af-c6babdddb690)
-- [Buy AIRLink Enterprise 4G](https://sky-drones.com/sets/airlink-enterprise-set.html)
-- [Buy AIRLink Enterprise 5G](https://sky-drones.com/sets/airlink-5g-enterprise-set.html)
-- [Buy AIRLink Core 4G](https://sky-drones.com/autopilots/airlink-core.html)
-- [Buy AIRLink Core 5G](https://sky-drones.com/store/airlink-5g-core.html)
+- [Сторінка продукту AIRLink](https://sky-drones.com/airlink)
+- [Документація AIRLink](https://docs.sky-drones.com/avionics/airlink)
+- [Технічна специфікація AIRLink](https://3182378893-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-MTMlWysgDtJq8Hid1v7%2Fuploads%2F8AiuNNSwLYnZSscj7uIV%2FAIRLink-Datasheet.pdf?alt=media&token=cbf0c4bf-9ab1-40c5-a0af-c6babdddb690)
+- [Придбання AIRLink Enterprise 4G](https://sky-drones.com/sets/airlink-enterprise-set.html)
+- [Придбання AIRLink Enterprise 5G](https://sky-drones.com/sets/airlink-5g-enterprise-set.html)
+- [Придбання AIRLink Core 4G](https://sky-drones.com/autopilots/airlink-core.html)
+- [Придбання AIRLink Core 5G](https://sky-drones.com/store/airlink-5g-core.html)

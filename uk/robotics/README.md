@@ -11,31 +11,31 @@ PX4 підтримує наступні інструменти SDK/робото�
 
 ## Який API мені слід використовувати?
 
-We recommend using MAVSDK where possible, primarily because it is far more intuitive and easier to learn. It can also run on more operating systems and less performant-hardware.
+Ми рекомендуємо використовувати MAVSDK там, де це можливо, насамперед тому, що він набагато інтуїтивно зрозуміліший і простіший у вивченні. Він також може працювати на більшій кількості операційних систем і менш продуктивному обладнанні.
 
-You may prefer ROS if you already know how to use it, or if you want to leverage pre-existing integrations (for example computer vision tasks). More generally, ROS is likely to be a better choice for tasks that require very low latency or a deeper integration with PX4 than is provided by MAVLink.
+Ви можете віддати перевагу ROS, якщо ви вже знаєте, як ним користуватися, або якщо ви хочете використовувати вже існуючі інтеграції (наприклад, завдання комп'ютерного зору). Загалом, ROS, ймовірно, буде кращим вибором для завдань, які вимагають дуже низької затримки або більш глибокої інтеграції з PX4, ніж це забезпечує MAVLink.
 
 Основна різниця:
 
 - **MAVSDK:**
-  - Intuitive and optimised for drones, with a small learning curve and easy setup.
-  - You can write apps in C++, Python, Swift, Java, Go, and more.
-  - Runs on resource-constrained hardware
-  - Runs on broad range of OSs, including Android, Linux, Windows.
-  - Communicates over MAVLink.
-    - Stable and widely supported.
-    - Limited to MAVLink services - needed information may not be exposed.
-    - Latency may be too high for some use cases.
+  - Інтуїтивно зрозумілий та оптимізований для дронів, з невеликою тривалістю навчання та простим налаштуванням.
+  - Ви можете писати програми на C++, Python, Swift, Java, Go та інших мовах.
+  - Працює на обладнанні з обмеженими ресурсами
+  - Працює на широкому спектрі ОС, включаючи Android, Linux, Windows.
+  - Комунікація через MAVLink.
+    - Стабільний і широко підтримуваний.
+    - Обмежено можливостями MAVLink - потрібна інформація може бути не опрацьована.
+    - Затримка може бути занадто великою для деяких випадків використання.
 - **ROS:**
   - General-purpose robotics API that has been extended to support drone integration:
-    - Conceptually not as well optimised for drones
-    - Significant learning curve
-  - Many pre-existing libraries: useful for code-reuse.
-  - Supports C++ and Python libraries
-  - Runs on Linux
-  - ROS 2 is the latest version, which connects via DDS.
-    - DDS interface layer allows deep integration into any aspect of PX4 that is exposed as a UORB topic (almost everything).
-    - Can provide much lower latency.
-    - Still under development. At time of writing requires a deeper understanding of PX4 than ROS 1
-  - ROS 1 is the older version that can connect over MAVLink or via ROS 2. Users are encouraged to update to ROS 2 for new projects.
+    - Концептуально не так добре оптимізований для безпілотників
+    - Значний час навчання
+  - Багато готових бібліотек: корисно для повторного використання коду.
+  - Підтримуються бібліотеки C++ та Python
+  - Працює на Linux
+  - ROS 2 - остання версія, яка підключається через DDS.
+    - Інтерфейсний шар DDS дозволяє глибоку інтеграцію з будь-яким аспектом PX4, який виставляється як тема UORB (майже з усім).
+    - Можна забезпечити значно нижчу затримку.
+    - Все ще розробляється. На момент написання статті потрібне більш глибоке розуміння PX4, ніж ROS 1
+  - ROS 1 - це стара версія, яка може підключатися через MAVLink або через ROS 2. Користувачам рекомендується оновитися до ROS 2 для нових проектів.
 
