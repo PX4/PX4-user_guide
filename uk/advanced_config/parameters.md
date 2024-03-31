@@ -5,7 +5,7 @@
 Екран _Параметри QGroundControl_ дозволяє вам знайти та змінити **будь-які** параметри, пов'язані з транспортним засобом. Доступ до цього екрану здійснюється за допомогою натискання значка застосунка **Q** > **Налаштування транспортного засобу**, а потім _Параметри_ у бічному меню.
 
 :::note
-Більшість з найбільш поширених параметрів зручніше налаштовувати за допомогою відповідних екранів налаштувань, як описано в розділі [Стандартна конфігурація](../config/README.md). The _Parameters_ screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
+Більшість з найбільш поширених параметрів зручніше налаштовувати за допомогою відповідних екранів налаштувань, як описано в розділі [Стандартна конфігурація](../config/README.md). Екран _Параметри_ необхідний при модифікації менш часто змінюваних параметрів, наприклад, під час налаштування нового транспортного засобу.
 :::
 
 :::warning
@@ -16,27 +16,27 @@
 
 ## Пошук параметра
 
-You can search for a parameter by entering a term in the _Search_ field. This will show you a list of all parameter names and descriptions that contain the entered substring (press **Clear** to reset the search, and use the **Show modified only** checkbox to filter out unchanged parameters).
+Ви можете шукати параметр, введенням терміну в поле _Пошук_. Це покаже вам список всіх назв параметрів і описів, що містять введену підстроку (натисніть **Очистити**, щоб скинути пошук, і використовуйте прапорець **Показувати лише змінені**, щоб відфільтрувати незмінені параметри).
 
 ![Parameters Search](../../assets/qgc/setup/parameters/parameters_search.png)
 
-You can also browse the parameters by type and group by clicking on the buttons to the left (in the image below the _DShot_ group in the _Standard_ parameters is selected).
+Ви також можете переглядати параметри за типом і групою, натиснувши кнопки зліва (на зображенні нижче вибрана група _DShot_ в _стандартних_ параметрах).
 
 ![Parameters Screen](../../assets/qgc/setup/parameters/parameters_px4.png)
 
-You can expand/collapse the "type" groupings as shown. Note that the groups at the bottom named _Component X_ are attached [DroneCAN peripherals](../dronecan/README.md#qgc-cannode-parameter-configuration) ("X" is the node id). [QGC can set the parameters](../dronecan/README.md#qgc-cannode-parameter-configuration) of these peripherals if they are attached to the Flight Controller when QGC is started.
+Ви можете розгортати / згортати групи "типу", як показано. Зверніть увагу, що групи внизу з назвою _Компонент X_ є підключеними периферійними пристроями [DroneCAN](../dronecan/README.md#qgc-cannode-parameter-configuration) ("X" - це ідентифікатор вузла). [QGC може встановлювати параметри](../dronecan/README.md#qgc-cannode-parameter-configuration) цих периферійних пристроїв, якщо вони підключені до контролера польоту при запуску QGC.
 
 ![Parameters Types - collapsed](../../assets/qgc/setup/parameters/parameters_types.png)
 
 :::tip
-If you can't find an expected parameter, see the [next section](#missing).
+Якщо ви не можете знайти очікуваний параметр, див. [наступний розділ](#missing).
 :::
 
 <a id="missing"></a>
 
 ## Відсутні Параметри
 
-Parameters are usually not visible because either they are conditional on other parameters, or they are not present in the firmware (see below).
+Зазвичай параметри не відображаються через те, що вони умовні на інші параметри, або вони відсутні в прошивці (див. нижче).
 
 ### Умовні параметри
 
@@ -44,20 +44,20 @@ Parameters are usually not visible because either they are conditional on other 
 
 Зазвичай можна дізнатися, які параметри залежать від інших, шляхом пошуку [повного списку параметрів](../advanced_config/parameter_reference.md) та іншої документації. Зокрема параметри [конфігурації послідовного порта](../peripherals/serial_configuration.md) залежать від того, яка служба призначена для послідовного порта.
 
-### Parameter Not In Firmware
+### Параметр не в прошивці
 
-A parameter may not be present in the firmware because you're using a different version of PX4 or because you're using a build in which the associated module is not included.
+Параметр може відсутній у прошивці через використання іншої версії PX4 або через використання збірки, в якій відповідний модуль не включено.
 
-New parameters are added in each PX4 version, and existing parameters are sometimes removed or renamed. You can check whether a parameter _should_ be present by reviewing the [full parameter reference](../advanced_config/parameter_reference.md) for the version you're targeting. You can also search for the parameter in the source tree and in the release notes.
+Нові параметри додаються у кожній версії PX4, а існуючі параметри іноді видаляються або перейменовуються. Ви можете перевірити, чи має бути _присутній_ параметр, переглянувши [повний посібник з параметрами](../advanced_config/parameter_reference.md) для версії, яку ви використовуєте. Також ви можете шукати параметр у дереві вихідних кодів та в релізних примітках.
 
-The other reason that a parameter might not be in firmware is if its associated module has not been included. This is a problem (in particular) for _FMUv2 firmware_, which omits many modules so that PX4 can fit into the 1MB of available flash. There are two options to solve this problem:
+Інший причиною відсутності параметра у прошивці може бути те, що його пов'язаний модуль не був включений. Це особливо стосується прошивки _FMUv2_, яка пропускає багато модулів, щоб PX4 помістився в 1 МБ доступної флеш-пам'яті. Є два способи вирішення цієї проблеми:
 
-- Check if you can update your board to run FMUv3 firmware, which includes all modules: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader)
-- If your board can only run FMUv2 firmware you will need to [rebuild PX4](../dev_setup/building_px4.md) with the missing modules enabled. You need reconfigure the PX4 firmware itself through make px4_fmuv2_default boardconfig where you can enabled/disable modules.
+- Перевірте, чи можете ви оновити плату для виконання прошивки FMUv3, яка включає всі модулі: [Прошивка > Оновлення завантажувальника FMUv2](../config/firmware.md#bootloader)
+- Якщо ваша плата може працювати тільки з прошивкою FMUv2, вам потрібно [перебудувати PX4](../dev_setup/building_px4.md) з увімкненими відсутніми модулями. Вам потрібно змінити конфігурацію самої прошивки PX4 через make px4_fmuv2_default boardconfig, де ви можете увімкнути/вимкнути модулі.
 
   :::note
-You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash.
-Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
+Можливо, вам також доведеться вимкнути інші модулі, щоб збудувати прошивку знову в 1 Мб флеш-пам'яті.
+Визначення модулів для видалення вимагає деяких спроб та помилок і залежить від того, які вимоги до використання потрібні вашому повітряному засобу.
 :::
 
 <a id="changing"></a>
