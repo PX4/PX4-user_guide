@@ -6,8 +6,8 @@
 
 Встановлення пакету драйвера виконується на операційній системі Ubuntu, яка працює як гостьова ОС у Virtual Box. Специфікації хост-комп'ютера, на якому запущено Virtual Box, самого Virtual Box та гостьової системи подано нижче:
 
-- Host Operation System: Windows 8
-- Processor: Intel(R) Core(TM) i7-4702MQ CPU @ 2.20GHz
+- Операційна система хоста: Windows 8
+- Процесор: Intel(R) Core(TM) i7-4702MQ CPU @ 2.20GHz
 - Віртуальний ящик: Oracle VM. Версія 5.0.14 r105127
 - Розширення: Встановлено пакет розширень для VirtualBox (необхідно для підтримки USB3)
 - Операційна система гостя: Linux - Ubuntu 14.04.3 LTS
@@ -51,7 +51,7 @@
 
 - Завантажте та встановіть драйвер:
 
-  - Clone [RealSense_ROS repository](https://github.com/bestmodule/RealSense_ROS):
+  - Клонувати [репозиторій RealSense_ROS](https://github.com/bestmodule/RealSense_ROS):
 
     ```sh
     git clone https://github.com/bestmodule/RealSense_ROS.git
