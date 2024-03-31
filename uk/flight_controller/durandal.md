@@ -1,54 +1,54 @@
 # Holybro Durandal
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://holybro.com/) щодо підтримки обладнання або питань сумісності.
 :::
 
-_Durandal_<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers. It was designed and developed by Holybro.
+_Durandal_<sup>&reg;</sup> є останньою оновленою версією успішної родини контролерів польоту від Holybro. Він був розроблений і розроблений Holybro.
 
 ![Durandal](../../assets/flight_controller/durandal/durandal_hero.jpg)
 
-At high level, some of the key features are:
+На високому рівні, основними функціями є:
 
-- Integrated temperature control for sensors.
-- Powerful STM32H7 microcontroller running at 480MHz. 2 MB of Flash memory and 1 MB of RAM.
-- New sensors with higher temperature stability.
-- Internal vibration isolation system.
-- Dual high-performance, low-noise IMUs on board are designed for demanding stabilization applications.
+- Інтегроване керування температурою для датчиків.
+- Потужний мікроконтролер STM32H7 працює на 480МГц. 2 МБ відеопам'яті і 1 МБ ОЗП.
+- Нові датчики з підвищеною стабільністю температури.
+- Внутрішня система ізоляції вібрації.
+- На платі є два високопродуктивних, малошумних ІМП (інерціальних вимірювачів кутової швидкості), призначених для вимогливих застосувань стабілізації.
 
-A summary of the key features, [assembly](../assembly/quick_start_durandal.md), and [purchase](#purchase) links can be found below.
+Підсумок ключових функцій, [збірка](../assembly/quick_start_durandal.md)та [покупка](#purchase) можна знайти нижче.
 
 :::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+Цей контролер польоту [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Quick Summary
+## Короткий опис
 
-#### Technical Specifications
+#### Технічні характеристики
 
-- Main FMU Processor: STM32H743
-  - 32 Bit Arm ® Cortex® -M7, 480MHz, 2MB memory, 1MB RAM
+- Головний FMU процесор: STM32H743
+  - 32 Bit Arm ®️ Cortex®️ -M7, 480 MHz, 2MB пам'яті, 1 МБ ОЗУ
 - IO Processor: STM32F100
-  - 32 Bit Arm ® Cortex® -M3, 24MHz, 8KB SRAM
-- On-board sensors
+  - 32 Bit Arm ®️ Cortex®️ -M3, 24MHz, 8KB SRAM
+- Сенсори на платі
   - Accel/Gyro: ICM-20689
   - Accel/Gyro: BMI088 or ICM20602
   - Mag: IST8310
-  - Barometer: MS5611
-- GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+  - Барометр МS5611
+- GPS: u-blox Neo-M8N GPS/ГЛОНАСС приймач; інтегрований магнетометр IST8310
 
-#### Interfaces
+#### Інтерфейси
 
-- 8-13 PWM servo outputs (8 from IO, 5 from FMU)
-- 6 dedicated PWM/Capture inputs on FMU
-- Dedicated R/C input for Spektrum / DSM
-- Dedicated R/C input for CPPM and S.Bus
-- Dedicated S.Bus servo output and analog / PWM RSSI input
-- 5 general purpose serial ports
-  - 3 with full flow control
-  - 1 with separate 1.5A current limit
-- 3 I2C ports
+- 8-13 PWM виходи сервоприводів (8 з IO, 5 з FMU)
+- 6 спеціалізованих PWM/Capture входів на FMU
+- Спеціалізований R/C вхід для Spektrum / DSM
+- Спеціалізований R/C вхід для CPPM і S.Bus
+- Спеціалізований S.Bus вихід і аналоговий / PWM RSSI
+- 5 основних послідовних портів
+  - 3 з повним контролем потоку
+  - 1 з відокремленням 1.5A поточної межі
+- 3 I2C порти
 - 4 SPI buses
-  - 1 internal high speed SPI sensor bus with 4 chip selects and 6 DRDYs
+  - 1 внутрішній bus датчика високої швидкості SPI з 4 обраними чіпами і 6 DRDY
   - 1 internal low noise SPI bus dedicated for XXX
   - Barometer with 2 chip selects, no DRDYs
   - 1 internal SPI bus dedicated for FRAM
