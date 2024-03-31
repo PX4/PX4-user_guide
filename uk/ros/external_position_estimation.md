@@ -1,17 +1,17 @@
-# Using Vision or Motion Capture Systems for Position Estimation
+# Використання Vision або Motion Capture систем для Position Estimation
 
-Visual Inertial Odometry (VIO) and Motion Capture (MoCap) systems allow vehicles to navigate when a global position source is unavailable or unreliable (e.g. indoors, or when flying under a bridge. etc.).
+Системи візуальної інерційної одометрії (VIO) та захоплення руху (MoCap) дозволяють транспортним засобам здійснювати навігацію, коли джерело глобального позиціонування недоступне або ненадійне (наприклад, в приміщенні або під час прольоту під мостом. тощо).
 
-Both VIO and MoCap determine a vehicle's *pose* (position and attitude) from "visual" information. The main difference between them is the frame perspective:
-- VIO uses *onboard sensors* to get pose data from the vehicle's perspective (see [egomotion](https://en.wikipedia.org/wiki/Visual_odometry#Egomotion)).
-- MoCap uses a system of *off-board cameras* to get vehicle pose data in a 3D space (i.e. it is an external system that tells the vehicle its pose).
+І VIO, і MoCap визначають *положення* (положення і позицію) транспортного засобу на основі "візуальної" інформації. Основна відмінність між ними - перспектива кадру:
+- VIO використовує *бортові датчики* для отримання даних про позу з точки зору транспортного засобу (див. [egomotion](https://en.wikipedia.org/wiki/Visual_odometry#Egomotion)).
+- MoCap використовує систему *зовнішніх камер* для отримання даних про положення транспортного засобу в 3D-просторі (тобто це зовнішня система, яка повідомляє транспортному засобу його положення).
 
-Pose data from either type of system can be used to update a PX4-based autopilot's local position estimate (relative to the local origin) and also can optionally also be fused into the vehicle attitude estimation. Additionally, if the external pose system also provides linear velocity measurements, it can be used to improve the state estimate (fusion of linear velocity measurements is only supported by the EKF2).
+Дані про положення, отримані від обох типів систем, можуть бути використані для оновлення оцінки локального положення автопілота на базі PX4 (відносно локальної точки відліку), а також, за бажанням, можуть бути інтегровані в оцінку положення транспортного засобу. Крім того, якщо зовнішня система позиціонування також забезпечує вимірювання лінійної швидкості, її можна використовувати для покращення оцінки стану (об'єднання вимірювань лінійної швидкості підтримується лише EKF2).
 
-This topic explains how to configure a PX4-based system to get data from MoCap/VIO systems (either via ROS or some other MAVLink system) and more specifically how to set up MoCap systems like VICON and Optitrack, and vision-based estimation systems like [ROVIO](https://github.com/ethz-asl/rovio), [SVO](https://github.com/uzh-rpg/rpg_svo) and [PTAM](https://github.com/ethz-asl/ethzasl_ptam)).
+У цій темі пояснюється, як налаштувати систему на базі PX4 для отримання даних від систем MoCap/VIO (або через ROS, або через іншу систему MAVLink) і, зокрема, як налаштувати системи MoCap, такі як VICON і Optitrack, і системи оцінки на основі комп'ютерного зору, такі як [ROVIO](https://github.com/ethz-asl/rovio), [SVO](https://github.com/uzh-rpg/rpg_svo) та [PTAM](https://github.com/ethz-asl/ethzasl_ptam)).
 
 :::note
-The instructions differ depending on whether you are using the EKF2 or LPE estimator.
+Інструкції відрізняються залежно від того, чи використовуєте ви оцінювач EKF2 або LPE.
 :::
 
 ## Інтеграція PX4 з MAVLink
