@@ -222,37 +222,37 @@ The following items should be checked during setup:
 
 The table below shows the different metrics directly reported or calculated from the GNSS data, and the minimum required values for the data to be used by ECL. Крім того, стовпчик _Середнє значення_ показує типові значення, які можуть бути розумними для отримання зі стандартного модуля GNSS (наприклад, серія u-blox M8) - тобто значення, які вважаються хорошими/прийнятними.
 
-| Metric               | Minimum required                                                                            | Average Value | Units | Notes                                                                                                                                       |
-| -------------------- | ------------------------------------------------------------------------------------------- | ------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| eph                  | <&nbsp;3 ([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH))         | 0.8           | m     | Standard deviation of horizontal position error                                                                                             |
-| epv                  | <&nbsp;5 ([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV))         | 1.5           | m     | Standard deviation of vertical position error                                                                                               |
-| Number of satellites | ≥6&nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS))      | 14            | -     |                                                                                                                                             |
-| sacc                 | <&nbsp;0.5 ([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC))     | 0.2           | m/s   | Standard deviation of horizontal speed error                                                                                                |
-| fix type             | ≥&nbsp;3                                                                                    | 4             | -     | 0-1: no fix, 2: 2D fix, 3: 3D fix, 4: RTCM code differential, 5: Real-Time Kinematic, float, 6: Real-Time Kinematic, fixed, 8: Extrapolated |
-| PDOP                 | <&nbsp;2.5 ([EKF2_REQ_PDOP](../advanced_config/parameter_reference.md#EKF2_REQ_PDOP))     | 1.0           | -     | Position dilution of precision                                                                                                              |
-| hpos drift rate      | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01          | m/s   | Drift rate calculated from reported GNSS position (when stationary).                                                                        |
-| vpos drift rate      | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02          | m/s   | Drift rate calculated from reported GNSS altitude (when stationary).                                                                        |
-| hspd                 | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01          | m/s   | Filtered magnitude of reported GNSS horizontal velocity.                                                                                    |
-| vspd                 | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02          | m/s   | Filtered magnitude of reported GNSS vertical velocity.                                                                                      |
+| Метрика               | Мінімальна вимога                                                                           | Середнє значення | Юніти | Примітки                                                                                                                                    |
+| --------------------- | ------------------------------------------------------------------------------------------- | ---------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| eph                   | <&nbsp;3 ([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH))         | 0.8              | m     | Standard deviation of horizontal position error                                                                                             |
+| epv                   | <&nbsp;5 ([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV))         | 1.5              | m     | Standard deviation of vertical position error                                                                                               |
+| Кількість супутників  | ≥6&nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS))      | 14               | -     |                                                                                                                                             |
+| sacc                  | <&nbsp;0.5 ([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC))     | 0.2              | m/s   | Standard deviation of horizontal speed error                                                                                                |
+| fix type              | ≥&nbsp;3                                                                                    | 4                | -     | 0-1: no fix, 2: 2D fix, 3: 3D fix, 4: RTCM code differential, 5: Real-Time Kinematic, float, 6: Real-Time Kinematic, fixed, 8: Extrapolated |
+| PDOP                  | <&nbsp;2.5 ([EKF2_REQ_PDOP](../advanced_config/parameter_reference.md#EKF2_REQ_PDOP))     | 1.0              | -     | Position dilution of precision                                                                                                              |
+| hpos швидкість дрейфу | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01             | m/s   | Drift rate calculated from reported GNSS position (when stationary).                                                                        |
+| vpos швидкість дрейфу | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02             | m/s   | Drift rate calculated from reported GNSS altitude (when stationary).                                                                        |
+| hspd                  | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01             | m/s   | Filtered magnitude of reported GNSS horizontal velocity.                                                                                    |
+| vspd                  | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02             | m/s   | Filtered magnitude of reported GNSS vertical velocity.                                                                                      |
 
 :::note
 Параметри `hpos_drift_rate`, `vpos_drift_rate` та `hspd` обчислюються протягом 10 секунд і публікуються у темі `ekf2_gps_drift`. Зверніть увагу, що `ekf2_gps_drift` не зафіксовано!
 :::
 
-### Range Finder
+### Далекомір
 
 Відстань до землі, виміряна дальномером, використовується одним фільтром стану для оцінки вертикального положення території відносно висотного датуму.
 
 Режими злиття керуються [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL):
 
-1. [Conditional range aiding](#conditional-range-aiding)
-1. [Range height fusion](#range-height-fusion)
+1. [Умовна допомога зондування](#conditional-range-aiding)
+1. [Об'єднання висоти дальності](#range-height-fusion)
 
 Для отримання додаткової інформації про налаштування джерел висоти, натисніть [тут](#height).
 
-#### Conditional range aiding
+#### Умовна допомога зондування
 
-Conditional range finder fusion (a.k.a. _Умовна допомога зони діапазону_) активує злиття відомостей дальномера для оцінки висоти під час операцій з низькою швидкістю/низькою висотою (додатково до інших активних джерел висоти). Якщо дальномер встановлено як джерело висоти за замовчуванням (використовуючи [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)), інші активні джерела висоти, такі як барометр та висота ГНСС, з часом коригуватимуть свої вимірювання, щоб відповідати показам дальномера. Коли умови не виконані для початку допомоги діапазону, автоматично обирається вторинне джерело.
+Умовне об'єднання датчика дальності (також відоме як. _Умовна допомога зони діапазону_) активує злиття відомостей дальномера для оцінки висоти під час операцій з низькою швидкістю/низькою висотою (додатково до інших активних джерел висоти). Якщо дальномер встановлено як джерело висоти за замовчуванням (використовуючи [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)), інші активні джерела висоти, такі як барометр та висота ГНСС, з часом коригуватимуть свої вимірювання, щоб відповідати показам дальномера. Коли умови не виконані для початку допомоги діапазону, автоматично обирається вторинне джерело.
 
 :::note
 Перемикання між джерелами висоти призводить до поступового відхилення оцінки абсолютної висоти з плином часу.
@@ -272,11 +272,11 @@ _Умовна допомога діапазону_ включається шля
 
 Вона додатково налаштовується за допомогою параметрів `EKF2_RNG_A_`:
 
-- [EKF2_RNG_A_VMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_VMAX): Maximum horizontal speed, above which range aid is disabled.
-- [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX): Maximum height, above which range aid is disabled.
-- [EKF2_RNG_A_IGATE](../advanced_config/parameter_reference.md#EKF2_RNG_A_IGATE): Range aid consistency checks "gate" (a measure of the error before range aid is disabled).
+- [EKF2_RNG_A_VMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_VMAX): Максимальна горизонтальна швидкість, при перевищенні якої відключається допомога датчика дальності.
+- [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX): Максимальна висота, при перевищенні якої відключається допомога датчика дальності.
+- [EKF2_RNG_A_IGATE](../advanced_config/parameter_reference.md#EKF2_RNG_A_IGATE): Ворота перевірки узгодженості допомоги датчика дальності (вимірювання помилки до відключення допомоги датчика дальності).
 
-#### Range height fusion
+#### Об'єднання висоти дальності
 
 PX4 дозволяє постійно об'єднувати дальномер як джерело висоти (у будь-якому режимі польоту/типі транспортного засобу). Це може бути корисно для застосунків, коли транспортний засіб гарантовано летить лише над майже плоскою поверхнею (наприклад, у приміщенні).
 
@@ -301,7 +301,7 @@ PX4 дозволяє постійно об'єднувати дальномер �
 Для того щоб увімкнути злиття дальномера тільки тоді, коли дрон знаходиться у спокої (для отримання кращої оцінки висоти під час зльоту та посадки), але не злити дальномер решту часу, скористайтеся [умовним режимом](#conditional-range-aiding) (1) параметру [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL).
 :::
 
-#### Range Finder Obstruction Detection
+#### Виявлення перешкод далекоміром
 
 ЕКФ може виявити, чи перешкоджається шлях дальномера до землі (можливо, завдяки вантажу), використовуючи кінематичну перевірку консистентності між оцінкою вертикальної швидкості та числовою похідною даних дальномера. Якщо дальномер статистично неузгоджений з EKF2, датчик відкидається на решту польоту, якщо тільки статистичний тест не пройшов знову протягом щонайменше 1 секунди при вертикальній швидкості 0,5 м/с або більше.
 
