@@ -139,7 +139,7 @@ The `RC IN` port is for RC receivers only and provides sufficient power for that
 
 #### TELEM1, TELEM2 порти
 
-| Pin     | Signal    | Volt  |
+| Pin     | Сигнал    | Вольт |
 | ------- | --------- | ----- |
 | 1 (red) | VCC       | +5V   |
 | 2 (blk) | TX (OUT)  | +3.3V |
@@ -174,7 +174,7 @@ Due to space constraints two ports are on one connector.
 
 #### ADC 6.6V
 
-| Pin     | Signal | Volt        |
+| Pin     | Сигнал | Вольт       |
 | ------- | ------ | ----------- |
 | 1 (red) | VCC    | +5V         |
 | 2 (blk) | ADC IN | up to +6.6V |
@@ -182,13 +182,13 @@ Due to space constraints two ports are on one connector.
 
 #### ADC 3.3V
 
-| Pin     | Signal | Volt        |
-| ------- | ------ | ----------- |
-| 1 (red) | VCC    | +5V         |
-| 2 (blk) | ADC IN | up to +3.3V |
-| 3 (blk) | GND    | GND         |
-| 4 (blk) | ADC IN | up to +3.3V |
-| 5 (blk) | GND    | GND         |
+| Pin     | Signal | Вольт    |
+| ------- | ------ | -------- |
+| 1 (red) | VCC    | +5V      |
+| 2 (blk) | ADC IN | до +3.3V |
+| 3 (blk) | GND    | GND      |
+| 4 (blk) | ADC IN | до +3.3V |
+| 5 (blk) | GND    | GND      |
 
 #### I2C
 
@@ -201,12 +201,12 @@ Due to space constraints two ports are on one connector.
 
 #### CAN
 
-| Pin     | Signal | Volt |
-| ------- | ------ | ---- |
-| 1 (red) | VCC    | +5V  |
-| 2 (blk) | CAN_H  | +12V |
-| 3 (blk) | CAN_L  | +12V |
-| 4 (blk) | GND    | GND  |
+| Pin     | Сигнал | Вольт |
+| ------- | ------ | ----- |
+| 1 (red) | VCC    | +5V   |
+| 2 (blk) | CAN_H  | +12V  |
+| 3 (blk) | CAN_L  | +12V  |
+| 4 (blk) | GND    | GND   |
 
 #### SPI (питома споживана потужність)
 
@@ -233,13 +233,13 @@ Due to space constraints two ports are on one connector.
 
 #### SWITCH
 
-| Pin     | Signal           | Volt  |
+| Pin     | Сигнал           | Вольт |
 | ------- | ---------------- | ----- |
 | 1 (red) | VCC              | +3.3V |
 | 2 (blk) | !IO_LED_SAFETY | GND   |
 | 3 (blk) | SAFETY           | GND   |
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
 | UART   | Пристрій   | Порт                       |
 | ------ | ---------- | -------------------------- |
