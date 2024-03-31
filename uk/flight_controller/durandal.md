@@ -49,48 +49,48 @@ _Durandal_<sup>&reg;</sup> є останньою оновленою версіє
 - 3 I2C порти
 - 4 SPI buses
   - 1 внутрішній bus датчика високої швидкості SPI з 4 обраними чіпами і 6 DRDY
-  - 1 internal low noise SPI bus dedicated for XXX
-  - Barometer with 2 chip selects, no DRDYs
-  - 1 internal SPI bus dedicated for FRAM
-  - Supports temperature control located on sensor module
-  - 1 external SPI buses
-- Up to 2 CANBuses for dual CAN
-  - Each CANBus has individual silent controls or ESC RX-MUX control
-- Analog inputs for voltage / current of 2 batteries
-- 2 additional analog inputs
+  - 1 внутрішній низько шумовий bus SPI виділений для XXX
+  - Барометр з 2-ма чіпами, не DRDY
+  - 1 внутрішній SPI bus, виділений для FRAM
+  - Підтримує контроль температури, розташований на модулі сенсорів
+  - 1 зовнішній bus SPI
+- До 2 CANBuses для подвійного CAN
+  - Кожен CANBus має окреме керування тихим контролером або ESC RX-MUX
+- Аналогові входи для напруги / струму з 2 акумуляторів
+- 2 додаткових аналогових входи
 
-#### Electrical Data
+#### Електричні дані
 
-- Power module output: 4.9~5.5V
-- Max input voltage: 6V
-- Max current sensing: 120A
-- USB Power Input: 4.75~5.25V
-- Servo Rail Input: 0~36V
+- Вивід енергомодуля 4.9~5.5 В
+- Максимальна вхідна напруга: 6 В
+- Максимальний струм у значенні: 120 A
+- Живлення USB: 4.75~5.25 В
+- Вхід сервоприводу: 0~36 В
 
-#### Mechanical Data
+#### Механічні дані
 
-- Dimensions: 80x45x20.5mm
-- Weight: 68.8g
+- Розміри: 80x45x20.5мм
+- Вага: 68.8g
 
-#### Other Characteristics
+#### Інші Характеристики
 
-- Operating temperature: ~40~85C
-- Storage temperature: -40~85C
+- Температура роботи: ~40~85C
+- Температура зберігання: -40~85C
 - CE
 - FCC
-- RoHS compliant (lead-free)
+- Сумісний із RoHS (без свинцю)
 
-For more information see: [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf).
+Більше інформації читайте в: [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf).
 
 <a id="purchase"></a>
 
-## Where to Buy
+## Де купити
 
-Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/durandal).
+Замовляйте з [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/durandal).
 
 <a id="connections"></a>
 
-## Connections
+## З'єднання
 
 The locations of ports/connections are shown here (and below in the [pinouts section](#pinouts)).
 
