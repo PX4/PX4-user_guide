@@ -18,7 +18,7 @@ It can be enabled for multicopter vehicles in [Position mode](../flight_modes_mc
 
 _Collision Prevention_ увімкнено на PX4 шляхом встановлення параметра мінімально допустимої відстані зближення ([CP_DIST](#CP_DIST)).
 
-The feature requires obstacle information from an external system (sent using the MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message) and/or a [distance sensor](../sensor/rangefinders.md) connected to the flight controller.
+Ця функція вимагає інформації про перешкоди від зовнішньої системи (надсилається за допомогою повідомлення MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE)) та/або [датчика відстані](../sensor/rangefinders.md), підключеного до польотного контролера.
 
 :::note
 Для отримання інформації про об'єкти _навколо_ транспортного засобу та запобігання зіткненням з ними можна використовувати декілька датчиків. Якщо кілька джерел надають дані для _однакової_ орієнтації, система використовує дані, які повідомляють про найменшу відстань до об'єкта.
@@ -46,7 +46,7 @@ Users are notified through _QGroundControl_ while _Collision Prevention_ is acti
 
 ## Опис алгоритму
 
-The data from all sensors are fused into an internal representation of 36 sectors around the vehicle, each containing either the sensor data and information about when it was last observed, or an indication that no data for the sector was available. When the vehicle is commanded to move in a particular direction, all sectors in the hemisphere of that direction are checked to see if the movement will bring the vehicle closer to any obstacles. If so, the vehicle velocity is restricted.
+Дані з усіх датчиків об'єднуються у внутрішнє представлення 36 секторів навколо транспортного засобу, кожен з яких містить або дані датчика та інформацію про час останнього спостереження, або вказівку на те, що дані для сектора відсутні. When the vehicle is commanded to move in a particular direction, all sectors in the hemisphere of that direction are checked to see if the movement will bring the vehicle closer to any obstacles. If so, the vehicle velocity is restricted.
 
 This velocity restriction takes into account both the inner velocity loop tuned by [MPC_XY_P](../advanced_config/parameter_reference.md#MPC_XY_P), as well as the [jerk-optimal velocity controller](../config_mc/mc_jerk_limited_type_trajectory.md) via [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) and [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR). The velocity is restricted such that the vehicle will stop in time to maintain the distance specified in [CP_DIST](#CP_DIST). The range of the sensors for each sector is also taken into account, limiting the velocity via the same mechanism.
 
