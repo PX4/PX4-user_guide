@@ -145,7 +145,7 @@ PX4 налаштовує серійний порт для підключення
 | [MAV_2_BROADCAST](../advanced_config/parameter_reference.md#MAV_2_BROADCAST)   | 1        | Трансляція повідомлень `HEARTBEAT`                                |
 | [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE)             | 0        | Надіслати «звичайний» набір повідомлень MAVLink (тобто набір GCS) |
 | [MAV_2_RADIO_CTL](../advanced_config/parameter_reference.md#MAV_2_RADIO_CTL)   | 0        | Вимкнути програмне регулювання трафіку MAVLink                    |
-| [MAV_2_RATE](../advanced_config/parameter_reference.md#MAV_2_RATE)             | 100000   | Maximum sending rate                                              |
+| [MAV_2_RATE](../advanced_config/parameter_reference.md#MAV_2_RATE)             | 100000   | Налаштування Ethernet порту                                       |
 | [MAV_2_REMOTE_PRT](../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT) | 14550    | MAVLink Remote Port of 14550 (GCS)                                |
 | [MAV_2_UDP_PRT](../advanced_config/parameter_reference.md#MAV_2_UDP_PRT)       | 14550    | MAVLink Network Port of 14550 (GCS)                               |
 
@@ -153,7 +153,7 @@ PX4 налаштовує серійний порт для підключення
 
 Для отримання додаткової інформації про налаштування серійного порту MAVLink дивіться [Пристрої MAVLink (GCS/OSD/Супутник)](../peripherals/mavlink_peripherals.md).
 
-## QGroundControl Setup Example
+## Приклад налаштування QGroundControl
 
 Припускаючи, що ви вже налаштували [мережу Ethernet](#setting-up-the-ethernet-network), щоб ваш комп'ютер земної станції та PX4 працювали в одній мережі, і
 
@@ -191,7 +191,7 @@ PX4 налаштовує серійний порт для підключення
 може підключитися до PX4 за адресою порту `14550`, якщо ви не змінюєте конфігурацію мережевого порту PX4. Проте це не рекомендується, оскільки типова конфігурація оптимізована для зв'язку з наземним контролем (а не компаньйон комп'ютером).
 :::
 
-## ROS 2 Setup Example
+## Приклад встановлення ROS 2
 
 :::note
 Попередні вимоги:
@@ -235,7 +235,7 @@ PX4 налаштовує серійний порт для підключення
    accelerometer_integral_dt: 4997
    ```
 
-## See Also
+## Дивіться також
 
 - [Отримати базову плату Pixhawk Raspberry Pi CM4 від Holybro, яка спілкується з PX4 ](https://px4.io/get-the-pixhawk-raspberry-pi-cm4-baseboard-by-holybro-talking-with-px4/) (блог px4.io):
   - Урок, який показує, як підключити Pixhawk 6X + Raspberry Pi на базі CM4 через провідний Ethernet.
