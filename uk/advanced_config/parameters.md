@@ -40,9 +40,9 @@ Parameters are usually not visible because either they are conditional on other 
 
 ### Умовні параметри
 
-A parameter may not be displayed if it is conditional on another parameter that is not enabled.
+Параметр може не відображатися, якщо він залежить від іншого параметра, який не ввімкнено.
 
-You can usually find out what parameters are conditional by searching the [full parameter reference](../advanced_config/parameter_reference.md) and other documentation. In particular [serial port configuration parameters](../peripherals/serial_configuration.md) depend on what service is assigned to a serial port.
+Зазвичай можна дізнатися, які параметри залежать від інших, шляхом пошуку [повного списку параметрів](../advanced_config/parameter_reference.md) та іншої документації. Зокрема параметри [конфігурації послідовного порта](../peripherals/serial_configuration.md) залежать від того, яка служба призначена для послідовного порта.
 
 ### Parameter Not In Firmware
 
@@ -62,14 +62,14 @@ Finding modules to remove requires some trial/error and depends on what use case
 
 <a id="changing"></a>
 
-## Changing a Parameter
+## Зміна параметрів
 
-To change the value of a parameter click on the parameter row in a group or search list. This will open a side dialog in which you can update the value (this dialog also provides additional detailed information about the parameter - including whether a reboot is required for the change to take effect).
+Для зміни значення параметра клацніть на рядку параметра у групі або списку пошуку. Це відкриє бічний діалог, в якому ви можете оновити значення (цей діалог також надає додаткову детальну інформацію про параметр - включаючи те, чи потрібно перезавантаження для введення змін).
 
 ![Changing a parameter value](../../assets/qgc/setup/parameters/parameters_changing.png)
 
 :::note
-When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
+Після натискання кнопки **Зберегти** параметр автоматично й беззвучно завантажується на підключене повітряне судно. Залежно від параметра, можливо, вам потрібно буде перезавантажити керуючий пристрій для введення змін.
 :::
 
 ## Інструменти
@@ -86,6 +86,6 @@ When you click **Save** the parameter is automatically and silently uploaded to 
 
 **Завантажити з файлу / Зберегти до файлу** <br>Завантажте параметри з існуючого файлу або збережіть поточні налаштування параметрів у файл.
 
-**Очистити всі RC до Param** <br>Це очищає всі асоціації між керуванням радіо передавача та параметрами. For more information see: [Radio Setup > Param Tuning Channels](../config/radio.md#param-tuning-channels).
+**Очистити всі RC до Param** <br>Це очищає всі асоціації між керуванням радіо передавача та параметрами. Для отримання додаткової інформації див.: [Налаштування радіо > Канали налаштування параметрів](../config/radio.md#param-tuning-channels).
 
 **Перезавантажити Транспортний Засіб** <br>Перезавантажити транспортний засіб (необхідно після зміни деяких параметрів).v
