@@ -2,7 +2,7 @@
 
 _Collision Prevention_ може бути використано для автоматичного сповільнення і зупинки транспортного засобу, перш ніж він потрапить в перешкоду.
 
-It can be enabled for multicopter vehicles in [Position mode](../flight_modes_mc/position.md), and can use sensor data from an offboard companion computer, offboard rangefinders over MAVLink, a rangefinder attached to the flight controller, or any combination of the above.
+Він може бути увімкнений для мультикоптерів у режимі [Position mode](../flight_modes_mc/position.md) і може використовувати дані датчиків з бортового комп'ютера-компаньйона, бортових далекомірів через MAVLink, далекоміра, приєднаного до польотного контролера, або будь-якої комбінації вищезазначених пристроїв.
 
 Запобігання зіткненням може обмежити максимальну швидкість автомобіля, якщо радіус дії датчика недостатньо великий! Він також запобігає руху в тих напрямках, де немає даних з датчиків (тобто, якщо у вас немає даних з заднього датчика, ви не зможете летіти назад).
 
@@ -26,7 +26,7 @@ _Collision Prevention_ увімкнено на PX4 шляхом встановл
 
 Транспортний засіб обмежує максимальну швидкість, щоб сповільнитися, коли він наближається до перешкод, і припиняє рух, коли досягає мінімально допустимої дистанції. Для того, щоб відійти від перешкоди (або паралельно їй), користувач повинен наказати транспортному засобу рухатися до заданої точки, яка не наближає транспортний засіб до перешкоди. Алгоритм внесе незначні корективи в напрямок заданого значення, якщо буде визначено, що "краще" значення існує в межах фіксованого запасу по обидва боки від запитуваного заданого значення.
 
-Users are notified through _QGroundControl_ while _Collision Prevention_ is actively controlling velocity setpoints.
+Користувачі отримують сповіщення через _QGroundControl_, а _Collision Prevention_ активно контролює задані значення швидкості.
 
 Налаштування програмного забезпечення PX4 оглянуто в наступному розділі. Якщо ви використовуєте датчик відстані, підключений до вашого польотного контролера для запобігання зіткненням, його потрібно підключити та налаштувати, як описано в розділі [Датчик відстані PX4](#rangefinder). Якщо ви використовуєте комп'ютер-компаньйон для надання інформації про перешкоди, див. [Налаштування компаньйона](#companion).
 
@@ -46,37 +46,37 @@ Users are notified through _QGroundControl_ while _Collision Prevention_ is acti
 
 ## Опис алгоритму
 
-Дані з усіх датчиків об'єднуються у внутрішнє представлення 36 секторів навколо транспортного засобу, кожен з яких містить або дані датчика та інформацію про час останнього спостереження, або вказівку на те, що дані для сектора відсутні. When the vehicle is commanded to move in a particular direction, all sectors in the hemisphere of that direction are checked to see if the movement will bring the vehicle closer to any obstacles. If so, the vehicle velocity is restricted.
+Дані з усіх датчиків об'єднуються у внутрішнє представлення 36 секторів навколо транспортного засобу, кожен з яких містить або дані датчика та інформацію про час останнього спостереження, або вказівку на те, що дані для сектора відсутні. Коли транспортний засіб отримує команду рухатися в певному напрямку, перевіряються всі сектори в півкулі цього напрямку, щоб побачити, чи не наблизить цей рух транспортний засіб до будь-яких перешкод. Якщо так, то швидкість транспортного засобу буде обмежена.
 
-This velocity restriction takes into account both the inner velocity loop tuned by [MPC_XY_P](../advanced_config/parameter_reference.md#MPC_XY_P), as well as the [jerk-optimal velocity controller](../config_mc/mc_jerk_limited_type_trajectory.md) via [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) and [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR). The velocity is restricted such that the vehicle will stop in time to maintain the distance specified in [CP_DIST](#CP_DIST). The range of the sensors for each sector is also taken into account, limiting the velocity via the same mechanism.
+Це обмеження швидкості враховує як внутрішній контур швидкості, налаштований за допомогою [MPC_XY_P](../advanced_config/parameter_reference.md#MPC_XY_P), так і [контролер оптимальної швидкості ривка](../config_mc/mc_jerk_limited_type_trajectory.md) за допомогою [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) та [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR). Швидкість обмежується таким чином, щоб транспортний засіб зупинився вчасно, щоб зберегти відстань, вказану в [CP_DIST](#CP_DIST). Також враховується дальність дії датчиків для кожного сектора, що обмежує швидкість за тим же механізмом.
 
 :::note
-If there is no sensor data in a particular direction, velocity in that direction is restricted to 0 (preventing the vehicle from crashing into unseen objects). If you wish to move freely into directions without sensor coverage, this can be enabled by setting [CP_GO_NO_DATA](#CP_GO_NO_DATA) to 1.
+Якщо в певному напрямку немає даних від датчика, швидкість у цьому напрямку обмежується до 0 (щоб запобігти зіткненню з невидимими об'єктами). Якщо ви хочете вільно рухатися у напрямках без покриття датчиків, це можна увімкнути, встановивши [CP_GO_NO_DATA](#CP_GO_NO_DATA) на 1.
 :::
 
-Delay, both in the vehicle tracking velocity setpoints and in receiving sensor data from external sources, is conservatively estimated via the [CP_DELAY](#CP_DELAY) parameter. This should be [tuned](#delay_tuning) to the specific vehicle.
+Затримка, як у заданих значеннях швидкості відстеження транспортного засобу, так і в отриманні даних датчиків від зовнішніх джерел, орієнтовано оцінюється через параметр [CP_DELAY](#CP_DELAY). Вона має бути [налаштована](#delay_tuning) на конкретний транспортний засіб.
 
-If the sectors adjacent to the commanded sectors are 'better' by a significant margin, the direction of the requested input can be modified by up to the angle specified in [CP_GUIDE_ANG](#CP_GUIDE_ANG). This helps to fine-tune user input to 'guide' the vehicle around obstacles rather than getting stuck against them.
+Якщо сектори, що прилягають до керованих секторів, є "кращими" зі значним відривом, напрямок запитуваного входу може бути змінено на кут, вказаний у [CP_GUIDE_ANG](#CP_GUIDE_ANG). Це допомагає точно налаштувати вхідні дані користувача, щоб "вести" транспортний засіб навколо перешкод, а не застрявати на них.
 
 <a id="data_loss"></a>
 
-### Range Data Loss
+### Втрата даних про дальність
 
-If the autopilot does not receive range data from any sensor for longer than 0.5s, it will output a warning _No range data received, no movement allowed_. This will force the velocity setpoints in xy to zero. After 5 seconds of not receiving any data, the vehicle will switch into [HOLD mode](../flight_modes_mc/hold.md). If you want the vehicle to be able to move again, you will need to disable Collision Prevention by either setting the parameter [CP_DIST](#CP_DIST) to a negative value, or switching to a mode other than [Position mode](../flight_modes_mc/position.md) (e.g. to _Altitude mode_ or _Stabilized mode_).
+Якщо автопілот не отримує дані про дальність від будь-якого датчика довше, ніж 0,5 секунди, він видасть попередження _No range data received, no movement allowed_. Це змусить встановити швидкість у ху до нуля. Через 5 секунд без отримання даних транспортний засіб перейде в режим [HOLD](../flight_modes_mc/hold.md). Якщо ви хочете, щоб транспортний засіб знову міг рухатися, вам потрібно вимкнути запобігання зіткненням, або встановивши параметр [CP_DIST](#CP_DIST) на від'ємне значення, або переключившись у режим, відмінний від [Position mode](../flight_modes_mc/position.md) (наприклад, у _Altitude mode_ або _Stabilized mode_).
 
-If you have multiple sensors connected and you lose connection to one of them, you will still be able to fly inside the field of view (FOV) of the reporting sensors. The data of the faulty sensor will expire and the region covered by this sensor will be treated as uncovered, meaning you will not be able to move there.
+Якщо у вас підключено кілька датчиків і ви втратили зв'язок з одним з них, ви все одно зможете літати в полі зору (FOV) датчиків, що звітують. Дані несправного датчика втратять чинність, а область, що покривається цим датчиком, буде вважатися непокритою, тобто ви не зможете там пересуватися.
 
 :::warning
-Be careful when enabling [CP_GO_NO_DATA=1](#CP_GO_NO_DATA), which allows the vehicle to fly outside the area with sensor coverage. If you lose connection to one of multiple sensors, the area covered by the faulty sensor is also treated as uncovered and you will be able to move there without constraint.
+Будьте обережні, увімкнувши [CP_GO_NO_DATA=1](#CP_GO_NO_DATA), що дозволяє апарату вилітати за межі зони покриття датчиків. Якщо ви втратите зв'язок з одним з декількох датчиків, зона, яку охоплює несправний датчик, також буде вважатися відкритою, і ви зможете пересуватися там без обмежень.
 :::
 
 <a id="delay_tuning"></a>
 
-### CP_DELAY Delay Tuning
+### CP_DELAY Налаштування затримки
 
-There are two main sources of delay which should be accounted for: _sensor delay_, and vehicle _velocity setpoint tracking delay_. Both sources of delay are tuned using the [CP_DELAY](#CP_DELAY) parameter.
+Існує два основних джерела затримки, які слід враховувати: _затримка датчика_ та _затримка відстеження заданої швидкості транспортного засобу_. Обидва джерела затримки налаштовуються за допомогою параметра [CP_DELAY](#CP_DELAY).
 
-The _sensor delay_ for distance sensors connected directly to the flight controller can be assumed to be 0. For external vision-based systems the sensor delay may be as high as 0.2s.
+Затримку _ датчика_ для датчиків відстані, підключених безпосередньо до польотного контролера, можна вважати рівною 0. Для зовнішніх систем на основі зору затримка датчика може досягати 0,2 с.
 
 Vehicle _velocity setpoint tracking delay_ can be measured by flying at full speed in [Position mode](../flight_modes_mc/position.md), then commanding a stop. The delay between the actual velocity and the velocity setpoint can then be measured from the logs. The tracking delay is typically between 0.1 and 0.5 seconds, depending on vehicle size and tuning.
 
