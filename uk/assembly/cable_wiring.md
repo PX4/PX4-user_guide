@@ -19,7 +19,7 @@ This topic provides specific guidance of cabling for different signalling protoc
 
 The [I2C bus](https://en.wikipedia.org/wiki/I%C2%B2C) is widely used for connecting sensors. Cable colors from several vendors are specified in following table.
 
-| Signal | Pixhawk Colors    | ThunderFly colors   | CUAV colors (I2C/CAN) |
+| Сигнал | Колір Pixhawk     | ThunderFly colors   | CUAV colors (I2C/CAN) |
 | ------ | ----------------- | ------------------- | --------------------- |
 | +5V    | ![red][1] Red     | ![red][1] Red       | ![red][1] Red         |
 | SCL    | ![black][2] Black | ![yellow][3] Yellow | ![white][4] White     |
@@ -49,7 +49,7 @@ An oscilloscope measurement is sometimes required to check correct value of pull
 
 ### UAVCAN cables
 
-| Signal | Pixhawk           | ThunderFly          | Zubax               | CUAV (I2C/CAN)      |
+| Сигнал | Pixhawk           | ThunderFly          | Zubax               | CUAV (I2C/CAN)      |
 | ------ | ----------------- | ------------------- | ------------------- | ------------------- |
 | +5V    | ![red][1] Red     | ![red][1] Red       | ![red][1] Red       | ![red][1] Red       |
 | CAN_H  | ![black][2] Black | ![white][4] White   | ![white][4] White   | ![white][4] White   |
@@ -67,7 +67,7 @@ CAN cables should also be twisted, for exactly the same reason as I2C cables. Fo
 
 [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) is synchronous serial communication interface used for connecting faster sensors and devices. This protocol is commonly use is for connecting [optical flow](../sensor/optical_flow.md) sensors or special telemetry modems.
 
-| Signal | Pixhawk Color     | ThunderFly color    |
+| Сигнал | Pixhawk Color     | ThunderFly color    |
 | ------ | ----------------- | ------------------- |
 | +5V    | ![red][1] Red     | ![red][1] Red       |
 | SCK    | ![black][2] Black | ![yellow][3] Yellow |
@@ -85,7 +85,7 @@ CTS and RTS are signals that are used to indicate that data is being transmitted
 
 The connecting cable is not crossed. Therefore, it is necessary to connect only the autopilot and peripherals with this straight cable. The device must cross the wiring internally by swapping RX/TX and RTS/CTS pins.
 
-| Signal | Pixhawk Color     | ThunderFly color    |
+| Сигнал | Колір Pixhawk     | ThunderFly color    |
 | ------ | ----------------- | ------------------- |
 | +5V    | ![red][1] Red     | ![red][1] Red       |
 | TX     | ![black][2] Black | ![white][4] White   |
@@ -100,7 +100,7 @@ UART signals are common sources of low frequency EMI, therefore the length of th
 
 [GPS receivers and magnetometers](../gps_compass/README.md) are generally very sensitive to EMI. Therefore thse should be mounted far away from RF sources (high-power cabling, ESCs, radio modems and its antenna). This may be insufficient if the cabling is badly designed.
 
-| Signal          | Pixhawk Color     | ThunderFly color    |
+| Сигнал          | Pixhawk Color     | ThunderFly color    |
 | --------------- | ----------------- | ------------------- |
 | +5V             | ![red][1] Red     | ![red][1] Red       |
 | TX              | ![black][2] Black | ![white][4] White   |
@@ -115,7 +115,7 @@ UART signals are common sources of low frequency EMI, therefore the length of th
 
 ### GPS
 
-| Signal | Pixhawk Color     | ThunderFly color    |
+| Сигнал | Колір Pixhawk     | ThunderFly колір    |
 | ------ | ----------------- | ------------------- |
 | +5V    | ![red][1] Red     | ![red][1] Red       |
 | TX     | ![black][2] Black | ![white][4] White   |
@@ -128,7 +128,7 @@ The GPS cable connects to both the UART and I2C bus. As twisting of UART is not 
 
 ### Analog signal (power module)
 
-| Signal  | Pixhawk Color     | ThunderFly color    | CUAV color          |
+| Сигнал  | Колір Pixhawk     | ThunderFly колір    | Колір CUAV          |
 | ------- | ----------------- | ------------------- | ------------------- |
 | VCC     | ![red][1] Red     | ![red][1] Red       | ![red][1] Red       |
 | VCC     | ![black][2] Black | ![red][1] Red       | ![red][1] Red       |
@@ -141,7 +141,7 @@ This connector is example of mix of relatively high-power and low voltage signal
 
 ### SAFETY
 
-| Signal          | Pixhawk Color     | ThunderFly color  |
+| Сигнал          | Pixhawk Color     | ThunderFly color  |
 | --------------- | ----------------- | ----------------- |
 | SAFE_VCC        | ![red][1] Red     | ![red][1] Red     |
 | SAFETY_SW_LED | ![black][2] Black | ![blue][6] Blue   |
@@ -173,14 +173,14 @@ A colour coding scheme designed for easy cable identification might follow the f
 
 An example of a cable colouring designed to these rules is:
 
-| Color        | Name   | Preferred usage                             |
-| ------------ | ------ | ------------------------------------------- |
-| ![red][1]    | Red    | Power voltage                               |
-| ![green][5]  | Green  | General purpose signal                      |
-| ![white][4]  | White  | General purpose signal                      |
-| ![yellow][3] | Yellow | General purpose signal                      |
-| ![blue][6]   | Blue   | Power return, Open-collector control signal |
-| ![black][2]  | Black  | GND, Power return ground                    |
+| Колір        | Назва    | Бажане використання                         |
+| ------------ | -------- | ------------------------------------------- |
+| ![red][1]    | Червоний | Power voltage                               |
+| ![green][5]  | Зелений  | General purpose signal                      |
+| ![white][4]  | Білий    | General purpose signal                      |
+| ![yellow][3] | Жовтий   | General purpose signal                      |
+| ![blue][6]   | Синій    | Power return, Open-collector control signal |
+| ![black][2]  | Чорний   | GND, Power return ground                    |
 
 
 <!-- references for the image source.
