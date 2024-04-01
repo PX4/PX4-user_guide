@@ -5,7 +5,7 @@ Multicopter kits contain almost all the parts needed for building a PX4-compatib
 They provide a gentle introduction to building drones, as all the parts are known to work well together.
 
 :::tip
-Batteries not included!
+Батарейки не включені!
 
 - **Batteries** — shipping regulations mean that these must usually be source separately
 - **RC Controllers** — Transmitters/receivers are not included in kit builds to save costs.
@@ -13,7 +13,7 @@ Batteries not included!
 
 :::
 
-## Kits
+## Набори
 
 The following kits are currently available:
 
