@@ -26,7 +26,7 @@ ESC OneShot слід [налаштувати на використання ре�
 
 Послідовність калібрування передбачає, що ви зможете тримати під напругою контролер польоту під час ручного вимикання та увімкнення ESC.
 
-If using a Pixhawk flight controller, the recommended way to do this is to separately power the flight controller via USB, and connect/disconnect the battery to power the ESCs when needed. Системи керування польотом, які не можуть живити автопілот через USB, потребуватимуть [іншого підходу](#problem_power_module).
+Якщо використовуєте контролер польоту Pixhawk, рекомендується окремо живити контролер польоту через USB та підключати/відключати батарею для живлення ESC за потреби. Системи керування польотом, які не можуть живити автопілот через USB, потребуватимуть [іншого підходу](#problem_power_module).
 
 Якщо акумулятор підключений через модуль живлення, процедура калібрування може виявити підключення акумулятора та використовувати його для запуску послідовності калібрування. Якщо жодний акумулятор не виявлено, послідовність калібрування виконується на основі таймаутів.
 
@@ -37,40 +37,40 @@ If using a Pixhawk flight controller, the recommended way to do this is to separ
 1. Видаліть пропелери.
 
 :::warning
-Never attempt ESC calibration with propellers on!
+Ніколи не намагайтеся ESC калібрувати з пропелерами!
 
-   The motors _should_ not spin during ESC calibration. However if calibration starts when the ESC is already powered, or if the ESC doesn't properly support/detect the calibration sequence, then it will respond to the PWM input by running the motor at maximum speed.
+   Мотори не _повинні_ крутитися під час калібрування ESC. Однак, якщо калібрування починається, коли ESC вже живлені, або якщо ESC не правильно підтримує або не виявляє послідовність калібрування, то вони відповідатимуть на вхід PWM, запускаючи мотори з максимальною швидкістю.
 :::
 
-1. Map the ESCs you're calibrating as motors in the vehicle's [Actuator Configuration](../config/actuators.md). Only mapped actuators get an output and only ESCs mapped as motors will be calibrated.
+1. Змістіть ESC, які ви калібруєте, як мотори в [налаштуваннях актуатора](../config/actuators.md) польоту для конкретного транспортного засобу. Лише відображені актуатори отримують вихід, і тільки ESC, відображені як мотори, будуть калібруватися.
 
-1. Unpower the ESCs by unplugging the battery. The flight controller must stay powered, for example, by keeping the USB connected to the ground station.
+1. Відключіть живлення ESC, від'єднавши батарею. Контролер польоту має залишитися увімкненим, наприклад, тримаючи USB підключеним до наземної станції.
 
-1. Open the _QGroundControl_ **Settings > Power**, then press the **Calibrate** button.
+1. Відкрийте налаштування _QGroundControl_ > **Живлення > Power**, а потім натисніть кнопку **Калібрувати**.
 
    ![ESC Calibration step 1](../../assets/qgc/setup/esc/qgc_esc_calibration.png)
 
-1. After starting the calibration sequence without error, directly power the ESCs (you should be prompted):
+1. Після початку послідовності калібрування без помилок безпосередньо живіть ESC (ви маєте побачити відповідне повідомлення):
 
    ![ESC Calibration step 2](../../assets/qgc/setup/esc/esc_calibration_step_2.png)
 
-   The calibration will begin automatically:
+   Калібрування розпочнеться автоматично:
 
    ![ESC Calibration step 3](../../assets/qgc/setup/esc/esc_calibration_step_3.png)
 
-1. During the calibration you should hear model-specific beeping from the ESC, which indicates the individual steps of the calibration.
+1. Під час калібрування ви почуєте специфічний для моделі сигнал звуку з ESC, що вказує на окремі кроки калібрування.
 
-   You will be prompted when the calibration completes.<a id="actuatorconfig_step"></a>
+   Вас сповістять, коли калібрування завершиться.<a id="actuatorconfig_step"></a>
    ![ESC Calibration step 4](../../assets/qgc/setup/esc/esc_calibration_step_4.png)
 
-1. Go back to the [Actuator Configuration](../config/actuators.md) section.
+1. Поверніться до розділу [Налаштування актуатора](../config/actuators.md).
 
-   Following ESC calibration all motors with the same (re)calibrated ESCs should behave in the same way for the same inputs. The default PWM settings for motor outputs in the actuator configuration should now work out of the box.
+   Після калібрування всі мотори з тими ж (пере)каліброваними ESC мають працювати однаково за тими ж вхідними даними. Значення налаштувань PWM за замовчуванням для вихідних даних моторів в налаштуваннях актуатора тепер повинні працювати зразу після розпакування.
 
-   You need to confirm that the motors do indeed work correctly. Since the default configuration values have been set conservatively, you may also wish to tune them for your particular ESCs.
+   Вам потрібно переконатися, що мотори дійсно працюють правильно. Оскільки значення конфігурації за замовчуванням встановлені консервативно, ви також можете бажати налаштувати їх для вашого конкретного ESC.
 
 :::note
-The steps below are similar to those described in [Actuator Configuration > Motor Configuration](../config/actuators.md#motor-configuration).
+Нижче наведено аналогічні кроки, що описані в [Налаштування актуатора > Конфігурація мотора](../config/actuators.md#motor-configuration).
 :::
 
    Перевірте наступні значення:
