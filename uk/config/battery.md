@@ -8,7 +8,7 @@ These instructions require that the vehicle has a [Power Module (PM)](../power_m
 This tuning is not needed for [Smart/MAVLink Batteries](../smart_batteries/README.md).
 :::
 
-## Overview
+## Загальний огляд
 
 Battery Estimation Tuning uses the measured voltage and current (if available) to estimate the remaining battery capacity. This is important because it allows PX4 to take action when the vehicle is close to running out of power and crashing (and also to prevent battery damage due to deep-discharge).
 
