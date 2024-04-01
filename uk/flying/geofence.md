@@ -1,6 +1,6 @@
-# Geofence
+# Геозона
 
-A Geofence is a virtual boundary that defines where a vehicle can travel. GeoFences can be used to prevent a vehicle flying out of range of the RC controller, or into unsafe or restricted airspace.
+Геозона — це віртуальна межа, яка визначає, де може рухатися апарат. Геозони можна використовувати, щоб запобігти польоту апарату за межі зони дії пульта дистанційного керування або в небезпечний чи обмежений повітряний простір.
 
 PX4 provides two independent mechanisms for specify a geofence:
 
