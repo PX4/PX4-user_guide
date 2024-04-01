@@ -27,7 +27,7 @@ If you are new to VOXL, be sure to familiarize yourself with the core features o
 
 ![Hardware Overview](../../assets/hardware/complete_vehicles/modalai_starling/mrb_d0005_4_v2_c6_m22__callouts_a.jpg)
 
-| Callout | Description                                              | MPN              |
+| Callout | Опис                                                     | MPN              |
 | ------- | -------------------------------------------------------- | ---------------- |
 | A       | VOXL 2                                                   | MDK-M0054-1      |
 | B       | VOXL 4-in-1 ESC                                          | MDK-M0117-1      |
