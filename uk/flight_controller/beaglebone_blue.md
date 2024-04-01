@@ -259,7 +259,7 @@ RestartSec=1
 WantedBy=multi-user.target
 ```
 
-### Miscellaneous
+### Різноманітне
 
 #### Power Servo Rail
 
