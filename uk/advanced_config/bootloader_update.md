@@ -8,12 +8,12 @@
 
 :::note
 
-- Most boards will need to use the [Debug Probe](#debug-probe-bootloader-update) to update the bootloader.
-- On [FMUv6X-RT](../flight_controller/pixhawk6x-rt.md) you can [install bootloader/unbrick boards via USB](bootloader_update_v6xrt.md). This is useful if you don't have a debug probe.
-- On FMUv2 and some custom firmware (only) you can use [QGC Bootloader Update](#qgc-bootloader-update).
+- Більшість плат потребують використання [Debug Probe](#debug-probe-bootloader-update) для оновлення завантажувача.
+- На [FMUv6X-RT](../flight_controller/pixhawk6x-rt.md) ви можете [встановлювати завантажувач/відновлювати плати через USB](bootloader_update_v6xrt.md). Це корисно, якщо у вас немає тесту налагодження.
+- У FMUv2 та деяких нестандартних прошивках (тільки) ви можете використовувати [Оновлення завантажувача QGC](#qgc-bootloader-update).
 :::
 
-## Building the PX4 Bootloader
+## Створення завантажувача PX4
 
 ### PX4 Bootloader FMUv6X та новіші
 
@@ -120,7 +120,7 @@ If using a Dronecode probe you may need to remove the case in order to connect t
    (gdb) load
    ```
 
-After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using _QGroundControl_.
+Після оновлення завантажувача ви можете [завантажити прошивку PX4](../config/firmware.md) за допомогою _QGroundControl_.
 
 ## Оновлення завантажувача QGC
 
@@ -143,11 +143,11 @@ After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.
 
 1. Зачекайте, доки транспортний засіб перезавантажиться.
 1. [Знайдіть](../advanced_config/parameters.md) та увімкніть параметр [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
-1. Перезавантажте (відключіть / підключіть плату). The bootloader update will only take a few seconds.
+1. Перезавантажте (відключіть / підключіть плату). Оновлення завантажувача займе лише кілька секунд.
 
 Зазвичай на цьому етапі ви можливо захочете [оновити прошивку](../config/firmware.md) ще раз, використовуючи правильно/ново встановлений загрузчик.
 
-An specific example of this process for updating the FMUv2 bootloader is given below.
+Наведений нижче конкретний приклад цього процесу оновлення загрузчика FMUv2.
 
 ### Оновлення завантажувача FMUv2
 
