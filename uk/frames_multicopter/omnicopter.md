@@ -10,7 +10,7 @@ This build follows the original design from [Brescianini, Dario, and Raffaello D
 
 The components needed for this build are:
 
-- Electronics:
+- Електроніка:
   - Flight controller: [Holybro KakuteH7](../flight_controller/kakuteh7.md)
   - Coupled with 2x [Tekko32 F4 4in1 ESCs](https://holybro.com/products/tekko32-f4-4in1-50a-esc) :::note
 You can select your own flight controller of choice, it just needs to support 8 DShot outputs.
@@ -55,22 +55,22 @@ You will notice if it's wrong when the angles of the rods are not correct.
   ![Frame](../../assets/airframes/multicopter/omnicopter/frame_only.jpg)
 - Place the motors as far out as possible, without the propellers touching the rods.
 
-### Electronics
+### Електроніка
 
 Solder the peripherals to the flight controller. We used the following assignments:
 - ESCs: the 2 ESCs can be connected directly to the two connectors of the KakuteH7. To avoid conflicts we removed the power pin (right-most pin) from one of the connectors.
 - Telemetry to UART1
-- GPS to UART4
-- RC to UART6 ![FC closeup](../../assets/airframes/multicopter/omnicopter/fc_closeup.jpg)
+- GPS до UART4
+- RC до UART6 ![FC closeup](../../assets/airframes/multicopter/omnicopter/fc_closeup.jpg)
 
-Remarks:
+Зауваження:
 
 - Make sure the magnetometer is placed away from power. We ended up placing it to the bottom of the center-piece with a 4cm padding styrofoam.
 - Put some tape on the barometer (without taping the opening!) to avoid any influence from light.
 - We did not glue the frame. It is certainly advisible to do so after initial test flights, but it might work without.
 
 
-## Software Configuration
+## Конфігурація програмного забезпечення
 
 ### ESC
 
@@ -99,11 +99,11 @@ Make sure the motors do not overheat with the changed settings.
   - Disable failure detection: set [FD_FAIL_P](../advanced_config/parameter_reference.md#FD_FAIL_P) and [FD_FAIL_R](../advanced_config/parameter_reference.md#FD_FAIL_R) to 0.
 - [This file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/multicopter/omnicopter/omnicopter.params) contains all the relevant parameters.
 
-## Video
+## Відео
 
 @[youtube](https://www.youtube.com/watch?v=nsPkQYugfzs)
 
-## Simulation
+## Моделювання
 
 There is an omnicopter simulation target in Gazebo Classic:
 
