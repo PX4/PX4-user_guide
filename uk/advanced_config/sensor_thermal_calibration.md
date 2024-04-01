@@ -55,7 +55,7 @@ PX4 підтримує два процедури калібрування:
 
 Онбордне калібрування виконується повністю на пристрої. Для цього потрібно мати уявлення про те, наскільки можна підвищити температуру за допомогою тестового обладнання.
 
-To perform and onboard calibration:
+Для проведення калібрування на борту виконайте такі кроки:
 
 1. Ensure the frame type is set before calibration, otherwise calibration parameters will be lost when the board is setup.
 2. Power the board and set the `SYS_CAL_*` parameters to 1 to enable calibration of the required sensors at the next startup. [^1]
