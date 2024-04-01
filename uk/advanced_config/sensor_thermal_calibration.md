@@ -32,7 +32,7 @@ PX4 містить функцію калібрування та компенса
 
 Так, можливо провести калібрування без камери комерційного класу. Можна створити простий контейнер для середовища, використовуючи пінопластову коробку з дуже малим внутрішнім об'ємом повітря. Це дозволяє автопілоту самостійно нагрівати повітря досить швидко (переконайтеся, що коробка має невелике отвірчик, щоб вирівняти тиск з оточуючим повітрям, але все ж може нагрітися всередині).
 
-За допомогою такого типу установки можна нагріти плату приблизно до 70 °C. Анекдотичні дані свідчать, що багато поширених плат можна нагріти до цієї температури без негативних побічних ефектів. If in doubt, check the safe operating range with your manufacturer.
+За допомогою такого типу установки можна нагріти плату приблизно до 70 °C. Анекдотичні дані свідчать, що багато поширених плат можна нагріти до цієї температури без негативних побічних ефектів. Якщо у вас є сумніви, перевірте безпечний діапазон роботи у виробника.
 
 :::tip
 Щоб перевірити статус калібрування вбудованої термічної системи, скористайтеся консоллю MAVlink (або консоллю NuttX), щоб перевірити звітовану внутрішню температуру від датчика.
@@ -51,7 +51,7 @@ PX4 підтримує два процедури калібрування:
 
 <a id="onboard_calibration"></a>
 
-### Onboard Calibration Procedure
+### Процедура калібрування на борті
 
 Онбордне калібрування виконується повністю на пристрої. Для цього потрібно мати уявлення про те, наскільки можна підвищити температуру за допомогою тестового обладнання.
 
@@ -112,7 +112,7 @@ To perform an offboard calibration:
 
 ![Thermal calibration barometer](../../assets/calibration/thermal_calibration_baro.png)
 
-### Calibration Parameter Storage
+### Зберігання параметрів калібрування
 
 З існуючою реалізацією системи параметрів ми обмежені збереженням кожного значення в структурі як окремого запису. Щоб обійти це обмеження, для [параметрів теплової компенсації](../advanced_config/parameter_reference.md#thermal-compensation) використовується така логічна домовленість про найменування:
 
@@ -139,7 +139,7 @@ Examples:
 - [TC_A1_TREF](../advanced_config/parameter_reference.md#TC_A1_TREF) is the reference temperature for the second accelerometer.
 - [TC_G0_X3_0](../advanced_config/parameter_reference.md#TC_G0_X3_0) is the `^3` coefficient for the first gyro x-axis.
 
-### Calibration Parameter Usage
+### Використання параметрів калібрування
 
 Корекція теплового зсуву (за допомогою параметрів калібрування) виконується в [модулі датчиків](../modules/modules_system.md#sensors). Еталонна температура віднімається від виміряної температури, щоб отримати дельта-температуру, де:
 
@@ -147,7 +147,7 @@ Examples:
 delta = measured_temperature - reference_temperature
 ```
 
-The delta temperature is then used to calculate a offset, where:
+Потім дельта-температура використовується для розрахунку зсуву, де:
 
 ```
 offset = X0 + X1*delta + X2*delta**2 + ... + Xn*delta**n
@@ -163,7 +163,7 @@ corrected_measurement = (raw_measurement - offset) * scale_factor
 
 Корекція даних акселерометра, гіроскопа, магнітометра або барометра вмикається, налаштувавши [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE), [TC_M_ENABLE](../advanced_config/parameter_reference.md#TC_M_ENABLE) або [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) параметри до 1 відповідно.
 
-### Compatibility with legacy `CAL_*` parameters and commander controlled calibration
+### Сумісність зі старими параметрами `CAL_*` та калібрування, керовані commander
 
 Застаріле калібрування гіроскопа й датчика акселерометра PX4 із температурним агностиком виконується модулем керування та передбачає налаштування зміщення, а у випадку калібрування акселерометра — параметрів калібрування масштабного коефіцієнта. Параметри зсуву та масштабного коефіцієнта застосовуються в драйвері для кожного датчика. Ці параметри знаходяться в [групі параметрів CAL](../advanced_config/parameter_reference.md#sensor-calibration).
 
