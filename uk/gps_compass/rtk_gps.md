@@ -46,7 +46,7 @@ The RTK compatible devices below that are expected to work with PX4 (it omits di
 | [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136)                      |         F9P          |  &check;  |                                   |                                                   |                           &check;                            |         |
 | [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)                                        |         F9P          |  &check;  |                                   |                      &check;                      |                                                              |         |
 
-Notes:
+Примітки:
 
 - &check; or a specific part number indicate that a features is supported, while &cross; or empty show that the feature is not supported. "?" indicates "unknown".
 - Where possible and relevant the part name is used (i.e. &check; in the GPS column indicates that a GPS module is present but the part is not known).
