@@ -18,7 +18,7 @@ The PM is **NOT** compatible with flight controllers that require an analog powe
 - 5V/A ports for powering companion computer or peripheral device
 - Selectable 8V or 12V triple row pin header for powering peripheral device
 
-## Specifications
+## Специфікації
 
 - **Maximum input voltage**: 6S battery
 - **Rated current**: 60A
