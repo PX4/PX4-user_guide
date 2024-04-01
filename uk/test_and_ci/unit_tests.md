@@ -139,7 +139,7 @@ SITL unit tests should be used when you specifically need all of the flight cont
 
    If a test has option `OPT_NOALLTEST`, then that test will be excluded when calling `tests all`. The same is true for `OPT_NOJITEST` when command `test jig` is called. Option `0` means that the test is never excluded, which is what most developer want to use.
 
-1. Add the test `test_[description].cpp` to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/systemcmds/tests/CMakeLists.txt).
+1. Додайте тест `test_[description].cpp` до [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/systemcmds/tests/CMakeLists.txt).
 
 ## Тестування на локальній машині
 
@@ -159,6 +159,6 @@ make tests TESTFILTER=<regex filter expression>
 
 Наприклад:
 
-- `make tests TESTFILTER=unit` only run GTest unit tests
-- `make tests TESTFILTER=sitl` only run simulation tests
-- `make tests TESTFILTER=Attitude` only run the `AttitudeControl` test
+- `make tests TESTFILTER=unit` лише запускає GTest unit tests
+- `make tests TESTFILTER=sitl` лише запускає simulation tests
+- `make tests TESTFILTER=Attitude` лише запускає `AttitudeControl` test
