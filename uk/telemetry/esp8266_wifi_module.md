@@ -5,7 +5,7 @@ The ESP8266 and its clones are low-cost and readily available Wi-Fi modules with
 :::tip ESP8266 is the _defacto_ default WiFi module for use with [Pixracer](../flight_controller/pixracer.md) (and is usually bundled with it).
 :::
 
-## Where to Buy
+## Де купити
 
 The ESP8266 module is readily available from a number of suppliers. A few vendors are listed below.
 
