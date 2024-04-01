@@ -169,7 +169,7 @@ This is used in the [Reptile Dragon 2 Build Log](../frames_plane/reptile_dragon_
 
 The supported telemetry messages and their source are listed below (this table is reproduced from the [TBS Crossfire Manual: "Available sensors with OpenTX"](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf)).
 
-| Datapoint | Description                                        | Data source                      |
+| Datapoint | Опис                                               | Джерела даних                    |
 | --------- | -------------------------------------------------- | -------------------------------- |
 | 1RSS      | Uplink - received signal strength antenna 1 (RSSI) | TBS CROSSFIRE RX                 |
 | 2RSS      | Uplink - received signal strength antenna 2 (RSSI) | TBS CROSSFIRE RX                 |
@@ -194,7 +194,7 @@ The supported telemetry messages and their source are listed below (this table i
 | FM        | Flight mode                                        | FC                               |
 | VSPD      | Barometer                                          | FC                               |
 
-## See Also
+## Дивіться також
 
 - [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf)
 - [ExpressLRS Documentation](https://www.expresslrs.org/quick-start/getting-started/)

@@ -58,7 +58,7 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
 - Other Characteristics:
   - Operating temperature: -20 ~ 85°C （Measured value）
 
-## Where to Buy
+## Де купити
 
 [CUAV Store](https://store.cuav.net/shop/v5-nano/)
 
@@ -102,7 +102,7 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-detail/en/jst-sales-america-inc/BM06B-GHS-TBT-LF-SN-N/455-1582-1-ND/807850) connector and has the following pinout:
 
-| Pin     | Signal         | Volt  |
+| Pin     | Сигнал         | Вольт |
 | ------- | -------------- | ----- |
 | 1 (red) | 5V+            | +5V   |
 | 2 (blk) | DEBUG TX (OUT) | +3.3V |
@@ -125,11 +125,11 @@ For more information see [Using JTAG for hardware debugging](#using-jtag-for-har
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                                  |
+| UART   | Пристрій   | Порт                                  |
 | ------ | ---------- | ------------------------------------- |
 | UART1  | /dev/ttyS0 | GPS                                   |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control)                 |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control)                 |
+| USART2 | /dev/ttyS1 | TELEM1 (керування потоком)            |
+| USART3 | /dev/ttyS2 | TELEM2 (керування потоком)            |
 | UART4  | /dev/ttyS3 | TELEM4                                |
 | USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector |
 | UART7  | /dev/ttyS5 | Debug Console                         |
@@ -197,7 +197,7 @@ For direct connection to _Segger Jlink_ we recommended you use the 3.3 Volts of 
 PX4 does not support this interface.
 :::
 
-## Known Issues
+## Відомі проблеми
 
 The issues below refer to the _batch number_ in which they first appear. The batch number is the four-digit production date behind V01 and is displayed on a sticker on the side of the flight controller. For example, the serial number Batch V011904((V01 is the number of V5, 1904 is the production date, that is, the batch number).
 
@@ -214,7 +214,7 @@ Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI 
 - _Found:_ Batches V01190904xxxx
 - _Fixed:_ Batches later than V01190904xxxx
 
-## Further Information
+## Додаткова інформація
 
 - [V5 nano manual](http://manual.cuav.net/V5-nano.pdf) (CUAV)
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)

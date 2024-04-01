@@ -57,7 +57,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
   - Operating temperature: -20 ~ 80°c（Measured value）
 
-## Where to Buy<!-- \[CUAV Store\](https://store.cuav.net/index.php?id_product=95&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-autopilot-m8n-gps-for-fpv-rc-drone-quadcopter-helicopter-flight-simulator-free-shipping-whole-sale&controller=product&id_lang=1) -->[CUAV Aliexpress](https://www.aliexpress.com/item/32890380056.html?spm=a2g0o.detail.1000060.1.7a7233e7mLTlVl&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.90158.0&scm_id=1007.13339.90158.0&scm-url=1007.13339.90158.0&pvid=d899bfab-a7ca-46e1-adf2-72ad1d649822) (International users)
+## Де купити<!-- \[CUAV Store\](https://store.cuav.net/index.php?id_product=95&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-autopilot-m8n-gps-for-fpv-rc-drone-quadcopter-helicopter-flight-simulator-free-shipping-whole-sale&controller=product&id_lang=1) -->[CUAV Aliexpress](https://www.aliexpress.com/item/32890380056.html?spm=a2g0o.detail.1000060.1.7a7233e7mLTlVl&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.90158.0&scm_id=1007.13339.90158.0&scm-url=1007.13339.90158.0&pvid=d899bfab-a7ca-46e1-adf2-72ad1d649822) (International users)
 
 [CUAV Taobao](https://item.taobao.com/item.htm?spm=a1z10.5-c.w4002-21303114052.37.a28f697aeYzQx9&id=594262853015) (China Mainland users)
 
@@ -118,7 +118,7 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-detail/en/jst-sales-america-inc/BM06B-GHS-TBT-LF-SN-N/455-1582-1-ND/807850) connector and has the following pinout:
 
-| Pin     | Signal         | Volt  |
+| Pin     | Сигнал         | Вольт |
 | ------- | -------------- | ----- |
 | 1 (red) | 5V+            | +5V   |
 | 2 (blk) | DEBUG TX (OUT) | +3.3V |
@@ -139,7 +139,7 @@ Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage 
 For more information see [Using JTAG for hardware debugging](#using-jtag-for-hardware-debugging).
 :::
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
 | UART   | Device     | Port                                  |
 | ------ | ---------- | ------------------------------------- |
@@ -155,17 +155,17 @@ For more information see [Using JTAG for hardware debugging](#using-jtag-for-har
 
 <a id="optional-hardware"></a>
 
-## Peripherals
+## Периферія
 
 - [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
 - [Telemetry Radio Modules](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
 - [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## Підтримувані платформи / Airframes
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Notes
+## Примітки
 
 #### Do not plug Digital or Analog PM onto connectors configured for other type of PM
 

@@ -89,7 +89,7 @@ The following table summarizes how to connect _Pixhawk 4_'s PWM OUT ports to PM 
 
 The pinout of _Pixhawk 4_’s power ports is shown below. The CURRENT signal should carry an analog voltage from 0-3.3V for 0-120A as default. The VOLTAGE signal should carry an analog voltage from 0-3.3V for 0-60V as default. The VCC lines have to offer at least 3A continuous and should default to 5.1V. A lower voltage of 5V is still acceptable, but discouraged.
 
-| Pin      | Signal  | Volt  |
+| Pin      | Сигнал  | Volt  |
 | -------- | ------- | ----- |
 | 1(red)   | VCC     | +5V   |
 | 2(black) | VCC     | +5V   |

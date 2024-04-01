@@ -2,41 +2,41 @@
 
 ## Коли використовувати цю тестову картку
 
-- New build maiden flight
+- Перший політ нової конструкції
 - Коли необхідно повторити проблему в обмеженій області
 - Експериментальні збірки, які можуть мати проблеми стабільності
-- Testing hardware that has been replaced and/or modified
+- Тестування обладнання, яке було замінено та/або модифіковано
 
-## Arm and Take-off
+## Озброєння та зліт
 
-❏ Set flight mode to stabilize and Arm
+❏ Встановіть режим польоту на стабілізацію та запуск
 
-❏ Take-off by raising the throttle
+❏ Зліт, піднявши дросель
 
 ## Політ
 
-❏ Stabilized
+❏ Стабілізований
 
-&nbsp;&nbsp;&nbsp;&nbsp;Pitch/Roll/Yaw відповідь 1:1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Відповідь на нахил/нахил/поворот 1:1
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response 1:1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Реакція дросельної заслінки 1:1 (Реакція на газ 1:1)
 
-Висота
+❏ Висота
 
 &nbsp;&nbsp;&nbsp;&nbsp;Вертикальна позиція повинна містити поточне значення з ручкою в центрі
 
 &nbsp;&nbsp;&nbsp;&nbsp;Pitch/Roll/Yaw відповідь 1:1
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response set to Climbs/Descend rate
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Відповідь дроселя встановлено на швидкість підйому / спуску
 
 ## Посадка
 
-❏ Land in either Stabilized or Altitude mode with the throttle below 40%
+❏ Посадка в режимі Стабілізації або на висоті з дроселем нижче 40%
 
-❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+❏ При дотику до землі коптер автоматично роззброюється протягом 2 секунд (час роззброювання встановлений параметром: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
 
 ## Очікувані результати
 
-- Take-off should be smooth as throttle is raised
+- Зліт повинен бути плавним, коли газ піднято
 - Немає коливання в жодному з перерахованих режимів польоту
 - Після посадки, коптер не повинен підскакувати на землі

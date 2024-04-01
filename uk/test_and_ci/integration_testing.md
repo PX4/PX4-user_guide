@@ -1,18 +1,18 @@
 # Тестування інтеграції з використанням ROS
 
-This topic explains how to run (and extend) PX4's ROS-based integration tests.
+У цій темі пояснюється, як запускати (і розширювати) інтеграційні тести PX4 на основі ROS.
 
 :::note
-[MAVSDK Integration Testing](../test_and_ci/integration_testing_mavsdk.md) is preferred when writing new tests. Use the ROS-based integration test framework for use cases that _require_ ROS (e.g. object avoidance).
+Під час написання нових тестів бажано [тестування інтеграції MAVSDK](../test_and_ci/integration_testing_mavsdk.md). Використовуйте тестову інтеграційну структуру на основі ROS для випадків використання, які _вимагають_ ROS (наприклад, уникнення об’єктів).
 
-All PX4 integraton tests are executed automatically by our [Continuous Integration](../test_and_ci/continous_integration.md) system.
+Усі тести інтеграції PX4 виконуються автоматично нашою системою [Безперервної інтеграції](../test_and_ci/continous_integration.md).
 :::
 
 ## Попередня підготовка:
 
 - [JSBSim симулятор](../sim_jmavsim/README.md)
 - [Gazebo Класичний Симулятор ](../sim_gazebo_classic/README.md)
-- [ROS and MAVROS](../simulation/ros_interface.md)
+- [ROS та MAVROS](../simulation/ros_interface.md)
 
 ## Виконати тести
 
@@ -25,9 +25,9 @@ make px4_sitl_default sitl_gazebo
 make <test_target>
 ```
 
-`test_target` is a makefile targets from the set: _tests_mission_, _tests_mission_coverage_, _tests_offboard_ and _tests_avoidance_.
+`test_target` – це цілі makefile із набору: _tests_mission_, _tests_mission_coverage_, _tests_offboard_ і _tests_avoidance</1 >.</p>
 
-Test can also be executed directly by running the test scripts, located under `test/`:
+Тест також можна виконати безпосередньо, запустивши тестові сценарії, розташовані в `test/`:
 
 ```sh
 source <catkin_ws>/devel/setup.bash
@@ -36,19 +36,19 @@ make px4_sitl_default sitl_gazebo
 ./test/<test_bash_script> <test_launch_file>
 ```
 
-For example:
+Наприклад:
 
 ```sh
 ./test/rostest_px4_run.sh mavros_posix_tests_offboard_posctl.test
 ```
 
-Tests can also be run with a GUI to see what's happening (by default the tests run "headless"):
+Тести також можна запускати за допомогою графічного інтерфейсу користувача, щоб побачити, що відбувається (за замовчуванням тести виконуються без голови):
 
 ```sh
 ./test/rostest_px4_run.sh mavros_posix_tests_offboard_posctl.test gui:=true headless:=false
 ```
 
-The **.test** files launch the corresponding Python tests defined in `integrationtests/python_src/px4_it/mavros/`
+Файли **.test** запускають відповідні тести Python, визначені в `integrationtests/python_src/px4_it/mavros/`
 
 ## Напишіть новий MAVROS-тест (Python)
 
@@ -131,13 +131,13 @@ The **.test** files launch the corresponding Python tests defined in `integratio
 
 1. Додати новий тестовий вузол до файлу запуску
 
-   - In `test/` create a new `<test_name>.test` ROS launch file.
+   - У `test/` створіть новий файл запуску ROS `<test_name>.test`.
    - Викличте тестовий файл, використовуючи один з базових скриптів _rostest_px4_run.sh_ або _rostest_avoidancance_run.sh_
 
 1. (Необов'язково) Створити нову ціль в Makefile
 
    - Відкрийте Makefile
-   - Search the _Testing_ section
+   - Пошук _Testing_ секції
    - Додати нову назву цілі та викликати тест
 
    Наприклад:

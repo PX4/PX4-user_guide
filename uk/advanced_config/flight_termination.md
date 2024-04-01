@@ -10,21 +10,21 @@
 
 Залежно від підключених пристроїв, вихідні значення аварійного режиму PWM можуть бути використані для:
 
-- Deploy a [parachute](../peripherals/parachute.md).
-- Extend retractable landing gear.
-- Move a PWM-connected gimbal to a safe orientation (or retract it) in order to protect the camera.
-- Trigger an inflatable device like an airbag.
-- Trigger an alarm.
+- Розгорніть [парашут](../peripherals/parachute.md).
+- Витягнути втягуючі стійки шасі.
+- Перемістіть гімбал, підключений до PWM, в безпечне положення (або втягніть його), щоб захистити камеру.
+- Запустіть надувний пристрій, наприклад подушку безпеки.
+- Запустити тривогу.
 
 Немає можливості відновлення після аварійного припинення польоту. Після виклику аварійного припинення польоту вам слід якнайшвидше відключити батарею. Перед тим, як знову використовувати транспортний засіб, вам доведеться перезавантажити/вимкнути живлення.
 
 :::tip
-PX4 does not know what safety devices are attached - it just applies a predefined set of PWM values to its outputs.
+PX4 не знає, які пристрої безпеки приєднані - він просто застосовує заздалегідь визначений набір значень ШІМ до своїх виходів.
 :::
 
 :::tip
-Failsafe values are applied to all outputs on termination.
-There is no way to configure independent time-based (or other) triggering of the motors or specific safety devices.
+Значення аварійної безпеки застосовуються до всіх виходів під час завершення.
+Немає способу налаштувати незалежне тригерування моторів або конкретних пристроїв безпеки на основі часу (або іншого критерію).
 :::
 
 :::note
@@ -52,13 +52,13 @@ There is no way to configure independent time-based (or other) triggering of the
 
 Для кожного основного виходу, до якого підключений пристрій безпеки, де "n" - номер порту PWM, встановіть:
 
-- [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) to the device's "OFF" PWM value.
-- [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1) to the device's "ON" PWM value.
+- [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) до значення "OFF" PWM пристрою.
+- [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1) до значення PWM пристрою "ON".
 
 Для кожного AUX виходу, до якого підключений пристрій безпеки, де "n" - номер порту PWM, встановіть:
 
-- [PWM_AUX_DIS1](../advanced_config/parameter_reference.md#PWM_AUX_DIS1) to the device's "OFF" PWM value.
-- [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1) to the device's "ON" PWM value.
+- [PWM_AUX_DIS1](../advanced_config/parameter_reference.md#PWM_AUX_DIS1) до значення PWM пристрою "OFF".
+- [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1) до значення PWM пристрою "ON".
 
 Нарешті, встановіть значення PWM для портів `PWM_AUX_FAILn` та `PWM_MAIN_FAILn` для будь-яких двигунів.
 

@@ -46,7 +46,7 @@ Pixhawk V6X-RT постачається з вбудованим завантаж
 
    ![Flash bootloader through Secure provisioning - Step 2](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step2.png)
 
-3. After creating a "New Workspace" click on the **FlexSPI NOR - simplified** button
+3. Після створення «Нового робочого простору» натисніть кнопку **FlexSPI NOR - спрощений**
 
    ![Flash bootloader through Secure provisioning - Step 3](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step3.png)
 
@@ -104,5 +104,5 @@ Pixhawk V6X-RT постачається з вбудованим завантаж
 
    ![Flash bootloader through Secure provisioning - Step 13](../../assets/advanced_config/bootloader_6xrt/bootloader_update_v6xrt_step13.png)
 
-Now unplug the Pixhawk V6X-RT and re-power the board.
+Тепер від'єднайте Pixhawk V6X-RT і знову ввімкніть плату.
 Після оновлення завантажувача ви можете [завантажити прошивку PX4](../config/firmware.md) за допомогою _QGroundControl_.

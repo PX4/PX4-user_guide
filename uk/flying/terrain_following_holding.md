@@ -1,13 +1,13 @@
-# Terrain Following/Holding
+# Слідування місцевості/утримання
 
-PX4 supports [Terrain Following](#terrain_following) and [Terrain Hold](#terrain_hold) in [Position](../flight_modes_mc/position.md) and [Altitude modes](../flight_modes_mc/altitude.md), on *multicopters* and *VTOL vehicles in MC mode* that have a [distance sensor](../sensor/rangefinders.md).
+PX4 підтримує [Підтримка Місцевості](#terrain_following) та [Тримання Місцевості](#terrain_hold) у [Позиційному](../flight_modes_mc/position.md) та [Режимах Висоти](../flight_modes_mc/altitude.md), на *багторотих літальних апаратах* та *вертикальних злітно-посадкових апаратах у режимі БК*, які мають [датчик відстані](../sensor/rangefinders.md).
 
-:::note PX4 does not "natively" support terrain following in missions. *QGroundControl* can be used to define missions that *approximately* follow terrain (this just sets waypoint altitudes based on height above terrain, where terrain height at waypoints is obtained from a map database).
+:::note PX4 "інтегровано" не підтримує слідування терену в місіях. *QGroundControl* може бути використаний для визначення місій, які *приблизно* слідують за тереном (це просто встановлює висоту точок шляху на основі висоти над тереном, де висота терену в точках шляху отримується з бази даних мапи).
 :::
 
 <a id="terrain_following"></a>
 
-## Terrain Following
+## Слідування місцевості
 
 *Слідування за місцевістю* дозволяє транспортному засобу автоматично підтримувати відносно сталу висоту над рівнем землі при переміщенні на низьких висотах. Це корисно для уникнення перешкод і для підтримки постійної висоти під час польоту над різноманітним рельєфом (наприклад, для аерофотозйомки).
 
@@ -20,26 +20,26 @@ PX4 supports [Terrain Following](#terrain_following) and [Terrain Hold](#terrain
 На великих висотах (коли оцінювач повідомляє, що дані від датчика відстані недійсні), транспортний засіб переходить до *слідування за висотою*, і, як правило, літає практично на постійній висоті над середнім рівнем моря (AMSL), використовуючи абсолютний висотомір для даних про висоту.
 
 :::note
-More precisely, the vehicle will use the available selected sources of altitude data as defined [here](../advanced_config/tuning_the_ecl_ekf.md#height).
+Точніше, транспортний засіб буде використовувати доступні обрані джерела висотних даних, як визначено [тут](../advanced_config/tuning_the_ecl_ekf.md#height).
 :::
 
-Terrain following is enabled by setting [MPC_ALT_MODE](../advanced_config/parameter_reference.md#MPC_ALT_MODE) to `1`.
+Підтримка терену включається, встановивши [MPC_ALT_MODE](../advanced_config/parameter_reference.md#MPC_ALT_MODE) на `1`.
 
 
 <a id="terrain_hold"></a>
 
-## Terrain Hold
+## Утримання місцевості
 
-*Terrain hold* uses a distance sensor to help a vehicle to better maintain a constant height above ground in altitude control modes, when horizontally stationary at low altitude. This allows a vehicle to avoid altitude changes due to barometer drift or excessive barometer interference from rotor wash.
+*Утримання місцевості* використовує датчик відстані, щоб допомогти транспортному засобу краще підтримувати постійну висоту над землею в режимах контролю висоти, коли він стоїть горизонтально на низькій висоті. Це дозволяє транспортному засобу уникнути зміни висоти через дрейф барометра або надмірні перешкоди барометру від омивання ротора.
 
 :::note
-This feature can be enabled in [Position](../flight_modes_mc/position.md) and [Altitude modes](../flight_modes_mc/altitude.md), on *multicopters* and *VTOL vehicles in MC mode* that have a [distance sensor](../sensor/rangefinders.md).
+Цю функцію можна ввімкнути в режимах [Позиція](../flight_modes_mc/position.md) та [Висота](../flight_modes_mc/altitude.md), на *мультикоптерах* і *транспортних засобах VTOL у режимі MC*, які мають [датчик відстані](../sensor/rangefinders.md).
 :::
 
-When moving horizontally (`speed >` [MPC_HOLD_MAX_XY](../advanced_config/parameter_reference.md#MPC_HOLD_MAX_XY)), or above the altitude where the distance sensor is providing valid data, the vehicle will switch into *altitude following*.
+Під час горизонтального руху (`швидкість >` [MPC_HOLD_MAX_XY](../advanced_config/parameter_reference.md#MPC_HOLD_MAX_XY)) або вище висоти, на якій датчик відстані надає дійсні дані, транспортний засіб перейде в режим *слідування за висотою</2 >.</p>
 
-Terrain holding is enabled by setting [MPC_ALT_MODE](../advanced_config/parameter_reference.md#MPC_ALT_MODE) to `2`.
+Утримування рельєфу вмикається встановленням [MPC_ALT_MODE](../advanced_config/parameter_reference.md#MPC_ALT_MODE) на `2`.
 
 :::note
-*Terrain hold* is implemented similarly to [terrain following](#terrain_following). Вона використовує вихід оцінювача EKF для надання оцінки висоти та оцінку висоти місцевості (розраховану на основі вимірів датчика відстані за допомогою окремого однорівневого оцінювача місцевості), щоб надати точку установки висоти. Якщо відстань до землі змінюється через зовнішні сили, точка установки висоти коригується, щоб забезпечити постійну висоту над землею.
+*Утримання місцевості* реалізовано подібно до [відстеження місцевості](#terrain_following). Вона використовує вихід оцінювача EKF для надання оцінки висоти та оцінку висоти місцевості (розраховану на основі вимірів датчика відстані за допомогою окремого однорівневого оцінювача місцевості), щоб надати точку установки висоти. Якщо відстань до землі змінюється через зовнішні сили, точка установки висоти коригується, щоб забезпечити постійну висоту над землею.
 :::

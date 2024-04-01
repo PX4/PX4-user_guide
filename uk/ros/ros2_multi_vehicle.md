@@ -1,37 +1,37 @@
 # Multi-Vehicle Симуляція з ROS 2
 
-[XRCE-DDS](../middleware/uxrce_dds.md) allows for multiple clients to be connected to the same agent over UDP. Це особливо корисно в симуляції, якщо потрібно запустити лише один агент.
+[XRCE-DDS](../middleware/uxrce_dds.md) дозволяє підключати декілька клієнтів до одного агента через UDP. Це особливо корисно в симуляції, якщо потрібно запустити лише один агент.
 
 ## Налаштування та вимоги
 
 Єдині вимоги
 
 - To be able to run [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) without ROS 2 with the desired simulator ([Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md), [Gazebo Classic](../sim_gazebo_classic/multi_vehicle_simulation.md#multiple-vehicle-with-gazebo-classic), [FlightGear](../sim_flightgear/multi_vehicle.md) and [JMAVSim](../sim_jmavsim/multi_vehicle.md)).
-- To be able to use [ROS 2](./ros2_comm.md) in a single vehicle simulation.
+- Можливість використання [ROS 2](./ros2_comm.md) в симуляції одного транспортного засобу.
 
-## Principle of Operation
+## Принцип операції
 
-In simulation each PX4 instance receives a unique `px4_instance` number starting from `0`. This value is used to assign a unique value to [UXRCE_DDS_KEY](../advanced_config/parameter_reference.md#UXRCE_DDS_KEY):
+У симуляції кожен екземпляр PX4 отримує унікальний номер `px4_instance`, починаючи з `0`. Це значення використовується для присвоєння унікального значення ключу [UXRCE_DDS_KEY](../advanced_config/parameter_reference.md#UXRCE_DDS_KEY):
 
 ```sh
 param set UXRCE_DDS_KEY $((px4_instance+1))
 ```
 
 :::note
-By doing so, `UXRCE_DDS_KEY` will always coincide with [MAV_SYS_ID](../advanced_config/parameter_reference.md#MAV_SYS_ID).
+Таким чином, `UXRCE_DDS_KEY` завжди збігатиметься з [MAV_SYS_ID](../advanced_config/parameter_reference.md#MAV_SYS_ID).
 :::
 
-Moreover, when `px4_instance` is greater than zero, a unique ROS 2 [namespace prefix](../middleware/uxrce_dds.md#customizing-the-topic-namespace) in the form `px4_$px4_instance` is added:
+Крім того, коли `px4_instance` більше нуля, додається унікальний [префікс простору імен](../middleware/uxrce_dds.md#customizing-the-topic-namespace) ROS 2 у вигляді `px4_$px4_instance`:
 
 ```sh
 uxrce_dds_ns="-n px4_$px4_instance"
 ```
 
 :::note
-The environment variable `PX4_UXRCE_DDS_NS`, if set, will override the namespace behavior described above.
+Змінна оточення `PX4_UXRCE_DDS_NS`, якщо її встановлено, перевизначає поведінку простору імен, описану вище.
 :::
 
-The first instance (`px4_instance=0`) does not have an additional namespace in order to be consistent with the default behavior of the `xrce-dds` client on a real vehicle. This mismatch can be fixed by manually using `PX4_UXRCE_DDS_NS` on the first instance or by starting adding vehicles from index `1` instead of `0` (this is the default behavior adopted by [sitl_multiple_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gazebo-classic/sitl_multiple_run.sh) for Gazebo Classic).
+Перший екземпляр (`px4_instance=0`) не має додаткового простору імен, щоб відповідати стандартній поведінці клієнта `xrce-dds` на реальному транспортному засобі. Цю невідповідність можна виправити вручну за допомогою `PX4_UXRCE_DDS_NS` у першому випадку або почавши додавання транспортних засобів з індексу `1` замість `0` (це поведінка за замовчуванням, прийнята у [sitl_multiple_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gazebo-classic/sitl_multiple_run.sh) для Gazebo Classic).
 
 Типове налаштування клієнта у симуляції:
 
@@ -42,8 +42,8 @@ The first instance (`px4_instance=0`) does not have an additional namespace in o
 | not provided       | >0             | `px4_instance+1` | `px4_${px4_instance}` |
 | provided           | >0             | `px4_instance+1` | `PX4_UXRCE_DDS_NS`    |
 
-## Adjusting the `target_system` value
+## Налаштування значення `target_system`
 
-PX4 accepts [VehicleCommand](../msg_docs/VehicleCommand.md) messages only if their `target_system` field is zero (broadcast communication) or coincides with `MAV_SYS_ID`. In all other situations, the messages are ignored. Therefore, when ROS 2 nodes want to send `VehicleCommand` to PX4, they must ensure that the messages are filled with the appropriate `target_system` value.
+PX4 приймає повідомлення [VehicleCommand](../msg_docs/VehicleCommand.md) тільки якщо їхнє поле `target_system` дорівнює нулю (широкомовний зв'язок) або збігається з `MAV_SYS_ID`. У всіх інших ситуаціях повідомлення ігноруються. Тому, коли вузли ROS 2 хочуть надіслати `VehicleCommand` до PX4, вони повинні переконатися, що повідомлення заповнені відповідним значенням `target_system`.
 
-For example, if you want to send a command to your third vehicle, which has `px4_instance=2`, you need to set `target_system=3` in all your `VehicleCommand` messages.
+Наприклад, якщо ви хочете надіслати команду третьому автомобілю, який має `px4_instance=2`, вам потрібно встановити `target_system=3` у всіх ваших повідомленнях `VehicleCommand`.

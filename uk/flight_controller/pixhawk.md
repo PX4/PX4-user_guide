@@ -135,11 +135,11 @@ They have rectangular instead of square pins, and cannot be assumed to be compat
 The `RC IN` port is for RC receivers only and provides sufficient power for that purpose. **NEVER** connect any servos, power supplies or batteries to it or to the receiver connected to it.
 :::
 
-## Pinouts
+## Схема розташування виводів
 
-#### TELEM1, TELEM2 ports
+#### TELEM1, TELEM2 порти
 
-| Pin     | Signal    | Volt  |
+| Pin     | Сигнал    | Вольт |
 | ------- | --------- | ----- |
 | 1 (red) | VCC       | +5V   |
 | 2 (blk) | TX (OUT)  | +3.3V |
@@ -150,7 +150,7 @@ The `RC IN` port is for RC receivers only and provides sufficient power for that
 
 #### GPS port
 
-| Pin     | Signal   | Volt  |
+| Pin     | Сигнал   | Вольт |
 | ------- | -------- | ----- |
 | 1 (red) | VCC      | +5V   |
 | 2 (blk) | TX (OUT) | +3.3V |
@@ -163,7 +163,7 @@ The `RC IN` port is for RC receivers only and provides sufficient power for that
 
 Due to space constraints two ports are on one connector.
 
-| Pin     | Signal  | Volt  |
+| Pin     | Сигнал  | Вольт |
 | ------- | ------- | ----- |
 | 1 (red) | VCC     | +5V   |
 | 2 (blk) | TX (#4) | +3.3V |
@@ -174,7 +174,7 @@ Due to space constraints two ports are on one connector.
 
 #### ADC 6.6V
 
-| Pin     | Signal | Volt        |
+| Pin     | Сигнал | Вольт       |
 | ------- | ------ | ----------- |
 | 1 (red) | VCC    | +5V         |
 | 2 (blk) | ADC IN | up to +6.6V |
@@ -182,17 +182,17 @@ Due to space constraints two ports are on one connector.
 
 #### ADC 3.3V
 
-| Pin     | Signal | Volt        |
-| ------- | ------ | ----------- |
-| 1 (red) | VCC    | +5V         |
-| 2 (blk) | ADC IN | up to +3.3V |
-| 3 (blk) | GND    | GND         |
-| 4 (blk) | ADC IN | up to +3.3V |
-| 5 (blk) | GND    | GND         |
+| Pin     | Signal | Вольт    |
+| ------- | ------ | -------- |
+| 1 (red) | VCC    | +5V      |
+| 2 (blk) | ADC IN | до +3.3V |
+| 3 (blk) | GND    | GND      |
+| 4 (blk) | ADC IN | до +3.3V |
+| 5 (blk) | GND    | GND      |
 
 #### I2C
 
-| Pin     | Signal | Volt           |
+| Pin     | Сигнал | Вольт          |
 | ------- | ------ | -------------- |
 | 1 (red) | VCC    | +5V            |
 | 2 (blk) | SCL    | +3.3 (pullups) |
@@ -201,28 +201,28 @@ Due to space constraints two ports are on one connector.
 
 #### CAN
 
-| Pin     | Signal | Volt |
-| ------- | ------ | ---- |
-| 1 (red) | VCC    | +5V  |
-| 2 (blk) | CAN_H  | +12V |
-| 3 (blk) | CAN_L  | +12V |
-| 4 (blk) | GND    | GND  |
+| Pin     | Сигнал | Вольт |
+| ------- | ------ | ----- |
+| 1 (red) | VCC    | +5V   |
+| 2 (blk) | CAN_H  | +12V  |
+| 3 (blk) | CAN_L  | +12V  |
+| 4 (blk) | GND    | GND   |
 
-#### SPI
+#### SPI (питома споживана потужність)
 
-| Pin     | Signal         | Volt |
-| ------- | -------------- | ---- |
-| 1 (red) | VCC            | +5V  |
-| 2 (blk) | SPI_EXT_SCK  | +3.3 |
-| 3 (blk) | SPI_EXT_MISO | +3.3 |
-| 4 (blk) | SPI_EXT_MOSI | +3.3 |
-| 5 (blk) | !SPI_EXT_NSS | +3.3 |
-| 6 (blk) | !GPIO_EXT      | +3.3 |
-| 7 (blk) | GND            | GND  |
+| Pin     | Сигнал         | Вольт |
+| ------- | -------------- | ----- |
+| 1 (red) | VCC            | +5V   |
+| 2 (blk) | SPI_EXT_SCK  | +3.3  |
+| 3 (blk) | SPI_EXT_MISO | +3.3  |
+| 4 (blk) | SPI_EXT_MOSI | +3.3  |
+| 5 (blk) | !SPI_EXT_NSS | +3.3  |
+| 6 (blk) | !GPIO_EXT      | +3.3  |
+| 7 (blk) | GND            | GND   |
 
 #### POWER
 
-| Pin     | Signal  | Volt  |
+| Pin     | Сигнал  | Вольт |
 | ------- | ------- | ----- |
 | 1 (red) | VCC     | +5V   |
 | 2 (blk) | VCC     | +5V   |
@@ -233,22 +233,22 @@ Due to space constraints two ports are on one connector.
 
 #### SWITCH
 
-| Pin     | Signal           | Volt  |
+| Pin     | Сигнал           | Вольт |
 | ------- | ---------------- | ----- |
 | 1 (red) | VCC              | +3.3V |
 | 2 (blk) | !IO_LED_SAFETY | GND   |
 | 3 (blk) | SAFETY           | GND   |
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | IO debug              |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  |            |                       |
-| UART7  | CONSOLE    |                       |
-| UART8  | SERIAL4    |                       |
+| UART   | Пристрій   | Порт                       |
+| ------ | ---------- | -------------------------- |
+| UART1  | /dev/ttyS0 | IO debug                   |
+| USART2 | /dev/ttyS1 | TELEM1 (керування потоком) |
+| USART3 | /dev/ttyS2 | TELEM2 (керування потоком) |
+| UART4  |            |                            |
+| UART7  | CONSOLE    |                            |
+| UART8  | SERIAL4    |                            |
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 

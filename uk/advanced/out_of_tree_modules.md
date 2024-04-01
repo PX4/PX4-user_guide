@@ -16,7 +16,7 @@
   - Його можна знайти будь-де за межами дерева **PX4-Autopilot**.
   - Він повинен мати таку ж структуру, як **PX4-Autopilot** (тобто він повинен містити каталог з назвою **src**).
   - Пізніше ми звернемося до цього каталогу за допомогою `EXTERNAL_MODULES_LOCATION`.
-- Copy an existing module (e.g. **examples/px4_simple_app**) to the external directory, or directly create a new module.
+- Скопіюйте існуючий модуль (наприклад, **examples/px4_simple_app**) до зовнішнього каталогу або безпосередньо створіть новий модуль.
 - Перейменуйте модуль (включаючи `MODULE` у **CMakeLists.txt**) або видаліть його з існуючої конфігурації збірки _cmake_ PX4-Autopilot. Це щоб уникнути конфліктів з внутрішніми модулями.
 - Додайте файл **CMakeLists.txt** у зовнішній каталозі з вмістом:
 
@@ -46,7 +46,7 @@
 
 Повідомлення uORB також можна визначати поза деревом. Для цього має існувати папка `$EXTERNAL_MODULES_LOCATION/msg`.
 
-- Place all new message definitions within the `$EXTERNAL_MODULES_LOCATION/msg` directory. Формат цих нових визначень повідомлень поза деревом такий самий, як і для будь-якого іншого [визначення повідомлень uORB](../middleware/uorb.md#adding-a-new-topic).
+- Розмістіть усі нові визначення повідомлень у каталозі `$EXTERNAL_MODULES_LOCATION/msg`. Формат цих нових визначень повідомлень поза деревом такий самий, як і для будь-якого іншого [визначення повідомлень uORB](../middleware/uorb.md#adding-a-new-topic).
 - Додати файл `$EXTERNAL_MODULES_LOCATION/msg/CMakeLists.txt` з змістом:
 
   ```cmake
@@ -71,7 +71,7 @@
 
 ## Побудова зовнішніх модулів та повідомлень uORB
 
-Execute `make px4_sitl EXTERNAL_MODULES_LOCATION=<path>`.
+Виконайте `make px4_sitl EXTERNAL_MODULES_LOCATION=<path>`.
 
 Будь-яку іншу ціль збірки можна використовувати, але каталог для збирання не повинен існувати. Якщо вона вже існує, ви також можете просто встановити змінну _cmake_ у папці збірки.
 

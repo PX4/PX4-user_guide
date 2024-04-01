@@ -185,7 +185,7 @@ Build the example using the board-specific command:
 - jMAVSim Simulator: `make px4_sitl_default jmavsim`
 - Pixhawk v1/2: `make px4_fmu-v2_default` (or just `make px4_fmu-v2`)
 - Pixhawk v3: `make px4_fmu-v4_default`
-- Other boards: [Building the Code](../dev_setup/building_px4.md#building-for-nuttx)
+- Інші прошивки: [Building the Code](../dev_setup/building_px4.md#building-for-nuttx)
 
 ## Test App (Hardware)
 

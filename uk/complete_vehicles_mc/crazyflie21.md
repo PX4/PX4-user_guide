@@ -301,6 +301,6 @@ To connect to Crazyflie 2.1 via MAVROS:
 
 - Restart QGroundControl if it doesn't connect.
 
-## Flying
+## Політ
 
 @[youtube](https://www.youtube.com/watch?v=0qy7O3fVN2c)

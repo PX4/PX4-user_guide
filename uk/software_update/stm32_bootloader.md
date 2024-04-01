@@ -5,7 +5,7 @@
 ## Підтримувані плати
 
 * FMUv2 (Pixhawk 1, STM32F4)
-* FMUv2 (Pixhawk 2, STM32F4)
+* FMUv3 (Pixhawk 2, STM32F4)
 * FMUv4 (Pixracer 3 і Pixhawk 3 Pro, STM32F4)
 * FMUv5 (Pixhawk 4, STM32F7)
 * TAPv1 (TBA, STM32F4)
@@ -44,9 +44,16 @@ make
 * На MAC OS: переконайтесь що використовуєте порт cu.xxx, а не порт tty.xxx: `tar ext /dev/tty.usbmodemDDEasdf`
 
 ```sh
-
-        
-  
+arm-none-eabi-gdb
+  (gdb) tar ext /dev/serial/by-id/usb-Black_Sphere_XXX-if00
+  (gdb) mon swdp_scan
+  (gdb) attach 1
+  (gdb) mon option erase
+  (gdb) mon erase_mass
+  (gdb) load tapv1_bl.elf
+        ...
+        Transfer rate: 17 KB/sec, 828 bytes/write.
+  (gdb) kill
 ```
 
 ###
@@ -62,21 +69,23 @@ make
 Команда використовується для запуску сервера для польотних контролерів що використовують STM32F427VI SoC:
 
 ```sh
-
+JLinkGDBServer -select USB=0 -device STM32F427VI -if SWD-DP -speed 20000
 ```
 
 `--device`/SoC є спільним для пристроїв:
 
-*
-*
-*
-*
+* **FMUv2, FMUv3, FMUv4, aerofc-v1, mindpx-v2:** STM32F427VI
+* **px4_fmu-v4pro:** STM32F469II
+* **px4_fmu-v5:** STM32F765II
+* **crazyflie:** STM32F405RG
 
 
 #### Під'єднайтесь до GDB
 
 ```sh
-
+arm-none-eabi-gdb
+  (gdb) tar ext :2331
+  (gdb) load aerofcv1_bl.elf
 ```
 
 ### Усунення несправностей
@@ -85,12 +94,15 @@ make
 
 Якщо Ви отримуєте наступне повідомлення про помилку:
 ```
-
+Error erasing flash with vFlashErase packet
 ```
 
 Відключити плату (лишивши JTAG підключеним) та запустіть
 
 ```sh
-
+mon tpwr disable
+swdp_scan
+attach 1
+load tapv1_bl.elf
 ```
 Це вимкне живлення пристрою й уможливить наступний цикл прошивки.

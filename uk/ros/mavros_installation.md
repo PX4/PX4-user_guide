@@ -18,9 +18,9 @@
 Ці інструкції спрощена версія [офіційного посібника з встановлення](https://github.com/mavlink/mavros/tree/master/mavros#installation). Вони охоплюють релізи *ROS Melodic and Noetic*.
 :::
 
-MAVROS можна встановити як з вихідного коду, так і з бінарників. We recommend that developers use the source installation.
+MAVROS можна встановити як з вихідного коду, так і з бінарників. Ми рекомендуємо розробникам використовувати початкове встановлення.
 
-### Binary Installation (Debian / Ubuntu)
+### Бінарне встановлення (Debian / Ubuntu)
 
 У репозиторії ROS є бінарні пакети для Ubuntu x86, amd64 (x86\_64) та armhf (ARMv7). Kinetic також підтримує Debian Jessie amd64 і arm64 (ARMv8).
 
@@ -37,7 +37,7 @@ wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/inst
 sudo bash ./install_geographiclib_datasets.sh   
 ```
 
-### Source Installation
+### Встановлення початкового коду
 
 Ця інсталяція передбачає, що у вас є робочий простір catkin, розташований у `~/catkin_ws` Якщо ви не створили його:
 
@@ -48,17 +48,17 @@ catkin init
 wstool init src
 ```
 
-You will be using the ROS Python tools: *wstool* (for retrieving sources), *rosinstall*, and *catkin_tools* (building) for this installation. Хоча вони могли бути встановлені під час інсталяції ROS, ви також можете встановити їх разом з ним:
+Ви будете використовувати інструменти ROS Python: *wstool* (для отримання джерел), *rosinstall* і *catkin_tools* (збірка) для цього встановлення. Хоча вони могли бути встановлені під час інсталяції ROS, ви також можете встановити їх разом з ним:
 
 ```sh
 sudo apt-get install python-catkin-tools python-rosinstall-generator -y
 ```
 
 :::tip
-While the package can be built using **catkin_make** the preferred method is using **catkin_tools** as it is a more versatile and "friendly" build tool.
+Хоча пакунок можна створити за допомогою **catkin_make**, кращим методом є використання **catkin_tools**, оскільки це більш універсальний і «дружній» інструмент збирання.
 :::
 
-If this is your first time using wstool you will need to initialize your source space with:
+Якщо це ваш перший раз за допомогою wstool вам потрібно буде ініціалізувати свій вихідний простір з:
 ```sh
 $ wstool init ~/catkin_ws/src
 ```
@@ -70,12 +70,12 @@ $ wstool init ~/catkin_ws/src
    # We use the Kinetic reference for all ROS distros as it's not distro-specific and up to date
    rosinstall_generator --rosdistro kinetic mavlink | tee /tmp/mavros.rosinstall
    ```
-1. Install MAVROS from source using either released or latest version:
-   * Released/stable
+1. Встановити MAVROS з джерела, використовуючи як випущену, так і останню версію:
+   * Випущений реліз/стабільний
      ```sh
      rosinstall_generator --upstream mavros | tee -a /tmp/mavros.rosinstall
      ```
-   * Latest source
+   * Найновіше джерело
      ```sh
      rosinstall_generator --upstream-development mavros | tee -a /tmp/mavros.rosinstall
      ```
@@ -86,7 +86,7 @@ $ wstool init ~/catkin_ws/src
      #   rosinstall_generator --upstream mavros --deps | tee -a /tmp/mavros.rosinstall
      ```
 
-1. Create workspace & deps
+1. Створити робоче середовище & deps
 
    ```sh
    wstool merge -t src /tmp/mavros.rosinstall
@@ -99,7 +99,7 @@ $ wstool init ~/catkin_ws/src
    ./src/mavros/mavros/scripts/install_geographiclib_datasets.sh
    ```
 
-1. Build source
+1. Джерело збірки
    ```sh
    catkin build
    ```

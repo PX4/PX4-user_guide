@@ -10,7 +10,7 @@ The ARF ("Almost Ready to Fly") kit provides the shortest and straightforward as
 
 In addition to the kit you will need to have the flight controller, radio transmitters, GPS and RC controller. The ARF kit can be used with most flight controllers supported by PX4.
 
-## Key information
+## Основна Інформація
 
 - **Kit:** [Holybro X500 V2 ARF Kit](https://holybro.com/collections/x500-kits)
 - **Flight controller:** [Pixhawk 5X](../flight_controller/pixhawk5x.md)
@@ -175,7 +175,7 @@ That's it. The fully assembled kit is shown below (Depth camera not included in 
 ![Assembled Kit](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/finalized_x500v2_kit.png)
 
 
-## PX4 Configuration
+## Конфігурація PX4
 
 :::tip
 Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).

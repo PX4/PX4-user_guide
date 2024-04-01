@@ -17,7 +17,7 @@ Crowdin експортує перекладені документи назад 
 
 ## Початок роботи
 
-The steps to join our translation tream are:
+Кроки з приєднання до нашої команди з перекладу такі:
 
 1. Зареєструватись на платформі Crowdin: [https://crowdin.com/join](https://crowdin.com/join)
 1. Відкрийте проект, до якого хочете приєднатися:

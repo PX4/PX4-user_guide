@@ -32,114 +32,114 @@
 
 ### Зліт мультикоптера
 
-Пілоти мультикоптерів (та VTOL у режимі мультикоптера) можуть злітати *вручну*, активувавши будь-який ручний режим, увімкнувши апарат, а потім піднявши стік газу до рівня, коли мотори дадуть достатньо тяги для підняття з землі. In [Position mode](../flight_modes_mc/position.md) or [Altitude mode](../flight_modes_mc/altitude.md) the throttle stick has to be increased to above 62.5% to command a climb rate and make the vehicle leave the ground. Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
+Пілоти мультикоптерів (та VTOL у режимі мультикоптера) можуть злітати *вручну*, активувавши будь-який ручний режим, увімкнувши апарат, а потім піднявши стік газу до рівня, коли мотори дадуть достатньо тяги для підняття з землі. У [режимі позиціювання](../flight_modes_mc/position.md) або [режимі висоти](../flight_modes_mc/altitude.md) потрібно збільшити стік газу до понад 62.5%, щоб задати швидкість підйому та змусити апарат піднятися з землі. Вище цього значення всі контролери активуються, і апарат переходить на рівень газу, необхідний для зависання ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
 
-[Throw Launch](../flight_modes_mc/throw_launch.md) is also supported, in which the vehicle activates motors after it detects that it has reached the apex of a throw, and then operates according to its current mode.
+Також підтримується [запуск через кидання](../flight_modes_mc/throw_launch.md), при якому апарат активує мотори після того, як виявляє, що досяг апогею кидку, а потім працює відповідно до свого поточного режиму.
 
-Alternatively the takeoff can performed using the automatic [Takeoff mode](../flight_modes_mc/takeoff.md).
-
-:::note
-The vehicle may disarm if you take too long to take off after arming (tune the timeout using [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)). :::
+Альтернативно зліт можна виконати, використовуючи автоматичний [режим зльоту](../flight_modes_mc/takeoff.md).
 
 :::note
-The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff. :::
-
-### Fixed-wing Takeoff
+Апарат може вимкнутися, якщо ви занадто довго готуєтеся до зльоту після увімкнення (налаштуйте тайм-аут, використовуючи [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)). :::
 
 :::note
-Taking off manually (and landing) is not easy!
-We recommend using with the automatic modes instead, especially for inexperienced pilots.
+[Детектор несправностей](../config/safety.md#failure-detector) автоматично зупинить мотори, якщо на зльоті виникне проблема. :::
+
+### Зліт апарату з фіксованим крилом
+
+:::note
+Злетіти (та приземлитися) вручну не так просто!
+Ми рекомендуємо використовувати автоматичні режими, особливо для недосвідчених пілотів.
 :::
 
-[Stabilized mode](../flight_modes_fw/stabilized.md), [Acro mode](../flight_modes_fw/acro.md) or [Manual mode](../flight_modes_fw/manual.md) mode are recommended for manual takeoff. [Position mode](../flight_modes_fw/position.md) and [Altitude mode](../flight_modes_fw/altitude.md) can also be used, but it is important to accelerate the vehicle sufficiently before bringing them airborne — strong thrust if hand-launched, long runway phase for runway takeoff (this is required because the controller in these modes can prioritize airspeed over altitude tracking).
+Для ручного зльоту рекомендуються [режим стабілізації](../flight_modes_fw/stabilized.md), [акробатичний режим](../flight_modes_fw/acro.md) або [ручний режим](../flight_modes_fw/manual.md). [Режим позиціонування](../flight_modes_fw/position.md) та [режим висоти](../flight_modes_fw/altitude.md) також можуть бути використані, але важливо достатньо розігнати апарат перед його підняттям у повітря — сильний ривок при запуску з рук, довга фаза розгону для зльоту зі злітної смуги (це необхідно, тому що контролер в цих режимах може віддавати перевагу швидкості відносно повітряного потоку над відстеженням висоти).
 
-Manual takeoffs with hand-launched planes:
-- Ramp up the motor and throw the vehicle horizontally.
-- Do not pitch up too fast as this may stall the plane.
-- A good vehicle trim is crucial for safe hand-launch takeoffs, because if the vehicle doesn't fly level there is only a very short time for the pilot to react before the vehicle crashes!
+Ручні зльоти з літаками, що запускаються з рук:
+- Розженіть мотор і киньте апарат горизонтально.
+- Не підіймайте ніс занадто швидко, оскільки це може призвести до звалювання літака.
+- Хороший баланс апарату має вирішальне значення для безпечного ручного злету, оскільки якщо апарат не летить рівно, у пілота є дуже мало часу для реагування перед тим, як апарат розіб'ється!
 
-Manual takeoffs with runway-launched planes:
-- Accelerate on the runway until the speed is sufficient for takeoff.
-- If the plane has a steerable wheel, use the yaw stick to keep it on course.
-- Once the speed is sufficient pull up the nose with the pitch stick.
+Ручні зльоти з літаками, що запускаються зі злітної смуги:
+- Розганяйтеся на злітній смузі, поки швидкість не стане достатньою для зльоту.
+- Якщо у літака є кероване колесо, використовуйте yaw стік, щоб тримати його на курсі.
+- Як тільки швидкість стане достатньою, підніміть ніс літака за допомогою стіку pitch.
 
-Automatic takeoffs are possible in the [Mission mode](../flight_modes_fw/mission.md#mission-takeoff) or [Takeoff mode (FW)](../flight_modes_fw/takeoff.md). The pilot can take over manual control over the vehicle at any moment during the takeoff process or after it by changing into a manual flight mode.
+Автоматичні злети можливі у [режимі місії](../flight_modes_fw/mission.md#mission-takeoff) або [режимі зльоту (FW)](../flight_modes_fw/takeoff.md). Пілот може взяти апарат під ручне управління в будь-який момент під час процесу зльоту або після нього, перейшовши в режим ручного польоту.
 
-## Landing
+## Посадка
 
-### Multicopter Landing
+### Посадка мультикоптера
 
-Multicopters can be landed in any manual mode. Make sure to keep the throttle stick pulled down after touching down until the motors have switched off.
+Мультикоптери можуть приземлятися в будь-якому ручному режимі. Переконайтеся, що ви тримаєте стік газу опущеним після приземлення, поки мотори не вимкнуться.
 
-Note that vehicles automatically disarm on landing by default:
+Зверніть увагу, що за замовчанням апарати автоматично вимикаються після посадки:
 
-- Use [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to set the time to auto-disarm after landing (or disable it altogether).
-- Manually disarm by putting the throttle stick in the bottom left corner.
+- Використовуйте [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) для встановлення часу автоматичного вимкнення після посадки (або повністю вимкніть цю функцію).
+- Вручну вимикайте, перемістивши стік газу в нижній лівий кут.
 
-There is also the option to let the vehicle land autonomously. For that engage the [Land mode](../flight_modes_mc/land.md) or [Return mode](../flight_modes_mc/return.md).
+Є також можливість дозволити апарату приземлитися автономно. Для цього активуйте [режим посадки](../flight_modes_mc/land.md) або [режим повернення](../flight_modes_mc/return.md).
 
 :::note
-If you see the vehicle "twitch" during landing (turn down the motors, and then immediately turn them back up) this is probably caused by a poor [Land Detector Configuration](../advanced_config/land_detector.md) (specifically, a poorly set [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)). :::
+Якщо ви бачите, що транспортний засіб "смикається" під час приземлення (вимкніть мотори, а потім негайно ввімкніть їх знову), це, ймовірно, спричинено поганою [конфігурацією детектора землі](../advanced_config/land_detector.md) (зокрема, погано налаштованою [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)). :::
 
 
-### Fixed-wing Landing
+### Посадка апарату з фіксованим крилом
 
-[Stabilized mode](../flight_modes_fw/stabilized.md), [Acro mode](../flight_modes_fw/acro.md) or [Manual mode](../flight_modes_fw/manual.md) are recommended for landing (just as they are for takeoff). In these modes the pilot has full control over the motor thrust, which is required to perform a manual flaring maneuver when close to the ground (raising the vehicle nose without increasing throttle). You should perform the landing in headwind to reduce the groundspeed before touching down.
+[Режим стабілізації](../flight_modes_fw/stabilized.md), [Акробатичний режим](../flight_modes_fw/acro.md) або [Ручний режим](../flight_modes_fw/manual.md) рекомендуються для посадки (як і для зльоту). У цих режимах пілот має повний контроль над тягою мотора, що необхідно для виконання ручного маневру випрямлення під час наближення до землі (підіймання носа апарату без збільшення газу). Ви повинні виконати посадку проти вітру, щоб зменшити швидкість над землею перед приземленням.
 
-For auto landings you should use a [Fixed-Wing Mission Landing](../flight_modes_fw/mission.md#mission-landing). This landing is defined in a mission, and can be used in either [Mission](../flight_modes_fw/mission.md) or [Return](../flight_modes_fw/return.md) modes.
+Для автоматичних посадок ви повинні використовувати [Місію посадки апарата з фіксованим крилом](../flight_modes_fw/mission.md#mission-landing). Ця посадка визначається в місії й може використовуватися як у [режимі місії](../flight_modes_fw/mission.md), так і в [режимі повернення](../flight_modes_fw/return.md).
 
-The automatic [Land mode](../flight_modes_fw/land.md) mode is not recommended unless absolutely necessary, as it cannot account for underlying terrain.
+Автоматичний [режим посадки](../flight_modes_fw/land.md) не рекомендується, окрім випадків, коли це абсолютно необхідно, оскільки він не враховує рельєф місцевості.
 <!-- Added this to make it more generic: We'll split this out later -->
 
-Note that vehicles automatically disarm on landing by default:
+Зверніть увагу, що за замовчанням апарати автоматично вимикаються після посадки:
 
-- Use [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to set the time to auto-disarm after landing (or disable it altogether).
-- Manually disarm by putting the throttle stick in the bottom left corner.
+- Використовуйте [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND), щоб встановити час для автоматичного вимкнення після посадки (або повністю вимкнути цю функцію).
+- Вручну вимикайте, помістивши стік газу в нижній лівий кут.
 
-## Flight Controls/Commands
+## Політні керування/команди
 
-All flying, including takeoff and landing, is controlled using the 4 basic commands: roll, yaw, pitch and throttle.
+Все польотне керування, включаючи зліт і посадку, виконується за допомогою 4 основних команд: roll, тобто крен, yaw, тобто поворот, pitch, тобто тангаж, та throttle, тобто газ.
 
-![RC Basic Commands](../../assets/flying/rc_basic_commands.png)
+![Основні команди радіокерування](../../assets/flying/rc_basic_commands.png)
 
-In order to control your aircraft you need to understand how the basic Roll, Pitch, Yaw and Throttle commands affect movement in 3D space. This differs depending on whether you're controlling a forward-flying aircraft like a plane, or a "hover aircraft" like a multicopter.
+Для керування вашим літальним апаратом вам потрібно розуміти, як основні команди Roll, Pitch, Yaw та Throttle впливають на рух у тривимірному просторі. Це залежить від того, чи керуєте ви повітряним апаратом, що летить вперед, наприклад літаком, чи "повітряним апаратом, який може зависати", таким як мультикоптер.
 
-### Hover Aircraft
+### Повітряні апарати, що можуть зависати
 
-Hover aircraft (Copter, VTOL in hover mode) respond to the movement commands as shown below:
+Повітряні апарати, що можуть зависати (коптери, VTOL у режимі зависання), реагують на команди руху, як показано нижче:
 
-![Basic Movements Multicopter](../../assets/flying/basic_movements_multicopter.png)
+![Основні переміщення мультикоптера](../../assets/flying/basic_movements_multicopter.png)
 
-- Pitch => Forward/back.
-- Roll => Left/right.
-- Yaw => Left/right rotation around the centre of the frame.
-- Throttle => Changed altitude/speed.
+- Pitch => Вперед/назад.
+- Roll => Ліворуч/Праворуч.
+- Yaw => Обертання ліворуч/праворуч навколо центру рами.
+- Throttle => Змінена висота/швидкість.
 
-### Forward-flying Aircraft
+### Повітряні апарати, що летять вперед
 
-Forward-flying aircraft (planes, VTOL in forward flight) respond to the movement commands as shown below:
+Повітряні апарати, що летять вперед (літаки, VTOL у режимі прямого польоту), реагують на команди руху, як показано нижче:
 
-![Basic Movements Forward](../../assets/flying/basic_movements_forward.png)
+![Основні переміщення вперед](../../assets/flying/basic_movements_forward.png)
 
-- Pitch => Up/down.
-- Roll => Left/right and a turn.
-- Yaw => Left/right tail rotation and turn.
-- Throttle => Changed forward speed.
+- Pitch => Вгору/вниз.
+- Roll => Ліворуч/праворуч та поворот.
+- Yaw => Обертання хвоста ліворуч/праворуч та поворот.
+- Throttle => Змінена швидкість руху вперед.
 
 :::note
-The best turn for airplanes is called a coordinated turn, and is performed using roll and little yaw at the same time.
-This maneuver requires experience!
+Найкращий поворот для літаків називається координованим поворотом і виконується за допомогою крену та невеликого повороту одночасно.
+Цей маневр вимагає досвіду!
 :::
 
-## Assisted Flight
+## Політ з підтримкою
 
-Even with an understanding of how the vehicle is controlled, flight in fully manual mode can be quite unforgiving. New users should [configure their transmitter](../config/flight_mode.md) to use flight modes where the autopilot automatically compensates for erratic user input or environmental factors.
+Навіть з розумінням того, як керується апарат, політ у повністю ручному режимі може бути досить невблаганним. Нові користувачі повинні [налаштувати свій передавач](../config/flight_mode.md) на використання режимів польоту, де автопілот автоматично компенсує неуважні дії користувача або вплив зовнішніх факторів.
 
-The following three modes are highly recommended for new users:
+Наступні три режими настійно рекомендуються для нових користувачів:
 
-* Stabilized - Vehicle hard to flip, and will level-out if the sticks are released (but not hold position)
-* Altitude - Climb and drop are controlled to have a maximum rate.
-* Position - When sticks are released the vehicle will stop (and hold position against wind drift)
+* Стабілізований режим - апарат важко перевернути, і він вирівнюватиметься, якщо відпустити стіки (але не утримуватиме позицію)
+* Режим висоти - підйом і спуск контролюються для досягнення максимальної швидкості.
+* Режим позиціювання - коли стіки відпущені, апарат зупиниться (і утримуватиме позицію проти руху вітру)
 
 :::note
-You can also access automatic modes through the buttons on the bottom of the *QGroundControl* main flight screen. :::
+Ви також можете отримати доступ до автоматичних режимів за допомогою кнопок у нижній частині основного польотного екрана *QGroundControl*. :::

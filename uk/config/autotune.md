@@ -203,7 +203,7 @@ If not, perhaps say "not very" but you should expect that the vehicle might defl
 
 -->
 
-## See also
+## Дивись також
 
 - [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter_basic.md) (Manual/Simple)
 - [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) (Advanced/Detailed)

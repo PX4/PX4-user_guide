@@ -1,17 +1,17 @@
-# Using Vision or Motion Capture Systems for Position Estimation
+# Використання Vision або Motion Capture систем для Position Estimation
 
-Visual Inertial Odometry (VIO) and Motion Capture (MoCap) systems allow vehicles to navigate when a global position source is unavailable or unreliable (e.g. indoors, or when flying under a bridge. etc.).
+Системи візуальної інерційної одометрії (VIO) та захоплення руху (MoCap) дозволяють транспортним засобам здійснювати навігацію, коли джерело глобального позиціонування недоступне або ненадійне (наприклад, в приміщенні або під час прольоту під мостом. тощо).
 
-Both VIO and MoCap determine a vehicle's *pose* (position and attitude) from "visual" information. The main difference between them is the frame perspective:
-- VIO uses *onboard sensors* to get pose data from the vehicle's perspective (see [egomotion](https://en.wikipedia.org/wiki/Visual_odometry#Egomotion)).
-- MoCap uses a system of *off-board cameras* to get vehicle pose data in a 3D space (i.e. it is an external system that tells the vehicle its pose).
+І VIO, і MoCap визначають *положення* (положення і позицію) транспортного засобу на основі "візуальної" інформації. Основна відмінність між ними - перспектива кадру:
+- VIO використовує *бортові датчики* для отримання даних про позу з точки зору транспортного засобу (див. [egomotion](https://en.wikipedia.org/wiki/Visual_odometry#Egomotion)).
+- MoCap використовує систему *зовнішніх камер* для отримання даних про положення транспортного засобу в 3D-просторі (тобто це зовнішня система, яка повідомляє транспортному засобу його положення).
 
-Pose data from either type of system can be used to update a PX4-based autopilot's local position estimate (relative to the local origin) and also can optionally also be fused into the vehicle attitude estimation. Additionally, if the external pose system also provides linear velocity measurements, it can be used to improve the state estimate (fusion of linear velocity measurements is only supported by the EKF2).
+Дані про положення, отримані від обох типів систем, можуть бути використані для оновлення оцінки локального положення автопілота на базі PX4 (відносно локальної точки відліку), а також, за бажанням, можуть бути інтегровані в оцінку положення транспортного засобу. Крім того, якщо зовнішня система позиціонування також забезпечує вимірювання лінійної швидкості, її можна використовувати для покращення оцінки стану (об'єднання вимірювань лінійної швидкості підтримується лише EKF2).
 
-This topic explains how to configure a PX4-based system to get data from MoCap/VIO systems (either via ROS or some other MAVLink system) and more specifically how to set up MoCap systems like VICON and Optitrack, and vision-based estimation systems like [ROVIO](https://github.com/ethz-asl/rovio), [SVO](https://github.com/uzh-rpg/rpg_svo) and [PTAM](https://github.com/ethz-asl/ethzasl_ptam)).
+У цій темі пояснюється, як налаштувати систему на базі PX4 для отримання даних від систем MoCap/VIO (або через ROS, або через іншу систему MAVLink) і, зокрема, як налаштувати системи MoCap, такі як VICON і Optitrack, і системи оцінки на основі комп'ютерного зору, такі як [ROVIO](https://github.com/ethz-asl/rovio), [SVO](https://github.com/uzh-rpg/rpg_svo) та [PTAM](https://github.com/ethz-asl/ethzasl_ptam)).
 
 :::note
-The instructions differ depending on whether you are using the EKF2 or LPE estimator.
+Інструкції відрізняються залежно від того, чи використовуєте ви оцінювач EKF2 або LPE.
 :::
 
 ## Інтеграція PX4 з MAVLink
@@ -25,52 +25,53 @@ PX4 використовує наступні повідомлення MAVLink �
 | [ATT_POS_MOCAP](https://mavlink.io/en/messages/common.html#ATT_POS_MOCAP)                                                                                            | `vehicle_mocap_odometry`  |
 | [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) (`frame_id =` [MAV_FRAME_MOCAP_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_MOCAP_NED)) | `vehicle_mocap_odometry`  |
 
-EKF2 only subscribes to `vehicle_visual_odometry` topics and can hence only process the first two messages (a MoCap system must generate these messages to work with EKF2). The odometry message is the only message that can send also linear velocities to PX4. The LPE estimator subscribes to both topics, and can hence process all the above messages.
+EKF2 підписується лише на теми `vehicle_visual_odometry` і тому може обробляти лише перші дві повідомлення (система MoCap повинна генерувати ці повідомлення для роботи з EKF2). Повідомлення odometry є єдиним повідомленням, яке може також відправляти лінійні швидкості в PX4. Оцінювач LPE підписується на обидві теми, тому може обробляти всі вищезазначені повідомлення.
 
 :::tip
-EKF2 is the default estimator used by PX4.
-It is better tested and supported than LPE, and should be used by preference.
+
+EKF2 - це типовий оцінювач, який використовується PX4.
+Він краще протестований і підтримується, ніж LPE, і його слід використовувати за умовчанням.
 :::
 
-The messages should be streamed at between 30Hz (if containing covariances) and 50 Hz. If the message rate is too low, EKF2 will not fuse the external vision messages.
+Повідомлення повинні транслюватися з частотою між 30 Гц (якщо містять коваріанти) і 50 Гц. Якщо частота повідомлень занадто низька, EKF2 не буде обробляти повідомлення з зовнішнього візуального спостереження.
 
-The following MAVLink "vision" messages are not currently supported by PX4: [GLOBAL_VISION_POSITION_ESTIMATE](https://mavlink.io/en/messages/common.html#GLOBAL_VISION_POSITION_ESTIMATE), [VISION_SPEED_ESTIMATE](https://mavlink.io/en/messages/common.html#VISION_SPEED_ESTIMATE), [VICON_POSITION_ESTIMATE](https://mavlink.io/en/messages/common.html#VICON_POSITION_ESTIMATE)
+Наступні повідомлення "візій" MAVLink наразі не підтримуються PX4: [GLOBAL_VISION_POSITION_ESTIMATE](https://mavlink.io/en/messages/common.html#GLOBAL_VISION_POSITION_ESTIMATE), [VISION_SPEED_ESTIMATE](https://mavlink.io/en/messages/common.html#VISION_SPEED_ESTIMATE), [VICON_POSITION_ESTIMATE](https://mavlink.io/en/messages/common.html#VICON_POSITION_ESTIMATE)
 
 
-## Reference Frames
+## Основні відмінності
 
-PX4 uses FRD (X **F**orward, Y **R**ight and Z **D**own) for the local body frame as well for the reference frame. When using the heading of the magnetometer, the PX4 reference frame x axis will be aligned with north, so therefore it is called NED (X **N**orth, Y **E**ast, Z **D**own). The heading of the reference frame of the PX4 estimator and the one of the external pose estimate will not match in most cases. Therefore the reference frame of the external pose estimate is named differently, it is called [MAV_FRAME_LOCAL_FRD](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_FRD).
+PX4 використовує FRD (**X** вперед, **Y** праворуч і **Z** донизу) для локального тілесного каркасу, а також для опорного каркасу. Коли використовується напрямок магнітометра, вісь x опорного каркасу PX4 буде вирівнена з північним напрямком, тому вона називається NED (**X** північ, **Y** схід, **Z** донизу). Напрямок опорного каркасу оцінювача PX4 та напрямок зовнішньої оцінки положення в більшості випадків не збігаються. Тому напрямок опорного каркасу зовнішньої оцінки положення має різну назву - він називається [MAV_FRAME_LOCAL_FRD](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_FRD).
 
-Depending on the source of your reference frame, you will need to apply a custom transformation to the pose estimate before sending the MAVLink Vision/MoCap message. This is necessary to change the orientation of the parent and child frame of the pose estimate, such that it fits the PX4 convention. Have a look at the MAVROS [*odom* plugin](https://github.com/mavlink/mavros/blob/master/mavros_extras/src/plugins/odom.cpp) for the necessary transformations.
+Залежно від джерела вашого опорного каркасу, вам потрібно буде застосувати власне перетворення до оцінки положення перед надсиланням повідомлення MAVLink Vision/MoCap. Це необхідно для зміни орієнтації батьківського та дочірнього каркасу оцінки положення так, щоб вона відповідала конвенції PX4. Подивіться на плагін оцінювання MAVROS [*odom* ](https://github.com/mavlink/mavros/blob/master/mavros_extras/src/plugins/odom.cpp)для необхідних перетворень.
 
-:::tip ROS
-users can find more detailed instructions below in [Reference Frames and ROS](#reference-frames-and-ros).
+:::tip
+Користувачі ROS можуть знайти більш детальні інструкції нижче в розділі [Основні відмінності та ROS](#reference-frames-and-ros).
 :::
 
-For example, if using the Optitrack framework the local frame has $x{}$ and $z{}$ on the horizontal plane (*x* front and *z* right) while *y* axis is vertical and pointing up. A simple trick is swapping axis in order to obtained NED convention.
+Наприклад, якщо ви використовуєте фреймворк Optitrack, локальний каркас має координати $x{}$ та $z{}$ на горизонтальній площині (*x* вперед і *z* праворуч), в той час як вісь *y* є вертикальною і спрямована вверх. Простий трюк полягає в тому, що обмінюються вісіми, щоб отримати конвенцію NED.
 
-If `x_{mav}`, `y_{mav}` and `z_{mav}` are the coordinates that are sent through MAVLink as position feedback, then we obtain:
+Якщо `x_{mav}`, `y_{mav}` і `z_{mav}` - це координати, які надсилаються через MAVLink як зворотний зв'язок з позицією, тоді ми отримуємо:
 ```
 x_{mav} = x_{mocap}
 y_{mav} = z_{mocap}
 z_{mav} = - y_{mocap}
 ```
 
-Regarding the orientation, keep the scalar part *w* of the quaternion the same and swap the vector part *x*, *y* and *z* in the same way. You can apply this trick with every system - if you need to obtain a NED frame, look at your MoCap output and swap axis accordingly.
+Щодо орієнтації, залишайте частину скаляра *w* кватерніону такою самою і обмінюйте частину вектора *x*, *y* та *z* так само. Ви можете застосувати цей трюк у будь-якій системі - якщо вам потрібно отримати рамку NED, подивіться на вивід вашого MoCap та обміняйте вісі відповідно.
 
 
-## EKF2 Tuning/Configuration
+## Конфігурація та налаштування EKF2
 
-Note: this is a quick overview. For more detailed information, check the [EKF2 tuning guide](../advanced_config/tuning_the_ecl_ekf.md)
+Примітка: це короткий огляд. Для отримання більш детальної інформації перегляньте [посібник з налаштування EKF2](../advanced_config/tuning_the_ecl_ekf.md)
 
-The following parameters must be set to use external position information with EKF2 (these can be set in *QGroundControl* > **Vehicle Setup > Parameters > EKF2**).
+Наступні параметри повинні бути встановлені для використання зовнішньої інформації про положення з EKF2 (їх можна встановити в *QGroundControl* > **Налаштування транспортного засобу > Параметри > EKF2**).
 
-| Parameter                                                                                                                                                                                                                          | Setting for External Position Estimation                                                                                                               |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL)                                                                                                                                                           | Set *horizontal position fusion*, *vertical vision fusion*, *velocity fusion*, and *yaw fusion*, according to your desired fusion model.               |
-| [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)                                                                                                                                                           | Set to *Vision* to use the vision as the reference source for altitude estimation.                                                                     |
-| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                         | Set to the difference between the timestamp of the measurement and the "actual" capture time. For more information see [below](#tuning-EKF2_EV_DELAY). |
-| [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | Set the position of the vision sensor (or MoCap markers) with respect to the robot's body frame.                                                       |
+| Параметр                                                                                                                                                                                                                           | Налаштування для Зовнішньої Оцінки Положення                                                                                                                                 |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL)                                                                                                                                                           | Встановіть *злиття горизонтального положення*, *вертикального положення* за допомогою візій, *злиття швидкості* та *злиття курсу* відповідно до вашої бажаної моделі злиття. |
+| [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)                                                                                                                                                           | Встановіть на *Vision* для використання візії як джерела посилання для оцінки висоти.                                                                                        |
+| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                         | Встановіть різницю між міткою часу вимірювання та "фактичним" часом захоплення. Для отримання більш детальної інформації див. [нижче](#tuning-EKF2_EV_DELAY).                |
+| [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | Встановіть положення візійного датчика (або маркерів MoCap) відносно тіла робота.                                                                                            |
 
 You can also disable GNSS, baro and range finder fusion using [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL), [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) and [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL), respectively.
 

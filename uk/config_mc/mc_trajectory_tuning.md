@@ -14,7 +14,7 @@ This guide is for advanced users/experts.
 Follow the instructions in the [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) _before_ doing any of the tuning described here. Do not use these tuning parameters to fix bad tracking or vibration!
 :::
 
-## Overview
+## Загальний огляд
 
 The input to the P/PID controller is a _desired setpoint_ that the vehicle should attempt to track. [PID Tuning](../config_mc/pid_tuning_guide_multicopter.md) ("Lower level tuning") aims to reduce the error between the desired setpoint and the estimate of the vehicle state.
 
