@@ -108,17 +108,17 @@ Order from [CUAV](https://store.cuav.net/).
 
 The [Pixhawk V6X Wiring Quick Start](../assembly/quick_start_cuav_pixhawk_v6x.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
 
-## Pinouts
+## Схема розташування виводів
 
 ![Pixhawk V6x Pinout](../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x_pinouts.png)
 
-Notes:
+Примітки:
 
 - The [camera capture pin](../peripherals/camera.md#camera-capture) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
-| UART   | Device     | Port          |
+| UART   | Пристрій   | Порт          |
 | ------ | ---------- | ------------- |
 | USART1 | /dev/ttyS0 | GPS           |
 | USART2 | /dev/ttyS1 | TELEM3        |
@@ -140,8 +140,8 @@ _Pixhawk V6X_ can be triple-redundant on the power supply if three power sources
 
 Under these conditions all power sources will be used in this order to power the system:
 
-1. **POWER C1**, **POWER C2**, **POWER1** and **POWER2** inputs (4.75V to 5.7V)
-2. **USB** input (4.75V to 5.25V)
+1. **POWER C1**, **POWER C2**, **POWER1** і **POWER2** входи (4.75V в 5.7V)
+2. Вхід **USB** (4.75V до 5.25V)
 
 **Absolute Maximum Ratings**
 
@@ -182,8 +182,8 @@ The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debu
 | Pin      | Сигнал           | Вольт |
 | -------- | ---------------- | ----- |
 | 1 (red)  | `Vtref`          | +3.3V |
-| 2 (blk)  | Console TX (OUT) | +3.3V |
-| 3 (blk)  | Console RX (IN)  | +3.3V |
+| 2 (blk)  | Консоль TX (OUT) | +3.3V |
+| 3 (blk)  | Консоль RX (IN)  | +3.3V |
 | 4 (blk)  | `SWDIO`          | +3.3V |
 | 5 (blk)  | `SWCLK`          | +3.3V |
 | 6 (blk)  | `SWO`            | +3.3V |
