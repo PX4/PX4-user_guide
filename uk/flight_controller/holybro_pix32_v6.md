@@ -17,7 +17,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 :::  
 -->
 
-## Introduction
+## Вступ
 
 Inside the Pix32 v6, you can find an STMicroelectronics® based STM32H743, paired with sensor technology from Bosch® & InvenSense®, giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
 
@@ -32,7 +32,7 @@ This flight controller is perfect for people that is looking for a affordable an
 - Integrated vibration isolation system to filter out high frequency vibration and reduce noise to ensure accurate readings
 - IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs
 
-# Technical Specification
+# Технічна специфікація
 
 ### **Processors & Sensors**
 
@@ -56,12 +56,12 @@ This flight controller is perfect for people that is looking for a affordable an
   - TELEM1 Max output current limiter: 1.5A
   - All other port combined output current limiter: 1.5A
 
-### **Mechanical data**
+### **Механічні характеристики**
 
 - FC Module Dimensions: 44.8 x 44.8 x 13.5
 - FC Module Weight: 36g
 
-### **Interfaces**
+### **Інтерфейси**
 
 - 16- PWM servo outputs (8 from IO, 8 from FMU)
 - 3 general purpose serial ports
@@ -85,7 +85,7 @@ This flight controller is perfect for people that is looking for a affordable an
 - Other Characteristics:
   - Operating & storage temperature: -40 ~ 85°c
 
-## Where to Buy
+## Де купити
 
 Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/pix32-v6).
 
@@ -94,7 +94,7 @@ Order from [Holybro](https://holybro.com/collections/autopilot-flight-controller
 - [Holybro Pix32 v6 Baseboard Ports Pinout](https://docs.holybro.com/autopilot/pix32-v6/pix32-v6-baseboard-ports)
 - [Holybro Pix32 v6 Baseboard Ports Pinout](https://docs.holybro.com/autopilot/pix32-v6/pix32-v6-mini-base-ports)
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
 | UART   | Device     | Port          |
 | ------ | ---------- | ------------- |
@@ -106,7 +106,7 @@ Order from [Holybro](https://holybro.com/collections/autopilot-flight-controller
 | UART7  | /dev/ttyS5 | TELEM1        |
 | UART8  | /dev/ttyS6 | GPS2          |
 
-## Dimensions
+## Розміри
 
 - [Pix32v6 Dimensions](https://docs.holybro.com/autopilot/pix32-v6/dimensions)
 
@@ -159,7 +159,7 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
 
-| Pin      | Signal           | Volt  |
+| Pin      | Сигнал           | Volt  |
 | -------- | ---------------- | ----- |
 | 1 (red)  | `Vtref`          | +3.3V |
 | 2 (blk)  | Console TX (OUT) | +3.3V |
@@ -177,17 +177,17 @@ For information about using this port see:
 - [SWD Debug Port](../debug/swd_debug.md)
 - [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
 
-## Peripherals
+## Периферія
 
 - [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
 - [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
 - [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## Підтримувані платформи / Airframes
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## Подальша інформація
 
 - [Holybro Docs](https://docs.holybro.com/) (Holybro)
 - [Reference: Pixhawk 6C Wiring QuickStart](../assembly/quick_start_pixhawk6c.md)
