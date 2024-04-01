@@ -757,7 +757,7 @@ If any are missing, they can be added separately:
    ::::
 
 
-## Additional information
+## Додаткова інформація
 
 - [ROS 2 in PX4: Technical Details of a Seamless Transition to XRCE-DDS](https://www.youtube.com/watch?v=F5oelooT67E) - Pablo Garrido & Nuno Marques (youtube)
 - [DDS and ROS middleware implementations](https://github.com/ros2/ros2/wiki/DDS-and-ROS-middleware-implementations)
