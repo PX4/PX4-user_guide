@@ -28,12 +28,12 @@ PX4 надає декілька методів для написання юні�
 
 Кроки для створення нових функціональних тестів такі:
 
-1. In general (and similar to unit tests), functional tests should be arranged in three sections: setup, run, check results. Each test should test one very specific behavior or setup case, so if a test fails it is obvious what is wrong. Please try to follow these standards when possible.
-1. Copy and rename the example functional test [ParameterTest](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/parameters/ParameterTest.cpp) to the directory the code to be tested is in.
+1. Загалом (і подібно до модульних тестів), функціональні тести мають бути організовані за трьома розділами: налаштування, запуск, перевірка результатів. Кожен тест повинен перевіряти одну дуже конкретну поведінку або випадок налаштування, тому, якщо тест провалиться, стане очевидним, що не так. Будь ласка, намагайтеся дотримуватися цих стандартів, коли це можливо.
+1. Скопіюйте та перейменуйте приклад функціонального тесту [ParameterTest](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/parameters/ParameterTest.cpp) у каталог, у якому знаходиться код, який потрібно перевірити.
 1. Перейменуйте клас з ParameterTest на те, що краще представляє код, що тестується
-1. Add the new file to the directory's `CMakeLists.txt`. It should look something like `px4_add_functional_gtest(SRC MyNewFunctionalTest.cpp LINKLIBS <library_to_be_tested>)`
-1. Add the desired test functionality. This will mean including the header files required for your specific tests, adding new tests (each with an individual name) and putting the logic for the test setup, running the code to be tested and verifying that it behaves as expected.
-1. If additional library dependencies are required, they should also be added to the CMakeLists after the `LINKLIBS` as shown above.
+1. Додайте новий файл до `CMakeLists.txt` каталогу. Це має виглядати приблизно так: `px4_add_functional_gtest(SRC MyNewFunctionalTest.cpp LINKLIBS <library_to_be_tested><library_to_be_tested>)`
+1. Додайте бажану функцію тестування. Це означатиме включення файлів заголовків, необхідних для ваших конкретних тестів, додавання нових тестів (кожен з індивідуальною назвою) і розміщення логіки для налаштування тесту, запуск коду, який потрібно перевірити, і перевірку його поведінки, як очікувалося.
+1. Якщо потрібні додаткові бібліотечні залежності, їх також слід додати до CMakeLists після `LINKLIBS`, як показано вище.
 
 Tests can be run via `make tests`, after which you will find the binary in `build/px4_sitl_test/functional-MyNewFunctional`. It can be run directly in a debugger, however be careful to only run one test per executable invocation using the [--gtest_filter=\<regex\>](https://github.com/google/googletest/blob/main/docs/advanced.md#running-a-subset-of-the-tests) arguments, as some parts of the uORB and parameter libraries don't clean themselves up perfectly and may result in undefined behavior if set up multiple times.
 
@@ -57,7 +57,7 @@ SITL unit tests should be used when you specifically need all of the flight cont
    ut_declare_test_c(test_[description], [Description]Test)
    ```
 
-   Here is a template:
+   Тут є шаблон:
 
    ```cpp
    #include <unit_test.h>
@@ -106,15 +106,15 @@ SITL unit tests should be used when you specifically need all of the flight cont
    ut_declare_test_c(test_[description], [Description]Test)
    ```
 
-   Note that `ut_[name of one of the unit test functions]` corresponds to one of the unittest functions defined within [unit_test.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/include/unit_test.h).
+   Зауважте, що `ut_[назва однієї з функцій модульного тестування]` відповідає одній із функцій модульного тестування, визначених у [unit_test.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/include/unit_test.h).
 
-1. Within [tests_main.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/systemcmds/tests/tests_main.h) define the new test:
+1. У [tests_main.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/systemcmds/tests/tests_main.h) визначте новий тест:
 
    ```cpp
    extern int test_[description](int argc, char *argv[]);
    ```
 
-1. Within [tests_main.c](https://github.com/PX4/PX4-Autopilot/blob/main/src/systemcmds/tests/tests_main.c) add description name, test function and option:
+1. У [tests_main.c](https://github.com/PX4/PX4-Autopilot/blob/main/src/systemcmds/tests/tests_main.c) додайте назву опису, тестову функцію та параметр:
 
    ```cpp
    ...
@@ -125,7 +125,7 @@ SITL unit tests should be used when you specifically need all of the flight cont
    }
    ```
 
-   `OPTION` can be `OPT_NOALLTEST`,`OPT_NOJIGTEST` or `0` and is considered if within px4 shell one of the two commands are called:
+   `OPTION` може бути `OPT_NOALLTEST`,`OPT_NOJIGTEST` або `0` і розглядається, якщо в оболонці px4 викликається одна з двох команд:
 
    ```sh
    pxh> tests all
@@ -137,7 +137,7 @@ SITL unit tests should be used when you specifically need all of the flight cont
    pxh> tests jig
    ```
 
-   If a test has option `OPT_NOALLTEST`, then that test will be excluded when calling `tests all`. The same is true for `OPT_NOJITEST` when command `test jig` is called. Option `0` means that the test is never excluded, which is what most developer want to use.
+   Якщо тест має параметр `OPT_NOALLTEST`, тоді цей тест буде виключено під час виклику `tests all`. Те саме стосується `OPT_NOJITEST`, коли викликається команда `test jig`. Варіант `0` означає, що тест ніколи не виключається, і це те, що хоче використовувати більшість розробників.
 
 1. Додайте тест `test_[description].cpp` до [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/systemcmds/tests/CMakeLists.txt).
 
