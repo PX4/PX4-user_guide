@@ -131,7 +131,7 @@ SITL unit tests should be used when you specifically need all of the flight cont
    pxh> tests all
    ```
 
-   or
+   або
 
    ```sh
    pxh> tests jig
