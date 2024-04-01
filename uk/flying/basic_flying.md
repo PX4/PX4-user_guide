@@ -32,26 +32,26 @@
 
 ### Зліт мультикоптера
 
-Пілоти мультикоптерів (та VTOL у режимі мультикоптера) можуть злітати *вручну*, активувавши будь-який ручний режим, увімкнувши апарат, а потім піднявши стік газу до рівня, коли мотори дадуть достатньо тяги для підняття з землі. In [Position mode](../flight_modes_mc/position.md) or [Altitude mode](../flight_modes_mc/altitude.md) the throttle stick has to be increased to above 62.5% to command a climb rate and make the vehicle leave the ground. Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
+Пілоти мультикоптерів (та VTOL у режимі мультикоптера) можуть злітати *вручну*, активувавши будь-який ручний режим, увімкнувши апарат, а потім піднявши стік газу до рівня, коли мотори дадуть достатньо тяги для підняття з землі. У [режимі позиціювання](../flight_modes_mc/position.md) або [режимі висоти](../flight_modes_mc/altitude.md) потрібно збільшити стік газу до понад 62.5%, щоб задати швидкість підйому та змусити апарат піднятися з землі. Вище цього значення всі контролери активуються, і апарат переходить на рівень газу, необхідний для зависання ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
 
-[Throw Launch](../flight_modes_mc/throw_launch.md) is also supported, in which the vehicle activates motors after it detects that it has reached the apex of a throw, and then operates according to its current mode.
+Також підтримується [запуск через кидання](../flight_modes_mc/throw_launch.md), при якому апарат активує мотори після того, як виявляє, що досяг апогею кидку, а потім працює відповідно до свого поточного режиму.
 
-Alternatively the takeoff can performed using the automatic [Takeoff mode](../flight_modes_mc/takeoff.md).
-
-:::note
-The vehicle may disarm if you take too long to take off after arming (tune the timeout using [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)). :::
+Альтернативно зліт можна виконати, використовуючи автоматичний [режим зльоту](../flight_modes_mc/takeoff.md).
 
 :::note
-The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff. :::
-
-### Fixed-wing Takeoff
+Апарат може вимкнутися, якщо ви занадто довго готуєтеся до зльоту після увімкнення (налаштуйте тайм-аут, використовуючи [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)). :::
 
 :::note
-Taking off manually (and landing) is not easy!
-We recommend using with the automatic modes instead, especially for inexperienced pilots.
+[Детектор несправностей](../config/safety.md#failure-detector) автоматично зупинить мотори, якщо на зльоті виникне проблема. :::
+
+### Зліт апарату з фіксованим крилом
+
+:::note
+Злетіти (та приземлитися) вручну не так просто!
+Ми рекомендуємо використовувати автоматичні режими, особливо для недосвідчених пілотів.
 :::
 
-[Stabilized mode](../flight_modes_fw/stabilized.md), [Acro mode](../flight_modes_fw/acro.md) or [Manual mode](../flight_modes_fw/manual.md) mode are recommended for manual takeoff. [Position mode](../flight_modes_fw/position.md) and [Altitude mode](../flight_modes_fw/altitude.md) can also be used, but it is important to accelerate the vehicle sufficiently before bringing them airborne — strong thrust if hand-launched, long runway phase for runway takeoff (this is required because the controller in these modes can prioritize airspeed over altitude tracking).
+Для ручного зльоту рекомендуються [режим стабілізації](../flight_modes_fw/stabilized.md), [акробатичний режим](../flight_modes_fw/acro.md) або [ручний режим](../flight_modes_fw/manual.md). [Position mode](../flight_modes_fw/position.md) and [Altitude mode](../flight_modes_fw/altitude.md) can also be used, but it is important to accelerate the vehicle sufficiently before bringing them airborne — strong thrust if hand-launched, long runway phase for runway takeoff (this is required because the controller in these modes can prioritize airspeed over altitude tracking).
 
 Manual takeoffs with hand-launched planes:
 - Ramp up the motor and throw the vehicle horizontally.
