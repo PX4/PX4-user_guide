@@ -1,6 +1,6 @@
 # ROS 2 Offboard Control Приклад
 
-The following C++ example shows how to do position control in [offboard mode](../flight_modes/offboard.md) from a ROS 2 node.
+Наступний приклад на C++ показує, як виконати керування положенням у режимі [offboard mode](../flight_modes/offboard.md) з вузла ROS 2.
 
 The example starts sending setpoints, enters offboard mode, arms, ascends to 5 metres, and waits. While simple, it shows the main principles of how to use offboard control and how to send vehicle commands.
 
