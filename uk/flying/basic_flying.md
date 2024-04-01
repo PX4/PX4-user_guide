@@ -51,29 +51,29 @@
 Ми рекомендуємо використовувати автоматичні режими, особливо для недосвідчених пілотів.
 :::
 
-Для ручного зльоту рекомендуються [режим стабілізації](../flight_modes_fw/stabilized.md), [акробатичний режим](../flight_modes_fw/acro.md) або [ручний режим](../flight_modes_fw/manual.md). [Position mode](../flight_modes_fw/position.md) and [Altitude mode](../flight_modes_fw/altitude.md) can also be used, but it is important to accelerate the vehicle sufficiently before bringing them airborne — strong thrust if hand-launched, long runway phase for runway takeoff (this is required because the controller in these modes can prioritize airspeed over altitude tracking).
+Для ручного зльоту рекомендуються [режим стабілізації](../flight_modes_fw/stabilized.md), [акробатичний режим](../flight_modes_fw/acro.md) або [ручний режим](../flight_modes_fw/manual.md). [Режим позиціонування](../flight_modes_fw/position.md) та [режим висоти](../flight_modes_fw/altitude.md) також можуть бути використані, але важливо достатньо розігнати апарат перед його підняттям у повітря — сильний ривок при запуску з рук, довга фаза розгону для зльоту зі злітної смуги (це необхідно, тому що контролер в цих режимах може віддавати перевагу швидкості відносно повітряного потоку над відстеженням висоти).
 
-Manual takeoffs with hand-launched planes:
-- Ramp up the motor and throw the vehicle horizontally.
-- Do not pitch up too fast as this may stall the plane.
-- A good vehicle trim is crucial for safe hand-launch takeoffs, because if the vehicle doesn't fly level there is only a very short time for the pilot to react before the vehicle crashes!
+Ручні зльоти з літаками, що запускаються з рук:
+- Розженіть мотор і киньте апарат горизонтально.
+- Не підіймайте ніс занадто швидко, оскільки це може призвести до звалювання літака.
+- Хороший баланс апарату має вирішальне значення для безпечного ручного злету, оскільки якщо апарат не летить рівно, у пілота є дуже мало часу для реагування перед тим, як апарат розіб'ється!
 
-Manual takeoffs with runway-launched planes:
-- Accelerate on the runway until the speed is sufficient for takeoff.
-- If the plane has a steerable wheel, use the yaw stick to keep it on course.
-- Once the speed is sufficient pull up the nose with the pitch stick.
+Ручні зльоти з літаками, що запускаються зі злітної смуги:
+- Розганяйтеся на злітній смузі, поки швидкість не стане достатньою для зльоту.
+- Якщо у літака є кероване колесо, використовуйте yaw стік, щоб тримати його на курсі.
+- Як тільки швидкість стане достатньою, підніміть ніс літака за допомогою стіку pitch.
 
-Automatic takeoffs are possible in the [Mission mode](../flight_modes_fw/mission.md#mission-takeoff) or [Takeoff mode (FW)](../flight_modes_fw/takeoff.md). The pilot can take over manual control over the vehicle at any moment during the takeoff process or after it by changing into a manual flight mode.
+Автоматичні злети можливі у [режимі місії](../flight_modes_fw/mission.md#mission-takeoff) або [режимі зльоту (FW)](../flight_modes_fw/takeoff.md). Пілот може взяти апарат під ручне управління в будь-який момент під час процесу зльоту або після нього, перейшовши в режим ручного польоту.
 
-## Landing
+## Посадка
 
-### Multicopter Landing
+### Посадка мультикоптера
 
-Multicopters can be landed in any manual mode. Make sure to keep the throttle stick pulled down after touching down until the motors have switched off.
+Мультикоптери можуть приземлятися в будь-якому ручному режимі. Переконайтеся, що ви тримаєте стік газу опущеним після приземлення, поки мотори не вимкнуться.
 
-Note that vehicles automatically disarm on landing by default:
+Зверніть увагу, що за замовчанням апарати автоматично вимикаються після посадки:
 
-- Use [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to set the time to auto-disarm after landing (or disable it altogether).
+- Використовуйте [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) для встановлення часу автоматичного вимкнення після посадки (або повністю вимкніть цю функцію).
 - Manually disarm by putting the throttle stick in the bottom left corner.
 
 There is also the option to let the vehicle land autonomously. For that engage the [Land mode](../flight_modes_mc/land.md) or [Return mode](../flight_modes_mc/return.md).
