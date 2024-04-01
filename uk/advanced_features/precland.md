@@ -14,7 +14,7 @@ PX4 підтримує точне приземлення для _Multicopters_ �
 
 Точну посадку можна налаштувати як "обов'язкову" або "вигідну". Вибір режиму впливає на те, як виконується точна посадка.
 
-#### Required Mode
+#### Необхідний режим
 
 У _Required Mode_ транспортний засіб буде шукати ціль, якщо нічого не видно під час початку посадки. Транспортний засіб виконає точну посадку, якщо ціль буде знайдена.
 
@@ -24,7 +24,7 @@ PX4 підтримує точне приземлення для _Multicopters_ �
 Якщо використовується позамежна система позиціонування, PX4 передбачає, що ціль буде видима, коли отримує повідомлення MAVLink [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET).
 :::
 
-#### Opportunistic Mode
+#### Опортуністичний режим
 
 У режимі _Opportunistic Mode_ транспортний засіб використовуватиме точну посадку, _якщо_ (і тільки якщо) ціль буде видима, коли розпочинається посадка. Якщо ціль не видно, транспортний засіб негайно виконує _звичайну_ посадку на поточному місці.
 
@@ -48,49 +48,49 @@ PX4 підтримує точне приземлення для _Multicopters_ �
 
 <a id="mission"></a>
 
-### Mission Precision Landing
+### Місія Точна посадка
 
 Точне приземлення може бути запущено як частина [місії](../flying/missions.md), використовуючи [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) з відповідно встановленим `param2`:
 
-- `0`: Normal landing without using the target.
+- `0`: нормальне приземлення без використання цілі.
 - `1`: [Opportunistic](#opportunistic-mode) режим точної посадки
 - `2`: [Required](#required-mode) режим точної посадки
 
-### Return Mode Precision Landing
+### Режим повернення з точною посадкою
 
-Precision landing can be used in the [Return mode](../flight_modes/return.md) landing phase.
+Точна посадка може бути використана у фазі посадки у [режимі повернення](../flight_modes/return.md).
 
-This is enabled using the parameter [RTL_PLD_MD](../advanced_config/parameter_reference.md#RTL_PLD_MD), which takes the following values:
+Це вмикається за допомогою параметра [RTL_PLD_MD](../advanced_config/parameter_reference.md#RTL_PLD_MD), який приймає такі значення:
 
-- `0`: Precision landing disabled (land as normal).
-- `1`: [Opportunistic](#opportunistic-mode) режим точної посадки
-- `2`: [Required](#required-mode) режим точної посадки
+- `0`: Точна посадка вимкнена (посадка як зазвичай).
+- `1`: [Опортуничний](#opportunistic-mode) режим точної посадки.
+- `2`: [Вимагається](#required-mode) режим точної посадки.
 
-### Precision Landing Flight Mode
+### Режим польоту з точною посадкою
 
-Precision landing can be enabled by switching to the _Precision Landing_ flight mode.
+Точна посадка може бути ввімкнена, переключившись у режим польоту з _точною посадкою_.
 
-You can verify this using the [_QGroundControl_ MAVLink Console](../debug/mavlink_shell.md#qgroundcontrol-mavlink-console) to enter the following command:
+Ви можете перевірити це, використовуючи [консоль MAVLink _QGroundControl_](../debug/mavlink_shell.md#qgroundcontrol-mavlink-console) для введення наступної команди:
 
 ```sh
 commander mode auto:precland
 ```
 
 :::note
-When switching to the mode in this way, the precision landing is always "required"; there is no way to specify the type of landing.
+При переході до режиму таким чином, точна посадка завжди "вимагається"; немає способу вказати тип посадки.
 :::
 
 :::note
-At time of writing is no _convenient_ way to directly invoke precision landing (other than commanding return mode):
+На момент написання немає _зручного_ способу безпосередньо викликати точну посадку (окрім командування режимом повернення):
 
-- _QGroundControl_ does not provide it as a UI option.
-- [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) only works in missions.
-- [MAV_CMD_DO_SET_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_MODE) should work, but you will need to determine the appropriate base and custom modes used by PX4 to represent the precision landing mode.
+- _QGroundControl_ не надає його як параметр користувальницького інтерфейсу.
+- Команда [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) працює лише в місіях.
+- Команда [MAV_CMD_DO_SET_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_MODE) має працювати, але вам потрібно визначити відповідні базові і користувацькі режими, які використовує PX4 для представлення режиму точної посадки.
 :::
 
 ## Налаштування обладнання
 
-### IR Sensor/Beacon Setup
+### Налаштування IR Сенсора/Бікона
 
 Рішення з інфрачервоним датчиком/посадковим маяком потребує датчика [IR-LOCK](https://irlock.com/products/ir-lock-sensor-precision-landing-kit) та напрямленого донизу [датчика відстані](../sensor/rangefinders.md), підключеного до автопілота, а також інфрачервоного маяка в якості цілі (наприклад, [IR-LOCK MarkOne](https://irlock.com/collections/markone)). Це дозволяє приземлитися з точністю приблизно 10 см (в той час як точність GPS може бути в декілька метрів).
 
@@ -107,9 +107,9 @@ At time of writing is no _convenient_ way to directly invoke precision landing (
 
 Для позабортового рішення потрібна система позиціонування, яка реалізує [Landing Target Protocol](https://mavlink.io/en/services/landing_target.html) MAVLink. Це може використовувати будь-який механізм позиціонування для визначення місця посадки, наприклад комп'ютерного зору та візуального маркера.
 
-The system must publish the coordinates of the target in the [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET) message. Note that PX4 _requires_ `LANDING_TARGET.frame` to be [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and only populates the fields `x`, `y`, and `z`. The origin of the local NED frame [0,0] is the home position (you can map this home position to global coordinates using [GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#GPS_GLOBAL_ORIGIN)).
+Система повинна публікувати координати цілі в повідомленні [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET). Зверніть увагу, що PX4 _вимагає_, щоб `LANDING_TARGET.frame` був [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) і заповнював лише поля `x`, `y`, та `z`. Початок локальної системи NED [0,0] - це домашня позиція (ви можете відобразити цю домашню позицію на глобальні координати, використовуючи [GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#GPS_GLOBAL_ORIGIN)).
 
-PX4 does not explicitly require a [distance sensor](../sensor/rangefinders.md) or other sensors, but will perform better if it can more precisely determine its own position.
+PX4 не вимагає явно датчика відстані або інших датчиків, але він буде працювати краще, якщо зможе точніше визначати своє власне положення.
 
 ## Конфігурація прошивки
 
@@ -130,15 +130,15 @@ CONFIG_MODULES_LANDING_TARGET_ESTIMATOR=y
 
 Інші важливі параметри перераховані в посиланнях на параметри в референсі параметрів під [Landing_target estimator](../advanced_config/parameter_reference.md#landing-target-estimator) та [Precision land](../advanced_config/parameter_reference.md#precision-land). Деякі з найбільш корисних перераховані нижче.
 
-| Параметр                                                                                              | Опис                                                                                                                |
-| ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| <a id="SENS_EN_IRLOCK"></a>[SENS_EN_IRLOCK](../advanced_config/parameter_reference.md#SENS_EN_IRLOCK) | IR-LOCK Sensor (external I2C). Disable: `0` (default): Enable: `1`).                                                |
-| <a id="LTEST_MODE"></a>[LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE)           | Landing target is moving (`0`) or stationary (`1`). Default is moving.                                              |
-| <a id="PLD_HACC_RAD"></a>[PLD_HACC_RAD](../advanced_config/parameter_reference.md#PLD_HACC_RAD)     | Horizontal acceptance radius, within which the vehicle will start descending. Default is 0.2m.                      |
-| <a id="PLD_BTOUT"></a>[PLD_BTOUT](../advanced_config/parameter_reference.md#PLD_BTOUT)             | Landing Target Timeout, after which the target is assumed lost. Default is 5 seconds.                               |
-| <a id="PLD_FAPPR_ALT"></a>[PLD_FAPPR_ALT](../advanced_config/parameter_reference.md#PLD_FAPPR_ALT)   | Final approach altitude. Default is 0.1 metres.                                                                     |
-| <a id="PLD_MAX_SRCH"></a>[PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH)     | Maximum number of search attempts in an required landing.                                                           |
-| <a id="RTL_PLD_MD"></a>[RTL_PLD_MD](../advanced_config/parameter_reference.md#RTL_PLD_MD)         | RTL precision land mode. `0`: disabled, `1`: [Opportunistic](#opportunistic-mode), `2`: [Required](#required-mode). |
+| Параметр                                                                                              | Опис                                                                                                                  |
+| ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| <a id="SENS_EN_IRLOCK"></a>[SENS_EN_IRLOCK](../advanced_config/parameter_reference.md#SENS_EN_IRLOCK) | IR-LOCK Sensor (зовнішній I2C). Вимкнути: `0` (за замовчуванням): Увімкнути: `1`.                                     |
+| <a id="LTEST_MODE"></a>[LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE)           | Ціль посадки рухається (`0`) або нерухома (`1`). За замовчуванням - рухома.                                           |
+| <a id="PLD_HACC_RAD"></a>[PLD_HACC_RAD](../advanced_config/parameter_reference.md#PLD_HACC_RAD)     | Горизонтальний радіус прийняття, всередині якого транспортний засіб почне спускатися. За замовчуванням - 0,2 м.       |
+| <a id="PLD_BTOUT"></a>[PLD_BTOUT](../advanced_config/parameter_reference.md#PLD_BTOUT)             | Таймаут цілі посадки, після якого припускається, що ціль втрачена. За замовчуванням - 5 секунд.                       |
+| <a id="PLD_FAPPR_ALT"></a>[PLD_FAPPR_ALT](../advanced_config/parameter_reference.md#PLD_FAPPR_ALT)   | Висота останнього підходу. Висота останнього підходу. За замовчуванням - 0,1 метра.                                   |
+| <a id="PLD_MAX_SRCH"></a>[PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH)     | Максимальна кількість спроб пошуку у вимаганій посадці.                                                               |
+| <a id="RTL_PLD_MD"></a>[RTL_PLD_MD](../advanced_config/parameter_reference.md#RTL_PLD_MD)         | Режим точної посадки RTL. `0`: вимкнено, `1`: [Опортунично](#opportunistic-mode), `2`: [Вимагається](#required-mode). |
 
 ### Масштабування ІЧ-маяка
 
@@ -162,7 +162,7 @@ make px4_sitl gazebo-classic_iris_irlock
 
 Ви можете змінити розташування маяка або перемістивши її в Gazebo Classic GUI або змінивши її місце в [Gazebo World](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/iris_irlock.world#L42).
 
-## Operating Principles
+## Принцип дії
 
 ### Оцінювач цілей посадки
 
@@ -170,7 +170,7 @@ make px4_sitl gazebo-classic_iris_irlock
 
 The measurements in `irlock_report` містять тангенс кутів від центру зображення до маяка. Іншими словами, вимірювання - це компоненти x та y вектора, що вказує на маяк, де компонент z має довжину "1". Це означає, що масштабування вимірювання за відстанню від камери до маяка призводить до вектора від камери до маяка. Ця відносна позиція потім повертається у зіставлений з півночі, рівномірний корпусний каркас за допомогою оцінки польоту засобами повітряного судна. Обидва компоненти x та y відносного вимірювання позиції фільтруються в окремих фільтрах Калмана, які діють як прості фільтри згладжування з низькою пропускною спроможністю, що також генерують оцінку швидкості та дозволяють відкидати викиди.
 
-`landing_target_estimator` публікує приблизну відносну позицію і швидкість щоразу, коли новий звіт про `irlock_report` об'єднується в оцінку. Нічого не публікується, якщо маяк не бачиться або вимірювання маяка відхиляються. The landing target estimate is published in the `landing_target_pose` uORB message.
+`landing_target_estimator` публікує приблизну відносну позицію і швидкість щоразу, коли новий звіт про `irlock_report` об'єднується в оцінку. Нічого не публікується, якщо маяк не бачиться або вимірювання маяка відхиляються. Оцінка посадкової цілі публікується в повідомленні uORB `landing_target_pose`.
 
 ### Покращена оцінка положення транспортного засобу
 
