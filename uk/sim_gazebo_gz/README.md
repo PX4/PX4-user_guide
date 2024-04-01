@@ -40,7 +40,7 @@ This runs both the PX4 SITL instance and the Gazebo client.
 
 The supported vehicles and `make` commands are listed below. Note that all gazebo make targets have the prefix `gz_`.
 
-| Vehicle                                                                                                  | Command                           | `PX4_SYS_AUTOSTART` |
+| Vehicle                                                                                                  | Команда                           | `PX4_SYS_AUTOSTART` |
 | -------------------------------------------------------------------------------------------------------- | --------------------------------- | ------------------- |
 | [Quadrotor(x500)](../sim_gazebo_gz/vehicles.md#x500-quadrotor)                                           | `make px4_sitl gz_x500`           | 4001                |
 | [Quadrotor(x500) with Depth Camera](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-depth-camera)       | `make px4_sitl gz_x500_depth`     | 4002                |
@@ -130,7 +130,7 @@ PX4_GZ_WORLD=windy make px4_sitl gz_x500
 
 The supported worlds are listed below.
 
-| World      | Command                    | Description                        |
+| World      | Команда                    | Опис                               |
 | ---------- | -------------------------- | ---------------------------------- |
 | `default`  | `make px4_sitl *`          | Empty world (a grey plane)         |
 | `windy`    | `make px4_sitl *_windy`    | Empty world with wind enabled      |
@@ -206,7 +206,7 @@ The PX4 Gazebo worlds and and models databases [can be found on Github here](htt
 `gz_env.sh.in` is compiled and made available in `$PX4_DIR/build/px4_sitl_default/rootfs/gz_env.sh`
 :::
 
-### Examples
+### Приклади
 
 Here are some examples of the different scenarios covered above.
 
@@ -302,6 +302,6 @@ Multi-Vehicle simulation is supported on Linux hosts.
 
 For more information see: [Multi-Vehicle Simulation with Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md)
 
-## Further Information
+## Додаткова інформація
 
 - [px4-simulation-ignition](https://github.com/Auterion/px4-simulation-ignition)
