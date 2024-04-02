@@ -73,28 +73,28 @@ z_{mav} = - y_{mocap}
 | [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                         | Встановіть різницю між міткою часу вимірювання та "фактичним" часом захоплення. Для отримання більш детальної інформації див. [нижче](#tuning-EKF2_EV_DELAY).                |
 | [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | Встановіть положення візійного датчика (або маркерів MoCap) відносно тіла робота.                                                                                            |
 
-You can also disable GNSS, baro and range finder fusion using [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL), [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) and [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL), respectively.
+Ви також можете вимкнути GNSS, baro та range finder fusion за допомогою [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL), [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) та [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL), відповідно.
 
 :::tip
-Reboot the flight controller in order for parameter changes to take effect.
+Перезавантажте контролер польоту, щоб зміни параметрів набули чинності.
 :::
 
 <a id="tuning-EKF2_EV_DELAY"></a>
 
-#### Tuning EKF2_EV_DELAY
+#### Налаштування EKF2_EV_DELAY
 
-[EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) is the *Vision Position Estimator delay relative to IMU measurements*.
+[EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) - це затримка *Vision Position Estimator відносно вимірювань IMU*.
 
-Or in other words, it is the difference between the vision system timestamp and the "actual" capture time that would have been recorded by the IMU clock (the "base clock" for EKF2).
+Іншими словами, це різниця між міткою часу системи комп'ютерного зору та "фактичним" часом захоплення, який був би зафіксований годинником IMU ("базовим годинником" для EKF2).
 
-Technically this can be set to 0 if there is correct timestamping (not just arrival time) and timesync (e.g NTP) between MoCap and (for example) ROS computers. In reality, this needs some empirical tuning since delays in the entire MoCap->PX4 chain are very setup-specific. It is rare that a system is setup with an entirely synchronised chain!
+Технічно цей параметр можна встановити на 0, якщо між комп'ютерами MoCap і (наприклад) ROS є правильне маркування часу (не тільки час прибуття) і синхронізація часу (наприклад, NTP). Насправді це потребує деякого емпіричного налаштування, оскільки затримки в усьому ланцюжку MoCap->PX4 дуже залежать від налаштувань. Рідко коли система налаштована з повністю синхронізованим ланцюжком!
 
-A rough estimate of the delay can be obtained from logs by checking the offset between IMU rates and the EV rates. To enable logging of EV rates set bit 7 (Computer Vision and Avoidance) of [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE).
+Приблизну оцінку затримки можна отримати з логів, перевіривши зсув між частотами IMU та EV. Щоб увімкнути реєстрацію швидкості EV, встановіть біт 7 (Комп'ютерний зір та уникнення) у [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE).
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
 :::note
-A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools. At time of writing (July 2021) neither [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool) nor [MAVGCL](../log/flight_log_analysis.md#mavgcl) support this functionality.
+Графік зовнішніх даних порівняно з бортовою оцінкою (як показано вище) можна створити за допомогою [FlightPlot](../log/flight_log_analysis.md#flightplot) або подібних інструментів аналізу польотів. At time of writing (July 2021) neither [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool) nor [MAVGCL](../log/flight_log_analysis.md#mavgcl) support this functionality.
 :::
 
 The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.
