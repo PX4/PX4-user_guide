@@ -3,11 +3,11 @@
 Source: [drivers/distance_sensor/broadcom/afbrs50](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/broadcom/afbrs50)
 
 
-### Description
+### Опис
 
 Driver for the Broadcom AFBRS50.
 
-### Examples
+### Приклади
 
 Attempt to start driver on a specified serial device.
 ```
@@ -20,7 +20,7 @@ afbrs50 stop
 
 <a id="afbrs50_usage"></a>
 
-### Usage
+### Використання
 ```
 afbrs50 <command> [arguments...]
  Commands:
@@ -38,7 +38,7 @@ Source: [drivers/distance_sensor/gy_us42](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="gy_us42_usage"></a>
 
-### Usage
+### Використання
 ```
 gy_us42 <command> [arguments...]
  Commands:
@@ -60,7 +60,7 @@ gy_us42 <command> [arguments...]
 Source: [drivers/distance_sensor/leddar_one](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/leddar_one)
 
 
-### Description
+### Опис
 
 Serial bus driver for the LeddarOne LiDAR.
 
@@ -68,7 +68,7 @@ Most boards are configured to enable/start the driver on a specified UART using 
 
 Setup/usage information: https://docs.px4.io/main/en/sensor/leddar_one.html
 
-### Examples
+### Приклади
 
 Attempt to start driver on a specified serial device.
 ```
@@ -81,7 +81,7 @@ leddar_one stop
 
 <a id="leddar_one_usage"></a>
 
-### Usage
+### Використання
 ```
 leddar_one <command> [arguments...]
  Commands:
@@ -96,7 +96,7 @@ leddar_one <command> [arguments...]
 Source: [drivers/distance_sensor/lightware_laser_i2c](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_laser_i2c)
 
 
-### Description
+### Опис
 
 I2C bus driver for Lightware SFxx series LIDAR rangefinders: SF10/a, SF10/b, SF10/c, SF11/c, SF/LW20.
 
@@ -104,7 +104,7 @@ Setup/usage information: https://docs.px4.io/main/en/sensor/sfxx_lidar.html
 
 <a id="lightware_laser_i2c_usage"></a>
 
-### Usage
+### Використання
 ```
 lightware_laser_i2c <command> [arguments...]
  Commands:
@@ -164,13 +164,13 @@ lightware_laser_serial <command> [arguments...]
 Source: [drivers/distance_sensor/lightware_sf45_serial](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_sf45_serial)
 
 
-### Description
+### Опис
 
 Serial bus driver for the Lightware SF45/b Laser rangefinder.
 
 Setup/usage information: https://docs.px4.io/master/en/sensor/sfxx_lidar.html
 
-### Examples
+### Приклади
 
 Attempt to start driver on a specified serial device.
 ```
@@ -183,7 +183,7 @@ lightware_sf45_serial stop
 
 <a id="lightware_sf45_serial_usage"></a>
 
-### Usage
+### Використання
 ```
 lightware_sf45_serial <command> [arguments...]
  Commands:
@@ -197,7 +197,7 @@ lightware_sf45_serial <command> [arguments...]
 Source: [drivers/distance_sensor/ll40ls](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/ll40ls)
 
 
-### Description
+### Опис
 
 I2C bus driver for LidarLite rangefinders.
 
@@ -207,7 +207,7 @@ Setup/usage information: https://docs.px4.io/main/en/sensor/lidar_lite.html
 
 <a id="ll40ls_usage"></a>
 
-### Usage
+### Використання
 ```
 ll40ls <command> [arguments...]
  Commands:
@@ -234,7 +234,7 @@ Source: [drivers/distance_sensor/mappydot](https://github.com/PX4/PX4-Autopilot/
 
 <a id="mappydot_usage"></a>
 
-### Usage
+### Використання
 ```
 mappydot <command> [arguments...]
  Commands:
@@ -255,7 +255,7 @@ Source: [drivers/distance_sensor/mb12xx](https://github.com/PX4/PX4-Autopilot/tr
 
 <a id="mb12xx_usage"></a>
 
-### Usage
+### Використання
 ```
 mb12xx <command> [arguments...]
  Commands:
@@ -279,7 +279,7 @@ mb12xx <command> [arguments...]
 Source: [drivers/distance_sensor/pga460](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/pga460)
 
 
-### Description
+### Опис
 
 Ultrasonic range finder driver that handles the communication with the device and publishes the distance via uORB.
 
@@ -289,7 +289,7 @@ This driver is implemented as a NuttX task. This Implementation was chosen due t
 
 <a id="pga460_usage"></a>
 
-### Usage
+### Використання
 ```
 pga460 <command> [arguments...]
  Commands:
@@ -307,7 +307,7 @@ Source: [drivers/distance_sensor/srf02](https://github.com/PX4/PX4-Autopilot/tre
 
 <a id="srf02_usage"></a>
 
-### Usage
+### Використання
 ```
 srf02 <command> [arguments...]
  Commands:
@@ -340,7 +340,7 @@ Source: [drivers/distance_sensor/srf05](https://github.com/PX4/PX4-Autopilot/tre
 
 <a id="srf05_usage"></a>
 
-### Usage
+### Використання
 ```
 srf05 <command> [arguments...]
  Commands:
@@ -360,7 +360,7 @@ srf05 <command> [arguments...]
 Source: [drivers/distance_sensor/teraranger](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/teraranger)
 
 
-### Description
+### Опис
 
 I2C bus driver for TeraRanger rangefinders.
 
@@ -370,7 +370,7 @@ Setup/usage information: https://docs.px4.io/main/en/sensor/rangefinders.html#te
 
 <a id="teraranger_usage"></a>
 
-### Usage
+### Використання
 ```
 teraranger <command> [arguments...]
  Commands:
@@ -395,7 +395,7 @@ Source: [drivers/distance_sensor/tf02pro](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="tf02pro_usage"></a>
 
-### Usage
+### Використання
 ```
 tf02pro <command> [arguments...]
  Commands:
@@ -427,7 +427,7 @@ Most boards are configured to enable/start the driver on a specified UART using 
 
 Setup/usage information: https://docs.px4.io/main/en/sensor/tfmini.html
 
-### Examples
+### Приклади
 
 Attempt to start driver on a specified serial device.
 ```
@@ -440,7 +440,7 @@ tfmini stop
 
 <a id="tfmini_usage"></a>
 
-### Usage
+### Використання
 ```
 tfmini <command> [arguments...]
  Commands:
@@ -461,15 +461,15 @@ tfmini <command> [arguments...]
 Source: [drivers/distance_sensor/ulanding_radar](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/ulanding_radar)
 
 
-### Description
+### Опис
 
 Serial bus driver for the Aerotenna uLanding radar.
 
 Setup/usage information: https://docs.px4.io/v1.9.0/en/sensor/ulanding_radar.html
 
-### Examples
+### Приклади
 
-Attempt to start driver on a specified serial device.
+Спроба запустити драйвер на вказаному послідовному пристрої.
 ```
 ulanding_radar start -d /dev/ttyS1
 ```
@@ -480,7 +480,7 @@ ulanding_radar stop
 
 <a id="ulanding_radar_usage"></a>
 
-### Usage
+### Використання
 ```
 ulanding_radar <command> [arguments...]
  Commands:
@@ -497,7 +497,7 @@ Source: [drivers/distance_sensor/vl53l0x](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="vl53l0x_usage"></a>
 
-### Usage
+### Використання
 ```
 vl53l0x <command> [arguments...]
  Commands:
@@ -522,7 +522,7 @@ Source: [drivers/distance_sensor/vl53l1x](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="vl53l1x_usage"></a>
 
-### Usage
+### Використання
 ```
 vl53l1x <command> [arguments...]
  Commands:
