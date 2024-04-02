@@ -158,7 +158,7 @@ int main(int argc, char** argv)
 }
 ```
 
-## Testing
+## Тестування
 
 Payloads that are triggered by servos and other actuators, such as grippers, can be tested in the [pre-arm state](../getting_started/px4_basic_concepts.md#arming-and-disarming), which disables motors but allows actuators to move.
 
