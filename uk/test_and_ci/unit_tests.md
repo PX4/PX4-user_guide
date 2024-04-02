@@ -46,12 +46,12 @@ PX4 надає декілька методів для написання юні�
 1. Перегляньте зразок [Unittest-класу](https://github.com/PX4/PX4-Autopilot/blob/main/src/include/unit_test.h).
 1. Створіть новий файл .cpp у тестах [tests](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/tests) із назвою **test\_[description].cpp**.
 1. У **test\_[description].cpp** включається базовий unittest-class unit_test.h`<unit_test.h>` і всі файли, необхідні для написання тесту для нової функції.
-1. Within **test\_[description].cpp** create a class `[Description]Test` that inherits from `UnitTest`.
-1. Within `[Description]Test` class declare the public method `virtual bool run_tests()`.
-1. Within `[Description]Test` class declare all private methods required to test the feature in question (`test1()`, `test2()`,...).
-1. Within **test\_[description].cpp** implement the `run_tests()` method where each test[1,2,...] will be run.
-1. Within **test\_[description].cpp**, implement the various tests.
-1. At the bottom within **test\_[description].cpp** declare the test.
+1. У межах **test\_[description].cpp** створіть клас `[Description]Test`, який успадковує `UnitTest`.
+1. У класі `[Description]Test `оголосите відкритий метод `virtual bool run_tests()`.
+1. У класі `[Description]Test` оголосити всі приватні методи, необхідні для тестування відповідної функції (`test1()`, `test2()`,...).
+1. У межах **test\_[description].cpp** реалізуйте метод `run_tests()`, де запускатиметься кожен тест [1,2,...].
+1. У **test\_[description].cpp** реалізуйте різні тести.
+1. У нижній частині **test\_[description].cpp** оголосите тест.
 
    ```cpp
    ut_declare_test_c(test_[description], [Description]Test)
