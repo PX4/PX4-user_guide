@@ -552,7 +552,7 @@ Source: [drivers/imu/invensense/icm42670p](https://github.com/PX4/PX4-Autopilot/
 
 <a id="icm42670p_usage"></a>
 
-### Usage
+### Використання
 ```
 icm42670p <command> [arguments...]
  Commands:
@@ -577,7 +577,7 @@ Source: [drivers/imu/invensense/icm42688p](https://github.com/PX4/PX4-Autopilot/
 
 <a id="icm42688p_usage"></a>
 
-### Usage
+### Використання
 ```
 icm42688p <command> [arguments...]
  Commands:
@@ -605,7 +605,7 @@ Source: [drivers/imu/invensense/icm45686](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="icm45686_usage"></a>
 
-### Usage
+### Використання
 ```
 icm45686 <command> [arguments...]
  Commands:
@@ -632,7 +632,7 @@ Source: [drivers/imu/invensense/iim42652](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="iim42652_usage"></a>
 
-### Usage
+### Використання
 ```
 iim42652 <command> [arguments...]
  Commands:
@@ -659,7 +659,7 @@ Source: [drivers/imu/invensense/iim42653](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="iim42653_usage"></a>
 
-### Usage
+### Використання
 ```
 iim42653 <command> [arguments...]
  Commands:
@@ -686,7 +686,7 @@ Source: [drivers/imu/st/l3gd20](https://github.com/PX4/PX4-Autopilot/tree/main/s
 
 <a id="l3gd20_usage"></a>
 
-### Usage
+### Використання
 ```
 l3gd20 <command> [arguments...]
  Commands:
@@ -715,7 +715,7 @@ Source: [drivers/imu/st/lsm303d](https://github.com/PX4/PX4-Autopilot/tree/main/
 
 <a id="lsm303d_usage"></a>
 
-### Usage
+### Використання
 ```
 lsm303d <command> [arguments...]
  Commands:
@@ -740,7 +740,7 @@ Source: [drivers/imu/st/lsm9ds1](https://github.com/PX4/PX4-Autopilot/tree/main/
 
 <a id="lsm9ds1_usage"></a>
 
-### Usage
+### Використання
 ```
 lsm9ds1 <command> [arguments...]
  Commands:
@@ -765,7 +765,7 @@ Source: [drivers/imu/invensense/mpu6000](https://github.com/PX4/PX4-Autopilot/tr
 
 <a id="mpu6000_usage"></a>
 
-### Usage
+### Використання
 ```
 mpu6000 <command> [arguments...]
  Commands:
@@ -790,7 +790,7 @@ Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tr
 
 <a id="mpu9250_usage"></a>
 
-### Usage
+### Використання
 ```
 mpu9250 <command> [arguments...]
  Commands:
@@ -816,7 +816,7 @@ Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tr
 
 <a id="mpu9250_i2c_usage"></a>
 
-### Usage
+### Використання
 ```
 mpu9250_i2c <command> [arguments...]
  Commands:
@@ -841,7 +841,7 @@ Source: [drivers/imu/invensense/mpu6500](https://github.com/PX4/PX4-Autopilot/tr
 
 <a id="mpu9520_usage"></a>
 
-### Usage
+### Використання
 ```
 mpu9520 <command> [arguments...]
  Commands:
