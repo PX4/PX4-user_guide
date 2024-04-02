@@ -122,65 +122,65 @@ HEADLESS=1 make px4_sitl gz_x500
 make px4_sitl gz_x500_windy
 ```
 
-You can also specify the world using the `PX4_GZ_WORLD` environment variable:
+Ви також можете вказати світ використовуючи змінну середовища `PX4_GZ_WORLD`:
 
 ```sh
 PX4_GZ_WORLD=windy make px4_sitl gz_x500
 ```
 
-The supported worlds are listed below.
+Світи що підтримуються перераховані нижче.
 
-| World      | Команда                    | Опис                               |
-| ---------- | -------------------------- | ---------------------------------- |
-| `default`  | `make px4_sitl *`          | Empty world (a grey plane)         |
-| `windy`    | `make px4_sitl *_windy`    | Empty world with wind enabled      |
-| `baylands` | `make px4_sitl *_baylands` | Baylands world surrounded by water |
+| Світ       | Команда                    | Опис                              |
+| ---------- | -------------------------- | --------------------------------- |
+| `default`  | `make px4_sitl *`          | Порожній світ (сіра площина)      |
+| `windy`    | `make px4_sitl *_windy`    | Порожній світ з увімкненим вітром |
+| `baylands` | `make px4_sitl *_baylands` | Світ Baylands оточений водою      |
 
 :::warning
-Note that if no world is specified, PX4 will use the `default` world. However you must not _explicitly_ specify `_default` on the model as this will prevent PX4 from launching. In other words, use `make px4_sitl gz_x500` instead of `make px4_sitl gz_x500_default` for the default.
+Зверніть увагу, якщо ніякого світу не вказано, PX4 використає світ `default`. Однак ви не повинні _явно_ вказувати `_default` у назві моделі тоді як це перешкодить запуску PX4. Іншими словами, використовуйте `make px4_sitl gz_x500` замість `make px4_sitl gz_x500_default` для світу за замовчуванням.
 :::
 
 :::note
-Baylands throws the following error, which can be ignored:
+Baylands викидає наступну помилку, що можна ігнорувати:
 
 ```
 [Err] [SDFFeatures.cc:843] The geometry element of collision [collision] couldn't be created
 ```
 
-This occurs because Baylands has a lot of meshes. However it does not break Gazebo and the error has been downgraded to a warning in Gazebo Harmonic: [gz-physics/pull/531](https://github.com/gazebosim/gz-physics/pull/531). You can also replace the error with a warning by [installing gz-garden from source](https://gazebosim.org/docs/garden/install_ubuntu_src).
+Це трапляється тому що Baylands має багато сіток. Однак це не ламає Gazebo та ця помилка була знижена до попередження у Gazebo Harmonic: [gz-physics/pull/531](https://github.com/gazebosim/gz-physics/pull/531). Також можна замінити помилку на попередження [встановивши gz-garden з вихідного коду](https://gazebosim.org/docs/garden/install_ubuntu_src).
 :::
 
-## Usage/Configuration Options
+## Використання та варіанти налаштування
 
-The startup pipeline allows for highly flexible configuration. In particular, it is possible to:
+Конвеєр запуску дозволяє дуже гнучке налаштування. Зокрема можливо:
 
-- Start a new simulation with an arbitrary world or attach to an already running simulation.
-- Add a new vehicle to the simulation or link a new PX4 instance to an existing one.
+- Почати нову симуляцію з довільним світом або під'єднатись до вже запущеної симуляції.
+- Додати новий засіб до симуляції або поєднати новий екземпляр PX4 з вже наявним.
 
-These scenarios are managed by setting the appropriate environment variables.
+Ці сценарії керуються встановленням відповідних змінних середовища.
 
-### Syntax
+### Синтаксис
 
-The startup syntax takes the form:
+Синтаксис запуску набирає форми:
 
 ```sh
 ARGS ./build/px4_sitl_default/bin/px4
 ```
 
-where `ARGS` is a list of environment variables including:
+де `ARGS` - це список змінних середовища, включаючи:
 
-- `PX4_SYS_AUTOSTART` (**Mandatory**): Sets the [airframe autostart id](../dev_airframes/adding_a_new_frame.md) of the PX4 airframe to start.
+- `PX4_SYS_AUTOSTART` (**обов'язковий**): встановлює [ідентифікатор автостарту планеру](../dev_airframes/adding_a_new_frame.md) PX4 для запуску.
 
-- `PX4_GZ_MODEL_NAME`: Sets the name of an _existing_ model in the gazebo simulation. If provided, the startup script tries to bind a new PX4 instance to the Gazebo resource matching exactly that name.
+- `PX4_GZ_MODEL_NAME`: встановлює ім'я _наявної_ моделі в симуляції gazebo. Якщо вказано, скрипт запуску намагається прив'язати новий екземпляр PX4 до ресурсу Gazebo, що відповідає точно такому імені.
 
-  - The setting is mutually exclusive with `PX4_SIM_MODEL`.
+  - Налаштування є взаємозаперечним з `PX4_SIM_MODEL`.
 
-- `PX4_SIM_MODEL`: Sets the name of a new Gazebo model to be spawned in the simulator. If provided, the startup script looks for a model in the Gazebo resource path that matches the given variable, spawns it and binds a new PX4 instance to it.
+- `PX4_SIM_MODEL`: встановлює ім'я нової моделі Gazebo для відтворення в симуляторі. Якщо вказано, скрипт запуску шукає модель у шляху ресурсів Gazebo, що відповідає даній змінній, відтворює її й пов'язує новий екземпляр PX4 з нею.
 
-  - The setting is mutually exclusive with `PX4_GZ_MODEL_NAME`.
+  - Налаштування є взаємозаперечним з `PX4_GZ_MODEL_NAME`.
 
 :::note
-The environmental variable `PX4_GZ_MODEL` has been deprecated and its functionality merged into `PX4_SIM_MODEL`.
+Змінна середовища `PX4_GZ_MODEL` застаріла та її функціональність об'єднана з `PX4_SIM_MODEL`.
 :::
 
 - `PX4_GZ_MODEL_POSE`: Sets the spawning position and orientation of the model when `PX4_SIM_MODEL` is adopted. If provided, the startup script spawns the model at a pose following the syntax `"x,y,z,roll,pitch,yaw"`, where the positions are given in metres and the angles are in radians.
