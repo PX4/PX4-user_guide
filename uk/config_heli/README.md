@@ -1,24 +1,24 @@
-# Конфігурація вертольоту
+# Конфігурація гелікоптера
 
-This section contains topics related to [helicopter](../frames_helicopter/README.md) configuration and tuning.
+Цей розділ містить теми, пов’язані з конфігурацією та налаштуванням [гелікоптера](../frames_helicopter/README.md).
 
 ## Підтримувані конфігурації
 
 Підтримувані конфігурації вертольоту:
 
-- Single main rotor with swash-plate controlled by up to 4 swash-plate servos and a mechanically uncoupled tail rotor driven by an ESC.
-- Single main rotor with swash-plate controlled by up to 4 swash-plate servos and a mechanically coupled tail controlled by a servo.
+- Однокрил з одним основним ротором, який керується планкою крена за допомогою до 4 сервоприводів планки крена і механічно роз'єднаний хвостовий ротор, що приводиться в рух за допомогою ESC.
+- Однокрил з одним основним ротором, керований планкою крена за допомогою до 4 сервоприводів планки крена і механічно зв'язаний хвостовий ротор, керований сервоприводом.
 
-Supported flight operations/features:
+Підтримувані польотні операції/функції:
 
-- Same as a multicopter.
-- At the time of writing no autonomous/guided 3D flying with negative thrust is possible.
+- Те саме, що і мультикоптер.
+- На момент написання статті автономні/керовані тривимірні польоти з негативною тягою неможливі.
 
 ## Установка
 
-To setup and configure a helicopter:
+Щоб налаштувати та сконфігурувати гелікоптер:
 
-1. Select a helicopter [Airframe](../config/airframe.md) in QGroundControl. At time of writing there is only _Generic Helicopter (Tail ESC)_ in the Helicopter group. This will configure the helicopter frame with a mechanically uncoupled tail ([CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME): `10: Helicopter (tail ESC)`).
+1. Виберіть [планер](../config/airframe.md) гелікоптера в QGroundControl. At time of writing there is only _Generic Helicopter (Tail ESC)_ in the Helicopter group. This will configure the helicopter frame with a mechanically uncoupled tail ([CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME): `10: Helicopter (tail ESC)`).
 
    ![QGC - helicopter airframe](../../assets/config/airframe/airframe_heli_generic.png)
 
@@ -43,9 +43,9 @@ Actuator setup and testing is covered for most frames in [Actuators](../config/a
 
    Swash plate servos: `3` | `4` <!-- 4 provides additional stability -->
 
-   For each servo set:
+   Для кожного набору сервоприводів:
 
-   - `Angle`: Clockwise angle in degree on the swash plate circle at which the servo arm is attached starting from `0` pointing forwards. Example for a typical setup where three servos are controlling the swash plate equally distributed over the circle (360° / 3 =) 120° apart each which results in the angles:
+   - `Angle`: Годинниковий кут в градусах на колі планки керування, на якому кріпиться важіль сервопривода, починаючи з `0`, що вказує вперед. Приклад для типової настройки, де три сервопривода керують планкою рівномірно розподіленою по колу (360° / 3 =) по 120° кожен, що призводить до наступних кутів:
 
      | #       | Кут  |
      | ------- | ---- |
@@ -82,31 +82,31 @@ Actuator setup and testing is covered for most frames in [Actuators](../config/a
 1. Put the rotor blades on and power the vehicle.
 1. Configure the collective pitch curve using the parameters [CA_HELI_PITCH_Cx](../advanced_config/parameter_reference.md#CA_HELI_PITCH_C0). Set the minimum and maximum according to the minimum and maximum blade angles you want. Make sure the minimum is low enough so the vehicle can still descend. Instead start off with a too low value. The default is slightly negative for that reason and should be a good starting point.
 
-## Tuning
+## Вдосконалення
 
-After completing the previous steps you are ready to arm with blades mounted.
+Після завершення попередніх кроків ви готові до озброєння з встановленими лопатями.
 
-First tune the [rate controller](#rate-controller) and [yaw compensation](#yaw-compensation) as shown in the following sections (these are helicopter-specific).
+Спочатку налаштуйте контролер швидкості [rate controller](#rate-controller) та компенсацію курсу [yaw compensation](#yaw-compensation), як показано в наступних розділах (це специфічно для вертольотів).
 
-Attitude, velocity, and position controller tuning is then performed in the [same as for multicopters](../config_mc/README.md).
+Потім налаштування контролера орієнтації, швидкості та позиції виконується так само, [як і для мультикоптерів](../config_mc/README.md).
 
-Note that autotuning is not supported/tested (at time of writing).
+Зверніть увагу, що автоматичне налаштування не підтримується/не тестується (на момент написання).
 
-### Yaw Compensation
+### Компенсація повороту
 
-Since the yaw torque compensation is crucial for a stable helicopter hover a rough configuration of it needs to be done first. For accurate tuning this chapter can be revisited once the rate controller is working as expected.
+Оскільки компенсація крутного моменту повороту має вирішальне значення для стабільного зависання вертольота, спочатку потрібно виконати грубу конфігурацію. Для точного налаштування цей розділ можна переглянути, коли контролер швидкості запрацює належним чином.
 
-Most importantly set the rotation direction of your main rotor which is by default clockwise when seen from above the airframe. In case yours turns counter-clockwise set [CA_HELI_YAW_CCW](../advanced_config/parameter_reference.md#CA_HELI_YAW_CCW) to 1.
+Найважливіше встановіть напрямок обертання вашого основного ротора, який за замовчуванням є за годинниковою стрілкою, якщо дивитися згори планера. Якщо ваш обертається проти годинникової стрілки, встановіть [CA_HELI_YAW_CCW](../advanced_config/parameter_reference.md#CA_HELI_YAW_CCW) на 1.
 
-There are two parameters to compensate yaw for the main rotor's collective and throttle: [CA_HELI_YAW_CP_S](../advanced_config/parameter_reference.md#CA_HELI_YAW_CP_S) [CA_HELI_YAW_TH_S](../advanced_config/parameter_reference.md#CA_HELI_YAW_TH_S)
+Існують два параметри для компенсації курсу для колективу та керування газом головного ротора: [CA_HELI_YAW_CP_S](../advanced_config/parameter_reference.md#CA_HELI_YAW_CP_S) [CA_HELI_YAW_TH_S](../advanced_config/parameter_reference.md#CA_HELI_YAW_TH_S)
 
-A negative value is needed when positive thrust of the tail rotor rotates the vehicle opposite to the main rotor turn direction.
+Потрібне від'ємне значення, коли позитивний тяговий зусилля хвостового ротора обертає транспортний засіб у протилежному напрямку від напрямку обертання головного ротора.
 
-### Rate Controller
+### Контролер швидкості
 
-The rate controller should be tuned in [Acro mode](../flight_modes_mc/acro.md), but can also be done in [Stabilized mode](../flight_modes_mc/manual_stabilized.md) if you cannot fly Acro mode.
+Контролер швидкості слід налаштовувати в режимі [Acro](../flight_modes_mc/acro.md), але це також можна зробити в режимі [Stabilized](../flight_modes_mc/manual_stabilized.md), якщо ви не можете літати в режимі Acro.
 
-1. Start off with disabled rate controller gains, and only a small feed forward:
+1. Почніть з вимкнених коефіцієнтів контролера швидкості та лише невеликим зворотнім зв'язком передбачуваної відповіді:
 
    ```sh
    param set MC_ROLLRATE_P 0
@@ -119,15 +119,15 @@ The rate controller should be tuned in [Acro mode](../flight_modes_mc/acro.md), 
    param set MC_PITCHRATE_FF 0.1
    ```
 
-2. Take off slowly and provide some roll and stick movements. Use the QGC tuning UI to check the response:
+2. Підніміться повільно і зробіть кілька рухів рулями. Використовуйте інтерфейс настройки QGC, щоб перевірити відповідь:
 
    ![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
 
-   Increase the roll and pitch feed forward gains [MC_ROLLRATE_FF](../advanced_config/parameter_reference.md#MC_ROLLRATE_FF), [MC_PITCHRATE_FF](../advanced_config/parameter_reference.md#MC_PITCHRATE_FF) until the response reaches the setpoint when giving a step input.
+   Збільшуйте коефіцієнти передбачуваної відповіді на кочення та тангаж [MC_ROLLRATE_FF](../advanced_config/parameter_reference.md#MC_ROLLRATE_FF), [MC_PITCHRATE_FF](../advanced_config/parameter_reference.md#MC_PITCHRATE_FF) до тих пір, поки відповідь не досягне цільового значення при поданні крокового входу.
 
-3. Then enable the PID gains. Start off with following values:
+3. Потім увімкніть посилення PID. Почніть із таких значень:
 
-   - [MC_ROLLRATE_P](../advanced_config/parameter_reference.md#MC_ROLLRATE_P), [MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P) a quarter of the value you found to work well as the corresponding feed forward value in the previous step. `P = FF / 4`
+   - [MC_ROLLRATE_P](../advanced_config/parameter_reference.md#MC_ROLLRATE_P), [MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P) чверть від значення, яке ви виявили працює добре як відповідне передбачуване значення в попередньому кроці. `P = FF / 4`
 
    ```sh
    param set MC_ROLLRATE_I 0.2
@@ -136,4 +136,4 @@ The rate controller should be tuned in [Acro mode](../flight_modes_mc/acro.md), 
    param set MC_PITCHRATE_D 0.001
    ```
 
-   Then increase the `P` and `D` gains as needed until it tracks well. It is expected that the `P` gain is considerably smaller than the `FF` gain.
+   Потім за потреби збільшуйте посилення `P` і `D`, доки він не буде добре відстежуватися. Очікується, що підсилення `P` буде значно меншим, ніж підсилення `FF`.
