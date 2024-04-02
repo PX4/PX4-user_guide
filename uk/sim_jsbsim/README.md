@@ -6,9 +6,9 @@
 Дивіться [Інсталяція інструментів](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, які підтримуються основним розробницьким командою.
 :::
 
-[JSBSim](http://jsbsim.sourceforge.net/index.html) is a open source flight simulator ("flight dynamics model (FDM)") that runs on Microsoft Windows, Apple Macintosh, Linux, IRIX, Cygwin (Unix on Windows), etc. Серед його можливостей: повністю налаштована аеродинаміка та система приводу, яка може моделювати складну динаміку польоту літака. В обчислення також враховуються обертальні ефекти Землі.
+[JSBSim](http://jsbsim.sourceforge.net/index.html) - це відкрите програмне забезпечення симулятора польоту ("модель динаміки польоту (FDM)"), який працює на операційних системах Microsoft Windows, Apple Macintosh, Linux, IRIX, Cygwin (Unix на Windows) та ін. Серед його можливостей: повністю налаштована аеродинаміка та система приводу, яка може моделювати складну динаміку польоту літака. В обчислення також враховуються обертальні ефекти Землі.
 
-**Supported Vehicles:** Plane, Quadrotor, Hexarotor
+**Підтримувані транспортні засоби:** літак, квадротор, гексаротор
 
 @[youtube](https://youtu.be/y5azVNmIVyw)
 
@@ -19,17 +19,17 @@
 ## Встановлення (Ubuntu Linux)
 
 :::note
-These instructions were tested on Ubuntu 18.04
+Ці інструкції були перевірені на Ubuntu 18.04
 :::
 
-1. Install the usual [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md).
-1. Install a JSBSim release from the [release page](https://github.com/JSBSim-Team/jsbsim/releases/tag/Linux):
+1. Установіть звичайне [Середовище розробки на Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md).
+1. Встановіть випуск JSBSim зі [сторінки релізів](https://github.com/JSBSim-Team/jsbsim/releases/tag/Linux):
 
    ```sh
    dpkg -i JSBSim-devel_1.1.0.dev1-<release-number>.bionic.amd64.deb
    ```
 
-1. (Optional) FlightGear may (optionally) be used for visualisation. To install FlightGear, refer to the [FlightGear installation instructions](../sim_flightgear/README.md)).
+1. (Необов’язково) FlightGear можна (необов’язково) використовувати для візуалізації. Щоб установити FlightGear, перегляньте [інструкції зі встановлення FlightGear](../sim_flightgear/README.md)).
 
 ## Запуск симуляції
 
@@ -47,10 +47,10 @@ make px4_sitl jsbsim
 | Рухомий засіб     | Команда                            |
 | ----------------- | ---------------------------------- |
 | Стандартний літак | `make px4_sitl jsbsim_rascal`      |
-| Quadrotor         | `make px4_sitl jsbsim_quadrotor_x` |
-| Hexarotor         | `make px4_sitl jsbsim_hexarotor_x` |
+| Квадротор         | `make px4_sitl jsbsim_quadrotor_x` |
+| Гексаротор        | `make px4_sitl jsbsim_hexarotor_x` |
 
-Вищезазначені команди запускають один літальний апарат із повним інтерфейсом користувача. _QGroundControl_ should be able to automatically connect to the simulated vehicle.
+Вищезазначені команди запускають один літальний апарат із повним інтерфейсом користувача. _QGroundControl_ повинна автоматично підключатися до симульованого транспортного засобу.
 
 ## Виконання JSBSim з ROS
 
@@ -70,7 +70,7 @@ make px4_sitl jsbsim
    ```
 
 :::note
-You must have already set MAVROS in your workspace (if not, follow the instructions in the [MAVROS installation guide](../ros/mavros_installation.md)).
+Ви повинні вже мати встановлену MAVROS у своєму робочому просторі (якщо ні, дотримуйтеся інструкцій у [Посібнику з встановлення MAVROS](../ros/mavros_installation.md)).
 :::
 
 1. Так почніть JSBSim через ROS, використовуючи файл запуску, як показано:
