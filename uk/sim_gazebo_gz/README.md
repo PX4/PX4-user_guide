@@ -4,7 +4,7 @@
 Gazebo раніше була відома як "Gazebo Ignition" (тоді як _Gazebo Classic_ раніше відома як Gazebo). Дивіться [запис в офіційному блозі](https://www.openrobotics.org/blog/2022/4/6/a-new-era-for-gazebo) для додаткової інформації.
 :::
 
-[Gazebo](https://gazebosim.org/home) - це робототехнічний симулятор з відкритим кодом. Він замінює старий симулятор [Gazebo Classic](../sim_gazebo_classic/README.md) та є єдиною версією Gazebo для Ubuntu 22.04 і далі, що підтримується.
+[Gazebo](https://gazebosim.org/home) - це робототехнічний симулятор з відкритим кодом. Він замінює старий симулятор [Gazebo Classic](../sim_gazebo_classic/README.md) та є єдиною версією Gazebo, що підтримується для Ubuntu 22.04 і далі.
 
 **Засоби що підтримуються:** Квадрокоптер, Літак, ВЗІП
 
@@ -183,75 +183,75 @@ ARGS ./build/px4_sitl_default/bin/px4
 Змінна середовища `PX4_GZ_MODEL` застаріла та її функціональність об'єднана з `PX4_SIM_MODEL`.
 :::
 
-- `PX4_GZ_MODEL_POSE`: Sets the spawning position and orientation of the model when `PX4_SIM_MODEL` is adopted. If provided, the startup script spawns the model at a pose following the syntax `"x,y,z,roll,pitch,yaw"`, where the positions are given in metres and the angles are in radians.
+- `PX4_GZ_MODEL_POSE`: встановлює позицію відтворення та орієнтацію моделі коли вжито `PX4_SIM_MODEL`. Якщо вказано, скрипт запуску відтворює модель у положенні, що дотримується синтаксису `"x,y,z,roll,pitch,yaw"`, де позиції надаються в метрах, а кути - в радіанах.
 
-  - If omitted, the zero pose `[0,0,0,0,0,0]` is used.
-  - If less then 6 values are provided, the missing ones are fixed to zero.
-  - This can only be used with `PX4_SIM_MODEL` (not `PX4_GZ_MODEL_NAME`).
+  - Якщо опущено, використовується нульове положення `[0,0,0,0,0,0]`.
+  - Якщо надано менше ніж 6 значень, то відсутні фіксуються на нулі.
+  - Можна використовувати лише зі змінною `PX4_SIM_MODEL` (не `PX4_GZ_MODEL_NAME`).
 
-- `PX4_GZ_WORLD`: Sets the Gazebo world file for a new simulation. If it is not given, then [default](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf) is used.
+- `PX4_GZ_WORLD`: встановлює файл світу Gazebo для нової симуляції. Якщо не вказано, тоді використовується [default](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf).
 
-  - This variable is ignored if an existing simulation is already running.
-  - This value should be [specified for the selected airframe](#adding-new-worlds-and-models) but may be overridden using this argument.
+  - Ця змінна ігнорується, якщо наявна модель вже запущена.
+  - Це значення повинно бути [вказано для обраного планера](#adding-new-worlds-and-models), але може бути перевизначено використовуючи цей аргумент.
 
-- `PX4_SIMULATOR=GZ`: Sets the simulator, which for Gazebo must be `gz`.
+- `PX4_SIMULATOR=GZ`: встановлює симулятор, для Gazebo це повинно бути `gz`.
 
-  - This value should be [set for the selected airframe](#adding-new-worlds-and-models), in which case it does not need to be set as an argument.
+  - Це значення має бути [встановлено для обраного планера](#adding-new-worlds-and-models), і в цьому випадку не повинно бути вказано як аргумент.
 
-- `PX4_GZ_STANDALONE`: Lets PX4 know that it should not launch an instance of Gazebo. Gazebo will need to be launched separately, as described in [Standalone Mode](#standalone-mode).
+- `PX4_GZ_STANDALONE`: Дозволяє PX4 зрозуміти що він не повинен запускати екземпляр Gazebo. Gazebo потрібно буде запустити окремо, як описано в [Автономному режимі](#standalone-mode).
 
-The PX4 Gazebo worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-gazebo-models).
+Світи PX4 Gazebo та бази даних моделей [можна знайти на Github тут](https://github.com/PX4/PX4-gazebo-models).
 
 :::note
-`gz_env.sh.in` is compiled and made available in `$PX4_DIR/build/px4_sitl_default/rootfs/gz_env.sh`
+`gz_env.sh.in` скомпільовано і зроблено доступним у `$PX4_DIR/build/px4_sitl_default/rootfs/gz_env.sh`
 :::
 
 ### Приклади
 
-Here are some examples of the different scenarios covered above.
+Ось кілька прикладів різних сценаріїв, описаних вище.
 
-1. **Start simulator + default world + spawn vehicle at default pose**
+1. **Запуск симулятора + світ за замовчуванням + відтворення засобу у позиції за замовчуванням**
 
    ```sh
    PX4_SYS_AUTOSTART=4001 PX4_SIM_MODEL=gz_x500 ./build/px4_sitl_default/bin/px4
    ```
 
-2. **Start simulator + default world + spawn vehicle at custom pose (y=2m)**
+2. **Запуск симулятора + світ за замовчуванням + відтворення засобу у довільній позиції (y=2 м)**
 
    ```sh
    PX4_SYS_AUTOSTART=4001 PX4_GZ_MODEL_POSE="0,2" PX4_SIM_MODEL=gz_x500 ./build/px4_sitl_default/bin/px4
    ```
 
-3. **Start simulator + default world + link to existing vehicle**
+3. **Запуск симулятора + світ за замовчуванням + зв'язування з наявним засобом**
 
    ```sh
    PX4_SYS_AUTOSTART=4001 PX4_GZ_MODEL_NAME=x500 ./build/px4_sitl_default/bin/px4
    ```
 
-4. **Start simulator in standalone mode + connect to Gazebo instance running default world**
+4. **Запуск симулятора в автономному режимі + під'єднання до екземпляра Gazebo що виконує світ за замовчуванням**
 
    ```sh
    PX4_GZ_STANDALONE=1 PX4_SYS_AUTOSTART=4001 PX4_SIM_MODEL=gz_x500 ./build/px4_sitl_default/bin/px4
    ```
 
-   In a separate terminal run:
+   В окремому терміналі запустіть:
 
    ```sh
    python /path/to/simulation-gazebo
    ```
 
-## Adding New Worlds and Models
+## Додавання нових світів та моделей
 
-SDF files, mesh files, textures and anything else to do with the functionality and appearance in Gazebo for worlds and models can be placed in the appropriate `/worlds` and `/models` directories in [PX4-gazebo-models](https://github.com/PX4/PX4-gazebo-models).
+SDF файли, файли сіток, текстури та будь-що інше, що пов'язано з функціоналом та зовнішнім виглядом Gazebo для світів та моделей може бути розміщено у відповідних директоріях `/worlds` та `/models` у [PX4-gazebo-models](https://github.com/PX4/PX4-gazebo-models).
 
-Within PX4 follow the below steps to add models and worlds.
+В межах PX4 дотримуйтесь наступних кроків, щоб додати моделі та світи.
 
-### Adding a Model
+### Додавання моделі
 
-To add a new model:
+Щоб додати нову модель:
 
-1. Define an [airframe configuration file](../dev_airframes/adding_a_new_frame.md).
-1. Define the default parameters for Gazebo in the airframe configuration file (this example is from [x500 quadcopter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/4001_gz_x500)):
+1. Визначте [конфігураційний файл планера](../dev_airframes/adding_a_new_frame.md).
+1. Визначте параметри за замовчуванням для Gazebo у файлі конфігурації планера (цей приклад взято з [квадрокоптера x500](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/4001_gz_x500)):
 
    ```ini
    PX4_SIMULATOR=${PX4_SIMULATOR:=gz}
@@ -259,48 +259,48 @@ To add a new model:
    PX4_SIM_MODEL=${PX4_SIM_MODEL:=<your model name>}
    ```
 
-   - `PX4_SIMULATOR=${PX4_SIMULATOR:=gz}` sets the default simulator (Gz) for that specific airframe.
-   - `PX4_GZ_WORLD=${PX4_GZ_WORLD:=default}` sets the [default world](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf) for that specific airframe.
+   - `PX4_SIMULATOR=${PX4_SIMULATOR:=gz}` встановлює симулятор за замовчуванням (Gz) для цього конкретного планера.
+   - `PX4_GZ_WORLD=${PX4_GZ_WORLD:=default}` встановлює [світ за замовчуванням](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf) для цього конкретного планера.
 
-   - Setting the default value of `PX4_SIM_MODEL` lets you start the simulation with just:
+   - Встановлення значення за замовчуванням для `PX4_SIM_MODEL` дозволить запустити симуляцію лише з:
 
      ```sh
      PX4_SYS_AUTOSTART=<your new airframe id> ./build/px4_sitl_default/bin/px4
      ```
 
-1. Add CMake Target for the [airframe](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/CMakeLists.txt).
+1. Додайте ціль CMake для [планера](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/CMakeLists.txt).
 
-   - If you plan to use "regular" mode, add your model SDF to `Tools/simulation/gz/models/`.
-   - If you plan to use _standalone_ mode, add your model SDF to `~/.simulation-gazebo/models/`
+   - Якщо плануєте використовувати "звичайний" режим, додайте файл SDF вашої моделі у `Tools/simulation/gz/models/`.
+   - Якщо плануєте використовувати _автономний_ режим, додайте SDF файл вашої моделі у`~/.simulation-gazebo/models/`
 
-   You can of course also use both.
+   Ви звичайно також можете використовувати обидва варіанти.
 
-### Adding a World
+### Додавання світу
 
-To add a new world:
+Щоб додати новий світ:
 
-1. Add your world to the list of worlds found in the [`CMakeLists.txt` here](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/gz_bridge/CMakeLists.txt). This is required in order to allow `CMake` to generate correct targets.
+1. Додайте ваш світ до переліку світів знайдений у [`CMakeLists.txt` тут](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/gz_bridge/CMakeLists.txt). Це необхідно, щоб `CMake` зміг згенерувати правильні цілі збірки.
 
-   - If you plan to use "normal" mode, add your world sdf to `Tools/simulation/gz/worlds/`.
-   - If you plan to use _standalone_ mode, add your world SDF to `~/.simulation-gazebo/worlds/`
+   - Якщо плануєте використовувати "звичайний" режим, додайте файл SDF вашого світу у `Tools/simulation/gz/worlds/`.
+   - Якщо плануєте використовувати _автономний_ режим, додайте файл SDF вашого світу у `~/.simulation-gazebo/worlds/`
 
 :::note
-As long as the world file and the model file are in the Gazebo search path (`GZ_SIM_RESOURCE_PATH`) it is not necessary to add them to the PX4 world and model directories. However, `make px4_sitl gz_<model>_<world>` won't work with them.
+Допоки файл світу та моделі у шляху пошуку Gazebo (`GZ_SIM_RESOURCE_PATH`) немає потреби додавати їх у директорії world та model PX4. Однак `make px4_sitl gz_<model>_<world>` не працюватиме з ними.
 :::
 
-## PX4-Gazebo Time Synchronization
+## Синхронізація часу PX4-Gazebo
 
-Unlike the Gazebo Classic and jMAVSim simulators, PX4 and Gazebo do not implement a lockstep mechanism.
+На відміну від симуляторів Gazebo Classic та jMAVSim, PX4 та Gazebo не реалізують механізм синхронізації.
 
-During Gazebo simulations PX4 subscribes to the Gazebo `\clock` topic and uses it as clock source. This guarantees that PX4 will always wait for Gazebo before moving forward in time, even if Gazebo is running with real time factors different from 1.
+Під час симуляцій Gazebo PX4 підписується на рубрику Gazebo `\clock` та використовує її як джерело синхронізації. Це гарантує, що PX4 завжди чекатиме Gazebo перед тим як рухатися вперед у часі, навіть якщо Gazebo працює з фактором реального часу відмінним від 1.
 
-Note, however, that as the lockstep is missing, Gazebo will never wait for PX4 to finish its computations. In the worst case scenario, PX4 can completely go offline and Gazebo will keep running, with obvious crashes of the simulated drone.
+Зауважте, однак, оскільки синхронізація відсутня, Gazebo ніколи не чекатиме завершення обчислень PX4. У найгіршому випадку, PX4 може повністю відключитися, а Gazebo продовжить виконання з очевидними аваріями дронів, що симулюються.
 
-## Multi-Vehicle Simulation
+## Симуляція кількох рухомих засобів
 
-Multi-Vehicle simulation is supported on Linux hosts.
+Симуляція кількох засобів підтримується на комп'ютерах з Linux.
 
-For more information see: [Multi-Vehicle Simulation with Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md)
+Для додаткової інформації дивіться: [Симуляція кількох засобів з Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md)
 
 ## Додаткова інформація
 
