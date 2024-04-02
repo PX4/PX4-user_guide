@@ -31,14 +31,25 @@ The correct order to set the above parameters is:
 1. Fly in stabilized mode at cruise speed and set the pitch setpoint offset (`FW_PSP_OFF`) to desired angle of attack.
    The required angle of attack at cruise speed corresponds to the pitch angle that the airplane needs to fly at in order to keep constant altitude during wing-leveled flight.
    If you are using an airspeed sensor, also set the correct cruise airspeed (`FW_AIRSPD_TRIM`).
-1. Run [auto-trimming](#auto-trimming) during a flight or look at the actuator controls in the log file (upload it to [Flight Review](https://logs.px4.io) and check the _Actuator Controls_ plot for example) and set the pitch trim (`TRIM_PITCH`).
+1. Run [auto-trimming](#auto-trimming) during a flight to set `TRIM_ROLL`, `TRIM_PITCH` and `TRIM_YAW`.
+
+   You could also manually set the pitch trim (`TRIM_PITCH`) by looking at the actuator controls in the log file (upload it to [Flight Review](https://logs.px4.io) and check the _Actuator Controls_ plot for example).
    Set that value to the average offset of the pitch signal during wing-leveled flight.
 
 Step 3 can be performed before step 2 if you don't want to have to look at the log, or if you feel comfortable flying in manual mode.
 You can then trim your remote (with the trim switches) and report the values to `TRIM_PITCH` (and remove the trims from your transmitter) or update `TRIM_PITCH` directly during flight via telemetry and QGC.
 
 ### Auto-trimming
-Auto-trimming continuously estimates the current trim of the aircraft during flight, uses it to reduce the constant load on the integrator of the angular rate control loop and adjusts general trim parameters (i.e.: `TRIM_ROLL`, `TRIM_PITCH` and `TRIM_YAW`) after landing. Auto-trimming can be enabled using [FW_ATRIM_MODE](../advanced_config/parameter_reference.md#FW_ATRIM_MODE). By default, this parameter is set to "Calibration" (trim parameters are replaced by the trim estimate) for the first flight and is then automatically changed to "Continuous" mode (trim estimate is used to slowly update the existing trim parameters). The trim estimate is only updated when the aircraft constantly flies with a bank angle of less than 10 degrees for more than 7 seconds. It is therefore recommended to fly large circles or several phases of straight and level flight during the first calibration flight to obtain best results.
+
+<Badge type="warning" text="main (PX4 v1.15)" />
+
+Auto-trimming continuously estimates the current trim of the aircraft during flight, uses it to reduce the constant load on the integrator of the angular rate control loop, and adjusts general trim parameters (`TRIM_ROLL`, `TRIM_PITCH` and `TRIM_YAW`) after landing.
+
+Auto-trimming is enabled using [FW_ATRIM_MODE](../advanced_config/parameter_reference.md#FW_ATRIM_MODE).
+This parameter is set to `(1) Calibration` (trim parameters are replaced by the trim estimate on landing) for the first flight and is then automatically changed to `(2) Continuous` mode (trim estimate is used to slowly update the existing trim parameters).
+
+The trim estimate is only updated when the aircraft constantly flies with a bank angle of less than 10 degrees for more than 7 seconds.
+During the first calibration flight you should fly large circles or several phases of straight and level flight to obtain best results.
 
 ## Advanced Trimming
 
@@ -51,6 +62,6 @@ For this purpose, a bilinear curve function of airspeed and a pitch trim increme
 ![Dtrim Curve](../../assets/config/fw/fixedwing_dtrim.png)
 
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/15AbscUF1kRdWMh8ONcCRu6QBwGbqVGfl/view?usp=sharing
-Request access from dev team. -->
+Request access from dev team.  -->
 
 A perfectly symmetrical airframe would only require pitch trim increments, but since a real airframe is never perfectly symmetrical, roll and yaw trims increments are also sometimes required.
