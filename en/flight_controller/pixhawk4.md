@@ -1,4 +1,4 @@
-# Holybro Pixhawk 4 (Discontinued)
+# Holybro Pixhawk 4
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
