@@ -1,20 +1,20 @@
-# Gazebo Simulation
+# Симуляція Gazebo
 
 :::warning
-Gazebo was previously known as "Gazebo Ignition" (while _Gazebo Classic_ was previously known as Gazebo). See the [official blog post](https://www.openrobotics.org/blog/2022/4/6/a-new-era-for-gazebo) for more information.
+Gazebo раніше була відома як "Gazebo Ignition" (тоді як _Gazebo Classic_ раніше відома як Gazebo). Дивіться [запис в офіційному блозі](https://www.openrobotics.org/blog/2022/4/6/a-new-era-for-gazebo) для додаткової інформації.
 :::
 
-[Gazebo](https://gazebosim.org/home) is an open source robotics simulator. It supersedes the older [Gazebo Classic](../sim_gazebo_classic/README.md) simulator, and is the only supported version of Gazebo for Ubuntu 22.04 and onwards.
+[Gazebo](https://gazebosim.org/home) - це робототехнічний симулятор з відкритим кодом. Він замінює старий симулятор [Gazebo Classic](../sim_gazebo_classic/README.md) та є єдиною версією Gazebo для Ubuntu 22.04 і далі, що підтримується.
 
-**Supported Vehicles:** Quadrotor, Plane, VTOL
+**Засоби що підтримуються:** Квадрокоптер, Літак, ВЗІП
 
 @[youtube](https://youtu.be/eRzdGD2vgkU)
 
 :::note
-See [Simulation](../simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
+Дивіться [Симуляція](../simulation/README.md) для загальної інформації про симуляцію, середовище симуляції та налаштування симуляції (наприклад засоби, що підтримуються).
 :::
 
-## Installation (Ubuntu Linux)
+## Встановлення (Ubuntu Linux)
 
 Gazebo is installed by default on Ubuntu 22.04 as part of the development environment setup: [Ubuntu Dev Environment Setup > Simulation and NuttX (Pixhawk) Targets](../dev_setup/dev_env_linux_ubuntu.md#simulation-and-nuttx-pixhawk-targets)
 
