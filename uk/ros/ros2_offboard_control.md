@@ -120,7 +120,7 @@ After 10 cycles `publish_vehicle_command()` is called to change to offboard mode
 
 The implementations of the `publish_offboard_control_mode()` and `publish_trajectory_setpoint()` methods are shown below. These publish the [OffboardControlMode](../msg_docs/OffboardControlMode.md) and [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) messages to PX4 (respectively).
 
-The `OffboardControlMode` is required in order to inform PX4 of the _type_ of offboard control behing used. Here we're only using _position control_, so the `position` field is set to `true` and all the other fields are set to `false`.
+Параметр `OffboardControlMode` потрібен для того, щоб повідомити PX4 про _тип_ використовуваного режиму керування offboard. Тут ми використовуємо лише _position control_, тому поле `position` має значення `true`, а всі інші поля мають значення `false`.
 
 ```cpp
 /**
@@ -140,7 +140,7 @@ void OffboardControl::publish_offboard_control_mode()
 }
 ```
 
-`TrajectorySetpoint` provides the position setpoint. In this case, the `x`, `y`, `z` and `yaw` fields are hardcoded to certain values, but they can be updated dynamically according to an algorithm or even by a subscription callback for messages coming from another node.
+`TrajectorySetpoint` надає задане значення положення. У цьому випадку поля `x`, `y`, `z` і `yaw` жорстко закодовані на певні значення, але вони можуть оновлюватися динамічно за алгоритмом або навіть за допомогою зворотного виклику підписки на повідомлення, що надходять з іншого вузла.
 
 ```cpp
 /**
@@ -158,7 +158,7 @@ void OffboardControl::publish_trajectory_setpoint()
 }
 ```
 
-The `publish_vehicle_command()` sends [VehicleCommand](../msg_docs/VehicleCommand.md) messages with commands to the flight controller. We use it above to change the mode to offboard mode, and also in `arm()` to arm the vehicle. While we don't call `disarm()` in this example, it is also used in the implementation of that function.
+Функція `publish_vehicle_command()` надсилає повідомлення [VehicleCommand](../msg_docs/VehicleCommand.md) з командами до польотного контролера. We use it above to change the mode to offboard mode, and also in `arm()` to arm the vehicle. Хоча у цьому прикладі ми не викликаємо `disarm()`, він також використовується у реалізації цієї функції.
 
 ```cpp
 /**
@@ -184,7 +184,7 @@ void OffboardControl::publish_vehicle_command(uint16_t command, float param1, fl
 ```
 
 :::note
-[VehicleCommand](../msg_docs/VehicleCommand.md) is one of the simplest and most powerful ways to command PX4, and by subscribing to [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) you can also confirm that setting a particular command was successful. The param and command fields map to [MAVLink commands](https://mavlink.io/en/messages/common.html#mav_commands) and their parameter values.
+[VehicleCommand](../msg_docs/VehicleCommand.md) - один з найпростіших і найпотужніших способів керування PX4, а підписавшись на [VehicleCommandAck](../msg_docs/VehicleCommandAck.md), ви також можете підтвердити, що задавання певної команди було успішним. Поля param і command відображають команди [MAVLink](https://mavlink.io/en/messages/common.html#mav_commands) та їхні значення параметрів.
 :::
 
 
