@@ -23,7 +23,7 @@
 :::tip
 Для отримання додаткової інформації дивіться [Керівництво користувача QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html). :::
 
-![planning-mission](../../assets/flying/planning_mission.jpg)
+![планування місії](../../assets/flying/planning_mission.jpg)
 
 ### Перевірка можливості виконання місії
 
@@ -35,35 +35,35 @@ PX4 виконує деякі базові перевірки, щоб визна
 
 ### Налаштування кута повороту апарату
 
-If set, a multi-rotor vehicle will yaw to face the **Heading** value specified in the target waypoint (corresponding to [MAV_CMD_NAV_WAYPOINT.param4](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)).
+Якщо встановлено, мультироторний апарат поверне відповідно до значення **Heading**, вказаного в цільовій точці маршруту (що відповідає [MAV_CMD_NAV_WAYPOINT.param4](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)).
 
-If **Heading** has not been explicitly set for the target waypoint (`param4=NaN`) then the vehicle will yaw towards a location specified in the parameter [MPC_YAW_MODE](../advanced_config/parameter_reference.md#MPC_YAW_MODE). By default this is the next waypoint.
+Якщо **Heading** не було явно встановлено для цільової точки маршруту (`param4=NaN`), то апарат поверне в напрямку місця, вказаного в параметрі [MPC_YAW_MODE](../advanced_config/parameter_reference.md#MPC_YAW_MODE). За замовчуванням це наступна точка маршруту.
 
-Vehicle types that cannot independently control yaw and direction of travel will ignore yaw settings (e.g. Fixed-wing).
+Типи апаратів, які не можуть самостійно контролювати поворот і напрямок руху, ігноруватимуть налаштування повороту (наприклад, апарати з фіксованим крилом).
 
-### Setting Acceptance/Turning Radius
+### Налаштування радіусу прийняття/повороту
 
-The _acceptance radius_ defines the circle around a waypoint within which a vehicle considers it has reached the waypoint, and will immediately switch to (and start turning towards) the next waypoint.
+_Радіус прийняття_ визначає коло навколо точки маршруту, в межах якого апарат вважає, що він досяг точки маршруту і негайно перейде до (і почне повертати до) наступної точки маршруту.
 
-For a multi-rotor drones, the acceptance radius is tuned using the parameter [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD). By default, the radius is small to ensure that multirotors pass above the waypoints, but it can be increased to create a smoother path such that the drone starts to turn before reaching the waypoint.
+Для мультироторних дронів радіус прийняття налаштовується за допомогою параметра [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD). За замовчуванням радіус є малим, щоб гарантувати, що мультикоптери пролітають над точками маршруту, але його можна збільшити, щоб створити більш плавний шлях, таким чином, щоб дрон починав поворот до досягнення точки маршруту.
 
-The image below shows the same mission flown with different acceptance radius parameters:
+Зображення нижче показує одну й ту саму місію, виконану з різними параметрами радіусу прийняття:
 
-![acceptance radius comparison](../../assets/flying/acceptance_radius_comparison.jpg)
+![порівняння радіусу прийняття](../../assets/flying/acceptance_radius_comparison.jpg)
 
-The speed in the turn is automatically computed based on the acceptance radius (= turning radius) and the maximum allowed acceleration and jerk (see [Jerk-limited Type Trajectory for Multicopters](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode)).
+Швидкість у повороті автоматично розраховується на основі радіусу прийняття (= радіусу повороту) та максимально дозволеного прискорення та ривка (див. [Траєкторія з обмеженням ривка для мультикоптерів](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode)).
 
 :::tip
-For more information about the impact of the acceptance radius around the waypoint see: [Mission Mode > Inter-waypoint Trajectory](../flight_modes_fw/mission.md#rounded-turns-inter-waypoint-trajectory). :::
+Для отримання більшої інформації про вплив радіусу прийняття навколо точки маршруту дивіться: [Режим місії > Траєкторія між точками маршруту](../flight_modes_fw/mission.md#rounded-turns-inter-waypoint-trajectory). :::
 
-### Package Delivery (Cargo) Missions
+### Місії з доставки посилок (вантажу)
 
-PX4 supports cargo delivery in missions using a gripper.
+PX4 підтримує доставку вантажу в місіях за допомогою захвату.
 
-This kind of mission is planned in much the same as any other [waypoint mission](../flying/missions.md), with mission start, takeoff waypoint, various path waypoints, and possibly a return waypoint. The only difference is that a package delivery mission must include a mission items to indicate how the package is released and the deployment mechanism. For more information see: [Package Delivery Mission](../flying/package_delivery_mission.md).
+Цей вид місії планується майже так само, як і будь-яка інша [місія з маршрутними точками](../flying/missions.md), із початковою точкою місії, точкою зльоту, різними маршрутними точками шляху та, можливо, точкою повернення. Єдина відмінність полягає в тому, що місія з доставки посилки повинна включати елементи місії, що вказують, як відбувається випуск посилки та механізм вивантаження. Для отримання додаткової інформації дивіться: [Місія з доставки посилки](../flying/package_delivery_mission.md).
 
-## Літаючі місії
+## Виконання місій
 
-Після того, як місію буде завантажено, перейдіть до перегляду польоту. Місія відображається в певному сенсі, що дозволяє легко відстежувати прогрес (його не можна змінити на цьому перегляді).
+Після того, як місію буде завантажено, перейдіть до екрана польоту. Місія відображається таким чином, що дозволяє легко відстежувати прогрес (його не можна змінити на цьому екрані).
 
-![flying-mission](../../assets/flying/flying_mission.jpg)
+![виконання місії](../../assets/flying/flying_mission.jpg)
