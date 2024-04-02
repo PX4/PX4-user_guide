@@ -210,17 +210,17 @@ i2cdetect [arguments...]
                  default: 1
 ```
 ## led_control
-Source: [systemcmds/led_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/led_control)
+Джерело: [systemcmds/led_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/led_control)
 
 
-### Description
+### Опис
 Command-line tool to control & test the (external) LED's.
 
 To use it make sure there's a driver running, which handles the led_control uorb topic.
 
 There are different priorities, such that for example one module can set a color with low priority, and another module can blink N times with high priority, and the LED's automatically return to the lower priority state after the blinking. The `reset` command can also be used to return to a lower priority.
 
-### Examples
+### Приклади
 Blink the first LED 5 times in blue:
 ```
 led_control blink -c blue -l 0 -n 5
@@ -229,7 +229,7 @@ led_control blink -c blue -l 0 -n 5
 
 <a id="led_control_usage"></a>
 
-### Usage
+### Використання
 ```
 led_control <command> [arguments...]
  Commands:
@@ -269,7 +269,7 @@ The listener can be exited any time by pressing Ctrl+C, Esc, or Q.
 
 <a id="listener_usage"></a>
 
-### Usage
+### Використання
 ```
 listener <command> [arguments...]
  Commands:
@@ -429,13 +429,13 @@ param <command> [arguments...]
 Source: [modules/payload_deliverer](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/payload_deliverer)
 
 
-### Description
+### Опис
 Handles payload delivery with either Gripper or a Winch with an appropriate timeout / feedback sensor setting, and communicates back the delivery result as an acknowledgement internally
 
 
 <a id="payload_deliverer_usage"></a>
 
-### Usage
+### Використання
 ```
 payload_deliverer <command> [arguments...]
  Commands:
@@ -452,12 +452,12 @@ payload_deliverer <command> [arguments...]
    status        print status info
 ```
 ## perf
-Source: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/perf)
+Джерело: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/perf)
 
 Tool to print performance counters
 <a id="perf_usage"></a>
 
-### Usage
+### Використання
 ```
 perf [arguments...]
    reset         Reset all counters
@@ -467,12 +467,12 @@ perf [arguments...]
  Prints all performance counters if no arguments given
 ```
 ## reboot
-Source: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/reboot)
+Джерело: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/reboot)
 
-Reboot the system
+Перезавантажте систему
 <a id="reboot_usage"></a>
 
-### Usage
+### Використання
 ```
 reboot [arguments...]
      [-b]        Reboot into bootloader
@@ -485,7 +485,7 @@ Source: [systemcmds/sd_bench](https://github.com/PX4/PX4-Autopilot/tree/main/src
 Test the speed of an SD Card
 <a id="sd_bench_usage"></a>
 
-### Usage
+### Використання
 ```
 sd_bench [arguments...]
      [-b <val>]  Block size for each read/write
@@ -500,12 +500,12 @@ sd_bench [arguments...]
      [-v]        Verify data and block number
 ```
 ## sd_stress
-Source: [systemcmds/sd_stress](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/sd_stress)
+Джерело: [systemcmds/sd_stress](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/sd_stress)
 
 Test operations on an SD Card
 <a id="sd_stress_usage"></a>
 
-### Usage
+### Використання
 ```
 sd_stress [arguments...]
      [-r <val>]  Number of runs
@@ -514,7 +514,7 @@ sd_stress [arguments...]
                  default: 100
 ```
 ## serial_passthru
-Source: [systemcmds/serial_passthru](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/serial_passthru)
+Джерело: [systemcmds/serial_passthru](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/serial_passthru)
 
 Pass data from one device to another.
 
@@ -522,7 +522,7 @@ This can be used to use u-center connected to USB with a GPS on a serial port.
 
 <a id="serial_passthru_usage"></a>
 
-### Usage
+### Використання
 ```
 serial_passthru [arguments...]
      -e <val>    External device path
@@ -537,11 +537,11 @@ serial_passthru [arguments...]
 Source: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/system_time)
 
 
-### Description
+### Опис
 
 Command-line tool to set and get system time.
 
-### Examples
+### Приклади
 
 Set the system time and read it back
 ```
