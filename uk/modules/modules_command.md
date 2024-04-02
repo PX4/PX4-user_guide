@@ -10,7 +10,7 @@ WARNING: remove all props before using this command.
 
 <a id="actuator_test_usage"></a>
 
-### Usage
+### Використання
 ```
 actuator_test <command> [arguments...]
  Commands:
@@ -34,7 +34,7 @@ Source: [systemcmds/bl_update](https://github.com/PX4/PX4-Autopilot/tree/main/sr
 Utility to flash the bootloader from a file
 <a id="bl_update_usage"></a>
 
-### Usage
+### Використання
 ```
 bl_update [arguments...]
    setopt        Set option bits to unlock the FLASH (only needed if in locked
@@ -48,7 +48,7 @@ Source: [systemcmds/bsondump](https://github.com/PX4/PX4-Autopilot/tree/main/src
 read BSON from a file and print in human form
 <a id="bsondump_usage"></a>
 
-### Usage
+### Використання
 ```
 bsondump [arguments...]
      <file>      File name
@@ -287,19 +287,19 @@ Source: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/main/src/syst
 Utility interact with the manifest
 <a id="mfd_usage"></a>
 
-### Usage
+### Використання
 ```
 mfd <command> [arguments...]
  Commands:
    query         Returns true if not existed
 ```
 ## mtd
-Source: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/mtd)
+Джерело: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/mtd)
 
 Utility to mount and test partitions (based on FRAM/EEPROM storage as defined by the board)
 <a id="mtd_usage"></a>
 
-### Usage
+### Використання
 ```
 mtd <command> [arguments...]
  Commands:
@@ -320,7 +320,7 @@ mtd <command> [arguments...]
                  /fs/mtd_params), use system default if not provided
 ```
 ## nshterm
-Source: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/nshterm)
+Джерело: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/nshterm)
 
 Start an NSH shell on a given port.
 
@@ -328,16 +328,16 @@ This was previously used to start a shell on the USB serial port. Now there runs
 
 <a id="nshterm_usage"></a>
 
-### Usage
+### Використання
 ```
 nshterm [arguments...]
      <file:dev>  Device on which to start the shell (eg. /dev/ttyACM0)
 ```
 ## param
-Source: [systemcmds/param](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/param)
+Джерело: [systemcmds/param](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/param)
 
 
-### Description
+### Опис
 Command to access and manipulate parameters via shell or script.
 
 This is used for example in the startup script to set airframe-specific parameters.
@@ -348,7 +348,7 @@ If the FLASH-based backend is enabled (which is done at compile time, e.g. for t
 
 Each parameter has a 'used' flag, which is set when it's read during boot. It is used to only show relevant parameters to a ground control station.
 
-### Examples
+### Приклади
 Change the airframe and make sure the airframe's default parameters are loaded:
 ```
 param set SYS_AUTOSTART 4001
@@ -358,7 +358,7 @@ reboot
 
 <a id="param_usage"></a>
 
-### Usage
+### Використання
 ```
 param <command> [arguments...]
  Commands:
@@ -551,7 +551,7 @@ system_time get
 
 <a id="system_time_usage"></a>
 
-### Usage
+### Використання
 ```
 system_time <command> [arguments...]
  Commands:
@@ -560,33 +560,33 @@ system_time <command> [arguments...]
    get           Get the system time
 ```
 ## top
-Source: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/top)
+Джерело: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/top)
 
 Monitor running processes and their CPU, stack usage, priority and state
 <a id="top_usage"></a>
 
-### Usage
+### Використання
 ```
 top [arguments...]
    once          print load only once
 ```
 ## usb_connected
-Source: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/usb_connected)
+Джерело: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/usb_connected)
 
 Utility to check if USB is connected. Was previously used in startup scripts. A return value of 0 means USB is connected, 1 otherwise.
 <a id="usb_connected_usage"></a>
 
-### Usage
+### Використання
 ```
 usb_connected [arguments...]
 ```
 ## ver
-Source: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/ver)
+Джерело: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/ver)
 
 Tool to print various version information
 <a id="ver_usage"></a>
 
-### Usage
+### Використання
 ```
 ver <command> [arguments...]
  Commands:
