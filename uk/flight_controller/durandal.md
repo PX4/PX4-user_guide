@@ -92,31 +92,31 @@ _Durandal_<sup>&reg;</sup> є останньою оновленою версіє
 
 ## З'єднання
 
-The locations of ports/connections are shown here (and below in the [pinouts section](#pinouts)).
+Місця розташування портів/з'єднань показані тут (і нижче у розділі [виводів](#pinouts)).
 
-### Top
+### Верх
 
 ![Durandal - Top Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
 
-### Front
+### Перед
 
 ![Durandal - Front Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_front.jpg)
 
-### Back
+### Тил
 
 ![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
-### Right
+### Праворуч
 
 ![Durandal - Right-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_right.jpg)
 
-### Left
+### Ліворуч
 
 ![Durandal - Left-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
-## Dimensions
+## Розміри
 
-All dimensions are in millimeters.
+Усі розміри в міліметрах.
 
 ![Durandal Dimensions](../../assets/flight_controller/durandal/durandal_dimensions.jpg)
 
@@ -147,25 +147,25 @@ Under these conditions the system will not draw any power (will not be operation
 
 -->
 
-## Assembly/Setup
+## Зборка/інсталяція
 
-The [Durandal Wiring Quick Start](../assembly/quick_start_durandal.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
+[Durandal Wiring Quick Start](../assembly/quick_start_durandal.md) надає інструкції щодо збирання необхідних/важливих периферійних пристроїв, таких як GPS, плата управління живленням тощо.
 
-## Building Firmware
+## Створення прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно свторювати цю прошивку! Вона запрограмована та автоматично встановлюється програмою _QGroundControl_, коли підключено відповідне обладнання.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make holybro_durandal-v1_default
 ```
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
-| UART   | Device     | Port          |
+| UART   | Пристрій   | Порт          |
 | ------ | ---------- | ------------- |
 | USART1 | /dev/ttyS0 | GPS1          |
 | USART2 | /dev/ttyS1 | TELEM1        |
@@ -179,7 +179,7 @@ make holybro_durandal-v1_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## Дебаг Порт
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the _Debug Port_.
 
