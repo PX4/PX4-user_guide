@@ -1,24 +1,24 @@
-# Package Delivery Missions
+# Місії з доставки вантажу
 
-A package delivery mission allows users to plan and execute cargo delivery using a [gripper](../peripherals/gripper.md).
+Місія з доставки посилки дозволяє планувати та виконувати доставку вантажу за допомогою [захвату](../peripherals/gripper.md).
 
 :::note
-This feature was added in PX4 v1.14 with support for Gripper (only). Package delivery missions will be extended to support other cargo release hardware in future, including winches.
+Ця функція була додана в PX4 v1.14 з підтримкою захвату (лише). Місії з доставки посилок будуть розширені для підтримки іншого обладнання для випуску вантажу в майбутньому, включаючи лебідки.
 :::
 
-## Delivery Mechanism Configuration
+## Конфігурація механізму доставки
 
-Package delivery missions require some configuration, which must be done before a mission can be planned and executed.
+Місії з доставки посилок вимагають певної конфігурації, яку необхідно виконати перед плануванням і виконанням місії.
 
-The configuration is largely hardware-specific, and is hence covered in the setup page for each type of package delivery hardware:
+Конфігурація значною мірою залежить від апаратного забезпечення, тому вона описана на сторінці налаштування для кожного типу обладнання доставки посилок:
 
-- [Gripper > Package Delivery Configuration](../peripherals/gripper.md#package-delivery-configuration)
+- [Захват > Конфігурація доставки посилок](../peripherals/gripper.md#package-delivery-configuration)
 
-## Mission Planning
+## Планування місії
 
-A package delivery mission is planned in much the same as any other [waypoint mission](../flying/missions.md), with mission start, takeoff waypoint, various path waypoints, and possibly a return waypoint. The only difference is that a package delivery mission must include a mission item that indicates whether the package should be released on the ground (`Land`) or in-air (`Waypoint`), followed by another mission item to deploy the package (`Gripper Mechanism`).
+Місія доставки посилки планується майже так само, як і будь-яка інша [місія з маршрутною точкою](../flying/missions.md), із початковою точкою місії, точкою зльоту, різними маршрутними точками шляху та, можливо, точкою повернення. Єдина відмінність полягає в тому, що місія доставки посилки має включати пункт місії, який вказує, чи потрібно випустити посилку на землі (`Land`) чи в повітрі (`Waypoint`), після чого інший елемент місії для розвантаження посилки (`Механізм захоплення`).
 
-Whether or not you `Land` depends on whether the package can safely be deployed while flying, and if the vehicle is capable of landing at the deployment location. Since a gripper cannot lower packages safely, multicopter and VTOL vehicles will often land to deploy packages when using a gripper.
+Те, чи ви `приземляєтеся`, залежить від того чи можна безпечно вивантажити посилку під час польоту та чи здатний апарат приземлитися в місці вивантаження. Since a gripper cannot lower packages safely, multicopter and VTOL vehicles will often land to deploy packages when using a gripper.
 
 After the deployment device [indicates completion](#package-release-feedback), the vehicle will proceed to the next waypoint. Note that if landed, the next mission item after deployment should be another `Waypoint` or a `Takeoff` mission item ([it must not be a `RETURN`](#rtl-waypoint-for-package-delivery-with-landing).)
 
