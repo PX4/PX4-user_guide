@@ -1,39 +1,39 @@
 # Місії
 
-A mission is a predefined flight plan, which can be planned in QGroundControl and uploaded to the flight controller, and then executed autonomously in [Mission mode](../flight_modes_mc/mission.md).
+Місія — це попередньо визначений план польоту, який може бути спланований в QGroundControl, завантажений на політний контролер і потім виконаний автономно в [режимі місії](../flight_modes_mc/mission.md).
 
-Missions typically include items for controlling taking off, flying a sequence of waypoints, capturing images and/or video, deploying cargo, and landing. QGroundControl allows you to plan missions using a fully manual approach, or you can use its more advanced features to plan ground area surveys, corridor surveys, or structure surveys.
+Місії, як правило, включають елементи для контролю зльоту, польоту в послідовності маршрутних точок, знімання зображень та/або відео, розміщення вантажу та посадки. QGroundControl дозволяє планувати місії, використовуючи повністю ручний підхід, або ви можете використовувати його більш розширені функції для планування обстежень місцевості, коридорів або оглядів структур.
 
-This topic provides an overview of how to plan and fly missions.
+Цей розділ надає огляд того, як планувати та виконувати місії.
 
 
 
-## Планувальння місії
+## Планування місій
 
-Manually planning missions is straightforward:
+Планування місій вручну є простим процесом:
 
-- Switch to the mission view
-- Select the **Add Waypoint** ("plus") icon in the top left.
-- Click on the map to add waypoints.
-- Use the waypoint list on the right to modify the waypoint parameters/type The altitude indicator on the bottom provides a sense of the relative altitude of each waypoint.
-- Once finished, click on the **Upload** button (top right) to send the mission to the vehicle.
+- Перейдіть до екрана місії
+- Виберіть іконку **Add Waypoint** ("плюс") у верхньому лівому куті.
+- Натисніть на карту, щоб додати точки маршруту.
+- Використовуйте список точок маршруту справа для зміни параметрів/типу точки маршруту. Індикатор висоти внизу дає уявлення про відносну висоту кожної точки маршруту.
+- Після завершення натисніть кнопку **Upload** (у верхньому правому куті), щоб відправити місію до апарату.
 
-You can also use the _Pattern_ tool to automate creation of survey grids.
+Ви також можете використовувати інструмент _Pattern_ для автоматизації створення сіток обстеження.
 
 :::tip
-For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html). :::
+Для отримання додаткової інформації дивіться [Керівництво користувача QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html). :::
 
 ![planning-mission](../../assets/flying/planning_mission.jpg)
 
-### Перевірка легкості місій
+### Перевірка можливості виконання місії
 
-PX4 runs some basic sanity checks to determine if a mission is feasible. For example, whether the mission is close enough to the vehicle, if the mission will conflict with a geofence, or if a mission landing pattern is required but is not present.
+PX4 виконує деякі базові перевірки, щоб визначити, чи місія є виконуваною. Наприклад, чи достатньо близько місія до апарату, чи буде місія конфліктувати з геозоною, або чи потрібен патерн посадки для місії, але він відсутній.
 
-The checks are run when the mission is uploaded and immediately before it is run. If any of the checks fail, the user is notified and it is not possible to start the mission.
+Перевірки виконуються під час завантаження місії та безпосередньо перед її запуском. Якщо будь-яка з перевірок не пройде успішно, користувач отримує повідомлення, і почати місію неможливо.
 
-For more detail on the checks and possible actions, see: [Mission Mode (FW) > Mission Feasibility Checks](../flight_modes_fw/mission.md#mission-feasibility-checks) and [Mission Mode (MC) > Mission Feasibility Checks](../flight_modes_mc/mission.md#mission-feasibility-checks).
+Для отримання детальнішої інформації про перевірки та можливі дії дивіться: [Режим місії (FW) > Перевірка можливості виконання місії](../flight_modes_fw/mission.md#mission-feasibility-checks) та [Режим місії (MC) > Перевірка можливості виконання місії](../flight_modes_mc/mission.md#mission-feasibility-checks).
 
-### Setting Vehicle Yaw
+### Налаштування кута повороту апарату
 
 If set, a multi-rotor vehicle will yaw to face the **Heading** value specified in the target waypoint (corresponding to [MAV_CMD_NAV_WAYPOINT.param4](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)).
 
