@@ -20,16 +20,16 @@ PX4 забезпечує [експериментальну підтримку](R
 
 <img src="../../assets/airframes/types/Vectored6DofUUV.svg" width="29%" style="max-height: 180px;" />
 
-- **MAIN1:** motor 1 CCW, bow starboard horizontal, , propeller CCW
-- **MAIN2:** motor 2 CCW, bow port horizontal, propeller CCW
-- **MAIN3:** motor 3 CCW, stern starboard horizontal, propeller CW
-- **MAIN4:** motor 4 CCW, stern port horizontal, propeller CW
-- **MAIN5:** motor 5 CCW, bow starboard vertical, propeller CCW
-- **MAIN6:** motor 6 CCW, bow port vertical, propeller CW
-- **MAIN7:** motor 7 CCW, stern starboard vertical, propeller CW
-- **MAIN8:** motor 8 CCW, stern port vertical, propeller CCW
+- **MAIN1:** двигун 1 проти годинникової стрілки, носова праворуч горизонтальна, пропелер проти годинникової стрілки
+- **MAIN2:** двигун 2 проти годинникової стрілки, носова ліворуч горизонтальна, пропелер проти годинникової стрілки
+- **MAIN3:** двигун 3 проти годинникової стрілки, корма праворуч горизонтальна, пропелер за годинниковою стрілкою
+- **MAIN4:** двигун 4 проти годинникової стрілки, корма ліворуч горизонтальна, пропелер за годинниковою стрілкою
+- **MAIN5:** двигун 5 проти годинникової стрілки, носова праворуч вертикальна, пропелер проти годинникової стрілки
+- **MAIN6:** двигун 6 проти годинникової стрілки, носова ліворуч вертикальна, пропелер за годинниковою стрілкою
+- **MAIN7:** двигун 7 проти годинникової стрілки, корма праворуч вертикальна, пропелер за годинниковою стрілкою
+- **MAIN8:** двигун 8 проти годинникової стрілки, корма ліворуч вертикальна, пропелер проти годинникової стрілки
 
-## Airframe Configuration
+## Конфігурація планера
 
 BlueROV2 не йде з предвстановленою версією з PX4. Вам потрібно:
 
