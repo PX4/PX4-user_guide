@@ -1,12 +1,12 @@
-# OctoMap 3D Models with ROS/Gazebo Classic
+# 3D Моделі OctoMap з ROS/Gazebo Classic
 
-The [OctoMap library](http://octomap.github.io/) is an open source library for generating volumetric 3D environment models from sensor data. This model data can then be used by a drone for navigation and obstacle avoidance.
+[Бібліотека OctoMap](http://octomap.github.io/) - це бібліотека з відкритим кодом для генерації об'ємних моделей 3D середовища з даних датчиків. Дані цієї моделі потім можуть використовуватись дроном для навігації та уникнення перешкод.
 
-This guide covers how to use _OctoMap_ with the [Gazebo Classic](../sim_gazebo_classic/README.md) [Rotors Simulator](https://github.com/ethz-asl/rotors_simulator/wiki/RotorS-Simulator) and ROS.
+У цьому посібнику описано як використовувати _OctoMap_ з [Gazebo Classic](../sim_gazebo_classic/README.md) [Симулятором роторів](https://github.com/ethz-asl/rotors_simulator/wiki/RotorS-Simulator) та ROS.
 
-## Installation
+## Встановлення
 
-The installation requires ROS, [Gazebo Classic](../sim_gazebo_classic/README.md) and the Rotors Simulator plugin. Follow the [Rotors Simulator instructions](https://github.com/ethz-asl/rotors_simulator) to install.
+Встановлення потребує ROS, [Gazebo Classic](../sim_gazebo_classic/README.md) та плагін симулятора роторів. Дотримуйтесь [інструкцій Симулятора роторів](https://github.com/ethz-asl/rotors_simulator) для встановлення.
 
 Next, install the _OctoMap_ library:
 
