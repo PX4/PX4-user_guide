@@ -16,9 +16,9 @@ Gazebo раніше була відома як "Gazebo Ignition" (тоді як 
 
 ## Встановлення (Ubuntu Linux)
 
-Gazebo is installed by default on Ubuntu 22.04 as part of the development environment setup: [Ubuntu Dev Environment Setup > Simulation and NuttX (Pixhawk) Targets](../dev_setup/dev_env_linux_ubuntu.md#simulation-and-nuttx-pixhawk-targets)
+Gazebo встановлений на Ubuntu 22.04 за замовчуванням як частина середовища розробки: [Налаштування середовища розробки Ubuntu > Цілі збірки для симуляції та NuttX (Pixhawk)](../dev_setup/dev_env_linux_ubuntu.md#simulation-and-nuttx-pixhawk-targets)
 
-If you want to use Gazebo on Ubuntu 20.04 you can install it manually after following the normal setup process (installing `gz-garden` will uninstall Gazebo-Classic!):
+Якщо ви бажаєте використовувати Gazebo на Ubuntu 20.04? ви можете встановити його вручну після виконання звичайного встановлення (встановлення `gz-garden` видалить Gazebo-Classic!):
 
 ```sh
 sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
@@ -27,53 +27,53 @@ sudo apt-get update
 sudo apt-get install gz-garden
 ```
 
-## Running the Simulation
+## Запуск симуляції
 
-Gazebo SITL simulation can be conveniently run using a `make` command as shown below:
+Симуляцію Gazebo SITL можна легко запустити за допомогою команди `make` як показано нижче:
 
 ```sh
 cd /path/to/PX4-Autopilot
 make px4_sitl gz_x500
 ```
 
-This runs both the PX4 SITL instance and the Gazebo client.
+Це запускає як екземпляр PX4 SITL, так і клієнт Gazebo.
 
-The supported vehicles and `make` commands are listed below. Note that all gazebo make targets have the prefix `gz_`.
+Рухомі засоби, що підтримуються, а також команди `make` перелічені нижче. Зверніть увагу, що усі цілі збірки make для gazebo мають префікс `gz_`.
 
-| Vehicle                                                                                                  | Команда                           | `PX4_SYS_AUTOSTART` |
-| -------------------------------------------------------------------------------------------------------- | --------------------------------- | ------------------- |
-| [Quadrotor(x500)](../sim_gazebo_gz/vehicles.md#x500-quadrotor)                                           | `make px4_sitl gz_x500`           | 4001                |
-| [Quadrotor(x500) with Depth Camera](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-depth-camera)       | `make px4_sitl gz_x500_depth`     | 4002                |
-| [Quadrotor(x500) with Vision Odometry](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-visual-odometry) | `make px4_sitl gz_x500_vision`    | 4005                |
-| [VTOL](../sim_gazebo_gz/vehicles.md#standard-vtol)                                                       | `make px4_sitl gz_standard_vtol`  | 4004                |
-| [Plane](../sim_gazebo_gz/vehicles.md#standard-plane)                                                     | `make px4_sitl gz_rc_cessna`      | 4003                |
-| [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane)                                            | `make px4_sitl gz_advanced_plane` | 4008                |
+| Рухомий засіб                                                                                                   | Команда                           | `PX4_SYS_AUTOSTART` |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------- | ------------------- |
+| [Квадрокоптер (x500)](../sim_gazebo_gz/vehicles.md#x500-quadrotor)                                              | `make px4_sitl gz_x500`           | 4001                |
+| [Квадрокоптер (x500) з камерою глибини](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-depth-camera)          | `make px4_sitl gz_x500_depth`     | 4002                |
+| [Квадрокоптер (x500) з візуальною одометрією](../sim_gazebo_gz/vehicles.md#x500-quadrotor-with-visual-odometry) | `make px4_sitl gz_x500_vision`    | 4005                |
+| [ВЗІП](../sim_gazebo_gz/vehicles.md#standard-vtol)                                                              | `make px4_sitl gz_standard_vtol`  | 4004                |
+| [Літак](../sim_gazebo_gz/vehicles.md#standard-plane)                                                            | `make px4_sitl gz_rc_cessna`      | 4003                |
+| [Покращений літак](../sim_gazebo_gz/vehicles.md#advanced-plane)                                                 | `make px4_sitl gz_advanced_plane` | 4008                |
 
-All [vehicle models](../sim_gazebo_gz/vehicles.md) (and [worlds](#specify-world)) are included as a submodule from the [Gazebo Models Repository](../sim_gazebo_gz/gazebo_models.md) repository.
+Усі [моделі засобів](../sim_gazebo_gz/vehicles.md) (та [світів](#specify-world)) включені як підмодуль з репозиторію [Моделі Gazebo](../sim_gazebo_gz/gazebo_models.md).
 
 :::warning
-The Advanced Lift Drag Plugin that is required to run the Advanced Plane is not yet part of the Gazebo distribution, so the Advanced Plane will not yet fly: [PX4-Autopilot#22337](https://github.com/PX4/PX4-Autopilot/issues/22337).
+Плагін "Удосконалена піднімна сила", що необхідний для запуску Покращеного літака поки що не є частиною дистрибутиву Gazebo, тому Покращений літак поки що не полетить: [PX4-Autopilot#22337](https://github.com/PX4/PX4-Autopilot/issues/22337).
 
-As a workaround to enable Advanced Plane, you can compile the gz-sim library from [Gazebo source code](https://github.com/gazebosim/gz-sim), go into the `build/lib` directory, copy out the advanced lift drag plugin `.so` file (depending on the exact Gazebo Version this is called something along the lines of `libgz-sim7-advanced-lift-drag-system.so`), and paste this into the `~/.gz/sim/plugins` folder.
+Щоб увімкнути Покращений літак, в якості обхідного шляху ви можете зібрати бібліотеку gz-sim з [вихідного коду Gazebo](https://github.com/gazebosim/gz-sim), перейти до каталогу `build/lib`, скопіювати файл плагіну удосконаленої піднімної сили `.so` (в залежності від певної версії Gazebo він називається чимось на зразок `libgz-sim7-advanced-lift-drag-system.so`), та вставити у директорію `~/.gz/sim/plugins`.
 :::
 
-The commands above launch a single vehicle with the full UI. _QGroundControl_ should be able to automatically connect to the simulated vehicle.
+Вищенаведені команди запускають єдиний засіб з повним користувацьким інтерфейсом. _QGroundControl_ повинна автоматично підключатися до симульованого транспортного засобу.
 
-### Standalone Mode
+### Автономний режим
 
-Another way that Gazebo SITL can be connected is in _standalone mode_. In this mode PX4 SITL and Gazebo are started separately in their own terminals. By default these terminals are on the same host, but you can also connect SITL and Gazebo instances running on any two devices on the network (or even different networks if you use a VPN to connect them).
+Інший спосіб як Gazebo SITL може бути під'єднано - в _автономному режимі_. У цьому режимі PX4 SITL і Gazebo запускаються окремо у своїх власних терміналах. За замовчуванням ці термінали знаходяться на одному й тому ж комп'ютері, але ви можете також під'єднати екземпляри SITL та Gazebo, які працюють на будь-яких двох пристроях в мережі (або навіть різних мережах, якщо ви використовуєте VPN для їх з'єднання).
 
-You start PX4 in standalone mode by prefixing the `make` command with `PX4_GZ_STANDALONE=1`:
+Запустити PX4 в автономному режимі можна додавши перед командою `make` `PX4_GZ_STANDALONE=1`:
 
 ```sh
 cd /path/to/PX4-Autopilot
 PX4_GZ_STANDALONE=1 make px4_sitl gz_x500
 ```
 
-PX4 SITL will then wait until it detects an instance of _gz-server_, and then connect to it.
+PX4 SITL тоді буде очікувати поки не виявить екземпляру _gz-server_ та не під'єднається до нього.
 
 :::note
-If you have not yet started _gz-server_ when you run the `make` command, you will see the following warning until gazebo has been started and an instance of _gz-server_ is detected by PX4:
+Якщо ви досі не запустили _gz-server_ коли виконали команду `make`, ви побачите наступне попередження допоки gazebo не запуститься та екземпляр _gz-server_ не буде виявлено PX4:
 
 ```sh
 WARN [gz bridge] Service call timed out as Gazebo has not been detected
@@ -81,42 +81,42 @@ WARN [gz bridge] Service call timed out as Gazebo has not been detected
 
 :::
 
-The simplest way to start the simulation is to use the Python script [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo), which can be found in the [Gazebo Models Repository](../sim_gazebo_gz/gazebo_models.md) repository. This can be used to launch a _gz-server_ instance with any supported world and vehicle.
+Найпростіший спосіб запустити симуляцію - використати Python скрипт [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo), що можна знайти у репозиторії [Моделі Gazebo](../sim_gazebo_gz/gazebo_models.md). Його можна використати, щоб запустити екземпляр _gz-server_ з будь-яким світом і рухомим засобом, що підтримується.
 
-The script can be used without installing any additional dependencies, and will fetch the supported PX4 models and worlds on first use (by default) and save them to `~/.simulation-gazebo`. If called again the script will use this directory to get models and worlds. Therefore if you want to use your own model and run it in standalone mode, you will have to place its source code in `~/.simulation-gazebo`.
+Скрипт можна використати без встановлення додаткових залежностей, він отримає моделі та світи PX4 що підтримуються при першому використанні (за замовчуванням) та збереже їх у `~/.simulation-gazebo`. При повторному запуску цей скрипт використає цю директорію для отримання моделей та світів. Тому якщо ви бажаєте використати власну модель та запустити її в автономному режимі, вам потрібно покласти її вихідний код у `~/.simulation-gazebo`.
 
-You can fetch the script locally using any method you like, such as `wget`:
+Ви можете отримати цей скрипт локально використовуючи будь-який спосіб який вам до вподоби, наприклад `wget`:
 
 ```sh
 wget https://raw.githubusercontent.com/PX4/PX4-gazebo-models/main/simulation-gazebo
 ```
 
-The script can be started with:
+Скрипт може бути запущено так:
 
 ```sh
 cd /path/to/script/
 python3 simulation-gazebo
 ```
 
-For more information and arguments, see [Gazebo Models](../sim_gazebo_gz/gazebo_models.md).
+Для додаткової інформації та аргументів, дивіться [Моделі Gazebo](../sim_gazebo_gz/gazebo_models.md).
 
 :::note
-If `make px4_sitl gz_x500` gives the error `ninja: error: unknown target 'gz_x500'` then run `make distclean` to start from a clean slate, and try running `make px4_sitl gz_x500` again.
+Якщо `make px4_sitl gz_x500` дає помилку `ninja: error: unknown target 'gz_x500'` тоді запустіть `make distclean`, щоб почати з чистого аркуша, та спробуйте запустити `make px4_sitl gz_x500` ще раз.
 :::
 
-### Headless Mode
+### Режим без інтерфейсу
 
-You might want to run Gazebo in "headless mode" (without the Gazebo GUI) as it uses fewer resources, and does not rely on your system having a graphics card that properly supports OpenGL rendering. This makes it faster to load and run, and for many simple use cases may be all you need.
+Можливо ви забажаєте запустити Gazebo у "режимі без інтерфейсу" (без графічного інтерфейсу Gazebo) оскільки він використовує менше ресурсів та не покладається на те, що ваша система має відеокарту яка належним чином підтримує рендеринг OpenGL. Це пришвидшує завантаження та запуск, та для багатьох простих випадків це може бути все що вам потрібно.
 
-The simulation can be run in headless mode by prefixing the command with the `HEADLESS=1` environment variable:
+Симуляція може бути запущено у режимі без інтерфейсу додаванням перед командою змінної середовища `HEADLESS=1`:
 
 ```sh
 HEADLESS=1 make px4_sitl gz_x500
 ```
 
-### Specify World
+### Вказання світу
 
-The simulation can be run inside a particular world by concatenating the desired world to the name of the desired vehicle. For example, to run the windy world with the `x500` vehicle you can specify:
+Симуляція може бути запущена в певному світі додаванням бажаного світу до імені бажаного рухомого засобу. Наприклад, щоб запустити вітряний світ із засобом `x500` ви можете вказати:
 
 ```sh
 make px4_sitl gz_x500_windy
