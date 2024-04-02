@@ -94,18 +94,18 @@ z_{mav} = - y_{mocap}
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
 :::note
-Графік зовнішніх даних порівняно з бортовою оцінкою (як показано вище) можна створити за допомогою [FlightPlot](../log/flight_log_analysis.md#flightplot) або подібних інструментів аналізу польотів. At time of writing (July 2021) neither [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool) nor [MAVGCL](../log/flight_log_analysis.md#mavgcl) support this functionality.
+Графік зовнішніх даних порівняно з бортовою оцінкою (як показано вище) можна створити за допомогою [FlightPlot](../log/flight_log_analysis.md#flightplot) або подібних інструментів аналізу польотів. На момент написання статті (липень 2021 року) ні [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), ні [MAVGCL](../log/flight_log_analysis.md#mavgcl) не підтримують цю функцію.
 :::
 
-The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.
+Значення можна додатково налаштувати, змінюючи параметр, щоб знайти значення, яке дає найнижчі інновації EKF під час динамічних маневрів.
 
-## LPE Tuning/Configuration
+## LPE Конфігурація/Налаштування
 
-You will first need to [switch to the LPE estimator](../advanced/switching_state_estimators.md) by setting the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) parameter.
+Спочатку потрібно [переключитися на оцінювач LPE](../advanced/switching_state_estimators.md), задавши параметр [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP).
 
 
 :::note
-If targeting `px4_fmu-v2` hardware you will also need to use a firmware version that includes the LPE module (firmware for other FMU-series hardware includes both LPE and EKF). The LPE version can be found in the zip file for each PX4 release or it can be built from source using the build command `make px4_fmu-v2_lpe`. See [Building the Code](../dev_setup/building_px4.md) for more details.
+Якщо ви використовуєте обладнання `px4_fmu-v2`, вам також потрібно використовувати версію прошивки, яка містить модуль LPE (прошивка для іншого обладнання серії FMU містить як LPE, так і EKF). Версію LPE можна знайти у zip-файлі для кожного випуску PX4 або зібрати з вихідного коду за допомогою команди збірки `make px4_fmu-v2_lpe`. Дивіться [Створення коду](../dev_setup/building_px4.md) для більш детальної інформації.
 :::
 
 ### Enabling External Pose Input
