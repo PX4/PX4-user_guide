@@ -4,7 +4,7 @@
 
 PX4는 *BlueROV2 Heavy Configuration*으로 알려진 8 추력 벡터 설정에 대한 [실험적 지원](README.md)을 제공합니다.
 
-PX4 provides [experimental support](README.md) for an 8-thrust vectored configuration, known as the _BlueROV2 Heavy Configuration_.
+PX4 provides [experimental support](index.md) for an 8-thrust vectored configuration, known as the _BlueROV2 Heavy Configuration_.
 
 ![Hero](../../assets/airframes/sub/bluerov/bluerov_hero.jpg)
 
