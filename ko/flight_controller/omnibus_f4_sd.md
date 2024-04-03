@@ -60,8 +60,7 @@ The _Omnibus F4 SD_ is a controller board designed for racers. 일반적인 레�
 
 - [Hobbywing XRotor 비행 콘트롤러 F4](https://www.hobbywing.com/en/products/info.html?id=164)
 
-:::note
-This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](https://www.hobbywing.com/en/products/info.html?id=116) without soldering. 이 ESC 보드는 또한 Omnibus 보드에 전원을 제공합니다.
+  ::: info This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](https://www.hobbywing.com/en/products/info.html?id=116) without soldering. 이 ESC 보드는 또한 Omnibus 보드에 전원을 제공합니다.
 :::
 
   구매처:
@@ -180,7 +179,7 @@ Benefits over [FrSky telemetry](../peripherals/frsky_telemetry.md) include:
 - 150Hz RC 업데이트 속도.
 - 신호는 반전되지 않으므로 외부 인버터 로직이 필요하지 않습니다.
 
-:::note
+::: info
 If you use CRSF Telemetry you will need to build custom PX4 firmware.
 By contrast, FrSky telemetry can use prebuilt firmware.
 :::
