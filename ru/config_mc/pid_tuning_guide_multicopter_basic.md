@@ -58,8 +58,7 @@ The tuning procedure is:
 1. Confirm that the airmode selector is set to **Disabled**
 1. Set the _Thrust curve_ value to: 0.3 (PWM, power-based controllers) or 1 (RPM-based ESCs)
 
-:::note
-For PWM, power-based and (some) UAVCAN speed controllers, the control signal to thrust relationship may not be linear. As a result, the optimal tuning at hover thrust may not be ideal when the vehicle is operating at higher thrust.
+   ::: info For PWM, power-based and (some) UAVCAN speed controllers, the control signal to thrust relationship may not be linear. As a result, the optimal tuning at hover thrust may not be ideal when the vehicle is operating at higher thrust.
 
    The thrust curve value can be used to compensate for this non-linearity:
 
@@ -75,7 +74,7 @@ For PWM, power-based and (some) UAVCAN speed controllers, the control signal to 
 1. Select the **Start** button in order to start tracking the setpoint and response curves.
 1. Rapidly move the _roll stick_ full range and observe the step response on the plots. :::tip Stop tracking to enable easier inspection of the plots. This happens automatically when you zoom/pan. Use the **Start** button to restart the plots, and **Clear** to reset them.
 :::
-1. Modify the three PID values using the sliders (for roll rate-tuning these affect `MC_ROLLRATE_K`, `MC_ROLLRATE_I`, `MC_ROLLRATE_D`) and observe the step response again. The values are saved to the vehicle as soon as the sliders are moved. :::note The goal is for the _Response_ curve to match the _Setpoint_ curve as closely as possible (i.e. a fast response without overshoots). ::: The PID values can be adjusted as follows:
+1. Modify the three PID values using the sliders (for roll rate-tuning these affect `MC_ROLLRATE_K`, `MC_ROLLRATE_I`, `MC_ROLLRATE_D`) and observe the step response again. The values are saved to the vehicle as soon as the sliders are moved. ::: info The goal is for the _Response_ curve to match the _Setpoint_ curve as closely as possible (i.e. a fast response without overshoots). ::: The PID values can be adjusted as follows:
    - P (proportional) or K gain:
      - increase this for more responsiveness
      - reduce if the response is overshooting and/or oscillating (up to a certain point increasing the D gain also helps).
