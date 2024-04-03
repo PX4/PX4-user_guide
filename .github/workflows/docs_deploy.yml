@@ -73,7 +73,7 @@ jobs:
         
       - name: Deploy
         run: |
-          git clone https://${{ secrets.PX4BUILDBOT_USER }}:${{ secrets.PX4BUILDBOT_ACCESSTOKEN }}@github.com/PX4/docs.px4.io.git
+          git clone --single-branch --branch main https://${{ secrets.PX4BUILDBOT_USER }}:${{ secrets.PX4BUILDBOT_ACCESSTOKEN }}@github.com/PX4/docs.px4.io.git
           rm -rf docs.px4.io/${BRANCH_NAME}
           mkdir -p docs.px4.io/${BRANCH_NAME}
           cp -r ~/_book/* docs.px4.io/${BRANCH_NAME}/
