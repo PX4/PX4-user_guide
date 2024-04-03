@@ -29,7 +29,7 @@ _QGroundControl_ (or other compatible GCS or MAVLink API) is _required_ to enabl
 
 Instructions for how to start an orbit can be found here: [FlyView > Orbit Location](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/fly_view/fly_view.html#orbit) (_QGroundControl_ guide).
 
-:::note
+::: info
 The use of an RC control is _optional_. If no RC control is present the orbit will proceed as described above. 无法使用遥控来启动该模式（如果使用遥控切换该模式，无人机会处于空闲状态）。
 :::
 
