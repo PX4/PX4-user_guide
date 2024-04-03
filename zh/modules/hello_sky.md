@@ -10,7 +10,7 @@
 
 以下内容是您需要提前准备的：
 
-- [PX4 SITL Simulator](../simulation/README.md) _or_ a [PX4-compatible flight controller](../flight_controller/README.md).
+- [PX4 SITL Simulator](../simulation/index.md) _or_ a [PX4-compatible flight controller](../flight_controller/index.md).
 - [PX4 Development Toolchain](../dev_setup/dev_env.md) for the desired target.
 - [Download the PX4 Source Code](../dev_setup/building_px4.md#download-the-px4-source-code) from Github
 
