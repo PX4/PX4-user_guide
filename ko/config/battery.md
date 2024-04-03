@@ -2,8 +2,7 @@
 
 전원 설정 방법에 대하여 설명합니다.
 
-:::note
-These instructions require that the vehicle has a [Power Module (PM)](../power_module/index.md), or other hardware that can measure the battery voltage and (optionally) the current.
+::: info These instructions require that the vehicle has a [Power Module (PM)](../power_module/index.md), or other hardware that can measure the battery voltage and (optionally) the current.
 
 This tuning is not needed for [Smart/MAVLink Batteries](../smart_batteries/index.md).
 :::
@@ -52,8 +51,7 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 
 ![QGC 전원 설정](../../assets/qgc/setup/power/qgc_setup_power_px4.png)
 
-:::note
-At time of writing _QGroundControl_ only allows you to set values for battery 1 in this view. 배터리가 여러 개인 경우에는 다음 섹션에 설명 된대로 배터리 2 (`BAT2_*`)에 대한 [매개 변수를 직접 설정](../advanced_config/parameters.md) 하여야 합니다.
+::: info At time of writing _QGroundControl_ only allows you to set values for battery 1 in this view. 배터리가 여러 개인 경우에는 다음 섹션에 설명 된대로 배터리 2 (`BAT2_*`)에 대한 [매개 변수를 직접 설정](../advanced_config/parameters.md) 하여야 합니다.
 :::
 
 ### 셀의 갯수(직렬 연결)
@@ -236,8 +234,7 @@ This method evaluates the remaining battery capacity by _fusing_ the voltage-bas
 
 항상 정상적인 전체 배터리로 시작하는 경우이 방법은 스마트 배터리에서 사용하는 방법과 유사합니다.
 
-:::note
-Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the _initial_ capacity. 전압 추정을 사용하면 초기 용량을 추정하고 가능한 오류에 대한 지속적인 피드백을 제공할 수 있습니다 (예 : 배터리에 결함이 있거나 다른 방법을 사용하여 계산된 용량간에 불일치가 있는 경우).
+::: info Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the _initial_ capacity. 전압 추정을 사용하면 초기 용량을 추정하고 가능한 오류에 대한 지속적인 피드백을 제공할 수 있습니다 (예 : 배터리에 결함이 있거나 다른 방법을 사용하여 계산된 용량간에 불일치가 있는 경우).
 :::
 
 ## Battery-Chemistry Comparison
