@@ -8,7 +8,7 @@ To reduce the chance of accidents, PX4 has explicit state(s) for powering the ve
 - **Pre-armed:** Motors/propellers are locked but actuators for non-dangerous electronics are powered (e.g. ailerons, flaps etc.).
 - **Armed:** Vehicle is fully powered. Motors/propellers may be turning (dangerous!)
 
-:::note
+::: info
 Ground stations may display _disarmed_ for pre-armed vehicles.
 While not technically correct for pre-armed vehicles, it is "safe".
 :::
@@ -80,7 +80,7 @@ The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM
 | <a id="RC_MAP_ARM_SW"></a>[RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW)       | RC arm switch channel (default: 0 - unassigned). If defined, the specified RC channel (button/switch) is used for arming instead of a stick gesture. <br>**Note:**<br>- This setting _disables the stick gesture_!<br>- This setting applies to RC controllers. It does not apply to Joystick controllers that are connected via _QGroundControl_. |
 | <a id="COM_ARM_SWISBTN"></a>[COM_ARM_SWISBTN](../advanced_config/parameter_reference.md#COM_ARM_SWISBTN) | Arm switch is a momentary button. <br>- `0`: Arm switch is a 2-position switch where arm/disarm commands are sent on switch transitions.<br>-`1`: Arm switch is a button or momentary button where the arm/disarm command ae sent after holding down button for set time ([COM_RC_ARM_HYST](#COM_RC_ARM_HYST)).                                    |
 
-:::note
+::: info
 The switch can also be set as part of _QGroundControl_ [Flight Mode](../config/flight_mode.md) configuration.
 :::
 

@@ -21,7 +21,7 @@ At high level, some of the key features are:
 
 A summary of the key features, [assembly](../assembly/quick_start_durandal.md), and [purchase](#purchase) links can be found below.
 
-:::note
+::: info
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
@@ -129,7 +129,7 @@ All dimensions are in millimeters.
 
 *Pixhawk 4* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
-:::note
+::: info
 The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
 You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
 :::
@@ -192,7 +192,7 @@ The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debu
 
 For wiring and debugging information see the above links.
 
-:::note
+::: info
 No Debug port is exposed for the I/O board.
 :::
 

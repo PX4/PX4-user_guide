@@ -12,7 +12,7 @@ The configuration makes it easy to (for example):
 - Setup dual GPS.
 - Enable sensors that run on a serial port, such as some [distance sensors](../sensor/rangefinders.md).
 
-:::note
+::: info
 
 - Some ports cannot be configured because they are used for a very specific purpose such as the system console.
 - The mapping of specific devices to port names on the flight controller is explained in [Serial Port Mapping](../hardware/serial_port_mapping.md).
@@ -23,7 +23,7 @@ The configuration makes it easy to (for example):
 The serial port configuration parameters allow you to assign a particular function or support for particular hardware to a particular port.
 These parameters follow the naming pattern `*_CONFIG` or `*_CFG`
 
-:::note
+::: info
 _QGroundControl_ only displays the parameters for services/drivers that are present in firmware.
 :::
 
@@ -110,7 +110,7 @@ Other ports generally have no assigned functions by default (are disabled).
 _QGroundControl_ only displays the parameters for services/drivers that are present in firmware.
 If a parameter is missing, then you may need to add it in firmware.
 
-:::note
+::: info
 PX4 firmware includes most drivers by default on [Pixhawk-series](../flight_controller/pixhawk_series.md) boards.
 Flash-limited boards may comment out/omit the driver (at time of writing this only affects boards based on FMUv2).
 :::

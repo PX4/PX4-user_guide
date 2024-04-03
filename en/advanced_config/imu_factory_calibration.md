@@ -11,7 +11,7 @@ This feature relies on the FMU having a dedicated EEPROM chip or an accompanying
 PX4 will store the data to `/fs/mtd_caldata`, creating the file if necessary.
 :::
 
-:::note
+::: info
 These values cannot be stored in the [frame configuration](../dev_airframes/adding_a_new_frame.md) because they vary from device to device (the frame configuration defines the set of parameters that are applicable across all vehicles of the same type, such as the enabled sensors, [autopilot rotation](../config/flight_controller_orientation.md) and PID tuning).
 :::
 
@@ -23,7 +23,7 @@ These values cannot be stored in the [frame configuration](../dev_airframes/addi
    This will write all `CAL_ACC*`, `CAL_GYRO*` and `CAL_MAG*` parameters into `/fs/mtd_caldata`.
 1. Set the parameter `SYS_FAC_CAL_MODE` back to 0 (default).
 
-:::note
+::: info
 If you only want to factory calibrate the accelerometer and the gyroscope you can set [SYS_FAC_CAL_MODE](../advanced_config/parameter_reference.md#SYS_FAC_CAL_MODE) to 2, in which case the magnetometer is omitted.
 :::
 

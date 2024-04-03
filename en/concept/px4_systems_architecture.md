@@ -2,7 +2,7 @@
 
 The sections below provide high-level overview of the PX4 hardware and software stack for two "typical" PX4 systems; one that has just a flight controller, and another that has a flight controller and a companion computer (also known as a "mission computer").
 
-:::note
+::: info
 The [PX4 Architectural Overview](../concept/architecture.md) provides information about the flight stack and middleware.
 Offboard APIs are covered in [ROS](../ros/index.md) and [MAVSDK](https://mavsdk.mavlink.io/main/en/).
 :::
@@ -46,7 +46,7 @@ PX4 systems typically run a Linux OS on the companion computer (because the [PX4
 Linux is a much better platform for "general" software development than NuttX; there are many more Linux developers and a lot of useful software has already been written (e.g. for computer vision, communications, cloud integrations, hardware drivers).
 Companion computers sometimes run Android for the same reason.
 
-:::note
+::: info
 The diagram shows a cloud or ground station connection via LTE, an approach that has been used a number of PX4-based systems.
 PX4 does not deliver software specifically for LTE and/or cloud integration (this requires custom development).
 :::

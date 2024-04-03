@@ -1,6 +1,6 @@
 # Holybro X500 V2 (Pixhawk 5X Build)
 
-:::note
+::: info
 Holybro initially supplied this kit with a [Pixhawk 5X](../flight_controller/pixhawk5x.md), but at time of writing this has been upgraded to a [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md).
 This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
 :::

@@ -45,7 +45,7 @@ Both are supported using the same aiframe type in PX4.
 
 VTOL setup and flying are covered in the [VTOL](../frames_vtol/index.md) parent topic.
 
-:::note
+::: info
 The instructions are essentially the same for all VTOL.
 The main frame-specific differences are the motor wiring, and some aspects of tuning the configuration.
 :::

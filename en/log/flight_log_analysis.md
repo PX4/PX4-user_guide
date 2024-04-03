@@ -2,7 +2,7 @@
 
 This topic provide an overview of the tools and methods that can be used to analyze PX4 flight logs (more detailed topics are linked below in some cases).
 
-:::note
+::: info
 [Flight Reporting](../getting_started/flight_reporting.md) explains how to download a log and report/discuss issues about a flight with the development team.
 :::
 

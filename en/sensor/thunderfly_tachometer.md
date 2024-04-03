@@ -8,7 +8,7 @@ It also has an LED that offers basic diagnostic information.
 
 ![TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
 
-:::note
+::: info
 The TFRPM01 sensor is open-source hardware commercially available from [ThunderFly s.r.o.](https://www.thunderfly.cz/) (manufacturing data is [available on GitHub](https://github.com/ThunderFly-aerospace/TFRPM01)).
 :::
 
@@ -62,7 +62,7 @@ where:
 - `-X` means that it is an external bus.
 - `<bus number>` is the bus number to which the device is connected
 
-:::note
+::: info
 The bus number in code `-b <bus number>` may not match the bus labels on the autopilot.
 For example, when using CUAV V5+ or CUAV Nano:
 
@@ -116,7 +116,7 @@ If needed, the following parameters should be tweaked:
 - [PCF8583_RESET](../advanced_config/parameter_reference.md#PCF8583_RESET) — Counter value where the counted number should be reset to zero.
 - [PCF8583_MAGNET](../advanced_config/parameter_reference.md#PCF8583_MAGNET) — Number of pulses per revolution e.g. number of magnets at a rotor disc.
 
-:::note
+::: info
 The parameters above appear in QGC after the driver/PX4 are restarted.
 
 If the configuration parameters are not available after restart then you should check that the driver has started.

@@ -67,7 +67,7 @@ ARK GPS boards ship with recent firmware pre-installed, but if you want to build
 You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle.
 The required settings are outlined below.
 
-:::note
+::: info
 The ARK GPS will not boot if there is no SD card in the flight controller when powered on.
 :::
 

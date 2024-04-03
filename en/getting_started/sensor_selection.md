@@ -26,7 +26,7 @@ GPS/compass hardware options are listed in:
 - [GPS/Compass](../gps_compass/index.md)
 - [RTK GNSS (GPS)](../gps_compass/rtk_gps.md)
 
-:::note
+::: info
 [Pixhawk-series](../flight_controller/pixhawk_series.md) controllers include an *internal* compass. Due to electromagnetic interference caused by power cables close to the flight controller, it is highly recommended to not rely on the internal compass for heading estimation and instead to mount an external one.
 :::
 

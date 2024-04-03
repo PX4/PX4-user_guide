@@ -17,7 +17,7 @@ There is also a 12 pin stacking connector which provides 4 more motor outputs, S
 
 ![SPRacingH7EXTREME PCB Bottom](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-bottom.jpg)
 
-:::note
+::: info
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
@@ -76,7 +76,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 The SPRacingH7EXTREME is available from the [Seriously Pro shop](https://shop.seriouslypro.com/sp-racing-h7-extreme).
 
-:::note
+::: info
 Select the PX4 edition when purchasing!
 :::
 

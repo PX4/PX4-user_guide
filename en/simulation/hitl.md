@@ -32,7 +32,7 @@ With Hardware-in-the-Loop (HITL) simulation the normal PX4 firmware is run on re
 JMAVSim or Gazebo Classic (running on a development computer) are connected to the flight controller hardware via USB/UART.
 The simulator acts as gateway to share MAVLink data between PX4 and _QGroundControl_.
 
-:::note
+::: info
 The simulator can also be connected via UDP if the flight controller has networking support and uses a stable, low-latency connection (e.g. a wired Ethernet connection - WiFi is usually not sufficiently reliable).
 For example, this configuration has been tested with PX4 running on a Raspberry Pi connected via Ethernet to the computer (a startup configuration that includes the command for running jMAVSim can be found [here](https://github.com/PX4/PX4-Autopilot/blob/main/posix-configs/rpi/px4_hil.config)).
 :::
@@ -103,7 +103,7 @@ Follow the appropriate setup steps for the specific simulator in the following s
 
 #### Gazebo Classic
 
-:::note
+::: info
 Make sure _QGroundControl_ is not running!
 :::
 
@@ -117,7 +117,7 @@ Make sure _QGroundControl_ is not running!
 1. Open the vehicle model's sdf file (e.g. **Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/iris_hitl/iris_hitl.sdf**).
 1. Replace the `serialDevice` parameter (`/dev/ttyACM0`) if necessary.
 
-   :::note
+   ::: info
    The serial device depends on what port is used to connect the vehicle to the computer (this is usually `/dev/ttyACM0`).
    An easy way to check on Ubuntu is to plug in the autopilot, open up a terminal, and type `dmesg | grep "tty"`.
    The correct device will be the last one shown.
@@ -140,7 +140,7 @@ Make sure _QGroundControl_ is not running!
 
 #### jMAVSim (Quadrotor only)
 
-:::note
+::: info
 Make sure _QGroundControl_ is not running!
 :::
 
@@ -151,7 +151,7 @@ Make sure _QGroundControl_ is not running!
    ./Tools/simulation/jmavsim/jmavsim_run.sh -q -s -d /dev/ttyACM0 -b 921600 -r 250
    ```
 
-   :::note
+   ::: info
    Replace the serial port name `/dev/ttyACM0` as appropriate.
    On macOS this port would be `/dev/tty.usbmodem1`.
    On Windows (including Cygwin) it would be the COM1 or another port - check the connection in the Windows Device Manager.

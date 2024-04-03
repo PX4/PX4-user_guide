@@ -39,7 +39,7 @@ After loading, the **play** button can be configured to run the project by selec
 
 ### Qt Creator on Windows
 
-:::note
+::: info
 Windows has not been tested for PX4 development with Qt Creator.
 :::
 

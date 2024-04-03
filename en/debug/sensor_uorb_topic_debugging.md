@@ -7,7 +7,7 @@ inter-thread/inter-process communication. The `listener` command can be used fro
 This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying).
 :::
 
-:::note
+::: info
 The `listener` command is also available through the [System Console](../debug/system_console.md) and the [MAVLink Shell](../debug/mavlink_shell.md).
 :::
 

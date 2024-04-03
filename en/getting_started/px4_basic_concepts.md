@@ -127,7 +127,7 @@ They can be used for most manual flight use cases such as taking off, surveys, a
 Joysticks are often used in integrated GCS/manual control systems because it is cheaper and easier to integrate a joystick than a separate radio system, and for the majority of use cases, the lower latency does not matter.
 They are also perfect for flying the PX4 simulator, because you can plug them directly into your ground control computer.
 
-:::note
+::: info
 PX4 does not _require_ a manual control system for autonomous flight modes.
 :::
 
@@ -250,7 +250,7 @@ Instructions for how to set up your remote control switches to enable different 
 PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong!
 These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
 
-:::note
+::: info
 You can only specify the action for the _first_ failsafe event.
 Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
 :::
@@ -274,7 +274,7 @@ All the vehicles, boats and aircraft have a heading direction or an orientation 
 
 ![Frame Heading](../../assets/concepts/frame_heading.png)
 
-:::note
+::: info
 For a VTOL Tailsitter the heading is relative to the multirotor configuration (i.e. vehicle pose during takeoff, hovering, landing).
 :::
 

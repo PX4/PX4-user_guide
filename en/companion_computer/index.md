@@ -47,7 +47,7 @@ Small/lower power examples:
 
 - [Raspberry Pi](../companion_computer/pixhawk_rpi.md)
 
-:::note
+::: info
 The choice of computer will depend on the usual tradeoffs: cost, weight, power consumption, ease of setup, and computational resources required.
 :::
 

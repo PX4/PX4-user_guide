@@ -118,13 +118,13 @@ echo "25" > /sys/class/gpio/unexport
 
 Save and exit.
 
-:::note
+::: info
 Don't forget to turn off the switch when it is not needed.
 :::
 
 #### CSI camera
 
-:::note
+::: info
 Enable CSI camera will stop anything works on I2C-0.
 :::
 
@@ -142,7 +142,7 @@ To get the _very latest_ version onto your computer, enter the following command
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-:::note
+::: info
 This is all you need to do just to build the latest code.
 :::
 
@@ -208,11 +208,11 @@ Execute the command in PX4-Autopilot folder:
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
 
-:::note
+::: info
 mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
 :::
 
-:::note
+::: info
 If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
 You can compile without uploading too. Just remove `upload` target.
 :::
@@ -269,7 +269,7 @@ Sample output:
 
 `1e` indicates a HMC5883 based compass is mounted on external I2C bus. Similarly, IST8310 has a value of `0e`.
 
-:::note
+::: info
 Generally you only have one of them.
 Other devices will also be displayed here if they are connected to external I2C bus.(`/dev/i2c-0`)
 :::

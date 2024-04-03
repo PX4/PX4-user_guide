@@ -86,7 +86,7 @@ On-board diodes prevent short circuits. The interface board provides the 3V3 sup
 5. In the web interface or with Rx Tools, set the receiver's baut rate to 115200 **Admin > Expert Control > Control Panel > Communication > COM Port Settings** (this is the default value).
 
 
-:::note 
+::: info 
 PX4 will ensure that the GNSS module is automatically configured.
 However, if you have a dual antenna setup, you will need to set the layout as accurately as possible in the web app.
 :::
@@ -107,7 +107,7 @@ To enable multi-antenna attitude determination, follow the following procedure:
    This leads to offsets in the computed attitude angles.
    These offsets can be compensated for with the **setAttitudeOffset** command.
 
-:::note 
+::: info 
 For optimal heading results, the two antennas should be seperated by at least 30cm / 11.8 in (ideally 50cm / 19.7in or more)
 
 For additional configuration of the dual antenna setup, please refer to our [Knowledge Base](https://support.septentrio.com/l/858493/2022-04-19/xgrsh) or the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrsl)

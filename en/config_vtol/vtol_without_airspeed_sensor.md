@@ -14,7 +14,7 @@ In mild weather conditions and with settings significantly above stall speed a V
 
 This guide will outline the parameter settings required to bypass the airspeed sensor for VTOL planes.
 
-::: note
+::: info
 Most settings described here should also be applicable to fixed-wing vehicles that are not VTOL, but this is currently untested.
 Transition turning and quad-chute are VTOL-specific.
 :::

@@ -9,7 +9,7 @@ Contact the [manufacturer](https://sky-drones.com/) for hardware support or comp
 
 ![AIRLink](../../assets/flight_controller/airlink/airlink-main.jpg)
 
-:::note
+::: info
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 

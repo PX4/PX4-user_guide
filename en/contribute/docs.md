@@ -124,7 +124,7 @@ Build the library locally to test that any changes you have made have rendered p
 
    - [Nodejs 10+](https://nodejs.org/en)
 
-     :::note
+     ::: info
      For recent nodejs versions (after v16.15.0) you need to enable the node legacy OpenSSL provider.
      On Ubuntu you can do this by running the terminal command:
 

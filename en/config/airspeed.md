@@ -1,6 +1,6 @@
 # Airspeed Calibration
 
-:::note
+::: info
 [Airspeed sensors](../sensor/airspeed.md) are highly recommended for Fixed-wing and VTOL vehicles.
 :::
 

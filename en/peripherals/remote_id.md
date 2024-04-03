@@ -22,7 +22,7 @@ It has been tested with the following devices:
 - [Db202mav](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) (BlueMark) - less expensive variant without CAN port.
 - [Holybro RemoteID Module](https://holybro.com/products/remote-id) (Holybro)
 
-:::note
+::: info
 
 - Other devices that support the MAVLink API should work (but have not been tested).
 - PX4 does not support Remote ID over CAN in PX4 v1.14.

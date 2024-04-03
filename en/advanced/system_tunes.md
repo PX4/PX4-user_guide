@@ -66,7 +66,7 @@ For example, to test the tune we "created" above you would enter the following c
 tune_control play -m "150L1O3DL16CL32<B>C<AEL16A"
 ```
 
-:::note
+::: info
 Out of the box, the `tune_control` is only present on real hardware (not the simulator).
 :::
 

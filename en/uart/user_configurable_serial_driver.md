@@ -37,7 +37,7 @@ To make driver configurable:
              group: Sensors
      ```
 
-     :::note
+     ::: info
      The full documentation of the module configuration file can be found in the [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) file.
      This is also used to validate all configuration files in CI.
      :::

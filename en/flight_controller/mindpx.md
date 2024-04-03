@@ -9,13 +9,13 @@ The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generati
 
 ![MindPX Controller](../../assets/hardware/hardware-mindpx.png)
 
-:::note
+::: info
 These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Quick Summary
 
-:::note
+::: info
 The main hardware documentation is [here](http://mindpx.net/assets/accessories/Specification9.18_3_pdf.pdf).
 :::
 
@@ -101,7 +101,7 @@ And the max BAUD rate is the same with px4 family, which is up to 921600.
 
 ## User Guide
 
-:::note
+::: info
 The user guide is [here](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
 :::
 

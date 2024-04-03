@@ -52,7 +52,7 @@ For example, the image below assigns `Gripper` to the PWM AUX5 output.
 
 You must also set the correct PWM frequency for the gripper output port(for commercial servos / grippers this is normally 50Hz).
 
-:::note
+::: info
 Mis-configuring the frequency may damaging the gripper.
 :::
 

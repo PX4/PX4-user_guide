@@ -48,7 +48,7 @@ You can also install the environment using shell scripts in the Github project.
 This section describes how to setup the Cygwin toolchain manually yourself while pointing to the corresponding scripts from the script based installation repo.
 The result should be the same as using the scripts or MSI installer.
 
-:::note
+::: info
 The toolchain gets maintained and hence these instructions might not cover every detail of all the future changes.
 :::
 
@@ -79,11 +79,11 @@ The toolchain gets maintained and hence these instructions might not cover every
    - Shells:bash-completion
    - Web:wget
 
-   :::note
+   ::: info
    Do not select as many packages as possible which are not on this list, there are some which conflict and break the builds.
    :::
 
-   :::note
+   ::: info
    That's what [cygwin64/install-cygwin-px4.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-px4.bat) does.
    :::
 
@@ -102,13 +102,13 @@ The toolchain gets maintained and hence these instructions might not cover every
    pip2 install pyulog
    ```
 
-   :::note
+   ::: info
    That's what [cygwin64/install-cygwin-python-packages.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-python-packages.bat) does.
    :::
 
 1. Download the [**ARM GCC compiler**](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads) as zip archive of the binaries for Windows and unpack the content to the folder `C:\PX4\toolchain\gcc-arm`.
 
-   :::note
+   ::: info
    This is what the toolchain does in: [gcc-arm/install-gcc-arm.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/gcc-arm/install-gcc-arm.bat).
    :::
 
@@ -119,7 +119,7 @@ The toolchain gets maintained and hence these instructions might not cover every
    - Find the binaries and move/copy them to **C:\PX4\toolchain\jdk**.
    - You can uninstall the Kit from your Windows system again, we only needed the binaries for the toolchain.
 
-   :::note
+   ::: info
    This is what the toolchain does in: [jdk/install-jdk.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat).
    :::
 
@@ -129,7 +129,7 @@ The toolchain gets maintained and hence these instructions might not cover every
    Make sure you don't have an additional folder layer from the folder which is inside the downloaded archive.
    :::
 
-   :::note
+   ::: info
    This is what the toolchain does in: [apache-ant/install-apache-ant.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat).
    :::
 

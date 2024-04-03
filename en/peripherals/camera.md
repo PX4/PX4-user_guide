@@ -2,7 +2,7 @@
 
 PX4 can be configured to connect physical outputs to trigger a camera, or it can be used with a [MAVLink camera](#mavlink-cameras).
 
-:::note
+::: info
 We recommend that you use a MAVLink camera as this allows comprehensive control of cameras via the [camera protocol](https://mavlink.io/en/services/camera.html).
 Directly connected cameras only support [a small subset](#mavlink-command-interface-directly-connected-cameras) of MAVLink camera commands.
 :::
@@ -24,7 +24,7 @@ Camera triggering is usually configured from the _QGroundControl_ [Vehicle Setup
 
 The different [trigger modes](#trigger-modes), [backend interfaces](#trigger-interface-backends) and [trigger output configuration](#trigger-output-pin-configuration) are described below (these can also be set directly from [parameters](../advanced_config/parameters.md)).
 
-:::note
+::: info
 The camera settings section is not available by default for FMUv2-based flight controllers (e.g. 3DR Pixhawk) because the camera module is not automatically included in firmware.
 For more information see [Finding/Updating Parameters > Parameters Not In Firmware](../advanced_config/parameters.md#parameter-not-in-firmware).
 :::
@@ -41,7 +41,7 @@ Four different modes are supported, controlled by the [TRIG_MODE](../advanced_co
 | 3    | Triggers based on distance. A shot is taken every time the set horizontal distance is exceeded. The minimum time interval between two shots is however limited by the set triggering interval.                                 |
 | 4    | triggers automatically when flying a survey in Mission mode.                                                                                                                                                                   |
 
-:::note
+::: info
 If it is your first time enabling the camera trigger app, remember to reboot after changing the `TRIG_MODE` parameter.
 :::
 
@@ -65,7 +65,7 @@ If using trigger setup that requires two pins (e.g. Seagull MAP2) you can assign
 
 Note however that if a _PWM_ output has been used for camera triggering (such as Seagull MAP2), the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator, motor, or camera capture, because the timer has already been used).
 
-:::note
+::: info
 At time of writing triggering only works on FMU pins:
 
 - On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+) .
@@ -93,7 +93,7 @@ The pin used for camera capture is then set in the _QGroundControl_ [Actuators](
 
 Note that if a _PWM output_ is used as a camera capture input, the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator, motor, or camera trigger, because the timer has already been used).
 
-:::note
+::: info
 At time of writing camera capture only works on FMU pins:
 
 - On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+).
@@ -111,7 +111,7 @@ The red and black ouptputs are connected to the servo rail/ground and the white 
 
 ![Seagull SYNC#2](../../assets/peripherals/camera_capture/seagull_sync2.png)
 
-:::note
+::: info
 PX4 emits the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message on both camera trigger and camera capture.
 If camera capture is configured, the timestamp from the camera capture driver is used, otherwise the triggering timestamp.
 :::

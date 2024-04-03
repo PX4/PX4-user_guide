@@ -14,7 +14,7 @@ You can additionally install the _Gazebo-Classic_ simulator by specifying the co
 
 ![Gazebo on Arch](../../assets/simulation/gazebo_classic/arch-gazebo.png)
 
-:::note
+::: info
 The instructions have been tested on [Manjaro](https://manjaro.org/) (Arch based distribution) as it is much easier to set up than Arch Linux.
 :::
 
@@ -39,7 +39,7 @@ The script takes the following optional parameters:
 
 - `--gazebo`: Add this parameter to install Gazebo from the [AUR](https://aur.archlinux.org/packages/gazebo/).
 
-  :::note
+  ::: info
   Gazebo gets compiled from source.
   It takes some time to install and requires entering the `sudo` password multiple times (for dependencies).
   :::

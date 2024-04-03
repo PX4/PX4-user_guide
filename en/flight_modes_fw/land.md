@@ -12,7 +12,7 @@ The vehicle will descend around the current location irrespective of the suitabi
 Where possible, instead use [Return mode](../flight_modes_fw/return.md) with a predefined [Fixed-wing mission landing](../flight_modes_fw/mission.md#mission-landing).
 :::
 
-:::note
+::: info
 
 - Mode is automatic - no user intervention is _required_ to control the vehicle.
 - Mode requires at least a valid local position estimate (does not require a global position).

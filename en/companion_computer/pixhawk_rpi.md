@@ -4,7 +4,7 @@ This topic describes how to setup a Raspberry Pi ("RPi") companion companion run
 
 These instructions should be readily extensible to other RPi and flight controller configurations.
 
-:::note
+::: info
 Other common ways to connect RaPi and Pixhawk are:
 
 - Ethernet connection between RPi and Pixhawk.
@@ -40,7 +40,7 @@ The pins on the `TELEM2` port are normally numbered right-to-left as shown.
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
 | ![Pin numbering showing left-most pin is pin 1](../../assets/companion_computer/pixhawk_rpi/pins_numbers.png) | ![](../../assets/companion_computer/pixhawk_rpi/rpi_gpio.png) |
 
-:::note
+::: info
 Almost all recent Pixhawk boards, such as the Pixhawk-6C, use the same connectors and pin numbers for corresponding ports, as defined in the Pixhawk Connector Standard.
 You can check the specific board documentation to confirm the pin layout.
 
@@ -83,7 +83,7 @@ Some power modules have a separate BEC included.
 Overloading your Pixhawk is a good way to destroy it.
 :::
 
-:::note
+::: info
 During PX4 setup and configuration the USB connection with your ground station laptop is sufficient to power the Pixhawk board, and your companion computer might be powered from a desktop charger.
 :::
 
@@ -94,7 +94,7 @@ These instructions work on PX4 v1.14 and later.
 If you need to update the firmware then connect the Pixhawk to your laptop/desktop via the `USB` port and use QGroundControl to update the firmware as described [Firmware > Install Stable PX4](../config/firmware.md#install-stable-px4). 
 If you want the latest developer version then update the firmware to the "main" as described in [Firmware > Installing PX4 Master, Beta or Custom Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware).
 
-:::note
+::: info
 You can alternatively [setup a development environment](../dev_setup/dev_env.md), [build](../dev_setup/building_px4.md#building-for-nuttx) and [upload](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board) the firmware manually.
 :::
 
@@ -222,7 +222,7 @@ Then install setup MAVProxy on the RPi using the following terminal commands:
    sudo mavproxy.py --master=/dev/serial0 --baudrate 57600
    ```
 
-   :::note
+   ::: info
    Note that above we used `/dev/serial0`, but we could equally well have used `/dev/ttyAMA0`.
    If we were connecting via USB then we would instead set the port as `/dev/ttyACM0`:
 
@@ -265,7 +265,7 @@ The configuration steps are:
    The `SER_TEL2_BAUD` rate sets the comms link data rate.  
    You could similarly configure a connection to `TELEM1` using either `MAV_1_CONFIG` or `MAV_0_CONFIG`.
 
-   :::note
+   ::: info
    You will need to reboot the flight controller to apply any changes to these parameters.
    :::
 
@@ -276,7 +276,7 @@ The configuration steps are:
    uxrce_dds_client status
    ```
 
-:::note
+::: info
 If the client module is not running you can start it manually in the MAVLink console:
 
 ```sh

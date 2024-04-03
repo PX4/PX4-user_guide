@@ -5,7 +5,7 @@
 The _Land_ flight mode causes the vehicle to land at the position where the mode was engaged.
 The vehicle will disarm shortly after landing (by default).
 
-:::note
+::: info
 
 - Mode is automatic - no user intervention is _required_ to control the vehicle.
 - Mode requires at least a valid local position estimate (does not require a global position).

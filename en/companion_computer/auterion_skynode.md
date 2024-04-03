@@ -37,7 +37,7 @@ PX4 `px4_fmu-v5x` binaries for Skynode are built from source using the normal [d
 `upload_skynode_usb` and `upload_skynode_wifi` connect to Skynode via SSH over a network interface using the default (fixed) IP addresses for [USB](https://docs.auterion.com/manufacturers/avionics/skynode/advanced-configuration/connecting-to-skynode) and [WiFi](https://docs.auterion.com/manufacturers/avionics/skynode/advanced-configuration/configuration), and upload a TAR compressed binary to the mission computer.
 The mission computer then decompresses the binary and installs it to the flight controller.
 
-:::note
+::: info
 SSH and TAR are needed to use these upload targets, but are expected to be present by default on Ubuntu and Ubuntu running on Windows in WSL2.
 On macOS you should first install [gnu-tar](https://formulae.brew.sh/formula/gnu-tar).
 :::

@@ -41,7 +41,7 @@ To install the toolchain:
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
 
-   :::note
+   ::: info
    The environment setup scripts in the source usually work for recent PX4 releases.
    If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release).
    :::
@@ -232,7 +232,7 @@ If you're working with ROS "Melodic on Ubuntu 18.04:
 
    You may need to acknowledge some prompts as the script progresses.
 
-:::note
+::: info
 
 - ROS Melodic is installed with Gazebo (Classic) 9 by default.
 - Your catkin (ROS build system) workspace is created at **~/catkin_ws/**.

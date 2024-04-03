@@ -34,7 +34,7 @@ Each vehicle instance is allocated a unique MAVLink system id (2, 3, 4, etc.).
 MAVLink system id 1 is skipped in order to have consistency among [namespaces](../ros/ros2_multi_vehicle.md#principle-of-operation).
 Vehicle instances are accessed from sequentially allocated PX4 remote UDP ports: `14541` - `14548` (additional instances are all accessed using the same remote UDP port: `14549`).
 
-:::note
+::: info
 The 254-vehicle limitation occurs because mavlink `MAV_SYS_ID` only supports 255 vehicles in the same network (and the first one is skipped).
 The `MAV_SYS_ID` is allocated in the SITL rcS: [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS#L131)
 :::
@@ -55,7 +55,7 @@ The `MAV_SYS_ID` is allocated in the SITL rcS: [init.d-posix/rcS](https://github
 
 `Tools/simulation/gazebo-classic/sitl_multiple_run.sh` can be used to simulate multiple vehicles connected via XRCE-DDS in Gazebo Classic.
 
-:::note
+::: info
 You will need to have installed the XRCE-DDS dependencies.
 For more information see: [ROS 2 User Guide (PX4-ROS 2 Bridge)](../ros/ros2_comm.md), for interfacing with ROS 2 nodes.
 :::
@@ -79,7 +79,7 @@ To build an example setup, follow the steps below:
    ./Tools/simulation/gazebo-classic/sitl_multiple_run.sh -m iris -n 4
    ```
 
-   :::note
+   ::: info
    Each vehicle instance is allocated a unique MAVLink system id (2, 3, 4, etc.).
    MAVLink system id 1 is skipped.
    :::
@@ -91,7 +91,7 @@ To build an example setup, follow the steps below:
    MicroXRCEAgent udp4 -p 8888
    ```
 
-   :::note
+   ::: info
    The simulator startup script automatically assigns a [unique namespace](../ros/ros2_multi_vehicle.md) to each vehicle.
    :::
 
@@ -104,7 +104,7 @@ You can then control the vehicles with _QGroundControl_ and MAVROS in a similar 
 
 - Current [PX4 ROS/Gazebo development environment](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo)
 
-  :::note
+  ::: info
   At time of writing this is Ubuntu 18.04 with ROS Melodic/Gazebo 9.
   See also [Gazebo Classic Simulation](../sim_gazebo_classic/index.md).
   :::
@@ -137,7 +137,7 @@ To build an example setup, follow the step below:
    roslaunch px4 multi_uav_mavros_sitl.launch
    ```
 
-   :::note
+   ::: info
    You can specify `gui:=false` in the above _roslaunch_ to launch Gazebo Classic without its UI.
    :::
 
@@ -158,7 +158,7 @@ For each simulated vehicle, the following is required:
   The model's `xacro` file will be used to generate an `urdf` model that contains UDP port that you select.
   To define the UDP port, set the `mavlink_udp_port` in the launch file for each vehicle, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L37) as an example.
 
-  :::note
+  ::: info
   If you are using the same vehicle model, you don't need a separate **`xacro`** file for each vehicle. The same **`xacro`** file is adequate.
   :::
 
@@ -220,7 +220,7 @@ The launch file `multi_uav_mavros_sitl.launch`does the following,
       </include>
     ```
 
-  :::note
+  ::: info
   The complete block for each vehicle is enclosed in a set of `<group>` tags to separate the ROS namespaces of the vehicles.
   :::
 
@@ -239,7 +239,7 @@ To add a third iris to this simulation there are two main components to consider
   - the first `mavlink start` port and the `mavlink stream` port values to the same values, which is to be used for QGC communication
   - the second `mavlink start` ports need to match those used in the launch file `fcu_url` arg
 
-    :::note
+    ::: info
     Be aware of which port is `src` and `dst` for the different endpoints.
     :::
 
@@ -261,7 +261,7 @@ The steps are:
    roslaunch multi_uav_mavros_sitl_sdf.launch vehicle:=<model_file_name>
    ```
 
-   :::note
+   ::: info
    Note that the vehicle model file name argument is optional (`vehicle:=<model_file_name>`); if omitted the [plane model](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/master/models/plane) will be used by default.
    :::
    ````
@@ -278,7 +278,7 @@ To add a new vehicle, you need to make sure the model can be found (in order to 
      $(find px4)/Tools/simulation/gazebo/sitl_gazebo-classic/models/$(arg vehicle)/$(arg vehicle).sdf
      ```
 
-     :::note
+     ::: info
      Ensure you set the `vehicle` argument even if you hardcode the path to your model.
      :::
 

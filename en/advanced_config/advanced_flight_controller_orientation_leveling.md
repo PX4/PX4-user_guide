@@ -5,7 +5,7 @@ These instructions can be used to manually fine-tune the orientation and horizon
 If there is a persistent drift bias (often seen in multirotors but not limited to them), it is a good strategy to trim it with the help of these fine-tuning offset angle parameters, instead of using the trimmers of your RC Transmitter.
 This ensures the vehicle will maintain the trimming when in fully autonomous flight.
 
-:::note
+::: info
 These instructions are "advanced", and not recommended for regular users (the broad tuning is generally sufficient).
 :::
 

@@ -25,7 +25,7 @@ _Pixhawk 4_ should be mounted on the frame using vibration-damping foam pads (in
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_mounting_and_foam.png" align="center"/>
 
-:::note
+::: info
 If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will
 need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 :::
@@ -38,7 +38,7 @@ The GPS/Compass should be [mounted on the frame](../assembly/mount_gps_compass.m
 
 ![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
 
-:::note
+::: info
 The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle).
 To disable the safety press and hold the safety switch for 1 second.
 You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
@@ -55,7 +55,7 @@ The image below shows the power management board provided with _Pixhawk 4_.
 
 ![Pixhawk 4 - Power Management Board](../../assets/hardware/power_module/holybro_pm07/pixhawk4_power_management_board.png)
 
-:::note
+::: info
 If using a plane or rover, the 8 pin power (+) rail of **FMU PWM-OUT** will need to be separately powered in order to drive servos for rudders, elevons etc.
 To do this, the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery.
 Be careful with the voltage of servo you are going to use here.
@@ -82,7 +82,7 @@ Be careful with the voltage of servo you are going to use here.
 | PWR2          | 5v output 3A, connect to _Pixhawk 4_ POWER 2                                                                |
 | 2~12S         | Power Input, connect to 12S LiPo Battery                                                                    |
 
-:::note
+::: info
 Depending on your airframe type, refer to [Airframe Reference](../airframes/airframe_reference.md) to connect **I/O PWM OUT** and **FMU PWM OUT** ports of _Pixhawk 4_ to PM board.
 **MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of _Pixhawk 4_ whereas **AUX outputs** map to **FMU PWM OUT** of _Pixhawk 4_.
 For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**. **FMU PWM-IN** of PM board is internally connected to **FMU PWM-OUT**. **I/O PWM-IN** of PM board is internally connected to **M1-8**.
@@ -114,7 +114,7 @@ A lower voltage of 5V is still acceptable, but discouraged.
 | 5(black) | GND     | GND   |
 | 6(black) | GND     | GND   |
 
-:::note
+::: info
 Using the Power Module that comes with the kit you will need to configure the _Number of Cells_ in the [Power Settings](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) but you won't need to calibrate the _voltage divider_.
 You will have to update the _voltage divider_ if you are using any other power module (e.g. the one from the Pixracer).
 :::
@@ -164,7 +164,7 @@ For more information see [Basic Concepts > SD Cards (Removable Memory)](../getti
 
 Motors/servos are connected to the **I/O PWM OUT** (**MAIN**) and **FMU PWM OUT** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
 
-:::note
+::: info
 This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 :::
 

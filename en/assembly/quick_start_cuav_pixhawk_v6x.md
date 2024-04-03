@@ -31,7 +31,7 @@ We'll go through each of these in detail in the following sections.
 
 ## Vehicle Front
 
-:::note
+::: info
 If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 :::
 
@@ -48,7 +48,7 @@ The GPS/compass should be [mounted on the frame](../assembly/mount_gps_compass.m
 
 ![GPS](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_03.jpg)
 
-:::note
+::: info
 Pixhawk V6X<sup>&reg;</sup> is not compatible with NEO V2 GPS built-in buzzer: you should use [NEO3/NEO 3Pro](https://store.cuav.net/shop/neo-3/) instead.
 The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle).
 To disable the safety press and hold the safety switch for 1 second.
@@ -104,7 +104,7 @@ Motors/servos are connected to the **M1~M8** (**MAIN**) and **A1~A8** (**AUX**) 
 
 ![Motors](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_07.jpg)
 
-:::note
+::: info
 The **MAIN** outputs in the PX4 firmware are mapped to the Pixhawk V6X's M1~M8 ports (from IO), while the **AUX outputs** are mapped to the A1~A8 ports (from the FMU).
 For example, **MAIN1** maps to M1 pin and **AUX1** maps to A1 pin.
 This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
@@ -122,7 +122,7 @@ If using a plane or rover, an external BEC (e.g., BEC-equipped ESC or separate 5
 
 ![servo power supply](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_08.jpg)
 
-:::note
+::: info
 The power rail voltage must be appropriate for the servo being used!
 :::
 

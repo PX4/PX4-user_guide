@@ -24,7 +24,7 @@ To install PX4:
 
 1. Connect the flight controller directly to your computer via USB.
 
-   :::note
+   ::: info
    Connect directly to a powered USB port on your machine (do not connect through a USB hub).
    :::
 

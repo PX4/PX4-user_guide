@@ -12,7 +12,7 @@ It has been tested on Ubuntu 20.04 with ROS 2 Foxy and PX4 `main` after PX4 v1.1
 If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
 :::
 
-:::note
+::: info
 ROS and PX4 make a number of different assumptions, in particular with respect to [frame conventions](../ros/external_position_estimation.md#reference-frames-and-ros).
 There is no implicit conversion between frame types when topics are published or subscribed!
 
@@ -88,7 +88,7 @@ The vehicle should arm, ascend 5 metres, and then wait (perpetually).
 
 The source code of the offboard control example can be found in [PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) in the directory [/src/examples/offboard/offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp).
 
-:::note
+::: info
 PX4 publishes all the messages used in this example as ROS topics by default (see [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)).
 :::
 
@@ -199,7 +199,7 @@ void OffboardControl::publish_vehicle_command(uint16_t command, float param1, fl
 }
 ```
 
-:::note
+::: info
 [VehicleCommand](../msg_docs/VehicleCommand.md) is one of the simplest and most powerful ways to command PX4, and by subscribing to [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) you can also confirm that setting a particular command was successful.
 The param and command fields map to [MAVLink commands](https://mavlink.io/en/messages/common.html#mav_commands) and their parameter values.
 :::

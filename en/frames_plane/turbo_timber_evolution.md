@@ -61,7 +61,7 @@ The vehicle comes out of the box near complete.
 Servos and linkages have already been installed, and the only real remaining work is installing the landing gear and horizontal stabilizer.
 For this portion of the assembly, simply follow the manual.
 
-:::note
+::: info
 [Some reports](https://www.rcgroups.com/forums/showthread.php?3904021-NEW-E-flite-Turbo-Timber-Evolution-1-5m-%C2%96-Smartest-Most-Capable-Durable-Timber-Yet/page50) have indicated that the stock ESC bundled with the airplane has an issue with overheating.
 
 As this build will be especially heavy, and therefore likely demand higher average power from the ESC, the stock 60A ESC was replaced with an 80A Turnigy PLUSH-32 during testing.

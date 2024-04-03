@@ -16,7 +16,7 @@ This is the official FMU for use with [HoverGames](https://www.hovergames.com/).
 
 The NXP FMU and included peripherals have been tested to comply with FCC/CE/RoHs/REACH directives.
 
-:::note
+::: info
 These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
@@ -52,7 +52,7 @@ Additional information can be found in the [Technical Data Sheet](https://www.nx
   - [HGD-TELEM433](https://www.nxp.com/part/HGD-TELEM433)
   - [HGD-TELEM915](https://www.nxp.com/part/HGD-TELEM915)
 
-:::note
+::: info
 _RDDRONE-FMUK66_ FMU is also included in the complete HoverGames drone kit: [KIT-HGDRONEK66](https://www.nxp.com/applications/solutions/industrial/aerospace-and-mobile-robotics/uavs-drones-and-rovers/nxp-hovergames-drone-kit-including-rddrone-fmuk66-and-peripherals:KIT-HGDRONEK66#buy)
 :::
 

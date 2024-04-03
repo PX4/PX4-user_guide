@@ -26,7 +26,7 @@ It should be positioned as close to your vehicle’s center of gravity as possib
 
 ![*Pixhawk 4 Mini* Orientation](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_orientation.png)
 
-:::note
+::: info
 If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 :::
 
@@ -36,7 +36,7 @@ Attach the provided GPS with integrated compass, safety switch, buzzer, and LED 
 
 ![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_gps.png)
 
-:::note
+::: info
 The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle).
 To disable the safety press and hold the safety switch for 1 second.
 You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
@@ -52,7 +52,7 @@ The connections of the PMB, including power supply and signal connections to the
 
 ![Pixhawk 4 - Power Management Board](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_power_management.png)
 
-:::note
+::: info
 The image above only shows the connection of a single ESC and a single servo.
 Connect the remaining ESCs and servos similarly.
 :::
@@ -78,7 +78,7 @@ The VCC lines have to offer at least 3A continuous and should default to 5.1V. A
 | 5(black) | GND     | GND   |
 | 6(black) | GND     | GND   |
 
-:::note
+::: info
 If using a plane or rover, the 8 pin power (+) rail of **MAIN OUT** will need to be separately powered in order to drive servos for rudders, elevons, etc.
 To do this, the power rail needs to be connected to a BEC equipped ESC, a standalone 5V BEC, or a 2S LiPo battery.
 Be careful with the voltage of servo you are going to use here.
@@ -86,7 +86,7 @@ Be careful with the voltage of servo you are going to use here.
 
 <!--In the future, when Pixhawk 4 kit is available, add wiring images/videos for different airframes.-->
 
-:::note
+::: info
 Using the Power Module that comes with the kit you will need to configure the _Number of Cells_ in the [Power Settings](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) but you won't need to calibrate the _voltage divider_.
 You will have to update the _voltage divider_ if you are using any other power module (e.g. the one from the Pixracer).
 :::
@@ -135,7 +135,7 @@ For more information see [Basic Concepts > SD Cards (Removable Memory)](../getti
 
 Motors/servos are connected to the **MAIN OUT** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md). See [_Pixhawk 4 Mini_ > Supported Platforms](../flight_controller/pixhawk4_mini.md#supported-platforms) for more information.
 
-:::note
+::: info
 This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 :::
 

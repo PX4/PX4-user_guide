@@ -22,7 +22,7 @@ while a carrier board for a racer could includes ESCs form the frame of the vehi
 
 Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as a reference / Backup.
 
-:::note
+::: info
 The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview) contain detailed information, including an overview of the [Differences between Cube Colours](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview#differences-between-cube-colours).
 :::
 

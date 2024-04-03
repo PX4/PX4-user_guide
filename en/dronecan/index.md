@@ -11,7 +11,7 @@
 
 :::
 
-:::note
+::: info
 DroneCAN was previously known as UAVCAN v0 (or just UAVCAN).
 The name was changed in 2022.
 :::
@@ -82,7 +82,7 @@ Additionally, in certain mission-critical scenarios, you might prefer to manuall
 If you wish to disable the DNA completely, set `UAVCAN_ENABLE` to `1` and manually set each node ID to a unique value.
 If the DNA is still running and certain devices need to be manually configured, give these devices a value greater than the total number of DroneCAN devices to avoid clashes.
 
-:::note
+::: info
 The PX4 node ID can be configured using the [UAVCAN_NODE_ID](../advanced_config/parameter_reference.md#UAVCAN_NODE_ID) parameter.
 The parameter is set to 1 by default.
 :::
@@ -97,7 +97,7 @@ This means that if you have a device that is _only_ connected to CAN2 (not redun
 DroneCAN is configured on PX4 by [setting specific PX4 parameters](../advanced_config/parameters.md) in QGroundControl.
 You will need to enable DroneCAN itself, along with subscriptions and publications for any features that you use.
 
-:::note
+::: info
 In some cases you may need to also configure parameters on the connected CAN devices (these can also be [set using QGC](#qgc-cannode-parameter-configuration)).
 :::
 
@@ -117,7 +117,7 @@ To enable the PX4 DroneCAN driver, set the [UAVCAN_ENABLE](../advanced_config/pa
 PX4 does not publish or subscribe to DroneCAN messages that _might_ be needed by default, in order to avoid spamming the CAN bus.
 Instead you must enable publication or subscription to the messages associated with a particular feature by setting the associated [UAVCAN parameter](../advanced_config/parameter_reference.md#uavcan).
 
-::: note
+::: info
 Sensor parameters may not exist (be visible in QGC) until you have enabled the associated DroneCAN [sensor subscription](#sensors)!
 
 For example, [SENS_FLOW_MINHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MINHGT) does not exist until [UAVCAN_SUB_FLOW](../advanced_config/parameter_reference.md#UAVCAN_SUB_FLOW) is enabled.
@@ -188,7 +188,7 @@ Rover module parameters (also [set using QGC](#qgc-cannode-parameter-configurati
 
 - [CANNODE_SUB_RTCM](../advanced_config/parameter_reference.md#CANNODE_SUB_RTCM) tells the rover that it should subscribe to [RTCMStream](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#rtcmstream) RTCM messages on the bus (from the moving base).
 
-:::note
+::: info
 You could instead use [UAVCAN_PUB_MBD](../advanced_config/parameter_reference.md#UAVCAN_PUB_MBD) and [CANNODE_SUB_MBD](../advanced_config/parameter_reference.md#CANNODE_SUB_MBD), which also publish RTCM messages (these are newer).
 Using the [RTCMStream](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#rtcmstream) message means that you can implement moving base (see below) at the same time.
 :::

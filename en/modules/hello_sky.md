@@ -3,7 +3,7 @@
 This topic explains how to create and run your first onboard application.
 It covers all the basic concepts and APIs required for app development on PX4.
 
-:::note
+::: info
 For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted.
 These are covered in [Application/Module Template](../modules/module_template.md).
 :::
@@ -153,7 +153,7 @@ This consists of a single _C_ file and a _cmake_ definition (which tells the too
    The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/main/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
    :::
 
-   :::note
+   ::: info
    If you specify `DYNAMIC` as an option to `px4_add_module`, a _shared library_ is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code).
    Your app will not become a builtin command, but ends up in a separate file called `examples__px4_simple_app.px4mod`.
    You can then run your command by loading the file at runtime using the `dyn` command: `dyn ./examples__px4_simple_app.px4mod`
@@ -188,7 +188,7 @@ examples  --->
     [x] PX4 Simple app  ----
 ```
 
-:::note
+::: info
 The line will already be present for most files, because the examples are included in firmware by default.
 :::
 
@@ -369,7 +369,7 @@ The [Module Template for Full Applications](../modules/module_template.md) can b
 To use the calculated outputs, the next step is to _publish_ the results.
 Below we show how to publish the attitude topic.
 
-:::note
+::: info
 We've chosen `attitude` because we know that the _mavlink_ app forwards it to the ground control station - providing an easy way to look at the results.
 :::
 

@@ -19,7 +19,7 @@ The SiK repository includes bootloaders and firmware for the following telemetry
 - RFD900u
 - RFD900ue
 
-:::note
+::: info
 The SiK repository does not currently firmware for RFD900x or RFD900ux telemetry radios.
 In order to update firmware on these radios (for instance, in order to support MAVLink v2.0), the following process is suggested:
 
@@ -65,7 +65,7 @@ screen /dev/tty.usbserial-CHANGETHIS 57600 8N1
 
 Then start command mode:
 
-:::note
+::: info
 DO NOT TYPE ANYTHING ONE SECOND BEFORE AND AFTER
 :::
 
@@ -87,6 +87,6 @@ AT&W
 ATZ
 ```
 
-:::note
+::: info
 You might have to power-cycle the radio to connect it to the 2nd radio.
 :::

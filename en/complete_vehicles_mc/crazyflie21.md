@@ -18,7 +18,7 @@ An overview of the Crazyflie 2.1 can be [found here](https://www.bitcraze.io/pro
 
 ## Quick Summary
 
-:::note
+::: info
 The main hardware documentation is [here](https://wiki.bitcraze.io/projects:crazyflie2:index)
 :::
 
@@ -56,7 +56,7 @@ Useful peripheral hardware includes:
 
 ## Flashing PX4
 
-:::note
+::: info
 These instructions have only been tested on Ubuntu.
 :::
 
@@ -152,7 +152,7 @@ Connecting via **MAVLink**:
   git clone https://github.com/bitcraze/crazyflie-lib-python.git
   ```
 
-:::note
+::: info
 We will use [cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py) to setup a wireless MAVlink communication link between Crazyflie 2.1 (flashed with PX4) and QGroundControl. _Cfbridge_ enables QGroundControl to communicate with the crazyradio PA.
 The [C based cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, which is why we have chosen to use **cfbridge.py**.
 :::
@@ -208,7 +208,7 @@ To connect Crazyflie 2.1 with crazyradio, **launch cfbridge** by following these
   python cfbridge.py
   ```
 
-  :::note
+  ::: info
   _Cfbridge_ by default tries to initiate the radio link communication on channel 80 and with crazyflie address 0xE7E7E7E7E7.
   If you are using [multiple crazyflies and/or crazyradios](https://github.com/dennisss/cfbridge/blob/master/index.md#advanced-swarming) in the same room and want to use a different channel and/or address for each, first connect the crazyflie with QGroundControl via a USB cable and change the syslink parameters (channel, address) in QGroundControl.
   Next, launch the cfbridge by giving the same channel and address as the first and second arguments respectively, e.g: `python cfbridge.py 90 0x0202020202`
@@ -227,7 +227,7 @@ make venv
 
 :::
 
-:::note
+::: info
 The Joystick menu in QGC, only appears after you connect the controller to the PC (for example a Playstation 3 controller).
 
 ![QGC joystick menu](../../assets/flight_controller/crazyflie21/joystick_menu_qgc.png)

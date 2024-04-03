@@ -9,7 +9,7 @@ The flight controller module is internally connected to RPi CM4 through `TELEM2`
 
 This baseboard is plug-in compatible with [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md), [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md), and any other Pixhawk controller that follows the [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf) guidelines for mechanical compatibility across vendors.
 
-:::note
+::: info
 The board follows the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) and [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf) (including the guidelines for "mechanical compatibility across vendors").
 :::
 
@@ -30,7 +30,7 @@ The board follows the [Pixhawk Connector Standard](https://github.com/pixhawk/Pi
 
 ## Connections & Ports
 
-:::note
+::: info
 The [Holybro Documentation](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-rpi-cm4-baseboard/connections-and-ports) has more detailed (and possibly more "up to date") port and connection information.
 :::
 
@@ -49,7 +49,7 @@ The flight controller `TELEM2` port is internally connected to RPi CM4 as shown:
 | GPIO16  | CTS             |
 | GPIO17  | RTS             |
 
-:::note
+::: info
 The connection must be also be [configured in both RPi and PX4](#configure-px4-to-cm4-mavlink-serial-connection) (unless [Ethernet](#ethernet-connection-optional) is used instead).
 :::
 
@@ -148,7 +148,7 @@ To flash a RPi image onto EMMC.
 
 ## Configure PX4 to CM4 MAVLink Serial Connection
 
-:::note
+::: info
 If you are using [Ethernet](#ethernet-connection-optional) to connect the FC and RPi, this setup is not needed.
 :::
 
@@ -210,7 +210,7 @@ The flight controller module is [internally connected to RPi CM4](#rpi-cm4-fc-se
 You can also set up a local Ethernet connection between them using the supplied cable.
 Ethernet connectivity provides a fast, reliable, and flexible communication alternative to using USB or other serial connections.
 
-:::note
+::: info
 For more general information see: [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md).
 :::
 

@@ -26,13 +26,13 @@ graph LR;
   MAVLink-- >PX4_SITL;
 -->
 
-:::note
+::: info
 See [Simulation](../simulation/index.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
 :::
 
 ## Installation (Ubuntu Linux)
 
-:::note
+::: info
 These instructions were tested on Ubuntu 18.04
 :::
 
@@ -91,7 +91,7 @@ The supported vehicles and `make` commands are listed below (click on the links 
 The commands above launch a single vehicle with the full UI.
 _QGroundControl_ should be able to automatically connect to the simulated vehicle.
 
-:::note
+::: info
 For the full list of FlightGear build targets (highlighted) run:
 
 ```sh
@@ -101,7 +101,7 @@ make px4_sitl_nolockstep list_vmd_make_targets | grep flightgear_
 For additional information see: [FlightGear Vehicles](../sim_flightgear/vehicles.md) (this includes information about "unsupported" vehicles, and adding new vehicles).
 :::
 
-:::note
+::: info
 The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful reference if there are build errors.
 :::
 
@@ -157,7 +157,7 @@ The console will print out status as PX4 loads the airframe-specific initializat
 Once there is an INFO print that [ecl/EKF] is `commencing GPS fusion` the vehicle is ready to arm.
 At this point, you should see a FlightGear window with some view of aircraft.
 
-:::note
+::: info
 You can change the view by pressing **Ctrl+V**.
 :::
 

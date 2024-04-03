@@ -15,7 +15,7 @@ The flight controller adopts a modular design and can be matched with different 
 You can design a dedicated carrier board for your UAV to improve the integration of commercial systems, reduce wiring, improve system reliability, and enhance your UAV competitiveness (for example, integrating airspeed sensors, telemetry or even a companion computer, in the carrier board).
 CUAV has also provided a variety of carrier boards for you to choose from.
 
-:::note
+::: info
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
@@ -69,7 +69,7 @@ They should be used by preference as they contain the most complete and up to da
   - Supports temperature compensation
   - Internal shock absorption
 
-:::note
+::: info
 When it runs PX4 firmware, only 8 pwm works, the remaining 6 pwm are still being adapted, so it is not compatible with VOLT now.
 :::
 
@@ -98,7 +98,7 @@ The `RCIN` port is limited to powering the RC receiver and cannot be connected t
 The _X7 AutoPilot_ can be triple-redundant on the power supply if three power sources are supplied.
 The power rails are: **POWERA**, **POWERC** and **USB**.
 
-:::note
+::: info
 The output power rails **PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
 You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered.
 :::

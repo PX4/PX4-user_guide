@@ -7,7 +7,7 @@ However in some cases it is not present, or an older version is present that nee
 
 This topic explains how to build the PX4 bootloader, and several methods for flashing it to a board.
 
-:::note
+::: info
 
 - Most boards will need to use the [Debug Probe](#debug-probe-bootloader-update) to update the bootloader.
 - On [FMUv6X-RT](../flight_controller/pixhawk6x-rt.md) you can [install bootloader/unbrick boards via USB](bootloader_update_v6xrt.md).
@@ -73,7 +73,7 @@ The following steps explain how you can "manually" update the bootloader using a
      arm-none-eabi-gdb px4fmuv5_bl.elf
      ```
 
-   :::note
+   ::: info
    H7 Bootloaders from [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) are named with pattern `*._bootloader.elf`.
    Bootloaders from [PX4/PX4-Bootloader](https://github.com/PX4/PX4-Bootloader) are named with the pattern `*_bl.elf`.
    :::
@@ -108,7 +108,7 @@ The following steps explain how you can "manually" update the bootloader using a
 
 1. Power on the Pixhawk with another USB cable and connect the probe to the `FMU-DEBUG` port.
 
-   :::note
+   ::: info
    If using a Dronecode probe you may need to remove the case in order to connect to the `FMU-DEBUG` port (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
    :::
 
@@ -143,7 +143,7 @@ The steps are:
 1. Insert an SD card (enables boot logging to debug any problems).
 1. [Update the Firmware](../config/firmware.md#custom) with an image containing the new/desired bootloader.
 
-   :::note
+   ::: info
    The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest main branch.
    :::
 
@@ -160,7 +160,7 @@ An specific example of this process for updating the FMUv2 bootloader is given b
 
 If _QGroundControl_ installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
 
-:::note
+::: info
 Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata) that restricted them to using 1MB of flash memory.
 The problem is fixed on newer boards, but you may need to update the factory-provided bootloader in order to install FMUv3 Firmware and access all 2MB available memory.
 :::
@@ -183,7 +183,7 @@ To update the bootloader:
 
    ![FMUv3 update](../../assets/qgc/setup/firmware/bootloader_fmu_v3_update.jpg)
 
-   :::note
+   ::: info
    If the hardware has the [Silicon Errata](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata) it will still be detected as FMUv2 and you will see that FMUv2 was re-installed (in console).
    In this case you will not be able to install FMUv3 hardware.
    :::

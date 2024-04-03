@@ -49,7 +49,7 @@ PWM Output | Actuator
 MAIN2 | Steering servo
 MAIN4 | Throttle (ESC input)
 
-:::note
+::: info
 As documented in the Airframe Reference: [Generic ground vehicle (Ackermann)](../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle_(ackermann)).
 :::
 

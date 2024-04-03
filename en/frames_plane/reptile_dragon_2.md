@@ -81,7 +81,7 @@ The following tools were used in this assembly.
 The airplane needs some assembly out of the box.
 Servos, wings, and the tail will need to be installed.
 
-:::note
+::: info
 For this portion of assembly, the instructions included with the kit should be sufficent, but some helpful tips are listed below.
 :::
 
@@ -104,7 +104,7 @@ After checking for fit, use CA glue to glue the skid plate to the bottom of the 
 
 ### Servo Installation
 
-:::note
+::: info
 Prior to servo installation, it is recommended to use the sandpaper to rough the side of the servo facing the servo cover. During final installation, put a drop of Foamtac between the servo and the cover. This will prevent the servo from moving once installed.
 :::
 
@@ -125,7 +125,7 @@ The following steps can be used to perform servo alignment:
 4. Install the servo in the servo pocket on the airplane
 5. Install the linkage, and twist to adjust it such that the control surface is as close to centered as possible
 
-:::note
+::: info
 The servo horn will likely not sit exactly at a 90 degree angle to the servo due to the teeth on the servo shaft.
 You can see this in the above example setup image.
 Just get it close enough to 90 degrees, and the remaining offset will be removed either with the linkage, or later in software.
@@ -173,7 +173,7 @@ The FPV pod was mounted on top of the battery hatch using nylon M3 bolts with tw
 
 ## Flight Computer Installation
 
-:::note
+::: info
 This build is compatible with both the ARK6X carrier and the Holybro 5X Carrier.
 Instructions are provided for both.
 :::
@@ -270,7 +270,7 @@ Correct motor direction will be checked in the final preflight checks.
 
 Servos were wired to the FMU out port in the order left aileron, right aileron, left ESC, right ESC, elevator, rudder, FPV pan. 
 
-:::note
+::: info
 [DSHOT ESC](../peripherals/dshot.md#wiring-connections) were used (not PWM as for the servos).
 To make efficient use of the [DSHOT output port restrictions](../peripherals/dshot.md#wiring-connections), the two ESCs must be wired to FMU output channels 3 and 4.
 :::
@@ -385,7 +385,7 @@ We also recommend configuring an [autotuning switch](../config/autotune.md#enabl
 The channel mappings for this build are included in the supplied [params file](#parameter-config).
 The channel order is throttle, roll, pitch, yaw, (blank), and flight mode
 
-:::note
+::: info
 ExpressLRS requires `AUX1` as an "arming channel".
 This arming channel is separate from PX4's arming mechanism and is used to tell the ELRS TX that is can switch into high transmit power.
 

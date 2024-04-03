@@ -25,7 +25,7 @@ In the basic form, it is optimized so that the measured differential pressure co
 ![TFSLOT integrated in TF-G2](../../assets/hardware/sensors/airspeed/tfslot_integration.jpg)
 _First integration of TFSLOT into [TF-G2](https://github.com/ThunderFly-aerospace/TF-G2/) autogyro_
 
-:::note
+::: info
 
 Full documentation and source files can be found on [GitHub](https://github.com/ThunderFly-aerospace/TFSLOT01).
 

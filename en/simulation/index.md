@@ -39,7 +39,7 @@ The image below shows the message flow.
 
 ![Simulator MAVLink API](../../assets/simulation/px4_simulator_messages.svg)
 
-:::note
+::: info
 A SITL build of PX4 uses [SimulatorMavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/simulator_mavlink/SimulatorMavlink.cpp) to handle these messages while a hardware build in HIL mode uses [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp).
 Sensor data from the simulator is written to PX4 uORB topics.
 All motors / actuators are blocked, but internal software is fully operational.
@@ -81,14 +81,14 @@ These ports are:
   _QGroundControl_ listens to this port by default.
 - PX4's remote UDP Port **14540** is used for communication with offboard APIs.
   Offboard APIs are expected to listen for connections on this port.
-  :::note
+  ::: info
   Multi-vehicle simulations use a separate remote port for each instance, allocated sequentially from `14540` to `14549`
   (additional instances all use port `14549`).
   :::
 - The simulator's local TCP Port, **4560**, is used for communication with PX4.
   The simulator listens to this port, and PX4 initiates a TCP connection to it.
 
-:::note
+::: info
 The ports for the GCS, offboard APIs and simulator are specified by startup scripts.
 See [System Startup](../concept/system_startup.md) to learn more.
 :::
@@ -107,7 +107,7 @@ The different parts of the system connect via UDP, and can be run on either the 
   Simulators then exchange information with PX4 using the [Simulator MAVLink API](#simulator-mavlink-api) described above.
   PX4 on SITL and the simulator can run on either the same computer or different computers on the same network.
 
-  :::note
+  ::: info
   Simulators can also use the _uxrce-dds bridge_ ([XRCE-DDS](../middleware/uxrce_dds.md)) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink).
   This approach _may_ used by Gazebo Classic for [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation.md#build-and-test-xrce-dds).
   :::
@@ -188,12 +188,12 @@ export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl jmavsim
 ```
 
-:::note
+::: info
 At some point IO or CPU will limit the speed that is possible on your machine and it will be slowed down "automatically".
 Powerful desktop machines can usually run the simulation at around 6-10x, for notebooks the achieved rates can be around 3-4x.
 :::
 
-:::note
+::: info
 To avoid PX4 detecting data link timeouts, increase the value of param [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) proportional to the simulation rate.
 For example, if `COM_DL_LOSS_T` is 10 in realtime, at 10x simulation rate increase to 100.
 :::
@@ -203,7 +203,7 @@ For example, if `COM_DL_LOSS_T` is 10 in realtime, at 10x simulation rate increa
 PX4 SITL and the simulators (jMAVSim or Gazebo Classic) have been set up to run in _lockstep_.
 What this means is that PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
 
-:::note
+::: info
 Lockstep makes it possible to [run the simulation faster or slower than realtime](#simulation_speed), and also to pause it in order to step through code.
 :::
 
@@ -278,7 +278,7 @@ PX4 connects/integrates with this camera in _exactly the same way_ as it would w
    mavlink start -u 14558 -o 14530 -r 4000 -f -m camera
    ```
 
-   :::note
+   ::: info
    More than just the camera MAVLink messages will be forwarded, but the camera will ignore those that it doesn't consider relevant.
    :::
 
@@ -320,7 +320,7 @@ To route packets between SITL running on one computer (sending MAVLink traffic t
   Port = 14550
   ```
 
-:::note
+::: info
 More information about _mavlink-router_ configuration can be found [here](https://github.com/mavlink-router/mavlink-router#running).
 :::
 
@@ -329,7 +329,7 @@ More information about _mavlink-router_ configuration can be found [here](https:
 The [mavlink module](../modules/modules_communication.md#mavlink_usage) routes to _localhost_ by default, but you can enable UDP broadcasting of heartbeats using its `-p` option.
 Any remote computer on the network can then connect to the simulator by listening to the appropriate port (i.e. 14550 for _QGroundControl_).
 
-:::note
+::: info
 UDP broadcasting provides a simple way to set up the connection when there is only one simulation running on the network.
 Do not use this approach if there are multiple simulations running on the network (you might instead [publish to a specific address](#enable-streaming-to-specific-address)).
 :::
@@ -349,7 +349,7 @@ For example: [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.c
 
 SSH tunneling is a flexible option because the simulation computer and the system using it need not be on the same network.
 
-:::note
+::: info
 You might similarly use VPN to provide a tunnel to an external interface (on the same network or another network).
 :::
 

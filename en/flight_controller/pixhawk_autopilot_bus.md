@@ -7,7 +7,7 @@ For example, the PAB means that you can use the same flight controller hardware 
 
 The following carriers and flight controllers are PAB-compliant, and can therefore be used interchangeably.
 
-:::note
+::: info
 The "Mechanical Design" section of the standard provides specific recommendations for mechanical compatibility between vendors.
 The flight controllers and baseports listed here are expected to be compliant with all recommendations.
 :::

@@ -23,7 +23,7 @@ The datalink should typically be able to handle an uplink rate of 300 bytes per 
 
 The list of devices that we have tested can be found [in the user guide](../gps_compass/rtk_gps.md#supported-devices).
 
-:::note
+::: info
 Most devices come with two variants, a base and a rover.
 Make sure to select the correct variant.
 :::
@@ -34,11 +34,11 @@ The PX4 GPS stack automatically sets up the GPS modules to send and receive the 
 
 As soon as the autopilot receives `GPS_RTCM_DATA` MAVLink messages, it automatically forwards the RTCM data to the attached GPS module over existing data channels (a dedicated channel for correction data is not required).
 
-:::note
+::: info
 The u-blox U-Center RTK module configuration tool is not needed/used!
 :::
 
-:::note
+::: info
 Both _QGroundControl_ and the autopilot firmware share the same [PX4 GPS driver stack](https://github.com/PX4/GpsDrivers).
 In practice, this means that support for new protocols and/or messages only need to be added to one place.
 :::

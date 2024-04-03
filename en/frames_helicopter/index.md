@@ -32,7 +32,7 @@ This is covered in [Basic Assembly](../assembly/index.md).
 
 Helicopter-specific assembly consists mostly of connecting and powering the motors and swash plate servos.
 
-:::note
+::: info
 Note that the flight controller cannot power motors and servos (only GPS module, RC receiver, and low power telemetry modules can be powered from Pixhawk flight controllers).
 Generally a power distribution board (PDB) is used to power motors, and a separate (or integrated) battery elimination circuit (BEC) is used to power each of the servos.
 :::

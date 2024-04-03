@@ -50,7 +50,7 @@ Once you have configured the flight controller serial port used for connecting t
 
 The module exposes a WiFi hotspot that your ground station computer can use to connect to the vehicle.
 
-:::note
+::: info
 The settings for the ESP8266 hotspot should be provided with the board (e.g. typically printed on the reverse side of the board or on the packaging).
 
 A common factory network setting is:

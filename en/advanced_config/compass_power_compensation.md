@@ -8,7 +8,7 @@ This topic explains how to compensate for the induced magnetic fields in the cas
 Moving the compass away from power-carrying cables is the easiest and most effective way to fix this issue, because the strength of the magnetic fields decreases quadratically with the distance from the cable.
 :::
 
-:::note
+::: info
 The process is demonstrated for a multicopter, but is equally valid for other vehicle types.
 :::
 
@@ -44,7 +44,7 @@ Performing this power compensation is advisable only if all the following statem
    - Slowly lower the throttle down to zero
    - Disarm the vehicle
 
-   :::note
+   ::: info
    Perform the test carefully and closely monitor the vibrations.
    :::
 
@@ -54,7 +54,7 @@ Performing this power compensation is advisable only if all the following statem
    python mag_compensation.py ~/path/to/log/logfile.ulg
    ```
 
-   :::note
+   ::: info
    If your log does not contain battery current measurements, you will need to comment out the respective lines in the Python script, such that it does the calculation for thrust only.
    :::
 

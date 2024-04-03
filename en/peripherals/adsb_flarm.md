@@ -45,7 +45,7 @@ FLARM has an on-board DF-13 6 Pin connector that has an identical pinout to the 
 | 5 (blk) | -        | +3.3V       |
 | 6 (blk) | GND      | GND         |
 
-:::note
+::: info
 The TX and RX on the flight controller must be connected to the RX and TX on the FLARM, respectively.
 :::
 
@@ -101,7 +101,7 @@ When a valid message is received, its validity flags, position and heading are m
 
 The implementation is otherwise _exactly_ as described in the section above.
 
-:::note
+::: info
 [UTM_GLOBAL_POSITION](https://mavlink.io/en/messages/common.html#UTM_GLOBAL_POSITION) contains additional fields that are not provided by an ADSB transponder (see [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE)).
 The current implementation simply drops the additional fields (including information about the vehicle's planned next waypoint).
 :::
@@ -111,7 +111,7 @@ The current implementation simply drops the additional fields (including informa
 You can simulate ADS-B traffic for testing.
 Note that this requires that you [Build PX4](../dev_setup/building_px4.md).
 
-:::note
+::: info
 Simulated ADS-B traffic can trigger real failsafe actions.
 Use with care in real flight!
 :::

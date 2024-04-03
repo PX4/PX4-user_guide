@@ -3,7 +3,7 @@
 The compass calibration process configures all connected internal and external [magnetometers](../gps_compass/index.md).
 _QGroundControl_ will guide you to position the vehicle in a number of set orientations and rotate the vehicle about the specified axis.
 
-:::note
+::: info
 Compass calibration also auto-detects the compass orientation ([by default](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT)).
 If you have [mounted the compass](../assembly/mount_gps_compass.md#compass-orientation) at a non-standard angle you will need to [manually set the compass orientation](../config/flight_controller_orientation.md#setting-the-compass-orientation) before calibrating.
 :::
@@ -49,7 +49,7 @@ The calibration steps are:
 
    ![Select Compass calibration PX4](../../assets/qgc/setup/sensor/sensor_compass_select_px4.png)
 
-   :::note
+   ::: info
    You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
    :::
 
@@ -87,7 +87,7 @@ The process above will autodetect, [set default rotations](../advanced_config/pa
 
 Further compass configuration should generally not be required.
 
-:::note
+::: info
 All external compasses are given the same priority by default, which is higher than the priority shared by all internal compasses.
 :::
 

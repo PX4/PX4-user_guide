@@ -10,7 +10,7 @@ It also provides tutorial instructions for how you can add PX4 support for:
 - Streaming MAVLink messages
 - Handling incoming MAVLink messages and writing to a uORB topic.
 
-:::note
+::: info
 The topic does not cover _command_ handling and sending, or how to implement your own microservices.
 :::
 
@@ -66,7 +66,7 @@ The receiving end of the communication will discard any packet for which the mes
 PX4 releases build `common.xml` MAVLink definitions by default, for the greatest compatibility with MAVLink ground stations, libraries, and external components such as MAVLink cameras.
 In the `main` branch, these are included from `development.xml` on SITL, and `common.xml` for other boards.
 
-:::note
+::: info
 To be part of a PX4 release, any MAVLink definitions that you use must be in `common.xml` (or included files such as `standard.xml` and `minimal.xml`).
 During development you can use definitions in `development.xml`.
 You will need to work with the [MAVLink team](https://mavlink.io/en/contributing/contributing.html) to define and contribute these definitions.
@@ -88,7 +88,7 @@ The files are generated into the build directory: `/build/<build target>/mavlink
 
 A custom MAVLink message is one that isn't in the default definitions included into PX4.
 
-:::note
+::: info
 If you use a custom definition you will need maintain the definition in PX4, your ground station, and any other SDKs that communicate with it.
 Generally you should use (or add to) the standard definitions if at all possible to reduce the maintenance burden.
 :::
@@ -108,7 +108,7 @@ Inspect the build log for information.
 
 Once the message is being built you can stream, receive, or otherwise use it, as described in the following sections.
 
-:::note
+::: info
 The [MAVLink Developer guide](https://mavlink.io/en/getting_started/) has more information about using the MAVLink toolchain.
 :::
 
@@ -137,7 +137,7 @@ Copy this `BATTERY_STATUS_DEMO` message into the message section of `development
     </message>
 ```
 
-:::note
+::: info
 Note that this is a cut-down version of the not-yet-implemented [BATTERY_STATUS_V2](https://mavlink.io/en/messages/development.html#BATTERY_STATUS_V2) message with randomly chosen unused id of `11514`.
 Here we've put the message in `development.xml`, which is fine for testing and if the message is intended to eventually be part of the standard message set, but you might also put a [custom message](#custom-mavlink-messages) in its own dialect file.
 :::
@@ -156,7 +156,7 @@ Add the headers for the uORB message(s) to the top of the file (the required MAV
 #include <uORB/topics/battery_status.h>
 ```
 
-:::note
+::: info
 The uORB topic's snake-case header file is generated from the CamelCase uORB filename at build time.
 :::
 
@@ -277,7 +277,7 @@ Most streaming classes are very similar (see examples in [/src/modules/mavlink/s
   battery_sub.copy(&battery_status);
   ```
 
-  :::note
+  ::: info
   For a single-instance topic like [VehicleStatus](../msg_docs/VehicleStatus.md) we would subscribe like this:
 
   ```cpp
@@ -394,7 +394,7 @@ uORB::Publication<battery_status_s> _battery_pub{ORB_ID(battery_status)};
 
 This creates a publication to a single uORB topic instance, which by default will be the _first_ instance.
 
-:::note
+::: info
 This implementation won't work on multi-battery systems, because several batteries might be publishing data to the first instance of the topic, and there is no way to differentiate them.
 To support multiple batteries we'd need to use `PublicationMulti` and map the MAVLink message instance IDs to specific uORB topic instances.
 :::
@@ -425,7 +425,7 @@ MavlinkReceiver::handle_message_battery_status_demo(mavlink_message_t *msg)
 }
 ```
 
-:::note
+::: info
 Above we only write to the battery fields that are defined in the topic.
 In practice you'd update all fields with either valid or invalid values: this has been cut back for brevity.
 :::
@@ -456,7 +456,7 @@ An alternative - and temporary - solution is to re-purpose debug messages.
 Instead of creating a custom MAVLink message `CA_TRAJECTORY`, you can send a message `DEBUG_VECT` with the string key `CA_TRAJ` and data in the `x`, `y` and `z` fields.
 See [this tutorial](../debug/debug_values.md) for an example usage of debug messages.
 
-:::note
+::: info
 This solution is not efficient as it sends character string over the network and involves comparison of strings.
 It should be used for development only!
 :::

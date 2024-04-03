@@ -69,7 +69,7 @@ For more information, refer to the [CAN Wiring](../can/index.md#wiring) instruct
 You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle.
 The required settings are outlined below.
 
-:::note
+::: info
 The GPS will not boot if there is no SD card in the flight controller when powered on.
 :::
 

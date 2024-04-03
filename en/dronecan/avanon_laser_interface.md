@@ -1,6 +1,6 @@
 # Avionics Anonymous Laser Altimeter DroneCan Interface
 
-:::note
+::: info
 In 2022, UAVCAN (v0) was forked and is maintained as `DroneCAN`.
 While this product still mentions "UAVCAN", it is fully compatible with PX4's DroneCAN support.
 :::

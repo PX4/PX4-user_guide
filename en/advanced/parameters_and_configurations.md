@@ -220,7 +220,7 @@ int32_t my_param = 0;
 param_get(param_find("PARAM_NAME"), &my_param);
 ```
 
-:::note
+::: info
 If `PARAM_NAME` was declared in parameter metadata then its default value will be set, and the above call to find the parameter should always succeed.
 :::
 
@@ -256,7 +256,7 @@ After adding a _new_ parameter file you should call `make clean` before building
 
 #### YAML Metadata
 
-:::note
+::: info
 At time of writing YAML parameter definitions cannot be used in _libraries_.
 :::
 

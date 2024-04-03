@@ -20,7 +20,7 @@ The message flows from PX4 UORB topics, through MAVLink, to ROS and back again a
 All services that use this interface send and receive messages of the same type/format.
 Developers can therefore use this interface to create their own new companion-side path planning services or tweak the existing planner software.
 
-:::note
+::: info
 The [PX4 Vision Autonomy Development Kit](../complete_vehicles_mc/px4_vision_kit.md) is recommended for developing path planning software.
 It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance) software pre-installed and can be used as the base for your own algorithms.
 :::
@@ -112,7 +112,7 @@ PX4 safely handles the case where messages are not received from the offboard sy
 - When external path planning is enabled:
   - if the `HEARTBEAT` is lost PX4 will emit a status message (which is displayed in _QGroundControl_) stating either "Avoidance system lost" or "Avoidance system timeout" (depending on the vehicle state). This is irrespective of the current flight mode.
   - if a trajectory message is not received for more than 0.5 seconds and the vehicle is in an autonomous mode (Return, Mission, Takeoff, Land), the vehicle will switch into [Hold mode](../flight_modes_mc/hold.md).
-    :::note
+    ::: info
     A planner must always provide points in this timeframe.
   - A planner will mirror back setpoints it receives when the vehicle is in a mode/state for which it doesn't provide path planning. (i.e. the vehicle will follow its desired path, delayed by a very small amount).
     :::
@@ -152,7 +152,7 @@ The path planning software (running on the companion computer) _may_ send the pl
 The message defines the path that the vehicle should follow in terms of a curve (defined by the control points), starting at the message `timestamp` and reaching the final point after time `delta`.
 PX4 calculates its new setpoint (the expected current position/velocity/acceleration along the curve) using the time that the message was sent, the current time, and the total time for the curve (delta).
 
-:::note
+::: info
 For example, say the message was sent 0.1 seconds ago, and `delta` (curve duration) is 0.3s.
 PX4 can calculate its setpoint at the 0.1s position in the curve.
 :::

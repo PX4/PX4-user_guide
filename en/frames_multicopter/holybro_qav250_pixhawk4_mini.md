@@ -1,6 +1,6 @@
 # Holybro QAV250 + Pixhawk 4 Mini Build (Discontinued)
 
-:::note
+::: info
 The _Holybro Pixhawk 4 Mini QAV250 Kit_ is no longer available.
 
 The instructions have been left here because very similar kits based on the Pix32 v6 are [available here](https://holybro.com/products/qav250-kit).
@@ -188,7 +188,7 @@ The steps to install the kit are:
      The wires are: yellow=video out, black=ground, red=+voltage.
 1. Secure the Video Transmitter and OSD board to the frame using tape.
 
-:::note
+::: info
 If you have to wire the system yourself, the diagram below shows all the connections between camera, VTX and power module:
 ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
 :::
@@ -207,7 +207,7 @@ First update the firmware, airframe, and actuator mappings:
 - [Firmware](../config/firmware.md)
 - [Airframe](../config/airframe.md)
   
-  :::note
+  ::: info
   You will need to select the *HolyBro QAV250* airframe (**Quadrotor x > HolyBro QAV250**).
 
   ![QGC - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qgc_airframe_holybro_qav250.png)

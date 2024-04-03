@@ -21,7 +21,7 @@ After upload you'll be emailed a link to the analysis page for the log.
 
 [Log Analysis using Flight Review](../log/flight_review.md) explains how to interpret the plots, and can help you to verify/reject the causes of common problems: excessive vibration, poor PID tuning, saturated controllers, imbalanced vehicles, GPS noise, etc.
 
-:::note
+::: info
 There are many other great tools for visualising and analysing PX4 Logs.
 For more information see: [Flight Analysis](../dev_log/flight_log_analysis.md).
 :::

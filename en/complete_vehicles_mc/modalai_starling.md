@@ -11,11 +11,11 @@ This development drone is meant to help you get to market faster and accelerate 
 
 This guide explains the minimal additional setup required to get the UAV ready to fly. It also covers a hardware overview, first flight, setting up WiFi, and more.
 
-:::note
+::: info
 For complete and regularly updated documentation, please visit <https://docs.modalai.com/starling-v2>.
 :::
 
-:::note
+::: info
 If you are new to VOXL, be sure to familiarize yourself with the core features of VOXL hardware and software by reviewing the [VOXL Bootcamp](https://docs.modalai.com/voxl-developer-bootcamp/).
 :::
 

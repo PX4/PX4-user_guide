@@ -73,7 +73,7 @@ Blue | ACT (Activity) | Flutters when the bootloader is receiving data | Indicat
 Red/Amber | B/E (In Bootloader / Error) | Flutters when in the bootloader | Indication of an ERROR
 Green |PWR (Power) | Not used by bootloader | Indication of ARM state
 
-:::note
+::: info
 The LED labels shown above are commonly used, but might differ on some boards.
 :::
 

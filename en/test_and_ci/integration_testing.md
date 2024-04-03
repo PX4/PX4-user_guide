@@ -2,7 +2,7 @@
 
 This topic explains how to run (and extend) PX4's ROS-based integration tests.
 
-:::note
+::: info
 [MAVSDK Integration Testing](../test_and_ci/integration_testing_mavsdk.md) is preferred when writing new tests.
 Use the ROS-based integration test framework for use cases that _require_ ROS (e.g. object avoidance).
 

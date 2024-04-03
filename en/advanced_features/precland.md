@@ -5,7 +5,7 @@ The target may be provided by an onboard IR sensor and a landing beacon, or by a
 
 Precision landing can be [started/initiated](#initiating-a-precision-landing) as part of a [mission](#mission), in a [Return mode](#return-mode-precision-landing) landing, or by entering the [_Precision Land_ flight mode](#precision-landing-flight-mode).
 
-:::note
+::: info
 Precision landing is only possible with a valid global position (due to a limitation in the current implementation of the position controller).
 :::
 
@@ -24,7 +24,7 @@ The vehicle will perform a precision landing if a target is located.
 The search procedure consists of climbing to the search altitude ([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)).
 If the target is still not visible at the search altitude and after a search timeout ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT)), a normal landing is initiated at the current position.
 
-:::note
+::: info
 If using an offboard positioning system PX4 assumes that the target is visible when it is receiving MAVLink [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET) messages.
 :::
 
@@ -86,11 +86,11 @@ You can verify this using the [_QGroundControl_ MAVLink Console](../debug/mavlin
 commander mode auto:precland
 ```
 
-:::note
+::: info
 When switching to the mode in this way, the precision landing is always "required"; there is no way to specify the type of landing.
 :::
 
-:::note
+::: info
 At time of writing is no _convenient_ way to directly invoke precision landing (other than commanding return mode):
 
 - _QGroundControl_ does not provide it as a UI option.
@@ -110,7 +110,7 @@ Ensure that the sensor's x axis is aligned with the vehicle's y axis and the sen
 
 Install a [range/distance sensor](../getting_started/sensor_selection.md#distance) (the _LidarLite v3_ has been found to work well).
 
-:::note
+::: info
 Many infrared based range sensors do not perform well in the presence of the IR-LOCK beacon.
 Refer to the IR-LOCK guide for other compatible sensors.
 :::

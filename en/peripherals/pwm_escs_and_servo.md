@@ -40,7 +40,7 @@ On a fixed-wing (or VTOL) ESC, the +5V line usually provides the output of a Bat
 
 - This can be connected to the Pixhawk servo rail and used to power servos for flaps, ailerons etc.
 
-  :::note
+  ::: info
   It is unsafe to power servos or ESCs from the autopilot's avionics power supply.
   This is why **Pixhawk series** flight controllers do not provide power for the servo rail (the AUX servo rail is unpowered and is limited to 1A).
   :::
@@ -109,7 +109,7 @@ Appropriate values are determined and set as part of the [actuator configuration
 
 ### Valid Pulse Shape, Voltage and Update Rate
 
-:::note
+::: info
 This should not be a problem, but is included for completeness
 :::
 

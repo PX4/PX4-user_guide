@@ -14,7 +14,7 @@ It is mainly supplied to commercial manufacturers.
 Nora is a variant of the CUAV X7.
 It adopts an integrated motherboard (soft and hard board), which reduces flight controller's internal connectors, improves reliability, and places all the interfaces on the side (making the wiring more concise).
 
-:::note
+::: info
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
@@ -68,7 +68,7 @@ They should be used by preference as they contain the most complete and up to da
   - Supports temperature compensation
   - Internal shock absorption
 
-:::note
+::: info
 When it runs PX4 firmware, only 8 PWM outputs work.
 The remaining 6 PWM ports are still being adapted (so it is not compatible with VOLT at time of writing).
 :::
@@ -96,7 +96,7 @@ The `RCIN` port is limited to powering the rc receiver and cannot be connected t
 
 Nora AutoPilot\* can be triple-redundant on the power supply if three power sources are supplied. The two power rails are: **POWERA**, **POWERC** and **USB**.
 
-:::note
+::: info
 The output power rails **PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
 You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered.
 :::
