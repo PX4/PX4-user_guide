@@ -103,7 +103,7 @@ PX4는 오프보드 시스템에서 메시지가 수신되지 않는 경우를 �
   - if you switch to an autonomous mode (e.g. Land Mode) it will immediately fall back to [Hold mode](../flight_modes_mc/hold.md).
 - When external path planning is enabled:
   - `HEARTBEAT`가 분실된 경우 PX4는 "Avoidance system lost"또는 "Avoidance system timeout"(기체 상태에 따라 다름)을 나타내는 상태 메시지 (*QGroundControl*에 표시됨)를 내 보냅니다. 이것은 현재 비행 모드와 관계가 없습니다.
-  - if a trajectory message is not received for more than 0.5 seconds and the vehicle is in an autonomous mode (Return, Mission, Takeoff, Land), the vehicle will switch into [Hold mode](../flight_modes_mc/hold.md). :::note A planner must always provide points in this timeframe.
+  - if a trajectory message is not received for more than 0.5 seconds and the vehicle is in an autonomous mode (Return, Mission, Takeoff, Land), the vehicle will switch into [Hold mode](../flight_modes_mc/hold.md). ::: info A planner must always provide points in this timeframe.
   - A planner will mirror back setpoints it receives when the vehicle is in a mode/state for which it doesn't provide path planning. (i.e. the vehicle will follow its desired path, delayed by a very small amount).
 :::
   - If the execution time of the last-supplied Bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes_mc/hold.md)).
@@ -140,8 +140,7 @@ PX4는 오프보드 시스템에서 메시지가 수신되지 않는 경우를 �
 
 메시지는 `타임 스탬프` 메시지에서 시작하여 시간 `델타` 이후에 최종 지점에 도달하는 곡선 (제어점에 의해 정의됨) 측면에서 기체의 운행 경로를 정의합니다. PX4는 메시지가 전송 시간, 현재 시간 및 곡선의 총 시간 (델타)을 사용하여 새 설정값 (곡선을 따라 예상되는 현재 위치/속도/가속도)을 계산합니다.
 
-:::note
-For example, say the message was sent 0.1 seconds ago, and `delta` (curve duration) is 0.3s. PX4는 곡선의 0.1s 위치에서 설정값을 계산할 수 있습니다.
+::: info For example, say the message was sent 0.1 seconds ago, and `delta` (curve duration) is 0.3s. PX4는 곡선의 0.1s 위치에서 설정값을 계산할 수 있습니다.
 :::
 
 더 자세히 설명하면 `TRAJECTORY_REPRESENTATION_BEZIER`는 다음과 같이 구문 분석됩니다.
