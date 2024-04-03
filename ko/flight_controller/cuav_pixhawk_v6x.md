@@ -155,7 +155,7 @@ Under these conditions the system will not draw any power (will not be operation
 
 디지털 DroneCAN/UAVCAN 배터리 모니터링은 기본적으로 활성화되어 있습니다 ([퀵 스타트 > 전력](../assembly/quick_start_cuav_pixhawk_v6x.md#power) 참고).
 
-:::note
+::: info
 Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
 :::
 
