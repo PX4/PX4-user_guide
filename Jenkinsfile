@@ -51,7 +51,7 @@ pipeline {
           sh('mkdir -p docs.px4.io/${BRANCH_NAME}')
           sh('cp -r .vuepress/dist/* docs.px4.io/${BRANCH_NAME}/')
           sh('cd docs.px4.io; git add ${BRANCH_NAME}; git commit -a -m "docs build update `date`"')
-          sh('cd docs.px4.io; git push origin master')
+          sh('cd docs.px4.io; git push origin main')
           
         }
       }
