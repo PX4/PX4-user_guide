@@ -1,4 +1,4 @@
-# Holybro Pixhawk 4 (Discontinued)
+# Holybro Pixhawk 4
 
 :::warning PX4에서는 이 제품을 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
