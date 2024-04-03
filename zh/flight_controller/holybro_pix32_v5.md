@@ -132,7 +132,7 @@ The pinout uses the standard [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-
 ## 外部设备
 
 - [数字空速传感器](../sensor/airspeed.md)
-- [数传电台模块](../telemetry/README.md)
+- [数传电台模块](../telemetry/index.md)
 - [测距仪/距离传感器](../sensor/rangefinders.md)
 
 ## 支持的平台 / 机身
