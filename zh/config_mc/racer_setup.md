@@ -87,7 +87,7 @@ Make sure to assign a [kill switch](../config/safety.md#kill-switch) or an [armi
 
 ### PX4 调试
 
-:::note
+::: info
 Make sure to calibrate the ESCs before doing any tuning.
 :::
 
