@@ -18,7 +18,7 @@ MAVLink 메시지로 오프보드 모드를 활성화할 수 있으므로, 이 �
 
 ### 보조 컴퓨터 인터페이스 활성화
 
-Enable MAVLink on the serial port that you connect to the companion computer (see [Companion Computers](../companion_computer/README.md)).
+Enable MAVLink on the serial port that you connect to the companion computer (see [Companion Computers](../companion_computer/index.md)).
 
 ## 하드웨어 설정
 
@@ -45,7 +45,7 @@ graph TD;
 
 ### 온보드 프로세서
 
-A small computer mounted onto the vehicle, connected to the autopilot through a serial port or Ehthernet port. There are many possibilities here and it will depend on what kind of additional on-board processing you want to do in addition to sending commands to the autopilot. Some examples are provided in [Companion Computers](../companion_computer/README.md#companion-computer-options).
+A small computer mounted onto the vehicle, connected to the autopilot through a serial port or Ehthernet port. There are many possibilities here and it will depend on what kind of additional on-board processing you want to do in addition to sending commands to the autopilot. Some examples are provided in [Companion Computers](../companion_computer/index.md#companion-computer-options).
 
 [![Mermaid diagram: Companion mavlink](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGNvbXBbQ29tcGFuaW9uIENvbXB1dGVyXSAtLU1BVkxpbmstLT4gdWFydFtVQVJUIEFkYXB0ZXJdO1xuICB1YXJ0IC0tTUFWTGluay0tPiBBdXRvcGlsb3Q7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGNvbXBbQ29tcGFuaW9uIENvbXB1dGVyXSAtLU1BVkxpbmstLT4gdWFydFtVQVJUIEFkYXB0ZXJdO1xuICB1YXJ0IC0tTUFWTGluay0tPiBBdXRvcGlsb3Q7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 
