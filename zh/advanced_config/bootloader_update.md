@@ -6,7 +6,7 @@ Pixhawk控制器通常预安装了适当的引导程序。 但在某些情况下
 
 此篇介绍了更新 Pixhawk bootloader 的几种常见方法。
 
-:::note
+::: info
 
 - Most boards will need to use the [Debug Probe](#debug-probe-bootloader-update) to update the bootloader.
 - On [FMUv6X-RT](../flight_controller/pixhawk6x-rt.md) you can [install bootloader/unbrick boards via USB](bootloader_update_v6xrt.md). This is useful if you don't have a debug probe.
@@ -69,8 +69,7 @@ The following steps explain how you can "manually" update the bootloader using a
      
      ```
 
-:::note
-H7 Bootloaders from [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) are named with pattern `*._bootloader.elf`. Bootloaders from [PX4/PX4-Bootloader](https://github.com/PX4/PX4-Bootloader) are named with the pattern `*_bl.elf`.
+   ::: info H7 Bootloaders from [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) are named with pattern `*._bootloader.elf`. Bootloaders from [PX4/PX4-Bootloader](https://github.com/PX4/PX4-Bootloader) are named with the pattern `*_bl.elf`.
 :::
 
 1. _gdb 终端_ 出现，它应该显示以下输出：
@@ -101,8 +100,7 @@ H7 Bootloaders from [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) ar
 
 1. Power on the Pixhawk with another USB cable and connect the probe to the `FMU-DEBUG` port.
 
-:::note
-If using a Dronecode probe you may need to remove the case in order to connect to the `FMU-DEBUG` port (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
+   ::: info If using a Dronecode probe you may need to remove the case in order to connect to the `FMU-DEBUG` port (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
 :::
 
 1. Use the following command to scan for the Pixhawk`s SWD and connect to it:
@@ -134,7 +132,7 @@ Currently only FMUv2 and some custom firmware includes the desired bootloader.
 1. 插入 SD 卡（使能引导日志记录，便于调试任何可能的问题）。
 1. 使用包含 最新的/所需的 bootloader 的 image 文件来[更新固件](../config/firmware.md#custom)。
 
-   :::note
+   ::: info
 The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest main branch.
 :::
 
