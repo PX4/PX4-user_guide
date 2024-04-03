@@ -42,8 +42,7 @@ Flight Core is identical to the PX4 Flight Controller portion of [VOXL Flight](h
 |            | I2C                                              |
 |            | GPIO                                             |
 
-:::note
-More detailed hardware documentation can be found [here](https://docs.modalai.com/flight-core-datasheet/).
+::: info More detailed hardware documentation can be found [here](https://docs.modalai.com/flight-core-datasheet/).
 :::
 
 <!-- reference links for table above (improve layout) -->
