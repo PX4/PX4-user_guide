@@ -270,57 +270,57 @@ make holybro_durandal-v1_default
 
 #### TELEM4 I2CB порти
 
-| Pin       | Signal   | Volt  |
-| --------- | -------- | ----- |
-| 1 (red)   | VCC      | +5V   |
-| 2 (black) | TX (out) | +3.3V |
-| 3 (black) | RX (in)  | -     |
-| 4 (black) | SCL2     | -     |
-| 5 (black) | SDA2     | +3.3V |
-| 6 (black) | GND      | GND   |
+| Pin          | Сигнал     | Вольтаж |
+| ------------ | ---------- | ------- |
+| 1 (червоний) | VCC        | +5В     |
+| 2 (чорний)   | Tx (вивід) | +3.3В   |
+| 3 (чорний)   | Rx (вхід)  | -       |
+| 4 (чорний)   | SCL2       | -       |
+| 5 (чорний)   | SDA2       | +3.3В   |
+| 6 (чорний)   | GND        | GND     |
 
 <a id="telem1_2_3"></a>
 
-#### TELEM3, TELEM2, TELEM1 port
+#### TELEM3, TELEM2, TELEM1 порт
 
-| Pin       | Signal    | Volt  |
-| --------- | --------- | ----- |
-| 1 (red)   | VCC       | +5V   |
-| 2 (black) | TX (out)  | +3.3V |
-| 3 (black) | RX (in)   | +3.3V |
-| 4 (black) | CTS (in)  | +3.3V |
-| 5 (black) | RTS (out) | +3.3V |
-| 6 (black) | GND       | GND   |
+| Pin          | Сигнал      | Вольтаж |
+| ------------ | ----------- | ------- |
+| 1 (червоний) | VCC         | +5В     |
+| 2 (чорний)   | TX (вивід)  | +3.3В   |
+| 3 (чорний)   | RX (вхід)   | +3.3В   |
+| 4 (чорний)   | CTS (вхід)  | +3.3В   |
+| 5 (чорний)   | RTS (вивід) | +3.3В   |
+| 6 (чорний)   | GND         | GND     |
 
 <a id="power"></a>
 
-#### POWER port
+#### Порт живлення
 
-| Pin       | Signal  | Volt  |
-| --------- | ------- | ----- |
-| 1 (red)   | VCC     | +5V   |
-| 2 (black) | VCC     | +5V   |
-| 3 (black) | CURRENT | +3.3V |
-| 4 (black) | VOLTAGE | +3.3V |
-| 5 (black) | GND     | GND   |
-| 6 (black) | GND     | GND   |
+| Pin          | Сигнал  | Вольтаж |
+| ------------ | ------- | ------- |
+| 1 (червоний) | VCC     | +5В     |
+| 2 (чорний)   | VCC     | +5В     |
+| 3 (чорний)   | CURRENT | +3.3В   |
+| 4 (чорний)   | VOLTAGE | +3.3В   |
+| 5 (чорний)   | GND     | GND     |
+| 6 (чорний)   | GND     | GND     |
 
-### Back Pinouts
+### Задні розпіновки
 
 ![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
-#### MAIN Out
+#### ОСНОВНИЙ вихід
 
-| Pin | Signal | Volt  | +         | -   |
-| --- | ------ | ----- | --------- | --- |
-| 1   | IO_CH1 | +3.3V | VDD_SERVO | GND |
-| 2   | IO_CH2 | +3.3V | VDD_SERVO | GND |
-| 3   | IO_CH3 | +3.3V | VDD_SERVO | GND |
-| 4   | IO_CH4 | +3.3V | VDD_SERVO | GND |
-| 5   | IO_CH5 | +3.3V | VDD_SERVO | GND |
-| 6   | IO_CH6 | +3.3V | VDD_SERVO | GND |
-| 7   | IO_CH7 | +3.3V | VDD_SERVO | GND |
-| 8   | IO_CH8 | +3.3V | VDD_SERVO | GND |
+| Pin | Сигнал | Вольтаж | +         | -   |
+| --- | ------ | ------- | --------- | --- |
+| 1   | IO_CH1 | +3.3В   | VDD_SERVO | GND |
+| 2   | IO_CH2 | +3.3В   | VDD_SERVO | GND |
+| 3   | IO_CH3 | +3.3V   | VDD_SERVO | GND |
+| 4   | IO_CH4 | +3.3V   | VDD_SERVO | GND |
+| 5   | IO_CH5 | +3.3V   | VDD_SERVO | GND |
+| 6   | IO_CH6 | +3.3V   | VDD_SERVO | GND |
+| 7   | IO_CH7 | +3.3V   | VDD_SERVO | GND |
+| 8   | IO_CH8 | +3.3V   | VDD_SERVO | GND |
 
 #### AUX Out
 
