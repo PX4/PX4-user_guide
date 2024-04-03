@@ -6,11 +6,11 @@ The configuration files that are compiled into firmware for NuttX targets are lo
 
 In addition, a frame configuration file can also be loaded from an SD card.
 
-:::note
+::: info
 You can also "tweak" the current frame configuration using text files on the SD card. This is covered in [System Startup > Customizing the System Startup](../concept/system_startup.md#customizing-the-system-startup) page.
 :::
 
-:::note
+::: info
 To determine which parameters/values need to be set in the configuration file, you can first assign a generic airframe and tune the vehicle, and then use [`param show-for-airframe`](../modules/modules_command.md#param) to list the parameters that changed.
 :::
 
@@ -55,7 +55,7 @@ The configuration file consists of several main blocks:
 
 이러한 측면은 대부분 독립적이므로, 많은 구성이 기체의 동일한 물리적 레이아웃을 공유하고 동일한 응용 프로그램을 시작하며 튜닝 이득이 가장 차이가 납니다.
 
-:::note
+::: info
 New frame configuration files are only automatically added to the build system after a clean build (run `make clean`).
 :::
 
@@ -295,8 +295,7 @@ For a new frame belonging to an existing group, you don't need to do anything mo
         ...
      ```
 
-:::note
-The remaining airframe metadata should be automatically included in the firmware (once **srcparser.py** is updated).
+     ::: info The remaining airframe metadata should be automatically included in the firmware (once **srcparser.py** is updated).
 :::
 
 ## 게인 튜닝
