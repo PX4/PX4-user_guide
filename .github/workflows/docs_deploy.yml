@@ -83,7 +83,3 @@ jobs:
           git add ${BRANCH_NAME}
           git commit -a -m "PX4 docs build update (vitepress) `date`"
           git push origin master
-
-        env:
-          GIT_USER: ${{ secrets.PX4BUILDBOT_USER }}
-          GIT_PASS: ${{ secrets.PX4BUILDBOT_PASS }}
