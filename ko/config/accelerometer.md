@@ -22,14 +22,13 @@ _QGroundControl_ will guide you to place and hold your vehicle in a number of or
 
    ![Accelerometer calibration](../../assets/qgc/setup/sensor/accelerometer.png)
 
-:::note
-You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
+   ::: info You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
 :::
 
 1. Click **OK** to start the calibration.
 1. Position the vehicle as guided by the _images_ on the screen. Once prompted (the orientation-image turns yellow) hold the vehicle still. Once the calibration is complete for the current orientation the associated image on the screen will turn green.
 
-   :::note
+   ::: info
 The calibration uses a least squares 'fit' algorithm that doesn't require you to have "perfect" 90 degree orientations.
 각 축이 보정 단계별로 어느 시점에 대부분 위아래를 가리키고, 차량이 고정되어 있으면 정확한 방향은 중요하지 않습니다.
 :::
