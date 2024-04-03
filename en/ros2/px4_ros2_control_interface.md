@@ -169,7 +169,7 @@ The following steps are required to get started:
 
    The output should contain:
 
-   ```
+   ```plain
    INFO  [commander] Disarmed
    INFO  [commander] navigation mode: Position
    INFO  [commander] user intended navigation mode: Position
