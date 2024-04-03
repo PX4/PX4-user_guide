@@ -77,8 +77,7 @@ The system boot files are UNIX FILES which require UNIX LINE ENDINGS.
 If editing on Windows use a suitable editor.
 :::
 
-:::note
-These files are referenced in PX4 code as `/fs/microsd/etc/config.txt` and `/fs/microsd/etc/extras.txt`, where the root folder of the microsd card is identified by the path `/fs/microsd`.
+::: info These files are referenced in PX4 code as `/fs/microsd/etc/config.txt` and `/fs/microsd/etc/extras.txt`, where the root folder of the microsd card is identified by the path `/fs/microsd`.
 :::
 
 #### Customizing the Configuration (config.txt)
