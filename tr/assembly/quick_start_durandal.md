@@ -175,7 +175,7 @@ _Durandal_ has 5 AUX ports, so cannot be used with airframes that map AUX6, AUX7
 
 ## Other Peripherals
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
+The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
 
 ## Pinouts
 
@@ -191,7 +191,7 @@ First you will need to install [PX4 "Master" Firmware](../config/firmware.md#cus
 Durandal support will be in the _stable_ PX4 release that follows PX4 v1.10.
 :::
 
-Further general configuration information is covered in: [Autopilot Configuration](../config/README.md).
+Further general configuration information is covered in: [Autopilot Configuration](../config/index.md).
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
