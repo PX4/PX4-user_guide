@@ -4,8 +4,7 @@ PX4에서는 [매개변수](../advanced_config/parameter_reference.md)를 통하
 
 The _QGroundControl Parameters_ screen allows you to find and modify **any** of the parameters associated with the vehicle. The screen is accessed by clicking the **Q** application icon > **Vehicle Setup**, and then _Parameters_ in the sidebar.
 
-:::note
-Most of the more commonly used parameters are more conveniently set using the dedicated setup screens, as described in the [Standard Configuration](../config/index.md) section. The _Parameters_ screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
+::: info Most of the more commonly used parameters are more conveniently set using the dedicated setup screens, as described in the [Standard Configuration](../config/index.md) section. The _Parameters_ screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
 :::
 
 :::warning
@@ -55,7 +54,7 @@ You can expand/collapse the "type" groupings as shown. Note that the groups at t
 - 모든 모듈을 포함하는 FMUv3 펌웨어를 실행하도록 보드를 업데이트 할 수 있는지 확인하십시오. [펌웨어 > FMUv2 부트 로더 업데이트](../config/firmware.md#bootloader)
 - 보드에서 FMUv2 펌웨어 만 실행할 수있는 경우에는 누락된 모듈을 활성화한 상태에서 [PX4를 다시 빌드](../dev_setup/building_px4.md)하여야 합니다. You need reconfigure the PX4 firmware itself through make px4_fmuv2_default boardconfig where you can enabled/disable modules.
 
-  :::note
+  ::: info
 You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash.
 제거할 모듈을 찾으려면 시행 착오가 수반되며, 기체의 요구 사항에 따라 달라집니다.
 :::
