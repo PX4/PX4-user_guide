@@ -24,7 +24,7 @@ In addition you will need:
 - FPV goggles if you want to fly FPV.
   There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product-page/dominator-v3).
 
-  :::note
+  ::: info
   FPV support is completely independent of PX4/flight controller.
 
 :::
@@ -44,7 +44,7 @@ You can always [reinstall Betaflight](../advanced_config/bootloader_update_from_
 
 Once the bootloader is installed, you should be able to connect the vehicle to _QGroundControl_ via a USB cable.
 
-:::note
+:::info
 At time of writing _Omnibus F4_ is supported on the QGroundControl _Daily Build_, and prebuilt firmware is provided for the master branch only (stable releases are not yet available).
 :::
 
