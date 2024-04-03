@@ -4,11 +4,10 @@ PX4 contains functionality to calibrate and compensate accelerometer, gyro, magn
 
 本主题详细介绍了 [测试环境](#test_setup) 和 [校准过程](#calibration_procedures)。 最后是 [实施过程](#implementation) 的描述。
 
-:::note
-After thermal calibration, the thermal calibration parameters (`TC_*`) are used for _all_ calibration/compensation of the respective sensors. Any subsequent standard calibration will therefore update `TC_*` parameters and not the "normal" `SYS_CAL_*` calibration parameters (and in some cases these parameters may be reset).
+::: info After thermal calibration, the thermal calibration parameters (`TC_*`) are used for _all_ calibration/compensation of the respective sensors. Any subsequent standard calibration will therefore update `TC_*` parameters and not the "normal" `SYS_CAL_*` calibration parameters (and in some cases these parameters may be reset).
 :::
 
-:::note
+::: info
 Releases up to PX4 v1.14, do not support thermal calibration of the magnetometer.
 :::
 
@@ -18,7 +17,7 @@ Releases up to PX4 v1.14, do not support thermal calibration of the magnetometer
 
 The [calibration procedures](#calibration_procedures) described in the following sections are ideally run in an _environmental chamber_ (a temperature and humidity controlled environment) as the board is heated from the lowest to the highest operating/calibration temperature. Before starting the calibration, the board is first _cold soaked_ (cooled to the minimum temperature and allowed to reach equilibrium).
 
-:::note
+::: info
 Active electric heating elements will affect the magnetometer calibration values.
 Ensure that heating elements are either inactive or sufficiently far from the sensor to avoid injecting noise into the magnetometer calibration.
 :::
