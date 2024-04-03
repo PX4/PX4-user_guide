@@ -109,8 +109,7 @@ sd_bench -r 100
 
 이것은 최소 버퍼 크기를 정의합니다. 이 최대값이 클수록 드롭아웃을 피하기 위하여 더 큰 로그 버퍼가 필요합니다. PX4 uses bigger buffers on F7/H7 and read caching to make up for some of these issues.
 
-:::note
-If you have concerns about a particular card you can run the above test and report the results to https://github.com/PX4/PX4-Autopilot/issues/4634. `<instance>`를 지정하려면, `<interval>`을 반드시 지정해야합니다.
+::: info If you have concerns about a particular card you can run the above test and report the results to https://github.com/PX4/PX4-Autopilot/issues/4634. `<instance>`를 지정하려면, `<interval>`을 반드시 지정해야합니다.
 
 ## 로그 스트리밍
 
