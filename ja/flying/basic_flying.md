@@ -18,7 +18,7 @@ To arm the drone:
   - You can also arm in *QGroundControl* (PX4 does not require a radio control for flying autonomously).
 
 :::tip
-The vehicle will not arm until it is [calibrated/configured](../config/README.md) and has a position lock. :::tip The vehicle will not arm until it is [calibrated/configured](../config/README.md) and has a position lock. :::
+The vehicle will not arm until it is [calibrated/configured](../config/index.md) and has a position lock. :::tip The vehicle will not arm until it is [calibrated/configured](../config/README.md) and has a position lock. :::
 
 :::note
 The vehicle will (by [default](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)) automatically [disarm](../advanced_config/prearm_arm_disarm.md#auto-disarming) (turn off motors) if you take too long to take off! This is a safety measure to ensure that vehicles return to a safe state when not in use. :::
