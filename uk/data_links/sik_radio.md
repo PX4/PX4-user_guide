@@ -1,14 +1,14 @@
-# SiK Radio Integration
+# Радіоінтеграція SiK
 
-[SiK radio](https://github.com/LorenzMeier/SiK) is a collection of firmware and tools for telemetry radios.
+[SiK radio](https://github.com/LorenzMeier/SiK) – це набір програмного забезпечення та інструментів для телеметричних радіостанцій.
 
-Information about _using_ SiK Radio can be found in [Peripheral Hardware > Telemetry > SiK Radio](../telemetry/sik_radio.md)
+Інформацію про _використання_ SiK Radio можна знайти в розділі [Периферійне обладнання > Телеметрія > Радіо SiK](../telemetry/sik_radio.md)
 
-The ("developer") information below explains how to build SiK firmware from source and configure it using AT commands.
+Наведена нижче інформація ("розробник") пояснює, як створити мікропрограму SiK із джерела та налаштувати її за допомогою AT-команд.
 
-## Supported Radio Hardware
+## Підтримуване радіообладнання
 
-The SiK repository includes bootloaders and firmware for the following telemetry radios (2020-02-25):
+Репозиторій SiK містить завантажувачі та мікропрограми для наступних радіостанцій телеметрії (2020-02-25):
 
 - HopeRF HM-TRP
 - HopeRF RF50-DEMO
@@ -20,27 +20,27 @@ The SiK repository includes bootloaders and firmware for the following telemetry
 - RFD900ue
 
 :::note
-The SiK repository does not currently firmware for RFD900x or RFD900ux telemetry radios. In order to update firmware on these radios (for instance, in order to support MAVLink v2.0), the following process is suggested:
+Репозиторій SiK наразі не містить вбудованого програмного забезпечення для телеметричних радіостанцій RFD900x або RFD900ux. Щоб оновити мікропрограму на цих радіостанціях (наприклад, щоб підтримувати MAVLink v2.0), пропонується такий процес:
 
-1. Download the appropriate firmware from the [RFDesign website](https://files.rfdesign.com.au/firmware/).
-1. On a Windows PC, download and install [RFD Modem Tools](https://files.rfdesign.com.au/tools/).
-1. Use the RFD Modem Tools GUI to upload the firmware to your RFD900x or RFD900ux telemetry radio.
+1. Завантажте відповідне мікропрограмне забезпечення з [веб-сайту RFDesign](https://files.rfdesign.com.au/firmware/).
+1. На ПК з Windows завантажте та інсталюйте [RFD Modem Tools](https://files.rfdesign.com.au/tools/).
+1. Використовуйте графічний інтерфейс RFD Modem Tools, щоб завантажити мікропрограму на телеметричну радіостанцію RFD900x або RFD900ux.
 
 :::
 
-## Build Instructions
+## Інструкції з установки
 
-You will need to install the required 8051 compiler, as this is not included in the default PX4 Build toolchain.
+Вам потрібно буде інсталювати потрібний компілятор 8051, оскільки він не включений у стандартний інструментарій збірки PX4.
 
 ### Mac OS
 
-Install the toolchain:
+Встановити ланцюжок інструментів:
 
 ```sh
 brew install sdcc
 ```
 
-Build the image for the standard SiK Radio / 3DR Radio:
+Створіть образ для стандартного SiK Radio / 3DR Radio:
 
 ```sh
 git clone https://github.com/LorenzMeier/SiK.git
@@ -48,37 +48,37 @@ cd SiK/Firmware
 make install
 ```
 
-Upload it to the radio \(**change the serial port name**\):
+Завантажте його на радіо \(**змініть назву послідовного порту**\):
 
 ```
 tools/uploader.py --port /dev/tty.usbserial-CHANGETHIS dst/radio~hm_trp.ihx
 ```
 
-## Configuration Instructions
+## Інструкції з налаштування
 
-The radio supports AT commands for configuration.
+Радіо підтримує AT-команди для налаштування.
 
 ```sh
 screen /dev/tty.usbserial-CHANGETHIS 57600 8N1
 ```
 
-Then start command mode:
+Після цього почніть командний режим:
 
 :::note
-DO NOT TYPE ANYTHING ONE SECOND BEFORE AND AFTER
+НЕ ВВЕДІТЬ НІЧОГО ЗА СЕКУНДУ ДО І ПІСЛЯ
 :::
 
 ```sh
 +++
 ```
 
-List the current settings:
+Перелічіть поточні налаштування:
 
 ```sh
 ATI5
 ```
 
-Then set the net ID, write settings and reboot radio:
+Потім встановіть net ID, запишіть налаштування та перезавантажте радіо:
 
 ```sh
 ATS3=55
@@ -87,5 +87,5 @@ ATZ
 ```
 
 :::note
-You might have to power-cycle the radio to connect it to the 2nd radio.
+Можливо, вам доведеться вимкнути радіо, щоб підключити його до другого радіо.
 :::

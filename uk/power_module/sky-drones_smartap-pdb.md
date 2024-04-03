@@ -1,10 +1,10 @@
-# Sky-Drones SmartAP PDB
+# Sky-Drones SmartAP GPS
 
 [SmartAP PDB](https://sky-drones.com/power/smartap-pdb.html) (Power Distribution Board) is used to simplify the distribution of power from one or more batteries to ESCs (motors), flight controller, and other peripherals. It also acts as a [power module](../power_module/README.md), enabling battery voltage and current measurements. SmartAP PDB makes connecting high-power lines easier and much more reliable.
 
 ![SmartAP PDB](../../assets/hardware/power_module/sky-drones_smartap-pdb/smartap-pdb-top-side.jpg)
 
-## Specifications
+## Специфікації
 
 - Size: 65x65 mm, 4x M3 mounting holes
 - Input voltage up to 60 Volts (14S)
@@ -20,12 +20,12 @@
 - Power output for the flight controller (both 5V regulated and battery voltage level output)
 
 
-## Size and Weight
+## Розмір і вага
 
-- Length: 65mm
-- Width: 65mm
-- Height: 14mm
-- Weight: 16g
+- Довжина: 65мм
+- Ширина: 65мм
+- Висота: 14мм
+- Вага: 8g
 
 ## PX4 Configuration
 
@@ -37,7 +37,7 @@ The key configuration settings are:
 - Amps per volt: 36.00
 
 
-## Where to buy
+## Де купити
 
 [SmartAP PDB](https://sky-drones.com/parts/smartap-pdb.html)
 
@@ -57,7 +57,7 @@ SmartAP PDB has integrated voltage and current sensors. The current sensor is lo
 ![SmartAP PDB](../../assets/hardware/power_module/sky-drones_smartap-pdb/smartap-pdb-current-sensor.png)
 
 
-## Further Information
+## Подальша інформація
 
 - [Buy SmartAP PDB](https://sky-drones.com/power/smartap-pdb.html)
 - [Documentation](https://docs.sky-drones.com/avionics/smartap-pdb)

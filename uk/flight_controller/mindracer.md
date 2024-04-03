@@ -29,7 +29,7 @@ The main hardware documentation is [here](http://mindpx.net/assets/accessories/m
 - Support IMU isolation
 - DroneCode<sup>&reg;</sup> standard compliance connector
 
-|                    Item                    |                      Description                      |
+|                  Елемент                   |                         Опис                          |
 |:------------------------------------------:|:-----------------------------------------------------:|
 |        Flight controller/Processor         |                       F427VIT6                        |
 |                   Weight                   |                          ~6g                          |
@@ -45,7 +45,7 @@ The main hardware documentation is [here](http://mindpx.net/assets/accessories/m
 |          On board Real time clock          |                          YES                          |
 |                 Connector                  |      JST GH(compliance with DroneCode standard)       |
 
-## Quick Start
+## Швидкий Старт
 
 ### Pin-out Map
 
@@ -73,16 +73,16 @@ MindRacer has a built-in UART-to-USB converter. To connect a companion computer,
 
 And the max BAUD rate is the same with px4 family, which is up to 921600.
 
-### User Guide
+### Посібник користувача
 
 :::note
 The user guide is [here](http://mindpx.net/assets/accessories/mindracer_user_guide_v1.2.pdf)
 :::
 
-## Where to Buy
+## Де купити
 
 MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
-## Support
+## Підтримка
 
 Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto::support@mindpx.net) for any inquiries or help.

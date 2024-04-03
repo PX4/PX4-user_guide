@@ -173,7 +173,7 @@ dmesg -f &
 
 <a id="dmesg_usage"></a>
 
-### Usage
+### Використання
 ```
 dmesg <command> [arguments...]
  Commands:
@@ -287,7 +287,7 @@ Source: [modules/land_detector](https://github.com/PX4/PX4-Autopilot/tree/main/s
 ### Description
 Module to detect the freefall and landed state of the vehicle, and publishing the `vehicle_land_detected` topic. Each vehicle type (multirotor, fixedwing, vtol, ...) provides its own algorithm, taking into account various states, such as commanded thrust, arming state and vehicle motion.
 
-### Implementation
+### Реалізація
 Every type is implemented in its own class with a common base class. The base class maintains a state (landed, maybe_landed, ground_contact). Each possible state is implemented in the derived classes. A hysteresis and a fixed priority of each internal state determines the actual land_detector state.
 
 #### Multicopter Land Detector
@@ -301,7 +301,7 @@ The module runs periodically on the HP work queue.
 
 <a id="land_detector_usage"></a>
 
-### Usage
+### Використання
 ```
 land_detector <command> [arguments...]
  Commands:
@@ -421,7 +421,7 @@ mag_bias_estimator <command> [arguments...]
    status        print status info
 ```
 ## manual_control
-Source: [modules/manual_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/manual_control)
+Джерело: [modules/manual_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/manual_control)
 
 
 ### Description

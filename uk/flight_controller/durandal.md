@@ -92,31 +92,31 @@ _Durandal_<sup>&reg;</sup> є останньою оновленою версіє
 
 ## З'єднання
 
-The locations of ports/connections are shown here (and below in the [pinouts section](#pinouts)).
+Місця розташування портів/з'єднань показані тут (і нижче у розділі [виводів](#pinouts)).
 
-### Top
+### Верх
 
 ![Durandal - Top Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
 
-### Front
+### Перед
 
 ![Durandal - Front Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_front.jpg)
 
-### Back
+### Тил
 
 ![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
-### Right
+### Праворуч
 
 ![Durandal - Right-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_right.jpg)
 
-### Left
+### Ліворуч
 
 ![Durandal - Left-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
-## Dimensions
+## Розміри
 
-All dimensions are in millimeters.
+Усі розміри в міліметрах.
 
 ![Durandal Dimensions](../../assets/flight_controller/durandal/durandal_dimensions.jpg)
 
@@ -147,25 +147,25 @@ Under these conditions the system will not draw any power (will not be operation
 
 -->
 
-## Assembly/Setup
+## Зборка/інсталяція
 
-The [Durandal Wiring Quick Start](../assembly/quick_start_durandal.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
+[Durandal Wiring Quick Start](../assembly/quick_start_durandal.md) надає інструкції щодо збирання необхідних/важливих периферійних пристроїв, таких як GPS, плата управління живленням тощо.
 
-## Building Firmware
+## Створення прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно свторювати цю прошивку! Вона запрограмована та автоматично встановлюється програмою _QGroundControl_, коли підключено відповідне обладнання.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make holybro_durandal-v1_default
 ```
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
-| UART   | Device     | Port          |
+| UART   | Пристрій   | Порт          |
 | ------ | ---------- | ------------- |
 | USART1 | /dev/ttyS0 | GPS1          |
 | USART2 | /dev/ttyS1 | TELEM1        |
@@ -179,96 +179,96 @@ make holybro_durandal-v1_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## Дебаг Порт
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the _Debug Port_.
+[Системна консоль PX4](../debug/system_console.md) та [інтерфейс SWD](../debug/swd_debug.md) працюють на _Дебаг порті_.
 
-The pinouts and connector comply with the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+Виводи та роз'єми відповідають інтерфейсу [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini), визначеному в [Стандарті роз'ємів Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
-For wiring and debugging information see the above links.
+Для підключення та налагодження дивіться посилання вище.
 
 :::note
-No Debug port is exposed for the I/O board.
+Немає дебаг порту для плати I/O.
 :::
 
-## Peripherals
+## Периферія
 
-- [Digital Airspeed Sensor](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
-- [Telemetry Radio Modules](../telemetry/README.md)
-- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [Цифровий датчик швидкості польоту](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
+- [Телеметричні радіо модулі](../telemetry/README.md)
+- [Далекомір/Датчики відстані](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## Підтримувані платформи / Планери
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
+Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus.
 
-The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Повний набір підтримуваних конфігурацій можна переглянути в розділі [Довідник про планери](../airframes/airframe_reference.md).
 
-## Pinouts
+## Схема розташування виводів
 
-_Durandal_ pinouts are listed below. These can also be downloaded from [here](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts).
+Нижче наведені виводи _Durandal_. Їх також можна завантажити [звідси](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts).
 
-### Top Pinouts
+### Верхні виводи
 
 ![Durandal - Top Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
 
-### Front Pinouts
+### Передні виводи
 
 ![Durandal - Front Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_front.jpg)
 
-#### SUBS Out port
+#### SUBS вихідний порт
 
-| Pin        | Signal             | Volt  |
-| ---------- | ------------------ | ----- |
-| 1 (red)    | -                  | -     |
-| 2 (yellow) | SBUS_OUT/RSSI_IN | +3.3V |
-| 3 (black)  | GND                | GND   |
+| Pin          | Сигнал             | Вольтаж |
+| ------------ | ------------------ | ------- |
+| 1 (червоний) | -                  | -       |
+| 2 (жовтий)   | SBUS_OUT/RSSI_IN | +3.3В   |
+| 3 (чорний)   | GND                | GND     |
 
-#### DSM RC port
+#### DSM RC порт
 
-| Pin        | Signal  | Volt  |
-| ---------- | ------- | ----- |
-| 1 (red)    | VDD_3V3 | +3.3V |
-| 2 (yellow) | DSM_IN  | +3.3V |
-| 3 (black)  | GND     | GND   |
+| Pin          | Сигнал  | Вольтаж |
+| ------------ | ------- | ------- |
+| 1 (червоний) | VDD_3V3 | +3.3В   |
+| 2 (жовтий)   | DSM_IN  | +3.3В   |
+| 3 (чорний)   | GND     | GND     |
 
-#### I2C A port
+#### I2C A порти
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VCC    | +5V   |
-| 2 (black) | SCL4   | +3.3V |
-| 3 (black) | SDA4   | +3.3V |
-| 4 (black) | GND    | GND   |
+| Pin          | Сигнал | Вольт |
+| ------------ | ------ | ----- |
+| 1 (червоний) | VCC    | +5В   |
+| 2 (чорний)   | SCL4   | +3.3В |
+| 3 (чорний)   | SDA4   | +3.3В |
+| 4 (чорний)   | GND    | GND   |
 
-#### CAN1 port
+#### CAN1 порт
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VCC    | +5V   |
-| 2 (black) | CAN H  | +3.3V |
-| 3 (black) | CAN L  | +3.3V |
-| 4 (black) | GND    | GND   |
+| Pin          | Сигнал | Вольт |
+| ------------ | ------ | ----- |
+| 1 (червоний) | VCC    | +5В   |
+| 2 (чорний)   | CAN H  | +3.3В |
+| 3 (чорний)   | CAN L  | +3.3В |
+| 4 (чорний)   | GND    | GND   |
 
 <a id="gps"></a>
 
-#### GPS port
+#### Порт GPS
 
-| Pin        | Signal              | Volt  |
-| ---------- | ------------------- | ----- |
-| 1 (red)    | VCC                 | +5V   |
-| 2 (black)  | TX (out)            | +3.3V |
-| 3 (black)  | RX (in)             | +3.3V |
-| 4 (black)  | SCL1                | +3.3V |
-| 5 (black)  | SDA1                | +3.3V |
-| 6 (black)  | SAFETY_SWITCH       | +3.3V |
-| 7 (black)  | SAFETY_SWITCH_LED | +3.3V |
-| 8 (black)  | VDD_3V3             | +3.3V |
-| 9 (black)  | BUZZER              | +5V   |
-| 10 (black) | GND                 | GND   |
+| Pin          | Сигнал              | Вольт |
+| ------------ | ------------------- | ----- |
+| 1 (червоний) | VCC                 | +5В   |
+| 2 (чорний)   | Tx (вивід)          | +3.3В |
+| 3 (чорний)   | Rx (вхід)           | +3.3В |
+| 4 (чорний)   | SCL1                | +3.3В |
+| 5 (чорний)   | SDA1                | +3.3В |
+| 6 (чорний)   | SAFETY_SWITCH       | +3.3В |
+| 7 (чорний)   | SAFETY_SWITCH_LED | +3.3В |
+| 8 (чорний)   | VDD_3V3             | +3.3В |
+| 9 (чорний)   | BUZZER              | +5В   |
+| 10 (чорний)  | GND                 | GND   |
 
 <a id="telem4_i2cb"></a>
 
-#### TELEM4 I2CB ports
+#### TELEM4 I2CB порти
 
 | Pin       | Signal   | Volt  |
 | --------- | -------- | ----- |

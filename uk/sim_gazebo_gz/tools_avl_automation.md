@@ -6,7 +6,7 @@ This tool allows you to calculate the parameters required to create a _Advanced 
 You only have to provide a few parameters for each wing foil and the tool will use this information to call the Athena Lattice Vortex (AVL) to make the necessary calculations.
 The results will then automatically be written into a provided plugin template that can then be copy-pasted into a model or world sdf file.
 
-## Install
+## Встановлення
 
 To setup the tool:
 

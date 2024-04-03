@@ -1,13 +1,13 @@
-# Data Links
+# Посилання даних
 
-Data links are radio channels that are used to communicate vehicle telemetry (position, velocity, battery status, and so on) from the flight controller to ground control stations (and to some RC systems), and commands from ground stations to the vehicle.
-These links are usually created using different radios than those used for manual RC control of the vehicle.
-PX4 uses the [MAVLink](https://mavlink.io/en/) protocol for communicating serial data over the radio channel.
+Даними посиланнями є радіоканали, які використовуються для передачі телеметрії транспортного засобу (положення, швидкість, стан батареї та інше) з автопілота на наземні контрольні станції (і деякі радіокеровані системи), а також команди від наземних станцій до транспортного засобу.
+Зазвичай для цих зв'язків використовуються інші радіо, ніж ті, що використовуються для ручного радіокерування транспортним засобом.
+PX4 використовує [MAVLink](https://mavlink.io/en/) протокол MAVLink для передачі серійних даних через радіоканал.
 
-This section provides information about various radio systems that you can use, and how to configure them for use with PX4.
+У цьому розділі наведено інформацію про різні радіосистеми, які можна використовувати, та про те, як налаштувати їх для використання з PX4.
 
-- [MAVLink Telemetry (OSD/GCS)](../peripherals/mavlink_peripherals.md) — Configuring autopilot outputs for telemetry
-- [Telemetry Radios](../telemetry/README.md) — Popular protocols and radio systems for data links
-- [FrSky Telemetry](../peripherals/frsky_telemetry.md) — Telemetry on your (FRSky) RC Receiver
-- [TBS Crossfire (CRSF) Telemetry](../telemetry/crsf_telemetry.md) — Telemetry on your (TBS Crossfire) RC Receiver
-- [Satellite Comms (Iridium/RockBlock)](../advanced_features/satcom_roadblock.md) — High-latency comms via satellite
+- [Телеметрія MAVLink (OSD/GCS)](../peripherals/mavlink_peripherals.md) — Налаштування виходів автопілота для телеметрії
+- [Радіо телеметрії](../telemetry/README.md) - Популярні протоколи і радіосистеми для посилань на каналів передачі даних
+- [Телеметрія FrSky Telemetry](../peripherals/frsky_telemetry.md) - Телеметрия на вашому (FRSky) RC Receiver
+- [TBS Crossfire (Телеметрія CRSF)](../telemetry/crsf_telemetry.md) - Телеметрика на вашому (TBS Crossfire) RC Receiver
+- [Супутниковий зв’язок (Iridium/RockBlock)](../advanced_features/satcom_roadblock.md) — Зв’язок із високою затримкою через супутник

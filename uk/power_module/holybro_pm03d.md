@@ -27,7 +27,7 @@ The PM is **NOT** compatible with flight controllers that require an analog powe
 - **Communication protocol**: I2C
 - **Dimension**: 84 x 78 x 12mm (excluding wires)
 - **Mounting**: 45 x 45mm
-- **Weight**: 59g
+- **Вага**: 59g
 - **Connections**:
  - XT-60 for battery
  - XT-30 for motor & peripheral device (battery voltage)
@@ -51,7 +51,7 @@ The PM is **NOT** compatible with flight controllers that require an analog powe
 
 <img src="../../assets/hardware/power_module/holybro_pm03d/pm03d_contents.jpg" width="650px" title="Pixhawk5x Upright Image" />
 
-## Where to Buy
+## Де купити
 
 [Order from Holybro Store](https://holybro.com/products/pm03d-power-module)
 

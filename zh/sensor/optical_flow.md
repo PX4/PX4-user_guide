@@ -1,6 +1,6 @@
 # 光流
 
-_Optical Flow_ uses a downward facing camera and a downward facing distance sensor for velocity estimation.
+_光流传感器_使用下视相机和向下的距离传感器进行速度估计。
 
 @[youtube](https://youtu.be/aPQKgUof3Pc) _Video: PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes_mc/position.md))._
 
@@ -8,13 +8,13 @@ _Optical Flow_ uses a downward facing camera and a downward facing distance sens
 
 ## 设置
 
-An Optical Flow setup requires a downward facing camera and a [distance sensor](../sensor/rangefinders.md) (preferably a LiDAR). These can be connected via MAVLink, I2C or any other bus that supports the peripheral.
+光流的配置需要一个下视摄像头和 [距离传感器](../sensor/rangefinders.md) (最好是激光). 这些设备可以通过MAVLink、I2C或其他总线连接。
 
 :::note
-If connected to PX4 via MAVLink the Optical Flow device must publish to the [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD) topic, and the distance sensor must publish to the [DISTANCE_SENSOR](https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR) topic.
+如果通过 MAVLink 与 PX4 连接，光流必须发布到 [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD) 主题 并且距离传感器必须发布到 [DISTANCE_SENSOR](https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR) 主题.
 :::
 
-The output of the flow when moving in different directions must be as follows:
+在不同方向移动时光流的输出必须如下所示：
 
 | Vehicle movement | Integrated flow |
 | ---------------- | --------------- |
@@ -47,11 +47,11 @@ It is also possible to use a board/quad that has an integrated camera. For this 
 
 ## Range Finders
 
-You can use any supported [distance sensor](../sensor/rangefinders.md). However we recommend using LIDAR rather than sonar sensors, because of their robustness and accuracy.
+您可以使用任何支持的 [距离传感器](../sensor/rangefinders.md) 然而，我们建议使用激光而不是超声波传感器，因为它的鲁棒性和准确性更高。
 
 ## 估计器
 
-Estimators fuse data from the optical flow sensor and other sources. The settings for how fusing is done, and relative offsets to vehicle center must be specified for the estimator used.
+估计器融合数据从光流传感器和其他资源获得。 The settings for how fusing is done, and relative offsets to vehicle center must be specified for the estimator used.
 
 The offsets are calculated relative to the vehicle orientation and center as shown below:
 
