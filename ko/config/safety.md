@@ -56,7 +56,7 @@ It is also possible to set the _Failsafe Action_ to warn, return, or land when t
 
 The manual control loss failsafe may be triggered if the connection to the [RC transmitter](../getting_started/rc_transmitter_receiver.md) or [joystick](../config/joystick.md) is lost, and there is no fallback. If using an [RC transmitter](../getting_started/rc_transmitter_receiver.md) this is triggered if the RC [transmitter link is lost](../getting_started/rc_transmitter_receiver.md#set-signal-loss-behaviour). If using [joysticks](../config/joystick.md) connected over a MAVLink data link, this is triggered if the joysticks are disconnected or the data link is lost.
 
-:::note PX4 and the receiver may also need to be configured in order to _detect RC loss_: [Radio Setup > RC Loss Detection](../config/radio.md#rc-loss-detection).
+::: info PX4 and the receiver may also need to be configured in order to _detect RC loss_: [Radio Setup > RC Loss Detection](../config/radio.md#rc-loss-detection).
 :::
 
 ![안전 - RC 손실 (QGC)](../../assets/qgc/setup/safety/safety_rc_loss.png)
@@ -132,8 +132,7 @@ _Return_ is a common [failsafe action](#failsafe-actions) that engages [Return m
 | <a id="RTL_DESCEND_ALT"></a><nobr>정지비행 고도</nobr> | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 귀환시 배회를 선택하면 기체의 유지 고도를 설정할 수 있습니다.                                                                    |
 | <a id="RTL_LAND_DELAY"></a><nobr>정지비행 시간</nobr> | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | 배회후 착륙이 선택하면 기체의 정지 비행 시간을 설정합니다.                                                                      |
 
-:::note
-The return behaviour is defined by [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY). 음수이면 기체는 즉시 착륙합니다. 더 자세한 정보는 [복귀 모드](../flight_modes/return.md)를 참고하십시오.
+::: info The return behaviour is defined by [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY). 음수이면 기체는 즉시 착륙합니다. 더 자세한 정보는 [복귀 모드](../flight_modes/return.md)를 참고하십시오.
 :::
 
 ### 착륙 모드 설정
@@ -209,8 +208,7 @@ As these are not strictly speaking "failsafes" they are documented in [Mission M
 
 Failsafe for when a VTOL vehicle can no longer fly in fixed-wing mode, perhaps due to the failure of a pusher motor, airspeed sensor, or control surface. If the failsafe is triggered, the vehicle will immediately switch to multicopter mode and execute the action defined in parameter [COM_QC_ACT](#COM_QC_ACT).
 
-:::note
-The quad-chute can also be triggered by sending a MAVLINK [MAV_CMD_DO_VTOL_TRANSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_VTOL_TRANSITION) message with `param2` set to `1`.
+::: info The quad-chute can also be triggered by sending a MAVLINK [MAV_CMD_DO_VTOL_TRANSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_VTOL_TRANSITION) message with `param2` set to `1`.
 :::
 
 The parameters that control when the quad-chute will trigger are listed in the table below.
