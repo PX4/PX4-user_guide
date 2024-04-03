@@ -17,7 +17,7 @@ Other common ways to connect RaPi and Pixhawk are:
 
 First wire up the serial connection between the RPi and PX4 that is to be used for offboard control.
 
-This setup connects the Pixhawk `TELEM2` port, which is generally recommended for offboard control. It is initially configured in PX4 to use with MAVLink, which we will change later when setting up ROS 2. Pixhawk ports can be located anywhere on the flight controller, but are almost always well labeled, and should be obvious on your particular [flight controller](../flight_controller/README.md).
+This setup connects the Pixhawk `TELEM2` port, which is generally recommended for offboard control. It is initially configured in PX4 to use with MAVLink, which we will change later when setting up ROS 2. Pixhawk ports can be located anywhere on the flight controller, but are almost always well labeled, and should be obvious on your particular [flight controller](../flight_controller/index.md).
 
 Connect the Pixhawk `TELEM2` `TX`/`RX`/`GND` pins to the complementary `RXD`/`TXD`/`Ground` pins on the RPi GPIO board:
 
@@ -53,11 +53,11 @@ The standard `TELEM2` pin assignments are shown below.
 
 The Pixhawk `TELEM1` port is preconfigured for connecting to a GCS via MAVLink over a telemetry radio.
 
-You can plug an [appropriate radio](../telemetry/README.md) into the Pixhawk `TELEM1` port and in most cases it should just work. Generally the other radio needs to be connected to the ground station USB port. If you have any issues, check the radio documentation.
+You can plug an [appropriate radio](../telemetry/index.md) into the Pixhawk `TELEM1` port and in most cases it should just work. Generally the other radio needs to be connected to the ground station USB port. If you have any issues, check the radio documentation.
 
 ### Power Supply
 
-Pixhawk boards usually require a reliable 5V DC supply, which is commonly supplied from LiPO batteries via a [Power Module and/or Power Distribution board](../power_module/README.md) to a port labeled `POWER` (or similar).
+Pixhawk boards usually require a reliable 5V DC supply, which is commonly supplied from LiPO batteries via a [Power Module and/or Power Distribution board](../power_module/index.md) to a port labeled `POWER` (or similar).
 
 The instructions for your flight controller will normally explain the recommended setup. For example:
 
@@ -241,7 +241,7 @@ You could similarly configure a connection to `TELEM1` using either `MAV_1_CONFI
 You will need to reboot the flight controller to apply any changes to these parameters.
 :::
 
-1. Check that the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) module is now running. YOu can do this by running the following command in the QGroundControl [MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html):
+1. Check that the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) module is now running. YOu can do this by running the following command in the QGroundControl [MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html):
 
    ```sh
    uxrce_dds_client status
