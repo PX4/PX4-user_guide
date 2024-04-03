@@ -35,8 +35,7 @@
 
 ![퀵 스타트](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_03.png)
 
-:::note
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../gps_compass/rtk_gps.md).
+::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../gps_compass/rtk_gps.md).
 :::
 
 ## GPS + 나침반 + 안전 스위치 + LED
