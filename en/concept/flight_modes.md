@@ -10,7 +10,7 @@ The system will not allow transitions to those modes until the right conditions 
 
 The sections below provide an overview of the modes, followed by a [flight mode evaluation diagram](#flight-mode-evaluation-diagram) that shows the conditions under which PX4 will transition into a new mode.
 
-:::note
+::: info
 User-facing flight mode documentation can be found in:
 
 - [Flight Modes (Multicopter)](../flight_modes_mc/index.md)
@@ -51,7 +51,7 @@ For example, experienced fliers can use modes that provide direct passthrough of
     The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered, consequently leveling-out the attitude.
     However, in this mode the position of the vehicle is not controlled by the autopilot, hence the position can drift due to wind.
 
-    :::note
+    ::: info
     For Multirotors, Manual and Stabilized modes are the same.
     :::
 

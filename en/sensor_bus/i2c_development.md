@@ -9,7 +9,7 @@ Pixhawk/PX4 support it for:
 * Allowing multiple devices to attach to a single bus (useful for conserving ports).
   For example, LEDs, Compass, rangefinders etc.
 
-:::note
+::: info
 The page [Hardware > I2C Peripherals](../sensor_bus/i2c_general.md) contains information about how to _use_ (rather than integrate) I2C peripherals and solve common setup problems.
 :::
 

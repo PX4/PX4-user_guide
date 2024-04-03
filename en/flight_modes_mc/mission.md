@@ -5,7 +5,7 @@
 _Mission mode_ causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller.
 The mission is typically created and uploaded with a Ground Control Station (GCS) application like [QGroundControl](https://docs.qgroundcontrol.com/master/en/) (QGC).
 
-:::note
+::: info
 
 - This mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
 - The vehicle must be armed before this mode can be engaged.
@@ -23,7 +23,7 @@ They may also be created by a developer API, and/or uploaded in flight.
 
 Individual [mission commands](#mission-commands) are handled in a way that is appropriate to multicopter flight characteristics (for example loiter is implemented as _hover_ ).
 
-:::note
+::: info
 Missions are uploaded onto a SD card that needs to be inserted **before** booting up the autopilot.
 :::
 
@@ -44,7 +44,7 @@ At high level all vehicle types behave in the same way when MISSION mode is enga
    - If landed the vehicle will "wait".
 1. You can manually change the current mission command by selecting it in _QGroundControl_.
 
-   :::note
+   ::: info
    If you have a _Jump to item_ command in the mission, moving to another item will **not** reset the loop counter.
    One implication is that if you change the current mission command to 1 this will not "fully restart" the mission.
    :::
@@ -62,7 +62,7 @@ If the vehicle was capturing images (has camera trigger items) it will instead h
 This ensures that in survey/camera missions the planned path is captured.
 A mission can be uploaded while the vehicle is paused, in which which case the current active mission item is set to 1.
 
-:::note
+::: info
 When a mission is paused while the camera on the vehicle was triggering, PX4 sets the current active mission item to the previous waypoint, so that when the mission is restarted the vehicle will retrace its last mission leg.
 In addition, PX4 stores the last applied mission items for speed setting and camera triggering (from the already covered mission plan), and re-applies those settings on resuming the mission.
 :::
@@ -178,11 +178,9 @@ Rally Points
 
 - [MAV_CMD_NAV_RALLY_POINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_RALLY_POINT)
 
-:::note
+::: info
 Please add an issue report or PR if you find a missing/incorrect message.
-:::
-
-Note:
+::: info:
 
 - PX4 parses the above messages, but they are not necessary _acted_ on. For example, some messages are vehicle-type specific.
 - PX4 does not support local frames for mission commands (e.g. [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).

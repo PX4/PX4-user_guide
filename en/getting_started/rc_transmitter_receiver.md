@@ -8,7 +8,7 @@ PX4 can also be manually controlled using a [Joystick](../config/joystick.md) or
 The [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) parameter [can be set](../advanced_config/parameters.md) to choose whether RC (default), Joystick, both, or neither, are enabled.
 :::
 
-:::note
+::: info
 PX4 does not require a remote control system for autonomous flight modes.
 :::
 
@@ -26,7 +26,7 @@ The flight controller determines how to interpret the commands based on the curr
 
 <!-- image showing the different parts here would be nice -->
 
-:::note
+::: info
 The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*.
 The RC controller and it's included radio module are commonly referred to as a "transmitter".
 :::
@@ -53,7 +53,7 @@ The more common layouts have been given specific "Mode" numbers. *Mode 1* and *M
 
 ![Mode1-Mode2](../../assets/concepts/mode1_mode2.png)
 
-:::note
+::: info
 The choice of mode is largely one of taste (*Mode 2* is more popular).
 :::
 
@@ -80,7 +80,7 @@ One of the most popular RC units is the *FrSky Taranis X9D*.
 It has an internal transmitter module can be used with the recommended *FrSky X4R-SB* (S-BUS, low delay) or *X4R* (PPM-Sum, legacy) receivers out of the box.
 It also has a custom radio transmitter module slot and customizable open source OpenTX Firmware. 
 
-:::note
+::: info
 This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) or [TBS Crossfire](../telemetry/crsf_telemetry.md) radio modules.
 :::
 

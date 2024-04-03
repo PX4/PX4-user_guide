@@ -1,0 +1,85 @@
+name: Deploy Docs
+
+on:
+  push:
+    branches:
+      - 'main'
+    tags:
+      - 'v*'
+    #paths:
+    #  - docs/**
+  pull_request:
+    branches:
+      - '*'
+    #paths:
+    #  - docs/**
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        #with:
+          #fetch-depth: 0 # Not needed if lastUpdated is not enabled
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: yarn # or pnpm / yarn
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build with VitePress
+        run: |
+          yarn docs:build_ubuntu
+          touch .vitepress/dist/.nojekyll
+          #touch docs/.vitepress/dist/.nojekyll
+
+      - name: Upload artifact
+        if: ${{ github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged) }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: px4_docs_build
+          path: .vitepress/dist  # docs/.vitepress/dist/
+          retention-days: 1
+
+  deploy:
+    if: ${{ github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged) }}
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: px4_docs_build
+          path: ~/_book
+        
+      - name: Deploy
+        run: |
+          git clone https://${{ secrets.PX4BUILDBOT_USER }}:${{ secrets.PX4BUILDBOT_ACCESSTOKEN }}@github.com/PX4/docs.px4.io.git
+          rm -rf docs.px4.io/${BRANCH_NAME}
+          mkdir -p docs.px4.io/${BRANCH_NAME}
+          cp -r ~/_book/* docs.px4.io/${BRANCH_NAME}/
+          cd docs.px4.io
+          git config user.email "bot@px4.io"
+          git config user.name "PX4BuildBot"
+          git add ${BRANCH_NAME}
+          git commit -a -m "PX4 docs build update (vitepress) `date`"
+          git push origin master

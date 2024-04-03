@@ -57,7 +57,7 @@ It is worth looking at multiple charts when analyzing vibration (different chart
 
 ### Actuator Controls FFT
 
-:::note
+::: info
 You need to enable the high-rate logging profile ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)) to see this plot.
 :::
 
@@ -73,7 +73,7 @@ Note that the y-axis scaling is different for different vehicles, but logs from 
 
 ![Low vibration QAV-R 5 Racer - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_good_actuator_controls_fft.png)
 
-:::note
+::: info
 The excellent vibration characteristics of the above frame mean that we can considerably increase the cutoff frequency of the [software filters](../config_mc/filter_tuning.md) (reducing control latency).
 :::
 
@@ -85,7 +85,7 @@ S500 frame:
 
 ![Low vibration S500 actuator controls - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_actuator_controls_fft.png)
 
-:::note
+::: info
 While the plot above looks good, the [Raw Acceleration graph for the same flight](#raw_acc_s500) shows that the vibration levels are a bit high for x and y.
 This is a good example of why it is worth checking several graphs!
 :::
@@ -115,7 +115,7 @@ Ideally only the lowest part up to a few Hz is yellow, and the rest is mostly gr
 DJI F450 frame (good vibration).
 ![Low vibration DJI F450 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_spectral.png)
 
-:::note
+::: info
 Above you can see the blade passing frequency of the propellers at around 100 Hz.
 :::
 
@@ -226,12 +226,12 @@ Example plot:
 
 ![high-rate accel power spectral density](../../assets/flight_log_analysis/flight_review/accel_spectral_density_fifo.png)
 
-:::note
+::: info
 Data of the first IMU is logged, which is not necessarily the same as the one used for flying.
 This is mostly only important in cases where IMU's are mounted differently (e.g. hard-mounted vs. soft-mounted).
 :::
 
-:::note
+::: info
 Do not forget to restore the parameters after testing.
 :::
 
@@ -349,7 +349,7 @@ The sampling regularity plot provides insights into problems with the logging sy
 
 The amount of **logging dropouts** start to increase if the log buffer is too small, the logging rate is too high or a low-quality SD card is used.
 
-:::note
+::: info
 Occasional dropouts can be expected on medium quality cards.
 :::
 

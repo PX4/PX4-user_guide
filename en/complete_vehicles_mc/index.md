@@ -2,7 +2,7 @@
 
 This section contains information about fully assembled ready to fly (RTF) or near-RTF vehicles that either run PX4 by default or can/may be usable with PX4.
 
-:::note
+::: info
 This is a small subset of vehicles that can run PX4.
 You can find others on [px4.io](https://px4.io/ecosystem/commercial-systems/) and in the [Airframes Reference](../airframes/airframe_reference.md).
 :::

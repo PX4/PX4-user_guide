@@ -33,7 +33,7 @@ Then open the QGC application menu ("Q" icon in the top-left corner) and choose 
 - [Level Horizon](../config/level_horizon_calibration.md)
 - [Airspeed](../config/airspeed.md) (Fixed-wing/VTOL only)
 
-:::note
+::: info
 Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/index.md).
 :::
 

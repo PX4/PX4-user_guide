@@ -13,7 +13,7 @@ This topic explains how the feature is set up and enabled in both modes.
 
 - The maximum speed for obstacle avoidance is currently approximately 3 m/s (due to the cost of computing the avoidance path).
 
-  :::note
+  ::: info
   Obstacle avoidance can use the _local planner_ (emits messages at ~30Hz and can move at around 3 m/s) or _global planner_ (emits messages at ~10Hz and mission speed with obstacle avoidance is around 1-1.5 m/s).
   :::
 
@@ -60,7 +60,7 @@ If PX4 stops receiving setpoint updates for more than half a second it will swit
 
 Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/parameters.md) the [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) to 1.
 
-:::note
+::: info
 `COM_OBS_AVOID` also enables [Safe Landing](../computer_vision/safe_landing.md) and any other features that use the PX4 [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) (Trajectory Interface) to integrate external path planning services with PX4.
 :::
 

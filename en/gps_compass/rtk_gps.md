@@ -4,7 +4,7 @@
 
 This feature requires _QGroundControl_ running on a laptop/PC and a vehicle with a WiFi or Telemetry radio link to the ground station laptop.
 
-:::note
+::: info
 Some RTK GNSS setups can provide yaw/heading information, as an alternative to the compass:
 
 - [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
@@ -68,7 +68,7 @@ In addition you will need:
 - A _laptop/PC_ with QGroundControl (QGroundControl for Android/iOS do not support RTK)
 - A vehicle with a WiFi or Telemetry radio link to the laptop.
 
-:::note
+::: info
 _QGroundControl_ with a base module can theoretically enable RTK GPS for multiple vehicles/rover modules.
 At time of writing this use case has not been tested.
 :::

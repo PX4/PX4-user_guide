@@ -24,6 +24,8 @@ logs
 *.sublime-project
 *.sublime-workspace
 
+#Yarn log
+yarn-error.log
 
 # vitepress - user guide
 node_modules/

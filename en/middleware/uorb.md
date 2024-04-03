@@ -45,7 +45,7 @@ However, the topic needs to be advertised and published outside of an interrupt 
 
 ## Listing Topics and Listening in
 
-:::note
+::: info
 The `listener` command is only available on Pixracer (FMUv4) and Linux / OS X.
 :::
 

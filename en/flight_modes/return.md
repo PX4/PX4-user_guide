@@ -10,7 +10,7 @@ The following topics should be read first if you're using these vehicle types:
 - [Fixed-wing (Plane)](../flight_modes_fw/return.md)
 - [VTOL](../flight_modes_vtol/return.md)
 
-:::note
+::: info
 
 - Mode is automatic - no user intervention is _required_ to control the vehicle.
 - Mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
@@ -75,7 +75,7 @@ In this return type the vehicle:
   By default an MC or VTOL in MC mode will land and a fixed-wing vehicle circles at the descent altitude.
   A VTOL in FW mode aligns its heading to the destination point, transitions to MC mode, and then lands.
 
-:::note
+::: info
 If no rally points are defined, this is the same as a _Return to Launch_ (RTL)/_Return to Home_ (RTH).
 :::
 
@@ -94,7 +94,7 @@ In this return type the vehicle:
   By default an MC or VTOL in MC mode will land, and a fixed-wing vehicle circles at the descent altitude.
   A VTOL in FW mode aligns its heading to the destination point, transitions to MC mode, and then lands.
 
-:::note
+::: info
 Fixed wing vehicles commonly also set [MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ) to _require_ a mission landing pattern.
 :::
 
@@ -104,7 +104,7 @@ This return type uses the mission (if defined) to provide a safe return _path_, 
 If there is a mission but no mission landing pattern, the mission is flown _in reverse_.
 Rally points, if any, are ignored.
 
-:::note
+::: info
 The behaviour is fairly complex because it depends on the flight mode, and whether a mission and mission landing are defined.
 :::
 
@@ -151,7 +151,7 @@ In this return type the vehicle:
 
 For most [return types](#return_types) a vehicle will ascend to a _minimum safe altitude_ before returning (unless already above that altitude), in order to avoid any obstacles between it and the destination.
 
-:::note
+::: info
 The exception is when executing a [mission path return](#mission-path-return-type-rtl-type-2) from _within a mission_.
 In this case the vehicle follows mission waypoints, which we assume are planned to avoid any obstacles.
 :::

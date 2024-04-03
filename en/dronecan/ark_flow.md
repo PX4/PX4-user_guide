@@ -66,7 +66,7 @@ ARK Flow boards ship with recent firmware pre-installed, but if you want to buil
 
 ## Flight Controller Setup
 
-:::note
+::: info
 The Ark Flow will not boot if there is no SD card in the flight controller when powered on.
 :::
 

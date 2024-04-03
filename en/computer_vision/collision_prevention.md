@@ -21,7 +21,7 @@ _Collision Prevention_ is enabled on PX4 by setting the parameter for minimum al
 
 The feature requires obstacle information from an external system (sent using the MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message) and/or a [distance sensor](../sensor/rangefinders.md) connected to the flight controller.
 
-:::note
+::: info
 Multiple sensors can be used to get information about, and prevent collisions with, objects _around_ the vehicle.
 If multiple sources supply data for the _same_ orientation, the system uses the data that reports the smallest distance to an object.
 :::
@@ -60,7 +60,7 @@ This velocity restriction takes into account both the inner velocity loop tuned 
 The velocity is restricted such that the vehicle will stop in time to maintain the distance specified in [CP_DIST](#CP_DIST).
 The range of the sensors for each sector is also taken into account, limiting the velocity via the same mechanism.
 
-:::note
+::: info
 If there is no sensor data in a particular direction, velocity in that direction is restricted to 0 (preventing the vehicle from crashing into unseen objects).
 If you wish to move freely into directions without sensor coverage, this can be enabled by setting [CP_GO_NO_DATA](#CP_GO_NO_DATA) to 1.
 :::
@@ -118,7 +118,7 @@ If this parameter is too small the vehicle may feel 'stuck' when close to obstac
 If the parameter is too large the vehicle may feel like it 'slides' away from obstacles in directions not commanded by the operator.
 From testing, 30 degrees is a good balance, although different vehicles may have different requirements.
 
-:::note
+::: info
 The guidance feature will never direct the vehicle in a direction without sensor data.
 If the vehicle feels 'stuck' with only a single distance sensor pointing forwards, this is probably because the guidance cannot safely adapt the direction due to lack of information.
 :::
@@ -184,7 +184,7 @@ If using a companion computer or external sensor, it needs to supply a stream of
 
 The minimum rate at which messages _must_ be sent depends on vehicle speed - at higher rates the vehicle will have a longer time to respond to detected obstacles.
 
-:::note
+::: info
 Initial testing of the system used a vehicle moving at 4 m/s with `OBSTACLE_DISTANCE` messages being emitted at 10Hz (the maximum rate supported by the vision system).
 The system may work well at significantly higher speeds and lower frequency distance updates.
 :::

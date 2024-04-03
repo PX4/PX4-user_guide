@@ -10,7 +10,7 @@ The platform currently has two RTF vehicles: [MindRacer 210](../complete_vehicle
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
-:::note
+::: info
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
@@ -23,7 +23,7 @@ MindRacer is a _platform_ rather than a flight controller.
 MindRacer implements the SEP (soldering-elimination-port) and WEP (wiring-elimination-protocol) concepts.
 Before SEP and WEP, soldering and wiring are always the major pain and efficiency killer during UAV manufacturing and tuning.
 
-:::note
+::: info
 The main hardware documentation is [here](http://mindpx.net/assets/accessories/mindracer_spec_v1.2.pdf).
 :::
 
@@ -83,7 +83,7 @@ And the max BAUD rate is the same with px4 family, which is up to 921600.
 
 ### User Guide
 
-:::note
+::: info
 The user guide is [here](http://mindpx.net/assets/accessories/mindracer_user_guide_v1.2.pdf)
 :::
 

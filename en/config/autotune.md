@@ -23,7 +23,7 @@ The airframe must fly well enough to handle moderate disturbances, and should be
 The vehicle must be able to fly and adequately stabilize itself before running auto-tune.
 This test ensures that the vehicle can fly safely in position controlled modes.
 
-:::note
+::: info
 During [Airframe Setup](../config/airframe.md) you should have selected the frame that most closely matches your vehicle.
 This may fly well enough to run autotuning.
 :::
@@ -54,7 +54,7 @@ For best results, we recommend running the test in calm weather conditions.
 The recommended modes for autotuning are [Hold mode](../flight_modes_fw/hold.md) (FW) and [Altitude mode](../flight_modes_mc/altitude.md) (MC), but any other flight mode can be used.
 During auto tuning, the RC sticks can still be used to fly the vehicle.
 
-:::note
+::: info
 The auto-tuning sequence can be aborted at any time by changing flight modes or using the [enable/disable Autotune switch](#enable-disable-autotune-switch-fixed-wing) (if configured).
 :::
 
@@ -174,7 +174,7 @@ Autotuning is started using [MAV_CMD_DO_AUTOTUNE_ENABLE](https://mavlink.io/en/m
 At time of writing the message is resent at regular intervals to poll PX4 for progress: the `COMMAND_ACK` includes result that the operation is in progress, and also the progress as a percentage.
 The operation completes when the progress is 100% or the vehicle lands and disarms.
 
-:::note
+::: info
 This is not a MAVLink-compliant implementation of a [command protocol long running command](https://mavlink.io/en/services/command.html#long_running_commands).
 PX4 should stream progress as the protocol does not allow polling.
 :::

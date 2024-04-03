@@ -30,7 +30,7 @@ The standard version comes with 10 pin connector for the `GPS1` port.
 The "2nd GPS" version comes with 6 pin connector for the `GPS2` port.
 This is used as a secondary GPS for [Dual GPS Systems](../gps_compass/index.md#dual_gps).
 
-:::note
+::: info
 The cables/connectors may need to be modified in order to connect to other flight controller boards (see [Pin Map](#pin-map) below).
 :::
 

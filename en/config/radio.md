@@ -2,7 +2,7 @@
 
 The _Radio Setup_ screen is used to configure the mapping of your RC controller's main attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
 
-:::note
+::: info
 A [Joystick](../config/joystick.md) can be used instead of RC for manual control.
 The [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) parameter [can be set](../advanced_config/parameters.md) to define what kind of manual controller(s) are enabled.
 :::
@@ -12,11 +12,11 @@ The [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) p
 Before you can calibrate the radio system the receiver and transmitter must be connected/bound.
 The process for binding a transmitter and receiver pair is hardware specific (see your RC manual for instructions).
 
-:::note
+::: info
 If you are using a _Spektrum_ receiver, you can put it into bind mode using _QGroundControl_, as [shown below](#spectrum-bind).
 :::
 
-:::note
+::: info
 If you are using a _FrSky_ receiver, you can bind it with its transmitter, by following instructions [here](https://www.youtube.com/watch?v=1IYg5mQdLVI).
 :::
 
@@ -36,7 +36,7 @@ The way to do this is to set the RC controller trim and throttle stick as low as
 Then reset the throttle stick trim back to its normal position.
 This process ensures that the RC loss value is below the minimum value output by the receiver in normal operation.
 
-:::note
+::: info
 Do not use a receiver that cannot support one of the two supported RC loss detection methods!
 :::
 
@@ -88,7 +88,7 @@ To bind a Spektrum transmitter/receiver:
 
 This setting is used to copy the manual trim settings from your radio transmitter so that they can be applied automatically within the autopilot. After this is done you will need to remove the manually set trims.
 
-:::note
+::: info
 Trim settings are used to adjust the roll, pitch, yaw such that when you center the sticks on your remote control, you get stable or level flight (in Stabilized flight mode).
 Some RC controllers provide trim knobs that allow you to provide an offset to the value sent by the RC controller for each stick position.
 The **Copy Trims** setting here moves the offsets into the autopilot.

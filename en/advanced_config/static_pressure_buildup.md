@@ -13,7 +13,7 @@ One solution is to use foam-filled venting holes to reduce the buildup (as much 
 Before "fixing" the problem you should first check that the Z setpoint tracks the estimated altitude (to verify that there are no controller issues).
 :::
 
-:::note
+::: info
 While it is possible to remove the barometer from the altitude estimate (i.e. only use altitude from the GPS), this is not recommended.
 GPS is inaccurate in many environments, and particularly in urban environments where you have signal reflections off buildings.
 :::
@@ -36,7 +36,7 @@ Aim for a barometer altitude drop of less than 2 metres at maximum horizontal sp
 After modifying the hardware, you can then use the [EKF2_PCOEF\_\*](../advanced_config/parameter_reference.md#EKF2_PCOEF_XN) parameters to tune for expected barometer variation based on relative air velocity.
 For more information see [ECL/EKF Overview & Tuning > Correction for Static Pressure Position Error](../advanced_config/tuning_the_ecl_ekf.md#correction-for-static-pressure-position-error).
 
-:::note
+::: info
 The approach works well if the relationship between the error due to static pressure and the velocity varies linearly.
 If the vehicle has a more complex aerodynamic model it will be less effective.
 :::

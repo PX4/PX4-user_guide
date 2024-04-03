@@ -19,7 +19,7 @@ For example, the vehicles shown below have rotations around the z-axis (i.e. yaw
 
 ![Yaw Rotation](../../assets/qgc/setup/sensor/yaw_rotation.png)
 
-:::note
+::: info
 For a VTOL Tailsitter airframe set the vehicle orientation according to its multirotor configuration (i.e. relative to the vehicle during, takeoff, hovering, landing) for all sensor calibrations.
 
 The axis are normally relative to the orientation of the vehicle during steady forward flight.
@@ -42,7 +42,7 @@ To set the orientations:
 
 1. Press **OK**.
 
-:::note
+::: info
 You can use [Level Horizon Calibration](../config/level_horizon_calibration.md) to compensate for small miss-alignments in controller orientation and to level the horizon in flight view.
 :::
 
@@ -50,7 +50,7 @@ You can use [Level Horizon Calibration](../config/level_horizon_calibration.md) 
 
 PX4 will automatically detect the compass orientation as part of [compass calibration](../config/compass.md) ([by default](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT)) for any of the [standard MAVLink orientations](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION) (upright and facing forward, or any multiple of 45° offset in any axis) .
 
-:::note
+::: info
 You can confirm that auto detection worked by looking at the [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG0_ROT) parameters.
 :::
 

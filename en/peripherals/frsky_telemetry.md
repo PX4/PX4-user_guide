@@ -46,7 +46,7 @@ Then [configure PX4](#configure).
 
 For Pixhawk FMUv5 and later PX4 can read either inverted (or uninverted) S.Port signals directly - no special cable is required.
 
-:::note
+::: info
 More generally this is true on autopilots with STM32F7 or later (e.g. [Durandal](../flight_controller/durandal.md) has a STM32H7 and can read inverted or uninverted S.Port signals directly).
 :::
 
@@ -60,7 +60,7 @@ Then [configure PX4](#configure).
 [Configure the serial port](../peripherals/serial_configuration.md) on which FrSky will run using [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG).
 There is no need to set the baud rate for the port, as this is configured by the driver.
 
-:::note
+::: info
 You can use any free UART, but typically `TELEM 2` is used for FrSky telemetry (except for [Pixracer](../flight_controller/pixracer.md), which is pre-configured to use the _FrSky_ port by default).
 :::
 
@@ -130,7 +130,7 @@ S-Port receivers transmit the following messages from PX4 (from [here](https://g
 - **Tmp1:** [Flight mode](../flight_modes/index.md#flight-modes), sent as an integer: 18 - Manual, 23 - Altitude, 22 - Position, 27 - Mission, 26 - Hold, 28 - Return, 19 - Acro, 24 0 Offboard, 20 - Stabilized, 25 - Takeoff, 29 - Land, 30 - Follow Me.
 - **Tmp2:** GPS information. Right-most digit is GPS fix type (0 = none, 2 = 2D, 3 = 3D). Other digits are number of satellites.
 
-:::note
+::: info
 The following "standard" S-Port messages are not supported by PX4: **ASpd**, **A4**.
 :::
 
@@ -189,7 +189,7 @@ Note that the X series receivers listed below are recommended (e.g. XSR, X8R). T
 | R9          | 10km  | S.Bus (16)            | Smart Port                    | 43.3x26.8x13.9mm      | 15.8g  |
 | R9 slim     | 10km  | S.Bus (16)            | Smart Port                    | 43.3x26.8x13.9mm      | 15.8g  |
 
-:::note
+::: info
 The above table originates from http://www.redsilico.com/frsky-receiver-chart and FrSky [product documentation](https://www.frsky-rc.com/product-category/receivers/).
 :::
 

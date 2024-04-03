@@ -38,7 +38,7 @@ There is no single "out of the box configuration" that we can provide that will 
 Therefore as an example of the kind of configuration you might do, below we show how to set up the systems on an IP network with static addresses in the range `192.168.0.Xxx`, where PX4 has a statically allocated address `192.168.0.4` and the computer has address `192.168.0.1`.
 If you wanted to connect a companion computer or other system to the network you could use a similar approach to allocate a static address.
 
-:::note
+::: info
 There is nothing "special" about the network configuration (other than perhaps the tools used to modify the network settings); it works much the same as any home or business network.
 Which is to say that a knowledge of how IP networks work is highly desirable!
 :::
@@ -144,7 +144,7 @@ A Linux operating system may support `netplan`, in which case the instructions w
 The Ethernet port configuration sets the properties of the _serial link_ (which is how PX4 views the Ethernet connection).
 This includes the set of MAVLink messages that are streamed, the data rate, the UDP ports that a remote system can connect listen to, etc.
 
-:::note
+::: info
 You must separately configure the PX4 IP address and other _network settings_ ([as shown previously](#px4-ethernet-network-setup)).
 :::
 
@@ -182,7 +182,7 @@ To connect QGroundControl to PX4 over Ethernet:
 
 1. QGroundControl should then connect if you select this link.
 
-:::note
+::: info
 [PX4 Ethernet Port Configuration](#px4-ethernet-network-setup) should not be needed (the default are appropriate for a GCS).
 :::
 
@@ -201,14 +201,14 @@ To setup MAVSDK-Python running on a companion computer:
    await drone.connect(system_address="udp://192.168.0.4:14540")
    ```
 
-:::note
+::: info
 MAVSDK can connect to the PX4 on port `14550` if you don't modify the PX4 Ethernet port configuration.
 However this is not recommended because the default configuration is optimised for communicating with a GCS (not a companion computer).
 :::
 
 ## ROS 2 Setup Example
 
-:::note Prerequisites:
+::: info Prerequisites:
 
 - You have a supported autopilot hardware running PX4 firmware that includes [uXRCE-DDS](../middleware/uxrce_dds.md) middleware.
   Note that PX4 v1.14 and later include the required [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) module by default.

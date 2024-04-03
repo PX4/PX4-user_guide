@@ -12,7 +12,7 @@ _Video: PX4 holding position using the ARK Flow sensor for velocity estimation (
 An Optical Flow setup requires a downward facing camera and a [distance sensor](../sensor/rangefinders.md) (preferably a LiDAR).
 These can be connected via MAVLink, I2C or any other bus that supports the peripheral.
 
-:::note
+::: info
 If connected to PX4 via MAVLink the Optical Flow device must publish to the [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD) topic, and the distance sensor must publish to the [DISTANCE_SENSOR](https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR) topic.
 :::
 

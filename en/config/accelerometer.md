@@ -3,7 +3,7 @@
 The accelerometer must be calibrated on first use or if the flight controller orientation is changed.
 Otherwise it should not need to recalibrated (except perhaps in winter, if the flight controller was not [thermally calibrated](../advanced_config/sensor_thermal_calibration.md) in the factory).
 
-:::note
+::: info
 Poor accelerometer calibration is generally caught by preflight checks and arming-denied messages (QGC warnings typically refer to "high accelerometer bias" and "consistency check failures").
 :::
 
@@ -23,7 +23,7 @@ The calibration steps are:
 
    ![Accelerometer calibration](../../assets/qgc/setup/sensor/accelerometer.png)
 
-   :::note
+   ::: info
    You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md).
    If not, you can also set it here.
    :::
@@ -33,7 +33,7 @@ The calibration steps are:
    Once prompted (the orientation-image turns yellow) hold the vehicle still.
    Once the calibration is complete for the current orientation the associated image on the screen will turn green.
 
-   :::note
+   ::: info
    The calibration uses a least squares 'fit' algorithm that doesn't require you to have "perfect" 90 degree orientations.
    Provided each axis is pointed mostly up and down at some time in the calibration sequence, and the vehicle is held stationary, the precise orientation doesn't matter.
    :::

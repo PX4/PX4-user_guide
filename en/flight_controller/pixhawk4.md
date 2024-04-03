@@ -68,7 +68,7 @@ These are powered! NEVER connect any servos, power supplies or batteries (or to 
 
 Download _Pixhawk 4_ pinouts from [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-Pinouts.pdf).
 
-:::note
+::: info
 Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin).
 The exception is the [debug port(s)](#debug_port) (pin 1 is the right-most, as shown below).
 :::
@@ -93,7 +93,7 @@ The exception is the [debug port(s)](#debug_port) (pin 1 is the right-most, as s
 
 _Pixhawk 4_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
-:::note
+::: info
 The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
 You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
 :::

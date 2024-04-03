@@ -13,7 +13,7 @@ The board also has an on-board barometer, LED & buzzer pad, and I2C pad (SDA & S
 
 <img src="../../assets/flight_controller/kakuteh7v2/kakuteh7v2_top.png" width="300px" title="KakuteH7V2 Top Image" /> <img src="../../assets/flight_controller/kakuteh7v2/kakuteh7v2_bottom.png" width="300px" title="KakuteH7V2 Bottom Image" />
 
-:::note
+::: info
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
@@ -89,7 +89,7 @@ make holybro_kakuteh7v2_default
 
 ## Installing PX4 Firmware
 
-:::note
+::: info
 KakuteH7v2 is supported with PX4 master & PX4 v1.14 or newer. If you are loading the pre-built firmware via QGroundcontrol, you must use QGC Daily or QGC version newer than 4.1.7.
 Prior to that release you will need to manually build and install the firmware.
 :::
@@ -105,7 +105,7 @@ Firmware can be manually installed in any of the normal ways:
 - [Load the firmware](../config/firmware.md) using _QGroundControl_.
   You can use either pre-built firmware or your own custom firmware.
 
-:::note
+::: info
 KakuteH7v2 is supported with PX4 main and v1.14 or newer.
 :::
 

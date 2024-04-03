@@ -5,7 +5,7 @@ PX4 behaviour can be configured/tuned using [parameters](../advanced_config/para
 The _QGroundControl Parameters_ screen allows you to find and modify **any** of the parameters associated with the vehicle.
 The screen is accessed by clicking the **Q** application icon > **Vehicle Setup**, and then _Parameters_ in the sidebar.
 
-:::note
+::: info
 Most of the more commonly used parameters are more conveniently set using the dedicated setup screens, as described in the [Standard Configuration](../config/index.md) section.
 The _Parameters_ screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
 :::
@@ -66,7 +66,7 @@ There are two options to solve this problem:
 - If your board can only run FMUv2 firmware you will need to [rebuild PX4](../dev_setup/building_px4.md) with the missing modules enabled.
   You need reconfigure the PX4 firmware itself through make px4_fmuv2_default boardconfig where you can enabled/disable modules.
 
-  :::note
+  ::: info
   You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash.
   Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
   :::
@@ -80,7 +80,7 @@ This will open a side dialog in which you can update the value (this dialog also
 
 ![Changing a parameter value](../../assets/qgc/setup/parameters/parameters_changing.png)
 
-:::note
+::: info
 When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle.
 Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
 :::

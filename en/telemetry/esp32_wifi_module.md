@@ -63,7 +63,7 @@ You can use 2.54mm pitch header connectors or solder the PX4 telemetry cables di
 1. Boards with an IPEX port for an external antenna often also offer an onboard antenna that is activated by default.
    You may need to resolder a resistor to activate the external antenna port.
 
-:::note
+::: info
 
 - Follow the ESP32 board manufacturers recommendations on power supply.
   Some boards might have issues if they are simultaneously connected to a 5V power source and have a USB cable connected to the USB/Serial bridge (USB socket of the ESP32 dev board).

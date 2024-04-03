@@ -43,7 +43,7 @@ Binaries for flight controller targets with constrained memory do not store the 
 This applies, for example, to the [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md).
 The metadata is uploaded via [github CI](https://github.com/PX4/PX4-Autopilot/blob/main/.github/workflows/metadata.yml) for all build targets (and hence will only be available once parameters have been merged into main).
 
-:::note
+::: info
 You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/main/boards/omnibus/f4sd/default.px4board).
 
 If doing custom development on a FLASH-constrained board you can adjust the URL [here](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/component_information/CMakeLists.txt#L41) to point to another server.
@@ -57,7 +57,7 @@ This integrates with Crowdin to get translations, which are stored in the [trans
 These are referenced by the vehicle component metadata, and are downloaded when needed.
 For more information see [PX4-Metadata-Translations](https://github.com/PX4/PX4-Metadata-Translations/) and [Component Metadata Protocol > Translation](https://mavlink.io/en/services/component_information.html#translation).
 
-:::note
+::: info
 The parameter XML file of the main branch is copied into the QGC source tree via CI and is used as a fallback in cases where no metadata is available via the component metadata protocol (this approach predates the existence of the component metadata protocol).
 :::
 

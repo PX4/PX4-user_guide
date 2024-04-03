@@ -8,7 +8,7 @@ Because of this the GNSS module should be mounted as far away from the motor/ESC
 
 ![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
-:::note
+::: info
 PX4 also supports [Real Time Kinematic (RTK)](../gps_compass/rtk_gps.md) and **Post-Processing Kinematic (PPK)** GNSS Receivers, which extend GNSS systems to centimetre-level precision.
 :::
 
@@ -89,7 +89,7 @@ The protocol can be configured with [GPS_x_PROTOCOL](../advanced_config/paramete
 
 GPS configuration on Pixhawk is handled transparently for the user - simply connect the GPS module to the port labeled **GPS** and everything should work.
 
-:::note
+::: info
 The default [Serial Port Configuration](../peripherals/serial_configuration.md#default_port_mapping) works for most devices.
 If you are using the _Trimble MB-Two_ you will need to modify the configuration to explicitly set the rate to 115200 baud.
 :::

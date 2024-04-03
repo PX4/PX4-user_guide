@@ -30,7 +30,7 @@ if DRIVERS_UAVCAN_V1
 endif #DRIVERS_UAVCAN_V1
 ```
 
-:::note
+::: info
 Builds will silently ignore any missing or miss-spelled modules in the `*.px4board` configuration file.
 :::
 
@@ -41,7 +41,7 @@ However you can add also separate configurations under a different label e.g. `c
 Note that by default the configuration of `cyphal.px4board` inherits all settings set in `default.px4board`.
 When changing the `cyphal.px4board` it only stores the delta of the Kconfig keys that are different compared to `default.px4board`, this is useful to simplify configurations management
 
-:::note
+::: info
 When modifying a Kconfig key in `default.px4board` it will be modified in all derivative configurations of the same board that had the same config as well.
 :::
 
@@ -56,7 +56,7 @@ make px4_fmu-v5_default boardconfig
 make px4_fmu-v5_default boardguiconfig
 ```
 
-:::note
+::: info
 _Kconfiglib_ and _menuconfig_ come with the _kconfiglib_ python package, which is installed by the normal [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) installation script.
 If _kconfiglib_ is not installed, you can do so using the command: `pip3 install kconfiglib`
 :::

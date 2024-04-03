@@ -98,7 +98,7 @@ Setup via CAN:
 - Ensure the ARK RTK GPS modules are connected to the Pixhawk via CAN (one can connect to another's secondary CAN port). The two ARK RTK GPS must be connected to the same CAN bus for corrections to be sent.
 - Choose one ARK RTK GPS to be the _Rover_ and one to be the _Moving Base_.
 - Reopen QGroundControl, go to parameters, and select `Standard` to hide that dropdown and select `Component ##` to view each of your ARK RTK GPS's CAN node parameters
-  :::note
+  ::: info
   `Component ##` won't be visible unless the ARK RTK GPS is connected to the Pixhawk prior to opening QGroundControl.
   :::
 - On the _Rover_, set the following:

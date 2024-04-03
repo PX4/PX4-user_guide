@@ -155,7 +155,7 @@ Estimated time to assemble is approximately 90 minutes (about 45 minutes for the
 1. Plug in Telemetry (`TELEM1`), GPS module (`GPS/SAFETY`), RC receiver (`RC`), all 4 ESC’s (`M1-M4`), and the power module (`Power1`) into the flight controller.
    ![Attach peripherals to flight controller](../../assets/airframes/multicopter/dji_f450_cuav_5nano/12_fc_attach_periperhals.jpg)
    
-   :::note
+   ::: info
    The motor order is defined in the [Airframe Reference > Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)
    :::
 
@@ -179,7 +179,7 @@ First update the firmware, airframe, geometry and outputs:
 - [Firmware](../config/firmware.md)
 - [Airframe](../config/airframe.md)
 
-  :::note
+  ::: info
   You will need to select the *Generic Quadcopter* airframe (**Quadrotor x > Generic Quadcopter**).
 
   ![QGroundControl - Select Generic Quadcopter](../../assets/airframes/multicopter/dji_f450_cuav_5nano/qgc_airframe_generic_quadx.png)
@@ -200,7 +200,7 @@ Then perform the mandatory setup/calibration:
 - [Radio Setup](../config/radio.md)
 - [Flight Modes](../config/flight_mode.md)
 
-  :::note
+  ::: info
   For this build we set up modes *Stabilized*, *Altitude* and *Position* on a three-way switch on the receiver (mapped to a single channel - 5).
   This is the recommended minimal set of modes for beginners.
   :::

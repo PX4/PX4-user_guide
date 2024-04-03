@@ -2,7 +2,7 @@
 
 <Badge type="tip" text="PX4 v1.14" />
 
-:::note
+::: info
 uXRCE-DDS replaces the [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge) used in PX4 v1.13.
 If you were using the Fast-RTPS Bridge, please follow the [migration guidelines](#fast-rtps-to-uxrce-dds-migration-guidelines).
 :::
@@ -51,7 +51,7 @@ Note that all code generation associated with the messages is handled by ROS 2.
 The Micro XRCE-DDS Agent can be installed on the companion computer using a binary package, built and installed from source, or built and run from within a ROS 2 workspace.
 All of these methods fetch _all_ the dependencies needed to communicate with the client (such as FastCDR)
 
-:::note
+::: info
 The official (and more complete) installation guide is the Eprosima: [micro XRCE-DDS Installation Guide](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html).
 This section summarises the options that have been tested with PX4 during creation of these docs.
 :::
@@ -71,7 +71,7 @@ sudo make install
 sudo ldconfig /usr/local/lib/
 ```
 
-:::note
+::: info
 There are various build configuration options linked from the corresponding topic in the [official guide](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html#installing-the-agent-standalone), but these have not been tested.
 :::
 
@@ -95,7 +95,7 @@ To start the agent with settings for connecting to the uXRCE-DDS client running 
 micro-xrce-dds-agent udp4 -p 8888
 ```
 
-:::note
+::: info
 At time of writing the stable of version installed from snap connects to PX4 but reports errors creating topics.
 The development version, fetched using `--edge` above, does work.
 :::
@@ -187,7 +187,7 @@ The channel settings are specified when the agent is started, using command line
 These are documented in the eProsima user guide: [Micro XRCE-DDS Agent > Agent CLI](https://micro-xrce-dds.docs.eprosima.com/en/latest/agent.html#agent-cli).
 Note that the agent supports many channel options, but PX4 only supports UDP and serial connections.
 
-:::note
+::: info
 You should create a single instance of the agent for each channel over which you need to connect.
 :::
 
@@ -204,7 +204,7 @@ For example, if you're using the RasPi `UART0` serial port, you might connect us
 sudo MicroXRCEAgent serial --dev /dev/AMA0 -b 921600
 ```
 
-:::note
+::: info
 For more information about setting up communications channels see [Pixhawk + Companion Setup > Serial Port setup](../companion_computer/pixhawk_companion.md#serial-port-setup), and sub-documents.
 :::
 
@@ -213,7 +213,7 @@ For more information about setting up communications channels see [Pixhawk + Com
 The uXRCE-DDS client module ([uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client)) is included by default in all firmware and the simulator.
 This must be started with appropriate settings for the communication channel that you wish to use to communicate with the agent.
 
-:::note
+::: info
 The simulator automatically starts the client on localhost UDP port `8888` using the default uxrce-dds namespace.
 :::
 
@@ -266,7 +266,7 @@ The configuration can be done using the [UXRCE-DDS parameters](../advanced_confi
     The uXRCE-DDS client module can synchronize the timestamp of the messages exchanged over the bridge.
     This is the default configuration. In certain situations, for example during [simulations](../ros/ros2_comm.md#ros-gazebo-and-px4-time-synchronization), this feature may be disabled.
 
-:::note
+::: info
 Many ports are already have a default configuration.
 To use these ports you must first disable the existing configuration:
 
@@ -333,7 +333,7 @@ Therefore,
   cp ~/PX4-Autopilot/mgs/*.msg ~/px4_ros_com/src/px4_msgs/msg/
   ```
 
-  :::note
+  ::: info
   Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) completely defines the relationship between PX4 uORB topics and ROS 2 messages.
   For more information see [DDS Topics YAML](#dds-topics-yaml) below.
   :::
@@ -346,7 +346,7 @@ Custom topic namespaces can be applied at build time (changing [dds_topics.yaml]
   This technique can be used both in simulation and real vehicles.
 - A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_UXRCE_DDS_NS` before starting the simulation.
 
-:::note
+::: info
 Changing the namespace at runtime will append the desired namespace as a prefix to all `topic` fields in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml).
 Therefore, commands like:
 
@@ -486,7 +486,7 @@ For example, you could use different default namespaces or use a custom package 
 These guidelines explain how to migrate from using PX4 v1.13 [Fast-RTPS](../middleware/micrortps.md) middleware to PX4 v1.14 `uXRCE-DDS` middleware.
 These are useful if you have [ROS 2 applications written for PX4 v1.13](https://docs.px4.io/v1.13/en/ros/ros2_comm.html), or you have used Fast-RTPS to interface your applications to PX4 [directly](https://docs.px4.io/v1.13/en/middleware/micrortps.html#agent-in-an-offboard-fast-dds-interface-ros-independent).
 
-:::note
+::: info
 This section contains migration-specific information.
 You should also read the rest of this page to properly understand uXRCE-DDS.
 :::
@@ -534,7 +534,7 @@ The topic naming format changed:
 
 You should update your application to the new convention.
 
-:::note
+::: info
 You might also edit [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) to revert to the old convention.
 This is not recommended because it means that you would have to always use custom firmware.
 :::

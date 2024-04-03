@@ -11,7 +11,7 @@ Pose data from either type of system can be used to update a PX4-based autopilot
 
 This topic explains how to configure a PX4-based system to get data from MoCap/VIO systems (either via ROS or some other MAVLink system) and more specifically how to set up MoCap systems like VICON and Optitrack, and vision-based estimation systems like [ROVIO](https://github.com/ethz-asl/rovio), [SVO](https://github.com/uzh-rpg/rpg_svo) and [PTAM](https://github.com/ethz-asl/ethzasl_ptam)).
 
-:::note
+::: info
 The instructions differ depending on whether you are using the EKF2 or LPE estimator.
 :::
 
@@ -106,7 +106,7 @@ To enable logging of EV rates set bit 7 (Computer Vision and Avoidance) of [SDLO
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
-:::note
+::: info
 A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
 At time of writing (July 2021) neither [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool) nor [MAVGCL](../log/flight_log_analysis.md#mavgcl) support this functionality.
 :::
@@ -118,7 +118,7 @@ The value can further be tuned by varying the parameter to find the value that y
 You will first need to [switch to the LPE estimator](../advanced/switching_state_estimators.md) by setting the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) parameter.
 
 
-:::note
+::: info
 If targeting `px4_fmu-v2` hardware you will also need to use a firmware version that includes the LPE module (firmware for other FMU-series hardware includes both LPE and EKF).
 The LPE version can be found in the zip file for each PX4 release or it can be built from source using the build command `make px4_fmu-v2_lpe`.
 See [Building the Code](../dev_setup/building_px4.md) for more details.
@@ -215,7 +215,7 @@ Both frames are shown in the image below (FRD on the left/FLU on the right).
 
 With EKF2 when using external heading estimation, magnetic north can either be ignored and or the heading offset to magnetic north can be calculated and compensated. Depending on your choice the yaw angle is given with respect to either magnetic north or local *x*.
 
-:::note
+::: info
 When creating the rigid body in the MoCap software, remember to first align the robot's local *x* axis with the world *x* axis otherwise the yaw estimate will have an offset. This can stop the external pose estimate fusion from working properly.
 Yaw angle should be zero when body and reference frame align.
 :::
@@ -246,7 +246,7 @@ The same also applies for the reference frame of the external pose. You have to 
 If the reference frame has the z axis pointing upwards you can attached it without any rotation (yaw=0, pitch=0, roll=0) to the `odom` frame.
 The name of `external_pose_parent_frame` has to match the frame_id of the odometry message.
 
-:::note
+::: info
 When using the MAVROS *odom* plugin, it is important that no other node is publishing a transform between the external pose's reference and child frame.
 This might break the *tf* tree.
 :::
@@ -284,7 +284,7 @@ Assuming that MAVROS is running, you just need to **remap** the pose topic that 
 Note that there is also a `mocap` topic that MAVROS provides to feed `ATT_POS_MOCAP` to PX4, but it is not applicable for EKF2.
 However, it is applicable with LPE.
 
-:::note
+::: info
 Remapping pose topics is covered above [Relaying pose data to PX4](#relaying_pose_data_to_px4) (`/vrpn_client_node/<rigid_body_name>/pose` is of type `geometry_msgs/PoseStamped`).
 :::
 

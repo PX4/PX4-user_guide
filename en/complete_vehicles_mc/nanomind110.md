@@ -16,7 +16,7 @@ NanoMind uses MindRacer as flight controller, which runs full PX4/MindPX flight 
 
 ### User Guide
 
-:::note
+::: info
 The user guide is [here](http://mindpx.net/assets/accessories/NanoMind_110_user_manual.pdf).
 :::
 

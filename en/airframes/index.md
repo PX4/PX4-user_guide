@@ -4,7 +4,7 @@ PX4 supports numerous types of vehicles, including different configurations of m
 
 This section explains how to assemble, configure, and tune PX4-based autopilot systems for each type (much of this setup is common to all types).
 
-:::note
+::: info
 [Vehicle Selection](../getting_started/frame_selection.md) provides high level information about the types of vehicles and the use cases for which they are best suited.
 :::
 
@@ -35,7 +35,7 @@ The following vehicle types are considered experimental:
 - [Rovers](../frames_rover/index.md)
 - [Submarines](../frames_sub/index.md)
 
-:::note
+::: info
 Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome!
 :::
 

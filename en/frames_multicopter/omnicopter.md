@@ -15,12 +15,12 @@ The components needed for this build are:
 - Electronics:
   - Flight controller: [Holybro KakuteH7](../flight_controller/kakuteh7.md)
   - Coupled with 2x [Tekko32 F4 4in1 ESCs](https://holybro.com/products/tekko32-f4-4in1-50a-esc)
-   :::note
+   ::: info
    You can select your own flight controller of choice, it just needs to support 8 DShot outputs.
    :::
   - GPS: [ZED-F9P](https://www.gnss.store/gnss-gps-modules/105-ublox-zed-f9p-rtk-gnss-receiver-board-with-sma-base-or-rover.html?search_query=ZED-F9P&results=11)
   - [GPS helix antenna](https://www.gnss.store/rf-gps-antennas/28-high-performance-multi-band-gnss-active-quad-helix-antenna-for-rtk.html)
-   :::note
+   ::: info
    Any other GPS may work as well, however a helix antenna is expected to perform better for inverted flights.
    :::
   - Any RC receiver
@@ -50,7 +50,7 @@ The components needed for this build are:
 ### Frame
 
 - Print the 3D parts
-  :::note
+  ::: info
   The orientation of the corner pieces matters.
   You will notice if it's wrong when the angles of the rods are not correct.
   :::
@@ -96,7 +96,7 @@ In particular:
 - set the Motor Direction to **Bidirectional Soft**
 - increase the Rampup Power to **100%** (this is conservative and might reduce efficiency)
 
-:::note
+::: info
 Make sure the motors do not overheat with the changed settings.
 :::
 

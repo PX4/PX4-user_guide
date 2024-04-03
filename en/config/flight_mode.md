@@ -43,7 +43,7 @@ To configure single-channel flight mode selection:
    * Select the **Mode channel** (above this shown as Channel 5, but this will depend on your transmitter configuration).
    * Move the transmitter switch (or switches) that you have set up for mode selection through the available positions.
      The mode slot matching your current switch position will be highlighted (above this is *Flight Mode 1*).
-     :::note
+     ::: info
      While you can set flight modes in any of the 6 slots, only the channels that are mapped to switch positions will be highlighted/used.
      :::
    * Select the flight mode that you want triggered for each switch position.
@@ -69,7 +69,7 @@ QGroundControl _may_ have [setup information for other transmitters here](https:
 If you only need to support selecting between two or three modes then you can map the modes to the positions of a single 3-way switch.
 Below we show how to map the Taranis 3-way "SD" switch to channel 5.
 
-:::note
+::: info
 This example shows how to set up the popular *FrSky Taranis* transmitter.
 Transmitter setup will be different on other transmitters.
 :::

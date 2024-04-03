@@ -9,7 +9,7 @@ _Hold mode_ can be used to pause a mission or to help you regain control of a ve
 It is usually activated with a pre-programmed switch.
 :::
 
-:::note
+::: info
 
 - Mode is automatic - no user intervention is _required_ to control the vehicle.
 - Mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).

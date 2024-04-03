@@ -5,7 +5,7 @@
 In SITL some failsafes are disabled by default to enable easier simulation usage.
 This topic explains how you can test safety-critical behavior in SITL simulation before attempting it in the real world.
 
-:::note
+::: info
 You can also test failsafes using [HITL simulation](../simulation/hitl.md).
 HITL uses the normal configuration parameters of your flight controller.
 :::
@@ -18,7 +18,7 @@ This makes the simulation only usable with a connected GCS, SDK, or other MAVLin
 Set the parameter [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) to the desired failsafe action to change the behavior.
 For example, set to `0` to disable it.
 
-:::note
+::: info
 All parameters in SITL including this one get reset when you do `make clean`.
 :::
 
@@ -30,7 +30,7 @@ This makes the simulation only usable with either an active MAVLink or remote co
 Set the parameter [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) to the desired failsafe action to change the behavior.
 For example, set to `0` to disable it.
 
-:::note
+::: info
 All parameters in SITL including this one get reset when you do `make clean`.
 :::
 

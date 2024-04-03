@@ -4,14 +4,14 @@ Docker containers are provided for the complete [PX4 development toolchain](../d
 
 This topic shows how to use the [available docker containers](#px4_containers) to access the build environment in a local Linux computer.
 
-:::note
+::: info
 Dockerfiles and README can be found on [Github here](https://github.com/PX4/containers/blob/master/index.md).
 They are built automatically on [Docker Hub](https://hub.docker.com/u/px4io/).
 :::
 
 ## Prerequisites
 
-:::note
+::: info
 PX4 containers are currently only supported on Linux (if you don't have Linux you can run the container [inside a virtual machine](#virtual_machine)).
 Do not use `boot2docker` with the default Linux image because it contains no X-Server.
 :::
@@ -144,11 +144,11 @@ docker run -it --privileged \
 --name=px4-ros px4io/px4-dev-ros2-foxy:2022-07-31 bash
 ```
 
-:::note
+::: info
 We use the host network mode to avoid conflicts between the UDP port access control when using QGroundControl on the same system as the docker container.
 :::
 
-:::note
+::: info
 If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value.
 On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`.
 On other hosts you might iterate the value of `0` in `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
@@ -201,7 +201,7 @@ In _QGroundControl_, navigate to [Settings](https://docs.qgroundcontrol.com/mast
 $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}' mycontainer
 ```
 
-:::note
+::: info
 Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook).
 :::
 

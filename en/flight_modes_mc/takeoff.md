@@ -4,7 +4,7 @@
 
 The _Takeoff_ flight mode causes the vehicle to take off to a specified height and wait for further input.
 
-:::note
+::: info
 
 - Mode is automatic - no user intervention is _required_ to control the vehicle.
 - Mode requires at least a valid local position estimate (does not require a global position).

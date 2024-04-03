@@ -1,6 +1,6 @@
 # Licenses
 
-:::note
+::: info
 All code contributions must be made under the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause) and must not impose any further constraints on its use.
 :::
 

@@ -13,7 +13,7 @@ The main things to look for are:
 - Make sure no people are within 100 m / 300 feet.
 - Make sure there is nothing that you shouldn't crash onto within 100 m / 300 feet - no houses, structures, cars, water, corn fields (hard to find drones in).
 
-:::note
+::: info
 100m clearance is a good "rule of thumb", but you should also ensure you comply with flight regulations in your area.
 :::
 
@@ -35,7 +35,7 @@ The UAV should always be manually flown within a safe zone where there are no ob
 
 If you start to lose control over the vehicle, and cannot bring it back under control, crash it in an empty area as soon as possible.
 
-:::note
+::: info
 It can be useful to [set a safety switch on your transmitter](../config/safety.md#emergency-switches).
 This allows you to immediately return or crash your drone if necessary.
 :::

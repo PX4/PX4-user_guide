@@ -12,7 +12,7 @@ It is also useful for a deeper understanding of how the basic tuning works, and 
 
 ## Tuning Steps
 
-:::note
+::: info
 For safety reasons, the default gains are set to low values.
 You must increase the gains before you can expect good control responses.
 :::
@@ -34,7 +34,7 @@ Always disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE
 
 The rate controller is the inner-most loop with three independent PID controllers to control the body rates (yaw, pitch, roll).
 
-:::note
+::: info
 A well-tuned rate controller is very important as it affects _all_ flight modes.
 A badly tuned rate controller will be visible in [Position mode](../flight_modes_mc/position.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
 :::
@@ -57,7 +57,7 @@ Users can select the form that is used by setting the proportional gain for the 
 
 The two forms are described below.
 
-:::note
+::: info
 The derivative term (**D**) is on the feedback path in order to avoid an effect known as the [derivative kick](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/).
 :::
 
@@ -158,7 +158,7 @@ It should immediately follow the command, and neither oscillate, nor overshoot (
 
 You can create a step-input for example for roll, by quickly pushing the roll stick to one side, and then let it go back quickly (be aware that the stick will oscillate too if you just let go of it, because it is spring-loaded — a well-tuned vehicle will follow these oscillations).
 
-:::note
+::: info
 A well-tuned vehicle in _Acro mode_ will not tilt randomly towards one side, but keeps the attitude for tens of seconds even without any corrections.
 :::
 
@@ -201,7 +201,7 @@ But you may start to see oscillations when going towards full throttle.
 
 To counteract that, adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter.
 
-:::note
+::: info
 The rate controller might need to be re-tuned if you change this parameter.
 :::
 
@@ -216,7 +216,7 @@ In order to simplify the curve fit problem, you can normalize the data between 0
 
 ![Thrust Curve Compensation](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)] <!-- removed link to THR_MDL_FAC_Calculation as causes problems for link checker -->
 
-:::note
+::: info
 The mapping between PWM and static thrust depends highly on the battery voltage.
 :::
 

@@ -36,7 +36,7 @@ This is ideal for survey drones, agricultural drones and other application scena
 - Connect the C-RTK 9Ps (Rover) to the flight controller.
 - Connect telemetry to the flight controller `TELEM1`/`TELEM2` interface
 
-:::note
+::: info
 C-RTK 9Ps come with 6-pin and 10-pin connectors compatible with Pixhawk-standard flight controllers.
 Connect to `GPS1` or `GPS2`.
 Select the appropriate cable for the flight controller.

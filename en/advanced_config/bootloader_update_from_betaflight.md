@@ -4,14 +4,14 @@ This page documents how to flash the PX4 bootloader onto boards that are already
 
 There are three tools that can be used to flash the PX4 bootloader: _Betaflight Configurator_, [dfu-util](http://dfu-util.sourceforge.net/) command line tool, or the graphical [dfuse](https://www.st.com/en/development-tools/stsw-stm32080.html) (Windows only).
 
-:::note
+::: info
 The _Betaflight Configurator_ is easiest, but newer versions may not support non-betaflight bootloader update.
 You might try it first, but use the other methods if firmware update does not work.
 :::
 
 ## Betaflight Configurator Bootloader Update
 
-:::note
+::: info
 _Betaflight Configurator_ may not support PX4 Bootloader update, as of May 2023.
 Older versions should work, though the precise versions are not known.
 :::
@@ -38,7 +38,7 @@ This section explains how to flash the PX4 bootloader using the [dfu-util](http:
 
 You will first need to download or build [bootloader firmware](#bootloader-firmware) for the board you want to flash (below, this is referred to as `<target.bin>`).
 
-:::note
+::: info
 All of the methods below are safe as the STM32 MCU cannot be bricked!
 DFU cannot be overwritten by flashing and will always allow you to install a new firmware, even if flashing fails.
 :::
@@ -51,7 +51,7 @@ The button can be released after the board has powered up.
 
 ### dfu-util
 
-:::note
+::: info
 The [Holybro Kakute H7 v2](../flight_controller/kakuteh7v2.md) and mini flight controllers may require that you first run an additional command to erase flash parameters (in order to fix problems with parameter saving):
 
 ```

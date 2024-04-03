@@ -27,7 +27,7 @@ These are the main differences compared to a [Pixracer](../flight_controller/pix
 All the usual PX4 features can still be used for your racer!
 :::
 
-:::note
+::: info
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
@@ -62,7 +62,7 @@ These are the boards tested and known to work:
 
 - [Hobbywing XRotor Flight Controller F4](https://www.hobbywing.com/en/products/info.html?id=164)
 
-  :::note
+  ::: info
   This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](https://www.hobbywing.com/en/products/info.html?id=116) without soldering. This ESC board also provides power for the Omnibus board.
   :::
 
@@ -109,7 +109,7 @@ RC is connected to one of the following ports:
 - UART1
 - SBUS/PPM port (via inverter, internally goes to UART1)
 
-:::note
+::: info
 Some Omnibus F4 boards have a jumper connecting either or both the MCU SBUS and PPM to a single pin header. Set your jumper or solder bridge to the appropriate MCU pin before use.
 :::
 
@@ -145,7 +145,7 @@ There is one I2C port available via:
 - SCL: MCU pin PB10 (might be labeled as TX3)
 - SDA: MCU pin PB11 (might be labeled as RX3)
 
-:::note
+::: info
 You will need external pullups on both signals (clock and data).
 You can use 2.2k pullups for example to attach an external mag.
 :::
@@ -186,7 +186,7 @@ Benefits over [FrSky telemetry](../peripherals/frsky_telemetry.md) include:
 - 150 Hz RC update rate.
 - The signals are uninverted and thus no (external) inverter logic is required.
 
-:::note
+::: info
 If you use CRSF Telemetry you will need to build custom PX4 firmware.
 By contrast, FrSky telemetry can use prebuilt firmware.
 :::
@@ -196,7 +196,7 @@ For Omnibus we recommend the [TBS Crossfire Nano RX](http://team-blacksheep.com/
 On the handheld controller (e.g. Taranis) you will also need a [Transmitter Module](http://team-blacksheep.com/shop/cat:rc_transmitters#product_listing).
 This can be plugged into the back of the RC controller.
 
-:::note
+::: info
 The referenced links above contains the documentation for the TX/RX modules.
 :::
 

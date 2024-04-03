@@ -15,7 +15,7 @@ The PWMs are bidirectional, EMI protected, and level shifted to 5V logic levels.
 All accessed using front and rear 30pin Molex PicoClasp connectors.
 A durable plastic case, conformal board coating, and optional temperature calibration included.
 
-:::note
+::: info
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 

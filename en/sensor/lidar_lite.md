@@ -27,7 +27,7 @@ The _Lidar-Lite v3_ can be used with either PWM or I2C.
 PWM is recommended if using an older model.
 The rangefinder must be separately powered via some ESC/BEC (whether connected via PWM or I2C).
 
-:::note
+::: info
 The I2C interface of non-blue-label Lidar-Lite (v1) devices has stability limitations and all silver-label generations of Lidar-Lite sensors are therefore excluded from the I2C interface.
 The use of the PWM interface (as detailed below) is advised for these sensors.
 The blue label (v2) devices can exhibit a constant offset if powered on with less than 5V under some conditions.
@@ -53,7 +53,7 @@ The pin connections for wiring LidarLite to the _Pixhawk 1_ AUX ports (PWM inter
 | 5   | SDA                 | -                 | Not connected                                                                                       |
 | 6   | GND                 | AUX 6 (top)       | Ground                                                                                              |
 
-:::note
+::: info
 On a flight controller that has no AUX port the equivalent MAIN pins are used (e.g. the PWM output on the lidar instead maps to MAIN 5).
 The pin numbers are hard-coded.
 :::
@@ -76,7 +76,7 @@ Simply connect the SLA, SLC, GND and VCC to the corresponding (same) pins on the
 
 The rangefinder/port is enabled using [SENS_EN_LL40LS](../advanced_config/parameter_reference.md#SENS_EN_LL40LS) - set to `1` for PWM, or `2` for I2C.
 
-:::note
+::: info
 The driver for this rangefinder is usually present in firmware.
 If missing, you would also need to add the driver (`drivers/ll40ls`) to the board configuration.
 :::

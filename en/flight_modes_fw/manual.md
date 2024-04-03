@@ -9,7 +9,7 @@ _Manual mode_ sends manual stick input directly to control allocation for fully 
 This is the hardest mode to fly, because nothing is stabilised.
 Unlike [Acro Mode](../flight_modes_fw/acro.md), if the roll-pitch stick is centered the vehicle will not automatically stop rotating around the axis — the pilot actually has to move the stick to apply force in the other direction.
 
-:::note
+::: info
 This is the only mode that overrides the FMU (commands are sent via the safety coprocessor).
 It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
 :::

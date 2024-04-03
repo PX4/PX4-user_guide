@@ -32,7 +32,7 @@ The Trimble MB-Two is connected to a UART on the flight controller (GPS port) fo
 
 To power the module you will need a separate 3.3V power supply (the maximum consumption is 360mA). 
 
-:::note
+::: info
 The module cannot be powered from a Pixhawk.
 :::
 
@@ -54,7 +54,7 @@ First set the GPS protocol to Trimble ([GPS_x_PROTOCOL=3](../advanced_config/par
 For heading estimation the two antennas need to be on the same level and at least 30 cm apart from each other.
 The direction that they are facing does not matter as it can be configured with the [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) parameter.
 
-:::note
+::: info
 The `GPS_YAW_OFFSET` is the angle made by the *baseline* (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)).
 :::
 
@@ -62,6 +62,6 @@ The `GPS_YAW_OFFSET` is the angle made by the *baseline* (the line between the t
 
 To activate heading fusion for the attitude estimation, set the [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter to enable *Dual antenna heading*.
 
-:::note
+::: info
 See also: [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/index.md#configuring-gps-as-yaw-heading-source)
 :::

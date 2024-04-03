@@ -22,7 +22,7 @@ Shells provide higher-level access to the system:
 - Cannot _directly_ display the output of tasks running on the work queue.
 - Can't debug problems when the system doesn't start (as it isn't running yet).
 
-:::note
+::: info
 The `dmesg` command is now available through the shell on some boards, enabling much lower level debugging than previously possible.
 For example, with `dmesg -f &` you also see the output of background tasks.
 :::

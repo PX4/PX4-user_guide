@@ -15,11 +15,11 @@ The Kakute H7 mini builds upon the best features of its predecessor, the [Kakute
 
 <img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_top.jpg" width="300px" title="KakuteH7Mini Top Image" /> <img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_bottom.jpg" width="300px" title="KakuteH7Mini Bottom Image" />
 
-:::note
+::: info
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-:::note
+::: info
 PX4 runs on the H7 mini v1.3 and later.
 :::
 
@@ -92,7 +92,7 @@ make holybro_kakuteh7mini_default
 
 ## Installing PX4 Firmware
 
-:::note
+::: info
 If you are loading the pre-built firmware via QGroundcontrol, you must use QGC Daily or QGC version newer than 4.1.7.
 Prior to that release you will need to manually build and install the firmware.
 :::
@@ -108,7 +108,7 @@ Firmware can be manually installed in any of the normal ways:
 - [Load the firmware](../config/firmware.md) using _QGroundControl_.
   You can use either pre-built firmware or your own custom firmware.
 
-:::note
+::: info
 KakuteH7mini is supported with PX4 main and v1.14 or newer.
 :::
 

@@ -249,7 +249,7 @@ Since the injection molded part of the ZMO is very thin, they need to be glued i
 
 ### Antennas and RC Receiver
 
-:::note
+::: info
 If a Skynode is installed the LTE can be used as telemetry and video link.
 If a Pixhawk is used a different [telemetry link](../telemetry/index.md) will be needed.
 An inexpensive example would be a [SiK Telemetry Radio](../telemetry/sik_radio.md).

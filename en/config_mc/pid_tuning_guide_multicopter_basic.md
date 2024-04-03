@@ -72,7 +72,7 @@ The tuning procedure is:
 1. Confirm that the airmode selector is set to **Disabled**
 1. Set the _Thrust curve_ value to: 0.3 (PWM, power-based controllers) or 1 (RPM-based ESCs)
 
-   :::note
+   ::: info
    For PWM, power-based and (some) UAVCAN speed controllers, the control signal to thrust relationship may not be linear.
    As a result, the optimal tuning at hover thrust may not be ideal when the vehicle is operating at higher thrust.
 
@@ -97,7 +97,7 @@ The tuning procedure is:
    :::
 1. Modify the three PID values using the sliders (for roll rate-tuning these affect `MC_ROLLRATE_K`, `MC_ROLLRATE_I`, `MC_ROLLRATE_D`) and observe the step response again.
    The values are saved to the vehicle as soon as the sliders are moved.
-   :::note
+   ::: info
    The goal is for the _Response_ curve to match the _Setpoint_ curve as closely as possible (i.e. a fast response without overshoots).
    :::
    The PID values can be adjusted as follows:

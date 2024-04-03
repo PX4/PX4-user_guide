@@ -5,7 +5,7 @@ PX4 firmware can be built from source code on the console or in an IDE, for both
 You need to build PX4 in order to use [simulators](../simulation/index.md), or if you want to modify PX4 and create a custom build.
 If you just want to try out PX4 on real hardware then [load the prebuilt binaries](../config/firmware.md) using QGroundControl (there is no need to follow these instructions).
 
-:::note
+::: info
 Before following these instructions you must first install the [Developer Toolchain](../dev_setup/dev_env.md) for your host operating system and target hardware.
 If you have any problems after following these steps see the [Troubleshooting](#troubleshooting) section below.
 :::
@@ -20,7 +20,7 @@ To get the _very latest_ ("main") version onto your computer, enter the followin
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-:::note
+::: info
 This is all you need to do just to build the latest code.
 If needed you can also [get the source code specific to a particular release](../contribute/git_examples.md#get-a-specific-release).
 [GIT Examples](../contribute/git_examples.md) provides a lot more information working with releases and contributing to PX4.
@@ -41,7 +41,7 @@ This will bring up the PX4 console below:
 
 ![PX4 Console (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
 
-:::note
+::: info
 You may need to start _QGroundControl_ before proceeding, as the default PX4 configuration requires a ground control connection before takeoff.
 This can be [downloaded from here](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html).
 :::
@@ -95,7 +95,7 @@ A successful run will end with similar output to:
 The first part of the build target `px4_fmu-v4` indicates the target flight controller hardware for the firmware.
 The suffix, in this case `_default`, indicates a firmware _configuration_, such as supporting or omitting particular features.
 
-:::note
+::: info
 The `_default` suffix is optional.
 For example, `make px4_fmu-v5` and `px4_fmu-v5_default` result in the same firmware.
 :::
@@ -314,9 +314,7 @@ You can get a list of _all_ available `VIEWER_MODEL_DEBUGGER_WORLD` options usin
 make px4_sitl list_vmd_make_targets
 ```
 
-:::
-
-Notes:
+::: infos:
 
 - Most of the values in the `CONFIGURATION_TARGET` and `VIEWER_MODEL_DEBUGGER` have defaults, and are hence optional.
   For example, `gazebo-classic` is equivalent to `gazebo-classic_iris` or `gazebo-classic_iris_none`.

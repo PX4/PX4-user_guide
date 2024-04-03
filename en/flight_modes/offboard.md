@@ -8,7 +8,7 @@ The setpoints may be provided using MAVLink (or a MAVLink API such as [MAVSDK](h
 PX4 requires that the external controller provides a continuous 2Hz "proof of life" signal, by streaming any of the supported MAVLink setpoint messages or the ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) message.
 PX4 enables offboard control only after receiving the signal for more than a second, and will regain control if the signal stops.
 
-:::note
+::: info
 
 - This mode requires position or pose/attitude information - e.g. GPS, optical flow, visual-inertial odometry, mocap, etc.
 - RC control is disabled except to change modes (you can also fly without any manual controller at all by setting the parameter [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) to 4: Stick input disabled).
@@ -78,7 +78,7 @@ For example, if the `acceleration` field is the first non-zero value, then PX4 r
 
 where &check; means that the bit is set, &cross; means that the bit is not set and `-` means that the bit is value is irrelevant.
 
-:::note
+::: info
 Before using offboard mode with ROS 2, please spend a few minutes understanding the different [frame conventions](../ros/ros2_comm.md#ros-2-px4-frame-conventions) that PX4 and ROS 2 use.
 :::
 
@@ -151,7 +151,7 @@ The following MAVLink messages and their particular fields and field values are 
     - Velocity setpoint (only `vx`, `vy`, `vz`)
     - _Thrust_ setpoint (only `afx`, `afy`, `afz`)
 
-      :::note
+      ::: info
       Acceleration setpoint values are mapped to create a normalized thrust setpoint (i.e. acceleration setpoints are not "properly" supported).
       :::
 
@@ -173,7 +173,7 @@ The following MAVLink messages and their particular fields and field values are 
     - Position setpoint (`x`, `y`, `z` only; velocity and acceleration setpoints are ignored).
 
       - Specify the _type_ of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern):
-        :::note
+        ::: info
         Some of the _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field.
         :::
 
@@ -197,7 +197,7 @@ The following MAVLink messages and their particular fields and field values are 
 
       - Specify the _type_ of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern):
 
-        :::note
+        ::: info
         The _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field.
         :::
 
@@ -225,7 +225,7 @@ The following MAVLink messages and their particular fields and field values are 
 
       - Specify the _type_ of the setpoint in `type_mask`:
 
-        :::note
+        ::: info
         The _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field.
         ::
 
@@ -252,7 +252,7 @@ The following MAVLink messages and their particular fields and field values are 
 - [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
   - The following input combinations are supported:
     - Attitude/orientation (`SET_ATTITUDE_TARGET.q`) with thrust setpoint (`SET_ATTITUDE_TARGET.thrust`).
-      :::note
+      ::: info
       Only the yaw setting is actually used/extracted.
       :::
 
