@@ -18,4 +18,4 @@ The tools have variable levels of support from their communities (some are well 
     - [Windows Cygwin Toolchain Maintenance](../dev_setup/dev_env_windows_cygwin_packager_setup.md)
 - IDEs
   - [Qt Creator IDE](../dev_setup/qtcreator.md)
-- [Simulators](../simulation/community_supported_simulators.md) — [Simulation-In-Hardware](../sim_sih/README.md), [FlightGear](../sim_flightgear/README.md), [JSBSim](../sim_jsbsim/README.md), [AirSim](../sim_airsim/README.md), [HITL](../simulation/hitl.md)
+- [Simulators](../simulation/community_supported_simulators.md) — [Simulation-In-Hardware](../sim_sih/index.md), [FlightGear](../sim_flightgear/index.md), [JSBSim](../sim_jsbsim/index.md), [AirSim](../sim_airsim/index.md), [HITL](../simulation/hitl.md)
