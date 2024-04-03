@@ -65,7 +65,7 @@ The Holybro DroneCAN GPS is connected to the CAN bus using a Pixhawk standard 4 
 
 You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle. The required settings are outlined below.
 
-:::note
+::: info
 The GPS will not boot if there is no SD card in the flight controller when powered on.
 :::
 
