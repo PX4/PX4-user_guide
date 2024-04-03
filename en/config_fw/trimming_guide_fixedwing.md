@@ -43,13 +43,16 @@ You can then trim your remote (with the trim switches) and report the values to 
 
 <Badge type="warning" text="main (PX4 v1.15)" />
 
-Auto-trimming continuously estimates the current trim of the aircraft during flight, uses it to reduce the constant load on the integrator of the angular rate control loop, and adjusts general trim parameters (`TRIM_ROLL`, `TRIM_PITCH` and `TRIM_YAW`) after landing.
+Auto-trimming is enabled by default.
+On first flight, auto-trimming estimates the current trim of the aircraft, and then updates the general trim parameters (`TRIM_ROLL`, `TRIM_PITCH` and `TRIM_YAW`) with calibrated values after landing.
+The trim estimate is only updated when the aircraft flies with a bank angle of less than 10 degrees for more than 7 seconds.
+So for the first calibration flight you should fly large circles or several phases of straight and level flight.
+
+On subsequent flights auto-trimming continuously estimates the trim and slowly updates the stored trim parameters.
+This reduces the constant load on the integrator of the angular rate control loop.
 
 Auto-trimming is enabled using [FW_ATRIM_MODE](../advanced_config/parameter_reference.md#FW_ATRIM_MODE).
 This parameter is set to `(1) Calibration` (trim parameters are replaced by the trim estimate on landing) for the first flight and is then automatically changed to `(2) Continuous` mode (trim estimate is used to slowly update the existing trim parameters).
-
-The trim estimate is only updated when the aircraft constantly flies with a bank angle of less than 10 degrees for more than 7 seconds.
-During the first calibration flight you should fly large circles or several phases of straight and level flight to obtain best results.
 
 ## Advanced Trimming
 
