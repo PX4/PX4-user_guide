@@ -10,7 +10,7 @@ In order to set up flight modes you must already have:
 
 ## What Flight Modes and Switches Should I Set?
 
-Flight Modes provide different types of *autopilot-assisted flight*, and *fully autonomous flight*. You can set any (or none) of the flight modes [available to your vehicle](../flight_modes/README.md#flight-modes).
+Flight Modes provide different types of *autopilot-assisted flight*, and *fully autonomous flight*. You can set any (or none) of the flight modes [available to your vehicle](../flight_modes/index.md#flight-modes).
 
 Most users should set the following modes and functions, as these make the vehicle easier and safer to fly:
 
@@ -90,7 +90,7 @@ The *QGroundControl* configuration is then [as described above](#flight-mode-sel
 
 ## Further Information
 
-* [Flight Modes Overview](../flight_modes/README.md)
+* [Flight Modes Overview](../flight_modes/index.md)
 * [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/flight_modes.html#px4-pro-flight-mode-setup)
 * [PX4 Setup Video - @6m53s](https://youtu.be/91VGmdSlbo4?t=6m53s) (Youtube)
 * [Radio switch parameters](../advanced_config/parameter_reference.md#radio-switches) - Can be used to set mappings via parameters

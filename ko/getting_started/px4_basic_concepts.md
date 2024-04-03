@@ -2,7 +2,7 @@
 
 무인 항공기의 기본 개념과 PX4 사용법을 설명합니다. 초보자뿐만 아니라 전문가에게도 유익한 자료들이 많이 있습니다.
 
-기본 개념에 익숙하시면, [기본 조립](../assembly/README.md)편에서 자동비행장치의 배선 방법을 공부할 수 있습니다. To load firmware and set up the vehicle with _QGroundControl_, see [Basic Configuration](../config/README.md).
+기본 개념에 익숙하시면, [기본 조립](../assembly/README.md)편에서 자동비행장치의 배선 방법을 공부할 수 있습니다. To load firmware and set up the vehicle with _QGroundControl_, see [Basic Configuration](../config/index.md).
 
 ## 드론의 정의
 
@@ -25,7 +25,7 @@ PX4의 주요 특징들은 아래와 같습니다.
 - Controls [many different vehicle frames/types](../airframes/airframe_reference.md), including: aircraft (multicopters, fixed-wing aircraft and VTOLs), ground vehicles and underwater vehicles.
 - [차량 컨트롤러](#vehicle-flight-controller-board), 센서 및 다양한 주변 장치에 적합한 매우 탁월한 선택입니다.
 - 유연하고 강력한 [비행 모드](#flight-modes)와 [안전 기능](#safety-settings-failsafe)을 지원합니다.
-- Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/README.md) ([ROS 2](../ros/ros2_comm.md), [MAVSDK](http://mavsdk.mavlink.io)).
+- Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/index.md) ([ROS 2](../ros/ros2_comm.md), [MAVSDK](http://mavsdk.mavlink.io)).
 
 PX4는 [QGroundControl](#qgroundcontrol) 지상국, [픽스호크 하드웨어](https://pixhawk.org/), 보조 컴퓨터, 카메라, MAVLink 프로토콜 지원 하드웨어를 통합하는 [MAVSDK](http://mavsdk.mavlink.io)를 포함하는 방대한 드론 플랫폼의 핵심입니다. PX4는 [드론코드 프로젝트](https://www.dronecode.org/)의 지원을 받고 있습니다.
 
@@ -86,7 +86,7 @@ PX4가 지원하는 전기변속기와 모터 정보는 여기를 참고하십�
 
 ## 배터리와 전원
 
-PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다. The battery is typically connected to the system using a [Power Module](../power_module/README.md) or _Power Management Board_, which provide separate power for the flight controller and to the ESCs (for the motors).
+PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다. The battery is typically connected to the system using a [Power Module](../power_module/index.md) or _Power Management Board_, which provide separate power for the flight controller and to the ESCs (for the motors).
 
 배터리와 배터리 설정 정보는 [배터리 설정](../config/battery.md)과 [ 기본 조립](../assembly/README.md)(예: [픽스호크 4 배선 빠른 시작 &gt; 전원](../assembly/quick_start_pixhawk4.md#power))를 참고하십시오.
 
@@ -113,11 +113,11 @@ Some vehicles have a _safety switch_ that must be engaged before the vehicle can
 
 ## 텔레메트리 무선 통신
 
-[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like _QGroundControl_ and a vehicle running PX4. 비행중인 기체의 매개변수 변경, 실시간 텔레메트로 통신, 임무 변경 등의 작업을 수행할 수 있습니다.
+[Data/Telemetry Radios](../telemetry/index.md) can provide a wireless MAVLink connection between a ground control station like _QGroundControl_ and a vehicle running PX4. 비행중인 기체의 매개변수 변경, 실시간 텔레메트로 통신, 임무 변경 등의 작업을 수행할 수 있습니다.
 
 ## 외부 보조 컴퓨터
 
-A [Companion Computer](../companion_computer/README.md) (also referred to as "mission computer" or "offboard computer"), is a separate on-vehicle computer that communicates with PX4 to provide higher level command and control.
+A [Companion Computer](../companion_computer/index.md) (also referred to as "mission computer" or "offboard computer"), is a separate on-vehicle computer that communicates with PX4 to provide higher level command and control.
 
 The companion computer usually runs Linux, as this is a much better platform for "general" software development, and allows drones to leverage pre-existing software for computer vision, networking, and so on.
 
@@ -125,9 +125,9 @@ The flight controller and companion computer may be pre-integrated into a single
 
 관련 주제는 다음과 같습니다:
 
-- [Companion Computers](../companion_computer/README.md)
+- [Companion Computers](../companion_computer/index.md)
 - [오프보드 모드](../flight_modes/offboard.md) - PX4 외부의 지상 통제국이나 보조 컴퓨터로 제어하는 비행 모드
-- [로보틱스 API](../robotics/README.md)
+- [로보틱스 API](../robotics/index.md)
 
 ## SD 카드 (휴대용 저장 장치)
 
@@ -155,7 +155,7 @@ Payloads are connected to [Fight Controller outputs](#outputs-motors-servos-actu
 
 For more information see:
 
-- [Payloads & Cameras](../payloads/README.md)
+- [Payloads & Cameras](../payloads/index.md)
 
 ## 시동 및 해제
 
@@ -196,10 +196,10 @@ _Manual modes_ are controlled by the user (via the RC control sticks/joystick) w
 
 An overview of the available flight modes for each vehicle can be found below:
 
-- [Flight Modes (Multicopter)](../flight_modes_mc/README.md)
-- [Flight Modes (Fixed-Wing)](../flight_modes_fw/README.md)
-- [Flight Modes (VTOL)](../flight_modes_vtol/README.md)
-- [Flight Modes (Rover)](../flight_modes_rover/README.md)
+- [Flight Modes (Multicopter)](../flight_modes_mc/index.md)
+- [Flight Modes (Fixed-Wing)](../flight_modes_fw/index.md)
+- [Flight Modes (VTOL)](../flight_modes_vtol/index.md)
+- [Flight Modes (Rover)](../flight_modes_rover/index.md)
 
 Instructions for how to set up your remote control switches to enable different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
 

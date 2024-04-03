@@ -272,7 +272,7 @@ If necessary the servo direction can be reversed using the `Rev Range (for servo
 
 ## 配置
 
-Perform the normal [Basic Configuration](../config/README.md).
+Perform the normal [Basic Configuration](../config/index.md).
 
 Notes:
 

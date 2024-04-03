@@ -20,7 +20,7 @@ The recommended process for developing a new frame configuration is:
 
 1. Start by selecting an appropriate "generic configuration" for the target vehicle type in QGC, such as _Generic Quadcopter_.
 1. Configure the [geometry and actuator outputs](../config/actuators.md).
-1. Perform other [basic configuration](../config/README.md).
+1. Perform other [basic configuration](../config/index.md).
 1. Tune the vehicle.
 1. Run the [`param show-for-airframe`](../modules/modules_command.md#param) console command to list the parameter difference compared to the original generic airfame.
 
@@ -255,7 +255,7 @@ param set-default PWM_MAIN_DIS4 1500
 
 ## 새 기체 그룹 추가
 
-Airframe "groups" are used to group similar airframes for selection in [QGroundControl](https://docs.qgroundcontrol.com/master/en/SetupView/Airframe.html) and in the [Airframe Reference](../airframes/airframe_reference.md). 모든 그룹에는 그룹화된 기체에 대한 공통 지오메트리, 모터 수, 및 모터 회전 방향을 나타내는 이름과 연관된 svg 이미지가 있습니다.
+Airframe "groups" are used to group similar airframes for selection in [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/airframe.html) and in the [Airframe Reference](../airframes/airframe_reference.md). 모든 그룹에는 그룹화된 기체에 대한 공통 지오메트리, 모터 수, 및 모터 회전 방향을 나타내는 이름과 연관된 svg 이미지가 있습니다.
 
 The airframe metadata files used by _QGroundControl_ and the documentation source code are generated from the airframe description, via a script, using the build command: `make airframe_metadata`
 
@@ -306,7 +306,7 @@ The remaining airframe metadata should be automatically included in the firmware
 - [Autotuning](../config/autotune.md)
 - [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md)
 - [Fixed-wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
-- [VTOL Configuration](../config_vtol/README.md)
+- [VTOL Configuration](../config_vtol/index.md)
 
 ## Add Frame to QGroundControl
 

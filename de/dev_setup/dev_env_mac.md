@@ -3,8 +3,8 @@
 The following instructions set up a PX4 development environment for macOS. This environment can be used to build PX4 for:
 
 - Pixhawk and other NuttX-based hardware
-- [jMAVSim Simulation](../sim_jmavsim/README.md)
-- [Gazebo Classic Simulation](../sim_gazebo_classic/README.md)
+- [jMAVSim Simulation](../sim_jmavsim/index.md)
+- [Gazebo Classic Simulation](../sim_gazebo_classic/index.md)
 
 :::tip
 This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported development environment](../advanced/community_supported_dev_env.md)).
@@ -73,7 +73,7 @@ To setup the environment to be able to build for Pixhawk/NuttX hardware (and ins
 
 ## Gazebo Classic Simulation
 
-To setup the environment for [Gazebo Classic](../sim_gazebo_classic/README.md) simulation:
+To setup the environment for [Gazebo Classic](../sim_gazebo_classic/index.md) simulation:
 
 1. Run the following commands in your shell:
 
@@ -106,7 +106,7 @@ September 2021: The commands above are a workaround to this bug: [PX4-Autopilot#
 
 ## jMAVSim Simulation
 
-To setup the environment for [jMAVSim](../sim_jmavsim/README.md) simulation:
+To setup the environment for [jMAVSim](../sim_jmavsim/index.md) simulation:
 
 1. Install a recent version of Java (e.g. Java 15). You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) or use [Eclipse Temurin](https://adoptium.net):
 
@@ -122,7 +122,7 @@ To setup the environment for [jMAVSim](../sim_jmavsim/README.md) simulation:
 
    :::warning PX4 v1.11 and beyond require at least JDK 15 for jMAVSim simulation.
 
-   For earlier versions, macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. You can find the fix in the [jMAVSim with SITL > Troubleshooting](../sim_jmavsim/README.md#troubleshooting)).
+   For earlier versions, macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. You can find the fix in the [jMAVSim with SITL > Troubleshooting](../sim_jmavsim/index.md#troubleshooting)).
 :::
 
 ## Next Steps

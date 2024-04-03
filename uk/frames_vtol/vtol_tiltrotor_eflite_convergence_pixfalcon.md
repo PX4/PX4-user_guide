@@ -56,7 +56,7 @@ For the GPS we cut out a section of foam inside the "cockpit". That way the GPS 
 
 ## PX4 Configuration
 
-Follow the [Standard Configuration](../config/README.md) in *QGroundControl* (radio, sensors, flight modes, etc.).
+Follow the [Standard Configuration](../config/index.md) in *QGroundControl* (radio, sensors, flight modes, etc.).
 
 The particular settings that are relevant to this vehicle are:
 - [Airframe](../config/airframe.md)

@@ -4,7 +4,7 @@ This topic is for developers who want to port PX4 to work with _new_ flight cont
 
 ## PX4 Architecture
 
-PX4 consists of two main layers: The [board support and middleware layer](../middleware/README.md) on top of the host OS (NuttX, Linux or any other POSIX platform like Mac OS), and the applications (Flight Stack in [src/modules](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules)\). Please reference the [PX4 Architectural Overview](../concept/architecture.md) for more information.
+PX4 consists of two main layers: The [board support and middleware layer](../middleware/index.md) on top of the host OS (NuttX, Linux or any other POSIX platform like Mac OS), and the applications (Flight Stack in [src/modules](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules)\). Please reference the [PX4 Architectural Overview](../concept/architecture.md) for more information.
 
 This guide is focused only on the host OS and middleware as the applications/flight stack will run on any board target.
 
@@ -51,7 +51,7 @@ It is generally recommended to connect RC via separate RX and TX pins to the mic
 
 ## Officially Supported Hardware
 
-The PX4 project supports and maintains the [FMU standard reference hardware](../hardware/reference_design.md) and any boards that are compatible with the standard. This includes the [Pixhawk-series](../flight_controller/pixhawk_series.md) (see the user guide for a [full list of officially supported hardware](../flight_controller/README.md)).
+The PX4 project supports and maintains the [FMU standard reference hardware](../hardware/reference_design.md) and any boards that are compatible with the standard. This includes the [Pixhawk-series](../flight_controller/pixhawk_series.md) (see the user guide for a [full list of officially supported hardware](../flight_controller/index.md)).
 
 Every officially supported board benefits from:
 
@@ -75,7 +75,7 @@ If you want to have your board officially supported in PX4:
 
 - Your hardware must be available in the market (i.e. it can be purchased by any developer without restriction).
 - Hardware must be made available to the PX4 Dev Team so that they can validate the port (contact [lorenz@px4.io](mailto:lorenz@px4.io) for guidance on where to ship hardware for testing).
-- The board must pass full [test suite](../test_and_ci/README.md) and [flight testing](../test_and_ci/test_flights.md).
+- The board must pass full [test suite](../test_and_ci/index.md) and [flight testing](../test_and_ci/test_flights.md).
 
 **The PX4 project reserves the right to refuse acceptance of new ports (or remove current ports) for failure to meet the requirements set by the project.**
 
@@ -86,6 +86,6 @@ You can reach out to the core developer team and community on the [official supp
 - [Device Drivers](../middleware/drivers.md) - How to support new peripheral hardware (device drivers)
 - [Building the Code](../dev_setup/building_px4.md) - How to build source and upload firmware
 - Supported Flight Controllers:
-  - [Autopilot Hardware](../flight_controller/README.md)
+  - [Autopilot Hardware](../flight_controller/index.md)
   - [Supported boards list](https://github.com/PX4/PX4-Autopilot/#supported-hardware) (Github) - Boards for which PX4-Autopilot has specific code
-- [Supported Peripherals](../peripherals/README.md)
+- [Supported Peripherals](../peripherals/index.md)

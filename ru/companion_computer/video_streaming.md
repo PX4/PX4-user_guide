@@ -1,6 +1,6 @@
 # Video Streaming (Companion Computer/QGroundControl)
 
-PX4-based vehicles support video streaming using a camera connected to a [companion computer](../companion_computer/README.md).
+PX4-based vehicles support video streaming using a camera connected to a [companion computer](../companion_computer/index.md).
 
 :::note
 You can't video stream directly from a camera connected to PX4.
@@ -10,7 +10,7 @@ GStreamer is used to send the video to _QGroundControl_ over an IP link. To supp
 
 ## Companion Computer Setup
 
-General instructions for installing _GStreamer_ and starting the stream on a companion computer are provided in the [QGroundControl VideoReceiver README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/README.md).
+General instructions for installing _GStreamer_ and starting the stream on a companion computer are provided in the [QGroundControl VideoReceiver README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/index.md).
 
 The setup of cameras and data links depends on many factors. Examples in this library are listed below (note, these are options, not "recommended"):
 
@@ -26,13 +26,13 @@ To setup and use video steaming with QGC:
    sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl -y
    ```
 
-   For other platforms follow the instructions in [QGroundControl VideoReceiver README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/README.md).
+   For other platforms follow the instructions in [QGroundControl VideoReceiver README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/index.md).
 
-1. Enable video in _Fly View_: [QGroundControl > General Settings (Settings View) > Video](https://docs.qgroundcontrol.com/master/en/SettingsView/General.html#video)
+1. Enable video in _Fly View_: [QGroundControl > General Settings (Settings View) > Video](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/general.html#video)
 1. If everything works, you should see the video stream displayed in the QGC Video Switcher (QGC Fly View bottom left corner). You can click on the video switcher to toggle the video full-screen, as shown in the screenshot below.
 
    ![QGC displaying video stream](../../assets/videostreaming/qgc-screenshot.png)
 
 ## Gazebo Classic Simulation
 
-[Gazebo Classic](../sim_gazebo_classic/README.md) supports video streaming from within the simulated environment. For more information see [Gazebo Classic Simulation > Video Streaming](../sim_gazebo_classic/README.md#video-streaming).
+[Gazebo Classic](../sim_gazebo_classic/index.md) supports video streaming from within the simulated environment. For more information see [Gazebo Classic Simulation > Video Streaming](../sim_gazebo_classic/index.md#video-streaming).

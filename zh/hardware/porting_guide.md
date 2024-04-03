@@ -4,7 +4,7 @@
 
 ## PX4 架构
 
-PX4 consists of two main layers: The [board support and middleware layer](../middleware/README.md) on top of the host OS (NuttX, Linux or any other POSIX platform like Mac OS), and the applications (Flight Stack in [src/modules](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules)\). 更多有关详细信息请参阅： [PX4 系统架构概述](../concept/architecture.md) 。
+PX4 consists of two main layers: The [board support and middleware layer](../middleware/index.md) on top of the host OS (NuttX, Linux or any other POSIX platform like Mac OS), and the applications (Flight Stack in [src/modules](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules)\). 更多有关详细信息请参阅： [PX4 系统架构概述](../concept/architecture.md) 。
 
 本指南仅关注主机操作系统和中间件，因为 应用层/飞行控制栈 可以在任何目标平台上运行。
 
@@ -51,7 +51,7 @@ It is generally recommended to connect RC via separate RX and TX pins to the mic
 
 ## 官方支持的硬件
 
-PX4 项目支持并维护着 [FMU 标准参考硬件](../hardware/reference_design.md) 及任何与标准相兼容的飞控板平台。 This includes the [Pixhawk-series](../flight_controller/pixhawk_series.md) (see the user guide for a [full list of officially supported hardware](../flight_controller/README.md)).
+PX4 项目支持并维护着 [FMU 标准参考硬件](../hardware/reference_design.md) 及任何与标准相兼容的飞控板平台。 This includes the [Pixhawk-series](../flight_controller/pixhawk_series.md) (see the user guide for a [full list of officially supported hardware](../flight_controller/index.md)).
 
 每个受官方支持的飞控板平台都将受益于：
 
@@ -86,6 +86,6 @@ You can reach out to the core developer team and community on the [official supp
 - [Device Drivers](../middleware/drivers.md) - 如何支持新的外围硬件设备（设备驱动）
 - [Building the Code](../dev_setup/building_px4.md) - How to build source and upload firmware
 - 受支持的飞行控制器：
-  - [自动驾驶仪硬件](../flight_controller/README.md)
+  - [自动驾驶仪硬件](../flight_controller/index.md)
   - [Supported boards list](https://github.com/PX4/PX4-Autopilot/#supported-hardware) (Github) - Boards for which PX4-Autopilot has specific code
-- [Supported Peripherals](../peripherals/README.md)
+- [Supported Peripherals](../peripherals/index.md)

@@ -18,7 +18,7 @@ PX4 supports a number of Global Navigation Satellite System (GNSS) receivers and
 ![GPS/나침반](../../assets/hardware/gps/gps_compass.jpg)
 
 GPS/compass hardware options are listed in:
-- [GPS/Compass](../gps_compass/README.md)
+- [GPS/Compass](../gps_compass/index.md)
 - [RTK GNSS (GPS)](../gps_compass/rtk_gps.md)
 
 :::note
@@ -51,6 +51,6 @@ Distance sensors are used for smooth landings, object avoidance and terrain foll
 
 ## See Also
 
-- [Peripheral Hardware](../peripherals/README.md) contains documentation for other sensors, such as [Battery/Power Monitors](../power_module/README.md)), [Air traffic warning systems](../peripherals/adsb_flarm.md), [Tachometers](../sensor/tachometers.md).
+- [Peripheral Hardware](../peripherals/index.md) contains documentation for other sensors, such as [Battery/Power Monitors](../power_module/index.md)), [Air traffic warning systems](../peripherals/adsb_flarm.md), [Tachometers](../sensor/tachometers.md).
 - [기초 초립법](../assembly/README.md)에는 비행 콘틀롤러에 관한 시작 가이드가 포함되어 있습니다. These explain how to connect the core sensors to specific flight controller hardware.
 - [비행 콘트롤러](../flight_controller/README.md) 항목에서는 배선 정보를 설명합니다.

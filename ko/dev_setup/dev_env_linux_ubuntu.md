@@ -6,7 +6,7 @@ Bash scripts are provided to simplify the process. They are intended to be run o
 
 The [supported targets](../dev_setup/dev_env.md#supported-targets) are:
 
-- [Simulation and NuttX (Pixhawk) Targets](#simulation-and-nuttx-pixhawk-targets). This includes: [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md), [jMAVSim](../sim_jmavsim/README.md), [Pixhawk and other NuttX-based hardware](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)).
+- [Simulation and NuttX (Pixhawk) Targets](#simulation-and-nuttx-pixhawk-targets). This includes: [Gazebo](../sim_gazebo_gz/index.md), [Gazebo Classic](../sim_gazebo_classic/index.md), [jMAVSim](../sim_jmavsim/index.md), [Pixhawk and other NuttX-based hardware](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)).
 - [라즈베리파이](#raspberry-pi)
 - [ROS 2](#ros-2) (Robotics Operating System)
 - [ROS 1](#ros-gazebo-classic) (Robotics Operating System)
@@ -28,7 +28,7 @@ This video shows how to install the toolchain for NuttX and simulation targets (
 users should first read/skip ahead to the [ROS/Gazebo](#rosgazebo) or [ROS 2](#ros-2) sections.
 :::
 
-Use the [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) script to set up a development environment that allows you to build for simulators and/or the [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) toolchain. The script installs [jMAVSim](../sim_jmavsim/README.md) on all targets, [Gazebo Classic](../sim_gazebo_classic/README.md) 9 on Ubuntu 18.04, Gazebo Classic 11 on Ubuntu 20.04, and [Gazebo](../sim_gazebo_gz/README.md) "Garden" on Ubuntu 22.04.
+Use the [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) script to set up a development environment that allows you to build for simulators and/or the [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) toolchain. The script installs [jMAVSim](../sim_jmavsim/index.md) on all targets, [Gazebo Classic](../sim_gazebo_classic/index.md) 9 on Ubuntu 18.04, Gazebo Classic 11 on Ubuntu 20.04, and [Gazebo](../sim_gazebo_gz/index.md) "Garden" on Ubuntu 22.04.
 
 툴체인을 설치하려면:
 
@@ -53,7 +53,7 @@ The environment setup scripts in the source usually work for recent PX4 releases
 :::details
 Additional notes These notes are provided "for information only":
 
-- If you want to use Gazebo on Ubuntu 20.04 you can add it manually. See [Gazebo > Installation](../sim_gazebo_gz/README.md#installation-ubuntu-linux).
+- If you want to use Gazebo on Ubuntu 20.04 you can add it manually. See [Gazebo > Installation](../sim_gazebo_gz/index.md#installation-ubuntu-linux).
 - 다음과 같이 gcc 버전을 확인하여 NuttX 설치를 확인할 수 있습니다.
 
   ```sh
@@ -172,7 +172,7 @@ You will need to install the normal development [simulator environment](#simulat
 
 ## ROS/Gazebo Classic
 
-This section explains how to install [ROS 1](../ros/README.md) with PX4. ROS 1 full desktop builds come with Gazebo Classic, so normally you will not install PX4 simulator dependencies yourself!
+This section explains how to install [ROS 1](../ros/index.md) with PX4. ROS 1 full desktop builds come with Gazebo Classic, so normally you will not install PX4 simulator dependencies yourself!
 
 ### ROS Noetic/Ubuntu 20.04
 

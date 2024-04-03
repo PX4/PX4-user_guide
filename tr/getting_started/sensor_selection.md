@@ -18,7 +18,7 @@ We recommend the use of an external "combined" compass/GPS module mounted as far
 ![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
 GPS/compass hardware options are listed in:
-- [GPS/Compass](../gps_compass/README.md)
+- [GPS/Compass](../gps_compass/index.md)
 - [RTK GNSS (GPS)](../gps_compass/rtk_gps.md)
 
 :::note
@@ -51,6 +51,6 @@ PX4 supports many affordable distance sensors, using different technologies, and
 
 ## See Also
 
-- [Peripheral Hardware](../peripherals/README.md) contains documentation for other sensors, such as [Battery/Power Monitors](../power_module/README.md)), [Air traffic warning systems](../peripherals/adsb_flarm.md), [Tachometers](../sensor/tachometers.md).
-- [Basic Assembly](../assembly/README.md) contains flight controller quick start guides. These explain how to connect the core sensors to specific flight controller hardware.
-- [Flight Controller](../flight_controller/README.md) topics often contain wiring information.
+- [Peripheral Hardware](../peripherals/index.md) contains documentation for other sensors, such as [Battery/Power Monitors](../power_module/index.md)), [Air traffic warning systems](../peripherals/adsb_flarm.md), [Tachometers](../sensor/tachometers.md).
+- [Basic Assembly](../assembly/index.md) contains flight controller quick start guides. These explain how to connect the core sensors to specific flight controller hardware.
+- [Flight Controller](../flight_controller/index.md) topics often contain wiring information.

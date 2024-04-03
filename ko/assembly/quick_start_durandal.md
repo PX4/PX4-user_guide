@@ -171,7 +171,7 @@ _Durandal_ has 5 AUX ports, so cannot be used with airframes that map AUX6, AUX7
 
 ## 기타 주변 장치
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
+The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
 
 ## 핀 배열
 

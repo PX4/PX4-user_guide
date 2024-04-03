@@ -3,8 +3,8 @@
 Наступні інструкції для встановлення середовища розробки PX4 для macOS. Це середовище може бути використане для збірки PX4 для:
 
 - Pixhawk та іншого апаратного забезпечення на основі NuttX
-- [Симуляція jMAVSim](../sim_jmavsim/README.md)
-- [Симуляція Gazebo Classic](../sim_gazebo_classic/README.md)
+- [Симуляція jMAVSim](../sim_jmavsim/index.md)
+- [Симуляція Gazebo Classic](../sim_gazebo_classic/index.md)
 
 :::tip
 Ця установка підтримується командою розробників PX4. Для збірки для інших цільових платформ потрібно використати [інші ОС](../dev_setup/dev_env.md#supported-targets) (або [середовище розробки що не підтримується](../advanced/community_supported_dev_env.md)).

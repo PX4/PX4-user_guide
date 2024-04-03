@@ -2,7 +2,7 @@
 
 PX4 firmware can be built from source code on the console or in an IDE, for both simulated and hardware targets.
 
-You need to build PX4 in order to use [simulators](../simulation/README.md), or if you want to modify PX4 and create a custom build. If you just want to try out PX4 on real hardware then [load the prebuilt binaries](../config/firmware.md) using QGroundControl (there is no need to follow these instructions).
+You need to build PX4 in order to use [simulators](../simulation/index.md), or if you want to modify PX4 and create a custom build. If you just want to try out PX4 on real hardware then [load the prebuilt binaries](../config/firmware.md) using QGroundControl (there is no need to follow these instructions).
 
 :::ノート これらの手順に従う前に、まずホストOSとターゲットハードウェアに [Developer Toolchain](../dev_setup/dev_env.md) をインストールする必要があります。 If you have any problems after following these steps see the [Troubleshooting](#troubleshooting) section below.
 :::
@@ -24,7 +24,7 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 
 最初に、ホストOS上で機体のシミュレーションをビルドします。 これにより、実際にハードウェアとIDEで設定する前にシステムを検証することができます。
 
-Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../sim_jmavsim/README.md) using the following command:
+Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../sim_jmavsim/index.md) using the following command:
 
 ```sh
 make px4_sitl jmavsim
@@ -52,7 +52,7 @@ QGroundControlでシミュレーションすることは、車両の実際の動
 
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
-:::tip PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md) and [AirSim](../sim_airsim/README.md). These are also started with _make_ - e.g.
+:::tip PX4 can be used with a number of other [Simulators](../simulation/index.md), including [Gazebo](../sim_gazebo_gz/index.md), [Gazebo Classic](../sim_gazebo_classic/index.md) and [AirSim](../sim_airsim/index.md). These are also started with _make_ - e.g.
 
 ```sh
 make px4_sitl gazebo-classic
@@ -136,7 +136,7 @@ Rebooting.
 
 ## その他のボード
 
-Build commands for other boards are given the [board-specific flight controller pages](../flight_controller/README.md) (usually under a heading _Building Firmware_).
+Build commands for other boards are given the [board-specific flight controller pages](../flight_controller/index.md) (usually under a heading _Building Firmware_).
 
 以下のコマンドを使用して、すべての構成ターゲットを列挙することもできます。
 
@@ -270,9 +270,9 @@ make list_config_targets
 `none` can be used if you want to launch PX4 and wait for a simulator (jmavsim, Gazebo, Gazebo Classic, or some other simulator). For example, `make px4_sitl none_iris` launches PX4 without a simulator (but with the iris airframe).
 :::
 
-- **MODEL:** The _vehicle_ model to use (e.g. `iris` (_default_), `rover`, `tailsitter`, etc), which will be loaded by the simulator. The environment variable `PX4_SIM_MODEL` will be set to the selected model, which is then used in the [startup script](../simulation/README.md#startup-scripts) to select appropriate parameters.
+- **MODEL:** The _vehicle_ model to use (e.g. `iris` (_default_), `rover`, `tailsitter`, etc), which will be loaded by the simulator. The environment variable `PX4_SIM_MODEL` will be set to the selected model, which is then used in the [startup script](../simulation/index.md#startup-scripts) to select appropriate parameters.
 - **DEBUGGER:** Debugger to use: `none` (_default_), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. For more information see [Simulation Debugging](../debug/simulation_debugging.md).
-- **WORLD:** (Gazebo Classic only). Set the world ([PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/main/worlds)) that is loaded. Default is [empty.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/empty.world). For more information see [Gazebo Classic > Loading a Specific World](../sim_gazebo_classic/README.md#loading-a-specific-world).
+- **WORLD:** (Gazebo Classic only). Set the world ([PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/main/worlds)) that is loaded. Default is [empty.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/empty.world). For more information see [Gazebo Classic > Loading a Specific World](../sim_gazebo_classic/index.md#loading-a-specific-world).
 
 :::tip
 You can get a list of _all_ available `VIEWER_MODEL_DEBUGGER_WORLD` options using the command below:

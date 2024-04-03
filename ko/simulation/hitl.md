@@ -82,7 +82,7 @@ SITL은 시뮬레이션 환경의 컴퓨터에서 실행되며, 해당 환경에
    - [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)를 '사용 안 함'으로 설정합니다. 무선 제어로 HITL을 실행하지 않으면, RC 안전장치가 간섭하지 않습니다.
 
 :::tip
-The _QGroundControl User Guide_ also has instructions on [Joystick](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html) and [Virtual Joystick](https://docs.qgroundcontrol.com/master/en/SettingsView/VirtualJoystick.html) setup.
+The _QGroundControl User Guide_ also has instructions on [Joystick](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/joystick.html) and [Virtual Joystick](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/virtual_joystick.html) setup.
 :::
 
 Once configuration is complete, **close** _QGroundControl_ and disconnect the flight controller hardware from the computer.
@@ -97,7 +97,7 @@ Once configuration is complete, **close** _QGroundControl_ and disconnect the fl
 Make sure _QGroundControl_ is not running!
 :::
 
-1. Build PX4 with [Gazebo Classic](../sim_gazebo_classic/README.md) (in order to build the Gazebo Classic plugins).
+1. Build PX4 with [Gazebo Classic](../sim_gazebo_classic/index.md) (in order to build the Gazebo Classic plugins).
 
    ```sh
    cd <Firmware_clone>
@@ -146,4 +146,4 @@ Make sure _QGroundControl_ is not running!
 
 ## HITL에서 자율 임무 비행
 
-You should be able to use _QGroundControl_ to [run missions](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#missions) and otherwise control the vehicle.
+You should be able to use _QGroundControl_ to [run missions](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/fly_view/fly_view.html#missions) and otherwise control the vehicle.

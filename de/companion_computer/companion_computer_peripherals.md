@@ -36,7 +36,7 @@ Options include:
 
 ## Cameras
 
-Cameras are used image and video capture, and more generally to provide data for [computer vision](../computer_vision/README.md) applications (in this case the "cameras" may only provide processed data, not raw images).
+Cameras are used image and video capture, and more generally to provide data for [computer vision](../computer_vision/index.md) applications (in this case the "cameras" may only provide processed data, not raw images).
 
 ### Stereo Cameras
 

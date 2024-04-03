@@ -82,7 +82,7 @@ In summary, HITL runs PX4 on the actual hardware using standard firmware, but SI
    - [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) to "Disabled". This ensures that no RC failsafe actions interfere when not running HITL with a radio control.
 
 :::tip
-The _QGroundControl User Guide_ also has instructions on [Joystick](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html) and [Virtual Joystick](https://docs.qgroundcontrol.com/master/en/SettingsView/VirtualJoystick.html) setup.
+The _QGroundControl User Guide_ also has instructions on [Joystick](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/joystick.html) and [Virtual Joystick](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/virtual_joystick.html) setup.
 :::
 
 Once configuration is complete, **close** _QGroundControl_ and disconnect the flight controller hardware from the computer.
@@ -97,7 +97,7 @@ Follow the appropriate setup steps for the specific simulator in the following s
 Make sure _QGroundControl_ is not running!
 :::
 
-1. Build PX4 with [Gazebo Classic](../sim_gazebo_classic/README.md) (in order to build the Gazebo Classic plugins).
+1. Build PX4 with [Gazebo Classic](../sim_gazebo_classic/index.md) (in order to build the Gazebo Classic plugins).
 
    ```sh
    cd <Firmware_clone>
@@ -146,4 +146,4 @@ Replace the serial port name `/dev/ttyACM0` as appropriate. On macOS this port w
 
 ## Fly an Autonomous Mission in HITL
 
-You should be able to use _QGroundControl_ to [run missions](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#missions) and otherwise control the vehicle.
+You should be able to use _QGroundControl_ to [run missions](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/fly_view/fly_view.html#missions) and otherwise control the vehicle.

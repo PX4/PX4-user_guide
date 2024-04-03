@@ -2,13 +2,13 @@
 
 PX4 running on Pixhawk-series flight controllers can connect to a companion computer using any free configurable serial port, including the Ethernet port (if supported).
 
-See [Companion Computers](../companion_computer/README.md) for information about supported hardware and general setup.
+See [Companion Computers](../companion_computer/index.md) for information about supported hardware and general setup.
 
 ## Companion Computer Software
 
 The companion computer needs to run software that communicates with the flight controller, and which routes traffic to ground stations and the cloud.
 
-Common options are listed in [Companion Computers > Companion Computer Setup](../companion_computer/README.md#companion-computer-software).
+Common options are listed in [Companion Computers > Companion Computer Setup](../companion_computer/index.md#companion-computer-software).
 
 ## Ethernet Setup
 

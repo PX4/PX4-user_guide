@@ -20,7 +20,7 @@ The sections below outline/link to the wiring and system console information for
 
 ### Board-Specific Wiring
 
-The System Console UART pinouts/debug ports are typically documented in [autopilot overview pages](../flight_controller/README.md) (some are linked below):
+The System Console UART pinouts/debug ports are typically documented in [autopilot overview pages](../flight_controller/index.md) (some are linked below):
 
 - [3DR Pixhawk v1 Flight Controller](../flight_controller/pixhawk.md#console-port) (also applies to [mRo Pixhawk](../flight_controller/mro_pixhawk.md#debug-ports), [Holybro pix32](../flight_controller/holybro_pix32.md#debug-port))
 - [Pixhawk 3](../flight_controller/pixhawk3_pro.md#debug-port)

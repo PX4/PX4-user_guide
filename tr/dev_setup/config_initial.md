@@ -21,8 +21,8 @@ Tavsiye edilen ekipmanlar:
   - Herhangi bir MacBook veya Ubuntu Linux dizüstü bilgisayar (geliştirme bilgisayarı da kullanılabilir)
   - Samsung Note 4 or equivalent (any recent Android tablet or phone with a large enough screen to run _QGroundControl_ effectively).
 - **Vehicle capable of running PX4**:
-  - [Get a prebuilt vehicle](../complete_vehicles_mc/README.md)
-  - [Build your own](../airframes/README.md)
+  - [Get a prebuilt vehicle](../complete_vehicles_mc/index.md)
+  - [Build your own](../airframes/index.md)
 - **Safety glasses**
 - **Tether** (multicopter only - for more risky tests)
 

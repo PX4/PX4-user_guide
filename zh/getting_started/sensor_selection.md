@@ -18,7 +18,7 @@ PX4 supports a number of Global Navigation Satellite System (GNSS) receivers and
 ![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
 GPS/compass hardware options are listed in:
-- [GPS/Compass](../gps_compass/README.md)
+- [GPS/Compass](../gps_compass/index.md)
 - [RTK GNSS (GPS)](../gps_compass/rtk_gps.md)
 
 :::note
@@ -51,6 +51,6 @@ PX4 支持许多实惠的距离传感器，使用不同的技术，并支持不�
 
 ## See Also
 
-- [Peripheral Hardware](../peripherals/README.md) contains documentation for other sensors, such as [Battery/Power Monitors](../power_module/README.md)), [Air traffic warning systems](../peripherals/adsb_flarm.md), [Tachometers](../sensor/tachometers.md).
+- [Peripheral Hardware](../peripherals/index.md) contains documentation for other sensors, such as [Battery/Power Monitors](../power_module/index.md)), [Air traffic warning systems](../peripherals/adsb_flarm.md), [Tachometers](../sensor/tachometers.md).
 - [基本组件](../assembly/README.md)包含飞控快速入门指南。 These explain how to connect the core sensors to specific flight controller hardware.
 - [飞控](../flight_controller/README.md) 主题通常包含接线信息。

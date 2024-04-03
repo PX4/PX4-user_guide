@@ -53,7 +53,7 @@ As documented in the Airframe Reference: [Generic ground vehicle (Ackermann)](..
 Rovers are configured using *QGroundControl* in the same way as any other vehicle.
 
 主要的跟小车相关的配置是要设置正确的机架类型：
-1. Switch to the [Basic Configuration](../config/README.md) section in *QGroundControl*
+1. Switch to the [Basic Configuration](../config/index.md) section in *QGroundControl*
 1. 选择 [Airframe](../config/airframe.md) 选项卡。
 1. Scroll down the list to find the **Rover** icon.
 1. Choose **Traxxas stampede vxl 2wd** from the drop down list.

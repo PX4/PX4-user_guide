@@ -283,7 +283,7 @@ The arm/disarm switch is a _direct replacement_ for the default stick-based armi
 - It avoids accidentally triggering arming/disarming in-air with a certain stick motion.
 - There is no delay (it reacts immediately).
 
-The arm/disarm switch immediately disarms (stop) motors for those [flight modes](../flight_modes/README.md#flight-modes) that _support disarming in flight_. This includes:
+The arm/disarm switch immediately disarms (stop) motors for those [flight modes](../flight_modes/index.md#flight-modes) that _support disarming in flight_. This includes:
 
 - _Manual mode_
 - _Acro mode_

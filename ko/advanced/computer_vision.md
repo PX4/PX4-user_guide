@@ -2,7 +2,7 @@
 
 [컴퓨터 비전](https://en.wikipedia.org/wiki/Computer_vision)은 컴퓨터가 시각 데이터를 활용하여 실제 환경을 이해하는 기술입니다.
 
-PX4 uses computer vision systems (primarily running on [Companion Computers](../companion_computer/README.md)) in order to support the following features:
+PX4 uses computer vision systems (primarily running on [Companion Computers](../companion_computer/index.md)) in order to support the following features:
 
 - [광류(Optical flow)](#optical-flow)는 2D 속도 추정을 제공합니다(아래로 향하는 카메라와 아래로 향하는 거리 센서 사용).
 - [Motion Capture](#motion-capture) provides 3D pose estimation using a vision system that is _external_ to the vehicle. 주로 실내 내비게이션에 사용됩니다.

@@ -2,11 +2,11 @@
 
 The [OctoMap library](http://octomap.github.io/) is an open source library for generating volumetric 3D environment models from sensor data. This model data can then be used by a drone for navigation and obstacle avoidance.
 
-This guide covers how to use _OctoMap_ with the [Gazebo Classic](../sim_gazebo_classic/README.md) [Rotors Simulator](https://github.com/ethz-asl/rotors_simulator/wiki/RotorS-Simulator) and ROS.
+This guide covers how to use _OctoMap_ with the [Gazebo Classic](../sim_gazebo_classic/index.md) [Rotors Simulator](https://github.com/ethz-asl/rotors_simulator/wiki/RotorS-Simulator) and ROS.
 
 ## Installation
 
-The installation requires ROS, [Gazebo Classic](../sim_gazebo_classic/README.md) and the Rotors Simulator plugin. Follow the [Rotors Simulator instructions](https://github.com/ethz-asl/rotors_simulator) to install.
+The installation requires ROS, [Gazebo Classic](../sim_gazebo_classic/index.md) and the Rotors Simulator plugin. Follow the [Rotors Simulator instructions](https://github.com/ethz-asl/rotors_simulator) to install.
 
 Next, install the _OctoMap_ library:
 
@@ -60,7 +60,7 @@ to:
 
 ## Running the Simulation
 
-Run the following three lines in _separate_ terminal windows. This opens up [Gazebo Classic](../sim_gazebo_classic/README.md), _Rviz_ and an octomap server.
+Run the following three lines in _separate_ terminal windows. This opens up [Gazebo Classic](../sim_gazebo_classic/index.md), _Rviz_ and an octomap server.
 
 ```sh
 roslaunch rotors_gazebo mav_hovering_example_with_vi_sensor.launch  mav_name:=firefly

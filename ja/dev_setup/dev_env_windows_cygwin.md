@@ -11,7 +11,7 @@ See [Toolchain Installation](../dev_setup/dev_env.md) for information about the 
 The following instructions explain how to set up a (Cygwin-based) PX4 development environment on Windows 10. This environment can be used to build PX4 for:
 
 - Pixhawk and other NuttX-based hardware
-- [jMAVSim Simulation](../sim_jmavsim/README.md)
+- [jMAVSim Simulation](../sim_jmavsim/index.md)
 
 <a id="installation"></a>
 

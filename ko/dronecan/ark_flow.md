@@ -1,6 +1,6 @@
 # ARK Flow
 
-ARK Flow is an open source [DroneCAN](README.md) [optical flow](../sensor/optical_flow.md), [distance sensor](../sensor/rangefinders.md), and IMU module.
+ARK Flow is an open source [DroneCAN](index.md) [optical flow](../sensor/optical_flow.md), [distance sensor](../sensor/rangefinders.md), and IMU module.
 
 ![ARK Flow](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
 
@@ -40,7 +40,7 @@ Order this module from:
 
 ### Wiring
 
-The ARK Flow is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions.
+The ARK Flow is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
 ### Mounting
 
@@ -54,7 +54,7 @@ The sensor can be mounted anywhere on the frame, but you will need to specify th
 
 ## Firmware Setup
 
-ARK Flow runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](README.md#node-id-allocation).
+ARK Flow runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](index.md#node-id-allocation).
 
 ARK Flow boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself see [PX4 DroneCAN Firmware > Building the Firmware](px4_cannode_fw.md#building-the-firmware).
 
@@ -78,11 +78,11 @@ The steps are:
 
 Once enabled, the module will be detected on boot. Flow data should arrive at 10Hz.
 
-DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/README.md#enabling-dronecan).
+DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
 
 ### PX4 Configuration
 
-You need to set the EKF optical flow parameters to enable fusing optical flow measurements for velocity calculation, set necessary [DroneCAN](README.md) parameters, and define offsets if the sensor is not centred within the vehicle.
+You need to set the EKF optical flow parameters to enable fusing optical flow measurements for velocity calculation, set necessary [DroneCAN](index.md) parameters, and define offsets if the sensor is not centred within the vehicle.
 
 Set the following parameters in _QGroundControl_:
 

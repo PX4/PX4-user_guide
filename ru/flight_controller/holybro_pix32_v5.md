@@ -132,7 +132,7 @@ The pinout uses the standard [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-
 ## Peripherals
 
 - [Digital Airspeed Sensor](../sensor/airspeed.md)
-- [Telemetry Radio Modules](../telemetry/README.md)
+- [Telemetry Radio Modules](../telemetry/index.md)
 - [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
 ## Supported Platforms / Airframes

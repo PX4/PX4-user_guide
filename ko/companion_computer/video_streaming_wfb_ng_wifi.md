@@ -1,8 +1,8 @@
 # Video Streaming Data-link using WiFi in Raw Mode (WFB-ng)
 
-This tutorial shows how to set up a [companion computer](../companion_computer/README.md) with a Logitech C920 or RaspberryPi camera, such that the video stream is transferred from the UAV to a ground computer and displayed in _QGroundControl_. The setup uses WiFi in unconnected (broadcast) mode and software from the [WFB-ng project](https://github.com/svpcom/wfb-ng).
+This tutorial shows how to set up a [companion computer](../companion_computer/index.md) with a Logitech C920 or RaspberryPi camera, such that the video stream is transferred from the UAV to a ground computer and displayed in _QGroundControl_. The setup uses WiFi in unconnected (broadcast) mode and software from the [WFB-ng project](https://github.com/svpcom/wfb-ng).
 
-The channel can also be used as a bidirectional [telemetry](../telemetry/README.md) link and TCP/IP tunnel for drone control during flight. If you manually control the drone with a Joystick from QGroundControl (which uses MAVLink) then you can use WFB-ng as single link for all drone communications (Video, MAVLink telemetry, remote control using a Joystick).
+The channel can also be used as a bidirectional [telemetry](../telemetry/index.md) link and TCP/IP tunnel for drone control during flight. If you manually control the drone with a Joystick from QGroundControl (which uses MAVLink) then you can use WFB-ng as single link for all drone communications (Video, MAVLink telemetry, remote control using a Joystick).
 
 :::warning
 Before using _WFB-ng_ check regulators allow this kind of WiFi use in your country.

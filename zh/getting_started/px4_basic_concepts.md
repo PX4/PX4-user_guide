@@ -2,7 +2,7 @@
 
 本主题提供了无人机和使用 PX4 的基本介绍（主要面向新手用户，但对有经验的用户也是一个很好的介绍）。
 
-如果你已经熟悉了基本概念，你可以转到 [基本组装](../assembly/README.md) 以了解如何连接特定的自驾仪硬件。 To load firmware and set up the vehicle with _QGroundControl_, see [Basic Configuration](../config/README.md).
+如果你已经熟悉了基本概念，你可以转到 [基本组装](../assembly/README.md) 以了解如何连接特定的自驾仪硬件。 To load firmware and set up the vehicle with _QGroundControl_, see [Basic Configuration](../config/index.md).
 
 ## 无人机是什么？
 
@@ -25,7 +25,7 @@ PX4的一些主要功能包括：
 - Controls [many different vehicle frames/types](../airframes/airframe_reference.md), including: aircraft (multicopters, fixed-wing aircraft and VTOLs), ground vehicles and underwater vehicles.
 - 适用于[设备控制器](#vehicle-flight-controller-board)，传感器和其他外围设备的硬件选择。
 - 灵活而强大的[飞行模式](#flight-modes)和[安全功能](#safety-settings-failsafe)。
-- Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/README.md) ([ROS 2](../ros/ros2_comm.md), [MAVSDK](http://mavsdk.mavlink.io)).
+- Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/index.md) ([ROS 2](../ros/ros2_comm.md), [MAVSDK](http://mavsdk.mavlink.io)).
 
 PX4是一个大型无人机平台的核心部分，整个平台包括了[QGroundControl](#qgroundcontrol)地面站，[Pixhawk硬件设备](https://pixhawk.org/)，以及[MAVSDK](http://mavsdk.mavlink.io)用于集成记载计算机，相机和其他使用MAVLink协议的硬件设备。 PX4 由 [Dronecode 项目](https://www.dronecode.org/) 支持。
 
@@ -86,9 +86,9 @@ Many PX4 drones use brushless motors that are driven by the flight controller vi
 
 ## 电池/电源
 
-PX4无人机最常使用的是锂聚合物（LiPo）电池。 The battery is typically connected to the system using a [Power Module](../power_module/README.md) or _Power Management Board_, which provide separate power for the flight controller and to the ESCs (for the motors).
+PX4无人机最常使用的是锂聚合物（LiPo）电池。 The battery is typically connected to the system using a [Power Module](../power_module/index.md) or _Power Management Board_, which provide separate power for the flight controller and to the ESCs (for the motors).
 
-Information about batteries and battery configuration can be found in [Battery Estimation Tuning](../config/battery.md) and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
+Information about batteries and battery configuration can be found in [Battery Estimation Tuning](../config/battery.md) and the guides in [Basic Assembly](../assembly/index.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
 
 ## Manual Control
 
@@ -113,11 +113,11 @@ Some vehicles have a _safety switch_ that must be engaged before the vehicle can
 
 ## 数传电台
 
-[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like _QGroundControl_ and a vehicle running PX4. 这使得在飞行过程中调整参数，实时监视遥测信息，更改任务等成为可能。
+[Data/Telemetry Radios](../telemetry/index.md) can provide a wireless MAVLink connection between a ground control station like _QGroundControl_ and a vehicle running PX4. 这使得在飞行过程中调整参数，实时监视遥测信息，更改任务等成为可能。
 
 ## 机载计算机
 
-A [Companion Computer](../companion_computer/README.md) (also referred to as "mission computer" or "offboard computer"), is a separate on-vehicle computer that communicates with PX4 to provide higher level command and control.
+A [Companion Computer](../companion_computer/index.md) (also referred to as "mission computer" or "offboard computer"), is a separate on-vehicle computer that communicates with PX4 to provide higher level command and control.
 
 The companion computer usually runs Linux, as this is a much better platform for "general" software development, and allows drones to leverage pre-existing software for computer vision, networking, and so on.
 
@@ -125,9 +125,9 @@ The flight controller and companion computer may be pre-integrated into a single
 
 Relevant topics include:
 
-- [Companion Computers](../companion_computer/README.md)
+- [Companion Computers](../companion_computer/index.md)
 - [Offboard 模式](../flight_modes/offboard.md) - 用于从地面站或机载计算机对 PX4 进行 Offboard 控制的飞行模式。
-- [机器人（Robotics) APIs](../robotics/README.md)
+- [机器人（Robotics) APIs](../robotics/index.md)
 
 ## SD卡（可移除储存器）
 
@@ -155,7 +155,7 @@ Payloads are connected to [Fight Controller outputs](#outputs-motors-servos-actu
 
 For more information see:
 
-- [Payloads & Cameras](../payloads/README.md)
+- [Payloads & Cameras](../payloads/index.md)
 
 ## 解锁和加锁
 
@@ -196,10 +196,10 @@ Not all flight modes are available on all vehicle types, and some modes can only
 
 An overview of the available flight modes for each vehicle can be found below:
 
-- [Flight Modes (Multicopter)](../flight_modes_mc/README.md)
-- [Flight Modes (Fixed-Wing)](../flight_modes_fw/README.md)
-- [Flight Modes (VTOL)](../flight_modes_vtol/README.md)
-- [Flight Modes (Rover)](../flight_modes_rover/README.md)
+- [Flight Modes (Multicopter)](../flight_modes_mc/index.md)
+- [Flight Modes (Fixed-Wing)](../flight_modes_fw/index.md)
+- [Flight Modes (VTOL)](../flight_modes_vtol/index.md)
+- [Flight Modes (Rover)](../flight_modes_rover/index.md)
 
 Instructions for how to set up your remote control switches to enable different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
 

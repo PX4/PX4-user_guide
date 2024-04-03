@@ -1,6 +1,6 @@
 # Standard VTOL
 
-A **Standard VTOL** is a [VTOL](../frames_vtol/README.md) that has _completely separate_ flight controls for multicopter and fixed-wing flight.
+A **Standard VTOL** is a [VTOL](../frames_vtol/index.md) that has _completely separate_ flight controls for multicopter and fixed-wing flight.
 
 ![Vertical Technologies: Deltaquad QuadPlane VTOL](../../assets/airframes/vtol/vertical_technologies_deltaquad/hero_small.png)
 
@@ -10,7 +10,7 @@ A **Standard VTOL** is a [VTOL](../frames_vtol/README.md) that has _completely s
 
 ## Videos
 
-This section contains videos that are specific to Standard VTOL (videos that apply to all VTOL types can be found in [VTOL](../frames_vtol/README.md)).
+This section contains videos that are specific to Standard VTOL (videos that apply to all VTOL types can be found in [VTOL](../frames_vtol/index.md)).
 
 ---
 

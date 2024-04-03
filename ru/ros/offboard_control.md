@@ -18,7 +18,7 @@ Although this step isn't mandatory since you can activate offboard mode using a 
 
 ### Enable the companion computer interface
 
-Enable MAVLink on the serial port that you connect to the companion computer (see [Companion Computers](../companion_computer/README.md)).
+Enable MAVLink on the serial port that you connect to the companion computer (see [Companion Computers](../companion_computer/index.md)).
 
 ## Hardware setup
 
@@ -45,7 +45,7 @@ graph TD;
 
 ### On-board processor
 
-A small computer mounted onto the vehicle, connected to the autopilot through a serial port or Ehthernet port. There are many possibilities here and it will depend on what kind of additional on-board processing you want to do in addition to sending commands to the autopilot. Some examples are provided in [Companion Computers](../companion_computer/README.md#companion-computer-options).
+A small computer mounted onto the vehicle, connected to the autopilot through a serial port or Ehthernet port. There are many possibilities here and it will depend on what kind of additional on-board processing you want to do in addition to sending commands to the autopilot. Some examples are provided in [Companion Computers](../companion_computer/index.md#companion-computer-options).
 
 [![Mermaid diagram: Companion mavlink](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGNvbXBbQ29tcGFuaW9uIENvbXB1dGVyXSAtLU1BVkxpbmstLT4gdWFydFtVQVJUIEFkYXB0ZXJdO1xuICB1YXJ0IC0tTUFWTGluay0tPiBBdXRvcGlsb3Q7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGNvbXBbQ29tcGFuaW9uIENvbXB1dGVyXSAtLU1BVkxpbmstLT4gdWFydFtVQVJUIEFkYXB0ZXJdO1xuICB1YXJ0IC0tTUFWTGluay0tPiBBdXRvcGlsb3Q7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 

@@ -1,7 +1,13 @@
 # 技术支持
 
-<div v-if="$themeConfig.px4_version != 'main'">
-  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p>. <p>The latest version <a href="https://docs.px4.io/main/en/contribute/support.html">can be found here</a>.</p>
+<script setup>
+import { useData } from 'vitepress'
+const { site } = useData();
+</script>
+
+<div v-if="site.title !== 'PX4 Guide (main)'">
+  <div class="custom-block danger">
+    <p class="custom-block-title">This page may be out out of date. <a href="https://docs.px4.io/main/en/contribute/support.html">See the latest version</a>.</p>
   </div>
 </div>
 
@@ -34,7 +40,7 @@ The Discuss Forum is much preferred because it is indexed by search engines and 
 ## 每周开发通讯
 
 :::tip
-Developers are most welcome to attend the [weekly dev call](../contribute/dev_call.md) (and other [developer events](../README.md#calendar-events)) to engage more deeply with the project.
+Developers are most welcome to attend the [weekly dev call](../contribute/dev_call.md) (and other [developer events](../index.md#calendar-events)) to engage more deeply with the project.
 :::
 
 The [Dev Call](../contribute/dev_call.md) is a weekly meeting attended by the PX4 dev team to discuss platform technical details, coordinate activities and perform in-depth analysis.

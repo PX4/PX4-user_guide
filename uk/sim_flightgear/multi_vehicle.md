@@ -50,4 +50,4 @@ The number of simultaneously running instances is limited mainly by computer res
 
 ## Additional Resources
 
-- See [Simulation](../simulation/README.md) for more information about the port configuration.
+- See [Simulation](../simulation/index.md) for more information about the port configuration.

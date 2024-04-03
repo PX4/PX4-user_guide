@@ -99,8 +99,8 @@ Raw comparison data for magnetometers (in fact, for all sensors) can be logged b
 
 ## 更多信息：
 
-- [Peripherals > GPS & Compass](../gps_compass/README.md)
-- [Basic Assembly](../assembly/README.md) (setup guides for each flight controller)
+- [Peripherals > GPS & Compass](../gps_compass/index.md)
+- [Basic Assembly](../assembly/index.md) (setup guides for each flight controller)
 - [Compass Power Compensation](../advanced_config/compass_power_compensation.md) (Advanced Configuration)
 - [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#compass)
 - [PX4 Setup Video - @2m38s](https://youtu.be/91VGmdSlbo4?t=2m38s) (Youtube)

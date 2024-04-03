@@ -42,7 +42,7 @@ The supported ROS 2 platforms for PX4 development are ROS 2 "Humble" on Ubuntu 2
 
 ROS 2 "Humble" is recommended because it is the current ROS 2 LTS distribution. ROS 2 "Foxy" reached end-of-life in May 2023, but is still stable and works with PX4.
 
-:::note PX4 is not as well tested on Ubuntu 22.04 as it is on Ubuntu 20.04 (at time of writing), and Ubuntu 20.04 is needed if you want to use [Gazebo Classic](../sim_gazebo_classic/README.md).
+:::note PX4 is not as well tested on Ubuntu 22.04 as it is on Ubuntu 20.04 (at time of writing), and Ubuntu 20.04 is needed if you want to use [Gazebo Classic](../sim_gazebo_classic/index.md).
 :::
 
 To setup ROS 2 for use with PX4:
@@ -171,7 +171,7 @@ To start the simulator (and client):
    :::: tabs
 
    ::: tab humble
-   - Start a PX4 [Gazebo](../sim_gazebo_gz/README.md) simulation using:
+   - Start a PX4 [Gazebo](../sim_gazebo_gz/index.md) simulation using:
 
      ```sh
      make px4_sitl gz_x500
@@ -180,7 +180,7 @@ To start the simulator (and client):
 :::
 
    ::: tab foxy
-   - Start a PX4 [Gazebo Classic](../sim_gazebo_classic/README.md) simulation using:
+   - Start a PX4 [Gazebo Classic](../sim_gazebo_classic/index.md) simulation using:
 
      ```sh
      make px4_sitl gazebo-classic
@@ -341,7 +341,7 @@ To control applications, ROS 2 applications:
 - subscribe to (listen to) telemetry topics published by PX4
 - publish to topics that cause PX4 to perform some action.
 
-The topics that you can use are defined in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml), and you can get more information about their data in the [uORB Message Reference](../msg_docs/README.md). For example, [VehicleGlobalPosition](../msg_docs/VehicleGlobalPosition.md) can be used to get the vehicle global position, while [VehicleCommand](../msg_docs/VehicleCommand.md) can be used to command actions such as takeoff and land.
+The topics that you can use are defined in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml), and you can get more information about their data in the [uORB Message Reference](../msg_docs/index.md). For example, [VehicleGlobalPosition](../msg_docs/VehicleGlobalPosition.md) can be used to get the vehicle global position, while [VehicleCommand](../msg_docs/VehicleCommand.md) can be used to command actions such as takeoff and land.
 
 The [ROS 2 Example applications](#ros-2-example-applications) examples below provide concrete examples of how to use these topics.
 
@@ -410,7 +410,7 @@ Similarly to vectors, also quanternions representing the attitude of the vehicle
 
 By default, time synchronization between ROS 2 and PX4 is automatically managed by the [uXRCE-DDS middleware](https://micro-xrce-dds.docs.eprosima.com/en/latest/time_sync.html) and time synchronization statistics are available listening to the bridged topic `/fmu/out/timesync_status`. When the uXRCE-DDS client runs on a flight controller and the agent runs on a companion computer this is the desired behavior as time offsets, time drift, and communication latency, are computed and automatically compensated.
 
-For Gazebo simulations PX4 uses the Gazebo `/clock` topic as [time source](../sim_gazebo_gz/README.md#px4-gazebo-time-synchronization) instead. This clock is always slightly off-sync w.r.t. the OS clock (the real time factor is never exactly one) and it can can even run much faster or much slower depending on the [user preferences](http://sdformat.org/spec?elem=physics&ver=1.9). Note that this is different from the [simulation lockstep](../simulation/README.md#lockstep-simulation) procedure adopted with Gazebo Classic.
+For Gazebo simulations PX4 uses the Gazebo `/clock` topic as [time source](../sim_gazebo_gz/index.md#px4-gazebo-time-synchronization) instead. This clock is always slightly off-sync w.r.t. the OS clock (the real time factor is never exactly one) and it can can even run much faster or much slower depending on the [user preferences](http://sdformat.org/spec?elem=physics&ver=1.9). Note that this is different from the [simulation lockstep](../simulation/index.md#lockstep-simulation) procedure adopted with Gazebo Classic.
 
 ROS2 users have then two possibilities regarding the [time source](https://design.ros2.org/articles/clock_and_time.html) of their nodes.
 

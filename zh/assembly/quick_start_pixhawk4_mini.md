@@ -75,7 +75,7 @@ If using a plane or rover, the 8 pin power (+) rail of **MAIN OUT** will need to
 <!--In the future, when Pixhawk 4 kit is available, add wiring images/videos for different airframes.-->
 
 :::note
-Using the Power Module that comes with the kit you will need to configure the _Number of Cells_ in the [Power Settings](https://docs.qgroundcontrol.com/master/en/SetupView/Power.html) but you won't need to calibrate the _voltage divider_. You will have to update the _voltage divider_ if you are using any other power module (e.g. the one from the Pixracer).
+Using the Power Module that comes with the kit you will need to configure the _Number of Cells_ in the [Power Settings](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) but you won't need to calibrate the _voltage divider_. You will have to update the _voltage divider_ if you are using any other power module (e.g. the one from the Pixracer).
 :::
 
 ## Radio Control
@@ -131,11 +131,11 @@ Make sure to use the correct mapping for your vehicle.
 
 ## 其它外设
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
+The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
 
 ## 配置
 
-General configuration information is covered in: [Autopilot Configuration](../config/README.md).
+General configuration information is covered in: [Autopilot Configuration](../config/index.md).
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 

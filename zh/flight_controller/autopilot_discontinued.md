@@ -24,5 +24,5 @@ This category is for discontinued autopilots and complete vehicles. These are _n
 ## Complete Vehicles
 
 - [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles_mc/betafpv_beta75x.md)
-- [Intel® Aero RTF Drone](../complete_vehicles_mc/intel_aero.md) ([Complete Vehicle](../complete_vehicles_mc/README.md))
-- [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) ([Complete Vehicle](../complete_vehicles_mc/README.md))
+- [Intel® Aero RTF Drone](../complete_vehicles_mc/intel_aero.md) ([Complete Vehicle](../complete_vehicles_mc/index.md))
+- [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) ([Complete Vehicle](../complete_vehicles_mc/index.md))

@@ -18,7 +18,7 @@ PX4 підтримує чисельні приймачі Системи Глоб
 ![GPS + Компас](../../assets/hardware/gps/gps_compass.jpg)
 
 Опції апаратного забезпечення GPS/компаса викладені в:
-- [GPS/компас](../gps_compass/README.md)
+- [GPS/компас](../gps_compass/index.md)
 - [RTK GNSS (GPS)](../gps_compass/rtk_gps.md)
 
 :::note

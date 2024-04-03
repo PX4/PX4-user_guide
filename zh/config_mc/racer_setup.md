@@ -28,7 +28,7 @@ This page describes how to setup and configure a racer for optimal performance (
 但是增加GPS也有一些好处，尤其是对于初学者。
 
 - 你可以让飞机进入定位状态，飞行器将会待在一个地方。 当你失去方向或者需要刹车时候，这会是有用的。 它通常也可以被用来安全降落。
-- [Return mode](../flight_modes/return.md) can be used, either on a switch or as RC loss/low battery failsafe.
+- [Return mode](../flight_modes_mc/return.md) can be used, either on a switch or as RC loss/low battery failsafe.
 - 当发生事故时，你将有飞机最后的位置，方便寻找飞机。
 - 飞行记录将包含飞行路线追踪，这意味着你可以进行航行回顾（3D 模式）。 这可以帮助你改善特技飞行技巧。
 
@@ -61,7 +61,7 @@ Make sure to use **balanced props**.
 
 After having built the racer, you will need to configure the software.
 
-Go through the [Basic Configuration Guide](../config/README.md). In particular, set the [Airframe](../config/airframe.md) that most closely matches your frame (typically you will choose the [Generic 250 Racer](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer) airframe, which sets some racer-specific parameters by default).
+Go through the [Basic Configuration Guide](../config/index.md). In particular, set the [Airframe](../config/airframe.md) that most closely matches your frame (typically you will choose the [Generic 250 Racer](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer) airframe, which sets some racer-specific parameters by default).
 
 These parameters are important:
 

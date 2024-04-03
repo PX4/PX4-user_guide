@@ -7,7 +7,7 @@ The protocol was developed by [Team BlackSheep](https://www.team-blacksheep.com/
 The [supported telemetry messages are listed here](#telemetry-messages), and include: flight mode, battery level, GPS data RC signal strength, speed, altitude, and so on.
 
 :::note
-If you don't need telemetry you can connect a TBS Crossfire to the `RCIN` port and configure the receiver to use S.BUS. Crossfire radio systems can also be used as [Telemetry Radios](../telemetry/README.md).
+If you don't need telemetry you can connect a TBS Crossfire to the `RCIN` port and configure the receiver to use S.BUS. Crossfire radio systems can also be used as [Telemetry Radios](../telemetry/index.md).
 :::
 
 :::warning

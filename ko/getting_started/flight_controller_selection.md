@@ -1,6 +1,6 @@
 # 비행 콘트롤러 선정
 
-Flight controllers are the "brains" of an unmanned vehicle. PX4 can run on [many flight controller boards](../flight_controller/README.md).
+Flight controllers are the "brains" of an unmanned vehicle. PX4 can run on [many flight controller boards](../flight_controller/index.md).
 
 기체의 물리적인 조건, 비행 목적과 비용에 적합한 하드웨어를 선정하여야 합니다.
 
@@ -21,7 +21,7 @@ Note that manufacturer-supported controllers can be just as "good" (or better) t
 
 ## 고성능 컴퓨팅 성능의 자동비행장치
 
-Dedicated flight controllers like Pixhawk are not usually well-suited for general purpose computing or running computationally intensive tasks. For more computing power, the most common approach is to run those applications on a separate onboard [Companion Computer](../companion_computer/README.md). Some companion computers can also run PX4 on a separate DSP, as part of the same autopilot board.
+Dedicated flight controllers like Pixhawk are not usually well-suited for general purpose computing or running computationally intensive tasks. For more computing power, the most common approach is to run those applications on a separate onboard [Companion Computer](../companion_computer/index.md). Some companion computers can also run PX4 on a separate DSP, as part of the same autopilot board.
 
 Similarly, PX4 can also run natively Raspberry Pi (this approach is not generally considered as "robust" as having a separate companion or using a dedicated DSP):
 
