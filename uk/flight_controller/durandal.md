@@ -315,105 +315,105 @@ make holybro_durandal-v1_default
 | --- | ------ | ------- | --------- | --- |
 | 1   | IO_CH1 | +3.3В   | VDD_SERVO | GND |
 | 2   | IO_CH2 | +3.3В   | VDD_SERVO | GND |
-| 3   | IO_CH3 | +3.3V   | VDD_SERVO | GND |
-| 4   | IO_CH4 | +3.3V   | VDD_SERVO | GND |
-| 5   | IO_CH5 | +3.3V   | VDD_SERVO | GND |
-| 6   | IO_CH6 | +3.3V   | VDD_SERVO | GND |
-| 7   | IO_CH7 | +3.3V   | VDD_SERVO | GND |
-| 8   | IO_CH8 | +3.3V   | VDD_SERVO | GND |
+| 3   | IO_CH3 | +3.3В   | VDD_SERVO | GND |
+| 4   | IO_CH4 | +3.3В   | VDD_SERVO | GND |
+| 5   | IO_CH5 | +3.3В   | VDD_SERVO | GND |
+| 6   | IO_CH6 | +3.3В   | VDD_SERVO | GND |
+| 7   | IO_CH7 | +3.3В   | VDD_SERVO | GND |
+| 8   | IO_CH8 | +3.3В   | VDD_SERVO | GND |
 
-#### AUX Out
+#### Вихід AUX
 
-| Pin | Signal  | Volt  | +         | -   |
-| --- | ------- | ----- | --------- | --- |
-| 1   | FMU_CH1 | +3.3V | VDD_SERVO | GND |
-| 2   | FMU_CH2 | +3.3V | VDD_SERVO | GND |
-| 3   | FMU_CH3 | +3.3V | VDD_SERVO | GND |
-| 4   | FMU_CH4 | +3.3V | VDD_SERVO | GND |
-| 5   | FMU_CH5 | +3.3V | VDD_SERVO | GND |
+| Pin | Сигнал  | Вольтаж | +         | -   |
+| --- | ------- | ------- | --------- | --- |
+| 1   | FMU_CH1 | +3.3В   | VDD_SERVO | GND |
+| 2   | FMU_CH2 | +3.3В   | VDD_SERVO | GND |
+| 3   | FMU_CH3 | +3.3В   | VDD_SERVO | GND |
+| 4   | FMU_CH4 | +3.3В   | VDD_SERVO | GND |
+| 5   | FMU_CH5 | +3.3В   | VDD_SERVO | GND |
 
-#### RC IN
+#### Вхід Радіосигналу
 
-| Pin | Signal           | Volt  |
-| --- | ---------------- | ----- |
-| S   | SBUS_IN/PPM_IN | +3.3V |
-| +   | VCC              | +5V   |
-| -   | GND              | GND   |
+| Pin | Сигнал           | Вольтаж |
+| --- | ---------------- | ------- |
+| S   | SBUS_IN/PPM_IN | +3.3В   |
+| +   | VCC              | +5В     |
+| -   | GND              | GND     |
 
-### Right-side Pinouts
+### Правостороння розпіновка
 
 ![Durandal - Right-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_right.jpg)
 
-#### CAN2 port
+#### CAN2 порт
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VCC    | +5V   |
-| 2 (black) | CAN H  | +3.3V |
-| 3 (black) | CAN L  | +3.3V |
-| 4 (black) | GND    | GND   |
+| Pin          | Сигнал | Вольтаж |
+| ------------ | ------ | ------- |
+| 1 (червоний) | VCC    | +5В     |
+| 2 (чорний)   | CAN H  | +3.3В   |
+| 3 (чорний)   | CAN L  | +3.3В   |
+| 4 (чорний)   | GND    | GND     |
 
-#### CAP & ADC IN port
+#### CAP & ADC IN порт
 
-| Pin        | Signal         | Volt                     |
-| ---------- | -------------- | ------------------------ |
-| 1 (red)    | VCC            | +5V                      |
-| 2 (black)  | FMU_CAP6       | +3.3V                    |
-| 3 (black)  | FMU_CAP5       | +3.3V                    |
-| 4 (black)  | FMU_CAP4       | +3.3V                    |
-| 5 (black)  | FMU_CAP3       | +3.3V                    |
-| 6 (black)  | FMU_CAP2       | +3.3V                    |
-| 7 (black)  | FMU_CAP1       | +3.3V                    |
-| 8 (black)  | ADC1_SPARE_1 | +3.3V [++](#warn_sensor) |
-| 9 (black)  | ADC1_SPARE_2 | +6.6V [++](#warn_sensor) |
-| 10 (black) | GND            | GND                      |
+| Pin          | Сигнал         | Вольтаж                  |
+| ------------ | -------------- | ------------------------ |
+| 1 (червоний) | VCC            | +5В                      |
+| 2 (чорний)   | FMU_CAP6       | +3.3В                    |
+| 3 (чорний)   | FMU_CAP5       | +3.3В                    |
+| 4 (чорний)   | FMU_CAP4       | +3.3В                    |
+| 5 (чорний)   | FMU_CAP3       | +3.3В                    |
+| 6 (чорний)   | FMU_CAP2       | +3.3В                    |
+| 7 (чорний)   | FMU_CAP1       | +3.3В                    |
+| 8 (чорний)   | ADC1_SPARE_1 | +3.3В [++](#warn_sensor) |
+| 9 (чорний)   | ADC1_SPARE_2 | +6,6В [++](#warn_sensor) |
+| 10 (чорний)  | GND            | GND                      |
 
 <a id="warn_sensor"></a>
 
 :::warning
-\++ Sensors connected to pins 8, 9 must not send a signal exceeding the indicated voltage.
+Сенсори, підключені до виводів 8 та 9, не повинні надсилати сигнал, що перевищує вказану напругу.
 :::
 
-### Left-side Pinouts
+### Лівостороння розпіновка
 
 ![Durandal - Left-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
 <a id="debug_port"></a>
 
-#### DEBUG port
+#### DEBUG порт
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VT     | +3.3V |
-| 2 (black) | TX     | +3.3V |
-| 3 (black) | RX     | +3.3V |
-| 4 (black) | SWDIO  | +3.3V |
-| 5 (black) | SWCLK  | +3.3V |
-| 6 (black) | GND    | GND   |
+| Pin          | Сигнал | Вольт |
+| ------------ | ------ | ----- |
+| 1 (червоний) | VT     | +3.3В |
+| 2 (чорний)   | TX     | +3.3В |
+| 3 (чорний)   | RX     | +3.3В |
+| 4 (чорний)   | SWDIO  | +3.3В |
+| 5 (чорний)   | SWCLK  | +3.3В |
+| 6 (чорний)   | GND    | GND   |
 
-#### SPI port
+#### SPI порт
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VCC    | +5V   |
-| 2 (black) | SCK    | +3.3V |
-| 3 (black) | MISO   | +3.3V |
-| 4 (black) | MOSI   | +3.3V |
-| 5 (black) | CS1    | +3.3V |
-| 6 (black) | CS2    | +3.3V |
-| 7 (black) | GND    | GND   |
+| Pin          | Сигнал | Вольтаж |
+| ------------ | ------ | ------- |
+| 1 (червоний) | VCC    | +5В     |
+| 2 (чорний)   | SCK    | +3.3В   |
+| 3 (чорний)   | MISO   | +3.3В   |
+| 4 (чорний)   | MOSI   | +3.3В   |
+| 5 (чорний)   | CS1    | +3.3В   |
+| 6 (чорний)   | CS2    | +3.3В   |
+| 7 (чорний)   | GND    | GND     |
 
-#### USB port
+#### USB порт
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VBUS   | +5V   |
-| 2 (black) | DM     | +3.3V |
-| 3 (black) | DP     | +3.3V |
-| 4 (black) | GND    | GND   |
+| Pin          | Сигнал | Вольтаж |
+| ------------ | ------ | ------- |
+| 1 (червоний) | VBUS   | +5В     |
+| 2 (чорний)   | DM     | +3.3В   |
+| 3 (чорний)   | DP     | +3.3В   |
+| 4 (чорний)   | GND    | GND     |
 
-## Further info
+## Подальша інформація
 
-- [Durandal Wiring QuickStart](../assembly/quick_start_durandal.md)
-- [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf)
-- [Durandal Pinouts](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts) (Holybro)
+- [Швидке підключення Durandal Wiring](../assembly/quick_start_durandal.md)
+- [Durandal технічна інформація](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf)
+- [Durandal розпіновка](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts) (Holybro)
