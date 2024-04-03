@@ -4,8 +4,7 @@ The Jerk-limited trajectory type provides smooth motion in response to user stic
 
 This trajectory type is always enabled in [Mission mode](../flight_modes_mc/mission.md). To enable it in [Position mode](../flight_modes_mc/position.md) set the parameter: [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
-:::note
-The jerk-limited type is not used _by default_ in position mode. It may not be suitable for vehicles/use-cases that require a faster response - e.g. racer quads.
+::: info The jerk-limited type is not used _by default_ in position mode. It may not be suitable for vehicles/use-cases that require a faster response - e.g. racer quads.
 :::
 
 ## Trajectory Generator
