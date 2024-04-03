@@ -197,7 +197,7 @@ The magnificent FPV camera set in the part list comes not only with the best FPV
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
 :::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
 :::
 
 :::warning
