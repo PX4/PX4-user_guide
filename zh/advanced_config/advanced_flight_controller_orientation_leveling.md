@@ -4,7 +4,7 @@
 
 If there is a persistent drift bias (often seen in multirotors but not limited to them), it is a good strategy to trim it with the help of these fine-tuning offset angle parameters, instead of using the trimmers of your RC Transmitter. 对于基本设置，请遵循下面链接的说明：
 
-:::note
+::: info
 These instructions are "advanced", and not recommended for regular users (the broad tuning is generally sufficient).
 :::
 

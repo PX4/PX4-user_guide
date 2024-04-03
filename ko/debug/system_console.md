@@ -12,8 +12,7 @@ The console is made available through a (board-specific) UART that can be connec
 
 Pixhawk controller manufacturers are expected to expose the console UART and SWD (JTAG) debug interfaces through a dedicated _debug port_ that complies with the [Pixhawk Connector Standard](#pixhawk_debug_port). 불행히도, 일부 보드는 이 표준 이전이거나 비준수품입니다.
 
-:::note
-Developers targeting a number of different boards may wish to use a [debug adapter](../debug/swd_debug.md#debug-adapters) to simplify connecting boards to FTDI cables and [debug probes](../debug/swd_debug.md#debug-probes-for-px4-hardware).
+::: info Developers targeting a number of different boards may wish to use a [debug adapter](../debug/swd_debug.md#debug-adapters) to simplify connecting boards to FTDI cables and [debug probes](../debug/swd_debug.md#debug-probes-for-px4-hardware).
 :::
 
 아래 섹션은 많은 공통 보드에 대한 배선 및 시스템 콘솔 정보에 대한 개요를 설명합니다.

@@ -10,8 +10,7 @@ A flight task is a class in the flight task framework derived from the base clas
 
 By convention tasks are contained in a subfolder of [PX4-Autopilot/src/modules/flight_mode_manager/tasks](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/flight_mode_manager/tasks) named after the task, and the source files are named with the prefix "FlightTask".
 
-:::note
-Video overviews from PX4 developer summits are [provided below](#video).
+::: info Video overviews from PX4 developer summits are [provided below](#video).
 :::
 
 ## Creating a Flight Task
@@ -145,7 +144,7 @@ The instructions below might be used to create a task named _MyTask_:
 
 To test the flight task you need to run the vehicle with the task enabled. For the example above, this means setting the parameter `MPC_POS_MODE` to 5, taking off, and switching the vehicle to [Position mode](../flight_modes_mc/position.md).
 
-:::note
+::: info
 The task defined above should only be tested on the simulator.
 The code doesn't actually create setpoints so the vehicle will not fly.
 :::

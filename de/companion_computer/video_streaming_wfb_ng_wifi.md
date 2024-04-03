@@ -58,7 +58,7 @@ For **Raspberry PI** (UAV or ground) it must be directly connected to 5V BEC (or
 
 You must also add a 470uF **low ESR capacitor** (like ESC has) between **card +5v and ground** to filter voltage spikes. You should integrate the capacitor with a custom USB cable. Without the capacitor you can get packet corruption or packet loss. Be aware of [ground loop](https://en.wikipedia.org/wiki/Ground_loop_%28electricity%29) when using several ground wires.
 
-:::note
+::: info
 If you use a special "very" high power cards from Taobao/Aliexpress then you MUST power it as described above in ANY case.
 :::
 

@@ -1,7 +1,6 @@
 # Pomegranate Systems Power Module
 
-:::note
-In 2022, UAVCAN (v0) was forked and is maintained as `DroneCAN`. While this product still mentions "UAVCAN", it is fully compatible with PX4's DroneCAN support.
+::: info In 2022, UAVCAN (v0) was forked and is maintained as `DroneCAN`. While this product still mentions "UAVCAN", it is fully compatible with PX4's DroneCAN support.
 :::
 
 ![Module Image](../../assets/hardware/power_module/pomegranate_systems_pm/main_image.jpg)
@@ -42,7 +41,7 @@ The power module runs pomegranate systems' own custom (open source) firmware. So
 
 1. Enable DroneCAN by setting the [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) parameter to `2` (Sensors Automatic Config) or `3`.
 1. Enable DroneCAN battery monitoring by setting [UAVCAN_SUB_BAT](../advanced_config/parameter_reference.md#UAVCAN_SUB_BAT) to `1` or `2` ( depending on your battery).
-1. Set the following module parameters using the [MAVLink console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html):
+1. Set the following module parameters using the [MAVLink console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html):
    - Battery capacity in mAh: `battery_capacity_mAh`
    - Battery voltage when _full_: `battery_full_V`,
    - Battery voltage when _empty_: `battery_empty_V`

@@ -28,7 +28,7 @@ The steps to join our translation tream are:
 1. Select the language you want to translate
 1. Click the **Join** button (next to the text _You must join the translators team to be able to participate in this project_)
 
-   :::note
+   ::: info
  You will be notified once your application to join is accepted.
 
 :::

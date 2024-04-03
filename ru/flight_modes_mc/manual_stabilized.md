@@ -4,7 +4,7 @@
 
 The _Manual/Stabilized_ mode stabilizes the multicopter when the RC control sticks are centred. To manually move/fly the vehicle you move the sticks outside of the centre.
 
-:::note
+::: info
 This multicopter mode is enabled if you set either _Manual_ or _Stabilized_ modes.
 :::
 

@@ -79,8 +79,7 @@ Neo GPS 모듈과 함께 자동조종장치를 구매할 수 있습니다.
 
 _V5+ AutoPilot_ supports redundant power supplies - up to three sources may be used: `Power1`, `Power2` and `USB`. 이러한 소스중 하나 이상에 전원을 공급하여야합니다. 그렇지 않으면, 비행 컨트롤러에 전원이 공급되지 않습니다.
 
-:::note
-On FMUv5 based FMUs with PX4IO module (as is the case for the _V5+_), the Servo Power Rail is only monitored by the FMU. FMU에 의해 전원에 의해 공급받지도 않고, 공급되지도 않습니다. FMU에 의해 전원에 의해 공급받지도 않고, 공급되지도 않습니다.
+::: info On FMUv5 based FMUs with PX4IO module (as is the case for the _V5+_), the Servo Power Rail is only monitored by the FMU. FMU에 의해 전원에 의해 공급받지도 않고, 공급되지도 않습니다. FMU에 의해 전원에 의해 공급받지도 않고, 공급되지도 않습니다.
 :::
 
 **정상 작동 최대 정격 전압**

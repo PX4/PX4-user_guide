@@ -2,8 +2,7 @@
 
 This topic explains the basics of flying a vehicle using an [RC Transmitter](../getting_started/rc_transmitter_receiver.md) in a manual or autopilot-assisted flight mode (for autonomous flight see: [Missions](../flying/missions.md)).
 
-:::note
-Before you fly for the first time you should read our [First Flight Guidelines](../flying/first_flight_guidelines.md). :::
+::: info Before you fly for the first time you should read our [First Flight Guidelines](../flying/first_flight_guidelines.md). :::
 
 <a id="arm"></a>
 
@@ -20,11 +19,9 @@ To arm the drone:
 :::tip
 The vehicle will not arm until it is [calibrated/configured](../config/index.md) and has a position lock. :::tip The vehicle will not arm until it is [calibrated/configured](../config/README.md) and has a position lock. :::
 
-:::note
-The vehicle will (by [default](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)) automatically [disarm](../advanced_config/prearm_arm_disarm.md#auto-disarming) (turn off motors) if you take too long to take off! This is a safety measure to ensure that vehicles return to a safe state when not in use. :::
+::: info The vehicle will (by [default](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)) automatically [disarm](../advanced_config/prearm_arm_disarm.md#auto-disarming) (turn off motors) if you take too long to take off! This is a safety measure to ensure that vehicles return to a safe state when not in use. :::
 
-:::note
-A VTOL vehicle can only arm in multicopter mode (by default - arming in fixed-wing mode can be enabled using [CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)). :::
+::: info A VTOL vehicle can only arm in multicopter mode (by default - arming in fixed-wing mode can be enabled using [CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)). :::
 
 <a id="takeoff-and-landing"></a>
 
@@ -38,15 +35,13 @@ Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by ena
 
 Alternatively the takeoff can performed using the automatic [Takeoff mode](../flight_modes_mc/takeoff.md).
 
-:::note
-The vehicle may disarm if you take too long to take off after arming (tune the timeout using [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)). :::
+::: info The vehicle may disarm if you take too long to take off after arming (tune the timeout using [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)). :::
 
-:::note
-The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff. :::
+::: info The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff. :::
 
 ### Fixed-wing Takeoff
 
-:::note
+::: info
 Taking off manually (and landing) is not easy!
 We recommend using with the automatic modes instead, especially for inexperienced pilots.
 :::
@@ -78,8 +73,7 @@ Note that vehicles automatically disarm on landing by default:
 
 There is also the option to let the vehicle land autonomously. For that engage the [Land mode](../flight_modes_mc/land.md) or [Return mode](../flight_modes_mc/return.md).
 
-:::note
-If you see the vehicle "twitch" during landing (turn down the motors, and then immediately turn them back up) this is probably caused by a poor [Land Detector Configuration](../advanced_config/land_detector.md) (specifically, a poorly set [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)). :::
+::: info If you see the vehicle "twitch" during landing (turn down the motors, and then immediately turn them back up) this is probably caused by a poor [Land Detector Configuration](../advanced_config/land_detector.md) (specifically, a poorly set [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)). :::
 
 
 ### Fixed-wing Landing
@@ -126,7 +120,7 @@ Forward-flying aircraft (planes, VTOL in forward flight) respond to the movement
 - Yaw => Left/right tail rotation and turn.
 - Throttle => Changed forward speed.
 
-:::note
+::: info
 The best turn for airplanes is called a coordinated turn, and is performed using roll and little yaw at the same time.
 This maneuver requires experience!
 :::
@@ -141,5 +135,4 @@ The following three modes are highly recommended for new users:
 * Altitude - Climb and drop are controlled to have a maximum rate.
 * Position - When sticks are released the vehicle will stop (and hold position against wind drift)
 
-:::note
-You can also access automatic modes through the buttons on the bottom of the *QGroundControl* main flight screen. :::
+::: info You can also access automatic modes through the buttons on the bottom of the *QGroundControl* main flight screen. :::

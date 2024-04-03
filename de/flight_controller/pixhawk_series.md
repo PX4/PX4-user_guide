@@ -25,7 +25,7 @@ Key benefits of using a _Pixhawk series_ controller include:
 
 The PX4 Project uses [Pixhawk Standard Autopilots](../flight_controller/autopilot_pixhawk_standard.md) as reference hardware. These are the controllers that are fully compatible with the Pixhawk standard (including use of trademarks) and that are still being manufactured.
 
-:::note
+::: info
 The PX4 maintenance and test teams maintain and support these standard boards.
 :::
 
@@ -39,8 +39,7 @@ The [Pixhawk project](https://pixhawk.org/) creates open hardware designs in the
 
 Manufacturers are encouraged to take the [open designs](https://github.com/pixhawk/Hardware) and create products that are best suited to a particular market or use case (the physical layout/form factor not part of the open specification). Boards based on the same design are binary compatible.
 
-:::note
-While a physical connector standard is not mandated, newer products generally follow the [Pixhawk Connector Standard](https://pixhawk.org/pixhawk-connector-standard/).
+::: info While a physical connector standard is not mandated, newer products generally follow the [Pixhawk Connector Standard](https://pixhawk.org/pixhawk-connector-standard/).
 :::
 
 The project also creates reference autopilot boards based on the open designs, and shares them under the same [licence](#licensing-and-trademarks).
@@ -58,8 +57,7 @@ PX4 _users_ generally do not need to know very much about FMU versions:
 - _QGroundControl_ automatically downloads the correct firmware for a connected autopilot (based on its FMU version "under the hood").
 - Choosing a controller is usually based on physical constraints/form factor rather than FMU version.
 
-:::note
-The exception is that if you're using FMUv2 firmware it is [limited to 1MB of flash](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata). In order to fit PX4 into this limited space, many modules are disabled by default. You may find that some [parameters are missing](../advanced_config/parameters.md#missing) and that some hardware does not work "out of the box".
+::: info The exception is that if you're using FMUv2 firmware it is [limited to 1MB of flash](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata). In order to fit PX4 into this limited space, many modules are disabled by default. You may find that some [parameters are missing](../advanced_config/parameters.md#missing) and that some hardware does not work "out of the box".
 :::
 
 PX4 _developers_ need to know the FMU version of their board, as this is required to build custom hardware.
@@ -84,8 +82,7 @@ Pixhawk project schematics and reference designs are licensed under [CC BY-SA 3]
 
 The license allows you to use, sell, share, modify and build on the files in almost any way you like - provided that you give credit/attribution, and that you share any changes that you make under the same open source license (see the [human readable version of the license](https://creativecommons.org/licenses/by-sa/3.0/) for a concise summary of the rights and obligations).
 
-:::note
-Boards that are _derived directly_ from Pixhawk project schematic files (or reference boards) must be open sourced. They can't be commercially licensed as proprietary products.
+::: info Boards that are _derived directly_ from Pixhawk project schematic files (or reference boards) must be open sourced. They can't be commercially licensed as proprietary products.
 :::
 
 Manufacturers can create (compatible) _fully independent products_ by first generating fresh schematic files that have the same pin mapping/components as the FMU designs. Products that are based on independently created schematics are considered original works, and can be licensed as required.

@@ -91,8 +91,7 @@ Parameters can be overridden during a replay in two ways: _fixed_ and _dynamic_.
 
 이것은 빠른 EKF2 재생을 위한 시스템 전체 재생의 전문화입니다.
 
-:::note
-The recording and replay of flight logs with [multiple EKF instances](../advanced_config/tuning_the_ecl_ekf.md#running-multiple-ekf-instances) is not supported. To enable recording for EKF replay you must set the parameters to enable a [single EKF instance](../advanced_config/tuning_the_ecl_ekf.md#running-a-single-ekf-instance).
+::: info The recording and replay of flight logs with [multiple EKF instances](../advanced_config/tuning_the_ecl_ekf.md#running-multiple-ekf-instances) is not supported. To enable recording for EKF replay you must set the parameters to enable a [single EKF instance](../advanced_config/tuning_the_ecl_ekf.md#running-a-single-ekf-instance).
 :::
 
 In EKF2 mode, the replay will automatically create the ORB publisher rules described above.

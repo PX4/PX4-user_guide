@@ -30,7 +30,7 @@ VMWare performance is acceptable for basic usage (building Firmware) but not for
 1. Open _VMWare Player_.
 1. Enable 3D acceleration in the VM's settings: **VM > Settings > Hardware > Display > Accelerate 3D graphics**
 
-   :::note
+   ::: info
 This option is required to properly run 3D simulation environments like jMAVSim and Gazebo Classic.
 We recommend this is done before installing Linux in the virtual environment.
 :::
@@ -77,7 +77,7 @@ To allow this, you need to configure USB passthrough settings:
 
    - Open the menu and plug in the USB cable connected to your autopilot. Select the `...Bootloader` device when it appears in the UI.
 
-     :::note
+     ::: info
 The bootloader device only appears for a few seconds after connecting USB.
 If it disappears before you can select it, disconnect and then reconnect USB.
 :::

@@ -196,8 +196,7 @@ The _Pixhawk Mini_ should be mounted on the frame using vibration-damping foam p
 
 ![장착 폼](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)
 
-:::note
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md). :::
+::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md). :::
 
 ### GPS와 나침반
 
@@ -213,8 +212,7 @@ The compass must be calibrated before it is first used: [Compass Calibration](..
 
 The image below shows typical power-supply wiring when using _Pixhawk Mini_ in a Quadcopter. This uses the _Quad Power Distribution Board_ that comes in the kit to supply both the Pixhawk Mini and the ESC/Motor from the battery (and can also power other accessories).
 
-:::note
-The _Quad Power Distribution Board_ includes a power module (PM) that is suitable for batteries <= 4S. The _3DR 10S Power Module_ (Discontinued) is recommended if you need more power. :::
+::: info The _Quad Power Distribution Board_ includes a power module (PM) that is suitable for batteries <= 4S. The _3DR 10S Power Module_ (Discontinued) is recommended if you need more power. :::
 
 ![Pixhawk 미니 - 전원 공급](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_powering_quad_board.jpg)
 
@@ -261,9 +259,7 @@ The mapping is not consistent across frames (e.g. you can't rely on the throttle
 
 :::tip
 프레임이 기체 참조 목록에 없으면, 올바른 유형의 "일반"기체를 사용하십시오.
-:::
-
-참고:
+::: infos:
 
 - 출력 레일은 위의 [전원](#power) 섹션에 설명과 같이 별도의 전원이 공급되어야 합니다.
 - Pixhawk 미니는 QuadPlane VTOL 기체에 사용할 수 없습니다. 이는 QuadPlane에 9 개의 출력(메인 4 개, AUX 5 개)이 필요하고, Pixhawk 미니에는 8 개의 출력 (8 메인)만 필요하기 때문입니다.

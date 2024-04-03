@@ -4,7 +4,7 @@ Multicopter configuration and calibration follows the same high level steps as o
 
 This topic explains how to configure a multicopter using selected topics from [Standard Configuration](../config/index.md), [Advanced Configuration](../advanced_config/index.md), and [Flight Controller Peripherals](../peripherals/index.md), along with multicopter-specific tuning topics.
 
-:::note
+::: info
 This topic is the recommended entry point when performing first-time configuration and calibration of a new multicopter frame.
 :::
 
@@ -22,8 +22,7 @@ This section explains how to configure the vehicle type (multicopter), specific 
 
 First [select a multicopter airframe](../config/airframe.md) (options are listed in [Airframe Reference > Copter](../airframes/airframe_reference.md#copter)). You should select the frame that matches your vehicle brand and model if one exists, and otherwise select the "Generic" frame type that most closely matches your geometry in terms of number of motors and their relative positions. For example, for a [Quadrotor X](../airframes/airframe_reference.md#quadrotor-x) frame you would look for the name of your frame in the list, and if it was not present select the [Generic Quadrotor X](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) frame.
 
-:::note
-Any selected multicopter frame can be modified in the next step (actuator configuration) to add/remove motors and otherwise change the geometry, and to specify what flight controller outputs are connected to particular motors and the output properties. Selecting a frame that matches your vehicle reduces the configuration work required.
+::: info Any selected multicopter frame can be modified in the next step (actuator configuration) to add/remove motors and otherwise change the geometry, and to specify what flight controller outputs are connected to particular motors and the output properties. Selecting a frame that matches your vehicle reduces the configuration work required.
 
 :::details
 How does this work (details) Selecting an airframe applies a [frame configuration file](../dev_airframes/adding_a_new_frame.md#adding-a-frame-configuration) that contains a predefined set of [parameters](../advanced_config/parameters.md), such as [CA_AIRFRAME=0](../advanced_config/parameter_reference.md#CA_AIRFRAME) for the vehicle type and [CA_ROTOR_COUNT](../advanced_config/parameter_reference.md#CA_ROTOR_COUNT) for the number of rotors.
@@ -66,8 +65,7 @@ PX4 can use other peripherals, such as distance sensors, optical flow sensors, t
 
 - [Flight Controller Peripherals](../peripherals/index.md) - Setup specific sensors, optional sensors, actuators, and so on.
 
-:::note
-Sensors that you don't need to calibrate/configure include:
+::: info Sensors that you don't need to calibrate/configure include:
 
 - [Level Horizon](../config/level_horizon_calibration.md) calibration isn't usually needed if you have mounted the flight controller level.
 - Sensors that are not present, or that are not used by PX4 multicopter for flight control, such as [Airspeed sensors](../config/airspeed.md).
@@ -79,7 +77,7 @@ Sensors that you don't need to calibrate/configure include:
 
 Pilots can control a vehicle manually using either a Radio Control (RC) System or a Joystick/Gamepad controller connected via QGroundControl.
 
-:::note
+::: info
 A manual control is essential in order to bring up a new vehicle safely!
 :::
 
@@ -106,7 +104,7 @@ Tuning is the final step, carried out only after most other setup and configurat
 - Rate and attitude controllers:
 - [Autotune](../config/autotune.md) — Automates tuning PX4 rate and attitude controllers (recommended).
 
-  :::note
+  ::: info
 Automatic tuning works on frames that have reasonable authority and dynamics around all the body axes.
 It has primarily been tested on racing quads and X500, and is expected to be less effective on tricopters with a tiltable rotor.
 The other two guides are only needed if there is a problem with autotune.

@@ -1,7 +1,6 @@
 # Licenses
 
-:::note
-All code contributions must be made under the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause) and must not impose any further constraints on its use.
+::: info All code contributions must be made under the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause) and must not impose any further constraints on its use.
 :::
 
 This page documents the licenses of various components in the system.

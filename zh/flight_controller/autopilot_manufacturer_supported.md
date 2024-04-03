@@ -6,7 +6,7 @@ Manufacturer-supported autopilots are maintained and supported by a board manufa
 For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
 :::
 
-:::note
+::: info
 This category includes boards that are not fully compliant with the pixhawk standard; manufacturers support and maintain the board for any areas of incompatibility.
 :::
 

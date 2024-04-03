@@ -72,7 +72,7 @@ Check your [specific board](#port-information) to confirm the port used.
 | FMUv6X      | Pixhawk 6X                                                      | [Pixhawk Debug Full](#pixhawk-debug-full) |
 | FMUv6X-RT   | Pixhawk 6X-RT                                                   | [Pixhawk Debug Full](#pixhawk-debug-full) |
 
-:::note
+::: info
 There FMU and Pixhawk versions are (only) consistent after FMUv5X.
 :::
 

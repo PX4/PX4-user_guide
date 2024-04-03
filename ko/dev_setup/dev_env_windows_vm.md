@@ -30,7 +30,7 @@ VMWare performance is acceptable for basic usage (building Firmware) but not for
 1. Open _VMWare Player_.
 1. 가상 머신 설정에서 3D 가속 사용: **VM > 설정 > 하드웨어 > 디스플레이 > 3D 그래픽 가속화**
 
-   :::note
+   ::: info
 This option is required to properly run 3D simulation environments like jMAVSim and Gazebo Classic.
 가상 환경에 Linux를 설치하기 전에 이 작업을 수행하는 것이 좋습니다.
 :::
@@ -77,7 +77,7 @@ To allow this, you need to configure USB passthrough settings:
 
    - Open the menu and plug in the USB cable connected to your autopilot. Select the `...Bootloader` device when it appears in the UI.
 
-     :::note
+     ::: info
 The bootloader device only appears for a few seconds after connecting USB.
 If it disappears before you can select it, disconnect and then reconnect USB.
 :::

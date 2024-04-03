@@ -34,8 +34,7 @@ PX4コンソールは以下のように表示されます:
 
 ![PX4 Console (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
 
-:::note
-You may need to start _QGroundControl_ before proceeding, as the default PX4 configuration requires a ground control connection before takeoff. [こちら](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html) からダウンロードできます。
+::: info You may need to start _QGroundControl_ before proceeding, as the default PX4 configuration requires a ground control connection before takeoff. [こちら](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html) からダウンロードできます。
 :::
 
 ドローンは次のコマンドで飛行します。
@@ -82,8 +81,7 @@ make px4_fmu-v5_default
 
 The first part of the build target `px4_fmu-v4` indicates the target flight controller hardware for the firmware. The suffix, in this case `_default`, indicates a firmware _configuration_, such as supporting or omitting particular features.
 
-:::note
-The `_default` suffix is optional. For example, `make px4_fmu-v5` and `px4_fmu-v5_default` result in the same firmware.
+::: info The `_default` suffix is optional. For example, `make px4_fmu-v5` and `px4_fmu-v5_default` result in the same firmware.
 :::
 
 次のリストは、 [Pixhawk 標準](../flight_controller/autopilot_pixhawk_standard.md) ボードのビルドコマンドを示しています。
@@ -281,9 +279,7 @@ You can get a list of _all_ available `VIEWER_MODEL_DEBUGGER_WORLD` options usin
 make px4_sitl list_vmd_make_targets
 ```
 
-:::
-
-Notes:
+::: infos:
 
 - Most of the values in the `CONFIGURATION_TARGET` and `VIEWER_MODEL_DEBUGGER` have defaults, and are hence optional. For example, `gazebo-classic` is equivalent to `gazebo-classic_iris` or `gazebo-classic_iris_none`.
 - You can use three underscores if you want to specify a default value between two other settings. For example, `gazebo-classic___gdb` is equivalent to `gazebo-classic_iris_gdb`.

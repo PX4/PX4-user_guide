@@ -34,8 +34,7 @@ PX4 підтримує численні типи транспортних зас
 - [Марсохід](../frames_rover/index.md)
 - [Субмарини](../frames_sub/index.md)
 
-:::note
-Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome! :::
+::: info Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome! :::
 
 ## Інші транспортні засоби
 

@@ -67,7 +67,7 @@ This should copy over a "hello.txt" file into the home folder of your Pi. Valida
 
 ## Building the Code
 
-:::note
+::: info
 PX4 binaries for Navio 2 can only be built on Ubuntu 18.04.
 Ubuntu 20.04 and later do not currently work (as of September 2023). 
 :::
@@ -90,8 +90,7 @@ or
 export AUTOPILOT_HOST=192.168.X.X
 ```
 
-:::note
-The value of the environment variable should be set before the build, or `make upload` will fail to find your Pi.
+::: info The value of the environment variable should be set before the build, or `make upload` will fail to find your Pi.
 :::
 
 Build the executable file on your development machine:

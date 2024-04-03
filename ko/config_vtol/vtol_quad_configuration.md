@@ -16,7 +16,7 @@ This is the configuration documentation for a [Generic Standard VTOL](../airfram
 
 You should assign a switch on your RC controller for switching between the multicopter- and fixed-wing modes.
 
-:::note
+::: info
 While PX4 allows flight without an RC controller, you must have one when tuning/configuring up a new airframe.
 :::
 

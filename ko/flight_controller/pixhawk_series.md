@@ -84,8 +84,7 @@ Pixhawk 프로젝트의 회로도와 설계도는 [CC BY-SA 3](https://creativec
 
 이 라이선스를 사용하면 신용/기여를 제공하고 동일한 오픈 소스 라이선스에 따라 변경한 내용을 공유하는 경우 원하는 방식으로 파일을 사용, 판매, 공유, 수정 및 빌드할 수 있습니다(권리와 의무에 대한 간결한 요약은 [인간이 읽을 수있는 라이선스 버전](https://creativecommons.org/licenses/by-sa/3.0/)).
 
-:::note
-Boards that are _derived directly_ from Pixhawk project schematic files (or reference boards) must be open sourced. 독점 제품으로 상업적 라이센스를 받을 수 없습니다.
+::: info Boards that are _derived directly_ from Pixhawk project schematic files (or reference boards) must be open sourced. 독점 제품으로 상업적 라이센스를 받을 수 없습니다.
 :::
 
 Manufacturers can create (compatible) _fully independent products_ by first generating fresh schematic files that have the same pin mapping/components as the FMU designs. 독립적으로 제작된 회로도를 기반으로하는 제품은 원본 작품으로 간주되며, 필요에 따라 라이센스를 받을 수 있습니다.

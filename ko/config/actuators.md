@@ -57,8 +57,7 @@ For each motor you can then set:
 - (고급) `양방향`: 모터가 [양방향](#bidirectional-motors)임을 나타내는 확인란
 - (고급) `슬루율`: 자세한 내용은 [제어 표면 기하학](#control-surfaces-geometry) 섹션을 참조하십시오.
 
-:::note
-The `X`, `Y`, `Z` positions are in [FRD coordinate frame, relative to the _centre of gravity_](#motor-position-coordinate-system). Note, this may not be the same as the position of the flight controller!
+::: info The `X`, `Y`, `Z` positions are in [FRD coordinate frame, relative to the _centre of gravity_](#motor-position-coordinate-system). Note, this may not be the same as the position of the flight controller!
 :::
 
 #### 모터 지오메트리: VTOL Quadrotor Tailsitter
@@ -118,8 +117,7 @@ The control surfaces section of the geometry panel lets you set the number and t
 
 ![Control Surface Setup Example](../../assets/config/actuators/control_surfaces_geometry.png)
 
-:::note
-Only the most common settings are displayed by default. Select the **Advanced** checkbox in the top right corner of the view to display all settings.
+::: info Only the most common settings are displayed by default. Select the **Advanced** checkbox in the top right corner of the view to display all settings.
 :::
 
 The fields are:
@@ -157,7 +155,7 @@ In the following example, the vehicle has two ailerons, one elevator, one rudder
 
 #### 액추에이터 롤, 피치 및 요 스케일링
 
-:::note
+::: info
 For the majority of airframe setups the default values for each control surface types should not be changed.
 :::
 
@@ -217,8 +215,7 @@ If the max/min tilt vectors are **P<sub>0</sub>** and **P<sub>1</sub>** as shown
 - `최소 기울기 각도` = **θ<sub>0</sub>**
 - `최대 기울기 각도` = **θ<sub>1</sub>**
 
-:::note
-If the diagram was mirrored so that **P<sub>0</sub>** and **P<sub>1</sub>** were tilting into the -x, -y quadrant, then both the tilt angles would be negative. Because **θ<sub>1</sub>** would more negative (smaller) than **θ<sub>0</sub>**, it would be the `Angle at min tilt`.
+::: info If the diagram was mirrored so that **P<sub>0</sub>** and **P<sub>1</sub>** were tilting into the -x, -y quadrant, then both the tilt angles would be negative. Because **θ<sub>1</sub>** would more negative (smaller) than **θ<sub>0</sub>**, it would be the `Angle at min tilt`.
 
 Similarly, a servo that moves:
 
@@ -254,7 +251,7 @@ PWM AUX 탭에는 일반적으로 [카메라 캡처/트리거 입력](../periphe
 
 The PWM AUX tab has CAP outputs that are generally used as the [camera capture/trigger input](../peripherals/camera.md#trigger-configuration). However you can map the CAP outputs to other output functions, and other AUX outputs can be used as camera capture/triggering input.
 
-:::note
+::: info
 Configuring the Camera Capture / Trigger input requires a reboot to take effect
 :::
 
@@ -303,8 +300,7 @@ The _Actuator Testing_ section in lower-right corner provides sliders that can b
 :::note
 **슬라이더 활성화** 스위치를 토글한 후 액추에이터/모터는 해당 슬라이더가 _이동_될 때까지 아무 작업도 하지 않습니다. 이것은 스위치가 활성화된 후 갑작스러운 모터 움직임을 방지하기 위한 안전 장치입니다.
 
-:::note
-After you toggle the **Enable sliders** switch, actuators/motors won't do anything until the corresponding slider is _moved_. This is a safety feature to prevent sudden motor movements after switch is enabled.
+::: info After you toggle the **Enable sliders** switch, actuators/motors won't do anything until the corresponding slider is _moved_. This is a safety feature to prevent sudden motor movements after switch is enabled.
 :::
 
 Sliders can be used to verify the following:
@@ -379,8 +375,7 @@ To assign an actuator:
 
 ### 모터 설정
 
-:::note
-If using PWM or OneShot ESCs, you should first perform [ESC Calibration](../advanced_config/esc_calibration.md) (this topic also covers PWM specific motor configuration).
+::: info If using PWM or OneShot ESCs, you should first perform [ESC Calibration](../advanced_config/esc_calibration.md) (this topic also covers PWM specific motor configuration).
 
 [DShot](../peripherals/dshot.md) ESCs do not require configuration of the command limits but only rotation direction.
 :::
@@ -406,7 +401,7 @@ For each motor:
    - 이 위치에서 모터가 매우 느리게 회전하는 지 확인합니다.
    - If the motor is not spinning, or spinning too fast you will need to adjust the corresponding PWM `minimum` value in the [Actuator Outputs](#actuator-outputs) such that the motors barely spin.
 
-     ![PWM 최소 출력](../../assets/config/actuators/pwm_minimum_output.png)   :::note
+     ![PWM 최소 출력](../../assets/config/actuators/pwm_minimum_output.png)   ::: info
   For DShot output, this is not required.
 
 :::
@@ -425,8 +420,7 @@ First set the _frame rate_ for the servos used in each group of outputs. This wo
 
 ![Control Surface Disarmed 1500 Setting](../../assets/config/actuators/control_surface_disarmed_1500.png)
 
-:::note
-You will almost certainly need to change the pulse rate from the default of 400Hz because support is rare (if not supported the servo will usually make an "odd" noise). If you're using PWM servos, PWM50 is far more common. If a high rate servo is _really_ needed, DShot offers better value.
+::: info You will almost certainly need to change the pulse rate from the default of 400Hz because support is rare (if not supported the servo will usually make an "odd" noise). If you're using PWM servos, PWM50 is far more common. If a high rate servo is _really_ needed, DShot offers better value.
 :::
 
 For each of the control surfaces:
@@ -436,7 +430,7 @@ For each of the control surfaces:
    - 조종면이 반대 방향으로 이동하는 경우 `Rev Range` 확인란을 클릭하여 범위를 반대로 설정합니다.
 3. Move the slider again to the middle and check if the Control Surfaces are aligned in the neutral position of the wing
 
-   - If it is not aligned, you can set the **Trim** value for the control surface. :::note This is done in the `Trim` setting of the Geometry panel, usually by "trial and error". ![Control Surface Trimming](../../assets/config/actuators/control_surface_trim.png)
+   - If it is not aligned, you can set the **Trim** value for the control surface. ::: info This is done in the `Trim` setting of the Geometry panel, usually by "trial and error". ![Control Surface Trimming](../../assets/config/actuators/control_surface_trim.png)
 :::
 
    - After setting the trim for a control surface, move its slider away from the center, release, and then back into disarmed (middle) position. Confirm that surface is in the neutral position.
@@ -445,8 +439,7 @@ For each of the control surfaces:
 
      ```
 
-:::note
-Another way to test without using the sliders would be to set the [`COM_PREARM_MODE`](../advanced_config/parameter_reference.md#COM_PREARM_MODE) parameter to `Always`:
+::: info Another way to test without using the sliders would be to set the [`COM_PREARM_MODE`](../advanced_config/parameter_reference.md#COM_PREARM_MODE) parameter to `Always`:
 
 - 이렇게 하면 기체가 무장 해제된 경우에도 서보 제어가 가능하며 제어 표면에 트림 설정이 지속적으로 적용됩니다.
 - Trim에 대해 다른 값을 설정하고 정렬을 확인한 다음 만족하는 값으로 설정할 수 있습니다.

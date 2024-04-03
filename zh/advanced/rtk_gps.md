@@ -32,8 +32,7 @@ As soon as the autopilot receives `GPS_RTCM_DATA` MAVLink messages, it automatic
 u-blox U-Center RTK 模块配置工具不需要/使用！
 :::
 
-:::note
-Both _QGroundControl_ and the autopilot firmware share the same [PX4 GPS driver stack](https://github.com/PX4/GpsDrivers). In practice, this means that support for new protocols and/or messages only need to be added to one place.
+::: info Both _QGroundControl_ and the autopilot firmware share the same [PX4 GPS driver stack](https://github.com/PX4/GpsDrivers). In practice, this means that support for new protocols and/or messages only need to be added to one place.
 :::
 
 ### RTCM 报文

@@ -40,12 +40,11 @@ Alternatively the takeoff can performed using the automatic [Takeoff mode](../fl
 :::note
 如果机体在解锁后过长时间没有起飞，无人机将会加锁（使用[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)调整超时时间）。 :::
 
-:::note
-The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff. :::
+::: info The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff. :::
 
 ### Fixed-wing Takeoff
 
-:::note
+::: info
 Taking off manually (and landing) is not easy!
 We recommend using with the automatic modes instead, especially for inexperienced pilots.
 :::

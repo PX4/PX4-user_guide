@@ -4,8 +4,7 @@
 
 모션 캡쳐시스템은 보통 적외선 카메라로 움직임을 감지하나, LiDAR, 광대역 주파(UWB) 형태의 기술을 활용하기도 합니다.
 
-:::note
-_MoCap_ is conceptually similar to [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md). 가장 큰 차이점은 VIO는 기체내에서 비전 시스템이 동작하며, 속도 정보를 취득하기 위하여 기체의 관성 측정 장치(IMU)를 사용합니다.
+::: info _MoCap_ is conceptually similar to [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md). 가장 큰 차이점은 VIO는 기체내에서 비전 시스템이 동작하며, 속도 정보를 취득하기 위하여 기체의 관성 측정 장치(IMU)를 사용합니다.
 :::
 
 ## 모션 캡쳐 참고 자료

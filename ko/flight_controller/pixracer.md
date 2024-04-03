@@ -51,7 +51,7 @@ Pixracer는 별도의 항공전자기기 전원공급장치를 사용하도록 �
 - [ESP8266 Wifi](../telemetry/esp8266_wifi_module.md)
 - [맞춤형 ESP8266 MAVLink 펌웨어](https://github.com/dogmaphobic/mavesp8266)
 
-:::note
+::: info
 Firmware upgrade is not yet enabled over WiFi (it is supported by the default bootloader but not yet enabled).
 Setup and telemetry are supported.
 :::
@@ -64,8 +64,7 @@ Setup and telemetry are supported.
 
 ![Grau setup pixracer top](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
 
-:::note
-If using `TELEM2` for an external telemetry module you will need to configure it as a MAVLink serial port. 더 자세한 정보는 이곳을 참고하십시오: [Pixracer 배선 퀵 스타트 > 외부 텔레메트리](../assembly/quick_start_pixracer.md#external-telemetry)
+::: info If using `TELEM2` for an external telemetry module you will need to configure it as a MAVLink serial port. 더 자세한 정보는 이곳을 참고하십시오: [Pixracer 배선 퀵 스타트 > 외부 텔레메트리](../assembly/quick_start_pixracer.md#external-telemetry)
 :::
 
 ![Grau setup pixracer bottom](../../assets/flight_controller/pixracer/grau_setup_pixracer_bottom.jpg)

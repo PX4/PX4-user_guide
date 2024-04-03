@@ -58,8 +58,7 @@ The tuning procedure is:
 1. Confirm that the airmode selector is set to **Disabled**
 1. Set the _Thrust curve_ value to: 0.3 (PWM, power-based controllers) or 1 (RPM-based ESCs)
 
-:::note
-For PWM, power-based and (some) UAVCAN speed controllers, the control signal to thrust relationship may not be linear. As a result, the optimal tuning at hover thrust may not be ideal when the vehicle is operating at higher thrust.
+   ::: info For PWM, power-based and (some) UAVCAN speed controllers, the control signal to thrust relationship may not be linear. As a result, the optimal tuning at hover thrust may not be ideal when the vehicle is operating at higher thrust.
 
    The thrust curve value can be used to compensate for this non-linearity:
 

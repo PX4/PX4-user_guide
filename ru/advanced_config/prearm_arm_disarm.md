@@ -8,8 +8,7 @@ To reduce the chance of accidents, PX4 has explicit state(s) for powering the ve
 - **Pre-armed:** Motors/propellers are locked but actuators for non-dangerous electronics are powered (e.g. ailerons, flaps etc.).
 - **Armed:** Vehicle is fully powered. Motors/propellers may be turning (dangerous!)
 
-:::note
-Ground stations may display _disarmed_ for pre-armed vehicles. While not technically correct for pre-armed vehicles, it is "safe".
+::: info Ground stations may display _disarmed_ for pre-armed vehicles. While not technically correct for pre-armed vehicles, it is "safe".
 :::
 
 Users can control progression though these states using a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch) on the vehicle (optional) _and_ an [arming switch/button](#arm_disarm_switch), [arming gesture](#arm_disarm_gestures), or _MAVLink command_ on the ground controller:
@@ -76,8 +75,7 @@ The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM
 | <a id="RC_MAP_ARM_SW"></a>[RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW)     | RC arm switch channel (default: 0 - unassigned). If defined, the specified RC channel (button/switch) is used for arming instead of a stick gesture. <br>**Note:**<br>- This setting _disables the stick gesture_!<br>- This setting applies to RC controllers. It does not apply to Joystick controllers that are connected via _QGroundControl_. |
 | <a id="COM_ARM_SWISBTN"></a>[COM_ARM_SWISBTN](../advanced_config/parameter_reference.md#COM_ARM_SWISBTN) | Arm switch is a momentary button. <br>- `0`: Arm switch is a 2-position switch where arm/disarm commands are sent on switch transitions.<br>-`1`: Arm switch is a button or momentary button where the arm/disarm command ae sent after holding down button for set time ([COM_RC_ARM_HYST](#COM_RC_ARM_HYST)).                                        |
 
-:::note
-The switch can also be set as part of _QGroundControl_ [Flight Mode](../config/flight_mode.md) configuration.
+::: info The switch can also be set as part of _QGroundControl_ [Flight Mode](../config/flight_mode.md) configuration.
 :::
 
 ## Auto-Disarming
@@ -100,7 +98,7 @@ To reduce accidents, vehicles are only allowed to arm certain conditions are met
 - The current mode requires an adequate global position estimate but the vehicle does not have GPS lock.
 - Many more ...
 
-The current failed checks can be viewed in QGroundControl (v4.2.0 and later): [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#arm).
+The current failed checks can be viewed in QGroundControl (v4.2.0 and later): [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/fly_view/fly_view.html#arm).
 
 Note that internally PX4 runs arming checks at 10Hz. A list of the failed checks is kept, and if the list changes PX4 emits the current list using the [Events interface](../concept/events_interface.md). The list is also sent out when the GCS connects. Effectively the GCS knows the status of prearm checks immediately, both when disarmed and armed.
 

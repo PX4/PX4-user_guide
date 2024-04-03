@@ -30,12 +30,10 @@ _QGroundControl for Windows_ is additionally required if you need to:
 - [Update firmware](#flash-a-flight-control-board) on a real vehicle.
 - Monitor a real vehicle. Note that you can also use it to monitor a simulation, but you must manually [connect to the simulation running in WSL](#qgroundcontrol-on-windows).
 
-:::note
-Connecting to a USB device from within WSL is not supported, so you can't update firmware using the [`upload`](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board) option when building on the command line, or from _QGroundControl for Linux_.
+::: info Connecting to a USB device from within WSL is not supported, so you can't update firmware using the [`upload`](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board) option when building on the command line, or from _QGroundControl for Linux_.
 :::
 
-:::note
-The approach is similar to installing PX4 in your _own_ virtual machine, as described in [Windows VM-Hosted Toolchain](../dev_setup/dev_env_windows_vm.md). The benefit of WSL2 is that its virtual machine is deeply integrated into Windows, system-managed, and performance optimised.
+::: info The approach is similar to installing PX4 in your _own_ virtual machine, as described in [Windows VM-Hosted Toolchain](../dev_setup/dev_env_windows_vm.md). The benefit of WSL2 is that its virtual machine is deeply integrated into Windows, system-managed, and performance optimised.
 :::
 
 ## Installation
@@ -66,8 +64,7 @@ To install WSL2 with Ubuntu on a new installation of Windows 10 or 11:
      wsl --install -d Ubuntu-22.04
      ```
 
-:::note
-You can also install[Ubuntu 20.04](https://www.microsoft.com/store/productId/9MTTCL66CPXJ) and [Ubuntu 22.04](https://www.microsoft.com/store/productId/9PN20MSR04DW) from the store, which allows you to delete the application using the normal Windows Add/Remove settings:
+   ::: info You can also install[Ubuntu 20.04](https://www.microsoft.com/store/productId/9MTTCL66CPXJ) and [Ubuntu 22.04](https://www.microsoft.com/store/productId/9PN20MSR04DW) from the store, which allows you to delete the application using the normal Windows Add/Remove settings:
 :::
 
 1. WSL will prompt you for a user name and password for the Ubuntu installation. Record these credentials as you will need them later on!
@@ -136,8 +133,7 @@ If you work from a location outside of the WSL file system you'll run into issue
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
 
-:::note
-The environment setup scripts in the source usually work for recent PX4 releases. If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release).
+   ::: info The environment setup scripts in the source usually work for recent PX4 releases. If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release).
 :::
 
 1. Run the **ubuntu.sh** installer script and acknowledge any prompts as the script progresses:
@@ -146,8 +142,7 @@ The environment setup scripts in the source usually work for recent PX4 releases
    bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
    ```
 
-:::note
-This installs tools to build PX4 for Pixhawk, Gazebo Classic and JMAVSim targets:
+   ::: info This installs tools to build PX4 for Pixhawk, Gazebo Classic and JMAVSim targets:
 
    - You can use the `--no-nuttx` and `--no-sim-tools` options to omit the NuttX and/or simulation tools.
    - Other Linux build targets are untested (you can try these by entering the appropriate commands in [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) into the WSL shell).
@@ -259,7 +254,7 @@ These steps describe how you can connect to the simulation running in the WSL:
 4. Add a UDP Link called "WSL" to port `18570` of the IP address copied above.
 5. Save it and connect to it.
 
-:::note
+::: info
 You will have to update the WSL comm link in QGC every time WSL restarts (because it gets a dynamic IP address).
 :::
 
@@ -285,7 +280,7 @@ Do the following steps to flash your custom binary built in WSL:
 1. Once connected select "PX4 Flight Stack", check "Advanced settings" and choose "Custom firmware file ..." from the drop down below.
 1. Continue and select the firmware binary you just built before. In the open dialog look for the "Linux" location with the penguin icon in the left pane. It's usually all the way at the bottom. Choose the file in the path: `Ubuntu\home\{your WSL user name}\PX4-Autopilot\build\{your build target}\{your build target}.px4`
 
-   :::note
+   ::: info
 You can add the folder to the favourites to access it quickly next time.
 :::
 

@@ -16,8 +16,7 @@
 
 ![아키텍쳐](../../assets/satcom/architecture.jpg)
 
-:::note
-The setup was tested with the current release of _QGroundControl_ running on Ubuntu 14.04 and 16.04.
+::: info The setup was tested with the current release of _QGroundControl_ running on Ubuntu 14.04 and 16.04.
 
 - 다른 지상국 및 운영체제를 사용할 수 있지만, 아직 테스트되지 않았습니다.
 - The [RockBlock MK2](https://www.groundcontrol.com/us/product/rockblock-9602-satellite-modem/) module can also be used. RockBlock 9603 모듈은 크기가 작고 가볍우면서도 동일한 기능을 제공하기 때문에 권장됩니다.
@@ -65,8 +64,7 @@ RockBlock 모듈을 Pixhawk의 직렬 포트에 연결합니다. 모듈의 전�
 
 [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG)를 사용하여 RockBlock 모듈이 실행될 [직렬 포트를 구성](../peripherals/serial_configuration.md)합니다. 포트에 대한 전송 속도는 드라이버에 의해 구성되므로 설정할 필요가 없습니다.
 
-:::note
-If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+::: info If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
 
 ```
 drivers/telemetry/iridiumsbd
@@ -177,7 +175,7 @@ RockBlock의 첫 번째 모듈을 구입시의 첫 번째 단계는 사용자 �
    ```
 
 1. 설정을 반영하도록 **udp2rabbit.cfg** 설정 파일을 편집합니다.
-1. [Install _QGroundControl_](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html) (daily build).
+1. [Install _QGroundControl_](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html) (daily build).
 1. 다음 매개 변수를 사용하여 QGC에서 UDP 연결을 추가합니다.
 
    - 접속 포트: 10000

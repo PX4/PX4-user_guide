@@ -10,7 +10,7 @@ Crowdin exports the translated documents back out to Github as a "Pull Request" 
 You will need a (free) [Crowdin account](https://crowdin.com/join) account to join the translation team!
 :::
 
-:::note
+::: info
 The benefit of this system is that the translation closely tracks the source documents.
 Readers will not be mislead by old and out of date translations.
 :::

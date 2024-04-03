@@ -161,7 +161,7 @@ Motors/servos control signals are connected to the **I/O PWM OUT** (**MAIN OUT**
 
 The motors must be separately [powered](#power).
 
-:::note
+::: info
 If your frame is not listed in the airframe reference then use a "generic" airframe of the correct type.
 :::
 
@@ -183,8 +183,7 @@ The wiring and configuration of optional/less common components is covered withi
 
 First you will need to install [PX4 "Master" Firmware](../config/firmware.md#custom) onto the controller using _QGroundControl_.
 
-:::note
-Durandal support will be in the _stable_ PX4 release that follows PX4 v1.10.
+::: info Durandal support will be in the _stable_ PX4 release that follows PX4 v1.10.
 :::
 
 QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)을 참고하십시오.

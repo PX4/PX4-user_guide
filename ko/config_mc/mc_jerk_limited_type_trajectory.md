@@ -4,8 +4,7 @@
 
 이 궤적 유형은 항상 [임무 모드](../flight_modes/mission.md)에서 활성화됩니다. To enable it in [Position mode](../flight_modes_mc/position.md) set the parameter: [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
-:::note
-The jerk-limited type is not used _by default_ in position mode. 더 빠른 응답이 필요한 기체(예 : 레이서 쿼드)에는 적합하지 않을 수 있습니다.
+::: info The jerk-limited type is not used _by default_ in position mode. 더 빠른 응답이 필요한 기체(예 : 레이서 쿼드)에는 적합하지 않을 수 있습니다.
 :::
 
 ## 궤적 생성기

@@ -128,7 +128,7 @@ To get the source code for a _specific older release_ (tag):
    cd PX4-Autopilot
    ```
 
-   :::note
+   ::: info
 
    You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
 
@@ -165,7 +165,7 @@ To get a release branch:
   cd PX4-Autopilot
   ```
 
-  :::note
+  ::: info
 
   You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
 

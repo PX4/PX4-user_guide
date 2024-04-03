@@ -33,7 +33,7 @@ To connect systems over Ethernet you need to configure them to run on the same I
 
 There is no single "out of the box configuration" that we can provide that will necessarily work in your local network. Therefore as an example of the kind of configuration you might do, below we show how to set up the systems on an IP network with static addresses in the range `192.168.0.Xxx`, where PX4 has a statically allocated address `192.168.0.4` and the computer has address `192.168.0.1`. If you wanted to connect a companion computer or other system to the network you could use a similar approach to allocate a static address.
 
-:::note
+::: info
 There is nothing "special" about the network configuration (other than perhaps the tools used to modify the network settings); it works much the same as any home or business network.
 Which is to say that a knowledge of how IP networks work is highly desirable!
 :::
@@ -133,8 +133,7 @@ A Linux operating system may support `netplan`, in which case the instructions w
 
 The Ethernet port configuration sets the properties of the _serial link_ (which is how PX4 views the Ethernet connection). This includes the set of MAVLink messages that are streamed, the data rate, the UDP ports that a remote system can connect listen to, etc.
 
-:::note
-You must separately configure the PX4 IP address and other _network settings_ ([as shown previously](#px4-ethernet-network-setup)).
+::: info You must separately configure the PX4 IP address and other _network settings_ ([as shown previously](#px4-ethernet-network-setup)).
 :::
 
 PX4 configures the serial port to connect to a GCS via MAVLink, using the parameters shown below:
@@ -161,7 +160,7 @@ To connect QGroundControl to PX4 over Ethernet:
 
 1. [Set up the Ethernet Network](#setting-up-the-ethernet-network) so your ground station computer and PX4 run on the same network.
 1. Connect the ground station computer and PX4 using an Ethernet cable.
-1. Start QGroundControl and [define a comm link](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) (**Application Settings > Comm Links**) specifying the _server address_ and port as the IP address and port assigned in PX4, respectively.
+1. Start QGroundControl and [define a comm link](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/settings_view.html) (**Application Settings > Comm Links**) specifying the _server address_ and port as the IP address and port assigned in PX4, respectively.
 
    Assuming that the values are set as described in the rest of this topic the setup will look like this:
 
@@ -169,8 +168,7 @@ To connect QGroundControl to PX4 over Ethernet:
 
 1. QGroundControl should then connect if you select this link.
 
-:::note
-[PX4 Ethernet Port Configuration](#px4-ethernet-network-setup) should not be needed (the default are appropriate for a GCS).
+::: info [PX4 Ethernet Port Configuration](#px4-ethernet-network-setup) should not be needed (the default are appropriate for a GCS).
 :::
 
 ## MAVSDK-Python Setup Example

@@ -4,7 +4,7 @@ The _weather vane_ feature automatically turns a VTOL vehicle to face its nose i
 
 The feature is [enabled by default](#configuration) on VTOL hybrid vehicles flying in multicopter mode.
 
-:::note
+::: info
 Weather vane functionality is not supported on pure multirotors.
 :::
 

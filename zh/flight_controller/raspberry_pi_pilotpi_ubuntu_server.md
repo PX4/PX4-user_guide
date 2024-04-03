@@ -192,7 +192,7 @@ Save and exit. Then set the correct permissions:
 sudo chmod +x /etc/rc.local
 ```
 
-:::note
+::: info
 Don't forget to turn off the switch when it is not needed!
 :::
 
@@ -220,7 +220,7 @@ To get the _very latest_ version onto your computer, enter the following command
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-:::note
+::: info
 This is all you need to do just to build the latest code.
 :::
 
@@ -269,12 +269,11 @@ If you are compiling for the first time with docker, please refer to the [offici
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
 
-:::note
+::: info
 mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
 :::
 
-:::note
-If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too. Just remove `upload` target.
+::: info If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too. Just remove `upload` target.
 :::
 
 通过 ssh 连接并运行它：
@@ -285,8 +284,7 @@ If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. Yo
 
 #### 为arm64交叉编译
 
-:::note
-This step requires `aarch64-linux-gnu` tool-chain to be installed.
+::: info This step requires `aarch64-linux-gnu` tool-chain to be installed.
 :::
 
 如果在树莓派上运行PX4时遇到了以下问题：
@@ -312,12 +310,11 @@ If you are compiling for the first time with docker, please refer to the [offici
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_arm64 upload"
 ```
 
-:::note
+::: info
 mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
 :::
 
-:::note
-If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too - just remove the `upload` target.
+::: info If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too - just remove the `upload` target.
 :::
 
 It is also possible to just compile the code with command:

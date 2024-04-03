@@ -31,8 +31,7 @@
 - [Level Horizon](../config/level_horizon_calibration.md)
 - Швидкість польоту (тільки для літаків / VTOL)
 
-:::note
-Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/index.md).
+::: info Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/index.md).
 :::
 
 ### Налаштування ручного керування

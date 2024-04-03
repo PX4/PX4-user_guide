@@ -1,35 +1,35 @@
-# VTOL Weather Vane Feature
+# Функція VTOL Флюгер
 
-The _weather vane_ feature automatically turns a VTOL vehicle to face its nose into the relative wind during hover flight. This improves stability (reducing the chance that wind from the side will pick-up the wind-facing wing and flip the vehicle).
+Функція _флюгера_ під час польоту на місці автоматично повертає ВТОЛ транспортний засіб так, щоб ніс його був звернутий проти відносинного вітру. Це поліпшує стабільність (зменшуючи ймовірність того, що вітер з боку підніме крило, що звернуто до вітру, і перекине транспортний засіб).
 
-The feature is [enabled by default](#configuration) on VTOL hybrid vehicles flying in multicopter mode.
+Ця функція [увімкнена за замовчуванням](#configuration) на гібридних VTOL-транспортних засобах, які літають у режимі багтроторного літака.
 
-:::note
-Weather vane functionality is not supported on pure multirotors.
+::: info
+Функція вітряного флажка не підтримується на чистих багтроторних апаратах.
 :::
 
-## Manual Mode Behaviour
+## Поведінка в ручному режимі
 
-The weather vane feature will only take effect in [Position mode](../flight_modes_mc/position.md) (not other manual MC modes).
+Функція флюгера діятиме лише в [режимі розташування](../flight_modes_mc/position.md) (не в інших ручних режимах MC).
 
-The user can still use the yaw stick to demand a yaw rate even while the weather vane controller is trying to turn the nose of the vehicle into the wind. The target yaw rate is the sum of weather vane yaw rate and user commanded yaw rate.
+Користувач все ще може використовувати ручку повороту, щоб запитати швидкість повороту, навіть коли контролер флюгера намагається повернути ніс транспортного засобу по вітру. Цільова швидкість повороту — це сума швидкості повороту флюгера та заданої користувачем швидкості повороту.
 
-## Mission Mode Behaviour
+## Поведінка в режимі місії
 
-In [Mission mode](../flight_modes_vtol/mission.md) the weather vane feature will always be active when the parameter is enabled. Any yaw angle commanded in a mission will be ignored.
+У [Режимі місії](../flight_modes_vtol/mission.md) функція флюгера буде завжди активна, коли параметр увімкнено. Будь-який кут повороту, заданий у місії, ігноруватиметься.
 
 <a id="configuration"></a>
 
-## Configuration
+## Конфігурація
 
-This functionality is configured using the [WV\_\* parameters](../advanced_config/parameter_reference.md#WV_EN).
+Ця функція налаштовується за допомогою параметрів [WV\_\*](../advanced_config/parameter_reference.md#WV_EN).
 
-| Parameter                                                                | Description                                                                  |
-| ------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
-| [WV_EN](../advanced_config/parameter_reference.md#WV_EN)                 | Enable weather vane.                                                         |
-| [WV_ROLL_MIN](../advanced_config/parameter_reference.md#WV_ROLL_MIN)   | Minimum roll angle setpoint for weathervane controller to demand a yaw-rate. |
-| [WV_YRATE_MAX](../advanced_config/parameter_reference.md#WV_YRATE_MAX) | Maximum yawrate the weathervane controller is allowed to demand.             |
+| Параметр                                                                 | Опис                                                                                           |
+| ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| [WV_EN](../advanced_config/parameter_reference.md#WV_EN)                 | Увімкнути флюгер.                                                                              |
+| [WV_ROLL_MIN](../advanced_config/parameter_reference.md#WV_ROLL_MIN)   | Мінімальне задане значення кута крену для контролера флюгера, щоб вимагати швидкості повороту. |
+| [WV_YRATE_MAX](../advanced_config/parameter_reference.md#WV_YRATE_MAX) | Максимальна швидкість, яку дозволено вимагати контролеру флюгера.                              |
 
-## How Does it Work?
+## Як це працює?
 
-During hover flight the vehicle needs to overcome the drag exerted on it by the wind in order to hold its position. The only way for it to achieve this is by tilting its thrust vector into the relative wind (it literally 'leans' against the wind). By keeping track of the thrust vector one can estimate the wind direction. A weathervane controller is used to command a yawrate that turns the vehicle nose into the estimated wind direction.
+Під час польоту на місці транспортний засіб повинен подолати опір, що справляється на нього вітром, щоб утримати своє положення. Єдиний спосіб досягнути цього - нахилити вектор тяги в напрямку відносинного вітру (буквально "нахиляється" проти вітру). Відстежуючи вектор тяги, можна оцінити напрям вітру. Контролер поперечної стійкості використовується для керування швидкістю обертання, яка повертає нос транспортного засобу в оцінений напрям вітру.

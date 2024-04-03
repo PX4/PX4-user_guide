@@ -101,7 +101,7 @@ PX4 中各字段定义如下：
   - if you switch to an autonomous mode (e.g. Land Mode) it will immediately fall back to [Hold mode](../flight_modes_mc/hold.md).
 - When external path planning is enabled:
   - if the `HEARTBEAT` is lost PX4 will emit a status message (which is displayed in _QGroundControl_) stating either "Avoidance system lost" or "Avoidance system timeout" (depending on the vehicle state). 这项提醒与当前的飞行模式无关。
-  - if a trajectory message is not received for more than 0.5 seconds and the vehicle is in an autonomous mode (Return, Mission, Takeoff, Land), the vehicle will switch into [Hold mode](../flight_modes_mc/hold.md). :::note A planner must always provide points in this timeframe.
+  - if a trajectory message is not received for more than 0.5 seconds and the vehicle is in an autonomous mode (Return, Mission, Takeoff, Land), the vehicle will switch into [Hold mode](../flight_modes_mc/hold.md). ::: info A planner must always provide points in this timeframe.
   - A planner will mirror back setpoints it receives when the vehicle is in a mode/state for which it doesn't provide path planning. (i.e. the vehicle will follow its desired path, delayed by a very small amount).
 :::
   - If the execution time of the last-supplied Bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes_mc/hold.md)).
@@ -138,8 +138,7 @@ The path planning software (running on the companion computer) _may_ send the pl
 
 消息定义了无人机应遵循的路径（由控制点定义），从消息 `时间戳` 开始，在时间 `delta` 后到达终点。 PX4 使用消息发送时间、当前时间和贝塞尔曲线的总时间（delta）计算其新的轨迹设定点（沿曲线趋势来预测的当前位置/速度/加速度）。
 
-:::note
-For example, say the message was sent 0.1 seconds ago, and `delta` (curve duration) is 0.3s. PX4 可以在曲线中以 0.1 秒间隔的精度计算其轨迹设定点。 因此，开发者可以使用这个接口来创建自己新的机载计算机端路径规划服务，或调整现有的规划者软件。
+::: info For example, say the message was sent 0.1 seconds ago, and `delta` (curve duration) is 0.3s. PX4 可以在曲线中以 0.1 秒间隔的精度计算其轨迹设定点。 因此，开发者可以使用这个接口来创建自己新的机载计算机端路径规划服务，或调整现有的规划者软件。
 
 更详细地讲，`TRAJECTORY_REPRESENTATION_BEZIER` 被解析为：
 

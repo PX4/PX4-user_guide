@@ -79,7 +79,7 @@ To enumerate the ESC:
 
 4. Manually turn each motor in the correct direction of its rotation (as specified in the [Airframe Reference](../airframes/airframe_reference.md)), starting from the first motor and finishing with the last motor. Each time you turn a motor, you should hear a confirmation beep.
 
-   :::note
+   ::: info
 Make sure to turn each of the motors in the correct direction, as the ESC will automatically learn and remember the direction (i.e. motors that spin clockwise during normal operation must also be turned clockwise during enumeration).
 :::
 
@@ -101,8 +101,7 @@ You can manually configure the ESC index and direction using the [DroneCAN GUI T
 - `esc_index`
 - `ctl_dir`
 
-:::note
-See [Sapog reference manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf) for more information about the parameters.
+::: info See [Sapog reference manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf) for more information about the parameters.
 :::
 
 ### PX4 Configuration

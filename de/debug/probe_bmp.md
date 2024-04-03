@@ -12,13 +12,13 @@ The probe's USB interface exposes two separate virtual serial port interfaces: o
 
 The probe provides a DCD-M connector cable for attaching to the [Pixhawk Debug Mini](swd_debug.md#pixhawk-debug-mini).
 
-:::note
+::: info
 The _6-pos DF13_ connector that comes with the probe cannot be used for SWD debugging (it is for using the System Console).
 :::
 
 ## Using the Probe
 
-:::note
+::: info
 To debug STM32F7 or later (FMUv5 and newer) the Dronecode probe / Blackmagic probe likely requires a firmware update. You can find how to update the [blackmagic probe here](https://github.com/blacksphere/blackmagic/wiki/Upgrading-Firmware).
 :::
 

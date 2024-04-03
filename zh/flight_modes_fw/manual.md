@@ -8,7 +8,7 @@ _Manual mode_ sends manual stick input directly to control allocation for fully 
 
 This is the hardest mode to fly, because nothing is stabilised. 不同于[特技模式](../flight_modes/acro_fw.md)，如果 RP （俯仰和横滚） 摇杆居中，无人机不会自动停止绕轴转；飞手实际上必须移动摇杆向另一个方向施力。
 
-:::note
+::: info
 This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). 该模式提供了一个安全机制，允许在 FMU 固件故障时通过遥控器完全控制油门，升降舵，副翼和方向舵。
 :::
 

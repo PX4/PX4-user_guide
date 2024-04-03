@@ -6,7 +6,7 @@ This modularity makes it easier to integrate flight controllers into different s
 
 The following carriers and flight controllers are PAB-compliant, and can therefore be used interchangeably.
 
-:::note
+::: info
 The "Mechanical Design" section of the standard provides specific recommendations for mechanical compatibility between vendors. The flight controllers and baseports listed here are expected to be compliant with all recommendations.
 :::
 

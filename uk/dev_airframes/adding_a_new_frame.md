@@ -55,7 +55,7 @@ The configuration file consists of several main blocks:
 
 Ці аспекти в основному незалежні, що означає, що багато конфігурацій використовують ту саму фізичну конструкцію літального апарату, запускають ті ж самі додатки і відрізняються переважно у своїх налаштуваннях.
 
-:::note
+::: info
 New frame configuration files are only automatically added to the build system after a clean build (run `make clean`).
 :::
 

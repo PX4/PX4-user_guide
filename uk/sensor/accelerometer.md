@@ -1,9 +1,9 @@
-# Accelerometer Hardware & Setup
+# Апаратне забезпечення та налаштування акселерометра
 
-PX4 uses accelerometer data for velocity estimation.
-Most flight controllers, such as those in the [Pixhawk Series](../flight_controller/pixhawk_series.md), include an accelerometer as part of the flight controller's [Inertial Motion Unit (IMU)](https://en.wikipedia.org/wiki/Inertial_measurement_unit).
-You should not need to attach one as an external device.
+PX4 використовує дані акселерометра для оцінки швидкості.
+Більшість польотних контролерів, таких, як в [Pixhawk Series](/flight_controller/pixhawk_series.md), включають в себе акселерометр як частину польот контролеру [Inertial Motion (IMU)](https://en.wikipedia.org/wiki/Inertial_measurement_unit).
+Вам не потрібно прикріплювати зовнішній пристрій.
 
-The accelerometer must be calibrated before first use of the vehicle:
+Потрібно відкалібрувати акселерометр перед першим використанням безпілотника:
 
 - [Accelerometer Calibration](../config/accelerometer.md)

@@ -2,8 +2,7 @@
 
 나침반 보정은 내부 및 외부 [나침반 센서](../gps_compass/README.md)들을 설정합니다. _QGroundControl_ will guide you to position the vehicle in a number of set orientations and rotate the vehicle about the specified axis.
 
-:::note
-Compass calibration also auto-detects the compass orientation ([by default](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT)). If you have [mounted the compass](../assembly/mount_gps_compass.md#compass-orientation) at a non-standard angle you will need to [manually set the compass orientation](../config/flight_controller_orientation.md#setting-the-compass-orientation) before calibrating.
+::: info Compass calibration also auto-detects the compass orientation ([by default](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT)). If you have [mounted the compass](../assembly/mount_gps_compass.md#compass-orientation) at a non-standard angle you will need to [manually set the compass orientation](../config/flight_controller_orientation.md#setting-the-compass-orientation) before calibrating.
 :::
 
 ## Overview
@@ -78,7 +77,7 @@ The process above will autodetect, [set default rotations](../advanced_config/pa
 
 Further compass configuration should generally not be required.
 
-:::note
+::: info
 All external compasses are given the same priority by default, which is higher than the priority shared by all internal compasses.
 :::
 

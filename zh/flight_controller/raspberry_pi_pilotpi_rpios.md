@@ -113,13 +113,13 @@ echo "25" > /sys/class/gpio/unexport
 
 保存并退出。
 
-:::note
+::: info
 Don't forget to turn off the switch when it is not needed.
 :::
 
 #### CSI 相机
 
-:::note
+::: info
 Enable CSI camera will stop anything works on I2C-0.
 :::
 
@@ -137,7 +137,7 @@ To get the _very latest_ version onto your computer, enter the following command
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-:::note
+::: info
 This is all you need to do just to build the latest code.
 :::
 
@@ -206,8 +206,7 @@ If you are compiling for the first time with docker, please refer to the [offici
 所有可用的混控配置都存储在 `etc/mixers` 中。 您也可以自己创建一个。
 :::
 
-:::note
-If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too. Just remove `upload` target.
+::: info If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too. Just remove `upload` target.
 :::
 
 It is also possible to just compile the code with command:
@@ -261,6 +260,5 @@ Sample output:
 
 `1e` indicates a HMC5883 based compass is mounted on external I2C bus. Similarly, IST8310 has a value of `0e`.
 
-:::note
-Generally you only have one of them. Other devices will also be displayed here if they are connected to external I2C bus.(`/dev/i2c-0`)
+::: info Generally you only have one of them. Other devices will also be displayed here if they are connected to external I2C bus.(`/dev/i2c-0`)
 :::

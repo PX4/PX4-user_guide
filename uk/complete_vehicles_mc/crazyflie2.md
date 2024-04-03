@@ -22,7 +22,7 @@ An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/cra
 
 ## Quick Summary
 
-:::note
+::: info
 The main hardware documentation is here: https\://wiki.bitcraze.io/projects:crazyflie2:index
 :::
 
@@ -104,7 +104,7 @@ After setting up the PX4 development environment, follow these steps to install 
 
 10. Done! Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors.html).
 
-:::note
+::: info
 If QGroundControl does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/PX4-Autopilot/blob/main/boards/bitcraze/crazyflie/nuttx-config/nsh/defconfig) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`.
 This should be done using _menuconfig_:
 
@@ -142,7 +142,7 @@ Connecting via **MAVLink**:
   git clone https://github.com/bitcraze/crazyflie-lib-python.git
   ```
 
-:::note
+:::info
 We will use [cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py) to setup a wireless MAVlink communication link between Crazyflie 2.0 (flashed with PX4) and QGroundControl. _Cfbridge_ enables QGroundControl to communicate with the crazyradio PA.
 The [C based cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, which is why we have chosen to use **cfbridge.py**.
 :::
@@ -201,7 +201,7 @@ To connect Crazyflie 2.0 with crazyradio, **launch cfbridge** by following these
 python cfbridge.py
 ```
 
-:::note
+:::info
 _Cfbridge_ by default tries to initiate the radio link communication on channel 80 and with crazyflie address 0xE7E7E7E7E7.
 If you are using [multiple crazyflies and/or crazyradios](https://github.com/dennisss/cfbridge/blob/master/index.md#advanced-swarming) in the same room and want to use a different channel and/or address for each, first connect the crazyflie with QGroundControl via a USB cable and change the syslink parameters (channel, address) in QGroundControl.
 Next, launch the cfbridge by giving the same channel and address as the first and second arguments respectively, e.g: `python cfbridge.py 90 0x0202020202`
@@ -220,7 +220,7 @@ make venv
 
 :::
 
-:::note
+:::info
 To use Joystick, set `COM_RC_IN_MODE` in QGroundControl to "Joystick/No RC Checks".
 Calibrate the Joystick and set the Joystick message frequency in QGroundControl to any value between 5 to 14 Hz (10 Hz is recommended).
 To be able to set the frequency, the advanced option should be enabled.
@@ -260,7 +260,7 @@ According to the datasheet, the maximum height (above ground) the range finder c
 If the Crazyflie 2.0 height drifts at mid-throttle command in _Altitude mode_ or _Position mode_, first try rebooting the vehicle. If this does not fix the problem, recalibrate the accel and mag (compass).\
 :::
 
-:::note
+:::info
 Since the onboard barometer is highly susceptible to wind disturbances created by the Crazyflie's own propellers, you cannot rely on it to hold altitude.
 :::
 

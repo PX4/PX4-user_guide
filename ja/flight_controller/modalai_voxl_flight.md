@@ -9,8 +9,7 @@ The ModalAI [VOXL Flight](https://modalai.com/voxl-flight) ([Datasheet](https://
 
 ![VOXL-Flight](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-dk.jpg)
 
-:::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Specifications
@@ -71,8 +70,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 <!-- reference links for above table (improve layout) -->
 
-:::note
-More detailed hardware documentation can be found [here](https://docs.modalai.com/voxl-flight-datasheet/).
+::: info More detailed hardware documentation can be found [here](https://docs.modalai.com/voxl-flight-datasheet/).
 :::
 
 ## Dimensions

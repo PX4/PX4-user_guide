@@ -31,8 +31,7 @@ Before starting you should [Download QGroundControl](http://qgroundcontrol.com/d
 - [Level Horizon](../config/level_horizon_calibration.md)
 - [Airspeed](../config/airspeed.md) (Fixed-wing/VTOL only)
 
-:::note
-Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/index.md).
+::: info Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/index.md).
 :::
 
 ### Manual Control Setup

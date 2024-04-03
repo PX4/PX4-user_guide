@@ -54,7 +54,7 @@ The other reason that a parameter might not be in firmware is if its associated 
 - Check if you can update your board to run FMUv3 firmware, which includes all modules: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader)
 - If your board can only run FMUv2 firmware you will need to [rebuild PX4](../dev_setup/building_px4.md) with the missing modules enabled. You need reconfigure the PX4 firmware itself through make px4_fmuv2_default boardconfig where you can enabled/disable modules.
 
-  :::note
+  ::: info
 You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash.
 Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
 :::
@@ -67,8 +67,7 @@ To change the value of a parameter click on the parameter row in a group or sear
 
 ![Changing a parameter value](../../assets/qgc/setup/parameters/parameters_changing.png)
 
-:::note
-When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
+::: info When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
 :::
 
 ## Tools

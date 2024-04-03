@@ -26,7 +26,7 @@ PX4 支持由多个圆形和多边形区域组成的复杂地理围栏边界，�
 
 ![围栏规划](../../assets/qgc/plan_geofence/geofence_overview.jpg)
 
-Geofence planning is fully documented in [Plan View > GeoFence](https://docs.qgroundcontrol.com/master/en/PlanView/PlanGeoFence.html) (QGroundControl User Guide).
+Geofence planning is fully documented in [Plan View > GeoFence](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_geofence.html) (QGroundControl User Guide).
 
 总结：
 
@@ -42,7 +42,7 @@ Geofence planning is fully documented in [Plan View > GeoFence](https://docs.qgr
 1. 完成后，点击(右上角) **上传** 按钮向车辆发送围栏(连同集结和任务)。
 1. 在围栏故障保护中设置越界动作。
 
-:::note
+::: info
 Any geofence that does not include the Home position will be rejected by the flight controller and not uploaded.
 If the vehicle is flying, also any geofence that would immediately get breached after the upload is rejected.
 :::

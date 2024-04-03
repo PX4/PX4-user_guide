@@ -12,8 +12,7 @@ The script installs (by default) all tools to build PX4 for NuttX targets and ru
 
 ![Gazebo on Arch](../../assets/simulation/gazebo_classic/arch-gazebo.png)
 
-:::note
-The instructions have been tested on [Manjaro](https://manjaro.org/) (Arch based distribution) as it is much easier to set up than Arch Linux.
+::: info The instructions have been tested on [Manjaro](https://manjaro.org/) (Arch based distribution) as it is much easier to set up than Arch Linux.
 :::
 
 To get and run the scripts, do either of:
@@ -37,8 +36,7 @@ The script takes the following optional parameters:
 
 - `--gazebo`: Add this parameter to install Gazebo from the [AUR](https://aur.archlinux.org/packages/gazebo/).
 
-:::note
-Gazebo gets compiled from source. It takes some time to install and requires entering the `sudo` password multiple times (for dependencies).
+  ::: info Gazebo gets compiled from source. It takes some time to install and requires entering the `sudo` password multiple times (for dependencies).
 :::
 
 - `--no-nuttx`: Do not install the NuttX/Pixhawk toolchain (i.e. if only using simulation).

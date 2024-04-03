@@ -8,8 +8,7 @@
 - **시동 전:** 모터와 프로펠러를 잠궈두었으나 액츄에이터에는 위험하지 않은 수준의 전원을 인가함(예: 보조익, 플랩 등).
 - **시동:** 기체 전체에 전원을 인가한 상태. 모터와 프로펠러가 동작할 수 있음(위험!)
 
-:::note
-Ground stations may display _disarmed_ for pre-armed vehicles. 시동전의 기체는 기술적으로 타당하지는 않지만, "안전"한 상태입니다.
+::: info Ground stations may display _disarmed_ for pre-armed vehicles. 시동전의 기체는 기술적으로 타당하지는 않지만, "안전"한 상태입니다.
 :::
 
 Users can control progression though these states using a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch) on the vehicle (optional) _and_ an [arming switch/button](#arm_disarm_switch), [arming gesture](#arm_disarm_gestures), or _MAVLink command_ on the ground controller:
@@ -76,8 +75,7 @@ A two-position switch can also be used for arming/disarming, where the respectiv
 | <a id="RC_MAP_ARM_SW"></a>[RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW)     | RC arm 스위치 채널 (기본값 : 0 - 할당되지 않음). 정의된 경우 지정된 RC 채널(버튼/스위치)이 스틱 제스처 대신 시동용으로 사용됩니다. <br>**Note:**<br>- This setting _disables the stick gesture_!<br>- This setting applies to RC controllers. It does not apply to Joystick controllers that are connected via _QGroundControl_. |
 | <a id="COM_ARM_SWISBTN"></a>[COM_ARM_SWISBTN](../advanced_config/parameter_reference.md#COM_ARM_SWISBTN) | 시동 스위치는 순간적으로 동작하는 버튼입니다. <br> - `0`: 시동 스위치는 스위치 전환시 arm/disarm 명령이 전송되는 이중 위치 스위치입니다. <br> - `1` : 시동 스위치는 버튼입니다. 또는 설정된 시간 ([COM_RC_ARM_HYST](#COM_RC_ARM_HYST)) 동안 버튼을 누른 후 arm/disarm 명령 ae가 전송되는 순간 동작하는 버튼입니다.                                                                 |
 
-:::note
-The switch can also be set as part of _QGroundControl_ [Flight Mode](../config/flight_mode.md) configuration.
+::: info The switch can also be set as part of _QGroundControl_ [Flight Mode](../config/flight_mode.md) configuration.
 :::
 
 ## 자동 시동 해제
@@ -100,7 +98,7 @@ To reduce accidents, vehicles are only allowed to arm certain conditions are met
 - The current mode requires an adequate global position estimate but the vehicle does not have GPS lock.
 - Many more ...
 
-The current failed checks can be viewed in QGroundControl (v4.2.0 and later): [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#arm).
+The current failed checks can be viewed in QGroundControl (v4.2.0 and later): [Fly View > Arming and Preflight Checks](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/fly_view/fly_view.html#arm).
 
 Note that internally PX4 runs arming checks at 10Hz. A list of the failed checks is kept, and if the list changes PX4 emits the current list using the [Events interface](../concept/events_interface.md). The list is also sent out when the GCS connects. Effectively the GCS knows the status of prearm checks immediately, both when disarmed and armed.
 

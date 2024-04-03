@@ -30,7 +30,7 @@ Crowdin은 "풀 요청"(이 단계에서 개발팀이 주기적으로 검토하�
 1. 번역하려는 언어를 선택합니다
 1. Click the **Join** button (next to the text _You must join the translators team to be able to participate in this project_)
 
-   :::note
+   ::: info
  You will be notified once your application to join is accepted.
 
 :::

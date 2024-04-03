@@ -16,8 +16,7 @@ The full system architecture is shown below:
 
 ![Architecture](../../assets/satcom/architecture.jpg)
 
-:::note
-The setup was tested with the current release of _QGroundControl_ running on Ubuntu 14.04 and 16.04.
+::: info The setup was tested with the current release of _QGroundControl_ running on Ubuntu 14.04 and 16.04.
 
 - It may be possible to run the system on other ground stations and operating systems, but this has not been tested (and is not guaranteed to work).
 - The [RockBlock MK2](https://www.groundcontrol.com/us/product/rockblock-9602-satellite-modem/) module can also be used. The RockBlock 9603 module is recommended because it is smaller and lighter, while providing the same functionality.
@@ -64,8 +63,7 @@ The module is now ready to be used with PX4.
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the RockBlock module will run using [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG). There is no need to set the baud rate for the port, as this is configured by the driver.
 
-:::note
-If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+::: info If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
 
 ```
 drivers/telemetry/iridiumsbd
@@ -177,7 +175,7 @@ To setup the ground station:
    ```
 
 1. Edit the **udp2rabbit.cfg** configuration file to reflect your settings.
-1. [Install _QGroundControl_](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html) (daily build).
+1. [Install _QGroundControl_](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html) (daily build).
 1. Add a UDP connection in QGC with the parameters:
 
    - Listening port: 10000

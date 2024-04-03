@@ -4,8 +4,7 @@
 
 此轨迹类型始终在[任务模式](../flight_modes/mission.md)下启用。 To enable it in [Position mode](../flight_modes_mc/position.md) set the parameter: [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
-:::note
-The jerk-limited type is not used _by default_ in position mode. 但它可能不适合于那些需要较快响应的机体/使用案例——例如穿越机。
+::: info The jerk-limited type is not used _by default_ in position mode. 但它可能不适合于那些需要较快响应的机体/使用案例——例如穿越机。
 :::
 
 ## 轨迹生成器

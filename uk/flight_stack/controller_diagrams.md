@@ -22,7 +22,7 @@
 
 ![MC Rate Control Diagram](../../assets/diagrams/mc_angular_rate_diagram.jpg)
 
-* K-PID controller. Для отримання додаткової інформації див. [Контролер швидкості](../config_mc/pid_tuning_guide_multicopter.md#rate-controller).
+* K-PID контролер. Для отримання додаткової інформації див. [Контролер швидкості](../config_mc/pid_tuning_guide_multicopter.md#rate-controller).
 * Інтегральні повноваження обмежені, щоб запобігти ліквідації.
 * Виходи обмежені (у модулі розподілу керування), зазвичай в межах від -1 до 1.
 * Фільтр низьких частот (LPF) використовується на шляху похідної для зменшення шуму (драйвер гіроскопа забезпечує відфільтровану похідну для контролера).
@@ -62,15 +62,15 @@
 * PID контролер стабілізує швидкість. Команди прискорення.
 * Інтегратор включає анти-сбросову петлю (ARW) за допомогою методу обмеження.
 * Командоване прискорення НЕ насичене - насичення буде застосовано до перетворених встановлених точок тяги в поєднанні з максимальним кутом нахилу.
-* Horizontal gains set via parameter `MPC_XY_VEL_P_ACC`, `MPC_XY_VEL_I_ACC` and `MPC_XY_VEL_D_ACC`.
+* Горизонтальні коефіцієнти встановлюються за допомогою параметрів `MPC_XY_VEL_P_ACC`, `MPC_XY_VEL_I_ACC` та `MPC_XY_VEL_D_ACC`.
 * Вертикальні коефіцієнти встановлюються за допомогою параметрів `MPC_Z_VEL_P_ACC`, `MPC_Z_VEL_I_ACC` та `MPC_Z_VEL_D_ACC`.
 
-### Multicopter Position Controller
+### Контролер положення мультикоптера
 
 ![MC Position Control Diagram](../../assets/diagrams/mc_position_diagram.png)
 
 * Простий P контролер, який керує швидкістю.
-* Задана швидкість насичується, щоб підтримувати швидкість у певних межах. See parameter `MPC_XY_VEL_MAX`. Цей параметр задає максимально можливу горизонтальну швидкість. Це відрізняється від максимальної бажаної швидкості MPC_XY_CRUISE (автономні режими) та MPC_VEL_MANUAL (ручний режим контролю позиції).
+* Задана швидкість насичується, щоб підтримувати швидкість у певних межах. Подивіться параметр `MPC_XY_VEL_MAX`. Цей параметр задає максимально можливу горизонтальну швидкість. Це відрізняється від максимальної бажаної швидкості MPC_XY_CRUISE (автономні режими) та MPC_VEL_MANUAL (ручний режим контролю позиції).
 * Горизонтальна P підсилення за параметром `MPC_XY_P`.
 * Вертикальне P підсилення параметра `MPC_Z_P`.
 
@@ -221,7 +221,7 @@ $$\ell = \frac{1}{2}\rho V_T^2 S b \left [C_{\ell_{\delta_a}} \:\delta_a + C_{\e
 
 Це кінцеве рівняння потім використовується як базове для двох наступних підрозділів для визначення виразу масштабування швидкості повітря, необхідного для контролерів PI та FF.
 
-#### Static torque (PI) scaling
+#### Масштабування статичного моменту (PI)
 
 При умові нульових швидкостей ($p = 0{}$), згасаючий член зникає, і стале - моментальне - крутне зусилля може бути згенеровано за допомогою:
 
@@ -239,15 +239,15 @@ $$V_T = V_I \sqrt{\frac{\rho_0}{\rho}}$$
 
 де $\rho_o{}$ - щільність повітря на рівні моря при 15°C.
 
-Squaring, rearranging and adding a 1/2 factor to both sides makes the dynamic pressure $\bar{q}{}$ expression appear
+Піднесення до квадрату, перестановка та додавання множника 1/2 до обох сторін дозволяє виразити вираз для динамічного тиску $\bar{q}{}$
 
 $$\bar{q} = \frac{1}{2} \rho V_T^2 = \frac{1}{2} V_I^2 \rho_0$$
 
-We can now easily see that the dynamic pressure is proportional to the IAS squared:
+Тепер ми можемо легко побачити, що динамічний тиск пропорційний квадрату IAS:
 
 $$\bar{q} \propto V_I^2$$
 
-The scaler previously containing TAS and the air density can finally be written using IAS only
+Множник, який раніше містив TAS та густину повітря, нарешті може бути записаний лише з використанням IAS
 
 $$\delta_a = \frac{2bS}{C_{\ell_{\delta_a}}\rho_0} \frac{1}{V_I^2} \ell$$
 
@@ -265,13 +265,13 @@ $$\delta_a = -\frac{b \: C_{\ell_p}}{2 \: C_{\ell_{\delta_a}}} \frac{1}{V_T} \: 
 
 #### Висновок
 
-The output of the rate PI controller has to be scaled with the indicated airspeed (IAS) squared and the output of the rate feedforward (FF) has to be scaled with the true airspeed (TAS)
+Вихід контролера кутової швидкості PI має бути масштабований квадратом індикованої швидкості повітря (IAS), а вихід кутової швидкості feedforward (FF) має бути масштабований швидкістю повітря (TAS)
 
 $$\delta_{a} = \frac{V_{I_0}^2}{V_I^2} \delta_{a_{PI}} + \frac{V_{T_0}}{V_T} \delta_{a_{FF}}$$
 
-where $V_{I_0}{}$ and $V_{T_0}{}$ are the IAS and TAS at trim conditions.
+де $V_{I_0}{}$ і $V_{T_0}{}$ – IAS і TAS за умов регулювання.
 
-Finally, since the actuator outputs are normalized and that the mixer and the servo blocks are assumed to be linear, we can rewrite this last equation as follows:
+Нарешті, оскільки виходи приводу нормалізовані, а міксер і блоки сервоприводу вважаються лінійними, ми можемо переписати останнє рівняння наступним чином:
 
 $$\dot{\mathbf{\omega}}_{sp}^b = \frac{V_{I_0}^2}{V_I^2} \dot{\mathbf{\omega}}_{sp_{PI}}^b + \frac{V_{T_0}}{V_T} \dot{\mathbf{\omega}}_{sp_{FF}}^b$$
 

@@ -6,11 +6,11 @@ A package delivery mission is an extension of a waypoint mission, where a user c
 
 This topic explains the architecture for the package delivery feature. It is intended for developers working on extending the architecture, for example to support new payload delivery mechanisms.
 
-:::note
+::: info
 Currently only [Grippers](../peripherals/gripper.md) can be used for package delivery. Winches are not yet supported.
 :::
 
-:::note
+::: info
 The detailed documentation on how to setup a package delivery mission plan can be found [here](../flying/package_delivery_mission.md). Setup for the `payload_deliverer` module is covered in the documentation for the delivery mechanism, such as [Gripper](../peripherals/gripper.md#px4-configuration).
 :::
 

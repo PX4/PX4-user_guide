@@ -1,20 +1,20 @@
-# Flight Modes (VTOL)
+# Режими польоту (VTOL)
 
-Flight modes provide autopilot support to make it easier to manually fly the vehicle, to automate common tasks such as takeoff and landing, to execute autonomous missions, or to defer flight control to an external system.
+Режими польоту забезпечують автопілот підтримку для полегшення ручного польоту транспортного засобу, автоматизацію загальних завдань, таких як зльот та посадка, виконання автономних місій або делегування керування польотом зовнішній системі.
 
-VTOL vehicles can fly as either a multicopter or a fixed-wing vehicle, and will generally have exactly the same behaviour as the corresponding vehicle type:
+Вертикально-взлітно-посадкові (VTOL) транспортні засоби можуть літати як багтроторні апарати, так і літаки, і, як правило, мають точно таке ж саме поведінку, як і відповідний тип транспортного засобу:
 
-VTOL-specific flight mode behaviour is covered in:
+Поведінка режимів польоту, специфічних для VTOL, розглядається в таких випадках:
 
-- [Land mode](../flight_modes_vtol/land.md): A VTOL flying as a fixed-wing vehicle will transition to MC before landing.
-- [Mission mode](../flight_modes_vtol/mission.md): Missions support VTOL-specific mission commands for taking off, landing, and transitioning between vehicle types.
-- [Return mode](../flight_modes_vtol/return.md): VTOL vehicles behave slightly differently they return as an MC or FW than the corresponding vehicles.
+- [Режим «Посадка»](../flight_modes_vtol/land.md): VTOL, що літає як літак, перейде в режим багтроторного літака перед посадкою.
+- [Режим «Місія»](../flight_modes_vtol/mission.md): Місії підтримують специфічні для ВВП команди місій для зльоту, посадки та переходу між типами транспортних засобів.
+- [Режим «Повернення»](../flight_modes_vtol/return.md): VTOL транспортні засоби діють трохи інакше при поверненні, якщо вони повертаються як багтроторний літак або літак, ніж відповідні транспортні засоби.
 
-For other flight modes see the vehicle-specific behaviour:
+Для інших режимів польоту дивіться специфічну для транспортного засобу поведінку:
 
-- [Flight Modes (Multicopter)](../flight_modes_mc/index.md)
-- [Flight Modes (Fixed-Wing)](../flight_modes_fw/index.md)
+- [Режими польоту (Мультикоптер)](../flight_modes_mc/index.md)
+- [Режими польоту (Фіксовані крила)](../flight_modes_fw/index.md)
 
-## Further Information
+## Подальша інформація
 
-- [Basic Configuration > Flight Modes](../config/flight_mode.md) - How to map RC control switches to specific flight modes
+- [Базова конфігурація > Режими польоту](../config/flight_mode.md) - Як відповідати перемикачі керування RC конкретним режимам польоту

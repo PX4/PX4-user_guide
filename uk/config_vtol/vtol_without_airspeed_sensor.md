@@ -1,86 +1,87 @@
-# VTOL Without an Airspeed Sensor
+# VTOL без датчика повітряної швидкості
 
 <Badge type="warning" text="Experimental" />
 
 :::warning
-Support for VTOLs without an airspeed sensor is considered experimental and should only be attempted by experienced pilots.
-The use of an airspeed sensor is recommended.
+
+Підтримка для VTOL-апаратів без датчика швидкості повітря вважається експериментальною і повинна використовуватися лише досвідченими пілотами.
+Рекомендується використання датчика швидкості повітря.
 :::
 
-Fixed-wing vehicles use airspeed sensors to determine the speed at which the airplane is moving through the air. Depending on wind this could vary from groundspeed. Every airplane has a minimum airspeed below which the airplane will stall. In mild weather conditions and with settings significantly above stall speed a VTOL can operate without the use of an airspeed sensor.
+Фіксовані крила використовують [датчики швидкості](../sensor/airspeed.md) повітря для визначення швидкості руху літака повітрям. Залежно від вітру це може відрізнятися від швидкості руху на землі. У кожного літака є мінімальна швидкість повітря, нижче якої літак заходить в пікетаж. В умовах сприятливої погоди та з налаштуваннями, значно вищими за мінімальну швидкість пікетажу, VTOL може працювати без використання датчика швидкості повітря.
 
-This guide will outline the parameter settings required to bypass the airspeed sensor for VTOL planes.
+Цей посібник описує параметри, необхідні для обходу датчика швидкості повітря для VTOL-літаків.
 
-::: note
-Most settings described here should also be applicable to fixed-wing vehicles that are not VTOL, but this is currently untested.
-Transition turning and quad-chute are VTOL-specific.
+::: info 
+Більшість налаштувань, описаних тут, також можуть бути застосовані до фіксованих крил, які не є VTOL, але це наразі не тестувалося.
+Поворот під час переходу та квадро-парашут - це специфічні для VTOL параметри.
 :::
 
-## Preparation
+## Підготовка
 
-Before attempting to eliminate an airspeed sensor you should first determine a safe throttle level. Also the duration for a front transition needs to be known. To do this you can either perform a reference flight with an airspeed sensor or fly the vehicle manually. In both cases the reference flight should be performed in very low wind conditions.
+Перш ніж спробувати вилучити датчик швидкості повітря, вам слід спочатку визначити безпечний рівень газу. Також необхідно знати тривалість переднього переходу. Для цього ви можете виконати референтний польот з датчиком швидкості повітря або пілотувати транспортний засіб вручну. У обох випадках референтний польот слід виконати в умовах дуже слабкого вітру.
 
-The flight should be performed at a speed that would be sufficient to fly in high wind conditions and should consist of:
+Польот повинен відбуватися зі швидкістю, достатньою для польоту в умовах сильного вітру, і повинен складатися з таких етапів:
 
-- Successful front transition
-- A straight and level flight
-- An aggressive turn
-- A quick ascend to a higher altitude
+- Успішний передній перехід
+- Прямий та рівний польот
+- Агресивний поворот
+- Швидке підняття на вищу висоту
 
-## Examining the Log
+## Огляд журналу
 
-After the reference flight download the log and use [FlightPlot](../log/flight_log_analysis.md#flightplot) (or another analysis tool) to examine the log. Plot the altitude (`GPOS.Alt`), thrust (`ATC1.Thrust`), groundspeed (Expression: `sqrt(GPS.VelN\^2 + GPS.VelE\^2)`), pitch (`ATT.Pitch`) and roll (`AT.Roll`).
+Після референтного польоту завантажте журнал та скористайтеся програмою [FlightPlot](../log/flight_log_analysis.md#flightplot) (або іншим інструментом аналізу) для його огляду. Побудуйте на графіку висоту (`GPOS.Alt`), тягу (`ATC1.Thrust`), швидкість (вираз: `sqrt(GPS.VelN\^2 + GPS.VelE\) ^2)`), подача (`ATT.Pitch`) і крен (`AT.Roll`).
 
-Examine the throttle level (thrust) when the vehicle is level (no or little pitch and roll), during the ascend (increasing altitude) and when the vehicle is banking (more roll). The initial value to use as cruise speed should be the highest thrust applied during a roll or ascend, the thrust during level flight should be considered the minimum value if you decide to further tune down your speed.
+Перевірте рівень дросельної заслінки (тягу), коли транспортний засіб стоїть рівно (відсутній або невеликий нахил і крен), під час підйому (збільшення висоти) і коли автомобіль накрениться (більший крен). Початковим значенням для використання в якості крейсерської швидкості має бути найвища тяга, застосована під час крену або підйому, тяга під час горизонтального польоту повинна вважатися мінімальним значенням, якщо ви вирішите надалі зменшити свою швидкість.
 
-Also take note of the time it took for a front transition to complete. This will be used to set the minimum transition time. For safety reasons you should add +- 30% to this time.
+Також зверніть увагу на час, який знадобився для завершення переднього переходу. Це буде використано для встановлення мінімального часу переходу. З міркувань безпеки вам слід додати до цього часу +- 30%.
 
-Finally take note of the groundspeed during cruise flight. This can be used to tune your throttle setting after the first flight without an airspeed sensor.
+Нарешті, зверніть увагу на швидкість руху під час крейсерського польоту. Це можна використовувати для налаштування дросельної заслінки після першого польоту без датчика швидкості.
 
-## Setting the Parameters
+## Встановлення параметрів
 
-To bypass the airspeed preflight check you need to set [SYS_HAS_NUM_ASPD](../advanced_config/parameter_reference.md#SYS_HAS_NUM_ASPD) to 0.
+Для обхідного передпольотного перевірки швидкості повітря потрібно встановити [SYS_HAS_NUM_ASPD](../advanced_config/parameter_reference.md#SYS_HAS_NUM_ASPD) на 0.
 
-To prevent an installed airspeed sensor being used for feedback control set [FW_USE_AIRSPD](../advanced_config/parameter_reference.md#FW_USE_AIRSPD) to `False`. This allows you to test the system's behavior in the airspeed-less setting while still having the actual airspeed reading available to check the safety margin to stall speed etc.
+Для того щоб уникнути використання встановленого датчика швидкості повітря для зворотного керування, встановіть [FW_USE_AIRSPD](../advanced_config/parameter_reference.md#FW_USE_AIRSPD) на `False`. Це дозволить вам перевірити поведінку системи в умовах відсутності датчика швидкості повітря, зберігаючи при цьому фактичне значення швидкості повітря для перевірки безпеки відносно межі безпеки від відмивання та ін.
 
-Set the trim throttle ([FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM)) to the percentage as determined from the log of the reference flight. Note that QGC scales this from `1..100` and the thrust value from the log is scaled from `0..1`. So a thrust of 0.65 should be entered as 65. For safety reasons it is recommended to add +- 10% throttle to the determined value for testing a first flight.
+Встановіть тримання газу ([FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM)) в відсотках, як визначено з журналу референтного польоту. Зауважте, що QGC масштабує це від `1..100`, а значення тяги з журналу масштабується від `0..1`. Таким чином, значення тяги 0.65 слід ввести як 65. З міркувань безпеки рекомендується додати +- 10% газу до визначеного значення для тестування першого польоту.
 
-Set the minimum front transition time ([VT_TRANS_MIN_TM](../advanced_config/parameter_reference.md#VT_TRANS_MIN_TM)) to the number of seconds determined from the reference flight and add +- 30% for safety.
+Встановіть мінімальний час переднього переходу ([VT_TRANS_MIN_TM](../advanced_config/parameter_reference.md#VT_TRANS_MIN_TM)) у кількості секунд, визначеної з референтного польоту і додайте +- 30% для безпеки.
 
-### Optional Recommended Parameters
+### Додаткові рекомендовані параметри
 
-Because the risk of stalling is real, it is recommended to set the 'fixed-wing minimum altitude' (a.k.a. 'quad-chute') threshold ([VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT)).
+Оскільки ризик звалювання є реальним, рекомендується встановлювати 'мінімальну висоту для фіксованого крила' (він же. 'quad-chute') поріг ([VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT)).
 
-This will cause the VTOL to transition back to multicopter mode and initiate the [Return mode](../flight_modes/return.md) below a certain altitude. You could set this to 15 or 20 meters to give the multicopter time to recover from a stall.
+Це призведе до того, що VTOL повернеться в режим мультикоптера та запустить [режим повернення](../flight_modes_vtol/return.md) нижче певної висоти. Ви можете встановити значення 15 або 20 метрів, щоб дати мультикоптеру час відновитися після зупинки.
 
-The position estimator tested for this mode is EKF2, you can set this by changing the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP).
+Перевіреним для цього режиму оцінювачем позиції є EKF2, його можна встановити, змінивши [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP).
 
-## First Flight Without Airspeed Sensor
+## Перший польот без датчика швидкості повітря
 
-The values apply to a position controlled flight (like [Hold mode](../flight_modes_fw/hold.md) or [Mission mode](../flight_modes_vtol/mission.md) or Mission mode). It is therefore recommended that a mission is configured at a safe altitude, approximately 10m above the quad-chute threshold.
+Ці значення застосовуються до польоту з контролем позиції (наприклад, в [режимі утримання](../flight_modes_fw/hold.md), або [режимі місії](../flight_modes_vtol/mission.md)). Тому рекомендується налаштувати місію на безпечній висоті, приблизно на 10 метрів вище порогу квадратного парашуту.
 
-Like for the reference flight, this flight should be performed in very low wind conditions. For the first flight the following is recommended:
+Подібно до референтного польоту, цей польот слід виконувати в умовах дуже слабкого вітру. Для першого польоту рекомендується:
 
-- Stay at one altitude
-- Set the waypoints wide enough and in such a fashion that no sharp turns are required
-- Keep the mission small enough that it remains in sight should a manual override be required.
-- If the airspeed is very high, consider performing a manual back transition by switching to Altitude mode.
+- Залишайтеся на одній висоті
+- Встановіть точки маршруту достатньо широко і так, щоб не потрібні були гострі повороти
+- Зберіть місію достатньо малою, щоб вона залишалася на виду, якщо знадобиться ручне керування.
+- Якщо швидкість повітря дуже велика, розгляньте можливість виконання ручного переходу назад, перемикаючи в режим висоти.
 
-If the mission finished successfully you should proceed to examine the log for the following:
+Якщо місія завершилася успішно, вам слід перевірити журнал наступного:
 
-- The groundspeed should be considerably above the groundspeed from the reference flight.
-- The altitude should not have been significantly lower than the reference flight.
-- The pitch angle should not have consistently been different from the reference flight.
+- Швидкість на землі повинна бути значно вище, ніж швидкість на землі під час референтного польоту.
+- Висота не повинна бути значно нижчою, ніж під час референтного польоту.
+- Кут крена не повинен постійно відрізнятися від референтного польоту.
 
-If all these conditions have been met you can start to tune down the cruise throttle in small steps until the groundspeed matches that of the reference flight.
+Якщо всі ці умови виконані, ви можете почати поступово знижувати рівень газу круїзу до тих пір, поки швидкість на землі не відповідає тій, що була під час референтного польоту.
 
-## Parameter Overview
+## Огляд параметрів
 
-The relevant parameters are:
+Відповідними параметрами є:
 
 - [FW_USE_AIRSPD](../advanced_config/parameter_reference.md#FW_USE_AIRSPD)
 - [SYS_HAS_NUM_ASPD](../advanced_config/parameter_reference.md#SYS_HAS_NUM_ASPD)
 - [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP): EKF2 (2)
-- [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM): determined (e.g. 70%)
-- [VT_TRANS_MIN_TM](../advanced_config/parameter_reference.md#VT_TRANS_MIN_TM): determined (e.g. 10 seconds)
+- [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM): визначено (наприклад, 70%)
+- [VT_TRANS_MIN_TM](../advanced_config/parameter_reference.md#VT_TRANS_MIN_TM): визначено (наприклад, 10 секунд)
 - [VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT): 15

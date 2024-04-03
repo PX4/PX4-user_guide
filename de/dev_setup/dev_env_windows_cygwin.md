@@ -24,8 +24,7 @@ The following instructions explain how to set up a (Cygwin-based) PX4 developmen
 
 1. Tick the box at the end of the installation to _clone the PX4 repository, build and run simulation with jMAVSim_ (this simplifies the process to get you started).
 
-:::note
-If you missed this step you will need to [clone the PX4-Autopilot repository manually](#getting-started).
+   ::: info If you missed this step you will need to [clone the PX4-Autopilot repository manually](#getting-started).
 :::
 
 :::warning
@@ -51,8 +50,7 @@ The toolchain uses a specially configured console window (started by running the
 1. Run **run-console.bat** (double click) to start the linux-like Cygwin bash console (you must use this console to build PX4).
 1. Clone the PX4 PX4-Autopilot repository from within the console:
 
-:::note
-Skip this step if you ticked the installer option to _clone the PX4 repository, build and run simulation with jMAVSim_. Cloning only needs to be done once!
+   ::: info Skip this step if you ticked the installer option to _clone the PX4 repository, build and run simulation with jMAVSim_. Cloning only needs to be done once!
 :::
 
    ```sh

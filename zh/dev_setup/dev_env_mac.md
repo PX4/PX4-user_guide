@@ -39,8 +39,7 @@ First set up the environment
    echo ulimit -S -n 2048 >> ~/.zshenv
    ```
 
-:::note
-If you don't do this, the build toolchain may report the error: `"LD: too many open files"`
+   ::: info If you don't do this, the build toolchain may report the error: `"LD: too many open files"`
 :::
 
 1. Enforce Python 3 by appending the following lines to `~/.zshenv`

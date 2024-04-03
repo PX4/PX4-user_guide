@@ -27,7 +27,7 @@ GeoFence는 미션 및 랠리 포인트와 함께 *QGroundControl*에서 계획�
 
 ![GeoFence 계획](../../assets/qgc/plan_geofence/geofence_overview.jpg)
 
-Geofence planning is fully documented in [Plan View > GeoFence](https://docs.qgroundcontrol.com/master/en/PlanView/PlanGeoFence.html) (QGroundControl User Guide).
+Geofence planning is fully documented in [Plan View > GeoFence](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_geofence.html) (QGroundControl User Guide).
 
 요약
 
@@ -43,7 +43,7 @@ Geofence planning is fully documented in [Plan View > GeoFence](https://docs.qgr
 1. **업로드** 버튼 (오른쪽 상단)을 클릭하여 울타리(랠리 포인트 및 임무와 함께)를 차량에 업로드합니다.
 1. [GeoFence 사고방지](../config/safety.md#geofence-failsafe)에서 위반 조치를 설정하십시오.
 
-:::note
+::: info
 Any geofence that does not include the Home position will be rejected by the flight controller and not uploaded.
 If the vehicle is flying, also any geofence that would immediately get breached after the upload is rejected.
 :::

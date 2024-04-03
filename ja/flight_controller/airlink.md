@@ -8,7 +8,7 @@ PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](htt
 
 ![AIRLink](../../assets/flight_controller/airlink/airlink-main.jpg)
 
-:::note
+::: info
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 

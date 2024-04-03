@@ -9,8 +9,7 @@ The autopilot is small enough to use in 220mm racing drones, but remains powerfu
 
 ![V5 nano - Hero image](../../assets/flight_controller/cuav_v5_nano/v5_nano_01.png)
 
-:::note
-The V5 nano is similar to the [CUAV V5+](../flight_controller/cuav_v5_plus.md), but has an all-in-one form factor, fewer PWM ports (can't be used for [airframes](../airframes/airframe_reference.md) that use AUX ports), and does not have internal damping.
+::: info The V5 nano is similar to the [CUAV V5+](../flight_controller/cuav_v5_plus.md), but has an all-in-one form factor, fewer PWM ports (can't be used for [airframes](../airframes/airframe_reference.md) that use AUX ports), and does not have internal damping.
 :::
 
 Some of its main features include:
@@ -20,8 +19,7 @@ Some of its main features include:
 - Firmware-compatible with PX4.
 - Generous 2.6mm spacing for I/O pins, making it easier to use all the interfaces.
 
-:::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ### Quick Summary
@@ -66,7 +64,7 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
 
 [CUAV Taobao](https://item.taobao.com/item.htm?spm=a230r.1.14.8.26ab5258veQJRu&id=569404317857&ns=1&abbucket=13#detail) (China Mainland users)
 
-:::note
+::: info
 Autopilot may be purchased with included Neo GPS module
 :::
 
@@ -141,11 +139,10 @@ For more information see [Using JTAG for hardware debugging](#using-jtag-for-har
 
 _V5 nano_ must be powered from the `Power` connector during flight, and may also/alternatively be powered from `USB` for bench testing.
 
-:::note
-The `PM2` connector cannot not be used for powering the _V5 nano_ (see [this issue](#compatibility_pm2)).
+::: info The `PM2` connector cannot not be used for powering the _V5 nano_ (see [this issue](#compatibility_pm2)).
 :::
 
-:::note
+::: info
 The Servo Power Rail is neither powered by, nor provides power to the FMU.
 :::note
 The Servo Power Rail is neither powered by, nor provides power to the FMU.

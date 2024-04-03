@@ -59,8 +59,7 @@ When you're ready to try it out a new tune on PX4, use the [tune_control](../mod
 tune_control play -m "150L1O3DL16CL32<B>C<AEL16A"
 ```
 
-:::note
-Out of the box, the `tune_control` is only present on real hardware (not the simulator).
+::: info Out of the box, the `tune_control` is only present on real hardware (not the simulator).
 :::
 
 ## Replacing Existing Tunes

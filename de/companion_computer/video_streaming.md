@@ -2,7 +2,7 @@
 
 PX4-based vehicles support video streaming using a camera connected to a [companion computer](../companion_computer/index.md).
 
-:::note
+::: info
 You can't video stream directly from a camera connected to PX4.
 :::
 

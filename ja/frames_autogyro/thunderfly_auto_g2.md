@@ -4,7 +4,7 @@ The *ThunderFly Auto-G2* is an autopilot-controlled autogyro based on the [ Dura
 
 ![Auto-G2](../../assets/airframes/autogyro/auto-g2/autog2_title.jpg)
 
-:::note
+::: info
 Auto-G2 autogyro’s airframe is developed and maintained by ThuderFly s.r.o. company.
 :::
 

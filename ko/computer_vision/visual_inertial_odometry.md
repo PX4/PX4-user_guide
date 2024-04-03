@@ -6,8 +6,7 @@ VIO는 기체 IMU의 관성 측정과 결합된 카메라 이미지에서 기체
 
 This topic gives guidance on configuring PX4 and a companion computer for a VIO setup.
 
-:::note
-The suggested setup uses ROS for routing VIO information to PX4. However, PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](../ros/external_position_estimation.md#px4-mavlink-integration).
+::: info The suggested setup uses ROS for routing VIO information to PX4. However, PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](../ros/external_position_estimation.md#px4-mavlink-integration).
 :::
 
 ## Suggested Setup
@@ -98,8 +97,7 @@ IMU 속도와 EV 속도 사이의 오프셋을 확인하여 로그에서 대략�
 
 ## VIO 예상치 확인
 
-::: note
-The [MAV_ODOM_LP](../advanced_config/parameter_reference.md#MAV_ODOM_LP) parameter mentioned below was removed in PX4 v1.14. This section needs to be updated. <!-- https://github.com/PX4/PX4-Autopilot/pull/20501#issuecomment-1993788815 -->
+::: info The [MAV_ODOM_LP](../advanced_config/parameter_reference.md#MAV_ODOM_LP) parameter mentioned below was removed in PX4 v1.14. This section needs to be updated. <!-- https://github.com/PX4/PX4-Autopilot/pull/20501#issuecomment-1993788815 -->
 :::
 
 첫 비행 *전에* VIO가 정상 작동 여부를 확인하려면 다음 검사를 수행하십시오.

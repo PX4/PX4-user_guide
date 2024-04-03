@@ -6,7 +6,7 @@
 
 This section lists devices that may be used for the physical serial/data connection between a companion computer and a flight controller.
 
-:::note
+::: info
 PX4 configuration for communicating with a companion computer over MAVLink via TELEM2 is covered in [MAVLink (OSD / Telemetry)](../peripherals/mavlink_peripherals.md#telem2). Other relevant topics/sections include: [Companion Computers](../companion_computer/index.md), [Robotics](../robotics/index.md) and [uXRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/uxrce_dds.md).
 :::
 
@@ -60,7 +60,7 @@ An LTE USB module can be attached to a companion computer and used to route MAVL
 
 There is no "standard method" for a ground station and companion to connect over the Internet. Generally you can't connect them directly because neither of them will have a public/static IP on the Internet.
 
-:::note
+::: info
 Typically your router (or the mobile network) has a public IP address, and your GCS computer/vehicle are on a _local_ network. The router uses network address translation (NAT) to map _outgoing_ requests from your local network to the Internet, and can use the map to route the _responses_ back to requesting system. However NAT has no way to know where to direct the traffic from an arbitrary external system, so there is no way to _initiate_ a connection to a GCS or vehicle running in the local network.
 :::
 
@@ -68,7 +68,7 @@ A common approach is to set up a virtual private network between the companion a
 
 This method has the benefit that the GCS computer address can be static within the VPN, so the configuration of the _mavlink router_ does not need to change over time. In addition, the communication link is secure because all VPN traffic is encrypted (MAVLink 2 itself does not support encryption).
 
-:::note
+::: info
 You can also choose to route to the VPN broadcast address (i.e. `x.x.x.255:14550`, where 'x' depends on the VPN system). This approach means that you do not need to know the IP address of the GCS computer, but may result in more traffic than desired (since packets are broadcast to every computer on the VPN network).
 :::
 

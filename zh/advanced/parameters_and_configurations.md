@@ -235,8 +235,7 @@ After adding a _new_ parameter file you should call `make clean` before building
 
 #### YAML Metadata
 
-:::note
-At time of writing YAML parameter definitions cannot be used in _libraries_.
+::: info At time of writing YAML parameter definitions cannot be used in _libraries_.
 :::
 
 YAML meta data is intended as a full replacement for the **.c** definitions. It supports all the same metadata, along with new features like multi-instance definitions.

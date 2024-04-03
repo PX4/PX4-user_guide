@@ -206,8 +206,7 @@ int32_t my_param = 0;
 param_get(param_find("PARAM_NAME"), &my_param);
 ```
 
-:::note
-If `PARAM_NAME` was declared in parameter metadata then its default value will be set, and the above call to find the parameter should always succeed.
+::: info If `PARAM_NAME` was declared in parameter metadata then its default value will be set, and the above call to find the parameter should always succeed.
 :::
 
 `param_find()` is an "expensive" operation, which returns a handle that can be used by `param_get()`. If you're going to read the parameter multiple times, you may cache the handle and use it in `param_get()` when needed
@@ -240,8 +239,7 @@ After adding a _new_ parameter file you should call `make clean` before building
 
 #### YAML Metadata
 
-:::note
-At time of writing YAML parameter definitions cannot be used in _libraries_.
+::: info At time of writing YAML parameter definitions cannot be used in _libraries_.
 :::
 
 YAML meta data is intended as a full replacement for the **.c** definitions. It supports all the same metadata, along with new features like multi-instance definitions.

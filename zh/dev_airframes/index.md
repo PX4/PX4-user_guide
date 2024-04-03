@@ -11,9 +11,8 @@ PX4 has a flexible [control allocation system](../concept/control_allocation.md)
 
 本节提供给希望向PX4添加对新车辆或车辆类型的支持的开发人员相关的信息, 包括仍在开发中的车辆的生成日志。
 
-:::note PX4 is also well-suited for use in other vehicle types and general robots, ranging from submarine, boats, or amphibious vehicles, through to experimental aircraft and rockets. _Let us know_ if you have a new vehicle or frame-type you want to help support in PX4.
+::: info PX4 is also well-suited for use in other vehicle types and general robots, ranging from submarine, boats, or amphibious vehicles, through to experimental aircraft and rockets. _Let us know_ if you have a new vehicle or frame-type you want to help support in PX4.
 :::
 
-:::note
-Build logs for some of the supported airframes can be found in [Airframe/Vehicle Builds](../airframes/index.md).
+::: info Build logs for some of the supported airframes can be found in [Airframe/Vehicle Builds](../airframes/index.md).
 :::

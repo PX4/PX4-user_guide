@@ -1,7 +1,6 @@
 # Avionics Anonymous Laser Altimeter DroneCan Interface
 
-:::note
-In 2022, UAVCAN (v0) was forked and is maintained as `DroneCAN`. While this product still mentions "UAVCAN", it is fully compatible with PX4's DroneCAN support.
+::: info In 2022, UAVCAN (v0) was forked and is maintained as `DroneCAN`. While this product still mentions "UAVCAN", it is fully compatible with PX4's DroneCAN support.
 :::
 
 The [Avionics Anonymous Laser Altimeter Interface](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/) allows a [number of common rangefinders](#supported_rangefinders) to be connected via the CAN bus (this is a more robust interface than I2C).

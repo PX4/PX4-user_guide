@@ -118,25 +118,25 @@ The following parameters must be set to use external position information with L
 | [ATT_EXT_HDG_M](../advanced_config/parameter_reference.md#ATT_EXT_HDG_M) | Set to 1 or 2 to enable external heading integration. Setting it to 1 will cause vision to be used, while 2 enables MoCap heading use. |
 
 
-### Disabling Barometer Fusion
+### Вимкнення Barometer Fusion
 
-If a highly accurate altitude is already available from VIO or MoCap information, it may be useful to disable the baro correction in LPE to reduce drift on the Z axis.
+Якщо високоточна висота вже доступна з інформації VIO або MoCap, може бути корисно вимкнути корекцію баро в LPE, щоб зменшити дрейф по осі Z.
 
-This can be done by in *QGroundControl* by unchecking the *fuse baro* option in the [LPE_FUSION](../advanced_config/parameter_reference.md#LPE_FUSION) parameter.
+Це можна зробити у *QGroundControl*, знявши позначку з опції *fuse baro* у параметрі [LPE_FUSION](../advanced_config/parameter_reference.md#LPE_FUSION).
 
-### Tuning Noise Parameters
+### Параметри налаштування шуму
 
-If your vision or MoCap data is highly accurate, and you just want the estimator to track it tightly, you should reduce the standard deviation parameters: [LPE_VIS_XY](../advanced_config/parameter_reference.md#LPE_VIS_XY) and [LPE_VIS_Z](../advanced_config/parameter_reference.md#LPE_VIS_Z) (for VIO) or [LPE_VIC_P](../advanced_config/parameter_reference.md#LPE_VIC_P) (for MoCap). Reducing them will cause the estimator to trust the incoming pose estimate more. You may need to set them lower than the allowed minimum and force-save.
+Якщо дані вашого комп'ютерного зору або MoCap є дуже точними, і ви просто хочете, щоб оцінювач чітко відстежував їх, вам слід зменшити параметри стандартного відхилення: [LPE_VIS_XY](../advanced_config/parameter_reference.md#LPE_VIS_XY) і [LPE_VIS_Z](../advanced_config/parameter_reference.md#LPE_VIS_Z) (для VIO) або [LPE_VIC_P](../advanced_config/parameter_reference.md#LPE_VIC_P) (для MoCap). Зменшення їх призведе до того, що оцінювач буде більше довіряти вхідній оцінці положення. Можливо, вам доведеться встановити їх нижче допустимого мінімуму та ввімкнути примусове збереження.
 
 :::tip
-If performance is still poor, try increasing the [LPE_PN_V](../advanced_config/parameter_reference.md#LPE_PN_V) parameter. This will cause the estimator to trust measurements more during velocity estimation.
+Якщо продуктивність все ще низька, спробуйте збільшити параметр [LPE_PN_V](../advanced_config/parameter_reference.md#LPE_PN_V). Це змусить оцінювача більше довіряти вимірюванням під час оцінювання швидкості.
 :::
 
-## Enabling Auto Modes with a Local Position
+## Увімкнення автоматичних режимів з локальним розташуванням
 
-All PX4 automatic flight modes (such as [Mission](../flight_modes_mc/mission.md), [Return](../flight_modes/return.md), [Land](../flight_modes_mc/land.md), [Hold](../flight_modes_mc/land.md), [Orbit](../flight_modes_mc/orbit.md))) require a _global_ position estimate, which would normally come from a GPS/GNSS system.
+Всі автоматичні режими польоту PX4 (такі як [Return](../flight_modes_mc/mission.md), [Повернення](../flight_modes/return.md), [Land](../flight_modes_mc/land.md), [Hold](../flight_modes_mc/land.md), [Orbit](../flight_modes_mc/orbit.md))) вимагають _global_ оцінки положення, яка зазвичай надходить від системи GPS/GNSS.
 
-Systems that only have a _local_ position estimate (from MOCAP, VIO, or similar) can use the [SET_GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#SET_GPS_GLOBAL_ORIGIN) MAVLink message to set the origin of the EKF to a particular global location. EKF will then provide a global position estimate based on origin and local frame position.
+Системи, які мають лише _local_ оцінку положення (від MOCAP, VIO або подібних), можуть використовувати повідомлення [SET_GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#SET_GPS_GLOBAL_ORIGIN) MAVLink, щоб встановити початок координат EKF на певне глобальне місцезнаходження. EKF will then provide a global position estimate based on origin and local frame position.
 
 This can then be used when planning and executing indoor missions, or to set a local return point, and so on.
 

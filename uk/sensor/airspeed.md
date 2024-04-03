@@ -1,41 +1,41 @@
-# Airspeed Sensors
+# Датчики швидкості польоту
 
-Airspeed sensors are _highly recommended_ for fixed-wing and VTOL frames. They are so important because the autopilot does not have other means to detect stall. For fixed-wing flight it is the airspeed that guarantees lift not ground speed!
+Сенсори швидкості в повітрі _дуже рекомендовані_ для безпілотників із фіксованим крилом та вертикального зльоту. Це важливо, туму що автопілот не має інших засобів для виявлення звалювання. Для польоту на безпілотнику з фіксованим крилом це саме швидкість у повітрі, що забезпечує зліт, а не швидкість на землі!
 
 ![Digital airspeed sensor](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
-## Hardware Options
+## Варіанти устаткування
 
-Recommended digital airspeed sensors include:
+Рекомендовані цифрові сенсори швидкості в повітрі включають:
 
-- Based on [Pitot tube](https://en.wikipedia.org/wiki/Pitot_tube)
+- На основі [Трубки Піто](https://en.wikipedia.org/wiki/Pitot_tube)
   - MEAS Spec series (e.g. [MS4525DO](https://www.te.com/usa-en/product-CAT-BLPS0002.html), [MS5525](https://www.te.com/usa-en/product-CAT-BLPS0003.html))
-    - [mRo I2C Airspeed Sensor JST-GH MS4525DO](https://store.mrobotics.io/mRo-I2C-Airspeed-Sensor-JST-GH-p/m10030a.htm) (mRo store)
-    - [Digital Differential Airspeed Sensor Kit](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html) (Drotek).
+    - [mRo I2C Сенсор швидкості польоту JST-GH MS4525DO](https://store.mrobotics.io/mRo-I2C-Airspeed-Sensor-JST-GH-p/m10030a.htm) (mRo store)
+    - [Цифровий диференційний датчик швидкості польоту](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html) (Drotek).
   - [EagleTree Airspeed MicroSensor V3](http://www.eagletreesystems.com/index.php?route=product/product&product_id=63) (eagletreesystems) <!-- link not working 20230830 -->
   - [Sensirion SDP3x Airspeed Sensor Kit](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
   - [Holybro Digital Air Speed Sensor](https://holybro.com/products/digital-air-speed-sensor)
-- Based on [Venturi effect](https://en.wikipedia.org/wiki/Venturi_effect)
-  - [TFSLOT](airspeed_tfslot.md) Venturi effect airspeed sensor.
+- На базі [Ефекту Вентурі](https://en.wikipedia.org/wiki/Venturi_effect)
+  - [TFSLOT](airspeed_tfslot.md) датчик швидкості польоту ефекту Вентурі.
 
-All the above sensors are connected via the I2C bus/port.
+Усі зазначені вище сенсори підключені через I2C bus/port.
 
 :::note
 
-Additionally, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/) can be connected to the CAN bus to determine not only high-accuracy airspeed, but also true static pressure and air temperature via onboard barometer and an OAT probe.
+Додатково, [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/) може бути підключений до CAN шини, щоб визначити не лише високоточну швидкість у повітрі, але й справжній статичний тиск і температуру повітря за допомогою вбудованого барометра та датчика температури повітря.
 
 :::
 
-## Configuration
+## Конфігурація
 
-### Enable Airspeed Sensors
+### Увімкнення датчиків швидкості у повітрі
 
-Airspeed sensor drivers are not started automatically. Enable each type using its [corresponding parameter](../advanced_config/parameters.md):
+Драйвери датчика швидкості в польоті не запускаються автоматично. Увімкніть кожен тип, використовуючи його [відповідний параметр](../advanced_config/parameters.md):
 
 - **Sensirion SDP3X:** [SENS_EN_SDP3X](../advanced_config/parameter_reference.md#SENS_EN_SDP3X)
 - **TE MS4525:** [SENS_EN_MS4525DO](../advanced_config/parameter_reference.md#SENS_EN_MS4525DO)
 - **TE MS5525:** [SENS_EN_MS5525DS](../advanced_config/parameter_reference.md#SENS_EN_MS5525DS)
-- **Eagle Tree airspeed sensor:** [SENS_EN_ETSASPD](../advanced_config/parameter_reference.md#SENS_EN_ETSASPD)
+- **Датчик швидкості в повітрі Eagle Tree:** [SENS_EN_ETSASPD](../advanced_config/parameter_reference.md#SENS_EN_ETSASPD)
 
 You should also check [ASPD_PRIMARY](../advanced_config/parameter_reference.md#ASPD_PRIMARY) is `1` (see next section - this is the default).
 

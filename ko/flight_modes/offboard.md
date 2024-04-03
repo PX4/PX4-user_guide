@@ -65,8 +65,7 @@ The fields are ordered in terms of priority such that `position` takes precedenc
 
 where &check; means that the bit is set, &cross; means that the bit is not set and `-` means that the bit is value is irrelevant.
 
-:::note
-Before using offboard mode with ROS 2, please spend a few minutes understanding the different [frame conventions](../ros/ros2_comm.md#ros-2-px4-frame-conventions) that PX4 and ROS 2 use.
+::: info Before using offboard mode with ROS 2, please spend a few minutes understanding the different [frame conventions](../ros/ros2_comm.md#ros-2-px4-frame-conventions) that PX4 and ROS 2 use.
 :::
 
 ### Copter
@@ -158,7 +157,7 @@ The following MAVLink messages and their particular fields and field values are 
 
     - 위치 설정점 (`x`, `y`, `z` 만 해당, 속도 및 가속도 설정 값은 무시됨).
 
-      - Specify the _type_ of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern): :::note Some of the _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field.
+      - Specify the _type_ of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern): ::: info Some of the _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field.
 :::
 
         값들은 다음과 같습니다:
@@ -179,8 +178,7 @@ The following MAVLink messages and their particular fields and field values are 
 
       - Specify the _type_ of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern):
 
-:::note
-The _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field.
+        ::: info The _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field.
 :::
 
         The values are:
@@ -207,8 +205,7 @@ The _setpoint type_ values below are not part of the MAVLink standard for the `t
 
       - Specify the _type_ of the setpoint in `type_mask`:
 
-:::note
-The _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field. ::
+        ::: info The _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field. ::
 
         값들은 다음과 같습니다:
 

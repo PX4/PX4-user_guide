@@ -76,7 +76,7 @@ To allow this, you need to configure USB passthrough settings:
 
    - Open the menu and plug in the USB cable connected to your autopilot. Select the `...Bootloader` device when it appears in the UI.
 
-     :::note
+     ::: info
 The bootloader device only appears for a few seconds after connecting USB.
 If it disappears before you can select it, disconnect and then reconnect USB.
 :::

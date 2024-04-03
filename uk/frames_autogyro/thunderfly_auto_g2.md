@@ -4,7 +4,7 @@ The *ThunderFly Auto-G2* is an autopilot-controlled autogyro based on the [ Dura
 
 ![Auto-G2](../../assets/airframes/autogyro/auto-g2/autog2_title.jpg)
 
-:::note
+::: info
 Auto-G2 autogyro’s airframe is developed and maintained by ThuderFly s.r.o. company.
 :::
 
@@ -116,7 +116,7 @@ The whole part is glued, using a hot-melt adhesive, under the engine on the bott
 * Rotor centre plate with deformation zones (3D printed)
 * Rotor blades ([HobbyKing](https://hobbyking.com/en_us/duraflytm-auto-g-gyrocopter-821mm-replacement-main-blade-1pcs-bag.html) or 3D printed)
 
-## Video
+## Відео
 
 @[youtube](https://youtu.be/YhXXSWz5wWs)
 

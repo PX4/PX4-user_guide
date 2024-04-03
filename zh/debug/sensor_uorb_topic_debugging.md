@@ -6,8 +6,7 @@ uORB 是用于进程间通信的异步 `publish()`/`subscribe()` 消息传递 AP
 This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying).
 :::
 
-:::note
-The `listener` command is also available through the [System Console](../debug/system_console.md) and the [MAVLink Shell](../debug/mavlink_shell.md).
+::: info The `listener` command is also available through the [System Console](../debug/system_console.md) and the [MAVLink Shell](../debug/mavlink_shell.md).
 :::
 
 :::tip

@@ -56,8 +56,7 @@ To build:
 
    - The current _cmake build target_ is shown on the blue _config_ bar at the bottom (if this is already your desired target, skip to next step). ![Select Cmake build target](../../assets/toolchain/vscode/cmake_build_config.jpg)
 
-:::note
-The cmake target you select affects the targets offered for when [building/debugging](#debugging) (i.e. for hardware debugging you must select a hardware target like `px4_fmu-v5`).
+     ::: info The cmake target you select affects the targets offered for when [building/debugging](#debugging) (i.e. for hardware debugging you must select a hardware target like `px4_fmu-v5`).
 :::
 
    - Click the target on the config bar to display other options, and select the one you want (this will replace any selected target).
@@ -80,7 +79,7 @@ To debug PX4 on SITL:
 
 1. Then choose your debug target (e.g. _Debug SITL (Gazebo Iris)_) from the top bar debug dropdown (purple box).
 
-   :::note
+   ::: info
 The debug targets that are offered (purple box) match your build target (yellow box on the bottom bar).
 For example, to debug SITL targets, your build target must include SITL.
 :::

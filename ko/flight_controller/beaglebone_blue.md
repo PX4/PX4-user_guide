@@ -54,8 +54,7 @@ connmanctl>connect <SSID>
 connmanctl>quit
 ```
 
-:::note
-The format of the `<SSID>` above is normally the text 'wifi' followed by a string of other characters. After entering the command you will be prompted to enter the wifi password.
+::: info The format of the `<SSID>` above is normally the text 'wifi' followed by a string of other characters. After entering the command you will be prompted to enter the wifi password.
 :::
 
 ### Beaglebone에서 SSH 루트 로그인
@@ -135,7 +134,7 @@ The GCC version of the toolchain should be compatible with kernel in _BeagleBone
          export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-13.0.0-2022.06-x86_64_arm-linux-gnueabihf/bin
          ```
 
-         :::note
+         ::: info
 Logout and Login to apply the change, or execute the same line on your current shell.
 :::
 
@@ -164,7 +163,7 @@ Compile and Upload
 make beaglebone_blue_default upload
 ```
 
-:::note
+::: info
 Without upload, files stored local in build folder.
 :::
 
@@ -175,8 +174,7 @@ cd /home/debian/px4
 sudo ./bin/px4 -s px4.config
 ```
 
-:::note
-Currently _librobotcontrol_ requires root access.
+::: info Currently _librobotcontrol_ requires root access.
 :::
 
 <a id="native_builds"></a>
@@ -208,8 +206,7 @@ Run the following commands on the BeagleBone Blue (i.e. via SSH):
 
 All changes can be made in de px4.config file directly on beaglebone. For example, you can change the WIFI to wlan.
 
-:::note
-If you want to change permanently, you have to change **PX4-Autopilot/posix-configs/bbblue/px4.config** on the Build Machine before build.
+::: info If you want to change permanently, you have to change **PX4-Autopilot/posix-configs/bbblue/px4.config** on the Build Machine before build.
 :::
 
 ## 부팅 중 자동 시작

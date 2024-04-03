@@ -4,13 +4,11 @@ This page documents how to flash the PX4 bootloader onto boards that are already
 
 There are three tools that can be used to flash the PX4 bootloader: _Betaflight Configurator_, [dfu-util](http://dfu-util.sourceforge.net/) command line tool, or the graphical [dfuse](https://www.st.com/en/development-tools/stsw-stm32080.html) (Windows only).
 
-:::note
-The _Betaflight Configurator_ is easiest, but newer versions may not support non-betaflight bootloader update. You might try it first, but use the other methods if firmware update does not work. 飞控板上电后可以放开该按钮。
+::: info The _Betaflight Configurator_ is easiest, but newer versions may not support non-betaflight bootloader update. You might try it first, but use the other methods if firmware update does not work. 飞控板上电后可以放开该按钮。
 
 ## Betaflight Configurator Bootloader Update
 
-:::note
-_Betaflight Configurator_ may not support PX4 Bootloader update, as of May 2023. Older versions should work, though the precise versions are not known. 飞控板上电后可以放开该按钮。
+::: info _Betaflight Configurator_ may not support PX4 Bootloader update, as of May 2023. Older versions should work, though the precise versions are not known. 飞控板上电后可以放开该按钮。
 
 To install the PX4 bootloader using the _Betaflight Configurator_:
 
@@ -32,8 +30,7 @@ This section explains how to flash the PX4 bootloader using the [dfu-util](http:
 
 You will first need to download or build [bootloader firmware](#bootloader-firmware) for the board you want to flash (below, this is referred to as `<target.bin>`).
 
-:::note
-All of the methods below are safe as the STM32 MCU cannot be bricked! DFU 不会被烧写覆盖，并且总是允许安装新固件，即便烧写失败。 飞控板上电后可以放开该按钮。
+::: info All of the methods below are safe as the STM32 MCU cannot be bricked! DFU 不会被烧写覆盖，并且总是允许安装新固件，即便烧写失败。 飞控板上电后可以放开该按钮。
 
 ### DFU mode
 
@@ -41,8 +38,7 @@ Both tools require the board to be in DFU mode. 要进入 DFU 模式， 当将 U
 
 ### dfu-util
 
-:::note
-The [Holybro Kakute H7 v2](../flight_controller/kakuteh7v2.md) and mini flight controllers may require that you first run an additional command to erase flash parameters (in order to fix problems with parameter saving):
+::: info The [Holybro Kakute H7 v2](../flight_controller/kakuteh7v2.md) and mini flight controllers may require that you first run an additional command to erase flash parameters (in order to fix problems with parameter saving):
 
 ```
 dfu-util -a 0 --dfuse-address 0x08000000:force:mass-erase:leave -D build/<target>/<target>.bin

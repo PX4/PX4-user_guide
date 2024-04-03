@@ -30,5 +30,4 @@
 
 如果您开始失去对机体机的控制，并且无法恢复控制，请尽快在空旷的地方坠落。
 
-:::note
-It can be useful to [set a safety switch on your transmitter](../config/safety.md#emergency-switches). 这使您在必要时可以立即返回或坠毁您的无人机。 :::
+::: info It can be useful to [set a safety switch on your transmitter](../config/safety.md#emergency-switches). 这使您在必要时可以立即返回或坠毁您的无人机。 :::

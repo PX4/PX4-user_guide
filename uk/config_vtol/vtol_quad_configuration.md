@@ -1,22 +1,22 @@
-# Generic Standard VTOL (QuadPlane) Configuration & Tuning
+# Загальна стандартна конфігурація VTOL (QuadPlane) & Тюнінг
 
-This is the configuration documentation for a [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), also known as a "QuadPlane VTOL". This is essentially a fixed-wing vehicle with the addition of quadcopter motors.
+This is the configuration documentation for a [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), also known as a "QuadPlane VTOL". Це в основному літальний апарат з фіксованими крилами з додаванням квадрокоптерних двигунів.
 
-For airframe specific documentation and build instructions see [VTOL Framebuilds](../frames_vtol/index.md).
+Для документації та інструкцій щодо конструкції планера див. розділ [VTOL Framebuilds](../frames_vtol/index.md).
 
-## Firmware & Basic Settings
+## Прошивка & Основні налаштування
 
-1. Run _QGroundControl_
-2. Flash the firmware for your current release or master (PX4 `main` branch build).
-3. In the [Frame setup](../config/airframe.md) section select the appropriate VTOL airframe.
+1. Запустіть _QGroundControl_
+2. Перезавантажте мікропрограму для вашого поточного випуску або master (запуск `основної` гілки PX4).
+3. У розділі [Налаштування каркаса](../config/airframe.md) виберіть відповідний планер VTOL.
 
-   If your airframe is not listed select the [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) frame.
+   Якщо вашого планера немає в списку, виберіть раму [Загальний стандартний VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol).
 
-### Flight / Transition Mode Switch
+### Перемикач режимів польоту / переходу
 
 You should assign a switch on your RC controller for switching between the multicopter- and fixed-wing modes.
 
-:::note
+::: info
 While PX4 allows flight without an RC controller, you must have one when tuning/configuring up a new airframe.
 :::
 
@@ -40,7 +40,7 @@ Getting your transition tuning right is important for obtaining a safe entry int
 
 #### Transition Throttle
 
-Parameter: [VT_F_TRANS_THR](../advanced_config/parameter_reference.md#VT_F_TRANS_THR)
+Параметр: [VT_F_TRANS_THR](../advanced_config/parameter_reference.md#VT_F_TRANS_THR)
 
 Front transition throttle defines the target throttle for the pusher/puller motor during the front transition.
 
@@ -48,7 +48,7 @@ This must be set high enough to ensure that the transition airspeed is reached. 
 
 #### Forward Transition Pusher/Puller Slew Rate
 
-Parameter: [VT_PSHER_SLEW](../advanced_config/parameter_reference.md#VT_PSHER_SLEW)
+Параметр: [VT_PSHER_SLEW](../advanced_config/parameter_reference.md#VT_PSHER_SLEW)
 
 A forward transition refers to the transition from multirotor to fixed-wing mode. The forward transition pusher/puller slew rate is the amount of time in seconds that should be spent ramping up the throttle to the target value (defined by `VT_F_TRANS_THR`).
 
@@ -58,7 +58,7 @@ Note that once the ramp up period ends throttle will be at its target setting an
 
 #### Blending Airspeed
 
-Parameter: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLEND)
+Параметр: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLEND)
 
 By default, as the airspeed gets close to the transition speed, multirotor attitude control will be reduced and fixed-wing control will start increasing continuously until the transition occurs.
 
@@ -66,7 +66,7 @@ Disable blending by setting this parameter to 0 which will keep full multirotor 
 
 #### Transition Airspeed
 
-Parameter: [VT_ARSP_TRANS](../advanced_config/parameter_reference.md#VT_ARSP_TRANS)
+Параметр: [VT_ARSP_TRANS](../advanced_config/parameter_reference.md#VT_ARSP_TRANS)
 
 This is the airspeed which, when reached, will trigger the transition out of multirotor mode into fixed-wing mode. It is critical that you have properly calibrated your airspeed sensor. It is also important that you pick an airspeed that is comfortably above your airframes stall speed (check `FW_AIRSPD_MIN`) as this is currently not checked.
 
@@ -98,22 +98,22 @@ The following feature has been discussed but not implemented yet:
 - Once the transition happens the multirotor motors will stop and the pusher/puller throttle will remain at the `VT_F_TRANS_THR` level until you move the throttle stick, assuming you are in manual mode.
 :::
 
-#### Transition: Fixed-wing to Multirotor (Back-transition)
+#### Перехід: Фіксовані крила на багатороторний вертоліт (Зворотний перехід)
 
-When you transition back to multirotor mode bring your aircraft in on a straight level approach and reduce its speed, flip the transition switch and it will start the multirotor motors and stop the pusher/puller prop immediately and should result in a fairly smooth gliding transition.
+Під час переходу назад до режиму багатороторного вертольота приведіть свій літак на прямий рівний захід та зменште його швидкість, перекиньте перемикач переходу і двигуни багатороторного вертольота почнуть роботу, а тяговий пропелер відразу зупиниться, що повинно призвести до досить плавного перехідного глайдування.
 
-Consider that the throttle value you have when you transition will command the amount of thrust your multirotor has at the moment of the switch. Because the wing will still be flying you’ll find you have plenty of time to adjust your throttle to achieve/hold a hover.
+Пам'ятайте, що значення газу, яке ви маєте при переході, вказуватиме кількість тяги вашого багатороторного вертольота у момент перемикання. Оскільки крило все ще буде у повітрі, ви відчуєте, що у вас є достатньо часу, щоб відрегулювати газ для досягнення/утримання стійкого витримання. Для розширеного налаштування зворотного переходу дивіться Посібник з налаштування зворотного переходу.
 
-For advanced tuning of the back-transition please refer to the [Back-transition Tuning Guide](vtol_back_transition_tuning.md)
+Для розширеного налаштування зворотного переходу дивіться [Посібник з налаштування зворотного переходу](vtol_back_transition_tuning.md)
 
-#### Aborting a Transition
+#### Скасування переходу
 
-It’s important to know what to expect when you revert a transition command _during_ a transition.
+Важливо знати, що очікувати, коли ви відміняєте команду _переходу_ під час переходу.
 
-When transitioning from **multirotor to fixed-wing** (transition switch is on/fixed-wing) then reverting the switch back (off/multirotor position) _before_ the transition happens it will immediately return to multirotor mode.
+Під час переходу від **мультиротора до фіксованого крила** (перемикач переходу ввімкнено/фіксоване крило), а потім повернення перемикача назад (вимкнено/положення мультиротора) _перед тим, як_ перехід відбудеться негайно повернутися до багатороторного режиму.
 
-When transitioning from **fixed-wing to multirotor** for this type of VTOL the switch is immediate so there isn’t really a backing out option here, unlike for tilt rotor VTOLs. If you want it to go back into fixed-wing you will need to go through the full transition. If it’s still travelling fast this should happen quickly.
+Під час переходу від **з нерухомим крилом до багатогвинтового вертольота** для цього типу VTOL перемикання відбувається миттєво, тому тут насправді немає можливості повернутися назад, на відміну від VTOL з нахиленим гвинтом. Якщо ви хочете, щоб він повернувся у режим фіксованих крил, вам потрібно буде пройти повний перехід. Якщо він все ще рухається швидко, це має відбутися швидко.
 
-### Support
+### Підтримка
 
-If you have any questions regarding your VTOL conversion or configuration please see [discuss.px4.io/c/px4/vtol](https://discuss.px4.io/c/px4/vtol).
+Якщо у вас виникли запитання щодо перетворення або конфігурації VTOL, перегляньте [discuss.px4.io/c/px4/vtol](https://discuss.px4.io/c/px4/vtol).

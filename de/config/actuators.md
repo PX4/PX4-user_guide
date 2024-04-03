@@ -18,16 +18,14 @@ A quadcopter might have an setup screen similar to the one shown below. This def
 
 ![Actuators MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_aux.png)
 
-:::note
-Only the most common settings are displayed by default. Select the **Advanced** checkbox in the top right corner to display all settings.
+::: info Only the most common settings are displayed by default. Select the **Advanced** checkbox in the top right corner to display all settings.
 :::
 
 ## Geometry
 
 The geometry section is used to set any configurable geometry-related parameters for the selected [airframe](../config/airframe.md). This includes the number and position of [motors](#motor-geometry), and the number, function, and properties of [control surfaces](#control-surfaces-geometry). For VTOL tiltrotor vehicles, it will also include the number and properties of [tilt servos](#motor-tilt-servo-geometry)
 
-:::note
-The UI is customised for the selected airframe:
+::: info The UI is customised for the selected airframe:
 
 - Only _configurable_ fields for the selected airframe type are displayed; fields that aren't configurable for the airframe are hidden.
 - The motor position diagram is currently only displayed for multicopter frames.
@@ -60,8 +58,7 @@ For each motor you can then set:
 - (Advanced) `Bidirectional`: Checkbox to indicate motor is [bidirectional](#bidirectional-motors)
 - (Advanced) `Slew Rate`: Refer to the [Control Surfaces Geometry](#control-surfaces-geometry) section for more information
 
-:::note
-The `X`, `Y`, `Z` positions are in [FRD coordinate frame, relative to the _centre of gravity_](#motor-position-coordinate-system). Note, this may not be the same as the position of the flight controller!
+::: info The `X`, `Y`, `Z` positions are in [FRD coordinate frame, relative to the _centre of gravity_](#motor-position-coordinate-system). Note, this may not be the same as the position of the flight controller!
 :::
 
 #### Motor Geometry: VTOL Quadrotor Tailsitter
@@ -121,8 +118,7 @@ The control surfaces section of the geometry panel lets you set the number and t
 
 ![Control Surface Setup Example](../../assets/config/actuators/control_surfaces_geometry.png)
 
-:::note
-Only the most common settings are displayed by default. Select the **Advanced** checkbox in the top right corner of the view to display all settings.
+::: info Only the most common settings are displayed by default. Select the **Advanced** checkbox in the top right corner of the view to display all settings.
 :::
 
 The fields are:
@@ -160,7 +156,7 @@ In the following example, the vehicle has two ailerons, one elevator, one rudder
 
 #### Actuator Roll, Pitch, and Yaw Scaling
 
-:::note
+::: info
 For the majority of airframe setups the default values for each control surface types should not be changed.
 :::
 
@@ -220,8 +216,7 @@ If the max/min tilt vectors are **P<sub>0</sub>** and **P<sub>1</sub>** as shown
 - `Angle at min tilt` = **θ<sub>0</sub>**
 - `Angle at max tilt` = **θ<sub>1</sub>**
 
-:::note
-If the diagram was mirrored so that **P<sub>0</sub>** and **P<sub>1</sub>** were tilting into the -x, -y quadrant, then both the tilt angles would be negative. Because **θ<sub>1</sub>** would more negative (smaller) than **θ<sub>0</sub>**, it would be the `Angle at min tilt`.
+::: info If the diagram was mirrored so that **P<sub>0</sub>** and **P<sub>1</sub>** were tilting into the -x, -y quadrant, then both the tilt angles would be negative. Because **θ<sub>1</sub>** would more negative (smaller) than **θ<sub>0</sub>**, it would be the `Angle at min tilt`.
 
 Similarly, a servo that moves:
 
@@ -251,7 +246,7 @@ Separate tabs are displayed for each output bus supported by the connected fligh
 
 Motors and actuators (which are referred to as "[functions](#output-functions)") can be assigned to any physical output on any of the available buses.
 
-:::note
+::: info
 PWM AUX outputs are preferred over the PWM MAIN outputs for controlling motors (they have lower latency).
 :::
 
@@ -259,7 +254,7 @@ PWM outputs are grouped based on the hardware timer groups. Meaning all the outp
 
 The PWM AUX tab has CAP outputs that are generally used as the [camera capture/trigger input](../peripherals/camera.md#trigger-configuration). However you can map the CAP outputs to other output functions, and other AUX outputs can be used as camera capture/triggering input.
 
-:::note
+::: info
 Configuring the Camera Capture / Trigger input requires a reboot to take effect
 :::
 
@@ -297,8 +292,7 @@ The following functions can only be applied to FMU outputs:
 - `Camera_Capture`: Input to get image capture notification. Enabled when [CAM_CAP_FBACK==0](../advanced_config/parameter_reference.md#CAM_CAP_FBACK). Configured via `CAM_CAP_*` parameters.
 - `PPS_Input`: Pulse-per-second input capture. Used for GPS synchronisation. Enabled when [`PPS_CAP_ENABLE==0`](../advanced_config/parameter_reference.md#PPS_CAP_ENABLE)
 
-:::note
-This list is correct at PX4 v1.13. The functions are defined in source at [/src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml).
+::: info This list is correct at PX4 v1.13. The functions are defined in source at [/src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml).
 :::
 
 ## Actuator Testing
@@ -309,8 +303,7 @@ The _Actuator Testing_ section in lower-right corner provides sliders that can b
 
 The section has an **Enable Sliders** switch that must be toggled before sliders can be used. The sliders can power the motors/servos across their full range of motion, and "snap" to the disarmed and minimum positions.
 
-:::note
-After you toggle the **Enable sliders** switch, actuators/motors won't do anything until the corresponding slider is _moved_. This is a safety feature to prevent sudden motor movements after switch is enabled.
+::: info After you toggle the **Enable sliders** switch, actuators/motors won't do anything until the corresponding slider is _moved_. This is a safety feature to prevent sudden motor movements after switch is enabled.
 :::
 
 Sliders can be used to verify the following:
@@ -336,8 +329,7 @@ Outputs are assigned to functions and configured in the [Actuator Outputs](#actu
 
 You can use the **Identify & Assign Motors** button to assign motors to PWM outputs using a semi-automated process.
 
-:::note
-This is the easiest way to assign motors, but is currently only supported for motors on **multicopter vehicles** that are connected to PWM outputs (UAVCAN outputs and other frame types do not support this feature). On other frames you can follow the instructions in [Output Assignment (Manual)](#output-assignment-manual).
+::: info This is the easiest way to assign motors, but is currently only supported for motors on **multicopter vehicles** that are connected to PWM outputs (UAVCAN outputs and other frame types do not support this feature). On other frames you can follow the instructions in [Output Assignment (Manual)](#output-assignment-manual).
 :::
 
 :::warning
@@ -385,8 +377,7 @@ To assign an actuator:
 
 ### Motor Configuration
 
-:::note
-If using PWM or OneShot ESCs, you should first perform [ESC Calibration](../advanced_config/esc_calibration.md) (this topic also covers PWM specific motor configuration).
+::: info If using PWM or OneShot ESCs, you should first perform [ESC Calibration](../advanced_config/esc_calibration.md) (this topic also covers PWM specific motor configuration).
 
 [DShot](../peripherals/dshot.md) ESCs do not require configuration of the command limits but only rotation direction.
 :::
@@ -431,8 +422,7 @@ First set the _frame rate_ for the servos used in each group of outputs. This wo
 
 ![Control Surface Disarmed 1500 Setting](../../assets/config/actuators/control_surface_disarmed_1500.png)
 
-:::note
-You will almost certainly need to change the pulse rate from the default of 400Hz because support is rare (if not supported the servo will usually make an "odd" noise). If you're using PWM servos, PWM50 is far more common. If a high rate servo is _really_ needed, DShot offers better value.
+::: info You will almost certainly need to change the pulse rate from the default of 400Hz because support is rare (if not supported the servo will usually make an "odd" noise). If you're using PWM servos, PWM50 is far more common. If a high rate servo is _really_ needed, DShot offers better value.
 :::
 
 For each of the control surfaces:
@@ -451,8 +441,7 @@ For each of the control surfaces:
 
      ```
 
-:::note
-Another way to test without using the sliders would be to set the [`COM_PREARM_MODE`](../advanced_config/parameter_reference.md#COM_PREARM_MODE) parameter to `Always`:
+::: info Another way to test without using the sliders would be to set the [`COM_PREARM_MODE`](../advanced_config/parameter_reference.md#COM_PREARM_MODE) parameter to `Always`:
 
 - This will enable the control of servos even when the vehicle is disarmed, and will constantly be applying the Trim setting to the Control Surfaces
 - You can try setting different values for the Trim and check the alignment, and then settle on the value you are happy with.
@@ -499,6 +488,6 @@ There are several options:
 
 - Swap 2 of the 3 motor cables (it does not matter which ones).
 
-  :::note
+  ::: info
 If motors are not connected via bullet-connectors, re-soldering is required (this is a reason, among others, to prefer DShot ESCs).
 :::

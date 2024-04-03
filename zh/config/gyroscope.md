@@ -21,8 +21,7 @@ _QGroundControl_ will guide you to place the vehicle on a flat surface and keep 
 
 1. When finished, _QGroundControl_ will display a progress bar _Calibration complete_ ![Gyro calibration complete on PX4](../../assets/qgc/setup/sensor/gyroscope_calibrate_complete_px4.png)
 
-:::note
-If you move the vehicle _QGroundControl_ will automatically restart the gyroscope calibration.
+::: info If you move the vehicle _QGroundControl_ will automatically restart the gyroscope calibration.
 :::
 
 ## 更多信息：

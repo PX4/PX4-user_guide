@@ -282,9 +282,7 @@ make list_config_targets
 make px4_sitl list_vmd_make_targets
 ```
 
-:::
-
-Примітки:
+::: infos:
 
 - Більшість значень у `CONFIGURATION_TARGET` та `VIEWER_MODEL_DEBUGGER` мають значення за замовчуванням і тому є необов'язковими. Наприклад, `gazebo-classic` еквівалентна `gazebo-classic_iris` або `gazebo-classic_iris_none`.
 - Ви можете використати три підкреслювання, якщо хочете вказати значення за замовчуванням між двома іншими налаштуваннями. Наприклад, `gazebo-classic___gdb` еквівалентно `gazebo-classic_iris_gdb`.

@@ -28,8 +28,7 @@ Additionally the types can be used as a fixed-size array: e.g. `float[5]`.
 
 Strings (`char[length]`) do not contain the termination NULL character `'\0'` at the end.
 
-:::note
-String comparisons are case sensitive, which should be taken into account when comparing message names when [adding subscriptions](#a-subscription-message).
+::: info String comparisons are case sensitive, which should be taken into account when comparing message names when [adding subscriptions](#a-subscription-message).
 :::
 
 ## ULog File Structure
@@ -75,8 +74,7 @@ struct message_header_s {
 - `msg_size` is the size of the message in bytes without the header.
 - `msg_type` defines the content, and is a single byte.
 
-:::note
-Message sections below are prefixed with the character that corresponds to it's `msg_type`.
+::: info Message sections below are prefixed with the character that corresponds to it's `msg_type`.
 :::
 
 ### Definitions Section
@@ -94,8 +92,7 @@ The message types in this section are:
 
 #### 'B': Flag Bits Message
 
-:::note
-This message must be the **first message** right after the header section, so that it has a fixed constant offset from the start of the file!
+::: info This message must be the **first message** right after the header section, so that it has a fixed constant offset from the start of the file!
 :::
 
 This message provides information to the log parser whether the log is parsable or not.
@@ -186,7 +183,7 @@ struct ulog_message_info_header_s {
 - `key`: Contains the key string in the form`type name`, e.g. `char[value_len] sys_toolchain_ver`. Valid characters for the name: `a-zA-Z0-9_-/`. The type may be one of the [basic types including arrays](#data-types).
 - `value`: Contains the data (with the length `value_len`) corresponding to the `key` e.g. `9.4.0`.
 
-:::note
+::: info
 A key defined in the Information message must be unique. Meaning there must not be more than one definition with the same key value.
 :::
 
@@ -213,8 +210,7 @@ Predefined information messages are:
 | `char[value_len] replay`            | File name of replayed log if in replay mode | "log001.ulg"       |
 | `int32_t time_ref_utc`              | UTC Time offset in seconds                  | -3600              |
 
-:::note
-`value_len` represents the data size of the `value`. This is described in the `key`.
+::: info `value_len` represents the data size of the `value`. This is described in the `key`.
 :::
 
 - The format of `ver_sw_release` and `ver_os_release` is: 0xAABBCCTT, where AA is **major**, BB is **minor**, CC is patch and TT is the **type**.

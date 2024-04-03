@@ -4,7 +4,7 @@
 
 The _Manual/Stabilized_ mode stabilizes the multicopter when the RC control sticks are centred. 기체를 수동으로 움직이거나 조종하려면 스틱을 중앙의 바깥쪽으로 제어합니다.
 
-:::note
+::: info
 This multicopter mode is enabled if you set either _Manual_ or _Stabilized_ modes.
 :::
 
