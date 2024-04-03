@@ -247,7 +247,7 @@ The firmware can be installed in any of the normal ways:
 
 ## Configuration
 
-In addition to the [basic configuration](../config/README.md), the following parameters are important:
+In addition to the [basic configuration](../config/index.md), the following parameters are important:
 
 | Parameter                                                                | Setting                                                                                                                 |
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
