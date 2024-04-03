@@ -25,7 +25,7 @@ make px4_sitl_default sitl_gazebo
 make <test_target>
 ```
 
-`test_target` – це цілі makefile із набору: _tests_mission_, _tests_mission_coverage_, _tests_offboard_ і _tests_avoidance</1 >.</p>
+`test_target` – це цілі makefile із набору: _tests_mission_, _tests_mission_coverage_, _tests_offboard_ і _tests_avoidance_.
 
 Тест також можна виконати безпосередньо, запустивши тестові сценарії, розташовані в `test/`:
 
