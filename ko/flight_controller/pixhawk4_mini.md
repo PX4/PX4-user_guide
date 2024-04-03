@@ -127,7 +127,7 @@ make px4_fmu-v5_default
 ## 주변 장치
 
 - [디지털 대기속도 센서](https://holybro.com/products/digital-air-speed-sensor)
-- [텔레메트리 라디오 모듈](../telemetry/README.md)
+- [텔레메트리 라디오 모듈](../telemetry/index.md)
 - [거리계/거리 센서](../sensor/rangefinders.md)
 
 ## 지원 플랫폼
