@@ -7,8 +7,7 @@ This quick start guide shows how to power the _3DR Pixhawk_ flight controller an
 
 ![Pixhawk Image](../../assets/flight_controller/pixhawk1/pixhawk_logo_view.jpg)
 
-:::note
-The [3DR Pixhawk](../flight_controller/pixhawk.md) is no longer available from 3DR. :::warning
+::: info The [3DR Pixhawk](../flight_controller/pixhawk.md) is no longer available from 3DR. :::warning
 The power module supplies the flight controller itself, but cannot power servos and other hardware connected to the controller's output ports (rail).
 :::
 
@@ -18,8 +17,7 @@ The image below shows standard Pixhawk connections (excepting the motor and serv
 
 ![Pixhawk Wiring Overview](../../assets/flight_controller/pixhawk1/pixhawk_wiring_overview.jpg)
 
-:::note
-More detailed wiring information is [shown below](#detailed-wiring-infographic-copter).
+::: info More detailed wiring information is [shown below](#detailed-wiring-infographic-copter).
 :::
 
 ## Mount and Orient Controller
@@ -28,8 +26,7 @@ The _Pixhawk_ should be mounted on the frame using vibration-damping foam pads (
 
 ![Pixhawk mounting and orientation](../../assets/flight_controller/pixhawk1/pixhawk_3dr_mounting_and_foam.jpg)
 
-:::note
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 :::
 
 ## Buzzer and Safety Switch
@@ -42,7 +39,7 @@ Connect the included buzzer and safety switch as shown below (these are mandator
 
 Attach a GPS (required) to the GPS port using the 6-wire cable supplied in the kit. Optionally attach a compass to the I2C port using a 4-wire cable (the Pixhawk has an internal compass, which can be used if necessary).
 
-:::note
+::: info
 The diagram shows a combined GPS and Compass.
 The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
 :::
@@ -102,8 +99,7 @@ Make sure to use the correct mapping for your vehicle.
 If your frame is not listed in the reference then use a "generic" airframe of the correct type.
 :::
 
-:::note
-The output rail must be separately powered, as discussed in the [Power](#power) section above.
+::: info The output rail must be separately powered, as discussed in the [Power](#power) section above.
 :::
 
 <!-- INSERT image of the motor AUX/MAIN ports? -->
