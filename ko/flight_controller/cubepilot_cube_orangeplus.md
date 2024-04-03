@@ -229,7 +229,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target, open up the termin
 make cubepilot_cubeorangeplus
 ```
 
-:::note
+::: info
 The firmware for Cube Orange+ and Cube Orange are not compatible. Due to a power feature of the STM32H757 it required [updates in NuttX](https://github.com/PX4/NuttX/pull/214) and therefore a new board config, bootloader, build target, etc.
 :::
 
