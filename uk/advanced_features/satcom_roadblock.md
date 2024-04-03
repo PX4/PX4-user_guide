@@ -71,19 +71,19 @@ drivers/telemetry/iridiumsbd
 
 :::
 
-## RockBlock Setup
+## Налаштування RockBlock
 
-When buying the first module on RockBlock an user account needs to be created in a first step.
+При придбанні першого модуля на RockBlock спочатку потрібно створити обліковий запис користувача.
 
-Log in to the [account](https://rockblock.rock7.com/Operations) and register the RockBlock module under the `My RockBLOCKs`. Activate the line rental for the module and make sure that enough credits for the expected flight duration are available on the account. When using the default settings one message per minute is sent from the vehicle to the ground station.
+Увійдіть у [зобліковий запис](https://rockblock.rock7.com/Operations) та зареєструйте модуль RockBlock в розділі `Мої RockBLOCKs`. Активуйте оренду лінії для модуля та переконайтеся, що на обліковому записі є достатньо кредитів для очікуваного часу польоту. Якщо використовуються налаштування за замовчуванням, з апаратури відправляється одне повідомлення на хвилину на наземну станцію.
 
-Set up a delivery group for the message relay server and add the module to that delivery group:
+Створіть групу доставки для реле-сервера повідомлень та додайте модуль до цієї групи доставки:
 
 ![Delivery Groups](../../assets/satcom/deliverygroup.png)
 
-## Relay Server Setup
+## Налаштування сервера станції
 
-The relay server should be run on either Ubuntu 16.04 or 14.04 OS.
+Сервер relay має бути запущений або на Ubuntu 16.04 або 14.04 OS.
 
 1. The server working as a message relay should have a static IP address and two publicly accessible, open, TCP ports:
 
@@ -96,13 +96,13 @@ The relay server should be run on either Ubuntu 16.04 or 14.04 OS.
    sudo pip install pika tornado future
    ```
 
-1. Install the `rabbitmq` message broker:
+1. Встановіть брокер повідомлень `rabbitmq`:
 
    ```sh
    sudo apt install rabbitmq-server
    ```
 
-1. Configure the broker's credentials (change PWD to your preferred password):
+1. Налаштуйте облікові дані брокера (змініть PWD на ваш бажаний пароль):
 
    ```sh
    sudo rabbitmqctl add_user iridiumsbd PWD
@@ -156,7 +156,7 @@ Other instructions include:
   screen -dr
   ```
 
-## Ground Station Computer
+## Наземна станція
 
 To setup the ground station:
 
@@ -182,7 +182,7 @@ To setup the ground station:
 
    ![High Latency Link Settings](../../assets/satcom/linksettings.png)
 
-### Verification
+### Верифікація
 
 1. Open a terminal on the ground station computer and change to the location of the _SatComInfrastructure_ repository. Then start the **udp2rabbit.py** script:
 
@@ -192,7 +192,7 @@ To setup the ground station:
 
 1. Send a test message from [RockBlock Account](https://rockblock.rock7.com/Operations) to the created delivery group in the `Test Delivery Groups` tab.
 
-If in the terminal where the `udp2rabbit.py` script is running within a couple of seconds the acknowledge for a message can be observed, then the RockBlock delivery group, the relay server and the udp2rabbit script are set up correctly:
+Якщо в терміналі, де запущений скрипт `udp2rabbit.py`, протягом кількох секунд можна спостерігати підтвердження для повідомлення, то група доставки RockBlock, реле-сервер та скрипт udp2rabbit налаштовані правильно:
 
 ![udp2rabbit message acknowledge](../../assets/satcom/verification.png)
 
