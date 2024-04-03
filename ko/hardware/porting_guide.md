@@ -86,6 +86,6 @@ PX4 프로젝트는 [FMU 표준 참조 하드웨어](../hardware/reference_desig
 - [장치 드라이버](../middleware/drivers.md) - 새로운 주변장치(장치 드라이버)를 지원하는 방법
 - [코드 빌드](../dev_setup/building_px4.md) - 소스 빌드 및 펌웨어 업로드 방법
 - 지원 비행 콘트롤러:
-  - [자동조종장치 하드웨어](../flight_controller/README.md)
+  - [자동조종장치 하드웨어](../flight_controller/index.md)
   - [지원 보드 목록](https://github.com/PX4/PX4-Autopilot/#supported-hardware)(Github) - PX4-Autopilot에 특정 코드가 있는 보드
-- [지원 주변기기](../peripherals/README.md)
+- [지원 주변기기](../peripherals/index.md)
