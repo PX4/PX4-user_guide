@@ -1,6 +1,6 @@
 # 동영상 스트리밍 (보조 컴퓨터/QGroundControl)
 
-PX4-based vehicles support video streaming using a camera connected to a [companion computer](../companion_computer/README.md).
+PX4-based vehicles support video streaming using a camera connected to a [companion computer](../companion_computer/index.md).
 
 :::note
 PX4에 연결된 카메라에서 직접 비디오를 스트리밍 할 수 없습니다.
@@ -10,7 +10,7 @@ GStreamer is used to send the video to _QGroundControl_ over an IP link. To supp
 
 ## 보조 컴퓨터 설정
 
-General instructions for installing _GStreamer_ and starting the stream on a companion computer are provided in the [QGroundControl VideoReceiver README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/README.md).
+General instructions for installing _GStreamer_ and starting the stream on a companion computer are provided in the [QGroundControl VideoReceiver README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/index.md).
 
 The setup of cameras and data links depends on many factors. Examples in this library are listed below (note, these are options, not "recommended"):
 
@@ -28,11 +28,11 @@ QGC로 비디오 스트리밍을 설정하고 사용하려면 :
 
    다른 플랫폼의 경우 [QGroundControl VideoReceiver README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/README.md)의 지침을 참고하십시오.
 
-1. Enable video in _Fly View_: [QGroundControl > General Settings (Settings View) > Video](https://docs.qgroundcontrol.com/master/en/SettingsView/General.html#video)
+1. Enable video in _Fly View_: [QGroundControl > General Settings (Settings View) > Video](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/general.html#video)
 1. 모든 것이 정상적으로 작동하게 되면, QGC 비디오 스위처 (QGC Fly View 왼쪽 하단 모서리)에 비디오 스트림이 표시됩니다. 아래 스크린 샷과 같이 비디오 스위처를 클릭하여 비디오를 전체 화면으로 전환  수 있습니다.
 
    ![QGC에서의 실시간 동영상 전송 화면](../../assets/videostreaming/qgc-screenshot.png)
 
 ## Gazebo Classic Simulation
 
-[Gazebo Classic](../sim_gazebo_classic/README.md) supports video streaming from within the simulated environment. For more information see [Gazebo Classic Simulation > Video Streaming](../sim_gazebo_classic/README.md#video-streaming).
+[Gazebo Classic](../sim_gazebo_classic/index.md) supports video streaming from within the simulated environment. For more information see [Gazebo Classic Simulation > Video Streaming](../sim_gazebo_classic/index.md#video-streaming).
