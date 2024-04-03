@@ -22,6 +22,5 @@ The following IDEs also work (but are not recommended unless you're an expert):
 - [Eclipse C/C++](https://www.eclipse.org/downloads/eclipse-packages/)：功能非常丰富的基于 JAVA 的 IDE
 - [Sublime text](https://www.sublimetext.com)：快速而精简的文本编辑器。
 
-:::note
-There is an [Eclipse project](https://github.com/PX4/PX4-Autopilot/blob/main/eclipse.project) and a [Sublime project](https://github.com/PX4/PX4-Autopilot/blob/main/Firmware.sublime-project) in the source tree.
+::: info There is an [Eclipse project](https://github.com/PX4/PX4-Autopilot/blob/main/eclipse.project) and a [Sublime project](https://github.com/PX4/PX4-Autopilot/blob/main/Firmware.sublime-project) in the source tree.
 :::
