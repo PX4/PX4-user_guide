@@ -138,7 +138,7 @@ The pinout uses the standard [Pixhawk debug connector pinout](https://github.com
 ## Peripherals
 
 - [Digital Airspeed Sensor](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
-- [Telemetry Radio Modules](../telemetry/README.md)
+- [Telemetry Radio Modules](../telemetry/index.md)
 - [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
 ## Supported Platforms / Airframes
