@@ -19,8 +19,7 @@ Auto-tuning is performed while flying. The airframe must fly well enough to hand
 
 The vehicle must be able to fly and adequately stabilize itself before running auto-tune. This test ensures that the vehicle can fly safely in position controlled modes.
 
-:::note
-During [Airframe Setup](../config/airframe.md) you should have selected the frame that most closely matches your vehicle. This may fly well enough to run autotuning.
+::: info During [Airframe Setup](../config/airframe.md) you should have selected the frame that most closely matches your vehicle. This may fly well enough to run autotuning.
 :::
 
 To make sure the vehicle is stable enough for auto-tuning:
@@ -43,8 +42,7 @@ The auto-tuning sequence must be performed in a **safe flight zone, with enough 
 
 The recommended modes for autotuning are [Hold mode](../flight_modes_fw/hold.md) (FW) and [Altitude mode](../flight_modes_mc/altitude.md) (MC), but any other flight mode can be used. During auto tuning, the RC sticks can still be used to fly the vehicle.
 
-:::note
-The auto-tuning sequence can be aborted at any time by changing flight modes or using the [enable/disable Autotune switch](#enable-disable-autotune-switch-fixed-wing) (if configured).
+::: info The auto-tuning sequence can be aborted at any time by changing flight modes or using the [enable/disable Autotune switch](#enable-disable-autotune-switch-fixed-wing) (if configured).
 :::
 
 The test steps are:
@@ -147,8 +145,7 @@ Autotuning is started using [MAV_CMD_DO_AUTOTUNE_ENABLE](https://mavlink.io/en/m
 
 At time of writing the message is resent at regular intervals to poll PX4 for progress: the `COMMAND_ACK` includes result that the operation is in progress, and also the progress as a percentage. The operation completes when the progress is 100% or the vehicle lands and disarms.
 
-:::note
-This is not a MAVLink-compliant implementation of a [command protocol long running command](https://mavlink.io/en/services/command.html#long_running_commands). PX4 should stream progress as the protocol does not allow polling.
+::: info This is not a MAVLink-compliant implementation of a [command protocol long running command](https://mavlink.io/en/services/command.html#long_running_commands). PX4 should stream progress as the protocol does not allow polling.
 :::
 
 The feature is not yet supported by MAVSDK.
