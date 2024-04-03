@@ -12,7 +12,7 @@
 
 二进行安装或源码安装：
 
-- Install the development toolchain for [Linux](../dev_setup/dev_env_linux_ubuntu.md) or [macOS](../dev_setup/dev_env_mac.md) (Windows not supported). [Gazebo Classic](../sim_gazebo_classic/README.md) is required, and should be installed by default.
+- Install the development toolchain for [Linux](../dev_setup/dev_env_linux_ubuntu.md) or [macOS](../dev_setup/dev_env_mac.md) (Windows not supported). [Gazebo Classic](../sim_gazebo_classic/index.md) is required, and should be installed by default.
 - [Get the PX4 source code](../dev_setup/building_px4.md#download-the-px4-source-code):
 
   ```sh
