@@ -91,7 +91,7 @@ OneShot ESC应配置为 [在校准前使用 OneShot](../peripherals/oneshot.md#p
 
      If the ESC spins with the default value of 1000us then the ESC is not properly calibrated. If using an ESC that can't be calibrated, you should reduce the PWM output value for the output to below where the motor does not spin anymore (such as 950us or 900us).
 
-   :::note
+   ::: info
 VTOL and fixed-wing motors do not need any special PWM configuration.
 With the default PWM configuration they will automatically stop during flight when commanded by the autopilot.
 :::
