@@ -157,7 +157,7 @@ bool actuator
 
     - 位置设定值（仅` x `，` y `，` z `；速度和加速度设定值被忽略）。
 
-      - Specify the _type_ of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern): :::note Some of the _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field.
+      - Specify the _type_ of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern): ::: info Some of the _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field.
 :::
 
         值为：
@@ -178,8 +178,7 @@ bool actuator
 
       - Specify the _type_ of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern):
 
-:::note
-The _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field.
+        ::: info The _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field.
 :::
 
         The values are:
@@ -206,8 +205,7 @@ The _setpoint type_ values below are not part of the MAVLink standard for the `t
 
       - Specify the _type_ of the setpoint in `type_mask`:
 
-:::note
-The _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field. ::
+        ::: info The _setpoint type_ values below are not part of the MAVLink standard for the `type_mask` field. ::
 
         值为：
 
