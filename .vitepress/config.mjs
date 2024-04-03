@@ -91,9 +91,9 @@ export default defineConfig({
     },
 
     search: {
+      provider: "local",
+      /*
       provider: process.env.BRANCH_NAME ? "algolia" : "local",
-      //provider: "local",
-      //provider: "algolia",
       options: {
         appId: "HHWW7I44JO",
         apiKey: "48919e1dffc6e0ce4c0d6331343d2c0e",
@@ -102,6 +102,7 @@ export default defineConfig({
           facetFilters: [`version:${process.env.BRANCH_NAME}`],
         },
       },
+      */
     },
 
     nav: [
