@@ -147,7 +147,7 @@ If your frame is not listed in the airframe reference then use a "generic" airfr
 
 ## Other Peripherals
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
+The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
 
 ## Pinouts
 
@@ -155,7 +155,7 @@ The wiring and configuration of optional/less common components is covered withi
 
 ## Configuration
 
-General configuration information is covered in: [Autopilot Configuration](../config/README.md).
+General configuration information is covered in: [Autopilot Configuration](../config/index.md).
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
