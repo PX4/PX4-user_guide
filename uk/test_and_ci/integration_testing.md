@@ -10,8 +10,8 @@
 
 ## Попередня підготовка:
 
-- [JSBSim симулятор](../sim_jmavsim/README.md)
-- [Gazebo Класичний Симулятор ](../sim_gazebo_classic/README.md)
+- [JSBSim симулятор](../sim_jmavsim/index.md)
+- [Gazebo Класичний Симулятор ](../sim_gazebo_classic/index.md)
 - [ROS та MAVROS](../simulation/ros_interface.md)
 
 ## Виконати тести
