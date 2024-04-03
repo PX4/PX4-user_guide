@@ -12,7 +12,7 @@ PX4는 [MAVSDK](https://mavsdk.mavlink.io)를 기반으로 종단간 통합 테�
 
 아직 하지 않은 경우:
 
-- [Linux](../dev_setup/dev_env_linux_ubuntu.md) 또는 [MacOS](../dev_setup/dev_env_mac.md)용 개발 도구 모음을 설치합니다(Windows는 지원되지 않음). [Gazebo Classic](../sim_gazebo_classic/README.md) is required, and should be installed by default.
+- [Linux](../dev_setup/dev_env_linux_ubuntu.md) 또는 [MacOS](../dev_setup/dev_env_mac.md)용 개발 도구 모음을 설치합니다(Windows는 지원되지 않음). [Gazebo Classic](../sim_gazebo_classic/index.md) is required, and should be installed by default.
 - [PX4 소스 코드 받기](../dev_setup/building_px4.md#download-the-px4-source-code):
 
   ```sh
