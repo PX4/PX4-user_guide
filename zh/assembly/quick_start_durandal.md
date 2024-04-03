@@ -48,8 +48,7 @@ The GPS/Compass should be mounted on the frame as far away from other electronic
 
 ![Connect compass/GPS to Durandal](../../assets/flight_controller/durandal/connection_gps_compass.jpg)
 
-:::note
-The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+::: info The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 :::
 
 ## 电源
@@ -109,8 +108,7 @@ It has the following characteristics/limits:
   - PM07 board (1)
   - 80mm XT60 connector wire (1)
 
-:::note
-See also [PM07 Quick Start Guide](https://docs.holybro.com/power-module-and-pdb/power-module/pm07-quick-start-guide) (Holybro).
+::: info See also [PM07 Quick Start Guide](https://docs.holybro.com/power-module-and-pdb/power-module/pm07-quick-start-guide) (Holybro).
 :::
 
 ### Battery Configuration
@@ -165,7 +163,7 @@ Motors/servos control signals are connected to the **I/O PWM OUT** (**MAIN OUT**
 
 The motors must be separately [powered](#power).
 
-:::note
+::: info
 If your frame is not listed in the airframe reference then use a "generic" airframe of the correct type.
 :::
 
@@ -187,8 +185,7 @@ The wiring and configuration of optional/less common components is covered withi
 
 First you will need to install [PX4 "Master" Firmware](../config/firmware.md#custom) onto the controller using _QGroundControl_.
 
-:::note
-Durandal support will be in the _stable_ PX4 release that follows PX4 v1.10.
+::: info Durandal support will be in the _stable_ PX4 release that follows PX4 v1.10.
 :::
 
 Further general configuration information is covered in: [Autopilot Configuration](../config/index.md).
