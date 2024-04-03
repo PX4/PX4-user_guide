@@ -283,8 +283,7 @@ The pinout is standard serial pinout, designed to connect to a [3.3V FTDI](https
 
 ![콘솔 디버그](../../assets/flight_controller/pixhawk1/console_debug.jpg)
 
-:::note
-For information on how to _use_ the console see: [System Console](../debug/system_console.md).
+::: info For information on how to _use_ the console see: [System Console](../debug/system_console.md).
 :::
 
 ### SWD 포트
