@@ -2,13 +2,13 @@
 
 Barometers measure atmospheric pressure, and are used in drones as altitude sensors.
 
-Most [flight controllers](../flight_controller/README.md) on which PX4 runs include a barometer. By default PX4 will select the barometer with the highest priority (if any are present), and configure it as a data source for [Height estimation](../advanced_config/tuning_the_ecl_ekf.md#height). If a sensor fault is detected, PX4 will fall back to the next highest priority sensor.
+Most [flight controllers](../flight_controller/index.md) on which PX4 runs include a barometer. By default PX4 will select the barometer with the highest priority (if any are present), and configure it as a data source for [Height estimation](../advanced_config/tuning_the_ecl_ekf.md#height). If a sensor fault is detected, PX4 will fall back to the next highest priority sensor.
 
 Generally barometers require no user configuration (or thought)!
 
 ## Hardware Options
 
-[Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) flight controllers include a barometer, as do [many others](../flight_controller/README.md).
+[Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) flight controllers include a barometer, as do [many others](../flight_controller/index.md).
 
 They are also present in other hardware:
 
