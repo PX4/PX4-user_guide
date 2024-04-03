@@ -173,7 +173,7 @@
       * [Holybro Pixhawk 6C Mini(FMUv6C)](flight_controller/pixhawk6c_mini.md)
       * [Holybro Pix32 v6 (FMUv6C)](flight_controller/holybro_pix32_v6.md)
       * [Holybro Pixhawk 5X (FMUv5X)](flight_controller/pixhawk5x.md)
-      * [Holybro Pixhawk 4 (FMUv5) - Discontinued](flight_controller/pixhawk4.md)
+      * [Holybro Pixhawk 4 (FMUv5)](flight_controller/pixhawk4.md)
       * [Holybro Pixhawk 4 Mini (FMUv5) - Discontinued](flight_controller/pixhawk4_mini.md)
       * [Drotek Pixhawk 3 Pro (FMUv4pro) - Discontinued](flight_controller/pixhawk3_pro.md)
       * [mRo Pixracer (FMUv4)](flight_controller/pixracer.md)
