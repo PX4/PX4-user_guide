@@ -10,7 +10,7 @@ Use this topic when tuning around the hover thrust point is not sufficient (e.g.
 
 ## Tuning Steps
 
-:::note
+::: info
 For safety reasons, the default gains are set to low values.
 You must increase the gains before you can expect good control responses.
 :::
@@ -29,8 +29,7 @@ Here are some general points to follow when tuning:
 
 The rate controller is the inner-most loop with three independent PID controllers to control the body rates (yaw, pitch, roll).
 
-:::note
-A well-tuned rate controller is very important as it affects _all_ flight modes. A badly tuned rate controller will be visible in [Position mode](../flight_modes_mc/position.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
+::: info A well-tuned rate controller is very important as it affects _all_ flight modes. A badly tuned rate controller will be visible in [Position mode](../flight_modes_mc/position.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
 :::
 
 #### 速率控制器架构/形式
@@ -51,8 +50,7 @@ Users can select the form that is used by setting the proportional gain for the 
 
 The two forms are described below.
 
-:::note
-The derivative term (**D**) is on the feedback path in order to avoid an effect known as the [derivative kick](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/).
+::: info The derivative term (**D**) is on the feedback path in order to avoid an effect known as the [derivative kick](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/).
 :::
 
 :::tip
@@ -137,8 +135,7 @@ To test the current gains, provide a fast **step-input** when hovering and obser
 
 You can create a step-input for example for roll, by quickly pushing the roll stick to one side, and then let it go back quickly (be aware that the stick will oscillate too if you just let go of it, because it is spring-loaded — a well-tuned vehicle will follow these oscillations).
 
-:::note
-A well-tuned vehicle in _Acro mode_ will not tilt randomly towards one side, but keeps the attitude for tens of seconds even without any corrections.
+::: info A well-tuned vehicle in _Acro mode_ will not tilt randomly towards one side, but keeps the attitude for tens of seconds even without any corrections.
 :::
 
 #### 日志
@@ -173,7 +170,7 @@ The tuning above optimises performance around the hover throttle. But you may st
 
 To counteract that, adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter.
 
-:::note
+::: info
 The rate controller might need to be re-tuned if you change this parameter.
 :::
 
@@ -183,7 +180,7 @@ If you have a [thrust stand](https://www.tytorobotics.com/pages/series-1580-1585
 
 ![Thrust Curve Compensation](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)] <!-- removed link to THR_MDL_FAC_Calculation as causes problems for link checker -->
 
-:::note
+::: info
 The mapping between PWM and static thrust depends highly on the battery voltage.
 :::
 
