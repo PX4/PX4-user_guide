@@ -3,7 +3,7 @@
 아래 섹션에서는 "일반적인" PX4 시스템의 하드웨어와 소프트웨어 개요를 제공합니다. 하나는 비행 콘트롤러만 있는 것이고 다른 하나는 비행 컨트롤러와 보조 컴퓨터("미션 컴퓨터"라고도 함)가 있습니다.
 
 :::note
-[PX4 아키텍처 개요](../concept/architecture.md)는 플라이트 스택과 미들웨어 정보를 제공합니다. Offboard APIs are covered in [ROS](../ros/README.md) and [MAVSDK](https://mavsdk.mavlink.io/main/en/).
+[PX4 아키텍처 개요](../concept/architecture.md)는 플라이트 스택과 미들웨어 정보를 제공합니다. Offboard APIs are covered in [ROS](../ros/index.md) and [MAVSDK](https://mavsdk.mavlink.io/main/en/).
 :::
 
 ## 비행 콘트롤러
@@ -18,7 +18,7 @@
 
 - [비행 콘트롤러](../flight_controller/README.md)(PX4 비행 스택 실행). 콘트롤러에는 대부분 내부 IMU, 나침반 및 기압계가 포함되어 있습니다.
 - [Motor ESCs](../peripherals/esc_motors.md) connected to [PWM outputs](../peripherals/pwm_escs_and_servo.md), [DroneCAN](../dronecan/escs.md) (DroneCAN allows two-way communication, not single direction as shown) or some other bus.
-- Sensors ([GPS](../gps_compass/README.md), [compass](../gps_compass/README.md), distance sensors, barometers, optical flow, barometers, ADSB transponders, etc.) connected via I2C, SPI, CAN, UART etc.
+- Sensors ([GPS](../gps_compass/index.md), [compass](../gps_compass/index.md), distance sensors, barometers, optical flow, barometers, ADSB transponders, etc.) connected via I2C, SPI, CAN, UART etc.
 - [카메라](../peripherals/camera.md) 또는 기타 페이로드. 카메라는 PWM 출력에 연결하거나 MAVLink로 연결할 수 있습니다.
 - 지상국 컴퓨터/소프트웨어에 연결하기 위한 [텔레메트리 라디오](../telemetry/README.md).
 - 수동 제어를 위한 [RC 제어 시스템](../getting_started/rc_transmitter_receiver.md)
