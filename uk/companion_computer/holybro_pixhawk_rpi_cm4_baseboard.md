@@ -29,7 +29,7 @@
 
 ## Підключення & Порти
 
-:::note
+::: info
 The [Holybro Documentation](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-rpi-cm4-baseboard/connections-and-ports) has more detailed (and possibly more "up to date") port and connection information.
 :::
 
@@ -48,7 +48,7 @@ The flight controller `TELEM2` port is internally connected to RPi CM4 as shown:
 | GPIO16  | CTS             |
 | GPIO17  | RTS             |
 
-:::note
+::: info
 The connection must be also be [configured in both RPi and PX4](#configure-px4-to-cm4-mavlink-serial-connection) (unless [Ethernet](#ethernet-connection-optional) is used instead).
 :::
 
@@ -143,7 +143,7 @@ To flash a RPi image onto EMMC.
 
 ## Configure PX4 to CM4 MAVLink Serial Connection
 
-:::note
+::: info
 If you are using [Ethernet](#ethernet-connection-optional) to connect the FC and RPi, this setup is not needed.
 :::
 
@@ -200,7 +200,7 @@ The flight controller module is [internally connected to RPi CM4](#rpi-cm4-fc-se
 
 You can also set up a local Ethernet connection between them using the supplied cable. Ethernet connectivity provides a fast, reliable, and flexible communication alternative to using USB or other serial connections.
 
-:::note
+::: info
 For more general information see: [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md).
 :::
 
