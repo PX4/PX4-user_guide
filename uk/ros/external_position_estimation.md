@@ -108,14 +108,14 @@ z_{mav} = - y_{mocap}
 Якщо ви використовуєте обладнання `px4_fmu-v2`, вам також потрібно використовувати версію прошивки, яка містить модуль LPE (прошивка для іншого обладнання серії FMU містить як LPE, так і EKF). Версію LPE можна знайти у zip-файлі для кожного випуску PX4 або зібрати з вихідного коду за допомогою команди збірки `make px4_fmu-v2_lpe`. Дивіться [Створення коду](../dev_setup/building_px4.md) для більш детальної інформації.
 :::
 
-### Enabling External Pose Input
+### Увімкнення зовнішнього введення позиції
 
-The following parameters must be set to use external position information with LPE (these can be set in *QGroundControl* > **Vehicle Setup > Parameters > Local Position Estimator**).
+Для використання зовнішньої інформації про місцезнаходження з LPE потрібно встановити такі параметри (їх можна встановити у *QGroundControl* > **Vehicle Setup > Parameters > Local Position Estimator**).
 
-| Parameter                                                                  | Setting for External Position Estimation                                                                                               |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| [LPE_FUSION](../advanced_config/parameter_reference.md#LPE_FUSION)         | Vision integration is enabled if *fuse vision position* is checked (it is enabled by default).                                         |
-| [ATT_EXT_HDG_M](../advanced_config/parameter_reference.md#ATT_EXT_HDG_M) | Set to 1 or 2 to enable external heading integration. Setting it to 1 will cause vision to be used, while 2 enables MoCap heading use. |
+| Parameter                                                                  | Налаштування для Зовнішньої Оцінки Положення                                                                                                                                        |
+| -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [LPE_FUSION](../advanced_config/parameter_reference.md#LPE_FUSION)         | Інтеграція зору увімкнена, якщо встановлено прапорець *fuse vision position* (за замовчуванням увімкнено).                                                                          |
+| [ATT_EXT_HDG_M](../advanced_config/parameter_reference.md#ATT_EXT_HDG_M) | Встановіть значення 1 або 2, щоб увімкнути інтеграцію зовнішніх заголовків. Встановлення значення 1 призведе до використання зору, тоді як 2 увімкне використання заголовків MoCap. |
 
 
 ### Вимкнення Barometer Fusion
@@ -136,26 +136,26 @@ The following parameters must be set to use external position information with L
 
 Всі автоматичні режими польоту PX4 (такі як [Return](../flight_modes_mc/mission.md), [Повернення](../flight_modes/return.md), [Land](../flight_modes_mc/land.md), [Hold](../flight_modes_mc/land.md), [Orbit](../flight_modes_mc/orbit.md))) вимагають _global_ оцінки положення, яка зазвичай надходить від системи GPS/GNSS.
 
-Системи, які мають лише _local_ оцінку положення (від MOCAP, VIO або подібних), можуть використовувати повідомлення [SET_GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#SET_GPS_GLOBAL_ORIGIN) MAVLink, щоб встановити початок координат EKF на певне глобальне місцезнаходження. EKF will then provide a global position estimate based on origin and local frame position.
+Системи, які мають лише _local_ оцінку положення (від MOCAP, VIO або подібних), можуть використовувати повідомлення [SET_GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#SET_GPS_GLOBAL_ORIGIN) MAVLink, щоб встановити початок координат EKF на певне глобальне місцезнаходження. Після цього EKF надасть оцінку глобального положення на основі походження та локального положення у просторі.
 
-This can then be used when planning and executing indoor missions, or to set a local return point, and so on.
+Це може бути використано при плануванні та виконанні місій у приміщенні, для встановлення місцевої точки повернення тощо.
 
-## Working with ROS
+## Робота з ROS
 
-ROS is not *required* for supplying external pose information, but is highly recommended as it already comes with good integrations with VIO and MoCap systems. PX4 must already have been set up as above.
+ROS не є *обов'язковим* для надання зовнішньої інформації про позицію, але настійно рекомендується, оскільки він вже має хорошу інтеграцію з системами VIO та MoCap. PX4 вже мають бути налаштовані як вище.
 
-### Getting Pose Data Into ROS
+### Отримання даних про позицію в ROS
 
-VIO and MoCap systems have different ways of obtaining pose data, and have their own setup and topics.
+Системи VIO та MoCap мають різні способи отримання даних про положення, а також власні налаштування та теми.
 
-The setup for specific systems is covered [below](#setup_specific_systems). For other systems consult the vendor setup documentation.
+Налаштування для конкретних систем висвітлені [нижче](#setup_specific_systems). Для інших систем зверніться до документації з налаштування виробника.
 
 
 <a id="relaying_pose_data_to_px4"></a>
 
-### Relaying Pose Data to PX4
+### Передача даних про позицію до PX4
 
-MAVROS has plugins to relay a visual estimation from a VIO or MoCap system using the following pipelines:
+MAVROS має плагіни для передачі візуальної оцінки з системи VIO або MoCap за допомогою наступних пайплайнів:
 
 | ROS                                                                    | MAVLink                                                                                                                                                                | uORB                      |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
@@ -164,29 +164,29 @@ MAVROS has plugins to relay a visual estimation from a VIO or MoCap system using
 | /mavros/mocap/pose                                                     | [ATT_POS_MOCAP](https://mavlink.io/en/messages/common.html#ATT_POS_MOCAP)                                                                                            | `vehicle_mocap_odometry`  |
 | /mavros/odometry/out (`frame_id = odom`, `child_frame_id = base_link`) | [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) (`frame_id =` [MAV_FRAME_LOCAL_FRD](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_FRD)) | `vehicle_mocap_odometry`  |
 
-You can use any of the above pipelines with LPE.
+Ви можете використовувати будь-який з наведених вище пайплайнів за допомогою LPE.
 
-If you're working with EKF2, only the "vision" pipelines are supported. To use MoCap data with EKF2 you will have to [remap](http://wiki.ros.org/roslaunch/XML/remap) the pose topic that you get from MoCap:
-- MoCap ROS topics of type `geometry_msgs/PoseStamped` or `geometry_msgs/PoseWithCovarianceStamped` must be remapped to `/mavros/vision_pose/pose`. The `geometry_msgs/PoseStamped` topic is most common as MoCap doesn't usually have associated covariances to the data.
-- If you get data through a `nav_msgs/Odometry` ROS message then you will need to remap it to `/mavros/odometry/out`, making sure to update the `frame_id` and `child_frame_id` accordingly.
+Якщо ви працюєте з EKF2, підтримуються лише "vision" пайплайни. Щоб використовувати дані MoCap з EKF2, вам потрібно [remap](http://wiki.ros.org/roslaunch/XML/remap) позицію теми, яку ви отримали з MoCap:
+- Теми MoCap ROS типу `geometry_msgs/PoseStamped` або `geometry_msgs/PoseWithCovarianceStamped` має бути змінено на `/mavros/vision_pose/pose`. Тема `geometry_msgs/PoseStamped` є найпоширенішою, оскільки MoCap зазвичай не має пов'язаних з даними коваріацій.
+- Якщо ви отримуєте дані через ROS-повідомлення `nav_msgs/Odometry`, вам потрібно перевести його на `/mavros/odometry/out`, переконавшись, що ви оновили `frame_id` та `child_frame_id` відповідним чином.
 - The odometry frames `frame_id = odom`, `child_frame_id = base_link` can be changed by updating the file in `mavros/launch/px4_config.yaml`. However, the current version of mavros (`1.3.0`) needs to be able to use the tf tree to find a transform from `frame_id` to the hardcoded frame `odom_ned`. The same applies to the `child_frame_id`, which needs to be connected in the tf tree to the hardcoded frame `base_link_frd`. If you are using mavros `1.2.0` and you didn't update the file `mavros/launch/px4_config.yaml`, then you can safely use the odometry frames `frame_id = odom`, `child_frame_id = base_link` without much worry.
 - Note that if you are sending odometry data to px4 using `child_frame_id = base_link`, then you need to make sure that the `twist` portion of the `nav_msgs/Odometry` message is **expressed in body frame**, **not in inertial frame!!!!!**.
 
 
-### Reference Frames and ROS
+### Референсні системи координат та ROS
 
-The local/world and world frames used by ROS and PX4 are different.
+Локальна/світова та світова системи координат, що використовуються в ROS та PX4, відрізняються.
 
-| Frame | PX4                                              | ROS                                                                                   |
-| ----- | ------------------------------------------------ | ------------------------------------------------------------------------------------- |
-| Body  | FRD (X **F**orward, Y **R**ight, Z **D**own)     | FLU (X **F**orward, Y **L**eft, Z **U**p), usually named `base_link`                  |
-| World | FRD or NED (X **N**orth, Y **E**ast, Z **D**own) | FLU or ENU (X **E**ast, Y **N**orth, Z **U**p), with the naming being `odom` or `map` |
+| Frame | PX4                                               | ROS                                                                             |
+| ----- | ------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Body  | FRD (X **F**orward, Y **R**ight, Z **D**own)      | FLU (X **F**orward, Y **L**eft, Z **U**p), зазвичай називається `base_link`     |
+| World | FRD або NED (X **N**orth, Y **E**ast, Z **D**own) | FLU або ENU (X **E**ast, Y **N**orth, Z **U**p), з іменуванням `odom` або `map` |
 
 :::tip
-See [REP105: Coordinate Frames for Mobile Platforms](http://www.ros.org/reps/rep-0105.html) for more information about ROS frames.
+Дивіться [REP105: Системи координат для мобільних платформ](http://www.ros.org/reps/rep-0105.html) для отримання додаткової інформації про системи координат ROS.
 :::
 
-Both frames are shown in the image below (FRD on the left/FLU on the right).
+Обидві системи координат показані на зображенні нижче (FRD зліва / FLU справа).
 
 ![Reference frames](../../assets/lpe/ref_frames.png)
 
@@ -196,7 +196,7 @@ With EKF2 when using external heading estimation, magnetic north can either be i
 When creating the rigid body in the MoCap software, remember to first align the robot's local *x* axis with the world *x* axis otherwise the yaw estimate will have an offset. This can stop the external pose estimate fusion from working properly. Yaw angle should be zero when body and reference frame align.
 :::
 
-Using MAVROS, this operation is straightforward. ROS uses ENU frames as convention, therefore position feedback must be provided in ENU. If you have an Optitrack system you can use [mocap_optitrack](https://github.com/ros-drivers/mocap_optitrack) node which streams the object pose on a ROS topic already in ENU. With a remapping you can directly publish it on `mocap_pose_estimate` as it is without any transformation and MAVROS will take care of NED conversions.
+Використовуючи MAVROS, ця операція є простою. ROS uses ENU frames as convention, therefore position feedback must be provided in ENU. Якщо у вас є система Optitrack, ви можете використати вузол [mocap_optitrack](https://github.com/ros-drivers/mocap_optitrack), який транслює позицію об'єкта на тему ROS, що вже є у ENU. With a remapping you can directly publish it on `mocap_pose_estimate` as it is without any transformation and MAVROS will take care of NED conversions.
 
 The MAVROS odometry plugin makes it easy to handle the coordinate frames. It uses ROS's tf package. Your external pose system might have a completely different frame convention that does not match the one of PX4. The body frame of the external pose estimate can depend on how you set the body frame in the MOCAP software or on how you mount the VIO sensor on the drone. The MAVROS odometry plugin needs to know how the external pose's child frame is oriented with respect to either the airframe's FRD or FLU body frame known by MAVROS. You therefore have to add the external pose's body frame to the tf tree. This can be done by including an adapted version of the following line into your ROS launch file.
 
@@ -229,9 +229,9 @@ The following steps explain how to feed position estimates from an [OptiTrack](h
 * [Enable Frame Broadacst and VRPN streaming](https://www.youtube.com/watch?v=yYRNG58zPFo)
 * Set the Up axis to be the Z axis (the default is Y)
 
-#### Getting pose data into ROS
+#### Отримання даних про позицію в ROS
 
-* Install the `vrpn_client_ros` package
+* Встановіть пакет `vrpn_client_ros`
 * You can get each rigid body pose on an individual topic by running
   ```sh
   roslaunch vrpn_client_ros sample.launch server:=<mocap machine ip>
