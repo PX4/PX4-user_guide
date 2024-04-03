@@ -82,4 +82,4 @@ jobs:
           git config user.name "PX4BuildBot"
           git add ${BRANCH_NAME}
           git commit -a -m "PX4 docs build update (vitepress) `date`"
-          git push origin master
+          git push origin main
