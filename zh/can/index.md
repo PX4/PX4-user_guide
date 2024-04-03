@@ -7,8 +7,7 @@ PX4 supports two software protocols for communicating with CAN devices:
 - [DroneCAN](../dronecan/index.md): PX4 recommends this for most common setups. It is well supported by PX4, is a mature product with extensive peripheral support, and has had years of testing.
 - [Cyphal](https://opencyphal.org): PX4 support is a "work in progress". Cyphal is a much newer protocol which allows more flexibility and configuration, especially on larger and more complex vehicles. It has not yet seen significant adoption.
 
-:::note
-Both DroneCAN and Cyphal originate from an earlier project named UAVCAN. In 2022 the project split into two: the original version of UAVCAN (UAVCAN v0) was renamed to DroneCAN, and the newer UAVCAN v1 was renamed Cyphal. The differences between the two protocols are outlined in [Cyphal vs. DroneCAN](https://forum.opencyphal.org/t/cyphal-vs-dronecan/1814).
+::: info Both DroneCAN and Cyphal originate from an earlier project named UAVCAN. In 2022 the project split into two: the original version of UAVCAN (UAVCAN v0) was renamed to DroneCAN, and the newer UAVCAN v1 was renamed Cyphal. The differences between the two protocols are outlined in [Cyphal vs. DroneCAN](https://forum.opencyphal.org/t/cyphal-vs-dronecan/1814).
 :::
 
 :::warning
