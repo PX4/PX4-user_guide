@@ -6,8 +6,7 @@ Not all flight modes are available on all vehicle types, and some modes behave d
 
 The sections below provide an overview of the modes, followed by a [flight mode evaluation diagram](#flight-mode-evaluation-diagram) that shows the conditions under which PX4 will transition into a new mode.
 
-:::note
-User-facing flight mode documentation can be found in:
+::: info User-facing flight mode documentation can be found in:
 
 - [Flight Modes (Multicopter)](../flight_modes_mc/index.md)
 - [Flight Modes (Fixed-Wing)](../flight_modes_fw/index.md)
@@ -36,7 +35,7 @@ User-facing flight mode documentation can be found in:
 
   - **MANUAL/STABILIZED** The pilot's inputs are passed as roll and pitch _angle_ commands and a yaw _rate_ command. Throttle is passed directly to control allocation. The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered, consequently leveling-out the attitude. However, in this mode the position of the vehicle is not controlled by the autopilot, hence the position can drift due to wind.
 
-    :::note
+    ::: info
 For Multirotors, Manual and Stabilized modes are the same.
 :::
 
