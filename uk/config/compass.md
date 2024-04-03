@@ -1,6 +1,6 @@
 # Compass Calibration
 
-The compass calibration process configures all connected internal and external [magnetometers](../gps_compass/README.md). _QGroundControl_ will guide you to position the vehicle in a number of set orientations and rotate the vehicle about the specified axis.
+The compass calibration process configures all connected internal and external [magnetometers](../gps_compass/index.md). _QGroundControl_ will guide you to position the vehicle in a number of set orientations and rotate the vehicle about the specified axis.
 
 :::note
 Compass calibration also auto-detects the compass orientation ([by default](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT)). If you have [mounted the compass](../assembly/mount_gps_compass.md#compass-orientation) at a non-standard angle you will need to [manually set the compass orientation](../config/flight_controller_orientation.md#setting-the-compass-orientation) before calibrating.
@@ -99,8 +99,8 @@ Raw comparison data for magnetometers (in fact, for all sensors) can be logged b
 
 ## Further Information
 
-- [Peripherals > GPS & Compass](../gps_compass/README.md)
-- [Basic Assembly](../assembly/README.md) (setup guides for each flight controller)
+- [Peripherals > GPS & Compass](../gps_compass/index.md)
+- [Basic Assembly](../assembly/index.md) (setup guides for each flight controller)
 - [Compass Power Compensation](../advanced_config/compass_power_compensation.md) (Advanced Configuration)
 - [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#compass)
 - [PX4 Setup Video - @2m38s](https://youtu.be/91VGmdSlbo4?t=2m38s) (Youtube)
