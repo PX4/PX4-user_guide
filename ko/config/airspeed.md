@@ -1,7 +1,6 @@
 # 항속센서 보정
 
-:::note
-[Airspeed sensors](../sensor/airspeed.md) are highly recommended for Fixed-wing and VTOL vehicles.
+::: info [Airspeed sensors](../sensor/airspeed.md) are highly recommended for Fixed-wing and VTOL vehicles.
 :::
 
 :::warning
