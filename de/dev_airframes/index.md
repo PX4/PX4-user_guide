@@ -14,6 +14,5 @@ This section provides information that is relevant to developers who want to add
 :::note PX4 is also well-suited for use in other vehicle types and general robots, ranging from submarine, boats, or amphibious vehicles, through to experimental aircraft and rockets. _Let us know_ if you have a new vehicle or frame-type you want to help support in PX4.
 :::
 
-:::note
-Build logs for some of the supported airframes can be found in [Airframe/Vehicle Builds](../airframes/index.md).
+::: info Build logs for some of the supported airframes can be found in [Airframe/Vehicle Builds](../airframes/index.md).
 :::
