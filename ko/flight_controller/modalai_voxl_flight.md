@@ -71,8 +71,7 @@ The ModalAI [VOXL Flight](https://modalai.com/voxl-flight) ([Datasheet](https://
 
 <!-- reference links for above table (improve layout) -->
 
-:::note
-More detailed hardware documentation can be found [here](https://docs.modalai.com/voxl-flight-datasheet/).
+::: info More detailed hardware documentation can be found [here](https://docs.modalai.com/voxl-flight-datasheet/).
 :::
 
 ## 크기
