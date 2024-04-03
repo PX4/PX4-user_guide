@@ -1,6 +1,6 @@
 # ARK RTK GPS
 
-ARK RTK GPS is an open source [DroneCAN](README.md) [RTK GPS](../gps_compass/rtk_gps.md), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module), magnetometer, barometer, IMU, buzzer, and safety switch module.
+ARK RTK GPS is an open source [DroneCAN](index.md) [RTK GPS](../gps_compass/rtk_gps.md), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module), magnetometer, barometer, IMU, buzzer, and safety switch module.
 
 ![ARK RTK GPS](../../assets/hardware/gps/ark_rtk_gps.jpg)
 
@@ -46,7 +46,7 @@ Order this module from:
 
 ### Wiring
 
-The ARK RTK GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions.
+The ARK RTK GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
 ### Mounting
 
@@ -56,7 +56,7 @@ The sensor can be mounted anywhere on the frame, but you will need to specify it
 
 ## Firmware Setup
 
-ARK RTK GPS runs the [PX4 cannode firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](README.md#node-id-allocation).
+ARK RTK GPS runs the [PX4 cannode firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](index.md#node-id-allocation).
 
 ARK RTK GPS boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself, refer to the [cannode firmware build instructions](px4_cannode_fw.md#building-the-firmware).
 
@@ -79,7 +79,7 @@ GPS data should arrive at 10Hz.
 
 ### PX4 Configuration
 
-You need to set necessary [DroneCAN](README.md) parameters and define offsets if the sensor is not centred within the vehicle:
+You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle:
 
 - Enable GPS yaw fusion by setting bit 3 of [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) to true.
 - Enable GPS blending to ensure the heading is always published by setting [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) to 7 (all three bits checked).

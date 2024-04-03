@@ -141,7 +141,7 @@ Under these conditions the system will not draw any power (will not be operation
 
 Pixhawk 6C Mini uses analog power modules.
 
-Holybro makes various analog [power modules](../power_module/README.md) for different needs:
+Holybro makes various analog [power modules](../power_module/index.md) for different needs:
 
 - [PM02 Power Module](../power_module/holybro_pm02.md)
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
@@ -186,7 +186,7 @@ For information about using this port see:
 ## Peripherals
 
 - [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
-- [Telemetry Radio Modules](../telemetry/README.md):
+- [Telemetry Radio Modules](../telemetry/index.md):
   - [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
   - [Holybro Microhard P900 Radio](../telemetry/holybro_microhard_p900_radio.md)
   - [Holybro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md)

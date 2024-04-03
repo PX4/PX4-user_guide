@@ -168,7 +168,7 @@ The X500 kit is provides space for a companion computer, such as Raspberry Pi or
 ## Install/Configure PX4
 
 :::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
 :::
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the X500 frame.

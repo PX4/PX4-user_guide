@@ -1,6 +1,6 @@
 # Multi-Vehicle Simulation with JMAVSim
 
-This topic explains how to simulate multiple UAV (multicopter) vehicles using [JMAVSim](../sim_jmavsim/README.md) and SITL.
+This topic explains how to simulate multiple UAV (multicopter) vehicles using [JMAVSim](../sim_jmavsim/index.md) and SITL.
 All vehicle instances are started at the same position in the simulation.
 
 :::tip
@@ -50,4 +50,4 @@ Additional instances _all_ connect to port `14549`.
 
 ## Additional Resources
 
-- See [Simulation](../simulation/README.md) for more information about the port configuration.
+- See [Simulation](../simulation/index.md) for more information about the port configuration.

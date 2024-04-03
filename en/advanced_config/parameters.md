@@ -6,7 +6,7 @@ The _QGroundControl Parameters_ screen allows you to find and modify **any** of 
 The screen is accessed by clicking the **Q** application icon > **Vehicle Setup**, and then _Parameters_ in the sidebar.
 
 :::note
-Most of the more commonly used parameters are more conveniently set using the dedicated setup screens, as described in the [Standard Configuration](../config/README.md) section.
+Most of the more commonly used parameters are more conveniently set using the dedicated setup screens, as described in the [Standard Configuration](../config/index.md) section.
 The _Parameters_ screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
 :::
 
@@ -28,8 +28,8 @@ You can also browse the parameters by type and group by clicking on the buttons 
 ![Parameters Screen](../../assets/qgc/setup/parameters/parameters_px4.png)
 
 You can expand/collapse the "type" groupings as shown.
-Note that the groups at the bottom named _Component X_ are attached [DroneCAN peripherals](../dronecan/README.md#qgc-cannode-parameter-configuration) ("X" is the node id).
-[QGC can set the parameters](../dronecan/README.md#qgc-cannode-parameter-configuration) of these peripherals if they are attached to the Flight Controller when QGC is started.
+Note that the groups at the bottom named _Component X_ are attached [DroneCAN peripherals](../dronecan/index.md#qgc-cannode-parameter-configuration) ("X" is the node id).
+[QGC can set the parameters](../dronecan/index.md#qgc-cannode-parameter-configuration) of these peripherals if they are attached to the Flight Controller when QGC is started.
 
 ![Parameters Types - collapsed](../../assets/qgc/setup/parameters/parameters_types.png)
 

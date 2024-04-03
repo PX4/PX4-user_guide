@@ -5,9 +5,9 @@ The following instructions explain how to set up a PX4 development environment o
 This environment can be used to build PX4 for:
 
 - [Pixhawk and other NuttX-based hardware](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
-- [Gazebo Simulation](../sim_gazebo_gz/README.md)
-- [Gazebo-Classic Simulation](../sim_gazebo_classic/README.md)
-- [jMAVSim Simulation](../sim_jmavsim/README.md)
+- [Gazebo Simulation](../sim_gazebo_gz/index.md)
+- [Gazebo-Classic Simulation](../sim_gazebo_classic/index.md)
+- [jMAVSim Simulation](../sim_jmavsim/index.md)
 
 :::tip
 This setup is supported by the PX4 dev team.
@@ -60,13 +60,13 @@ To install WSL2 with Ubuntu on a new installation of Windows 10 or 11:
      wsl --install
      ```
 
-   - Ubuntu 20.04 ([Gazebo-Classic Simulation](../sim_gazebo_classic/README.md))
+   - Ubuntu 20.04 ([Gazebo-Classic Simulation](../sim_gazebo_classic/index.md))
 
      ```sh
      wsl --install -d Ubuntu-20.04
      ```
 
-   - Ubuntu 22.04 ([Gazebo Simulation](../sim_gazebo_gz/README.md))
+   - Ubuntu 22.04 ([Gazebo Simulation](../sim_gazebo_gz/index.md))
 
      ```sh
      wsl --install -d Ubuntu-22.04

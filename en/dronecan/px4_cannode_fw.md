@@ -18,7 +18,7 @@ cd PX4-Autopilot
 make ark_can-flow_default
 ```
 
-This will create an output in **build/ark_can-flow_default** named **XX-X.X.XXXXXXXX.uavcan.bin**. Follow the instructions at [DroneCAN firmware update](README.md#firmware-update) to flash the firmware.
+This will create an output in **build/ark_can-flow_default** named **XX-X.X.XXXXXXXX.uavcan.bin**. Follow the instructions at [DroneCAN firmware update](index.md#firmware-update) to flash the firmware.
 
 ## Developer Information
 
@@ -36,7 +36,7 @@ The PX4 project includes a standard DroneCAN bootloader for STM32 devices.
 
 The bootloader occupies the first 8-16 KB of flash, and is the first code executed on power-up.
 Typically the bootloader performs low-level device initialization, automatically determines the CAN
-bus baud rate, acts as a [DroneCAN dynamic node ID client](README.md#node-id-allocation) to obtain a unique node ID, and waits for confirmation from the flight controller before proceeding with application boot.
+bus baud rate, acts as a [DroneCAN dynamic node ID client](index.md#node-id-allocation) to obtain a unique node ID, and waits for confirmation from the flight controller before proceeding with application boot.
 
 This process ensures that a DroneCAN device can recover from invalid or corrupted application firmware without user intervention, and also permits automatic firmware updates.
 

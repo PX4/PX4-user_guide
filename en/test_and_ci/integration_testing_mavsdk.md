@@ -14,7 +14,7 @@ The instructions below explain how to setup and run the tests locally.
 If you haven't done so already:
 
 - Install the development toolchain for [Linux](../dev_setup/dev_env_linux_ubuntu.md) or [macOS](../dev_setup/dev_env_mac.md) (Windows not supported).
-  [Gazebo Classic](../sim_gazebo_classic/README.md) is required, and should be installed by default.
+  [Gazebo Classic](../sim_gazebo_classic/index.md) is required, and should be installed by default.
 - [Get the PX4 source code](../dev_setup/building_px4.md#download-the-px4-source-code):
 
   ```sh

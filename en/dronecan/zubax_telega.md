@@ -3,7 +3,7 @@
 Zubax Telega is a high end, proprietary sensorless FOC motor control technology.
 It is used in multiple products, including the [Zubax Myxa](https://zubax.com/products/myxa) ESC, [Zubax Mitochondrik](https://zubax.com/products/mitochondrik) motor controller module, and Zubax Sadulli integrated drive.
 
-While Telega can be controlled using traditional PWM input, it is designed to operate over CAN bus using [DroneCAN](README.md).
+While Telega can be controlled using traditional PWM input, it is designed to operate over CAN bus using [DroneCAN](index.md).
 
 :::note
 ESCs based on Zubax Telega require non-trivial tuning of the propulsion system in order to deliver adequate performance and ensure robust operation.
@@ -23,7 +23,7 @@ Questions on this matter should be addressed to: [support@zubax.com](mailto:supp
 ## Hardware Setup
 
 ESCs are connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
-For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions. ESC order does not matter.
+For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions. ESC order does not matter.
 
 ## Firmware Setup
 

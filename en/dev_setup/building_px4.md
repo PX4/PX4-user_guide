@@ -2,7 +2,7 @@
 
 PX4 firmware can be built from source code on the console or in an IDE, for both simulated and hardware targets.
 
-You need to build PX4 in order to use [simulators](../simulation/README.md), or if you want to modify PX4 and create a custom build.
+You need to build PX4 in order to use [simulators](../simulation/index.md), or if you want to modify PX4 and create a custom build.
 If you just want to try out PX4 on real hardware then [load the prebuilt binaries](../config/firmware.md) using QGroundControl (there is no need to follow these instructions).
 
 :::note
@@ -31,7 +31,7 @@ If needed you can also [get the source code specific to a particular release](..
 First we'll build a simulated target using a console environment.
 This allows us to validate the system setup before moving on to real hardware and an IDE.
 
-Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../sim_jmavsim/README.md) using the following command:
+Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../sim_jmavsim/index.md) using the following command:
 
 ```sh
 make px4_sitl jmavsim
@@ -63,7 +63,7 @@ This will reposition the vehicle.
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
 :::tip
-PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md) and [AirSim](../sim_airsim/README.md).
+PX4 can be used with a number of other [Simulators](../simulation/index.md), including [Gazebo](../sim_gazebo_gz/index.md), [Gazebo Classic](../sim_gazebo_classic/index.md) and [AirSim](../sim_airsim/index.md).
 These are also started with _make_ - e.g.
 
 ```sh
@@ -127,7 +127,7 @@ The following list shows the build commands for the [Pixhawk standard](../flight
 
 - Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
 
-Build commands for non-Pixhawk NuttX fight controllers (and for all other-boards) are provided in the documentation for the individual [flight controller boards](../flight_controller/README.md).
+Build commands for non-Pixhawk NuttX fight controllers (and for all other-boards) are provided in the documentation for the individual [flight controller boards](../flight_controller/index.md).
 
 ### Uploading Firmware (Flashing the board)
 
@@ -151,7 +151,7 @@ Rebooting.
 
 ## Other Boards
 
-Build commands for other boards are given the [board-specific flight controller pages](../flight_controller/README.md) (usually under a heading _Building Firmware_).
+Build commands for other boards are given the [board-specific flight controller pages](../flight_controller/index.md) (usually under a heading _Building Firmware_).
 
 You can also list all configuration targets using the command:
 
@@ -299,13 +299,13 @@ make list_config_targets
   :::
 
 - **MODEL:** The _vehicle_ model to use (e.g. `iris` (_default_), `rover`, `tailsitter`, etc), which will be loaded by the simulator.
-  The environment variable `PX4_SIM_MODEL` will be set to the selected model, which is then used in the [startup script](../simulation/README.md#startup-scripts) to select appropriate parameters.
+  The environment variable `PX4_SIM_MODEL` will be set to the selected model, which is then used in the [startup script](../simulation/index.md#startup-scripts) to select appropriate parameters.
 - **DEBUGGER:** Debugger to use: `none` (_default_), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`.
   For more information see [Simulation Debugging](../debug/simulation_debugging.md).
 - **WORLD:** (Gazebo Classic only).
   Set the world ([PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/main/worlds)) that is loaded.
   Default is [empty.world](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/worlds/empty.world).
-  For more information see [Gazebo Classic > Loading a Specific World](../sim_gazebo_classic/README.md#loading-a-specific-world).
+  For more information see [Gazebo Classic > Loading a Specific World](../sim_gazebo_classic/index.md#loading-a-specific-world).
 
 :::tip
 You can get a list of _all_ available `VIEWER_MODEL_DEBUGGER_WORLD` options using the command below:

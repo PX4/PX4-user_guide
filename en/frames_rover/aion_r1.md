@@ -40,7 +40,7 @@ Other RoboClaw wiring is detailed in the [RoboClaw User Manual](https://download
 
 Use _QGroundControl_ for rover configuration:
 
-1. In the [Basic Configuration](../config/README.md) section, select the [Airframe](../config/airframe.md) tab.
+1. In the [Basic Configuration](../config/index.md) section, select the [Airframe](../config/airframe.md) tab.
 1. Choose **Aion Robotics R1 UGV** under the **Rover** category.
 
 ![Select Airframe](../../assets/airframes/rover/aion_r1/r1_airframe.png)

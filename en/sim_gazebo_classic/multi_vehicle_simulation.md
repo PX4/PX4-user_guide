@@ -1,6 +1,6 @@
 # Multi-Vehicle Simulation with Gazebo Classic
 
-This topic explains how to simulate multiple UAV vehicles using [Gazebo Classic](../sim_gazebo_classic/README.md) and SITL (Linux only).
+This topic explains how to simulate multiple UAV vehicles using [Gazebo Classic](../sim_gazebo_classic/index.md) and SITL (Linux only).
 A different approach is used for simulation with and without ROS.
 
 ## Multiple Vehicle with Gazebo Classic
@@ -106,7 +106,7 @@ You can then control the vehicles with _QGroundControl_ and MAVROS in a similar 
 
   :::note
   At time of writing this is Ubuntu 18.04 with ROS Melodic/Gazebo 9.
-  See also [Gazebo Classic Simulation](../sim_gazebo_classic/README.md).
+  See also [Gazebo Classic Simulation](../sim_gazebo_classic/index.md).
   :::
 
 - [MAVROS package](http://wiki.ros.org/mavros)
@@ -292,6 +292,6 @@ To add a new vehicle, you need to make sure the model can be found (in order to 
 
 ## Additional Resources
 
-- See [Simulation](../simulation/README.md) for a description of the UDP port configuration.
+- See [Simulation](../simulation/index.md) for a description of the UDP port configuration.
 - See [URDF in Gazebo](http://wiki.ros.org/urdf/Tutorials/Using%20a%20URDF%20in%20Gazebo) for more information about spawning the model with xacro.
 - See [RotorS](https://github.com/ethz-asl/rotors_simulator/tree/master/rotors_description/urdf) for more xacro models.

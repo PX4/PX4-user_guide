@@ -23,7 +23,7 @@ First wire up the serial connection between the RPi and PX4 that is to be used f
 
 This setup connects the Pixhawk `TELEM2` port, which is generally recommended for offboard control.
 It is initially configured in PX4 to use with MAVLink, which we will change later when setting up ROS 2.
-Pixhawk ports can be located anywhere on the flight controller, but are almost always well labeled, and should be obvious on your particular [flight controller](../flight_controller/README.md).
+Pixhawk ports can be located anywhere on the flight controller, but are almost always well labeled, and should be obvious on your particular [flight controller](../flight_controller/index.md).
 
 Connect the Pixhawk `TELEM2` `TX`/`RX`/`GND` pins to the complementary `RXD`/`TXD`/`Ground` pins on the RPi GPIO board:
 
@@ -61,13 +61,13 @@ The standard `TELEM2` pin assignments are shown below.
 
 The Pixhawk `TELEM1` port is preconfigured for connecting to a GCS via MAVLink over a telemetry radio.
 
-You can plug an [appropriate radio](../telemetry/README.md) into the Pixhawk `TELEM1` port and in most cases it should just work.
+You can plug an [appropriate radio](../telemetry/index.md) into the Pixhawk `TELEM1` port and in most cases it should just work.
 Generally the other radio needs to be connected to the ground station USB port.
 If you have any issues, check the radio documentation.
 
 ### Power Supply
 
-Pixhawk boards usually require a reliable 5V DC supply, which is commonly supplied from LiPO batteries via a [Power Module and/or Power Distribution board](../power_module/README.md) to a port labeled `POWER` (or similar).
+Pixhawk boards usually require a reliable 5V DC supply, which is commonly supplied from LiPO batteries via a [Power Module and/or Power Distribution board](../power_module/index.md) to a port labeled `POWER` (or similar).
 
 The instructions for your flight controller will normally explain the recommended setup.
 For example:

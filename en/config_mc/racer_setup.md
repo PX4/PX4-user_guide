@@ -70,7 +70,7 @@ However it is best to fix any imbalance as part of the vehicle setup.
 
 After having built the racer, you will need to configure the software.
 
-Go through the [Basic Configuration Guide](../config/README.md).
+Go through the [Basic Configuration Guide](../config/index.md).
 In particular, set the [Airframe](../config/airframe.md) that most closely matches your frame (typically you will choose the [Generic 250 Racer](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer) airframe, which sets some racer-specific parameters by default).
 
 These parameters are important:

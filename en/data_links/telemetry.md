@@ -4,7 +4,7 @@ Telemetry Radios can (optionally) be used to provide a wireless MAVLink connecti
 This section contains topics about advanced use of supported radios and integrating new telemetry systems into PX4.
 
 :::tip
-[Peripheral Hardware > Telemetry Radios](../telemetry/README.md) contains information about telemetry radio systems already supported by PX4.
+[Peripheral Hardware > Telemetry Radios](../telemetry/index.md) contains information about telemetry radio systems already supported by PX4.
 This includes radios that use the _SiK Radio_ firmware and _3DR WiFi Telemetry Radios_.
 :::
 

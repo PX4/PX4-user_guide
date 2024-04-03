@@ -277,7 +277,7 @@ The final assembly step is to check the vehicle is stable and that the motors ha
 
 ## Configuration
 
-Perform the normal [Basic Configuration](../config/README.md).
+Perform the normal [Basic Configuration](../config/index.md).
 
 Notes:
 

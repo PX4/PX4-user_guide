@@ -139,7 +139,7 @@ Under these conditions the system will not draw any power (will not be operation
 
 Pixhawk 6C uses analog power modules.
 
-Holybro makes various analog [power modules](../power_module/README.md) for different needs:
+Holybro makes various analog [power modules](../power_module/index.md) for different needs:
 
 - [PM02 Power Module](../power_module/holybro_pm02.md)
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)

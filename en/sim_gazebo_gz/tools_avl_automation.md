@@ -19,7 +19,7 @@ To setup the tool:
    mv ./Avl /home/
    ```
 
-1. Follow the **README.md** found in `./Avl` to finish the setup process for AVL (this requires that you set up `plotlib` and `eispack` libraries).
+1. Follow the **index.md** found in `./Avl` to finish the setup process for AVL (this requires that you set up `plotlib` and `eispack` libraries).
    We recommend using the `gfortran` compile option, which might further require that you to install `gfortran`.
    On Ubuntu can be done by running:
 

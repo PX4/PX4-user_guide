@@ -1,6 +1,6 @@
 # ARK GPS
 
-ARK GPS is an open source [DroneCAN](README.md) [GNSS/GPS](../gps_compass/README.md), magnetometer, IMU, barometer, buzzer, and safety switch module.
+ARK GPS is an open source [DroneCAN](index.md) [GNSS/GPS](../gps_compass/index.md), magnetometer, IMU, barometer, buzzer, and safety switch module.
 
 ![ARK GPS](../../assets/hardware/gps/ark_gps.jpg)
 
@@ -44,7 +44,7 @@ Order this module from:
 ### Wiring
 
 The ARK GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
-For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions.
+For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
 ### Mounting
 
@@ -55,7 +55,7 @@ The sensor can be mounted anywhere on the frame, but you will need to specify it
 ## Firmware Setup
 
 ARK GPS runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md).
-As such, it supports firmware update over the CAN bus and [dynamic node allocation](../dronecan/README.md#node-id-allocation).
+As such, it supports firmware update over the CAN bus and [dynamic node allocation](../dronecan/index.md#node-id-allocation).
 
 ARK GPS boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself see [PX4 DroneCAN Firmware > Building the Firmware](px4_cannode_fw.md#building-the-firmware).
 
@@ -64,7 +64,7 @@ ARK GPS boards ship with recent firmware pre-installed, but if you want to build
 
 ## PX4 Configuration
 
-You need to set necessary [DroneCAN](README.md) parameters and define offsets if the sensor is not centred within the vehicle.
+You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle.
 The required settings are outlined below.
 
 :::note
@@ -83,7 +83,7 @@ The steps are:
 Once enabled, the module will be detected on boot.
 GPS data should arrive at 10Hz.
 
-DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/README.md#enabling-dronecan).
+DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
 
 ### Sensor Position Configuration
 

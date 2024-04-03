@@ -1,17 +1,17 @@
 # Gazebo Models Repository (PX4-gazebo-models)
 
-The [PX4-gazebo-models](https://github.com/PX4/PX4-gazebo-models) repository is used to store all [Gazebo](../sim_gazebo_gz/README.md) models and worlds that are supported by PX4.
+The [PX4-gazebo-models](https://github.com/PX4/PX4-gazebo-models) repository is used to store all [Gazebo](../sim_gazebo_gz/index.md) models and worlds that are supported by PX4.
 
 - Models are stored in the `/models` directory and worlds are stored in the `/worlds` directory.
-- The [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) Python script is used for [starting Gazebo in standalone mode](../sim_gazebo_gz/README.md#standalone-mode).
+- The [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) Python script is used for [starting Gazebo in standalone mode](../sim_gazebo_gz/index.md#standalone-mode).
 
 The `PX4-gazebo-models` repository is included in PX4 as a submodule, and all models are available by default when using the "normal" `make` targets, such as `make px4_sitl gz_x500`.
 
-For Gazebo [standalone simulations](../sim_gazebo_gz/README.md#standalone-mode) you first have obtain the [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) Python script, and then it will fetch the models and worlds to `~/.simulation-gazebo` if that directory is not present.
+For Gazebo [standalone simulations](../sim_gazebo_gz/index.md#standalone-mode) you first have obtain the [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) Python script, and then it will fetch the models and worlds to `~/.simulation-gazebo` if that directory is not present.
 
 ## simulation-gazebo (Standalone Simulation Start-up Script)
 
-The [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) Python script is used for starting Gazebo in [standalone mode](../sim_gazebo_gz/README.md#standalone-mode).
+The [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) Python script is used for starting Gazebo in [standalone mode](../sim_gazebo_gz/index.md#standalone-mode).
 The script can communicate with a PX4 SITL instance on the same host by default.
 If the script arguments are set correctly, it can also communicate with any PX4 instance on any machine within the same network.
 

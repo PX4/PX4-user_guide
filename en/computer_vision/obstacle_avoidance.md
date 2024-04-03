@@ -23,7 +23,7 @@ This topic explains how the feature is set up and enabled in both modes.
 
 PX4 supports obstacle avoidance in [Offboard mode](../flight_modes/offboard.md).
 
-The desired route comes from a [ROS](../ros/README.md) node running on a companion computer.
+The desired route comes from a [ROS](../ros/index.md) node running on a companion computer.
 This is passed into an obstacle avoidance module (another ROS node).
 The avoidance software sends the planned path to the flight stack as a stream of `SET_POSITION_TARGET_LOCAL_NED` messages.
 

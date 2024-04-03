@@ -58,7 +58,7 @@ As documented in the Airframe Reference: [Generic ground vehicle (Ackermann)](..
 Rovers are configured using *QGroundControl* in the same way as any other vehicle.
 
 The main rover-specific configuration is setting the correct frame:
-1. Switch to the [Basic Configuration](../config/README.md) section in *QGroundControl*
+1. Switch to the [Basic Configuration](../config/index.md) section in *QGroundControl*
 1. Select the [Airframe](../config/airframe.md) tab. 
 1. Scroll down the list to find the **Rover** icon. 
 1. Choose **Traxxas stampede vxl 2wd** from the drop down list.

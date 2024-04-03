@@ -2,7 +2,7 @@
 
 The Holybro DroneCAN GPS has an UBLOX M8N module, BMM150 compass, tri-colored LED indicator.
 
-The GPS module uses the [DroneCAN](README.md) protocol for communication.
+The GPS module uses the [DroneCAN](index.md) protocol for communication.
 DroneCAN connections are more resistant to electromagnetic interference compared to serial connection, making it more reliable.
 In addition, using DroneCAN means that the GPS and compass do not occupy any flight controller serial ports (different/additional CAN devices can be connected to the same CAN bus via a CAN splitter board).
 
@@ -54,7 +54,7 @@ The sensor can be mounted anywhere on the frame, but you will need to specify it
 ### Wiring
 
 The Holybro DroneCAN GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
-For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions.
+For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
 ### Pinout
 
@@ -66,7 +66,7 @@ For more information, refer to the [CAN Wiring](../can/README.md#wiring) instruc
 
 ## PX4 Configuration
 
-You need to set necessary [DroneCAN](README.md) parameters and define offsets if the sensor is not centred within the vehicle.
+You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle.
 The required settings are outlined below.
 
 :::note
@@ -85,7 +85,7 @@ The steps are:
 Once enabled, the module will be detected on boot.
 GPS data should arrive at 5Hz.
 
-DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/README.md#enabling-dronecan).
+DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
 
 ### Sensor Position Configuration
 

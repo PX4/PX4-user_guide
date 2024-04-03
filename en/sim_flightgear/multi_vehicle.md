@@ -56,4 +56,4 @@ Therefore splitting to multiple computers and using a [multiplayer server](https
 
 ## Additional Resources
 
-- See [Simulation](../simulation/README.md) for more information about the port configuration.
+- See [Simulation](../simulation/index.md) for more information about the port configuration.

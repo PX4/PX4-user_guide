@@ -1,9 +1,9 @@
 # Gazebo Classic Worlds
 
-This topic provides imagery/information about the [Gazebo Classic](../sim_gazebo_classic/README.md) worlds supported by PX4.
+This topic provides imagery/information about the [Gazebo Classic](../sim_gazebo_classic/index.md) worlds supported by PX4.
 
 The [empty.world](#empty_world) is spawned by default, though this may be overridden by a [model specific world](#model_specific_worlds).
-Developers can also manually specify the world to load: [Gazebo Classic > Loading a Specific World](../sim_gazebo_classic/README.md#loading-a-specific-world).
+Developers can also manually specify the world to load: [Gazebo Classic > Loading a Specific World](../sim_gazebo_classic/index.md#loading-a-specific-world).
 
 The source code for supported worlds can be found on GitHub here: [PX4/PX4-SITL_gazebo-classic/tree/main/worlds](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/main/worlds).
 

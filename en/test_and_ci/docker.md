@@ -1,11 +1,11 @@
 # PX4 Docker Containers
 
-Docker containers are provided for the complete [PX4 development toolchain](../dev_setup/dev_env.md#supported-targets) including NuttX and Linux based hardware, [Gazebo Classic](../sim_gazebo_classic/README.md) simulation, and [ROS](../simulation/ros_interface.md).
+Docker containers are provided for the complete [PX4 development toolchain](../dev_setup/dev_env.md#supported-targets) including NuttX and Linux based hardware, [Gazebo Classic](../sim_gazebo_classic/index.md) simulation, and [ROS](../simulation/ros_interface.md).
 
 This topic shows how to use the [available docker containers](#px4_containers) to access the build environment in a local Linux computer.
 
 :::note
-Dockerfiles and README can be found on [Github here](https://github.com/PX4/containers/blob/master/README.md).
+Dockerfiles and README can be found on [Github here](https://github.com/PX4/containers/blob/master/index.md).
 They are built automatically on [Docker Hub](https://hub.docker.com/u/px4io/).
 :::
 
@@ -39,7 +39,7 @@ sudo usermod -aG docker $USER
 
 ## Container Hierarchy
 
-The available containers are on [Github here](https://github.com/PX4/PX4-containers/blob/master/README.md#container-hierarchy).
+The available containers are on [Github here](https://github.com/PX4/PX4-containers/blob/master/index.md#container-hierarchy).
 
 These allow testing of various build targets and configurations (the included tools can be inferred from their names).
 The containers are hierarchical, such that containers have the functionality of their parents.

@@ -632,5 +632,74 @@
     "type": "PageNotInTOC",
     "fileRelativeToRoot": "en\\complete_vehicles\\README.md",
     "hideReason": "Split into per-vehicle. Could be deleted probably."
+  },
+  {
+    "type": "LinkedFileMissingAnchor",
+    "fileRelativeToRoot": "en\\computer_vision\\visual_inertial_odometry.md",
+    "link": {
+      "url": "../advanced_config/parameter_reference.md#MAV_ODOM_LP",
+      "text": "MAV_ODOM_LP"
+    },
+    "hideReason": "Known issue"
+  },
+  {
+    "type": "LinkedFileMissingAnchor",
+    "fileRelativeToRoot": "en\\config_heli\\index.md",
+    "link": {
+      "url": "../airframes/airframe_reference.md#copter_helicopter_generic_helicopter_%28tail_esc%29",
+      "text": "Generic Helicopter - with Tail ESC"
+    },
+    "hideReason": "known issue"
+  },
+  {
+    "type": "LinkedFileMissingAnchor",
+    "fileRelativeToRoot": "en\\frames_sub\\index.md",
+    "link": {
+      "url": "../airframes/airframe_reference.md#underwater_robot_underwater_robot_hippocampus_uuv_%28unmanned_underwater_vehicle%29",
+      "text": "Airframe Reference"
+    },
+    "hideReason": "known issue"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\frames_vtol\\index.md",
+    "link": {
+      "url": "tailsitter.html",
+      "text": "<big>Tailsitter</big>"
+    },
+    "hideReason": "known issue - inside html"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\frames_vtol\\index.md",
+    "link": {
+      "url": "tiltrotor.html",
+      "text": "<big>Tiltrotor</big>"
+    },
+    "hideReason": "known issue - inside html"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\frames_vtol\\index.md",
+    "link": {
+      "url": "standardvtol.html",
+      "text": "<big>Standard VTOL</big>"
+    },
+    "hideReason": "Known issue - inside HTML"
+  },
+  {
+    "type": "PageNotInTOC",
+    "fileRelativeToRoot": "en\\advanced_features\\index.md",
+    "hideReason": "Chose to hide it"
+  },
+  {
+    "type": "PageNotLinkedInternally",
+    "fileRelativeToRoot": "en\\advanced_features\\index.md",
+    "hideReason": "why not"
+  },
+  {
+    "type": "PageNotInTOC",
+    "fileRelativeToRoot": "en\\complete_vehicles\\index.md",
+    "hideReason": "Chose to hide it. No longer used redirect"
   }
 ]

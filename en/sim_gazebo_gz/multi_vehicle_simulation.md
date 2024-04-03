@@ -1,6 +1,6 @@
 # Multi-Vehicle Simulation with Gazebo
 
-This topic explains how to simulate multiple UAV vehicles using [Gazebo (Gz)](../sim_gazebo_gz/README.md) and SITL.
+This topic explains how to simulate multiple UAV vehicles using [Gazebo (Gz)](../sim_gazebo_gz/index.md) and SITL.
 
 :::note
 Multi-Vehicle Simulation with Gazebo is only supported on Linux.
@@ -14,7 +14,7 @@ First build PX4 SITL code using:
 make px4_sitl
 ```
 
-Each instance of PX4 can then be launched in its own terminal, specifying a unique instance number and its desired combination of [environment variables](../sim_gazebo_gz/README.md#usage-configuration-options):
+Each instance of PX4 can then be launched in its own terminal, specifying a unique instance number and its desired combination of [environment variables](../sim_gazebo_gz/index.md#usage-configuration-options):
 
 ```sh
 ARGS ./build/px4_sitl_default/bin/px4 [-i <instance>]
@@ -26,7 +26,7 @@ ARGS ./build/px4_sitl_default/bin/px4 [-i <instance>]
     If not given, the instance number defaults to zero.
   - When used with `PX4_SIM_MODEL`, Gazebo will automatically pick a unique model name in the form `${PX4_SIM_MODEL}_instance`.
 - `ARGS`:
-  A list of environmental variables, as described in [Gazebo Simulation > Usage/Configuration Options](../sim_gazebo_gz/README.md#usage-configuration-options).
+  A list of environmental variables, as described in [Gazebo Simulation > Usage/Configuration Options](../sim_gazebo_gz/index.md#usage-configuration-options).
 
 This allows for greater flexibility and customization.
 
@@ -34,7 +34,7 @@ This allows for greater flexibility and customization.
 
 [Multiple vehicles with ROS 2](../ros/ros2_multi_vehicle.md) are possible.
 
-- First follow the installation instructions for [Gazebo](../sim_gazebo_gz/README.md).
+- First follow the installation instructions for [Gazebo](../sim_gazebo_gz/index.md).
 - Then configure your system for [ROS 2 / PX4 operations](../ros/ros2_comm.md#installation-setup).
 - In different terminals manually start a multi vehicle simulation.
   This example spawns 2 X500 Quadrotors and aFPX fixed-wing:
