@@ -37,7 +37,7 @@ PX4 allows you to specify a "mode" channel and select up to 6 flight modes that 
 
 1. Specify *Flight Mode Settings*:
    * Select the **Mode channel** (above this shown as Channel 5, but this will depend on your transmitter configuration).
-   * Move the transmitter switch (or switches) that you have set up for mode selection through the available positions. The mode slot matching your current switch position will be highlighted (above this is *Flight Mode 1*). :::note
+   * Move the transmitter switch (or switches) that you have set up for mode selection through the available positions. The mode slot matching your current switch position will be highlighted (above this is *Flight Mode 1*). ::: info
 While you can set flight modes in any of the 6 slots, only the channels that are mapped to switch positions will be highlighted/used.
 :::
    * Select the flight mode that you want triggered for each switch position.
@@ -61,8 +61,7 @@ All values are automatically saved as they are changed.
 
 If you only need to support selecting between two or three modes then you can map the modes to the positions of a single 3-way switch. 송신기 설정은 송신기마다 차이가 날 수 있습니다.
 
-:::note
-This example shows how to set up the popular *FrSky Taranis* transmitter. Transmitter setup will be different on other transmitters. :::
+::: info This example shows how to set up the popular *FrSky Taranis* transmitter. Transmitter setup will be different on other transmitters. :::
 
 Open the Taranis UI **MIXER** page and scroll down to **CH5**, as shown below:
 
