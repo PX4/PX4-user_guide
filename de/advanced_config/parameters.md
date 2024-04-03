@@ -23,7 +23,7 @@ You can also browse the parameters by type and group by clicking on the buttons 
 
 ![Parameters Screen](../../assets/qgc/setup/parameters/parameters_px4.png)
 
-You can expand/collapse the "type" groupings as shown. Note that the groups at the bottom named _Component X_ are attached [DroneCAN peripherals](../dronecan/README.md#qgc-cannode-parameter-configuration) ("X" is the node id). [QGC can set the parameters](../dronecan/README.md#qgc-cannode-parameter-configuration) of these peripherals if they are attached to the Flight Controller when QGC is started.
+You can expand/collapse the "type" groupings as shown. Note that the groups at the bottom named _Component X_ are attached [DroneCAN peripherals](../dronecan/index.md#qgc-cannode-parameter-configuration) ("X" is the node id). [QGC can set the parameters](../dronecan/index.md#qgc-cannode-parameter-configuration) of these peripherals if they are attached to the Flight Controller when QGC is started.
 
 ![Parameters Types - collapsed](../../assets/qgc/setup/parameters/parameters_types.png)
 
