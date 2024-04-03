@@ -37,8 +37,7 @@ I2C bus signal cross-talk and electromagnetic compatibility can be greatly impro
 
 When using appropriate twisted pair cables, the I²C bus is generally suitable for submeter-scale airframes. For larger aircraft the use of CAN or other differential signaling based interface is generally more reliable.
 
-:::note
-This turns/cable-length recommendation has been successfully used with I2C sensors including the [ThunderFly TFSLOT airspeed sensor](../sensor/airspeed_tfslot.md) and [TFRPM01 Revolution Counter](../sensor/thunderfly_tachometer.md).
+::: info This turns/cable-length recommendation has been successfully used with I2C sensors including the [ThunderFly TFSLOT airspeed sensor](../sensor/airspeed_tfslot.md) and [TFRPM01 Revolution Counter](../sensor/thunderfly_tachometer.md).
 :::
 
 #### Pull-up resistors
@@ -186,8 +185,7 @@ An example of a cable colouring designed to these rules is:
 <!-- references for the image source.
 This approach just allows more compact markdown -->
 
-:::note
-The above rules were provided by Thunderfly and are used in their cable design.
+::: info The above rules were provided by Thunderfly and are used in their cable design.
 
 The cable colour-coding for Thunderfly and some other vendors are given in the sections below. The pin labels correspond to the pinout on the autopilot side. All cables are straight (1:1). If they require crossover (e.g. UART), this should be solved by internal connection of the devices.
 :::
