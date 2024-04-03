@@ -64,8 +64,7 @@ This is the default return type for a [multicopter](../flight_modes_mc/return.md
 - On [arrival](#loiter-landing-at-destination) descends to "descent altitude" and waits for a configurable time. This time may be used to deploy landing gear.
 - Lands or waits (this depends on landing parameters), By default an MC or VTOL in MC mode will land and a fixed-wing vehicle circles at the descent altitude. A VTOL in FW mode aligns its heading to the destination point, transitions to MC mode, and then lands.
 
-:::note
-If no rally points are defined, this is the same as a _Return to Launch_ (RTL)/_Return to Home_ (RTH).
+::: info If no rally points are defined, this is the same as a _Return to Launch_ (RTL)/_Return to Home_ (RTH).
 :::
 
 ### 임무 착륙/랠리 포인트 복귀 유형 (RTL_TYPE = 1)
@@ -79,8 +78,7 @@ This is the default return type for a [fixed-wing](../flight_modes_fw/return.md)
 - 목적지가 임무 착륙 패턴인 경우 패턴을 따라 착륙합니다.
 - If the destination is a rally point or home it will [land or wait](#loiter-landing-at-destination) at descent altitude (depending on landing parameters). By default an MC or VTOL in MC mode will land, and a fixed-wing vehicle circles at the descent altitude. A VTOL in FW mode aligns its heading to the destination point, transitions to MC mode, and then lands.
 
-:::note
-Fixed wing vehicles commonly also set [MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ) to _require_ a mission landing pattern.
+::: info Fixed wing vehicles commonly also set [MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ) to _require_ a mission landing pattern.
 :::
 
 ### 임무 경로 복귀 유형 (RTL_TYPE = 2)
@@ -132,8 +130,7 @@ Mission _without_ landing pattern defined:
 
 For most [return types](#return_types) a vehicle will ascend to a _minimum safe altitude_ before returning (unless already above that altitude), in order to avoid any obstacles between it and the destination.
 
-:::note
-The exception is when executing a [mission path return](#mission-path-return-type-rtl-type-2) from _within a mission_. In this case the vehicle follows mission waypoints, which we assume are planned to avoid any obstacles.
+::: info The exception is when executing a [mission path return](#mission-path-return-type-rtl-type-2) from _within a mission_. In this case the vehicle follows mission waypoints, which we assume are planned to avoid any obstacles.
 :::
 
 The return altitude for a fixed-wing vehicle or a VTOL in fixed-wing mode is configured using the parameter [RTL_RETURN_ALT](#RTL_RETURN_ALT) (does not use the code described in the next paragraph).
