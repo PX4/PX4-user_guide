@@ -38,8 +38,7 @@ Use the [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/u
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
 
-:::note
-The environment setup scripts in the source usually work for recent PX4 releases. If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release).
+   ::: info The environment setup scripts in the source usually work for recent PX4 releases. If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release).
 :::
 
 1. 인수 없이 (bash 셸에서) **ubuntu.sh**를 실행합니다.
