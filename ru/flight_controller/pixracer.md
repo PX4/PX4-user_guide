@@ -51,7 +51,7 @@ One of the main features of the board is its ability to use Wifi for flashing ne
 - [ESP8266 Wifi](../telemetry/esp8266_wifi_module.md)
 - [Custom ESP8266 MAVLink firmware](https://github.com/dogmaphobic/mavesp8266)
 
-:::note
+::: info
 Firmware upgrade is not yet enabled over WiFi (it is supported by the default bootloader but not yet enabled).
 Setup and telemetry are supported.
 :::
@@ -64,8 +64,7 @@ See the [Pixracer Wiring Quickstart](../assembly/quick_start_pixracer.md)
 
 ![Grau setup pixracer top](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
 
-:::note
-If using `TELEM2` for an external telemetry module you will need to configure it as a MAVLink serial port. For more information see: [Pixracer Wiring Quickstart > External Telemetry](../assembly/quick_start_pixracer.md#external-telemetry)
+::: info If using `TELEM2` for an external telemetry module you will need to configure it as a MAVLink serial port. For more information see: [Pixracer Wiring Quickstart > External Telemetry](../assembly/quick_start_pixracer.md#external-telemetry)
 :::
 
 ![Grau setup pixracer bottom](../../assets/flight_controller/pixracer/grau_setup_pixracer_bottom.jpg)
