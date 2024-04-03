@@ -31,7 +31,7 @@ Manual control input is required (such as RC control, joystick):
 
 ![特技模式 - 指数- 纯线性输入曲线](../../assets/flight_modes/acro_mc_input_curve_expo_linear.png) ![特技模式 - 指数- 纯三次输入曲线](../../assets/flight_modes/acro_mc_input_curve_expo_cubic.png)
 
-:::note
+::: info
 The mathematical relationship is:
 
 $$\mathrm{y} = r(f\cdot x^3 + x(1-f)) (1-g)/(1-g|x|)$$, 其中 `f = MC_ACRO_EXPO` 或 `MC_ACRO_EXPO_Y`，`g = MC_ACRO_SUPEXPO` 或 `MC_ACRO_SUPEXPOY` ， `r` 为最大速率。
