@@ -34,8 +34,7 @@ The image below shows how to connect the most important sensors and peripherals.
 5. [GPS, Compass, LED, Safety Switch](#gps) — The recommended GPS module contains GPS, Compass, LED and Safety Switch.
 6. [Power System](#power) — Powers Cube and the motor ESCs. Consists of LiPo battery, power module, and optional battery warning system (audio warning if battery power goes below a predefined level).
 
-:::note
-The port labeled `GPS2` maps to `TEL4` in PX4 (i.e. if connecting to the port labeled `GPS2`, assign the [serial port configuration parameter](../peripherals/serial_configuration.md) for the connected hardware to `TEL4`).
+::: info The port labeled `GPS2` maps to `TEL4` in PX4 (i.e. if connecting to the port labeled `GPS2`, assign the [serial port configuration parameter](../peripherals/serial_configuration.md) for the connected hardware to `TEL4`).
 :::
 
 :::tip
@@ -48,8 +47,7 @@ Mount the Cube as close as possible to your vehicle’s center of gravity, ideal
 
 ![Cube Mount - Direction of Front](../../assets/flight_controller/cube/cube_mount_front.jpg)
 
-:::note
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 :::
 
 The Cube can be mounted using either vibration-damping foam pads (included in the kit) or mounting screws. The mounting screws in the Cube accessories are designed for a 1.8mm thick frameboard. Customized screws are supposed to be M2.5 with thread length inside Cube in range 6mm~7.55mm.
@@ -72,8 +70,7 @@ The diagram below shows a schematic view of the module and its connections.
 
 ![Here+ Connector Diagram](../../assets/flight_controller/cube/here_plus_connector.png)
 
-:::note
-The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+::: info The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 :::
 
 :::tip
@@ -159,7 +156,7 @@ Motors/servos are connected to the **MAIN** and **AUX** ports in the order speci
 
 ![Cube - Motor Connections](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
 
-:::note
+::: info
 This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 :::
 
@@ -171,8 +168,7 @@ The mapping is not consistent across frames (e.g. you can't rely on the throttle
 
 The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
 
-:::note
-If connecting peripherals to the port labeled `GPS2`, assign the PX4 [serial port configuration parameter](../peripherals/serial_configuration.md) for the hardware to `TEL4` (not GPS2).
+::: info If connecting peripherals to the port labeled `GPS2`, assign the PX4 [serial port configuration parameter](../peripherals/serial_configuration.md) for the hardware to `TEL4` (not GPS2).
 :::
 
 ## Configuration
