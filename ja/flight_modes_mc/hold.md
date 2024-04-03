@@ -8,7 +8,7 @@ The _Hold_ flight mode causes the vehicle to stop and hover at its current GPS p
 _Hold mode_ can be used to pause a mission or to help you regain control of a vehicle in an emergency. It is usually activated with a pre-programmed switch.
 :::
 
-:::note
+::: info
 
 - Mode is automatic - no user intervention is _required_ to control the vehicle.
 - Mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
