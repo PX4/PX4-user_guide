@@ -37,7 +37,7 @@ Aracı yapılandırmak için:
 1. [Parametre Konfigürasyonu](../advanced_config/parameters.md) bölümünden parametreleri nasıl bulup özelleştirebileceğinize bakabilirsiniz.
 1. [Parameter Configuration](../advanced_config/parameters.md) explains how you can find and modify individual parameters.
 
-:::note
+::: info
 
 - _QGroundControl_ mobile variants do not support vehicle configuration.
 - The _daily build_ includes development tools and new features that are not available in the official release.
