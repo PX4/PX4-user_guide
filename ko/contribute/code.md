@@ -18,7 +18,7 @@ To contribute new functionality, [sign up for Github](https://docs.github.com/en
 
 PX4 uses the [Google C++ style guide](https://google.github.io/styleguide/cppguide.html), with the following (minimal) modifications:
 
-:::note
+::: info
 
 Not all PX4 source code matches the style guide, but any _new code_ that you write should do so — in both new and existing files. If you update an existing file you are not required to make the whole file comply with the style guide, just the code you've modified.
 
@@ -87,7 +87,7 @@ private:
 
 PX4 개발자는 소스 내에서 적절한 문서를 작성하는 것이 좋습니다.
 
-:::note
+::: info
 
 Source-code documentation standards are not enforced, and the code is currently inconsistently documented. 이보다 더 나아지길 바랍니다!
 
