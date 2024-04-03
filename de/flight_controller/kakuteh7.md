@@ -103,7 +103,7 @@ If you are loading the pre-built firmware via QGroundcontrol, you must use QGC D
 
 ## PX4 Configuration
 
-In addition to the [basic configuration](../config/README.md), the following parameters are important:
+In addition to the [basic configuration](../config/index.md), the following parameters are important:
 
 | Parameter                                                              | Setting                                                                                                                 |
 | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
