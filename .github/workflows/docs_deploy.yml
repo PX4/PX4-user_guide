@@ -77,9 +77,17 @@ jobs:
           name: px4_docs_build
           path: ~/_book
         
+      - name: Set up Git credentials
+        env:
+          GIT_USER: ${{ secrets.PX4BUILDBOT_USER }}
+          GIT_PASS: ${{ secrets.PX4BUILDBOT_ACCESSTOKEN }}
+        run: |
+          git config --global user.name "$GIT_USER"
+          git config --global user.password "$GIT_PASS"
+
       - name: Deploy
         run: |
-          git clone --single-branch --branch main https://${{ secrets.PX4BUILDBOT_USER }}:${{ secrets.PX4BUILDBOT_ACCESSTOKEN }}@github.com/PX4/docs.px4.io.git
+          git clone --single-branch --branch main https://$GIT_USER:$GIT_PASS@github.com/PX4/docs.px4.io.git
           rm -rf docs.px4.io/${BRANCH_NAME}
           mkdir -p docs.px4.io/${BRANCH_NAME}
           cp -r ~/_book/* docs.px4.io/${BRANCH_NAME}/
