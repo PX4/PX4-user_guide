@@ -254,7 +254,7 @@ Fully assembled, the kit looks as shown below:
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the QAV250 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
 :::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
 :::
 
 First update the firmware and airframe:
