@@ -1,7 +1,13 @@
 # Support
 
-<div v-if="$themeConfig.px4_version != 'main'">
-  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p>. <p>The latest version <a href="https://docs.px4.io/main/en/contribute/support.html">can be found here</a>.</p>
+<script setup>
+import { useData } from 'vitepress'
+const { site } = useData();
+</script>
+
+<div v-if="site.title !== 'PX4 Guide (main)'">
+  <div class="custom-block danger">
+    <p class="custom-block-title">This page may be out out of date. <a href="https://docs.px4.io/main/en/contribute/support.html">See the latest version</a>.</p>
   </div>
 </div>
 
