@@ -33,25 +33,28 @@ The correct order to set the above parameters is:
    If you are using an airspeed sensor, also set the correct cruise airspeed (`FW_AIRSPD_TRIM`).
 1. Run [auto-trimming](#auto-trimming) during a flight to set `TRIM_ROLL`, `TRIM_PITCH` and `TRIM_YAW`.
 
-   Alternatively, if you feel comfortable flying in manual mode, you can also set the trim values manually:
-   1. Disable auto-trimming using [FW_ATRIM_MODE](../advanced_config/parameter_reference.md#FW_ATRIM_MODE).
+   Alternatively, if you feel comfortable flying in [Manual mode](../flight_modes_fw/manual.md), you can also set the trim values manually:
+   1. Disable auto-trimming by setting [FW_ATRIM_MODE=0](../advanced_config/parameter_reference.md#FW_ATRIM_MODE).
    1. Fly in manual mode and trim your remote (with the trim switches).
-   1. Report the values to `TRIM_ROLL/PITCH/YAW` (and remove the trims from your transmitter) or update `TRIM_ROLL/PITCH/YAW` directly during flight via telemetry and QGC.
+   1. Report the values to `TRIM_ROLL/PITCH/YAW` (and remove the trims from your transmitter), or update `TRIM_ROLL/PITCH/YAW` directly during flight via telemetry and QGC.
 
 ### Auto-trimming
 
 <Badge type="warning" text="main (PX4 v1.15)" />
 
-Auto-trimming is enabled by default.
-On first flight, auto-trimming estimates the current trim of the aircraft, and then updates the general trim parameters (`TRIM_ROLL`, `TRIM_PITCH` and `TRIM_YAW`) with calibrated values after landing.
+Auto-trimming estimates the "center trim" at cruise speed (usually), and is enabled by default.
+On first flight (in "Calibration" mode), auto-trimming estimates the current trim of the aircraft, and then updates the general trim parameters (`TRIM_ROLL`, `TRIM_PITCH` and `TRIM_YAW`) with calibrated values after landing.
 The trim estimate is only updated when the aircraft flies with a bank angle of less than 10 degrees for more than 7 seconds.
 So for the first calibration flight you should fly large circles or several phases of straight and level flight.
 
-On subsequent flights auto-trimming continuously estimates the trim and slowly updates the stored trim parameters.
-This reduces the constant load on the integrator of the angular rate control loop.
+On subsequent flights (in "Continuous" mode), auto-trimming continuously estimates the trim, reducing the constant load on the integrator of the angular rate control loop if the trim calibration was imperfect or if the trim has changed.
+In this mode the stored trim parameters are updated gradually — the maximum change to the trim parameters following each flight is 0.05.
 
 Auto-trimming is enabled using [FW_ATRIM_MODE](../advanced_config/parameter_reference.md#FW_ATRIM_MODE).
 This parameter is set to `(1) Calibration` (trim parameters are replaced by the trim estimate on landing) for the first flight and is then automatically changed to `(2) Continuous` mode (trim estimate is used to slowly update the existing trim parameters).
+
+The trims can be reset by setting the `TRIM_ROLL`, `TRIM_PITCH` and `TRIM_YAW` back to `0` and `FW_ATRIM_MODE` to `1`.
+This should not normally be necessary as the trims are continuously corrected. 
 
 ## Advanced Trimming
 
