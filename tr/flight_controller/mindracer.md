@@ -7,8 +7,7 @@ The AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) series is a fully sta
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
-:::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Quick Summary
@@ -17,8 +16,7 @@ MindRacer is a fully stackable flight platform for miniature UAVs. Based on [Min
 
 MindRacer implements the SEP (soldering-elimination-port) and WEP (wiring-elimination-protocol) concepts. Before SEP and WEP, soldering and wiring are always the major pain and efficiency killer during UAV manufacturing and tuning.
 
-:::note
-The main hardware documentation is [here](http://mindpx.net/assets/accessories/mindracer_spec_v1.2.pdf).
+::: info The main hardware documentation is [here](http://mindpx.net/assets/accessories/mindracer_spec_v1.2.pdf).
 :::
 
 - Ultra mini size, weight ~6g
@@ -75,8 +73,7 @@ And the max BAUD rate is the same with px4 family, which is up to 921600.
 
 ### User Guide
 
-:::note
-The user guide is [here](http://mindpx.net/assets/accessories/mindracer_user_guide_v1.2.pdf)
+::: info The user guide is [here](http://mindpx.net/assets/accessories/mindracer_user_guide_v1.2.pdf)
 :::
 
 ## Where to Buy
