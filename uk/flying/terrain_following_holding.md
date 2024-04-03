@@ -36,7 +36,7 @@ PX4 підтримує [Підтримка Місцевості](#terrain_follow
 Цю функцію можна ввімкнути в режимах [Позиція](../flight_modes_mc/position.md) та [Висота](../flight_modes_mc/altitude.md), на *мультикоптерах* і *транспортних засобах VTOL у режимі MC*, які мають [датчик відстані](../sensor/rangefinders.md).
 :::
 
-Під час горизонтального руху (`швидкість >` [MPC_HOLD_MAX_XY](../advanced_config/parameter_reference.md#MPC_HOLD_MAX_XY)) або вище висоти, на якій датчик відстані надає дійсні дані, транспортний засіб перейде в режим *слідування за висотою</2 >.</p>
+Під час горизонтального руху (`швидкість >` [MPC_HOLD_MAX_XY](../advanced_config/parameter_reference.md#MPC_HOLD_MAX_XY)) або вище висоти, на якій датчик відстані надає дійсні дані, транспортний засіб перейде в режим *слідування за висотою*.
 
 Утримування рельєфу вмикається встановленням [MPC_ALT_MODE](../advanced_config/parameter_reference.md#MPC_ALT_MODE) на `2`.
 
