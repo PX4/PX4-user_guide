@@ -4,7 +4,7 @@
 
 _Follow Me_ mode allows a multicopter to autonomously hold position and altitude relative to another system that is broadcasting its position (and optionally velocity) using the [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) MAVLink message.
 
-:::note
+::: info
 
 - Mode is automatic - no user intervention is _required_ to control the vehicle.
 - Mode requires at least a valid local position estimate (does not require a global position).
@@ -38,7 +38,7 @@ Users can adjust the follow angle, height and distance using an RC controller as
 
   ![Follow-me Angle Diagram](../../assets/flight_modes/followme_angle.png)
 
-:::note
+::: info
 Angle, height, and distance values set using the RC controller are discarded when you exit follow-me mode. If you exit Follow-Me mode and activate it again the values will be reset to their defaults.
 :::
 
@@ -94,7 +94,7 @@ At this point you can start moving, and the drone will be following you.
 
 For more information see the [Follow Me class](https://mavsdk.mavlink.io/main/en/cpp/guide/follow_me.html) documentation as well as the [Follow Me Example](https://mavsdk.mavlink.io/main/en/cpp/examples/follow_me.html).
 
-:::note
+::: info
 MAVSDK is not currently recommended, due to a bug ([MAVSDK#1756](https://github.com/mavlink/MAVSDK/issues/1756) where the same message is occasionally sent twice. This can confuse the target position and velocity estimator.
 :::
 
