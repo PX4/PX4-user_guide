@@ -8,7 +8,7 @@ PX4는 성능 분석을 위하여 상세한 항공기 상태 데이터와 센서
 
 ## 비행 콘트롤러에서 로그 다운로드
 
-Logs can be downloaded using [QGroundControl](http://qgroundcontrol.com/): **[Analyze View > Log Download](https://docs.qgroundcontrol.com/master/en/analyze_view/log_download.html)**.
+Logs can be downloaded using [QGroundControl](http://qgroundcontrol.com/): **[Analyze View > Log Download](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/log_download.html)**.
 
 ![비행 로그 다운로드](../../assets/qgc/analyze/log_download.jpg)
 
@@ -23,7 +23,7 @@ Logs can be downloaded using [QGroundControl](http://qgroundcontrol.com/): **[An
 :::
 
 :::tip
-차량에 고속의 MAVLink 연결이 있는 경우에는(원격 분석 링크뿐만 아니라) *QGroundControl*을 사용하여 로그를 *Flight Review*에 자동으로 업로드할 수 있습니다. For more information see [Settings > MAVLink Settings > MAVLink 2 Logging (PX4 only)](https://docs.qgroundcontrol.com/master/en/SettingsView/MAVLink.html#logging).
+차량에 고속의 MAVLink 연결이 있는 경우에는(원격 분석 링크뿐만 아니라) *QGroundControl*을 사용하여 로그를 *Flight Review*에 자동으로 업로드할 수 있습니다. For more information see [Settings > MAVLink Settings > MAVLink 2 Logging (PX4 only)](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/mavlink.html#logging).
 :::
 
 ## PX4 개발자가 검토할 로그 파일 공유
