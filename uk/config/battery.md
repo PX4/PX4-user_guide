@@ -3,9 +3,9 @@
 This topic explains how to configure power settings so that PX4 can estimate the available battery capacity.
 
 :::note
-These instructions require that the vehicle has a [Power Module (PM)](../power_module/README.md), or other hardware that can measure the battery voltage and (optionally) the current.
+These instructions require that the vehicle has a [Power Module (PM)](../power_module/index.md), or other hardware that can measure the battery voltage and (optionally) the current.
 
-This tuning is not needed for [Smart/MAVLink Batteries](../smart_batteries/README.md).
+This tuning is not needed for [Smart/MAVLink Batteries](../smart_batteries/index.md).
 :::
 
 ## Загальний огляд
