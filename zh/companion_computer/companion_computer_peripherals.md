@@ -7,7 +7,7 @@
 This section lists devices that may be used for the physical serial/data connection between a companion computer and a flight controller.
 
 :::note
-PX4 configuration for communicating with a companion computer over MAVLink via TELEM2 is covered in [MAVLink (OSD / Telemetry)](../peripherals/mavlink_peripherals.md#telem2). Other relevant topics/sections include: [Companion Computers](../companion_computer/README.md), [Robotics](../robotics/README.md) and [uXRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/uxrce_dds.md).
+PX4 configuration for communicating with a companion computer over MAVLink via TELEM2 is covered in [MAVLink (OSD / Telemetry)](../peripherals/mavlink_peripherals.md#telem2). Other relevant topics/sections include: [Companion Computers](../companion_computer/index.md), [Robotics](../robotics/index.md) and [uXRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/uxrce_dds.md).
 :::
 
 ### FTDI Devices
@@ -36,7 +36,7 @@ Options include:
 
 ## Cameras
 
-Cameras are used image and video capture, and more generally to provide data for [computer vision](../computer_vision/README.md) applications (in this case the "cameras" may only provide processed data, not raw images).
+Cameras are used image and video capture, and more generally to provide data for [computer vision](../computer_vision/index.md) applications (in this case the "cameras" may only provide processed data, not raw images).
 
 ### Stereo Cameras
 
