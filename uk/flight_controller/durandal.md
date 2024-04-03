@@ -194,7 +194,7 @@ make holybro_durandal-v1_default
 ## Периферія
 
 - [Цифровий датчик швидкості польоту](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
-- [Телеметричні радіо модулі](../telemetry/README.md)
+- [Телеметричні радіо модулі](../telemetry/index.md)
 - [Далекомір/Датчики відстані](../sensor/rangefinders.md)
 
 ## Підтримувані платформи / Планери
