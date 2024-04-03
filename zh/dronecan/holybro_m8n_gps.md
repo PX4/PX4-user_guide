@@ -51,7 +51,7 @@ The sensor can be mounted anywhere on the frame, but you will need to specify it
 
 ### Wiring
 
-The Holybro DroneCAN GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions.
+The Holybro DroneCAN GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
 
 ### 针脚定义
 
@@ -63,7 +63,7 @@ The Holybro DroneCAN GPS is connected to the CAN bus using a Pixhawk standard 4 
 
 ## PX4配置
 
-You need to set necessary [DroneCAN](README.md) parameters and define offsets if the sensor is not centred within the vehicle. The required settings are outlined below.
+You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle. The required settings are outlined below.
 
 :::note
 The GPS will not boot if there is no SD card in the flight controller when powered on.
@@ -80,7 +80,7 @@ The steps are:
 
 Once enabled, the module will be detected on boot. GPS data should arrive at 5Hz.
 
-DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/README.md#enabling-dronecan).
+DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
 
 ### Sensor Position Configuration
 
