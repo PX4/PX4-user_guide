@@ -22,7 +22,7 @@ Obstacle avoidance can use the _local planner_ (emits messages at ~30Hz and can 
 
 PX4 supports obstacle avoidance in [Offboard mode](../flight_modes/offboard.md).
 
-The desired route comes from a [ROS](../ros/README.md) node running on a companion computer. This is passed into an obstacle avoidance module (another ROS node). The avoidance software sends the planned path to the flight stack as a stream of `SET_POSITION_TARGET_LOCAL_NED` messages.
+The desired route comes from a [ROS](../ros/index.md) node running on a companion computer. This is passed into an obstacle avoidance module (another ROS node). The avoidance software sends the planned path to the flight stack as a stream of `SET_POSITION_TARGET_LOCAL_NED` messages.
 
 The only required PX4-side setup is to put PX4 into _Offboard mode_.
 
