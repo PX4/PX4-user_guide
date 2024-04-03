@@ -39,8 +39,7 @@ First set up the environment
    echo ulimit -S -n 2048 >> ~/.zshenv
    ```
 
-:::note
-If you don't do this, the build toolchain may report the error: `"LD: too many open files"`
+   ::: info If you don't do this, the build toolchain may report the error: `"LD: too many open files"`
 :::
 
 1. Enforce Python 3 by appending the following lines to `~/.zshenv`
@@ -84,8 +83,7 @@ To setup the environment for [Gazebo Classic](../sim_gazebo_classic/index.md) si
    brew link tbb@2020
    ```
 
-:::note
-September 2021: The commands above are a workaround to this bug: [PX4-Autopilot#17644](https://github.com/PX4/PX4-Autopilot/issues/17644). They can be removed once it is fixed (along with this note).
+   ::: info September 2021: The commands above are a workaround to this bug: [PX4-Autopilot#17644](https://github.com/PX4/PX4-Autopilot/issues/17644). They can be removed once it is fixed (along with this note).
 :::
 
 1. To install SITL simulation with Gazebo Classic:
