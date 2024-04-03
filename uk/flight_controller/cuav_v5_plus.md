@@ -18,8 +18,7 @@ Some of its main features include:
 - Built-in vibration dampening system with high performance shock absorption system.
 - Multiple-redundant sensor and power systems for improved flight safety and stability.
 
-:::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Quick Summary
@@ -61,7 +60,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 [CUAV Taobao](https://item.taobao.com/item.htm?spm=a1z10.5-c.w4002-21303114052.37.a28f697aeYzQx9&id=594262853015) (China Mainland users)
 
-:::note
+::: info
 Autopilot may be purchased with included Neo GPS module
 :::
 
@@ -79,8 +78,7 @@ Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
 _V5+ AutoPilot_ supports redundant power supplies - up to three sources may be used: `Power1`, `Power2` and `USB`. You must supply power to at least one of these sources, or the flight controller will be unpowered.
 
-:::note
-On FMUv5 based FMUs with PX4IO module (as is the case for the _V5+_), the Servo Power Rail is only monitored by the FMU. It is neither powered by, nor provides power to the FMU. However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
+::: info On FMUv5 based FMUs with PX4IO module (as is the case for the _V5+_), the Servo Power Rail is only monitored by the FMU. It is neither powered by, nor provides power to the FMU. However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
 :::
 
 **Normal Operation Maximum Ratings**
