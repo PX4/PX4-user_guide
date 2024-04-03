@@ -1,7 +1,6 @@
 # ESC 캘리브레이션
 
-:::note
-These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md) and [OneShot ESCs](../peripherals/oneshot.md). [DShot](../peripherals/dshot.md) and [CAN](../can/index.md) ESCs ([DroneCAN](../dronecan/escs.md)/Cyphal) do not require this kind of calibration.
+::: info These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md) and [OneShot ESCs](../peripherals/oneshot.md). [DShot](../peripherals/dshot.md) and [CAN](../can/index.md) ESCs ([DroneCAN](../dronecan/escs.md)/Cyphal) do not require this kind of calibration.
 :::
 
 Electronic Speed Controllers (ESCs) regulate motor speed (and direction) based on their input command from the flight controller (FC). The range of input commands to which an ESC will respond is often configurable, and the default range can differ even between ESCs of the same model.
@@ -10,8 +9,7 @@ This calibration updates all the ESCs with a fixed maximum (2000us) and minimum 
 
 Calibration using this tool is recommended for all PWM/OneShot ESCs that support it.
 
-:::note
-Calibration is particularly important for low-cost ESC, as they commonly vary a lot in their response to input.
+::: info Calibration is particularly important for low-cost ESC, as they commonly vary a lot in their response to input.
 
 However it is also recommended for high-quality controllers. Even though these are factory calibrated and should all respond the same way, in practice the input range can differ. For example if a controller has been manually calibrated after leaving the factory it may no longer behave in the same way.
 :::
@@ -69,8 +67,7 @@ Never attempt ESC calibration with propellers on!
 
    You need to confirm that the motors do indeed work correctly. Since the default configuration values have been set conservatively, you may also wish to tune them for your particular ESCs.
 
-:::note
-The steps below are similar to those described in [Actuator Configuration > Motor Configuration](../config/actuators.md#motor-configuration).
+   ::: info The steps below are similar to those described in [Actuator Configuration > Motor Configuration](../config/actuators.md#motor-configuration).
 :::
 
    Verify the following values:
@@ -93,7 +90,7 @@ The steps below are similar to those described in [Actuator Configuration > Moto
 
      If the ESC spins with the default value of 1000us then the ESC is not properly calibrated. If using an ESC that can't be calibrated, you should reduce the PWM output value for the output to below where the motor does not spin anymore (such as 950us or 900us).
 
-   :::note
+   ::: info
 VTOL and fixed-wing motors do not need any special PWM configuration.
 With the default PWM configuration they will automatically stop during flight when commanded by the autopilot.
 :::
