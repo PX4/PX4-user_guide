@@ -12,8 +12,7 @@
 
 - 장애물 회피를 위한 최대 속도는 현재 약 3m/s입니다 (회피 경로 계산 비용으로 인해).
 
-:::note
-Obstacle avoidance can use the _local planner_ (emits messages at ~30Hz and can move at around 3 m/s) or _global planner_ (emits messages at ~10Hz and mission speed with obstacle avoidance is around 1-1.5 m/s).
+  ::: info Obstacle avoidance can use the _local planner_ (emits messages at ~30Hz and can move at around 3 m/s) or _global planner_ (emits messages at ~10Hz and mission speed with obstacle avoidance is around 1-1.5 m/s).
 :::
 
 <a id="offboard_mode"></a>
