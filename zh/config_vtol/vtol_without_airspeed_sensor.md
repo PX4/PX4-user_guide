@@ -7,11 +7,11 @@ Support for VTOLs without an airspeed sensor is considered experimental and shou
 The use of an airspeed sensor is recommended.
 :::
 
-Fixed-wing vehicles use airspeed sensors to determine the speed at which the airplane is moving through the air. Depending on wind this could vary from groundspeed. Every airplane has a minimum airspeed below which the airplane will stall. In mild weather conditions and with settings significantly above stall speed a VTOL can operate without the use of an airspeed sensor.
+Fixed-wing vehicles use [airspeed sensors](../sensor/airspeed.md) to determine the speed at which the airplane is moving through the air. Depending on wind this could vary from groundspeed. Every airplane has a minimum airspeed below which the airplane will stall. In mild weather conditions and with settings significantly above stall speed a VTOL can operate without the use of an airspeed sensor.
 
 This guide will outline the parameter settings required to bypass the airspeed sensor for VTOL planes.
 
-::: note
+::: info
 Most settings described here should also be applicable to fixed-wing vehicles that are not VTOL, but this is currently untested.
 Transition turning and quad-chute are VTOL-specific.
 :::
@@ -51,7 +51,7 @@ Set the minimum front transition time ([VT_TRANS_MIN_TM](../advanced_config/para
 
 Because the risk of stalling is real, it is recommended to set the 'fixed-wing minimum altitude' (a.k.a. 'quad-chute') threshold ([VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT)).
 
-This will cause the VTOL to transition back to multicopter mode and initiate the [Return mode](../flight_modes/return.md) below a certain altitude. You could set this to 15 or 20 meters to give the multicopter time to recover from a stall.
+This will cause the VTOL to transition back to multicopter mode and initiate the [Return mode](../flight_modes_vtol/return.md) below a certain altitude. You could set this to 15 or 20 meters to give the multicopter time to recover from a stall.
 
 The position estimator tested for this mode is EKF2, you can set this by changing the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP).
 
