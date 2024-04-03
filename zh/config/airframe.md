@@ -2,7 +2,7 @@
 
 After installing firmware you need to select the [vehicle type and specific frame configuration](../airframes/airframe_reference.md) that best matches your vehicle frame. This applies appropriate default parameter values for the selected frame, such as the vehicle type, number of motors, relative motor position, and so on.
 
-:::note
+::: info
 Choose the frame that matches your vehicle brand and model if one exists, and otherwise select the closest "Generic" frame option matching your vehicle.
 :::
 
@@ -28,5 +28,5 @@ To set the airframe:
 
 ## 更多信息：
 
-- [QGroundControl User Guide > Airframe](https://docs.qgroundcontrol.com/master/en/SetupView/Airframe.html)
+- [QGroundControl User Guide > Airframe](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/airframe.html)
 - [PX4 设置视频 - @37s](https://youtu.be/91VGmdSlbo4?t=35s) (Youtube)
