@@ -10,8 +10,7 @@ The Pixhawk Mini is based on the PX4 open-hardware project and has been optimize
 
 Wiring information is available [below](#wiring).
 
-:::note
-This flight controller was designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>. It was formerly known as the 3DR Pixhawk Mini. :::
+::: info This flight controller was designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>. It was formerly known as the 3DR Pixhawk Mini. :::
 
 :::tip
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams. :::
@@ -182,7 +181,7 @@ The image below shows standard _quadcopter_ wiring using the _Pixhawk Mini Kit_ 
 
 ![Pixhawk Mini Electronics Wiring for QAV250 (off frame)](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_wiring_image_pixhawk_mini.jpg)
 
-:::note
+::: info
 The output wiring/powering is slightly different for other types of vehicles. This is covered in more detail below for VTOL, Plane, Copter.
 :::
 
@@ -194,8 +193,7 @@ The _Pixhawk Mini_ should be mounted on the frame using vibration-damping foam p
 
 ![Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)
 
-:::note
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md). :::
+::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md). :::
 
 ### GPS + Compass
 
@@ -259,9 +257,7 @@ Make sure to use the correct mapping for your vehicle.
 
 :::tip
 If your frame is not listed in the reference then use a "generic" airframe of the correct type.
-:::
-
-Notes:
+::: infos:
 
 - The output rail must be separately powered, as discussed in the [Power](#power) section above.
 - Pixhawk Mini cannot be used for QuadPlane VTOL airframes. This is because QuadPlane requires 9 outputs (4 Main, 5 AUX) and the Pixhawk Mini only has 8 outputs (8 Main).
