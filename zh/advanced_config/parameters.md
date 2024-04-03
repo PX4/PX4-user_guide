@@ -4,8 +4,7 @@
 
 The _QGroundControl Parameters_ screen allows you to find and modify **any** of the parameters associated with the vehicle. The screen is accessed by clicking the **Q** application icon > **Vehicle Setup**, and then _Parameters_ in the sidebar.
 
-:::note
-Most of the more commonly used parameters are more conveniently set using the dedicated setup screens, as described in the [Standard Configuration](../config/index.md) section. The _Parameters_ screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
+::: info Most of the more commonly used parameters are more conveniently set using the dedicated setup screens, as described in the [Standard Configuration](../config/index.md) section. The _Parameters_ screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
 :::
 
 :::warning
@@ -55,7 +54,7 @@ You can expand/collapse the "type" groupings as shown. Note that the groups at t
 - Check if you can update your board to run FMUv3 firmware, which includes all modules: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader)
 - If your board can only run FMUv2 firmware you will need to [rebuild PX4](../dev_setup/building_px4.md) with the missing modules enabled. You need reconfigure the PX4 firmware itself through make px4_fmuv2_default boardconfig where you can enabled/disable modules.
 
-  :::note
+  ::: info
 You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash.
 Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
 :::
@@ -68,8 +67,7 @@ Finding modules to remove requires some trial/error and depends on what use case
 
 ![更改参数值](../../assets/qgc/setup/parameters/parameters_changing.png)
 
-:::note
-When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. 根据参数，您可能需要重新启动飞控才能使更改生效。
+::: info When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. 根据参数，您可能需要重新启动飞控才能使更改生效。
 :::
 
 ## 工具
