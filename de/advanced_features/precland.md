@@ -58,7 +58,7 @@ Precision landing can be initiated as part of a [mission](../flying/missions.md)
 
 ### Return Mode Precision Landing
 
-Precision landing can be used in the [Return mode](../flight_modes/return.md) landing phase.
+Precision landing can be used in the [Return mode](../flight_modes_mc/return.md) landing phase.
 
 This is enabled using the parameter [RTL_PLD_MD](../advanced_config/parameter_reference.md#RTL_PLD_MD), which takes the following values:
 
@@ -152,7 +152,7 @@ If you observe slow sideways oscillations of the vehicle while doing a precision
 
 ## Simulation
 
-Precision landing with the IR-LOCK sensor and beacon can be simulated in [Gazebo Classic](../sim_gazebo_classic/README.md).
+Precision landing with the IR-LOCK sensor and beacon can be simulated in [Gazebo Classic](../sim_gazebo_classic/index.md).
 
 To start the simulation with the world that contains a IR-LOCK beacon and a vehicle with a range sensor and IR-LOCK camera, run:
 
