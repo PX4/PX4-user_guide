@@ -6,7 +6,7 @@ The [_PX4 Vision Autonomy Development Kit_](https://holybro.com/collections/mult
 
 The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a _Pixhawk 4_ or _Pixhawk 6C_ (on V1.5) flight controller, a _UP Core_ companion computer (4GB memory & 64GB eMMC), and a Occipital _Structure Core_ depth camera sensor.
 
-:::note
+:::info
 This vehicle comes with no pre-installed software.
 A USB stick is included in the kit with an example of an [obstacle avoidance](../computer_vision/obstacle_avoidance.md) feature implementation, based on the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance) project. This example is intended as a reference only and serves to demonstrate the capabilities of the platform. The software is not compatible with the latest version of PX4, nor is it actively maintained or supported.
 :::
@@ -55,7 +55,7 @@ For PX4 Vision v1 with ECN below 010/carrier board below RC04, the _UP Core_ sho
 
 ## What is Inside
 
-:::note
+:::info
 Difference between the PX4 Vision V1 and V1.5 can be found [here](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5/v1-and-v1.5-difference)
 :::
 
@@ -145,7 +145,7 @@ In addition, users will need ground station hardware/software:
    ![UP Core: USB1 Port ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
 
 5. Power the vehicle with a fully charged battery.
-   :::note
+   ::: info
    Ensure propellers are removed before connecting the battery.
 
 :::
@@ -165,7 +165,7 @@ In addition, users will need ground station hardware/software:
 
 8. [Configure/calibrate](../config/index.md) the vehicle:
 
-   :::note
+   ::: info
    The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup).
    You will however need to calibrate the radio system (that you just connected) and it is often worth re-doing the compass calibration.
 
@@ -176,7 +176,7 @@ In addition, users will need ground station hardware/software:
 
 9. (Optional) Configure a [Flight Mode selector switch](../config/flight_mode.md) on the remote controller.
 
-   :::note
+   ::: info
    Modes can also be changed using _QGroundControl_
 
 :::
@@ -261,7 +261,7 @@ You can install the image on the _UP Core_ and boot from internal memory (instea
 
 This is recommended because booting from internal memory is much faster, frees up a USB port, and may well provide more memory than your USB stick.
 
-:::note
+:::info
 Booting from internal memory takes around 30 seconds while booting from the supplied USB2 stick boots in about a minute (other cards may take several times longer).
 :::
 
@@ -279,7 +279,7 @@ To flash the USB image to the _UP Core_:
    sudo ./flash_emmc.sh
    ```
 
-   :::note
+   ::: info
    All information saved in the _UP Core_ computer will be removed when executing this script.
 
 :::
@@ -390,7 +390,7 @@ You can also modify PX4 itself, and [install it as custom firmware](../config/fi
 - Select the _PX4 Vision DevKit_ airframe after loading new firmware:
   ![Airframe Selection - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
 
-:::note
+:::info
 Modification of PX4 code is not _needed_ to meet most computer vision use cases.
 To discuss the interfaces or how to integrate other features join the [PX4 support channels](../contribute/support.md).
 :::
