@@ -1,6 +1,6 @@
 # VESC ESCs (DroneCAN)
 
-The [VESC project](https://vesc-project.com/) is a fully open source hardware and software design for advanced FOC motor controllers. While it can be controlled using traditional PWM input, it also supports being connected over CAN bus using [DroneCAN](../dronecan/README.md).
+The [VESC project](https://vesc-project.com/) is a fully open source hardware and software design for advanced FOC motor controllers. While it can be controlled using traditional PWM input, it also supports being connected over CAN bus using [DroneCAN](../dronecan/index.md).
 
 ## Where to Buy
 
@@ -10,7 +10,7 @@ The [VESC project](https://vesc-project.com/) is a fully open source hardware an
 
 ### Wiring
 
-ESCs are connected to the CAN bus using the VESC CAN connector. Note that this is _not_ the Pixhawk standard 4 pin JST GH connector. For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions. ESC order does not matter.
+ESCs are connected to the CAN bus using the VESC CAN connector. Note that this is _not_ the Pixhawk standard 4 pin JST GH connector. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions. ESC order does not matter.
 
 ## Firmware Setup
 
@@ -43,7 +43,7 @@ Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-te
 <!--
 ## Troubleshooting
 
-See DroneCAN Troubleshooting - (README.md#troubleshooting).
+See DroneCAN Troubleshooting - (index.md#troubleshooting).
 -->
 
 ## Further Information
