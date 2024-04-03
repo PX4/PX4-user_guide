@@ -6,11 +6,11 @@ The configuration files that are compiled into firmware for NuttX targets are lo
 
 In addition, a frame configuration file can also be loaded from an SD card.
 
-:::note
+::: info
 You can also "tweak" the current frame configuration using text files on the SD card. This is covered in [System Startup > Customizing the System Startup](../concept/system_startup.md#customizing-the-system-startup) page.
 :::
 
-:::note
+::: info
 To determine which parameters/values need to be set in the configuration file, you can first assign a generic airframe and tune the vehicle, and then use [`param show-for-airframe`](../modules/modules_command.md#param) to list the parameters that changed.
 :::
 
@@ -55,7 +55,7 @@ The configuration file consists of several main blocks:
 
 These aspects are mostly independent, which means that many configurations share the same physical layout of the airframe, start the same applications and differ most in their tuning gains.
 
-:::note
+::: info
 New frame configuration files are only automatically added to the build system after a clean build (run `make clean`).
 :::
 
