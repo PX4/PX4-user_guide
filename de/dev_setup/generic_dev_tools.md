@@ -21,6 +21,5 @@ The following IDEs also work (but are not recommended unless you're an expert):
 - [Sublime Text](https://www.sublimetext.com): Fast and lean text editor.
 - [Qt Creator IDE](../dev_setup/qtcreator.md): Popular cross-platform open-source IDE.
 
-:::note
-There is an [Eclipse project](https://github.com/PX4/PX4-Autopilot/blob/main/eclipse.project) and a [Sublime project](https://github.com/PX4/PX4-Autopilot/blob/main/Firmware.sublime-project) in the source tree.
+::: info There is an [Eclipse project](https://github.com/PX4/PX4-Autopilot/blob/main/eclipse.project) and a [Sublime project](https://github.com/PX4/PX4-Autopilot/blob/main/Firmware.sublime-project) in the source tree.
 :::
