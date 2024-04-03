@@ -20,8 +20,7 @@ _Collision Prevention_ is enabled on PX4 by setting the parameter for minimum al
 
 이 기능에는 외부 시스템의 장애물 정보 (MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) 메시지를 사용하여 전송) 또는 비행 컨트롤러에 연결된 [거리 센서](../sensor/rangefinders.md)가 필요합니다.
 
-:::note
-Multiple sensors can be used to get information about, and prevent collisions with, objects _around_ the vehicle. If multiple sources supply data for the _same_ orientation, the system uses the data that reports the smallest distance to an object.
+::: info Multiple sensors can be used to get information about, and prevent collisions with, objects _around_ the vehicle. If multiple sources supply data for the _same_ orientation, the system uses the data that reports the smallest distance to an object.
 :::
 
 기체는 장애물에 가까워 질 때 속도를 줄이기 위하여 최대 속도를 제한하고 허용된 최소 간격에 도달하면 정지합니다. 장애물에서 멀어지거나 평행하게 이동하려면 사용자는 기체를 장애물에 더 가깝게 만들지 않는 설정 값으로 이동하도록 명령하여야 합니다. 알고리즘은 "더 나은"설정점이 요청된 설정 값의 양쪽에있는 고정된 마진내에 존재한다고 판단되면 설정값 방향을 약간 조정합니다.
