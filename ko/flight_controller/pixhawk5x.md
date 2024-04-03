@@ -121,11 +121,9 @@ The [Pixhawk 5X Wiring Quick Start](../assembly/quick_start_pixhawk5x.md) provid
 
 ![Pixhawk 5X Pinout](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
 
-:::note
+::: info
 Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin).
-:::
-
-Notes:
+::: infos:
 
 - The [camera capture pin](../peripherals/camera.md#camera-capture) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
 - _Pixhawk 5X_ pinouts can be downloaded in PDF from from [here](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf).
@@ -170,7 +168,7 @@ Under these conditions the system will not draw any power (will not be operation
 
 Digital I2C battery monitoring is enabled by default (see [Quickstart > Power](../assembly/quick_start_pixhawk5x.md#power)).
 
-:::note
+::: info
 Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
 :::
 
