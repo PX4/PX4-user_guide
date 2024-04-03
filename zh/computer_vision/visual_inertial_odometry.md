@@ -6,8 +6,7 @@ VIO使用[视觉测距法](https://en.wikipedia.org/wiki/Visual_odometry)从相�
 
 This topic gives guidance on configuring PX4 and a companion computer for a VIO setup.
 
-:::note
-The suggested setup uses ROS for routing VIO information to PX4. However, PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](../ros/external_position_estimation.md#px4-mavlink-integration).
+::: info The suggested setup uses ROS for routing VIO information to PX4. However, PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](../ros/external_position_estimation.md#px4-mavlink-integration).
 :::
 
 ## Suggested Setup
@@ -98,8 +97,7 @@ Technically this can be set to 0 if there is correct timestamping (not just arri
 
 ## 检查/校验 VIO 估计
 
-::: note
-The [MAV_ODOM_LP](../advanced_config/parameter_reference.md#MAV_ODOM_LP) parameter mentioned below was removed in PX4 v1.14. This section needs to be updated. <!-- https://github.com/PX4/PX4-Autopilot/pull/20501#issuecomment-1993788815 -->
+::: info The [MAV_ODOM_LP](../advanced_config/parameter_reference.md#MAV_ODOM_LP) parameter mentioned below was removed in PX4 v1.14. This section needs to be updated. <!-- https://github.com/PX4/PX4-Autopilot/pull/20501#issuecomment-1993788815 -->
 :::
 
 执行以下检查，以确保在首次飞行*之前* VIO 正常运行：
