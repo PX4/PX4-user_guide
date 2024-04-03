@@ -96,7 +96,7 @@ This remote control unit can display vehicle telemetry when used with [FrSky](..
 - PPM-Sum 및 S.BUS 수신기는 **RC** 접지, 전원 및 신호 핀(일반적으로 RC 또는 RCIN으로 표시됨)에 직접 연결합니다.
 - *각각의 채널이 독립적으로 배선된* PPM 수신기는 반드시 RCIN 포트에 PPM 인코더로 [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) 연결합니다. PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다.
 
-Instructions for connecting to specific flight controllers are given in their [quick-start](../assembly/README.md) guides (such as [CUAV Pixhawk V6X Wiring Quick Start: Radio Control](../assembly/quick_start_cuav_pixhawk_v6x.md#radio-control) or [Holybro Pixhawk 6X Wiring Quick Start: Radio Control](../assembly/quick_start_pixhawk6x.md#radio-control)).
+Instructions for connecting to specific flight controllers are given in their [quick-start](../assembly/index.md) guides (such as [CUAV Pixhawk V6X Wiring Quick Start: Radio Control](../assembly/quick_start_cuav_pixhawk_v6x.md#radio-control) or [Holybro Pixhawk 6X Wiring Quick Start: Radio Control](../assembly/quick_start_pixhawk6x.md#radio-control)).
 
 :::tip
 추가 정보는 제조업체의 비행 콘트롤러 설정 매뉴얼을 참고하십시오.
