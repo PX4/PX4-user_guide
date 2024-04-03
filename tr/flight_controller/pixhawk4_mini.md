@@ -71,8 +71,7 @@ Download _Pixhawk 4 Mini_ pinouts from [here](https://github.com/PX4/PX4-user_gu
 
 _Pixhawk 4 Mini_ can have power supply redundancy — if two power sources are supplied. The power rails are: **POWER** and **USB**.
 
-:::note
-The output power rail of **MAIN OUT** does not power the flight controller board (and is not powered by it). You must [supply power](../assembly/quick_start_pixhawk4_mini.md#power) to one of **POWER** or **USB** or the board will be unpowered.
+::: info The output power rail of **MAIN OUT** does not power the flight controller board (and is not powered by it). You must [supply power](../assembly/quick_start_pixhawk4_mini.md#power) to one of **POWER** or **USB** or the board will be unpowered.
 :::
 
 **Normal Operation Maximum Ratings**
