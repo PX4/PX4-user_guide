@@ -33,11 +33,10 @@ The correct order to set the above parameters is:
    If you are using an airspeed sensor, also set the correct cruise airspeed (`FW_AIRSPD_TRIM`).
 1. Run [auto-trimming](#auto-trimming) during a flight to set `TRIM_ROLL`, `TRIM_PITCH` and `TRIM_YAW`.
 
-   You could also manually set the pitch trim (`TRIM_PITCH`) by looking at the actuator controls in the log file (upload it to [Flight Review](https://logs.px4.io) and check the _Actuator Controls_ plot for example).
-   Set that value to the average offset of the pitch signal during wing-leveled flight.
-
-Step 3 can be performed before step 2 if you don't want to have to look at the log, or if you feel comfortable flying in manual mode.
-You can then trim your remote (with the trim switches) and report the values to `TRIM_ROLL/PITCH/YAW` (and remove the trims from your transmitter) or update `TRIM_ROLL/PITCH/YAW` directly during flight via telemetry and QGC.
+   Alternatively, if you feel comfortable flying in manual mode, you can also set the trim values manually:
+   1. Disable auto-trimming using [FW_ATRIM_MODE](../advanced_config/parameter_reference.md#FW_ATRIM_MODE).
+   1. Fly in manual mode and trim your remote (with the trim switches).
+   1. Report the values to `TRIM_ROLL/PITCH/YAW` (and remove the trims from your transmitter) or update `TRIM_ROLL/PITCH/YAW` directly during flight via telemetry and QGC.
 
 ### Auto-trimming
 
