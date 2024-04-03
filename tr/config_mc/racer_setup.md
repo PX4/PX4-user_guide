@@ -28,7 +28,7 @@ Racers typically do not have a GPS as it adds some weight and is prone to damage
 There are however some benefits in adding GPS, particularly for beginners:
 
 - You can go into position hold and the vehicle will just stay in one place. This is handy if you lose the orientation or need a brake. It can also be used to land safely.
-- [Return mode](../flight_modes/return.md) can be used, either on a switch or as RC loss/low battery failsafe.
+- [Return mode](../flight_modes_mc/return.md) can be used, either on a switch or as RC loss/low battery failsafe.
 - You will have the last position when it crashes.
 - The log contains the flight track, which means you can review the flight (in 3D). This can help to improve your acrobatic flight skills.
 
@@ -61,7 +61,7 @@ However it is best to fix any imbalance as part of the vehicle setup.
 
 After having built the racer, you will need to configure the software.
 
-Go through the [Basic Configuration Guide](../config/README.md). In particular, set the [Airframe](../config/airframe.md) that most closely matches your frame (typically you will choose the [Generic 250 Racer](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer) airframe, which sets some racer-specific parameters by default).
+Go through the [Basic Configuration Guide](../config/index.md). In particular, set the [Airframe](../config/airframe.md) that most closely matches your frame (typically you will choose the [Generic 250 Racer](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer) airframe, which sets some racer-specific parameters by default).
 
 These parameters are important:
 
