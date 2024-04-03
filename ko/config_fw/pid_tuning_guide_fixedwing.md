@@ -2,8 +2,7 @@
 
 This guide explains how to manually tune the fixed-wing PID loop. It is intended for advanced users / experts, as incorrect PID tuning may crash your aircraft.
 
-:::note
-[Autotune](../config/autotune.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames. Manual tuning is recommended for frames where autotuning does not work, or where fine-tuning is essential.
+::: info [Autotune](../config/autotune.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames. Manual tuning is recommended for frames where autotuning does not work, or where fine-tuning is essential.
 :::
 
 ## Preconditions
@@ -17,8 +16,7 @@ This guide explains how to manually tune the fixed-wing PID loop. It is intended
 
 If a pilot capable of manual flight is available, its best to establish a few core system properties on a manual trial. To do this, fly these maneuvers. Even if you can't note all the quantities immediately on paper, the log file will be very useful for later tuning.
 
-:::note
-All these quantities will be automatically logged. You only need to take notes if you want to directly move on to tuning without looking at the log files.
+::: info All these quantities will be automatically logged. You only need to take notes if you want to directly move on to tuning without looking at the log files.
 
 - 편리한 속도로 수평 비행하십시오. 스로틀 스틱 위치와 대기 속도를 기록하십시오 (예 : 70 % → 0.7 스로틀, 15m/s 대기 속도).
 - 최대 스로틀과 10-30 초 동안 충분한 대기 속도로 상승하십시오 (예 : 12m/s 대기 속도, 30초에 100m 상승).
