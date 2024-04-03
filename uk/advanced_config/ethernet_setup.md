@@ -149,56 +149,43 @@ PX4 налаштовує серійний порт для підключення
 | [MAV_2_REMOTE_PRT](../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT) | 14550    | Віддалений порт MAVLink 14550 (GCS)                               |
 | [MAV_2_UDP_PRT](../advanced_config/parameter_reference.md#MAV_2_UDP_PRT)       | 14550    | Мережевий порт MAVLink 14550 (GCS)                                |
 
-Зазвичай співпрацюючий комп'ютер використовуватиме порт `14540` (замість `14550`) та передаватиме набір повідомлень MAVLink, вказаний у профілі `Onboard`. Ви можете налаштувати це налаштування, змінивши [MAV_2_REMOTE_PRT](../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT) і [MAV_2_UDP_PRT](../advanced_config/parameter_reference.md#MAV_2_UDP_PRT) на `14540` і [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) на `2</2 > (На борту).
-Проте слід зауважити, що це все одно працюватиме, використовуючи профіль GCS.</p>
+Зазвичай співпрацюючий комп'ютер використовуватиме порт `14540` (замість `14550`) та передаватиме набір повідомлень MAVLink, вказаний у профілі `Onboard`. Ви можете налаштувати це налаштування, змінивши [MAV_2_REMOTE_PRT](../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT) і [MAV_2_UDP_PRT](../advanced_config/parameter_reference.md#MAV_2_UDP_PRT) на `14540` і [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) на `2` (На борту). Проте слід зауважити, що це все одно працюватиме, використовуючи профіль GCS.
 
-<p spaces-before="0">Для отримання додаткової інформації про налаштування серійного порту MAVLink дивіться <a href="../peripherals/mavlink_peripherals.md">Пристрої MAVLink (GCS/OSD/Супутник)</a>.</p>
+Для отримання додаткової інформації про налаштування серійного порту MAVLink дивіться [Пристрої MAVLink (GCS/OSD/Супутник)](../peripherals/mavlink_peripherals.md).
 
-<h2 spaces-before="0">Приклад налаштування QGroundControl</h2>
+## Приклад налаштування QGroundControl
 
-<p spaces-before="0">
-Припускаючи, що ви вже налаштували <a href="#setting-up-the-ethernet-network">мережу Ethernet</a>, щоб ваш комп'ютер земної станції та PX4 працювали в одній мережі, і</p>
+Припускаючи, що ви вже налаштували [мережу Ethernet](#setting-up-the-ethernet-network), щоб ваш комп'ютер земної станції та PX4 працювали в одній мережі, і
 
-<p spaces-before="0">Для підключення QGroundControl до PX4 по Ethernet:</p>
+Для підключення QGroundControl до PX4 по Ethernet:
 
-<ol start="1">
-<li><a href="#setting-up-the-ethernet-network">Налаштуйте мережу Ethernet</a>  так, щоб ваш комп'ютер земної станції та PX4 працювали в одній мережі.</li>
-<li>Підключіть комп'ютер земної станції та PX4 за допомогою кабелю Ethernet.</li>
-<li><p spaces-before="0">Запустіть QGroundControl та <a href="https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html">визначте комунікаційний канал</a> (<strong x-id="1">Налаштування додатка &#062; Канали зв'язку</strong>), вказавши <em x-id="4">адресу сервера</em> та порт як IP-адресу та порт, призначений в PX4, відповідно.</p>
+1. [Налаштуйте мережу Ethernet](#setting-up-the-ethernet-network)  так, щоб ваш комп'ютер земної станції та PX4 працювали в одній мережі.
+1. Підключіть комп'ютер земної станції та PX4 за допомогою кабелю Ethernet.
+1. Запустіть QGroundControl та [визначте комунікаційний канал](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) (**Налаштування додатка > Канали зв'язку**), вказавши _адресу сервера_ та порт як IP-адресу та порт, призначений в PX4, відповідно.
 
-<p spaces-before="3">Припускаючи, що значення встановлені так, як описано в решті цієї теми, налаштування виглядатиме наступним чином:</p>
+   Припускаючи, що значення встановлені так, як описано в решті цієї теми, налаштування виглядатиме наступним чином:
 
-<p spaces-before="3"><img src="../../assets/qgc/settings/comm_link/px4_ethernet_link_config.png" alt="QGC comm link for ethernet setup" /></p></li>
-<li><p spaces-before="0">Після цього QGroundControl має підключитися, якщо ви виберете це посилання.</p></li>
-</ol>
+   ![QGC comm link for ethernet setup](../../assets/qgc/settings/comm_link/px4_ethernet_link_config.png)
 
-<p spaces-before="0">:::note
-Конфігурація <a href="#px4-ethernet-network-setup">порту Ethernet PX4</a> не повинна бути потрібною (за замовчуванням вона відповідна для GCS).
+1. Після цього QGroundControl має підключитися, якщо ви виберете це посилання.
 
+:::note
+Конфігурація [порту Ethernet PX4](#px4-ethernet-network-setup) не повинна бути потрібною (за замовчуванням вона відповідна для GCS).
+:::
 
+## Приклад налаштування MAVSDK-Python
 
+Щоб налаштувати роботу MAVSDK-Python на комп’ютері-супутнику:
 
-
-
-:::</p>
-
-<h2 spaces-before="0">Приклад налаштування MAVSDK-Python</h2>
-
-<p spaces-before="0">Щоб налаштувати роботу MAVSDK-Python на комп’ютері-супутнику:</p>
-
-<ol start="1">
-<li>Щоб налаштувати роботу MAVSDK-Python на комп’ютері-супутнику:</li>
-<li><p spaces-before="0">Змініть <a href="#px4-ethernet-network-setup">Конфігурацію порту Ethernet PX4</a> для підключення до комп’ютера-супутника.
-Ви можете змінити параметри <a href="../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT">MAV_2_REMOTE_PRT</a> і <a href="../advanced_config/parameter_reference.md#MAV_2_UDP_PRT">MAV_2_UDP_PRT</a> на <code>14540`, а [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) на `2` (На борту).</li>
-1
-Дотримуйтесь інструкцій у [MAVSDK-python](https://github.com/mavlink/MAVSDK-Python), щоб установити та використовувати MAVSDK.
+1. Щоб налаштувати роботу MAVSDK-Python на комп’ютері-супутнику:
+1. Змініть [Конфігурацію порту Ethernet PX4](#px4-ethernet-network-setup) для підключення до комп’ютера-супутника. Ви можете змінити параметри [MAV_2_REMOTE_PRT](../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT) і [MAV_2_UDP_PRT](../advanced_config/parameter_reference.md#MAV_2_UDP_PRT) на `14540`, а [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) на `2` (На борту).
+1. Дотримуйтесь інструкцій у [MAVSDK-python](https://github.com/mavlink/MAVSDK-Python), щоб установити та використовувати MAVSDK.
 
    Наприклад, ваш код буде підключатися до PX4 за допомогою:
 
    ```python
    await drone.connect(system_address="udp://192.168.0.4:14540")
    ```
-</ol>
 
 :::note MAVSDK
 може підключитися до PX4 за адресою порту `14550`, якщо ви не змінюєте конфігурацію мережевого порту PX4. Проте це не рекомендується, оскільки типова конфігурація оптимізована для зв'язку з наземним контролем (а не компаньйон комп'ютером).
