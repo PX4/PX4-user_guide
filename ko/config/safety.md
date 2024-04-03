@@ -284,7 +284,7 @@ The arm/disarm switch is a _direct replacement_ for the default stick-based armi
 - 특정 스틱 동작으로 공중에서 실수로 시동/비시동 하는 것을 방지합니다.
 - 지연 시간이 없습니다 (즉시 동작합니다).
 
-The arm/disarm switch immediately disarms (stop) motors for those [flight modes](../flight_modes/README.md#flight-modes) that _support disarming in flight_. 여기에는 다음의 항목들이 포함됩니다.
+The arm/disarm switch immediately disarms (stop) motors for those [flight modes](../flight_modes/index.md#flight-modes) that _support disarming in flight_. 여기에는 다음의 항목들이 포함됩니다.
 
 - _수동 모드_
 - _Acro 모드_
