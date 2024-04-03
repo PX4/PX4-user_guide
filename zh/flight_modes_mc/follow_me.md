@@ -38,7 +38,7 @@ Users can adjust the follow angle, height and distance using an RC controller as
 
   ![Follow-me Angle Diagram](../../assets/flight_modes/followme_angle.png)
 
-:::note
+::: info
 Angle, height, and distance values set using the RC controller are discarded when you exit follow-me mode. If you exit Follow-Me mode and activate it again the values will be reset to their defaults.
 :::
 
@@ -94,7 +94,7 @@ The mode has been tested on the following Android devices:
 
 For more information see the [Follow Me class](https://mavsdk.mavlink.io/main/en/cpp/guide/follow_me.html) documentation as well as the [Follow Me Example](https://mavsdk.mavlink.io/main/en/cpp/examples/follow_me.html).
 
-:::note
+::: info
 MAVSDK is not currently recommended, due to a bug ([MAVSDK#1756](https://github.com/mavlink/MAVSDK/issues/1756) where the same message is occasionally sent twice. This can confuse the target position and velocity estimator.
 :::
 
