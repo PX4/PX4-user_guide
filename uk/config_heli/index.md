@@ -18,28 +18,28 @@
 
 Щоб налаштувати та сконфігурувати гелікоптер:
 
-1. Виберіть [планер](../config/airframe.md) гелікоптера в QGroundControl. At time of writing there is only _Generic Helicopter (Tail ESC)_ in the Helicopter group. This will configure the helicopter frame with a mechanically uncoupled tail ([CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME): `10: Helicopter (tail ESC)`).
+1. Виберіть [планер](../config/airframe.md) гелікоптера в QGroundControl. На момент написання є лише _загальний гелікоптер (з хвостовим ЕСП/Tail ESC)_ в групі гелікоптерів. Це призведе до налаштування рами вертольота з механічно від’єднаним хвостом ([CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME): `10: Вертоліт (хвостовий ESC/tail ESC)`).
 
    ![QGC - helicopter airframe](../../assets/config/airframe/airframe_heli_generic.png)
 
-   ::: info There is no separate airframe for the helicopter with tail servo. To select this configuration, set the parameter [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) to _Helicopter (tail Servo)_. The actuator configuration screen will then change to support this frame type.
+   ::: info Немає окремого конструкційного типу для гелікоптера з хвостовим сервоприводом. Щоб вибрати цю конфігурацію, встановіть параметр [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) на _Гелікоптер (з хвостовим сервоприводом/tail Servo)_. Потім екран конфігурації приводу зміниться для підтримки цього типу рами.
 :::
 
-1. Configure helicopter actuator geometry in **Vehicle Setup > Actuators**.
+1. Налаштуйте геометрію приводу вертольота в **Налаштування пристрою> Актуатори**.
 
-   ::: info Actuator setup and testing is covered for most frames in [Actuators](../config/actuators.md). While that is referenced below, this is the main topic for helicopter setup information.
+   ::: info Налаштування та тестування приводу описано для більшості рам у розділі [Actuators/Приводи](../config/actuators.md). Хоча це згадується нижче, це основна тема для інформації про налаштування гелікоптера.
 :::
 
-   The geometry for a [Generic Helicopter - with Tail ESC](../airframes/airframe_reference.md#copter_helicopter_generic_helicopter_%28tail_esc%29) is shown below.
+   Геометрія для [Звичайного вертольота - з хвостовою ESC](../airframes/airframe_reference.md#copter_helicopter_generic_helicopter_%28tail_esc%29) показана нижче.
 
    ![Geometry: helicopter](../../assets/config/actuators/qgc_geometry_helicopter.png)
 
    Мотори не мають геометрії, що налаштовується:
 
-   - `Rotor (Motor 1)`: The main rotor
-   - `Yaw tail motor (Motor 2)`: The tail rotor
+   - `Ротор (Двигун 1)`: Головний ротор
+   - `Рульовий мотор кормового руху (Двигун 2)`: Хвостовий ротор
 
-   Swash plate servos: `3` | `4` <!-- 4 provides additional stability -->
+   Сервоприводи кронштейна рушія:`3` | `4` <!-- 4 provides additional stability -->
 
    Для кожного набору сервоприводів:
 
@@ -53,16 +53,16 @@
 
      <img width="700" alt="warning and requirement" src="../../assets/airframes/helicopter/swash_plate_servo_angles.png" />
 
-   - `Arm Length (relative to each other)`: Radius from the swash plate center (top view). A shorter arm means the same servo motion moves the plate more. This allows the autopilot to compensate.
-   - `Trim`: Offset individual servo positions. This is only needed in rare case when the swash plate is not level even though all servos are centered.
+   - `Довжина плеча (відносно один до одного)`: Радіус від центру кронштейна рушія (вигляд зверху). Коротше плече означає, що та ж сама рух сервопривода зміщує плиту більше. Це дозволяє отримати компенсацію автопілоту.
+   - `Калібрування`: Зміщення позицій окремих сервоприводів. Це потрібно лише у випадках, коли кронштейн рушія не рівний, навіть якщо всі сервоприводи налаштовані в центр.
 
-   Additional settings:
+   Додаткові налаштування:
 
-   - `Yaw compensation scale based on collective pitch`: How much yaw is feed forward compensated based on the current collective pitch.
-   - `Main rotor turns counter-clockwise`: `Disabled` (clockwise rotation) | `Enabled`
-   - `Throttle spoolup time`: Set value (in seconds) greater than the achievable minimum motor spool up time. A larger value may improve user experience.
+   - `Масштаб компенсації курсової стійкості` на основі загального кута наклона: Наскільки компенсована курсова стійкість на основі поточного загального кута наклона.
+   - `Головний ротор обертається проти годинникової стрілки`: `Вимкнено` (обертання за годинниковою стрілкою) | `Увімкнено`
+   - `Час прискорення газу`: Встановіть значення (в секундах), більше ніж досяжний мінімальний час прискорення двигуна. Більше значення може поліпшити зручність користувача.
 
-1. Remove the rotor blades and propellers
+1. Видаліть лопаті ротора та пропелери
 1. Assign motors and servos to outputs and test (also in [Actuator configuration](../config/actuators.md)):
 
    1. Assign the [motors and servos to the outputs](../config/actuators.md#actuator-outputs).
