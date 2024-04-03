@@ -37,7 +37,7 @@ The correct order to set the above parameters is:
    Set that value to the average offset of the pitch signal during wing-leveled flight.
 
 Step 3 can be performed before step 2 if you don't want to have to look at the log, or if you feel comfortable flying in manual mode.
-You can then trim your remote (with the trim switches) and report the values to `TRIM_PITCH` (and remove the trims from your transmitter) or update `TRIM_PITCH` directly during flight via telemetry and QGC.
+You can then trim your remote (with the trim switches) and report the values to `TRIM_ROLL/PITCH/YAW` (and remove the trims from your transmitter) or update `TRIM_ROLL/PITCH/YAW` directly during flight via telemetry and QGC.
 
 ### Auto-trimming
 
