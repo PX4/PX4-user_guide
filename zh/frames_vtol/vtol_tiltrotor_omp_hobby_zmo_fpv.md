@@ -229,7 +229,7 @@ Another option is to add some threaded inserts into the holes. Since the injecti
 
 :::note
 
-If a Skynode is installed the LTE can be used as telemetry and video link. If a Pixhawk is used a different [telemetry link](../telemetry/README.md) will be needed. An inexpensive example would be a [SiK Telemetry Radio](../telemetry/sik_radio.md).
+If a Skynode is installed the LTE can be used as telemetry and video link. If a Pixhawk is used a different [telemetry link](../telemetry/index.md) will be needed. An inexpensive example would be a [SiK Telemetry Radio](../telemetry/sik_radio.md).
 :::
 
 
@@ -332,8 +332,8 @@ If the motor spins in the wrong directions two of the three motor wires need to 
 ## First Flight
 
 - Check tilt rotor reactions in [Stabilized mode](../flight_modes_fw/stabilized.md). Keep the throttle stick at the minimum and place the vehicle at the ground. To enable the tilt servos you need to arm the vehicle.
-  - Yaw the vehicle to the right (nose to the right) -> right motor should tilt down
-  - Yaw the vehicle to the left (nose to the left) -> left motor should tilt down
+  - Yaw the vehicle to the right (nose to the right) -> left motor should tilt down
+  - Yaw the vehicle to the left (nose to the left) -> right motor should tilt down
 - Mount the propellers.
 - Check center of gravity (GG). Switch the vehicle into forward flight mode. To check the CG lift the vehicle with two fingers up at the markings underneath the wing. The vehicle should balance horizontally. If the vehicle tips to either the tail or to the nose then you need to move the battery into the opposite direction. If you are not able to balance the vehicle with this method you will need to reposition some components or add weight to balance the vehicle.
 - Check actuator orientations and neutral trim
