@@ -22,8 +22,7 @@ Shell 提供对系统的上层访问能力：
 - 无法_直接_显示运行在工作队列上的任务输出。
 - 在 PX4 系统无法启动时无助于调试（它并没有运行）。
 
-:::note
-The `dmesg` command is now available through the shell on some boards, enabling much lower level debugging than previously possible. For example, with `dmesg -f &` you also see the output of background tasks.
+::: info The `dmesg` command is now available through the shell on some boards, enabling much lower level debugging than previously possible. For example, with `dmesg -f &` you also see the output of background tasks.
 :::
 
 [系统控制台（System Console）](../debug/system_console.md)在调试系统无法启动时十分必要，它会在飞控板上电后输出启动日志。 但是 [MAVLink Shell](../debug/mavlink_shell.md) 则更加易于配置使用，因此通常都推荐用它调试。
