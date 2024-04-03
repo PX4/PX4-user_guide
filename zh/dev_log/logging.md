@@ -109,7 +109,7 @@ sd_bench -r 100
 
 并且同一时刻只能有一个客户机可以请求日志流。 PX4 uses bigger buffers on F7/H7 and read caching to make up for some of these issues.
 
-:::note
+::: info
 If you have concerns about a particular card you can run the above test and report the results to https://github.com/PX4/PX4-Autopilot/issues/4634.
 :::
 
