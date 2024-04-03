@@ -175,7 +175,7 @@ The final build is shown below:
 *QGroundControl* for your platform.
 
 :::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
 :::
 
 First update the firmware, airframe, geometry, and outputs:

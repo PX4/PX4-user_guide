@@ -199,7 +199,7 @@ If you have to wire the system yourself, the diagram below shows all the connect
 [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
 :::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
 :::
 
 First update the firmware, airframe, and actuator mappings:

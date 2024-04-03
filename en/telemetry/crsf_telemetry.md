@@ -9,7 +9,7 @@ The [supported telemetry messages are listed here](#telemetry-messages), and inc
 
 :::note
 If you don't need telemetry you can connect a TBS Crossfire to the `RCIN` port and configure the receiver to use S.BUS.
-Crossfire radio systems can also be used as [Telemetry Radios](../telemetry/README.md).
+Crossfire radio systems can also be used as [Telemetry Radios](../telemetry/index.md).
 :::
 
 :::warning

@@ -28,7 +28,7 @@ These parts are included in stand alone compass modules, combined compass/GNSS m
 
 ### Combined GNSS/Compass Modules
 
-See [Global Navigation Satellite Systems (GNSS)](../gps_compass/README.md#supported-gnss) for a list of appropriate modules.
+See [Global Navigation Satellite Systems (GNSS)](../gps_compass/index.md#supported-gnss) for a list of appropriate modules.
 
 ::: note
 If GNSS is required, then a combined GNSS/Compass module will be preferred over the stand-alone modules below.
@@ -62,9 +62,9 @@ No further configuration is required.
 
 ## CAN Compass Setup
 
-[DroneCAN](../dronecan/README.md) covers the setup for DroneCAN peripherals, including compasses.
+[DroneCAN](../dronecan/index.md) covers the setup for DroneCAN peripherals, including compasses.
 
-You will need to connect the compass to the [CAN bus](../can/README.md#wiring), enable DroneCAN, and specifically enable magnetometers (search for `UAVCAN_SUB_MAG`).
+You will need to connect the compass to the [CAN bus](../can/index.md#wiring), enable DroneCAN, and specifically enable magnetometers (search for `UAVCAN_SUB_MAG`).
 
 ## Calibration
 

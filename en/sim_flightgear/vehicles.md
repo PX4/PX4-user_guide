@@ -7,7 +7,7 @@ It may or may not work with current versions of PX4.
 See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
 :::
 
-This topic lists/displays the vehicles supported by the PX4 [FlightGear](../sim_flightgear/README.md) simulation, and the `make` commands required to run them (the commands are run from terminal in the **PX4-Autopilot** directory).
+This topic lists/displays the vehicles supported by the PX4 [FlightGear](../sim_flightgear/index.md) simulation, and the `make` commands required to run them (the commands are run from terminal in the **PX4-Autopilot** directory).
 The supported types are: plane, autogyro and rover (there are specific frames within these types).
 
 :::tip
@@ -15,7 +15,7 @@ For the full list of build targets run `make px4_sitl list_vmd_make_targets` (fi
 :::
 
 :::note
-The [FlightGear](../sim_flightgear/README.md) page shows how to install and use FlightGear in more detail (this page is a summary of vehicle-specific features).
+The [FlightGear](../sim_flightgear/index.md) page shows how to install and use FlightGear in more detail (this page is a summary of vehicle-specific features).
 :::
 
 ## Standard Plane

@@ -20,7 +20,7 @@ The RTK compatible devices below that are expected to work with PX4 (it omits di
 The table indicates devices that also output yaw, and that can provide yaw when two on-vehicle units are used.
 It also highlights devices that connect via the CAN bus, and those which support PPK (Post-Processing Kinematic).
 
-Device | GPS | Compass | [DroneCAN](../dronecan/README.md) | [GPS Yaw](#configuring-gps-as-yaw-heading-source) | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) | PPK
+Device | GPS | Compass | [DroneCAN](../dronecan/index.md) | [GPS Yaw](#configuring-gps-as-yaw-heading-source) | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) | PPK
 :--- | :---: | :---:  | :---:  | :---:  | :---: | :---:
 [ARK RTK GPS](https://arkelectron.com/product/ark-rtk-gps/) | F9P  | ICM42688p | &check; | | &check; |
 [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md) | M8P/M8N | &check; | | | |
@@ -77,12 +77,12 @@ At time of writing this use case has not been tested.
 
 #### Rover RTK Module (Vehicle)
 
-The connection method and cables/connectors required depends on the selected RTK module (and on the [flight controller](../flight_controller/README.md)).
+The connection method and cables/connectors required depends on the selected RTK module (and on the [flight controller](../flight_controller/index.md)).
 
 Most are connected via the flight controller's GPS port, in the same way as any other GPS module.
-Some are connected to the [CAN](../can/README.md) bus (i.e. using [DroneCAN](../dronecan/README.md)).
+Some are connected to the [CAN](../can/index.md) bus (i.e. using [DroneCAN](../dronecan/index.md)).
 
-See [documentation for the selected device](#supported-devices) and [DroneCAN](../dronecan/README.md) for more information on wiring and configuration.
+See [documentation for the selected device](#supported-devices) and [DroneCAN](../dronecan/index.md) for more information on wiring and configuration.
 
 #### Base RTK Module (Ground)
 
@@ -96,7 +96,7 @@ Often it is helpful to elevate the base GPS, by using a tripod or mounting it on
 
 #### Telemetry Radio/WiFi
 
-The vehicle and ground control laptop must be connected via [wifi or a radio telemetry link](../telemetry/README.md).
+The vehicle and ground control laptop must be connected via [wifi or a radio telemetry link](../telemetry/index.md).
 
 The link _must_ use the MAVLink 2 protocol as it makes more efficient use of the channel.
 This should be set by default, but if not, follow the [MAVLink2 configuration instructions](#mavlink2) below.

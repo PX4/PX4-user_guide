@@ -56,7 +56,7 @@ All the serial drivers/ports are configured in the same way:
 1. Set the baud rate parameter for the selected port to the desired value.
 1. Configure module-specific parameters (i.e. MAVLink streams and data rate configuration).
 
-The [GPS/Compass > Secondary GPS](../gps_compass/README.md#dual_gps) section provides a practical example of how to configure a port in _QGroundControl_ (it shows how to use `GPS_2_CONFIG` to run a secondary GPS on the `TELEM 2` port).
+The [GPS/Compass > Secondary GPS](../gps_compass/index.md#dual_gps) section provides a practical example of how to configure a port in _QGroundControl_ (it shows how to use `GPS_2_CONFIG` to run a secondary GPS on the `TELEM 2` port).
 
 Similarly [PX4 Ethernet Setup > PX4 MAVLink Serial Port Configuration](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration) explains the setup for Ethernet serial ports, and [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md) explains the configuration for MAVLink serial ports.
 
@@ -84,7 +84,7 @@ The following ports are commonly mapped to specific functions on all boards:
   This maps the [gps driver](../modules/modules_driver.md#gps) to the port with a baud rate of _Auto_ (with this setting a GPS will automatically detect the baudrate - except for the Trimble MB-Two, which requires 115200 baud rate).
 
 - `RC IN` is configured as an RC input (using [RC_PORT_CONFIG](../advanced_config/parameter_reference.md#RC_PORT_CONFIG)).
-- `TELEM 1` is configured as a MAVLink serial port suitable for connection to a GCS via a [telemetry module](../telemetry/README.md).
+- `TELEM 1` is configured as a MAVLink serial port suitable for connection to a GCS via a [telemetry module](../telemetry/index.md).
 
   The configuration uses [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) to set the port, [MAV_0_RATE](../advanced_config/parameter_reference.md#MAV_0_RATE) to set the baud rate to 57600, and [MAV_0_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) to set the messages streamed to "Normal".
   For more information see: [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md).

@@ -61,7 +61,7 @@ That way the GPS can be put inside the body and is nicely stowed away without co
 
 ## PX4 Configuration
 
-Follow the [Standard Configuration](../config/README.md) in *QGroundControl* (radio, sensors, flight modes, etc.).
+Follow the [Standard Configuration](../config/index.md) in *QGroundControl* (radio, sensors, flight modes, etc.).
 
 The particular settings that are relevant to this vehicle are:
 - [Airframe](../config/airframe.md)

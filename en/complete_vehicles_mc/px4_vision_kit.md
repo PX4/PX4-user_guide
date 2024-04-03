@@ -155,7 +155,7 @@ In addition, users will need ground station hardware/software:
    :::
 
 1. Start _QGroundControl_ on the ground station.
-1. [Configure/calibrate](../config/README.md) the vehicle:
+1. [Configure/calibrate](../config/index.md) the vehicle:
 
    :::note
    The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup).

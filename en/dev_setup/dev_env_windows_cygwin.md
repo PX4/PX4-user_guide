@@ -14,7 +14,7 @@ The following instructions explain how to set up a (Cygwin-based) PX4 developmen
 This environment can be used to build PX4 for:
 
 - Pixhawk and other NuttX-based hardware
-- [jMAVSim Simulation](../sim_jmavsim/README.md)
+- [jMAVSim Simulation](../sim_jmavsim/index.md)
 
 <a id="installation"></a>
 

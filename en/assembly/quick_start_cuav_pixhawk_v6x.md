@@ -80,7 +80,7 @@ A lower voltage of 5V is still acceptable but discouraged.
 
 ## Telemetry (Radio) System
 
-[Telemetry radios](../telemetry/README.md) may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+[Telemetry radios](../telemetry/index.md) may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 
 The vehicle-based radio should be connected to the **TELEM1**/**TELEM2**/**TELEM3** port as shown below (if connected to **TELEM1**, no further configuration is required).
 The other radio is connected to your ground station computer or mobile device (usually by USB).
@@ -128,7 +128,7 @@ The power rail voltage must be appropriate for the servo being used!
 
 ## Other Peripherals
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
+The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/index.md).
 
 ## Pinouts
 
@@ -136,7 +136,7 @@ The wiring and configuration of optional/less common components is covered withi
 
 ## Configuration
 
-General configuration information is covered in: [Autopilot Configuration](../config/README.md).
+General configuration information is covered in: [Autopilot Configuration](../config/index.md).
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 

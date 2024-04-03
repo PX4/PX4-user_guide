@@ -20,7 +20,7 @@ To arm the drone:
   - You can also arm in *QGroundControl* (PX4 does not require a radio control for flying autonomously).
 
 :::tip
-The vehicle will not arm until it is [calibrated/configured](../config/README.md) and has a position lock.
+The vehicle will not arm until it is [calibrated/configured](../config/index.md) and has a position lock.
 [Vehicle Status Notifications](../getting_started/vehicle_status.md) (including on-vehicle LEDs, audio notifications and *QGroundControl* updates) can tell you when the vehicle is ready to fly (and help you work out the cause when it is not ready to fly).
 :::
 

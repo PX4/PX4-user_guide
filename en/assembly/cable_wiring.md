@@ -97,7 +97,7 @@ This protocol is commonly use is for connecting [optical flow](../sensor/optical
 
 UART is used to connect peripherals to the autopilot.
 By default, UART does not support networking and therefore it directly connects two devices together.
-It is often used to connect an autopilot and a [radio modem](../telemetry/README.md).
+It is often used to connect an autopilot and a [radio modem](../telemetry/index.md).
 
 CTS and RTS are signals that are used to indicate that data is being transmitted on TX/RX pins.
 This hand-shake mechanism increases reliability of data transfer.
@@ -120,7 +120,7 @@ UART signals are common sources of low frequency EMI, therefore the length of th
 
 ### GPS(UART) & SAFETY
 
-[GPS receivers and magnetometers](../gps_compass/README.md) are generally very sensitive to EMI.
+[GPS receivers and magnetometers](../gps_compass/index.md) are generally very sensitive to EMI.
 Therefore these should be mounted far away from RF sources (high-power cabling, ESCs, radio modems and its antenna).
 This may be insufficient if the cabling is badly designed.
 

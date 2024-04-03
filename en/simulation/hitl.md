@@ -107,7 +107,7 @@ Follow the appropriate setup steps for the specific simulator in the following s
 Make sure _QGroundControl_ is not running!
 :::
 
-1. Build PX4 with [Gazebo Classic](../sim_gazebo_classic/README.md) (in order to build the Gazebo Classic plugins).
+1. Build PX4 with [Gazebo Classic](../sim_gazebo_classic/index.md) (in order to build the Gazebo Classic plugins).
 
    ```sh
    cd <Firmware_clone>

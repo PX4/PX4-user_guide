@@ -46,4 +46,4 @@ To install and configure PX4:
 
 - [Load PX4 Firmware](../config/firmware.md).
 - [Set the Airframe](../config/airframe.md) to _Holybro Kopis 2_.
-- Continue with [basic configuration](../config/README.md), including sensor calibration and radio setup.
+- Continue with [basic configuration](../config/index.md), including sensor calibration and radio setup.

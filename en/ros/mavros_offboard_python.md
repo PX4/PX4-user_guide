@@ -1,6 +1,6 @@
 # MAVROS _Offboard_ control example (Python)
 
-This tutorial shows the basics of _OFFBOARD_ control with MAVROS Python, using an Iris quadcopter simulated in [Gazebo Classic](../sim_gazebo_classic/README.md).
+This tutorial shows the basics of _OFFBOARD_ control with MAVROS Python, using an Iris quadcopter simulated in [Gazebo Classic](../sim_gazebo_classic/index.md).
 It provides step-by-step instructions demonstrating how to start developing programs to control a vehicle and running the code in simulation.
 
 At the end of the tutorial, you should see the same behaviour as in the video below, i.e. a slow takeoff to an altitude of 2 meters.

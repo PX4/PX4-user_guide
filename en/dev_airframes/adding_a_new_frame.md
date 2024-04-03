@@ -24,7 +24,7 @@ The recommended process for developing a new frame configuration is:
 
 1. Start by selecting an appropriate "generic configuration" for the target vehicle type in QGC, such as _Generic Quadcopter_.
 1. Configure the [geometry and actuator outputs](../config/actuators.md).
-1. Perform other [basic configuration](../config/README.md).
+1. Perform other [basic configuration](../config/index.md).
 1. Tune the vehicle.
 1. Run the [`param show-for-airframe`](../modules/modules_command.md#param) console command to list the parameter difference compared to the original generic airfame.
 
@@ -319,7 +319,7 @@ The following topics explain how to tune the parameters that will be specified i
 - [Autotuning](../config/autotune.md)
 - [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md)
 - [Fixed-wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
-- [VTOL Configuration](../config_vtol/README.md)
+- [VTOL Configuration](../config_vtol/index.md)
 
 ## Add Frame to QGroundControl
 

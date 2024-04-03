@@ -99,7 +99,7 @@ The firmware can be installed in any of the normal ways:
 
 If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment you can use the [Actuator](../config/actuators.md) configuration UI to set the motor ordering appropriately.
 
-In addition to the [basic configuration](../config/README.md), the following parameters are important:
+In addition to the [basic configuration](../config/index.md), the following parameters are important:
 
 | Parameter                                                            | Setting                                                                                                                 |
 | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |

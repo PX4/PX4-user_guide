@@ -3,7 +3,7 @@
 A **Tailsitter VTOL** takes off and lands on its tail, but flips into the fixed-wing orientation for normal flight.
 The tailsitter rotors are permanently fixed in position for forward flight.
 
-Tailsitters are typically mechanically less complex than [other types of VTOL](../frames_vtol/README.md), and hence may be less expensive to build and maintain.
+Tailsitters are typically mechanically less complex than [other types of VTOL](../frames_vtol/index.md), and hence may be less expensive to build and maintain.
 However they are aerodynamically more complex, and can be harder to tune and fly for hover and transition, particularly in windy conditions.
 
 ## Tailsitter Airframes
@@ -43,7 +43,7 @@ Both are supported using the same aiframe type in PX4.
 
 ## Setup/Flying
 
-VTOL setup and flying are covered in the [VTOL](../frames_vtol/README.md) parent topic.
+VTOL setup and flying are covered in the [VTOL](../frames_vtol/index.md) parent topic.
 
 :::note
 The instructions are essentially the same for all VTOL.
@@ -62,7 +62,7 @@ We recommend that you also review build logs for other PX4 VTOL, and Copter vehi
 
 ## Videos
 
-This section contains videos that are specific to Tailsitter VTOL (videos that apply to all VTOL types can be found in [VTOL](../frames_vtol/README.md)).
+This section contains videos that are specific to Tailsitter VTOL (videos that apply to all VTOL types can be found in [VTOL](../frames_vtol/index.md)).
 
 ### Duo
 

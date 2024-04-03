@@ -111,7 +111,7 @@ KakuteH7v2 is supported with PX4 main and v1.14 or newer.
 
 ## PX4 Configuration
 
-In addition to the [basic configuration](../config/README.md), the following parameters are important:
+In addition to the [basic configuration](../config/index.md), the following parameters are important:
 
 | Parameter                                                            | Setting                                                                                                                 |
 | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
