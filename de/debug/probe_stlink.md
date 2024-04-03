@@ -77,7 +77,7 @@ The GPIO1/2 pins are not supported by the STLinkv3, and we recommend using digit
 
 You can choose to solder a short or long cable to the BTB connector. The short cable is better for high-speed communication, but is more difficult to solder. We recommend soldering the long cable first and testing how fast you can communicate with your target.
 
-:::note
+::: info
 This guide is written for the full 10-pin debug port. If you want to solder the mini 6-pin version, just leave out the signals you don't have. The STLink supports any SWD/JTAG-based debug interface, so you can adapt this guide for any other connector you may have. The debug probes are so cheap, you can just have one per connector instead of using adapters.
 :::
 
