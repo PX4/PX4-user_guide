@@ -11,7 +11,7 @@ See [Toolchain Installation](../dev_setup/dev_env.md) for information about the 
 该工具链非常轻便，而且容易安装和使用。 它是目前Windows环境下用于PX4开发的最新和最好的工具。
 
 - 编译/上传 PX4到Nuttx目标(Pixhawk系列飞控)
-- [jMAVSim Simulation](../sim_jmavsim/README.md)
+- [jMAVSim Simulation](../sim_jmavsim/index.md)
 
 <a id="installation"></a>
 
