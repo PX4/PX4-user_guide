@@ -14,7 +14,7 @@ PX4에서는 SD 카드는 FAT32 포맷이어야 합니다(SD 카드의 기본값
 | `/etc`                        | Extra config. See [System Startup > Replacing the System Startup][replace system start]. |
 | `/log`                        | 전체 [비행 기록](../dev_log/logging.md)                                                        |
 | `/mission_log`                | 일부 비행 기록                                                                                 |
-| `/fw`                         | [DroneCAN](../dronecan/README.md) firmware                                               |
+| `/fw`                         | [DroneCAN](../dronecan/index.md) firmware                                                |
 | `/uavcan.db`                  | DroneCAN DNA server DB + logs                                                            |
 | `/params`                     | 매개변수들 (FRAM/FLASH에 없을 경우)                                                                |
 | `/dataman`                    | 임무 저장 파일                                                                                 |
