@@ -144,7 +144,7 @@ The following steps are required to get started:
 
 7. Back in the ROS 2 terminal, run one of the example modes:
 
-   ```shell
+   ```sh
    ros2 run example_mode_manual_cpp example_mode_manual
    ```
 
@@ -169,7 +169,7 @@ The following steps are required to get started:
 
    The output should contain:
 
-   ```{5}
+   ```
    INFO  [commander] Disarmed
    INFO  [commander] navigation mode: Position
    INFO  [commander] user intended navigation mode: Position
