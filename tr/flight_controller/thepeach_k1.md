@@ -67,7 +67,7 @@ It is based on the **Pixhawk-project FMUv3** open hardware design and runs **PX4
 
 **ThePeach FCC-K1** can be double-redundant on the power supply if two power sources are supplied. The two power rails are: **POWER** and **USB**.
 
-:::note
+::: info
 The output power rails **FMU PWM OUT** and **I/O PWM OUT** do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER** or **USB** or the board will be unpowered.
 :::
 
