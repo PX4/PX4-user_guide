@@ -10,7 +10,7 @@ Distance sensors provide distance measurement that can be used for [terrain foll
 
 ### ARK Flow
 
-[ARK Flow](../dronecan/ark_flow.md) is an open-source Time-of-Flight (ToF) and optical flow sensor module, which is capable of measuring distances from 8cm to 30m. 它可以通过CAN1接口连接至飞控，允许通过CAN2接口添加传感器。 It supports [DroneCAN](../dronecan/README.md), runs [PX4 DroneCAN Firmware](../dronecan/px4_cannode_fw.md), and is packed into a tiny form factor.
+[ARK Flow](../dronecan/ark_flow.md) is an open-source Time-of-Flight (ToF) and optical flow sensor module, which is capable of measuring distances from 8cm to 30m. 它可以通过CAN1接口连接至飞控，允许通过CAN2接口添加传感器。 It supports [DroneCAN](../dronecan/index.md), runs [PX4 DroneCAN Firmware](../dronecan/px4_cannode_fw.md), and is packed into a tiny form factor.
 
 ### Holybro ST VL53L1X 激光雷达
 
@@ -60,7 +60,7 @@ The [Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor](../sensor/cm
 
 ### Avionics Anonymous UAVCAN 激光高度计接口
 
-The [Avionics Anonymous UAVCAN Laser Altimeter Interface](../dronecan/avanon_laser_interface.md) allows several common rangefinders (e.g. [Lightware SF11/c, SF30/D](../sensor/sfxx_lidar.md), etc) to be connected to the [CAN](../can/README.md) bus via [DroneCAN](../dronecan/README.md), a more robust interface than I2C.
+The [Avionics Anonymous UAVCAN Laser Altimeter Interface](../dronecan/avanon_laser_interface.md) allows several common rangefinders (e.g. [Lightware SF11/c, SF30/D](../sensor/sfxx_lidar.md), etc) to be connected to the [CAN](../can/index.md) bus via [DroneCAN](../dronecan/index.md), a more robust interface than I2C.
 
 <a id="configuration"></a>
 
@@ -118,7 +118,7 @@ For more information see: [Development > Debugging/Logging > Sensor/Topic Debugg
 
 ## 仿真
 
-Lidar and sonar rangefinders can be used in the [Gazebo Classic](../sim_gazebo_classic/README.md) simulator. 要做到这一点，你必须在启动模拟器时使用一个拥有测距仪的机体模型。
+Lidar and sonar rangefinders can be used in the [Gazebo Classic](../sim_gazebo_classic/index.md) simulator. 要做到这一点，你必须在启动模拟器时使用一个拥有测距仪的机体模型。
 
 iris 光流模型包括激光雷达测距仪：
 
