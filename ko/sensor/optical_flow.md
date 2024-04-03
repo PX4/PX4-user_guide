@@ -35,7 +35,7 @@ If connected to PX4 via MAVLink the Optical Flow device must publish to the [OPT
 
 ### ARK Flow
 
-[ARK Flow](../dronecan/ark_flow.md) is a [DroneCAN](../dronecan/README.md) optical flow sensor, [distance sensor](../sensor/rangefinders.md), and IMU. PAW3902 광학 유량 센서, Broadcom AFBR-S50LV85D 30m 거리 센서 및 BMI088 IMU가 있습니다.
+[ARK Flow](../dronecan/ark_flow.md) is a [DroneCAN](../dronecan/index.md) optical flow sensor, [distance sensor](../sensor/rangefinders.md), and IMU. PAW3902 광학 유량 센서, Broadcom AFBR-S50LV85D 30m 거리 센서 및 BMI088 IMU가 있습니다.
 
 ### PMW3901 기반 센서
 
