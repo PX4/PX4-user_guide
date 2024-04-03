@@ -6,10 +6,10 @@ The configuration files that are compiled into firmware for NuttX targets are lo
 
 In addition, a frame configuration file can also be loaded from an SD card.
 
-:::note
+::: info
 You can also "tweak" the current frame configuration using text files on the SD card. This is covered in [System Startup > Customizing the System Startup](../concept/system_startup.md#customizing-the-system-startup) page. [Airframes Reference](../airframes/airframe_reference.md) 和 *QGroundControl* 会用到该部分内容。
 
-:::note
+::: info
 To determine which parameters/values need to be set in the configuration file, you can first assign a generic airframe and tune the vehicle, and then use [`param show-for-airframe`](../modules/modules_command.md#param) to list the parameters that changed. [Airframes Reference](../airframes/airframe_reference.md) 和 *QGroundControl* 会用到该部分内容。
 
 ## Developing a Frame Configuration
@@ -53,7 +53,7 @@ The configuration file consists of several main blocks:
 
 一个典型的配置文件如下所示 ([original file here](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/airframes/3033_wingwing)) .
 
-:::note
+::: info
 New frame configuration files are only automatically added to the build system after a clean build (run `make clean`). [Airframes Reference](../airframes/airframe_reference.md) 和 *QGroundControl* 会用到该部分内容。
 
 ### Example - Generic Quadcopter Frame Config
@@ -292,8 +292,7 @@ If the airframe is for a **new group** you additionally need to:
         ...
      ```
 
-:::note
-The remaining airframe metadata should be automatically included in the firmware (once **srcparser.py** is updated).
+     ::: info The remaining airframe metadata should be automatically included in the firmware (once **srcparser.py** is updated).
 :::
 
 ## 调参
