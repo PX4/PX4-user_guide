@@ -71,7 +71,7 @@ To install the _Segger Jlink_ tools:
    - Give it a name and set the _C/C++ Application_ to the corresponding **.elf** file.
    - Choose _Disable Auto build_
 
-     :::note
+     ::: info
 Remember that you must build the target from the command line before starting a debug session.
 :::
 
