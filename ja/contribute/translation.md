@@ -10,7 +10,7 @@ Crowdin exports the translated documents back out to Github as a "Pull Request" 
 You will need a (free) [Crowdin account](https://crowdin.com/join) account to join the translation team!
 :::
 
-:::note
+::: info
 The benefit of this system is that the translation closely tracks the source documents.
 Readers will not be mislead by old and out of date translations.
 :::
@@ -30,7 +30,7 @@ The steps to join our translation tream are:
 1. Select the language you want to translate
 1. Click the **Join** button (next to the text _You must join the translators team to be able to participate in this project_)
 
-   :::note
+   ::: info
  You will be notified once your application to join is accepted.
 
 :::
