@@ -13,8 +13,7 @@ The board also has an on-board barometer, LED & buzzer pad, and I2C pad (SDA & S
 
 ![Kakute h7](../../assets/flight_controller/kakuteh7/kakuteh7.png)
 
-:::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Key Features
@@ -97,7 +96,7 @@ The firmware can be installed in any of the normal ways:
 
 - [Load the firmware](../config/firmware.md) using _QGroundControl_. You can use either pre-built firmware or your own custom firmware.
 
-:::note
+::: info
 If you are loading the pre-built firmware via QGroundcontrol, you must use QGC Daily or QGC version newer than 4.1.7.
 :::
 
