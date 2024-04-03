@@ -137,7 +137,7 @@ The pinout uses the standard [Pixhawk debug connector pinout](https://github.com
 ## 주변 장치
 
 - [디지털 대기속도 센서](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
-- [텔레메트리 라디오 모듈](../telemetry/README.md)
+- [텔레메트리 라디오 모듈](../telemetry/index.md)
 - [거리계/거리 센서](../sensor/rangefinders.md)
 
 ## 지원 플랫폼 및 기체
