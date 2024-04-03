@@ -10,7 +10,7 @@ With triple synced IMUs, data averaging, voting, and filtering is possible. The 
 
 ![ARKV6X Main Photo](../../assets/flight_controller/arkv6x/ark_v6x_front.jpg)
 
-:::note
+::: info
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
