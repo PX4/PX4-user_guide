@@ -5,9 +5,9 @@
 Це середовище може бути використане для збірки PX4 для:
 
 - [Pixhawk та іншого апаратного забезпечення на основі NuttX](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
-- [Симуляції Gazebo](../sim_gazebo_gz/README.md)
-- [Симуляції Gazebo Classic](../sim_gazebo_classic/README.md)
-- [Симуляції jMAVSim](../sim_jmavsim/README.md)
+- [Симуляції Gazebo](../sim_gazebo_gz/index.md)
+- [Симуляції Gazebo Classic](../sim_gazebo_classic/index.md)
+- [Симуляції jMAVSim](../sim_jmavsim/index.md)
 
 :::tip
 Ця установка підтримується командою розробників PX4.
