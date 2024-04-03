@@ -80,8 +80,12 @@
                     "text": "main"
                 },
                 {
+                    "value": "https://docs.px4.io/v1.14/en/",
+                    "text": "v1.14 - stable"
+                },
+                {
                     "value": "https://docs.px4.io/v1.13/en/",
-                    "text": "v1.13 - stable"
+                    "text": "v1.13"
                 },
                 {
                     "value": "https://docs.px4.io/v1.12/en/",
@@ -90,10 +94,6 @@
                 {
                     "value": "https://docs.px4.io/v1.11/en/",
                     "text": "v1.11"
-                },
-                {
-                    "value": "https://docs.px4.io/v1.10/en/",
-                    "text": "v1.10"
                 }
             ]
         }
