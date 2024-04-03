@@ -64,7 +64,7 @@ screen /dev/tty.usbserial-CHANGETHIS 57600 8N1
 
 Then start command mode:
 
-:::note
+::: info
 DO NOT TYPE ANYTHING ONE SECOND BEFORE AND AFTER
 :::
 
@@ -86,6 +86,6 @@ AT&W
 ATZ
 ```
 
-:::note
+::: info
 You might have to power-cycle the radio to connect it to the 2nd radio.
 :::
