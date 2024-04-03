@@ -48,8 +48,7 @@ Mount the Cube as close as possible to your vehicle’s center of gravity, ideal
 
 ![Cube 장착 - 전면 방향](../../assets/flight_controller/cube/cube_mount_front.jpg)
 
-:::note
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 :::
 
 Cube를 (키트에 포함된) 진동 감쇠 폼 패드 또는 장착 나사를 사용해 장착할 수 있습니다. Cube 액세서리에 포함된 장착 1.8mm 두께의 프레임보드 전용으로 설계되었습니다. 커스텀 나사는 나사산 길이가 6mm~7.55mm인 M2.5 나사여야 합니다.
@@ -72,8 +71,7 @@ GPS/나침반은 차량 전방 표식를 사용하여 가능하면 전자 장치
 
 ![Here+ 연결 다이어그램](../../assets/flight_controller/cube/here_plus_connector.png)
 
-:::note
-The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
+::: info The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
 :::
 
 :::tip
@@ -128,7 +126,7 @@ Cube는 일반적으로 **POWER1** 포트에 연결된 전원 모듈(키트와 �
 
 ![전원 설정 - 멀티콥터](../../assets/flight_controller/cube/cube_wiring_power_mc.jpg)
 
-:::Note The power (+) rail of **MAIN/AUX** is _not powered_ by the power module supply to the flight controller. 방향타, 엘레본 등의 서보를 구동하려면 별도로 전원을 공급하여야 합니다.
+::: info The power (+) rail of **MAIN/AUX** is _not powered_ by the power module supply to the flight controller. 방향타, 엘레본 등의 서보를 구동하려면 별도로 전원을 공급하여야 합니다.
 
 이것은 BEC가 장착된 ESC, 독립형 5V BEC 또는 2S LiPo 배터리에 전원 레일을 연결하여 수행할 수 있습니다. 사용하는 서보의 전압을 확인하십시오!
 :::
