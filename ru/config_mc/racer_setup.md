@@ -8,7 +8,7 @@ Keep in mind that racers are fast vehicles, specifically designed to be overpowe
 Many things described here can also be applied to improve the flight performance of other types of multicopters.
 :::
 
-:::note
+::: info
 A racer usually omits some sensors (e.g. GPS).
 As a result, fewer failsafe options are available.
 :::
@@ -19,7 +19,7 @@ A racer usually omits some sensors.
 
 The minimal configuration is to use only a gyro and accelerometer sensor.
 
-:::note
+::: info
 If the board has an internal magnetometer, it should not be used (small racers are particularly prone to strong electromagnetic interference).
 :::
 
@@ -32,8 +32,7 @@ There are however some benefits in adding GPS, particularly for beginners:
 - You will have the last position when it crashes.
 - The log contains the flight track, which means you can review the flight (in 3D). This can help to improve your acrobatic flight skills.
 
-:::note
-During aggressive acrobatic maneuvers the GPS can lose its position fix for a short time. If you switch into [position mode](../flight_modes_mc/position.md) during that time, [altitude mode](../flight_modes_mc/altitude.md) will be used instead until the position becomes valid again.
+::: info During aggressive acrobatic maneuvers the GPS can lose its position fix for a short time. If you switch into [position mode](../flight_modes_mc/position.md) during that time, [altitude mode](../flight_modes_mc/altitude.md) will be used instead until the position becomes valid again.
 :::
 
 ## Hardware Setup
@@ -52,7 +51,7 @@ Make sure to use **balanced props**.
 
 Make sure that the center of gravity is as close as possible to the center of thrust. Left-right balance is usually not a problem, but front-back balance may be. You can move the battery until it is correct and mark it on the frame so you will always place it correctly.
 
-:::note
+::: info
 The integral term can account for an imbalanced setup, and a custom mixer can do that even better.
 However it is best to fix any imbalance as part of the vehicle setup.
 :::
@@ -87,7 +86,7 @@ Make sure to assign a [kill switch](../config/safety.md#kill-switch) or an [armi
 
 ### PID Tuning
 
-:::note
+::: info
 Make sure to calibrate the ESCs before doing any tuning.
 :::
 
