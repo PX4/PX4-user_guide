@@ -40,12 +40,11 @@ Alternatively the takeoff can performed using the automatic [Takeoff mode](../fl
 :::note
 시동 후 이륙 시간이 너무 오래 걸리면 차량의 시동이 해제될 수 있습니다 ([COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)를 사용하여 시간 제한 조정). :::
 
-:::note
-The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff. :::
+::: info The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff. :::
 
 ### Fixed-wing Takeoff
 
-:::note
+::: info
 Taking off manually (and landing) is not easy!
 We recommend using with the automatic modes instead, especially for inexperienced pilots.
 :::
