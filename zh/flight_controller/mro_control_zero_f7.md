@@ -9,8 +9,7 @@ The _mRo Control Zero F7<sup>&reg;</sup>_ is a new flight controller from mRo.
 
 It is a no-compromise triple IMU commercial grade flight controller. It includes 8x PWM outputs (DShot capable), 3x IMUs, 1x Magnetometer, 1x Barometric Pressure Sensor (Altimeter), 6x UART, and SD Card, all packed into a 32mm x 20mm PCB. The PWMs are bidirectional, EMI protected, and level shifted to 5V logic levels. All accessed using front and rear 30pin Molex PicoClasp connectors. A durable plastic case, conformal board coating, and optional temperature calibration included.
 
-:::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## 主要特性
