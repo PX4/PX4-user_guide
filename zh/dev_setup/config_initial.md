@@ -37,7 +37,7 @@ To configure the vehicle:
 1. [参数配置](https://docs.px4.io/en/advanced_config/parameters.html) （PX4 用户指南）说明了如何查找和修改单个的参数。
 1. [Parameter Configuration](../advanced_config/parameters.md) explains how you can find and modify individual parameters.
 
-:::note
+::: info
 
 - _QGroundControl_ mobile variants do not support vehicle configuration.
 - The _daily build_ includes development tools and new features that are not available in the official release.
