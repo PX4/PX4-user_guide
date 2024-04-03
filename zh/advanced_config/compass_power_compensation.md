@@ -53,7 +53,7 @@
    python mag_compensation.py ~/path/to/log/logfile.ulg
    ```
 
-   :::note
+   ::: info
 If your log does not contain battery current measurements, you will need to comment out the respective lines in the Python script, such that it does the calculation for thrust only.
 :::
 
