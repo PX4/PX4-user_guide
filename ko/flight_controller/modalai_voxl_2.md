@@ -8,7 +8,7 @@ The ModalAI [VOXL 2](https://modalai.com/voxl-2) ([Datasheet](https://docs.modal
 
 ![VOXL-2](../../assets/flight_controller/modalai/voxl_2/voxl-2-hero.jpg)
 
-:::note
+::: info
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
@@ -39,7 +39,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 | FLIR Boson                                                              | USB                                                                                |
 | FLIR Lepton                                                             | USB, SPI in development                                                            |
 
-:::note
+::: info
 More detailed hardware documentation can be found [here](https://docs.modalai.com/voxl-flight-datasheet/).
 :::
 
