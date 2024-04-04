@@ -131,7 +131,7 @@ Note Вам знадобиться обліковий запис (безкошт
    yarn docs:dev
    ```
 
-   - Once the development/preview server has built the library (less than a minute for the first time) it will show you the URL you can preview the site on. This will be something like: `http://localhost:5173/px4_user_guide/`.
+   - Одного разу, коли сервер розробки / попереднього перегляду побудує бібліотеку (менше хвилини вперше), він покаже вам URL-адресу, за допомогою якої ви можете переглянути сайт. Це буде щось на кшталт: `http://localhost:5173/px4_user_guide/`.
    - Зупиніть обслуговування за допомогою **CTRL+C** у підказці терміналу.
 
 1. Побудуйте бібліотеку за допомогою:
@@ -150,13 +150,13 @@ Note Вам знадобиться обліковий запис (безкошт
 
 ### Структура Вихідного Коду
 
-The guide uses the [Vitepress](https://vitepress.dev/) toolchain.
+У посібнику використовується ланцюжок інструментів [Vitepress](https://vitepress.dev/).
 
 На огляд:
 
 - Сторінки записуються окремими файлами, використовуючи markdown.
   - Синтаксис майже такий самий, як і Github wiki.
-  - Vuepress також підтримує деякі [розширення markdown](https://vuepress.vuejs.org/guide/markdown.html). Ми спробуємо та уникаємо використання цього, окрім [tips, warning, etc.](https://vuepress.vuejs.org/guide/markdown.html#custom-containers). This might be revisited - there are some interesting options provided!
+  - Vuepress також підтримує деякі [розширення markdown](https://vuepress.vuejs.org/guide/markdown.html). Ми спробуємо та уникаємо використання цього, окрім [tips, warning, etc.](https://vuepress.vuejs.org/guide/markdown.html#custom-containers). Це можна переглянути – є кілька цікавих варіантів!
 - Це [багатомовна](https://vuepress.vuejs.org/guide/i18n.html#default-theme-i18n-config) книга:
   - Сторінки для кожної мови зберігаються в папці з назвою для асоційованого мовного коду (наприклад, "zh" для китайської, "ko" для корейської).
   - Редагувати лише версію файлів ENGLISH (**/en**). Ми використовуємо [Crowdin](../contribute/translation.md) для керування перекладами.
