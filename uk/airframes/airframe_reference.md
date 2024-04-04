@@ -385,7 +385,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="copter_quadrotor_x_nxp_hovergames">
  <td>NXP HoverGames</td>
- <td>Maintainer: Iain Galloway &lt;iain.galloway@nxp.com&gt;<p><code>SYS_AUTOSTART</code> = 4017</p></td>
+ <td><p><code>SYS_AUTOSTART</code> = 4017</p></td>
 </tr>
 <tr id="copter_quadrotor_x_holybro_x500_v2">
  <td>Holybro X500 V2</td>
