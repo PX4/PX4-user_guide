@@ -344,12 +344,12 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_quadrotor_h_betafpv_beta75x_2s_brushless_whoop">
  <td>BetaFPV Beta75X 2S Brushless Whoop</td>
- <td>Maintainer: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4041</p></td>
+ <td>Супроводжувач: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4041</p></td>
 </tr>
 </tbody>
 </table>
@@ -364,24 +364,24 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_quadrotor_x_generic_quadcopter">
  <td>Generic Quadcopter</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4001</p></td>
+ <td>Підтримувач: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4001</p></td>
 </tr>
 <tr id="copter_quadrotor_x_s500_generic">
  <td>S500 Generic</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4014</p></td>
+ <td>Підтримувач: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4014</p></td>
 </tr>
 <tr id="copter_quadrotor_x_holybro_s500">
  <td>Holybro S500</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4015</p></td>
+ <td>Підтримувач: Lorenz Meier &lt; lorenz@px4. io&gt;<p><code>SYS_AUTOSTART</code> = 4015</p></td>
 </tr>
 <tr id="copter_quadrotor_x_px4_vision_dev_kit_v1">
  <td>PX4 Vision Dev Kit v1</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 4016</p></td>
+ <td>Підтримувач: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 4016</p></td>
 </tr>
 <tr id="copter_quadrotor_x_nxp_hovergames">
  <td>NXP HoverGames</td>
@@ -401,7 +401,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="copter_quadrotor_x_holybro_qav250">
  <td><a href="https://docs.px4.io/main/en/frames_multicopter/holybro_qav250_pixhawk4_mini.html">HolyBro QAV250</a></td>
- <td>Maintainer: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4052</p></td>
+ <td>Maintainer: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4050</p></td>
 </tr>
 <tr id="copter_quadrotor_x_holybro_kopis_2">
  <td>Holybro Kopis 2</td>
@@ -431,7 +431,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Simulation
+### Симуляція
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeSimulation.svg"/>
@@ -440,7 +440,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_simulation_hil_quadcopter_x">
@@ -473,7 +473,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="copter_tricopter_y+_generic_multirotor_with_tilt">
@@ -484,7 +484,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-## Plane
+## Літак
 
 ### Flying Wing
 
@@ -524,7 +524,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="plane_plane_a-tail_applied_aeronautics_albatross">
@@ -544,7 +544,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="plane_simulation_sih_plane_aert">
@@ -564,7 +564,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="plane_standard_plane_generic_standard_plane">
@@ -616,7 +616,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="underwater_robot_underwater_robot_generic_underwater_robot">
@@ -732,7 +732,7 @@ div.frame_variant td, div.frame_variant th {
 <div class="frame_variant">
 <table>
  <thead>
-   <tr><th>Name</th><th></th></tr>
+   <tr><th>Назва</th><th></th></tr>
  </thead>
 <tbody>
 <tr id="vtol_vtol_tailsitter_generic_vtol_tailsitter">
