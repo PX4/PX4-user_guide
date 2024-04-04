@@ -14,7 +14,7 @@ Note Вам знадобиться обліковий запис (безкошт
 
 Прості зміни до _існуючого вмісту_ можна внести, клацнувши по посиланню **Редагувати цю сторінку на GitHub**, яке з'являється внизу кожної сторінки (це відкриває сторінку на GitHub для редагування).
 
-![Vuepress: Edit Page button](../../assets/vuepress/vuepress_edit_page_on_github_link.png)
+![Vitepress: Edit Page button](../../assets/vuepress/vuepress_edit_page_on_github_link.png)
 
 Щоб редагувати існуючу сторінку:
 
@@ -110,15 +110,7 @@ Note Вам знадобиться обліковий запис (безкошт
 
 1. Встановіть [Vuepress prerequiresites](https://vuepress.vuejs.org/guide/getting-started.html#prerequisites):
 
-   - [Nodejs 10+](https://nodejs.org/en)
-
-:::note
-Для останніх версій Node.js (після v16.15.0) вам потрібно включити застарілий постачальник OpenSSL для Node.js. На Ubuntu це можна зробити, виконавши наступну команду в терміналі:
-
-     ```sh
-     export NODE_OPTIONS=--openssl-legacy-provider
-     ```
-
+   - [Nodejs 18+](https://nodejs.org/en)
    - [Yarn classic](https://classic.yarnpkg.com/en/docs/install)
 
 1. Перейдіть до свого локального сховища:
@@ -139,7 +131,7 @@ Note Вам знадобиться обліковий запис (безкошт
    yarn docs:dev
    ```
 
-   - Тепер ви можете переглянути посібник на http://localhost:8080/px4_user_guide/
+   - Once the development/preview server has built the library (less than a minute for the first time) it will show you the URL you can preview the site on. This will be something like: `http://localhost:5173/px4_user_guide/`.
    - Зупиніть обслуговування за допомогою **CTRL+C** у підказці терміналу.
 
 1. Побудуйте бібліотеку за допомогою:
@@ -158,13 +150,13 @@ Note Вам знадобиться обліковий запис (безкошт
 
 ### Структура Вихідного Коду
 
-Посібник використовує інструментальний ланцюжок [Vuepress](https://vuepress.vuejs.org/). Керівництво користувача PX4 має деякі дрібні відмінності, в основному пов'язані з конфігурацією і налаштуваннями.
+The guide uses the [Vitepress](https://vitepress.dev/) toolchain.
 
 На огляд:
 
 - Сторінки записуються окремими файлами, використовуючи markdown.
   - Синтаксис майже такий самий, як і Github wiki.
-  - Vuepress також підтримує деякі [розширення markdown](https://vuepress.vuejs.org/guide/markdown.html). Ми спробуємо та уникаємо використання цього, окрім [tips, warning, etc.](https://vuepress.vuejs.org/guide/markdown.html#custom-containers).
+  - Vuepress також підтримує деякі [розширення markdown](https://vuepress.vuejs.org/guide/markdown.html). Ми спробуємо та уникаємо використання цього, окрім [tips, warning, etc.](https://vuepress.vuejs.org/guide/markdown.html#custom-containers). This might be revisited - there are some interesting options provided!
 - Це [багатомовна](https://vuepress.vuejs.org/guide/i18n.html#default-theme-i18n-config) книга:
   - Сторінки для кожної мови зберігаються в папці з назвою для асоційованого мовного коду (наприклад, "zh" для китайської, "ko" для корейської).
   - Редагувати лише версію файлів ENGLISH (**/en**). Ми використовуємо [Crowdin](../contribute/translation.md) для керування перекладами.
