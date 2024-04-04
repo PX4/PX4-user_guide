@@ -1,4 +1,4 @@
-# Discontinued: Falcon Vertigo Hybrid VTOL RTF (Dropix)
+# Припинено: Falcon Vertigo Hybrid VTOL RTF (Dropix)
 
 :::warning
 Discontinued
@@ -9,7 +9,7 @@ The *Falcon Vertigo Hybrid VTOL* is a quadplane VTOL aircraft that has been desi
 
 The RTF kit contains everything needed for a full system except an RC receiver and telemetry module. The components can also be purchased separately.
 
-Key information:
+Основна Інформація:
 
 - **Frame:** Falcon Vertigo Hybrid VTOL
 - **Flight controller:** Dropix
@@ -45,7 +45,7 @@ The kit does not come with a radio receiver or (optional) telemetry modules. For
 - Telemetry: [Holybro 100mW 915MHz modules](https://www.getfpv.com/holybro-100mw-fpv-transceiver-telemetry-radio-set-915mhz.html) (Discontinued)
 
 
-## Tools needed
+## Необхідні інструменти
 
 The following tools were used to assemble the airframe:
 
