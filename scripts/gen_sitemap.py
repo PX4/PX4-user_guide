@@ -34,7 +34,7 @@ my_parser.add_argument('-o',
                        action='store',
                        type=str,
                        #nargs=1,
-                       default='./.vuepress/dist/')
+                       default='./.vitepress/dist/')
 
 # Execute the parse_args() method
 args = my_parser.parse_args()
@@ -68,6 +68,8 @@ for subdir, dirs, files in os.walk(dir_name, topdown=True):
             #print("XX %s" % modified_datestamp)
         file_name=file[:-3]+'.html'
         if file_name.startswith('README'):
+            file_name=''
+        if file_name.startswith('index'):
             file_name=''
         url="%s/%s/%s" % (url_prefix, dir_name,file_name)
         sitemapitem['url']=url
