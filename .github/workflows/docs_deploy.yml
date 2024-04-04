@@ -77,23 +77,15 @@ jobs:
           name: px4_docs_build
           path: ~/_book
         
-      - name: Set up Git credentials
-        env:
-          GIT_USER: ${{ secrets.PX4BUILDBOT_USER }}
-          GIT_PASS: ${{ secrets.PX4BUILDBOT_PASSWORD }}
-          GIT_EMAIL: ${{ secrets.PX4BUILDBOT_EMAIL }}
-        run: |
-          git config --global user.name "$GIT_USER"
-          git config --global user.email "$GIT_EMAIL"
-          git config --global user.password "$GIT_PASS"
-
       - name: Deploy
         run: |
-          git clone --single-branch --branch main https://$GIT_USER:$GIT_PASS@github.com/PX4/docs.px4.io.git
+          git clone --single-branch --branch main https://${{ secrets.PX4BUILTBOT_PERSONAL_ACCESS_TOKEN }}@github.com/PX4/docs.px4.io.git
           rm -rf docs.px4.io/${BRANCH_NAME}
           mkdir -p docs.px4.io/${BRANCH_NAME}
           cp -r ~/_book/* docs.px4.io/${BRANCH_NAME}/
           cd docs.px4.io
+          git config --global user.name "${{ secrets.PX4BUILDBOT_USER }}"
+          git config --global user.email "${{ secrets.PX4BUILDBOT_EMAIL }}"
           git add ${BRANCH_NAME}
           git commit -a -m "PX4 docs build update (vitepress) `date`"
           git push origin main
