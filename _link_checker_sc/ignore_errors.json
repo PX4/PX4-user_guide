@@ -701,5 +701,226 @@
     "type": "PageNotInTOC",
     "fileRelativeToRoot": "en\\complete_vehicles\\index.md",
     "hideReason": "Chose to hide it. No longer used redirect"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\complete_vehicles_mc\\intel_aero.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.12/en/complete_vehicles/intel_aero.html",
+      "text": "see here for legacy docs"
+    },
+    "hideReason": "Fixed URL"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\complete_vehicles_mc\\px4_vision_kit.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.13/en/complete_vehicles/px4_vision_kit.html#what-is-inside",
+      "text": "PX4 v1.13 Docs here"
+    },
+    "hideReason": "Fixed URL"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\concept\\control_allocation.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.13/en/concept/mixing.html",
+      "text": "Mixing & Actuators"
+    },
+    "hideReason": "Fixed URL"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\concept\\control_allocation.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.13/en/concept/geometry_files.html",
+      "text": "Geometry Files"
+    },
+    "hideReason": "Fixed URL"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\concept\\control_allocation.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.13/en/dev_airframes/adding_a_new_frame.html",
+      "text": "Adding a New Airframe Configuration"
+    },
+    "hideReason": "Fixed URL"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\concept\\events_interface.md",
+    "link": {
+      "url": "https://docs.px4.io",
+      "text": "https://docs.px4.io"
+    },
+    "hideReason": "Intentional"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\contribute\\index.md",
+    "link": {
+      "url": "https://docs.px4.io/main/en/contribute/",
+      "text": "See the latest version"
+    },
+    "hideReason": "Intentional"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\flight_controller\\dropix.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.13/en/flight_controller/dropix.html",
+      "text": "PX4 v1.13 Documentation > DroPix Flight Controller"
+    },
+    "hideReason": "intentional"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\flight_controller\\ocpoc_zynq.md",
+    "link": {
+      "url": "http://docs.px4.io/v1.11/en/flight_controller/ocpoc_zynq.html#aerotenna-ocpoc-zynq-mini-flight-controller",
+      "text": "PX4v1.11 docs"
+    },
+    "hideReason": "Intentional"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\flight_controller\\snapdragon_flight.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.11/en/flight_controller/snapdragon_flight.html",
+      "text": "PX4 User Guide v1.11"
+    },
+    "hideReason": "Intentional"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\gps_compass\\rtk_gps_drotek_xl.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.13/en/gps_compass/rtk_gps_drotek_xl.html",
+      "text": "PX4 v1.13 here"
+    },
+    "hideReason": "Intentional"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\gps_compass\\rtk_gps_hex_hereplus.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.11/en/gps_compass/rtk_gps_hex_hereplus.html",
+      "text": "PX4v1.11 docs"
+    },
+    "hideReason": "Intentional"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\middleware\\micrortps.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge",
+      "text": "Fast-RTPS Bridge"
+    },
+    "hideReason": "Intentional"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\middleware\\uxrce_dds.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge",
+      "text": "Fast-RTPS Bridge"
+    },
+    "hideReason": "Intentional"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\middleware\\uxrce_dds.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.13/en/ros/ros2_comm.html",
+      "text": "ROS 2 applications written for PX4 v1.13"
+    },
+    "hideReason": "Intentional"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\middleware\\uxrce_dds.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.13/en/middleware/micrortps.html#agent-in-an-offboard-fast-dds-interface-ros-independent",
+      "text": "directly"
+    },
+    "hideReason": "Intentional"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\middleware\\uxrce_dds.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.13/en/dev_setup/fast-dds-installation.html",
+      "text": "Fast DDS Installation"
+    },
+    "hideReason": "Intentional"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\middleware\\uxrce_dds.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.13/en/middleware/micrortps.html#agent-in-an-offboard-fast-dds-interface-ros-independent",
+      "text": "Fast DDS Interface ROS-Independent"
+    },
+    "hideReason": "Intentional"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\releases\\1.14.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.13/en/simulation/ignition_gazebo.html",
+      "text": "Ignition Gazebo"
+    },
+    "hideReason": "Intentional"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\releases\\1.14.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.13/en/simulation/gazebo.html",
+      "text": "Gazebo"
+    },
+    "hideReason": "Intentional"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\releases\\1.14.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.13/en/middleware/micrortps.html",
+      "text": "Fast-RTPS"
+    },
+    "hideReason": "Intentional"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\robotics\\dronekit.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.12/en/robotics/dronekit.html",
+      "text": "PX4 v1.12 > DroneKit"
+    },
+    "hideReason": "Intentional"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\ros\\ros2_comm.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.13/en/ros/ros2_comm.html",
+      "text": "PX4 v1.13 Docs"
+    },
+    "hideReason": "intentional"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\sensor\\px4flow.md",
+    "link": {
+      "url": "https://docs.px4.io/v1.13/en/sensor/px4flow.html",
+      "text": "Legacy Docs for PX4Flow in v1.13"
+    },
+    "hideReason": "Intentional"
+  },
+  {
+    "type": "PageNotInTOC",
+    "fileRelativeToRoot": "en\\msg_docs\\README.md",
+    "hideReason": "Because I'm goign to delete it"
   }
 ]
