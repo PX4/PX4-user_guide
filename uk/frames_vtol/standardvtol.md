@@ -8,7 +8,7 @@ A **Standard VTOL** is a [VTOL](../frames_vtol/index.md) that has _completely se
 
 
 
-## Videos
+## Відео
 
 This section contains videos that are specific to Standard VTOL (videos that apply to all VTOL types can be found in [VTOL](../frames_vtol/index.md)).
 
