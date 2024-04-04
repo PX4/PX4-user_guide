@@ -5,7 +5,7 @@
   "license": "CC-BY-4.0",
   "scripts": {
     "docs:dev": "vitepress dev .",
-    "docs:build": "vitepress build .",
+    "docs:build": "yarn docs:build_ubuntu",
     "docs:buildwin": "set NODE_OPTIONS=--max_old_space_size=8192 && vitepress build .",
     "docs:build_ubuntu": "NODE_OPTIONS='--max-old-space-size=8192' vitepress build .",
     "docs:preview": "vitepress preview .",
