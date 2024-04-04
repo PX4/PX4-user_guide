@@ -1,7 +1,7 @@
 # ARK Electronics ARKV6X
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://arkelectron.com/contact-us/) for hardware support or compliance issues.
+PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://arkelectron.com/contact-us/) щодо підтримки обладнання або питань сумісності.
 :::
 
 The USA-built ARKV6X flight controller is based on the [FMUV6X and Pixhawk Autopilot Bus open source standards](https://github.com/pixhawk/Pixhawk-Standards).
