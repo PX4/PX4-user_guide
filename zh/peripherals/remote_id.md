@@ -20,7 +20,7 @@ It has been tested with the following devices:
 - [Db202mav](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) (BlueMark) - less expensive variant without CAN port.
 - [Holybro RemoteID Module](https://holybro.com/products/remote-id) (Holybro)
 
-:::note
+::: info
 
 - Other devices that support the MAVLink API should work (but have not been tested).
 - PX4 does not support Remote ID over CAN in PX4 v1.14.
@@ -50,7 +50,7 @@ If using a different port, or a flight controller that has different connector, 
 
 #### Cube ID Firmware
 
-The Cube ID uses proprietary firmware (not [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID) like some other remote id beacons). This firmware does not currently set `OPEN_DRONE_ID_ARM_STATUS` flags if an Open Drone ID message error is detected.
+The Cube ID uses proprietary firmware (not [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID) like some other remote id beacons).
 
 For firmware update instructions see [Cube ID > Updating](https://docs.cubepilot.org/user-guides/cube-id/cube-id#updating).
 
