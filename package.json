@@ -9,7 +9,7 @@
     "docs:buildwin": "set NODE_OPTIONS=--max_old_space_size=8192 && vitepress build .",
     "docs:build_ubuntu": "NODE_OPTIONS='--max-old-space-size=8192' vitepress build .",
     "docs:preview": "vitepress preview .",
-    "docs:sitemap": "python3 ./scripts/gen_sitemap.py",
+    "docs:sitemap": "python ./scripts/gen_sitemap.py",
     "start": "yarn docs:dev",
     "linkcheck": "markdown_link_checker_sc -d en -i assets"
   },
