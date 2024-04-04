@@ -57,7 +57,6 @@ The TX and RX on the flight controller must be connected to the RX and TX on the
 #### Cube ID Firmware
 
 The Cube ID uses proprietary firmware (not [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID) like some other remote id beacons).
-This firmware does not currently set `OPEN_DRONE_ID_ARM_STATUS` flags if an Open Drone ID message error is detected.
 
 For firmware update instructions see [Cube ID > Updating](https://docs.cubepilot.org/user-guides/cube-id/cube-id#updating).
 
