@@ -42,9 +42,9 @@ PX4 використовує [Google C++ посібник стилю ](https://g
 
 - `lowerCamelCase()` використовується для функцій і методів, щоб _візуально_ відрізняти їх від `ClassConstructors()` і `ClassNames`.
 
-### Private Class Member Variable Names
+### Імена змінних членів приватного класу
 
-- `_underscore_prefixed_snake_case` is used for private class member variable names, as oppose to `underscore_postfixed_`.
+- `_underscore_prefixed_snake_case` використовується для імен змінних членів приватного класу, на відміну від `underscore_postfixed_`.
 
 ### Ключові слова класу
 
