@@ -12,14 +12,14 @@ Note You will need a (free) [Github](https://github.com/) account to contribute 
 
 ## Quick Changes in Github
 
-Simple changes to _existing content_ can be made by clicking the **Edit this page on GitHub** link that appears at the bottom of every page (this opens the page on Github for editing).
+Simple changes to _existing content_ can be made by clicking the **Edit on GitHub** link that appears at the bottom of every page (this opens the page on Github for editing).
 
-![Vuepress: Edit Page button](../../assets/vuepress/vuepress_edit_page_on_github_link.png)
+![Vitepress: Edit Page button](../../assets/vuepress/vuepress_edit_page_on_github_link.png)
 
 To edit an existing page:
 
 1. Open the page.
-1. Click the **Edit this page on GitHub** link below the page content.
+1. Click the **Edit on GitHub** link below the page content.
 1. Make the desired change.
 1. Below the Github page editor you'll be prompted to create a separate branch and then guided to submit a _pull request_.
 
@@ -33,7 +33,7 @@ More substantial changes, including adding new pages or adding/modifying images,
 
 1. Use the _git_ toolchain to get the documentation source code onto your local computer.
 1. Modify the documentation as needed (add, change, delete).
-1. _Test_ that it builds properly using Vuepress.
+1. _Test_ that it builds properly using Vitepress.
 1. Create a branch for your changes and create a pull request (PR) to pull it back into the documentation.
 
 The following explain how to get the source code, build locally (to test), and modify the code.
@@ -108,16 +108,9 @@ A "remote" is a handle to a particular repository. The remote named _origin_ is 
 
 Build the library locally to test that any changes you have made have rendered properly:
 
-1. Install the [Vuepress prerequiresites](https://vuepress.vuejs.org/guide/getting-started.html#prerequisites):
+1. Install the [Vitepress prerequisites](https://vitepress.dev/guide/getting-started#prerequisites):
 
-   - [Nodejs 10+](https://nodejs.org/en)
-
-     ::: info For recent nodejs versions (after v16.15.0) you need to enable the node legacy OpenSSL provider. On Ubuntu you can do this by running the terminal command:
-
-     ```sh
-     export NODE_OPTIONS=--openssl-legacy-provider
-     ```
-
+   - [Nodejs 18+](https://nodejs.org/en)
    - [Yarn classic](https://classic.yarnpkg.com/en/docs/install)
 
 1. Navigate to your local repository:
@@ -126,7 +119,7 @@ Build the library locally to test that any changes you have made have rendered p
    cd ~/wherever/PX4-user_guide
    ```
 
-1. Install dependencies (including Vuepress):
+1. Install dependencies (including Vitepress):
 
    ```sh
    yarn install
@@ -135,13 +128,13 @@ Build the library locally to test that any changes you have made have rendered p
 1. Preview and serve the library:
 
    ```sh
-   yarn docs:dev
+   yarn start
    ```
 
-   - Now you can browse the guide on http://localhost:8080/px4_user_guide/
+   - Once the development/preview server has built the library (less than a minute for the first time) it will show you the URL you can preview the site on. This will be something like: `http://localhost:5173/px4_user_guide/`.
    - Stop serving using **CTRL+C** in the terminal prompt.
 
-1. Build the library using:
+1. You can build the library as it would be done for deployment:
 
    ```sh
    # Ubuntu
@@ -152,20 +145,20 @@ Build the library locally to test that any changes you have made have rendered p
    ```
 
 :::tip
-Use `yarn docs:dev` to preview changes _as you make them_ (documents are updated and served very quickly). Before submitting a PR you should also build it using `docs:build`, as this can highlight issues that are not visible when using `docs:dev`.
+Use `yarn start` to preview changes _as you make them_ (documents are updated and served very quickly). Before submitting a PR you should also build it using `yarn docs:build`, as this can highlight issues that are not visible when using `yarn start`.
 :::
 
 ### Source Code Structure
 
-The guide uses the [Vuepress](https://vuepress.vuejs.org/) toolchain. The PX4 User Guide has some minor differences, mostly related to configuration and setup.
+The guide uses the [Vitepress](https://vitepress.dev/) toolchain.
 
 In overview:
 
 - Pages are written in separate files using markdown.
   - The syntax is almost the same as that used by the Github wiki.
-  - Vuepress also supports some [markdown extensions](https://vuepress.vuejs.org/guide/markdown.html). We try and avoid using these, except for [tips, warning, etc.](https://vuepress.vuejs.org/guide/markdown.html#custom-containers).
-- This is a [multilingual](https://vuepress.vuejs.org/guide/i18n.html#default-theme-i18n-config) book:
-  - Pages for each language are stored in the folder named for the associated language code (e.g. "zh" for Chinese, "ko" for Korean).
+  - Vitepress also supports some [markdown extensions](https://vitepress.dev/guide/markdown#markdown-extensions). We try and avoid using these, except for [tips, warning, etc.](https://vitepress.dev/guide/markdown#default-title). This might be revisited - there are some interesting options provided!
+- This is a [multilingual](https://vitepress.dev/guide/i18n) book:
+  - Pages for each language are stored in the folder named for the associated language code (e.g. "en" for English, "zh" for Chinese, "ko" for Korean).
   - Only edit the ENGLISH (**/en**) version of files. We use [Crowdin](../contribute/translation.md) to manage the translations.
 - All pages must be in an appropriately named sub-folder of **/en** (e.g. this page is in folder **en/contribute/**).
   - This makes linking easier because other pages and images are always as the same relative levels
@@ -174,7 +167,7 @@ In overview:
   - If you add a new page to the guide you must also add an entry to this file!
 
 :::tip
-This is not "standard vuepress" way to define the sidebar (the summary file is imported by [.vuepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/main/.vuepress/get_sidebar.js)).
+This is not "standard vitepress" way to define the sidebar (the summary file is imported by [.vitepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/main/.vitepress/get_sidebar.js)).
 :::
 
 - Images must be stored in a sub folder of **/assets**. This is two folders down from content folders, so if you add an image you will reference it like:
