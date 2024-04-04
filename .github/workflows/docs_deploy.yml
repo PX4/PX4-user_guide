@@ -55,6 +55,7 @@ jobs:
         run: |
           yarn docs:build_ubuntu
           touch .vitepress/dist/.nojekyll
+          yarn docs:sitemap
           #touch docs/.vitepress/dist/.nojekyll
 
       - name: Upload artifact
