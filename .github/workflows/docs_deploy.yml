@@ -82,8 +82,9 @@ jobs:
           GIT_USER: ${{ secrets.PX4BUILDBOT_USER }}
           GIT_PASS: ${{ secrets.PX4BUILDBOT_ACCESSTOKEN }}
         run: |
-          git config --global user.name "$GIT_USER"
-          git config --global user.password "$GIT_PASS"
+          git config user.name "$GIT_USER"
+          git config user.email "bot@px4.io"
+          git config user.password "$GIT_PASS"
 
       - name: Deploy
         run: |
