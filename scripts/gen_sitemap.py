@@ -12,8 +12,6 @@ import os # for walk, evironment vars
 import subprocess #so I can use git to get the modified dates.
 import argparse
 
-
-
 dir_name='.'
 #git log -1 --format="%as" -- .\zh\uavcan\notes.md
 
@@ -114,7 +112,6 @@ with open(outputfile,"w") as f:
     f.write(sitemaptext)
 
 print("Sitemap generated to: %s" % outputfile)
-
 
 #print("BRANCH_NAME: %s" % BRANCH_NAME)
 #print("Build version: %s" % build_version)
