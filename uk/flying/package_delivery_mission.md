@@ -33,15 +33,15 @@
 
    - Якщо ви хочете посадити апарат, щоб здійснити доставку, вам потрібно буде змінити `Waypoint` на елемент місії `Land`. Зробіть це, вибравши заголовок пункту місії, а потім вибравши `Land` у спливаючому діалоговому вікні.
 
-     ![Waypoint to Land mission item](../../assets/flying/package_delivery_land_waypoint.png)
+     ![Елемент місії Точка маршруту для посадки](../../assets/flying/package_delivery_land_waypoint.png)
 
 1. Додайте маршрутну точку на карті (у будь-якому місці) для вивільнення захвату. Щоб змінити це на `Механізм захоплення`, виберіть заголовок "Waypoint" і у спливаючому вікні змініть групу на "Advanced", а потім виберіть `Gripper Mechanism`.
 
-   ![Action waypoint](../../assets/flying/qgc_mission_gripper_mechanism_item_example.png)
+   ![Точка маршруту дії](../../assets/flying/qgc_mission_gripper_mechanism_item_example.png)
 
 1. Налаштуйте дію для захоплювача в редакторі.
 
-   ![Gripper action setting](../../assets/flying/qgc_mission_plan_gripper_action_setting.png)
+   ![Налаштування дії захвату](../../assets/flying/qgc_mission_plan_gripper_action_setting.png)
 
    - Щоб вивільнити посилку, встановіть значення "Release".
    - ID захоплювача наразі встановлювати не потрібно.
@@ -54,7 +54,7 @@
 
 Тут показано план місії, де апарат скидає пакет під час польоту. Початковий елемент місії – це маршрутна точка, а дія – `Gripper Release` (показано в переліку елементів місії)
 
-![Package drop mission example](../../assets/flying/package_drop_mission_example.png)
+![Приклад місії зі скидання посилки](../../assets/flying/package_drop_mission_example.png)
 
 Зверніть увагу, як графік висоти показує pre-waypoint як маршрутну точку в повітрі, також на правій панелі.
 
@@ -62,30 +62,30 @@
 
 Тут показано план місії, де апарат приземляється, щоб доставити посилку.
 
-![Land and Release example](../../assets/flying/land_and_release_package_delivery_mission_example.png)
+![Приклад посадки та випуску](../../assets/flying/land_and_release_package_delivery_mission_example.png)
 
 Зверніть увагу, як на графіку висоти показано елемент `Land`.
 
 ### Примітки
 
-#### RTL Waypoint for Package Delivery with Landing
+#### Точка маршруту RTL для доставки посилок з посадкою
 
-Do not plan a mission with a delivery like this: `LAND` > `GRIPPER` > `RETURN TO LAUNCH`.
+Не плануйте місію з доставкою таким чином: `LAND` > `GRIPPER` > `RETURN TO LAUNCH`.
 
-For safety reasons "Return To Launch" is disabled when vehicle is landed ([related issue](https://github.com/PX4/PX4-Autopilot/pull/20044)). So if you land, release the cargo, then have an RTL waypoint, the vehicle will idle at the landing coordinate.
+З міркувань безпеки функція "Return To Launch" вимикається, коли апарат приземлений ([пов'язана проблема](https://github.com/PX4/PX4-Autopilot/pull/20044)). Отже, якщо ви приземлитесь, випустите вантаж, а потім встановите точку маршруту RTL, апарат буде простоювати на координатах посадки.
 
-#### Manual Control of Gripper in Missions
+#### Ручне керування захватом в місіях
 
-A gripper can be [manually controlled using a joystick button](../peripherals/gripper.md#qgc-joystick-configuration) (if configured) in any mode, including during a mission.
+Захват може бути [керований вручну за допомогою кнопки джойстика](../peripherals/gripper.md#qgc-joystick-configuration) (якщо налаштовано) в будь-якому режимі, включаючи під час місії.
 
-Note however that if you manually command the gripper to close while a package delivery mission is opening the gripper, the gripper won't be able to finish the open action. The mission will resume after the payload delivery mission item timeout ([MIS_PD_TO](../advanced_config/parameter_reference.md#MIS_PD_TO) expires, even if it has not released the package.
+Проте зауважте, що якщо ви вручну командуєте закриття захвату, тоді як місія з доставки відкриває захват, захват не зможе завершити дію відкриття. Місія відновиться після тайм-ауту елемента місії доставки вантажу ([MIS_PD_TO](../advanced_config/parameter_reference.md#MIS_PD_TO) закінчується, навіть якщо вантаж не був випущений.
 
-#### Auto-disarming is Disabled in Missions
+#### Автоматичне вимкнення відключено в місіях
 
-Auto disarming is disabled by default when in mission. This means that while landed for package delivery the vehicle will still be armed (and potentially dangerous!)
+Під час місії автоматичне вимкнення відключено за замовчуванням. Це означає, що під час посадки для доставки посилок апарат усе ще буде увімкнений (і потенційно небезпечний!)
 
-#### Package Release Feedback
+#### Зворотний зв'язок щодо випуску посилки
 
-The mission will proceed after a "package release" mission item (e.g. `GRIPPER`) completes.
+Місія продовжиться після завершення елемента місії "package release" (наприклад, `GRIPPER`).
 
-Grippers and other delivery devices either use sensor feedback or a configurable timeout to indicate completion.
+Захвати та інші пристрої доставки або використовують зворотний зв’язок датчика, або настроюваний тайм-аут, щоб вказати про завершення.
