@@ -106,11 +106,11 @@ VTOL configuration is covered in a number of sections:
 - [Peripheral Hardware](../peripherals/index.md) - Configuration for optional hardware and sensors.
 - [Advanced Configuration](../advanced_config/index.md): Additional configuration covering factory tuning and advanced and optional configuration.
 
-## Videos
+## Відео
 
 ### Educational
 
-VTOL Control & Airspeed Fault Detection (PX4 Developer Summit 2019)
+Контроль VTOL & Виявлення помилок повітряної швидкості (Саміт розробників PX4 2019)
 
 @[youtube](https://youtu.be/37BIBAzD6fE)
 
