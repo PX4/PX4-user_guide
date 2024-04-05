@@ -63,7 +63,7 @@ Tuning these parameters is a last resort.
 It should only be attempted if you have data showing it will improve the performance of the estimator.
 :::
 
-| Parameter                                                                                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Параметр                                                                                                  | Опис                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | <a id="EKF2_ABL_LIM"></a>[EKF2_ABL_LIM](../advanced_config/parameter_reference.md#EKF2_ABL_LIM)         | The maximum bias value that the EKF is allowed to estimate (above this value the bias will be clipped and EKF will attempt to reset itself, possibly even switching to a more healthy EKF with a working IMU in a multi-EKF system). The autopilot will report a “high accel bias” if the estimated bias exceeds 75% of this parameter during a preflight check and prevent takeoff. The current value of 0.4m/s2 is already quite high and increasing it would make the autopilot less likely to detect an issue. |
 | <a id="EKF2_ABIAS_INIT"></a>[EKF2_ABIAS_INIT](../advanced_config/parameter_reference.md#EKF2_ABIAS_INIT)   | Initial bias uncertainty (if perfectly calibrated, this is related to the “turn-on bias” of the sensor). Some users might want to reduce that value if they know that the sensor is well calibrated and that the turn-on bias is small.                                                                                                                                                                                                                                                                            |
@@ -105,13 +105,13 @@ It should only be attempted if you have data showing it will improve the perform
   * Initial shock or rapid movement on startup that caused a bad inertial nav solution. Resolve by restarting the vehicle and minimising movement for the first 5 seconds.
 
 
-## Other Parameters
+## Інші параметри
 
 The following parameters also affect preflight checks.
 
 #### COM_ARM_WO_GPS
 
-The [COM_ARM_WO_GPS](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS) parameter controls whether or not arming is allowed without a global position estimate.
+Параметр [COM_ARM_WO_GPS](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS) визначає, чи дозволено взяття під охорону без оцінки загального положення.
 - `1` (default): Arming *is* allowed without a position estimate for flight modes that do not require position information (only).
 - `0`: Arming is allowed only if EKF is providing a global position estimate and EFK GPS quality checks are passing
 
