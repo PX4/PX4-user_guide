@@ -29,11 +29,11 @@ The vehicle hovers at the current position and altitude. The vehicle will first 
 
 RC stick movement will change the vehicle to [Position mode](../flight_modes_mc/position.md) (by [default](#COM_RC_OVERRIDE)).
 
-### Parameters
+### Параметри
 
 Hold mode behaviour can be configured using the parameters below.
 
-| Parameter                                                                                               | Description                                                                                                                                                                                                                                                  |
+| Параметр                                                                                                | Опис                                                                                                                                                                                                                                                         |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | <a id="NAV_MIN_LTR_ALT"></a>[NAV_MIN_LTR_ALT](../advanced_config/parameter_reference.md#NAV_MIN_LTR_ALT) | This is the minimum altitude above Home the system will always obey in Hold mode if switched into this mode without specifying an altitude (e.g. through switch on RC).                                                                                      |
 | <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Controls whether stick movement on a multicopter (or VTOL in MC mode) causes a mode change to [Position mode](../flight_modes_mc/position.md). This can be separately enabled for auto modes and for offboard mode, and is enabled in auto modes by default. |
@@ -41,6 +41,6 @@ Hold mode behaviour can be configured using the parameters below.
 
 <!-- Code for this here: https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/loiter.cpp#L61 -->
 
-## See Also
+## Дивись також
 
 [Hold Mode (FW)](../flight_modes_fw/hold.md)
