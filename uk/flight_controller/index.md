@@ -2,14 +2,14 @@
 
 У цьому розділі перераховано обладнання автопілота, яке можна використовувати для запуску польотного стеку PX4).
 
-This section provides information about how to mount the flight controller, upload firmware (replacing an incompatible bootloader if needed), and configure its orientation.
+У цьому розділі надається інформація про те, як встановити контролер польоту, завантажити мікропрограму (за потреби замінити несумісний завантажувач) і налаштувати його орієнтацію.
 
-- [Mounting the Flight Controller](../assembly/mount_and_orient_controller.md)
-- [Updating Firmware](../config/firmware.md)
-- [Sensor Orientation](../config/flight_controller_orientation.md)
-- [Level Horizon Calibration](../config/level_horizon_calibration.md)
-- [Advanced Controller Orientation](../advanced_config/advanced_flight_controller_orientation_leveling.md)
-- [Bootloader Update](../advanced_config/bootloader_update.md)
+- [Монтаж польотного контролера](../assembly/mount_and_orient_controller.md)
+- [Оновлення прошивки](../config/firmware.md)
+- [Орієнтація сенсорів](../config/flight_controller_orientation.md)
+- [Калібрування рівня горизонту](../config/level_horizon_calibration.md)
+- [Розширена орієнтація контролера](../advanced_config/advanced_flight_controller_orientation_leveling.md)
+- [Оновлення завантажувача](../advanced_config/bootloader_update.md)
 
 :::tip
 Ви також можете спробувати PX4 на завершеному апараті [ (побутові дрони та референсні платформи, які можуть працювати з PX4)](../complete_vehicles/README.md). Існують інші сумісні контролери польоту та варіанти, в тому числі [задокументовані тут на Github](https://github.com/PX4/PX4-Autopilot/#supported-hardware).
