@@ -1,42 +1,42 @@
-# Preflight Sensor/Estimator Checks
+# Передпольотні перевірки сенсорів/оцінювачів
 
-PX4 performs a number of preflight sensor quality and estimator checks to determine if there is a good enough position estimate to arm and fly the vehicle (these checks are controlled by the [COM\_ARM\_](../advanced_config/parameter_reference.md#commander) parameters).
+PX4 виконує ряд передпольотних перевірок якості сенсорів та оцінювачів, щоб визначити, чи достатньо добре визначено позицію для увімкнення та польоту апарату (ці перевірки контролюються параметрами [COM\_ARM\_](../advanced_config/parameter_reference.md#commander)).
 
 :::tip
-Any preflight errors are reported in *QGroundControl* as `PREFLIGHT FAIL` messages. The `estimator_status.gps_check_fail_flags` message [in the logs](../getting_started/flight_reporting.md) also shows which GPS quality checks are failing.
+Будь-які помилки перед польотом повідомляються в *QGroundControl* як повідомлення `PREFLIGHT FAIL`. Повідомлення `estimator_status.gps_check_fail_flags` [в журналах](../getting_started/flight_reporting.md) також показує, які перевірки якості GPS не пройшли.
 :::
 
-The sections below list the errors, their likely causes and solutions, and any parameters that affect how the preflight checks are run.
+Нижченаведені розділи перелічують помилки, їх ймовірні причини та рішення, а також будь-які параметри, які впливають на те, як проводяться передпольотні перевірки.
 
-## EKF Preflight Checks/Errors
+## Передпольотні перевірки/помилки EKF
 
-The following errors (with associated checks and parameters) are reported by the [EKF](../advanced_config/tuning_the_ecl_ekf.md) (and propagate to *QGroundControl*):
+Наступні помилки (з пов’язаними перевірками та параметрами) повідомляються [EKF](../advanced_config/tuning_the_ecl_ekf.md) (і передаються в *QGroundControl*):
 
 #### PREFLIGHT FAIL: EKF HGT ERROR
 
-* This error is produced when the IMU and height measurement data are inconsistent.
-* Perform an accel and gyro calibration and restart the vehicle. If the error persists, check the height sensor data for problems.
-* The check is controlled by the [COM_ARM_EKF_HGT](../advanced_config/parameter_reference.md#COM_ARM_EKF_HGT) parameter.
+* Ця помилка виникає, коли IMU та дані вимірювання висоти суперечать.
+* Виконайте калібрування акселерометра та гіроскопа та перезапустіть апарат. Якщо помилка не зникає, перевірте дані датчика висоти на наявність проблем.
+* Перевірка контролюється параметром [COM_ARM_EKF_HGT](../advanced_config/parameter_reference.md#COM_ARM_EKF_HGT).
 
 #### PREFLIGHT FAIL: EKF VEL ERROR
 
-* This error is produced when the IMU and GPS velocity measurement data are inconsistent.
-* Check the GPS velocity data for un-realistic data jumps. If GPS quality looks OK, perform an accel and gyro calibration and restart the vehicle.
-* The check is controlled by the [COM_ARM_EKF_VEL](../advanced_config/parameter_reference.md#COM_ARM_EKF_VEL) parameter.
+* Ця помилка виникає, коли дані вимірювання швидкості IMU та GPS суперечать.
+* Перевірте дані швидкості GPS на наявність нереалістичних стрибків даних. Якщо якість GPS виглядає нормально, виконайте калібрування акселерометра та гіроскопа та перезапустіть апарат.
+* Перевірка контролюється параметром [COM_ARM_EKF_VEL](../advanced_config/parameter_reference.md#COM_ARM_EKF_VEL).
 
 #### PREFLIGHT FAIL: EKF HORIZ POS ERROR
 
-* This error is produced when the IMU and position measurement data (either GPS or external vision) are inconsistent.
-* Check the position sensor data for un-realistic data jumps. If data quality looks OK, perform an accel and gyro calibration and restart the vehicle.
-* The check is controlled by the [COM_ARM_EKF_POS](../advanced_config/parameter_reference.md#COM_ARM_EKF_POS) parameter.
+* Ця помилка виникає, коли IMU та дані вимірювання позиції (або GPS, або зовнішнє бачення) суперечать.
+* Перевірте дані датчика позиції на наявність нереалістичних стрибків даних. Якщо якість даних виглядає нормальною, виконайте калібрування акселерометра та гіроскопа та перезапустіть апарат.
+* Перевірка контролюється параметром [COM_ARM_EKF_POS](../advanced_config/parameter_reference.md#COM_ARM_EKF_POS).
 
 #### PREFLIGHT FAIL: EKF YAW ERROR
 
-* This error is produced when the yaw angle estimated using gyro data and the yaw angle from the magnetometer or external vision system are inconsistent.
-* Check the IMU data for large yaw rate offsets and check the magnetometer alignment and calibration.
-* The check is controlled by the [COM_ARM_EKF_YAW](../advanced_config/parameter_reference.md#COM_ARM_EKF_YAW) parameter
-* The default value of 0.5 allows the differences between the navigation yaw angle and magnetic yaw angle (magnetometer or external vision) to be no more than 50% of the maximum tolerated by the EKF and provides some margin for error increase when flight commences.
-* It can fail if the yaw gyro has a large offset or if the vehicle is moved or rotated in the presence of a bad magnetic interference or magnetometer calibration.
+* Ця помилка виникає, коли кут повороту, визначений за допомогою даних гіроскопа, і кут повороту, отриманий від магнітометра або системи зовнішнього бачення, не узгоджуються.
+* Перевірте дані IMU на наявність великих зсувів швидкості повороту та перевірте вирівнювання та калібрування магнітометра.
+* Перевірка контролюється параметром [COM_ARM_EKF_YAW](../advanced_config/parameter_reference.md#COM_ARM_EKF_YAW)
+* Значення за замовчуванням 0,5 дозволяє різниці між навігаційним кутом відхилення та магнітним кутом відхилення (магнітометр або зовнішнє бачення) не перевищувати 50% від максимально допустимого EKF і забезпечує деякий запас для збільшення похибки на початку польоту.
+* Помилка може статися, якщо гіроскоп повороту має велике зміщення або якщо апарат переміщається чи обертається за наявності магнітних перешкод або поганого калібрування магнітометра.
 
 #### PREFLIGHT FAIL: EKF HIGH IMU ACCEL BIAS
 
@@ -44,9 +44,9 @@ The following errors (with associated checks and parameters) are reported by the
 <!-- Useful primer on biases: https://www.vectornav.com/resources/inertial-navigation-primer/specifications--and--error-budgets/specs-imuspecs -->
 <!-- Mathieu Bresciani is expert -->
 
-The EKF IMU acceleration bias is the difference between the measured acceleration reported by the IMU sensor and the expected acceleration reported by the EKF2 estimator (which fuses position and/or velocity data from a number of sources, including the IMU, GNSS, flow sensors etc.). This bias may change when the sensor is turned on (“turn-on bias”) and over time due to noise and temperature differences (“in-run bias”). The number should generally be very small (near zero), indicating that measurements from different sources all agree on the acceleration.
+Зміщення прискорення EKF IMU – це різниця між виміряним прискоренням, яке повідомляє датчик IMU, і очікуваним прискоренням, яке повідомляє оцінювач EKF2 (який об’єднує дані про позицію та/або швидкість з ряду джерел, включаючи IMU, GNSS, датчики потоку тощо). Це зміщення може змінюватися, коли датчик увімкнено (“зміщення увімкнення”) і з часом через шум і різницю температур (“зміщення в роботі”). Число, як правило, має бути дуже малим (близько нуля), що вказує на те, що всі вимірювання з різних джерел збігаються щодо прискорення.
 
-The warning indicates that the bias is higher than some arbitrary threshold (the vehicle will not be allowed to take off). It is most likely a sign that accelerometer or thermal calibration are required:
+Попередження вказує на те, що зсув перевищує певний довільний поріг (апарату не буде дозволено злетіти). It is most likely a sign that accelerometer or thermal calibration are required:
 
 - If you _sometimes_ get the warning: [re-calibrate the accelerometer](../config/accelerometer.md).
 - If you get _regularly_ get the warning: Perform a [thermal calibration](../advanced_config/sensor_thermal_calibration.md).
