@@ -33,11 +33,11 @@ RC/manual mode like [Manual/Stabilized (MC)](../flight_modes_mc/manual_stabilize
   - Throttle: Assistance from autopilot to hold position against wind.
   - Yaw: Assistance from autopilot to stabilize the attitude rate. Position of RC stick maps to the rate of rotation of vehicle in that orientation.
 
-## Parameters
+## Параметри
 
 The mode is affected by the following parameters:
 
-| Parameter                                                                                                   | Description                                                                                                                                                                                                                                                                                           |
+| Параметр                                                                                                    | Опис                                                                                                                                                                                                                                                                                                  |
 | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="MPC_Z_VEL_MAX_UP"></a>[MPC_Z_VEL_MAX_UP](../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_UP) | Maximum vertical ascent velocity. Default: 3 m/s.                                                                                                                                                                                                                                                     |
 | <a id="MPC_Z_VEL_MAX_DN"></a>[MPC_Z_VEL_MAX_DN](../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_DN) | Maximum vertical descent velocity. Default: 1 m/s.                                                                                                                                                                                                                                                    |
