@@ -86,7 +86,7 @@ The steps for a throw launch are:
      The exact meaning of "excessive rotation" depends on the platform: for instance, [PX4Vision](../complete_vehicles_mc/px4_vision_kit.md) used for the testing, still managed to recover after 2-3 full rotations.
 4. After a downward velocity is detected (the vehicle reaches its apex and starts falling down), the motors should turn on and the vehicle will start flying in the current mode.
 
-## Parameters
+## Параметри
 
 The following parameters can be used to enable and configure throw launch:
 
