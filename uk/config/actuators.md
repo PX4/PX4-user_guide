@@ -1,45 +1,45 @@
-# Actuator Configuration and Testing
+# Конфігурація та тестування приводу
 
 <Badge type="tip" text="PX4 v1.14" />
 
-The _Actuators Setup_ view is used to customize the specific geometry of the vehicle, assign actuators and motors to flight controller outputs, and test the actuator and motor response.
+Перегляд _Налаштування приводів_ використовується для налаштування конкретної геометрії транспортного засобу, призначення приводів і двигунів виходам контролера польоту та перевірки реакції приводу та двигуна.
 
 ## Загальний огляд
 
-Open the view in _QGroundControl_ here: **"Q" (app menu) > Vehicle Setup > Actuators** (tab). The displayed elements depend on the [selected frame](../config/airframe.md), with outputs mapped by default as shown in the [Airframe Reference](../airframes/airframe_reference.md).
+Відкрийте перегляд у _QGroundControl_ тут: **"Q" (меню програми) > Налаштування автомобіля > Актуатори** (вкладка). Елементи, що відображаються, залежать від [вибраного кадру](../config/airframe.md), а вихідні дані відображаються за замовчуванням, як показано в [Посиланні на планер](../airframes/airframe_reference.md).
 
-The view has three sections:
+Вид має три розділи:
 
-- [Geometry](#geometry): Configure the geometry for the [selected airframe](../config/airframe.md). This includes number, position and properties of [motors](#motor-geometry) and also the number and properties of [control surfaces](#control-surfaces-geometry) and [motor tilt servos](#motor-tilt-servo-geometry).
-- [Actuator Outputs](#actuator-outputs): Assign motors, control surfaces, and other actuators to specific output.
-- [Actuator Testing](#actuator-testing): Test that motors and actuators move in the direction / speed as expected.
+- [Геометрія](#geometry): налаштуйте геометрію [вибраного планера](../config/airframe.md). Це включає кількість, положення та властивості [двигунів](#motor-geometry), а також кількість і властивості [керуючих поверхонь](#control-surfaces-geometry) і [сервоприводів нахилу двигуна](#motor-tilt-servo-geometry).
+- [Виходи приводів](#actuator-outputs): призначте двигуни, поверхні керування та інші приводи певному виходу.
+- [Тестування приводу](#actuator-testing): перевірте, чи двигуни та приводи рухаються в очікуваному напрямку/швидкості.
 
-A quadcopter might have an setup screen similar to the one shown below. This defines a 4-rotor copter with X-geometry. It maps the 4 motors to the AUX1 to AUX4 outputs, and specifies that the connect to DShot1200 ESC. It also maps PWM400 AUX outputs for controlling a parachute and landing gear.
+Можливо, у квадрокоптера буде екран налаштувань, схожий на показаний нижче. Це визначає чотиримоторний коптер з геометрією X. Він відображає 4 двигуни на виходи AUX1 до AUX4 та вказує, що вони підключені до регуляторів швидкості DShot1200 ESC. Також він відображає виходи PWM400 AUX для керування парашутом та стійками посадки.
 
 ![Actuators MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_aux.png)
 
-::: info Only the most common settings are displayed by default. Select the **Advanced** checkbox in the top right corner to display all settings.
+::: info За замовчуванням відображаються лише найпоширеніші налаштування. Установіть прапорець **Додатково** у верхньому правому куті, щоб відобразити всі налаштування.
 :::
 
 ## Геометрія
 
-The geometry section is used to set any configurable geometry-related parameters for the selected [airframe](../config/airframe.md). This includes the number and position of [motors](#motor-geometry), and the number, function, and properties of [control surfaces](#control-surfaces-geometry). For VTOL tiltrotor vehicles, it will also include the number and properties of [tilt servos](#motor-tilt-servo-geometry)
+Розділ геометрії використовується для встановлення будь-яких конфігурованих параметрів, пов’язаних із геометрією, для вибраного [планера](../config/airframe.md). Це включає кількість і положення [двигунів](#motor-geometry), а також кількість, функції та властивості [керуючих поверхонь](#control-surfaces-geometry). Для конвертопланів VTOL також включатиме кількість і властивості [сервоприводів нахилу](#motor-tilt-servo-geometry)
 
-::: info The UI is customised for the selected airframe:
+::: info Інтерфейс користувача налаштовано для вибраного планера:
 
-- Only _configurable_ fields for the selected airframe type are displayed; fields that aren't configurable for the airframe are hidden.
-- The motor position diagram is currently only displayed for multicopter frames.
+- Відображаються лише _конфігуровані_ поля для вибраного типу планера; поля, які не можна налаштувати для планера, приховані.
+- Діаграма положення двигуна наразі відображається лише для рам мультикоптера.
 :::
 
-### Motor Geometry
+### Геометрія двигунів
 
-The motor geometry section lets you set the number of motors, the relative position, and other properties of each motor.
+Розділ геометрії двигунів дозволяє вам встановити кількість двигунів, відносне положення та інші властивості кожного двигуна.
 
-Most motor properties apply to all frames. A few properties apply to specific frames. For example, `Tilted-by` and `axis` are only relevant for [Tiltrotor VTOL](#motor-geometry-vtol-tiltrotor) and [Standard VTOL](#motor-geometry-standard-vtol) vehicles, respectively.
+Більшість властивостей двигуна застосовуються до всіх рамок. Деякі властивості застосовуються до певних рамок. Наприклад, `Tilted by` і `axis` актуальні лише для транспортних засобів [Tiltrotor VTOL](#motor-geometry-vtol-tiltrotor) і [Standard VTOL](#motor-geometry-standard-vtol) відповідно.
 
-The geometry configuration for multicopter airframes provides a diagram showing the relative x,y positions for each of the motors. See the [Airframe Reference](../airframes/airframe_reference.md) for an broad understanding of the motor positions for other frames.
+Конфігурація геометрії для повітряних рамок мультікоптерів надає діаграму, яка показує відносні позиції по вісі x та y для кожного з двигунів. Див. [Airframe Reference](../airframes/airframe_reference.md) для загального розуміння позицій двигунів для інших рамок.
 
-Core geometry concepts and the configuration for a number of different frames are provided in the following sections.
+Основні концепції геометрії та конфігурація для ряду різних фреймів наведені в наступних розділах.
 
 #### Motor Geometry: Multicopter
 
@@ -104,7 +104,7 @@ The origin is the vehicle's **centre-of-gravity (COG)**. This may **NOT** be the
 
 #### Bidirectional Motors
 
-Some vehicles may use bidirectional motors (i.e. motors that support spinning in both directions). Наприклад, земляні транспортні засоби, які хочуть рухатися вперед і назад, або літальні апарати типу VTOL, які мають двигуни-тягунці, які можуть обертатися у будь-якому напрямку.
+Деякі транспортні засоби можуть використовувати двонаправлені двигуни (тобто двигуни, які підтримують обертання у обох напрямках). Наприклад, земляні транспортні засоби, які хочуть рухатися вперед і назад, або літальні апарати типу VTOL, які мають двигуни-тягунці, які можуть обертатися у будь-якому напрямку.
 
 Якщо використовуються двонаправлені двигуни, переконайтеся, що для цих двигунів вибрано прапорець "Реверсивний" **Reversible** (цей прапорець відображається як "розширена" опція).
 
@@ -162,10 +162,10 @@ For the majority of airframe setups the default values for each control surface 
 
 The `Roll scale`, `Pitch scale` and `Yaw scale` values indicate the normalized effectiveness of the actuator around the corresponding axis.
 
-Tuning the values is a low/level/advanced topic, and is generally only needed when tuning coupled control surfaces (like an elevon, that controls both pitch and roll). In this case the things you need to know are:
+Настройка значень є темою низького / рівня / продвинутої складності і, як правило, потрібна лише при налаштуванні зв'язаних поверхонь керування (наприклад, елерон, який контролює як кочення, так і тангаж). У цьому випадку важливо знати наступне:
 
-- The numbers that are entered are directly put into the allocation matrix, that is then inverted to get from desired moments (normalized) to control signals.
-- Increasing the scale will _reduce_ the deflection of the control surfaces (as it gets inverted).
+- Числа, які вводяться, безпосередньо вводяться в матрицю розподілу, яка потім інвертується для отримання сигналів керування від вибраних моментів (нормалізованих).
+- Збільшення масштабу зменшить _reduce_ відхилення поверхонь керування (оскільки він інвертується).
 
 <!-- For more information see: []() (PX4 Dev Summit, 2022) -->
 
