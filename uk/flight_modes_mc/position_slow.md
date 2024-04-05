@@ -85,8 +85,8 @@ To use this approach:
 2. Map the channel which contains the knobs position as one of the 6 auxiliary passthrough inputs by setting [RC_MAP_AUXn](../advanced_config/parameter_reference.md#RC_MAP_AUX1) to the corresponding RC channel number.
 3. Map that auxiliary input using the appropriate `MC_SLOW_MAP_` parameter for the axis you want it to control (see table above).
 
-For example, if you want to map RC channel `8` to limit the horizontal velocity you could set [RC\_MAP\_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) to the value `8` and [MC\_SLOW\_MAP\_HVEL][mc_slow_map_hvel] to the value `1`.
-The RC input from channel 8 then sets a horizontal velocity limit between [MC\_SLOW\_MIN\_HVEL][mc_slow_min_hvel] and [MPC\_VEL\_MANUAL][mpc_vel_manual].
+Наприклад, якщо ви хочете відобразити канал RC 8 для обмеження горизонтальної швидкості, ви можете встановити для [RC\_MAP\_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) значення 8, а для [MC\_SLOW\_MAP\_HVEL][mc_slow_map_hvel] значення значення "1".
+Потім вхід RC з каналу 8 встановлює обмеження горизонтальної швидкості між [MC\_SLOW\_MIN\_HVEL][mc_slow_min_hvel] і [MPC\_VEL\_MANUAL][mpc_vel_manual].
 
 ## Set Limits using MAVLink
 
@@ -99,6 +99,6 @@ The value can be updated from a message at any time, and is latched until either
 
 Note that PX4 does not provide velocity limit telemetry (i.e. it does not support streaming the [VELOCITY_LIMITS](https://mavlink.io/en/messages/development.html#VELOCITY_LIMITS) message).
 
-## See Also
+## Дивіться також
 
 - [Position Slow Mode](../flight_modes_mc/position.md)
