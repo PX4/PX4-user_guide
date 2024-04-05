@@ -42,7 +42,7 @@ To add a frame configuration to firmware:
 
 A frame configuration file to be launched from SD card is the same as one stored in firmware.
 
-To make PX4 launch with a frame configuration, renamed it to `rc.autostart` and copy it to the SD card at `/ext_autostart/rc.autostart`. PX4 will find any linked files in firmware.
+Щоб запустити PX4 із конфігурацією кадру, перейменуйте його на `rc.autostart` і скопіюйте на SD-карту за адресою `/ext_autostart/rc.autostart`. PX4 знайде будь-які пов’язані файли у мікропрограмі.
 
 ## Configuration File Overview
 
@@ -56,20 +56,20 @@ The configuration file consists of several main blocks:
 Ці аспекти в основному незалежні, що означає, що багато конфігурацій використовують ту саму фізичну конструкцію літального апарату, запускають ті ж самі додатки і відрізняються переважно у своїх налаштуваннях.
 
 ::: info
-New frame configuration files are only automatically added to the build system after a clean build (run `make clean`).
+Нові файли конфігурації фрейму автоматично додаються до системи збирання лише після чистого збирання (запустіть `make clean`).
 :::
 
-### Example - Generic Quadcopter Frame Config
+### Приклад - загальна конфігурація рами квадрокоптера
 
-The configuration file for a generic Quad X copter is shown below ([original file here](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/4001_quad_x)). This is very simple, because it defines only the minimal setup common to all quadcopters.
+Файл конфігурації для типового коптера Quad X показано нижче ([оригінальний файл тут](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/4001_quad_x)). Це дуже просто, оскільки воно визначає лише мінімальні налаштування, загальні для всіх квадрокоптерів.
 
-The first line is a shebang, which tells the NuttX operating system (on which PX4 runs) that the configuration file is an executable shell script.
+Перший рядок — це shebang, який повідомляє операційній системі NuttX (на якій працює PX4), що файл конфігурації є виконуваним сценарієм оболонки.
 
 ```c
 #!/bin/sh
 ```
 
-This is followed by the frame documentation. The `@name`, `@type` and `@class` are used to identify and group the frame in the [API Reference](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) and QGroundControl Airframe Selection.
+Далі йде кадрова документація. `@name`, `@type` і `@class` використовуються для ідентифікації та групування кадру в [довіднику API](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) та Вибір планера QGroundControl.
 
 ```plain
 # @name Generic Quadcopter
@@ -81,13 +81,13 @@ This is followed by the frame documentation. The `@name`, `@type` and `@class` a
 #
 ```
 
-The next line imports generic parameters that are appropriate for all vehicles of the specified type (see [init.d/rc.mc_defaults](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rc.mc_defaults)).
+Наступний рядок імпортує загальні параметри, які підходять для всіх транспортних засобів зазначеного типу (див. [init.d/rc.mc_defaults](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rc.mc_defaults)).
 
 ```plain
 . ${R}etc/init.d/rc.mc_defaults
 ```
 
-Finally the file lists the control allocation parameters (starting with `CA_` that define the default geometry for the frame. These may be modified for your frame geometry in the [Actuators Configuration](../config/actuators.md), and output mappings may be added.
+Нарешті, у файлі перераховано параметри розподілу керування (починаючи з `CA_`, які визначають типову геометрію для рами. Їх можна змінити відповідно до геометрії вашої рами в [Конфігурації приводів](../config/actuators.md), а також можна додати відображення вихідних даних.
 
 ```sh
 param set-default CA_ROTOR_COUNT 4
@@ -103,11 +103,11 @@ param set-default CA_ROTOR3_PY 0.15
 param set-default CA_ROTOR3_KM -0.05
 ```
 
-### Example - Babyshark VTOL Complete Vehicle
+### Приклад – Повний транспортний засіб Babyshark VTOL
 
-A more complicated configuration file for a complete vehicle is provided below. This is the configuration for the Baby Shark [Standard VTOL](../frames_vtol/standardvtol.md) ([original file here](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13014_vtol_babyshark)).
+Нижче наведено більш складний файл конфігурації для повного транспортного засобу. Це конфігурація для Baby Shark [Standard VTOL](../frames_vtol/standardvtol.md) ([оригінальний файл тут](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13014_vtol_babyshark)).
 
-The shebang and documentation sections are similar to those for the generic frame, but here we also document what `outputs` are mapped to each motor and actuator. Note that these outputs are documentation only; the actual mapping is done using parameters.
+Розділи shebang і документація подібні до розділів загальної рами, але тут ми також документуємо, які `виходи` відображаються для кожного двигуна та приводу. Зверніть увагу, що ці результати є лише документацією; фактичне відображення виконується за допомогою параметрів.
 
 ```sh
 #!/bin/sh
@@ -253,18 +253,18 @@ param set-default PWM_MAIN_DIS3 1000
 param set-default PWM_MAIN_DIS4 1500
 ```
 
-## Adding a New Airframe Group
+## Додавання нової групи планера
 
-Повітряні каркаси "групуються", щоб об'єднати схожі повітряні каркаси для вибору у програмі [QGroundControl](https://docs.qgroundcontrol.com/master/en/SetupView/Airframe.html) та в [Довіднику з повітряних каркасів](../airframes/airframe_reference.md). Every group has a name, and an associated svg image which shows the common geometry, number of motors, and direction of motor rotation for the grouped airframes.
+Повітряні каркаси "групуються", щоб об'єднати схожі повітряні каркаси для вибору у програмі [QGroundControl](https://docs.qgroundcontrol.com/master/en/SetupView/Airframe.html) та в [Довіднику з повітряних каркасів](../airframes/airframe_reference.md). Кожна група має назву та пов'язаний з нею зображення у форматі Svg, яке показує загальну геометрію, кількість двигунів та напрямок обертання двигунів для повітряних каркасів, що належать до цієї групи.
 
 Файли метаданих конструкції повітряного каркасу, які використовуються в _QGroundControl_ та вихідний код документації, генеруються з опису конструкції повітряного каркасу за допомогою скрипту за допомогою команди збірки: `make airframe_metadata`
 
 Для нового каркасу, який належить до існуючої групи, вам не потрібно робити нічого більше, крім надання документації у описі каркасу, розташованому за шляхом [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d).
 
-If the airframe is for a **new group** you additionally need to:
+Якщо планер призначено для **нової групи**, додатково потрібно:
 
 1. Додайте зображення svg для групи до документації посібника користувача (якщо не надано зображення, відображається зображення заповнювача): [assets/airframes/types](https://github.com/PX4/PX4-user_guide/tree/master/assets/airframes/types)
-1. Add a mapping between the new group name and image filename in the [srcparser.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/srcparser.py) method `GetImageName()` (follow the pattern below):
+1. Додайте зіставлення між новою назвою групи та назвою файлу зображення в методі [srcparser.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/srcparser.py) `GetImageName()` (дотримуйтесь шаблону нижче):
 
    ```python
    def GetImageName(self):
@@ -282,8 +282,8 @@ If the airframe is for a **new group** you additionally need to:
 
 1. Оновіть _QGroundControl_:
 
-   - Add the svg image for the group into: [src/AutopilotPlugins/Common/images](https://github.com/mavlink/qgroundcontrol/tree/master/src/AutoPilotPlugins/Common/Images)
-   - Add reference to the svg image into [qgcimages.qrc](https://github.com/mavlink/qgroundcontrol/blob/master/qgcimages.qrc), following the pattern below:
+   - Додайте зображення svg для групи в: [src/AutopilotPlugins/Common/images](https://github.com/mavlink/qgroundcontrol/tree/master/src/AutoPilotPlugins/Common/Images)
+   - Додайте посилання на зображення svg у [qgcimages.qrc](https://github.com/mavlink/qgroundcontrol/blob/master/qgcimages.qrc), дотримуючись шаблону нижче:
 
      ```xml
      <qresource prefix="/qmlimages">
@@ -308,19 +308,19 @@ If the airframe is for a **new group** you additionally need to:
 - [Fixed-wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
 - [VTOL Configuration](../config_vtol/index.md)
 
-## Add Frame to QGroundControl
+## Додайте фрейм до QGroundControl
 
 Щоб зробити новий літальний апарат доступним для вибору в розділі _Конфігурація рами_ в [QGroundControl](../config/airframe.md):
 
-1. Make a clean build (e.g. by running `make clean` and then `make px4_fmu-v5_default`)
-1. Open QGC and select **Custom firmware file...** as shown below:
+1. Зробіть чисту збірку (наприклад, запустивши `make clean`, а потім `make px4_fmu-v5_default`)
+1. Відкрийте QGC і виберіть **Custom firmware file...** як показано нижче:
 
 ![QGC flash custom firmware](../../assets/gcs/qgc_flash_custom_firmware.png)
 
 Вас буде запрошено вибрати файл прошивки **.px4** для прошивки (цей файл є стислим JSON файлом і містить метадані про конфігурацію повітряного каркасу).
 
-1. Navigate to the build folder and select the firmware file (e.g. **PX4-Autopilot/build/px4_fmu-v5_default/px4_fmu-v5_default.px4**).
-1. Press **OK** to start flashing the firmware.
-1. Restart _QGroundControl_.
+1. Перейдіть до папки збірки та виберіть файл прошивки (наприклад, **PX4-Autopilot/build/px4_fmu-v5_default/px4_fmu-v5_default.px4**).
+1. Натисніть **OK**, щоб розпочати перезавантаження мікропрограми.
+1. Перезапустіть _QGroundControl_.
 
 Після цього новий кадр стане доступним для вибору в _QGroundControl_.
