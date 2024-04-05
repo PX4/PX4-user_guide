@@ -19,7 +19,7 @@ All services that use this interface send and receive messages of the same type/
 ::: info The [PX4 Vision Autonomy Development Kit](../complete_vehicles_mc/px4_vision_kit.md) is recommended for developing path planning software. It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance) software pre-installed and can be used as the base for your own algorithms.
 :::
 
-## PX4 Configuration
+## Налаштування PX4
 
 Path planning is activated in PX4 by [setting](../advanced_config/parameters.md) the [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) to 1.
 
@@ -52,9 +52,9 @@ Route planning software should not mix these interfaces while executing a task (
 
 ### PX4 Waypoint Interface
 
-PX4 sends the desired path in [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages at 5Hz.
+PX4 надсилає бажаний шлях у повідомленнях [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) на частоті 5 Гц.
 
-The fields set by PX4 as shown:
+Поля, встановлені PX4, як показано:
 
 - `time_usec`: UNIX Epoch time.
 - `valid_points`: 3
@@ -83,7 +83,7 @@ The fields set by PX4 as shown:
 
 <a id="type_adapted"></a>
 
-Notes:
+Примітки:
 
 - Point 0 is the current waypoint/target modified based on the type of target. For example, it makes sense when landing to specify the target x, y coordinates and a descent velocity. To achieve this `FlightTaskAutoMapper` modifies land waypoints in Point 0 to set the z component of position to NAN and the z-velocity to a desired value.
 - Points 1 and 2 are not used by the safe landing planner.
@@ -115,16 +115,16 @@ The path planning software (running on the companion computer) _may_ send the pl
 
 The fields for the messages from the companion computer are set as shown:
 
-- `time_usec`: UNIX Epoch time.
+- `time_usec`: час UNIX Epoch.
 - `valid_points`: 1
-- Current vehicle information:
-  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED vehicle local position setpoint
-  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED velocity setpoint
+- Актуальна інформація про пристрій:
+  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: задане локальне положення автомобіля x-y-z NED
+  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: задане значення швидкості x-y-z NED
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
-  - `pos_yaw[0]`: Yaw angle setpoint
-  - `vel_yaw[0]`: Yaw speed setpoint
+  - `pos_yaw[0]`: задане значення кута повороту
+  - `vel_yaw[0]`: задане значення швидкості повороту
   - `command[0]`: NaN.
-- All other indices/fields are set as NaN.
+- Усі інші індекси/поля встановлені як NaN.
 
 A planner that implements this interface must:
 
@@ -151,9 +151,9 @@ In more detail, the `TRAJECTORY_REPRESENTATION_BEZIER` is parsed as follows:
 - The control points should all be specified in local coordinates ([MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
 - Bezier curves expire after the execution time of the Bezier curve has been reached. Ensure that new messages are sent at a high enough rate and with a long enough execution time. If this does not happen the vehicle will switch to Hold mode.
 
-## Supported Hardware
+## Підтримуване обладнання
 
-Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
+Перевірені супутні комп’ютери та камери перераховані в [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 
 <!-- ## Further Information -->
 <!-- @mrivi and @jkflying are the experts! -->
