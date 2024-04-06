@@ -78,40 +78,40 @@ PX4 виконує ряд передпольотних перевірок яко
 
 #### PREFLIGHT FAIL: ACCEL SENSORS INCONSISTENT - CHECK CALIBRATION
 
-* Це повідомлення про помилку виникає, коли вимірювання прискорення від різних блоків IMU суперечать.
-* This check only applies to boards with more than one IMU.
-* The check is controlled by the [COM_ARM_IMU_ACC](../advanced_config/parameter_reference.md#COM_ARM_IMU_ACC) parameter.
+* Це повідомлення про помилку виникає, коли вимірювання прискорення від різних IMU суперечать.
+* Ця перевірка стосується лише плат із кількома IMU.
+* Ця перевірка контролюється параметром [COM_ARM_IMU_ACC](../advanced_config/parameter_reference.md#COM_ARM_IMU_ACC).
 
 #### PREFLIGHT FAIL: GYRO SENSORS INCONSISTENT - CHECK CALIBRATION
 
-* This error message is produced when the angular rate measurements from different IMU units are inconsistent.
-* This check only applies to boards with more than one IMU.
-* The check is controlled by the [COM_ARM_IMU_GYR](../advanced_config/parameter_reference.md#COM_ARM_IMU_GYR) parameter.
+* Це повідомлення про помилку виникає, коли вимірювання кутової швидкості від різних IMU суперечать.
+* Ця перевірка стосується лише плат із кількома IMU.
+* Ця перевірка контролюється параметром [COM_ARM_IMU_GYR](../advanced_config/parameter_reference.md#COM_ARM_IMU_GYR).
 
 #### PREFLIGHT FAIL: COMPASS SENSORS INCONSISTENT - CHECK CALIBRATION
 
-* This error message is produced when the difference in measurements from different compass sensors is too great.
-* It indicates bad calibration, orientation or magnetic interference.
-* This check only applies to when more than one compass/magnetometer is connected.
-* The check is controlled by the [COM_ARM_MAG_ANG](../advanced_config/parameter_reference.md#COM_ARM_MAG_ANG) parameter.
+* Це повідомлення про помилку виникає, коли різниця в вимірюваннях від різних датчиків компаса надто велика.
+* Це вказує на погане калібрування, орієнтацію або магнітні перешкоди.
+* Ця перевірка застосовується, лише коли підключені більше одного компаса/магнітометра.
+* Перевірка контролюється параметром [COM_ARM_MAG_ANG](../advanced_config/parameter_reference.md#COM_ARM_MAG_ANG).
 
 #### PREFLIGHT FAIL: EKF INTERNAL CHECKS
 
-* This error message is generated if the innovation magnitudes of either the horizontal GPS velocity, magnetic yaw, vertical GPS velocity or vertical position sensor (Baro by default but could be range finder or GPS if non-standard parameters are being used) are excessive. Innovations are the difference between the value predicted by the inertial navigation calculation and measured by the sensor.
-* Users should check the innovation levels in the log file to determine the cause. These can be found under the `ekf2_innovations` message. Common problems/solutions include:
-  * IMU drift on warmup. May be resolved by restarting the autopilot. May require an IMU accel and gyro calibration.
-  * Adjacent magnetic interference combined with vehicle movement. Resolve my moving vehicle and waiting or re-powering.
-  * Bad magnetometer calibration combined with vehicle movement. Resolve by recalibrating.
-  * Initial shock or rapid movement on startup that caused a bad inertial nav solution. Resolve by restarting the vehicle and minimising movement for the first 5 seconds.
+* Це повідомлення про помилку виникає, якщо величини нововведень горизонтальної швидкості GPS, магнітного повороту, вертикальної швидкості GPS або датчика вертикального положення (за замовчуванням барометр, але може бути далекомір або GPS, якщо використовуються нестандартні параметри) є надмірними. Нововведення - це різниця між значенням, передбаченим інерційним навігаційним розрахунком, і виміряним датчиком.
+* Користувачам слід перевірити рівні нововведень у файлі журналу, щоб визначити причину. Їх можна знайти за повідомленням `ekf2_innovations`. Поширені проблеми/рішення включають:
+  * Дрейф IMU під час прогріву. Можна вирішити, перезапустивши автопілот. Може знадобитися калібрування IMU акселерометра та гіроскопа.
+  * Суміжні магнітні перешкоди в поєднанні з рухом апарату. Можна вирішити, перемістивши апарат і зачекавши або перезавантаживши його.
+  * Погане калібрування магнітометра в поєднанні з рухом апарату. Вирішується шляхом повторного калібрування.
+  * Початковий поштовх або швидкий рух під час запуску, що спричинено поганим інерційним навігаційним рішенням. Можна вирішити, перезапустивши апарат і зведенням руху до мінімуму протягом перших 5 секунд.
 
 
 ## Інші параметри
 
-The following parameters also affect preflight checks.
+Наступні параметри також впливають на передпольотну перевірку.
 
 #### COM_ARM_WO_GPS
 
-Параметр [COM_ARM_WO_GPS](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS) визначає, чи дозволено взяття під охорону без оцінки загального положення.
-- `1` (default): Arming *is* allowed without a position estimate for flight modes that do not require position information (only).
-- `0`: Arming is allowed only if EKF is providing a global position estimate and EFK GPS quality checks are passing
+Параметр [COM_ARM_WO_GPS](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS) визначає, чи дозволено увімкнення без оцінки глобальної позиції.
+- `1` (за замовчуванням): Увімкнення *дозволено* без оцінки позиції для режимів польоту, які не потребують інформації про позицію (лише).
+- `0`: Увімкнення дозволено лише якщо EKF надає глобальну оцінку позиції та EKF GPS перевірки пройдено
 
