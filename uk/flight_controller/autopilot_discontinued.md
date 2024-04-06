@@ -1,12 +1,12 @@
-# Discontinued Autopilots/Vehicles
+# Зняті з виробництва автопілоти/апарати
 
 :::tip
-For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
+Для отримання додаткової інформації про рівні підтримки плат автопілотів проекту PX4 дивіться: [px4.io/autopilots/](https://px4.io/autopilots/).
 :::
 
-This category is for discontinued autopilots and complete vehicles. These are _not supported_ by the head revision of PX4 and are no longer being manufactured.
+Ця категорія стосується списаних автопілотів і комплектних апаратів. Вони _не підтримуються_ головною ревізією PX4 і більше не виробляються.
 
-## Autopilots
+## Автопілоти
 
 - [Drotek DroPix](../flight_controller/dropix.md) (FMUv2)
 - [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
@@ -21,7 +21,7 @@ This category is for discontinued autopilots and complete vehicles. These are _n
 - [mRo AUAV-X2](../flight_controller/auav_x2.md) (Pixhawk FMUv2)
 - [3DR Pixhawk 1](../flight_controller/pixhawk.md) (Pixhawk FMUv2)
 
-## Complete Vehicles
+## Комплектні апарати
 
 - [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles_mc/betafpv_beta75x.md)
 - [Intel® Aero RTF Drone](../complete_vehicles_mc/intel_aero.md) ([Complete Vehicle](../complete_vehicles_mc/index.md))
