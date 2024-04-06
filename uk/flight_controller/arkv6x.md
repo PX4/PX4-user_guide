@@ -4,62 +4,62 @@
 PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://arkelectron.com/contact-us/) щодо підтримки обладнання або питань сумісності.
 :::
 
-The USA-built ARKV6X flight controller is based on the [FMUV6X and Pixhawk Autopilot Bus open source standards](https://github.com/pixhawk/Pixhawk-Standards).
+Польотний контролер ARKV6X американського виробництва базується на стандартах з відкритим програмним кодом [FMUV6X і Pixhawk Autopilot Bus](https://github.com/pixhawk/Pixhawk-Standards).
 
-With triple synced IMUs, data averaging, voting, and filtering is possible. The Pixhawk Autopilot Bus (PAB) form factor enables the ARKV6X to be used on any [PAB-compatible carrier board](../flight_controller/pixhawk_autopilot_bus.md), such as the [ARK Pixhawk Autopilot Bus Carrier](../flight_controller/arkpab.md).
+Завдяки потрійній синхронізації IMU можливе узагальнення даних, голосування та фільтрація. Форм-фактор Pixhawk Autopilot Bus (PAB) дозволяє використовувати ARKV6X на будь-якій [PAB-сумісній платі-носії](../flight_controller/pixhawk_autopilot_bus.md), наприклад, на [ARK Pixhawk Autopilot Bus Carrier](../flight_controller/arkpab.md).
 
-![ARKV6X Main Photo](../../assets/flight_controller/arkv6x/ark_v6x_front.jpg)
+![Головне фото ARKV6X](../../assets/flight_controller/arkv6x/ark_v6x_front.jpg)
 
 ::: info
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+Цей польотний контролер підтримується [виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Where To Buy
+## Де купити
 
-Order From [Ark Electronics](https://arkelectron.com/product/arkv6x/) (US)
+Замовляйте у [Ark Electronics](https://arkelectron.com/product/arkv6x/) (США)
 
-## Sensors
+## Датчики (сенсори)
 
 - [Dual Invensense ICM-42688-P IMUs](https://invensense.tdk.com/products/motion-tracking/6-axis/icm-42688-p/)
 - [Invensense IIM-42652 Industrial IMU](https://invensense.tdk.com/products/smartindustrial/iim-42652/)
 - [Bosch BMP390 Barometer](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/pressure-sensors-bmp390.html)
 - [Bosch BMM150 Magnetometer](https://www.bosch-sensortec.com/products/motion-sensors/magnetometers-bmm150/)
 
-## Microprocessor
+## Мікропроцесор
 
 - [STM32H743IIK6 MCU](https://www.st.com/en/microcontrollers-microprocessors/stm32h743ii.html)
   - 480MHz
   - 2MB Flash
   - 1MB Flash
 
-## Other Features
+## Інші характеристики
 
 - FRAM
 - [Pixhawk Autopilot Bus (PAB) Form Factor](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
-- LED Indicators
-- MicroSD Slot
+- LED індикатори
+- Слот MicroSD
 - USA Built
-- Designed with a 1W heater. Keeps sensors warm in extreme conditions
+- Розроблений з нагрівачем потужністю 1 Вт. Підтримує датчики в теплі в екстремальних умовах
 
-## Power Requirements
+## Вимоги до живлення
 
-- 5V
-- 500mA
-  - 300ma for main system
-  - 200ma for heater
+- 5В
+- 500 мА
+  - 300 мА для основної системи
+  - 200 мА для нагрівача
 
-## Additional Information
+## Додаткова інформація
 
-- Weight: 5.0 g
-- Dimensions: 3.6 x 2.9 x 0.5 cm
+- Вага: 5.0 g
+- Розміри: 3,6 x 2,9 x 0,5 см
 
-## Pinout
+## Схема розташування виводів
 
-For pinout of the ARKV6X see the [DS-10 Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
+Для розводки ARKV6X дивіться [DS-10 Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
-| UART   | Device     | Port          |
+| UART   | Пристрій   | Порт          |
 | ------ | ---------- | ------------- |
 | USART1 | /dev/ttyS0 | GPS           |
 | USART2 | /dev/ttyS1 | TELEM3        |
@@ -70,7 +70,7 @@ For pinout of the ARKV6X see the [DS-10 Pixhawk Autopilot Bus Standard](https://
 | UART7  | /dev/ttyS6 | TELEM1        |
 | UART8  | /dev/ttyS7 | GPS2          |
 
-## Building Firmware
+## Збірка прошивки
 
 ```
 make ark_fmu-v6x_default
