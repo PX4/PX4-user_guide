@@ -26,16 +26,16 @@ _BeagleBone Blue_ образи можна знайти тут:
 
 ## Збірка для крос-компіляторів (рекомендується)
 
-The recommended way to build PX4 for _BeagleBone Blue_ is to compile on a development computer and upload the PX4 executable binary directly to the BeagleBone Blue.
+Рекомендований спосіб збірки PX4 для _BeagleBone Blue_ - це компіляція на комп'ютері розробника і завантаження виконуваного бінарного файлу PX4 безпосередньо на BeagleBone Blue.
 
 :::tip
-This approach is recommended over [native build](#native_builds) due to speed of deployment and ease of use.
+Цей підхід рекомендується використовувати замість [нативної збірки](#native_builds) через швидкість розгортання та простоту використання.
 :::
 
-::: info The PX4 build requires [librobotcontrol](http://strawsondesign.com/docs/librobotcontrol/) which is automatically included in the build (but it can be installed and tested independently if required).
+::: info Збірка PX4 потребує [librobotcontrol](http://strawsondesign.com/docs/librobotcontrol/), який автоматично включається до збірки (але його можна встановити і протестувати незалежно, якщо потрібно).
 :::
 
-### Beaglebone Blue WIFI Setup
+### Налаштування Beaglebone Blue WIFI
 
 For easy access to your board, you can connect it to your home network via wifi.
 
