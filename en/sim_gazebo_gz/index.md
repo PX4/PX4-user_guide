@@ -228,6 +228,12 @@ where `ARGS` is a list of environment variables including:
   Lets PX4 know that it should not launch an instance of Gazebo.
   Gazebo will need to be launched separately, as described in [Standalone Mode](#standalone-mode).
 
+- `PX4_GZ_SIM_RENDER_ENGINE`:
+  Sets the render engine to be used by gazebo, by default it is OGRE 2.
+
+  - Can be set to OGRE 1 (`PX4_GZ_SIM_RENDER_ENGINE=ogre`) to solve rendering issues when running PX4 on a virtual machine.
+  
+
 The PX4 Gazebo worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-gazebo-models).
 
 ::: info
