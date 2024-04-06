@@ -1,12 +1,12 @@
-# Generic Actuator Control
+# Керування загальним приводом
 
-You can connect arbitrary hardware to unused PX4 outputs and control it using [RC Control](#generic-actuator-control-with-rc) or [MAVLink](#generic-actuator-control-with-mavlink) (either as commands or in a [mission](#generic-actuator-control-in-missions)).
+Ви можете під'єднати довільне обладнання до невикористаних виводів PX4 і керувати ним за допомогою [Пристрою дистанційного керування](#generic-actuator-control-with-rc) або [MAVLink](#generic-actuator-control-with-mavlink) (як окремі команди, так і у [місії](#generic-actuator-control-in-missions)).
 
-This is useful when you need to use a payload type for which there is no associated MAVLink command, or for which PX4 doesn't have any specific integration.
+Це корисно, коли вам потрібно використовувати тип корисного навантаження, для якого немає пов’язаної команди MAVLink, або для якого PX4 не має відповідної інтеграції.
 
 :::note
-Prefer using integrated hardware and hardware-specific MAVLink commands, such as those for [Grippers](../peripherals/gripper.md), to generic actuator control when possible.
-Using integrated hardware allows optimised [mission planning and behaviour](../flying/package_delivery_mission.md) because the mission can know key facts about the hardware, such as how long it takes to trigger.
+Віддавайте перевагу використанню інтегрованого апаратного забезпечення та команд MAVLink відповідно до конкретного апаратного забезпечення, наприклад для [Захватів](../peripherals/gripper.md), замість керування загальним приводом, коли це можливо.
+Використання інтегрованого обладнання дозволяє оптимізувати [планування та поведінку місії](../flying/package_delivery_mission.md), оскільки місія може знати ключові факти про апаратне забезпечення, наприклад, скільки часу потрібно для запуску.
 :::
 
 ## Generic Actuator Control with MAVLink
