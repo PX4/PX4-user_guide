@@ -73,12 +73,12 @@ PX4 виконує ряд передпольотних перевірок яко
 
 #### PREFLIGHT FAIL: EKF HIGH IMU GYRO BIAS
 
-* This error is produced when the IMU gyro bias estimated by the EKF is excessive.
-* Excessive in this case means that the bias estimate exceeds 10deg/s (half the configured limit, which is hardcoded to 20deg/s).
+* Ця помилка виникає, коли зсув гіроскопа IMU, оцінений EKF, є надмірним.
+* У цьому випадку надмірне означає, що оцінка зміщення перевищує 10 градусів/с (половина налаштованого обмеження, яке встановлено 20 градусів/с).
 
 #### PREFLIGHT FAIL: ACCEL SENSORS INCONSISTENT - CHECK CALIBRATION
 
-* This error message is produced when the acceleration measurements from different IMU units are inconsistent.
+* Це повідомлення про помилку виникає, коли вимірювання прискорення від різних блоків IMU суперечать.
 * This check only applies to boards with more than one IMU.
 * The check is controlled by the [COM_ARM_IMU_ACC](../advanced_config/parameter_reference.md#COM_ARM_IMU_ACC) parameter.
 
