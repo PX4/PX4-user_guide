@@ -16,7 +16,7 @@
 
 ## Експериментальні апарати
 
-These are [complete vehicles](../complete_vehicles_mc/index.md) that have a fully integrated autopilot and other hardware (i.e. unlike the other autopilots listed, you can't use them in your own builds). They are listed in this page because from a PX4 software perspective, they are another autopilot.
+Це [готові апарати](../complete_vehicles_mc/index.md), які мають повністю інтегрований автопілот та інше обладнання (тобто, на відміну від інших перелічених автопілотів, ви не можете використовувати їх у власних збірках). Вони перераховані на цій сторінці, тому що з точки зору програмного забезпечення PX4 вони є ще одним автопілотом.
 
 - [Bitcraze Crazyflie 2.0](../complete_vehicles_mc/crazyflie2.md) ([Complete Vehicle](../complete_vehicles_mc/index.md))
 - [Bitcraze Crazyflie 2.1](../complete_vehicles_mc/crazyflie21.md) ([Complete Vehicle](../complete_vehicles_mc/index.md))
