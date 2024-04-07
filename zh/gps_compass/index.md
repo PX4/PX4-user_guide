@@ -1,8 +1,8 @@
 # GPS&罗盘
 
-PX4 supports Global Navigation Satellite Systems (GNSS) such as GPS, GLONASS, Galileo, Beidou, QZSS and SBAS, etc. using receivers that communicate via the u-blox, MTK Ashtech or Emlid protocols, or via UAVCAN. A GNSS system is needed for missions, and some other automatic and manual/assisted modes.
+PX4支持全球导航卫星系统（GNSS），如GPS、格罗纳斯、伽利略、北斗、QZSS和SBAS等。 其通过u-blox、MTK Ashtech 或 Emlid 协议或UAVCAN进行通信。 任务模式以及一些其他的自动和手工/辅助模式会用到GPS。
 
-Most GNSS modules also contain a [compass/magnetometer](../gps_compass/magnetometer.md) part (see link for calibration/setup information). Because of this the GNSS module should be mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing).
+大多数GPS模块还包含一个 [指南针/磁力计](../gps_compass/magnetometer.md) （校准/安装信息见链接）。 Because of this the GNSS module should be mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing).
 
 ![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
