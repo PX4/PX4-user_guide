@@ -379,11 +379,11 @@ Like all estimators, much of the performance comes from the tuning to match sens
 ### Переваги
 
 - ЕКФ ecl може об'єднувати дані з датчиків з різними затримками часу та частотами даних в математично послідовний спосіб, що підвищує точність під час динамічних маневрів, якщо параметри затримки часу встановлені правильно.
-- The ecl EKF is capable of fusing a large range of different sensor types.
-- The ecl EKF detects and reports statistically significant inconsistencies in sensor data, assisting with diagnosis of sensor errors.
-- For fixed-wing operation, the ecl EKF estimates wind speed with or without an airspeed sensor and is able to use the estimated wind in combination with airspeed measurements and sideslip assumptions to extend the dead-reckoning time available if GPS is lost in flight.
+- ЕКФ ecl здатний об'єднувати широкий спектр різних типів сенсорів.
+- ЕКФ ecl виявляє та повідомляє про статистично значущі неузгодженості в даних сенсорів, допомагаючи в діагностиці помилок сенсорів.
+- Для роботи з фіксованим крилом, ЕКФ ecl оцінює швидкість вітру з або без датчика швидкості повітря та може використовувати оцінену швидкість вітру в поєднанні з вимірюваннями швидкості повітря та припущеннями про боковий вітер, щоб продовжити час дедраконінгу, доступний у разі втрати GPS під час польоту.
 - ЕКФ ecl оцінює відхилення акселерометра по трьох осях, що підвищує точність для апаратів типу "хвісторізи" та інших транспортних засобів, які досвідчують великі зміни у положенні між фазами польоту.
-- The federated architecture (combined attitude and position/velocity estimation) means that attitude estimation benefits from all sensor measurements. This should provide the potential for improved attitude estimation if tuned correctly.
+- Федеративна архітектура (об'єднане оцінювання стану атитюду та положення/швидкості) означає, що оцінювання атитюду користується всіма вимірюваннями сенсорів. Це повинно забезпечити потенційну можливість покращення оцінювання атитюду при правильному налаштуванні.
 
 ## Як перевірити працездатність EKF?
 
@@ -397,35 +397,35 @@ Like all estimators, much of the performance comes from the tuning to match sens
 
 ### Вихідні дані
 
-- Attitude output data is found in the [VehicleAttitude](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitude.msg) message.
-- Local position output data is found in the [VehicleLocalPosition](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleLocalPosition.msg) message.
-- Global \(WGS-84\) output data is found in the [VehicleGlobalPosition](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleGlobalPosition.msg) message.
-- Wind velocity output data is found in the [Wind.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Wind.msg) message.
+- Вихідні дані Attitude містяться в повідомленні [VehicleAttitude](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitude.msg).
+- Вихідні дані про локальне положення знаходяться в повідомленні [VehicleLocalPosition](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleLocalPosition.msg).
+- Глобальні вихідні дані \(WGS-84\) містяться в повідомленні [VehicleGlobalPosition](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleGlobalPosition.msg).
+- Вихідні дані про швидкість вітру містяться в повідомленні [Wind.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Wind.msg).
 
 ### Стани
 
 Refer to states\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg). The index map for states\[24\] is as follows:
 
-- \[0 ... 3\] Quaternions
-- \[4 ... 6\] Velocity NED \(m/s\)
-- \[7 ... 9\] Position NED \(m\)
-- \[10 ... 12\] IMU delta angle bias XYZ \(rad\)
-- \[13 ... 15\] IMU delta velocity bias XYZ \(m/s\)
-- \[16 ... 18\] Earth magnetic field NED \(gauss\)
-- \[19 ... 21\] Body magnetic field XYZ \(gauss\)
-- \[22 ... 23\] Wind velocity NE \(m/s\)
+- \[0 ... 3\] Кватерніони
+- \[4 ... 6\] Швидкість NED \(м/с\)
+- \[7 ... 9\] Позиція NED \(м\)
+- \[10 ... 12\] IMU дельта-кут зміщення XYZ \(рад\)
+- \[13 ... 15\] IMU зсув швидкості по трьох осях XYZ \(м/с\)
+- \[16 ... 18\] Земне магнітне поле NED \(гаусс\)
+- \[19 ... 21\] Магнітне поле тіла по осях XYZ \(гаусс\)
+- \[22 ... 23\] Швидкість вітру NE \(м/с\)
 
 ### State Variances
 
 Refer to covariances\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg). The index map for covariances\[24\] is as follows:
 
-- \[0 ... 3\] Quaternions
-- \[4 ... 6\] Velocity NED \(m/s\)^2
-- \[7 ... 9\] Position NED \(m^2\)
-- \[10 ... 12\] IMU delta angle bias XYZ \(rad^2\)
-- \[13 ... 15\] IMU delta velocity bias XYZ \(m/s\)^2
-- \[16 ... 18\] Earth magnetic field NED \(gauss^2\)
-- \[19 ... 21\] Body magnetic field XYZ \(gauss^2\)
+- \[0 ... 3\] Кватерніони
+- \[4 ... 6\] Швидкість NED \(м/с)^2
+- \[7 ... 9\] Положення NED \(м^2)
+- \[10 ... 12\] Зсув кутової швидкості IMU по осях XYZ \(рад^2\)
+- \[13 ... 15\] Зсув швидкості IMU по осях XYZ \(м/с\)^2
+- Земне магнітне поле NED \(гаусс^2\)
+- \[19 ... 21\] Магнітне поле тіла по осях XYZ \(гаусс^2\)
 - \[22 ... 23\] Wind velocity NE \(m/s\)^2
 
 ### Observation Innovations & Innovation Variances
@@ -558,31 +558,31 @@ EKF можна зробити більш стійким до розходжен�
 Найпоширеніші причини розбіжності положення:
 
 - Високі рівні вібрації.
-  - Fix by improving mechanical isolation of the autopilot.
-  - Increasing the value of [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) and [EKF2_GYR_NOISE](../advanced_config/parameter_reference.md#EKF2_GYR_NOISE) can help, but does make the EKF more vulnerable to GPS glitches.
+  - Виправити, покращивши механічну ізоляцію автопілота.
+  - Збільшення значень [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) та [EKF2_GYR_NOISE](../advanced_config/parameter_reference.md#EKF2_GYR_NOISE) може допомогти, але робить ЕКФ більш вразливим до помилок GPS.
 - Великі зсуви зміщення гіроскопа.
-  - Fix by re-calibrating the gyro. Check for excessive temperature sensitivity (&gt; 3 deg/sec bias change during warm-up from a cold start and replace the sensor if affected of insulate to slow the rate of temperature change.
+  - Виправити шляхом повторної калібрування гіроскопа. Перевірте наявність надмірної температурної чутливості (> 3 град/сек зміни зміщення під час прогрівання після холодного запуску) і, в разі необхідності, замініть сенсор або ізолюйте, щоб сповільнити температурні зміни.
 - Погане вирівнювання курсу.
-  - Check the magnetometer calibration and alignment.
-  - Check the heading shown QGC is within 15 deg truth
+  - Перевірте калібрування та вирівнювання магнітомера.
+  - Перевірте, чи показаний курс у QGC відповідає істині в межах 15 градусів
 - Низька точність GPS
-  - Check for interference
-  - Improve separation and shielding
-  - Check flying location for GPS signal obstructions and reflectors \(nearby tall buildings\)
+  - Перевірте наявність перешкод
+  - Покращіть роздільність та екранування
+  - Перевірте місце польоту на перешкоди для сигналу GPS та рефлектори (наприклад, високі будівлі в неподалік)
 - Втрата сигналу GPS
 
 Визначення того, яка з них є основною причиною, вимагає методичного підходу до аналізу журнальних даних EKF.
 
-- Plot the velocity innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vel_test_ratio
-- Plot the horizontal position innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).pos_test_ratio
-- Plot the height innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).hgt_test_ratio
-- Plot the magnetometer innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).mag_test_ratio
-- Plot the GPS receiver reported speed accuracy - [SensorGps.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorGps.msg).s_variance_m_s
-- Plot the IMU delta angle state estimates - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).states\[10\], states\[11\] and states\[12\]
-- Plot the EKF internal high frequency vibration metrics:
-  - Delta angle coning vibration - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[0\]
-  - High frequency delta angle vibration - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[1\]
-  - High frequency delta velocity vibration - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[2\]
+- Намалюйте відношення інноваційного тесту швидкості - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vel_test_ratio
+- Намалюйте відношення інноваційного тесту горизонтального положення - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).pos_test_ratio
+- Намалюйте відношення інноваційного тесту висоти - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).hgt_test_ratio
+- Намалюйте відношення інноваційного тесту магнітометра - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).mag_test_ratio
+- Намалюйте точність швидкості, звіщену GPS-приймачем - [SensorGps.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorGps.msg).s_variance_m_s
+- Намалюйте оцінки стану кутових зміщень IMU - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).states\[10\], states\[11\] та states\[12\]
+- Діаграма внутрішніх частотних частотних метрик EKF:
+  - Конічна вібрація під кутом дельта - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[0\]
+  - Вібрація конусу кутового зміщення - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[1\]
+  - Високочастотна вібрація кутового зміщення - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[2\]
 
 Під час нормальної роботи всі тестові відношення повинні залишатися нижче 0.5, і лише іноді вони можуть підніматися вище цього значення, як показано на прикладі успішного польоту нижче:
 
