@@ -1,34 +1,34 @@
-# Gazebo Models Repository (PX4-gazebo-models)
+# Репозиторій моделей Gazebo (PX4-gazebo-models)
 
-The [PX4-gazebo-models](https://github.com/PX4/PX4-gazebo-models) repository is used to store all [Gazebo](../sim_gazebo_gz/index.md) models and worlds that are supported by PX4.
+Репозиторій [PX4-gazebo-models](https://github.com/PX4/PX4-gazebo-models) використовується для зберігання моделей [Gazebo](../sim_gazebo_gz/index.md) та світів, що підтримуються PX4.
 
-- Models are stored in the `/models` directory and worlds are stored in the `/worlds` directory.
-- The [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) Python script is used for [starting Gazebo in standalone mode](../sim_gazebo_gz/index.md#standalone-mode).
+- Моделі зберігаються в директорії `/models`, а світи - в директорії `/worlds`.
+- Python скрипт [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) використовується для [запуску Gazebo в автономному режимі](../sim_gazebo_gz/index.md#standalone-mode).
 
-The `PX4-gazebo-models` repository is included in PX4 as a submodule, and all models are available by default when using the "normal" `make` targets, such as `make px4_sitl gz_x500`.
+Репозиторій `PX4-gazebo-models` включений у PX4 як підмодуль, а усі моделі доступні за замовчуванням при використанні "звичайної" цілі збірки для `make`, наприклад `make px4_sitl gz_x500`.
 
-For Gazebo [standalone simulations](../sim_gazebo_gz/index.md#standalone-mode) you first have obtain the [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) Python script, and then it will fetch the models and worlds to `~/.simulation-gazebo` if that directory is not present.
+Для [автономних симуляцій](../sim_gazebo_gz/index.md#standalone-mode) Gazebo спочатку потрібно отримати Python скрипт [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo), а потім він отримає моделі та світи у `~/.simulation-gazebo` якщо ця директорія відсутня.
 
-## simulation-gazebo (Standalone Simulation Start-up Script)
+## simulation-gazebo (скрипт запуску автономної симуляції)
 
-The [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) Python script is used for starting Gazebo in [standalone mode](../sim_gazebo_gz/index.md#standalone-mode).
-The script can communicate with a PX4 SITL instance on the same host by default.
-If the script arguments are set correctly, it can also communicate with any PX4 instance on any machine within the same network.
+Python скрипт [simulation-gazebo](https://github.com/PX4/PX4-gazebo-models/blob/main/simulation-gazebo) використовується для запуску Gazebo у [автономному режимі](../sim_gazebo_gz/index.md#standalone-mode).
+Скрипт може спілкуватися з екземпляром PX4 SITL на тому ж комп'ютері за замовчуванням.
+Якщо аргументи скрипту встановлені правильно, він може також спілкуватися з будь-яким екземпляром PX4 на будь-якій машині в одній мережі.
 
-The `simulation-gazebo` script does not require any additional libraries and should work out of the box.
+Скрипт `simulation-gazebo` не потребує додаткових бібліотек і має працювати як є.
 
-### Basic Usage
+### Основне використання
 
-The default `simulation-script` can be run with:
+Скрипт за замовчуванням `simulation-script` може бути запущений як:
 
 ```sh
 python simulation-gazebo
 ```
 
-This will fetch the models and worlds from the [PX4 gazebo models repository](https://github.com/PX4/PX4-gazebo-models) into subfolders of the `~/.simulation-gazebo` directory the first time it is called (or more precisely, if the directory is not detected).
-A _gz-server_ instance will then be launched using the default grey plane world.
+Він отримає моделі та світи з [PX4 репозиторію моделей gazebo](https://github.com/PX4/PX4-gazebo-models) у підкаталоги каталогу `~/.simulation-gazebo` при першому запуску (або точніше, якщо ця директорія не виявлена).
+Екземпляр _gz-server_ буде запущено з використанням світу за замовчуванням "сіра рівнина".
 
-The build system won't automatically update the local copy again if the `.simulation-gazebo` folder is detected, but you can force it to update to the latest models and vehicles by passing the `overwrite` flag to the script.
+Система збірки автоматично не оновлюватиме локальну копію, якщо виявлено директорію `.simulation-gazebo`, але ви можете змусити її оновитися до останніх моделей та рухомих засобів передавши скрипту прапорець `overwrite`.
 The resulting command will look something like:
 
 ```sh
@@ -79,7 +79,7 @@ The following arguments can be passed to the `simulation-gazebo` script:
 - `--model_download_source`
   A string variable setting the path to a directory from where models are to be imported.
   At the moment this can only be a local file directory or a http address.
-  The source should end with the zipped model file (for example: https\://path/to/simulation/models/models.zip).
+  The source should end with the zipped model file (for example: https://path/to/simulation/models/models.zip).
 
 - `--model_store`
   A string variable setting the path to the model storage directory.
