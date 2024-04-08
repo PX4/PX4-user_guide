@@ -80,53 +80,53 @@ GPS/компас слід монтувати на раму якомога под
   
   
 
-## Telemetry Radios (Optional)
+## Телеметричні радіостанції (опціонально)
 
-Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission). One radio must be connected to your vehicle as shown below. The other is connected to your ground station computer or mobile device (usually by USB).
+Телеметрійні радіомодулі можуть використовуватися для зв'язку та управління транспортним засобом в польоті з наземної станції (наприклад, ви можете направляти БПЛА в певне положення або завантажувати нове завдання). Один радіомодуль повинен бути підключений до вашого транспортного засобу, як показано нижче. Інший підключається до вашого комп'ютера або мобільного пристрою наземної станції (зазвичай за допомогою USB).
 
 ![Pixhawk/Telemetry Radio](../../assets/flight_controller/pixhawk1/pixhawk_3dr_telemetry_radio.jpg)
 
 <!-- what configuration is required once you've set up a radio) -->
 
-## Motors
+## Двигуни
 
-The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframes/airframe_reference.md).
+Відображення між головними/допоміжними вихідними портами та двигунами/сервоприводами для всіх підтримуваних повітряних та наземних конструкцій перераховані в [Довіднику з конструкцій повітряних суден](../airframes/airframe_reference.md).
 
 :::warning
-The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames).
-Make sure to use the correct mapping for your vehicle.
+Відображення не є однорідним для всіх конструкцій (наприклад, ви не можете покладатися на те, що ручка газу буде на тому ж вихідному порту для всіх повітряних конструкцій).
+Переконайтеся, що ви використовуєте правильне відображення для вашого транспортного засобу.
 :::
 
 :::tip
-If your frame is not listed in the reference then use a "generic" airframe of the correct type.
+Якщо ваша конструкція не зазначена у довіднику, скористайтеся "загальною" конструкцією потрібного типу.
 :::
 
-::: info The output rail must be separately powered, as discussed in the [Power](#power) section above.
+::: info Рейка виходу повинна бути окремо живлена, як це обговорюється в розділі [Живлення](#power) вище.
 :::
 
 <!-- INSERT image of the motor AUX/MAIN ports? -->
 
-## Other Peripherals
+## Інші периферійні пристрої
 
-The wiring and configuration of other components is covered within the topics for individual [peripherals](../peripherals/index.md).
+Проведення кабелів та налаштування інших компонентів описані у розділах для окремих пристроїв [peripherals](../peripherals/index.md).
 
 
 
-## Configuration
+## Конфігурація
 
-General configuration information is covered in: [Autopilot Configuration](../config/index.md).
+Загальну інформацію про конфігурацію описано в: [Конфігурація автопілота](../config/index.md).
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+Особливу конфігурацію QuadPlane описано тут: [Конфігурація QuadPlane VTOL](../config_vtol/vtol_quad_configuration.md)
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 
-## Detailed Wiring Infographic (Copter)
+## Інфографіка з детальною проводкою (коптер)
 
 ![QuadCopter Pixhawk Wiring Infographic](../../assets/flight_controller/pixhawk1/pixhawk_infographic2.jpg)
 
 
 
-## Further information
+## Подальша інформація
 
-- [Pixhawk Series](../flight_controller/pixhawk_series.md)
+- [Серія Pixhawk](../flight_controller/pixhawk_series.md)
 - [3DR Pixhawk](../flight_controller/pixhawk.md)
