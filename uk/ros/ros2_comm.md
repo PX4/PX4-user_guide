@@ -225,12 +225,12 @@ The example builds the [ROS 2 Listener](#ros-2-listener) example application, lo
 :::
 
 
-#### Building the Workspace
+#### Створення робочого простору
 
-To create and build the workspace:
+Створити та побудувати робочий простір:
 
 1. Відкрийте новий термінал.
-1. Create and navigate into a new workspace directory using:
+1. Створіть новий каталог робочого простору та перейдіть до нього за допомогою:
 
    ```sh
    mkdir -p ~/ws_sensor_combined/src/
@@ -238,17 +238,17 @@ To create and build the workspace:
    ```
 
    :::note
-A naming convention for workspace folders can make it easier to manage workspaces.
+Узгодження імен для папок робочого простору може полегшити керування робочим простором.
 :::
 
-1. Clone the example repository and [px4_msgs](https://github.com/PX4/px4_msgs) to the `/src` directory (the `main` branch is cloned by default, which corresponds to the version of PX4 we are running):
+1. Скопіюйте репозиторій прикладів і [px4_msgs](https://github.com/PX4/px4_msgs) до каталогу `/src` (за замовчуванням клоновано гілку `main`, яка відповідає версії PX4, яку ми запускаємо):
 
    ```sh
    git clone https://github.com/PX4/px4_msgs.git
    git clone https://github.com/PX4/px4_ros_com.git
    ```
 
-1. Source the ROS 2 development environment into the current terminal and compile the workspace using `colcon`:
+1. Створіть середовище розробки ROS 2 у поточному терміналі і скомпілюйте робочу область за допомогою `colcon`:
 
    :::: tabs
 
@@ -272,7 +272,7 @@ A naming convention for workspace folders can make it easier to manage workspace
 
    ::::
 
-   This builds all the folders under `/src` using the sourced toolchain.
+   У результаті буде зібрано усі каталоги у `/src` за допомогою вихідного набору інструментів.
 
 
 #### Запуск прикладу
@@ -283,7 +283,7 @@ To run the executables that you just built, you need to source `local_setup.bash
 The [ROS2 beginner tutorials](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html#source-the-overlay) recommend that you _open a new terminal_ for running your executables.
 :::
 
-In a new terminal:
+В новому терміналі:
 
 1. Navigate into the top level of your workspace directory and source the ROS 2 environment (in this case "Humble"):
 
