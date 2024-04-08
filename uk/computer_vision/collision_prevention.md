@@ -34,13 +34,13 @@ _Collision Prevention_ увімкнено на PX4 шляхом встановл
 
 Налаштуйте запобігання зіткненням, встановивши [такі параметри](../advanced_config/parameters.md) у _QGroundControl_:
 
-| Parameter                                                                                           | Опис                                                                                                                                                                                                                                                                                                  |
-| --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="CP_DIST"></a>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)               | Set the minimum allowed distance (the closest distance that the vehicle can approach the obstacle). Set negative to disable _collision prevention_. <br>> **Warning** This value is the distance to the sensors, not the outside of your vehicle or propellers. Be sure to leave a safe margin! |
-| <a id="CP_DELAY"></a>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)             | Set the sensor and velocity setpoint tracking delay. See [Delay Tuning](#delay_tuning) below.                                                                                                                                                                                                         |
-| <a id="CP_GUIDE_ANG"></a>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)   | Set the angle (to both sides of the commanded direction) within which the vehicle may deviate if it finds fewer obstacles in that direction. See [Guidance Tuning](#angle_change_tuning) below.                                                                                                       |
-| <a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | Set to 1 to allow the vehicle to move in directions where there is no sensor coverage (default is 0/`False`).                                                                                                                                                                                         |
-| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)   | Set to 0 or 3 to enable Collision Prevention in Position Mode (default is 4).                                                                                                                                                                                                                         |
+| Parameter                                                                                           | Опис                                                                                                                                                                                                                                                                                                                                                               |
+| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <a id="CP_DIST"></a>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)               | Встановіть мінімально допустиму відстань (найближчу відстань, на яку транспортний засіб може наблизитися до перешкоди). Встановіть від'ємний значення, щоб вимкнути _collision prevention_. <br>> **Warning** Це значення є відстанню до датчиків, а не до зовнішньої сторони вашого транспортного засобу або гвинтів. Не забудьте залишити безпечний запас! |
+| <a id="CP_DELAY"></a>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)             | Встановіть затримку датчика та відстеження швидкості. Дивіться [Налаштування затримки](#delay_tuning) нижче.                                                                                                                                                                                                                                                       |
+| <a id="CP_GUIDE_ANG"></a>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)   | Встановіть кут (в обидві сторони від заданого напрямку), в межах якого транспортний засіб може відхилитися, якщо знайде менше перешкод у цьому напрямку. Дивіться [Налаштування навігації](#angle_change_tuning) нижче.                                                                                                                                            |
+| <a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | Встановіть значення 1, щоб дозволити транспортному засобу рухатися в напрямках, де немає покриття датчика (за замовчуванням 0/`False`).                                                                                                                                                                                                                            |
+| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)   | Встановіть значення 0 або 3, щоб увімкнути запобігання зіткненням у режимі позиціонування (за замовчуванням - 4).                                                                                                                                                                                                                                                  |
 
 <a id="algorithm"></a>
 
@@ -99,7 +99,7 @@ If the vehicle feels 'stuck' with only a single distance sensor pointing forward
 
 <a id="rangefinder"></a>
 
-## PX4 Distance Sensor
+## Датчик відстані PX4
 
 ### Lanbao PSK-CM8JL65-CC5
 
@@ -149,7 +149,7 @@ You can see the required modifications from the [feature PR](https://github.com/
 
 <a id="companion"></a>
 
-## Companion Setup
+## Налаштування комп'ютера компаньйона
 
 If using a companion computer or external sensor, it needs to supply a stream of [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) messages, which should reflect when and where obstacle were detected.
 
@@ -164,9 +164,9 @@ The tested companion software is the _local_planner_ from the [PX4/PX4-Avoidance
 
 The hardware and software should be set up as described in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo. In order to emit `OBSTACLE_DISTANCE` messages you must use the _rqt_reconfigure_ tool and set the parameter `send_obstacles_fcu` to true.
 
-## Gazebo Setup
+## Встановлення Gazebo
 
-_Collision Prevention_ can also be tested using Gazebo. See [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) for setup instructions.
+_Запобігання зіткненням_ також можна протестувати за допомогою Gazebo. Інструкції з налаштування див. у розділі [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance).
 
 <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
 <!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->
