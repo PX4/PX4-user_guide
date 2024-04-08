@@ -102,6 +102,10 @@ For more information see: [Sensor/Topic Debugging](../debug/sensor_uorb_topic_de
 
 ### uorb top Command
 
+:::note
+`uorb top` has been known to have issues when operating over the Mavlink Console, and may not start. The [PX4 System Console](../debug/system_console.md) is generally more reliable when using `uorb top`
+:::
+
 The command `uorb top` shows the publishing frequency of each topic in real-time:
 
 ```sh
