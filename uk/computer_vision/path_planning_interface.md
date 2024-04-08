@@ -126,30 +126,30 @@ The fields for the messages from the companion computer are set as shown:
   - `command[0]`: NaN.
 - Усі інші індекси/поля встановлені як NaN.
 
-A planner that implements this interface must:
+Interface для планувальника, який реалізує цей інтерфейс, повинна:
 
-- Emit setpoints at more than 2Hz when receiving messages from PX4. PX4 will enter [Hold mode](../flight_modes_mc/hold.md) if no message is received for more than 0.5s.
-- Mirror back setpoints it receives when it doesn't support planning for the current vehicle state (e.g. the local planner would mirror back messages sent during safe landing because it does not support Land mode).
+- Видавати цільові значення з частотою більше 2 Гц при отриманні повідомлень від PX4. PX4 увімкне режим [Hold mode](../flight_modes_mc/hold.md), якщо не отримує повідомлення протягом більше ніж 0,5 секунд.
+- Дублювати отримані цільові значення, коли вона не підтримує планування для поточного стану транспортного засобу (наприклад, локальний планувальник буде дублювати повідомлення, відправлені під час безпечної посадки, оскільки він не підтримує режим посадки).
 
 <a id="bezier_interface"></a>
 
-## Companion Bezier Trajectory Interface
+## Супутній інтерфейс траєкторії Безьє
 
-The path planning software (running on the companion computer) _may_ send the planned path to PX4 as a stream of [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) messages.
+Програмне забезпечення для планування маршруту (що працює на комп'ютері-супутнику) _може_ надсилати запланований шлях до PX4 у вигляді потоку повідомлень [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER).
 
-The message defines the path that the vehicle should follow in terms of a curve (defined by the control points), starting at the message `timestamp` and reaching the final point after time `delta`. PX4 calculates its new setpoint (the expected current position/velocity/acceleration along the curve) using the time that the message was sent, the current time, and the total time for the curve (delta).
+Повідомлення визначає шлях, який повинен пройти транспортний засіб у вигляді кривої (визначеної контрольними точками), починаючи з моменту часу повідомлення `timestamp` і досягаючи кінцевої точки після часового інтервалу `delta`. PX4 обчислює своє нове цільове значення (очікуване поточне положення/швидкість/прискорення вздовж кривої), використовуючи час надсилання повідомлення, поточний час та загальний час для кривої (delta).
 
-::: info For example, say the message was sent 0.1 seconds ago, and `delta` (curve duration) is 0.3s. PX4 can calculate its setpoint at the 0.1s position in the curve.
+::: info Наприклад, якщо повідомлення було надіслане 0,1 секунду тому, а `delta` (тривалість кривої) становить 0,3 секунди. PX4 може обчислити своє цільове значення на позиції 0,1 секунди на кривій.
 :::
 
-In more detail, the `TRAJECTORY_REPRESENTATION_BEZIER` is parsed as follows:
+Детальніше, повідомлення `TRAJECTORY_REPRESENTATION_BEZIER` розбирається наступним чином:
 
-- The number of Bezier control points determines the degree of the Bezier curve. For example, 3 points make a quadratic Bezier curve with constant acceleration.
-- The Bezier curve must be the same degree in x, y, z, and yaw, with all Bezier control points finite
-- The `delta` array should have the value corresponding with the last Bezier control point to indicate the duration that the waypoint takes to execute the curve to that point, from beginning to end. Other values in the `delta` array are ignored.
-- The timestamp of the MAVLink message should be the time that the curve starts, and communication delay and clock mismatch will be compensated for on the flight controller via the timesync mechanism.
-- The control points should all be specified in local coordinates ([MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
-- Bezier curves expire after the execution time of the Bezier curve has been reached. Ensure that new messages are sent at a high enough rate and with a long enough execution time. If this does not happen the vehicle will switch to Hold mode.
+- Кількість контрольних точок Bezier визначає ступінь кривої Bezier. Наприклад, 3 точки створюють квадратичну криву Bezier з постійним прискоренням.
+- Крива Bezier повинна мати однаковий ступінь у напрямках x, y, z та yaw, з усіма контрольними точками Bezier обмеженими
+- Масив `delta` повинен мати значення, що відповідає останній контрольній точці Bezier, щоб показати тривалість, яку займає виконання шляхової точки для виконання кривої до цієї точки, від початку до кінця. Інші значення у масиві `delta` ігноруються.
+- Мітка часу MAVLink-повідомлення повинна відповідати часу початку кривої, а затримка та розбіжність годинника будуть компенсовані на літаковому контролері за допомогою механізму синхронізації часу.
+- Всі контрольні точки повинні бути вказані в локальних координатах ([MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
+- Криві Bezier втрачають свою актуальність після досягнення часу виконання кривої Bezier. Переконайтеся, що нові повідомлення надсилаються з достатньою частотою та з довгою тривалістю виконання. Якщо цього не відбувається, транспортний засіб перейде в режим утримання.
 
 ## Підтримуване обладнання
 
