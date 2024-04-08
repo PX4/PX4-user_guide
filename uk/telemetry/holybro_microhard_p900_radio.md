@@ -8,7 +8,7 @@ This versatility is very convenient for the user. This radio is configured using
 
 The transmit power is software selectable from 100mW to 1W, with range up to 40 miles. A single ground station radio can be used to communicate with multiple vehicles using point to multi-point or mesh. Vehicles must have different MAVLINK IDs.
 
-![Holybro Microhard Radio](../../assets/hardware/telemetry/holybro_microhard.jpg)
+![Holybro Microhard Радіо](../../assets/hardware/telemetry/holybro_microhard.jpg)
 
 ## Features
 
@@ -22,13 +22,13 @@ The transmit power is software selectable from 100mW to 1W, with range up to 40 
 - 32 bits of CRC, selectable retransmission and forward error correction
 - Separate diagnostics port, transparent remote diagnostics and online network control
 
-## Where to Buy
+## Де купити
 
 - [Holybro Microhard P900 Telemetry Radio (100mW - 1W)](https://holybro.com/products/microhard-radio)
 
 ## Specification
 
-<img src="../../assets/hardware/telemetry/holybro_microhard_spec.png" width="500px" title="Holybro Microhard P900 Diagnosis" />
+<img src="../../assets/hardware/telemetry/holybro_microhard_spec.png" width="500px" title="Діагностика Holybro Microhard P900" />
 
 ## Connecting
 
@@ -53,7 +53,7 @@ The only "requirement" is that the ground radio, air radio, PX4, and QGroundCont
 
 In order to configure the radios using the _PicoConfig_ application (as described in the link above) it must be connected through the diagnostic port:
 
-<img src="../../assets/hardware/telemetry/holybro_microhard_uart converter.png" width="500px" title="Holybro Microhard P900 Diagnosis" />
+<img src="../../assets/hardware/telemetry/holybro_microhard_uart converter.png" width="500px" title="Діагностика Holybro Microhard P900" />
 
 The diagnostic port uses a 4-position JST SH connector. If you use _PicoConfig_ application or special diagnostic commands to config the radio, you should connect to this port. The diagnostic port is 3.3V logic level compatible. A USB-to-serial board is needed for connecting the radio to your computer. You can purchase a [Holybro UART to USB Converter](https://holybro.com/products/uart-to-usb-converter).
 
@@ -72,7 +72,7 @@ The default radio configuration as shipped is shown in _PicoConfig_ below (you m
 
 In point-to-point operating modes, there must be a master to provide network synchronization for the system, so one radio should be configured to PP master and another should be configured to PP remote.
 
-## Status LED
+## LED-статус
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_leds.png" width="600px" title="Holybro Pico Config" />
 
@@ -92,20 +92,20 @@ The P900 Radio has 6 status LEDs: three are blue, two are orange, and one is gre
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_rssi.png" width="600px" title="Holybro Pico Config" />
 
-### Pinout
+### Схема розташування виводів
 
-#### Diagnosis Port
+#### Порт діагностики
 
-| Pin       | Signal | Voltage |
+| Pin       | Сигнал | Напруга |
 | --------- | ------ | ------- |
 | 1         | NC     | --      |
 | 2 (black) | RX     | +3.3V   |
 | 3 (black) | TX     | +3.3V   |
 | 4 (black) | GND    | GND     |
 
-#### Data Port
+#### Порт даних
 
-| Pin       | Signal | Voltage |
+| Pin       | Сигнал | Напруга |
 | --------- | ------ | ------- |
 | 1 (red)   | NC     | --      |
 | 2 (black) | RX     | +3.3V   |
@@ -114,9 +114,9 @@ The P900 Radio has 6 status LEDs: three are blue, two are orange, and one is gre
 | 5 (black) | RTS    | +3.3V   |
 | 6 (black) | GND    | GND     |
 
-#### Power Port
+#### Порт живлення
 
-| Pin       | Signal | Voltage |
+| Pin       | Сигнал | Напруга |
 | --------- | ------ | ------- |
 | 1(red)    | BAT+   | 7-35V   |
 | 2 (red)   | BAT+   | 7-35V   |
@@ -125,7 +125,7 @@ The P900 Radio has 6 status LEDs: three are blue, two are orange, and one is gre
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_pinout.jpg" width="600px" title="Holybro Pico Config" />
 
-### Dimensions
+### Розміри
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_dimension.png" width="600px" title="Holybro Pico Config" />
 
@@ -138,7 +138,7 @@ The P900 Radio has 6 status LEDs: three are blue, two are orange, and one is gre
 - Receive current: 100 mA
 - Weight: 42g (without antenna)
 
-## Further info
+## Подальша інформація
 
-- [Microhard Radio](https://docs.holybro.com/telemetry-radio/microhard-radio) (docs.holybro.com)
-- [Holybro Microhard P900 Downloads](https://docs.holybro.com/telemetry-radio/microhard-radio/download) (Manuals, and other docs) (Holybro)
+- [Microhard Радіо](https://docs.holybro.com/telemetry-radio/microhard-radio) (docs.holybro.com)
+- [Завантаження Holybro Microhard P900](https://docs.holybro.com/telemetry-radio/microhard-radio/download) (посібники та інші документи) (Holybro)
