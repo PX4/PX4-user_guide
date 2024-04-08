@@ -358,15 +358,15 @@ PX4 дозволяє постійно об'єднувати дальномер �
 
 Зверніть увагу, що якщо використовуються дані про курс (біт 3), напрямок відносно зовнішнього візуального кадру; в іншому випадку напрямок відносно північного.
 
-EKF враховує невизначеність в оцінці візуального положення. This uncertainty information can be sent via the covariance fields in the MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) message or it can be set through the parameters [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) and [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE). You can choose the source of the uncertainty with [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD).
+EKF враховує невизначеність в оцінці візуального положення. Цю інформацію про невизначеність можна відправити через поля коваріації в повідомленні MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) або встановити через параметри [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) та [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE). Ви можете вибрати джерело невизначеності з [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD).
 
-## How do I use the 'ecl' library EKF?
+## Як використовувати бібліотеку EKF "ecl"?
 
-Set the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) parameter to 2 to use the ecl EKF.
+Встановіть параметр [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) на 2, щоб використовувати EKF ecl.
 
-## What are the advantages and disadvantages of the ecl EKF over other estimators?
+## Які переваги та недоліки EKF ecl порівняно з іншими оцінювачами?
 
-Like all estimators, much of the performance comes from the tuning to match sensor characteristics. Настройка - це компроміс між точністю і надійністю, і хоча ми намагалися надати настройку, яка задовольняє потреби більшості користувачів, будуть випадки, коли потрібні зміни налаштувань.
+Як і всі оцінювачі, більша частина продуктивності забезпечується налаштуванням відповідно до характеристик датчика. Настройка - це компроміс між точністю і надійністю, і хоча ми намагалися надати настройку, яка задовольняє потреби більшості користувачів, будуть випадки, коли потрібні зміни налаштувань.
 
 З цієї причини не висуваються претензії на точність в порівнянні з традиційною комбінацією `attitude_estimator_q` + `local_position_estimator`, і найкращий вибір оцінювача буде залежати від застосування і налаштування.
 
@@ -404,7 +404,7 @@ Like all estimators, much of the performance comes from the tuning to match sens
 
 ### Стани
 
-Refer to states\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg). The index map for states\[24\] is as follows:
+Зверніться до станів\[24\] у [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg). Індексна карта для станів\[24\] така:
 
 - \[0 ... 3\] Кватерніони
 - \[4 ... 6\] Швидкість NED \(м/с\)
@@ -415,9 +415,9 @@ Refer to states\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autopilot/
 - \[19 ... 21\] Магнітне поле тіла по осях XYZ \(гаусс\)
 - \[22 ... 23\] Швидкість вітру NE \(м/с\)
 
-### State Variances
+### Відхилення стану
 
-Refer to covariances\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg). The index map for covariances\[24\] is as follows:
+Зверніться до коваріацій\[24\] у [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg). Індексна карта для коваріацій\[24\] така:
 
 - \[0 ... 3\] Кватерніони
 - \[4 ... 6\] Швидкість NED \(м/с)^2
@@ -426,13 +426,13 @@ Refer to covariances\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autop
 - \[13 ... 15\] Зсув швидкості IMU по осях XYZ \(м/с\)^2
 - Земне магнітне поле NED \(гаусс^2\)
 - \[19 ... 21\] Магнітне поле тіла по осях XYZ \(гаусс^2\)
-- \[22 ... 23\] Wind velocity NE \(m/s\)^2
+- \[22 ... 23\] Швидкість вітру NE \(м/с\)^2
 
-### Observation Innovations & Innovation Variances
+### Інновації спостережень & інноваційні варіанти
 
-The observation `estimator_innovations`, `estimator_innovation_variances`, and `estimator_innovation_test_ratios` message fields are defined in [EstimatorInnovations.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg). The messages all have the same field names/types (but different units).
+Поля спостережень `estimator_innovations`, `estimator_innovation_variances` і `estimator_innovation_test_ratios` визначено в [EstimatorInnovations.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg). Усі повідомлення мають однакові назви/типи полів (але різні одиниці вимірювання).
 
-::: info The messages have the same fields because they are generated from the same field definition. The `# TOPICS` line (at the end of [the file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg)) lists the names of the set of messages to be created):
+::: info Повідомлення мають однакові поля, оскільки вони генеруються з того самого визначення поля. Рядок `# ТЕМИ` (в кінці [файлу](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg)) містить список імен набору повідомлень, які потрібно створити:
 
 ```
 # TOPICS estimator_innovations estimator_innovation_variances estimator_innovation_test_ratios
@@ -440,18 +440,18 @@ The observation `estimator_innovations`, `estimator_innovation_variances`, and `
 
 :::
 
-Some of the observations are:
+Деякі з спостережень:
 
-- Magnetometer XYZ (gauss, gauss^2) : `mag_field[3]`
-- Yaw angle (rad, rad^2) : `heading`
-- True Airspeed (m/s, (m/s)^2) : `airspeed`
-- Synthetic sideslip (rad, rad^2) : `beta`
-- Optical flow XY (rad/sec, (rad/s)^2) : `flow`
-- Height above ground (m, m^2) : `hagl`
-- Drag specific force ((m/s)^2): `drag`
-- Velocity and position innovations : per sensor
+- Магнітометр XYZ (гаус, гаус^2): `mag_field[3]`
+- Кут розвороту (рад, рад^2): `heading`
+- Швидкість повітря (м/с, (м/с)^2): `airspeed`
+- Синтетичний кут бокового зсуву (рад, рад^2): `beta`
+- Оптичний потік XY (рад/с, (рад/с)^2): `flow`
+- Висота над землею (м, м^2): `hagl`
+- Тягове специфічне зусилля ((м/с)^2): `drag`
+- Інновації швидкості та положення: для кожного сенсора
 
-In addition, each sensor has its own fields for horizontal and vertical position and/or velocity values (where appropriate). These are largely self documenting, and are reproduced below:
+Крім того, кожен сенсор має власні поля для горизонтального та вертикального положення та/або швидкості (за потреби). Вони в основному документуються самостійно, і наведені нижче:
 
 ```
 # GPS
