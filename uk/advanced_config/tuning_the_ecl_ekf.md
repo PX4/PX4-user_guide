@@ -341,24 +341,24 @@ PX4 дозволяє постійно об'єднувати дальномер �
 
 Дані [оптичного потоку](../sensor/optical_flow.md) використовуватимуться, якщо виконуються такі умови:
 
-- Valid range finder data is available.
-- [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL) is set.
-- The quality metric returned by the flow sensor is greater than the minimum requirement set by the [EKF2_OF_QMIN](../advanced_config/parameter_reference.md#EKF2_OF_QMIN) parameter.
+- Доступні дані дальномера відповідно до умов.
+- [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL) встановлено.
+- Якість метрики, поверненої датчиком потоку, більше мінімальних вимог, встановлених параметром [EKF2_OF_QMIN](../advanced_config/parameter_reference.md#EKF2_OF_QMIN).
 
-### External Vision System
+### Зовнішня система бачення
 
-Position, velocity or orientation measurements from an external vision system, e.g. Vicon, can be used.
+Дані про положення, швидкість або орієнтацію від зовнішньої системи бачення, наприклад, Vicon, можуть бути використані.
 
-The measurements that are fused are configured by setting the appropriate bits of [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL) to `true`:
+Змірювання, які об'єднуються, налаштовані, встановивши відповідні біти [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL) на `true`:
 
-- `0`: Horizontal position data
-- `1`: Vertical position data. Height sources may additionally be configured using [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) (see section [Height](#height)).
-- `2`: Velocity data
-- `3`: Yaw data
+- `0`: Дані про горизонтальне положення
+- `1`: Дані про вертикальне положення. Джерела висоти можуть бути додатково налаштовані за допомогою [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) (див. розділ [Висота](#height)).
+- `2`: Дані про швидкість
+- `3`: Дані про курс
 
-Note that if yaw data is used (bit 3) the heading is with respect to the external vision frame; otherwise the heading is relative to North.
+Зверніть увагу, що якщо використовуються дані про курс (біт 3), напрямок відносно зовнішнього візуального кадру; в іншому випадку напрямок відносно північного.
 
-The EKF considers uncertainty in the visual pose estimate. This uncertainty information can be sent via the covariance fields in the MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) message or it can be set through the parameters [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) and [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE). You can choose the source of the uncertainty with [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD).
+EKF враховує невизначеність в оцінці візуального положення. This uncertainty information can be sent via the covariance fields in the MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) message or it can be set through the parameters [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) and [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE). You can choose the source of the uncertainty with [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD).
 
 ## How do I use the 'ecl' library EKF?
 
