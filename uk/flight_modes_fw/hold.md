@@ -23,22 +23,22 @@ _Hold mode_ can be used to pause a mission or to help you regain control of a ve
 
 :::
 
-## Technical Summary
+## Технічний підсумок
 
 The aircraft circles around the GPS hold position at the current altitude. The vehicle will first ascend to [NAV_MIN_LTR_ALT](#NAV_MIN_LTR_ALT) if the mode is engaged below this altitude.
 
 RC stick movement is ignored.
 
-### Parameters
+### Параметри
 
 Hold mode behaviour can be configured using the parameters below.
 
-| Parameter                                                                                               | Description                                                                                                   |
+| Параметр                                                                                                | Опис                                                                                                          |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | [NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)                            | The radius of the loiter circle.                                                                              |
 | <a id="NAV_MIN_LTR_ALT"></a>[NAV_MIN_LTR_ALT](../advanced_config/parameter_reference.md#NAV_MIN_LTR_ALT) | Minimum height for loiter mode (vehicle will ascend to this altitude if mode is engaged at a lower altitude). |
 
-## See Also
+## Дивись також
 
 [Hold Mode (MC)](../flight_modes_mc/hold.md)
 
