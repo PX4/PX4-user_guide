@@ -1,24 +1,24 @@
-# Gazebo Vehicles
+# Рухомі засоби Gazebo
 
-This topic lists/displays the vehicles supported by the PX4 [Gazebo](../sim_gazebo_gz/index.md) simulation, and the `make` commands required to run them (the commands are run from a terminal in the **PX4-Autopilot** directory).
+Цей розділ перераховує/показує рухомі засоби, що підтримуються PX4 симуляцією [Gazebo](../sim_gazebo_gz/index.md), та команди `make` необхідні для того щоб їх запустити (команди запускаються з термінала в директорії **PX4-Autopilot**).
 
-The models are included in PX4 as a submodule that is fetched from the [Gazebo Models Repository](../sim_gazebo_gz/gazebo_models.md).
+Моделі включені у PX4 як підмодуль який отримується з [Репозиторію моделей Gazebo](../sim_gazebo_gz/gazebo_models.md).
 
-Supported vehicle types include: mutirotor, VTOL, Plane.
+Типи рухомих засобів що підтримуються: мультиротор, ВЗІП, літак.
 
 :::warning
-See [Gazebo Classic Vehicles](../sim_gazebo_classic/vehicles.md) for vehicles that work with the older [Gazebo "Classic" simulation](../sim_gazebo_classic/index.md). Note that vehicle models are not interchangable between the two versions of the simulator: the vehicles on this page only work with (new) [Gazebo](../sim_gazebo_gz/index.md).
+Дивіться [Рухомі засоби Gazebo Classic](../sim_gazebo_classic/vehicles.md) для засобів, що працюють зі старішою [Симуляцією Gazebo "Classic"](../sim_gazebo_classic/index.md). Зверніть увагу, що моделі засобів не взаємозамінні між двома версіями симулятору: засоби на цій сторінці будуть працювати тільки з (новим) [Gazebo](../sim_gazebo_gz/index.md).
 :::
 
-## Multicopter
+## Мультикоптер
 
-### X500 Quadrotor
+### Квадрокоптер X500
 
 ```sh
 make px4_sitl gz_x500
 ```
 
-### X500 Quadrotor with Visual Odometry
+### Квадрокоптер X500 з візуальною одометрією
 
 ```sh
 make px4_sitl gz_x500_vision
