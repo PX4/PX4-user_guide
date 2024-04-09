@@ -34,7 +34,7 @@ Other RoboClaw wiring is detailed in the [RoboClaw User Manual](https://download
 
 ![Serial Wiring Encoders](../../assets/airframes/rover/aion_r1/wiring_r1.jpg)
 
-## PX4 Configuration
+## Налаштування PX4
 
 ### Rover Configuration
 
@@ -80,7 +80,7 @@ Then configure the actuator configuration:
    about half speed forward and 0 = full stop.
    ```
 
-## See also
+## Дивись також
 
 - [roboclaw](../modules/modules_driver.md#roboclaw) driver
 - [Roboclaw User Manual](https://downloads.basicmicro.com/docs/roboclaw_user_manual.pdf)
