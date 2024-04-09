@@ -24,64 +24,64 @@ make px4_sitl gz_x500
 make px4_sitl gz_x500_vision
 ```
 
-![x500 in Gazebo](../../assets/simulation/gazebo/vehicles/x500.png)
+![x500 у Gazebo](../../assets/simulation/gazebo/vehicles/x500.png)
 
-### X500 Quadrotor with Depth Camera
+### Квадрокоптер X500 з камерою глибини
 
-These models have a depth camera attached, modelled on the OAK-D.
+Ці моделі мають додану камеру глибини, змодельовану за зразком OAK-D.
 
-_Forward-facing depth camera:_
+_Камера глибини орієнтована вперед:_
 
 ```sh
 make px4_sitl gz_x500_depth
 ```
 
-![x500 with depth camera in Gazebo](../../assets/simulation/gazebo/vehicles/x500_depth.png)
+![x500 з камерою глибини у Gazebo](../../assets/simulation/gazebo/vehicles/x500_depth.png)
 
-### X500 Quadrotor with Monocular Camera
+### Квадрокоптер X500 з монокулярною камерою
 
-This models has a simple monocular camera sensor attached (there is no physical camera visualization on the model itself).
+Ці моделі мають доданий простий датчик монокулярної камери (на моделі фізично немає візуалізації камери).
 
 ```sh
 make px4_sitl gz_x500_mono_cam
 ```
 
 :::note
-The camera cannot yet be used to stream video or for image capture in QGroundControl. [PX4-Autopilot#22563](https://github.com/PX4/PX4-Autopilot/issues/22563) can be used to track the additional work needed to fully enable these use cases.
+Ця камера поки що не може використовуватись для трансляції відео або захоплення зображень у QGroundControl. Використовуйте [PX4-Autopilot#22563](https://github.com/PX4/PX4-Autopilot/issues/22563) для відстеження додаткової роботи, необхідної для повної реалізації цих випадків використання.
 :::
 
-## Plane/Fixed-wing
+## Літак/Фіксоване крило
 
-### Standard Plane
+### Стандартний літак
 
 ```sh
 make px4_sitl gz_rc_cessna
 ```
 
-![Plane in Gazebo](../../assets/simulation/gazebo/vehicles/rc_cessna.png)
+![Літак у Gazebo](../../assets/simulation/gazebo/vehicles/rc_cessna.png)
 
-### Advanced Plane
+### Покращений літак
 
 ```sh
 make px4_sitl gz_advanced_plane
 ```
 
-![Advanced Plane in Gazebo](../../assets/simulation/gazebo/vehicles/advanced_plane.png)
+![Покращений літак у Gazebo](../../assets/simulation/gazebo/vehicles/advanced_plane.png)
 
 :::note
-The difference between the Advanced Plane and the "regular plane" lies in the Lift Physics that the two models use:
+Різниця між покращеним літаком та "стандартним літаком" полягає у фізиці піднімної сили які ці дві моделі використовують:
 
-- You can configure the _Advanced Lift Drag_ plugin used by the model to more closely match a particular vehicle using the [Advanced Lift Drag Tool](../sim_gazebo_gz/tools_avl_automation.md).
-- For more detail on the lift calculations for the Advanced Plane, see [PX4-SITL_gazebo-classic/src/liftdrag_plugin/index.md](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/20ded0757b4f2cb362833538716caf1e938b162a/src/liftdrag_plugin/index.md)
+- Можна налаштувати плагін _покращеної піднімної сили_ що використовуються моделлю для точнішої відповідності певному засобу використовуючи [Інструмент "Покращена піднімна сила"](../sim_gazebo_gz/tools_avl_automation.md).
+- Для отримання додаткової інформації про розрахунки піднімної сили для покращеного літака, дивіться [PX4-SITL_gazebo-classic/src/liftdrag_plugin/index.md](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/20ded0757b4f2cb362833538716caf1e938b162a/src/liftdrag_plugin/index.md)
 
 :::
 
-## VTOL
+## ВЗІП
 
-### Standard VTOL
+### Стандартний ВЗІП
 
 ```sh
 make px4_sitl gz_standard_vtol
 ```
 
-![Standard VTOL in Gazebo Classic](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
+![Стандартний ВЗІП у Gazebo Classic](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
