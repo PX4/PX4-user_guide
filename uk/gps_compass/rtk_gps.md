@@ -127,7 +127,7 @@ GPS can be used as a source for yaw fusion when using modules where _yaw output 
 
 When using GPS for yaw fusion you will need to configure the following parameters:
 
-| Parameter                                                                    | Setting                                                                                                                                                                                                         |
+| Параметр                                                                     | Налаштування                                                                                                                                                                                                    |
 | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) | The angle made by the *baseline* (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)). |
 | [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)   | Set bit position 3 "Dual antenna heading" to `1` (i.e. add 8 to the parameter value).                                                                                                                           |
