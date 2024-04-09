@@ -59,28 +59,28 @@ PX4 надсилає бажаний шлях у повідомленнях [TRAJ
 
 - `time_usec`: UNIX Epoch time.
 - `valid_points`: 3
-- Point 0 - Current waypoint _type adapted_ by FlightTaskAutoMapper (see [notes below](#type_adapted)):
-  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: Type adapted x-y-z NED local position of _current_ mission waypoint.
-  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: Type adapted x-y-z NED local velocity of _current_ mission waypoint.
+- Точка 0 - Поточний тип мітки, _адаптований_ за допомогою FlightTaskAutoMapper (див. [примітки нижче](#type_adapted)):
+  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: тип адаптованого x-y-z локального положення NED _поточного_ точка місії.
+  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: Тип адаптованої локальної швидкості NED x-y-z _течії</1 > точка місії.</li>
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
-  - `pos_yaw[0]`: Current yaw angle
+  - `pos_yaw[0]`: поточний кут повороту
   - `vel_yaw[0]`: NaN
-  - `command[0]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the current waypoint.
-- Point 1 - Current waypoint (Unmodified/not type adapted)):
-  - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: x-y-z NED local position of _current_ mission waypoint
+  - `command[0]`: [Команда MAVLink](https://mavlink.io/en/messages/common.html#mav_commands) для поточної маршрутної точки.</ul></li>
+- Пункт 1 - Поточна маршрутна точка (Незмінена/не адаптована до типу)):
+  - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: локальна позиція x-y-z NED _поточної_ місії шляхова точка
   - `vel_x[1]`, `vel_y[1]`, `vel_z[1]`: NaN
   - `acc_x[1]`, `acc_y[1]`, `acc_z[1]`: NaN
-  - `pos_yaw[1]`: Yaw setpoint
-  - `vel_yaw[1]`: Yaw speed setpoint
-  - `command[1]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the current waypoint.
-- Point 2 - Next waypoint in local coordinates (unmodified/not type adapted):
-  - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: x-y-z NED local position of _next_ mission waypoint
+  - `pos_yaw[1]`: Поточний кут курсу
+  - `vel_yaw[1]`: Швидкість заданої кутової мітки
+  - `command[1]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) для поточної мітки.
+- Точка 2 - Наступна мітка у локальних координатах (незмінена/не адаптована за типом):
+  - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: локальна позиція x-y-z NED _наступної_ місії шляхова точка
   - `vel_x[2]`, `vel_y[2]`, `vel_z[2]`: NaN
   - `acc_x[2]`, `acc_y[2]`, `acc_z[2]`: NaN
-  - `pos_yaw[2]`: Yaw setpoint
-  - `vel_yaw[2]`: Yaw speed setpoint
-  - `command[2]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the next waypoint.
-- All other indices/fields are set as NaN.
+  - `pos_yaw[2]`: Задана кутова мітка
+  - `vel_yaw[2]`: Швидкість заданої кутової мітки
+  - `command[2]`: [MAVLink-команда](https://mavlink.io/en/messages/common.html#mav_commands) для наступної мітки.
+- Усі інші індекси/поля встановлені як NaN.</ul>
 
 <a id="type_adapted"></a>
 
@@ -110,11 +110,11 @@ PX4 безпечно обробляє випадок, коли повідомл�
 
 <a id="companion_waypoint_interface"></a>
 
-## Companion Waypoint Interface
+## Інтерфейс точок-маркерів компаньйону
 
-The path planning software (running on the companion computer) _may_ send the planned path to PX4 as a stream of [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages that have the setpoint in Point 0.
+Програмне забезпечення планування маршруту (яке працює на компаньйонному комп'ютері) _може_ відправляти запланований шлях до PX4 у вигляді потоку повідомлень [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) зі точкою в Point 0.
 
-The fields for the messages from the companion computer are set as shown:
+Поля для повідомлень від компаньйонного комп'ютера встановлені як показано:
 
 - `time_usec`: час UNIX Epoch.
 - `valid_points`: 1
