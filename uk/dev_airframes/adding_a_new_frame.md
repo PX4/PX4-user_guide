@@ -14,44 +14,44 @@ PX4 [файли конфігурації фреймів](#configuration-file-ove
 Щоб визначити, які параметри/значення потрібно встановити в конфігураційному файлі, спочатку визначте загальний тип літального апарату та налаштуйте транспортний засіб, а потім використовуйте [`param show-for-airframe`](../modules/modules_command.md#param) для переліку параметрів, які були змінені.
 :::
 
-## Developing a Frame Configuration
+## Налаштування кадру в розробці
 
-The recommended process for developing a new frame configuration is:
+Рекомендований процес розробки нової конфігурації кадру:
 
-1. Start by selecting an appropriate "generic configuration" for the target vehicle type in QGC, such as _Generic Quadcopter_.
-1. Configure the [geometry and actuator outputs](../config/actuators.md).
-1. Perform other [basic configuration](../config/index.md).
-1. Tune the vehicle.
-1. Run the [`param show-for-airframe`](../modules/modules_command.md#param) console command to list the parameter difference compared to the original generic airfame.
+1. Почніть із вибору відповідної "загальної конфігурації" для цільового типу транспортного засобу в QGC, наприклад _Загальний квадрокоптер_.
+1. Налаштуйте [виходи геометрії та приводу](../config/actuators.md).
+1. Виконайте інші [основні налаштування](../config/index.md).
+1. Налаштуйте транспортний засіб.
+1. Виконайте наступну консольну команду: `[`param show-for-airframe`](../modules/modules_command.md#param)`. Вона відобразить різницю параметрів порівняно з оригінальною загальною конфігурацією платформи.
 
 Після того, як ви маєте параметри, ви можете створити новий файл конфігурації рами, скопіювавши файл конфігурації для загальної конфігурації та додавши нові параметри.
 
 За іншою альтернативою, ви можете просто додати змінені параметри до файлів конфігурації запуску, описаних у [System Startup > Customizing the System Startup](../concept/system_startup.md#customizing-the-system-startup) ("налаштування загальної конфігурації").
 
-## How to add a Configuration to Firmware
+## Як додати конфігурацію до прошивки
 
-To add a frame configuration to firmware:
+Як додати конфігурацію до прошивки:
 
-1. Create a new config file in the [init.d/airframes](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d/airframes) folder.
-   - Give it a short descriptive filename and prepend the filename with an unused autostart ID (for example, `1033092_superfast_vtol`).
-   - Update the file with configuration parameters and apps (see section above).
-1. Add the name of the new frame config file to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt) in the relevant section for the type of vehicle
-1. [Build and upload](../dev_setup/building_px4.md) the software.
+1. Створіть новий файл конфігурації в папці [init.d/airframes](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d/airframes).
+   - Дайте йому коротке описове ім'я файлу і перед ім'ям файла додайте не використаний ID для автозапуску (наприклад, `1033092_superfast_vtol`).
+   - Оновіть файл з параметрами конфігурації та програмами (див. вище).
+1. Додайте назву нового файлу конфігурації к [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt) в відповідний розділ для типу транспортного засобу
+1. [Збудуйте та завантажте](../dev_setup/building_px4.md) програмне забезпечення.
 
-## How to add a Configuration to an SD Card
+## Як додати конфігурацію на SD-карту
 
-A frame configuration file to be launched from SD card is the same as one stored in firmware.
+Файл конфігурації рами, що буде запущений з SD-карти, такий самий, як той, що зберігається в прошивці.
 
 Щоб запустити PX4 із конфігурацією кадру, перейменуйте його на `rc.autostart` і скопіюйте на SD-карту за адресою `/ext_autostart/rc.autostart`. PX4 знайде будь-які пов’язані файли у мікропрограмі.
 
-## Configuration File Overview
+## Огляд файлу конфігурації
 
-The configuration file consists of several main blocks:
+Файл конфігурації складається з кількох основних блоків:
 
-- Documentation (used in the [Airframes Reference](../airframes/airframe_reference.md) and _QGroundControl_). Airframe-specific parameter settings
-  - The configuration and geometry using [control allocation](../concept/control_allocation.md) parameters
-  - [Tuning gains](#tuning-gains)
-- The controllers and apps it should start, such as multicopter or fixed-wing controllers, land detectors etc.
+- Документація (використовується в [довіднику з конфігурацій](../airframes/airframe_reference.md) апаратури та _QGroundControl_). Специфічні налаштування параметрів планера
+  - Конфігурація та геометрія за допомогою параметрів[ розподілу керування](../concept/control_allocation.md)
+  - [Налаштування коефіцієнтів](#tuning-gains)
+- Контролери та програми, які мають запускатися, такі як контролери багатороторників або фіксованих крил, детектори посадки та інше.
 
 Ці аспекти в основному незалежні, що означає, що багато конфігурацій використовують ту саму фізичну конструкцію літального апарату, запускають ті ж самі додатки і відрізняються переважно у своїх налаштуваннях.
 
@@ -299,14 +299,14 @@ param set-default PWM_MAIN_DIS4 1500
 Залишена метадані про конфігурацію повинна автоматично включатися в прошивку (як тільки файл **srcparser.py** буде оновлено).
 :::
 
-## Tuning Gains
+## Підвищення налаштування
 
 Наступні теми пояснюють, як налаштувати параметри, які будуть вказані у конфігураційному файлі:
 
-- [Autotuning](../config/autotune.md)
-- [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md)
-- [Fixed-wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
-- [VTOL Configuration](../config_vtol/index.md)
+- [Автоналаштування](../config/autotune.md)
+- [Інструкція з налаштування мультикоптера PID](../config_mc/pid_tuning_guide_multicopter.md)
+- [Посібник з налаштування ПІД-регулятора з нерухомим крилом](../config_fw/pid_tuning_guide_fixedwing.md)
+- [Конфігурація VTOL](../config_vtol/index.md)
 
 ## Додайте фрейм до QGroundControl
 
