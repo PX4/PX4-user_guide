@@ -48,7 +48,7 @@ It is **HIGHLY RECOMMENDED** to set the ESC in training mode (see Traxxas Stampe
 As documented in the Airframe Reference: [Generic ground vehicle (Ackermann)](../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle_(ackermann)).
 :::
 
-## Configuration
+## Конфігурація
 
 Rovers are configured using *QGroundControl* in the same way as any other vehicle.
 
@@ -61,7 +61,7 @@ The main rover-specific configuration is setting the correct frame:
 ![Select Airframe](../../assets/airframes/rover/traxxas_stampede_vxl/airframe_px4_rover_traxxas_stampede_vxl_2wd.jpg)
 
 
-## Usage
+## Використання
 
 At the current time, PX4 only supports Mission and Manual modes when a RC remote is connected. To use the mission mode, first upload a new mission to the vehicle with QGC. Then, BEFORE ARMING, select `MISSION` and then arm.
 
@@ -74,6 +74,6 @@ A correct mission setup looks as follows:
 ![mission](../../assets/airframes/rover/traxxas_stampede_vxl/correct_mission.jpg)
 
 
-## Video
+## Відео
 
 <iframe width="740" height="416" src="https://www.youtube.com/embed/N3HvSKS3nCw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
