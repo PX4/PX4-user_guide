@@ -7,7 +7,7 @@ The Reptile Dragon 2 is a twin motor RC airplane specifically designed for effic
 ![Finished Reptile Dragon 2 airframe rear](../../assets/airframes/fw/reptile_dragon_2/airframe_rear.jpg)
 
 
-## Overview
+## Загальний огляд
 
 The goal of this build was to create an efficient, long endurance FPV platform to be used for general PX4 testing and development.
 
@@ -63,7 +63,7 @@ Key build features
 - Misc hardware: M3 hardware (standoffs, washers, O-rings, bolts), M2.5 nylon standoffs and screws, XT30 connectors, hot glue, heatshrink, Molex Microfit connectors
 - Silicone wiring (14awg for high current, 16awg for low current, 22awg for low power and signals)
 
-## Tools
+## Інструменти
 
 The following tools were used in this assembly.
 
@@ -240,77 +240,77 @@ Servos were wired to the FMU out port in the order left aileron, right aileron, 
 :::
 
 
-### Airspeed Sensor & Pitot Tube
+### Датчик швидкості повітря та пітот-трубка
 
-The airspeed sensor was connected to the I2C port on the FMU carrier board with the supplied JST GH I2C cable.
+Датчик швидкості повітря був підключений до порту I2C на платі-адаптері FMU за допомогою постачального кабелю з роз'ємом JST GH I2C.
 
 ![RD2 pitot plug](../../assets/airframes/fw/reptile_dragon_2/pitot_plug.jpg)
 
-The pitot tube was pushed through the pitot tube mount and then installed in the front fpv camera cut out.
+Пітот-трубка була протиснута через кріплення пітот-трубки та встановлена в виріз для Fpv-камери спереду.
 
-The pitot/static hoses were cut to length and installed to connect the pitot static probe to the airspeed sensor. Finally, the pitot static sensor was taped to the sidewall of the airframe (using double sided tape).
+Шланги пітоту/статики були вирізані на потрібну довжину та встановлені для з'єднання пітот-статичної зонди з датчиком швидкості повітря. Нарешті, датчик пітот-статики був приклеєний до бічної стінки корпусу літального апарата (за допомогою двостороннього скотчу).
 
 ### ELRS RX
 
-A custom cable was made to connect the ELRS RX to the JST GH `TELEM2` port of the FMU carrier board.
+Був виготовлений спеціальний кабель для підключення ELRS RX до порту `TELEM2` з роз'ємом JST GH на платі-адаптері FMU.
 
 ![ExpressLRS to telem port cable](../../assets/airframes/fw/reptile_dragon_2/elrs_cable.jpg)
 
-The other end of the cable was terminated to a Dupont connector to connect to the standard spaced headers on the ELRS RX. The ELRS RX was connected to the cable, and then heatshrink was used to secure the two together.
+Інший кінець кабелю був завершений роз'ємом Dupont для підключення до стандартно розміщених роз'ємів на ELRS RX. ELRS RX був підключений до кабелю, після чого термоусадка використовувалася для їх фіксації разом.
 
 ![ExpressLRS RX attached to telem port cable](../../assets/airframes/fw/reptile_dragon_2/elrs_rx_cable.jpg)
 
 ![ExpressLRS RX installed in the RD2 airframe](../../assets/airframes/fw/reptile_dragon_2/elrs_pitotstatic.jpg)
 
-A thin radio antenna tube was pushed through the top of the airframe used to mount one of the two ELRS diversity antennas upright. The second diversity antenna was taped to the sidewall of the airframe, 90 degrees from the alignment of the first antenna. The ELRS RX was attached to the sidewall of the airframe next to the airspeed pressure sensor, using double-sided tape.
+Тонка антенна трубка була протиснута через верх корпусу літального апарата, щоб установити одну з двох антен ELRS в вертикальне положення. Друга антена для різноманітності була приклеєна до бічної стінки корпусу літального апарата під кутом 90 градусів від положення першої антени. ELRS RX був прикріплений до бічної стінки корпусу літального апарата поруч з датчиком пітот-статики за допомогою двостороннього скотчу.
 
 ### USB
 
-A right angle USB C extension cable was used to allow easy access to the USB C port on the FMU.
+Був використаний кабель з USB-портом типу C з прямим кутом, щоб забезпечити легкий доступ до USB-порту типу C на FMU.
 
 ![Rear USB cable hatch](../../assets/airframes/fw/reptile_dragon_2/usb_hatch.jpg)
 
-The cable was installed such that it escapes the pixhawk heading towards the aft of the airplane. The cable continues to run to the rear hatch, where the excess length can be securely wound into a knot. Access to this cable can be accomplished by simply removing the rear hatch and unknotting the cable.
+Кабель був встановлений таким чином, що він виходить з Pixhawk, спрямований до тильної частини літального апарата. Кабель продовжується до задньої кришки, де зайва довжина може бути безпечно змотана в вузол. Доступ до цього кабелю можна здійснити, просто вийшовши задню кришку і розплутавши кабель.
 
-## Firmware Build
+## Збірка прошивки
 
-You can't use prebuilt PX4 release (or main) firmware for this vehicle, as it depends on PX4 modules [crsf_rc](../modules/modules_driver.md#crsf-rc) and [msp_osd](../modules/modules_driver.md#msp-osd) that are not included by default.
+Ви не можете використовувати заздалегідь побудовану прошивку PX4 (або основну), оскільки вона залежить від модулів PX4 [crsf_rc](../modules/modules_driver.md#crsf-rc) та [msp_osd](../modules/modules_driver.md#msp-osd), які за замовчуванням не включені.
 
-These require some custom configuration to enable.
+Для їх використання потрібна деяка налаштування.
 
-First, follow [this guide to setup a development environment](../dev_setup/dev_env.md) and [this guide to get the PX4 source code](../dev_setup/building_px4.md).
+Спочатку слід дотримуватися [цього посібника для налаштування середовища розробки](../dev_setup/dev_env.md) і [цього посібника для отримання вихідного коду PX4](../dev_setup/building_px4.md).
 
-Once a build environment has been setup, open a terminal and `cd` into the `PX4-Autopilot` directory. To launch the [PX4 board config tool (`menuconfig`)](../hardware/porting_guide_config.md#px4-menuconfig-setup) run:
+Once a build environment has been setup, open a terminal and `cd` into the `PX4-Autopilot` directory. Щоб запустити інструмент конфігурації [плати PX4 (`menuconfig`)](../hardware/porting_guide_config.md#px4-menuconfig-setup), виконайте:
 
 ```
 make ark_fmu-v6x_default boardconfig
 ```
 
-### `crsf_rc` Module
+### `crsf_rc` Модуль
 
-PX4 includes a standalone CRSF parser module which supports telemetry and CRSF LinkStatistics. To use this module, the default `rc_input` module must be disabled and the `crsf_rc` module must be enabled.
+PX4 включає автономний модуль розбору CRSF, який підтримує телеметрію та CRSF LinkStatistics. Для використання цього модуля потрібно вимкнути модуль `rc_input` за замовчуванням та увімкнути модуль `crsf_rc`.
 
-1. In the PX4 board config tool, navigate to the `drivers` submenu, then scroll down to highlight `rc_input`.
-2. Use the enter key to remove the `*` from `rc_input` checkbox.
-3. Scroll to highlight the `RC` submenu, then press enter to open it.
-4. Scroll to highlight `crsf_rc` and press enter to enable it.
-5. Save and exit the PX4 board config tool.
+1. У інструменті конфігурації плати PX4 перейдіть до підменю `драйверів`, прокрутіть вниз, щоб виділити `rc_input`.
+2. Використовуйте клавішу Enter, щоб видалити `*` з прапорця `rc_input`.
+3. Прокрутіть вниз, щоб виділити підменю `RC`, а потім натисніть Enter, щоб відкрити його.
+4. Прокрутіть вниз, щоб виділити `crsf_rc` і натисніть Enter, щоб увімкнути його.
+5. Збережіть і вийдіть з інструменту конфігурації плати PX4.
 
-For more information see [TBS Crossfire (CRSF) Telemetry](../telemetry/crsf_telemetry.md).
+Для отримання додаткової інформації див. [TBS Crossfire (CRSF) Telemetry](../telemetry/crsf_telemetry.md).
 
-### `msp_osd` Module
+### Модуль `msp_osd`
 
-The `msp_osd` module steams MSP telemetry to a selected serial port. The Caddx Vista Air Unit supports listening to MSP telemetry and will show the received telemetry values in its OSD (on screen display).
+Модуль `msp_osd` передає телеметрію MSP на вибраний серійний порт. Пристрій Caddx Vista Air підтримує прослуховування телеметрії MSP і відображає отримані значення телеметрії на своєму OSD (екрані).
 
-1. In the PX4 board config tool, navigate to the `drivers` submenu, then scroll down to highlight `OSD`.
-2. Use the enter key to open the `OSD` submenu
-3. Scroll down to highlight `msp_osd` and press enter to enable it
+1. У інструменті конфігурації плати PX4 перейдіть до підменю `драйверів`, прокрутіть вниз, щоб виділити `OSD`.
+2. Використовуйте клавішу Enter, щоб відкрити підменю `OSD`
+3. Прокрутіть вниз, щоб виділити `msp_osd` і натисніть Enter, щоб увімкнути його
 
-### Building & Flashing
+### Побудова & Прошивання
 
-Once the `msp_osd` and `crsf_rc` modules are enabled and the `rc_input` module is disabled, the firmware source must be compiled and the resulting image flashed to the FMU.
+Після увімкнення модулів `msp_osd` та `crsf_rc` та вимкнення модуля `rc_input`, потрібно скомпілювати вихідний код прошивки та збудувати образ, який потім буде прошитий в FMU.
 
-To compile and flash the firmware, connect the FMU/Carrier to the build host PC via USB and run:
+Для компіляції та прошивання прошивки підключіть FMU/Carrier до ПК-хоста збудови через USB і виконайте:
 
 ```
 make ark_fmu-v6x_default upload
@@ -318,49 +318,49 @@ make ark_fmu-v6x_default upload
 
 ## Конфігурація PX4
 
-### Parameter Config
+### Конфігурація параметрів
 
-This param file contains the custom PX4 parameter configuration for this build, including radio setup, tuning and sensor config. Load the file via QGC using the instructions at [Parameters> Tools](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html#tools) (QGC User Guide).
+Цей файл параметрів містить настроювану конфігурацію параметрів PX4 для цієї збірки, включаючи налаштування радіо, налаштування і датчиків. Завантажте файл через QGC за допомогою інструкцій у [Parameters > Tools](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html#tools) (QGC User Guide).
 
-- [Snapshot of PX4 airframe params](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/reptile_dragon_2/reptile_dragon_2_params.params)
+- [Знімок параметрів аеродинамічної рами PX4](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/reptile_dragon_2/reptile_dragon_2_params.params)
 
 
-You may need to modify some parameters for your build In particular you should check:
+Можливо, вам доведеться змінити деякі параметри для вашої збірки, зокрема вам слід перевірити:
 
-- [MSP_OSD_CONFIG](../advanced_config/parameter_reference.md#MSP_OSD_CONFIG) param must match serial port which is connected to the Caddx Vista (in this build, `/dev/ttyS7`).
-- [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG) param must match the serial port which is connected to the ELRS RX (in this build, `Telem 1`).
+- Параметр [MSP_OSD_CONFIG](../advanced_config/parameter_reference.md#MSP_OSD_CONFIG) повинен відповідати послідовному порту, який підключений до Caddx Vista (у цій збірці, `/dev/ttyS7`).
+- Параметр [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG) повинен відповідати послідовному порту, який підключений до ELRS RX (у цій збірці, `Telem 1`).
 
-### Radio Setup
+### Налаштування радіо
 
-You should enable Manual, Acro, and Position modes on your controller (at least for the first flight). For instructions see [Flight mode Configuration](../config/flight_mode.md)
+Вам слід активувати ручні, акро та позиційні режими на вашому контролері (принаймні для першого польоту). Інструкції дивіться у [Flight mode Configuration](../config/flight_mode.md)
 
-We also recommend configuring an [autotuning switch](../config/autotune.md#enable-disable-autotune-switch-fixed-wing) for the first flight, as this makes it easier to enable/disable autotuning while flying.
+Ми також рекомендуємо налаштувати [перемикач автоматичного](../config/autotune.md#enable-disable-autotune-switch-fixed-wing) налаштування для першого польоту, так як це полегшить включення / вимкнення автоматичного налаштування під час польоту.
 
-The channel mappings for this build are included in the supplied [params file](#parameter-config). The channel order is throttle, roll, pitch, yaw, (blank), and flight mode
+Мапування каналів для цієї збірки включено в постачальний [файл параметрів](#parameter-config). Порядок каналів - це керування газом, крен, тангаж, рульове керування, (порожнє), і режим польоту
 
 :::note
 
-ExpressLRS requires `AUX1` as an "arming channel". This arming channel is separate from PX4's arming mechanism and is used to tell the ELRS TX that is can switch into high transmit power.
+ExpressLRS потребує `AUX1` як "канал вибору режиму". Цей канал вибору режиму є окремим від механізму зброювання PX4 і використовується для повідомлення ELRS TX, що він може перемикатися в режим високої потужності передачі.
 
-In the PX4 channel mappings, I simply skip over this channel. On my transmitter, this channel is set to always be "high", so ELRS is always armed.
+У мапуванні каналів PX4 я просто пропускаю цей канал. На моєму передавачі цей канал завжди встановлений на "високий", тому ELRS завжди в зброї.
 :::
 
 
-### Motor Setup & Prop Installation
+### Налаштування мотора & встановлення пропелера
 
-Motors and flight control surface setup done in the [Actuator](../config/actuators.md) section. The supplied [params file](#parameter-config) maps the actuators as described in this build.
+Мотори та налаштування керування повітряними поверхнями виконуються в розділі [Actuator](../config/actuators.md). Постачений [файл параметрів](#parameter-config) відображає актуатори, як описано в цій збірці.
 
-The RD2 kit comes with clockwise and counter clockwise propellers for counter rotating motors. With counter rotating props, the airplane can be set up such that it has no [critical motors](https://en.wikipedia.org/wiki/Critical_engine).
+Комплект RD2 поставляється з годинними та проти годинною пропелерами для протиопорних двигунів. З протиопорними пропелерами літак може бути налаштований таким чином, що в нього не буде [критичних двигунів](https://en.wikipedia.org/wiki/Critical_engine).
 
-With no critical motors, controllability will be maximized if a motor fails. The motor direction should be set such that props should turn towards the fuselage on top of the plane. In other words, if you look at the left motor with the airplane facing away from you, it should spin clockwise while the right motor should spin counter clockwise.
+З відсутністю критичних двигунів, керованість буде максимальною в разі виходу з ладу одного з двигунів. Напрямок обертання двигунів слід встановити таким чином, щоб пропелери оберталися до фюзеляжу зверху літака. Іншими словами, якщо ви дивитесь на лівий двигун, обертаючись від вас від літака, він повинен обертатися за годинниковою стрілкою, тоді як правий двигун повинен обертатися проти годинникової стрілки.
 
-With the propellers removed, power the airplane up and use the [Actuator](../config/actuators.md) test in QGC to spin up the motors. If the left or right motor does not spin in the correct direction, swap two of its ESC leads and check it again. Finally, when both motors are spinning the correct directions, use a wrench to attach the propellers.
+Після зняття пропелерів включіть живлення літака та використайте тест актуатора в QGC для запуску моторів. Якщо лівий або правий двигун не обертається у правильному напрямку, поміняйте місцями два з його кабелів ESC та перевірте ще раз. Наприкінці, коли обидва двигуни обертаються у правильному напрямку, скористайтеся ключем для закріплення пропелерів.
 
-## Final Checks
+## Останні перевірки
 
-Prior to the first flight, a comprehensive preflight must be conducted.
+Перед першим польотом необхідно провести всебічний попередній огляд.
 
-I recommend checking the following items:
+Я рекомендую перевірити наступні елементи:
 
 - Sensor calibration (QGC)
   - Mag calibration
