@@ -1,13 +1,13 @@
 # Tiltrotor VTOL
 
-A **Tiltrotor VTOL** is a [VTOL](../frames_vtol/index.md) vehicle that has rotors that can swivel 90 degrees, allowing them to act as either multicopter rotors or as fixed-wing propellers.
+**Креновий вертоліт (Tiltrotor) VTOL** - це [ВТОЛ-транспортний засіб](../frames_vtol/index.md), у якого ротори можуть обертатися на 90 градусів, що дозволяє їм діяти як ротори багатокоптера або як пропелери фіксованого крила.
 
 ![Horizon Hobby E-flite Convergence](../../assets/airframes/vtol/eflite_convergence_pixfalcon/hero.jpg)
 
 
-## Videos
+## Відео
 
-This section contains videos that are specific to Tiltrotor VTOL (videos that apply to all VTOL types can be found in [VTOL](../frames_vtol/index.md)).
+Цей розділ містить відео, які специфічні для кренового вертольота VTOL (відео, які застосовуються до всіх типів ВТОЛ, можна знайти в розділі [VTOL](../frames_vtol/index.md)).
 
 [Convergence Tiltrotor](../frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md) [OMP Hobby ZMO FPV](../frames_vtol/vtol_tiltrotor_omp_hobby_zmo_fpv.md)
 
