@@ -62,24 +62,24 @@ Socket for a micro SD Card. The module can log (SBF/NMEA) files on the micro SD 
 ### 6-pin Connector
 _Connector type: GH connector, 1.25mm pitch, 6 way. Mating connector housing: GHR-06V-S._
 
-| Pin Name | Direction | Level      | Description               | Comment                                                           |
-| -------- | --------- | ---------- | ------------------------- | ----------------------------------------------------------------- |
-| VCC      | PWR       | 4.75V-5.5V | Main power supply         |                                                                   |
-| GND      |           | 0          | Ground                    |                                                                   |
-| TXD1     | Out       | 3V3_LVTTL  | Serial COM1 transmit line | Directly connects to TXD1 of internal mosaic                      |
-| RXD1     | In        | 3V3_LVTTL  | Serial COM1 receive line  | Directly connects to RXD1 of internal mosaic                      |
-| PPS      | Out       | 3V3_LVTTL  | PPSoutput                 | PPSO from mosaic converted to 3.3V                                |
-| EVENT    | In        | 3V3_LVTTL  | Event timer input         | Connects to EVENTA of mosaic through a 3V3to 1V8 level translator |
+| Pin Name | Напрямок | Рівень     | Опис                      | Коментар                                                          |
+| -------- | -------- | ---------- | ------------------------- | ----------------------------------------------------------------- |
+| VCC      | PWR      | 4.75V-5.5V | Main power supply         |                                                                   |
+| GND      |          | 0          | Ground                    |                                                                   |
+| TXD1     | Out      | 3V3_LVTTL  | Serial COM1 transmit line | Directly connects to TXD1 of internal mosaic                      |
+| RXD1     | In       | 3V3_LVTTL  | Serial COM1 receive line  | Directly connects to RXD1 of internal mosaic                      |
+| PPS      | Out      | 3V3_LVTTL  | PPSoutput                 | PPSO from mosaic converted to 3.3V                                |
+| EVENT    | In       | 3V3_LVTTL  | Event timer input         | Connects to EVENTA of mosaic through a 3V3to 1V8 level translator |
 
 ### 4-pin Connector
 _Connector type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR-04V-S._
 
-| Pin Name | Direction | Level     | Description               | Comment                                         |
-| -------- | --------- | --------- | ------------------------- | ----------------------------------------------- |
-| NRST     | In        | 3V3_LVTTL | Reset input               | Directly connects to nRST_IN of internal mosaic |
-| TXD2     | Out       | 3V3_LVTTL | Serial COM2 transmit line | Directly connects to TXD2 of internal mosaic    |
-| RXD2     | In        | 3V3_LVTTL | Serial COM2 receive line  | Directly connects to RXD2 of internal mosaic    |
-| GND      |           | 0         | Ground                    |                                                 |
+| Pin Name | Напрямок | Рівень    | Опис                      | Коментар                                        |
+| -------- | -------- | --------- | ------------------------- | ----------------------------------------------- |
+| NRST     | In       | 3V3_LVTTL | Reset input               | Directly connects to nRST_IN of internal mosaic |
+| TXD2     | Out      | 3V3_LVTTL | Serial COM2 transmit line | Directly connects to TXD2 of internal mosaic    |
+| RXD2     | In       | 3V3_LVTTL | Serial COM2 receive line  | Directly connects to RXD2 of internal mosaic    |
+| GND      |          | 0         | Ground                    |                                                 |
 
 ## Hardware setup
 
