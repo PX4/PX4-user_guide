@@ -1,4 +1,4 @@
-# Obstacle Avoidance (Мультикоптер)
+# Уникнення перешкод (Мультикоптер)
 
 _Obstacle Avoidance_ enables a vehicle to navigate around obstacles when following a preplanned path.
 
