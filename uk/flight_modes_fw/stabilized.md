@@ -18,7 +18,7 @@ The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](
 
 ![FW Manual Flight](../../assets/flight_modes/stabilized_fw.png)
 
-## Technical Description
+## Технічний опис
 
 Manual mode where centered roll/pitch sticks levels vehicle attitude. The vehicle course and altitude are not maintained, and can drift due to wind.
 
@@ -29,11 +29,11 @@ Manual mode where centered roll/pitch sticks levels vehicle attitude. The vehicl
 - Yaw stick adds an additional yaw rate setpoint (added to the one calculated by the autopilot to maintain coordinated flight). Can be used to manually change the side slip of the vehicle.
 - Manual control input is required (such as RC control, joystick).
 
-## Parameters
+## Параметри
 
 The mode is affected by the following parameters:
 
-| Parameter                                                                                           | Description                                                                    |
+| Параметр                                                                                            | Опис                                                                           |
 | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)   | Max pitch for manual control in attitude stabilized mode. Default: 45 degrees. |
 | <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)   | Max roll for manual control in attitude stabilized mode. Default: 45 degrees.  |
