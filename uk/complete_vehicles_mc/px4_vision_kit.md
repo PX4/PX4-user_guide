@@ -1,6 +1,6 @@
 # PX4 Vision Autonomy Development Kit
 
-[_PX4 Vision Autonomy Development Kit_] (https\://holybro.com/collections/multicopter-kit/PX4-Vision) - це надійний і недорогий комплект для створення систем комп'ютерного зору на автономних пристроях.
+[_PX4 Vision Autonomy Development Kit_] (https://holybro.com/collections/multicopter-kit/PX4-Vision) - це надійний і недорогий комплект для створення систем комп'ютерного зору на автономних пристроях.
 
 ![Overview](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_front.png)
 
@@ -61,7 +61,7 @@ For PX4 Vision v1 with ECN below 010/carrier board below RC04, the _UP Core_ sho
 
 ![PV4 Vision v1.5](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_whats_inside.jpg)
 
-Про те, що знаходиться всередині PX4 Vision V1, можна дізнатися тут [PX4 v1.13 Docs here] (https\://docs.px4.io/v1.13/en/complete_vehicles/px4_vision_kit.html#what-is-inside).
+Про те, що знаходиться всередині PX4 Vision V1, можна дізнатися тут [PX4 v1.13 Docs here] (https://docs.px4.io/v1.13/en/complete_vehicles/px4_vision_kit.html#what-is-inside).
 
 PX4 Vision DevKit містить наступні компоненти:
 
@@ -362,7 +362,7 @@ To integrate a different planner, this needs to be disabled.
    systemctl enable avoidance.service
    ```
 
-2. The source code of the obstacle avoidance package can be found in https\://github.com/PX4/PX4-Avoidance which is located in `~/catkin_ws/src/avoidance`.
+2. The source code of the obstacle avoidance package can be found in https://github.com/PX4/PX4-Avoidance which is located in `~/catkin_ws/src/avoidance`.
 
 3. Make changes to the code! To get the latest code of avoidance pull the code from the avoidance repo:
 
