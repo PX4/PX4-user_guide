@@ -20,14 +20,14 @@
 
 `MAV_CMD_DO_SET_ACTUATOR` `param1` до `param6` контролюють виводи, пов'язані `Peripheral via Actuator Set 1` до `Peripheral via Actuator Set 6` відповідно.
 
-For example, in the image above, the `AUX5` output is assigned the function `Peripheral via Actuator Set 1` function.
-To control the actuator attached to `AUX5` you would set the value of `MAV_CMD_DO_SET_ACTUATOR.param1`.
+Наприклад, на зображенні вище, вивід `AUX5` пов'язано з функцією `Peripheral via Actuator Set 1`.
+Щоб керувати приводом, підключеним до `AUX5`, потрібно встановити значення `MAV_CMD_DO_SET_ACTUATOR.param1`.
 
 <!-- PX4 v1.14 bug https://github.com/PX4/PX4-Autopilot/issues/21966 -->
 
-## Generic Actuator Control with RC
+## Керування загальним приводом за допомогою RC
 
-Up to 6 autopilot PWM or CAN outputs can be controlled using RC channels.
+За допомогою каналів пристрою дистанційного керування можна керувати до 6 PWM чи CAN виводами автопілота.
 The outputs that are to be controlled are specified in the [Actuators](../config/actuators.md#actuator-outputs) configuration screen by assigning the functions `RC AUX 1` to `RC AUX 6` to the desired [actuator outputs](../config/actuators.md#actuator-outputs).
 
 To map a particular RC channel to an output function `RC AUX n` (and hence it's assigned output) you use the [RC_MAP_AUXn](../advanced_config/parameter_reference.md#RC_MAP_AUX1) parameter that has the same `n` number.
