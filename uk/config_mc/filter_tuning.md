@@ -1,10 +1,10 @@
-# MC Filter Tuning & Control Latency
+# MC Filter Tuning & Контроль затримки
 
-Filters can be used to trade off [control latency](#control-latency), which affects flight performance, and noise filtering, which impacts both flight performance and motor health.
+Фільтри можуть використовуватися для вирішення проблеми [затримки управління](#control-latency), яка впливає на польотні характеристики, а також для фільтрації шуму, що впливає як на польотні характеристики, так і на здоров'я моторів.
 
-This topic provides an overview of control latency and PX4 filter tuning.
+Ця тема надає огляд затримки управління та настройки фільтрів в PX4.
 
-::: info Before filter tuning you should do a first pass at [Basic MC PID tuning](../config_mc/pid_tuning_guide_multicopter_basic.md). The vehicle needs to be undertuned (the **P** and **D** gains should be set too low), such that there are no oscillations from the controller that could be interpreted as noise (the default gains might be good enough).
+::: info Перед налаштуванням фільтрів вам слід зробити перший підхід до [базового налаштування PID](../config_mc/pid_tuning_guide_multicopter_basic.md) для керування безкерневим літаком. Транспортний засіб має бути підтриманий (**P** і **D** коефіцієнти повинні бути встановлені занадто низько), щоб не було осциляцій від контролера, які можна було б сприйняти як шум (типові коефіцієнти можуть бути достатні).
 :::
 
 ## Затримка керування
@@ -41,63 +41,63 @@ _Затримка керування_ - це час від фізичного п
 - Окремий фільтр нижніх частот для терміну D. Термін D найбільш схильний до шуму, при цьому незначне збільшення затримки не негативно впливає на продуктивність. З цієї причини термін D має окремо налаштований фільтр нижніх частот, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
 - Фільтр обмеження швидкості на виходах двигуна ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX)). Зазвичай не використовується.
 
-To reduce the control latency, we want to increase the cutoff frequency for the low-pass filters. The effect on latency of increasing `IMU_GYRO_CUTOFF` is approximated below.
+Для зменшення затримки керування ми хочемо збільшити частоту відсічки для фільтрів нижніх частот. Вплив збільшення `IMU_GYRO_CUTOFF` на затримку наближено нижче.
 
-| Cuttoff (Hz) | Delay approx. (ms) |
-| ------------ | ------------------ |
-| 30           | 8                  |
-| 60           | 3.8                |
-| 120          | 1.9                |
+| Частота відсічки (Гц) | Затримка (мс) |
+| --------------------- | ------------- |
+| 30                    | 8             |
+| 60                    | 3.8           |
+| 120                   | 1.9           |
 
-However this is a trade-off as increasing `IMU_GYRO_CUTOFF` will also increase the noise of the signal that is fed to the motors. Noise on the motors has the following consequences:
+Однак це компроміс, оскільки збільшення `IMU_GYRO_CUTOFF` також призведе до збільшення шуму сигналу, який подається на двигуни. Шум на двигунах має наступні наслідки:
 
-- Motors and ESCs can get hot, to the point where they get damaged.
-- Reduced flight time because the motors continuously change their speed.
-- Visible random small twitches.
+- Двигуни та регулятори обертання можуть нагріватися до такого рівня, коли вони пошкоджуються.
+- Зменшення часу польоту, оскільки двигуни постійно змінюють свою швидкість.
+- Видимі випадкові невеликі дрібні подергування.
 
-Setups that have a significant lower-frequency noise spike (e.g. due to harmonics at the rotor blade pass frequency) can benefit from using the notch filter to clean the signal before it is passed to the low pass filter (these harmonics have a similar detrimental impact on motors as other sources of noise). Without the notch filter you'd have to set the low pass filter cuttoff much lower (increasing the latency) in order to avoid passing this noise to the motors.
+Настройки, які мають значний спад нижньочастотного шуму (наприклад, через гармоніки на частоті проходження лопаток ротора), можуть вигідно використовувати фільтр вирівнювання, щоб очистити сигнал перед його подачею на фільтр нижніх частот (ці гармоніки мають схожий шкідливий вплив на двигуни, як і інші джерела шуму). Без фільтра вирівнювання вам доведеться встановити частоту відсічки фільтра нижніх частот набагато нижче (збільшуючи затримку), щоб уникнути передачі цього шуму на двигуни.
 
 ::: info
-Only one notch filter is provided.
-Airframes with more than one low frequency noise spike typically clean the first spike with the notch filter, and subsequent spikes using the low pass filter.
+Надається лише один фільтр вирівнювання.
+Авіаструктури з більш ніж одним спадом шуму низької частоти, зазвичай очищають перший спад за допомогою фільтра вирівнювання, а наступні спади - за допомогою фільтра нижніх частот.
 :::
 
-The best filter settings depend on the vehicle. The defaults are set conservatively — such that they work on lower-quality setups as well.
+Найкращі налаштування фільтра залежать від транспортного засобу. За замовчуванням вони налаштовані консервативно - так, щоб вони працювали і на менш якісних налаштуваннях.
 
-## Filter Tuning
+## Налаштування фільтра
 
-First make sure to have the high-rate logging profile activated ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter). [Flight Review](../getting_started/flight_reporting.md) will then show an FFT plot for the roll, pitch and yaw controls.
+Спочатку переконайтеся, що активований профіль високочастотного ведення журналу (параметр [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)). [Flight Review](../getting_started/flight_reporting.md) потім покаже графік Фур'є для управління креном, тангажем та рулів.
 
 :::warning
 
-- Do not try to fix a vehicle that suffers from high vibrations with filter tuning! Instead fix the vehicle hardware setup.
-- Confirm that PID gains, in particular D, are not set too high as this can show up as vibrations.
+- Не намагайтеся виправити транспортний засіб, який страждає від високих вібрацій, за допомогою налаштування фільтра! Замість цього виправте налаштування апаратного забезпечення транспортного засобу.
+- Переконайтеся, що коефіцієнти PID, зокрема D, не встановлені занадто високо, оскільки це може виявитися як вібрації.
 :::
 
-Filter tuning is best done by reviewing flight logs. You can do multiple flights right after each other with different parameters and then inspect all logs, but make sure to disarm in between so that separate log files are created.
+Налаштування фільтрування найкраще виконувати, переглядаючи журнали польотів. Ви можете зробити кілька польотів один за одним з різними параметрами, а потім перевірити всі журнали, але переконайтеся, що роззброїлись між ними, щоб створювалися окремі файли журналів.
 
-The performed flight maneuver can simply be hovering in [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md) with some rolling and pitching to all directions and some increased throttle periods. The total duration does not need to be more than 30 seconds. In order to better compare, the maneuver should be similar in all tests.
+Виконане повітряне маневрування може просто полягати в зависанні в режимі [Manual/Stabilized](../flight_modes_mc/manual_stabilized.md) з деякими кочуваннями і тангажами в усіх напрямках і деякими збільшеними періодами газу. Загальна тривалість не повинна перевищувати 30 секунд. Щоб краще порівняти, маневр має бути схожим у всіх тестах.
 
-First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30). Upload the logs to [Flight Review](https://logs.px4.io) and compare the _Actuator Controls FFT_ plot. Set the cutoff frequency to a value before the noise starts to increase noticeably (for frequencies around and above 60 Hz).
+Спочатку налаштуйте фільтр гіроскопа [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF), збільшуючи його кроками по 10 Гц, використовуючи низьке значення фільтра D-term ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30). Завантажте журнали до [Flight Review](https://logs.px4.io) та порівняйте графік Фур'є керованих акторів _Actuator Controls FFT_. Встановіть частоту відсічки на значення, перше, ніж шум стане помітно зростати (для частот приблизно 60 Гц і вище).
 
-Then tune the D-term filter (`IMU_DGYRO_CUTOFF`) in the same way. Note that there can be negative impacts on performance if `IMU_GYRO_CUTOFF` and `IMU_DGYRO_CUTOFF` are set too far apart (the differences have to be significant though - e.g. D=15, gyro=80).
+Потім налаштуйте фільтр D-term (`IMU_DGYRO_CUTOFF`) таким же чином. Зверніть увагу, що можуть бути негативні впливи на продуктивність, якщо `IMU_GYRO_CUTOFF` та `IMU_DGYRO_CUTOFF` встановлені занадто далеко один від одного (різниця повинна бути значною - наприклад, D=15, gyro=80).
 
-Below is an example for three different `IMU_DGYRO_CUTOFF` filter values (40Hz, 70Hz, 90Hz). At 90 Hz the general noise level starts to increase (especially for roll), and thus a cutoff frequency of 70 Hz is a safe setting. ![IMU_DGYRO_CUTOFF=40](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_40.png) ![IMU_DGYRO_CUTOFF=70](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_70.png) ![IMU_DGYRO_CUTOFF=90](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_90.png)
+Нижче наведено приклад для трьох різних значень фільтра `IMU_DGYRO_CUTOFF` (40 Гц, 70 Гц, 90 Гц). При 90 Гц загальний рівень шуму починає збільшуватися (особливо для крену), тому частота відсічки 70 Гц є безпечним налаштуванням. ![IMU_DGYRO_CUTOFF=40](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_40.png) ![IMU_DGYRO_CUTOFF=70](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_70.png) ![IMU_DGYRO_CUTOFF=90](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_90.png)
 
 ::: info
-The plot cannot be compared between different vehicles, as the y axis scale can be different.
-On the same vehicle it is consistent and independent of the flight duration.
+Графік не можна порівнювати між різними транспортними засобами, оскільки шкала осі у буде різна.
+На тому ж транспортному засобі вона є послідовною і незалежною від тривалості польоту.
 :::
 
-If the flight plots shows significant low frequency spikes, like the one shown in the diagram below, you can remove it using a notch filter. In this case you might use the settings: [IMU_GYRO_NF0_FRQ=32](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_FRQ) and [IMU_GYRO_NF0_BW=5](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_BW) (note, this spike is narrower than usual). The low pass filters and the notch filter can be tuned independently (i.e. you don't need to set the notch filter before collecting the data for tuning the low pass filter).
+Якщо графіки польоту показують значні піки низької частоти, подібні до показаного на діаграмі нижче, ви можете видалити їх за допомогою фільтра позбавлення. У цьому випадку ви можете використовувати наступні налаштування: [IMU_GYRO_NF0_FRQ=32](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_FRQ) і [IMU_GYRO_NF0_BW=5](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_BW) (зауважте, що цей пік вузький, ніж зазвичай). Низкочастотні фільтри та фільтр позбавлення можна налаштовувати незалежно (тобто вам не потрібно встановлювати фільтр позбавлення перед збором даних для налаштування низкочастотного фільтра).
 
 ![IMU_GYRO_NF0_FRQ=32 IMU_GYRO_NF0_BW=5](../../assets/config/mc/filter_tuning/actuator_controls_fft_gyro_notch_32.png)
 
-## Additional Tips
+## Додаткові поради
 
-1. Acceptable latency depends on vehicle size and expectations. FPV racers typically tune for the absolute minimal latency (as a ballpark `IMU_GYRO_CUTOFF` around 120, `IMU_DGYRO_CUTOFF` of 50 to 80). For bigger vehicles latency is less critical and `IMU_GYRO_CUTOFF` of around 80 might be acceptable.
+1. Прийнятна затримка залежить від розміру транспортного засобу та очікувань. ФПВ гонщики зазвичай налаштовують на мінімальну затримку (як приблизно `IMU_GYRO_CUTOFF` близько 120, `IMU_DGYRO_CUTOFF` від 50 до 80). Для більших транспортних засобів затримка менш критична, і `IMU_GYRO_CUTOFF` близько 80 може бути прийнятним.
 
-1. You can start tuning at higher `IMU_GYRO_CUTOFF` values (e.g. 100Hz), which might be desirable because the default tuning of `IMU_GYRO_CUTOFF` is set very low (30Hz). The only caveat is that you must be aware of the risks:
-   - Don't fly for more than 20-30 seconds
-   - Check that the motors are not getting to hot
-   - Listen for odd sounds and symptoms of excessive noise, as discussed above.
+1. Ви можете почати налаштування на високих значеннях `IMU_GYRO_CUTOFF` (наприклад, 100 Гц), що може бути бажаним, оскільки налаштування за замовчуванням `IMU_GYRO_CUTOFF` встановлено дуже низьким (30 Гц). Однак вам потрібно бути обізнаними з ризиками:
+   - Не літайте більше 20-30 секунд
+   - Перевірте, що двигуни не нагріваються занадто сильно
+   - Слухайте дивні звуки та симптоми надмірного шуму, як обговорено вище.
