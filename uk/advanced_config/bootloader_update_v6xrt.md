@@ -34,7 +34,7 @@ arm-none-eabi-objcopy -O ihex build/px4_fmu-v6xrt_bootloader/px4_fmu-v6xrt_bootl
 ## Прошивання завантажувальної програми через USB.
 
 Pixhawk V6X-RT постачається з вбудованим завантажувачем, розміщеним у ПЗУ.
-Щоб прошити новий завантажувач через USB, потрібно завантажити [NXP MCUXpresso Secure Provisioning](https\://www\.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and- tools-/mcuxpresso-secure-provisioning-tool:MCUXPRESSO-SECURE-PROVIZIONING).
+Щоб прошити новий завантажувач через USB, потрібно завантажити [NXP MCUXpresso Secure Provisioning](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and- tools-/mcuxpresso-secure-provisioning-tool:MCUXPRESSO-SECURE-PROVIZIONING).
 Інструмент доступний для Windows, Linux і macOS.
 
 1. Встановіть програму _MCUXpresso Secure Provisioning_ і запустіть додаток:
