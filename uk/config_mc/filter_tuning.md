@@ -7,39 +7,39 @@ This topic provides an overview of control latency and PX4 filter tuning.
 ::: info Before filter tuning you should do a first pass at [Basic MC PID tuning](../config_mc/pid_tuning_guide_multicopter_basic.md). The vehicle needs to be undertuned (the **P** and **D** gains should be set too low), such that there are no oscillations from the controller that could be interpreted as noise (the default gains might be good enough).
 :::
 
-## Control Latency
+## Затримка керування
 
-The _control latency_ is the delay from a physical disturbance of the vehicle until the motors react to the change.
+_Затримка керування_ - це час від фізичного порушення транспортного засобу до реакції моторів на зміну.
 
-:::tip
-Lowering latency allows you to increase the rate **P** gains, which results in better flight performance. Even one millisecond difference in the latency can have a significant impact.
+::: tip
+Зниження затримки дозволяє збільшити коефіцієнти **P** регулювання, що призводить до кращої польотної продуктивності. Навіть різниця в один мілісекунд може мати значний вплив.
 :::
 
-The following factors affect control latency:
+Наступні фактори впливають на затримку керування:
 
-- A soft airframe or soft vibration mounting increases latency (they act as a filter).
-- Low-pass filters in software and on the sensor chip trade off increased latency for improved noise filtering.
-- PX4 software internals: the sensor signals need to be read in the driver and then pass through the controller to the output driver.
-- The maximum gyro publication rate (configured with [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX)). A higher rate reduces latency but is computationally intensive/can starve other processes. 4 kHz or higher is only recommended for controllers with STM32H7 processor or newer (2 kHz value is near the limit for less capable processors).
-- The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a _Pixracer_ or _Omnibus F4_, but does apply to a Pixhawk). To avoid the IO delay attach the motors to the AUX pins instead.
-- PWM output signal: enable [Dshot](../peripherals/dshot.md) by preference to reduce latency (or One-Shot if DShot is not supported). The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
+- М'яка конструкція або м'яка амортизація вібрацій збільшує затримку (вони діють як фільтр).
+- Нижні фільтри у програмному забезпеченні та на мікросхемі датчика вимірювання компенсують збільшену затримку для покращеного фільтрування шуму.
+- Внутрішні складові програмного забезпечення PX4: сигнали датчиків потрібно зчитати у драйвері, а потім пройти через контролер до виходного драйвера.
+- Максимальна частота публікації гіроскопа (налаштовується за допомогою [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX)). Вища частота знижує затримку, але вимагає більше обчислювальних ресурсів / може викликати голодування інших процесів. Частота 4 кГц або вище рекомендується лише для контролерів з процесором STM32H7 або новіше (значення 2 кГц близьке до межі для менш потужних процесорів).
+- Мікросхема введення-виведення (головні контакти) додає приблизно 5,4 мс затримки порівняно з використанням додаткових контактів (це не стосується _Pixracer_ або _Omnibus F4_, але стосується Pixhawk). Щоб уникнути затримки введення-виведення, підключіть мотори до додаткових контактів замість головних.
+- Сигнал виведення ШІМ: ввімкніть [Dshot](../peripherals/dshot.md) за бажанням, щоб зменшити затримку (або One-Shot, якщо DShot не підтримується). Протокол вибирається для групи виведення під час [налаштування приводу дії](../config/actuators.md).
 
-Below we look at the impact of the low pass filters.
+Нижче ми розглянемо вплив нижніх фільтрів.
 
-## Filters
+## Фільтри
 
-This is the filtering pipeline for the controllers in PX4:
+Це конвеєр фільтрації для контролерів у PX4:
 
-- On-chip DLPF for the gyro sensor. This is disabled on all chips where it can be disabled (if not, the cutoff frequency is set to the highest level of the chip).
-- A notch filter on the gyro sensor data that is used to filter out narrow band noise, for example harmonics at the rotor blade pass frequency. This filter can be configured using [IMU_GYRO_NF0_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_BW) and [IMU_GYRO_NF0_FRQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_FRQ).
-- Low-pass filter on the gyro sensor data. It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
+- Вбудований фільтр нижніх частот (DLPF) для гіроскопа. Це вимикається на всіх чіпах, де це можливо (якщо ні, частота відсічки встановлюється на найвищому рівні чіпа).
+- Фільтр вирівнювання на даних гіроскопа, який використовується для фільтрації вузькосмугового шуму, наприклад, гармоніки на частоті проходження лопаток ротора. Цей фільтр можна налаштувати за допомогою параметрів [IMU_GYRO_NF0_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_BW) та [IMU_GYRO_NF0_FRQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_FRQ).
+- Фільтр нижніх частот на даних гіроскопа. Його можна налаштувати за допомогою параметра [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF).
 
-  ::: info
-Sampling and filtering is always performed at the full raw sensor rate (commonly 8kHz, depending on the IMU).
+  ::: info 
+Вибірка та фільтрація завжди виконується на повній швидкості відсічки датчика вводу (зазвичай 8 кГц, в залежності від ІІМУ).
 :::
 
-- A separate low-pass filter on the D-term. The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance. For this reason the D-term has a separately-configurable low-pass filter, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
-- A slewrate filter on the motor outputs ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX)). Generally not used.
+- Окремий фільтр нижніх частот для терміну D. Термін D найбільш схильний до шуму, при цьому незначне збільшення затримки не негативно впливає на продуктивність. З цієї причини термін D має окремо налаштований фільтр нижніх частот, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
+- Фільтр обмеження швидкості на виходах двигуна ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX)). Зазвичай не використовується.
 
 To reduce the control latency, we want to increase the cutoff frequency for the low-pass filters. The effect on latency of increasing `IMU_GYRO_CUTOFF` is approximated below.
 
