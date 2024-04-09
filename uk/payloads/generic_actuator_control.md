@@ -9,16 +9,16 @@
 Використання інтегрованого обладнання дозволяє оптимізувати [планування та поведінку місії](../flying/package_delivery_mission.md), оскільки місія може знати ключові факти про апаратне забезпечення, наприклад, скільки часу потрібно для запуску.
 :::
 
-## Generic Actuator Control with MAVLink
+## Керування загальним приводом за допомогою MAVLink
 
-[MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) can be used to set the value of up to 6 actuators (at a time).
-This command can be used in [missions](#generic-actuator-control-in-missions) by creating a "Set actuator" mission item, or as a stand alone command.
+[MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) може бути використано для встановлення значення для до 6 приводів (одночасно).
+Цю команду можна використовувати в [місіях](#generic-actuator-control-in-missions), створивши елемент місії «Set actuator», або як окрему команду.
 
-The outputs that are to be controlled are specified in the [Actuators](../config/actuators.md#actuator-outputs) configuration screen by assigning the functions `Peripheral via Actuator Set 1` to `Peripheral via Actuator Set 6` to the desired [actuator outputs](../config/actuators.md#actuator-outputs).
+Виводи, якими потрібно керувати, вказуються на екрані конфігурації [Actuators](../config/actuators.md#actuator-outputs) шляхом призначення функцій від `Peripheral via Actuator Set 1` до `Peripheral via Actuator Set 6` для бажаних [виводів приводу](../config/actuators.md#actuator-outputs).
 
-![Generic actuator output setting in QGC](../../assets/peripherals/qgc_generic_actuator_output_setting_example.png)
+![Налаштування виводу загального приводу в QGC](../../assets/peripherals/qgc_generic_actuator_output_setting_example.png)
 
-`MAV_CMD_DO_SET_ACTUATOR` `param1` to `param6` control the outputs mapped by `Peripheral via Actuator Set 1` to `Peripheral via Actuator Set 6` respectively.
+`MAV_CMD_DO_SET_ACTUATOR` `param1` до `param6` контролюють виводи, пов'язані `Peripheral via Actuator Set 1` до `Peripheral via Actuator Set 6` відповідно.
 
 For example, in the image above, the `AUX5` output is assigned the function `Peripheral via Actuator Set 1` function.
 To control the actuator attached to `AUX5` you would set the value of `MAV_CMD_DO_SET_ACTUATOR.param1`.
