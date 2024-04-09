@@ -1,8 +1,8 @@
 # Holybro PM03D Power Module
 
-The PM03D Power Module acts as both a Power Module (PM) and a Power Distribution Board (PDB). In addition to providing regulated power to Pixhawk v5X and the ESCs, it sends information to the autopilot about battery voltage and current supplied to the flight controller and the motors.
+Плата живлення PM03D виступає як блок живлення (PM) та розподільча плата живлення (PDB). Крім надання регульованого живлення Pixhawk v5X та ESC, вона надсилає інформацію автопілоту про напругу батареї та поточний струм, який подається на керуючий пристрій польоту та двигуни.
 
-The power module is connected using the I2C protocol. It is designed for flight controllers based on the Pixhawk FMUv5X and FMUv6X open standard, including the [Pixhawk 5X](../flight_controller/pixhawk5x.md).
+Плата живлення підключається за допомогою протоколу I2C. Вона призначена для керуючих пристроїв польоту на основі відкритого стандарту Pixhawk FMUv5X та FMUv6X, включаючи [Pixhawk 5X](../flight_controller/pixhawk5x.md).
 
 :::note
 The PM is **NOT** compatible with flight controllers that require an analog power module, including: [Pixhawk 4](../flight_controller/pixhawk4.md), [Durandal](../flight_controller/durandal.md), [Pix32 v5](../flight_controller/holybro_pix32_v5.md), etc.
@@ -10,23 +10,23 @@ The PM is **NOT** compatible with flight controllers that require an analog powe
 
 ![Pixhawk5x Upright Image](../../assets/hardware/power_module/holybro_pm03d/pm03d_pinout.jpg)
 
-## Features
+## Функції
 
-- Plug & play, no additional setup required for QGroundcontrol & Mission Planner
-- XT-30 connectors and solder pads for easy motor ESC connection
-- Onboard voltage regulators: two 5.2V & one selectable 8V/12V
-- 5V/A ports for powering companion computer or peripheral device
-- Selectable 8V or 12V triple row pin header for powering peripheral device
+- Підключи & використовуй, жодна додаткова настройка не потрібна для QGroundcontrol & Mission Planner
+- Роз'єми XT-30 та паяльні площини для простого підключення моторів та ESC
+- Вбудовані стабілізатори напруги: два 5.2V & один на вибір 8V/12V
+- Порти 5V/A для живлення супутнього комп'ютера або периферійного пристрою
+- На вибір 8V або 12V трирядний рядок контактів для живлення периферійного пристрою
 
 ## Специфікації
 
-- **Maximum input voltage**: 6S battery
+- **Максимальна вхідна напруга**: 6S заряд акумулятора
 - **Rated current**: 60A
-- **Max current**: 120A (<60 Sec)
+- **Максимальний струм:**: 120A (<60 сек)
 - **Max current sensing**: 164A
-- **Communication protocol**: I2C
+- **Протокол зв'язку**: I2C
 - **Dimension**: 84 x 78 x 12mm (excluding wires)
-- **Mounting**: 45 x 45mm
+- **Монтування**: 45 х 45 мм
 - **Вага**: 59g
 - **Connections**:
  - XT-60 for battery
@@ -37,7 +37,7 @@ The PM is **NOT** compatible with flight controllers that require an analog powe
  - 2x Triple row pin header (5.2V/3A, BEC shared with JST GH 4pin)
  - 2x Triple row pin header (8V or 12V selectable by moving header jumper, 3A)
 
-## Package Contents
+## Вміст набору
 
 - 1x PM06 board
 - 1x 80mm XT60 connector wire (pre-soldered)
