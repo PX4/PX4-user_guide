@@ -77,16 +77,18 @@ PX4 підтримує два процедури калібрування:
 Щоб виконати автономне калібрування:
 
 1. Переконайтеся, що тип кадру встановлено перед калібруванням, інакше параметри калібрування будуть втрачені під час налаштування плати.
-1. Увімкніть плату та встановіть параметри [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE), [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) і [TC_M_ENABLE](../advanced_config/parameter_reference.md#TC_M_ENABLE) на `1< /4>.</li>
-<li>Установіть усі параметри <a href="../advanced_config/parameter_reference.md#CAL_ACC0_ID">CAL_ACC\*</a>, <a href="../advanced_config/parameter_reference.md#CAL_GYRO0_ID">CAL_GYRO\*</a>, <a href="../advanced_config/parameter_reference.md#CAL_MAG0_ID">CAL_MAG\*</a> і <a href="../advanced_config/parameter_reference.md#CAL_BARO0_ID">CAL_BARO\*</a> за умовчанням.</li>
-<li>Установіть для параметра <a href="../advanced_config/parameter_reference.md#SDLOG_MODE">SDLOG_MODE</a> значення 2, щоб увімкнути реєстрацію даних під час завантаження.</li>
-<li>Установіть прапорець <a href="../advanced_config/parameter_reference.md#SDLOG_PROFILE">SDLOG_PROFILE</a> для <em x-id="4">термічного калібрування</em> (біт 2), щоб зареєструвати необроблені дані датчика, необхідні для калібрування.</li>
-<li>Охолодіть дошку до мінімальної температури, при якій вона буде потрібна для роботи.</li>
-<li>Увімкніть живлення та тримайте плату нерухомо <fnref target="2" />, повільно нагрійте її до максимальної необхідної робочої температури. <fnref target="3" /></li>
-<li>Вимкніть живлення та розпакуйте файл .ulog.</li>
-<li><p spaces-before="0">Відкрийте вікно терміналу в каталозі <strong x-id="1">Firmware/Tools</strong> і запустіть сценарій калібрування python:
-<pre><code class="sh">   python process_sensor_caldata.py <full path name to .ulog file>
-`</pre></p>
+1. Увімкніть плату та встановіть параметри [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE), [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) і [TC_M_ENABLE](../advanced_config/parameter_reference.md#TC_M_ENABLE) на `1`.
+1. Set all [CAL_ACC\*](../advanced_config/parameter_reference.md#CAL_ACC0_ID), [CAL_GYRO\*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID), [CAL_MAG\*](../advanced_config/parameter_reference.md#CAL_MAG0_ID), and [CAL_BARO\*](../advanced_config/parameter_reference.md#CAL_BARO0_ID) parameters to defaults.
+1. Установіть для параметра [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) значення 2, щоб увімкнути реєстрацію даних під час завантаження.
+1. Установіть прапорець [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) для _термічного калібрування_ (біт 2), щоб зареєструвати необроблені дані датчика, необхідні для калібрування.
+1. Охолодіть дошку до мінімальної температури, при якій вона буде потрібна для роботи.
+1. Увімкніть живлення та тримайте плату нерухомо [^2], повільно нагрійте її до максимальної необхідної робочої температури. [^3]
+1. Вимкніть живлення та розпакуйте файл .ulog.
+1. Відкрийте вікно терміналу в каталозі **Firmware/Tools** і запустіть сценарій калібрування python:
+
+   ```sh
+   python process_sensor_caldata.py <full path name to .ulog file>
+   ```
 
    Буде створено файл **.pdf**, у якому відображатимуться вимірювані дані та підгонка кривої для кожного датчика, а також файл **.params**, що містить параметри калібрування.
 
