@@ -316,7 +316,7 @@ To compile and flash the firmware, connect the FMU/Carrier to the build host PC 
 make ark_fmu-v6x_default upload
 ```
 
-## PX4 Configuration
+## Конфігурація PX4
 
 ### Parameter Config
 
