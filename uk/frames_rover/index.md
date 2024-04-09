@@ -45,14 +45,14 @@ Select the **Apply and Restart** button.
 
 1. Open the [Actuators Configuration & Testing](../config/actuators.md) and map the left and right motor functions to flight controller outputs.
 
-## Simulation
+## Симуляція
 
 [Gazebo Classic](../sim_gazebo_classic/index.md) provides simulations for both types of steering:
 
 - Ackermann: [ackermann rover](../sim_gazebo_classic/vehicles.md#ackermann-ugv)
 - Differential: [r1 rover](../sim_gazebo_classic/vehicles.md#differential-ugv)
 
-## Videos
+## Відео
 
 This video shows the [Traxxas Stampede Rover](../frames_rover/traxxas_stampede.md) (an Ackermann vehicle).
 
