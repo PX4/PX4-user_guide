@@ -1,29 +1,29 @@
 # Foxtech Loong 2160 VTOL
 
-The _Foxtech Loong 2160 VTOL_ is a easy to build almost-ready-to-fly (ARF) quadplane VTOL drone with wingspan of 2160mm.
-This build guide shows how to add a flight controller system using [Auterion Skynode evaluation kit](../companion_computer/auterion_skynode.md) or [Pixhawk 6C](../flight_controller/pixhawk6c.md) and setup PX4.
+Foxtech Loong 2160 VTOL - це легкий у монтажі майже готовий до польоту (ARF) квадрокоптерний ВТОЛ дрон з розмахом крила 2160 мм.
+Цей посібник зі збірки показує, як додати систему керування польотом, використовуючи набір оцінки [Auterion Skynode evaluation kit](../companion_computer/auterion_skynode.md) або [Pixhawk 6C](../flight_controller/pixhawk6c.md), і налаштувати PX4.
 
-![Photo of Loong VTOL in flight](../../assets/airframes/vtol/foxtech_loong_2160/01-foxtech-loong.jpg)
+![Фото Loong VTOL у польоті](../../assets/airframes/vtol/foxtech_loong_2160/01-foxtech-loong.jpg)
 
 ## Загальний огляд
 
-Specifications:
+Специфікації:
 
-- Wingspan: 2160mm
-- Fuselage Length: 1200mm
-- Takeoff Weight: Approximately 7kg (excluding payload)
-- Max Flight Time: Up to 1 hour and 30 minutes
-- Cruising Speed: Approximately 17m/s
-- Max Payload Weight: Around 1.5kg
-- Carry Case Dimensions: 125cm x 34cm x 34cm
+- Розмах крила: 2160 мм
+- Довжина фюзеляжу: 1200 мм
+- Вага при зльоті: Приблизно 7 кг (без вантажу)
+- Максимальний час польоту: До 1 години і 30 хвилин
+- Крейсерська швидкість: Приблизно 17 м/с
+- Максимальна вага вантажу: Близько 1,5 кг
+- Розміри чохла: 125 см х 34 см х 34 см
 
 Основні характеристики:
 
-- Effortless Assembly: Quick and easy setup
-- Portability: Compact design for convenient transportation with the included carry case
-- Ready to Fly: All actuators are pre-installed and wired, minimizing setup time
-- Extended Flight Time: Up to 1 hour and 30 minutes, depending on weather conditions and takeoff weight
-- Versatile Payload Capacity: Spacious fuselage accommodates diverse payloads, including options like the Sony A7R for mapping applications.
+- Легка збірка: Швидке і просте налаштування
+- Переносимість: Компактний дизайн для зручного транспортування у включеному чохлі
+- Готовий до польоту: Всі приводи вже встановлені та підключені, що мінімізує час налаштування
+- Подовжений час польоту: До 1 години і 30 хвилин в залежності від погодних умов та ваги при зльоті
+- Універсальна вантажопідйомність: Просторий фюзеляж вміщує різноманітні вантажі, включаючи варіанти, такі як камера Sony A7R для картографічних застосувань.
 
 ## Де купити
 
@@ -32,7 +32,7 @@ Specifications:
 
 ## Політний контролер
 
-The following options have been tested:
+Наступна конфігурація протестована:
 
 - [Auterion Skynode evaluation kit](../companion_computer/auterion_skynode.md)
 - [Pixhawk 6C](../flight_controller/pixhawk6c.md)
