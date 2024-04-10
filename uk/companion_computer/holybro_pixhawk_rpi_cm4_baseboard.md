@@ -66,7 +66,7 @@ This section shows how to install/attach a Raspberry Pi CM4 to the baseboard.
 
 To install the Raspberry Pi CM4 companion computer:
 
-1. Disconnect the `FAN` wiring.
+1. Відключити `FAN` (FAN A).
 
    ![HB_Pixhawk_CM4_Fan](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_fan.jpg)
 
@@ -323,7 +323,7 @@ PING 169.254.21.184 (169.254.21.184) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.112/0.155/0.190/0.034 ms
 ```
 
-Then from the flight controller in NuttShell:
+Потім з польотного контролера в NuttShell:
 
 ```sh
 ping 169.254.21.183
@@ -346,7 +346,7 @@ PING 169.254.21.183 56 bytes of data
 
 For this, we need to set the MAVLink instance to send traffic to the CM4's IP address:
 
-For an initial test we can do:
+Для початкового тесту ми можемо зробити:
 
 ```sh
 mavlink start -o 14540 -t 169.254.21.183
