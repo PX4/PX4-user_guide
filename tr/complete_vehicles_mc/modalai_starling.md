@@ -11,11 +11,11 @@ This development drone is meant to help you get to market faster and accelerate 
 
 This guide explains the minimal additional setup required to get the UAV ready to fly. It also covers a hardware overview, first flight, setting up WiFi, and more.
 
-:::note
-For complete and regularly updated documentation, please visit https\://docs.modalai.com/starling-v2.
+:::info
+For complete and regularly updated documentation, please visit https://docs.modalai.com/starling-v2.
 :::
 
-:::note
+:::info
 If you are new to VOXL, be sure to familiarize yourself with the core features of VOXL hardware and software by reviewing the [VOXL Bootcamp](https://docs.modalai.com/voxl-developer-bootcamp/).
 :::
 
@@ -36,7 +36,7 @@ If you are new to VOXL, be sure to familiarize yourself with the core features o
 | E       | Tracking Image Sensor (OV7251)        | M0014            |
 | F       | Hires Image Sensor (IMX214)           | M0025-2          |
 | G       | AC600 WiFi Dongle                                        | AWUS036EACS      |
-| H       | GNSS GPS Module & Compass                                | M10-5883         |
+| H       | GNSS GPS Module & Compass            | M10-5883         |
 | I       | 915MHz ELRS Receiver                                     | BetaFPV Nano RX  |
 | J       | USB C Connector on VOXL 2 (not shown) |                  |
 | K       | VOXL Power Module                                        | MCCA-M0041-5-B-T |
