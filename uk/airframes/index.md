@@ -11,9 +11,9 @@ PX4 підтримує численні типи транспортних зас
 
 Типи рам, які мають розробників, добре тестовані та підтримуються:
 
-- [Multicopters](../frames_multicopter/index.md) (tri-, quad-, hexa-, octa-, and even [omnicopter](../frames_multicopter/omnicopter.md) vehicles)
+- [Багатокоптери](../frames_multicopter/index.md) (три-, чотири-, шести-, восьми- та навіть [омнікоптерні](../frames_multicopter/omnicopter.md) транспортні засоби)
 - [Літаки (Фіксоване крило)](../frames_plane/index.md)
-- [VTOL](../frames_vtol/index.md): [Standard VTOL](../frames_vtol/standardvtol.md), [Tailsitter VTOL](../frames_vtol/tailsitter.md), [Tiltrotor VTOL](../frames_vtol/tiltrotor.md)
+- [VTOL](../frames_vtol/index.md): [Стандартний VTOL](../frames_vtol/standardvtol.md), [VTOL з вертикальним зльотом](../frames_vtol/tailsitter.md), [VTOL з поворотними гвинтами](../frames_vtol/tiltrotor.md)
 
 ## Експериментальні транспортні засоби
 
@@ -34,7 +34,7 @@ PX4 підтримує численні типи транспортних зас
 - [Марсохід](../frames_rover/index.md)
 - [Субмарини](../frames_sub/index.md)
 
-::: info Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome! :::
+::: info Волонтери та контрибютори, [внесення](../contribute/index.md) нових функцій, нових конфігурацій каркасів або інших вдосконалень дуже вітається! :::
 
 ## Інші транспортні засоби
 
