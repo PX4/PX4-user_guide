@@ -77,7 +77,7 @@ After setting up the PX4 development environment, follow these steps to install 
 3. Put the Crazyflie 2.1 into DFU mode by following these steps:
    - Ensure it is initially unpowered.
    - Ensure battery is disconnected.
-   - Hold down the reset button (see figure below\...).
+   - Hold down the reset button (see figure below...).
      ![Crazyflie2 Reset Button](../../assets/flight_controller/crazyflie/crazyflie_reset_button.jpg)
    - Plug into computer's USB port.
    - After a second, the blue LED should start blinking and after 5 seconds should start blinking faster.
