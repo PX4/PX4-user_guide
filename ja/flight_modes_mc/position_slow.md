@@ -35,17 +35,11 @@ Note that the parameters are used only if limits are not provided by from RC or 
 <!-- links used in table above -->
 
 [mpc_vel_manual]: ../advanced_config/parameter_reference.md#MPC_VEL_MANUAL
-
 [mc_slow_def_hvel]: ../advanced_config/parameter_reference.md#MC_SLOW_DEF_HVEL
-
 [mpc_z_vel_max_up]: ../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_UP
-
 [mpc_z_vel_max_dn]: ../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_DN
-
 [mc_slow_def_vvel]: ../advanced_config/parameter_reference.md#MC_SLOW_DEF_VVEL
-
 [mpc_man_y_max]: ../advanced_config/parameter_reference.md#MPC_MAN_Y_MAX
-
 [mc_slow_def_yawr]: ../advanced_config/parameter_reference.md#MC_SLOW_DEF_YAWR
 
 ## Set Limits using RC Control
@@ -68,15 +62,10 @@ The table below lists each axis along with the parameter used to select which RC
 <!-- links used in table above -->
 
 [mc_slow_map_hvel]: ../advanced_config/parameter_reference.md#MC_SLOW_MAP_HVEL
-
 [mc_slow_min_hvel]: ../advanced_config/parameter_reference.md#MC_SLOW_MIN_HVEL
-
 [mc_slow_map_vvel]: ../advanced_config/parameter_reference.md#MC_SLOW_MAP_VVEL
-
 [mc_slow_min_vvel]: ../advanced_config/parameter_reference.md#MC_SLOW_MIN_VVEL
-
 [mc_slow_map_yawr]: ../advanced_config/parameter_reference.md#MC_SLOW_MAP_YAWR
-
 [mc_slow_min_yawr]: ../advanced_config/parameter_reference.md#MC_SLOW_MIN_YAWR
 
 To use this approach:
