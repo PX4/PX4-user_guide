@@ -15,25 +15,25 @@ Main features :
 
 ## Technical Specification
 
-| Hardware                                     | Type                                                                              |
-| :------------------------------------------- | :-------------------------------------------------------------------------------- |
-| MUC                                          | STM32F412                                                                         |
-| Protocol                                     | DroneCAN                                                                          |
-| Compass                                      | RM3100                                                                            |
-| Barometer                                    | ICP-20100                                                                         |
-| GNSS receiver                                | Ublox M9N                                                                         |
-| Frequency band                               | GPS: L1C/A<br>GLONASS:L10F <br>Beidou:B1I<br>Galileo:E1B/C                        |
-| Number of concurrent GNSS                    | 4                                                                                 |
-| Horizontal accuracy                          | 1.5m                                                                              |
-| Number of satellites(MAX) | 32+                                                                               |
-| Acquisition                                  | Cold start：24S<br>Hot start：2S<br>Aided start:2s                                  |
-| Nav. update rate                             | 5Hz(default)，25Hz(MAX)                      |
+| Hardware                                     | Type                                                                                                                              |
+| :------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
+| MUC                                          | STM32F412                                                                                                                         |
+| Protocol                                     | DroneCAN                                                                                                                          |
+| Compass                                      | RM3100                                                                                                                            |
+| Barometer                                    | ICP-20100                                                                                                                         |
+| GNSS receiver                                | Ublox M9N                                                                                                                         |
+| Frequency band                               | GPS: L1C/A<br>GLONASS:L10F <br>Beidou:B1I<br>Galileo:E1B/C        |
+| Number of concurrent GNSS                    | 4                                                                                                                                 |
+| Horizontal accuracy                          | 1.5m                                                                                                              |
+| Number of satellites(MAX) | 32+                                                                                                                               |
+| Acquisition                                  | Cold start：24S<br>Hot start：2S<br>Aided start:2s                                                                  |
+| Nav. update rate             | 5Hz(default)，25Hz(MAX)                                                                      |
 | Sensitivity                                  | Tracking and nav:-167dBm<br>Cold start Hot star:-148dBm<br>Reacquisition: -160dBm |
-| Protection level                             | IP66                                                                              |
-| Input voltage                                | 4.7\~5.2V                                                                         |
-| Operating temperature                        | -10\~70℃                                                                          |
-| Size                                         | 67_67_21.2mm                                                                      |
-| Weight                                       | 46g (without cable）                                            |
+| Protection level                             | IP66                                                                                                                              |
+| Input voltage                                | 4.7~5.2V                                                                          |
+| Operating temperature                        | -10~70℃                                                                                                           |
+| Size                                         | 67_67_21.2mm                                                                                                      |
+| Weight                                       | 46g (without cable）                                                                                            |
 
 ## Where to Buy
 
