@@ -1,99 +1,99 @@
-# Throw Launch (Multicopter)
+# Запуск з кидка (Мультикоптер)
 
 <Badge type="warning" text="main (PX4 v1.15)" /> <Badge type="warning" text="Experimental" />
 
 :::warning
-Experimental
+Експериментальні налаштування
 
-- It has not yet been broadly tested on different vehicle configurations or scenarios.
-- The majority of testing has been done in position mode.
-  Other modes should also work.
+- Його ще не широко тестували на різних конфігураціях транспортних засобів або сценаріях.
+- Більшість тестувань проведено в режимі позиціонування.
+  Інші режими також повинні працювати.
 
 :::
 
-This feature allows a multicopter to be started by arming it from a fixed position and then throwing it into the air.
-The vehicle then turns on the motors and operates according to its current mode.
+Ця функція дозволяє запускати багторот з фіксованої позиції, після чого кидати його в повітря.
+Транспортний засіб потім увімкнує двигуни та працює відповідно до свого поточного режиму.
 
-When throw launch is enabled, arming the vehicle does not cause the propellers to spin.
-The propellors will not activate until the vehicle is thrown or is disarmed, and the arming tone will continue playing during this time.
-The vehicle will not automatically disarm after arming, and must be manually disarmed if you choose not to throw it.
+Коли увімкнено запуск з кидка, увімкнення транспортного засобу не спричиняє обертання пропелерів.
+Гвинтики не будуть активуватися, поки транспортний засіб не буде кинутий або роззброєний, а сигнал готовності буде продовжувати грати протягом цього часу.
+Транспортний засіб не буде автоматично роззброєний після увімкнення, і його потрібно роззброїти вручну, якщо ви вирішите не кидати його.
 
-The vehicle detects that it has been thrown based on reaching a certain speed (5m/s), and then starts the motors at the apex of the throw (once it determines that it has started to fall).
-You need to throw the vehicle high enough so that it can stabilize its height well before falling anywhere near people or obstacles.
+Транспортний засіб виявляє, що його викинули на підставі досягнення певної швидкості (5 м/с), а потім запускає двигуни на вершині кидка (як тільки він визначає, що почав падати).
+Вам потрібно кинути транспортний засіб настільки високо, щоб він міг стабілізувати свою висоту добре до того, як впаде десь близько до людей або перешкод.
 
-Notes:
+Примітки:
 
-- The mode is disabled by default, and must be enabled using a [parameter](#parameters) before arming.
-- When enabled you cannot take off from the ground using the normal modes.
-- The vehicle should not be transported after being armed and before the throw.
-  In particular, the throw should not be executed from a moving platform.
-  The reason for this is that the condition to start the motors depends on absolute speed of the multicopter and does not account for any additional movement.
-  Trying to throw the drone from a moving platform might result in the motors being started prematurely.
+- Режим за замовчуванням вимкнено, і його необхідно активувати, використовуючи [параметр](#parameters), перш ніж озброювати.
+- Коли ввімкнено, ви не можете злітати з землі, використовуючи звичайні режими.
+- Транспортувати транспортний засіб необхідно після встановлення зброї та до кидка.
+  Зокрема, кидок не повинен виконуватися з рухомої платформи.
+  Причина полягає в тому, що умова запуску двигунів залежить від абсолютної швидкості багатокоптера і не враховує будь-якого додаткового руху.
+  Спроба викинути дрон з рухомої платформи може призвести до того, що двигуни будуть запущені заздалегідь.
 
-## Safety
+## Безпека
 
 :::warning
-Throw launch is dangerous as it requires the operator to hold an armed multicopter and be in proximity when it is flying.
+Кидок запуску небезпечний, оскільки вимагає, щоб оператор тримав озброєний багтрекер і був у непосредній близькості, коли він літає.
 :::
 
-Before testing, make sure that the aircraft can take off with the normal position or takeoff modes.
-Also ensure that the propellers do not spin on arming after enabling the feature.
+Перед тестуванням переконайтеся, що літак може злетіти у звичайному положенні або режимах відльоту.
+Також переконайтеся, що гвинти не обертаються при увімкненні після активації функції.
 
-In addition:
+Окрім того:
 
-1. Wear safety equipment.
-   Eye protection and work gloves are recommended.
-2. Have an easily accessible and tested [kill switch](../config/safety.md#kill-switch).
-   Remind the operator to be attentive and use the kill switch if needed.
-   Pilots tend to forget that vehicles are replaceable, but they are not!
-3. Test as much as possible without propellers.
-   Keep the tools for removing propellers nearby/readily accessible.
-4. Test this feature with at least two people — one handling the aircraft, the other one the remote control.
-5. Keep in mind that after the throw, the exact behavior of the aircraft might be hard to predict as it depends heavily on the way it is thrown.
-   Sometimes it will stay perfectly in place, but sometimes (e.g., due to extensive roll), it might drift to one side while stabilizing.
-   Keep a safe distance!
+1. Носіть засоби безпеки.
+   Захист для очей та рукавички для роботи рекомендовані.
+2. Маєте легкий доступний та протестований [вимикач вимкнення](../config/safety.md#kill-switch).
+   Нагадайте оператору бути уважним та використовувати вимикач аварійного вимкнення за потреби.
+   Пілоти часто забувають, що транспортні засоби можна замінити, але вони - ні!
+3. Тестуйте якомога більше без гвинтів.
+   Утримуйте інструменти для зняття гвинтів пропелерів поруч/легкодоступними.
+4. Перевірте цю функцію з принаймні двома людьми — один керує літаком, інший — пультом дистанційного керування.
+5. Пам'ятайте, що після кидка точна поведінка літака може бути важко передбачити, оскільки вона сильно залежить від способу кидка.
+   Іноді воно залишатиметься на місці ідеально, але іноді (наприклад, через великий кочення), воно може відхилятися в один бік під час стабілізації.
+   Дотримуйтеся безпечної відстані!
 
-On first flight of a new vehicle we recommend performing a [Throw Launch test without propellers](#throw-launch-pretest) (see below).
+Під час першого польоту нового транспортного засобу ми рекомендуємо виконати [Тест запуску без гвинтів (Throw Launch test without propellers)](#throw-launch-pretest) (див. нижче).
 
-## Throw Launch Pretest
+## Запуск з катапульти чи підкиданням Pretest
 
-A throw launch without propellers can be used to confirm that arming does not occur prematurely, and for the operator to understand what to expect during the flight.
+Запуск кидання без пропелерів може бути використаний, щоб підтвердити, що озброєння не відбувається передчасно, і для оператора зрозуміти, чого очікувати під час польоту.
 
-The steps for this test are:
+Кроки для цього тесту:
 
-1. Dismount the propellers.
-2. Set [COM_THROW_EN](../advanced_config/parameter_reference.md#COM_THROW_EN) to `Enabled`.
-3. Arm the aircraft.
-   The engines should not spin, but the vehicle should be armed and keep playing the arming tune.
-4. Throw the aircraft about 2m into the air.
-   If the aircraft is not thrown high enough, the motors will not turn on.
-5. The engines should start just after crossing the apex.
-6. Engage the kill switch (ideally a second person operating the RC should do this).
-7. Catch the drone.
-   Remember to use safety gloves!
+1. Демонтуйте пропелери.
+2. Встановіть [COM_THROW_EN](../advanced_config/parameter_reference.md#COM_THROW_EN) на `Увімкнено`.
+3. Озброїте літак.
+   Двигуни не повинні крутитися, але транспортний засіб повинен бути збройований і продовжувати відтворювати мелодію зброювання.
+4. Киньте літак приблизно на 2 м у повітря.
+   Якщо літак не буде кидати достатньо високо, двигуни не ввімкнуться.
+5. Двигуни повинні запуститися одразу після перетинання вершини.
+6. Увімкніть вимикач вбивства (ідеально, щоб це робив друга особа, яка керує RC).
+7. Спіймай дрон.
+   Не забувайте використовувати захисні рукавички!
 
-## Throw Launch
+## Запуск з катапульти чи підкиданням
 
-The steps for a throw launch are:
+Кроки для запуску з кидка:
 
-1. Set [COM_THROW_EN](../advanced_config/parameter_reference.md#COM_THROW_EN) to `Enabled`.
-2. Arm the aircraft.
-   The propellers should not spin, but the vehicle should be armed and keep playing the arming tune.
-3. Throw the aircraft away from you, forward and up (about 2m away and 2m up is recommended).
-   - The vehicle must reach the speed of [COM_THROW_SPEED](../advanced_config/parameter_reference.md#COM_THROW_SPEED) to detect launch, which by default is set to 5 m/s.
-     If this speed is not achieved, the motors will not start and the aircraft will fall to the ground.
-   - Try to avoid excessive rotation during the throw, as this might cause the drone to fail or behave unpredictably.
-     The exact meaning of "excessive rotation" depends on the platform: for instance, [PX4Vision](../complete_vehicles_mc/px4_vision_kit.md) used for the testing, still managed to recover after 2-3 full rotations.
-4. After a downward velocity is detected (the vehicle reaches its apex and starts falling down), the motors should turn on and the vehicle will start flying in the current mode.
+1. Встановіть [COM_THROW_EN](../advanced_config/parameter_reference.md#COM_THROW_EN) на `Увімкнено`.
+2. Озброїте літак.
+   Пропелери не повинні обертатися, але транспортний засіб повинен бути збройований і продовжувати відтворювати мелодію зброювання.
+3. Викиньте літак від себе, вперед і вгору (рекомендується близько 2 м відстані та 2 м вгору).
+   - Транспортний засіб повинен досягти швидкості [COM_THROW_SPEED](../advanced_config/parameter_reference.md#COM_THROW_SPEED), щоб виявити запуск, яка за замовчуванням встановлена на 5 м/с.
+     Якщо цю швидкість не досягнуто, двигуни не запустяться, і літак впаде на землю.
+   - Спробуйте уникати надмірного обертання під час кидка, оскільки це може призвести до відмови дрона або непередбачуваної поведінки.
+     Точне значення "надмірного обертання" залежить від платформи: наприклад, [PX4Vision](../complete_vehicles_mc/px4_vision_kit.md), яка використовувалася для тестування, все ще вдалося відновитися після 2-3 повних обертань.
+4. Після виявлення швидкості вниз (транспортний засіб досягає свого апексу і починає падати), мотори повинні увімкнутися, і транспортний засіб почне летіти в поточному режимі.
 
 ## Параметри
 
-The following parameters can be used to enable and configure throw launch:
+Наступні параметри можуть бути використані для увімкнення та налаштування запуску з кидка:
 
-- [COM_THROW_EN](../advanced_config/parameter_reference.md#COM_THROW_EN) enables the feature.
-- [COM_THROW_SPEED](../advanced_config/parameter_reference.md#COM_THROW_SPEED) determines the minimum speed the aircraft should reach to detect the throw.
-  If it is not reached, the engines will not turn on.
+- [COM_THROW_EN](../advanced_config/parameter_reference.md#COM_THROW_EN) увімкнує функцію.
+- [COM_THROW_SPEED](../advanced_config/parameter_reference.md#COM_THROW_SPEED) визначає мінімальну швидкість, яку повинен досягти літак, щоб виявити кидок.
+  Якщо цього не буде досягнуто, двигуни не включаться.
 
-## See Also
+## Дивіться також
 
-- [Takeoff Mode (Fixed-Wing) > Catapult/Hand Launch](../flight_modes_fw/takeoff.md#catapult-hand-launch).
+- [Режим відльоту (фіксований крило) > Катапульт/ручний запуск](../flight_modes_fw/takeoff.md#catapult-hand-launch).

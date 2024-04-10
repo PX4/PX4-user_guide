@@ -111,7 +111,7 @@
    ```
 
    ::::note
-   Для забезпечення сумісності, використовуйте останні _main_ гілки для PX4, _px4_msgs_ та бібліотеки.
+   Для забезпечення сумісності, використовуйте останні _main_ гілки для PX4, _px4_msgs_ та бібліотеки.:::
 
 3. Побудуйте робочий простір:
 
@@ -140,6 +140,8 @@
 
    :::note
    Використовувати QGroundControl Daily, яка підтримує динамічне оновлення списку режимів.
+
+:::
 
 7. Повернутись до терміналу 2 ROS, запустити один із прикладів:
 
@@ -343,6 +345,7 @@ private:
 The other setpoint types are currently experimental, and can be found in: [px4\_ros2/control/setpoint\_types/experimental](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/px4_ros2_cpp/include/px4_ros2/control/setpoint_types/experimental).
 
 Ви можете додати свої власні типи установок, додавши клас, який успадковується від px4_ros2::SetpointBase, встановлює прапорці конфігурації відповідно до того, що вимагає установка, а потім публікує будь-яку тему, що містить установку
+:::
 
 #### Установка "перейти до" (GotoSetpointType)
 

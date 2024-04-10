@@ -1,14 +1,14 @@
 # TBS Caipiroshka
 
-The Caipiroshka VTOL is a slightly modified *TBS Caipirinha*.
+Caipiroshka VTOL - це трохи модифікований *TBS Caipirinha*.
 
 :::note
-The *TBS Caipirinha* has been superseded and is no longer available. These instructions *should* work with the updated vehicle: [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp). A number of other components have been updated in the parts list too.
+*TBS Caipirinha* було замінено та більше не доступно. These instructions *should* work with the updated vehicle: [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp). Кілька інших компонентів також було оновлено в списку деталей.
 :::
 
 @[youtube](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
 
-## Parts List
+## Список деталей
 
 * TBS Caipirinha Wing (no longer available - try [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp))
 * Left and right 3D-printed motor mount (<a href="https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/caipiroshka/motor_mounts.zip" target="_blank">design files</a>)
@@ -35,7 +35,7 @@ The picture below shows what a fully assembled Caipiroshka could look like.
 
 In the following some general tips on how to build the vehicle will be given.
 
-### Autopilot
+### Автопілот
 
 Mount the autopilot in the middle close to the CG of the airframe.
 

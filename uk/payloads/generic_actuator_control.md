@@ -70,10 +70,10 @@
 
 Наступний [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) [приклад коду](https://github.com/mavlink/MAVSDK/blob/main/examples/set_actuator/set_actuator.cpp) показує, як ініціювати випуск корисного навантаження за допомогою методу [`set_actuator()`](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1ad30beac27f05c62dcf6a3d0928b86e4c) плагіну MAVSDK Action.
 
-The `set_actuator()` index values map to the MAVLink payload outputs defined for your airframe.
+Значення індексів в `set_actuator()` зіставляються з виводами корисного навантаження MAVLink, визначених для вашого планера.
 
 :::note
-MAVSDK sends the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command under the hood.
+MAVSDK надсилає MAVLink команду [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR).
 :::
 
 ```cpp
@@ -160,8 +160,8 @@ int main(int argc, char** argv)
 
 ## Тестування
 
-Payloads that are triggered by servos and other actuators, such as grippers, can be tested in the [pre-arm state](../getting_started/px4_basic_concepts.md#arming-and-disarming), which disables motors but allows actuators to move.
+Корисні навантаження, які запускаються сервоприводами та іншими приводами, наприклад захватами, можна протестувати в [стані pre-arm](../getting_started/px4_basic_concepts.md#arming-and-disarming), який вимикає мотори, але дозволяє приводам рухатися.
 
-This is safer than testing when the vehicle is armed.
+Це безпечніше, ніж тестування, коли апарат увімкнено.
 
-Camera payloads can be triggered and tested at any time.
+Корисне навантаження камери можна запустити та перевірити в будь-який час.

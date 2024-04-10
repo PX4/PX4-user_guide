@@ -1,165 +1,165 @@
-# Advanced Lift Drag (AVL) Automation Tool
+# Інструмент автоматизації плагіну "Advanced Lift Drag" (AVL)
 
-The Gazebo [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane) vehicle model uses the _Advanced Lift Drag_ plugin to model vehicle lift and drag behaviour.
-This tool allows you to calculate the parameters required to create a _Advanced Lift Drag_ plugin for your own particular vehicle.
+Модель рухомого засобу Gazebo [Поліпшений літак](../sim_gazebo_gz/vehicles.md#advanced-plane) використовує плагін _Advanced Lift Drag_ для моделювання поведінки піднімної сили та аеродинамічного опору рухомого засобу.
+Цей інструмент дозволяє вам розрахувати параметри, необхідні для створення плагіну _Advanced Lift Drag_ для вашого певного рухомого засобу.
 
-You only have to provide a few parameters for each wing foil and the tool will use this information to call the Athena Lattice Vortex (AVL) to make the necessary calculations.
-The results will then automatically be written into a provided plugin template that can then be copy-pasted into a model or world sdf file.
+Вам  лише потрібно надати кілька параметрів для кожного крила, а інструмент використовуватиме цю інформацію для виклику моделі решітки вихрів "Athena" (Athena Lattice Vortex або AVL) для здійснення необхідних обчислень.
+Результати будуть автоматично записані у шаблон плагіну, який потім можна скопіювати у файл моделі або sdf-файл світу.
 
 ## Встановлення
 
-To setup the tool:
+Щоб налаштувати інструмент:
 
-1. Download AVL 3.36 from https://web.mit.edu/drela/Public/web/avl/.
-   The file for AVL version 3.36 can be found about halfway down the page.
+1. Завантажте AVL 3.36 з https://web.mit.edu/drela/Public/web/avl/.
+   Файл AVL для версії 3.36 можна знайти приблизно посередині сторінки.
 
-2. After downloading, extract AVL and move it to the home directory using:
+2. Після завантаження розпакуйте AVL та перемістіть його в домашню директорію за допомогою:
 
    ```sh
    sudo tar -xf avl3.36.tgz
    mv ./Avl /home/
    ```
 
-3. Follow the **index.md** found in `./Avl` to finish the setup process for AVL (this requires that you set up `plotlib` and `eispack` libraries).
-   We recommend using the `gfortran` compile option, which might further require that you to install `gfortran`.
-   On Ubuntu can be done by running:
+3. Дотримуйтесь **index.md**, що знаходиться у `./Avl` щоб завершити процес встановлення AVL (вимагає встановлення бібліотек `plotlib` та `eispack`).
+   Ми рекомендуємо використовувати варіант компіляції "gfortran", який може далі вимагати, щоб ви встановили "gfortran".
+   На Ubuntu це можна зробити виконавши:
 
    ```sh
    sudo apt update
    sudo apt install gfortran
    ```
 
-   When running the Makefile for AVL, you might encounter an `Error 1` message stating that there is a directory missing.
-   This does not prevent AVL from working for our purposes.
+   При запуску Makefile для AVL, ви можливо зіткнетесь з повідомленням `Error 1`, яке стверджує що відсутня якась директорія.
+   Це не завадить AVL працювати для нашої мети.
 
-Once the process described in the AVL README is completed, AVL is ready to be used.
-No further set up is required on the side of the AVL or the tool.
+Як тільки процес, описаний в AVL README буде завершений, AVL готовий до використання.
+Зі сторони AVL та інструменту більше ніяких налаштувань не потрібно.
 
-If you want to move the location of the AVL directory, this can simply be done by passing the `--avl_path` flag to the `input_avl.py` file, using the desired directory location for the flag (don't forget to place a "/" behind the last part of the path).
-Running this will automatically also adjust the paths where necessary.
+Якщо хочете змінити положення директорії AVL, це можна просто зробити передавши прапорець `--avl_path` до файлу `input_avl.py` та використавши бажану директорію для прапора (не забудьте додати "/" в останній частині шляху).
+Запуск в такому вигляді також автоматично налаштує шляхі де необхідно.
 
-## Run AVL
+## Запуск AVL
 
-An example template has been provided in the form of the `input.yml` that implements a standard plane with two ailerons, an elevator and a rudder.
-This example template can be run using: `python input_avl.py --yaml_file input.yml`.
+Зразковий шаблон наданий у вигляді `input.yml`, який реалізує стандартний літак з двома елеронами, рулем висоти та стерном.
+Цей приклад може бути запущений так: `python input_avl.py --yaml_file input.yml`.
 
-To run the tool for your plane:
+Для запуску інструмента для вашого літака:
 
-1. Copy the example `input.yml` to `<your_custom_yaml_file>.yml` and modify it to match your desired plane
+1. Скопіюйте приклад `input.yml` до `<your_custom_yaml_file>.yml` і змініть його, щоб підставити бажаний літак
 
-2. Run the tool on your yml file:
+2. Запустіть інструмент на вашому yml-файлі:
 
    ```sh
    python input_avl.py <your_custom_yaml_file>.yml
    ```
 
-   Note that the `yaml` and `argparse` packages must be present in your Python environment.
+   Зверніть увагу, що пакети `yaml` та `argparse` повинні бути присутні в середовищі Python.
 
-3. The tool prompts for a range of vehicle specific parameters that are needed in order to specify the geometry and physical properties of the plane.
-   You can either:
-   - select a predefined model template (such as a Cessna or a VTOL), which has a known number of control surfaces, and just modify some physical properties, or
-   - define a completely custom model
+3. Інструмент очікує діапазон певних параметрів рухомого засобу, які потрібні щоб вказати геометрію та фізичні властивості літака.
+   Ви можете або:
+   - обрати попередньо визначений шаблон моделі (наприклад Cessna або ВЗІП), який має відому кількість поверхонь керування і просто змінити деяки фізичні властивості, або
+   - визначити повністю довільну модель
 
-Once the script has been executed, the generated `.avl`, `.sdf` and a plot of the proposed control surfaces can be found in `<your-plane-name>` directory.
-The sdf file is the generated Advanced Lift Drag Plugin that can be copied and pasted into a model.sdf file, which can then be run in Gazebo.
+Після виконання скрипту, згенеровані файли `.avl`, `.sdf` та креслення пропонованих поверхонь керування можна знайти у директорії `<your-plane-name>`.
+Файл sdf - це згенерований плагін Advanced Lift Drag який може бути скопійовано і вставлено у файл model.sdf, який потім можна запустити у Gazebo.
 
-## Functionality
+## Функціонал
 
-The **input_avl.py** file takes the user-provided parameters and creates an .avl file from this that can be read by AVL (the program).
-This happens in the **process.sh** file.
+Файл **input_avl.py** приймає параметри надані користувачем та створює з цього файл .avl, який потім може бути прочитаний AVL (програмою).
+Це відбувається у файлі **process.sh**.
 
-The output generated by AVL will be saved in two files: **custom_vehicle_body_axis_derivatives.txt** and **custom_vehicle_stability_derivatives.txt**.
-These two files contain the parameters that are required in order to populate the Advanced Lift Drag Plugin.
+Вивід згенерований AVL буде збережено у два файли: **custom_vehicle_body_axis_derivatives.txt** та **custom_vehicle_stability_derivatives.txt**.
+Ці два файли містять параметри, які необхідні для заповнення плагіну Advanced Lift Drag.
 
-Finally, **avl_out_parse.py** reads the generated .txt files and assigns parameters to the correct elements in sdf.
+І нарешті, **avl_out_parse.py** читає згенеровані файли .txt та присвоює параметри відповідним елементам у файлі sdf.
 
-The generated Advanced Lift Drag plugin (`<custom_plane>.sdf`) can be copied into the particular **model.sdf** file used by Gazebo.
+Згенерований плагін Advanced Lift Drag (`<custom_plane>.sdf`) може бути скопійований в певний файл **model.sdf**, що використовується Gazebo.
 
-## Usability
+## Зручність використання
 
-The current implementation provides a minimal working example.
-More accurate measurements can be made by adjusting the chosen number of vortices along span and chord according to desired preferences.
-A good starting point for this can be found here: https://www.redalyc.org/pdf/6735/673571173005.pdf.
+Поточна реалізація надає мінімальний робочий приклад.
+Більш точні виміри можна отримати, підлаштувавши обрану кількість вихрів вздовж розмаху та хорди крила відповідно до бажаних налаштувань.
+Тут можна знайти добру відправну точку: https://www.redalyc.org/pdf/6735/673571173005.pdf.
 
-One can also more accurately model a vehicle by using a larger number of sections.
-In the current .yml file, only a left and right edge are defined for each surface yielding exactly one section, but the code supports expanding this to any number of desired sections.
+Також можна більш точно моделювати рухомий засіб, використовуючи більшу кількість секцій.
+У поточному yml-файлі визначено лише лівий та правий край для кожної поверхні, що дає рівно одну секцію, але код підтримує розширення до будь-якої кількості бажаних секцій.
 
 :::note
 
-- A control surface in AVL is always defined from left to right.
-  This means you need to first provide the left edge of a surface and then the right edge.
-  If you do this the opposite way around, a surface will essentially be defined upside down.
-- The tool is designed to only support at most two control surfaces of any type on any one vehicle.
-  Having more surfaces than that can lead to faulty behavior.
-- Another important point is that these scripts make use of the match, case syntax, which was only introduced in Python in version 3.10.
-- The primary reference resource for AVL can be found at https://web.mit.edu/drela/Public/web/avl/AVL_User_Primer.pdf.
-  This document was written by the creators of AVL and contains all the variables that could be required in defining the control surfaces.
-- AVL cannot predict stall values so these need to be calculated/estimated in another way.
-  In the current implementation, default stall values have been taken from PX4's Advanced Plane.
-  These should naturally be changed for new/different models.
+- Поверхня керування в AVL завжди визначається зліва направо.
+  Це означає, що спочатку потрібно вказати лівий край поверхні, а потім правий.
+  Якщо ви зробите це навпаки, поверхня фактично буде визначена догори дриґом.
+- Інструмент призначений для підтримки не більше двох поверхонь керування будь-якого типу на будь-якому рухомому засобі.
+  Маючи більше поверхонь може призвести до помилкової поведінки.
+- Ще один важливий момент полягає в тому, що ці скрипти використовують синтаксис match, case, який був введений лише в Python версії 3.10.
+- Основним довідковим ресурсом для AVL є https://web.mit.edu/drela/Public/web/avl/AVL_User_Primer.pdf.
+  Цей документ був написаний творцями AVL і містить всі змінні, які можуть бути потрібні для визначення поверхонь керування.
+- AVL не може передбачити значення звалювання, тому їх потрібно обчислити/оцінити іншим чином.
+  У поточній реалізації значення звалювання за замовчуванням були взяті з моделі поліпшеного літака з PX4.
+  Звичайно вони повинні бути змінені для нових/інших моделей.
 
 :::
 
-## Parameter Assignment
+## Визначення параметрів
 
-Below is a comprehensive list on how the parameters are assigned at output and what files in AVL they are taken from.
-The Advanced Lift Drag Plugin contains more detail about what each of these parameters do.
+Нижче наведено вичерпний перелік того, як параметри визначаються на виході та з яких файлів у AVL вони беруться.
+Плагін Advanced Lift Drag містить більше деталей про те, що роблять кожен з цих параметрів.
 
 :::note
-The parameters have not been verified by an expert, so you should check them in the plugin.
+Параметри не були підтверджені експертом, тому ви повинні перевірити їх у плагіні.
 :::
 
-From the stability derivatives log file, the following advanced lift drag plugin parameters are taken:
+З файлу журналу похідних стійкості беруться наступні параметри плагіну advanced lift drag:
 
-| Name in AVL | Name in Advanced Lift Drag Plugin | Опис                                                                       |
-| ----------- | --------------------------------- | -------------------------------------------------------------------------- |
-| Alpha       | alpha                             | The angle of attack                                                        |
-| Cmtot       | Cem0                              | Pitching moment coefficient at zero angle of attack                        |
-| CLtot       | CL0                               | Lift Coefficient at zero angle of attack                                   |
-| CDtot       | CD0                               | Drag coefficient at zero angle of attack                                   |
-| CLa         | CLa                               | dCL/da (slope of CL-alpha curve)                        |
-| CYa         | CYa                               | dCy/da (sideforce slope wrt alpha)                      |
-| Cla         | Cell                              | dCl/da (roll moment slope wrt alpha)                    |
-| Cma         | Cema                              | dCm/da (pitching moment slope wrt aLpha - before stall) |
-| Cna         | Cena                              | dCn/da (yaw moment slope wrt alpha)                     |
-| CLb         | CLb                               | dCL/dbeta (lift coefficient slope wrt beta)             |
-| CYb         | CYb                               | dCY/dbeta (side force slope wrt beta)                   |
-| Clb         | Cell                              | dCl/dbeta (roll moment slope wrt beta)                  |
-| Cmb         | Cemb                              | dCm/dbeta (pitching moment slope wrt beta)              |
-| Cnb         | Cenb                              | dCn/dbeta (yaw moment slope wrt beta)                   |
+| Ім'я в AVL | Ім'я в плагіні Advanced Lift Drag | Опис                                                                                  |
+| ---------- | --------------------------------- | ------------------------------------------------------------------------------------- |
+| Alpha      | alpha                             | Кут атаки                                                                             |
+| Cmtot      | Cem0                              | Коефіцієнт моменту тангажу при нульовому куті атаки                                   |
+| CLtot      | CL0                               | Коефіцієнт сили підйому при нульовому куті атаки                                      |
+| CDtot      | CD0                               | Коефіцієнт аеродинамічного опору при нульовому куті атаки                             |
+| CLa        | CLa                               | dCL/da (нахил кривої CL-alpha)                                     |
+| CYa        | CYa                               | dCy/da (нахил бічної сили відносно кута атаки)                     |
+| Cla        | Cell                              | dCl/da (нахил моменту крену відносно кута атаки)                   |
+| Cma        | Cema                              | dCm/da (нахил моменту тангажу відносно кута атаки - до звалювання) |
+| Cna        | Cena                              | dCn/da (нахил моменту рискання відносно кута атаки)                |
+| CLb        | CLb                               | dCL/dbeta (нахил коефіцієнту сили підйому відносно кута ковзання)  |
+| CYb        | CYb                               | dCY/dbeta (нахил бічної сили відносно кута ковзання)               |
+| Clb        | Cell                              | dCl/dbeta (нахил моменту крену відносно кута ковзання)             |
+| Cmb        | Cemb                              | dCm/dbeta (нахил моменту тангажу відносно кута ковзання)           |
+| Cnb        | Cenb                              | dCn/dbeta (нахил моменту рискання відносно кута ковзання)          |
 
-From the body axis derivatives log file, the following advanced lift drag plugin parameters are taken:
+З файлу журналу похідних вісі тіла беруться наступні параметри плагіну advanced lift drag:
 
-| Name in AVL | Name in Advanced Lift Drag Plugin | Опис                                                                        |
-| ----------- | --------------------------------- | --------------------------------------------------------------------------- |
-| e           | eff                               | Wing efficiency (Oswald efficiency factor for a 3D wing) |
-| CXp         | CDp                               | dCD/dp (drag coefficient slope wrt roll rate)            |
-| CYp         | CYp                               | dCY/dp (sideforce slope wrt roll rate)                   |
-| CZp         | CLp                               | dCL/dp (lift coefficient slope wrt roll rate)            |
-| Clp         | Cellp                             | dCl/dp (roll moment slope wrt roll rate)                 |
-| Cmp         | Cemp                              | dCm/dp (pitching moment slope wrt roll rate)             |
-| Cmp         | Cenp                              | dCn/dp (yaw moment slope wrt roll rate)                  |
-| CXq         | CDq                               | dCD/dq (drag coefficient slope wrt pitching rate)        |
-| CYq         | CYq                               | dCY/dq (side force slope wrt pitching rate)              |
-| CZq         | CLq                               | dCL/dq (lift coefficient slope wrt pitching rate)        |
-| Clq         | Cellq                             | dCl/dq (roll moment slope wrt pitching rate)             |
-| Cmq         | Cemq                              | dCm/dq (pitching moment slope wrt pitching rate)         |
-| Cnq         | Cenq                              | dCn/dq (yaw moment slope wrt pitching rate)              |
-| CXr         | CDr                               | dCD/dr (drag coefficient slope wrt yaw rate)             |
-| CYr         | CYr                               | dCY/dr (side force slope wrt yaw rate)                   |
-| CZr         | CLr                               | dCL/dr (lift coefficient slope wrt yaw rate)             |
-| Clr         | Cellr                             | dCl/dr (roll moment slope wrt yaw rate)                  |
-| Cmr         | Cemr                              | dCm/dr (pitching moment slope wrt yaw rate)              |
-| Cnr         | Cenr                              | dCn/dr (yaw moment slope wrt yaw rate)                   |
+| Ім'я в AVL | Ім'я в плагіні Advanced Lift Drag | Опис                                                                                   |
+| ---------- | --------------------------------- | -------------------------------------------------------------------------------------- |
+| e          | eff                               | Ефективність крила (коефіцієнт ефективності Освальда для 3D крила)  |
+| CXp        | CDp                               | dCD/dp (нахил коефіцієнту опору відносно швидкості крену)           |
+| CYp        | CYp                               | dCY/dp (нахил бічної сили відносно швидкості крену)                 |
+| CZp        | CLp                               | dCL/dp (нахил коефіцієнту сили підйому відносно швидкості крену)    |
+| Clp        | Cellp                             | dCl/dp (нахил моменту крену відносно швидкості крену)               |
+| Cmp        | Cemp                              | dCm/dp (нахил моменту тангажу відносно швидкості крену)             |
+| Cmp        | Cenp                              | dCn/dp (нахил моменту рискання відносно швидкості крену)            |
+| CXq        | CDq                               | dCD/dq (нахил коефіцієнту опору відносно швидкості тангажу)         |
+| CYq        | CYq                               | dCY/dq (нахил бічної сили відносно швидкості тангажу)               |
+| CZq        | CLq                               | dCL/dq (нахил коефіцієнту сили підйому відносно швидкості тангажу)  |
+| Clq        | Cellq                             | dCl/dq (нахил моменту крену відносно швидкості тангажу)             |
+| Cmq        | Cemq                              | dCm/dq (нахил моменту тангажу відносно швидкості тангажу)           |
+| Cnq        | Cenq                              | dCn/dq (нахил моменту рискання відносно швидкості тангажу)          |
+| CXr        | CDr                               | dCD/dr (нахил коефіцієнту опору відносно швидкості рискання)        |
+| CYr        | CYr                               | dCY/dr (нахил бічної сили відносно швидкості рискання)              |
+| CZr        | CLr                               | dCL/dr (нахил коефіцієнту сили підйому відносно швидкості рискання) |
+| Clr        | Cellr                             | dCl/dr (нахил моменту крену відносно швидкості рискання)            |
+| Cmr        | Cemr                              | dCm/dr (нахил моменту тангажу відносно швидкості рискання)          |
+| Cnr        | Cenr                              | dCn/dr (нахил моменту рискання відносно швидкості рискання)         |
 
-Furthermore, every control surface also has six own parameters, which are also derived from this log file.
-`{i}` below ranges from 1 to the number of unique control surface types in the model.
+Крім того, кожна поверхня керування має шість власних параметрів, які також походять з цього файлу журналу.
+`{i}` нижче знаходиться в діапазоні від 1 до кількості унікальних типів поверхні керування в моделі.
 
-| Name in AVL | Name in Advanced Lift Drag Plugin | Опис                                                          |
-| ----------- | --------------------------------- | ------------------------------------------------------------- |
-| CXd{i}      | CD_ctrl      | Effect of the control surface's deflection on drag            |
-| CYd{i}      | CY_ctrl      | Effect of the control surface's deflection on side force      |
-| CZd{i}      | CL_ctrl      | Effect of the control surface's deflection on lift            |
-| Cld{i}      | Cell_ctrl    | Effect of the control surface's deflection on roll moment     |
-| Cmd{i}      | Cem_ctrl     | Effect of the control surface's deflection on pitching moment |
-| Cnd{i}      | Cen_ctrl     | Effect of the control surface's deflection on yaw moment      |
+| Ім'я в AVL | Ім'я в плагіні Advanced Lift Drag | Опис                                                   |
+| ---------- | --------------------------------- | ------------------------------------------------------ |
+| CXd{i}     | CD_ctrl      | Вплив відхилення поверхні керування на опір            |
+| CYd{i}     | CY_ctrl      | Вплив відхилення поверхні керування на бічну силу      |
+| CZd{i}     | CL_ctrl      | Вплив відхилення поверхні керування на силу підйому    |
+| Cld{i}     | Cell_ctrl    | Вплив відхилення поверхні керування на момент крену    |
+| Cmd{i}     | Cem_ctrl     | Вплив відхилення поверхні керування на момент тангажу  |
+| Cnd{i}     | Cen_ctrl     | Вплив відхилення поверхні керування на момент рискання |
