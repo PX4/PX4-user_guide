@@ -1,6 +1,6 @@
 # Parameter Reference
 
-::: info
+:::note
 This documentation was auto-generated from the source code for this PX4 version (using `make parameters_metadata`).
 :::
 
@@ -10919,14 +10919,13 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_DECL_TYPE">EKF2_DECL_TYPE</strong> (INT32)</td>
- <td>Integer bitmask controlling handling of magnetic declination <p><strong>Comment:</strong> Set bits in the following positions to enable functions. 0 : Set to true to use the declination from the geo_lookup library when the GPS position becomes available, set to false to always use the EKF2_MAG_DECL value. 1 : Set to true to save the EKF2_MAG_DECL parameter to the value returned by the EKF when the vehicle disarms. 2 : Set to true to always use the declination as an observation when 3-axis magnetometer fusion is being used.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> use geo_lookup declination</li>
+ <td>Integer bitmask controlling handling of magnetic declination <p><strong>Comment:</strong> Set bits in the following positions to enable functions. 0 : Set to true to use the declination from the geo_lookup library when the GPS position becomes available, set to false to always use the EKF2_MAG_DECL value. 1 : Set to true to save the EKF2_MAG_DECL parameter to the value returned by the EKF when the vehicle disarms.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> use geo_lookup declination</li>
   <li><strong>1:</strong> save EKF2_MAG_DECL on disarm</li>
-  <li><strong>2:</strong> use declination as an observation</li>
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
- <td>[0, 7] </td>
- <td>7</td>
+ <td>[0, 3] </td>
+ <td>3</td>
  <td></td>
 </tr>
 <tr>
@@ -16321,7 +16320,7 @@ table {
 <li><strong>2:</strong> Require a landing</li>
 <li><strong>3:</strong> Require a takeoff and a landing</li>
 <li><strong>4:</strong> Require both a takeoff and a landing, or neither</li>
-<li><strong>5:</strong> Same as previous, but require a landing if in air and no valid VTOL landing approach is present</li>
+<li><strong>5:</strong> Same as previous when landed, in-air require landing only if no valid VTOL approach is present</li>
 </ul>  </td>
  <td></td>
  <td>0</td>
