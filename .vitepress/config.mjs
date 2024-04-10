@@ -43,6 +43,10 @@ export default defineConfig({
       // other locale specific properties...
       themeConfig: {
         sidebar: getSidebar.sidebar("en"),
+        editLink: {
+          pattern: "https://github.com/PX4/PX4-user_guide/edit/main/:path",
+          text: "Edit on GitHub",
+        },
       },
     },
 
@@ -85,9 +89,10 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     logo: "/px4-logo.svg",
     sidebar: getSidebar.sidebar("en"),
+
     editLink: {
-      pattern: "https://github.com/PX4/PX4-user_guide/edit/main/:path",
-      text: "Edit on GitHub",
+      pattern: "https://crowdin.com/project/px4-user-guide",
+      text: "Edit translation on Crowdin",
     },
 
     search: {
