@@ -1,6 +1,6 @@
 # Приводи та камери
 
-Payloads are equipment carried by the vehicle to meet user or mission objectives. PX4 supports a wide range of vehicle payloads, including cameras of various types, cargo, instrumentation, and so on.
+Корисне навантаження – це обладнання, яке транспортується апаратом для досягнення цілей користувача або місії. PX4 підтримує широкий спектр корисних навантажень для апаратів, включаючи камери різних типів, вантаж, прилади тощо.
 
 Приводи підключаються до [виводів Політного Контролера](../getting_started/px4_basic_concepts.md#outputs-motors-servos-actuators) і, як правило, можуть активовуватися автоматично в місіях, або вручну за допомогою пристрою дистанційного керування (RC), маппінгу на джойстик, або командами MAVLink/MAVSDK.
 
