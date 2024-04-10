@@ -10,7 +10,7 @@ The results will then automatically be written into a provided plugin template t
 
 To setup the tool:
 
-1. Download AVL 3.36 from https\://web.mit.edu/drela/Public/web/avl/.
+1. Download AVL 3.36 from https://web.mit.edu/drela/Public/web/avl/.
    The file for AVL version 3.36 can be found about halfway down the page.
 
 2. After downloading, extract AVL and move it to the home directory using:
@@ -79,7 +79,7 @@ The generated Advanced Lift Drag plugin (`<custom_plane>.sdf`) can be copied int
 
 The current implementation provides a minimal working example.
 More accurate measurements can be made by adjusting the chosen number of vortices along span and chord according to desired preferences.
-A good starting point for this can be found here: https\://www\.redalyc.org/pdf/6735/673571173005.pdf.
+A good starting point for this can be found here: https://www.redalyc.org/pdf/6735/673571173005.pdf.
 
 One can also more accurately model a vehicle by using a larger number of sections.
 In the current .yml file, only a left and right edge are defined for each surface yielding exactly one section, but the code supports expanding this to any number of desired sections.
@@ -92,7 +92,7 @@ In the current .yml file, only a left and right edge are defined for each surfac
 - The tool is designed to only support at most two control surfaces of any type on any one vehicle.
   Having more surfaces than that can lead to faulty behavior.
 - Another important point is that these scripts make use of the match, case syntax, which was only introduced in Python in version 3.10.
-- The primary reference resource for AVL can be found at https\://web.mit.edu/drela/Public/web/avl/AVL_User_Primer.pdf.
+- The primary reference resource for AVL can be found at https://web.mit.edu/drela/Public/web/avl/AVL_User_Primer.pdf.
   This document was written by the creators of AVL and contains all the variables that could be required in defining the control surfaces.
 - AVL cannot predict stall values so these need to be calculated/estimated in another way.
   In the current implementation, default stall values have been taken from PX4's Advanced Plane.
