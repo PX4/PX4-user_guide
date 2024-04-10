@@ -368,7 +368,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="copter_quadrotor_x_generic_quadcopter">
- <td>Generic Quadcopter</td>
+ <td>Загальний квадрокоптер</td>
  <td>Підтримувач: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4001</p></td>
 </tr>
 <tr id="copter_quadrotor_x_s500_generic">
