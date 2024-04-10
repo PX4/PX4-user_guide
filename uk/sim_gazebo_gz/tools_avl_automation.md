@@ -1,19 +1,19 @@
-# Advanced Lift Drag (AVL) Automation Tool
+# Інструмент автоматизації плагіну "Advanced Lift Drag" (AVL)
 
-The Gazebo [Advanced Plane](../sim_gazebo_gz/vehicles.md#advanced-plane) vehicle model uses the _Advanced Lift Drag_ plugin to model vehicle lift and drag behaviour.
-This tool allows you to calculate the parameters required to create a _Advanced Lift Drag_ plugin for your own particular vehicle.
+Модель рухомого засобу Gazebo [Поліпшений літак](../sim_gazebo_gz/vehicles.md#advanced-plane) використовує плагін _Advanced Lift Drag_ для моделювання поведінки піднімної сили та аеродинамічного опору рухомого засобу.
+Цей інструмент дозволяє вам розрахувати параметри, необхідні для створення плагіну _Advanced Lift Drag_ для вашого певного рухомого засобу.
 
-You only have to provide a few parameters for each wing foil and the tool will use this information to call the Athena Lattice Vortex (AVL) to make the necessary calculations.
-The results will then automatically be written into a provided plugin template that can then be copy-pasted into a model or world sdf file.
+Вам  лише потрібно надати кілька параметрів для кожного крила, а інструмент використовуватиме цю інформацію для виклику моделі решітки вихрів "Athena" (Athena Lattice Vortex або AVL) для здійснення необхідних обчислень.
+Результати будуть автоматично записані у шаблон плагіну, який потім можна скопіювати у файл моделі або sdf-файл світу.
 
 ## Встановлення
 
-To setup the tool:
+Щоб налаштувати інструмент:
 
-1. Download AVL 3.36 from https://web.mit.edu/drela/Public/web/avl/.
-   The file for AVL version 3.36 can be found about halfway down the page.
+1. Завантажте AVL 3.36 з https://web.mit.edu/drela/Public/web/avl/.
+   Файл AVL для версії 3.36 можна знайти приблизно посередині сторінки.
 
-2. After downloading, extract AVL and move it to the home directory using:
+2. Після завантаження розпакуйте AVL та перемістіть його в домашню директорію за допомогою:
 
    ```sh
    sudo tar -xf avl3.36.tgz
