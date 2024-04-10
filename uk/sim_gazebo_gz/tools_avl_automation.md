@@ -91,75 +91,75 @@
   Якщо ви зробите це навпаки, поверхня фактично буде визначена догори дриґом.
 - Інструмент призначений для підтримки не більше двох поверхонь керування будь-якого типу на будь-якому рухомому засобі.
   Маючи більше поверхонь може призвести до помилкової поведінки.
-- Another important point is that these scripts make use of the match, case syntax, which was only introduced in Python in version 3.10.
-- The primary reference resource for AVL can be found at https://web.mit.edu/drela/Public/web/avl/AVL_User_Primer.pdf.
-  This document was written by the creators of AVL and contains all the variables that could be required in defining the control surfaces.
-- AVL cannot predict stall values so these need to be calculated/estimated in another way.
-  In the current implementation, default stall values have been taken from PX4's Advanced Plane.
-  These should naturally be changed for new/different models.
+- Ще один важливий момент полягає в тому, що ці скрипти використовують синтаксис match, case, який був введений лише в Python версії 3.10.
+- Основним довідковим ресурсом для AVL є https://web.mit.edu/drela/Public/web/avl/AVL_User_Primer.pdf.
+  Цей документ був написаний творцями AVL і містить всі змінні, які можуть бути потрібні для визначення поверхонь керування.
+- AVL не може передбачити значення звалювання, тому їх потрібно обчислити/оцінити іншим чином.
+  У поточній реалізації значення звалювання за замовчуванням були взяті з моделі поліпшеного літака з PX4.
+  Звичайно вони повинні бути змінені для нових/інших моделей.
 
 :::
 
-## Parameter Assignment
+## Визначення параметрів
 
-Below is a comprehensive list on how the parameters are assigned at output and what files in AVL they are taken from.
-The Advanced Lift Drag Plugin contains more detail about what each of these parameters do.
+Нижче наведено вичерпний перелік того, як параметри визначаються на виході та з яких файлів у AVL вони беруться.
+Плагін Advanced Lift Drag містить більше деталей про те, що роблять кожен з цих параметрів.
 
 :::note
-The parameters have not been verified by an expert, so you should check them in the plugin.
+Параметри не були підтверджені експертом, тому ви повинні перевірити їх у плагіні.
 :::
 
-From the stability derivatives log file, the following advanced lift drag plugin parameters are taken:
+З файлу журналу похідних стійкості беруться наступні параметри плагіну advanced lift drag:
 
-| Name in AVL | Name in Advanced Lift Drag Plugin | Опис                                                                       |
-| ----------- | --------------------------------- | -------------------------------------------------------------------------- |
-| Alpha       | alpha                             | The angle of attack                                                        |
-| Cmtot       | Cem0                              | Pitching moment coefficient at zero angle of attack                        |
-| CLtot       | CL0                               | Lift Coefficient at zero angle of attack                                   |
-| CDtot       | CD0                               | Drag coefficient at zero angle of attack                                   |
-| CLa         | CLa                               | dCL/da (slope of CL-alpha curve)                        |
-| CYa         | CYa                               | dCy/da (sideforce slope wrt alpha)                      |
-| Cla         | Cell                              | dCl/da (roll moment slope wrt alpha)                    |
-| Cma         | Cema                              | dCm/da (pitching moment slope wrt aLpha - before stall) |
-| Cna         | Cena                              | dCn/da (yaw moment slope wrt alpha)                     |
-| CLb         | CLb                               | dCL/dbeta (lift coefficient slope wrt beta)             |
-| CYb         | CYb                               | dCY/dbeta (side force slope wrt beta)                   |
-| Clb         | Cell                              | dCl/dbeta (roll moment slope wrt beta)                  |
-| Cmb         | Cemb                              | dCm/dbeta (pitching moment slope wrt beta)              |
-| Cnb         | Cenb                              | dCn/dbeta (yaw moment slope wrt beta)                   |
+| Ім'я в AVL | Ім'я в плагіні Advanced Lift Drag | Опис                                                                                  |
+| ---------- | --------------------------------- | ------------------------------------------------------------------------------------- |
+| Alpha      | alpha                             | Кут атаки                                                                             |
+| Cmtot      | Cem0                              | Коефіцієнт моменту тангажу при нульовому куті атаки                                   |
+| CLtot      | CL0                               | Коефіцієнт сили підйому при нульовому куті атаки                                      |
+| CDtot      | CD0                               | Коефіцієнт аеродинамічного опору при нульовому куті атаки                             |
+| CLa        | CLa                               | dCL/da (нахил кривої CL-alpha)                                     |
+| CYa        | CYa                               | dCy/da (нахил бічної сили відносно кута атаки)                     |
+| Cla        | Cell                              | dCl/da (нахил моменту крену відносно кута атаки)                   |
+| Cma        | Cema                              | dCm/da (нахил моменту тангажу відносно кута атаки - до звалювання) |
+| Cna        | Cena                              | dCn/da (нахил моменту рискання відносно кута атаки)                |
+| CLb        | CLb                               | dCL/dbeta (нахил коефіцієнту сили підйому відносно кута ковзання)  |
+| CYb        | CYb                               | dCY/dbeta (нахил бічної сили відносно кута ковзання)               |
+| Clb        | Cell                              | dCl/dbeta (нахил моменту крену відносно кута ковзання)             |
+| Cmb        | Cemb                              | dCm/dbeta (нахил моменту тангажу відносно кута ковзання)           |
+| Cnb        | Cenb                              | dCn/dbeta (нахил моменту рискання відносно кута ковзання)          |
 
-From the body axis derivatives log file, the following advanced lift drag plugin parameters are taken:
+З файлу журналу похідних вісі тіла беруться наступні параметри плагіну advanced lift drag:
 
-| Name in AVL | Name in Advanced Lift Drag Plugin | Опис                                                                        |
-| ----------- | --------------------------------- | --------------------------------------------------------------------------- |
-| e           | eff                               | Wing efficiency (Oswald efficiency factor for a 3D wing) |
-| CXp         | CDp                               | dCD/dp (drag coefficient slope wrt roll rate)            |
-| CYp         | CYp                               | dCY/dp (sideforce slope wrt roll rate)                   |
-| CZp         | CLp                               | dCL/dp (lift coefficient slope wrt roll rate)            |
-| Clp         | Cellp                             | dCl/dp (roll moment slope wrt roll rate)                 |
-| Cmp         | Cemp                              | dCm/dp (pitching moment slope wrt roll rate)             |
-| Cmp         | Cenp                              | dCn/dp (yaw moment slope wrt roll rate)                  |
-| CXq         | CDq                               | dCD/dq (drag coefficient slope wrt pitching rate)        |
-| CYq         | CYq                               | dCY/dq (side force slope wrt pitching rate)              |
-| CZq         | CLq                               | dCL/dq (lift coefficient slope wrt pitching rate)        |
-| Clq         | Cellq                             | dCl/dq (roll moment slope wrt pitching rate)             |
-| Cmq         | Cemq                              | dCm/dq (pitching moment slope wrt pitching rate)         |
-| Cnq         | Cenq                              | dCn/dq (yaw moment slope wrt pitching rate)              |
-| CXr         | CDr                               | dCD/dr (drag coefficient slope wrt yaw rate)             |
-| CYr         | CYr                               | dCY/dr (side force slope wrt yaw rate)                   |
-| CZr         | CLr                               | dCL/dr (lift coefficient slope wrt yaw rate)             |
-| Clr         | Cellr                             | dCl/dr (roll moment slope wrt yaw rate)                  |
-| Cmr         | Cemr                              | dCm/dr (pitching moment slope wrt yaw rate)              |
-| Cnr         | Cenr                              | dCn/dr (yaw moment slope wrt yaw rate)                   |
+| Ім'я в AVL | Ім'я в плагіні Advanced Lift Drag | Опис                                                                                   |
+| ---------- | --------------------------------- | -------------------------------------------------------------------------------------- |
+| e          | eff                               | Ефективність крила (коефіцієнт ефективності Освальда для 3D крила)  |
+| CXp        | CDp                               | dCD/dp (нахил коефіцієнту опору відносно швидкості крену)           |
+| CYp        | CYp                               | dCY/dp (нахил бічної сили відносно швидкості крену)                 |
+| CZp        | CLp                               | dCL/dp (нахил коефіцієнту сили підйому відносно швидкості крену)    |
+| Clp        | Cellp                             | dCl/dp (нахил моменту крену відносно швидкості крену)               |
+| Cmp        | Cemp                              | dCm/dp (нахил моменту тангажу відносно швидкості крену)             |
+| Cmp        | Cenp                              | dCn/dp (нахил моменту рискання відносно швидкості крену)            |
+| CXq        | CDq                               | dCD/dq (нахил коефіцієнту опору відносно швидкості тангажу)         |
+| CYq        | CYq                               | dCY/dq (нахил бічної сили відносно швидкості тангажу)               |
+| CZq        | CLq                               | dCL/dq (нахил коефіцієнту сили підйому відносно швидкості тангажу)  |
+| Clq        | Cellq                             | dCl/dq (нахил моменту крену відносно швидкості тангажу)             |
+| Cmq        | Cemq                              | dCm/dq (нахил моменту тангажу відносно швидкості тангажу)           |
+| Cnq        | Cenq                              | dCn/dq (нахил моменту рискання відносно швидкості тангажу)          |
+| CXr        | CDr                               | dCD/dr (нахил коефіцієнту опору відносно швидкості рискання)        |
+| CYr        | CYr                               | dCY/dr (нахил бічної сили відносно швидкості рискання)              |
+| CZr        | CLr                               | dCL/dr (нахил коефіцієнту сили підйому відносно швидкості рискання) |
+| Clr        | Cellr                             | dCl/dr (нахил моменту крену відносно швидкості рискання)            |
+| Cmr        | Cemr                              | dCm/dr (нахил моменту тангажу відносно швидкості рискання)          |
+| Cnr        | Cenr                              | dCn/dr (нахил моменту рискання відносно швидкості рискання)         |
 
-Furthermore, every control surface also has six own parameters, which are also derived from this log file.
-`{i}` below ranges from 1 to the number of unique control surface types in the model.
+Крім того, кожна поверхня керування має шість власних параметрів, які також походять з цього файлу журналу.
+`{i}` нижче знаходиться в діапазоні від 1 до кількості унікальних типів поверхні керування в моделі.
 
-| Name in AVL | Name in Advanced Lift Drag Plugin | Опис                                                          |
-| ----------- | --------------------------------- | ------------------------------------------------------------- |
-| CXd{i}      | CD_ctrl      | Effect of the control surface's deflection on drag            |
-| CYd{i}      | CY_ctrl      | Effect of the control surface's deflection on side force      |
-| CZd{i}      | CL_ctrl      | Effect of the control surface's deflection on lift            |
-| Cld{i}      | Cell_ctrl    | Effect of the control surface's deflection on roll moment     |
-| Cmd{i}      | Cem_ctrl     | Effect of the control surface's deflection on pitching moment |
-| Cnd{i}      | Cen_ctrl     | Effect of the control surface's deflection on yaw moment      |
+| Ім'я в AVL | Ім'я в плагіні Advanced Lift Drag | Опис                                                          |
+| ---------- | --------------------------------- | ------------------------------------------------------------- |
+| CXd{i}     | CD_ctrl      | Вплив відхилення поверхні керування на опір                   |
+| CYd{i}     | CY_ctrl      | Вплив відхилення поверхні керування на бічну силу             |
+| CZd{i}     | CL_ctrl      | Вплив відхилення поверхні керування на силу підйому           |
+| Cld{i}     | Cell_ctrl    | Вплив відхилення поверхні керування на момент крену           |
+| Cmd{i}     | Cem_ctrl     | Effect of the control surface's deflection on pitching moment |
+| Cnd{i}     | Cen_ctrl     | Effect of the control surface's deflection on yaw moment      |
