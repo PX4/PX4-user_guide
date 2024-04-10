@@ -22,20 +22,20 @@ _Системна консоль_ PX4 забезпечує низькорівн�
 - Не може _безпосередньо_ показувати вивід завдань, запущених у робочій черзі.
 - Не може налагоджувати проблеми, коли система не запускається (оскільки вона ще не працює).
 
-::: info Команда `dmesg` тепер доступна через оболонку на деяких платах, що дозволяє набагато більш низькорівневе налагодження, ніж раніше було можливо. For example, with `dmesg -f &` you also see the output of background tasks.
+::: info Команда `dmesg` тепер доступна через оболонку на деяких платах, що дозволяє набагато більш низькорівневе налагодження, ніж раніше було можливо. Наприклад, за допомогою `dmesg -f &` ви також бачите вивід фонових завдань.
 :::
 
-There can be several shells, either running on a dedicated UART, or via MAVLink. Since MAVLink provides more flexibility, currently only the [MAVLink Shell](../debug/mavlink_shell.md) is used.
+Може бути кілька оболонок, які працюють на відведеному UART або через MAVLink. Оскільки MAVLink надає більшу гнучкість, наразі використовується лише [Оболонка MAVLink](../debug/mavlink_shell.md).
 
-The [System Console](../debug/system_console.md) is essential when the system does not boot (it displays the system boot log when power-cycling the board). The [MAVLink Shell](../debug/mavlink_shell.md) is much easier to setup, and so is more generally recommended for most debugging.
+[Системна консоль](../debug/system_console.md) є необхідною, коли система не завантажується (вона відображає журнал завантаження системи при перезапуску плати за живленням). [MAVLink Shell](../debug/mavlink_shell.md) набагато легше налаштувати, тому як правило рекомендується для налагодження загалом.
 
 <a id="using_the_console"></a>
 
-## Using Consoles/Shells
+## Використання Консолі/Оболонки
 
-The MAVLink shell/console and the [System Console](../debug/system_console.md) are used in much the same way.
+Консоль/оболонка MAVLink та [Системна консоль](../debug/system_console.md) використовуються практично однаково.
 
-For example, type `ls` to view the local file system, `free` to see the remaining free RAM, `dmesg` to look at boot output.
+Наприклад, введіть `ls`, щоб переглянути локальну файлову систему, `free`, щоб переглянути доступну вільну оперативну пам'ять, `dmesg`, щоб подивитися вивід завантаження.
 
 ```sh
 nsh> ls
@@ -43,42 +43,42 @@ nsh> free
 nsh> dmesg
 ```
 
-Below are a couple of commands which can be used in the [NuttShell](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=139629410) to get insights of the system.
+Нижче наведено кілька команд, які можна використати в [NuttShell](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=139629410), щоб отримати уявлення про систему.
 
-This NSH command provides the remaining free memory:
+Ця команда NSH надає доступну вільну пам'ять:
 
 ```sh
 free
 ```
 
-The top command shows the stack usage per application:
+Команда top показує використання стеку для кожного додатку:
 
 ```sh
 top
 ```
 
-Note that stack usage is calculated with stack coloring and is the maximum since the start of the task (not the current usage).
+Зверніть увагу, що використання стеку обчислюється за допомогою алгоритму забарвлення стеку та є максимумом з моменту початку завдання (а не поточним використанням).
 
-To see what is running in the work queues and at what rate, use:
+Щоб побачити, що виконується у робочих чергах і з якою швидкістю, використовуйте:
 
 ```sh
 work_queue status
 ```
 
-To debug uORB topics:
+Для налагодження рубрик uORB:
 
 ```sh
 uorb top
 ```
 
-To inspect a specific uORB topic:
+Для перевірки певної рубрики uORB:
 
 ```sh
 listener <topic_name>
 ```
 
-Many other system commands and modules are listed in the [Modules and Command Reference](../modules/modules_main.md) (e.g. `top`, `listener`, etc.).
+Багато інших системних команд та модулів перелічені в [Довіднику модулів та команд](../modules/modules_main.md) (наприклад, `top`, `listener` тощо).
 
 :::tip
-Some commands may be disabled on some boards (i.e. the some modules are not included in firmware for boards with RAM or FLASH constraints). In this case you will see the response: `command not found`
+Деякі команди можуть бути вимкнені на деяких платах (тобто деякі модулі не включені в прошивку для плат з обмеженнями по ОП або FLASH). У цьому випадку ви побачите відповідь: `command not found`
 :::
