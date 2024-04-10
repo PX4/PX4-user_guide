@@ -1,23 +1,23 @@
 # Raspberry Pi Companion with Pixhawk
 
-This topic describes how to setup a Raspberry Pi ("RPi") companion companion running [ROS 2](../ros/ros2_comm.md) on Linux Ubuntu OS, connecting to a [Pixhawk](../flight_controller/autopilot_pixhawk_standard.md) flight controller using a serial connection between the Pixhawk `TELEM2` port and the RPi's TX/RX pins.
+У цій темі описано, як налаштувати супутника Raspberry Pi ("RPi"), що працює з [ROS 2](../ros/ros2_comm.md) на операційній системі Linux Ubuntu, підключення до автопілота [Pixhawk](../flight_controller/autopilot_pixhawk_standard.md) за допомогою послідовного з'єднання між портом `TELEM2` Pixhawk та виводами TX/RX RPi.
 
-These instructions should be readily extensible to other RPi and flight controller configurations.
+Ці інструкції мають бути легко розширювані для інших конфігурацій контролерів RPi та польотів.
 
-::: info
-Other common ways to connect RaPi and Pixhawk are:
+:::: info
+Інші загальні способи підключення RaPi та Pixhawk це:
 
-- Ethernet-з'єднання між RPi та Pixhawk. Pixhawk controllers based on FMUv5x, FMUv6x and later may have an inbuilt Ethernet port. See [PX4 Ethernet > Supported Controllers](../advanced_config/ethernet_setup.md#supported-flight-controllers).
-- Serial connection to the RPi USB port. This is simple and reliable, but requires an additional FTDI Chip USB-to-serial adapter board. This option is covered in [Pixhawk Companion > Serial Port Setup](../companion_computer/pixhawk_companion.md#serial-port-setup).
+- Ethernet-з'єднання між RPi та Pixhawk. Контролери Pixhawk на основі FMUv5x, FMUv6x та пізніших можуть мати вбудований порт Ethernet. Див. [PX4 Ethernet > Підтримувані контролери](../advanced_config/ethernet_setup.md#supported-flight-controllers).
+- Serial connection to the RPi USB port. Це просто і надійно, але потребує додаткової плати адаптера USB-серійного інтерфейсу від FTDI Chip. Ця опція описана в [Pixhawk Companion > Налаштування послідовного порту](../companion_computer/pixhawk_companion.md#serial-port-setup).
 :::
 
 ## Підключення
 
 ### Послідовне з'єднання
 
-First wire up the serial connection between the RPi and PX4 that is to be used for offboard control.
+Спочатку підключіть послідовне з'єднання між RPi та PX4, яке буде використовуватися для управління ззовні.
 
-This setup connects the Pixhawk `TELEM2` port, which is generally recommended for offboard control. It is initially configured in PX4 to use with MAVLink, which we will change later when setting up ROS 2. Pixhawk ports can be located anywhere on the flight controller, but are almost always well labeled, and should be obvious on your particular [flight controller](../flight_controller/index.md).
+Це налаштування з'єднує Pixhawk `TELEM2` , що загалом рекомендується для офлайн керування. It is initially configured in PX4 to use with MAVLink, which we will change later when setting up ROS 2. Pixhawk ports can be located anywhere on the flight controller, but are almost always well labeled, and should be obvious on your particular [flight controller](../flight_controller/index.md).
 
 Connect the Pixhawk `TELEM2` `TX`/`RX`/`GND` pins to the complementary `RXD`/`TXD`/`Ground` pins on the RPi GPIO board:
 
