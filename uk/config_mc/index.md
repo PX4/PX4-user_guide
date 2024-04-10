@@ -1,20 +1,20 @@
 # Конфігурація мультикоптера
 
-Multicopter configuration and calibration follows the same high level steps as other frames: selection of firmware, configuration of the frame including actuator/motor geometry and output mappings, sensor configuration and calibration, configuration of safety and other features, and finally tuning.
+Конфігурація та калібрування багтороторного вертольота виконується за тими ж високорівневими кроками, що і інші рами: вибір прошивки, конфігурація рами, включаючи геометрію приводника/двигуна та відображення виводів, конфігурація та калібрування сенсорів, налаштування безпеки та інших функцій, а також налаштування.
 
-This topic explains how to configure a multicopter using selected topics from [Standard Configuration](../config/index.md), [Advanced Configuration](../advanced_config/index.md), and [Flight Controller Peripherals](../peripherals/index.md), along with multicopter-specific tuning topics.
+Ця тема пояснює, як налаштувати багатокоптер, використовуючи вибрані теми з [Стандартна конфігурація](../config/index.md), [Розширена конфігурація](../advanced_config/index.md) та [Периферійні пристрої контролера польоту](../peripherals/index.md), разом з темами настройки, специфічними для багатокоптерів.
 
 ::: info
-This topic is the recommended entry point when performing first-time configuration and calibration of a new multicopter frame.
+Ця тема є рекомендованою точкою запису при першому виконанні конфігурації і калібрування нового кадру мультиоптика.
 :::
 
-## Loading Firmware
+## Завантаження прошивки
 
-The first step is to [load PX4 firmware](../config/firmware.md) onto your [flight controller](../flight_controller/index.md). This is most easily done using QGroundControl, which will automatically select appropriate firmware for your particular controller hardware. By default QGC will install the latest stable version of PX4, but you can choose beta or custom versions instead if needed.
+Перший крок - [завантажити прошивку PX4](../config/firmware.md) на ваш [контролер польоту](../flight_controller/index.md). Це найлегше зробити за допомогою QGroundControl, який автоматично вибере відповідне прошивку для вашого конкретного обладнання контролера. За замовчуванням QGC встановить останню стабільну версію PX4, але ви можете вибрати бета-версію або власні версії, якщо потрібно.
 
-Relevant topics:
+Відповідні теми:
 
-- [Loading Firmware](../config/firmware.md)
+- [Завантаження прошивки](../config/firmware.md)
 
 ## Frame Selection and Configuration
 
@@ -97,7 +97,7 @@ PX4 can be configured to automatically handle conditions such as low battery, lo
 - [Battery Estimation Tuning](../config/battery.md) — estimate remaining power (needed for low power failsafe).
 - [Safety Configuration (Failsafes)](../config/safety.md)
 
-## Tuning
+## Вдосконалення
 
 Tuning is the final step, carried out only after most other setup and configuration is complete.
 
@@ -137,11 +137,11 @@ My assumption is that the mixing system can cope with whatever geometry you thro
 Yes but it must be physically feasible. E.g. if you make a quadrotor where all motors turn the same way it will "deal" with it but that cannot work without very specific controllers. Same for a monocopter or a tricopter without swiveling one motor.
 -->
 
-## See Also
+## Дивіться також
 
-- [QGroundControl > Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
-- [Flight Controller Peripherals](../peripherals/index.md) - Setup specific sensors, optional sensors, actuators, and so on.
-- [Advanced Configuration](../advanced_config/index.md) - Factory/OEM calibration, configuring advanced features, less-common configuration.
+- [QGroundControl > Налаштування](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
+- [Периферія контролера польоту](../peripherals/index.md) - налаштування конкретних датчиків, опціональних датчиків, приводів тощо.
+- [Розширена конфігурація](../advanced_config/index.md) - заводське калібрування/OEM, налаштування додаткових функцій, менш поширені конфігурації.
 - Vehicle-Centric Config/Tuning:
   - **Конфігурація/налаштування мультикоптера**
   - [Конфігурація/налаштування гелікоптера](../config_heli/index.md)
