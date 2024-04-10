@@ -15,7 +15,8 @@ import argparse
 dir_name='.'
 #git log -1 --format="%as" -- .\zh\uavcan\notes.md
 
-include_dirs = set(['en','zh','ko']) #update for new language builds.
+include_dirs = set(['en','zh','ko','uk']) #update for new language builds.
+exclude_dirs = set(['.vitepress','node_modules']) #update for new language builds.
 
 my_parser = argparse.ArgumentParser(description='Generate sitemap for all markdown files in directory (default to main for output)')
 # Add the arguments                      
@@ -50,14 +51,32 @@ url_prefix = 'https://docs.px4.io/%s' % build_version
 sitemapitems=[]
 
 for subdir, dirs, files in os.walk(dir_name, topdown=True):
-    dirs[:] = [d for d in dirs if d in include_dirs]
+    
+    if subdir == '.':
+        #print("RootFile: %s" % originalfile)
+        #Handle a root file.
+        continue
+    
+    # Check if any of the include directories is in the subdir path
+    if any(f"/{inc_dir}/" in subdir or f"\\{inc_dir}\\" in subdir for inc_dir in include_dirs):
+        pass
+        #print(f"SUBDIR: {subdir}")
+    else:
+        continue
+
+    if any(f"/{ex_dir}/" in subdir or f"\\{ex_dir}\\" in subdir for ex_dir in exclude_dirs):
+        continue
+        #print(f"SUBDIR Ex: {subdir}")
+        
 
     for file in files:
+        #print(f"xxDebug: {file}")
         sitemapitem = dict()
         sitemapitem['changefreq']='daily'
         if not file.endswith('.md'): #only process md files.
-           #print("Skip not md: %s" % file)
+           #print(f"Skip: {file} (not md)")
            continue
+       
         originalfile=subdir+'\\'+file
         dir_name=subdir[2:].replace('\\','/')
         orig_file_forwardslash=originalfile.replace('\\','/')
@@ -65,20 +84,14 @@ for subdir, dirs, files in os.walk(dir_name, topdown=True):
         if args.date:
             modified_datestamp = subprocess.run(["git", "log", "-1", '--format="%as"', "--", "%s" % orig_file_forwardslash],capture_output=True).stdout.decode('UTF-8')
             sitemapitem['modified']=modified_datestamp.strip().strip('"')
-            #print("XX %s" % modified_datestamp)
+            #print(f"debugXX: {sitemapitem['modified']}")
         file_name=file[:-3]+'.html'
         if file_name.startswith('README'):
             file_name=''
         if file_name.startswith('index'):
             file_name=''
-        url="%s/%s/%s" % (url_prefix, dir_name,file_name)
+        url=f"{url_prefix}/{dir_name}/{file_name}"
         sitemapitem['url']=url
-
-
-        if subdir == '.':
-            #print("RootFile: %s" % originalfile)
-            #Handle a root file.
-            continue
 
         #print("OrigFile: %s" % originalfile)
         #print("dir_name: %s" % dir_name)
@@ -89,24 +102,23 @@ for subdir, dirs, files in os.walk(dir_name, topdown=True):
         sitemapitems.append(sitemapitem)
         
         
-        
 # Generate the sitemap from the sitemapitems
-urltext=''
+all_sitemap_item_text = ""
 for item in sitemapitems:
-   urltext+='  <url>\n'
-   urltext+=f"    <loc>{item['url']}</loc>\n"
-   urltext+=f"    <changefreq>{item['changefreq']}</changefreq>\n"
+   sitemap_item_text=''
+   sitemap_item_text+='  <url>\n'
+   sitemap_item_text+=f"    <loc>{item['url']}</loc>\n"
+   sitemap_item_text+=f"    <changefreq>{item['changefreq']}</changefreq>\n"
    if args.date:
-       urltext+=f"    <lastmod>{item['modified']}</lastmod>\n"
-   urltext+='  </url>\n'
+       sitemap_item_text+=f"    <lastmod>{item['modified']}</lastmod>\n"
+   sitemap_item_text+='  </url>\n'
    
-   urltext+=urltext
-
+   all_sitemap_item_text+=sitemap_item_text
 
 sitemaptext = '''<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 %s</urlset>
-''' % urltext
+''' % all_sitemap_item_text
 
 # Write the sitemap to file
 outputfile=args.output+'sitemap.xml'
