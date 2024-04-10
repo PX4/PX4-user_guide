@@ -9,35 +9,35 @@ It integrates UBLOX M9N, STM32F4 MCU, RM3100 compass, three-color LED light and 
 
 ## Technical Specifications
 
-| Hardware                                          | Type                                                                           |
-| :------------------------------------------------ | :----------------------------------------------------------------------------- |
-| Processor                                         | STM32F412                                                                      |
-| Compass                                           | RM3100                                                                         |
-| Barometer                                         | MS5611                                                                         |
-| GNSS receiver                                     | UBLOX NEO M9N                                                                  |
-| RGB drive                                         | NCP5623C                                                                       |
-| Buzzer                                            | Passive buzzer                                                                 |
-| Safety switch                                     | Physical button                                                                |
-| GNSS                                              | Beidou, Galileo, GLONASS, GPS                                                  |
-| GNSS Augmentation System                          | SBAS:WAAS,EGNOS,MSAS<br>QZSS:L1s(SAIF)<br>other：RTCM3.3     |
-| Number of concurrent GNSS                         | 4                                                                              |
-| Frequency band                                    | GPS:L1C/A<br>GLONASS:L10F<br>Beidou:B1I<br>Galileo:E1B/C                       |
-| Horizontal accuracy                               | 2.0M                                                                           |
-| Speed accuracy                                    | 0.05M/S                                                                        |
-| Nav. update rate                                  | 25Hz(Max)                                                   |
-| Acquisition                                       | Cold start：24S<br>Hot start：2S<br>Aided start:2s                               |
-| Number of satellites(MAX)      | 32+                                                                            |
-| Sensitivity                                       | Tracking and nav-167dBm<br>Cold start Hot star-148dBm<br>Reacquisition -160dBm |
-| Protocol                                          | UAVCAN                                                                         |
-| Port TYpe                                         | GHR-04V-S                                                                      |
-| Supported flight controller                       | CUAV series,<br>Pixahwk series                                                 |
-| Wave filtering                                    | SAW+LNA+SAW                                                                    |
-| Anti-Electromagnetic/radio frequency interference | EMI+RFI                                                                        |
-| Upgrade firmware                                  | support                                                                        |
-| Input voltage                                     | 5V                                                                             |
-| Operating temperature                             | -10\~70℃                                                                       |
-| Size                                              | 60_60_16MM                                                                     |
-| Weight                                            | 33g                                                                            |
+| Hardware                                          | Type                                                                                                                       |
+| :------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------- |
+| Processor                                         | STM32F412                                                                                                                  |
+| Compass                                           | RM3100                                                                                                                     |
+| Barometer                                         | MS5611                                                                                                                     |
+| GNSS receiver                                     | UBLOX NEO M9N                                                                                                              |
+| RGB drive                                         | NCP5623C                                                                                                                   |
+| Buzzer                                            | Passive buzzer                                                                                                             |
+| Safety switch                                     | Physical button                                                                                                            |
+| GNSS                                              | Beidou, Galileo, GLONASS, GPS                                                                                              |
+| GNSS Augmentation System                          | SBAS:WAAS,EGNOS,MSAS<br>QZSS:L1s(SAIF)<br>other：RTCM3.3 |
+| Number of concurrent GNSS                         | 4                                                                                                                          |
+| Frequency band                                    | GPS:L1C/A<br>GLONASS:L10F<br>Beidou:B1I<br>Galileo:E1B/C   |
+| Horizontal accuracy                               | 2.0M                                                                                                       |
+| Speed accuracy                                    | 0.05M/S                                                                                                    |
+| Nav. update rate                  | 25Hz(Max)                                                                                               |
+| Acquisition                                       | Cold start：24S<br>Hot start：2S<br>Aided start:2s                                                           |
+| Number of satellites(MAX)      | 32+                                                                                                                        |
+| Sensitivity                                       | Tracking and nav-167dBm<br>Cold start Hot star-148dBm<br>Reacquisition -160dBm                                             |
+| Protocol                                          | UAVCAN                                                                                                                     |
+| Port TYpe                                         | GHR-04V-S                                                                                                                  |
+| Supported flight controller                       | CUAV series,<br>Pixahwk series                                                                                             |
+| Wave filtering                                    | SAW+LNA+SAW                                                                                                                |
+| Anti-Electromagnetic/radio frequency interference | EMI+RFI                                                                                                                    |
+| Upgrade firmware                                  | support                                                                                                                    |
+| Input voltage                                     | 5V                                                                                                                         |
+| Operating temperature                             | -10~70℃                                                                                                    |
+| Size                                              | 60_60_16MM                                                                                                                 |
+| Weight                                            | 33g                                                                                                                        |
 
 ## Where to Buy
 
