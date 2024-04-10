@@ -1,28 +1,28 @@
-# PX4 Consoles/Shells
+# Консолі/Оболонки PX4
 
-PX4 enables terminal access to the system through the [MAVLink Shell](../debug/mavlink_shell.md) and the [System Console](../debug/system_console.md).
+PX4 дозволяє термінальний доступ до системи через [Оболонку MAVLink](../debug/mavlink_shell.md) та [Системну консоль](../debug/system_console.md).
 
-This page explains the main differences and how the console/shell are used.
+Ця сторінка пояснює основні відмінності та як використовується консоль/оболонка.
 
 <a id="console_vs_shell"></a>
 
-## System Console vs. Shells
+## Системна консоль у порівнянні з оболонкою
 
-The PX4 _System Console_ provides low-level access to the system, debug output and analysis of the system boot process.
+_Системна консоль_ PX4 забезпечує низькорівневий доступ до системи, виводу налагодження та аналізу процесу завантаження системи.
 
-There is just one _System Console_, which runs on one specific UART (the debug port, as configured in NuttX), and is commonly attached to a computer via an FTDI cable (or some other debug adapter like a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation)).
+Є лише одна _Системна консоль _, яка працює на одному конкретному UART (порт налагодження, як налаштовано в NuttX) та зазвичай під'єднана до комп'ютера за допомогою кабелю FTDI (або якогось іншого адаптера для налагодження, наприклад, [зонда Dronecode](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation)).
 
-- Used for _low-level debugging/development_: bootup, NuttX, startup scripts, board bringup, development on central parts of PX4 (e.g. uORB).
-- In particular, is the only place where all boot output (including information about applications auto-started on boot) is printed.
+- Використовується для _низькорівневого налагодження/розробки_: завантаження, NuttX, скриптів запуску, запуску плати, розробки центральних частин PX4 (наприклад uORB).
+- Зокрема, це єдине місце, де виводиться весь вивід завантаження (включаючи інформацію про програми, які автоматично запускаються при завантаженні).
 
-Shells provide higher-level access to the system:
+Оболонки надають високорівневий доступ до системи:
 
-- Used for basic module testing/running commands.
-- Only _directly_ display the output of modules you start.
-- Cannot _directly_ display the output of tasks running on the work queue.
-- Can't debug problems when the system doesn't start (as it isn't running yet).
+- Використовується для базового тестування модулів/виконання команд.
+- Лише _безпосередньо_ показує вивід модулів, які ви запускаєте.
+- Не може _безпосередньо_ показувати вивід завдань, запущених у робочій черзі.
+- Не може налагоджувати проблеми, коли система не запускається (оскільки вона ще не працює).
 
-::: info The `dmesg` command is now available through the shell on some boards, enabling much lower level debugging than previously possible. For example, with `dmesg -f &` you also see the output of background tasks.
+::: info Команда `dmesg` тепер доступна через оболонку на деяких платах, що дозволяє набагато більш низькорівневе налагодження, ніж раніше було можливо. For example, with `dmesg -f &` you also see the output of background tasks.
 :::
 
 There can be several shells, either running on a dedicated UART, or via MAVLink. Since MAVLink provides more flexibility, currently only the [MAVLink Shell](../debug/mavlink_shell.md) is used.
