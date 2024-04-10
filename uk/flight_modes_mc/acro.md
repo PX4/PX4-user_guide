@@ -2,9 +2,9 @@
 
 <img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />&nbsp;<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />&nbsp;
 
-_Acro mode_ is the RC mode for performing acrobatic maneuvers e.g. flips, rolls and loops.
+_Режим Acro_ — це режим RC для виконання акробатичних маневрів, наприклад фліпи, креніння та петлі.
 
-The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
+Ручки крена, тангажу та риштування керують швидкістю кутової обертання навколо відповідних вісей, а керування тяги безпосередньо передається до розподілу керування. Коли палиці зосереджені, транспортний засіб зупинить обертання, але залишиться в поточному положенні (на боці, перевернутому або що завгодно) та рухатиметься згідно з поточним імпульсом.
 
 ![MC Manual Acrobatic Flight](../../assets/flight_modes/acrobatic_mc.png)
 
