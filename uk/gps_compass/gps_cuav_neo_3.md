@@ -9,33 +9,33 @@ It integrates Ublox M9N, IST8310, three-color LED lights and safety switches, an
 
 ## Technical Specification
 
-| Hardware                                          | Type                                                                           |
-| :------------------------------------------------ | :----------------------------------------------------------------------------- |
-| Compass                                           | IST8310                                                                        |
-| GNSS receiver                                     | UBLOX NEO M9N                                                                  |
-| RGB drive                                         | NC5623C                                                                        |
-| Buzzer                                            | Passive buzzer                                                                 |
-| Safety switch                                     | Physical button                                                                |
-| GNSS                                              | Beidou, Galileo, GLONASS, GPS                                                  |
-| GNSS Augmentation System                          | SBAS:WAAS,EGNOS,MSAS<br>QZSS:L1s(SAIF)<br>other：RTCM3.3     |
-| Number of concurrent GNSS                         | 4                                                                              |
-| Frequency band                                    | GPS:L1C/A<br>GLONASS:L10F<br>Beidou:B1I<br>Galileo:E1B/C                       |
-| Horizontal accuracy                               | 2.0M                                                                           |
-| Speed accuracy                                    | 0.05M/S                                                                        |
-| Nav. update rate                                  | 25Hz(Max)                                                   |
-| Acquisition                                       | Cold start：24S<br>Hot start：2S<br>Aided start:2s                               |
-| Number of satellites(MAX)      | 32+                                                                            |
-| Sensitivity                                       | Tracking and nav-167dBm<br>Cold start Hot star-148dBm<br>Reacquisition -160dBm |
-| Protocol                                          | UART+IO+I2C                                                                    |
-| Port TYpe                                         | GHR-10V-S                                                                      |
-| Supported flight controller                       | CUAV series,<br>Pixahwk series                                                 |
-| Wave filtering                                    | SAW+LNA+SAW                                                                    |
-| Anti-Electromagnetic/radio frequency interference | EMI+RFI                                                                        |
-| Upgrade firmware                                  | support                                                                        |
-| Input voltage                                     | 5V                                                                             |
-| Operating temperature                             | -10\~70℃                                                                       |
-| Size                                              | 60\*60\*16MM                                                                   |
-| Weight                                            | 33g                                                                            |
+| Hardware                                          | Type                                                                                                                       |
+| :------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------- |
+| Compass                                           | IST8310                                                                                                                    |
+| GNSS receiver                                     | UBLOX NEO M9N                                                                                                              |
+| RGB drive                                         | NC5623C                                                                                                                    |
+| Buzzer                                            | Passive buzzer                                                                                                             |
+| Safety switch                                     | Physical button                                                                                                            |
+| GNSS                                              | Beidou, Galileo, GLONASS, GPS                                                                                              |
+| GNSS Augmentation System                          | SBAS:WAAS,EGNOS,MSAS<br>QZSS:L1s(SAIF)<br>other：RTCM3.3 |
+| Number of concurrent GNSS                         | 4                                                                                                                          |
+| Frequency band                                    | GPS:L1C/A<br>GLONASS:L10F<br>Beidou:B1I<br>Galileo:E1B/C   |
+| Horizontal accuracy                               | 2.0M                                                                                                       |
+| Speed accuracy                                    | 0.05M/S                                                                                                    |
+| Nav. update rate                  | 25Hz(Max)                                                                                               |
+| Acquisition                                       | Cold start：24S<br>Hot start：2S<br>Aided start:2s                                                           |
+| Number of satellites(MAX)      | 32+                                                                                                                        |
+| Sensitivity                                       | Tracking and nav-167dBm<br>Cold start Hot star-148dBm<br>Reacquisition -160dBm                                             |
+| Protocol                                          | UART+IO+I2C                                                                                                                |
+| Port TYpe                                         | GHR-10V-S                                                                                                                  |
+| Supported flight controller                       | CUAV series,<br>Pixahwk series                                                                                             |
+| Wave filtering                                    | SAW+LNA+SAW                                                                                                                |
+| Anti-Electromagnetic/radio frequency interference | EMI+RFI                                                                                                                    |
+| Upgrade firmware                                  | support                                                                                                                    |
+| Input voltage                                     | 5V                                                                                                                         |
+| Operating temperature                             | -10~70℃                                                                                                    |
+| Size                                              | 60\*60\*16MM                                                                                                               |
+| Weight                                            | 33g                                                                                                                        |
 
 ## Dimensions
 
