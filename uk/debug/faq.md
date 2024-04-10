@@ -1,34 +1,34 @@
-# Frequently Asked Questions
+# Часті Питання
 
-## Build Errors
+## Помилки збірки
 
-### Flash Overflow
+### Переповнення Flash-пам'яті
 
-The amount of code that can be loaded onto a board is limited by the amount of flash memory it has. When adding additional modules or code its possible that the addition exceeds the flash memory. This will result in a "flash overflow". The upstream version will always build, but depending on what a developer adds it might overflow locally.
+Кількість коду, яку можна завантажити на плату, обмежується обсягом flash-пам'яті, яку вона має. При додаванні додаткових модулів або коду можливо, що додача перевищує розмір flash-пам'яті. Це призведе до "переповнення flash-пам'яті". Оригінальна версія завжди буде компілюватися, але залежно від того що додасть розробник вона може переповнити локально.
 
 ```sh
 region `flash' overflowed by 12456 bytes
 ```
 
-To remedy it, either use more recent hardware or remove modules from the build which are not essential to your use case. The configuration is stored in **/PX4-Autopilot/boards/px4** (e.g. [PX4-Autopilot/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board)). To remove a module, just comment it out:
+Для усунення цього, використовуйте новіше обладнання або видаліть модулі зі збірки, які не є необхідними для вашого випадку. Налаштування зберігаються в **/PX4-Autopilot/boards/px4** (наприклад, [PX4-Autopilot/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board)). Щоб видалити модуль, просто закоментуйте його:
 
 ```cmake
 #tune_control
 ```
 
-#### Identifying large memory consumers
+#### Визначення великих споживачів пам'яті
 
-The command below will list the largest static allocations:
+Нижче наведена команда, яка перелічить найбільші статичні виділення пам'яті:
 
 ```sh
 arm-none-eabi-nm --size-sort --print-size --radix=dec build/px4_fmu-v5_default/px4_fmu-v5_default.elf | grep " [bBdD] "
 ```
 
-## USB Errors
+## Помилки USB
 
-### The upload never succeeds
+### Завантаження ніколи не вдається
 
-On Ubuntu, uninstall the modem manager:
+На Ubuntu видаліть менеджер модему:
 
 ```sh
 sudo apt-get remove modemmanager
