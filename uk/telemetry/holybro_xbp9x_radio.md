@@ -1,27 +1,27 @@
-# Holybro XBP9X Telemetry Radio (Discontinued)
+# Holybro XBP9X Телеметрійне радіо (Припинено)
 
-Holybro XBP9X radio can be configured easily using Digi's free XCTU software or via Digi's simplified AT or API command sets. The radio provides secure, reliable delivery of critical data between devices with 256-bit AES encryption.
+Радіо Holybro XBP9X можна легко налаштувати за допомогою безкоштовного програмного забезпечення XCTU від Digi або через спрощені набори команд AT або API від Digi. Радіо забезпечує безпеку, надійну доставку критичних даних між пристроями з 256-бітним шифруванням AES.
 
 ![Holybro XBP9X Radio](../../assets/hardware/telemetry/holybro-xbp9x.jpg)
 
-With RF line-of-sight ranging up to 65 miles/100km and strong interference blocking capability, the radios are ideal for those applications requiring the combination of range, data redundancy and data reliability.
+З лінійно-видимим радіодоступом RF до 65 миль/100 км та високою здатністю блокування втручань, радіостанції ідеально підходять для застосувань, які вимагають поєднання дальності, резервування даних та надійності даних.
 
-**Features:**
+**Функції:**
 
-- USB Type-C port, integrated USB to UART converter
-- 6-position JST-GH connector, can be directly connected to pixhawk4 flight controller
-- High voltage BEC on board, Support DC7~35V voltage supply
-- Can be powered by USB or flight controller in 100mW transmit power mode
-- UART transmission LED indicator
-- Three-stage RSSI LED indicator
-- 256-bit AES encryption for secure data communications
-- DigiMesh networking topology for redundancy and reliability
-- Fully certified for use in unlicensed 900 MHz band
+- Порт USB Type-C, інтегрований конвертер USB на UART
+- 6-позиційний роз'єм JST-GH, може бути підключений безпосередньо до контролера польоту pixhawk4
+- Високовольтний BEC на борту, Підтримка живлення напругою DC7~35V
+- Може бути живлений через USB або контролер польоту в режимі передавача потужністю 100 мВт
+- Індикатор світлодіода передачі UART
+- Триетапний індикатор RSSI світлодіодом
+- 256-бітне шифрування AES для безпечних даних
+- Топологія мережі DigiMesh для забезпечення резерву та надійності
+- Повністю сертифікований для використання в неліцензованому діапазоні 900 МГц
 
-## Where to Buy
+## Де купити
 
-Discontinued (no longer available at Holybro).
+Припинено (більше недоступно в Holybro).
 
-## Specifications
+## Специфікації
 
 ![Holybro XBP9X Radio](../../assets/hardware/telemetry/holybro-xbp9x-spec.png)
