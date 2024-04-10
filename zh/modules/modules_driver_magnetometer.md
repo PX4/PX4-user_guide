@@ -237,6 +237,31 @@ lsm9ds1_mag <command> [arguments...]
 
    status        print status info
 ```
+## mmc5983ma
+Source: [drivers/magnetometer/memsic/mmc5983ma](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/memsic/mmc5983ma)
+
+<a id="mmc5983ma_usage"></a>
+
+### 使用
+```
+mmc5983ma <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 48
+
+   reset
+
+   stop
+
+   status        print status info
+```
 ## qmc5883l
 Source: [drivers/magnetometer/qmc5883l](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/qmc5883l)
 
@@ -267,7 +292,7 @@ Source: [drivers/magnetometer/rm3100](https://github.com/PX4/PX4-Autopilot/tree/
 
 <a id="rm3100_usage"></a>
 
-### 使用
+### Usage
 ```
 rm3100 <command> [arguments...]
  Commands:
