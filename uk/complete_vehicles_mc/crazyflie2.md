@@ -23,7 +23,7 @@ An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/cra
 ## Quick Summary
 
 ::: info
-The main hardware documentation is here: https\://wiki.bitcraze.io/projects:crazyflie2:index
+The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
 :::
 
 - Main System-on-Chip: STM32F405RG
@@ -63,7 +63,7 @@ After setting up the PX4 development environment, follow these steps to install 
 
 3. Put the Crazyflie 2.0 into DFU mode by following these steps:
    - Ensure it is initially unpowered.
-   - Hold down the reset button (see figure below\...).
+   - Hold down the reset button (see figure below...).
      ![Crazyflie2 Reset Button](../../assets/flight_controller/crazyflie/crazyflie_reset_button.jpg)
    - Plug into computer's USB port.
    - After a second, the blue LED should start blinking and after 5 seconds should start blinking faster.
