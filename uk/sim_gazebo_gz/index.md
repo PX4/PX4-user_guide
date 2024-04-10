@@ -200,9 +200,9 @@ ARGS ./build/px4_sitl_default/bin/px4
 
 - `PX4_GZ_STANDALONE`: Дозволяє PX4 зрозуміти що він не повинен запускати екземпляр Gazebo. Gazebo потрібно буде запустити окремо, як описано в [Автономному режимі](#standalone-mode).
 
-- `PX4_GZ_SIM_RENDER_ENGINE`: Sets the render engine to be used by gazebo.
+- `PX4_GZ_SIM_RENDER_ENGINE`: Встановлює рушій рендерингу, який буде використовуватися в Gazebo.
 
-  The default rendering engine (OGRE 2) is not well supported on some platforms/environments. Specify `PX4_GZ_SIM_RENDER_ENGINE=ogre` to set the rendering engine to OGRE 1 if you have rendering issues when running PX4 on a virtual machine.
+  Рушій рендерингу за замовчуванням (OGRE 2) погано підтримується на деяких платформах/середовищах. Вкажіть `PX4_GZ_SIM_RENDER_ENGINE=ogre`, щоб встановити рушій рендерингу на OGRE 1, якщо у вас виникають проблеми з рендерингом при запуску PX4 на віртуальній машині.
 
 Світи PX4 Gazebo та бази даних моделей [можна знайти на Github тут](https://github.com/PX4/PX4-gazebo-models).
 
