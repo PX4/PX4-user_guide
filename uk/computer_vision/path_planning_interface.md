@@ -1,159 +1,160 @@
-# Path Planning Interface
+# Інтерфейс планування маршруту
 
-PX4 uses a number of MAVLink interfaces for integrating path planning services from a companion computer (including obstacle avoidance in missions, [safe landing](../computer_vision/safe_landing.md), and future services):
+PX4 використовує кілька інтерфейсів MAVLink для інтеграції служб планування маршруту з компаньйонним комп'ютером (включаючи уникнення перешкод у місіях, [безпечну посадку](../computer_vision/safe_landing.md) та майбутні служби):
 
-- There are two [MAVLink Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) interfaces:
-  - [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS): Used by PX4 to send the _desired path_. May be used by path planning software to send PX4 a stream of setpoints for the _planned path_.
-  - [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) may (alternatively) be used by path planning software to send PX4 the _planned path_ as a bezier curve. The curve indicates the (moving) position setpoint of the vehicle over a given time period.
-- The [HEARTBEAT/Connection Protocol](https://mavlink.io/en/services/heartbeat.html) is used for "proof of life" detection.
-- [LOCAL_POSITION_NED](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) and [ALTITUDE](https://mavlink.io/en/messages/common.html#ALTITUDE) send the vehicle local position and altitude, respectively.
+- Існують два інтерфейси [протоколу планування маршруту MAVLink](https://mavlink.io/en/services/trajectory.html):
+  - [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS): Використовується PX4 для надсилання _бажаного маршруту_. Може бути використаний програмним забезпеченням планування маршруту для надсилання PX4 потоку установок для _запланованого маршруту_.
+  - [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER), може (в альтернативу) використовуватися програмним забезпеченням планування маршруту для надсилання PX4 _запланованого маршруту_ у вигляді кривої Безьє. Крива вказує (рухоме) цільове значення положення транспортного засобу протягом певного періоду часу.
+- [Протокол з'єднання HEARTBEAT](https://mavlink.io/en/services/heartbeat.html) використовується для виявлення "підтвердження життєздатності".
+- [LOCAL_POSITION_NED](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) і [ALTITUDE](https://mavlink.io/en/messages/common.html#ALTITUDE) надсилають місцеве положення транспортного засобу та висоту відповідно.
 
-Path planning is enabled on PX4 in automatic modes (landing, takeoff, hold, mission, return) if [COM_OBS_AVOID=1](../advanced_config/parameter_reference.md#COM_OBS_AVOID). In these modes planning software is expected to supply setpoints to PX4; if the software cannot support a particular flight mode it must mirror back setpoints from the vehicle.
+Планування маршруту увімкнено на PX4 у автоматичних режимах (посадка, зльот, утримання, місія, повернення), якщо [COM_OBS_AVOID=1](../advanced_config/parameter_reference.md#COM_OBS_AVOID). У цих режимах від планувального програмного забезпечення очікується надання установок PX4; якщо програмне забезпечення не може підтримувати певний режим польоту, воно повинно дублювати установки з транспортного засобу.
 
 :::tip
-The message flows from PX4 UORB topics, through MAVLink, to ROS and back again are all documented in [PX4/PX4-Avoidance > Message Flows](https://github.com/PX4/PX4-Avoidance#message-flows).
+Повідомлення переходять від тем PX4 UORB через MAVLink до ROS і назад, усе задокументовано в [PX4/PX4-Avoidance > Потоки повідомлень](https://github.com/PX4/PX4-Avoidance#message-flows).
 :::
 
-All services that use this interface send and receive messages of the same type/format. Developers can therefore use this interface to create their own new companion-side path planning services or tweak the existing planner software.
+Всі служби, що використовують цей інтерфейс, надсилають та отримують повідомлення одного й того ж типу/формату. Розробники можуть використовувати цей інтерфейс для створення власних нових сервісів планування маршруту на компаньйонному комп'ютері або покращення існуючого програмного забезпечення планувальника.
 
-::: info The [PX4 Vision Autonomy Development Kit](../complete_vehicles_mc/px4_vision_kit.md) is recommended for developing path planning software. It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance) software pre-installed and can be used as the base for your own algorithms.
+::: info [PX4 Vision Autonomy Development Kit](../complete_vehicles_mc/px4_vision_kit.md) рекомендується для розробки програмного забезпечення планування маршруту. Він поставляється з встановленим програмним забезпеченням [уникнення PX4](https://github.com/PX4/PX4-Avoidance) і може бути використаний як база для ваших власних алгоритмів.
 :::
 
-## PX4 Configuration
+## Налаштування PX4
 
-Path planning is activated in PX4 by [setting](../advanced_config/parameters.md) the [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) to 1.
+Шляхове планування активується в PX4, встановивши [setting](../advanced_config/parameters.md) значення [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) на 1.
 
-## Companion Computer Setup
+## Налаштування Компаньйонного Комп'ютера
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
+Налаштування апаратного забезпечення та конфігурація апаратного та програмного забезпечення на стороні компаньйонного комп'ютера надаються в репозиторії [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) на Github.
 
-The actual setup/configuration required depends on the planner being used.
+Реальні налаштування/конфігурація, необхідні для роботи, залежать від планувальника, який використовується.
 
 :::warning
-Only one planner can run on the companion computer at a time (at the time of writing).
-This means that offboard features that use different planners cannot be enabled on the same vehicle at the same time (e.g., a vehicle can support obstacle avoidance and collision prevention, but not also safe landing - or vice versa).
+
+Завжди може працювати лише один планувальник на компаньйонному комп'ютері одночасно (на момент написання цього тексту).
+Це означає, що функції оффборд, які використовують різні планувальники, не можуть бути ввімкнені одночасно на одному транспортному засобі (наприклад, транспортний засіб може підтримувати уникнення перешкод та запобігання зіткненням, але не може підтримувати безпечну посадку - або навпаки).
 :::
 
 <a id="waypoint_interface"></a>
 
-## Trajectory Interface
+## Інтерфейс траєкторії
 
-PX4 sends information about the _desired path_ to the companion computer (when `COM_OBS_AVOID=1`, in _auto_ modes), and receives back a stream of setpoints for the _planned path_ from the path planning software.
+PX4 надсилає інформацію про _бажаний маршрут_ на компаньйонний комп'ютер (коли `COM_OBS_AVOID=1`, у режимах _автоматичного польоту_), і отримує назад потік установок для _запланованого маршруту_ від програмного забезпечення планування маршруту.
 
-The desired path information is sent by PX4 using [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages, as described below in [PX4 Waypoint Interface](#px4_waypoint_interface).
+Інформація про бажаний маршрут надсилається PX4 за допомогою повідомлень [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS), як описано нижче в [Інтерфейсі Точок Маршруту PX4](#px4_waypoint_interface).
 
-Path planner software sends back setpoints for the _planned path_ using either `TRAJECTORY_REPRESENTATION_WAYPOINTS` (see [Companion Waypoint Interface](#companion_waypoint_interface)) or [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) (see [Companion Bezier Trajectory Interface](#bezier_interface)). The difference is that the waypoint just specifies the next setpoint destination, while the bezier trajectory describes the exact vehicle motion (i.e. a setpoint that moves in time).
+Програмне забезпечення _планування маршруту_ надсилає назад установки для запланованого маршруту за допомогою `TRAJECTORY_REPRESENTATION_WAYPOINTS` (див. [Інтерфейс Точок Маршруту на Компаньйонному Комп'ютері](#companion_waypoint_interface)) або [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) (див. Інтерфейс Кривої Безьє на [Компаньйонному Комп'ютері](#bezier_interface)). Різниця полягає в тому, що точка маршруту просто вказує наступне цільове положення установки, тоді як траєкторія Безьє описує точне рух транспортного засобу (тобто установку, яка переміщується у часі).
 
 :::warning
-Route planning software should not mix these interfaces while executing a task (PX4 will use the last received message of either type).
+Планувальне програмне забезпечення не повинно змішувати ці інтерфейси під час виконання завдання (PX4 буде використовувати останнє отримане повідомлення будь-якого з типів).
 :::
 
 <a id="px4_waypoint_interface"></a>
 
-### PX4 Waypoint Interface
+### Інтерфейс точки маршруту PX4
 
-PX4 sends the desired path in [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages at 5Hz.
+PX4 надсилає бажаний шлях у повідомленнях [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) на частоті 5 Гц.
 
-The fields set by PX4 as shown:
+Поля, встановлені PX4, як показано:
 
 - `time_usec`: UNIX Epoch time.
 - `valid_points`: 3
-- Point 0 - Current waypoint _type adapted_ by FlightTaskAutoMapper (see [notes below](#type_adapted)):
-  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: Type adapted x-y-z NED local position of _current_ mission waypoint.
-  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: Type adapted x-y-z NED local velocity of _current_ mission waypoint.
+- Точка 0 - Поточний тип мітки, _адаптований_ за допомогою FlightTaskAutoMapper (див. [примітки нижче](#type_adapted)):
+  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: тип адаптованого x-y-z локального положення NED _поточного_ точка місії.
+  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: Тип адаптованої локальної швидкості NED x-y-z _течії</1 > точка місії.</li>
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
-  - `pos_yaw[0]`: Current yaw angle
+  - `pos_yaw[0]`: поточний кут повороту
   - `vel_yaw[0]`: NaN
-  - `command[0]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the current waypoint.
-- Point 1 - Current waypoint (Unmodified/not type adapted)):
-  - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: x-y-z NED local position of _current_ mission waypoint
+  - `command[0]`: [Команда MAVLink](https://mavlink.io/en/messages/common.html#mav_commands) для поточної маршрутної точки.</ul></li>
+- Пункт 1 - Поточна маршрутна точка (Незмінена/не адаптована до типу)):
+  - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: локальна позиція x-y-z NED _поточної_ місії шляхова точка
   - `vel_x[1]`, `vel_y[1]`, `vel_z[1]`: NaN
   - `acc_x[1]`, `acc_y[1]`, `acc_z[1]`: NaN
-  - `pos_yaw[1]`: Yaw setpoint
-  - `vel_yaw[1]`: Yaw speed setpoint
-  - `command[1]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the current waypoint.
-- Point 2 - Next waypoint in local coordinates (unmodified/not type adapted):
-  - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: x-y-z NED local position of _next_ mission waypoint
+  - `pos_yaw[1]`: Поточний кут курсу
+  - `vel_yaw[1]`: Швидкість заданої кутової мітки
+  - `command[1]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) для поточної мітки.
+- Точка 2 - Наступна мітка у локальних координатах (незмінена/не адаптована за типом):
+  - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: локальна позиція x-y-z NED _наступної_ місії шляхова точка
   - `vel_x[2]`, `vel_y[2]`, `vel_z[2]`: NaN
   - `acc_x[2]`, `acc_y[2]`, `acc_z[2]`: NaN
-  - `pos_yaw[2]`: Yaw setpoint
-  - `vel_yaw[2]`: Yaw speed setpoint
-  - `command[2]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the next waypoint.
-- All other indices/fields are set as NaN.
+  - `pos_yaw[2]`: Задана кутова мітка
+  - `vel_yaw[2]`: Швидкість заданої кутової мітки
+  - `command[2]`: [MAVLink-команда](https://mavlink.io/en/messages/common.html#mav_commands) для наступної мітки.
+- Усі інші індекси/поля встановлені як NaN.</ul>
 
 <a id="type_adapted"></a>
 
-Notes:
+Примітки:
 
-- Point 0 is the current waypoint/target modified based on the type of target. For example, it makes sense when landing to specify the target x, y coordinates and a descent velocity. To achieve this `FlightTaskAutoMapper` modifies land waypoints in Point 0 to set the z component of position to NAN and the z-velocity to a desired value.
-- Points 1 and 2 are not used by the safe landing planner.
-- Point 1 is used by local and global planners.
+- Точка 0 - це поточна точка маршруту/ціль, змінена в залежності від типу цілі. Наприклад, у випадку посадки має сенс вказати цільові координати x, y та швидкість спуску. Для досягнення цього `FlightTaskAutoMapper` модифікує посадкові точки в Точці 0, щоб встановити компонент z позиції як NAN та z-швидкість на певне значення.
+- Точки 1 та 2 не використовуються планувальником безпечної посадки.
+- Точка 1 використовується місцевим та глобальним планувальниками.
 
 <a id="companion-failure-handling"></a>
 
-#### Handling of Companion Failure
+#### Обробка Відмови Компаньйонного Комп'ютера
 
-PX4 safely handles the case where messages are not received from the offboard system:
+PX4 безпечно обробляє випадок, коли повідомлення не надходять від системи автономного управління:
 
-- If no planner is running and `COM_OBS_AVOID` is enabled at/from boot:
-  - preflight checks will fail (irrespective of vehicle mode) and it won't fly until `COM_OBS_AVOID` is set to 0.
-- If no planner is running and `COM_OBS_AVOID` is enabled after boot:
-  - the vehicle will run normally in manual modes.
-  - if you switch to an autonomous mode (e.g. Land Mode) it will immediately fall back to [Hold mode](../flight_modes_mc/hold.md).
-- When external path planning is enabled:
-  - if the `HEARTBEAT` is lost PX4 will emit a status message (which is displayed in _QGroundControl_) stating either "Avoidance system lost" or "Avoidance system timeout" (depending on the vehicle state). This is irrespective of the current flight mode.
-  - if a trajectory message is not received for more than 0.5 seconds and the vehicle is in an autonomous mode (Return, Mission, Takeoff, Land), the vehicle will switch into [Hold mode](../flight_modes_mc/hold.md). ::: info A planner must always provide points in this timeframe.
-  - A planner will mirror back setpoints it receives when the vehicle is in a mode/state for which it doesn't provide path planning. (i.e. the vehicle will follow its desired path, delayed by a very small amount).
+- Якщо жоден планувальник не запущений і `COM_OBS_AVOID` увімкнено під час/із завантаження:
+  - передпольотні перевірки будуть невдалими (незалежно від режиму транспортного засобу), і він не злетить, поки `COM_OBS_AVOID` не буде встановлено в 0.
+- Якщо після завантаження не запущено жодного планувальника, а `COM_OBS_AVOID` увімкнено:
+  - транспортний засіб буде працювати нормально вручних режимах.
+  - якщо ви перемикаєтеся в автономний режим (наприклад, режим посадки), він одразу перейде в [режим утримання](../flight_modes_mc/hold.md).
+- Коли зовнішнє планування шляху увімкнено:
+  - якщо втрачений `HEARTBEAT`, PX4 видасть повідомлення про статус (яке відображається в _QGroundControl_) зі словами "Система уникнення втрачена" або "Тайм-аут системи уникнення" (залежно від стану транспортного засобу). Це незалежно від поточного режиму польоту. Це незалежно від поточного режиму польоту.
+  - якщо траєкторне повідомлення не отримано протягом більш ніж 0,5 секунди, і транспортний засіб знаходиться в автономному режимі (Повернення, Місія, Зльот, Посадка), він перейде в [режим утримання](../flight_modes_mc/hold.md). ::: info Планувальник завжди повинен надавати точки протягом цього часу.
+  - Планувальник буде відображати назад установки, які він отримує, коли транспортний засіб перебуває в режимі/стані, для якого він не надає планування маршруту. (тобто транспортний засіб буде слідувати за бажаним маршрутом з невеликим затримкою).
 :::
-  - If the execution time of the last-supplied Bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes_mc/hold.md)).
+  - Якщо термін виконання останнього наданого траєкторного маршруту закінчується під час планування маршруту (коли використовується [Інтерфейс траєкторії Безьє](#bezier_interface)), це розглядається так само, як і не отримання нового повідомлення протягом 0,5 секунди (тобто транспортний засіб переходить в [режим утримання](../flight_modes_mc/hold.md)).
 
 <a id="companion_waypoint_interface"></a>
 
-## Companion Waypoint Interface
+## Інтерфейс точок-маркерів компаньйону
 
-The path planning software (running on the companion computer) _may_ send the planned path to PX4 as a stream of [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages that have the setpoint in Point 0.
+Програмне забезпечення планування маршруту (яке працює на компаньйонному комп'ютері) _може_ відправляти запланований шлях до PX4 у вигляді потоку повідомлень [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) зі точкою в Point 0.
 
-The fields for the messages from the companion computer are set as shown:
+Поля для повідомлень від компаньйонного комп'ютера встановлені як показано:
 
-- `time_usec`: UNIX Epoch time.
+- `time_usec`: час UNIX Epoch.
 - `valid_points`: 1
-- Current vehicle information:
-  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED vehicle local position setpoint
-  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED velocity setpoint
+- Актуальна інформація про пристрій:
+  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: задане локальне положення автомобіля x-y-z NED
+  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: задане значення швидкості x-y-z NED
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
-  - `pos_yaw[0]`: Yaw angle setpoint
-  - `vel_yaw[0]`: Yaw speed setpoint
+  - `pos_yaw[0]`: задане значення кута повороту
+  - `vel_yaw[0]`: задане значення швидкості повороту
   - `command[0]`: NaN.
-- All other indices/fields are set as NaN.
+- Усі інші індекси/поля встановлені як NaN.
 
-A planner that implements this interface must:
+Interface для планувальника, який реалізує цей інтерфейс, повинна:
 
-- Emit setpoints at more than 2Hz when receiving messages from PX4. PX4 will enter [Hold mode](../flight_modes_mc/hold.md) if no message is received for more than 0.5s.
-- Mirror back setpoints it receives when it doesn't support planning for the current vehicle state (e.g. the local planner would mirror back messages sent during safe landing because it does not support Land mode).
+- Видавати цільові значення з частотою більше 2 Гц при отриманні повідомлень від PX4. PX4 увімкне режим [Hold mode](../flight_modes_mc/hold.md), якщо не отримує повідомлення протягом більше ніж 0,5 секунд.
+- Дублювати отримані цільові значення, коли вона не підтримує планування для поточного стану транспортного засобу (наприклад, локальний планувальник буде дублювати повідомлення, відправлені під час безпечної посадки, оскільки він не підтримує режим посадки).
 
 <a id="bezier_interface"></a>
 
-## Companion Bezier Trajectory Interface
+## Супутній інтерфейс траєкторії Безьє
 
-The path planning software (running on the companion computer) _may_ send the planned path to PX4 as a stream of [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) messages.
+Програмне забезпечення для планування маршруту (що працює на комп'ютері-супутнику) _може_ надсилати запланований шлях до PX4 у вигляді потоку повідомлень [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER).
 
-The message defines the path that the vehicle should follow in terms of a curve (defined by the control points), starting at the message `timestamp` and reaching the final point after time `delta`. PX4 calculates its new setpoint (the expected current position/velocity/acceleration along the curve) using the time that the message was sent, the current time, and the total time for the curve (delta).
+Повідомлення визначає шлях, який повинен пройти транспортний засіб у вигляді кривої (визначеної контрольними точками), починаючи з моменту часу повідомлення `timestamp` і досягаючи кінцевої точки після часового інтервалу `delta`. PX4 обчислює своє нове цільове значення (очікуване поточне положення/швидкість/прискорення вздовж кривої), використовуючи час надсилання повідомлення, поточний час та загальний час для кривої (delta).
 
-::: info For example, say the message was sent 0.1 seconds ago, and `delta` (curve duration) is 0.3s. PX4 can calculate its setpoint at the 0.1s position in the curve.
+::: info Наприклад, якщо повідомлення було надіслане 0,1 секунду тому, а `delta` (тривалість кривої) становить 0,3 секунди. PX4 може обчислити своє цільове значення на позиції 0,1 секунди на кривій.
 :::
 
-In more detail, the `TRAJECTORY_REPRESENTATION_BEZIER` is parsed as follows:
+Детальніше, повідомлення `TRAJECTORY_REPRESENTATION_BEZIER` розбирається наступним чином:
 
-- The number of Bezier control points determines the degree of the Bezier curve. For example, 3 points make a quadratic Bezier curve with constant acceleration.
-- The Bezier curve must be the same degree in x, y, z, and yaw, with all Bezier control points finite
-- The `delta` array should have the value corresponding with the last Bezier control point to indicate the duration that the waypoint takes to execute the curve to that point, from beginning to end. Other values in the `delta` array are ignored.
-- The timestamp of the MAVLink message should be the time that the curve starts, and communication delay and clock mismatch will be compensated for on the flight controller via the timesync mechanism.
-- The control points should all be specified in local coordinates ([MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
-- Bezier curves expire after the execution time of the Bezier curve has been reached. Ensure that new messages are sent at a high enough rate and with a long enough execution time. If this does not happen the vehicle will switch to Hold mode.
+- Кількість контрольних точок Bezier визначає ступінь кривої Bezier. Наприклад, 3 точки створюють квадратичну криву Bezier з постійним прискоренням.
+- Крива Bezier повинна мати однаковий ступінь у напрямках x, y, z та yaw, з усіма контрольними точками Bezier обмеженими
+- Масив `delta` повинен мати значення, що відповідає останній контрольній точці Bezier, щоб показати тривалість, яку займає виконання шляхової точки для виконання кривої до цієї точки, від початку до кінця. Інші значення у масиві `delta` ігноруються.
+- Мітка часу MAVLink-повідомлення повинна відповідати часу початку кривої, а затримка та розбіжність годинника будуть компенсовані на літаковому контролері за допомогою механізму синхронізації часу.
+- Всі контрольні точки повинні бути вказані в локальних координатах ([MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
+- Криві Bezier втрачають свою актуальність після досягнення часу виконання кривої Bezier. Переконайтеся, що нові повідомлення надсилаються з достатньою частотою та з довгою тривалістю виконання. Якщо цього не відбувається, транспортний засіб перейде в режим утримання.
 
-## Supported Hardware
+## Підтримуване обладнання
 
-Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
+Перевірені супутні комп’ютери та камери перераховані в [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 
 <!-- ## Further Information -->
 <!-- @mrivi and @jkflying are the experts! -->

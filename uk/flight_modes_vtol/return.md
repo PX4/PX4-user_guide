@@ -1,88 +1,88 @@
-# Return Mode (VTOL)
+# Режим Повернення (VTOL)
 
 <img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
 
-The _Return_ flight mode is used to _fly a vehicle to safety_ on an unobstructed path to a safe destination, where it may either wait (hover or circle) or land.
+Режим _повернення_ використовується для _політів засобом перевезення до безпечного місця_ при наявності вільного шляху до безпечного пункту призначення, де він може зачекати (зависнути або обійти колом) або сісти.
 
-VTOL vehicles use the [Mission Landing/Rally Point](../flight_modes/return.md#mission-landing-rally-point-return-type-rtl-type-1) return type by default.
-In this return type a vehicle ascends to a minimum safe altitude above obstructions (if needed), and then flies directly to a rally point or the start of a mission landing point (whichever is nearest), or the home position if neither rally points or mission landing pattern is defined.
-If the destination is a mission landing pattern, the vehicle will then follow the pattern to land.
-If the destination is a rally point or the home location, the vehicle will fly back to the home position and land.
+Літальні апарати типу VTOL за замовчуванням використовують тип повернення до призначення [місії посадки/точка збору](../flight_modes/return.md#mission-landing-rally-point-return-type-rtl-type-1).
+У цьому типі повернення апарат піднімається на мінімальну безпечну висоту над перешкодами (за необхідності), а потім напряму летить до точки збору або початкової точки призначення місії (яка є найближчою), або додому, якщо жодна з точок збору або місійний маршрут посадки не визначені.
+Якщо призначенням є місійний маршрут посадки, апарат потім дотримуватиметься маршруту для посадки.
+Якщо призначенням є точка збору або домашня позиція, апарат повернеться додому і сяде.
 
-The vehicle will return using the flying mode (MC or FW) it was using at the point when return mode was triggered.
-Generally it will follow the same return mode behaviour of the corresponding vehicle type, but will always transition to MC mode (if needed) before landing.
+Літальний апарат повернеться за допомогою режиму польоту (MC або FW), який він використовував у той момент, коли був активований режим повернення.
+Загалом, він буде дотримуватися того ж поведінкового зразка режиму повернення, що й відповідний тип транспортного засобу, але завжди перейде до режиму MC (якщо потрібно) перед посадкою.
 
-VTOL supports the [other PX4 return types](../flight_modes/return.md#return-types-rtl-type), including home/rally point return, mission path and closest safe destination.
-The default type is recommended.
+VTOL підтримує [інші типи повернення PX4](../flight_modes/return.md#return-types-rtl-type), включаючи повернення до дому / точки збору, маршрут місії і найближче безпечне місце призначення. Рекомендується використовувати тип за замовчуванням.
+За замовчуванням рекомендується використовувати цей тип.
 
-:::note
+::: info
 
-- Mode is automatic - no user intervention is _required_ to control the vehicle.
-- Mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
-  - Flying vehicles can't switch to this mode without global position.
-  - Flying vehicles will failsafe if they lose the position estimate.
-- Mode requires home position is set.
-- Mode prevents arming (vehicle must be armed when switching to this mode).
-- RC control switches can be used to change flight modes on any vehicle.
-- RC stick movement is ignored.
+- Режим є автоматичним - для керування транспортним засобом не потрібне _втручання_ користувача.
+- Для режиму потрібна глобальна оцінка 3D-позиції (за допомогою GPS або виведеної з [локальної позиції](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+  - Літаючі транспортні засоби не можуть переключатися на цей режим без глобального положення.
+  - Літаючі транспортні засоби перейдуть в режим аварійної безпеки, якщо втратять оцінку положення.
+- Режим потребує встановлення домашньої позиції.
+- Режим перешкоджає зброюванню (транспортний засіб повинен бути зброєний при переході на цей режим).
+- Перемикачі керування RC можуть використовуватися для зміни режимів польоту на будь-якому транспортному засобі.
+- Рух палиць керування RC ігнорується.
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 
 :::
 
-## Technical Summary
+## Технічний підсумок
 
-VTOL vehicles use the [Mission Landing/Rally Point](../flight_modes/return.md#mission-landing-rally-point-return-type-rtl-type-1) return type by default, and return using the flying mode (MC or FW) it was using at the point when return mode was triggered.
+Літальні апарати типу VTOL за замовчуванням використовують тип повернення до призначення [місії посадки/ точки збору](../flight_modes/return.md#mission-landing-rally-point-return-type-rtl-type-1), і повертаються, використовуючи режим польоту (MC або FW), який вони використовували в момент активації режиму повернення.
 
-### Fixed-wing Mode (FW) Return
+### Повернення режиму фіксованого крила (FW)
 
-If returning as a fixed-wing, the vehicle:
+Якщо апарат повертається як літак, він:
 
-- Ascends to a safe minimum return altitude defined by [RTL_RETURN_ALT](#RTL_RETURN_ALT) (safely above any expected obstacles).
-  The vehicle maintains its initial altitude if that is higher than the minimum return altitude.
+- Піднімається на безпечну мінімальну висоту повернення, визначену параметром [RTL_RETURN_ALT](#RTL_RETURN_ALT) (безпечно вище будь-яких очікуваних перешкод).
+  Якщо початкова висота апарата вища за мінімальну висоту повернення, то апарат підтримує свою початкову висоту.
   <!-- Note that return altitude cannot be configured using the "cone" parameter in fixed-wing vehicles. -->
 
-- Flies via direct constant-altitude path to the destination, which will be the closest of the start of a _mission landing pattern_ and any rally point, or the home location if no mission landing pattern or rally points are defined.
+- Летить прямим шляхом на постійній висоті до призначення, яким буде найближча з точки старту місійного маршруту посадки та будь-яка точка збору, або домашня локація, якщо місійний маршрут посадки або точки збору не визначені.
 
-- If the destination is a mission landing pattern it will follow the pattern to land.
+- Якщо призначенням є місійний маршрут посадки, апарат буде дотримуватися маршруту для посадки.
 
-  A mission landing pattern for a VTOL vehicle consists of a [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), one or more position waypoints, and a [MAV_CMD_NAV_VTOL_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_LAND).
+  Місійний маршрут посадки для літального апарату типу VTOL складається з [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), однієї або кількох маршрутних точок розташування та [MAV_CMD_NAV_VTOL_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_LAND).
 
-- If the destination is a rally point or home it will:
+- Якщо призначенням є точка збору або домашня локація, апарат:
 
-  - Loiter/spiral down to [RTL_DESCEND_ALT](#RTL_DESCEND_ALT).
-  - Circle for a short time, as defined by [RTL_LAND_DELAY](#RTL_LAND_DELAY).
-  - Yaw towards the destination (centre of loiter).
-  - Transition to MC mode and land.
+  - Переводиться в режим ожидання/спірального спуску на висоту [RTL_DESCEND_ALT](#RTL_DESCEND_ALT).
+  - Кружляє протягом короткого часу, визначеного [RTL_LAND_DELAY](#RTL_LAND_DELAY).
+  - Повертається по напрямку до призначення (центр кругового руху).
+  - Переходить в режим MC і сідає.
 
-    Note that [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT) is ignored: the vehicle will always land as a multicopter for these destinations.
+    Зауважте, що [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT) ігнорується: апарат завжди сідає як мультикоптер для цих призначень.
 
-## Multicopter Mode (MC) Return
+## Режим мультикоптера (MC) Повернення
 
-If returning as a multicopter:
+Якщо повертається у вигляді мультикоптера:
 
-- The behaviour is the same except that the vehicle flies as a multicopter and respects multicopter settings.
-- In particular, if landing on rally point or the home position the vehicle uses the [RTL_CONE_ANG](#RTL_CONE_ANG) instead of just the [RTL_RETURN_ALT](#RTL_RETURN_ALT) for defining the minimum safe return altitude.
-  For more information see the explanation of the "cone" in [Return mode (Generic Vehicle) > Minimum Return Altitude](../flight_modes/return.md#minimum-return-altitude).
+- Поведінка залишається такою самою, за винятком того, що транспортний засіб летить як багтороторний і дотримується налаштувань багтороторних засобів.
+- Зокрема, якщо здійснюється посадка на точку збору або додому, транспортний засіб використовує [RTL_CONE_ANG](#RTL_CONE_ANG) замість простої [RTL_RETURN_ALT](#RTL_RETURN_ALT) для визначення мінімальної безпечної висоти повернення.
+  Для отримання додаткової інформації див. пояснення "конуса" у [Режимі повернення (загальний транспортний засіб) > Мінімальна висота повернення](../flight_modes/return.md#minimum-return-altitude).
 
-## Parameters
+## Параметри
 
-The RTL parameters are listed in [Parameter Reference > Return Mode](../advanced_config/parameter_reference.md#return-mode).
-If using a mission landing, only the [RTL_RETURN_ALT](#RTL_RETURN_ALT) and [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) are relevant.
-The others are relevant if the destination is a rally point or the home location.
+Параметри RTL перелічені в [Референсі параметрів > Режим повернення](../advanced_config/parameter_reference.md#return-mode).
+Якщо використовується місійна посадка, значення [RTL_RETURN_ALT](#RTL_RETURN_ALT) та [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) є важливими.
+Інші параметри стають актуальними, якщо призначенням є точка збору або домашня локація.
 
-| Parameter                                                                                                                                                                  | Description                                                                                                                                                                                                                                                                                                                                                                                            |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <a id="RTL_TYPE"></a>[RTL_TYPE](../advanced_config/parameter_reference.md#RTL_TYPE)                                                                   | Return type.                                                                                                                                                                                                                                                                                                                                                                                           |
-| <a id="RTL_RETURN_ALT"></a>[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)                            | Return altitude in meters (default: 60m)If already above this value the vehicle will return at its current altitude.                                                                                                                                                                                                                                                                |
-| <a id="RTL_CONE_ANG"></a>[RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)                                  | Half-angle of the cone that defines the vehicle RTL return altitude. Values (in degrees): 0, 25, 45, 65, 80, 90. Note that 0 is "no cone" (always return at `RTL_RETURN_ALT` or higher), while 90 indicates that the vehicle must return at the current altitude or `RTL_DESCEND_ALT` (whichever is higher).                                  |
-| <a id="RTL_DESCEND_ALT"></a>[RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT)                         | Minimum return altitude and altitude at which the vehicle will slow or stop its initial descent from a higher return altitude (default: 30m)                                                                                                                                                                                                                                        |
-| <a id="RTL_LAND_DELAY"></a>[RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)                            | Time to hover at `RTL_DESCEND_ALT` before landing (default: 0.5s) -by default this period is short so that the vehicle will simply slow and then land immediately. If set to -1 the system will loiter at `RTL_DESCEND_ALT` rather than landing. The delay is provided to allow you to configure time for landing gear to be deployed (triggered automatically). |
-| <a id="RTL_LOITER_RAD"></a>[RTL_LOITER_RAD](../advanced_config/parameter_reference.md#RTL_LOITER_RAD)                            | [Fixed-wing Only] The radius of the loiter circle (at [RTL_LAND_DELAY](#RTL_LAND_DELAY).                                                                                                                                                                                              |
-| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Specify whether a mission landing or takeoff pattern is _required_. Generally fixed-wing vehicles set this to require a landing pattern but VTOL do not.                                                                                                                                                                                                                                               |
+| Параметр                                                                                                                                                                   | Опис                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <a id="RTL_TYPE"></a>[RTL_TYPE](../advanced_config/parameter_reference.md#RTL_TYPE)                                                                   | Тип повернення.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| <a id="RTL_RETURN_ALT"></a>[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)                            | Висота повернення в метрах (за замовчуванням: 60 м). Якщо вже знаходиться вище цієї висоти, транспортний засіб повернеться на поточну висоту.                                                                                                                                                                                                                                                                                                   |
+| <a id="RTL_CONE_ANG"></a>[RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)                                  | Половина кута конуса, який визначає висоту повернення транспортного засобу RTL. Значення (у градусах): 0, 25, 45, 65, 80, 90. Зауважте, що 0 означає "без конуса" (завжди повертається на висоту `RTL_RETURN_ALT` або вище), тоді як 90 показує, що транспортний засіб повинен повертатися на поточну висоту або `RTL_DESCEND_ALT` (яка вище).                                            |
+| <a id="RTL_DESCEND_ALT"></a>[RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT)                         | Мінімальна висота повернення і висота, на якій транспортний засіб сповільнює або зупиняє свій початковий спуск з вищої висоти повернення (за замовчуванням: 30 м)                                                                                                                                                                                                                                                                                                               |
+| <a id="RTL_LAND_DELAY"></a>[RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)                            | Час утримання на висоті `RTL_DESCEND_ALT` перед посадкою (за замовчуванням: 0,5 с) - за замовчуванням цей період короткий, щоб транспортний засіб просто сповільнився і тоді відразу здійснив посадку. Якщо встановлено -1, система буде кружити на висоті `RTL_DESCEND_ALT` замість посадки. Затримка надається для можливості налаштування часу для розгортання стійок посадки (запускається автоматично). |
+| <a id="RTL_LOITER_RAD"></a>[RTL_LOITER_RAD](../advanced_config/parameter_reference.md#RTL_LOITER_RAD)                            | [Літаки з фіксованим крилом] Радіус кола очікування (на висоті [RTL_LAND_DELAY](#RTL_LAND_DELAY).                                                                                                                                                                                                                                                                                 |
+| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Specify whether a mission landing or takeoff pattern is _required_. Зазвичай літаки з фіксованим крилом встановлюють це для вимоги до посадкового маршруту, але VTOL - ні.                                                                                                                                                                                                                                                                                                         |
 
-## See Also
+## Дивіться також
 
-- [Return Mode (Generic)](../flight_modes/return.md)
-- [Return Mode (Multicopter)](../flight_modes_mc/return.md)
-- [Return Mode (Fixed-Wing)](../flight_modes_fw/return.md)
+- [Режим повернення (загальний)](../flight_modes/return.md)
+- [Режим повернення (мультикоптер)](../flight_modes_mc/return.md)
+- [Режим повернення (з нерухомим крилом)](../flight_modes_fw/return.md)

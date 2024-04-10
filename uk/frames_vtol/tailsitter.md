@@ -55,7 +55,7 @@ Step-by-step guides of how to set up PX4 on tailsitter frames are listed below:
 We recommend that you also review build logs for other PX4 VTOL, and Copter vehicles (most of the setup is the same).
 :::
 
-## Videos
+## Відео
 
 This section contains videos that are specific to Tailsitter VTOL (videos that apply to all VTOL types can be found in [VTOL](../frames_vtol/index.md)).
 

@@ -1,21 +1,21 @@
 # GPS&罗盘
 
-PX4 supports Global Navigation Satellite Systems (GNSS) such as GPS, GLONASS, Galileo, Beidou, QZSS and SBAS, etc. using receivers that communicate via the u-blox, MTK Ashtech or Emlid protocols, or via UAVCAN. A GNSS system is needed for missions, and some other automatic and manual/assisted modes.
+PX4支持全球导航卫星系统（GNSS），如GPS、格罗纳斯、伽利略、北斗、QZSS和SBAS等。 其通过u-blox、MTK Ashtech 或 Emlid 协议或UAVCAN进行通信。 任务模式以及一些其他的自动和手工/辅助模式会用到GPS。
 
-Most GNSS modules also contain a [compass/magnetometer](../gps_compass/magnetometer.md) part (see link for calibration/setup information). Because of this the GNSS module should be mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing).
+大多数GPS模块还包含一个 [指南针/磁力计](../gps_compass/magnetometer.md) （校准/安装信息见链接）。 我们建议GPS模块的安装尽可能远离电机/电调的电源线 - 通常在支座或机翼（固定翼）上。
 
 ![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
-:::note PX4 also supports [Real Time Kinematic (RTK)](../gps_compass/rtk_gps.md) and **Post-Processing Kinematic (PPK)** GNSS Receivers, which extend GNSS systems to centimetre-level precision.
+:::note PX4 也支持 [RTK](../gps_compass/rtk_gps.md) and **PPK** GPS接收端，这可以把GPS的定位精度提升到厘米级。
 :::
 
-## Supported GNSS
+## 支持的GPS模块
 
-PX4 should work with any unit that communicates via the u-blox, MTK Ashtech or Emlid protocols, or via UAVCAN.
+任何运行在PX4的元件应通过u-blox、MTK Ashtech 或 Emlid 协议或UAVCAN进行通信。
 
-This table contains non-RTK GNSS units (most of which also have a compass). These have been tested by the PX4 dev team, or which are popular within the PX4 community.
+下表包括了一些无RTK的GPS模块（其中大部分也有指南针）。 下面的设备PX4开发团队测试过了，或者是在PX4社区中受欢迎的。
 
-| Device                                                                    |     GPS     |          Compass          | Notes                                                                                                              |
+| Device                                                                    |     GPS     |          Compass          | 备注                                                                                                                 |
 |:------------------------------------------------------------------------- |:-----------:|:-------------------------:|:------------------------------------------------------------------------------------------------------------------ |
 | [ARK GPS](https://arkelectron.com/product/ark-gps/)                       |     M9N     |         ICM42688p         |                                                                                                                    |
 | [Avionics Anonymous UAVCAN GNSS/Mag][avionics_anon_can_gnss]              |   SAM-M8Q   |         MMC5983MA         |                                                                                                                    |

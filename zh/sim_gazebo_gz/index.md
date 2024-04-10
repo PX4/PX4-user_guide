@@ -10,7 +10,7 @@ Gazebo 先前被称为“Gazebo Ignition”( _Gazebo Classic_ 先前被称为Gaz
 
 @[youtube](https://youtu.be/eRzdGD2vgkU)
 
-:::note
+::: info
 See [Simulation](../simulation/index.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
 :::
 
@@ -72,7 +72,7 @@ PX4_GZ_STANDALONE=1 make px4_sitl gz_x500
 
 PX4 SITL will then wait until it detects an instance of _gz-server_, and then connect to it.
 
-:::note
+::: info
 If you have not yet started _gz-server_ when you run the `make` command, you will see the following warning until gazebo has been started and an instance of _gz-server_ is detected by PX4:
 
 ```sh
@@ -100,7 +100,7 @@ python3 simulation-gazebo
 
 For more information and arguments, see [Gazebo Models](../sim_gazebo_gz/gazebo_models.md).
 
-:::note
+::: info
 If `make px4_sitl gz_x500` gives the error `ninja: error: unknown target 'gz_x500'` then run `make distclean` to start from a clean slate, and try running `make px4_sitl gz_x500` again.
 :::
 
@@ -140,7 +140,7 @@ The supported worlds are listed below.
 Note that if no world is specified, PX4 will use the `default` world. However you must not _explicitly_ specify `_default` on the model as this will prevent PX4 from launching. In other words, use `make px4_sitl gz_x500` instead of `make px4_sitl gz_x500_default` for the default.
 :::
 
-:::note
+::: info
 Baylands throws the following error, which can be ignored:
 
 ```
@@ -179,8 +179,7 @@ where `ARGS` is a list of environment variables including:
 
   - The setting is mutually exclusive with `PX4_GZ_MODEL_NAME`.
 
-:::note
-The environmental variable `PX4_GZ_MODEL` has been deprecated and its functionality merged into `PX4_SIM_MODEL`.
+  ::: info The environmental variable `PX4_GZ_MODEL` has been deprecated and its functionality merged into `PX4_SIM_MODEL`.
 :::
 
 - `PX4_GZ_MODEL_POSE`: Sets the spawning position and orientation of the model when `PX4_SIM_MODEL` is adopted. If provided, the startup script spawns the model at a pose following the syntax `"x,y,z,roll,pitch,yaw"`, where the positions are given in metres and the angles are in radians.
@@ -200,9 +199,13 @@ The environmental variable `PX4_GZ_MODEL` has been deprecated and its functional
 
 - `PX4_GZ_STANDALONE`: Lets PX4 know that it should not launch an instance of Gazebo. Gazebo will need to be launched separately, as described in [Standalone Mode](#standalone-mode).
 
+- `PX4_GZ_SIM_RENDER_ENGINE`: Sets the render engine to be used by gazebo.
+
+  The default rendering engine (OGRE 2) is not well supported on some platforms/environments. Specify `PX4_GZ_SIM_RENDER_ENGINE=ogre` to set the rendering engine to OGRE 1 if you have rendering issues when running PX4 on a virtual machine.
+
 The PX4 Gazebo worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-gazebo-models).
 
-:::note
+::: info
 `gz_env.sh.in` is compiled and made available in `$PX4_DIR/build/px4_sitl_default/rootfs/gz_env.sh`
 :::
 
@@ -284,7 +287,7 @@ To add a new world:
    - If you plan to use "normal" mode, add your world sdf to `Tools/simulation/gz/worlds/`.
    - If you plan to use _standalone_ mode, add your world SDF to `~/.simulation-gazebo/worlds/`
 
-:::note
+::: info
 As long as the world file and the model file are in the Gazebo search path (`GZ_SIM_RESOURCE_PATH`) it is not necessary to add them to the PX4 world and model directories. However, `make px4_sitl gz_<model>_<world>` won't work with them.
 :::
 

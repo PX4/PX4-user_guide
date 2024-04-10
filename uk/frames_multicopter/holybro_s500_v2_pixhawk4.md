@@ -39,44 +39,44 @@ In addition, we use a FrSky Taranis controller.
 
 ## Hardware
 
-| Item Description           | Quantity |
-| -------------------------- | -------- |
-| Wheelbase: 480mm           | 1        |
-| Arms                       | 4        |
-| Set of Landing Gear        | 2        |
-| M3*8 screws                | 18       |
-| M2 5*6 screws              | 24       |
-| Battery Straps             | 1        |
-| Propeller 1045 (V2 Update) | 1        |
+| Опис предмету              | Кількість |
+| -------------------------- | --------- |
+| Wheelbase: 480mm           | 1         |
+| Arms                       | 4         |
+| Set of Landing Gear        | 2         |
+| M3*8 screws                | 18        |
+| M2 5*6 screws              | 24        |
+| Battery Straps             | 1         |
+| Propeller 1045 (V2 Update) | 1         |
 
 ![S500 Hardware](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_hardware.jpg)
 
 ## Package
-| Items                            | Package |
-| -------------------------------- | ------- |
-| Pixhawk 4                        | 1       |
-| Pixhawk4 GPS MODULE              | 1       |
-| I2C splitter Board               | 2       |
-| 6 to 6 pin cable (power)         | 3       |
-| 4 to 4 pin cable (CAN)           | 2       |
-| 6 to 4 pin cable (Data)          | 1       |
-| 10 to 10 pin cable (PWM)         | 2       |
-| 8 to 8 pin cable(AUX)            | 1       |
-| 7 to 7 pin cable(SPI)            | 1       |
-| 6 to 6 pin cable(Debug)          | 1       |
-| PPM/SBUS out cable               | 1       |
-| XSR receiver cable               | 1       |
-| DSMX receiver cable              | 1       |
-| SBUS receiver cable              | 1       |
-| USB cable                        | 1       |
-| 'X'type folding pedestal mount   | 1       |
-| 70mm & 140mm carbon rod standoff | 2       |
-| 6*3 2.54mm pitch Horizontal Pin  | 1       |
-| 8*3 2.54mm pitch Horizontal Pin  | 2       |
-| Foam Set                         | 1       |
-| Pixhawk4 Quick Start Guide       | 1       |
-| Pixhawk4 Pinouts                 | 1       |
-| GPS Quick Start Guide            | 1       |
+| Елементи                         | Пакет |
+| -------------------------------- | ----- |
+| Pixhawk 4                        | 1     |
+| Pixhawk4 GPS MODULE              | 1     |
+| I2C splitter Board               | 2     |
+| 6 to 6 pin cable (power)         | 3     |
+| 4 to 4 pin cable (CAN)           | 2     |
+| 6 to 4 pin cable (Data)          | 1     |
+| 10 to 10 pin cable (PWM)         | 2     |
+| 8 to 8 pin cable(AUX)            | 1     |
+| 7 to 7 pin cable(SPI)            | 1     |
+| 6 to 6 pin cable(Debug)          | 1     |
+| PPM/SBUS out cable               | 1     |
+| XSR receiver cable               | 1     |
+| DSMX receiver cable              | 1     |
+| SBUS receiver cable              | 1     |
+| USB cable                        | 1     |
+| 'X'type folding pedestal mount   | 1     |
+| 70mm & 140mm carbon rod standoff | 2     |
+| 6*3 2.54mm pitch Horizontal Pin  | 1     |
+| 8*3 2.54mm pitch Horizontal Pin  | 2     |
+| Foam Set                         | 1     |
+| Pixhawk4 Quick Start Guide       | 1     |
+| Pixhawk4 Pinouts                 | 1     |
+| GPS Quick Start Guide            | 1     |
 
 ![S500 Package Contents](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_package.jpg)
 

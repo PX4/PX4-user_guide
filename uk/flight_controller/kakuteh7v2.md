@@ -35,7 +35,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 - Dimensions: 35x35mm
 - Weight: 8g
 
-## Where to Buy
+## Де купити
 
 The board can be bought from one of the following shops (for example):
 
@@ -108,7 +108,7 @@ KakuteH7v2 is supported with PX4 main and v1.14 or newer.
 
 In addition to the [basic configuration](../config/index.md), the following parameters are important:
 
-| Parameter                                                              | Setting                                                                                                                 |
+| Параметр                                                               | Налаштування                                                                                                            |
 | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag. |
 

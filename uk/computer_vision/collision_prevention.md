@@ -1,4 +1,4 @@
-# Collision Prevention
+# Запобігання зіткненням (Collision Prevention)
 
 _Collision Prevention_ може бути використано для автоматичного сповільнення і зупинки транспортного засобу, перш ніж він потрапить в перешкоду.
 
@@ -34,13 +34,13 @@ _Collision Prevention_ увімкнено на PX4 шляхом встановл
 
 Налаштуйте запобігання зіткненням, встановивши [такі параметри](../advanced_config/parameters.md) у _QGroundControl_:
 
-| Parameter                                                                                           | Опис                                                                                                                                                                                                                                                                                                  |
-| --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="CP_DIST"></a>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)               | Set the minimum allowed distance (the closest distance that the vehicle can approach the obstacle). Set negative to disable _collision prevention_. <br>> **Warning** This value is the distance to the sensors, not the outside of your vehicle or propellers. Be sure to leave a safe margin! |
-| <a id="CP_DELAY"></a>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)             | Set the sensor and velocity setpoint tracking delay. See [Delay Tuning](#delay_tuning) below.                                                                                                                                                                                                         |
-| <a id="CP_GUIDE_ANG"></a>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)   | Set the angle (to both sides of the commanded direction) within which the vehicle may deviate if it finds fewer obstacles in that direction. See [Guidance Tuning](#angle_change_tuning) below.                                                                                                       |
-| <a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | Set to 1 to allow the vehicle to move in directions where there is no sensor coverage (default is 0/`False`).                                                                                                                                                                                         |
-| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)   | Set to 0 or 3 to enable Collision Prevention in Position Mode (default is 4).                                                                                                                                                                                                                         |
+| Parameter                                                                                           | Опис                                                                                                                                                                                                                                                                                                                                                               |
+| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <a id="CP_DIST"></a>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)               | Встановіть мінімально допустиму відстань (найближчу відстань, на яку транспортний засіб може наблизитися до перешкоди). Встановіть від'ємний значення, щоб вимкнути _collision prevention_. <br>> **Warning** Це значення є відстанню до датчиків, а не до зовнішньої сторони вашого транспортного засобу або гвинтів. Не забудьте залишити безпечний запас! |
+| <a id="CP_DELAY"></a>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)             | Встановіть затримку датчика та відстеження швидкості. Дивіться [Налаштування затримки](#delay_tuning) нижче.                                                                                                                                                                                                                                                       |
+| <a id="CP_GUIDE_ANG"></a>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)   | Встановіть кут (в обидві сторони від заданого напрямку), в межах якого транспортний засіб може відхилитися, якщо знайде менше перешкод у цьому напрямку. Дивіться [Налаштування навігації](#angle_change_tuning) нижче.                                                                                                                                            |
+| <a id="CP_GO_NO_DATA"></a>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | Встановіть значення 1, щоб дозволити транспортному засобу рухатися в напрямках, де немає покриття датчика (за замовчуванням 0/`False`).                                                                                                                                                                                                                            |
+| <a id="MPC_POS_MODE"></a>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)   | Встановіть значення 0 або 3, щоб увімкнути запобігання зіткненням у режимі позиціонування (за замовчуванням - 4).                                                                                                                                                                                                                                                  |
 
 <a id="algorithm"></a>
 
@@ -78,95 +78,95 @@ _Collision Prevention_ увімкнено на PX4 шляхом встановл
 
 Затримку _ датчика_ для датчиків відстані, підключених безпосередньо до польотного контролера, можна вважати рівною 0. Для зовнішніх систем на основі зору затримка датчика може досягати 0,2 с.
 
-Vehicle _velocity setpoint tracking delay_ can be measured by flying at full speed in [Position mode](../flight_modes_mc/position.md), then commanding a stop. The delay between the actual velocity and the velocity setpoint can then be measured from the logs. The tracking delay is typically between 0.1 and 0.5 seconds, depending on vehicle size and tuning.
+Затримка _відстеження заданої швидкості_ транспортного засобу може бути виміряна шляхом польоту з максимальною швидкістю в [режимі Позиції](../flight_modes_mc/position.md), а потім виконання команди зупинки. Затримка між фактичною швидкістю та заданою швидкістю може бути виміряна з лог-файлів. Зазвичай затримка відстеження становить від 0,1 до 0,5 секунди, в залежності від розміру транспортного засобу та налаштувань.
 
 :::tip
-If vehicle speed oscillates as it approaches the obstacle (i.e. it slows down, speeds up, slows down) the delay is set too high.
+Якщо швидкість транспортного засобу коливається під час наближення до перешкоди (тобто вона сповільнюється, прискорюється, сповільнюється), затримка встановлена занадто великою.
 :::
 
 <a id="angle_change_tuning"></a>
 
-### CP_GUIDE_ANG Guidance Tuning
+### CP_GUIDE_ANG Налаштування навігації
 
-Depending on the vehicle, type of environment and pilot skill different amounts of guidance may be desired. Setting the [CP_GUIDE_ANG](#CP_GUIDE_ANG) parameter to 0 will disable the guidance, resulting in the vehicle only moving exactly in the directions commanded. Increasing this parameter will let the vehicle choose optimal directions to avoid obstacles, making it easier to fly through tight gaps and to keep the minimum distance exactly while going around objects.
+Залежно від транспортного засобу, типу середовища та навичок пілота можуть бути вимоги щодо різних рівнів керування. Встановлення параметра [CP_GUIDE_ANG](#CP_GUIDE_ANG) на значення 0 вимикає керування, внаслідок чого транспортний засіб рухається тільки в точних напрямках, які задані. Збільшення цього параметра дозволить транспортному засобу вибирати оптимальні напрямки для уникнення перешкод, що полегшує прохід через вузькі проміжки і точне збереження мінімальної відстані при об'єзді об'єктів.
 
-If this parameter is too small the vehicle may feel 'stuck' when close to obstacles, because only movement away from obstacles at minimum distance are allowed. If the parameter is too large the vehicle may feel like it 'slides' away from obstacles in directions not commanded by the operator. From testing, 30 degrees is a good balance, although different vehicles may have different requirements.
+Якщо цей параметр занадто малий, транспортний засіб може відчуватися "застряглим" біля перешкод, оскільки дозволено тільки рух від перешкод на мінімальній відстані. Якщо параметр занадто великий, транспортний засіб може відчуватися, як "слайд", віддаляючись від перешкод в напрямках, які не задані оператором. Згідно з тестуванням, 30 градусів - це хороший баланс, хоча різні транспортні засоби можуть мати різні вимоги.
 
 ::: info
-The guidance feature will never direct the vehicle in a direction without sensor data.
-If the vehicle feels 'stuck' with only a single distance sensor pointing forwards, this is probably because the guidance cannot safely adapt the direction due to lack of information.
+Функція керування ніколи не направить транспортний засіб в напрямок без даних з датчика.
+Якщо транспортний засіб відчуває "застряглим" з одним лише датчиком відстані, що спрямованим вперед, це, ймовірно, через те, що керування не може безпечно адаптувати напрямок через відсутність інформації.
 :::
 
 <a id="rangefinder"></a>
 
-## PX4 Distance Sensor
+## Датчик відстані PX4
 
 ### Lanbao PSK-CM8JL65-CC5
 
-At time of writing PX4 allows you to use the [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) IR distance sensor for collision prevention "out of the box", with minimal additional configuration:
+На момент написання PX4 дозволяє використовувати датчик відстані ІК [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) для запобігання зіткнень "з коробки", з мінімальною додатковою конфігурацією:
 
-- First [attach and configure the sensor](../sensor/cm8jl65_ir_distance_sensor.md), and enable collision prevention (as described above, using [CP_DIST](#CP_DIST)).
-- Set the sensor orientation using [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0).
+- Спочатку підключіть і [налаштуйте датчик](../sensor/cm8jl65_ir_distance_sensor.md), та включіть запобігання зіткнень (як описано вище, використовуючи [CP_DIST](#CP_DIST)).
+- Встановіть орієнтацію датчика, використовуючи [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0).
 
-### LightWare LiDAR SF45 Rotating Lidar
+### LightWare LiDAR SF45 Поворотний лідар
 
-PX4 v1.14 (and later) supports the [LightWare LiDAR SF45](https://www.lightwarelidar.com/shop/sf45-b-50-m/) rotating lidar which provides 320 degree sensing.
+PX4 v1.14 (і пізніші версії) підтримує поворотний лідар [LightWare LiDAR SF45](https://www.lightwarelidar.com/shop/sf45-b-50-m/), який забезпечує сканування на 320 градусів.
 
-The SF45 must be connected via a UART/serial port and configured as described below (In addition to the [collision prevention setup](#px4-software-setup)).
+SF45 повинен бути підключений через порт UART/серійний порт та налаштований, як описано нижче (на додачу до [налаштування запобігання зіткнень](#px4-software-setup)).
 
-[LightWare Studio](https://www.lightwarelidar.com/resources-software) configuration:
+Конфігурація в програмі [LightWare Studio](https://www.lightwarelidar.com/resources-software):
 
-- In the LightWare Studio app enable scanning, set the scan angle, and change the baud rate to `921600`.
+- У програмі LightWare Studio активуйте сканування, встановіть кут сканування та змініть швидкість передачі даних на `921600` бод.
 
-PX4 Configuration:
+Налаштування PX4:
 
-- Add the [lightware_sf45_serial](../modules/modules_driver_distance_sensor.md#lightware-sf45-serial) driver in [menuconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup):
-  - Under **drivers > Distance sensors** select `lightware_sf45_serial`.
-  - Recompile and upload to the flight controller.
-- [Set the following parameters](../advanced_config/parameters.md) via QGC:
-  - [SENS_EN_SF45_CFG](../advanced_config/parameter_reference.md#SENS_EN_SF45_CFG): Set to the serial port you have the sensor connected to. Make sure GPS or Telemetry are not enabled on this port.
-  - [SF45_ORIENT_CFG](../advanced_config/parameter_reference.md#SF45_ORIENT_CFG): Set the orientation of the sensor (facing up or down)
-  - [SF45_UPDATE_CFG](../advanced_config/parameter_reference.md#SF45_UPDATE_CFG): Set the update rate
-  - [SF45_YAW_CFG](../advanced_config/parameter_reference.md#SF45_YAW_CFG): Set the yaw orientation
+- Додайте драйвер [lightware_sf45_serial](../modules/modules_driver_distance_sensor.md#lightware-sf45-serial) у [меню конфігурації](../hardware/porting_guide_config.md#px4-menuconfig-setup):
+  - У розділі **драйвери > Датчики відстані** виберіть `lightware_sf45_serial`.
+  - Перекомпілюйте та завантажте на контролер польоту.
+- [Встановіть наступні параметри](../advanced_config/parameters.md) через QGC:
+  - [SENS_EN_SF45_CFG](../advanced_config/parameter_reference.md#SENS_EN_SF45_CFG): Встановіть для серійного порту, до якого ви підключили датчик. Переконайтеся, що GPS або телеметрія не активовані на цьому порті.
+  - [SF45_ORIENT_CFG](../advanced_config/parameter_reference.md#SF45_ORIENT_CFG): Встановіть орієнтацію датчика (вгору чи вниз)
+  - [SF45_UPDATE_CFG](../advanced_config/parameter_reference.md#SF45_UPDATE_CFG): Встановіть частоту оновлення
+  - [SF45_YAW_CFG](../advanced_config/parameter_reference.md#SF45_YAW_CFG): Встановіть орієнтацію руху
 
-In QGroundControl you should see an [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message in the [MAVLink console](../debug/mavlink_shell.md#qgroundcontrol-mavlink-console) if collision prevention is configured correctly and active.
+У QGroundControl ви повинні бачити повідомлення [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) в [консолі MAVLink](../debug/mavlink_shell.md#qgroundcontrol-mavlink-console), якщо запобігання зіткнень налаштовано правильно та активовано.
 
-The obstacle overlay in QGC will look like this:
+Налаштування перешкод в QGC буде виглядати так:
 
 ![sf45](../../assets/sf45/sf45_obstacle_map.png)
 
-### Rangefinder Support
+### Підтримка далекоміра
 
-Other sensors may be enabled, but this requires modification of driver code to set the sensor orientation and field of view.
+Інші датчики можуть бути активовані, але це вимагає модифікації коду драйвера для встановлення орієнтації датчика та поля зору.
 
-- Attach and configure the distance sensor on a particular port (see [sensor-specific docs](../sensor/rangefinders.md)) and enable collision prevention using [CP_DIST](#CP_DIST).
-- Modify the driver to set the orientation. This should be done by mimicking the `SENS_CM8JL65_R_0` parameter (though you might also hard-code the orientation in the sensor _module.yaml_ file to something like `sf0x start -d ${SERIAL_DEV} -R 25` - where 25 is equivalent to `ROTATION_DOWNWARD_FACING`).
-- Modify the driver to set the _field of view_ in the distance sensor UORB topic (`distance_sensor_s.h_fov`).
+- Підключіть і налаштуйте датчик відстані на певному порту (див. документацію для конкретного датчика [sensor-specific docs](../sensor/rangefinders.md)) та активуйте запобігання зіткнень, використовуючи параметр [CP_DIST](#CP_DIST).
+- Модифікуйте драйвер для встановлення орієнтації. Це слід робити, наслідуючи параметр `SENS_CM8JL65_R_0` (хоча ви також можете захардкодити орієнтацію у файлі _module.yaml_ датчика на щось подібне до `sf0x start -d ${SERIAL_DEV} -R 25` - де 25 відповідає `ROTATION_DOWNWARD_FACING`).
+- Модифікуйте драйвер для встановлення _поля зору_ в темі UORB для датчика відстані (`distance_sensor_s.h_fov`).
 
 :::tip
-You can see the required modifications from the [feature PR](https://github.com/PX4/PX4-Autopilot/pull/12179). Please contribute back your changes!
+Ви можете побачити необхідні модифікації з PR функції. Будь ласка, внесіть свої зміни назад [feature PR](https://github.com/PX4/PX4-Autopilot/pull/12179). Будь ласка, внесіть свої зміни!
 :::
 
 <a id="companion"></a>
 
-## Companion Setup
+## Налаштування комп'ютера компаньйона
 
-If using a companion computer or external sensor, it needs to supply a stream of [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) messages, which should reflect when and where obstacle were detected.
+Якщо використовується компаньйонний комп'ютер або зовнішній датчик, він повинен постачати потік повідомлень [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE), які повинні відображати час і місце виявлення перешкод.
 
-The minimum rate at which messages _must_ be sent depends on vehicle speed - at higher rates the vehicle will have a longer time to respond to detected obstacles.
+Мінімальна частота, з якою _повинні_ надсилатися повідомлення, залежить від швидкості руху транспортного засобу - при вищих частотах транспортному засобу буде довше часу на реакцію на виявлені перешкоди.
 
-::: info Initial testing of the system used a vehicle moving at 4 m/s with `OBSTACLE_DISTANCE` messages being emitted at 10Hz (the maximum rate supported by the vision system). The system may work well at significantly higher speeds and lower frequency distance updates.
+::: info Початкове тестування системи використовувало транспортний засіб, який рухався зі швидкістю 4 м/с, і повідомлення `OBSTACLE_DISTANCE` надсилалися з частотою 10 Гц (максимальна частота, підтримувана системою комп'ютерного зору). Система може добре працювати при значно вищих швидкостях і менших частотах оновлення відстані.
 :::
 
-The tested companion software is the _local_planner_ from the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo. For more information on hardware and software setup see: [PX4/PX4-Avoidance > Run on Hardware](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
+Протестоване компаньйонне програмне забезпечення - це _локальний планувальник_ з репозиторію [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance). Для отримання додаткової інформації щодо налаштування апаратного та програмного забезпечення дивіться: [PX4/PX4-Avoidance > Запуск на апаратному забезпеченні](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 
 <!-- hardware platform used for testing not readily available, so have removed -->
 
-The hardware and software should be set up as described in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo. In order to emit `OBSTACLE_DISTANCE` messages you must use the _rqt_reconfigure_ tool and set the parameter `send_obstacles_fcu` to true.
+Апаратне та програмне забезпечення повинно бути налаштоване згідно з інструкціями у репозиторії [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance). Щоб надсилати повідомлення `OBSTACLE_DISTANCE`, вам потрібно використовувати інструмент rqt_reconfigure та встановити параметр `send_obstacles_fcu` на true.
 
-## Gazebo Setup
+## Встановлення Gazebo
 
-_Collision Prevention_ can also be tested using Gazebo. See [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) for setup instructions.
+_Запобігання зіткненням_ також можна протестувати за допомогою Gazebo. Інструкції з налаштування див. у розділі [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance).
 
 <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
 <!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->

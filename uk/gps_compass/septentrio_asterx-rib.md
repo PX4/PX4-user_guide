@@ -32,7 +32,7 @@ All AsteRx receivers and Robotic Interface Boards can be purchased from the Sept
 Other PX4 supported devices from Septentrio:
 - [mosaic-go evaluation kit](../gps_compass/septentrio_mosaic-go.md)
 
-## Interfaces
+## Інтерфейси
 
 ![Septentrio Robotics Interface Board Fritzing drawing](../../assets/hardware/gps/septentrio_sbf/rib.png)
 
@@ -107,7 +107,7 @@ The receiver includes an intuitive web user interface for easy operation and mon
 
 ![Illustrative image for Septentrio mosaic-H GNSS Receiver Module Web User Interface (WebUI)](../../assets/hardware/gps/septentrio_sbf/septentrio_mosaic_a5_h_t_clas_gnss_module_receiverwebui.png)
 
-## PX4 setup
+## Налаштування PX4
 
 ![QGroundControl parameter settings](../../assets/hardware/gps/septentrio_sbf/qgc_param.png)
 

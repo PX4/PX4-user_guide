@@ -24,6 +24,6 @@ The calibration steps are:
 ::: info If you move the vehicle _QGroundControl_ will automatically restart the gyroscope calibration.
 :::
 
-## Further Information
+## Подальша інформація
 
-- [QGroundControl User Guide > Gyroscope](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#gyroscope)
+- [Посібник користувача з QGroundControl > Гіроскоп](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#gyroscope)

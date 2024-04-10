@@ -101,12 +101,12 @@ H7 Завантажувачі з [PX4/PX4-Autopilot](https://github.com/PX4/PX4-
    tar ext /dev/serial/by-id/<dronecode-probe-id>
    ```
 
-1. Power on the Pixhawk with another USB cable and connect the probe to the `FMU-DEBUG` port.
+1. Увімкніть Pixhawk за допомогою іншого USB-кабелю та під’єднайте зонд до порту `FMU-DEBUG`.
 
-   ::: info If using a Dronecode probe you may need to remove the case in order to connect to the `FMU-DEBUG` port (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
+   ::: info Якщо ви використовуєте зонд Dronecode, вам може знадобитися зняти футляр, щоб підключитися до порту `FMU-DEBUG` (наприклад, на Pixhawk 4 це можна зробити за допомогою викрутки T6 Torx).
 :::
 
-1. Use the following command to scan for the Pixhawk`s SWD and connect to it:
+1. Використовуйте таку команду, щоб знайти SWD Pixhawk і підключитися до нього:
 
    ```sh
    (gdb) mon swdp_scan

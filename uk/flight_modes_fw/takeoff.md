@@ -1,10 +1,10 @@
-# Takeoff Mode (Fixed-Wing)
+# Режим зльоту (з нерухомим крилом)
 
 <img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />
 
-The _Takeoff_ flight mode causes the vehicle to take off to a specified height and then enter [Hold mode](../flight_modes_fw/takeoff.md).
+У режимі польоту _Зліт_ транспортний засіб піднімається на задану висоту, а потім переходить у [режим утримання](../flight_modes_fw/takeoff.md).
 
-Vehicles are [hand or catapult launched](#catapult-hand-launch) by default, but can also be [configured](#RWTO_TKOFF) to use a [runway takeoff](#runway-takeoff) when supported by the hardware.
+За замовчуванням транспортні засоби [запускаються з рук або з катапульти](#catapult-hand-launch), але їх також можна [налаштувати](#RWTO_TKOFF) на використання [злітно-посадкової смуги](#runway-takeoff), якщо це підтримується апаратним забезпеченням.
 
 ::: info
 
@@ -21,9 +21,9 @@ Vehicles are [hand or catapult launched](#catapult-hand-launch) by default, but 
 
 :::
 
-## Technical Summary
+## Технічний підсумок
 
-Takeoff mode (and [fixed wing mission takeoff](../flight_modes_fw/mission.md#mission-takeoff)) has two modalities: [catapult/hand-launch](#catapult-hand-launch) or [runway takeoff](#runway-takeoff) (hardware-dependent). The mode defaults to catapult/hand launch, but can be set to runway takeoff by setting [RWTO_TKOFF](#RWTO_TKOFF) to 1.
+Takeoff mode (and [fixed wing mission takeoff](../flight_modes_fw/mission.md#mission-takeoff)) has two modalities: [catapult/hand-launch](#catapult-hand-launch) or [runway takeoff](#runway-takeoff) (hardware-dependent). За замовчуванням режим встановлений для старту з катапульта або ручного запуску, але його можна встановити для старту зі злітної смуги, встановивши [RWTO_TKOFF](#RWTO_TKOFF) на 1.
 
 To use _Takeoff mode_ you first switch to the mode, and then arm the vehicle. The acceleration of hand/catapult launch triggers the motors to start. For runway launch, motors ramp up automatically once the vehicle has been armed.
 
@@ -35,11 +35,11 @@ Irrespective of the modality, a flight path (starting point and takeoff course) 
 
 On takeoff, the aircraft will follow line defined by the starting point and course, climbing at the maximum climb rate ([FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)) until reaching the clearance altitude. Reaching the clearance altitude causes the vehicle to enter [Hold mode](../flight_modes_fw/takeoff.md).
 
-### Parameters
+### Параметри
 
-Parameters that affect both catapult/hand-launch and runway takeoffs:
+Параметри, які впливають як на катапульту/ручний старт, так і на зліт зі злітно-посадкової смуги:
 
-| Parameter                                                                                                 | Description                                                                                                                        |
+| Параметр                                                                                                  | Опис                                                                                                                               |
 | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="MIS_TAKEOFF_ALT"></a>[MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT)   | Minimum altitude setpoint above Home that the vehicle will climb to during takeoff.                                                |
 | <a id="FW_TKO_AIRSPD"></a>[FW_TKO_AIRSPD](../advanced_config/parameter_reference.md#FW_TKO_AIRSPD)       | Takeoff airspeed (is set to [FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) if not defined by operator) |
@@ -47,7 +47,7 @@ Parameters that affect both catapult/hand-launch and runway takeoffs:
 | <a id="FW_T_CLMB_MAX"></a>[FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)       | Maximum climb rate.                                                                                                                |
 
 ::: info
-The vehicle always respects normal FW max/min throttle settings during takeoff ([FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN), [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX)).
+Транспортний засіб завжди дотримується нормальних максимальних/мінальних налаштувань дросельної заслінки FW під час зльоту ([FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN), [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX)).
 :::
 
 <a id="hand_launch"></a>
@@ -68,7 +68,7 @@ To launch in this mode:
 
 The _launch detector_ is affected by the following parameters:
 
-| Parameter                                                                                                 | Description                                                                              |
+| Параметр                                                                                                  | Опис                                                                                     |
 | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
 | <a id="FW_LAUN_DETCN_ON"></a>[FW_LAUN_DETCN_ON](../advanced_config/parameter_reference.md#FW_LAUN_DETCN_ON) | Enable automatic launch detection. If disabled motors spin up on arming already          |
 | <a id="FW_LAUN_AC_THLD"></a>[FW_LAUN_AC_THLD](../advanced_config/parameter_reference.md#FW_LAUN_AC_THLD)   | Acceleration threshold (acceleration in body-forward direction must be above this value) |
@@ -97,7 +97,7 @@ For a smooth takeoff, the runway wheel controller possibly needs to be tuned. It
 
 Runway takeoff is affected by the following parameters:
 
-| Parameter                                                                                                  | Description                                                                                                                    |
+| Параметр                                                                                                   | Опис                                                                                                                           |
 | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | <a id="RWTO_TKOFF"></a>[RWTO_TKOFF](../advanced_config/parameter_reference.md#RWTO_TKOFF)               | Enable runway takeoff                                                                                                          |
 | <a id="FW_W_EN"></a>[FW_W_EN](../advanced_config/parameter_reference.md#FW_W_EN)                   | Enable wheel controller                                                                                                        |
@@ -112,7 +112,7 @@ Runway takeoff is affected by the following parameters:
 | <a id="RWTO_NPFG_PERIOD"></a>[RWTO_NPFG_PERIOD](../advanced_config/parameter_reference.md#RWTO_NPFG_PERIOD) | L1 period while steering on runway. Increase for less aggressive response to course errors.                                    |
 | <a id="FW_FLAPS_TO_SCL"></a>[FW_FLAPS_TO_SCL](../advanced_config/parameter_reference.md#FW_FLAPS_TO_SCL)   | Flaps setpoint during takeoff                                                                                                  |
 
-## See Also
+## Дивись також
 
 - [Takeoff Mode (MC)](../flight_modes_mc/takeoff.md)
 - [Planning a mission takeoff](../flight_modes_fw/mission.md#mission-takeoff)

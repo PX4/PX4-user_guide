@@ -1,34 +1,34 @@
 # I2C Bus Peripherals
 
-[I2C](https://en.wikipedia.org/wiki/I2C) is a serial communication protocol that is commonly used (at least on smaller drones), for connecting peripheral components like rangefinders, LEDs, Compass, etc.
+[I2C](https://en.wikipedia.org/wiki/I2C) є послідовним протоколом зв'язку, який зазвичай використовується (принаймні на менших дронах), для підключення периферійних компонентів, таких як далекобійники, світлодіоди, компас, і т. д.
 
-It is recommended for:
+Рекомендовано для:
 
-* Connecting offboard components that require low bandwidth and low latency communication, e.g. [rangefinders](../sensor/rangefinders.md), [magnetometers](../gps_compass/index.md), [airspeed sensors](../sensor/airspeed.md) and [tachometers](../sensor/tachometers.md) .
-* Compatibility with peripheral devices that only support I2C.
-* Allowing multiple devices to attach to a single bus, which is useful for conserving ports.
+* Підключення зовнішніх компонентів, які вимагають комунікації з низькою пропускною здатністю та низькими затримками, наприклад, [дальномери](../sensor/rangefinders.md), [магнітомери](../gps_compass/index.md), [датчики швидкості повітря ](../sensor/airspeed.md)та [тахометри](../sensor/tachometers.md).
+* Сумісність з периферійними пристроями, які підтримують лише I2C.
+* Можливість підключення декількох пристроїв до однієї шини, що корисно для збереження портів.
 
-I2C allows multiple master devices to connect to multiple slave devices using only 2 wires per connection (SDA, SCL). in theory a bus can support 128 devices, each accessed via its unique address.
+I2C дозволяє підключати декілька головних пристроїв до декількох рабочих пристроїв, використовуючи лише 2 провідника на підключення (SDA, SCL). Теоретично шина може підтримувати 128 пристроїв, що кожен з них доступний за унікальною адресою.
 
 :::note
-UAVCAN would normally be preferred where higher data rates are required, and on larger vehicles where sensors are be mounted further from the flight controller.
+UAVCAN зазвичай було б бажаною альтернативою там, де потрібні вищі швидкості передачі даних, і на великих літальних апаратах, де датчики можуть бути встановлені далеко від контролера польоту.
 :::
 
 
-## Wiring
+## Підключення
 
-I2C uses a pair of wires: SDA (serial data) and SCL (serial clock). The bus is of open-drain type, meaning that devices ground the data line. It uses a pullup resistor to push it to `log.1` (idle state) - every wire has it usually located on the bus terminating devices. One bus can connect to multiple I2C devices. The individual devices are connected without any crossing.
+I2C використовує пару проводів: SDA (серійні дані) та SCL (серійний годинник). Шина є типу відкритого стоку, що означає, що пристрої заземлюють лінію даних. Він використовує резистор імпульсу, щоб відправити його до `log.` (стан покою) використовується підтягуючий резистор - кожен провідник зазвичай розташований на пристроях, що завершують шину. Одна шина може підключати до кількох пристроїв I2C. Індивідуальні пристрої підключені без перетину.
 
-For connection (according to dronecode standard) 4-wire cables equipped with JST-GH connectors are used. To ensure reliable communication and to reduce crosstalk it is advised to apply recommendations concerning [cable twisting](../assembly/cable_wiring.md#i2c-cables) and pullup resistors placement.
+Для підключення (згідно зі стандартом dronecode) використовуються 4-жильні кабелі з роз'ємами JST-GH. Для забезпечення надійного спілкування та зменшення перехресного контролю рекомендується застосувати рекомендації щодо [заплетення кабелю](../assembly/cable_wiring.md#i2c-cables) та розташування підтягуючих резисторів.
 
 ![Cable twisting](../../assets/hardware/cables/i2c_jst-gh_cable.jpg)
 
 
-## Checking the Bus and Device Status
+## Перевірка статусу шини та пристроїв
 
-A useful tool for bus analysis is [i2cdetect](../modules/modules_command.md#i2cdetect). This lists available I2C devices by their addresses. It can be used to find out if a device on the bus is available and if the autopilot can communicate with it.
+Корисний інструмент для аналізу шини є [i2cdetect](../modules/modules_command.md#i2cdetect). Це список доступних пристроїв I2C за їх адресами. Він може бути використаний для визначення доступності пристрою на шині та можливості автопілота спілкуватися з ним.
 
-The tool can be run in the PX4 terminal with the following command:
+Інструмент можна запустити в терміналі PX4 за допомогою наступної команди:
 
 ```
 i2cdetect -b 1
@@ -36,49 +36,49 @@ i2cdetect -b 1
 where the bus number is specified after `-b` parameter
 
 
-## Common problems
+## Поширені проблеми
 
 ### Address Clashes
 
-If two I2C devices on a bus have the same ID there will be a clash, and neither device will not work properly (or at all). This usually occurs because a user needs to attach two sensors of the same type to the bus, but may also happen if devices use duplicate addresses by default.
+Якщо два пристрої I2C на шині мають однаковий ідентифікатор, відбудеться конфлікт, і жоден з пристроїв не буде працювати належним чином (або взагалі). Це зазвичай трапляється тому, що користувач повинен підключити два сенсори одного типу до шини, але це також може статися, якщо пристрої використовують однакові адреси за замовчуванням.
 
-Particular I2C devices may allow you to select a new address for one of the devices to avoid the clash. Some devices do not support this option, or do not have broad options for the addresses that can be used (i.e. cannot be used to avoid a clash).
+Деякі конкретні пристрої I2C можуть дозволити вибрати нову адресу для одного з пристроїв, щоб уникнути конфлікту. Деякі пристрої не підтримують цю опцію, або не мають широких варіантів адрес, які можна використовувати (тобто не можуть бути використані для уникнення конфлікту).
 
-If you can't change the addresses, one option is to use an [I2C Address Translator](#i2c-address-translators).
+Якщо ви не можете змінити адреси, то один варіант - використовувати [I2C Address Translator](#i2c-address-translators).
 
-### Insufficient Transfer Capacity
+### Недостатня пропускна здатність передачі
 
-The bandwidth available for each individual device generally decreases as more devices are added. The exact decrease depends on the bandwidth used by each individual device. Therefore it is possible to connect many low bandwidth devices, like [tachometers](../sensor/tachometers.md). If too many devices are added, it can cause transmission errors and network unreliability.
+Пропускна здатність, доступна для кожного окремого пристрою, зазвичай зменшується зі збільшенням кількості пристроїв. Точне зменшення залежить від пропускної здатності, використованої кожним окремим пристроєм. Тому можливо підключити багато пристроїв з низькою пропускною здатністю, наприклад, [тахометри](../sensor/tachometers.md). Якщо додати занадто багато пристроїв, це може призвести до помилок передачі та ненадійності мережі.
 
-There are several ways to reduce the problem:
-* Dividing the devices into groups, each with approximately the same number of devices and connecting each group to one autopilot port
-* Increase bus speed limit (usually set to 100kHz for external I2C bus)
+Є кілька способів зменшення проблеми:
+* Розподілити пристрої на групи, кожна з приблизно однаковою кількістю пристроїв та підключити кожну групу до одного порту автопілота
+* Збільшити ліміт швидкості шини (звичайно встановлений в 100кГц для зовнішнього I2C bus)
 
-### Excessive Wiring Capacitance
+### Надмірна ємність проводки
 
-The electrical capacity of bus wiring increases as more devices/wires are added. The exact decrease depends on total length of bus wiring and wiring specific capacitance. The problem can be analyzed using an oscilloscope, where we see that the edges of SDA/SCL signals are no longer sharp.
+Електрична ємність шини проводки зростає, коли додаються більше пристроїв/проводів. Точне зменшення залежить від загальної довжини шини проводки та специфічної ємності проводки. Проблему можна проаналізувати за допомогою осцилографа, де ми бачимо, що краї сигналів SDA/SCL вже не гострі.
 
-There are several ways to reduce the problem:
-* Dividing the devices into groups, each with approximately the same number of devices and connecting each group to one autopilot port
-* Using the shortest and the highest quality I2C cables possible
-* Separating the devices with a weak open-drain driver to smaller bus with lower capacitance
-* [I2C Bus Accelerators](#i2c-bus-accelerators)
+Є кілька способів зменшення проблеми:
+* Розділення пристроїв на групи, кожна з приблизно однаковою кількістю пристроїв та підключення кожної групи до одного порту автопілота
+* Використання найкоротших і найвищої якості кабелів I2C, що можливо
+* Відокремлення пристроїв зі слабким відкритим стоковим драйвером до меншої шини з нижчою ємністю
+* [Прискорювачі шини I2C](#i2c-bus-accelerators)
 
-## I2C Bus Accelerators
+## Прискорювачі шини I2C
 
-I2C bus accelerators are separate circuits that can be used to support longer wiring length on an I2C bus. They work by physically dividing an I2C network into 2 parts and using their own transistors to amplify I2C signals.
+Посилювачі шини I2C - це окремі схеми, які можуть використовуватися для підтримки більшої довжини проводки на шині I2C. Вони працюють, фізично діливши мережу I2C на 2 частини та використовуючи свої транзистори для підсилення сигналів I2C.
 
-Available accelerators include:
+Доступні прискорювачі включають:
 - [Thunderfly TFI2CEXT01](https://github.com/ThunderFly-aerospace/TFI2CEXT01): ![I2C bus extender](../../assets/peripherals/i2c_tfi2cext/tfi2cext01a_bottom.jpg)
-  - This has Dronecode connectors and is hence very easy to add to a Pixhawk I2C setup.
+  - Цей дронекод має з'єднувачі, тому це дуже легко додати до налаштування Pixhawk I2C.
   - The module has no settings (it works out of the box).
 
 
-## I2C Address Translators
+## Перетворювачі I2C адрес
 
-I2C Address Translators can be used to prevent I2C address clashes in systems where there is no other way to assign unique addresses. The work by listening for I2C communication and transforming the address when a slave device is called (according to a preset algorithm).
+Перетворювачі I2C адрес можуть використовуватися для запобігання конфліктів I2C адрес в системах, де немає іншого способу призначення унікальних адрес. Вони працюють, слухаючи I2C комунікацію та трансформуючи адресу, коли викликається пристрій-слейв (згідно з попередньо налаштованим алгоритмом).
 
-Supported I2C Address Translators include:
+До підтримуваних перетворювачів I2C адрес включають:
 
 - [Thunderfly TFI2CADT01](../sensor_bus/translator_tfi2cadt.md)
 

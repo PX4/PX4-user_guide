@@ -12,7 +12,7 @@ Note You will need a (free) [Github](https://github.com/) account to contribute 
 
 ## Github의 빠른 변경 사항
 
-Simple changes to _existing content_ can be made by clicking the **Edit this page on GitHub** link that appears at the bottom of every page (this opens the page on Github for editing).
+Simple changes to _existing content_ can be made by clicking the **Edit on GitHub** link that appears at the bottom of every page (this opens the page on Github for editing).
 
 ![Vuepress: 페이지 편집 버튼](../../assets/vuepress/vuepress_edit_page_on_github_link.png)
 
@@ -33,7 +33,7 @@ Simple changes to _existing content_ can be made by clicking the **Edit this pag
 
 1. Use the _git_ toolchain to get the documentation source code onto your local computer.
 1. 필요한 문서를 수정합니다(추가, 변경, 삭제).
-1. _Test_ that it builds properly using Vuepress.
+1. _Test_ that it builds properly using Vitepress.
 1. 변경 사항에 대한 분기를 만들고 풀 요청을 만들어 문서로 다시 가져옵니다.
 
 다음에는 소스 코드를 가져오고, 로컬에서 빌드(테스트용)하고, 코드를 수정하는 방법을 설명합니다.
@@ -110,14 +110,7 @@ Simple changes to _existing content_ can be made by clicking the **Edit this pag
 
 1. 사전 요구 사항인 [Vuepress](https://vuepress.vuejs.org/guide/getting-started.html#prerequisites)을 설치합니다.
 
-   - [Nodejs 10+](https://nodejs.org/en)
-
-     ::: info For recent nodejs versions (after v16.15.0) you need to enable the node legacy OpenSSL provider. On Ubuntu you can do this by running the terminal command:
-
-     ```sh
-     export NODE_OPTIONS=--openssl-legacy-provider
-     ```
-
+   - [Nodejs 18+](https://nodejs.org/en)
    - [Yarn classic](https://classic.yarnpkg.com/en/docs/install)
 
 1. 로컬 저장소로 이동합니다.
@@ -138,7 +131,7 @@ Simple changes to _existing content_ can be made by clicking the **Edit this pag
    yarn docs:dev
    ```
 
-   - Now you can browse the guide on http://localhost:8080/px4_user_guide/
+   - Once the development/preview server has built the library (less than a minute for the first time) it will show you the URL you can preview the site on. This will be something like: `http://localhost:5173/px4_user_guide/`.
    - 터미널 프롬프트에서 **CTRL+C**를 사용하여 검색을 중지합니다.
 
 1. 다음을 사용하여 라이브러리를 빌드합니다.
@@ -152,18 +145,18 @@ Simple changes to _existing content_ can be made by clicking the **Edit this pag
    ```
 
 :::tip
-Use `yarn docs:dev` to preview changes _as you make them_ (documents are updated and served very quickly). 풀 요청을 제출전에 `docs:build`를 사용하여 빌드하여야 합니다. 이렇게 하면 `docs:dev`를 사용할 때 표시되지 않는 문제를 강조하여 표시할 수 있습니다.
+Use `yarn start` to preview changes _as you make them_ (documents are updated and served very quickly). 풀 요청을 제출전에 `docs:build`를 사용하여 빌드하여야 합니다. 이렇게 하면 `docs:dev`를 사용할 때 표시되지 않는 문제를 강조하여 표시할 수 있습니다.
 :::
 
 ### 소스 코드 구조
 
-이 가이드는 [Vuepress](https://vuepress.vuejs.org/) 툴체인을 사용합니다. PX4 사용 설명서에는 구성과 설정에 관련된 몇 가지 사소한 차이점들이 있습니다.
+The guide uses the [Vitepress](https://vitepress.dev/) toolchain.
 
 개요:
 
 - 페이지는 마크다운을 사용하여 별도의 파일에 작성됩니다.
   - 문법은 Github 위키에서 사용하는 것과 매우 유사합니다.
-  - Vuepress는 일부 [마크다운 확장](https://vuepress.vuejs.org/guide/markdown.html)도 지원합니다. 우리는 [tips, warning, 등](https://vuepress.vuejs.org/guide/markdown.html#custom-containers)을 제외하고는 사용하지 않으려고 합니다.
+  - Vuepress는 일부 [마크다운 확장](https://vuepress.vuejs.org/guide/markdown.html)도 지원합니다. 우리는 [tips, warning, 등](https://vuepress.vuejs.org/guide/markdown.html#custom-containers)을 제외하고는 사용하지 않으려고 합니다. This might be revisited - there are some interesting options provided!
 - [다국어](https://vuepress.vuejs.org/guide/i18n.html#default-theme-i18n-config) 책에 관련된 내용입니다.
   - 각 언어의 페이지는 관련 언어 코드의 이름이 지정된 폴더에 저장됩니다(예: 중국어의 경우 "zh", 한국어의 경우 "ko").
   - 파일의 영어(**/en**) 버전만 편집하십시오. 번역을 관리하기 위해 [Crowdin](../contribute/translation.md)을 사용합니다.
@@ -174,7 +167,7 @@ Use `yarn docs:dev` to preview changes _as you make them_ (documents are updated
   - If you add a new page to the guide you must also add an entry to this file!
 
 :::tip
-This is not "standard vuepress" way to define the sidebar (the summary file is imported by [.vuepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/main/.vuepress/get_sidebar.js)).
+This is not "standard vitepress" way to define the sidebar (the summary file is imported by [.vitepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/main/.vitepress/get_sidebar.js)).
 :::
 
 - 이미지는 **/assets**의 하위 폴더에 저장하여야 합니다. 이것은 콘텐츠 폴더에서 두 개의 폴더 아래에 있으므로, 이미지를 추가하면 다음과 같이 참조하게 됩니다.

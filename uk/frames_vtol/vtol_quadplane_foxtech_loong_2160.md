@@ -1,43 +1,43 @@
 # Foxtech Loong 2160 VTOL
 
-The _Foxtech Loong 2160 VTOL_ is a easy to build almost-ready-to-fly (ARF) quadplane VTOL drone with wingspan of 2160mm.
-This build guide shows how to add a flight controller system using [Auterion Skynode evaluation kit](../companion_computer/auterion_skynode.md) or [Pixhawk 6C](../flight_controller/pixhawk6c.md) and setup PX4.
+Foxtech Loong 2160 VTOL - це легкий у монтажі майже готовий до польоту (ARF) квадрокоптерний ВТОЛ дрон з розмахом крила 2160 мм.
+Цей посібник зі збірки показує, як додати систему керування польотом, використовуючи набір оцінки [Auterion Skynode evaluation kit](../companion_computer/auterion_skynode.md) або [Pixhawk 6C](../flight_controller/pixhawk6c.md), і налаштувати PX4.
 
-![Photo of Loong VTOL in flight](../../assets/airframes/vtol/foxtech_loong_2160/01-foxtech-loong.jpg)
+![Фото Loong VTOL у польоті](../../assets/airframes/vtol/foxtech_loong_2160/01-foxtech-loong.jpg)
 
-## Overview
+## Загальний огляд
 
-Specifications:
+Специфікації:
 
-- Wingspan: 2160mm
-- Fuselage Length: 1200mm
-- Takeoff Weight: Approximately 7kg (excluding payload)
-- Max Flight Time: Up to 1 hour and 30 minutes
-- Cruising Speed: Approximately 17m/s
-- Max Payload Weight: Around 1.5kg
-- Carry Case Dimensions: 125cm x 34cm x 34cm
+- Розмах крила: 2160 мм
+- Довжина фюзеляжу: 1200 мм
+- Вага при зльоті: Приблизно 7 кг (без вантажу)
+- Максимальний час польоту: До 1 години і 30 хвилин
+- Крейсерська швидкість: Приблизно 17 м/с
+- Максимальна вага вантажу: Близько 1,5 кг
+- Розміри чохла: 125 см х 34 см х 34 см
 
-Key Features:
+Основні характеристики:
 
-- Effortless Assembly: Quick and easy setup
-- Portability: Compact design for convenient transportation with the included carry case
-- Ready to Fly: All actuators are pre-installed and wired, minimizing setup time
-- Extended Flight Time: Up to 1 hour and 30 minutes, depending on weather conditions and takeoff weight
-- Versatile Payload Capacity: Spacious fuselage accommodates diverse payloads, including options like the Sony A7R for mapping applications.
+- Легка збірка: Швидке і просте налаштування
+- Переносимість: Компактний дизайн для зручного транспортування у включеному чохлі
+- Готовий до польоту: Всі приводи вже встановлені та підключені, що мінімізує час налаштування
+- Подовжений час польоту: До 1 години і 30 хвилин в залежності від погодних умов та ваги при зльоті
+- Універсальна вантажопідйомність: Просторий фюзеляж вміщує різноманітні вантажі, включаючи варіанти, такі як камера Sony A7R для картографічних застосувань.
 
-## Where to Buy
+## Де купити
 
-- [Foxtech FPV (ARF Combo)](https://www.foxtechfpv.com/foxtech-loong-2160-vtol.html) - recommended
+- [Foxtech FPV (ARF Combo)](https://www.foxtechfpv.com/foxtech-loong-2160-vtol.html) - рекомендується
 - [Alibaba](https://www.alibaba.com/product-detail/Loong-2160-Long-Endurance-VTOL-Mapping_1600280686653.html)
 
-## Flight Controller
+## Політний контролер
 
-The following options have been tested:
+Наступна конфігурація протестована:
 
 - [Auterion Skynode evaluation kit](../companion_computer/auterion_skynode.md)
 - [Pixhawk 6C](../flight_controller/pixhawk6c.md)
 
-## Additional Accessories
+## Додаткові ресурси
 
 - Auterion 12S Power Module
 - [Holybro PM08D Power Module (alternative to Auterion PM)](https://holybro.com/collections/power-modules-pdbs/products/pm08d-digital-power-module-14s-200a)
@@ -67,7 +67,7 @@ The following options have been tested:
 - [Antenna extension cable - matching your radio system](https://www.digikey.ch/de/products/detail/amphenol-rf/095-902-536-012/13246174)
 - [Recommended Battery (12S 22Ah)](https://genstattu.com/tattu-22-2v-30c-6s-22000mah-lipo-battery-with-xt90-s-plug-for-uav.html)
 
-## Tools
+## Інструменти
 
 The following tools were used for this build.
 
@@ -80,7 +80,7 @@ The following tools were used for this build.
 - 3D-Printer
 - [Blue Loctite](https://www.amazon.com/Loctite-Heavy-Duty-Threadlocker-Single/dp/B000I1RSNS?th=1)
 
-## Hardware Integration
+## Інтеграція з обладнанням
 
 In this documentation the integration of a Auterion Skynode is described.
 The installation of a Pixhawk can be done similarly.

@@ -1,29 +1,29 @@
-# Mounting a Compass (or GNSS/Compass)
+# Монтаж компаса (або GNSS/компаса)
 
-Compass and GNSS/Compass modules should be mounted on the frame as far away from motor/ESC power lines and other sources of electromagnetic interference as possible, and [oriented](#compass-orientation) upright with the direction marker pointing towards the front of the vehicle. You should also configure PX4 to [set the position](#position) of the receiver relative to the centre-of-gravity (CoG).
+Модулі компаса та GNSS/компаса слід монтувати на рамі якомога подалі від ліній живлення мотора/ЕЛЕКТРОННИХ ШС і інших джерел електромагнітних перешкод, і [орієнтувати](#compass-orientation) вертикально з напрямним маркером, спрямованим вперед транспортного засобу. Ви також повинні налаштувати PX4, щоб [встановити позицію](#position) приймача відносно центру ваги CoG(ЦМ).
 
-On multicopters it is common to mount the compass on a pedestal, while for fixed-wing and VTOL vehicles the compass is usually mounted on a wing.
+Для багатороторних літаків зазвичай компас монтується на підставці, тоді як для фіксованих крил та VTOL компас зазвичай монтується на крилі.
 
-## Compass Orientation
+## Орієнтація компаса
 
-The compass should ideally be oriented so that it is upright and the direction marker is pointing towards the front of the vehicle (the default orientation), but if needed can be oriented at multiples of 45° from this attitude (in any axis) as defined in the [standard MAVLink orientations](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION) (these follow the same frame convention as when [orienting the flight controller](../config/flight_controller_orientation.md#calculating-orientation)).
+Компас повинен ідеально бути орієнтованим так, щоб він був вертикальним, а напрямний маркер вказував вперед транспортного засобу (типова орієнтація), але за необхідності може бути орієнтований під кутами, кратними 45° від цієї орієнтації (у будь-якій вісі), як це визначено у [стандартних орієнтаціях MAVLink](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION) (вони слідують тій самій конвенції рамки, що і при [орієнтації контролера польоту](../config/flight_controller_orientation.md#calculating-orientation)).
 
-The diagram below shows the heading marker on the Pixhawk 4 flight controller and compass.
+На діаграмі нижче показано напрямний маркер на контролері польоту Pixhawk 4 та компасі.
 
 ![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
 
-PX4 will automatically detect the orientation for any of these standard orientations during [compass calibration](../config/compass.md) ([by default](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT)).
+PX4 автоматично визначить орієнтацію для будь-яких з цих стандартних орієнтацій під час [калібрування компаса](../config/compass.md) ([за замовчуванням](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT)).
 
-The compass can also be mounted at any other "custom euler angles", but in this case you will need to manually configure the orientations. For more information see [Setting the Compass Orientation](../config/flight_controller_orientation.md#setting-the-compass-orientation) in _Flight Controller/Sensor Orientation_.
+Компас також може бути монтуваний в будь-яких інших "власних кутах Ейлера", але в цьому випадку вам доведеться вручну налаштувати орієнтації. Для отримання додаткової інформації див. [Налаштування орієнтації компаса](../config/flight_controller_orientation.md#setting-the-compass-orientation) в _орієнтації контролера польоту/датчика_.
 
-## Position
+## Положення
 
-In order to compensate for the relative motion between the receiver and the CoG, you should [configure](../advanced_config/parameters.md) the following parameters to set the offsets: [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z).
+Для компенсації відносного руху між приймачем і ЦМ(CoG), ви повинні [налаштувати](../advanced_config/parameters.md) наступні параметри для встановлення зсувів: [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) та [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z).
 
-This is important because the body frame estimated by the EKF will converge on the location of the GNSS module and assume it to be at the CoG. If the GNSS module is significantly offset from the CoG, then rotation around the COG will be interpreted as an altitude change, which in some flight modes (such as position mode) will result in unnecessary corrections.
+Це важливо, оскільки кадр тіла, що оцінюється EKF, буде збігатися з місцезнаходженням модуля GNSS та вважатиме його розміщеним на CoG(ЦМ). Якщо модуль GNSS значно відокремлений від CoG(ЦМ), то обертання навколо CoG(ЦМ) буде інтерпретовано як зміна висоти, що у деяких режимах польоту (наприклад, режим позиції) може призвести до непотрібних корекцій.
 
-It is particularly important if using [RTK GNSS](../advanced/rtk_gps.md) which has centimeter-level accuracy, because if the offsets are not set then GNSS measurements will often be rejected as inconsistent with the current EFK estimate.
+Це особливо важливо при використанні [RTK GNSS](../advanced/rtk_gps.md), який має точність на рівні сантиметрів, оскільки у разі неналаштування зсувів вимірювання GNSS часто будуть відхилені як несумісні з поточною оцінкою EKF.
 
 ::: details
-Explanation For example, if the GNSS module is 10cm above the CoG, and the IMU is located at the GoG, a pitch motion of 1 rad/s will create a GNSS velocity measurement of 10cm/s _even though the CoG isn't moving_. If the speed accuracy of the GNSS receiver is 1cm/s, the EKF might stop trusting the measurements because they appear inconsistent (wrong by 10x the accuracy). If the offsets are defined, the EKF will correct the measurements using the gyro data.
+Пояснення Наприклад, якщо модуль GNSS знаходиться на відстані 10 см вище від CoG(ЦМ), а ІМП знаходиться в CoG(ЦМ), рух по тангажу зі швидкістю 1 рад/с створить вимірювання швидкості GNSS в 10 см/с, _навіть якщо ЦМ не рухається_. Якщо точність швидкості приймача GNSS становить 1 см/с, то EKF може перестати довіряти вимірюванням, оскільки вони виглядають невірними (помилкові на 10 разів точніше). Якщо зсуви визначені, EKF скоригує вимірювання, використовуючи дані гіроскопа.
 :::

@@ -57,44 +57,44 @@ PX4 підтримує два процедури калібрування:
 
 Для проведення калібрування на борту виконайте такі кроки:
 
-1. Ensure the frame type is set before calibration, otherwise calibration parameters will be lost when the board is setup.
-2. Power the board and set the `SYS_CAL_*` parameters to 1 to enable calibration of the required sensors at the next startup. [^1]
-3. Set the [SYS_CAL_TDEL](../advanced_config/parameter_reference.md#SYS_CAL_TDEL) parameter to the number of degrees of temperature rise required for the onboard calibrator to complete. If this parameter is too small, then the calibration will complete early and the temperature range for the calibration will not be sufficient to compensate when the board is fully warmed up. If this parameter is set too large, then the onboard calibrator will never complete. allowance should be made for the rise in temperature due to the boards self heating when setting this parameter. If the amount of temperature rise at the sensors is unknown, then the off-board method should be used.
-4. Set the [SYS_CAL_TMIN](../advanced_config/parameter_reference.md#SYS_CAL_TMIN) parameter to the lowest temperature data that you want the calibrator to use. This enables a lower cold soak ambient temperature to be used to reduce the cold soak time whilst maintaining control over the calibration minimum temperature. The data for a sensor will not be used by the calibrator if it is below the value set by this parameter.
-5. Set the [SYS_CAL_TMAX](../advanced_config/parameter_reference.md#SYS_CAL_TMAX) parameter to the highest starting sensor temperature that should be accepted by the calibrator. If the starting temperature is higher than the value set by this parameter, the calibration will exit with an error. Note that if the variation in measured temperature between different sensors exceeds the gap between `SYS_CAL_TMAX` and `SYS_CAL_TMIN`, then it will be impossible for the calibration to start.
-6. Remove power and cold soak the board to below the starting temperature specified by the `SYS_CAL_TMIN` parameter. Note that there is a 10 second delay on startup before calibration starts to allow any sensors to stabilise and the sensors will warm internally during this period.
-7. Keeping the board stationary[^2], apply power and warm to a temperature high enough to achieve the temperature rise specified by the `SYS_CAL_TDEL` parameter. The completion percentage is printed to the system console during calibration. [^3]
-8. When the calibration completes, remove power, allow the board to cool to a temperature that is within the calibration range before performing the next step.
-9. Perform a 6-point accel calibration via the system console using `commander calibrate accel` or via _QGroundControl_. If the board is being set-up for the first time, the gyro and magnetometer calibration will also need to be performed.
+1. Переконайтеся, що тип рами встановлено перед калібруванням, інакше параметри калібрування будуть втрачені, коли плата буде налаштована.
+2. Увімкніть плату та встановіть параметри `SYS_CAL_*` на значення 1, щоб увімкнути калібрування потрібних датчиків при наступному запуску. [^1]
+3. Встановіть параметр [SYS_CAL_TDEL](../advanced_config/parameter_reference.md#SYS_CAL_TDEL) на кількість градусів підвищення температури, необхідну для завершення вбудованого калібратора. Якщо цей параметр занадто малий, калібрування завершиться рано, і діапазон температур для калібрування не буде достатнім для компенсації при повному нагріванні плати. Якщо цей параметр встановлено занадто великим, вбудований калібратор ніколи не завершиться. При встановленні цього параметра слід враховувати підвищення температури через самонагрівання плати. Якщо кількість підвищення температури на датчиках невідома, то слід використовувати метод калібрування поза межами плати. Якщо цей параметр встановлено занадто великим, вбудований калібратор ніколи не завершиться. при встановленні цього параметра слід враховувати підвищення температури через самонагрівання плати. Якщо кількість підвищення температури на датчиках невідома, то слід використовувати метод калібрування поза межами плати.
+4. Встановіть параметр [SYS_CAL_TMIN](../advanced_config/parameter_reference.md#SYS_CAL_TMIN) на найнижчу температуру даних, яку ви хочете, щоб калібратор використовував. Це дозволяє використовувати більш низьку початкову амбієнтну температуру для зменшення часу охолодження, зберігаючи при цьому контроль над мінімальною температурою калібрування. Дані для датчика не будуть використані калібратором, якщо вони будуть нижчими, ніж значення, встановлене цим параметром.
+5. Встановіть параметр [SYS_CAL_TMAX](../advanced_config/parameter_reference.md#SYS_CAL_TMAX) на найвищу початкову температуру датчика, яка повинна бути прийнята калібратором. Якщо початкова температура вища, ніж значення, встановлене цим параметром, калібрування завершиться з помилкою. Зверніть увагу, що якщо відхилення виміряної температури між різними датчиками перевищує різницю між `SYS_CAL_TMAX` і `SYS_CAL_TMIN`, то буде неможливо розпочати калібрування.
+6. Вимкніть живлення та охолодіть плату до температури нижче початкової, визначеної параметром `SYS_CAL_TMIN`. Зауважте, що перед початком калібрування існує 10-секундна затримка під час запуску, щоб дозволити будь-яким датчикам стабілізуватися, і датчики будуть нагріватися всередині протягом цього періоду.
+7. Тримаючи плату в нерухомому стані[^2], увімкніть живлення та нагрійте її до достатньо високої температури, щоб досягти підвищення температури, визначеного параметром `SYS_CAL_TDEL`. Відсоток виконання друкується на системній консолі під час калібрування. [^3]
+8. Вимкніть живлення та залиште плату для охолодження до температури, яка знаходиться в межах діапазону калібрування, перш ніж виконати наступний крок.
+9. Виконайте калібрування акселерометра за допомогою консолі системи за допомогою команди `commander calibrate accel` або через _QGroundControl_. Якщо плата встановлюється вперше, також потрібно виконати калібрування гіроскопа та магнітомера.
 10. Після калібрування датчиків до політів завжди потрібно перезавантажити плату, оскільки раптові зміни зміщень від калібрування можуть спотворити навігаційний оцінювач, і деякі параметри не завантажуються алгоритмами, які використовують їх, до наступного запуску.
 
 <a id="offboard_calibration"></a>
 
-### Offboard Calibration Procedure
+### Процедура позабортового калібрування
 
 Виносне калібрування виконується на комп’ютері розробки з використанням даних, зібраних під час випробування калібрування. Виносне калібрування виконується на комп’ютері розробки з використанням даних, зібраних під час випробування калібрування.
 
-To perform an offboard calibration:
+Щоб виконати автономне калібрування:
 
-1. Ensure the frame type is set before calibration, otherwise calibration parameters will be lost when the board is setup.
-1. Power up the board and set the [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE), [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE), and [TC_M_ENABLE](../advanced_config/parameter_reference.md#TC_M_ENABLE) parameters to `1`.
+1. Переконайтеся, що тип кадру встановлено перед калібруванням, інакше параметри калібрування будуть втрачені під час налаштування плати.
+1. Увімкніть плату та встановіть параметри [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE), [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) і [TC_M_ENABLE](../advanced_config/parameter_reference.md#TC_M_ENABLE) на `1`.
 1. Set all [CAL_ACC\*](../advanced_config/parameter_reference.md#CAL_ACC0_ID), [CAL_GYRO\*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID), [CAL_MAG\*](../advanced_config/parameter_reference.md#CAL_MAG0_ID), and [CAL_BARO\*](../advanced_config/parameter_reference.md#CAL_BARO0_ID) parameters to defaults.
-1. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot.
-1. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for _thermal calibration_ (bit 2) to log the raw sensor data required for calibration.
-1. Cold soak the board to the minimum temperature it will be required to operate in.
-1. [^3]
-1. Remove power and extract the .ulog file.
-1. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script:
+1. Установіть для параметра [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) значення 2, щоб увімкнути реєстрацію даних під час завантаження.
+1. Установіть прапорець [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) для _термічного калібрування_ (біт 2), щоб зареєструвати необроблені дані датчика, необхідні для калібрування.
+1. Охолодіть дошку до мінімальної температури, при якій вона буде потрібна для роботи.
+1. Увімкніть живлення та тримайте плату нерухомо [^2], повільно нагрійте її до максимальної необхідної робочої температури. [^3]
+1. Вимкніть живлення та розпакуйте файл .ulog.
+1. Відкрийте вікно терміналу в каталозі **Firmware/Tools** і запустіть сценарій калібрування python:
 
    ```sh
    python process_sensor_caldata.py <full path name to .ulog file>
    ```
 
-   This will generate a **.pdf** file showing the measured data and curve fits for each sensor, and a **.params** file containing the calibration parameters.
+   Буде створено файл **.pdf**, у якому відображатимуться вимірювані дані та підгонка кривої для кожного датчика, а також файл **.params**, що містить параметри калібрування.
 
-1. Увімкніть плату, підключіть _QGroundControl_ та завантажте параметри зі створеного файлу **.params** на плату за допомогою _QGroundControl_. Due to the number of parameters, loading them may take some time.
-1. After parameters have finished loading, set `SDLOG_MODE` to 1 to re-enable normal logging and remove power.
-1. Power the board and perform a normal accelerometer sensor calibration using _QGroundControl_. It is important that this step is performed when board is within the calibration temperature range. Після цього кроку плата повинна бути знову увімкнена перед польотом, оскільки раптові зміни зміщення можуть налякати оцінювач навігації, і деякі параметри не завантажуються алгоритмами, що використовують їх, до наступного запуску.
+1. Увімкніть плату, підключіть _QGroundControl_ та завантажте параметри зі створеного файлу **.params** на плату за допомогою _QGroundControl_. Відсоток виконання друкується на системній консолі під час калібрування.
+1. Після завершення завантаження параметрів встановіть для параметра `SDLOG_MODE` значення 1, щоб знову ввімкнути звичайне журналювання та вимкнути живлення.
+1. Увімкніть плату та виконайте звичайне калібрування датчика акселерометра за допомогою _QGroundControl_. Важливо, щоб цей крок було виконано, коли плата знаходиться в межах діапазону температури калібрування. Після цього кроку плата повинна бути знову увімкнена перед польотом, оскільки раптові зміни зміщення можуть налякати оцінювач навігації, і деякі параметри не завантажуються алгоритмами, що використовують їх, до наступного запуску.
 
 <a id="implementation"></a>
 
@@ -122,22 +122,22 @@ TC_[type][instance]_[cal_name]_[axis]
 
 Де:
 
-- `type`: is a single character indicating the type of sensor where `A` = accelerometer, `G` = rate gyroscope, `M` = magnetometer, and `B` = barometer.
-- `instance`: is an integer 0,1 or 2 allowing for calibration of up to three sensors of the same `type`.
-- `cal_name`: is a string identifying the calibration value. It has the following possible values:
+- `тип`: один символ, що вказує на тип датчика, де `A` = акселерометр, `G` = швидкість гіроскопа, `M` = магнітометр і `B` = барометр.
+- `екземпляр`: ціле число 0, 1 або 2, що дозволяє калібрувати до трьох датчиків одного `типу`.
+- `cal_name`: це рядок, що ідентифікує значення калібрування. Він має такі можливі значення:
 
-  - `Xn`: Polynomial coefficient where n is the order of the coefficient, e.g. `X3 * (temperature - reference temperature)**3`.
-  - `SCL`: scale factor.
-  - `TREF`: reference temperature (deg C).
-  - `TMIN`: minimum valid temperature (deg C).
-  - `TMAX`: maximum valid temperature (deg C).
+  - `Xn`: поліноміальний коефіцієнт, де n є порядком коефіцієнта, напр. `X3 * (температура - контрольна температура)**3`.
+  - `SCL`: коефіцієнт масштабування.
+  - `TREF`: контрольна температура (град. C).
+  - `TMIN`: мінімальна допустима температура (градус C).
+  - `TMAX`: максимальна допустима температура (градус C).
 
-- `axis`: is an integer 0,1 or 2 indicating that the calibration data is for X,Y or Z axis in the board frame of reference. For the barometric pressure sensor, the `axis` suffix is omitted.
+- `вісь`: це ціле число 0, 1 або 2, яке вказує на те, що дані калібрування стосуються осі X, Y або Z у системі відліку плати. Для датчика барометричного тиску суфікс `axis` опущено.
 
-Examples:
+Приклади:
 
-- [TC_A1_TREF](../advanced_config/parameter_reference.md#TC_A1_TREF) is the reference temperature for the second accelerometer.
-- [TC_G0_X3_0](../advanced_config/parameter_reference.md#TC_G0_X3_0) is the `^3` coefficient for the first gyro x-axis.
+- [TC_A1_TREF](../advanced_config/parameter_reference.md#TC_A1_TREF) – еталонна температура для другого акселерометра.
+- [TC_G0_X3_0](../advanced_config/parameter_reference.md#TC_G0_X3_0) – це коефіцієнт `^3` для першої осі x гіроскопа.
 
 ### Використання параметрів калібрування
 

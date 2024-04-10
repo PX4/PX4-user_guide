@@ -49,5 +49,5 @@ PX4 використовує [Path Planning Interface](../computer_vision/path_p
 
 - [Vision and offboard control interfaces](https://youtu.be/CxIsJWtVaTA?t=963) (PX4 Developer Summit 2019: Martina Rivizzigno, Auterion Computer Vision Engineer)
 - [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance)
-  - [Simulation setup > Safe Landing Planner](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
-  - [Hardware setup > Safe Landing Planner](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)
+  - [Налаштування симуляції > Планувальник безпечної посадки](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
+  - [Налаштування обладнання > Планувальник безпечної посадки](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)

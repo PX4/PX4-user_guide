@@ -1,45 +1,45 @@
-# Actuator Configuration and Testing
+# Конфігурація та тестування приводу
 
 <Badge type="tip" text="PX4 v1.14" />
 
-The _Actuators Setup_ view is used to customize the specific geometry of the vehicle, assign actuators and motors to flight controller outputs, and test the actuator and motor response.
+Перегляд _Налаштування приводів_ використовується для налаштування конкретної геометрії транспортного засобу, призначення приводів і двигунів виходам контролера польоту та перевірки реакції приводу та двигуна.
 
-## Overview
+## Загальний огляд
 
-Open the view in _QGroundControl_ here: **"Q" (app menu) > Vehicle Setup > Actuators** (tab). The displayed elements depend on the [selected frame](../config/airframe.md), with outputs mapped by default as shown in the [Airframe Reference](../airframes/airframe_reference.md).
+Відкрийте перегляд у _QGroundControl_ тут: **"Q" (меню програми) > Налаштування автомобіля > Актуатори** (вкладка). Елементи, що відображаються, залежать від [вибраного кадру](../config/airframe.md), а вихідні дані відображаються за замовчуванням, як показано в [Посиланні на планер](../airframes/airframe_reference.md).
 
-The view has three sections:
+Вид має три розділи:
 
-- [Geometry](#geometry): Configure the geometry for the [selected airframe](../config/airframe.md). This includes number, position and properties of [motors](#motor-geometry) and also the number and properties of [control surfaces](#control-surfaces-geometry) and [motor tilt servos](#motor-tilt-servo-geometry).
-- [Actuator Outputs](#actuator-outputs): Assign motors, control surfaces, and other actuators to specific output.
-- [Actuator Testing](#actuator-testing): Test that motors and actuators move in the direction / speed as expected.
+- [Геометрія](#geometry): налаштуйте геометрію [вибраного планера](../config/airframe.md). Це включає кількість, положення та властивості [двигунів](#motor-geometry), а також кількість і властивості [керуючих поверхонь](#control-surfaces-geometry) і [сервоприводів нахилу двигуна](#motor-tilt-servo-geometry).
+- [Виходи приводів](#actuator-outputs): призначте двигуни, поверхні керування та інші приводи певному виходу.
+- [Тестування приводу](#actuator-testing): перевірте, чи двигуни та приводи рухаються в очікуваному напрямку/швидкості.
 
-A quadcopter might have an setup screen similar to the one shown below. This defines a 4-rotor copter with X-geometry. It maps the 4 motors to the AUX1 to AUX4 outputs, and specifies that the connect to DShot1200 ESC. It also maps PWM400 AUX outputs for controlling a parachute and landing gear.
+Можливо, у квадрокоптера буде екран налаштувань, схожий на показаний нижче. Це визначає чотиримоторний коптер з геометрією X. Він відображає 4 двигуни на виходи AUX1 до AUX4 та вказує, що вони підключені до регуляторів швидкості DShot1200 ESC. Також він відображає виходи PWM400 AUX для керування парашутом та стійками посадки.
 
 ![Actuators MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_aux.png)
 
-::: info Only the most common settings are displayed by default. Select the **Advanced** checkbox in the top right corner to display all settings.
+::: info За замовчуванням відображаються лише найпоширеніші налаштування. Установіть прапорець **Додатково** у верхньому правому куті, щоб відобразити всі налаштування.
 :::
 
-## Geometry
+## Геометрія
 
-The geometry section is used to set any configurable geometry-related parameters for the selected [airframe](../config/airframe.md). This includes the number and position of [motors](#motor-geometry), and the number, function, and properties of [control surfaces](#control-surfaces-geometry). For VTOL tiltrotor vehicles, it will also include the number and properties of [tilt servos](#motor-tilt-servo-geometry)
+Розділ геометрії використовується для встановлення будь-яких конфігурованих параметрів, пов’язаних із геометрією, для вибраного [планера](../config/airframe.md). Це включає кількість і положення [двигунів](#motor-geometry), а також кількість, функції та властивості [керуючих поверхонь](#control-surfaces-geometry). Для конвертопланів VTOL також включатиме кількість і властивості [сервоприводів нахилу](#motor-tilt-servo-geometry)
 
-::: info The UI is customised for the selected airframe:
+::: info Інтерфейс користувача налаштовано для вибраного планера:
 
-- Only _configurable_ fields for the selected airframe type are displayed; fields that aren't configurable for the airframe are hidden.
-- The motor position diagram is currently only displayed for multicopter frames.
+- Відображаються лише _конфігуровані_ поля для вибраного типу планера; поля, які не можна налаштувати для планера, приховані.
+- Діаграма положення двигуна наразі відображається лише для рам мультикоптера.
 :::
 
-### Motor Geometry
+### Геометрія двигунів
 
-The motor geometry section lets you set the number of motors, the relative position, and other properties of each motor.
+Розділ геометрії двигунів дозволяє вам встановити кількість двигунів, відносне положення та інші властивості кожного двигуна.
 
-Most motor properties apply to all frames. A few properties apply to specific frames. For example, `Tilted-by` and `axis` are only relevant for [Tiltrotor VTOL](#motor-geometry-vtol-tiltrotor) and [Standard VTOL](#motor-geometry-standard-vtol) vehicles, respectively.
+Більшість властивостей двигуна застосовуються до всіх рамок. Деякі властивості застосовуються до певних рамок. Наприклад, `Tilted by` і `axis` актуальні лише для транспортних засобів [Tiltrotor VTOL](#motor-geometry-vtol-tiltrotor) і [Standard VTOL](#motor-geometry-standard-vtol) відповідно.
 
-The geometry configuration for multicopter airframes provides a diagram showing the relative x,y positions for each of the motors. See the [Airframe Reference](../airframes/airframe_reference.md) for an broad understanding of the motor positions for other frames.
+Конфігурація геометрії для повітряних рамок мультікоптерів надає діаграму, яка показує відносні позиції по вісі x та y для кожного з двигунів. Див. [Airframe Reference](../airframes/airframe_reference.md) для загального розуміння позицій двигунів для інших рамок.
 
-Core geometry concepts and the configuration for a number of different frames are provided in the following sections.
+Основні концепції геометрії та конфігурація для ряду різних фреймів наведені в наступних розділах.
 
 #### Motor Geometry: Multicopter
 
@@ -104,21 +104,21 @@ The origin is the vehicle's **centre-of-gravity (COG)**. This may **NOT** be the
 
 #### Bidirectional Motors
 
-Some vehicles may use bidirectional motors (i.e. motors that support spinning in both directions). For example, ground vehicles that want to move forwards and backwards, or VTOL vehicles that have pusher motors that can turn in either direction.
+Деякі транспортні засоби можуть використовувати двонаправлені двигуни (тобто двигуни, які підтримують обертання у обох напрямках). Наприклад, земляні транспортні засоби, які хочуть рухатися вперед і назад, або літальні апарати типу VTOL, які мають двигуни-тягунці, які можуть обертатися у будь-якому напрямку.
 
-If bidiectional motors are used, make sure to select the **Reversible** checkbox for those motors (the checkbox is displayed as an "advanced" option).
+Якщо використовуються двонаправлені двигуни, переконайтеся, що для цих двигунів вибрано прапорець "Реверсивний" **Reversible** (цей прапорець відображається як "розширена" опція).
 
 ![Reversible](../../assets/config/actuators/qgc_geometry_reversible_marked.png)
 
-Note that you will need to also ensure that the ESC associated with bidirectional motors is configured appropriately (e.g. 3D mode enabled for DShot ESCs, which can be achieved via [DShot commands](../peripherals/dshot.md#commands)).
+Зверніть увагу, що вам також потрібно переконатися, що регулятор швидкості (ESC), пов'язаний з двунаправленими двигунами, налаштований відповідним чином (наприклад, увімкнення режиму 3D для регуляторів швидкості DShot, що можна здійснити за допомогою команд DShot [DShot commands](../peripherals/dshot.md#commands)).
 
-### Control Surfaces Geometry
+### Геометрія поверхонь керування
 
-The control surfaces section of the geometry panel lets you set the number and types of control surfaces that are present on the vehicle. You may also need to set trim and slew rate values in some cases. More advanced users can also configure the roll scale, yaw scale, and pitch scale (generally the defaults are acceptable, and this is not needed). An "example" control surface section for a vehicle with two ailerons is shown below. Note that ailerons only affect roll, so the pitch and yaw fields are disabled.
+Розділ поверхонь керування на панелі геометрії дозволяє встановити кількість і типи поверхонь керування, які присутні на транспортному засобі. У деяких випадках вам також може знадобитися встановити значення обрізки і швидкості переміщення. Для більш досвідчених користувачів також доступна можливість налаштувати масштаби кочення, рулювання та тангажу (зазвичай значення за замовчуванням є прийнятними і цього не потрібно). Нижче показаний "приклад" розділу поверхонь керування для транспортного засобу з двома елеронами. Зауважте, що елерони впливають тільки на кочення, тому поля тангажу та рулювання вимкнені.
 
 ![Control Surface Setup Example](../../assets/config/actuators/control_surfaces_geometry.png)
 
-::: info Only the most common settings are displayed by default. Select the **Advanced** checkbox in the top right corner of the view to display all settings.
+::: info За замовчуванням відображаються лише найпоширеніші налаштування. Виберіть прапорець **Додаткові** в правому верхньому куті вікна, щоб відобразити всі налаштування.
 :::
 
 The fields are:
@@ -140,19 +140,19 @@ The fields are:
 
 #### Flap Scale and Spoiler Scale Configuration
 
-"Flap-control" and "Spoiler-control" are aerodynamic configurations that can either be commanded manually by the pilot (using RC, say), or are set automatically by the controller. For example, a pilot or the landing system might engage "Spoiler-control" in order to reduce the airspeed before landing.
+"Керування флапами" та "керування спойлерами" - це аеродинамічні конфігурації, які можуть керуватися вручну пілотом (наприклад, за допомогою RC) або встановлюватися автоматично контролером. Наприклад, пілот або система посадки можуть ввести "керування спойлерами", щоб зменшити швидкість повітря перед посадкою.
 
-The configurations are an _abstract_ way for the controller to tell the allocator how much it should adjust the aerodynamic properties of the wings relative to the "full flaps" or "full spoiler" configuration (between `[0,1]`, where "1" indicates the full range). The allocator then uses any of the available control surfaces it wants in order to achieve the requested configuration: usually flaps, ailerons, and elevator.
+Конфігурації є _абстрактним_ способом, за допомогою якого контролер повідомляє розподілювачу, наскільки він має налаштувати аеродинамічні властивості крил відносно конфігурації «повні закрилки» або «повний спойлер» (між `[ 0,1]`, де "1" означає повний діапазон). Потім алокатор використовує будь-які доступні поверхні керування для досягнення вимаганої конфігурації: зазвичай флапи, елерони та кормові поверхні.
 
-The `flap scale` and `spoiler scale` settings in the actuator UI inform the allocator how much ailerons, elevators, flaps, spoilers, and other control surfaces, contribute to a requested "Flap-control" and/or "Spoiler-control" value. Specifically, they indicate how much each control surface should be deflected when the controller is demanding "full flaps" or "full spoiler".
+Налаштування масштабу флапів `flap scale` та спойлерів `spoiler scale` у користувальницькому інтерфейсі актуатора інформує алокатор, наскільки елерони, елеватори, флапи, спойлери та інші поверхні керування сприяють вимаганому значенню "керування флапами" і/або "керування спойлерами". Зокрема, вони показують, на скільки кожна поверхня керування повинна бути відхиленою, коли контролер вимагає "повних флапів" або "повного спойлера".
 
-In the following example, the vehicle has two ailerons, one elevator, one rudder and two flaps as control surfaces:
+У наступному прикладі транспортний засіб має два елерона, один елеватор, один руль і дві флапи як поверхні керування:
 
 ![Flaps and spoiler actuator configuration example](../../assets/config/actuators/qgc_actuators_tab_flaps_spoiler_setup.png)
 
-- The flaps have both `Flap Scale` set to 1, meaning that they will be fully deflected with the flap-control at 1. They also have a slew rate of 0.5/s, meaning that it will take 2s to fully deflect them (a slew rate on the flaps is generally recommended to reduce the disturbances their movement creates).
-- The ailerons are primarily tasked to provide the commanded roll torque. They also have `Spoiler Scale` set to 0.5, and will additionally be deflected upwards 50% if the controller demands full spoiler configuration. The aileron deflection is thus the sum of the (asymmetrical) deflection for the roll torque, plus the (symmetrical) deflection for the spoiler setpoint.
-- The elevator is primarily tasked to provide pitch torque. It also has non-zero entries in the `Flap Scale` and `Spoiler Scale` fields. These are the elevator deflections added to compensate for the pitching moments generated by the flaps and spoiler actuators. In the case here the elevator would be deflected 0.3 up when the flaps are fully deployed to counteract the pitching down moment caused by the flaps.
+- Флапи мають обидва масштаби флапів `Flap Scale`, встановлені на 1, що означає, що вони будуть повністю відхилені при керуванні флапами на рівні 1. Також вони мають швидкість переміщення 0,5/с, що означає, що їм знадобиться 2 секунди, щоб повністю відхилити їх (швидкість переміщення флапів, як правило, рекомендується, щоб зменшити перешкоди, які створює їх рух).
+- Елерони в основному призначені для забезпечення керованого крутного моменту. Вони також мають масштаби спойлерів `Spoiler Scale`, встановлені на 0,5, і додатково будуть відхилені вгору на 50%, якщо контролер вимагає повну конфігурацію спойлера. Таким чином, відхилення елеронів - це сума (асиметричного) відхилення для крутного моменту, плюс (симетричне) відхилення для вказаної точки спойлера.
+- Елеватор в основному призначений для забезпечення крутного моменту по тангажу. Він також має ненульні значення в полях масштабу флапів `Flap Scale` та спойлерів `Spoiler Scale`. Це відхилення елеватора, яке додається для компенсації моментів по тангажу, створених дією поверхні флапів та спойлерів. У цьому випадку елеватор буде відхилений на 0,3 вгору при повному розгортанні флапів для компенсації моменту, спрямованого вниз, який викликано дією флапів.
 
 #### Actuator Roll, Pitch, and Yaw Scaling
 
@@ -162,10 +162,10 @@ For the majority of airframe setups the default values for each control surface 
 
 The `Roll scale`, `Pitch scale` and `Yaw scale` values indicate the normalized effectiveness of the actuator around the corresponding axis.
 
-Tuning the values is a low/level/advanced topic, and is generally only needed when tuning coupled control surfaces (like an elevon, that controls both pitch and roll). In this case the things you need to know are:
+Настройка значень є темою низького / рівня / продвинутої складності і, як правило, потрібна лише при налаштуванні зв'язаних поверхонь керування (наприклад, елерон, який контролює як кочення, так і тангаж). У цьому випадку важливо знати наступне:
 
-- The numbers that are entered are directly put into the allocation matrix, that is then inverted to get from desired moments (normalized) to control signals.
-- Increasing the scale will _reduce_ the deflection of the control surfaces (as it gets inverted).
+- Числа, які вводяться, безпосередньо вводяться в матрицю розподілу, яка потім інвертується для отримання сигналів керування від вибраних моментів (нормалізованих).
+- Збільшення масштабу зменшить _reduce_ відхилення поверхонь керування (оскільки він інвертується).
 
 <!-- For more information see: []() (PX4 Dev Summit, 2022) -->
 

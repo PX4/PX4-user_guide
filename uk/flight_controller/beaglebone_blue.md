@@ -2,40 +2,40 @@
 
 <LinkedBadge type="warning" text="Experimental" url="../flight_controller/autopilot_experimental.md"/>
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://beagleboard.org/blue) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://beagleboard.org/blue) щодо підтримки обладнання або питань сумісності.
 :::
 
-[BeagleBone Blue](https://beagleboard.org/blue) is an all-in-one Linux-based computer. Although it is optimized for robotics, this compact and inexpensive board has all necessary sensors and peripherals needed by a flight controller. This topic shows how to set up the board to run PX4 with [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) robotics package.
+[BeagleBone Blue](https://beagleboard.org/blue) - це багатофункціональний комп'ютер на базі Linux. Хоча ця компактна і недорога плата оптимізована для робототехніки, вона має всі необхідні датчики і периферійні пристрої, необхідні для керування польотом. У цій темі показано, як налаштувати плату для роботи PX4 з пакетом робототехніки [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol).
 
 ![BeagleBone - labelled diagram](../../assets/hardware/BeagleBone_Blue_balloons.jpg)
 
 ## OS Image
 
-_BeagleBone Blue_ images can be found here:
+_BeagleBone Blue_ образи можна знайти тут:
 
-- [Latest stable OS image](https://beagleboard.org/latest-images).
-- [Test OS images](https://rcn-ee.net/rootfs/bb.org/testing/) (updated frequently).
+- [Останній стабільний образ ОС](https://beagleboard.org/latest-images).
+- [Тестові образи ОС](https://rcn-ee.net/rootfs/bb.org/testing/) (часто оновлюються).
 
-Information about flashing OS images can be found on [this page](https://github.com/beagleboard/beaglebone-blue/wiki/Flashing-firmware). Other useful information can be found in the [FAQ](https://github.com/beagleboard/beaglebone-blue/wiki/Frequently-Asked-Questions-(FAQ)).
-
-:::tip
-Optionally you can update to a realtime kernel, and if you do, re-check if _librobotcontrol_ works properly with the realtime kernel.
-:::
-
-The latest OS images at time of updating this document is [bone-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz](https://debian.beagle.cc/images/bone-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz).
-
-## Cross Compiler Build (Recommend)
-
-The recommended way to build PX4 for _BeagleBone Blue_ is to compile on a development computer and upload the PX4 executable binary directly to the BeagleBone Blue.
+Інформацію про перепрошивання образів ОС можна знайти на [цій сторінці](https://github.com/beagleboard/beaglebone-blue/wiki/Flashing-firmware). Іншу корисну інформацію можна знайти в [ FAQ](https://github.com/beagleboard/beaglebone-blue/wiki/Frequently-Asked-Questions-(FAQ)).
 
 :::tip
-This approach is recommended over [native build](#native_builds) due to speed of deployment and ease of use.
+За бажанням ви можете оновитися до realtime kernel, і якщо ви це зробите, перевірте, чи _librobotcontrol_ працює належним чином з realtime kernel.
 :::
 
-::: info The PX4 build requires [librobotcontrol](http://strawsondesign.com/docs/librobotcontrol/) which is automatically included in the build (but it can be installed and tested independently if required).
+Останніми образами ОС на момент оновлення цього документа є [bone-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz](https://debian.beagle.cc/images/bone-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz).
+
+## Збірка для крос-компіляторів (рекомендується)
+
+Рекомендований спосіб збірки PX4 для _BeagleBone Blue_ - це компіляція на комп'ютері розробника і завантаження виконуваного бінарного файлу PX4 безпосередньо на BeagleBone Blue.
+
+:::tip
+Цей підхід рекомендується використовувати замість [нативної збірки](#native_builds) через швидкість розгортання та простоту використання.
 :::
 
-### Beaglebone Blue WIFI Setup
+::: info Збірка PX4 потребує [librobotcontrol](http://strawsondesign.com/docs/librobotcontrol/), який автоматично включається до збірки (але його можна встановити і протестувати незалежно, якщо потрібно).
+:::
+
+### Налаштування Beaglebone Blue WIFI
 
 For easy access to your board, you can connect it to your home network via wifi.
 

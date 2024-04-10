@@ -1,74 +1,74 @@
-# Generic Actuator Control
+# Керування загальним приводом
 
-You can connect arbitrary hardware to unused PX4 outputs and control it using [RC Control](#generic-actuator-control-with-rc) or [MAVLink](#generic-actuator-control-with-mavlink) (either as commands or in a [mission](#generic-actuator-control-in-missions)).
+Ви можете під'єднати довільне обладнання до невикористаних виводів PX4 і керувати ним за допомогою [Пристрою дистанційного керування](#generic-actuator-control-with-rc) або [MAVLink](#generic-actuator-control-with-mavlink) (як окремі команди, так і у [місії](#generic-actuator-control-in-missions)).
 
-This is useful when you need to use a payload type for which there is no associated MAVLink command, or for which PX4 doesn't have any specific integration.
+Це корисно, коли вам потрібно використовувати тип корисного навантаження, для якого немає пов’язаної команди MAVLink, або для якого PX4 не має відповідної інтеграції.
 
 :::note
-Prefer using integrated hardware and hardware-specific MAVLink commands, such as those for [Grippers](../peripherals/gripper.md), to generic actuator control when possible.
-Using integrated hardware allows optimised [mission planning and behaviour](../flying/package_delivery_mission.md) because the mission can know key facts about the hardware, such as how long it takes to trigger.
+Віддавайте перевагу використанню інтегрованого апаратного забезпечення та команд MAVLink відповідно до конкретного апаратного забезпечення, наприклад для [Захватів](../peripherals/gripper.md), замість керування загальним приводом, коли це можливо.
+Використання інтегрованого обладнання дозволяє оптимізувати [планування та поведінку місії](../flying/package_delivery_mission.md), оскільки місія може знати ключові факти про апаратне забезпечення, наприклад, скільки часу потрібно для запуску.
 :::
 
-## Generic Actuator Control with MAVLink
+## Керування загальним приводом за допомогою MAVLink
 
-[MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) can be used to set the value of up to 6 actuators (at a time).
-This command can be used in [missions](#generic-actuator-control-in-missions) by creating a "Set actuator" mission item, or as a stand alone command.
+[MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) може бути використано для встановлення значення для до 6 приводів (одночасно).
+Цю команду можна використовувати в [місіях](#generic-actuator-control-in-missions), створивши елемент місії «Set actuator», або як окрему команду.
 
-The outputs that are to be controlled are specified in the [Actuators](../config/actuators.md#actuator-outputs) configuration screen by assigning the functions `Peripheral via Actuator Set 1` to `Peripheral via Actuator Set 6` to the desired [actuator outputs](../config/actuators.md#actuator-outputs).
+Виводи, якими потрібно керувати, вказуються на екрані конфігурації [Actuators](../config/actuators.md#actuator-outputs) шляхом призначення функцій від `Peripheral via Actuator Set 1` до `Peripheral via Actuator Set 6` для бажаних [виводів приводу](../config/actuators.md#actuator-outputs).
 
-![Generic actuator output setting in QGC](../../assets/peripherals/qgc_generic_actuator_output_setting_example.png)
+![Налаштування виводу загального приводу в QGC](../../assets/peripherals/qgc_generic_actuator_output_setting_example.png)
 
-`MAV_CMD_DO_SET_ACTUATOR` `param1` to `param6` control the outputs mapped by `Peripheral via Actuator Set 1` to `Peripheral via Actuator Set 6` respectively.
+`MAV_CMD_DO_SET_ACTUATOR` `param1` до `param6` контролюють виводи, пов'язані `Peripheral via Actuator Set 1` до `Peripheral via Actuator Set 6` відповідно.
 
-For example, in the image above, the `AUX5` output is assigned the function `Peripheral via Actuator Set 1` function.
-To control the actuator attached to `AUX5` you would set the value of `MAV_CMD_DO_SET_ACTUATOR.param1`.
+Наприклад, на зображенні вище, вивід `AUX5` пов'язано з функцією `Peripheral via Actuator Set 1`.
+Щоб керувати приводом, підключеним до `AUX5`, потрібно встановити значення `MAV_CMD_DO_SET_ACTUATOR.param1`.
 
 <!-- PX4 v1.14 bug https://github.com/PX4/PX4-Autopilot/issues/21966 -->
 
-## Generic Actuator Control with RC
+## Керування загальним приводом за допомогою RC
 
-Up to 6 autopilot PWM or CAN outputs can be controlled using RC channels.
-The outputs that are to be controlled are specified in the [Actuators](../config/actuators.md#actuator-outputs) configuration screen by assigning the functions `RC AUX 1` to `RC AUX 6` to the desired [actuator outputs](../config/actuators.md#actuator-outputs).
+За допомогою каналів пристрою дистанційного керування можна керувати до 6 PWM чи CAN виводами автопілота.
+Виводи, якими потрібно керувати, вказуються на екрані конфігурації [Actuators](../config/actuators.md#actuator-outputs) шляхом призначення функцій від `RC AUX 1` до `RC AUX 6` потрібним [виводам приводу](../config/actuators.md#actuator-outputs).
 
-To map a particular RC channel to an output function `RC AUX n` (and hence it's assigned output) you use the [RC_MAP_AUXn](../advanced_config/parameter_reference.md#RC_MAP_AUX1) parameter that has the same `n` number.
+Щоб зіставити певний RC канал із функцією виводу `RC AUX n` (і, отже, з її призначеним виводом), ви використовуєте параметр [RC_MAP_AUXn](../advanced_config/parameter_reference.md#RC_MAP_AUX1), який має той самий номер `n`.
 
-For example, to control an actuator attached to AUX pin 3 (say) you would assign the output function `RC AUX 5` to the output `AUX3`.
-You could then use set the RC channel to control the `AUX3` output using `RC_MAP_AUX5`.
+Наприклад, щоб керувати приводом, приєднаним до AUX контакту 3 (скажімо), ви повинні призначити функцію виводу `RC AUX 5` виводу `AUX3`.
+Потім ви можете використовувати RC канал для керування виводом `AUX3` за допомогою `RC_MAP_AUX5`.
 
-## Generic Actuator Control in Missions
+## Керування загальним приводом у місіях
 
-To use generic actuator control in a mission you must first [configure the outputs that you want to control using MAVLink](#generic-actuator-control-with-mavlink).
+Щоб використовувати керування загальним приводом у місії, ви повинні спочатку [налаштувати виводи, якими ви хочете керувати за допомогою MAVLink](#generic-actuator-control-with-mavlink).
 
-Then in _QGroundControl_ you can set the value of actuator outputs in a mission using the **Set actuator** mission item (this adds a [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) to the uploaded mission plan).
+Потім у _QGroundControl_ ви можете встановити значення виводів приводу в місії за допомогою елементу місії **Set actuator** (це додає [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) до завантаженого плану місії).
 
-It is important to note that with generic actuator control, neither _QGroundControl_ or PX4 know anything about the hardware being triggered.
-When processing the mission item, PX4 will simply set the outputs to the specified values and then immediately proceed to the next mission item.
-If the hardware requires time to activate and you need to pause at the current waypoint for this to happen, then you will need to plan the mission with additional items to achieve the desired behaviour.
+Важливо зазначити, що при керуванні загальним приводом ані _QGroundControl_, ані PX4 нічого не знають про апаратне забезпечення, яке запускається.
+Під час обробки елемента місії PX4 просто встановить виводи відповідно до наданих значень, а потім негайно перейде до наступного елемента місії.
+Якщо апаратне забезпечення вимагає часу для активації, і вам потрібно зупинитися на поточній точці маршруту, щоб це сталося, тоді вам потрібно буде спланувати місію з додатковими елементами, щоб досягти бажаної поведінки.
 
 :::note
-This is one reason why integrated hardware is preferred!
-It allows missions to be written generically, with any hardware-specific behaviour or timing managed by the flight stack configuration.
+Це одна з причин переваги інтегрованого апаратного забезпечення!
+Це дозволяє будувати місії в загальному вигляді, з будь-якою поведінкою, що залежить від апаратного забезпечення, або часом, керованим конфігурацією політного стека.
 :::
 
-To use a generic actuator in a mission:
+Щоб використовувати загальний привід у місії:
 
-1. Create a waypoint mission item where you want the actuator command.
+1. Створіть елемент місії waypoint, де вам потрібна команда приводу.
 
-2. Change the waypoint mission item to a "Set actuator" mission item:
+2. Змініть елемент місії waypoint на елемент місії «Set actuator»:
 
-   ![Set actuator mission item](../../assets/qgc/plan/mission_item_editors/mission_item_select_set_actuator.png)
+   ![Елемент місії Set actuator](../../assets/qgc/plan/mission_item_editors/mission_item_select_set_actuator.png)
 
-   - Select the header on the waypoint mission editor to open the **Select Mission Command** editor.
-   - Select the category **Advanced**, and then the **Set actuator** item (if the item is not present, try a more recent version of _QGroundControl_ or a daily build).
-     This will change the mission item type to "Set actuator".
+   - Виберіть заголовок у редакторі маршрутної точки місії, щоб відкрити редактор **Select Mission Command**.
+   - Виберіть категорію **Advanced**, а потім пункт **Set actuator** (якщо елемента немає, спробуйте новішу версію _QGroundControl_ або щоденну збірку).
+     Це змінить тип елемента місії на «Set actuator».
 
-3. Select the actuators that are connected and set their values (these are normalized between -1 and 1).
+3. Виберіть підключені приводи та встановіть їхні значення (вони нормалізовані між -1 і 1).
 
-   ![Set actuator mission item](../../assets/qgc/plan/mission_item_editors/set_actuator.png)
+   ![Елемент місії Set actuator](../../assets/qgc/plan/mission_item_editors/set_actuator.png)
 
-## MAVSDK (Example script)
+## MAVSDK (приклад скрипту)
 
-The following [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) [example code](https://github.com/mavlink/MAVSDK/blob/main/examples/set_actuator/set_actuator.cpp) shows how to trigger payload release using the MAVSDK Action plugin's [`set_actuator()`](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1ad30beac27f05c62dcf6a3d0928b86e4c) method.
+Наступний [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) [приклад коду](https://github.com/mavlink/MAVSDK/blob/main/examples/set_actuator/set_actuator.cpp) показує, як ініціювати випуск корисного навантаження за допомогою методу [`set_actuator()`](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1ad30beac27f05c62dcf6a3d0928b86e4c) плагіну MAVSDK Action.
 
 The `set_actuator()` index values map to the MAVLink payload outputs defined for your airframe.
 

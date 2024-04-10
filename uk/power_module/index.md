@@ -1,12 +1,12 @@
 # Power Modules & Power Distribution Boards
 
-Power Modules provide a regulated power supply for the flight controller, along with information about battery voltage and current. The voltage/current information is used to determine the consumed power, and to hence to estimate remaining battery capacity. This in turn allows the flight controller to provide failsafe warnings and other actions in the event of low power: [Safety > Low Battery Failsafe](../config/safety.md#low-battery-failsafe).
+Блоки живлення забезпечують стабілізоване живлення для керуючого пристрою польоту, а також інформацію про напругу батареї та поточний струм. Інформація про напругу/струм використовується для визначення спожитої потужності та, відповідно, для оцінки залишкової ємності батареї. Це дозволяє керуючому пристрою польоту надавати аварійні попередження та інші дії у випадку низького рівня живлення: [Safety > Low Battery Failsafe](../config/safety.md#low-battery-failsafe).
 
-Power Distribution Boards (PDB) include a power module, and additionally have wiring to supply power to motors. They may also include a BEC to supply power to servos and other actuators.
+Розподільчі плати живлення (PDB) включають блок живлення та додатково мають проводку для живлення двигунів. Вони також можуть включати BEC для живлення сервоприводів та інших приводів.
 
-The PX4 battery/power module configuration (via the ADC interface) is covered in: [Battery Estimation Tuning](../config/battery.md).
+Конфігурація батареї/живлення PX4 (через інтерфейс ADC) розглянута у розділі: [Налаштування оцінки заряду батареї](../config/battery.md).
 
-This section provides links/information about supported power modules and power distribution boards:
+У цьому розділі наведено посилання/інформацію про підтримувані блоки живлення та розподільчі плати живлення:
 
 * Analog voltage and current power modules:
   * [CUAV HV PM](../power_module/cuav_hv_pm.md)

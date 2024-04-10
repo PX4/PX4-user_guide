@@ -12,7 +12,7 @@ The yaw stick can be used to increase/reduce the yaw rate of the vehicle in turn
 
 ![FW Position Mode](../../assets/flight_modes/position_fw.png)
 
-## Technical Description
+## Технічний опис
 
 Position mode is like [Stabilized mode](../flight_modes_fw/altitude.md) but with course stabilization. Airspeed is also stabilized if an airspeed sensor is present.
 
@@ -26,11 +26,11 @@ Position mode is like [Stabilized mode](../flight_modes_fw/altitude.md) but with
 - Manual control input is required (such as RC control, joystick).
 - An altitude measurement source is required (usually barometer or GPS)
 
-## Parameters
+## Параметри
 
 The mode is affected by the following parameters:
 
-| Parameter                                                                                                   | Description                                                          |
+| Параметр                                                                                                    | Опис                                                                 |
 | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | <a id="FW_AIRSPD_MIN"></a>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)         | Min airspeed. Default: 10 m/s.                                       |
 | <a id="FW_AIRSPD_MAX"></a>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)         | Max airspeed. Default: 20 m/s.                                       |

@@ -20,7 +20,7 @@ _Follow Me_ mode allows a multicopter to autonomously hold position and altitude
 
 :::
 
-## Overview
+## Загальний огляд
 
 ![Follow-me Concept](../../assets/flight_modes/followme_concept.png)
 
@@ -124,11 +124,11 @@ The MAVLink [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TA
 The drone probably won't crash due to the built-in minimum safety altitude limit (1 meter), but it may fly much higher than expected. If the drone's altitude is significantly different than specified, assume that the ground station's altitude output is wrong and use 2D tracking.
 :::
 
-### Parameters
+### Параметри
 
 The follow-me behavior can be configured using the following parameters:
 
-| Parameter                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                            |
+| Параметр                                                                                                | Опис                                                                                                                                                                                                                                                                                                                                                                   |
 | ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="FLW_TGT_HT"></a>[FLW_TGT_HT](../advanced_config/parameter_reference.md#FLW_TGT_HT)           | Vehicle follow-me height, in metres. Note that this height is fixed _relative to the home/arming position_ (not the target vehicle). Default and minimum height is 8 meters (about 26 ft)                                                                                                                                                                              |
 | <a id="FLW_TGT_DST"></a>[FLW_TGT_DST](../advanced_config/parameter_reference.md#FLW_TGT_DST)         | Vehicle/ground station separation in the _horizontal_ (x,y) plane, in metres. Minimum allowed separation is 1 meter. Default distance is 8 meters (about 26 ft).                                                                                                                                                                                                       |

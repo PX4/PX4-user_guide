@@ -1,30 +1,29 @@
 # TFI2CADT01 - I²C Address Translator
 
-[TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) is an address translator module that is compatible with Pixhawk and PX4.
+[TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) - це модуль перетворювача адрес, який сумісний з Pixhawk та PX4.
 
-Address translation allows multiple I2C devices with the same address to coexist on an I2C network. The module may be needed if using several devices that have the same hard-coded address.
+Перетворення адрес дозволяє кільком пристроям I2C з однаковою адресою співіснувати в мережі I2C. Модуль може знадобитися, якщо використовуються кілька пристроїв, які мають однакову заводську адресу.
 
-The module has an input and an output side. A sensor is connected to the master device on one side. On the output side sensors, whose addresses are to be translated, can be connected. The module contains two pairs of connectors, each pair responsible for different translations.
+Модуль має вхідну та вихідну сторони. Датчик підключається до головного пристрою на одній стороні. На вихідній стороні можуть бути підключені датчики, адреси яких потрібно перетворити. Модуль містить дві пари конекторів, кожна пара відповідає за різні перетворення.
 
 ![TFI2CADT - i2c address translator](../../assets/peripherals/i2c_tfi2cadt/tfi2cadt01a_both_sides.jpg)
 
-:::note
-[TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) is designed as open-source hardware with GPLv3 license. It is commercially available from [ThunderFly](https://www.thunderfly.cz/) company or from [Tindie eshop](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/).
+[TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) розроблений як відкрите апаратне забезпечення з ліцензією GPLv3. Його можна комерційно придбати у компанії [ThunderFly](https://www.thunderfly.cz/) або[Tindie eshop](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/).
 :::
 
-## Address Translation Method
+## Метод перетворення адрес
 
-TFI2CADT01 performs an XOR operation on the called address. Therefore, a new device address can be found by taking the original address and applying an XOR operation with the value specified on the module. By default, the output 1 performs XOR with 0x08 value and the second port with 0x78. By short-circuiting the solder jumper you can change the XOR value to 0x0f for the first and 0x7f for the second port.
+TFI2CADT01 виконує операцію XOR на викликаній адресі. Таким чином, нову адресу пристрою можна знайти, взявши оригінальну адресу та застосувавши операцію XOR з значенням, вказаним на модулі. За замовчуванням, вихід 1 виконує XOR зі значенням 0x08, а другий порт - з 0x78. By short-circuiting the solder jumper you can change the XOR value to 0x0f for the first and 0x7f for the second port.
 
-If you need your own value for address translation, changing the configuration resistors makes it possible to set any XOR value.
+Якщо вам потрібне власне значення для перетворення адрес, зміна конфігураційних резисторів дозволяє встановити будь-яке значення XOR.
 
-## Example of Use
+## Приклад використання
 
-The tachometer sensor [TFRPM01](../sensor/thunderfly_tachometer.md) can be set to two different addresses using a solder jumper. If the autopilot has three buses, only 6 sensors can be connected and no bus remains free (2 available addresses * 3 I2C ports). In some multicopters or VTOL solutions, there is a need to measure the RPM of 8 or more elements. The [TFI2CADT01](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/) is highly recommended in this case.
+Датчик тахометра [TFRPM01](../sensor/thunderfly_tachometer.md) може бути налаштований на дві різні адреси за допомогою паяльного перемикача. Якщо автопілот має три шини, тільки 6 датчиків можуть бути підключені і жодна шина не залишається вільною (2 доступні адреси * 3 порти I2C). У деяких мультикоптерах або рішеннях VTOL є необхідність вимірювати оберти хвилину RPM 8 або більше елементів. У цьому випадку дуже рекомендується [TFI2CADT01](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/).
 
 ![Multiple sensors](../../assets/peripherals/i2c_tfi2cadt/tfi2cadt01_multi_tfrpm01.jpg)
 
-The following scheme shows how to connect 6 TFRPM01 to one autopilot bus. By adding another TFI2CADT01, 4 more devices can be connected to the same bus.
+Наступна схема показує, як підключити 6 TFRPM01 до однієї шини автопілота. Додавши ще один TFI2CADT01, до тієї ж шини можна підключити ще 4 пристрої.
 
 [![Connection of multiple sensors](https://mermaid.ink/img/pako:eNptkd9rwjAQx_-VcE8dtJB2ukEfBLEWfJCJy8CHvgRznQH7gzSBDfF_33VZB2oCyf3I576XcBc4dgohh08j-xMTRdUyWuX2I6LNErY7zJh0tuv1ubNP_7csSRZsudlHS22GHlGxAduhM3fEfrdNI1GS4emK8a85fwSyGyC9A0S5yVbrg_DZKfLtCxH9JsjhaU7VvI7pfK3_NCg_NXmO3pwl5uYt9D0yAXoWoFNP4yM9H-kspJ0FtF8CdObpURtiaNA0UisaymWsrsCesMEKcnIV1tKdbQVVeyXU9UpaXCttOwO5NQ5jGKf1_t0ep9gzhZY04sYnrz9BI4mU)](https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNptkd9rwjAQx_-VcE8dtJB2ukEfBLEWfJCJy8CHvgRznQH7gzSBDfF_33VZB2oCyf3I576XcBc4dgohh08j-xMTRdUyWuX2I6LNErY7zJh0tuv1ubNP_7csSRZsudlHS22GHlGxAduhM3fEfrdNI1GS4emK8a85fwSyGyC9A0S5yVbrg_DZKfLtCxH9JsjhaU7VvI7pfK3_NCg_NXmO3pwl5uYt9D0yAXoWoFNP4yM9H-kspJ0FtF8CdObpURtiaNA0UisaymWsrsCesMEKcnIV1tKdbQVVeyXU9UpaXCttOwO5NQ5jGKf1_t0ep9gzhZY04sYnrz9BI4mU)
 

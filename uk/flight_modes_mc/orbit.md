@@ -20,7 +20,7 @@ The _Orbit_ guided flight mode allows you to command a multicopter (or VTOL in m
 
 :::
 
-## Overview
+## Загальний огляд
 
 ![Orbit Mode - MC](../../assets/flying/orbit.jpg)
 

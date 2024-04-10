@@ -24,7 +24,7 @@ Where possible, instead use [Return mode](../flight_modes_fw/return.md) with a p
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/commander/ModeUtil/mode_requirements.cpp -->
 :::
 
-## Technical Summary
+## Технічний підсумок
 
 Land mode causes the vehicle follow a descending circular path (corkscrew) until touchdown.
 
@@ -32,17 +32,17 @@ When the mode is engaged, the vehicle starts to loiter around the current vehicl
 
 [Manual nudging](../flight_modes_fw/mission.md#automatic-abort) and [automatic land abort](../flight_modes_fw/mission.md#nudging) are not available in land mode.
 
-### Parameters
+### Параметри
 
 Land mode behaviour can be configured using the parameters below.
 
-| Parameter                                                                                             | Description                                                                  |
+| Параметр                                                                                              | Опис                                                                         |
 | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD) | The loiter radius that the controller tracks for the whole landing sequence. |
 | <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)         | The flight path angle setpoint.                                              |
 | <a id="FW_LND_AIRSPD"></a>[FW_LND_AIRSPD](../advanced_config/parameter_reference.md#FW_LND_AIRSPD)   | The airspeed setpoint.                                                       |
 
-## See Also
+## Дивись також
 
 - [Land Mode (MC)](../flight_modes_mc/land.md)
 - [Land Mode (VTOL)](../flight_modes_vtol/land.md)

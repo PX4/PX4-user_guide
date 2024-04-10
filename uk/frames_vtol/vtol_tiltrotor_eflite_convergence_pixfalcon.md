@@ -8,7 +8,7 @@ The original Horizon Hobby *E-Flite Convergence* frame and [Pixfalcon](../flight
 @[youtube](https://youtu.be/E61P2f2WPNU)
 
 
-## Where to Buy
+## Де купити
 
 Vehicle frame options:
 - **WL Tech XK X450** - [AliExpress](https://www.aliexpress.com/item/1005001946025611.html)
@@ -35,15 +35,15 @@ Note that left and right in the configuration screen and frame reference are def
 <img src="../../assets/airframes/types/VTOLTiltRotor_eflite_convergence.svg" width="300px" />
 
 
-### Flight Controller
+### Політний контролер
 
-The flight controller can be mounted at the same place the original autopilot was.
+Контролер польоту можна встановити там же, де був оригінальний автопілот.
 
 ![Mount Pixfalcon](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_pixfalcon_mounting.jpg)
 
-### Telemetry Radio
+### Телеметрійне радіо
 
-The telemetry module fits into the bay meant to hold FPV transmission gear.
+Модуль телеметрії вставляється у відсік, призначений для розміщення механізму передачі FPV.
 
 ![Mount telemetry module](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_telemetry_module.jpg)
 
@@ -54,9 +54,9 @@ For the GPS we cut out a section of foam inside the "cockpit". That way the GPS 
 ![Mount GPS](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_gps_mounting.jpg)
 
 
-## PX4 Configuration
+## Налаштування PX4
 
-Follow the [Standard Configuration](../config/index.md) in *QGroundControl* (radio, sensors, flight modes, etc.).
+Дотримуйтеся [Стандартної конфігурації](../config/index.md) в *QGroundControl* (радіо, датчики, режими польоту тощо).
 
 The particular settings that are relevant to this vehicle are:
 - [Airframe](../config/airframe.md)

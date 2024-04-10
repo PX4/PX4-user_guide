@@ -1,4 +1,4 @@
-# CUAV Pixhawk V6X Wiring Quick Start
+# Швидке підключення CUAV Pixhawk V6X
 
 This quick start guide shows how to power the [Pixhawk V6X<sup>&reg;</sup>](../flight_controller/cuav_pixhawk_v6x.md) flight controller and connect its most important peripherals.
 
@@ -8,7 +8,7 @@ The image below shows how to connect the most important sensors and peripherals 
 
 ![wiring](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_01_en.jpg)
 
-| Interface     | **Function**                                                                                                                                                                                      |
+| Інтерфейс     | **Функція**                                                                                                                                                                                       |
 |:------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | POWER C1      | Connect CAN PMU SE to this interface; this interface is connected to UAVCAN power module                                                                                                          |
 | POWER C2      | Connect CAN PMU SE to this interface; this interface is connected to UAVCAN power module                                                                                                          |
@@ -36,13 +36,13 @@ If the controller cannot be mounted in the recommended/default orientation (e.g.
 
 ![front](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_02.jpg)
 
-## GPS + Compass + Buzzer + Safety Switch + LED
+## GPS + компас + зумер + захисний вимикач + світлодіод
 
 The Pixhawk<sup>&reg;</sup> V6X can be purchased with a [NEO3 GPS](https://store.cuav.net/shop/neo-3/) (10-pin connector) and should be connected to the **GPS1** port. These GNSS modules feature an integrated compass, safety switch, buzzer and LEDs.
 
 If you need to use assisted GPS, connect to the **GPS2** port.
 
-The GPS/compass should be [mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction markings towards the front of the vehicle (separating the compass from other electronics will reduce interference).
+GPS/компас слід [монтувати на раму](../assembly/mount_gps_compass.md) якомога подалі від інших електронних пристроїв, з напрямком вперед транспортного засобу (відокремлення компаса від інших електронних пристроїв зменшить втручання).
 
 ![GPS](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_03.jpg)
 
@@ -50,7 +50,7 @@ The GPS/compass should be [mounted on the frame](../assembly/mount_gps_compass.m
 Pixhawk V6X<sup>&reg;</sup> is not compatible with NEO V2 GPS built-in buzzer: you should use [NEO3/NEO 3Pro](https://store.cuav.net/shop/neo-3/) instead. The GPS module's integrated safety switch is enabled _by default_ (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 :::
 
-## Radio Control
+## Радіоуправління
 
 A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
@@ -63,7 +63,7 @@ For more information about selecting a radio system, receiver compatibility, and
 
 ![RC control](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_04.jpg)
 
-## Power
+## Живлення
 
 Pixhawk V6X<sup>&reg;</sup> is equipped with a CAN PMU lite module that supports 3~14s lithium battery. Connect the 6pin connector of the module to the flight control **Power C1** or **Power C2** interface.
 
@@ -81,7 +81,7 @@ You can also purchase telemetry radios from the [CUAV store](https://store.cuav.
 
 ![Telemetry radios](../../assets/flight_controller/cuav_pixhawk_v6x/quickstart_06.jpg)
 
-## SD Card
+## SD-карта
 
 SD cards are highly recommended as they are required for [recording and analyzing flight details](../getting_started/flight_reporting.md), running tasks and using UAVCAN bus hardware. An SD card is already installed on Pixhawk V6X<sup>&reg;</sup> when it leaves the factory.
 
@@ -121,13 +121,13 @@ The wiring and configuration of optional/less common components is covered withi
 
 ![Pixhawk V6x Pinout](../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x_pinouts.png)
 
-## Configuration
+## Конфігурація
 
 General configuration information is covered in: [Autopilot Configuration](../config/index.md).
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
-## Further information
+## Детальна інформація
 
 - [CUAV Docs](https://doc.cuav.net/) (CUAV)
 - [Pixhawk V6X](../flight_controller/cuav_pixhawk_v6x.md) (PX4 Doc Overview page)

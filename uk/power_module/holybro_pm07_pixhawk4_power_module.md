@@ -1,14 +1,14 @@
 # Holybro Pixhawk 4 Power Module (PM07)
 
-The Power Management Board (PM Board) serves the purpose of a Power Module as well as a Power Distribution Board. In addition to providing regulated power to Pixhawk 4 and the ESCs, it sends information to the autopilot about battery’s voltage and current supplied to the flight controller and the motors.
+Плата управління живленням (PM Board) виконує функції блоку живлення та розподільчої плати живлення. Крім надання регульованого живлення для Pixhawk 4 та ESC, вона надсилає інформацію автопілоту про напругу батареї та поточний струм, що подається на керуючий пристрій польоту та двигуни.
 
 :::note
-This module can be purchased as bundle with [Pixhawk 4](../assembly/quick_start_pixhawk4.md), but can also be used with other flight controllers.
+Цей модуль можна придбати як пакет за допомогою [Pixhawk 4](../assembly/quick_start_pixhawk4.md), а також може бути використаний з іншими контролерами польоту.
 :::
 
 ![PM07](../../assets/hardware/power_module/holybro_pm07/pm07_hero.jpg)
 
-## Specifications
+## Характеристики
 
 - **PCB Current:** total 120A outputs (MAX)
 - **UBEC 5v output current:** 3A
@@ -17,7 +17,7 @@ This module can be purchased as bundle with [Pixhawk 4](../assembly/quick_start_
 - **Mounting Holes:** 45 x 45 mm
 - **Weight:** 36g
 
-## Package Contents
+## Вміст набору
 
 ![Package Contents](../../assets/hardware/power_module/holybro_pm07/package_contents.jpg)
 
@@ -28,18 +28,18 @@ This module can be purchased as bundle with [Pixhawk 4](../assembly/quick_start_
 - JST GH 8P Cable
 - 2x JST GH 6P Cable
 
-## Where to Buy
+## Де купити
 
 [Pixhawk 4 Power Module (PM07)](https://holybro.com/collections/power-modules-pdbs/products/pixhawk-4-power-module-pm07)
 
 
-## Wiring/Connections
+## Проведення/Підключення
 
 Wiring and connection information can be found in: [Pixhawk 4 > Power](../assembly/quick_start_pixhawk4.md#power).
 
 ![Pixhawk 4 - Power Management Board](../../assets/hardware/power_module/holybro_pm07/pixhawk4_power_management_board.png)
 
 
-## Further Information
+## Додаткова інформація
 
-[Quick Start Guide](https://docs.holybro.com/power-module-and-pdb/power-module/pm07-quick-start-guide) (Holybro)
+[Короткий посібник](https://docs.holybro.com/power-module-and-pdb/power-module/pm07-quick-start-guide) (Holybro)

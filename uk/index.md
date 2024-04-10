@@ -12,9 +12,9 @@ PX4 це _Professional Autopilot_. Розроблений розробникам
 :::
 
 :::warning
-This guide is for the _development_ version of PX4 (`main` branch). Use the **Version** selector for the current _stable_ version.
+Цей посібник стосується версії PX4 для _розробки_ (`основна` гілка). Використовуйте селектор **Версія** для поточної _стабільної_ версії.
 
-Documented changes since the stable release are captured in the evolving [release note](releases/main.md). :::
+Задокументовані зміни з моменту випуску стабільної версії відображені в [примітці до випуску](releases/main.md), що розвивається. :::
 
 ## Як почати?
 

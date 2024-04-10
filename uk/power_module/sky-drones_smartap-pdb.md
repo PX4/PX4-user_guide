@@ -1,23 +1,23 @@
 # Sky-Drones SmartAP GPS
 
-[SmartAP PDB](https://sky-drones.com/power/smartap-pdb.html) (Power Distribution Board) is used to simplify the distribution of power from one or more batteries to ESCs (motors), flight controller, and other peripherals. It also acts as a [power module](../power_module/index.md), enabling battery voltage and current measurements. SmartAP PDB makes connecting high-power lines easier and much more reliable.
+[SmartAP PDB](https://sky-drones.com/power/smartap-pdb.html) (розподільча плата живлення) використовується для спрощення розподілу живлення від однієї або декількох батарей до ESC (двигунів), керуючого пристрою польоту та інших периферійних пристроїв. Вона також виступає як [блок живлення](../power_module/index.md), що дозволяє вимірювати напругу батареї та поточний струм. SmartAP PDB спрощує підключення високовольтних ліній, роблячи їх надійнішими та зручнішими.
 
 ![SmartAP PDB](../../assets/hardware/power_module/sky-drones_smartap-pdb/smartap-pdb-top-side.jpg)
 
 ## Специфікації
 
-- Size: 65x65 mm, 4x M3 mounting holes
-- Input voltage up to 60 Volts (14S)
-- Capability to handle extremenly high currents (peak current up to 400A)
-- Power input from the main battery, possibility to connect up to 2 independent batteries
-- 12 pairs of pads (6 on top, 6 on bottom) for powering up to 12 motors
-- Integrated voltage and current sensors with L/C filters
-- Precise Hall Effect based current measurements
-- Integrated DC-DC converter from 10-60 V input (up to 14S battery) to 5V / 5A output to power peripherals
-- Integrated DC-DC converter from 10-60 V input (up to 14S battery) to 12V / 5A output to power peripherals
-- 5V and 12V power output terminals (standard 2.54mm/0.1" connectors)
-- Integrated electromagnetic sounder (buzzer)
-- Power output for the flight controller (both 5V regulated and battery voltage level output)
+- Розмір: 65*65 мм, 4х М3 кріплення отворів
+- Напруга введення до 60 Вольт (14S)
+- Можливість керування екстремально високими струмами (максимальний струм до 400A)
+- Живлення від основного акумулятора, можливість підключення до 2 незалежних акумуляторів
+- 12 пар клем (6 зверху, 6 знизу) для живлення до 12 двигунів
+- Інтегровані датчики напруги та струму з фільтрами L/C
+- Точні виміри струму на основі ефекту Холла
+- Інтегрований DC-DC перетворювач від входу 10-60 В (до 14S акумулятора) до виходу 5 В / 5A для живлення периферійних пристроїв
+- Інтегрований DC-DC перетворювач від входу 10-60 В (до 14S акумулятора) до виходу 12 В / 5A для живлення периферійних пристроїв
+- Вихідні клеми живлення 5 В і 12 В (стандартні коннектори 2.54 мм / 0,1 дюйма)
+- Інтегрований електромагнітний сигналізатор (сигналізація)
+- Вихід живлення для керуючого пристрою польоту (як 5 В регульоване, так і вихід на рівні напруги акумулятора)
 
 
 ## Розмір і вага
@@ -27,7 +27,7 @@
 - Висота: 14мм
 - Вага: 8g
 
-## PX4 Configuration
+## Налаштування PX4
 
 [Battery Estimation Tuning](../config/battery.md) describes how to configure the battery setting for a power module.
 
@@ -42,17 +42,17 @@ The key configuration settings are:
 [SmartAP PDB](https://sky-drones.com/parts/smartap-pdb.html)
 
 
-## Wiring / Pinout
+## Проводка / Схема роз'ємів
 
-SmartAP Power Distribution Board pinout diagram is shown below.
+На відповідній схемі роз'ємів плати розподілу потужності SmartAP показано нижче.
 
 ![SmartAP PDB](../../assets/hardware/power_module/sky-drones_smartap-pdb/smartap-pdb-pinout.png)
 
-The two big pads are intended for the main battery connection. Up to two independent batteries can be connected using the thick wires (e.g. 8-10 AWG) to be able to handle high current loads and higher total capacity. Up to 12 ESCs can be connected using the 6 smaller pads on top, bottom, left and right sides.
+Два великих контактних пункти призначені для підключення основного акумулятора. Для здатності витримувати великі струми та вищу загальну ємність можна підключити до двох незалежних акумуляторів за допомогою товстих проводів (наприклад, 8-10 AWG). До 12 ESC можна підключити за допомогою 6 менших контактних пунктів у верхній, нижній, лівій та правій частині.
 
-## Voltage and current sensors
+## Датчики напруги та струму
 
-SmartAP PDB has integrated voltage and current sensors. The current sensor is located on the bottom side of the PDB.
+У SmartAP PDB вбудовані датчики напруги та струму. Датчик струму розташований на нижній стороні плати розподілу потужності.
 
 ![SmartAP PDB](../../assets/hardware/power_module/sky-drones_smartap-pdb/smartap-pdb-current-sensor.png)
 
@@ -60,4 +60,4 @@ SmartAP PDB has integrated voltage and current sensors. The current sensor is lo
 ## Подальша інформація
 
 - [Buy SmartAP PDB](https://sky-drones.com/power/smartap-pdb.html)
-- [Documentation](https://docs.sky-drones.com/avionics/smartap-pdb)
+- [Документація](https://docs.sky-drones.com/avionics/smartap-pdb)

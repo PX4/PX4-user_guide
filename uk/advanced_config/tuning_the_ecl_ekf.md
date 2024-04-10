@@ -131,22 +131,22 @@ EKF має різні режими роботи, які дозволяють в�
 
 #### Типові конфігурації
 
-|                           | [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) | [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) | [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) | [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) |
-| ------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| Outdoor (default)         | 7 (Lon/lat/alt/vel)                                                        | 1 (enabled)                                                                  | 1 ([conditional](#conditional-range-aiding))                               | 1 (GNSS)                                                                 |
-| Indoor (non-flat terrain) | 0 (disabled)                                                               | 1 (enabled)                                                                  | 1 ([conditional](#conditional-range-aiding))                               | 2 (range)                                                                |
-| Indoor (flat terrain)     | 0 (disabled)                                                               | 1 (enabled)                                                                  | 2 ([always enabled](#range-height-fusion))                                 | 2 (range)                                                                |
-| External vision           | As required                                                                | As required                                                                  | As required                                                                | 3 (vision)                                                               |
+|                                   | [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) | [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) | [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) | [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) |
+| --------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Вуличне(за замовчуванням)         | 7 (Довгота/Висота/Висота)                                                  | 1 (увімкнено)                                                                | 1 ([умовно](#conditional-range-aiding))                                    | 1 (GNSS)                                                                 |
+| В приміщенні (нерівна місцевість) | 0 (вимкнено)                                                               | 1 (увімкнено)                                                                | 1 ([умовно](#conditional-range-aiding))                                    | 2 (діапазон)                                                             |
+| Приміщення (рівна місцевість)     | 0 (вимкнено)                                                               | 1 (увімкнено)                                                                | 2 ([завжди увімкнено](#range-height-fusion))                               | 2 (діапазон)                                                             |
+| Зовнішнє бачення                  | В міру необхідності                                                        | В міру необхідності                                                          | В міру необхідності                                                        | 3 (бачення)                                                              |
 
-### Barometer
+### Барометр
 
-Enable/disable using [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) as a source for [Height](#height) data.
+Увімкнення/вимкнення за допомогою [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) як джерела даних про висоту [Height](#height).
 
-Note that data from only one barometer is fused, even if multiple barometers are available. The barometer with the highest [CAL_BAROx_PRIO](../advanced_config/parameter_reference.md#CAL_BARO0_PRIO) priority value is selected first, falling back to the next highest priority barometer if a sensor fault is detected. If barometers have equal-highest priorities, the first detected is used. A barometer can be completely disabled as a possible source by setting its `CAL_BAROx_PRIO` value to `0` (disabled).
+Зверніть увагу, що об'єднуються дані лише з одного барометра, навіть якщо доступно кілька барометрів. Обирається барометр з найвищим пріоритетом [CAL_BAROx_PRIO](../advanced_config/parameter_reference.md#CAL_BARO0_PRIO), перехід на наступний барометр з найвищим пріоритетом відбувається в разі виявлення несправності датчика. Якщо барометри мають рівні найвищі пріоритети, використовується перший виявлений. Барометр можна повністю вимкнути як можливе джерело, встановивши його значення `CAL_BAROx_PRIO` на `0` (вимкнено).
 
-See [Height](#height) more details about the configuration of height sources.
+Див. [Висоту](#height) для отримання додаткової інформації про конфігурацію джерел висоти. Корекція помилки позиції статичного тиску.
 
-#### Correction for Static Pressure Position Error
+#### Виправлення помилки позиції статичного тиску
 
 Висота за барометром піддається помилкам, що виникають від аеродинамічних перешкод, спричинених вітровою швидкістю та орієнтацією транспортного засобу. Це відомо в авіації як _помилка позиції за статичним тиском_. Модуль EKF2, який використовує бібліотеку оцінювача ECL/EKF2, надає метод компенсації цих помилок, за умови, що оцінка стану швидкості вітру активна.
 
@@ -156,17 +156,17 @@ See [Height](#height) more details about the configuration of height sources.
 
 Модуль EKF2 моделює помилку у вигляді еліпсоїда, що фіксується в тілі, який визначає частку динамічного тиску, що додається до/віднімається від барометричного тиску - перш ніж він перетворюється у висотну оцінку.
 
-A good tuning is obtained as follows:
+Добре налаштування можна отримати таким чином:
 
-1. Fly once in [Position mode](../flight_modes_mc/position.md) repeatedly forwards/backwards/left/right/up/down between rest and maximum speed (best results are obtained when this testing is conducted in still conditions).
-2. Extract the `.ulg` log file using, for example, [QGroundControl: Analyze > Log Download](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/log_download.html)
+1. Проведіть польоти один раз у режимі позиції [Position mode](../flight_modes_mc/position.md) повторно вперед/назад/ліворуч/праворуч/вгору/вниз між спокоєм і максимальною швидкістю (найкращі результати отримуються, коли цей тест проводиться в спокійних умовах).
+2. Витягніть `.ulg` файл журналу за допомогою, наприклад, [QGroundControl: Аналізувати > Завантажити журнал](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/log_download.html)
 
-   ::: info The same log file can be used to tune the [multirotor wind estimator](#mc_wind_estimation_using_drag).
+   ::: info Той самий файл журналу можна використовувати для налаштування оцінювача вітру багатовертольотника [multirotor wind estimator](#mc_wind_estimation_using_drag).
 :::
 
-3. Use the log with the [baro_static_pressure_compensation_tuning.py](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2/EKF/python/tuning_tools/baro_static_pressure_compensation) Python script to obtain the optimal set of parameters.
+3. Використовуйте журнал зі скриптом Python [baro_static_pressure_compensation_tuning.py](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2/EKF/python/tuning_tools/baro_static_pressure_compensation), щоб отримати оптимальний набір параметрів.
 
-Tuning parameters:
+Параметри налаштування:
 
 - [EKF2_PCOEF_XP](../advanced_config/parameter_reference.md#EKF2_PCOEF_XP)
 - [EKF2_PCOEF_XN](../advanced_config/parameter_reference.md#EKF2_PCOEF_XN)
@@ -174,22 +174,22 @@ Tuning parameters:
 - [EKF2_PCOEF_YN](../advanced_config/parameter_reference.md#EKF2_PCOEF_YN)
 - [EKF2_PCOEF_Z](../advanced_config/parameter_reference.md#EKF2_PCOEF_Z)
 
-#### Barometer bias compensation
+#### Компенсація зміщення барометра
 
-Барометр при постійній висоті піддається дрейфу в своїх вимірюваннях через зміни в оточуючому тисковому середовищі або варіації температури датчика. Для компенсації цієї помилки вимірювання EKF2 оцінює зміщення за допомогою висоти GNSS (якщо доступно) як "нестійкий" еталон. No tuning is required.
+Барометр при постійній висоті піддається дрейфу в своїх вимірюваннях через зміни в оточуючому тисковому середовищі або варіації температури датчика. Для компенсації цієї помилки вимірювання EKF2 оцінює зміщення за допомогою висоти GNSS (якщо доступно) як "нестійкий" еталон. Налаштування не потрібні.
 
 ### GNSS/GPS
 
-#### Position and Velocity Measurements
+#### Вимірювання позиції та швидкості
 
-GPS measurements will be used for position and velocity if the following conditions are met:
+Вимірювання GPS використовуватимуться для позиції та швидкості, якщо виконуються такі умови:
 
-- GPS use is enabled via setting of the [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter.
-- GPS quality checks have passed. These checks are controlled by the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) and `EKF2_REQ_*` parameters.
+- Використання GPS увімкнено через налаштування параметра [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL).
+- Перевірка якості GPS пройдена. Ці перевірки контролюються параметрами [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) і `EKF2_REQ_*`.
 
-For more details about the configuration of height sources, [click here](#height).
+Для отримання додаткової інформації про налаштування джерел висоти [натисніть тут](#height).
 
-#### Yaw Measurements
+#### Вимірювання повороту
 
 Деякі приймачі GPS, такі як приймач GPS з системою [Trimble MB-Two RTK](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx), можуть використовуватися для надання вимірювання кута курсу, що замінює використання даних магнітометра. Це може бути значним перевагою при роботі в середовищі, де присутні великі магнітні аномалії, або на широтах, де магнітне поле Землі має високий нахил. Використання вимірювань курсу від GPS увімкнено, встановивши біт на позиції 3 на 1 (додаючи 8) у параметрі [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL).
 
@@ -207,14 +207,14 @@ EKF запускає додатковий фільтр багатьох гіпо
 
 Параметр [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) за замовчуванням встановлений для вимкнення змішування і завжди використовує перший приймач, тому його потрібно встановити, щоб вибрати, які метрики точності приймача використовуються для визначення внеску кожного виходу приймача в змішане рішення. У випадку використання різних моделей приймачів важливо, щоб параметр [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) був встановлений на значення, яке використовує метрики точності, які підтримуються обома приймачами. Наприклад, не встановлюйте позицію біта 0 в значення `true`, якщо драйвери для обох приймачів не публікують значення у полі `s_variance_m_s` повідомлення `vehicle_gps_position`, які можна порівняти. Це може бути складним з приймачами від різних виробників через різний спосіб визначення точності, наприклад, CEP проти 1-сигма і т.д.
 
-The following items should be checked during setup:
+Наступні елементи слід перевірити під час налаштування:
 
-- Verify that data for the second receiver is present. This will be logged as `vehicle_gps_position_1` and can also be checked when connected via the _nsh console_ using the command `listener vehicle_gps_position -i 1`. The [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter will need to be set correctly.
-- Check the `s_variance_m_s`, `eph` and `epv` data from each receiver and decide which accuracy metrics can be used. If both receivers output sensible `s_variance_m_s` and `eph` data, and GPS vertical position is not being used directly for navigation, then setting [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) to 3 is recommended. Where only `eph` data is available and both receivers do not output `s_variance_m_s` data, set [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) to 2. Bit position 2 would only be set if the GPS had been selected as the reference height source with the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter and both receivers output sensible `epv` data.
-- The output from the blended receiver data is logged as `ekf_gps_position`, and can be checked whilst connect via the nsh terminal using the command `listener ekf_gps_position`.
-- Where receivers output at different rates, the blended output will be at the rate of slower receiver. Where possible receivers should be configured to output at the same rate.
+- Перевірте, що дані для другого приймача присутні. Буде зареєстровано як `vehicle_gps_position_1` і також може бути перевірено під час підключення через _консоль nsh_ за допомогою команди `listener vehicle_gps_position -i 1`. Параметр [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) повинен бути встановлений правильно.
+- Перевірте дані `s_variance_m_s`, `eph` і `epv` від кожного приймача та вирішіть, які показники точності можна використовувати. Якщо обидва приймачі видають зрозумілі дані `s_variance_m_s` та `eph`, і вертикальна позиція GPS не використовується безпосередньо для навігації, то рекомендується встановити [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) на 3. Якщо доступні лише дані `eph` і обидва приймачі не виводять дані `s_variance_m_s`, встановіть [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) на 2. Позиція біта 2 буде встановлена, лише якщо GPS було вибрано як джерело опорної висоти за допомогою параметра [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) і обидва приймачі видають чутливі дані `epv`.
+- Дані з змішаного приймача реєструються як `ekf_gps_position` і можуть бути перевірені під час підключення через термінал nsh за допомогою команди слухача `ekf_gps_position`.
+- У випадку, якщо приймачі видають дані на різних швидкостях, вихідне змішане значення буде відповідати швидкості повільнішого приймача. Де це можливо, приймачі повинні бути налаштовані на видачу даних з однаковою швидкістю.
 
-#### GNSS Performance Requirements
+#### Вимоги до продуктивності GNSS
 
 Для того щоб ECL приймав дані GNSS для навігації, необхідно, щоб певні мінімальні вимоги були виконані протягом певного часу, визначеного параметром [EKF2_REQ_GPS_H](../advanced_config/parameter_reference.md#EKF2_REQ_GPS_H) (за замовчуванням 10 секунд).
 
@@ -341,32 +341,32 @@ PX4 дозволяє постійно об'єднувати дальномер �
 
 Дані [оптичного потоку](../sensor/optical_flow.md) використовуватимуться, якщо виконуються такі умови:
 
-- Valid range finder data is available.
-- [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL) is set.
-- The quality metric returned by the flow sensor is greater than the minimum requirement set by the [EKF2_OF_QMIN](../advanced_config/parameter_reference.md#EKF2_OF_QMIN) parameter.
+- Доступні дані дальномера відповідно до умов.
+- [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL) встановлено.
+- Якість метрики, поверненої датчиком потоку, більше мінімальних вимог, встановлених параметром [EKF2_OF_QMIN](../advanced_config/parameter_reference.md#EKF2_OF_QMIN).
 
-### External Vision System
+### Зовнішня система бачення
 
-Position, velocity or orientation measurements from an external vision system, e.g. Vicon, can be used.
+Дані про положення, швидкість або орієнтацію від зовнішньої системи бачення, наприклад, Vicon, можуть бути використані.
 
-The measurements that are fused are configured by setting the appropriate bits of [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL) to `true`:
+Змірювання, які об'єднуються, налаштовані, встановивши відповідні біти [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL) на `true`:
 
-- `0`: Horizontal position data
-- `1`: Vertical position data. Height sources may additionally be configured using [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) (see section [Height](#height)).
-- `2`: Velocity data
-- `3`: Yaw data
+- `0`: Дані про горизонтальне положення
+- `1`: Дані про вертикальне положення. Джерела висоти можуть бути додатково налаштовані за допомогою [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) (див. розділ [Висота](#height)).
+- `2`: Дані про швидкість
+- `3`: Дані про курс
 
-Note that if yaw data is used (bit 3) the heading is with respect to the external vision frame; otherwise the heading is relative to North.
+Зверніть увагу, що якщо використовуються дані про курс (біт 3), напрямок відносно зовнішнього візуального кадру; в іншому випадку напрямок відносно північного.
 
-The EKF considers uncertainty in the visual pose estimate. This uncertainty information can be sent via the covariance fields in the MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) message or it can be set through the parameters [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) and [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE). You can choose the source of the uncertainty with [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD).
+EKF враховує невизначеність в оцінці візуального положення. Цю інформацію про невизначеність можна відправити через поля коваріації в повідомленні MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) або встановити через параметри [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) та [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE). Ви можете вибрати джерело невизначеності з [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD).
 
-## How do I use the 'ecl' library EKF?
+## Як використовувати бібліотеку EKF "ecl"?
 
-Set the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) parameter to 2 to use the ecl EKF.
+Встановіть параметр [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) на 2, щоб використовувати EKF ecl.
 
-## What are the advantages and disadvantages of the ecl EKF over other estimators?
+## Які переваги та недоліки EKF ecl порівняно з іншими оцінювачами?
 
-Like all estimators, much of the performance comes from the tuning to match sensor characteristics. Настройка - це компроміс між точністю і надійністю, і хоча ми намагалися надати настройку, яка задовольняє потреби більшості користувачів, будуть випадки, коли потрібні зміни налаштувань.
+Як і всі оцінювачі, більша частина продуктивності забезпечується налаштуванням відповідно до характеристик датчика. Настройка - це компроміс між точністю і надійністю, і хоча ми намагалися надати настройку, яка задовольняє потреби більшості користувачів, будуть випадки, коли потрібні зміни налаштувань.
 
 З цієї причини не висуваються претензії на точність в порівнянні з традиційною комбінацією `attitude_estimator_q` + `local_position_estimator`, і найкращий вибір оцінювача буде залежати від застосування і налаштування.
 
@@ -379,11 +379,11 @@ Like all estimators, much of the performance comes from the tuning to match sens
 ### Переваги
 
 - ЕКФ ecl може об'єднувати дані з датчиків з різними затримками часу та частотами даних в математично послідовний спосіб, що підвищує точність під час динамічних маневрів, якщо параметри затримки часу встановлені правильно.
-- The ecl EKF is capable of fusing a large range of different sensor types.
-- The ecl EKF detects and reports statistically significant inconsistencies in sensor data, assisting with diagnosis of sensor errors.
-- For fixed-wing operation, the ecl EKF estimates wind speed with or without an airspeed sensor and is able to use the estimated wind in combination with airspeed measurements and sideslip assumptions to extend the dead-reckoning time available if GPS is lost in flight.
+- ЕКФ ecl здатний об'єднувати широкий спектр різних типів сенсорів.
+- ЕКФ ecl виявляє та повідомляє про статистично значущі неузгодженості в даних сенсорів, допомагаючи в діагностиці помилок сенсорів.
+- Для роботи з фіксованим крилом, ЕКФ ecl оцінює швидкість вітру з або без датчика швидкості повітря та може використовувати оцінену швидкість вітру в поєднанні з вимірюваннями швидкості повітря та припущеннями про боковий вітер, щоб продовжити час дедраконінгу, доступний у разі втрати GPS під час польоту.
 - ЕКФ ecl оцінює відхилення акселерометра по трьох осях, що підвищує точність для апаратів типу "хвісторізи" та інших транспортних засобів, які досвідчують великі зміни у положенні між фазами польоту.
-- The federated architecture (combined attitude and position/velocity estimation) means that attitude estimation benefits from all sensor measurements. This should provide the potential for improved attitude estimation if tuned correctly.
+- Федеративна архітектура (об'єднане оцінювання стану атитюду та положення/швидкості) означає, що оцінювання атитюду користується всіма вимірюваннями сенсорів. Це повинно забезпечити потенційну можливість покращення оцінювання атитюду при правильному налаштуванні.
 
 ## Як перевірити працездатність EKF?
 
@@ -397,42 +397,42 @@ Like all estimators, much of the performance comes from the tuning to match sens
 
 ### Вихідні дані
 
-- Attitude output data is found in the [VehicleAttitude](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitude.msg) message.
-- Local position output data is found in the [VehicleLocalPosition](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleLocalPosition.msg) message.
-- Global \(WGS-84\) output data is found in the [VehicleGlobalPosition](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleGlobalPosition.msg) message.
-- Wind velocity output data is found in the [Wind.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Wind.msg) message.
+- Вихідні дані Attitude містяться в повідомленні [VehicleAttitude](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitude.msg).
+- Вихідні дані про локальне положення знаходяться в повідомленні [VehicleLocalPosition](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleLocalPosition.msg).
+- Глобальні вихідні дані \(WGS-84\) містяться в повідомленні [VehicleGlobalPosition](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleGlobalPosition.msg).
+- Вихідні дані про швидкість вітру містяться в повідомленні [Wind.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Wind.msg).
 
 ### Стани
 
-Refer to states\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg). The index map for states\[24\] is as follows:
+Зверніться до станів\[24\] у [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg). Індексна карта для станів\[24\] така:
 
-- \[0 ... 3\] Quaternions
-- \[4 ... 6\] Velocity NED \(m/s\)
-- \[7 ... 9\] Position NED \(m\)
-- \[10 ... 12\] IMU delta angle bias XYZ \(rad\)
-- \[13 ... 15\] IMU delta velocity bias XYZ \(m/s\)
-- \[16 ... 18\] Earth magnetic field NED \(gauss\)
-- \[19 ... 21\] Body magnetic field XYZ \(gauss\)
-- \[22 ... 23\] Wind velocity NE \(m/s\)
+- \[0 ... 3\] Кватерніони
+- \[4 ... 6\] Швидкість NED \(м/с\)
+- \[7 ... 9\] Позиція NED \(м\)
+- \[10 ... 12\] IMU дельта-кут зміщення XYZ \(рад\)
+- \[13 ... 15\] IMU зсув швидкості по трьох осях XYZ \(м/с\)
+- \[16 ... 18\] Земне магнітне поле NED \(гаусс\)
+- \[19 ... 21\] Магнітне поле тіла по осях XYZ \(гаусс\)
+- \[22 ... 23\] Швидкість вітру NE \(м/с\)
 
-### State Variances
+### Відхилення стану
 
-Refer to covariances\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg). The index map for covariances\[24\] is as follows:
+Зверніться до коваріацій\[24\] у [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg). Індексна карта для коваріацій\[24\] така:
 
-- \[0 ... 3\] Quaternions
-- \[4 ... 6\] Velocity NED \(m/s\)^2
-- \[7 ... 9\] Position NED \(m^2\)
-- \[10 ... 12\] IMU delta angle bias XYZ \(rad^2\)
-- \[13 ... 15\] IMU delta velocity bias XYZ \(m/s\)^2
-- \[16 ... 18\] Earth magnetic field NED \(gauss^2\)
-- \[19 ... 21\] Body magnetic field XYZ \(gauss^2\)
-- \[22 ... 23\] Wind velocity NE \(m/s\)^2
+- \[0 ... 3\] Кватерніони
+- \[4 ... 6\] Швидкість NED \(м/с)^2
+- \[7 ... 9\] Положення NED \(м^2)
+- \[10 ... 12\] Зсув кутової швидкості IMU по осях XYZ \(рад^2\)
+- \[13 ... 15\] Зсув швидкості IMU по осях XYZ \(м/с\)^2
+- Земне магнітне поле NED \(гаусс^2\)
+- \[19 ... 21\] Магнітне поле тіла по осях XYZ \(гаусс^2\)
+- \[22 ... 23\] Швидкість вітру NE \(м/с\)^2
 
-### Observation Innovations & Innovation Variances
+### Інновації спостережень & інноваційні варіанти
 
-The observation `estimator_innovations`, `estimator_innovation_variances`, and `estimator_innovation_test_ratios` message fields are defined in [EstimatorInnovations.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg). The messages all have the same field names/types (but different units).
+Поля спостережень `estimator_innovations`, `estimator_innovation_variances` і `estimator_innovation_test_ratios` визначено в [EstimatorInnovations.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg). Усі повідомлення мають однакові назви/типи полів (але різні одиниці вимірювання).
 
-::: info The messages have the same fields because they are generated from the same field definition. The `# TOPICS` line (at the end of [the file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg)) lists the names of the set of messages to be created):
+::: info Повідомлення мають однакові поля, оскільки вони генеруються з того самого визначення поля. Рядок `# ТЕМИ` (в кінці [файлу](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg)) містить список імен набору повідомлень, які потрібно створити:
 
 ```
 # TOPICS estimator_innovations estimator_innovation_variances estimator_innovation_test_ratios
@@ -440,18 +440,18 @@ The observation `estimator_innovations`, `estimator_innovation_variances`, and `
 
 :::
 
-Some of the observations are:
+Деякі з спостережень:
 
-- Magnetometer XYZ (gauss, gauss^2) : `mag_field[3]`
-- Yaw angle (rad, rad^2) : `heading`
-- True Airspeed (m/s, (m/s)^2) : `airspeed`
-- Synthetic sideslip (rad, rad^2) : `beta`
-- Optical flow XY (rad/sec, (rad/s)^2) : `flow`
-- Height above ground (m, m^2) : `hagl`
-- Drag specific force ((m/s)^2): `drag`
-- Velocity and position innovations : per sensor
+- Магнітометр XYZ (гаус, гаус^2): `mag_field[3]`
+- Кут розвороту (рад, рад^2): `heading`
+- Швидкість повітря (м/с, (м/с)^2): `airspeed`
+- Синтетичний кут бокового зсуву (рад, рад^2): `beta`
+- Оптичний потік XY (рад/с, (рад/с)^2): `flow`
+- Висота над землею (м, м^2): `hagl`
+- Тягове специфічне зусилля ((м/с)^2): `drag`
+- Інновації швидкості та положення: для кожного сенсора
 
-In addition, each sensor has its own fields for horizontal and vertical position and/or velocity values (where appropriate). These are largely self documenting, and are reproduced below:
+Крім того, кожен сенсор має власні поля для горизонтального та вертикального положення та/або швидкості (за потреби). Вони в основному документуються самостійно, і наведені нижче:
 
 ```
 # GPS
@@ -558,31 +558,31 @@ EKF можна зробити більш стійким до розходжен�
 Найпоширеніші причини розбіжності положення:
 
 - Високі рівні вібрації.
-  - Fix by improving mechanical isolation of the autopilot.
-  - Increasing the value of [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) and [EKF2_GYR_NOISE](../advanced_config/parameter_reference.md#EKF2_GYR_NOISE) can help, but does make the EKF more vulnerable to GPS glitches.
+  - Виправити, покращивши механічну ізоляцію автопілота.
+  - Збільшення значень [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) та [EKF2_GYR_NOISE](../advanced_config/parameter_reference.md#EKF2_GYR_NOISE) може допомогти, але робить ЕКФ більш вразливим до помилок GPS.
 - Великі зсуви зміщення гіроскопа.
-  - Fix by re-calibrating the gyro. Check for excessive temperature sensitivity (&gt; 3 deg/sec bias change during warm-up from a cold start and replace the sensor if affected of insulate to slow the rate of temperature change.
+  - Виправити шляхом повторної калібрування гіроскопа. Перевірте наявність надмірної температурної чутливості (> 3 град/сек зміни зміщення під час прогрівання після холодного запуску) і, в разі необхідності, замініть сенсор або ізолюйте, щоб сповільнити температурні зміни.
 - Погане вирівнювання курсу.
-  - Check the magnetometer calibration and alignment.
-  - Check the heading shown QGC is within 15 deg truth
+  - Перевірте калібрування та вирівнювання магнітомера.
+  - Перевірте, чи показаний курс у QGC відповідає істині в межах 15 градусів
 - Низька точність GPS
-  - Check for interference
-  - Improve separation and shielding
-  - Check flying location for GPS signal obstructions and reflectors \(nearby tall buildings\)
+  - Перевірте наявність перешкод
+  - Покращіть роздільність та екранування
+  - Перевірте місце польоту на перешкоди для сигналу GPS та рефлектори (наприклад, високі будівлі в неподалік)
 - Втрата сигналу GPS
 
 Визначення того, яка з них є основною причиною, вимагає методичного підходу до аналізу журнальних даних EKF.
 
-- Plot the velocity innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vel_test_ratio
-- Plot the horizontal position innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).pos_test_ratio
-- Plot the height innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).hgt_test_ratio
-- Plot the magnetometer innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).mag_test_ratio
-- Plot the GPS receiver reported speed accuracy - [SensorGps.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorGps.msg).s_variance_m_s
-- Plot the IMU delta angle state estimates - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).states\[10\], states\[11\] and states\[12\]
-- Plot the EKF internal high frequency vibration metrics:
-  - Delta angle coning vibration - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[0\]
-  - High frequency delta angle vibration - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[1\]
-  - High frequency delta velocity vibration - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[2\]
+- Намалюйте відношення інноваційного тесту швидкості - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vel_test_ratio
+- Намалюйте відношення інноваційного тесту горизонтального положення - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).pos_test_ratio
+- Намалюйте відношення інноваційного тесту висоти - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).hgt_test_ratio
+- Намалюйте відношення інноваційного тесту магнітометра - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).mag_test_ratio
+- Намалюйте точність швидкості, звіщену GPS-приймачем - [SensorGps.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorGps.msg).s_variance_m_s
+- Намалюйте оцінки стану кутових зміщень IMU - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).states\[10\], states\[11\] та states\[12\]
+- Діаграма внутрішніх частотних частотних метрик EKF:
+  - Конічна вібрація під кутом дельта - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[0\]
+  - Вібрація конусу кутового зміщення - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[1\]
+  - Високочастотна вібрація кутового зміщення - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[2\]
 
 Під час нормальної роботи всі тестові відношення повинні залишатися нижче 0.5, і лише іноді вони можуть підніматися вище цього значення, як показано на прикладі успішного польоту нижче:
 

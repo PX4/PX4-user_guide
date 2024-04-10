@@ -38,10 +38,10 @@ If GNSS is required, then a combined GNSS/Compass module will be preferred over 
 
 This list contains stand-alone magnetometer modules (without GNSS).
 
-| Device                                                                                                           | Compass |   DroneCan   |
-| :--------------------------------------------------------------------------------------------------------------- | :-----: | :----------: |
-| [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) |    ?    |              |
-| [Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/products/dronecan-rm3100-compass)             |  RM3100 | &check; |
+| Пристрій                                                                                                         | Compass |             DroneCan            |
+| :--------------------------------------------------------------------------------------------------------------- | :-----: | :-----------------------------: |
+| [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) |    ?    |                                 |
+| [Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/products/dronecan-rm3100-compass)             |  RM3100 | &amp;check; |
 
 Note:
 
@@ -72,6 +72,6 @@ You will need to connect the compass to the [CAN bus](../can/index.md#wiring), e
 
 The process is straightforward and will autodetect, [set default rotations](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT), calibrate, and prioritise, all connected magnetometers.
 
-## See also
+## Дивись також
 
 - [Compass Power Compensation](../advanced_config/compass_power_compensation.md)

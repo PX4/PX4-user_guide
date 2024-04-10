@@ -1,39 +1,39 @@
-# Multi-Vehicle Simulation with Gazebo
+# Симуляція кількох рухомих засобів з Gazebo
 
-This topic explains how to simulate multiple UAV vehicles using [Gazebo (Gz)](../sim_gazebo_gz/index.md) and SITL.
+Цей розділ пояснює як моделювати кілька безпілотних рухомих засобів використовуючи [Gazebo (Gz)](../sim_gazebo_gz/index.md) та SITL.
 
 :::note
-Multi-Vehicle Simulation with Gazebo is only supported on Linux.
+Симуляція кількох засобів з Gazebo підтримується тільки на Linux.
 :::
 
-Gazebo makes it very easy to setup multi-vehicle scenarios (compared to other simulators).
+У Gazebo дуже легко налаштувати сценарії з кількома рухомими засобами (у порівнянні з іншими симуляторами).
 
-First build PX4 SITL code using:
+Спочатку зберіть код PX4 SITL:
 
 ```sh
 make px4_sitl
 ```
 
-Each instance of PX4 can then be launched in its own terminal, specifying a unique instance number and its desired combination of [environment variables](../sim_gazebo_gz/index.md#usage-configuration-options):
+Кожен екземпляр PX4 можна запустити у своєму власному терміналі вказавши унікальний номер екземпляра та бажану комбінацію [змінних середовища](../sim_gazebo_gz/index.md#usage-configuration-options):
 
 ```sh
 ARGS ./build/px4_sitl_default/bin/px4 [-i <instance>]
 ```
 
-- `<instance>`: The instance number of the vehicle.
-  - Each vehicle must have a unique instance number. If not given, the instance number defaults to zero.
-  - When used with `PX4_SIM_MODEL`, Gazebo will automatically pick a unique model name in the form `${PX4_SIM_MODEL}_instance`.
-- `ARGS`: A list of environmental variables, as described in [Gazebo Simulation > Usage/Configuration Options](../sim_gazebo_gz/index.md#usage-configuration-options).
+- `<instance>`: Номер екземпляра рухомого засобу.
+  - Кожен рухомий засіб повинен мати унікальний номер екземпляру. Якщо він не вказаний, номер екземпляру за замовчуванням - нуль.
+  - При використанні з `PX4_SIM_MODEL`, Gazebo автоматично обере унікальне ім'я моделі у формі `${PX4_SIM_MODEL}_instance`.
+- `ARGS`: Перелік змінних середовища, як описано у [Симуляція Gazebo > Варіанти використання/налаштування](../sim_gazebo_gz/index.md#usage-configuration-options).
 
-This allows for greater flexibility and customization.
+Це дозволяє підвищити гнучкість та адаптивність.
 
-## Multiple Vehicles with ROS 2 and Gazebo
+## Кілька рухомих засобів з ROS 2 та Gazebo
 
-[Multiple vehicles with ROS 2](../ros/ros2_multi_vehicle.md) are possible.
+Існує можливість [кількох засобів з ROS 2](../ros/ros2_multi_vehicle.md).
 
-- First follow the installation instructions for [Gazebo](../sim_gazebo_gz/index.md).
-- Then configure your system for [ROS 2 / PX4 operations](../ros/ros2_comm.md#installation-setup).
-- In different terminals manually start a multi vehicle simulation. This example spawns 2 X500 Quadrotors and aFPX fixed-wing:
+- Спочатку дотримуйтесь інструкцій по встановленню [Gazebo](../sim_gazebo_gz/index.md).
+- Потім налаштуйте систему для [ROS 2 / операцій PX4](../ros/ros2_comm.md#installation-setup).
+- В різних терміналах вручну запустіть симуляцію декількох рухомих засобів. Цей приклад відтворює 2 квадрокоптери X500 та літак з фіксованим крилом aFPX:
 
   ```sh
   PX4_SYS_AUTOSTART=4001 PX4_SIM_MODEL=gz_x500 ./build/px4_sitl_default/bin/px4 -i 1
@@ -47,15 +47,15 @@ This allows for greater flexibility and customization.
   PX4_SYS_AUTOSTART=4003 PX4_GZ_MODEL_POSE="0,2" PX4_SIM_MODEL=gz_rc_cessna ./build/px4_sitl_default/bin/px4 -i 3
   ```
 
-- Start the agent:
+- Запустіть агента:
 
   ```sh
   MicroXRCEAgent udp4 -p 8888
   ```
 
-  The agent will automatically connect to all clients.
+  Агент автоматично з'єднається з усіма клієнтами.
 
-- Run `ros2 topic list` to see the topic list, which should look like this:
+- Виконайте `ros2 topic list`, щоб побачити список усіх рубрик, який буде виглядати приблизно так:
 
 ```sh
 /parameter_events

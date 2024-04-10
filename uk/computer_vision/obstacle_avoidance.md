@@ -1,77 +1,77 @@
-# Obstacle Avoidance (Мультикоптер)
+# Уникнення перешкод (Мультикоптер)
 
-_Obstacle Avoidance_ enables a vehicle to navigate around obstacles when following a preplanned path.
+Уникання перешкод _Obstacle Avoidance_ дозволяє транспортному засобу уникнути перешкод під час слідування передзапланованим шляхом.
 
-The feature requires a companion computer that is running computer vision software. This software provides a route for a given desired trajectory, mapping and navigating around obstacles to achieve the best path.
+Ця функція передбачає наявність компаньйонного комп'ютера, на якому працює програмне забезпечення комп'ютерного зору. Це програмне забезпечення забезпечує маршрут для заданої бажаної траєкторії, картографує та орієнтується навколо перешкод для досягнення найкращого шляху.
 
-Obstacle avoidance is intended for automatic modes, and is currently supported for multicopter vehicles in [Missions](#mission_mode) and [Offboard mode](#offboard_mode).
+Уникання перешкод призначене для автоматичних режимів і в даний момент підтримується для багатокоптерних транспортних засобів у режимах Місії [Missions](#mission_mode) та [Offboard mode](#offboard_mode).
 
-This topic explains how the feature is set up and enabled in both modes.
+У цій темі пояснюється, як налаштувати та активувати цю функцію в обох режимах.
 
-## Limitations/Capabilities
+## Обмеження/Можливості
 
-- The maximum speed for obstacle avoidance is currently approximately 3 m/s (due to the cost of computing the avoidance path).
+- Максимальна швидкість для уникання перешкод наразі становить приблизно 3 м/с (через витрати обчислення шляху уникнення).
 
   ::: info Obstacle avoidance can use the _local planner_ (emits messages at ~30Hz and can move at around 3 m/s) or _global planner_ (emits messages at ~10Hz and mission speed with obstacle avoidance is around 1-1.5 m/s).
 :::
 
 <a id="offboard_mode"></a>
 
-## Offboard Mode Avoidance
+## Уникнення у режимі Оффборд
 
-PX4 supports obstacle avoidance in [Offboard mode](../flight_modes/offboard.md).
+PX4 підтримує уникнення перешкод у режимі [Оффборд](../flight_modes/offboard.md).
 
-The desired route comes from a [ROS](../ros/index.md) node running on a companion computer. This is passed into an obstacle avoidance module (another ROS node). The avoidance software sends the planned path to the flight stack as a stream of `SET_POSITION_TARGET_LOCAL_NED` messages.
+Бажаний маршрут надходить від вузла [ROS](../ros/index.md), який працює на компаньйонному комп'ютері. Це передається до модуля уникнення перешкод (іншого вузла ROS). Програмне забезпечення для уникнення надсилає запланований шлях до стека польотів як потік повідомлень `SET_POSITION_TARGET_LOCAL_NED`.
 
-The only required PX4-side setup is to put PX4 into _Offboard mode_.
+Єдине необхідне налаштування PX4 - перевести PX4 у режим Оффборд _Offboard mode_.
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
+На компаньйонному комп'ютері надається налаштування обладнання та конфігурація обладнання/програмного забезпечення у репозиторії [PX4/PX4-Avoidance Github](https://github.com/PX4/PX4-Avoidance).
 
 <a id="mission_mode"></a>
 
-## Mission Mode Avoidance
+## Уникнення в режимі Місії
 
-PX4 supports obstacle avoidance in [Mission mode](../flight_modes_mc/mission.md), using avoidance software running on a separate companion computer.
+PX4 підтримує уникнення перешкод у режимі Місії [Mission mode](../flight_modes_mc/mission.md), використовуючи програмне забезпечення уникнення, яке працює на окремому компаньйонному комп'ютері.
 
-### Mission Progression
+### Прогрес Місії
 
-Mission behaviour with obstacle avoidance enabled is _slightly different_ to the original plan.
+Поведінка місії з активованим уникненням перешкод _відрізняється трохи_ від оригінального плану.
 
-The difference when avoidance is active are:
+Відмінності при активному уникненні полягають у наступному:
 
-- A waypoint is "reached" when the vehicle is within the acceptance radius, regardless of its heading.
-  - This differs from normal missions, in which the vehicle must reach a waypoint with a certain heading (i.e. in a "close to" straight line from the previous waypoint). This constraint cannot be fulfilled when obstacle avoidance is active because the obstacle avoidance algorithm has full control of the vehicle heading, and the vehicle always moves in the current field of view.
-- PX4 starts emitting a new current/next waypoint once the previous waypoint is reached (i.e. as soon as the vehicle enters its acceptance radius).
-- If a waypoint is _inside_ an obstacle it may be unreachable (and the mission will be stuck).
-  - If the vehicle projection on the line previous-current waypoint passes the current waypoint, the acceptance radius is enlarged such that the current waypoint is set as reached
-  - If the vehicle is within the x-y acceptance radius, the altitude acceptance is modified such that the mission progresses (even if it is not in the altitude acceptance radius).
-- The original mission speed (as set in _QGroundControl_/PX4) is ignored. The speed will be determined by the avoidance software:
-  - _local planner_ mission speed is around 3 m/s.
-  - _global planner_ mission speed is around 1-1.5 m/s.
+- Точка місії вважається "досягнутою", коли транспортний засіб перебуває у межах радіуса прийняття, незалежно від свого напрямку.
+  - Це відрізняється від звичайних місій, у яких транспортний засіб повинен досягти точки місії з певним напрямком (тобто в "близькому до" прямому напрямку від попередньої точки місії). Ця умова не може бути виконана, коли активоване уникнення перешкод, оскільки алгоритм уникнення перешкод має повний контроль над напрямком транспортного засобу, і транспортний засіб завжди рухається в поточному полі зору.
+- PX4 починає видачу нової поточної/наступної точки місії, як тільки попередня точка місії досягнута (тобто в той момент, коли транспортний засіб входить у радіус прийняття).
+- Якщо точка місії перебуває _всередині_ перешкоди, вона може бути недосяжною (і місія буде заблокована).
+  - Якщо проекція транспортного засобу на лінію попередньої-поточної точки місії проходить поточну точку місії, радіус прийняття збільшується таким чином, що поточна точка місії вважається досягнутою
+  - Якщо транспортний засіб знаходиться в межах радіуса прийняття по x-і y-осі, прийняття по висоті модифікується таким чином, щоб місія продовжувалася (навіть якщо вона не знаходиться в радіусі прийняття по висоті).
+- Оригінальна швидкість місії (як встановлено в _QGroundControl_/PX4) ігнорується. Швидкість буде визначатися програмним забезпеченням уникнення:
+  - швидкість місії для _локального планера_ становить приблизно 3 м/с.
+  - _швидкість місії_ для глобального планера становить приблизно 1-1,5 м/с.
 
-If PX4 stops receiving setpoint updates for more than half a second it will switch into [Hold mode](../flight_modes_mc/hold.md).
+Якщо PX4 перестане отримувати оновлення заданих значень більше ніж на півсекунди, він перейде в [режим утримання](../flight_modes_mc/hold.md).
 
-### PX4 Configuration
+### Налаштування PX4
 
-Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/parameters.md) the [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) to 1.
+Уникнення перешкод активується в PX4 шляхом [встановлення](../advanced_config/parameters.md) значення [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) на 1.
 
-::: info `COM_OBS_AVOID` also enables [Safe Landing](../computer_vision/safe_landing.md) and any other features that use the PX4 [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) (Trajectory Interface) to integrate external path planning services with PX4.
+::: info `COM_OBS_AVOID` також активує [Безпечне Посадку](../computer_vision/safe_landing.md) та будь-які інші функції, що використовують [Інтерфейс Відсутності Планування Шляху](../computer_vision/path_planning_interface.md) PX4 Offboard (Інтерфейс Траєкторії), щоб інтегрувати зовнішні служби планування шляху з PX4.
 :::
 
-## Companion Computer Setup
+## Налаштування Компаньйонного Комп'ютера
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
+Налаштування апаратної частини на стороні компаньйонного комп'ютера та конфігурація апаратної та програмної частин надається у репозиторії [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) на Github.
 
-Obstacle avoidance in missions can use either the _local planner_ or _global planner_ (the local planner is recommended/better performing).
+Уникнення перешкод у місіях може використовувати як _локальний_, так і _глобальний планер_ (локальний планер рекомендований/має кращу продуктивність).
 
 <a id="interface"></a>
 
-## Obstacle Avoidance Interface
+## Інтерфейс Уникнення Перешкод
 
-PX4 uses the [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) for integrating path planning services from a companion computer (including [Obstacle Avoidance in missions](../computer_vision/obstacle_avoidance.md#mission_mode), [Safe Landing](../computer_vision/safe_landing.md), and future services).
+PX4 використовує [Інтерфейс Відсутності Планування Шляху](../computer_vision/path_planning_interface.md) для інтеграції служб планування шляху з компаньйонним комп'ютером (включаючи [Уникнення Перешкод у місіях](../computer_vision/obstacle_avoidance.md#mission_mode), [Безпечну Посадку](../computer_vision/safe_landing.md) та майбутні сервіси).
 
-The interface (messages sent) between PX4 and the companion are _exactly_ the same as for any other path planning services.
+Інтерфейс (відправлені повідомлення) між PX4 та компаньйоном точно _такий самий_, як і для будь-яких інших служб планування шляху.
 
-## Supported Hardware
+## Підтримуване Обладнання
 
-Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
+Перевірені компаньйонні комп'ютери та камери перераховані в [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).

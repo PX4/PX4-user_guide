@@ -1,4 +1,4 @@
-# Advanced Flight Controller Orientation Tuning
+# Розширене налаштування орієнтації контролера польоту
 
 Ці інструкції можна використовувати для ручного налаштування орієнтації та рівня горизонту, наприклад, для виправлення невеликих відхилень датчиків або незначних помилок під час калібрування.
 
@@ -19,11 +19,11 @@
 Ви можете знайти параметри в QGroundControl, як показано нижче:
 
 1. Відкрийте меню QGroundControl: **Settings > Parameters > Sensor Calibration**.
-1. The parameters as located in the section as shown below (or you can search for them):
+1. Параметри, розташовані в розділі, як показано нижче (або ви можете знайти їх):
 
    ![FC Orientation QGC v2](../../assets/qgc/setup/sensor/fc_orientation_qgc_v2.png)
 
-## Parameter Summary
+## Підсумок параметра
 
 - [SENS_BOARD_ROT](../advanced_config/parameter_reference.md#SENS_BOARD_ROT): Поворот плати FMU відносно рами транспортного засобу.
 - [SENS_BOARD_X_OFF](../advanced_config/parameter_reference.md#SENS_BOARD_X_OFF): Поворот, у градусах, навколо осі X PX4FMU або вісі Крену. Позитивні кути збільшуються в протипротивна годинниковій стрілці (CCW) напрямку, від'ємні кути збільшуються в напрямку за годинниковою стрілкою (CW).

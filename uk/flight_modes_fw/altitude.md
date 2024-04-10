@@ -18,7 +18,7 @@ The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](
 
 ![Altitude Control FW](../../assets/flight_modes/altitude_fw.png)
 
-## Technical Summary
+## Технічний підсумок
 
 Altitude mode like [Stabilized mode](../flight_modes_fw/stabilized.md) but with altitude stabilization. Airspeed is also stabilized if an airspeed sensor is present. The vehicle course is not maintained, and can drift due to wind.
 
@@ -32,11 +32,11 @@ Altitude mode like [Stabilized mode](../flight_modes_fw/stabilized.md) but with 
 - Manual control input is required (such as RC control, joystick).
 - An altitude measurement source is required (usually barometer or GPS)
 
-## Parameters
+## Параметри
 
 The mode is affected by the following parameters:
 
-| Parameter                                                                                               | Description                                                          |
+| Параметр                                                                                                | Опис                                                                 |
 | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | <a id="FW_AIRSPD_MIN"></a>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)     | Min airspeed. Default: 10 m/s.                                       |
 | <a id="FW_AIRSPD_MAX"></a>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)     | Max airspeed. Default: 20 m/s.                                       |

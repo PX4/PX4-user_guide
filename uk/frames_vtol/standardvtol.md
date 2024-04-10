@@ -1,16 +1,16 @@
-# Standard VTOL
+# Стандартний VTOL
 
-A **Standard VTOL** is a [VTOL](../frames_vtol/index.md) that has _completely separate_ flight controls for multicopter and fixed-wing flight.
+**Стандартний ВТОЛ** - це [ВТОЛ](../frames_vtol/index.md), у якого повністю _окремі керування_ для багатокоптерного та фіксованокрилого польотів.
 
 ![Vertical Technologies: Deltaquad QuadPlane VTOL](../../assets/airframes/vtol/vertical_technologies_deltaquad/hero_small.png)
 
-*Vertical Technologies: Deltaquad QuadPlane VTOL*
+*Вертикальні технології: Deltaquad QuadPlane VTOL*
 
 
 
-## Videos
+## Відео
 
-This section contains videos that are specific to Standard VTOL (videos that apply to all VTOL types can be found in [VTOL](../frames_vtol/index.md)).
+Цей розділ містить відео, які специфічні для стандартного VTOL (відео, які застосовуються до всіх типів ВТОЛ, можна знайти в розділі [VTOL](../frames_vtol/index.md)).
 
 ---
 

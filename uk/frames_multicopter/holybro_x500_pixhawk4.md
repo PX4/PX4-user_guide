@@ -36,7 +36,7 @@ Additionally you will need a battery and receiver ([compatible radio system](../
 
 This section lists all hardware for the frame and the autopilot installation.
 
-| Item                         | Description                                      | Quantity |
+| Item                         | Опис                                             | Quantity |
 | ---------------------------- | ------------------------------------------------ | -------- |
 | Bottom plate                 | Carbon fiber (2mm thick)                         | 1        |
 | Top plate                    | Carbon fiber (1.5mm thick)                       | 1        |
@@ -195,7 +195,7 @@ That's it. The fully assembled kit is shown below:
 ![Assembled Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/X500_assembled_frame.jpg)
 
 
-## PX4 Configuration
+## Конфігурація PX4
 
 :::tip
 Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).

@@ -16,7 +16,7 @@ The mission is typically created and uploaded with a Ground Control Station (GCS
 
 :::
 
-## Description
+## Опис
 
 Missions are usually created in a ground control station (e.g. [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html)) and uploaded prior to launch.
 They may also be created by a developer API, and/or uploaded in flight.
@@ -106,9 +106,9 @@ For more information see:
 Mission behaviour is affected by a number of parameters, most of which are documented in [Parameter Reference > Mission](../advanced_config/parameter_reference.md#mission).
 A very small subset are listed below.
 
-General parameters:
+Загальні параметри:
 
-| Parameter                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                |
+| Параметр                                                                                                                                                                | Опис                                                                                                                                                                                                                                                                                       |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | <a id="NAV_RCL_ACT"></a>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)                                  | RC loss failsafe mode (what the vehicle will do if it looses RC connection) - e.g. enter hold mode, return mode, terminate etc.                                                                                                                                         |
 | <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE)                      | Controls whether stick movement on a multicopter (or VTOL in MC mode) gives control back to the pilot in [Position mode](../flight_modes_mc/position.md). This can be separately enabled for auto modes and for offboard mode, and is enabled in auto modes by default. |
@@ -116,7 +116,7 @@ General parameters:
 
 Parameters related to [mission feasibility checks](#mission-feasibility-checks):
 
-| Parameter                                                                                                                                                                  | Description                                                                                                                                             |
+| Параметр                                                                                                                                                                   | Опис                                                                                                                                                    |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)                                  | The mission will not be started if the current waypoint is more distant than this value from the home position. Disabled if value is 0 or less.         |
 | <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)                                        | Maximum landing slope angle.                                                                                                                            |
@@ -129,7 +129,7 @@ Parameters related to [mission feasibility checks](#mission-feasibility-checks):
 PX4 "accepts" the following MAVLink mission commands in Mission mode (with some _caveats_, given after the list).
 Unless otherwise noted, the implementation is as defined in the MAVLink specification.
 
-Mission Items:
+Предмети місії:
 
 - [MAV_CMD_NAV_WAYPOINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)
   - _Param3_ (flythrough) is ignored. Flythrough is always enabled if _param 1_ (time_inside) > 0.
@@ -216,7 +216,7 @@ If a mission with no takeoff mission item is started, the vehicle will ascend to
 
 If the vehicle is already flying when the mission is started, a takeoff mission item is treated as a normal waypoint.
 
-## See Also
+## Дивіться також
 
 - [Missions](../flying/missions.md)
   - [Package Delivery Mission](../flying/package_delivery_mission.md)

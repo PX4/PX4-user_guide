@@ -1,16 +1,16 @@
-# Manufacturer-Supported Autopilots
+# Автопілоти з підтримкою виробника
 
-Manufacturer-supported autopilots are maintained and supported by a board manufacturer (manufacturers commit to delivering compatibility with the current stable PX4 release within 4 months of the official release announcement).
+Автопілоти, що підтримуються виробником, обслуговуються і підтримуються виробником плати (виробники зобов'язуються забезпечити сумісність з поточним стабільним випуском PX4 протягом 4 місяців з моменту офіційного оголошення про випуск).
 
 :::tip
-For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
+Для отримання додаткової інформації про рівні підтримки плат автопілотів проекту PX4 дивіться: [px4.io/autopilots/](https://px4.io/autopilots/).
 :::
 
 ::: info
-This category includes boards that are not fully compliant with the pixhawk standard; manufacturers support and maintain the board for any areas of incompatibility.
+До цієї категорії відносяться плати, які не повністю відповідають стандарту pixhawk; виробники підтримують і обслуговують плату в будь-яких областях несумісності.
 :::
 
-The boards in this category are:
+Плати цієї категорії:
 
 - [AirMind MindPX](../flight_controller/mindpx.md)
 - [AirMind MindRacer](../flight_controller/mindracer.md)
@@ -25,7 +25,7 @@ The boards in this category are:
 - [CubePilot Cube Yellow](../flight_controller/cubepilot_cube_yellow.md)
 - [Holybro Kakute H7v2](../flight_controller/kakuteh7v2.md)
 - [Holybro Kakute H7mini](../flight_controller/kakuteh7mini.md)
-- [Holybro Kakute F7](../flight_controller/kakutef7.md) - Discontinued
+- [Holybro Kakute F7](../flight_controller/kakutef7.md) - Знято з виробництва
 - [Holybro Kakute H7](../flight_controller/kakuteh7.md)
 - [Holybro Durandal](../flight_controller/durandal.md)
 - [Holybro Pix32 v5](../flight_controller/holybro_pix32_v5.md)

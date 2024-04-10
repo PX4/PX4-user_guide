@@ -1,8 +1,8 @@
 # Holybro PM02D Power Module
 
-The Holybro PM02D digital power module provides regulated power to flight controller and power distribution board, and sends information to the autopilot about battery voltage and current supplied to the flight controller and the motors.
+Плата живлення Holybro PM02D забезпечує регульоване живлення для керуючого пристрою польоту та розподільної плати живлення, а також надсилає інформацію автопілоту про напругу батареї та поточний струм, що подається на керуючий пристрій польоту та двигуни.
 
-The power module is connected using the I2C protocol. It is designed for flight controllers based on the Pixhawk FMUv5X and FMUv6X open standard, including the [Pixhawk 5X](../flight_controller/pixhawk5x.md).
+Плата живлення підключається за допомогою протоколу I2C. Вона призначена для керуючих пристроїв польоту на основі відкритого стандарту Pixhawk FMUv5X та FMUv6X, включаючи [Pixhawk 5X](../flight_controller/pixhawk5x.md).
 
 :::note
 The PM is **NOT** compatible with flight controllers that require an analog power module, including: [Pixhawk 4](../flight_controller/pixhawk4.md), [Durandal](../flight_controller/durandal.md), [Pix32 v5](../flight_controller/holybro_pix32_v5.md), etc.
@@ -10,7 +10,7 @@ The PM is **NOT** compatible with flight controllers that require an analog powe
 
 ![PM02D](../../assets/hardware/power_module/holybro_pm02d/pm02d_hero.jpg)
 
-## Specifications
+## Специфікації
 
 - **Max input voltage**: 36V
 - **Rated current**: 60A
@@ -22,16 +22,16 @@ The PM is **NOT** compatible with flight controllers that require an analog powe
 - **Weight**: 20g
 - **IC Used**: TI INA226
 
-## Package Contents
+## Вміст набору
 
 - PM02D board with XT60 connectors
 - 6pin 2.00mm pitch CLIK-Mate cable to power flight controller
 
-## Where to Buy
+## Де купити
 
 [Order from Holybro Store](https://holybro.com/products/pm02d-power-module)
 
-## Wiring/Connections
+## Проведення/Підключення
 
 ![pm02d_pinout](../../assets/hardware/power_module/holybro_pm02d/pm02d_pinout.png)
 

@@ -10,7 +10,7 @@ This is the easiest way to simulate multiple vehicles running PX4. It is suitabl
 
 To start multiple instances (on separate ports):
 
-1. Build PX4
+1. Збірка PX4
 
    ```sh
    make px4_sitl_default
