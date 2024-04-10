@@ -109,7 +109,7 @@ GPS/Компас слід монтувати на раму якомога под
 
   ![Pinouts](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
 
-- Приймачі PPM і PWM, які мають окремий дріт для кожного каналу</em>, повинні бути підключені до порту **RC PPM** за _допомогою енкодера PPM_, [подібного до цього](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (приймачі PPM-Sum використовують один сигнальний дріт для всіх каналів).
+- PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **PPM RC** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
 Для отримання додаткової інформації про вибір радіосистеми, сумісність приймача та зв'язок вашої передавача/приймача, див. статтю: [Пульт керування передавачів& приймачів](../getting_started/rc_transmitter_receiver.md).
 
