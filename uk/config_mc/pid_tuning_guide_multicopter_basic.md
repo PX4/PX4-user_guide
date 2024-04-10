@@ -1,59 +1,59 @@
-# Multicopter PID Tuning Guide (Manual/Basic)
+# Інструкція з налаштування мультикоптера PID (Manual/Basic)
 
-This tutorial explains how to _manually_ tune the PID loops on PX4 for all [multicopter setups](../airframes/airframe_reference.md#copter) (Quads, Hexa, Octo etc).
+Цей посібник пояснює, як _вручну_ налаштувати петлі PID на PX4 для всіх [багтроторних налаштувань](../airframes/airframe_reference.md#copter) (Квадрокоптери, Гексакоптери, Октокоптери тощо).
 
 :::tip
-[Autotune](../config/autotune.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames. Manual tuning is recommended for frames where autotuning does not work, or where fine-tuning is essential.
+[Автопідстроювання](../config/autotune.md) рекомендується для більшості користувачів, оскільки воно набагато швидше, простіше і забезпечує хороше налаштування для більшості кадрів. Рекомендується ручна настройка для кадрів, де автоналаштування не працює, або де важлива дотюнінг.
 :::
 
-Generally if you're using an appropriate [supported frame configuration](../airframes/airframe_reference.md#copter), the default tuning should allow you to fly the vehicle safely. Tuning is recommended for all new vehicle setups to get the _very best_ performance, because relatively small hardware and assembly changes can affect the gains required tuning gains for optimal flight. For example, different ESCs or motors change the optimal tuning gains.
+Загалом, якщо ви використовуєте відповідну [підтримувану конфігурацію рами](../airframes/airframe_reference.md#copter), налаштування за замовчуванням повинні дозволити вам безпечно керувати транспортним засобом. Налаштування рекомендується для всіх нових налаштувань транспортних засобів, щоб отримати _найкращу продуктивність_, оскільки відносно невеликі зміни у апаратурі та збірці можуть впливати на необхідні вигоди налаштування для оптимального польоту. Наприклад, різні ESC або двигуни змінюють оптимальні налаштування коефіцієнтів настройки.
 
-## Introduction
+## Вступ
 
-PX4 uses **P**roportional, **I**ntegral, **D**erivative (PID) controllers (these are the most widespread control technique).
+PX4 використовує **П**ропорційні, **I**нтегральні, **П**иференційні (PID) контролери (це найбільш поширена техніка керування).
 
-The _QGroundControl_ **PID Tuning** setup provides real-time plots of the vehicle setpoint and response curves. The goal of tuning is to set the P/I/D values such that the _Response_ curve matches the _Setpoint_ curve as closely as possible (i.e. a fast response without overshoots).
+Настройка _QGroundControl_ **PID Tuning** забезпечує реальні графіки установки транспортного засобу та кривих відгуку. Метою налаштування є встановлення значень P/I/D таким чином, щоб крива _Відповідь_ максимально точно відповідала криві _Setpoint_ (тобто швидка відповідь без перевищень).
 
 ![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
 
-The controllers are layered, which means a higher-level controller passes its results to a lower-level controller. The lowest-level controller is the **rate controller**, followed by the **attitude controller**, and finally the **velocity & position controller**. The PID tuning needs to be done in this same order, starting with the rate controller, as it will affect all other controllers.
+Контролери рівні, що означає, що контролер більш високого рівня передає свої результати контролеру нижчого рівня. Найнижчий контролер - це **контролер рівня**, за яким слідує **контролер напрямку**, і, нарешті, **контролер швидкості & положення**. Налаштування PID потрібно виконати в тому ж порядку, починаючи з регулятора швидкості, оскільки воно вплине на всі інші регулятори.
 
-The testing procedure for each controller (rate, attitude, velocity/posibition) and axis (yaw, roll, pitch) is always the same: create a fast setpoint change by moving the sticks very rapidly and observe the response. Then adjust the sliders (as discussed below) to improve the tracking of the response to the setpoint.
+Процедура тестування для кожного контролера (швидкість, ставлення, швидкість/позиція) та осі (імовірність, кочення, тангаж) завжди однакова: створіть швидку зміну заданої точки, швидко рухаючи палицями, та спостерігайте за реакцією. Потім налаштуйте слайдери (як обговорено нижче), щоб покращити відстеження реакції на задане значення.
 
 :::tip
 
-- Rate controller tuning is the most important, and if tuned well, the other controllers often need no or only minor adjustments
-- Usually the same tuning gains can be used for roll and pitch.
-- use Acro/Stabilized/Altitude mode to tune the rate controller
-- Use [Position mode](../flight_modes_mc/position.md) to tune the _Velocity Controller_ and the _Position Controller_. Make sure to switch to the _Simple position control_ mode so you can generate step inputs. ![QGC PID tuning: Simple control selector](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_simple_control.png)
+- Налаштування регулятора швидкості є найважливішим, і якщо воно налаштовано добре, інші регулятори часто не потребують жодних або лише незначних корекцій
+- Зазвичай для кочення і тангажу можна використовувати ті ж самі коефіцієнти налаштування.
+- використовуйте режим Acro/Stabilized/Altitude для налаштування контролера швидкості
+- Використовуйте [Режим позиції](../flight_modes_mc/position.md), щоб налаштувати _Контролер швидкості_ та _Контролер позиції_. Переконайтеся, що ви перейшли в режим _Простого керування позицією_, щоб ви могли генерувати крокові входи. ![QGC PID tuning: Simple control selector](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_simple_control.png)
 :::
 
-## Preconditions
+## Передумови
 
-- You have selected the closest matching [default frame configuration](../config/airframe.md) for your vehicle. This should give you a vehicle that already flies.
-- You should have done an [ESC calibration](../advanced_config/esc_calibration.md).
-- If using PWM outputs their minimum values should be set correctly in the [Actuator Configuration](../config/actuators.md). These need to be set low, but such that the **motors never stop** when the vehicle is armed.
+- Ви вибрали найближчу відповідність [конфігурації рами за замовчуванням](../config/airframe.md) для вашого транспортного засобу. Це повинно дати вам транспортний засіб, який вже літає.
+- Ви повинні були зробити [Калібрування ESC](../advanced_config/esc_calibration.md).
+- Якщо використовується вихід PWM, їх мінімальні значення повинні бути правильно встановлені в [Конфігурації приводів](../config/actuators.md). Ці значення повинні бути встановлені низькими, але такими, що **двигуни ніколи не зупиняються**, коли транспортний засіб зброєний.
 
-  This can be tested in [Acro mode](../flight_modes_mc/acro.md) or in [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md):
+  Це можна протестувати в [режимі Acro](../flight_modes_mc/acro.md) або в [режимі Ручного/Стабілізованого керування](../flight_modes_mc/manual_stabilized.md):
 
-  - Remove propellers
-  - Arm the vehicle and lower the throttle to the minimum
-  - Tilt the vehicle to all directions, about 60 degrees
-  - Check that no motors turn off
+  - Видаліть пропелери
+  - Збройте транспортний засіб і знизьте оберти до мінімуму
+  - Нахиліть транспортний засіб у всі напрямки, близько 60 градусів
+  - Перевірте, чи не вимикаються мотори
 
-- Use a high-rate telemetry link such as WiFi if at all possible (a typical low-range telemetry radio is not fast enough for real-time feedback and plots). This is particularly important for the rate controller.
-- Disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) before tuning a vehicle (there is an options for this in the PID tuning screen).
+- Використовуйте високошвидкісне телеметричне з'єднання, таке як WiFi, якщо це взагалі можливо (типовий телеметричний радіо з невеликим діапазоном не є достатньо швидким для отримання реального часу зворотнього зв'язку та графіків). Це особливо важливо для регулятора швидкості.
+- Вимкніть [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) перед налаштуванням транспортного засобу (є опції для цього на екрані налаштування PID).
 
 :::warning
-Poorly tuned vehicles are likely to be unstable, and easy to crash. Make sure to have assigned a [Kill switch](../config/safety.md#emergency-switches).
+Погано налаштовані транспортні засоби ймовірно нестійкі, і легко можуть зіткнутися. Переконайтеся, що призначено [Вимикач аварійного вимкнення](../config/safety.md#emergency-switches).
 :::
 
-## Tuning Procedure
+## Параметри налаштування
 
-The tuning procedure is:
+Параметри налаштування такі:
 
-1. Arm the vehicle, takeoff, and hover (typically in [Position mode](../flight_modes_mc/position.md)).
-1. Open _QGroundControl_ **Vehicle Setup > PID Tuning** ![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
+1. Озброїте транспортний засіб, злітайте та тримайтеся у повітрі (зазвичай у режимі [Режим позиції](../flight_modes_mc/position.md)).
+1. Відкрийте _QGroundControl_ **Налаштування Транспортного Засобу > Налаштування PID** ![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
 1. Select the **Rate Controller** tab.
 1. Confirm that the airmode selector is set to **Disabled**
 1. Set the _Thrust curve_ value to: 0.3 (PWM, power-based controllers) or 1 (RPM-based ESCs)
