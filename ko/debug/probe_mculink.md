@@ -9,11 +9,11 @@ Key features:
   Up to 5 MBaud serial. 1.2V to 5V target voltage.
   USB2 high-speed 480 Mbps connection.
 - Driven by NXP LinkServer or pyOCD software with wide device support.
-- Much cheaper (<15€) than a Pixhawk Debug Adapter (\~20€) with a JLink EDU mini (\~55€) or JLink BASE (\~400€) while having better hardware specs.
+- Much cheaper (<15€) than a Pixhawk Debug Adapter (~20€) with a JLink EDU mini (~55€) or JLink BASE (~400€) while having better hardware specs.
 
 The [Pixhawk Debug Adapter](https://holybro.com/products/pixhawk-debug-adapter) provides an easy way to connect a Pixhawk to an MCU-Link (the probe does not come with an adapter for working with Pixhawk flight controllers).
 
-:::note
+:::info
 These instructions have been tested on: FMUv6X-RT, FMUv6X, FMUv6c, FMUv5X.
 :::
 

@@ -19,7 +19,7 @@ MR210 uses MindRacer as flight controller. MR210 is a fully modularized, stackab
 
 ### User Guide
 
-:::note
+:::info
 The user guide is [here](http://mindpx.net/assets/accessories/MR210usermanual_pdf.pdf).
 :::
 
@@ -29,4 +29,4 @@ MindRacer 210 is available at [AirMind Store](https://airmind.mindpx.net/node/78
 
 ### Support
 
-Please visit http\://www\.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto:support@mindpx.net) for any inquiries or help.
+Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto:support@mindpx.net) for any inquiries or help.

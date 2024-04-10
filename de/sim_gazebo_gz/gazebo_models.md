@@ -79,7 +79,7 @@ The following arguments can be passed to the `simulation-gazebo` script:
 - `--model_download_source`
   A string variable setting the path to a directory from where models are to be imported.
   At the moment this can only be a local file directory or a http address.
-  The source should end with the zipped model file (for example: https\://path/to/simulation/models/models.zip).
+  The source should end with the zipped model file (for example: https://path/to/simulation/models/models.zip).
 
 - `--model_store`
   A string variable setting the path to the model storage directory.

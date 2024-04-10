@@ -362,7 +362,7 @@ To integrate a different planner, this needs to be disabled.
    systemctl enable avoidance.service
    ```
 
-2. The source code of the obstacle avoidance package can be found in https\://github.com/PX4/PX4-Avoidance which is located in `~/catkin_ws/src/avoidance`.
+2. The source code of the obstacle avoidance package can be found in https://github.com/PX4/PX4-Avoidance which is located in `~/catkin_ws/src/avoidance`.
 
 3. Make changes to the code! To get the latest code of avoidance pull the code from the avoidance repo:
 

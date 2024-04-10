@@ -25,7 +25,7 @@ The mission is typically created and uploaded with a Ground Control Station (GCS
 [Offboard mode](../flight_modes/offboard.md) causes the vehicle to obey position, velocity, or attitude, setpoints provided over MAVLink.
 Not all setpoint types make sense for a ground vehicle, or are supported.
 
-:::note
+:::info
 This mode is intended for vehicle control from companion computers and ground stations!
 :::
 
