@@ -5,22 +5,22 @@
 PX4 підтримує ряд типів телеметрійних радіозон:
 
 - Прошивка на базі радіо [SiK](../telemetry/sik_radio.md) (загалом, будь-яке радіо з інтерфейсом UART повинно працювати).
-  - [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
-  - [HolyBro SiK Telemetry Radio](../telemetry/holybro_sik_radio.md)
-  - <del>_HKPilot Telemetry Radio_</del> (Discontinued)
-  - <del>_3DR Telemetry Radio_</del> (Discontinued)
-- [Telemetry Wifi](../telemetry/telemetry_wifi.md)
-- [Microhard Serial Telemetry Radio](../telemetry/microhard_serial.md)
-  - [ARK Electron Microhard Serial Telemetry Radio](../telemetry/ark_microhard_serial.md)
-  - [Holybro Microhard P900 Telemetry Radio](../telemetry/holybro_microhard_p900_radio.md)
-- CUAV Serial Telemetry Radio
-  - [CUAV P8 Telemetry Radio](../telemetry/cuav_p8_radio.md)
-- XBee Serial Telemetry Radio
+  - [RFD900 Телеметрійне радіо](../telemetry/rfd900_telemetry.md)
+  - [HolyBro (Sik) Телеметричне радіо](../telemetry/holybro_sik_radio.md)
+  - <del>_HKPilot Телеметрійне радіо_</del> (Припинено)
+  - <del>_3DR телеметрія радіо_</del> (припинено)
+- [Телеметрійне Wifi](../telemetry/telemetry_wifi.md)
+- [Microhard Серійний Телеметрійний Радіо](../telemetry/microhard_serial.md)
+  - [ARK Electron Microhard Серійний Телеметрійний Радіо](../telemetry/ark_microhard_serial.md)
+  - [Holybro Microhard P900 Телеметрійне Радіо](../telemetry/holybro_microhard_p900_radio.md)
+- CUAV Серійне телеметрійне радіо
+  - [CUAV P8 Телеметрійне радіо](../telemetry/cuav_p8_radio.md)
+- XBee Серійне Телеметрійне Радіо
   - [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md) (Discontinued)
 
 PX4 є протоколом, сумісним із [SiK Radio](../telemetry/sik_radio.md), і, як правило, працюватиме з коробки (хоча вам може знадобитися змінити/використати відповідний роз’єм).
 
-Телеметрія по WiFi зазвичай має менший радіус дії, вищі швидкості передачі даних і спрощує підтримку FPV/відеопотоків. One benefit of WiFi radios is that you only need to purchase a single radio unit for your vehicle (assuming the ground station already has WiFi).
+Телеметрія по WiFi зазвичай має менший радіус дії, вищі швидкості передачі даних і спрощує підтримку FPV/відеопотоків. Однією з переваг WiFi-радіо є те, що вам потрібно придбати лише один радіоприймач для вашого транспортного засобу (за умови, що земна станція вже має WiFi).
 
 :::note PX4 не підтримує підключення LTE USB-модуля до контролера польоту (і передачу трафіку MAVLink через Інтернет). Однак ви можете підключити модуль LTE до компаньйонного комп'ютера і використовувати його для маршрутизації трафіку MAVLink від контролера польоту. Для отримання додаткової інформації дивіться: [Периферійні пристрої компаньйонного комп'ютера > Дані телефонії](../companion_computer/companion_computer_peripherals.md#data-telephony-lte).
 :::
