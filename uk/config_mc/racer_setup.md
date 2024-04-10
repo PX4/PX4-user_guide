@@ -1,128 +1,128 @@
-# Racer Setup
+# Налаштування Racer
 
-This page describes how to setup and configure a racer for optimal performance (in particular for [Acro mode](../flight_modes_mc/acro.md)).
+Ця сторінка описує, як налаштувати та сконфігурувати гонщика для оптимальної продуктивності (особливо для [режиму Акро](../flight_modes_mc/acro.md)).
 
-Keep in mind that racers are fast vehicles, specifically designed to be overpowered! You should already have some experience, or let someone with experience help you.
-
-:::tip
-Many things described here can also be applied to improve the flight performance of other types of multicopters.
-:::
-
-::: info
-A racer usually omits some sensors (e.g. GPS).
-As a result, fewer failsafe options are available.
-:::
-
-## Build Options
-
-A racer usually omits some sensors.
-
-The minimal configuration is to use only a gyro and accelerometer sensor.
-
-::: info
-If the board has an internal magnetometer, it should not be used (small racers are particularly prone to strong electromagnetic interference).
-:::
-
-Racers typically do not have a GPS as it adds some weight and is prone to damage during crashes (a GPS + external magnetometer must be placed on a GPS mast away from high currents to avoid magnetic interference, which unfortunately means that it is easy to break).
-
-There are however some benefits in adding GPS, particularly for beginners:
-
-- You can go into position hold and the vehicle will just stay in one place. This is handy if you lose the orientation or need a brake. It can also be used to land safely.
-- [Return mode](../flight_modes_mc/return.md) can be used, either on a switch or as RC loss/low battery failsafe.
-- You will have the last position when it crashes.
-- The log contains the flight track, which means you can review the flight (in 3D). This can help to improve your acrobatic flight skills.
-
-::: info During aggressive acrobatic maneuvers the GPS can lose its position fix for a short time. If you switch into [position mode](../flight_modes_mc/position.md) during that time, [altitude mode](../flight_modes_mc/altitude.md) will be used instead until the position becomes valid again.
-:::
-
-## Hardware Setup
-
-The following paragraphs describe a few important points when building the vehicle. If you need complete build instructions, you can follow the [QAV-R 5" KISS ESC Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) build log.
-
-### Vibration Setup
-
-There are various mounting approaches to reduce vibrations. For example, the flight controller can be mounted with vibration dampening foam, or using [O-rings](../frames_multicopter/qav_r_5_kiss_esc_racer.md#mounting).
-
-While there is no single best method, you will typically have fewer problems with vibrations if you use high-quality components (frame, motors, props) as for example used in the [QAV-R 5" KISS ESC Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md).
-
-Make sure to use **balanced props**.
-
-### Center of Gravity
-
-Make sure that the center of gravity is as close as possible to the center of thrust. Left-right balance is usually not a problem, but front-back balance may be. You can move the battery until it is correct and mark it on the frame so you will always place it correctly.
-
-::: info
-The integral term can account for an imbalanced setup, and a custom mixer can do that even better.
-However it is best to fix any imbalance as part of the vehicle setup.
-:::
-
-## Software Setup
-
-After having built the racer, you will need to configure the software.
-
-Go through the [Basic Configuration Guide](../config/index.md). In particular, set the [Airframe](../config/airframe.md) that most closely matches your frame (typically you will choose the [Generic 250 Racer](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer) airframe, which sets some racer-specific parameters by default).
-
-These parameters are important:
-
-- Enable One-Shot or DShot by selecting the protocol for a group of outputs during [Actuator Configuration](../config/actuators.md).
-- Set the maximum roll-, pitch- and yaw rates for Manual/Stabilized mode as desired: [MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX), [MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX) and [MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX). The maximum tilt angle is configured with [MPC_MAN_TILT_MAX](../advanced_config/parameter_reference.md#MPC_MAN_TILT_MAX).
-- The minimum thrust [MPC_MANTHR_MIN](../advanced_config/parameter_reference.md#MPC_MANTHR_MIN) should be set to 0.
-
-### Estimator
-
-If you use a GPS you can skip this section and use the default estimator. Otherwise you should switch to the Q attitude estimator, which works without a magnetometer or barometer.
-
-To select it, set [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) to 1, and change the following parameters:
-
-- Set [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) to 0 if the system does not have a magnetometer.
-- Set [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) to 0 if the system does not have a barometer.
-- Configure the Q estimator: set [ATT_ACC_COMP](../advanced_config/parameter_reference.md#ATT_ACC_COMP) to 0, [ATT_W_ACC](../advanced_config/parameter_reference.md#ATT_W_ACC) to 0.4 and [ATT_W_GYRO_BIAS](../advanced_config/parameter_reference.md#ATT_W_GYRO_BIAS) to 0. You can tune these later if you wish.
-
-### Failsafe
-
-Configure [RC loss and low battery failsafe](../config/safety.md). If you do not use a GPS, set the failsafe to **Lockdown**, which turns off the motors. Test RC loss on the bench without props attached by turning off the remote when the vehicle is armed.
-
-Make sure to assign a [kill switch](../config/safety.md#kill-switch) or an [arming switch](../config/safety.md#arm-disarm-switch). Test it and train to use it!
-
-### PID Tuning
-
-::: info
-Make sure to calibrate the ESCs before doing any tuning.
-:::
-
-At this point you should be ready for a first test flight.
-
-Assuming the vehicle is able to fly using the default settings, we then do a first pass of [Basic MC PID tuning](../config_mc/pid_tuning_guide_multicopter_basic.md). The vehicle needs to be **undertuned** (the **P** and **D** gains should be set too low), such that there are no oscillations from the controller that could be interpreted as noise (the default gains might be good enough). This is important for the [filter tuning](#filter-tuning) (there will be a second PID tuning round later).
-
-### Control Latency
-
-The _control latency_ is the delay from a physical disturbance of the vehicle until the motors react to the change.
+Пам'ятайте, що гонщики - це швидкі транспортні засоби, спеціально створені для того, щоб бути переважними! Вам вже слід мати деякий досвід, або дозвольте комусь з досвідом допомогти вам.
 
 :::tip
-It is _crucial_ to reduce the control latency as much as possible! A lower latency allows you to increase the rate **P** gains, which means better flight performance. Even one millisecond added to the latency makes a difference.
+Багато речей, описаних тут, також можуть бути застосовані для покращення польотової продуктивності інших типів багатокрильних літаків.
 :::
 
-These are the factors that affect the latency:
+::: info
+Звичайно гонщик пропускає деякі датчики (наприклад, GPS).
+Як результат, менше надійних опцій доступно.
+:::
 
-- A soft airframe or soft vibration mounting increases latency (they act as a filter).
-- [Low-pass filters](../config_mc/filter_tuning.md) in software and on the sensor chip trade off increased latency for improved noise filtering.
-- PX4 software internals: the sensor signals need to be read in the driver and then pass through the controller to the output driver.
-- The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a _Pixracer_ or _Omnibus F4_, but does apply to a Pixhawk). To avoid the IO delay attach the motors to the AUX pins instead.
-- PWM output signal: enable [Dshot](../peripherals/dshot.md) by preference to reduce latency (or One-Shot if DShot is not supported). The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
+## Опції збірки
 
-### Filter Tuning
+Звичайно гонщик пропускає деякі датчики.
 
-Filters trade off control latency and noise filtering, both of which impact performance. For information see: [Filter/Control Latency Tuning](../config_mc/filter_tuning.md)
+Мінімальна конфігурація полягає у використанні лише гіроскопа та акселерометра.
 
-### PID Tuning (Second Round)
+::: info
+Якщо у платі є внутрішній магнітометр, його не слід використовувати (малі гонщики особливо схильні до сильних електромагнітних перешкод).
+:::
 
-Now do a second round of PID tuning, this time as tight as possible, and also tuning the thrust curve.
+Гонщики зазвичай не мають GPS, оскільки воно додає деяку вагу та може пошкодитися під час аварій (GPS + зовнішній магнітометр повинен бути розміщений на стійці GPS подалі від великих струмів, щоб уникнути магнітних перешкод, що, на жаль, означає, що його легко розбити).
+
+Проте є деякі переваги у додаванні GPS, особливо для початківців:
+
+- Ви можете перейти в режим утримання позиції, і транспортний засіб просто залишиться на місці. Це зручно, якщо ви втратили орієнтацію або потребуєте перерви. Це також може бути використано для безпечної посадки.
+- Режим [Повернення](../flight_modes_mc/return.md) може бути використаний, або на перемикачі, або як аварійний режим втрати RC або низького заряду батареї.
+- Ви матимете останню позицію, коли він вріжеся.
+- Журнал містить трек польоту, що означає, що ви можете переглянути польот (у 3D). Це може допомогти вам покращити ваші акробатичні льотні навички.
+
+::: info Під час агресивних акробатичних маневрів GPS може втратити позицію на короткий час. Якщо ви переключитеся в [режим позиції](../flight_modes_mc/position.md) під час цього часу, замість цього буде використовуватися [режим висоти](../flight_modes_mc/altitude.md), поки позиція знову не стане дійсною.
+:::
+
+## Налаштування обладнання
+
+Наступні абзаци описують кілька важливих моментів під час будівництва транспортного засобу. Якщо вам потрібні повні інструкції зі збірки, ви можете дотримуватися журналу збірки [QAV-R 5" KISS ESC Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md).
+
+### Налаштування вібрації
+
+Існують різні підходи до кріплення для зменшення вібрацій. Наприклад, контролер польоту може бути встановлений з віброгасіючим піною або за допомогою [O-кілець](../frames_multicopter/qav_r_5_kiss_esc_racer.md#mounting).
+
+Хоча немає одного кращого методу, у вас, як правило, буде менше проблем з вібраціями, якщо ви використовуєте високоякісні компоненти (раму, двигуни, пропелери), які, наприклад, використовуються у [QAV-R 5" KISS ESC Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md).
+
+Не забудьте використати **збалансовані реквізити**.
+
+### Центр гравітації
+
+Переконайтеся, що центр ваги розташований як можливо ближче до центру тяги. Баланс ліворуч-праворуч зазвичай не є проблемою, але баланс вперед-назад може бути. Ви можете перемістити батарею до тих пір, поки вона не буде вірною і позначити її на рамі, щоб завжди правильно її розміщувати.
+
+::: info
+Інтегральний термін може враховувати незбалансоване налаштування, а спеціальний міксер може зробити це ще краще.
+Проте краще виправити будь-який дисбаланс як частину налаштування автомобіля.
+:::
+
+## Налаштування програмного забезпечення
+
+Після того, як ви побудуєте гонщика, вам потрібно буде налаштувати програмне забезпечення.
+
+Пройдіть по [Керівництву з Основних Налаштувань](../config/index.md). Зокрема, встановіть [Airframe](../config/airframe.md), який найбільше відповідає вашому каркасу (зазвичай ви виберете каркас [Generic 250 Racer](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer), який за замовчуванням встановлює деякі параметри, специфічні для гонщика).
+
+Ці параметри є важливими:
+
+- Увімкніть режим One-Shot або DShot, вибравши протокол для групи виведення під час [налаштування приводу дії](../config/actuators.md).
+- Встановіть максимальні швидкості крену, тангажу та курсу для режиму Manual/Stabilized за потребою: [MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX), [MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX) та [MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX). Максимальний кут нахилу налаштовується за допомогою [MPC_MAN_TILT_MAX](../advanced_config/parameter_reference.md#MPC_MAN_TILT_MAX).
+- Мінімальний тяговий [MPC_MANTHR_MIN](../advanced_config/parameter_reference.md#MPC_MANTHR_MIN) повинен бути встановлений на 0.
+
+### Оцінювач
+
+Якщо ви використовуєте GPS, ви можете пропустити цей розділ і використовувати типовий оцінювач. В іншому випадку вам слід перейти на оцінювач відносин Q, який працює без магнітометра або барометра.
+
+Щоб вибрати його, встановіть [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) на 1, і змініть наступні параметри:
+
+- Встановіть [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) на 0, якщо у системі немає магнітометра.
+- Встановіть [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) на 0, якщо у системі немає барометра.
+- Налаштуйте оцінювач Q: встановіть [ATT_ACC_COMP](../advanced_config/parameter_reference.md#ATT_ACC_COMP) на 0, [ATT_W_ACC](../advanced_config/parameter_reference.md#ATT_W_ACC) на 0.4 та [ATT_W_GYRO_BIAS](../advanced_config/parameter_reference.md#ATT_W_GYRO_BIAS) на 0. Ви можете налаштувати це пізніше, якщо бажаєте.
+
+### Безаварійність
+
+Налаштуйте [втрату зв'язку та автоматичне вимкнення при низькому рівні заряду батареї](../config/safety.md). Якщо ви не використовуєте GPS, встановіть безпеку на випадок відмови на **Блокування**, яке вимикає двигуни. Тест втрати дистанційного керування на лавці без пристроїв, приєднаних шляхом вимкнення пульта дистанційного керування, коли транспортний засіб увімкнено.
+
+Переконайтеся, що ви призначили [вимикач відключення](../config/safety.md#kill-switch) або [вимикач готовності](../config/safety.md#arm-disarm-switch). Протестируйте його і навчіться його використовувати!
+
+### Налаштування PID
+
+::: info
+Переконайтеся, що ви калібруєте ESCs перед налаштуванням.
+:::
+
+На цьому етапі ви повинні бути готові до першого випробувального польоту.
+
+Припускаючи, що транспортний засіб може літати за допомогою налаштувань за замовчуванням, ми спочатку робимо перший прохід по [Основній настройці ПІД для багатокоптерів (MC)](../config_mc/pid_tuning_guide_multicopter_basic.md). Транспортний засіб має бути **підтриманий** (**P** і **D** коефіцієнти повинні бути встановлені занадто низько), щоб не було осциляцій від контролера, які можна було б сприйняти як шум (типові коефіцієнти можуть бути достатні). Це важливо для [налаштування фільтра](#filter-tuning) (пізніше буде другий раунд налаштування PID).
+
+### Затримка керування
+
+_Затримка керування_ - це час від фізичного порушення транспортного засобу до реакції моторів на зміну.
 
 :::tip
-You can use the approach described in [Basic MC PID tuning](../config_mc/pid_tuning_guide_multicopter_basic.md) to tune the frame, but you will need to use the [Advanced Multicopter PID Tuning Guide (Advanced/Detailed)](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve) to understand how to tune the thrust curve.
+Це _важливо_ зменшити затримку управління настільки, наскільки це можливо! Зниження затримки дозволяє збільшити коефіцієнти **P** регулювання, що означає кращу польотну продуктивність. Навіть одна мілісекунда, додана до затримки, робить різницю.
+:::
 
-### Airmode
+Це фактори, які впливають на затримку:
 
-After you have verified that the vehicle flies well at low and high throttle, you can enable [airmode](../config_mc/pid_tuning_guide_multicopter.md#airmode) with the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter. This feature makes sure that the vehicle is still controllable and tracks the rate at low throttle.
+- М'яка конструкція або м'яка амортизація вібрацій збільшує затримку (вони діють як фільтр).
+- [Фільтри низьких передач](../config_mc/filter_tuning.md) в програмному забезпеченні та на торгівлі датчиками збільшена затримка для покращення шумової фільтрації.
+- Внутрішні складові програмного забезпечення PX4: сигнали датчиків потрібно зчитати у драйвері, а потім пройти через контролер до виходного драйвера.
+- Мікросхема введення-виведення (головні контакти) додає приблизно 5,4 мс затримки порівняно з використанням додаткових контактів (це не стосується _Pixracer_ або _Omnibus F4_, але стосується Pixhawk). Щоб уникнути затримки введення-виведення, підключіть мотори до додаткових контактів замість головних.
+- Сигнал виведення ШІМ: ввімкніть [Dshot](../peripherals/dshot.md) за бажанням, щоб зменшити затримку (або One-Shot, якщо DShot не підтримується). Протокол вибирається для групи виведень під час [налаштування приводу дії](../config/actuators.md).
 
-Happy flipping :)
+### Налаштування фільтра
+
+Фільтри вирішують проблему затримки управління та фільтрації шуму, обидва з яких впливають на продуктивність. Для отримання інформації див.: [Налаштування затримки фільтра/контролю](../config_mc/filter_tuning.md)
+
+### Налаштування PID (другий раунд)
+
+Зараз проведіть другий раунд налаштування PID, на цей раз якнайщільніше, а також налаштовуйте криву тяги.
+
+:::tip
+Ви можете використовувати підхід, описаний у [Основний налаштування PID для MC](../config_mc/pid_tuning_guide_multicopter_basic.md), щоб налаштувати раму, але вам доведеться використовувати [Розширений Підручник з Налаштування PID для Багатокоптерів (Розширений/Детальний)](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve), щоб зрозуміти, як налаштувати криву тяги.
+
+### Режим польоту
+
+Після того, як ви перевірили, що транспортний засіб добре літає на низькому та високому режимах обертання, ви можете увімкнути [режим повітря](../config_mc/pid_tuning_guide_multicopter.md#airmode) за допомогою параметра [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE). Ця функція гарантує, що автомобіль все ще контролюється і відслідковує швидкість з низькою частотою.
+
+Щасливого перекидання :)
