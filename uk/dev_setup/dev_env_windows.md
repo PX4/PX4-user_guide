@@ -31,7 +31,7 @@ Once you have finished setting up the command-line toolchain:
 There are a number of other legacy/alternative solutions that may be of interest to some developers.
 A comparison of the options is provided below.
 
-:::note
+::: info
 The [Cygwin Toolchain](../dev_setup/dev_env_windows_cygwin.md) is the only one that is supported by the PX4 dev team.
 It is regularly tested as part of our continuous integration system and is known to be better performing than the other alternatives.
 :::
