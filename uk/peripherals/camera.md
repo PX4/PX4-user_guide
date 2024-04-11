@@ -80,68 +80,68 @@ The trigger pins can be set by assigning the `Camera_Trigger` function on any FM
 
 Захоплення / зворотний зв'язок камери увімкнено в PX4, встановивши [CAM_CAP_FBACK = 1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK). Використаний для захоплення камери штифт потім встановлюється на екрані конфігурації _QGroundControl_ [Приводи](../config/actuators.md), призначивши функцію `Camera_Capture` на будь-який вихід FMU.
 
-Note that if a _PWM output_ is used as a camera capture input, the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator, motor, or camera trigger, because the timer has already been used).
+Зверніть увагу, що якщо вихід _PWM_ використовується як вхід захоплення камери, вся група PWM не може бути використана для чого-небудь іншого (ви не можете використовувати інший вихід у групі для приводу, двигуна або запуску камери, оскільки таймер вже був використаний).
 
-::: info At time of writing camera capture only works on FMU pins:
+::: info На момент написання захоплення камери працює лише на контактах FMU:
 
-- On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+).
-- A controller that only has an FMU, the pins map to `MAIN` outputs (e.g. Pixhawk 4 mini, CUAV v5 nano).
+- На контролері польоту Pixhawk, який має як FMU, так і I/O плати, піни FMU відображаються на виходи `AUX` (наприклад, Pixhawk 4, CUAV v5+).
+- Контролер, що має лише FMU, контакти відображаються на виходи `MAIN` (наприклад, Pixhawk 4 mini, CUAV v5 nano).
 
 :::
 
-PX4 detects a rising edge with the appropriate voltage level on the camera capture pin (for Pixhawk flight controllers this is normally 3.3V). If the camera isn't outputting an appropriate voltage, then additional circuitry will be required to make the signal compatible.
+PX4 виявляє зростаючий фронт з відповідним рівнем напруги на позначці захоплення камери (для контролерів польоту Pixhawk це зазвичай 3,3 В). Якщо камера не видає відповідного напруги, то для забезпечення сумісності сигналу буде потрібна додаткова схемотехніка.
 
-Cameras that have a hotshoe connector (for connecting a flash) can usually be connected via a hotshoe-adaptor. For example, the [Seagull #SYNC2 Universal Camera Hot Shoe Adapter](https://www.seagulluav.com/product/seagull-sync2/) is an optocoupler that decouples and shifts the flash voltage to the Pixhawk voltage. This slides into the flash slot on the top of the camera. The red and black ouptputs are connected to the servo rail/ground and the white wire is connected to the input capture pin.
+Камери, які мають гарячий башмак (для підключення спалаху), зазвичай можна підключити за допомогою адаптера для гарячого башмака. Наприклад, [Адаптер гарячого башмака камери Seagull #SYNC2 Universal](https://www.seagulluav.com/product/seagull-sync2/) - це оптокуплер, який відокремлює та зсуває напругу спалаху до напруги Pixhawk. Це вставляється в роз'єм для спалаху зверху камери. Червоні та чорні виходи підключені до рейки/землі сервоприводу, а білий дріт підключений до піна захоплення введення.
 
 ![Seagull SYNC#2](../../assets/peripherals/camera_capture/seagull_sync2.png)
 
-::: info PX4 emits the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message on both camera trigger and camera capture. If camera capture is configured, the timestamp from the camera capture driver is used, otherwise the triggering timestamp.
+::: info PX4 видає повідомлення MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) як при спрацьовуванні камери, так і при захопленні зображення. Якщо налаштований захоплення камери, використовується відмітка часу від драйвера захоплення камери, інакше використовується відмітка часу спрацювання.
 :::
 
-## MAVLink Command Interface (Directly Connected Cameras)
+## Інтерфейс команд MAVLink (камери, підключені безпосередньо)
 
-When using a camera connected to the flight controller as described in this document (e.g. using the GPIO, PWM or seagull backend interfaces) the camera driver supports the following subset of MAVLink commands:
+При використанні камери, підключеної до керування польотом, як описано в цьому документі (наприклад, використовуючи інтерфейси GPIO, PWM або seagull backend), драйвер камери підтримує наступний піднабір команд MAVLink:
 
-[MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - Accepted in "command controlled" mode (`TRIG_MODE` 1).
+[MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - Прийнято у режимі "керований командою" (`TRIG_MODE` 1).
 
-| Command Parameter | Description                                                                                        |
-| ----------------- | -------------------------------------------------------------------------------------------------- |
-| Param #1          | Trigger enable/disable. `1`: enable (start), `0`: disable.                                         |
-| Param #2          | Reset trigger sequence. `1`: reset, any other value does nothing.                                  |
-| Param #3          | Pause triggering, but without switching the camera off or retracting it. `1`: pause, `0`: restart. |
+| Параметр команди | Description                                                                                        |
+| ---------------- | -------------------------------------------------------------------------------------------------- |
+| Param #1         | Trigger enable/disable. `1`: enable (start), `0`: disable.                                         |
+| Param #2         | Reset trigger sequence. `1`: reset, any other value does nothing.                                  |
+| Param #3         | Pause triggering, but without switching the camera off or retracting it. `1`: pause, `0`: restart. |
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/camera_trigger/camera_trigger.cpp#L549 -->
 
-[MAV_CMD_DO_DIGICAM_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_DIGICAM_CONTROL) - Accepted in all modes.
+[MAV_CMD_DO_DIGICAM_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_DIGICAM_CONTROL) - Прийнято в усіх режимах.
 
-This is used by the GCS to test-shoot the camera from the user interface. The trigger driver does not support all camera control parameters defined by the MAVLink spec.
+Це використовується GCS для тестування камери з інтерфейсу користувача. Водій спрацьовувача не підтримує всі параметри керування камерою, визначені специфікацією MAVLink.
 
-| Command Parameter | Description                                                          |
-| ----------------- | -------------------------------------------------------------------- |
-| Param #5          | Trigger one-shot command (set to 1 to trigger a single image frame). |
+| Параметри команди | Опис                                                                                                           |
+| ----------------- | -------------------------------------------------------------------------------------------------------------- |
+| Param #5          | Спровокувати виконання одноразової команди (встановіть 1, щоб спровокувати виконання одного кадру зображення). |
 
-[MAV_CMD_DO_SET_CAM_TRIGG_DIST](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_DIST) - Accepted in "mission controlled" mode (`TRIG_MODE` 4)
+[MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_DIST) - Прийнято у режимі "керований командою" (`TRIG_MODE` 4)
 
-This command is autogenerated during missions to trigger the camera based on survey missions from the GCS.
+Ця команда генерується автоматично під час місій для спрацювання камери на основі місій з опитування від GCS.
 
 [MAV_CMD_OBLIQUE_SURVEY](https://mavlink.io/en/messages/common.html#MAV_CMD_OBLIQUE_SURVEY) - Mission command to set a camera auto mount pivoting oblique survey.
 
-This accepts `param1` to `param4` as defined in the MAVLink message definition. The shutter integration setting (`param2`) is only obeyed with a GPIO backend.
+Це приймає `param1` до `param4`, як визначено в визначенні повідомлення MAVLink. Налаштування інтеграції затвору (`param2`) виконується тільки з GPIO backend.
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/camera_trigger/camera_trigger.cpp#L632 -->
 
-## MAVLink Cameras
+## Камери MAVLink
 
-PX4 can also be configured to use a [MAVLink trigger interface backend](#trigger-interface-backends) with a MAVLink camera.
+PX4 також може бути налаштований на використання [інтерфейсу заднього кінця MAVLink тригера](#trigger-interface-backends) з камерою MAVLink.
 
-In this case MAVLink camera messages are forwarded to a MAVLink camera for handling (although PX4 will still emit the `CAMERA_TRIGGER` when a trigger command is received).
+У цьому випадку повідомлення камери MAVLink пересилаються на камеру MAVLink для обробки (хоча PX4 все ще видасть `CAMERA_TRIGGER`, коли отримає команду спуску).
 
-MAVLink cameras are recommended because directly connected cameras only support [a small subset](#mavlink-command-interface-directly-connected-cameras) of the available MAVLink camera messages and commands. MAVLink cameras potentially offer much more control over a camera using the [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html).
+Камери MAVLink рекомендовано, оскільки камери, підключені безпосередньо, підтримують лише [невеликий піднабір](#mavlink-command-interface-directly-connected-cameras) доступних повідомлень та команд камери MAVLink. Камери MAVLink, ймовірно, пропонують набагато більше контролю над камерою за допомогою [Протоколу камери MAVLink](https://mavlink.io/en/services/camera.html).
 
 ## Testing Trigger Functionality
 
 :::warning
-The following sections are out of date and need retesting.
+Наступні розділи застаріли і потребують повторного тестування.
 :::
 
 1. On the PX4 console:
@@ -152,17 +152,17 @@ The following sections are out of date and need retesting.
 
 1. From _QGroundControl_:
 
-   Click on **Trigger Camera** in the main instrument panel. These shots are not logged or counted for geotagging.
+   Клацніть на **Запуск камери** на головній панелі інструментів. Ці знімки не відображаються або не підраховуються для геотегування.
 
    ![QGC Test Camera](../../assets/camera/qgc_test_camera.png)
 
-## Sony QX-1 example (Photogrammetry)
+## Приклад Sony QX-1 (Фотограметрія)
 
 ![photogrammetry](../../assets/camera/photogrammetry.png)
 
-In this example, we will use a Seagull MAP2 trigger cable to interface to a Sony QX-1 and use the setup to create orthomosaics after flying a fully autonomous survey mission.
+У цьому прикладі ми використаємо кабель спускового пристрою Seagull MAP2 для інтерфейсу з Sony QX-1 та використаємо налаштування для створення ортомозаїк після проведення повністю автономної місії обстеження.
 
-### Trigger Settings
+### Налаштування тригера
 
 The recommended camera settings are:
 
@@ -170,49 +170,49 @@ The recommended camera settings are:
 - `TRIG_MODE=4` (Mission controlled).
 - Leave the remaining parameters at their defaults.
 
-You will need to connect the Seagull MAP2 to FMU pins on your autopilot. The other end of the MAP2 cable will go into the QX-1's "MULTI" port.
+Вам потрібно підключити карту Seagull MAP2 до контактів FMU на вашому автопілоті. Інший кінець кабелю MAP2 буде вставлено в роз'єм "MULTI" QX-1.
 
 ### Camera Configuration
 
-We use a Sony QX-1 with a 16-50mm f3.5-5.6 lens for this example.
+Ми використовуємо Sony QX-1 з об'єктивом 16-50 мм f3.5-5.6 для цього прикладу.
 
-To avoid autofocus and metering lag when the camera is triggered, the following guidelines should be followed:
+Щоб уникнути затримки автофокусу та вимірювання при спрацюванні камери, слід дотримуватися наступних вказівок:
 
-- Manual focus to infinity
-- Set camera to continuous shooting mode
-- Manually set exposure and aperture
-- ISO should be set as low as possible
-- Manual white balance suitable for scene
+- Ручне фокусування на безкінечність
+- Встановіть камеру в режим постійного знімання
+- Вручну встановіть експозицію та діафрагму
+- ISO повинен бути встановлений якнайнижчим
+- Ручний баланс білого, відповідний для сцени
 
-### Mission Planning
+### Планування місії
 
 ![QGC Survey Polygon](../../assets/camera/qgc_survey_polygon.jpeg)
 
 ![QGC Survey Parameters](../../assets/camera/qgc_survey_parameters.jpg)
 
-### Geotagging
+### Геотегування
 
-Download/copy the logfile and images from the flight and point QGroundControl to them. Then click on **Start Tagging**.
+Завантажте/скопіюйте файл журналу та зображення з польоту та вказіть QGroundControl на них. Потім клацніть на **Почати позначення**.
 
 ![QGC Geotagging](../../assets/camera/qgc_geotag.png)
 
-You can verify the geotagging using a free online service like [Pic2Map](https://www.pic2map.com/). Note that Pic2Map is limited to only 40 images.
+Ви можете перевірити геотегування за допомогою безкоштовного онлайн-сервісу, такого як [Pic2Map](https://www.pic2map.com/). Зверніть увагу, що Pic2Map обмежений лише 40 зображеннями.
 
-### Reconstruction
+### Реконструкція
 
-We use [Pix4D](https://pix4d.com/) for 3D reconstruction.
+Ми використовуємо [Pix4D](https://pix4d.com/) для реконструкції у 3D.
 
 ![GeoTag](../../assets/camera/geotag.jpg)
 
-## Camera-IMU sync example (VIO)
+## Приклад синхронізації камери-ІНУ (VIO)
 
-In this example, we will go over the basics of synchronising IMU measurements with visual data to build a stereo Visual-Inertial Navigation System (VINS). To be clear, the idea here isn't to take an IMU measurement exactly at the same time as we take a picture but rather to correctly time stamp our images so as to provide accurate data to our VIO algorithm.
+У цьому прикладі ми розглянемо основи синхронізації вимірювань ІМП з візуальними даними для побудови стерео навігаційної системи Visual-Inertial Navigation System (VINS). Щоб було зрозуміло, ідея тут полягає не в тому, щоб вимірювати IMU точно у той же час, що і ми фотографуємо, а отримувати правильний часовий штамп на наших зображеннях, щоб надавати точні дані нашому алгоритму VIO.
 
-The autopilot and companion have different clock bases (boot-time for the autopilot and UNIX epoch for companion), so instead of skewing either clock, we directly observe the time offset between the clocks. This offset is added or subtracted from the timestamps in the MAVLink messages (e.g. `HIGHRES_IMU`) in the cross-middleware translator component (e.g. MAVROS on the companion and `mavlink_receiver` in PX4). The actual synchronisation algorithm is a modified version of the Network Time Protocol (NTP) algorithm and uses an exponential moving average to smooth the tracked time offset. This synchronisation is done automatically if MAVROS is used with a high-bandwidth onboard link (MAVLink mode `onboard`).
+Автопілот та супутник мають різні бази часу (час завантаження для автопілота та UNIX епоха для супутника), тому замість вигинати будь-який з годинників, ми безпосередньо спостерігаємо різницю часу між годинниками. Це зміщення додається або віднімається від міток часу в повідомленнях MAVLink (наприклад, `HIGHRES_IMU`) в компоненті перекладача міжпрограмного забезпечення (наприклад, MAVROS на співмешканці та `mavlink_receiver` в PX4). Фактичний алгоритм синхронізації є модифікованою версією алгоритму мережевого протоколу часу (NTP) та використовує експоненційний рухомий середній для згладжування відстеженого зсуву часу. Ця синхронізація виконується автоматично, якщо використовується MAVROS з високосмуговим зв'язком на борту (режим MAVLink `onboard`).
 
-For acquiring synchronised image frames and inertial measurements, we connect the trigger inputs of the two cameras to a GPIO pin on the autopilot. The timestamp of the inertial measurement from start of exposure and a image sequence number is recorded and sent to the companion computer (`CAMERA_TRIGGER` message), which buffers these packets and the image frames acquired from the camera. They are matched based on the sequence number (first image frame is sequence 0), the images timestamped (with the timestamp from the `CAMERA_TRIGGER` message) and then published.
+Для отримання синхронізованих кадрів зображення та інерційних вимірювань ми підключаємо входи тригера двох камер до контакту GPIO на автопілоті. Часовий штамп інерційного вимірювання від початку впливу та номер послідовності зображень записуються й відправляються на спільний комп'ютер (повідомлення `CAMERA_TRIGGER`), який буферизує ці пакети та кадри зображень, отримані з камери. They are matched based on the sequence number (first image frame is sequence 0), the images timestamped (with the timestamp from the `CAMERA_TRIGGER` message) and then published.
 
-The following diagram illustrates the sequence of events which must happen in order to correctly timestamp our images.
+Наступна діаграма ілюструє послідовність подій, які повинні відбутися для правильного відміткового зображень.
 
 [![Mermaid sequence diagram](https://mermaid.ink/img/pako:eNqNUs9rwjAU_lceOW-3nXIQpIoIVkftZIdCeTbPNqxJXJI6ivi_L1Er6Dzs9kK-H3lfviOrjCDGmaPvjnRFE4m1RVVogKXxBFbWjQezg_fPN-CQS0Xgel3Bj_QNKDxY40A6EEYTYOeNQi8rbNs-SkTS62g04DgkqMgi5EG2JguWUPR_vaoLSlh5CKAb63reGuMdoBbR96Zwz7kzvQylcrXjPDFKBe71BYnR3po2ClzhkXnZNR1vFlJ_cR6GMkkn5WRV5tl8NptmZbJa5tlqEXmtMXuYBtMe4m05X-bTbDNegJJtKx1VRgv3NIybQTJOp9l4EH94zGMY99ugmqcfa49q_zyER3aKvmpg-G3QndqS_R_17AJSYU3n9PfdNuzXFJq0YC8sgBVKEbp0jHoF8w0pKhgPo6Addq0vWKFPARp7sg4lYtzbjl5Ytxfoh-oxvsPW0ekXb8TjxQ?type=png)](https://mermaid.live/edit#pako:eNqNUs9rwjAU_lceOW-3nXIQpIoIVkftZIdCeTbPNqxJXJI6ivi_L1Er6Dzs9kK-H3lfviOrjCDGmaPvjnRFE4m1RVVogKXxBFbWjQezg_fPN-CQS0Xgel3Bj_QNKDxY40A6EEYTYOeNQi8rbNs-SkTS62g04DgkqMgi5EG2JguWUPR_vaoLSlh5CKAb63reGuMdoBbR96Zwz7kzvQylcrXjPDFKBe71BYnR3po2ClzhkXnZNR1vFlJ_cR6GMkkn5WRV5tl8NptmZbJa5tlqEXmtMXuYBtMe4m05X-bTbDNegJJtKx1VRgv3NIybQTJOp9l4EH94zGMY99ugmqcfa49q_zyER3aKvmpg-G3QndqS_R_17AJSYU3n9PfdNuzXFJq0YC8sgBVKEbp0jHoF8w0pKhgPo6Addq0vWKFPARp7sg4lYtzbjl5Ytxfoh-oxvsPW0ekXb8TjxQ)
 
@@ -234,23 +234,23 @@ end
 {/% endmermaid %/}
 -->
 
-### Step 1
+### Крок 1
 
-First, set the TRIG_MODE to 1 to make the driver wait for the start command and reboot your FCU to obtain the remaining parameters.
+Спочатку встановіть TRIG_MODE на 1, щоб драйвер чекав на команду запуску та перезавантажте свій FCU, щоб отримати решту параметрів.
 
-### Step 2
+### Крок 2
 
-For the purposes of this example we will be configuring the trigger to operate in conjunction with a Point Grey Firefly MV camera running at 30 FPS.
+Для цілей цього прикладу ми налаштуємо тригер для співпраці з камерою Point Grey Firefly MV, що працює з частотою 30 FPS.
 
 - `TRIG_INTERVAL`: 33.33 ms
 - `TRIG_POLARITY`: 0 (active low)
-- `TRIG_ACT_TIME`: 0.5 ms. The manual specifies it only has to be a minimum of 1 microsecond.
-- `TRIG_MODE`: 1, because we want our camera driver to be ready to receive images before starting to trigger. This is essential to properly process sequence numbers.
+- `TRIG_ACT_TIME`: 0.5 ms. Ручний номер у цьому випадку має бути не менш ніж 1 мікросекунда.
+- `РЕЖИМ_ТРИГЕРА`: 1, тому що ми хочемо, щоб драйвер камери був готовий отримувати зображення перед початком спрацьовування тригера. Це важливо для належної обробки послідовних номерів.
 
-### Step 3
+### Крок 3
 
-Wire up your cameras to your AUX port by connecting the ground and signal pins to the appropriate place.
+Підключіть свої камери до роз'єму AUX, підключивши земельний і сигнальний контакти до відповідного місця.
 
-### Step 4
+### Крок 4
 
-You will have to modify your driver to follow the sequence diagram above. Public reference implementations for [IDS Imaging UEye](https://github.com/ProjectArtemis/ueye_cam) cameras and for [IEEE1394 compliant](https://github.com/andre-nguyen/camera1394) cameras are available.
+Вам доведеться змінити свій драйвер, щоб дотримуватися схеми послідовності вище. Доступні публічні посилання для реалізації [камер IDS Imaging UEye](https://github.com/ProjectArtemis/ueye_cam) та для [сумісних з IEEE1394](https://github.com/andre-nguyen/camera1394) камер.
