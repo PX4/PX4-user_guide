@@ -95,7 +95,7 @@ The IR sensor/landing beacon solution requires an [IR-LOCK Sensor](https://irloc
 
 Install the IR-LOCK sensor by following the [official guide](https://irlock.readme.io/v2.0/docs). Ensure that the sensor's x axis is aligned with the vehicle's y axis and the sensor's y axis aligned with the vehicle's -x direction (this is the case if the camera is pitched down 90 degrees from facing forward).
 
-Install a [range/distance sensor](../getting_started/sensor_selection.md#distance) (the _LidarLite v3_ has been found to work well).
+Install a [range/distance sensor](../sensor/rangefinders.md) (the _LidarLite v3_ has been found to work well).
 
 ::: info
 Many infrared based range sensors do not perform well in the presence of the IR-LOCK beacon.
