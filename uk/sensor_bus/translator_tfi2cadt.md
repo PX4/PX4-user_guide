@@ -1,4 +1,4 @@
-# TFI2CADT01 - I²C Address Translator
+# TFI2CADT01 - Перетворювач адреси I²C
 
 [TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) - це модуль перетворювача адрес, який сумісний з Pixhawk та PX4.
 
@@ -8,12 +8,13 @@
 
 ![TFI2CADT - i2c address translator](../../assets/peripherals/i2c_tfi2cadt/tfi2cadt01a_both_sides.jpg)
 
-::: info [TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) is designed as open-source hardware with GPLv3 license. Його можна комерційно придбати у компанії [ThunderFly](https://www.thunderfly.cz/) або[Tindie eshop](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/).
+:::note
+[TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) створена як відкрите апаратне забезпечення з GPLv3 ліцензією. Його можна комерційно придбати у компанії [ThunderFly](https://www.thunderfly.cz/) або[Tindie eshop](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/).
 :::
 
 ## Метод перетворення адрес
 
-TFI2CADT01 виконує операцію XOR на викликаній адресі. Таким чином, нову адресу пристрою можна знайти, взявши оригінальну адресу та застосувавши операцію XOR з значенням, вказаним на модулі. За замовчуванням, вихід 1 виконує XOR зі значенням 0x08, а другий порт - з 0x78. By short-circuiting the solder jumper you can change the XOR value to 0x0f for the first and 0x7f for the second port.
+TFI2CADT01 виконує операцію XOR на викликаній адресі. Таким чином, нову адресу пристрою можна знайти, взявши оригінальну адресу та застосувавши операцію XOR з значенням, вказаним на модулі. За замовчуванням, вихід 1 виконує XOR зі значенням 0x08, а другий порт - з 0x78. Коротко заданої каси можна змінити значення XOR на 0x0f для першого та 0x7f для другого порту.
 
 Якщо вам потрібне власне значення для перетворення адрес, зміна конфігураційних резисторів дозволяє встановити будь-яке значення XOR.
 
@@ -44,9 +45,9 @@ graph TD
 -->
 
 
-::: info TFI2CADT01 does not contain any I2C buffer or accelerator. As it adds additional capacitance on the bus, we advise combining it with some bus booster, e.g. [TFI2CEXT01](https://github.com/ThunderFly-aerospace/TFI2CEXT01).
+:::note TFI2CADT01 не містить жодного буфера або прискорювача. Оскільки це додає додаткову ємність на шину, ми радимо поєднувати її з деяким підсилювачем шини, напр. [TFI2CEXT01](https://github.com/ThunderFly-aerospace/TFI2CEXT01).
 :::
 
-### Other Resources
+### Інші ресурси
 
-* Datasheet of [LTC4317](https://www.analog.com/media/en/technical-documentation/data-sheets/4317fa.pdf)
+* Технічний опис [LTC4317](https://www.analog.com/media/en/technical-documentation/data-sheets/4317fa.pdf)
