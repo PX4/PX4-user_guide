@@ -22,14 +22,14 @@ To setup and configure a helicopter:
 
    ![QGC - helicopter airframe](../../assets/config/airframe/airframe_heli_generic.png)
 
-   :::note
-   There is no separate airframe for the helicopter with tail servo. To select this configuration, set the parameter [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) to _Helicopter (tail Servo)_. The actuator configuration screen will then change to support this frame type.
+:::note
+There is no separate airframe for the helicopter with tail servo. To select this configuration, set the parameter [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) to _Helicopter (tail Servo)_. The actuator configuration screen will then change to support this frame type.
 :::
 
 1. Configure helicopter actuator geometry in **Vehicle Setup > Actuators**.
 
-   :::note
-   Actuator setup and testing is covered for most frames in [Actuators](../config/actuators.md). While that is referenced below, this is the main topic for helicopter setup information.
+:::note
+Actuator setup and testing is covered for most frames in [Actuators](../config/actuators.md). While that is referenced below, this is the main topic for helicopter setup information.
 :::
 
    The geometry for a [Generic Helicopter - with Tail ESC](../airframes/airframe_reference.md#copter_helicopter_generic_helicopter_%28tail_esc%29) is shown below.
