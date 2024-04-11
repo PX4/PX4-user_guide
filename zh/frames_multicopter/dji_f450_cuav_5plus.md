@@ -152,8 +152,7 @@ Estimated time to assemble is approximately 90 minutes (about 45 minutes for the
 
 1. Plug in the RC receiver (`RC`), all 4 ESC’s (`M1-M4`), and the power module (`Power1`) into the flight controller. ![Attach peripherals to flight controller](../../assets/airframes/multicopter/dji_f450_cuav_5plus/12_fc_attach_periperhals.jpg)
 
-:::note
-The motor order is defined in the [Airframe Reference > Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)
+   ::: info The motor order is defined in the [Airframe Reference > Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)
 :::
 
 设置完成！ The final build is shown below:
@@ -172,7 +171,7 @@ Full instructions for installing and configuring PX4 can be found in [Basic Conf
 First update the firmware, airframe, geometry, and outputs:
 
 - [固件](../config/firmware.md)
-- [Airframe](../config/airframe.md) :::note You will need to select the *Generic Quadcopter* airframe (**Quadrotor x > Generic Quadcopter**).
+- [Airframe](../config/airframe.md) ::: info You will need to select the *Generic Quadcopter* airframe (**Quadrotor x > Generic Quadcopter**).
 
   ![QGroundControl - Select Generic Quadcopter](../../assets/airframes/multicopter/dji_f450_cuav_5plus/qgc_airframe_generic_quadx.png)
 :::
@@ -191,8 +190,7 @@ Then perform the mandatory setup/calibration:
 - [无线电系统设置](../config/radio.md)
 - [Flight Modes](../config/flight_mode.md)
 
-:::note
-For this build we set up modes *Stabilized*, *Altitude* and *Position* on a three-way switch on the receiver (mapped to a single channel - 5). This is the recommended minimal set of modes for beginners.
+  ::: info For this build we set up modes *Stabilized*, *Altitude* and *Position* on a three-way switch on the receiver (mapped to a single channel - 5). This is the recommended minimal set of modes for beginners.
 :::
 
 Ideally you should also do:
