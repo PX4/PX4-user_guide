@@ -47,7 +47,7 @@ CUAV P8 радіо є попередньо налаштованим (швидк�
 | 5   | CTS          | 5   | CTS                   |
 | 6   | GND          | 6   | GND                   |
 
-## Wiring
+## Підключення
 
 ![P8 wiring](../../assets/hardware/telemetry/cuav_p8_connect.png)
 
