@@ -95,7 +95,7 @@ IR 센서/착륙 비콘 솔루션에는 [IR-LOCK 센서](https://irlock.com/prod
 
 [공식 매뉴얼](https://irlock.readme.io/v2.0/docs)에 따라 IR-LOCK 센서를 장착하십시오. 센서의 x축이 기체의 y축과 정렬되어 있는지, 센서의 y축이 기체의 -x 방향과 정렬되어 있는지 확인하십시오 (카메라에서 전방으로 90도 기울인 경우).
 
-Install a [range/distance sensor](../getting_started/sensor_selection.md#distance) (the _LidarLite v3_ has been found to work well).
+Install a [range/distance sensor](../sensor/rangefinders.md) (the _LidarLite v3_ has been found to work well).
 
 :::note
 대부분의 적외선 범위 센서는 IR-LOCK 비콘이 있는 경우에는 제대로 작동하지 않습니다.
