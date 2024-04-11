@@ -33,7 +33,7 @@ Connect the ground radio to the ground station via USB C. The radio does not nee
 
 The radios are default-configured to use peer-to-peer mode and a baud rate of 57600. This allows them to connect to the PX4 `TELEM1` port and _QGroundControl_ **without any further configuration**.
 
-:::note
+::: info
 You can use a different baud rate, mode or flight controller port.
 The only "requirement" is that the ground radio, air radio, PX4, and QGroundControl must all be set to the same baud rate.
 :::
