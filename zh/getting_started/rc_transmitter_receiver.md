@@ -4,7 +4,7 @@ A Radio Control (RC) system can be used to *manually* control your vehicle from 
 
 :::tip PX4 can also be manually controlled using a [Joystick](../config/joystick.md) or gamepad-like controller:  this is different to an RC system! The [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) parameter [can be set](../advanced_config/parameters.md) to choose whether RC (default), Joystick, both, or neither, are enabled. :::
 
-:::note
+::: info
 PX4 does not require a remote control system for autonomous flight modes.
 :::
 
@@ -18,8 +18,7 @@ The ground based RC controller contains a radio module that is bound to, and com
 
 <!-- image showing the different parts here would be nice -->
 
-:::note
-The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*. The RC controller and it's included radio module are commonly referred to as a "transmitter". :::
+::: info The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*. The RC controller and it's included radio module are commonly referred to as a "transmitter". :::
 
 遥控系统的一个重要质量指标是它支持多少个通道。 通道的数量决定了远程控制单元上多少个物理控制器可以用来发送命令来控制无人机（比如多少开关、转盘、控制摇杆可以用）。
 
@@ -39,8 +38,7 @@ The most popular *form* of remote control unit for UAVs is shown below. 横滚/�
 
 ![Mode1-Mode2](../../assets/concepts/mode1_mode2.png)
 
-:::note
-The choice of mode is largely one of taste (*Mode 2* is more popular). :::
+::: info The choice of mode is largely one of taste (*Mode 2* is more popular). :::
 
 ## 地面设备的远程控制单元
 
@@ -60,8 +58,7 @@ The choice of mode is largely one of taste (*Mode 2* is more popular). :::
 
 One of the most popular RC units is the *FrSky Taranis X9D*. It has an internal transmitter module can be used with the recommended *FrSky X4R-SB* (S-BUS, low delay) or *X4R* (PPM-Sum, legacy) receivers out of the box. 它还有一个可以自定义的无线发射机模块接口和自定义的 OpenTX 开源固件。
 
-:::note
-This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) or [TBS Crossfire](../telemetry/crsf_telemetry.md) radio modules. :::
+::: info This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) or [TBS Crossfire](../telemetry/crsf_telemetry.md) radio modules. :::
 
 其他常用的成对发射机/接收机。
 
