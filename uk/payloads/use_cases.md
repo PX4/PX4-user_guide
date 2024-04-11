@@ -64,8 +64,8 @@ Support for winches and other release mechanisms is also intended.
 Сільськогосподарський дрон також можна використовувати для обприскування посівів.
 У цьому випадку розпилювачем необхідно керувати як [загальним приводом](../payloads/generic_actuator_control.md):
 
-- [Generic Actuator Control](../payloads/generic_actuator_control.md#generic-actuator-control-with-mavlink) explains how you can connect flight controller outputs to your sprayer so that they can be controlled using MAVLink.
-  Most sprayers provide controls to activate/deactivate a pump; some also allow control over the rate of flow or the spray field (i.e. by controlling the nozzle shape, or using a spinner to distribute the payload).
-- You can define the area to spray using a [Survey pattern](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/pattern_survey.html), or you can define the grid to fly using waypoints.
-  In either case, it is important to ensure that the vehicle flight path and altitude provide adequate coverage for your particular spray being used.
-- You should add a ["Set actuator" mission item](../payloads/generic_actuator_control.md#generic-actuator-control-in-missions) to your mission before and after the survey pattern in order to enable and disable the sprayer.
+- [Керування Загальним Приводом](../payloads/generic_actuator_control.md#generic-actuator-control-with-mavlink) пояснює, як можна під'єднати виводи політного контролера до розпилювача, щоб ним можна було керувати за допомогою MAVLink.
+  Більшість розпилювачів мають засоби керування для ввімкнення/вимкнення помпи; деякі також дозволяють контролювати швидкість потоку або область розпилення (тобто, керуючи формою сопла або використовуючи спінер для розподілу корисного навантаження).
+- Ви можете визначити область для оприскування, використовуючи [Survey патерн](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/pattern_survey.html), або ви можете визначити сітку для польоту, використовуючи точки маршрутів.
+  У будь-якому випадку важливо переконатися, що траєкторія польоту апарату та його висота забезпечують належне покриття для конкретного спрею, що використовується.
+- Щоб увімкнути та вимкнути розпилювач, ви повинні додати [елемент місії "Set actuator"](../payloads/generic_actuator_control.md#generic-actuator-control-in-missions) до вашої місії до та після survey патерну.
