@@ -28,7 +28,9 @@ The calibration steps are:
 1. Click **OK** to start the calibration.
 1. Position the vehicle as guided by the _images_ on the screen. Once prompted (the orientation-image turns yellow) hold the vehicle still. Once the calibration is complete for the current orientation the associated image on the screen will turn green.
 
-   Provided each axis is pointed mostly up and down at some time in the calibration sequence, and the vehicle is held stationary, the precise orientation doesn't matter. :::note
+   :::note
+The calibration uses a least squares 'fit' algorithm that doesn't require you to have "perfect" 90 degree orientations.
+:::note
 The calibration uses a least squares 'fit' algorithm that doesn't require you to have "perfect" 90 degree orientations.
 :::
 
