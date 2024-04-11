@@ -20,7 +20,7 @@ US-D1 can be connected to any unused _serial port_ (UART), e.g.: TELEM2, TELEM3,
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG). There is no need to set the baud rate for the port, as this is configured by the driver.
 
-:::note
+::: info
 
 If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
 
