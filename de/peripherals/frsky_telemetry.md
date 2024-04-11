@@ -2,7 +2,7 @@
 
 FrSky telemetry allows you to access vehicle [telemetry/status](#messages) information on a compatible RC transmitter.
 
-Available [telemetry is listed here](#messages), and includes: flight mode, battery level, RC signal strength, speed, altitude etc. Some transmitters can additionally provide audible and vibration feedback, which is particularly useful for low battery and other failsafe warnings.
+Available [telemetry is listed here](#messages), and includes: flight mode, battery level, RC signal strength, speed, altitude etc. Some transmitters can additionally provide audible and vibration feedback, which is particularly useful for low battery and other failsafe warnings. Some transmitters can additionally provide audible and vibration feedback, which is particularly useful for low battery and other failsafe warnings.
 
 PX4 supports both [S.Port](#s_port) (new) and D (old) FrSky telemetry ports.
 
