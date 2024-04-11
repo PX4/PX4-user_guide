@@ -10,7 +10,7 @@ The receiver is capable of concurrently tracking all global civil navigation sys
 
 The built-in lightweight helical antenna enhances RTK positioning stability. The fast time-to-first-fix, RTK convergence, superior sensitivity, low power consumption make it a better choice for Pixhawk-based platform UAVs.
 
-:::note
+::: info
 
 This module does not have a compass. For an equivalent GPS module with a compass try: [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md).
 :::
