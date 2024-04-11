@@ -4,7 +4,7 @@ You can connect arbitrary hardware to unused PX4 outputs and control it using [R
 
 This is useful when you need to use a payload type for which there is no associated MAVLink command, or for which PX4 doesn't have any specific integration.
 
-:::note
+:::info
 Prefer using integrated hardware and hardware-specific MAVLink commands, such as those for [Grippers](../peripherals/gripper.md), to generic actuator control when possible.
 Using integrated hardware allows optimised [mission planning and behaviour](../flying/package_delivery_mission.md) because the mission can know key facts about the hardware, such as how long it takes to trigger.
 :::
@@ -45,7 +45,7 @@ It is important to note that with generic actuator control, neither _QGroundCont
 When processing the mission item, PX4 will simply set the outputs to the specified values and then immediately proceed to the next mission item.
 If the hardware requires time to activate and you need to pause at the current waypoint for this to happen, then you will need to plan the mission with additional items to achieve the desired behaviour.
 
-:::note
+:::info
 This is one reason why integrated hardware is preferred!
 It allows missions to be written generically, with any hardware-specific behaviour or timing managed by the flight stack configuration.
 :::
@@ -72,7 +72,7 @@ The following [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) [example co
 
 The `set_actuator()` index values map to the MAVLink payload outputs defined for your airframe.
 
-:::note
+:::info
 MAVSDK sends the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command under the hood.
 :::
 
