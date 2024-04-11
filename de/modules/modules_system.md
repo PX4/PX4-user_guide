@@ -19,6 +19,12 @@ battery_simulator <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## battery_status
 Source: [modules/battery_status](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/battery_status)
@@ -45,6 +51,12 @@ battery_status <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## camera_feedback
 Source: [modules/camera_feedback](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/camera_feedback)
@@ -65,6 +77,12 @@ camera_feedback <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## commander
 Source: [modules/commander](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/commander)
@@ -78,6 +96,7 @@ The commander module contains the state machine for mode switching and failsafe 
 ### Usage
 ```
 commander <command> [arguments...]
+ commander <command> [arguments...]
  Commands:
    start
      [-h]        Enable HIL mode
@@ -135,14 +154,13 @@ It is used to store structured data of different types: mission waypoints, missi
 ### Implementation
 Reading and writing a single item is always atomic.
 
-**DM_KEY_FENCE_POINTS** and **DM_KEY_SAFE_POINTS** items: the first data element is a `mission_stats_entry_s` struct, which stores the number of items for these types. These items are always updated atomically in one transaction (from the mavlink mission manager).
-
 
 <a id="dataman_usage"></a>
 
 ### Usage
 ```
 dataman <command> [arguments...]
+ dataman <command> [arguments...]
  Commands:
    start
      [-f <val>]  Storage file
@@ -178,6 +196,8 @@ dmesg -f &
 dmesg <command> [arguments...]
  Commands:
      [-f]        Follow: wait for new messages
+ Commands:
+     [-f]        Follow: wait for new messages
 ```
 ## esc_battery
 Source: [modules/esc_battery](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/esc_battery)
@@ -192,6 +212,12 @@ This implements using information from the ESC status and publish it as battery 
 ### Usage
 ```
 esc_battery <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
  Commands:
    start
 
@@ -279,6 +305,13 @@ i2c_launcher <command> [arguments...]
    stop
 
    status        print status info
+ manual_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## land_detector
 Source: [modules/land_detector](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/land_detector)
@@ -304,6 +337,7 @@ The module runs periodically on the HP work queue.
 ### Usage
 ```
 land_detector <command> [arguments...]
+ land_detector <command> [arguments...]
  Commands:
    start         Start the background task
      fixedwing|multicopter|vtol|rover|airship Select vehicle type
@@ -371,6 +405,7 @@ logger on
 ### Usage
 ```
 logger <command> [arguments...]
+ logger <command> [arguments...]
  Commands:
    start
      [-m <val>]  Backend mode
@@ -413,6 +448,7 @@ Online magnetometer bias estimator.
 ### Usage
 ```
 mag_bias_estimator <command> [arguments...]
+ send_event <command> [arguments...]
  Commands:
    start         Start the background task
 
@@ -452,7 +488,7 @@ Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/main/src/s
 
   #### save
 
-  The `save` option will save settings from non-volatile memory to a file named `net.cfg` on the SD Card filesystem for editing. Use this to edit the settings. Save does not immediately apply the network settings; the user must reboot the flight stack. By contrast, the `update` command is run by the start-up script, commits the settings to non-volatile memory, and reboots the flight controller (which will then use the new settings).
+  Use this to edit the settings. The `save` option will save settings from non-volatile memory to a file named `net.cfg` on the SD Card filesystem for editing. Save does not immediately apply the network settings; the user must reboot the flight stack. By contrast, the `update` command is run by the start-up script, commits the settings to non-volatile memory, and reboots the flight controller (which will then use the new settings).
 
   #### show
 
@@ -465,6 +501,7 @@ Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/main/src/s
 ### Usage
 ```
 netman <command> [arguments...]
+ netman <command> [arguments...]
  Commands:
    show          Display the current persistent network settings to the console.
 
@@ -517,6 +554,12 @@ rc_update <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## replay
 Source: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
@@ -538,6 +581,7 @@ The replay procedure is documented on the [System-wide Replay](https://docs.px4.
 ### Usage
 ```
 replay <command> [arguments...]
+ replay <command> [arguments...]
  Commands:
    start         Start replay, using log file from ENV variable 'replay'
 
@@ -589,6 +633,12 @@ sensor_arispeed_sim <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## sensor_baro_sim
 Source: [modules/simulation/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_baro_sim)
@@ -603,6 +653,12 @@ Source: [modules/simulation/sensor_baro_sim](https://github.com/PX4/PX4-Autopilo
 ### Usage
 ```
 sensor_baro_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
  Commands:
    start
 
@@ -629,6 +685,12 @@ sensor_gps_sim <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## sensor_mag_sim
 Source: [modules/simulation/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_mag_sim)
@@ -643,6 +705,12 @@ Source: [modules/simulation/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot
 ### Usage
 ```
 sensor_mag_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
  Commands:
    start
 
@@ -671,6 +739,7 @@ It runs in its own thread and polls on the currently selected gyro topic.
 ### Usage
 ```
 sensors <command> [arguments...]
+ sensors <command> [arguments...]
  Commands:
    start
      [-h]        Start in HIL mode
@@ -698,6 +767,12 @@ tattu_can <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## temperature_compensation
 Source: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/temperature_compensation)
@@ -712,6 +787,7 @@ The temperature compensation module allows all of the gyro(s), accel(s), and bar
 ### Usage
 ```
 temperature_compensation <command> [arguments...]
+ temperature_compensation <command> [arguments...]
  Commands:
    start         Start the module, which monitors the sensors and updates the
                  sensor_correction topic
@@ -751,6 +827,7 @@ tune_control play -t 2
 ### Usage
 ```
 tune_control <command> [arguments...]
+ tune_control <command> [arguments...]
  Commands:
    play          Play system tune or single note.
      error       Play error tune
@@ -785,6 +862,7 @@ uxrce_dds_client start -t udp -h 127.0.0.1 -p 15555
 ### Usage
 ```
 uxrce_dds_client <command> [arguments...]
+ uxrce_dds_client <command> [arguments...]
  Commands:
    start
      [-t <val>]  Transport protocol
@@ -817,6 +895,12 @@ Command-line tool to show work queue status.
 ### Usage
 ```
 work_queue <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
  Commands:
    start
 
