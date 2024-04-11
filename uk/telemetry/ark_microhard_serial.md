@@ -1,63 +1,63 @@
-# ARK Electron Microhard Serial Telemetry Radios
+# ARK Electron Microhard Серійне Телеметрійне Радіо
 
-_ARK Electron Microhard Serial Telemetry Radios_ integrate the [Microhard Pico Serial](http://microhardcorp.com/P900.php) P900 RF module. This can be used to enable MAVLink communication between a radio on a vehicle and a GCS.
+_ARK Electron Мікрорадіопередавачі Microhard Serial Telemetry Radios_ інтегрують модуль радіо [Microhard Pico Serial](http://microhardcorp.com/P900.php) P900 RF. Це може бути використано для активації комунікації MAVLink між радіо на транспортному засобі та GCS.
 
-Microhard Pico Serial radios are (up to) 1 Watt output radios that support point to point, point to multi-point, and mesh modes. The Microhard Pico radios can also be ordered with AES-256 encryption.
+Радіостанції Microhard Pico Serial - це радіостанції з вихідною потужністю (до) 1 Вт, які підтримують режими точка-точка, точка-багато точок та мережеві режими. Радіопристрої Microhard Pico також можуть бути замовлені з шифруванням AES-256.
 
-The approximate range with output power set to 1W is 8km (5miles) when using default settings. A single ground station radio can be used to communicate with multiple vehicles using point to multi-point or mesh. Vehicles must have different MAVLINK IDs.
+Приблизний діапазон з вихідною потужністю, встановленою на рівні 1 Вт, становить 8 км (5 миль), коли використовуються налаштування за замовчуванням. Одне радіо земної станції може бути використано для зв'язку з кількома транспортними засобами за допомогою точка-багатоточної або мережевої топології меш. Транспортні засоби повинні мати різні ідентифікатори MAVLINK.
 
-![Microhard Radio](../../assets/hardware/telemetry/ark_microhard_serial.jpg)
+![Радіо Microhard](../../assets/hardware/telemetry/ark_microhard_serial.jpg)
 
-## Where to Buy
+## Де купити
 
-- [1W 900MHz Serial Telemetry Radio](https://arkelectron.com/product/1w-900mhz-serial-telemetry-air-radio/) (vehicle)
-- [1W 900MHz USB Serial Telemetry Radio](https://arkelectron.com/product/1w-900mhz-serial-telemetry-ground-radio/) (ground station)
-- [1W 2.4GHz Serial Telemetry Radio](https://arkelectron.com/product/1w-2400mhz-serial-telemetry-radio/) (vehicle)
-- [1W 2.4GHz USB Serial Telemetry Radio](https://arkelectron.com/product/1w-2400mhz-usb-serial-telemetry-radio/) (ground station)
+- [1W 900MHz Серійне Телеметрійне Радіо](https://arkelectron.com/product/1w-900mhz-serial-telemetry-air-radio/) (транспортний)
+- [1W 900МГц USB Серійне Телеметрійне Радіо](https://arkelectron.com/product/1w-900mhz-serial-telemetry-ground-radio/) (наземна станція)
+- [1W 2.4ГГц Серійне Телеметрійне Радіо](https://arkelectron.com/product/1w-2400mhz-serial-telemetry-radio/) (транспортний засіб)
+- [1W 2.4ГГц USB Серійне Телеметрійне Радіо](https://arkelectron.com/product/1w-2400mhz-usb-serial-telemetry-radio/) (наземна станція)
 
-## Connecting
+## З'єднання
 
-### Vehicle Radio
+### Транспортний радіопередавач
 
-Connect the vehicle radio to the flight controller `TELEM1` port. A Pixhawk-standard 6 pin JST GH telemetry cable is supplied for this purpose.
+Підключіть радіо автомобіля до порту керування польотом `TELEM1`. Для цієї мети надається кабель телеметрії з 6 контактами JST GH стандарту Pixhawk.
 
-The radio can be powered by the telemetry cable if the output power is set to less than 100mW. For higher output levels, the radio must be separately powered via the 2 Pin Molex Nano-Fit (i.e. from a battery).
+Радіо може бути живлений за допомогою телеметричного кабелю, якщо вихідна потужність встановлена менше 100 мВт. Для вищих рівнів виводу радіо повинно бути окремо живлене через 2-контактний роз'єм Molex Nano-Fit (тобто від батареї).
 
 ![Microhard Radio on Vehicle](../../assets/hardware/telemetry/microhard_serial_on_vehicle.jpg)
 
-### Ground Station Radio
+### Радіо наземної станції
 
-Connect the ground radio to the ground station via USB C. The radio does not need to be separately powered when using USB PD (1W power can be supplied).
+Підключіть земельне радіо до земельної станції за допомогою USB C. Радіо не потребує окремого живлення при використанні USB PD (може бути постачана потужність 1 Вт).
 
-## Setup/Configuration
+## Налаштування/Конфігурація
 
-The radios are default-configured to use peer-to-peer mode and a baud rate of 57600. This allows them to connect to the PX4 `TELEM1` port and _QGroundControl_ **without any further configuration**.
+Радіостанції налаштовані за замовчуванням на використання режиму peer-to-peer та швидкість передачі 57600 бод. Це дозволяє їм підключатися до порту `TELEM1` PX4 та _QGroundControl_ **без додаткової конфігурації**.
 
-::: info
-You can use a different baud rate, mode or flight controller port.
-The only "requirement" is that the ground radio, air radio, PX4, and QGroundControl must all be set to the same baud rate.
+::: note
+Ви можете використовувати іншу швидкість передачі даних, режим або порт контролера польоту.
+Єдине "вимога" - земний радіопередавач, повітряний радіопередавач, PX4 та QGroundControl повинні мати однакову швидкість передачі даних.
 :::
 
-[Microhard Serial Telemetry Radios > Configuration](../telemetry/microhard_serial.md#configuration) explains how to configure the radios, _QGroundControl_, and PX4.
+Радіопередавачі з віддаленою телеметрією [Microhard Serial > Налаштування](../telemetry/microhard_serial.md#configuration) пояснює, як налаштувати радіопередавачі, _QGroundControl_ та PX4.
 
-The ARK Electron radios must be connected to the computer running the _PicoConfig_ configuration tool as described below:
+Радіопристрої ARK Electron повинні бути підключені до комп'ютера, на якому працює конфігураційний інструмент _PicoConfig_, як описано нижче:
 
-- For vehicle radio configuration you will have to connect an FTDI adapter between the radio's 3 pin JST-GH Config port and a Windows PC running _Pico Config_ (the radio must be powered, which you can do from battery or the data connection to the flight-controller's `TELEM1` port).
+- Для налаштування радіообладнання автомобіля вам доведеться підключити адаптер FTDI між конфігураційним портом JST-GH на 3 контакта радіо та Windows PC з програмою _Pico Config_ (радіо повинно бути увімкнено, що можна зробити з батареї або через підключення даних до порту `TELEM1` автопілота).
 
   ![Ark Microhard Serial - Ports](../../assets/hardware/telemetry/ark_microhard_serial_ports.jpg)
 
-  _Pico Config_ will automatically detect the radio. Adjust the baud rate setting to match PX4 (and the ground station radio).
+  Програма _Pico Config_ автоматично виявить радіо. Налаштуйте швидкість передачі даних (бод-швидкість) так, щоб вона відповідала PX4 (і радіо земної станції).
 
-- The ground station radio USB C connection can be used for configuring the radio (as well as for telemetry data). _Pico Config_ will automatically detect and connect to the configuration port. Adjust the settings so that the baud rate matches PX4.
+- З'єднання USB C радіостанції наземної станції може бути використане для налаштування радіо (а також для телеметричних даних). Програма _Pico Config_ автоматично виявить та підключиться до порту конфігурації. Налаштуйте параметри так, щоб швидкість передачі даних відповідала PX4.
 
-Once the radios and PX4 are all configured to use the same baud rate you can connect QGroundControl to the vehicle via the radio.
+Як тільки радіостанції та PX4 будуть налаштовані на використання одного темпу передачі, ви зможете підключити QGroundControl до транспортного засобу через радіо.
 
-### Default Configuration
+### Конфігурація за замовчуванням
 
-The default radio configuration as shipped is shown in _PicoConfig_ below.
+Конфігурація радіо за замовчуванням, яка поставляється, показана в _PicoConfig_ нижче.
 
 ![Pico Config](../../assets/hardware/telemetry/pico_configurator.png)
 
-## Further information
+## Подальша інформація
 
-- [Pico Config 1.7](https://arkelectron.com/wp-content/uploads/2021/04/PicoConfig-1.7.zip) - Radio configuration tool
+- [Pico Config 1.7](https://arkelectron.com/wp-content/uploads/2021/04/PicoConfig-1.7.zip) - Інструмент конфігурації радіо
