@@ -2,8 +2,7 @@
 
 PX4 support OneShot 125 ESCs (only). These are typically faster and more responsive than [PWM ESCs](../peripherals/pwm_escs_and_servo.md) but share the same wiring setup (all you need to do is set some different parameters)
 
-:::note
-[DShot](../peripherals/dshot.md) should always be used instead of OneShot where possible, as it is more responsive, more robust, does not required calibration, and may support telemetry. The only reason not to use DShot would be hardware limitations (insufficient DShot pins available or using an ESC that does not support DShot).
+The only reason not to use DShot would be hardware limitations (insufficient DShot pins available or using an ESC that does not support DShot). :::note [DShot](../peripherals/dshot.md) should always be used instead of OneShot where possible, as it is more responsive, more robust, does not required calibration, and may support telemetry.
 :::
 
 ## Overview
