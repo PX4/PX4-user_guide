@@ -23,8 +23,7 @@ H-RTK Helical models come with both GH 10-pin & 6-pin cables that are compatible
 
 The H-RTK Rover Lite comes in two version. The standard version comes with 10 pin connector for the `GPS1` port. The "2nd GPS" version comes with 6 pin connector for the `GPS2` port. This is used as a secondary GPS for [Dual GPS Systems](../gps_compass/index.md#dual_gps).
 
-:::note
-The cables/connectors may need to be modified in order to connect to other flight controller boards (see [Pin Map](#pin-map) below).
+::: info The cables/connectors may need to be modified in order to connect to other flight controller boards (see [Pin Map](#pin-map) below).
 :::
 
 ## 핀 맵
