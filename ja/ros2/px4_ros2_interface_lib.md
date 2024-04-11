@@ -32,7 +32,7 @@ To get started using the library within an existing ROS 2 workspace:
    git clone --recursive https://github.com/Auterion/px4-ros2-interface-lib
    ```
 
-   :::note
+   ::: info
    To ensure compatibility, use the latest _main_ branches for PX4, _px4_msgs_ and the library.
    See also [here](https://github.com/Auterion/px4-ros2-interface-lib#compatibility-with-px4).
 
