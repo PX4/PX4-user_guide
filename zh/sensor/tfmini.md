@@ -20,8 +20,7 @@ TFmini can be connected to any unused _serial port_ (UART), such as: `TELEM2`, `
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_TFMINI_CFG](../advanced_config/parameter_reference.md#SENS_TFMINI_CFG). There is no need to set the baud rate (this is hard coded in the sensor driver as only one rate is supported).
 
-:::note
-If the configuration parameter is not available in _QGroundControl_ then the [tfmini](../modules/modules_driver_distance_sensor.md#tfmini) driver may not be in firmware. For information on how to add it see:
+::: info If the configuration parameter is not available in _QGroundControl_ then the [tfmini](../modules/modules_driver_distance_sensor.md#tfmini) driver may not be in firmware. For information on how to add it see:
 
 - [Serial port Configuration: Configuration Parameter Missing from QGroundControl](../peripherals/serial_configuration.md#parameter_not_in_firmware)
 - [PX4 Board Configuration (Kconfig)](../hardware/porting_guide_config.md#px4-menuconfig-setup).

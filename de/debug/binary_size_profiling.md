@@ -12,6 +12,7 @@ _Bloaty_ must be in your path and found at _cmake_ configure time. The PX4 [dock
 git clone --recursive https://github.com/google/bloaty.git /tmp/bloaty \
     && cd /tmp/bloaty && cmake -GNinja . && ninja bloaty && cp bloaty /usr/local/bin/ \
     && rm -rf /tmp/* && ninja bloaty && cp bloaty /usr/local/bin/ \
+    && rm -rf /tmp/* && ninja bloaty && cp bloaty /usr/local/bin/ \
     && rm -rf /tmp/*
 ```
 

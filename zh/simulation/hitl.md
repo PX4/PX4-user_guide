@@ -28,8 +28,7 @@ PX4 supports HITL for multicopters (using jMAVSim or Gazebo Classic) and VTOL (u
 
 硬件在环仿真（HITL）模式下标准的 PX4 固件在真实的硬件上运行。 JMAVSim or Gazebo Classic (running on a development computer) are connected to the flight controller hardware via USB/UART. The simulator acts as gateway to share MAVLink data between PX4 and _QGroundControl_.
 
-:::note
-The simulator can also be connected via UDP if the flight controller has networking support and uses a stable, low-latency connection (e.g. a wired Ethernet connection - WiFi is usually not sufficiently reliable). For example, this configuration has been tested with PX4 running on a Raspberry Pi connected via Ethernet to the computer (a startup configuration that includes the command for running jMAVSim can be found [here](https://github.com/PX4/PX4-Autopilot/blob/main/posix-configs/rpi/px4_hil.config)).
+::: info The simulator can also be connected via UDP if the flight controller has networking support and uses a stable, low-latency connection (e.g. a wired Ethernet connection - WiFi is usually not sufficiently reliable). For example, this configuration has been tested with PX4 running on a Raspberry Pi connected via Ethernet to the computer (a startup configuration that includes the command for running jMAVSim can be found [here](https://github.com/PX4/PX4-Autopilot/blob/main/posix-configs/rpi/px4_hil.config)).
 :::
 
 The diagram below shows the simulation environment:
@@ -93,8 +92,7 @@ Once configuration is complete, **close** _QGroundControl_ and disconnect the fl
 
 #### Gazebo Classic
 
-:::note
-Make sure _QGroundControl_ is not running!
+::: info Make sure _QGroundControl_ is not running!
 :::
 
 1. Build PX4 with [Gazebo Classic](../sim_gazebo_classic/index.md) (in order to build the Gazebo Classic plugins).
@@ -107,8 +105,7 @@ Make sure _QGroundControl_ is not running!
 1. Open the vehicle model's sdf file (e.g. **Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/iris_hitl/iris_hitl.sdf**).
 1. 找到文件的 `mavlink_interface plugin` 分区，将 `serialEnabled` 和 `hil_mode` 参数更改为 `true` 。
 
-:::note
-The serial device depends on what port is used to connect the vehicle to the computer (this is usually `/dev/ttyACM0`). An easy way to check on Ubuntu is to plug in the autopilot, open up a terminal, and type `dmesg | grep "tty"`. The correct device will be the last one shown.
+   ::: info The serial device depends on what port is used to connect the vehicle to the computer (this is usually `/dev/ttyACM0`). An easy way to check on Ubuntu is to plug in the autopilot, open up a terminal, and type `dmesg | grep "tty"`. The correct device will be the last one shown.
 :::
 
 1. Set up the environment variables:
@@ -127,8 +124,7 @@ The serial device depends on what port is used to connect the vehicle to the com
 
 #### jMAVSim (仅适用于四旋翼无人机)
 
-:::note
-Make sure _QGroundControl_ is not running!
+::: info Make sure _QGroundControl_ is not running!
 :::
 
 1. 将飞行控制器连接到计算机, 并等待其启动。
@@ -138,8 +134,7 @@ Make sure _QGroundControl_ is not running!
    ./Tools/simulation/jmavsim/jmavsim_run.sh -q -s -d /dev/ttyACM0 -b 921600 -r 250
    ```
 
-:::note
-Replace the serial port name `/dev/ttyACM0` as appropriate. On macOS this port would be `/dev/tty.usbmodem1`. On Windows (including Cygwin) it would be the COM1 or another port - check the connection in the Windows Device Manager.
+   ::: info Replace the serial port name `/dev/ttyACM0` as appropriate. On macOS this port would be `/dev/tty.usbmodem1`. On Windows (including Cygwin) it would be the COM1 or another port - check the connection in the Windows Device Manager.
 :::
 
 1. Start _QGroundControl_. 它应该会自动连接 PX4 和 Gazebo 。

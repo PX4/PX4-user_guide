@@ -53,8 +53,8 @@ RGB *UI LED*는 차량의 *비행 준비* 상태를 표시합니다. RGB LED는 
 | 적색/황색 | 부트로더 에러 | 부트로더에서 깜빡임         | 에러 표시    |
 | 녹색    | 파워      | 부트로더에서 사용되지 않음     | 시동 상태 표시 |
 
-:::note
-위에 표시된 LED 레이블은 일반적인 사항이며, 일부 보드에서는 차이가 날 수 있습니다.
+::: info
+The LED labels shown above are commonly used, but might differ on some boards.
 :::
 
 LED가 의미하는 메시지에 관한  자세한 정보는 아래에서 설명합니다( "x"는 "모든 상태"를 의미).

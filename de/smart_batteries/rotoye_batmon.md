@@ -2,8 +2,7 @@
 
 [Rotoye Batmon](https://rotoye.com/batmon/) is a kit for adding smart battery functionality to off-the-shelf Lithium-Ion and LiPo batteries. It can be purchased as a standalone unit or as part of a factory-assembled smart-battery.
 
-:::note
-At time of writing you can only use Batmon by [building a custom branch of PX4](#build-px4-firmware). Support in the codeline is pending [PR approval](https://github.com/PX4/PX4-Autopilot/pull/16723).
+Support in the codeline is pending [PR approval](https://github.com/PX4/PX4-Autopilot/pull/16723). :::note At time of writing you can only use Batmon by [building a custom branch of PX4](#build-px4-firmware).
 :::
 
 

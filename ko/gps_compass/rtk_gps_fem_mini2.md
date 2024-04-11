@@ -6,8 +6,8 @@
 
 ![MINI II 수신기](../../assets/hardware/gps/rtk_fem_miniII_receiver.jpg)
 
-:::note
-이더넷, CAN 및 USB용 PX4 드라이버는 현재 개발 중입니다.
+::: info
+PX4 drivers for Ethernet, CAN and USB are under development.
 :::
 
 ## 필수 펌웨어 옵션

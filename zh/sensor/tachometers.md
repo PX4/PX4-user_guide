@@ -2,7 +2,7 @@
 
 Tachometers (also known as [revolution-counter sensors](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft)) can be used to measure the rate of rotation turning vehicle parts like rotors, engines, or wheels.
 
-:::note
+::: info
 Currently PX4 just logs RPM data: it is not used for state estimation or control.
 :::
 

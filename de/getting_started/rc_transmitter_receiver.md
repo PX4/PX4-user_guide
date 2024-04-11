@@ -18,8 +18,7 @@ The ground based RC controller contains a radio module that is bound to, and com
 
 <!-- image showing the different parts here would be nice -->
 
-:::note
-The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*. The RC controller and it's included radio module are commonly referred to as a "transmitter". :::
+The RC controller and it's included radio module are commonly referred to as a "transmitter". :::note The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*. :::
 
 An important quality of an RC system is how many "channels" it supports. The number of channels defines how many different physical controls on the remote control can be used to send commands to the vehicle (e.g. how many switches, dials, control sticks can actually be used).
 
@@ -35,7 +34,7 @@ The most popular *form* of remote control unit for UAVs is shown below. It has s
 
 ![RC Basic Commands](../../assets/flying/rc_basic_commands.png)
 
-There are numerous possible layouts for the control sticks, switches, etc. The more common layouts have been given specific "Mode" numbers. *Mode 1* and *Mode 2* (shown below) differ only in the placement of the throttle.
+There are numerous possible layouts for the control sticks, switches, etc. The more common layouts have been given specific "Mode" numbers. The more common layouts have been given specific "Mode" numbers. *Mode 1* and *Mode 2* (shown below) differ only in the placement of the throttle.
 
 ![Mode1-Mode2](../../assets/concepts/mode1_mode2.png)
 

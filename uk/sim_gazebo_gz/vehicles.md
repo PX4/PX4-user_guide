@@ -46,8 +46,8 @@ make px4_sitl gz_x500_depth
 make px4_sitl gz_x500_mono_cam
 ```
 
-:::note
-Ця камера поки що не може використовуватись для трансляції відео або захоплення зображень у QGroundControl. Використовуйте [PX4-Autopilot#22563](https://github.com/PX4/PX4-Autopilot/issues/22563) для відстеження додаткової роботи, необхідної для повної реалізації цих випадків використання.
+::: info
+The camera cannot yet be used to stream video or for image capture in QGroundControl. Використовуйте [PX4-Autopilot#22563](https://github.com/PX4/PX4-Autopilot/issues/22563) для відстеження додаткової роботи, необхідної для повної реалізації цих випадків використання.
 :::
 
 ## Літак/Фіксоване крило
@@ -68,8 +68,8 @@ make px4_sitl gz_advanced_plane
 
 ![Покращений літак у Gazebo](../../assets/simulation/gazebo/vehicles/advanced_plane.png)
 
-:::note
-Різниця між покращеним літаком та "стандартним літаком" полягає у фізиці піднімної сили які ці дві моделі використовують:
+::: info
+The difference between the Advanced Plane and the "regular plane" lies in the Lift Physics that the two models use:
 
 - Можна налаштувати плагін _покращеної піднімної сили_ що використовуються моделлю для точнішої відповідності певному засобу використовуючи [Інструмент "Покращена піднімна сила"](../sim_gazebo_gz/tools_avl_automation.md).
 - Для отримання додаткової інформації про розрахунки піднімної сили для покращеного літака, дивіться [PX4-SITL_gazebo-classic/src/liftdrag_plugin/index.md](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/20ded0757b4f2cb362833538716caf1e938b162a/src/liftdrag_plugin/index.md)

@@ -2,8 +2,7 @@
 
 <LinkedBadge type="warning" text="Experimental" url="../airframes/#experimental-vehicles"/>
 
-:::warning
-Support for rover is [experimental](../airframes/index.md#experimental-vehicles). Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome!
+Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome! :::warning Support for rover is [experimental](../airframes/index.md#experimental-vehicles).
 :::
 
 PX4 supports rovers (Unmanned Ground Vehicles - UGVs) with [ackermann and differential](#rover-types) steering.

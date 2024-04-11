@@ -53,7 +53,7 @@ Key Build Features:
 
 The vehicle comes out of the box near complete. Servos and linkages have already been installed, and the only real remaining work is installing the landing gear and horizontal stabilizer. For this portion of the assembly, simply follow the manual.
 
-:::note
+::: info
 
 [Some reports](https://www.rcgroups.com/forums/showthread.php?3904021-NEW-E-flite-Turbo-Timber-Evolution-1-5m-%C2%96-Smartest-Most-Capable-Durable-Timber-Yet/page50) have indicated that the stock ESC bundled with the airplane has an issue with overheating.
 
@@ -183,4 +183,4 @@ In testing I found takeoffs can be as short as only 10ft (3m) using no flaps. I 
 
 [Snapshot of PX4 airframe params](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/turbo_timber_evolution/tteparams.params)
 
-This param file contains the custom PX4 parameter config for this build, including radio setup, tuning and sensor config. The param file can be loaded via QGC using the instructions at [Parameters> Tools ](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html#tools) (QGC User Guide).
+This param file contains the custom PX4 parameter config for this build, including radio setup, tuning and sensor config. The param file can be loaded via QGC using the instructions at [Parameters> Tools ](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/parameters.html#tools) (QGC User Guide).

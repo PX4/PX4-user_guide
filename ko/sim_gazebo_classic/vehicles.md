@@ -4,7 +4,7 @@ This topic lists/displays the vehicles supported by the PX4 [Gazebo Classic](../
 
 Supported vehicle types include: mutirotors, VTOL, VTOL Tailsitter, Plane, Rover, Submarine/UUV.
 
-:::note
+::: info
 The [Gazebo Classic](../sim_gazebo_classic/index.md) page shows how to install Gazebo Classic, how to enable video and load custom maps, and many other configuration options.
 :::
 
@@ -54,7 +54,7 @@ make px4_sitl gazebo-classic_typhoon_h480
 
 ![Typhoon H480 in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/typhoon.jpg)
 
-:::note
+::: info
 This target also supports [video streaming simulation](../sim_gazebo_classic/index.md#video-streaming).
 :::
 

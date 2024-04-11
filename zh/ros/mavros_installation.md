@@ -9,8 +9,7 @@ The PX4 development team recommend that all users [upgrade to ROS 2](../ros/ros2
 
 ## Installation
 
-:::note
-First install ROS and PX4 following the instructions in [Development Environment on Linux > ROS/Gazebo Classic](../dev_setup/dev_env_linux_ubuntu.md#ros-gazebo-classic). Kinetic 同样支持 Debian Jessie amd64 和 arm64（ARMv8）。
+::: info First install ROS and PX4 following the instructions in [Development Environment on Linux > ROS/Gazebo Classic](../dev_setup/dev_env_linux_ubuntu.md#ros-gazebo-classic). Kinetic 同样支持 Debian Jessie amd64 和 arm64（ARMv8）。
 
 :::tip
 These instructions are a simplified version of the [official installation guide](https://github.com/mavlink/mavros/tree/master/mavros#installation). They cover the *ROS Melodic and Noetic* releases.
@@ -115,7 +114,7 @@ In the case of error, there are addition installation and troubleshooting notes 
 
 The [MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md), will show you the basics of MAVROS, from reading telemetry, checking the drone state, changing flight modes and controlling the drone.
 
-:::note
+::: info
 If you have an example app using the PX4 Autopilot and MAVROS, we can help you get it on our docs.
 :::
 

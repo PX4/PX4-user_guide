@@ -39,8 +39,7 @@ Publishing a topic can be done from anywhere in the system, including interrupt 
 
 ## Listing Topics and Listening in
 
-:::note
-The `listener` command is only available on Pixracer (FMUv4) and Linux / OS X.
+::: info The `listener` command is only available on Pixracer (FMUv4) and Linux / OS X.
 :::
 
 To list all topics, list the file handles:

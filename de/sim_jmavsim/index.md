@@ -194,7 +194,7 @@ WARNING: Illegal reflective access by javax.media.j3d.JoglPipeline (rsrc:j3dcore
 WARNING: Please consider reporting this to the maintainers of javax.media.j3d.JoglPipeline
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
 WARNING: All illegal access operations will be denied in a future release
-Inconsistency detected by ld.so: dl-lookup.c: 112: check_match: Assertion version->filename == NULL || ! _dl_name_match_p (version->filename, map)' failed!
+Inconsistency detected by ld.so: dl-lookup.c: 112: check_match: Assertion version->filename == NULL || ! _dl_name_match_p (version->filename, map)' failed! _dl_name_match_p (version->filename, map)' failed!
 ```
 
 ### java.awt.AWTError: Assistive Technology not found: org.GNOME.Accessibility.AtkWrapper

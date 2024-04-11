@@ -2,8 +2,7 @@
 
 Плата управління живленням (PM Board) виконує функції блоку живлення та розподільчої плати живлення. Крім надання регульованого живлення для Pixhawk 4 та ESC, вона надсилає інформацію автопілоту про напругу батареї та поточний струм, що подається на керуючий пристрій польоту та двигуни.
 
-:::note
-Цей модуль можна придбати як пакет за допомогою [Pixhawk 4](../assembly/quick_start_pixhawk4.md), а також може бути використаний з іншими контролерами польоту.
+::: info This module can be purchased as bundle with [Pixhawk 4](../assembly/quick_start_pixhawk4.md), but can also be used with other flight controllers.
 :::
 
 ![PM07](../../assets/hardware/power_module/holybro_pm07/pm07_hero.jpg)

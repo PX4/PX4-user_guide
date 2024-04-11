@@ -52,6 +52,7 @@ To build and run the example:
    ::: tab humble
    ```sh
    cd ..
+   cd ..
    source /opt/ros/humble/setup.bash
    colcon build
    ```
@@ -60,6 +61,7 @@ To build and run the example:
 
    ::: tab foxy
    ```sh
+   cd ..
    cd ..
    source /opt/ros/foxy/setup.bash
    colcon build
@@ -114,7 +116,7 @@ auto timer_callback = [this]() -> void {
 timer_ = this->create_wall_timer(100ms, timer_callback);
 ```
 
-The loop runs on a 100ms timer. For the first 10 cycles it calls `publish_offboard_control_mode()` and `publish_trajectory_setpoint()` to send [OffboardControlMode](../msg_docs/OffboardControlMode.md) and [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) messages to PX4. The `OffboardControlMode` messages are streamed so that PX4 will allow arming once it switches to offboard mode, while the `TrajectorySetpoint` messages are ignored (until the vehicle is in offboard mode).
+The loop runs on a 100ms timer. The `OffboardControlMode` messages are streamed so that PX4 will allow arming once it switches to offboard mode, while the `TrajectorySetpoint` messages are ignored (until the vehicle is in offboard mode). For the first 10 cycles it calls `publish_offboard_control_mode()` and `publish_trajectory_setpoint()` to send [OffboardControlMode](../msg_docs/OffboardControlMode.md) and [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) messages to PX4.
 
 After 10 cycles `publish_vehicle_command()` is called to change to offboard mode, and `arm()` is called to arm the vehicle. After the vehicle arms and changes mode it starts tracking the position setpoints. The setpoints are still sent in every cycle so that the vehicle does not fall out of offboard mode.
 
@@ -125,7 +127,7 @@ The `OffboardControlMode` is required in order to inform PX4 of the _type_ of of
 ```cpp
 /**
  * @brief Publish the offboard control mode.
- *        For this example, only position and altitude controls are active.
+ * For this example, only position and altitude controls are active.
  */
 void OffboardControl::publish_offboard_control_mode()
 {
@@ -145,8 +147,8 @@ void OffboardControl::publish_offboard_control_mode()
 ```cpp
 /**
  * @brief Publish a trajectory setpoint
- *        For this example, it sends a trajectory setpoint to make the
- *        vehicle hover at 5 meters with a yaw angle of 180 degrees.
+ * For this example, it sends a trajectory setpoint to make the
+ * vehicle hover at 5 meters with a yaw angle of 180 degrees.
  */
 void OffboardControl::publish_trajectory_setpoint()
 {
@@ -183,8 +185,7 @@ void OffboardControl::publish_vehicle_command(uint16_t command, float param1, fl
 }
 ```
 
-:::note
-[VehicleCommand](../msg_docs/VehicleCommand.md) is one of the simplest and most powerful ways to command PX4, and by subscribing to [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) you can also confirm that setting a particular command was successful. The param and command fields map to [MAVLink commands](https://mavlink.io/en/messages/common.html#mav_commands) and their parameter values.
+The param and command fields map to [MAVLink commands](https://mavlink.io/en/messages/common.html#mav_commands) and their parameter values. :::note [VehicleCommand](../msg_docs/VehicleCommand.md) is one of the simplest and most powerful ways to command PX4, and by subscribing to [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) you can also confirm that setting a particular command was successful.
 :::
 
 

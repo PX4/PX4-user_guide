@@ -1,6 +1,6 @@
 # VehicleCommand (UORB message)
 
-Vehicle Command uORB message. Used for commanding a mission / action / etc. Follows the MAVLink COMMAND_INT / COMMAND_LONG definition
+Vehicle Command uORB message. Used for commanding a mission / action / etc. Used for commanding a mission / action / etc. Follows the MAVLink COMMAND_INT / COMMAND_LONG definition
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleCommand.msg)
 
@@ -90,6 +90,11 @@ uint16 VEHICLE_CMD_INJECT_FAILURE = 420         # Inject artificial failure for 
 uint16 VEHICLE_CMD_START_RX_PAIR = 500          # Starts receiver pairing |0:Spektrum| 0:Spektrum DSM2, 1:Spektrum DSMX|
 uint16 VEHICLE_CMD_REQUEST_MESSAGE = 512            # Request to send a single instance of the specified message
 uint16 VEHICLE_CMD_SET_CAMERA_MODE = 530        # Set camera capture mode (photo, video, etc.)
+uint16 VEHICLE_CMD_SET_CAMERA_ZOOM = 531        # Set camera zoom
+uint16 VEHICLE_CMD_SET_CAMERA_FOCUS = 532
+uint16 VEHICLE_CMD_DO_GIMBAL_MANAGER_PITCHYAW = 1000    # Setpoint to be sent to a gimbal manager to set a gimbal pitch and yaw
+uint16 VEHICLE_CMD_DO_GIMBAL_MANAGER_CONFIGURE = 1001   # Gimbal configuration to set which sysid/compid is in primary and secondary control
+uint16 VEHICLE_CMD_IMAGE_START_CAPTURE = 2000       # Start image capture sequence.
 uint16 VEHICLE_CMD_SET_CAMERA_ZOOM = 531        # Set camera zoom
 uint16 VEHICLE_CMD_SET_CAMERA_FOCUS = 532
 uint16 VEHICLE_CMD_DO_GIMBAL_MANAGER_PITCHYAW = 1000    # Setpoint to be sent to a gimbal manager to set a gimbal pitch and yaw

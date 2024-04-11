@@ -75,7 +75,7 @@ You must supply power to **POWER** or the Raspberry Pi CM3+ will be unpowered. T
 Note:
 
 1. The output power rails **FMU PWM OUT** and **I/O PWM OUT** do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER** or **USB** or the board will be unpowered.
-2. The two power rails are: **POWER** and **USB**. You must supply power to **POWER** or the Raspberry Pi CM3+ will be unpowered.
+2. You must supply power to **POWER** or the Raspberry Pi CM3+ will be unpowered. The USB do not power the **Raspberry Pi CM3+**.
 
 **Normal Operation Maximum Ratings**
 

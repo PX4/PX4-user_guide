@@ -72,7 +72,7 @@ The RTF kit requires the following assembly.
 
 1. Attach the carbon tube in the brackets. The bracket and tube must be aligned using the white mark (as shown in the picture).
 
-   :::note
+   ::: info
 This is very important because the white mark indicates the center of gravity.
 :::
 
@@ -116,8 +116,7 @@ This kit includes Dropix flight controller with most of the required electronics
 
 <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_23_dropix_and_other_electronics.jpg" width="500px" title="Falcon Vertigo Electronics" />
 
-:::note
-General information about connecting Dropix can be found in [Dropix Flight Controller](../flight_controller/dropix.md). :::
+::: info General information about connecting Dropix can be found in [Dropix Flight Controller](../flight_controller/dropix.md). :::
 
 #### Connect the ESC power connector and pass the signals cables to the flight controller
 
@@ -256,8 +255,7 @@ The final assembly step is to check the vehicle is stable and that the motors ha
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_35_quad_motor_directions.png" width="200px" title="Quad motor order/directions" />
 
-:::note
-If necessary the servo direction can be reversed using the `Rev Range (for servos)` checkbox associated with each servo output in the QGroundControl [Actuator Output](../config/actuators.md#actuator-outputs) configuration (for servos only) (this sets the [PWM_AUX_REV](../advanced_config/parameter_reference.md#PWM_AUX_REV) or [PWM_AUX_MAIN](../advanced_config/parameter_reference.md#PWM_MAIN_REV) parameter). :::
+   ::: info If necessary the servo direction can be reversed using the `Rev Range (for servos)` checkbox associated with each servo output in the QGroundControl [Actuator Output](../config/actuators.md#actuator-outputs) configuration (for servos only) (this sets the [PWM_AUX_REV](../advanced_config/parameter_reference.md#PWM_AUX_REV) or [PWM_AUX_MAIN](../advanced_config/parameter_reference.md#PWM_MAIN_REV) parameter). :::
 
 1. Check the vehicle is balanced around the expected centre of gravity
 

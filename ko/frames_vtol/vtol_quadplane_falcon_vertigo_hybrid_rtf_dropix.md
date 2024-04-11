@@ -72,8 +72,8 @@ RTF 키트는 아래와 같이 조립하여야 합니다.
 
 1. 브래킷에 카본 튜브를 부착합니다. 브래킷과 튜브는 흰색 표시를 사용하여 정렬합니다 (그림 참조).
 
-   :::note
-흰색 표시가 무게 중심을 나타내기 때문에 매우 중요합니다.
+   ::: info
+This is very important because the white mark indicates the center of gravity.
 :::
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/carbon_tube_in_brackets.jpg" title="브래킷의 탄소 튜브" width="300px" />
@@ -116,8 +116,7 @@ RTF 키트는 아래와 같이 조립하여야 합니다.
 
 <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_23_dropix_and_other_electronics.jpg" width="500px" title="Falcon Vertigo Electronics" />
 
-:::note
-Dropix 연결에 대한 일반 정보는 [Dropix 비행 컨트롤러](../flight_controller/dropix.md)을 참고하십시오. :::
+::: info General information about connecting Dropix can be found in [Dropix Flight Controller](../flight_controller/dropix.md). :::
 
 #### ESC 전원 커넥터를 연결하고, 신호 케이블을 비행 컨트롤러에 연결합니다.
 
@@ -256,8 +255,7 @@ GPS / 나침반 모듈은 기본 방향으로 날개에 이미 장착되어 있�
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_35_quad_motor_directions.png" width="200px" title="쿼드 모터 순서 / 방향" />
 
-:::note
-If necessary the servo direction can be reversed using the `Rev Range (for servos)` checkbox associated with each servo output in the QGroundControl [Actuator Output](../config/actuators.md#actuator-outputs) configuration (for servos only) (this sets the [PWM_AUX_REV](../advanced_config/parameter_reference.md#PWM_AUX_REV) or [PWM_AUX_MAIN](../advanced_config/parameter_reference.md#PWM_MAIN_REV) parameter). :::
+   ::: info If necessary the servo direction can be reversed using the `Rev Range (for servos)` checkbox associated with each servo output in the QGroundControl [Actuator Output](../config/actuators.md#actuator-outputs) configuration (for servos only) (this sets the [PWM_AUX_REV](../advanced_config/parameter_reference.md#PWM_AUX_REV) or [PWM_AUX_MAIN](../advanced_config/parameter_reference.md#PWM_MAIN_REV) parameter). :::
 
 1. 차량이 예상 무게 중심 주변에서 균형을 이루는 지 확인하십시오.
 

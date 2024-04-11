@@ -10,8 +10,7 @@ The example starts sending setpoints, enters offboard mode, arms, ascends to 5 m
 *Offboard* керування небезпечне. Якщо ви керуєте реальним транспортним засобом, то обов'язково майте можливість отримати назад ручне керування на випадок, якщо щось піде не так.
 :::
 
-:::note ROS
-and PX4 make a number of different assumptions, in particular with respect to [frame conventions](../ros/external_position_estimation.md#reference-frames-and-ros). There is no implicit conversion between frame types when topics are published or subscribed!
+::: info ROS and PX4 make a number of different assumptions, in particular with respect to [frame conventions](../ros/external_position_estimation.md#reference-frames-and-ros). There is no implicit conversion between frame types when topics are published or subscribed!
 
 У цьому прикладі публікуються позиції у фреймі NED, як і очікує PX4. Щоб підписатися на дані, що надходять з вузлів, які публікують у іншій системі координат (наприклад, ENU, яка є стандартною системою координат у ROS/ROS 2), скористайтеся допоміжними функціями у бібліотеці [frame_transforms](https://github.com/PX4/px4_ros_com/blob/main/src/lib/frame_transforms.cpp).
 :::
@@ -86,7 +85,7 @@ The vehicle should arm, ascend 5 metres, and then wait (perpetually).
 
 The source code of the offboard control example can be found in [PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) in the directory [/src/examples/offboard/offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp).
 
-:::note PX4 publishes all the messages used in this example as ROS topics by default (see [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)).
+::: info PX4 publishes all the messages used in this example as ROS topics by default (see [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)).
 :::
 
 PX4 requires that the vehicle is already receiving `OffboardControlMode` messages before it will arm in offboard mode, or before it will switch to offboard mode when flying. Крім того, PX4 вийде з offboard mode, якщо частота потоку повідомлень `OffboardControlMode` впаде нижче приблизно 2 Гц. Необхідна поведінка реалізується за допомогою головного циклу, що виконується у вузлі ROS 2, як показано нижче:
@@ -135,6 +134,8 @@ void OffboardControl::publish_offboard_control_mode()
     msg.acceleration = false;
     msg.attitude = false;
     msg.body_rate = false;
+    msg.thrust_and_torque = false;
+    msg.direct_actuator = false;
     msg.timestamp = this->get_clock()->now().nanoseconds() / 1000;
     offboard_control_mode_publisher_->publish(msg);
 }
@@ -183,8 +184,7 @@ void OffboardControl::publish_vehicle_command(uint16_t command, float param1, fl
 }
 ```
 
-:::note
-[VehicleCommand](../msg_docs/VehicleCommand.md) - один з найпростіших і найпотужніших способів керування PX4, а підписавшись на [VehicleCommandAck](../msg_docs/VehicleCommandAck.md), ви також можете підтвердити, що задавання певної команди було успішним. Поля param і command відображають команди [MAVLink](https://mavlink.io/en/messages/common.html#mav_commands) та їхні значення параметрів.
+::: info [VehicleCommand](../msg_docs/VehicleCommand.md) is one of the simplest and most powerful ways to command PX4, and by subscribing to [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) you can also confirm that setting a particular command was successful. Поля param і command відображають команди [MAVLink](https://mavlink.io/en/messages/common.html#mav_commands) та їхні значення параметрів.
 :::
 
 

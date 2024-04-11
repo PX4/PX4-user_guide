@@ -6,7 +6,7 @@ PX4 allows grippers to be triggered automatically in [Payload Delivery Missions]
 
 ![High-load gripper example](../../assets/hardware/grippers/highload_gripper_example.jpg)
 
-:::note
+::: info
 A gripper can instead be configured as a [generic RC or MAVLink actuator](../payloads/generic_actuator_control.md#generic-actuator-control-with-rc). A generic actuator cannot be used with a joystick or in payload missions, but it can be used with an RC Controller.
 :::
 
@@ -70,8 +70,7 @@ To set the actuation timeout:
      > payload_deliverer gripper_test
      ```
 
-:::note
-If you get an error message like "[payload_deliverer] not running", repeat the setup procedures above. You might also run the `payload_deliverer start` command in the Nuttx shell.
+     ::: info If you get an error message like "[payload_deliverer] not running", repeat the setup procedures above. You might also run the `payload_deliverer start` command in the Nuttx shell.
 :::
 
    - Use the [Joystick](#qgc-joystick-configuration) to trigger gripper open and close actions.
@@ -82,7 +81,7 @@ If you get an error message like "[payload_deliverer] not running", repeat the s
 
 When running a [Payload Delivery Mission](../flying/package_delivery_mission.md) it is important that the mission is not halted in the case where the gripper does not report that it has opened (or closed). This might happen if a gripper feedback sensor was damaged or UORB dropped the gripper actuator timout message.
 
-:::note
+::: info
 Gripper state feedback from a sensor is not actually supported yet, but it may be in future.
 :::
 

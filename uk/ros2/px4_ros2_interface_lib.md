@@ -29,8 +29,8 @@
    ```sh
    ```
 
-   ::::note
-   Для забезпечення сумісності, використовуйте останні _main_ гілки для PX4, _px4_msgs_ та бібліотеки.
+   ::: info
+   To ensure compatibility, use the latest _main_ branches for PX4, _px4_msgs_ and the library.
    Також подивіться тут
 
 3. Побудуйте робочий простір:

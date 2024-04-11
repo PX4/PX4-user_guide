@@ -42,6 +42,7 @@ This version of GCC is out of date. At time of writing the current version on Ub
 ```sh
 pushd .
 pushd .
+pushd .
 cd ~
 wget https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/7-2017q4/gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz2
 tar -jxf gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz2
@@ -91,5 +92,5 @@ unzip ninja-linux.zip
 rm ninja-linux.zip
 exportline="export PATH=$HOME/ninja:\$PATH"
 if grep -Fxq "$exportline" ~/.profile; then echo nothing to do ; else echo $exportline >> ~/.profile; fi
-. ~/.profile ~/.profile
+. ~/.profile ~/.profile ~/.profile
 ```

@@ -52,8 +52,8 @@ For a full parts list with links to Hobbyking EU and International warehouse see
 
 A full build log is provided in the following video.
 
-:::note
-이 변환 조립 방법은 이전 변환으로 인한 손상을 보여주는 날개에서 수행됩니다. 
+::: info
+Please note that the conversion in this build log is performed on a wing that shows damage from a previous conversion. 
 :::
 
 @[유투브](https://youtu.be/l_ppJ_HhAUQ)
@@ -91,8 +91,8 @@ Pixhawk의 출력은 다음과 같이 연결되어야합니다 ( "평면에 앉�
 | AUX 5  | 스로틀                    |
 
 
-:::note
-서보 방향은 QGroundControl의 PWM\_OUTPUT 그룹 (톱니 바퀴 탭, 왼쪽 메뉴의 마지막 항목)에서 PWM\_REV 매개 변수를 사용하여 변경 가능합니다.
+::: info
+The servo direction can be reversed using the PWM\_REV parameters in the PWM\_OUTPUT group of QGroundControl (cogwheel tab, last item in the left menu)
 :::
 
 배선 및 설정에 관한 자세한 지침은 [표준 VTOL 배선 및 설정](../config_vtol/vtol_quad_configuration.md)을 참고하십시오.

@@ -4,13 +4,12 @@ Docker containers are provided for the complete [PX4 development toolchain](../d
 
 [도커 컨테이너](#px4_containers)를 사용하여 Linux 컴퓨터에서 빌드하는 방법을 설명합니다.
 
-:::note
-Dockerfile와 README는 [Github](https://github.com/PX4/containers/blob/master/README.md)에서 찾을 수 있습니다. [Docker Hub](https://hub.docker.com/u/px4io/)에서 자동으로 빌드됩니다.
+::: info Dockerfiles and README can be found on [Github here](https://github.com/PX4/containers/blob/master/index.md). [Docker Hub](https://hub.docker.com/u/px4io/)에서 자동으로 빌드됩니다.
 :::
 
 ## 전제 조건
 
-:::note PX4 컨테이너는 현재 Linux만 지원됩니다(Linux가 없는 경우 [가상 머신](#virtual_machine)에서 컨테이너를 실행할 수 있음). 기본 Linux 이미지에는 X-Server가 포함되어 있지 않으므로, `boot2docker`를 사용하지 마십시오.
+::: info PX4 containers are currently only supported on Linux (if you don't have Linux you can run the container [inside a virtual machine](#virtual_machine)). 기본 Linux 이미지에는 X-Server가 포함되어 있지 않으므로, `boot2docker`를 사용하지 마십시오.
 :::
 
 Linux 컴퓨터에 [Docker를 설치](https://docs.docker.com/installation/)합니다. 가급적이면 Docker에서 유지 관리하는 패키지 저장소를 사용하여 최신 안정 버전을 다운로드 하십시오. *엔터프라이즈 에디션* 또는 (무료) *커뮤니티 에디션*을 사용할 수 있습니다.
@@ -130,12 +129,11 @@ docker run -it --privileged \
 --name=px4-ros px4io/px4-dev-ros2-foxy:2022-07-31 bash
 ```
 
-:::note
+::: info
 We use the host network mode to avoid conflicts between the UDP port access control when using QGroundControl on the same system as the docker container.
 :::
 
-:::note
-If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value. On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`. On other hosts you might iterate the value of `0` in `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
+::: info If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value. On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`. On other hosts you might iterate the value of `0` in `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
 :::
 
 모든 것이 잘 실행되면, 새로운 bash 쉘이 실행됩니다. 예를 들어 SITL을 실행하여 모든 것이 작동하는 지 확인하십시오.
@@ -184,8 +182,8 @@ In _QGroundControl_, navigate to [Settings](https://docs.qgroundcontrol.com/mast
 $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}' mycontainer
 ```
 
-:::note
-위의 이중 중괄호 사이에는 공백이 없어야 합니다(gitbook에서 UI 렌더링 문제를 피하기 위해 필요함).
+::: info
+Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook).
 :::
 
 ### 문제 해결

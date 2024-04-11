@@ -7,7 +7,7 @@ PX4는 아래 장치들을 지원합니다.
 - [TeraRanger Evo 60m](https://www.terabee.com/shop/lidar-tof-range-finders/teraranger-evo-60m/) (0.5 – 60 m)
 - [TeraRanger Evo 600Hz](https://www.terabee.com/shop/lidar-tof-range-finders/teraranger-evo-600hz/) (0.75 - 8 m)
 
-:::note PX4 also supports _TeraRanger One_ (I2C adapter required). This has been discontinued.
+::: info PX4 also supports _TeraRanger One_ (I2C adapter required). This has been discontinued.
 :::
 
 ## 구매처
@@ -24,8 +24,8 @@ PX4는 아래 장치들을 지원합니다.
 
 센서는 매개변수 [SENS_EN_TRANGER](../advanced_config/parameter_reference.md#SENS_EN_TRANGER)로 활성화됩니다 (센서 유형을 설정하거나 PX4가 유형을 자동 감지해야 함).
 
-:::note
-Evo 센서에 자동 감지를 사용하는 경우에는 범위의 최소/최대 값은 Evo 제품군 전체에서 가능한 최저/최고 판독치(현재 0.5-60m)로 설정됩니다.
+::: info
+If using auto-detect for Evo sensors the minimum and maximum values for the range are set to the lowest and highest possible readings across the Evo family (currently 0.5 - 60 m).
 올바른 최대/최소 값을 사용하려면 Evo 센서의 적절한 모델을 매개변수에 설정합니다 (자동 감지를 사용하는 대신).
 :::
 

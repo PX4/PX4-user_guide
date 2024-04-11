@@ -23,16 +23,15 @@ The application pipeline for ROS 2 is very straightforward, thanks to the use of
 
 The uXRCE-DDS middleware consists of a client running on PX4 and an agent running on the companion computer, with bi-directional data exchange between them over a serial, UDP, TCP or custom link. The agent acts as a proxy for the client to publish and subscribe to topics in the global DDS data space.
 
-The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) is generated at build time and included in PX4 firmware by default. It includes both the "generic" micro XRCE-DDS client code, and PX4-specific translation code that it uses to publish to/from uORB topics. The subset of uORB messages that are generated into the client are listed in [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml). The generator uses the uORB message definitions in the source tree: [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to create the code for sending ROS 2 messages.
+The generator uses the uORB message definitions in the source tree: [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to create the code for sending ROS 2 messages. It includes both the "generic" micro XRCE-DDS client code, and PX4-specific translation code that it uses to publish to/from uORB topics. The subset of uORB messages that are generated into the client are listed in [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml). The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) is generated at build time and included in PX4 firmware by default.
 
-ROS 2 applications need to be built in a workspace that has the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware. You can include these by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS 2 workspace (branches in the repo correspond to the messages for different PX4 releases).
+You can include these by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS 2 workspace (branches in the repo correspond to the messages for different PX4 releases). ROS 2 applications need to be built in a workspace that has the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware.
 
 Note that the micro XRCE-DDS _agent_ itself has no dependency on client-side code. It can be built from [source](https://github.com/eProsima/Micro-XRCE-DDS-Agent) either standalone or as part of a ROS build, or installed as a snap.
 
 You will normally need to start both the client and agent when using ROS 2. Note that the uXRCE-DDS client is built into firmware by default but not started automatically except for simulator builds.
 
-:::note
-In PX4v1.13 and earlier, ROS 2 was dependent on definitions in [px4_ros_com](https://github.com/PX4/px4_ros_com). This repo is no longer needed, but does contain useful examples.
+[px4_msgs](https://github.com/PX4/px4_msgs) is needed too so that the example can interpret PX4 ROS 2 topics. :::note The example builds the [ROS 2 Listener](#ros-2-listener) example application, located in [px4_ros_com](https://github.com/PX4/px4_ros_com).
 :::
 
 
@@ -59,8 +58,7 @@ Other dependencies of the architecture that are installed automatically, such as
 
 You need to install the PX4 development toolchain in order to use the simulator.
 
-:::note
-The only dependency ROS 2 has on PX4 is the set of message definitions, which it gets from [px4_msgs](https://github.com/PX4/px4_msgs). You only need to install PX4 if you need the simulator (as we do in this guide), or if you are creating a build that publishes custom uORB topics.
+You only need to install PX4 if you need the simulator (as we do in this guide), or if you are creating a build that publishes custom uORB topics. :::note The only dependency ROS 2 has on PX4 is the set of message definitions, which it gets from [px4_msgs](https://github.com/PX4/px4_msgs).
 :::
 
 Set up a PX4 development environment on Ubuntu in the normal way:
@@ -146,6 +144,9 @@ To setup and start the agent:
    make
    sudo make install
    sudo ldconfig /usr/local/lib/
+   make
+   sudo make install
+   sudo ldconfig /usr/local/lib/
    ```
 
 1. Start the agent with settings for connecting to the uXRCE-DDS client running on the simulator:
@@ -156,9 +157,8 @@ To setup and start the agent:
 
 The agent is now running, but you won't see much until we start PX4 (in the next step).
 
-:::note
+Note that only one agent is allowed per connection channel. :::note
 You can leave the agent running in this terminal!
-Note that only one agent is allowed per connection channel.
 :::
 
 #### Start the Client
@@ -220,8 +220,7 @@ This section shows how create a ROS 2 workspace hosted in your home directory (m
 
 The [px4_ros_com](https://github.com/PX4/px4_ros_com) and [px4_msgs](https://github.com/PX4/px4_msgs) packages are cloned to a workspace folder, and then the `colcon` tool is used to build the workspace. The example is run using `ros2 launch`.
 
-:::note
-The example builds the [ROS 2 Listener](#ros-2-listener) example application, located in [px4_ros_com](https://github.com/PX4/px4_ros_com). [px4_msgs](https://github.com/PX4/px4_msgs) is needed too so that the example can interpret PX4 ROS 2 topics.
+For more information see [uXRCE-DDS > DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml). :::note Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) completely defines the relationship between PX4 uORB topics and ROS 2 messages.
 :::
 
 
@@ -255,6 +254,7 @@ A naming convention for workspace folders can make it easier to manage workspace
    ::: tab humble
    ```sh
    cd ..
+   cd ..
    source /opt/ros/humble/setup.bash
    colcon build
    ```
@@ -263,6 +263,7 @@ A naming convention for workspace folders can make it easier to manage workspace
 
    ::: tab foxy
    ```sh
+   cd ..
    cd ..
    source /opt/ros/foxy/setup.bash
    colcon build
@@ -356,6 +357,7 @@ ROS 2 code that subscribes to topics published by PX4 _must_ specify a appropria
 
 ```cpp
 ...
+...
 rmw_qos_profile_t qos_profile = rmw_qos_profile_sensor_data;
 auto qos = rclcpp::QoS(rclcpp::QoSInitialization(qos_profile.history, 5), qos_profile);
 
@@ -363,7 +365,7 @@ subscription_ = this->create_subscription<px4_msgs::msg::SensorCombined>("/fmu/o
 ...
 ```
 
-This is needed because the ROS 2 default [Quality of Service (QoS) settings](https://docs.ros.org/en/humble/Concepts/About-Quality-of-Service-Settings.html#qos-profiles) are different from the settings used by PX4. Not all combinations of publisher-subscriber [Qos settings are possible](https://docs.ros.org/en/humble/Concepts/About-Quality-of-Service-Settings.html#qos-compatibilities), and it turns out that the default ROS 2 settings for subscribing are not! Note that ROS code does not have to set QoS settings when publishing (the PX4 settings are compatible with ROS defaults in this case).
+Not all combinations of publisher-subscriber [Qos settings are possible](https://docs.ros.org/en/humble/Concepts/About-Quality-of-Service-Settings.html#qos-compatibilities), and it turns out that the default ROS 2 settings for subscribing are not! Note that ROS code does not have to set QoS settings when publishing (the PX4 settings are compatible with ROS defaults in this case). This is needed because the ROS 2 default [Quality of Service (QoS) settings](https://docs.ros.org/en/humble/Concepts/About-Quality-of-Service-Settings.html#qos-profiles) are different from the settings used by PX4.
 
 <!-- From https://github.com/PX4/PX4-user_guide/pull/2259#discussion_r1099788316 -->
 
@@ -403,7 +405,7 @@ Examples of vectors that require rotation are:
 - all fields in [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) message; ENU to NED conversion is required before sending them.
 - all fields in [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) message; FLU to FRD conversion is required before sending them.
 
-Similarly to vectors, also quanternions representing the attitude of the vehicle (body frame) w.r.t. the world frame require conversion.
+Similarly to vectors, also quanternions representing the attitude of the vehicle (body frame) w.r.t. the world frame require conversion. the world frame require conversion.
 
 [PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) provides the shared library [frame_transforms](https://github.com/PX4/px4_ros_com/blob/main/include/px4_ros_com/frame_transforms.h) to easily perform such conversions.
 
@@ -411,7 +413,7 @@ Similarly to vectors, also quanternions representing the attitude of the vehicle
 
 By default, time synchronization between ROS 2 and PX4 is automatically managed by the [uXRCE-DDS middleware](https://micro-xrce-dds.docs.eprosima.com/en/latest/time_sync.html) and time synchronization statistics are available listening to the bridged topic `/fmu/out/timesync_status`. When the uXRCE-DDS client runs on a flight controller and the agent runs on a companion computer this is the desired behavior as time offsets, time drift, and communication latency, are computed and automatically compensated.
 
-For Gazebo simulations PX4 uses the Gazebo `/clock` topic as [time source](../sim_gazebo_gz/index.md#px4-gazebo-time-synchronization) instead. This clock is always slightly off-sync w.r.t. the OS clock (the real time factor is never exactly one) and it can can even run much faster or much slower depending on the [user preferences](http://sdformat.org/spec?elem=physics&ver=1.9). Note that this is different from the [simulation lockstep](../simulation/index.md#lockstep-simulation) procedure adopted with Gazebo Classic.
+For Gazebo simulations PX4 uses the Gazebo `/clock` topic as [time source](../sim_gazebo_gz/index.md#px4-gazebo-time-synchronization) instead. This clock is always slightly off-sync w.r.t. This clock is always slightly off-sync w.r.t. the OS clock (the real time factor is never exactly one) and it can can even run much faster or much slower depending on the [user preferences](http://sdformat.org/spec?elem=physics&ver=1.9). Note that this is different from the [simulation lockstep](../simulation/index.md#lockstep-simulation) procedure adopted with Gazebo Classic.
 
 ROS2 users have then two possibilities regarding the [time source](https://design.ros2.org/articles/clock_and_time.html) of their nodes.
 
@@ -598,15 +600,14 @@ For more information see [Starting uXRCE-DDS](../middleware/uxrce_dds.md#startin
 ROS 2 needs to have the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware in order to interpret the messages. The definition are stored in the ROS 2 interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) and they are automatically synchronized by CI on the `main` and release branches. Note that all the messages from PX4 source code are present in the repository, but only those listed in `dds_topics.yaml` will be available as ROS 2 topics. Therefore,
 
 - If you're using a main or release version of PX4 you can get the message definitions by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your workspace.
-- If you're creating or modifying uORB messages you must manually update the messages in your workspace from your PX4 source tree. Generally this means that you would update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml), clone the interface package, and then manually synchronize it by copying the new/modified message definitions from [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to its `msg` folders. Assuming that PX4-Autopilot is in your home directory `~`, while `px4_msgs` is in `~/px4_ros_com/src/`, then the command might be:
+- If you're creating or modifying uORB messages you must manually update the messages in your workspace from your PX4 source tree. Assuming that PX4-Autopilot is in your home directory `~`, while `px4_msgs` is in `~/px4_ros_com/src/`, then the command might be: Generally this means that you would update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml), clone the interface package, and then manually synchronize it by copying the new/modified message definitions from [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to its `msg` folders.
 
   ```sh
   rm ~/px4_ros_com/src/px4_msgs/msg/*.msg
   cp ~/PX4-Autopilot/mgs/*.msg ~/px4_ros_com/src/px4_msgs/msg/
   ```
 
-:::note
-Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) completely defines the relationship between PX4 uORB topics and ROS 2 messages. For more information see [uXRCE-DDS > DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml).
+  ::: info Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) completely defines the relationship between PX4 uORB topics and ROS 2 messages. For more information see [uXRCE-DDS > DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml).
 :::
 
 ## Customizing the Topic Namespace
@@ -688,6 +689,7 @@ failure_detector_status: 0
 hil_state: 0
 ...
 ---
+---
 ```
 
 ### ros2 topic hz
@@ -717,7 +719,7 @@ average rate: 247.485
 
 ### ros2 launch
 
-The `ros2 launch` command is used to start a ROS 2 launch file. For example, above we used `ros2 launch px4_ros_com sensor_combined_listener.launch.py` to start the listener example.
+For example, above we used `ros2 launch px4_ros_com sensor_combined_listener.launch.py` to start the listener example. The `ros2 launch` command is used to start a ROS 2 launch file.
 
 You don't need to have a launch file, but they are very useful if you have a complex ROS 2 system that needs to start several components.
 

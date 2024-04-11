@@ -13,6 +13,7 @@ WARNING: remove all props before using this command.
 ### Usage
 ```
 actuator_test <command> [arguments...]
+ actuator_test <command> [arguments...]
  Commands:
    set           Set an actuator to a specific output value
 
@@ -37,6 +38,7 @@ Utility to flash the bootloader from a file
 ### Usage
 ```
 bl_update [arguments...]
+   bl_update [arguments...]
    setopt        Set option bits to unlock the FLASH (only needed if in locked
                  state)
 
@@ -51,6 +53,7 @@ read BSON from a file and print in human form
 ### Usage
 ```
 bsondump [arguments...]
+     bsondump [arguments...]
      <file>      File name
 ```
 ## dumpfile
@@ -62,6 +65,7 @@ Dump file utility. Prints file size and contents in binary mode (don't replace L
 ### Usage
 ```
 dumpfile [arguments...]
+     dumpfile [arguments...]
      <file>      File to dump
 ```
 ## dyn
@@ -82,8 +86,9 @@ dyn ./hello.px4mod start
 ### Usage
 ```
 dyn [arguments...]
+     dyn [arguments...]
      <file>      File containing the module
-     [arguments...] Arguments to the module
+     [arguments...] Arguments to the module Arguments to the module
 ```
 ## failure
 Source: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/failure)
@@ -105,11 +110,12 @@ failure gps off
 ### Usage
 ```
 failure [arguments...]
+   failure [arguments...]
    help          Show this help text
 
-   gps|...       Specify component
+   gps|... Specify component
 
-   ok|off|...    Specify failure type
+   ok|off|... Specify failure type
      [-i <val>]  sensor instance (0=all)
                  default: 0
 ```
@@ -147,6 +153,7 @@ gpio write /dev/gpio1 1
 ### Usage
 ```
 gpio [arguments...]
+   gpio [arguments...]
    read
      <PORT><PIN>/<DEVICE> GPIO port and pin or device
      [PULLDOWN|PULLUP] Pulldown/Pullup
@@ -170,6 +177,7 @@ Used in startup scripts to handle hardfaults
 ### Usage
 ```
 hardfault_log <command> [arguments...]
+ hardfault_log <command> [arguments...]
  Commands:
    check         Check if there's an uncommitted hardfault
 
@@ -206,6 +214,7 @@ Utility to scan for I2C devices on a particular bus.
 ### Usage
 ```
 i2cdetect [arguments...]
+     i2cdetect [arguments...]
      [-b <val>]  I2C bus
                  default: 1
 ```
@@ -232,6 +241,7 @@ led_control blink -c blue -l 0 -n 5
 ### Usage
 ```
 led_control <command> [arguments...]
+ led_control <command> [arguments...]
  Commands:
    test          Run a test pattern
 
@@ -272,6 +282,7 @@ The listener can be exited any time by pressing Ctrl+C, Esc, or Q.
 ### Usage
 ```
 listener <command> [arguments...]
+ listener <command> [arguments...]
  Commands:
      <topic_name> uORB topic name
      [-i <val>]  Topic instance
@@ -290,6 +301,7 @@ Utility interact with the manifest
 ### Usage
 ```
 mfd <command> [arguments...]
+ mfd <command> [arguments...]
  Commands:
    query         Returns true if not existed
 ```
@@ -302,6 +314,7 @@ Utility to mount and test partitions (based on FRAM/EEPROM storage as defined by
 ### Usage
 ```
 mtd <command> [arguments...]
+ mtd <command> [arguments...]
  Commands:
    status        Print status information
 
@@ -316,8 +329,7 @@ mtd <command> [arguments...]
                  default: 0
 
  The commands 'readtest', 'rwtest' and 'erase' have an optional parameter:
-     [<partition_name1> [<partition_name2> ...]] Partition names (eg.
-                 /fs/mtd_params), use system default if not provided
+     [<partition_name1> [<partition_name2> ...]] Partition names (eg. /fs/mtd_params), use system default if not provided
 ```
 ## nshterm
 Source: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/nshterm)
@@ -331,7 +343,8 @@ This was previously used to start a shell on the USB serial port. Now there runs
 ### Usage
 ```
 nshterm [arguments...]
-     <file:dev>  Device on which to start the shell (eg. /dev/ttyACM0)
+     <file:dev>  Device on which to start the shell (eg.
+     /dev/ttyACM0)
 ```
 ## param
 Source: [systemcmds/param](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/param)
@@ -381,26 +394,8 @@ param <command> [arguments...]
      [-a]        Show all parameters (not just used)
      [-c]        Show only changed params (unused too)
      [-q]        quiet mode, print only param value (name needs to be exact)
-     [<filter>]  Filter by param name (wildcard at end allowed, eg. sys_*)
-
-   show-for-airframe Show changed params for airframe config
-
-   status        Print status of parameter system
-
-   set           Set parameter to a value
-     <param_name> <value> Parameter name and value to set
-     [fail]      If provided, let the command fail if param is not found
-
-   set-default   Set parameter default to a value
-     [-s]        If provided, silent errors if parameter doesn't exists
-     <param_name> <value> Parameter name and value to set
-     [fail]      If provided, let the command fail if param is not found
-
-   compare       Compare a param with a value. Command will succeed if equal
-     [-s]        If provided, silent errors if parameter doesn't exists
-     <param_name> <value> Parameter name and value to compare
-
-   greater       Compare a param with a value. Command will succeed if param is
+     [<filter>]  Filter by param name (wildcard at end allowed, eg.
+ Command will succeed if param is
                  greater than the value
      [-s]        If provided, silent errors if parameter doesn't exists
      <param_name> <value> Parameter name and value to compare
@@ -423,7 +418,26 @@ param <command> [arguments...]
      <index>     Index: an integer >= 0
 
    find          Show index of a param
-     <param>     param name
+     <param>     param name sys_*)
+
+   show-for-airframe Show changed params for airframe config
+
+   status        Print status of parameter system
+
+   set           Set parameter to a value
+     <param_name> <value> Parameter name and value to set
+     [fail]      If provided, let the command fail if param is not found
+
+   set-default   Set parameter default to a value
+     [-s]        If provided, silent errors if parameter doesn't exists
+     <param_name> <value> Parameter name and value to set
+     [fail]      If provided, let the command fail if param is not found
+
+   compare       Compare a param with a value. Command will succeed if equal
+     [-s]        If provided, silent errors if parameter doesn't exists
+     <param_name> <value> Parameter name and value to compare
+
+   greater       Compare a param with a value.
 ```
 ## payload_deliverer
 Source: [modules/payload_deliverer](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/payload_deliverer)
@@ -438,6 +452,7 @@ Handles payload delivery with either Gripper or a Winch with an appropriate time
 ### Usage
 ```
 payload_deliverer <command> [arguments...]
+ payload_deliverer <command> [arguments...]
  Commands:
    start
 
@@ -460,6 +475,7 @@ Tool to print performance counters
 ### Usage
 ```
 perf [arguments...]
+   perf [arguments...]
    reset         Reset all counters
 
    latency       Print HRT timer latency histogram
@@ -475,6 +491,7 @@ Reboot the system
 ### Usage
 ```
 reboot [arguments...]
+     reboot [arguments...]
      [-b]        Reboot into bootloader
      [-i]        Reboot into ISP (1st stage bootloader)
      [lock|unlock] Take/release the shutdown lock (for testing)
@@ -488,6 +505,7 @@ Test the speed of an SD Card
 ### Usage
 ```
 sd_bench [arguments...]
+     sd_bench [arguments...]
      [-b <val>]  Block size for each read/write
                  default: 4096
      [-r <val>]  Number of runs
@@ -508,6 +526,7 @@ Test operations on an SD Card
 ### Usage
 ```
 sd_stress [arguments...]
+     sd_stress [arguments...]
      [-r <val>]  Number of runs
                  default: 5
      [-b <val>]  Number of bytes
@@ -525,6 +544,7 @@ This can be used to use u-center connected to USB with a GPS on a serial port.
 ### Usage
 ```
 serial_passthru [arguments...]
+     serial_passthru [arguments...]
      -e <val>    External device path
                  values: <file:dev>
      -d <val>    Internal device path
@@ -554,6 +574,7 @@ system_time get
 ### Usage
 ```
 system_time <command> [arguments...]
+ system_time <command> [arguments...]
  Commands:
    set           Set the system time, provide time in unix epoch time format
 
@@ -568,6 +589,7 @@ Monitor running processes and their CPU, stack usage, priority and state
 ### Usage
 ```
 top [arguments...]
+   top [arguments...]
    once          print load only once
 ```
 ## usb_connected
@@ -589,6 +611,7 @@ Tool to print various version information
 ### Usage
 ```
 ver <command> [arguments...]
+ ver <command> [arguments...]
  Commands:
    hw            Hardware architecture
 
@@ -614,5 +637,9 @@ ver <command> [arguments...]
 
    hwtypecmp     Compare hardware type (returns 0 on match)
      <hwtype> [<hwtype2>] Hardware type to compare against (eg. V2). An OR
+                 comparison is used if multiple are specified
+
+   hwbasecmp     Compare hardware base (returns 0 on match)
+     <hwbase> [<hwbase2>] Hardware type to compare against (eg. V2). An OR
                  comparison is used if multiple are specified
 ```

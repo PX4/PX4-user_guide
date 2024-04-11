@@ -23,6 +23,7 @@ afbrs50 stop
 ### Usage
 ```
 afbrs50 <command> [arguments...]
+ afbrs50 <command> [arguments...]
  Commands:
    start         Start driver
      -d <val>    Serial device
@@ -41,6 +42,7 @@ Source: [drivers/distance_sensor/gy_us42](https://github.com/PX4/PX4-Autopilot/t
 ### Usage
 ```
 gy_us42 <command> [arguments...]
+ gy_us42 <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -84,6 +86,7 @@ leddar_one stop
 ### Usage
 ```
 leddar_one <command> [arguments...]
+ leddar_one <command> [arguments...]
  Commands:
    start         Start driver
      -d <val>    Serial device
@@ -159,6 +162,13 @@ lightware_laser_serial <command> [arguments...]
                  default: 25
 
    stop          Stop driver
+ Commands:
+   start         Start driver
+     -d <val>    Serial device
+     [-R <val>]  Sensor rotation - downward facing by default
+                 default: 25
+
+   stop          Stop driver
 ```
 ## lightware_sf45_serial
 Source: [drivers/distance_sensor/lightware_sf45_serial](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_sf45_serial)
@@ -186,6 +196,12 @@ lightware_sf45_serial stop
 ### Usage
 ```
 lightware_sf45_serial <command> [arguments...]
+ Commands:
+   start         Start driver
+     -d <val>    Serial device
+     -R <val>    Sensor rotation - downward facing by default
+
+   stop          Stop driver
  Commands:
    start         Start driver
      -d <val>    Serial device
@@ -258,6 +274,7 @@ Source: [drivers/distance_sensor/mb12xx](https://github.com/PX4/PX4-Autopilot/tr
 ### Usage
 ```
 mb12xx <command> [arguments...]
+ mappydot <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -266,10 +283,6 @@ mb12xx <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
-
-   set_address
-     [-a <val>]  I2C address
-                 default: 112
 
    stop
 
@@ -292,6 +305,7 @@ This driver is implemented as a NuttX task. This Implementation was chosen due t
 ### Usage
 ```
 pga460 <command> [arguments...]
+ pga460 <command> [arguments...]
  Commands:
    start
      [device_path] The pga460 sensor device path, (e.g: /dev/ttyS6)
@@ -343,6 +357,7 @@ Source: [drivers/distance_sensor/srf05](https://github.com/PX4/PX4-Autopilot/tre
 ### Usage
 ```
 srf05 <command> [arguments...]
+ srf05 <command> [arguments...]
  Commands:
    start         Start driver
      [-R <val>]  Sensor rotation - downward facing by default
@@ -373,6 +388,7 @@ Setup/usage information: https://docs.px4.io/main/en/sensor/rangefinders.html#te
 ### Usage
 ```
 teraranger <command> [arguments...]
+ teraranger <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -456,6 +472,19 @@ tfmini <command> [arguments...]
    test          Test driver (basic functional tests)
 
    status        Print driver status
+ Commands:
+   start         Start driver
+     -d <val>    Serial device
+     [-R <val>]  Sensor rotation - downward facing by default
+                 default: 25
+
+   status        Driver status
+
+   stop          Stop driver
+
+   test          Test driver (basic functional tests)
+
+   status        Print driver status
 ```
 ## ulanding_radar
 Source: [drivers/distance_sensor/ulanding_radar](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/ulanding_radar)
@@ -483,6 +512,7 @@ ulanding_radar stop
 ### Usage
 ```
 ulanding_radar <command> [arguments...]
+ ulanding_radar <command> [arguments...]
  Commands:
    start         Start driver
      -d <val>    Serial device

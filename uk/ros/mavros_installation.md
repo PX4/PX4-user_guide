@@ -10,8 +10,7 @@
 
 ## Встановлення
 
-:::note
-Спершу встановіть ROS і PX4 слідуючи інструкціям у [Середа розробки у Linux > ROS/Gazebo Classic](../dev_setup/dev_env_linux_ubuntu.md#ros-gazebo-classic).
+::: info First install ROS and PX4 following the instructions in [Development Environment on Linux > ROS/Gazebo Classic](../dev_setup/dev_env_linux_ubuntu.md#ros-gazebo-classic).
 :::
 
 :::tip
@@ -117,8 +116,8 @@ $ wstool init ~/catkin_ws/src
 
 [MAVROS Offboard Приклад (C++)](../ros/mavros_offboard_cpp.md), показує базові можливості MAVROS, читання телеметрії, перевірка стану дрона, зміна режимів польоту і керування дроном.
 
-:::note
-Якщо у вас є приклад додатку, що використовує PX4 Autopilot і MAVROS, ми можемо допомогти додати його у нашу документацію.
+::: info
+If you have an example app using the PX4 Autopilot and MAVROS, we can help you get it on our docs.
 :::
 
 ## Дивіться також

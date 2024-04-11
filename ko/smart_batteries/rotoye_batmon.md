@@ -2,8 +2,7 @@
 
 [Rotoye Batmon](https://rotoye.com/batmon/)은 기성품인 리튬 이온 및 LiPo 배터리에 스마트 배터리 기능을 추가하는 키트입니다. 독립형 장치로 또는 공장에서 조립된 스마트 배터리의 일부로 구입할 수 있습니다.
 
-:::note
-작성 당시에는 [PX4의 사용자 지정 분기를 구축](#build-px4-firmware)함으로써만 Batmon을 사용할 수 있습니다. 코드라인의 지원은 [PR 승인](https://github.com/PX4/PX4-Autopilot/pull/16723) 대기 중입니다.
+::: info At time of writing you can only use Batmon by [building a custom branch of PX4](#build-px4-firmware). 코드라인의 지원은 [PR 승인](https://github.com/PX4/PX4-Autopilot/pull/16723) 대기 중입니다.
 :::
 
 
@@ -49,7 +48,7 @@ Rotoye Batmon 시스템은 I2C 핀이 있는 XT-90 배터리 커넥터와 광절
    - `BATx_SOURCE`를 `External`,
    - `SENS_EN_BAT`를 `true`,
    - `BAT_SMBUS_MODEL`를 `3:Rotoye`
-1. [MAVLink 콘솔](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html)을 엽니다.
+1. Open the [MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html)
 1. 콘솔에서 [batt_smbus 드라이버](../modules/modules_driver.md)를 시작합니다. 예를 들어 동일한 버스에서 두 개의 BatMon을 실행하려면:
    ```sh 
    batt_smbus start -X -b 1 -a 11 # External bus 1, address 0x0b  

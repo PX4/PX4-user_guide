@@ -287,8 +287,8 @@ To add a new world:
    - If you plan to use "normal" mode, add your world sdf to `Tools/simulation/gz/worlds/`.
    - If you plan to use _standalone_ mode, add your world SDF to `~/.simulation-gazebo/worlds/`
 
-::: info
-As long as the world file and the model file are in the Gazebo search path (`GZ_SIM_RESOURCE_PATH`) it is not necessary to add them to the PX4 world and model directories. However, `make px4_sitl gz_<model>_<world>` won't work with them.
+However, `make px4_sitl gz_<model>_<world>` won't work with them. ::: info  
+As long as the world file and the model file are in the Gazebo search path (`GZ_SIM_RESOURCE_PATH`) it is not necessary to add them to the PX4 world and model directories.
 :::
 
 ## PX4-Gazebo Time Synchronization

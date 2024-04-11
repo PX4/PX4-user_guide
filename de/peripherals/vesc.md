@@ -25,7 +25,7 @@ The preferred tool for motor enumeration is the [VESC tool](https://vesc-project
 | CAN Mode                | `UAVCAN`               |
 | UAVCAN ESC Index        | `0,1,...`              |
 
-VESC ID should have the same motor numbering as in PX4 convention, starting at `1` for top-right motor, `2` for bottom-left motor etc. However the `UAVCAN ESC Index` starts from `0`, and as such it is always one index lower than the `VESC ID`. For example, in a quadcopter the bottom left motor will have `VESC ID = 2` and `UAVCAN ESC Index = 1`.
+VESC ID should have the same motor numbering as in PX4 convention, starting at `1` for top-right motor, `2` for bottom-left motor etc. However the `UAVCAN ESC Index` starts from `0`, and as such it is always one index lower than the `VESC ID`. However the `UAVCAN ESC Index` starts from `0`, and as such it is always one index lower than the `VESC ID`. For example, in a quadcopter the bottom left motor will have `VESC ID = 2` and `UAVCAN ESC Index = 1`.
 
 Finally the `CAN Baud Rate` must match the value set in [UAVCAN_BITRATE](../advanced_config/parameter_reference.md#UAVCAN_BITRATE).
 

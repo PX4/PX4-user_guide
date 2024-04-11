@@ -59,14 +59,17 @@ This module runs a combined wind and airspeed scale factor estimator. If provide
 ### 用法
 ```
 ekf2 <command> [arguments...]
- ekf2 &lt;command&gt; [arguments...]
  Commands:
    start
-     [-r]        启用 replay 模式
+     [-r]        Enable replay mode
 
    stop
 
-   status        打印状态信息
+   status        print status info
+     [-v]        verbose (print all states and full covariance matrix)
+
+   select_instance Request switch to new estimator instance
+     <instance>  Specify desired estimator instance
 ```
 ## local_position_estimator
 Source: [modules/local_position_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/local_position_estimator)

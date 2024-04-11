@@ -16,11 +16,7 @@ PX4同时支持ROS2和ROS1，配置如下：
 - **[ROS 2](../ros/ros2.md)：(推荐)**PX4和ROS 2通过[PX4-ROS 2桥接](../ros/ros2_comm.md)通信，PX4-ROS 2桥接是在PX4 uORB消息和ROS 2 DDS消息/类型之间提供直接桥接的接口 这允许实时地从ROS2工作流和节点直接访问PX4内部
 - **[ROS1通过MAVROS](../ros/ros1.md)：**PX4和ROS1通过[MAVLink](../middleware/mavlink.md)通信，使用[MAVROS](../ros/mavros_installation.md)包将ROS主题连接到MAVLink
 
-:::note ROS
-2 也可以用 [MAVROS](https://github.com/mavlink/mavros/tree/ros2/mavros) 与PX4连接(而不是 XRCE-DDS). MAVROS项目支持此选项。
-:::
-
-请注意，ROS 2可以安装在Ubuntu Linux，MacOS，Windows，而ROS 1只能安装在Linux上。 虽然它可以在其他平台上工作，但PX4主要在_Linux_上测试和记录ROS
+::: info ROS 2 can also connect with PX4 using [MAVROS](https://github.com/mavlink/mavros/tree/ros2/mavros) (instead of XRCE-DDS). MAVROS项目支持此选项。 ::: info that ROS 2 can be installed on Ubuntu Linux, macOS, Windows, while ROS 1 is only available on Linux. 虽然它可以在其他平台上工作，但PX4主要在_Linux_上测试和记录ROS
 
 
 ## ROS技术支持计划

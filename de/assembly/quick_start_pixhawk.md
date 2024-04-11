@@ -7,7 +7,7 @@ This quick start guide shows how to power the _3DR Pixhawk_ flight controller an
 
 ![Pixhawk Image](../../assets/flight_controller/pixhawk1/pixhawk_logo_view.jpg)
 
-::: info The [3DR Pixhawk](../flight_controller/pixhawk.md) is no longer available from 3DR. :::note The [3DR Pixhawk](../flight_controller/pixhawk.md) is no longer available from 3DR.
+::: info The [3DR Pixhawk](../flight_controller/pixhawk.md) is no longer available from 3DR. Other flight controllers based on the [Pixhawk FMUv2 architecture](../flight_controller/pixhawk_series.md) are available from other companies (these share the same connections, outputs, functions, etc. and are wired in a similar way).
 :::
 
 ## Wiring Chart Overview
@@ -57,7 +57,7 @@ The power module supplies the flight controller with power from the battery and 
 The power module supplies the flight controller itself, but cannot power servos and other hardware connected to the controller's output ports (rail). For copter this does not matter because the motors are separately powered.
 :::
 
-For planes and VTOL the output rail will need to be separately powered in order to drive servos for rudders, elevons etc. For planes and VTOL the output rail will need to be separately powered in order to drive servos for rudders, elevons etc. Often the main pusher/puller motor uses an ESC with an integrated [BEC](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) that can be connected to the Pixhawk output rail. If not, you will need to setup a 5V BEC to connect to one of the free Pixhawk ports (without power, the servos will not work).
+For planes and VTOL the output rail will need to be separately powered in order to drive servos for rudders, elevons etc. For planes and VTOL the output rail will need to be separately powered in order to drive servos for rudders, elevons etc. Often the main pusher/puller motor uses an ESC with an integrated [BEC](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) that can be connected to the Pixhawk output rail. For planes and VTOL the output rail will need to be separately powered in order to drive servos for rudders, elevons etc. Often the main pusher/puller motor uses an ESC with an integrated [BEC](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) that can be connected to the Pixhawk output rail. If not, you will need to setup a 5V BEC to connect to one of the free Pixhawk ports (without power, the servos will not work).
 
 <!-- It would be good to have real example of this powering -->
 

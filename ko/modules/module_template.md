@@ -2,12 +2,10 @@
 
 An application can be written to run as either a *task* (a module with its own stack and process priority) or as a *work queue task* (a module that runs on a work queue thread, sharing the stack and thread priority with other tasks on the work queue). 대부분은, 리소스 최소화를 위하여 작업 대기열을 사용합니다.
 
-:::note
-[구조 개요 > 런타임 환경](../concept/architecture.md#runtime-environment)은 작업 및 작업 대기열 작업에 대한 자세한 정보를 제공합니다.
+::: info [Architectural Overview > Runtime Environment](../concept/architecture.md#runtime-environment) provides more information about tasks and work queue tasks.
 :::
 
-:::note
-[첫 번째 응용 프로그램 자습서](../modules/hello_sky.md)에서 배운 내용은 전체 응용 프로그램 작성과 관련이 있습니다.
+::: info All the things learned in the [First Application Tutorial](../modules/hello_sky.md) are relevant for writing a full application.
 :::
 
 ## 작업 대기열 작업
@@ -33,8 +31,7 @@ An application can be written to run as either a *task* (a module with its own s
    }
    ```
 
-:::note
-사용 가능한 작업 대기열(`wq_configurations`)은 [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49)에 나열됩니다.
+   ::: info The available work queues (`wq_configurations`) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
 :::
 
 1. `ScheduledWorkItem::Run()` 메서드를 구현하여 "작업"을 수행합니다.

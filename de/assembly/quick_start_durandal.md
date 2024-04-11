@@ -35,9 +35,8 @@ _Durandal_ should be mounted on the frame positioned as close to your vehicle’
 
 If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 
-:::tip
+Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient). :::tip
 The board has internal vibration-isolation.
-Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
 :::
 
 ## GPS + Compass + Buzzer + Safety Switch + LED

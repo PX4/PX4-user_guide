@@ -62,15 +62,15 @@ The tutorial is ordered in the following way: In a first part it is shown how to
   - Press the enter button when the questions whether to install the following installation packages show up:
 
     ```sh
-    Intel Low Power Subsystem support in ACPI mode (MFD_INTEL_LPSS_ACPI) [N/m/y/?] (NEW) (NEW)
+    Intel Low Power Subsystem support in ACPI mode (MFD_INTEL_LPSS_ACPI) [N/m/y/?] (NEW)
     ```
 
     ```sh
-    Intel Low Power Subsystem support in PCI mode (MFD_INTEL_LPSS_PCI) [N/m/y/?] (NEW) (NEW)
+    Intel Low Power Subsystem support in PCI mode (MFD_INTEL_LPSS_PCI) [N/m/y/?] (NEW)
     ```
 
     ```sh
-    Dell Airplane Mode Switch driver (DELL_RBTN) [N/m/y/?] (NEW) (NEW)
+    Dell Airplane Mode Switch driver (DELL_RBTN) [N/m/y/?] (NEW)
     ```
 
   - The following error message that can appear at the end of the installation process should not lead to a malfunction of the driver:

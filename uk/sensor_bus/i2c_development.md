@@ -7,8 +7,7 @@ Pixhawk/PX4 support it for:
 * Сумісність з периферійними пристроями, які підтримують лише I2C.
 * Дозвіл декількох пристроїв приєднатися до одного шини (корисно для збереження портів). Наприклад, світлодіоди, компас, дальномери і т. д.
 
-:::note
-The page [Hardware > I2C Peripherals](../sensor_bus/i2c_general.md) contains information about how to _use_ (rather than integrate) I2C peripherals and solve common setup problems.
+::: info The page [Hardware > I2C Peripherals](../sensor_bus/i2c_general.md) contains information about how to _use_ (rather than integrate) I2C peripherals and solve common setup problems.
 :::
 
 :::tip IMUs (accelerometers/gyroscopes) should not be attached via I2C (typically the [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) bus is used). Шина недостатньо швидка навіть з одним приєднаним пристроєм для виконання фільтрації вібрації (наприклад), і продуктивність погіршується ще більше з кожним додатковим пристроєм на шині.

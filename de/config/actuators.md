@@ -356,7 +356,7 @@ Instructions:
 ### Output Assignment (Manual)
 
 :::warning
-Remove the propellers from motors before assigning outputs or any testing.
+Remove propellers!
 :::
 
 Actuator outputs for both motors and servos can be _manually_ assigned using sliders in the [Actuator Testing](#actuator-testing) section.
@@ -403,8 +403,8 @@ For each motor:
    - Verify that the motor is spinning very slowly in this position.
    - If the motor is not spinning, or spinning too fast you will need to adjust the corresponding PWM `minimum` value in the [Actuator Outputs](#actuator-outputs) such that the motors barely spin.
 
-     ![PWM Minimum Output](../../assets/config/actuators/pwm_minimum_output.png)   :::note
-For DShot output, this is not required.
+     ![PWM Minimum Output](../../assets/config/actuators/pwm_minimum_output.png)   :::warning
+Remove the propellers from motors before assigning outputs or any testing.
 
 :::
 

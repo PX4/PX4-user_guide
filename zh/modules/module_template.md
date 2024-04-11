@@ -2,12 +2,10 @@
 
 一个应用程序可以写作一个 *任务* (一个有自己的堆栈和处理优先级的模块)或作为 *工作队列任务* (一个运行在工作队列线程上的模块, 与工作队列上的其他任务分享堆栈和线程优先级)。 在大多数情况下，可以使用工作队列任务，因为这会减少资源的使用。
 
-:::note
-[架构概述 > 运行环境](../concept/architecture.md#runtime-environment) 提供更多关于任务和工作队列任务的信息。
+::: info [Architectural Overview > Runtime Environment](../concept/architecture.md#runtime-environment) provides more information about tasks and work queue tasks.
 :::
 
-:::note
-[第一个应用程序教程](../modules/hello_sky.md) 中所学到的所有东西都与编写完整应用程序有关。
+::: info All the things learned in the [First Application Tutorial](../modules/hello_sky.md) are relevant for writing a full application.
 :::
 
 ## 工作队列任务
@@ -33,8 +31,7 @@ PX4-Autopilot contains a template for writing a new application (module) that ru
    }
    ```
 
-:::note
-The available work queues (`wq_configurations`) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
+   ::: info The available work queues (`wq_configurations`) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
 :::
 
 1. 实现 `ScheduledWorkitem:::Run()` 方法来执行"work"。

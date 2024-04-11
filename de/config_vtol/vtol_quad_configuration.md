@@ -88,7 +88,7 @@ Make sure the VTOL is in a stable hover before you start the transition.
 
 #### Transition: Multirotor to Fixed-wing (Front-transition)
 
-Start your transition. It should transition within 50 – 100 meters. If it doesn’t or it isn’t flying in a stable fashion abort the transition (see below) and land or hover back to the start position and land. If you are using an airspeed sensor consider lowering the transition airspeed but stay well above the stall speed. Try increasing the [transition throttle](#transition-throttle) (`VT_F_TRANS_THR`) value. Also consider reducing the transition duration (`VT_F_TRANS_DUR`) if you are not using an airspeed sensor.
+Start your transition. It should transition within 50 – 100 meters. If it doesn’t or it isn’t flying in a stable fashion abort the transition (see below) and land or hover back to the start position and land. Also consider reducing the transition duration (`VT_F_TRANS_DUR`) if you are not using an airspeed sensor. If you are using an airspeed sensor consider lowering the transition airspeed but stay well above the stall speed. Try increasing the [transition throttle](#transition-throttle) (`VT_F_TRANS_THR`) value.
 
 As soon as you notice the transition happen be ready to handle height loss which may include throttling up quickly.
 

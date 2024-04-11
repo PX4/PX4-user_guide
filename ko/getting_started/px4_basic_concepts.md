@@ -1,6 +1,6 @@
 # 기본 개념
 
-무인 항공기의 기본 개념과 PX4 사용법을 설명합니다. 초보자뿐만 아니라 전문가에게도 유익한 자료들이 많이 있습니다.
+This topic provides a basic introduction to drones and using PX4 (it is meant mostly for novice users but is also a good introduction for more experienced users).
 
 기본 개념에 익숙하시면, [기본 조립](../assembly/README.md)편에서 자동비행장치의 배선 방법을 공부할 수 있습니다. To load firmware and set up the vehicle with _QGroundControl_, see [Basic Configuration](../config/index.md).
 
@@ -12,7 +12,7 @@ Drones are used for many [consumer, industrial, government and military applicat
 
 Different types of drones are used for air, ground, sea, and underwater. 드론을 가르키는 공식 용어에는 UAV(Unmanned Aerial Vehicles), UAS(Unmanned Aerial Systems, UGV(Unmanned Ground Vehicles), USV(Unmanned Surface Vehicles)와 UUV(Unmanned Underwater Vehicles) 등이 있습니다.
 
-자율비행장치(오토파일럿)는 드론의 두뇌에 해당하는 장치입니다. It consists of _flight stack_ software running on _flight controller_ (FC) hardware. The flight stack provides essential stabilisation and safety features, and usually also some level of pilot assistance for manual flight and automating common tasks, such as taking off, landing, and executing predefined missions.
+자율비행장치(오토파일럿)는 드론의 두뇌에 해당하는 장치입니다. It minimally consists of _flight stack_ software running on a real time OS ("RTOS") on _flight controller_ (FC) hardware. The flight stack provides essential stabilisation and safety features, and usually also some level of pilot assistance for manual flight and automating common tasks, such as taking off, landing, and executing predefined missions.
 
 Some autopilots also include a general-purpose computing system that can provide "higher level" command and control, and that can support more advanced networking, computer vision, and other features. This might be implemented as a separate [companion computer](#offboard-companion-computer), but in future it is increasingly likely to be a fully integrated component.
 
@@ -22,14 +22,14 @@ Some autopilots also include a general-purpose computing system that can provide
 
 PX4의 주요 특징들은 아래와 같습니다.
 
-- Controls [many different vehicle frames/types](../airframes/airframe_reference.md), including: aircraft (multicopters, fixed-wing aircraft and VTOLs), ground vehicles and underwater vehicles.
-- [차량 컨트롤러](#vehicle-flight-controller-board), 센서 및 다양한 주변 장치에 적합한 매우 탁월한 선택입니다.
+- Supports many different vehicle frames/types, including: aircraft (multicopters, fixed-wing aircraft and VTOLs), ground vehicles, and underwater vehicles.
+- Great choice of hardware for [flight controller](#flight-controller), [sensors](#sensors), and other peripherals.
 - 유연하고 강력한 [비행 모드](#flight-modes)와 [안전 기능](#safety-settings-failsafe)을 지원합니다.
-- Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/index.md) ([ROS 2](../ros/ros2_comm.md), [MAVSDK](http://mavsdk.mavlink.io)).
+- Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/index.md) such as [ROS 2](../ros/ros2_comm.md) and [MAVSDK](http://mavsdk.mavlink.io)).
 
-PX4는 [QGroundControl](#qgroundcontrol) 지상국, [픽스호크 하드웨어](https://pixhawk.org/), 보조 컴퓨터, 카메라, MAVLink 프로토콜 지원 하드웨어를 통합하는 [MAVSDK](http://mavsdk.mavlink.io)를 포함하는 방대한 드론 플랫폼의 핵심입니다. PX4는 [드론코드 프로젝트](https://www.dronecode.org/)의 지원을 받고 있습니다.
+PX4 is a core part of a broader drone platform that includes the [QGroundControl](#ground-control-stations-qgroundcontrol) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4는 [드론코드 프로젝트](https://www.dronecode.org/)의 지원을 받고 있습니다.
 
-## QGroundControl
+## Ground Control Stations (QGroundControl)
 
 드론코드에서 지원하는 지상제어 S/W는 [QGroundControl](http://qgroundcontrol.com/)입니다. You can use _QGroundControl_ to load (flash) PX4 firmware onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information, and create and execute fully autonomous missions.
 
@@ -37,21 +37,23 @@ _QGroundControl_ runs on Windows, Android, MacOS or Linux. [여기](http://qgrou
 
 ![QGC 메인 화면](../../assets/concepts/qgc_main_screen.jpg)
 
-## 비행 컨트롤러(보드)
+## Drone Components & Parts
+
+### Flight Controller
+
+<img src="../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x.jpg" width="230px" title="CUAV Pixhawk 6X"  />
 
 PX4는 초기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)에서만 실행되도록 설계되었으나, 지금은 리눅스 뿐만 아니라 다양한 하드웨어에서도 실행됩니다. 기체의 물리적 조건, 운용 목적 및 비용을 고려하여 최적의 보드를 선택할 수 있습니다.
 
 자세한 내용은 [비행 컨트롤러 선택](flight_controller_selection.md)편을 참고하십시오.
 
-## 센서
+### 센서
 
 PX4는 기체의 상태 측정하기 위하여 센서를 사용합니다. 이는 자율비행 기체 안정화에 필수 과정입니다. The system _minimally requires_ a gyroscope, accelerometer, magnetometer (compass) and barometer. [자동 모드](../getting_started/flight_modes.md#categories)와  기타 모드를 사용하기 위해서는 GPS와 같은 위치측정시스템이 필요합니다. Fixed-wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
 
-더 자세한 정보는 다음을 참고하십시오.
+For more information see: [Sensors](../getting_started/sensor_selection.md)
 
-- [Sensors](../getting_started/sensor_selection.md)
-
-## 출력 장치: 모터, 서보, 액츄에이터
+### 출력 장치: 모터, 서보, 액츄에이터
 
 PX4 uses _outputs_ to control: motor speed (e.g. via [ESC](#escs-motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
 
@@ -73,7 +75,7 @@ You can connect almost any output to any motor or other actuator, by assigning t
 - The FMU output ports can use [D-shot](../peripherals/dshot.md) or _One-shot_ protocols (as well as PWM), which provide much lower-latency behaviour. FMU 출력 포트는 레이싱 드론처럼  높은 성능이 요구되는 기체에 사용됩니다.
 - `MAIN` 포트와 `AUX` 포트에는 PWM/Dshot/OneShot 출력 제어에 충분한 6개에서 8개의 출력 포트를 가지고 있습니다. 이론적으로는,  보드 버스에서 더 많은 출력 포트를 제공할 수 있습니다. UAVCAN 버스에는 이러한 제한이 없습니다.
 
-## 전기변속기(ESC)와 모터
+### 전기변속기(ESC)와 모터
 
 Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) (the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
 
@@ -84,13 +86,13 @@ PX4가 지원하는 전기변속기와 모터 정보는 여기를 참고하십�
 - [전기변속기 펌웨어와 프로토콜 개요](https://oscarliang.com/esc-firmware-protocols/)(oscarliang.com)
 
 
-## 배터리와 전원
+### 배터리와 전원
 
 PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다. The battery is typically connected to the system using a [Power Module](../power_module/index.md) or _Power Management Board_, which provide separate power for the flight controller and to the ESCs (for the motors).
 
 배터리와 배터리 설정 정보는 [배터리 설정](../config/battery.md)과 [ 기본 조립](../assembly/README.md)(예: [픽스호크 4 배선 빠른 시작 &gt; 전원](../assembly/quick_start_pixhawk4.md#power))를 참고하십시오.
 
-## Manual Control
+### Manual Control
 
 Pilots can control a vehicle manually using either a [Radio Control (RC) System](../getting_started/rc_transmitter_receiver.md) or a [Joystick/Gamepad](../config/joystick.md) controller connected via QGroundControl.
 
@@ -102,20 +104,20 @@ Joystick systems use QGroundControl to encode the control information from a "st
 
 Joysticks are often used in integrated GCS/manual control systems because it is cheaper and easier to integrate a joystick than a separate radio system, and for the majority of use cases, the lower latency does not matter. 일부 RC에서는 자동조종장치에서 전송한 텔레메트리를 수신할 수 있습니다.
 
-:::note PX4 does not _require_ a manual control system for autonomous flight modes.
+::: info PX4 does not _require_ a manual control system for autonomous flight modes.
 :::
 
-## 안전 스위치
+### 안전 스위치
 
 Some vehicles have a _safety switch_ that must be engaged before the vehicle can be [armed](#arming-and-disarming) (when armed, motors are powered and propellers can turn).
 
 보통 안전 스위치는 GPS 장치에 장착되어 있으나, 별도의 부품으로 제공되기도 합니다.
 
-## 텔레메트리 무선 통신
+### 텔레메트리 무선 통신
 
 [Data/Telemetry Radios](../telemetry/index.md) can provide a wireless MAVLink connection between a ground control station like _QGroundControl_ and a vehicle running PX4. 비행중인 기체의 매개변수 변경, 실시간 텔레메트로 통신, 임무 변경 등의 작업을 수행할 수 있습니다.
 
-## 외부 보조 컴퓨터
+### 외부 보조 컴퓨터
 
 A [Companion Computer](../companion_computer/index.md) (also referred to as "mission computer" or "offboard computer"), is a separate on-vehicle computer that communicates with PX4 to provide higher level command and control.
 
@@ -129,7 +131,7 @@ The flight controller and companion computer may be pre-integrated into a single
 - [오프보드 모드](../flight_modes/offboard.md) - PX4 외부의 지상 통제국이나 보조 컴퓨터로 제어하는 비행 모드
 - [로보틱스 API](../robotics/index.md)
 
-## SD 카드 (휴대용 저장 장치)
+### SD 카드 (휴대용 저장 장치)
 
 PX4는 [비행 로그](../getting_started/flight_reporting.md)를 SD 카드에 저장합니다. UAVCAN 주변 장치를 사용하거나 비행 임무 수행에는 SD 카드가 필수입니다.
 
@@ -147,13 +149,13 @@ SD 카드는 선택 사항입니다. SD 카드가 없는 비행 콘트롤어는 
   <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/main/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
 
-## Payloads
+### Payloads
 
 Payloads are equipment carried by the vehicle to meet user or mission objectives, such as cameras in surveying missions, instruments used in for inspections such as radiation detectors, and cargo that needs to be delivered. PX4 supports many cameras and a wide range of payloads.
 
 Payloads are connected to [Fight Controller outputs](#outputs-motors-servos-actuators), and can be triggered automatically in missions, or manually from an RC Controller or Joystick, or from a Ground Station (via MAVLink/MAVSDK commands).
 
-For more information see:
+더 자세한 정보는 다음을 참고하십시오.
 
 - [Payloads & Cameras](../payloads/index.md)
 
@@ -207,8 +209,7 @@ Instructions for how to set up your remote control switches to enable different 
 
 PX4는 시스템 사고시에 기체을 보호하고 복구할 수 있는 안전 시스템이 있으며, 이와 관련된 여러가지 설정들이 있습니다. 안정 설정으로 안전 비행 지역과 조건을 지정하고, 안전 장치에서 수행하는 작업(예: 착륙, 위치 유지 또는 지정된 지점으로 복귀)을 설정할 수 있습니다.
 
-:::note
-You can only specify the action for the _first_ failsafe event. 이벤트가 발생하면, 시스템은 특별한 처리 코드를 실행하여 안전 장치 트리거가 분리된 시스템에서 기체별 코드에 의해 관리되도록 합니다.
+::: info You can only specify the action for the _first_ failsafe event. 이벤트가 발생하면, 시스템은 특별한 처리 코드를 실행하여 안전 장치 트리거가 분리된 시스템에서 기체별 코드에 의해 관리되도록 합니다.
 :::
 
 주요 안전장치는 다음과 같습니다.
@@ -230,8 +231,8 @@ You can only specify the action for the _first_ failsafe event. 이벤트가 발
 
 ![프레임 전진 방향](../../assets/concepts/frame_heading.png)
 
-:::note
-VTOL 테일 시터의 방향은 멀티콥터 설정(즉, 이륙, 호버링, 착륙 중 차량 포즈)에 의하여 결정됩니다.
+::: info
+For a VTOL Tailsitter the heading is relative to the multirotor configuration (i.e. vehicle pose during takeoff, hovering, landing).
 :::
 
 차량의 전진 방향을 알아야만 차량의 이동 벡터와 정렬할 수 있습니다. 멀티콥터는 모든 방향에서 대칭인 경우에도 전진 방향이 정의됩니다. 제조사에서는 일반적으로 프로펠러나 팔(프레임)에 색깔을 사용하여 차량의 전진 방향을 표시합니다.

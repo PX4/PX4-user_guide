@@ -152,8 +152,7 @@ FrSky Taranis 조종기를 사용할 수 있습니다. 케이블 타이와, 양�
 
 1. RC 수신기(`RC`), 4 개의 ESC(`M1-M4`) 및 전원 모듈(`Power1`)을 비행 컨트롤러에 연결합니다. ![비행 컨트롤러에 주변장치 장착하기](../../assets/airframes/multicopter/dji_f450_cuav_5plus/12_fc_attach_periperhals.jpg)
 
-:::note
-모터 순서는 [기체 정의서> Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)에 정의되어 있습니다.
+   ::: info The motor order is defined in the [Airframe Reference > Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)
 :::
 
 이제 완료되었습니다! 마지막 조립순서가 다음에 이어집니다:
@@ -171,7 +170,7 @@ FrSky Taranis 조종기를 사용할 수 있습니다. 케이블 타이와, 양�
 First update the firmware, airframe, geometry, and outputs:
 
 - [펌웨어](../config/firmware.md)
-- [Airframe](../config/airframe.md) :::note You will need to select the *Generic Quadcopter* airframe (**Quadrotor x > Generic Quadcopter**).
+- [Airframe](../config/airframe.md) ::: info You will need to select the *Generic Quadcopter* airframe (**Quadrotor x > Generic Quadcopter**).
 
   ![QGroundControl - Select Generic Quadcopter](../../assets/airframes/multicopter/dji_f450_cuav_5plus/qgc_airframe_generic_quadx.png)
 :::
@@ -190,8 +189,7 @@ First update the firmware, airframe, geometry, and outputs:
 - [무선 조종기 설정](../config/radio.md)
 - [비행 모드](../config/flight_mode.md)
 
-:::note
-이 빌드를 위해 수신기의 3 방향 스위치 (단일 채널에 매핑 됨-5)에 *안정화*, *고도* 및 *위치 * 모드를 설정했습니다. 이 방법이 초심자를 위한 최소 설정으로 추천합니다.
+  ::: info For this build we set up modes *Stabilized*, *Altitude* and *Position* on a three-way switch on the receiver (mapped to a single channel - 5). 이 방법이 초심자를 위한 최소 설정으로 추천합니다.
 :::
 
 이후 다음 작업 역시 수행하여야 합니다:

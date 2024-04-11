@@ -50,8 +50,7 @@
 
 ### 액추에이터 FFT 제어
 
-:::note
-이 그래프를 조회하려면 고속 로깅 프로필 ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE))을 활성화하여야 합니다.
+::: info You need to enable the high-rate logging profile ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)) to see this plot.
 :::
 
 이 그래프는 액추에이터 제어 신호 (속도 컨트롤러의 PID 출력)를 기반으로 롤, 피치 및 요 축에 대한 주파수 플롯을 보여줍니다. 주파수 피크를 식별하고 소프트웨어 필터를 구성하는 데 도움이됩니다. 가장 낮은 끝 (약 20Hz 미만)에는 단일 피크 만 있어야하며 나머지는 낮고 평평하여야 합니다.
@@ -64,8 +63,7 @@ y 축 스케일링은 기체마다 다르지만, 동일한 기체의 로그를 �
 
 ![저진동 QAV-R 5 Racer - FFT 그래프](../../assets/flight_log_analysis/flight_review/vibrations_good_actuator_controls_fft.png)
 
-:::note
-위 프레임의 뛰어난 진동 특성은 [소프트웨어 필터](../config_mc/filter_tuning.md)의 차단 주파수를 상당히 증가시킬 수 있음을 의미합니다 (제어 지연 시간 감소).
+::: info The excellent vibration characteristics of the above frame mean that we can considerably increase the cutoff frequency of the [software filters](../config_mc/filter_tuning.md) (reducing control latency).
 :::
 
 DJI F450 프레임(양호한 진동).
@@ -76,8 +74,7 @@ S500 프레임:
 
 ![저진동 S500 액추에이터 컨트롤 - FFT 플롯](../../assets/flight_log_analysis/flight_review/vibrations_s500_actuator_controls_fft.png)
 
-:::note
-위의 그래프가 좋아 보이지만 [동일한 비행에 대한 원시 가속도 그래프](#raw_acc_s500)는 진동 수준이 x와 y에 대해 약간 높다는 것을 보여줍니다. 이것은 여러 그래프를 확인할 가치가 있는 이유에 대한 좋은 예입니다!
+::: info While the plot above looks good, the [Raw Acceleration graph for the same flight](#raw_acc_s500) shows that the vibration levels are a bit high for x and y. 이것은 여러 그래프를 확인할 가치가 있는 이유에 대한 좋은 예입니다!
 :::
 
 #### 예: 불량 진동
@@ -103,8 +100,8 @@ S500 프레임:
 
 DJI F450 프레임(양호한 진동).![저진동 DJI F450 - 스펙트럼 밀도 플롯](../../assets/flight_log_analysis/flight_review/vibrations_f450_spectral.png)
 
-:::note
-위에서는 약 100Hz에서 프로펠러의 블레이드 통과 주파수를 볼 수 있습니다.
+::: info
+Above you can see the blade passing frequency of the propellers at around 100 Hz.
 :::
 
 S500 프레임:![저진동 S500 - 스펙트럼 밀도 플롯](../../assets/flight_log_analysis/flight_review/vibrations_s500_spectral.png)
@@ -207,14 +204,14 @@ S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 �
 
 ![고속 가속 전력 스펙트럼 밀도](../../assets/flight_log_analysis/flight_review/accel_spectral_density_fifo.png)
 
-:::note
-첫 번째 IMU의 데이터가 기록되며, 비행에 사용되는 데이터와 반드시 동일하지는 않습니다.
+::: info
+Data of the first IMU is logged, which is not necessarily the same as the one used for flying.
 :::note
 첫 번째 IMU의 데이터가 기록되며, 비행에 사용되는 데이터와 반드시 동일하지는 않습니다.
 :::
 
-:::note
-테스트 후 매개 변수를 복원하는 것을 잊지 마십시오.
+::: info
+Do not forget to restore the parameters after testing.
 :::
 
 <a id="solutions"></a>
@@ -302,8 +299,8 @@ GPS 노이즈와 방해 전파 그래프로 GPS 신호 간섭 및 방해 전파�
 
 샘플링 규칙 그래프는 로깅 시스템 및 스케줄링 문제에 대한 통찰력을 제공합니다.
 
-:::note
-중간 품질의 카드에서는 가끔 드롭 아웃이 발생할 수 있습니다.
+::: info
+Occasional dropouts can be expected on medium quality cards.
 :::
 
 **델타 t**는 로깅된 두 IMU 샘플 간의 시간 차이를 보여줍니다. 데이터 게시 속도가 250Hz이므로 4ms에 가까워야 합니다. 그 배수의 스파이크가 있는 경우 (추정기 타임 슬립이 증가하지 않음) 이는 로거가 일부 샘플을 건너 뛴 것을 의미합니다. 로거가 낮은 우선 순위로 실행되기 때문에 가끔 이런 현상이 발생할 수 있습니다. 배수가 아닌 스파이크가 있는 경우 조사해야하는 불규칙한 센서 드라이버 스케줄링을 나타냅니다.

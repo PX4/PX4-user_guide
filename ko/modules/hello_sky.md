@@ -2,8 +2,7 @@
 
 첫 번째 온보드 애플리케이션을 만들고 실행하는 방법을 설명합니다. PX4에서 앱 개발에 필요한 기본 개념과 API를 설명합니다.
 
-:::note
-시작/중지 기능과 명령줄 인수와 같은 고급 기능에 대한 설명은 생략되었습니다. 이것에 대해서는 [애플리케이션 모듈 템플릿](../modules/module_template.md)에서 설명합니다.
+::: info For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. 이것에 대해서는 [애플리케이션 모듈 템플릿](../modules/module_template.md)에서 설명합니다.
 :::
 
 ## 준비 사항
@@ -146,8 +145,7 @@
 
 :::
 
-:::note
-`DYNAMIC`을 `px4_add_module`에 대한 옵션으로 지정하면 POSIX 플랫폼에서 정적 라이브러리 대신 *공유 라이브러리*가 생성됩니다. PX4를 다시 컴파일하고 소스 코드가 아닌 바이너리로 공유함). 앱은 내장 명령이 되지 않지만, `examples__px4_simple_app.px4mod`라는 별도의 파일로 끝이 납니다. 그런 다음 `dyn` 명령을 사용하여 런타임에 파일을 로드하여 명령을 실행할 수 있습니다. `dyn ./examples__px4_simple_app.px4mod`
+   ::: info If you specify `DYNAMIC` as an option to `px4_add_module`, a _shared library_ is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code). 앱은 내장 명령이 되지 않지만, `examples__px4_simple_app.px4mod`라는 별도의 파일로 끝이 납니다. 그런 다음 `dyn` 명령을 사용하여 런타임에 파일을 로드하여 명령을 실행할 수 있습니다. `dyn ./examples__px4_simple_app.px4mod`
 :::
 
 1. Create and open a new _Kconfig_ definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4-kconfig-symbol-naming-convention)). Copy in the text below:
@@ -176,8 +174,8 @@ examples  --->
     [x] PX4 Simple app  ----
 ```
 
-:::note
-예제는 기본적으로 펌웨어에 포함되어 있기 때문에, 대부분의 파일에는 이미 해당 줄이 있습니다.
+::: info
+The line will already be present for most files, because the examples are included in firmware by default.
 :::
 
 보드별 명령어를 사용하여, 예제를 빌드합니다.
@@ -351,8 +349,7 @@ px4_simple_app &
 
 계산된 출력을 위한 다음 단계는 결과를 *게시*하는 것입니다. 아래에서는 태도 주제를 게시하는 방법을 설명합니다.
 
-:::note
-`attitude`를 선택한 이유는 *mavlink* 앱이 결과를 쉽게 볼 수 있는 지상 관제소로 전달하기 때문입니다.
+::: info We've chosen `attitude` because we know that the _mavlink_ app forwards it to the ground control station - providing an easy way to look at the results.
 :::
 
 인터페이스는 매우 간단합니다. 게시할 주제의 `구조체`를 초기화하고 주제를 광고합니다.

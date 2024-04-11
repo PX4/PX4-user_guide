@@ -227,7 +227,7 @@ Another option is to add some threaded inserts into the holes. Since the injecti
 
 ### Antennas and RC Receiver
 
-:::note
+::: info
 
 If a Skynode is installed the LTE can be used as telemetry and video link. If a Pixhawk is used a different [telemetry link](../telemetry/index.md) will be needed. An inexpensive example would be a [SiK Telemetry Radio](../telemetry/sik_radio.md).
 :::

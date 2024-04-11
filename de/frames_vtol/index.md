@@ -61,7 +61,7 @@ PX4 supports the three most important/main VTOL types.
 
 In general, as mechanical complexity increases the vehicles are easier to fly, but the cost and weight increase. Each type has advantages and disadvantages, and there are successful commercial ventures based on all of them.
 
-Within each of the main "types" above, there are many possible variations—for example, the number of motors, motor geometry, flight surfaces, etc. PX4 provides _airframe configurations_ for many of the more common vehicle setups. The supported set is listed in [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol).
+Within each of the main "types" above, there are many possible variations—for example, the number of motors, motor geometry, flight surfaces, etc. PX4 provides _airframe configurations_ for many of the more common vehicle setups. PX4 provides _airframe configurations_ for many of the more common vehicle setups. The supported set is listed in [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol).
 
 :::note
 

@@ -129,7 +129,7 @@ About to run 39 test cases for 3 selected models (1 iteration):
     - 'Fly square Multicopter Missions including RTL'
     - 'Fly square Multicopter Missions with manual RTL'
     - 'Fly forward in position control'
-    - 'Fly forward in altitude control'
+    -
 ```
 
 ## Implementation Notes

@@ -4,7 +4,7 @@
 
 在 SITL 中，默认情况下会禁用某一些故障，以便方便模拟使用。 本主题说明如何在实际世界中尝试 SITL 仿真之前测试安全关键行为。
 
-默认情况下启用 *数据链路丢失* 故障保护（无法通过 MAVLink 获取外部数据）。 这使得模拟仅适用于连接的 GCS，SDK 或其他 MAVLink 应用程序。
+::: info You can also test failsafes using [HITL simulation](../simulation/hitl.md). 这使得模拟仅适用于连接的 GCS，SDK 或其他 MAVLink 应用程序。
 :::
 
 ## 数据链路丢失
@@ -13,7 +13,7 @@ The _Data Link Loss_ failsafe (unavailability of external data via MAVLink) is e
 
 *RC 链接损失* failslafe （来自远程控制的数据不可用） 被默认启用。 这使得模拟仿真只能使用 MAVLink 或远程控制连接。
 
-将参数 [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) 设置为所需的故障保护操作，以更改行为。 例如，设置为 `0` 禁用它。
+::: info All parameters in SITL including this one get reset when you do `make clean`. 例如，设置为 `0` 禁用它。
 
 ## RC 链接损失
 
@@ -21,8 +21,7 @@ The _RC Link Loss_ failsafe (unavailability of data from a remote control) is en
 
 Set the parameter [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) to the desired failsafe action to change the behavior. For example, set to `0` to disable it.
 
-:::note
-All parameters in SITL including this one get reset when you do `make clean`.
+::: info All parameters in SITL including this one get reset when you do `make clean`.
 :::
 
 ## 低电量

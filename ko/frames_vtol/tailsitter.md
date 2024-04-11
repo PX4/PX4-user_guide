@@ -40,8 +40,8 @@ Duo Tailsitters는 일반적으로 순항 비행에서 더 효율적이며(4개�
 
 VTOL 설정 및 비행은 [VTOL](../frames_vtol/README.md) 상위 주제에서 다룹니다.
 
-:::note
-지침은 기본적으로 모든 VTOL에 대해 동일합니다.
+::: info
+The instructions are essentially the same for all VTOL.
 The main frame-specific differences are the motor wiring, and some aspects of tuning the configuration.
 :::
 

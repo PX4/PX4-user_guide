@@ -4,8 +4,7 @@ ROS 2-PX4 架构在ROS 2和PX4之间进行了深度整合。 允许 ROS 2 订阅
 
 本指南介绍了系统架构和应用程序流程，并解释了如何与PX4一起安装和使用ROS2。
 
-:::note
-From PX4 v1.14, ROS 2 uses [uXRCE-DDS](../middleware/uxrce_dds.md) middleware, replacing the _FastRTPS_ middleware that was used in version 1.13 (v1.13 does not support uXRCE-DDS).
+::: info From PX4 v1.14, ROS 2 uses [uXRCE-DDS](../middleware/uxrce_dds.md) middleware, replacing the _FastRTPS_ middleware that was used in version 1.13 (v1.13 does not support uXRCE-DDS).
 
 The [migration guide](../middleware/uxrce_dds.md#fast-rtps-to-uxrce-dds-migration-guidelines) explains what you need to do in order to migrate ROS 2 apps from PX4 v1.13 to PX4 v1.14.
 
@@ -31,8 +30,7 @@ ROS 2 应用程序应该在具有 _相同的_ 消息定义的工作区中构建�
 
 您通常需要在使用 ROS 2 时同时启动客户端(Client)和代理人(Agent)。 请注意，uXRCE-DDS客户端默认是编译进固件中的，但除模拟器构建外，不会自动启动。
 
-:::note
-在 PX4v1.13 及之前版本，ROS 2依赖于 [px4_ros_com](https://github.com/PX4/px4_ros_com) 中的定义。 该仓库不再需要了，但的确包含了有用的例子。
+::: info In PX4v1.13 and earlier, ROS 2 was dependent on definitions in [px4_ros_com](https://github.com/PX4/px4_ros_com). 该仓库不再需要了，但的确包含了有用的例子。
 :::
 
 
@@ -42,7 +40,7 @@ The supported ROS 2 platforms for PX4 development are ROS 2 "Humble" on Ubuntu 2
 
 ROS 2 "Humble" is recommended because it is the current ROS 2 LTS distribution. ROS 2 "Foxy" reached end-of-life in May 2023, but is still stable and works with PX4.
 
-:::note PX4 is not as well tested on Ubuntu 22.04 as it is on Ubuntu 20.04 (at time of writing), and Ubuntu 20.04 is needed if you want to use [Gazebo Classic](../sim_gazebo_classic/index.md).
+::: info PX4 is not as well tested on Ubuntu 22.04 as it is on Ubuntu 20.04 (at time of writing), and Ubuntu 20.04 is needed if you want to use [Gazebo Classic](../sim_gazebo_classic/index.md).
 :::
 
 To setup ROS 2 for use with PX4:
@@ -59,8 +57,7 @@ To setup ROS 2 for use with PX4:
 
 您需要安装 PX4 开发工具链才能使用模拟器。
 
-:::note ROS
-2 唯一依赖的是 PX4 上定义的消息集，它从 [px4_msgs](https://github.com/PX4/px4_msgs) 获取。 您只需要安装 PX4 当您需要模拟器时(如我们在本指南中所做的那样)， 或者如果您正在创建一个发布自定义uORB话题。
+::: info The only dependency ROS 2 has on PX4 is the set of message definitions, which it gets from [px4_msgs](https://github.com/PX4/px4_msgs). 您只需要安装 PX4 当您需要模拟器时(如我们在本指南中所做的那样)， 或者如果您正在创建一个发布自定义uORB话题。
 :::
 
 通过以下方式在 Ubuntu 上配置一个 PX4 开发环境：
@@ -156,8 +153,8 @@ For ROS 2 to communicate with PX4, [uXRCE-DDS client](../modules/modules_system.
 
 代理正在运行，但在我们启动PX4 (下一步)之前，您不会看到太多。
 
-:::note
-您可以让代理(Agent)在这个终端中运行！
+::: info
+You can leave the agent running in this terminal!
 请注意，每个连接端口只允许一个代理(Agent)。
 :::
 
@@ -220,8 +217,7 @@ Micro XRCE-DDS代理(Agent)终端也应开始显示输出，因为DDS网络中�
 
 [px4_ros_com](https://github.com/PX4/px4_ros_com) and [px4_msgs](https://github.com/PX4/px4_msgs) 软件包克隆到一个工作区文件夹，然后使用 `colcon` 工具来构建工作区。 The example is run using `ros2 launch`.
 
-:::note
-The example builds the [ROS 2 Listener](#ros-2-listener) example application, located in [px4_ros_com](https://github.com/PX4/px4_ros_com). [px4_msgs](https://github.com/PX4/px4_msgs) is needed too so that the example can interpret PX4 ROS 2 topics.
+::: info The example builds the [ROS 2 Listener](#ros-2-listener) example application, located in [px4_ros_com](https://github.com/PX4/px4_ros_com). [px4_msgs](https://github.com/PX4/px4_msgs) is needed too so that the example can interpret PX4 ROS 2 topics.
 :::
 
 
@@ -237,7 +233,7 @@ To create and build the workspace:
    cd ~/ws_sensor_combined/src/
    ```
 
-   :::note
+   ::: info
 A naming convention for workspace folders can make it easier to manage workspaces.
 :::
 
@@ -279,8 +275,7 @@ A naming convention for workspace folders can make it easier to manage workspace
 
 To run the executables that you just built, you need to source `local_setup.bash`. This provides access to the "environment hooks" for the current workspace. In other words, it makes the executables that were just built available in the current terminal.
 
-:::note
-The [ROS2 beginner tutorials](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html#source-the-overlay) recommend that you _open a new terminal_ for running your executables.
+::: info The [ROS2 beginner tutorials](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html#source-the-overlay) recommend that you _open a new terminal_ for running your executables.
 :::
 
 In a new terminal:
@@ -441,8 +436,7 @@ The ROS 2 [listener examples](https://github.com/PX4/px4_ros_com/tree/main/src/e
 
 Here we consider the [sensor_combined_listener.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/listeners/sensor_combined_listener.cpp) node under `px4_ros_com/src/examples/listeners`, which subscribes to the [SensorCombined](../msg_docs/SensorCombined.md) message.
 
-:::note
-[Build ROS 2 Workspace](#build-ros-2-workspace) shows how to build and run this example.
+::: info [Build ROS 2 Workspace](#build-ros-2-workspace) shows how to build and run this example.
 :::
 
 The code first imports the C++ libraries needed to interface with the ROS 2 middleware and the header file for the `SensorCombined` message to which the node subscribes:
@@ -490,8 +484,7 @@ public:
     }
 ```
 
-:::note
-The subscription sets a QoS profile based on `rmw_qos_profile_sensor_data`. This is needed because the default ROS 2 QoS profile for subscribers is incompatible with the PX4 profile for publishers. For more information see: [ROS 2 Subscriber QoS Settings](#ros-2-subscriber-qos-settings),
+::: info The subscription sets a QoS profile based on `rmw_qos_profile_sensor_data`. This is needed because the default ROS 2 QoS profile for subscribers is incompatible with the PX4 profile for publishers. For more information see: [ROS 2 Subscriber QoS Settings](#ros-2-subscriber-qos-settings),
 :::
 
 The lines below create a publisher to the `SensorCombined` uORB topic, which can be matched with one or more compatible ROS 2 subscribers to the `fmu/sensor_combined/out` ROS 2 topic.
@@ -605,8 +598,7 @@ ROS 2 needs to have the _same_ message definitions that were used to create the 
   cp ~/PX4-Autopilot/mgs/*.msg ~/px4_ros_com/src/px4_msgs/msg/
   ```
 
-:::note
-Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) completely defines the relationship between PX4 uORB topics and ROS 2 messages. For more information see [uXRCE-DDS > DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml).
+  ::: info Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) completely defines the relationship between PX4 uORB topics and ROS 2 messages. For more information see [uXRCE-DDS > DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml).
 :::
 
 ## Customizing the Topic Namespace
@@ -617,8 +609,7 @@ Custom topic namespaces can be applied at build time (changing [dds_topics.yaml]
 - A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_UXRCE_DDS_NS` before starting the simulation.
 
 
-:::note
-Changing the namespace at runtime will append the desired namespace as a prefix to all `topic` fields in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml). Therefore, commands like:
+::: info Changing the namespace at runtime will append the desired namespace as a prefix to all `topic` fields in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml). Therefore, commands like:
 
 ```sh
 uxrce_dds_client start -n uav_1

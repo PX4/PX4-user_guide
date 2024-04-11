@@ -28,8 +28,7 @@ PX4 supports HITL for multicopters (using jMAVSim or Gazebo Classic) and VTOL (u
 
 HITL(Hardware-in-the-Loop) 시뮬레이션을 사용하여, 일반 PX4 펌웨어가 실제 하드웨어에서 실행됩니다. JMAVSim or Gazebo Classic (running on a development computer) are connected to the flight controller hardware via USB/UART. The simulator acts as gateway to share MAVLink data between PX4 and _QGroundControl_.
 
-:::note
-비행 콘트롤러에서 네트워크에서 안정적이고 대기 시간이 짧은 연결(예: 유선 이더넷 연결 - WiFi는 일반적으로 충분히 신뢰할 수 없음)을 사용하는 경우에는, 시뮬레이터를 UDP로 연결할 수 있습니다. 예를 들어, 이 설정은 이더넷으로 컴퓨터에 연결된 라즈베리파이에서 실행되는 PX4로 테스트되었습니다(jMAVSim 실행 명령이 포함된 시작 설정은 [여기](https://github.com/PX4/PX4-Autopilot/blob/master/posix-configs/rpi/px4_hil.config)를 참고).
+::: info The simulator can also be connected via UDP if the flight controller has networking support and uses a stable, low-latency connection (e.g. a wired Ethernet connection - WiFi is usually not sufficiently reliable). 예를 들어, 이 설정은 이더넷으로 컴퓨터에 연결된 라즈베리파이에서 실행되는 PX4로 테스트되었습니다(jMAVSim 실행 명령이 포함된 시작 설정은 [여기](https://github.com/PX4/PX4-Autopilot/blob/master/posix-configs/rpi/px4_hil.config)를 참고).
 :::
 
 아래 다이어그램은 시뮬레이션 환경을 나타냅니다.
@@ -93,8 +92,7 @@ Once configuration is complete, **close** _QGroundControl_ and disconnect the fl
 
 #### Gazebo Classic
 
-:::note
-Make sure _QGroundControl_ is not running!
+::: info Make sure _QGroundControl_ is not running!
 :::
 
 1. Build PX4 with [Gazebo Classic](../sim_gazebo_classic/index.md) (in order to build the Gazebo Classic plugins).
@@ -107,8 +105,7 @@ Make sure _QGroundControl_ is not running!
 1. Open the vehicle model's sdf file (e.g. **Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/iris_hitl/iris_hitl.sdf**).
 1. 필요한 경우 `serialDevice` 매개변수(`/dev/ttyACM0`)를 변경합니다.
 
-:::note
-직렬 장치는 차량을 컴퓨터에 연결 포트에 따라 달라집니다(일반적으로 `/dev/ttyACM0`). Ubuntu를 확인하는 쉬운 방법은 자동조종장치를 연결후, 터미널에서 `dmesg | grep "tty"`를 실행합니다.. 올바른 장치가 마지막에 표시됩니다.
+   ::: info The serial device depends on what port is used to connect the vehicle to the computer (this is usually `/dev/ttyACM0`). Ubuntu를 확인하는 쉬운 방법은 자동조종장치를 연결후, 터미널에서 `dmesg | grep "tty"`를 실행합니다.. 올바른 장치가 마지막에 표시됩니다.
 :::
 
 1. 환경 변수를 설정합니다.
@@ -127,8 +124,7 @@ Make sure _QGroundControl_ is not running!
 
 #### jMAVSim(쿼드콥터 전용)
 
-:::note
-Make sure _QGroundControl_ is not running!
+::: info Make sure _QGroundControl_ is not running!
 :::
 
 1. 비행 콘트롤러를 컴퓨터에 연결하고, 부팅시까지 기다립니다.
@@ -138,8 +134,7 @@ Make sure _QGroundControl_ is not running!
    ./Tools/simulation/jmavsim/jmavsim_run.sh -q -s -d /dev/ttyACM0 -b 921600 -r 250
    ```
 
-:::note
-직렬 포트 이름 `/dev/ttyACM0`을 적절하게 변경합니다. MacOS에서 이 포트는 `/dev/tty.usbmodem1`입니다. Windows(Cygwin 포함)에서는 COM1 또는 다른 포트입니다. Windows 장치 관리자에서 확인하십시오.
+   ::: info Replace the serial port name `/dev/ttyACM0` as appropriate. MacOS에서 이 포트는 `/dev/tty.usbmodem1`입니다. Windows(Cygwin 포함)에서는 COM1 또는 다른 포트입니다. Windows 장치 관리자에서 확인하십시오.
 :::
 
 1. Start _QGroundControl_. PX4와 jMAVSim에 자동으로 연결되어야 합니다.

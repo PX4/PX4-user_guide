@@ -27,6 +27,7 @@ vectornav stop
 ### Usage
 ```
 vectornav <command> [arguments...]
+ vectornav <command> [arguments...]
  Commands:
    start         Start driver
      -d <val>    Serial device

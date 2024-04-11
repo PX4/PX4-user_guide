@@ -2,7 +2,6 @@
 - [Getting Started](getting_started/index.md)
   - [Basic Concepts](getting_started/px4_basic_concepts.md)
   - [Vehicles/Frames](getting_started/frame_selection.md)
-  - [Flight Controllers](getting_started/flight_controller_selection.md)
   - [Sensors](getting_started/sensor_selection.md)
   - [Vehicle Status Notifications](getting_started/vehicle_status.md)
     - [LED Meanings](getting_started/led_meanings.md)
@@ -156,6 +155,7 @@
 - [Hardware Selection & Setup](hardware/drone_parts.md)
 
   - [Flight Controllers (Autopilots)](flight_controller/index.md)
+    - [Flight Controller Selection](getting_started/flight_controller_selection.md)
     - [Mounting the Flight Controller](assembly/mount_and_orient_controller.md)
     - [Vibration Isolation](assembly/vibration_isolation.md)
     - [Updating Firmware](config/firmware.md)

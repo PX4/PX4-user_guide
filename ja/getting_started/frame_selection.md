@@ -12,7 +12,6 @@ Select the frame based on what you need it for:
 - **Boats** are water-surface vehicles.
 - **Submersibles** are underwater vehicles.
 
-:::note
-The airframe settings used by PX4 are configured in *QGroundControl* during initital setup: [Airframe setup](../config/airframe.md).
+::: info The airframe settings used by PX4 are configured in *QGroundControl* during initital setup: [Airframe setup](../config/airframe.md).
 
 ![Frame Selection](../../assets/qgc/setup/airframe/airframe_px4.jpg) :::

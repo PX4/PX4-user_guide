@@ -123,6 +123,7 @@ The [Pixhawk 5X Wiring Quick Start](../assembly/quick_start_pixhawk5x.md) provid
 
 ::: info
 Connector pin assignments are left to right (i.e. :::note
+Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin). :::note
 Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin).
 ::: infos:
 

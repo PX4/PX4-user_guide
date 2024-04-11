@@ -138,8 +138,6 @@ It is used to store structured data of different types: mission waypoints, missi
 ### 实现
 单个数据的读取和写入是原子操作。
 
-**DM_KEY_FENCE_POINTS** and **DM_KEY_SAFE_POINTS** items: the first data element is a `mission_stats_entry_s` struct, which stores the number of items for these types. 这些项在每一次通讯过程中都会进行原子更新(与mavlink 任务管理器)。
-
 
 <a id="dataman_usage"></a>
 

@@ -6,8 +6,8 @@ The protocol was developed by [Team BlackSheep](https://www.team-blacksheep.com/
 
 The [supported telemetry messages are listed here](#telemetry-messages), and include: flight mode, battery level, GPS data RC signal strength, speed, altitude, and so on.
 
-:::note
-If you don't need telemetry you can connect a TBS Crossfire to the `RCIN` port and configure the receiver to use S.BUS. Crossfire radio systems can also be used as [Telemetry Radios](../telemetry/index.md).
+Crossfire radio systems can also be used as [Telemetry Radios](../telemetry/index.md). :::note  
+If you don't need telemetry you can connect a TBS Crossfire to the `RCIN` port and configure the receiver to use S.BUS.
 :::
 
 :::warning
@@ -18,8 +18,8 @@ PX4 does not include the CRSF protocol support by default. The [instructions bel
 
 To use CRSF telemetry you will need a [TBS Crossfire radio system](#tbs-radio-systems) or [ExpressLRS radio system](#expresslrs-radio-systems) that includes an [RC controller](#rc-controllers) with a transmitter, and a receiver (from the same vendor).
 
-:::note
-An RC radio system historically consisted of a ground-based controller that transmitted to an on-vehicle receiver. Even though many radio systems are now bidirectional, the ground module may still be referred to as the transmitter, and the air unit may be called a receiver.
+Even though many radio systems are now bidirectional, the ground module may still be referred to as the transmitter, and the air unit may be called a receiver. :::note  
+An RC radio system historically consisted of a ground-based controller that transmitted to an on-vehicle receiver.
 :::
 
 Generally you will need to separately setup and configure the transmitter and receiver, and then _bind_ them together.
@@ -161,8 +161,8 @@ Receivers:
 
 - [ExpressLRS Matek Diversity RX](http://www.mateksys.com/?portfolio=elrs-r24).
 
-:::note
-This is used in the [Reptile Dragon 2 Build Log](../frames_plane/reptile_dragon_2.md). See sections [ELRS Rx](../frames_plane/reptile_dragon_2.md#elrs-rx) and [Radio Setup](../frames_plane/reptile_dragon_2.md#radio-setup).
+  See sections [ELRS Rx](../frames_plane/reptile_dragon_2.md#elrs-rx) and [Radio Setup](../frames_plane/reptile_dragon_2.md#radio-setup). :::note  
+  This is used in the [Reptile Dragon 2 Build Log](../frames_plane/reptile_dragon_2.md).
 :::
 
 ## Telemetry Messages

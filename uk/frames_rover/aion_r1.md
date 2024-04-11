@@ -25,7 +25,7 @@ For this build this includes an [Auterion Skynode](../companion_computer/auterio
 
 ![R1 Assembly](../../assets/airframes/rover/aion_r1/r1_assembly.png)
 
-:::note
+:::info
 If using a standard Pixhawk you could connect the RoboClaw to the Autopilot without an Adapter Board.
 :::
 
@@ -58,7 +58,7 @@ First configure the serial connection:
    - RoboClaw motor controllers must be assigned a unique address on the bus.
      The default address is 128 and you should not need to change this (if you do, update the PX4 parameter [RBCLW_ADDRESS](../advanced_config/parameter_reference.md#RBCLW_ADDRESS) to match).
 
-     :::note
+     ::: info
      PX4 does not support multiple RoboClaw motor controllers in the same vehicle — each controller needs a unique address on the bus, and there is only one parameter for setting the address in PX4 (`RBCLW_ADDRESS`).
 
 :::

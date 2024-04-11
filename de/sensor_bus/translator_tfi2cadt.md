@@ -8,8 +8,7 @@ The module has an input and an output side. A sensor is connected to the master 
 
 ![TFI2CADT - i2c address translator](../../assets/peripherals/i2c_tfi2cadt/tfi2cadt01a_both_sides.jpg)
 
-:::note
-[TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) is designed as open-source hardware with GPLv3 license. It is commercially available from [ThunderFly](https://www.thunderfly.cz/) company or from [Tindie eshop](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/).
+It is commercially available from [ThunderFly](https://www.thunderfly.cz/) company or from [Tindie eshop](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/). :::note [TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) is designed as open-source hardware with GPLv3 license.
 :::
 
 ## Address Translation Method
@@ -45,7 +44,7 @@ graph TD
 -->
 
 
-:::note TFI2CADT01 does not contain any I2C buffer or accelerator. As it adds additional capacitance on the bus, we advise combining it with some bus booster, e.g. [TFI2CEXT01](https://github.com/ThunderFly-aerospace/TFI2CEXT01).
+As it adds additional capacitance on the bus, we advise combining it with some bus booster, e.g. [TFI2CEXT01](https://github.com/ThunderFly-aerospace/TFI2CEXT01). :::note TFI2CADT01 does not contain any I2C buffer or accelerator.
 :::
 
 ### Other Resources

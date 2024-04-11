@@ -25,7 +25,7 @@ For this build this includes an [Auterion Skynode](../companion_computer/auterio
 
 ![R1 Assembly](../../assets/airframes/rover/aion_r1/r1_assembly.png)
 
-:::note
+:::info
 If using a standard Pixhawk you could connect the RoboClaw to the Autopilot without an Adapter Board.
 :::
 

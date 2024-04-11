@@ -43,8 +43,7 @@ Discussion of that here: https://github.com/PX4/PX4-user_guide/pull/755#pullrequ
 
 Pixhawk FMUv5와 이후 버전에서는 PX4는 반전된(또는 반전되지 않은) S.Port 신호를 직접 읽을 수 있으며, 특별한 케이블이 필요하지 않습니다.
 
-:::note
-보다 일반적으로 이것은 STM32F7 이상을 사용하는 자동 조종 장치에서 해당됩니다 (예 : [Durandal](../flight_controller/durandal.md)에는 STM32H7이 있으며 반전되거나 반전되지 않은 S.Port 신호를 직접 읽을 수 있음).
+::: info More generally this is true on autopilots with STM32F7 or later (e.g. [Durandal](../flight_controller/durandal.md) has a STM32H7 and can read inverted or uninverted S.Port signals directly).
 :::
 
 UART의 TX핀중 하나를 SPort 반전 또는 비반전 핀에 연결하면됩니다 (PX4는 두 유형 중 하나를 자동으로 감지합니다). 그런 다음 [PX4를 설정](#configure)합니다.
@@ -55,8 +54,7 @@ UART의 TX핀중 하나를 SPort 반전 또는 비반전 핀에 연결하면됩�
 
 [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG)를 사용하여 FrSky 실행 모듈 [직렬 포트를 설정](../peripherals/serial_configuration.md)합니다. 포트 전송속도는 드라이버에 의해 설정되므로, 추가로 설정하지 않아도 됩니다.
 
-:::note
-You can use any free UART, but typically `TELEM 2` is used for FrSky telemetry (except for [Pixracer](../flight_controller/pixracer.md), which is pre-configured to use the _FrSky_ port by default).
+::: info You can use any free UART, but typically `TELEM 2` is used for FrSky telemetry (except for [Pixracer](../flight_controller/pixracer.md), which is pre-configured to use the _FrSky_ port by default).
 :::
 
 :::tip
@@ -124,8 +122,7 @@ S-Port 수신기는 PX4([여기](https://github.com/iNavFlight/inav/blob/master/
 - **Tmp1:** [비행 모드](../getting_started/flight_modes.md), 정수로 전송 : 18 - Manual, 23 - Altitude, 22 - Position, 27 - Mission, 26 - Hold, 28 - Return, 19 - Acro, 24 0 오프 보드, 20 - 안정화됨, 25 - 이륙, 29 - Land, 30 - Follow Me.
 - **Tmp2:** GPS 정보. 가장 오른쪽 숫자는 GPS 수정 유형입니다 (0 = 없음, 2 = 2D, 3 = 3D). 다른 숫자는 위성의 수입니다.
 
-:::note
-다음 "표준" S-Port 메시지는 PX4에서 지원되지 않습니다 : **ASpd**, **A4**.
+::: info The following "standard" S-Port messages are not supported by PX4: **ASpd**, **A4**.
 :::
 
 <!-- FYI:
@@ -183,8 +180,7 @@ Pixhawk/PX4는 D (이전) 및 S (신규) FrSky 텔레메트리를 지원합니�
 | R9          | 10km  | S.Bus (16)            | Smart Port                    | 43.3x26.8x13.9mm      | 15.8g |
 | R9 slim     | 10km  | S.Bus (16)            | Smart Port                    | 43.3x26.8x13.9mm      | 15.8g |
 
-:::note
-위의 표는 http://www.redsilico.com/frsky-receiver-chart 및 FrSky [제품 문서](https://www.frsky-rc.com/product-category/receivers/)에서 참조하였습니다.
+::: info The above table originates from http://www.redsilico.com/frsky-receiver-chart and FrSky [product documentation](https://www.frsky-rc.com/product-category/receivers/).
 :::
 
 <a id="ready_made_cable"></a>

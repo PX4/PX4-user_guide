@@ -4,8 +4,7 @@ The PX4 development and test teams fully support and maintain boards that are co
 
 This guide outlines the [general requirements](#general_requirements) for board support, along with the additional requirements for the different [board support categories](#board-support-categories).
 
-:::note
-Boards that are not compliant with the requirements are [unsupported](#unsupported); they will not be listed on the PX4 website hardware list and will be removed from the codebase.
+::: info Boards that are not compliant with the requirements are [unsupported](#unsupported); they will not be listed on the PX4 website hardware list and will be removed from the codebase.
 :::
 
 <a id="general_requirements"></a>
@@ -38,7 +37,7 @@ The general requirements for all supported boards are:
 
 The board support categories are listed below. The autopilot boards in each category are listed at: [https://px4.io/autopilots/.](https://px4.io/autopilots/)
 
-:::note
+::: info
 Manufacturer supported boards may be as well/better supported than Pixhawk boards (for example through economies of scale).
 :::
 
@@ -68,8 +67,7 @@ While there is no commitment from the PX4 maintainers and the flight test team t
 This will result in a better result for all parties.
 :::
 
-:::note
-These boards will be assigned [VER and REV ID](#ver_rev_id) based on compatibility. A special assignment will be made by PX4 if the board is a variant of an FMU specification and capable of running the same binary, with minor differences supported by the manufacturer. Contact the PX4 maintainer at [boards@px4.io](mailto:boards@px4.io) to request more information.
+::: info These boards will be assigned [VER and REV ID](#ver_rev_id) based on compatibility. A special assignment will be made by PX4 if the board is a variant of an FMU specification and capable of running the same binary, with minor differences supported by the manufacturer. Contact the PX4 maintainer at [boards@px4.io](mailto:boards@px4.io) to request more information.
 :::
 
 ## Experimental
@@ -78,8 +76,7 @@ These boards are all boards that don't fall in the above categories, or don't fa
 
 - The board must be working with at least one PX4 release for a defined vehicle type, but not necessarily the latest release.
 
-:::note
-Experimental boards that were _previously_ Pixhawk or Manufacturer supported will have/retain their original IDs. _New_ experimental boards are allocated [VER and REV IDs](#ver_rev_id) based on compatibility, in the same way as Manufacturer Supported boards.
+::: info Experimental boards that were _previously_ Pixhawk or Manufacturer supported will have/retain their original IDs. _New_ experimental boards are allocated [VER and REV IDs](#ver_rev_id) based on compatibility, in the same way as Manufacturer Supported boards.
 :::
 
 ## Unsupported
@@ -91,8 +88,7 @@ This category includes all boards that aren't supported by the PX4 project or a 
 - Closed source, where any of the necessary tools/libs/drivers/etc needed to add support for a board is deemed incompatible due to licensing restrictions
 - Board doesn't meet minimum requirements outlined in the General requirements
 
-:::note
-Unsupported boards will NOT be assigned [VER and REV ID](#ver_rev_id) (and cannot run PX4 FMUvX firmware).
+::: info Unsupported boards will NOT be assigned [VER and REV ID](#ver_rev_id) (and cannot run PX4 FMUvX firmware).
 :::
 
 ## Release Process

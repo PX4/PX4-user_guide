@@ -6,8 +6,8 @@ This section contains information about companion computer peripherals. These in
 
 This section lists devices that may be used for the physical serial/data connection between a companion computer and a flight controller.
 
-Other relevant topics/sections include: [Companion Computers](../companion_computer/README.md), [Robotics](../robotics/README.md) and [uXRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/uxrce_dds.md). :::note  
-PX4 configuration for communicating with a companion computer over MAVLink via TELEM2 is covered in [MAVLink (OSD / Telemetry)](../peripherals/mavlink_peripherals.md#telem2).
+:::note
+PX4 configuration for communicating with a companion computer over MAVLink via TELEM2 is covered in [MAVLink (OSD / Telemetry)](../peripherals/mavlink_peripherals.md#telem2). Other relevant topics/sections include: [Companion Computers](../companion_computer/README.md), [Robotics](../robotics/README.md) and [uXRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/uxrce_dds.md).
 :::
 
 ### FTDI Devices

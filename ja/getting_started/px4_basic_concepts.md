@@ -1,6 +1,6 @@
 # 基本コンセプト
 
-本章では，ドローンの簡単な解説と，PX4の使い方について説明します。(初心者向けの内容ですが，熟練者にも良い紹介になると思われます)。
+This topic provides a basic introduction to drones and using PX4 (it is meant mostly for novice users but is also a good introduction for more experienced users).
 
 もし，すでに基本コンセプトについてご存知であれば，[基本構成](../assembly/README.md)にジャンプし，オートパイロット用機器の接続方法について学ぶことができます。 To load firmware and set up the vehicle with _QGroundControl_, see [Basic Configuration](../config/index.md).
 
@@ -12,7 +12,7 @@ Drones are used for many [consumer, industrial, government and military applicat
 
 Different types of drones are used for air, ground, sea, and underwater. These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
 
-The "brain" of the drone is called an autopilot. It consists of _flight stack_ software running on _flight controller_ (FC) hardware. The flight stack provides essential stabilisation and safety features, and usually also some level of pilot assistance for manual flight and automating common tasks, such as taking off, landing, and executing predefined missions.
+The "brain" of the drone is called an autopilot. It minimally consists of _flight stack_ software running on a real time OS ("RTOS") on _flight controller_ (FC) hardware. The flight stack provides essential stabilisation and safety features, and usually also some level of pilot assistance for manual flight and automating common tasks, such as taking off, landing, and executing predefined missions.
 
 Some autopilots also include a general-purpose computing system that can provide "higher level" command and control, and that can support more advanced networking, computer vision, and other features. This might be implemented as a separate [companion computer](#offboard-companion-computer), but in future it is increasingly likely to be a fully integrated component.
 
@@ -22,14 +22,14 @@ Some autopilots also include a general-purpose computing system that can provide
 
 Some of PX4's key features are:
 
-- Controls [many different vehicle frames/types](../airframes/airframe_reference.md), including: aircraft (multicopters, fixed-wing aircraft and VTOLs), ground vehicles and underwater vehicles.
-- Great choice of hardware for [flight controller](#flight-controller-board), sensors and other peripherals.
+- Supports many different vehicle frames/types, including: aircraft (multicopters, fixed-wing aircraft and VTOLs), ground vehicles, and underwater vehicles.
+- Great choice of hardware for [flight controller](#flight-controller), [sensors](#sensors), and other peripherals.
 - Flexible and powerful [flight modes](#flight-modes) and [safety features](#safety-settings-failsafe).
-- Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/index.md) ([ROS 2](../ros/ros2_comm.md), [MAVSDK](http://mavsdk.mavlink.io)).
+- Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/index.md) such as [ROS 2](../ros/ros2_comm.md) and [MAVSDK](http://mavsdk.mavlink.io)).
 
-PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgroundcontrol) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
+PX4 is a core part of a broader drone platform that includes the [QGroundControl](#ground-control-stations-qgroundcontrol) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
 
-## QGroundControl
+## Ground Control Stations (QGroundControl)
 
 The Dronecode Ground Control Station (GCS) is called [QGroundControl](http://qgroundcontrol.com/). You can use _QGroundControl_ to load (flash) PX4 firmware onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information, and create and execute fully autonomous missions.
 
@@ -37,21 +37,23 @@ _QGroundControl_ runs on Windows, Android, MacOS or Linux. Download and install 
 
 ![QGC Main Screen](../../assets/concepts/qgc_main_screen.jpg)
 
-## Flight Controller Board
+## Drone Components & Parts
+
+### Flight Controller
+
+<img src="../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x.jpg" width="230px" title="CUAV Pixhawk 6X"  />
 
 PX4 was initially designed to run on [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers, but can now run on Linux computers and other hardware. You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.
 
 For more information see: [Flight Controller Selection](flight_controller_selection.md).
 
-## センサー
+### センサー
 
 PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The system _minimally requires_ a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic flight modes and some manual modes. Fixed-wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
 
-For more information see:
+For more information see: [Sensors](../getting_started/sensor_selection.md)
 
-- [Sensors](../getting_started/sensor_selection.md)
-
-## Outputs: Motors, Servos, Actuators
+### Outputs: Motors, Servos, Actuators
 
 PX4 uses _outputs_ to control: motor speed (e.g. via [ESC](#escs-motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
 
@@ -73,7 +75,7 @@ You can connect almost any output to any motor or other actuator, by assigning t
 - The FMU output ports can use [D-shot](../peripherals/dshot.md) or _One-shot_ protocols (as well as PWM), which provide much lower-latency behaviour. This can be useful for racers and other airframes that require better performance.
 - There are only 6-8 outputs in `MAIN` and `AUX` because most flight controllers only have this many PWM/Dshot/Oneshot outputs. In theory there can be many more outputs if the bus supports it (i.e. a UAVCAN bus is not limited to this few nodes).
 
-## ESCs & Motors
+### ESCs & Motors
 
 Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) (the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
 
@@ -84,13 +86,13 @@ For information about what ESC/Motors are supported by PX4 see:
 - [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
 
 
-## Battery/Power
+### Battery/Power
 
 PX4 drones are mostly commonly powered from Lithium-Polymer (LiPo) batteries. The battery is typically connected to the system using a [Power Module](../power_module/index.md) or _Power Management Board_, which provide separate power for the flight controller and to the ESCs (for the motors).
 
 Information about batteries and battery configuration can be found in [Battery Configuration](../config/battery.md) and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
 
-## Manual Control
+### Manual Control
 
 Pilots can control a vehicle manually using either a [Radio Control (RC) System](../getting_started/rc_transmitter_receiver.md) or a [Joystick/Gamepad](../config/joystick.md) controller connected via QGroundControl.
 
@@ -102,20 +104,20 @@ Joystick systems use QGroundControl to encode the control information from a "st
 
 Joysticks are often used in integrated GCS/manual control systems because it is cheaper and easier to integrate a joystick than a separate radio system, and for the majority of use cases, the lower latency does not matter. They are also perfect for flying the PX4 simulator, because you can plug them directly into your ground control computer.
 
-:::note PX4 does not _require_ a manual control system for autonomous flight modes.
+::: info PX4 does not _require_ a manual control system for autonomous flight modes.
 :::
 
-## Safety Switch
+### Safety Switch
 
 Some vehicles have a _safety switch_ that must be engaged before the vehicle can be [armed](#arming-and-disarming) (when armed, motors are powered and propellers can turn).
 
 Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
 
-## Data/Telemetry Radios
+### Data/Telemetry Radios
 
 [Data/Telemetry Radios](../telemetry/index.md) can provide a wireless MAVLink connection between a ground control station like _QGroundControl_ and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
 
-## Offboard/Companion Computer
+### Offboard/Companion Computer
 
 A [Companion Computer](../companion_computer/index.md) (also referred to as "mission computer" or "offboard computer"), is a separate on-vehicle computer that communicates with PX4 to provide higher level command and control.
 
@@ -129,7 +131,7 @@ Relevant topics include:
 - [Off-board Mode](../flight_modes/offboard.md) - Flight mode for offboard control of PX4 from a GCS or companion computer.
 - [Robotics APIs](../robotics/index.md)
 
-## SD Cards (Removable Memory)
+### SD Cards (Removable Memory)
 
 PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md), and they are also required in order to use UAVCAN peripherals and fly [missions](../flying/missions.md).
 
@@ -147,7 +149,7 @@ SD cards are never-the-less optional. Flight controllers that do not include an 
   <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/main/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
 
-## Payloads
+### Payloads
 
 Payloads are equipment carried by the vehicle to meet user or mission objectives, such as cameras in surveying missions, instruments used in for inspections such as radiation detectors, and cargo that needs to be delivered. PX4 supports many cameras and a wide range of payloads.
 
@@ -207,8 +209,7 @@ Instructions for how to set up your remote control switches to enable different 
 
 PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
 
-:::note
-You can only specify the action for the _first_ failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
+::: info You can only specify the action for the _first_ failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
 :::
 
 The main failsafe areas are listed below:
@@ -230,7 +231,7 @@ All the vehicles, boats and aircraft have a heading direction or an orientation 
 
 ![Frame Heading](../../assets/concepts/frame_heading.png)
 
-:::note
+::: info
 For a VTOL Tailsitter the heading is relative to the multirotor configuration (i.e. vehicle pose during takeoff, hovering, landing).
 :::
 

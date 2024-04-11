@@ -52,7 +52,7 @@ The tools required for the conversion are;
 
 A full build log is provided in the following video.
 
-:::note
+::: info
 Please note that the conversion in this build log is performed on a wing that shows damage from a previous conversion. 
 :::
 
@@ -91,7 +91,7 @@ The outputs of Pixhawk should be wired like this (orientation as seen like "sitt
 | AUX  5 | 油门                     |
 
 
-:::note
+::: info
 The servo direction can be reversed using the PWM\_REV parameters in the PWM\_OUTPUT group of QGroundControl (cogwheel tab, last item in the left menu)
 :::
 

@@ -97,8 +97,7 @@ Make sure the JST cable is wired correctly (since this is not a standard cable):
 
 :::
 
-:::note
-
+::: info 
 PX4 will ensure that the GNSS module is automatically configured however, if you have a dual antenna setup, it is required to set the layout as accurately as possible in the web app.
 :::
 
@@ -113,8 +112,7 @@ To enable multi-antenna attitude determination, follow the following procedure:
 1. Attach two antennas to your vehicle, using cables of approximately the same length. The default antenna configuration is as depicted in the figure. It consists in placing the antennas aligned with the longitudinal axis of the vehicle, main antenna behind aux1. For best accuracy, try to maximize the distance between the antennas, and avoid significant height difference between the antenna ARPs.
 2. In practice, the two antenna ARPs may not be exactly at the same height in the vehicle frame, or the main-aux1 baseline may not be exactly parallel or perpendicular to the longitudinal axis of the vehicle. This leads to offsets in the computed attitude angles. These offsets can be compensated for with the **setAttitudeOffset** command.
 
-:::note
-
+::: info 
 For optimal heading results, the two antennas should be seperated by at least 30cm / 11.8 in (ideally 50cm / 19.7in or more)
 
 For additional configuration of the dual antenna setup, please refer to our [Knowledge Base](https://support.septentrio.com/l/858493/2022-04-19/xgrqd) or the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrql)

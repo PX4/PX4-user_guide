@@ -4,8 +4,7 @@ PX4 can be configured to trigger a parachute during [flight termination](../adva
 
 The parachute can be connected to a free PWM output or via MAVLink.
 
-:::note
-During flight termination PX4 turns off all controllers and sets all PWM outputs to their failsafe values (including those connected to PWM outputs) and triggers any connected MAVLink parachutes.
+::: info During flight termination PX4 turns off all controllers and sets all PWM outputs to their failsafe values (including those connected to PWM outputs) and triggers any connected MAVLink parachutes.
 
 You can therefore use this feature to activate multiple complementary safety devices connected to different outputs. 자세한 내용은 [비행 종료 설정](../advanced_config/flight_termination.md)을 참고하십시오.
 :::
@@ -37,8 +36,7 @@ To enable flight termination:
 - Set [Safety](../config/safety.md) action to _Flight termination_ for checks where you want the parachute to trigger.
 - Set [Failure Detector](../config/safety.md#failure-detector) pitch angles, roll angles and time triggers for crash/flip detection, and disable the failure/IMU timeout circuit breaker (i.e. set [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM)).
 
-:::note
-You can also configure an [external Automatic Trigger System (ATS)](../config/safety.md#external-automatic-trigger-system-ats) for failure detection.
+::: info You can also configure an [external Automatic Trigger System (ATS)](../config/safety.md#external-automatic-trigger-system-ats) for failure detection.
 :::
 
 ### Parachute Output Bus Setup
@@ -54,8 +52,7 @@ You then need to ensure that the parachute pin will be set to a value that will 
 
 - Set appropriate PWM values for your parachute. The output is automatically set to the maximum PWM value when a failsafe is triggered.
 
-:::note
-For the spring-loaded launcher from [Fruity Chutes](https://fruitychutes.com/buyachute/drone-and-uav-parachute-recovery-c-21/harrier-drone-parachute-launcher-c-21_33/) the minimum PWM value should be between 700 and 1000ms, and the maximum value between 1800 and 2200ms.
+  ::: info For the spring-loaded launcher from [Fruity Chutes](https://fruitychutes.com/buyachute/drone-and-uav-parachute-recovery-c-21/harrier-drone-parachute-launcher-c-21_33/) the minimum PWM value should be between 700 and 1000ms, and the maximum value between 1800 and 2200ms.
 :::
 
 ### MAVLink Parachute Setup
@@ -78,7 +75,7 @@ A MAVLink parachute is required to emit a [HEARTBEAT](https://mavlink.io/en/mess
 For the first test, try on the bench, without the props and with an unloaded parachute device!
 :::
 
-:::note
+::: info
 There is no way to recover from a Termination state!
 You will need to reboot/power cycle the vehicle for subsequent tests.
 :::

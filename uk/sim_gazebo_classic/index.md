@@ -20,20 +20,20 @@ graph LR;
   MAVLink-- >SITL;
 -->
 
-:::note
-Дивіться [Симуляція](../simulation/README.md) для загальної інформації про симуляцію, середовище симуляції та налаштування симуляції (наприклад засоби, що підтримуються).
+::: info
+See [Simulation](../simulation/index.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
 :::
 
 ## Встановлення
 
 Встановлення Gazebo Classic 9 або 11 включено в наші \[стандартні інструкції для збірки\](../dev_setup/dev_env.md) для Linux, macOS та Windows. Додаткові інструкції для встановлення можна знайти на [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
 
-:::note
-Якщо ви плануєте використовувати PX4 з ROS вам **потрібно дотримуватись** [інструкцій ROS](../simulation/ros_interface.md) для встановлення ROS та Gazebo Classic (а також уникнення конфліктів установки).
+::: info
+If you plan to use PX4 with ROS you **should follow the** [ROS Instructions](../simulation/ros_interface.md) to install both ROS and Gazebo Classic (and thereby avoid installation conflicts).
 :::
 
-:::note
-Наступні команди можна використати для видалення [Gazebo (Garden)](../sim_gazebo_gz/README.md) та перевстановлення Gazebo Classic 11:
+::: info
+The following commands can be used to remove [Gazebo (Garden)](../sim_gazebo_gz/index.md) and reinstall Gazebo-Classic 11:
 
 ```sh
 sudo apt remove gz-garden
@@ -57,8 +57,8 @@ make px4_sitl gazebo-classic
 
 Нижче перелічено рухомі засоби, що підтримуються та команди `make` (клацніть по посиланнях, щоб побачити зображення засобу).
 
-:::note
-Для повного списку цілей збірки запустіть `make px4_sitl list_vmd_make_targets` (і відфільтруйте ті, що починаються з `gazebo-classic_`).
+::: info
+For the full list of build targets run `make px4_sitl list_vmd_make_targets` (and filter on those that start with `gazebo-classic_`).
 :::
 
 | Рухомий засіб                                                                                                                       | Команда                                                   |
@@ -79,8 +79,8 @@ make px4_sitl gazebo-classic
 | [Човен (USV: безпілотний надводний засіб)](../sim_gazebo_classic/vehicles.md#hippocampus-tuhh-uuv)                                  | `make px4_sitl gazebo-classic_boat`                       |
 | [Cloudship (дирижабль)](../sim_gazebo_classic/vehicles.md#airship)                                                                  | `make px4_sitl gazebo-classic_cloudship`                  |
 
-:::note
-Посібник [Встановлення файлів і коду](../dev_setup/dev_env.md) є корисним довідником якщо виникнуть помилки збірки.
+::: info
+The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful reference if there are build errors.
 :::
 
 Вищенаведені команди запускають єдиний засіб з повним користувацьким інтерфейсом. Інші варіанти включають:
@@ -119,8 +119,8 @@ INFO  [ecl/EKF] 5188000: commencing GPS fusion
 
 Консоль буде виводити статус поки PX4 завантажує файли ініціалізації та параметрів для певного планера, чекати та підключатися до симулятора. Як тільки з'явиться вивід INFO що [ecl/EKF] `commencing GPS fusion` рухомий засіб готовий до роботи.
 
-:::note
-Натискання правою кнопкою миші на модель квадрокоптера дозволяє увімкнути режим слідування у контекстному меню, що зручно для того щоб тримати його у полі зору.
+::: info
+Right-clicking the quadrotor model allows to enable follow mode from the context menu, which is handy to keep it in view.
 :::
 
 ![Інтерфейс Gazebo Classic](../../assets/simulation/gazebo_classic/gazebo_follow.jpg)
@@ -260,8 +260,8 @@ PX4 підтримує багато [світів](../sim_gazebo_classic/worlds.
 make px4_sitl_default gazebo-classic_plane_cam__warehouse
 ```
 
-:::note
-_Два підкреслювання_ присутні після моделі (`plane_cam`) вказують на те, що використовується налагоджувач за замовчуванням (none). Дивіться [Збірка коду > Цілі збірки для PX4 Make](../dev_setup/building_px4.md#px4-make-build-targets).
+::: info
+There are _two underscores_ after the model (`plane_cam`) indicating that the default debugger is used (none). Дивіться [Збірка коду > Цілі збірки для PX4 Make](../dev_setup/building_px4.md#px4-make-build-targets).
 :::
 
 Також можна вказати повний шлях до світу який потрібно завантажити використавши змінну середовища `PX4_SITL_WORLD`. Це підходить при тестуванні нового світу, який ще не включений до PX4.
@@ -274,14 +274,14 @@ _Два підкреслювання_ присутні після моделі (
 
 Рухомий засіб відтворюється дуже близько до початкового положення моделі світу у певному симульованому GPS розташуванні.
 
-:::note
-Засіб відтворюється не точно біля початкового положення Gazebo (0,0,0), а використовуючи невеличке зміщення, що може висвітлити ряд загальних проблем коду.
+::: info
+The vehicle is not spawned exactly at the Gazebo origin (0,0,0), but using a slight offset, which can highlight a number of common coding issues.
 :::
 
 При використанні світу, що відтворює реальне місце (наприклад певний аеропорт) це може призвести до доволі наявної невідповідності між тим що показується у світі, що симулюється та тим, що показується на мапі наземної станції. Для подолання цієї проблеми ви можете встановити місце розташування початкового положення світу до GPS координат, де воно буде в "реальному житті".
 
-:::note
-Ви також можете встановити [користувацьке положення злету](#custom_takeoff_location), що робить те ж саме. Однак додавання розташування на мапу простіше (і воно все ще може бути змінене шляхом встановлення користувацького розташування при необхідності).
+::: info
+You can also set a [Custom Takeoff Location](#custom_takeoff_location) that does the same thing. Однак додавання розташування на мапу простіше (і воно все ще може бути змінене шляхом встановлення користувацького розташування при необхідності).
 :::
 
 Розташування світу визначається у файлі **.world** шляхом вказання розташування початкового положення з використанням тегу `spherical_coordinates`. Щоб це було коректним, обов'язково треба вказати широту, довготу та висоту над рівнем моря.
@@ -344,12 +344,12 @@ make px4_sitl gazebo-classic_rover__sonoma_raceway
 make px4_sitl_default gazebo-classic_plane_cam
 ```
 
-:::note
-Камерта також підтримує/відповідає на наступні команди MAVLink: [MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS), [MAV_CMD_REQUEST_STORAGE_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_STORAGE_INFORMATION), [MAV_CMD_REQUEST_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_SETTINGS), [MAV_CMD_REQUEST_CAMERA_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_INFORMATION), [MAV_CMD_RESET_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_RESET_CAMERA_SETTINGS), [MAV_CMD_STORAGE_FORMAT](https://mavlink.io/en/messages/common.html#MAV_CMD_STORAGE_FORMAT), [MAV_CMD_SET_CAMERA_ZOOM](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_ZOOM), [MAV_CMD_IMAGE_START_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_START_CAPTURE), [MAV_CMD_IMAGE_STOP_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_STOP_CAPTURE), [MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION), [MAV_CMD_REQUEST_VIDEO_STREAM_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_STATUS), [MAV_CMD_SET_CAMERA_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_MODE).
+::: info
+The camera also supports/responds to the following MAVLink commands: [MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS), [MAV_CMD_REQUEST_STORAGE_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_STORAGE_INFORMATION), [MAV_CMD_REQUEST_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_SETTINGS), [MAV_CMD_REQUEST_CAMERA_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_INFORMATION), [MAV_CMD_RESET_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_RESET_CAMERA_SETTINGS), [MAV_CMD_STORAGE_FORMAT](https://mavlink.io/en/messages/common.html#MAV_CMD_STORAGE_FORMAT), [MAV_CMD_SET_CAMERA_ZOOM](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_ZOOM), [MAV_CMD_IMAGE_START_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_START_CAPTURE), [MAV_CMD_IMAGE_STOP_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_STOP_CAPTURE), [MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION), [MAV_CMD_REQUEST_VIDEO_STREAM_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_STATUS), [MAV_CMD_SET_CAMERA_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_MODE).
 :::
 
-:::note
-Симуляція камери реалізована у [PX4/PX4-SITL_gazebo-classic/main/src/gazebo_camera_manager_plugin.cpp](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/src/gazebo_camera_manager_plugin.cpp).
+::: info
+The simulated camera is implemented in [PX4/PX4-SITL_gazebo-classic/main/src/gazebo_camera_manager_plugin.cpp](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/src/gazebo_camera_manager_plugin.cpp).
 :::
 
 ## Симуляція камери глибини
@@ -402,8 +402,8 @@ PX4 SITL для Gazebo Classic підтримує трансляцію віде�
 
 Для відеотрансляції потрібний _Gstreamer 1.0_. Потрібні залежності вже повинні бути [встановленні при налаштуванні Gazebo Classic](#installation) (вони включені в стандартні скрипти/інструкції установки PX4 для macOS та Ubuntu Linux).
 
-:::note
-Виключно для інформації, залежності включають: `gstreamer1.0-plugins-base`, `gstreamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
+::: info
+FYI only, the dependencies include: `gstreamer1.0-plugins-base`, `gstreamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
 :::
 
 ### Запустити/Зупинити відеотрансляцію
@@ -428,8 +428,8 @@ make px4_sitl gazebo-classic_typhoon_h480
 
 ![Приклад відеотрансляції Gazebo у QGC](../../assets/simulation/gazebo_classic/qgc_gazebo_video_stream_typhoon.jpg)
 
-:::note
-Світ моделі Typhoon не дуже цікавий.
+::: info
+The Typhoon world is not very interesting.
 :::
 
 Також можна переглянути відео, використовуючи _Конвеєр Gstreamer_. Просто введіть наступну команду терміналу:
@@ -458,8 +458,8 @@ VERBOSE_SIM=1 make px4_sitl gazebo-classic
 
 Для розширення та персоналізації інтерфейсу симуляції, відредагуйте файли у директорії `Tools/simulation/gazebo/sitl_gazebo`. Код доступний в репозиторії [sitl_gazebo](https://github.com/PX4/PX4-SITL_gazebo) на Github.
 
-:::note
-Система збірки дотримується правильних підмодулів GIT, включаючи симулятор. Вона перезапише зміни в файлах та директоріях.
+::: info
+The build system enforces the correct GIT submodules, including the simulator. Вона перезапише зміни в файлах та директоріях.
 :::
 
 ## Додаткова інформація

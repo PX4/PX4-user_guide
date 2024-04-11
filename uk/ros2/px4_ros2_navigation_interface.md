@@ -27,8 +27,8 @@
    git clone --recursive https://github.com/Auterion/px4-ros2-interface-lib
    ```
 
-:::note
-Для забезпечення сумісності використовуйте останні гілки main для PX4, px4_msgs та бібліотеки.
+   ::: info
+   To ensure compatibility, use the latest _main_ branches for PX4, _px4_msgs_ and the library.
    Дивіться також тут.
 
 3. Побудуйте робочий простір:

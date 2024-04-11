@@ -1,6 +1,6 @@
 # 3DR 无线数传 (停产)
 
-:::note
+::: info
 This product is no longer manufactured or available from 3DR.
 :::
 

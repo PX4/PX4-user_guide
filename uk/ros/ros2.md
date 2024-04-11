@@ -15,14 +15,13 @@ Tip
 - [ROS 2 Посібник користувача](../ros/ros2_comm.md): PX4-центричний огляд ROS 2, включаючи встановлення, налаштування і спосіб створення додатків ROS 2 які спілкуються з PX4.
 - [ROS 2 приклад зовнішнього контролю](../ros/ros2_offboard_control.md)
 
-:::note
-ROS 2 офіційно підтримується тільки на платформах Linux.
+::: info
+ROS 2 is officially supported only on Linux platforms.
 Ubuntu 20.04 LTS є офіційним, підтримуваним дистрибутивом.
 :::
 
 
-:::note ROS
-2 також може з’єднуватися з PX4 за допомогою [MAVROS](https://github.com/mavlink/mavros/tree/ros2/mavros) (замість XRCE-DDS). Ця опція підтримується проектом MAVROS.
+::: info ROS 2 can also connect with PX4 using [MAVROS](https://github.com/mavlink/mavros/tree/ros2/mavros) (instead of XRCE-DDS). Ця опція підтримується проектом MAVROS.
 :::
 
 

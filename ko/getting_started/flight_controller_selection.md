@@ -4,12 +4,15 @@ Flight controllers are the "brains" of an unmanned vehicle. PX4 can run on [many
 
 기체의 물리적인 조건, 비행 목적과 비용에 적합한 하드웨어를 선정하여야 합니다.
 
-<img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_hero_upright.png" width="130px" title="Holybro Pixhawk6X" /> <img src="../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x.jpg" width="230px" title="CUAV Pixhawk 6X"  /> <img src="../../assets/flight_controller/cube/orange/cube_orange_hero.jpg" width="300px" title="CubePilot Cube Orange" />
-
+<div style="column-count: 3; column-gap: 10px;">
+<img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_hero_upright.png" width="120px" title="Holybro Pixhawk6X">
+<img src="../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x.jpg" width="180px" title="CUAV Pixhawk 6X" >
+<img src="../../assets/flight_controller/cube/orange/cube_orange_hero.jpg" width="200px" title="CubePilot Cube Orange" />
+</div>
 
 ## Pixhawk 시리즈
 
-[Pixhawk시리즈](../flight_controller/pixhawk_series.md)는  NuttX OS 기반의 PX4 오픈 하드웨어 비행 콘트롤러입니다. 다양한 폼 팩터를 기반으로 다양한 적용 사례와 높은 시장 점유율을 자랑합니다.
+[Pixhawk Series](../flight_controller/pixhawk_series.md) open-hardware flight controllers run PX4 on NuttX OS. With many form factors, there are versions targeted towards many use cases and market segments.
 
 [Pixhawk Standard Autopilots](../flight_controller/autopilot_pixhawk_standard.md) are used as the PX4 reference platform. They are supported and tested by the PX4 development team, and are highly recommended.
 
@@ -31,7 +34,7 @@ Similarly, PX4 can also run natively Raspberry Pi (this approach is not generall
 
 ## PX4를 지원 상용 초소형 드론
 
-PX4는 인기 있는 상업용 드론 제품들에서 사용되고 있습니다. 제품들은 PX4와 함께 제공되거나 PX4로 업데이트할 수 있습니다. PX4를 통하여 차량에 임무 계획이나 기타 비행 모드 적용이 가능합니다.
+PX4 is available on many popular commercial drone products, including some that ship with PX4 and others that can be updated with PX4 (allowing you to add mission planning and other PX4 Flight modes to your vehicle).
 
-더 자세한 내용은 [완전품 드론](../complete_vehicles/README.md)편을 참고하십시오
+For more information see [Complete Vehicles](../complete_vehicles/index.md).
 

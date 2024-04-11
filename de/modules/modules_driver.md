@@ -18,6 +18,7 @@ Source: [drivers/gpio/mcp23009](https://github.com/PX4/PX4-Autopilot/tree/main/s
 ### Usage
 ```
 MCP23009 <command> [arguments...]
+ MCP23009 <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -54,6 +55,7 @@ ADC driver.
 ### Usage
 ```
 adc <command> [arguments...]
+ adc <command> [arguments...]
  Commands:
    start
 
@@ -184,6 +186,7 @@ batt_smbus -X write_flash 19069 2 27 0
 ### Usage
 ```
 batt_smbus <command> [arguments...]
+ batmon <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -252,6 +255,7 @@ This module parses the CRSF RC uplink protocol and generates CRSF downlink telem
 ### Usage
 ```
 crsf_rc <command> [arguments...]
+ crsf_rc <command> [arguments...]
  Commands:
    start
      [-d <val>]  RC device
@@ -288,6 +292,7 @@ After saving, the reversed direction will be regarded as the normal one. So to r
 ### Usage
 ```
 dshot <command> [arguments...]
+ dshot <command> [arguments...]
  Commands:
    start
 
@@ -349,6 +354,12 @@ fake_gps <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## fake_imu
 Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_imu)
@@ -387,6 +398,44 @@ fake_magnetometer <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## ft_technologies_serial
+Source: [drivers/wind_sensor/ft_technologies](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/wind_sensor/ft_technologies)
+
+
+### Description
+
+Serial bus driver for the FT Technologies Digital Wind Sensor FT742. This driver is required to operate alongside a RS485 to UART signal transfer module.
+
+Most boards are configured to enable/start the driver on a specified UART using the SENS_FTX_CFG parameter.
+
+### Examples
+
+Attempt to start driver on a specified serial device.
+```
+ft_technologies_serial start -d /dev/ttyS1
+```
+Stop driver
+```
+ft_technologies_serial stop
+```
+
+<a id="ft_technologies_serial_usage"></a>
+
+### Usage
+```
+ft_technologies_serial <command> [arguments...]
+ Commands:
+   start         Start driver
+     -d <val>    Serial device
+
+   stop          Stop driver
 ```
 ## gimbal
 Source: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gimbal)
@@ -408,6 +457,7 @@ gimbal test pitch -45 yaw 30
 ### Usage
 ```
 gimbal <command> [arguments...]
+ gimbal <command> [arguments...]
  Commands:
    start
 
@@ -453,6 +503,7 @@ gps reset warm
 ### Usage
 ```
 gps <command> [arguments...]
+ gps <command> [arguments...]
  Commands:
    start
      [-d <val>]  GPS device
@@ -489,6 +540,7 @@ Source: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree
 ### Usage
 ```
 gz_bridge <command> [arguments...]
+ gz_bridge <command> [arguments...]
  Commands:
    start
      -m <val>    Fuel model name
@@ -520,6 +572,7 @@ If the INA220 module is not powered, then by default, initialization of the driv
 ### Usage
 ```
 ina220 <command> [arguments...]
+ ina238 <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -529,12 +582,10 @@ ina220 <command> [arguments...]
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
-                 default: 65
+                 default: 69
      [-k]        if initialization (probing) fails, keep retrying periodically
      [-t <val>]  battery index for calibration values (1 or 3)
                  default: 1
-     [-T <val>]  Type
-                 values: VBATT|VREG, default: VBATT
 
    stop
 
@@ -596,6 +647,7 @@ If the INA228 module is not powered, then by default, initialization of the driv
 ### Usage
 ```
 ina228 <command> [arguments...]
+ ina228 <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -665,6 +717,7 @@ Creates a virtual serial port that another module can use for communication (e.g
 ### Usage
 ```
 iridiumsbd <command> [arguments...]
+ iridiumsbd <command> [arguments...]
  Commands:
    start
      -d <val>    Serial device
@@ -719,6 +772,12 @@ linux_pwm_out <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## lsm303agr
 Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/lsm303agr)
@@ -740,66 +799,6 @@ lsm303agr <command> [arguments...]
      [-q]        quiet startup (no message if no device found)
      [-R <val>]  Rotation
                  default: 0
-
-   stop
-
-   status        print status info
-```
-## modal_io
-Source: [drivers/actuators/modal_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/modal_io)
-
-
-### Description
-This module is responsible for...
-
-### Implementation
-By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
-
-### Examples
-It is typically started with:
-```
-todo
-```
-
-
-<a id="modal_io_usage"></a>
-
-### Usage
-```
-modal_io <command> [arguments...]
- Commands:
-   start         Start the task
-
-   reset         Send reset request to ESC
-     -i <val>    ESC ID, 0-3
-
-   version       Send version request to ESC
-     -i <val>    ESC ID, 0-3
-
-   version-ext   Send extended version request to ESC
-     -i <val>    ESC ID, 0-3
-
-   rpm           Closed-Loop RPM test control request
-     -i <val>    ESC ID, 0-3
-     -r <val>    RPM, -32,768 to 32,768
-     -n <val>    Command repeat count, 0 to INT_MAX
-     -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
-
-   pwm           Open-Loop PWM test control request
-     -i <val>    ESC ID, 0-3
-     -r <val>    Duty Cycle value, 0 to 800
-     -n <val>    Command repeat count, 0 to INT_MAX
-     -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
-
-   tone          Send tone generation request to ESC
-     -i <val>    ESC ID, 0-3
-     -p <val>    Period of sound, inverse frequency, 0-255
-     -d <val>    Duration of the sound, 0-255, 1LSB = 13ms
-     -v <val>    Power (volume) of sound, 0-100
-
-   led           Send LED control request
-     -l <val>    Bitmask 0x0FFF (12 bits) - ESC0 (RGB) ESC1 (RGB) ESC2 (RGB)
-                 ESC3 (RGB)
 
    stop
 
@@ -855,6 +854,10 @@ newpixel <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   stop
+
+   status        print status info
 ```
 ## paa3905
 Source: [drivers/optical_flow/paa3905](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/paa3905)
@@ -864,6 +867,7 @@ Source: [drivers/optical_flow/paa3905](https://github.com/PX4/PX4-Autopilot/tree
 ### Usage
 ```
 paa3905 <command> [arguments...]
+ paw3902 <command> [arguments...]
  Commands:
    start
      [-s]        Internal SPI bus(es)
@@ -929,6 +933,7 @@ pca9685_pwm_out start -a 0x40 -b 1
 ### Usage
 ```
 pca9685_pwm_out <command> [arguments...]
+ pca9685_pwm_out <command> [arguments...]
  Commands:
    start         Start the task
      [-a <val>]  7-bits I2C address of PCA9685
@@ -959,6 +964,12 @@ pm_selector_auterion <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## pmw3901
 Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/pmw3901)
@@ -968,6 +979,7 @@ Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree
 ### Usage
 ```
 pmw3901 <command> [arguments...]
+ atxxxx <command> [arguments...]
  Commands:
    start
      [-s]        Internal SPI bus(es)
@@ -978,8 +990,6 @@ pmw3901 <command> [arguments...]
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
-     [-R <val>]  Rotation
-                 default: 0
 
    stop
 
@@ -998,6 +1008,12 @@ This implements capturing PPS information from the GNSS module and calculates th
 ### Usage
 ```
 pps_capture <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
  Commands:
    start
 
@@ -1024,6 +1040,12 @@ pwm_out <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## pwm_out_sim
 Source: [modules/simulation/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/pwm_out_sim)
@@ -1042,6 +1064,7 @@ It is used in SITL and HITL.
 ### Usage
 ```
 pwm_out_sim <command> [arguments...]
+ pwm_out_sim <command> [arguments...]
  Commands:
    start         Start the module
      [-m <val>]  Mode
@@ -1134,6 +1157,7 @@ This module does the RC input parsing and auto-selecting the method. Supported m
 ### Usage
 ```
 rc_input <command> [arguments...]
+ rc_input <command> [arguments...]
  Commands:
    start
      [-d <val>]  RC device
@@ -1153,6 +1177,7 @@ Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tr
 ### Usage
 ```
 rgbled <command> [arguments...]
+ rgbled <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -1178,6 +1203,7 @@ Source: [drivers/lights/rgbled_is31fl3195](https://github.com/PX4/PX4-Autopilot/
 ### Usage
 ```
 rgbled_is31fl3195 <command> [arguments...]
+ rgbled_is31fl3195 <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -1213,6 +1239,7 @@ The driver is included by default in firmware (KConfig key DRIVERS_LIGHTS_RGBLED
 ### Usage
 ```
 rgbled_lp5562 <command> [arguments...]
+ bst <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -1222,9 +1249,7 @@ rgbled_lp5562 <command> [arguments...]
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
-                 default: 48
-     [-u <val>]  Current in mA
-                 default: 17.5
+                 default: 118
 
    stop
 
@@ -1250,6 +1275,7 @@ The command to start this driver is: `$ roboclaw start <UART device> <baud rate>
 ### Usage
 ```
 roboclaw <command> [arguments...]
+ roboclaw <command> [arguments...]
  Commands:
    start
 
@@ -1270,6 +1296,12 @@ This module is responsible for the safety button. Pressing the safety button 3 t
 ### Usage
 ```
 safety_button <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
  Commands:
    start
 
@@ -1312,6 +1344,7 @@ sht3x reset
 ### Usage
 ```
 sht3x <command> [arguments...]
+ sht3x <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -1357,6 +1390,7 @@ tap_esc start -d /dev/ttyS2 -n <1-8>
 ### Usage
 ```
 tap_esc <command> [arguments...]
+ tap_esc <command> [arguments...]
  Commands:
    start         Start the task
      [-d <val>]  Device used to talk to ESCs
@@ -1377,6 +1411,12 @@ This module is responsible for the tone alarm.
 ### Usage
 ```
 tone_alarm <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
  Commands:
    start
 
@@ -1405,6 +1445,7 @@ uwb start -d /dev/ttyS2
 ### Usage
 ```
 uwb <command> [arguments...]
+ uwb <command> [arguments...]
  Commands:
    start
      -d <val>    Name of device for serial communication with UWB
@@ -1416,6 +1457,103 @@ uwb <command> [arguments...]
 
    status
 ```
+## voxl2_io
+px4io &lt;command&gt; [arguments...] Commands: start checkcrc      Check CRC for a firmware file against current code on IO
+     &lt;filename&gt;  Firmware file update        Update IO firmware [&lt;filename&gt;] Firmware file debug         set IO debug level
+     &lt;debug_level&gt; 0=disabled, 9=max verbosity bind          DSM bind dsm2|dsmx|dsmx8 protocol sbus1_out     enable sbus1 out sbus2_out     enable sbus2 out supported     Returns 0 if px4io is supported test_fmu_fail test: turn off IO updates test_fmu_ok   re-enable IO updates stop status        print status info
+
+
+### Description
+This module is responsible for driving the output pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.
+
+
+<a id="voxl2_io_usage"></a>
+
+### Usage
+```
+voxl2_io <command> [arguments...]
+ Commands:
+   start         Start the task
+     -v          Verbose messages
+     -d          Disable PWM
+     -e          Disable RC
+     -p <val>    UART port
+
+   calibrate_escs Calibrate ESCs min/max range
+
+   calibrate_escs Calibrate ESCs min/max range
+
+   pwm           Open-Loop PWM test control request
+     -c <val>    PWM OUTPUT Channel, 0-3
+     -r <val>    Duty Cycle value, 0 to 800
+     -n <val>    Command repeat count, 0 to INT_MAX
+     -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
+
+   stop
+
+   status        print status info
+```
+## voxl_esc
+Source: [drivers/actuators/modal_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/modal_io)
+
+
+### Description
+This module is responsible for...
+
+### Implementation
+By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
+
+### Examples
+It is typically started with:
+```
+todo
+```
+
+
+<a id="voxl_esc_usage"></a>
+
+### Usage
+```
+voxl_esc <command> [arguments...]
+ modal_io <command> [arguments...]
+ Commands:
+   start         Start the task
+
+   reset         Send reset request to ESC
+     -i <val>    ESC ID, 0-3
+
+   version       Send version request to ESC
+     -i <val>    ESC ID, 0-3
+
+   version-ext   Send extended version request to ESC
+     -i <val>    ESC ID, 0-3
+
+   rpm           Closed-Loop RPM test control request
+     -i <val>    ESC ID, 0-3
+     -r <val>    RPM, -32,768 to 32,768
+     -n <val>    Command repeat count, 0 to INT_MAX
+     -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
+
+   pwm           Open-Loop PWM test control request
+     -i <val>    ESC ID, 0-3
+     -r <val>    Duty Cycle value, 0 to 800
+     -n <val>    Command repeat count, 0 to INT_MAX
+     -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
+
+   tone          Send tone generation request to ESC
+     -i <val>    ESC ID, 0-3
+     -p <val>    Period of sound, inverse frequency, 0-255
+     -d <val>    Duration of the sound, 0-255, 1LSB = 13ms
+     -v <val>    Power (volume) of sound, 0-100
+
+   led           Send LED control request
+     -l <val>    Bitmask 0x0FFF (12 bits) - ESC0 (RGB) ESC1 (RGB) ESC2 (RGB)
+                 ESC3 (RGB)
+
+   stop
+
+   status        print status info
+```
 ## voxlpm
 Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/voxlpm)
 
@@ -1424,6 +1562,8 @@ Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree
 ### Usage
 ```
 voxlpm [arguments...]
+   rgbled_lp5562 <command> [arguments...]
+ Commands:
    start
      [-I]        Internal I2C bus(es)
      [-X]        External I2C bus(es)
@@ -1432,10 +1572,9 @@ voxlpm [arguments...]
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
-                 default: 68
-     [-T <val>]  Type
-                 values: VBATT|P5VDC|P12VDC, default: VBATT
-     [-k]        if initialization (probing) fails, keep retrying periodically
+                 default: 48
+     [-u <val>]  Current in mA
+                 default: 17.5
 
    stop
 
@@ -1454,6 +1593,7 @@ Zenoh demo bridge
 ### Usage
 ```
 zenoh <command> [arguments...]
+ zenoh <command> [arguments...]
  Commands:
    start
 

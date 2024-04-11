@@ -1,8 +1,7 @@
 # Remote ID (Open Drone ID)
 
 :::warning
-Experimental
-Remote ID support is experimental.
+Experimental Remote ID support is experimental.
 :::
 
 Remote ID is a government mandated technology for UAVs in Japan, the United States of America and the European Union, designed to enable safe sharing of airspace between UAVs and other aircraft. The specification requires that UAVs broadcast data such as: real-time location/altitude, serial number, operator ID/location, status, etc.

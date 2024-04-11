@@ -2,8 +2,7 @@
 
 PX4의 ROS 기반 통합 테스트 방법을 설명합니다.
 
-:::note
-신규 테스트는 [MAVSDK 통합 테스트](../test_and_ci/integration_testing_mavsdk.md)를 선호합니다. ROS가 *사용* 사례(예: 객체 회피)에는 ROS 기반 통합 테스트 프레임워크를 사용합니다.
+::: info [MAVSDK Integration Testing](../test_and_ci/integration_testing_mavsdk.md) is preferred when writing new tests. ROS가 *사용* 사례(예: 객체 회피)에는 ROS 기반 통합 테스트 프레임워크를 사용합니다.
 
 모든 PX4 통합 테스트는 [지속적 통합](../test_and_ci/continous_integration.md) 시스템에 의해 자동으로 실행됩니다.
 :::

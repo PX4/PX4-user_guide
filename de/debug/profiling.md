@@ -4,7 +4,7 @@ This section describes how you can use the [Poor Man's Sampling Profiler](https:
 
 ## Approach
 
-PMSP is a shell script that operates by interrupting execution of the firmware periodically in order to sample the current stack trace. Sampled stack traces are appended into a text file. The result of _folding_ is another text file that contains the same stack traces, except that all similar stack traces (i.e. those that were obtained at the same point in the program) are joined together, and the number of their occurrences is recorded. The folded stacks are then fed into the visualization script, for which purpose we employ [FlameGraph - an open source stack trace visualizer](http://www.brendangregg.com/flamegraphs.html). Once sampling is finished (which normally takes about an hour or more), the collected stack traces are _folded_.
+PMSP is a shell script that operates by interrupting execution of the firmware periodically in order to sample the current stack trace. Sampled stack traces are appended into a text file. The folded stacks are then fed into the visualization script, for which purpose we employ [FlameGraph - an open source stack trace visualizer](http://www.brendangregg.com/flamegraphs.html). Once sampling is finished (which normally takes about an hour or more), the collected stack traces are _folded_. The result of _folding_ is another text file that contains the same stack traces, except that all similar stack traces (i.e. those that were obtained at the same point in the program) are joined together, and the number of their occurrences is recorded.
 
 ## Basic Usage
 
@@ -17,6 +17,10 @@ The profiler relies on GDB to run PX4 on the embedded target. So before profilin
 The `poor-mans-profiler.sh` automatically detects and uses the correct USB device if you use it with a [DroneCode Probe](../debug/probe_bmp.md#dronecode-probe). If you use a different kind of probe you may need to pass in the specific _device_ on which the debugger is located. You can use the bash command `ls -alh /dev/serial/by-id/` to enumerate the possible devices on Ubuntu. For example the following devices are enumerated with a Pixhawk 4 and DroneCode Probe connected over USB:
 
 ```sh
+user@ubuntu:~/PX4-Autopilot$ ls -alh /dev/serial/by-id/
+total 0
+drwxr-xr-x 2 root root 100 Apr 23 18:57 .
+drwxr-xr-x 4 root root  80 Apr 23 18:48 ..
 user@ubuntu:~/PX4-Autopilot$ ls -alh /dev/serial/by-id/
 total 0
 drwxr-xr-x 2 root root 100 Apr 23 18:57 .

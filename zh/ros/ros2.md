@@ -15,13 +15,13 @@ ROS 2 和 PX4 之间的通信使用中间件实现 [XRCE-DDS 协议](../middlewa
 - [ROS 2 用户指南](../ros/ros2_comm.md): PX4 视角下的 ROS 2，包括安装、设置和如何构建与 PX4 通信的 ROS 2 应用。
 - [ROS 2 Offboard 控制示例](../ros/ros2_offboard_control.md)
 
-:::note
-ROS 2 仅在 Linux 平台上提供官方支持。
+::: info
+ROS 2 is officially supported only on Linux platforms.
 Ubuntu 20.04 LTS 是官方支持的版本。
 :::
 
 
-:::note ROS2 也可以使用 [MAVROS](https://github.com/mavlink/mavros/tree/ros2/mavros) 连接到 PX4 (而不是 XRCE-DDS)。 MAVROS项目支持此选项。
+::: info ROS 2 can also connect with PX4 using [MAVROS](https://github.com/mavlink/mavros/tree/ros2/mavros) (instead of XRCE-DDS). MAVROS项目支持此选项。
 :::
 
 

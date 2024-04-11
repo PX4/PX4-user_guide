@@ -23,7 +23,7 @@ The general requirements for all supported boards are:
    - Phone number
 
 1. Point of contact (PoC) for the PX4 maintainers (direct email or available in Slack/Forum/Github)
-1. The board needs to use the [PX4 bootloader protocol](https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/bootloader). For more information on bootloaders see: [PX4 Nuttx Porting Guide > Bootloader](../hardware/porting_guide_nuttx.md#bootloader).
+1. For more information on bootloaders see: [PX4 Nuttx Porting Guide > Bootloader](../hardware/porting_guide_nuttx.md#bootloader). The board needs to use the [PX4 bootloader protocol](https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/bootloader).
 1. Adequate documentation, which includes, but is not limited to:
 
    - A complete pinout made available publicly that maps PX4 pin definitions to:
@@ -78,8 +78,7 @@ These boards are all boards that don't fall in the above categories, or don't fa
 
 - The board must be working with at least one PX4 release for a defined vehicle type, but not necessarily the latest release.
 
-:::note
-Experimental boards that were _previously_ Pixhawk or Manufacturer supported will have/retain their original IDs. _New_ experimental boards are allocated [VER and REV IDs](#ver_rev_id) based on compatibility, in the same way as Manufacturer Supported boards.
+_New_ experimental boards are allocated [VER and REV IDs](#ver_rev_id) based on compatibility, in the same way as Manufacturer Supported boards. :::note Experimental boards that were _previously_ Pixhawk or Manufacturer supported will have/retain their original IDs.
 :::
 
 ## Unsupported

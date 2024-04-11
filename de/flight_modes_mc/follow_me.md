@@ -39,7 +39,8 @@ Users can adjust the follow angle, height and distance using an RC controller as
   ![Follow-me Angle Diagram](../../assets/flight_modes/followme_angle.png)
 
 ::: info
-Angle, height, and distance values set using the RC controller are discarded when you exit follow-me mode. If you exit Follow-Me mode and activate it again the values will be reset to their defaults.
+Angle, height, and distance values set using the RC controller are discarded when you exit follow-me mode. ::: info  
+Angle, height, and distance values set using the RC controller are discarded when you exit follow-me mode.
 :::
 
 Demo video:

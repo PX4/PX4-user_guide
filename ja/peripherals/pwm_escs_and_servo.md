@@ -39,7 +39,7 @@ On a fixed-wing (or VTOL) ESC, the +5V line usually provides the output of a Bat
 
 - This can be connected to the Pixhawk servo rail and used to power servos for flaps, ailerons etc.
 
-  :::note
+  ::: info
 It is unsafe to power servos or ESCs from the autopilot's avionics power supply.
 :::note
 It is unsafe to power servos or ESCs from the autopilot's avionics power supply.
@@ -103,7 +103,7 @@ PX4 sends an idle/disarmed pulse right after power on to stop ESCs timing out. A
 
 ### Valid Pulse Shape, Voltage and Update Rate
 
-:::note
+::: info
 This should not be a problem, but is included for completeness
 :::
 

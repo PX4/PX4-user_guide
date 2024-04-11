@@ -12,7 +12,6 @@ P4X підтримує повітряні, наземні та підводні 
 - **Човни** - надводні рухомі засоби.
 - **Підводні апарати** - підводні рухомі засоби.
 
-:::note
-Налаштування планеру, що використовуються PX4, здійснюється в *QGroundControl* під час початкового налаштування: [Налаштування планера](../config/airframe.md).
+::: info The airframe settings used by PX4 are configured in *QGroundControl* during initital setup: [Airframe setup](../config/airframe.md).
 
 ![Вибір шасі](../../assets/qgc/setup/airframe/airframe_px4.jpg) :::

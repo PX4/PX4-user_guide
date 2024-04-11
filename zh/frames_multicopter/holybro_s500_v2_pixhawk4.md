@@ -2,8 +2,7 @@
 
 This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
 
-:::note
-Holybro initially supplied this kit with a [Holybro Pixhawk 4](../flight_controller/pixhawk4.md), but at time of writing this has been upgraded to a more recent Pixhawk (6C). This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
+::: info Holybro initially supplied this kit with a [Holybro Pixhawk 4](../flight_controller/pixhawk4.md), but at time of writing this has been upgraded to a more recent Pixhawk (6C). This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
 :::
 
 ## Key information
@@ -32,7 +31,7 @@ The Holybro [S500 V2 Kit](https://holybro.com/collections/s500/products/s500-v2-
 * Dimensions:383*385*240mm
 * Wheelbase:480mm
 
-:::note
+::: info
 No LiPo battery is included. 
 In addition, we use a FrSky Taranis controller.
 :::

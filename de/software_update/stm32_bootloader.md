@@ -53,6 +53,7 @@ arm-none-eabi-gdb
   (gdb) load tapv1_bl.elf
         ...
         Transfer rate: 17 KB/sec, 828 bytes/write.
+        Transfer rate: 17 KB/sec, 828 bytes/write.
   (gdb) kill
 ```
 

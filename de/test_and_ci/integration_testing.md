@@ -64,6 +64,8 @@ To write a new test:
    #!/usr/bin/env python
    # [... LICENSE ...]
 
+   LICENSE ...]
+
    #
    # @author Example Author <author@example.com>
    #

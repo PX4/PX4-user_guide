@@ -6,8 +6,8 @@ _Altitude mode_ is a _relatively_ easy-to-fly RC mode in which roll and pitch st
 
 When the sticks are released/centered the vehicle will level and maintain the current _altitude_. If moving in the horizontal plane the vehicle will continue until any momentum is dissipated by wind resistance. If the wind blows the aircraft will drift in the direction of the wind.
 
-:::tip
-_Altitude mode_ is the safest non-GPS manual mode for new fliers. It is just like [Manual/Stabilized](../flight_modes_mc/manual_stabilized.md) mode but additionally locks the vehicle altitude when the sticks are released.
+It is just like [Manual/Stabilized](../flight_modes_mc/manual_stabilized.md) mode but additionally locks the vehicle altitude when the sticks are released. :::tip  
+_Altitude mode_ is the safest non-GPS manual mode for new fliers.
 :::
 
 The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).

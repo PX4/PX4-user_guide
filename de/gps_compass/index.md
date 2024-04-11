@@ -44,7 +44,7 @@ Notes:
 
 - &check; or a specific part number indicate that a features is supported, while &cross; or empty show that the feature is not supported. "?" indicates "unknown".
 - Where possible and relevant the part name is used (i.e. &check; in the GPS column indicates that a GPS module is present but the part is not known).
-- The list may omit some discontinued hardware that is still supported. The original _Here_ has already been removed. Check earlier versions if a discontinued module is not mentioned here.
+- The list may omit some discontinued hardware that is still supported. Check earlier versions if a discontinued module is not mentioned here. The original _Here_ has already been removed.
 
 ## Mounting the GNSS/Compass
 

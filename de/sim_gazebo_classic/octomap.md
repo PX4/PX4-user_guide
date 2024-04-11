@@ -6,7 +6,7 @@ This guide covers how to use _OctoMap_ with the [Gazebo Classic](../sim_gazebo_c
 
 ## Installation
 
-The installation requires ROS, [Gazebo Classic](../sim_gazebo_classic/index.md) and the Rotors Simulator plugin. Follow the [Rotors Simulator instructions](https://github.com/ethz-asl/rotors_simulator) to install.
+Follow the [Rotors Simulator instructions](https://github.com/ethz-asl/rotors_simulator) to install. The installation requires ROS, [Gazebo Classic](../sim_gazebo_classic/index.md) and the Rotors Simulator plugin.
 
 Next, install the _OctoMap_ library:
 
@@ -33,8 +33,8 @@ Open `~/catkin_ws/src/rotors_simulator/rotors_gazebo/package.xml` and add the fo
 
 Run the following two lines:
 
-:::note
-The first line changes your default shell editor to _gedit_. This is recommended for users who have little experience with _vim_ (the default editor), but can otherwise be omitted.
+This is recommended for users who have little experience with _vim_ (the default editor), but can otherwise be omitted. :::note  
+The first line changes your default shell editor to _gedit_.
 :::
 
 ```sh
@@ -48,6 +48,7 @@ and change the two following lines:
 <param name="frame_id" type="string" value="map" />
 ...
 <!--remap from="cloud_in" to="/rgbdslam/batch_clouds" /-->
+<!--remap from="cloud_in" to="/rgbdslam/batch_clouds" /-->
 ```
 
 to:
@@ -55,6 +56,7 @@ to:
 ```xml
 <param name="frame_id" type="string" value="world" />
 ...
+<remap from="cloud_in" to="/firefly/vi_sensor/camera_depth/depth/points" />
 <remap from="cloud_in" to="/firefly/vi_sensor/camera_depth/depth/points" />
 ```
 

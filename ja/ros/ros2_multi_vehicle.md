@@ -17,7 +17,7 @@ In simulation each PX4 instance receives a unique `px4_instance` number starting
 param set UXRCE_DDS_KEY $((px4_instance+1))
 ```
 
-:::note
+::: info
 By doing so, `UXRCE_DDS_KEY` will always coincide with [MAV_SYS_ID](../advanced_config/parameter_reference.md#MAV_SYS_ID).
 :::
 
@@ -27,7 +27,7 @@ Moreover, when `px4_instance` is greater than zero, a unique ROS 2 [namespace pr
 uxrce_dds_ns="-n px4_$px4_instance"
 ```
 
-:::note
+::: info
 The environment variable `PX4_UXRCE_DDS_NS`, if set, will override the namespace behavior described above.
 :::
 

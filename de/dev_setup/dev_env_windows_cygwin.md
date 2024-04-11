@@ -115,6 +115,9 @@ Under Unix there's a flag in the permissions of each file that tells the OS whet
 diff --git ...
 old mode 100644
 new mode 100755
+diff --git ...
+old mode 100644
+new mode 100755
 old mode 100644
 new mode 100755
 ```

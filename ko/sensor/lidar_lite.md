@@ -25,8 +25,8 @@ Lidar-Lite (v2, v3) 핀배열은 아래와 같습니다.
 
 The _Lidar-Lite v3_ can be used with either PWM or I2C. 구형 모델에서는 PWM을 권장합니다. 거리계는 일부 ESC/BEC(PWM 또는 I2C를 통해 연결됨)로 별도 전원이 공급되어야합니다.
 
-:::note
-블루 라벨이 아닌 Lidar-Lite (v1) 장치의 I2C 인터페이스에는 안정성 제한이 있으며, 따라서 모든 실버 라벨 세대의 Lidar-Lite 센서는 I2C 인터페이스에서 제외됩니다.
+::: info
+The I2C interface of non-blue-label Lidar-Lite (v1) devices has stability limitations and all silver-label generations of Lidar-Lite sensors are therefore excluded from the I2C interface.
 이러한 센서에는 PWM 인터페이스(아래에 자세히 설명)를 사용하는 것이 좋습니다.
 파란색 레이블(v2) 장치는 일부 조건에서 5V 미만 전원을 사용하며, 일정한 오프셋을 나타낼 수 있습니다.
 이는 현재 (2015 년 4 분기) 제조업체에서 조사 중이며, 특정 운영 조건을 준수하여 잠재적으로 해결 가능합니다.
@@ -50,8 +50,8 @@ The pin connections for wiring LidarLite to the _Pixhawk 1_ AUX ports (PWM inter
 | 5 | SDA                 | -                 | 연결되지 않음                                                                 |
 | 6 | GND                 | AUX 6 (상단)        | 접지                                                                      |
 
-:::note
-AUX 포트가 없는 비행 콘트롤러에서는 동등한 MAIN 핀이 사용됩니다 (예 : 라이더의 PWM 출력이 대신 MAIN 5에 매핑됨).
+::: info
+On a flight controller that has no AUX port the equivalent MAIN pins are used (e.g. the PWM output on the lidar instead maps to MAIN 5).
 핀 번호는 하드 코딩되어 있습니다.
 :::
 
@@ -71,8 +71,7 @@ I2C 배선은 다른 거리 센서에 대해서도 동일합니다. SLA, SLC, GN
 
 거리계/포트는 [SENS_EN_LL40LS](../advanced_config/parameter_reference.md#SENS_EN_LL40LS)를 사용하여 활성화됩니다. PWM의 경우 `1`, I2C의 경우 `2`로 설정됩니다.
 
-:::note
-이 거리계의 드라이버는 펌웨어에서 제공됩니다. 존재하지 않으면, 보드 설정에 드라이버(`drivers/ll40ls`)를 추가하여야 합니다.
+::: info The driver for this rangefinder is usually present in firmware. 존재하지 않으면, 보드 설정에 드라이버(`drivers/ll40ls`)를 추가하여야 합니다.
 :::
 
 ## 추가 정보

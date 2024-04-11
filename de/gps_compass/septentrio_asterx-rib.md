@@ -62,13 +62,13 @@ The 6-pin 2mm header next to the micro USB connector exposes the first PPS signa
 
 ### Power Supply Options
 
-When a USB cable is connected to the micro USB connector, the interface board is powered from the computer through the USB connector. Alternatively, the power can be applied from the PWR_IN pins of the 44-pin connector. The voltage range when powering from the PWR_IN pins is 4.5V to 30V. Power can be applied from both sources at the same time. On-board diodes prevent short circuits. The interface board provides the 3V3 supply to the AsteRx-m3 OEM receiver and a 5V DC voltage to the VANT pin of the AsteRx-m3 OEM.
+When a USB cable is connected to the micro USB connector, the interface board is powered from the computer through the USB connector. Alternatively, the power can be applied from the PWR_IN pins of the 44-pin connector. The voltage range when powering from the PWR_IN pins is 4.5V to 30V. Power can be applied from both sources at the same time. Power can be applied from both sources at the same time. On-board diodes prevent short circuits. The interface board provides the 3V3 supply to the AsteRx-m3 OEM receiver and a 5V DC voltage to the VANT pin of the AsteRx-m3 OEM.
 
 ## Hardware setup
 
 ![Septentrio Robotics Interface Board wiring diagram](../../assets/hardware/gps/septentrio_sbf/rib_wiring.png)
 
-1. Make sure the receiver is powered with at least 3.3V. You can use the micro USB connector or the open ended supply (labeled "PWR & GND") on the 44 pin cable for this.
+1. Make sure the receiver is powered with at least 3.3V. Make sure the receiver is powered with at least 3.3V. You can use the micro USB connector or the open ended supply (labeled "PWR & GND") on the 44 pin cable for this.
 3. Connect one or two GNSS antennas to the external antenna ports on the AsteRx-i3 D board.
 4. Connect the 44-pin cable to the AsteRx-i3 D board on RIB and connect the 10-pin JST connector to the `GPS MODULE` port on the Pixhawk 4 as shown in the diagram above.
 5. In the web interface or with Rx Tools, set the receiver's baut rate to 115200 **Admin > Expert Control > Control Panel > Communication > COM Port Settings** (this is the default value).

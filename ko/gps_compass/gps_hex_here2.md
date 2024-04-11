@@ -22,7 +22,7 @@
 
 PX4의 설정과 사용법은 대부분 플러그앤플레이입니다.
 
-:::note
+::: info
 - If the GPS is *not detected* then [update the Here2 firmware](https://docs.cubepilot.org/user-guides/here-2/updating-here-2-firmware).
 - If the GPS is detected but does not work, attempt the process outlined in [allocating node uavcan ID](https://docs.cubepilot.org/user-guides/here-2/here-2-can-mode-instruction).
 :::

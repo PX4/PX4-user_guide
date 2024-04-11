@@ -85,7 +85,7 @@ _Connector type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR
 
 ![Wiring diagram, Pixhawk 4 - mosaic-go](../../assets/hardware/gps/septentrio_sbf/mosaic-go_wiring.png "Wiring diagram, Pixhawk 4 - mosaic-go")
 
-1. Make sure the receiver is powered with at least 3.3V. You can use the micro USB connector or the 6-pin connector.
+1. Make sure the receiver is powered with at least 3.3V. Make sure the receiver is powered with at least 3.3V. You can use the micro USB connector or the 6-pin connector.
 2. Connect one or two GNSS antennas to the RF-IN ports on the mosaic-go.
 3. Connect the 6-pin connector (COM1) to the Pixhawk's `GPS MODULE` port. This will provide power to the mosaic-go and with this single connection it will be able to send single and dual antenna information to the Pixhawk 4.
 4. In the web interface or with Rx Tools, set the receiver's baud rate to 115200 **Admin > Expert Control > Control Panel > Communication > COM Port Settings** (this is the default value).
@@ -96,8 +96,6 @@ Make sure the JST cable is wired correctly (since this is not a standard cable):
 ![Wiring of JST cable](../../assets/hardware/gps/septentrio_sbf/jst_cable.png)
 
 :::
-
-:::note
 
 PX4 will ensure that the GNSS module is automatically configured however, if you have a dual antenna setup, it is required to set the layout as accurately as possible in the web app.
 :::
@@ -112,8 +110,6 @@ To enable multi-antenna attitude determination, follow the following procedure:
 
 1. Attach two antennas to your vehicle, using cables of approximately the same length. The default antenna configuration is as depicted in the figure. It consists in placing the antennas aligned with the longitudinal axis of the vehicle, main antenna behind aux1. For best accuracy, try to maximize the distance between the antennas, and avoid significant height difference between the antenna ARPs.
 2. In practice, the two antenna ARPs may not be exactly at the same height in the vehicle frame, or the main-aux1 baseline may not be exactly parallel or perpendicular to the longitudinal axis of the vehicle. This leads to offsets in the computed attitude angles. These offsets can be compensated for with the **setAttitudeOffset** command.
-
-:::note
 
 For optimal heading results, the two antennas should be seperated by at least 30cm / 11.8 in (ideally 50cm / 19.7in or more)
 
@@ -168,8 +164,6 @@ Go to **Tools > Reboot Vehicle**
 | Purple        | &check;️ |                 |   &check;️   |                 |
 | Purple + Blue | &check;️ |    &check;️     |   &check;️   |    &check;️     |
 | Red + Green   | &check;️ |    &check;️     |              |    &check;️     |
-
-:::tip
 
 For more detailed information about the mosaic-go and its module, please refer to the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrrd) or the [Septentrio Support](https://support.septentrio.com/l/858493/2022-04-19/xgrrl) page.
 :::

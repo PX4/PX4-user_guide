@@ -45,8 +45,7 @@ Connect the Lidar the autopilot I2C port as shown below (in this case, for the [
 
 ![SF1XX LIDAR to I2C connection](../../assets/hardware/sensors/lidar_lightware/sf1xx_i2c.jpg)
 
-:::note
-Some older revisions cannot be used with PX4. Specifically they may be miss-configured to have an I2C address equal to `0x55`, which conflicts with `rgbled` module. On Linux systems you may be able to determine the address using [i2cdetect](https://linux.die.net/man/8/i2cdetect). If the I2C address is equal to `0x66` the sensor can be used with PX4.
+If the I2C address is equal to `0x66` the sensor can be used with PX4. :::note Some older revisions cannot be used with PX4. On Linux systems you may be able to determine the address using [i2cdetect](https://linux.die.net/man/8/i2cdetect). Specifically they may be miss-configured to have an I2C address equal to `0x55`, which conflicts with `rgbled` module.
 :::
 
 <a id="i2c_parameter_setup"></a>

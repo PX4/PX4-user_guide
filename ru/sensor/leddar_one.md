@@ -23,8 +23,7 @@ Build a cable following your board and pinout and LeddarOne pinout (shown below)
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG). There is no need to set the baud rate for the port, as this is configured by the driver.
 
-:::note
-If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+::: info If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
 
 ```plain
 CONFIG_DRIVERS_DISTANCE_SENSOR_LEDDAR_ONE=y

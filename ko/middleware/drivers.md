@@ -8,12 +8,10 @@ PX4는 [uORB](../middleware/uorb.md)의 데이터를 거의 독점적으로 사�
 
 새 드라이버를 만드는 가장 좋은 방법은 템플릿과 유사한 드라이버로 시작하는 것입니다([src/drivers](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers) 참조).
 
-:::note
-More detailed information about working with specific I/O buses and sensors may be available in [Sensor and Actuator Buses](../sensor_bus/index.md) section.
+::: info More detailed information about working with specific I/O buses and sensors may be available in [Sensor and Actuator Buses](../sensor_bus/index.md) section.
 :::
 
-:::note
-올바른 uORB 주제를 게시하는 것은 드라이버가 *준수해야* 하는 유일한 패턴입니다.
+::: info Publishing the correct uORB topics is the only pattern that drivers *must* follow.
 :::
 
 ## 핵심 아키텍처

@@ -1,6 +1,7 @@
 # 3DR WiFi 텔레메트리 (단종됨)
 
-::::note </ 0>이 제품은 더 이상 제조되지 않거나 3DR에서 구매할 수 없습니다.
+::: info
+This product is no longer manufactured or available from 3DR.
 :::
 
 *3DR WiFi Telemetry Radio*는 PX4에서 지원됩니다. 비행 콘트롤러의 `TELEM1` 포트에 연결하면 아래의 세부 정보가 있는 차량용 WiFi "핫스팟"이 생성됩니다.

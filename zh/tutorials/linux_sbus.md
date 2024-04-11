@@ -4,7 +4,7 @@
 
 对于S.Bus以外的类型，您可以将接收器直接连接到串口，或者使用USB转TTY串行线（例如 PL2302 USB转串行TTL转换器）。
 
-对于S.Bus接收器（或者编码-例如来自Futaba、RadioLink等），您通常需要通过[信号逆变器](#signal_inverter_circuit)连接接收器和设备，但其他设置是相同的。
+::: info For an S.Bus receiver (or encoder - e.g. from Futaba, RadioLink, etc.) you will usually need to connect the receiver and device via a [signal inverter circuit](#signal_inverter_circuit), but otherwise the setup is the same.
 :::
 
 然后[启动PX4 RC Driver](#start_driver)在设备上，如下图。
@@ -41,7 +41,7 @@ This section shows how to create an appropriate circuit.
 - 1x 10K 电阻
 - 1x 1K 电阻
 
-:::note
+::: info
 Any type/model of transistor can be used because the current drain is very low.
 :::
 

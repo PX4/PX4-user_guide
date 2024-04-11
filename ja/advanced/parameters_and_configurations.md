@@ -105,7 +105,7 @@ There are separate C and C++ APIs that can be used to access parameter values fr
 
 One important difference between the APIs is that the C++ version has a more efficient standardized mechanism to synchronize with changes to parameter values (i.e. from a GCS).
 
-Synchronization is important because a parameter can be changed to another value at any time. Your code should _always_ use the current value from the parameter store. If getting the latest version is not possible, then a reboot will be required after the parameter is changed (set this requirement using the `@reboot_required` metadata).
+Synchronization is important because a parameter can be changed to another value at any time. If getting the latest version is not possible, then a reboot will be required after the parameter is changed (set this requirement using the `@reboot_required` metadata). Your code should _always_ use the current value from the parameter store.
 
 In addition, the C++ version has also better type-safety and less overhead in terms of RAM. The drawback is that the parameter name must be known at compile-time, while the C API can take a dynamically created name as a string.
 
@@ -282,19 +282,13 @@ Parameter metadata sections look like the following examples:
 
 ```cpp
 /**
- * Pitch P gain
+ * Acceleration compensation based on GPS
+ * velocity.
  *
- * Pitch proportional gain, i.e. desired angular speed in rad/s for error 1 rad.
- *
- * @unit 1/s
- * @min 0.0
- * @max 10
- * @decimal 2
- * @increment 0.0005
- * @reboot_required true
- * @group Multicopter Attitude Control
+ * @group Attitude Q estimator
+ * @boolean
  */
-PARAM_DEFINE_FLOAT(MC_PITCH_P, 6.5f);
+PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
 ```
 
 ```cpp

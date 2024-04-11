@@ -4,13 +4,12 @@ Docker containers are provided for the complete [PX4 development toolchain](../d
 
 This topic shows how to use the [available docker containers](#px4_containers) to access the build environment in a local Linux computer.
 
-:::note
-Dockerfiles and README can be found on [Github here](https://github.com/PX4/containers/blob/master/index.md). They are built automatically on [Docker Hub](https://hub.docker.com/u/px4io/).
+They are built automatically on [Docker Hub](https://hub.docker.com/u/px4io/). :::note Dockerfiles and README can be found on [Github here](https://github.com/PX4/containers/blob/master/index.md).
 :::
 
 ## Prerequisites
 
-:::note PX4 containers are currently only supported on Linux (if you don't have Linux you can run the container [inside a virtual machine](#virtual_machine)). Do not use `boot2docker` with the default Linux image because it contains no X-Server.
+Do not use `boot2docker` with the default Linux image because it contains no X-Server. :::note PX4 containers are currently only supported on Linux (if you don't have Linux you can run the container [inside a virtual machine](#virtual_machine)).
 :::
 
 [Install Docker](https://docs.docker.com/installation/) for your Linux computer, preferably using one of the Docker-maintained package repositories to get the latest stable version. You can use either the _Enterprise Edition_ or (free) _Community Edition_.
@@ -22,7 +21,7 @@ curl -fsSL get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
 
-The default installation requires that you invoke _Docker_ as the root user (i.e. using `sudo`). However, for building the PX4 firmware we suggest to [use docker as a non-root user](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user). That way, your build folder won't be owned by root after using docker.
+The default installation requires that you invoke _Docker_ as the root user (i.e. using `sudo`). That way, your build folder won't be owned by root after using docker. However, for building the PX4 firmware we suggest to [use docker as a non-root user](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user).
 
 ```sh
 # Create docker group (may not be required)
@@ -114,7 +113,7 @@ Where,
 - `<container_src>`: The location of the shared (source) directory when inside the container.
 - `<local_container_name>`: A name for the docker container being created. This can later be used if we need to reference the container again.
 - `<container>:<tag>`: The container with version tag to start - e.g.: `px4io/px4-dev-ros:2017-10-23`.
-- `<build_command>`: The command to invoke on the new container. E.g. `bash` is used to open a bash shell in the container.
+- `<build_command>`: The command to invoke on the new container. E.g. E.g. `bash` is used to open a bash shell in the container.
 
 The concrete example below shows how to open a bash shell and share the directory **~/src/PX4-Autopilot** on the host computer.
 
@@ -136,8 +135,7 @@ docker run -it --privileged \
 We use the host network mode to avoid conflicts between the UDP port access control when using QGroundControl on the same system as the docker container.
 :::
 
-:::note
-If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value. On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`. On other hosts you might iterate the value of `0` in `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
+On other hosts you might iterate the value of `0` in `-e DISPLAY=:0` until the "Can't open display: :0" error goes away. :::note If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value. On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`.
 :::
 
 If everything went well you should be in a new bash shell now. Verify if everything works by running, for example, SITL:

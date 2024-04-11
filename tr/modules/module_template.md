@@ -2,12 +2,10 @@
 
 An application can be written to run as either a *task* (a module with its own stack and process priority) or as a *work queue task* (a module that runs on a work queue thread, sharing the stack and thread priority with other tasks on the work queue). In most cases a work queue task can be used, as this minimizes resource usage.
 
-:::note
-[Architectural Overview > Runtime Environment](../concept/architecture.md#runtime-environment) provides more information about tasks and work queue tasks.
+::: info [Architectural Overview > Runtime Environment](../concept/architecture.md#runtime-environment) provides more information about tasks and work queue tasks.
 :::
 
-:::note
-All the things learned in the [First Application Tutorial](../modules/hello_sky.md) are relevant for writing a full application.
+::: info All the things learned in the [First Application Tutorial](../modules/hello_sky.md) are relevant for writing a full application.
 :::
 
 ## Work Queue Task
@@ -33,8 +31,7 @@ The example shows how. In summary:
    }
    ```
 
-:::note
-The available work queues (`wq_configurations`) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
+   ::: info The available work queues (`wq_configurations`) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
 :::
 
 1. Implement the `ScheduledWorkItem::Run()` method to perform "work".

@@ -1,6 +1,6 @@
 # 空速传感器
 
-Airspeed sensors are _highly recommended_ for fixed-wing and VTOL frames. They are so important because the autopilot does not have other means to detect stall. 对于固定翼飞行来说，保证升力的是空速而不是地速。
+Airspeed sensors are _highly recommended_ for fixed-wing and VTOL frames. They are so important because the autopilot does not have other means to detect stall. For fixed-wing flight it is the airspeed that guarantees lift — not ground speed!
 
 ![数字空速传感器](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
@@ -20,7 +20,7 @@ Recommended digital airspeed sensors include:
 
 All the above sensors are connected via the I2C bus/port.
 
-:::note
+::: info
 
 Additionally, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/) can be connected to the CAN bus to determine not only high-accuracy airspeed, but also true static pressure and air temperature via onboard barometer and an OAT probe.
 
@@ -41,9 +41,13 @@ You should also check [ASPD_PRIMARY](../advanced_config/parameter_reference.md#A
 
 ### Multiple Airspeed Sensors
 
+:::warning
+Experimental
+Using multiple airspeed sensors is experimental.
+:::
+
 If you have multiple airspeed sensors then you can select which sensor is _preferred_ as the primary source using [ASPD_PRIMARY](../advanced_config/parameter_reference.md#ASPD_PRIMARY), where `1`, `2` and `3` reflect the order in which the airspeed sensors were started:
 
-- `-1`: Disabled (no airspeed information used).
 - `0`: Synthetic airspeed estimation (groundspeed minus windspeed)
 - `1`: First airspeed sensor started (default)
 - `2`: Second airspeed sensor started
@@ -51,7 +55,7 @@ If you have multiple airspeed sensors then you can select which sensor is _prefe
 
 The airspeed selector validates the indicated sensor _first_ and only falls back to other sensors if the indicated sensor fails airspeed checks ([ASPD_DO_CHECKS](../advanced_config/parameter_reference.md#ASPD_DO_CHECKS) is used to configure the checks).
 
-The selected sensor is then used to supply data to the estimator (EKF2). The EKF fuses the airspeed data if it's above [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR) and has a low innovation compared to groundspeed minus windspeed.
+The selected sensor is then used to [supply data to the estimator (EKF2)](../advanced_config/tuning_the_ecl_ekf.md#airspeed) and the controllers.
 
 ### Sensor-specific Configuration
 
@@ -65,6 +69,8 @@ The specific configuration for sensors that do not have a separate page is liste
 
 Airspeed sensors should be calibrated by following the instructions: [Basic Configuration > Airspeed](../config/airspeed.md).
 
-## 开发人员信息
+## See Also
 
+- [Using the ECL EKF > Airspeed](../advanced_config/tuning_the_ecl_ekf.md#airspeed)
 - [Airspeed drivers](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure) (source code)
+- [VTOL Without an Airspeed Sensor](../config_vtol/vtol_without_airspeed_sensor.md)

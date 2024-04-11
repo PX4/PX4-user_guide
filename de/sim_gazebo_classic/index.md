@@ -114,6 +114,8 @@ Copyright (C) 2012 Open Source Robotics Foundation.
 Released under the Apache 2 License.
 http://gazebosim.org
 ...
+http://gazebosim.org
+...
 INFO  [ecl/EKF] 5188000: commencing GPS fusion
 ```
 
@@ -260,8 +262,8 @@ For example, to load the _warehouse_ world, you can append it as shown:
 make px4_sitl_default gazebo-classic_plane_cam__warehouse
 ```
 
-:::note
-There are _two underscores_ after the model (`plane_cam`) indicating that the default debugger is used (none). See [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#px4-make-build-targets).
+See [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#px4-make-build-targets). :::note  
+There are _two underscores_ after the model (`plane_cam`) indicating that the default debugger is used (none).
 :::
 
 You can also specify the full path to a world to load using the `PX4_SITL_WORLD` environment variable. This is useful if testing a new world that is not yet included with PX4.
@@ -280,8 +282,8 @@ The vehicle is not spawned exactly at the Gazebo origin (0,0,0), but using a sli
 
 If using a world that recreates a real location (e.g. a particular airport) this can result in a very obvious mismatch between what is displayed in the simulated world, and what is shown on the ground station map. To overcome this problem you can set the location of the world origin to the GPS coordinates where it would be in "real life".
 
-:::note
-You can also set a [Custom Takeoff Location](#custom_takeoff_location) that does the same thing. However adding the location to the map is easier (and can still be over-ridden by setting a custom location if needed).
+However adding the location to the map is easier (and can still be over-ridden by setting a custom location if needed). :::note  
+You can also set a [Custom Takeoff Location](#custom_takeoff_location) that does the same thing.
 :::
 
 The location of the world is defined in the **.world** file by specifying the location of the origin using the `spherical_coordinates` tag. The latitude, longitude, elevation must all be specified (for this to be a valid).
@@ -436,7 +438,7 @@ It is also possible to view the video using the _Gstreamer Pipeline_. Simply ent
 
 ```sh
 gst-launch-1.0  -v udpsrc port=5600 caps='application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264' \
-! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink fps-update-interval=1000 sync=false
+! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink fps-update-interval=1000 sync=false rtph264depay ! avdec_h264 ! videoconvert ! autovideosink fps-update-interval=1000 sync=false
 ```
 
 ### Verbose Logging

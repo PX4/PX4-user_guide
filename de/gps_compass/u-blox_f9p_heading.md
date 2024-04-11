@@ -42,7 +42,7 @@ Ideally the two antennas should be identical, on the same level/horizontal plane
 Refer to the CAN RTK GPS documentation for each specific device for the setup instructions (such as [ARK RTK GPS > Setting Up Moving Baseline & GPS Heading](../dronecan/ark_rtk_gps.md#setting-up-moving-baseline-gps-heading))
 
 :::note
-If using RTK with a fixed base station the secondary GPS will show the RTK state w.r.t. the base station.
+If using RTK with a fixed base station the secondary GPS will show the RTK state w.r.t. the base station. the base station.
 :::
 
 

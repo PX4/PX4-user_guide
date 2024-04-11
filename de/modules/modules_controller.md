@@ -24,6 +24,12 @@ airship_att_control <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## control_allocator
 Source: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/control_allocator)
@@ -43,6 +49,12 @@ control_allocator <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## differential_drive_control
 Source: [modules/differential_drive_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/differential_drive_control)
@@ -51,11 +63,17 @@ Source: [modules/differential_drive_control](https://github.com/PX4/PX4-Autopilo
 ### Description
 Rover Differential Drive controller.
 
-<a id="differential_drive_control_usage"></a>
+<a id="differential_drive_usage"></a>
 
 ### Usage
 ```
 differential_drive_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
  Commands:
    start
 
@@ -82,6 +100,12 @@ flight_mode_manager <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## fw_att_control
 Source: [modules/fw_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_att_control)
@@ -96,6 +120,13 @@ fw_att_control is the fixed wing attitude controller.
 ### Usage
 ```
 fw_att_control <command> [arguments...]
+ Commands:
+   start
+     [vtol]      VTOL mode
+
+   stop
+
+   status        print status info
  Commands:
    start
      [vtol]      VTOL mode
@@ -124,6 +155,13 @@ fw_pos_control <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+     [vtol]      VTOL mode
+
+   stop
+
+   status        print status info
 ```
 ## fw_rate_control
 Source: [modules/fw_rate_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_rate_control)
@@ -138,6 +176,13 @@ fw_rate_control is the fixed-wing rate controller.
 ### Usage
 ```
 fw_rate_control <command> [arguments...]
+ Commands:
+   start
+     [vtol]      VTOL mode
+
+   stop
+
+   status        print status info
  Commands:
    start
      [vtol]      VTOL mode
@@ -217,6 +262,14 @@ mc_rate_control <command> [arguments...]
    stop
 
    status        print status info
+ mc_att_control <command> [arguments...]
+ Commands:
+   start
+     [vtol]      VTOL mode
+
+   stop
+
+   status        print status info
 ```
 ## navigator
 Source: [modules/navigator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/navigator)
@@ -236,6 +289,7 @@ Navigator publishes position setpoint triplets (`position_setpoint_triplet_s`), 
 ### Usage
 ```
 navigator <command> [arguments...]
+ navigator <command> [arguments...]
  Commands:
    start
 
@@ -277,6 +331,12 @@ rover_pos_control stop
 ### Usage
 ```
 rover_pos_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
  Commands:
    start
 
@@ -349,6 +409,13 @@ uuv_pos_control <command> [arguments...]
    stop
 
    status        print status info
+ uuv_att_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## vtol_att_control
 Source: [modules/vtol_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/vtol_att_control)
@@ -362,6 +429,7 @@ fw_att_control is the fixed wing attitude controller.
 ### Usage
 ```
 vtol_att_control <command> [arguments...]
+ vtol_att_control <command> [arguments...]
  Commands:
 
    stop

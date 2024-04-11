@@ -8,12 +8,10 @@ PX4 almost exclusively consumes data from [uORB](../middleware/uorb.md). Drivers
 
 The best approach for creating a new driver is to start with a similar driver as a template (see [src/drivers](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers)).
 
-:::note
-More detailed information about working with specific I/O buses and sensors may be available in [Sensor and Actuator Buses](../sensor_bus/index.md) section.
+::: info More detailed information about working with specific I/O buses and sensors may be available in [Sensor and Actuator Buses](../sensor_bus/index.md) section.
 :::
 
-:::note
-Publishing the correct uORB topics is the only pattern that drivers *must* follow.
+::: info Publishing the correct uORB topics is the only pattern that drivers *must* follow.
 :::
 
 ## Core Architecture

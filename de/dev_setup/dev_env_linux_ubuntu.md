@@ -234,7 +234,6 @@ If you're working with ROS "Melodic on Ubuntu 18.04:
 Once you have finished setting up the command-line toolchain:
 
 - Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
-- If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release). :::note
-The environment setup scripts in the source usually work for recent PX4 releases.
+- :::note The environment setup scripts in the source usually work for recent PX4 releases. If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release).
 :::
 - Continue to the [build instructions](../dev_setup/building_px4.md).

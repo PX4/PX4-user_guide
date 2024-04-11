@@ -46,7 +46,7 @@ This models has a simple monocular camera sensor attached (there is no physical 
 make px4_sitl gz_x500_mono_cam
 ```
 
-:::note
+::: info
 The camera cannot yet be used to stream video or for image capture in QGroundControl. [PX4-Autopilot#22563](https://github.com/PX4/PX4-Autopilot/issues/22563) can be used to track the additional work needed to fully enable these use cases.
 :::
 
@@ -68,7 +68,7 @@ make px4_sitl gz_advanced_plane
 
 ![Advanced Plane in Gazebo](../../assets/simulation/gazebo/vehicles/advanced_plane.png)
 
-:::note
+::: info
 The difference between the Advanced Plane and the "regular plane" lies in the Lift Physics that the two models use:
 
 - You can configure the _Advanced Lift Drag_ plugin used by the model to more closely match a particular vehicle using the [Advanced Lift Drag Tool](../sim_gazebo_gz/tools_avl_automation.md).

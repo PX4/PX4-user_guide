@@ -33,7 +33,7 @@ PX4 підтримує _доставку посилок у місіях_ за д
 - [Захоплювач](../peripherals/gripper.md)
 - [Політ > Планування місії доставки посилок](../flying/package_delivery_mission.md)
 
-:::note
+::: info
 Support for winches and other release mechanisms is also intended.
 
 Якщо вам необхідно здійснити доставлення вантажу, використовуючи апаратне забезпечення, яке ще не інтегроване, ви можете використати [Керування Загальним Приводом](../payloads/generic_actuator_control.md).
@@ -48,7 +48,7 @@ Support for winches and other release mechanisms is also intended.
 Ці камери можна контролювати як вручну з QGroundControl, так і через MAVSDK (як для [операцій автономної камери](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html), так і в [місіях](https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4)).
 Перегляньте [Запуск камери](../peripherals/camera.md), щоб дізнатися, як налаштувати камеру для роботи з MAVLink.
 
-:::note
+:::info
 Камери, підключені безпосередньо до політного контролера підтримують _тільки_ активацію камери та навряд чи підходять для більшості діяльностей зі спостереження/пошуку.
 :::
 

@@ -19,7 +19,7 @@ Logs can be downloaded using [QGroundControl](http://qgroundcontrol.com/): **[An
 
 [비행 검토를 위한 로그 분석](../log/flight_review.md)은 챠트 해석 방법을 설명하고, 과도한 진동, 불량한 PID 튜닝, 포화된 콘트롤러, 불균형 차량, GPS 잡음 등의 일반적인 문제의 원인을 확인할 수 있습니다.
 
-:::note PX4 로그의 시각화 및 분석을 위한 도구들은 많이 있습니다. 자세한 내용은 [비행 분석](../dev_log/flight_log_analysis.md)을 참고하십시오.
+::: info There are many other great tools for visualising and analysing PX4 Logs. 자세한 내용은 [비행 분석](../dev_log/flight_log_analysis.md)을 참고하십시오.
 :::
 
 :::tip

@@ -45,7 +45,7 @@ It is unsafe to power servos or ESCs from the autopilot's avionics power supply.
 It is unsafe to power servos or ESCs from the autopilot's avionics power supply.
 :::
 
-- As a rule of thumb you should only connect the _output of only one BEC_ to the Pixhawk servo rail. (while it may be possible to connect multiple +5V outputs to the rail, this depends on the ESC model).
+- In this case the wire will normally be connected to the flight controller servo rail, and the servo rail must be powered from an additional BEC. On an opto-isolated ESC **without** BEC, the +5V line might need to be connected and powered (in order to provide power to the ESC microcontroller).
 
 ### Multicopter
 
@@ -113,5 +113,6 @@ PWM interfaces are not formally standardised, however, the normal micro controll
 
 :::tip
 Futaba, FrSky and Spektrum receivers output 3.3V or 3.0V voltage levels, as they are well above 2.4V.
+Pixhawk has adopted this common industry pattern and outputs 3.3V levels on recent boards.
 Pixhawk has adopted this common industry pattern and outputs 3.3V levels on recent boards.
 :::

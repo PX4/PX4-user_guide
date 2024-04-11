@@ -20,8 +20,7 @@
 
 @[youtube](https://youtu.be/DiqgsWIOoW4) <!-- datestamp:video:youtube:20210401:AirSim with PX4 on WSL 2 -->
 
-:::note WSL
-2 не є підтримуваним [середовищем розробки PX4 для Windows](../dev_setup/dev_env_windows_cygwin.md), в основному через те, що недосить просто відображати інтерфейси симуляторів, які працюють у WSL 2, у звичайному середовищі Windows. Це обмеження не стосується AirSim, оскільки його інтерфейс працює нативно у Windows.
+::: info WSL 2 is not a supported [PX4 Windows development environment](../dev_setup/dev_env_windows_cygwin.md), mainly because it is non-trivial to display simulator UIs running within WSL 2 in the normal Windows environment. Це обмеження не стосується AirSim, оскільки його інтерфейс працює нативно у Windows.
 :::
 
 #### Microsoft AirSim: програми для досліджень і промисловості (Віртуальний саміт розробників PX4 2020)

@@ -45,7 +45,7 @@ USB로 비행 컨트롤러를 지상국에 연결합니다 (WiFi가 아직 완�
 
 이 모듈은 지상국과 기체 연결용 WiFi 핫스팟을 노출합니다.
 
-:::note ESP8266 핫스팟 설정은 보드와 함께 제공됩니다. 일반적으로 보드 뒷면 또는 포장지에 인쇄되어 있습니다.
+::: info The settings for the ESP8266 hotspot should be provided with the board (e.g. typically printed on the reverse side of the board or on the packaging).
 
 일반적인 공장 네트워크 설정은 다음과 같습니다.
 
@@ -78,7 +78,7 @@ Wi-Fi가 활성화된 *QGroundControl* 지상국 컴퓨터/태블릿에서 ESP82
 
 *QGroundControl*은 지상국 컴퓨터가 "Pixracer"라는 이름의 WiFi에 연결되면 자동으로 기체에 연결됩니다. 다른 이름의 액세스 포인트에는 사용자 지정 통신 연결을 수동으로 생성하여야 합니다.
 
-1. [애플리케이션 설정 &gt; 통신 링크](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html)로 이동합니다.
+1. Go to [Application Settings > Comm Links](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/settings_view.html)
 2. 적절한 설정으로 새 연결을 추가합니다.
 3. 새 연결을 선택하고, **연결**을 클릭합니다.
 4. 이제 기체에 연결되어야 합니다.
@@ -90,7 +90,7 @@ Wi-Fi가 활성화된 *QGroundControl* 지상국 컴퓨터/태블릿에서 ESP82
 ![Wi-Fi 브리지 QGC 요약](../../assets/qgc/summary/wifi_bridge.png)
 
 :::tip
-If you have any problem connecting, see [QGC Usage Problems](https://docs.qgroundcontrol.com/master/en/troubleshooting/qgc_usage.html).
+If you have any problem connecting, see [QGC Usage Problems](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/troubleshooting/qgc_usage.html).
 :::
 
 ## ESP8266 플래싱/펌웨어 (고급)

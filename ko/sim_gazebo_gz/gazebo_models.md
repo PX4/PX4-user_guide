@@ -44,7 +44,7 @@ You can connect a PX4-enabled vehicle to an instance of _gz-server_ using severa
   There enter "resource spawner" and, under "Fuel resources", add the owner "px4".
   You can then drag and drop any PX4 model into your simulation.
 
-  ::: note
+  ::: info
   These models are taken from an web-server called [Gazebo Fuel](https://app.gazebosim.org/dashboard), which essentially acts as an online database for all types of models and worlds that can be launched in Gazebo.
 
 :::

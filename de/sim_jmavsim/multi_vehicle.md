@@ -3,7 +3,7 @@
 This topic explains how to simulate multiple UAV (multicopter) vehicles using [JMAVSim](../sim_jmavsim/index.md) and SITL. All vehicle instances are started at the same position in the simulation.
 
 :::tip
-This is the easiest way to simulate multiple vehicles running PX4. It is suitable for testing multi-vehicle support in _QGroundControl_ (or the [MAVSDK](https://mavsdk.mavlink.io/), etc.). [Multi-Vehicle Simulation with Gazebo](../simulation/multi-vehicle-simulation.md) should be used for swarm simulations with many vehicles, or for testing features like computer vision that are only supported by Gazebo.
+This is the easiest way to simulate multiple vehicles running PX4. [Multi-Vehicle Simulation with Gazebo](../simulation/multi-vehicle-simulation.md) should be used for swarm simulations with many vehicles, or for testing features like computer vision that are only supported by Gazebo. It is suitable for testing multi-vehicle support in _QGroundControl_ (or the [MAVSDK](https://mavsdk.mavlink.io/), etc.).
 :::
 
 ## How to Start Multiple Instances

@@ -2,8 +2,7 @@
 
 本文主要说明如何创建并运行你的第一个板载应用程序。 它涵盖了 PX4 应用程序开发所需的所有基本概念和 API。
 
-:::note
-为简单起见，省略了更高级的功能，如启动/停止功能和命令行参数。 这些在[Application/Module Template](../modules/module_template.md) 中有介绍。
+::: info For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. 这些在[Application/Module Template](../modules/module_template.md) 中有介绍。
 :::
 
 ## 系统必备组件
@@ -145,8 +144,7 @@ The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/P
 The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/main/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
    为了实现这一功能，我们使用了 POSIX 系统调用函数 [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) 。
 
-:::note
-如果您对`px4_add_module`指定`DYNAMIC`选项，则会在 POSIX 平台上创建一个动态库而不是静态库（这些可以在无需重新编译 PX4 的情况下加载，并作为二进制文件而不是源代码共享给其他人）。 您的应用程序不会成为内置命令，而是生成一个名为`examples__px4_simple_app.px4mod`的文件。 您可以通过在运行时使用以下`dyn`命令加载文件来运行您的命令：`dyn ./examples__px4_simple_app.px4mod`
+   ::: info If you specify `DYNAMIC` as an option to `px4_add_module`, a _shared library_ is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code). 您的应用程序不会成为内置命令，而是生成一个名为`examples__px4_simple_app.px4mod`的文件。 您可以通过在运行时使用以下`dyn`命令加载文件来运行您的命令：`dyn ./examples__px4_simple_app.px4mod`
 :::
 
 1. Create and open a new _Kconfig_ definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4-kconfig-symbol-naming-convention)). Copy in the text below:
@@ -175,8 +173,8 @@ examples  --->
     [x] PX4 Simple app  ----
 ```
 
-:::note
-该行已经存在于大多数文件中，因为固件中默认包含这些示例。
+::: info
+The line will already be present for most files, because the examples are included in firmware by default.
 :::
 
 使用特定板的命令构建示例：
@@ -350,8 +348,7 @@ px4_simple_app &
 
 要使用计算出的输出，下一步是*发布*结果。 下面我们将展示如何发布姿态主题。
 
-:::note
-这里我们选取 `attitude` topic 是因为 *mavlink* app 会自动将该 topic 中的数据转发至地面控制站，这样可以方便我们查看这些结果。
+::: info We've chosen `attitude` because we know that the _mavlink_ app forwards it to the ground control station - providing an easy way to look at the results.
 :::
 
 接口非常简单：初始化要发布的主题`struct`并发布主题：

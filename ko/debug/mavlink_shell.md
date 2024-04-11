@@ -14,7 +14,7 @@ The MAVLink Shell is an _NSH console_ that can be accessed via MAVLink over seri
 
 ### QGroundControl MAVLink 콘솔
 
-The easiest way to access shell is to use the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) (see **Analyze View > Mavlink Console**).
+The easiest way to access shell is to use the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (see **Analyze View > Mavlink Console**).
 
 ### mavlink_shell.py
 

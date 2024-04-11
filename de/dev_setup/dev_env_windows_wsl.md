@@ -133,7 +133,9 @@ If you work from a location outside of the WSL file system you'll run into issue
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
 
-   If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release). :::note
+   :::note
+The environment setup scripts in the source usually work for recent PX4 releases.
+:::note
 The environment setup scripts in the source usually work for recent PX4 releases.
 :::
 

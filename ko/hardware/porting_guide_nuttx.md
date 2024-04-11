@@ -26,8 +26,7 @@ make px4_fmu-v5_default qconfig
 
 [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)을 사용하여 Ubuntu에 PX4를 설치하려면, [NuttX 도구](https://bitbucket.org/nuttx/tools/src/master/)에서 *kconfig* 도구를 설치하여야 합니다. <!-- NEED px4_version --> you will also need to install _kconfig_ tools from [NuttX tools](https://bitbucket.org/nuttx/tools/src/master/).
 
-:::note
-[px4-dev-nuttx](https://hub.docker.com/r/px4io/px4-dev-nuttx/) 도커 컨테이너를 사용하거나 일반 지침(`kconfig-mconf` 포함)을 사용하여 MacOS에 설치한 경우에는 다음 단계가 필요하지 않습니다.
+::: info The following steps are not required if using the [px4-dev-nuttx](https://hub.docker.com/r/px4io/px4-dev-nuttx/) docker container or have installed to macOS using our normal instructions (as these include`kconfig-mconf`).
 :::
 
 임의의 디렉터리에서 다음 명령어를 실행합니다.

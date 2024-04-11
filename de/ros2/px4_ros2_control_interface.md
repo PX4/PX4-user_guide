@@ -65,7 +65,7 @@ Specifically, it has the following properties:
 - Executors cannot activate other executors.
 - Within the library, a mode executor is always implemented in combination with a custom mode.
 
-:::note
+::: info
 
 - These definitions guarantee that a user can take away control from a custom mode or executor at any point in time by commanding a mode switch through RC or a GCS.
 - A mode executor is transparent to the user.
@@ -147,7 +147,7 @@ The following steps are required to get started:
 
 7. Back in the ROS 2 terminal, run one of the example modes:
 
-   ```shell
+   ```sh
    ros2 run example_mode_manual_cpp example_mode_manual
    ```
 
@@ -172,7 +172,7 @@ The following steps are required to get started:
 
    The output should contain:
 
-   ```{5}
+   ```plain
    INFO  [commander] Disarmed
    INFO  [commander] navigation mode: Position
    INFO  [commander] user intended navigation mode: Position
@@ -351,7 +351,7 @@ You can add your own setpoint types by adding a class that inherits from `px4_ro
 
 #### Go-to Setpoint (GotoSetpointType)
 
-:::note
+:::info
 This setpoint type is currently only supported for multicopters.
 :::
 
@@ -407,7 +407,7 @@ Motors and servos can be set independently.
 Be aware that the assignment is vehicle and setup-specific.
 For example to control a quadrotor, you need to set the first 4 motors according to its [output configuration](../concept/control_allocation.md).
 
-:::note
+:::info
 If you want to control an actuator that does not control the vehicle's motion, but for example a payload servo, see [below](#controlling-an-independent-actuator-servo).
 :::
 
@@ -441,7 +441,7 @@ _vehicle_local_position->positionNed();
 _vehicle_local_position->positionXYValid();
 ```
 
-:::note
+:::info
 These topics provide a wrapper around the internal PX4 topics, allowing the library to maintain compatibility if the internal topics change.
 Check [px4_ros2/odometry](https://github.com/Auterion/px4-ros2-interface-lib/tree/main/px4_ros2_cpp/include/px4_ros2/odometry) for new topics, and of course you can use any ROS 2 topic published from PX4.
 :::
@@ -502,7 +502,7 @@ means you would select **External Mode 1** in QGC:
 
 ![QGC Mode Assignment](../../assets/middleware/ros2/px4_ros2_interface_lib/qgc_mode_assignment.png)
 
-:::note
+:::info
 PX4 ensures a given mode is always assigned to the same index by storing a hash of the mode name.
 This makes it independent of startup ordering in case of multiple external modes.
 :::

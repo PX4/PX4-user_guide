@@ -105,7 +105,7 @@ There are separate C and C++ APIs that can be used to access parameter values fr
 
 One important difference between the APIs is that the C++ version has a more efficient standardized mechanism to synchronize with changes to parameter values (i.e. from a GCS).
 
-Synchronization is important because a parameter can be changed to another value at any time. If getting the latest version is not possible, then a reboot will be required after the parameter is changed (set this requirement using the `@reboot_required` metadata). Your code should _always_ use the current value from the parameter store.
+Synchronization is important because a parameter can be changed to another value at any time. Your code should _always_ use the current value from the parameter store. If getting the latest version is not possible, then a reboot will be required after the parameter is changed (set this requirement using the `@reboot_required` metadata).
 
 In addition, the C++ version has also better type-safety and less overhead in terms of RAM. The drawback is that the parameter name must be known at compile-time, while the C API can take a dynamically created name as a string.
 
@@ -144,9 +144,7 @@ public:
 private:
 
     /**
-     *
-
-Check for parameter changes and update them if needed.
+     * Check for parameter changes and update them if needed.
      */
     void parameters_update();
 
@@ -285,8 +283,10 @@ Parameter metadata sections look like the following examples:
 ```cpp
 /**
  * Pitch P gain
- * * Pitch proportional gain, i.e. desired angular speed in rad/s for error 1 rad.
- * * @unit 1/s
+ *
+ * Pitch proportional gain, i.e. desired angular speed in rad/s for error 1 rad.
+ *
+ * @unit 1/s
  * @min 0.0
  * @max 10
  * @decimal 2
@@ -301,7 +301,8 @@ PARAM_DEFINE_FLOAT(MC_PITCH_P, 6.5f);
 /**
  * Acceleration compensation based on GPS
  * velocity.
- * * @group Attitude Q estimator
+ *
+ * @group Attitude Q estimator
  * @boolean
  */
 PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
@@ -314,8 +315,10 @@ The lines in the comment block are all optional, and are primarily used to contr
 ```cpp
 /**
  * <title>
- * * <longer description, can be multi-line>
- * * @unit <the unit, e.g. m for meters>
+ *
+ * <longer description, can be multi-line>
+ *
+ * @unit <the unit, e.g. m for meters>
  * @min <the minimum sane value. Can be overridden by the user>
  * @max <the maximum sane value. Can be overridden by the user>
  * @decimal <the minimum sane value. Can be overridden by the user>

@@ -2,8 +2,7 @@
 
 [Rotoye Batmon](https://rotoye.com/batmon/) - це набір для додавання функціональності розумної батареї до готових літій-іонних та LiPo батарей. Його можна придбати як самостійний пристрій або як частину заводсько зібраної розумної батареї.
 
-:::note
-На момент написання цієї інформації ви можете використовувати Batmon, [створивши спеціальну гілку PX4](#build-px4-firmware). Підтримка в кодовій лінії очікує на [затвердження PR](https://github.com/PX4/PX4-Autopilot/pull/16723).
+::: info At time of writing you can only use Batmon by [building a custom branch of PX4](#build-px4-firmware). Підтримка в кодовій лінії очікує на [затвердження PR](https://github.com/PX4/PX4-Autopilot/pull/16723).
 :::
 
 
@@ -49,7 +48,7 @@
    - `BATx_SOURCE` до `External`,
    - `SENS_EN_BAT` до `true`,
    - `BAT_SMBUS_MODEL` до `3:Rotoye`
-1. Відкрийте консоль [MAVLink](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html)
+1. Open the [MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html)
 1. Запустіть драйвер [batt_smbus](../modules/modules_driver.md) у консолі. Наприклад, для запуску двох BatMons у одному підключенні:
    ```sh 
    batt_smbus start -X -b 1 -a 11 # External bus 1, address 0x0b  

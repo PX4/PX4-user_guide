@@ -93,7 +93,7 @@ The installation of a Pixhawk can be done similarly.
 
 #### Prepare 3D-Printed Parts
 
-:::note
+:::info
 Use a soldering iron to press the threaded inserts into the 3D-Printed parts.
 :::
 
@@ -115,7 +115,7 @@ Use a soldering iron to press the threaded inserts into the 3D-Printed parts.
 
 4. Change the cable connector to a servo connector so it can be plugged into the servo rail to be powered.
 
-   :::note
+   ::: info
    A fan might be needed if a powerful radio is used.
 
 :::
@@ -169,7 +169,7 @@ If necessary, the 10V output of the radio port on the PM can also be exposed via
 
 #### Lidar
 
-:::note
+:::info
 A lidar is recommended!
 If no lidar is mounted you should disable using fixed-wing actuation in hover to accelerate forward (set [VT_FWD_THRUST_EN](../advanced_config/parameter_reference.md#VT_FWD_THRUST_EN) to `0` instead of `1`).
 :::
@@ -372,7 +372,7 @@ Check the following reactions:
 - Yaw stick to the right.
   Front right and rear left motor should spool up
 
-:::note
+:::info
 increase the throttle a bit if you can't see a reaction since [Airmode](../config_mc/pid_tuning_guide_multicopter.md#airmode-mixer-saturation) is not enabled for the yaw axis.
 :::
 

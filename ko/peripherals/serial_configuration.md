@@ -11,7 +11,7 @@ The functions assigned to ports are fully configurable using appropriate paramet
 - Setup dual GPS.
 - Enable sensors that run on a serial port, such as some [distance sensors](../sensor/rangefinders.md).
 
-:::note
+::: info
 
 - Some ports cannot be configured because they are used for a very specific purpose such as the system console.
 - The mapping of specific devices to port names on the flight controller is explained in [Serial Port Mapping](../hardware/serial_port_mapping.md).
@@ -21,8 +21,7 @@ The functions assigned to ports are fully configurable using appropriate paramet
 
 The serial port configuration parameters allow you to assign a particular function or support for particular hardware to a particular port. These parameters follow the naming pattern `*_CONFIG` or `*_CFG`
 
-:::note
-_QGroundControl_ only displays the parameters for services/drivers that are present in firmware.
+::: info _QGroundControl_ only displays the parameters for services/drivers that are present in firmware.
 :::
 
 At time of writing the current set is:
@@ -102,7 +101,7 @@ Other ports generally have no assigned functions by default (are disabled).
 
 _QGroundControl_ only displays the parameters for services/drivers that are present in firmware. 펌웨어에 누락된 매개변수를 추가할 수 있습니다.
 
-:::note PX4 펌웨어는 기본적으로 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 보드에 드라이버를 대부분 포함합니다. 플래시 제한 보드는 드라이버를 주석 처리하거나 생략할 수 있습니다(작성 시점에는 FMUv2 기반 보드에만 영향을 미침).
+::: info PX4 firmware includes most drivers by default on [Pixhawk-series](../flight_controller/pixhawk_series.md) boards. 플래시 제한 보드는 드라이버를 주석 처리하거나 생략할 수 있습니다(작성 시점에는 FMUv2 기반 보드에만 영향을 미침).
 :::
 
 You can include the missing driver in firmware by enabling the driver in the **default.px4board** config file that corresponds to the [board](https://github.com/PX4/PX4-Autopilot/tree/master/boards/px4) you want to build for. For example, to enable the SRF02 driver, you would a the following line to the px4board.

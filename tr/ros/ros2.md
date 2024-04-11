@@ -15,14 +15,13 @@ The main topics in this section are:
 - [ROS 2 User Guide](../ros/ros2_comm.md): A PX4-centric overview of ROS 2, covering installation, setup, and how to build ROS 2 applications that communicate with PX4.
 - [ROS 2 Offboard Control Example](../ros/ros2_offboard_control.md)
 
-:::note
+::: info
 ROS 2 is officially supported only on Linux platforms.
 Ubuntu 20.04 LTS is the official supported distribution.
 :::
 
 
-:::note ROS
-2 can also connect with PX4 using [MAVROS](https://github.com/mavlink/mavros/tree/ros2/mavros) (instead of XRCE-DDS). This option is supported by the MAVROS project.
+::: info ROS 2 can also connect with PX4 using [MAVROS](https://github.com/mavlink/mavros/tree/ros2/mavros) (instead of XRCE-DDS). This option is supported by the MAVROS project.
 :::
 
 

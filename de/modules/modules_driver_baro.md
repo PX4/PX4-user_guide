@@ -42,6 +42,7 @@ Source: [drivers/barometer/bmp388](https://github.com/PX4/PX4-Autopilot/tree/mai
 ### Usage
 ```
 bmp388 <command> [arguments...]
+ lps22hb <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -54,8 +55,6 @@ bmp388 <command> [arguments...]
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 118
 
    stop
 
@@ -127,6 +126,7 @@ Source: [drivers/barometer/invensense/icp201xx](https://github.com/PX4/PX4-Autop
 ### Usage
 ```
 icp201xx <command> [arguments...]
+ icp101xx <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -274,6 +274,7 @@ Source: [drivers/barometer/ms5611](https://github.com/PX4/PX4-Autopilot/tree/mai
 ### Usage
 ```
 ms5611 <command> [arguments...]
+ ms5611 <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -309,6 +310,7 @@ Source: [drivers/barometer/ms5837](https://github.com/PX4/PX4-Autopilot/tree/mai
 ### Usage
 ```
 ms5837 <command> [arguments...]
+ ms5837 <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)

@@ -4,7 +4,7 @@ PX4 behaviour can be configured/tuned using [parameters](../advanced_config/para
 
 The _QGroundControl Parameters_ screen allows you to find and modify **any** of the parameters associated with the vehicle. The screen is accessed by clicking the **Q** application icon > **Vehicle Setup**, and then _Parameters_ in the sidebar.
 
-The _Parameters_ screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle. :::note Most of the more commonly used parameters are more conveniently set using the dedicated setup screens, as described in the [Standard Configuration](../config/README.md) section.
+::: info Most of the more commonly used parameters are more conveniently set using the dedicated setup screens, as described in the [Standard Configuration](../config/index.md) section. :::note Most of the more commonly used parameters are more conveniently set using the dedicated setup screens, as described in the [Standard Configuration](../config/README.md) section.
 :::
 
 :::warning
