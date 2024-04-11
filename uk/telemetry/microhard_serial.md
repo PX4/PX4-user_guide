@@ -1,30 +1,30 @@
 # Microhard Serial Telemetry Radios
 
-[Microhard Pico Serial Radios](http://microhardcorp.com/P900.php) integrate the [Microhard Pico Serial](http://microhardcorp.com/P900.php) P900 RF module.
+[Мікрорадіопередавачі Microhard Pico Serial](http://microhardcorp.com/P900.php) інтегрують модуль радіо [Microhard Pico Serial](http://microhardcorp.com/P900.php) P900 RF.
 
-This is a relatively small size and low cost radio that supports modes including point to point, point to multi-point, and mesh modes. It has configurable power output and can also be configured to use forward error correction. Radios can also be ordered that support secure/encrypted channels, although this is subject to export restriction.
+Це відносно невеликий за розміром та недорогий радіопередавач, який підтримує такі режими як точка-точка, точка-багатоточка та мережеві режими. Він має налаштований вихідну потужність та також може бути налаштований на використання корекції помилок передачі. Радіопередавачі також можна замовити з підтримкою безпечних/шифрованих каналів, хоча це підлягає обмеженням на експорт.
 
-Manufacturers typically default-configure the radios in peer-to-peer mode and match the baud rate expected by PX4 and _QGroundControl_ (57600 baud). This allows plug and play telemetry when the radios are connected to the usual telemetry ports on a Pixhawk flight controllers (`TELEM1` or `TELEM2`) along with auto-detection of the connection in _QGroundControl_.
+Виробники зазвичай налаштовують радіопередавачі в режимі пір-до-пір та встановлюють таку саму швидкість передачі даних, яка очікується PX4 та _QGroundControl_ (57600 бод). Це дозволяє підключати радіопередавачі до звичайних портів телеметрії на контролерах польоту Pixhawk (`TELEM1` або `TELEM2`) разом із автоматичним виявленням з'єднання в _QGroundControl_.
 
-Several manufacturers provide solutions based on these radios:
+Кілька виробників пропонують рішення на основі цих радіопродуктів:
 
-- [ARK Electron Microhard Serial Telemetry Radio](../telemetry/ark_microhard_serial.md)
-- [Holybro Microhard P900 Telemetry Radio](../telemetry/holybro_microhard_p900_radio.md)
+- [ARK Electron Microhard Серійний Телеметрійний Радіо](../telemetry/ark_microhard_serial.md)
+- [Holybro Microhard P900 Телеметрійне Радіо](../telemetry/holybro_microhard_p900_radio.md)
 
 ## Range Tradeoffs
 
-The radio range depends on a number of factors, including: baud rate, power output, mode, whether forward error connection is enabled, whether encryption is enabled, antenna used etc.
+Дальність передачі радіо залежить від кількох факторів, включаючи: швидкість передачі даних, вихідну потужність, режим, включено корекцію помилок передачі, включено шифрування, використання антени тощо.
 
-The selection of these parameters is a tradeoff:
+Вибір цих параметрів є компромісом:
 
-- increasing baud rate decreases radio range.
-- increasing radio power increases range, but decreases flight time.
-- point to multipoint means you can have a single ground station talking to multiple vehicles, but increases the bandwidth on the channel.
-- mesh configurations provide similar convenience and cost.
+- збільшення швидкості передачі даних зменшує дальність радіопередачі.
+- збільшення потужності радіо збільшує дальність, але зменшує час польоту.
+- точка-багатоточка означає можливість однієї земної станції, яка спілкується з кількома транспортними засобами, але збільшує пропускну спроможність каналу.
+- мережеві конфігурації надають подібний зручність і вартість.
 
-The maximum range quoted in specifications is around 60km. ARK Electron suggest an approximate range of 8km with output power set to 1W is 8km and using default settings.
+Максимальна заявлена дальність в специфікаціях становить приблизно 60 км. ARK Electron пропонує приблизно 8 км дальності з вихідною потужністю, встановленою на рівні 1 Вт та використанням налаштувань за замовчуванням.
 
-## Configuration
+## Конфігурація
 
 For convenience, radios are usually default-configured so that they can be used with PX4 and _QGroundControl_ out of the box.
 
@@ -57,7 +57,7 @@ The [Pico Series P900.Operating Manual.v1.8.7](https://github.com/PX4/PX4-user_g
 
 Mesh and point to multi-point modes are supported, but all vehicles must have a unique Mavlink ID.
 
-Anecdotally:
+Додатково:
 
 - At the highest link rate, with no FEC, we can have 201 drones in one mesh system transmitting 80 bytes once a second.
 - You can have multiple networks working together at the same time without mutual interference using "co-located systems". For example, to deploy more than 500 vehicles you would need to deploy three P900 mesh coordinators, each serving up to 201 drones in their respective local networks.
