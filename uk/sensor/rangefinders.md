@@ -1,136 +1,138 @@
-# Distance Sensors (Rangefinders)
+# Датчики відстані (далекодобива)
 
-Distance sensors provide distance measurement that can be used for [terrain following](../flying/terrain_following_holding.md#terrain_following), [terrain holding](../flying/terrain_following_holding.md#terrain_hold) (i.e. precision hovering for photography), improved landing behaviour ([conditional range aid](../advanced_config/tuning_the_ecl_ekf.md#conditional-range-aiding)), warning of regulatory height limits, collision prevention, etc.
+Датчики відстані надають вимірювання відстані, які можуть бути використані для [слідування за місцевістю](../flying/terrain_following_holding.md#terrain_following), [утримання на місці](../flying/terrain_following_holding.md#terrain_hold) (тобто точне зависання для фотографії), покращення поведінки при посадці ([умовна допомога в діапазоні](../advanced_config/tuning_the_ecl_ekf.md#conditional-range-aiding)), попередження про регуляторні висотні обмеження, запобігання зіткненням тощо.
 
-This section lists the distance sensors supported by PX4 (linked to more detailed documentation), the [generic configuration](#configuration) required for all rangefinders, [testing](#testing), and [Gazebo-Classic simulation](#gazebo-classic-simulation) information. More detailed setup and configuration information is provided in the topics linked below (and sidebar).
+Цей розділ містить перелік датчиків відстані, підтримуваних PX4 (посилання на більш докладну документацію), [загальну конфігурацію](#configuration), необхідну для всіх дальномерів, [тестування](#testing) та інформацію про [класичну симуляцію Gazebo](#gazebo-classic-simulation). Додаткову інформацію щодо налаштування та конфігурації надається в темах, посилених нижче (та в бічній панелі).
 
 <img src="../../assets/hardware/sensors/lidar_lite/lidar_lite_v3.jpg" alt="Lidar Lite V3" width="200px" /><img src="../../assets/hardware/sensors/lidar_lightware/sf11c_120_m.jpg" alt="LightWare SF11/C Lidar" width="200px" /><img src="../../assets/hardware/sensors/optical_flow/ark_flow_distance_sensor.jpg" alt="ARK Flow" width="200px" />
 
-## Supported Rangefinders
+## Підтримувані дальномери
 
 ### ARK Flow
 
-[ARK Flow](../dronecan/ark_flow.md) is an open-source Time-of-Flight (ToF) and optical flow sensor module, which is capable of measuring distances from 8cm to 30m. It can be connected to the flight controller via its CAN1 port, allowing additional sensors to connect through its CAN2 port. It supports [DroneCAN](../dronecan/index.md), runs [PX4 DroneCAN Firmware](../dronecan/px4_cannode_fw.md), and is packed into a tiny form factor.
+[ARK Потік](../dronecan/ark_flow.md) - це модуль сенсора відкритого коду Time-of-Flight (ToF) та оптичного потоку, який здатний вимірювати відстані від 8 см до 30 м. Він може бути підключений до контролера польоту через свій порт CAN1, що дозволяє підключати додаткові датчики через свій порт CAN2. Підтримує [DroneCAN](../dronecan/index.md), працює з [Прошивкою PX4 DroneCAN](../dronecan/px4_cannode_fw.md) та упакований у крихітний форм-фактор.
 
-### Holybro ST VL53L1X Lidar
+### Лідар Holybro ST VL53L1X
 
-The [VL53L1X](https://holybro.com/products/st-vl53l1x-lidar) is a state-of-the-art, Time-of-Flight (ToF), laser-ranging sensor, enhancing the ST FlightSense™ product family. It is the fastest miniature ToF sensor on the market with accurate ranging up to 4 m and fast ranging frequency up to 50 Hz.
+[VL53L1X](https://holybro.com/products/st-vl53l1x-lidar) - це передовий лазерно-вимірювальний сенсор часу польоту (ToF), який покращує продуктову лінійку ST FlightSense™. Це найшвидший мініатюрний датчик ToF на ринку з точним вимірюванням до 4 м і швидкою частотою вимірювання до 50 Гц.
 
-It comes with a JST GHR 4 pin connector that is compatible with the I2C port on [Pixhawk 4](../flight_controller/pixhawk4.md), [Pixhawk 5X](../flight_controller/pixhawk5x.md), and other flight controllers that follow the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)).
+Він поставляється з роз'ємом JST GHR 4 pin, який сумісний з портом I2C на [Pixhawk 4](../flight_controller/pixhawk4.md), [Pixhawk 5X](../flight_controller/pixhawk5x.md) та іншими контролерами польоту, які відповідають [Стандарту роз'ємів Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)).
 
 ### Lidar-Lite
 
-[Lidar-Lite](../sensor/lidar_lite.md) is a compact, high-performance optical distant measurement rangefinder. It has a sensor range from (5cm - 40m) and can be connected to either PWM or I2C ports.
+[Lidar-Lite](../sensor/lidar_lite.md) - це компактний, високопродуктивний оптичний дальніметр для вимірювання відстані. Він має діапазон сенсора від (5см - 40м) і може бути підключений до портів PWM або I2C.
 
 ### MaxBotix I2CXL-MaxSonar-EZ
 
-The MaxBotix [I2CXL-MaxSonar-EZ](https://www.maxbotix.com/product-category/i2cxl-maxsonar-ez-products) range has a number of relatively short-ranged sonar based rangefinders that are suitable for assisted takeoff/landing and collision avoidance. These can be connected using an I2C port.
+Дальність MaxBotix [I2CXL-MaxSonar-EZ](https://www.maxbotix.com/product-category/i2cxl-maxsonar-ez-products) має кілька досить короткодіючих датчиків відстані на основі сонару, які підходять для допомоги при зльоті/посадці та уникнення зіткнень. Ці можуть бути підключені за допомогою порту I2C.
 
-The rangefinders are enabled using the parameter [SENS_EN_MB12XX](../advanced_config/parameter_reference.md#SENS_EN_MB12XX).
+Дальномери активовані за допомогою параметра [SENS_EN_MB12XX](../advanced_config/parameter_reference.md#SENS_EN_MB12XX).
 
-### Lightware LIDARs
+### Лідари Lightware
 
-[Lightware SFxx Lidar](../sensor/sfxx_lidar.md) provide a broad range of lightweight "laser altimeters" that are suitable for many drone applications.
+[Лідар Lightware SFxx](../sensor/sfxx_lidar.md) надає широкий спектр легких "лазерних альтиметрів", які підходять для багатьох додатків дронів.
 
-PX4 supports: SF11/c and SF/LW20. PX4 can also be used with the following discontinued models: SF02, SF10/a, SF10/b, SF10/c.
+PX4 підтримує: SF11/c та SF/LW20. PX4 також може бути використаний з наступними припиненими моделями: SF02, SF10/a, SF10/b, SF10/c.
 
-PX4 also supports the [LightWare LiDAR SF45 Rotating Lidar](https://www.lightwarelidar.com/shop/sf45-b-50-m/) for [collision prevention](../computer_vision/collision_prevention.md#lightware-lidar-sf45-rotating-lidar) applications.
+PX4 також підтримує [LightWare LiDAR SF45 Обертовий Лідар](https://www.lightwarelidar.com/shop/sf45-b-50-m/) для застосувань у [запобіганні зіткнень](../computer_vision/collision_prevention.md#lightware-lidar-sf45-rotating-lidar).
 
-### TeraRanger Rangefinders
+### Дальніміри TeraRanger
 
-[TeraRanger](../sensor/teraranger.md) provide a number of lightweight distance measurement sensors based on infrared Time-of-Flight (ToF) technology. They are typically faster and have greater range than sonar, and smaller and lighter than laser-based systems.
+[TeraRanger](../sensor/teraranger.md) надає ряд легких сенсорів вимірювання відстані на основі інфрачервоної технології часу польоту (ToF). Вони зазвичай швидші і мають більший діапазон, ніж ехолокатори, і менші та легші, ніж системи на основі лазера.
 
-PX4 supports the following models connected via the I2C bus: TeraRanger One, TeraRanger Evo 60m and TeraRanger Evo 600Hz.
+PX4 підтримує наступні моделі, підключені через шину I2C: TeraRanger One, TeraRanger Evo 60m та TeraRanger Evo 600Hz.
 
-### Ainstein US-D1 Standard Radar Altimeter
+### Стандартний радарний висотомір Ainstein US-D1
 
-The _Ainstein_ [US-D1 Standard Radar Altimeter](../sensor/ulanding_radar.md) is compact microwave rangefinder that has been optimised for use on UAVs. It has a sensing range of around 50m. A particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
+Стандартний радіолокатор висоти [US-D1](../sensor/ulanding_radar.md) від _Ainstein_ - це компактний мікрохвильовий дальномер, який був оптимізований для використання на БПЛА. Він має діапазон виявлення близько 50м. Особливі переваги цього продукту полягають в тому, що він може ефективно працювати в усіх погодних умовах і на всіх типах місцевості (включаючи воду).
 
 ### LeddarOne
 
-[LeddarOne](../sensor/leddar_one.md) is small Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. It has a sensing range from 1cm to 40m and needs to be connected to a UART/serial bus.
+[LeddarOne](../sensor/leddar_one.md) - це невеликий модуль Lidar з вузьким, але розсіяним променем, який пропонує відмінний загальний діапазон виявлення та продуктивність в міцному, надійному та економічному пакеті. Він має діапазон відчуття від 1 см до 40 м і потребує підключення до шини UART/серійного порту.
 
 ### TFmini
 
-The [Benewake TFmini Lidar](../sensor/tfmini.md) is a tiny, low cost, and low power LIDAR with 12m range.
+Лідар [Benewake TFmini](../sensor/tfmini.md) - це крихітний, недорогий та енергоефективний лідар з дальністю 12 м.
 
 ### PSK-CM8JL65-CC5
 
-The [Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor](../sensor/cm8jl65_ir_distance_sensor.md) is a very small (38 mm x 18mm x 7mm, <10g) IR distance sensor with a 0.17m-8m range and millimeter resolution. It must be connected to a UART/serial bus.
+Датчик відстані ІЧ вимірювання [Lanbao PSK-CM8JL65-CC5 ToF](../sensor/cm8jl65_ir_distance_sensor.md) є дуже малий (38 мм х 18 мм х 7 мм, <10 г) датчик відстані з діапазоном від 0,17 м до 8 м і роздільною здатністю у міліметрах. Він повинен бути підключений до шини UART/серійного порту.
 
-### Avionics Anonymous UAVCAN Laser Altimeter Interface
+### Авіоніка Анонімний UAVCAN Лазерний Альтиметр Інтерфейс
 
-The [Avionics Anonymous UAVCAN Laser Altimeter Interface](../dronecan/avanon_laser_interface.md) allows several common rangefinders (e.g. [Lightware SF11/c, SF30/D](../sensor/sfxx_lidar.md), etc) to be connected to the [CAN](../can/index.md) bus via [DroneCAN](../dronecan/index.md), a more robust interface than I2C.
+Інтерфейс лазерного альтиметра [Avionics Anonymous UAVCAN](../dronecan/avanon_laser_interface.md) дозволяє підключати кілька поширених дальномерів (наприклад, [Lightware SF11/c, SF30/D](../sensor/sfxx_lidar.md) тощо) до шини [CAN](../can/index.md) через [DroneCAN](../dronecan/index.md), інтерфейс, що є надійнішим, ніж I2C.
 
 <a id="configuration"></a>
 
-## Configuration/Setup
+## Конфігурація/Налаштування
 
-Rangefinders are usually connected to either a serial (PWM) or I2C port (depending on the device driver), and are enabled on the port by setting a particular parameter.
+Дальні вимірювачі зазвичай підключаються до порту або послідовного (PWM), або I2C (залежно від драйвера пристрою), і активуються на порту шляхом встановлення певного параметра.
 
-The hardware and software setup that is _specific to each distance sensor_ is covered in their individual topics.
+Апаратне та програмне забезпечення, яке _специфічне для кожного датчика_ відстані, описано в їхніх окремих темах.
 
-The generic configuration that is _common to all distance sensors_, covering both the physical setup and usage, is given below.
+Загальна конфігурація, яка є _спільною для всіх відстанційних датчиків_, охоплюючи як фізичне налаштування, так і використання, наведена нижче.
 
-### Generic Configuration
+### Загальна конфігурація
 
-The common rangefinder configuration is specified using [EKF2_RNG\_\*](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) parameters. These include (non exhaustively):
+Загальна конфігурація дальномера вказується за допомогою параметрів [EKF2_RNG\_\*](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL). Ці включають (не вичерпно):
 
-- [EKF2_RNG_POS_X](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_Y](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Y), [EKF2_RNG_POS_Z](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Z) - offset of the rangefinder from the vehicle centre of gravity in X, Y, Z directions.
-- [EKF2_RNG_PITCH](../advanced_config/parameter_reference.md#EKF2_RNG_PITCH) - A value of 0 degrees (default) corresponds to the range finder being exactly aligned with the vehicle vertical axis (i.e. straight down), while 90 degrees indicates that the range finder is pointing forward. Simple trigonometry is used to calculate the distance to ground if a non-zero pitch is used.
-- [EKF2_RNG_DELAY](../advanced_config/parameter_reference.md#EKF2_RNG_DELAY) - approximate delay of data reaching the estimator from the sensor.
-- [EKF2_RNG_SFE](../advanced_config/parameter_reference.md#EKF2_RNG_SFE) - Range finder range dependent noise scaler.
-- [EKF2_RNG_NOISE](../advanced_config/parameter_reference.md#EKF2_RNG_NOISE) - Measurement noise for range finder fusion
+- [EKF2_RNG_POS_X](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_Y](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Y), [EKF2_RNG_POS_Z](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Z) - зміщення дальномера від центру ваги транспортного засобу в напрямках X, Y, Z.
+- [EKF2_RNG_PITCH](../advanced_config/parameter_reference.md#EKF2_RNG_PITCH) - Значення 0 градусів (типове) відповідає тому, що дальномер точно вирівняний з вертикальною віссю літального апарата (тобто прямо вниз), тоді як 90 градусів показує, що дальномер спрямований вперед. Проста тригонометрія використовується для обчислення відстані до землі, якщо використовується ненульовий кут нахилу.
+- [EKF2_RNG_DELAY](../advanced_config/parameter_reference.md#EKF2_RNG_DELAY) - приблизна затримка даних, що надходять до оцінювача від датчика.
+- [EKF2_RNG_SFE](../advanced_config/parameter_reference.md#EKF2_RNG_SFE) - Масштабування шуму, залежного від дальномера.
+- [EKF2_RNG_NOISE](../advanced_config/parameter_reference.md#EKF2_RNG_NOISE) - Шум вимірювання для об'єднання дальномера
 
-## Testing
+## Тестування
 
-The easiest way to test the rangefinder is to vary the range and compare to the values detected by PX4. The sections below show some approaches to getting the measured range.
+Найлегший спосіб перевірити дальномер - змінювати діапазон і порівнювати зі значеннями, виявленими PX4. Нижче наведено деякі підходи до отримання виміряного діапазону.
 
-### QGroundControl MAVLink Inspector
+### Інспектор MAVLink QGroundControl
 
-The _QGroundControl MAVLink Inspector_ lets you view messages sent from the vehicle, including `DISTANCE_SENSOR` information from the rangefinder. The main difference between the tools is that the _Analyze_ tool can plot values in a graph.
+_Інспектор MAVLink QGroundControl_ дозволяє переглядати повідомлення, відправлені з апарату, включаючи інформацію `DISTANCE_SENSOR` від дальномера. Основна відмінність між інструментами полягає в тому, що інструмент _Аналізувати_ може побудувати значення на графіку.
 
-::: info The messages that are sent depend on the vehicle configuration. You will only get `DISTANCE_SENSOR` messages if the connected vehicle has a rangefinder installed and is publishing sensor values.
+:::note
+Повідомлення, які надсилаються, залежать від конфігурації транспортного засобу. Ви отримаєте повідомлення лише, якщо підключений транспортний засіб має встановлений дальніомір і публікує значення сенсора `DISTANCE_SENSOR`.
 :::
 
-To view the rangefinder output:
+Для перегляду виводу дальномера:
 
-1. Open the menu **Q > Select Tool > Analyze Tools**:
+1. Відкрийте меню **Q > Вибір Інструменту > Інструменти Аналізу**:
 
    ![Menu for QGC Analyze Tool](../../assets/qgc/analyze/menu_analyze_tool.png)
 
-1. Select the message `DISTANCE_SENSOR`, and then check the plot checkbox against `current_distance`. The tool will then plot the result: ![QGC Analyze DISTANCE_SENSOR value](../../assets/qgc/analyze/qgc_analyze_tool_distance_sensor.png)
+1. Виберіть повідомлення `DISTANCE_SENSOR`, а потім встановіть прапорець графіку проти `current_distance`. Інструмент потім побудує результат: ![QGC Analyze DISTANCE_SENSOR value](../../assets/qgc/analyze/qgc_analyze_tool_distance_sensor.png)
 
-### QGroundControl MAVLink Console
+### Консоль QGroundControl MAVLink
 
-You can also use the _QGroundControl MAVLink Console_ to observe the `distance_sensor` uORB topic:
+Ви також можете використовувати _QGroundControl MAVLink Console_, щоб спостерігати за темою uORB `distance_sensor`:
 
 ```sh
 listener distance_sensor 5
 ```
 
-::: info The _QGroundControl MAVLink Console_ works when connected to Pixhawk or other NuttX targets, but not the Simulator. On the Simulator you can run the commands directly in the terminal.
+:::note
+Консоль _QGroundControl MAVLink_ працює при підключенні до Pixhawk або інших цілей NuttX, але не до Симулятора. На симуляторі ви можете виконувати команди безпосередньо в терміналі.
 :::
 
-For more information see: [Development > Debugging/Logging > Sensor/Topic Debugging using the Listener Command](../debug/sensor_uorb_topic_debugging.md).
+Для отримання додаткової інформації див.: [Розробка > Налагодження/Журналювання> Налагодження датчика/Теми за допомогою команди слухача](../debug/sensor_uorb_topic_debugging.md).
 
-## Gazebo-Classic Simulation
+## Класичний симулятор Gazebo
 
-Lidar and sonar rangefinders can be used in the [Gazebo Classic](../sim_gazebo_classic/index.md) simulator. To do this you must start the simulator using a vehicle model that includes the rangefinder.
+Лідар та сонарні дальномери можуть бути використані в симуляторі [Gazebo Classic](../sim_gazebo_classic/index.md). Для цього вам потрібно запустити симулятор, використовуючи модель автомобіля, яка включає дальномір.
 
-The iris optical flow model includes a Lidar rangefinder:
+Модель оптичного потоку ірису включає лідарний дальномер:
 
 ```sh
 make px4_sitl gazebo-classic_iris_opt_flow
 ```
 
-The typhoon_h480 includes a sonar rangefinder:
+Тайфун_h480 включає в себе зондовий дальномер:
 
 ```sh
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
-If you need to use a different vehicle you can include the model in its configuration file. You can see how in the respective Iris and Typhoon configuration files:
+Якщо вам потрібно використовувати інше транспортний засіб, ви можете включити модель у файл конфігурації. Ви можете побачити, як у відповідних файлах конфігурації Iris та Typhoon:
 
 - [iris_opt_flow.sdf](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/iris_opt_flow/iris_opt_flow.sdf)
 
