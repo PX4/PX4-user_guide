@@ -155,7 +155,7 @@
 - [Hardware Selection & Setup](hardware/drone_parts.md)
 
   - [Flight Controllers (Autopilots)](flight_controller/index.md)
-    - [Flight Controllers](getting_started/flight_controller_selection.md)
+    - [Flight Controller Selection](getting_started/flight_controller_selection.md)
     - [Mounting the Flight Controller](assembly/mount_and_orient_controller.md)
     - [Vibration Isolation](assembly/vibration_isolation.md)
     - [Updating Firmware](config/firmware.md)
