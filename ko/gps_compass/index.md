@@ -6,7 +6,7 @@ PX4는 Bosch BMM 150 MEMS (I2C 버스를 통해), HMC5883/HMC5983 (I2C 또는 SP
 
 ![GPS와 나침반](../../assets/hardware/gps/gps_compass.jpg)
 
-:::note PX4 also supports [Real Time Kinematic (RTK)](../gps_compass/rtk_gps.md) and **Post-Processing Kinematic (PPK)** GNSS Receivers, which extend GNSS systems to centimetre-level precision.
+::: info PX4 also supports [Real Time Kinematic (RTK)](../gps_compass/rtk_gps.md) and **Post-Processing Kinematic (PPK)** GNSS Receivers, which extend GNSS systems to centimetre-level precision.
 :::
 
 ## 지원되는 GNSS와 나침반
@@ -74,8 +74,7 @@ GPS 모듈을 연결시 핀배열에 주의하십시오.
 
 Pixhawk의 GPS 설정은 투명하게 처리됩니다. GPS 모듈을 **GPS**라고 표시된 포트에 연결하기 만하면 작동합니다.
 
-:::note
-기본적인 [직렬 포트 설정](../peripherals/serial_configuration.md#default_port_mapping)은 대부분의 장치에서 작동합니다. If you are using the _Trimble MB-Two_ you will need to modify the configuration to explicitly set the rate to 115200 baud.
+::: info The default [Serial Port Configuration](../peripherals/serial_configuration.md#default_port_mapping) works for most devices. If you are using the _Trimble MB-Two_ you will need to modify the configuration to explicitly set the rate to 115200 baud.
 :::
 
 <a id="dual_gps"></a>
