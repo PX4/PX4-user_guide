@@ -14,7 +14,7 @@ Each MAVLink instance represents a particular MAVLink configuration that you can
 
 Each instance has associated parameters that you can use to define the properties of the instance on that port, such as the set of streamed messages (see [MAV_X_MODE](#MAV_X_MODE) below), data rate ([MAV_X_RATE](#MAV_X_RATE)), whether incoming traffic is forwarded to other MAVLink instances ([MAV_X_FORWARD](#MAV_X_FORWARD)), and so on.
 
-:::note
+::: info
 MAVLink instances are an abstract concept for a particular MAVLink configuration.
 The number in the name means nothing; you can assign any instance to any port.
 :::
@@ -33,8 +33,7 @@ The parameters for each instance are:
   - _ExtVision_ or _ExtVisionMin_: Messages for offboard vision systems (ExtVision needed for VIO).
   - _Iridium_: Messages for an [Iridium satellite communication system](../advanced_features/satcom_roadblock.md).
 
-:::note
-If you need to find the specific set of message for each mode search for `MAVLINK_MODE_` in [/src/modules/mavlink/mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_main.cpp).
+  ::: info If you need to find the specific set of message for each mode search for `MAVLINK_MODE_` in [/src/modules/mavlink/mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_main.cpp).
 :::
 
 :::tip
