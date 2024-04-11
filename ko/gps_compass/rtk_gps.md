@@ -4,8 +4,7 @@
 
 This feature requires _QGroundControl_ running on a laptop/PC and a vehicle with a WiFi or Telemetry radio link to the ground station laptop.
 
-:::note
-Some RTK GNSS setups can provide yaw/heading information, as an alternative to the compass:
+::: info Some RTK GNSS setups can provide yaw/heading information, as an alternative to the compass:
 
 - [듀얼 u-blox F9P를 사용한 RTK GPS 헤딩](../gps_compass/u-blox_f9p_heading.md).
 - GPS directly output yaw (see table below).
@@ -64,8 +63,7 @@ RTK positioning requires a _pair_ of [RTK GNSS devices](#supported-devices): a "
 - A _laptop/PC_ with QGroundControl (QGroundControl for Android/iOS do not support RTK)
 - 노트북에 WiFi 또는 원격 텔레메트리 링크가 있는 기체.
 
-:::note
-_QGroundControl_ with a base module can theoretically enable RTK GPS for multiple vehicles/rover modules. 이 문서 작성 시점에서 이것의 사용 사례는 테스트되지 않았습니다.
+::: info _QGroundControl_ with a base module can theoretically enable RTK GPS for multiple vehicles/rover modules. 이 문서 작성 시점에서 이것의 사용 사례는 테스트되지 않았습니다.
 :::
 
 ### 하드웨어 설정
