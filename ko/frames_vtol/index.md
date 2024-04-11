@@ -63,7 +63,7 @@ PX4는 세 가지 중요한 VTOL 유형을 지원합니다.
 
 위의 각 주요 유형에는 모터 수, 모터 기하학 및 비행 표면 등과 같은 많은 가능한 변형이 있습니다. PX4 provides _airframe configurations_ for many of the more common vehicle setups. 지원되는 세트는 [Airframes Reference &gt; VTOL](../airframes/airframe_reference.md#vtol)에 설명되어 있습니다.
 
-:::note
+::: info
 
 - 필요한 차량 설정이 지원되지 않는 경우에는 [기체를 추가](../dev_airframes/adding_a_new_frame.md)하여야 합니다(일부 [PX4 개발](../development/development.md) 전문 지식 필요).
 - VTOL 코드베이스는 다른 모든 기체와 동일한 코드베이스이며, 특히 전환 제어 로직을 추가합니다. :::
@@ -78,8 +78,7 @@ VTOL 비행 모드는 멀티콥터 모드에는 [멀티 콥터](../getting_start
 
 ## 조립
 
-:::note
-For information about commercial and kit VTOL vehicles see: [Complete Vehicles](../complete_vehicles/index.md) :::
+::: info For information about commercial and kit VTOL vehicles see: [Complete Vehicles](../complete_vehicles/index.md) :::
 
 PX4로 제어되는 기체는 일반적으로 전원 시스템에 연결된 비행 컨트롤러, GPS, 외부 나침반(권장), 무선 제어 시스템(선택 사항), 텔레메트리(선택 사항) 및 속도 센서(VTOL용으로 강력 권장)와 같은 핵심 부품들을 공유합니다.
 
