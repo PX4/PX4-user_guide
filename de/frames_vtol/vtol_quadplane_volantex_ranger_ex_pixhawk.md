@@ -9,7 +9,7 @@ Key information:
 
 ![QuadRanger](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_complete_build.jpg)
 
-The VTOL conversion makes the plane a bit heavier (around 3.5kg including LiPo). With this conversion the plane will cruise at approximately 65% throttle. The suggested quad setup provides a thrust of 7.5kg and the airframe can fly with a total weight of around 4.5kg. This leaves enough payload capacity for payloads like FPV gear and cameras.
+The VTOL conversion makes the plane a bit heavier (around 3.5kg including LiPo). With this conversion the plane will cruise at approximately 65% throttle. This leaves enough payload capacity for payloads like FPV gear and cameras. The suggested quad setup provides a thrust of 7.5kg and the airframe can fly with a total weight of around 4.5kg.
 
 The conversion is designed to minimize impact on the aerodynamics and provide additional strength minimize wing flexing.
 
