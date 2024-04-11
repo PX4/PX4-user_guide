@@ -65,7 +65,7 @@
 - Виконувачі не можуть активувати інших виконавців.
 - У бібліотеці виконавець режимів завжди реалізується в комбінації з індивідуальним режимом.
 
-:::note
+::: info
 
 - Ці визначення гарантують, що користувач може в будь-який момент забрати контроль від індивідуального режиму або виконавця, командуючи переключення режиму через RC або GCS.
   Виконавець режимів є прозорим для користувача.
@@ -110,8 +110,8 @@
    git clone --recursive https://github.com/Auterion/px4-ros2-interface-lib
    ```
 
-   ::::note
-   Для забезпечення сумісності, використовуйте останні _main_ гілки для PX4, _px4_msgs_ та бібліотеки.:::
+   ::: info
+   To ensure compatibility, use the latest _main_ branches for PX4, _px4_msgs_ and the library.:::
 
 3. Побудуйте робочий простір:
 
@@ -138,14 +138,14 @@
 
 6. Запустіть QGroundControl.
 
-   :::note
-   Використовувати QGroundControl Daily, яка підтримує динамічне оновлення списку режимів.
+   ::: info
+   Use QGroundControl Daily, which supports dynamically updating the list of modes.
 
 :::
 
 7. Повернутись до терміналу 2 ROS, запустити один із прикладів:
 
-   ```shell
+   ```sh
    ros2 run example_mode_manual_cpp example_mode_manual
    ```
 
@@ -170,7 +170,7 @@
 
    Вихід має містити:
 
-   ```{5}
+   ```plain
    INFO  [commander] Disarmed
    INFO  [commander] navigation mode: Position
    INFO  [commander] user intended navigation mode: Position
@@ -349,7 +349,7 @@ The other setpoint types are currently experimental, and can be found in: [px4\_
 
 #### Установка "перейти до" (GotoSetpointType)
 
-:::note
+:::info
 Цей тип установки наразі підтримується лише для багтрикоптерів.
 :::
 
@@ -405,7 +405,7 @@ _goto_setpoint->update(
 Будьте уважні, що призначення є транспортним засобом та специфікацією.
 Наприклад, для управління квадрокоптером потрібно встановити перші 4 мотори відповідно до його конфігурації виводу.
 
-:::note
+:::info
 Якщо ви хочете керувати клапаном, який не контролює рух транспортного засобу, але, наприклад, сервопривід навантаження, подивіться нижче.
 :::
 
@@ -439,7 +439,7 @@ _vehicle_local_position->positionNed();
 _vehicle_local_position->positionXYValid();
 ```
 
-:::note
+:::info
 Ці теми надають обгортку навколо внутрішніх тем PX4, що дозволяє бібліотеці підтримувати сумісність у випадку зміни внутрішніх тем.
 Перевірте px4_ros2/odometry для нових тем, і, звісно, ви можете використовувати будь-яку тему ROS 2, опубліковану з PX4.
 :::
@@ -498,7 +498,7 @@ modeRequirements().home_position = true;
 
 ![QGC Mode Assignment](../../assets/middleware/ros2/px4_ros2_interface_lib/qgc_mode_assignment.png)
 
-:::note
+:::info
 PX4 забезпечує, що певний режим завжди призначається тому ж індексу, зберігаючи хеш назви режиму.
 This makes it independent of startup ordering in case of multiple external modes.
 :::
