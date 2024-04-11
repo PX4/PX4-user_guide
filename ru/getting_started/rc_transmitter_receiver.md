@@ -4,7 +4,7 @@ A Radio Control (RC) system can be used to *manually* control your vehicle from 
 
 :::tip PX4 can also be manually controlled using a [Joystick](../config/joystick.md) or gamepad-like controller:  this is different to an RC system! The [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) parameter [can be set](../advanced_config/parameters.md) to choose whether RC (default), Joystick, both, or neither, are enabled. :::
 
-:::note
+::: info
 PX4 does not require a remote control system for autonomous flight modes.
 :::
 
@@ -18,8 +18,7 @@ The ground based RC controller contains a radio module that is bound to, and com
 
 <!-- image showing the different parts here would be nice -->
 
-:::note
-The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*. The RC controller and it's included radio module are commonly referred to as a "transmitter". :::
+::: info The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*. The RC controller and it's included radio module are commonly referred to as a "transmitter". :::
 
 An important quality of an RC system is how many "channels" it supports. The number of channels defines how many different physical controls on the remote control can be used to send commands to the vehicle (e.g. how many switches, dials, control sticks can actually be used).
 
@@ -39,8 +38,7 @@ There are numerous possible layouts for the control sticks, switches, etc. The m
 
 ![Mode1-Mode2](../../assets/concepts/mode1_mode2.png)
 
-:::note
-The choice of mode is largely one of taste (*Mode 2* is more popular). :::
+::: info The choice of mode is largely one of taste (*Mode 2* is more popular). :::
 
 ## Remote Control Units for Ground Vehicles
 
@@ -60,8 +58,7 @@ Compatible radio systems are often sold together. For example, [FrSky Taranis X9
 
 One of the most popular RC units is the *FrSky Taranis X9D*. It has an internal transmitter module can be used with the recommended *FrSky X4R-SB* (S-BUS, low delay) or *X4R* (PPM-Sum, legacy) receivers out of the box. It also has a custom radio transmitter module slot and customizable open source OpenTX Firmware.
 
-:::note
-This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) or [TBS Crossfire](../telemetry/crsf_telemetry.md) radio modules. :::
+::: info This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) or [TBS Crossfire](../telemetry/crsf_telemetry.md) radio modules. :::
 
 Other popular transmitter/receiver pairs
 
