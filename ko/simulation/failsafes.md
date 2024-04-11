@@ -4,8 +4,7 @@
 
 SITL에서는 시뮬레이션 편리성을 위하여, 일부 안전 장치가 기본적으로 비활성화되어 있습니다. 실환경 테스트 이전에 SITL 시뮬레이션에서 안전에 중요한 기능을 테스트하는 방법을 설명합니다.
 
-:::note
-[HITL 시뮬레이션](../simulation/hitl.md)을 사용하여 안전장치를 테스트할 수도 있습니다. HITL은 비행 컨트롤러의 일반 설정 매개변수를 사용합니다.
+::: info You can also test failsafes using [HITL simulation](../simulation/hitl.md). HITL은 비행 컨트롤러의 일반 설정 매개변수를 사용합니다.
 :::
 
 ## 데이터 링크 손실
@@ -14,8 +13,7 @@ The _Data Link Loss_ failsafe (unavailability of external data via MAVLink) is e
 
 [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) 매개변수를 사용할 안전장치로 설정하여 동작을 변경하십시오. 비활성화하려면 `0`으로 설정합니다.
 
-:::note
-이 매개변수를 포함한 SITL의 모든 매개변수는 `make clean`하면 재설정됩니다. 예를 들면 `0` 값은 안전 장치 동작을 끕니다.
+::: info All parameters in SITL including this one get reset when you do `make clean`. 예를 들면 `0` 값은 안전 장치 동작을 끕니다.
 
 ## RC 링크 손실
 
@@ -23,8 +21,7 @@ The _RC Link Loss_ failsafe (unavailability of data from a remote control) is en
 
 [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) 매개변수를 사용할 안전장치로 설정하여 동작을 변경하십시오. 비활성화하려면 `0`으로 설정합니다.
 
-:::note
-이 매개변수를 포함한 SITL의 모든 매개변수는 `make clean`하면 재설정됩니다.
+::: info All parameters in SITL including this one get reset when you do `make clean`.
 :::
 
 ## 배터리 부족
