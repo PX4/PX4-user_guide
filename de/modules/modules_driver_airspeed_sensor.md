@@ -4,7 +4,7 @@ Source: [drivers/differential_pressure/asp5033](https://github.com/PX4/PX4-Autop
 
 
 ### Description
-Driver to enable an external \[ASP5033\] (https://www.qio-tek.com/index.php/product/qiotek-asp5033-dronecan-airspeed-and-compass-module/) TE connected via I2C. This is not included by default in firmware. It can be included with terminal command: "make <your_board> boardconfig" or in default.px4board with adding the line: "CONFIG_DRIVERS_DIFFERENTIAL_PRESSURE_ASP5033=y" It can be enabled with the "SENS_EN_ASP5033" parameter set to 1.
+Driver to enable an external \[ASP5033\] (https://www.qio-tek.com/index.php/product/qiotek-asp5033-dronecan-airspeed-and-compass-module/) TE connected via I2C. This is not included by default in firmware. This is not included by default in firmware. It can be included with terminal command: "make <your_board> boardconfig" or in default.px4board with adding the line: "CONFIG_DRIVERS_DIFFERENTIAL_PRESSURE_ASP5033=y" It can be enabled with the "SENS_EN_ASP5033" parameter set to 1.
 
 <a id="asp5033_usage"></a>
 
@@ -57,6 +57,7 @@ Source: [drivers/differential_pressure/ms4515](https://github.com/PX4/PX4-Autopi
 ### Usage
 ```
 ms4515 <command> [arguments...]
+ ms5525dso <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -66,7 +67,7 @@ ms4515 <command> [arguments...]
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
-                 default: 70
+                 default: 118
 
    stop
 
@@ -126,6 +127,7 @@ Source: [drivers/differential_pressure/sdp3x](https://github.com/PX4/PX4-Autopil
 ### Usage
 ```
 sdp3x <command> [arguments...]
+ ms4525do <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -135,8 +137,7 @@ sdp3x <command> [arguments...]
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
-                 default: 33
-     [-k]        if initialization (probing) fails, keep retrying periodically
+                 default: 40
 
    stop
 
