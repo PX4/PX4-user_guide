@@ -10,7 +10,7 @@ It is recommended for:
 
 I2C allows multiple master devices to connect to multiple slave devices using only 2 wires per connection (SDA, SCL). in theory a bus can support 128 devices, each accessed via its unique address.
 
-:::note
+::: info
 UAVCAN would normally be preferred where higher data rates are required, and on larger vehicles where sensors are be mounted further from the flight controller.
 :::
 
