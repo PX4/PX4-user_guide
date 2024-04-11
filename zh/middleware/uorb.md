@@ -39,8 +39,7 @@ uORB 是一种异步 `publish()`/`subscribe()` 的消息传递 API，用于进�
 
 ## 主题列表和监听（Listener）
 
-:::note
-`listener` 命令只存在于Pixracer (FMUv4) 和Linux / OS X中.
+::: info The `listener` command is only available on Pixracer (FMUv4) and Linux / OS X.
 :::
 
 列出所有主题，列出文件句柄：
