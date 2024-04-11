@@ -39,6 +39,12 @@ airspeed_estimator <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## ekf2
 Source: [modules/ekf2](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2)
@@ -57,6 +63,7 @@ ekf2 can be started in replay mode (`-r`): in this mode, it does not access the 
 ### Usage
 ```
 ekf2 <command> [arguments...]
+ ekf2 <command> [arguments...]
  Commands:
    start
      [-r]        Enable replay mode
@@ -87,6 +94,12 @@ local_position_estimator <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## mc_hover_thrust_estimator
 Source: [modules/mc_hover_thrust_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_hover_thrust_estimator)
@@ -100,6 +113,13 @@ Source: [modules/mc_hover_thrust_estimator](https://github.com/PX4/PX4-Autopilot
 ### Usage
 ```
 mc_hover_thrust_estimator <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+ AttitudeEstimatorQ <command> [arguments...]
  Commands:
    start
 
