@@ -4,8 +4,7 @@ This topic shows how to determine the mapping between USART/UART serial port dev
 
 The instructions are used to generate serial port mapping tables in flight controller documentation. For example: [Pixhawk 4 > Serial Port Mapping](../flight_controller/pixhawk4.md#serial-port-mapping).
 
-:::note
-The function assigned to each port does not _have to_ match the name (in most cases), and is set using a [Serial Port Configuration](../peripherals/serial_configuration.md). Usually the port function is configured to match the name, which is why the port labelled `GPS1` will work with a GPS out of the box.
+Usually the port function is configured to match the name, which is why the port labelled `GPS1` will work with a GPS out of the box. :::note The function assigned to each port does not _have to_ match the name (in most cases), and is set using a [Serial Port Configuration](../peripherals/serial_configuration.md).
 :::
 
 ## NuttX on STMxxyyy
