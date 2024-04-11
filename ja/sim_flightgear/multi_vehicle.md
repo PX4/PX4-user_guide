@@ -8,8 +8,7 @@ See [Toolchain Installation](../dev_setup/dev_env.md) for information about the 
 
 This topic explains how to simulate multiple vehicles using FlightGear in SITL. All vehicle instances have parameters defined by their startup scripts.
 
-:::note
-This is the most environmentally realistic way to simulate multiple vehicles running PX4, and allows easy testing of multiple different types of vehicles. It is suitable for testing multi-vehicle support in _QGroundControl_, [MAVSDK](https://mavsdk.mavlink.io/), etc.
+::: info This is the most environmentally realistic way to simulate multiple vehicles running PX4, and allows easy testing of multiple different types of vehicles. It is suitable for testing multi-vehicle support in _QGroundControl_, [MAVSDK](https://mavsdk.mavlink.io/), etc.
 
 [Multi-Vehicle Simulation with Gazebo Classic](../sim_gazebo_classic/multi_vehicle_simulation.md) should be used instead for: swarm simulations with many vehicles, and testing features like computer vision that are only supported by Gazebo Classic.
 :::
