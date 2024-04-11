@@ -612,4 +612,8 @@ ver <command> [arguments...]
    hwtypecmp     Compare hardware type (returns 0 on match)
      <hwtype> [<hwtype2>] Hardware type to compare against (eg. V2). An OR
                  comparison is used if multiple are specified
+
+   hwbasecmp     Compare hardware base (returns 0 on match)
+     <hwbase> [<hwbase2>] Hardware type to compare against (eg. V2). An OR
+                 comparison is used if multiple are specified
 ```
