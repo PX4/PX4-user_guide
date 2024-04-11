@@ -26,6 +26,7 @@ This example uses Python. Other examples in Python can be found here: [integrati
    roscd  # Should cd into ~/catkin_ws/devel
    cd ..
    cd src
+   cd src
    ```
 
 2. In the `~/catkin_ws/src` directory create a new package named `offboard_py` (in this case) with the `rospy` dependency:
@@ -37,7 +38,7 @@ This example uses Python. Other examples in Python can be found here: [integrati
 3. Build the new package in the `~/catkin_ws/` directory:
 
    ```sh
-   cd .. # Assuming previous directory to be ~/catkin_ws/src
+   cd .. cd .. # Assuming previous directory to be ~/catkin_ws/src
    catkin build
    source devel/setup.bash
    ```
@@ -316,7 +317,7 @@ You should now see the PX4 firmware initiating and the Gazebo Classic applicatio
 :::warning
 It is possible that when running the script an error appears saying:
 
-> Resource not found: px4 ROS path [0] = ... ...
+> Resource not found: px4 ROS path [0] = ... ... ...
 
 This means that PX4 SITL was not included in the path. To solve this add these lines at the end of the `.bashrc` file:
 
