@@ -4,8 +4,8 @@
 
 _Position_ is an easy-to-fly RC mode in which roll and pitch sticks control acceleration over ground in the vehicle's left-right and forward-back directions (similar to a car's accelerator pedal), and throttle controls speed of ascent-descent. When the sticks are released/centered the vehicle will actively brake, level, and be locked to a position in 3D space — compensating for wind and other forces. With full stick deflection the vehicle accelerates initially with [MPC_ACC_HOR_MAX](#MPC_ACC_HOR_MAX) ramping down until it reaches the final velocity [MPC_VEL_MANUAL](#MPC_VEL_MANUAL).
 
-:::tip
-Position mode is the safest manual mode for new fliers. Unlike [Altitude](../flight_modes_mc/altitude.md) and [Manual/Stabilized](../flight_modes_mc/manual_stabilized.md) modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance.
+Unlike [Altitude](../flight_modes_mc/altitude.md) and [Manual/Stabilized](../flight_modes_mc/manual_stabilized.md) modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance. :::tip  
+Position mode is the safest manual mode for new fliers.
 :::
 
 The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
