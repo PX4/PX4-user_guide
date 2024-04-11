@@ -6,7 +6,7 @@ PX4 можна використовувати з наступними части
 
 ![GPS + Компас](../../assets/hardware/gps/gps_compass.jpg)
 
-:::note PX4 also supports [Real Time Kinematic (RTK)](../gps_compass/rtk_gps.md) and **Post-Processing Kinematic (PPK)** GNSS Receivers, which extend GNSS systems to centimetre-level precision.
+::: info PX4 also supports [Real Time Kinematic (RTK)](../gps_compass/rtk_gps.md) and **Post-Processing Kinematic (PPK)** GNSS Receivers, which extend GNSS systems to centimetre-level precision.
 :::
 
 ## Підтримка GNSS та/або компаса
@@ -75,8 +75,7 @@ This table contains non-RTK GNSS units (most of which also have a compass). Во
 
 Налаштування GPS на Pixhawk відбувається досить легко для користувача - просто підключіть GPS-модуль до порту з міткою **GPS** і все повинно запрацювати.
 
-:::note
-Стандартна [Конфігурація послідовного порту](../peripherals/serial_configuration.md#default_port_mapping) працює для більшості пристроїв. If you are using the _Trimble MB-Two_ you will need to modify the configuration to explicitly set the rate to 115200 baud.
+::: info The default [Serial Port Configuration](../peripherals/serial_configuration.md#default_port_mapping) works for most devices. If you are using the _Trimble MB-Two_ you will need to modify the configuration to explicitly set the rate to 115200 baud.
 :::
 
 <a id="dual_gps"></a>
