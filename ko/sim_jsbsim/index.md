@@ -12,13 +12,12 @@ See [Toolchain Installation](../dev_setup/dev_env.md) for information about the 
 
 @[youtube](https://youtu.be/y5azVNmIVyw)
 
-:::note
-See [Simulation](../simulation/index.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
+::: info See [Simulation](../simulation/index.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
 :::
 
 ## Installation (Ubuntu Linux)
 
-:::note
+::: info
 These instructions were tested on Ubuntu 18.04
 :::
 
@@ -69,8 +68,7 @@ To run JSBSim with ROS:
    catkin build jsbsim_bridge
    ```
 
-:::note
-You must have already set MAVROS in your workspace (if not, follow the instructions in the [MAVROS installation guide](../ros/mavros_installation.md)).
+   ::: info You must have already set MAVROS in your workspace (if not, follow the instructions in the [MAVROS installation guide](../ros/mavros_installation.md)).
 :::
 
 1. So start JSBSim through ROS using the launch file as shown:
