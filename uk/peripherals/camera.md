@@ -1,84 +1,84 @@
-# Camera Configuration
+# Налаштування камери
 
-PX4 can be configured to connect physical outputs to trigger a camera, or it can be used with a [MAVLink camera](#mavlink-cameras).
+PX4 може бути налаштований для підключення фізичних виходів для спрацювання камери, або його можна використовувати з [камерою MAVLink](#mavlink-cameras).
 
-::: info We recommend that you use a MAVLink camera as this allows comprehensive control of cameras via the [camera protocol](https://mavlink.io/en/services/camera.html). Directly connected cameras only support [a small subset](#mavlink-command-interface-directly-connected-cameras) of MAVLink camera commands.
+::: info Ми рекомендуємо використовувати камеру MAVLink, оскільки це дозволяє використовувати всебічний контроль камер через [протокол камери](https://mavlink.io/en/services/camera.html). Камери, що підключені безпосередньо, підтримують лише [невеликий підмножину](#mavlink-command-interface-directly-connected-cameras) команд камери MAVLink.
 :::
 
-Whenever a camera is triggered, the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message is published containing a sequence number (i.e. the current session's image sequence number) and the corresponding timestamp. This timestamp can be used for several applications, including: timestamping photos for aerial surveying and reconstruction, synchronising a multi-camera system or visual-inertial navigation.
+Кожен раз, коли спрацьовує камера, опубліковано повідомлення MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER), що містить номер послідовності (тобто поточний номер послідовності зображень сеансу) та відповідний часовий позначення. Цей міткий час може бути використаний для декількох застосувань, включаючи: міткування фотографій для повітряного обстеження та реконструкції, синхронізацію багатокамерної системи або візуально-інерціальної навігації.
 
-Cameras can also (optionally) signal PX4 at the exact moment that a photo/frame is taken using a camera capture pin. This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
+Камери також можуть (за бажанням) сигналізувати PX4 у саму точну мить зйомки фото/кадру за допомогою виводу захоплення камери. Це дозволяє більш точне відображення зображень в позиції GPS для геотагування, або правильний приклад IMU для синхронізації VIO тощо.
 
 <!-- Camera trigger driver: https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger -->
 <!-- Camera capture driver: https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_capture -->
 
-## Trigger Configuration
+## Налаштування тригера
 
-Camera triggering is usually configured from the _QGroundControl_ [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/camera.html#px4-camera-setup) section.
+Спрацювання камери зазвичай налаштовується з розділу _QGroundControl_ [Налаштування ТСП > Камера](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/camera.html#px4-camera-setup).
 
 ![Trigger pins](../../assets/camera/trigger_pins.png)
 
-The different [trigger modes](#trigger-modes), [backend interfaces](#trigger-interface-backends) and [trigger output configuration](#trigger-output-pin-configuration) are described below (these can also be set directly from [parameters](../advanced_config/parameters.md)).
+Різні [режими тригера](#trigger-modes), [інтерфейси бекенду](#trigger-interface-backends) та [конфігурація виводу тригера](#trigger-output-pin-configuration) описані нижче (їх також можна встановити безпосередньо з [параметрів](../advanced_config/parameters.md)).
 
-::: info The camera settings section is not available by default for FMUv2-based flight controllers (e.g. 3DR Pixhawk) because the camera module is not automatically included in firmware. For more information see [Finding/Updating Parameters > Parameters Not In Firmware](../advanced_config/parameters.md#parameter-not-in-firmware).
+::: info Розділ налаштувань камери за замовчуванням недоступний для польотних контролерів на основі FMUv2 (наприклад, 3DR Pixhawk), оскільки модуль камери не автоматично включений в прошивку. Для отримання додаткової інформації див. [Пошук/Оновлення Параметрів > Параметри, яких немає в прошивці](../advanced_config/parameters.md#parameter-not-in-firmware).
 :::
 
-### Trigger Modes
+### Режими тригера
 
 Four different modes are supported, controlled by the [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) parameter:
 
-| Mode | Description                                                                                                                                                                                                                    |
-| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 0    | Camera triggering is disabled.                                                                                                                                                                                                 |
-| 1    | Works like a basic intervalometer that can be enabled and disabled by using the MAVLink command `MAV_CMD_DO_TRIGGER_CONTROL`. See [command interface](#mavlink-command-interface-directly-connected-cameras) for more details. |
-| 2    | Switches the intervalometer constantly on.                                                                                                                                                                                     |
-| 3    | Triggers based on distance. A shot is taken every time the set horizontal distance is exceeded. The minimum time interval between two shots is however limited by the set triggering interval.                                 |
-| 4    | triggers automatically when flying a survey in Mission mode.                                                                                                                                                                   |
+| Режим | Опис предмету                                                                                                                                                                                                                                        |
+| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | Спрацювання камери вимкнено.                                                                                                                                                                                                                         |
+| 1     | Працює як базовий інтервалометр, який можна увімкнути та вимкнути за допомогою команди MAVLink `MAV_CMD_DO_TRIGGER_CONTROL`. Дивіться [інтерфейс команд](#mavlink-command-interface-directly-connected-cameras) для отримання додаткової інформації. |
+| 2     | Постійно перемикає інтервалометр.                                                                                                                                                                                                                    |
+| 3     | Тригери на основі відстані. Знімок робиться кожного разу, коли перевищується встановлена горизонтальна відстань. Мінімальний інтервал часу між двома пострілами, однак, обмежується встановленим інтервалом спрацьовування.                          |
+| 4     | спрацьовує автоматично при виконанні опитування в режимі місії.                                                                                                                                                                                      |
 
-::: info If it is your first time enabling the camera trigger app, remember to reboot after changing the `TRIG_MODE` parameter.
+::: info Якщо це ваш перший раз увімкнення додатка спуску камери, пам'ятайте перезавантажити після зміни параметра `TRIG_MODE`.
 :::
 
-### Trigger Interface Backends
+### Інтерфейси взаємодії з викликами
 
-The camera trigger driver supports several backends - each for a specific application, controlled by the [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) parameter:
+Драйвер спуску камери підтримує кілька бекендів - кожен для конкретного застосування, керований параметром [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE):
 
-| Number | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1      | Enables the GPIO interface. The AUX outputs are pulsed high or low (depending on the `TRIG_POLARITY` parameter) every [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL) duration. This can be used to trigger most standard machine vision cameras directly. Note that on PX4FMU series hardware (Pixhawk, Pixracer, etc.), the signal level on the AUX pins is 3.3v.                                                                                                                     |
-| 2      | Enables the Seagull MAP2 interface. This allows the use of the [Seagull MAP2](http://www.seagulluav.com/product/seagull-map2/) to interface to a multitude of supported cameras. Pin/Channel 1 (camera trigger) and Pin/Channel 2 (mode selector) of the MAP2 should be connected to the lower and higher mapped [camera trigger pins](#trigger-output-pin-configuration). Using Seagull MAP2, PX4 also supports automatic power control and keep-alive functionalities of Sony Multiport cameras like the QX-1. |
-| 3      | Enables the MAVLink interface. In this mode, no actual hardware output is used. Only the `CAMERA_TRIGGER` MAVLink message is sent by the autopilot (by default, if the MAVLink application is in `onboard` mode. Otherwise, a custom stream will need to be enabled).                                                                                                                                                                                                                                            |
-| 4      | Enables the generic PWM interface. This allows the use of [infrared triggers](https://hobbyking.com/en_us/universal-remote-control-infrared-shutter-ir-rc-1g.html) or servos to trigger your camera.                                                                                                                                                                                                                                                                                                             |
+| Номер | Опис                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | Вмикає інтерфейс GPIO. Вихідні AUX періодично вмикаються або вимикаються (в залежності від параметра `TRIG_POLARITY`) кожні [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL) часу. Це може бути використано для прямого спрацьовування більшості стандартних камер для машинного зору. Зверніть увагу, що на апаратному забезпеченні серії PX4FMU (Pixhawk, Pixracer тощо) рівень сигналу на додаткових контактах становить 3,3 В.                                                                                   |
+| 2     | Вмикає інтерфейс Seagull MAP2. Це дозволяє використовувати [Seagull MAP2](http://www.seagulluav.com/product/seagull-map2/) для інтерфейсу з безліччю підтримуваних камер. Pin/Channel 1 (camera trigger) та Pin/Channel 2 (вибір режиму) MAP2 повинні бути підключені до нижнього та верхнього сопоставлених [контактів спуску камери](#trigger-output-pin-configuration). За допомогою Seagull MAP2, PX4 також підтримує автоматичний контроль потужності та функціоналість утримання в робочому стані камер Sony Multiport, таких як QX-1. |
+| 3     | Вмикає інтерфейс GPIO. У цьому режимі не використовується жодний фактичний апаратний вивід. Лише повідомлення MAVLink `CAMERA_TRIGGER` відправляється автопілотом (за замовчуванням, якщо додаток MAVLink знаходиться у режимі `onboard`. В іншому випадку потрібно буде увімкнути власний потік).                                                                                                                                                                                                                                           |
+| 4     | Вмикає загальний інтерфейс ШШІ. Це дозволяє використовувати [інфрачервоні тригери](https://hobbyking.com/en_us/universal-remote-control-infrared-shutter-ir-rc-1g.html) або сервоприводи для спуску затвора вашої камери.                                                                                                                                                                                                                                                                                                                    |
 
-### Trigger Output Pin Configuration
+### Налаштування виводу шпильки тригера
 
-Camera trigger pins are set in the _QGroundControl_ [Actuators](../config/actuators.md) configuration screen.
+Піни запуску камери встановлені на екрані конфігурації _QGroundControl_ [Приводи](../config/actuators.md).
 
-The trigger pins can be set by assigning the `Camera_Trigger` function on any FMU output. If using trigger setup that requires two pins (e.g. Seagull MAP2) you can assign to any two outputs.
+The trigger pins can be set by assigning the `Camera_Trigger` function on any FMU output. Якщо використовується налаштування тригера, яке потребує двох контактів (наприклад, Seagull MAP2), ви можете призначити будь-які два виходи.
 
-Note however that if a _PWM_ output has been used for camera triggering (such as Seagull MAP2), the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator, motor, or camera capture, because the timer has already been used).
+Зверніть увагу, що якщо вихід _PWM_ вже використовувався для запуску камери (наприклад, Seagull MAP2), вся група PWM не може бути використана для чого-небудь іншого (ви не можете використовувати інший вихід у групі для приводу, двигуна або захоплення камери, оскільки таймер вже був використаний).
 
-::: info At time of writing triggering only works on FMU pins:
+::: info На момент написання спрацьовування працює лише на контактах FMU:
 
-- On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+) .
-- A controller that only has an FMU, the pins map to `MAIN` outputs (e.g. Pixhawk 4 mini, CUAV v5 nano).
+- На контролері польоту Pixhawk, який має як FMU, так і I/O плати, піни FMU відображаються на виходи `AUX` (наприклад, Pixhawk 4, CUAV v5+).
+- Контролер, що має лише FMU, контакти відображаються на виходи `MAIN` (наприклад, Pixhawk 4 mini, CUAV v5 nano).
 
 :::
 
 ### Other Parameters
 
-| Parameter                                                                  | Description                                                                                                                                                                                                                      |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [TRIG_POLARITY](../advanced_config/parameter_reference.md#TRIG_POLARITY)   | Relevant only while using the GPIO interface. Sets the polarity of the trigger pin. Active high means that the pin is pulled low normally and pulled high on a trigger event. Active low is vice-versa.                          |
-| [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL)   | Defines the time between two consecutive trigger events in milliseconds.                                                                                                                                                         |
-| [TRIG_ACT_TIME](../advanced_config/parameter_reference.md#TRIG_ACT_TIME) | Defines the time in milliseconds the trigger pin is held in the "active" state before returning to neutral. In PWM modes, the minimum is limited to 40 ms to make sure we always fit an activate pulse into the 50Hz PWM signal. |
+| Параметр                                                                   | Опис                                                                                                                                                                                                                                                              |
+| -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [TRIG_POLARITY](../advanced_config/parameter_reference.md#TRIG_POLARITY)   | Це стосується лише використання інтерфейсу GPIO. Встановлює полярність контакту спрацювання. Активний високий означає, що контакт зазвичай знаходиться у низькому стані і піднімається на високий рівень під час спрацювання тригера. Активний низький - навпаки. |
+| [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL)   | Визначає час між двома послідовними подіями спрацьовування тригера в мілісекундах.                                                                                                                                                                                |
+| [TRIG_ACT_TIME](../advanced_config/parameter_reference.md#TRIG_ACT_TIME) | Визначає час у мілісекундах, протягом якого контакт для тригеру відбувається в стані "активний" перед поверненням до нейтрального. У режимах ШІМ мінімум обмежується до 40 мс, щоб завжди вміщувати активний імпульс у сигнал ШІМ з частотою 50 Гц.               |
 
-The full list of parameters pertaining to the camera trigger module can be found on the [parameter reference](../advanced_config/parameter_reference.md#camera-trigger) page.
+Повний список параметрів, що стосуються модуля спуску камери, можна знайти на сторінці [довідника параметрів](../advanced_config/parameter_reference.md#camera-trigger).
 
-## Camera Capture
+## Захоплення камери
 
-Cameras can also (optionally) use a camera capture pin to signal the exact moment when a photo/frame is taken. This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
+Камери також можуть (за бажанням) використовувати пін захоплення камери, щоб сигналізувати точний момент зйомки фотографії/кадру. Це дозволяє більш точне відображення зображень в позиції GPS для геотагування, або правильний приклад IMU для синхронізації VIO тощо.
 
-Camera capture/feedback is enabled in PX4 by setting [CAM_CAP_FBACK = 1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK). The pin used for camera capture is then set in the _QGroundControl_ [Actuators](../config/actuators.md) configuration screen by assigning the `Camera_Capture` function on any FMU output.
+Захоплення / зворотний зв'язок камери увімкнено в PX4, встановивши [CAM_CAP_FBACK = 1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK). Використаний для захоплення камери штифт потім встановлюється на екрані конфігурації _QGroundControl_ [Приводи](../config/actuators.md), призначивши функцію `Camera_Capture` на будь-який вихід FMU.
 
 Note that if a _PWM output_ is used as a camera capture input, the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator, motor, or camera trigger, because the timer has already been used).
 
