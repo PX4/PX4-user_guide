@@ -7,8 +7,7 @@ Pixhawk/PX4 支持：
 * 与仅支持 I2C 的外围设备兼容。
 * 允许多个设备连接到单个总线（有效保护端口）。 例如，LED、指南针、测距仪等。
 
-:::note
-The page [Hardware > I2C Peripherals](../sensor_bus/i2c_general.md) contains information about how to _use_ (rather than integrate) I2C peripherals and solve common setup problems.
+::: info The page [Hardware > I2C Peripherals](../sensor_bus/i2c_general.md) contains information about how to _use_ (rather than integrate) I2C peripherals and solve common setup problems.
 :::
 
 :::tip IMUs (accelerometers/gyroscopes) should not be attached via I2C (typically the [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) bus is used). The bus is not fast enough even with a single device attached to allow vibration filtering (for instance), and the performance degrades further with every additional device on the bus.
