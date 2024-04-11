@@ -13,6 +13,7 @@ _DroneBridge for ESP32_ can run on almost every ESP32 development board. Boards 
 :::warning
 Many ESP32 modules support 3.3V and 5V power supply input, while some flight controllers (e.g. Pixhawk 4) output at 5V.
 You will need to check compatibility and step down the voltage if needed.
+You will need to check compatibility and step down the voltage if needed.
 :::
 
 Modules and DevKits that accept 3.3V or 5V power supply:
