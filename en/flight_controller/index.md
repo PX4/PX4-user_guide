@@ -2,8 +2,9 @@
 
 Flight Controllers (FCs) are the autopilot hardware onto which PX4 firmware is uploaded.
 
-This section provides information about how to mount the flight controller, upload firmware (replacing an incompatible bootloader if needed), and configure its orientation.
+This section provides information about how to choose the flight controller, mount it, upload firmware (replacing an incompatible bootloader if needed), and configure its orientation.
 
+- [Flight Controller Selection](../getting_started/flight_controller_selection.md)
 - [Mounting the Flight Controller](../assembly/mount_and_orient_controller.md)
 - [Updating Firmware](../config/firmware.md)
 - [Sensor Orientation](../config/flight_controller_orientation.md)
