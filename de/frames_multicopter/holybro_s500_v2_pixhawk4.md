@@ -2,8 +2,7 @@
 
 This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
 
-:::note
-Holybro initially supplied this kit with a [Holybro Pixhawk 4](../flight_controller/pixhawk4.md), but at time of writing this has been upgraded to a more recent Pixhawk (6C). This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
+This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded. :::note Holybro initially supplied this kit with a [Holybro Pixhawk 4](../flight_controller/pixhawk4.md), but at time of writing this has been upgraded to a more recent Pixhawk (6C).
 :::
 
 ## Key information
