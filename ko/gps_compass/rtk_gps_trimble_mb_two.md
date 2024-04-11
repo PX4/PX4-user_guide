@@ -29,8 +29,8 @@ Trimble MB-Two는 비행 콘트롤러(GPS 포트)의 UART에 연결됩니다.
 
 모듈에 전원을 공급용 3.3V 전원공급장치가 별도로 필요합니다 (최대 소비량은 360mA).
 
-:::note
-모듈은 Pixhawk에서 전원을 공급 받을 수 없습니다.
+::: info
+The module cannot be powered from a Pixhawk.
 :::
 
 28핀 커넥터 핀은 아래와 같은 번호가 지정됩니다:
@@ -50,13 +50,12 @@ Trimble MB-Two는 비행 콘트롤러(GPS 포트)의 UART에 연결됩니다.
 
 방향 추정을 위해 두 안테나는 같은 높이에 있어야하고, 서로 최소 30cm 이상 떨어져야 합니다. 두 GPS가 향하는 방향은 [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) 매개변수로 설정할 수 있습니다.
 
-::::note `GPS_YAW_OFFSET`는 기체 x 축([여기](../config/flight_controller_orientation.md#calculating-orientation)에 표시된 앞/뒤 축)을 기준으로 *기준선* (두 GPS 안테나 사이의 선)이 이루는 각도입니다.
+::: info The `GPS_YAW_OFFSET` is the angle made by the *baseline* (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)).
 :::
 
 [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)를 사용하여 Trimple이 실행될 [직렬 포트를 설정](../peripherals/serial_configuration.md)하고 [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD)에서 전송 속도를 115200로 설정합니다.
 
 To activate heading fusion for the attitude estimation, set the [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter to enable *Dual antenna heading*.
 
-:::note
-참조 : [GPS &gt; 구성 &gt; 요/방향 소스로서의 GPS](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)
+::: info See also: [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/index.md#configuring-gps-as-yaw-heading-source)
 :::
