@@ -2,16 +2,6 @@
 
 Цей розділ надає огляд основних понять, які вам потрібно розуміти для збірки та керування безпілотним літальним апаратом за допомогою PX4.
 
-[Основні поняття](../getting_started/px4_basic_concepts.md) — короткий вступ в PX4 та платформу Dronecode.
-
-[Політні контролери](../getting_started/flight_controller_selection.md) — варіанти політних контролерів від різних платформ і постачальників.
-
-[Рухомі засоби/Шасі](../getting_started/frame_selection.md) — підтримувані типи рухомих засобів, включаючи повітряні, наземні та морські шасі.
-
-[Датчики](../getting_started/sensor_selection.md) — датчики, які потрібні автопілоту.
-
-[Системи дистанційного керування](../getting_started/rc_transmitter_receiver.md) — переносні системи ручного керування апаратом.
-
-[Корисне навантаження & Камери](../payloads/index.md)
+[Basic Concepts](../getting_started/px4_basic_concepts.md) — Overview of Drones, PX4, Drone Hardware, Payloads, Ground Stations, Radio Control systems.
 
 [Політні звіти](../getting_started/flight_reporting.md) — отримання детальних журналів польотів для дослідження та аналізу.
