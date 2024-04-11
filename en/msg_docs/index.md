@@ -1,6 +1,6 @@
 # uORB Message Reference
 
-::: info
+:::note
 This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/msg/generate_msg_docs.py) from the source code.
 :::
 
@@ -263,3 +263,5 @@ The topic vehicle_trajectory_waypoint is used to send the adjusted waypoints fro
 - [WheelEncoders](WheelEncoders.md)
 - [Wind](Wind.md)
 - [YawEstimatorStatus](YawEstimatorStatus.md)
+
+    
