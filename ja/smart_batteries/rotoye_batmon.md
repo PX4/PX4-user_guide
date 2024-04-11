@@ -2,8 +2,7 @@
 
 [Rotoye Batmon](https://rotoye.com/batmon/) is a kit for adding smart battery functionality to off-the-shelf Lithium-Ion and LiPo batteries. It can be purchased as a standalone unit or as part of a factory-assembled smart-battery.
 
-:::note
-At time of writing you can only use Batmon by [building a custom branch of PX4](#build-px4-firmware). Support in the codeline is pending [PR approval](https://github.com/PX4/PX4-Autopilot/pull/16723).
+::: info At time of writing you can only use Batmon by [building a custom branch of PX4](#build-px4-firmware). Support in the codeline is pending [PR approval](https://github.com/PX4/PX4-Autopilot/pull/16723).
 :::
 
 
@@ -49,7 +48,7 @@ In *QGroundControl*:
    - `BATx_SOURCE` to `External`,
    - `SENS_EN_BAT` to `true`,
    - `BAT_SMBUS_MODEL` to `3:Rotoye`
-1. Open the [MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html)
+1. Open the [MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html)
 1. Start the [batt_smbus driver](../modules/modules_driver.md) in the console. For example, to run two BatMons on the same bus:
    ```sh 
    batt_smbus start -X -b 1 -a 11 # External bus 1, address 0x0b  
