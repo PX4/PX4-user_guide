@@ -54,8 +54,8 @@ Three *Status LEDs* provide status for the FMU SoC, and three more provide statu
 | 红色/琥珀色 | B/E(在引导加载程序/错误) | 在引导加载程序时闪烁      | 表示错误状态  |
 | 绿色     | PWR(电源)         | 引导加载程序不使用       | 表示ARM状态 |
 
-:::note
-上面所列的 LED 标签是常用的，但是在一些飞控板上可能有所不同。
+::: info
+The LED labels shown above are commonly used, but might differ on some boards.
 :::
 
 下面给出了LED更详细的信息(“x”表示任意状态)
