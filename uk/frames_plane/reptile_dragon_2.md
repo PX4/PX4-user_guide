@@ -78,7 +78,7 @@ The following tools were used in this assembly.
 
 The airplane needs some assembly out of the box. Servos, wings, and the tail will need to be installed.
 
-:::note
+::: info
 
 For this portion of assembly, the instructions included with the kit should be sufficent, but some helpful tips are listed below.
 :::
@@ -100,7 +100,7 @@ Trim off the mold flashing from the flat side of the skid plate. Use coarse sand
 
 ### Servo Installation
 
-:::note
+::: info
 
 Prior to servo installation, it is recommended to use the sandpaper to rough the side of the servo facing the servo cover. During final installation, put a drop of Foamtac between the servo and the cover. This will prevent the servo from moving once installed.
 :::
@@ -118,7 +118,7 @@ The following steps can be used to perform servo alignment:
 4. Install the servo in the servo pocket on the airplane
 5. Install the linkage, and twist to adjust it such that the control surface is as close to centered as possible
 
-:::note
+::: info
 
 The servo horn will likely not sit exactly at a 90 degree angle to the servo due to the teeth on the servo shaft. You can see this in the above example setup image. Just get it close enough to 90 degrees, and the remaining offset will be removed either with the linkage, or later in software.
 :::
@@ -157,7 +157,7 @@ The FPV pod was mounted on top of the battery hatch using nylon M3 bolts with tw
 
 ## Flight Computer Installation
 
-:::note
+::: info
 
 This build is compatible with both the ARK6X carrier and the Holybro 5X Carrier. Instructions are provided for both.
 :::
@@ -234,7 +234,7 @@ Motor direction depends on the order of the motor leads connected to the ESC. Fo
 
 Servos were wired to the FMU out port in the order left aileron, right aileron, left ESC, right ESC, elevator, rudder, FPV pan.
 
-:::note
+::: info
 
 [DSHOT ESC](../peripherals/dshot.md#wiring-connections) were used (not PWM as for the servos). To make efficient use of the [DSHOT output port restrictions](../peripherals/dshot.md#wiring-connections), the two ESCs must be wired to FMU output channels 3 and 4.
 :::
@@ -320,7 +320,7 @@ make ark_fmu-v6x_default upload
 
 ### Конфігурація параметрів
 
-Цей файл параметрів містить настроювану конфігурацію параметрів PX4 для цієї збірки, включаючи налаштування радіо, налаштування і датчиків. Завантажте файл через QGC за допомогою інструкцій у [Parameters > Tools](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html#tools) (QGC User Guide).
+Цей файл параметрів містить настроювану конфігурацію параметрів PX4 для цієї збірки, включаючи налаштування радіо, налаштування і датчиків. Load the file via QGC using the instructions at [Parameters> Tools](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/parameters.html#tools) (QGC User Guide).
 
 - [Знімок параметрів аеродинамічної рами PX4](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/reptile_dragon_2/reptile_dragon_2_params.params)
 
@@ -338,7 +338,7 @@ make ark_fmu-v6x_default upload
 
 Мапування каналів для цієї збірки включено в постачальний [файл параметрів](#parameter-config). Порядок каналів - це керування газом, крен, тангаж, рульове керування, (порожнє), і режим польоту
 
-:::note
+::: info
 
 ExpressLRS потребує `AUX1` як "канал вибору режиму". Цей канал вибору режиму є окремим від механізму зброювання PX4 і використовується для повідомлення ELRS TX, що він може перемикатися в режим високої потужності передачі.
 
