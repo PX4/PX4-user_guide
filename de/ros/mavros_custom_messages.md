@@ -76,6 +76,8 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    ```cmake
    add_library( 
    ...
+     add_library( 
+   ...
      src/plugins/keyboard_command.cpp 
    )
    ```
@@ -117,18 +119,27 @@ Make sure that the **common.xml** files in the following directories are exactly
    Then, in **CMakeLists.txt** (in **PX4-Autopilot/msg**), include:
 
    ```cmake
-   set(
    ...
-        key_command.msg
-        )
+        #include <uORB/topics/key_command.h>
+   ...
+   class MavlinkReceiver
+   {
+   ...
+   private:
+       void handle_message_key_command(mavlink_message_t *msg);
+   ...
+       orb_advert_t _key_command_pub{nullptr};
+   }
    ```
 
 1. Edit **mavlink_receiver.h** (in **PX4-Autopilot/src/modules/mavlink**)
 
    ```cpp
    ...
-   #include <uORB/topics/key_command.h>
+   set(
    ...
+        key_command.msg
+        )
    class MavlinkReceiver
    {
    ...
@@ -141,6 +152,15 @@ Make sure that the **common.xml** files in the following directories are exactly
 
 1. Edit **mavlink_receiver.cpp** (in **PX4-Autopilot/src/modules/mavlink**). This is where PX4 receives the MAVLink message sent from ROS, and publishes it as a uORB topic.
    ```cpp
+   ...
+   void MavlinkReceiver::handle_message(mavlink_message_t *msg)
+   {
+   ...
+    case MAVLINK_MSG_ID_KEY_COMMAND:
+           handle_message_key_command(msg);
+           break;
+   ...
+   }
    ...
    void MavlinkReceiver::handle_message(mavlink_message_t *msg)
    {
@@ -275,7 +295,7 @@ Now you are ready to build all your work!
 ### Build for ROS
 
 1. In your workspace enter: `catkin build`.
-1. Beforehand, you have to set your "px4.launch" in (/workspace/src/mavros/mavros/launch). Edit "px4.launch" as below. If you are using USB to connect your computer with Pixhawk, you have to set "fcu_url" as shown below. But, if you are using CP2102 to connect your computer with Pixhawk, you have to replace "ttyACM0" with "ttyUSB0". And if you are using the SITL to connect to your terminal, you have to replace "/dev/ttyACM0:57600" with "udp://:14540@127.0.0.1:14557". Modifying "gcs_url" is to connect your Pixhawk with UDP, because serial communication cannot accept MAVROS, and your nutshell connection simultaneously.
+1. Beforehand, you have to set your "px4.launch" in (/workspace/src/mavros/mavros/launch). Edit "px4.launch" as below. If you are using USB to connect your computer with Pixhawk, you have to set "fcu_url" as shown below. But, if you are using CP2102 to connect your computer with Pixhawk, you have to replace "ttyACM0" with "ttyUSB0". Modifying "gcs_url" is to connect your Pixhawk with UDP, because serial communication cannot accept MAVROS, and your nutshell connection simultaneously. And if you are using the SITL to connect to your terminal, you have to replace "/dev/ttyACM0:57600" with "udp://:14540@127.0.0.1:14557".
 
 1. Write your IP address at "xxx.xx.xxx.xxx"
    ```xml
