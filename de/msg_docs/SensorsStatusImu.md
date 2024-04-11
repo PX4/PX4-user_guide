@@ -21,6 +21,13 @@ uint32 gyro_device_id_primary       # current primary gyro device id for referen
 
 uint32[4] gyro_device_ids
 float32[4] gyro_inconsistency_rad_s # magnitude of angular rate difference between IMU instance and mean in (rad/s).
+bool[4] accel_healthy
+uint8[4] accel_priority
+
+uint32 gyro_device_id_primary       # current primary gyro device id for reference
+
+uint32[4] gyro_device_ids
+float32[4] gyro_inconsistency_rad_s # magnitude of angular rate difference between IMU instance and mean in (rad/s).
 bool[4] gyro_healthy
 uint8[4] gyro_priority
 
