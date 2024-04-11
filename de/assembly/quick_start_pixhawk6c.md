@@ -48,7 +48,8 @@ The power rail voltage must be appropriate for the servo being used!
 | I/O PWM Out     | Connect Motor Signal and GND wires here.            |
 | FMU PWM Out     | Connect Servo Signal, positive, and GND wires here. |
 
-For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**. :::note **MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of _Pixhawk 6C_ whereas **AUX outputs** map to **FMU PWM OUT** of _Pixhawk 6C_.
+:::note
+**MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of _Pixhawk 6C_ whereas **AUX outputs** map to **FMU PWM OUT** of _Pixhawk 6C_. :::note **MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of _Pixhawk 6C_ whereas **AUX outputs** map to **FMU PWM OUT** of _Pixhawk 6C_.
 :::
 
 The pinout of _Pixhawk 6C_’s power ports is shown below.
