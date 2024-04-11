@@ -9,6 +9,7 @@ FrSky Telemetry support. Auto-detects D or S.PORT protocol.
 ### Usage
 ```
 frsky_telemetry <command> [arguments...]
+ frsky_telemetry <command> [arguments...]
  Commands:
    start
      [-d <val>]  Select Serial Device
@@ -56,6 +57,7 @@ mavlink stream -u 14556 -s HIGHRES_IMU -r 50
 ### Usage
 ```
 mavlink <command> [arguments...]
+ mavlink <command> [arguments...]
  Commands:
    start         Start a new instance
      [-d <val>]  Select Serial Device
@@ -133,6 +135,7 @@ uorb top
 ### Usage
 ```
 uorb <command> [arguments...]
+ uorb <command> [arguments...]
  Commands:
    status        Print topic statistics
 
