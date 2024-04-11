@@ -8,7 +8,7 @@
 
 ![TFI2CADT - i2c address translator](../../assets/peripherals/i2c_tfi2cadt/tfi2cadt01a_both_sides.jpg)
 
-[TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) розроблений як відкрите апаратне забезпечення з ліцензією GPLv3. Його можна комерційно придбати у компанії [ThunderFly](https://www.thunderfly.cz/) або[Tindie eshop](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/).
+::: info [TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) is designed as open-source hardware with GPLv3 license. Його можна комерційно придбати у компанії [ThunderFly](https://www.thunderfly.cz/) або[Tindie eshop](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/).
 :::
 
 ## Метод перетворення адрес
@@ -44,7 +44,7 @@ graph TD
 -->
 
 
-:::note TFI2CADT01 does not contain any I2C buffer or accelerator. As it adds additional capacitance on the bus, we advise combining it with some bus booster, e.g. [TFI2CEXT01](https://github.com/ThunderFly-aerospace/TFI2CEXT01).
+::: info TFI2CADT01 does not contain any I2C buffer or accelerator. As it adds additional capacitance on the bus, we advise combining it with some bus booster, e.g. [TFI2CEXT01](https://github.com/ThunderFly-aerospace/TFI2CEXT01).
 :::
 
 ### Other Resources
