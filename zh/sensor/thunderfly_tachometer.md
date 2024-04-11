@@ -6,8 +6,7 @@ The board itself does not include the actual sensor but can be used with many di
 
 ![TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
 
-:::note
-The TFRPM01 sensor is open-source hardware commercially available from [ThunderFly s.r.o.](https://www.thunderfly.cz/) (manufacturing data is [available on GitHub](https://github.com/ThunderFly-aerospace/TFRPM01)).
+::: info The TFRPM01 sensor is open-source hardware commercially available from [ThunderFly s.r.o.](https://www.thunderfly.cz/) (manufacturing data is [available on GitHub](https://github.com/ThunderFly-aerospace/TFRPM01)).
 :::
 
 ## 硬件连接
@@ -39,11 +38,11 @@ An optical sensor can also be used (and may be a better fit, depending on the me
 
 ### Starting driver
 
-The driver is not started automatically (in any airframe). You will need to start it manually, either using the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) or by adding the driver to the [startup script](../concept/system_startup.md#customizing-the-system-startup) on an SD card.
+The driver is not started automatically (in any airframe). You will need to start it manually, either using the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) or by adding the driver to the [startup script](../concept/system_startup.md#customizing-the-system-startup) on an SD card.
 
 #### Start driver from console
 
-Start the driver from the [console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) using the command:
+Start the driver from the [console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) using the command:
 
 ```sh
 pcf8583 start -X -b <bus number>
@@ -54,8 +53,7 @@ where:
 - `-X` means that it is an external bus.
 - `<bus number>` is the bus number to which the device is connected
 
-:::note
-The bus number in code `-b <bus number>` may not match the bus labels on the autopilot. For example, when using CUAV V5+ or CUAV Nano:
+::: info The bus number in code `-b <bus number>` may not match the bus labels on the autopilot. For example, when using CUAV V5+ or CUAV Nano:
 
 | Autopilot label | -b number |
 | --------------- | --------- |
@@ -72,7 +70,7 @@ You can verify the counter is working using several methods
 
 #### PX4 (NuttX) MAVLink Console
 
-The [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) can also be used to check that the driver is running and the UORB topics it is outputting.
+The [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) can also be used to check that the driver is running and the UORB topics it is outputting.
 
 To check the status of the TFRPM01 driver run the command:
 
@@ -92,7 +90,7 @@ For periodic display, you can add `-n 50` parameter after the command, which pri
 
 #### QGroundControl MAVLink Inspector
 
-The QGroundControl [Mavlink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) can be used to observe MAVLink messages from PX4, including [RAW_RPM](https://mavlink.io/en/messages/common.html#RAW_RPM) emitted by the driver:
+The QGroundControl [Mavlink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) can be used to observe MAVLink messages from PX4, including [RAW_RPM](https://mavlink.io/en/messages/common.html#RAW_RPM) emitted by the driver:
 
 1. Start the inspector from the QGC menu: **Analyze tools > Mavlink Inspector**
 1. Check that `RAW_RPM` is present in the list of messages (if it is missing, check that the driver is running).
@@ -105,8 +103,7 @@ Usually, sensors can be used without configuration, but the RPM values should co
 - [PCF8583_RESET](../advanced_config/parameter_reference.md#PCF8583_RESET) — Counter value where the counted number should be reset to zero.
 - [PCF8583_MAGNET](../advanced_config/parameter_reference.md#PCF8583_MAGNET) — Number of pulses per revolution e.g. number of magnets at a rotor disc.
 
-:::note
-The parameters above appear in QGC after the driver/PX4 are restarted.
+::: info The parameters above appear in QGC after the driver/PX4 are restarted.
 
 If the configuration parameters are not available after restart then you should check that the driver has started. It may be that the [driver is not present in the firmware](../peripherals/serial_configuration.md#configuration-parameter-missing-from-qgroundcontrol), in which case it must be added to the board configuration:
 
