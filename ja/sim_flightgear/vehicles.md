@@ -12,8 +12,7 @@ This topic lists/displays the vehicles supported by the PX4 [FlightGear](../sim_
 For the full list of build targets run `make px4_sitl list_vmd_make_targets` (filter out those that start with `flightgear_`).
 :::
 
-:::note
-The [FlightGear](../sim_flightgear/index.md) page shows how to install and use FlightGear in more detail (this page is a summary of vehicle-specific features).
+::: info The [FlightGear](../sim_flightgear/index.md) page shows how to install and use FlightGear in more detail (this page is a summary of vehicle-specific features).
 :::
 
 ## Standard Plane
@@ -53,7 +52,7 @@ A Rascal vehicle with an electric engine.
 make px4_sitl_nolockstep flightgear_rascal-electric
 ```
 
-:::note
+::: info
 This variant needs the latest FlightGear code (sources at least from 26 April 2020).
 Otherwise, the FlightGear crashes because of an unexpected definition of electric engine.
 :::
