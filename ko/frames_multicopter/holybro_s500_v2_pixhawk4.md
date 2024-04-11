@@ -2,8 +2,7 @@
 
 키트 조립법과 *QGroundControl*의 PX4 설정 방법을 설명합니다.
 
-:::note
-Holybro initially supplied this kit with a [Holybro Pixhawk 4](../flight_controller/pixhawk4.md), but at time of writing this has been upgraded to a more recent Pixhawk (6C). This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
+::: info Holybro initially supplied this kit with a [Holybro Pixhawk 4](../flight_controller/pixhawk4.md), but at time of writing this has been upgraded to a more recent Pixhawk (6C). This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
 :::
 
 ## 주요 정보
@@ -32,8 +31,8 @@ The Holybro [S500 V2 Kit](https://holybro.com/collections/s500/products/s500-v2-
 * 크기: 383*385*240mm
 * 축거 : 480mm
 
-:::note
-LiPo 배터리는 포함되어 있지 않습니다. 
+::: info
+No LiPo battery is included. 
 FrSky Taranis 무선 조종기를 사용하여 조립하는 경우를 예시로 설명합니다.
 :::
 
