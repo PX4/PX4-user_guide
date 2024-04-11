@@ -17,8 +17,8 @@
 param set UXRCE_DDS_KEY $((px4_instance+1))
 ```
 
-:::note
-Таким чином, `UXRCE_DDS_KEY` завжди збігатиметься з [MAV_SYS_ID](../advanced_config/parameter_reference.md#MAV_SYS_ID).
+::: info
+By doing so, `UXRCE_DDS_KEY` will always coincide with [MAV_SYS_ID](../advanced_config/parameter_reference.md#MAV_SYS_ID).
 :::
 
 Крім того, коли `px4_instance` більше нуля, додається унікальний [префікс простору імен](../middleware/uxrce_dds.md#customizing-the-topic-namespace) ROS 2 у вигляді `px4_$px4_instance`:
@@ -27,8 +27,8 @@ param set UXRCE_DDS_KEY $((px4_instance+1))
 uxrce_dds_ns="-n px4_$px4_instance"
 ```
 
-:::note
-Змінна оточення `PX4_UXRCE_DDS_NS`, якщо її встановлено, перевизначає поведінку простору імен, описану вище.
+::: info
+The environment variable `PX4_UXRCE_DDS_NS`, if set, will override the namespace behavior described above.
 :::
 
 Перший екземпляр (`px4_instance=0`) не має додаткового простору імен, щоб відповідати стандартній поведінці клієнта `xrce-dds` на реальному транспортному засобі. Цю невідповідність можна виправити вручну за допомогою `PX4_UXRCE_DDS_NS` у першому випадку або почавши додавання транспортних засобів з індексу `1` замість `0` (це поведінка за замовчуванням, прийнята у [sitl_multiple_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gazebo-classic/sitl_multiple_run.sh) для Gazebo Classic).
