@@ -6,7 +6,7 @@
 
 ![TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
 
-:::note TFRPM01 센서는 [ThunderFly s.r.o.](https://www.thunderfly.cz/)에서 판매중인 오픈 소스 하드웨어입니다 (제조 데이터는 [GitHub에서 사용 가능](https://github.com/ThunderFly-aerospace/TFRPM01)).
+::: info The TFRPM01 sensor is open-source hardware commercially available from [ThunderFly s.r.o.](https://www.thunderfly.cz/) (manufacturing data is [available on GitHub](https://github.com/ThunderFly-aerospace/TFRPM01)).
 :::
 
 ## 하드웨어 설정
@@ -38,11 +38,11 @@ TFRPM01A 전자 장치에는 프로브가 연결 여부를 표시하는 LED가 �
 
 ### 드라이버 시작
 
-드라이버는 자동으로 시작되지 않습니다 (어떤 기체에서도). [QGroundControl MAVLink 콘솔](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html)을 사용하거나 SD 카드의 [시작 스크립트](../concept/system_startup.md#customizing-the-system-startup)에 드라이버를 추가하여 수동으로 시작하여야 합니다.
+드라이버는 자동으로 시작되지 않습니다 (어떤 기체에서도). You will need to start it manually, either using the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) or by adding the driver to the [startup script](../concept/system_startup.md#customizing-the-system-startup) on an SD card.
 
 #### 콘솔에서 드라이버 시작
 
-다음 명령을 사용하여 [콘솔](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html)에서 드라이버를 시작합니다.
+Start the driver from the [console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) using the command:
 
 ```sh
 pcf8583 start -X -b <bus number>
@@ -53,8 +53,7 @@ pcf8583 start -X -b <bus number>
 - `-X`는 외부 버스를 나타냅니다.
 - `<bus number>`은 연결된 장치의 버스 번호입니다.
 
-:::note
-코드 `-b <bus number>`의 버스 번호는 자동조종장치의 버스 레이블과 일치하지 않을 수 있습니다. 예를 들어 CUAV V5 + 또는 CUAV Nano를 사용하는 경우:
+::: info The bus number in code `-b <bus number>` may not match the bus labels on the autopilot. 예를 들어 CUAV V5 + 또는 CUAV Nano를 사용하는 경우:
 
 | 자동조종장치 레이블 | -b 번호   |
 | ---------- | ------- |
@@ -71,7 +70,7 @@ pcf8583 start -X -b <bus number>
 
 #### PX4 (NuttX) MAVLink 콘솔
 
-The [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) can also be used to check that the driver is running and the UORB topics it is outputting.
+The [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) can also be used to check that the driver is running and the UORB topics it is outputting.
 
 TFRPM01 드라이버의 상태를 확인하려면 다음 명령을 실행하십시오.
 
@@ -91,7 +90,7 @@ listener rpm
 
 #### QGroundControl MAVLink 검사기
 
-QGroundControl [Mavlink 검사기](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)를 사용하여 드라이버가 전송한 [RAW_RPM](https://mavlink.io/en/messages/common.html#RAW_RPM)을 포함하여 PX4의 MAVLink 메시지를 관찰할 수 있습니다.
+The QGroundControl [Mavlink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) can be used to observe MAVLink messages from PX4, including [RAW_RPM](https://mavlink.io/en/messages/common.html#RAW_RPM) emitted by the driver:
 
 1. QGC 메뉴에서 인스펙터를 시작합니다 : **분석 도구 > Mavlink 검사기**
 1. `RAW_RPM`이 메시지 목록에 있는 지 확인하십시오 (없으면 드라이버가 실행 중인 지 확인하십시오).
@@ -104,8 +103,7 @@ QGroundControl [Mavlink 검사기](https://docs.qgroundcontrol.com/master/en/ana
 - [PCF8583_RESET](../advanced_config/parameter_reference.md#PCF8583_RESET) — 계수된 숫자를 0으로 재설정해야하는 카운터 값입니다.
 - [PCF8583_MAGNET](../advanced_config/parameter_reference.md#PCF8583_MAGNET) — 회전당 펄스 수 (예 : 로터 디스크의 자석 수).
 
-:::note
-위의 매개변수는 드라이버/PX4를 재부팅하면, QGC에 나타납니다.
+::: info The parameters above appear in QGC after the driver/PX4 are restarted.
 
 재시작 후 설정 매개변수를 사용할 수 없는 경우에는 드라이버가 시작되었는 지 확인하십시오. [드라이버가 펌웨어에 없을 수 있습니다](../peripherals/serial_configuration.md#configuration-parameter-missing-from-qgroundcontrol).이 경우 보드에 추가하여야 합니다.
 
