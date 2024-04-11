@@ -7,7 +7,7 @@ This quick start guide shows how to power the _3DR Pixhawk_ flight controller an
 
 ![Pixhawk Image](../../assets/flight_controller/pixhawk1/pixhawk_logo_view.jpg)
 
-::: info The [3DR Pixhawk](../flight_controller/pixhawk.md) is no longer available from 3DR. :::note The [3DR Pixhawk](../flight_controller/pixhawk.md) is no longer available from 3DR.
+::: info The [3DR Pixhawk](../flight_controller/pixhawk.md) is no longer available from 3DR. Other flight controllers based on the [Pixhawk FMUv2 architecture](../flight_controller/pixhawk_series.md) are available from other companies (these share the same connections, outputs, functions, etc. and are wired in a similar way).
 :::
 
 ## Wiring Chart Overview
