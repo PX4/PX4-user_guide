@@ -28,38 +28,46 @@ In this section we create a _minimal application_ that just prints out `Hello Sk
    - Copy in the default header to the top of the page. This should be present in all contributed files!
 
      ```c
-     /****************************************************************************
-      *
-      *   Copyright (c) 2012-2022 PX4 Development Team. All rights reserved.
-      *
-      * Redistribution and use in source and binary forms, with or without
-      * modification, are permitted provided that the following conditions
-      * are met:
-      *
-      * 1. Redistributions of source code must retain the above copyright
-      *    notice, this list of conditions and the following disclaimer.
-      * 2. Redistributions in binary form must reproduce the above copyright
-      *    notice, this list of conditions and the following disclaimer in
-      *    the documentation and/or other materials provided with the
-      *    distribution.
-      * 3. Neither the name PX4 nor the names of its contributors may be
-      *    used to endorse or promote products derived from this software
-      *    without specific prior written permission.
-      *
-      * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-      * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-      * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-      * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
-      * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-      * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-      * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
-      * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
-      * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-      * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
-      * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-      * POSSIBILITY OF SUCH DAMAGE.
-      *
-      ****************************************************************************/
+     ############################################################################
+   #
+   #   Copyright (c) 2015 PX4 Development Team. All rights reserved.
+      #
+   # Redistribution and use in source and binary forms, with or without
+   # modification, are permitted provided that the following conditions
+   # are met:
+   #
+   # 1. Redistributions of source code must retain the above copyright
+   #    notice, this list of conditions and the following disclaimer.
+      # 2. Redistributions in binary form must reproduce the above copyright
+   #    notice, this list of conditions and the following disclaimer in
+   #    the documentation and/or other materials provided with the
+   #    distribution.
+      # 3. Neither the name PX4 nor the names of its contributors may be
+   #    used to endorse or promote products derived from this software
+   #    without specific prior written permission.
+      #
+   # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+   # "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+   # LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+   # FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+   # COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+   # INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+   # BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+   # OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+   # AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+   # LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+   # ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+   # POSSIBILITY OF SUCH DAMAGE.
+      #
+   ############################################################################
+   px4_add_module(
+    MODULE examples__px4_simple_app
+    MAIN px4_simple_app
+    STACK_MAIN 2000
+    SRCS
+        px4_simple_app.c
+    DEPENDS
+    )
      ```
 
    - Copy the following code below the default header. This should be present in all contributed files!
@@ -68,8 +76,7 @@ In this section we create a _minimal application_ that just prints out `Hello Sk
      /**
       * @file px4_simple_app.c
       * Minimal application example for PX4 autopilot
-      *
-      * @author Example User <mail@example.com>
+      * * @author Example User <mail@example.com>
       */
 
      #include <px4_platform_common/log.h>
@@ -97,18 +104,16 @@ The main function must be named `<module_name>_main` and exported from the modul
    ############################################################################
    #
    #   Copyright (c) 2015 PX4 Development Team. All rights reserved.
-   #
-   # Redistribution and use in source and binary forms, with or without
-   # modification, are permitted provided that the following conditions
-   # are met:
-   #
-   # 1. Redistributions of source code must retain the above copyright
+   * Redistribution and use in source and binary forms, with or without
+      * modification, are permitted provided that the following conditions
+      * are met:
+      * * 1. Redistributions of source code must retain the above copyright
    #    notice, this list of conditions and the following disclaimer.
-   # 2. Redistributions in binary form must reproduce the above copyright
+   2. Redistributions in binary form must reproduce the above copyright
    #    notice, this list of conditions and the following disclaimer in
    #    the documentation and/or other materials provided with the
    #    distribution.
-   # 3. Neither the name PX4 nor the names of its contributors may be
+   3. Neither the name PX4 nor the names of its contributors may be
    #    used to endorse or promote products derived from this software
    #    without specific prior written permission.
    #
@@ -141,14 +146,15 @@ The main function must be named `<module_name>_main` and exported from the modul
    - The `MODULE` block is the Firmware-unique name of the module (by convention the module name is prefixed by parent directories back to `src`).
    - The `MAIN` block lists the entry point of the module, which registers the command with NuttX so that it can be called from the PX4 shell or SITL console.
 
-:::tip
-The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/main/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
-
-:::
-
 :::note
-If you specify `DYNAMIC` as an option to `px4_add_module`, a _shared library_ is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code). Your app will not become a builtin command, but ends up in a separate file called `examples__px4_simple_app.px4mod`. You can then run your command by loading the file at runtime using the `dyn` command: `dyn ./examples__px4_simple_app.px4mod`
+We've chosen `attitude` because we know that the _mavlink_ app forwards it to the ground control station - providing an easy way to look at the results. <!-- NEED px4_version -->
+
 :::
+
+   You can then run your command by loading the file at runtime using the `dyn` command: `dyn ./examples__px4_simple_app.px4mod`
+:::
+:::note
+If you specify `DYNAMIC` as an option to `px4_add_module`, a _shared library_ is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code). Your app will not become a builtin command, but ends up in a separate file called `examples__px4_simple_app.px4mod`.
 
 1. Create and open a new _Kconfig_ definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4-kconfig-symbol-naming-convention)). Copy in the text below:
 
@@ -242,6 +248,20 @@ Builtin Apps:
   px4_simple_app
   ..
   sercon
+  serdis           echo        losetup     mkrd        pwd         test
+  cat         exec        ls          mh          rm          umount
+  cd          exit        mb          mount       rmdir       unset
+  cp          free        mkdir       mv          set         usleep
+  dd          help        mkfatfs     mw          sh          xd
+
+Builtin Apps:
+  reboot
+  perf
+  top
+  ..
+  px4_simple_app
+  ..
+  sercon
   serdis
 ```
 
@@ -283,6 +303,8 @@ Subscribing to a topic is straightforward:
 ```cpp
 #include <uORB/topics/sensor_combined.h>
 ..
+#include <uORB/topics/sensor_combined.h>
+..
 int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
 ```
 
@@ -291,6 +313,9 @@ The `sensor_sub_fd` is a topic handle and can be used to very efficiently perfor
 Adding `poll()` to the subscription looks like (_pseudocode, look for the full implementation below_):
 
 ```cpp
+#include <poll.h>
+#include <uORB/topics/sensor_combined.h>
+..
 #include <poll.h>
 #include <uORB/topics/sensor_combined.h>
 ..
@@ -305,6 +330,17 @@ while (true) {
     /* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */
     int poll_ret = px4_poll(fds, 1, 1000);
     ..
+    if (fds[0].revents & POLLIN) {
+        /* obtained data for the first file descriptor */
+        struct sensor_combined_s raw;
+        /* copy sensors raw data into local buffer */
+        orb_copy(ORB_ID(sensor_combined), sensor_sub_fd, &raw);
+        PX4_INFO("Accelerometer:\t%8.4f\t%8.4f\t%8.4f",
+                    (double)raw.accelerometer_m_s2[0],
+                    (double)raw.accelerometer_m_s2[1],
+                    (double)raw.accelerometer_m_s2[2]);
+    }
+}
     if (fds[0].revents & POLLIN) {
         /* obtained data for the first file descriptor */
         struct sensor_combined_s raw;
@@ -351,13 +387,14 @@ The [Module Template for Full Applications](../modules/module_template.md) can b
 
 To use the calculated outputs, the next step is to _publish_ the results. Below we show how to publish the attitude topic.
 
-:::note
-We've chosen `attitude` because we know that the _mavlink_ app forwards it to the ground control station - providing an easy way to look at the results.
+::: info We've chosen `attitude` because we know that the _mavlink_ app forwards it to the ground control station - providing an easy way to look at the results.
 :::
 
 The interface is pretty simple: initialize the `struct` of the topic to be published and advertise the topic:
 
 ```c
+#include <uORB/topics/vehicle_attitude.h>
+..
 #include <uORB/topics/vehicle_attitude.h>
 ..
 /* advertise attitude topic */
@@ -378,27 +415,23 @@ The [complete example code](https://github.com/PX4/PX4-Autopilot/blob/main/src/e
 
 ```c
 /****************************************************************************
- *
- *   Copyright (c) 2012-2019 PX4 Development Team. All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
+ * *   Copyright (c) 2012-2019 PX4 Development Team. All rights reserved.
+ * * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
  * are met:
- *
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
+ * * 1. Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
  * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in
- *    the documentation and/or other materials provided with the
- *    distribution.
+      * notice, this list of conditions and the following disclaimer in
+      * the documentation and/or other materials provided with the
+      * distribution.
  * 3. Neither the name PX4 nor the names of its contributors may be
- *    used to endorse or promote products derived from this software
- *    without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
- * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+      * used to endorse or promote products derived from this software
+      * without specific prior written permission.
+ * * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+      * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+      * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+      * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
  * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
  * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
@@ -407,14 +440,12 @@ The [complete example code](https://github.com/PX4/PX4-Autopilot/blob/main/src/e
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
- *
- ****************************************************************************/
+ * ****************************************************************************/
 
 /**
  * @file px4_simple_app.c
  * Minimal application example for PX4 autopilot
- *
- * @author Example User <mail@example.com>
+ * * @author Example User <mail@example.com>
  */
 
 #include <px4_platform_common/px4_config.h>
