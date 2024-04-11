@@ -5,7 +5,7 @@ PX4 supports numerous types of vehicles, including different configurations of m
 This section explains how to assemble, configure, and tune PX4-based autopilot systems for each type (much of this setup is common to all types).
 
 ::: info
-[Vehicle Selection](../getting_started/frame_selection.md) provides high level information about the types of vehicles and the use cases for which they are best suited.
+[Basic Concepts > Drone Types](../getting_started/px4_basic_concepts.md#drone-types) provides high level information about the types of vehicles and the use cases for which they are best suited.
 :::
 
 ## Supported Vehicles
