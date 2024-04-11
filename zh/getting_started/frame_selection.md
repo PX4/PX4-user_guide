@@ -12,7 +12,6 @@ PX4支持空中，表面（地面，水面）以及水下载具。 您可以在[
 - **Boats** are water-surface vehicles.
 - **Submersibles** are underwater vehicles.
 
-:::note
-The airframe settings used by PX4 are configured in *QGroundControl* during initital setup: [Airframe setup](../config/airframe.md).
+::: info The airframe settings used by PX4 are configured in *QGroundControl* during initital setup: [Airframe setup](../config/airframe.md).
 
 ![机架选择](../../assets/qgc/setup/airframe/airframe_px4.jpg) :::
