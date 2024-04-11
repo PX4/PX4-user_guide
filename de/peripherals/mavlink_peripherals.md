@@ -21,7 +21,7 @@ The number in the name means nothing; you can assign any instance to any port.
 
 The parameters for each instance are:
 
-- <a id="MAV_X_CONFIG"></a>[MAV_X_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) - Set the serial port (UART) for this instance "X", where X is 0, 1, 2. It can be any unused port, e.g.: `TELEM2`, `TELEM3`, `GPS2` etc. For more information see [Serial Port Configuration](../peripherals/serial_configuration.md).
+- <a id="MAV_X_CONFIG"></a>[MAV_X_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) - Set the serial port (UART) for this instance "X", where X is 0, 1, 2. It can be any unused port, e.g.: `TELEM2`, `TELEM3`, `GPS2` etc. For more information see [Serial Port Configuration](../peripherals/serial_configuration.md). For more information see [Serial Port Configuration](../peripherals/serial_configuration.md).
 - <a id="MAV_X_MODE"></a>[MAV_X_MODE](../advanced_config/parameter_reference.md#MAV_0_MODE) - Specify the telemetry mode/target (the set of messages to stream for the current instance and their rate). The default values are:
 
   - _Normal_: Standard set of messages for a GCS.
@@ -53,7 +53,7 @@ Next you need to set the baud rate for the serial port you assigned above (in `M
 You will need to reboot PX4 to make the parameter available (i.e. in QGroundControl).
 :::
 
-The parameter used will depend on the [assigned serial port](../advanced_config/parameter_reference.md#serial) - for example: `SER_GPS1_BAUD`, `SER_TEL2_BAUD`, etc. The value you use will depend on the type of connection and the capabilities of the connected MAVLink peripheral.
+The parameter used will depend on the [assigned serial port](../advanced_config/parameter_reference.md#serial) - for example: `SER_GPS1_BAUD`, `SER_TEL2_BAUD`, etc. The value you use will depend on the type of connection and the capabilities of the connected MAVLink peripheral. The value you use will depend on the type of connection and the capabilities of the connected MAVLink peripheral.
 
 <a id="default_ports"></a>
 
