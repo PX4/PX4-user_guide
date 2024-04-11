@@ -4,8 +4,7 @@
 
 Інструкції використовуються для генерації таблиць відповідності портів серійного зв'язку у документації контролера польоту. Наприклад: [Pixhawk 4 > Serial Port mapping](../flight_controller/pixhawk4.md#serial-port-mapping).
 
-:::note
-Функція, призначена для кожного порту, не обов'язково _повинна_ відповідати його імені (у більшості випадків), і встановлюється за допомогою [Конфігурації Серійного Порту](../peripherals/serial_configuration.md). Зазвичай функція порту налаштована так, щоб відповідати імені, тому порт, позначений як `GPS1`, буде працювати з GPS без будь-яких додаткових налаштувань.
+::: info The function assigned to each port does not _have to_ match the name (in most cases), and is set using a [Serial Port Configuration](../peripherals/serial_configuration.md). Зазвичай функція порту налаштована так, щоб відповідати імені, тому порт, позначений як `GPS1`, буде працювати з GPS без будь-яких додаткових налаштувань.
 :::
 
 ## NuttX на STMxxyyy
@@ -124,8 +123,8 @@ ttyS6 CONFIG_STM32F7_UART8=y PX4IO
 
 ## Інші архітектури
 
-:::note
-Внески вітаються!
+::: info
+Contributions welcome!
 :::
 
 ## Дивіться також
