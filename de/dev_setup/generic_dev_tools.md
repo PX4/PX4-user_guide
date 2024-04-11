@@ -6,7 +6,8 @@ This section lists useful additional development tools that are not part of the 
 
 Download and install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/daily_builds.html).
 
-It may also provide access to new PX4 features that are not yet supported in release builds. :::tip The _daily build_ includes development tools that hidden in release builds.
+:::tip
+The _daily build_ includes development tools that hidden in release builds. :::tip The _daily build_ includes development tools that hidden in release builds.
 :::
 
 ![QGroundControl](../../assets/toolchain/qgc_goto.jpg)
