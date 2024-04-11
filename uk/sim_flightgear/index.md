@@ -24,14 +24,14 @@ graph LR;
   MAVLink-- >PX4_SITL;
 -->
 
-:::note
-Див. [Симуляція](../simulation/README.md) для загальної інформації про симулятори, середовище симуляції та конфігурацію симуляції (наприклад, підтримувані транспортні засоби).
+::: info See [Simulation](../simulation/index.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
 :::
 
 ## Встановлення (Ubuntu Linux)
 
-:::note
-Ці інструкції були перевірені на Ubuntu 18.04 ::
+::: info
+These instructions were tested on Ubuntu 18.04
+:::
 
 1. Установіть звичайне [Середовище розробки на Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md).
 1. Встановити FlightGear:
@@ -85,8 +85,7 @@ make px4_sitl_nolockstep flightgear_rascal
 
 The commands above launch a single vehicle with the full UI. _QGroundControl_ повинна автоматично підключатися до симульованого транспортного засобу.
 
-:::note
-For the full list of FlightGear build targets (highlighted) run:
+::: info For the full list of FlightGear build targets (highlighted) run:
 
 ```sh
 make px4_sitl_nolockstep list_vmd_make_targets | grep flightgear_
@@ -95,8 +94,7 @@ make px4_sitl_nolockstep list_vmd_make_targets | grep flightgear_
 For additional information see: [FlightGear Vehicles](../sim_flightgear/vehicles.md) (this includes information about "unsupported" vehicles, and adding new vehicles).
 :::
 
-:::note
-The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful reference if there are build errors.
+::: info The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful reference if there are build errors.
 :::
 
 ## Taking it to the Sky
@@ -148,8 +146,7 @@ pxh>
 
 The console will print out status as PX4 loads the airframe-specific initialization and parameter files, wait for (and connect to) the simulator. Once there is an INFO print that [ecl/EKF] is `commencing GPS fusion` the vehicle is ready to arm. At this point, you should see a FlightGear window with some view of aircraft.
 
-:::note
-You can change the view by pressing **Ctrl+V**.
+::: info You can change the view by pressing **Ctrl+V**.
 :::
 
 ![FlightGear UI](../../assets/simulation/flightgear/flightgearUI.jpg)
