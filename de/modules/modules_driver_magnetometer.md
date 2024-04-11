@@ -82,6 +82,7 @@ Source: [drivers/magnetometer/hmc5883](https://github.com/PX4/PX4-Autopilot/tree
 ### Usage
 ```
 hmc5883 <command> [arguments...]
+ hmc5883 <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -135,6 +136,7 @@ Source: [drivers/magnetometer/isentek/ist8310](https://github.com/PX4/PX4-Autopi
 ### Usage
 ```
 ist8310 <command> [arguments...]
+ ist8308 <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -144,7 +146,7 @@ ist8310 <command> [arguments...]
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
-                 default: 14
+                 default: 12
      [-R <val>]  Rotation
                  default: 0
 
@@ -189,6 +191,7 @@ Source: [drivers/magnetometer/lis3mdl](https://github.com/PX4/PX4-Autopilot/tree
 ### Usage
 ```
 lis3mdl <command> [arguments...]
+ lis2mdl <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -206,8 +209,6 @@ lis3mdl <command> [arguments...]
      [-R <val>]  Rotation
                  default: 0
 
-   reset
-
    stop
 
    status        print status info
@@ -220,6 +221,7 @@ Source: [drivers/magnetometer/lsm9ds1_mag](https://github.com/PX4/PX4-Autopilot/
 ### Usage
 ```
 lsm9ds1_mag <command> [arguments...]
+ lsm9ds1_mag <command> [arguments...]
  Commands:
    start
      [-s]        Internal SPI bus(es)
