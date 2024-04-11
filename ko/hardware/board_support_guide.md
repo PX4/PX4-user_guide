@@ -4,8 +4,7 @@ PX4 개발 및 테스트 팀은 [Pixhawk 표준](https://pixhawk.org/standards/)
 
 이 가이드는 다양한 [보드 지원 카테고리](#board-support-categories)에 대한 추가 요구사항과 함께 보드 지원에 대한 [일반 요구사항](#general_requirements)을 간략하게 설명합니다.
 
-:::note
-요구 사항을 준수하지 않는 보드는 [지원되지 않습니다](#unsupported). 그러한 보드들은 PX4 웹사이트 하드웨어 목록에 나열되지 않으며, 코드베이스에서 제거됩니다.
+::: info Boards that are not compliant with the requirements are [unsupported](#unsupported); they will not be listed on the PX4 website hardware list and will be removed from the codebase.
 :::
 
 <a id="general_requirements"></a>
@@ -38,8 +37,8 @@ PX4 개발 및 테스트 팀은 [Pixhawk 표준](https://pixhawk.org/standards/)
 
 보드 지원 범주는 다음과 같습니다. 각 카테고리의 자동조종장치 보드는 [https://px4.io/autopilots/.](https://px4.io/autopilots/)에 나열되어 있습니다.
 
-:::note
-제조업체 지원 보드는 Pixhawk 보드보다 더 나은 지원을 받을 수 있습니다(예: 규모의 경제를 통해).
+::: info
+Manufacturer supported boards may be as well/better supported than Pixhawk boards (for example through economies of scale).
 :::
 
 ## Pixhawk표준
@@ -68,8 +67,7 @@ Because these boards are 100% compliant with the Pixhawk standard, the values as
 이것은 모든 당사자에게 더 나은 결과를 가져올 것입니다.
 :::
 
-:::note
-보드 호환성에 따라 [VER 및 REV ID](#ver_rev_id)가 할당됩니다. 보드가 FMU 사양의 변형이고 동일한 바이너리를 실행 가능하고 제조업체에서 지원하는 약간의 차이가 있는 경우에는 PX4에서 특별 할당을 수행합니다. 자세한 정보를 요청하려면 PX4 관리자에게 [boards@px4.io](mailto:boards@px4.io)로 문의하십시오.
+::: info These boards will be assigned [VER and REV ID](#ver_rev_id) based on compatibility. 보드가 FMU 사양의 변형이고 동일한 바이너리를 실행 가능하고 제조업체에서 지원하는 약간의 차이가 있는 경우에는 PX4에서 특별 할당을 수행합니다. 자세한 정보를 요청하려면 PX4 관리자에게 [boards@px4.io](mailto:boards@px4.io)로 문의하십시오.
 :::
 
 ## 실험
@@ -78,8 +76,7 @@ Because these boards are 100% compliant with the Pixhawk standard, the values as
 
 - 보드는 정의된 차량 유형에 대해 최소 하나의 PX4 릴리스에 작동하여야 하지만 반드시 최신 릴리스일 필요는 없습니다.
 
-:::note
-_이전_ Pixhawk 또는 제조업체가 지원했던 실험 보드는 원래 ID를 갖거나 유지합니다. *신규* 실험 보드에는 제조업체 지원 보드와 동일한 방식으로 호환성에 따라 [VER 및 REV ID](#ver_rev_id)가 할당됩니다.
+::: info Experimental boards that were _previously_ Pixhawk or Manufacturer supported will have/retain their original IDs. *신규* 실험 보드에는 제조업체 지원 보드와 동일한 방식으로 호환성에 따라 [VER 및 REV ID](#ver_rev_id)가 할당됩니다.
 :::
 
 ## 미지원
@@ -91,8 +88,7 @@ _이전_ Pixhawk 또는 제조업체가 지원했던 실험 보드는 원래 ID�
 - 라이선스 제한으로 인해 보드 지원을 추가하는 데 필요한 도구/libs/drivers/etc가 호환되지 않는 것으로 간주되는 비공개 소스
 - 보드가 일반 요구 사항에 명시된 최소 요구 사항을 충족하지 않습니다.
 
-:::note
-지원되지 않는 보드에는 [VER 및 REV ID](#ver_rev_id)가 할당되지 않습니다(PX4 FMUvX 펌웨어를 실행할 수 없음).
+::: info Unsupported boards will NOT be assigned [VER and REV ID](#ver_rev_id) (and cannot run PX4 FMUvX firmware).
 :::
 
 ## 릴리스 프로세스
