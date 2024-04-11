@@ -80,6 +80,9 @@ $make list_config_targets
 $make list_config_targets
 
 ...
+$make list_config_targets
+
+...
 cuav_nora_bootloader
 cuav_x7pro_bootloader
 cubepilot_cubeorange_bootloader
