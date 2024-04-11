@@ -4,8 +4,7 @@
 
 Набір стандартних звуків наведено нижче.
 
-:::note
-**Розробникам:** Мелодії визначено в [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc) і їх можна протестувати за допомогою модуля [tune-control](../modules/modules_system.md#tune-control). Ви можете шукати використання мелодії за допомогою рядка `TUNE_ID_name` (наприклад, `TUNE_ID_PARACHUTE_RELEASE)
+::: info **Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc) and can be tested using the [tune-control](../modules/modules_system.md#tune-control) module. Ви можете шукати використання мелодії за допомогою рядка `TUNE_ID_name` (наприклад, `TUNE_ID_PARACHUTE_RELEASE)
 :::
 
 
