@@ -20,7 +20,7 @@ US-D1 can be connected to any unused _serial port_ (UART), e.g.: TELEM2, TELEM3,
 
 [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG)를 사용하여 LIDAR가 실행되는 [직렬 포트를 설정](../peripherals/serial_configuration.md)합니다. 포트 전송속도는 드라이버에 의해 설정되므로, 추가로 설정할 필요는 없습니다.
 
-:::note
+::: info
 
 If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
 
