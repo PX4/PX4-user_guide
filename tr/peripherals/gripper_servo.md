@@ -49,7 +49,7 @@ This is done by assigning the `Gripper` function to the to the output port where
 
 You must also set the correct PWM frequency for the gripper output port(for commercial servos / grippers this is normally 50Hz).
 
-:::note
+::: info
 Mis-configuring the frequency may damaging the gripper.
 :::
 
