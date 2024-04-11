@@ -38,7 +38,7 @@ PX4 is configured to use `TELEM1` for telemetry radios, with a default baud rate
 
 QGroundControl autodetects a serial telemetry connection with the baud rate 57600.
 
-For any other rate you will need to add a serial comms link that sets the rate that was used. See [Application Settings > Comms Links](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html).
+For any other rate you will need to add a serial comms link that sets the rate that was used. See [Application Settings > Comms Links](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/settings_view.html).
 
 ### Radio Configuration
 
