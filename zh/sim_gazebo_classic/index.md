@@ -18,7 +18,7 @@ graph LR;
   MAVLink-- >SITL;
 -->
 
-:::note
+::: info
 See [Simulation](../simulation/index.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
 :::
 
@@ -26,11 +26,11 @@ See [Simulation](../simulation/index.md) for general information about simulator
 
 Linux、macOS和Windows版的 Gazebo Classic 9 或 11 安装包含在我们的 [标准构建说明}(../dev_setup/dev_env.md) 中。 其他安装说明可在 [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1) 上找到。
 
-:::note
+::: info
 If you plan to use PX4 with ROS you **should follow the** [ROS Instructions](../simulation/ros_interface.md) to install both ROS and Gazebo Classic (and thereby avoid installation conflicts).
 :::
 
-:::note
+::: info
 The following commands can be used to remove [Gazebo (Garden)](../sim_gazebo_gz/index.md) and reinstall Gazebo-Classic 11:
 
 ```sh
@@ -55,7 +55,7 @@ make px4_sitl gazebo-classic
 
 The supported vehicles and `make` commands are listed below (click links to see vehicle images).
 
-:::note
+::: info
 For the full list of build targets run `make px4_sitl list_vmd_make_targets` (and filter on those that start with `gazebo-classic_`).
 :::
 
@@ -77,7 +77,7 @@ For the full list of build targets run `make px4_sitl list_vmd_make_targets` (an
 | [Boat (USV: Unmanned Surface Vehicle)](../sim_gazebo_classic/vehicles.md#hippocampus-tuhh-uuv)                                     | `make px4_sitl gazebo-classic_boat`                       |
 | [Cloudship (Airship)](../sim_gazebo_classic/vehicles.md#airship)                                                                   | `make px4_sitl gazebo-classic_cloudship`                  |
 
-:::note
+::: info
 The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful reference if there are build errors.
 :::
 
@@ -117,7 +117,7 @@ INFO  [ecl/EKF] 5188000: commencing GPS fusion
 
 The console will print out status as PX4 loads the airframe-specific initialisation and parameter files, waits for (and connects to) the simulator. Once there is an INFO print that [ecl/EKF] is `commencing GPS fusion` the vehicle is ready to arm.
 
-:::note
+::: info
 Right-clicking the quadrotor model allows to enable follow mode from the context menu, which is handy to keep it in view.
 :::
 
@@ -258,7 +258,7 @@ For example, to load the _warehouse_ world, you can append it as shown:
 make px4_sitl_default gazebo-classic_plane_cam__warehouse
 ```
 
-:::note
+::: info
 There are _two underscores_ after the model (`plane_cam`) indicating that the default debugger is used (none). See [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#px4-make-build-targets).
 :::
 
@@ -272,13 +272,13 @@ If the loaded world does not align with the map, you may need to [set the world 
 
 The vehicle gets spawned very close to the origin of the world model at some simulated GPS location.
 
-:::note
+::: info
 The vehicle is not spawned exactly at the Gazebo origin (0,0,0), but using a slight offset, which can highlight a number of common coding issues.
 :::
 
 If using a world that recreates a real location (e.g. a particular airport) this can result in a very obvious mismatch between what is displayed in the simulated world, and what is shown on the ground station map. To overcome this problem you can set the location of the world origin to the GPS coordinates where it would be in "real life".
 
-:::note
+::: info
 You can also set a [Custom Takeoff Location](#custom_takeoff_location) that does the same thing. However adding the location to the map is easier (and can still be over-ridden by setting a custom location if needed).
 :::
 
@@ -342,11 +342,11 @@ To simulate a plane with this camera:
 make px4_sitl_default gazebo-classic_plane_cam
 ```
 
-:::note
+::: info
 The camera also supports/responds to the following MAVLink commands: [MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS), [MAV_CMD_REQUEST_STORAGE_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_STORAGE_INFORMATION), [MAV_CMD_REQUEST_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_SETTINGS), [MAV_CMD_REQUEST_CAMERA_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_INFORMATION), [MAV_CMD_RESET_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_RESET_CAMERA_SETTINGS), [MAV_CMD_STORAGE_FORMAT](https://mavlink.io/en/messages/common.html#MAV_CMD_STORAGE_FORMAT), [MAV_CMD_SET_CAMERA_ZOOM](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_ZOOM), [MAV_CMD_IMAGE_START_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_START_CAPTURE), [MAV_CMD_IMAGE_STOP_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_STOP_CAPTURE), [MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION), [MAV_CMD_REQUEST_VIDEO_STREAM_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_STATUS), [MAV_CMD_SET_CAMERA_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_MODE).
 :::
 
-:::note
+::: info
 The simulated camera is implemented in [PX4/PX4-SITL_gazebo-classic/main/src/gazebo_camera_manager_plugin.cpp](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/src/gazebo_camera_manager_plugin.cpp).
 :::
 
@@ -400,7 +400,7 @@ The simulated camera sensor is supported/enabled on the following frames:
 
 _Gstreamer 1.0_ is required for video streaming. The required dependencies should already have been [installed when you set up Gazebo Classic](#installation) (they are included in the standard PX4 installation scripts/instructions for macOS and Ubuntu Linux).
 
-:::note
+::: info
 FYI only, the dependencies include: `gstreamer1.0-plugins-base`, `gstreamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
 :::
 
@@ -426,7 +426,7 @@ The video from Gazebo Classic should then display in _QGroundControl_ just as it
 
 ![QGC Video Streaming Gazebo Example](../../assets/simulation/gazebo_classic/qgc_gazebo_video_stream_typhoon.jpg)
 
-:::note
+::: info
 The Typhoon world is not very interesting.
 :::
 
@@ -456,7 +456,7 @@ VERBOSE_SIM=1 make px4_sitl gazebo-classic
 
 To extend or customize the simulation interface, edit the files in the `Tools/simulation/gazebo/sitl_gazebo` folder. The code is available on the [sitl_gazebo repository](https://github.com/PX4/PX4-SITL_gazebo) on Github.
 
-:::note
+::: info
 The build system enforces the correct GIT submodules, including the simulator. It will not overwrite changes in files in the directory.
 :::
 
