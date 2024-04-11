@@ -10,8 +10,7 @@ _光流传感器_使用下视相机和向下的距离传感器进行速度估计
 
 光流的配置需要一个下视摄像头和 [距离传感器](../sensor/rangefinders.md) (最好是激光). 这些设备可以通过MAVLink、I2C或其他总线连接。
 
-:::note
-如果通过 MAVLink 与 PX4 连接，光流必须发布到 [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD) 主题 并且距离传感器必须发布到 [DISTANCE_SENSOR](https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR) 主题.
+::: info If connected to PX4 via MAVLink the Optical Flow device must publish to the [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD) topic, and the distance sensor must publish to the [DISTANCE_SENSOR](https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR) topic.
 :::
 
 在不同方向移动时光流的输出必须如下所示：
