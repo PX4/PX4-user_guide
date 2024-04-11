@@ -7,7 +7,7 @@ This topic provides full instructions for building the [Holybro X500 V2 ARF Kit]
 
 ## Assembly
 
-:::note
+::: info
 - The images in this document can be selected to see a youtube video of the step.
 - Each section lists any required screws at the top.
 :::
