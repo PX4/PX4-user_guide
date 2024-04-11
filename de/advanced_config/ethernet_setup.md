@@ -185,14 +185,12 @@ To setup MAVSDK-Python running on a companion computer:
    await drone.connect(system_address="udp://192.168.0.4:14540")
    ```
 
-:::note MAVSDK
-can connect to the PX4 on port `14550` if you don't modify the PX4 Ethernet port configuration. However this is not recommended because the default configuration is optimised for communicating with a GCS (not a companion computer).
+::: info MAVSDK can connect to the PX4 on port `14550` if you don't modify the PX4 Ethernet port configuration. However this is not recommended because the default configuration is optimised for communicating with a GCS (not a companion computer).
 :::
 
 ## ROS 2 Setup Example
 
-:::note
-Prerequisites:
+::: info Prerequisites:
 
 - You have a supported autopilot hardware running PX4 firmware that includes [uXRCE-DDS](../middleware/uxrce_dds.md) middleware. Note that PX4 v1.14 and later include the required [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) module by default.
 - [ROS 2](../ros/ros2_comm.md) has been set up correctly on the companion computer.
