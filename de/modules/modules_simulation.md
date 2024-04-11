@@ -21,6 +21,7 @@ The simulator implements the equations of motion using matrix algebra. Quaternio
 ### Usage
 ```
 simulator_sih <command> [arguments...]
+ simulator_sih <command> [arguments...]
  Commands:
    start
 
