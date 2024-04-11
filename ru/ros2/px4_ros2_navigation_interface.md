@@ -27,7 +27,7 @@ The following steps are required to get started:
    git clone --recursive https://github.com/Auterion/px4-ros2-interface-lib
    ```
 
-   :::note
+   ::: info
    To ensure compatibility, use the latest _main_ branches for PX4, _px4_msgs_ and the library.
    See also [here](https://github.com/Auterion/px4-ros2-interface-lib#compatibility-with-px4).
 
