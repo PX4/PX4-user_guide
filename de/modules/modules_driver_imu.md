@@ -213,6 +213,7 @@ Source: [drivers/imu/bosch/bmi088_i2c](https://github.com/PX4/PX4-Autopilot/tree
 ### Usage
 ```
 bmi088_i2c <command> [arguments...]
+ bmi088_i2c <command> [arguments...]
  Commands:
    start
      [-A]        Accel
@@ -265,6 +266,7 @@ Source: [drivers/imu/nxp/fxas21002c](https://github.com/PX4/PX4-Autopilot/tree/m
 ### Usage
 ```
 fxas21002c <command> [arguments...]
+ fxas21002c <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -482,6 +484,7 @@ Source: [drivers/imu/invensense/icm20948](https://github.com/PX4/PX4-Autopilot/t
 ### Usage
 ```
 icm20948_i2c_passthrough <command> [arguments...]
+ icm20948_i2c_passthrough <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -580,6 +583,7 @@ Source: [drivers/imu/invensense/icm42688p](https://github.com/PX4/PX4-Autopilot/
 ### Usage
 ```
 icm42688p <command> [arguments...]
+ icm45686 <command> [arguments...]
  Commands:
    start
      [-s]        Internal SPI bus(es)
@@ -594,7 +598,6 @@ icm42688p <command> [arguments...]
                  default: 0
      [-C <val>]  Input clock frequency (Hz)
                  default: 0
-     [-6]        Drive ICM-42686
 
    stop
 
@@ -819,6 +822,7 @@ Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tr
 ### Usage
 ```
 mpu9250_i2c <command> [arguments...]
+ mpu9250_i2c <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -844,6 +848,7 @@ Source: [drivers/imu/invensense/mpu6500](https://github.com/PX4/PX4-Autopilot/tr
 ### Usage
 ```
 mpu9520 <command> [arguments...]
+ adis16477 <command> [arguments...]
  Commands:
    start
      [-s]        Internal SPI bus(es)
