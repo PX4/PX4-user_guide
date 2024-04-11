@@ -6,52 +6,101 @@ This topic provides a basic introduction to drones and using PX4 (it is meant mo
 
 ## Що таке безпілотник?
 
-Безпілотник - це безпілотний "роботизований" рухомий засіб, яким можна дистанційно або автономно керувати.
+A drone, or Unmanned Vehicles (UV), is an unmanned "robotic" vehicle that can be manually or autonomously controlled. They can travel in air, on the ground, on/under the water, and are used for many [consumer, industrial, government and military applications](https://px4.io/ecosystem/commercial-systems/), including aerial photography/video, carrying cargo, racing, search and surveying, and so on.
 
-Дрони використовуються для багатьох [споживчих, промислових, урядових та військових цілей](https://px4.io/ecosystem/commercial-systems/), включаючи аерофотозйомку/відеозйомку, перевезення вантажів, перегони, пошук та обстеження тощо.
+Drones are more formally referred to as Unmanned Aerial Vehicles (UAV), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
 
-Різні типи безпілотників використовуються в повітрі, на землі, в морі та під водою. Їх (більш формально) називають Безпілотними Повітряними Літальними Апаратами (БПЛА або UAV), Безпілотними Повітряними Системами (UAS), Безпілотними Наземними Транспортними Засобами (UGV), Безпілотними Надводними Транспортними Засобами (USV), Безпілотними Підводними Транспортними Засобами (UUV).
+::: info
+The term Unmanned Aerial System (UAS) typically refers to a UAV and all of the other components of a complete system, including a ground control station and/or radio controller, and any other systems used to control the drone, capture, and process data.
+:::
 
-"Мізками" дрону є автопілот. It minimally consists of _flight stack_ software running on a real time OS ("RTOS") on _flight controller_ (FC) hardware. Політний стек забезпечує основну стабілізацію та функції безпеки, а зазвичай також певний рівень допомоги пілоту для ручного польоту та автоматизації загальних завдань, таких як зліт, посадка та виконання попередньо визначених місій.
+
+## Drone Types
+
+There are many different vehicle frames (types), and within the types there are many variations. Some of the types, along with the use cases for which they are most suited are listed below.
+
+- [Multicopters](../frames_multicopter/index.md) — Multi-rotors offer precision hovering and vertical takeoff, at the cost of shorter and generally slower flight. They are the most popular type of flying vehicle, in part because they are easy to assemble, and PX4 has modes that make them easy to fly and very suitable as a camera platform.
+- [Helicopters](../frames_helicopter/index.md) — Helicopters similar benefits to Multicopters but are mechanically more complex and more efficient. They are also much harder to fly.
+- [Planes (Fixed-wing)](../frames_plane/index.md) — Fixed-wing vehicles offer longer and faster flight than multicopters, and hence better coverage for ground surveys etc. However they are harder to fly and land than multicopters, and aren't suitable if you need to hover or fly very slowly (e.g. when surveying vertical structures).
+- [VTOL](../frames_vtol/index.md) (Vertical Takeoff and Landing) - Hybrid Fixed-wing/Multicopter vehicles offer the best of both worlds: take off in vertical mode and hover like a multicopter but transition to forward flight like an airplane to cover more ground. VTOL are often more expensive than either multicopters and fixed-wing aircraft, and harder to build and tune. They come in a number of types: tiltrotors, tailsitters, quadplanes etc.
+- [Airships](../frames_airship/index.md)/[Balloons](../frames_balloon/index.md) — Lighter-than-air vehicles that typically offer high altitude long duration flight, often at the cost of having limited (or no) control over speed and direction of flight.
+- [Rovers](../frames_rover/index.md) — Car-like ground vehicles. They are simple to control and often fun to use. They can't travel as fast as most aircraft, but can carry heavier payloads, and don't use much power when still.
+- **Boats** — Water-surface vehicles.
+- [Submersibles](../frames_sub/index.md) — Underwater vehicles.
+
+
+Для отримання додаткової інформації:
+
+- [Vehicle Types & Setup](../airframes/index.md)
+- [Airframe setup](../config/airframe.md)
+- [Airframe Reference](../airframes/airframe_reference.md).
+
+## Autopilots
+
+"Мізками" дрону є автопілот.
+
+It minimally consists of _flight stack_ software running on a real time OS ("RTOS") on _flight controller_ (FC) hardware. Політний стек забезпечує основну стабілізацію та функції безпеки, а зазвичай також певний рівень допомоги пілоту для ручного польоту та автоматизації загальних завдань, таких як зліт, посадка та виконання попередньо визначених місій.
 
 Деякі автопілоти також включають універсальну обчислювальну систему, яка може забезпечувати "вищий рівень" управління та контролю, а також підтримувати більш просунуті мережеві технології, машинний зір та інші можливості. Це може бути реалізовано у вигляді окремого [супутнього комп'ютера](#offboard-companion-computer), але в майбутньому все більш імовірно, що це буде повністю інтегрований компонент.
 
+
 ## Політний стек PX4
 
-[PX4](https://px4.io/) - це потужний _політний стек_ автопілота з відкритим кодом.
+[PX4](https://px4.io/) is powerful open source autopilot _flight stack_ running on the NuttX RTOS.
 
 Деякі ключові можливості PX4:
 
-- Supports many different vehicle frames/types, including: aircraft (multicopters, fixed-wing aircraft and VTOLs), ground vehicles, and underwater vehicles.
-- Great choice of hardware for [flight controller](#flight-controller), [sensors](#sensors), and other peripherals.
+- Supports many different vehicle frames/types, including: [multicopters](../frames_multicopter/index.md), [fixed-wing aircraft](../frames_plane/index.md) (planes), [VTOLs](../frames_vtol/index.md) (hybrid multicopter/fixed-wing), [ground vehicles](../frames_rover/index.md), and [underwater vehicles](../frames_sub/index.md).
+- Great choice of drone components for [flight controller](#flight-controller), [sensors](#sensors), [payloads](#payloads), and other peripherals.
 - Гнучкі та потужні [режими польоту](#flight-modes) та [функції безпеки](#safety-settings-failsafe).
 - Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/index.md) such as [ROS 2](../ros/ros2_comm.md) and [MAVSDK](http://mavsdk.mavlink.io)).
 
-PX4 is a core part of a broader drone platform that includes the [QGroundControl](#ground-control-stations-qgroundcontrol) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 підтримується [Dronecode Project](https://www.dronecode.org/).
+PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgc) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 підтримується [Dronecode Project](https://www.dronecode.org/).
 
-## Ground Control Stations (QGroundControl)
+## Ground Control Stations
 
-Наземна станція управління (GCS) Dronecode називається [QGroundControl](http://qgroundcontrol.com/). Можна використовувати _QGroundControl_ для завантаження (прошивки) PX4 в [контролер рухомого засобу](flight_controller_selection.md), його налаштування, зміни різних параметрів, отримувати інформацію про польоти в реальному часі та створювати й виконувати повністю автономні місії.
+Ground Control Stations (GCS) are ground based systems that allow UV operators to monitor and control a drone and its payloads. A subset of the products that are known to work with PX4 are listed below.
 
-_QGroundControl_ працює на Windows, Android, MacOS або Linux. Завантажити та встановити його можна [звідси](http://qgroundcontrol.com/downloads/).
+### QGroundControl {#qgc}
 
-![Головний екран QGC](../../assets/concepts/qgc_main_screen.jpg)
+The Dronecode GCS software is called [QGroundControl](http://qgroundcontrol.com/) ("QGC"). It runs on Windows, Android, MacOS or Linux hardware, and supports a wide range of screen form factors. You can download it (for free) from [here](http://qgroundcontrol.com/downloads/).
+
+![Головний екран QGC](../../assets/concepts/qgc_fly_view.png)
+
+QGroundControl communicates with the drone using a telmetry radio (a bidirectional data link), which allows you to get real-time flight and safety information, and to control the vehicle, camera, and other payloads using a point-and-click interface. On hardware that supports them, you can also manually fly the vehicle using joystick controllers. QGC can also be used to visually plan, execute, and monitor autonomous missions, set geofences, and much more.
+
+QGroundControl desktop versions are also used to install (flash) PX4 firmware and configure PX4 on the drone's autopilot/flight controller hardware.
+
+### Auterion Mission Control (AMC) {#amc}
+
+[Auterion Mission Control](https://auterion.com/product/mission-control/) is a powerful and fully featured ground control station application that is optimized for _pilots_ rather than vehicle configuration. While designed to work with Auterion products, it can be used with "vanilla" PX4.
+
+For more information see:
+
+- [AMC docs](https://docs.auterion.com/vehicle-operation/auterion-mission-control)
+- [AMC on Google Play](https://play.google.com/store/apps/details?id=com.auterion.auteriongs)
 
 ## Drone Components & Parts
 
 ### Flight Controller
 
+Flight controllers (FC) are the hardware onto which the PX4 flight stack firmware is loaded and run. They are connected to sensors from which PX4 determines its state, and to the actuators/motors that it uses to stabilise and move the vehicle.
+
 <img src="../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x.jpg" width="230px" title="CUAV Pixhawk 6X"  />
 
-На початку PX4 був створений для роботи на контролерах [Pixhawk Series](../flight_controller/pixhawk_series.md), але зараз його можна запустити на Linux комп'ютерах та іншому апаратному забезпеченні. Вам слід обирати плату, яка відповідає фізичним обмеженням вашого апарату, видам діяльності, які ви хочете виконувати та, звичайно, за вартістю.
+PX4 can run on many different types of [Flight Controller Hardware](../flight_controller/index.md), ranging from [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers to Linux computers. These include [Pixhawk Standard](../flight_controller/autopilot_pixhawk_standard.md) and [manufacturer-supported](../flight_controller/autopilot_manufacturer_supported.md) boards. You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and cost.
 
-Більше інформації можна знайти тут: [Вибір політного контролера](flight_controller_selection.md).
+For more information see: [Flight Controller Selection](flight_controller_selection.md)
 
 ### Датчики
 
-PX4 використовує датчики для визначення стану рухомого засобу (це необхідно для стабілізації або увімкнення автономного керування). Така система _мінімально потребує_ гіроскоп, акселерометр, магнетометр (компас) та барометр. Для можливості використання всіх автоматичних політних режимів, а також деяких ручних режимів, необхідний GPS або інша система позиціювання. Дрони літакового типу, а також апарати VTOL повинні додатково включати датчик швидкості польоту (дуже рекомендується).
+PX4 uses sensors to determine vehicle state, which it needs in order to stablise the vehicle and enable autonomous control. The vehicle states include: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different axes, battery level, and so on.
 
-For more information see: [Sensors](../getting_started/sensor_selection.md)
+PX4 _minimally requires_ a [gyroscope](../sensor/gyroscope.md), [accelerometer](../sensor/accelerometer.md), [magnetometer](../gps_compass/magnetometer.md) (compass) and [barometer](../sensor/barometer.md). A [GNSS/GPS](../gps_compass/index.md) or other source of global position is needed to enable all automatic modes, and some manual/assisted modes. Fixed-wing and VTOL-vehicles should additionally include an [airspeed sensor](../sensor/airspeed.md) (highly recommended).
+
+The minimal set of sensors is incorporated into [Pixhawk Series](../flight_controller/pixhawk_series.md) flight controllers (and may also be in other controller platforms). Additional/external sensors can be attached to the controller.
+
+For more information see: [Sensor Hardware & Setup](../sensor/index.md)
 
 ### Виводи: Двигуни, Сервоприводи, Актуатори, або приводи
 
@@ -84,7 +133,6 @@ PX4 використовує _виводи_ для керування: швид�
 - [ESC & Мотори](../peripherals/esc_motors.md)
 - [Калібрування ESC](../advanced_config/esc_calibration.md)
 - [Прошивки ESC та огляд протоколів](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
-
 
 ### Батарея/Живлення
 
@@ -148,16 +196,13 @@ SD карти, однак, не обов'язкові. Політні контр
 - Зберігати місії в RAM/FLASH.
   <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/main/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
-
-### Корисне навантаження
+## Корисне навантаження
 
 Корисне навантаження — це обладнання, яке переноситься апаратом для досягнення цілей користувача або місії, такі як камери в місіях з обстеження, інструменти, що використовуються для інспектування, наприклад, детектори радіації, та вантаж, який потрібно доставити. PX4 підтримує багато камер та широкий спектр корисних навантажень.
 
 Корисні навантаження підключаються до [виводів політного контролера](#outputs-motors-servos-actuators) і можуть бути активовані автоматично в місіях, або вручну з радіоконтролера або джойстика, або з наземної станції (через команди MAVLink/MAVSDK).
 
-Для отримання додаткової інформації:
-
-- [Корисне навантаження & Камери](../payloads/index.md)
+For more information see: [Payloads & Cameras](../payloads/index.md)
 
 ## Увімкнення та вимкнення
 
