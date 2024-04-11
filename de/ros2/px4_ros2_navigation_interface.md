@@ -4,6 +4,7 @@
 
 :::warning
 Experimental
+Experimental
 At the time of writing, parts of the PX4 ROS 2 Interface Library are experimental, and hence subject to change.
 :::
 
@@ -165,7 +166,7 @@ struct LocalPositionMeasurement
 The `update()` method of the local interface expects the following conditions to hold for `LocalPositionMeasurement`:
 
 - The sample timestamp is defined.
-- Values do not have a \`NAN\`\`.
+- Values do not have a \`NAN\`\\`.
 - If a measurement value is provided, its associated variance value is well defined (e.g. if `position_xy` is defined, then `position_xy_variance` must be defined).
 - If a measurement value is provided, its associated reference frame is not unknown (e.g. if `position_xy` is defined, then the interface was initialised with a pose frame different from `PoseFrame::Unknown`).
 
