@@ -34,7 +34,7 @@
              group: Sensors
      ```
 
-     Повна документація модулів файлів конфігурації знаходиться у файлі  [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml). Це також використовується для перевірки всіх файлів конфігурації в CI.
+     ::: info The full documentation of the module configuration file can be found in the [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) file. Це також використовується для перевірки всіх файлів конфігурації в CI.
 :::
 
 1. Додайте конфігурацію модулів в **CMakeLists.txt** файл драйвера модуль:
