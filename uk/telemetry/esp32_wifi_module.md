@@ -1,125 +1,125 @@
-# ESP32 WiFi Module
+# Модуль WiFi ESP32
 
-ESP32 are readily available WiFi modules with dedicated UART, SPI and I2C interfaces, and full TCP/IP stack and microcontroller capability. They come without firmware, but _DroneBridge for ESP32_ can be installed to enable them as a transparent and bi-directional serial to WiFi bridge. They can then be used as a WiFi telemetry module with any Pixhawk series controller.
+ESP32 є легкодоступними модулями WiFi з присвяченими інтерфейсами UART, SPI та I2C, повним стеком TCP/IP та можливістю мікроконтролера. Вони поставляються без прошивки, але _DroneBridge для ESP32_ може бути встановлений для їх активації як прозорий та двосторонній послідовний міст WiFi. Потім вони можуть бути використані в якості модуля WiFi телеметрій, для будь-якого контролера серій Pixhawk.
 
-No configuration is generally required if connected to `TELEM2`. The typical range is approximately 50m-200m (depending on the antenna used).
+Зазвичай не потрібна конфігурація, якщо підключено до `TELEM2`. Типовий діапазон складає приблизно 50 м-200м (залежно від використаної антени).
 
 ![DroneBridge for ESP32 connection concept](../../assets/peripherals/telemetry/esp32/db_ESP32_setup.png)
 
-## Recommended Hardware
+## Рекомендоване обладнання
 
-_DroneBridge for ESP32_ can run on almost every ESP32 development board. Boards and modules with an external antenna connector are recommended, since these will offer more range.
+_DroneBridge для ESP32_ може працювати майже на кожній дошці розробки ESP32. Рекомендується використовувати плати та модулі з зовнішнім роз'ємом антени, оскільки вони забезпечать більший діапазон.
 
 :::warning
-Many ESP32 modules support 3.3V and 5V power supply input, while some flight controllers (e.g. Pixhawk 4) output at 5V.
-You will need to check compatibility and step down the voltage if needed.
+Багато модулів ESP32 підтримують введення живлення 3,3 В та 5 В, тоді як деякі контролери польоту (наприклад, Pixhawk 4) видають напругу на рівні 5 В.
+Вам потрібно буде перевірити сумісність та знизити напругу, якщо це потрібно.
 :::
 
-Modules and DevKits that accept 3.3V or 5V power supply:
+Модулі та DevKit-и, які приймають живлення 3,3 В або 5 В:
 
 - [AZ-Delivery — ESP-32 DevKit C](https://www.az-delivery.de/en/products/esp-32-dev-kit-c-v4)
-- [TinyPICO — ESP32 Development Board - V2](https://www.adafruit.com/product/4335)
-- [Adafruit HUZZAH32 — ESP32 Feather Board](https://www.adafruit.com/product/3405)
-- [Adafruit AirLift — ESP32 WiFi Co-Processor Breakout Board](https://www.adafruit.com/product/4201) (requires FTDI adapter for flashing firmware)
-- [Adafruit — HUZZAH32](https://www.adafruit.com/product/4172) (requires FTDI adapter for flashing firmware)
+- [TinyPICO — Плата розробки ESP32 - V2](https://www.adafruit.com/product/4335)
+- [Плата Adafruit HUZZAH32 — ESP32 Feather](https://www.adafruit.com/product/3405)
+- [Adafruit AirLift — Плата розбірного модуля WiFi ESP32](https://www.adafruit.com/product/4201) (потрібен адаптер FTDI для прошивки вбудованого програмного забезпечення)
+- [Adafruit — HUZZAH32](https://www.adafruit.com/product/4172) (потрібен адаптер FTDI для прошивки ПЗ)
 
-## Downloading and Flashing the Firmware
+## Завантаження та Прошивання Програмного Забезпечення
 
-[Download the firmware from the GitHub repository](https://github.com/DroneBridge/ESP32/releases) and then [follow these flashing instructions](https://github.com/DroneBridge/ESP32#installationflashing-using-precompiled-binaries).
+[Завантажте прошивку з репозиторію GitHub](https://github.com/DroneBridge/ESP32/releases) і потім [дотримуйтесь цих інструкцій щодо прошивки](https://github.com/DroneBridge/ESP32#installationflashing-using-precompiled-binaries).
 
 :::tip
-The instructions on Github are recommended because they are always up to date. Note that the parameters may differ between releases of _DroneBridge for ESP32_.
+Інструкції на Github рекомендовані, оскільки вони завжди актуальні. Зверніть увагу, що параметри можуть відрізнятися між релізами _DroneBridge для ESP32_.
 :::
 
-The main steps are:
+Основними кроками є:
 
-1. [Download the pre-compiled firmware binaries](https://github.com/DroneBridge/ESP32/releases)
-1. Connect your DEVKit to your computer via USB/Serial bridge (most DevKits already offer a USB port for flashing and debugging)
-1. Erase the flash and flash the DroneBridge for ESP32 firmware onto your ESP32
-   - Using [Espressif Flash Download Tool](https://www.espressif.com/en/support/download/other-tools) (Windows only)
-   - Using esp-idf/esptool (all platforms)
-1. Power Cycle the ESP32
-1. [Connect to the "DroneBridge for ESP32" WiFi network and configure the firmware for your application](#configuring-dronebridge-for-esp32)
+1. [Завантажте скомпільовані бінарні файли прошивки](https://github.com/DroneBridge/ESP32/releases)
+1. Підключіть свій DEVKit до комп'ютера за допомогою USB/серійного мосту (більшість DevKits вже мають USB-порт для прошивання та налагодження)
+1. Очистіть флеш-пам'ять та прошейте прошивку DroneBridge для ESP32 на свій ESP32
+   - Використання [Інструменту завантаження Flash від Espressif](https://www.espressif.com/en/support/download/other-tools) (лише для Windows)
+   - Використання esp-idf/esptool (на всіх платформах)
+1. Перезапустіть ESP32
+1. [Підключіться до мережі WiFi "DroneBridge для ESP32" та налаштуйте прошивку для вашої програми](#configuring-dronebridge-for-esp32)
 
-## Wiring
+## Підключення
 
-Wiring is very simple, and similar for all devices when connecting to the Pixhawk TELEM1/2 ports. You can use 2.54mm pitch header connectors or solder the PX4 telemetry cables directly to the board.
+Проводка дуже проста, і схожа для всіх пристроїв при підключенні до портів Pixhawk TELEM1/2. Ви можете використовувати роз'єми заголовка з кроком 2,54 мм або припаяти кабелі телеметрії PX4 безпосередньо до плати.
 
 ![Example for wiring an ESP32 to the TELEM port](../../assets/peripherals/telemetry/esp32/pixhawk_wiring.png)
 
-1. Connect UART of ESP32 to a UART of your flight controller (e.g. TELEM 1 or TELEM 2 port). Make sure the voltage levels match: most ESP32 DevKits can only take 3.3V!
-   - TX to RX
-   - RX to TX
-   - GND to GND
-   - Provide a stable 3.3V or 5V power supply to the ESP32 (depending on the available inputs of your DevKit)
-1. Set the flight controller port to the desired protocol.
-1. Boards with an IPEX port for an external antenna often also offer an onboard antenna that is activated by default. You may need to resolder a resistor to activate the external antenna port.
+1. Підключіть UART ESP32 до UART вашого контролера польоту (наприклад, порту TELEM 1 або TELEM 2). Переконайтеся, що рівні напруги відповідають: більшість ESP32 DevKits можуть приймати лише 3,3 В!
+   - TX до RX
+   - RX до TX
+   - GND до GND
+   - Забезпечте стабільне живлення 3.3 В або 5 В для ESP32 (в залежності від доступних входів вашого DevKit)
+1. Встановіть порт керування польотом на потрібний протокол.
+1. Плати з роз'ємом IPEX для зовнішньої антени часто також мають вбудовану антену, яка активується за замовчуванням. Можливо, вам знадобиться перепаяти резистор, щоб активувати зовнішній антенний порт.
 
 ::: info
 
-- Follow the ESP32 board manufacturers recommendations on power supply. Some boards might have issues if they are simultaneously connected to a 5V power source and have a USB cable connected to the USB/Serial bridge (USB socket of the ESP32 dev board).
-- Some ESP32 DevKits manufacturers use the wrong labels for the pins on their products. Make sure that the PINs on your board are labeled correctly if you encounter issues.
+- Відповідно до ESP32 для виробників на енергопостачанні. Деякі плати можуть мати проблеми, якщо вони одночасно підключені до джерела живлення 5 В та мають підключений кабель USB до USB/серійного мосту (роз'єм USB плати розробника ESP32).
+- Деякі виробники ESP32 DevKits використовують неправильні мітки для контактів на своїх продуктах. Переконайтеся, що PIN-коди на вашому платі відмічені правильно при зіткненні з проблемами.
 
 :::
 
-## Configuring QGroundControl
+## Налаштування QGroundControl
 
-QGroundControl should auto-detect the connection and no further actions should be necessary (_DroneBridge for ESP32_ automatically forwards data from all connected WiFi devices via UDP to port 14550).
+QGroundControl повинен автоматично виявляти підключення і жодні подальші дії не повинні бути необхідними (_DroneBridge для ESP32_ автоматично пересилає дані з усіх підключених WiFi пристроїв через UDP для порту 14550).
 
-The following connection options are available:
+Доступні наступні параметри модулів:
 
-- UDP unicast on port `14550` to all connected devices.
-- TCP on port `5760`
+- UDP унікаст на порт `14550` до всіх підключених пристроїв.
+- TCP на порту `5760`
 
-## Configuring DroneBridge for ESP32
+## Налаштування DroneBridge для ESP32
 
-The _DroneBridge for ESP32_ default configuration should work for connecting to PX4 "out of the box". The only configuration that may be required is ensuring that the baud rates of the ESP32 and flight controller match.
+Стандартна конфігурація _DroneBridge для ESP32_ повинна працювати для підключення до PX4 "з коробки". Єдине налаштування, яке може бути потрібним, - це забезпечення відповідності швидкостей передачі ESP32 та контролера польоту.
 
-You will want to change these settings if you want to use different pins on the ESP32, a different WiFi configuration, or to tweak the packet size. Lower packet size means more overhead and load on the system but also less latency and faster recovery from a lost packet.
+Вам слід змінити ці налаштування, якщо ви хочете використовувати різні контакти на ESP32, іншу конфігурацію WiFi або налаштувати розмір пакета. Менший розмір пакету означає більше накладних витрат і навантаження на систему, але також менше затримки і швидше відновлення після втраченого пакету.
 
-### Default Configuration
+### Конфігурація за замовчуванням
 
-- SSID: `DroneBridge for ESP32`
-- Password: `dronebridge`
+- SSID: `DroneBridge для ESP32`
+- Пароль: `dronebridge`
 - Transparent/MAVLink
 - UART baud rate `115200`
 - UART TX pin `17`
 - UART RX pin `16`
 - Gateway IP: `192.168.2.1`
 
-### Custom Settings & Webinterface
+### Налаштування за замовчуванням та веб-інтерфейс
 
-You can change the default configuration via the Webinterface. Connect to the ESP32 via WiFi and enter `dronebridge.local`, `http://dronebridge.local` or `192.168.2.1` in the address bar of your browser.
+Ви можете змінити конфігурацію за замовчуванням через веб-інтерфейс. Connect to the ESP32 via WiFi and enter `dronebridge.local`, `http://dronebridge.local` or `192.168.2.1` in the address bar of your browser.
 
 ![DroneBridge for ESP32 Webinterface](../../assets/peripherals/telemetry/esp32/dbesp32_webinterface.png)
 
 :::tip
-Some settings require you to reboot the ESP32 to take effect.
+Деякі налаштування потребують перезавантаження ESP32, щоб набути чинності.
 :::
 
 ### API
 
-DroneBridge for ESP32 offers a REST:API that allows you to read and write configuration options. You are not limited to the options presented by the Webinterface (e.g. baud rates). You can use the API to set custom baud rates or to integrate the system into your own setup.
+DroneBridge для ESP32 пропонує REST:API, яке дозволяє вам читати та записувати параметри конфігурації. Ви не обмежені варіантами, які пропонуються веб-інтерфейсом (наприклад, швидкості передачі даних). Ви можете використовувати API для встановлення власних швидкостей передачі даних або для інтеграції системи у власне налаштування.
 
-**To request the settings**
+**Запит налаштувань**
 
 ```http request
 http://dronebridge.local/api/settings/request
 ```
 
-**To request stats**
+**Для запиту статистики**
 
 ```http request
 http://dronebridge.local/api/system/stats
 ```
 
-**Trigger a reboot**
+**Запустіть перезавантаження**
 
 ```http request
 http://dronebridge.local/api/system/reboot
 ```
 
-**Trigger a settings change:** Send a valid JSON
+**Тригер зміни в налаштуваннях:** Відправити дійсний JSON
 
 ```json
 {
@@ -137,15 +137,15 @@ http://dronebridge.local/api/system/reboot
 }
 ```
 
-to
+до
 
 ```http request
 http://dronebridge.local/api/settings/change
 ```
 
-## Troubleshooting
+## Усунення проблем
 
-- Always erase the flash of the ESP32 before flashing a new release/firmware
-- Check if the pins on your ESP board are labeled correctly.
-- Enter the IP address in your browsers address bar `http://192.168.2.1`. No https supported! You may need to disconnect from the cellular network when using a phone to be able to access the webinterface.
-- If your network is operating in the same IP range as DB for ESP32 you need to change the Gateway IP address in the Webinterface to something like `192.168.5.1`.
+- Завжди стерти спалах ESP32 перед прошивкою нового релізу/прошивки
+- Перевірте, чи піни на вашій платі ESP правильно позначені.
+- Уведіть IP-адресу в адресний рядок вашого браузера `http://192.168.2.1`. Немає підтримки https! Можливо, вам доведеться відключитися від мобільної мережі при використанні телефону, щоб мати доступ до веб-інтерфейсу.
+- Якщо ваша мережа працює в тому ж діапазоні IP, що й БД для ESP32, вам потрібно змінити IP-адресу шлюзу в веб-інтерфейсі на щось подібне до `192.168.5.1`.
