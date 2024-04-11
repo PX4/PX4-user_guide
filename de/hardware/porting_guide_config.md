@@ -8,7 +8,7 @@ The configuration options (often referred as "symbols" by the _kconfig_ language
 
 By convention, symbols for modules/drivers are named based on the module folder path. For example, the symbol for the ADC driver at `src/drivers/adc/board_adc` must be named `DRIVERS_ADC_BOARD_ADC`.
 
-To add symbols for driver/module specific options, the naming convention is the module name followed by the option name. For example `UAVCAN_V1_GNSS_PUBLISHER` which is an option `GNSS_PUBLISHER` for the `UAVCAN_V1` module. The options have to be guarded behind an `if` statement to ensure that the options are only visible when the module itself is enabled.
+To add symbols for driver/module specific options, the naming convention is the module name followed by the option name. The options have to be guarded behind an `if` statement to ensure that the options are only visible when the module itself is enabled. For example `UAVCAN_V1_GNSS_PUBLISHER` which is an option `GNSS_PUBLISHER` for the `UAVCAN_V1` module.
 
 Full example:
 
@@ -49,9 +49,10 @@ make px4_fmu-v5_default boardconfig
 make px4_fmu-v5_default boardguiconfig
 ```
 
-:::note
-_Kconfiglib_ and _menuconfig_ come with the _kconfiglib_ python package, which is installed by the normal [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) installation script. If _kconfiglib_ is not installed, you can do so using the command: `pip3 install kconfiglib`
+If _kconfiglib_ is not installed, you can do so using the command: `pip3 install kconfiglib`
 :::
+:::note
+_Kconfiglib_ and _menuconfig_ come with the _kconfiglib_ python package, which is installed by the normal [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) installation script.
 
 The command line and GUI interfaces are shown below.
 
