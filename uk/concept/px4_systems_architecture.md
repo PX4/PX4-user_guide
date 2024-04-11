@@ -25,7 +25,7 @@
 
 Ліва частина діаграми показує набір програмного забезпечення, що по горизонталі (приблизно) вирівняно згідно з апаратними частинами діаграми.
 
-- The ground station computer typically runs [QGroundControl](../getting_started/px4_basic_concepts.md#ground-control-stations-qgroundcontrol) (or some other ground station software). Він також може виконувати робототехнічне ПЗ [MAVSDK](https://mavsdk.mavlink.io/) або [ROS](../ros/README.md).
+- The ground station computer typically runs [QGroundControl](../getting_started/px4_basic_concepts.md#qgc) (or some other ground station software). Він також може виконувати робототехнічне ПЗ [MAVSDK](https://mavsdk.mavlink.io/) або [ROS](../ros/README.md).
 - Набір політного ПО PX4, що запущено на польотному контролері включає [драйвери](../modules/modules_driver.md), [модулі каналів зв'язку](../modules/modules_communication.md), [контролери](../modules/modules_controller.md), [спостерігачі](../modules/modules_controller.md) та інше [проміжне ПЗ та системні модулі](../modules/modules_main.md).
 
 ## Польотний контролер та супутній комп'ютер
