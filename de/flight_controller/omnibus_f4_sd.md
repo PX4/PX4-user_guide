@@ -59,7 +59,8 @@ These are the boards tested and known to work:
 
 - [Hobbywing XRotor Flight Controller F4](https://www.hobbywing.com/en/products/info.html?id=164)
 
-  This ESC board also provides power for the Omnibus board. :::note This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](https://www.hobbywing.com/en/products/info.html?id=116) without soldering.
+:::note
+This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](https://www.hobbywing.com/en/products/info.html?id=116) without soldering. :::note This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](https://www.hobbywing.com/en/products/info.html?id=116) without soldering.
 :::
 
   Purchase from:
