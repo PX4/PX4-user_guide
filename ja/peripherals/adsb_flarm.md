@@ -2,7 +2,7 @@
 
 PX4 supports simple air traffic avoidance in [missions](../flying/missions.md) using [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast), [FLARM](https://en.wikipedia.org/wiki/FLARM), or [UTM](https://www.faa.gov/uas/research_development/traffic_management) transponders that use the standard MAVLink interfaces.
 
-If a potential collision is detected, PX4 can _warn_, immediately [land](../flight_modes_mc/land.md), or [return](../flight_modes/return.md) (depending on the value of [NAV_TRAFF_AVOID](#NAV_TRAFF_AVOID)).
+If a potential collision is detected, PX4 can _warn_, immediately [land](../flight_modes_mc/land.md), or [return](../flight_modes_mc/return.md) (depending on the value of [NAV_TRAFF_AVOID](#NAV_TRAFF_AVOID)).
 
 ## Supported Hardware
 
@@ -43,7 +43,7 @@ FLARM has an on-board DF-13 6 Pin connector that has an identical pinout to the 
 | 5 (blk) | -        | +3.3V       |
 | 6 (blk) | GND      | GND         |
 
-:::note
+::: info
 The TX and RX on the flight controller must be connected to the RX and TX on the FLARM, respectively.
 :::
 
@@ -93,15 +93,14 @@ PX4 listens for `UTM_GLOBAL_POSITION` MAVLink messages during missions. When a v
 
 The implementation is otherwise _exactly_ as described in the section above.
 
-:::note
-[UTM_GLOBAL_POSITION](https://mavlink.io/en/messages/common.html#UTM_GLOBAL_POSITION) contains additional fields that are not provided by an ADSB transponder (see [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE)). The current implementation simply drops the additional fields (including information about the vehicle's planned next waypoint).
+::: info [UTM_GLOBAL_POSITION](https://mavlink.io/en/messages/common.html#UTM_GLOBAL_POSITION) contains additional fields that are not provided by an ADSB transponder (see [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE)). The current implementation simply drops the additional fields (including information about the vehicle's planned next waypoint).
 :::
 
 ## Testing/Simulated ADSB Traffic
 
 You can simulate ADS-B traffic for testing. Note that this requires that you [Build PX4](../dev_setup/building_px4.md).
 
-:::note
+::: info
 Simulated ADS-B traffic can trigger real failsafe actions.
 Use with care in real flight!
 :::
@@ -110,7 +109,7 @@ To enable this feature:
 
 1. Uncomment the code in `AdsbConflict::run_fake_traffic()`([AdsbConflict.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/adsb/AdsbConflict.cpp#L342C1-L342C1)).
 1. Rebuild and run PX4.
-1. Execute the [`navigator fake_traffic` command](../modules/modules_controller.md#navigator) in the [QGroundControl MAVLink Shell](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) (or some other [PX4 Console or MAVLink shell](../debug/consoles.md), such as the PX4 simulator terminal).
+1. Execute the [`navigator fake_traffic` command](../modules/modules_controller.md#navigator) in the [QGroundControl MAVLink Shell](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (or some other [PX4 Console or MAVLink shell](../debug/consoles.md), such as the PX4 simulator terminal).
 
 The code in `run_fake_traffic()` is then executed. You should see ADS-B warnings in the Console/MAVLink shell, and QGC should also show an ADS-B traffic popup.
 
