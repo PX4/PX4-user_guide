@@ -111,7 +111,8 @@ uint8 failsafe_defer_state # one of FAILSAFE_DEFER_STATE_*
 # Link loss
 bool gcs_connection_lost              # datalink to GCS lost
 uint8 gcs_connection_lost_counter     # counts unique GCS connection lost events
-bool high_latency_data_link_lost # Set to true if the high latency data link (eg. RockBlock Iridium 9603 telemetry module) is lost
+bool high_latency_data_link_lost # Set to true if the high latency data link (eg.
+RockBlock Iridium 9603 telemetry module) is lost
 
 # VTOL flags
 bool is_vtol             # True if the system is VTOL capable
