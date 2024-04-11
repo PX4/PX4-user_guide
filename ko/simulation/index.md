@@ -33,8 +33,7 @@ All simulators except for Gazebo communicate with PX4 using the Simulator MAVLin
 
 ![시뮬레이터 MAVLink API](../../assets/simulation/px4_simulator_messages.svg)
 
-:::note
-A SITL build of PX4 uses [SimulatorMavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/simulator_mavlink/SimulatorMavlink.cpp) to handle these messages while a hardware build in HIL mode uses [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp). 시뮬레이터의 센서 데이터는 PX4 uORB 주제에 기록됩니다. 모든 모터/액츄에이터가 차단되지만, 내부 소프트웨어는 완전하게 작동합니다.
+::: info A SITL build of PX4 uses [SimulatorMavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/simulator_mavlink/SimulatorMavlink.cpp) to handle these messages while a hardware build in HIL mode uses [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp). 시뮬레이터의 센서 데이터는 PX4 uORB 주제에 기록됩니다. 모든 모터/액츄에이터가 차단되지만, 내부 소프트웨어는 완전하게 작동합니다.
 :::
 
 메시지는 아래에 설명되어 있습니다(자세한 내용은 링크 참조).
@@ -62,12 +61,11 @@ PX4 directly uses the [Gazebo API](https://gazebosim.org/docs) to interface with
 By default, PX4 uses commonly established UDP ports for MAVLink communication with ground control stations (e.g. _QGroundControl_), Offboard APIs (e.g. MAVSDK, MAVROS) and simulator APIs (e.g. Gazebo). 해당 포트는 다음과 같습니다:
 
 - PX4의 원격 UDP 포트 **14550**은 지상관제국 통신에 사용됩니다. GCS는 이 포트에서 연결 수신을 예상합니다. _QGroundControl_ listens to this port by default.
-- PX4의 원격 UDP 포트 **14540**은 오프보드 API 통신에 사용됩니다. 오프보드 API는 이 포트에서 연결 수신을 예상합니다. :::note 다중 차량 시뮬레이션은 각 인스턴스에 대해 별도의 원격 포트를 사용하며 `14540`에서 `14549`까지 순차적으로 할당합니다. (추가 인스턴스는 모두 `14549` 포트를 사용합니다).
+- PX4의 원격 UDP 포트 **14540**은 오프보드 API 통신에 사용됩니다. 오프보드 API는 이 포트에서 연결 수신을 예상합니다. ::: info Multi-vehicle simulations use a separate remote port for each instance, allocated sequentially from `14540` to `14549` (additional instances all use port `14549`).
 :::
 - 시뮬레이터의 로컬 TCP 포트 **4560**은 PX4 통신에 사용됩니다. PX4는 이 포트를 수신하고, 시뮬레이터는 이 포트에 데이터를 브로드캐스트하여 통신을 시작합니다.
 
-:::note GCS
-및 오프보드 API용 포트는 파일에서 설정되는 반면에, 시뮬레이터 브로드캐스트 포트는 시뮬레이션 MAVLink 모듈에서 하드 코딩되어 있습니다. See [System Startup](../concept/system_startup.md) to learn more.
+::: info The ports for the GCS, offboard APIs and simulator are specified by startup scripts. See [System Startup](../concept/system_startup.md) to learn more.
 :::
 
 <!-- A useful discussion about UDP ports here: https://github.com/PX4/PX4-user_guide/issues/1035#issuecomment-777243106 -->
@@ -82,8 +80,7 @@ The diagram below shows a typical SITL simulation environment for any of the sup
 
 - PX4는 시뮬레이션 전용 모듈을 사용하여, 시뮬레이터의 로컬 TCP 포트 4560에 연결합니다. 그런 다음 시뮬레이터는 위에서 설명한 [시뮬레이터 MAVLink API](#simulator-mavlink-api)를 사용하여 PX4와 정보를 교환합니다. SITL 및 시뮬레이터의 PX4는 동일 컴퓨터 또는 동일 네트워크의 다른 컴퓨터에서 실행할 수 있습니다.
 
-:::note
-Simulators can also use the _uxrce-dds bridge_ ([XRCE-DDS](../middleware/uxrce_dds.md)) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink). This approach _may_ used by Gazebo Classic for [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation.md#build-and-test-xrce-dds).
+  ::: info Simulators can also use the _uxrce-dds bridge_ ([XRCE-DDS](../middleware/uxrce_dds.md)) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink). This approach _may_ used by Gazebo Classic for [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation.md#build-and-test-xrce-dds).
 :::
 
 - PX4는 일반 MAVLink 모듈을 사용하여, MAVSDK 또는 ROS와 같은 외부 개발자 API와 지상국에 연결합니다.
@@ -154,20 +151,19 @@ export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl jmavsim
 ```
 
-:::note
-어느 시점에서 IO 또는 CPU는 컴퓨터의 가능한 속도를 제한하고 "자동으로" 느려집니다.
+::: info
+At some point IO or CPU will limit the speed that is possible on your machine and it will be slowed down "automatically".
 강력한 데스크탑 컴퓨터는 일반적으로 약 6-10x에서 시뮬레이션할 수 있으며, 노트북의 경우의 최고 속도는 약 3-4x 입니다.
 :::
 
-:::note PX4가 데이터 링크 시간 초과를 감지하지 않도록, 시뮬레이션 속도에 비례하여 매개변수 [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) 값을 증가시키십시오. 예를 들어 `COM_DL_LOSS_T`가 실시간으로 10인 경우 10배 시뮬레이션 속도에서 100으로 증가합니다.
+::: info To avoid PX4 detecting data link timeouts, increase the value of param [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) proportional to the simulation rate. 예를 들어 `COM_DL_LOSS_T`가 실시간으로 10인 경우 10배 시뮬레이션 속도에서 100으로 증가합니다.
 :::
 
 ### 잠금단계시뮬레이션
 
 PX4 SITL and the simulators (jMAVSim or Gazebo Classic) have been set up to run in _lockstep_. What this means is that PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
 
-:::note
-잠금단계를 사용하여 [실시간보다 빠르거나 느리게 시뮬레이션을 실행](#simulation_speed)할 수 있으며, 코드 단계별 실행을 위하여 일시 중지할 수 있습니다.
+::: info Lockstep makes it possible to [run the simulation faster or slower than realtime](#simulation_speed), and also to pause it in order to step through code.
 :::
 
 잠금단계의 순서는 다음과 같습니다.
@@ -229,8 +225,8 @@ The simulated camera is a gazebo classic plugin that implements the [MAVLink Cam
    mavlink start -u 14558 -o 14530 -r 4000 -f -m camera
    ```
 
-   :::note
-카메라 MAVLink 메시지 이상은 전달되지만, 카메라는 관련이 없는 것으로 간주되는 메시지들은 무시합니다.
+   ::: info
+More than just the camera MAVLink messages will be forwarded, but the camera will ignore those that it doesn't consider relevant.
 :::
 
 다른 시뮬레이터에서도 동일한 접근 방식을 사용하여 카메라 지원을 구현할 수 있습니다.
@@ -269,16 +265,14 @@ The simulated camera is a gazebo classic plugin that implements the [MAVLink Cam
   Port = 14550
   ```
 
-:::note
-More information about _mavlink-router_ configuration can be found [here](https://github.com/mavlink-router/mavlink-router#running).
+::: info More information about _mavlink-router_ configuration can be found [here](https://github.com/mavlink-router/mavlink-router#running).
 :::
 
 ### UDP 브로드캐스트 활성화
 
 The [mavlink module](../modules/modules_communication.md#mavlink_usage) routes to _localhost_ by default, but you can enable UDP broadcasting of heartbeats using its `-p` option. Any remote computer on the network can then connect to the simulator by listening to the appropriate port (i.e. 14550 for _QGroundControl_).
 
-:::note UDP
-브로드캐스팅은 네트워크에서 실행 중인 시뮬레이션이 하나만 있는 경우에 간단하게 연결되도록 합니다. Do not use this approach if there are multiple simulations running on the network (you might instead [publish to a specific address](#enable-streaming-to-specific-address)).
+::: info UDP broadcasting provides a simple way to set up the connection when there is only one simulation running on the network. Do not use this approach if there are multiple simulations running on the network (you might instead [publish to a specific address](#enable-streaming-to-specific-address)).
 :::
 
 `mavlink start`가 호출되는 적절한 설정 파일에서 이 작업을 수행하여야 합니다. For example: [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink).
@@ -293,8 +287,8 @@ The [mavlink module](../modules/modules_communication.md#mavlink_usage) routes t
 
 SSH 터널링을 사용하면 시뮬레이션 컴퓨터와 이를 사용하는 시스템이 동일 네트워크에 있지 않아도 됩니다.
 
-:::note
-유사하게 VPN을 사용하여 외부 인터페이스(동일 네트워크 또는 다른 네트워크에서)에 터널을 제공할 수 있습니다.
+::: info
+You might similarly use VPN to provide a tunnel to an external interface (on the same network or another network).
 :::
 
 터널을 만드는 한 가지 방법은 SSH 터널링 옵션을 사용하는 것입니다. The tunnel itself can be created by running the following command on _localhost_, where `remote.local` is the name of a remote computer:
