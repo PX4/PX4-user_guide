@@ -1,14 +1,13 @@
 # Pixhawk  배선 개요
 
-:::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. 하드웨어 지원이나 호환 문제는 [제조사](https://store.mrobotics.io/)에 문의하십시오.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
 This quick start guide shows how to power the _3DR Pixhawk_ flight controller and connect its most important peripherals.
 
 ![Pixhawk4 이미지](../../assets/flight_controller/pixhawk1/pixhawk_logo_view.jpg)
 
-:::note
-[3DR Pixhawk](../flight_controller/pixhawk.md)는 더 이상 3DR에서 제공하지 않습니다. :::note [3DR Pixhawk](../flight_controller/pixhawk.md)는 더 이상 3DR에서 제공하지 않습니다.
+::: info The [3DR Pixhawk](../flight_controller/pixhawk.md) is no longer available from 3DR. Other flight controllers based on the [Pixhawk FMUv2 architecture](../flight_controller/pixhawk_series.md) are available from other companies (these share the same connections, outputs, functions, etc. and are wired in a similar way).
 :::
 
 ## 배선 개요
@@ -17,8 +16,7 @@ This quick start guide shows how to power the _3DR Pixhawk_ flight controller an
 
 ![Pixhawk  배선 개요](../../assets/flight_controller/pixhawk1/pixhawk_wiring_overview.jpg)
 
-:::note
-자세한 배선 정보는 [아래](#detailed-wiring-infographic-copter)에서 설명합니다.
+::: info More detailed wiring information is [shown below](#detailed-wiring-infographic-copter).
 :::
 
 ## 콘트롤러 장착 및 장착 방향
@@ -40,9 +38,9 @@ The _Pixhawk_ should be mounted on the frame using vibration-damping foam pads (
 
 키트에 제공된 6선 케이블을 사용하여 GPS (필수)를 GPS 포트에 연결합니다. 다른 방법으로는, 4선 케이블을 사용하여 I2C 포트에 나침반을 연결합니다 (Pixhawk에는 필요한 경우 사용할 수있는 내부 나침반이 있음).
 
-:::note
-아래 다이어그램은 결합된 GPS와 나침반을 나타냅니다.
-GPS/나침반은 차량 전방 표식를 사용하여 가능하면 전자 장치들에서 멀리 떨어진 프레임에 장착하는 것이 좋습니다. 나침반은 다른 전자 장치와 떨어지면 간섭이 줄어듦니다.
+::: info
+The diagram shows a combined GPS and Compass.
+The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
 :::
 
 ![나침반/GPS를 Pixhawk에 연결](../../assets/flight_controller/pixhawk1/pixhawk_3dr_compass_gps.jpg)
@@ -56,7 +54,7 @@ Connect the output of a _Power module_ (PM) to the **POWER** port using a 6-wire
 ![Pixhawk - 전원 모듈](../../assets/flight_controller/pixhawk1/pixhawk_3dr_power_module.jpg)
 
 :::warning
-전원 모듈은 비행 콘트롤러 자체에 전원을 공급하지만, 콘트롤러의 출력 포트 (레일)에 연결된 서보 및 기타 하드웨어에 전원을 공급하지 않습니다. 멀티콥터의 경우 모터에 별도로 전원이 공급되기 때문에 이것은 중요하지 않습니다.
+The power module supplies the flight controller itself, but cannot power servos and other hardware connected to the controller's output ports (rail). For copter this does not matter because the motors are separately powered.
 :::
 
 비행기 및 VTOL의 경우 방향타, 엘레 본 등의 서보를 구동하기 위하여 출력 레일에 별도의 전원을 공급하여야 합니다. 종종 메인 푸셔/풀러 모터는 Pixhawk 출력 레일에 연결할 수있는 통합 [BEC](https://en.wikipedia.org/wiki/Battery_eliminator_circuit)가 내장된 ESC를 사용합니다. BEC가 없으면, Pixhawk 포트에 연결하기 위해 5V BEC를 장찫하여야합니다. 전원이 없으면 서보가 작동하지 않습니다.
@@ -93,15 +91,14 @@ For more information about selecting a radio system, receiver compatibility, and
 
 :::warning
 The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames).
-해당 기체의 프레임의  정확한 모터 연결 여부를 확인하십시오.
+Make sure to use the correct mapping for your vehicle.
 :::
 
 :::tip
-프레임이 기체 참조 정의서에 없으면, 적절한 유형의 "일반"기체를 사용하십시오.
+If your frame is not listed in the reference then use a "generic" airframe of the correct type.
 :::
 
-:::note
-출력 레일은 위의 [전원](#power) 섹션에 설명한 것과 같이 별도의 전원이 공급되어야합니다.
+::: info The output rail must be separately powered, as discussed in the [Power](#power) section above.
 :::
 
 <!-- INSERT image of the motor AUX/MAIN ports? -->
