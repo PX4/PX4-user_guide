@@ -2,8 +2,7 @@
 
 The Power Management Board (PM Board) serves the purpose of a Power Module as well as a Power Distribution Board. In addition to providing regulated power to Pixhawk 4 and the ESCs, it sends information to the autopilot about battery’s voltage and current supplied to the flight controller and the motors.
 
-:::note
-This module can be purchased as bundle with [Pixhawk 4](../assembly/quick_start_pixhawk4.md), but can also be used with other flight controllers.
+::: info This module can be purchased as bundle with [Pixhawk 4](../assembly/quick_start_pixhawk4.md), but can also be used with other flight controllers.
 :::
 
 ![PM07](../../assets/hardware/power_module/holybro_pm07/pm07_hero.jpg)
