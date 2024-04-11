@@ -17,32 +17,32 @@ PX4 не виробляє цей (або будь-який) автопілот.
 
 ## Основні характеристики
 
-- Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
-  - CPU: 180 MHz ARM<sup>&reg;</sup> Cortex<sup>&reg;</sup> M4 with single-precision FPU
+- Основна System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
+  - CPU: 180 MHz ARM<sup>&reg;</sup> Cortex<sup>&reg;</sup> M4 з одинарною точністю FPU
   - RAM: 256 KB SRAM (L1)
 - Failsafe System-on-Chip: STM32F100
   - CPU: 24 MHz ARM Cortex M3
   - RAM: 8 KB SRAM
-- Wifi: ESP8266 external
+- Wifi: ESP8266 зовнішній
 - GPS: u-blox<sup>&reg;</sup> 7/8 (Hobbyking<sup>&reg;</sup>) / u-blox 6 (3D Robotics)
-- Optical flow: [PX4 Flow unit](../sensor/px4flow.md)
-- Redundant power supply inputs and automatic failover
-- External safety switch
-- Multicolor LED main visual indicator
-- High-power, multi-tone piezo audio indicator
-- microSD card for high-rate logging over extended periods of time
+- Оптичний потік: [PX4 Flow unit](../sensor/px4flow.md)
+- Резервні входи живлення та автоматичне перемикання на резервне джерело
+- Зовнішній запобіжний вимикач
+- Головний візуальний індикатор - мультиколірний світлодіод
+- Потужний мультитональний п'єзозвуковий індикатор
+- microSD карта для високошвидкісного логування даних протягом тривалого періоду
 
-Connectivity
+Підключення
 
 - 1x I2C
-- 1x CAN (2x optional)
+- 1x CAN (2x опційно)
 - 1x ADC
-- 4x UART (2x with flow control)
-- 1x Console
-- 8x PWM with manual override
-- 6x PWM / GPIO / PWM input
-- S.BUS / PPM / Spektrum input
-- S.BUS output
+- 4x UART (2x з контролем потоку)
+- 1x Консоль
+- 8x PWM з ручним перевизначенням
+- 6x PWM / GPIO / PWM вхід
+- S.BUS / PPM / Spektrum вхід
+- S.BUS вивід
 
 # Where to Buy
 
