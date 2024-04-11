@@ -41,9 +41,13 @@ You should also check [ASPD_PRIMARY](../advanced_config/parameter_reference.md#A
 
 ### Multiple Airspeed Sensors
 
+:::warning
+Experimental
+Using multiple airspeed sensors is experimental.
+:::
+
 If you have multiple airspeed sensors then you can select which sensor is _preferred_ as the primary source using [ASPD_PRIMARY](../advanced_config/parameter_reference.md#ASPD_PRIMARY), where `1`, `2` and `3` reflect the order in which the airspeed sensors were started:
 
-- `-1`: Disabled (no airspeed information used).
 - `0`: Synthetic airspeed estimation (groundspeed minus windspeed)
 - `1`: First airspeed sensor started (default)
 - `2`: Second airspeed sensor started
@@ -65,6 +69,8 @@ The specific configuration for sensors that do not have a separate page is liste
 
 Airspeed sensors should be calibrated by following the instructions: [Basic Configuration > Airspeed](../config/airspeed.md).
 
-## Developer Information
+## See Also
 
+- [Using the ECL EKF > Airspeed](../advanced_config/tuning_the_ecl_ekf.md#airspeed)
 - [Airspeed drivers](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure) (source code)
+- [VTOL Without an Airspeed Sensor](../config_vtol/vtol_without_airspeed_sensor.md)
