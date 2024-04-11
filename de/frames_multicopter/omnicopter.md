@@ -45,9 +45,7 @@ Any other GPS may work as well, however a helix antenna is expected to perform b
 
 ### Frame
 
-- Print the 3D parts :::note
-The orientation of the corner pieces matters.
-You will notice if it's wrong when the angles of the rods are not correct.
+- Print the 3D parts :::note The orientation of the corner pieces matters. You will notice if it's wrong when the angles of the rods are not correct.
 :::
 - Cut the rods
 - Test that it all works by connecting the frame pieces together:
