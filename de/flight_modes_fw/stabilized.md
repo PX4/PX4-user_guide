@@ -8,7 +8,7 @@ _Stabilized mode_ is a manual mode were centering the sticks levels the vehicle 
 _Stabilized mode_ is similar to [Altitude mode](../flight_modes_fw/altitude.md) in that releasing the sticks levels the vehicle, but unlike altitude mode it does not maintain altitude or heading. It is much easier to fly than [Manual mode](../flight_modes_fw/manual.md) because you can't roll or flip it, and if needed it is easy to level the vehicle (by centering the control sticks).
 :::
 
-The vehicle climbs/descends based on pitch and throttle input and performs a [coordinated turn](https://en.wikipedia.org/wiki/Coordinated_flight) if the roll stick is non-zero. Roll and pitch are angle controlled (you can't roll upside down or loop).
+Autopilot will maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>. Roll stick controls roll angle.
 
 The vehicle will glide if the throttle is lowered to 0% (motor stops). In order to perform a turn the command must be held throughout the maneuver because if the roll is released the plane will stop turning and level itself (the same is true for pitch commands).
 
@@ -37,7 +37,7 @@ The mode is affected by the following parameters:
 | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)   | Max pitch for manual control in attitude stabilized mode. Default: 45 degrees. |
 | <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)   | Max roll for manual control in attitude stabilized mode. Default: 45 degrees.  |
-| <a id="FW_MAN_YR_MAX"></a>[FW_MAN_YR_MAX](../advanced_config/parameter_reference.md#FW_MAN_YR_MAX) | Maximum manually added yaw rate . Default: 30 degrees per second.              |
+| <a id="FW_MAN_YR_MAX"></a>[FW_MAN_YR_MAX](../advanced_config/parameter_reference.md#FW_MAN_YR_MAX) | Max pitch for manual control in attitude stabilized mode. Default: 45 degrees. |
 | <a id="FW_PSP_OFF"></a>[FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF)       | Pitch setpoint offset (pitch at level flight). Default: 0 degrees.             |
 
 <!-- this document needs to be extended -->
