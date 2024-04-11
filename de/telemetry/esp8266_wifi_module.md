@@ -132,6 +132,7 @@ Where:
 :::warning
 Most ESP8266 modules support 3.3 volts (only), while some flight controllers (e.g. Pixhawk 4) output at 5V.
 Check compatibility and step down the voltage if needed.
+Check compatibility and step down the voltage if needed.
 :::
 
 There are various methods for setting the ESP8266 into _Flash Mode_ but not all USB/UART adapters provide all the necessary pins for automatic mode switching. In order to boot the ESP8266 in _Flash Mode_, the GPIO-0 pin must be set low (GND) and the CH_PD pin must be set high (VCC). This is what my own setup looks like:
