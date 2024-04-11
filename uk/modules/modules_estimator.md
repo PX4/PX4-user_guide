@@ -64,6 +64,7 @@ ekf2 <command> [arguments...]
    stop
 
    status        print status info
+     [-v]        verbose (print all states and full covariance matrix)
 
    select_instance Request switch to new estimator instance
      <instance>  Specify desired estimator instance
