@@ -1,59 +1,59 @@
 # DShot ESCs
 
-DShot is an alternative ESC protocol that has several advantages over [PWM](../peripherals/pwm_escs_and_servo.md) or [OneShot](../peripherals/oneshot.md):
+DShot - це альтернативний протокол ESC, який має кілька переваг над [PWM](../peripherals/pwm_escs_and_servo.md) або [OneShot](../peripherals/oneshot.md):
 
-- Reduced latency.
-- Increased robustness via a checksum.
-- No need for ESC calibration as the protocol uses digital encoding.
-- Telemetry feedback is available/supported on some ESCs.
-- Can reverse motor spin directions via commands when needed (rather than physically moving wires/re-soldering).
-- Other useful commands are supported.
+- Зменшений час затримки.
+- Підвищена надійність за допомогою контрольної суми.
+- Не потрібна калібрування ESC, оскільки протокол використовує цифрове кодування.
+- Зворотний зв'язок телеметрії доступний/підтримується на деяких ESC.
+- Може змінювати напрямок обертання двигуна за допомогою команд при потребі (замість фізичного переміщення проводів / перепайки).
+- Інші корисні команди підтримуються.
 
-This topic shows how to connect and configure DShot ESCs.
+Ця тема показує, як підключити та налаштувати DShot ESC.
 
 <a id="wiring"></a>
 
-## Wiring/Connections
+## Проводка/З'єднання
 
-DShot ESC are wired the same way as [PWM ESCs](pwm_escs_and_servo.md). The only difference is that they can only be connected to the FMU, and usually only to some subset of pins.
+DShot ESC підключені так само, як [PWM ESCs](pwm_escs_and_servo.md). Єдина відмінність полягає в тому, що їх можна підключити лише до FMU, і зазвичай лише до певного підмножини контактів.
 
-::: info
-You may want to check the actuator configuration screen to see what pins are available for DShot on your controller before wiring up!
+::: інформація
+Можливо, вам захочеться перевірити екран конфігурації приводу, щоб побачити, які контакти доступні для DShot на вашому контролері, перш ніж підключати їх!
 :::
 
-Pixhawk controllers with both an FMU and an IO board usually label them as `AUX` (FMU) and `MAIN` (IO), respectively. These match the `PWM AUX` and `PWM MAIN` output tabs on the actuator configuration screen. For these controllers connect the DShot ESC to the `AUX` port.
+Контролери Pixhawk з якими є як плата FMU, так і плата IO, зазвичай позначають їх як `AUX` (FMU) та `MAIN` (IO) відповідно. Ці відповідають виходам `PWM AUX` та `PWM MAIN` на вкладці конфігурації приводу. Для цих контролерів підключіть DShot ESC до порту `AUX`.
 
-Controllers that don't have an IO board usually label the (single) output port as `MAIN`, and this is where you will connect your DShot ESC. If the controller without IO has its own firmware, the actuator assignment will be to the matching `PWM MAIN` outputs. However if the same firmware is used for hardware with/without the IO board, such as for the Pixhawk 4 and Pixhawk 4 Mini, then actuator assignment tab used is the same in both cases: `PWM AUX` (i.e. not matching the port label `MAIN` in the "mini" case).
+Контролери, які не мають плати введення-виведення (IO board), зазвичай позначають (один) вихідний порт як `MAIN`, і саме тут ви підключите свій DShot ESC. Якщо контролер без IO має власне програмне забезпечення, призначення приводу буде до відповідних виходів `PWM MAIN`. Однак, якщо для апаратного забезпечення з/без плати введення/виведення використовується та ж прошивка, наприклад, для Pixhawk 4 та Pixhawk 4 Mini, то вкладка призначення приводів в обох випадках однакова: `PWM AUX` (тобто не відповідає мітці порта `MAIN` у випадку "міні").
 
-## Configuration
+## Налаштування
 
 :::warning
-Remove propellers before changing ESC configuration parameters!
+Видаліть гвинти пропелерів перед зміною параметрів конфігурації ESC!
 :::
 
-Enable DShot for your required outputs in the [Actuator Configuration](../config/actuators.md).
+Увімкніть DShot для необхідних виходів у [Конфігурації приводів](../config/actuators.md).
 
-DShot comes with different speed options: _DShot150_, _DShot300_, _DShot600_ and _DShot1200_, where the number indicates the speed in kilo-bits/second. You should set the parameter to the highest speed supported by your ESC (according to its datasheet).
+DShot має різні варіанти швидкості: _DShot150_, _DShot300_, _DShot600_ та _DShot1200_, де число вказує на швидкість у кілобітах/секунду. Ви повинні встановити параметр на найвищу швидкість, підтримувану вашим ESC (згідно з його технічним описом).
 
-Then connect the battery and arm the vehicle. The ESCs should initialize and the motors turn in the correct directions.
+Підключіть батарею та озбройте транспортний засіб. РЕГБ повинні ініціалізуватися, а мотори повинні обертатися в правильних напрямках.
 
-- If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)) you can reverse them in the UI using the **Set Spin Direction** option (this option appears after you select DShot and assign motors). You can also reverse motors by sending an [ESC Command](#commands).
+- Якщо двигуни не обертаються в правильному напрямку (для [вибраної конструкції повітряного судна](../airframes/airframe_reference.md)), ви можете змінити їх напрямок у користувацькому інтерфейсі, використовуючи опцію **Встановити напрямок обертання** (ця опція з'являється після вибору DShot та призначення двигунів). Ви також можете реверсувати двигуни, відправивши [команду ESC](#commands).
 
 <a id="commands"></a>
 
-## ESC Commands
+## Команди ESC
 
-Commands can be sent to the ESC via the [MAVLink shell](../debug/mavlink_shell.md). See [here](../modules/modules_driver.md#dshot) for a full reference of the supported commands.
+Команди можна надсилати на ESC через [MAVLink shell](../debug/mavlink_shell.md). Дивіться [тут](../modules/modules_driver.md#dshot) для повного посилання на підтримувані команди.
 
-The most important ones are:
+Найважливіші з них:
 
-- Make the first motor beep (helps with identifying motors):
+- Зробіть перший сигнал двигуна (допомагає ідентифікувати мотори):
 
   ```
   dshot beep1 -m 1
   ```
 
-- Retrieve ESC information (requires telemetry, see below):
+- Отримати інформацію ESC (потрібно телеметрію, див. нижче):
 
   ```
   nsh> dshot esc_info -m 2
@@ -70,7 +70,7 @@ The most important ones are:
   INFO  [dshot] LED 3: unsupported
   ```
 
-  - Permanently reverse the spin direction of the first motor:
+  - Назавжди змініть напрямок обертання першого двигуна:
 
   ```
   dshot reverse -m 1
@@ -91,24 +91,24 @@ The most important ones are:
 
   To change direction again new `dshot reverse -m 1` command needs to be sent.
 
-## Telemetry
+## Телеметрія
 
 Some ESCs are capable of sending telemetry back to the flight controller, including:
 
-- temperature
-- voltage
+- температура
+- напруга
 - current
 - accumulated current consumption
 - RPM values
 
-These DShot ESCs will have an additional telemetry wire.
+Ці DShot ESCs матимуть додатковий телеметрійний дріт.
 
 To enable this feature (on ESCs that support it):
 
-1. Join all the telemetry wires from all the ESCs together, and then connect them to one of the RX pins on an unused flight controller serial port.
-1. Enable telemetry on that serial port using [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG).
+1. Об'єднайте всі дроти телеметрії з усіх ESC разом, а потім підключіть їх до одного з контактів RX на не використаному порту послідовного зв'язку контролера польоту.
+1. Увімкніть телеметрію на цьому послідовному порту за допомогою [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG).
 
-After a reboot you can check if telemetry is working (make sure the battery is connected) using:
+Після перезавантаження ви можете перевірити, чи працює телеметрія (переконайтеся, що акумулятор підключений), використовуючи:
 
 ```
 dshot esc_info -m 1
@@ -125,5 +125,5 @@ Not all DSHOT-capable ESCs support `[esc_info]`(e.g. APD 80F3x), even when telem
 ERROR [dshot] No data received. If telemetry is setup correctly, try again.
 ```
 
-Check manufacturer documentation for confirmation/details.
+Перевірте документацію виробника для підтвердження/подробиць.
 :::
