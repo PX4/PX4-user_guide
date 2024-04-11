@@ -10,8 +10,8 @@ VIO와 MoCap은 모두 "시각적" 정보에서 차량의 *포즈*(위치 및 �
 
 PX4 기반 시스템을 구성하여 MoCap/VIO 시스템(ROS 또는 일부 다른 MAVLink 시스템을 통해)에서 데이터를 가져오는 방법과 보다 구체적으로 VICON 및 Optitrack과 같은 MoCap 시스템과 [ROVIO](https://github.com/ethz-asl/rovio), [SVO](https://github.com/uzh-rpg/rpg_svo) 및 [PTAM](https://github.com/ethz-asl/ethzasl_ptam)과 같은 비전 기반 추정 시스템을 설정하는 방법을 설명합니다.
 
-:::note
-이 설명서는 EKF2 또는 LPE 추정기를 사용 여부에 따라 차이가 납니다.
+::: info
+The instructions differ depending on whether you are using the EKF2 or LPE estimator.
 :::
 
 ## PX4 MAVLink 통합
@@ -92,8 +92,7 @@ IMU 속도와 EV 속도 간의 오프셋을 확인하여, 로그에서 대략적
 
 ![ekf2_ev_delay 로그](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
-:::note
-[FlightPlot](../log/flight_log_analysis.md#flightplot) 또는 유사한 비행 분석 도구를 사용하여, 외부 데이터 대 온보드 추정치(위 참조)의 플롯을 생성할 수 있습니다. At time of writing (July 2021) neither [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool) nor [MAVGCL](../log/flight_log_analysis.md#mavgcl) support this functionality.
+::: info A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools. At time of writing (July 2021) neither [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool) nor [MAVGCL](../log/flight_log_analysis.md#mavgcl) support this functionality.
 :::
 
 이 값은 동적 기동 중에 가장 낮은 EKF 혁신을 산출하는 값을 찾기 위하여, 매개변수를 변경하여 추가 튜닝할 수 있습니다.
@@ -103,8 +102,7 @@ IMU 속도와 EV 속도 간의 오프셋을 확인하여, 로그에서 대략적
 먼저 [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) 매개변수를 설정하여, [LPE 추정기로 전환](../advanced/switching_state_estimators.md)합니다.
 
 
-:::note
-`px4_fmu-v2` 하드웨어를 대상으로 하는 경우 LPE 모듈이 포함된 펌웨어 버전도 사용합니다(다른 FMU 시리즈 하드웨어용 펌웨어에는 LPE와 EKF가 모두 포함됨). LPE 버전은 각 PX4 릴리스의 zip 파일에서 찾거나, 빌드 명령 `make px4_fmu-v2_lpe`를 사용하여 소스에서 빌드합니다. 자세한 내용은 [코드 빌드](../dev_setup/building_px4.md)을 참고하십시오.
+::: info If targeting `px4_fmu-v2` hardware you will also need to use a firmware version that includes the LPE module (firmware for other FMU-series hardware includes both LPE and EKF). LPE 버전은 각 PX4 릴리스의 zip 파일에서 찾거나, 빌드 명령 `make px4_fmu-v2_lpe`를 사용하여 소스에서 빌드합니다. 자세한 내용은 [코드 빌드](../dev_setup/building_px4.md)을 참고하십시오.
 :::
 
 ### 외부 포즈 입력 활성화
@@ -133,7 +131,7 @@ VIO 또는 MoCap 정보에서 이미 매우 정확한 고도를 사용할 수 �
 
 ## Enabling Auto Modes with a Local Position
 
-All PX4 automatic flight modes (such as [Mission](../flight_modes_mc/mission.md), [Return](../flight_modes/return.md), [Land](../flight_modes_mc/land.md), [Hold](../flight_modes_mc/land.md), [Orbit](../flight_modes_mc/orbit.md))) require a _global_ position estimate, which would normally come from a GPS/GNSS system.
+All PX4 automatic flight modes (such as [Mission](../flight_modes_mc/mission.md), [Return](../flight_modes_mc/return.md), [Land](../flight_modes_mc/land.md), [Hold](../flight_modes_mc/land.md), [Orbit](../flight_modes_mc/orbit.md))) require a _global_ position estimate, which would normally come from a GPS/GNSS system.
 
 Systems that only have a _local_ position estimate (from MOCAP, VIO, or similar) can use the [SET_GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#SET_GPS_GLOBAL_ORIGIN) MAVLink message to set the origin of the EKF to a particular global location. EKF will then provide a global position estimate based on origin and local frame position.
 
@@ -191,8 +189,7 @@ ROS와 PX4에서 사용하는 로컬과 전역 프레임은 같지 않습니다.
 
 외부 방향 추정시 EKF2를 사용하면, 자북을 무시하거나 자북에 대한 방향 오프셋을 계산하고 보상할 수 있습니다. 선택에 따라 요 각도는 자북 또는 로컬 *x*에 대하여 제공됩니다.
 
-:::note
-MoCap 소프트웨어에서 강체를 생성시, 먼저 로봇의 로컬 *x* 축을 세계 *x* 축과 정렬하여야 합니다. 그렇지 않으면 요 추정값에 오프셋이 발생합니다. 이렇게 하면 외부 포즈 추정 융합이 제대로 작동하지 않을 수 있습니다. 본체와 기준 좌표계가 정렬될 때 요 각도는 0이어야 합니다.
+::: info When creating the rigid body in the MoCap software, remember to first align the robot's local *x* axis with the world *x* axis otherwise the yaw estimate will have an offset. 이렇게 하면 외부 포즈 추정 융합이 제대로 작동하지 않을 수 있습니다. 본체와 기준 좌표계가 정렬될 때 요 각도는 0이어야 합니다.
 :::
 
 MAVROS를 사용하면 이 작업이 간단합니다. ROS는 ENU 프레임을 관례로 사용하므로, ENU에서 위치 피드백을 제공하여야 합니다. Optitrack 시스템이 있는 경우에는, ENU에 존재하는 ROS 주제에 대한 개체 포즈를 스트리밍하는 [mocap_optitrack](https://github.com/ros-drivers/mocap_optitrack) 노드를 사용할 수 있습니다. 다시 매핑하면 변환 없이 그대로 `mocap_pose_estimate`에 직접 게시할 수 있으며, MAVROS는 NED 변환을 처리합니다.
@@ -210,8 +207,7 @@ MAVROS 주행 거리 측정 플러그인을 사용하면, 좌표 프레임을 �
 ```
 기준 프레임에 위쪽을 가리키는 z축이 있으면, 회전 없이(yaw=0, pitch=0, roll=0) `odom` 프레임에 연결할 수 있습니다. `external_pose_parent_frame`의 이름은 주행 거리 메시지의 frame_id와 일치하여야 합니다.
 
-:::note MAVROS
-*odom* 플러그인을 사용시, 다른 노드가 외부 포즈의 참조와 자식 프레임 간의 변환을 게시하지 않는 것이 중요합니다. 이것은 *tf* 트리를 깨뜨릴 수 있습니다.
+::: info When using the MAVROS *odom* plugin, it is important that no other node is publishing a transform between the external pose's reference and child frame. 이것은 *tf* 트리를 깨뜨릴 수 있습니다.
 :::
 
 <a id="setup_specific_systems"></a>
@@ -243,8 +239,7 @@ rigidbody의 이름을 `robot1`으로 지정하면, `/vrpn_client_node/robot1/po
 
 MAVROS는 `/mavros/vision_pose/pose`에 게시된 포즈 데이터를 PX4로 릴레이하는 플러그인을 제공합니다. MAVROS가 실행 중이라고 가정하면, MoCap `/vrpn_client_node/<rigid_body_name>/pose`에서 가져온 포즈 주제를 `/mavros/vision_pose/pose`로 직접 **다시 매핑**하면 됩니다. MAVROS가 `ATT_POS_MOCAP`를 PX4에 제공하는 `mocap` 주제도 있지만, EKF2에는 적용되지 않습니다. 그러나 LPE에는 적용됩니다.
 
-:::note
-포즈 주제 재매핑은 [PX4에 포즈 데이터 릴레이](#relaying_pose_data_to_px4)에서 설명합니다(`/vrpn_client_node/<rigid_body_name>/pose`는 `geometry_msgs/PoseStamped` 유형임).
+::: info Remapping pose topics is covered above [Relaying pose data to PX4](#relaying_pose_data_to_px4) (`/vrpn_client_node/<rigid_body_name>/pose` is of type `geometry_msgs/PoseStamped`).
 :::
 
 위에서 설명한 대로 EKF2 매개변수를 설정하였으면, 이제 PX4가 설정되고 MoCap 데이터를 통합합니다.
@@ -261,7 +256,7 @@ MAVROS는 `/mavros/vision_pose/pose`에 게시된 포즈 데이터를 PX4로 릴
 첫 비행 전에 다음을 확인하십시오.
 
 * PX4 매개변수 `MAV_ODOM_LP`를 1로 설정합니다. PX4는 수신된 외부 포즈를 MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) 메시지로 다시 스트리밍합니다.
-* You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) In order to do this, yaw the vehicle until the quaternion of the `ODOMETRY` message is very close to a unit quaternion. (w=1, x=y=z=0)
+* You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) In order to do this, yaw the vehicle until the quaternion of the `ODOMETRY` message is very close to a unit quaternion. (w=1, x=y=z=0)
 * 이 시점에서 몸체 프레임은 외부 포즈 시스템의 기준 프레임과 정렬됩니다. 차량을 구르거나 피칭하지 않고 단위 쿼터니언에 가까운 쿼터니언을 얻을 수 없다면, 프레임에 여전히 피치 또는 롤 오프셋이 있을 수 있습니다. 이 경우에는 더 이상 진행하지 말고, 좌표 프레임을 다시 확인하십시오.
 * 정렬되면 지면에서 차량을 들어올릴 수 있으며, 위치의 z 좌표가 감소하는 것을 볼 수 있습니다. 차량을 앞쪽으로 움직이면, 위치의 x 좌표가 증가합니다. 차량을 오른 쪽으로 이동하면, y 좌표는 증가합니다. 외부 포즈 시스템에서 선형 속도도 전송하는 경우에는, 선형 속도를 확인하여야 합니다. 선형 속도가 *FRD* 몸체 프레임 참조 프레임으로 표현되는 지 확인합니다.
 * PX4 매개변수 `MAV_ODOM_LP`를 0로 재설정합니다. PX4는 이 메시지의 스트리밍을 중지합니다.
