@@ -22,7 +22,7 @@ PX4 协议兼容 [SiK 电台](../telemetry/sik_radio.md)，并且可以即插即
 
 WIFI 数传通常具有更短的范围、更高的数据速率，并且可以更轻松地支持FPV/视频源。 Wifi电台的一个好处是, 您只需为您的车辆购买一个无线电设备（假设地面站已经有WIFI）。
 
-:::note PX4 does not support connecting an LTE USB module to the flight controller (and sending MAVLink traffic via the Internet). You can however connect an LTE module to a companion computer and use it to route MAVLink traffic from the flight controller. For more information see: [Companion Computer Peripherals > Data Telephony](../companion_computer/companion_computer_peripherals.md#data-telephony-lte).
+::: info PX4 does not support connecting an LTE USB module to the flight controller (and sending MAVLink traffic via the Internet). You can however connect an LTE module to a companion computer and use it to route MAVLink traffic from the flight controller. For more information see: [Companion Computer Peripherals > Data Telephony](../companion_computer/companion_computer_peripherals.md#data-telephony-lte).
 :::
 
 ## Allowed Frequency Bands
