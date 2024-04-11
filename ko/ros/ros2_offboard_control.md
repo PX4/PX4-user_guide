@@ -10,8 +10,7 @@ It has been tested on Ubuntu 20.04 with ROS 2 Foxy and PX4 `main` after PX4 v1.1
 *오프보드* 제어는 위험합니다. 실제 차량에서 작동하는 경우 문제가 발생하면, 다시 수동 제어를 할 수 있어야 합니다.
 :::
 
-:::note ROS
-and PX4 make a number of different assumptions, in particular with respect to [frame conventions](../ros/external_position_estimation.md#reference-frames-and-ros). There is no implicit conversion between frame types when topics are published or subscribed!
+::: info ROS and PX4 make a number of different assumptions, in particular with respect to [frame conventions](../ros/external_position_estimation.md#reference-frames-and-ros). There is no implicit conversion between frame types when topics are published or subscribed!
 
 This example publishes positions in the NED frame, as expected by PX4. To subscribe to data coming from nodes that publish in a different frame (for example the ENU, which is the standard frame of reference in ROS/ROS 2), use the helper functions in the [frame_transforms](https://github.com/PX4/px4_ros_com/blob/main/src/lib/frame_transforms.cpp) library.
 :::
@@ -86,7 +85,7 @@ The vehicle should arm, ascend 5 metres, and then wait (perpetually).
 
 The source code of the offboard control example can be found in [PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) in the directory [/src/examples/offboard/offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp).
 
-:::note PX4 publishes all the messages used in this example as ROS topics by default (see [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)).
+::: info PX4 publishes all the messages used in this example as ROS topics by default (see [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)).
 :::
 
 PX4 requires that the vehicle is already receiving `OffboardControlMode` messages before it will arm in offboard mode, or before it will switch to offboard mode when flying. In addition, PX4 will switch out of offboard mode if the stream rate of `OffboardControlMode` messages drops below approximately 2Hz. The required behaviour is implemented by the main loop spinning in the ROS 2 node, as shown below:
@@ -135,6 +134,8 @@ void OffboardControl::publish_offboard_control_mode()
     msg.acceleration = false;
     msg.attitude = false;
     msg.body_rate = false;
+    msg.thrust_and_torque = false;
+    msg.direct_actuator = false;
     msg.timestamp = this->get_clock()->now().nanoseconds() / 1000;
     offboard_control_mode_publisher_->publish(msg);
 }
@@ -183,8 +184,7 @@ void OffboardControl::publish_vehicle_command(uint16_t command, float param1, fl
 }
 ```
 
-:::note
-[VehicleCommand](../msg_docs/VehicleCommand.md) is one of the simplest and most powerful ways to command PX4, and by subscribing to [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) you can also confirm that setting a particular command was successful. The param and command fields map to [MAVLink commands](https://mavlink.io/en/messages/common.html#mav_commands) and their parameter values.
+::: info [VehicleCommand](../msg_docs/VehicleCommand.md) is one of the simplest and most powerful ways to command PX4, and by subscribing to [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) you can also confirm that setting a particular command was successful. The param and command fields map to [MAVLink commands](https://mavlink.io/en/messages/common.html#mav_commands) and their parameter values.
 :::
 
 
