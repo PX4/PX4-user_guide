@@ -4,7 +4,7 @@
 
 :::warning
 
-Support for airships is [experimental](../airframes/index.md#experimental-vehicles). Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome!
+Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome! Support for airships is [experimental](../airframes/index.md#experimental-vehicles).
 :::
 
 
