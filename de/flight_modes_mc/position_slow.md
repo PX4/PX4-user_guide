@@ -21,11 +21,11 @@ This approach is useful when the maximum desired speed in slow mode is fixed, an
 
 The table below shows the parameters used to set the maximum values for _Position slow_ mode and _Position_ mode, respectively, along with their default values.
 
-| Axis                | Position slow mode                               | Position mode                                                                                         |
-| ------------------- | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
-| Horizontal velocity | [MC\_SLOW\_DEF\_HVEL][mc_slow_def_hvel] (3 m/s)  | [MPC\_VEL\_MANUAL][mpc_vel_manual] (10 m/s)                                                           |
-| Vertical velocity   | [MC\_SLOW\_DEF\_VVEL][mc_slow_def_vvel] (1 m/s)  | [MPC\_Z\_VEL\_MAX\_UP][mpc_z_vel_max_up] (3 m/s) / [MPC\_Z\_VEL\_MAX\_DN][mpc_z_vel_max_dn] (1.5 m/s) |
-| Yaw rate            | [MC\_SLOW\_DEF\_YAWR][mc_slow_def_yawr] (45 °/s) | [MPC\_MAN\_Y\_MAX][mpc_man_y_max] (150 °/s)                                                           |
+| Axis                | Position slow mode                                     | Position mode                                                                                                         |
+| ------------------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| Horizontal velocity | [MC\\_SLOW\\_DEF\\_HVEL][mc_slow_def_hvel] (3 m/s)  | [MPC\\_VEL\\_MANUAL][mpc_vel_manual] (10 m/s)                                                                       |
+| Vertical velocity   | [MC\\_SLOW\\_DEF\\_VVEL][mc_slow_def_vvel] (1 m/s)  | [MPC\\_Z\\_VEL\\_MAX\\_UP][mpc_z_vel_max_up] (3 m/s) / [MPC\\_Z\\_VEL\\_MAX\\_DN][mpc_z_vel_max_dn] (1.5 m/s) |
+| Yaw rate            | [MC\\_SLOW\\_DEF\\_YAWR][mc_slow_def_yawr] (45 °/s) | [MPC\\_MAN\\_Y\\_MAX][mpc_man_y_max] (150 °/s)                                                                     |
 
 From this you can see, for example, that when switching from Position mode to Position slow mode, the default maximum upward horizontal velocity is reduced from 10 m/s to 3 m/s.
 If traveling faster than 3 m/s horizontally you'd be slowed to 3 m/s.
@@ -53,11 +53,11 @@ If an RC control input is mapped for an axis it has priority over all other inpu
 
 The table below lists each axis along with the parameter used to select which RC AUX channel corresponds to the control knob, and the parameter that sets the lowest possible "maximum value" for the axis.
 
-| Axis                | Parameter to map auxiliary input        | Parameter for minimum value of maximum velocity |
-| ------------------- | --------------------------------------- | ----------------------------------------------- |
-| Horizontal velocity | [MC\_SLOW\_MAP\_HVEL][mc_slow_map_hvel] | [MC\_SLOW\_MIN\_HVEL][mc_slow_min_hvel]         |
-| Vertical velocity   | [MC\_SLOW\_MAP\_VVEL][mc_slow_map_vvel] | [MC\_SLOW\_MIN\_VVEL][mc_slow_min_vvel]         |
-| Yaw rate            | [MC\_SLOW\_MAP\_YAWR][mc_slow_map_yawr] | [MC\_SLOW\_MIN\_YAWR][mc_slow_min_yawr]         |
+| Axis                | Parameter to map auxiliary input              | Parameter for minimum value of maximum velocity |
+| ------------------- | --------------------------------------------- | ----------------------------------------------- |
+| Horizontal velocity | [MC\\_SLOW\\_MAP\\_HVEL][mc_slow_map_hvel] | [MC\\_SLOW\\_MIN\\_HVEL][mc_slow_min_hvel]   |
+| Vertical velocity   | [MC\\_SLOW\\_MAP\\_VVEL][mc_slow_map_vvel] | [MC\\_SLOW\\_MIN\\_VVEL][mc_slow_min_vvel]   |
+| Yaw rate            | [MC\\_SLOW\\_MAP\\_YAWR][mc_slow_map_yawr] | [MC\\_SLOW\\_MIN\\_YAWR][mc_slow_min_yawr]   |
 
 <!-- links used in table above -->
 
@@ -74,8 +74,8 @@ To use this approach:
 2. Map the channel which contains the knobs position as one of the 6 auxiliary passthrough inputs by setting [RC_MAP_AUXn](../advanced_config/parameter_reference.md#RC_MAP_AUX1) to the corresponding RC channel number.
 3. Map that auxiliary input using the appropriate `MC_SLOW_MAP_` parameter for the axis you want it to control (see table above).
 
-For example, if you want to map RC channel `8` to limit the horizontal velocity you could set [RC\_MAP\_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) to the value `8` and [MC\_SLOW\_MAP\_HVEL][mc_slow_map_hvel] to the value `1`.
-The RC input from channel 8 then sets a horizontal velocity limit between [MC\_SLOW\_MIN\_HVEL][mc_slow_min_hvel] and [MPC\_VEL\_MANUAL][mpc_vel_manual].
+For example, if you want to map RC channel `8` to limit the horizontal velocity you could set [RC\\_MAP\\_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) to the value `8` and [MC\\_SLOW\\_MAP\\_HVEL][mc_slow_map_hvel] to the value `1`.
+The RC input from channel 8 then sets a horizontal velocity limit between [MC\\_SLOW\\_MIN\\_HVEL][mc_slow_min_hvel] and [MPC\\_VEL\\_MANUAL][mpc_vel_manual].
 
 ## Set Limits using MAVLink
 
