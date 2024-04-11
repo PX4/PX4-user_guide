@@ -40,7 +40,7 @@ DFU cannot be overwritten by flashing and will always allow you to install a new
 
 ### DFU mode
 
-Both tools require the board to be in DFU mode. To enter DFU mode, hold the boot button down while connecting the USB cable to your computer. The button can be released after the board has powered up.
+To enter DFU mode, hold the boot button down while connecting the USB cable to your computer. Both tools require the board to be in DFU mode. The button can be released after the board has powered up.
 
 ### dfu-util
 
