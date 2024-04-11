@@ -280,6 +280,8 @@ If the airframe is for a **new group** you additionally need to:
        return "AirframeUnknown"
     ...
        return "AirframeUnknown"
+    ...
+       return "AirframeUnknown"
    ```
 
 1. Update _QGroundControl_:
@@ -292,6 +294,8 @@ If the airframe is for a **new group** you additionally need to:
         ...
         <qresource prefix="/qmlimages">
         ...
+        <qresource prefix="/qmlimages">
+        ...
         <file alias="Airframe/AirframeSimulation">src/AutoPilotPlugins/Common/Images/AirframeSimulation.svg</file>
         <file alias="Airframe/AirframeUnknown">src/AutoPilotPlugins/Common/Images/AirframeUnknown.svg</file>
         <file alias="Airframe/Boat">src/AutoPilotPlugins/Common/Images/Boat.svg</file>
@@ -299,8 +303,8 @@ If the airframe is for a **new group** you additionally need to:
         ...
      ```
 
-     :::note
- The remaining airframe metadata should be automatically included in the firmware (once **srcparser.py** is updated).
+:::note
+The remaining airframe metadata should be automatically included in the firmware (once **srcparser.py** is updated).
 :::
 
 ## Tuning Gains
