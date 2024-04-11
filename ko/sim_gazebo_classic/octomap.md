@@ -33,7 +33,7 @@ Open `~/catkin_ws/src/rotors_simulator/rotors_gazebo/package.xml` and add the fo
 
 Run the following two lines:
 
-:::note
+::: info
 The first line changes your default shell editor to _gedit_. This is recommended for users who have little experience with _vim_ (the default editor), but can otherwise be omitted.
 :::
 
