@@ -9323,7 +9323,7 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT2_V_EMPTY">BAT2_V_EMPTY</strong> (FLOAT)</td>
- <td>Empty cell voltage <p><strong>Comment:</strong> Defines the voltage where a single cell of the battery is considered empty. The voltage should be chosen above the steep dropoff at 3.5V. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Empty cell voltage <p><strong>Comment:</strong> Defines the voltage where a single cell of the battery is considered empty. The voltage should be chosen above the steep dropoff at 3.5V. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>(0.01)</td>
  <td>3.6</td>
@@ -9402,7 +9402,7 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT3_V_EMPTY">BAT3_V_EMPTY</strong> (FLOAT)</td>
- <td>Empty cell voltage <p><strong>Comment:</strong> Defines the voltage where a single cell of the battery is considered empty. The voltage should be chosen above the steep dropoff at 3.5V. A typical lithium battery can only be discharged under high load down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Empty cell voltage <p><strong>Comment:</strong> Defines the voltage where a single cell of the battery is considered empty. The voltage should be chosen above the steep dropoff at 3.5V. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells. The voltage should be chosen above the steep dropoff at 3.5V. A typical lithium battery can only be discharged under high load down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>(0.01)</td>
  <td>3.6</td>
@@ -11073,7 +11073,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_GPS_CHECK">EKF2_GPS_CHECK</strong> (INT32)</td>
- <td>Integer bitmask controlling GPS checks <p><strong>Comment:</strong> Set bits to 1 to enable checks. Checks enabled by the following bit positions 0 : Minimum required sat count set by EKF2_REQ_NSATS 1 : Maximum allowed PDOP set by EKF2_REQ_PDOP 2 : Maximum allowed horizontal position error set by EKF2_REQ_EPH 3 : Maximum allowed vertical position error set by EKF2_REQ_EPV 4 : Maximum allowed speed error set by EKF2_REQ_SACC 5 : Maximum allowed horizontal position rate set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. 6 : Maximum allowed vertical position rate set by EKF2_REQ_VDRIFT. 8 : Maximum allowed vertical velocity discrepancy set by EKF2_REQ_VDRIFT 7 : Maximum allowed horizontal speed set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. This check will only run when the vehicle is on ground and stationary.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Min sat count (EKF2_REQ_NSATS)</li>
+ <td>Integer bitmask controlling GPS checks <p><strong>Comment:</strong> Set bits to 1 to enable checks. Checks enabled by the following bit positions 0 : Minimum required sat count set by EKF2_REQ_NSATS 1 : Maximum allowed PDOP set by EKF2_REQ_PDOP 2 : Maximum allowed horizontal position error set by EKF2_REQ_EPH 3 : Maximum allowed vertical position error set by EKF2_REQ_EPV 4 : Maximum allowed speed error set by EKF2_REQ_SACC 5 : Maximum allowed horizontal position rate set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. 6 : Maximum allowed vertical position rate set by EKF2_REQ_VDRIFT. 8 : Maximum allowed vertical velocity discrepancy set by EKF2_REQ_VDRIFT 7 : Maximum allowed horizontal speed set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. 8 : Maximum allowed vertical velocity discrepancy set by EKF2_REQ_VDRIFT 7 : Maximum allowed horizontal speed set by EKF2_REQ_HDRIFT.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Min sat count (EKF2_REQ_NSATS)</li>
   <li><strong>1:</strong> Max PDOP (EKF2_REQ_PDOP)</li>
   <li><strong>2:</strong> Max horizontal position error (EKF2_REQ_EPH)</li>
   <li><strong>3:</strong> Max vertical position error (EKF2_REQ_EPV)</li>
@@ -11267,7 +11267,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_CHECK">EKF2_MAG_CHECK</strong> (INT32)</td>
- <td>Magnetic field strength test selection <p>If GNSS data is received, the magnetic field is compared to a World Magnetic Model (WMM), otherwise an average value is used. This check is useful to reject occasional hard iron disturbance. <strong>Comment:</strong> Bitmask to set which check is used to decide whether the magnetometer data is valid. Set bits to 1 to enable checks. Checks enabled by the following bit positions 0 : Magnetic field strength. Set tolerance using EKF2_MAG_CHK_STR 1 : Magnetic field inclination. Set tolerance using EKF2_MAG_CHK_INC 2 : Wait for GNSS to find the theoretical strength and inclination using the WMM</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Strength (EKF2_MAG_CHK_STR)</li>
+ <td>Magnetic field strength test selection <p>This check is useful to reject occasional hard iron disturbance. <strong>Comment:</strong> Bitmask to set which check is used to decide whether the magnetometer data is valid. If GNSS data is received, the magnetic field is compared to a World Magnetic Model (WMM), otherwise an average value is used. Set bits to 1 to enable checks. Checks enabled by the following bit positions 0 : Magnetic field strength. Set tolerance using EKF2_MAG_CHK_STR 1 : Magnetic field inclination. Set tolerance using EKF2_MAG_CHK_INC 2 : Wait for GNSS to find the theoretical strength and inclination using the WMM</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Strength (EKF2_MAG_CHK_STR)</li>
   <li><strong>1:</strong> Inclination (EKF2_MAG_CHK_INC)</li>
   <li><strong>2:</strong> Wait for WMM</li>
 </ul>
@@ -11354,7 +11354,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MULTI_IMU">EKF2_MULTI_IMU</strong> (INT32)</td>
- <td>Multi-EKF IMUs <p><strong>Comment:</strong> Maximum number of IMUs to use for Multi-EKF. Requires SENS_MAG_MODE 0. Requires SENS_IMU_MODE 0.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Multi-EKF IMUs <p><strong>Comment:</strong> Maximum number of IMUs to use for Multi-EKF. Requires SENS_IMU_MODE 0. Requires SENS_MAG_MODE 0.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 4] </td>
  <td>0</td>
@@ -12038,7 +12038,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_LND_TD_TIME">FW_LND_TD_TIME</strong> (FLOAT)</td>
- <td>Landing touchdown time (since flare start) <p><strong>Comment:</strong> This is the time after the start of flaring that we expect the vehicle to touch the runway. At this time, a 0.5s clamp down ramp will engage, constraining the pitch setpoint to RWTO_PSP. If enabled, ensure that RWTO_PSP is configured appropriately for full gear contact on ground roll. Set to -1.0 to disable touchdown clamping. E.g. E.g. it may not be desirable to clamp on belly landings. The touchdown time will be constrained to be greater than or equal to the flare time (FW_LND_FL_TIME).</p>   </td>
+ <td>Landing touchdown time (since flare start) <p><strong>Comment:</strong> This is the time after the start of flaring that we expect the vehicle to touch the runway. At this time, a 0.5s clamp down ramp will engage, constraining the pitch setpoint to RWTO_PSP. If enabled, ensure that RWTO_PSP is configured appropriately for full gear contact on ground roll. Set to -1.0 to disable touchdown clamping. E.g. E.g. E.g. it may not be desirable to clamp on belly landings. The touchdown time will be constrained to be greater than or equal to the flare time (FW_LND_FL_TIME).</p>   </td>
  <td>[-1.0, 5.0] (0.1)</td>
  <td>-1.0</td>
  <td>s</td>
@@ -12278,21 +12278,21 @@ table {
 <tr>
  <td><strong id="FW_AIRSPD_STALL">FW_AIRSPD_STALL</strong> (FLOAT)</td>
  <td>Stall Airspeed (CAS) <p><strong>Comment:</strong> The stall airspeed (calibrated airspeed) of the vehicle. It is used for airspeed sensor failure detection and for the control surface scaling airspeed limits.</p>   </td>
- <td>[0.5, ?] (0.5)</td>
+ <td>[0.5, ?] (0.5) (0.5)</td>
  <td>7.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_TRIM">FW_AIRSPD_TRIM</strong> (FLOAT)</td>
  <td>Trim (Cruise) Airspeed <p><strong>Comment:</strong> The trim CAS (calibrated airspeed) of the vehicle. If an airspeed controller is active, this is the default airspeed setpoint that the controller will try to achieve. This value corresponds to the trim airspeed with the default load factor (level flight, default weight).</p>   </td>
- <td>[0.5, ?] (0.5)</td>
+ <td>[0.5, ?] (0.5) (0.5)</td>
  <td>15.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_SERVICE_CEIL">FW_SERVICE_CEIL</strong> (FLOAT)</td>
  <td>Service ceiling <p><strong>Comment:</strong> Altitude in standard atmosphere at which the vehicle in normal configuration (WEIGHT_BASE) is still able to achieve a maximum climb rate of 0.5m/s at maximum throttle (FW_THR_MAX). Used to compensate for air density in FW_T_CLMB_MAX. Set negative to disable.</p>   </td>
- <td>[-1.0, ?] (0.1) (1.0)</td>
+ <td>[-1.0, ?] (0.1) [-1.0, ?] (0.1) (1.0)</td>
  <td>-1.0</td>
  <td>m</td>
 </tr>
@@ -13098,7 +13098,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_PITCH_OFFSET">GPS_PITCH_OFFSET</strong> (FLOAT)</td>
- <td>Pitch offset for dual antenna GPS <p><strong>Comment:</strong> Vertical offsets can be compensated for by adjusting the Pitch offset (Septentrio). Since pitch is defined as the right-handed rotation about the vehicle Y axis, a situation where the main antenna is mounted lower than the aux antenna (assuming the default antenna setup) will result in a positive pitch. Note that this can be interpreted as the &quot;roll&quot; angle in case the antennas are aligned along the perpendicular axis. This occurs in situations where the two antenna ARPs may not be exactly at the same height in the vehicle reference frame.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Pitch offset for dual antenna GPS <p><strong>Comment:</strong> Vertical offsets can be compensated for by adjusting the Pitch offset (Septentrio). This occurs in situations where the two antenna ARPs may not be exactly at the same height in the vehicle reference frame. Since pitch is defined as the right-handed rotation about the vehicle Y axis, a situation where the main antenna is mounted lower than the aux antenna (assuming the default antenna setup) will result in a positive pitch. Note that this can be interpreted as the &quot;roll&quot; angle in case the antennas are aligned along the perpendicular axis.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>[-90, 90] </td>
  <td>0.</td>
@@ -15412,7 +15412,7 @@ table {
 </tr>
 <tr>
  <td><strong id="LTEST_MODE">LTEST_MODE</strong> (INT32)</td>
- <td>Landing target mode <p><strong>Comment:</strong> Configure the mode of the landing target. Depending on the mode, the landing target observations are used differently to aid position estimation. Mode Moving:     The landing target may be moving around while in the field of view of the vehicle. Landing target measurements are not used to aid positioning. Mode Stationary: The landing target is stationary. Measured velocity w.r.t. Measured velocity w.r.t. the landing target is used to aid velocity estimation.</p> <strong>Values:</strong><ul>
+ <td>Landing target mode <p><strong>Comment:</strong> Configure the mode of the landing target. Depending on the mode, the landing target observations are used differently to aid position estimation. Mode Moving:     The landing target may be moving around while in the field of view of the vehicle. Landing target measurements are not used to aid positioning. Mode Stationary: The landing target is stationary. Measured velocity w.r.t. Measured velocity w.r.t. Measured velocity w.r.t. the landing target is used to aid velocity estimation.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Moving</li>
 <li><strong>1:</strong> Stationary</li>
 </ul>  </td>
@@ -16262,7 +16262,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="FW_GPSF_LT">FW_GPSF_LT</strong> (INT32)</td>
- <td>GPS failure loiter time <p><strong>Comment:</strong> The time in seconds the system should do open loop loiter and wait for GPS recovery before it starts descending. Set to 0 to disable. Roll angle is set to FW_GPSF_R. Roll angle is set to FW_GPSF_R. Does only apply for fixed-wing vehicles or VTOLs with NAV_FORCE_VT set to 0.</p>   </td>
+ <td>GPS failure loiter time <p><strong>Comment:</strong> The time in seconds the system should do open loop loiter and wait for GPS recovery before it starts descending. Set to 0 to disable. Roll angle is set to FW_GPSF_R. Roll angle is set to FW_GPSF_R. Does only apply for fixed-wing vehicles or VTOLs with NAV_FORCE_VT set to 0. Roll angle is set to FW_GPSF_R. Does only apply for fixed-wing vehicles or VTOLs with NAV_FORCE_VT set to 0.</p>   </td>
  <td>[0, 3600] </td>
  <td>30</td>
  <td>s</td>
@@ -16702,14 +16702,14 @@ table {
 </tr>
 <tr>
  <td><strong id="MC_ACRO_SUPEXPO">MC_ACRO_SUPEXPO</strong> (FLOAT)</td>
- <td>Acro mode roll, pitch super expo factor <p><strong>Comment:</strong> &quot;Superexponential&quot; factor for refining the input curve shape tuned using MC_ACRO_EXPO. 0 Pure Expo function 0.7 reasonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>   </td>
+ <td>Acro mode roll, pitch super expo factor <p><strong>Comment:</strong> &quot;Superexponential&quot; factor for refining the input curve shape tuned using MC_ACRO_EXPO. <strong>Comment:</strong> &quot;Superexponential&quot; factor for refining the input curve shape tuned using MC_ACRO_EXPO_Y. 0 Pure Expo function 0.7 reasonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>   </td>
  <td>[0, 0.95] </td>
  <td>0.</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_ACRO_SUPEXPOY">MC_ACRO_SUPEXPOY</strong> (FLOAT)</td>
- <td>Acro mode yaw super expo factor <p><strong>Comment:</strong> &quot;Superexponential&quot; factor for refining the input curve shape tuned using MC_ACRO_EXPO_Y. 0 Pure Expo function 0.7 reasonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>   </td>
+ <td>Acro mode yaw super expo factor <p><strong>Comment:</strong> &quot;Superexponential&quot; factor for refining the input curve shape tuned using MC_ACRO_EXPO. 0 Pure Expo function 0.7 reasonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>   </td>
  <td>[0, 0.95] </td>
  <td>0.</td>
  <td></td>
@@ -16951,7 +16951,7 @@ table {
 <tr>
  <td><strong id="MPC_LAND_RADIUS">MPC_LAND_RADIUS</strong> (FLOAT)</td>
  <td>User assisted landing radius <p><strong>Comment:</strong> When nudging is enabled (see MPC_LAND_RC_HELP), this controls the maximum allowed horizontal displacement from the original landing point.</p>   </td>
- <td>[0, ?] (1)</td>
+ <td>[0, ?] [0, ?] (1) (1)</td>
  <td>1000.</td>
  <td>m</td>
 </tr>
@@ -17002,7 +17002,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_POS_MODE">MPC_POS_MODE</strong> (INT32)</td>
- <td>Position/Altitude mode variant <p>Also applies to vertical direction and Altitude mode. Useful for velocity control tuning. <strong>Comment:</strong> The supported sub-modes are: 0 Sticks directly map to velocity setpoints without smoothing. 3 Sticks map to velocity but with maximum acceleration and jerk limits based on jerk optimized trajectory generator (different algorithm than 1). 4 Sticks map to acceleration and there&#x27;s a virtual brake drag</p> <strong>Values:</strong><ul>
+ <td>Position/Altitude mode variant <p>Useful for velocity control tuning. <strong>Comment:</strong> The supported sub-modes are: 0 Sticks directly map to velocity setpoints without smoothing. Also applies to vertical direction and Altitude mode. 3 Sticks map to velocity but with maximum acceleration and jerk limits based on jerk optimized trajectory generator (different algorithm than 1). 4 Sticks map to acceleration and there&#x27;s a virtual brake drag</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Direct velocity</li>
 <li><strong>3:</strong> Smoothed velocity</li>
 <li><strong>4:</strong> Acceleration based</li>
@@ -17307,7 +17307,7 @@ table {
 <tr>
  <td><strong id="MC_SLOW_DEF_VVEL">MC_SLOW_DEF_VVEL</strong> (FLOAT)</td>
  <td>Default vertical velocity limit <p><strong>Comment:</strong> This value is used in slow mode if no aux channel is mapped and no limit is commanded through MAVLink.</p>   </td>
- <td>[0.1, ?] (0.1)</td>
+ <td>[0.1, ?] (0.1) (0.1)</td>
  <td>1.</td>
  <td>m/s</td>
 </tr>
@@ -17366,14 +17366,14 @@ table {
 <tr>
  <td><strong id="MC_SLOW_MIN_HVEL">MC_SLOW_MIN_HVEL</strong> (FLOAT)</td>
  <td>Horizontal velocity lower limit <p><strong>Comment:</strong> The lowest input maps and is clamped to this velocity.</p>   </td>
- <td>[0.1, ?] (0.1)</td>
+ <td>[0.1, ?] (0.1) (0.1)</td>
  <td>.3</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MC_SLOW_MIN_VVEL">MC_SLOW_MIN_VVEL</strong> (FLOAT)</td>
  <td>Vertical velocity lower limit <p><strong>Comment:</strong> The lowest input maps and is clamped to this velocity.</p>   </td>
- <td>[0.1, ?] (0.1)</td>
+ <td>[0.1, ?] (0.1) (0.1)</td>
  <td>.3</td>
  <td>m/s</td>
 </tr>
@@ -17404,7 +17404,7 @@ table {
 <tr>
  <td><strong id="MC_PITCHRATE_D">MC_PITCHRATE_D</strong> (FLOAT)</td>
  <td>Pitch rate D gain <p><strong>Comment:</strong> Pitch rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>[0.0, ?] [0.0, ?] (0.0005)</td>
+ <td>[0.0, ?] [0.0, ?] [0.0, ?] (0.0005)</td>
  <td>0.003</td>
  <td></td>
 </tr>
@@ -17502,7 +17502,7 @@ table {
 <tr>
  <td><strong id="MC_YAWRATE_I">MC_YAWRATE_I</strong> (FLOAT)</td>
  <td>Yaw rate I gain <p><strong>Comment:</strong> Yaw rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
+ <td>[0.0, ?] (0.1) [0, ?] (0.01)</td>
  <td>0.1</td>
  <td></td>
 </tr>
@@ -19503,7 +19503,7 @@ table {
 <tr>
  <td><strong id="RTL_LOITER_RAD">RTL_LOITER_RAD</strong> (FLOAT)</td>
  <td>Loiter radius for rtl descend <p><strong>Comment:</strong> Set the radius for loitering to a safe altitude for VTOL transition.</p>   </td>
- <td>[25, ?] (0.5) (0.5)</td>
+ <td>[25, ?] (0.5) (0.5) (0.5)</td>
  <td>80.0</td>
  <td>m</td>
 </tr>
@@ -19923,14 +19923,14 @@ table {
 <tr>
  <td><strong id="RWTO_ROT_AIRSPD">RWTO_ROT_AIRSPD</strong> (FLOAT)</td>
  <td>Takeoff rotation airspeed <p><strong>Comment:</strong> The calibrated airspeed threshold during the takeoff ground roll when the plane should start rotating (pitching up). Must be less than the takeoff airspeed, will otherwise be capped at the takeoff airpeed (see FW_TKO_AIRSPD). If set &lt;= 0.0, defaults to 0.9 * takeoff airspeed (see FW_TKO_AIRSPD)</p>   </td>
- <td>[-1.0, ?] (0.1)</td>
+ <td>[-1.0, ?] (0.1) (0.1)</td>
  <td>-1.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="RWTO_ROT_TIME">RWTO_ROT_TIME</strong> (FLOAT)</td>
  <td>Takeoff rotation time <p><strong>Comment:</strong> This is the time desired to linearly ramp in takeoff pitch constraints during the takeoff rotation</p>   </td>
- <td>[0.1, ?] (0.1)</td>
+ <td>[0.1, ?] (0.1) (0.1)</td>
  <td>1.0</td>
  <td>s</td>
 </tr>
@@ -21856,7 +21856,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_AIR_CMODEL">CAL_AIR_CMODEL</strong> (INT32)</td>
- <td>Airspeed sensor compensation model for the SDP3x <p><strong>Comment:</strong> Model with Pitot CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor and the static + dynamic port length of the pitot. Model without Pitot (1.5 mm tubes) CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Tube Pressure Drop CAL_AIR_TUBED_MM: Diameter in mm of the pitot and tubes, must have the same diameter.</p> <strong>Values:</strong><ul>
+ <td>Airspeed sensor compensation model for the SDP3x <p><strong>Comment:</strong> Model with Pitot CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor and the static + dynamic port length of the pitot. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor and the static + dynamic port length of the pitot. Tube Pressure Drop CAL_AIR_TUBED_MM: Diameter in mm of the pitot and tubes, must have the same diameter. Model without Pitot (1.5 mm tubes) CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Model with Pitot</li>
 <li><strong>1:</strong> Model without Pitot (1.5 mm tubes)</li>
 <li><strong>2:</strong> Tube Pressure Drop</li>
@@ -22003,7 +22003,7 @@ table {
 </tr>
 <tr>
  <td><strong id="IMU_GYRO_NF0_FRQ">IMU_GYRO_NF0_FRQ</strong> (FLOAT)</td>
- <td>Notch filter frequency for gyro <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. See &quot;IMU_GYRO_NF1_BW&quot; to set the bandwidth of the filter. A value of 0 disables the filter. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Notch filter frequency for gyro <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. A value of 0 disables the filter. Applies to both angular velocity and angular acceleration sent to the controllers. See &quot;IMU_GYRO_NF0_BW&quot; to set the bandwidth of the filter.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 1000] </td>
  <td>0.0</td>
@@ -22019,7 +22019,7 @@ table {
 </tr>
 <tr>
  <td><strong id="IMU_GYRO_NF1_FRQ">IMU_GYRO_NF1_FRQ</strong> (FLOAT)</td>
- <td>Notch filter 2 frequency for gyro <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. See &quot;IMU_GYRO_NF0_BW&quot; to set the bandwidth of the filter. A value of 0 disables the filter. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Notch filter 2 frequency for gyro <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. A value of 0 disables the filter. Applies to both angular velocity and angular acceleration sent to the controllers. See &quot;IMU_GYRO_NF1_BW&quot; to set the bandwidth of the filter.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 1000] </td>
  <td>0.0</td>
@@ -24028,7 +24028,7 @@ table {
 <tr>
  <td><strong id="SIH_IYY">SIH_IYY</strong> (FLOAT)</td>
  <td>Vehicle inertia about Y axis <p><strong>Comment:</strong> The inertia is a 3 by 3 symmetric matrix. It represents the difficulty of the vehicle to modify its angular rate.</p>   </td>
- <td>[0.0, ?] (0.005)</td>
+ <td>[0.0, ?] [0.0, ?] (0.005)</td>
  <td>0.025</td>
  <td>kg m^2</td>
 </tr>
@@ -24042,20 +24042,20 @@ table {
 <tr>
  <td><strong id="SIH_IZZ">SIH_IZZ</strong> (FLOAT)</td>
  <td>Vehicle inertia about Z axis <p><strong>Comment:</strong> The inertia is a 3 by 3 symmetric matrix. It represents the difficulty of the vehicle to modify its angular rate.</p>   </td>
- <td>[0.0, ?] (0.005)</td>
+ <td>[0.0, ?] [0.0, ?] (0.005)</td>
  <td>0.030</td>
  <td>kg m^2</td>
 </tr>
 <tr>
  <td><strong id="SIH_KDV">SIH_KDV</strong> (FLOAT)</td>
- <td>First order drag coefficient <p><strong>Comment:</strong> Physical coefficient representing the friction with air particules. The greater this value, the slower the quad will move. Drag force function of velocity: D=-KDV*V. Drag force function of velocity: D=-KDV*V. The maximum freefall velocity can be computed as V=10*MASS/KDV [m/s]</p>   </td>
+ <td>First order drag coefficient <p><strong>Comment:</strong> Physical coefficient representing the friction with air particules during rotations. The greater this value, the slower the quad will rotate. Aerodynamic moment function of body rate: Ma=-KDW*W_B. This value can be set to 0 if unknown. This value can be set to 0 if unknown.</p>   </td>
  <td>[0.0, ?] [0.0, ?] (0.05)</td>
  <td>1.0</td>
  <td>N/(m/s)</td>
 </tr>
 <tr>
  <td><strong id="SIH_KDW">SIH_KDW</strong> (FLOAT)</td>
- <td>First order angular damper coefficient <p><strong>Comment:</strong> Physical coefficient representing the friction with air particules during rotations. The greater this value, the slower the quad will rotate. Aerodynamic moment function of body rate: Ma=-KDW*W_B. This value can be set to 0 if unknown. This value can be set to 0 if unknown.</p>   </td>
+ <td>First order angular damper coefficient <p><strong>Comment:</strong> Physical coefficient representing the friction with air particules. The greater this value, the slower the quad will move. Aerodynamic moment function of body rate: Ma=-KDW*W_B. This value can be set to 0 if unknown. This value can be set to 0 if unknown.</p>   </td>
  <td>[0.0, ?] [0.0, ?] (0.005)</td>
  <td>0.025</td>
  <td>Nm/(rad/s)</td>
@@ -24069,14 +24069,14 @@ table {
 </tr>
 <tr>
  <td><strong id="SIH_LOC_LAT0">SIH_LOC_LAT0</strong> (INT32)</td>
- <td>Initial geodetic latitude <p><strong>Comment:</strong> This value represents the North-South location on Earth where the simulation begins. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
+ <td>Initial geodetic latitude <p><strong>Comment:</strong> This value represents the North-South location on Earth where the simulation begins. A value of 45 deg should be written 450000000. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
  <td>[-850000000, 850000000] </td>
  <td>454671160</td>
  <td>deg*1e7</td>
 </tr>
 <tr>
  <td><strong id="SIH_LOC_LON0">SIH_LOC_LON0</strong> (INT32)</td>
- <td>Initial geodetic longitude <p><strong>Comment:</strong> This value represents the East-West location on Earth where the simulation begins. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
+ <td>Initial geodetic longitude <p><strong>Comment:</strong> This value represents the East-West location on Earth where the simulation begins. A value of 45 deg should be written 450000000. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
  <td>[-1800000000, 1800000000] </td>
  <td>-737578370</td>
  <td>deg*1e7</td>
@@ -24091,14 +24091,14 @@ table {
 <tr>
  <td><strong id="SIH_L_ROLL">SIH_L_ROLL</strong> (FLOAT)</td>
  <td>Roll arm length <p><strong>Comment:</strong> This is the arm length generating the rolling moment This value can be measured with a ruler. This corresponds to half the distance between the left and right motors.</p>   </td>
- <td>[0.0, ?] (0.05)</td>
+ <td>[0.0, ?] [0.0, ?] (0.05)</td>
  <td>0.2</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="SIH_MASS">SIH_MASS</strong> (FLOAT)</td>
  <td>Vehicle mass <p><strong>Comment:</strong> This value can be measured by weighting the quad on a scale.</p>   </td>
- <td>[0.0, ?] (0.1)</td>
+ <td>[0.0, ?] [0, ?] (0.1)</td>
  <td>1.0</td>
  <td>kg</td>
 </tr>
@@ -27239,7 +27239,7 @@ table {
 <tr>
  <td><strong id="VT_FW_QC_HMAX">VT_FW_QC_HMAX</strong> (INT32)</td>
  <td>Quad-chute maximum height <p><strong>Comment:</strong> Maximum height above the ground (if available, otherwise above Home if available, otherwise above the local origin) where triggering a quad-chute is possible. At high altitudes there is a big risk to deplete the battery and therefore crash if quad-chuting there.</p>   </td>
- <td>[0, ?] (1) (1)</td>
+ <td>[0, ?] (1) [0, ?] (1) (1)</td>
  <td>0</td>
  <td>m</td>
 </tr>
