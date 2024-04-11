@@ -10,8 +10,8 @@
 
 У цій темі пояснюється, як налаштувати систему на базі PX4 для отримання даних від систем MoCap/VIO (або через ROS, або через іншу систему MAVLink) і, зокрема, як налаштувати системи MoCap, такі як VICON і Optitrack, і системи оцінки на основі комп'ютерного зору, такі як [ROVIO](https://github.com/ethz-asl/rovio), [SVO](https://github.com/uzh-rpg/rpg_svo) та [PTAM](https://github.com/ethz-asl/ethzasl_ptam)).
 
-:::note
-Інструкції відрізняються залежно від того, чи використовуєте ви оцінювач EKF2 або LPE.
+::: info
+The instructions differ depending on whether you are using the EKF2 or LPE estimator.
 :::
 
 ## Інтеграція PX4 з MAVLink
@@ -93,8 +93,7 @@ z_{mav} = - y_{mocap}
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
-:::note
-Графік зовнішніх даних порівняно з бортовою оцінкою (як показано вище) можна створити за допомогою [FlightPlot](../log/flight_log_analysis.md#flightplot) або подібних інструментів аналізу польотів. На момент написання статті (липень 2021 року) ні [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), ні [MAVGCL](../log/flight_log_analysis.md#mavgcl) не підтримують цю функцію.
+::: info A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools. На момент написання статті (липень 2021 року) ні [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), ні [MAVGCL](../log/flight_log_analysis.md#mavgcl) не підтримують цю функцію.
 :::
 
 Значення можна додатково налаштувати, змінюючи параметр, щоб знайти значення, яке дає найнижчі інновації EKF під час динамічних маневрів.
@@ -104,8 +103,7 @@ z_{mav} = - y_{mocap}
 Спочатку потрібно [переключитися на оцінювач LPE](../advanced/switching_state_estimators.md), задавши параметр [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP).
 
 
-:::note
-Якщо ви використовуєте обладнання `px4_fmu-v2`, вам також потрібно використовувати версію прошивки, яка містить модуль LPE (прошивка для іншого обладнання серії FMU містить як LPE, так і EKF). Версію LPE можна знайти у zip-файлі для кожного випуску PX4 або зібрати з вихідного коду за допомогою команди збірки `make px4_fmu-v2_lpe`. Дивіться [Створення коду](../dev_setup/building_px4.md) для більш детальної інформації.
+::: info If targeting `px4_fmu-v2` hardware you will also need to use a firmware version that includes the LPE module (firmware for other FMU-series hardware includes both LPE and EKF). Версію LPE можна знайти у zip-файлі для кожного випуску PX4 або зібрати з вихідного коду за допомогою команди збірки `make px4_fmu-v2_lpe`. Дивіться [Створення коду](../dev_setup/building_px4.md) для більш детальної інформації.
 :::
 
 ### Увімкнення зовнішнього введення позиції
@@ -134,7 +132,7 @@ z_{mav} = - y_{mocap}
 
 ## Увімкнення автоматичних режимів з локальним розташуванням
 
-Всі автоматичні режими польоту PX4 (такі як [Return](../flight_modes_mc/mission.md), [Повернення](../flight_modes/return.md), [Land](../flight_modes_mc/land.md), [Hold](../flight_modes_mc/land.md), [Orbit](../flight_modes_mc/orbit.md))) вимагають _global_ оцінки положення, яка зазвичай надходить від системи GPS/GNSS.
+All PX4 automatic flight modes (such as [Mission](../flight_modes_mc/mission.md), [Return](../flight_modes_mc/return.md), [Land](../flight_modes_mc/land.md), [Hold](../flight_modes_mc/land.md), [Orbit](../flight_modes_mc/orbit.md))) require a _global_ position estimate, which would normally come from a GPS/GNSS system.
 
 Системи, які мають лише _local_ оцінку положення (від MOCAP, VIO або подібних), можуть використовувати повідомлення [SET_GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#SET_GPS_GLOBAL_ORIGIN) MAVLink, щоб встановити початок координат EKF на певне глобальне місцезнаходження. Після цього EKF надасть оцінку глобального положення на основі походження та локального положення у просторі.
 
@@ -192,8 +190,7 @@ MAVROS має плагіни для передачі візуальної оці
 
 With EKF2 when using external heading estimation, magnetic north can either be ignored and or the heading offset to magnetic north can be calculated and compensated. Depending on your choice the yaw angle is given with respect to either magnetic north or local *x*.
 
-:::note
-When creating the rigid body in the MoCap software, remember to first align the robot's local *x* axis with the world *x* axis otherwise the yaw estimate will have an offset. This can stop the external pose estimate fusion from working properly. Yaw angle should be zero when body and reference frame align.
+::: info When creating the rigid body in the MoCap software, remember to first align the robot's local *x* axis with the world *x* axis otherwise the yaw estimate will have an offset. This can stop the external pose estimate fusion from working properly. Yaw angle should be zero when body and reference frame align.
 :::
 
 Використовуючи MAVROS, ця операція є простою. ROS uses ENU frames as convention, therefore position feedback must be provided in ENU. Якщо у вас є система Optitrack, ви можете використати вузол [mocap_optitrack](https://github.com/ros-drivers/mocap_optitrack), який транслює позицію об'єкта на тему ROS, що вже є у ENU. With a remapping you can directly publish it on `mocap_pose_estimate` as it is without any transformation and MAVROS will take care of NED conversions.
@@ -210,8 +207,7 @@ Make sure that you change the values of yaw, pitch and roll such that it properl
 ```
 If the reference frame has the z axis pointing upwards you can attached it without any rotation (yaw=0, pitch=0, roll=0) to the `odom` frame. The name of `external_pose_parent_frame` has to match the frame_id of the odometry message.
 
-:::note
-When using the MAVROS *odom* plugin, it is important that no other node is publishing a transform between the external pose's reference and child frame. This might break the *tf* tree.
+::: info When using the MAVROS *odom* plugin, it is important that no other node is publishing a transform between the external pose's reference and child frame. This might break the *tf* tree.
 :::
 
 <a id="setup_specific_systems"></a>
@@ -243,8 +239,7 @@ If you named the rigidbody as `robot1`, you will get a topic like `/vrpn_client_
 
 MAVROS provides a plugin to relay pose data published on `/mavros/vision_pose/pose` to PX4. Assuming that MAVROS is running, you just need to **remap** the pose topic that you get from MoCap `/vrpn_client_node/<rigid_body_name>/pose` directly to `/mavros/vision_pose/pose`. Note that there is also a `mocap` topic that MAVROS provides to feed `ATT_POS_MOCAP` to PX4, but it is not applicable for EKF2. However, it is applicable with LPE.
 
-:::note
-Remapping pose topics is covered above [Relaying pose data to PX4](#relaying_pose_data_to_px4) (`/vrpn_client_node/<rigid_body_name>/pose` is of type `geometry_msgs/PoseStamped`).
+::: info Remapping pose topics is covered above [Relaying pose data to PX4](#relaying_pose_data_to_px4) (`/vrpn_client_node/<rigid_body_name>/pose` is of type `geometry_msgs/PoseStamped`).
 :::
 
 Assuming that you have configured EKF2 parameters as described above, PX4 now is set and fusing MoCap data.
@@ -261,7 +256,7 @@ You are now set to proceed to the first flight.
 Перед першим польотом обов'язково виконайте наступні перевірки:
 
 * Встановіть параметр PX4 `MAV_ODOM_LP` на 1. Після цього PX4 передасть отриману зовнішню позицію назад у вигляді повідомлень MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY).
-* You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) In order to do this, yaw the vehicle until the quaternion of the `ODOMETRY` message is very close to a unit quaternion. (w=1, x=y=z=0)
+* You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) In order to do this, yaw the vehicle until the quaternion of the `ODOMETRY` message is very close to a unit quaternion. (w=1, x=y=z=0)
 * At this point the body frame is aligned with the reference frame of the external pose system. If you do not manage to get a quaternion close to the unit quaternion without rolling or pitching your vehicle, your frame probably still have a pitch or roll offset. Do not proceed if this is the case and check your coordinate frames again.
 * Once aligned you can pick the vehicle up from the ground and you should see the position's z coordinate decrease. Moving the vehicle in forward direction, should increase the position's x coordinate. While moving the vehicle to the right should increase the y coordinate. In the case you send also linear velocities from the external pose system, you should also check the linear velocities. Check that the linear velocities are in expressed in the *FRD* body frame reference frame.
 * Set the PX4 parameter `MAV_ODOM_LP` back to 0. PX4 will stop streaming this message back.
