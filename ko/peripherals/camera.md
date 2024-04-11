@@ -2,8 +2,7 @@
 
 PX4 can be configured to connect physical outputs to trigger a camera, or it can be used with a [MAVLink camera](#mavlink-cameras).
 
-:::note
-We recommend that you use a MAVLink camera as this allows comprehensive control of cameras via the [camera protocol](https://mavlink.io/en/services/camera.html). Directly connected cameras only support [a small subset](#mavlink-command-interface-directly-connected-cameras) of MAVLink camera commands.
+::: info We recommend that you use a MAVLink camera as this allows comprehensive control of cameras via the [camera protocol](https://mavlink.io/en/services/camera.html). Directly connected cameras only support [a small subset](#mavlink-command-interface-directly-connected-cameras) of MAVLink camera commands.
 :::
 
 Whenever a camera is triggered, the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message is published containing a sequence number (i.e. the current session's image sequence number) and the corresponding timestamp. 이 타임스탬프는 항공 측량을 위한 타임 스탬프 사진, 다중 카메라 시스템 동기화 또는 시각적 관성 내비게이션을 포함한 여러 응용 프로그램에 사용할 수 있습니다.
@@ -15,14 +14,13 @@ Cameras can also (optionally) signal PX4 at the exact moment that a photo/frame 
 
 ## 트리거 설정
 
-Camera triggering is usually configured from the _QGroundControl_ [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/master/en/SetupView/Camera.html#px4-camera-setup) section.
+Camera triggering is usually configured from the _QGroundControl_ [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/camera.html#px4-camera-setup) section.
 
 ![트리거 핀](../../assets/camera/trigger_pins.png)
 
 The different [trigger modes](#trigger-modes), [backend interfaces](#trigger-interface-backends) and [trigger output configuration](#trigger-output-pin-configuration) are described below (these can also be set directly from [parameters](../advanced_config/parameters.md)).
 
-:::note
-카메라 모듈이 펌웨어에 자동으로 포함되지 않기 때문에 FMUv2 기반 비행 콘트롤러 (예 : 3DR Pixhawk)의 경우 기본적으로 카메라 설정 섹션을 사용할 수 없습니다. 자세한 내용은 [매개변수 검색/업데이트 &gt; 펌웨어에 없는 매개변수](../advanced_config/parameters.md#parameter-not-in-firmware)를 참고하십시오.
+::: info The camera settings section is not available by default for FMUv2-based flight controllers (e.g. 3DR Pixhawk) because the camera module is not automatically included in firmware. 자세한 내용은 [매개변수 검색/업데이트 &gt; 펌웨어에 없는 매개변수](../advanced_config/parameters.md#parameter-not-in-firmware)를 참고하십시오.
 :::
 
 ### 트리거 모드
@@ -37,8 +35,7 @@ The different [trigger modes](#trigger-modes), [backend interfaces](#trigger-int
 | 3  | 거리를 기반으로 트리거합니다.  설정 수평 거리를 초과시 마다 촬영됩니다. 그러나, 두 샷 사이의 최소 시간 간격은 설정된 트리거 간격에 의해 제한됩니다.                                                                                           |
 | 4  | 임무 모드에서 비행시 측량은 자동으로 트리거됩니다.                                                                                                                                                     |
 
-:::note
-카메라 트리거 앱을 처음 활성화하는 경우 `TRIG_MODE` 매개변수를 변경 후 재부팅하여야 합니다.
+::: info If it is your first time enabling the camera trigger app, remember to reboot after changing the `TRIG_MODE` parameter.
 :::
 
 ### 트리거 인터페이스 백엔드
@@ -60,8 +57,7 @@ The trigger pins can be set by assigning the `Camera_Trigger` function on any FM
 
 Note however that if a _PWM_ output has been used for camera triggering (such as Seagull MAP2), the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator, motor, or camera capture, because the timer has already been used).
 
-:::note
-At time of writing triggering only works on FMU pins:
+::: info At time of writing triggering only works on FMU pins:
 
 - On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+) .
 - A controller that only has an FMU, the pins map to `MAIN` outputs (e.g. Pixhawk 4 mini, CUAV v5 nano).
@@ -86,8 +82,7 @@ PX4에서 [CAM_CAP_FBACK=1](../advanced_config/parameter_reference.md#CAM_CAP_FB
 
 Note that if a _PWM output_ is used as a camera capture input, the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator, motor, or camera trigger, because the timer has already been used).
 
-:::note
-At time of writing camera capture only works on FMU pins:
+::: info At time of writing camera capture only works on FMU pins:
 
 - On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+).
 - A controller that only has an FMU, the pins map to `MAIN` outputs (e.g. Pixhawk 4 mini, CUAV v5 nano).
@@ -100,7 +95,7 @@ PX4는 카메라 캡처 핀에서 적절한 전압 레벨로 상승 에지를 �
 
 ![Seagull SYNC#2](../../assets/peripherals/camera_capture/seagull_sync2.png)
 
-:::note PX4는 카메라 트리거와 카메라 캡처 모두에서 MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) 메시지를 전송합니다. 카메라 캡처가 구성된 경우 카메라 캡처 드라이버의 타임스탬프가 사용되며 그렇지 않으면 트리거링 타임스탬프가 사용됩니다.
+::: info PX4 emits the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message on both camera trigger and camera capture. 카메라 캡처가 구성된 경우 카메라 캡처 드라이버의 타임스탬프가 사용되며 그렇지 않으면 트리거링 타임스탬프가 사용됩니다.
 :::
 
 ## MAVLink Command Interface (Directly Connected Cameras)
