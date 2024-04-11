@@ -40,7 +40,7 @@ Duo Tailsitters are generally more efficient in cruise flight (4 smaller propell
 
 VTOL setup and flying are covered in the [VTOL](../frames_vtol/index.md) parent topic.
 
-:::note
+::: info
 The instructions are essentially the same for all VTOL.
 The main frame-specific differences are the motor wiring, and some aspects of tuning the configuration.
 :::
