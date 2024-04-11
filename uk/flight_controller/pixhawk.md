@@ -1,21 +1,21 @@
-# 3DR Pixhawk 1 Flight Controller (Discontinued)
+# 3DR Pixhawk 1 Flight Controller (знято з виробництва)
 
 :::warning
-This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available. You can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
+Цей політний контролер був [знятий з виробництва](../flight_controller/autopilot_experimental.md) і більше не продається комерційно. Ви можете використовувати [mRo Pixhawk](../flight_controller/mro_pixhawk.md) як заміну.
 :::
 
 :::warning
-PX4 does not manufacture this (or any) autopilot.
-Contact the manufacturer for support or compliance issues.
+PX4 не виробляє цей (або будь-який) автопілот.
+Звертайтесь до виробника з питань щодо підтримки або відповідності.
 :::
 
-The _3DR Pixhawk<sup>&reg;</sup> 1_ autopilot is a popular general purpose flight controller based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design (it combines the functionality of the PX4FMU + PX4IO). It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
+Автопілот _3DR Pixhawk<sup>&reg;</sup> 1_ є популярним універсальним політним контролером на основі відкритого апаратного дизайну [Pixhawk-project](https://pixhawk.org/) **FMUv2** (він поєднує функціональність PX4FMU + PX4IO). Він виконує PX4 на ОС [NuttX](https://nuttx.apache.org/).
 
 ![Pixhawk Image](../../assets/hardware/hardware-pixhawk.png)
 
-Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)
+Інструкції зі збирання/налаштування для використання з PX4 наведено тут: [Швидкий старт з підключення Pixhawk](../assembly/quick_start_pixhawk.md)
 
-## Key Features
+## Основні характеристики
 
 - Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
   - CPU: 180 MHz ARM<sup>&reg;</sup> Cortex<sup>&reg;</sup> M4 with single-precision FPU
