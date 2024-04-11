@@ -17,7 +17,7 @@ This topic shows how to connect and configure DShot ESCs.
 
 DShot ESC are wired the same way as [PWM ESCs](pwm_escs_and_servo.md). The only difference is that they can only be connected to the FMU, and usually only to some subset of pins.
 
-:::note
+::: info
 You may want to check the actuator configuration screen to see what pins are available for DShot on your controller before wiring up!
 :::
 
