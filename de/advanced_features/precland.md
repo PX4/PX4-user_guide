@@ -16,7 +16,7 @@ A precision landing can be configured to either be "required" or "opportunistic"
 
 #### Required Mode
 
-If it is not visible the vehicle immediately performs a _normal_ landing at the current position. In _Opportunistic Mode_ the vehicle will use precision landing _if_ (and only if) the target is visible when landing is initiated.
+In _Opportunistic Mode_ the vehicle will use precision landing _if_ (and only if) the target is visible when landing is initiated. If it is not visible the vehicle immediately performs a _normal_ landing at the current position.
 
 The search procedure consists of climbing to the search altitude ([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)). If the target is still not visible at the search altitude and after a search timeout ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT)), a normal landing is initiated at the current position.
 
