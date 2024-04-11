@@ -4,8 +4,7 @@ PX4 підтримує численні типи транспортних зас
 
 Цей розділ пояснює, як збирати, конфігурувати та налаштовувати системи автопілотів на основі PX4 для кожного типу (багато з цих налаштувань є спільними для всіх типів).
 
-:::note
-[Vehicle Selection](../getting_started/frame_selection.md) надає високорівневу інформацію про типи транспортних засобів і сценарії використання для яких вони найкраще підходять. :::
+::: info [Basic Concepts > Drone Types](../getting_started/px4_basic_concepts.md#drone-types) provides high level information about the types of vehicles and the use cases for which they are best suited. :::
 
 ## Підтримувані транспортні засоби
 
