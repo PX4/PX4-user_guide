@@ -4,10 +4,10 @@ This section describes the mandatory and optional sensors and their setup/config
 
 ## Overview
 
-PX4-based systems use sensors to determine vehicle state (needed for stabilization and to enable autonomous control).
-The vehicle states include: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different directions, battery level, and so on.
+PX4-based systems use sensors to estimate vehicle state, which is needed for stabilization and to enable autonomous control.
+Vehicle state information includes: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different directions, battery level, and so on.
 
-PX4 _minimally requires_ a gyroscope, accelerometer, magnetometer (compass), and barometer.
+PX4 _minimally requires_ a gyroscope, accelerometer, magnetometer (compass), and barometer to measure the above states.
 Fixed-wing and VTOL-vehicles _should_ also include an airspeed sensor.
 A GPS or other positioning system is needed to enable all automatic modes, and some manual/assisted modes.
 
@@ -27,17 +27,18 @@ Mandatory (included in Pixhawk series FCs):
 Recommended:
 
 - [Airspeed Sensors](../sensor/airspeed.md) — Measures airspeed.
-  Recommended for VTOL and Fixed-wing.
+  Highly recommended for VTOL and Fixed-wing as they are the only mechanism to detect stall.
 - [GNSS (GPS)](../gps_compass/index.md) — Measures global position.
   Needed for missions, and some other automatic and manual/assisted modes.
 - [RTK GNSS (GPS)](../gps_compass/rtk_gps.md) — GNSS with centimetre-level accuracy.
+  Some setups also allow heading to be determine from GNSS rather than a magnetometer.
 
 Optional:
 
 - [Distance Sensors (Rangefinders)](../sensor/rangefinders.md) — Measures distance to target.
-  Aids landing and terrain following.
-- [Optical Flow](../sensor/optical_flow.md) — Measures velocity.
-  Aids velocity estimation without global position.
+  Aids landing, object avoidance, and terrain following.
+- [Optical Flow](../sensor/optical_flow.md) — Estimates velocity using a downward facing camera and a downward facing distance sensor.
+  Enables a more accurate position lock than GPS alone, and can be used indoors when no GPS signal is available.
 - [Tachometers (Revolution Counters)](../sensor/tachometers.md) — Only used for logging.
 
 Other optional:
