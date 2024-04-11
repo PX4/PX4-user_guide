@@ -25,7 +25,7 @@ SiK 라디오는 다양한 범위와 폼 팩터를 지원하는 다양한 제조
 
 대부분의 [공급업체](#vendors)에서 제공하는 하드웨어는 최신 펌웨어에 설정되어 있습니다. 구형 하드웨어에서 MAVLink 2 추가하기 위하여, 새 펌웨어로 업데이트하여야 합니다.
 
-You can update the radio firmware using _QGroundControl_: [QGroundControl User Guide > Loading Firmware](https://docs.qgroundcontrol.com/master/en/SetupView/Firmware.html).
+You can update the radio firmware using _QGroundControl_: [QGroundControl User Guide > Loading Firmware](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/firmware.html).
 
 ## 고급 설정
 
