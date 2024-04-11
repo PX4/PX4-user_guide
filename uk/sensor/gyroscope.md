@@ -1,9 +1,9 @@
-# Gyroscope Hardware & Setup
+# Апаратне забезпечення та налаштування гіроскопа
 
-PX4 uses a gyroscope for estimating the vehicle attitude (orientation).
-Most flight controllers, such as those in the [Pixhawk Series](../flight_controller/pixhawk_series.md), include a gyroscope as part of the flight controller's [Inertial Motion Unit (IMU)](https://en.wikipedia.org/wiki/Inertial_measurement_unit).
-You should not need to attach one as an external device.
+PX4 використовує гіроскоп для оцінки позиції транспортного засобу (орієнтації).
+Більшість польотних контролерів, таких, як в [Pixhawk Series](../flight_controller/pixhawk_series.md), включають гіроскоп як частину польот контролеру [Inertial Motion (IMU)](https://en.wikipedia.org/wiki/Inertial_measurement_unit).
+Вам не потрібно прикріплювати зовнішній пристрій.
 
-The gyroscope must be calibrated before first use of the vehicle:
+Потрібно відкалібрувати гіроскоп перед першим використанням безпілотника:
 
-- [Gyroscope Calibration](../config/gyroscope.md)
+- [Калібрування гіроскопа](../config/gyroscope.md)
