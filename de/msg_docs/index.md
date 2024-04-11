@@ -192,8 +192,8 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [VehicleAngularVelocity](VehicleAngularVelocity.md)
 - [VehicleAttitude](VehicleAttitude.md) — This is similar to the mavlink message ATTITUDE_QUATERNION, but for onboard use
 - [VehicleAttitudeSetpoint](VehicleAttitudeSetpoint.md)
-- [VehicleCommand](VehicleCommand.md) — Vehicle Command uORB message. Used for commanding a mission / action / etc. Follows the MAVLink COMMAND_INT / COMMAND_LONG definition
 - [VehicleCommandAck](VehicleCommandAck.md) — Vehicle Command Ackonwledgement uORB message. Used for acknowledging the vehicle command being received. Follows the MAVLink COMMAND_ACK message definition
+- [VehicleCommand](VehicleCommand.md) — Vehicle Command uORB message. Used for acknowledging the vehicle command being received. Used for commanding a mission / action / etc. Follows the MAVLink COMMAND_INT / COMMAND_LONG definition
 - [VehicleConstraints](VehicleConstraints.md) — Local setpoint constraints in NED frame setting something to NaN means that no limit is provided
 - [VehicleControlMode](VehicleControlMode.md)
 - [VehicleGlobalPosition](VehicleGlobalPosition.md) — Fused global position in WGS84. This struct contains global position estimation. It is not the raw GPS measurement (@see vehicle_gps_position). This topic is usually published by the position estimator, which will take more sources of information into account than just GPS, e.g. control inputs of the vehicle in a Kalman-filter implementation.
