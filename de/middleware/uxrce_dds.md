@@ -2,8 +2,8 @@
 
 <Badge type="tip" text="PX4 v1.14" />
 
-:::note
-uXRCE-DDS replaces the [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge) used in PX4 v1.13. If you were using the Fast-RTPS Bridge, please follow the [migration guidelines](#fast-rtps-to-uxrce-dds-migration-guidelines).
+If you were using the Fast-RTPS Bridge, please follow the [migration guidelines](#fast-rtps-to-uxrce-dds-migration-guidelines). :::note  
+uXRCE-DDS replaces the [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge) used in PX4 v1.13.
 :::
 
 PX4 uses uXRCE-DDS middleware to allow [uORB messages](../middleware/uorb.md) to be published and subscribed on a companion computer as though they were [ROS 2](../ros/ros2_comm.md) topics. This provides a fast and reliable integration between PX4 and ROS 2, and makes it much easier for ROS 2 applications to get vehicle information and send commands.
@@ -36,7 +36,7 @@ When PX4 is built, a code generator uses the uORB message definitions in the sou
 
 PX4 main or release builds automatically export the set of uORB messages definitions in the build to an associated branch in [PX4/px4_msgs](https://github.com/PX4/px4_msgs).
 
-ROS 2 applications need to be built in a workspace that includes the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware. These can be included into a workspace by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS 2 workspace and switching to the appropriate branch. Note that all code generation associated with the messages is handled by ROS 2.
+These can be included into a workspace by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS 2 workspace and switching to the appropriate branch. ROS 2 applications need to be built in a workspace that includes the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware. Note that all code generation associated with the messages is handled by ROS 2.
 
 ## Micro XRCE-DDS Agent Installation
 
@@ -56,6 +56,9 @@ cd Micro-XRCE-DDS-Agent
 mkdir build
 cd build
 cmake ..
+make
+sudo make install
+sudo ldconfig /usr/local/lib/
 make
 sudo make install
 sudo ldconfig /usr/local/lib/
@@ -283,15 +286,15 @@ The topics are release specific (support is compiled into [uxrce_dds_client](../
 Note that ROS 2/DDS needs to have the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware in order to interpret the messages. The message definitions are stored in the ROS 2 interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs), and they are automatically synchronized by CI on the `main` and release branches. Note that all the messages from PX4 source code are present in the repository, but only those listed in `dds_topics.yaml` will be available as ROS 2 topics. Therefore,
 
 - If you're using a main or release version of PX4 you can get the message definitions by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your workspace.
-- If you're creating or modifying uORB messages you must manually update the messages in your workspace from your PX4 source tree. Generally this means that you would update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml), clone the interface package, and then manually synchronize it by copying the new/modified message definitions from [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to its `msg` folders. Assuming that PX4-Autopilot is in your home directory `~`, while `px4_msgs` is in `~/px4_ros_com/src/`, then the command might be:
+- If you're creating or modifying uORB messages you must manually update the messages in your workspace from your PX4 source tree. Assuming that PX4-Autopilot is in your home directory `~`, while `px4_msgs` is in `~/px4_ros_com/src/`, then the command might be: Generally this means that you would update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml), clone the interface package, and then manually synchronize it by copying the new/modified message definitions from [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to its `msg` folders.
 
   ```sh
   rm ~/px4_ros_com/src/px4_msgs/msg/*.msg
   cp ~/PX4-Autopilot/mgs/*.msg ~/px4_ros_com/src/px4_msgs/msg/
   ```
 
-:::note
-Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) completely defines the relationship between PX4 uORB topics and ROS 2 messages. For more information see [DDS Topics YAML](#dds-topics-yaml) below.
+  For more information see [DDS Topics YAML](#dds-topics-yaml) below. :::note  
+Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) completely defines the relationship between PX4 uORB topics and ROS 2 messages.
 :::
 
 ## Customizing the Topic Namespace
@@ -367,7 +370,9 @@ publications:
 
   ...
 
-  - topic: /fmu/out/vehicle_odometry
+  -
+
+  topic: /fmu/out/vehicle_odometry
     type: px4_msgs::msg::VehicleOdometry
 
   - topic: /fmu/out/vehicle_status
@@ -383,7 +388,9 @@ subscriptions:
 
   ...
 
-  - topic: /fmu/in/vehicle_trajectory_waypoint
+  -
+
+  topic: /fmu/in/vehicle_trajectory_waypoint
     type: px4_msgs::msg::VehicleTrajectoryWaypoint
 
 subscriptions_multi:
