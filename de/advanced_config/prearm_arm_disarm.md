@@ -8,7 +8,8 @@ To reduce the chance of accidents, PX4 has explicit state(s) for powering the ve
 - **Pre-armed:** Motors/propellers are locked but actuators for non-dangerous electronics are powered (e.g. ailerons, flaps etc.).
 - **Armed:** Vehicle is fully powered. Motors/propellers may be turning (dangerous!)
 
-While not technically correct for pre-armed vehicles, it is "safe". :::note Ground stations may display _disarmed_ for pre-armed vehicles.
+:::note
+Ground stations may display _disarmed_ for pre-armed vehicles. :::note Ground stations may display _disarmed_ for pre-armed vehicles.
 :::
 
 Users can control progression though these states using a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch) on the vehicle (optional) _and_ an [arming switch/button](#arm_disarm_switch), [arming gesture](#arm_disarm_gestures), or _MAVLink command_ on the ground controller:
@@ -89,7 +90,7 @@ By default vehicles will automatically disarm on landing, or if you take too lon
 
 ## Pre-Arm Checks
 
-To reduce accidents, vehicles are only allowed to arm certain conditions are met. Arming is prevented if: Arming is prevented if:
+To reduce accidents, vehicles are only allowed to arm certain conditions are met. Arming is prevented if: Arming is prevented if: Arming is prevented if:
 
 - The vehicle is not in a "healthy" state. For example it is not calibrated, or is reporting sensor errors.
 - The vehicle has a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch) that has not been engaged.
@@ -146,7 +147,7 @@ The default startup sequence is:
 
 ### COM_PREARM_MODE=Disabled and Safety Switch
 
-When prearm mode is _Disabled_, engaging the safety switch does not unlock the "safe" actuators, though it does allow you to then arm the vehicle. This corresponds to [COM_PREARM_MODE=0](#COM_PREARM_MODE) (Disabled) and [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (I/O safety circuit breaker disabled).
+With no safety switch, when `COM_PREARM_MODE` is set to _Safety_ or _Disabled_ prearm mode cannot be enabled (same as disarmed). This corresponds to [COM_PREARM_MODE=0 or 1](#COM_PREARM_MODE) (Disabled/Safety Switch) and [CBRK_IO_SAFETY=22027](#CBRK_IO_SAFETY) (I/O safety circuit breaker engaged).
 
 The startup sequence is:
 
@@ -178,7 +179,7 @@ The startup sequence is:
 
 ### COM_PREARM_MODE=Safety or Disabled and No Safety Switch
 
-This corresponds to [COM_PREARM_MODE=0 or 1](#COM_PREARM_MODE) (Disabled/Safety Switch) and [CBRK_IO_SAFETY=22027](#CBRK_IO_SAFETY) (I/O safety circuit breaker engaged). With no safety switch, when `COM_PREARM_MODE` is set to _Safety_ or _Disabled_ prearm mode cannot be enabled (same as disarmed).
+When prearm mode is _Disabled_, engaging the safety switch does not unlock the "safe" actuators, though it does allow you to then arm the vehicle. This corresponds to [COM_PREARM_MODE=0](#COM_PREARM_MODE) (Disabled) and [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (I/O safety circuit breaker disabled).
 
 The startup sequence is:
 
