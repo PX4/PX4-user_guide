@@ -4,12 +4,13 @@
 
 Цей розділ розповідає як використовувати [Наявні docker контейнери](#px4_containers), щоб отримати доступ до середовища збірки на локальному Linux комп'ютері.
 
-::: info Dockerfiles and README can be found on [Github here](https://github.com/PX4/containers/blob/master/index.md). Вони автоматично збираються на [Docker Hub](https://hub.docker.com/u/px4io/).
+::: info Файли Docker і README можна знайти на [Github тут](https://github.com/PX4/containers/blob/master/index.md). Вони автоматично збираються на [Docker Hub](https://hub.docker.com/u/px4io/).
 :::
 
 ## Необхідні умови
 
-::: info PX4 containers are currently only supported on Linux (if you don't have Linux you can run the container [inside a virtual machine](#virtual_machine)). Не використовуйте `boot2docker` із образом за замовчуванням, тому що він не містить X-Server.
+::: note
+На цей момент контейнери для PX4 підтримуються лише для Linux (якщо немає Linux ви можете запустити контейнер [всередині віртуальної машини](#virtual_machine)). Не використовуйте `boot2docker` із образом за замовчуванням, тому що він не містить X-Server.
 :::
 
 [Встановіть Docker](https://docs.docker.com/installation/) для Linux, бажано використовувати один з репозиторіїв пакетів, які підтримуються Docker, щоб отримати останню стабільну версію. Ви можете використовувати або _Enterprise Edition_ або (безплатну) _Community Edition_.
@@ -131,11 +132,12 @@ docker run -it --privileged \
 --name=px4-ros px4io/px4-dev-ros2-foxy:2022-07-31 bash
 ```
 
-::: info
-We use the host network mode to avoid conflicts between the UDP port access control when using QGroundControl on the same system as the docker container.
+::: note
+Ми використовуємо режим хост-мережі, щоб уникнути конфліктів між керуванням доступом до порту UDP під час використання QGroundControl у тій же системі, що й контейнер докерів.
 :::
 
-::: info If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value. На комп'ютерах з Linux (XWindow) ви можете змінити параметр `-e DISPLAY=:0` на `-e DISPLAY=$DISPLAY`. На інших системах вам можливо знадобиться послідовно змінити `0` в `-e DISPLAY=:0` допоки помилка "Can't open display: :0" не зникне.
+::: note
+Якщо ви зіткнулися з помилкою «Не вдається відкрити дисплей: :0», можливо, для `DISPLAY` потрібно встановити інше значення. На комп'ютерах з Linux (XWindow) ви можете змінити параметр `-e DISPLAY=:0` на `-e DISPLAY=$DISPLAY`. На інших системах вам можливо знадобиться послідовно змінити `0` в `-e DISPLAY=:0` допоки помилка "Can't open display: :0" не зникне.
 :::
 
 Якщо все пройшло добре, ви повинні бути в новій оболонці bash. Перевірте, чи все працює запустивши, наприклад, SITL:
@@ -184,8 +186,8 @@ docker rm 45eeb98f1dd9
 $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}' mycontainer
 ```
 
-::: info
-Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook).
+::: note
+Пробіли між подвійними фігурними дужками вище не повинні бути присутніми (вони потрібні, щоб уникнути проблеми з відображенням інтерфейсу користувача в gitbook).
 :::
 
 ### Усунення проблем
