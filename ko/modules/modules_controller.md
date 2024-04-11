@@ -44,18 +44,18 @@ control_allocator <command> [arguments...]
 
    status        print status info
 ```
-## differential_drive_control
-Source: [modules/differential_drive_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/differential_drive_control)
+## differential_drive
+Source: [modules/differential_drive](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/differential_drive)
 
 
 ### 설명
 Rover Differential Drive controller.
 
-<a id="differential_drive_control_usage"></a>
+<a id="differential_drive_usage"></a>
 
 ### 사용법
 ```
-differential_drive_control <command> [arguments...]
+differential_drive <command> [arguments...]
  Commands:
    start
 
