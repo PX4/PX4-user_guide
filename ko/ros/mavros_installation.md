@@ -10,8 +10,7 @@ The PX4 development team recommend that all users [upgrade to ROS 2](../ros/ros2
 
 ## 설치
 
-:::note
-First install ROS and PX4 following the instructions in [Development Environment on Linux > ROS/Gazebo Classic](../dev_setup/dev_env_linux_ubuntu.md#ros-gazebo-classic).
+::: info First install ROS and PX4 following the instructions in [Development Environment on Linux > ROS/Gazebo Classic](../dev_setup/dev_env_linux_ubuntu.md#ros-gazebo-classic).
 :::
 
 :::tip
@@ -117,8 +116,8 @@ Now you are ready to do the build:
 
 The [MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md), will show you the basics of MAVROS, from reading telemetry, checking the drone state, changing flight modes and controlling the drone.
 
-:::note
-PX4와 MAVROS를 사용하는 예제 앱이 있으면, 문서에서 다운로드할 수 있도록 도와드릴 수 있습니다.
+::: info
+If you have an example app using the PX4 Autopilot and MAVROS, we can help you get it on our docs.
 :::
 
 ## See Also
