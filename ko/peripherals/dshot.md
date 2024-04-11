@@ -17,7 +17,7 @@ DShot은 PWM 또는 OneShot에 비해 여러 가지 장점을 가진 ESC 대체 
 
 DShot ESC are wired the same way as [PWM ESCs](pwm_escs_and_servo.md). The only difference is that they can only be connected to the FMU, and usually only to some subset of pins.
 
-:::note
+::: info
 You may want to check the actuator configuration screen to see what pins are available for DShot on your controller before wiring up!
 :::
 
