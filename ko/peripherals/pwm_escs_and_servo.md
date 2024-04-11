@@ -39,8 +39,8 @@ On a fixed-wing (or VTOL) ESC, the +5V line usually provides the output of a Bat
 
 - 이것은 Pixhawk 서보 레일에 연결되어 플랩, 에일러론 등의 서보에 전원을 공급에 사용할 수 있습니다.
 
-  :::note
-자동조종장치의 전원공급장치에서 서보 또는 ESC에 전원을 공급하는 것은 안전하지 않습니다.
+  ::: info
+It is unsafe to power servos or ESCs from the autopilot's avionics power supply.
 :::note
 자동조종장치의 전원공급장치에서 서보 또는 ESC에 전원을 공급하는 것은 안전하지 않습니다.
 :::
@@ -103,7 +103,7 @@ PX4 sends an idle/disarmed pulse right after power on to stop ESCs timing out. A
 
 ### 유효한 펄스 모양, 전압 및 업데이트 속도
 
-:::note
+::: info
 This should not be a problem, but is included for completeness
 :::
 
