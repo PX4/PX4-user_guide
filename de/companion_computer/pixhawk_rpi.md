@@ -64,7 +64,7 @@ The instructions for your flight controller will normally explain the recommende
 - [Holybro Pixhawk 6C > Voltage Ratings](../flight_controller/pixhawk6c.md#voltage-ratings)
 - [Holybro Pixhawk 6C Wiring Quick Start > Power](../assembly/quick_start_pixhawk6c.md#power)
 
-Pixhawk controllers can supply power to a _small_ number of low-power peripherals, such as GPS modules and low-range telemetry radios. The RPi companion computer, servos, high power radios, and other peripherals require a separate power supply, which is usually from a battery elimination circuit (BEC) wired to the same or another battery. Some power modules have a separate BEC included.
+Pixhawk controllers can supply power to a _small_ number of low-power peripherals, such as GPS modules and low-range telemetry radios. The RPi companion computer, servos, high power radios, and other peripherals require a separate power supply, which is usually from a battery elimination circuit (BEC) wired to the same or another battery. The RPi companion computer, servos, high power radios, and other peripherals require a separate power supply, which is usually from a battery elimination circuit (BEC) wired to the same or another battery.
 
 :::warning
 Overloading your Pixhawk is a good way to destroy it.
@@ -275,6 +275,9 @@ The steps to setup ROS 2 and the Micro XRCE-DDS Agent on the RPi are:
    mkdir build
    cd build
    cmake ..
+   make
+   sudo make install
+   sudo ldconfig /usr/local/lib/
    make
    sudo make install
    sudo ldconfig /usr/local/lib/
