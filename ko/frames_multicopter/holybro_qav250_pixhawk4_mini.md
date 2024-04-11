@@ -1,7 +1,6 @@
 # Holybro QAV250 + Pixhawk 4 Mini Build (Discontinued)
 
-:::note
-The _Holybro Pixhawk 4 Mini QAV250 Kit_ is no longer available.
+::: info The _Holybro Pixhawk 4 Mini QAV250 Kit_ is no longer available.
 
 The instructions have been left here because very similar kits based on the Pix32 v6 are [available here](https://holybro.com/products/qav250-kit). These instructions can therefore still be followed (and might be updated to Pix32 v6).
 :::
@@ -168,8 +167,7 @@ If you have the "basic" version of the kit, you can now jump ahead to instructio
    - 비디오 송신기 (VTX) 커넥터 연결 ![Video Transmitter Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_video_transmitter_connection.jpg) 전선은 노란색 = 비디오 출력, 검은 색 = 접지, 빨간색 = + 전압입니다.
 1. 테이프를 사용하여 비디오 송신기와 OSD 보드를 프레임에 고정합니다.
 
-:::note
-시스템을 직접 배선해야하는 경우, 아래 다이어그램은 카메라, VTX 및 전원 모듈 간의 연결 방법을 나타냅니다. ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
+::: info If you have to wire the system yourself, the diagram below shows all the connections between camera, VTX and power module: ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
 :::
 
 ## PX4 Configuration
@@ -184,8 +182,7 @@ First update the firmware, airframe, and actuator mappings:
 - [펌웨어](../config/firmware.md)
 - [기체](../config/airframe.md)
 
-:::note
-*HolyBro QAV250* 기체 (**Quadrotor x > HolyBro QAV250**)를 선택하여야 합니다.
+  ::: info You will need to select the *HolyBro QAV250* airframe (**Quadrotor x > HolyBro QAV250**).
 
   ![QGC - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qgc_airframe_holybro_qav250.png)
 :::
