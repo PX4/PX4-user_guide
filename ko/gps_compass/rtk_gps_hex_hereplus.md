@@ -2,8 +2,7 @@
 
 <Badge type="error" text="Discontinued" />
 
-사용 문서는 [PX4v1.11 문서](https://docs.px4.io/v1.11/en/gps_compass/rtk_gps_hex_hereplus.html)를 참고하십시오.
-:::
+::: info This GPS is no longer available for purchase but is still compatible with PX4.
 
 Usage documentation can be found in [PX4v1.11 docs](https://docs.px4.io/v1.11/en/gps_compass/rtk_gps_hex_hereplus.html)
 :::
