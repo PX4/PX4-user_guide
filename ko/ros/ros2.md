@@ -15,14 +15,13 @@ To use the [ROS 2](../ros/ros2_comm.md) over XRCE-DDS effectively, you must (at 
 - [ROS 2 User Guide](../ros/ros2_comm.md): A PX4-centric overview of ROS 2, covering installation, setup, and how to build ROS 2 applications that communicate with PX4.
 - [ROS 2 Offboard Control Example](../ros/ros2_offboard_control.md)
 
-:::note
-ROS 2는 공식적으로 Linux 플랫폼만 지원합니다.
+::: info
+ROS 2 is officially supported only on Linux platforms.
 Ubuntu 20.04 LTS는 공식적으로 지원되는 배포판입니다.
 :::
 
 
-:::note ROS
-2 can also connect with PX4 using [MAVROS](https://github.com/mavlink/mavros/tree/ros2/mavros) (instead of XRCE-DDS). This option is supported by the MAVROS project.
+::: info ROS 2 can also connect with PX4 using [MAVROS](https://github.com/mavlink/mavros/tree/ros2/mavros) (instead of XRCE-DDS). This option is supported by the MAVROS project.
 :::
 
 
