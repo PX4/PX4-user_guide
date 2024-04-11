@@ -18,7 +18,7 @@
 1. 选择**需要上传**按钮将集结点（连同任务和地理围栏）上传到机体。
 
 :::tip
-More complete documentation can be found in the *QGroundControl User Guide*: [Plan View - Rally Points](https://docs.qgroundcontrol.com/master/en/PlanView/PlanRallyPoints.html).
+More complete documentation can be found in the *QGroundControl User Guide*: [Plan View - Rally Points](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_rally_points.html).
 :::
 
 ## 使用安全点
