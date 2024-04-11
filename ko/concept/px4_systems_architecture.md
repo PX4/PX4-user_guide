@@ -25,7 +25,7 @@
 
 The left hand side of the diagram shows the software stack, which is horizontally aligned (approximately) with the hardware parts of the diagram.
 
-- The ground station computer typically runs [QGroundControl](../getting_started/px4_basic_concepts.md#ground-control-stations-qgroundcontrol) (or some other ground station software). 또한 [MAVSDK](https://mavsdk.mavlink.io/) 또는 [ROS](../ros/README.md)와 같은 로봇 소프트웨어를 실행할 수 있습니다.
+- The ground station computer typically runs [QGroundControl](../getting_started/px4_basic_concepts.md#qgc) (or some other ground station software). 또한 [MAVSDK](https://mavsdk.mavlink.io/) 또는 [ROS](../ros/README.md)와 같은 로봇 소프트웨어를 실행할 수 있습니다.
 - 비행 컨트롤러에서 실행되는 PX4 비행 스택에는 [드라이버](../modules/modules_driver.md), [통신 모듈](../modules/modules_communication.md), [컨트롤러](../modules/modules_controller.md), [추정기](../modules/modules_controller.md) [및 기타 미들웨어 및 시스템 모듈 등이 포함됩니다](../modules/modules_main.md).
 
 ## 비행 콘트롤러와 보조 컴퓨터

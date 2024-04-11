@@ -1,10 +1,10 @@
 # ESCs & Motors
 
-Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC). The ESC takes a signal from the flight controller and uses it to set control the level of power delivered to the motor.
+Багато дронів PX4 використовують безшовні двигуни, які керуються контролером польотів через електронний контролер швидкості (ESC). ESC бере сигнал від контролера польоту і використовує його для встановлення рівня потужності, яка постачається до двигуна.
 
-PX4 supports a number of common protocols for sending the signals to ESCs: [PWM ESCs](../peripherals/pwm_escs_and_servo.md), [OneShot ESCs](../peripherals/oneshot.md), [DShot ESCs](../peripherals/dshot.md), [DroneCAN ESCs](../dronecan/escs.md), PCA9685 ESC (via I2C), and some UART ESCs (from Yuneec).
+PX4 підтримує кілька поширених протоколів для відправлення сигналів на ESC: [PWM ESCs](../peripherals/pwm_escs_and_servo.md), [OneShot ESCs](../peripherals/oneshot.md), [DShot ESCs](../peripherals/dshot.md), [DroneCAN ESCs](../dronecan/escs.md), ESC PCA9685 (через I2C) та деякі ESC з UART (від Yuneec).
 
-For more information see:
+Для додаткової інформації дивіться:
 
 - [PWM ESCs and Servos](../peripherals/pwm_escs_and_servo.md)
 - [OneShot ESCs and Servos](../peripherals/oneshot.md)
@@ -13,55 +13,55 @@ For more information see:
 - [ESC Calibration](../advanced_config/esc_calibration.md)
 - [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
 
-A high level overview of the main ESC/Servo protocols supported by PX4 is given below.
+Огляд високого рівня основних протоколів ESC/Servo, які підтримуються PX4, наведено нижче.
 
-## ESC Protocols
+## Протоколи ESC
 
 ### PWM
 
-[PWM ESCs](../peripherals/pwm_escs_and_servo.md) are commonly used for fixed-wing vehicles and ground vehicles (vehicles that require a lower latency like multicopters typically use oneshot or dshot ESCs).
+[PWM ESCs](../peripherals/pwm_escs_and_servo.md) є загально використовуваними для повітряних та наземних транспортних засобів (транспортні засоби, які потребують меншої затримки, наприклад, багатоциклові, зазвичай використовують oneshot або dshot ESCs).
 
-PWM ESCs communicate using a periodic pulse, where the _width_ of the pulse indicates the desired power level. The pulse wdith typically ranges between 1000uS for zero power and 2000uS for full power. The periodic frame rate of the signal depends on the capability of the ESC, and commonly ranges between 50Hz and 490 Hz (the theoretical maximum being 500Hz for a very small "off" cycle). A higher rate is better for ESCs, in particular where a rapid response to setpoint changes is needed. For PWM servos 50Hz is usually sufficient, and many don't support higher rates.
+PWM ESCs спілкуються за допомогою періодичного імпульсу, де _ширина_ імпульсу вказує на бажаний рівень потужності. Ширина імпульсу зазвичай коливається між 1000 мкс для нульової потужності та 2000 мкс для повної потужності. Періодична частота кадру сигналу залежить від можливості ESC і зазвичай коливається від 50 Гц до 490 Гц (теоретичний максимум становить 500 Гц для дуже малого циклу "вимкнено"). Вища швидкість є кращою для ЕСК, особливо коли потрібна швидка реакція на зміни встановленої точки. Для серводвигунів з ШІМ зазвичай достатньо 50 Гц, і багато з них не підтримують вищі частоти.
 
 ![duty cycle for PWM](../../assets/peripherals/esc_pwm_duty_cycle.png)
 
-In addition to being a relatively slow protocol PWM ESCs require [calibration](../advanced_config/esc_calibration.md) because the range values representing low and high values can vary significantly. Unlike [dshot](#dshot) and [DroneCAN ESC](#dronecan) they do not have the ability to provide telemetry and feedback on ESC (or servo) state.
+Крім того, для відносно повільного протоколу PWM ESCs потрібно [калібрування](../advanced_config/esc_calibration.md), оскільки значення діапазону, що представляють низькі та високі значення, можуть значно відрізнятися. На відміну від [dshot](#dshot) та [DroneCAN ESC](#dronecan) вони не мають можливості надавати телеметрію та зворотний зв'язок щодо стану ESC (або сервопривода).
 
-Setup:
+Установка:
 
-- [ESC Wiring](../peripherals/pwm_escs_and_servo.md)
-- [PX4 Configuration](../peripherals/pwm_escs_and_servo.md#px4-configuration)
-- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [Схема підключення ESC](../peripherals/pwm_escs_and_servo.md)
+- [Конфігурація PX4](../peripherals/pwm_escs_and_servo.md#px4-configuration)
+- [Калібрування ESC](../advanced_config/esc_calibration.md)
 
 ### Oneshot 125
 
-[OneShot 125 ESCs](../peripherals/oneshot.md) are usually much faster than PWM ESCs, and hence more responsive and easier to tune. They are preferred over PWM for multicopters (but not as much as [DShot ESCs](#dshot), which do not require calibration, and may provide telemetry feedback). There are a number of variants of the OneShot protocol, which support different rates. PX4 only supports OneShot 125.
+[OneShot 125 ESCs](../peripherals/oneshot.md) зазвичай набагато швидше, ніж PWM ESCs, тому вони більш реактивні та легше настроюються. Вони віддають перевагу перед PWM для багатороторних (але не настільки, як [DShot ESCs](#dshot), які не потребують калібрування, і можуть надавати зворотний зв'язок з телеметрії). Існує кілька варіантів протоколу OneShot, які підтримують різні швидкості. PX4 підтримує лише OneShot 125.
 
-OneShot 125 is the same as PWM but uses pulse widths that are 8 times shorter (from 125us to 250us for zero to full power). This allows OneShot 125 ESCs to have a much shorter duty cycle/higher rate. For PWM the theoretical maximum is close to 500 Hz while for OneShot it approaches 4 kHz. The actual supported rate depends on the ESC used.
+OneShot 125 - це те саме, що і PWM, але використовує ширину імпульсів, яка в 8 разів коротша (від 125 мкс до 250 мкс для нуля до повної потужності). Це дозволяє ESC OneShot 125 мати набагато коротший цикл роботи / вищу швидкість. Для PWM теоретичний максимум становить близько 500 Гц, тоді як для OneShot він наближається до 4 кГц. Фактична підтримувана швидкість залежить від використаного ESC.
 
-Setup:
+Установка:
 
 - [ESC Wiring](../peripherals/pwm_escs_and_servo.md) (same as for PWM ESCs)
-- [PX4 Configuration](../peripherals/oneshot.md#px4-configuration)
+- [Конфігурація PX4](../peripherals/oneshot.md#px4-configuration)
 - [ESC Calibration](../advanced_config/esc_calibration.md)
 
 ### DShot
 
-[DShot](../peripherals/dshot.md) is a digital ESC protocol that is highly recommended for vehicles that can benefit from reduce latency, in particular racing multicopters, VTOL vehicles, and so on.
+[DShot](../peripherals/dshot.md) є цифровим протоколом ESC, який настійно рекомендується для транспортних засобів, які можуть скористатися зменшенням затримки, особливо для гоночних багтрекерів, вертикально-взлітно-посадкових апаратів та інших.
 
-It has reduced latency and is more robust than both [PWM](#pwm) and [OneShot](#oneshot-125). In addition it does not require ESC calibration, telemetry is available from some ESCs, and you can revers motor spin directions
+Він має зменшену затримку і є більш надійним, ніж як [PWM](#pwm), так і [OneShot](#oneshot-125). Крім того, для його роботи не потрібна калібрування ESC, телеметрія доступна з деяких ESCs, і ви можете змінити напрямок обертання двигуна
 
-PX4 configuration is done in the [Actuator Configuration](../config/actuators.md). Selecting a higher rate DShot ESC in the UI result in lower latency, but lower rates are more robust (and hence more suitable for large aircraft with longer leads); some ESCs only support lower rates (see datasheets for information).
+Конфігурація PX4 виконується в [Конфігурації приводів](../config/actuators.md). Вибір ESC DShot з вищою швидкістю в інтерфейсі призводить до зниження затримки, але нижчі швидкості є більш надійними (і, отже, більш підходять для великих літаків з довшими проводами); деякі ESC підтримують лише нижчі швидкості (див. технічні характеристики для отримання інформації).
 
-Setup:
+Установка:
 
 - [ESC Wiring](../peripherals/pwm_escs_and_servo.md) (same as for PWM ESCs)
-- [DShot](../peripherals/dshot.md) also contains information about how to send commands etc.
+- [DShot](../peripherals/dshot.md) також містить інформацію про те, як відправляти команди тощо.
 
 ### DroneCAN
 
-[DroneCAN ESCs](../dronecan/escs.md) are recommended when DroneCAN is the primary bus used for your vehicle. The PX4 implementation is currently limited to update rates of 200Hz.
+[Регулятори швидкості DroneCAN](../dronecan/escs.md) рекомендовано, коли DroneCAN є основною шиною, використованою для вашого транспортного засобу. Реалізація PX4 наразі обмежена частотами оновлення 200 Гц.
 
-DroneCAN shares many similar benefits to [Dshot](#dshot) including high data rates, robust connection over long leads, telemetry feedback, no need for calibration of the ESC itself.
+DroneCAN має багато схожих переваг з [Dshot](#dshot), включаючи високі швидкості передачі даних, надійне з'єднання по довгих лініях, зворотний зв'язок телеметрії, не потребує калібрування самого ESC.
 
-[DroneCAN ESCs](../dronecan/escs.md) are connected via the DroneCAN bus (setup and configuration are covered at that link).
+[Мотори DroneCAN](../dronecan/escs.md) підключені через шину DroneCAN (налаштування та конфігурація описані за цим посиланням).

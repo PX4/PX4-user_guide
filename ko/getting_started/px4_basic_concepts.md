@@ -6,52 +6,101 @@ This topic provides a basic introduction to drones and using PX4 (it is meant mo
 
 ## 드론의 정의
 
-드론은 원격이나 자동으로 조종할 수 있는 무인 로봇입니다.
+A drone, or Unmanned Vehicles (UV), is an unmanned "robotic" vehicle that can be manually or autonomously controlled. They can travel in air, on the ground, on/under the water, and are used for many [consumer, industrial, government and military applications](https://px4.io/ecosystem/commercial-systems/), including aerial photography/video, carrying cargo, racing, search and surveying, and so on.
 
-Drones are used for many [consumer, industrial, government and military applications](https://px4.io/ecosystem/commercial-systems/), including aerial photography/video, carrying cargo, racing, search and surveying, and so on.
+Drones are more formally referred to as Unmanned Aerial Vehicles (UAV), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
 
-Different types of drones are used for air, ground, sea, and underwater. 드론을 가르키는 공식 용어에는 UAV(Unmanned Aerial Vehicles), UAS(Unmanned Aerial Systems, UGV(Unmanned Ground Vehicles), USV(Unmanned Surface Vehicles)와 UUV(Unmanned Underwater Vehicles) 등이 있습니다.
+::: info
+The term Unmanned Aerial System (UAS) typically refers to a UAV and all of the other components of a complete system, including a ground control station and/or radio controller, and any other systems used to control the drone, capture, and process data.
+:::
 
-자율비행장치(오토파일럿)는 드론의 두뇌에 해당하는 장치입니다. It minimally consists of _flight stack_ software running on a real time OS ("RTOS") on _flight controller_ (FC) hardware. The flight stack provides essential stabilisation and safety features, and usually also some level of pilot assistance for manual flight and automating common tasks, such as taking off, landing, and executing predefined missions.
+
+## Drone Types
+
+There are many different vehicle frames (types), and within the types there are many variations. Some of the types, along with the use cases for which they are most suited are listed below.
+
+- [Multicopters](../frames_multicopter/index.md) — Multi-rotors offer precision hovering and vertical takeoff, at the cost of shorter and generally slower flight. They are the most popular type of flying vehicle, in part because they are easy to assemble, and PX4 has modes that make them easy to fly and very suitable as a camera platform.
+- [Helicopters](../frames_helicopter/index.md) — Helicopters similar benefits to Multicopters but are mechanically more complex and more efficient. They are also much harder to fly.
+- [Planes (Fixed-wing)](../frames_plane/index.md) — Fixed-wing vehicles offer longer and faster flight than multicopters, and hence better coverage for ground surveys etc. However they are harder to fly and land than multicopters, and aren't suitable if you need to hover or fly very slowly (e.g. when surveying vertical structures).
+- [VTOL](../frames_vtol/index.md) (Vertical Takeoff and Landing) - Hybrid Fixed-wing/Multicopter vehicles offer the best of both worlds: take off in vertical mode and hover like a multicopter but transition to forward flight like an airplane to cover more ground. VTOL are often more expensive than either multicopters and fixed-wing aircraft, and harder to build and tune. They come in a number of types: tiltrotors, tailsitters, quadplanes etc.
+- [Airships](../frames_airship/index.md)/[Balloons](../frames_balloon/index.md) — Lighter-than-air vehicles that typically offer high altitude long duration flight, often at the cost of having limited (or no) control over speed and direction of flight.
+- [Rovers](../frames_rover/index.md) — Car-like ground vehicles. They are simple to control and often fun to use. They can't travel as fast as most aircraft, but can carry heavier payloads, and don't use much power when still.
+- **Boats** — Water-surface vehicles.
+- [Submersibles](../frames_sub/index.md) — Underwater vehicles.
+
+
+더 자세한 정보는 다음을 참고하십시오.
+
+- [Vehicle Types & Setup](../airframes/index.md)
+- [Airframe setup](../config/airframe.md)
+- [Airframe Reference](../airframes/airframe_reference.md).
+
+## Autopilots
+
+자율비행장치(오토파일럿)는 드론의 두뇌에 해당하는 장치입니다.
+
+It minimally consists of _flight stack_ software running on a real time OS ("RTOS") on _flight controller_ (FC) hardware. The flight stack provides essential stabilisation and safety features, and usually also some level of pilot assistance for manual flight and automating common tasks, such as taking off, landing, and executing predefined missions.
 
 Some autopilots also include a general-purpose computing system that can provide "higher level" command and control, and that can support more advanced networking, computer vision, and other features. This might be implemented as a separate [companion computer](#offboard-companion-computer), but in future it is increasingly likely to be a fully integrated component.
 
+
 ## PX4 자동비행장치
 
-[PX4](https://px4.io/) is powerful open source autopilot _flight stack_.
+[PX4](https://px4.io/) is powerful open source autopilot _flight stack_ running on the NuttX RTOS.
 
 PX4의 주요 특징들은 아래와 같습니다.
 
-- Supports many different vehicle frames/types, including: aircraft (multicopters, fixed-wing aircraft and VTOLs), ground vehicles, and underwater vehicles.
-- Great choice of hardware for [flight controller](#flight-controller), [sensors](#sensors), and other peripherals.
+- Supports many different vehicle frames/types, including: [multicopters](../frames_multicopter/index.md), [fixed-wing aircraft](../frames_plane/index.md) (planes), [VTOLs](../frames_vtol/index.md) (hybrid multicopter/fixed-wing), [ground vehicles](../frames_rover/index.md), and [underwater vehicles](../frames_sub/index.md).
+- Great choice of drone components for [flight controller](#flight-controller), [sensors](#sensors), [payloads](#payloads), and other peripherals.
 - 유연하고 강력한 [비행 모드](#flight-modes)와 [안전 기능](#safety-settings-failsafe)을 지원합니다.
 - Robust and deep integration with [companion computers](#offboard-companion-computer) and [robotics APIs](../robotics/index.md) such as [ROS 2](../ros/ros2_comm.md) and [MAVSDK](http://mavsdk.mavlink.io)).
 
-PX4 is a core part of a broader drone platform that includes the [QGroundControl](#ground-control-stations-qgroundcontrol) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4는 [드론코드 프로젝트](https://www.dronecode.org/)의 지원을 받고 있습니다.
+PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgc) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4는 [드론코드 프로젝트](https://www.dronecode.org/)의 지원을 받고 있습니다.
 
-## Ground Control Stations (QGroundControl)
+## Ground Control Stations
 
-드론코드에서 지원하는 지상제어 S/W는 [QGroundControl](http://qgroundcontrol.com/)입니다. You can use _QGroundControl_ to load (flash) PX4 firmware onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information, and create and execute fully autonomous missions.
+Ground Control Stations (GCS) are ground based systems that allow UV operators to monitor and control a drone and its payloads. A subset of the products that are known to work with PX4 are listed below.
 
-_QGroundControl_ runs on Windows, Android, MacOS or Linux. [여기](http://qgroundcontrol.com/downloads/)에서 필요한 프로그램을 다운로드하여 설치할 수 있습니다.
+### QGroundControl {#qgc}
 
-![QGC 메인 화면](../../assets/concepts/qgc_main_screen.jpg)
+The Dronecode GCS software is called [QGroundControl](http://qgroundcontrol.com/) ("QGC"). It runs on Windows, Android, MacOS or Linux hardware, and supports a wide range of screen form factors. You can download it (for free) from [here](http://qgroundcontrol.com/downloads/).
+
+![QGC 메인 화면](../../assets/concepts/qgc_fly_view.png)
+
+QGroundControl communicates with the drone using a telmetry radio (a bidirectional data link), which allows you to get real-time flight and safety information, and to control the vehicle, camera, and other payloads using a point-and-click interface. On hardware that supports them, you can also manually fly the vehicle using joystick controllers. QGC can also be used to visually plan, execute, and monitor autonomous missions, set geofences, and much more.
+
+QGroundControl desktop versions are also used to install (flash) PX4 firmware and configure PX4 on the drone's autopilot/flight controller hardware.
+
+### Auterion Mission Control (AMC) {#amc}
+
+[Auterion Mission Control](https://auterion.com/product/mission-control/) is a powerful and fully featured ground control station application that is optimized for _pilots_ rather than vehicle configuration. While designed to work with Auterion products, it can be used with "vanilla" PX4.
+
+For more information see:
+
+- [AMC docs](https://docs.auterion.com/vehicle-operation/auterion-mission-control)
+- [AMC on Google Play](https://play.google.com/store/apps/details?id=com.auterion.auteriongs)
 
 ## Drone Components & Parts
 
 ### Flight Controller
 
+Flight controllers (FC) are the hardware onto which the PX4 flight stack firmware is loaded and run. They are connected to sensors from which PX4 determines its state, and to the actuators/motors that it uses to stabilise and move the vehicle.
+
 <img src="../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x.jpg" width="230px" title="CUAV Pixhawk 6X"  />
 
-PX4는 초기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)에서만 실행되도록 설계되었으나, 지금은 리눅스 뿐만 아니라 다양한 하드웨어에서도 실행됩니다. 기체의 물리적 조건, 운용 목적 및 비용을 고려하여 최적의 보드를 선택할 수 있습니다.
+PX4 can run on many different types of [Flight Controller Hardware](../flight_controller/index.md), ranging from [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers to Linux computers. These include [Pixhawk Standard](../flight_controller/autopilot_pixhawk_standard.md) and [manufacturer-supported](../flight_controller/autopilot_manufacturer_supported.md) boards. You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and cost.
 
-자세한 내용은 [비행 컨트롤러 선택](flight_controller_selection.md)편을 참고하십시오.
+For more information see: [Flight Controller Selection](flight_controller_selection.md)
 
 ### 센서
 
-PX4는 기체의 상태 측정하기 위하여 센서를 사용합니다. 이는 자율비행 기체 안정화에 필수 과정입니다. The system _minimally requires_ a gyroscope, accelerometer, magnetometer (compass) and barometer. [자동 모드](../getting_started/flight_modes.md#categories)와  기타 모드를 사용하기 위해서는 GPS와 같은 위치측정시스템이 필요합니다. Fixed-wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
+PX4 uses sensors to determine vehicle state, which it needs in order to stablise the vehicle and enable autonomous control. The vehicle states include: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different axes, battery level, and so on.
 
-For more information see: [Sensors](../getting_started/sensor_selection.md)
+PX4 _minimally requires_ a [gyroscope](../sensor/gyroscope.md), [accelerometer](../sensor/accelerometer.md), [magnetometer](../gps_compass/magnetometer.md) (compass) and [barometer](../sensor/barometer.md). A [GNSS/GPS](../gps_compass/index.md) or other source of global position is needed to enable all automatic modes, and some manual/assisted modes. Fixed-wing and VTOL-vehicles should additionally include an [airspeed sensor](../sensor/airspeed.md) (highly recommended).
+
+The minimal set of sensors is incorporated into [Pixhawk Series](../flight_controller/pixhawk_series.md) flight controllers (and may also be in other controller platforms). Additional/external sensors can be attached to the controller.
+
+For more information see: [Sensor Hardware & Setup](../sensor/index.md)
 
 ### 출력 장치: 모터, 서보, 액츄에이터
 
@@ -84,7 +133,6 @@ PX4가 지원하는 전기변속기와 모터 정보는 여기를 참고하십�
 - [전기변속기와 모터](../peripherals/esc_motors.md)
 - [전기변속기 보정](../advanced_config/esc_calibration.md)
 - [전기변속기 펌웨어와 프로토콜 개요](https://oscarliang.com/esc-firmware-protocols/)(oscarliang.com)
-
 
 ### 배터리와 전원
 
@@ -148,16 +196,13 @@ SD 카드는 선택 사항입니다. SD 카드가 없는 비행 콘트롤어는 
 - 비행 임무를 RAM/플래시에 저장합니다.
   <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/main/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
-
-### Payloads
+## Payloads
 
 Payloads are equipment carried by the vehicle to meet user or mission objectives, such as cameras in surveying missions, instruments used in for inspections such as radiation detectors, and cargo that needs to be delivered. PX4 supports many cameras and a wide range of payloads.
 
 Payloads are connected to [Fight Controller outputs](#outputs-motors-servos-actuators), and can be triggered automatically in missions, or manually from an RC Controller or Joystick, or from a Ground Station (via MAVLink/MAVSDK commands).
 
-더 자세한 정보는 다음을 참고하십시오.
-
-- [Payloads & Cameras](../payloads/index.md)
+For more information see: [Payloads & Cameras](../payloads/index.md)
 
 ## 시동 및 해제
 

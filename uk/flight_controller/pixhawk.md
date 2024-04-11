@@ -1,58 +1,58 @@
-# 3DR Pixhawk 1 Flight Controller (Discontinued)
+# 3DR Pixhawk 1 Flight Controller (знято з виробництва)
 
 :::warning
-This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available. You can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
+Цей політний контролер був [знятий з виробництва](../flight_controller/autopilot_experimental.md) і більше не продається комерційно. Ви можете використовувати [mRo Pixhawk](../flight_controller/mro_pixhawk.md) як заміну.
 :::
 
 :::warning
-PX4 does not manufacture this (or any) autopilot.
-Contact the manufacturer for support or compliance issues.
+PX4 не виробляє цей (або будь-який) автопілот.
+Звертайтесь до виробника з питань щодо підтримки або відповідності.
 :::
 
-The _3DR Pixhawk<sup>&reg;</sup> 1_ autopilot is a popular general purpose flight controller based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design (it combines the functionality of the PX4FMU + PX4IO). It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
+Автопілот _3DR Pixhawk<sup>&reg;</sup> 1_ є популярним універсальним політним контролером на основі відкритого апаратного дизайну [Pixhawk-project](https://pixhawk.org/) **FMUv2** (він поєднує функціональність PX4FMU + PX4IO). Він виконує PX4 на ОС [NuttX](https://nuttx.apache.org/).
 
 ![Pixhawk Image](../../assets/hardware/hardware-pixhawk.png)
 
-Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)
+Інструкції зі збирання/налаштування для використання з PX4 наведено тут: [Швидкий старт з підключення Pixhawk](../assembly/quick_start_pixhawk.md)
 
-## Key Features
+## Основні характеристики
 
-- Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
-  - CPU: 180 MHz ARM<sup>&reg;</sup> Cortex<sup>&reg;</sup> M4 with single-precision FPU
+- Основна System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
+  - CPU: 180 MHz ARM<sup>&reg;</sup> Cortex<sup>&reg;</sup> M4 з одинарною точністю FPU
   - RAM: 256 KB SRAM (L1)
 - Failsafe System-on-Chip: STM32F100
   - CPU: 24 MHz ARM Cortex M3
   - RAM: 8 KB SRAM
-- Wifi: ESP8266 external
+- Wifi: ESP8266 зовнішній
 - GPS: u-blox<sup>&reg;</sup> 7/8 (Hobbyking<sup>&reg;</sup>) / u-blox 6 (3D Robotics)
-- Optical flow: [PX4 Flow unit](../sensor/px4flow.md)
-- Redundant power supply inputs and automatic failover
-- External safety switch
-- Multicolor LED main visual indicator
-- High-power, multi-tone piezo audio indicator
-- microSD card for high-rate logging over extended periods of time
+- Оптичний потік: [PX4 Flow unit](../sensor/px4flow.md)
+- Резервні входи живлення та автоматичне перемикання на резервне джерело
+- Зовнішній запобіжний вимикач
+- Головний візуальний індикатор - мультиколірний світлодіод
+- Потужний мультитональний п'єзозвуковий індикатор
+- microSD карта для високошвидкісного логування даних протягом тривалого періоду
 
-Connectivity
+Підключення
 
 - 1x I2C
-- 1x CAN (2x optional)
+- 1x CAN (2x опційно)
 - 1x ADC
-- 4x UART (2x with flow control)
-- 1x Console
-- 8x PWM with manual override
-- 6x PWM / GPIO / PWM input
-- S.BUS / PPM / Spektrum input
-- S.BUS output
+- 4x UART (2x з контролем потоку)
+- 1x Консоль
+- 8x PWM з ручним перевизначенням
+- 6x PWM / GPIO / PWM вхід
+- S.BUS / PPM / Spektrum вхід
+- S.BUS вивід
 
-# Where to Buy
+# Де придбати
 
-Originally manufactured by 3DR&reg; this board was the original standard microcontroller platform for PX4&reg;. While the board is no longer manufactured by 3DR, you can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
+Ця плата, що оригінально вироблялася компанією 3DR&reg;, була стандартною платформою мікроконтролера для PX4&reg;. Так, як плата більше не виробляється 3DR, ви можете використовувати [mRo Pixhawk](../flight_controller/mro_pixhawk.md) як заміну.
 
-Order mRo Pixhawk from:
+Замовте mRo Pixhawk з:
 
-- [Bare Bones](https://store.mrobotics.io/Genuine-PixHawk-1-Barebones-p/mro-pixhawk1-bb-mr.htm) - Just the board (useful as a 3DR Pixhawk replacement)
-- [mRo Pixhawk 2.4.6 Essential Kit](https://store.mrobotics.io/Genuine-PixHawk-Flight-Controller-p/mro-pixhawk1-minkit-mr.htm) - includes everything except for telemetry radios
-- [mRo Pixhawk 2.4.6 Cool Kit! (Limited edition)](https://store.mrobotics.io/product-p/mro-pixhawk1-fullkit-mr.htm) - includes everything you need including telemetry radios
+- [Bare Bones](https://store.mrobotics.io/Genuine-PixHawk-1-Barebones-p/mro-pixhawk1-bb-mr.htm) - просто плата (корисна як заміна 3DR Pixhawk)
+- [mRo Pixhawk 2.4.6 Essential Kit](https://store.mrobotics.io/Genuine-PixHawk-Flight-Controller-p/mro-pixhawk1-minkit-mr.htm) - включає все, крім телеметрії радіо
+- [mRo Pixhawk 2.4.6 Cool Kit! (Limited edition)](https://store.mrobotics.io/product-p/mro-pixhawk1-fullkit-mr.htm) - включає все необхідне, включаючи телеметрію радіо
 
 ## Specifications
 

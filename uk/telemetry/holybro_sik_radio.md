@@ -1,20 +1,20 @@
-# Holybro Telemetry Radio
+# HolyBro Телеметричне радіо
 
-This Holybro [SiK](../telemetry/sik_radio.md) Telemetry Radio is a small, light and inexpensive open source "plug-and-play" radio platform to connect your Autopilot Flight Controller and Ground Station.
+Цей Holybro [SiK](../telemetry/sik_radio.md) Телеметрійний радіо зв'язок є невеликим, легким і недорогим відкритим джерелом платформа "plug-and-play" для підключення вашого автопілотного контролера польоту та земної станції.
 
-This radio is "plug-and-play" with all flight controllers running PX4 that have a JST-GH 6 Pin Connector TELEM port ([Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards)). It provides the easiest way to setup a telemetry connection between your flight controller and a ground station. It uses open source firmware that has been specially designed to work well with MAVLink packets and to be integrated with the QGroundControl & PX4 Autopilot.
+Це радіо - "plug-and-play" з усіма контролерами, що працюють у PX4 і мають JST-GH 6 Pin Connector TELEM порт ([Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards)). Це надає найлегший спосіб налаштування телеметрійного з'єднання між вашим контролером польоту та наземною станцією. Він використовує open source прошивку, яка була спеціально розроблена для успішної роботи з пакетами MAVLink та інтеграції з QGroundControl & PX4 Autopilot.
 
-They typically allow ranges of better than 300m "out of the box" (the range can be extended to several kilometers with the use of a patch antenna on the ground).
+Вони, як правило, дозволяють межі краще, ніж 300 "поза коробкою" (діапазон можна поширити на кілька кілометрів із використанням патч-антени на землі).
 
-The radios can be either 915 MHz (US) or 433 MHz (EU, Asia, Africa Oceania). Note that the regions indicated above are indicative, and you should check the rules for your locale.
+Радіоприймач може бути 915 МГц (США), або 433 МГц з кроком (ЄС, Азія, Африка Океанія). Зверніть увагу, що регіони, зазначені вище, є орієнтовними, і вам слід перевірити правила для вашої країни.
 
 <img src="../../assets/hardware/telemetry/holybro_sik_radio_v3.png" width="600px" title="Sik Telemetry Radio" />
 
-## Where to Buy
+## Де купити
 
-- [Holybro SiK Telemetry Radio V3](https://holybro.com/collections/telemetry-radios/products/sik-telemetry-radio-v3)
+- [HolyBro (Sik) Телеметричне радіо V3](https://holybro.com/collections/telemetry-radios/products/sik-telemetry-radio-v3)
 
-## Features
+## Особливості
 
 - Open-source SiK firmware
 - Plug-n-play for Pixhawk Standard Flight Controller
@@ -23,7 +23,7 @@ The radios can be either 915 MHz (US) or 433 MHz (EU, Asia, Africa Oceania). Not
 - Micro-USB port (Type-C Adapter Cable Included)
 - 6-position JST-GH connector
 
-## Specification
+## Специфікація
 
 - 100 mW maximum output power (adjustable) -117 dBm receive sensitivity
 - RP-SMA connector
@@ -35,7 +35,7 @@ The radios can be either 915 MHz (US) or 433 MHz (EU, Asia, Africa Oceania). Not
 - Configurable through Mission Planner & APM Planner
 - FT230X USB to BASIC UART IC
 
-## LEDs Indicators Status
+## Стан індикатора світлодіодів
 
 The radios have 2 status LEDs, one red and one green. The interpretation of the different LED states are:
 
@@ -56,10 +56,10 @@ Connecting the radio to your Windows PC or Ground Station is as simple as connec
 
 The necessary drivers should be installed automatically and the radio will appear as a new “USB Serial Port” in the Windows Device Manager under Ports (COM & LPT). The Mission Planner's COM Port selection drop-down should also contain the same new COM port.
 
-## Package Includes
+## Пакет включає
 
-- Radio modules with antennas \*2
-- Micro-USB to USB-A cable \*1
+- Радіомодулі з антенами \*2
+- Мікро-USB для USB-кабелю \*1
 - Micro-USB to Micro-USB OTG adapter cable \*1
 - Micro USB to Type C Adapter
 - JST-GH-6P to JST-GH-6P cable \*1 (for Pixhawk Standard FC)

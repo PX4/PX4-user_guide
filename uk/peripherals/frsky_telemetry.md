@@ -1,52 +1,52 @@
-# FrSky Telemetry
+# Телеметрія FrSky
 
-FrSky telemetry allows you to access vehicle [telemetry/status](#messages) information on a compatible RC transmitter.
+Телеметрія FrSky дозволяє отримувати доступ до інформації про телеметрію/статус транспортного засобу на сумісному радіокерувальнику RC через [телеметрія/статус](#messages).
 
-Available [telemetry is listed here](#messages), and includes: flight mode, battery level, RC signal strength, speed, altitude etc. Some transmitters can additionally provide audible and vibration feedback, which is particularly useful for low battery and other failsafe warnings.
+Доступна [телеметрія перерахована тут](#messages), і включає: режим польоту, рівень заряду батареї, сила сигналу RC, швидкість, висота тощо. Деякі передавачі можуть додатково надавати аудіо- та вібраційний зворотний зв'язок, що особливо корисно для попереджень про низький рівень заряду акумулятора та інших аварійних сигналів.
 
-PX4 supports both [S.Port](#s_port) (new) and D (old) FrSky telemetry ports.
+PX4 підтримує як [S.Port](#s_port) (новий), так і D (старий) порти телеметрії FrSky.
 
-## Hardware Setup
+## Налаштування програмного забезпечення
 
-FrSky telemetry requires:
+FrSky телеметрія вимагає:
 
 - An [FrSky-compatible RC transmitter](#transmitters) like the FrSky Taranis X9D Plus.
 - An [FrSky telemetry-capable receiver](#receivers) like the XSR and X8R.
 - A cable to connect the FrSky receiver Smart Port (SPort) to a flight controller UART.
 
-First [connect the receiver for RC channels](../getting_started/rc_transmitter_receiver.md#connecting-receivers), e.g. connect the S.Bus ports on the receiver and the flight controller.
+Спочатку [підключіть отримувач для RC каналів](../getting_started/rc_transmitter_receiver.md#connecting-receivers), наприклад, підключити порти S.Bus при ресивері і контролері польоту.
 
-Then set up FrSky telemetry by separately connecting the SPort on the receiver to any free UART on the flight controller, and then [configure PX4 to run FrSky telemetry on that UART](#configure).
+Потім налаштуйте телеметрію FrSky, підключивши SPort на приймач до будь-якого вільного UART на контролері польоту, а потім [налаштуйте PX4 для роботи з телеметрією FrSky на цьому UART](#configure).
 
-This is done slightly differently, depending on whether the SPort receiver has a pin for an uninverted output, and/or the Pixhawk version.
+Це робиться трохи по-іншому, залежно від того, чи є у приймача SPort контакт для невертованого виходу, і/або версія Pixhawk.
 
-### Pixhawk FMUv4 (and prior)
+### Pixhawk FMUv4 (і попередні)
 
-For Pixhawk FMUv4 and earlier, UART ports and receiver telemetry ports are typically incompatible (with the exception of [Pixracer](../flight_controller/pixracer.md)).
+Для Pixhawk FMUv4 та раніше, порти UART та порти телеметрії приймача зазвичай несумісні (з винятком [Pixracer](../flight_controller/pixracer.md)).
 
-Generally SPort receivers have an _inverted_ S.Port signal and you have to use a converter cable to split the S.Port into uninverted TX and RX for connecting to the Pixhawk UART. An example is shown below.
+Зазвичай приймачі SPort мають _інвертований_ сигнал S.Port, і вам потрібно використовувати кабель-конвертер, щоб розділити S.Port на невинвертовані TX і RX для підключення до UART Pixhawk. Приклад показано нижче.
 
 ![FrSky-Taranis-Telemetry](../../assets/hardware/telemetry/frsky_telemetry_overview.jpg)
 
 :::tip
-When connecting to an inverted S.Port it is usually cheaper and easier to buy a [ready made cable](#ready_made_cable) that contains this adapter and has the appropriate connectors for the autopilot and receiver. Creating a [DIY cable](#diy_cables) requires electronics assembly expertise.
+При підключенні до оберненого порту S зазвичай дешевше і простіше купити [готовий кабель](#ready_made_cable), який містить цей адаптер і має відповідні роз'єми для автопілота та приймача. Створення [DIY кабелю](#diy_cables) вимагає експертизи в зборці електроніки.
 :::
 
-If using an S.Port receiver with a pin for _uninverted output_ you can simply attach one of the UART's TX pins.
+Якщо використовується приймач S.Port з контактом для _невертикального виводу_, ви можете просто підключити один з TX-контактів UART.
 
 <!-- FYI only: The uninverted output can be used in single-wire mode so you don't need both RX and TX wires.
 Discussion of that here: https://github.com/PX4/PX4-user_guide/pull/755#pullrequestreview-464046128 -->
 
 Then [configure PX4](#configure).
 
-### Pixhawk FMUv5/STM32F7 and later
+### Pixhawk FMUv5/STM32F7 та пізніше
 
-For Pixhawk FMUv5 and later PX4 can read either inverted (or uninverted) S.Port signals directly - no special cable is required.
+Для Pixhawk FMUv5 та пізніших версій PX4 може читати сигнали S.Port безпосередньо у зворотньому (або незворотньому) вигляді - не потрібен жоден спеціальний кабель.
 
-::: info More generally this is true on autopilots with STM32F7 or later (e.g. [Durandal](../flight_controller/durandal.md) has a STM32H7 and can read inverted or uninverted S.Port signals directly).
+::: info Загалом це вірно для автопілотів з STM32F7 або пізніше (наприклад, [Durandal](../flight_controller/durandal.md) має STM32H7 і може читати інвертовані або неінвертовані сигнали S.Port безпосередньо).
 :::
 
-Simply attach one of the UART's TX pins to the SPort inverted or uninverted pin (PX4 will auto-detect and handle either type). Then [configure PX4](#configure).
+Просто підключіть один з TX-пінів UART до інвертованого або неінвертованого піна SPort (PX4 автоматично виявить і обробить будь-який тип). Потім [налаштуйте PX4](#configure).
 
 <a id="configure"></a>
 

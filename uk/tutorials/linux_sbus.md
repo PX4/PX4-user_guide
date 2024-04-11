@@ -4,7 +4,7 @@
 
 Для типів RC, крім S.Bus, ви можете просто під'єднати приймач безпосередньо до серійних портів або до USB через USB до TTY серійного кабелю (наприклад, PL2302 USB в Serial TTL)
 
-::: info For an S.Bus receiver (or encoder - e.g. from Futaba, RadioLink, etc.) you will usually need to connect the receiver and device via a [signal inverter circuit](#signal_inverter_circuit), but otherwise the setup is the same.
+::: info Для отримувача S.Bus (або кодера - наприклад, від Futaba, RadioLink тощо) вам зазвичай потрібно підключити приймач та пристрій через [схему інвертування сигналу](#signal_inverter_circuit), але в іншому випадку налаштування залишається таким же.
 :::
 
 Тоді [Запустіть PX4 RC драйвер](#start_driver) на пристрої, як показано нижче.
@@ -42,7 +42,7 @@ S.Bus - це _інвертований_ сигнал комунікації UART
 - 1x 1K резистор
 
 ::: info
-Any type/model of transistor can be used because the current drain is very low.
+Можна використовувати будь-який тип/модель транзистора, оскільки струм споживання дуже низький.
 :::
 
 ### Схема Діаграми/Підключення

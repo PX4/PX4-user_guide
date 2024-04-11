@@ -22160,7 +22160,7 @@ table {
 </ul>  <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 3] </td>
- <td>1</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -22174,7 +22174,7 @@ table {
  <td><strong id="SENS_AFBR_THRESH">SENS_AFBR_THRESH</strong> (INT32)</td>
  <td>AFBR Rangefinder Short/Long Range Threshold <p><strong>Comment:</strong> This parameter defines the threshold for switching between short and long range mode. The mode will switch from short to long range when the distance is greater than the threshold plus the hysteresis. The mode will switch from long to short range when the distance is less than the threshold minus the hysteresis.</p>   </td>
  <td>[1, 50] </td>
- <td>5</td>
+ <td>4</td>
  <td>m</td>
 </tr>
 <tr>
