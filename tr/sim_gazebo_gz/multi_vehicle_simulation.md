@@ -2,7 +2,7 @@
 
 This topic explains how to simulate multiple UAV vehicles using [Gazebo (Gz)](../sim_gazebo_gz/index.md) and SITL.
 
-:::note
+::: info
 Multi-Vehicle Simulation with Gazebo is only supported on Linux.
 :::
 
