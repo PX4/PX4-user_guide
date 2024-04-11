@@ -1,51 +1,52 @@
 # LightWare SF1X/SF02/LW20 Lidar
 
-LightWare develops a range of light-weight, general purpose, laser altimeters ("Lidar") suitable for mounting on UAVs. These are useful for applications including terrain following, precision hovering (e.g. for photography), warning of regulatory height limits, anti-collision sensing etc.
+LightWare develops a range of light-weight, general purpose, laser altimeters ("Lidar") suitable for mounting on UAVs. Ці інструменти корисні для застосувань, включаючи слідування за рельєфом, точне зависання у повітрі (наприклад, для фотографії), попередження про регуляторні висотні обмеження, антиколізійний датчик тощо.
 
 ![LightWare SF11/C Lidar](../../assets/hardware/sensors/lidar_lightware/sf11c_120_m.jpg)
 
-## Supported Models
+## Підтримувані плати
 
-The following models are supported by PX4, and can be connected to either the I2C or Serial bus (the tables below indicates what bus can be used for each model).
+Наступні моделі підтримуються PX4 та можуть бути підключені до шини I2C або Serial (таблиці нижче показують, яку шину можна використовувати для кожної моделі).
 
-### Available
+### Доступні
 
-| Model                                                      | Range (m) | Bus               | Description                                                     |
-| ---------------------------------------------------------- | --------- | ----------------- | --------------------------------------------------------------- |
-| [SF11/C](https://lightwarelidar.com/products/sf11-c-100-m) | 100       | Serial or I2C bus |                                                                 |
-| [LW20/C](https://lightware.co.za/products/lw20-c-100-m)    | 100       | I2C bus           | Waterproofed (IP67) with servo for sense-and-avoid applications |
+| Model                                                      | Range (m) | Шина                 | Опис                                                                                   |
+| ---------------------------------------------------------- | --------- | -------------------- | -------------------------------------------------------------------------------------- |
+| [SF11/C](https://lightwarelidar.com/products/sf11-c-100-m) | 100       | Серійна або I2C шина |                                                                                        |
+| [LW20/C](https://lightware.co.za/products/lw20-c-100-m)    | 100       | Шина I2C             | Водонепроникний (IP67) з сервоприводом для додатків з детекцією та уникненням перешкод |
 
-### Discontinued
+### Знято з виробництва
 
-The following models are no longer available from the manufacturer.
+Наступні моделі більше не доступні від виробника.
 
-| Model                                                                                              | Range | Bus                                                                             |
-| -------------------------------------------------------------------------------------------------- | ----- | ------------------------------------------------------------------------------- |
-| [SF02](http://documents.lightware.co.za/SF02%20-%20Laser%20Rangefinder%20Manual%20-%20Rev%208.pdf) | 50    | Serial                                                                          |
-| [SF10/A](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 25    | Serial or I2C                                                                   |
-| [SF10/B](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 50    | Serial or I2C                                                                   |
-| SF10/C                                                                                             | 100m  | Serial or I2C                                                                   |
-| LW20/B                                                                                             | 50    | I2C bus       | Waterproofed (IP67) with servo for sense-and-avoid applications |
+| Model                                                                                              | Range | Bus                                                                                                     |
+| -------------------------------------------------------------------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------- |
+| [SF02](http://documents.lightware.co.za/SF02%20-%20Laser%20Rangefinder%20Manual%20-%20Rev%208.pdf) | 50    | Serial                                                                                                  |
+| [SF10/A](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 25    | Serial or I2C                                                                                           |
+| [SF10/B](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 50    | Serial or I2C                                                                                           |
+| SF10/C                                                                                             | 100m  | Serial or I2C                                                                                           |
+| LW20/B                                                                                             | 50    | I2C шина       | Водонепроникний (IP67) з сервоприводом для додатків з детекцією та уникненням перешкод |
 
-## I2C Setup
+## Налаштування I2C
 
-Check the tables above to confirm that which models can be connected to the I2C port.
+Перевірте таблиці вище, щоб підтвердити, які моделі можна підключити до порту I2C.
 
-### Lidar Configuration
+### Конфігурація Lidar
 
-This hardware does not ship with Pixhawk I2C compatibility enabled by default. To enable support, you have to download [LightWare Studio](https://lightwarelidar.com/pages/lightware-studio) and got to **Parameters > Communication** and tick mark **I2C compatibility mode (Pixhawk)**
+Цей апаратне забезпечення не поставляється з підтримкою сумісності з Pixhawk I2C за замовчуванням. Щоб увімкнути підтримку, вам потрібно завантажити [LightWare Studio](https://lightwarelidar.com/pages/lightware-studio) та перейти до **Параметри > Зв'язок** та встановити позначку **Режим сумісності I2C (Pixhawk)**
 
 ![LightWare SF11/C Lidar-I2C Config](../../assets/hardware/sensors/lidar_lightware/lightware_studio_i2c_config.jpg)
 
 <a id="i2c_hardware_setup"></a>
 
-### Hardware
+### Апаратне забезпечення
 
-Connect the Lidar the autopilot I2C port as shown below (in this case, for the [Pixhawk 1](../flight_controller/mro_pixhawk.md)).
+Підключіть Лідар до порту автопілота I2C, як показано нижче (у цьому випадку для [Pixhawk 1](../flight_controller/mro_pixhawk.md)).
 
 ![SF1XX LIDAR to I2C connection](../../assets/hardware/sensors/lidar_lightware/sf1xx_i2c.jpg)
 
-::: info Some older revisions cannot be used with PX4. Specifically they may be miss-configured to have an I2C address equal to `0x55`, which conflicts with `rgbled` module. On Linux systems you may be able to determine the address using [i2cdetect](https://linux.die.net/man/8/i2cdetect). If the I2C address is equal to `0x66` the sensor can be used with PX4.
+:::note
+Деякі старі версії не можуть бути використані з PX4. Specifically they may be miss-configured to have an I2C address equal to `0x55`, which conflicts with `rgbled` module. On Linux systems you may be able to determine the address using [i2cdetect](https://linux.die.net/man/8/i2cdetect). If the I2C address is equal to `0x66` the sensor can be used with PX4.
 :::
 
 <a id="i2c_parameter_setup"></a>
