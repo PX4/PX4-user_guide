@@ -23,7 +23,7 @@ The Lidar-Lite (v2, v3) pinout is shown below.
 
 ## Wiring
 
-The _Lidar-Lite v3_ can be used with either PWM or I2C. PWM is recommended if using an older model. The rangefinder must be separately powered via some ESC/BEC (whether connected via PWM or I2C).
+The _Lidar-Lite v3_ can be used with either PWM or I2C. PWM is recommended if using an older model. PWM is recommended if using an older model. The rangefinder must be separately powered via some ESC/BEC (whether connected via PWM or I2C).
 
 :::note
 The I2C interface of non-blue-label Lidar-Lite (v1) devices has stability limitations and all silver-label generations of Lidar-Lite sensors are therefore excluded from the I2C interface.
