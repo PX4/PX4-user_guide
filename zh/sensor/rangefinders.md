@@ -90,8 +90,7 @@ The common rangefinder configuration is specified using [EKF2_RNG\_\*](../advanc
 
 The _QGroundControl MAVLink Inspector_ lets you view messages sent from the vehicle, including `DISTANCE_SENSOR` information from the rangefinder. The main difference between the tools is that the _Analyze_ tool can plot values in a graph.
 
-:::note
-发送的消息取决于车辆配置。 `DISTANCE_SENSOR`只有在联网车辆安装了测距仪并发布传感器值时，您才会收到消息。
+::: info The messages that are sent depend on the vehicle configuration. `DISTANCE_SENSOR`只有在联网车辆安装了测距仪并发布传感器值时，您才会收到消息。
 :::
 
 查看测距仪输出：
@@ -110,8 +109,7 @@ You can also use the _QGroundControl MAVLink Console_ to observe the `distance_s
 listener distance_sensor 5
 ```
 
-:::note
-The _QGroundControl MAVLink Console_ works when connected to Pixhawk or other NuttX targets, but not the Simulator. 在模拟器上可以直接在终端中运行命令。
+::: info The _QGroundControl MAVLink Console_ works when connected to Pixhawk or other NuttX targets, but not the Simulator. 在模拟器上可以直接在终端中运行命令。
 :::
 
 For more information see: [Development > Debugging/Logging > Sensor/Topic Debugging using the Listener Command](../debug/sensor_uorb_topic_debugging.md).
