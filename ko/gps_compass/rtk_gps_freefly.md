@@ -7,8 +7,8 @@
 - 최대 4 개의 GNSS(GPS, Galileo, GLONASS, BeiDou) 동시 수신
 - 내장형 자력계(IST8310), 기압계(BMP388), RGB LED, 안전 스위치 및 안전 LED
 
-:::note
-이 모듈은 PX4 v1.9 이상에서 사용할 수 있습니다 (u-blox ZED-F9P에 대한 지원은 PX4 v1.9에서 추가됨).
+::: info
+This module can be used with PX4 v1.9 or above (support for the u-blox ZED-F9P was added in PX4 v1.9).
 :::
 
 ![FreeFly GPS 모듈](../../assets/hardware/gps/freefly_gps_module.jpg)
