@@ -35,8 +35,8 @@ Lumenier QAV-R 5 "FPV Racing Quadcopter는 탈착식 암이 있는 견고하고 
 * Video 안테나: [TBS Triumph 5.8GHz CP](http://www.getfpv.com/fpv/antennas/tbs-triumph-5-8ghz-cp-fpv-antenna-3275.html) (SMA port fits ImmercionRC Tx)
 * FPV 전압 소스 플러그: [Male JST Battery Pigtail](http://www.getfpv.com/male-jst-battery-pigtail-10cm-10pcs-bag.html)
 
-:::note
-이 부분은 표준 FPV 5.8GHz 아날로그 FM 비디오 송신을 담당합니다. 라이브 비디오 스트림을 사용하려면 호환 수신기 및 디스플레이가 필요합니다.
+::: info
+These parts cover the sending side for standard FPV 5.8GHz analog FM video. 라이브 비디오 스트림을 사용하려면 호환 수신기 및 디스플레이가 필요합니다.
 :::
 
 ## 기본 프레임 조립
