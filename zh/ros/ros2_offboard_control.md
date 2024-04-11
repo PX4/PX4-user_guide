@@ -10,8 +10,7 @@
 *Offboard* 控制模式是危险的。 如果你是在一个真正的无人机平台上进行试验，请保证你已经设置了切换回手动的开关来防止紧急情况的发生。
 :::
 
-:::note ROS
-和 PX4 有一些不同的定义，特别是在 [坐标系定义](../ros/external_position_estimation.md#reference-frames-and-ros) 中。 当主题发布或订阅时，坐标系类型之间没有隐含转换！
+::: info ROS and PX4 make a number of different assumptions, in particular with respect to [frame conventions](../ros/external_position_estimation.md#reference-frames-and-ros). 当主题发布或订阅时，坐标系类型之间没有隐含转换！
 
 这个例子按照PX4的定义在NED坐标系下发布位置。 订阅来自在不同坐标系发布的节点数据(例如ENU, ROS/ROS 2中的标准坐标系)，使用 [frame_transforms](https://github.com/PX4/px4_ros_com/blob/main/src/lib/frame_transforms.cpp) 库中的辅助函数来进行转换。
 :::
@@ -86,7 +85,7 @@
 
 Offboard控制示例的源代码见 [PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) 目录的 [/src/examples/offboard/offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp) 。
 
-:::note PX4 默认情况下将此示例中使用的所有消息作为ROS主题发布(见 [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml))。
+::: info PX4 publishes all the messages used in this example as ROS topics by default (see [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)).
 :::
 
 PX4 在offboard模式下解锁或者在飞行过程中切换至offboard模式都需要飞行器已经收到 `OffboardControlMode` 消息。 此外，如果 `OffboardControlMode` 消息的频率低于2Hz，PX4 将会切换出offboard模式。 该行为在ROS 2 节点的主循环中实现的，如下所示：
@@ -135,6 +134,8 @@ void OffboardControl::publish_offboard_control_mode()
     msg.acceleration = false;
     msg.attitude = false;
     msg.body_rate = false;
+    msg.thrust_and_torque = false;
+    msg.direct_actuator = false;
     msg.timestamp = this->get_clock()->now().nanoseconds() / 1000;
     offboard_control_mode_publisher_->publish(msg);
 }
@@ -183,8 +184,7 @@ void OffboardControl::publish_vehicle_command(uint16_t command, float param1, fl
 }
 ```
 
-:::note
-[VehicleCommand](../msg_docs/VehicleCommand.md) 是可用来指令PX4的最简单和最强大的方式之一。 可以通过订阅 [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) 消息来确认特定命令是否成功。 参数和命令字段与 [MAVLink 命令](https://mavlink.io/en/messages/common.html#mav_commands) 及其参数值一致。
+::: info [VehicleCommand](../msg_docs/VehicleCommand.md) is one of the simplest and most powerful ways to command PX4, and by subscribing to [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) you can also confirm that setting a particular command was successful. 参数和命令字段与 [MAVLink 命令](https://mavlink.io/en/messages/common.html#mav_commands) 及其参数值一致。
 :::
 
 
