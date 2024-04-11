@@ -6,7 +6,7 @@ Most GNSS modules also contain a [compass/magnetometer](../gps_compass/magnetome
 
 ![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
-:::note PX4 also supports [Real Time Kinematic (RTK)](../gps_compass/rtk_gps.md) and **Post-Processing Kinematic (PPK)** GNSS Receivers, which extend GNSS systems to centimetre-level precision.
+::: info PX4 also supports [Real Time Kinematic (RTK)](../gps_compass/rtk_gps.md) and **Post-Processing Kinematic (PPK)** GNSS Receivers, which extend GNSS systems to centimetre-level precision.
 :::
 
 ## Supported GNSS
@@ -75,8 +75,7 @@ The GPS protocol expected by PX4 defaults to u-blox (by default other GPS types 
 
 GPS configuration on Pixhawk is handled transparently for the user - simply connect the GPS module to the port labeled **GPS** and everything should work.
 
-:::note
-The default [Serial Port Configuration](../peripherals/serial_configuration.md#default_port_mapping) works for most devices. If you are using the _Trimble MB-Two_ you will need to modify the configuration to explicitly set the rate to 115200 baud.
+::: info The default [Serial Port Configuration](../peripherals/serial_configuration.md#default_port_mapping) works for most devices. If you are using the _Trimble MB-Two_ you will need to modify the configuration to explicitly set the rate to 115200 baud.
 :::
 
 <a id="dual_gps"></a>
