@@ -39,8 +39,7 @@ C++에서의 사용 방법은 [자습서](../modules/hello_sky.md)를 참고하�
 
 ## 토픽 나열 및 듣기
 
-:::note
-`listener` 명령은 Pixracer(FMUv4)와 Linux/OS X에서만 사용할 수 있습니다.
+::: info The `listener` command is only available on Pixracer (FMUv4) and Linux / OS X.
 :::
 
 모든 토픽을 나열하려면, 파일 핸들을 나열하십시오.
