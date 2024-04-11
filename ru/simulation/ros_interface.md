@@ -6,20 +6,17 @@ The ROS/Gazebo Classic integration with PX4 follows the pattern in the diagram b
 
 ![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.png)
 
-:::note
-The only _slight_ difference to "normal behaviour" is that ROS initiates the connection on port 14557, while it is more typical for an offboard API to listen for connections on UDP port 14540.
+::: info The only _slight_ difference to "normal behaviour" is that ROS initiates the connection on port 14557, while it is more typical for an offboard API to listen for connections on UDP port 14540.
 :::
 
 ## Installing ROS and Gazebo Classic
 
-:::note
-_ROS_ is only supported on Linux (not macOS or Windows).
+::: info _ROS_ is only supported on Linux (not macOS or Windows).
 :::
 
 The easiest way to setup PX4 simulation with ROS on Ubuntu Linux is to use the standard installation script that can be found at [Development Environment on Linux > Gazebo with ROS](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo). The script installs everything you need: PX4, ROS "Melodic", the Gazebo Classic 9 simulator, and [MAVROS](../ros/mavros_installation.md).
 
-:::note
-The script follows the [standard ROS "Melodic" installation instructions](http://wiki.ros.org/melodic/Installation/Ubuntu), which includes Gazebo 9.
+::: info The script follows the [standard ROS "Melodic" installation instructions](http://wiki.ros.org/melodic/Installation/Ubuntu), which includes Gazebo 9.
 :::
 
 ## Launching ROS/Simulation
@@ -36,8 +33,7 @@ To connect to localhost, use this URL:
 roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
 
-:::note
-It can be useful to call _roslaunch_ with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. For example:
+::: info It can be useful to call _roslaunch_ with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. For example:
 
 ```sh
 roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
