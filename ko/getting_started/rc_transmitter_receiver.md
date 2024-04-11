@@ -4,7 +4,7 @@ A Radio Control (RC) system can be used to *manually* control your vehicle from 
 
 :::tip PX4 can also be manually controlled using a [Joystick](../config/joystick.md) or gamepad-like controller:  this is different to an RC system! The [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) parameter [can be set](../advanced_config/parameters.md) to choose whether RC (default), Joystick, both, or neither, are enabled. :::
 
-:::note
+::: info
 PX4 does not require a remote control system for autonomous flight modes.
 :::
 
@@ -18,8 +18,7 @@ The ground based RC controller contains a radio module that is bound to, and com
 
 <!-- image showing the different parts here would be nice -->
 
-:::note
-지상 및 차량 기반 무선 모듈을 각각 송신기 및 수신기라고 하며 (양방향 통신을 지원하더라도) 총칭하여 *송수신기*라고합니다. The RC controller and it's included radio module are commonly referred to as a "transmitter". :::
+::: info The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*. The RC controller and it's included radio module are commonly referred to as a "transmitter". :::
 
 무선 조종기의 중요한 품질중의 하나는 지원 채널수 입니다. 채널 수는 차량에 명령을 전송시에 사용 가능한 리모콘의 물리적 컨트롤 수를 정의합니다 (예 : 실제로 사용할 수있는 스위치, 다이얼, 콘트롤 스틱 갯수).
 
@@ -39,8 +38,7 @@ UAV용 가장 인기있는 무선 종종기 *유형은*은 아래와 같습니�
 
 ![모델1 - 모델2](../../assets/concepts/mode1_mode2.png)
 
-:::note
-이 무선 조종기는 [FrSky](../peripherals/frsky_telemetry.md) 무선 모듈과 함께 사용하여 차량의 원격 정보를 표시 할 수 있습니다. :::
+::: info The choice of mode is largely one of taste (*Mode 2* is more popular). :::
 
 ## 지상 차량용 무선 조종기
 
@@ -60,8 +58,7 @@ UAV용 가장 인기있는 무선 종종기 *유형은*은 아래와 같습니�
 
 인기있는 무선 조종기중 하나는 * FrSky Taranis X9D *입니다. 권장되는 *FrSky X4R-SB*(S-BUS, 낮은 지연) 또는 *X4R* (PPM-Sum, 레거시) 수신기와 함께 사용할 수있는 내부 송신기들이 있습니다. 그리고, 맞춤형 라디오 송신기 모듈 슬롯과 맞춤형 오픈 소스 OpenTX 펌웨어가 있습니다.
 
-:::note
-This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) or [TBS Crossfire](../telemetry/crsf_telemetry.md) radio modules. :::
+::: info This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) or [TBS Crossfire](../telemetry/crsf_telemetry.md) radio modules. :::
 
 기타 인기 있는 송수신기 조합
 
