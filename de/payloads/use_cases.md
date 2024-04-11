@@ -33,7 +33,7 @@ For setup and usage information see:
 - [Gripper](../peripherals/gripper.md)
 - [Flying > Package Delivery Mission Planning](../flying/package_delivery_mission.md)
 
-:::note
+::: info
 Support for winches and other release mechanisms is also intended.
 
 If you need to perform cargo delivery using hardware that is not yet integrated, you can use [Generic Actuator Control](../payloads/generic_actuator_control.md).
@@ -48,7 +48,7 @@ Use a camera that supports the [MAVLink Camera Protocol](https://mavlink.io/en/s
 These cameras can be controlled either manually from QGroundControl or via MAVSDK (for both [standalone camera operations](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html) and in [missions](https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4)).
 See [Camera triggering](../peripherals/camera.md) for information on how to configure your camera to work with MAVLink.
 
-:::note
+:::info
 Cameras connected directly to the flight controller _only_ support camera triggering, and are unlikely to be suitable for most surveillance/search work.
 :::
 
