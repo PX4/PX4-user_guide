@@ -12,6 +12,7 @@ Source: [modules/fw_autotune_attitude_control](https://github.com/PX4/PX4-Autopi
 ### Usage
 ```
 fw_autotune_attitude_control <command> [arguments...]
+ fw_autotune_attitude_control <command> [arguments...]
  Commands:
    start
      [vtol]      VTOL mode
@@ -32,6 +33,7 @@ Source: [modules/mc_autotune_attitude_control](https://github.com/PX4/PX4-Autopi
 ### Usage
 ```
 mc_autotune_attitude_control <command> [arguments...]
+ mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
 
