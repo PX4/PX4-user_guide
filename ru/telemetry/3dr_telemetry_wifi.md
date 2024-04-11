@@ -1,6 +1,6 @@
 # 3DR WiFi Telemetry (Discontinued)
 
-:::note
+::: info
 This product is no longer manufactured or available from 3DR.
 :::
 
