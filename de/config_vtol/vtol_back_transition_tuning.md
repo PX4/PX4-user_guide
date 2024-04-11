@@ -10,4 +10,4 @@ When flying missions that make use of a [VTOL_LAND](https://mavlink.io/en/messag
 
 ## Back-transition duration
 
-Setting a high back-transition time ([VT_B_TRANS_DUR](../advanced_config/parameter_reference.md#VT_B_TRANS_DUR)) will give the vehicle more time to slow down. The caveat of this behavior is that the vehicle will only control altitude and not position during this period, so some drift can occur. During this period the VTOL will shut down its fixed-wing motor and slowly ramp up its MC motors while gliding. The higher this time is set the longer the vehicle will glide in an attempt to slow down.
+Setting a high back-transition time ([VT_B_TRANS_DUR](../advanced_config/parameter_reference.md#VT_B_TRANS_DUR)) will give the vehicle more time to slow down. The higher this time is set the longer the vehicle will glide in an attempt to slow down. The caveat of this behavior is that the vehicle will only control altitude and not position during this period, so some drift can occur. During this period the VTOL will shut down its fixed-wing motor and slowly ramp up its MC motors while gliding.
