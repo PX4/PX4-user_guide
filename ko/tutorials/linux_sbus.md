@@ -4,8 +4,7 @@
 
 S.Bus 이외의 RC 유형의 경우 수신기는 직렬 포트에 직접 연결하거나 USB-TTY 직렬 케이블(예: PL2302 USB-직렬 TTL 변환기)을 통하여 USB에 연결할 수 있습니다.
 
-:::note
-For an S.Bus receiver (or encoder - e.g. from Futaba, RadioLink, etc.) you will usually need to connect the receiver and device via a [signal inverter circuit](#signal_inverter_circuit), but otherwise the setup is the same.
+::: info For an S.Bus receiver (or encoder - e.g. from Futaba, RadioLink, etc.) you will usually need to connect the receiver and device via a [signal inverter circuit](#signal_inverter_circuit), but otherwise the setup is the same.
 :::
 
 그런 다음, 아래와 같이 기기에서 [PX4 RC 드라이버를 시작](#start_driver)합니다.
@@ -42,8 +41,8 @@ S.Bus is an _inverted_ UART communication signal.
 - 1x 10K 저항
 - 1x 1K 저항
 
-:::note
-전류 드레인이 매우 낮으므로, 모든 유형/모델의 트랜지스터를 사용할 수 있습니다.
+::: info
+Any type/model of transistor can be used because the current drain is very low.
 :::
 
 ### 회로 구성도/연결
