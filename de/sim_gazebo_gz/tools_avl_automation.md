@@ -84,7 +84,7 @@ A good starting point for this can be found here: https://www.redalyc.org/pdf/67
 One can also more accurately model a vehicle by using a larger number of sections.
 In the current .yml file, only a left and right edge are defined for each surface yielding exactly one section, but the code supports expanding this to any number of desired sections.
 
-:::note
+::: info
 
 - A control surface in AVL is always defined from left to right.
   This means you need to first provide the left edge of a surface and then the right edge.
@@ -105,7 +105,6 @@ In the current .yml file, only a left and right edge are defined for each surfac
 Below is a comprehensive list on how the parameters are assigned at output and what files in AVL they are taken from.
 The Advanced Lift Drag Plugin contains more detail about what each of these parameters do.
 
-:::note
 The parameters have not been verified by an expert, so you should check them in the plugin.
 :::
 
