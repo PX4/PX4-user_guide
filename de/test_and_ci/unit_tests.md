@@ -64,6 +64,10 @@ The steps to create new SITL unit tests are as follows:
    #include "[new feature].h"
    ...
 
+   #include <unit_test.h>
+   #include "[new feature].h"
+   ...
+
    class [Description]Test : public UnitTest
    {
    public:
@@ -87,7 +91,23 @@ The steps to create new SITL unit tests are as follows:
    bool [Description]Test::test1()
    {
        ut_[name of one of the unit test functions](...
+   };
+
+   bool [Description]Test::run_tests()
+   {
+       ut_run_test(test1)
+       ut_run_test(test2)
+       ...
+
+       return (_tests_failed == 0);
+   }
+
+   bool [Description]Test::test1()
+   {
        ut_[name of one of the unit test functions](...
+       ut_[name of one of the unit test functions](...
+       ...
+
        ...
 
        return true;
@@ -98,6 +118,12 @@ The steps to create new SITL unit tests are as follows:
        ut_[name of one of the unit test functions](...
        ut_[name of one of the unit test functions](...
        ...
+
+       return true;
+   }
+   ...
+
+   ...
 
        return true;
    }
@@ -122,6 +148,7 @@ The steps to create new SITL unit tests are as follows:
        {...
        {"[description]", test_[description], OPTION},
        ...
+   }
    }
    ```
 
