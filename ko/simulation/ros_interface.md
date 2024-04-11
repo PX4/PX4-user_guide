@@ -6,19 +6,16 @@ The ROS/Gazebo Classic integration with PX4 follows the pattern in the diagram b
 
 ![PX4 SITL 개요](../../assets/simulation/px4_sitl_overview.png)
 
-:::note
-The only _slight_ difference to "normal behaviour" is that ROS initiates the connection on port 14557, while it is more typical for an offboard API to listen for connections on UDP port 14540. 스크립트는 필요한 모든 구성 항목, PX4, ROS "키네틱", 가제보 7 모의 시험 환경, [MAVROS](../ros/mavros_installation.md)를 설치합니다.
+::: info The only _slight_ difference to "normal behaviour" is that ROS initiates the connection on port 14557, while it is more typical for an offboard API to listen for connections on UDP port 14540. 스크립트는 필요한 모든 구성 항목, PX4, ROS "키네틱", 가제보 7 모의 시험 환경, [MAVROS](../ros/mavros_installation.md)를 설치합니다.
 
 ## Installing ROS and Gazebo Classic
 
-:::note
-_ROS_ is only supported on Linux (not macOS or Windows).
+::: info _ROS_ is only supported on Linux (not macOS or Windows).
 :::
 
 Ubuntu Linux에서 ROS로 PX4 시뮬레이션을 설정하는 가장 쉬운 방법은 [Linux의 개발 환경 > ROS Gazebo](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo)의 표준 설치 스크립트를 사용하는 것입니다. The script installs everything you need: PX4, ROS "Melodic", the Gazebo Classic 9 simulator, and [MAVROS](../ros/mavros_installation.md).
 
-:::note
-스크립트는 Gazebo 9가 포함된 [표준 ROS "Melodic" 설치 지침](http://wiki.ros.org/melodic/Installation/Ubuntu)을 따릅니다. 이 기능을 지원하려면, 가제보를 적당한 ROS 래퍼와 함께 실행해야합니다.
+::: info The script follows the [standard ROS "Melodic" installation instructions](http://wiki.ros.org/melodic/Installation/Ubuntu), which includes Gazebo 9. 이 기능을 지원하려면, 가제보를 적당한 ROS 래퍼와 함께 실행해야합니다.
 
 ## ROS 시뮬레이션 실행
 
@@ -34,8 +31,7 @@ localhost에 연결하려면 다음 URL을 사용하십시오.
 roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
 
-:::note
-It can be useful to call _roslaunch_ with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. 예:
+::: info It can be useful to call _roslaunch_ with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. 예:
 
 ```sh
 roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
