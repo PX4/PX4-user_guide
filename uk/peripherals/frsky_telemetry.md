@@ -10,9 +10,9 @@ PX4 підтримує як [S.Port](#s_port) (новий), так і D (ста�
 
 FrSky телеметрія вимагає:
 
-- An [FrSky-compatible RC transmitter](#transmitters) like the FrSky Taranis X9D Plus.
-- An [FrSky telemetry-capable receiver](#receivers) like the XSR and X8R.
-- A cable to connect the FrSky receiver Smart Port (SPort) to a flight controller UART.
+- [FrSky-сумісний з RC трансмітером](#transmitters) , подібний до FrSky Taranis X9D Plus.
+- Приймач, сумісний з телеметрією FrSky, такий як XSR та X8R.
+- Кабель для підключення приймача FrSky Smart Port (SPort) до UART контролера польоту.
 
 Спочатку [підключіть отримувач для RC каналів](../getting_started/rc_transmitter_receiver.md#connecting-receivers), наприклад, підключити порти S.Bus при ресивері і контролері польоту.
 
@@ -37,7 +37,7 @@ FrSky телеметрія вимагає:
 <!-- FYI only: The uninverted output can be used in single-wire mode so you don't need both RX and TX wires.
 Discussion of that here: https://github.com/PX4/PX4-user_guide/pull/755#pullrequestreview-464046128 -->
 
-Then [configure PX4](#configure).
+Потім [налаштуйте PX4](#configure).
 
 ### Pixhawk FMUv5/STM32F7 та пізніше
 
@@ -50,7 +50,7 @@ Then [configure PX4](#configure).
 
 <a id="configure"></a>
 
-## PX4 Configuration
+## Налаштування PX4
 
 [Налаштуйте послідовний порт](../peripherals/serial_configuration.md) на якому буде працювати FrSky, використовуючи [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG). Немає потреби встановлювати швидкість передачі для порту, оскільки це налаштовано драйвером.
 
@@ -84,18 +84,18 @@ drivers/telemetry/frsky_telemetry
 
 Вищезазначені передавачі можуть відображати телеметричні дані без будь-якої додаткової конфігурації. Наступний розділ(и) пояснюють, як ви можете налаштувати відображення телеметрії (наприклад, для створення кращого інтерфейсу користувача).
 
-### Taranis - LuaPilot Setup
+### Taranis - Налаштування LuaPilot
 
 Сумісні приймачі Taranis (наприклад, X9D Plus), які працюють на OpenTX 2.1.6 або новіше, можуть використовувати сценарій LuaPilot для зміни відображеної телеметрії (як показано на знімку екрану нижче).
 
 ![Telemetry Screen on the Taranis](../../assets/hardware/telemetry/taranis_telemetry.jpg)
 
-Instructions for installing the script can be found here: [LuaPilot Taranis Telemetry script > Taranis Setup OpenTX 2.1.6 or newer](http://ilihack.github.io/LuaPilot_Taranis_Telemetry/)
+Інструкції з встановлення скрипту можна знайти тут: [LuaPilot Taranis Telemetry script > Taranis Setup OpenTX 2.1.6 або новіше](http://ilihack.github.io/LuaPilot_Taranis_Telemetry/)
 
-If you open the `LuaPil.lua` script with a text editor, you can edit the configuration. Suggested modifications include:
+Якщо ви відкриєте скрипт `LuaPil.lua` за допомогою текстового редактора, ви можете редагувати конфігурацію. Запропоновані модифікації включають:
 
-- `local BattLevelmAh = -1` - Use the battery level calculation from the vehicle
-- `local SayFlightMode = 0` - There are no WAV files for the PX4 flight modes
+- `local BattLevelmAh = -1` - Використовуйте обчислення рівня заряду батареї з транспортного засобу
+- `local SayFlightMode = 0` - Немає WAV-файлів для режимів польоту PX4
 
 <a id="messages"></a>
 
