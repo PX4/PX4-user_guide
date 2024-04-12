@@ -12,21 +12,21 @@
 
 ## Pixhawk Series
 
-[Pixhawk Series](../flight_controller/pixhawk_series.md) open-hardware flight controllers run PX4 on NuttX OS. With many form factors, there are versions targeted towards many use cases and market segments.
+[Pixhawk Series](../flight_controller/pixhawk_series.md) - це апаратні політні контролери з відкритим доступом, що виконують PX4 на операційній системі NuttX OS. Існують версії, орієнтовані на різні потреби використання та сегменти ринку.
 
-[Pixhawk Standard Autopilots](../flight_controller/autopilot_pixhawk_standard.md) are used as the PX4 reference platform. They are supported and tested by the PX4 development team, and are highly recommended.
+[Pixhawk Standard Autopilots](../flight_controller/autopilot_pixhawk_standard.md) використовуються як еталонна платформа PX4. Вони підтримуються та перевіряються командою розробників PX4, і є рекомендованими.
 
 ## Контролери від виробників
 
-Other flight controllers are [manufacturer-supported](../flight_controller/autopilot_manufacturer_supported.md). This includes FCs that are heavily based on the Pixhawk standard (but which are not fully compliant), and many others.
+Інші контролери польоту підтримуються [виробником](../flight_controller/autopilot_manufacturer_supported.md). Сюди входять контролери, які значною мірою базуються на стандарті Pixhawk (але не повністю відповідають йому), та багато інших.
 
-Note that manufacturer-supported controllers can be just as "good" (or better) than those which are Pixhawk-standard.
+Зверніть увагу, що контролери, які підтримуються виробниками, можуть бути настільки ж "хорошими" (або навіть кращими), ніж ті, що є Pixhawk-стандартом.
 
 ## Автопілоти для завдань з інтенсивними обчисленнями
 
-Dedicated flight controllers like Pixhawk are not usually well-suited for general purpose computing or running computationally intensive tasks. For more computing power, the most common approach is to run those applications on a separate onboard [Companion Computer](../companion_computer/index.md). Some companion computers can also run PX4 on a separate DSP, as part of the same autopilot board.
+Спеціалізовані політні контролери, такі як Pixhawk, зазвичай не дуже добре підходять для обчислень або виконання завдань з інтенсивними обчисленнями. Для збільшення обчислювальної потужності найпоширенішим підходом є запуск таких аплікацій на окремому бортовому [супутньому комп'ютері](../companion_computer/index.md). Деякі супутні комп'ютери також можуть виконувати PX4 на окремому DSP, як частина тієї ж плати автопілота.
 
-Similarly, PX4 can also run natively Raspberry Pi (this approach is not generally considered as "robust" as having a separate companion or using a dedicated DSP):
+Аналогічно, PX4 також може нативно виконуватися на Raspberry Pi (цей підхід зазвичай не вважається таким же "надійним", як використання окремого супутнього компаньйона або використання присвяченого ЦП):
 
 - [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
 - [Raspberry Pi 2/3/4 PilotPi Shield](../flight_controller/raspberry_pi_pilotpi.md)
@@ -34,7 +34,7 @@ Similarly, PX4 can also run natively Raspberry Pi (this approach is not generall
 
 ## Комерційні БПЛА, які можуть працювати з PX4
 
-PX4 is available on many popular commercial drone products, including some that ship with PX4 and others that can be updated with PX4 (allowing you to add mission planning and other PX4 Flight modes to your vehicle).
+PX4 доступний для багатьох популярних комерційних дронів, включаючи ті, що поставляються з PX4, і ті, які можна оновити до PX4 (що дозволяє додати планування місій та інші режими польоту PX4 на вашому апараті).
 
-For more information see [Complete Vehicles](../complete_vehicles/index.md).
+Для отримання додаткової інформації див. [Готові до використання апарати](../complete_vehicles/index.md).
 
