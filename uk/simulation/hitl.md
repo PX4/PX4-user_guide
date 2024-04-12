@@ -28,7 +28,7 @@ PX4 підтримує HITL для мультикоптерів (за допом
 
 У симуляції з апаратним забезпеченням у контурі (HITL) звичайна прошивка PX4 виконується на реальному обладнані. JMAVSim або Gazebo Classic (які працюють на комп'ютері розробки) підключені до пристрою польотного контролера через USB/UART. Симулятор діє як шлюз для спільного використання даних MAVLink між PX4 та _QGroundControl_.
 
-::: info The simulator can also be connected via UDP if the flight controller has networking support and uses a stable, low-latency connection (e.g. a wired Ethernet connection - WiFi is usually not sufficiently reliable). Наприклад, ця конфігурація була перевірена з PX4, що виконується на Raspberry Pi який підключений через Ethernet до комп'ютера (налаштування запуску яке включає команди для запуску jMAVSim можна знайти [тут](https://github.com/PX4/PX4-Autopilot/blob/main/posix-configs/rpi/px4_hil.config)).
+:::info Симулятор також може бути підключений за допомогою UDP якщо політний контролер має підтримку мережі та використовує стабільне з'єднання з низькою затримкою (наприклад дротове Ethernet підключення, WiFi підключення зазвичай недостатньо надійне). Наприклад, ця конфігурація була перевірена з PX4, що виконується на Raspberry Pi який підключений через Ethernet до комп'ютера (налаштування запуску яке включає команди для запуску jMAVSim можна знайти [тут](https://github.com/PX4/PX4-Autopilot/blob/main/posix-configs/rpi/px4_hil.config)).
 :::
 
 Діаграма нижче показує середовище симуляції:
@@ -92,7 +92,7 @@ _Посібник користувача QGroundControl_ має інструкц
 
 #### Gazebo Classic
 
-::: info Make sure _QGroundControl_ is not running!
+:::info Переконайтеся, що _QGroundControl_ не запущено!
 :::
 
 1. Зберіть PX4 з [Gazebo Classic](../sim_gazebo_classic/README.md) (щоб зібрати плагіни Gazebo Classic).
@@ -105,7 +105,7 @@ _Посібник користувача QGroundControl_ має інструкц
 1. Відкрийте sdf файл моделі рухомого засобу (наприклад **Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/iris_hitl/iris_hitl.sdf**).
 1. Якщо необхідно, замінить параметр `serialDevice` (`/dev/ttyACM0`).
 
-   ::: info The serial device depends on what port is used to connect the vehicle to the computer (this is usually `/dev/ttyACM0`). Простий спосіб перевірити це на Ubuntu - під'єднати автопілот, відкрити термінал та ввести `dmesg | grep "tty"`. Останній показаний пристрій і буде тим що потрібно.
+   :::info Пристрій послідовного порту залежить від порту, що використано для під'єднання засобу до комп'ютера (зазвичай це `/dev/ttyACM0`). Простий спосіб перевірити це на Ubuntu - під'єднати автопілот, відкрити термінал та ввести `dmesg | grep "tty"`. Останній показаний пристрій і буде тим що потрібно.
 :::
 
 1. Налаштуйте змінні середовища:
@@ -124,7 +124,7 @@ _Посібник користувача QGroundControl_ має інструкц
 
 #### jMAVSim (тільки квадрокоптер)
 
-::: info Make sure _QGroundControl_ is not running!
+:::info Переконайтеся, що _QGroundControl_ не запущено!
 :::
 
 1. Під'єднайте політний контролер до комп'ютера та дочекайтесь коли він завантажиться.
@@ -134,7 +134,7 @@ _Посібник користувача QGroundControl_ має інструкц
    ./Tools/simulation/jmavsim/jmavsim_run.sh -q -s -d /dev/ttyACM0 -b 921600 -r 250
    ```
 
-   ::: info Replace the serial port name `/dev/ttyACM0` as appropriate. На macOS цей порт буде `/dev/tty.usbmodem1`. На Windows (включно з Cygwin) це буде COM1 або інший порт - перевірте з'єднання в менеджері пристроїв Windows.
+   :::info Замінить ім'я послідовного порту `/dev/ttyACM0` на відповідний. На macOS цей порт буде `/dev/tty.usbmodem1`. На Windows (включно з Cygwin) це буде COM1 або інший порт - перевірте з'єднання в менеджері пристроїв Windows.
 :::
 
 1. Запустіть _QGroundControl_. Воно повинно автоматично підключитися до PX4 та jMAVSim.
