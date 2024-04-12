@@ -33,7 +33,7 @@ PX4 підтримує як симуляцію _Software In the Loop (SITL)_, д
 
 ![Симулятор MAVLink API](../../assets/simulation/px4_simulator_messages.svg)
 
-::: info A SITL build of PX4 uses [SimulatorMavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/simulator_mavlink/SimulatorMavlink.cpp) to handle these messages while a hardware build in HIL mode uses [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp). Дані датчиків з симулятора записуються в теми PX4 uORB. Всі двигуни/приводи заблоковані, але внутрішнє програмне забезпечення повністю функціонує.
+:::info SITL-збірка PX4 використовує [SimulatorMavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/simulator_mavlink/SimulatorMavlink.cpp) для обробки цих повідомлень, тоді як апаратна збірка у режимі HIL використовує [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp). Дані датчиків з симулятора записуються в теми PX4 uORB. Всі двигуни/приводи заблоковані, але внутрішнє програмне забезпечення повністю функціонує.
 :::
 
 Повідомлення описані нижче (див. посилання для більш детальної інформації).
@@ -61,11 +61,11 @@ PX4 підтримує як симуляцію _Software In the Loop (SITL)_, д
 За замовчуванням PX4 використовує загальноприйняті порти UDP для зв'язку MAVLink з наземними станціями управління (наприклад, _QGroundControl_), позабортовими API (наприклад, MAVSDK, MAVROS) і API симуляторів (наприклад, Gazebo). Ці порти:
 
 - Віддалений UDP-порт PX4 **14550** використовується для зв'язку з наземними станціями управління. Очікується, що GCS прослуховуватиме з'єднання на цьому порту. _QGroundControl_ слухає цей порт за замовчуванням.
-- Віддалений UDP-порт PX4 **14540** використовується для зв'язку з зовнішніми API. Очікується, що зовнішні API будуть чекати на з'єднання через цей порт. ::: info Multi-vehicle simulations use a separate remote port for each instance, allocated sequentially from `14540` to `14549` (additional instances all use port `14549`).
+- Віддалений UDP-порт PX4 **14540** використовується для зв'язку з зовнішніми API. Очікується, що зовнішні API будуть чекати на з'єднання через цей порт. :::info Для симуляції декількох апаратів використовується окремий віддалений порт для кожного екземпляра, виділений послідовно від `14540` до `14549` (додаткові екземпляри використовують порт `14549`).
 :::
 - Для зв'язку з PX4 використовується локальний TCP-порт симулятора **4560**. Симулятор слухає цей порт, і PX4 ініціює TCP-з'єднання з ним.
 
-::: info The ports for the GCS, offboard APIs and simulator are specified by startup scripts. Щоб дізнатися більше, див. розділ [Запуск системи](../concept/system_startup.md).
+:::info Порти для GCS, зовнішніх API та симулятора визначаються скриптами запуску. Щоб дізнатися більше, див. розділ [Запуск системи](../concept/system_startup.md).
 :::
 
 <!-- A useful discussion about UDP ports here: https://github.com/PX4/PX4-user_guide/issues/1035#issuecomment-777243106 -->
@@ -80,7 +80,7 @@ PX4 підтримує як симуляцію _Software In the Loop (SITL)_, д
 
 - PX4 використовує спеціальний модуль для підключення до локального TCP-порту 4560 симулятора. Потім симулятори обмінюються інформацією з PX4 за допомогою [Симулятор MAVLink API](#simulator-mavlink-api), описаного вище. PX4 на SITL і симулятор можуть працювати як на одному комп'ютері, так і на різних комп'ютерах в одній мережі.
 
-  ::: info Simulators can also use the _uxrce-dds bridge_ ([XRCE-DDS](../middleware/uxrce_dds.md)) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink). Цей підхід _може_ використовуватися Gazebo Classic для моделювання [кількох апаратів](../sim_gazebo_classic/multi_vehicle_simulation.md#build-and-test-xrce-dds).
+  :::info Симулятори також можуть використовувати міст _uxrce-dds_ ([XRCE-DDS](../middleware/uxrce_dds.md)) для безпосередньої взаємодії з PX4 (тобто через [UORB topics](../middleware/uorb.md), а не MAVLink). Цей підхід _може_ використовуватися Gazebo Classic для моделювання [кількох апаратів](../sim_gazebo_classic/multi_vehicle_simulation.md#build-and-test-xrce-dds).
 :::
 
 - PX4 використовує звичайний модуль MAVLink для підключення до наземних станцій і зовнішніх API розробників, таких як MAVSDK або ROS
@@ -151,19 +151,19 @@ export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl jmavsim
 ```
 
-::: info
-At some point IO or CPU will limit the speed that is possible on your machine and it will be slowed down "automatically".
+:::info
+У певний момент введення-виведення або процесор обмежать швидкість, яка можлива на вашому комп'ютері, і він буде сповільнюватися "автоматично".
 Потужні комп'ютери зазвичай можуть запускати симуляцію зі швидкістю близько 6-10 разів, для ноутбуків досягається швидкість близько 3-4 разів.
 :::
 
-::: info To avoid PX4 detecting data link timeouts, increase the value of param [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) proportional to the simulation rate. Наприклад, якщо `COM_DL_LOSS_T` дорівнює 10 в реальному часі, при 10-кратному моделюванні швидкість збільшиться до 100.
+:::info Щоб уникнути виявлення PX4 тайм-аутів каналу передачі даних, збільште значення параметра [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) пропорційно до швидкості моделювання. Наприклад, якщо `COM_DL_LOSS_T` дорівнює 10 в реальному часі, при 10-кратному моделюванні швидкість збільшиться до 100.
 :::
 
 ### Симуляція Lockstep
 
 PX4 SITL і симулятори (jMAVSim або Gazebo Classic) налаштовані на роботу з кроком _lockstep_. Це означає, що PX4 і симулятор чекають один на одного для отримання повідомлень від датчиків і приводів, а не працюють зі своїми власними швидкостями.
 
-::: info Lockstep makes it possible to [run the simulation faster or slower than realtime](#simulation_speed), and also to pause it in order to step through code.
+:::info Lockstep дозволяє [запускати симуляцію швидше або повільніше, ніж у реальному часі](#simulation_speed), а також призупиняти її для того, щоб переходити між елементами коду.
 :::
 
 Послідовність кроків для lockstep наступна:
@@ -211,7 +211,7 @@ _QGroundControl_ для ПК може підключатися до USB-джой
 
 <!-- FYI Airsim info on this setting up remote controls: https://github.com/Microsoft/AirSim/blob/master/docs/remote_controls.md -->
 
-## Camera Simulation
+## Симуляція камери
 
 PX4 підтримує захоплення як нерухомих зображень, так і відео з симулятора [Gazebo Classic](../sim_gazebo_classic/README.md). Це можна ввімкнути/налаштувати, як описано в розділі [Gazebo Glassic > Потокове відео](../sim_gazebo_classic/README.md#video-streaming).
 
@@ -225,8 +225,8 @@ PX4 підтримує захоплення як нерухомих зображ
    mavlink start -u 14558 -o 14530 -r 4000 -f -m camera
    ```
 
-   ::: info
-More than just the camera MAVLink messages will be forwarded, but the camera will ignore those that it doesn't consider relevant.
+   :::info
+Повідомлення MAVLink пересилатимуться не лише на камеру, але камера ігноруватиме ті, які вона вважає неважливими.
 :::
 
 Інші симулятори можуть використовувати такий самий підхід для реалізації підтримки камери.
@@ -265,14 +265,14 @@ More than just the camera MAVLink messages will be forwarded, but the camera wil
   Port = 14550
   ```
 
-::: info More information about _mavlink-router_ configuration can be found [here](https://github.com/mavlink-router/mavlink-router#running).
+:::info Більш детальну інформацію про конфігурацію _mavlink-router_ можна знайти [тут](https://github.com/mavlink-router/mavlink-router#running).
 :::
 
 ### Увімкнення трансляції UDP
 
 [Mavlink module](../modules/modules_communication.md#mavlink_usage) за замовчуванням маршрутизує до _localhost_, але ви можете увімкнути UDP-трансляцію за допомогою його опції `-p`. Будь-який віддалений комп'ютер у мережі може підключитися до симулятора, прослуховуючи відповідний порт (наприклад, 14550 для _QGroundControl_).
 
-::: info UDP broadcasting provides a simple way to set up the connection when there is only one simulation running on the network. Не використовуйте цей підхід, якщо у мережі запущено декілька симуляцій (ви можете замість цього  [publish to a specific address](#enable-streaming-to-specific-address)).
+:::info UDP-трансляція забезпечує простий спосіб встановлення з'єднання, коли в мережі працює лише одна симуляція. Не використовуйте цей підхід, якщо у мережі запущено декілька симуляцій (ви можете замість цього  [publish to a specific address](#enable-streaming-to-specific-address)).
 :::
 
 Це слід зробити у відповідному конфігураційному файлі, де викликається `mavlink start`. Наприклад: [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink).
@@ -287,8 +287,8 @@ More than just the camera MAVLink messages will be forwarded, but the camera wil
 
 Тунелювання SSH є гнучким варіантом, оскільки комп'ютер для моделювання та система, що його використовує, не обов'язково повинні знаходитися в одній мережі.
 
-::: info
-You might similarly use VPN to provide a tunnel to an external interface (on the same network or another network).
+:::info
+Ви також можете використовувати VPN для створення тунелю до зовнішнього інтерфейсу (в тій самій або іншій мережі).
 :::
 
 Одним із способів створення тунелю є використання параметрів тунелювання SSH. Сам тунель можна створити, виконавши наступну команду на _localhost_, де `remote.local` - ім'я віддаленого комп'ютера:
