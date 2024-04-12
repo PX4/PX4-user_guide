@@ -54,31 +54,31 @@ PX4 не виробляє цей (або будь-який) автопілот.
 - [mRo Pixhawk 2.4.6 Essential Kit](https://store.mrobotics.io/Genuine-PixHawk-Flight-Controller-p/mro-pixhawk1-minkit-mr.htm) - включає все, крім телеметрії радіо
 - [mRo Pixhawk 2.4.6 Cool Kit! (Limited edition)](https://store.mrobotics.io/product-p/mro-pixhawk1-fullkit-mr.htm) - включає все необхідне, включаючи телеметрію радіо
 
-## Specifications
+## Характеристики
 
-### Processor
+### Процесор
 
-- 32bit STM32F427 [Cortex-M4F](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4) core with FPU
+- 32bit STM32F427 [Cortex-M4F](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4) ядро з FPU
 - 168 MHz
 - 256 KB RAM
 - 2 MB Flash
-- 32 bit STM32F103 failsafe co-processor
+- 32 bit STM32F103 відмовостійкий копроцесор
 
-### Sensors
+### Датчики
 
-- ST Micro L3GD20H 16 bit gyroscope
-- ST Micro LSM303D 14 bit accelerometer / magnetometer
-- Invensense MPU 6000 3-axis accelerometer/gyroscope
-- MEAS MS5611 barometer
+- ST Micro L3GD20H 16 bit гіроскоп
+- ST Micro LSM303D 14 bit акселерометр / магнітометр
+- Invensense MPU 6000 3-вісний акселерометр/гіроскоп
+- MEAS MS5611 барометр
 
-### Interfaces
+### Інтерфейси
 
-- 5x UART (serial ports), one high-power capable, 2x with HW flow control
-- 2x CAN (one with internal 3.3V transceiver, one on expansion connector)
-- Spektrum DSM / DSM2 / DSM-X® Satellite compatible input
-- Futaba S.BUS® compatible input and output
-- PPM sum signal input
-- RSSI (PWM or voltage) input
+- 5x UART (послідовні порти), один високої потужності, 2x з HW контролем потоку
+- 2x CAN (один з внутрішнім 3.3V трансивером, один на конекторі розширення)
+- Spektrum DSM / DSM2 / DSM-X® Satellite сумісний вхід
+- Futaba S.BUS® сумісний вхід і вивід
+- PPM sum signal вхід
+- RSSI (PWM чи voltage) вхід
 - I2C
 - SPI
 - 3.3 and 6.6V ADC inputs
