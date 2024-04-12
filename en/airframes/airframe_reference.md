@@ -425,6 +425,10 @@ div.frame_variant td, div.frame_variant th {
  <td>COEX Clover 4</td>
  <td>Maintainer: Oleg Kalachev &lt;okalachev@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4500</p></td>
 </tr>
+<tr id="copter_quadrotor_x_droneblocks_dexi_5">
+ <td>Droneblocks DEXI 5</td>
+ <td>Maintainer: Alex klimaj &lt;alex@arkelectron.com&gt;<p><code>SYS_AUTOSTART</code> = 4601</p></td>
+</tr>
 <tr id="copter_quadrotor_x_crazyflie_2.1">
  <td>Crazyflie 2.1</td>
  <td>Maintainer: Dennis Shtatov &lt;densht@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4901</p></td>
