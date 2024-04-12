@@ -6,4 +6,4 @@
 
 - [Приймачі ADS-B/FLARM/UTM (Уникнення повітряного трафіку)](../peripherals/adsb_flarm.md)
 - [Парашут](../peripherals/parachute.md)
-- [Remote ID](../peripherals/remote_id.md)
+- [Віддалений ID](../peripherals/remote_id.md)
