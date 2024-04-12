@@ -1,41 +1,41 @@
-# Remote ID (Open Drone ID)
+# Віддалений ідентифікатор (відкритий ідентифікатор дрона)
 
 :::warning
-Experimental
-Remote ID support is experimental.
+Експериментально
+Підтримка віддаленого ID є експериментальною.
 :::
 
-Remote ID is a government mandated technology for UAVs in Japan, the United States of America and the European Union, designed to enable safe sharing of airspace between UAVs and other aircraft. The specification requires that UAVs broadcast data such as: real-time location/altitude, serial number, operator ID/location, status, etc.
+Віддалений ідентифікатор - це технологія, що регулюється урядом для БПЛА в Японії, Сполучених Штатах Америки та Європейському Союзі, розроблена для забезпечення безпечного спільного використання повітряного простору між БПЛА та іншими повітряними суднами. Специфікація вимагає, щоб БПЛА передавали дані, такі як: реальний час розташування/висота, серійний номер, ідентифікатор оператора/розташування, статус та інше.
 
-PX4 works with Remote ID modules that target the FAA [standard Remote ID rules](https://www.faa.gov/uas/getting_started/remote_id). These are designed to be integrated into the vehicle, and broadcast Open Drone ID messages using id, position, and other information that is supplied by an autopilot. The "standard rules" modules enable less restrictive operation than "broadcast rules" modules, which are standalone modules with an integrated GPS that do not have any communication with the autopilot.
+PX4 працює з модулями Remote ID, які спрямовані на стандартні правила Remote ID ФАА [стандартні правила Remote ID](https://www.faa.gov/uas/getting_started/remote_id). Ці пристрої призначені для інтеграції в транспортний засіб та відтворення повідомлень відкритого ідентифікатора дрона, використовуючи ідентифікатор, позицію та іншу інформацію, яка надається автопілотом. Модулі "стандартних правил" дозволяють менш обмежену роботу, ніж модулі "правил трансляції", які є автономними модулями з інтегрованим GPS, які не мають жодного зв'язку з автопілотом.
 
-## Supported Hardware
+## Підтримуване обладнання
 
-PX4 integrates with Remote ID hardware that supports the [Open Drone ID](https://mavlink.io/en/services/opendroneid.html) MAVLink protocol (Open Drone ID is an open source implementation of Remote ID).
+PX4 інтегрується з апаратним засобом Remote ID, який підтримує протокол MAVLink [Open Drone ID](https://mavlink.io/en/services/opendroneid.html) (Open Drone ID - це відкрита реалізація Remote ID).
 
-It has been tested with the following devices:
+Було протестовано з наступними пристроями:
 
 - [Cube ID](https://docs.cubepilot.org/user-guides/cube-id/cube-id) (CubePilot)
 - [Db201](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) (BlueMark)
 - [Db202mav](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) (BlueMark) - less expensive variant without CAN port.
-- [Holybro RemoteID Module](https://holybro.com/products/remote-id) (Holybro)
+- [Модуль віддаленого ідентифікатора Holybro](https://holybro.com/products/remote-id) (Holybro)
 
-::: info
+:::info
 
-- Other devices that support the MAVLink API should work (but have not been tested).
-- PX4 does not support Remote ID over CAN in PX4 v1.14.
+- Інші пристрої, які підтримують API MAVLink, повинні працювати (але не були протестовані).
+- PX4 не підтримує Remote ID через CAN в PX4 v1.14.
 
 :::
 
-## Hardware Setup
+## Налаштування обладнання
 
-Remote ID devices can be connected to any free/unused serial port on the flight controller. Most commonly they are connected directly to the `TELEM2` port (if it is not being use for some other purpose) as this is already configured for MAVLink "by default".
+Пристрої віддаленого ідентифікатора можуть бути підключені до будь-якого вільного/не використаного послідовного порту на контролері польоту. Зазвичай вони підключені безпосередньо до порту `TELEM2` (якщо він не використовується для інших цілей), оскільки він вже налаштований для MAVLink "за замовчуванням".
 
 ### Cube ID
 
-[Cube ID](https://docs.cubepilot.org/user-guides/cube-id/cube-id) can be connected using its serial port (DroneCAN cannot be used). It comes with a 6-pin JST-GH 1.25mm cable that can be connected directly to the `TELEM` ports on most recent Pixhawk flight controllers.
+[Ідентифікатор куба](https://docs.cubepilot.org/user-guides/cube-id/cube-id) можна підключити за допомогою його послідовного порту (DroneCAN не може бути використаний). Він постачається з кабелем JST-GH 1.25 мм з 6 контактами, який можна підключити безпосередньо до портів `TELEM` на більшості останніх контролерів польоту Pixhawk.
 
-If using a different port, or a flight controller that has different connector, you may need to modify the cable. The pinout of the serial port is shown below. The TX and RX on the flight controller must be connected to the RX and TX on the Remote ID, respectively.
+Якщо використовуєте інший порт або контролер польоту з іншим роз'ємом, можливо, вам доведеться змінити кабель. Схема пінів послідовного порту показана нижче. TX та RX на контролері польоту повинні бути підключені до RX та TX на Remote ID, відповідно.
 
 #### Cube ID Serial Port
 
@@ -50,110 +50,110 @@ If using a different port, or a flight controller that has different connector, 
 
 #### Cube ID Firmware
 
-The Cube ID uses proprietary firmware (not [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID) like some other remote id beacons).
+Ідентифікатор куба використовує власне прошивку (не [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID), як у деяких інших дистанційних маяках ідентифікаторів).
 
-For firmware update instructions see [Cube ID > Updating](https://docs.cubepilot.org/user-guides/cube-id/cube-id#updating).
+Щоб отримати інструкції з оновлення прошивки, див. [Cube ID > Оновлення](https://docs.cubepilot.org/user-guides/cube-id/cube-id#updating).
 
 ### BlueMark Db201/Db202mav
 
-[Db201](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) or [Db202mav](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) can be connected using their serial port (DroneCAN cannot be used). They come with a 6-pin JST-GH 1.25mm cable that can be connected directly to the `TELEM` ports on most recent Pixhawk flight controllers.
+[Db201](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) або [Db202mav](https://dronescout.co/dronebeacon-mavlink-remote-id-transponder/) можна підключити за допомогою їхнього послідовного порту (DroneCAN не може бути використаний). Вони постачаються з кабелем JST-GH 1.25 мм з 6 контактами, який можна підключити безпосередньо до портів `TELEM` на більшості останніх контролерів польоту Pixhawk.
 
-If using a different serial port (i.e. with fewer pins), or a flight controller that has different connector, you may need to modify the cable. Information on the port pinout can be found in the [User Guide](https://download.bluemark.io/db200.pdf).
+Якщо використовуєте інший послідовний порт (тобто з меншою кількістю контактів), або контролер польоту з іншим роз'ємом, можливо, вам доведеться змінити кабель. Інформацію про роз'єм порту можна знайти в [Посібнику користувача](https://download.bluemark.io/db200.pdf).
 
-The beacons come preinstalled with recent [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID) firmware. The [User Guide](https://download.bluemark.io/db200.pdf) explains how you can update firmware via the web interface, if needed.
+Сигнальні маяки поставляються з встановленою заздалегідь останньою вбудованою програмною фірмою [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID). [Керівництво користувача](https://download.bluemark.io/db200.pdf) пояснює, як ви можете оновити прошивку через веб-інтерфейс, якщо потрібно.
 
-More general setup, including how to mount the beacon, is also covered in the [User Guide](https://download.bluemark.io/db200.pdf)
+Додаткову загальну настройку, включаючи спосіб монтажу маяка, також описано в [Керівництві користувача](https://download.bluemark.io/db200.pdf)
 
-### Holybro Remote ID Module
+### Holybro Віддалений ID модуль
 
-The [Holybro Remote ID Module](https://holybro.com/products/remote-id) can be connected using the serial port (DroneCAN cannot be used at time of writing: PX4 v1.14). It comes with a 6-pin JST-GH 1.25mm cable that can be connected directly to the `TELEM` ports on most recent Pixhawk flight controllers such as the Pixhawk 6C/6X or Cube Orange.
+Модуль віддаленого ідентифікатора [Holybro Remote ID Module](https://holybro.com/products/remote-id)  може бути підключений за допомогою послідовного порту (DroneCAN не може бути використаний на момент написання: PX4 v1.14). Воно постачається з кабелем JST-GH 1.25 мм з 6 контактами, який можна підключити безпосередньо до портів `TELEM` на більшості останніх контролерів польоту Pixhawk, таких як Pixhawk 6C/6X або Cube Orange.
 
 The module comes preinstalled with recent [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID) firmware. The [User Guide](https://docs.holybro.com/radio/remote-id) explains how you can config and update firmware via the web interface, if needed.
 
 #### Holybro Pinouts
 
-Note that CAN port not supported in PX4 v1.14
+Зверніть увагу, що порт CAN не підтримується в PX4 v1.14
 
 ![Holybro Remote ID Pinouts](../../assets/peripherals/remoteid_holybro/holybro_remote_id_pinout.jpg)
 
-## PX4 Configuration
+## Конфігурація PX4
 
-### Port Configuration
+### Конфігурація порту
 
-Remote ID hardware is configured in the same way as any other [MAVLink Peripheral](../peripherals/mavlink_peripherals.md).
+Апаратне забезпечення віддаленого ідентифікатора налаштоване так само, як будь-який інший [Пристрій MAVLink](../peripherals/mavlink_peripherals.md).
 
-Assuming you have connected the device to the `TELEM2` port, [set the parameters](../advanced_config/parameters.md) as shown:
+Припускаючи, що ви підключили пристрій до порту `TELEM2`, [встановіть параметри](../advanced_config/parameters.md) так, як показано:
 
 - [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) = `TELEM 2`
-- [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) = Normal
-- [MAV_1_RATE](../advanced_config/parameter_reference.md#MAV_1_RATE) = 0 (default sending rate for port).
-- [MAV_1_FORWARD](../advanced_config/parameter_reference.md#MAV_1_FORWARD) = Enabled
+- [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) = Нормальний
+- [MAV_1_RATE](../advanced_config/parameter_reference.md#MAV_1_RATE) = 0 (швидкість відправлення за замовчуванням для порту).
+- [MAV_1_FORWARD](../advanced_config/parameter_reference.md#MAV_1_FORWARD) = Увімкнено
 
-Then reboot the vehicle.
+Перезавантажте пристрій.
 
-You will now find a new parameter called [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD). The required baud rate depends on the remote ID used (for Cube ID it must be set to 57600).
+Тепер ви знайдете новий параметр, який називається [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD). Необхідна швидкість передачі даних залежить від використаного віддаленого ідентифікатора (для Cube ID вона повинна бути встановлена на 57600).
 
 <!-- In theory, a Remote ID (or other MAVLink peripheral) that supports WiFi or wired Ethernet network could also be connected over those links. -->
 
-### Enable Remote ID
+### Увімкнути віддалений ID
 
-There is no need to explicitly enable Remote ID (supported Remote ID messages are either streamed by default or must be requested in the current implementation, even if no remote ID is connected).
+Немає потреби явно увімкнювати Віддалений ідентифікатор (підтримувані повідомлення про Віддалений ідентифікатор транслюються за замовчуванням або повинні бути запитані в поточній реалізації, навіть якщо жоден віддалений ідентифікатор не підключений).
 
-### Prevent Arming based on Remote ID
+### Запобігання Зброєнню на підставі Віддаленого Ідентифікатора
 
-To only allow arming when a Remote ID is ready, [set](../advanced_config/parameters.md#conditional-parameters) the parameter [COM_ARM_ODID](#COM_ARM_ODID) to `2` (it is disabled by default).
+Для того щоб дозволити озброєння лише тоді, коли готовий Віддалений ідентифікатор, [встановіть](../advanced_config/parameters.md#conditional-parameters) параметр [COM_ARM_ODID](#COM_ARM_ODID) на `2` (за замовчуванням він вимкнений).
 
-| Parameter                                                                                         | Description                                                                                                                                                                            |
-| ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="COM_ARM_ODID"></a>[COM_ARM_ODID](../advanced_config/parameter_reference.md#COM_ARM_ODID) | Enable Drone ID system detection and health check. `0`: Disable (default), `1`: Warn if Remote ID not detected but still allow arming, `2`: Only allow arming if Remote ID is present. |
+| Параметр                                                                                          | Опис                                                                                                                                                                                                                                                                              |
+| ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="COM_ARM_ODID"></a>[COM_ARM_ODID](../advanced_config/parameter_reference.md#COM_ARM_ODID) | Увімкніть систему виявлення та перевірки стану ідентифікатора дрона. `0`: Вимкнути (за замовчуванням), `1`: Попереджувати, якщо відсутній віддалений ідентифікатор, але все ще дозволяти готування, `2`: Дозволяти готування лише у випадку наявності віддаленого ідентифікатора. |
 
-## Module Broadcast Testing
+## Тестування мовлення модуля
 
-Integrators should test than the remote ID module is broadcasting the correct information, such as UAV location, ID, operator ID and so on. This is most easily done using a 3rd party application on your mobile device:
+Інтегратори повинні перевірити, що модуль віддаленого ідентифікатора транслює правильну інформацію, таку як місцезнаходження БПЛА, ідентифікатор, ідентифікатор оператора та інше. Це найлегше зробити за допомогою стороннього додатку на вашому мобільному пристрої:
 
-- [Drone Scanner](https://github.com/dronetag/drone-scanner) (Google Play or Apple App store)
+- [Сканер дронів](https://github.com/dronetag/drone-scanner) (Google Play або Apple App store)
 - [OpenDroneID OSM](https://play.google.com/store/apps/details?id=org.opendroneid.android_osm&hl=en&gl=US) (Google Play)
 
-## Implementation
+## Реалізація
 
-PX4 v1.14 streams these messages by default (in streaming modes: normal, onboard, usb, onboard low bandwidth):
+PX4 v1.14 передає ці повідомлення за замовчуванням (у режимах потокової передачі: звичайний, на борту, через USB, на борту з низькою пропускною здатністю):
 
-- [OPEN_DRONE_ID_LOCATION](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_LOCATION) (1 Hz) - UAV location, altitude, direction, and speed.
-- [OPEN_DRONE_ID_SYSTEM](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_SYSTEM) (1 Hz) Operator location/altitude, multiple aircraft information (group/swarm, if applicable), full timestamp and possible category/class information.
+- [OPEN_DRONE_ID_LOCATION](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_LOCATION) (1 Гц) - Місце знаходження БПЛА, висота, напрямок та швидкість.
+- [СИСТЕМА OPEN_DRONE_ID](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_SYSTEM) (1 Гц) Місцезнаходження/висота оператора, інформація про кілька літальних апаратів (група/рой, якщо застосовується), повна відмітка часу та можлива інформація про категорію/клас.
 
-  - Implementation assumes operator is located at vehicle home position (does not yet support getting operator position from GCS). This is believed to be compliant for broadcast-only Remote IDs.
+  - Реалізація передбачає, що оператор знаходиться в домашньому положенні транспортного засобу (ще не підтримує отримання позиції оператора з ПЗУ). Вважається, що це відповідає вимогам лише для віддалених ідентифікаторів трансляції.
 
-The following message can be streamed on request (using [MAV_CMD_SET_MESSAGE_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL)):
+Наступне повідомлення можна транслювати за запитом (використовуючи [MAV_CMD_SET_MESSAGE_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL)):
 
-- [OPEN_DRONE_ID_BASIC_ID](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_BASIC_ID) - UAV identity information (essentially a serial number)
-  - PX4 v1.14 specifies a serial number ([MAV_ODID_ID_TYPE_SERIAL_NUMBER](https://mavlink.io/en/messages/common.html#MAV_ODID_ID_TYPE_SERIAL_NUMBER)) but does not use the required format (ANSI/CTA-2063 format).
+- [OPEN_DRONE_ID_BASIC_ID](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_BASIC_ID) - Інформація про ідентифікацію БПЛА (в суті, серійний номер)
+  - PX4 v1.14 вказує серійний номер ([MAV_ODID_ID_TYPE_SERIAL_NUMBER](https://mavlink.io/en/messages/common.html#MAV_ODID_ID_TYPE_SERIAL_NUMBER)), але не використовує необхідний формат (формат ANSI/CTA-2063).
 
-PX4 prevents arming based on Remote ID health if parameter [COM_ARM_ODID](../advanced_config/parameter_reference.md#COM_ARM_ODID) is set to `2`. The UAV will then require `HEARTBEAT` messages from the Remote ID as a precondition for arming the UAV. You can also set the parameter to `1` to warn but still allow arming when Remote ID `HEARTBEAT` messages are not detected.
+PX4 запобігає взбиранню на основі стану віддаленого ідентифікатора, якщо параметр [COM_ARM_ODID](../advanced_config/parameter_reference.md#COM_ARM_ODID) встановлено ​​на `2`. БПЛА потім буде вимагати повідомлення `HEARTBEAT` від ідентифікатора віддаленого керування як умову перед зброюванням БПЛА. Ви також можете встановити параметр на `1`, щоб попереджувати, але все ж дозволяти озброєння, коли не виявлені повідомлення Remote ID `HEARTBEAT`.
 
-The following Open Drone ID MAVLink messages are not supported in PX4 v1.14 (to be added by [PX4#21647](https://github.com/PX4/PX4-Autopilot/pull/21647)):
+Наступні повідомлення Open Drone ID MAVLink не підтримуються в PX4 v1.14 (що буде додано за допомогою [PX4#21647](https://github.com/PX4/PX4-Autopilot/pull/21647)):
 
-- [OPEN_DRONE_ID_AUTHENTICATION](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_AUTHENTICATION) - Provides authentication data for the UAV.
-- [OPEN_DRONE_ID_SELF_ID](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_SELF_ID) - Operator identity (plain text).
-- [OPEN_DRONE_ID_OPERATOR_ID](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_OPERATOR_ID) - Operator identity.
-- [OPEN_DRONE_ID_ARM_STATUS](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_ARM_STATUS) - Status of Remote ID hardware. Use as condition for vehicle arming, and for Remote ID health check.
-- [OPEN_DRONE_ID_SYSTEM_UPDATE](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_SYSTEM_UPDATE) - Subset of `OPEN_DRONE_ID_SYSTEM` that can be sent with information at higher rate.
+- [OPEN_DRONE_ID_AUTHENTICATION](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_AUTHENTICATION) - Надає дані аутентифікації для БПЛА.
+- [OPEN_DRONE_ID_SELF_ID](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_SELF_ID) - Ідентифікація оператора (звичайний текст).
+- [OPEN_DRONE_ID_OPERATOR_ID](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_OPERATOR_ID) - Ідентифікатор оператора.
+- [OPEN_DRONE_ID_ARM_STATUS](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_ARM_STATUS) - Статус апаратного забезпечення віддаленого ідентифікатора. Використовуйте як умову для озброєння транспортного засобу, а також для перевірки стану здоров'я віддаленого ідентифікатора.
+- [ОНОВЛЕННЯ_СИСТЕМИ_ВІДКРИТОГО_ДРОНУ_ID](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_SYSTEM_UPDATE) - Підмножина `OPEN_DRONE_ID_SYSTEM`, яку можна відправляти з інформацією з вищою швидкістю.
 
-## Compliance
+## Відповідність
 
-PX4 may not be compliant with the relevant specifications in version 1.14 (which is why this feature is currently experimental). A working group has been established to evaluate the gaps.
+PX4 може не відповідати відповідним специфікаціям у версії 1.14 (тому ця функція наразі експериментальна). Була створена робоча група для оцінки прогалин.
 
-Some known issues are:
+Деякі відомі проблеми:
 
-- Vehicles must arm conditional on receiving the Remote ID [OPEN_DRONE_ID_ARM_STATUS](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_ARM_STATUS) message, with a status that indicates the Remote ID hardware is ready to broadcast.
-  - PX4 v1.14 does not process `OPEN_DRONE_ID_ARM_STATUS`, and arming is only conditional on the Remote ID device `HEARTBEAT`.
-- Health of the Remote ID depends on both receiving a `HEARTBEAT` and the `OPEN_DRONE_ID_ARM_STATUS`. When flying, a non-armed status for the Remote ID must be published in [OPEN_DRONE_ID_LOCATION.status](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_LOCATION) as a Remote ID malfunction.
-  - PX4 v1.14 does not yet receive `OPEN_DRONE_ID_ARM_STATUS`.
-- `OPEN_DRONE_ID_ARM_STATUS` must be forwarded to the GCS, if present for additional error reporting.
-- [OPEN_DRONE_ID_BASIC_ID](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_BASIC_ID) specifies a serial number in an invalid format (not ANSI/CTA-2063 format).
-- The vehicle ID is expected to be tamper resistent.
+- Транспортні засоби повинні бути готові до активації після отримання повідомлення Remote ID [OPEN_DRONE_ID_ARM_STATUS](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_ARM_STATUS), зі статусом, що вказує на готовність обладнання Remote ID для трансляції.
+  - PX4 v1.14 не обробляє `OPEN_DRONE_ID_ARM_STATUS`, і зброювання відбувається лише умовно на пристрої Remote ID `HEARTBEAT`.
+- Стан віддаленого ідентифікатора залежить від отримання `HEARTBEAT` та `OPEN_DRONE_ID_ARM_STATUS`. При польоті статус незбройований для Remote ID повинен бути опублікований в [OPEN_DRONE_ID_LOCATION.status](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_LOCATION) як несправність Remote ID.
+  - PX4 v1.14 ще не отримує `OPEN_DRONE_ID_ARM_STATUS`.
+- `OPEN_DRONE_ID_ARM_STATUS` повинен бути перенаправлений на GCS, якщо він є, для додаткової звітності про помилки.
+- [OPEN_DRONE_ID_BASIC_ID](https://mavlink.io/en/messages/common.html#OPEN_DRONE_ID_BASIC_ID) вказує на серійний номер у неправильному форматі (не у форматі ANSI/CTA-2063).
+- ID транспортного засобу має бути стійким до втручань.
 
-[PX4-Autopilot/21647](https://github.com/PX4/PX4-Autopilot/pull/21647) is intended to address the known issues.
+[PX4-Autopilot/21647](https://github.com/PX4/PX4-Autopilot/pull/21647) призначений для вирішення відомих проблем.
 
-## See Also
+## Дивіться також
 
-- [Remote Identification of Drones](https://www.faa.gov/uas/getting_started/remote_id) (FAA)
+- [Віддалена ідентифікація дронів](https://www.faa.gov/uas/getting_started/remote_id) (FAA)
