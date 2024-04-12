@@ -1,8 +1,8 @@
 # Датчики швидкості польоту
 
-Сенсори швидкості в повітрі _дуже рекомендовані_ для безпілотників із фіксованим крилом та вертикального зльоту. Це важливо, туму що автопілот не має інших засобів для виявлення звалювання. For fixed-wing flight it is the airspeed that guarantees lift — not ground speed!
+Сенсори швидкості в повітрі _дуже рекомендовані_ для безпілотників із фіксованим крилом та вертикального зльоту. Це важливо, туму що автопілот не має інших засобів для виявлення звалювання. Так як швидкість польоту літака відносно повітря гарантує підіймальну силу, а не швидкість відносно землі!
 
-![Digital airspeed sensor](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
+![Цифровий датчик швидкості польоту](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
 ## Варіанти устаткування
 
@@ -20,7 +20,7 @@
 
 Усі зазначені вище сенсори підключені через I2C bus/port.
 
-::: info
+:::info
 
 Додатково, [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/) може бути підключений до CAN шини, щоб визначити не лише високоточну швидкість у повітрі, але й справжній статичний тиск і температуру повітря за допомогою вбудованого барометра та датчика температури повітря.
 
@@ -37,40 +37,41 @@
 - **TE MS5525:** [SENS_EN_MS5525DS](../advanced_config/parameter_reference.md#SENS_EN_MS5525DS)
 - **Датчик швидкості в повітрі Eagle Tree:** [SENS_EN_ETSASPD](../advanced_config/parameter_reference.md#SENS_EN_ETSASPD)
 
-You should also check [ASPD_PRIMARY](../advanced_config/parameter_reference.md#ASPD_PRIMARY) is `1` (see next section - this is the default).
+Ви також повинні перевірити [ASPD_PRIMARY](../advanced_config/parameter_reference.md#ASPD_PRIMARY) це `1` (див. наступний розділ - це значення за замовчуванням).
 
-### Multiple Airspeed Sensors
+### Множинні датчики швидкості польоту
 
 :::warning
-Experimental
-Using multiple airspeed sensors is experimental.
+
+Експериментальний
+Використання кількох датчиків швидкості повітря є експериментальним.
 :::
 
-If you have multiple airspeed sensors then you can select which sensor is _preferred_ as the primary source using [ASPD_PRIMARY](../advanced_config/parameter_reference.md#ASPD_PRIMARY), where `1`, `2` and `3` reflect the order in which the airspeed sensors were started:
+Якщо у вас є кілька датчиків швидкості повітря, то ви можете вибрати, який датчик є _перевідний_ як основне джерело, використовуючи [ASPD_PRIMARY](../advanced_config/parameter_reference.md#ASPD_PRIMARY), де `1`, `2` та `3` відображають порядок запуску датчиків швидкості повітря:
 
-- `0`: Synthetic airspeed estimation (groundspeed minus windspeed)
-- `1`: First airspeed sensor started (default)
-- `2`: Second airspeed sensor started
-- `3`: Third airspeed sensor started
+- `0`: Синтетична оцінка швидкості повітря (швидкість на землі мінус швидкість вітру)
+- `1`: Перший датчик швидкості повітря запущено (за замовчуванням)
+- `2`: Другий датчик швидкості повітря запущено
+- `3`: Третій датчик швидкості повітря запущено
 
-The airspeed selector validates the indicated sensor _first_ and only falls back to other sensors if the indicated sensor fails airspeed checks ([ASPD_DO_CHECKS](../advanced_config/parameter_reference.md#ASPD_DO_CHECKS) is used to configure the checks).
+Селектор швидкості повітря перевіряє вказаний датчик _спочатку_ і лише переходить до інших датчиків, якщо вказаний датчик не проходить перевірку швидкості повітря ([ASPD_DO_CHECKS](../advanced_config/parameter_reference.md#ASPD_DO_CHECKS) використовується для налаштування перевірок).
 
-The selected sensor is then used to [supply data to the estimator (EKF2)](../advanced_config/tuning_the_ecl_ekf.md#airspeed) and the controllers.
+Вибраний датчик потім використовується для [постачання даних оцінювачу (EKF2)](../advanced_config/tuning_the_ecl_ekf.md#airspeed) та контролерам.
 
-### Sensor-specific Configuration
+### Налаштування датчика
 
-Other than enabling the sensor, sensor-specific configuration is often not required. If it is needed, it should be covered in the appropriate sensor page (for example [TFSLOT > Configuration](airspeed_tfslot.md#configuration)).
+Крім активації датчика, часто не потрібна конфігурація, специфічна для датчика. Якщо це потрібно, це повинно бути охоплено на відповідній сторінці сенсора (наприклад [TFSLOT > Configuration](airspeed_tfslot.md#configuration)).
 
-The specific configuration for sensors that do not have a separate page is listed below:
+Конкретна конфігурація для датчиків, які не мають окремої сторінки, перерахована нижче:
 
-- **Sensirion SDP3X:** [CAL_AIR_CMODEL](../advanced_config/parameter_reference.md#CAL_AIR_CMODEL) (provides overview of required settings), [CAL_AIR_TUBED_MM](../advanced_config/parameter_reference.md#CAL_AIR_TUBED_MM), [CAL_AIR_TUBELEN](../advanced_config/parameter_reference.md#CAL_AIR_TUBELEN).
+- **Sensirion SDP3X:** [CAL_AIR_CMODEL](../advanced_config/parameter_reference.md#CAL_AIR_CMODEL) (надає огляд необхідних налаштувань), [CAL_AIR_TUBED_MM](../advanced_config/parameter_reference.md#CAL_AIR_TUBED_MM), [CAL_AIR_TUBELEN](../advanced_config/parameter_reference.md#CAL_AIR_TUBELEN).
 
-## Calibration
+## Калібрування
 
-Airspeed sensors should be calibrated by following the instructions: [Basic Configuration > Airspeed](../config/airspeed.md).
+Датчики швидкості повітря повинні бути калібровані відповідно до інструкцій: [Базова Конфігурація > Швидкість Повітря](../config/airspeed.md).
 
-## See Also
+## Дивіться також
 
-- [Using the ECL EKF > Airspeed](../advanced_config/tuning_the_ecl_ekf.md#airspeed)
-- [Airspeed drivers](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure) (source code)
-- [VTOL Without an Airspeed Sensor](../config_vtol/vtol_without_airspeed_sensor.md)
+- [Використання ECL EKF > Швидкість повітря](../advanced_config/tuning_the_ecl_ekf.md#airspeed)
+- [Драйвери швидкості повітря](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure) (вихідний код)
+- [VTOL з/без датчика швидкості повітря](../config_vtol/vtol_without_airspeed_sensor.md)
