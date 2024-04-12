@@ -1,6 +1,6 @@
 # Lumenier QAV-R 5" Racer (Pixracer)
 
-The Lumenier QAV-R 5" FPV Racing Quadcopter is a rigid, light, and fast FPV racer with removable arms. This topic provides full build and configuration instructions for using the frame with the *Pixracer* flight controller and *KISS 24A Race Edition* ESCs. It also provides information on the (optional) FPV setup.
+Lumenier QAV-R 5" FPV Гоночний квадрокоптер - це жорсткий, легкий та швидкий гоночний квадрокоптер FPV з від'ємними руками. Ця тема надає повні інструкції зі збірки та налаштування для використання рамки з контролером польоту *Pixracer* та регуляторами швидкості *KISS 24A Race Edition* ESCs. Також надає інформацію про (необов'язкове) налаштування FPV.
 
 Основна Інформація:
 
@@ -41,63 +41,63 @@ These parts cover the sending side for standard FPV 5.8GHz analog FM video. You 
 
 ## Assembling the Basic Frame
 
-I assembled the basic center plate and the arms like shown in this video between 09:25 and 13:26:
+Я зібрав основну центральну плату та руки, як показано у цьому відео між 09:25 та 13:26:
 
 @[youtube](https://youtu.be/7SIpJccXZjM)
 
-I mounted the four motors to the frame with the cables coming out towards the center of the frame. I used two of the longer motor screws that come with the frame for each motor and put them in the two holes which are further apart.
+Я закріпив чотири двигуни на рамі з кабелями, що виходять у напрямку центру рами. Я використав два з довших від винтів для мотора, які йдуть разом з рамою, для кожного мотора і вставив їх у дві отвори, які знаходяться далі один від одного.
 
 ## Building the Power Train
 
-The KISS ESCs are known for their good performance but they also come with two disadvantages:
+Регулятори швидкості KISS відомі своєю високою продуктивністю, але вони також мають два недоліки:
 
-- The software they use is not open source (unlike BLHeli)
-- There is no hardware package with pre-soldered wires and/or plugs (to my knowledge)
+- Використовуване програмне забезпечення не є відкритим джерелом (на відміну від BLHeli)
+- Немає апаратного пакету з попередньо припаяними дротами та/або вилками (наскільки мені відомо)
 
-This means we need to solder at least 6 joints on every ESC but it's still totally worth it.
+Це означає, що нам потрібно злити принаймні 6 з'єднань на кожному ESC, але це все ще повністю варте цього.
 
 :::tip
-Always tin both sides you want to connect with solder before actually soldering them together.
-This will make it a lot easier and it will be less likely to have cold soldering joints.
+Завжди припаюйте обидві сторони, які ви хочете з'єднати припоєм, перед тим як їх фактично паяти разом.
+Це зробить його набагато простіше, і ймовірність холодних припояних швів буде меншою.
 :::
 
 :::tip
-Make sure that you use an appropriate cable gauge for the power connections that transport the high current all the way from the battery to the motors.
-All signal cables can be very thin in comparison.
+Переконайтеся, що використовуєте відповідний калібр кабелю для живлення, який транспортує високий струм усім шляхом від батареї до двигунів.
+Всі сигнальні кабелі можуть бути дуже тонкими у порівнянні.
 :::
 
 :::tip
-Put heat shrink on the cables before you start soldering!
-Heatshrinking the ESCs, the power module and the free floating uninsulated wire soldering joints after a successful function test will protect them from dirt, moisture and physical damage.
+Поставте термоусадку на кабелі, перш ніж почнете паяти!
+Після успішного функціонального тесту термоусадження регуляторів швидкості, модуля живлення та вільно плаваючих незізольованих припоєних з'єднань захистить їх від бруду, вологи та фізичних пошкоджень.
 :::
 
-### Motors
+### Двигуни
 
-First I cut all three motor cables to directly fit when the ESCs are mounted on the arms shifted towards the center but still let enough slack to allow easy placement of the parts and not produce any tension on the cables. Then I soldered them in the order they come out of the motor to the output contacts of the ESCs which are oriented with the switching MOS-FETs facing upwards to get good air cooling during flight. Choosing this cable order resulted in all the motors spinning counter-clockwise in my tests and I switched where necessary the direction of rotation by bridging the dedicated [JP1 solder jumper](https://1.bp.blogspot.com/-JZoWC1LjLis/VtMP6XdU9AI/AAAAAAAAAiU/4dygNp0hpwc/s640/KISS-ESC-2-5S-24A-race-edition-32bit-brushless-motor-ctrl.jpg) to conform the [Quadrotor x configuration](../airframes/airframe_reference.md#quadrotor-x).
+Спочатку я відрізав всі три кабелі двигуна, щоб вони безпосередньо відповідали, коли регулятори швидкості монтуються на руки, зсунуті до центру, але все ще залишають достатньо вільного місця для легкого розміщення деталей і не створюють жодного напруження на кабелях. Потім я їх паяв у порядку, у якому вони виходять з мотора, на вихідні контакти регуляторів швидкості, які орієнтовані так, щоб перемикаючі MOS-FET-перетворювачі були спрямовані вгору для забезпечення хорошого охолодження повітрям під час польоту. Вибір цього кабеля призвів до того, що всі двигуни оберталися проти годинникової стрілки у моїх тестах, і я змінив напрямок обертання за необхідності, з'єднавши відповідний [паяльний перемичку JP1](https://1.bp.blogspot.com/-JZoWC1LjLis/VtMP6XdU9AI/AAAAAAAAAiU/4dygNp0hpwc/s640/KISS-ESC-2-5S-24A-race-edition-32bit-brushless-motor-ctrl.jpg) для відповідності конфігурації [Квадрокоптер x](../airframes/airframe_reference.md#quadrotor-x).
 
 ![Power motor connections](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-motor-connections.jpg)
 
 ### Power Module
 
-First I soldered the XT60 connector which comes with the frame to the labeled battery side of the *ACSP5 power module* that was shipped with the Pixracer and added the elco capacitor delivered with the power module with the correct polarity to the same side.
+Спочатку я зварив роз'єм XT60, який поставляється з рамою, на позначену бічну сторону акумулятора *модуля живлення ACSP5*, який був відправлений разом з Pixracer, і додав електролітичний конденсатор, який поставляється з модулем живлення з правильною полярністю на ту саму сторону.
 
 ![ACSP5 power module](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/acsp5_power_module.jpg)
 
-Now comes the tricky part. I soldered all four ESC voltage source + and - ports to the corresponding pad on the labeled ESC output side of the power module. Make sure to not have any cold solder joint here because the quad will not end up well with a loose connection in flight. Using the additional power distribution board of the frame would make the job a lot easier but also takes too much space on such a small frame...
+Тепер настає складна частина. Я зварив всі чотири порти напруги ESC + та - до відповідного патча на позначеному боці виходу ESC модуля живлення. Переконайтеся, що тут немає жодного холодного припою, оскільки квадрокоптер не завершиться добре з вільним з'єднанням у польоті. Використання додаткової плати розподілу потужності рами зробило би роботу набагато простіше, але також займає занадто багато місця на такій маленькій рамі...
 
 :::tip
-If you are also including the FPV parts don't forget to also solder your JST male power plug to the output side of the power module. You'll need it for your [FPV setup](#fpv-setup) later on.
+Якщо ви також включаєте частини FPV, не забудьте також припаяти свій чоловічий роз'єм живлення JST до вихідного боку модуля живлення. Вам знадобиться це для вашого [налаштування FPV](#fpv-setup) пізніше.
 :::
 
 ![Power module](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-module.jpg)
 
-### Signal Cables
+### Сигнальні кабелі
 
-I used thin cables with a standardized pin header connector which were cut in half for the ESC signal because this will allow easy plugging on the Pixracer pins later on. Only the labeled `PWM` port on the [KISS ESCs](https://1.bp.blogspot.com/-0huvLXoOygM/VtMNAOGkE5I/AAAAAAAAAiA/eNNuuySFeRY/s640/KISS-ESC-2-5S-24A-race-edition-32bit-brushless-motor-ctrl.jpg) is necessary for flying. They will be connected to the correct motor signal output of the pixracer. The `TLM` port is for ESC telemetry and I soldered them on for future use as the needed protocol is not currently supported by PX4.
+Я використовував тонкі кабелі зі стандартизованим роз'ємом заголовка шпильки, які були вирізані навпіл для сигналу ESC, оскільки це дозволить легко вставити їх на контакти Pixracer пізніше. Лише позначений порт `PWM` на [KISS ESCs](https://1.bp.blogspot.com/-0huvLXoOygM/VtMNAOGkE5I/AAAAAAAAAiA/eNNuuySFeRY/s640/KISS-ESC-2-5S-24A-race-edition-32bit-brushless-motor-ctrl.jpg) є необхідним для польоту. Вони будуть підключені до правильного вихідного сигналу двигуна pixracer. Порт `TLM` призначений для телеметрії ESC, і я їх припаяв для майбутнього використання, оскільки необхідний протокол наразі не підтримується PX4.
 
 ![Power ESC signals](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-esc-signals.jpg)
 
-I tested all ESC motor pairs and their rotation directions using a cheap PWM servo tester before proceeding further.
+Я протестував всі пари моторів ESC та їх напрямки обертання за допомогою дешевого тестера PWM серво до продовження.
 
 ![Motor test](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/motor-test.jpg)
 
@@ -106,51 +106,51 @@ I tested all ESC motor pairs and their rotation directions using a cheap PWM ser
 ## Connecting & Mounting Electronics
 
 :::tip
-Double check the pin assignment of every component you connect.
-Sadly not every hardware component out there is plug and play even if it may look like this at first glance.
+Перевірте подвійно призначення контактів кожного підключеного вами компонента.
+На жаль, не кожен апаратний компонент там є підключенням і грою, навіть якщо на перший погляд може здатися, що це так.
 :::
 
-You'll need the [hardware documentation of the Pixracer](../flight_controller/pixracer.md) for this step to find all needed connectors. I tried to route all the cables under the Pixracer board to have a clean build and save space for FPV camera and transmitter in the future.
+Для цього кроку вам знадобиться [технічна документація Pixracer](../flight_controller/pixracer.md), щоб знайти всі необхідні роз'єми. Я намагався прокласти всі кабелі під дошкою Pixracer, щоб мати чисту конструкцію та заощадити місце для камери FPV та передавача у майбутньому.
 
-I mounted the Pixracer using the nylon spacers and screws that get shipped with the QAV-R frame but **put some small O-rings** between the board and the spacers to add a bit of vibration dampening. Make sure to **not tighten the screws too much or little**, do it such that the board clearly touches both sides but is not clamped with any tension. The board should not dangle in any way but be slightly movable if you apply force to it with your fingers.
+Я змонтував Pixracer, використовуючи нейлонові прокладки та гвинти, які поставляються разом із рамою QAV-R, але **поклав кілька невеликих ущільнювачів O-кільців** між платою та прокладками, щоб додати трохи амортизації вібрацій. Переконайтеся, що ви **не затягуєте гвинти занадто сильно або слабко**, робіть це так, щоб дошка чітко доторкалася до обох сторін, але не була затиснута з будь-якою напругою. Дошка не повинна ніяк висіти, але трохи рухатися, якщо ви натиснете на неї пальцями.
 
 :::warning
-This can heavily influence the vibration noise level your gyroscope and accelerometer sensors measure during flight.
+Це може суттєво впливати на рівень шуму вібрації, який вимірюють датчики гіроскопа та акселерометра під час польоту.
 :::
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/mount-oring.jpg)
 
 ![Center connections](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/center-connections.jpg) ![Center overview](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/center-overview.jpg)
 
-### RC Receiver
+### Приймач RC
 
-I hooked up the FrSky S-BUS receiver using the cable shipped with the Pixracer but cut away the unnecessary cable branch.
+Я підключив приймач FrSky S-BUS за допомогою кабелю, відправленого з Pixracer, але відгалуження з непотрібним кабелем відрізав.
 
-For the smart telemetry port I used the cable shipping with the receiver. I removed all unnecessary pins from the connector using tweezers and switched the white loose end cable to the correct pin of the connector to have the "smart" signal connected. I then soldered the loose end to a cable fitting the FrSky port following this schematic:
+Для розумного порту телеметрії я використав кабель, який поставляється з приймачем. Я видалив усі непотрібні шпильки з роз'єму за допомогою пінцета і перемкнув білий вільний кінець кабелю на правильну шпильку роз'єму, щоб мати підключений сигнал "розумний". Потім я припаяв вільний кінець до кабельного вводу порту FrSky, дотримуючись цієї схеми:
 
 ![schematic](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
 
-I also skipped the ground (GND) pin because like the voltage supply positive pin it is already connected through the RCin S-BUS cable.
+Я також пропустив земельний (GND) контакт, оскільки, подібно до позитивного контакту живлення напруги, він вже підключений через кабель RCin S-BUS.
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/rc-receiver-connections.jpg)
 
 ### RC Antenna Mount
 
-To have a good RC link while not risking to have the antenna in the props I employed a rugged mount method using heat shrinks and zip ties.
+Щоб мати хороше з'єднання RC, не ризикуючи мати антену в гвинтах, я використовував метод міцного кріплення за допомогою термоусадки та затяжок.
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/rc-antenna-mount-material.jpg)
 
-For this method you cut the big end with the hole off the zip tie, put the rest together with the antenna cable through a long heat shrink and mount this to your frame spacers using a bigger but shorter heat shrink.
+Для цього методу ви відрізаєте великий кінець з отвором від застібки-ґудзика, складаєте решту разом з антенним кабелем через довгий термоусадку та монтуєте це на ваших рамних просторах, використовуючи більшу, але коротшу термоусадку.
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/rc-antenna-mount.jpg)
 
 ### ESC Signal
 
-For the ESC signals I followed the [hardware documentation of the Pixracer](../flight_controller/pixracer.md) and the [Quadrotor x configuration](../airframes/airframe_reference.md#quadrotor-x) motor numbering scheme. As we have no ground or positive BEC voltage connections we connect our `PWM` ESC signal cables each to its topmost pins of the corresponding output connector.
+Для сигналів ESC я дотримувався [апаратної документації Pixracer](../flight_controller/pixracer.md) та схеми нумерації моторів [Quadrotor x configuration](../airframes/airframe_reference.md#quadrotor-x). Оскільки у нас немає з'єднань землі або позитивного напруги BEC, ми підключаємо кабелі сигналу ESC `PWM` кожен до його верхніх контактів відповідного вихідного роз'єму.
 
 ### GPS / External Magnetometer
 
-I took the GPS cable which fits the connector of the used GPS and came with the Pixracer set. Sadly the pin assignment was completely wrong and I rewired the connector again using tweezers according to the [3DR Pixhawk Mini user manual](../flight_controller/pixhawk_mini.md#connector-pin-assignments-pin-outs) GPS port.
+Я взяв кабель GPS, який підходить до роз'єму використаного GPS і поставляється ​​з набором Pixracer. На жаль, призначення контакту було абсолютно неправильним, і я знову повторно використовував ханцерів згідно з [3DR Pixhawk посібник користувача](../flight_controller/pixhawk_mini.md#connector-pin-assignments-pin-outs) з GPS портом.
 
 #### Pixracer GPS/I2C Port
 
@@ -174,34 +174,34 @@ I took the GPS cable which fits the connector of the used GPS and came with the 
 | 5       | TX         | 4                       |
 | 6       | GND        | 1                       |
 
-I mounted the GPS module using the listed generic multicopter GPS mast because mounting it any closer to the main body made the magnetometer readings totally unusable. An experiment mounting the module directly to the far back of the top of the frame showed 6 times magnetometer magnitude noise most likely caused by the magnetic field of the ESC currents. Note that I shortened the mast by ~2cm to make it better fit the cable length and the frame dimensions. The GPS module is sticked with double sided tape to top plate of the mast.
+Я встановив модуль GPS, використовуючи перерахований загальний мультікоптерний стійку GPS, оскільки встановлення його ближче до основного корпусу зробило показання магнітометра абсолютно непридатними для використання. Експеримент, в якому модуль було прямо закріплено на далекому задньому краї рами, показав, що шум величини магнітометра в шість разів ймовірно спричинений магнітним полем струмів ESC. Зверніть увагу, що я скоротив мачту на ~2 см, щоб вона краще підходила за довжиною кабелю та розмірами рами. Модуль GPS приклеєний двостороннім скотчем до верхньої плити мачти.
 
-## FPV Setup
+## Налаштування FPV
 
-This are instruction for the optional 5.8GHz FPV live video transmission. You'll need the additional FPV parts listed at the beginning. The FPV transmission described here is electronically independent of the flight controller, it only takes the battery voltage after the power module.
+Це інструкція для необов'язкової передачі відео у реальному часі FPV на частоті 5,8 ГГц. Вам знадобляться додаткові частини FPV, перераховані в початковій частині. Трансляція FPV, описана тут, є електронно незалежною від контролера польоту, вона бере тільки напругу батареї після модуля живлення.
 
-I first did a bench test to make sure everything is working correctly. For this connect the video signal cable that comes with your transmitter and plug it to the back of your FPV camera and to the matching plug of the transmitter. Screw the  Then connect the JST power plug to your draft vehicle or to some other voltage source. The transmitter LED should light up. Use your 5.8GHz receiver device tuned in to the correct channel to check for the video. To configure the transmitter to an other channel and adjust the transmission power please refer to the [Tramp HV User Manual](https://www.immersionrc.com/?download=5016).
+Спочатку я зробив контрольний тест, щоб переконатися, що все працює правильно. Для цього підключіть кабель відеосигналу, який постачається разом з вашим передавачем, і підключіть його до задньої частини вашої FPV-камери та до відповідного роз'єму передавача. Закрутіть, а потім підключіть штекер живлення JST до вашого транспортного засобу або до іншого джерела напруги. Світлодіод передавача повинен загорітися. Використовуйте свій пристрій приймача 5,8 Ггц, налаштований на правильний канал, щоб перевірити відео. Щоб налаштувати передавач на інший канал і налаштувати потужність передачі, зверніться до [Посібника користувача Tramp HV](https://www.immersionrc.com/?download=5016).
 
 ![FPV wiring](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-wiring.jpg)
 
-Like you can see I mounted the transmitter from the inside to the "roof" of the frame using a ziptie. Always put a self sticking piece of foam in between when mounting electronics like this to avoid physical damage during flight. Make sure to place the transmitter such that the antenna connector fits to the dedicated hole of the frame.
+Як ви можете побачити, я закріпив передавач зсередини на "даху" рами, використовуючи затискач. Завжди вставляйте самоклеючий шматок піни між, коли монтуєте електроніку, як цю, щоб уникнути фізичних пошкоджень під час польоту. Переконайтеся, що передавач розташований таким чином, щоб роз'єм антени відповідав відведеній отвору рамки.
 
 ![Transmitter](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-tx.jpg)
 
-The magnificent FPV camera set in the part list comes not only with the best FPV lens I've seen so far but also includes multiple camera mounts one of which is very flexible for adjusting the camera angle and nicely fits into the QAV-R frame. I mounted it like you can see in the next picture. The two screws and nuts to lock the camera mount to the frame were taken from the spare ones remaining from the frame set.
+Величезна камера FPV, встановлена в частині списку, має не лише найкращий об'єктив FPV, який я бачив до цього, але також включає кілька кріплень для камери, одне з яких дуже гнучке для налаштування кута камери і гарно вписується в рамку QAV-R. Я змонтував це, як ви можете побачити на наступному зображенні. Два гвинти та гайки для фіксації кронштейну камери до рами були взяті з запасних, що залишилися від комплекту рами.
 
 ![Camera](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-cam.jpg)
 
-## PX4 Configuration
+## Налаштування PX4
 
-*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl* використовується для встановлення автопілота PX4 та його налаштування / налаштування для рами. [Завантажте та встановіть](http://qgroundcontrol.com/downloads/) *QGroundControl* для вашої платформи.
 
 :::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
+Повні інструкції щодо встановлення та налаштування PX4 можна знайти в [Основна конфігурація](../config/index.md).
 :::
 
 :::warning
-Always make sure to have either battery or propellers physically removed from your vehicle during any initial configuration.
+Завжди переконайтеся, що під час будь-якої початкової конфігурації вашого транспортного засобу або батарею, або гвинти фізично вилучено.
 Better safe than sorry!
 :::
 
@@ -239,6 +239,6 @@ Ideally you should also do:
 
 ### Tuning
 
-Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
+Набори вибору конструкції встановлюють параметри автопілота *за замовчуванням* для рами. Ці вистачають для польоту, але це добра ідея налаштувати параметри для конкретної конструкції рами.
 
 For instructions on how, start from [Autotune](../config/autotune.md).
