@@ -77,33 +77,33 @@ DShot має різні варіанти швидкості: _DShot150_, _DShot3
   dshot save -m 1
   ```
 
-  Retrieving ESC information after the `dshot reverse -m 1` command without the `dshot save -m 1` command will show:
+  Отримання інформації ESC після команди `dshot reverse -m 1` без команди `dshot save -m 1` покаже:
 
   ```
   Rotation Direction: reversed
   ```
 
-  after saving it with `dshot save -m 1` command, reversed direction will become new normal direction:
+  після збереження його за допомогою команди `dshot save -m 1`, зворотній напрямок стане новим звичайним напрямком:
 
   ```
   Rotation Direction: normal
   ```
 
-  To change direction again new `dshot reverse -m 1` command needs to be sent.
+  Щоб змінити напрямок знову, потрібно відправити нову команду `dshot reverse -m 1`.
 
 ## Телеметрія
 
-Some ESCs are capable of sending telemetry back to the flight controller, including:
+Деякі ESC можуть надсилати телеметрію до контролера польоту, включаючи:
 
 - температура
 - напруга
-- current
-- accumulated current consumption
-- RPM values
+- струм
+- накопичене поточне споживання
+- Значення RPM
 
 Ці DShot ESCs матимуть додатковий телеметрійний дріт.
 
-To enable this feature (on ESCs that support it):
+Щоб увімкнути цю функцію (на ESC, які її підтримують):
 
 1. Об'єднайте всі дроти телеметрії з усіх ESC разом, а потім підключіть їх до одного з контактів RX на не використаному порту послідовного зв'язку контролера польоту.
 1. Увімкніть телеметрію на цьому послідовному порту за допомогою [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG).
@@ -115,14 +115,14 @@ dshot esc_info -m 1
 ```
 
 :::tip
-You may have to configure [MOT_POLE_COUNT](../advanced_config/parameter_reference.md#MOT_POLE_COUNT) to get the correct RPM values.
+Можливо, вам доведеться налаштувати [MOT_POLE_COUNT](../advanced_config/parameter_reference.md#MOT_POLE_COUNT), щоб отримати правильні значення обертів на хвилину (RPM).
 :::
 
 :::tip
-Not all DSHOT-capable ESCs support `[esc_info]`(e.g. APD 80F3x), even when telemetry is supported and enabled. The resulting error is:
+Не всі ESC, які підтримують DSHOT, підтримують `[esc_info]` (наприклад, APD 80F3x), навіть коли підтримується телеметрія та ввімкнено. Отримана помилка:
 
 ```
-ERROR [dshot] No data received. If telemetry is setup correctly, try again.
+ERROR [dshot] No data received. Якщо телеметрія налаштована правильно, спробуйте ще раз.
 ```
 
 Перевірте документацію виробника для підтвердження/подробиць.
