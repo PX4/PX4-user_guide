@@ -1,20 +1,20 @@
-# Sensor Hardware & Setup
+# Апаратне забезпечення та налаштування датчика
 
-This section describes the mandatory and optional sensors and their setup/configuration.
+Цей розділ описує обов'язкові та необов'язкові датчики та їх налаштування/конфігурацію.
 
-## Overview
+## Загальний огляд
 
-PX4-based systems use sensors to estimate vehicle state, which is needed for stabilization and to enable autonomous control.
-Vehicle state information includes: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different directions, battery level, and so on.
+Системи на основі PX4 використовують датчики для оцінки стану транспортного засобу, що необхідно для стабілізації та увімкнення автономного керування.
+Інформація про стан транспортного засобу включає: позицію/висоту, курс, швидкість, швидкість польоту, орієнтацію (відносно чогось), швидкість обертання в різних напрямках, рівень заряду батареї тощо.
 
-PX4 _minimally requires_ a gyroscope, accelerometer, magnetometer (compass), and barometer to measure the above states.
-Fixed-wing and VTOL-vehicles _should_ also include an airspeed sensor.
-A GPS or other positioning system is needed to enable all automatic modes, and some manual/assisted modes.
+PX4 _мінімально потребує_ гіроскоп, акселерометр, магнетометр (компас) та барометр для вимірювання вищевказаних станів.
+Дрони літакового типу, а також апарати VTOL _повинні_ також включати датчик швидкості польоту.
+Для увімкнення усіх автоматичних режимів, а також деяких ручних/допоміжних режимів, потрібна GPS або інша позиційна система.
 
-[Pixhawk Series](../flight_controller/pixhawk_series.md) flight controllers already have the minimum set of sensors (other controller platforms often do too).
-Additional/external sensors can be attached to the controller — an external GPS and compass are recommended, along with an airspeed sensor for VTOL and Fixed wing vehicles.
+[Серія Pixhawk](../flight_controller/pixhawk_series.md) контролерів польоту вже має мінімальний набір сенсорів (часто також це мають і інші платформи контролерів).
+До контролера можна підключити додаткові/зовнішні датчики — рекомендовано зовнішній GPS та компас, а також датчик швидкості повітря для ВПП та літаків з фіксованим крилом.
 
-## Sensor Topics
+## Теми датчиків
 
 Mandatory (included in Pixhawk series FCs):
 
