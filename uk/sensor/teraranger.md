@@ -1,38 +1,38 @@
-# TeraRanger Rangefinders
+# Дальніміри TeraRanger
 
-TeraRanger provide a number of lightweight distance measurement sensor based on infrared Time-of-Flight (ToF) technology. They are typically faster and have greater range than sonar, and smaller and lighter than laser-based systems.
+TeraRanger надає ряд легких сенсорів вимірювання відстані на основі інфрачервоної технології часу польоту (ToF). Вони зазвичай швидші і мають більший діапазон, ніж ехолокатори, і менші та легші, ніж системи на основі лазера.
 
-PX4 supports:
+PX4 підтримує:
 
-- [TeraRanger Evo 60m](https://www.terabee.com/shop/lidar-tof-range-finders/teraranger-evo-60m/) (0.5 – 60 m)
-- [TeraRanger Evo 600Hz](https://www.terabee.com/shop/lidar-tof-range-finders/teraranger-evo-600hz/) (0.75 - 8 m)
+- [TeraRanger Evo 60м](https://www.terabee.com/shop/lidar-tof-range-finders/teraranger-evo-60m/) (0.5 – 60 м)
+- [TeraRanger Evo 600Гц](https://www.terabee.com/shop/lidar-tof-range-finders/teraranger-evo-600hz/) (0.75 - 8 м)
 
-::: info PX4 also supports _TeraRanger One_ (I2C adapter required). This has been discontinued.
+::: info PX4 також підтримує _TeraRanger One_ (необхідний адаптер I2C). Ця функція припинена.
 :::
 
-## Where to Buy
+## Де купити
 
 - TBD
 
-## Pinouts
+## Схема розташування виводів
 
-## Wiring
+## Підключення
 
-All TeraRanger sensors must be connected via the I2C bus.
+Усі сенсори TeraRanger повинні бути підключені через шину I2C.
 
-## Software Configuration
+## Конфігурація програмного забезпечення
 
-The sensors are enabled using the parameter [SENS_EN_TRANGER](../advanced_config/parameter_reference.md#SENS_EN_TRANGER) (you can set the type of sensor or that PX4 should auto-detect the type).
+Датчики увімкнені за допомогою параметра [SENS_EN_TRANGER](../advanced_config/parameter_reference.md#SENS_EN_TRANGER) (ви можете встановити тип датчика або те, що PX4 повинен автоматично визначити тип).
 
-::: info
-If using auto-detect for Evo sensors the minimum and maximum values for the range are set to the lowest and highest possible readings across the Evo family (currently 0.5 - 60 m).
-In order to use the correct max/min values the appropriate model of the Evo sensor should be set in the parameter (instead of using autodetect).
+:::note
+Якщо використовується автоматичне виявлення для датчиків Evo, мінімальні та максимальні значення діапазону встановлюються ​​на найнижчі та найвищі можливі показники у сім'ї Evo (наразі 0,5 - 60 м).
+Для використання правильних максимальних/мінімальних значень слід встановити відповідну модель датчика Evo в параметрі (замість автоматичного визначення).
 :::
 
 :::tip
-The driver for this rangefinder is usually present in firmware. If missing, you would also need to add the driver (`distance_sensor/teraranger`) to the board configuration.
+Драйвер для цього дальномера зазвичай присутній у вбудованому програмному забезпеченні. Якщо відсутній, вам також потрібно додати драйвер (`distance_sensor/teraranger`) до конфігурації плати.
 :::
 
-## Further Information
+## Додаткова інформація
 
-- [Modules Reference: Distance Sensor (Driver) : teraranger](../modules/modules_driver_distance_sensor.md#teraranger)
+- [Довідник модулів: Датчик відстані (Драйвер): teraranger](../modules/modules_driver_distance_sensor.md#teraranger)
