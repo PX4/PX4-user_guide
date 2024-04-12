@@ -81,45 +81,45 @@ PX4 не виробляє цей (або будь-який) автопілот.
 - RSSI (PWM чи voltage) вхід
 - I2C
 - SPI
-- 3.3 and 6.6V ADC inputs
-- Internal microUSB port and external microUSB port extension
+- 3.3 та 6.6V ADC входи
+- Внутрішній порт microUSB і розширення зовнішнього порту microUSB
 
 @[youtube](https://youtu.be/gCCC5A-Bvv4)
 
-### Power System and Protection
+### Система живлення та захист
 
-- Ideal diode controller with automatic failover
-- Servo rail high-power (max. 10V) and high-current (10A+) ready
-- All peripheral outputs over-current protected, all inputs ESD protected
+- Ідеальний діодний контролер з автоматичним перемиканням
+- Сервопривід високої потужності (max. 10V) і сильного струму (10A+)
+- Усі периферійні виводи захищені від перевантаження по струму, усі входи захищені від електростатичного розряду
 
-## Voltage Ratings
+## Номінальна напруга
 
-Pixhawk can be triple-redundant on the power supply if three power sources are supplied. The three rails are: Power module input, servo rail input, USB input.
+Pixhawk може мати потрійну резервність у джерелі живлення, якщо подаються три джерела живлення. Три шини: вхід модуля живлення, вхід сервоприводу, вхід USB.
 
-### Normal Operation Maximum Ratings
+### Максимальна напруга нормальної роботи
 
-Under these conditions all power sources will be used in this order to power the system
+За таких умов всі джерела живлення будуть використовуватися в цьому порядку для живлення системи
 
-- Power module input (4.8V to 5.4V)
-- Servo rail input (4.8V to 5.4V) **UP TO 10V FOR MANUAL OVERRIDE, BUT AUTOPILOT PART WILL BE UNPOWERED ABOVE 5.7V IF POWER MODULE INPUT IS NOT PRESENT**
-- USB power input (4.8V to 5.4V)
+- Вхід модуля живлення (4.8V to 5.4V)
+- Вхід сервоприводу (4.8V to 5.4V) **ДО 10V ДЛЯ РУЧНОГО ПЕРЕКЛЮЧЕННЯ, АЛЕ АВТОПІЛОТ БУДЕ ЗНЕЖИВЛЕНИЙ ВИЩЕ 5.7V, ЯКЩО ВХІД МОДУЛЯ ЖИВЛЕННЯ НЕ ПРИСУТНІЙ**
+- Вхід живлення USB (4.8V до 5.4V)
 
-### Absolute Maximum Ratings
+### Абсолютна максимальна напруга
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+За таких умов система не буде витрачати жодної потужності (не буде працювати), але залишиться неушкодженою.
 
-- Power module input (4.1V to 5.7V, 0V to 20V undamaged)
-- Servo rail input (4.1V to 5.7V, 0V to 20V)
-- USB power input (4.1V to 5.7V, 0V to 6V)
+- Вхід модуля живлення (4.1V до 5.7V, 0V до 20V неушкоджений)
+- Вхід сервоприводу (4.1V до 5.7V, 0V до 20V)
+- Вхід живлення USB (4.1V до 5.7V, 0V до 6V)
 
-## Schematics
+## Схеми
 
-[FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
+[Схема FMUv2 + IOv2](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Схема та макет
 
-::: info As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
+::: info Як дизайн Open Hardware з ліцензією CC-BY-SA 3.0, всі схеми та файли дизайну доступні [тут](https://github.com/PX4/Hardware).
 :::
 
-## Connections
+## З'єднання
 
 Pixhawk ports are shown below. These use Hirose DF13 connectors (predating the JST-GH connectors defined in the Pixhawk connector standard).
 
