@@ -1,25 +1,25 @@
-# Serial Port Configuration
+# Налаштування послідовного порту
 
-PX4 defines [default functions](#default-serial-port-configuration) for many flight controller ports, which is why you can plug a GPS module into the port labelled `GPS 1`, an RC receiver into `RC IN`, or a telemetry module into `TELEM 1`, and generally they will just work.
+PX4 визначає [типові функції](#default-serial-port-configuration) для багатьох портів керування польотом, тому ви можете підключити модуль GPS до порту з позначкою `GPS 1`, приймач RC до `RC IN`, або модуль телеметрії до `TELEM 1`, і, в цілому, вони просто працюватимуть.
 
-The functions assigned to ports are fully configurable using appropriate parameters (in most cases). You can assign any unused port to any function, or reassign a port to use it for something else.
+Функції, призначені для портів, повністю конфігуруються за допомогою відповідних параметрів (у більшості випадків). Ви можете призначити будь-який не використаний порт для будь-якої функції або перепризначити порт, щоб використовувати його для іншої цілі.
 
-The configuration makes it easy to (for example):
+Конфігурація дозволяє легко (наприклад):
 
-- Run MAVLink on a different port, change the streamed messages, or switch a TELEM port to use ROS 2/XRCE-DDS.
-- Change the baud rate on a port or set the UDP port
-- Setup dual GPS.
-- Enable sensors that run on a serial port, such as some [distance sensors](../sensor/rangefinders.md).
+- Виконайте MAVLink на іншому порту, змініть потокові повідомлення або перемкніть порт TELEM на використання ROS 2/XRCE-DDS.
+- Змініть швидкість передачі даних на порту або встановіть UDP-порт
+- Налаштування подвійного GPS.
+- Увімкніть датчики, які працюють через послідовний порт, такі як деякі [датчики відстані](../sensor/rangefinders.md).
 
-::: info
+:::info
 
-- Some ports cannot be configured because they are used for a very specific purpose such as the system console.
-- The mapping of specific devices to port names on the flight controller is explained in [Serial Port Mapping](../hardware/serial_port_mapping.md).
+- Деякі порти не можуть бути налаштовані, оскільки вони використовуються для дуже конкретної цілі, наприклад, для системної консолі.
+- Відображення конкретних пристроїв на назви портів на контролері польоту пояснено в [Відображення послідовного порту](../hardware/serial_port_mapping.md).
 :::
 
-## Configuration Parameters
+## Налаштування параметрів
 
-The serial port configuration parameters allow you to assign a particular function or support for particular hardware to a particular port. These parameters follow the naming pattern `*_CONFIG` or `*_CFG`
+Параметри конфігурації послідовного порту дозволяють вам призначити певну функцію або підтримку певного обладнання для конкретного порту. Ці параметри слідують за шаблоном найменування `*_CONFIG` або `*_CFG`
 
 ::: info _QGroundControl_ only displays the parameters for services/drivers that are present in firmware.
 :::
@@ -41,7 +41,7 @@ At time of writing the current set is:
 - Ultrawideband position sensor: [UWB_PORT_CFG](../advanced_config/parameter_reference.md#UWB_PORT_CFG)
 - DShot driver: [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG)
 
-Some functions/features may define additional configuration parameters, which will follow a similar naming pattern to the port configuration prefix. For example, `MAV_0_CONFIG` enables MAVLink on a particular port, but you may also need to set [MAV_0_FLOW_CTRL](../advanced_config/parameter_reference.md#MAV_0_FLOW_CTRL), [MAV_0_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FLOW_CTRL), [MAV_0_MODE](../advanced_config/parameter_reference.md#MAV_0_MODE) and so on.
+Деякі функції / можливості можуть визначати додаткові параметри конфігурації, які будуть містити схожий шаблон іменування до префіксу конфігурації порту. Наприклад, `MAV_0_CONFIG` дозволяє використовувати MAVLink на певному порту, але вам також може знадобитися встановити [MAV_0_FLOW_CTRL](../advanced_config/parameter_reference.md#MAV_0_FLOW_CTRL), [MAV_0_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FLOW_CTRL), [MAV_0_MODE](../advanced_config/parameter_reference.md#MAV_0_MODE) та інше.
 
 ## How to Configure a Port
 
