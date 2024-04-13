@@ -124,14 +124,14 @@ Pixhawk може мати потрійну резервність у джере�
 Порти Pixhawk показані нижче. Вони використовують роз’єми Hirose DF13 (передують роз’ємам JST-GH, визначеним у стандарті роз’ємів Pixhawk).
 
 :::warning
-Many 3DR Pixhawk clones use Molex picoblade connectors instead of DF13 connectors.
-They have rectangular instead of square pins, and cannot be assumed to be compatible.
+Багато клонів 3DR Pixhawk використовують роз’єми Molex picoblade замість роз’ємів DF13.
+Вони мають прямокутні штифти замість квадратних, і їх не можна вважати сумісними.
 :::
 
 ![Pixhawk Connectors](../../assets/flight_controller/pixhawk1/pixhawk_connectors.png)
 
 :::tip
-The `RC IN` port is for RC receivers only and provides sufficient power for that purpose. **NEVER** connect any servos, power supplies or batteries to it or to the receiver connected to it.
+Порт `RC IN` призначений лише для RC приймачів і забезпечує достатню потужність для цієї мети. **НІКОЛИ** не підключайте до нього або до підключеного приймача жодних сервоприводів, джерел живлення або батарей.
 :::
 
 ## Схема розташування виводів
@@ -160,7 +160,7 @@ The `RC IN` port is for RC receivers only and provides sufficient power for that
 
 #### SERIAL 4/5 port
 
-Due to space constraints two ports are on one connector.
+У зв'язку з обмеженням простору два порти знаходяться на одному роз'ємі.
 
 | Pin     | Сигнал  | Вольт |
 | ------- | ------- | ----- |
@@ -251,19 +251,19 @@ Due to space constraints two ports are on one connector.
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
-## Debug Ports
+## Відладочні порти
 
-### Console Port
+### Порт Консолі
 
-The [PX4 System Console](../debug/system_console.md) runs on the port labeled [SERIAL4/5](#serial-4-5-port).
+[Консоль системи PX4](../debug/system_console.md) працює на порту, позначеному [SERIAL4/5](#serial-4-5-port).
 
 :::tip
-A convenient way to connect to the console is to use a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation), as it comes with connectors that can be used with several different Pixhawk devices. Simply connect the 6-pos DF13 1:1 cable on the [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) to the Pixhawk `SERIAL4/5` port.
+Зручний спосіб підключення до консолі - скористатися [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation), оскільки він поставляється з роз'ємами, які можна використовувати з кількома різними пристроями Pixhawk. Просто під'єднайте кабель DF13 1:1 з 6-позиційним роз'ємом з [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) до порту Pixhawk `SERIAL4/5`.
 
 ![Dronecode probe](../../assets/flight_controller/pixhawk1/dronecode_probe.jpg)
 :::
 
-The pinout is standard serial pinout, designed to connect to a [3.3V FTDI](https://www.digikey.com/en/products/detail/TTL-232R-3V3/768-1015-ND/1836393) cable (5V tolerant).
+Розводка є стандартною послідовною розводкою, призначеною для підключення до кабелю [3.3V FTDI](https://www.digikey.com/en/products/detail/TTL-232R-3V3/768-1015-ND/1836393) (до 5V).
 
 | 3DR Pixhawk 1 |           | FTDI                    |
 | ------------- | --------- | ----------------------- |
@@ -274,32 +274,32 @@ The pinout is standard serial pinout, designed to connect to a [3.3V FTDI](https
 | 5             | S5 Rx     | 4    | FTDI TX (orange) |
 | 6             | GND       | 1    | FTDI GND (black) |
 
-The wiring for an FTDI cable to a 6-pos DF13 1:1 connector is shown in the figure below.
+Підключення кабелю FTDI до 6-контактного роз’єму DF13 1:1 показано на малюнку нижче.
 
 ![Console Connector](../../assets/flight_controller/pixhawk1/console_connector.jpg)
 
-The complete wiring is shown below.
+Повна проводка показана нижче.
 
 ![Console Debug](../../assets/flight_controller/pixhawk1/console_debug.jpg)
 
-::: info For information on how to _use_ the console see: [System Console](../debug/system_console.md).
+::: info Для отримання інформації про те, як _використовувати_ консоль, див: [Системна консоль](../debug/system_console.md).
 :::
 
 ### SWD Port
 
-The [SWD](../debug/swd_debug.md) (JTAG) ports are hidden under the cover (which must be removed for hardware debugging). There are separate ports for FMU and IO, as highlighted below.
+Порти [SWD](../debug/swd_debug.md) (JTAG) приховані під покриттям (яке треба зняти для налагодження апаратного забезпечення). Є окремі порти для FMU та IO, як показано нижче.
 
 ![Pixhawk SWD](../../assets/flight_controller/pixhawk1/pixhawk_swd.jpg)
 
-The ports are ARM 10-pin JTAG connectors, which you will probably have to solder. The pinout for the ports is shown below (the square markers in the corners above indicates pin 1).
+Порти являють собою 10-контактні роз’єми JTAG ARM, які вам, ймовірно, доведеться паяти. Схема контактів для портів показана нижче (квадратні маркери в кутах вище вказують на контакт 1).
 
 ![ARM 10-Pin connector pinout](../../assets/flight_controller/pixhawk1/arm_10pin_jtag_connector_pinout.jpg)
 
 ::: info
-All Pixhawk FMUv2 boards have a similar SWD port.
+Усі плати Pixhawk FMUv2 мають подібний порт SWD.
 :::
 
-## Building Firmware
+## Збірка прошивки
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
