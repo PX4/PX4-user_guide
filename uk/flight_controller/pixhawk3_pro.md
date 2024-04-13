@@ -1,21 +1,21 @@
-# Pixhawk 3 Pro (Discontinued)
+# Pixhawk 3 Pro (Знято з виробництва)
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store-drotek.com/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://store-drotek.com/) щодо питань технічної підтримки або відповідності вимогам.
 :::
 
-The Pixhawk<sup>&reg;</sup> 3 Pro is based on the FMUv4 hardware design (Pixracer) with some upgrades and additional features. The board was designed by [Drotek<sup>&reg;</sup>](https://drotek.com) and PX4.
+Pixhawk<sup>&reg;</sup> 3 Pro базується на апаратному дизайні FMUv4 (Pixracer) з деякими оновленнями та додатковими функціями. Плата була спроєктована [Drotek<sup>&reg;</sup>](https://drotek.com) і PX4.
 
 ![Pixhawk 3 Pro hero image](../../assets/hardware/hardware-pixhawk3_pro.jpg)
 
 ::: info
-The main hardware documentation is here: https://drotek.gitbook.io/pixhawk-3-pro/hardware
+Основна документація з апаратного забезпечення тут: https://drotek.gitbook.io/pixhawk-3-pro/hardware
 :::
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+Цей автопілот [підтримується](../flight_controller/autopilot_pixhawk_standard.md) командами підтримки та тестування PX4.
 :::
 
-## Quick Summary
+## Короткий опис
 
 - Microcontroller: **STM32F469**; Flash size is **2MiB**, RAM size is **384KiB**
 - **ICM-20608-G** gyro / accelerometer
