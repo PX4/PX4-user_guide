@@ -16,45 +16,45 @@
 
 ## Особливості
 
-- Open-source SiK firmware
-- Plug-n-play for Pixhawk Standard Flight Controller
-- Easiest way to connect your Autopilot and Ground Station
-- Interchangeable air and ground radio
-- Micro-USB port (Type-C Adapter Cable Included)
-- 6-position JST-GH connector
+- Відкрите програмне забезпечення SiK
+- Plug-n-play для стандартного контролера польоту Pixhawk
+- Найлегший спосіб підключити ваш автопілот та наземну станцію
+- Можливість взаємозамінності радіо на повітрі та на землі
+- Порт Micro-USB (кабель адаптера Type-C включено)
+- 6-позиційний роз'єм JST-GH
 
 ## Специфікація
 
-- 100 mW maximum output power (adjustable) -117 dBm receive sensitivity
-- RP-SMA connector
-- 2-way full-duplex communication through adaptive TDM UART interface
-- Transparent serial link
-- MAVLink protocol framing
-- Frequency Hopping Spread Spectrum (FHSS) Configurable duty cycle
-- Error correction corrects up to 25% of bit errors Open-source SIK firmware
-- Configurable through Mission Planner & APM Planner
-- FT230X USB to BASIC UART IC
+- Максимальна вихідна потужність 100 мВт (налаштовувана) -117 дБм чутливість прийому
+- РП-SMA роз'єм
+- Двосторонній повний дуплексний зв'язок через адаптивний інтерфейс TDM UART
+- Прозоре послідовне посилання
+- Формування протоколу MAVLink
+- Частотно-перестроювана розподілена спектральна модуляція (FHSS) Налаштований цикл роботи
+- Корекція помилок виправляє до 25% помилок бітів Відкрите програмне забезпечення SIK
+- Налаштовується через Mission Planner & APM Planner
+- FT230X USB на BASIC UART IC
 
 ## Стан індикатора світлодіодів
 
-The radios have 2 status LEDs, one red and one green. The interpretation of the different LED states are:
+Радіоприймачі мають 2 індикатори стану, один червоний і один зелений. Інтерпретація різних станів світлодіодів:
 
-- Green LED blinking - searching for another radio
+- Зелений світлодіод мигає - шукає інший радіо
 - Green LED solid - link is established with another radio
 - Red LED flashing - transmitting data
 - Red LED solid - in firmware update mode
 
 <img src="../../assets/hardware/telemetry/holybro_sik_telemetry_label.jpg" width="500px" title="Pixhawk5x Upright Image" />
 
-## Connecting to Flight Controller
+## Підключення до Політного Контролера
 
-Use the 6 pin JST-GH connector that come with the radio to connect the radio to your flight controller's `TELEM1` port (`TELEM2` can also be used but the default recommendation is `TELEM1`).
+Використовуйте 6-контактний роз'єм JST-GH, який поставляється з радіо, щоб підключити радіо до порту `TELEM1` вашого контролера польоту (можна також використовувати `TELEM2`, але рекомендація за замовчуванням - `TELEM1`).
 
-## Connecting to a PC or Ground Station
+## Підключення до ПК або Наземної станції
 
-Connecting the radio to your Windows PC or Ground Station is as simple as connecting the micro/type-C USB cable (Type-C adapter included with the radio) to your PC/Ground Station.
+Підключення радіо до вашого ПК з Windows або станції землі є настільки простим, як підключення кабелю USB мікро/типу-C (адаптер Type-C включений до радіо) до вашого ПК/станції землі.
 
-The necessary drivers should be installed automatically and the radio will appear as a new “USB Serial Port” in the Windows Device Manager under Ports (COM & LPT). The Mission Planner's COM Port selection drop-down should also contain the same new COM port.
+Необхідні драйвери повинні бути встановлені автоматично, і радіо з'явиться як новий «USB-серійний порт» в диспетчері пристроїв Windows у розділі Порти (COM &  LPT). Випадаючий список вибору порту COM планувальника місій також повинен містити той самий новий порт COM.
 
 ## Пакет включає
 
