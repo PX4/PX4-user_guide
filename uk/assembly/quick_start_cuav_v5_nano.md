@@ -1,15 +1,15 @@
-# CUAV V5 nano Wiring Quick Start
+# Швидке підключення CUAV V5 nano
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який інший) автопілот. Звертайтесь до [виробника](https://store.cuav.net/) щодо питань апаратного забезпечення або питань відповідності.
 :::
 
-This quick start guide shows how to power the [CUAV V5 nano](../flight_controller/cuav_v5_nano.md) flight controller and connect its most important peripherals.
+Цей швидка інструкція показує, як живити польовий контролер [CUAV V5 nano](../flight_controller/cuav_v5_nano.md) та під'єднати його найважливіші периферійні пристрої.
 
 ![Nano Hero Image](../../assets/flight_controller/cuav_v5_nano/v5_nano_01.png)
 
-## Wiring Chart Overview
+## Огляд схеми підключення
 
-The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
+На зображенні нижче показано, як під'єднати найважливіші датчики та периферійні пристрої (за винятком виходів мотора та сервоприводів). We'll go through each of these in detail in the following sections.
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_02.png)
 
