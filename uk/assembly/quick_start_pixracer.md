@@ -1,13 +1,13 @@
 # Pixracer Wiring Quick Start
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://store.mrobotics.io/) щодо питань технічної підтримки або відповідності вимогам.
 :::
 
 :::warning
-Under construction
+У процесі будівництва
 :::
 
-This quick start guide shows how to power the [Pixracer](../flight_controller/pixracer.md) flight controller and connect its most important peripherals.
+Цей швидкий старт показує, як живити польовий контролер [Pixracer](../flight_controller/pixracer.md) та підключити його найважливіші периферійні пристрої.
 
 <img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
 
