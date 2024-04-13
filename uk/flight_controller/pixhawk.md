@@ -121,7 +121,7 @@ Pixhawk може мати потрійну резервність у джере�
 
 ## З'єднання
 
-Pixhawk ports are shown below. These use Hirose DF13 connectors (predating the JST-GH connectors defined in the Pixhawk connector standard).
+Порти Pixhawk показані нижче. Вони використовують роз’єми Hirose DF13 (передують роз’ємам JST-GH, визначеним у стандарті роз’ємів Pixhawk).
 
 :::warning
 Many 3DR Pixhawk clones use Molex picoblade connectors instead of DF13 connectors.
