@@ -11,7 +11,7 @@ PX4 не виробляє цей (або будь-який) автопілот.
 
 Автопілот _3DR Pixhawk<sup>&reg;</sup> 1_ є популярним універсальним політним контролером на основі відкритого апаратного дизайну [Pixhawk-project](https://pixhawk.org/) **FMUv2** (він поєднує функціональність PX4FMU + PX4IO). Він виконує PX4 на ОС [NuttX](https://nuttx.apache.org/).
 
-![Pixhawk Image](../../assets/hardware/hardware-pixhawk.png)
+![Зображення Pixhawk](../../assets/hardware/hardware-pixhawk.png)
 
 Інструкції зі збирання/налаштування для використання з PX4 наведено тут: [Швидкий старт з підключення Pixhawk](../assembly/quick_start_pixhawk.md)
 
@@ -128,7 +128,7 @@ Pixhawk може мати потрійну резервність у джере�
 Вони мають прямокутні штифти замість квадратних, і їх не можна вважати сумісними.
 :::
 
-![Pixhawk Connectors](../../assets/flight_controller/pixhawk1/pixhawk_connectors.png)
+![Конектори Pixhawk](../../assets/flight_controller/pixhawk1/pixhawk_connectors.png)
 
 :::tip
 Порт `RC IN` призначений лише для RC приймачів і забезпечує достатню потужність для цієї мети. **НІКОЛИ** не підключайте до нього або до підключеного приймача жодних сервоприводів, джерел живлення або батарей.
@@ -276,7 +276,7 @@ Pixhawk може мати потрійну резервність у джере�
 
 Підключення кабелю FTDI до 6-контактного роз’єму DF13 1:1 показано на малюнку нижче.
 
-![Console Connector](../../assets/flight_controller/pixhawk1/console_connector.jpg)
+![Конектор консолі](../../assets/flight_controller/pixhawk1/console_connector.jpg)
 
 Повна проводка показана нижче.
 
@@ -293,7 +293,7 @@ Pixhawk може мати потрійну резервність у джере�
 
 Порти являють собою 10-контактні роз’єми JTAG ARM, які вам, ймовірно, доведеться паяти. Схема контактів для портів показана нижче (квадратні маркери в кутах вище вказують на контакт 1).
 
-![ARM 10-Pin connector pinout](../../assets/flight_controller/pixhawk1/arm_10pin_jtag_connector_pinout.jpg)
+![Розводка 10-контактного роз'єму ARM](../../assets/flight_controller/pixhawk1/arm_10pin_jtag_connector_pinout.jpg)
 
 ::: info
 Усі плати Pixhawk FMUv2 мають подібний порт SWD.
@@ -302,25 +302,25 @@ Pixhawk може мати потрійну резервність у джере�
 ## Збірка прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно збирати цю прошивку! Вона попередньо зібрана й автоматично встановлюється _QGroundControl_ при підключенні відповідного апаратного забезпечення.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [ зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make px4_fmu-v2_default
 ```
 
-## Parts / Housings
+## Частини / Корпуси
 
-- **ARM MINI JTAG (J6)**: 1.27 mm 10pos header (SHROUDED), for Black Magic Probe: FCI 20021521-00010D4LF ([Distrelec](https://www.distrelec.ch/en/minitek-127-straight-male-pcb-header-surface-mount-rows-10-contacts-27mm-pitch-amphenol-fci-20021521-00010d4lf/p/14352308), [Digi-Key](https://www.digikey.com/en/products/detail/20021521-00010T1LF/609-4054-ND/2414951),) or Samtec FTSH-105-01-F-DV-K (untested) or Harwin M50-3600542 ([Digikey](https://www.digikey.com/en/products/detail/harwin-inc/M50-3600542/2264370) or [Mouser](http://ch.mouser.com/ProductDetail/Harwin/M50-3600542/?qs=%2fha2pyFadujTt%2fIEz8xdzrYzHAVUnbxh8Ki%252bwWYPNeEa09PYvTkIOQ%3d%3d))
-  - JTAG Adapter Option #1: [BlackMagic Probe](https://1bitsquared.com/products/black-magic-probe). Note, may come without cables (check with manufacturer). If so, you will need the **Samtec FFSD-05-D-06.00-01-N** cable ([Samtec sample service](https://www.samtec.com/products/ffsd-05-d-06.00-01-n) or [Digi-Key Link: SAM8218-ND](http://www.digikey.com/product-search/en?x=0&y=0&lang=en&site=us&KeyWords=FFSD-05-D-06.00-01-N)) or [Tag Connect Ribbon](http://www.tag-connect.com/CORTEXRIBBON10) and a Mini-USB cable.
-  - JTAG Adapter Option #2: [Digi-Key Link: ST-LINK/V2](https://www.digikey.com/product-detail/en/stmicroelectronics/ST-LINK-V2/497-10484-ND) / [ST USER MANUAL](http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/USER_MANUAL/DM00026748.pdf), needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/en/products/detail/texas-instruments/MDL-ADA2/1986451)
-  - JTAG Adapter Option #3: [SparkFun Link: Olimex ARM-TINY](http://www.sparkfun.com/products/8278) or any other OpenOCD-compatible ARM Cortex JTAG adapter, needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/en/products/detail/texas-instruments/MDL-ADA2/1986451)
+- **ARM MINI JTAG (J6)**: 1.27 mm 10pos header (SHROUDED), for Black Magic Probe: FCI 20021521-00010D4LF ([Distrelec](https://www.distrelec.ch/en/minitek-127-straight-male-pcb-header-surface-mount-rows-10-contacts-27mm-pitch-amphenol-fci-20021521-00010d4lf/p/14352308), [Digi-Key](https://www.digikey.com/en/products/detail/20021521-00010T1LF/609-4054-ND/2414951)) or Samtec FTSH-105-01-F-DV-K (untested) or Harwin M50-3600542 ([Digikey](https://www.digikey.com/en/products/detail/harwin-inc/M50-3600542/2264370) or [Mouser](http://ch.mouser.com/ProductDetail/Harwin/M50-3600542/?qs=%2fha2pyFadujTt%2fIEz8xdzrYzHAVUnbxh8Ki%252bwWYPNeEa09PYvTkIOQ%3d%3d))
+  - JTAG Adapter Option #1: [BlackMagic Probe](https://1bitsquared.com/products/black-magic-probe). Зверніть увагу, що може поставлятися без кабелів (перевірте у виробника). Якщо так, вам знадобиться кабель **Samtec FFSD-05-D-06.00-01-N** ([Samtec sample service](https://www.samtec.com/products/ffsd-05-d-06.00-01-n) або [Digi-Key Link: SAM8218-ND](http://www.digikey.com/product-search/en?x=0&y=0&lang=en&site=us&KeyWords=FFSD-05-D-06.00-01-N)) або [Tag Connect Ribbon](http://www.tag-connect.com/CORTEXRIBBON10) та кабель Mini-USB.
+  - JTAG Adapter Option #2: [Digi-Key Link: ST-LINK/V2](https://www.digikey.com/product-detail/en/stmicroelectronics/ST-LINK-V2/497-10484-ND) / [ST USER MANUAL](http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/USER_MANUAL/DM00026748.pdf), потрібен адаптер ARM Mini JTAG до 20pos: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/en/products/detail/texas-instruments/MDL-ADA2/1986451)
+  - JTAG Adapter Option #3: [SparkFun Link: Olimex ARM-TINY](http://www.sparkfun.com/products/8278) або будь-який інший адаптер JTAG ARM Cortex, сумісний з OpenOCD, потребує адаптера ARM Mini JTAG на 20 контактів: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/en/products/detail/texas-instruments/MDL-ADA2/1986451)
 - **USARTs**: Hirose DF13 6 pos ([Digi-Key Link: DF13A-6P-1.25H(20)](https://www.digikey.com/products/en?keywords=H3371-ND))
   - Mates: Hirose DF13 6 pos housing ([Digi-Key Link: Hirose DF13-6S-1.25C](https://www.digikey.com/products/en?keywords=H2182-ND))
-- **I2C and CAN**: Hirose DF13 4 pos ([Digi-Key Link: DF13A-4P-1.25H(20)](https://www.digikey.com/en/products/detail/hirose-electric-co-ltd/DF13A-4P-1-25H-20/530666) - discontinued)
+- **I2C і CAN**: Hirose DF13 4 pos ([Digi-Key Link: DF13A-4P-1.25H(20)](https://www.digikey.com/en/products/detail/hirose-electric-co-ltd/DF13A-4P-1-25H-20/530666) - знято з виробництва)
 
-## Supported Platforms / Airframes
+## Підтримувані платформи / шасі
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
+Будь-який мультикоптер / літак / наземна платформа чи човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus.
