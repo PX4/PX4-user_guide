@@ -101,6 +101,6 @@ PX4 підтримує захвати, які мають прості важел
 
    ![Gripper action mapping](../../assets/config/gripper/qgc_gripper_actions_joystick.png)
 
-1. Select `Gripper Open` and `Gripper Close` actions for your desired joystick buttons, as shown above.
+1. Виберіть дії `Gripper Open` та `Gripper Close` для бажаних кнопок джойстика, як показано вище.
 
 Ви можете протестувати дії, натиснувши на кнопки зіставлено і перевіривши спосіб пересування. Якщо захоплювач не рухається, як очікувалося, перевірте налаштування доставки пакета та відображення приводу.
