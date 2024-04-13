@@ -9,47 +9,47 @@
 
 Цей швидкий старт показує, як живити польовий контролер [Pixracer](../flight_controller/pixracer.md) та підключити його найважливіші периферійні пристрої.
 
-<img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
+<img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 сірий" />
 
-## Wiring Guides/Assembly
+## Посібники з підключення/монтажу
 
-![Grau pixracer double](../../assets/flight_controller/pixracer/grau_pixracer_double.jpg)
+![Сірий pixracer подвійний](../../assets/flight_controller/pixracer/grau_pixracer_double.jpg)
 
-### Main Setup
+### Основне Налаштування
 
-![Grau setup pixracer top](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
+![Налаштування Grau pixracer зверху](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
 
-![Grau setup pixracer bottom](../../assets/flight_controller/pixracer/grau_setup_pixracer_bottom.jpg)
+![Налаштування Grau pixracer знизу](../../assets/flight_controller/pixracer/grau_setup_pixracer_bottom.jpg)
 
-### Radio/Remote Control
+### Радіо/Дистанційне Управління
 
-A remote control (RC) radio system is required if you want to _manually_ control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+Для _ручного_ керування вашим апаратом потрібна система дистанційного керування радіо (RC) (PX4 не вимагає наявності системи радіо для автономних режимів польоту).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then _bind_ them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+Вам буде потрібно [вибрати сумісний передавач/приймач](../getting_started/rc_transmitter_receiver.md) та потім _зв'язати_ їх, щоб вони взаємодіяли (прочитайте інструкції, що додаються до вашого конкретного передавача/приймача).
 
-The instructions below show how to connect the different types of receivers:
+Нижче наведено інструкції з підключення різних типів приймачів:
 
-- FrSky receivers connect via the port shown, and can use the provided I/O Connector.
+- Приймачі FrSky підключаються через показаний порт і можуть використовувати наданий роз'єм введення/виведення.
 
-  ![Grau b Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
+  ![З'єднання Grau b Pixracer з FrSkyS.Port](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
 
-  ![Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.jpg)
+  ![З'єднання Pixracer з FrSkyS.Port](../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.jpg)
 
-- PPM-SUM and S.BUS receivers connect to the **RCIN** port.
+- Приймачі PPM-SUM та S.BUS підключаються до порту **RCIN**.
 
-  ![Radio Connection](../../assets/flight_controller/pixracer/grau_setup_pixracer_radio.jpg)
+  ![Підключення радіо](../../assets/flight_controller/pixracer/grau_setup_pixracer_radio.jpg)
 
-- PPM and PWM receivers that have an _individual wire for each channel_ must connect to the **RCIN** port _via a PPM encoder_ [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+- PPM та PWM приймачі, які мають _окремий дріт для кожного каналу_, повинні підключатися до порту **RCIN** _через PPM перетворювач_ [на зразок цього](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum приймачі використовують єдиний сигнальний дріт для всіх каналів).
 
-### Power Module (ACSP4)
+### Модуль потужності (ACSP4)
 
 ![Grau ACSP4 2 roh](../../assets/flight_controller/pixracer/grau_acsp4_2_roh.jpg)
 
-### External Telemetry
+### Зовнішня телеметрія
 
-Pixracer has inbuilt WiFi, but also supports telemetry via external Wi-Fi or radio telemetry modules connected to the `TELEM1` or `TELEM2` ports. This is shown in the wiring diagram below.
+Pixracer має вбудований WiFi, але також підтримує телеметрію через зовнішні модулі Wi-Fi або радіо телеметрії, підключені до портів `TELEM1` або `TELEM2`. Це показано на схемі підключення нижче.
 
-![Pixracer external telemtry options](../../assets/flight_controller/pixracer/pixracer_top_telemetry.jpg)
+![Зовнішні варіанти телеметрії для Pixracer](../../assets/flight_controller/pixracer/pixracer_top_telemetry.jpg)
 
-::: info The `TELEM2` port must be configured as a second MAVLink instance using the [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) parameter. For more information see [MAVLink Peripherals > MAVLink Instances](../peripherals/mavlink_peripherals.md#mavlink-instances) (and [Serial Port Configuration](../peripherals/serial_configuration.md)).
+::: info Порт `TELEM2` повинен бути налаштований як другий екземпляр MAVLink за допомогою параметра [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG). Для отримання додаткової інформації див. [Периферійні пристрої MAVLink > Екземпляри MAVLink](../peripherals/mavlink_peripherals.md#mavlink-instances) (і [Конфігурація послідовного порту](../peripherals/serial_configuration.md)).
 :::
