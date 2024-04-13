@@ -11,7 +11,7 @@
 - [ARK Electron Microhard Серійний Телеметрійний Радіо](../telemetry/ark_microhard_serial.md)
 - [Holybro Microhard P900 Телеметрійне Радіо](../telemetry/holybro_microhard_p900_radio.md)
 
-## Range Tradeoffs
+## Компроміси щодо дальності передачі
 
 Дальність передачі радіо залежить від кількох факторів, включаючи: швидкість передачі даних, вихідну потужність, режим, включено корекцію помилок передачі, включено шифрування, використання антени тощо.
 
@@ -26,38 +26,38 @@
 
 ## Конфігурація
 
-For convenience, radios are usually default-configured so that they can be used with PX4 and _QGroundControl_ out of the box.
+Для зручності радіостанції зазвичай налаштовані за замовчуванням так, що їх можна використовувати з PX4 та _QGroundControl_ без додаткових налаштувань.
 
-Developers can modify the configuration. The only "requirement" is that the: ground radio, air radio, PX4, and _QGroundControl_ must all be set to use the **same** baud rate (and of course each MAVLink system must have a unique System ID).
+Розробники можуть змінювати конфігурацію. Єдине "вимога" полягає в тому, що: земельне радіо, повітряне радіо, PX4 та _QGroundControl_ повинні бути налаштовані на використання **того самого** швидкості бод (і, звісно, кожна система MAVLink повинна мати унікальний ідентифікатор системи).
 
-### PX4 Configuration
+### Конфігурація PX4
 
-PX4 is configured to use `TELEM1` for telemetry radios, with a default baud rate of 57600. You can configure PX4 to use any other free serial port a different baud rate, by following the instructions in [MAVLink Peripherals](../peripherals/mavlink_peripherals.md).
+PX4 налаштований на використання `TELEM1` для телеметрійних радіо, з типовою швидкістю передачі 57600. Ви можете налаштувати PX4 для використання будь-якого іншого вільного послідовного порту з іншою швидкістю передачі даних, дотримуючись інструкцій у [MAVLink Периферійні пристрої](../peripherals/mavlink_peripherals.md).
 
-### QGroundControl Configuration
+### Налаштування QGroundControl
 
-QGroundControl autodetects a serial telemetry connection with the baud rate 57600.
+QGroundControl автоматично виявляє послідовне зв'язку телеметрії з швидкістю передачі даних 57600.
 
-For any other rate you will need to add a serial comms link that sets the rate that was used. See [Application Settings > Comms Links](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/settings_view.html).
+Для будь-якого іншого тарифу вам потрібно додати послідовне з'єднання, яке встановлює тариф, який був використаний. See [Налаштування додатку > Канали зв'язку](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/settings_view/settings_view.html).
 
-### Radio Configuration
+### Конфігурація радіо
 
-Microhard serial radios are configured using the _PicoConfig_ application (Windows only). This can be downloaded here: [PicoConfig-1.7.zip](https://arkelectron.com/wp-content/uploads/2021/04/PicoConfig-1.7.zip) (ARK Electron) or [picoconfig-1-10](https://docs.holybro.com/telemetry-radio/microhard-radio/download) (Holybro).
+Серійні радіоприймачі Microhard налаштовуються за допомогою програми _PicoConfig_ (лише для Windows). Це можна завантажити тут: [PicoConfig-1.7.zip](https://arkelectron.com/wp-content/uploads/2021/04/PicoConfig-1.7.zip) (ARK Electron) або [picoconfig-1-10](https://docs.holybro.com/telemetry-radio/microhard-radio/download) (Holybro).
 
-In point-to-point operating modes, there must be a master to provide network synchronization for the system, so one radio should be configured to PP master and another should be configured to PP remote.
+У режимах роботи «точка-точка» для забезпечення мережевої синхронізації системи має бути головний пристрій, тому один радіоприймач має бути налаштований на головний PP, а інший — на віддалений PP.
 
-The screen shots below show the default radio configuration settings for connecting to PX4 and _QGroundControl_.
+Знімки екрану нижче показують налаштування конфігурації радіо за замовчуванням для підключення до PX4 та _QGroundControl_.
 
 <img src="../../assets/hardware/telemetry/holybro_pico_config.png" width="400px" title="Holybro Pico Config" />
 <img src="../../assets/hardware/telemetry/holybro_pico_config1.png" width="400px" title="Holybro Pico Config" />
 
-The [Pico Series P900.Operating Manual.v1.8.7](https://github.com/PX4/PX4-user_guide/raw/main/assets/hardware/telemetry/Pico-Series-P900.Operating-Manual.v1.8.7.pdf) has additional information on radio configuration (including mesh and multipoint modes).
+Додаткову інформацію про конфігурацію радіо (включаючи мережеві та багатоточкові режими) містить [Посібник з експлуатації Pico Series P900 версії 1.8.7](https://github.com/PX4/PX4-user_guide/raw/main/assets/hardware/telemetry/Pico-Series-P900.Operating-Manual.v1.8.7.pdf).
 
-### Mesh and Multipoint Modes
+### Режими Mesh та Multipoint
 
-Mesh and point to multi-point modes are supported, but all vehicles must have a unique Mavlink ID.
+Підтримуються режими Mesh та point to multi-point, але всі транспортні засоби повинні мати унікальний ідентифікатор Mavlink.
 
 Додатково:
 
-- At the highest link rate, with no FEC, we can have 201 drones in one mesh system transmitting 80 bytes once a second.
-- You can have multiple networks working together at the same time without mutual interference using "co-located systems". For example, to deploy more than 500 vehicles you would need to deploy three P900 mesh coordinators, each serving up to 201 drones in their respective local networks.
+- На найвищій швидкості зв'язку, без FEC, ми можемо мати 201 дрона в одній мережі, що передає 80 байт один раз на секунду.
+- Ви можете мати кілька мереж, які працюють разом одночасно без взаємного втручання за допомогою "спільно розташованих систем". Наприклад, для розгортання більше ніж 500 транспортних засобів вам знадобиться розгорнути три координатори мережі P900, кожен з яких обслуговуватиме до 201 дронів у відповідних локальних мережах.
