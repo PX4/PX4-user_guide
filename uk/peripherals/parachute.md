@@ -1,87 +1,87 @@
-# Parachute
+# Парашут
 
-PX4 can be configured to trigger a parachute during [flight termination](../advanced_config/flight_termination.md).
+PX4 може бути налаштований для спрацювання парашута під час [припинення польоту](../advanced_config/flight_termination.md).
 
-The parachute can be connected to a free PWM output or via MAVLink.
+Парашут може бути підключений до вільного виходу ШІМ або за допомогою MAVLink.
 
-::: info During flight termination PX4 turns off all controllers and sets all PWM outputs to their failsafe values (including those connected to PWM outputs) and triggers any connected MAVLink parachutes.
+::: info Під час припинення польоту PX4 вимикає всі контролери та встановлює всі вихідні PWM в їхні значення аварійної ситуації (включаючи ті, що підключені до вихідних PWM) та спрацьовує будь-які підключені парашути через MAVLink.
 
-You can therefore use this feature to activate multiple complementary safety devices connected to different outputs. For more information see [Flight Termination Configuration](../advanced_config/flight_termination.md).
+Отже, ви можете використовувати цю функцію для активації кількох додаткових пристроїв безпеки, підключених до різних виходів. Для додаткової інформації дивіться [Конфігурація припинення польоту](../advanced_config/flight_termination.md).
 :::
 
-## Using Parachutes
+## Використання Парашутів
 
-Below are a few considerations when using parachutes:
+Нижче наведено кілька важливих моментів при використанні парашутів:
 
-- A parachute does not guarantee that the vehicle will not be destroyed or cause harm! You must always fly with safety in mind.
-- Parachutes require careful usage to be effective. For example, they must be folded correctly.
-- Parachutes have a minimum effective altitude.
-- A parachute may trigger while the vehicle is upside down. This will increase the time required to slow, and may result in the drone collapsing the parachute.
-- The parachute will only deploy if the flight controller is powered and PX4 is running properly (unless it is triggered independently of PX4). It will not deploy if something causes the flight stack to crash.
+- Парашут не гарантує, що транспортний засіб не буде знищений або не завдасть шкоди! Ви завжди повинні літати з урахуванням безпеки.
+- Парашути потребують обережного використання для ефективності. Наприклад, їх треба правильно складати.
+- Парашути мають мінімальну ефективну висоту.
+- Парашут може спрацювати, коли транспортний засіб перевернутий. Це збільшить час, необхідний для сповільнення, і може призвести до того, що дрон зламає парашут.
+- Парашут розгортатиметься лише у випадку, якщо контролер польоту живлений та PX4 працює належним чином (якщо він не спрацьовує незалежно від PX4). Воно не буде розгортатися, якщо щось спричинить аварію стеку польоту.
 
-## Parachute Setup
+## Налаштування парашута
 
-Flight termination (and hence parachute deployment) may be triggered by safety checks such as RC Loss, geofence violation, and so on, from attitude triggers and other failure detector checks, or by a command from a ground station. During flight termination PX4 sets PWM outputs to their "failsafe" values (failsafe values turn off motors, but may be used to turn on/trigger the parachute). If a MAVLink parachute is connected and healthy, a command will be sent to activate it.
+Припинення польоту (і відповідно розгортання парашута) може бути спровоковане перевірками безпеки, такими як Втрата RC, порушення геозахисту та іншими, від тригерів ставлення та інших перевірок виявлення відмов або командою з земної станції. Під час припинення польоту PX4 встановлює вихідні сигнали ШІМ на їх "значення аварійної ситуації" (значення аварійної ситуації вимикають двигуни, але можуть бути використані для увімкнення/спрацювання парашуту). Якщо підключено та працює парашут MAVLink, буде відправлено команду на його активацію.
 
-Parachute setup therefore involves:
+Підготовка парашута передбачає наступне:
 
-- Configuring [flight termination](../advanced_config/flight_termination.md) as the appropriate action for those safety and failure cases where the parachute should be deployed.
-- Configure PX4 to deploy the parachute during flight termination (set PWM output levels appropriately or send the MAVLink parachute deploy command).
-- Configure PX4 output levels to disable motors on failsafe. This is the default so usually nothing is required (for servos it's the center value).
+- Налаштування [припинення польоту](../advanced_config/flight_termination.md) як відповідної дії для тих випадків безпеки та відмов, де повинен бути розгорнутий парашут.
+- Налаштуйте PX4 для розгортання парашуту під час завершення польоту (встановіть відповідні рівні виводу ШШШ або надішліть команду розгортання парашуту через MAVLink).
+- Налаштуйте рівні виводу PX4, щоб вимкнути двигуни у випадку аварії. Це типове значення, тому, як правило, нічого не потрібно (для сервоприводів це значення центру).
 
-### Enable Flight Termination
+### Увімкнути припинення польоту
 
-To enable flight termination:
+Для включення припинення польоту:
 
-- Set [Safety](../config/safety.md) action to _Flight termination_ for checks where you want the parachute to trigger.
-- Set [Failure Detector](../config/safety.md#failure-detector) pitch angles, roll angles and time triggers for crash/flip detection, and disable the failure/IMU timeout circuit breaker (i.e. set [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM)).
+- Встановіть [Безпеку](../config/safety.md) дії на _Припинення польоту_ для перевірок, де ви хочете, щоб парашут спрацював.
+- Встановіть кути нахилу детектора відмов [Failure Detector](../config/safety.md#failure-detector), кути крена та викидання та тригери часу для виявлення аварій / перекидань, та вимкніть вимикач аварійного / IMU тайм-ауту (тобто встановіть [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM)).
 
-::: info You can also configure an [external Automatic Trigger System (ATS)](../config/safety.md#external-automatic-trigger-system-ats) for failure detection.
+:::info Ви також можете налаштувати [зовнішню систему автоматичного спрацювання тригера (ATS)](../config/safety.md#external-automatic-trigger-system-ats) для виявлення відмов.
 :::
 
-### Parachute Output Bus Setup
+### Налаштування виводів на шині
 
-If the parachute is triggered by a PWM or CAN output then it must first be connected to an unused output. You will probably also need to separately power the parachute servo. This is might be done by connecting a 5V BEC to the Flight Controller servo rail, and powering the parachute from it.
+Якщо парашут спрацьовує через вихід PWM або CAN, то спочатку його слід підключити до не використаного виходу. Можливо, вам також доведеться окремо живити сервопривід парашута. Це може бути зроблено, підключивши 5V BEC до рейки сервоприводу керування польотом та живлячи парашут від нього.
 
-You then need to ensure that the parachute pin will be set to a value that will trigger the parachute when a failsafe occurs:
+Потім вам потрібно переконатися, що пін парашута буде встановлений на значення, яке спрацює, коли відбудеться аварійне відключення:
 
-- Open [Actuators](../config/actuators.md) in QGroundControl
-- Assign the _Parachute_ function to any unused output (below we set the `AUX6` output):
+- Відкрийте [Виконавчі пристрої](../config/actuators.md) в QGroundControl
+- Призначте функцію _Парашут_ для будь-якого не використаного виходу (нижче ми встановлюємо вихід `AUX6`):
 
   ![Actuators - Parachute (QGC)](../../assets/config/actuators/qgc_actuators_parachute.png)
 
-- Set appropriate PWM values for your parachute. The output is automatically set to the maximum PWM value when a failsafe is triggered.
+- Встановіть відповідні значення ШІМ для вашого парашута. Вихідна інформація автоматично встановлюється на максимальне значення ШШІ, коли відбувається аварійне відключення.
 
-  ::: info For the spring-loaded launcher from [Fruity Chutes](https://fruitychutes.com/buyachute/drone-and-uav-parachute-recovery-c-21/harrier-drone-parachute-launcher-c-21_33/) the minimum PWM value should be between 700 and 1000ms, and the maximum value between 1800 and 2200ms.
+  :::info Для пружинного запускача від [Fruity Chutes](https://fruitychutes.com/buyachute/drone-and-uav-parachute-recovery-c-21/harrier-drone-parachute-launcher-c-21_33/) мінімальне значення ШІМ повинно бути між 700 та 1000 мс, а максимальне значення між 1800 та 2200 мс.
 :::
 
-### MAVLink Parachute Setup
+### Налаштування парашута MAVLink
 
-PX4 will trigger a connected and healthy parachute on failsafe by sending the command [MAV_CMD_DO_PARACHUTE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_PARACHUTE) with the [PARACHUTE_RELEASE](https://mavlink.io/en/messages/common.html#PARACHUTE_ACTION) action.
+PX4 спрацює підключений та здоровий парашут у випадку відмови, відправивши команду [MAV_CMD_DO_PARACHUTE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_PARACHUTE) з дією [PARACHUTE_RELEASE](https://mavlink.io/en/messages/common.html#PARACHUTE_ACTION).
 
-MAVLink parachute support is enabled by setting the parameter [COM_PARACHUTE=1](../advanced_config/parameter_reference.md#COM_PARACHUTE). PX4 will then indicate parachute status using the [MAV_SYS_STATUS_RECOVERY_SYSTEM](https://mavlink.io/en/messages/common.html#MAV_SYS_STATUS_RECOVERY_SYSTEM) bit in the [SYS_STATUS](https://mavlink.io/en/messages/common.html#SYS_STATUS) extended onboard control sensors fields:
+Підтримка парашуту MAVLink увімкнена шляхом встановлення параметра [COM_PARACHUTE=1](../advanced_config/parameter_reference.md#COM_PARACHUTE). PX4 потім вказує стан парашута, використовуючи біт [MAV_SYS_STATUS_RECOVERY_SYSTEM](https://mavlink.io/en/messages/common.html#MAV_SYS_STATUS_RECOVERY_SYSTEM) у розширених полях датчиків керування на борту [SYS_STATUS](https://mavlink.io/en/messages/common.html#SYS_STATUS)
 
-- `SYS_STATUS.onboard_control_sensors_present_extended`: MAVLink parachute present (based on heartbeat detection).
+- `SYS_STATUS.onboard_control_sensors_present_extended`: За наявності серцебиття парашуту MAVLink (на основі виявлення серцебиття).
 - `SYS_STATUS.onboard_control_sensors_enabled_extended`: ?
-- `SYS_STATUS.onboard_control_sensors_health_extended`: MAVLink parachute healthy (based on heartbeat detection).
+- `SYS_STATUS.onboard_control_sensors_health_extended`: Здоров'я парашуту MAVLink (на основі виявлення серцебиття).
 
-A MAVLink parachute is required to emit a [HEARTBEAT](https://mavlink.io/en/messages/common.html#HEARTBEAT) with `HEARTBEAT.type` of [MAV_TYPE_PARACHUTE](https://mavlink.io/en/messages/common.html#MAV_TYPE_PARACHUTE).
+Для випускання [HEARTBEAT](https://mavlink.io/en/messages/common.html#HEARTBEAT) з `HEARTBEAT.type` рівним [MAV_TYPE_PARACHUTE](https://mavlink.io/en/messages/common.html#MAV_TYPE_PARACHUTE) потрібен парашут MAVLink.
 
 <!-- PX4 v1.13 support added here: https://github.com/PX4/PX4-Autopilot/pull/18589 -->
 
-## Parachute Testing
+## Тестування парашута
 
 :::warning
-For the first test, try on the bench, without the props and with an unloaded parachute device!
+Для першого тесту спробуйте на лавці, без підставок та з невантажним парашутним пристроєм!
 :::
 
-::: info
-There is no way to recover from a Termination state!
-You will need to reboot/power cycle the vehicle for subsequent tests.
+:::info
+Немає можливості відновлення після стану припинення!
+Перед тим, як знову використовувати транспортний засіб для наступних тестів.
 :::
 
-The parachute will trigger during [flight termination](../advanced_config/flight_termination.md).
+Парашут спрацює під час [припинення польоту](../advanced_config/flight_termination.md).
 
-The easiest way to test a (real) parachute is to enable the [failure detector attitude trigger](../config/safety.md#attitude-trigger) and tip the vehicle over.
+Найпростіший спосіб перевірити (справжній) парашут - увімкнути [вимикач виявлення відмови за тригером нахилу](../config/safety.md#attitude-trigger) та нахилити транспортний засіб.
 
-You can also simulate a parachute/flight termination: [Gazebo Classic > Simulated Parachute/Flight Termination](../sim_gazebo_classic/index.md#simulated-parachute-flight-termination).
+Ви також можете симулювати парашут/припинення польоту: [Gazebo Classic > Симулювання парашута/припинення польоту](../sim_gazebo_classic/index.md#simulated-parachute-flight-termination).
