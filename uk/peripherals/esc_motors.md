@@ -1,4 +1,4 @@
-# ESCs & Motors
+# ESCs & Двигуни
 
 Багато дронів PX4 використовують безшовні двигуни, які керуються контролером польотів через електронний контролер швидкості (ESC). ESC бере сигнал від контролера польоту і використовує його для встановлення рівня потужності, яка постачається до двигуна.
 
@@ -6,12 +6,12 @@ PX4 підтримує кілька поширених протоколів дл
 
 Для додаткової інформації дивіться:
 
-- [PWM ESCs and Servos](../peripherals/pwm_escs_and_servo.md)
-- [OneShot ESCs and Servos](../peripherals/oneshot.md)
+- [PWM ESCs та сервоприводи](../peripherals/pwm_escs_and_servo.md)
+- [OneShot ESCs та сервоприводи](../peripherals/oneshot.md)
 - [DShot](../peripherals/dshot.md)
 - [DroneCAN ESCs](../dronecan/escs.md)
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
+- [Калібрування ESC](../advanced_config/esc_calibration.md)
+- [Прошивки ESC та огляд протоколів](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
 
 Огляд високого рівня основних протоколів ESC/Servo, які підтримуються PX4, наведено нижче.
 
@@ -41,9 +41,9 @@ OneShot 125 - це те саме, що і PWM, але використовує �
 
 Установка:
 
-- [ESC Wiring](../peripherals/pwm_escs_and_servo.md) (same as for PWM ESCs)
+- [Підключення ЕСК](../peripherals/pwm_escs_and_servo.md) (таке ж, як для PWM ЕСК)
 - [Конфігурація PX4](../peripherals/oneshot.md#px4-configuration)
-- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [Калібрування ESC](../advanced_config/esc_calibration.md)
 
 ### DShot
 
@@ -55,7 +55,7 @@ OneShot 125 - це те саме, що і PWM, але використовує �
 
 Установка:
 
-- [ESC Wiring](../peripherals/pwm_escs_and_servo.md) (same as for PWM ESCs)
+- [Підключення ЕСК](../peripherals/pwm_escs_and_servo.md) (таке ж, як для PWM ЕСК)
 - [DShot](../peripherals/dshot.md) також містить інформацію про те, як відправляти команди тощо.
 
 ### DroneCAN
