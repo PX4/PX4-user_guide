@@ -41,12 +41,12 @@ PX4 інтегрується з апаратним засобом Remote ID, я�
 
 ![Cube ID serial port](../../assets/hardware/remote_id/cube_id/serial_port_connector.jpg)
 
-| Pin     | Signal   | Volt |
-| ------- | -------- | ---- |
-| 1 (red) | VCC_5V   | 5V   |
-| 2 (blk) | TX (OUT) |      |
-| 3 (blk) | RX (IN)  |      |
-| 4 (blk) | GND      | 0    |
+| Pin     | Сигнал   | Вольтаж |
+| ------- | -------- | ------- |
+| 1 (red) | VCC_5V   | 5V      |
+| 2 (blk) | TX (OUT) |         |
+| 3 (blk) | RX (IN)  |         |
+| 4 (blk) | GND      | 0       |
 
 #### Cube ID Firmware
 
@@ -68,7 +68,7 @@ PX4 інтегрується з апаратним засобом Remote ID, я�
 
 Модуль віддаленого ідентифікатора [Holybro Remote ID Module](https://holybro.com/products/remote-id)  може бути підключений за допомогою послідовного порту (DroneCAN не може бути використаний на момент написання: PX4 v1.14). Воно постачається з кабелем JST-GH 1.25 мм з 6 контактами, який можна підключити безпосередньо до портів `TELEM` на більшості останніх контролерів польоту Pixhawk, таких як Pixhawk 6C/6X або Cube Orange.
 
-The module comes preinstalled with recent [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID) firmware. The [User Guide](https://docs.holybro.com/radio/remote-id) explains how you can config and update firmware via the web interface, if needed.
+Модуль поставляється з встановленою заздалегідь останньою вбудованою програмною фірмою [ArduRemoteID](https://github.com/ArduPilot/ArduRemoteID). Керівництво користувача [User Guide](https://docs.holybro.com/radio/remote-id) пояснює, як ви можете налаштувати та оновити прошивку через веб-інтерфейс, якщо потрібно.
 
 #### Holybro Pinouts
 
