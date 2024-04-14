@@ -1,33 +1,33 @@
 # Advanced TECS Tuning (Weight and Altitude)
 
-This topic shows how you can compensate for changes to the [weight of the vehicle](#vehicle-weight-compensation) and the [air density](#air-density-compensation), along with information about the [algorithms](#weight-and-density-compensation-algorithms) that are used.
+Ця тема показує, як ви можете компенсувати зміни в [вагу транспортного засобу](#vehicle-weight-compensation) та [щільність повітря](#air-density-compensation), разом із інформацією про [алгоритми](#weight-and-density-compensation-algorithms), які використовуються.
 
 :::warning
-This topic requires that you have already performed [basic TECS tuning](../config_fw/position_tuning_guide_fixedwing.md#tecs-tuning-altitude-and-airspeed).
+Ця тема вимагає, щоб ви вже виконали [основне налаштування TECS](../config_fw/position_tuning_guide_fixedwing.md#tecs-tuning-altitude-and-airspeed).
 :::
 
-[Basic TECS tuning](../config_fw/position_tuning_guide_fixedwing.md#tecs-tuning-altitude-and-airspeed) established the key performance limitations of the vehicle that are required for the altitude and airspeed controller to function properly.
+[Основне налаштування TECS](../config_fw/position_tuning_guide_fixedwing.md#tecs-tuning-altitude-and-airspeed) встановило ключові обмеження продуктивності транспортного засобу, які необхідні для належної роботи контролера висоти та швидкості.
 
-While those limitations are specified using constant parameters, in reality vehicle performance is not constant and is affected by various factors.
-If changes in weight and air density are not taken into account, altitude and airspeed tracking will likely deteriorate in the case where the configuration (air density and weight) deviate significantly from the configuration at which the vehicle was tuned.
+Хоча ці обмеження вказані за допомогою постійних параметрів, насправді продуктивність транспортного засобу не є постійною і залежить від різних факторів.
+Якщо не враховувати зміни в вазі та густині повітря, відстеження висоти та швидкості повітря ймовірно погіршиться у випадку, коли конфігурація (густини повітря та ваги) значно відрізняється від конфігурації, при якій тюнінгувався транспортний засіб.
 
-## Vehicle Weight Compensation
+## Компенсація ваги транспортного засобу
 
-Set (both) the following parameters to scale the maximum climb rate, minimum sink rate, and adjust airspeed limits for weight:
+Встановіть (обидва) наступні параметри для масштабування максимальної швидкості підйому, мінімальної швидкості опускання та налаштування обмежень швидкості для ваги:
 
-- [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE) — the weight of the vehicle at which the [Basic TECS tuning](../config_fw/position_tuning_guide_fixedwing.md#tecs-tuning-altitude-and-airspeed) was performed.
-- [WEIGHT_GROSS](../advanced_config/parameter_reference.md#WEIGHT_BASE) — the actual weight of the vehicle at any given time, for example when using a larger battery, or with a payload that was not present during tuning.
+- [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE) — вага транспортного засобу, при якій було виконано [Основне налаштування TECS](../config_fw/position_tuning_guide_fixedwing.md#tecs-tuning-altitude-and-airspeed).
+- [ВАГА_БРУТТО](../advanced_config/parameter_reference.md#WEIGHT_BASE) — фактична вага транспортного засобу у будь-який момент часу, наприклад, при використанні більшого акумулятора або з вантажем, який не був присутній під час налаштування.
 
-You can determine the values by measuring the weight of the vehicle using a scale in the tuning configuration and when flying with a payload.
+Ви можете визначити значення, вимірюючи вагу транспортного засобу за допомогою ваги в налаштуванні настройки та під час польоту з вантажем.
 
-Scaling is performed when _both_ `WEIGHT_BASE` and `WEIGHT_GROSS` are greater than `0`, and will have no effect if the values are the same.
-See the [algorithms](#weight-and-density-compensation-algorithms) section below for more information.
+Масштабування виконується, коли _обидва_ `WEIGHT_BASE` та `WEIGHT_GROSS` більше `0`, і не матиме жодного впливу, якщо значення однакові.
+Дивіться розділ [алгоритми](#weight-and-density-compensation-algorithms) нижче для отримання додаткової інформації.
 
 ## Air Density Compensation
 
 ### Specify a Service Ceiling
 
-In PX4 the service ceiling [FW_SERVICE_CEIL](../advanced_config/parameter_reference.md#FW_SERVICE_CEIL) specifies the altitude in standard atmospheric conditions at which the vehicle is still able to achieve a maximum climb rate of 0.5 m/s at maximum throttle and weight equal to [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE).
+У PX4 службовий стелі [FW_SERVICE_CEIL](../advanced_config/parameter_reference.md#FW_SERVICE_CEIL) вказує висоту в стандартних атмосферних умовах, на якій транспортний засіб все ще може досягти максимальної швидкості підйому 0,5 м/с при максимальному режимі газу та вагою, рівною [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE).
 By default this parameter is disabled and no compensation will take place.
 
 This parameter needs to be determined experimentally.
@@ -37,7 +37,7 @@ It is always better to set a conservative value (lower value) than an optimistic
 
 The minimum sink rate is set in [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN).
 
-If the [Basic TECS tuning](../config_fw/position_tuning_guide_fixedwing.md#tecs-tuning-altitude-and-airspeed) was not done in standard sea level conditions then the [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) parameter must be modified by multiplying with correction factor $P$ (where $\rho$ is the air density during tuning):
+Якщо налаштування [Основного налаштування TECS](../config_fw/position_tuning_guide_fixedwing.md#tecs-tuning-altitude-and-airspeed) не було виконано в стандартних умовах рівня моря, тоді параметр [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) повинен бути змінений шляхом множення на корекційний фактор $P$ (де $\rho$ - густина повітря під час налаштування):
 
 $$P = \sqrt{\rho\over{\rho_{sealevel}}}$$
 
@@ -47,27 +47,27 @@ For more information see [Effect of Density on minimum sink rate](#effect-of-den
 
 The trim throttle is set using [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM).
 
-If basic tuning was not done in standard sealevel conditions then the value for [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM) must be modified by multiplying with correction factor $P$:
+Якщо базове налаштування не було виконано в стандартних умовах рівня моря, тоді значення для [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM) повинно бути змінено шляхом множення на корекційний фактор $P$:
 
 $$P = \sqrt{\rho\over{\rho_{sealevel}}}$$
 
-For more information see [Effect of Density on Trim Throttle](#effect-of-density-on-trim-throttle)
+Для отримання додаткової інформації див. [Ефект густини на обрізний регулятор](#effect-of-density-on-trim-throttle)
 
 ## Weight and Density Compensation Algorithms
 
-This section contains information about the scaling operations performed by PX4.
-This is provided for interest only, and may be of interest to developers who want to modify the scaling code.
+У цьому розділі міститься інформація про операції масштабування, виконані PX4.
+Це надається лише для цікавості, і може бути цікавим для розробників, які хочуть змінити код масштабування.
 
-### Notation
+### Записка
 
-In the following sections we will use the notation $\hat X$ to specify that this value is a calibrated value of the variable $X$.
-By calibrated we mean the value of that variable measured at sea level in standard atmospheric conditions, and when vehicle weight was equal to [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE).
+У наступних розділах ми будемо використовувати позначення $\hat X$ для того, щоб вказати, що це значення є каліброваним значенням змінної $X$.
+Під каліброваним ми маємо на увазі значення цієї змінної, виміряне на рівні моря в стандартних атмосферних умовах, коли вага транспортного засобу дорівнювала [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE).
 
-E.g. by $\hat{\dot{h}}_{max}$ we specify the maximum climb rate the vehicle can achieve at [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE) at sea level in standard atmospheric conditions.
+Наприклад, за $\hat{\dot{h}}_{max}$ ми вказуємо максимальну швидкість підйому, яку транспортний засіб може досягти при [WEIGHT_BASE](../advanced_config/parameter_reference.md#WEIGHT_BASE) на рівні моря в стандартних атмосферних умовах.
 
 ### Effect of Weight on Maximum Climb Rate
 
-The maximum climb rate ([FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)) is scaled as a function of the weight ratio.
+Максимальна швидкість підйому ([FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)) масштабується як функція відношення ваги.
 
 From the steady state equations of motions of an airplane we find that the maximum climb rate can be written as:
 
