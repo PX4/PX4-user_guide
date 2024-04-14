@@ -18,12 +18,12 @@ One of these:
 - [Hobbyking US Warehouse](https://hobbyking.com/en_us/wing-wing-z-84-epo-845mm-kit.html)
 
 :::tip
-PNF (or "PNP") versions include motor, propeller and electronic speed controller.
-The "kit" version does not include these components, which must be purchased separately.
+Версії PNF (або "PNP") включають двигун, гвинт і електронний регулятор швидкості.
+Версія "комплекту" не включає ці компоненти, які слід окремо придбати.
 :::
 
 
-### Electronic Speed Controller (ESC)
+### Електронний регулятор швидкості (ESC)
 
 One of these (any small (>=12A) ESC will do):
 
@@ -46,7 +46,7 @@ One of these (any small (>=12A) ESC will do):
 
 ## Підключення
 
-Проведіть дроти до сервоприводів та двигунів, як показано. Use the `MAIN` outputs (not the ones labeled with AUX). The motor controller needs to have an in-built BEC, as the autopilot is not powering the servo rail.
+Проведіть дроти до сервоприводів та двигунів, як показано. Використовуйте виходи `MAIN` (не ті, які позначені як AUX). The motor controller needs to have an in-built BEC, as the autopilot is not powering the servo rail.
 
 | Порт   | Підключення                 |
 | ------ | --------------------------- |
