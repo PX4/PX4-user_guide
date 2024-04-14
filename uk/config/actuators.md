@@ -43,13 +43,13 @@
 
 #### Motor Geometry: Multicopter
 
-The image below shows the geometry setup for a quadrotor multicopter frame with and without advanced settings.
+На зображенні нижче показано налаштування геометрії для рамки квадрокоптера з і без розширеними налаштуваннями.
 
 ![Geometry MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_geometry_marked.png)
 
-First, the **Motors** drop-down setting lets you choose the number of motors (4 for the example above).
+Спочатку параметр випадаючого списку **Двигуни** дозволяє вибрати кількість двигунів (4 для вищезазначеного прикладу).
 
-For each motor you can then set:
+Для кожного двигуна ви можете встановити:
 
 - `Position X`: [X-position](#motor-position-coordinate-system), in metres.
 - `Position Y`: [Y-position](#motor-position-coordinate-system), in metres.
@@ -83,26 +83,26 @@ The motor geometry for a [Generic Standard VTOL](../airframes/airframe_reference
 
 ![Geometry motor: standard vtol](../../assets/config/actuators/qgc_geometry_standard_vtol_motors.png)
 
-Motors have most of the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter). There is an additional field to indicate the direction in which the motor moves the vehicle (for a standard VTOL, the hover motors are usually set "upwards" and the pusher motor is set to "forwards").
+Двигуни мають більшість тих самих полів конфігурації, що й для [геометрії багтропа](#motor-geometry-multicopter). Є додаткове поле для позначення напрямку, в якому рухається двигун транспортного засобу (для стандартного ВТОЛ, гвинти для утримання у повітрі зазвичай встановлені "вгору", а тяговий двигун встановлений "вперед").
 
-- `Axis`: One of `Upwards`, `Downwards`, `Forwards`, `Backwards`, `Leftwards`, `Rightwards`, `Custom`
-  - If `Custom` is selected, then the UI displays three additional fields for setting the motor orientation.
+- `Вісь`: Один з `Вгору`, `Вниз`, `Вперед`, `Назад`, `Ліворуч`, `Праворуч`, `Користувацький`
+  - Якщо вибрано `Custom`, то інтерфейс користувача відображає три додаткові поля для встановлення орієнтації двигуна.
 
-#### Motor Geometry: Other Vehicles
+#### Геометрія двигуна: Інші транспортні засоби
 
-Other vehicle types will define an appropriate motor geometry for their frame type. Once again these motors will generally have the same kinds of properties as shown above.
+Інші типи транспортних засобів визначать відповідну геометрію двигуна для свого типу рами. Ще раз ці двигуни, як правило, матимуть ті ж самі властивості, що й показано вище.
 
-For example, a fixed-wing vehicle may just have a single pusher moter, while a rover with differential steering will have a motor for throttle and for steering.
+Наприклад, у літального апарата з фіксованим крилом може бути лише один тяговий двигун, тоді як ровер з диференційним керуванням матиме двигун для керування швидкістю і для керування керуванням.
 
-#### Motor Position Coordinate System
+#### Система координат положення двигуна
 
-The coordinate system for motor positions is FRD (in body frame), where the X axis points forward, the Y axis to the right and the Z axis down.
+Система координат для позицій двигуна - FRD (у тілі), де вісь X вказує вперед, вісь Y - праворуч, а вісь Z - вниз.
 
-The origin is the vehicle's **centre-of-gravity (COG)**. This may **NOT** be the same position as the location of the autopilot.
+Походження - **це центр тяжіння (COG) ** транспортного засобу. Можливо, це може **НЕ БУТИ** тим самим положенням, що й автопілот.
 
 ![Actuators CG reference diagram](../../assets/config/actuators/quadcopter_actuators_cg_reference.png)
 
-#### Bidirectional Motors
+#### Двосторонні мотори
 
 Деякі транспортні засоби можуть використовувати двонаправлені двигуни (тобто двигуни, які підтримують обертання у обох напрямках). Наприклад, земляні транспортні засоби, які хочуть рухатися вперед і назад, або літальні апарати типу VTOL, які мають двигуни-тягунці, які можуть обертатися у будь-якому напрямку.
 
