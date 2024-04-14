@@ -36,16 +36,16 @@ CUAV P8 радіо є попередньо налаштованим (швидк�
 
 ![P8 pinouts](../../assets/hardware/telemetry/cuav_p8_pinouts.png)
 
-### Data Port
+### Порт даних
 
-| pin | C-RTK GPS 6P | pin | Pixhawk standard pins |
-| --- | ------------ | --- | --------------------- |
-| 1   | 5V+(NC)      | 1   | VCC                   |
-| 2   | RX           | 2   | TX                    |
-| 3   | TX           | 3   | RX                    |
-| 4   | RTS          | 4   | RTS                   |
-| 5   | CTS          | 5   | CTS                   |
-| 6   | GND          | 6   | GND                   |
+| pin | C-RTK GPS 6P | pin | Pixhawk стандартні контакти |
+| --- | ------------ | --- | --------------------------- |
+| 1   | 5V+(NC)      | 1   | VCC                         |
+| 2   | RX           | 2   | TX                          |
+| 3   | TX           | 3   | RX                          |
+| 4   | RTS          | 4   | RTS                         |
+| 5   | CTS          | 5   | CTS                         |
+| 6   | GND          | 6   | GND                         |
 
 ## Підключення
 
