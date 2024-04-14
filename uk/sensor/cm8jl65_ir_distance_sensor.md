@@ -5,7 +5,7 @@
 - Розміри: 38 мм х 18 мм х 7 мм
 - Вага: ≤10g
 
-![PSK-CM8JL65-CC5 ToF IR Distance Sensor - Hero image](../../assets/hardware/sensors/cm8jl65/psk_cm8jl65_hero.jpg)
+![Датчик відстані PSK-CM8JL65-CC5 ToF IR - Hero image](../../assets/hardware/sensors/cm8jl65/psk_cm8jl65_hero.jpg)
 
 ## Налаштування обладнання
 
@@ -15,13 +15,13 @@ PSK-CM8JL65-CC5 може бути підключений до будь-яког�
 
 ![PSK-CM8JL65-CC5 ToF IR Distance Sensor - Pinout connections](../../assets/hardware/sensors/cm8jl65/psk-cm8jl65-cc5-02.jpg)
 
-## Parameter Setup
+## Налаштування параметрів
 
-[Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_CM8JL65_CFG](../advanced_config/parameter_reference.md#SENS_CM8JL65_CFG).
+[Налаштуйте послідовний порт](../peripherals/serial_configuration.md), на якому буде працювати лідар, використовуючи [SENS_CM8JL65_CFG](../advanced_config/parameter_reference.md#SENS_CM8JL65_CFG).
 
-::: info
+:::info
 
-If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+Якщо параметр конфігурації недоступний у _QGroundControl_, можливо, вам знадобиться [додати драйвер до мікропрограми](../peripherals/serial_configuration.md#parameter_not_in_firmware):
 
 ```plain
 distance_sensor/cm8jl65
@@ -29,4 +29,4 @@ distance_sensor/cm8jl65
 
 :::
 
-In order to use the sensor for _collision prevention_ you will further need to set the parameters [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0) and [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST). For more information see: [Collision Prevention](../computer_vision/collision_prevention.md#rangefinder).
+Для використання датчика для _попередження про зіткнення_ вам також потрібно встановити параметри [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0) та [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST). Для отримання додаткової інформації дивіться: [Запобігання зіткненням](../computer_vision/collision_prevention.md#rangefinder).
