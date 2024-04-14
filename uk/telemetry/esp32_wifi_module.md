@@ -89,7 +89,7 @@ QGroundControl повинен автоматично виявляти підкл
 
 ### Налаштування за замовчуванням та веб-інтерфейс
 
-Ви можете змінити конфігурацію за замовчуванням через веб-інтерфейс. Connect to the ESP32 via WiFi and enter `dronebridge.local`, `http://dronebridge.local` or `192.168.2.1` in the address bar of your browser.
+Ви можете змінити конфігурацію за замовчуванням через веб-інтерфейс. Підключіться до ESP32 через WiFi та введіть `dronebridge.local`, `http://dronebridge.local` або `192.168.2.1` у адресну стрічку вашого браузера.
 
 ![DroneBridge for ESP32 Webinterface](../../assets/peripherals/telemetry/esp32/dbesp32_webinterface.png)
 
