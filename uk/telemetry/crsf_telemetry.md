@@ -169,30 +169,30 @@ Express LRS надає керівництво з радіосистем на с�
 
 Підтримуються телеметрійні повідомлення та їх джерело перераховані нижче (ця таблиця повторно створюється з [TBS Crossfire Manual: "Доступні датчики з OpenTX"](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf)).
 
-| Datapoint | Опис                                               | Джерела даних                    |
-| --------- | -------------------------------------------------- | -------------------------------- |
-| 1RSS      | Uplink - received signal strength antenna 1 (RSSI) | TBS CROSSFIRE RX                 |
-| 2RSS      | Uplink - received signal strength antenna 2 (RSSI) | TBS CROSSFIRE RX                 |
-| RQly      | Uplink - link quality (valid packets)              | TBS CROSSFIRE RX                 |
-| RSNR      | Uplink - signal-to-noise ratio                     | TBS CROSSFIRE RX                 |
-| RFMD      | Uplink - update rate, 0 = 4Hz, 1 = 50Hz, 2 = 150Hz | TBS CROSSFIRE RX                 |
-| TPWR      | Uplink - transmitting power                        | TBS CROSSFIRE TX                 |
-| TRSS      | Downlink - signal strength antenna                 | TBS CROSSFIRE TX                 |
-| TQly      | Downlink - link quality (valid packets)            | TBS CROSSFIRE TX                 |
-| TSNR      | Downlink - signal-to-noise ratio                   | TBS CROSSFIRE TX                 |
-| ANT       | Sensor for debugging only                          | TBS CROSSFIRE TX                 |
-| GPS       | GPS Coordinates                                    | TBS GPS / FC                     |
-| Alt       | GPS Altitudes                                      | TBS GPS / FC                     |
-| Sats      | GPS Satellites acquired                            | TBS GPS / FC                     |
-| Hdg       | Magnetic orientation                               | TBS GPS / FC                     |
-| RXBt      | Battery voltage                                    | TBS GPS / FC/ CROSSFIRE RX/ CORE |
-| Curr      | Current draw                                       | TBS GPS / FC// CORE              |
-| Capa      | Current consumption                                | TBS GPS / FC/ CORE               |
-| Ptch      | FC Pitch angle                                     | FC                               |
-| Roll      | FC Roll angle                                      | FC                               |
-| Yaw       | FC Yaw angle                                       | FC                               |
-| FM        | Flight mode                                        | FC                               |
-| VSPD      | Barometer                                          | FC                               |
+| Datapoint | Опис                                                     | Джерела даних                    |
+| --------- | -------------------------------------------------------- | -------------------------------- |
+| 1RSS      | Uplink - отримана сила сигналу антени 1 (RSSI)           | TBS CROSSFIRE RX                 |
+| 2RSS      | Uplink - отримана сила сигналу антени 2 (RSSI)           | TBS CROSSFIRE RX                 |
+| RQly      | Uplink - якість посилання (дійсні пакети)                | TBS CROSSFIRE RX                 |
+| RSNR      | Uplink - відношення сигнал/шум                           | TBS CROSSFIRE RX                 |
+| RFMD      | Uplink - частота оновлення, 0 = 4Гц, 1 = 50Гц, 2 = 150Гц | TBS CROSSFIRE RX                 |
+| TPWR      | Uplink - потужність передачі                             | TBS CROSSFIRE TX                 |
+| TRSS      | Downlink - сила сигналу антени                           | TBS CROSSFIRE TX                 |
+| TQly      | Downlink - якість посилання (дійсні пакети)              | TBS CROSSFIRE TX                 |
+| TSNR      | Downlink - відношення сигнал/шум                         | TBS CROSSFIRE TX                 |
+| ANT       | Датчик лише для налагодження                             | TBS CROSSFIRE TX                 |
+| GPS       | GPS координати                                           | TBS GPS / FC                     |
+| Alt       | GPS Висоти                                               | TBS GPS / FC                     |
+| Sats      | Супутники GPS отримано                                   | TBS GPS / FC                     |
+| Hdg       | Магнітна орієнтація                                      | TBS GPS / FC                     |
+| RXBt      | Напруга батареї                                          | TBS GPS / FC/ CROSSFIRE RX/ CORE |
+| Curr      | Поточне витягування                                      | TBS GPS / FC// CORE              |
+| Capa      | Поточне споживання                                       | TBS GPS / FC/ CORE               |
+| Ptch      | Кут нахилу поля FC                                       | FC                               |
+| Roll      | Кут кочення FC                                           | FC                               |
+| Yaw       | Кут курсу FC                                             | FC                               |
+| FM        | Режим польоту                                            | FC                               |
+| VSPD      | Барометр                                                 | FC                               |
 
 ## Дивіться також
 
