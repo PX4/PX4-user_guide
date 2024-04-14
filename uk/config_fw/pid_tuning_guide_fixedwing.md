@@ -1,22 +1,22 @@
 # Fixed-wing Rate/Attitude Controller Tuning Guide
 
-This guide explains how to manually tune the fixed-wing PID loop. It is intended for advanced users / experts, as incorrect PID tuning may crash your aircraft.
+Цей посібник пояснює, як вручну налаштувати петлі PID фіксованого крила. Призначено для досвідчених користувачів / експертів, оскільки неправильна настройка PID може зірвати ваш літак.
 
-::: info [Autotune](../config/autotune.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames. Manual tuning is recommended for frames where autotuning does not work, or where fine-tuning is essential.
+:::info [Автопідстроювання](../config/autotune.md) рекомендується для більшості користувачів, оскільки воно набагато швидше, простіше і забезпечує хороше налаштування для більшості кадрів. Рекомендується ручна настройка для кадрів, де автоналаштування не працює, або де важлива дотюнінг.
 :::
 
-## Preconditions
+## Передумови
 
-- Trims must be configured first (before PID turning). The [Fixed-Wing Trimming Guide](../config_fw/trimming_guide_fixedwing.md) explains how.
-- Incorrectly set gains during tuning can make attitude control unstable. A pilot tuning gains should therefore be able to fly and land the plane in [manual](../flight_modes_fw/manual.md) (override) control.
-- Excessive gains (and rapid servo motion) can violate the maximum forces of your airframe - increase gains carefully.
-- Roll and pitch tuning follow the same sequence. The only difference is that pitch is more sensitive to trim offsets, so [trimming](../config_fw/trimming_guide_fixedwing.md) has to be done carefully and integrator gains need more attention to compensate this.
+- Спочатку необхідно налаштувати обрізки (перед настроюванням PID). [Посібник з налаштування фіксованого крила](../config_fw/trimming_guide_fixedwing.md) пояснює, як це зробити.
+- Неправильно встановлені виграші під час налаштування можуть зробити управління станом нестабільним. Пілот, налаштовуючи коефіцієнти посилення, повинен мати змогу керувати польотом та посадкою літака в режимі [керування вручну](../flight_modes_fw/manual.md) (перевизначення).
+- Надмірні виграші (і швидкий рух серводвигуна) можуть порушити максимальні сили вашої конструкції повітряного корпусу - збільшуйте виграші обережно.
+- Налаштування крену та тангажу слідують тій самій послідовності. Єдина відмінність полягає в тому, що крен більш чутливий до зміщень тримачів, тому [налаштування тримачів](../config_fw/trimming_guide_fixedwing.md) має бути виконано обережно, а коефіцієнти інтегратора потребують більшої уваги для компенсації цього.
 
-## Establishing the Airframe Baseline
+## Встановлення базового каркасу повітряного корпусу
 
-If a pilot capable of manual flight is available, its best to establish a few core system properties on a manual trial. To do this, fly these maneuvers. Even if you can't note all the quantities immediately on paper, the log file will be very useful for later tuning.
+Якщо доступний пілот, здатний до ручного польоту, то краще встановити деякі основні властивості системи на ручному випробуванні. Щоб це зробити, виконайте ці маневри. Навіть якщо ви не зможете відразу зафіксувати всі кількості на папері, журнал буде дуже корисним для подальшого налаштування.
 
-::: info All these quantities will be automatically logged. You only need to take notes if you want to directly move on to tuning without looking at the log files.
+:::info Усі ці величини будуть автоматично зареєстровані. You only need to take notes if you want to directly move on to tuning without looking at the log files.
 
 - Fly level with a convenient airspeed. Note throttle stick position and airspeed (example: 70% → 0.7 throttle, 15 m/s airspeed).
 - Climb with maximum throttle and sufficient airspeed for 10-30 seconds (example: 12 m/s airspeed, climbed 100 m in 30 seconds).
@@ -84,6 +84,6 @@ The overall softness / hardness of the control loop can be adjusted by the time 
 - [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC) - set to a default of 0.5 seconds, increase to make the Pitch response softer, decrease to make the response harder.
 - [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) - set to a default of 0.5 seconds, increase to make the Roll response softer, decrease to make the response harder.
 
-## Other Tuning Parameters
+## Інші параметри
 
-The most important parameters are covered in this guide. Additional tuning parameters are documented in the [Parameter Reference](../advanced_config/parameter_reference.md).
+Найважливіші параметри охоплені в цьому керівництві. Додаткові параметри налаштування задокументовані в [Посилання на параметри](../advanced_config/parameter_reference.md).
