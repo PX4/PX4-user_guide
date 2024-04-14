@@ -1,10 +1,10 @@
-# Planes (Fixed-Wing)
+# Літаки (з фіксованим крилом)
 
-PX4 supports numerous plane geometries, including normal planes, flying wings, inverted V-tail planes, and so on. The set of supported frame configurations can be seen in [Airframes Reference > Plane](../airframes/airframe_reference.md#plane).
+PX4 підтримує численні геометрії літаків, включаючи звичайні літаки, літаючі крила, обернені V-хвости літаків та інше. Набір підтримуваних конфігурацій можна побачити в [Довіднику про планери > Літак](../airframes/airframe_reference.md#plane).
 
-This section contains build logs/instructions for assembling and configuring a number of [fixed-wing DIY builds](../frames_plane/diy_builds.md).
+У цьому розділі містяться журнали збірки/інструкції щодо складання та налаштування ряду [фіксованих крил DIY збірок](../frames_plane/diy_builds.md).
 
-## Videos
+## Відео
 
 @[youtube](https://www.youtube.com/watch?v=VqNWwIPWJb0&ab_channel=ChrisSeto)
 
