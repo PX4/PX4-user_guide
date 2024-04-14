@@ -1,6 +1,6 @@
-# Reptile Dragon 2 (RD2) Build
+# Reptile Dragon 2 (RD2) Збірка
 
-The Reptile Dragon 2 is a twin motor RC airplane specifically designed for efficient FPV [(first person view)](https://en.wikipedia.org/wiki/First-person_view_(radio_control)) flying. Being specific for FPV, the RD2 is optimized for easy mounting of cameras, sensors, logic electronics, large batteries, antennas, and other payload components which would be found on a typical FPV airplane. This emphasis on payload makes this airplane an ideal candidate for a PX4 installation.
+Reptile Dragon 2 - це двомоторний літак RC, спеціально розроблений для ефективного польоту FPV [(перегляд з першої особи)](https://en.wikipedia.org/wiki/First-person_view_(radio_control)). Будучи специфічним для FPV, RD2 оптимізований для легкого монтажу камер, сенсорів, логічної електроніки, великих батарей, антен та інших компонентів навантаження, які можуть бути знайдені на типовому літаку FPV. Цей акцент на корисне навантаження робить цей літак ідеальним кандидатом для установки PX4.
 
 ![Finished Reptile Dragon 2 airframe front](../../assets/airframes/fw/reptile_dragon_2/airframe_front.jpg)
 
@@ -135,17 +135,17 @@ The GPS module can be removed from its plastic case to allow the use of the moun
 Two of the three required holes are already coincidentally located in the electronics tray, so I used a marker and a drill to mark and drill the third hole.
 
 
-## FPV Pod
+## FPV Підставка
 
 ### FPV Pod Assembly
 
-First, mount the ES08MA ii servo in the servo pocket of the FPV pod. The servo should simply slip in, with the cable exiting the FPV Pod through the hole in the servo pocket. Use a dot of Foamtac glue to secure the servo.
+Спочатку встановіть сервопривід ES08MA ii в кишеню сервопривода FPV-поду. Сервопривід просто повинен вкладатися, з кабелем, що виходить з FPV-підсистеми через отвір у кишені сервопривода. Використовуйте краплю клею Foamtac, щоб закріпити сервопривід.
 
 ![Camera carrier with servo horn installed](../../assets/airframes/fw/reptile_dragon_2/camera_carrier.jpg)
 
-Use one of the servo horns included in the ES08ma ii package. Cut the horn such that it fits in the slot in the FPV pod camera carrier. It should sit flush to the bottom of the slot. Secure the horn with CA glue.
+Використовуйте один з кілець керування, включених в комплект ES08ma ii. Виріжте ріг так, щоб він вліз у паз у камери FPV-підвіски для камери. Воно повинно лежати рівно на дні слоту. Закріпіть ріг з клеєм CA.
 
-Use the servo tester to center the servo. Attach the camera carrier servo horn directly to the top of the servo and secure it with the included screw. Secure the DJI FPV camera into the carrier with the two side screws.
+Використовуйте тестер сервоприводу, щоб вирівняти сервопривод. Прикріпіть рогатку кар'єра камери безпосередньо до верхушки сервоприводу та закріпіть її за допомогою включеної гвинта. Закріпіть камеру DJI FPV в кар'єрі за допомогою двох бічних гвинтів.
 
 To finish the FPV pod assembly, install the Caddx Vista to the back of the pod using long M2 bolts, 1mm standoffs, and nylock nuts.
 
