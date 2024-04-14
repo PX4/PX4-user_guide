@@ -39,10 +39,10 @@
 
 Радіоприймачі мають 2 індикатори стану, один червоний і один зелений. Інтерпретація різних станів світлодіодів:
 
-- Зелений світлодіод мигає - шукає інший радіо
-- Green LED solid - link is established with another radio
-- Red LED flashing - transmitting data
-- Red LED solid - in firmware update mode
+- Зелений світлодіод мигає - пошук іншого радіо
+- Зелений світлодіод постійно горить - з'єднання встановлено з іншим радіо
+- Червоний світлодіод мигає - передача даних
+- Червоний світлодіод постійний - у режимі оновлення прошивки
 
 <img src="../../assets/hardware/telemetry/holybro_sik_telemetry_label.jpg" width="500px" title="Pixhawk5x Upright Image" />
 
@@ -60,9 +60,9 @@
 
 - Радіомодулі з антенами \*2
 - Мікро-USB для USB-кабелю \*1
-- Micro-USB to Micro-USB OTG adapter cable \*1
-- Micro USB to Type C Adapter
-- JST-GH-6P to JST-GH-6P cable \*1 (for Pixhawk Standard FC)
-- JST-GH-6P to Molex DF12 6P (for Pix32, Pixhawk 2.4.6, etc.)
+- Кабель-переходник Micro-USB на Micro-USB OTG \*1
+- Адаптер Micro USB до Type C
+- Кабель JST-GH-6P до кабелю JST-GH-6P \*1 (для Pixhawk Standard FC)
+- JST-GH-6P до Molex DF12 6P (для Pix32, Pixhawk 2.4.6, тощо)
 
 <img src="../../assets/hardware/telemetry/holybro_sik_radio_v3_include.png" width="600px" title="Sik Telemetry Radio" />
