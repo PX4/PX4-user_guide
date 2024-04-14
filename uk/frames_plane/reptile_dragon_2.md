@@ -9,11 +9,11 @@ Reptile Dragon 2 - це двомоторний літак RC, спеціальн
 
 ## Загальний огляд
 
-The goal of this build was to create an efficient, long endurance FPV platform to be used for general PX4 testing and development.
+Метою цієї побудови було створити ефективну, довготривалу платформу FPV для загального тестування та розвитку PX4.
 
-Key airframe features:
+Основні особливості конструкції фюзеляжу:
 
-- Spacious interior
+- Просторий салон
 - Easy access to the entire fuselage cavity with large top hatch
 - Rear hatch
 - Removable V tail or conventional tail options included
@@ -37,7 +37,7 @@ Key build features
 - Air data from pitot/static probe
 - ~40 minute long flight times
 
-## Parts list
+## Список деталей
 
 - [Reptile Dragon 2 kit](https://usa.banggood.com/REPTILE-DRAGON-2-1200mm-Wingspan-Twin-Motor-Double-Tail-EPP-FPV-RC-Airplane-KIT-or-PNP-p-1805237.html?cur_warehouse=CN&ID=531466)
 
@@ -65,50 +65,50 @@ Key build features
 
 ## Інструменти
 
-The following tools were used in this assembly.
+Наступні інструменти використовувалися у цій збірці.
 
-- Servo tester (with centering button)
-- Screw driver set
-- 3D printer
-- Wrench set
-- Glue: Hot glue, CA (Cyanoacrylate) glue, "Foamtac" glue
+- Тестер сервопривода (з кнопкою центрування)
+- Набір викруток
+- 3D-принтер
+- Набір гаєчних ключів
+- Клей: гарячий клей, клей CA (цианакрилат), клей "Foamtac"
 - Sandpaper
 
-## Airframe Build
+## Побудова фюзеляжа
 
-The airplane needs some assembly out of the box. Servos, wings, and the tail will need to be installed.
+Літак потребує певної збірки з коробки. Сервоприводи, крила та хвіст потрібно встановити.
 
-::: info
+:::info
 
-For this portion of assembly, the instructions included with the kit should be sufficent, but some helpful tips are listed below.
+Для цієї частини збірки інструкція, включена в комплект, повинна бути достатньою, але нижче наведено деякі корисні поради.
 :::
 
 
-### Gluing Foam
+### Наклейка піни
 
-When gluing foam parts of the RD2 together, use sandpaper to rough the mating surface, then use CA glue. If the foam is not roughed with sandpaper, the glue will not have a surface to be able to "grab" the foam and the bond will be poor.
+При склеюванні пінних деталей RD2 разом використовуйте шкурку для шліфування монтажної поверхні, а потім використовуйте клей CA. Якщо піну не шліфувати шкуркою, клей не матиме поверхні, за яку можна було б "захопити" піну, і з'єднання буде погане.
 
-Foamtac doesn't seem to stick well to this foam, so I used CA glue for all foam-to-foam mates.
+Foamtac не здається добре прилипає до цієї піни, тому я використовував клей CA для всіх пар піни-піни.
 
-### Skid Plate
+### Захисна пластина
 
-The skid plate that comes with the RD2 needs to be trimmed to fit.
+Підкладка, яка поставляється з RD2, потребує підгонки під розмір.
 
 ![Skid plate installed on the bottom of the RD2 airframe](../../assets/airframes/fw/reptile_dragon_2/skid_plate.jpg)
 
-Trim off the mold flashing from the flat side of the skid plate. Use coarse sandpaper to rough the inside surface of the skid plate as well as the mating surface on the underside of the airframe. After checking for fit, use CA glue to glue the skid plate to the bottom of the RD2.
+Відріжте формування плісняви з плоского боку піддону. Використовуйте грубий шліфувальний папір, щоб згрубіти внутрішню поверхню бронепластини, а також поверхню з'єднання знизу каркасу. Після перевірки на герметичність використовуйте клей CA для склеювання підкладки до нижньої частини RD2.
 
-### Servo Installation
+### Встановлення сервоприводу
 
-::: info
+:::info
 
-Prior to servo installation, it is recommended to use the sandpaper to rough the side of the servo facing the servo cover. During final installation, put a drop of Foamtac between the servo and the cover. This will prevent the servo from moving once installed.
+Перед встановленням сервоприводу рекомендується використовувати шліфувальний папір, щоб зробити грубою сторону сервоприводу, яка спрямована на кришку сервоприводу. Під час остаточного встановлення покладіть краплю Foamtac між сервоприводом та кришкою. Це запобіжить сервоприводу рухатися після встановлення.
 :::
 
 
 ![Correctly adjusted servo linkage installation](../../assets/airframes/fw/reptile_dragon_2/servo_linkage.jpg)
 
-The servos on the RD2 are connected to control surfaces with adjustable servo linkages. The RD2 instructions will note that each control surface uses a specific length of linkage (included in the kit). Make sure to measure each linkage before installation to be sure that it is the right length linkage for that control surface. It's very important to align the servos such that the mechanical range of the servo is well aligned with the mechanical range of the control surface. When the servo is at it's center point, the servo arm should be at a 90 degree angle to the servo, and the control surface should be roughly centered. It might not be possible to get this alignment perfect, so any remaining offset will be adjusted out in software.
+Сервоприводи на RD2 підключені до поверхонь керування з регульованими зчепленнями сервоприводів. Інструкції RD2 відзначать, що кожна керуюча поверхня використовує конкретну довжину зв'язки (включено в комплект). Переконайтеся, що виміряли кожне з'єднання перед установкою, щоб бути впевненими, що це правильна довжина з'єднання для цієї поверхні керування. Дуже важливо вирівнювати сервоприводи так, щоб механічний діапазон сервопривода був добре вирівняний з механічним діапазоном поверхні керування. Коли серводвигун знаходиться в центрі, рука серводвигуна повинна знаходитися під кутом 90 градусів до серводвигуна, а поверхня керування повинна бути приблизно в центрі. Можливо, не вдасться досягти ідеального вирівнювання, тому будь-який залишковий зсув буде виправлено в програмному забезпеченні.
 
 The following steps can be used to perform servo alignment:
 
@@ -118,21 +118,21 @@ The following steps can be used to perform servo alignment:
 4. Install the servo in the servo pocket on the airplane
 5. Install the linkage, and twist to adjust it such that the control surface is as close to centered as possible
 
-::: info
+:::info
 
-The servo horn will likely not sit exactly at a 90 degree angle to the servo due to the teeth on the servo shaft. You can see this in the above example setup image. Just get it close enough to 90 degrees, and the remaining offset will be removed either with the linkage, or later in software.
+Рогова важіль ймовірно не буде точно знаходитися під кутом 90 градусів до сервоприводу через зубці на валу сервоприводу. Ви можете побачити це на зображенні налаштування, показаному вище. Просто наблизьте його достатньо до 90 градусів, і залишкове зміщення буде видалено або зв'язкою, або пізніше у програмному забезпеченні.
 :::
 
 
-## GPS/Compass Module Mounting
+## Монтаж модуля GPS/Компасу
 
-The GPS/Compass should be mounted in the rear electronics shelf included with the RD2. This location is far aft of power wiring (and anything else that might cause magnetic disturbances), which makes for an ideal location for the GPS/compass module
+GPS/Компас повинен бути встановлений на задній полиці електроніки, що постачається з RD2. Це місце далеко ззаду від електропроводки (і будь-чого іншого, що може спричиняти магнітні перешкоди), що робить його ідеальним місцем для модуля GPS/компасу
 
 ![GPS tray installed in the RD2 airframe](../../assets/airframes/fw/reptile_dragon_2/gps_tray.jpg)
 
-The GPS module can be removed from its plastic case to allow the use of the mounting holes. Then use the nylon M3 hardware to attach it to the rear electronics shelf.
+Модуль GPS може бути видалений зі свого пластикового корпусу для можливості використання отворів для монтажу. Then use the nylon M3 hardware to attach it to the rear electronics shelf.
 
-Two of the three required holes are already coincidentally located in the electronics tray, so I used a marker and a drill to mark and drill the third hole.
+Дві з трьох необхідних отворів вже випадково розташовані в лотку для електроніки, тому я використовував маркер і дриль, щоб позначити і просвердлити третій отвір.
 
 
 ## FPV Підставка
@@ -147,96 +147,96 @@ Two of the three required holes are already coincidentally located in the electr
 
 Використовуйте тестер сервоприводу, щоб вирівняти сервопривод. Прикріпіть рогатку кар'єра камери безпосередньо до верхушки сервоприводу та закріпіть її за допомогою включеної гвинта. Закріпіть камеру DJI FPV в кар'єрі за допомогою двох бічних гвинтів.
 
-To finish the FPV pod assembly, install the Caddx Vista to the back of the pod using long M2 bolts, 1mm standoffs, and nylock nuts.
+Для завершення зборки FPV-поду встановіть Caddx Vista на задню частину поду за допомогою довгих болтів M2, стійок 1 мм та гайок з фіксацією.
 
 ![FPV pod close up mounted on the RD2 airframe](../../assets/airframes/fw/reptile_dragon_2/fpv_pod.jpg)
 
-### FPV Pod Airframe Installation
+### Встановлення корпусу FPV Pod
 
-The FPV pod was mounted on top of the battery hatch using nylon M3 bolts with two O-rings to space the FPV pod base plate from the battery hatch.
+FPV-под був встановлений зверху на кришку акумулятора за допомогою нейлонових болтів M3 з двома ущільнювальними кільцями для відстані FPV-под від кришки акумулятора.
 
-## Flight Computer Installation
+## Встановлення польотного комп'ютера
 
-::: info
+:::info
 
-This build is compatible with both the ARK6X carrier and the Holybro 5X Carrier. Instructions are provided for both.
+Ця збірка сумісна як з перевізником ARK6X, так і з перевізником Holybro 5X. Інструкції надано для обох.
 :::
 
 
-![ARK Carrier assembled to mount](../../assets/airframes/fw/reptile_dragon_2/base_plate.jpg) The RD2 comes with a wooden electronics mount baseplate preglued in the airframe. In this image, two sets of marker ticks are used to indicate where the mounts for each carrier mount should back up to; the single tik for the Holybro 5X carrier mount, and the two ticks for the ARK5X carrier mount.
+![ARK Carrier assembled to mount](../../assets/airframes/fw/reptile_dragon_2/base_plate.jpg) RD2 поставляється з дерев'яною базовою платою електроніки, попередньо приклеєною в корпус. На цьому зображенні використовуються два набори вказівок маркерів, щоб показати, де повинні розташовуватися кріплення для кожного кріплення кар'єра; один маркер для кріплення кар'єра Holybro 5X і два маркера для кріплення кар'єра ARK5X.
 
-### ARK6X Carrier (Recommended)
+### ARK6X Carrier (Рекомендовано)
 
-A custom 3D printed mount was made for the ARK6X carrier. M2.5 nylon hardware was used to secure the ARK6X carrier to the mount.
+A custom 3D printed mount was made for the ARK6X carrier. Для кріплення перевізника ARK6X до кріплення використовувалися деталі з нейлону M2.5.
 
 ![ARK6X carrier parts](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_parts.jpg) ![ARK6X carrier assembled to mount](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_assembled.jpg)
 
-The ARK6X carrier doesn't have normal servo output connectors. Instead, it has a single JST GH connector which carries the 8 FMU servo outputs. A Holybro PWM breakout board was used to split the single JST GH PWM output connector into 8 individual servo channels.
+Кар'єр ARK6X не має звичайних роз'ємів виводу сервоприводів. Замість цього в ньому є один роз'єм JST GH, який містить 8 виходів сервоприводу FMU. A Holybro PWM breakout board was used to split the single JST GH PWM output connector into 8 individual servo channels.
 
 ![ARK6X carrier with PWM breakout](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_pwm.jpg)
 
-The ARK6X carrier is shown here mounted to the base plate. Note the aft end of the carrier aligned against the two tick marks.
+Носій ARK6X показаний тут, встановлений на базову пластину. Зверніть увагу на тилову частину носія, вирівняну проти двох позначок.
 
 ![ARK6X carrier installed](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_mount.jpg)
 
-Finally, the ARK6X was installed on top of the mount.
+Нарешті, ARK6X був встановлений угорі на гірському вершині.
 
 ![ARK6X carrier installed](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_installed.jpg)
 
 
-### Holybro 5X Carrier (Optional)
+### Holybro 5X Carrier (Додатково)
 
-An alternative carrier board is the Holybro Pixhawk 5X carrier.
+Альтернативною платою перевізник є платформа Holybro Pixhawk 5X.
 
-The carrier comes installed in a plastic case. While the case does look nice, it is extra weight, so the carrier was removed from the case. Once removed from the case, the ARK6X was installed, and a protective cover fitted ontop.
+Оператор встановлений у пластиковому кейсі. Хоча справа виглядає гарно, це додаткова вага, тому переноска була видалена з чохла. Після видалення з корпусу ARK6X був встановлений, а захисна кришка встановлена зверху.
 
 ![Flight computer carrier board](../../assets/airframes/fw/reptile_dragon_2/holybro_5x.jpg)
 
-A custom mount for the Pixhawk 5X carrier board was designed and 3D printed. This mount adapts the RD2's internal mounting plate hole pattern to the mounting holes on the Pixhawk 5X carrier board.
+Спеціальний кріплення для плати-носія Pixhawk 5X було розроблено та надруковано в 3D. Ця кріплення адаптує внутрішню плиту кріплення RD2 до отворів кріплення на платі розподільника Pixhawk 5X.
 
 ![Flight computer mount](../../assets/airframes/fw/reptile_dragon_2/holybro_5x_carrier_mount.jpg)
 
-It's important to install this mount in the correct location inside the RD2; as far aft as possible. With a large battery and the FPV pod up front, the airplane will tend to be noseheavy. Mounting the flight computer far aft will help to keep the airframe center of gravity (CG) in the correct location.
+Важливо встановити цей кріплення в правильному місці всередині RD2; якомога далі назад. З великою батареєю та FPV капсулою спереду літак буде схильний до переваги ваги в ніс. Встановлення бортового комп'ютера далеко назад допоможе зберегти центр ваги повітряної рами (CG) у правильному місці.
 
 ![Flight computer mount](../../assets/airframes/fw/reptile_dragon_2/holybro_5x_carrier_mount_installed.jpg)
 
-The images above show the fully completed and connected Holybro 5X carrier installation.
+Зображення вище показують повністю завершену та підключену установку переносного пристрою Holybro 5X.
 
 ![Flight computer mount](../../assets/airframes/fw/reptile_dragon_2/holybro_electronics_0.jpg) ![Flight computer mount](../../assets/airframes/fw/reptile_dragon_2/holybro_electronics_1.jpg)
 
 
-## Electrical
+## Електрика
 
-### Battery Power Distribution
+### Розподіл електроживлення батареї
 
-Battery power is routed through the Holybro Power module, then to a custom designed power distribution PCB (printed circuit board). From the power distribution board, battery power is split to the BEC, both ESCs, and Caddx Vista through separate XT30 connectors.
+Живлення батареї подається через модуль живлення Holybro, а потім на спеціально розроблену плату розподілу живлення PCB (друкована плата). З розподільної дошки живлення живлення від батареї розподіляється до BEC, обох ESCs та Caddx Vista через окремі роз'єми XT30.
 
 ![Power wiring in the RD2 airframe](../../assets/airframes/fw/reptile_dragon_2/power_0.jpg)
 
-Without the custom PCB, it's still easy to distribute power to all the components in the airplane. This image shows an alternative solution constructed from an XT60 connecter wired to several XT30 connectors. The servo power BEC is also shown in this image.
+Без спеціальної плати PCB все ще легко розподілити живлення всім компонентам у літаку. This image shows an alternative solution constructed from an XT60 connecter wired to several XT30 connectors. The servo power BEC is also shown in this image.
 
 ![Alternative power distribution harness](../../assets/airframes/fw/reptile_dragon_2/alt_harness.jpg)
 
 
 ### Servo Power
 
-Because the Holybro carrier does not include an onboard servo power supply, an external ["BEC"](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) is used to provide power to the servos. The input leads of the EC were soldered to a XT30 connector which was plugged into the power distribution board. The output of the BEC can be plugged into any unused servo output (I chose IO output 8).
+Оскільки носій Holybro не містить вбудованого джерела живлення для сервоприводів, для подачі живлення на сервоприводи використовується зовнішній ["BEC"](https://en.wikipedia.org/wiki/Battery_eliminator_circuit). Вводні виводи EC були припаяні до роз'єму XT30, який був підключений до плати розподілу потужності. Вихід BEC можна підключити до будь-якого невикористаного виходу сервоприводу (я вибрав вихід IO 8).
 
-### ESCs & Motors
+### ESCs & Двигуни
 
 ![Esc and motor](../../assets/airframes/fw/reptile_dragon_2/esc_motor.jpg)
 
-Bullet connectors were soldered to 16awg leads, which were then soldered to each phase output on each ESC. Heatshrink was shrunk over the finished ESCs and the bullet connectors from the ESCs were connected to their respective motors.
+До 16awg проводів були припаяні кульові роз'єми, які потім були припаяні до кожного виходу фази на кожному РКШ. Термоусадка була зменшена на готових ESCs, а булетні роз'єми з ESCs були підключені до відповідних моторів.
 
-Motor direction depends on the order of the motor leads connected to the ESC. For now, take a guess on each side. If either motor is spinning the wrong way, the direction can be swapped by swapping any two connections. Correct motor direction will be checked in the final preflight checks.
+Напрямок руху мотора залежить від порядку підключення витків мотора до ESC. Наразі припустіться з обох сторін. Якщо будь-який з двигунів обертається у неправильному напрямку, напрям можна змінити, помінявши місцями будь-які дві з'єднання. Правильна напрямок руху буде перевірено під час останньої перевірки перед польотом.
 
-### Servos & ESC Signal Leads
+### Лінії сигналів Servos & ESC
 
-Servos were wired to the FMU out port in the order left aileron, right aileron, left ESC, right ESC, elevator, rudder, FPV pan.
+Сервоприводи були підключені до порту виходу FMU в такому порядку: лівий елерон, правий елерон, лівий ESC, правий ESC, елеватор, руль, FPV панорамування.
 
-::: info
+:::info
 
-[DSHOT ESC](../peripherals/dshot.md#wiring-connections) were used (not PWM as for the servos). To make efficient use of the [DSHOT output port restrictions](../peripherals/dshot.md#wiring-connections), the two ESCs must be wired to FMU output channels 3 and 4.
+[DSHOT ESC](../peripherals/dshot.md#wiring-connections) були використані (не PWM, як для сервоприводів). Для ефективного використання обмежень виходного порту DSHOT, два ESC мають бути підключені до вихідних каналів FMU 3 та 4.
 :::
 
 
@@ -280,7 +280,7 @@ Servos were wired to the FMU out port in the order left aileron, right aileron, 
 
 Спочатку слід дотримуватися [цього посібника для налаштування середовища розробки](../dev_setup/dev_env.md) і [цього посібника для отримання вихідного коду PX4](../dev_setup/building_px4.md).
 
-Once a build environment has been setup, open a terminal and `cd` into the `PX4-Autopilot` directory. Щоб запустити інструмент конфігурації [плати PX4 (`menuconfig`)](../hardware/porting_guide_config.md#px4-menuconfig-setup), виконайте:
+Після налаштування середовища збірки відкрийте термінал та виконайте команду `cd` в директорію `PX4-Autopilot`. Щоб запустити інструмент конфігурації [плати PX4 (`menuconfig`)](../hardware/porting_guide_config.md#px4-menuconfig-setup), виконайте:
 
 ```
 make ark_fmu-v6x_default boardconfig
@@ -320,7 +320,7 @@ make ark_fmu-v6x_default upload
 
 ### Конфігурація параметрів
 
-Цей файл параметрів містить настроювану конфігурацію параметрів PX4 для цієї збірки, включаючи налаштування радіо, налаштування і датчиків. Load the file via QGC using the instructions at [Parameters> Tools](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/parameters.html#tools) (QGC User Guide).
+Цей файл параметрів містить настроювану конфігурацію параметрів PX4 для цієї збірки, включаючи налаштування радіо, налаштування і датчиків. Завантажте файл через QGC, використовуючи інструкції на [Parameters> Tools](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/parameters.html#tools) (Посібник користувача QGC).
 
 - [Знімок параметрів аеродинамічної рами PX4](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/reptile_dragon_2/reptile_dragon_2_params.params)
 
@@ -338,7 +338,7 @@ make ark_fmu-v6x_default upload
 
 Мапування каналів для цієї збірки включено в постачальний [файл параметрів](#parameter-config). Порядок каналів - це керування газом, крен, тангаж, рульове керування, (порожнє), і режим польоту
 
-::: info
+:::info
 
 ExpressLRS потребує `AUX1` як "канал вибору режиму". Цей канал вибору режиму є окремим від механізму зброювання PX4 і використовується для повідомлення ELRS TX, що він може перемикатися в режим високої потужності передачі.
 
@@ -380,25 +380,25 @@ ExpressLRS потребує `AUX1` як "канал вибору режиму". 
  - Pitch down -> Elevator goes up
 
 
-## First Flight
+## Перший політ
 
-I recommend performing the first takeoff in manual mode. Because this airplane has no landing gear, you will either need to throw the airplane yourself, or ideally have a helper throw it. When throwing any airplane, throw at a slightly nose up attitude with full throttle.
+Рекомендую виконати перший зліт в ручному режимі. Тому що у цього літака немає шасі, вам доведеться кинути літак самостійно або, в ідеалі, мати помічника, який кине його. Під час кидання будь-якого літака кидайте з невеликим підняттям носа з повною потужністю двигуна.
 
-It's critical to be ready to give aft stick input to prevent the airplane from impacting the ground if it happens to be trimmed nosedown. Once the airplane is successfully airborne, cruise up to an altitude of a few hundred feet and switch to [Acro mode](../flight_modes_fw/acro.md). This is a good time to use [Autotuning](../config/autotune.md) to tune the airframe.
+Критично бути готовим дати введення задньої палиці, щоб запобігти літаку від удару по землі, якщо він випадково буде вирівняний носом вниз. Після того як літак успішно піднявся в повітря, вирушайте на висоту кількох сотень футів і переключіться на [Режим Акробатика](../flight_modes_fw/acro.md). Це гарний час для використання [Автоналагодження](../config/autotune.md) для налаштування конструкції повітряного каркасу.
 
-If the airplane is well behaved in _Acro mode_, switch to [Position mode](../flight_modes_fw/position.md).
+Якщо літак гарно себе веде в режимі _Акро_, перемкніться на [Режим позиції](../flight_modes_fw/position.md).
 
-## Build Results & Performance
+## Результати збирання &  продуктивність
 
-Overall, this build was a success. The RD2 flies well in this configuration and has plenty of room onboard for sensors and additional hardware.
+Загалом, ця збірка була успішною. RD2 добре літає в цій конфігурації та має достатньо місця на борту для сенсорів та додаткового обладнання.
 
-### Performance
+### Продуктивність
 
-- Stall speed: 15mph indicated
-- Cruise speed: 35-50mph
-- Endurance: ~40 minutes at 28mph
+- Швидкість зупинки: вказано 15 миль/год
+- Круїзна швидкість: 35-50м/год
+- Витривалість: ~40 хвилин о 28м/год
 
-### Videos & Flight Logs
+### Відео &  Журнали польотів
 
 [Demo Flight log](https://review.px4.io/plot_app?log=6a1a279c-1df8-4736-9f55-70ec16656d1e)
 
