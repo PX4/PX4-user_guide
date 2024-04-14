@@ -15,7 +15,7 @@
 
 | Основний інтерфейс | Функція                                                                                                                                                                                            |
 |:------------------ |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Живлення           | Підключіть модуль живлення; Надає живлення та виміри напруги та струму ANALOG.                                                                                                                     |
+| Живлення           | Під'єднати модуль живлення; Надає живлення та виміри напруги та струму ANALOG.                                                                                                                     |
 | PM2                | [Не використовуйте з PX4](../flight_controller/cuav_v5_nano.md#compatibility_pm2)                                                                                                                  |
 | TF CARD            | Карта SD для зберігання logs (постачається з картою)                                                                                                                                               |
 | M1~M8              | PWM виходи. Може бути використаний для управління двигунами або сервоприводами.                                                                                                                    |
@@ -23,8 +23,8 @@
 | nARMED             | Вказує на стан зброєння FMU. Це активне низьке (низьке під час увімкнення).                                                                                                                        |
 | DSU7               | Використовується для дебагінгу FMU, читання інформації щодо дебагінгу.                                                                                                                             |
 | I2C2/I2C3/I2C4     | Підключає пристрій I2C, такий як зовнішній компас.                                                                                                                                                 |
-| CAN1/CAN2          | Connect UAVCAN devices such as CAN GPS.                                                                                                                                                            |
-| TYPE-C\(USB\)    | Connect to a computer for communication between the flight controller and the computer, such as loading firmware                                                                                   |
+| CAN1/CAN2          | Підключає пристрої UAVCAN, такі як CAN GPS.                                                                                                                                                        |
+| TYPE-C\(USB\)    | Під'єднатися до комп'ютера для зв'язку між контролером польоту та комп'ютером, наприклад, як завантаження прошивки                                                                                 |
 | GPS&SAFETY         | Connect to Neo GPS, which includes GPS, safety switch, buzzer interface.                                                                                                                           |
 | TELEM1/TELEM2      | Connect to the Telemetry System.                                                                                                                                                                   |
 | DSM/SBUS/RSSI      | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module. |
