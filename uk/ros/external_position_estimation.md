@@ -93,7 +93,7 @@ z_{mav} = - y_{mocap}
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
-::: info A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools. На момент написання статті (липень 2021 року) ні [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), ні [MAVGCL](../log/flight_log_analysis.md#mavgcl) не підтримують цю функцію.
+::: info Графік зовнішніх даних проти вбудованої оцінки (як вище) може бути створений за допомогою [FlightPlot](../log/flight_log_analysis.md#flightplot) або подібних засобів аналізу польоту. На момент написання статті (липень 2021 року) ні [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), ні [MAVGCL](../log/flight_log_analysis.md#mavgcl) не підтримують цю функцію.
 :::
 
 Значення можна додатково налаштувати, змінюючи параметр, щоб знайти значення, яке дає найнижчі інновації EKF під час динамічних маневрів.
@@ -188,47 +188,47 @@ MAVROS має плагіни для передачі візуальної оці
 
 ![Reference frames](../../assets/lpe/ref_frames.png)
 
-With EKF2 when using external heading estimation, magnetic north can either be ignored and or the heading offset to magnetic north can be calculated and compensated. Depending on your choice the yaw angle is given with respect to either magnetic north or local *x*.
+З EKF2 при використанні зовнішньої оцінки напрямку магнітного північ може бути або ігноруватися, або зміщення напрямку до магнітного північного може бути розраховано та скомпенсовано. Залежно від вашого вибору кут крену вказується відносно магнітного північного або місцевого *x*.
 
-::: info When creating the rigid body in the MoCap software, remember to first align the robot's local *x* axis with the world *x* axis otherwise the yaw estimate will have an offset. This can stop the external pose estimate fusion from working properly. Yaw angle should be zero when body and reference frame align.
+:::info При створенні жорсткого тіла в програмному забезпеченні MoCap не забудьте спочатку вирівняти локальну вісь робота *x* зі світовою віссю *x*, інакше оцінка розвороту матиме зміщення. Це може призупинити правильну роботу злиття зовнішньої оцінки позиції. Кут крену повинен дорівнювати нулю, коли тіло та опорна система вирівнюються.
 :::
 
-Використовуючи MAVROS, ця операція є простою. ROS uses ENU frames as convention, therefore position feedback must be provided in ENU. Якщо у вас є система Optitrack, ви можете використати вузол [mocap_optitrack](https://github.com/ros-drivers/mocap_optitrack), який транслює позицію об'єкта на тему ROS, що вже є у ENU. With a remapping you can directly publish it on `mocap_pose_estimate` as it is without any transformation and MAVROS will take care of NED conversions.
+Використовуючи MAVROS, ця операція є простою. ROS використовує фрейми ENU як конвенцію, тому зворотний зв'язок щодо позиції повинен бути наданий в ENU. Якщо у вас є система Optitrack, ви можете використати вузол [mocap_optitrack](https://github.com/ros-drivers/mocap_optitrack), який транслює позицію об'єкта на тему ROS, що вже є у ENU. За допомогою переналаштування ви можете безпосередньо опублікувати його на `mocap_pose_estimate` таким, як він є, без будь-яких перетворень, і MAVROS позбудеться перетворень NED.
 
-The MAVROS odometry plugin makes it easy to handle the coordinate frames. It uses ROS's tf package. Your external pose system might have a completely different frame convention that does not match the one of PX4. The body frame of the external pose estimate can depend on how you set the body frame in the MOCAP software or on how you mount the VIO sensor on the drone. The MAVROS odometry plugin needs to know how the external pose's child frame is oriented with respect to either the airframe's FRD or FLU body frame known by MAVROS. You therefore have to add the external pose's body frame to the tf tree. This can be done by including an adapted version of the following line into your ROS launch file.
+Плагін MAVROS відомий тим, що спрощує роботу з координатними рамками. Він використовує пакет tf ROS. Ваш зовнішній система позиціонування може мати зовсім іншу конвенцію рамки, яка не відповідає конвенції PX4. Корпусна рама зовнішньої оцінки позиції може залежати від того, як ви встановите корпусну раму в програмному забезпеченні MOCAP або від того, як ви встановите сенсор VIO на дрона. Плагін відомостей MAVROS потребує знання, як дитяча рамка зовнішньої позиції орієнтована відносно рамки тіла FRD або FLU повітряного судна, відомої за допомогою MAVROS. Отже, вам потрібно додати зовнішню позу тіла до дерева tf. Це можна зробити, включивши адаптовану версію наступного рядка до вашого ROS-файлу запуску.
 
 ```
   
 ```
-Make sure that you change the values of yaw, pitch and roll such that it properly attaches the external pose's body frame to the `base_link` or `base_link_frd`. Have a look at the [tf package](http://wiki.ros.org/tf#static_transform_publisher) for further help on how to specify the transformation between the frames. You can use rviz to check if you attached the frame right. The name of the `external_pose_child_frame` has to match the child_frame_id of your `nav_msgs/Odometry` message. The same also applies for the reference frame of the external pose. You have to attach the reference frame of the external pose as child to either the `odom` or `odom_frd` frame. Adapt therefore the following code line accordingly.
+Переконайтеся, що ви змінили значення крену, тангажу та кочення так, що вони належним чином приєднують корпус зовнішньої позиції до `base_link` або `base_link_frd`. Подивіться на пакет [tf package](http://wiki.ros.org/tf#static_transform_publisher)  для отримання додаткової допомоги з приводу того, як вказати трансформацію між кадрами. Ви можете використовувати rviz, щоб перевірити, чи ви правильно прикріпили рамку. Назва `external_pose_child_frame` повинна збігатися з child_frame_id вашого повідомлення `nav_msgs/Odometry`. Те ж саме стосується і для опорної рамки зовнішньої позиції. Вам потрібно прикріпити опорний каркас зовнішньої позиції як дитину до рамки `odom` або `odom_frd`. Адаптуйте тому відповідно кодовий рядок.
 ```
   <node pkg="tf" type="static_transform_publisher" name="tf_odom_externalPoseParentFrame"
         args="0 0 0 <yaw> <pitch> <roll> odom <external_pose_parent_frame> 1000"/>
 ```
-If the reference frame has the z axis pointing upwards you can attached it without any rotation (yaw=0, pitch=0, roll=0) to the `odom` frame. The name of `external_pose_parent_frame` has to match the frame_id of the odometry message.
+Якщо опорна рама має вісь z, що вказує вгору, ви можете прикріпити її без будь-якого обертання (yaw=0, pitch=0, roll=0) до рами `odom`. Назва `external_pose_parent_frame` повинна збігатися з frame_id повідомлення про відомість.
 
-::: info When using the MAVROS *odom* plugin, it is important that no other node is publishing a transform between the external pose's reference and child frame. This might break the *tf* tree.
+:::info При використанні плагіну MAVROS *odom* важливо, щоб жоден інший вузол не публікував трансформацію між зовнішнім посиланням позиції та дочірнім кадром. Це може зламати дерево *tf*.
 :::
 
 <a id="setup_specific_systems"></a>
 
-## Specific System Setups
+## Конкретні налаштування системи
 
 ### OptiTrack MoCap
 
-The following steps explain how to feed position estimates from an [OptiTrack](https://optitrack.com/motion-capture-robotics/) system to PX4. It is assumed that the MoCap system is calibrated. See [this video](https://www.youtube.com/watch?v=cNZaFEghTBU) for a tutorial on the calibration process.
+Наступні кроки пояснюють, як подавати оцінки позиції з системи [OptiTrack](https://optitrack.com/motion-capture-robotics/) в PX4. Припускається, що система MoCap налаштована. Дивіться [це відео](https://www.youtube.com/watch?v=cNZaFEghTBU) для навчання процесу калібрування.
 
-#### Steps on the *Motive* MoCap software
+#### Кроки у програмному забезпеченні *Motive* MoCap
 
-* Align your robot's forward direction with the [system +x-axis](https://v20.wiki.optitrack.com/index.php?title=Template:Coordinate_System)
-* [Define a rigid body in the Motive software](https://www.youtube.com/watch?v=1e6Qqxqe-k0). Give the robot a name that does not contain spaces, e.g. `robot1` instead of `Rigidbody 1`
-* [Enable Frame Broadacst and VRPN streaming](https://www.youtube.com/watch?v=yYRNG58zPFo)
-* Set the Up axis to be the Z axis (the default is Y)
+* Вирівняйте напрямок вашого робота з [system +x-axis](https://v20.wiki.optitrack.com/index.php?title=Template:Coordinate_System)
+* [Визначте жорстке тіло в програмному забезпеченні Motive](https://www.youtube.com/watch?v=1e6Qqxqe-k0). Вкажіть роботу ім'я, яке не містить пробілів, наприклад, `robot1` замість `Rigidbody 1`
+* [Увімкніть трансляцію кадру та потокове відтворення VRPN](https://www.youtube.com/watch?v=yYRNG58zPFo)
+* Встановіть вісь Up на ось Z (за замовчуванням - Y)
 
 #### Отримання даних про позицію в ROS
 
 * Встановіть пакет `vrpn_client_ros`
-* You can get each rigid body pose on an individual topic by running
+* Ви можете отримати позу кожного жорсткого тіла на окрему тему, запустивши
   ```sh
   roslaunch vrpn_client_ros sample.launch server:=<mocap machine ip>
   ```
@@ -239,12 +239,12 @@ The following steps explain how to feed position estimates from an [OptiTrack](h
 
 MAVROS надає плагін для передачі даних позиції, опублікованих на `/mavros/vision_pose/pose`, до PX4. Припускаючи, що MAVROS працює, вам просто потрібно **переналаштувати** тему позиції, яку ви отримуєте від MoCap `/vrpn_client_node/<rigid_body_name>/pose` безпосередньо на `/mavros/vision_pose/pose`. Зверніть увагу, що також є тема `mocap`, яку надає MAVROS для подачі `ATT_POS_MOCAP` в PX4, але вона не застосовується до EKF2. Однак, це застосовується з LPE.
 
-::: info Remapping pose topics is covered above [Relaying pose data to PX4](#relaying_pose_data_to_px4) (`/vrpn_client_node/<rigid_body_name>/pose` is of type `geometry_msgs/PoseStamped`).
+:::info Переналаштування тем постави описано вище [Передача даних постави в PX4](#relaying_pose_data_to_px4) (`/vrpn_client_node/<rigid_body_name>/pose` має тип `geometry_msgs/PoseStamped`).
 :::
 
-Assuming that you have configured EKF2 parameters as described above, PX4 now is set and fusing MoCap data.
+Припускаючи, що ви налаштували параметри EKF2, як описано вище, PX4 тепер встановлений і об'єднує дані MoCap.
 
-You are now set to proceed to the first flight.
+Ви тепер готові перейти до першого політ.
 
 
 ## Перший політ
