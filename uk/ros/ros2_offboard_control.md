@@ -2,7 +2,7 @@
 
 Наступний приклад на C++ показує, як виконати керування положенням у режимі [offboard mode](../flight_modes/offboard.md) з вузла ROS 2.
 
-The example starts sending setpoints, enters offboard mode, arms, ascends to 5 metres, and waits. Незважаючи на простоту, він демонструє основні принципи використання offboard control і способи надсилання команд транспортному засобу.
+Приклад починає відправляти установочні точки, входить у режим offboard, озброюється, піднімається на 5 метрів і чекає. Незважаючи на простоту, він демонструє основні принципи використання offboard control і способи надсилання команд транспортному засобу.
 
 Він був протестований на Ubuntu 20.04 з ROS 2 Foxy та PX4 `main` після PX4 v1.13.
 
@@ -10,7 +10,7 @@ The example starts sending setpoints, enters offboard mode, arms, ascends to 5 m
 *Offboard* керування небезпечне. Якщо ви керуєте реальним транспортним засобом, то обов'язково майте можливість отримати назад ручне керування на випадок, якщо щось піде не так.
 :::
 
-::: info ROS and PX4 make a number of different assumptions, in particular with respect to [frame conventions](../ros/external_position_estimation.md#reference-frames-and-ros). There is no implicit conversion between frame types when topics are published or subscribed!
+:::info ROS та PX4 роблять кілька різних припущень, зокрема щодо [конвенцій кадрів](../ros/external_position_estimation.md#reference-frames-and-ros). Не існує неявного перетворення між типами кадрів при публікації або підписці на теми!
 
 У цьому прикладі публікуються позиції у фреймі NED, як і очікує PX4. Щоб підписатися на дані, що надходять з вузлів, які публікують у іншій системі координат (наприклад, ENU, яка є стандартною системою координат у ROS/ROS 2), скористайтеся допоміжними функціями у бібліотеці [frame_transforms](https://github.com/PX4/px4_ros_com/blob/main/src/lib/frame_transforms.cpp).
 :::
@@ -68,7 +68,7 @@ The example starts sending setpoints, enters offboard mode, arms, ascends to 5 m
 
    ::::
 
-1. Source the `local_setup.bash`:
+1. Джерело `local_setup.bash`:
 
    ```sh
    source install/local_setup.bash
@@ -79,16 +79,16 @@ The example starts sending setpoints, enters offboard mode, arms, ascends to 5 m
    ros2 run px4_ros_com offboard_control
    ```
 
-The vehicle should arm, ascend 5 metres, and then wait (perpetually).
+Транспортний засіб повинен озброїтися, піднятися на 5 метрів і потім зачекати (вічно).
 
 ## Імплементація
 
-The source code of the offboard control example can be found in [PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) in the directory [/src/examples/offboard/offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp).
+Вихідний код прикладу керування позашляховою платформою можна знайти за посиланням [PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) у каталозі [/src/examples/offboard/offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp).
 
-::: info PX4 publishes all the messages used in this example as ROS topics by default (see [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)).
+:::info PX4 публікує всі повідомлення, використані в цьому прикладі, як ROS теми за замовчуванням (див. [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)).
 :::
 
-PX4 requires that the vehicle is already receiving `OffboardControlMode` messages before it will arm in offboard mode, or before it will switch to offboard mode when flying. Крім того, PX4 вийде з offboard mode, якщо частота потоку повідомлень `OffboardControlMode` впаде нижче приблизно 2 Гц. Необхідна поведінка реалізується за допомогою головного циклу, що виконується у вузлі ROS 2, як показано нижче:
+PX4 вимагає, щоб транспортний засіб вже отримував повідомлення `OffboardControlMode` перед тим, як він збере в режимі автономного керування, або перед тим, як він перейде в режим автономного керування під час польоту. Крім того, PX4 вийде з offboard mode, якщо частота потоку повідомлень `OffboardControlMode` впаде нижче приблизно 2 Гц. Необхідна поведінка реалізується за допомогою головного циклу, що виконується у вузлі ROS 2, як показано нижче:
 
 ```cpp
 auto timer_callback = [this]() -> void {
@@ -113,11 +113,11 @@ auto timer_callback = [this]() -> void {
 timer_ = this->create_wall_timer(100ms, timer_callback);
 ```
 
-Цикл працює на таймері тривалістю 100 мс. Протягом перших 10 циклів він викликає `publish_offboard_control_mode()` і `publish_trajectory_setpoint()`, щоб відправити [OffboardControlMode](../msg_docs/OffboardControlMode.md) та [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) повідомлення до PX4. The `OffboardControlMode` messages are streamed so that PX4 will allow arming once it switches to offboard mode, while the `TrajectorySetpoint` messages are ignored (until the vehicle is in offboard mode).
+Цикл працює на таймері тривалістю 100 мс. Протягом перших 10 циклів він викликає `publish_offboard_control_mode()` і `publish_trajectory_setpoint()`, щоб відправити [OffboardControlMode](../msg_docs/OffboardControlMode.md) та [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) повідомлення до PX4. Повідомлення `OffboardControlMode` транслюються таким чином, що PX4 дозволить озброєння, як тільки перейде в режим offboard, тоді як повідомлення `TrajectorySetpoint` ігноруються (доки транспортний засіб перебуває в режимі offboard).
 
-After 10 cycles `publish_vehicle_command()` is called to change to offboard mode, and `arm()` is called to arm the vehicle. After the vehicle arms and changes mode it starts tracking the position setpoints. The setpoints are still sent in every cycle so that the vehicle does not fall out of offboard mode.
+Після 10 циклів викликається `publish_vehicle_command()` для зміни на режим безпілотного керування, а також викликається `arm()` для озброєння транспортного засобу. Після того, як транспортний засіб озброюється та змінює режим, він починає відстежувати встановлені точки. Задані точки все ще відправляються в кожному циклі, щоб транспортний засіб не виходив з режиму поза платформою.
 
-The implementations of the `publish_offboard_control_mode()` and `publish_trajectory_setpoint()` methods are shown below. These publish the [OffboardControlMode](../msg_docs/OffboardControlMode.md) and [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) messages to PX4 (respectively).
+Реалізації методів `publish_offboard_control_mode()` та `publish_trajectory_setpoint()` показані нижче. Ці публікують повідомлення [OffboardControlMode](../msg_docs/OffboardControlMode.md) та [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) до PX4 (відповідно).
 
 Параметр `OffboardControlMode` потрібен для того, щоб повідомити PX4 про _тип_ використовуваного режиму керування offboard. Тут ми використовуємо лише _position control_, тому поле `position` має значення `true`, а всі інші поля мають значення `false`.
 
@@ -159,7 +159,7 @@ void OffboardControl::publish_trajectory_setpoint()
 }
 ```
 
-Функція `publish_vehicle_command()` надсилає повідомлення [VehicleCommand](../msg_docs/VehicleCommand.md) з командами до польотного контролера. We use it above to change the mode to offboard mode, and also in `arm()` to arm the vehicle. Хоча у цьому прикладі ми не викликаємо `disarm()`, він також використовується у реалізації цієї функції.
+Функція `publish_vehicle_command()` надсилає повідомлення [VehicleCommand](../msg_docs/VehicleCommand.md) з командами до польотного контролера. Ми використовуємо його вище, щоб змінити режим на режим offboard, а також у `arm()` для озброєння транспортного засобу. Хоча у цьому прикладі ми не викликаємо `disarm()`, він також використовується у реалізації цієї функції.
 
 ```cpp
 /**
@@ -184,7 +184,7 @@ void OffboardControl::publish_vehicle_command(uint16_t command, float param1, fl
 }
 ```
 
-::: info [VehicleCommand](../msg_docs/VehicleCommand.md) is one of the simplest and most powerful ways to command PX4, and by subscribing to [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) you can also confirm that setting a particular command was successful. Поля param і command відображають команди [MAVLink](https://mavlink.io/en/messages/common.html#mav_commands) та їхні значення параметрів.
+:::info [VehicleCommand](../msg_docs/VehicleCommand.md) - один з найпростіших і найпотужніших способів керування PX4, а підписавшись на [VehicleCommandAck](../msg_docs/VehicleCommandAck.md), ви також можете підтвердити, що задавання певної команди було успішним. Поля param і command відображають команди [MAVLink](https://mavlink.io/en/messages/common.html#mav_commands) та їхні значення параметрів.
 :::
 
 
