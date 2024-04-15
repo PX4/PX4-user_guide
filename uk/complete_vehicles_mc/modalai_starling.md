@@ -1,31 +1,31 @@
-# VOXL 2 Starling PX4 Development Drone
+# VOXL 2 Зоряний PX4 Розробка Дрону
 
-The [Starling](https://modalai.com/starling) is a SLAM development drone supercharged by [VOXL 2](../flight_controller/modalai_voxl_2.md) and PX4 with SWAP-optimized sensors and payloads optimized for indoor and outdoor autonomous navigation.
-Powered by Blue UAS Framework autopilot, VOXL 2, the Starling weighs only 275g and boasts an impressive 30 minutes of autonomous indoor flight time.
+[Starling](https://modalai.com/starling) - це SLAM розроблений дрон, підсиленний [VOXL 2](../flight_controller/modalai_voxl_2.md) та PX4 з оптимізованими датчиками та навантаженнями для внутрішньої та зовнішньої автономної навігації.
+За допомогою автопілота Blue UAS Framework, VOXL 2, Starling важить всього 275 г і має вражаючі 30 хвилин автономного польоту в приміщенні.
 
-![Overview](../../assets/hardware/complete_vehicles/modalai_starling/starling_front_hero.jpg)
+![Огляд](../../assets/hardware/complete_vehicles/modalai_starling/starling_front_hero.jpg)
 
-The VOXL 2 Starling is a PX4 development drone that houses a [VOXL 2](../flight_controller/modalai_voxl_2.md) companion computer and PX4 flight controller, image sensors, GPS, and connectivity modem and is ready-to-fly out-of-the-box.
-The Starling features ModalAI’s [open SDK](https://docs.modalai.com/voxl-developer-bootcamp/) that has pre-configured autonomy models for computer vision assisted flight.
-This development drone is meant to help you get to market faster and accelerate your application development and prototyping.
+VOXL 2 Starling - це розробницький безпілотник PX4, який містить супутній комп'ютер [VOXL 2](../flight_controller/modalai_voxl_2.md) та керування польотом PX4, сенсори зображення, GPS, модем підключення і готовий до польоту прямо з коробки.
+Starling має [відкрите SDK](https://docs.modalai.com/voxl-developer-bootcamp/) від ModalAI, яке має попередньо налаштовані моделі автономії для польотів з допомогою комп'ютерного зору.
+Цей розвивальний дрон призначений, щоб допомогти вам швидше вийти на ринок та прискорити розробку та прототипування вашої програми.
 
-This guide explains the minimal additional setup required to get the UAV ready to fly. It also covers a hardware overview, first flight, setting up WiFi, and more.
+Цей посібник пояснює мінімальну додаткову настройку, необхідну для підготовки БПЛА до польоту. Він також охоплює огляд апаратного забезпечення, перший польот, налаштування WiFi та інше.
 
 :::info
-For complete and regularly updated documentation, please visit https://docs.modalai.com/starling-v2.
+Для повного та регулярно оновлюваного документування відвідайте https://docs.modalai.com/starling-v2.
 :::
 
 :::info
-If you are new to VOXL, be sure to familiarize yourself with the core features of VOXL hardware and software by reviewing the [VOXL Bootcamp](https://docs.modalai.com/voxl-developer-bootcamp/).
+Якщо ви новачок у VOXL, обов'язково ознайомтеся з основними функціями апаратного та програмного забезпечення VOXL, переглянувши [VOXL Bootcamp](https://docs.modalai.com/voxl-developer-bootcamp/).
 :::
 
-## Where to Buy
+## Де купити
 
 [modalai.com/starling](https://modalai.com/starling)
 
-## Hardware Overview
+## Налаштування обладнання
 
-![Hardware Overview](../../assets/hardware/complete_vehicles/modalai_starling/mrb_d0005_4_v2_c6_m22__callouts_a.jpg)
+![Огляд апаратної частини](../../assets/hardware/complete_vehicles/modalai_starling/mrb_d0005_4_v2_c6_m22__callouts_a.jpg)
 
 | Callout | Опис                                                     | MPN              |
 | ------- | -------------------------------------------------------- | ---------------- |
@@ -70,54 +70,54 @@ If you are new to VOXL, be sure to familiarize yourself with the core features o
 
 ![Hardware Overview](../../assets/hardware/complete_vehicles/modalai_starling/d0005_compute_wiring_d.jpg)
 
-## Tutorials
+## Посібники
 
 ### ELRS Set Up
 
-Binding your ELRS (ExpressLRS) receiver to a transmitter is a crucial step in preparing your VOXL 2 based PX4 Autonomy Developer Kit by ModalAI for flight.
-This process ensures a secure and responsive connection between your drone and its control system.
+Прив'язка вашого приймача ELRS (ExpressLRS) до передавача є важливим кроком у підготовці вашого набору розробника автономії PX4 Autonomy Developer Kit від ModalAI на базі VOXL 2 для польоту.
+Цей процес забезпечує безпечне та відгукнуто з'єднання між вашим дроном та його системою керування.
 
-Follow this guide to bind your ELRS receiver to your transmitter.
+Дотримуйтесь цього керівництва, щоб прив'язати ваш приймач ELRS до вашого передавача.
 
-#### Setting up the Receiver
+#### Налаштування відображення
 
-1. **Power On the Receiver**: Once your drone is powered on, you'll notice the ELRS receiver's blue LED flashing.
-   This is an indication that the receiver is on but has not yet established a connection with a transmitter.
+1. **Увімкніть приймач**: Як тільки ваш квадрокоптер увімкнено, ви помітите, що синій світлодіод приймача ELRS мигає.
+   Це свідчить про те, що отримувач увімкнений, але ще не встановив зв'язок з передавачем.
 
-   ![Starling Receiver](../../assets/hardware/complete_vehicles/modalai_starling/starling-photo.png)
+   ![Приймач Starling](../../assets/hardware/complete_vehicles/modalai_starling/starling-photo.png)
 
-2. **Enter Binding Mode**: To initiate binding, open a terminal and execute the `adb shell` and `voxl-elrs -bind` commands.
-   You'll observe the receiver's LED switch to a flashing in a heartbeat pattern, signaling that it is now in binding mode.
+2. **Увійдіть в режим зв'язку**: Для ініціювання зв'язку відкрийте термінал та виконайте команди `adb shell` та `voxl-elrs -bind`.
+   Ви побачите, що світлодіод приймача перемикається на миготливий в режимі миттєвого реагування, сигналізуючи, що тепер він у режимі зв'язку.
 
    ![Boot Screenshot](../../assets/hardware/complete_vehicles/modalai_starling/screenshot-boot.png)
 
-#### Setting up the Transmitter
+#### Налаштування передавача
 
-1. **Access the Menu**: On your Commando 8 radio transmitter included in the kit, press the left mode button to open the menu system.
+1. **Отримайте доступ до меню**: На вашому передавачі радіо Commando 8, включеному в комплект, натисніть ліву кнопку режиму, щоб відкрити систему меню.
 
-   ![Press Menu on RC](../../assets/hardware/complete_vehicles/modalai_starling/radio-1.png)
+   ![Натисніть Меню на ПДУ](../../assets/hardware/complete_vehicles/modalai_starling/radio-1.png)
 
-2. **Navigate to ExpressLRS**: Use the right button to select the first menu entry, which should be "ExpressLRS."
+2. **Перейдіть до ExpressLRS**: Використовуйте праву кнопку, щоб вибрати перший пункт меню, який повинен бути "ExpressLRS."
 
-3. **Find the Bind Option**: With the "ExpressLRS" option selected, scroll down to the bottom of the menu to locate the "Bind" section. This can be done by pressing the right button downwards until you reach the "Bind" option.
+3. **Знайдіть опцію Bind**: Після вибору опції "ExpressLRS" прокрутіть вниз до нижньої частини меню, щоб знайти розділ "Bind". Це можна зробити, натиснувши праву кнопку донизу, поки ви не досягнете опцію "Прив'язка".
 
    ![Press Binding on RC](../../assets/hardware/complete_vehicles/modalai_starling/radio-2.png)
 
-4. **Initiate Binding**: Select "Bind" to put the transmitter into binding mode. You will know the process has been successful when the transmitter emits a beep, indicating a successful bind.
+4. **Ініціювати Прив'язку**: Виберіть "Прив'язати", щоб перевести передавач у режим прив'язки. Ви будете знати, що процес був успішним, коли передавач видасть сигнал, вказуючи на успішне зв'язування.
 
-#### Completing the Binding Process
+#### Завершення процесу зв'язування
 
-Once the transmitter is set to bind mode, the ELRS receiver on the drone will change its LED from flashing to a steady light, signifying a successful connection between the receiver and the transmitter.
+Після того як передавач встановлено в режим зв'язку, приймач ELRS на дроні змінить свій світлодіод з миготливого на постійне світло, що свідчить про успішне підключення між приймачем та передавачем.
 
-- **Power Cycle**: After the binding process is complete, it's essential to power cycle the VOXL 2 before attempting to fly.
-  This means turning off the VOXL 2 and then turning it back on.
-  This step ensures that all settings are properly applied and that the system recognizes the newly established connection.
+- **Цикл живлення**: Після завершення процесу прив'язки обов'язково вимкніть живлення VOXL 2 перед спробою політів.
+  Це означає вимкнути VOXL 2, а потім увімкнути його знову.
+  Цей крок забезпечує, що всі налаштування правильно застосовані і система визнає новостворене з'єднання.
 
-You should now have a successfully bound ELRS receiver to your transmitter, ready for use with the PX4 Autonomy Kit by ModalAI.
-A secure connection is vital for the reliable operation of your drone, so always confirm the binding status before flight.
+Тепер ви повинні мати успішно прив'язаний приймач ELRS до вашого передавача, готовий до використання з набором автономії PX4 від ModalAI.
+Безпечне підключення є важливим для надійної роботи вашого безпілотника, тому завжди підтверджуйте статус зв'язку перед польотом.
 
-### Videos
+### Відео
 
-- [VOXL 2 Starling Hardware Overview](https://youtu.be/M9OiMpbEYOg)
-- [VOXL 2 Starling First Flight Tutorial](https://youtu.be/Cpbbye3Z6co)
-- [VOXL 2 Starling ELRS Set Up](https://youtu.be/7OwGS-kcFVg)
+- [Огляд апаратного забезпечення VOXL 2 Starling](https://youtu.be/M9OiMpbEYOg)
+- [Посібник з першого польоту VOXL 2 Starling](https://youtu.be/Cpbbye3Z6co)
+- [VOXL 2 Starling Налаштування ELRS](https://youtu.be/7OwGS-kcFVg)
