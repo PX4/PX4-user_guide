@@ -79,7 +79,7 @@ This is done using the the parameters named like `UAVCAN_SUB_*` in the parameter
 
 On the ARK CANnode, you may need to configure the following parameters:
 
-| Parameter                                                                                       | Description                   |
+| Параметр                                                                                        | Опис                          |
 | ----------------------------------------------------------------------------------------------- | ----------------------------- |
 | <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | CAN built-in bus termination. |
 
