@@ -1,14 +1,14 @@
 # Fixed-wing Altitude/Position Controller Tuning
 
-This guide offers some help in tuning the high-level fixed-wing controllers needed for flying missions and in altitude/position control mode. PX4 uses TECS for altitude and airspeed control, and NPFG for horizontal heading/position control.
+Ця інструкція надає певну допомогу в налаштуванні контролерів високого рівня, необхідних для літаючих місій, та в режимі контролю за висотою. PX4 використовує TECS для контролю висоти та швидкості повітря, а NPFG - для горизонтальних заголовків/позицій.
 
 ::: info
 An incorrectly set gain during tuning can make altitude or heading control unstable.
-A pilot tuning the TECS gains should therefore be able to fly and land the plane in stabilized control mode.
+Пілот, налаштовуючи коефіцієнти TECS, повинен мати змогу керувати польотом та посадкою літака в стабілізованому режимі керування.
 :::
 
 :::tip
-All parameters are documented in the [Parameter Reference](../advanced_config/parameter_reference.md#fw-tecs). The most important parameters are covered in this guide.
+Всі параметри задокументовані в [Посилання на параметр](../advanced_config/parameter_reference.md#fw-tecs). The most important parameters are covered in this guide.
 :::
 
 ## TECS Tuning (Altitude and Airspeed)
@@ -28,7 +28,7 @@ To improve accuracy we also recommended that you verify the data obtained during
 
 Fly in [stabilized mode](../flight_modes_fw/stabilized.md) and find trim values for both throttle and pitch angle for level flight at trim airspeed. Use throttle to adjust airspeed and pitch to keep level flight.
 
-Set the following parameters:
+Встановить наступні параметри:
 
 - [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) - set to the desired trim airspeed flown during the maneuver.
 - [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM) - set to the throttle required to fly at trim airspeed.
@@ -47,7 +47,7 @@ Set the following parameters:
 #### 3rd: Pitch & Climb Rate Limits
 
 :::warning
-Do not use [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX), [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX) or [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) to specify the desired climb or sink performance you would like to get from the vehicle! The parameters define the operating limitations and they should be set during the tuning phase, as described below.
+Не використовувати [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX) або [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) для зазначення бажаного підйомності або швидкості, яку ви хотіли б отримати з транспорту! The parameters define the operating limitations and they should be set during the tuning phase, as described below.
 :::
 
 Fly in stabilized mode, apply full throttle (`FW_THR_MAX`) and slowly increase the pitch angle of the vehicle until the airspeed reaches `FW_AIRSPD_TRIM`.
