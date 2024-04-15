@@ -17,15 +17,15 @@ Pixhawk<sup>&reg;</sup> 3 Pro базується на апаратному ди�
 
 ## Короткий опис
 
-- Microcontroller: **STM32F469**; Flash size is **2MiB**, RAM size is **384KiB**
-- **ICM-20608-G** gyro / accelerometer
-- **MPU-9250** gyro / accelerometer / magnetometer
-- **LIS3MDL** compass
-- Sensors connected via two SPI buses (one high rate and one low-noise bus)
-- Two I2C buses
-- Two CAN buses
-- Voltage / battery readings from two power modules
-- FrSky<sup>&reg;</sup> Inverter
+- Мікроконтролер: **STM32F469**; Flash size **2MiB**, RAM size **384KiB**
+- **ICM-20608-G** гіроскоп / акселерометр
+- **MPU-9250** гіроскоп / акселерометр / магнітометр
+- **LIS3MDL** компас
+- Датчики, підключені через дві шини SPI (одна високочастотна й одна малошумна шина)
+- Два шини I2C
+- Два CAN шини
+- Показники напруги / батареї з двох блоків живлення
+- FrSky<sup>&reg;</sup> інвертор
 - 8 Main + 6 AUX PWM outputs (Separate IO chip, PX4IO)
 - microSD (logging)
 - S.BUS / Spektrum / SUMD / PPM input
