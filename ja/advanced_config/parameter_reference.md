@@ -8921,6 +8921,13 @@ table {
  <td>rad/s</td>
 </tr>
 <tr>
+ <td><strong id="ATT_EN">ATT_EN</strong> (INT32)</td>
+ <td>standalone attitude estimator enable (unsupported) <p><strong>Comment:</strong> Enable standalone quaternion based attitude estimator.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="ATT_EXT_HDG_M">ATT_EXT_HDG_M</strong> (INT32)</td>
  <td>External heading usage mode (from Motion capture/Vision) <p><strong>Comment:</strong> Set to 1 to use heading estimate from vision. Set to 2 to use heading from motion capture.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> None</li>
@@ -10948,6 +10955,13 @@ table {
  <td>[0.5, 5.0] </td>
  <td>1.4</td>
  <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_EN">EKF2_EN</strong> (INT32)</td>
+ <td>EKF2 enable    </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_EVA_NOISE">EKF2_EVA_NOISE</strong> (FLOAT)</td>
@@ -15519,6 +15533,13 @@ table {
  <td>[0.01, 100] </td>
  <td>3.0</td>
  <td>m</td>
+</tr>
+<tr>
+ <td><strong id="LPE_EN">LPE_EN</strong> (INT32)</td>
+ <td>Local position estimator enable (unsupported)    </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="LPE_EPH_MAX">LPE_EPH_MAX</strong> (FLOAT)</td>
@@ -22003,7 +22024,7 @@ table {
 </tr>
 <tr>
  <td><strong id="IMU_GYRO_NF0_FRQ">IMU_GYRO_NF0_FRQ</strong> (FLOAT)</td>
- <td>Notch filter frequency for gyro <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. See &quot;IMU_GYRO_NF1_BW&quot; to set the bandwidth of the filter. A value of 0 disables the filter. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Notch filter frequency for gyro <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. Applies to both angular velocity and angular acceleration sent to the controllers. A value of 0 disables the filter. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 1000] </td>
  <td>0.0</td>
@@ -22019,7 +22040,7 @@ table {
 </tr>
 <tr>
  <td><strong id="IMU_GYRO_NF1_FRQ">IMU_GYRO_NF1_FRQ</strong> (FLOAT)</td>
- <td>Notch filter 2 frequency for gyro <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. See &quot;IMU_GYRO_NF0_BW&quot; to set the bandwidth of the filter. A value of 0 disables the filter. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Notch filter 2 frequency for gyro <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. Applies to both angular velocity and angular acceleration sent to the controllers. A value of 0 disables the filter. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 1000] </td>
  <td>0.0</td>
@@ -24056,7 +24077,7 @@ table {
 <tr>
  <td><strong id="SIH_KDW">SIH_KDW</strong> (FLOAT)</td>
  <td>First order angular damper coefficient <p><strong>Comment:</strong> Physical coefficient representing the friction with air particules during rotations. The greater this value, the slower the quad will rotate. Aerodynamic moment function of body rate: Ma=-KDW*W_B. This value can be set to 0 if unknown.</p>   </td>
- <td>(0.01) [0.0, ?]</td>
+ <td>[0.0, ?] [0.0, ?]</td>
  <td>0.025</td>
  <td>Nm/(rad/s)</td>
 </tr>
@@ -24344,18 +24365,6 @@ table {
 </td>
  <td></td>
  <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SYS_MC_EST_GROUP">SYS_MC_EST_GROUP</strong> (INT32)</td>
- <td>Set multicopter estimator group <p><strong>Comment:</strong> Set the group of estimators used for multicopters and VTOLs</p> <strong>Values:</strong><ul>
-<li><strong>1:</strong> local_position_estimator, attitude_estimator_q (unsupported)</li>
-<li><strong>2:</strong> ekf2 (recommended)</li>
-<li><strong>3:</strong> Q attitude estimator (no position)</li>
-</ul>  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>2</td>
  <td></td>
 </tr>
 <tr>
