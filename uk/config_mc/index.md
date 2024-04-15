@@ -18,28 +18,28 @@
 
 ## Frame Selection and Configuration
 
-This section explains how to configure the vehicle type (multicopter), specific motor/flight control geometry, and motor outputs.
+Цей розділ пояснює, як налаштувати тип транспортного засобу (багатокоптер), конкретну геометрію двигуна/керування польотом та виходи двигуна.
 
-First [select a multicopter airframe](../config/airframe.md) (options are listed in [Airframe Reference > Copter](../airframes/airframe_reference.md#copter)). You should select the frame that matches your vehicle brand and model if one exists, and otherwise select the "Generic" frame type that most closely matches your geometry in terms of number of motors and their relative positions. For example, for a [Quadrotor X](../airframes/airframe_reference.md#quadrotor-x) frame you would look for the name of your frame in the list, and if it was not present select the [Generic Quadrotor X](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) frame.
+Спочатку [виберіть каркас багтроторного вертольота](../config/airframe.md) (варіанти перераховані в [Довідник з каркасів >  Вертольот](../airframes/airframe_reference.md#copter)). Ви повинні вибрати рамку, яка відповідає марці та моделі вашого транспортного засобу, якщо така існує, а в іншому випадку виберіть тип рамки "Загальний", який найбільш точно відповідає вашій геометрії за кількістю двигунів та їх відносними положеннями. Наприклад, для рами [Quadrotor X](../airframes/airframe_reference.md#quadrotor-x) ви шукаєте назву вашої рами у списку, і якщо вона відсутня, виберіть раму [Загальний Quadrotor X](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter).
 
-::: info Any selected multicopter frame can be modified in the next step (actuator configuration) to add/remove motors and otherwise change the geometry, and to specify what flight controller outputs are connected to particular motors and the output properties. Selecting a frame that matches your vehicle reduces the configuration work required.
+:::info Будь-яка обрана рама багтороторного коптера може бути змінена на наступному кроці (конфігурація приводу), щоб додати / видалити двигуни та змінити геометрію, і вказати, які виходи польотного контролера підключені до певних двигунів та властивості виходу. Вибір рамки, яка відповідає вашому транспортному засобу, зменшує роботу з налаштуванням, необхідну для виконання.
 
 :::details
-How does this work (details) Selecting an airframe applies a [frame configuration file](../dev_airframes/adding_a_new_frame.md#adding-a-frame-configuration) that contains a predefined set of [parameters](../advanced_config/parameters.md), such as [CA_AIRFRAME=0](../advanced_config/parameter_reference.md#CA_AIRFRAME) for the vehicle type and [CA_ROTOR_COUNT](../advanced_config/parameter_reference.md#CA_ROTOR_COUNT) for the number of rotors.
+Як це працює (деталі) Вибір підфрейму застосовує [файл конфігурації фрейму](../dev_airframes/adding_a_new_frame.md#adding-a-frame-configuration), який містить попередньо визначений набір [параметрів](../advanced_config/parameters.md), таких як [CA_AIRFRAME=0](../advanced_config/parameter_reference.md#CA_AIRFRAME) для типу транспортного засобу та [CA_ROTOR_COUNT](../advanced_config/parameter_reference.md#CA_ROTOR_COUNT) для кількості роторів.
 
-A frame configuration can define everything about a vehicle, from it's geometry and output mappings, through to its tuning and calibration values. When you're bringing up a new vehicle though, the frame will usually contain a fairly minimal configuration:
+Конфігурація рами може визначити все про транспортний засіб, від його геометрії та відображень виходу до налаштувань та калібрування значень. Коли ви виводите новий транспортний засіб, рама зазвичай містить досить мінімальну конфігурацію:
 
-- Frames named with "Generic" define the vehicle type, number of rotors, and "placeholder" rotor positions. After selecting the airframe you define the actual geometry and then configure outputs.
-- Frames named with model/brand will define the vehicle type, number of rotors, actual rotor positions, and motor directions. After selecting the airframe you usually still have to configure outputs.
+- Кадри з назвою "Загальний" визначають тип транспортного засобу, кількість роторів та позиції роторів-заповнювачі. Після вибору конструкції фюзеляжу ви визначаєте фактичну геометрію, а потім налаштовуєте виходи.
+- Кадри з назвою моделі/бренду визначать тип транспортного засобу, кількість роторів, фактичні позиції роторів та напрямки руху двигуна. Після вибору конструкції фюзеляжу вам зазвичай все ще потрібно налаштувати виводи.
 :::
 
-The next step is to define your vehicle [geometry](../config/actuators.md#motor-geometry-multicopter) (the number of motors and their relative positions) and [assign those motors](../config/actuators.md#actuator-outputs) to the physical outputs that they are wired to on your flight controller (both of these are covered in [Actuator Configuration and Testing](../config/actuators.md)).
+Наступним кроком є визначення геометрії вашого транспортного засобу [(кількість двигунів та їх відносні позиції)](../config/actuators.md#motor-geometry-multicopter) та [призначення цих двигунів](../config/actuators.md#actuator-outputs) фізичним виходам, до яких вони підключені на вашому польотному контролері (обидва ці аспекти розглянуті в [Конфігурації та Тестуванні Актуаторів](../config/actuators.md)).
 
-If using PWM ESCs and OneShot ESCs (but not DShot and DroneCAN/Cyphal ESC) you should then perform [ESC Calibration](../advanced_config/esc_calibration.md) before proceeding to [Motor Configuration](../config/actuators.md#motor-configuration). This ensures that all ESC provide exactly the same output for a given input (ideally we'd calibrate ESCs first, but you can't calibrate your ESCs until outputs are mapped).
+Якщо використовуєте PWM ESC та OneShot ESC (але не DShot та DroneCAN/Cyphal ESC), то потім слід виконати [Калібрування ESC](../advanced_config/esc_calibration.md) перед переходом до [Конфігурації двигуна](../config/actuators.md#motor-configuration). Це забезпечує, що всі ESC надають точно такий самий вихід для заданого входу (ідеально, ми спочатку калібруємо ESC, але ви не можете калібрувати свої ESC, поки ви не відобразите виходи).
 
-The final step is [Motor Configuration](../config/actuators.md#motor-configuration):
+Останнім кроком є [Конфігурація двигуна](../config/actuators.md#motor-configuration):
 
-- [Reverse any motors](../config/actuators.md#reversing-motors) that don't match the spin direction configured in the Geometry. For DShot ESC you can do this through the Acuator Testing UI.
+- [Реверс будь-яких моторів](../config/actuators.md#reversing-motors), які не відповідають напрямку обертання, налаштованому в геометрії. Для DShot ESC ви можете це зробити через інтерфейс тестування приводу.
 - PWM, OneShot, and CAN ESC, set the motor input limits for disarmed, low and high speed (not needed for DShot ESC)
 
 Relevant topics:
