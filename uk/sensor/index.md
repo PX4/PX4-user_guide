@@ -16,32 +16,32 @@ PX4 _мінімально потребує_ гіроскоп, акселером
 
 ## Теми датчиків
 
-Mandatory (included in Pixhawk series FCs):
+Обов'язково (включено в Pixhawk серії FCs):
 
-- [Accelerometer](../sensor/accelerometer.md) — Measures changing acceleration.
-- [Gyroscope](../sensor/gyroscope.md) — Measures orientation.
-- [Magnetometer (Compass)](../gps_compass/magnetometer.md) — Measures heading/direction.
-  External compass recommended!
-- [Barometers](../sensor/barometer.md) — Measures altitude (via air pressure).
+- [Акселерометр](../sensor/accelerometer.md) — Вимірює зміну прискорення.
+- [Гіроскоп](../sensor/gyroscope.md) — Вимірює орієнтацію.
+- [Магнітометр (Компас)](../gps_compass/magnetometer.md) — Вимірює напрямок/напрям.
+  Рекомендується зовнішній компас!
+- [Барометри](../sensor/barometer.md) — Вимірює висоту (за допомогою атмосферного тиску).
 
-Recommended:
+Рекомендовано:
 
-- [Airspeed Sensors](../sensor/airspeed.md) — Measures airspeed.
-  Highly recommended for VTOL and Fixed-wing as they are the only mechanism to detect stall.
-- [GNSS (GPS)](../gps_compass/index.md) — Measures global position.
-  Needed for missions, and some other automatic and manual/assisted modes.
-- [RTK GNSS (GPS)](../gps_compass/rtk_gps.md) — GNSS with centimetre-level accuracy.
-  Some setups also allow heading to be determine from GNSS rather than a magnetometer.
+- [Датчики швидкості повітря](../sensor/airspeed.md) — Вимірює швидкість повітря.
+  Високо рекомендується для ВТОЛ та фіксованих крил, оскільки це єдиний механізм виявлення строба.
+- [GNSS (GPS)](../gps_compass/index.md) — Вимірює глобальне положення.
+  Потрібно для місій, а також деяких інших автоматичних та ручних/допоміжних режимів.
+- [RTK GNSS (GPS)](../gps_compass/rtk_gps.md) — GNSS з точністю на рівні сантиметрів.
+  Деякі налаштування також дозволяють визначати напрямок руху за допомогою GNSS, а не за допомогою магнітометра.
 
-Optional:
+Необов'язково:
 
-- [Distance Sensors (Rangefinders)](../sensor/rangefinders.md) — Measures distance to target.
-  Aids landing, object avoidance, and terrain following.
-- [Optical Flow](../sensor/optical_flow.md) — Estimates velocity using a downward facing camera and a downward facing distance sensor.
-  Enables a more accurate position lock than GPS alone, and can be used indoors when no GPS signal is available.
-- [Tachometers (Revolution Counters)](../sensor/tachometers.md) — Only used for logging.
+- [Датчики відстані (дальніміри)](../sensor/rangefinders.md) — Вимірює відстань до цілі.
+  Посадка, уникнення об'єктів і слідування за місцевістю.
+- [Оптичний потік](../sensor/optical_flow.md) — Оцінює швидкість за допомогою камери, спрямованої вниз, та датчика відстані, спрямованого вниз.
+  Дозволяє отримати більш точне фіксування позиції, ніж просто GPS, і може використовуватися усередині приміщень, коли сигнал GPS недоступний.
+- [Тахометри (лічильники обертів)](../sensor/tachometers.md) — Використовується лише для реєстрації.
 
-Other optional:
+Інші варіанти включають:
 
-- [IMU/Compass Factory Calibration](../advanced_config/imu_factory_calibration.md) — Save calibration settings to persistent storage.
-- [Sensor Thermal Compensation](../advanced_config/sensor_thermal_calibration.md) — Compensate sensors for temperature variations.
+- [Калібрування фабрики IMU/Компасу](../advanced_config/imu_factory_calibration.md) — Збереження налаштувань калібрування в постійну пам'ять.
+- [Компенсація Температурних Датчиків](../advanced_config/sensor_thermal_calibration.md) — Компенсувати датчики для змін температури.
