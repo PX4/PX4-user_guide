@@ -178,37 +178,37 @@ sudo ./bin/px4 -s px4.config
 
 <a id="native_builds"></a>
 
-## Native Builds (optional)
+## Нативні збірки (необов'язково)
 
-You can also natively build PX4 builds directly on the BeagleBone Blue.
+Ви також можете нативно створювати збірки PX4 безпосередньо на BeagleBone Blue.
 
-After acquiring the pre-built library,
+Після придбання готової бібліотеки,
 
-1. Select the _librobotcontrol_ installation directory, and set it in the `LIBROBOTCONTROL_INSTALL_DIR` environment variable so that other unwanted headers will not be included
-1. Install **robotcontrol.h** and **rc/\*** into `$LIBROBOTCONTROL_INSTALL_DIR/include`
-1. Install pre-built native (ARM) version of librobotcontrol.\* into `$LIBROBOTCONTROL_INSTALL_DIR/lib`
+1. Виберіть каталог встановлення _librobotcontrol_ та встановіть його у змінну середовища `LIBROBOTCONTROL_INSTALL_DIR`, щоб інші непотрібні заголовки не були включені
+1. Встановіть **robotcontrol.h** та **rc/\*** в `$LIBROBOTCONTROL_INSTALL_DIR/include`
+1. Встановіть попередньо зібрану нативну (ARM) версію librobotcontrol.\* у `$LIBROBOTCONTROL_INSTALL_DIR/lib`
 
-Run the following commands on the BeagleBone Blue (i.e. via SSH):
+Виконайте наступні команди на BeagleBone Blue (тобто через SSH):
 
-1. Install dependencies:
+1. Встановіть залежності:
 
    ```sh
    sudo apt-get update
    sudo apt-get install cmake python3-empy=3.3.4-2
    ```
-1. Clone the PX4 Firmware directly onto the BeagleBone Blue.
-1. Continue with the [standard build system installation](../dev_setup/dev_env_linux.md).
+1. Клонуйте програмне забезпечення PX4 безпосередньо на плату BeagleBone Blue.
+1. Продовжуйте встановлення [стандартної збірки системи](../dev_setup/dev_env_linux.md).
 
-## Changes in config
+## Зміни в конфігурації
 
-All changes can be made in de px4.config file directly on beaglebone. For example, you can change the WIFI to wlan.
+Усі зміни можна вносити безпосередньо в файл налаштувань px4.config на beaglebone. Наприклад, ви можете змінити WIFI на wlan.
 
-::: info If you want to change permanently, you have to change **PX4-Autopilot/posix-configs/bbblue/px4.config** on the Build Machine before build.
+::: info Якщо ви хочете внести зміни назавжди, вам слід змінити **PX4-Autopilot/posix-configs/bbblue/px4.config** у Build Machine перед збіркою.
 :::
 
-## Autostart During Boot
+## Автозапуск під час завантаження
 
-Here is an example [/etc/rc.local]:
+Ось приклад [/etc/rc.local]:
 
 ```sh
 #!/bin/sh -e
@@ -234,7 +234,7 @@ cd /home/debian/px4
 exit 0
 ```
 
-Below is a _systemd_ service example [/lib/systemd/system/px4-quad-copter.service]:
+Нижче наведено приклад служби _systemd_ [/lib/systemd/system/px4-quad-copter.service]:
 
 ```sh
 [Unit]
@@ -255,13 +255,13 @@ RestartSec=1
 WantedBy=multi-user.target
 ```
 
-### Різноманітне
+### Інше
 
-#### Power Servo Rail
+#### Силова серворейка
 
-When PX4 starts, it automatically applies power to servos.
+Коли PX4 починає працювати, він автоматично подає живлення на сервоприводи.
 
-#### Unique Features
+#### Унікальні можливості
 
 BeagleBone Blue has some unique features such as multiple choices of WiFi interfaces and power sources. Refer to comments in **/home/debian/px4/px4.config** for usage of these features.
 
