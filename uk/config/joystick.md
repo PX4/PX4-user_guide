@@ -1,27 +1,27 @@
-# Joystick Setup
+# Налаштування джойстика
 
-A [computer joystick](https://en.wikipedia.org/wiki/Joystick) or gamepad connected through _QGroundControl_ can be used to manually control the vehicle (_instead_ of using an [RC Transmitter](../config/radio.md)).
+[Комп’ютерний джойстик](https://en.wikipedia.org/wiki/Joystick) або геймпад, підключений через _QGroundControl_, можна використовувати для ручного керування транспортним засобом (_замість_ використання [RC Transmitter](../config/radio.md) >).
 
-This approach may be used by manual control units that have an integrated ground control station (like the _UAVComponents_ [MicroNav](https://uxvtechnologies.com/ground-control-stations/micronav/) shown below). Joysticks are also commonly used to allow developers to fly the vehicle in simulation.
+Цей підхід може бути використаний керуючими пристроями з ручним управлінням, які мають інтегровану наземну станцію управління (наприклад, _UAVComponents_ [MicroNav](https://uxvtechnologies.com/ground-control-stations/micronav/), показана нижче). Джойстики також часто використовуються для того, щоб дозволити розробникам літати на транспортному засобі у симуляції.
 
 ![Joystick MicroNav](../../assets/peripherals/joystick/micronav.jpg)
 
 :::tip
-[Radio Setup](../config/radio.md) is not required if using only a joystick (because a joystick is not an RC controller)!
+[Налаштування радіо](../config/radio.md) не потрібно, якщо використовуєте лише джойстик (тому що джойстик не є пультом дистанційного керування)!
 :::
 
-::: info _QGroundControl_ uses the cross-platform [SDL2](http://www.libsdl.org/index.php) library to convert joystick movements to MAVLink [MANUAL_CONTROL](https://mavlink.io/en/messages/common.html#MANUAL_CONTROL) messages, which are then sent to PX4 over the telemetry channel. In consequence, a joystick-based controller system requires a reliable high bandwidth telemetry channel to ensure that the vehicle is responsive to joystick movements.
+:::info _QGroundControl_ використовує багатоплатформенну бібліотеку [SDL2](http://www.libsdl.org/index.php) для перетворення рухів джойстика на повідомлення MAVLink [MANUAL_CONTROL](https://mavlink.io/en/messages/common.html#MANUAL_CONTROL), які потім надсилаються на PX4 через канал телеметрії. В результаті система керування на основі джойстика потребує надійного телеметричного каналу високої пропускної здатності, щоб забезпечити реагування транспортного засобу на рухи джойстика.
 :::
 
-## Enabling PX4 Joystick Support
+## Увімкнення підтримки джойстика PX4
 
-Information about how to set up a joystick is covered in: [QGroundControl > Joystick Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/joystick.html).
+Інформація про те, як налаштувати джойстик, описана тут: [QGroundControl > Налаштування джойстика](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/joystick.html).
 
-In summary:
+Підсумовуючи:
 
-- Open _QGroundControl_
-- Set the parameter [COM_RC_IN_MODE=1](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) - `Joystick`
-  - See [Parameters](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/parameters.html) for information about setting parameters
-  - Setting the parameter to `2` or `3` also enables Joystick under some circumstances.
-- Connect the joystick
-- Configure the connected joystick in: **Vehicle Setup > Joystick**.
+- Відкрити _QGroundControl_
+- Встановіть параметр [COM_RC_IN_MODE=1](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) - `Джойстик`
+  - Дивіться [Параметри](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/parameters.html) для отримання інформації про налаштування параметрів
+  - Встановлення параметра на `2` або `3` також у деяких випадках активує джойстик.
+- Підключіть джойстик
+- Налаштуйте підключений джойстик в: **Vehicle Setup > Джойстик**.
