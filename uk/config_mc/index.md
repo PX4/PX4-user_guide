@@ -16,7 +16,7 @@
 
 - [Завантаження прошивки](../config/firmware.md)
 
-## Frame Selection and Configuration
+## Вибір та налаштування каркасу
 
 Цей розділ пояснює, як налаштувати тип транспортного засобу (багатокоптер), конкретну геометрію двигуна/керування польотом та виходи двигуна.
 
@@ -40,82 +40,82 @@
 Останнім кроком є [Конфігурація двигуна](../config/actuators.md#motor-configuration):
 
 - [Реверс будь-яких моторів](../config/actuators.md#reversing-motors), які не відповідають напрямку обертання, налаштованому в геометрії. Для DShot ESC ви можете це зробити через інтерфейс тестування приводу.
-- PWM, OneShot, and CAN ESC, set the motor input limits for disarmed, low and high speed (not needed for DShot ESC)
+- PWM, OneShot та CAN ESC встановлюють ліміти введення мотора для режимів роззброєння, низької та високої швидкості (не потрібно для DShot ESC)
 
-Relevant topics:
+Відповідні теми:
 
-- [Vehicle (Frame) Selection](../config/airframe.md) — Select vehicle type to match your frame.
-- [Actuator Configuration and Testing](../config/actuators.md) — Vehicle geometry, output mapping, motor configuration, testing.
-- [ESC Calibration](../advanced_config/esc_calibration.md) — Do between output mapping and motor configuration (topic above) for PWM and OneShot ESC.
+- [Вибір транспортного засобу (рами)](../config/airframe.md) — Виберіть тип транспортного засобу, щоб відповідати вашій рамі.
+- [Налаштування та тестування приводів](../config/actuators.md) — Геометрія транспортного засобу, виведення відображення, конфігурація двигуна, тестування.
+- [Калібрування ESC](../advanced_config/esc_calibration.md) — Виконайте між картировкой виводів та конфігурацією двигуна (тема вище) для ESC з PWM та OneShot.
 
-## Sensor Setup and Calibration
+## Налаштування та калібрування датчика
 
-PX4 most commonly relies on a magnetometer (compass) for direction information, a barometer for altitude, a gyroscope for body rates, an accelerometer for attitude and a GPS/GNSS for global position. Pixhawk flight controllers (and many others) have inbuilt magnetometer, accelerometer, gyroscope, and barometer. The inbuilt compass usually isn't particularly reliable, and it is common to also add an external compass (usually combined with a GNSS receiver in the same device).
+PX4 найчастіше покладається на магнітометр (компас) для отримання інформації про напрямок, барометр для висоти, гіроскоп для швидкостей тіла, акселерометр для ставлення та GPS/GNSS для глобального положення. Польотні контролери Pixhawk (і багато інших) мають вбудований магнітометр, акселерометр, гіроскоп та барометр. Вбудований компас зазвичай не є особливо надійним, і часто додається зовнішній компас (зазвичай поєднаний з приймачем ГНСС в одному пристрої).
 
-We first need to set the [Sensor Orientation](../config/flight_controller_orientation.md), informing PX4 how the autopilot (and its inbuilt sensors) and external compasses are oriented relative to the vehicle. Generally you'll orient towards the front of the vehicle and not have to set anything. Once that is done we need to calibrate the compass(es), gyroscope, and accelerometer.
+Спочатку нам потрібно встановити [Орієнтацію сенсора](../config/flight_controller_orientation.md), повідомляючи PX4, як автопілот (і його вбудовані сенсори) та зовнішні компаси орієнтовані відносно транспортного засобу. Загалом ви будете орієнтуватися на передню частину транспортного засобу і не матимете встановлювати нічого. Після того, як це зроблено, нам потрібно калібрувати компас(и), гіроскоп та акселерометр.
 
-The core sensor setup is covered in these topics:
+Основний датчик налаштування вкритий у цих темах:
 
-- [Sensor Orientation](../config/flight_controller_orientation.md)
-- [Compass](../config/compass.md)
-- [Gyroscope](../config/gyroscope.md)
-- [Accelerometer](../config/accelerometer.md)
+- [Орієнтація сенсорів](../config/flight_controller_orientation.md)
+- [Компас](../config/compass.md)
+- [Гіроскоп](../config/gyroscope.md)
+- [Акселерометр](../config/accelerometer.md)
 
-PX4 can use other peripherals, such as distance sensors, optical flow sensors, traffic avoidance alarms, cameras, and so on:
+PX4 може використовувати інші периферійні пристрої, такі як датчики відстані, оптичні датчики руху, сигнали уникання трафіку, камери тощо:
 
-- [Flight Controller Peripherals](../peripherals/index.md) - Setup specific sensors, optional sensors, actuators, and so on.
+- [Периферія контролера польоту](../peripherals/index.md) - налаштування конкретних датчиків, опціональних датчиків, актуаторів тощо.
 
-::: info Sensors that you don't need to calibrate/configure include:
+:::info Датчики, які вам не потрібно калібрувати/налаштовувати, включають:
 
-- [Level Horizon](../config/level_horizon_calibration.md) calibration isn't usually needed if you have mounted the flight controller level.
-- Sensors that are not present, or that are not used by PX4 multicopter for flight control, such as [Airspeed sensors](../config/airspeed.md).
-- Sensors that don't need calibration, including: Barometers and GNSS.
+- Калібрування [рівня горизонту](../config/level_horizon_calibration.md) зазвичай не потрібне, якщо ви встановили рівень керування польотом.
+- Датчики, яких немає або які не використовуються PX4 багтороторником для керування польотом, такі як [Датчики швидкості повітря](../config/airspeed.md).
+- Датчики, які не потребують калібрування, включаючи: Барометри та GNSS.
 
 :::
 
-## Manual Control Setup
+## Налаштування керування вручному режимі
 
-Pilots can control a vehicle manually using either a Radio Control (RC) System or a Joystick/Gamepad controller connected via QGroundControl.
+Пілоти можуть керувати транспортним засобом вручну за допомогою системи радіоуправління (RC) або контролера джойстика/геймпада, підключеного через QGroundControl.
 
-::: info
-A manual control is essential in order to bring up a new vehicle safely!
+:::info
+Ручне керування є важливим для безпечного запуску нового транспортного засобу!
 :::
 
-Radio Control:
+Радіоуправління:
 
-- [Radio Controller (RC) Setup](../config/radio.md)
-- [Flight Mode Configuration](../config/flight_mode.md)
+- [Налаштування керування радіо (RC)](../config/radio.md)
+- [Конфігурація режиму польоту](../config/flight_mode.md)
 
-Joystick/GamePad:
+Джойстик/Ґеймпад:
 
-- [Joystick Setup](../config/joystick.md) (includes button/flight mode mapping)
+- [Налаштування джойстика](../config/joystick.md) (включає відображення кнопок/режиму польоту)
 
-## Safety Configuration
+## Конфігурація безпеки
 
-PX4 can be configured to automatically handle conditions such as low battery, losing radio or data links, flying too far from the home location, and so on:
+PX4 може бути налаштований для автоматичної обробки умов, таких як низький заряд акумулятора, втрата радіо- або даних, польот занадто далеко від дому та інше:
 
-- [Battery Estimation Tuning](../config/battery.md) — estimate remaining power (needed for low power failsafe).
-- [Safety Configuration (Failsafes)](../config/safety.md)
+- [Налаштування оцінки батареї](../config/battery.md) — оцінка залишкової потужності (необхідна для аварійного режиму з низькою потужністю).
+- [Конфігурація безпеки (запобіжники)](../config/safety.md)
 
-## Вдосконалення
+## Тюнінг
 
-Tuning is the final step, carried out only after most other setup and configuration is complete.
+Налаштування - це останній крок, який виконується лише після завершення більшості інших налаштувань та конфігурації.
 
-- Rate and attitude controllers:
-- [Autotune](../config/autotune.md) — Automates tuning PX4 rate and attitude controllers (recommended).
+- Контролери швидкості та нахилу:
+- [Автоналаштування](../config/autotune.md) — Автоматизує налаштування керування швидкістю та позицією PX4 (рекомендовано).
 
-  ::: info
-Automatic tuning works on frames that have reasonable authority and dynamics around all the body axes.
-It has primarily been tested on racing quads and X500, and is expected to be less effective on tricopters with a tiltable rotor.
-The other two guides are only needed if there is a problem with autotune.
+  :::info
+Автоматична настройка працює на кадрах, які мають розумну авторитетність та динаміку навколо всіх трьох осей тіла.
+Це було перевірено в основному на гоночних квадрокоптерах та X500, і очікується, що воно буде менш ефективним на трикоптерах з нахилом ротора.
+Інші два керівництва потрібні лише у випадку проблеми з автоналадкою.
 :::
 
-- [MC PID Tuning (Manual/Basic)](../config_mc/pid_tuning_guide_multicopter_basic.md) — Manual tuning basic how to.
-- [MC PID Tuning Guide (Manual/Detailed)](../config_mc/pid_tuning_guide_multicopter.md) — Manual tuning with detailed explanation.
-- [MC Filter/Control Latency Tuning](../config_mc/filter_tuning.md) — Trade off control latency and noise filtering.
-- [MC Setpoint Tuning (Trajectory Generator)](../config_mc/mc_trajectory_tuning.md)
-  - [MC Jerk-limited Type Trajectory](../config_mc/mc_jerk_limited_type_trajectory.md)
-- [Multicopter Racer Setup](../config_mc/racer_setup.md)
+- [Налаштування PID для МК (Посібник/Основи)](../config_mc/pid_tuning_guide_multicopter_basic.md) — Основи ручного налаштування.
+- [Посібник з налаштування PID для МК (Посібник/Детальний)](../config_mc/pid_tuning_guide_multicopter.md) — Ручне налаштування з докладним поясненням.
+- [Налаштування затримки фільтра/керування MC](../config_mc/filter_tuning.md) — Узгодження затримки керування та фільтрації шумів.
+- [MC Налаштування заданого пункту (Генератор Траєкторії)](../config_mc/mc_trajectory_tuning.md)
+  - [MC Jerk-обмежений тип траєкторії](../config_mc/mc_jerk_limited_type_trajectory.md)
+- [Налаштування гоночного мультикоптера](../config_mc/racer_setup.md)
 
 
 <!--
@@ -142,7 +142,7 @@ Yes but it must be physically feasible. E.g. if you make a quadrotor where all m
 - [QGroundControl > Налаштування](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/setup_view.html)
 - [Периферія контролера польоту](../peripherals/index.md) - налаштування конкретних датчиків, опціональних датчиків, приводів тощо.
 - [Розширена конфігурація](../advanced_config/index.md) - заводське калібрування/OEM, налаштування додаткових функцій, менш поширені конфігурації.
-- Vehicle-Centric Config/Tuning:
+- Конфігурація/налаштування, що залежать від апарату:
   - **Конфігурація/налаштування мультикоптера**
   - [Конфігурація/налаштування гелікоптера](../config_heli/index.md)
   - [Конфігурація/налаштування літака (з нерухомим крилом)](../config_fw/index.md)
