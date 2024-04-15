@@ -8889,6 +8889,13 @@ table {
  <td>rad/s</td>
 </tr>
 <tr>
+ <td><strong id="ATT_EN">ATT_EN</strong> (INT32)</td>
+ <td>standalone attitude estimator enable (unsupported) <p><strong>Comment:</strong> Enable standalone quaternion based attitude estimator.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="ATT_EXT_HDG_M">ATT_EXT_HDG_M</strong> (INT32)</td>
  <td>External heading usage mode (from Motion capture/Vision) <p><strong>Comment:</strong> Set to 1 to use heading estimate from vision. Set to 2 to use heading from motion capture.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> None</li>
@@ -10916,6 +10923,13 @@ table {
  <td>[0.5, 5.0] </td>
  <td>1.4</td>
  <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_EN">EKF2_EN</strong> (INT32)</td>
+ <td>EKF2 enable    </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_EVA_NOISE">EKF2_EVA_NOISE</strong> (FLOAT)</td>
@@ -15489,6 +15503,13 @@ table {
  <td>m</td>
 </tr>
 <tr>
+ <td><strong id="LPE_EN">LPE_EN</strong> (INT32)</td>
+ <td>Local position estimator enable (unsupported)    </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="LPE_EPH_MAX">LPE_EPH_MAX</strong> (FLOAT)</td>
  <td>Max EPH allowed for GPS initialization    </td>
  <td>[1.0, 5.0] </td>
@@ -17738,7 +17759,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -19973,7 +19994,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SDLOG_MODE">SDLOG_MODE</strong> (INT32)</td>
- <td>Logging Mode <p><strong>Comment:</strong> Determines when to start and stop logging. By default, logging is started when arming the system, and stopped when disarming.</p> <strong>값:</strong><ul>
+ <td>Logging Mode <p><strong>Comment:</strong> Determines when to start and stop logging. By default, logging is started when arming the system, and stopped when disarming.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> disabled</li>
 <li><strong>0:</strong> when armed until disarm (default)</li>
 <li><strong>1:</strong> from boot until disarm</li>
@@ -24315,18 +24336,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SYS_MC_EST_GROUP">SYS_MC_EST_GROUP</strong> (INT32)</td>
- <td>Set multicopter estimator group <p><strong>Comment:</strong> Set the group of estimators used for multicopters and VTOLs</p> <strong>값:</strong><ul>
-<li><strong>1:</strong> local_position_estimator, attitude_estimator_q (unsupported)</li>
-<li><strong>2:</strong> ekf2 (recommended)</li>
-<li><strong>3:</strong> Q attitude estimator (no position)</li>
-</ul>  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>2</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="SYS_RGB_MAXBRT">SYS_RGB_MAXBRT</strong> (FLOAT)</td>
  <td>RGB Led brightness limit <p><strong>Comment:</strong> Set to 0 to disable, 1 for maximum brightness</p>   </td>
  <td></td>
@@ -24381,7 +24390,7 @@ table {
 </tr>
 <tr>
  <td><strong id="TEL_HOTT_CONFIG">TEL_HOTT_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for HoTT Telemetry <p><strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.</p> <strong>값:</strong><ul>
+ <td>Serial Configuration for HoTT Telemetry <p><strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -26332,7 +26341,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_ENABLE">UAVCAN_ENABLE</strong> (INT32)</td>
- <td>UAVCAN mode <p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.</p> <strong>Values:</strong><ul>
+ <td>UAVCAN mode <p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Sensors Manual Config</li>
 <li><strong>2:</strong> Sensors Automatic Config</li>
