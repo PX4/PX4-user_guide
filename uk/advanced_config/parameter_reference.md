@@ -8921,6 +8921,13 @@ table {
  <td>rad/s</td>
 </tr>
 <tr>
+ <td><strong id="ATT_EN">ATT_EN</strong> (INT32)</td>
+ <td>standalone attitude estimator enable (unsupported) <p><strong>Comment:</strong> Enable standalone quaternion based attitude estimator.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="ATT_EXT_HDG_M">ATT_EXT_HDG_M</strong> (INT32)</td>
  <td>External heading usage mode (from Motion capture/Vision) <p><strong>Comment:</strong> Set to 1 to use heading estimate from vision. Set to 2 to use heading from motion capture.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> None</li>
@@ -10948,6 +10955,13 @@ table {
  <td>[0.5, 5.0] </td>
  <td>1.4</td>
  <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_EN">EKF2_EN</strong> (INT32)</td>
+ <td>EKF2 enable    </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_EVA_NOISE">EKF2_EVA_NOISE</strong> (FLOAT)</td>
@@ -15519,6 +15533,13 @@ table {
  <td>[0.01, 100] </td>
  <td>3.0</td>
  <td>m</td>
+</tr>
+<tr>
+ <td><strong id="LPE_EN">LPE_EN</strong> (INT32)</td>
+ <td>Local position estimator enable (unsupported)    </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="LPE_EPH_MAX">LPE_EPH_MAX</strong> (FLOAT)</td>
@@ -22697,7 +22718,7 @@ table {
  <td>VL53L1X Distance Sensor    <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>Disabled (0)</td>
+ <td>Вимкнено (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -22870,7 +22891,7 @@ table {
  <td><strong id="SENS_MAG_AUTOROT">SENS_MAG_AUTOROT</strong> (INT32)</td>
  <td>Automatically set external rotations <p><strong>Comment:</strong> During calibration attempt to automatically determine the rotation of external magnetometers.</p>   </td>
  <td></td>
- <td>Enabled (1)</td>
+ <td>Увімкнено (1)</td>
  <td></td>
 </tr>
 <tr>
@@ -24220,7 +24241,7 @@ table {
  <td>Bootloader update <p><strong>Comment:</strong> If enabled, update the bootloader on the next boot. WARNING: do not cut the power during an update process, otherwise you will have to recover using some alternative method (e.g. JTAG). Instructions: - Insert an SD card - Enable this parameter - Reboot the board (plug the power or send a reboot command) - Wait until the board comes back up (or at least 2 minutes) - If it does not come back, check the file bootlog.txt on the SD card</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>Disabled (0)</td>
+ <td>Вимкнено (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -24274,7 +24295,7 @@ table {
 </ul>  <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>Вимкнено (0)</td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -24292,7 +24313,7 @@ table {
  <td><strong id="SYS_FAILURE_EN">SYS_FAILURE_EN</strong> (INT32)</td>
  <td>Enable failure injection <p><strong>Comment:</strong> If enabled allows MAVLink INJECT_FAILURE commands. WARNING: the failures can easily cause crashes and are to be used with caution!</p>   </td>
  <td></td>
- <td>Вимкнено (0)</td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -24300,7 +24321,7 @@ table {
  <td>Control if the vehicle has a barometer <p><strong>Comment:</strong> Disable this if the board has no barometer, such as some of the Omnibus F4 SD variants. If disabled, the preflight checks will not check for the presence of a barometer.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>Увімкнено (1)</td>
+ <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
@@ -24344,18 +24365,6 @@ table {
 </td>
  <td></td>
  <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SYS_MC_EST_GROUP">SYS_MC_EST_GROUP</strong> (INT32)</td>
- <td>Set multicopter estimator group <p><strong>Comment:</strong> Set the group of estimators used for multicopters and VTOLs</p> <strong>Values:</strong><ul>
-<li><strong>1:</strong> local_position_estimator, attitude_estimator_q (unsupported)</li>
-<li><strong>2:</strong> ekf2 (recommended)</li>
-<li><strong>3:</strong> Q attitude estimator (no position)</li>
-</ul>  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>2</td>
  <td></td>
 </tr>
 <tr>
