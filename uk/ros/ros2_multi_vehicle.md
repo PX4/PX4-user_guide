@@ -6,7 +6,7 @@
 
 Єдині вимоги
 
-- To be able to run [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) without ROS 2 with the desired simulator ([Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md), [Gazebo Classic](../sim_gazebo_classic/multi_vehicle_simulation.md#multiple-vehicle-with-gazebo-classic), [FlightGear](../sim_flightgear/multi_vehicle.md) and [JMAVSim](../sim_jmavsim/multi_vehicle.md)).
+- Щоб мати змогу запустити [симуляцію кількох транспортних засобів](../simulation/multi-vehicle-simulation.md) без ROS 2 з вибраним симулятором ([Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md), [Gazebo Classic](../sim_gazebo_classic/multi_vehicle_simulation.md#multiple-vehicle-with-gazebo-classic), [FlightGear](../sim_flightgear/multi_vehicle.md) та [JMAVSim](../sim_jmavsim/multi_vehicle.md)).
 - Можливість використання [ROS 2](./ros2_comm.md) в симуляції одного транспортного засобу.
 
 ## Принцип операції
@@ -17,8 +17,8 @@
 param set UXRCE_DDS_KEY $((px4_instance+1))
 ```
 
-::: info
-By doing so, `UXRCE_DDS_KEY` will always coincide with [MAV_SYS_ID](../advanced_config/parameter_reference.md#MAV_SYS_ID).
+:::info
+Таким чином, `UXRCE_DDS_KEY` завжди збігатиметься з [MAV_SYS_ID](../advanced_config/parameter_reference.md#MAV_SYS_ID).
 :::
 
 Крім того, коли `px4_instance` більше нуля, додається унікальний [префікс простору імен](../middleware/uxrce_dds.md#customizing-the-topic-namespace) ROS 2 у вигляді `px4_$px4_instance`:
@@ -27,8 +27,8 @@ By doing so, `UXRCE_DDS_KEY` will always coincide with [MAV_SYS_ID](../advanced_
 uxrce_dds_ns="-n px4_$px4_instance"
 ```
 
-::: info
-The environment variable `PX4_UXRCE_DDS_NS`, if set, will override the namespace behavior described above.
+:::info
+Змінна оточення `PX4_UXRCE_DDS_NS`, якщо її встановлено, перевизначає поведінку простору імен, описану вище.
 :::
 
 Перший екземпляр (`px4_instance=0`) не має додаткового простору імен, щоб відповідати стандартній поведінці клієнта `xrce-dds` на реальному транспортному засобі. Цю невідповідність можна виправити вручну за допомогою `PX4_UXRCE_DDS_NS` у першому випадку або почавши додавання транспортних засобів з індексу `1` замість `0` (це поведінка за замовчуванням, прийнята у [sitl_multiple_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gazebo-classic/sitl_multiple_run.sh) для Gazebo Classic).
