@@ -1,34 +1,34 @@
-# Jerk-limited Type Trajectory for Multicopters
+# Траєкторія Jerk-limited типу для Мультикоперів
 
-The Jerk-limited trajectory type provides smooth motion in response to user stick input or mission changes (e.g.: for filming, mapping, cargo). It generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
+Тип траєкторії з обмеженим рухом джерка забезпечує плавний рух у відповідь на введення палиці користувача або зміни місії (наприклад: для зйомки, картографування, вантажу). Він генерує симетричні плавні S-криві, де обмеження різкості та прискорення завжди гарантовані.
 
-This trajectory type is always enabled in [Mission mode](../flight_modes_mc/mission.md). To enable it in [Position mode](../flight_modes_mc/position.md) set the parameter: [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE).
+Цей тип траєкторії завжди увімкнений у режимі [Місія](../flight_modes_mc/mission.md). Щоб увімкнути його в режимі [Режим позиціонування](../flight_modes_mc/position.md) встановіть параметр: [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
-::: info The jerk-limited type is not used _by default_ in position mode. It may not be suitable for vehicles/use-cases that require a faster response - e.g. racer quads.
+:::info Тип з обмеженим jerk не використовується _за замовчуванням_ у режимі позиціонування. Це може бути не підходить для транспортних засобів / випадків використання, які вимагають швидкої відповіді - наприклад, гонщицькі квадрокоптери.
 :::
 
-## Trajectory Generator
+## Генератор траєкторії
 
-The graph below shows a typical jerk-limited profile with the following constraints:
+Графік нижче показує типовий профіль обмеження ривка з наступними обмеженнями:
 
-- `jMax`: maximum jerk
-- `a0`: initial acceleration
-- `aMax`: maximum acceleration
-- `a3`: final acceleration (always 0)
-- `v0`: initial velocity
-- `vRef`: desired velocity
+- `jMax`: максимальне ривкості
+- `a0`: початкове прискорення
+- `aМакс`: максимальне прискорення
+- `a3`: кінцеве прискорення (завжди 0)
+- `v0`: початкова швидкість
+- `vRef`: бажана швидкість
 
-The constraints `jMax`, `aMax` are configurable by the user via parameters and can be different in manual position control and auto mode.
+Обмеження `jMax`, `aMax` можуть бути налаштовані користувачем через параметри і можуть відрізнятися в ручному керуванні позицією та автоматичному режимі.
 
-The resulting velocity profile is often called "S-Curve".
+Отриманий профіль швидкості часто називають "S-кривою".
 
 ![Jerk-limited trajectory](../../assets/config/mc/jerk_limited_trajectory_1d.png)
 
-## Manual Mode
+## Ручний режим
 
-In manual position mode, the sticks are mapped to velocity where a full XY-stick deflection corresponds to [MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL) and a full Z-stick deflection corresponds to [MPC_Z_VEL_MAX_UP](../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_UP) (upward motion) or [MPC_Z_VEL_MAX_DN](../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_DN) (downward motion).
+У ручному режимі положення палиці відображаються на швидкість, де повне відхилення палиці XY відповідає [MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL), а повне відхилення палиці Z відповідає [MPC_Z_VEL_MAX_UP](../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_UP) (рух вгору) або [MPC_Z_VEL_MAX_DN](../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_DN) (рух вниз).
 
-### Constraints
+### Обмеження
 
 XY-plane:
 
@@ -38,14 +38,14 @@ XY-plane:
 Z-axis:
 
 - `jMax`: [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX)
-- `aMax` (upward motion): [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
-- `aMax` (downward motion): [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
+- `aMax` (рух вгору): [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
+- `aMax` (рух вниз): [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
 
-## Auto Mode
+## Автоматичний режим
 
-In auto mode, the desired velocity is [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE) but this value is automatically adjusted depending on the distance to the next waypoint, the maximum possible velocity in the waypoint and the maximum desired acceleration and jerk. The vertical speed is defined by [MPC_Z_V_AUTO_UP](../advanced_config/parameter_reference.md#MPC_Z_V_AUTO_UP) (upward motion) and [MPC_Z_V_AUTO_DN](../advanced_config/parameter_reference.md#MPC_Z_V_AUTO_DN) (downward motion).
+У режимі автоматичного руху бажана швидкість є [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE), але це значення автоматично коригується в залежності від відстані до наступної точки маршруту, максимально можливої швидкості в точці маршруту та максимального бажаного прискорення та ривка. Вертикальна швидкість визначається за допомогою [MPC_Z_V_AUTO_UP](../advanced_config/parameter_reference.md#MPC_Z_V_AUTO_UP) (рух вгору) та [MPC_Z_V_AUTO_DN](../advanced_config/parameter_reference.md#MPC_Z_V_AUTO_DN) (рух вниз).
 
-### Constraints
+### Обмеження
 
 XY-plane:
 
@@ -55,14 +55,14 @@ XY-plane:
 Z-axis:
 
 - `jMax`: [MPC_JERK_AUTO](../advanced_config/parameter_reference.md#MPC_JERK_AUTO)
-- `aMax` (upward motion): [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
-- `aMax` (downward motion): [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
+- `aMax` (рух вгору): [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
+- `aMax` (рух донизу): [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
 
-Distance to velocity gains when close to a waypoint:
+Відстань до отримання швидкості, коли близько до точки маршруту:
 
 - [MPC_XY_TRAJ_P](../advanced_config/parameter_reference.md#MPC_XY_TRAJ_P)
 
-### Related Parameters
+### Зв'язані параметри
 
 - [MPC_XY_VEL_MAX](../advanced_config/parameter_reference.md#MPC_XY_VEL_MAX)
 - [MPC_Z_VEL_MAX_UP](../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_UP)
