@@ -1,27 +1,27 @@
-# Gyroscope Calibration
+# Калібрування гіроскопа
 
-_QGroundControl_ will guide you to place the vehicle on a flat surface and keep it still.
+_QGroundControl_ настановить вас розмістити транспортний засіб на рівній поверхні та утримувати його нерухомим.
 
-## Performing the Calibration
+## Виконання калібрування
 
-The calibration steps are:
+Калібрування включає наступні кроки:
 
-1. Start _QGroundControl_ and connect the vehicle.
-1. Select **"Q" icon > Vehicle Setup > Sensors** (sidebar) to open _Sensor Setup_.
-1. Click the **Gyroscope** sensor button.
+1. Запустіть _QGroundControl_ та підключіть транспортний засіб.
+1. Виберіть **іконку "Q" > Налаштування транспортного засобу > Датчики** (бічна панель), щоб відкрити _Налаштування датчиків_.
+1. Натисніть кнопку датчика  **Gyroscope** .
 
    ![Select Gyroscope calibration PX4](../../assets/qgc/setup/sensor/gyroscope_calibrate_px4.png)
 
-1. Place the vehicle on a surface and leave it still.
-1. Click **Ok** to start the calibration.
+1. Розмістіть транспортний засіб на поверхні та залиште його нерухомим.
+1. Клацніть **Ok**, щоб розпочати калібрування.
 
-   The bar at the top shows the progress:
+   Смуга у верхній частині показує прогрес:
 
    ![Gyro calibration in progress on PX4](../../assets/qgc/setup/sensor/gyroscope_calibrate_progress_px4.png)
 
-1. When finished, _QGroundControl_ will display a progress bar _Calibration complete_ ![Gyro calibration complete on PX4](../../assets/qgc/setup/sensor/gyroscope_calibrate_complete_px4.png)
+1. Коли завершиться, _QGroundControl_ відображатиме смугу прогресу _Калібрування завершено_ ![Gyro calibration complete on PX4](../../assets/qgc/setup/sensor/gyroscope_calibrate_complete_px4.png)
 
-::: info If you move the vehicle _QGroundControl_ will automatically restart the gyroscope calibration.
+:::info Якщо ви перемістите транспортний засіб, _QGroundControl_ автоматично перезапустить калібрування гіроскопа.
 :::
 
 ## Подальша інформація
