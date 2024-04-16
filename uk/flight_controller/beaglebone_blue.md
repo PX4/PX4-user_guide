@@ -263,11 +263,11 @@ WantedBy=multi-user.target
 
 #### Унікальні можливості
 
-BeagleBone Blue has some unique features such as multiple choices of WiFi interfaces and power sources. Refer to comments in **/home/debian/px4/px4.config** for usage of these features.
+BeagleBone Blue має деякі унікальні функції, такі як кілька варіантів інтерфейсів WiFi та джерел живлення. Дивіться коментарі в **/home/debian/px4/px4.config** для використання цих функцій.
 
-#### SBUS Signal Converter
+#### Перетворювач сигналів SBUS
 
-SBUS signal from receiver (e.g., FrSky X8R) is an inverted signal. UARTs on BeagleBone Blue can only work with non-inverted 3.3V level signal. [This tutorial](../tutorials/linux_sbus.md) contains a SBUS signal inverter circuit.
+Сигнал SBUS від приймача (наприклад, FrSky X8R) є інвертованим сигналом. UARTs на BeagleBone Blue можуть працювати лише з неінвертованим сигналом рівня 3,3 В. [У цьому навчальному посібнику](../tutorials/linux_sbus.md) міститься схема інвертора сигналу SBUS.
 
 #### Typical Connections
 
