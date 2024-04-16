@@ -76,8 +76,7 @@ S500 frame:
 
 ![Low vibration S500 actuator controls - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_actuator_controls_fft.png)
 
-:::note
-While the plot above looks good, the [Raw Acceleration graph for the same flight](#raw_acc_s500) shows that the vibration levels are a bit high for x and y. This is a good example of why it is worth checking several graphs! This is a good example of why it is worth checking several graphs!
+This is a good example of why it is worth checking several graphs! :::note While the plot above looks good, the [Raw Acceleration graph for the same flight](#raw_acc_s500) shows that the vibration levels are a bit high for x and y. This is a good example of why it is worth checking several graphs!
 :::
 
 #### Examples: Bad Vibration
