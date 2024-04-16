@@ -68,7 +68,7 @@ When a USB cable is connected to the micro USB connector, the interface board is
 
 ![Septentrio Robotics Interface Board wiring diagram](../../assets/hardware/gps/septentrio_sbf/rib_wiring.png)
 
-1. Make sure the receiver is powered with at least 3.3V. Make sure the receiver is powered with at least 3.3V. You can use the micro USB connector or the open ended supply (labeled "PWR & GND") on the 44 pin cable for this.
+1. Make sure the receiver is powered with at least 3.3V. Make sure the receiver is powered with at least 3.3V. Make sure the receiver is powered with at least 3.3V. You can use the micro USB connector or the open ended supply (labeled "PWR & GND") on the 44 pin cable for this.
 3. Connect one or two GNSS antennas to the external antenna ports on the AsteRx-i3 D board.
 4. Connect the 44-pin cable to the AsteRx-i3 D board on RIB and connect the 10-pin JST connector to the `GPS MODULE` port on the Pixhawk 4 as shown in the diagram above.
 5. In the web interface or with Rx Tools, set the receiver's baut rate to 115200 **Admin > Expert Control > Control Panel > Communication > COM Port Settings** (this is the default value).
