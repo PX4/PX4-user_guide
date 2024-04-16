@@ -1,5 +1,5 @@
 - [はじめに](index.md)
-- [さあ、はじめよう](getting_started/index.md)
+- [はじめに](getting_started/index.md)
   - [基本コンセプト](getting_started/px4_basic_concepts.md)
   - [Flight Reporting](getting_started/flight_reporting.md)
 - [基本構成](assembly/index.md)
