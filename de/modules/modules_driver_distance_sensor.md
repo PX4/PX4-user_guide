@@ -24,6 +24,7 @@ afbrs50 stop
 ```
 afbrs50 <command> [arguments...]
  afbrs50 <command> [arguments...]
+ afbrs50 <command> [arguments...]
  Commands:
    start         Start driver
      -d <val>    Serial device
@@ -86,6 +87,7 @@ leddar_one stop
 ### Usage
 ```
 leddar_one <command> [arguments...]
+ leddar_one <command> [arguments...]
  leddar_one <command> [arguments...]
  Commands:
    start         Start driver
@@ -169,6 +171,13 @@ lightware_laser_serial <command> [arguments...]
                  default: 25
 
    stop          Stop driver
+ Commands:
+   start         Start driver
+     -d <val>    Serial device
+     [-R <val>]  Sensor rotation - downward facing by default
+                 default: 25
+
+   stop          Stop driver
 ```
 ## lightware_sf45_serial
 Source: [drivers/distance_sensor/lightware_sf45_serial](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_sf45_serial)
@@ -196,6 +205,12 @@ lightware_sf45_serial stop
 ### Usage
 ```
 lightware_sf45_serial <command> [arguments...]
+ Commands:
+   start         Start driver
+     -d <val>    Serial device
+     -R <val>    Sensor rotation - downward facing by default
+
+   stop          Stop driver
  Commands:
    start         Start driver
      -d <val>    Serial device
@@ -306,6 +321,7 @@ This driver is implemented as a NuttX task. This Implementation was chosen due t
 ```
 pga460 <command> [arguments...]
  pga460 <command> [arguments...]
+ pga460 <command> [arguments...]
  Commands:
    start
      [device_path] The pga460 sensor device path, (e.g: /dev/ttyS6)
@@ -357,6 +373,7 @@ Source: [drivers/distance_sensor/srf05](https://github.com/PX4/PX4-Autopilot/tre
 ### Usage
 ```
 srf05 <command> [arguments...]
+ srf05 <command> [arguments...]
  srf05 <command> [arguments...]
  Commands:
    start         Start driver
@@ -485,6 +502,19 @@ tfmini <command> [arguments...]
    test          Test driver (basic functional tests)
 
    status        Print driver status
+ Commands:
+   start         Start driver
+     -d <val>    Serial device
+     [-R <val>]  Sensor rotation - downward facing by default
+                 default: 25
+
+   status        Driver status
+
+   stop          Stop driver
+
+   test          Test driver (basic functional tests)
+
+   status        Print driver status
 ```
 ## ulanding_radar
 Source: [drivers/distance_sensor/ulanding_radar](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/ulanding_radar)
@@ -513,6 +543,7 @@ ulanding_radar stop
 ```
 ulanding_radar <command> [arguments...]
  ulanding_radar <command> [arguments...]
+ ulanding_radar <command> [arguments...]
  Commands:
    start         Start driver
      -d <val>    Serial device
@@ -530,6 +561,7 @@ Source: [drivers/distance_sensor/vl53l0x](https://github.com/PX4/PX4-Autopilot/t
 ### Usage
 ```
 vl53l0x <command> [arguments...]
+ vl53l0x <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
