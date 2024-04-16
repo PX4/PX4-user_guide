@@ -281,6 +281,9 @@ The steps to setup ROS 2 and the Micro XRCE-DDS Agent on the RPi are:
    make
    sudo make install
    sudo ldconfig /usr/local/lib/
+   make
+   sudo make install
+   sudo ldconfig /usr/local/lib/
    ```
 
    See [uXRCE-DDS > Micro XRCE-DDS Agent Installation](../middleware/uxrce_dds.md#micro-xrce-dds-agent-installation) for alternative ways of installing the agent.
