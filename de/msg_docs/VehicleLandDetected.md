@@ -15,6 +15,8 @@ bool landed     # true if vehicle is currently landed on the ground (3. stage)
 bool in_ground_effect # indicates if from the perspective of the landing detector the vehicle might be in ground effect (baro). stage)
 bool maybe_landed   # true if the vehicle might have landed (2. stage)
 bool landed     # true if vehicle is currently landed on the ground (3. stage)
+bool maybe_landed   # true if the vehicle might have landed (2. stage)
+bool landed     # true if vehicle is currently landed on the ground (3. stage)
 
 bool in_ground_effect # indicates if from the perspective of the landing detector the vehicle might be in ground effect (baro). This flag will become true if the vehicle is not moving horizontally and is descending (crude assumption that user is landing).
 bool in_descend
