@@ -58,7 +58,7 @@ To use the load compensation you will still need to set the [basic configuration
 
 This sets the number of cells connected in series in the battery. Typically this will be written on the battery as a number followed by "S" (e.g "3S", "5S").
 
-::: info The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type. In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in _series_. The battery voltage at the terminals is then a multiple of the cell voltage. Lithium-Polymer (LiPo) batteries and Lithium-Ion batteries both have the same _nominal_ cell voltage of 3.7V. In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in _series_.
+::: info The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type. The battery voltage at the terminals is then a multiple of the cell voltage. Lithium-Polymer (LiPo) batteries and Lithium-Ion batteries both have the same _nominal_ cell voltage of 3.7V. In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in _series_. In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in _series_.
 :::
 
 If the number of cells is not supplied you can calculate it by dividing the battery voltage by the nominal voltage for a single cell. The table below shows the voltage-to-cell relationship for these batteries:
@@ -154,7 +154,7 @@ With well configured load compensation the voltage used for battery capacity est
 Load compensation attempts to counteract the fluctuation in measured voltage/estimated capacity under load that occur when using the [basic configuration](#basic_settings). This works by estimating what the voltage would be for the _unloaded_ battery, and using that voltage (instead of the measured voltage) for estimating the remaining capacity.
 
 :::note
-At time of writing _QGroundControl_ only allows you to set values for battery 1 in this view. For vehicles with multiple batteries you'll need to directly [set the parameters](../advanced_config/parameters.md) for battery 2 (`BAT2_*`), as described in the following sections.
+Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the _initial_ capacity. :::note Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the _initial_ capacity.
 :::
 
 PX4 supports two load compensation methods, which are enabled by [setting](../advanced_config/parameters.md) either of the two parameters below:
@@ -290,6 +290,6 @@ Li-Ion
 - Energy density is how much energy is able to be stored relative to battery weight. It is generally measured and compared in Watt Hour per Kilogram (Wh/Kg).
   - Watt-hours are simply calculated by taking the nominal (i.e. not the fully charged voltage) multiplied by the capacity, e.g. 3.7v X 5 Ah = 18.5Wh. If you had a 3 cell battery pack your pack would be 18.5Wh X 3 = 55 Wh of stored energy.
 - When you take battery weight into account you calculate energy density by taking the watt-hours and dividing them by weight.
-  - E.g. E.g. E.g. E.g. 55 Wh divided by (battery weight in grams divided by 1000). Assuming this battery weighed 300 grams then 55/(300/1000)=185 Wh/Kg.
+  - E.g. E.g. E.g. E.g. E.g. 55 Wh divided by (battery weight in grams divided by 1000). Assuming this battery weighed 300 grams then 55/(300/1000)=185 Wh/Kg.
 - This number 185 Wh/Kg would be on the very high-end for a LiPo battery. A Li-Ion battery on the other hand can reach 260 Wh/Kg, meaning per kilogram of battery onboard you can carry 75 more watt-hours.
   - If you know how many watts your vehicle takes to fly (which a battery current module can show you), you can equate this increased storage at no additional weight into increased flight time.
