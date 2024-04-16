@@ -28,10 +28,10 @@
 - [Компас](../config/compass.md)
 - [Гіроскоп](../config/gyroscope.md)
 - [Акселерометр](../config/accelerometer.md)
-- [Level Horizon](../config/level_horizon_calibration.md)
+- [Рівень горизонту](../config/level_horizon_calibration.md)
 - Швидкість польоту (тільки для літаків / VTOL)
 
-::: info Setup for these and other sensors is located in [Sensor Hardware & Setup](../sensor/index.md).
+::: info Налаштування для цих та інших сенсорів знаходиться в [Апаратне забезпечення та налаштування сенсорів](../sensor/index.md).
 :::
 
 ### Налаштування ручного керування
@@ -62,7 +62,7 @@
 
 ## Підтримка
 
-If you need help with the configuration you can ask for help on the [QGroundControl Support forum](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage).
+Якщо вам потрібна допомога з конфігурацією, ви можете звернутися за допомогою на форумі підтримки [QGroundControl](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage).
 
 ## Дивіться також
 
