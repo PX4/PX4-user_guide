@@ -235,6 +235,7 @@ cd Firmware
   git push upstream pr-some-fix
   git push upstream pr-some-fix
   git push upstream pr-some-fix
+  git push upstream pr-some-fix
   ```
 
 ## Checkout pull requests
@@ -261,7 +262,7 @@ git checkout <branch name>
 
 ### Force push to forked repository
 
-After having done the first PR, people from the PX4 community will review your changes. In most cases this means that you have to fix your local branch according to the review. However, after the rebase, it is no longer possible to push the feature branch to your forked repository directly, but instead you need to use a force push: However, after the rebase, it is no longer possible to push the feature branch to your forked repository directly, but instead you need to use a force push: After changing the files locally, the feature branch needs to be rebased again with the most recent upstream/main.
+After having done the first PR, people from the PX4 community will review your changes. In most cases this means that you have to fix your local branch according to the review. However, after the rebase, it is no longer possible to push the feature branch to your forked repository directly, but instead you need to use a force push: However, after the rebase, it is no longer possible to push the feature branch to your forked repository directly, but instead you need to use a force push: However, after the rebase, it is no longer possible to push the feature branch to your forked repository directly, but instead you need to use a force push: After changing the files locally, the feature branch needs to be rebased again with the most recent upstream/main.
 
 ```sh
 git push --force-with-lease origin <your feature branch name>
