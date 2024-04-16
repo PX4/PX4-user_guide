@@ -66,6 +66,8 @@ To write a new test:
 
    LICENSE ...]
 
+   LICENSE ...]
+
    #
    # @author Example Author <author@example.com>
    #
