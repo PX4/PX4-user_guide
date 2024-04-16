@@ -1,4 +1,4 @@
-# Loading Firmware
+# Завантаження прошивки
 
 _QGroundControl_ **desktop** versions can be used to install PX4 firmware onto [Pixhawk-series](../getting_started/flight_controller_selection.md) flight-controller boards.
 
@@ -11,17 +11,17 @@ _QGroundControl_ **desktop** versions can be used to install PX4 firmware onto [
 Generally you should use the most recent _released_ version of PX4, in order to benefit from bug fixes and get the latest and greatest features.
 
 :::tip
-This is the version that is installed by default.
+Ця версія встановлена за замовчуванням.
 :::
 
-To install PX4:
+Щоб встановити PX4:
 
-1. Start _QGroundControl_ and connect the vehicle.
-1. Select **"Q" icon > Vehicle Setup > Firmware** (sidebar) to open _Firmware Setup_.
+1. Запустіть _QGroundControl_ та підключіть транспортний засіб.
+1. Виберіть піктограму **"Q" > Налаштування програми > Firmware** (бічна панель), щоб відкрити _Налаштування прошивки_.
 
    ![Firmware disconnected](../../assets/qgc/setup/firmware/firmware_disconnected.png)
 
-1. Connect the flight controller directly to your computer via USB.
+1. Підключіть польотний контролер безпосередньо до вашого комп'ютера через USB.
 
    ::: info
 Connect directly to a powered USB port on your machine (do not connect through a USB hub).
@@ -62,17 +62,17 @@ Firmware update then continues as before.
 
 <a id="bootloader"></a>
 
-## Bootloader Update
+## Оновлення завантажувача
 
-Pixhawk hardware usually comes with an appropriate bootloader version pre-installed.
+Апаратне забезпечення Pixhawk зазвичай має відповідну версію завантажувача.
 
-A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware. If _QGroundControl_ installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
+Якщо оновлення може знадобитися - це новіші дошки Pixhawk, які встановлюють прошивку FMUv2. If _QGroundControl_ installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
 
 ![FMUv2 update](../../assets/qgc/setup/firmware/bootloader_update.jpg)
 
 You can update it by following the instructions in [Bootloader update > FMUv2 Bootloader Update](../advanced_config/bootloader_update.md#fmuv2-bootloader-update).
 
-## Further Information
+## Детальна інформація
 
 - [QGroundControl User Guide > Firmware](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/firmware.html).
 - [PX4 Setup Video](https://youtu.be/91VGmdSlbo4) (Youtube)
