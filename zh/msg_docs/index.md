@@ -191,7 +191,7 @@ This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/main/Too
 - [VehicleAirData](VehicleAirData.md)
 - [VehicleAngularAccelerationSetpoint](VehicleAngularAccelerationSetpoint.md)
 - [VehicleAngularVelocity](VehicleAngularVelocity.md)
-- [VehicleAttitude](VehicleAttitude.md) — This is similar to the mavlink message ATTITUDE_QUATERNION, but for onboard use
+- [VehicleAttitude](VehicleAttitude.md) — This is similar to the mavlink message ATTITUDE_QUATERNION, but for onboard use The quaternion uses the Hamilton convention, and the order is q(w, x, y, z)
 - [VehicleAttitudeSetpoint](VehicleAttitudeSetpoint.md)
 - [VehicleCommand](VehicleCommand.md) — Vehicle Command uORB message. Used for commanding a mission / action / etc. Follows the MAVLink COMMAND_INT / COMMAND_LONG definition
 - [VehicleCommandAck](VehicleCommandAck.md) — Vehicle Command Ackonwledgement uORB message. Used for acknowledging the vehicle command being received. Follows the MAVLink COMMAND_ACK message definition
