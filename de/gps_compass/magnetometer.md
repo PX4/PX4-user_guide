@@ -38,10 +38,10 @@ If GNSS is required, then a combined GNSS/Compass module will be preferred over 
 
 This list contains stand-alone magnetometer modules (without GNSS).
 
-| Device                                                                                                           | Compass |             DroneCan            |
-| :--------------------------------------------------------------------------------------------------------------- | :-----: | :-----------------------------: |
-| [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) |    ?    |                                 |
-| [Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/products/dronecan-rm3100-compass)             |  RM3100 | &amp;check; |
+| Device                                                                                                           | Compass |               DroneCan              |
+| :--------------------------------------------------------------------------------------------------------------- | :-----: | :---------------------------------: |
+| [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) |    ?    |                                     |
+| [Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/products/dronecan-rm3100-compass)             |  RM3100 | &amp;amp;check; |
 
 Note:
 
