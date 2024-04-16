@@ -1,5 +1,3 @@
-# Summary
-
 * [Introduction](/README.md)
 * [Getting Started](/getting_started/README.md)
   * [Basic Concepts](/getting_started/px4_basic_concepts.md)
