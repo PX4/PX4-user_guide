@@ -10,8 +10,8 @@
     "docs:build_ubuntu": "NODE_OPTIONS='--max-old-space-size=8192' vitepress build .",
     "docs:preview": "vitepress preview .",
     "docs:sitemap": "python3 ./scripts/gen_sitemap.py",
-    "docs:alt_summary_ubuntu": "python3 ./scripts/gen_alt_summary.py",
-    "docs:alt_summary_windows": "python ./scripts/gen_alt_summary.py",
+    "docs:gen_alt_sidebar_ubuntu": "python3 ./scripts/gen_alt_sidebar.py",
+    "docs:get_alt_sidebar_windows": "python ./scripts/gen_alt_sidebar.py",
     "start": "yarn docs:dev",
     "linkcheck": "markdown_link_checker_sc -d en -i assets"
   },
