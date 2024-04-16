@@ -1,57 +1,57 @@
-# CUAV V5+ Wiring Quick Start
+# Короткий посібник з підключення CUAV V5+
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (чи будь-який) автопілот. Зверніться до [виробника](https://store.cuav.net/) щодо питань технічної підтримки або відповідності вимогам.
 :::
 
-This quick start guide shows how to power the [CUAV V5+](../flight_controller/cuav_v5_plus.md) flight controller and connect its most important peripherals.
+Цей короткий посібник показує, як живити польотний контролер [CUAV V5+](../flight_controller/cuav_v5_plus.md) та під'єднати його найважливіші периферійні пристрої.
 
 ![V5+ AutoPilot - Hero Image](../../assets/flight_controller/cuav_v5_plus/v5+_01.png)
 
-## Wiring Chart Overview
+## Огляд схеми підключення
 
-The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
+На зображенні нижче показано, як під'єднати найважливіші датчики та периферійні пристрої (за винятком виходів мотора та сервоприводів). Ми розглянемо кожен з них детально в наступних розділах.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
-| Main interface  | Function                                                                                                                                                                                           |
-|:--------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Power1          | Connect power module. Power input with _analog_ voltage and current detection. Do not use a Digital PM on this connector!                                                                          |
-| Power2          | Connect i2c smart battery.                                                                                                                                                                         |
-| TF CARD         | SD card for log storage (card pre-inserted in factory).                                                                                                                                            |
-| M1~M8           | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
-| A1~A6           | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
-| DSU7            | Used for FMU debug, reading debug information.                                                                                                                                                     |
-| I2C1/I2C2       | Connect an I2C device such as an external compass.                                                                                                                                                 |
-| CAN1/CAN2       | Connect UAVCAN devices such as CAN GPS.                                                                                                                                                            |
-| TYPE-C\(USB\) | Connect to a computer for communication between the flight controller and the computer, such as loading firmware.                                                                                  |
-| SBUS OUT        | Connect SBUS devices (e.g. camera gimbals).                                                                                                                                                        |
-| GPS&SAFETY      | Connect to Neo GPS, which includes GPS, safety switch, buzzer interface.                                                                                                                           |
-| TELEM1/TELEM2   | Connect to the Telemetry System.                                                                                                                                                                   |
-| DSM/SBUS/RSSI   | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module. |
+| Основний інтерфейс | Функція                                                                                                                                                                                            |
+|:------------------ |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Power1             | Підключає модуль живлення. Вхід живлення з детекцією _аналогової_ напруги та струму. Не використовуйте Digital PM на цьому роз'ємі!                                                                |
+| Power2             | Підключає i2c розумну батарею.                                                                                                                                                                     |
+| TF CARD            | SD card for log storage (card pre-inserted in factory).                                                                                                                                            |
+| M1~M8              | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
+| A1~A6              | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
+| DSU7               | Used for FMU debug, reading debug information.                                                                                                                                                     |
+| I2C1/I2C2          | Connect an I2C device such as an external compass.                                                                                                                                                 |
+| CAN1/CAN2          | Connect UAVCAN devices such as CAN GPS.                                                                                                                                                            |
+| TYPE-C\(USB\)    | Connect to a computer for communication between the flight controller and the computer, such as loading firmware.                                                                                  |
+| SBUS OUT           | Connect SBUS devices (e.g. camera gimbals).                                                                                                                                                        |
+| GPS&SAFETY         | Connect to Neo GPS, which includes GPS, safety switch, buzzer interface.                                                                                                                           |
+| TELEM1/TELEM2      | Connect to the Telemetry System.                                                                                                                                                                   |
+| DSM/SBUS/RSSI      | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module. |
 
-::: info For more interface information, please read [V5+ Manual](http://manual.cuav.net/V5-Plus.pdf).
+::: info Для отримання додаткової інформації про інтерфейс, будь ласка, прочитайте [Посібник з V5+](http://manual.cuav.net/V5-Plus.pdf).
 :::
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_02.png)
 
-::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../gps_compass/rtk_gps.md).
+::: info Якщо контролер не може бути встановлений у рекомендованому/стандартному положенні (наприклад, через обмеження простору), вам потрібно налаштувати програмне забезпечення автопілота з орієнтацією, яку ви дійсно використали: [Орієнтація Польотного Контролера](../gps_compass/rtk_gps.md).
 :::
 
-## GPS + Compass + Safety Switch + LED
+## GPS + Компас + Запобіжний вимикач + LED
 
-The recommended GPS module is the _Neo v2 GPS_, which contains GPS, compass, safety switch, buzzer, LED status light.
+Рекомендованим модулем GPS є _Neo v2 GPS_, який містить GPS, компас, запобіжний вимикач, зумер, світлодіодний індикатор статусу.
 
-::: info Other GPS modules may not work (see [this compatibility issue](../flight_controller/cuav_v5_nano.md#compatibility_gps)\)).
+::: info Інші модулі GPS можуть не працювати (див. [цю проблему сумісності](../flight_controller/cuav_v5_nano.md#compatibility_gps))).
 :::
 
-The GPS/Compass module should be [mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction marker towards the front of the vehicle (_Neo v2 GPS_ arrow is in the same direction as the flight control arrow). Connect to the flight control GPS interface using a cable.
+Модуль GPS/Компасу слід [монтувати на раму](../assembly/mount_gps_compass.md) якомога далі від інших електронних пристроїв, з маркером напрямку до передньої частини транспортного засобу (стрілка _Neo v2 GPS_ спрямована в тому ж напрямку, що і стрілка управління польотами). Під'єднайтеся до інтерфейсу GPS контролера польоту за допомогою кабелю.
 
-::: info If you use the [NEO V2 PRO GNSS (CAN GPS)](http://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html), please use the cable to connect to the flight control CAN interface.
+Якщо ви використовуєте [NEO V2 PRO GNSS (CAN GPS)](http://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html), будь ласка, використовуйте кабель для підключення до інтерфейсу CAN контролера польоту.
 :::
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_03.png)
 
-## Safety Switch
+## Запобіжний вимикач
 
 The dedicated safety switch that comes with the V5+ is only required if you are not using the recommended _Neo V2 GPS_ (which has an inbuilt safety switch).
 
