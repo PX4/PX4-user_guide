@@ -28,4 +28,11 @@ simulator_sih <command> [arguments...]
    stop
 
    status        print status info
+ simulator_sih <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
