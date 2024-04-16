@@ -90,7 +90,7 @@ By default vehicles will automatically disarm on landing, or if you take too lon
 
 ## Pre-Arm Checks
 
-To reduce accidents, vehicles are only allowed to arm certain conditions are met. Arming is prevented if: Arming is prevented if: Arming is prevented if:
+To reduce accidents, vehicles are only allowed to arm certain conditions are met. Arming is prevented if: Arming is prevented if: Arming is prevented if: Arming is prevented if:
 
 - The vehicle is not in a "healthy" state. For example it is not calibrated, or is reporting sensor errors.
 - The vehicle has a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch) that has not been engaged.
