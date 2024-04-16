@@ -32,6 +32,18 @@ drwxr-xr-x 4 root root  80 Apr 23 18:48 ..
 lrwxrwxrwx 1 root root  13 Apr 23 18:48 usb-3D_Robotics_PX4_FMU_v5.x_0-if00 -> ../../ttyACM0
 lrwxrwxrwx 1 root root  13 Apr 23 18:57 usb-Black_Sphere_Technologies_Black_Magic_Probe_BFCCB401-if00 -> ../../ttyACM1
 lrwxrwxrwx 1 root root  13 Apr 23 18:57 usb-Black_Sphere_Technologies_Black_Magic_Probe_BFCCB401-if02 -> ../../ttyACM2
+drwxr-xr-x 4 root root  80 Apr 23 18:48 ..
+user@ubuntu:~/PX4-Autopilot$ ls -alh /dev/serial/by-id/
+total 0
+drwxr-xr-x 2 root root 100 Apr 23 18:57 .
+drwxr-xr-x 4 root root  80 Apr 23 18:48 ..
+user@ubuntu:~/PX4-Autopilot$ ls -alh /dev/serial/by-id/
+total 0
+drwxr-xr-x 2 root root 100 Apr 23 18:57 .
+drwxr-xr-x 4 root root  80 Apr 23 18:48 ..
+lrwxrwxrwx 1 root root  13 Apr 23 18:48 usb-3D_Robotics_PX4_FMU_v5.x_0-if00 -> ../../ttyACM0
+lrwxrwxrwx 1 root root  13 Apr 23 18:57 usb-Black_Sphere_Technologies_Black_Magic_Probe_BFCCB401-if00 -> ../../ttyACM1
+lrwxrwxrwx 1 root root  13 Apr 23 18:57 usb-Black_Sphere_Technologies_Black_Magic_Probe_BFCCB401-if02 -> ../../ttyACM2
 ```
 
 In this case, the script would automatically pick up the device named `*Black_Magic_Probe*-if00`. But if you were using a different device you would be able discover the appropriate id from the listing above.
