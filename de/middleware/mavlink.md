@@ -206,42 +206,58 @@ protected:
         return updated;
     }
 
+}; roundf(battery_status.remaining * 100.f) : -1;
+
+                // check if temperature valid
+                if (battery_status.connected && PX4_ISFINITE(battery_status.temperature)) {
+                    bat_msg.temperature = battery_status.temperature * 100.f;
+                } else {
+                    bat_msg.temperature = INT16_MAX;
+                }
+
+                //Send the message
+                mavlink_msg_battery_status_demo_send_struct(_mavlink->get_channel(), &bat_msg);
+                updated = true;
+            }
+        }
+
+        return updated;
+    }
+
 };
 ```
 
 StreamListItem *streams_list[] = { ... create_stream_list_item&lt;MavlinkStreamCaTrajectory&gt;(), ...
 
 - class MavlinkStreamCaTrajectory : public MavlinkStream
-{
-public:
-    const char *get_name() const
-    {
-        return MavlinkStreamCaTrajectory::get_name_static();
-    }
-    static const char *get_name_static()
-    {
-        return "CA_TRAJECTORY";
-    }
-    static uint16_t get_id_static()
-    {
-        return MAVLINK_MSG_ID_CA_TRAJECTORY;
-    }
-    uint16_t get_id()
-    {
-        return get_id_static();
-    }
-    static MavlinkStream *new_instance(Mavlink *mavlink)
-    {
-        return new MavlinkStreamCaTrajectory(mavlink);
-    }
-    unsigned get_size()
-    {
-        return MAVLINK_MSG_ID_CA_TRAJECTORY_LEN + MAVLINK_NUM_NON_PAYLOAD_BYTES;
-    }
- private: uORB::Subscription _sub{ORB_ID(ca_trajectory)}; /* do not allow top copying this class */ MavlinkStreamCaTrajectory(MavlinkStreamCaTrajectory &); MavlinkStreamCaTrajectory& operator = (const MavlinkStreamCaTrajectory &); protected: explicit MavlinkStreamCaTrajectory(Mavlink *mavlink) : MavlinkStream(mavlink)
-    {}
- bool send() override
-    { struct ca_traj_struct_s _ca_trajectory;    //make sure ca_traj_struct_s is the definition of your uORB topic if (_sub.update(&_ca_trajectory)) { mavlink_ca_trajectory_t _msg_ca_trajectory;  //make sure mavlink_ca_trajectory_t is the definition of your custom MAVLink message _msg_ca_trajectory.timestamp = _ca_trajectory.timestamp; _msg_ca_trajectory.time_start_usec = _ca_trajectory.time_start_usec; _msg_ca_trajectory.time_stop_usec  = _ca_trajectory.time_stop_usec; _msg_ca_trajectory.coefficients =_ca_trajectory.coefficients; _msg_ca_trajectory.seq_id = _ca_trajectory.seq_id; mavlink_msg_ca_trajectory_send_struct(_mavlink-&gt;get_channel(), &_msg_ca_trajectory); return true; } return false; } };
+{ public: const char *get_name() const
+  {
+      return MavlinkStreamCaTrajectory::get_name_static();
+  }
+  static const char *get_name_static()
+  {
+      return "CA_TRAJECTORY";
+  }
+  static uint16_t get_id_static()
+  {
+      return MAVLINK_MSG_ID_CA_TRAJECTORY;
+  }
+  uint16_t get_id()
+  {
+      return get_id_static();
+  }
+  static MavlinkStream *new_instance(Mavlink *mavlink)
+  {
+      return new MavlinkStreamCaTrajectory(mavlink);
+  }
+  unsigned get_size()
+  {
+      return MAVLINK_MSG_ID_CA_TRAJECTORY_LEN + MAVLINK_NUM_NON_PAYLOAD_BYTES;
+  }
+private: uORB::Subscription _sub{ORB_ID(ca_trajectory)}; /* do not allow top copying this class */ MavlinkStreamCaTrajectory(MavlinkStreamCaTrajectory &); MavlinkStreamCaTrajectory& operator = (const MavlinkStreamCaTrajectory &); protected: explicit MavlinkStreamCaTrajectory(Mavlink *mavlink) : MavlinkStream(mavlink)
+  {}
+bool send() override
+  { struct ca_traj_struct_s _ca_trajectory;    //make sure ca_traj_struct_s is the definition of your uORB topic if (_sub.update(&_ca_trajectory)) { mavlink_ca_trajectory_t _msg_ca_trajectory;  //make sure mavlink_ca_trajectory_t is the definition of your custom MAVLink message _msg_ca_trajectory.timestamp = _ca_trajectory.timestamp; _msg_ca_trajectory.time_start_usec = _ca_trajectory.time_start_usec; _msg_ca_trajectory.time_stop_usec  = _ca_trajectory.time_stop_usec; _msg_ca_trajectory.coefficients =_ca_trajectory.coefficients; _msg_ca_trajectory.seq_id = _ca_trajectory.seq_id; mavlink_msg_ca_trajectory_send_struct(_mavlink-&gt;get_channel(), &_msg_ca_trajectory); return true; } return false; } };
 - The `public` definitions are "near-boilerplate", allowing PX4 to get an instance of the class (`new_instance()`), and then to use it to fetch the name, id, and size of the message from the MAVLink headers (`get_name()`, `get_name_static()`, `get_id_static()`, `get_id()`, `get_size()`). For your own streaming classes these can just be copied and modified to match the values for your MAVLink message.
 - The `private` definitions subscribe to the uORB topics that need to be published. In this case the uORB topic has multiple instances: one for each battery. We use `uORB::SubscriptionMultiArray` to get an array of battery status subscriptions.
 
@@ -300,10 +316,13 @@ Finally append the stream class to the `streams_list` at the bottom of [mavlink_
 ```C
 StreamListItem *streams_list[] = {
 ...
+StreamListItem *streams_list[] = {
+...
 #if defined(BATTERY_STATUS_DEMO_HPP)
     create_stream_list_item<MavlinkStreamBatteryStatusDemo>(),
 #endif // BATTERY_STATUS_DEMO_HPP
 ...
+}
 }
 ```
 
@@ -336,6 +355,8 @@ Normally you'll be testing on a GCS, so you could just add the message to the `M
         ...
         configure_stream_local("BATTERY_STATUS_DEMO", 5.0f);
         ...
+        configure_stream_local("BATTERY_STATUS_DEMO", 5.0f);
+        ...
 ```
 
 Then make sure to enable the stream, for example by adding the following line to the [startup script](../concept/system_startup.md) (e.g. [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS) on NuttX or [ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS)) on SITL. Note that `-r` configures the streaming rate and `-u` identifies the MAVLink channel on UDP port 14556).
@@ -356,13 +377,13 @@ This section explains how to receive a message over MAVLink and publish it to uO
 
 It assumes that we are receiving the `BATTERY_STATUS_DEMO` message and we want to update the (existing) [BatteryStatus uORB message](../msg_docs/BatteryStatus.md) with the contained information. This is the kind of implementation that you would provide to support a MAVLink battery integration with PX4.
 
-Add an uORB publisher in the `MavlinkReceiver` class in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L195)
+Add a function that handles the incoming MAVLink message in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L77)
 
 ```cpp
 #include <uORB/topics/battery_status.h>
 ```
 
-Add a function that handles the incoming MAVLink message in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L77)
+Add an uORB publisher in the `MavlinkReceiver` class in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L195)
 
 ```cpp
 MavlinkReceiver::handle_message(mavlink_message_t *msg)
@@ -425,10 +446,16 @@ MavlinkReceiver::handle_message(mavlink_message_t *msg)
  {
     switch (msg->msgid) {
         ...
+    MavlinkReceiver::handle_message(mavlink_message_t *msg)
+ {
+    switch (msg->msgid) {
+        ...
     case MAVLINK_MSG_ID_BATTERY_STATUS_DEMO:
         handle_message_battery_status_demo(msg);
         break;
         ...
+    }
+ }
     }
  }
 ```
