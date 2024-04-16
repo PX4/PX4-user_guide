@@ -14,6 +14,7 @@ WARNING: remove all props before using this command.
 ```
 actuator_test <command> [arguments...]
  actuator_test <command> [arguments...]
+ actuator_test <command> [arguments...]
  Commands:
    set           Set an actuator to a specific output value
 
@@ -39,6 +40,7 @@ Utility to flash the bootloader from a file
 ```
 bl_update [arguments...]
    bl_update [arguments...]
+   bl_update [arguments...]
    setopt        Set option bits to unlock the FLASH (only needed if in locked
                  state)
 
@@ -55,6 +57,8 @@ read BSON from a file and print in human form
 bsondump [arguments...]
      bsondump [arguments...]
      <file>      File name
+     bsondump [arguments...]
+     <file>      File name
 ```
 ## dumpfile
 Source: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/dumpfile)
@@ -65,6 +69,8 @@ Dump file utility. Prints file size and contents in binary mode (don't replace L
 ### Usage
 ```
 dumpfile [arguments...]
+     dumpfile [arguments...]
+     <file>      File to dump
      dumpfile [arguments...]
      <file>      File to dump
 ```
@@ -87,8 +93,9 @@ dyn ./hello.px4mod start
 ```
 dyn [arguments...]
      dyn [arguments...]
+     dyn [arguments...]
      <file>      File containing the module
-     [arguments...] Arguments to the module Arguments to the module
+     [arguments...] Arguments to the module Arguments to the module Arguments to the module
 ```
 ## failure
 Source: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/failure)
@@ -110,6 +117,7 @@ failure gps off
 ### Usage
 ```
 failure [arguments...]
+   failure [arguments...]
    failure [arguments...]
    help          Show this help text
 
@@ -154,6 +162,7 @@ gpio write /dev/gpio1 1
 ```
 gpio [arguments...]
    gpio [arguments...]
+   gpio [arguments...]
    read
      <PORT><PIN>/<DEVICE> GPIO port and pin or device
      [PULLDOWN|PULLUP] Pulldown/Pullup
@@ -177,6 +186,7 @@ Used in startup scripts to handle hardfaults
 ### Usage
 ```
 hardfault_log <command> [arguments...]
+ hardfault_log <command> [arguments...]
  hardfault_log <command> [arguments...]
  Commands:
    check         Check if there's an uncommitted hardfault
@@ -217,6 +227,9 @@ i2cdetect [arguments...]
      i2cdetect [arguments...]
      [-b <val>]  I2C bus
                  default: 1
+     i2cdetect [arguments...]
+     [-b <val>]  I2C bus
+                 default: 1
 ```
 ## led_control
 Source: [systemcmds/led_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/led_control)
@@ -241,6 +254,7 @@ led_control blink -c blue -l 0 -n 5
 ### Usage
 ```
 led_control <command> [arguments...]
+ led_control <command> [arguments...]
  led_control <command> [arguments...]
  Commands:
    test          Run a test pattern
@@ -283,6 +297,7 @@ The listener can be exited any time by pressing Ctrl+C, Esc, or Q.
 ```
 listener <command> [arguments...]
  listener <command> [arguments...]
+ listener <command> [arguments...]
  Commands:
      <topic_name> uORB topic name
      [-i <val>]  Topic instance
@@ -304,6 +319,9 @@ mfd <command> [arguments...]
  mfd <command> [arguments...]
  Commands:
    query         Returns true if not existed
+ mfd <command> [arguments...]
+ Commands:
+   query         Returns true if not existed
 ```
 ## mtd
 Source: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/mtd)
@@ -314,6 +332,7 @@ Utility to mount and test partitions (based on FRAM/EEPROM storage as defined by
 ### Usage
 ```
 mtd <command> [arguments...]
+ mtd <command> [arguments...]
  mtd <command> [arguments...]
  Commands:
    status        Print status information
@@ -433,11 +452,45 @@ param <command> [arguments...]
      <param_name> <value> Parameter name and value to set
      [fail]      If provided, let the command fail if param is not found
 
-   compare       Compare a param with a value. Command will succeed if equal
+   compare       Compare a param with a value. Command will succeed if param is
+                 greater than the value
      [-s]        If provided, silent errors if parameter doesn't exists
      <param_name> <value> Parameter name and value to compare
+     <param_name> <value> Parameter name and value to compare
 
-   greater       Compare a param with a value.
+   touch         Mark a parameter as used
+     [<param_name1> [<param_name2>]] Parameter name (one or more)
+
+   reset         Reset only specified params to default
+     [<param1> [<param2>]] Parameter names to reset (wildcard at end allowed)
+
+   reset_all     Reset all params to default
+     [<exclude1> [<exclude2>]] Do not reset matching params (wildcard at end
+                 allowed)
+
+   index         Show param for a given index
+     <index>     Index: an integer >= 0
+
+   index_used    Show used param for a given index
+     <index>     Index: an integer >= 0
+
+   find          Show index of a param
+     <param>     param name sys_*)
+
+   show-for-airframe Show changed params for airframe config
+
+   status        Print status of parameter system
+
+   set           Set parameter to a value
+     <param_name> <value> Parameter name and value to set
+     [fail]      If provided, let the command fail if param is not found
+
+   set-default   Set parameter default to a value
+     [-s]        If provided, silent errors if parameter doesn't exists
+     <param_name> <value> Parameter name and value to set
+     [fail]      If provided, let the command fail if param is not found
+
+   compare       Compare a param with a value.
 ```
 ## payload_deliverer
 Source: [modules/payload_deliverer](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/payload_deliverer)
@@ -452,6 +505,7 @@ Handles payload delivery with either Gripper or a Winch with an appropriate time
 ### Usage
 ```
 payload_deliverer <command> [arguments...]
+ payload_deliverer <command> [arguments...]
  payload_deliverer <command> [arguments...]
  Commands:
    start
@@ -476,6 +530,7 @@ Tool to print performance counters
 ```
 perf [arguments...]
    perf [arguments...]
+   perf [arguments...]
    reset         Reset all counters
 
    latency       Print HRT timer latency histogram
@@ -492,6 +547,7 @@ Reboot the system
 ```
 reboot [arguments...]
      reboot [arguments...]
+     reboot [arguments...]
      [-b]        Reboot into bootloader
      [-i]        Reboot into ISP (1st stage bootloader)
      [lock|unlock] Take/release the shutdown lock (for testing)
@@ -505,6 +561,7 @@ Test the speed of an SD Card
 ### Usage
 ```
 sd_bench [arguments...]
+     sd_bench [arguments...]
      sd_bench [arguments...]
      [-b <val>]  Block size for each read/write
                  default: 4096
@@ -527,6 +584,7 @@ Test operations on an SD Card
 ```
 sd_stress [arguments...]
      sd_stress [arguments...]
+     sd_stress [arguments...]
      [-r <val>]  Number of runs
                  default: 5
      [-b <val>]  Number of bytes
@@ -544,6 +602,7 @@ This can be used to use u-center connected to USB with a GPS on a serial port.
 ### Usage
 ```
 serial_passthru [arguments...]
+     serial_passthru [arguments...]
      serial_passthru [arguments...]
      -e <val>    External device path
                  values: <file:dev>
@@ -579,6 +638,11 @@ system_time <command> [arguments...]
    set           Set the system time, provide time in unix epoch time format
 
    get           Get the system time
+ system_time <command> [arguments...]
+ Commands:
+   set           Set the system time, provide time in unix epoch time format
+
+   get           Get the system time
 ```
 ## top
 Source: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/top)
@@ -589,6 +653,7 @@ Monitor running processes and their CPU, stack usage, priority and state
 ### Usage
 ```
 top [arguments...]
+   top [arguments...]
    top [arguments...]
    once          print load only once
 ```
@@ -611,6 +676,7 @@ Tool to print various version information
 ### Usage
 ```
 ver <command> [arguments...]
+ ver <command> [arguments...]
  ver <command> [arguments...]
  Commands:
    hw            Hardware architecture
