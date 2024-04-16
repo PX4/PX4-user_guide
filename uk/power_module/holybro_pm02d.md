@@ -1,4 +1,4 @@
-# Holybro PM02D Power Module
+# Holybro PM02D Енергогенератор
 
 Плата живлення Holybro PM02D забезпечує регульоване живлення для керуючого пристрою польоту та розподільної плати живлення, а також надсилає інформацію автопілоту про напругу батареї та поточний струм, що подається на керуючий пристрій польоту та двигуни.
 
@@ -11,24 +11,24 @@
 
 ## Специфікації
 
-- **Max input voltage**: 36V
-- **Rated current**: 60A
-- **Max current**: 120A (<60S)
-- **Max current sensing**: 164A
-- **Battery supported**: up to 6S battery
-- **Communication protocol**: I2C
-- **Switching regulator outputs**: 5.2V and 3A max
-- **Weight**: 20g
-- **IC Used**: TI INA226
+- **Максимальна вхідна напруга**: 36V
+- **Оцінений струм**: 60A
+- **Макс поточний**: 120A (<60S)
+- **Максимальне вимірювання поточного струму**: 164A
+- **Підтримується заряд батареї**: до 6S акумулятора
+- **Протокол зв'язку**: I2C
+- **Вихід регулятора перемикача**: 5.2V та 3A макс
+- **Вага**: 59g
+- **Використано ІС**: TI INA226
 
 ## Вміст набору
 
-- PM02D board with XT60 connectors
-- 6pin 2.00mm pitch CLIK-Mate cable to power flight controller
+- PM02D дошка з коннекторами XT60
+- 6pin 2.00мм інтервал CLIK-Mate кабель до протиживлення контролера
 
 ## Де купити
 
-[Order from Holybro Store](https://holybro.com/products/pm02d-power-module)
+[Замовляйте на Holybro](https://holybro.com/products/pm02d-power-module)
 
 ## Проведення/Підключення
 
