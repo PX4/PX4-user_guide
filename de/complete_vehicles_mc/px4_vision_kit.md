@@ -179,8 +179,6 @@ In addition, users will need ground station hardware/software:
    ::: info
    Modes can also be changed using _QGroundControl_
 
-:::
-
    We recommend RC controller switches are define for:
 
    - [Position Mode](../flight_modes_mc/position.md) - a safe manual flight mode that can be used to test collision prevention.
