@@ -20,6 +20,14 @@ fw_autotune_attitude_control <command> [arguments...]
    stop
 
    status        print status info
+ fw_autotune_attitude_control <command> [arguments...]
+ Commands:
+   start
+     [vtol]      VTOL mode
+
+   stop
+
+   status        print status info
 ```
 ## mc_autotune_attitude_control
 Source: [modules/mc_autotune_attitude_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_autotune_attitude_control)
@@ -33,6 +41,13 @@ Source: [modules/mc_autotune_attitude_control](https://github.com/PX4/PX4-Autopi
 ### Usage
 ```
 mc_autotune_attitude_control <command> [arguments...]
+ mc_autotune_attitude_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
  mc_autotune_attitude_control <command> [arguments...]
  Commands:
    start
