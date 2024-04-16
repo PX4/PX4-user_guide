@@ -78,7 +78,8 @@ These boards are all boards that don't fall in the above categories, or don't fa
 
 - The board must be working with at least one PX4 release for a defined vehicle type, but not necessarily the latest release.
 
-_New_ experimental boards are allocated [VER and REV IDs](#ver_rev_id) based on compatibility, in the same way as Manufacturer Supported boards. :::note Experimental boards that were _previously_ Pixhawk or Manufacturer supported will have/retain their original IDs.
+:::note
+Experimental boards that were _previously_ Pixhawk or Manufacturer supported will have/retain their original IDs. :::note Experimental boards that were _previously_ Pixhawk or Manufacturer supported will have/retain their original IDs.
 :::
 
 ## Unsupported
