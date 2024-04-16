@@ -17,7 +17,7 @@
 |:------------------ |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Power1             | Підключає модуль живлення. Вхід живлення з детекцією _аналогової_ напруги та струму. Не використовуйте Digital PM на цьому роз'ємі!                                                                |
 | Power2             | Підключає i2c розумну батарею.                                                                                                                                                                     |
-| TF CARD            | SD card for log storage (card pre-inserted in factory).                                                                                                                                            |
+| TF CARD            | Карта SD для зберігання журналів (карта попередньо вставлена на заводі).                                                                                                                           |
 | M1~M8              | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
 | A1~A6              | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
 | DSU7               | Used for FMU debug, reading debug information.                                                                                                                                                     |
@@ -53,23 +53,23 @@
 
 ## Запобіжний вимикач
 
-The dedicated safety switch that comes with the V5+ is only required if you are not using the recommended _Neo V2 GPS_ (which has an inbuilt safety switch).
+Спеціальний запобіжний вимикач, який поставляється з V5+, потрібен лише у випадку, якщо ви не використовуєте рекомендований _GPS Neo V2_ (у якому вбудований запобіжний вимикач).
 
-If you are flying without the GPS you must attach the switch directly to the `GPS1` port in order to be able to arm the vehicle and fly (if you use the old 6-pin GPS, please read the definition of the bottom interface to change the line).
+Якщо ви літаєте без GPS, ви повинні прикріпити вимикач безпосередньо до порту `GPS1`, щоб мати можливість озброїти рухомий засіб і летіти (якщо ви використовуєте старий GPS з 6 контактами, будь ласка, прочитайте визначення нижнього інтерфейсу для зміни лінії).
 
-## Buzzer
+## Зумер
 
-If you do not use the recommended GPS, the buzzer may not work.
+Якщо ви не використовуєте рекомендований GPS, зумер може не працювати.
 
-## Radio Control
+## Радіоуправління
 
-A remote control (RC) radio system is required if you want to manually control your vehicle (PX4 does not require a radio system for autonomous flight modes). You will need to select a compatible transmitter/receiver and then bind them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+Для того щоб керувати транспортним засобом вручну, потрібна система радіоуправління (RC) (PX4 не потребує системи радіоуправління для автономних режимів польоту). Вам буде потрібно вибрати сумісний передавач/приймач і зв'язати їх таким чином, щоб вони комунікували (ознайомтеся з інструкціями, що додаються до вашого конкретного передавача/приймача).
 
-The figure below shows how you can access your remote receiver (please find the SBUS cable in the kit).
+На малюнку нижче показано, як ви можете отримати доступ до вашого віддаленого приймача (знайдіть кабель SBUS у комплекті).
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_04.png)
 
-## Spektrum Satellite Receivers
+## Супутникові приймачі Spektrum
 
 The V5+ has a dedicated DSM cable. If using a Spektrum satellite receiver, this should be connected to the flight controller DSM/SBUS/RSSI interface.
 
