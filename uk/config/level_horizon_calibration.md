@@ -1,33 +1,33 @@
-# Level Horizon Calibration
+# Калібрування рівня горизонту
 
-You can use _Level Horizon Calibration_ to compensate for small misalignments in controller orientation and to level the horizon in the _QGroundControl_ flight view (blue on top and green on bottom).
+Ви можете використовувати _Калібрування горизонту рівня_ для компенсації невеликих відхилень в орієнтації контролера та вирівнювання горизонту у виді польоту _QGroundControl_ (синій зверху і зелений знизу).
 
 :::tip
-Performing this calibration step is only recommended if the autopilot's orientation is visibly misaligned with the specified orientation, or if there is a constant drift during flight in not position-controlled flight modes.
+Виконання цього калібрування рекомендується лише у випадку, якщо орієнтація автопілота відкрито не відповідає вказаній орієнтації, або якщо є постійне відхилення під час польоту в режимах польоту, які не контролюють позицію.
 :::
 
-## Performing the Calibration
+## Виконання калібрування
 
-To level the horizon:
+Вирівняти горизонт:
 
-1. Start _QGroundControl_ and connect the vehicle.
-1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
-1. Click the **Level Horizon** button. ![Level Horizon calibration](../../assets/qgc/setup/sensor/sensor_level_horizon.png) ::: info You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
+1. Запустіть _QGroundControl_ та підключіть транспортний засіб.
+1. Виберіть піктограму **Шестерня** (Налаштування транспортного засобу) на верхній панелі і потім **Датчики** у бічній панелі.
+1. Натисніть кнопку **Горизонт рівня**. ![Level Horizon calibration](../../assets/qgc/setup/sensor/sensor_level_horizon.png) :::info Ви повинні вже встановити [Орієнтацію автопілота](../config/flight_controller_orientation.md). Якщо ні, ви також можете встановити це тут.
 :::
-1. Place the vehicle in its level flight orientation on a level surface:
+1. Помістіть транспортний засіб на рівну відстань на рівній поверхні:
 
-   - For planes this is the position during level flight (planes tend to have their wings slightly pitched up!)
-   - For copters this is the hover position.
+   - Для літаків це положення під час рівнопланового польоту (літаки мають тенденцію трохи підняти свої крила!)
+   - Для коптерів це позиція утримання.
 
-1. Press **OK** to start the calibration process.
-1. Wait until the calibration process is finished.
+1. Натисніть **OK**, щоб розпочати процес калібрування.
+1. Зачекайте, доки завершиться процес калібрування.
 
-## Verification
+## Перевірка
 
-Check that the artificial horizon displayed in the flight view has the indicator in the middle when the vehicle is placed on a level surface.
+Перевірте, що штучний горизонт, відображений у виді польоту, має показник посередині, коли транспортний засіб розміщений на рівній поверхні.
 
-## Further Information
+## Додаткова інформація
 
-- [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md) (advanced users only).
-- [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#level-horizon)
-- [PX4 Setup Video "Gyroscope" - @1m14s](https://youtu.be/91VGmdSlbo4?t=1m14s) (Youtube)
+- [Розширена настройка орієнтації](../advanced_config/advanced_flight_controller_orientation_leveling.md) (лише для досвідчених користувачів).
+- [QGroundControl Посібник користувача > Датчики](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#level-horizon)
+- [Відео налаштування PX4 "Гіроскоп" - @1m14s](https://youtu.be/91VGmdSlbo4?t=1m14s) (Youtube)
