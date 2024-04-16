@@ -290,6 +290,7 @@ Navigator publishes position setpoint triplets (`position_setpoint_triplet_s`), 
 ```
 navigator <command> [arguments...]
  navigator <command> [arguments...]
+ navigator <command> [arguments...]
  Commands:
    start
 
@@ -409,7 +410,13 @@ uuv_pos_control <command> [arguments...]
    stop
 
    status        print status info
- uuv_att_control <command> [arguments...]
+ differential_drive_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
  Commands:
    start
 
@@ -431,6 +438,13 @@ fw_att_control is the fixed wing attitude controller.
 vtol_att_control <command> [arguments...]
  vtol_att_control <command> [arguments...]
  Commands:
+
+   stop
+
+   status        print status info
+ uuv_att_control <command> [arguments...]
+ Commands:
+   start
 
    stop
 
