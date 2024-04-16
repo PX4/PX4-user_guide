@@ -57,29 +57,29 @@ _Pixhawk 4_<sup>&reg;</sup> це просунутий автопілот, роз
 ![Pixhawk 4 connectors](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
 
 :::warning
-The **DSM/SBUS RC** and **PPM RC** ports are for RC receivers only. These are powered! NEVER connect any servos, power supplies or batteries (or to any connected receiver).
+Порти **DSM/SBUS RC** та **PPM RC** призначені лише для RC приймачів. Вони працюють на електроживленні! НІКОЛИ не підключайте до нього жодних сервоприводів, джерел живлення або батарей (або до будь-якого підключеного приймача).
 :::
 
-## Pinouts
+## Схема розташування виводів
 
-Download _Pixhawk 4_ pinouts from [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-Pinouts.pdf).
+Завантажте схему розташування виводів _Pixhawk 4_ [звідси](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-Pinouts.pdf).
 
-::: info Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin). The exception is the [debug port(s)](#debug_port) (pin 1 is the right-most, as shown below).
+::: info Призначення контактів роз'ємів відбувається зліва направо (тобто Pin 1 - це найлівіший контакт). Виняток становить [порт(и) відладки](#debug_port) (pin 1 є найправішим, як показано нижче).
 :::
 
-## Serial Port Mapping
+## Налаштування послідовного порту
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | GPS                   |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  | /dev/ttyS3 | TELEM4                |
-| USART6 | /dev/ttyS4 | RC SBUS               |
-| UART7  | /dev/ttyS5 | Debug Console         |
-| UART8  | /dev/ttyS6 | PX4IO                 |
+| UART   | Device     | Port                       |
+| ------ | ---------- | -------------------------- |
+| UART1  | /dev/ttyS0 | GPS                        |
+| USART2 | /dev/ttyS1 | TELEM1 (керування потоком) |
+| USART3 | /dev/ttyS2 | TELEM2 (керування потоком) |
+| UART4  | /dev/ttyS3 | TELEM4                     |
+| USART6 | /dev/ttyS4 | RC SBUS                    |
+| UART7  | /dev/ttyS5 | Debug Console              |
+| UART8  | /dev/ttyS6 | PX4IO                      |
 
-## Dimensions
+## Розміри
 
 ![Pixhawk 4 Dimensions](../../assets/flight_controller/pixhawk4/pixhawk4_dimensions.jpg)
 
