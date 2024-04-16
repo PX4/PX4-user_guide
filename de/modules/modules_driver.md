@@ -56,6 +56,7 @@ ADC driver.
 ```
 adc <command> [arguments...]
  adc <command> [arguments...]
+ adc <command> [arguments...]
  Commands:
    start
 
@@ -256,6 +257,7 @@ This module parses the CRSF RC uplink protocol and generates CRSF downlink telem
 ```
 crsf_rc <command> [arguments...]
  crsf_rc <command> [arguments...]
+ crsf_rc <command> [arguments...]
  Commands:
    start
      [-d <val>]  RC device
@@ -292,6 +294,7 @@ After saving, the reversed direction will be regarded as the normal one. So to r
 ### Usage
 ```
 dshot <command> [arguments...]
+ dshot <command> [arguments...]
  dshot <command> [arguments...]
  Commands:
    start
@@ -360,6 +363,12 @@ fake_gps <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## fake_imu
 Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_imu)
@@ -404,6 +413,12 @@ fake_magnetometer <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## ft_technologies_serial
 Source: [drivers/wind_sensor/ft_technologies](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/wind_sensor/ft_technologies)
@@ -431,6 +446,7 @@ ft_technologies_serial stop
 ### Usage
 ```
 ft_technologies_serial <command> [arguments...]
+ ft_technologies_serial <command> [arguments...]
  Commands:
    start         Start driver
      -d <val>    Serial device
@@ -457,6 +473,7 @@ gimbal test pitch -45 yaw 30
 ### Usage
 ```
 gimbal <command> [arguments...]
+ gimbal <command> [arguments...]
  gimbal <command> [arguments...]
  Commands:
    start
@@ -504,6 +521,7 @@ gps reset warm
 ```
 gps <command> [arguments...]
  gps <command> [arguments...]
+ gps <command> [arguments...]
  Commands:
    start
      [-d <val>]  GPS device
@@ -540,6 +558,7 @@ Source: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree
 ### Usage
 ```
 gz_bridge <command> [arguments...]
+ gz_bridge <command> [arguments...]
  gz_bridge <command> [arguments...]
  Commands:
    start
@@ -647,7 +666,7 @@ If the INA228 module is not powered, then by default, initialization of the driv
 ### Usage
 ```
 ina228 <command> [arguments...]
- ina228 <command> [arguments...]
+ ina238 <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -717,6 +736,7 @@ Creates a virtual serial port that another module can use for communication (e.g
 ### Usage
 ```
 iridiumsbd <command> [arguments...]
+ iridiumsbd <command> [arguments...]
  iridiumsbd <command> [arguments...]
  Commands:
    start
@@ -934,6 +954,7 @@ pca9685_pwm_out start -a 0x40 -b 1
 ```
 pca9685_pwm_out <command> [arguments...]
  pca9685_pwm_out <command> [arguments...]
+ pca9685_pwm_out <command> [arguments...]
  Commands:
    start         Start the task
      [-a <val>]  7-bits I2C address of PCA9685
@@ -1020,6 +1041,12 @@ pps_capture <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## pwm_out
 Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pwm_out)
@@ -1065,6 +1092,7 @@ It is used in SITL and HITL.
 ```
 pwm_out_sim <command> [arguments...]
  pwm_out_sim <command> [arguments...]
+ pwm_out_sim <command> [arguments...]
  Commands:
    start         Start the module
      [-m <val>]  Mode
@@ -1109,34 +1137,9 @@ Output driver communicating with the IO co-processor.
 ### Usage
 ```
 px4io <command> [arguments...]
- Commands:
-   start
-
-   checkcrc      Check CRC for a firmware file against current code on IO
-     <filename>  Firmware file
-
-   update        Update IO firmware
-     [<filename>] Firmware file
-
-   debug         set IO debug level
-     <debug_level> 0=disabled, 9=max verbosity
-
-   bind          DSM bind
-     dsm2|dsmx|dsmx8 protocol
-
-   sbus1_out     enable sbus1 out
-
-   sbus2_out     enable sbus2 out
-
-   supported     Returns 0 if px4io is supported
-
-   test_fmu_fail test: turn off IO updates
-
-   test_fmu_ok   re-enable IO updates
-
-   stop
-
-   status        print status info
+ px4io <command> [arguments...] Commands: start checkcrc      Check CRC for a firmware file against current code on IO
+     <filename>  Firmware file update        Update IO firmware [<filename>] Firmware file debug         set IO debug level
+     <debug_level> 0=disabled, 9=max verbosity bind          DSM bind dsm2|dsmx|dsmx8 protocol sbus1_out     enable sbus1 out sbus2_out     enable sbus2 out supported     Returns 0 if px4io is supported test_fmu_fail test: turn off IO updates test_fmu_ok   re-enable IO updates stop status        print status info
 ```
 ## rc_input
 Source: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc_input)
@@ -1157,6 +1160,7 @@ This module does the RC input parsing and auto-selecting the method. Supported m
 ### Usage
 ```
 rc_input <command> [arguments...]
+ rc_input <command> [arguments...]
  rc_input <command> [arguments...]
  Commands:
    start
@@ -1282,6 +1286,19 @@ roboclaw <command> [arguments...]
    stop
 
    status        print status info
+ pwm_out <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## safety_button
 Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/safety_button)
@@ -1391,6 +1408,7 @@ tap_esc start -d /dev/ttyS2 -n <1-8>
 ```
 tap_esc <command> [arguments...]
  tap_esc <command> [arguments...]
+ tap_esc <command> [arguments...]
  Commands:
    start         Start the task
      [-d <val>]  Device used to talk to ESCs
@@ -1446,6 +1464,7 @@ uwb start -d /dev/ttyS2
 ```
 uwb <command> [arguments...]
  uwb <command> [arguments...]
+ uwb <command> [arguments...]
  Commands:
    start
      -d <val>    Name of device for serial communication with UWB
@@ -1472,6 +1491,7 @@ This module is responsible for driving the output pins. For boards without a sep
 ### Usage
 ```
 voxl2_io <command> [arguments...]
+ voxl2_io <command> [arguments...]
  Commands:
    start         Start the task
      -v          Verbose messages
@@ -1515,6 +1535,7 @@ todo
 ### Usage
 ```
 voxl_esc <command> [arguments...]
+ voxl_esc <command> [arguments...]
  modal_io <command> [arguments...]
  Commands:
    start         Start the task
@@ -1593,6 +1614,15 @@ Zenoh demo bridge
 ### Usage
 ```
 zenoh <command> [arguments...]
+ zenoh <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status
+
+   config
  zenoh <command> [arguments...]
  Commands:
    start
