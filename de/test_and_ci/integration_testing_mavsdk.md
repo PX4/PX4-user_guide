@@ -128,7 +128,6 @@ About to run 39 test cases for 3 selected models (1 iteration):
     - 'Takeoff and Land'
     - 'Fly square Multicopter Missions including RTL'
     - 'Fly square Multicopter Missions with manual RTL'
-    - 'Fly forward in position control'
     -
 ```
 
