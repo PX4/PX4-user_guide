@@ -48,7 +48,8 @@ The 254-vehicle limitation occurs because mavlink `MAV_SYS_ID` only supports 255
 
 `Tools/simulation/gazebo-classic/sitl_multiple_run.sh` can be used to simulate multiple vehicles connected via XRCE-DDS in Gazebo Classic.
 
-For more information see: [ROS 2 User Guide (PX4-ROS 2 Bridge)](../ros/ros2_comm.md), for interfacing with ROS 2 nodes. :::note  
+:::note
+You will need to have installed the XRCE-DDS dependencies. :::note  
 You will need to have installed the XRCE-DDS dependencies.
 :::
 
@@ -70,7 +71,9 @@ To build an example setup, follow the steps below:
    ./Tools/simulation/gazebo-classic/sitl_multiple_run.sh -m iris -n 4
    ```
 
-   MAVLink system id 1 is skipped. :::note
+   :::note
+Each vehicle instance is allocated a unique MAVLink system id (2, 3, 4, etc.).
+:::note
 Each vehicle instance is allocated a unique MAVLink system id (2, 3, 4, etc.).
 :::
 
@@ -80,7 +83,7 @@ Each vehicle instance is allocated a unique MAVLink system id (2, 3, 4, etc.).
    MicroXRCEAgent udp4 -p 8888
    ```
 
-   :::note
+:::note
 The simulator startup script automatically assigns a [unique namespace](../ros/ros2_multi_vehicle.md) to each vehicle.
 :::
 
@@ -92,8 +95,8 @@ This example demonstrates a setup that opens the Gazebo Classic client GUI showi
 
 - Current [PX4 ROS/Gazebo development environment](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo)
 
-  :::note
-  At time of writing this is Ubuntu 18.04 with ROS Melodic/Gazebo 9. See also [Gazebo Classic Simulation](../sim_gazebo_classic/index.md).
+:::note
+At time of writing this is Ubuntu 18.04 with ROS Melodic/Gazebo 9. See also [Gazebo Classic Simulation](../sim_gazebo_classic/index.md).
 :::
 
 - [MAVROS package](http://wiki.ros.org/mavros)
@@ -124,7 +127,7 @@ To build an example setup, follow the step below:
    roslaunch px4 multi_uav_mavros_sitl.launch
    ```
 
-   :::note
+:::note
 You can specify `gui:=false` in the above _roslaunch_ to launch Gazebo Classic without its UI.
 :::
 
@@ -141,7 +144,8 @@ For each simulated vehicle, the following is required:
 
 - **Gazebo Classic model**: This is defined as `xacro` file in `PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/rotors_description/urdf/<model>_base.xacro` see [here](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf). Currently, the model `xacro` file is assumed to end with **base.xacro**. This model should have an argument called `mavlink_udp_port` which defines the UDP port on which Gazebo Classic will communicate with PX4 node. The model's `xacro` file will be used to generate an `urdf` model that contains UDP port that you select. To define the UDP port, set the `mavlink_udp_port` in the launch file for each vehicle, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L37) as an example.
 
-  The same **`xacro`** file is adequate. :::note  
+  :::note
+  If you are using the same vehicle model, you don't need a separate **`xacro`** file for each vehicle. :::note  
   If you are using the same vehicle model, you don't need a separate **`xacro`** file for each vehicle.
 :::
 
@@ -196,7 +200,7 @@ The launch file `multi_uav_mavros_sitl.launch`does the following,
       </include>
     ```
 
-  :::note
+:::note
 The complete block for each vehicle is enclosed in a set of `<group>` tags to separate the ROS namespaces of the vehicles.
 :::
 
@@ -215,8 +219,8 @@ To add a third iris to this simulation there are two main components to consider
   - the first `mavlink start` port and the `mavlink stream` port values to the same values, which is to be used for QGC communication
   - the second `mavlink start` ports need to match those used in the launch file `fcu_url` arg
 
-    :::note
-    Be aware of which port is `src` and `dst` for the different endpoints.
+:::note
+Be aware of which port is `src` and `dst` for the different endpoints.
 :::
 
 ## Multiple Vehicles using SDF Models
@@ -251,13 +255,12 @@ To add a new vehicle, you need to make sure the model can be found (in order to 
      $(find px4)/Tools/simulation/gazebo/sitl_gazebo-classic/models/$(arg vehicle)/$(arg vehicle).sdf
      ```
 
-     :::note
-Ensure you set the `vehicle` argument even if you hardcode the path to your model.
+     Ensure you set the `vehicle` argument even if you hardcode the path to your model.
 :::
 
    - copy your model into the folder indicated above (following the same path convention).
 
-1. The `vehicle` argument is used to set the `PX4_SIM_MODEL` environment variable, which is used by the default rcS (startup script) to find the corresponding startup settings file for the model. Within PX4 these startup files can be found in the **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/** directory. For this to work, the PX4 node in the launch file is passed arguments that specify the _rcS_ file (**etc/init.d/rcS**) and the location of the rootfs etc directory (`$(find px4)/build_px4_sitl_default/etc`). For simplicity, it is suggested that the startup file for the model be placed alongside PX4's in **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/**. For example, here is the plane model's [startup script](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/1030_gazebo-classic_plane).
+1. The `vehicle` argument is used to set the `PX4_SIM_MODEL` environment variable, which is used by the default rcS (startup script) to find the corresponding startup settings file for the model. Within PX4 these startup files can be found in the **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/** directory. For simplicity, it is suggested that the startup file for the model be placed alongside PX4's in **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/**. For example, here is the plane model's [startup script](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/1030_gazebo-classic_plane). For this to work, the PX4 node in the launch file is passed arguments that specify the _rcS_ file (**etc/init.d/rcS**) and the location of the rootfs etc directory (`$(find px4)/build_px4_sitl_default/etc`).
 
 ## Additional Resources
 
