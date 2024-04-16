@@ -1,4 +1,4 @@
-# Radio Control (RC) Setup
+# Налаштування радіомодулів (RC)
 
 The _Radio Setup_ screen is used to configure the mapping of your RC controller's main attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
 
@@ -7,7 +7,7 @@ The _Radio Setup_ screen is used to configure the mapping of your RC controller'
 
 ## Binding the Receiver
 
-Before you can calibrate the radio system the receiver and transmitter must be connected/bound. The process for binding a transmitter and receiver pair is hardware specific (see your RC manual for instructions).
+Щоб калібрувати радіосистему, слід підключити отримувач і передавач. The process for binding a transmitter and receiver pair is hardware specific (see your RC manual for instructions).
 
 ::: info If you are using a _Spektrum_ receiver, you can put it into bind mode using _QGroundControl_, as [shown below](#spectrum-bind).
 :::
