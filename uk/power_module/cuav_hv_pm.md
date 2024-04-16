@@ -1,9 +1,9 @@
 # CUAV HV PM (High-Voltage Power Module)
 
-The CUAV<sup>&reg;</sup> *HV_PM* power module is a "high voltage" power module independently developed by CUAV.
+Модуль живлення CUAV<sup>&reg;</sup> *HV_PM* є модулем живлення "високого напруги", розробленим незалежно від CUAV.
 
 :::tip
-The *HV_PM* is included in the CUAV V5+/V5 nano kit, but is also be sold separately. There are different cables depending on the flight controller (Pixhack v3, V5+/V5 nano, Pixhawk). It can be used with other flight controllers, but you may need to modify the cable pin.
+*HV_PM* включено в комплект CUAV V5+/V5 nano kit, але також може бути продано окремо. Існують різні кабелі в залежності від контролера польоту (Pixhack v3, V5+/V5 nano, Pixhawk). Це може бути використано з іншими контролерами польоту, але вам може знадобитися змінити контактний пін.
 :::
 
 ## Характеристики
@@ -14,7 +14,7 @@ The *HV_PM* is included in the CUAV V5+/V5 nano kit, but is also be sold separat
   - **Точність вимірювання струму:** +-0.2 А
 - **Максимальний струм BEC (5В):** 5А
 - **Максимальний (виявлення) струм:** 60А
-- **Max output current (ESC/MOTOR PORT):** 60A
+- **Максимальний вихідний струм (ПОРТ ESC/MOTOR):** 60A
 
 ## Де купити
 
@@ -26,8 +26,8 @@ The *HV_PM* is included in the CUAV V5+/V5 nano kit, but is also be sold separat
 
 ## Увімкнути HV PM
 
-[Battery Estimation Tuning](../config/battery.md) describes how to configure the battery and power module.
+[Налаштування оцінювання батареї](../config/battery.md) описує як налаштувати модуль акумулятора і живлення.
 
-The key configuration settings for `HV_PM` are:
-- **Voltage divider:** 18
-- **Amps per volt:** 24 A/V
+Основні налаштування конфігурації для `HV_PM` є:
+- **Подільник напруги:** 18
+- **Ампери на вольт:** 24 A/V
