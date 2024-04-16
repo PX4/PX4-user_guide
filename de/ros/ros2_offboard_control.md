@@ -53,6 +53,7 @@ To build and run the example:
    ```sh
    cd ..
    cd ..
+   cd ..
    source /opt/ros/humble/setup.bash
    colcon build
    ```
@@ -61,6 +62,7 @@ To build and run the example:
 
    ::: tab foxy
    ```sh
+   cd ..
    cd ..
    cd ..
    source /opt/ros/foxy/setup.bash
@@ -185,7 +187,8 @@ void OffboardControl::publish_vehicle_command(uint16_t command, float param1, fl
 }
 ```
 
-The param and command fields map to [MAVLink commands](https://mavlink.io/en/messages/common.html#mav_commands) and their parameter values. :::note [VehicleCommand](../msg_docs/VehicleCommand.md) is one of the simplest and most powerful ways to command PX4, and by subscribing to [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) you can also confirm that setting a particular command was successful.
+:::note
+[VehicleCommand](../msg_docs/VehicleCommand.md) is one of the simplest and most powerful ways to command PX4, and by subscribing to [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) you can also confirm that setting a particular command was successful. :::note [VehicleCommand](../msg_docs/VehicleCommand.md) is one of the simplest and most powerful ways to command PX4, and by subscribing to [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) you can also confirm that setting a particular command was successful.
 :::
 
 
