@@ -1,58 +1,58 @@
 # Holybro Pixhawk 4
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення або відповідності вимогам.
 :::
 
-_Pixhawk 4_<sup>&reg;</sup> is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team. It is optimized to run PX4 v1.7 and later, and is suitable for academic and commercial developers.
+_Pixhawk 4_<sup>&reg;</sup> це просунутий автопілот, розроблений та виготовлений у співпраці між Holybro<sup>&reg;</sup> та командою PX4. Він оптимізований для роботи з PX4 v1.7 та пізніших версій, і підходить для академічних та комерційних розробників.
 
-It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
+Він базується на відкритому апаратному дизайні [Pixhawk-project](https://pixhawk.org/) **FMUv5** та виконує PX4 на операційній системі [NuttX](https://nuttx.apache.org/).
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 Upright Image" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" />
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+Цей автопілот [підтримується](../flight_controller/autopilot_pixhawk_standard.md) командами підтримки та тестування PX4.
 :::
 
-## Quick Summary
+## Короткий опис
 
-- Main FMU Processor: STM32F765
+- Основний FMU Processor: STM32F765
   - 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
-- IO Processor: STM32F100
+- IO процесор: STM32F100
   - 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
-- On-board sensors:
+- Бортові сенсори:
   - Accel/Gyro: ICM-20689
-  - Accel/Gyro: BMI055 or ICM20602
+  - Accel/Gyro: BMI055 або ICM20602
   - Magnetometer: IST8310
   - Barometer: MS5611
-- GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
-- Interfaces:
-  - 8-16 PWM outputs (8 from IO, 8 from FMU)
-  - 3 dedicated PWM/Capture inputs on FMU
-  - Dedicated R/C input for CPPM
-  - Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
-  - Dedicated S.Bus servo output
-  - 5 general purpose serial ports
-  - 3 I2C ports
-  - 4 SPI buses
-  - Up to 2 CANBuses for dual CAN with serial ESC
-  - Analog inputs for voltage / current of 2 batteries
-- Power System:
-  - Power module output: 4.9~5.5V
-  - USB Power Input: 4.75~5.25V
-  - Servo Rail Input: 0~36V
-- Weight and Dimensions:
-  - Weight: 15.8g
-  - Dimensions: 44x84x12mm
-- Other Characteristics:
-  - Operating temperature: -40 ~ 85°c
+- GPS: u-blox Neo-M8N GPS/GLONASS приймач; інтегрований магнетометр IST8310
+- Інтерфейси:
+  - 8-16 PWM виводів (8 з IO, 8 з FMU)
+  - 3 виділених PWM/Capture входи на FMU
+  - Виділений R/C вхід для CPPM
+  - Виділений R/C вхід для Spektrum / DSM та S.Bus з аналоговим / PWM RSSI входом
+  - Виділений S.Bus серво вивід
+  - 5 загальних послідовних портів
+  - 3 I2C порти
+  - 4 SPI шини
+  - До 2 CAN шин для подвійного CAN з послідовним ESC
+  - Аналогові входи для напруги / струму з 2 акумуляторів
+- Система живлення:
+  - Вивід модуля живлення: 4.9~5.5V
+  - Живлення USB входу: 4.75~5.25V
+  - Вхід сервоприводу: 0~36V
+- Вага та розміри:
+  - Вага: 15.8g
+  - Розміри: 44x84x12мм
+- Інші Характеристики:
+  - Температура роботи: -40 ~ 85°c
 
-Additional information can be found in the [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
+Додаткову інформацію можна знайти в [Технічному довіднику Pixhawk 4](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
 
-## Where to Buy
+## Де купити
 
-Order from [Holybro](https://holybro.com/products/pixhawk-4).
+Замовляйте на [Holybro](https://holybro.com/products/pixhawk-4).
 
-## Connectors
+## З’єднання
 
 ![Pixhawk 4 connectors](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
 
