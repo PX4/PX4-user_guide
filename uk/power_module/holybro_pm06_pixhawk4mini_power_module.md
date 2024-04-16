@@ -7,26 +7,26 @@
 
 ## Характеристики
 
-- **PCB Current:** 120A continued
-- **UBEC Current:** 3A Max
-- **Power input:** 2S~10S (standard version)
+- **Поточний PCB:** 120A продовжено
+- **Поточний UBEC:** 3A Макс
+- **Вхідна потужність:** 2S~10S (стандартна версія)
 - **Power input:** 2S~14S (14S version)
-- **Power output:** DC 5.1V~5.3V
+- **Вихідна потужність:** DC 5.1V~5.3V
 - **Voltage Divider:** 18.182
-- **Amperes per Volt:** 36.364
+- **Ампери на вольт:** 36.364
 
 ## Механічні характеристики
 
-- **Dimensions:** 35x35x5mm
-- **Mounting hole:** 30.5mm*30.5mm
-- **Weight:** 24g
+- **Розміри:** 35x35x5мм
+- **Отвір для монтажу:** 30.5мм*30.5мм
+- **Вага:** 24g
 
 ## Де купити
 
-[PM06 V2 Power Module](https://holybro.com/collections/power-modules-pdbs/products/micro-power-module-pm06-v2)
+[Модуль живлення PM06 V2](https://holybro.com/collections/power-modules-pdbs/products/micro-power-module-pm06-v2)
 
 ## Проведення/Підключення
 
-Wiring and connection examples can be found in: [Pixhawk 4 Mini > Power](../assembly/quick_start_pixhawk4_mini.md#power).
+Приклади підключення та монтажу можна знайти за посиланням: [Pixhawk 4 Mini > Power](../assembly/quick_start_pixhawk4_mini.md#power).
 
 <img src="../../assets/hardware/power_module/holybro_pm06/pm06_pin_map.jpg" width="450px" title="pm06" />
