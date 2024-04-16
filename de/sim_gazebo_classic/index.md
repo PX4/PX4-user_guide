@@ -116,6 +116,8 @@ http://gazebosim.org
 ...
 http://gazebosim.org
 ...
+http://gazebosim.org
+...
 INFO  [ecl/EKF] 5188000: commencing GPS fusion
 ```
 
@@ -262,7 +264,8 @@ For example, to load the _warehouse_ world, you can append it as shown:
 make px4_sitl_default gazebo-classic_plane_cam__warehouse
 ```
 
-See [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#px4-make-build-targets). :::note  
+:::note
+There are _two underscores_ after the model (`plane_cam`) indicating that the default debugger is used (none). :::note
 There are _two underscores_ after the model (`plane_cam`) indicating that the default debugger is used (none).
 :::
 
@@ -282,7 +285,8 @@ The vehicle is not spawned exactly at the Gazebo origin (0,0,0), but using a sli
 
 If using a world that recreates a real location (e.g. a particular airport) this can result in a very obvious mismatch between what is displayed in the simulated world, and what is shown on the ground station map. To overcome this problem you can set the location of the world origin to the GPS coordinates where it would be in "real life".
 
-However adding the location to the map is easier (and can still be over-ridden by setting a custom location if needed). :::note  
+:::note
+You can also set a [Custom Takeoff Location](#custom_takeoff_location) that does the same thing. :::note  
 You can also set a [Custom Takeoff Location](#custom_takeoff_location) that does the same thing.
 :::
 
@@ -438,7 +442,7 @@ It is also possible to view the video using the _Gstreamer Pipeline_. Simply ent
 
 ```sh
 gst-launch-1.0  -v udpsrc port=5600 caps='application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264' \
-! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink fps-update-interval=1000 sync=false rtph264depay ! avdec_h264 ! videoconvert ! autovideosink fps-update-interval=1000 sync=false
+! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink fps-update-interval=1000 sync=false rtph264depay ! avdec_h264 ! videoconvert ! autovideosink fps-update-interval=1000 sync=false rtph264depay ! avdec_h264 ! videoconvert ! autovideosink fps-update-interval=1000 sync=false
 ```
 
 ### Verbose Logging
