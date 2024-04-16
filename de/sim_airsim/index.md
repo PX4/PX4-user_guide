@@ -20,7 +20,8 @@ See [Toolchain Installation](../dev_setup/dev_env.md) for information about the 
 
 @[youtube](https://youtu.be/DiqgsWIOoW4) <!-- datestamp:video:youtube:20210401:AirSim with PX4 on WSL 2 -->
 
-This limitation does not apply for AirSim because its UI is run natively in Windows. :::note WSL 2 is not a supported [PX4 Windows development environment](../dev_setup/dev_env_windows_cygwin.md), mainly because it is non-trivial to display simulator UIs running within WSL 2 in the normal Windows environment.
+:::note WSL
+2 is not a supported [PX4 Windows development environment](../dev_setup/dev_env_windows_cygwin.md), mainly because it is non-trivial to display simulator UIs running within WSL 2 in the normal Windows environment. :::note WSL 2 is not a supported [PX4 Windows development environment](../dev_setup/dev_env_windows_cygwin.md), mainly because it is non-trivial to display simulator UIs running within WSL 2 in the normal Windows environment.
 :::
 
 #### Microsoft AirSim: Applications to Research and Industry (PX4 Developer Summit Virtual 2020)
