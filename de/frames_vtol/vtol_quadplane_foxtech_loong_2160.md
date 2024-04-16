@@ -44,12 +44,12 @@ The following options have been tested:
 - [GPS F9P (included in Skynode eval. kit)](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)
 - [GPS M9N (cheaper alternative to F9P)](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)
 - [Airspeed sensor (included in Skynode eval. kit)](https://www.dualrc.com/parts/airspeed-sensor-sdp33) — recommended for improved safety and performance
-- [Airspeed sensor (cheaper alternative)](https://holybro.com/products/digital-air-speed-sensor?pr_prod_strat=use_description\\&pr_rec_id=236dfda00\\&pr_rec_pid=7150470561981\\&pr_ref_pid=7150472462525\\&pr_seq=uniform)
+- [Airspeed sensor (cheaper alternative)](https://holybro.com/products/digital-air-speed-sensor?pr_prod_strat=use_description\\\&pr_rec_id=236dfda00\\\&pr_rec_pid=7150470561981\\\&pr_ref_pid=7150472462525\\\&pr_seq=uniform)
 - [Lidar Lightware lw20-c (included in Skynode eval. kit)](../sensor/sfxx_lidar.md) (Optional)
 - [Lidar Seeed Studio PSK-CM8JL65-CC5 (cheaper alternative)](https://www.seeedstudio.com/PSK-CM8JL65-CC5-Infrared-Distance-Measuring-Sensor-p-4028.html) (Optional)
 - [Radio (RC) System](../getting_started/rc_transmitter_receiver.md) of your preference
 - [Groundstation and Radio link](https://holybro.com/collections/rc-radio-transmitter-receiver/products/skydroid-h12?variant=42940989931709)
-- [USB-C extension cable](https://www.digitec.ch/en/s1/product/powerguard-usb-c-usb-c-025-m-usb-cables-22529949?dbq=1\\&gclid=Cj0KCQjw2cWgBhDYARIsALggUhrh-z-7DSU0wKfLBVa8filkXLQaxUpi7pC0ffQyRzLng8Ph01h2R1gaAp0mEALw_wcB\\&gclsrc=aw.ds)
+- [USB-C extension cable](https://www.digitec.ch/en/s1/product/powerguard-usb-c-usb-c-025-m-usb-cables-22529949?dbq=1\\\&gclid=Cj0KCQjw2cWgBhDYARIsALggUhrh-z-7DSU0wKfLBVa8filkXLQaxUpi7pC0ffQyRzLng8Ph01h2R1gaAp0mEALw_wcB\\\&gclsrc=aw.ds)
 - [I2C Splitter](https://www.3dxr.co.uk/autopilots-c2/the-cube-aka-pixhawk-2-1-c9/cube-cables-accessories-sensors-c15/cubepilot-i2c-can-splitter-jst-gh-4pin-p2840)
 - [3D-Printed mounts](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/foxtech_loong_2160/loong-3d-prints.zip)
   - 1x Baseplate
@@ -61,9 +61,9 @@ The following options have been tested:
   - 1x USB-C Holder 1
   - 1x USB-C Holder 2
 - [Messing threaded inserts](https://cnckitchen.store/products/gewindeeinsatz-threaded-insert-set-standard-200-stk-pcs)
-- [XT30 connectors](https://www.amazon.com/Connectors-Female-Pieces-Shrink-Battery/dp/B0875MBLNH/ref=sr_1_1?keywords=xt30+connector\\&qid=1700643604\\&sr=8-1)
-- [Div. Screws](https://de.aliexpress.com/item/1005005999729125.html?spm=a2g0o.productlist.main.1.7fe0c7fcvInMsM\\&algo_pvid=2e5373e9-747f-4a28-9739-cd59d05d64f1\\&aem_p4p_detail=202311220106396068090130108300006423842\\&algo_exp_id=2e5373e9-747f-4a28-9739-cd59d05d64f1-0\\&pdp_npi=4%40dis%21CHF%2114.42%213.72%21%21%2116.01%21%21%402101f04d17006439995917563eeeb0%2112000035246480339%21sea%21CH%210%21AB\\&curPageLogUid=24AixvgVOlG3\\&search_p4p_id=202311220106396068090130108300006423842_1)
-- [Zip ties](https://www.amazon.com/Superun-Cable-Tie-Kit-Assorted/dp/B07TMKJP5S/ref=sr_1_2?crid=968Z3XJK9N3J\\&keywords=zip%2Bties%2Bset\\&qid=1700644053\\&sprefix=zip%2Bties%2Bset%2Caps%2C155\\&sr=8-2\\&th=1)
+- [XT30 connectors](https://www.amazon.com/Connectors-Female-Pieces-Shrink-Battery/dp/B0875MBLNH/ref=sr_1_1?keywords=xt30+connector\\\&qid=1700643604\\\&sr=8-1)
+- [Div. Screws](https://de.aliexpress.com/item/1005005999729125.html?spm=a2g0o.productlist.main.1.7fe0c7fcvInMsM\\\&algo_pvid=2e5373e9-747f-4a28-9739-cd59d05d64f1\\\&aem_p4p_detail=202311220106396068090130108300006423842\\\&algo_exp_id=2e5373e9-747f-4a28-9739-cd59d05d64f1-0\\\&pdp_npi=4%40dis%21CHF%2114.42%213.72%21%21%2116.01%21%21%402101f04d17006439995917563eeeb0%2112000035246480339%21sea%21CH%210%21AB\\\&curPageLogUid=24AixvgVOlG3\\\&search_p4p_id=202311220106396068090130108300006423842_1)
+- [Zip ties](https://www.amazon.com/Superun-Cable-Tie-Kit-Assorted/dp/B07TMKJP5S/ref=sr_1_2?crid=968Z3XJK9N3J\\\&keywords=zip%2Bties%2Bset\\\&qid=1700644053\\\&sprefix=zip%2Bties%2Bset%2Caps%2C155\\\&sr=8-2\\\&th=1)
 - [Antenna extension cable - matching your radio system](https://www.digikey.ch/de/products/detail/amphenol-rf/095-902-536-012/13246174)
 - [Recommended Battery (12S 22Ah)](https://genstattu.com/tattu-22-2v-30c-6s-22000mah-lipo-battery-with-xt90-s-plug-for-uav.html)
 
@@ -73,7 +73,7 @@ The following tools were used for this build.
 
 - Hex driver set
 - Wrench set
-- [Soldering station](https://www.amazon.com/UY-CHAN-Programmable-Pocket-size-Soldering/dp/B07G71CKC4/ref=sr_1_7?crid=2S2XK6363XRDF\\&keywords=ts+80+soldering+iron\\&qid=1700644208\\&sprefix=ts+80%2Caps%2C151\\&sr=8-7)
+- [Soldering station](https://www.amazon.com/UY-CHAN-Programmable-Pocket-size-Soldering/dp/B07G71CKC4/ref=sr_1_7?crid=2S2XK6363XRDF\\\&keywords=ts+80+soldering+iron\\\&qid=1700644208\\\&sprefix=ts+80%2Caps%2C151\\\&sr=8-7)
 - Glue: Hot glue, 5 min Epoxy
 - Tape
 - 3M Double sided tape ([3M VHB tape](https://www.amazon.in/3M-VHB-Tape-4910-Length/dp/B00GTABM3Y))
