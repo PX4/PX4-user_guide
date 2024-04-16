@@ -26,6 +26,7 @@ Source: [drivers/transponder/sagetech_mxs](https://github.com/PX4/PX4-Autopilot/
 ```
 sagetech_mxs <command> [arguments...]
  sagetech_mxs <command> [arguments...]
+ sagetech_mxs <command> [arguments...]
  Commands:
    start         Start driver
      -d <val>    Serial device
