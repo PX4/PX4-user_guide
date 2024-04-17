@@ -1,7 +1,6 @@
 # Airframes Reference
 
-:::note
-**This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/px4airframes/markdownout.py) from the source code** using the build command: `make airframe_metadata`.
+::: info **This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py) from the source code** using the build command: `make airframe_metadata`.
 :::
 
 This page lists all supported airframes and types including the motor assignment and numbering. The motors in **green** rotate clockwise, the ones in **blue** counterclockwise.

@@ -3,8 +3,7 @@
 
 以下页面介绍了 PX4 模块， 驱动和命令。 They describe the provided functionality, high-level implementation overview and how to use the command-line interface.
 
-:::note
-**This is auto-generated from the source code** and contains the most recent modules documentation.
+::: info **This is auto-generated from the source code** and contains the most recent modules documentation.
 :::
 
 它不是一个完整的列表，NuttX提供了一些其他命令（例如`free`）。 在控制台使用 `help` 获取所有的可用命令，大部分情况下使用 `command help` 可以在控制台上打印出该命令的使用方法。

@@ -1,10 +1,9 @@
 # 参数参照表
 
-:::note
-此文档是从此 PX4 版本的源代码中自动生成的(使用 `make parameters_metata`)。
+::: info This documentation was auto-generated from the source code for this PX4 version (using `make parameters_metadata`).
 :::
 
-:::tip
+::: tip
 If a listed parameter is missing from the Firmware see: [Finding/Updating Parameters](../advanced_config/parameters.md#parameter-not-in-firmware).
 :::
 
