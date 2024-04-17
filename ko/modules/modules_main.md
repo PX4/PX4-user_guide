@@ -3,8 +3,7 @@
 
 다음 페이지들은 PX4 모듈, 드라이버 및 명령어에 대하여 설명합니다. They describe the provided functionality, high-level implementation overview and how to use the command-line interface.
 
-:::note
-**This is auto-generated from the source code** and contains the most recent modules documentation.
+::: info **This is auto-generated from the source code** and contains the most recent modules documentation.
 :::
 
 완전한 목록은 아니며, NuttX는 몇 가지 추가 명령(예: `free`)도 제공합니다. 콘솔에서 `help`을 사용하여 사용 가능한 모든 명령어 목록을 조회할 수 있습니다. 대부분의 경우 `command help` 명령어는 도움말과 사용법을 출력합니다.
