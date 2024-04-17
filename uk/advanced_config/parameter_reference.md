@@ -1,11 +1,10 @@
 # Довідник параметрів
 
-:::note
-Ця документація була автоматично створена за допомогою вихідного коду для цієї версії PX4 (використовуючи `зробити parameters_metadata`).
+::: info This documentation was auto-generated from the source code for this PX4 version (using `make parameters_metadata`).
 :::
 
-:::tip
-Якщо в прошивці відсутній параметр без списку: [Знайти/Оновлення параметрів](../advanced_config/parameters.md#parameter-not-in-firmware).
+::: tip
+If a listed parameter is missing from the Firmware see: [Finding/Updating Parameters](../advanced_config/parameters.md#parameter-not-in-firmware).
 :::
 
 <!-- markdown generator: src/lib/parameters/px4params/markdownout.py -->
