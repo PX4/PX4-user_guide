@@ -83,39 +83,39 @@ _Pixhawk 4_<sup>&reg;</sup> це просунутий автопілот, роз
 
 ![Pixhawk 4 Dimensions](../../assets/flight_controller/pixhawk4/pixhawk4_dimensions.jpg)
 
-## Voltage Ratings
+## Номінальна напруга
 
-_Pixhawk 4_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
+_Pixhawk 4_ може мати потрійну резервність у джерелі живлення, якщо подаються три джерела живлення. Три шини живлення: **POWER1**, **POWER2** та **USB**.
 
-::: info The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+::: info Вихідні потужності **FMU PWM OUT** та **I/O PWM OUT** (0V до 36V) не живлять плату політного контролера (і не живляться ним). Ви повинні подавати живлення на один з **POWER1**, **POWER2** або **USB**, інакше плата буде знеживлена.
 :::
 
-**Normal Operation Maximum Ratings**
+**Максимальна напруга нормальної роботи**
 
-Under these conditions all power sources will be used in this order to power the system:
+За таких умов всі джерела живлення будуть використовуватися в цьому порядку для живлення системи:
 
-1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
-1. **USB** input (4.75V to 5.25V)
+1. **POWER1** та **POWER2** входи (4.9V до 5.5V)
+1. Вхід **USB** (4.75V до 5.25V)
 
-**Absolute Maximum Ratings**
+**Абсолютна максимальна напруга**
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+За таких умов система не буде витрачати жодної потужності (не буде працювати), але залишиться неушкодженою.
 
-1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
-1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
+1. **POWER1** та **POWER2** входи (робочий діапазон 4.1V до 5.7V, 0V до 10V без пошкоджень)
+1. **USB** вхід (операційний діапазон 4.1V до 5.7V, 0V до 6V без пошкоджень)
+1. Вхід серводвигуна: контакт VDD_SERVO **FMU PWM OUT** та **I/O PWM OUT** (0V до 42V без пошкоджень)
 
-## Assembly/Setup
+## Збірка / налаштування
 
-The [Pixhawk 4 Wiring Quick Start](../assembly/quick_start_pixhawk4.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
+[Швидкий старт з підключення Pixhawk 4](../assembly/quick_start_pixhawk4.md) надає інструкції щодо збірки необхідних/важливих периферійних пристроїв, включаючи GPS, плату управління живленням тощо.
 
-## Building Firmware
+## Збірка прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно збирати цю прошивку! Вона попередньо зібрана й автоматично встановлюється _QGroundControl_ при підключенні відповідного апаратного забезпечення.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [ зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make px4_fmu-v5_default
@@ -123,30 +123,30 @@ make px4_fmu-v5_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## Відладочний порт
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port. In order to access these ports, the user must remove the _Pixhawk 4_ casing.
+[Системна консоль PX4](../debug/system_console.md) та [SWD interface](../debug/swd_debug.md) працюють на порту **FMU Debug**, тоді як отримати доступ до I/O console та SWD interface можна через порт **I/O Debug**. Для доступу до цих портів користувач має зняти корпус _Pixhawk 4_.
 
 ![Pixhawk 4 Debug Ports](../../assets/flight_controller/pixhawk4/pixhawk4_debug_port.jpg)
 
-The pinout uses the standard [Pixhawk debug connector pinout](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf). For wiring information see:
+Розводка використовує стандартний [Pixhawk debug connector pinout](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf). Для отримання інформації про з'єднання дивіться:
 
-- [System Console > Pixhawk Debug Port](../debug/system_console.md#pixhawk_debug_port)
+- [Системна консоль > Порт відладки Pixhawk](../debug/system_console.md#pixhawk_debug_port)
 
-## Peripherals
+## Периферія
 
-- [Digital Airspeed Sensor](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
-- [Telemetry Radio Modules](../telemetry/index.md)
-- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [Цифровий датчик швидкості польоту](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
+- [Радіо модулі телеметрії](../telemetry/index.md)
+- [Далекоміри / Датчики відстані](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## Підтримувані платформи / шасі
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Будь-який мультикоптер / літак / наземна платформа чи човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus. Повний перелік підтримуваних конфігурацій можна переглянути в розділі [Довідник планерів](../airframes/airframe_reference.md).
 
-## Further info
+## Подальша інформація
 
-- [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
-- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
-- [Pixhawk 4 Wiring QuickStart](../assembly/quick_start_pixhawk4.md)
-- [Pixhawk 4 Pinouts](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-Pinouts.pdf) (Holybro)
+- [Технічна інформація по Pixhawk 4](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
+- [Довідник по дизайну розводки FMUv5](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
+- [Швидке підключення Pixhawk 4](../assembly/quick_start_pixhawk4.md)
+- [Розводка Pixhawk 4](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-Pinouts.pdf) (Holybro)
 - [Pixhawk 4 Quick Start Guide](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-quickstartguide.pdf) (Holybro)
