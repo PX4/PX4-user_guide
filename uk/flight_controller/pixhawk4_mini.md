@@ -1,9 +1,9 @@
-# Holybro Pixhawk 4 Mini (Discontinued)
+# Holybro Pixhawk 4 Mini (Знято з виробництва)
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення або відповідності вимогам.
 :::
 
-The _Pixhawk<sup>&reg;</sup> 4 Mini_ autopilot is designed for engineers and hobbyists who are looking to tap into the power of _Pixhawk 4_ but are working with smaller drones. _Pixhawk 4 Mini_ takes the FMU processor and memory resources from the _Pixhawk 4_ while eliminating interfaces that are normally unused. This allows the _Pixhawk 4 Mini_ to be small enough to fit in a 250mm racer drone.
+Автопілот _Pixhawk<sup>&reg;</sup> 4 Mini_ розроблений для інженерів та любителів, які прагнуть використовувати потужність _Pixhawk 4_, але працюють з меншими дронами. _Pixhawk 4 Mini_ використовує FMU процесор та ресурси пам'яті _Pixhawk 4_, але виключає інтерфейси, які зазвичай не використовуються. This allows the _Pixhawk 4 Mini_ to be small enough to fit in a 250mm racer drone.
 
 _Pixhawk 4 Mini_ was designed and developed in collaboration with Holybro<sup>&reg;</sup> and Auterion<sup>&reg;</sup>. It is based on the [Pixhawk](https://pixhawk.org/) **FMUv5** design standard and is optimized to run PX4 flight control software.
 
