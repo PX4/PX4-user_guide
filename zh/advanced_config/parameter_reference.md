@@ -10935,6 +10935,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="EKF2_DELAY_MAX">EKF2_DELAY_MAX</strong> (FLOAT)</td>
+ <td>Maximum delay of all the aiding sensors <p><strong>Comment:</strong> Defines the delay between the current time and the delayed-time horizon. This value should be at least as large as the largest EKF2_XXX_DELAY parameter.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0, 1000] </td>
+ <td>200</td>
+ <td>ms</td>
+</tr>
+<tr>
  <td><strong id="EKF2_DRAG_CTRL">EKF2_DRAG_CTRL</strong> (INT32)</td>
  <td>Multirotor wind estimation selection <p><strong>Comment:</strong> Activate wind speed estimation using specific-force measurements and a drag model defined by EKF2_BCOEF_[XY] and EKF2_MCOEF. Only use on vehicles that have their thrust aligned with the Z axis and no thrust in the XY plane.</p>   </td>
  <td></td>
@@ -15824,7 +15832,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_0_CONFIG">MAV_0_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MAVLink (instance 0) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>参数对照:</strong><ul>
+ <td>Serial Configuration for MAVLink (instance 0) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -15929,7 +15937,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_1_CONFIG">MAV_1_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MAVLink (instance 1) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>参数对照:</strong><ul>
+ <td>Serial Configuration for MAVLink (instance 1) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -16034,7 +16042,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_2_CONFIG">MAV_2_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MAVLink (instance 2) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>参数对照:</strong><ul>
+ <td>Serial Configuration for MAVLink (instance 2) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
