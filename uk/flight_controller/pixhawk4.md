@@ -7,7 +7,7 @@ _Pixhawk 4_<sup>&reg;</sup> це просунутий автопілот, роз
 
 Він базується на відкритому апаратному дизайні [Pixhawk-project](https://pixhawk.org/) **FMUv5** та виконує PX4 на операційній системі [NuttX](https://nuttx.apache.org/).
 
-<img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 Upright Image" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" />
+<img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 Upright Image" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Зображення Pixhawk4" />
 
 :::tip
 Цей автопілот [підтримується](../flight_controller/autopilot_pixhawk_standard.md) командами підтримки та тестування PX4.
@@ -54,7 +54,7 @@ _Pixhawk 4_<sup>&reg;</sup> це просунутий автопілот, роз
 
 ## З’єднання
 
-![Pixhawk 4 connectors](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
+![Конектори Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
 
 :::warning
 Порти **DSM/SBUS RC** та **PPM RC** призначені лише для RC приймачів. Вони працюють на електроживленні! НІКОЛИ не підключайте до нього жодних сервоприводів, джерел живлення або батарей (або до будь-якого підключеного приймача).
@@ -81,7 +81,7 @@ _Pixhawk 4_<sup>&reg;</sup> це просунутий автопілот, роз
 
 ## Розміри
 
-![Pixhawk 4 Dimensions](../../assets/flight_controller/pixhawk4/pixhawk4_dimensions.jpg)
+![Розміри Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_dimensions.jpg)
 
 ## Номінальна напруга
 
@@ -127,7 +127,7 @@ make px4_fmu-v5_default
 
 [Системна консоль PX4](../debug/system_console.md) та [SWD interface](../debug/swd_debug.md) працюють на порту **FMU Debug**, тоді як отримати доступ до I/O console та SWD interface можна через порт **I/O Debug**. Для доступу до цих портів користувач має зняти корпус _Pixhawk 4_.
 
-![Pixhawk 4 Debug Ports](../../assets/flight_controller/pixhawk4/pixhawk4_debug_port.jpg)
+![Порти відладки Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_debug_port.jpg)
 
 Розводка використовує стандартний [Pixhawk debug connector pinout](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf). Для отримання інформації про з'єднання дивіться:
 
@@ -149,4 +149,4 @@ make px4_fmu-v5_default
 - [Довідник по дизайну розводки FMUv5](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
 - [Швидке підключення Pixhawk 4](../assembly/quick_start_pixhawk4.md)
 - [Розводка Pixhawk 4](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-Pinouts.pdf) (Holybro)
-- [Pixhawk 4 Quick Start Guide](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-quickstartguide.pdf) (Holybro)
+- [Посібник по швидкому старту з Pixhawk 4](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-quickstartguide.pdf) (Holybro)
