@@ -27078,10 +27078,30 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="VOXL_ESC_T_OVER">VOXL_ESC_T_OVER</strong> (INT32)</td>
+ <td>UART ESC Over-Temperature Threshold (Degrees C) <p><strong>Comment:</strong> Only applicable to ESCs that report temperature</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Disabled</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 200] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="VOXL_ESC_T_PERC">VOXL_ESC_T_PERC</strong> (INT32)</td>
  <td>UART ESC Turtle Mode Crash Flip Motor Percent    </td>
  <td>[1, 100] (1)</td>
  <td>90</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VOXL_ESC_T_WARN">VOXL_ESC_T_WARN</strong> (INT32)</td>
+ <td>UART ESC Temperature Warning Threshold (Degrees C) <p><strong>Comment:</strong> Only applicable to ESCs that report temperature</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Disabled</li>
+</ul>  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 200] </td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
