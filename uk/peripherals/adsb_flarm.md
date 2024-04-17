@@ -109,18 +109,15 @@ PX4 прослуховує повідомлення MAVLink `UTM_GLOBAL_POSITION
 
 1. Розкоментуйте код у `AdsbConflict::run_fake_traffic()`([AdsbConflict.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/adsb/AdsbConflict.cpp#L342C1-L342C1)).
 1. Перебудувати та запустити PX4.
-1. Виконайте команду
-`navigator fake_traffic` у [QGroundControl MAVLink Shell](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (або в іншій [консолі PX4 або MAVLink](../debug/consoles.md), такій як термінал симулятора PX4).</li> </ol> 
-   
-   Код у функції `run_fake_traffic()` потім виконується. Ви повинні бачити попередження ADS-B в консолі/оболонці MAVLink, і QGC також повинен показувати спливаюче вікно з даними про рух літаків ADS-B.
-   
-   За замовчуванням `run_fake_traffic()` публікує ряд повідомлень про трафік (він викликає [`AdsbConflict::fake_traffic()`](#fake-traffic-method) для видачі кожного звіту). Ці симулюють трафік ADS-B там, де може виникнути конфлікт, де конфлікту не буде, а також спамять буфер трафіку.
-   
-   :: деталі інформації про тестові методи
-   
-   Відповідні методи визначені в [AdsbConflict.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/adsb/AdsbConflict.cpp#L342C1-L342C1).
-   
-   
+1. Execute the [`navigator fake_traffic` command](../modules/modules_controller.md#navigator) in the [QGroundControl MAVLink Shell](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (or some other [PX4 Console or MAVLink shell](../debug/consoles.md), such as the PX4 simulator terminal).
+
+Код у функції `run_fake_traffic()` потім виконується. Ви повинні бачити попередження ADS-B в консолі/оболонці MAVLink, і QGC також повинен показувати спливаюче вікно з даними про рух літаків ADS-B.
+
+За замовчуванням `run_fake_traffic()` публікує ряд повідомлень про трафік (він викликає [`AdsbConflict::fake_traffic()`](#fake-traffic-method) для видачі кожного звіту). Ці симулюють трафік ADS-B там, де може виникнути конфлікт, де конфлікту не буде, а також спамять буфер трафіку.
+
+::: деталі інформації про тестові методи
+
+Відповідні методи визначені в [AdsbConflict.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/adsb/AdsbConflict.cpp#L342C1-L342C1).
 
 #### Метод `run_fake_traffic()`
 
@@ -129,8 +126,6 @@ PX4 прослуховує повідомлення MAVLink `UTM_GLOBAL_POSITION
 Метод викликає метод `fake_traffic()` для генерації симульованих повідомлень транспондера навколо поточного положення транспортного засобу. Воно проходить в поточному положенні транспортного засобу, інформація про симульований трафік, такий як виклик, відстані, напрямки, різниці в висоті, швидкості та типи емітерів.
 
 (Закоментований) код у функції `run_fake_traffic()` симулює різні сценарії, включаючи конфлікти та відсутність конфліктів, а також спамінг буфера трафіку.
-
-
 
 #### Метод `fake_traffic()`
 
@@ -157,7 +152,6 @@ PX4 прослуховує повідомлення MAVLink `UTM_GLOBAL_POSITION
 - Обчислює нову висоту, додавши різницю висоти до висоти БПЛА.
 - Заповнює тему [TransponderReport](../msg_docs/TransponderReport.md) симульованими даними про трафік.
 - Якщо дошка підтримує унікальний універсальний ідентифікатор (UUID), метод отримує UUID за допомогою `board_get_px4_guid` та копіює його до поля `uas_id` структури. В іншому випадку воно генерує симульований GUID.
-
 - Публікує симульоване повідомлення про трафік за допомогою `orb_publish`.
 
 :::
