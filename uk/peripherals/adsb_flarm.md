@@ -109,7 +109,7 @@ PX4 прослуховує повідомлення MAVLink `UTM_GLOBAL_POSITION
 
 1. Розкоментуйте код у `AdsbConflict::run_fake_traffic()`([AdsbConflict.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/adsb/AdsbConflict.cpp#L342C1-L342C1)).
 1. Перебудувати та запустити PX4.
-1. Execute the [`navigator fake_traffic` command](../modules/modules_controller.md#navigator) in the [QGroundControl MAVLink Shell](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (or some other [PX4 Console or MAVLink shell](../debug/consoles.md), such as the PX4 simulator terminal).
+1. Виконайте команду [`navigator fake_traffic`](../modules/modules_controller.md#navigator) у [QGroundControl MAVLink Shell](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) (або в іншій [консолі PX4 або MAVLink](../debug/consoles.md), наприклад, у терміналі симулятора PX4).
 
 Код у функції `run_fake_traffic()` потім виконується. Ви повинні бачити попередження ADS-B в консолі/оболонці MAVLink, і QGC також повинен показувати спливаюче вікно з даними про рух літаків ADS-B.
 
