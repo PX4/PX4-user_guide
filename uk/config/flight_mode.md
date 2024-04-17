@@ -1,6 +1,6 @@
-# Flight Mode Configuration
+# Налаштування режиму польоту
 
-This topic explains how to map [flight modes](../getting_started/px4_basic_concepts.md#flight-modes) and other functions to the switches on your radio control transmitter.
+Ця тема пояснює, як зробити карту [режимів польоту](../getting_started/px4_basic_concepts.md#flight-modes) та інших функцій на вашому радіопульті передачі.
 
 :::tip
 In order to set up flight modes you must already have:
@@ -23,29 +23,29 @@ It is also common to map switches to:
 - **Mission mode** — This mode runs a pre-programmed mission sent by the ground control station.
 - <a id="kill_switch"></a> [Kill Switch](../config/safety.md#kill-switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
 
-## Flight Mode Selection
+## Вибір режиму польоту
 
-PX4 allows you to specify a "mode" channel and select up to 6 flight modes that will be activated based on the PWM value of the channel. You can also separately specify channels for mapping a kill switch, return to launch mode, and offboard mode.
+PX4 дозволяє вам вказати канал "режиму" та вибрати до 6 режимів польоту, які будуть активовані на основі значення ШШІ каналу. Ви також можете окремо вказати канали для відображення режиму аварійного вимкнення, режиму повернення до старту та режиму польоту за межами.
 
-To configure single-channel flight mode selection:
+Для налаштування вибору режиму польоту з одним каналом:
 
-1. Start *QGroundControl* and connect the vehicle.
-1. Turn on your RC transmitter.
-1. Select **"Q" icon > Vehicle Setup > Flight Modes** (sidebar) to open _Flight Modes Setup_.
+1. Запустіть *QGroundControl* та підключіть транспортний засіб.
+1. Увімкніть ваш передавач RC.
+1. Виберіть **іконку "Q" >   Налаштування транспортного засобу >   Режими польоту** (бічна панель), щоб відкрити _Налаштування режимів польоту_.
 
    ![Flight modes single-channel](../../assets/qgc/setup/flight_modes/flight_modes_single_channel.jpg)
 
-1. Specify *Flight Mode Settings*:
-   * Select the **Mode channel** (above this shown as Channel 5, but this will depend on your transmitter configuration).
-   * Move the transmitter switch (or switches) that you have set up for mode selection through the available positions. The mode slot matching your current switch position will be highlighted (above this is *Flight Mode 1*). ::: info
-While you can set flight modes in any of the 6 slots, only the channels that are mapped to switch positions will be highlighted/used.
+1. Вкажіть Налаштування *Режиму польоту*:
+   * Виберіть канал режиму (**Режим каналу**) (вище показано як Канал 5, але це залежить від конфігурації вашого передавача).
+   * Перемістіть перемикач передавача (або перемикачі), які ви налаштували для вибору режиму, через доступні позиції. Режим слоту, який відповідає поточному положенню перемикача, буде підсвічений (вище цього - *Режим польоту 1*). :::info
+Поки ви можете встановити режими польоту в будь-якому з 6 слотів, тільки канали, які відображені на позиціях перемикачів, будуть підсвічені/використовуватися.
 :::
-   * Select the flight mode that you want triggered for each switch position.
-1. Specify *Switch Settings*:
-   * Select the channels that you want to map to specific actions - e.g.: *Return* mode, *Kill switch*, *offboard* mode, etc. (if you have spare switches and channels on your transmitter).
+   * Виберіть режим польоту, який ви хочете активувати для кожного положення перемикача.
+1. Вкажіть *налаштування перемикача*:
+   * Виберіть канали, які ви хочете відобразити на конкретні дії - наприклад: *Режим повернення*, *Вимикач вимкнення*, *Оффбордний* режим і т.д. (якщо у вас є запасні перемикачі та канали на вашому передавачі).
 
-1. Test that the modes are mapped to the right transmitter switches:
-   * Check the *Channel Monitor* to confirm that the expected channel is changed by each switch.
+1. Перевірте, що режими відображаються на правильні перемикачі передавача:
+   * Перевірте *Монітор каналу*, щоб підтвердити, що очікуваний канал змінюється кожним перемикачем.
    * Select each mode switch on your transmitter in turn, and check that the desired flight mode is activated (the text turns yellow on *QGroundControl* for the active mode).
 
 All values are automatically saved as they are changed.
@@ -78,16 +78,16 @@ The *QGroundControl* configuration is then as described in the previous section.
 
 ### Taranis Setup: Multi-Switch Configuration for Single-Channel Mode
 
-Most transmitters do not have 6-way switches, so if you need to be able to support more modes than the number of switch positions available (up to 6) then you will have to represent them using multiple switches. Commonly this is done by encoding the positions of a 2- and a 3-position switch into a single channel, so that each switch position results in a different PWM value.
+Більшість передавачів не мають перемикачів на 6 позицій, тому якщо вам потрібно мати можливість підтримувати більше режимів, ніж кількість доступних позицій перемикачів (до 6), то вам доведеться представляти їх за допомогою кількох перемикачів. Зазвичай це робиться шляхом кодування позицій перемикача 2- та 3-позицій в один канал, так що кожна позиція перемикача призводить до різного значення ШІМ.
 
-On the FrSky Taranis this process involves assigning a "logical switch" to each combination of positions of the two real switches. Each logical switch is then assigned to a different PWM value on the same channel.
+На FrSky Taranis цей процес включає в себе призначення "логічного перемикача" для кожної комбінації положень двох реальних перемикачів. Кожний логічний перемикач потім призначається для різних значень ШІМ на тому ж каналі.
 
-The video below shows how this is done with the *FrSky Taranis* transmitter.<!-- \[youtube\](https://youtu.be/scqO7vbH2jo) Video has gone private and is no longer available --><!-- @\[youtube\](https://youtu.be/BNzeVGD8IZI?t=427) - video showing how to set the QGC side - at about 7mins and 3 secs -->@[youtube](https://youtu.be/TFEjEQZqdVA)
+Відео нижче показує, як це робиться з передавачем *FrSky Taranis*.<!-- \[youtube\](https://youtu.be/scqO7vbH2jo) Video has gone private and is no longer available --><!-- @\[youtube\](https://youtu.be/BNzeVGD8IZI?t=427) - video showing how to set the QGC side - at about 7mins and 3 secs -->@[youtube](https://youtu.be/TFEjEQZqdVA)
 
-The *QGroundControl* configuration is then [as described above](#flight-mode-selection).
+Конфігурація *QGroundControl* потім виконується [як описано вище](#flight-mode-selection).
 
 
-## Further Information
+## Детальна інформація
 
 * [Flight Modes Overview](../flight_modes/index.md)
 * [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/flight_modes.html#px4-pro-flight-mode-setup)
