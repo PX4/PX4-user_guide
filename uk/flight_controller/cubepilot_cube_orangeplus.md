@@ -229,15 +229,15 @@ To [build PX4](../dev_setup/building_px4.md) for this target, open up the termin
 make cubepilot_cubeorangeplus
 ```
 
-::: info
-The firmware for Cube Orange+ and Cube Orange are not compatible. Due to a power feature of the STM32H757 it required [updates in NuttX](https://github.com/PX4/NuttX/pull/214) and therefore a new board config, bootloader, build target, etc.
+:::info
+Прошивка для Cube Orange+ і Cube Orange не сумісні. У зв'язку з функцією живлення STM32H757 потрібні [оновлення в NuttX](https://github.com/PX4/NuttX/pull/214) та, отже, нова конфігурація плати, завантажувач, ціль збірки тощо.
 :::
 
-## Schematics
+## Схеми
 
-Board schematics and other documentation can be found here: [The Cube Project](https://github.com/proficnc/The-Cube).
+Схеми плат та іншу документацію можна знайти тут: [Проект Cube](https://github.com/proficnc/The-Cube).
 
-## Further Information/Documentation
+## Додаткова інформація/документація
 
 - [Cube Wiring Quickstart](../assembly/quick_start_cube.md)
 - Cube Docs (Manufacturer):
