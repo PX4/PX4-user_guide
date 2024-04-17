@@ -333,7 +333,7 @@ You can use the **Identify & Assign Motors** button to assign motors to PWM outp
 :::
 
 :::warning
-Remove the propellers from motors before assigning outputs or any testing.
+Remove propellers!
 :::
 
 ![Identify motor button](../../assets/config/actuators/identify_motors_button.png)

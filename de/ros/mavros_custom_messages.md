@@ -78,6 +78,8 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    ...
      add_library( 
    ...
+     add_library( 
+   ...
      src/plugins/keyboard_command.cpp 
    )
    ```
@@ -120,8 +122,10 @@ Make sure that the **common.xml** files in the following directories are exactly
 
    ```cmake
    ...
-        #include <uORB/topics/key_command.h>
+        set(
    ...
+        key_command.msg
+        )
    class MavlinkReceiver
    {
    ...
@@ -143,15 +147,31 @@ Make sure that the **common.xml** files in the following directories are exactly
    class MavlinkReceiver
    {
    ...
+   #include <uORB/topics/key_command.h>
+   ...
+   class MavlinkReceiver
+   {
+   ...
    private:
        void handle_message_key_command(mavlink_message_t *msg);
    ...
+       orb_advert_t _key_command_pub{nullptr};
+   }
        orb_advert_t _key_command_pub{nullptr};
    }
    ```
 
 1. Edit **mavlink_receiver.cpp** (in **PX4-Autopilot/src/modules/mavlink**). This is where PX4 receives the MAVLink message sent from ROS, and publishes it as a uORB topic.
    ```cpp
+   ...
+   void MavlinkReceiver::handle_message(mavlink_message_t *msg)
+   {
+   ...
+    case MAVLINK_MSG_ID_KEY_COMMAND:
+           handle_message_key_command(msg);
+           break;
+   ...
+   }
    ...
    void MavlinkReceiver::handle_message(mavlink_message_t *msg)
    {

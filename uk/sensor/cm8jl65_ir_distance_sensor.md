@@ -1,27 +1,27 @@
-# Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor
+# Lanbao PSK-CM8JL65-CC5 ІЧ-датчик вимірювання відстані ToF
 
-The [Lanbao PSK-CM8JL65-CC5](https://www.seeedstudio.com/PSK-CM8JL65-CC5-Infrared-Distance-Measuring-Sensor-p-4028.html) is a very small IR distance sensor with a 0.17m-8m range and millimeter resolution. It must be connected to a UART/serial bus.
+Датчик відстані ІЧ [Lanbao PSK-CM8JL65-CC5](https://www.seeedstudio.com/PSK-CM8JL65-CC5-Infrared-Distance-Measuring-Sensor-p-4028.html) є дуже малий з діапазоном від 0,17 м до 8 м і роздільною здатністю у міліметрах. Це повинно бути підключено до шини UART/серійного порту.
 
-- Dimensions: 38 mm x 18mm x 7mm
-- Weight: ≤10g
+- Розміри: 38 мм х 18 мм х 7 мм
+- Вага: ≤10g
 
-![PSK-CM8JL65-CC5 ToF IR Distance Sensor - Hero image](../../assets/hardware/sensors/cm8jl65/psk_cm8jl65_hero.jpg)
+![Датчик відстані PSK-CM8JL65-CC5 ToF IR - Hero image](../../assets/hardware/sensors/cm8jl65/psk_cm8jl65_hero.jpg)
 
-## Hardware Setup
+## Налаштування обладнання
 
-PSK-CM8JL65-CC5 can be connected to any unused _serial port_, e.g.: TELEM2, TELEM3, GPS2 etc.
+PSK-CM8JL65-CC5 може бути підключений до будь-якого не використаного _серійного порту_, наприклад: TELEM2, TELEM3, GPS2 тощо.
 
-The pinouts are labeled on the bottom of the sensor:
+Виводи позначені знизу сенсора:
 
 ![PSK-CM8JL65-CC5 ToF IR Distance Sensor - Pinout connections](../../assets/hardware/sensors/cm8jl65/psk-cm8jl65-cc5-02.jpg)
 
-## Parameter Setup
+## Налаштування параметрів
 
-[Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_CM8JL65_CFG](../advanced_config/parameter_reference.md#SENS_CM8JL65_CFG).
+[Налаштуйте послідовний порт](../peripherals/serial_configuration.md), на якому буде працювати лідар, використовуючи [SENS_CM8JL65_CFG](../advanced_config/parameter_reference.md#SENS_CM8JL65_CFG).
 
-::: info
+:::info
 
-If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+Якщо параметр конфігурації недоступний у _QGroundControl_, можливо, вам знадобиться [додати драйвер до мікропрограми](../peripherals/serial_configuration.md#parameter_not_in_firmware):
 
 ```plain
 distance_sensor/cm8jl65
@@ -29,4 +29,4 @@ distance_sensor/cm8jl65
 
 :::
 
-In order to use the sensor for _collision prevention_ you will further need to set the parameters [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0) and [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST). For more information see: [Collision Prevention](../computer_vision/collision_prevention.md#rangefinder).
+Для використання датчика для _попередження про зіткнення_ вам також потрібно встановити параметри [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0) та [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST). Для отримання додаткової інформації дивіться: [Запобігання зіткненням](../computer_vision/collision_prevention.md#rangefinder).

@@ -1,11 +1,12 @@
 # VehicleAttitude (UORB message)
 
-This is similar to the mavlink message ATTITUDE_QUATERNION, but for onboard use
+This is similar to the mavlink message ATTITUDE_QUATERNION, but for onboard use The quaternion uses the Hamilton convention, and the order is q(w, x, y, z)
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitude.msg)
 
 ```c
 # This is similar to the mavlink message ATTITUDE_QUATERNION, but for onboard use
+# The quaternion uses the Hamilton convention, and the order is q(w, x, y, z)
 
 uint64 timestamp                # time since system start (microseconds)
 

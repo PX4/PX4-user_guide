@@ -122,7 +122,7 @@ After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.
 
 ## QGC Bootloader Update
 
-The easiest approach is to first use _QGroundControl_ to install firmware that contains the desired/latest bootloader. You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+This time _QGroundControl_ should autodetect the hardware as FMUv3 and update the Firmware appropriately. Then [Update the Firmware](../config/firmware.md) again.
 
 This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware.
 
@@ -165,7 +165,7 @@ To update the bootloader:
 
 1. [Find and enable](../advanced_config/parameters.md) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 1. Reboot (disconnect/reconnect the board). The bootloader update will only take a few seconds.
-1. Then [Update the Firmware](../config/firmware.md) again. This time _QGroundControl_ should autodetect the hardware as FMUv3 and update the Firmware appropriately.
+1. [Update the Firmware](../config/firmware.md) to PX4 _master_ version (when updating the firmware, check **Advanced settings** and then select **Developer Build (master)** from the dropdown list). _QGroundControl_ will automatically detect that the hardware supports FMUv2 and install the appropriate Firmware.
 
    ![FMUv3 update](../../assets/qgc/setup/firmware/bootloader_fmu_v3_update.jpg)
 

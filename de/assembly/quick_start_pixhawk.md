@@ -1,13 +1,17 @@
 # Pixhawk Wiring Quick Start
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning
+The power module supplies the flight controller itself, but cannot power servos and other hardware connected to the controller's output ports (rail).
+For copter this does not matter because the motors are separately powered.
 :::
 
 This quick start guide shows how to power the _3DR Pixhawk_ flight controller and connect its most important peripherals.
 
 ![Pixhawk Image](../../assets/flight_controller/pixhawk1/pixhawk_logo_view.jpg)
 
-::: info The [3DR Pixhawk](../flight_controller/pixhawk.md) is no longer available from 3DR. Other flight controllers based on the [Pixhawk FMUv2 architecture](../flight_controller/pixhawk_series.md) are available from other companies (these share the same connections, outputs, functions, etc. and are wired in a similar way).
+::: info
+The diagram shows a combined GPS and Compass.
+The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
 :::
 
 ## Wiring Chart Overview
@@ -16,7 +20,8 @@ The image below shows standard Pixhawk connections (excepting the motor and serv
 
 ![Pixhawk Wiring Overview](../../assets/flight_controller/pixhawk1/pixhawk_wiring_overview.jpg)
 
-::: info More detailed wiring information is [shown below](#detailed-wiring-infographic-copter).
+:::tip
+If your frame is not listed in the reference then use a "generic" airframe of the correct type.
 :::
 
 ## Mount and Orient Controller
@@ -25,7 +30,7 @@ The _Pixhawk_ should be mounted on the frame using vibration-damping foam pads (
 
 ![Pixhawk mounting and orientation](../../assets/flight_controller/pixhawk1/pixhawk_3dr_mounting_and_foam.jpg)
 
-::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+::: info The [3DR Pixhawk](../flight_controller/pixhawk.md) is no longer available from 3DR. Other flight controllers based on the [Pixhawk FMUv2 architecture](../flight_controller/pixhawk_series.md) are available from other companies (these share the same connections, outputs, functions, etc. and are wired in a similar way).
 :::
 
 ## Buzzer and Safety Switch
@@ -54,7 +59,7 @@ The power module supplies the flight controller with power from the battery and 
 ![Pixhawk - Power Module](../../assets/flight_controller/pixhawk1/pixhawk_3dr_power_module.jpg)
 
 :::warning
-The power module supplies the flight controller itself, but cannot power servos and other hardware connected to the controller's output ports (rail). For copter this does not matter because the motors are separately powered.
+The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
 :::
 
 For planes and VTOL the output rail will need to be separately powered in order to drive servos for rudders, elevons etc. For planes and VTOL the output rail will need to be separately powered in order to drive servos for rudders, elevons etc. Often the main pusher/puller motor uses an ESC with an integrated [BEC](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) that can be connected to the Pixhawk output rail. For planes and VTOL the output rail will need to be separately powered in order to drive servos for rudders, elevons etc. Often the main pusher/puller motor uses an ESC with an integrated [BEC](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) that can be connected to the Pixhawk output rail. If not, you will need to setup a 5V BEC to connect to one of the free Pixhawk ports (without power, the servos will not work).
@@ -98,6 +103,7 @@ Make sure to use the correct mapping for your vehicle.
 If your frame is not listed in the reference then use a "generic" airframe of the correct type.
 :::
 
+::: info
 ::: info The output rail must be separately powered, as discussed in the [Power](#power) section above.
 :::
 

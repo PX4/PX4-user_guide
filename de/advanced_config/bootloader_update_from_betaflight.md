@@ -40,7 +40,7 @@ DFU cannot be overwritten by flashing and will always allow you to install a new
 
 ### DFU mode
 
-Both tools require the board to be in DFU mode. To enter DFU mode, hold the boot button down while connecting the USB cable to your computer. The button can be released after the board has powered up.
+To enter DFU mode, hold the boot button down while connecting the USB cable to your computer. Both tools require the board to be in DFU mode. The button can be released after the board has powered up.
 
 ### dfu-util
 
@@ -74,6 +74,9 @@ The tools above flash pre-built bootloader firmware. Bootloader firmware can be 
 Flight controllers that have bootloader PX4-Autopilot `make` targets, can build the bootloader from the PX4-Autopilot source. The list of controllers for which this applies can be obtained by running the following `make` command, and noting the `make` targets that end in `_bootloader`
 
 ```
+$make list_config_targets
+
+...
 $make list_config_targets
 
 ...

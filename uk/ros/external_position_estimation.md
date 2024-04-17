@@ -10,8 +10,8 @@
 
 У цій темі пояснюється, як налаштувати систему на базі PX4 для отримання даних від систем MoCap/VIO (або через ROS, або через іншу систему MAVLink) і, зокрема, як налаштувати системи MoCap, такі як VICON і Optitrack, і системи оцінки на основі комп'ютерного зору, такі як [ROVIO](https://github.com/ethz-asl/rovio), [SVO](https://github.com/uzh-rpg/rpg_svo) та [PTAM](https://github.com/ethz-asl/ethzasl_ptam)).
 
-::: info
-The instructions differ depending on whether you are using the EKF2 or LPE estimator.
+:::info
+Інструкції відрізняються залежно від того, чи використовуєте ви оцінювач EKF2 або LPE.
 :::
 
 ## Інтеграція PX4 з MAVLink
@@ -93,7 +93,7 @@ z_{mav} = - y_{mocap}
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
-::: info A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools. На момент написання статті (липень 2021 року) ні [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), ні [MAVGCL](../log/flight_log_analysis.md#mavgcl) не підтримують цю функцію.
+::: info Графік зовнішніх даних проти вбудованої оцінки (як вище) може бути створений за допомогою [FlightPlot](../log/flight_log_analysis.md#flightplot) або подібних засобів аналізу польоту. На момент написання статті (липень 2021 року) ні [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), ні [MAVGCL](../log/flight_log_analysis.md#mavgcl) не підтримують цю функцію.
 :::
 
 Значення можна додатково налаштувати, змінюючи параметр, щоб знайти значення, яке дає найнижчі інновації EKF під час динамічних маневрів.
@@ -103,7 +103,7 @@ z_{mav} = - y_{mocap}
 Спочатку потрібно [переключитися на оцінювач LPE](../advanced/switching_state_estimators.md), задавши параметр [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP).
 
 
-::: info If targeting `px4_fmu-v2` hardware you will also need to use a firmware version that includes the LPE module (firmware for other FMU-series hardware includes both LPE and EKF). Версію LPE можна знайти у zip-файлі для кожного випуску PX4 або зібрати з вихідного коду за допомогою команди збірки `make px4_fmu-v2_lpe`. Дивіться [Створення коду](../dev_setup/building_px4.md) для більш детальної інформації.
+:::info Якщо ви використовуєте обладнання `px4_fmu-v2`, вам також потрібно використовувати версію прошивки, яка містить модуль LPE (прошивка для іншого обладнання серії FMU містить як LPE, так і EKF). Версію LPE можна знайти у zip-файлі для кожного випуску PX4 або зібрати з вихідного коду за допомогою команди збірки `make px4_fmu-v2_lpe`. Дивіться [Створення коду](../dev_setup/building_px4.md) для більш детальної інформації.
 :::
 
 ### Увімкнення зовнішнього введення позиції
@@ -132,7 +132,7 @@ z_{mav} = - y_{mocap}
 
 ## Увімкнення автоматичних режимів з локальним розташуванням
 
-All PX4 automatic flight modes (such as [Mission](../flight_modes_mc/mission.md), [Return](../flight_modes_mc/return.md), [Land](../flight_modes_mc/land.md), [Hold](../flight_modes_mc/land.md), [Orbit](../flight_modes_mc/orbit.md))) require a _global_ position estimate, which would normally come from a GPS/GNSS system.
+Всі автоматичні режими польоту PX4 (такі як [Mission](../flight_modes_mc/mission.md), [Return](../flight_modes_mc/return.md), [Land](../flight_modes_mc/land.md), [Hold](../flight_modes_mc/land.md), [Orbit](../flight_modes_mc/orbit.md))) вимагають _global_ оцінки положення, яка зазвичай надходить від системи GPS/GNSS.
 
 Системи, які мають лише _local_ оцінку положення (від MOCAP, VIO або подібних), можуть використовувати повідомлення [SET_GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#SET_GPS_GLOBAL_ORIGIN) MAVLink, щоб встановити початок координат EKF на певне глобальне місцезнаходження. Після цього EKF надасть оцінку глобального положення на основі походження та локального положення у просторі.
 
@@ -167,8 +167,8 @@ MAVROS має плагіни для передачі візуальної оці
 Якщо ви працюєте з EKF2, підтримуються лише "vision" пайплайни. Щоб використовувати дані MoCap з EKF2, вам потрібно [remap](http://wiki.ros.org/roslaunch/XML/remap) позицію теми, яку ви отримали з MoCap:
 - Теми MoCap ROS типу `geometry_msgs/PoseStamped` або `geometry_msgs/PoseWithCovarianceStamped` має бути змінено на `/mavros/vision_pose/pose`. Тема `geometry_msgs/PoseStamped` є найпоширенішою, оскільки MoCap зазвичай не має пов'язаних з даними коваріацій.
 - Якщо ви отримуєте дані через ROS-повідомлення `nav_msgs/Odometry`, вам потрібно перевести його на `/mavros/odometry/out`, переконавшись, що ви оновили `frame_id` та `child_frame_id` відповідним чином.
-- The odometry frames `frame_id = odom`, `child_frame_id = base_link` can be changed by updating the file in `mavros/launch/px4_config.yaml`. However, the current version of mavros (`1.3.0`) needs to be able to use the tf tree to find a transform from `frame_id` to the hardcoded frame `odom_ned`. The same applies to the `child_frame_id`, which needs to be connected in the tf tree to the hardcoded frame `base_link_frd`. If you are using mavros `1.2.0` and you didn't update the file `mavros/launch/px4_config.yaml`, then you can safely use the odometry frames `frame_id = odom`, `child_frame_id = base_link` without much worry.
-- Note that if you are sending odometry data to px4 using `child_frame_id = base_link`, then you need to make sure that the `twist` portion of the `nav_msgs/Odometry` message is **expressed in body frame**, **not in inertial frame!!!!!**.
+- Фрейми одометрії `frame_id = odom`, `child_frame_id = base_link` можуть бути змінені шляхом оновлення файлу у `mavros/launch/px4_config.yaml`. Однак поточна версія mavros (`1.3.0`) повинна мати можливість використовувати дерево tf для пошуку трансформації з `frame_id` до жорстко заданого кадру `odom_ned`. Те ж саме стосується `child_frame_id`, яке потрібно підключити в дереві tf до жорстко заданої рамки `base_link_frd`. Якщо ви використовуєте mavros `1.2.0` і не оновили файл `mavros/launch/px4_config.yaml`, то ви можете безпечно використовувати кадри одометрії `frame_id = odom`, `child_frame_id = base_link` без особливих турбот.
+- Зверніть увагу, що якщо ви надсилаєте дані одометрії до px4, використовуючи `child_frame_id = base_link`, то вам потрібно переконатися, що частина `twist` повідомлення `nav_msgs/Odometry` **виражена в тілі**, **а не в інерційній системі координат!!!!!**.
 
 
 ### Референсні системи координат та ROS
@@ -188,87 +188,87 @@ MAVROS має плагіни для передачі візуальної оці
 
 ![Reference frames](../../assets/lpe/ref_frames.png)
 
-With EKF2 when using external heading estimation, magnetic north can either be ignored and or the heading offset to magnetic north can be calculated and compensated. Depending on your choice the yaw angle is given with respect to either magnetic north or local *x*.
+З EKF2 при використанні зовнішньої оцінки напрямку магнітного північ може бути або ігноруватися, або зміщення напрямку до магнітного північного може бути розраховано та скомпенсовано. Залежно від вашого вибору кут крену вказується відносно магнітного північного або місцевого *x*.
 
-::: info When creating the rigid body in the MoCap software, remember to first align the robot's local *x* axis with the world *x* axis otherwise the yaw estimate will have an offset. This can stop the external pose estimate fusion from working properly. Yaw angle should be zero when body and reference frame align.
+:::info При створенні жорсткого тіла в програмному забезпеченні MoCap не забудьте спочатку вирівняти локальну вісь робота *x* зі світовою віссю *x*, інакше оцінка розвороту матиме зміщення. Це може призупинити правильну роботу злиття зовнішньої оцінки позиції. Кут крену повинен дорівнювати нулю, коли тіло та опорна система вирівнюються.
 :::
 
-Використовуючи MAVROS, ця операція є простою. ROS uses ENU frames as convention, therefore position feedback must be provided in ENU. Якщо у вас є система Optitrack, ви можете використати вузол [mocap_optitrack](https://github.com/ros-drivers/mocap_optitrack), який транслює позицію об'єкта на тему ROS, що вже є у ENU. With a remapping you can directly publish it on `mocap_pose_estimate` as it is without any transformation and MAVROS will take care of NED conversions.
+Використовуючи MAVROS, ця операція є простою. ROS використовує фрейми ENU як конвенцію, тому зворотний зв'язок щодо позиції повинен бути наданий в ENU. Якщо у вас є система Optitrack, ви можете використати вузол [mocap_optitrack](https://github.com/ros-drivers/mocap_optitrack), який транслює позицію об'єкта на тему ROS, що вже є у ENU. За допомогою переналаштування ви можете безпосередньо опублікувати його на `mocap_pose_estimate` таким, як він є, без будь-яких перетворень, і MAVROS позбудеться перетворень NED.
 
-The MAVROS odometry plugin makes it easy to handle the coordinate frames. It uses ROS's tf package. Your external pose system might have a completely different frame convention that does not match the one of PX4. The body frame of the external pose estimate can depend on how you set the body frame in the MOCAP software or on how you mount the VIO sensor on the drone. The MAVROS odometry plugin needs to know how the external pose's child frame is oriented with respect to either the airframe's FRD or FLU body frame known by MAVROS. You therefore have to add the external pose's body frame to the tf tree. This can be done by including an adapted version of the following line into your ROS launch file.
+Плагін MAVROS відомий тим, що спрощує роботу з координатними рамками. Він використовує пакет tf ROS. Ваш зовнішній система позиціонування може мати зовсім іншу конвенцію рамки, яка не відповідає конвенції PX4. Корпусна рама зовнішньої оцінки позиції може залежати від того, як ви встановите корпусну раму в програмному забезпеченні MOCAP або від того, як ви встановите сенсор VIO на дрона. Плагін відомостей MAVROS потребує знання, як дитяча рамка зовнішньої позиції орієнтована відносно рамки тіла FRD або FLU повітряного судна, відомої за допомогою MAVROS. Отже, вам потрібно додати зовнішню позу тіла до дерева tf. Це можна зробити, включивши адаптовану версію наступного рядка до вашого ROS-файлу запуску.
 
 ```
   
 ```
-Make sure that you change the values of yaw, pitch and roll such that it properly attaches the external pose's body frame to the `base_link` or `base_link_frd`. Have a look at the [tf package](http://wiki.ros.org/tf#static_transform_publisher) for further help on how to specify the transformation between the frames. You can use rviz to check if you attached the frame right. The name of the `external_pose_child_frame` has to match the child_frame_id of your `nav_msgs/Odometry` message. The same also applies for the reference frame of the external pose. You have to attach the reference frame of the external pose as child to either the `odom` or `odom_frd` frame. Adapt therefore the following code line accordingly.
+Переконайтеся, що ви змінили значення крену, тангажу та кочення так, що вони належним чином приєднують корпус зовнішньої позиції до `base_link` або `base_link_frd`. Подивіться на пакет [tf package](http://wiki.ros.org/tf#static_transform_publisher)  для отримання додаткової допомоги з приводу того, як вказати трансформацію між кадрами. Ви можете використовувати rviz, щоб перевірити, чи ви правильно прикріпили рамку. Назва `external_pose_child_frame` повинна збігатися з child_frame_id вашого повідомлення `nav_msgs/Odometry`. Те ж саме стосується і для опорної рамки зовнішньої позиції. Вам потрібно прикріпити опорний каркас зовнішньої позиції як дитину до рамки `odom` або `odom_frd`. Адаптуйте тому відповідно кодовий рядок.
 ```
   <node pkg="tf" type="static_transform_publisher" name="tf_odom_externalPoseParentFrame"
         args="0 0 0 <yaw> <pitch> <roll> odom <external_pose_parent_frame> 1000"/>
 ```
-If the reference frame has the z axis pointing upwards you can attached it without any rotation (yaw=0, pitch=0, roll=0) to the `odom` frame. The name of `external_pose_parent_frame` has to match the frame_id of the odometry message.
+Якщо опорна рама має вісь z, що вказує вгору, ви можете прикріпити її без будь-якого обертання (yaw=0, pitch=0, roll=0) до рами `odom`. Назва `external_pose_parent_frame` повинна збігатися з frame_id повідомлення про відомість.
 
-::: info When using the MAVROS *odom* plugin, it is important that no other node is publishing a transform between the external pose's reference and child frame. This might break the *tf* tree.
+:::info При використанні плагіну MAVROS *odom* важливо, щоб жоден інший вузол не публікував трансформацію між зовнішнім посиланням позиції та дочірнім кадром. Це може зламати дерево *tf*.
 :::
 
 <a id="setup_specific_systems"></a>
 
-## Specific System Setups
+## Конкретні налаштування системи
 
 ### OptiTrack MoCap
 
-The following steps explain how to feed position estimates from an [OptiTrack](https://optitrack.com/motion-capture-robotics/) system to PX4. It is assumed that the MoCap system is calibrated. See [this video](https://www.youtube.com/watch?v=cNZaFEghTBU) for a tutorial on the calibration process.
+Наступні кроки пояснюють, як подавати оцінки позиції з системи [OptiTrack](https://optitrack.com/motion-capture-robotics/) в PX4. Припускається, що система MoCap налаштована. Дивіться [це відео](https://www.youtube.com/watch?v=cNZaFEghTBU) для навчання процесу калібрування.
 
-#### Steps on the *Motive* MoCap software
+#### Кроки у програмному забезпеченні *Motive* MoCap
 
-* Align your robot's forward direction with the [system +x-axis](https://v20.wiki.optitrack.com/index.php?title=Template:Coordinate_System)
-* [Define a rigid body in the Motive software](https://www.youtube.com/watch?v=1e6Qqxqe-k0). Give the robot a name that does not contain spaces, e.g. `robot1` instead of `Rigidbody 1`
-* [Enable Frame Broadacst and VRPN streaming](https://www.youtube.com/watch?v=yYRNG58zPFo)
-* Set the Up axis to be the Z axis (the default is Y)
+* Вирівняйте напрямок вашого робота з [system +x-axis](https://v20.wiki.optitrack.com/index.php?title=Template:Coordinate_System)
+* [Визначте жорстке тіло в програмному забезпеченні Motive](https://www.youtube.com/watch?v=1e6Qqxqe-k0). Вкажіть роботу ім'я, яке не містить пробілів, наприклад, `robot1` замість `Rigidbody 1`
+* [Увімкніть трансляцію кадру та потокове відтворення VRPN](https://www.youtube.com/watch?v=yYRNG58zPFo)
+* Встановіть вісь Up на ось Z (за замовчуванням - Y)
 
 #### Отримання даних про позицію в ROS
 
 * Встановіть пакет `vrpn_client_ros`
-* You can get each rigid body pose on an individual topic by running
+* Ви можете отримати позу кожного жорсткого тіла на окрему тему, запустивши
   ```sh
   roslaunch vrpn_client_ros sample.launch server:=<mocap machine ip>
   ```
 
-If you named the rigidbody as `robot1`, you will get a topic like `/vrpn_client_node/robot1/pose`
+Якщо ви назвали rigidbody як `robot1`, ви отримаєте тему, схожу на `/vrpn_client_node/robot1/pose`
 
-#### Relaying/remapping Pose Data
+#### Передача / перенаправлення даних про позу
 
-MAVROS provides a plugin to relay pose data published on `/mavros/vision_pose/pose` to PX4. Assuming that MAVROS is running, you just need to **remap** the pose topic that you get from MoCap `/vrpn_client_node/<rigid_body_name>/pose` directly to `/mavros/vision_pose/pose`. Note that there is also a `mocap` topic that MAVROS provides to feed `ATT_POS_MOCAP` to PX4, but it is not applicable for EKF2. However, it is applicable with LPE.
+MAVROS надає плагін для передачі даних позиції, опублікованих на `/mavros/vision_pose/pose`, до PX4. Припускаючи, що MAVROS працює, вам просто потрібно **переналаштувати** тему позиції, яку ви отримуєте від MoCap `/vrpn_client_node/<rigid_body_name>/pose` безпосередньо на `/mavros/vision_pose/pose`. Зверніть увагу, що також є тема `mocap`, яку надає MAVROS для подачі `ATT_POS_MOCAP` в PX4, але вона не застосовується до EKF2. Однак, це застосовується з LPE.
 
-::: info Remapping pose topics is covered above [Relaying pose data to PX4](#relaying_pose_data_to_px4) (`/vrpn_client_node/<rigid_body_name>/pose` is of type `geometry_msgs/PoseStamped`).
+:::info Переналаштування тем постави описано вище [Передача даних постави в PX4](#relaying_pose_data_to_px4) (`/vrpn_client_node/<rigid_body_name>/pose` має тип `geometry_msgs/PoseStamped`).
 :::
 
-Assuming that you have configured EKF2 parameters as described above, PX4 now is set and fusing MoCap data.
+Припускаючи, що ви налаштували параметри EKF2, як описано вище, PX4 тепер встановлений і об'єднує дані MoCap.
 
-You are now set to proceed to the first flight.
+Ви тепер готові перейти до першого політ.
 
 
 ## Перший політ
 
 Після налаштування однієї з (специфічних) систем, описаних вище, ви повинні бути готові до тесту. Інструкції нижче показують, як це зробити для систем MoCap та VIO
 
-### Check external estimate
+### Перевірте зовнішню оцінку
 
 Перед першим польотом обов'язково виконайте наступні перевірки:
 
 * Встановіть параметр PX4 `MAV_ODOM_LP` на 1. Після цього PX4 передасть отриману зовнішню позицію назад у вигляді повідомлень MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY).
-* You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) In order to do this, yaw the vehicle until the quaternion of the `ODOMETRY` message is very close to a unit quaternion. (w=1, x=y=z=0)
-* At this point the body frame is aligned with the reference frame of the external pose system. If you do not manage to get a quaternion close to the unit quaternion without rolling or pitching your vehicle, your frame probably still have a pitch or roll offset. Do not proceed if this is the case and check your coordinate frames again.
-* Once aligned you can pick the vehicle up from the ground and you should see the position's z coordinate decrease. Moving the vehicle in forward direction, should increase the position's x coordinate. While moving the vehicle to the right should increase the y coordinate. In the case you send also linear velocities from the external pose system, you should also check the linear velocities. Check that the linear velocities are in expressed in the *FRD* body frame reference frame.
-* Set the PX4 parameter `MAV_ODOM_LP` back to 0. PX4 will stop streaming this message back.
+* Ви можете перевірити ці повідомлення MAVLink за допомогою *QGroundControl* [Інспектора MAVLink](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) Для цього поверніть транспортний засіб, поки кватерніон повідомлення `ODOMETRY` дуже близький до одиничного кватерніону. (w=1, x=y=z=0)
+* На цьому етапі корпус виробу зорієнтований у відповідності з ориєнтацією відносно зовнішньої системи координат. Якщо вам не вдається отримати кватерніон, близький до одиничного, без обертання або нахилу вашого літака, це, ймовірно, означає, що ваша рама все ще має зміщення нахилу або кочування. У цьому випадку не продовжуйте і перевірте знову свої координатні рамки.
+* Після зорієнтування ви можете підняти літак з землі, і ви маєте бачити, як координата z позиції зменшується. Переміщення засобу в напрямку вперед повинно збільшити координату X. Під час руху транспортного засобу вправо слід збільшувати координату y. У разі, якщо ви також надсилаєте лінійні швидкості зовнішньої системи позиціонування, вам також слід перевірити лінійні швидкості. Перевірте, що лінійні швидкості виражені в описаній відносно корпусу *FRD* відліковій системі.
+* Встановіть параметр PX4 `MAV_ODOM_LP` на 0. PX4 припинить передавати це повідомлення назад.
 
-If those steps are consistent, you can try your first flight.
+Якщо ці кроки є послідовними, ви можете спробувати свій перший польот.
 
-Put the robot on the ground and start streaming MoCap feedback. Lower your left (throttle) stick and arm the motors.
+Покладіть робота на землю і почніть передавати зворотний зв'язок MoCap. Потягніть палицю газу вниз і зберметизуйте двигуни.
 
-At this point, with the left stick at the lowest position, switch to position control. You should have a green light. The green light tells you that position feedback is available and position control is now activated.
+На цьому етапі, зліва палиця на найнижчому положенні, перейдіть у режим позиціонного контролю. Ви повинні побачити зелену лампочку. Зелена лампочка свідчить про те, що доступний зворотний зв'язок позиції, і позиційний контроль активований.
 
-Put your left stick at the middle, this is the dead zone. With this stick value, the robot maintains its altitude; raising the stick will increase the reference altitude while lowering the value will decrease it. Same for right stick on x and y.
+Помістіть лівий джойстик в середину, це зона мертвої зони. З цим значенням палиці робот підтримує свою висоту; підняття палиці збільшить висоту посилки, тоді як зниження значення зменшить її. Те ж саме для правої палиці по x та y.
 
-Increase the value of the left stick and the robot will take off, put it back to the middle right after. Check if it is able to keep its position.
+Збільште значення лівої палиці, і робот злетить, поверніть його назад у середину праворуч після цього. Перевірте, чи він може утримати своє положення.
 
-If it works, you may want to set up an [offboard](offboard_control.md) experiment by sending position-setpoint from a remote ground station.
+Якщо це працює, ви можете налаштувати експеримент [поза бортом](offboard_control.md), відправивши позиційний вказівник з віддаленої земної станції.

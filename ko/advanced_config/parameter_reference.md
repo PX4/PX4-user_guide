@@ -8889,6 +8889,13 @@ table {
  <td>rad/s</td>
 </tr>
 <tr>
+ <td><strong id="ATT_EN">ATT_EN</strong> (INT32)</td>
+ <td>standalone attitude estimator enable (unsupported) <p><strong>Comment:</strong> Enable standalone quaternion based attitude estimator.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="ATT_EXT_HDG_M">ATT_EXT_HDG_M</strong> (INT32)</td>
  <td>External heading usage mode (from Motion capture/Vision) <p><strong>Comment:</strong> Set to 1 to use heading estimate from vision. Set to 2 to use heading from motion capture.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> None</li>
@@ -10710,7 +10717,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="EKF2_ABIAS_INIT">EKF2_ABIAS_INIT</strong> (FLOAT)</td>
- <td>1-sigma IMU accelerometer switch-on bias    <p><b>Reboot required:</b> true</p>
+ <td>1-sigma IMU accelerometer switch-on bias    <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0.0, 0.5] </td>
  <td>0.2</td>
@@ -10748,14 +10755,14 @@ table {
  <td><strong id="EKF2_ACC_B_NOISE">EKF2_ACC_B_NOISE</strong> (FLOAT)</td>
  <td>Process noise for IMU accelerometer bias prediction    </td>
  <td>[0.0, 0.01] </td>
- <td>3.0e-3</td>
+ <td>0.003</td>
  <td>m/s^3</td>
 </tr>
 <tr>
  <td><strong id="EKF2_ACC_NOISE">EKF2_ACC_NOISE</strong> (FLOAT)</td>
  <td>Accelerometer noise for covariance prediction    </td>
  <td>[0.01, 1.0] </td>
- <td>3.5e-1</td>
+ <td>0.35</td>
  <td>m/s^2</td>
 </tr>
 <tr>
@@ -10770,7 +10777,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_AGP_DELAY">EKF2_AGP_DELAY</strong> (FLOAT)</td>
- <td>Aux global position estimator delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
+ <td>Aux global position estimator delay relative to IMU measurements    <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0, 300] </td>
  <td>0</td>
@@ -10792,7 +10799,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_ANGERR_INIT">EKF2_ANGERR_INIT</strong> (FLOAT)</td>
- <td>1-sigma tilt angle uncertainty after gravity vector alignment    <p><b>Reboot required:</b> true</p>
+ <td>1-sigma tilt angle uncertainty after gravity vector alignment    <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0.0, 0.5] </td>
  <td>0.1</td>
@@ -10814,7 +10821,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_ASP_DELAY">EKF2_ASP_DELAY</strong> (FLOAT)</td>
- <td>Airspeed measurement delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
+ <td>Airspeed measurement delay relative to IMU measurements    <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0, 300] </td>
  <td>100</td>
@@ -10822,7 +10829,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_AVEL_DELAY">EKF2_AVEL_DELAY</strong> (FLOAT)</td>
- <td>Auxiliary Velocity Estimate (e.g from a landing target) delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
+ <td>Auxiliary Velocity Estimate (e.g from a landing target) delay relative to IMU measurements    <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0, 300] </td>
  <td>5</td>
@@ -10837,7 +10844,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_BARO_DELAY">EKF2_BARO_DELAY</strong> (FLOAT)</td>
- <td>Barometer measurement delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
+ <td>Barometer measurement delay relative to IMU measurements    <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0, 300] </td>
  <td>0</td>
@@ -10890,7 +10897,7 @@ table {
  <td>Integer bitmask controlling handling of magnetic declination <p><strong>Comment:</strong> Set bits in the following positions to enable functions. 0 : Set to true to use the declination from the geo_lookup library when the GPS position becomes available, set to false to always use the EKF2_MAG_DECL value. 1 : Set to true to save the EKF2_MAG_DECL parameter to the value returned by the EKF when the vehicle disarms.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> use geo_lookup declination</li>
   <li><strong>1:</strong> save EKF2_MAG_DECL on disarm</li>
 </ul>
- <p><b>Reboot required:</b> true</p>
+ <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0, 3] </td>
  <td>3</td>
@@ -10916,6 +10923,13 @@ table {
  <td>[0.5, 5.0] </td>
  <td>1.4</td>
  <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_EN">EKF2_EN</strong> (INT32)</td>
+ <td>EKF2 enable    </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_EVA_NOISE">EKF2_EVA_NOISE</strong> (FLOAT)</td>
@@ -10966,7 +10980,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_EV_DELAY">EKF2_EV_DELAY</strong> (FLOAT)</td>
- <td>Vision Position Estimator delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
+ <td>Vision Position Estimator delay relative to IMU measurements    <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0, 300] </td>
  <td>0</td>
@@ -11019,7 +11033,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_GBIAS_INIT">EKF2_GBIAS_INIT</strong> (FLOAT)</td>
- <td>1-sigma IMU gyro switch-on bias    <p><b>Reboot required:</b> true</p>
+ <td>1-sigma IMU gyro switch-on bias    <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0.0, 0.2] </td>
  <td>0.1</td>
@@ -11070,7 +11084,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_GPS_DELAY">EKF2_GPS_DELAY</strong> (FLOAT)</td>
- <td>GPS measurement delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
+ <td>GPS measurement delay relative to IMU measurements    <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0, 300] </td>
  <td>110</td>
@@ -11150,14 +11164,14 @@ table {
  <td><strong id="EKF2_GYR_B_NOISE">EKF2_GYR_B_NOISE</strong> (FLOAT)</td>
  <td>Process noise for IMU rate gyro bias prediction    </td>
  <td>[0.0, 0.01] </td>
- <td>1.0e-3</td>
+ <td>0.001</td>
  <td>rad/s^2</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GYR_NOISE">EKF2_GYR_NOISE</strong> (FLOAT)</td>
  <td>Rate gyro noise for covariance prediction    </td>
  <td>[0.0001, 0.1] </td>
- <td>1.5e-2</td>
+ <td>0.015</td>
  <td>rad/s</td>
 </tr>
 <tr>
@@ -11181,7 +11195,7 @@ table {
 <li><strong>1:</strong> GPS</li>
 <li><strong>2:</strong> Range sensor</li>
 <li><strong>3:</strong> Vision</li>
-</ul>  <p><b>Reboot required:</b> true</p>
+</ul>  <p><b>Reboot required:</b> True</p>
 </td>
  <td></td>
  <td>1</td>
@@ -11230,7 +11244,7 @@ table {
  <td><strong id="EKF2_MAG_B_NOISE">EKF2_MAG_B_NOISE</strong> (FLOAT)</td>
  <td>Process noise for body magnetic field prediction    </td>
  <td>[0.0, 0.1] </td>
- <td>1.0e-4</td>
+ <td>0.0001</td>
  <td>gauss/s</td>
 </tr>
 <tr>
@@ -11248,7 +11262,7 @@ table {
  <td><strong id="EKF2_MAG_CHK_INC">EKF2_MAG_CHK_INC</strong> (FLOAT)</td>
  <td>Magnetic field inclination check tolerance <p><strong>Comment:</strong> Maximum allowed deviation from the expected magnetic field inclination to pass the check.</p>   </td>
  <td>[0.0, 90.0] </td>
- <td>20.</td>
+ <td>20.0</td>
  <td>deg</td>
 </tr>
 <tr>
@@ -11267,7 +11281,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_DELAY">EKF2_MAG_DELAY</strong> (FLOAT)</td>
- <td>Magnetometer measurement delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
+ <td>Magnetometer measurement delay relative to IMU measurements    <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0, 300] </td>
  <td>0</td>
@@ -11277,7 +11291,7 @@ table {
  <td><strong id="EKF2_MAG_E_NOISE">EKF2_MAG_E_NOISE</strong> (FLOAT)</td>
  <td>Process noise for earth magnetic field prediction    </td>
  <td>[0.0, 0.1] </td>
- <td>1.0e-3</td>
+ <td>0.001</td>
  <td>gauss/s</td>
 </tr>
 <tr>
@@ -11291,7 +11305,7 @@ table {
  <td><strong id="EKF2_MAG_NOISE">EKF2_MAG_NOISE</strong> (FLOAT)</td>
  <td>Measurement noise for magnetometer 3-axis fusion    </td>
  <td>[0.001, 1.0] </td>
- <td>5.0e-2</td>
+ <td>0.05</td>
  <td>gauss</td>
 </tr>
 <tr>
@@ -11300,7 +11314,7 @@ table {
 <li><strong>0:</strong> Automatic</li>
 <li><strong>1:</strong> Magnetic heading</li>
 <li><strong>5:</strong> None</li>
-</ul>  <p><b>Reboot required:</b> true</p>
+</ul>  <p><b>Reboot required:</b> True</p>
 </td>
  <td></td>
  <td>0</td>
@@ -11322,7 +11336,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MULTI_IMU">EKF2_MULTI_IMU</strong> (INT32)</td>
- <td>Multi-EKF IMUs <p><strong>Comment:</strong> Maximum number of IMUs to use for Multi-EKF. Set 0 to disable. Requires SENS_IMU_MODE 0.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Multi-EKF IMUs <p><strong>Comment:</strong> Maximum number of IMUs to use for Multi-EKF. Set 0 to disable. Requires SENS_IMU_MODE 0.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0, 4] </td>
  <td>0</td>
@@ -11330,7 +11344,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MULTI_MAG">EKF2_MULTI_MAG</strong> (INT32)</td>
- <td>Multi-EKF Magnetometers <p><strong>Comment:</strong> Maximum number of magnetometers to use for Multi-EKF. Set 0 to disable. Requires SENS_MAG_MODE 0.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Multi-EKF Magnetometers <p><strong>Comment:</strong> Maximum number of magnetometers to use for Multi-EKF. Set 0 to disable. Requires SENS_MAG_MODE 0.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0, 4] </td>
  <td>0</td>
@@ -11359,7 +11373,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_OF_DELAY">EKF2_OF_DELAY</strong> (FLOAT)</td>
- <td>Optical flow measurement delay relative to IMU measurements <p><strong>Comment:</strong> Assumes measurement is timestamped at trailing edge of integration period</p>   <p><b>Reboot required:</b> true</p>
+ <td>Optical flow measurement delay relative to IMU measurements <p><strong>Comment:</strong> Assumes measurement is timestamped at trailing edge of integration period</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0, 300] </td>
  <td>20</td>
@@ -11479,7 +11493,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_REQ_GPS_H">EKF2_REQ_GPS_H</strong> (FLOAT)</td>
- <td>Required GPS health time on startup <p><strong>Comment:</strong> Minimum continuous period without GPS failure required to mark a healthy GPS status. It can be reduced to speed up initialization, but it&#x27;s recommended to keep this unchanged for a vehicle.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Required GPS health time on startup <p><strong>Comment:</strong> Minimum continuous period without GPS failure required to mark a healthy GPS status. It can be reduced to speed up initialization, but it&#x27;s recommended to keep this unchanged for a vehicle.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0.1, ?] </td>
  <td>10.0</td>
@@ -11554,7 +11568,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_DELAY">EKF2_RNG_DELAY</strong> (FLOAT)</td>
- <td>Range finder measurement delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
+ <td>Range finder measurement delay relative to IMU measurements    <p><b>Reboot required:</b> True</p>
 </td>
  <td>[0, 300] </td>
  <td>5</td>
@@ -11714,7 +11728,7 @@ table {
  <td><strong id="EKF2_WIND_NSD">EKF2_WIND_NSD</strong> (FLOAT)</td>
  <td>Process noise spectral density for wind velocity prediction <p><strong>Comment:</strong> When unaided, the wind estimate uncertainty (1-sigma, in m/s) increases by this amount every second.</p>   </td>
  <td>[0.0, 1.0] </td>
- <td>5.0e-2</td>
+ <td>0.05</td>
  <td>m/s^2/sqrt(Hz)</td>
 </tr>
 </tbody></table>
@@ -15489,6 +15503,13 @@ table {
  <td>m</td>
 </tr>
 <tr>
+ <td><strong id="LPE_EN">LPE_EN</strong> (INT32)</td>
+ <td>Local position estimator enable (unsupported)    </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="LPE_EPH_MAX">LPE_EPH_MAX</strong> (FLOAT)</td>
  <td>Max EPH allowed for GPS initialization    </td>
  <td>[1.0, 5.0] </td>
@@ -17738,7 +17759,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -19973,7 +19994,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SDLOG_MODE">SDLOG_MODE</strong> (INT32)</td>
- <td>Logging Mode <p><strong>Comment:</strong> Determines when to start and stop logging. By default, logging is started when arming the system, and stopped when disarming.</p> <strong>값:</strong><ul>
+ <td>Logging Mode <p><strong>Comment:</strong> Determines when to start and stop logging. By default, logging is started when arming the system, and stopped when disarming.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> disabled</li>
 <li><strong>0:</strong> when armed until disarm (default)</li>
 <li><strong>1:</strong> from boot until disarm</li>
@@ -24315,18 +24336,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SYS_MC_EST_GROUP">SYS_MC_EST_GROUP</strong> (INT32)</td>
- <td>Set multicopter estimator group <p><strong>Comment:</strong> Set the group of estimators used for multicopters and VTOLs</p> <strong>값:</strong><ul>
-<li><strong>1:</strong> local_position_estimator, attitude_estimator_q (unsupported)</li>
-<li><strong>2:</strong> ekf2 (recommended)</li>
-<li><strong>3:</strong> Q attitude estimator (no position)</li>
-</ul>  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>2</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="SYS_RGB_MAXBRT">SYS_RGB_MAXBRT</strong> (FLOAT)</td>
  <td>RGB Led brightness limit <p><strong>Comment:</strong> Set to 0 to disable, 1 for maximum brightness</p>   </td>
  <td></td>
@@ -24381,7 +24390,7 @@ table {
 </tr>
 <tr>
  <td><strong id="TEL_HOTT_CONFIG">TEL_HOTT_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for HoTT Telemetry <p><strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.</p> <strong>값:</strong><ul>
+ <td>Serial Configuration for HoTT Telemetry <p><strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>6:</strong> UART 6</li>
 <li><strong>101:</strong> TELEM 1</li>
@@ -26332,7 +26341,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_ENABLE">UAVCAN_ENABLE</strong> (INT32)</td>
- <td>UAVCAN mode <p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.</p> <strong>Values:</strong><ul>
+ <td>UAVCAN mode <p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 <li><strong>1:</strong> Sensors Manual Config</li>
 <li><strong>2:</strong> Sensors Automatic Config</li>

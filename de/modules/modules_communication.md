@@ -10,6 +10,7 @@ FrSky Telemetry support. Auto-detects D or S.PORT protocol.
 ```
 frsky_telemetry <command> [arguments...]
  frsky_telemetry <command> [arguments...]
+ frsky_telemetry <command> [arguments...]
  Commands:
    start
      [-d <val>]  Select Serial Device
@@ -135,6 +136,7 @@ uorb top
 ### Usage
 ```
 uorb <command> [arguments...]
+ uorb <command> [arguments...]
  uorb <command> [arguments...]
  Commands:
    status        Print topic statistics

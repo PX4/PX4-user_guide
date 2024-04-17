@@ -1,73 +1,74 @@
-# Optical Flow
+# Оптичний потік
 
-_Optical Flow_ uses a downward facing camera and a downward facing distance sensor for velocity estimation.
+_Датчики оптичного потоку_ використовують камеру та датчик відстані направлені вниз для оцінки швидкості.
 
-@[youtube](https://youtu.be/aPQKgUof3Pc) _Video: PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes_mc/position.md))._
+@[youtube](https://youtu.be/aPQKgUof3Pc) _Відео: PX4 утримує позицію за допомогою датчика потоку ARK для оцінки швидкості (у [Режим позиції](../flight_modes_mc/position.md))._
 
 <!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
 
-## Setup
+## Установка
 
-An Optical Flow setup requires a downward facing camera and a [distance sensor](../sensor/rangefinders.md) (preferably a LiDAR). These can be connected via MAVLink, I2C or any other bus that supports the peripheral.
+Налаштування оптичного потоку вимагає камери, спрямованої вниз, та [датчика відстані](../sensor/rangefinders.md) (найкраще LiDAR). Ці можуть бути підключені через MAVLink, I2C або будь-яку іншу шину, яка підтримує периферійні пристрої.
 
-::: info If connected to PX4 via MAVLink the Optical Flow device must publish to the [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD) topic, and the distance sensor must publish to the [DISTANCE_SENSOR](https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR) topic.
+:::note
+Якщо підключено до PX4 через MAVLink, пристрій оптичного потоку повинен публікувати в тему [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD), а датчик відстані повинен публікувати в тему [DISTANCE_SENSOR](https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR).
 :::
 
-The output of the flow when moving in different directions must be as follows:
+Вихід потоку при руху в різних напрямках повинен бути наступним:
 
-| Vehicle movement | Integrated flow |
-| ---------------- | --------------- |
-| Forwards         | + Y             |
-| Backwards        | - Y             |
-| Right            | - X             |
-| Left             | + X             |
+| Рух транспортного засобу | Інтегрований потік |
+| ------------------------ | ------------------ |
+| Вперед                   | + Y                |
+| Назад                    | - Y                |
+| Справа                   | - X                |
+| Зліва                    | + X                |
 
-For pure rotations the `integrated_xgyro` and `integrated_x` (respectively `integrated_ygyro` and `integrated_y`) have to be the same.
+Для чистих обертань `integrated_xgyro` та `integrated_x` (відповідно `integrated_ygyro` та `integrated_y`) повинні бути однаковими.
 
-An popular setup is the [PX4Flow](../sensor/px4flow.md) and [Lidar-Lite](../sensor/lidar_lite.md), as shown below.
+Популярним варіантом є [PX4Flow](../sensor/px4flow.md) та [Lidar-Lite](../sensor/lidar_lite.md), як показано нижче.
 
 ![Optical flow lidar attached](../../assets/hardware/sensors/optical_flow/flow_lidar_attached.jpg)
 
-Sensor data from the optical flow device is fused with other velocity data sources. The approach used for fusing sensor data and any offsets from the center of the vehicle must be configured in the [estimator](#estimators).
+Дані сенсора від пристрою оптичного потоку об'єднуються з іншими джерелами даних швидкості. Підхід, який використовується для об'єднання даних сенсора та будь-яких зміщень від центру транспортного засобу, повинен бути налаштований в [оцінювачі](#estimators).
 
-## Flow Sensors/Cameras
+## Датчики потоку/Камери
 
 ### ARK Flow
 
-[ARK Flow](../dronecan/ark_flow.md) is a [DroneCAN](../dronecan/index.md) optical flow sensor, [distance sensor](../sensor/rangefinders.md), and IMU. It has a PAW3902 optical flow sensor, Broadcom AFBR-S50LV85D 30 meter distance sensor, and BMI088 IMU.
+[ARK Flow](../dronecan/ark_flow.md) є оптичним датчиком потоку для [DroneCAN](../dronecan/index.md), датчиком відстані та ІНС. В ньому є оптичний датчик потоку PAW3902, оптичний датчик відстані Broadcom AFBR-S50LV85D на відстані 30 метрів та ІМП-датчик BMI088.
 
-### PMW3901-Based Sensors
+### Датчики на основі PMW3901
 
-[PMW3901](../sensor/pmw3901.md) is an optical flow tracking sensor similar to what you would find in a computer mouse, but adapted to work between 80 mm and infinity. It is used in a number of products, including some from: Bitcraze, Tindie, Hex, Thone and Alientek.
+[PMW3901](../sensor/pmw3901.md) є оптичним сенсором відстеження потоку, схожим на те, що ви знайдете в комп'ютерній мишці, але адаптованим для роботи від 80 мм і безмежжя. Він використовується в ряді продуктів, включаючи деякі від: Bitcraze, Tindie, Hex, Thone та Alientek.
 
-### Other Cameras/Sensors
+### Інші Камери/Сенсори
 
-It is also possible to use a board/quad that has an integrated camera. For this the [Optical Flow repo](https://github.com/PX4/OpticalFlow) can be used (see also [snap_cam](https://github.com/PX4/snap_cam)).
+Також можна використовувати дошку/квадрокоптер, яка має вбудовану камеру. Для цього можна використовувати репозиторій [Optical Flow](https://github.com/PX4/OpticalFlow) (див. також [snap_cam](https://github.com/PX4/snap_cam)).
 
-## Range Finders
+## Далекомір
 
-You can use any supported [distance sensor](../sensor/rangefinders.md). However we recommend using LIDAR rather than sonar sensors, because of their robustness and accuracy.
+Ви можете використовувати будь-який підтримуваний [датчик відстані](../sensor/rangefinders.md). Проте ми рекомендуємо використовувати LIDAR замість зондів сонар, через їхню надійність та точність.
 
-## Estimators
+## Оцінювач
 
-Estimators fuse data from the optical flow sensor and other sources. The settings for how fusing is done, and relative offsets to vehicle center must be specified for the estimator used.
+Оцінювачі об'єднують дані з датчика оптичного потоку та інших джерел. Налаштування для виконання злиття, а також відносні зсуви до центру транспортного засобу повинні бути вказані для використаного оцінювача.
 
-The offsets are calculated relative to the vehicle orientation and center as shown below:
+Зміщення обчислюються відносно орієнтації транспортного засобу та центру, як показано нижче:
 
 ![Optical Flow offsets](../../assets/hardware/sensors/optical_flow/px4flow_offset.png)
 
-Optical Flow based navigation is enabled by both the availableestimators: EKF2 and LPE (deprecated).
+Оптична навігація на основі потоку даних активована обома доступними оцінювачами: EKF2 та LPE (застарілий).
 
 <a id="ekf2"></a>
 
-### Extended Kalman Filter (EKF2)
+### Розширений фільтр Калмана (EKF2)
 
-For optical flow fusion using EKF2, set [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL).
+Для об'єднання оптичного потоку за допомогою EKF2 встановіть [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL).
 
-If your optical flow sensor is offset from the vehicle centre, you can set this using the following parameters.
+Якщо ваш оптичний датчик потоку зміщений від центру транспортного засобу, ви можете встановити це за допомогою наступних параметрів.
 
-| Parameter                                                                                           | Description                                                             |
-| --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| <a id="EKF2_OF_POS_X"></a>[EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X) | X position of optical flow focal point in body frame (default is 0.0m). |
-| <a id="EKF2_OF_POS_Y"></a>[EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) | Y position of optical flow focal point in body frame (default is 0.0m). |
-| <a id="EKF2_OF_POS_Z"></a>[EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) | Z position of optical flow focal point in body frame (default is 0.0m). |
+| Параметр                                                                                            | Опис                                                                               |
+| --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| <a id="EKF2_OF_POS_X"></a>[EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X) | Позиція X оптичного потоку фокусної точки в системі тіла (за замовчуванням 0.0 м). |
+| <a id="EKF2_OF_POS_Y"></a>[EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) | Позиція Y оптичного потоку фокусної точки в системі тіла (за замовчуванням 0.0 м). |
+| <a id="EKF2_OF_POS_Z"></a>[EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) | Позиція Z оптичного потоку фокусної точки в системі тіла (за замовчуванням 0.0 м). |

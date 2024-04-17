@@ -90,6 +90,14 @@ The instructions below might be used to create a task named _MyTask_:
    {
      PX4_INFO("FlightTaskMyTask update was called!"); // report update
      return true;
+   } ret: %d", ret); // report if activation was successful
+     return ret;
+   }
+
+   bool FlightTaskMyTask::update()
+   {
+     PX4_INFO("FlightTaskMyTask update was called!"); // report update
+     return true;
    } #include "FlightTaskMyTask.hpp"
 
    bool FlightTaskMyTask::activate(const trajectory_setpoint_s &last_setpoint)

@@ -282,6 +282,8 @@ If the airframe is for a **new group** you additionally need to:
        return "AirframeUnknown"
     ...
        return "AirframeUnknown"
+    ...
+       return "AirframeUnknown"
    ```
 
 1. Update _QGroundControl_:
@@ -291,6 +293,8 @@ If the airframe is for a **new group** you additionally need to:
 
      ```xml
      <qresource prefix="/qmlimages">
+        ...
+        <qresource prefix="/qmlimages">
         ...
         <qresource prefix="/qmlimages">
         ...

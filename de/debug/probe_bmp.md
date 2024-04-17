@@ -48,6 +48,7 @@ Available Targets:
 No. Att Driver
  1      STM32F76x M7 Att Driver
  1      STM32F76x M7 Att Driver
+ 1      STM32F76x M7 Att Driver
  1      STM32F76x M7
 ```
 

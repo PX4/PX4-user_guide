@@ -1,22 +1,22 @@
-# Failsafe State Machine Simulation
+# Симуляція аварійного стану машини
 
 <Badge type="tip" text="PX4 v1.14" />
 
-This page can be used to simulate the actions of the PX4 failsafe state machine under all possible configurations and conditions.
+Цю сторінку можна використовувати для моделювання дій машини стану PX4 аварійного режиму за всіх можливих конфігурацій та умов.
 
-The simulation runs the same code in the browser as is executed on the vehicle, in real-time (the simulation is automatically kept in sync with the latest version of the code). Note that any delayed action (`COM_FAIL_ACT_T`) will also be delayed in the simulation.
+Симуляція запускає той самий код у браузері, який виконується на транспортному засобі в реальному часі (симуляція автоматично синхронізується з останньою версією коду). Зверніть увагу, що будь-яка затримка дії (`COM_FAIL_ACT_T`) також буде затримана в симуляції.
 
-To use it:
+Щоб використовувати це:
 
-1. First configure the parameters on the left. The initial values correspond to the PX4 defaults.
-2. Set the vehicle type
-3. Set the other values in the **State** or any of the flags under **Conditions**
-   - The **Intended Mode** corresponds to the commanded mode via RC or GCS (or external script). The failsafe state machine can override this in case of a failsafe.
-4. Check the action under **Output**
-5. Check what happens when changing mode or **Move the RC sticks**
-6. Play with different settings and conditions!
+1. Спочатку налаштуйте параметри зліва. Початкові значення відповідають значенням за замовчуванням PX4.
+2. Встановіть тип транспортного засобу
+3. Встановіть інші значення в **State** або будь-які прапорці під **Conditions**
+   - **Намірний режим** відповідає командованому режиму через RC або GCS (або зовнішній скрипт). Станова машина аварійного відновлення може перевизначити це у разі аварійного відновлення.
+4. Перевірте дію під **Вивід**
+5. Перевірте, що відбувається при зміні режиму або **Переміщення пультів RC**
+6. Грайте з різними налаштуваннями та умовами!
 
-The simulation can also be executed locally in order to test a specific version or set of changes:
+Симуляцію також можна виконати локально для тестування конкретної версії або набору змін:
 
 ```sh
 make run_failsafe_web_server

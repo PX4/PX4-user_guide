@@ -28,8 +28,8 @@ Tools/simulation/gazebo-classic/sitl_multiple_run.sh [-m <model>] [-n <number_of
 
 Кожному екземпляру рухомого засобу виділяється унікальний системний ідентифікатор MAVLink (2, 3, 4 тощо). Системний ідентифікатор MAVLink 1 пропускається, щоб мати узгодженість у [просторі імен](../ros/ros2_multi_vehicle.md#principle-of-operation). Екземпляри засобів доступні з послідовно виділених віддалених UDP портів PX4: `14541` - `14548` (усі додаткові екземпляри доступні по тому ж самому UDP порту `14549`).
 
-::: info
-The 254-vehicle limitation occurs because mavlink `MAV_SYS_ID` only supports 255 vehicles in the same network (and the first one is skipped). `MAV_SYS_ID` виділяється у SITL rcS: [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS#L131)
+:::info
+Обмеження на 254 засоби з'явилось тому що системний ідентифікатор mavlink `MAV_SYS_ID` підтримує тільки 255 засобів в одній мережі (а перша мережа пропускається). `MAV_SYS_ID` виділяється у SITL rcS: [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS#L131)
 :::
 
 ### Відео: кілька мультикоптерів (Iris)
@@ -49,7 +49,7 @@ The 254-vehicle limitation occurs because mavlink `MAV_SYS_ID` only supports 255
 `Tools/simulation/gazebo-classic/sitl_multiple_run.sh` може бути використано для симуляції кількох засобів, з'єднаних за допомогою XRCE-DDS в Gazebo Classic.
 
 ::: info
-You will need to have installed the XRCE-DDS dependencies. Для додаткової інформації дивіться: [Посібник користувача ROS 2 (Міст PX4-ROS 2)](../ros/ros2_comm.md) для взаємодії з вузлами ROS 2.
+Потрібно буде встановити залежності XRCE-DDS. Для додаткової інформації дивіться: [Посібник користувача ROS 2 (Міст PX4-ROS 2)](../ros/ros2_comm.md) для взаємодії з вузлами ROS 2.
 :::
 
 Для збірки прикладу установки дотримуйтесь наступних кроків:
@@ -70,8 +70,8 @@ You will need to have installed the XRCE-DDS dependencies. Для додатко
    ./Tools/simulation/gazebo-classic/sitl_multiple_run.sh -m iris -n 4
    ```
 
-   ::: info
-Each vehicle instance is allocated a unique MAVLink system id (2, 3, 4, etc.).
+   :::info
+Кожному екземпляру рухомого засобу виділяється унікальний системний ідентифікатор MAVLink (2, 3, 4 тощо).
 Системний ідентифікатор MAVLink 1 пропускається.
 :::
 
@@ -81,7 +81,7 @@ Each vehicle instance is allocated a unique MAVLink system id (2, 3, 4, etc.).
    MicroXRCEAgent udp4 -p 8888
    ```
 
-   ::: info The simulator startup script automatically assigns a [unique namespace](../ros/ros2_multi_vehicle.md) to each vehicle.
+   :::info Скрипт запуску симулятора автоматично призначить [унікальний простір імен](../ros/ros2_multi_vehicle.md) кожному засобу.
 :::
 
 ## Кілька рухомих засобів з MAVROS та Gazebo Classic
@@ -92,7 +92,7 @@ Each vehicle instance is allocated a unique MAVLink system id (2, 3, 4, etc.).
 
 - Поточне [Середовище розробки PX4 ROS/Gazebo](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo)
 
-  ::: info At time of writing this is Ubuntu 18.04 with ROS Melodic/Gazebo 9. Дивіться також [Симуляція Gazebo Classic](../sim_gazebo_classic/README.md).
+  :::info На момент написання це Ubuntu 18.04 з ROS Melodic/Gazebo 9. Дивіться також [Симуляція Gazebo Classic](../sim_gazebo_classic/README.md).
 :::
 
 - [Пакет MAVROS](http://wiki.ros.org/mavros)
@@ -123,7 +123,7 @@ Each vehicle instance is allocated a unique MAVLink system id (2, 3, 4, etc.).
    roslaunch px4 multi_uav_mavros_sitl.launch
    ```
 
-   ::: info You can specify `gui:=false` in the above _roslaunch_ to launch Gazebo Classic without its UI.
+   :::info Можна вказати `gui:=false` в команді _roslaunch_ вище для запуску Gazebo Classic без інтерфейсу.
 :::
 
 Навчальний приклад відкриває клієнтський графічний інтерфейс Gazebo Classic, показуючи два засоби типу Iris у порожньому світі.
@@ -139,7 +139,7 @@ Each vehicle instance is allocated a unique MAVLink system id (2, 3, 4, etc.).
 
 - **Модель Gazebo Classic**: визначена як файл `xacro` у `PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/rotors_description/urdf/<model>_base.xacro` дивіться [тут](https://github.com/PX4/PX4-SITL_gazebo-classic/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf). На цей момент, `xacro` файл моделі передбачається завершувати з **base.xacro**. Ця модель повинна мати аргумент під назвою `mavlink_udp_port` який визначає UDP-порт, на якому Gazebo Classic буде спілкуватися з вузлом PX4. `xacro` файл моделі буде використаний для генерації `urdf` моделі, яка містить UDP-порт, який ви обрали. Для визначення порту UDP, вкажіть `mavlink_udp_port` у файлі запуску для кожного рухомого засобу, як приклад дивіться [тут](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L37).
 
-  ::: info If you are using the same vehicle model, you don't need a separate **`xacro`** file for each vehicle. Той самий **`xacro`** файл підходить.
+  :::info Якщо ви використовуєте одну і ту саму модель засобу, не потрібно відокремлювати **`xacro`** файл для кожного засобу. Той самий **`xacro`** файл підходить.
 :::
 
 - **Вузол PX4**: це застосунок SITL PX4. Він спілкується з симулятором Gazebo Classic через той самий UDP порт, що визначено в моделі засобу Gazebo Classic, тобто у `mavlink_udp_port`. Для налаштування UDP порту на стороні застосунку PX4 SITL, потрібно встановити параметр `SITL_UDP_PRT` у файлі запуску який збігається з `mavlink_udp_port`, що обговорювався раніше, дивіться [тут](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L46). Шлях стартового файлу у файлі запуску генерується на основі аргументів `vehicle` та `ID`, дивіться [тут](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L36). `MAV_SYS_ID` для кожного засобу в стартовому файлі, дивіться [тут](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L4), повинен збігатися з `ID` для цього засобу у файлі запуску [тут](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L25). Це допоможе переконатися, що ви тримаєте налаштування узгоджено між файлом запуску та стартовим файлом.
@@ -193,7 +193,7 @@ Each vehicle instance is allocated a unique MAVLink system id (2, 3, 4, etc.).
       </include>
     ```
 
-  ::: info The complete block for each vehicle is enclosed in a set of `<group>` tags to separate the ROS namespaces of the vehicles.
+  ::: info Повний блок налаштувань для кожного засобу обернений в набір тегів `<group>`  для відокремлення простору імен ROS для рухомих засобів.
 :::
 
 Щоб додати третій засіб типу iris до цієї симуляції потрібно врахувати два основні компоненти:
@@ -211,7 +211,7 @@ Each vehicle instance is allocated a unique MAVLink system id (2, 3, 4, etc.).
   - перші значення порту `mavlink start` та порту `mavlink stream` встановити в такі ж значення, що використовуються для спілкування з QGC
   - другі порти `mavlink start` потрібно узгодити з тими, що використовуються в аргументі `fcu_url` файлу запуску
 
-    ::: info Be aware of which port is `src` and `dst` for the different endpoints.
+    :::info Будьте уважні який порт `src` і `dst` для різних кінцевих точок.
 :::
 
 ## Кілька рухомих засобів з використанням моделей SDF
@@ -246,7 +246,7 @@ Each vehicle instance is allocated a unique MAVLink system id (2, 3, 4, etc.).
      $(find px4)/Tools/simulation/gazebo/sitl_gazebo-classic/models/$(arg vehicle)/$(arg vehicle).sdf
      ```
 
-     ::: info Ensure you set the `vehicle` argument even if you hardcode the path to your model.
+     :::info Переконайтесь, що вказали аргумент `vehicle` навіть якщо ви явно закодували шлях до вашої моделі.
 :::
 
    - скопіювати свою модель в директорію, позначену вище (дотримуючись тих же правил шляху).

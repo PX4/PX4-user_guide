@@ -13,6 +13,7 @@ git clone --recursive https://github.com/google/bloaty.git /tmp/bloaty \
     && cd /tmp/bloaty && cmake -GNinja . && ninja bloaty && cp bloaty /usr/local/bin/ \
     && rm -rf /tmp/* && ninja bloaty && cp bloaty /usr/local/bin/ \
     && rm -rf /tmp/* && ninja bloaty && cp bloaty /usr/local/bin/ \
+    && rm -rf /tmp/* && ninja bloaty && cp bloaty /usr/local/bin/ \
     && rm -rf /tmp/*
 ```
 

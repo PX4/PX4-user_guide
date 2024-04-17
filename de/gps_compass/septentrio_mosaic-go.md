@@ -85,7 +85,7 @@ _Connector type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR
 
 ![Wiring diagram, Pixhawk 4 - mosaic-go](../../assets/hardware/gps/septentrio_sbf/mosaic-go_wiring.png "Wiring diagram, Pixhawk 4 - mosaic-go")
 
-1. Make sure the receiver is powered with at least 3.3V. Make sure the receiver is powered with at least 3.3V. You can use the micro USB connector or the 6-pin connector.
+1. Make sure the receiver is powered with at least 3.3V. Make sure the receiver is powered with at least 3.3V. You can use the micro USB connector or the 6-pin connector. Make sure the receiver is powered with at least 3.3V. You can use the micro USB connector or the 6-pin connector.
 2. Connect one or two GNSS antennas to the RF-IN ports on the mosaic-go.
 3. Connect the 6-pin connector (COM1) to the Pixhawk's `GPS MODULE` port. This will provide power to the mosaic-go and with this single connection it will be able to send single and dual antenna information to the Pixhawk 4.
 4. In the web interface or with Rx Tools, set the receiver's baud rate to 115200 **Admin > Expert Control > Control Panel > Communication > COM Port Settings** (this is the default value).

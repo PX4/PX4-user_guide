@@ -6,7 +6,8 @@ The protocol was developed by [Team BlackSheep](https://www.team-blacksheep.com/
 
 The [supported telemetry messages are listed here](#telemetry-messages), and include: flight mode, battery level, GPS data RC signal strength, speed, altitude, and so on.
 
-Crossfire radio systems can also be used as [Telemetry Radios](../telemetry/index.md). :::note  
+:::note
+If you don't need telemetry you can connect a TBS Crossfire to the `RCIN` port and configure the receiver to use S.BUS. :::note  
 If you don't need telemetry you can connect a TBS Crossfire to the `RCIN` port and configure the receiver to use S.BUS.
 :::
 
@@ -18,7 +19,8 @@ PX4 does not include the CRSF protocol support by default. The [instructions bel
 
 To use CRSF telemetry you will need a [TBS Crossfire radio system](#tbs-radio-systems) or [ExpressLRS radio system](#expresslrs-radio-systems) that includes an [RC controller](#rc-controllers) with a transmitter, and a receiver (from the same vendor).
 
-Even though many radio systems are now bidirectional, the ground module may still be referred to as the transmitter, and the air unit may be called a receiver. :::note  
+:::note
+An RC radio system historically consisted of a ground-based controller that transmitted to an on-vehicle receiver. :::note  
 An RC radio system historically consisted of a ground-based controller that transmitted to an on-vehicle receiver.
 :::
 
@@ -161,7 +163,8 @@ Receivers:
 
 - [ExpressLRS Matek Diversity RX](http://www.mateksys.com/?portfolio=elrs-r24).
 
-  See sections [ELRS Rx](../frames_plane/reptile_dragon_2.md#elrs-rx) and [Radio Setup](../frames_plane/reptile_dragon_2.md#radio-setup). :::note  
+  :::note
+  This is used in the [Reptile Dragon 2 Build Log](../frames_plane/reptile_dragon_2.md). :::note  
   This is used in the [Reptile Dragon 2 Build Log](../frames_plane/reptile_dragon_2.md).
 :::
 

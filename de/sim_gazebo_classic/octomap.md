@@ -33,7 +33,8 @@ Open `~/catkin_ws/src/rotors_simulator/rotors_gazebo/package.xml` and add the fo
 
 Run the following two lines:
 
-This is recommended for users who have little experience with _vim_ (the default editor), but can otherwise be omitted. :::note  
+:::note
+The first line changes your default shell editor to _gedit_. :::note  
 The first line changes your default shell editor to _gedit_.
 :::
 
@@ -48,12 +49,18 @@ and change the two following lines:
 <param name="frame_id" type="string" value="map" />
 ...
 <!--remap from="cloud_in" to="/rgbdslam/batch_clouds" /-->
+<param name="frame_id" type="string" value="map" />
+...
+<!--remap from="cloud_in" to="/rgbdslam/batch_clouds" /-->
 <!--remap from="cloud_in" to="/rgbdslam/batch_clouds" /-->
 ```
 
 to:
 
 ```xml
+<param name="frame_id" type="string" value="world" />
+...
+<remap from="cloud_in" to="/firefly/vi_sensor/camera_depth/depth/points" />
 <param name="frame_id" type="string" value="world" />
 ...
 <remap from="cloud_in" to="/firefly/vi_sensor/camera_depth/depth/points" />

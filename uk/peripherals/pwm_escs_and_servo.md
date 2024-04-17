@@ -1,114 +1,114 @@
-# PWM Servos and ESCs (Motor Controllers)
+# PWM Сервоприводи та Регулятори Швидкості (Контролери Двигуна)
 
-This section describes how to connect and power PWM-based brushless motor controllers and servos.
+У цьому розділі описано, як підключати та живити контролери безщіткових моторів та сервоприводи на основі ШІМ.
 
-## ESC Connection Overview
+## Огляд підключення ESC
 
-Each PWM Electronic Speed Controller (ESC) minimally has the following wires:
+Кожен електронний контролер швидкості (ESC) з широтно-імпульсною модуляцією (PWM) має як мінімум наступні проводи:
 
-- Power VBAT (usually thick and red)
-- Power GND (usually thick and black)
+- Живлення VBAT (зазвичай товстий і червоний)
+- Живлення GND (зазвичай товстий і чорний)
 
-And on the servo plug:
+І на штекері серводвигуна:
 
-- PWM signal (usually white or yellow)
-- GND (usually black or brown)
+- Сигнал ШІМ (зазвичай білий або жовтий)
+- GND (зазвичай чорний або коричневий)
 
-The servo plug _may_ also have a +5V wire (usually red or orange). The purpose of this wire and how it is connected depends on particular ESC and vehicle type.
-
-:::tip
-In some cases (see below)the +5V line is not needed.
-Instead of cutting the +5V line you can gently lift of the locking tab of the plastic housing of the servo connector for that pin (e.g. using a cutter blade or small screw driver) and pull the pin out.
-Isolate it with electrical isolation tape and tape it to the servo cable.
-This allows you to easily undo the wire later if needed
-:::
-
-## Power Connections
-
-Always connect Power VBAT and GND to the battery, and the PWM signal and GND from the servo plug to the motor.
+Роз'єм серводвигуна _може_ також мати провід +5V (зазвичай червоний або помаранчевий). Мета цього дроту та його з'єднання залежить від конкретного ESC та типу транспортного засобу.
 
 :::tip
-There is **no setup** that does not require signal ground to be connected!
+У деяких випадках (див. нижче) лінія +5V не потрібна.
+Замість того, щоб відрізати лінію +5V, ви можете обережно підняти фіксуючу вкладку пластикового корпусу роз'єму серводвигуна для цього контакту (наприклад, використовуючи лезо кабельного ножа або маленький викрутку) і витягнути контакт.
+Відокремте його за допомогою ізоляційної електричної стрічки та заклейте його до кабелю сервоприводу.
+Це дозволяє вам легко скасувати дріт пізніше, якщо потрібно
 :::
 
-The connection to the +5V wire (if present) depends on the ESC/Vehicle.
+## Підключення живлення
 
-### Fixed-wing / VTOL
+Завжди підключайте живлення VBAT та GND до батареї, а сигнал PWM та GND від роз'єму сервоприводу до двигуна.
 
-On a fixed-wing (or VTOL) ESC, the +5V line usually provides the output of a Battery Elimination Circuit (BEC).:
-
-- This can be connected to the Pixhawk servo rail and used to power servos for flaps, ailerons etc.
-
-  ::: info It is unsafe to power servos or ESCs from the autopilot's avionics power supply. This is why **Pixhawk series** flight controllers do not provide power for the servo rail (the AUX servo rail is unpowered and is limited to 1A).
+:::tip
+Існує **жодного налаштування**, яке не потребує підключення сигнальної землі!
 :::
 
-- As a rule of thumb you should only connect the _output of only one BEC_ to the Pixhawk servo rail. (while it may be possible to connect multiple +5V outputs to the rail, this depends on the ESC model).
+Підключення до проводу +5V (якщо він є) залежить від ESC/Транспортного засобу.
 
-### Multicopter
+### Фікосовані крила (літаки) / VTOL
 
-On a multicopter, the +5V line might not be present or (if present) may not be connected.
+На фіксованому крилі (або VTOL) ESC, лінія +5V зазвичай надає вихід Батарейної Елімінаційної Схеми (BEC).
 
-- Multicopters often do not need servos, and hence do not need to power the Pixhawk servo rail (motors are usually separately powered from a power distribution board).
-- There is no harm (or benefit) in connecting the wire to the servo rail.
-- DJI ESCs typically include this wire, but it is not connected.
+- Це може бути підключено до шини сервоприводу Pixhawk та використовуватися для живлення сервоприводів для закрилок, елеронів тощо.
 
-### Opto-isolated ESC
+  ::: info Небезпечно живити сервоприводи або ESC від джерела живлення авіоніки автопілота. Ось чому пульт керування серії **Pixhawk** не надає живлення для рейки сервоприводу (рейка додаткового сервоприводу не живлена і обмежена до 1A).
+:::
 
-On an opto-isolated ESC **without** BEC, the +5V line might need to be connected and powered (in order to provide power to the ESC microcontroller). In this case the wire will normally be connected to the flight controller servo rail, and the servo rail must be powered from an additional BEC.
+- Зазвичай вам слід підключати лише _вихід лише одного BEC_ до шини сервоприводів Pixhawk. (хоча можливо підключити кілька виходів +5V до рейки, це залежить від моделі ESC).
 
-## PX4 Configuration
+### Мультикоптер
 
-PWM motors and servos are configured using the [Actuator Configuration](../config/actuators.md) screen in QGroundControl.
+На багатороторному вертольоті, лінія +5V може бути відсутня або (якщо присутня) може бути не підключена.
 
-After assigning outputs and basic calibration, you may then wish to peform an [ESC Calibration](../advanced_config/esc_calibration.md).
+- Багатороторні літальні апарати часто не потребують сервоприводів, тому не потрібно живити рейку сервоприводу Pixhawk (двигуни зазвичай окремо живляться від розподільної плати живлення).
+- Немає шкоди (або користі) в підключенні дроту до рейки сервопривода.
+- Регулятори швидкості DJI зазвичай включають цей дріт, але він не підключений.
 
-Additional PX4 PWM configuration parameters can be found here: [PWM Outputs](../advanced_config/parameter_reference.md#pwm-outputs).
+### Оптоізольований ESC
 
-## Troubleshooting
+На ізольованому опто ESC **без** BEC, лінія +5V може потребувати підключення та живлення (для забезпечення живлення мікроконтролеру ESC). У цьому випадку дріт зазвичай буде підключений до рейки серводвигуна контролера польоту, а рейку серводвигуна слід живити від додаткового BEC.
 
-Pixhawk is compatible with all _PWM ESCs_ on the market. If a particular ESC is not operational, it is incorrectly wired up or configured.
+## Конфігурація PX4
 
-### Ground Connection
+Двигуни з ШІМ та сервоприводи налаштовуються за допомогою екрану [Конфігурація приводів](../config/actuators.md) в QGroundControl.
 
-Check that the ground (black wire) of the ESC servo connector is connected to Pixhawk (there is no valid wiring setup that does not have a ground reference).
+Після призначення виводів та базової калібрування ви можете бажати виконати [калібрування ESC](../advanced_config/esc_calibration.md).
+
+Додаткові параметри конфігурації PWM PX4 можна знайти тут: [Вихідні сигнали PWM](../advanced_config/parameter_reference.md#pwm-outputs).
+
+## Усунення проблем
+
+Pixhawk сумісний з усіма _PWM ESCs_ на ринку. Якщо певний ESC не працює, це означає, що він неправильно підключений або налаштований.
+
+### Контакт із землею
+
+Перевірте, що земля (чорний дріт) роз'єму ESC сервоприводу підключена до Pixhawk (не існує дійсної схеми підключення, яка не має посилання на землю).
 
 :::warning
-It is unsafe to fly without ground connected. This is because for every positive pulse (the ESC signal) there needs to be an adjacent ground return path for a clean signal shape.
+Небезпечно літати без заземлення. Це тому, що для кожного позитивного імпульсу (сигнал ESC) повинен бути сусідній шлях повернення на землю для чистої форми сигналу.
 
-The image below shows how noisy the signal becomes if GND is not connected.
+На зображенні нижче показано, наскільки шумним стає сигнал, якщо не підключено GND.
 
 ![PWM without ground](../../assets/hardware/pwm_esc/pwm_without_gnd.png)
 :::
 
-### Power Connection / Opto-isolated ESCs
+### Підключення живлення / Оптозагороджені ESC
 
-If using an opto-isolated ESC that does not provide a BEC / power output, please ensure that the ESC does not need its +5V line powered for the opto-isolator.
+Якщо використовується оптоізольований ESC, який не надає BEC / вихідне напруга, будь ласка, переконайтеся, що ESC не потребує живлення для свого +5V лінії для оптоізолятора.
 
-See the first section of this page explains for other power connection considerations.
+Дивіться перший розділ цієї сторінки пояснює інші важливі моменти щодо підключення живлення.
 
-### Invalid Minimum Value
+### Недійсне Мінімальне Значення
 
-Some ESCs need to see a special low value pulse before switching on (to protect users who have the throttle stick in the middle position on power-up).
+Деякі ESC потребують побачити спеціальний низький імпульс перед увімкненням (щоб захистити користувачів, які мають палицю газу в середньому положенні при ввімкненні живлення).
 
-PX4 sends a pulse when the vehicle is disarmed, which silences the ESCs when they are disarmed and ensures that ESCs initialise correctly. Appropriate values are determined and set as part of the [actuator configuration/testing](../config/actuators.md#actuator-testing) process (internally these set the per-output parameters [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) and [PWM_AUX_DISn](../advanced_config/parameter_reference.md#PWM_AUX_DIS1)).
+PX4 відсилає імпульс, коли транспортний засіб роззброєний, що приглушує ЕСК при їх роззброєнні та забезпечує правильну ініціалізацію ЕСК. Відповідні значення визначаються та встановлюються як частина процесу [налаштування/тестування приводів](../config/actuators.md#actuator-testing) (внутрішньо ці значення встановлюють параметри для кожного виходу [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) та [PWM_AUX_DISn](../advanced_config/parameter_reference.md#PWM_AUX_DIS1)).
 
-### Timeout
+### Час очікування
 
-Some ESCs may time out (preventing motor activation) if they have not received a valid low pulse within a few seconds of power on.
+Деякі ШСП можуть вийти з ладу (запобігаючи активацію двигуна), якщо вони не отримали дійсний низький імпульс протягом кількох секунд після ввімкнення живлення.
 
-PX4 sends an idle/disarmed pulse right after power on to stop ESCs timing out. Appropriate values are determined and set as part of the [actuator configuration/testing](../config/actuators.md#actuator-testing) process (internally these set the per-output parameters [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) and [PWM_AUX_DISn](../advanced_config/parameter_reference.md#PWM_AUX_DIS1)).
+PX4 відправляє пульс на холостому ході/роззброєному стані одразу після увімкнення живлення, щоб зупинити вийшовший з ладу таймери ESC. Відповідні значення визначаються та встановлюються як частина процесу [налаштування/тестування приводів](../config/actuators.md#actuator-testing) (внутрішньо ці значення встановлюють параметри для кожного виходу [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) та [PWM_AUX_DISn](../advanced_config/parameter_reference.md#PWM_AUX_DIS1)).
 
-### Valid Pulse Shape, Voltage and Update Rate
+### Дійсна форма імпульсу, напруга та швидкість оновлення
 
-::: info
-This should not be a problem, but is included for completeness
+:::info
+Не повинна бути проблемою, але включена для заповнення
 :::
 
-Pixhawk uses active high pulses, as used by all the major brands (Futaba, Spektrum, FrSky).
+Pixhawk використовує активні високі імпульси, які використовуються всіма провідними брендами (Futaba, Spektrum, FrSky).
 
-PWM interfaces are not formally standardised, however, the normal micro controllers all use TTL or CMOS voltage levels. TTL is defined as low < 0.8V and high > 2.0V with some manufacturers using > 2.4V for additional noise margin. CMOS logic is defined with similar voltage levels. 5V levels are **never** required to successfully switch to an _on_ state.
+Інтерфейси ШІМ не мають формальних стандартів, однак звичайні мікроконтролери використовують напругові рівні TTL або CMOS. TTL визначається як низький < 0,8 В та високий > 2,0 В з використанням деяких виробників > 2,4 В для додаткового маржі шуму. Логіка CMOS визначається з подібними рівнями напруги. 5V рівні **ніколи** не потрібні для успішного переходу в _увімкнений_ стан.
 
 :::tip
-Futaba, FrSky and Spektrum receivers output 3.3V or 3.0V voltage levels, as they are well above 2.4V.
-Pixhawk has adopted this common industry pattern and outputs 3.3V levels on recent boards.
+Futaba, FrSky та Spektrum приймачі видають напругу на рівні 3,3 В або 3,0 В, оскільки вони значно вище 2,4 В.
+Pixhawk прийняв цей загальний шаблон промисловості та виводить рівні 3.3V на останніх платах.
 :::

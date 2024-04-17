@@ -1,125 +1,125 @@
-# Serial Port Configuration
+# Налаштування послідовного порту
 
-PX4 defines [default functions](#default-serial-port-configuration) for many flight controller ports, which is why you can plug a GPS module into the port labelled `GPS 1`, an RC receiver into `RC IN`, or a telemetry module into `TELEM 1`, and generally they will just work.
+PX4 визначає [типові функції](#default-serial-port-configuration) для багатьох портів керування польотом, тому ви можете підключити модуль GPS до порту з позначкою `GPS 1`, приймач RC до `RC IN`, або модуль телеметрії до `TELEM 1`, і, в цілому, вони просто працюватимуть.
 
-The functions assigned to ports are fully configurable using appropriate parameters (in most cases). You can assign any unused port to any function, or reassign a port to use it for something else.
+Функції, призначені для портів, повністю конфігуруються за допомогою відповідних параметрів (у більшості випадків). Ви можете призначити будь-який не використаний порт для будь-якої функції або перепризначити порт, щоб використовувати його для іншої цілі.
 
-The configuration makes it easy to (for example):
+Конфігурація дозволяє легко (наприклад):
 
-- Run MAVLink on a different port, change the streamed messages, or switch a TELEM port to use ROS 2/XRCE-DDS.
-- Change the baud rate on a port or set the UDP port
-- Setup dual GPS.
-- Enable sensors that run on a serial port, such as some [distance sensors](../sensor/rangefinders.md).
+- Виконайте MAVLink на іншому порту, змініть потокові повідомлення або перемкніть порт TELEM на використання ROS 2/XRCE-DDS.
+- Змініть швидкість передачі даних на порту або встановіть UDP-порт
+- Налаштування подвійного GPS.
+- Увімкніть датчики, які працюють через послідовний порт, такі як деякі [датчики відстані](../sensor/rangefinders.md).
 
-::: info
+:::info
 
-- Some ports cannot be configured because they are used for a very specific purpose such as the system console.
-- The mapping of specific devices to port names on the flight controller is explained in [Serial Port Mapping](../hardware/serial_port_mapping.md).
+- Деякі порти не можуть бути налаштовані, оскільки вони використовуються для дуже конкретної цілі, наприклад, для системної консолі.
+- Відображення конкретних пристроїв на назви портів на контролері польоту пояснено в [Відображення послідовного порту](../hardware/serial_port_mapping.md).
 :::
 
-## Configuration Parameters
+## Налаштування параметрів
 
-The serial port configuration parameters allow you to assign a particular function or support for particular hardware to a particular port. These parameters follow the naming pattern `*_CONFIG` or `*_CFG`
+Параметри конфігурації послідовного порту дозволяють вам призначити певну функцію або підтримку певного обладнання для конкретного порту. Ці параметри слідують за шаблоном найменування `*_CONFIG` або `*_CFG`
 
-::: info _QGroundControl_ only displays the parameters for services/drivers that are present in firmware.
+::: info _QGroundControl_ показує лише параметри для служб/драйверів, які присутні в прошивці.
 :::
 
-At time of writing the current set is:
+На момент написання поточний набір:
 
-- GPS configuration: [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)
-- [Iridium Satellite radio](../advanced_features/satcom_roadblock.md): [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG)
-- [MAVLink Ports](../peripherals/mavlink_peripherals.md): [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG), [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG)
+- Налаштування GPS: [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)
+- [Iridium Satellite radio](../advanced_features/satcom_roadblock.md): [Конфігурація ISBD](../advanced_config/parameter_reference.md#ISBD_CONFIG)
+- [Порти MAVLink](../peripherals/mavlink_peripherals.md): [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG), [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG)
 - VOXL ESC: [VOXL_ESC_CONFIG](../advanced_config/parameter_reference.md#VOXL_ESC_CONFIG)
 - MSP OSD: [MSP_OSD_CONFIG](../advanced_config/parameter_reference.md#MSP_OSD_CONFIG)
-- RC Port: [RC_PORT_CONFIG](../advanced_config/parameter_reference.md#RC_PORT_CONFIG)
-- [FrSky Telemetry](../peripherals/frsky_telemetry.md): [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG)
-- HoTT Telemetry: [TEL_HOTT_CONFIG](../advanced_config/parameter_reference.md#TEL_HOTT_CONFIG)
-- [uXRCE-DDS](../middleware/uxrce_dds.md) port: [UXRCE_DDS_CFG](../advanced_config/parameter_reference.md#UXRCE_DDS_CFG),
-- Sensors (optical flow, distance sensors): [SENS_CM8JL65_CFG](../advanced_config/parameter_reference.md#SENS_CM8JL65_CFG), [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG), [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG), [SENS_TFLOW_CFG](../advanced_config/parameter_reference.md#SENS_TFLOW_CFG), [SENS_TFMINI_CFG](../advanced_config/parameter_reference.md#SENS_TFMINI_CFG), [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG), [SENS_VN_CFG](../advanced_config/parameter_reference.md#SENS_VN_CFG),
-- CRSF RC Input Driver: [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG)
+- Порт RC: [RC_PORT_CONFIG](../advanced_config/parameter_reference.md#RC_PORT_CONFIG)
+- [FrSky Телеметрія](../peripherals/frsky_telemetry.md): [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG)
+- HoTT Телеметрія: [TEL_HOTT_CONFIG](../advanced_config/parameter_reference.md#TEL_HOTT_CONFIG)
+- [uXRCE-DDS](../middleware/uxrce_dds.md) порт: [UXRCE_DS_CFG](../advanced_config/parameter_reference.md#UXRCE_DDS_CFG)
+- Датчики (оптичний потік, датчики відстані): [SENS_CM8JL65_CFG](../advanced_config/parameter_reference.md#SENS_CM8JL65_CFG), [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG), [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG), [SENS_TFLOW_CFG](../advanced_config/parameter_reference.md#SENS_TFLOW_CFG), [SENS_TFMINI_CFG](../advanced_config/parameter_reference.md#SENS_TFMINI_CFG), [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG), [SENS_VN_CFG](../advanced_config/parameter_reference.md#SENS_VN_CFG),
+- Водій введення CRSF RC: [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG)
 - Sagetech MXS: [MXS_SER_CFG](../advanced_config/parameter_reference.md#MXS_SER_CFG)
-- Ultrawideband position sensor: [UWB_PORT_CFG](../advanced_config/parameter_reference.md#UWB_PORT_CFG)
-- DShot driver: [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG)
+- Датчик позиції з ультраширокосмуговим зв'язком: [UWB_PORT_CFG](../advanced_config/parameter_reference.md#UWB_PORT_CFG)
+- Драйвер DShot: [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG)
 
-Some functions/features may define additional configuration parameters, which will follow a similar naming pattern to the port configuration prefix. For example, `MAV_0_CONFIG` enables MAVLink on a particular port, but you may also need to set [MAV_0_FLOW_CTRL](../advanced_config/parameter_reference.md#MAV_0_FLOW_CTRL), [MAV_0_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FLOW_CTRL), [MAV_0_MODE](../advanced_config/parameter_reference.md#MAV_0_MODE) and so on.
+Деякі функції / можливості можуть визначати додаткові параметри конфігурації, які будуть містити схожий шаблон іменування до префіксу конфігурації порту. Наприклад, `MAV_0_CONFIG` дозволяє використовувати MAVLink на певному порту, але вам також може знадобитися встановити [MAV_0_FLOW_CTRL](../advanced_config/parameter_reference.md#MAV_0_FLOW_CTRL), [MAV_0_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FLOW_CTRL), [MAV_0_MODE](../advanced_config/parameter_reference.md#MAV_0_MODE) та інше.
 
-## How to Configure a Port
+## Як налаштувати порт
 
-All the serial drivers/ports are configured in the same way:
+Всі послідовні драйвери/порти налаштовані однаковим чином:
 
-1. Set the configuration parameter for the service/peripheral to the port it will use.
-1. Reboot the vehicle in order to make the additional configuration parameters visible.
-1. Set the baud rate parameter for the selected port to the desired value.
-1. Configure module-specific parameters (i.e. MAVLink streams and data rate configuration).
+1. Встановіть параметр конфігурації для сервісу/периферійного пристрою на порт, який він буде використовувати.
+1. Перезавантажте апарат, щоб побачити додаткові параметри конфігурації.
+1. Встановіть параметр швидкості передачі даних для вибраного порту на потрібне значення.
+1. Налаштуйте параметри, специфічні для модуля (тобто. Потоки та конфігурація швидкості передачі даних MAVLink).
 
-The [GPS/Compass > Secondary GPS](../gps_compass/index.md#dual_gps) section provides a practical example of how to configure a port in _QGroundControl_ (it shows how to use `GPS_2_CONFIG` to run a secondary GPS on the `TELEM 2` port).
+[GPS/Compass > Secondary GPS](../gps_compass/index.md#dual_gps) розділ надається практичний приклад налаштування порту _QGroundControl_ (показує як використовувати `GPS_2_CONFIG` щоб запускати додатковий GPS на `TELEM 2`).
 
-Similarly [PX4 Ethernet Setup > PX4 MAVLink Serial Port Configuration](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration) explains the setup for Ethernet serial ports, and [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md) explains the configuration for MAVLink serial ports.
+Аналогічно [Налаштування Ethernet PX4 > Конфігурація послідовного порту PX4 MAVLink](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration) пояснює налаштування послідовних портів Ethernet, а [Периферійні пристрої MAVLink (OSD/GCS/Супутникові комп'ютери тощо)](../peripherals/mavlink_peripherals.md) пояснює конфігурацію послідовних портів MAVLink.
 
-## Deconflicting Ports
+## Розконфліктовування портів
 
-Port conflicts are handled by system startup, which ensures that at most one service is run on a specific port. For example, it is not possible to start a MAVLink instance on a specific serial device, and then launch a driver that uses the same serial device.
+Конфлікти портів вирішуються під час запуску системи, що забезпечує, що на конкретному порту запускається не більше однієї служби. Наприклад, неможливо запустити екземпляр MAVLink на конкретному послідовному пристрої, а потім запустити драйвер, який використовує той самий послідовний пристрій.
 
 :::warning
-At time of writing there is no user feedback about conflicting ports.
+На момент написання немає відгуків користувачів про конфліктуючі порти.
 :::
 
 <a id="default_port_mapping"></a>
 
-## Default Serial Port Configuration
+## Налаштування послідовного порту за замовчуванням
 
 :::tip
-These port mappings can be disabled by setting the associated configuration parameter to _Disabled_.
+Ці зображення портів можуть бути вимкнені, встановивши пов'язаний параметр конфігурації на _Вимкнено_.
 :::
 
-The following ports are commonly mapped to specific functions on all boards:
+Наступні порти зазвичай відображаються на конкретні функції на всіх платах:
 
-- `GPS 1` is configured as a GPS port (using [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)).
+- `GPS 1` налаштований як порт GPS (використовуючи [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)).
 
-  This maps the [gps driver](../modules/modules_driver.md#gps) to the port with a baud rate of _Auto_ (with this setting a GPS will automatically detect the baudrate - except for the Trimble MB-Two, which requires 115200 baud rate).
+  Це відображає [gps driver](../modules/modules_driver.md#gps) на порт з швидкістю передачі даних _Auto_ (з цим налаштуванням GPS автоматично визначатиме швидкість передачі даних - за винятком Trimble MB-Two, який вимагає швидкість передачі 115200 біт/с).
 
-- `RC IN` is configured as an RC input (using [RC_PORT_CONFIG](../advanced_config/parameter_reference.md#RC_PORT_CONFIG)).
-- `TELEM 1` is configured as a MAVLink serial port suitable for connection to a GCS via a [telemetry module](../telemetry/index.md).
+- `RC IN` налаштовано як вхід RC (використовуючи [RC_PORT_CONFIG](../advanced_config/parameter_reference.md#RC_PORT_CONFIG)).
+- `TELEM 1` налаштований як послідовний порт MAVLink, придатний для підключення до GCS через [модуль телеметрії](../telemetry/index.md).
 
-  The configuration uses [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) to set the port, [MAV_0_RATE](../advanced_config/parameter_reference.md#MAV_0_RATE) to set the baud rate to 57600, and [MAV_0_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) to set the messages streamed to "Normal". For more information see: [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md).
+  Конфігурація використовує [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) для встановлення порту, [MAV_0_RATE](../advanced_config/parameter_reference.md#MAV_0_RATE) для встановлення швидкості передачі даних на 57600 та [MAV_0_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) для встановлення потокових повідомлень на "Normal". Для отримання додаткової інформації див. : [MAVLink Периферійні пристрої (OSD/GCS/Компаньйон Комп'ютери/тощо)](../peripherals/mavlink_peripherals.md).
 
-- `TELEM 2` is configured by default as a MAVLink serial port suitable for connection to an Onboard/Companion computer via a wired connection.
+- `TELEM 2` налаштований за замовчуванням як послідовний порт MAVLink, придатний для підключення до комп'ютера на борту/другорядного комп'ютера через провідне підключення.
 
-  The configuration uses [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) to set the port, [MAV_1_RATE](../advanced_config/parameter_reference.md#MAV_1_RATE) to set the baud rate, and [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) to set the messages streamed to "Onboard". For more information see: [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md).
+  Конфігурація використовує [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) для встановлення порту, [MAV_1_RATE](../advanced_config/parameter_reference.md#MAV_1_RATE) для встановлення швидкості передачі даних на , та [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) для встановлення потокових повідомлень на "Onboard". Для отримання додаткової інформації див.: [MAVLink Периферійні пристрої (OSD/GCS/Компаньйон Комп'ютери/тощо)](../peripherals/mavlink_peripherals.md).
 
-- `Ethernet` is mapped as a MAVLink port on Pixhawk devices that have an Ethernet port.
+- `Етернет` відображається як порт MAVLink на пристроях Pixhawk, які мають порт Ethernet.
 
-  The configuration uses [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) and appropriate settings for the UDP port etc. For more information see [PX4 Ethernet Setup > PX4 MAVLink Serial Port Configuration](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration) and [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md).
+  Конфігурація використовує [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) та відповідні налаштування для UDP-порту тощо. Для отримання додаткової інформації див. [Налаштування Ethernet PX4 > Конфігурація послідовного порту PX4 MAVLink](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration) та [Периферійні пристрої MAVLink (OSD/GCS/Компаньйони тощо)](../peripherals/mavlink_peripherals.md).
 
-Other ports generally have no assigned functions by default (are disabled).
+Інші порти, як правило, за замовчуванням не мають призначених функцій (вимкнені).
 
-## Troubleshooting
+## Вирішення проблем
 
 <a id="parameter_not_in_firmware"></a>
 
-### Configuration Parameter Missing from _QGroundControl_
+### Відсутній параметр конфігурації в _QGroundControl_
 
-_QGroundControl_ only displays the parameters for services/drivers that are present in firmware. If a parameter is missing, then you may need to add it in firmware.
+_QGroundControl_ показує лише параметри для служб/драйверів, які присутні в прошивці. Якщо параметр відсутній, то можливо вам потрібно додати його в прошивку.
 
-::: info PX4 firmware includes most drivers by default on [Pixhawk-series](../flight_controller/pixhawk_series.md) boards. Flash-limited boards may comment out/omit the driver (at time of writing this only affects boards based on FMUv2).
+:::info Програмне забезпечення PX4 включає більшість драйверів за замовчуванням на платах серії [Pixhawk-series](../flight_controller/pixhawk_series.md). Дошки з обмеженням Flash можуть закоментувати/пропустити драйвер (на момент написання цього це стосується лише дошок на основі FMUv2).
 :::
 
-You can include the missing driver in firmware by enabling the driver in the **default.px4board** config file that corresponds to the [board](https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4) you want to build for. For example, to enable the SRF02 driver, you would a the following line to the px4board.
+Ви можете включити відсутній драйвер у вбудоване програмне забезпечення, увімкнувши драйвер у файлі конфігурації **default.px4board**, який відповідає до [платі](https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4), для якої ви хочете зібрати. Наприклад, щоб увімкнути драйвер SRF02, ви додасте наступний рядок до px4board.
 
 ```
 CONFIG_DRIVERS_DISTANCE_SENSOR_SRF02=y
 ```
 
-An easier method would be using boardconfig which launches a GUI where you can easily search, disable and enable modules. To launch boardconfig type:
+Простіший метод полягає в використанні boardconfig, який запускає GUI, де ви можете легко шукати, вимикаючи та увімкнюючи модулі. Для запуску типу boardconfig введіть:
 
 ```
 make <vendor>_<board>_<label> boardconfig
 ```
 
-You will then need to build the firmware for your platform, as described in [Building PX4 Software](../dev_setup/building_px4.md).
+Потім вам потрібно буде скомпілювати прошивку для вашої платформи, як описано в [Building PX4 Software](../dev_setup/building_px4.md).
 
-## Further Information
+## Подальша інформація
 
-- [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md)
-- [PX4 Ethernet Setup > PX4 MAVLink Serial Port Configuration](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration)
-- [Serial Port Mapping](../hardware/serial_port_mapping.md)
+- [Пристрої MAVLink (OSD/GCS/Супутникові комп'ютери/тощо.)](../peripherals/mavlink_peripherals.md)
+- [Налаштування Ethernet PX4  >  Конфігурація послідовного порту PX4 MAVLink](../advanced_config/ethernet_setup.md#px4-mavlink-serial-port-configuration)
+- [Налаштування послідовного порту](../hardware/serial_port_mapping.md)

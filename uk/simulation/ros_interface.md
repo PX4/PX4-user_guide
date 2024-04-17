@@ -6,17 +6,17 @@
 
 ![Огляд PX4 SITL](../../assets/simulation/px4_sitl_overview.png)
 
-::: info The only _slight_ difference to "normal behaviour" is that ROS initiates the connection on port 14557, while it is more typical for an offboard API to listen for connections on UDP port 14540.
+:::info Єдина _незначна_ різниця від "нормальної поведінки" полягає в тому, що ROS ініціює з'єднання на порту 14557, тоді як для зовнішнього API більш типово - це прослуховувати з'єднання на UDP порту 14540.
 :::
 
 ## Встановлення ROS та Gazebo Classic
 
-::: info _ROS_ is only supported on Linux (not macOS or Windows).
+:::info _ROS_ підтримується тільки на Linux (не macOS або Windows).
 :::
 
 Найпростіший спосіб налаштувати симуляцію PX4 з ROS на Ubuntu Linux це використати стандартний скрипт установки який можна знайти у [Середовище розробки на Linux > Gazebo з ROS](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo). Скрипт встановлює все, що вам потрібно: PX4, ROS "Melodic", симулятор Gazebo Classic 9, та [MAVROS](../ros/mavros_installation.md).
 
-::: info The script follows the [standard ROS "Melodic" installation instructions](http://wiki.ros.org/melodic/Installation/Ubuntu), which includes Gazebo 9.
+:::info Скрипт дотримується [стандартних інструкцій з встановлення ROS "Melodic" ](http://wiki.ros.org/melodic/Installation/Ubuntu), які включають Gazebo 9.
 :::
 
 ## Запуск ROS/симуляції
@@ -33,7 +33,7 @@ roslaunch mavros px4.launch fcu_url:="udp://:14540@192.168.1.36:14557"
 roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
 
-::: info It can be useful to call _roslaunch_ with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. Наприклад:
+:::info Може бути корисно викликати _roslaunch_ з `-w NUM_WORKERS` (перевизначити кількість робочих потоків) та/або `-v` (verbose, або розлогий вивід), щоб отримати попередження про відсутні залежності у вашій установці. Наприклад:
 
 ```sh
 roslaunch -w 2 -v mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"

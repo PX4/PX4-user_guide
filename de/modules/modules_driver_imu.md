@@ -267,6 +267,7 @@ Source: [drivers/imu/nxp/fxas21002c](https://github.com/PX4/PX4-Autopilot/tree/m
 ```
 fxas21002c <command> [arguments...]
  fxas21002c <command> [arguments...]
+ fxas21002c <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -484,6 +485,21 @@ Source: [drivers/imu/invensense/icm20948](https://github.com/PX4/PX4-Autopilot/t
 ### Usage
 ```
 icm20948_i2c_passthrough <command> [arguments...]
+ icm20948_i2c_passthrough <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 105
+
+   stop
+
+   status        print status info
  icm20948_i2c_passthrough <command> [arguments...]
  Commands:
    start
@@ -822,17 +838,17 @@ Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tr
 ### Usage
 ```
 mpu9250_i2c <command> [arguments...]
- mpu9250_i2c <command> [arguments...]
+ icm20602 <command> [arguments...]
  Commands:
    start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
+     [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 104
      [-R <val>]  Rotation
                  default: 0
 

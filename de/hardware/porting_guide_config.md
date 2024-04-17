@@ -49,7 +49,7 @@ make px4_fmu-v5_default boardconfig
 make px4_fmu-v5_default boardguiconfig
 ```
 
-If _kconfiglib_ is not installed, you can do so using the command: `pip3 install kconfiglib`
+If _kconfiglib_ is not installed, you can do so using the command: `pip3 install kconfiglib` ::: If _kconfiglib_ is not installed, you can do so using the command: `pip3 install kconfiglib`
 :::
 :::note
 _Kconfiglib_ and _menuconfig_ come with the _kconfiglib_ python package, which is installed by the normal [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) installation script.

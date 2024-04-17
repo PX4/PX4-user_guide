@@ -93,7 +93,8 @@ PX4 listens for `UTM_GLOBAL_POSITION` MAVLink messages during missions. When a v
 
 The implementation is otherwise _exactly_ as described in the section above.
 
-The current implementation simply drops the additional fields (including information about the vehicle's planned next waypoint). :::note [UTM_GLOBAL_POSITION](https://mavlink.io/en/messages/common.html#UTM_GLOBAL_POSITION) contains additional fields that are not provided by an ADSB transponder (see [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE)).
+:::note
+[UTM_GLOBAL_POSITION](https://mavlink.io/en/messages/common.html#UTM_GLOBAL_POSITION) contains additional fields that are not provided by an ADSB transponder (see [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE)). :::note [UTM_GLOBAL_POSITION](https://mavlink.io/en/messages/common.html#UTM_GLOBAL_POSITION) contains additional fields that are not provided by an ADSB transponder (see [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE)).
 :::
 
 ## Testing/Simulated ADSB Traffic

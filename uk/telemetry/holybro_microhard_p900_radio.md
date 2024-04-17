@@ -12,15 +12,15 @@
 
 ## Функції
 
-- USB Type-C port, integrated USB to UART converter
-- 6-position JST-GH connector, can be directly connected to the TELEM port on various Pixhawk-standard flight controllers such [Pixhawk 4](../flight_controller/pixhawk4.md) & [Pixhawk 5X](../flight_controller/pixhawk5x.md)
-- High voltage BEC onboard, Support DC7~35V voltage supply
-- UART transmission & Three-stage RSSI LED indicator
-- Transmission within a public, license-exempt band of the radio spectrum
-- Transparent, low latency link rates up to 276 Kbps
-- Supports a robust true Mesh operation with auto-routing
-- 32 bits of CRC, selectable retransmission and forward error correction
-- Separate diagnostics port, transparent remote diagnostics and online network control
+- Порт USB Type-C, інтегрований конвертер USB на UART
+- 6-позиційний роз'єм JST-GH, може бути безпосередньо підключений до порту TELEM на різних польотних контролерах стандарту Pixhawk, таких як [Pixhawk 4](../flight_controller/pixhawk4.md) та [Pixhawk 5X](../flight_controller/pixhawk5x.md)
+- Високовольтний BEC на борту, Підтримка живлення напругою DC7~35V
+- Передача UART та індикатор ступеня сигналу RSSI з трьома етапами світлодіодів
+- Передача в межах громадського, ліцензійно-вільного діапазону радіочастот
+- Прозорий, низькій затримкою швидкості зв'язку до 276 Кбіт/с
+- Підтримує потужну операцію із справжньою мережею Mesh з автоматичним маршрутизуванням
+- 32 біти CRC, вибіркове перетранслювання та корекція помилок вперед
+- Окремий порт діагностики, прозора віддалена діагностика та онлайн контроль мережі
 
 ## Де купити
 
@@ -76,17 +76,17 @@
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_leds.png" width="600px" title="Holybro Pico Config" />
 
-The P900 Radio has 6 status LEDs: three are blue, two are orange, and one is green. The meanings of the different LEDs are:
+Радіо P900 має 6 світлодіодів статусу: три з них сині, два помаранчеві, а один зелений. Інтерпретація різних станів світлодіодів LEDs:
 
 - Power LED(green)
-  - This LED will illuminate when the P900 Radio is connected to a power source (7-35VDC).
+  - Цей світлодіод буде світитися, коли радіо P900 підключено до джерела живлення (7-35VDC).
 - TX LED (orange)
-  - When illuminated, this LED indicates that the Radio is transmitting data over the air.
+  - Коли підсвічується, цей світлодіод вказує на те, що радіо передає дані повітрям.
 - RX LED (orange)
-  - This LED indicates that the Radio is synchronized and has received valid packets.
+  - Цей світлодіод показує, що радіо синхронізовано і отримано дійсні пакети.
 - RSSI LEDs (3x Blue)
-  - As the received signal strength increases, starting with the furthest left, the number of active
-- RSSI LEDs increases. Signal strength is calculated based on the last four valid received packets with correct CRC. The value of RSSI is reported in S123.
+  - По мірі збільшення отриманої сили сигналу, починаючи з найлівішого, кількість активних
+- RSSI LEDs збільшуються. Сила сигналу обчислюється на основі останніх чотирьох отриманих пакетів з правильним CRC. Значення RSSI повідомляється в S123.
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_led_status.png" width="600px" title="Holybro Pico Config" />
 
@@ -129,14 +129,14 @@ The P900 Radio has 6 status LEDs: three are blue, two are orange, and one is gre
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_dimension.png" width="600px" title="Holybro Pico Config" />
 
-### Power Consumption
+### Споживання електроенергії
 
-- Supply voltage: DC7~35V from 4-pin JST-GH to XT30 (included)
-- Transmit current: 200 mA/7V at 20dBm
-  - 350mA/7V at 27dBm
-  - 800 mA/7V at 30dBm
-- Receive current: 100 mA
-- Weight: 42g (without antenna)
+- Напруга живлення: DC7~35V від 4-контактного роз'єму JST-GH до XT30 (включено)
+- Передавати поточний: 200 мА / 7 В при 20 дБм
+  - 350мА/7В при 27дБм
+  - 800 мА/7V при 30 дБм
+- Отримуваний струм: 100 мА
+- Вага: 42 г (без антени)
 
 ## Подальша інформація
 

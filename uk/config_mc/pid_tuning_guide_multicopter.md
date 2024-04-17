@@ -28,109 +28,109 @@
 
 ### Регулятор швидкості
 
-The rate controller is the inner-most loop with three independent PID controllers to control the body rates (yaw, pitch, roll).
+Контролер швидкості - це внутрішній цикл з трьома незалежними ПІД-регуляторами для керування швидкостями тіла (курс, тангаж, крен).
 
-::: info A well-tuned rate controller is very important as it affects _all_ flight modes. A badly tuned rate controller will be visible in [Position mode](../flight_modes_mc/position.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
+:::info Добре налаштований регулятор швидкості дуже важливий, оскільки він впливає на _всі_ режими польоту. Погано налаштований регулятор швидкості буде видно в режимі [Режим позиціонування](../flight_modes_mc/position.md), наприклад, як "судороги" (літальний апарат не буде тримати себе абсолютно нерухомо в повітрі).
 :::
 
-#### Rate Controller Architecture/Form
+#### Архітектура/Форма контролера швидкості
 
-PX4 supports two (mathematically equivalent) forms of the PID rate controller in a single "mixed" implementation: [Parallel](#parallel-form) and [Standard](#standard-form).
+PX4 підтримує дві (математично еквівалентні) форми ПІД-регулятора швидкості в одній "змішаній" реалізації: [Паралельна](#parallel-form) та [Стандартна](#standard-form).
 
-Users can select the form that is used by setting the proportional gain for the other form to "1" (i.e. in the diagram below set **K** to 1 for the parallel form, or **P** to 1 for the standard form - this will replace either the K or P blocks with a line).
+Користувачі можуть вибрати форму, яка використовується, встановивши пропорційне посилення для іншої форми на "1" (тобто на діаграмі нижче встановіть **K** на 1 для паралельної форми або **P** на 1 для стандартної форми - це замінить блоки K або P на лінію).
 
 ![PID_Mixed](../../assets/mc_pid_tuning/PID_algorithm_Mixed.png)
 
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/1hXnAJVRyqNAdcreqNa5W4PQFkYnzwgOO/view?usp=sharing -->
 
-- _G(s)_ represents the angular rates dynamics of a vehicle
-- _r_ is the rate setpoint
-- _y_ is the body angular rate (measured by a gyro)
-- _e_ is the error between the rate setpoint and the measured rate
-- _u_ is the output of the PID controller
+- _G(s)_ представляє динаміку кутових швидкостей транспортного засобу
+- _r_ - це задана точка регулювання швидкості
+- _y_ є швидкість кутової орієнтації тіла (виміряна гіроскопом)
+- _e_ - це помилка між заданим значенням швидкості та виміряною швидкістю
+- _u_ - це вихід контролера ПІД
 
-The two forms are described below.
+Ці дві форми описані нижче.
 
-::: info The derivative term (**D**) is on the feedback path in order to avoid an effect known as the [derivative kick](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/).
+:::info Похідне поняття (**D**) знаходиться на шляху зворотного зв'язку, щоб уникнути явища, відомого як [похідний удар](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/).
 :::
 
 :::tip
-For more information see:
+Для отримання додаткової інформації дивіться:
 
-- [Not all PID controllers are the same](https://www.controleng.com/articles/not-all-pid-controllers-are-the-same/) (www.controleng.com)
-- [PID controller > Standard versus parallel (ideal) PID form](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_form) (Wikipedia)
+- [Не всі контролери PID є однаковими](https://www.controleng.com/articles/not-all-pid-controllers-are-the-same/) (www.controleng.com)
+- [ПІД-контролер > Стандартна проти паралельної (ідеальної) форми PID](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_form) (Вікіпедія)
 
 :::
 
-##### Parallel Form
+##### Паралельний порт
 
-The _parallel form_ is the simplest form, and is (hence) commonly used in textbooks. In this case the output of the controller is simply the sum of the proportional, integral and derivative actions.
+Паралельна форма є найпростішою формою і (тому) часто використовується в підручниках. У цьому випадку вихід контролера просто є сумою пропорційних, інтегральних та диференційних дій.
 
 ![PID_Parallel](../../assets/mc_pid_tuning/PID_algorithm_Parallel.png)
 
-##### Standard Form
+##### Стандартна форма
 
-This form is mathematically equivalent to the parallel form, but the main advantage is that (even if it seems counter intuitive) it decouples the proportional gain tuning from the integral and derivative gains. This means that a new platform can easily be tuned by taking the gains of a drone with similar size/inertia and simply adjust the K gain to have it flying properly.
+Ця форма математично еквівалентна паралельній формі, але основною перевагою є те, що (навіть якщо це здається протирічливим) вона роз'єднує налаштування пропорційного коефіцієнта від інтегрального та диференціального коефіцієнтів. Це означає, що нову платформу легко можна налаштувати, взявши вигоди від дрона зі схожим розміром/інерцією і просто налаштувати коефіцієнт K, щоб він летів належним чином.
 
 ![PID_Standard](../../assets/mc_pid_tuning/PID_algorithm_Standard.png)
 
-#### Rate PID Tuning
+#### Оцінити Налаштування PID
 
-The related parameters for the tuning of the PID rate controllers are:
+Пов'язані параметри для налаштування регуляторів швидкості PID є наступні:
 
-- Roll rate control ([MC_ROLLRATE_P](../advanced_config/parameter_reference.md#MC_ROLLRATE_P), [MC_ROLLRATE_I](../advanced_config/parameter_reference.md#MC_ROLLRATE_I), [MC_ROLLRATE_D](../advanced_config/parameter_reference.md#MC_ROLLRATE_D), [MC_ROLLRATE_K](../advanced_config/parameter_reference.md#MC_ROLLRATE_K))
-- Pitch rate control ([MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P), [MC_PITCHRATE_I](../advanced_config/parameter_reference.md#MC_PITCHRATE_I), [MC_PITCHRATE_D](../advanced_config/parameter_reference.md#MC_PITCHRATE_D), [MC_PITCHRATE_K](../advanced_config/parameter_reference.md#MC_PITCHRATE_K))
-- Yaw rate control ([MC_YAWRATE_P](../advanced_config/parameter_reference.md#MC_YAWRATE_P), [MC_YAWRATE_I](../advanced_config/parameter_reference.md#MC_YAWRATE_I), [MC_YAWRATE_D](../advanced_config/parameter_reference.md#MC_YAWRATE_D), [MC_YAWRATE_K](../advanced_config/parameter_reference.md#MC_YAWRATE_K))
+- Контроль швидкості кочання ([MC_ROLLRATE_P](../advanced_config/parameter_reference.md#MC_ROLLRATE_P), [MC_ROLLRATE_I](../advanced_config/parameter_reference.md#MC_ROLLRATE_I), [MC_ROLLRATE_D](../advanced_config/parameter_reference.md#MC_ROLLRATE_D), [MC_ROLLRATE_K](../advanced_config/parameter_reference.md#MC_ROLLRATE_K))
+- Контроль кута нахилу ([MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P), [MC_PITCHRATE_I](../advanced_config/parameter_reference.md#MC_PITCHRATE_I), [MC_PITCHRATE_D](../advanced_config/parameter_reference.md#MC_PITCHRATE_D), [MC_PITCHRATE_K](../advanced_config/parameter_reference.md#MC_PITCHRATE_K))
+- Контроль швидкості кочення ([MC_YAWRATE_P](../advanced_config/parameter_reference.md#MC_YAWRATE_P), [MC_YAWRATE_I](../advanced_config/parameter_reference.md#MC_YAWRATE_I), [MC_YAWRATE_D](../advanced_config/parameter_reference.md#MC_YAWRATE_D), [MC_YAWRATE_K](../advanced_config/parameter_reference.md#MC_YAWRATE_K))
 
-The rate controller can be tuned in [Acro mode](../flight_modes_mc/acro.md) or [Manual/Stabilized mode](../flight_modes_mc/manual_stabilized.md):
+Контролер швидкості можна налаштувати в [режимі Acro](../flight_modes_mc/acro.md) або в [режимі Ручного/Стабілізованого керування](../flight_modes_mc/manual_stabilized.md):
 
-- _Acro mode_ is preferred, but is harder to fly. If you choose this mode, disable all stick expo:
+- _Режим Акро_ є бажаним, але складніше керувати. Якщо ви виберете цей режим, вимкніть усі stick expo:
   - `MC_ACRO_EXPO` = 0, `MC_ACRO_EXPO_Y` = 0, `MC_ACRO_SUPEXPO` = 0, `MC_ACRO_SUPEXPOY` = 0
   - `MC_ACRO_P_MAX` = 200, `MC_ACRO_R_MAX` = 200
   - `MC_ACRO_Y_MAX` = 100
-- _Manual/Stabilized mode_ is simpler to fly, but it is also more difficult to see if the attitude or the rate controller needs more tuning.
+- _Ручний/стабілізований режим_ простіше керувати, але також важче бачити, чи потрібні додаткові налаштування для контролера кута або швидкості.
 
-If the vehicle does not fly at all:
+Якщо транспортний засіб зовсім не літає:
 
-- If there are strong oscillations when first trying to takeoff (to the point where it does not fly), decrease all **P** and **D** gains until it takes off.
-- If the reaction to RC movement is minimal, increase the **P** gains.
+- Якщо при першій спробі злітання виникають сильні коливання (до того ж, коли воно не летить), зменште всі виграші **P** та **D** до тих пір, поки воно не злетить.
+- Якщо реакція на рух RC є мінімальною, збільште виграші **P**.
 
-The actual tuning is roughly the same in _Manual mode_ or _Acro mode_: You iteratively tune the **P** and **D** gains for roll and pitch, and then the **I** gain. Initially you can use the same values for roll and pitch, and once you have good values, you can fine-tune them by looking at roll and pitch response separately (if your vehicle is symmetric, this is not needed). For yaw it is very similar, except that **D** can be left at 0.
+Фактична настройка приблизно однакова у режимі _ручного керування_ або _режимі акробатичного керування_: Ви ітеративно налаштовуєте коефіцієнти **P** та **D** для крену та тангажу, а потім коефіцієнт **I**. Спочатку ви можете використовувати ті ж значення для крена та тангажу, і як тільки ви отримаєте хороші значення, ви можете їх налаштувати, розглядаючи відповідь на крен та тангаж окремо (якщо ваш транспортний засіб симетричний, це не потрібно). Для крена це дуже схоже, за винятком того, що **D** може залишатися на 0.
 
-##### Proportional Gain (P/K)
+##### Коефіцієнт пропорційності (P/K)
 
-The proportional gain is used to minimize the tracking error (below we use **P** to refer to both **P** or **K**). It is responsible for a quick response and thus should be set as high as possible, but without introducing oscillations.
+Коефіцієнт пропорційності використовується для мінімізації помилки відстеження (нижче ми використовуємо **P** для посилання на обидва **P** або **K**). Він відповідає за швидку відповідь і, отже, повинен бути встановлений як найвище можливо, але без введення коливань.
 
-- If the **P** gain is too high: you will see high-frequency oscillations.
-- If the **P** gain is too low:
-  - the vehicle will react slowly to input changes.
-  - In _Acro mode_ the vehicle will drift, and you will constantly need to correct to keep it level.
+- Якщо значення **P** занадто високе: ви побачите високочастотні коливання.
+- Якщо виграш **P** занадто низький:
+  - транспортний засіб буде повільно реагувати на зміни введення.
+  - У режимі _Acro mode_ транспортний засіб буде дрейфувати, і вам постійно доведеться вносити корективи, щоб тримати його на рівні.
 
-##### Derivative Gain (D)
+##### Похідне Надходження (D)
 
-The **D** (derivative) gain is used for rate damping. It is required but should be set only as high as needed to avoid overshoots.
+Коефіцієнт похідної (позначений як **D**) використовується для зменшення швидкості. Це обов'язково, але повинно бути встановлене лише настільки високо, наскільки потрібно, щоб уникнути перестрілок.
 
-- If the **D** gain is too high: the motors become twitchy (and maybe hot), because the **D** term amplifies noise.
-- If the **D** gain is too low: you see overshoots after a step-input.
+- Якщо коефіцієнт **D** занадто великий: двигуни стають нервовими (і можливо гарячими), оскільки термін **D** посилює шум.
+- Якщо коефіцієнт посилення **D** занадто низький: ви бачите перерізи після крокового входу.
 
-Typical values are:
+Типові значення:
 
-- standard form (**P** = 1): between 0.01 (4" racer) and 0.04 (500 size), for any value of **K**
-- parallel form (**K** = 1): between 0.0004 and 0.005, depending on the value of **P**
+- стандартна форма (**P** = 1): між 0.01 (4" гонщик) та 0.04 (розмір 500), для будь-якого значення **K**
+- паралельна форма (**K** = 1): між 0.0004 та 0.005, в залежності від значення **P**
 
-##### Integral Gain (I)
+##### Інтегральний коефіцієнт (I)
 
-The **I** (integral) gain keeps a memory of the error. The **I** term increases when the desired rate is not reached over some time. It is important (especially when flying _Acro mode_), but it should not be set too high.
+Коефіцієнт інтегралу **I** (integral) зберігає пам'ять про помилку. Значення **I** збільшується, коли бажана швидкість не досягається протягом певного часу. Це важливо (особливо при польоті у режимі _Acro mode_), але воно не повинно бути встановлено занадто високо.
 
-- If the I gain is too high: you will see slow oscillations.
-- If the I gain is too low: this is best tested in _Acro mode_, by tilting the vehicle to one side about 45 degrees, and keeping it like that. It should keep the same angle. If it drifts back, increase the **I** gain. A low **I** gain is also visible in a log, when there is an offset between the desired and the actual rate over a longer time.
+- Якщо значення I занадто високе: ви побачите повільні коливання.
+- Якщо I-приріст занадто низький: це найкраще перевірити в режимі _Acro_, нахиливши транспортний засіб на один бік на близько 45 градусів і тримаючи його таким. Він повинен зберігати той самий кут. Якщо воно відхиляється назад, збільште коефіцієнт **I** Низький **I** приріст також видно в журналі, коли є розходження між бажаною та фактичною швидкістю протягом тривалого часу.
 
-Typical values are:
+Типові значення:
 
-- standard form (**P** = 1): between 0.5 (VTOL plane), 1 (500 size) and 8 (4" racer), for any value of **K**
-- parallel form (**K** = 1): between 0.3 and 0.5 if **P** is around 0.15 The pitch gain usually needs to be a bit higher than the roll gain.
+- стандартна форма (**P** = 1): між 0. (VTOL площина), 1 (500 розмір) та 8 (4" гон), будь-яке значення **K**
+- паралельна форма (**K** = 1): між 0,3 та 0,5, якщо **P** близько 0,15 Звичайно, коефіцієнт крену має бути трохи вищим, ніж коефіцієнт тангажу.
 
-#### Testing Procedure
+#### Процедура тестування
 
 Для перевірки поточних коефіцієнтів, надайте швидке ступеневе вхідне **step-input** значення під час тримання в повітрі і спостерігайте, як реагує транспортний засіб. Він має негайно слідувати за командою і не коливатися, ані не перевищувати (відчувається "заблокованим").
 

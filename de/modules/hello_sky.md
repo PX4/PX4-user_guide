@@ -104,7 +104,7 @@ The main function must be named `<module_name>_main` and exported from the modul
    ############################################################################
    #
    #   Copyright (c) 2015 PX4 Development Team. All rights reserved.
-   * Redistribution and use in source and binary forms, with or without
+   Redistribution and use in source and binary forms, with or without
       * modification, are permitted provided that the following conditions
       * are met:
       * * 1. Redistributions of source code must retain the above copyright
@@ -146,15 +146,17 @@ The main function must be named `<module_name>_main` and exported from the modul
    - The `MODULE` block is the Firmware-unique name of the module (by convention the module name is prefixed by parent directories back to `src`).
    - The `MAIN` block lists the entry point of the module, which registers the command with NuttX so that it can be called from the PX4 shell or SITL console.
 
-:::note
-We've chosen `attitude` because we know that the _mavlink_ app forwards it to the ground control station - providing an easy way to look at the results. <!-- NEED px4_version -->
+   ::: info We've chosen `attitude` because we know that the _mavlink_ app forwards it to the ground control station - providing an easy way to look at the results. <!-- NEED px4_version -->
 
 :::
 
    You can then run your command by loading the file at runtime using the `dyn` command: `dyn ./examples__px4_simple_app.px4mod`
 :::
 :::note
-If you specify `DYNAMIC` as an option to `px4_add_module`, a _shared library_ is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code). Your app will not become a builtin command, but ends up in a separate file called `examples__px4_simple_app.px4mod`.
+If you specify `DYNAMIC` as an option to `px4_add_module`, a _shared library_ is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code). You can then run your command by loading the file at runtime using the `dyn` command: `dyn ./examples__px4_simple_app.px4mod`
+:::
+:::note
+If you specify `DYNAMIC` as an option to `px4_add_module`, a _shared library_ is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code).
 
 1. Create and open a new _Kconfig_ definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4-kconfig-symbol-naming-convention)). Copy in the text below:
 
@@ -262,6 +264,20 @@ Builtin Apps:
   px4_simple_app
   ..
   sercon
+  serdis           echo        losetup     mkrd        pwd         test
+  cat         exec        ls          mh          rm          umount
+  cd          exit        mb          mount       rmdir       unset
+  cp          free        mkdir       mv          set         usleep
+  dd          help        mkfatfs     mw          sh          xd
+
+Builtin Apps:
+  reboot
+  perf
+  top
+  ..
+  px4_simple_app
+  ..
+  sercon
   serdis
 ```
 
@@ -306,6 +322,9 @@ Subscribing to a topic is straightforward:
 #include <uORB/topics/sensor_combined.h>
 ..
 int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
+#include <uORB/topics/sensor_combined.h>
+..
+int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
 ```
 
 The `sensor_sub_fd` is a topic handle and can be used to very efficiently perform a blocking wait for new data. The current thread goes to sleep and is woken up automatically by the scheduler once new data is available, not consuming any CPU cycles while waiting. To do this, we use the [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) POSIX system call.
@@ -313,6 +332,9 @@ The `sensor_sub_fd` is a topic handle and can be used to very efficiently perfor
 Adding `poll()` to the subscription looks like (_pseudocode, look for the full implementation below_):
 
 ```cpp
+#include <poll.h>
+#include <uORB/topics/sensor_combined.h>
+..
 #include <poll.h>
 #include <uORB/topics/sensor_combined.h>
 ..
@@ -330,6 +352,17 @@ while (true) {
     /* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */
     int poll_ret = px4_poll(fds, 1, 1000);
     ..
+    if (fds[0].revents & POLLIN) {
+        /* obtained data for the first file descriptor */
+        struct sensor_combined_s raw;
+        /* copy sensors raw data into local buffer */
+        orb_copy(ORB_ID(sensor_combined), sensor_sub_fd, &raw);
+        PX4_INFO("Accelerometer:\t%8.4f\t%8.4f\t%8.4f",
+                    (double)raw.accelerometer_m_s2[0],
+                    (double)raw.accelerometer_m_s2[1],
+                    (double)raw.accelerometer_m_s2[2]);
+    }
+}
     if (fds[0].revents & POLLIN) {
         /* obtained data for the first file descriptor */
         struct sensor_combined_s raw;
@@ -387,12 +420,15 @@ The [Module Template for Full Applications](../modules/module_template.md) can b
 
 To use the calculated outputs, the next step is to _publish_ the results. Below we show how to publish the attitude topic.
 
-::: info We've chosen `attitude` because we know that the _mavlink_ app forwards it to the ground control station - providing an easy way to look at the results.
+:::note
+We've chosen `attitude` because we know that the _mavlink_ app forwards it to the ground control station - providing an easy way to look at the results.
 :::
 
 The interface is pretty simple: initialize the `struct` of the topic to be published and advertise the topic:
 
 ```c
+#include <uORB/topics/vehicle_attitude.h>
+..
 #include <uORB/topics/vehicle_attitude.h>
 ..
 #include <uORB/topics/vehicle_attitude.h>
@@ -528,15 +564,7 @@ int px4_simple_app_main(int argc, char *argv[])
             }
 
             /* there could be more file descriptors here, in the form like:
-             * if (fds[1..n].revents & POLLIN) {}
-             */
-        }
-    }
-
-    PX4_INFO("exiting");
-
-    return 0;
-}
+             *
 ```
 
 ## Running the Complete Example

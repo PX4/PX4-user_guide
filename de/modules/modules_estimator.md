@@ -45,6 +45,12 @@ airspeed_estimator <command> [arguments...]
    stop
 
    status        print status info
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 ```
 ## ekf2
 Source: [modules/ekf2](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2)
@@ -63,6 +69,7 @@ ekf2 can be started in replay mode (`-r`): in this mode, it does not access the 
 ### Usage
 ```
 ekf2 <command> [arguments...]
+ ekf2 <command> [arguments...]
  ekf2 <command> [arguments...]
  Commands:
    start

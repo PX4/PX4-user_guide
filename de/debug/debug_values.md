@@ -75,6 +75,7 @@ Then poll on the topic:
 [...]
 [...]
 [...]
+[...]
 /* one could wait for multiple topics with this technique, just using one here */
 px4_pollfd_struct_t fds[] = {
     { .fd = debug_sub_fd,   .events = POLLIN },
@@ -90,6 +91,7 @@ while (true) {
 When a new message is available on the `debug_key_value` topic, do not forget to filter it based on its key attribute in order to discard the messages with key different than `velx`:
 
 ```C
+    [...]
     [...]
     [...]
     [...]

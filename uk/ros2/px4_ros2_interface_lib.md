@@ -27,15 +27,22 @@
 2. Клонуйте репозиторій в робочий простір:
 
    ```sh
+   cd $ros_workspace/src
+   git clone --recursive https://github.com/Auterion/px4-ros2-interface-lib
    ```
 
    ::: info
-   To ensure compatibility, use the latest _main_ branches for PX4, _px4_msgs_ and the library.
-   Також подивіться тут
+   Щоб забезпечити сумісність, використовуйте останні гілки _main_ для PX4, _px4_msgs_ та бібліотеки.
+   Дивіться також [here](https://github.com/Auterion/px4-ros2-interface-lib#compatibility-with-px4).
+
+:::
 
 3. Побудуйте робочий простір:
 
    ```sh
+   cd ..
+   colcon build
+   source install/setup.bash
    ```
 
 <!--
@@ -49,14 +56,17 @@
 Тести можуть також бути виконані локально з PX4:
 
 ```sh
+./test/ros_test_runner.py
 ```
 
 І щоб керувати лише одним випадком:
 
 ```sh
+./test/ros_test_runner.py --verbose --case <case>
 ```
 
 Ви можете скласти список доступних тестових кейсів з:
 
 ```sh
+./test/ros_test_runner.py --list-cases
 ```

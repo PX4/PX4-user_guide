@@ -2,7 +2,8 @@
 
 Simulators allow PX4 flight code to control a computer modeled vehicle in a simulated "world". You can interact with this vehicle just as you might with a real vehicle, using _QGroundControl_, an offboard API, or a radio controller/gamepad.
 
-It is also a good way to start flying with PX4 when you haven't yet got a vehicle to experiment with. :::tip Simulation is a quick, easy, and most importantly, _safe_ way to test changes to PX4 code before attempting to fly in the real world.
+:::tip
+Simulation is a quick, easy, and most importantly, _safe_ way to test changes to PX4 code before attempting to fly in the real world. :::tip Simulation is a quick, easy, and most importantly, _safe_ way to test changes to PX4 code before attempting to fly in the real world.
 :::
 
 PX4 supports both _Software In the Loop (SITL)_ simulation, where the flight stack runs on computer (either the same computer or another computer on the same network) and _Hardware In the Loop (HITL)_ simulation using a simulation firmware on a real flight controller board.
@@ -38,15 +39,15 @@ A SITL build of PX4 uses [SimulatorMavlink.cpp](https://github.com/PX4/PX4-Autop
 
 The messages are described below (see links for specific detail).
 
-| Message                                                             | Direction  | Description                                                                                                                                                                                                                                                                                                          |
-| ------------------------------------------------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [MAV_MODE:MAV_MODE_FLAG_HIL_ENABLED][mav_mode_flag_hil_enabled] | NA         | Mode flag when using simulation. All motors/actuators are blocked, but internal software is fully operational.                                                                                                                                                                                                       |
-| [HIL_ACTUATOR_CONTROLS][hil_actuator_controls]                    | PX4 to Sim | PX4 control outputs (to motors, actuators).                                                                                                                                                                                                                                                                          |
-| [HIL_SENSOR][hil_sensor]                                            | Sim to PX4 | Simulated IMU readings in SI units in NED body frame.                                                                                                                                                                                                                                                                |
-| [HIL_GPS][hil_gps]                                                  | Sim to PX4 | The simulated GPS RAW sensor value.                                                                                                                                                                                                                                                                                  |
-| [HIL_OPTICAL_FLOW][hil_optical_flow]                              | Sim to PX4 | Simulated optical flow from a flow sensor (e.g. PX4FLOW or optical mouse sensor)                                                                                                                                                                                                                                     |
-| [HIL_STATE_QUATERNION][hil_state_quaternion]                      | Sim to PX4 | Contains the actual "simulated" vehicle position, attitude, speed etc. Contains the actual "simulated" vehicle position, attitude, speed etc. This can be logged and compared to PX4's estimates for analysis and debugging (for example, checking how well an estimator works for noisy (simulated) sensor inputs). |
-| [HIL_RC_INPUTS_RAW][hil_rc_inputs_raw]                            | Sim to PX4 | The RAW values of the RC channels received.                                                                                                                                                                                                                                                                          |
+| Message                                                             | Direction  | Description                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------------------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [MAV_MODE:MAV_MODE_FLAG_HIL_ENABLED][mav_mode_flag_hil_enabled] | NA         | Mode flag when using simulation. All motors/actuators are blocked, but internal software is fully operational.                                                                                                                                                                                                                                                                              |
+| [HIL_ACTUATOR_CONTROLS][hil_actuator_controls]                    | PX4 to Sim | PX4 control outputs (to motors, actuators).                                                                                                                                                                                                                                                                                                                                                 |
+| [HIL_SENSOR][hil_sensor]                                            | Sim to PX4 | Simulated IMU readings in SI units in NED body frame.                                                                                                                                                                                                                                                                                                                                       |
+| [HIL_GPS][hil_gps]                                                  | Sim to PX4 | The simulated GPS RAW sensor value.                                                                                                                                                                                                                                                                                                                                                         |
+| [HIL_OPTICAL_FLOW][hil_optical_flow]                              | Sim to PX4 | Simulated optical flow from a flow sensor (e.g. PX4FLOW or optical mouse sensor)                                                                                                                                                                                                                                                                                                            |
+| [HIL_STATE_QUATERNION][hil_state_quaternion]                      | Sim to PX4 | Contains the actual "simulated" vehicle position, attitude, speed etc. Contains the actual "simulated" vehicle position, attitude, speed etc. Contains the actual "simulated" vehicle position, attitude, speed etc. This can be logged and compared to PX4's estimates for analysis and debugging (for example, checking how well an estimator works for noisy (simulated) sensor inputs). |
+| [HIL_RC_INPUTS_RAW][hil_rc_inputs_raw]                            | Sim to PX4 | The RAW values of the RC channels received.                                                                                                                                                                                                                                                                                                                                                 |
 
 <!-- links for table above -->
 
@@ -65,8 +66,7 @@ By default, PX4 uses commonly established UDP ports for MAVLink communication wi
 :::
 - The simulator's local TCP Port, **4560**, is used for communication with PX4. The simulator listens to this port, and PX4 initiates a TCP connection to it.
 
-:::note
-The ports for the GCS, offboard APIs and simulator are specified by startup scripts. See [System Startup](../concept/system_startup.md) to learn more.
+[TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) must be set to `3` to configure the camera trigger driver for use with a MAVLink camera :::tip In this mode the driver just sends a [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message whenever an image capture is requested. For more information see [Camera](../peripherals/camera.md).
 :::
 
 <!-- A useful discussion about UDP ports here: https://github.com/PX4/PX4-user_guide/issues/1035#issuecomment-777243106 -->
@@ -153,12 +153,11 @@ make px4_sitl jmavsim
 ```
 
 :::note
-At some point IO or CPU will limit the speed that is possible on your machine and it will be slowed down "automatically".
-Powerful desktop machines can usually run the simulation at around 6-10x, for notebooks the achieved rates can be around 3-4x.
-:::
+To avoid PX4 detecting data link timeouts, increase the value of param [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) proportional to the simulation rate. For example, if `COM_DL_LOSS_T` is 10 in realtime, at 10x simulation rate increase to 100.
 :::
 
-For example, if `COM_DL_LOSS_T` is 10 in realtime, at 10x simulation rate increase to 100. :::note To avoid PX4 detecting data link timeouts, increase the value of param [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) proportional to the simulation rate.
+:::note
+Simulators can also use the _uxrce-dds bridge_ ([XRCE-DDS](../middleware/uxrce_dds.md)) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink). This approach _may_ used by Gazebo Classic for [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation.md#build-and-test-xrce-dds).
 :::
 
 ### Lockstep Simulation
@@ -276,7 +275,9 @@ More information about _mavlink-router_ configuration can be found [here](https:
 
 The [mavlink module](../modules/modules_communication.md#mavlink_usage) routes to _localhost_ by default, but you can enable UDP broadcasting of heartbeats using its `-p` option. Any remote computer on the network can then connect to the simulator by listening to the appropriate port (i.e. 14550 for _QGroundControl_).
 
-Do not use this approach if there are multiple simulations running on the network (you might instead [publish to a specific address](#enable-streaming-to-specific-address)). :::note UDP
+:::note UDP
+broadcasting provides a simple way to set up the connection when there is only one simulation running on the network.
+:::note UDP
 broadcasting provides a simple way to set up the connection when there is only one simulation running on the network.
 :::
 

@@ -138,7 +138,7 @@ Make sure _QGroundControl_ is not running!
    ./Tools/simulation/jmavsim/jmavsim_run.sh -q -s -d /dev/ttyACM0 -b 921600 -r 250
    ```
 
-   On Windows (including Cygwin) it would be the COM1 or another port - check the connection in the Windows Device Manager. :::note Replace the serial port name `/dev/ttyACM0` as appropriate. On macOS this port would be `/dev/tty.usbmodem1`.
+   On macOS this port would be `/dev/tty.usbmodem1`. On Windows (including Cygwin) it would be the COM1 or another port - check the connection in the Windows Device Manager. :::note Replace the serial port name `/dev/ttyACM0` as appropriate.
 :::
 
 1. Start _QGroundControl_. It should autoconnect to PX4 and jMAVSim.

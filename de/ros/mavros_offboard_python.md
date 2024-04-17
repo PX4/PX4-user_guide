@@ -27,6 +27,7 @@ This example uses Python. Other examples in Python can be found here: [integrati
    cd ..
    cd src
    cd src
+   cd src
    ```
 
 2. In the `~/catkin_ws/src` directory create a new package named `offboard_py` (in this case) with the `rospy` dependency:
@@ -38,7 +39,7 @@ This example uses Python. Other examples in Python can be found here: [integrati
 3. Build the new package in the `~/catkin_ws/` directory:
 
    ```sh
-   cd .. cd .. # Assuming previous directory to be ~/catkin_ws/src
+   cd .. cd .. cd .. # Assuming previous directory to be ~/catkin_ws/src
    catkin build
    source devel/setup.bash
    ```

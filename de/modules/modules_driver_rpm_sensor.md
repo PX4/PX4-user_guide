@@ -8,6 +8,7 @@ Source: [drivers/rpm/pcf8583](https://github.com/PX4/PX4-Autopilot/tree/main/src
 ```
 pcf8583 <command> [arguments...]
  pcf8583 <command> [arguments...]
+ pcf8583 <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)

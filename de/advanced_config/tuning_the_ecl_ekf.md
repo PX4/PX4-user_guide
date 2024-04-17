@@ -248,7 +248,7 @@ For more details about the configuration of height sources, [click here](#height
 
 #### Conditional range aiding
 
-Conditional range finder fusion (a.k.a. Conditional range finder fusion (a.k.a. Conditional range finder fusion (a.k.a. _Conditional range aid_) activates the range finder fusion for height estimation during low speed/low altitude operation (in addition to the other active height sources). If the range finder is set as the reference height source (using [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)), the other active height sources such as baro and GNSS altitude will adjust their measurement to match the readings of the range finder over time. When the conditions are not met to start range aiding, a secondary reference is automatically selected.
+Conditional range finder fusion (a.k.a. Conditional range finder fusion (a.k.a. Conditional range finder fusion (a.k.a. Conditional range finder fusion (a.k.a. _Conditional range aid_) activates the range finder fusion for height estimation during low speed/low altitude operation (in addition to the other active height sources). If the range finder is set as the reference height source (using [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)), the other active height sources such as baro and GNSS altitude will adjust their measurement to match the readings of the range finder over time. When the conditions are not met to start range aiding, a secondary reference is automatically selected.
 
 ::: info
 Switching between height references causes the absolute altitude estimate to drift over time.

@@ -1,36 +1,36 @@
-# Holybro PM02 (V3) Power Module
+# Holybro PM02 (V3) Модуль живлення
 
-Цей аналоговий блок живлення забезпечує регульоване живлення для керуючого пристрою польоту та розподільчої плати живлення, а також надсилає інформацію автопілоту про напругу батареї та поточний струм, що подається на керуючий пристрій польоту та двигуни. It is commonly used with [Pixhawk 4](../assembly/quick_start_pixhawk4.md).
+Цей аналоговий блок живлення забезпечує регульоване живлення для керуючого пристрою польоту та розподільчої плати живлення, а також надсилає інформацію автопілоту про напругу батареї та поточний струм, що подається на керуючий пристрій польоту та двигуни. Воно зазвичай використовується з [Pixhawk 4](../assembly/quick_start_pixhawk4.md).
 
-::: info The module can be used with other flight controllers that require an analog power module, including [Durandal](../flight_controller/durandal.md), [Pix32 v5](../flight_controller/holybro_pix32_v5.md), etc
+::: info Модуль може бути використаний з іншими керувальними пристроями польоту, які потребують аналогового модуля живлення, включаючи [Durandal](../flight_controller/durandal.md), [Pix32 v5](../flight_controller/holybro_pix32_v5.md), тощо
 :::
 
-![Holybro PM02](../../assets/hardware/power_module/holybro_pm02/pm02.jpg)
+![Holybro PM07](../../assets/hardware/power_module/holybro_pm02/pm02.jpg)
 
 
-## Specifications
+## Характеристики
 
-- **Rated current**: 60A
-- **Max current**: 120A (<60 Sec)
-- **Max current sensing**: 120A
-- **Battery supported**: up to 12S battery
-- **Communication protocol**: Analog
-- **Switching regulator outputs**: 5.2V and 3A max
-- **Weight**: 20g
+- **Оцінений струм**: 60A
+- **Максимальний струм:**: 120A (<60 сек)
+- **Максимальне вимірювання поточного струму**: 120A
+- Заряд батареї ****: до 12S акумулятора
+- **Протокол зв'язку**: Аналоговий
+- **Вихід регулятора перемикача**: 5.2V та 3A макс
+- **Вага**: 59g
 
 Напруга та поточне вимірювання налаштоване для 3,3V АДС
 
 ## Вміст набору
 
-- Power Module with XT60 Connector Board
-- Electrolytic capacito: 220uF 63V (pre-installed)
-- Molex 6 Position Connector 15 cm
-- GH 6 Position Connector 15 cm
+- Модуль живлення з платою з роз'ємом XT60
+- Електролітична ємність: 220uF 63V (попередньо встановлена)
+- Молех 6 Посадний Коннектор 15 см
+- GH 6 Position Connector 15 см
 
-## Where to Buy
+## Де придбати
 
 [Замовлення з Голібро](https://holybro.com/collections/power-modules-pdbs/products/pm02-v3-12s-power-module)
 
 ## Проведення/Підключення
 
-Additional wiring and connection information can be found in: [Pixhawk 4 QuickStart](../assembly/quick_start_pixhawk4.md).
+Додаткову інформацію про проводку та підключення можна знайти в: [Швидкий старт Pixhawk 4](../assembly/quick_start_pixhawk4.md).

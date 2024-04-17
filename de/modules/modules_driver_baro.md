@@ -68,6 +68,7 @@ Source: [drivers/barometer/dps310](https://github.com/PX4/PX4-Autopilot/tree/mai
 ### Usage
 ```
 dps310 <command> [arguments...]
+ bmp280 <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -81,7 +82,7 @@ dps310 <command> [arguments...]
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
-                 default: 119
+                 default: 118
      [-s]        Internal SPI bus(es)
      [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus

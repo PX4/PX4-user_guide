@@ -1,26 +1,26 @@
-# OneShot Servos and ESCs (Motor Controllers)
+# OneShot Сервоприводи та Регулятори Швидкості (Контролери Двигуна)
 
-PX4 support OneShot 125 ESCs (only). These are typically faster and more responsive than [PWM ESCs](../peripherals/pwm_escs_and_servo.md) but share the same wiring setup (all you need to do is set some different parameters)
+PX4 підтримує ESC OneShot 125 (тільки). Зазвичай вони працюють швидше та реагують краще, ніж [PWM ESCs](../peripherals/pwm_escs_and_servo.md), але вони мають ту ж саму схему підключення (вам потрібно лише встановити деякі інші параметри)
 
-::: info [DShot](../peripherals/dshot.md) should always be used instead of OneShot where possible, as it is more responsive, more robust, does not required calibration, and may support telemetry. The only reason not to use DShot would be hardware limitations (insufficient DShot pins available or using an ESC that does not support DShot).
+:::info [DShot](../peripherals/dshot.md) слід завжди використовувати замість OneShot, де це можливо, оскільки він є більш реактивним, надійнішим, не вимагає калібрування і може підтримувати телеметрію. Єдине обґрунтування для невикористання DShot - обмеження апаратного забезпечення (недостатньо доступних пінів DShot або використання ESC, який не підтримує DShot).
 :::
 
-## Overview
+## Загальний огляд
 
-OneShot is essentially a version of [PWM](../peripherals/pwm_escs_and_servo.md) that can be, in theory, up to 8 times faster.
+OneShot - це в сутності версія [PWM](../peripherals/pwm_escs_and_servo.md), яка, в теорії, може бути до 8 разів швидшою.
 
-Both PWM and OneShot communicate using a periodic pulse, where the width of the pulse indicates the desired power level. For PWM the pulse length typically ranges between 1000us (zero) and 2000us (full power), while for OneShot 125 the pulse widths are 8 times shorter, ranging from 125us (zero power) to 250us (full power).
+Як PWM, так і OneShot спілкуються за допомогою періодичного імпульсу, де ширина імпульсу вказує на бажаний рівень потужності. Для ШІМ довжина імпульсу зазвичай коливається від 1000 мкс (нуль) до 2000 мкс (повна потужність), тоді як для OneShot 125 ширина імпульсів в 8 разів коротша, коливаючись від 125 мкс (нульова потужність) до 250 мкс (повна потужність).
 
-The theoretical maximum rate at which pulses can be sent, and hence the responsiveness, depends on the width of the largest pulse. For PWM this rate is close to 500 Hz while for OneShot it approaches 4 kHz. In practice the actual maximum rate for OneShot ESCs is typically between 1 kHz and 2 kHz, depending on the ESC used.
+Теоретична максимальна швидкість, з якою можуть бути відправлені імпульси, а отже, реакція, залежить від ширини найбільшого імпульсу. Для PWM ця швидкість становить близько 500 Гц, тоді як для OneShot вона наближається до 4 кГц. На практиці фактична максимальна частота для OneShot ESCs зазвичай становить від 1 кГц до 2 кГц, в залежності від використаного ESC.
 
-## Setup
+## Установка
 
-### Wiring
+### Підключення
 
-Wiring is exactly the same as for [PWM ESCs](../peripherals/pwm_escs_and_servo.md) (and dshot).
+Проводка точно така ж, як і для [PWM ESCs](../peripherals/pwm_escs_and_servo.md) (і dshot).
 
-### PX4 Configuration
+### Налаштування PX4
 
-To enable OneShot select the protocol for a group of outputs during [Actuator Configuration](../config/actuators.md). Note that the output range values are set to values in the normal PWM range (nominally `1000` to `2000`). These are scaled internally to output appropriate pulse-widths for Oneshot.
+Для активації OneShot виберіть протокол для групи виведень під час [налаштування приводу дії](../config/actuators.md). Зверніть увагу, що значення діапазону виведення встановлені на значення в нормальному діапазоні ШІМ (номінально `1000` до `2000`). Ці дані масштабуються внутрішньо для виведення відповідних ширин імпульсів для Oneshot.
 
-Then perform [ESC Calibration](../advanced_config/esc_calibration.md).
+Потім виконайте [Калібрування ESC](../advanced_config/esc_calibration.md).

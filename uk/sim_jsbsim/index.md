@@ -12,13 +12,13 @@
 
 @[youtube](https://youtu.be/y5azVNmIVyw)
 
-::: info See [Simulation](../simulation/index.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
+:::info Див. [Симуляція](../simulation/index.md) для загальної інформації про симулятори, середовище симуляції та конфігурацію симуляції (наприклад, підтримувані транспортні засоби).
 :::
 
 ## Встановлення (Ubuntu Linux)
 
-::: info
-These instructions were tested on Ubuntu 18.04
+:::info
+Ці інструкції були перевірені на Ubuntu 18.04
 :::
 
 1. Установіть звичайне [Середовище розробки на Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md).
@@ -68,7 +68,7 @@ make px4_sitl jsbsim
    catkin build jsbsim_bridge
    ```
 
-   ::: info You must have already set MAVROS in your workspace (if not, follow the instructions in the [MAVROS installation guide](../ros/mavros_installation.md)).
+   :::info Ви повинні вже мати встановлену MAVROS у своєму робочому просторі (якщо ні, дотримуйтеся інструкцій у [Посібнику з встановлення MAVROS](../ros/mavros_installation.md)).
 :::
 
 1. Так почніть JSBSim через ROS, використовуючи файл запуску, як показано:

@@ -1,39 +1,39 @@
-# Airspeed Calibration
+# Калібрування швидкості повітря
 
-::: info [Airspeed sensors](../sensor/airspeed.md) are highly recommended for Fixed-wing and VTOL vehicles.
+:::info [Сенсори швидкості в повітрі](../sensor/airspeed.md) дуже рекомендовані для безпілотників із фіксованим крилом та вертикального зльоту.
 :::
 
 :::warning
-Unlike most other sensor drivers, the airspeed sensor drivers are not automatically started. Before calibration they must be [enabled via the corresponding parameter](../advanced_config/parameters.md):
+У відміну від більшості інших драйверів датчиків, драйвери датчика швидкості повітря не запускаються автоматично. Перед калібруванням їх слід [увімкнути за відповідним параметром](../advanced_config/parameters.md):
 
 - Sensirion SDP3X ([SENS_EN_SDP3X](../advanced_config/parameter_reference.md#SENS_EN_SDP3X))
 - TE MS4525 ([SENS_EN_MS4525DO](../advanced_config/parameter_reference.md#SENS_EN_MS4525DO))
 - TE MS5525 ([SENS_EN_MS5525DS](../advanced_config/parameter_reference.md#SENS_EN_MS5525DS))
-- Eagle Tree airspeed sensor ([SENS_EN_ETSASPD](../advanced_config/parameter_reference.md#SENS_EN_ETSASPD))
+- Датчик швидкості в повітрі Eagle Tree ([SENS_EN_ETSASPD](../advanced_config/parameter_reference.md#SENS_EN_ETSASPD))
 :::
 
-## Performing the Calibration
+## Виконання калібрування
 
-To calibrate the airspeed sensor:
+Для калібрування датчика швидкості повітря:
 
-1. Start _QGroundControl_ and connect the vehicle.
-1. Enable the airspeed sensors if not already done (as in _warning_ above).
-1. Select **"Q" icon > Vehicle Setup > Sensors** (sidebar) to open _Sensor Setup_.
-1. Click the **Airspeed** sensor button.
+1. Запустіть _QGroundControl_ та підключіть транспортний засіб.
+1. Увімкніть датчики швидкості повітря, якщо цього ще не було зроблено (як у попередженні вище).
+1. Виберіть **іконку "Q" > Налаштування транспортного засобу > Датчики** (бічна панель), щоб відкрити _Налаштування датчиків_.
+1. Натисніть кнопку датчика **Airspeed**.
 
-   ![Airspeed calibration](../../assets/qgc/setup/sensor/sensor_airspeed.jpg)
+   ![Калібрування швидкості повітря](../../assets/qgc/setup/sensor/sensor_airspeed.jpg)
 
-1. Shield the sensor from the wind (i.e. cup it with your hand). Take care not to block any of its holes.
-1. Click **OK** to start the calibration.
-1. Once asked for, blow into the tip of the pitot tube to signal the end of calibration.
+1. Захистіть сенсор від вітру (тобто закрийте його рукою). Пильнуйте, щоб не заблокувати жодного з отворів.
+1. Клацніть **OK**, щоб розпочати калібрування.
+1. Після запиту, дмухніть у кінець труби пітота, щоб сигналізувати про завершення калібрування.
 
    :::tip
-Blowing into the tube is also a basic check that the dynamic and static ports are installed correctly.
-If they are swapped then the sensor will read a large negative differential pressure when you blow into the tube, and the calibration will abort with an error.
+Подування в трубку - це також базова перевірка того, що динамічні та статичні порти встановлені правильно.
+Якщо вони будуть поміняні місцями, то датчик буде відображати великий від'ємний перепад тиску, коли ви дмухаєте в трубку, і калібрування завершиться з помилкою.
 :::
 
-1. _QGroundControl_ then tells you if the calibration was successful or not.
+1. _QGroundControl_ потім повідомляє вам, чи була калібрування успішною чи ні.
 
-## Further Information
+## Додаткова інформація
 
-- [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#airspeed)
+- [ QGroundControl Посібник користувача > Датчики](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/sensors_px4.html#airspeed)

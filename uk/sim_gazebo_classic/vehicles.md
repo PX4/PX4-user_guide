@@ -4,8 +4,8 @@
 
 Типи рухомих засобів що підтримуються включають: мультиротори, ВЗІП, ВЗІП з хвоста, літак, ровер, підводний човен/підводний дрон.
 
-::: info
-The [Gazebo Classic](../sim_gazebo_classic/index.md) page shows how to install Gazebo Classic, how to enable video and load custom maps, and many other configuration options.
+:::info
+Сторінка [Gazebo Classic](../sim_gazebo_classic/index.md) показує як встановити Gazebo Classic, як увімкнути відео та завантажити користувацькі мапи, а також багато інших варіантів налаштування.
 :::
 
 ## Мультикоптери
@@ -54,8 +54,8 @@ make px4_sitl gazebo-classic_typhoon_h480
 
 ![Typhoon H480 в Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/typhoon.jpg)
 
-::: info
-This target also supports [video streaming simulation](../sim_gazebo_classic/index.md#video-streaming).
+:::info
+Ця ціль збірки також підтримує [симуляцію відеотрансляції](../sim_gazebo_classic/index.md#video-streaming).
 :::
 
 <a id="fixed_wing"></a>

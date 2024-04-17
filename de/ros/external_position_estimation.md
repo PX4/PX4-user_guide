@@ -92,7 +92,8 @@ A rough estimate of the delay can be obtained from logs by checking the offset b
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
-At time of writing (July 2021) neither [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool) nor [MAVGCL](../log/flight_log_analysis.md#mavgcl) support this functionality. :::note A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
+:::note
+A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools. :::note A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
 :::
 
 The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.
@@ -102,7 +103,7 @@ The value can further be tuned by varying the parameter to find the value that y
 You will first need to [switch to the LPE estimator](../advanced/switching_state_estimators.md) by setting the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) parameter.
 
 
-See [Building the Code](../dev_setup/building_px4.md) for more details. :::note If targeting `px4_fmu-v2` hardware you will also need to use a firmware version that includes the LPE module (firmware for other FMU-series hardware includes both LPE and EKF). The LPE version can be found in the zip file for each PX4 release or it can be built from source using the build command `make px4_fmu-v2_lpe`.
+The LPE version can be found in the zip file for each PX4 release or it can be built from source using the build command `make px4_fmu-v2_lpe`. See [Building the Code](../dev_setup/building_px4.md) for more details. :::note If targeting `px4_fmu-v2` hardware you will also need to use a firmware version that includes the LPE module (firmware for other FMU-series hardware includes both LPE and EKF).
 :::
 
 ### Enabling External Pose Input
@@ -208,7 +209,8 @@ Make sure that you change the values of yaw, pitch and roll such that it properl
 ```
 If the reference frame has the z axis pointing upwards you can attached it without any rotation (yaw=0, pitch=0, roll=0) to the `odom` frame. The name of `external_pose_parent_frame` has to match the frame_id of the odometry message.
 
-This might break the *tf* tree. :::note When using the MAVROS *odom* plugin, it is important that no other node is publishing a transform between the external pose's reference and child frame.
+:::note
+When using the MAVROS *odom* plugin, it is important that no other node is publishing a transform between the external pose's reference and child frame. :::note When using the MAVROS *odom* plugin, it is important that no other node is publishing a transform between the external pose's reference and child frame.
 :::
 
 <a id="setup_specific_systems"></a>

@@ -28,6 +28,7 @@ thoneflow stop
 ```
 thoneflow <command> [arguments...]
  thoneflow <command> [arguments...]
+ thoneflow <command> [arguments...]
  Commands:
    start         Start driver
      -d <val>    Serial device

@@ -2,14 +2,14 @@
 
 The Wing Wing Z-84 is a flying wing frame. It is small, rugged and just large enough to host a [Pixracer](../flight_controller/pixracer.md).
 
-Key information:
+Основна Інформація:
 
 - **Frame:** Wing Wing Z-84
 - **Flight controller:** Pixracer
 
 ![Wing Wing Z-84 build](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
 
-## Parts List
+## Список деталей
 
 ### Z-84 Plug n' Fly (PNF/PNP) or Kit
 
@@ -18,12 +18,12 @@ One of these:
 - [Hobbyking US Warehouse](https://hobbyking.com/en_us/wing-wing-z-84-epo-845mm-kit.html)
 
 :::tip
-PNF (or "PNP") versions include motor, propeller and electronic speed controller.
-The "kit" version does not include these components, which must be purchased separately.
+Версії PNF (або "PNP") включають двигун, гвинт і електронний регулятор швидкості.
+Версія "комплекту" не включає ці компоненти, які слід окремо придбати.
 :::
 
 
-### Electronic Speed Controller (ESC)
+### Електронний регулятор швидкості (ESC)
 
 One of these (any small (>=12A) ESC will do):
 
@@ -44,13 +44,13 @@ One of these (any small (>=12A) ESC will do):
 - 1 cm diameter O-ring for prop saver ([Hobbyking](https://hobbyking.com/en_us/wing-wing-z-84-o-ring-10pcs.html))
 - 125x110 mm propellers ([Hobbyking](https://hobbyking.com/en_us/gws-ep-propeller-dd-5043-125x110mm-green-6pcs-set.html))
 
-## Wiring
+## Підключення
 
-Wire the servos and motors as shown. Use the `MAIN` outputs (not the ones labeled with AUX). The motor controller needs to have an in-built BEC, as the autopilot is not powering the servo rail.
+Проведіть дроти до сервоприводів та двигунів, як показано. Використовуйте виходи `MAIN` (не ті, які позначені як AUX). The motor controller needs to have an in-built BEC, as the autopilot is not powering the servo rail.
 
-| Port   | Connection                  |
+| Порт   | Підключення                 |
 | ------ | --------------------------- |
-| RC IN  | PPM or S.BUS / S.BUS2 input |
+| RC IN  | PPM або вхід S.BUS / S.BUS2 |
 | MAIN 1 | Left Aileron                |
 | MAIN 2 | Right Aileron               |
 | MAIN 3 | Empty                       |
@@ -63,9 +63,9 @@ The images below give a rough idea about the assembly process, which is simple a
 
 ![wing wing build01](../../assets/airframes/fw/wing_wing/wing_wing_build01.jpg) ![wing wing build02](../../assets/airframes/fw/wing_wing/wing_wing_build02.jpg) ![wing wing build03](../../assets/airframes/fw/wing_wing/wing_wing_build03.jpg) ![wing wing build04](../../assets/airframes/fw/wing_wing/wing_wing_build04.jpg) ![wing wing build09](../../assets/airframes/fw/wing_wing/wing_wing_build09.jpg) ![Wing Wing Z-84 build](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
 
-## PX4 Configuration
+## Налаштування PX4
 
-### Airframe Configuration
+### Конфігурація планера
 
 Select **Flying Wing > Generic Flying Wing** in the QGroundControl [Airframe Configuration](../config/airframe.md):
 
@@ -73,12 +73,12 @@ Select **Flying Wing > Generic Flying Wing** in the QGroundControl [Airframe Con
 
 ### Actuator Mapping
 
-Set up the [Actuator Configuration](../config/actuators.md) to match the wiring for the ailerons and throttle as [indicated above](#wiring).
+Налаштуйте [Конфігурацію приводів](../config/actuators.md), щоб відповідати з'єднанню для елеронів та керування, як [вказано вище](#wiring).
 
 ![QGC - set the actuators](../../assets/airframes/fw/wing_wing/qgc_actuator_config.png)
 
-### Other Configuration
+### Інша Конфігурація
 
-Perform all the the other [Basic Configuration](../config/index.md), including [Autotuning](../config/autotune.md).
+Виконайте всі інші [Основні налаштування](../config/index.md), включаючи [Автоналаштування](../config/autotune.md).
 
 Advanced tuning is optional - see [Fixed-wing Vehicle Configuration](../config_fw/index.md).

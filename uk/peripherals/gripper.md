@@ -1,106 +1,106 @@
-# Grippers
+# Захоплювачі
 
-Grippers are mechanical devices that can be integrated with an unmanned vehicle to grip (hold) and release payloads.
+Захвати - це механічні пристрої, які можуть бути інтегровані з безпілотним транспортним засобом для захоплення (утримання) та відпускання вантажів.
 
-PX4 allows grippers to be triggered automatically in [Payload Delivery Missions](../flying/package_delivery_mission.md) or manually [using a Joystick](#qgc-joystick-configuration).
+PX4 дозволяє викликати захвати автоматично у [Місіях доставки вантажу](../flying/package_delivery_mission.md) або вручну [використовуючи джойстик](#qgc-joystick-configuration).
 
 ![High-load gripper example](../../assets/hardware/grippers/highload_gripper_example.jpg)
 
 ::: info
-A gripper can instead be configured as a [generic RC or MAVLink actuator](../payloads/generic_actuator_control.md#generic-actuator-control-with-rc). A generic actuator cannot be used with a joystick or in payload missions, but it can be used with an RC Controller.
+Захват замість цього може бути налаштований як [загальний привод RC або MAVLink](../payloads/generic_actuator_control.md#generic-actuator-control-with-rc). Загальний привід не може бути використаний з джойстиком або в місіях з вантажем, але його можна використовувати з пультом дистанційного керування.
 :::
 
-## Supported Grippers
+## Підтримувані захвати
 
-There are many different gripper mechanisms ("jaws", "fingers", "electromagnets") and interfaces (PWM, CAN, MAVLink, and so on).
+Існує багато різних механізмів захоплення ("щелепи", "пальці", "електромагніти") та інтерфейсів (PWM, CAN, MAVLink тощо).
 
-PX4 supports grippers that have simple triggers to hold and release, and that use the following interfaces (see linked documents for details):
+PX4 підтримує захвати, які мають прості важелі для утримання та відпускання, та використовують наступні інтерфейси (див. зв'язані документи для деталей):
 
-- [PWM Servo Gripper](gripper_servo.md) - Grippers connected to autopilot PWM outputs
-- **MAVLink Gripper** (Untested) - Grippers that support the [MAV_CMD_DO_GRIPPER](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GRIPPER) MAVLink command.
+- [PWM Сервохват](gripper_servo.md) - Схвати, підключені до виходів PWM автопілота
+- **MAVLink Захват** (Не тестовано) - Захваты, які підтримують команду MAVLink [MAV_CMD_DO_GRIPPER](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GRIPPER).
 
-## Using a Gripper
+## Використання захоплювача
 
-For information on using a gripper in missions see [Payload Delivery Missions](../flying/package_delivery_mission.md).
+Для отримання інформації про використання захоплювача в місіях див. [Місії доставки вантажів](../flying/package_delivery_mission.md).
 
-You can manually trigger a gripper manually from a Joystick button if you've mapped `gripper open` and `gripper close` buttons in the [QGC Joystick Configuration](#qgc-joystick-configuration). Note that if you press the **Grab** button while the gripper is opening, it will automatically abort releasing behavior and go to the closed position, effectively cancelling the release command. If you do this in a mission while the release is actually happening, then the [delivery will be cancelled](../flying/package_delivery_mission.md#manual-control-of-gripper-in-missions).
+Ви можете вручну спрацьовувати захват вручну з кнопки джойстика, якщо ви відобразили кнопки `gripper open` та `gripper close` в [Конфігурації джойстика QGC](#qgc-joystick-configuration). Зверніть увагу, що якщо ви натиснете кнопку **Grab**, коли захоплювач відкривається, він автоматично припинить поведінку вивільнення і перейде в закрите положення, ефективно скасовуючи команду вивільнення. Якщо ви це робите під час виконання місії, коли відбувається випуск, тоді [доставка буде скасована](../flying/package_delivery_mission.md#manual-control-of-gripper-in-missions).
 
-Manually triggering a gripper from an [RC Control](../getting_started/rc_transmitter_receiver.md) switch is not supported.
+Підтримка вручного спрацьовування захоплювача з перемикача [керування RC](../getting_started/rc_transmitter_receiver.md) не підтримується.
 
-MAVLink applications, such as ground stations, can also control the gripper using the [MAV_CMD_DO_GRIPPER](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GRIPPER) MAVLink command.
+Додатки MAVLink, такі як земельні станції, також можуть керувати затиском за допомогою команди MAVLink [MAV_CMD_DO_GRIPPER](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GRIPPER).
 
-## PX4 Configuration
+## Конфігурація PX4
 
-### Package Delivery Configuration
+### Налаштування доставки посилок
 
-PX4 gripper support is tied to the package delivery feature, which must be enabled and configured in order to be able to use a gripper.
+Підтримка захоплювача PX4 пов'язана з функцією доставки пакетів, яка повинна бути увімкнена та налаштована для можливості використання захоплювача.
 
-1. Set [PD_GRIPPER_EN](../advanced_config/parameter_reference.md#PD_GRIPPER_EN) parameter to 1 (reboot required after change).
-1. Set [PD_GRIPPER_TYPE](../advanced_config/parameter_reference.md#PD_GRIPPER_TYPE) to match your gripper. For example, set to `Servo` for a [Servo Gripper](gripper_servo.md).
+1. Встановіть параметр [PD_GRIPPER_EN](../advanced_config/parameter_reference.md#PD_GRIPPER_EN) на 1 (після зміни потрібно перезавантаження).
+1. Встановіть [PD_GRIPPER_TYPE](../advanced_config/parameter_reference.md#PD_GRIPPER_TYPE) для відповідності вашому захоплювачу. Наприклад, встановіть на `Servo` для [Servo Grepper](gripper_servo.md).
 
-### Gripper Actuator Mapping
+### Відображення активатора захоплювача
 
-Grippers that are connected directly to a flight controller, such as PWM servo grippers, must be mapped to specific outputs during [Actuator Configuration](../config/actuators.md#actuator-outputs).
+Захвати, які підключені безпосередньо до контролера польоту, такі як серводвигуни з ШШІ, повинні бути відображені на конкретні виходи під час [Конфігурації приводів](../config/actuators.md#actuator-outputs).
 
-This is done by assigning the `Gripper` function to the to the output port where the gripper is connected. For example, the image below assigns `Gripper` to the PWM AUX5 output.
+Це виконується шляхом призначення функції `Gripper` для вихідного порту, де підйомник підключений. Наприклад, на зображенні нижче призначається `Gripper` для виходу PWM AUX5.
 
 ![Gripper output mapping](../../assets/config/gripper/qgc_gripper_actuator_output_small.png)
 
-Additional information about actuator mapping is provided in the gripper-specific documentation. For example, see [Gripper Servo > Actuator Mapping](../peripherals/gripper_servo.md#actuator-mapping).
+Додаткову інформацію про відображення приводу надається в документації, специфічній для захоплювача. Наприклад, дивіться [Gripper Servo > Actuator Mapping](../peripherals/gripper_servo.md#actuator-mapping).
 
-### Enable Pre-ARM Mode
+### Увімкнути режим попередньої підготовки ARM
 
-Typically you will want to enable the [pre-arming mode](../advanced_config/prearm_arm_disarm.md). This mode keeps the motors disabled but allows the gripper to be opened and closed for attaching the payload (avoiding potential danger from spinning propellers).
+Зазвичай ви захочете увімкнути [режим попереднього підготовки до озброєння](../advanced_config/prearm_arm_disarm.md). Цей режим утримує двигуни вимкненими, але дозволяє затискати та відкривати захоплювач для кріплення вантажу (уникнення потенційної небезпеки від обертання пропелерів).
 
-1. Set [COM_PREARM_MODE](../advanced_config/parameter_reference.md#COM_PREARM_MODE) to `Always`.
+1. Встановіть [COM_PREARM_MODE](../advanced_config/parameter_reference.md#COM_PREARM_MODE) на `Always`.
 
-### Gripper Actuation Timeout
+### Тайм-аут активації захоплювача
 
-It is important for package delivery that the gripper has time to release before progressing to subsequent waypoints. For grippers that do not provide sensor-based feedback of their state, which is most of them, a configurable timeout is used to signal when the gripper _should_ have opened or closed.
+Важливо, щоб для доставки посилки захоплювач мав час відпустити перед переходом до наступних точок маршруту. Для захоплювачів, які не надають зворотного зв'язку на основі датчика їхнього стану, що становить більшість з них, використовується налаштований таймаут для сигналізації про те, коли захват _повинен_ бути відкритий або закритий.
 
-To set the actuation timeout:
+Щоб встановити таймаут активації:
 
-1. Measure the time taken for the gripper to open and time to close, and note the longer of these two times.
+1. Виміряйте час, який займає відкриття та закриття захвату, та зафіксуйте більший з цих двох часів.
 
-   There are two easy ways to open and close the gripper. While the drone is on a bench and the propellers are removed:
+   Є два простих способи відкрити та закрити захоплювач. Поки дрон знаходиться на лавці і гвинти видалені:
 
-   - Run the `payload_deliverer` test in the QGC [MAVLink Shell](../debug/mavlink_shell.md):
+   - Виконайте тест `payload_deliverer` у QGC [MAVLink Shell](../debug/mavlink_shell.md):
 
      ```
      > payload_deliverer gripper_test
      ```
 
-     ::: info If you get an error message like "[payload_deliverer] not running", repeat the setup procedures above. You might also run the `payload_deliverer start` command in the Nuttx shell.
+     :::info Якщо ви отримаєте повідомлення про помилку, подібне до "[payload_deliverer] не працює", повторіть процедури налаштування вище. Ви також можете запустити команду `payload_deliverer start` в оболонці Nuttx.
 :::
 
-   - Use the [Joystick](#qgc-joystick-configuration) to trigger gripper open and close actions.
+   - Використовуйте [джойстик](#qgc-joystick-configuration) для виклику дій відкриття та закриття захвата.
 
-1. Set [PD_GRIPPER_TO](../advanced_config/parameter_reference.md#PD_GRIPPER_TO) to whichever of the gripper open and close time is larger.
+1. Встановіть [PD_GRIPPER_TO](../advanced_config/parameter_reference.md#PD_GRIPPER_TO) на те значення, яке є більшим серед часу відкриття та закриття захоплювача.
 
-### Mission Delivery Timeout
+### Тайм-аут доставки місій
 
-When running a [Payload Delivery Mission](../flying/package_delivery_mission.md) it is important that the mission is not halted in the case where the gripper does not report that it has opened (or closed). This might happen if a gripper feedback sensor was damaged or UORB dropped the gripper actuator timout message.
+Під час виконання [Місії доставки вантажу](../flying/package_delivery_mission.md) важливо, щоб місія не була зупинена у випадку, коли захват не повідомляє, що він відкрився (або закрився). Це може статися, якщо датчик зворотного зв'язку захвата був пошкоджений або UORB втратив повідомлення про тайм-аут дії захоплювача.
 
-::: info
-Gripper state feedback from a sensor is not actually supported yet, but it may be in future.
+::: інформація
+Зворотний зв'язок стану затискача від датчика насправді ще не підтримується, але це можливо у майбутньому.
 :::
 
-The mission-delivery timout provides an additional safeguard, continuing the mission if the gripper's successful actuation acknowledgement is not received.
+Таймаут доставки місії забезпечує додатковий захист, продовжуючи місію, якщо підтвердження успішного виконання захоплювача не надійшло.
 
-To set the timeout:
+Щоб встановити таймаут:
 
-1. Set [MIS_PD_TO](../advanced_config/parameter_reference.md#MIS_PD_TO) to a value greater than the [gripper actuation timeout](#gripper-actuation-timeout).
+1. Встановіть [MIS_PD_TO](../advanced_config/parameter_reference.md#MIS_PD_TO) на значення, більше, ніж тайм-аут активації захоплювача [gripper](#gripper-actuation-timeout).
 
-## QGC Joystick Configuration
+## Налаштування джойстика QGC
 
-QGroundControl [Joystick](../config/joystick.md) configuration allows you to map gripper actions to Joystick buttons, after which you will be open and close the gripper manually.
+Конфігурація [джойстика](../config/joystick.md) QGroundControl дозволяє вам відображати дії захоплювача на кнопки джойстика, після чого ви зможете відкривати та закривати зхват вручну.
 
-To map joystick buttons in QGroundControl:
+Для відображення кнопок джойстика в QGroundControl:
 
-1. Open the menu: **QGC Logo (upper-left) > Vehicle Setup > Joystick > Button Assignment** tab.
+1. Відкрийте меню: **QGC Логотип (вгорі ліворуч) > Налаштування Транспортного Засобу > Джойстик > Призначення Кнопок** вкладка.
 
    ![Gripper action mapping](../../assets/config/gripper/qgc_gripper_actions_joystick.png)
 
-1. Select `Gripper Open` and `Gripper Close` actions for your desired joystick buttons, as shown above.
+1. Виберіть дії `Gripper Open` та `Gripper Close` для бажаних кнопок джойстика, як показано вище.
 
-You can test the actions by clicking on the mapped buttons and checking for gripper movement. If the gripper doesn't move as expected check the package delivery configuration and actuator mapping are set up properly.
+Ви можете протестувати дії, натиснувши на кнопки зіставлено і перевіривши спосіб пересування. Якщо захоплювач не рухається, як очікувалося, перевірте налаштування доставки пакета та відображення приводу.

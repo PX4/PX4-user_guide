@@ -42,19 +42,7 @@ For easy access to your board, you can connect it to your home network via wifi.
 The steps are (execute on the board):
 
 ```sh
-sudo su
-connmanctl
-connmanctl>scan wifi
-connmanctl>services
-#(at this point you should see your network SSID appear.)
-connmanctl>agent on
-connmanctl>connect <SSID>
-    Enter Passphrase
-connmanctl>quit
-connmanctl>agent on
-connmanctl>connect <SSID>
-    Enter Passphrase
-connmanctl>quit
+sudo su connmanctl connmanctl>scan wifi connmanctl>services #(at this point you should see your network SSID appear.) connmanctl>agent on connmanctl>connect <SSID> Enter Passphrase connmanctl>quit connmanctl>agent on connmanctl>connect <SSID> Enter Passphrase connmanctl>quit Different ARM Cross Compiler versions for _BeagleBone Blue_ can be found at \[Linaro Toolchain Binaries site\](http://www.linaro.org/downloads/).
 connmanctl>agent on
 connmanctl>connect <SSID>
     Enter Passphrase
@@ -120,7 +108,7 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
 in the toolchain should be compatible with kernel in _BeagleBone Blue_. General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on _BeagleBone Blue_.
 :::
 
-         sudo su connmanctl connmanctl>scan wifi connmanctl>services #(at this point you should see your network SSID appear.) connmanctl>agent on connmanctl>connect <SSID> Enter Passphrase connmanctl>quit connmanctl>agent on connmanctl>connect <SSID> Enter Passphrase connmanctl>quit Different ARM Cross Compiler versions for _BeagleBone Blue_ can be found at \[Linaro Toolchain Binaries site\](http://www.linaro.org/downloads/).
+         sudo su connmanctl connmanctl&gt;scan wifi connmanctl&gt;services #(at this point you should see your network SSID appear.) connmanctl&gt;agent on connmanctl&gt;connect &lt;SSID&gt; Enter Passphrase connmanctl&gt;quit connmanctl&gt;agent on connmanctl&gt;connect &lt;SSID&gt; Enter Passphrase connmanctl&gt;quit connmanctl&gt;agent on connmanctl&gt;connect &lt;SSID&gt; Enter Passphrase connmanctl&gt;quit
 
          Different ARM Cross Compiler versions for _BeagleBone Blue_ can be found at \[Linaro Toolchain Binaries site\](http://www.linaro.org/downloads/).
 
@@ -141,7 +129,7 @@ The GCC version of the toolchain should be compatible with kernel in _BeagleBone
          export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-13.0.0-2022.06-x86_64_arm-linux-gnueabihf/bin
          ```
 
-         ::: info If you want to change permanently, you have to change **PX4-Autopilot/posix-configs/bbblue/px4.config** on the Build Machine before build.
+         ::: info Currently _librobotcontrol_ requires root access.
 :::
 
       1. Setup other dependencies by downloading the PX4 source code and then running the setup scripts:

@@ -20,9 +20,9 @@
 - Камеру слід встановити з об'єктивами, спрямованими вниз (за замовчуванням). Не забудьте вказати орієнтацію камери, опублікувавши статичне перетворення між `base_link` та `camera_pose_frame` у файлі запуску ROS, наприклад:
   ```xml
   <node pkg="tf" type="static_transform_publisher" name="tf_baseLink_cameraPose"
-      args="0 0 0 0 1.5708 0 base_link camera_pose_frame 1000"/>
+ args="0 0 0 0 1.5708 0 base_link camera_pose_frame 1000"/>
   ```
-  This is a static transform that links the camera ROS frame `camera_pose_frame` to the MAVROS drone frame `base_link`.
-  - the first three `args` specify _translation_ x,y,z in metres from the center of the flight controller to the camera. For example, if the camera is 10cm in front of the controller and 4cm up, the first three numbers would be : [0.1, 0, 0.04,...]
+  Це статичне перетворення, яке зв'язує кадровий кадр камери ROS `camera_pose_frame` з базовим кадром дрона MAVROS `base_link`.
+  - перші три `args` вказують на _переклад_ x,y,z у метрах від центру контролера польоту до камери. Наприклад, якщо камера знаходиться на відстані 10 см від контролера і на висоті 4 см, перші три числа будуть: [0.1, 0, 0.04,...]
   - наступні три `args` вказують обертання в радіанах (кут розвороту, тангаж, крен). Так `[... 0, 1.5708, 0]` означає нахил вниз на 90° (обличчям до землі). Обличчям прямо вперед було б [... 0 0 0].
 - Камера чутлива до високочастотних вібрацій! Воно повинно бути м'яко монтуватися, наприклад, за допомогою піни для віброізоляції.

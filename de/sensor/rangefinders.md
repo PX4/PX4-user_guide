@@ -90,7 +90,9 @@ The easiest way to test the rangefinder is to vary the range and compare to the 
 
 The _QGroundControl MAVLink Inspector_ lets you view messages sent from the vehicle, including `DISTANCE_SENSOR` information from the rangefinder. The main difference between the tools is that the _Analyze_ tool can plot values in a graph.
 
-You will only get `DISTANCE_SENSOR` messages if the connected vehicle has a rangefinder installed and is publishing sensor values. :::note
+:::note
+The messages that are sent depend on the vehicle configuration.
+:::note
 The messages that are sent depend on the vehicle configuration.
 :::
 

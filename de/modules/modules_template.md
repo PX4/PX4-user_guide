@@ -25,6 +25,7 @@ module start -f -p 42
 ```
 module <command> [arguments...]
  module <command> [arguments...]
+ module <command> [arguments...]
  Commands:
    start
      [-f]        Optional example flag
@@ -48,6 +49,13 @@ Example of a simple module running out of a work queue.
 ### Usage
 ```
 work_item_example <command> [arguments...]
+ work_item_example <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
  work_item_example <command> [arguments...]
  Commands:
    start

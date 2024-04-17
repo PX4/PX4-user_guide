@@ -11,7 +11,7 @@ PX4 не виробляє цей (або будь-який) автопілот.
 
 Автопілот _3DR Pixhawk<sup>&reg;</sup> 1_ є популярним універсальним політним контролером на основі відкритого апаратного дизайну [Pixhawk-project](https://pixhawk.org/) **FMUv2** (він поєднує функціональність PX4FMU + PX4IO). Він виконує PX4 на ОС [NuttX](https://nuttx.apache.org/).
 
-![Pixhawk Image](../../assets/hardware/hardware-pixhawk.png)
+![Зображення Pixhawk](../../assets/hardware/hardware-pixhawk.png)
 
 Інструкції зі збирання/налаштування для використання з PX4 наведено тут: [Швидкий старт з підключення Pixhawk](../assembly/quick_start_pixhawk.md)
 
@@ -54,84 +54,84 @@ PX4 не виробляє цей (або будь-який) автопілот.
 - [mRo Pixhawk 2.4.6 Essential Kit](https://store.mrobotics.io/Genuine-PixHawk-Flight-Controller-p/mro-pixhawk1-minkit-mr.htm) - включає все, крім телеметрії радіо
 - [mRo Pixhawk 2.4.6 Cool Kit! (Limited edition)](https://store.mrobotics.io/product-p/mro-pixhawk1-fullkit-mr.htm) - включає все необхідне, включаючи телеметрію радіо
 
-## Specifications
+## Характеристики
 
-### Processor
+### Процесор
 
-- 32bit STM32F427 [Cortex-M4F](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4) core with FPU
+- 32bit STM32F427 [Cortex-M4F](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4) ядро з FPU
 - 168 MHz
 - 256 KB RAM
 - 2 MB Flash
-- 32 bit STM32F103 failsafe co-processor
+- 32 bit STM32F103 відмовостійкий копроцесор
 
-### Sensors
+### Датчики
 
-- ST Micro L3GD20H 16 bit gyroscope
-- ST Micro LSM303D 14 bit accelerometer / magnetometer
-- Invensense MPU 6000 3-axis accelerometer/gyroscope
-- MEAS MS5611 barometer
+- ST Micro L3GD20H 16 bit гіроскоп
+- ST Micro LSM303D 14 bit акселерометр / магнітометр
+- Invensense MPU 6000 3-вісний акселерометр/гіроскоп
+- MEAS MS5611 барометр
 
-### Interfaces
+### Інтерфейси
 
-- 5x UART (serial ports), one high-power capable, 2x with HW flow control
-- 2x CAN (one with internal 3.3V transceiver, one on expansion connector)
-- Spektrum DSM / DSM2 / DSM-X® Satellite compatible input
-- Futaba S.BUS® compatible input and output
-- PPM sum signal input
-- RSSI (PWM or voltage) input
+- 5x UART (послідовні порти), один високої потужності, 2x з HW контролем потоку
+- 2x CAN (один з внутрішнім 3.3V трансивером, один на конекторі розширення)
+- Spektrum DSM / DSM2 / DSM-X® Satellite сумісний вхід
+- Futaba S.BUS® сумісний вхід і вивід
+- PPM sum signal вхід
+- RSSI (PWM чи voltage) вхід
 - I2C
 - SPI
-- 3.3 and 6.6V ADC inputs
-- Internal microUSB port and external microUSB port extension
+- 3.3 та 6.6V ADC входи
+- Внутрішній порт microUSB і розширення зовнішнього порту microUSB
 
 @[youtube](https://youtu.be/gCCC5A-Bvv4)
 
-### Power System and Protection
+### Система живлення та захист
 
-- Ideal diode controller with automatic failover
-- Servo rail high-power (max. 10V) and high-current (10A+) ready
-- All peripheral outputs over-current protected, all inputs ESD protected
+- Ідеальний діодний контролер з автоматичним перемиканням
+- Сервопривід високої потужності (max. 10V) і сильного струму (10A+)
+- Усі периферійні виводи захищені від перевантаження по струму, усі входи захищені від електростатичного розряду
 
-## Voltage Ratings
+## Номінальна напруга
 
-Pixhawk can be triple-redundant on the power supply if three power sources are supplied. The three rails are: Power module input, servo rail input, USB input.
+Pixhawk може мати потрійну резервність у джерелі живлення, якщо подаються три джерела живлення. Три шини: вхід модуля живлення, вхід сервоприводу, вхід USB.
 
-### Normal Operation Maximum Ratings
+### Максимальна напруга нормальної роботи
 
-Under these conditions all power sources will be used in this order to power the system
+За таких умов всі джерела живлення будуть використовуватися в цьому порядку для живлення системи
 
-- Power module input (4.8V to 5.4V)
-- Servo rail input (4.8V to 5.4V) **UP TO 10V FOR MANUAL OVERRIDE, BUT AUTOPILOT PART WILL BE UNPOWERED ABOVE 5.7V IF POWER MODULE INPUT IS NOT PRESENT**
-- USB power input (4.8V to 5.4V)
+- Вхід модуля живлення (4.8V to 5.4V)
+- Вхід сервоприводу (4.8V to 5.4V) **ДО 10V ДЛЯ РУЧНОГО ПЕРЕКЛЮЧЕННЯ, АЛЕ АВТОПІЛОТ БУДЕ ЗНЕЖИВЛЕНИЙ ВИЩЕ 5.7V, ЯКЩО ВХІД МОДУЛЯ ЖИВЛЕННЯ НЕ ПРИСУТНІЙ**
+- Вхід живлення USB (4.8V до 5.4V)
 
-### Absolute Maximum Ratings
+### Абсолютна максимальна напруга
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+За таких умов система не буде витрачати жодної потужності (не буде працювати), але залишиться неушкодженою.
 
-- Power module input (4.1V to 5.7V, 0V to 20V undamaged)
-- Servo rail input (4.1V to 5.7V, 0V to 20V)
-- USB power input (4.1V to 5.7V, 0V to 6V)
+- Вхід модуля живлення (4.1V до 5.7V, 0V до 20V неушкоджений)
+- Вхід сервоприводу (4.1V до 5.7V, 0V до 20V)
+- Вхід живлення USB (4.1V до 5.7V, 0V до 6V)
 
-## Schematics
+## Схеми
 
-[FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
+[Схема FMUv2 + IOv2](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Схема та макет
 
-::: info As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
+::: info Як дизайн Open Hardware з ліцензією CC-BY-SA 3.0, всі схеми та файли дизайну доступні [тут](https://github.com/PX4/Hardware).
 :::
 
-## Connections
+## З'єднання
 
-Pixhawk ports are shown below. These use Hirose DF13 connectors (predating the JST-GH connectors defined in the Pixhawk connector standard).
+Порти Pixhawk показані нижче. Вони використовують роз’єми Hirose DF13 (передують роз’ємам JST-GH, визначеним у стандарті роз’ємів Pixhawk).
 
 :::warning
-Many 3DR Pixhawk clones use Molex picoblade connectors instead of DF13 connectors.
-They have rectangular instead of square pins, and cannot be assumed to be compatible.
+Багато клонів 3DR Pixhawk використовують роз’єми Molex picoblade замість роз’ємів DF13.
+Вони мають прямокутні штифти замість квадратних, і їх не можна вважати сумісними.
 :::
 
-![Pixhawk Connectors](../../assets/flight_controller/pixhawk1/pixhawk_connectors.png)
+![Конектори Pixhawk](../../assets/flight_controller/pixhawk1/pixhawk_connectors.png)
 
 :::tip
-The `RC IN` port is for RC receivers only and provides sufficient power for that purpose. **NEVER** connect any servos, power supplies or batteries to it or to the receiver connected to it.
+Порт `RC IN` призначений лише для RC приймачів і забезпечує достатню потужність для цієї мети. **НІКОЛИ** не підключайте до нього або до підключеного приймача жодних сервоприводів, джерел живлення або батарей.
 :::
 
 ## Схема розташування виводів
@@ -160,7 +160,7 @@ The `RC IN` port is for RC receivers only and provides sufficient power for that
 
 #### SERIAL 4/5 port
 
-Due to space constraints two ports are on one connector.
+У зв'язку з обмеженням простору два порти знаходяться на одному роз'ємі.
 
 | Pin     | Сигнал  | Вольт |
 | ------- | ------- | ----- |
@@ -251,19 +251,19 @@ Due to space constraints two ports are on one connector.
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
-## Debug Ports
+## Відладочні порти
 
-### Console Port
+### Порт Консолі
 
-The [PX4 System Console](../debug/system_console.md) runs on the port labeled [SERIAL4/5](#serial-4-5-port).
+[Консоль системи PX4](../debug/system_console.md) працює на порту, позначеному [SERIAL4/5](#serial-4-5-port).
 
 :::tip
-A convenient way to connect to the console is to use a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation), as it comes with connectors that can be used with several different Pixhawk devices. Simply connect the 6-pos DF13 1:1 cable on the [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) to the Pixhawk `SERIAL4/5` port.
+Зручний спосіб підключення до консолі - скористатися [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation), оскільки він поставляється з роз'ємами, які можна використовувати з кількома різними пристроями Pixhawk. Просто під'єднайте кабель DF13 1:1 з 6-позиційним роз'ємом з [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) до порту Pixhawk `SERIAL4/5`.
 
 ![Dronecode probe](../../assets/flight_controller/pixhawk1/dronecode_probe.jpg)
 :::
 
-The pinout is standard serial pinout, designed to connect to a [3.3V FTDI](https://www.digikey.com/en/products/detail/TTL-232R-3V3/768-1015-ND/1836393) cable (5V tolerant).
+Розводка є стандартною послідовною розводкою, призначеною для підключення до кабелю [3.3V FTDI](https://www.digikey.com/en/products/detail/TTL-232R-3V3/768-1015-ND/1836393) (до 5V).
 
 | 3DR Pixhawk 1 |           | FTDI                    |
 | ------------- | --------- | ----------------------- |
@@ -274,53 +274,53 @@ The pinout is standard serial pinout, designed to connect to a [3.3V FTDI](https
 | 5             | S5 Rx     | 4    | FTDI TX (orange) |
 | 6             | GND       | 1    | FTDI GND (black) |
 
-The wiring for an FTDI cable to a 6-pos DF13 1:1 connector is shown in the figure below.
+Підключення кабелю FTDI до 6-контактного роз’єму DF13 1:1 показано на малюнку нижче.
 
-![Console Connector](../../assets/flight_controller/pixhawk1/console_connector.jpg)
+![Конектор консолі](../../assets/flight_controller/pixhawk1/console_connector.jpg)
 
-The complete wiring is shown below.
+Повна проводка показана нижче.
 
 ![Console Debug](../../assets/flight_controller/pixhawk1/console_debug.jpg)
 
-::: info For information on how to _use_ the console see: [System Console](../debug/system_console.md).
+::: info Для отримання інформації про те, як _використовувати_ консоль, див: [Системна консоль](../debug/system_console.md).
 :::
 
 ### SWD Port
 
-The [SWD](../debug/swd_debug.md) (JTAG) ports are hidden under the cover (which must be removed for hardware debugging). There are separate ports for FMU and IO, as highlighted below.
+Порти [SWD](../debug/swd_debug.md) (JTAG) приховані під покриттям (яке треба зняти для налагодження апаратного забезпечення). Є окремі порти для FMU та IO, як показано нижче.
 
 ![Pixhawk SWD](../../assets/flight_controller/pixhawk1/pixhawk_swd.jpg)
 
-The ports are ARM 10-pin JTAG connectors, which you will probably have to solder. The pinout for the ports is shown below (the square markers in the corners above indicates pin 1).
+Порти являють собою 10-контактні роз’єми JTAG ARM, які вам, ймовірно, доведеться паяти. Схема контактів для портів показана нижче (квадратні маркери в кутах вище вказують на контакт 1).
 
-![ARM 10-Pin connector pinout](../../assets/flight_controller/pixhawk1/arm_10pin_jtag_connector_pinout.jpg)
+![Розводка 10-контактного роз'єму ARM](../../assets/flight_controller/pixhawk1/arm_10pin_jtag_connector_pinout.jpg)
 
 ::: info
-All Pixhawk FMUv2 boards have a similar SWD port.
+Усі плати Pixhawk FMUv2 мають подібний порт SWD.
 :::
 
-## Building Firmware
+## Збірка прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно збирати цю прошивку! Вона попередньо зібрана й автоматично встановлюється _QGroundControl_ при підключенні відповідного апаратного забезпечення.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [ зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make px4_fmu-v2_default
 ```
 
-## Parts / Housings
+## Частини / Корпуси
 
-- **ARM MINI JTAG (J6)**: 1.27 mm 10pos header (SHROUDED), for Black Magic Probe: FCI 20021521-00010D4LF ([Distrelec](https://www.distrelec.ch/en/minitek-127-straight-male-pcb-header-surface-mount-rows-10-contacts-27mm-pitch-amphenol-fci-20021521-00010d4lf/p/14352308), [Digi-Key](https://www.digikey.com/en/products/detail/20021521-00010T1LF/609-4054-ND/2414951),) or Samtec FTSH-105-01-F-DV-K (untested) or Harwin M50-3600542 ([Digikey](https://www.digikey.com/en/products/detail/harwin-inc/M50-3600542/2264370) or [Mouser](http://ch.mouser.com/ProductDetail/Harwin/M50-3600542/?qs=%2fha2pyFadujTt%2fIEz8xdzrYzHAVUnbxh8Ki%252bwWYPNeEa09PYvTkIOQ%3d%3d))
-  - JTAG Adapter Option #1: [BlackMagic Probe](https://1bitsquared.com/products/black-magic-probe). Note, may come without cables (check with manufacturer). If so, you will need the **Samtec FFSD-05-D-06.00-01-N** cable ([Samtec sample service](https://www.samtec.com/products/ffsd-05-d-06.00-01-n) or [Digi-Key Link: SAM8218-ND](http://www.digikey.com/product-search/en?x=0&y=0&lang=en&site=us&KeyWords=FFSD-05-D-06.00-01-N)) or [Tag Connect Ribbon](http://www.tag-connect.com/CORTEXRIBBON10) and a Mini-USB cable.
-  - JTAG Adapter Option #2: [Digi-Key Link: ST-LINK/V2](https://www.digikey.com/product-detail/en/stmicroelectronics/ST-LINK-V2/497-10484-ND) / [ST USER MANUAL](http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/USER_MANUAL/DM00026748.pdf), needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/en/products/detail/texas-instruments/MDL-ADA2/1986451)
-  - JTAG Adapter Option #3: [SparkFun Link: Olimex ARM-TINY](http://www.sparkfun.com/products/8278) or any other OpenOCD-compatible ARM Cortex JTAG adapter, needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/en/products/detail/texas-instruments/MDL-ADA2/1986451)
+- **ARM MINI JTAG (J6)**: 1.27 mm 10pos header (SHROUDED), for Black Magic Probe: FCI 20021521-00010D4LF ([Distrelec](https://www.distrelec.ch/en/minitek-127-straight-male-pcb-header-surface-mount-rows-10-contacts-27mm-pitch-amphenol-fci-20021521-00010d4lf/p/14352308), [Digi-Key](https://www.digikey.com/en/products/detail/20021521-00010T1LF/609-4054-ND/2414951)) or Samtec FTSH-105-01-F-DV-K (untested) or Harwin M50-3600542 ([Digikey](https://www.digikey.com/en/products/detail/harwin-inc/M50-3600542/2264370) or [Mouser](http://ch.mouser.com/ProductDetail/Harwin/M50-3600542/?qs=%2fha2pyFadujTt%2fIEz8xdzrYzHAVUnbxh8Ki%252bwWYPNeEa09PYvTkIOQ%3d%3d))
+  - JTAG Adapter Option #1: [BlackMagic Probe](https://1bitsquared.com/products/black-magic-probe). Зверніть увагу, що може поставлятися без кабелів (перевірте у виробника). Якщо так, вам знадобиться кабель **Samtec FFSD-05-D-06.00-01-N** ([Samtec sample service](https://www.samtec.com/products/ffsd-05-d-06.00-01-n) або [Digi-Key Link: SAM8218-ND](http://www.digikey.com/product-search/en?x=0&y=0&lang=en&site=us&KeyWords=FFSD-05-D-06.00-01-N)) або [Tag Connect Ribbon](http://www.tag-connect.com/CORTEXRIBBON10) та кабель Mini-USB.
+  - JTAG Adapter Option #2: [Digi-Key Link: ST-LINK/V2](https://www.digikey.com/product-detail/en/stmicroelectronics/ST-LINK-V2/497-10484-ND) / [ST USER MANUAL](http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/USER_MANUAL/DM00026748.pdf), потрібен адаптер ARM Mini JTAG до 20pos: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/en/products/detail/texas-instruments/MDL-ADA2/1986451)
+  - JTAG Adapter Option #3: [SparkFun Link: Olimex ARM-TINY](http://www.sparkfun.com/products/8278) або будь-який інший адаптер JTAG ARM Cortex, сумісний з OpenOCD, потребує адаптера ARM Mini JTAG на 20 контактів: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/en/products/detail/texas-instruments/MDL-ADA2/1986451)
 - **USARTs**: Hirose DF13 6 pos ([Digi-Key Link: DF13A-6P-1.25H(20)](https://www.digikey.com/products/en?keywords=H3371-ND))
   - Mates: Hirose DF13 6 pos housing ([Digi-Key Link: Hirose DF13-6S-1.25C](https://www.digikey.com/products/en?keywords=H2182-ND))
-- **I2C and CAN**: Hirose DF13 4 pos ([Digi-Key Link: DF13A-4P-1.25H(20)](https://www.digikey.com/en/products/detail/hirose-electric-co-ltd/DF13A-4P-1-25H-20/530666) - discontinued)
+- **I2C і CAN**: Hirose DF13 4 pos ([Digi-Key Link: DF13A-4P-1.25H(20)](https://www.digikey.com/en/products/detail/hirose-electric-co-ltd/DF13A-4P-1-25H-20/530666) - знято з виробництва)
 
-## Supported Platforms / Airframes
+## Підтримувані платформи / шасі
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
+Будь-який мультикоптер / літак / наземна платформа чи човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus.

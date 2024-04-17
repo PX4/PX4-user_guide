@@ -22,27 +22,27 @@
 - **Максимальна вхідна напруга**: 6S заряд акумулятора
 - **Rated current**: 60A
 - **Максимальний струм:**: 120A (<60 сек)
-- **Max current sensing**: 164A
+- **Максимальне вимірювання поточного струму**: 164A
 - **Протокол зв'язку**: I2C
-- **Dimension**: 84 x 78 x 12mm (excluding wires)
+- **Розмір**: 84 x 78 x 12 мм (без дротів)
 - **Монтування**: 45 х 45 мм
 - **Вага**: 59g
-- **Connections**:
- - XT-60 for battery
- - XT-30 for motor & peripheral device (battery voltage)
- - Solder pads in each corner (battery voltage)
- - CLIK-Mate 2.0mm for flight controller (5.2V/3A standalone BEC)
+- **Підключення**:
+ - ХТ-60 для акумулятора
+ - XT-30 для мотора & периферійний пристрій (напруга акумулятора)
+ - Паяльні вклади в кожному кутку (напруга акумулятора)
+ - CLIK-Mate 2.0мм для контролю за польотами (5.2V/3A standalone BEC)
  - JST GH 4pin (5.2V/3A, BEC shared with 5.2V triple row pin header)
  - 2x Triple row pin header (5.2V/3A, BEC shared with JST GH 4pin)
- - 2x Triple row pin header (8V or 12V selectable by moving header jumper, 3A)
+ - 2x Трьохрядний шплинтовий заголовок (8V або 12V вибирається переміщенням стрижня заголовка, 3A)
 
 ## Вміст набору
 
-- 1x PM06 board
-- 1x 80mm XT60 connector wire (pre-soldered)
+- 1x Плата PM06
+- 1x 80 мм кабель з роз'ємом XT60 (попередньо припаяний)
 - 1x Electrolytic capacitor: 220uF 63V (pre-soldered)
 - 1x 2.0mm pitch CLIK-Mate 6pin cable (To power flight controller)
-- 4pin JST GH to USB Type C
+- 4pin JST GH в USB тип C
 - 4pin JST GH to barrel plug (2.1*5.5mm)
 - 4pin JST GH to barrel plug (2.5*5.5mm)
 - 4pin Pin Dupont Cable (2pc)

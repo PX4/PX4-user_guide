@@ -20,8 +20,7 @@ The example shows how. In summary:
 1. Specify the dependency on the work queue library in the cmake definition file ([CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/work_item/CMakeLists.txt)):
    ```
    ...
-   :::note
-The available work queues (<code>wq_configurations</code>) are listed in <a href="https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49">WorkQueueManager.hpp</a>.
+   ::: info The available work queues (<code>wq_configurations</code>) are listed in <a href="https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49">WorkQueueManager.hpp</a>.
    ```
 ) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
    </code>
@@ -35,7 +34,8 @@ The available work queues (<code>wq_configurations</code>) are listed in <a href
    }
    ```
 
-   ::: info The available work queues (`wq_configurations`) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
+   :::note
+The available work queues (&lt;code&gt;wq_configurations&lt;/code&gt;) are listed in &lt;a href="https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49"&gt;WorkQueueManager.hpp&lt;/a&gt;.
 :::
 
 1. Implement the `ScheduledWorkItem::Run()` method to perform "work".
@@ -46,7 +46,7 @@ The available work queues (<code>wq_configurations</code>) are listed in <a href
 
 ## Tasks
 
-PX4/PX4-Autopilot contains a template for writing a new application (module) that runs as a task on its own stack: [src/templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/main/src/templates/template_module).
+) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
 
 The template demonstrates the following additional features/aspects that are required or are useful for a full application:
 
