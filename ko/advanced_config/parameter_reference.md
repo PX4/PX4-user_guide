@@ -1,11 +1,10 @@
 # 매개변수 정의서
 
-:::note
-이 문서는이 PX4 버전의 소스 코드에서 자동으로 생성되었습니다(`make parameters_metadata` 사용).
+::: info This documentation was auto-generated from the source code for this PX4 version (using `make parameters_metadata`).
 :::
 
-:::tip
-나열된 매개변수가 펌웨어에서 누락된 경우에는 [매개 변수 찾기/업데이트](../advanced_config/parameters.md#parameter-not-in-firmware)를 참고하십시오.
+::: tip
+If a listed parameter is missing from the Firmware see: [Finding/Updating Parameters](../advanced_config/parameters.md#parameter-not-in-firmware).
 :::
 
 <!-- markdown generator: src/lib/parameters/px4params/markdownout.py -->
