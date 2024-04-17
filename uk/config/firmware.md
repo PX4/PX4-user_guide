@@ -3,12 +3,12 @@
 _QGroundControl_ **desktop** versions can be used to install PX4 firmware onto [Pixhawk-series](../getting_started/flight_controller_selection.md) flight-controller boards.
 
 :::warning
-**Before you start installing Firmware** all USB connections to the vehicle must be _disconnected_ (both direct or through a telemetry radio). The vehicle must _not be_ powered by a battery.
+**Перед початком встановлення прошивки** всі USB-підключення до транспортного засобу повинні бути _відключені_ (як прямі, так і через телеметричне радіо). Транспортний засіб _не повинен_ бути приводжений в рух від акумулятора.
 :::
 
-## Install Stable PX4
+## Встановити стабільну PX4
 
-Generally you should use the most recent _released_ version of PX4, in order to benefit from bug fixes and get the latest and greatest features.
+В цілому, ви повинні використовувати останню версію _випущену_ версії PX4, для того, щоб отримати користь від виправлень помилок і отримати найновіші та найліпші функції.
 
 :::tip
 Ця версія встановлена за замовчуванням.
@@ -33,23 +33,23 @@ Connect directly to a powered USB port on your machine (do not connect through a
 
 1. Click the **OK** button to start the update.
 
-   The firmware will then proceed through a number of upgrade steps (downloading new firmware, erasing old firmware etc.). Each step is printed to the screen and overall progress is displayed on a progress bar.
+   Прошивка потім пройде кілька етапів оновлення (завантаження нової прошивки, видалення старої прошивки тощо). Кожен крок виводиться на екран та загальний прогрес відображається на панелі прогресу.
 
    ![Firmware upgrade complete](../../assets/qgc/setup/firmware/firmware_upgrade_complete.png)
 
    Once the firmware has completed loading, the device/vehicle will reboot and reconnect.
 
 :::tip
-If _QGroundControl_ installs the FMUv2 target (see console during installation) and you have a newer board, you may need to [update the bootloader](#bootloader) in order to access all the memory on your flight controller.
+Якщо _QGroundControl_ встановлює ціль FMUv2 (див. консоль під час встановлення) і у вас є новіша плата, вам може знадобитися [оновити завантажувальник](#bootloader), щоб мати доступ до всієї пам'яті на вашому контролері польоту.
 :::
 
-Next you will need to specify the [vehicle airframe](../config/airframe.md) (and then sensors, radio, etc.)
+Далі вам потрібно буде вказати [корпус повітряного судна](../config/airframe.md) (а потім сенсори, радіо тощо)
 
 <a id="custom"></a>
 
-## Installing PX4 Main, Beta or Custom Firmware
+## Встановлення PX4 Main, Beta або Custom Firmware
 
-To install a different version of PX4:
+Щоб встановити іншу версію PX4:
 
 1. Connect the vehicle as above, and select **PX4 Pro Stable Release vX.x.x**. ![Install PX4 version](../../assets/qgc/setup/firmware/qgc_choose_firmware.png)
 1. Check **Advanced settings** and select the version from the dropdown list:
@@ -58,7 +58,7 @@ To install a different version of PX4:
    - **Developer Build (master):** The latest build of PX4/PX4-Autopilot _main_ branch.
    - **Custom Firmware file...:** A custom firmware file (e.g. [that you have built locally](../dev_setup/building_px4.md)). If you select this you will have to choose the custom firmware from the file system in the next step.
 
-Firmware update then continues as before.
+Оновлення прошивки потім продовжується, як і раніше.
 
 <a id="bootloader"></a>
 
@@ -66,11 +66,11 @@ Firmware update then continues as before.
 
 Апаратне забезпечення Pixhawk зазвичай має відповідну версію завантажувача.
 
-Якщо оновлення може знадобитися - це новіші дошки Pixhawk, які встановлюють прошивку FMUv2. If _QGroundControl_ installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
+Якщо оновлення може знадобитися - це новіші дошки Pixhawk, які встановлюють прошивку FMUv2. Якщо _QGroundControl_ встановлює ціль FMUv2 (див. консоль під час встановлення), і у вас є новіша плата, вам може знадобитися оновити завантажувальник, щоб мати доступ до всієї пам'яті на вашому контролері польоту.
 
 ![FMUv2 update](../../assets/qgc/setup/firmware/bootloader_update.jpg)
 
-You can update it by following the instructions in [Bootloader update > FMUv2 Bootloader Update](../advanced_config/bootloader_update.md#fmuv2-bootloader-update).
+Ви можете оновити його, дотримуючись інструкцій у [Оновлення завантажувача >  Оновлення завантажувача FMUv2](../advanced_config/bootloader_update.md#fmuv2-bootloader-update).
 
 ## Детальна інформація
 
