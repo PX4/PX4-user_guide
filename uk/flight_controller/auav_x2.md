@@ -1,19 +1,19 @@
-# AUAV-X2 Autopilot (Discontinued)
+# Автопілот AUAV-X2 (припинено)
 
 <Badge type="error" text="Discontinued" />
 
 :::warning
-This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+Цей політний контролер був [знятий з виробництва](../flight_controller/autopilot_experimental.md) і більше не продається комерційно.
 :::
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який) автопілот. Зверніться до [виробника](https://store.mrobotics.io/) щодо питань технічної підтримки або відповідності вимогам.
 :::
 
-The [AUAV<sup>&reg;</sup>](http://www.auav.com/) _AUAV-X2 autopilot_ is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
+Автопілот [AUAV<sup>®</sup>](http://www.auav.com/) _AUAV-X2_ базується на відкритому апаратному дизайні [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2**. Він виконує PX4 на ОС [NuttX](https://nuttx.apache.org/).
 
 ![AUAVX2_case2](../../assets/flight_controller/auav_x2/auavx2_case2.jpg)
 
-## Quick Summary
+## Короткий опис
 
 - Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
   - CPU: STM32F427VIT6 ARM microcontroller - Revision 3
