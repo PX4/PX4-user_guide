@@ -41,7 +41,7 @@
 
 Основні концепції геометрії та конфігурація для ряду різних фреймів наведені в наступних розділах.
 
-#### Motor Geometry: Multicopter
+#### Мотор геометрія: Мультикоптер
 
 На зображенні нижче показано налаштування геометрії для рамки квадрокоптера з і без розширеними налаштуваннями.
 
@@ -63,13 +63,13 @@
 
 #### Motor Geometry: VTOL Quadrotor Tailsitter
 
-The motor geometry for a [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-tailsitter) is shown below (the approach for configuring other tailsitter VTOL vehicles will be similar).
+Геометрія двигуна для [Вертикального зльоту Quad Tailsitter](../airframes/airframe_reference.md#vtol-tailsitter) показана нижче (підхід до налаштування інших вертикальних зльотних транспортних засобів буде подібним).
 
-Motors have the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter).
+Двигуни мають ті ж поля конфігурації, що й для [геометрії мультикоптера](#motor-geometry-multicopter).
 
 ![Geometry motor: tailsitter vtol](../../assets/config/actuators/qgc_geometry_tailsitter_motors.png)
 
-#### Motor Geometry: VTOL Tiltrotor
+#### Геометрія двигуна: VTOL Tiltrotor
 
 The motor geometry for a [Generic Quadplane VTOL Tiltrotor](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) is shown below (the approach for configuring other [VTOL tiltrotors](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) will be similar).
 
@@ -77,9 +77,9 @@ The motor geometry for a [Generic Quadplane VTOL Tiltrotor](../airframes/airfram
 
 - `Tilted by`: The associated servo used for tilting the motor. The properties of this servo are defined in the [Motor Tilt Servo Geometry](#motor-tilt-servo-geometry).
 
-#### Motor Geometry: Standard VTOL
+#### Геометрія двигуна: стандартний VTOL
 
-The motor geometry for a [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) is shown below (the approach for configuring other "Standard VTOL" will be similar).
+Геометрія двигуна для [Загального стандартного Вертикального зльоту](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) показана нижче (підхід до налаштування інших "Стандартних Вертикальних зльотів" буде подібним).
 
 ![Geometry motor: standard vtol](../../assets/config/actuators/qgc_geometry_standard_vtol_motors.png)
 
