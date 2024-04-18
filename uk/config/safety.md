@@ -141,14 +141,14 @@ _Land at the current position_ is a common [failsafe action](#failsafe-actions) 
 
 The settings and underlying parameters are shown below:
 
-| Налаштування                   | Параметр                                                                       | Опис                                                                                                                                 |
-| ------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Disarm After                   | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Select checkbox to specify that the vehicle will disarm after landing. The value must be non-zero but can be a fraction of a second. |
-| Landing Descent Rate (MC only) | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | Rate of descent.                                                                                                                     |
+| Налаштування                   | Параметр                                                                       | Опис                                                                                                                                                 |
+| ------------------------------ | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Disarm After                   | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Виберіть прапорець, щоб вказати, що транспортний засіб роззброїться після посадки. Значення повинно бути ненульовим, але може бути частиною секунди. |
+| Landing Descent Rate (MC only) | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | Швидкість спуску.                                                                                                                                    |
 
 ## Інші налаштування аварійного режиму
 
-This section contains information about failsafe settings that cannot be configured through the _QGroundControl_ [Safety Setup](#qgroundcontrol-safety-setup) page.
+У цьому розділі міститься інформація про налаштування аварійних режимів, які не можуть бути сконфігуровані через сторінку [Налаштування безпеки](#qgroundcontrol-safety-setup) в _QGroundControl_.
 
 ### Аварійний режим втрати позиції (GPS)
 
@@ -188,9 +188,9 @@ _Offboard Loss Failsafe_ спрацьовує, якщо втрачено зв'я
 
 ### Перевірки можливості місії
 
-A number of checks are run to ensure that a mission can only be started if it is _feasible_. For example, the checks ensures that the first waypoint isn't too far away, and that the mission flight path doesn't conflict with any geofences.
+Здійснюється ряд перевірок, щоб забезпечити, що місію можна розпочати лише у випадку, якщо вона _реалізовна_. Наприклад, перевірки забезпечують, що перший пункт маршруту не занадто віддалений, і що маршрут місії не конфліктує з жодними геозахистами.
 
-As these are not strictly speaking "failsafes" they are documented in [Mission Mode (FW) > Mission Feasibility Checks](../flight_modes_fw/mission.md#mission-feasibility-checks) and [Mission Mode (MC) > Mission Feasibility Checks](../flight_modes_mc/mission.md#mission-feasibility-checks).
+Оскільки ці не є строго кажучи "запобіжними заходами", вони документовані у [Режим місії (FW) > Перевірка можливості виконання місії](../flight_modes_fw/mission.md#mission-feasibility-checks) та [Режим місії (MC) > Перевірка можливості виконання місії](../flight_modes_mc/mission.md#mission-feasibility-checks).
 
 ### Аварійний режим уникнення трафіку
 
@@ -255,10 +255,10 @@ The [failure detector](#failure-detector), if [enabled](#CBRK_FLIGHTTERM), can a
 :::info Зовнішній ATS потрібен згідно з [ASTM F3322-18](https://webstore.ansi.org/Standards/ASTM/ASTMF332218). One example of an ATS device is the [FruityChutes Sentinel Automatic Trigger System](https://fruitychutes.com/uav_rpv_drone_recovery_parachutes/sentinel-automatic-trigger-system.htm).
 :::
 
-| Параметр                                                                                                 | Опис                                                                                                                                             |
-| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <a id="FD_EXT_ATS_EN"></a>[FD_EXT_ATS_EN](../advanced_config/parameter_reference.md#FD_EXT_ATS_EN)     | Enable PWM input on AUX5 or MAIN5 (depending on board) for engaging failsafe from an external automatic trigger system (ATS). Default: Disabled. |
-| <a id="FD_EXT_ATS_TRIG"></a>[FD_EXT_ATS_TRIG](../advanced_config/parameter_reference.md#FD_EXT_ATS_TRIG) | The PWM threshold from external automatic trigger system for engaging failsafe. Default: 1900 ms.                                                |
+| Параметр                                                                                                 | Опис                                                                                                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="FD_EXT_ATS_EN"></a>[FD_EXT_ATS_EN](../advanced_config/parameter_reference.md#FD_EXT_ATS_EN)     | Увімкніть введення ШІМ на AUX5 або MAIN5 (в залежності від плати) для активації аварійного режиму зовнішньою автоматичною системою спрацювання (ATS). За замовчуванням: Вимкнено. |
+| <a id="FD_EXT_ATS_TRIG"></a>[FD_EXT_ATS_TRIG](../advanced_config/parameter_reference.md#FD_EXT_ATS_TRIG) | Поріг ШІМ для зовнішньої системи автоматичного спрацювання аварійного режиму. Default: 1900 ms.                                                                                   |
 
 ## Перемикачі екстренного виклику
 
