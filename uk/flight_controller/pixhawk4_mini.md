@@ -69,45 +69,45 @@ _Pixhawk 4 Mini_ був спроєктований та розроблений �
 
 ## Номінальна напруга
 
-_Pixhawk 4 Mini_ can have power supply redundancy — if two power sources are supplied. The power rails are: **POWER** and **USB**.
+_Pixhawk 4 Mini_ може мати резервне живлення — якщо надаються два джерела живлення. Шини живлення: **POWER** та **USB**.
 
-::: info The output power rail of **MAIN OUT** does not power the flight controller board (and is not powered by it). You must [supply power](../assembly/quick_start_pixhawk4_mini.md#power) to one of **POWER** or **USB** or the board will be unpowered.
+::: info Вихідна потужність **MAIN OUT** не живить плату політного контролера (і не живиться нею). Ви повинні [подати живлення](../assembly/quick_start_pixhawk4_mini.md#power) або на **POWER** або на **USB**, інакше плата буде знеживлена.
 :::
 
-**Normal Operation Maximum Ratings**
+**Максимальна напруга нормальної роботи**
 
-Under these conditions all power sources will be used in this order to power the system:
+За таких умов всі джерела живлення будуть використовуватися в цьому порядку для живлення системи:
 
-1. **POWER** (4.75V to 5.5V)
-1. **USB** input (4.75V to 5.25V)
+1. **POWER** (4.75V до 5.5V)
+1. **USB** вхід (4.75V до 5.25V)
 
-**Absolute Maximum Ratings**
+**Абсолютна максимальна напруга**
 
-Under these conditions the system will remain intact.
+За таких умов система залишиться неушкодженою.
 
-1. **POWER** input (0V to 6V undamaged)
-1. **USB** input (0V to 6V undamaged)
-1. Servo input: VDD_SERVO pin of **MAIN OUT** (0V to 24V undamaged)
+1. **POWER** вхід (0V до 6V без пошкоджень)
+1. **USB** вхід (0V до 6V без пошкоджень)
+1. Вхід серводвигуна: контакт VDD_SERVO **MAIN OUT** (0V до 24V без пошкоджень)
 
-## Assembly/Setup
+## Збірка / налаштування
 
-The [_Pixhawk 4 Mini_ Wiring Quick Start](../assembly/quick_start_pixhawk4_mini.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board, etc.
+[_Pixhawk 4 Mini_ Швидкий старт з підключення](../assembly/quick_start_pixhawk4_mini.md) надає інструкції щодо збирання необхідних/важливих периферійних пристроїв, таких як GPS, плата управління живленням тощо.
 
-## Building Firmware
+## Збірка прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно збирати цю прошивку! Вона попередньо зібрана й автоматично встановлюється _QGroundControl_ при підключенні відповідного апаратного забезпечення.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make px4_fmu-v5_default
 ```
 
-## Debug Port
+## Відладочний порт
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port. In order to access these ports, the user must remove the _Pixhawk 4 Mini_ casing.
+[Системна консоль PX4](../debug/system_console.md) та [SWD interface](../debug/swd_debug.md) працюють на порту **FMU Debug**. Для доступу до цих портів користувач має зняти корпус _Pixhawk 4 Mini_.
 
 ![Pixhawk 4 Mini FMU Debug](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_fmu_debug.png)
 
