@@ -4,10 +4,13 @@
 
 Плата живлення підключається за допомогою протоколу I2C. Вона призначена для керуючих пристроїв польоту на основі відкритого стандарту Pixhawk FMUv5X та FMUv6X, включаючи [Pixhawk 5X](../flight_controller/pixhawk5x.md).
 
-::: info The PM is **NOT** compatible with flight controllers that require an analog power module, including: [Pixhawk 4](../flight_controller/pixhawk4.md), [Durandal](../flight_controller/durandal.md), [Pix32 v5](../flight_controller/holybro_pix32_v5.md), etc.
-:::
+:::info PM **НЕ**сумісний із контролерами польоту, яким потрібен аналоговий модуль живлення, зокрема: [Pixhawk 4](../flight_controller/pixhawk4.md), [Durandal](../flight_controller/durandal.md),
+
+Pix32 v5</ 3> тощо. :::</p> 
 
 ![Pixhawk5x Upright Image](../../assets/hardware/power_module/holybro_pm03d/pm03d_pinout.jpg)
+
+
 
 ## Функції
 
@@ -16,6 +19,8 @@
 - Вбудовані стабілізатори напруги: два 5.2V & один на вибір 8V/12V
 - Порти 5V/A для живлення супутнього комп'ютера або периферійного пристрою
 - На вибір 8V або 12V трирядний рядок контактів для живлення периферійного пристрою
+
+
 
 ## Специфікації
 
@@ -27,14 +32,16 @@
 - **Розмір**: 84 x 78 x 12 мм (без дротів)
 - **Монтування**: 45 х 45 мм
 - **Вага**: 59g
-- **Підключення**:
- - ХТ-60 для акумулятора
+- **Підключення**: 
+   - ХТ-60 для акумулятора
  - XT-30 для мотора & периферійний пристрій (напруга акумулятора)
  - Паяльні вклади в кожному кутку (напруга акумулятора)
  - CLIK-Mate 2.0мм для контролю за польотами (5.2V/3A standalone BEC)
  - JST GH 4pin (5.2V/3A, BEC shared with 5.2V triple row pin header)
  - 2x Triple row pin header (5.2V/3A, BEC shared with JST GH 4pin)
  - 2x Трьохрядний шплинтовий заголовок (8V або 12V вибирається переміщенням стрижня заголовка, 3A)
+
+
 
 ## Вміст набору
 
@@ -50,9 +57,13 @@
 
 <img src="../../assets/hardware/power_module/holybro_pm03d/pm03d_contents.jpg" width="650px" title="Pixhawk5x Upright Image" />
 
+
+
 ## Де купити
 
 [Order from Holybro Store](https://holybro.com/products/pm03d-power-module)
+
+
 
 ## Wiring/Connections
 
