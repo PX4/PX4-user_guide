@@ -663,6 +663,7 @@
       - [Distance Sensor](modules/modules_driver_distance_sensor.md)
       - [IMU](modules/modules_driver_imu.md)
       - [INS](modules/modules_driver_ins.md)
+      - [VectorNav](sensor/vectornav.md)
       - [Magnetometer](modules/modules_driver_magnetometer.md)
       - [Optical Flow](modules/modules_driver_optical_flow.md)
       - [Rpm Sensor](modules/modules_driver_rpm_sensor.md)
