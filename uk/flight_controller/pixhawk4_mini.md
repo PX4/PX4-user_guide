@@ -3,71 +3,71 @@
 :::warning PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення або відповідності вимогам.
 :::
 
-Автопілот _Pixhawk<sup>&reg;</sup> 4 Mini_ розроблений для інженерів та любителів, які прагнуть використовувати потужність _Pixhawk 4_, але працюють з меншими дронами. _Pixhawk 4 Mini_ використовує FMU процесор та ресурси пам'яті _Pixhawk 4_, але виключає інтерфейси, які зазвичай не використовуються. This allows the _Pixhawk 4 Mini_ to be small enough to fit in a 250mm racer drone.
+Автопілот _Pixhawk<sup>&reg;</sup> 4 Mini_ розроблений для інженерів та любителів, які прагнуть використовувати потужність _Pixhawk 4_, але працюють з меншими дронами. _Pixhawk 4 Mini_ використовує FMU процесор та ресурси пам'яті _Pixhawk 4_, але виключає інтерфейси, які зазвичай не використовуються. Це дозволяє _Pixhawk 4 Mini_ бути достатньо малим, щоб поміститися у 250mm гоночний дрон.
 
-_Pixhawk 4 Mini_ was designed and developed in collaboration with Holybro<sup>&reg;</sup> and Auterion<sup>&reg;</sup>. It is based on the [Pixhawk](https://pixhawk.org/) **FMUv5** design standard and is optimized to run PX4 flight control software.
+_Pixhawk 4 Mini_ був спроєктований та розроблений у співпраці між Holybro<sup>&reg;</sup> та Auterion<sup>&reg;</sup>. Він заснований на стандарті дизайну [Pixhawk](https://pixhawk.org/) **FMUv5** та оптимізований для роботи на програмному забезпеченні управління польотом PX4.
 
 ![Pixhawk4 mini](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_iso_1.png)
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+Цей автопілот [підтримується](../flight_controller/autopilot_pixhawk_standard.md) командами підтримки та тестування PX4.
 :::
 
-## Quick Summary
+## Короткий опис
 
-- Main FMU Processor: STM32F765
+- Основний FMU Processor: STM32F765
   - 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
-- On-board sensors:
+- Бортові сенсори:
   - Accel/Gyro: ICM-20689
-  - Accel/Gyro: BMI055 or ICM20602
+  - Accel/Gyro: BMI055 або ICM20602
   - Magnetometer: IST8310
   - Barometer: MS5611
-- GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
-- Interfaces:
-  - 8 PWM outputs
-  - 4 dedicated PWM/Capture inputs on FMU
-  - Dedicated R/C input for CPPM
-  - Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
-  - 3 general purpose serial ports
-  - 2 I2C ports
-  - 3 SPI buses
-  - 1 CANBuses for CAN ESC
-  - Analog inputs for voltage / current of battery
-  - 2 additional analog input
-- Power System:
-  - Power Brick Input: 4.75~5.5V
-  - USB Power Input: 4.75~5.25V
-  - Servo Rail Input: 0~24V
-  - Max current sensing: 120A
-- Weight and Dimensions:
-  - Weight: 37.2g
-  - Dimensions: 38x55x15.5mm
-- Other Characteristics:
-  - Operating temperature: -40 ~ 85°c
+- GPS: u-blox Neo-M8N GPS/GLONASS приймач; інтегрований магнетометр IST8310
+- Інтерфейси:
+  - 8 PWM виводів
+  - 4 виділених PWM/Capture входи на FMU
+  - Виділений R/C вхід для CPPM
+  - Виділений R/C вхід для Spektrum / DSM та S.Bus з аналоговим / PWM RSSI входом
+  - 3 загальних послідовних портів
+  - 2 I2C порти
+  - 3 SPI шини
+  - 1 CAN шина для CAN ESC
+  - Аналогові входи для напруги / струму з батареї
+  - 2 додаткових аналогових входи
+- Система живлення:
+  - Вхід Power Brick: 4.75~5.5V
+  - Вхід USB Power: 4.75~5.25V
+  - Вхід Servo Rail: 0~24V
+  - Максимальне вимірювання струму: 120A
+- Вага та розміри:
+  - Вага: 37.2g
+  - Розміри: 38x55x15.5mm
+- Інші характеристики:
+  - Робоча температура: -40 ~ 85°c
 
-Additional information can be found in the [_Pixhawk 4 Mini_ Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf).
+Додаткову інформацію можна знайти у [_Технічному описі_ Pixhawk 4 Mini](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf).
 
-## Where to Buy
+## Де придбати
 
-Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/pixhawk4-mini).
+Замовляйте на [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/pixhawk4-mini).
 
-## Interfaces
+## Інтерфейси
 
 ![Pixhawk 4 Mini interfaces](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_interfaces.png)
 
 :::warning
-The **RC IN** and **PPM** ports are for RC receivers only. These are powered! NEVER connect any servos, power supplies or batteries (or to any connected receiver).
+Порти **RC IN** та **PPM** призначені лише для RC приймачів. Вони працюють на електроживленні! НІКОЛИ не підключайте до них жодних сервоприводів, джерел живлення або батарей (або до будь-якого підключеного приймача).
 :::
 
-## Pinouts
+## Розводка
 
-Download _Pixhawk 4 Mini_ pinouts from [here](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf).
+Завантажте схему розводки _Pixhawk 4 Mini_ [звідси](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf).
 
-## Dimensions
+## Розміри
 
 ![Pixhawk 4 Mini Dimensions](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_dimensions.png)
 
-## Voltage Ratings
+## Номінальна напруга
 
 _Pixhawk 4 Mini_ can have power supply redundancy — if two power sources are supplied. The power rails are: **POWER** and **USB**.
 
