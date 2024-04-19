@@ -90,7 +90,7 @@ If you're connecting servos/actuators you will need to separately power them usi
 
 ## Система телеметрії (Опціонально)
 
-A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+Система телеметрії дозволяє вам спілкуватися, спостерігати та керувати рухомим засобом у польоті з наземної станції (наприклад, ви можете направляти БПЛА в певне положення або завантажувати нове завдання).
 
 The communication channel is via Telemetry Radios. The vehicle-based radio should be connected to either the `TELEM1` or `TELEM2` port (if connected to these ports, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
 
