@@ -3,56 +3,56 @@
 <Badge type="error" text="Discontinued" />
 
 :::warning
-This frame has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+Ця модель знятий з виробництва (../flight_controller/autopilot_experimental.md) і більше комерційно не доступна.
 :::
 
-The [BetaFPV Beta75X](https://betafpv.com/products/beta75x-2s-whoop-quadcopter) is a very small quadrotor that can be flown indoors or outdoors, FPV or line-of-sight.
+[BetaFPV Beta75X](https://betafpv.com/products/beta75x-2s-whoop-quadcopter) - це дуже малий квадрокоптер, який може літати в приміщенні або на вулиці, з FPV або візуальним контролем.
 
 ![BetaFPV Beta75X](../../assets/hardware/betafpv_beta75x.jpg)
 
 ## Де купити
 
-The _Beta75X_ can be bought from a number of vendors, including:
+_Beta75X_ можна придбати від кількох виробників, включаючи:
 
 - [GetFPV](https://www.getfpv.com/beta75x-2s-brushless-whoop-micro-quadcopter-xt30-frsky.html)
 - [Amazon](https://www.amazon.com/BETAFPV-Beta75X-Brushless-Quadcopter-Smartaudio/dp/B07H86XSPW)
 
-In addition you will need:
+Крім того, вам знадобиться:
 
-- An RC transmitter. _Beta75X_ can ship with a number of receivers. PX4 is compatible with all of them, but make sure to select the version that matches your transmitter.
-- LiPo battery charger (vehicle ships with one battery, but you may want spares).
-- FPV goggles if you want to fly FPV.
-  There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product-page/dominator-v3).
+- Передавач дистанційного керування. _Beta75X_ може постачатися з різними приймачами в комплекті. PX4 сумісний з усіма ними, але переконайтеся, що ви вибрали версію, яка відповідає вашому передавачу.
+- Зарядний пристрій для LiPo акумулятора (апарат постачається з одним акумулятором, але вам може знадобитися додатковий).
+- FPV окуляри, якщо ви хочете літати в режимі FPV.
+  Є багато сумісних варіантів, включаючи ці від [Fatshark](https://www.fatshark.com/product-page/dominator-v3).
 
-  ::: info
-  FPV support is completely independent of PX4/flight controller.
+  ::: інформація
+  Підтримка FPV є абсолютно незалежною від PX4/контролера польоту.
 
 :::
 
 ## Flashing PX4 Bootloader
 
-The _Beta75X_ comes preinstalled with Betaflight.
+_Beta75X_ поставляється із заздалегідь встановленим Betaflight.
 
-Before loading PX4 firmware you must first install the PX4 bootloader.
-Instructions for installing the bootloader can be found in the [Omnibus F4](../flight_controller/omnibus_f4_sd.md#bootloader) topic (this is the flight controller board on the _Beta75X_).
+Перед завантаженням прошивки PX4 вам спочатку потрібно встановити завантажувач PX4.
+Інструкції щодо встановлення завантажувача можна знайти в темі [Omnibus F4](../flight_controller/omnibus_f4_sd.md#bootloader) (це плата керування польотом на _Beta75X_).
 
 :::tip
-You can always [reinstall Betaflight](../advanced_config/bootloader_update_from_betaflight.md#reinstall-betaflight) later if you want!
+Ви завжди можете [перевстановити Betaflight](../advanced_config/bootloader_update_from_betaflight.md#reinstall-betaflight) пізніше, якщо захочете!
 :::
 
-## Installation/Configuration
+## Встановлення/Налаштування
 
-Once the bootloader is installed, you should be able to connect the vehicle to _QGroundControl_ via a USB cable.
+Після установки завантажувача, ви зможете під'єднати апарат до _QGroundControl_ через USB-кабель.
 
 :::info
-At time of writing _Omnibus F4_ is supported on the QGroundControl _Daily Build_, and prebuilt firmware is provided for the master branch only (stable releases are not yet available).
+На момент написання _Omnibus F4_ підтримується в _Daily Build_ QGroundControl, і попередньо зібрана прошивка доступна лише для основної (master) гілки (стабільні версії ще не доступні).
 :::
 
 To install and configure PX4:
 
-- [Load PX4 Firmware](../config/firmware.md).
-- [Set the Airframe](../config/airframe.md) to _BetaFPV Beta75X 2S Brushless Whoop_.
-- Continue with [basic configuration](../config/index.md), including sensor calibration and radio setup.
+- [Завантажити Прошивку PX4](../config/firmware.md).
+- [Встановіть Airframe](../config/airframe.md) в _BetaFPV Beta75X 2S Brushless Whoop_.
+- Продовжуйте з [базовою конфігурацією](../config/index.md), включаючи калібрування датчиків та радіо.
 
 ## Відео
 
