@@ -1,10 +1,10 @@
-# SPRacingH7EXTREME (PX4 Edition)
+# SPRacingH7EXTREME (Версія PX4)
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.seriouslypro.com) for hardware support or compliance issues. :::
+:::warning PX4 не виробляє цей (або будь-який) автопілот. Зверніться до [виробника](https://shop.seriouslypro.com) щодо підтримки апаратного забезпечення чи відповідності вимогам. :::
 
-The [SPRacingH7EXTREME](https://shop.seriouslypro.com/sp-racing-h7-extreme) is a feature packed FC/PDB with DUAL ICM20602 gyros, H7 400/480Mhz(+) CPU, high-precision BMP388 barometer, SD Card socket, current sensor, 8 easily accessible motor outputs, OSD, Microphone, Audio output, and more.
+[SPRacingH7EXTREME](https://shop.seriouslypro.com/sp-racing-h7-extreme) - це функціонально навантажене FC/PDB з подвійними гіроскопами ICM20602, процесором H7 400/480МГц(+), високоточним барометром BMP388, роз'ємом для SD-карти, датчиком струму, 8 легко доступними виходами для двигунів, OSD, мікрофоном, аудіовиходом та багато іншого.
 
-It can be used easily for small to large quads, planes, octocoptors and more advanced frames. It's best used with separate ESCs as it features a built-in power distribution board (PDB). Wiring up a 4in1 ESC is easy too.
+Це може бути легко використовувати для невеликих і великих квадрокоптерів, літаків, восьмикоптерів та більш розвинених конструкцій. Найкраще використовувати з окремими ESC, оскільки він має вбудовану плату розподілу живлення (PDB). Підключення 4in1 ESC також легко.
 
 There is also a 12 pin stacking connector which provides 4 more motor outputs, SPI and a UART connectivity.
 
