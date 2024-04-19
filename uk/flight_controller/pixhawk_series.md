@@ -2,47 +2,47 @@
 
 [Pixhawk<sup>&reg;</sup>](https://pixhawk.org/) is an independent open-hardware project providing readily-available, low-cost, and high-end, _autopilot hardware designs_ to the academic, hobby and industrial communities.
 
-Pixhawk is the reference hardware platform for PX4, and runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
+Pixhawk є посиланням на апаратну платформу для PX4, і працює з PX4 на ОС [NuttX](https://nuttx.apache.org/).
 
-Manufacturers have created many different boards based on the open designs, with form factors that are optimised for applications from cargo carrying though to first person view (FPV) racers.
+Виробники створили багато різних плат на основі відкритих дизайнів, з форм-факторами, які оптимізовані для застосувань від перевезення вантажів до гоночних змагань від першої особи (FPV).
 
 :::tip
-For computationally intensive tasks (e.g. computer vision) you will need a separate companion computer (e.g. [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)) or a platform with an integrated companion solution.
+Для обчислювально інтенсивних завдань (наприклад, комп'ютерне зору) вам знадобиться окремий супутній комп'ютер (наприклад, [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)) або платформа з інтегрованим супутнім рішенням.
 :::
 
-## Key Benefits
+## Ключові переваги
 
-Key benefits of using a _Pixhawk series_ controller include:
+Ключові переваги використання контролера _серії Pixhawk_ включають:
 
-- Software support - as PX4 reference hardware these are our best-maintained boards.
+- Підтримка програмного забезпечення - як офіційне апаратне забезпечення PX4, це наші найкраще підтримувані плати.
 - Flexibility in terms of hardware peripherals that can be attached.
 - High quality.
 - Highly customizable in terms of form factor.
 - Widely-used and thus well-tested/stable.
 - Automated update of latest firmware via _QGroundControl_ (end-user friendly).
 
-## Supported Boards
+## Підтримувані плати
 
-The PX4 Project uses [Pixhawk Standard Autopilots](../flight_controller/autopilot_pixhawk_standard.md) as reference hardware. These are the controllers that are fully compatible with the Pixhawk standard (including use of trademarks) and that are still being manufactured.
+Проект PX4 використовує [Стандартні автопілоти Pixhawk](../flight_controller/autopilot_pixhawk_standard.md) як посилання на апаратне забезпечення. Це контролери, які повністю сумісні зі стандартом Pixhawk (включаючи використання товарних знаків) і які все ще виробляються.
 
-::: info
-The PX4 maintenance and test teams maintain and support these standard boards.
+:::info
+Команди з обслуговування та тестування PX4 підтримують ці стандартні плати.
 :::
 
-Pixhawk-like boards that are not fully compliant with the specification may be [manufacturer-supported](../flight_controller/autopilot_manufacturer_supported.md), [experimental/discontinued](../flight_controller/autopilot_experimental.md), or unsupported.
+Плати, схожі з Pixhawk, які не повністю відповідають специфікації, можуть бути [підтримуваними виробником](../flight_controller/autopilot_manufacturer_supported.md), [експериментальними/припиненими](../flight_controller/autopilot_experimental.md) або непідтримуваними.
 
-The rest of this topic explains a bit more about the Pixhawk series, but is not required reading.
+Решта цієї теми пояснює трохи більше про серію Pixhawk, але її не обов'язково читати.
 
 ## Background
 
-The [Pixhawk project](https://pixhawk.org/) creates open hardware designs in the form of schematics, which define a set of components (CPU, sensors, etc.) and their connections/pin mappings.
+Проект [Pixhawk](https://pixhawk.org/) створює відкриті апаратні засоби у формі схем, які визначають набір компонентів (процесор, сенсори і т. д.) та їх з'єднання/відображення контактів.
 
-Manufacturers are encouraged to take the [open designs](https://github.com/pixhawk/Hardware) and create products that are best suited to a particular market or use case (the physical layout/form factor not part of the open specification). Boards based on the same design are binary compatible.
+Виробників закликають брати [відкриті дизайни](https://github.com/pixhawk/Hardware) та створювати продукти, які найкраще підходять для конкретного ринку або випадку використання (фізична структура / форм-фактор не є частиною відкритих специфікацій). Плати на основі того ж дизайну сумісні за принципом двійкової сумісності.
 
-::: info While a physical connector standard is not mandated, newer products generally follow the [Pixhawk Connector Standard](https://pixhawk.org/pixhawk-connector-standard/).
+:::info Хоча стандарт фізичного з'єднання не є обов'язковим, новіші продукти зазвичай використовують [Стандарт роз'єму Pixhawk](https://pixhawk.org/pixhawk-connector-standard/).
 :::
 
-The project also creates reference autopilot boards based on the open designs, and shares them under the same [licence](#licensing-and-trademarks).
+Проект також створює опорні автопілотні плати на основі відкритих дизайнів та ділиться ними за тією ж [ліцензією](#licensing-and-trademarks).
 
 <a id="fmu_versions"></a>
 
@@ -50,7 +50,7 @@ The project also creates reference autopilot boards based on the open designs, a
 
 The Pixhawk project has created a number of different open designs/schematics. All boards based on a design should be binary compatible (run the same firmware).
 
-Each design is named using the designation: FMUvX (e.g.: FMUv1, FMUv2, FMUv3, FMUv4, etc.). Higher FMU numbers indicate that the board is more recent, but may not indicate increased capability (versions can be almost identical - differing only in connector wiring).
+Each design is named using the designation: FMUvX (e.g.: FMUv1, FMUv2, FMUv3, FMUv4, etc.). Вищі номери FMU вказують на те, що плата є більш сучасною, але це може не означати збільшення функціональності (версії можуть бути майже ідентичними - відрізняються лише за підключенням проводів).
 
 PX4 _users_ generally do not need to know very much about FMU versions:
 
