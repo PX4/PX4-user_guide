@@ -23,7 +23,7 @@ DShot 电调与[PWM 电调](pwm_escs_and_servo.md)的接线方式相同。 唯�
 
 通常带有FMU和IO板的Pixhawk飞控将它们分别标记为`AUX`（连接到FMU）和`MAIN`（连接到IO控制器）。 `PWM AUX` 和 `PWM MAIN` 的输出选项卡在执行器配置屏幕上。 对于这些飞控来说，DShot 电调连接到 `AUX` 端口。
 
-没有IO板的飞控通常将输出端口标记为 `MAIN`， 并且这是您连接 DShot 电调的地方。 如果那些没有IO控制器的飞控有自己的固件，执行器分配将匹配到相应的`PWM MAIN`输出。 However if the same firmware is used for hardware with/without the IO board, such as for the Pixhawk 4 and Pixhawk 4 Mini, then actuator assignment tab used is the same in both cases: `PWM AUX` (i.e. not matching the port label `MAIN` in the "mini" case).
+没有IO板的飞控通常将输出端口标记为 `MAIN`， 并且这是您连接 DShot 电调的地方。 如果那些没有IO控制器的飞控有自己的固件，执行器分配将匹配到相应的`PWM MAIN`输出。 然而，如果无论有没有IO板都用的是同一个固件，如Pixhawk 4和 Pixhawk 4Mini, 同时在这种情况下使用的执行器选项是相同的： `PWM AUX` （比如：不匹配端口标签 `MAIN` 在“mini”案例中）。
 
 ## 配置
 
@@ -41,7 +41,7 @@ DShot 具有不同的速度选项：_DShot150_，_DShot300_，_DShot600_ 和 _DS
 
 <a id="commands"></a>
 
-## ESC Commands
+## 关于电调的指令
 
 Commands can be sent to the ESC via the [MAVLink shell](../debug/mavlink_shell.md). See [here](../modules/modules_driver.md#dshot) for a full reference of the supported commands.
 
@@ -93,22 +93,22 @@ The most important ones are:
 
 ## Telemetry
 
-有些电调能够向飞控发送遥测数据，包括：
+有些电调能够向飞控发送Telemetry数据，包括：
 
 - 温度
 - 电压
-- current
-- accumulated current consumption
-- RPM values
+- 电流
+- 累计消耗的电量
+- 转速值
 
-These DShot ESCs will have an additional telemetry wire.
+这些DShot 电调会有一条额外的连接线。
 
-To enable this feature (on ESCs that support it):
+开启遥测数据功能（仅对于能支持遥测数据的电调）:
 
-1. Join all the telemetry wires from all the ESCs together, and then connect them to one of the RX pins on an unused flight controller serial port.
-1. Enable telemetry on that serial port using [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG).
+1. 把电调上的TELE端口连接到飞控上空的串口的 RX 端。
+1. 使用 [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG) 命令在该串行端口启用遥测。
 
-After a reboot you can check if telemetry is working (make sure the battery is connected) using:
+重启后，您可以检查TELE数据传输是否正常工作（确保电池已连接），方法如下：
 
 ```
 dshot esc_info -m 1
