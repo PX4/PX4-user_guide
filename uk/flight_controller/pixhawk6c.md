@@ -1,40 +1,40 @@
 # Holybro Pixhawk 6C
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який) автопілот. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-_Pixhawk 6C_<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team.
+_Pixhawk 6C_<sup>&reg;</sup> є останньою оновленою версією успішної родини автопілотів Pixhawk®, розроблених та виготовлених у співпраці з Holybro<sup>&reg;</sup>  та командою PX4.
 
-It is equipped with a high performance H7 Processor, and comes with IMU redundancy, temperature-controlled IMU board, and cost effective design, delivering incredible performance and reliability. It complies with the Pixhawk [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+Він оснащений високопродуктивним процесором H7, резервуванням IMU, платою IMU з контролем температури та економічно вигідним дизайном, що забезпечує неймовірну продуктивність і надійність. Він відповідає стандарту роз'ємів Pixhawk [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
 <img src="../../assets/flight_controller/pixhawk6c/pixhawk6c_hero_upright.png" width="250px" title="Pixhawk6c Upright Image" />
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+Цей автопілот [підтримується](../flight_controller/autopilot_pixhawk_standard.md) командами підтримки та тестування PX4.
 :::
 
-## Introduction
+## Вступ
 
-The Pixhawk® 6C is the latest update to the successful family of Pixhawk® flight controllers.
+Pixhawk® 6C - це останнє оновлення успішної родини контролерів польоту Pixhawk®.
 
-Inside the Pixhawk® 6C, you can find an STMicroelectronics® based STM32H743, paired with sensor technology from Bosch® & InvenSense®, giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
+Всередині Pixhawk® 6C ви можете знайти STM32H743 на базі STMicroelectronics®, поєднаний з сенсорною технологією від Bosch® & InvenSense®, що надає вам гнучкість і надійність для керування будь-яким автономним транспортним засобом, придатним як для академічних, так і для комерційних застосувань.
 
-The Pixhawk® 6C's H7 microcontroller contain the Arm® Cortex®-M7 core running up to 480 MHz, has 2MB flash memory and 1MB RAM. Thanks to the updated processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
+Мікроконтролер H7 Pixhawk® 6C містить ядро Arm® Cortex®-M7, що працює до 480 МГц, має 2 МБ флеш-пам’яті та 1 МБ RAM. Завдяки оновленій потужності обробки розробники можуть бути більш продуктивними та ефективними у своїй роботі з розробкою, що дозволяє використовувати складні алгоритми та моделі.
 
-The Pixhawk 6C includes high-performance, low-noise IMUs on board, designed to be cost effective while having IMU redundancy. A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
+Pixhawk 6C включає в себе високопродуктивні, низькозвукові ІМП на борту, призначені для ефективності витрат при наявності резервування ІМП. Система віброізоляції для фільтрації високочастотної вібрації та зменшення шуму для забезпечення точних показань, що дозволяє транспортним засобам досягати кращих загальних характеристик польоту.
 
-The Pixhawk® 6C is perfect for developers at corporate research labs, startups, academics (research, professors, students), and commercial application.
+Pixhawk® 6C ідеально підходить для розробників у корпоративних дослідницьких лабораторіях, стартапах, академіях (дослідження, професори, студенти) та комерційних застосувань.
 
-**Key Design Points**
+**Ключові пункти дизайну**
 
 - High performance STM32H743 Processor with more computing power & RAM
 - New cost-effective design with low-profile form factor
 - Newly designed integrated vibration isolation system to filter out high frequency vibration and reduce noise to ensure accurate readings
 - IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs&#x20;
 
-# Technical Specification
+# Технічна специфікація
 
-### **Processors & Sensors**
+### **Процесори & датчики**
 
 - FMU Processor: STM32H743&#x20;
   - 32 Bit Arm® Cortex®-M7, 480MHz, 2MB memory, 1MB SRAM&#x20;
@@ -56,12 +56,12 @@ The Pixhawk® 6C is perfect for developers at corporate research labs, startups,
   - TELEM1 Max output current limiter: 1.5A
   - All other port combined output current limiter: 1.5A
 
-### **Mechanical data**
+### **Механічні характеристики**
 
 - Dimensions: 84.8 \* 44 \* 12.4 mm
 - Weight: 59.3g
 
-### **Interfaces**
+### **Інтерфейси**
 
 - 16- PWM servo outputs (8 from IO, 8 from FMU)
 - 3 general purpose serial ports
@@ -85,9 +85,9 @@ The Pixhawk® 6C is perfect for developers at corporate research labs, startups,
 - Other Characteristics:
   - Operating & storage temperature: -40 ~ 85°c
 
-## Where to Buy
+## Де придбати
 
-Order from [Holybro](https://holybro.com/products/pixhawk-6c).
+Замовляйте на [Holybro](https://holybro.com/products/pixhawk-6c).
 
 ## Assembly/Setup
 
@@ -109,9 +109,9 @@ The [Pixhawk 6C Wiring Quick Start](../assembly/quick_start_pixhawk6c.md) provid
 | UART7  | /dev/ttyS5 | TELEM1        |
 | UART8  | /dev/ttyS6 | GPS2          |
 
-## Dimensions
+## Розміри
 
-- [Pixhawk 6C Dimensions](https://docs.holybro.com/autopilot/pixhawk-6c/dimensions)
+- [Розміри Pixhawk 6C](https://docs.holybro.com/autopilot/pixhawk-6c/dimensions)
 
 ## Voltage Ratings
 
@@ -158,9 +158,9 @@ make px4_fmu-v6c_default
 
 ## Debug Port
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
+[Системна консоль PX4](../debug/system_console.md) та [SWD interface](../debug/swd_debug.md) працюють на порту **FMU Debug**.
 
-The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
+Розпиновка та роз’єм відповідають інтерфейсу [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full), визначеному в інтерфейсі [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (роз’єм JST SM10B).
 
 | Pin      | Signal           | Volt  |
 | -------- | ---------------- | ----- |
@@ -180,19 +180,19 @@ For information about using this port see:
 - [SWD Debug Port](../debug/swd_debug.md)
 - [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
 
-## Peripherals
+## Периферійні пристрої
 
 - [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
 - [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
 - [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## Підтримувані платформи / Конструкції
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus. Повний набір підтримуваних конфігурацій можна переглянути в розділі [Довідник про планери](../airframes/airframe_reference.md).
 
-## Further info
+## Подальша інформація
 
-- [Holybro Docs](https://docs.holybro.com/) (Holybro)
+- [Документи Holybro](https://docs.holybro.com/) (Holybro)
 - [Pixhawk 6C Wiring QuickStart](../assembly/quick_start_pixhawk6c.md)
 - [PM02 Power Module](../power_module/holybro_pm02.md)
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
