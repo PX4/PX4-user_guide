@@ -18,10 +18,10 @@
 | Power1             | Підключає модуль живлення. Вхід живлення з детекцією _аналогової_ напруги та струму. Не використовуйте Digital PM на цьому роз'ємі!                                                                |
 | Power2             | Підключає i2c розумну батарею.                                                                                                                                                                     |
 | TF CARD            | Карта SD для зберігання журналів (карта попередньо вставлена на заводі).                                                                                                                           |
-| M1~M8              | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
-| A1~A6              | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
-| DSU7               | Used for FMU debug, reading debug information.                                                                                                                                                     |
-| I2C1/I2C2          | Connect an I2C device such as an external compass.                                                                                                                                                 |
+| M1~M8              | ШІМ виходи. Можна використовувати для контролю моторів чи сервоприводів.                                                                                                                           |
+| A1~A6              | ШІМ виходи. Можна використовувати для контролю моторів чи сервоприводів.                                                                                                                           |
+| DSU7               | Використовується для дебагінгу FMU, читання інформації щодо дебагінгу.                                                                                                                             |
+| І2C1/I2C2          | Connect an I2C device such as an external compass.                                                                                                                                                 |
 | CAN1/CAN2          | Connect UAVCAN devices such as CAN GPS.                                                                                                                                                            |
 | TYPE-C\(USB\)    | Connect to a computer for communication between the flight controller and the computer, such as loading firmware.                                                                                  |
 | SBUS OUT           | Connect SBUS devices (e.g. camera gimbals).                                                                                                                                                        |
@@ -71,9 +71,9 @@
 
 ## Супутникові приймачі Spektrum
 
-The V5+ has a dedicated DSM cable. If using a Spektrum satellite receiver, this should be connected to the flight controller DSM/SBUS/RSSI interface.
+V5+ має присвячений кабель DSM. Якщо використовується супутниковий приймач Spektrum, його слід підключити до інтерфейсу DSM/SBUS/RSSI контролера польоту.
 
-## Power
+## Живлення
 
 The V5+ kit includes the _HV_PM_ module, which supports 2~14S LiPo batteries. Connect the 6pin connector of the _HW_PM_ module to the flight control `Power1` interface.
 
