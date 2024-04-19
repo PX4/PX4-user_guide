@@ -92,25 +92,25 @@ If you're connecting servos/actuators you will need to separately power them usi
 
 Система телеметрії дозволяє вам спілкуватися, спостерігати та керувати рухомим засобом у польоті з наземної станції (наприклад, ви можете направляти БПЛА в певне положення або завантажувати нове завдання).
 
-The communication channel is via Telemetry Radios. The vehicle-based radio should be connected to either the `TELEM1` or `TELEM2` port (if connected to these ports, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
+Канал зв'язку здійснюється через телеметричні радіостанції. Радіостанцію, розташовану на рухомому засобі, слід підключити до порту `TELEM1` або `TELEM2` (якщо підключено до цих портів, додаткова конфігурація не потрібна). Інше радіо підключається до вашого комп'ютерного або мобільного пристрою наземної станції (зазвичай за допомогою USB).
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_06.png)
 
 <a id="sd_card"></a>
 
-## SD Card (Optional)
+## SD-карта (Опціонально)
 
-An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory) is inserted in the factory (you do not need to do anything).
+[SD-картку](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory) вставляють на заводі (вам нічого не потрібно робити).
 
-## Motors
+## Мотори
 
-Motors/servos are connected to the MAIN and AUX ports in the order specified for your vehicle in the [Airframes Reference](../airframes/airframe_reference.md).
+Мотори/сервоприводи підключаються до портів MAIN та AUX в порядку, вказаному для вашого рухомого засобу в [Довідці по конструкції літака](../airframes/airframe_reference.md).
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_07.png)
 
 ## Pinouts
 
-Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
+Завантажте схему розводки **V5+** [звідси](http://manual.cuav.net/V5-Plus.pdf).
 
 ## Further Information
 
