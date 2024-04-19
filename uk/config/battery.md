@@ -9,9 +9,9 @@ This tuning is not needed for [Smart/MAVLink Batteries](../smart_batteries/index
 
 ## Загальний огляд
 
-Battery Estimation Tuning uses the measured voltage and current (if available) to estimate the remaining battery capacity. This is important because it allows PX4 to take action when the vehicle is close to running out of power and crashing (and also to prevent battery damage due to deep-discharge).
+Налаштування оцінки батареї використовує виміряну напругу та силу струму (якщо доступно) для оцінки залишкової ємності батареї. Це важливо, оскільки це дозволяє PX4 діяти, коли транспортний засіб майже розряджений і збирається врізатися (а також запобігає пошкодженню акумулятора внаслідок глибокого розряду).
 
-PX4 provides a number of (progressively more effective) methods that can be used to estimate the capacity:
+PX4 надає ряд (поступово більш ефективних) методів, які можна використовувати для оцінки місткості:
 
 1. [Basic Battery Settings](#basic_settings) (default): raw measured voltage is compared to the range between "empty" and "full" voltages. This results in coarse estimates because measured voltage (and its corresponding capacity) will fluctuate under load.
 1. [Voltage-based Estimation with Load Compensation](#load_compensation): Counteracts the effects of loading on the capacity calculation.
@@ -24,43 +24,43 @@ Later methods build on preceding methods. The approach you use will depend on wh
 
 :::tip
 In addition to PX4 configuration discussed here, you should ensure that the ESC's low voltage cutoff is either disabled or set below the expected minimum voltage.
-This ensures that the battery failsafe behaviour is managed by PX4, and that ESCs will not cut out while the battery still has charge (according to the "empty-battery" setting that you have chosen).
+Це забезпечує, що поведінка аварійного відключення батареї керується PX4, і регулятори швидкості не відключатимуться, поки батарея все ще має заряд (згідно з налаштуванням "порожньої батареї", яке ви обрали).
 :::
 
 :::tip
-[Battery-Type Comparison](#battery-chemistry-comparison) below explains the difference between the main battery types, and how that impacts the battery settings.
+[Порівняння типів батарей](#battery-chemistry-comparison) нижче пояснює різницю між основними типами батарей та як це впливає на налаштування батареї.
 :::
 
 <a id="basic_settings"></a>
 
-## Basic Battery Settings (default)
+## Основні налаштування батареї (за замовчуванням)
 
-The basic battery settings configure PX4 to use the default method for capacity estimate. This method compares the measured raw battery voltage to the range between cell voltages for "empty" and "full" cells (scaled by the number of cells).
+Основні налаштування батареї налаштовують PX4 на використання типового методу для оцінки ємності. Цей метод порівнює виміряну сирову напругу акумулятора з діапазоном між напругами акумуляторів для "порожніх" та "повних" акумуляторів (масштабований за кількістю акумуляторів).
 
-::: info
-This approach results in relatively coarse estimations due to fluctuations in the estimated charge as the measured voltage changes under load.
+:::info
+Цей підхід призводить до досить грубих оцінок через коливання у оцінці заряду при зміні виміряної напруги під навантаженням.
 :::
 
-To configure the basic settings for battery 1:
+Для налаштування основних параметрів для акумулятора 1:
 
-1. Start _QGroundControl_ and connect the vehicle.
-1. Select **"Q" icon > Vehicle Setup > Power** (sidebar) to open _Power Setup_.
+1. Запустіть _QGroundControl_ та підключіть транспортний засіб.
+1. Виберіть **іконку "Q" > Налаштування транспортного засобу >  Електропостачання** (бічна панель), щоб відкрити _Налаштування електропостачання_.
 
-You are presented with the basic settings that characterize the battery. The sections below explain what values to set for each field.
+Вам пропонується базові налаштування, які характеризують акумулятор. Розділи нижче пояснюють, які значення встановити для кожного поля.
 
 ![QGC Power Setup](../../assets/qgc/setup/power/qgc_setup_power_px4.png)
 
-::: info At time of writing _QGroundControl_ only allows you to set values for battery 1 in this view. For vehicles with multiple batteries you'll need to directly [set the parameters](../advanced_config/parameters.md) for battery 2 (`BAT2_*`), as described in the following sections.
+:::info На момент написання _QGroundControl_ дозволяє встановлювати значення лише для батареї 1 у цьому перегляді. Для транспортних засобів з декількома батареями вам потрібно буде безпосередньо [встановити параметри](../advanced_config/parameters.md) для батареї 2 (`BAT2_*`), як описано в наступних розділах.
 :::
 
-### Number of Cells (in Series)
+### Кількість елементів (в серії)
 
-This sets the number of cells connected in series in the battery. Typically this will be written on the battery as a number followed by "S" (e.g "3S", "5S").
+Це встановлює кількість акумуляторів, які з'єднані послідовно в батареї. Зазвичай це буде записано на батареї у вигляді числа, за яким слідує "S" (наприклад, "3S", "5S").
 
-::: info The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type. Lithium-Polymer (LiPo) batteries and Lithium-Ion batteries both have the same _nominal_ cell voltage of 3.7V. In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in _series_. The battery voltage at the terminals is then a multiple of the cell voltage.
+:::info Напруга на одній гальванічній батареї залежить від хімічних властивостей типу батареї. Батареї літій-полімерні (LiPo) та літій-іонні мають однакове _номінальне_ напругу на одну комірку - 3,7В. Для досягнення вищих напруг (які більш ефективно живлять автомобіль), кілька елементів з'єднуються в _серію_. Напруга батареї на зажимах потім є кратною напрузі акумуляторної клітини.
 :::
 
-If the number of cells is not supplied you can calculate it by dividing the battery voltage by the nominal voltage for a single cell. The table below shows the voltage-to-cell relationship for these batteries:
+Якщо кількість акумуляторних елементів не вказана, ви можете розрахувати її, поділивши напругу батареї на номінальну напругу для одного елемента. Таблиця нижче показує відношення напруги до акумуляторів:
 
 | Cells | LiPo (V) | LiIon (V) |
 | ----- | -------- | --------- |
