@@ -51,17 +51,17 @@
 
 Для кожного двигуна ви можете встановити:
 
-- `Position X`: [X-position](#motor-position-coordinate-system), in metres.
-- `Position Y`: [Y-position](#motor-position-coordinate-system), in metres.
-- `Position Z`: [Z-position](#motor-position-coordinate-system), in metres.
-- (Advanced) `Direction CCW`: Checkbox to indicate motor spins counter-clockwise (uncheck for clockwise).
-- (Advanced) `Bidirectional`: Checkbox to indicate motor is [bidirectional](#bidirectional-motors)
-- (Advanced) `Slew Rate`: Refer to the [Control Surfaces Geometry](#control-surfaces-geometry) section for more information
+- `Позиція X`: [Позиція X](#motor-position-coordinate-system), у метрах.
+- `Позиція Y`: [Позиція Y](#motor-position-coordinate-system), у метрах.
+- `Позиція Z`: [Z-position](#motor-position-coordinate-system), у метрах.
+- (Advanced) `Напрямок проти годинникової стрілки`: Прапорець, що вказує на те, що двигун обертається проти годинникової стрілки (зніміть прапорець для обертання за годинниковою стрілкою).
+- (Розширений) `Бідирекційний`: Прапорець, що вказує, що двигун є [бідирекційним](#bidirectional-motors)
+- (Розширено) `Коефіцієнт нахилу`: Див. розділ [Геометрія керованих поверхонь](#control-surfaces-geometry) для отримання додаткової інформації
 
-::: info The `X`, `Y`, `Z` positions are in [FRD coordinate frame, relative to the _centre of gravity_](#motor-position-coordinate-system). Note, this may not be the same as the position of the flight controller!
+:::info Позиції `X`, `Y`, `Z` в [FRD координатній системі](#motor-position-coordinate-system) відносно _центру ваги_. Зверніть увагу, що це може не збігатися з позицією контролера польоту!
 :::
 
-#### Motor Geometry: VTOL Quadrotor Tailsitter
+#### Геометрія двигуна: VTOL Quadrotor Tailsitter
 
 Геометрія двигуна для [Вертикального зльоту Quad Tailsitter](../airframes/airframe_reference.md#vtol-tailsitter) показана нижче (підхід до налаштування інших вертикальних зльотних транспортних засобів буде подібним).
 
@@ -71,11 +71,11 @@
 
 #### Геометрія двигуна: VTOL Tiltrotor
 
-The motor geometry for a [Generic Quadplane VTOL Tiltrotor](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) is shown below (the approach for configuring other [VTOL tiltrotors](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) will be similar).
+Геометрія двигуна для [Загального квадроплана VTOL з креновими роторами](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) показана нижче (підхід до налаштування інших [VTOL кренових роторів](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) буде схожим).
 
 ![Geometry motor: tiltrotor vtol](../../assets/config/actuators/qgc_geometry_tiltrotor_motors.png)
 
-- `Tilted by`: The associated servo used for tilting the motor. The properties of this servo are defined in the [Motor Tilt Servo Geometry](#motor-tilt-servo-geometry).
+- `Нахилений на`: Супутній сервопривід, що використовується для нахилу двигуна. Властивості цього серводвигуна визначаються в [Геометрії серводвигуна нахилу двигуна](#motor-tilt-servo-geometry).
 
 #### Геометрія двигуна: стандартний VTOL
 
@@ -125,11 +125,11 @@ The motor geometry for a [Generic Quadplane VTOL Tiltrotor](../airframes/airfram
 
 - `Керуючі поверхні`: Кількість керуючих поверхонь (встановіть це спочатку!)
 - `Тип`: Тип кожної керуючої поверхні: `Лівий елерон`, `Правий елерон`, `Елеватор`, `Руль`, `Лівий елевон`, `Правий елевон`, `Ліва V-хвістка`, `Права V-хвістка`, `Лівий флап`, `Правий флап`, `Повітряні гальма`, `Користувацькі`.
-- `Roll Torque`: Effectiveness of actuator around roll axis (normalised: -1 to 1). [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
-- `Pitch Torque`: Effectiveness of actuator around pitch axis (normalised: -1 to 1). [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
-- `Yaw Torque`: Effectiveness of actuator around yaw axis (normalised: -1 to 1). [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
-- `Trim`: An offset added to the actuator so that it is centered without input. This might be determined by trial and error.
-- (Advanced) `Slew Rate`: Minimum time allowed for the motor/servo signal to pass through the full output range, in seconds.
+- `Крутний момент по крену`: Ефективність приводу навколо осі крену (нормалізована: -1 до 1). [Загалом ви повинні використовувати значення актуатора за замовчуванням](#actuator-roll-pitch-and-yaw-scaling).
+- `Крутний момент по тангажу`: Ефективність приводу навколо осі тангажу (нормалізована: -1 до 1). [Загалом ви повинні використовувати значення актуатора за замовчуванням](#actuator-roll-pitch-and-yaw-scaling).
+- `Крутний момент по курсу`: Ефективність приводу навколо осі курсу (нормалізована: -1 до 1). [Загалом ви повинні використовувати значення актуатора за замовчуванням](#actuator-roll-pitch-and-yaw-scaling).
+- `Обрізка`: Зміщення, додане до приводу, щоб він був в центрі без вводу. Це може бути визначено методом проб і помилок.
+- (Розширено) `Швидкість нахилу`: Мінімальний час, дозволений для сигналу двигуна/сервопривода для проходження повного діапазону виходу, в секундах.
   - Параметр обмежує швидкість зміни приводу (якщо не вказано, то обмеження швидкості не застосовується). Призначено для приводів, які можуть пошкодитися, якщо вони рухаються занадто швидко — наприклад, приводи нахилу на повітряному судні VTOL з можливістю повороту.
   - Наприклад, значення 2.0 означає, що двигун/сервопривід не буде командуватися рухатися від 0 до 1 зі швидкістю, яка завершить операцію менш ніж за 2 секунди (у випадку реверсивних двигунів діапазон -1 до 1).
 - (Розширено) `Масштаб закривання`: На скільки цей привод відхиляється в "повній конфігурації закрил" \[0, 1\] (див. [Конфігурацію масштабу закривання та масштабу спойлера](#flap-scale-and-spoiler-scale-configuration) нижче). Може бути використаний для налаштування аеродинамічної поверхні як закрилок або для компенсації обертового моменту, що виникає через головні закрилки.
