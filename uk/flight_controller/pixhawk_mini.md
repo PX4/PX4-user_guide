@@ -199,13 +199,13 @@ _Pixhawk Mini_ слід встановити на раму за допомого
 
 ### GPS + Компас
 
-Під’єднайте 3DR GPS + Compass до порту **GPS&I2C** Pixhawk Mini (угорі праворуч) за допомогою 6-контактного кабелю, що входить у комплект. The GPS/Compass should be mounted on the frame as far away from other electronics as possible, facing the front of the vehicle (separating the compass from other electronics will reduce interference).
+Під’єднайте 3DR GPS + Compass до порту **GPS&I2C** Pixhawk Mini (угорі праворуч) за допомогою 6-контактного кабелю, що входить у комплект. GPS/компас слід монтувати на раму якомога подалі від інших електронних пристроїв, з напрямком вперед транспортного засобу (відокремлення компаса від інших електронних пристроїв зменшить втручання).
 
 ![Connecting compass/GPS to Pixhawk Mini](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_with_compass.jpg)
 
 NOTE - INSERT IMAGE SHOWING BOTH PORTS? OR FRONT-FACING image of GPS&I2C
 
-The compass must be calibrated before it is first used: [Compass Calibration](../config/compass.md)
+Компас повинен бути калібрований перед першим використанням: [Калібрування компасу](../config/compass.md)
 
 ### Живлення
 
@@ -249,10 +249,10 @@ Pixhawk Mini підтримує багато різних моделей рад�
 
 ### Motors
 
-The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframes/airframe_reference.md).
+Відображення між головними/допоміжними вихідними портами та двигунами/сервоприводами для всіх підтримуваних повітряних та наземних конструкцій перераховані в [Довіднику з повітряних конструкцій](../airframes/airframe_reference.md).
 
 :::warning
-The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames).
+Відображення не є однорідним для всіх конструкцій (наприклад, ви не можете покладатися на те, що ручка газу буде на тому ж вихідному порту для всіх повітряних конструкцій).
 Make sure to use the correct mapping for your vehicle.
 :::
 
@@ -260,8 +260,8 @@ Make sure to use the correct mapping for your vehicle.
 If your frame is not listed in the reference then use a "generic" airframe of the correct type.
 ::: infos:
 
-- The output rail must be separately powered, as discussed in the [Power](#power) section above.
-- Pixhawk Mini cannot be used for QuadPlane VTOL airframes. This is because QuadPlane requires 9 outputs (4 Main, 5 AUX) and the Pixhawk Mini only has 8 outputs (8 Main).
+- Вихідна шина повинна мати окреме живлення, як описано в розділі [Живлення](#power) вище.
+- Pixhawk Mini не може бути використаний для каркасів QuadPlane VTOL. This is because QuadPlane requires 9 outputs (4 Main, 5 AUX) and the Pixhawk Mini only has 8 outputs (8 Main).
 
 <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_main_out.png" width="350px" title="Pixhawk Mini - port for motors/servos" />
 
