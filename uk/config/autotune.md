@@ -1,194 +1,194 @@
-# Auto-tuning
+# Автоналаштування
 
-Auto-tuning automates the process of tuning the PX4 rate and attitude controllers, which are the most important controllers for stable and responsive flight (other tuning is more "optional"). It is currently enabled for multicopter, fixed-wing, and hybrid VTOL fixed-wing vehicles.
+Автоналаштування автоматизує процес налаштування контролерів швидкості та ставлення PX4, які є найважливішими контролерами для стабільного та реактивного польоту (інші налаштування є більш "необов'язковими"). Наразі це увімкнено для багатокоптерних, фіксованих крил та гібридних ВТОЛ фіксованих крилових літаків.
 
-Tuning only needs to be done once, and is recommended unless you're using a vehicle that has already been tuned by the manufacturer (and not modified since).
+Настроювання потрібно робити лише один раз і рекомендується, якщо ви використовуєте транспортний засіб, який вже був налаштований виробником (і не змінювався з того часу).
 
 :::warning
-Auto-tuning is performed while flying. The airframe must fly well enough to handle moderate disturbances, and should be closely attended:
+Автоналаштування виконується під час польоту. Каркас повинен добре літати, щоб впоратися з помірними перешкодами, і повинен бути уважно контрольований:
 
-- Test that your vehicle is [stable enough for autotuning](#pre-tuning-test).
-- Be ready to abort the autotuning process. You can do this by changing flight modes or using an auto-tune enable/disable switch ([if configured](#enable-disable-autotune-switch-fixed-wing)).
-- Verify that the vehicle flies well after tuning.
+- Перевірте, що ваш автомобіль достатньо [стабільний для автоналаштування](#pre-tuning-test).
+- Будьте готові перервати процес автоналагодження. Ви можете зробити це, змінивши режими польоту або використовуючи перемикач увімкнення / вимкнення автонаведення ([якщо налаштовано](#enable-disable-autotune-switch-fixed-wing)).
+- Перевірте, що автомобіль добре літає після налаштування.
 
 :::
 
 @[youtube](https://youtu.be/5xswOhhqrIQ)
 
-## Pre-tuning Test
+## Попереднє налаштування тесту
 
-The vehicle must be able to fly and adequately stabilize itself before running auto-tune. This test ensures that the vehicle can fly safely in position controlled modes.
+Транспортний засіб повинен бути здатний літати і належним чином стабілізувати себе перед запуском автоматичного налаштування. Цей тест дозволяє забезпечити безпечний польот транспортного засобу в режимах управління положенням.
 
-::: info During [Airframe Setup](../config/airframe.md) you should have selected the frame that most closely matches your vehicle. This may fly well enough to run autotuning.
+:::info Під час [Налаштування рами](../config/airframe.md) ви повинні були вибрати раму, яка найбільше відповідає вашому транспортному засобу. Можливо, це досить добре працюватиме для запуску автоналаштування.
 :::
 
-To make sure the vehicle is stable enough for auto-tuning:
+Переконайтеся, що транспортний засіб достатньо стабільний для автоналаштування:
 
-1. Perform a normal preflight safety checklist to ensure the flight zone is clear and has enough space.
-1. Takeoff and prepare for the test
-   - **Multicopters:** Take off and hover at 1m above ground in [Altitude mode](../flight_modes_mc/altitude.md) or Stabilized mode.
-   - **Fixed-wing:** Take off and fly at cruise speed in [Position mode](../flight_modes_mc/position.md) or [Altitude mode](../flight_modes_mc/altitude.md).
-1. Use the RC transmitter roll stick to perform the following maneuver, tilting the vehicle just a few degrees: _roll left > roll right > center_ (The whole maneuver should take about 3 seconds). The vehicle should stabilise itself within 2 oscillations.
-1. Repeat the maneuver, tilting with larger amplitudes at each attempt. If the vehicle can stabilise itself within 2 oscillations at ~20 degrees move to the next step.
-1. Repeat the same maneuvers but on the pitch axis. As above, start with small angles and confirm that the vehicle can stabilise itself within 2 oscillations before increasing the tilt.
+1. Виконайте звичайний контрольний перелік безпеки перед польотом, щоб переконатися, що зона польоту чиста і має достатньо місця.
+1. Зльот та підготовка до тесту
+   - **Багатокоптери:** Злітайте та зависайте на висоті 1 м над землею в режимі [Режим висоти](../flight_modes_mc/altitude.md) або стабілізованому режимі.
+   - **Фіксований крило:** Злітайте та летіть з крейсерською швидкістю в режимі [Режим позиції](../flight_modes_mc/position.md) або [Режим висоти](../flight_modes_mc/altitude.md).
+1. Використовуйте палицю кочення пульта керування RC для виконання наступного маневру, нахиливши транспортний засіб лише на кілька градусів: _нахил ліворуч > нахил праворуч > центр_ (Весь маневр повинен зайняти близько 3 секунд). Транспортний засіб повинен стабілізуватися протягом 2 коливань.
+1. Повторіть маневр, нахиляючись з більшими амплітудами при кожної спроби. Якщо транспортний засіб може стабілізуватися протягом 2 коливань під кутом близько 20 градусів, перейдіть до наступного кроку.
+1. Повторіть ті ж маніпуляції, але по осі поля. Як вище, почніть з невеликих кутів і підтвердіть, що транспортний засіб може стабілізуватися самостійно протягом 2 коливань, перш ніж збільшувати нахил.
 
-If the drone can stabilize itself within 2 oscillations it is ready for the auto-tuning procedure.
+Якщо безпілотник може стабілізувати себе протягом 2 коливань, він готовий до процедури автоматичного налаштування.
 
-If not, go to the [troubleshooting](#troubleshooting) section, which explains the minimal manual tuning to prepare the vehicle for auto-tuning.
+Якщо ні, перейдіть до розділу [вирішення проблем](#troubleshooting), де пояснюється мінімальна ручна настройка для підготовки автомобіля до автоматичної настройки.
 
-### Auto-tuning Procedure
+### Процедура автоналагодження
 
-The auto-tuning sequence must be performed in a **safe flight zone, with enough space**. It takes about 40 seconds ([between 19 and 68 seconds](#how-long-does-autotuning-take)). For best results, we recommend running the test in calm weather conditions.
+Послідовність автоматичного налаштування повинна бути виконана в **безпечній зоні польоту, з достатньою площею**. Це займає близько 40 секунд ([між 19 і 68 секундами](#how-long-does-autotuning-take)). Для найкращих результатів ми рекомендуємо проводити тестування в спокійні погодні умови.
 
-The recommended modes for autotuning are [Hold mode](../flight_modes_fw/hold.md) (FW) and [Altitude mode](../flight_modes_mc/altitude.md) (MC), but any other flight mode can be used. During auto tuning, the RC sticks can still be used to fly the vehicle.
+Рекомендовані режими для автоналагодження - [Режим утримання](../flight_modes_fw/hold.md) (FW) та [Режим висоти](../flight_modes_mc/altitude.md) (MC), але можна використовувати будь-який інший режим польоту. Під час автоматичного налаштування RC палиці все ще можна використовувати для польоту транспортного засобу.
 
-::: info The auto-tuning sequence can be aborted at any time by changing flight modes or using the [enable/disable Autotune switch](#enable-disable-autotune-switch-fixed-wing) (if configured).
+:::info Послідовність автоматичного налаштування можна перервати у будь-який момент, змінивши режими польоту або використовуючи [ввімкнути / вимкнути перемикач автоматичного налаштування](#enable-disable-autotune-switch-fixed-wing) (якщо налаштовано).
 :::
 
-The test steps are:
+Кроки наступні:
 
-1. Perform the [pre-tuning test](#pre-tuning-test).
-1. Takeoff using RC control and prepare for test:
-   - **Multicopters:** Takeoff using the remote controller in [Altitude mode](../flight_modes_mc/altitude.md). Hover the vehicle at a safe distance and at a few meters above ground (between 4 and 20m).
-   - **Fixed-wing:** Once flying at cruise speed, activate [Hold mode](../flight_modes_mc/hold.md). This will guide the plane to fly in circle at constant altitude and speed.
+1. Виконайте [тест передналаштування](#pre-tuning-test).
+1. Зліт за допомогою керування RC та підготовка до тесту:
+   - **Багатокоптери:** Зліт за допомогою пульта дистанційного керування в [Режимі висоти](../flight_modes_mc/altitude.md). Наведіть транспортний засіб на безпечній відстані та на кілька метрів над землею (між 4 та 20 м).
+   - **Планер:** Після польоту з крейсерською швидкістю активуйте [Режим утримання](../flight_modes_mc/hold.md). Це допоможе літаку летіти по колу на постійній висоті та швидкості.
 1. Enable autotune.
 
 :::tip
-If an [Enable/Disable Autotune Switch](#enable-disable-autotune-switch-fixed-wing) is configured you can just toggle the switch to the "enabled" position.
+Якщо налаштовано [перемикач увімкнення/вимкнення автоналаштування](#enable-disable-autotune-switch-fixed-wing), ви можете просто перемкнути перемикач у положення "увімкнено".
 :::
 
-   1. In QGroundControl, open the menu: **Vehicle setup > PID Tuning**
+   1. У QGroundControl відкрийте меню: **Налаштування Транспортного Засобу > Налаштування PID**
 
       ![Tuning Setup > Autotune Enabled](../../assets/qgc/setup/autotune/autotune.png)
 
-   1. Select either the _Rate Controller_ or _Attitude Controller_ tabs.
-   1. Ensure that the **Autotune enabled** button is enabled (this will display the **Autotune** button and remove the manual tuning selectors).
-   1. Read the warning popup and click on **OK** to start tuning.
+   1. Виберіть вкладки _Контролер швидкості_ або _Контролер нахилу_.
+   1. Переконайтеся, що кнопка увімкнення **Автопідгонки** увімкнена (це відобразить кнопку **Автопідгонки** та видалить селектори ручного налаштування).
+   1. Прочитайте спливаюче вікно попередження та натисніть на **OK**, щоб почати налаштування.
 
-1. The drone will first start to perform quick roll motions followed by pitch and yaw motions. The progress is shown in the progress bar, next to the _Autotune_ button.
-1. Apply the tuning:
+1. Дрон спочатку почне виконувати швидкі рухи кочення, а потім рухи тангажу та рухи курсу. Прогрес відображається на панелі прогресу, поруч з кнопкою _Автоналадка_.
+1. Застосувати налаштування:
 
-   - **Fixed-Wing:** The tuning will be immediately/automatically be applied and tested in flight (by default). PX4 will then run a 4 second test and revert the new tuning if a problem is detected.
-   - **Multicopters:** Manually land and disarm to apply the new tuning parameters. Takeoff carefully and manually test that the vehicle is stable.
+   - **Фіксований крило:** Налаштування буде негайно/автоматично застосовано й перевірено в польоті (за замовчуванням). PX4 потім проведе 4-секундний тест і поверне нове налаштування, якщо буде виявлено проблему.
+   - **Багатороторники:** Вручну приземліться та роззбройтеся, щоб застосувати нові параметри налаштування. Піднімайтеся обережно і вручну перевіряйте, що транспортний засіб стійкий.
 
-1. If any strong oscillations occur, land immediately and follow the instructions in the [Troubleshooting](#troubleshooting) section below.
+1. Якщо виникають сильні коливання, негайно приземліться й дотримуйтеся інструкцій у розділі [Усунення неполадок](#troubleshooting) нижче.
 
-Additional notes:
+Додаткові примітки:
 
-- **VTOL:** Hybrid VTOL fixed-wing vehicles must be tuned twice, following multicopter instructions in MC mode and fixed-wing instructions in FW mode.
-- **Multicopter:** The instructions above tune the vehicle in [Altitude mode](../flight_modes_mc/altitude.md). You can instead takeoff in [Takeoff mode](../flight_modes_mc/takeoff.md) and tune in [Position mode](../flight_modes_mc/position.md) if the vehicle is is _known_ to be stable in these modes.
-- **Fixed-wing:** Autotuning can also be run in [Altitude mode](../flight_modes_fw/altitude.md) or [Position mode](../flight_modes_fw/position.md). However running the test while flying straight requires a larger safe area for tuning, and does not give a significantly better tuning result.
-- Whether tuning is applied in-air or after landing can be [configured using parameters](#apply-parameters-when-in-air-landed).
+- **VTOL:** Гібридні ВТОЛ фіксовані крила повинні бути налаштовані двічі, слідуючи інструкціям для багтороторників у режимі MC та інструкціям для фіксованих крил у режимі FW.
+- **Багатокоптер:** Інструкції вище налаштовують транспортний засіб у [Режим висоти](../flight_modes_mc/altitude.md). Замість цього ви можете здійснити зльот у режимі [Зльоту](../flight_modes_mc/takeoff.md) та налаштувати режим [Позиції](../flight_modes_mc/position.md), якщо _відомо_, що транспортний засіб стабільний в цих режимах.
+- **Фіксований крило:** Автоналагодження також може бути запущено в режимі [Режим висоти](../flight_modes_fw/altitude.md) або [Режим позиції](../flight_modes_fw/position.md). Проте виконання тесту під час прямого польоту потребує більшої безпечної зони для налаштування і не дає значно кращого результату налаштування.
+- Чи налаштування застосовується у повітрі чи після посадки можна [налаштувати за допомогою параметрів](#apply-parameters-when-in-air-landed).
 
-## Troubleshooting
+## Вирішення проблем
 
-#### The drone oscillates when performing the testing maneuvers prior to the auto-tuning
+#### Дрон коливається при виконанні випробувальних маневрів перед автоматичним налаштуванням
 
-- slow oscillations (1 oscillation per second or slower): this often occurs on large platforms and means that the attitude loop is too fast compared to the rate loop.
-  - **Multicopter:** decrease [MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P) and [MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P) by steps of 1.0.
-  - **Fixed-wing:** increase [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) and [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC) by steps of 0.1.
-- fast oscillations (more than 1 oscillation per second): this is because the gain of the rate loop is too high.
-  - **Multicopter:** decrease `MC_[ROLL|PITCH|YAW]RATE_K` by steps of 0.02
-  - **Fixed-wing:** decrease [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P), [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_P), [FW_YR_P](../advanced_config/parameter_reference.md#FW_YR_P) by steps of 0.01.
+- повільні осциляції (1 осциляція на секунду або повільніше): це часто відбувається на великих платформах і означає, що петля утримання позиції рухається занадто швидко порівняно з петлею швидкості.
+  - **Мультикоптер:** зменшити [MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P) та [MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P) на 1,0 одиницю.
+  - **Фіксований крило:** збільшити [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) та [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC) на кроки по 0.1.
+- швидкі коливання (більше 1 коливання на секунду): це тому, що підсилення петлі швидкості занадто високе.
+  - **Мультикоптер:** зменшити `MC_[ROLL|PITCH|YAW]RATE_K` на 0,02 одиниці
+  - **Фіксований крило:** зменшити [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P), [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_P), [FW_YR_P](../advanced_config/parameter_reference.md#FW_YR_P) на кроки по 0.01.
 
-#### The auto-tuning sequence fails
+#### Послідовність автоматичної настройки не вдається
 
-If the drone was not moving enough during auto-tuning, the system identification algorithm might have issues to find the correct coefficients. Increase the [FW_AT_SYSID_AMP](../advanced_config/parameter_reference.md#FW_AT_SYSID_AMP), [MC_AT_SYSID_AMP](../advanced_config/parameter_reference.md#MC_AT_SYSID_AMP) by steps of 1 and trigger the auto-tune again.
+Якщо безпілотник не рухався достатньо під час автоматичного налаштування, алгоритм ідентифікації системи може мати проблеми з визначенням правильних коефіцієнтів. Збільште [FW_AT_SYSID_AMP](../advanced_config/parameter_reference.md#FW_AT_SYSID_AMP), [MC_AT_SYSID_AMP](../advanced_config/parameter_reference.md#MC_AT_SYSID_AMP) на одиницю і знову викличте автоматичне налаштування.
 
-#### The drone oscillates after auto-tuning
+#### Дрон коливається після автоналагодження
 
-Due to effects not included in the mathematical model such as delays, saturation, slew-rate, airframe flexibility, the loop gain can be too high. To fix this, follow the same steps described [when the drone oscillates in the pre-tuning test](#the-drone-oscillates-when-performing-the-testing-maneuvers-prior-to-the-auto-tuning).
+Через вплив ефектів, які не враховані в математичній моделі, такі як затримки, насичення, швидкість наростання, гнучкість конструкції, коефіцієнт підсилення петлі може бути занадто великим. Щоб виправити це, слідувати тим самим крокам, описаним [коли дрон коливається в попередньому тесті перед налаштуванням автоматичного налаштування](#the-drone-oscillates-when-performing-the-testing-maneuvers-prior-to-the-auto-tuning).
 
-#### I still can't get it to work
+#### Я все ще не можу зрозуміти, як це працює
 
-Attempt manual tuning using the appropriate guides:
+Спробуйте налаштувати вручну, використовуючи відповідні посібники:
 
-- [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter_basic.md) (Manual/Simple)
-- [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) (Advanced/Detailed)
-- [Fixed-Wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
+- [Посібник з налаштування PID для багатокоптерів](../config_mc/pid_tuning_guide_multicopter_basic.md) (Керівництво/Простий)
+- [Посібник з налаштування PID для багатокоптерів](../config_mc/pid_tuning_guide_multicopter.md) (Advanced/Detailed)
+- [Посібник з налаштування ПІД-регулятора з нерухомим крилом](../config_fw/pid_tuning_guide_fixedwing.md)
 
-## Optional Configuration
+## Необов'язкова Конфігурація
 
-### Apply Parameters When In-Air/Landed
+### Застосовувати параметри у повітрі/приземленні
 
-By default MC vehicles land before parameters are applied, while FW vehicles apply the parameters in-air and then test that the controllers work properly. This behaviour can be configured using the [MC_AT_APPLY](../advanced_config/parameter_reference.md#MC_AT_APPLY) and [FW_AT_APPLY](../advanced_config/parameter_reference.md#FW_AT_APPLY) parameters respectively:
+За замовчуванням транспортні засоби MC приземляються до застосування параметрів, тоді як транспортні засоби FW застосовують параметри у повітрі, а потім перевіряють, що контролери працюють належним чином. Цю поведінку можна налаштувати за допомогою параметрів [MC_AT_APPLY](../advanced_config/parameter_reference.md#MC_AT_APPLY) та [FW_AT_APPLY](../advanced_config/parameter_reference.md#FW_AT_APPLY) відповідно:
 
-- `0`: the gains are not applied. This is used for testing purposes if the user wants to inspect results of the auto-tuning algorithm without using them directly.
-- `1`: apply the gains after disarm (default for multirotors). The operator can then test the new tuning while taking-off carefully.
-- `2`: apply immediately (default for fixed-fings). The new tuning is applied, disturbances are sent to the controller and the stability is monitored during the next 4 seconds. If the control loop is unstable, the control gains are immediately reverted back to their previous value. If the test passes, the pilot can then use the new tuning.
+- `0`: надбавки не застосовуються. Це використовується для тестування, якщо користувач хоче перевірити результати автоналаштування алгоритму без прямого їх використання.
+- `1`: застосувати здобутки після роззброєння (типово для мультироторів). Оператор може перевірити нове налаштування під час обережного зльоту.
+- `2`: застосувати негайно (за замовчуванням для фіксованих відгуків). Нове налаштування застосовується, перешкоди надсилаються контролеру, а стабільність контролюється протягом наступних 4 секунд. Якщо керуюче коло нестійке, керуючі коефіцієнти негайно повертаються до свого попереднього значення. Якщо тест пройшов успішно, пілот може використовувати нове налаштування.
 
-### Enable/Disable Autotune Switch (Fixed-Wing)
+### Увімкнути/вимкнути перемикач автотюнінгу (фіксований крило)
 
-A remote control switch can be configured to enable/disable autotune (in any mode) using an RC AUX channel.
+Пульт дистанційного керування може бути налаштований для увімкнення / вимкнення автодоналаштування (у будь-якому режимі) за допомогою додаткового каналу RC.
 
-To map a switch:
+Для відображення перемикача:
 
-1. Select an RC channel on your controller to use for the autotune enable/disable switch.
-1. Set [RC_MAP_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) to match the RC channel for your switch (you can use any of `RC_MAP_AUX1` to `RC_MAP_AUX6`).
-1. Set [FW_AT_MAN_AUX](../advanced_config/parameter_reference.md#FW_AT_MAN_AUX) to the selected channel (i.e. `1: Aux 1` if you mapped `RC_MAP_AUX1`).
+1. Виберіть канал RC на вашому контролері для використання перемикача увімкнення / вимкнення автоналадки.
+1. Встановіть [RC_MAP_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) для відповідності каналу RC вашому перемикачу (ви можете використовувати будь-який з `RC_MAP_AUX1` по `RC_MAP_AUX6`).
+1. Встановіть [FW_AT_MAN_AUX](../advanced_config/parameter_reference.md#FW_AT_MAN_AUX) на вибраний канал (тобто `1: Aux 1`, якщо ви відобразили `RC_MAP_AUX1`).
 
-The auto tuner will be disabled when the switch is below `0.5` (on the manual control setpoint range of of `[-1, 1]` and enabled when the switch channel is above `0.5`.
+Автоналаштування буде вимкнено, коли перемикач знаходиться нижче `0.5` (в діапазоні ручного керування від `[-1, 1]` та увімкнено, коли канал перемикача знаходиться вище `0.5`.
 
-If using an RC AUX switch to enable autotuning, make sure to [select the tuning axes](#select-tuning-axis-fixed-wing) before flight.
+Якщо використовується перемикач RC AUX для увімкнення автоналагодження, переконайтеся, що ви [вибрали вісі налаштування](#select-tuning-axis-fixed-wing) перед польотом.
 
-### Select Tuning Axis (Fixed-Wing)
+### Виберіть Ось Тюнінгу (Фіксований Крило)
 
-Fixed-wing vehicles (only) can select which axes are tuned using the [FW_AT_AXES](../advanced_config/parameter_reference.md#FW_AT_AXES) bitmask parameter:
+Літальні апарати з фіксованим крилом (тільки) можуть вибирати, які вісі налаштовуються за допомогою параметра бітової маски [FW_AT_AXES](../advanced_config/parameter_reference.md#FW_AT_AXES):
 
-- bit `0`: roll (default)
-- bit `1`: pitch (default)
-- bit `2`: yaw
+- біт `0`: кидок (за замовчуванням)
+- біт `1`: кидок (за замовчуванням)
+- біт `2`: крен
 
-## Developers/SDKs
+## Розробники/SDKs
 
-Autotuning is started using [MAV_CMD_DO_AUTOTUNE_ENABLE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_AUTOTUNE_ENABLE) MAVLink command.
+Автоналаштування починається за допомогою команди MAVLink [MAV_CMD_DO_AUTOTUNE_ENABLE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_AUTOTUNE_ENABLE).
 
-At time of writing the message is resent at regular intervals to poll PX4 for progress: the `COMMAND_ACK` includes result that the operation is in progress, and also the progress as a percentage. The operation completes when the progress is 100% or the vehicle lands and disarms.
+На момент написання повідомлення його пересилаються на регулярні інтервали для опитування PX4 на предмет прогресу: `COMMAND_ACK` включає результат, що операція в процесі виконання, а також прогрес у відсотках. Операція завершується, коли прогрес досягає 100% або транспортний засіб приземляється і роззброюється.
 
-::: info This is not a MAVLink-compliant implementation of a [command protocol long running command](https://mavlink.io/en/services/command.html#long_running_commands). PX4 should stream progress as the protocol does not allow polling.
+:::info Це не є виконанням протоколу довгострокової команди [командного протоколу довгострокової команди](https://mavlink.io/en/services/command.html#long_running_commands) у відповідності до MAVLink. PX4 повинен транслювати прогрес, оскільки протокол не дозволяє опитування.
 :::
 
-The feature is not yet supported by MAVSDK.
+Функція ще не підтримується MAVSDK.
 
 ## Background/Detail
 
-PX4 uses [PID controllers](../flight_stack/controller_diagrams.md) (rate, attitude, velocity, and position) to calculate the outputs required to move a vehicle from its current estimated state to match a desired setpoint. The controllers must be well tuned in order to get the best performance out of a vehicle. In particular, a poorly tuned rate controller results in less stable flight in all modes, and takes longer to recover from disturbances.
+PX4 використовує [PID контролери](../flight_stack/controller_diagrams.md) (швидкість, ставлення, швидкість та положення), щоб розрахувати вихідні дані, необхідні для переміщення транспортного засобу з його поточного оціненого стану, щоб відповідати бажаному заданому значенню. Контролери повинні бути добре налаштовані, щоб отримати найкращу продуктивність з автомобіля. Зокрема, погано налаштований регулятор швидкості призводить до менш стабільного польоту у всіх режимах і потребує більше часу на відновлення після перешкод.
 
-Generally if you use a [frame configuration](../config/airframe.md) that is similar to your vehicle then the vehicle will be able to fly. However unless the configuration precisely matches your hardware you should tune the rate and attitude controllers. Tuning the velocity and position controllers is less important because they are less affected by vehicle dynamics, and the default tuning configuration for a similar airframe is often sufficient.
+Загалом, якщо ви використовуєте [конфігурацію рами](../config/airframe.md), яка схожа на ваш транспортний засіб, то транспортний засіб зможе літати. Однак, якщо конфігурація точно не відповідає вашому обладнанню, вам слід налаштувати регулятори швидкості та кута нахилу. Налаштування контролерів швидкості та позиції менш важливе, оскільки вони менше піддаються динаміці транспортного засобу, і типова конфігурація налаштування для схожого аеродинамічного корпусу часто є достатньою.
 
-Autotuning provides an automatic mechanism to tune the rate and attitude controllers. It can be used to tune fixed-wing and multicopter vehicles, and VTOL vehicles when flying as a multicopter or as a fixed-wing (transition between modes must be manually tuned). In theory it should work for other vehicle types that have a rate controller, but currently only the above types are supported.
+Автоналаштування забезпечує автоматичний механізм для налаштування регуляторів швидкості та кута нахилу. Це можна використовувати для налаштування літаків з фіксованим крилом та  мультикоптерних транспортних засобів, а також літаків VTOL, коли літають як мультикоптерний транспортний засіб або з фіксованим крилом (перехід між режимами повинен бути налаштований вручну). Теоретично це повинно працювати для інших типів транспортних засобів, які мають регулятор швидкості, але наразі підтримуються лише вищезазначені типи.
 
-Automatic tuning works well for the multicopter and fixed-wing vehicle configurations supported by PX4, provided the frame is not too flexible (see [below for more information](#does-autotuning-work-for-all-supported-airframes)).
+Автоматична настройка працює добре для конфігурацій багатокоптерів та фіксованих крил, які підтримує PX4, за умови, що рама не занадто гнучка (див. [нижче для отримання додаткової інформації](#does-autotuning-work-for-all-supported-airframes)).
 
-The vehicle must be flying in an altitude-stabilized mode (such as [Altitude mode](../flight_modes_mc/altitude.md), [Hold mode](../flight_modes_mc/hold.md), or [Position mode](../flight_modes_mc/position.md)). The flight stack will apply a small disturbance to the vehicle in each axis and then attempt to calculate the new tuning parameters. For fixed-wing vehicles the new tuning is applied in-air by default, after which the vehicle tests the new settings and reverts the tuning if the controllers are not stable. For multicopter, the vehicle lands and applies the new tuning parameters after disarming; the pilot is expected to then take off carefully and test the tuning.
+Транспортний засіб повинен перебувати в режимі стабілізації висоти (такому як [Режим висоти](../flight_modes_mc/altitude.md), [Режим утримання](../flight_modes_mc/hold.md) або [Режим позиції](../flight_modes_mc/position.md)). Стек польоту застосує невелике збурення до транспортного засобу в кожній з осей, а потім спробує розрахувати нові налаштувальні параметри. Для літаків нове налаштування застосовується в повітрі за замовчуванням, після чого транспортний засіб перевіряє нові налаштування і повертає налаштування, якщо контролери нестабільні. Для мультикоптера транспортний засіб приземляється і застосовує нові параметри налаштування після відбронювання; пілот повинен обережно злетіти і протестувати налаштування.
 
-The tuning process takes about 40 seconds ([between 19 and 68 seconds](#how-long-does-autotuning-take)). The default behaviour can be configured using [parameters](#optional-configuration).
+Процес налаштування займає близько 40 секунд ([між 19 і 68 секундами](#how-long-does-autotuning-take)). Стандартна поведінка може бути налаштована за допомогою [параметрів](#optional-configuration).
 
 ### FAQ
 
-#### What frames types are supported?
+#### Які типи кадрів підтримуються?
 
-Autotuning is enabled for multicopter, fixed-wing, and hybrid VTOL fixed-wing vehicles.
+Автоналаштування увімкнено для мультикоптерів, фіксованих крил та гібридних VTOL фіксованих крилових літаків.
 
-While it is not yet enabled for other frame types, in theory it an be used with any frame that uses a rate controller.
+Хоча це ще не активовано для інших типів кадрів, в теорії його можна використовувати з будь-яким кадром, який використовує контролер швидкості.
 
-#### Does autotuning work for all supported airframes?
+#### Чи працює автоналадка для всіх підтримуваних конструкцій?
 
-The mathematical model used by autotuning to estimate the dynamics of the drone assumes this it is a linear system with no coupling between the axes (SISO), and with a limited complexity (2 poles and 2 zeros). If the real drone is too far from those conditions, the model will not be able to represent the real dynamics of the drone.
+Математична модель, яку використовує автоналаштування для оцінки динаміки дрона, передбачає, що це лінійна система без зв'язку між осями (SISO) та з обмеженою складністю (2 полюси та 2 нулі). Якщо справжній безпілотник занадто далеко від цих умов, модель не зможе відтворити реальну динаміку безпілотника.
 
-In practise, autotuning generally works well for fixed-wing and multicopter, provided the frame is not too flexible.
+На практиці, автоналаштування, як правило, добре працює для планерів та мультикоптерів, за умови, що рама не занадто гнучка.
 
-#### How long does autotuning take?
+#### Як довго триває автоналагодження?
 
-Tuning takes 5s-20s per axis (aborted if tuning could not be established in 20s) + 2s pause between each axis + 4s of testing if the new gains are applied in air.
+Налаштування займає 5-20 секунд на вісь (припиняється, якщо налаштування не вдалося встановити за 20 секунд) + пауза 2 секунди між кожною віссю + 4 секунди тестування, якщо нові коефіцієнти застосовано у повітрі.
 
-A multicopter must tune all three axes, and by default does not test the new gains in-air. Tuning will therefore take between 19s (`5 + 2 + 5 + 2 + 5`) and 64s (`20x3 + 2x2`).
+Мультикоптер повинен налаштовувати всі три осі, і за замовчуванням не перевіряє нові виграші у повітрі. Налаштування, отже, займе від 19 с (`5 + 2 + 5 + 2 + 5`) до 64 с (`20x3 + 2x2`).
 
-By default a fixed-wing vehicle tunes all three axes and then tests the new gains in-air. The range is therefore between 25s (`5 + 2 + 5 + 2 + 5 + 2 + 4`) and 70s (`20x3 + 3x2 + 4`).
+За замовчуванням літак налагоджує всі три осі, а потім перевіряє нові коефіцієнти в повітрі. Діапазон становить від 25 с (`5 + 2 + 5 + 2 + 5 + 2 + 4`) до 70 с (`20x3 + 3x2 + 4`).
 
-Note however that the above settings are defaults. A multicopter can choose to run the tests in air, and a fixed-wing can choose not to. Further, a fixed-wing can choose to tune fewer axes.
+Зверніть увагу, що вищезазначені налаштування є значеннями за замовчуванням. Мультикоптер може вибрати проведення тестів в повітрі, а планер може вибрати не робити цього. Додатково, літак з фіксованим крилом може вибрати налаштувати менше вісей.
 
-Anecdotally, it usually takes around 40s for either vehicle.
+За анекдотичними даними, зазвичай це займає близько 40 секунд для будь-якого засобу пересування.
 
 
 <!--
@@ -202,6 +202,6 @@ If not, perhaps say "not very" but you should expect that the vehicle might defl
 
 ## Дивись також
 
-- [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter_basic.md) (Manual/Simple)
-- [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) (Advanced/Detailed)
-- [Fixed-Wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
+- [Посібник з налаштування PID для багатокоптерів](../config_mc/pid_tuning_guide_multicopter_basic.md) (Керівництво/Простий)
+- [Посібник з налаштування PID для багатокоптерів](../config_mc/pid_tuning_guide_multicopter.md) (Advanced/Detailed)
+- [Посібник з налаштування ПІД-регулятора з нерухомим крилом](../config_fw/pid_tuning_guide_fixedwing.md)
