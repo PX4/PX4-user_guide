@@ -1,43 +1,43 @@
-# DShot ESCs
+# DShot 电调
 
-DShot is an alternative ESC protocol that has several advantages over [PWM](../peripherals/pwm_escs_and_servo.md) or [OneShot](../peripherals/oneshot.md):
+DShot 是一种更高级的电调协议，相比 [PWM](../peripherals/pwm_escs_and_servo.md) 或 [OneShot](../peripherals/oneshot.md) 具有几个优势：
 
-- Reduced latency.
-- Increased robustness via a checksum.
-- No need for ESC calibration as the protocol uses digital encoding.
-- Telemetry feedback is available/supported on some ESCs.
-- Can reverse motor spin directions via commands when needed (rather than physically moving wires/re-soldering).
-- Other useful commands are supported.
+- 低延迟
+- 通过校验提高鲁棒性
+- 由于协议使用数字编码，因此无需电调校准
+- 很多电调支持数传反馈。
+- 可以通过命令反转电机方向（而不是物理调换两根线/重新焊接）。
+- 支持其他好用的命令。
 
-This topic shows how to connect and configure DShot ESCs.
+本章介绍了如何连接和配置 DShot 电调。
 
 <a id="wiring"></a>
 
-## Wiring/Connections
+## 接线和连接
 
-DShot ESC are wired the same way as [PWM ESCs](pwm_escs_and_servo.md). The only difference is that they can only be connected to the FMU, and usually only to some subset of pins.
+DShot 电调与[PWM 电调](pwm_escs_and_servo.md)的接线方式相同。 唯一的区别在于它们只能连接到FMU，通常只能连接到某些引脚的子集。
 
 ::: info
-You may want to check the actuator configuration screen to see what pins are available for DShot on your controller before wiring up!
+在接线之前，您可能需要检查执行器配置屏幕来查看飞控上可用于 DShot 的引脚！
 :::
 
-Pixhawk controllers with both an FMU and an IO board usually label them as `AUX` (FMU) and `MAIN` (IO), respectively. These match the `PWM AUX` and `PWM MAIN` output tabs on the actuator configuration screen. For these controllers connect the DShot ESC to the `AUX` port.
+通常带有FMU和IO板的Pixhawk飞控将它们分别标记为`AUX`（连接到FMU）和`MAIN`（连接到IO控制器）。 `PWM AUX` 和 `PWM MAIN` 的输出选项卡在执行器配置屏幕上。 对于这些飞控来说，DShot 电调连接到 `AUX` 端口。
 
-Controllers that don't have an IO board usually label the (single) output port as `MAIN`, and this is where you will connect your DShot ESC. If the controller without IO has its own firmware, the actuator assignment will be to the matching `PWM MAIN` outputs. However if the same firmware is used for hardware with/without the IO board, such as for the Pixhawk 4 and Pixhawk 4 Mini, then actuator assignment tab used is the same in both cases: `PWM AUX` (i.e. not matching the port label `MAIN` in the "mini" case).
+没有IO板的飞控通常将输出端口标记为 `MAIN`， 并且这是您连接 DShot 电调的地方。 如果那些没有IO控制器的飞控有自己的固件，执行器分配将匹配到相应的`PWM MAIN`输出。 However if the same firmware is used for hardware with/without the IO board, such as for the Pixhawk 4 and Pixhawk 4 Mini, then actuator assignment tab used is the same in both cases: `PWM AUX` (i.e. not matching the port label `MAIN` in the "mini" case).
 
 ## 配置
 
 :::warning
-Remove propellers before changing ESC configuration parameters!
+更改电调配置参数之前，请先拆下螺旋桨！
 :::
 
-Enable DShot for your required outputs in the [Actuator Configuration](../config/actuators.md).
+在[执行器配置](../config/actuators.md)中为所需要的输出启用 DShot。
 
-DShot comes with different speed options: _DShot150_, _DShot300_, _DShot600_ and _DShot1200_, where the number indicates the speed in kilo-bits/second. You should set the parameter to the highest speed supported by your ESC (according to its datasheet).
+DShot 具有不同的速度选项：_DShot150_，_DShot300_，_DShot600_ 和 _DShot1200_，其中的数字表示千比特每秒。 您应该将参数设置为您的电调支持的最高速度（根据其说明书）。
 
-Then connect the battery and arm the vehicle. The ESCs should initialize and the motors turn in the correct directions.
+然后连接电池并解锁无人机。 电调应该初始化，电机应该按照正确的方向转动。
 
-- If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)) you can reverse them in the UI using the **Set Spin Direction** option (this option appears after you select DShot and assign motors). You can also reverse motors by sending an [ESC Command](#commands).
+- 如果电机未按照正确方向旋转（适用于[所选机架](../airframes/airframe_reference.md)），您可以在UI中使用**设置旋转方向**选项来反转它们（此选项在您选择DShot并分配电机后出现）。 您也可以通过发送[ESC命令](#commands)来反转电机。
 
 <a id="commands"></a>
 
@@ -93,10 +93,10 @@ The most important ones are:
 
 ## Telemetry
 
-Some ESCs are capable of sending telemetry back to the flight controller, including:
+有些电调能够向飞控发送遥测数据，包括：
 
 - 温度
-- voltage
+- 电压
 - current
 - accumulated current consumption
 - RPM values
