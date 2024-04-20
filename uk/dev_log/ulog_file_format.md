@@ -1,6 +1,6 @@
 # Формат файлу ULog
 
-ULog - це формат файлу, що використовується для логування повідомлень. Формат самоописуючий, тобто містить формат та типи повідомлень [uORB](../middleware/uorb.md), які реєструються. This document is meant to be the ULog File Format Spec Documentation. It is intended especially for anyone who is interested in writing a ULog parser / serializer and needs to decode / encode files.
+ULog - це формат файлу, що використовується для логування повідомлень. Формат самоописуючий, тобто містить формат та типи повідомлень [uORB](../middleware/uorb.md), які реєструються. Цей документ призначений для документації специфікації формату файлу ULog. Це призначено особливо для тих, хто зацікавлений у написанні розбірника / серіалізатора ULog та потребує розкодувати / закодувати файли.
 
 PX4 використовує ULog для ведення журналу тем uORB як повідомлення, пов'язані з (але не обмежені) наступними джерелами:
 
@@ -256,9 +256,9 @@ struct message_info_s {
 
 If a parameter dynamically changes during runtime, this message can also be [used in the Data section](#messages-shared-with-the-definitions-section) as well.
 
-The data type is restricted to `int32_t` and `float`. Valid characters for the name: `a-zA-Z0-9_-/`.
+The data type is restricted to `int32_t` and `float`. Допустимі символи для імені: `a-zA-Z0-9_-/`.
 
-#### 'Q': Default Parameter Message
+#### 'Q': Параметр повідомлення за замовчуванням
 
 The default parameter message defines the default value of a parameter for a given vehicle and setup.
 
@@ -283,7 +283,7 @@ This message can also be used in the Data section, and the same data type and na
 
 This section ends before the start of the first [Subscription Message](#a-subscription-message) or [Logging](#l-logged-string-message) message, whichever comes first.
 
-### Data Section
+### Розділ даних
 
 The message types in the _Data_ section are:
 
@@ -317,9 +317,9 @@ struct message_add_logged_s {
   - The same `msg_id` must not be used twice for different subscriptions.
 - `message_name`: message name to subscribe to. Must match one of the [Format Message](#f-format-message) definitions.
 
-#### `R`: Unsubscription Message
+#### `R`: Повідомлення про відписку
 
-Unsubscribe a message, to mark that it will not be logged anymore (not used currently).
+Відмовитися від повідомлення, щоб позначити, що воно більше не буде реєструватися (зараз не використовується).
 
 ```c
 struct message_remove_logged_s {
@@ -328,7 +328,7 @@ struct message_remove_logged_s {
 };
 ```
 
-#### 'D': Logged Data Message
+#### 'D': Повідомлення про зареєстровані дані
 
 ```c
 struct message_data_s {
