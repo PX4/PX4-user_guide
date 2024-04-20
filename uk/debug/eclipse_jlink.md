@@ -8,18 +8,18 @@ This topic explains how to setup and use [MCU Eclipse](https://gnu-mcu-eclipse.g
 - Adapter to connect Segger JLink to Flight Controller [SWD Debug Port](../debug/swd_debug.md) (debug port).
 - Micro USB cable
 
-## Installation
+## Встановлення
 
 ### PX4
 
-Setup PX4 by following the normal guidelines:
+Налаштуйте PX4, дотримуючись звичайних вказівок:
 
 - [Setup the PX4 Developer Environment/Toolchain](../dev_setup/dev_env.md) for your platform (e.g. for Linux see: [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md)).
 - [Download PX4](../dev_setup/building_px4.md) and optionally build it on the command line.
 
 ### Eclipse
 
-To install _Eclipse_:
+Для встановлення _Eclipse_:
 
 1. Download [Eclipse CDT for C/C++ Developers](https://github.com/gnu-mcu-eclipse/org.eclipse.epp.packages/releases/) (MCU GitHub).
 1. Extract the Eclipse folder and copy it anywhere (there is no need to run any install scripts).
@@ -32,9 +32,9 @@ To install the _Segger Jlink_ tools:
 1. Download and run the [J-Link Software and Documentation Pack](https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack) for your OS (Windows and Linux packages available).
    - On Linux the tools are installed in **/usr/bin**.
 
-For more information, see: [https://gnu-mcu-eclipse.github.io/debug/jlink/install/](https://gnu-mcu-eclipse.github.io/debug/jlink/install/).
+Для отримання додаткової інформації див. : [https://gnu-mcu-eclipse.github.io/debug/jlink/install/](https://gnu-mcu-eclipse.github.io/debug/jlink/install/).
 
-## First Use
+## Перше використання
 
 1. Connect the _Segger JLink_ to the host computer and the [flight controller debug port](../debug/swd_debug.md) (via an adapter).
 1. Power the flight controller.
