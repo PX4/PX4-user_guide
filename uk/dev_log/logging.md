@@ -4,27 +4,27 @@ The [system logger](../modules/modules_system.md#logger) is able to log any ORB 
 
 The output log format is [ULog](../dev_log/ulog_file_format.md).
 
-## Usage
+## Використання
 
 By default, logging is automatically started when arming, and stopped when disarming. A new log file is created for each arming session on the SD card. To display the current state, use `logger status` on the console. If you want to start logging immediately, use `logger on`. This overrides the arming state, as if the system was armed. `logger off` undoes this.
 
-If logging stops due to a write error, or reaching the [maximum file size](#file-size-limitations), PX4 will automatically restart logging in a new file.
+Якщо реєстрація припиниться через помилку запису або досягнення [максимального розміру файлу](#file-size-limitations), PX4 автоматично перезапустить реєстрацію в новому файлі.
 
-For a list of all supported logger commands and parameters, use:
+Для отримання списку всіх підтримуваних команд та параметрів реєстратора використовуйте:
 
 ```
 logger help
 ```
 
-## Configuration
+## Налаштування
 
 The logging system is configured by default to collect sensible logs for [flight reporting](../getting_started/flight_reporting.md) with [Flight Review](http://logs.px4.io).
 
 Logging may further be configured using the [SD Logging](../advanced_config/parameter_reference.md#sd-logging) parameters. The parameters you are most likely to change are listed below.
 
-| Parameter                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Параметр                                                                 | Опис                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE)       | Logging Mode. Defines when logging starts and stops.<br />- `-1`: Logging disabled.<br />- `0`: Log when armed until disarm (default).<br />- `1`: Log from boot until disarm.<br />- `2`: Log from boot until shutdown.<br />- `3`: Log based on the [AUX1 RC channel](../advanced_config/parameter_reference.md#RC_MAP_AUX1).<br />- `4`: Log from first armed until shutdown. |
+| [РЕЖИМ SDLOG](../advanced_config/parameter_reference.md#SDLOG_MODE)      | Logging Mode. Defines when logging starts and stops.<br />- `-1`: Logging disabled.<br />- `0`: Log when armed until disarm (default).<br />- `1`: Log from boot until disarm.<br />- `2`: Log from boot until shutdown.<br />- `3`: Log based on the [AUX1 RC channel](../advanced_config/parameter_reference.md#RC_MAP_AUX1).<br />- `4`: Log from first armed until shutdown. |
 | [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | Logging profile. Use this to enable less common logging/analysis (e.g. for EKF2 replay, high rate logging for PID & filter tuning, thermal temperature calibration).                                                                                                                                                                                                                                                 |
 | [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".<br>This log can _not_ be used with [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), but is useful when you need a small log for geotagging or regulatory compliance.                                                                                                                                                                      |
 
@@ -39,7 +39,7 @@ _Developers_ can further configure what information is logged via the [logger](.
 
 ### SD Card Configuration
 
-Separately, the list of logged topics can also be customized with a file on the SD card. Create a file `etc/logging/logger_topics.txt` on the card with a list of topics (For SITL, it's `build/px4_sitl_default/rootfs/fs/microsd/etc/logging/logger_topics.txt`):
+Separately, the list of logged topics can also be customized with a file on the SD card. Створіть файл `etc/logging/logger_topics.txt` на картці зі списком тем (для SITL це `build/px4_sitl_default/rootfs/fs/microsd/etc/logging/logger_topics.txt`):
 
 ```plain
 <topic_name> <interval> <instance>
@@ -51,7 +51,7 @@ The `<instance>` is optional, and if specified, defines the instance to log. If 
 
 The topics in this file replace all of the default logged topics.
 
-Example :
+Приклади :
 
 ```plain
 sensor_accel 0 0
@@ -121,11 +121,11 @@ The requirement is that the link provides at least ~50KB/s, so for example a WiF
 
 There are different clients that support ulog streaming:
 
-- `mavlink_ulog_streaming.py` script in PX4-Autopilot/Tools.
+- `mavlink_ulog_streaming.py` скрипт PX4-Autopilot/Tools.
 - QGroundControl: ![QGC Log Streaming](../../assets/gcs/qgc-log-streaming.png)
 - [MAVGCL](https://github.com/ecmnet/MAVGCL)
 
-### Diagnostics
+### Діагностика
 
 - If log streaming does not start, make sure the `logger` is running (see above), and inspect the console output while starting.
 - If it still does not work, make sure that MAVLink 2 is used. Enforce it by setting `MAV_PROTO_VER` to 2.
