@@ -1,4 +1,4 @@
-# Raspberry Pi Companion with Pixhawk
+# Супутник Raspberry Pi з Pixhawk
 
 У цій темі описано, як налаштувати супутника Raspberry Pi ("RPi"), що працює з [ROS 2](../ros/ros2_comm.md) на операційній системі Linux Ubuntu, підключення до автопілота [Pixhawk](../flight_controller/autopilot_pixhawk_standard.md) за допомогою послідовного з'єднання між портом `TELEM2` Pixhawk та виводами TX/RX RPi.
 
@@ -17,7 +17,7 @@
 
 Спочатку підключіть послідовне з'єднання між RPi та PX4, яке буде використовуватися для управління ззовні.
 
-Це налаштування з'єднує Pixhawk `TELEM2` , що загалом рекомендується для офлайн керування. It is initially configured in PX4 to use with MAVLink, which we will change later when setting up ROS 2. Pixhawk ports can be located anywhere on the flight controller, but are almost always well labeled, and should be obvious on your particular [flight controller](../flight_controller/index.md).
+Це налаштування з'єднує Pixhawk `TELEM2` , що загалом рекомендується для офлайн керування. Спочатку вона налаштована в PX4 для використання з MAVLink, що ми змінимо пізніше при налаштуванні ROS 2. Порти Pixhawk можуть бути розташовані де завгодно на контролері польоту, але майже завжди добре позначені, і повинні бути очевидними на вашому конкретному [контролері польоту](../flight_controller/index.md).
 
 Підключіть контакти Pixhawk `TELEM2` `TX`/`RX`/`GND` до відповідних контактів `RXD`/`TXD`/`Ground` на платі GPIO RPi:
 
@@ -27,14 +27,14 @@
 | UART5_RX (3)   | TXD (GPIO 14 - pin 8)  |
 | GND (6)        | Ground (pin 6)         |
 
-Діаграма показує контакти порту Pixhawk `TELEM2` зліва та контакти плати GPIO RPi справа. The pins on the `TELEM2` port are normally numbered right-to-left as shown.
+Діаграма показує контакти порту Pixhawk `TELEM2` зліва та контакти плати GPIO RPi справа. Контакти на порті `TELEM2` зазвичай нумеруються справа наліво, як показано.
 
 | `TELEM2`                                                                                                      | RPi GPIO                                                      |
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
 | ![Pin numbering showing left-most pin is pin 1](../../assets/companion_computer/pixhawk_rpi/pins_numbers.png) | ![](../../assets/companion_computer/pixhawk_rpi/rpi_gpio.png) |
 
 :::info
-Майже всі останні плати Pixhawk, такі як Pixhawk-6C, використовують ті ж самі роз'єми та номери контактів для відповідних портів, як визначено в Стандарті роз'ємів Pixhawk. You can check the specific board documentation to confirm the pin layout.
+Майже всі останні плати Pixhawk, такі як Pixhawk-6C, використовують ті ж самі роз'єми та номери контактів для відповідних портів, як визначено в Стандарті роз'ємів Pixhawk. Ви можете перевірити конкретну документацію дошки, щоб підтвердити розташування контактів.
 
 Стандартні призначення контактів `TELEM2` показані нижче.
 
@@ -49,39 +49,39 @@
 
 :::
 
-### TELEM1/Telemetry Radio
+### TELEM1/Телеметрійне радіо
 
-The Pixhawk `TELEM1` port is preconfigured for connecting to a GCS via MAVLink over a telemetry radio.
+Порт Pixhawk `TELEM1` попередньо налаштований для підключення до GCS через MAVLink через радіоканал телеметрії.
 
-You can plug an [appropriate radio](../telemetry/index.md) into the Pixhawk `TELEM1` port and in most cases it should just work. Generally the other radio needs to be connected to the ground station USB port. If you have any issues, check the radio documentation.
+Ви можете підключити [відповідне радіо](../telemetry/index.md) до порту Pixhawk `TELEM1` і у більшості випадків воно повинно працювати. Зазвичай інший радіоприймач повинен бути підключений до USB-порту наземної станції. Якщо у вас виникли проблеми, перевірте документацію радіо.
 
-### Power Supply
+### Джерело живлення
 
-Pixhawk boards usually require a reliable 5V DC supply, which is commonly supplied from LiPO batteries via a [Power Module and/or Power Distribution board](../power_module/index.md) to a port labeled `POWER` (or similar).
+Плати Pixhawk зазвичай потребують надійного джерела живлення 5 В постійного струму, яке зазвичай постачається від акумуляторів LiPO через [Модуль живлення та/або розподільник живлення](../power_module/index.md) до порту, позначеного як `POWER` (або схоже).
 
-The instructions for your flight controller will normally explain the recommended setup. For example:
+Інструкції для вашого керування польотом зазвичай пояснюють рекомендовану настройку. Наприклад:
 
-- [Holybro Pixhawk 6C > Voltage Ratings](../flight_controller/pixhawk6c.md#voltage-ratings)
-- [Holybro Pixhawk 6C Wiring Quick Start > Power](../assembly/quick_start_pixhawk6c.md#power)
+- [Holybro Pixhawk 6C > Рейтинг напруги](../flight_controller/pixhawk6c.md#voltage-ratings)
+- [Швидке підключення Holybro Pixhawk 6X > Живлення](../assembly/quick_start_pixhawk6c.md#power)
 
-Pixhawk controllers can supply power to a _small_ number of low-power peripherals, such as GPS modules and low-range telemetry radios. The RPi companion computer, servos, high power radios, and other peripherals require a separate power supply, which is usually from a battery elimination circuit (BEC) wired to the same or another battery. Some power modules have a separate BEC included.
+Контролери Pixhawk можуть постачати живлення для _невеликої кількості_ низькопотужних периферійних пристроїв, таких як модулі GPS та радіо телеметрії низького діапазону. The RPi companion computer, servos, high power radios, and other peripherals require a separate power supply, which is usually from a battery elimination circuit (BEC) wired to the same or another battery. Деякі модулі живлення мають окремий BEC включений.
 
 :::warning
-Overloading your Pixhawk is a good way to destroy it.
+Перевантаження вашого Pixhawk - це хороший спосіб його знищення.
 :::
 
-::: info
-During PX4 setup and configuration the USB connection with your ground station laptop is sufficient to power the Pixhawk board, and your companion computer might be powered from a desktop charger.
+:::info
+Під час налаштування та конфігурації PX4 USB-підключення до ноутбука вашої наземної станції є достатнім для живлення плати Pixhawk, а ваш компаньйон може бути живлений від настільного зарядного пристрою.
 :::
 
 ## Налаштування PX4
 
-These instructions work on PX4 v1.14 and later.
+Ці інструкції працюють на PX4 v1.14 та пізніших версіях.
 
-If you need to update the firmware then connect the Pixhawk to your laptop/desktop via the `USB` port and use QGroundControl to update the firmware as described [Firmware > Install Stable PX4](../config/firmware.md#install-stable-px4). If you want the latest developer version then update the firmware to the "main" as described in [Firmware > Installing PX4 Master, Beta or Custom Firmware](../config/firmware.md#installing-px4-main-beta-or-custom-firmware).
+Якщо вам потрібно оновити прошивку, підключіть Pixhawk до вашого ноутбука / настільного комп'ютера через порт `USB` та використовуйте QGroundControl для оновлення прошивки, як описано [Прошивка >  Встановлення стабільної PX4](../config/firmware.md#install-stable-px4). Якщо ви хочете отримати останню розробницьку версію, оновіть прошивку на "main", як описано в [Прошивка >  Встановлення PX4 Master, Beta або власної прошивки](../config/firmware.md#installing-px4-main-beta-or-custom-firmware).
 
-::: info
-You can alternatively [setup a development environment](../dev_setup/dev_env.md), [build](../dev_setup/building_px4.md#building-for-nuttx) and [upload](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board) the firmware manually.
+:::info
+Ви також можете [налаштувати середовище розробки](../dev_setup/dev_env.md), [зібрати](../dev_setup/building_px4.md#building-for-nuttx) та [завантажити](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board) прошивку вручну.
 :::
 
 
@@ -103,7 +103,7 @@ make px4_fmu-v6c_default upload
 
 ## Налаштування Ubuntu на RPi
 
-The following steps show how to install and setup Ubuntu 22.04 on the RPi. Note that ROS 2 versions target particular Ubuntu versions. We're using Ubuntu 22.04 to match ROS 2 "Humble", so if you're working with ROS 2 "Foxy" you would instead install Ubuntu 20.04.
+Наступні кроки показують, як встановити та налаштувати Ubuntu 22.04 на RPi. Зверніть увагу, що версії ROS 2 спрямовані на конкретні версії Ubuntu. Ми використовуємо Ubuntu 22.04 для відповідності ROS 2 "Humble", тому якщо ви працюєте з ROS 2 "Foxy", ви замість цього могли б встановити Ubuntu 20.04.
 
 Спочатку встановіть Ubuntu на RPi:
 
@@ -182,7 +182,7 @@ PX4 рекомендує використовувати [MAVSDK](https://mavsdk.
    SER_TEL2_BAUD = 57600
    ```
 
-   Зверніть увагу, що параметри можуть вже бути налаштовані належним чином. For information about how serial ports and MAVLink configuration work see [Serial Port Configuration](../peripherals/serial_configuration.md) and [MAVLink Peripherals](../peripherals/mavlink_peripherals.md).
+   Зверніть увагу, що параметри можуть вже бути налаштовані належним чином. Для отримання інформації про те, як працюють послідовні порти та конфігурація MAVLink, див. [Конфігурація послідовного порту](../peripherals/serial_configuration.md) та [Периферійні пристрої MAVLink](../peripherals/mavlink_peripherals.md).
 
 Потім встановіть налаштування MAVProxy на RPi за допомогою наступних термінальних команд:
 
@@ -216,16 +216,16 @@ MAVProxy на RPi тепер повинен підключатися до Pixhaw
 
 ## ROS 2 та uXRCE-DDS
 
-Сторінки [Посібника ROS 2](../ros/ros2_comm.md) та [uXRCE-DDS](../middleware/uxrce_dds.md) охоплюють варіанти налаштування uXRCE-DDS та ROS, зосереджуючись на ROS 2 "Foxy". Цей посібник використовує ROS 2 "Humble" та охоплює конкретну настройку для роботи з RPi. It is worth reading both!
+Сторінки [Посібника ROS 2](../ros/ros2_comm.md) та [uXRCE-DDS](../middleware/uxrce_dds.md) охоплюють варіанти налаштування uXRCE-DDS та ROS, зосереджуючись на ROS 2 "Foxy". Цей посібник використовує ROS 2 "Humble" та охоплює конкретну настройку для роботи з RPi. Варто прочитати обидва!
 
 ### Налаштування Pixhawk/PX4
 
-Next we set up ROS 2 instead of MAVLink on `TELEM2`. We do this by changing parameters in QGroundControl, which can be connected via USB, or using a telemetry radio connected to `TELEM1`.
+Наступним кроком ми налаштовуємо ROS 2 замість MAVLink на `TELEM2`. Ми робимо це, змінюючи параметри в QGroundControl, яке може бути підключене через USB або використовуючи телеметричне радіо, підключене до `TELEM1`.
 
-The configuration steps are:
+Етапи конфігурації:
 
-1. Connect the Pixhawk with the laptop using a USB cable and open QGroundControl (if not currently connected).
-1. [Check/change the following parameters](../advanced_config/parameters.md) in QGroundControl:
+1. Підключіть Pixhawk до ноутбука за допомогою USB-кабелю та відкрийте QGroundControl (якщо він не підключений в даний момент).
+1. [Перевірте/змініть наступні параметри](../advanced_config/parameters.md) в QGroundControl:
 
    ```ini
    MAV_1_CONFIG = 0 (Disabled)
@@ -233,41 +233,41 @@ The configuration steps are:
    SER_TEL2_BAUD = 921600
    ```
 
-   [MAV_1_CONFIG=0](../advanced_config/parameter_reference.md#MAV_1_CONFIG) and [UXRCE_DDS_CFG=102](../advanced_config/parameter_reference.md#UXRCE_DDS_CFG) disable MAVLink on TELEM2 and enable the uXRCE-DDS client on TELEM2, respectively. The `SER_TEL2_BAUD` rate sets the comms link data rate.  
-You could similarly configure a connection to `TELEM1` using either `MAV_1_CONFIG` or `MAV_0_CONFIG`.
+   [MAV_1_CONFIG=0](../advanced_config/parameter_reference.md#MAV_1_CONFIG) та [UXRCE_DDS_CFG=102](../advanced_config/parameter_reference.md#UXRCE_DDS_CFG) вимикають MAVLink на TELEM2 та увімкнюють клієнт uXRCE-DDS на TELEM2, відповідно. Швидкість `SER_TEL2_BAUD` встановлює швидкість передачі даних зв'язку.  
+Ви так само можете налаштувати підключення до `TELEM1`, використовуючи або `MAV_1_CONFIG`, або `MAV_0_CONFIG`.
 
-   ::: info
-You will need to reboot the flight controller to apply any changes to these parameters.
+   :::info
+Вам потрібно перезавантажити керування польотом, щоб застосувати будь-які зміни до цих параметрів.
 :::
 
-1. Check that the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) module is now running. YOu can do this by running the following command in the QGroundControl [MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html):
+1. Перевірте, що модуль [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) зараз працює. Ви можете це зробити, запустивши наступну команду в QGroundControl [MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html):
 
    ```sh
    uxrce_dds_client status
    ```
 
-::: info
-If the client module is not running you can start it manually in the MAVLink console:
+:::info
+Якщо модуль клієнта не працює, ви можете запустити його вручну в консолі MAVLink:
 
 ```sh
 uxrce_dds_client start -t serial -d /dev/ttyS3 -b 921600
 ```
 
-Note that `/dev/ttyS3` is the PX4 port for `TELEM2` on the [Holybro Pixhawk 6c](../flight_controller/pixhawk6c.md#serial-port-mapping). For other flight controllers check the serial port mapping section in their overview page.
+Зверніть увагу, що `/dev/ttyS3` є портом PX4 для `TELEM2` на [Holybro Pixhawk 6c](../flight_controller/pixhawk6c.md#serial-port-mapping). Для інших контролерів польоту перевірте розділ відображення послідовного порту на їх сторінці огляду.
 :::
 
 ### ROS Setup on RPi
 
-The steps to setup ROS 2 and the Micro XRCE-DDS Agent on the RPi are:
+Кроки для налаштування ROS 2 та агента Micro XRCE-DDS на RPi такі:
 
-1. Install ROS 2 Humble by following the [official tutorial](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
-2. Install the git using the RPi terminal:
+1. Встановіть ROS 2 Humble, слідуючи за [офіційним посібником](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
+2. Встановіть git за допомогою терміналу RPi:
 
    ```sh
    sudo apt install git
    ```
 
-3. Install the uXRCE_DDS agent:
+3. Встановіть агент uXRCE_DDS:
 
    ```sh
    git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
@@ -280,21 +280,21 @@ The steps to setup ROS 2 and the Micro XRCE-DDS Agent on the RPi are:
    sudo ldconfig /usr/local/lib/
    ```
 
-   See [uXRCE-DDS > Micro XRCE-DDS Agent Installation](../middleware/uxrce_dds.md#micro-xrce-dds-agent-installation) for alternative ways of installing the agent.
+   Див. [uXRCE-DDS > Встановлення агента Micro XRCE-DDS](../middleware/uxrce_dds.md#micro-xrce-dds-agent-installation) для альтернативних способів встановлення агента.
 
-4. Start the agent in the RPi terminal:
+4. Запустіть агента в терміналі RPi:
 
    ```sh
    sudo MicroXRCEAgent serial --dev /dev/serial0 -b 921600
    ```
 
-   Note how we use the serial port set up earlier and the same baud rate as for PX4.
+   Зверніть увагу, як ми використовуємо раніше налаштований послідовний порт і ту саму швидкість передачі даних, що й для PX4.
 
-Now that both the agent and client are running, you should see activity on both the MAVLink console and the RPi terminal. You can view the available topics using the following command on the RPi:
+Тепер, коли обидва агент та клієнт працюють, ви повинні бачити активність як на консолі MAVLink, так і на терміналі RPi. Ви можете переглянути доступні теми за допомогою наступної команди на RPi:
 
 ```sh
 source /opt/ros/humble/setup.bash
 ros2 topic list
 ```
 
-That's it. Once you have the connection working, see the [ROS 2 Guide](../ros/ros2_comm.md) for more information about working with PX4 and ROS 2.
+Ось і все. Після того, як ви зробите з'єднання робочим, перегляньте [Посібник ROS 2](../ros/ros2_comm.md) для отримання додаткової інформації про роботу з PX4 та ROS 2.
