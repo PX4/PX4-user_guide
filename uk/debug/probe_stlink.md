@@ -13,7 +13,7 @@ The STLink Debug Probe does not come with an adapter for working with Pixhawk fl
 The [CUAV C-ADB Pixhawk Debugging Adapter](../debug/swd_debug.md#cuav-c-adb-pixhawk-debug-adapter) (~65€) comes with an STLinkv3-MINIE! This has a connector for the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full) 10-pin SH port (but not the [Pixhawk Debug Mini](../debug/swd_debug.md#pixhawk-debug-mini)).
 :::
 
-## Debugging Configuration
+## Налаштування відлагодження
 
 The STLink provides the [GDB server via OpenOCD](https://openocd.org/doc-release/html/index.html):
 
@@ -169,7 +169,7 @@ Optionally, you may add a logo of your choice printed on paper and cut to size. 
 
 ![](../../assets/debug/stlinkv3_minie_p15.jpeg)
 
-## See also
+## Дивись також
 
 - [STLINK-V3MINIE debugger/programmer tiny probe for STM32 microcontrollers](https://www.st.com/resource/en/user_manual/um2910-stlinkv3minie-debuggerprogrammer-tiny-probe-for-stm32-microcontrollers-stmicroelectronics.pdf) (User Manual)
 
