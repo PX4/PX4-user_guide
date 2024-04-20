@@ -6,13 +6,13 @@ The GPS module uses the [DroneCAN](index.md) protocol for communication. DroneCA
 
 <img src="../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps.jpg" width="400px" title="Hero diagram for the GPS module" />
 
-## Where to Buy
+## Де купити
 
 Order this module from:
 
 - [Holybro](https://holybro.com/products/dronecan-m8n-gps)
 
-## Hardware Specifications
+## Характеристики обладнання
 
 |                           | DroneCAN M8N                         |
 | ------------------------- | ------------------------------------ |
@@ -61,7 +61,7 @@ The Holybro DroneCAN GPS is connected to the CAN bus using a Pixhawk standard 4 
 
 ![Diagram showing GPS dimensions](../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps_dimension.jpg)
 
-## PX4 Configuration
+## Налаштування PX4
 
 You need to set necessary [DroneCAN](index.md) parameters and define offsets if the sensor is not centred within the vehicle. The required settings are outlined below.
 
@@ -73,7 +73,7 @@ The GPS will not boot if there is no SD card in the flight controller when power
 
 In order to use the ARK GPS board, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
-The steps are:
+Кроки наступні:
 
 - In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect GPS CAN to the Pixhawk CAN.
