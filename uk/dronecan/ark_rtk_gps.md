@@ -60,7 +60,7 @@ ARK RTK GPS runs the [PX4 cannode firmware](px4_cannode_fw.md). As such, it supp
 
 ARK RTK GPS boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself, refer to the [cannode firmware build instructions](px4_cannode_fw.md#building-the-firmware).
 
-Firmware target: `ark_can-rtk-gps_default` Bootloader target: `ark_can-rtk-gps_canbootloader`
+Ціль прошивки: `ark_can-rtk-gps_default` Ціль завантажувача: `ark_can-rtk-gps_canbootloader`
 
 ## Flight Controller Setup
 
