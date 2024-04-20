@@ -1,111 +1,111 @@
-# ThunderFly TFRPM01 Revolution Counter
+# Датчик тахометра ThunderFly TFRPM01
 
-The [TFRPM01](https://github.com/ThunderFly-aerospace/TFRPM01) tachometer is a small, and low system demanding revolution-counter.
+Тахометр [TFRPM01](https://github.com/ThunderFly-aerospace/TFRPM01) - це невеликий та низькосистемний вимірювач обертів.
 
-The board itself does not include the actual sensor but can be used with many different sensors/probe types for revolution counting. It has an I²C connector for connecting to PX4 and is connected to the actual sensor via a 3-pin connector. It also has an LED that offers basic diagnostic information.
+Сама плата не містить фактичного датчика, але може бути використана з багатьма різними типами датчиків/зондів для підрахунку обертів. Він має роз'єм I²C для підключення до PX4 та підключений до фактичного датчика через 3-контактний роз'єм. Також він має світлодіод, який надає базову діагностичну інформацію.
 
 ![TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
 
-::: info The TFRPM01 sensor is open-source hardware commercially available from [ThunderFly s.r.o.](https://www.thunderfly.cz/) (manufacturing data is [available on GitHub](https://github.com/ThunderFly-aerospace/TFRPM01)).
+:::info Датчик TFRPM01 є апаратним засобом з відкритим вихідним кодом, який комерційно доступний на веб-сайті [ThunderFly s.r.o.](https://www.thunderfly.cz/) (виробничі дані доступні на [GitHub](https://github.com/ThunderFly-aerospace/TFRPM01)).
 :::
 
-## Hardware Setup
+## Налаштування обладнання
 
-The board is equipped with (two through pass) I²C connectors for connecting to PX4 and has a 3-pin connector that can be used to connect to various sensors:
+Плата обладнана (двома крізь прохідними) роз'ємами I²C для підключення до PX4 та має 3-контактний роз'єм, який можна використовувати для підключення до різних датчиків:
 
-- TFRPM01 may be connected to any I²C port.
-- TFRPM01 has a 3pin pin-header connector (with pull-up equipped input) that can be connected to different probe types.
-  - The sensor/probe hardware needs a pulse signal. The signal input accepts +5V TTL logic or [open collector](https://en.wikipedia.org/wiki/Open_collector) outputs. The maximum pulse frequency is 20 kHz with a 50% duty cycle.
-  - The probe connector provides a +5V power supply from the I²C bus, the maximum power which could be used is limited by RC filter (see schematics for details).
+- TFRPM01 може бути підключений до будь-якого порту I²C.
+- TFRPM01 має роз'єм з 3 контактами (з входом з підтяжкою), який може бути підключений до різних типів зондів.
+  - Апаратне забезпечення датчика/зонда потребує імпульсного сигналу. Вхідний сигнал приймає логіку TTL зі значенням +5V або [відкриті вихідні](https://en.wikipedia.org/wiki/Open_collector) колектори. Максимальна частота пульса - 20 кГц з циклом роботи 50%.
+  - Раз'єм зонду забезпечує живлення +5V від шини I²C, максимальна потужність, яку можна використовувати, обмежена фільтром RC (див. схеми для деталей).
 
-TFRPM01A electronics is equipped with signaling LED that can be used to check that the probe is connected properly. The LED lights up when the pulse input is grounded or exposed to logical 0, so you can check the probe is working correctly just by manually spinning a rotor.
+Електроніка TFRPM01A обладнана сигнальним світлодіодом, який може бути використаний для перевірки правильного підключення датчика. Світлодіод загоряється, коли вхід імпульсу заземлений або відкритий для логічного 0, тому ви можете перевірити, що датчик працює правильно, просто обертаючи ротор вручну.
 
-### Hall-Effect Sensor Probe
+### Зонд сенсора ефекту Холла
 
-Hall-Effect sensors (magnetically operated) are ideal for harsh environments, where dirt, dust, and water can contact the sensed rotor.
+Датчики Холла (магнітно-оперовані) ідеально підходять для жорстких умов, де бруд, пил і вода можуть контактувати з відчуваним ротором.
 
-Many different hall effect sensors are commercially available. For example, a [55100 Miniature Flange Mounting Proximity Sensor](https://m.littelfuse.com/media?resourcetype=datasheets&itemid=6d69d457-770e-46ba-9998-012c5e0aedd7&filename=littelfuse-hall-effect-sensors-55100-datasheet) is a good choice.
+Багато різних датчиків ефекту Холла є комерційно доступними. Наприклад, гарним вибором є [мініатюрний датчик наближення з фланцевим кріпленням 55100](https://m.littelfuse.com/media?resourcetype=datasheets&itemid=6d69d457-770e-46ba-9998-012c5e0aedd7&filename=littelfuse-hall-effect-sensors-55100-datasheet).
 
 ![Example of Hall effect probe](../../assets/hardware/sensors/tfrpm/hall_probe.jpg)
 
-### Optical Sensor Probe
+### Оптичний датчик зонду
 
-An optical sensor can also be used (and may be a better fit, depending on the measurement requirements). Both transmissive and reflective sensor types may be used for pulse generation.
+Оптичний сенсор також може бути використаний (і може бути кращим варіантом, залежно від вимог до вимірювань). Як трансмісивний, так і рефлекторний типи сенсорів можуть бути використані для генерації імпульсів.
 
 ![Example of optical transmissive probe](../../assets/hardware/sensors/tfrpm/transmissive_probe.jpg)
 
-## Software Setup
+## Налаштування програмного забезпечення
 
-### Starting driver
+### Запуск драйвера
 
-The driver is not started automatically (in any airframe). You will need to start it manually, either using the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) or by adding the driver to the [startup script](../concept/system_startup.md#customizing-the-system-startup) on an SD card.
+Драйвер не запускається автоматично (в будь-якій конструкції). Вам потрібно буде запустити його вручну, використовуючи [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) або додавши драйвер до [скрипту запуску](../concept/system_startup.md#customizing-the-system-startup) на SD-картку.
 
-#### Start driver from console
+#### Запустіть драйвер з консолі
 
-Start the driver from the [console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) using the command:
+Запустіть драйвер з [консолі](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) за допомогою команди:
 
 ```sh
 pcf8583 start -X -b <bus number>
 ```
 
-where:
+де:
 
-- `-X` means that it is an external bus.
-- `<bus number>` is the bus number to which the device is connected
+- `-X` означає, що це зовнішня шина.
+- `<bus number>` - це номер шини, до якого підключений пристрій
 
-::: info The bus number in code `-b <bus number>` may not match the bus labels on the autopilot. For example, when using CUAV V5+ or CUAV Nano:
+:::info Номер шини в коді `-b <номер шини>` може не відповідати міткам автобусів на автопілоті. Наприклад, при використанні CUAV V5+ або CUAV Nano:
 
-| Autopilot label | -b number |
-| --------------- | --------- |
-| I2C1            | -X -b 4   |
-| I2C2            | -X -b 2   |
-| I2C3            | -X -b 1   |
+| Мітка автопілоту | -b номер |
+| ---------------- | -------- |
+| I2C1             | -X -b 4  |
+| I2C2             | -X -b 2  |
+| I2C3             | -X -b 1  |
 
-The `pcf8583 start` command outputs the corresponding autopilot bus name/label for each bus number.
+Команда `pcf8583 start` виводить відповідну назву / мітку автопілота для кожного номера шини.
 :::
 
-### Testing
+### Тестування
 
-You can verify the counter is working using several methods
+Ви можете перевірити, що лічильник працює, використовуючи кілька методів
 
-#### PX4 (NuttX) MAVLink Console
+#### PX4 (NuttX) Консоль MAVLink
 
-The [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) can also be used to check that the driver is running and the UORB topics it is outputting.
+Консоль [QGroundControl MAVLink](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_console.html) також може використовуватися для перевірки роботи драйвера і теми UORB, які він виводить.
 
-To check the status of the TFRPM01 driver run the command:
+Щоб перевірити статус драйвера TFRPM01, виконайте команду:
 
 ```sh
 pcf8583 status
 ```
 
-If the driver is running, the I²C port will be printed along with other basic parameters of the running instance. If the driver is not running it can be started started using theprocedure described above.
+Якщо драйвер працює, порт I²C буде надруковано разом з іншими основними параметрами запущеного екземпляру. Якщо драйвер не працює, його можна запустити за допомогою процедури, описаної вище.
 
-The [listener](../modules/modules_command.md#listener) command allows you to monitor RPM UORB messages from the running driver.
+Команда [listener](../modules/modules_command.md#listener) дозволяє відстежувати повідомлення RPM UORB від працюючого драйвера.
 
 ```sh
 listener rpm
 ```
 
-For periodic display, you can add `-n 50` parameter after the command, which prints the next 50 messages.
+Для періодичного відображення ви можете додати параметр `-n 50` після команди, яка виводить наступні 50 повідомлень.
 
-#### QGroundControl MAVLink Inspector
+#### Консоль QGroundControl MAVLink Інспектор
 
-The QGroundControl [Mavlink Inspector](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) can be used to observe MAVLink messages from PX4, including [RAW_RPM](https://mavlink.io/en/messages/common.html#RAW_RPM) emitted by the driver:
+Інспектор  QGroundControl [Mavlink](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/analyze_view/mavlink_inspector.html) може бути використаний для спостереження повідомлень MAVLink від PX4, включаючи [RAW_RPM](https://mavlink.io/en/messages/common.html#RAW_RPM), випромінюваних драйвером:
 
-1. Start the inspector from the QGC menu: **Analyze tools > Mavlink Inspector**
-1. Check that `RAW_RPM` is present in the list of messages (if it is missing, check that the driver is running).
+1. Запустіть інспектор з меню QGC: **Аналіз інструментів >  Mavlink Інспектор**
+1. Перевірте, чи `RAW_RPM` присутній у списку повідомлень (якщо він відсутній, перевірте, чи працює драйвер).
 
-### Parameter Setup
+### Налаштування параметрів
 
-Usually, sensors can be used without configuration, but the RPM values should correspond to multiples of real RPM. It is because the `PCF8583_MAGNET` parameter needs to correspond to the real number of pulses per single revolution of the sensed rotor. If needed, the following parameters should be tweaked:
+Зазвичай, сенсори можуть бути використані без конфігурації, але значення обертів на хвилину повинні відповідати кратними реальним обертам. Це через те, що параметр `PCF8583_MAGNET` повинен відповідати реальній кількості імпульсів на один оберт відчутого ротора. Якщо потрібно, наступні параметри слід налаштувати:
 
-- [PCF8583_POOL](../advanced_config/parameter_reference.md#PCF8583_POOL) — pooling interval between readout the counted number
-- [PCF8583_RESET](../advanced_config/parameter_reference.md#PCF8583_RESET) — Counter value where the counted number should be reset to zero.
-- [PCF8583_MAGNET](../advanced_config/parameter_reference.md#PCF8583_MAGNET) — Number of pulses per revolution e.g. number of magnets at a rotor disc.
+- [PCF8583_POOL](../advanced_config/parameter_reference.md#PCF8583_POOL) — інтервал об'єднання між переліком зарахованого номера
+- [СБРОС_PC8583](../advanced_config/parameter_reference.md#PCF8583_RESET) — Значення лічильника, де підраховане число повинно бути скинуто на нуль.
+- [PCF8583_MAGNET](../advanced_config/parameter_reference.md#PCF8583_MAGNET) — Кількість імпульсів на обертання, наприклад, кількість магнітів на диску ротора.
 
-::: info The parameters above appear in QGC after the driver/PX4 are restarted.
+:::info Параметри вище з'являються в QGC після перезапуску драйвера/PX4.
 
-If the configuration parameters are not available after restart then you should check that the driver has started. It may be that the [driver is not present in the firmware](../peripherals/serial_configuration.md#configuration-parameter-missing-from-qgroundcontrol), in which case it must be added to the board configuration:
+Якщо параметри конфігурації не доступні після перезапуску, то вам слід перевірити, чи відбувся запуск драйвера. Можливо, що [драйвер відсутній в прошивці](../peripherals/serial_configuration.md#configuration-parameter-missing-from-qgroundcontrol), у такому випадку його потрібно додати до конфігурації плати:
 
 ```sh
 drivers/rpm/pcf8583
