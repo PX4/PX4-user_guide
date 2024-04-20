@@ -18,7 +18,7 @@
 
   The baseboard can be purchased with or without an RPi CM4 and/or flight controller:
 
-  - The Raspberry Pi CM4 (CM4008032) supplied by Holybro has the following specification:
+  - Модуль Raspberry Pi CM4 (CM4008032), постачений компанією Holybro, має наступні технічні характеристики:
     - RAM: 8GB
     - eMMC: 32GB
     - Wireless: No
@@ -141,15 +141,15 @@ To flash a RPi image onto EMMC.
    - Check there is HDMI output
    - Connect via SSH (if set up in rpi-imager, and WiFi is available).
 
-## Configure PX4 to CM4 MAVLink Serial Connection
+## Налаштуйте послідовне підключення PX4 до CM4 MAVLink
 
-::: info
-If you are using [Ethernet](#ethernet-connection-optional) to connect the FC and RPi, this setup is not needed.
+:::info
+Якщо ви використовуєте [Ethernet](#ethernet-connection-optional) для підключення FC та RPi, ця настройка не потрібна.
 :::
 
-The Pixhawk FC module is [internally connected to the RPi CM4](#rpi-cm4-fc-serial-connection) using `TELEM2` (`/dev/ttyS4`). The FC and RPi CM4 must both be configured to communicate over this port.
+Модуль Pixhawk FC [внутрішньо підключено до RPi CM4](#rpi-cm4-fc-serial-connection) за допомогою `TELEM2` (`/dev/ttyS4`). FC та RPi CM4 повинні бути налаштовані для зв'язку через цей порт.
 
-### FC Serial Port Setup
+### Налаштування послідовного порту FC
 
 The FC should be set up to connect to the `TELEM2` port correctly by default. If not, you can configure the port using the parameters as shown.
 
@@ -159,7 +159,7 @@ To enable this MAVLink instance on the FC:
 
    ![Image of baseboard showing FC USB-C connector](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_fc_usb_c.jpg)
 
-1. [Set the parameters](../advanced_config/parameters.md):
+1. [Встановіть параметри](../advanced_config/parameters.md):
 
    - `MAV_1_CONFIG` = `102`
    - `MAV_1_MODE = 2`
