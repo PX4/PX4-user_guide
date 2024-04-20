@@ -1,10 +1,10 @@
 # SWD Debug Port
 
-PX4 runs on ARM Cortex-M microcontrollers, which contain dedicated hardware for interactive debugging via the [_Serial Wire Debug (SWD)_][swd] interface and non-invasive profiling and high-bandwidth tracing via the [_Serial Wire Ouput (SWO)_][itm] and [_TRACE_ pins][etm].
+PX4 працює на мікроконтролерах ARM Cortex-M, які містять спеціалізований апаратний засіб для інтерактивного налагодження через інтерфейс [_Serial Wire Debug (SWD)_][swd] та неінвазивного профілювання та трасування високої пропускної здатності через інтерфейси [_Serial Wire Ouput (SWO)_][itm] та [_TRACE_ pins][etm].
 
-The SWD debug interface allows direct, low-level, hardware access to the microcontroller's processor and peripherals, so it does not depend on any software on the device. Therefore it can be used to debug bootloaders and operating systems such as NuttX.
+Інтерфейс відладки SWD дозволяє прямий, низькорівневий, апаратний доступ до процесора мікроконтролера та периферійних пристроїв, тому він не залежить від будь-якого програмного забезпечення на пристрої. Отже, його можна використовувати для налагодження завантажувальних програм та операційних систем, таких як NuttX.
 
-## Debug Signals
+## Налагодження сигналів
 
 Four signals are required for debugging (in bold) while the rest is recommended.
 
