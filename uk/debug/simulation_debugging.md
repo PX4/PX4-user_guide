@@ -1,10 +1,10 @@
-# Simulation Debugging
+# Відлагодження симуляції
 
-As the simulation is running on the host machine, all the desktop development tools are available.
+Поскільки симуляція виконується на машині-хості, всі інструменти розробки робочого стола доступні.
 
 ## CLANG Address Sanitizer (Mac OS, Linux)
 
-The Clang address sanitizer can help to find alignment (bus) errors and other memory faults like segmentation faults. The command below sets the right compile options.
+The Clang address sanitizer can help to find alignment (bus) errors and other memory faults like segmentation faults. Команда нижче встановлює правильні параметри компіляції.
 
 ```sh
 make clean # only required on first address sanitizer run after a normal build
@@ -17,19 +17,19 @@ PX4_ASAN=1 make px4_sitl jmavsim
 brew install valgrind
 ```
 
-or
+або
 
 ```sh
 sudo apt-get install valgrind
 ```
 
-To use valgrind during the SITL simulation:
+Для використання valgrind під час симуляції SITL:
 
 ```sh
 make px4_sitl_default jmavsim___valgrind
 ```
 
-## Launch Gazebo Classic SITL Without Debugger
+## Запустіть Gazebo Classic SITL без відлагоджувача
 
 By default SITL is launched without a debugger attached when using any simulator backend:
 
@@ -39,7 +39,7 @@ make px4_sitl_default gazebo-classic
 make px4_sitl_default jmavsim
 ```
 
-For Gazebo Classic (only) you can also start the simulator with a debugger attached. Note however, that you must provide the vehicle type in the simulator target, as shown below:
+Для Gazebo Classic (тільки) ви також можете запустити симулятор з прикріпленим відладчиком. Note however, that you must provide the vehicle type in the simulator target, as shown below:
 
 ```sh
 make px4_sitl_default gazebo-classic_iris_gdb
@@ -69,7 +69,7 @@ In order to not have the DriverFrameworks scheduling interfere with the debuggin
 Or in the case of GDB:
 
 ```sh
-(gdb) handle SIGCONT noprint nostop
+(gdb) обробка SIGCONT noprint nostop
 ```
 
 After that the lldb or gdb shells behave like normal sessions, please refer to the LLDB / GDB documentation.
@@ -121,15 +121,15 @@ You can also start your simulation, and _then_ attach `gdb`:
    INFO  [init] found model autostart file as SYS_AUTOSTART=10015
    ```
 
-2. Open another terminal and type:
+2. Відкрийте ще один термінал та введіть:
 
    ```sh
    ps -a
    ```
 
-   You will want to note the PID of the process named "PX4"
+   Вам слід зафіксувати PID процесу з назвою "PX4"
 
-   (In this example it is 14149)
+   (У цьому прикладі це 14149)
 
    ```sh
    atlas:~/px4/main/PX4-Autopilot$ ps -a
@@ -147,13 +147,13 @@ You can also start your simulation, and _then_ attach `gdb`:
    14808 pts/2    00:00:00 ps
    ```
 
-3. Then type in the same window
+3. Потім введіть у тому ж вікні
 
    ```sh
    sudo gdb [px4 bin file path (from step 1) here]
    ```
 
-   For example,
+   Наприклад,
 
    ```sh
    sudo gdb /home/atlas/px4/base/PX4-Autopilot/build/px4_sitl_default/bin/px4
@@ -173,7 +173,7 @@ It is possible to suppress compiler optimization for given executables and/or mo
 
 To do so, set the environment variable `PX4_NO_OPTIMIZATION` to be a semi-colon separated list of regular expressions that match the targets that need to be compiled without optimization. This environment variable is ignored when the configuration isn't `posix_sitl_*`.
 
-For example,
+Наприклад,
 
 ```sh
 export PX4_NO_OPTIMIZATION='px4;^modules__uORB;^modules__systemlib$'
