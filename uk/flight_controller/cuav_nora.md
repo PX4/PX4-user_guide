@@ -9,12 +9,12 @@ The [Nora](https://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</su
 
 Nora is a variant of the CUAV X7. It adopts an integrated motherboard (soft and hard board), which reduces flight controller's internal connectors, improves reliability, and places all the interfaces on the side (making the wiring more concise).
 
-::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::info Цей польотний контролер [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Features
+## Особливості
 
-- Internal shock absorption
+- Внутрішнє поглинання ударів
 - The integrated process reduces the failure caused by interface damage.
 - Support USB_HS, download logs faster (PX4 not yet supported)
 - Support more dshot output
@@ -28,7 +28,7 @@ Nora is a variant of the CUAV X7. It adopts an integrated motherboard (soft and 
 The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/nora.html) are the canonical reference for Nora. They should be used by preference as they contain the most complete and up to date information.
 :::
 
-## Quick Summary
+## Короткий опис
 
 - Main FMU Processor: STM32H743
 - On-board sensors:
@@ -39,7 +39,7 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/nora.h
   - Magnetometer: RM3100
   - Barometer: MS5611\*2
 
-- Interfaces:
+- Інтерфейси:
   - 14 PWM outputs （12 supports Dshot）
   - Support multiple RC inputs (SBUs / CPPM / DSM)
   - Analogue / PWM RSSI input
@@ -66,12 +66,12 @@ When it runs PX4 firmware, only 8 PWM outputs work.
 The remaining 6 PWM ports are still being adapted (so it is not compatible with VOLT at time of writing).
 :::
 
-## Where to Buy
+## Де придбати
 
-- [CUAV Store](https://store.cuav.net)<\br>
+- [Магазин CUAV](https://store.cuav.net)<\br>
 - [CUAV Aliexpress](https://www.aliexpress.com/item/4001042501927.html?gps-id=8041884&scm=1007.14677.110221.0&scm_id=1007.14677.110221.0&scm-url=1007.14677.110221.0&pvid=3dc0a3ba-fa82-43d2-b0b3-6280e4329cef&spm=a2g0o.store_home.promoteRecommendProducts_7913969.58)
 
-## Connections (Wiring)
+## З'єднання (Проводка)
 
 [CUAV nora Wiring Quickstart](https://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
 
@@ -99,13 +99,13 @@ Under these conditions all power sources will be used in this order to power the
 1. **POWERA** and **POWERC** inputs (4.3V to 5.4V)
 2. **USB** input (4.75V to 5.25V)
 
-## Building Firmware
+## Збірка прошивки
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make cuav_nora_default
@@ -119,7 +119,7 @@ The _Nora_ has over-current protection on the 5 Volt Peripheral and 5 Volt high 
 Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
 :::
 
-## Debug Port
+## Відладочний порт
 
 The system's serial console and SWD interface operate on the **DSU7** port. Simply connect the FTDI cable to the DSU7 connector (the product list contains the CUAV FTDI cable).
 
@@ -127,14 +127,14 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-detail/en/jst-sales-america-inc/BM06B-GHS-TBT-LF-SN-N/455-1582-1-ND/807850) connector and has the following pinout:
 
-| Pin     | Signal         | Volt  |
-| ------- | -------------- | ----- |
-| 1 (red) | 5V+            | +5V   |
-| 2 (blk) | DEBUG TX (OUT) | +3.3V |
-| 3 (blk) | DEBUG RX (IN)  | +3.3V |
-| 4 (blk) | FMU_SWDIO      | +3.3V |
-| 5 (blk) | FMU_SWCLK      | +3.3V |
-| 6 (blk) | GND            | GND   |
+| Pin     | Сигнал         | Вольтаж |
+| ------- | -------------- | ------- |
+| 1 (red) | 5V+            | +5V     |
+| 2 (blk) | DEBUG TX (OUT) | +3.3V   |
+| 3 (blk) | DEBUG RX (IN)  | +3.3V   |
+| 4 (blk) | FMU_SWDIO      | +3.3V   |
+| 5 (blk) | FMU_SWCLK      | +3.3V   |
+| 6 (blk) | GND            | GND     |
 
 CUAV provides a dedicated debugging cable, which can be connected to the `DSU7` port. This splits out an FTDI cable for connecting the [PX4 System Console](../debug/system_console.md) to a computer USB port, and SWD pins used for SWD/JTAG debugging. The provided debug cable does not connect to the SWD port `Vref` pin (1).
 
@@ -150,7 +150,7 @@ Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage 
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## Подальша інформація
 
 - [Quick start](https://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
 - [CUAV docs](http://doc.cuav.net)
