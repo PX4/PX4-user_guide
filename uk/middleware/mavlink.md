@@ -94,7 +94,7 @@ Generally you will already have a [uORB](../middleware/uorb.md) message that con
 
 For this example we're going to assume that you want to stream the (existing) [BatteryStatus](../msg_docs/BatteryStatus.md) uORB message to a new MAVLink battery status message, which we will name `BATTERY_STATUS_DEMO`.
 
-Copy this `BATTERY_STATUS_DEMO` message into the message section of `development.xml` in your PX4 source code, which will be located at: `\src\modules\mavlink\mavlink\message_definitions\v1.0\development.xml`.
+Скопіюйте це повідомлення `BATTERY_STATUS_DEMO` у розділ повідомлень `development.xml` у вихідному коді PX4, який буде розташований за адресою: `\src\modules\mavlink\mavlink\message_definitions\v1.0\development.xml`.
 
 ```xml
     <message id="11514" name="BATTERY_STATUS_DEMO">
@@ -222,7 +222,7 @@ Most streaming classes are very similar (see examples in [/src/modules/mavlink/s
   In this particular example we have an array of uORB instances `_battery_status_subs` (because we have multiple batteries). We iterate the array and use `update()` on each subscription to check if the associated battery instance has changed (and update a structure with the current data). This allows us to send the MAVLink message _only_ if the associated battery uORB topic has changed:
 
   ```cpp
-  // Struct to hold current topic data.
+  // Струкніть, щоб зберігати дані поточної теми.
   battery_status_s battery_status;
 
   // update() populates battery_status and returns true if the status has changed
