@@ -1,4 +1,4 @@
-# I2C Bus Peripherals
+# Периферійні пристрої шини I2C
 
 [I2C](https://en.wikipedia.org/wiki/I2C) є послідовним протоколом зв'язку, який зазвичай використовується (принаймні на менших дронах), для підключення периферійних компонентів, таких як далекобійники, світлодіоди, компас, і т. д.
 
@@ -10,8 +10,8 @@
 
 I2C дозволяє підключати декілька головних пристроїв до декількох рабочих пристроїв, використовуючи лише 2 провідника на підключення (SDA, SCL). Теоретично шина може підтримувати 128 пристроїв, що кожен з них доступний за унікальною адресою.
 
-::: info
-UAVCAN would normally be preferred where higher data rates are required, and on larger vehicles where sensors are be mounted further from the flight controller.
+:::info
+UAVCAN зазвичай було б бажаною альтернативою там, де потрібні вищі швидкості передачі даних, і на великих літальних апаратах, де датчики можуть бути встановлені далеко від контролера польоту.
 :::
 
 
@@ -33,12 +33,12 @@ I2C використовує пару проводів: SDA (серійні да
 ```
 i2cdetect -b 1
 ```
-where the bus number is specified after `-b` parameter
+де номер шини вказується після параметра `-b`
 
 
 ## Поширені проблеми
 
-### Address Clashes
+### Конфлікти адрес
 
 Якщо два пристрої I2C на шині мають однаковий ідентифікатор, відбудеться конфлікт, і жоден з пристроїв не буде працювати належним чином (або взагалі). Це зазвичай трапляється тому, що користувач повинен підключити два сенсори одного типу до шини, але це також може статися, якщо пристрої використовують однакові адреси за замовчуванням.
 
@@ -71,7 +71,7 @@ where the bus number is specified after `-b` parameter
 Доступні прискорювачі включають:
 - [Thunderfly TFI2CEXT01](https://github.com/ThunderFly-aerospace/TFI2CEXT01): ![I2C bus extender](../../assets/peripherals/i2c_tfi2cext/tfi2cext01a_bottom.jpg)
   - Цей дронекод має з'єднувачі, тому це дуже легко додати до налаштування Pixhawk I2C.
-  - The module has no settings (it works out of the box).
+  - Модуль не має налаштувань (він працює зразу після встановлення).
 
 
 ## Перетворювачі I2C адрес
@@ -83,12 +83,12 @@ where the bus number is specified after `-b` parameter
 - [Thunderfly TFI2CADT01](../sensor_bus/translator_tfi2cadt.md)
 
 
-## I2C Development
+## Розробка I2C
 
-Software development for I2C devices is described in [I2C Bus (Development Overview)](../sensor_bus/i2c_development.md).
+Розробка програмного забезпечення для пристроїв I2C описана в [Шині I2C (Огляд розробки)](../sensor_bus/i2c_development.md).
 
-## Further Information
+## Подальша інформація
 
-* [I2C](https://en.wikipedia.org/wiki/I%C2%B2C) (Wikipedia)
-* [I2C Comparative Overview](https://learn.sparkfun.com/tutorials/i2c) (learn.sparkfun.com)
-* [Driver Framework](../middleware/drivers.md)
+* [I2C](https://en.wikipedia.org/wiki/I%C2%B2C) (Вікіпедія)
+* [Порівняльний огляд I2C](https://learn.sparkfun.com/tutorials/i2c) (learn.sparkfun.com)
+* [Фреймворк драйвера](../middleware/drivers.md)
