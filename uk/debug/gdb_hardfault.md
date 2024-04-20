@@ -62,13 +62,13 @@ xPSR: 61000000 BASEPRI: 00000000 CONTROL: 00000000
 EXC_RETURN: ffffffe9
 ```
 
-To decode the hard fault, load the _exact_ binary into the debugger:
+Для декодування важкої помилки завантажте точний двійковий файл у відлагоджувач:
 
 ```sh
 arm-none-eabi-gdb build/px4_fmu-v2_default/px4_fmu-v2_default.elf
 ```
 
-Then in the GDB prompt, start with the last instructions in R8, with the first address in flash (recognizable because it starts with `0x080`, the first is `0x0808439f`). The execution is left to right. So one of the last steps before the hard fault was when `mavlink_log.c` tried to publish something,
+Потім у командному рядку GDB почніть з останніх інструкцій у R8, з першої адреси у флеші (впізнається тим, що вона починається з `0x080`, перша - `0x0808439f`). Виконання здійснюється зліва направо. Так от одного з останніх кроків перед важким збоєм було те, коли `mavlink_log.c` спробував опублікувати щось,
 
 ```sh
 (gdb) info line *0x0808439f
