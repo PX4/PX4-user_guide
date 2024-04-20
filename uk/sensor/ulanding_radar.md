@@ -1,28 +1,28 @@
-# Ainstein US-D1 Standard Radar Altimeter
+# Стандартний радарний висотомір Ainstein US-D1
 
 :::tip
-This supersedes the _Aerotenna uLanding Radar_ (discontinued) but uses the same driver/setup.
+Це скасовує _Aerotenna uLanding Radar_ (припинено), але використовує той самий драйвер/налаштування.
 :::
 
-The _Ainstein_ [US-D1 Standard Radar Altimeter](https://ainstein.ai/us-d1-all-weather-radar-altimeter/) is a compact microwave rangefinder that has been optimised for use on UAVs. With a sensing range of about 50 metres, it is useful for applications including terrain following, precision hovering (e.g. for photography), anti-collision sensing etc. Particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water). The user manual can be found [here](https://ainstein.ai/wp-content/uploads/US-D1-Technical-User-Manual-D00.02.05.docx.pdf).
+Стандартний радіолокатор висоти _Ainstein_ [US-D1](https://ainstein.ai/us-d1-all-weather-radar-altimeter/) - це компактний мікрохвильовий дальномер, який був оптимізований для використання на БПЛА. З діапазоном відчуття близько 50 метрів, він корисний для застосувань, включаючи слідування за місцевістю, точне зависання (наприклад, для фотографії), датчик запобігання зіткненням тощо. Особливі переваги цього продукту полягають в тому, що він може ефективно працювати в усіх погодних умовах і на всіх типах місцевості (включаючи воду). Керівництво користувача можна знайти [тут](https://ainstein.ai/wp-content/uploads/US-D1-Technical-User-Manual-D00.02.05.docx.pdf).
 
 ![Ainstein US-DA](../../assets/hardware/sensors/ainstein/us_d1_hero.jpg)
 
-The rangefinder is not automatically included in most firmware, and hence cannot be used just by setting a parameter through _QGroundControl_ (as is possible with some other rangefinders). To use it you will need to add the driver to firmware and update a configuration file to start the driver on boot. The sections below explain how.
+Дальномер не включений автоматично в більшості прошивок, тому його не можна використовувати лише встановивши параметр через _QGroundControl_ (як це можливо з деякими іншими дальномерами). Для використання його вам потрібно додати драйвер до вбудованого програмного забезпечення та оновити файл конфігурації, щоб запустити драйвер при завантаженні. Нижче пояснюється, як.
 
-## Hardware Setup
+## Налаштування обладнання
 
-The rangefinder is supported by any hardware which runs a NuttX or Posix OS and which can offer a serial port for the interface. Minimally this will include most, if not all, [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers.
+Дальномер підтримується будь-яким обладнанням, яке працює під управлінням операційної системи NuttX або Posix і яке може пропонувати послідовний порт для інтерфейсу. Мінімум це включатиме більшість, якщо не всі, контролери серії [Pixhawk Series](../flight_controller/pixhawk_series.md).
 
-US-D1 can be connected to any unused _serial port_ (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
+US-D1 може бути підключений до будь-якого не використаного _серійного порту_ (UART), наприклад: TELEM2, TELEM3, GPS2 тощо.
 
-## Parameter Setup
+## Налаштування параметрів
 
-[Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG). There is no need to set the baud rate for the port, as this is configured by the driver.
+[Налаштуйте послідовний порт](../peripherals/serial_configuration.md) на якому працюватиме лідар, використовуючи [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG). Немає потреби встановлювати швидкість передачі для порту, оскільки це налаштовано драйвером.
 
-::: info
+:::info
 
-If the configuration parameter is not available in _QGroundControl_ then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+Якщо параметр конфігурації недоступний у _QGroundControl_, можливо, вам доведеться [додати драйвер до мікропрограми](../peripherals/serial_configuration.md#parameter_not_in_firmware):
 
 ```plain
 CONFIG_DRIVERS_DISTANCE_SENSOR_ULANDING_RADAR=y
