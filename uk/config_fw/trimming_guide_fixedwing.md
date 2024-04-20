@@ -1,14 +1,14 @@
 # Fixed-Wing Trimming Guide
 
-Trims are used to calibrate the control surfaces at trim conditions (relative airspeed, air density, angle of attack, aircraft configuration, etc.). A properly trimmed aircraft flying at trim conditions will keep its attitude without requiring any control inputs from the pilot or the stabilizing computer.
+Стрічки використовуються для калібрування керуючих поверхонь в умовах обрізання (відносна швидкість повітря, густина повітря, кут атаки, конфігурація літака тощо). Правильно обрізаний літак, що летить в умовах обтримування, буде утримувати свою позицію без потреби в будь-яких керувальних сигналах від пілота або стабілізуючого комп'ютера.
 
-General aviation, commercial and large unmanned planes trim their control surfaces using [trim tabs](https://en.wikipedia.org/wiki/Trim_tab) while small UAVs simply add an offset to the actuator of the control surface.
+Загальна авіація, комерційні та великі безпілотні літаки налаштовують свої керуючі поверхні за допомогою [трім-вкладок](https://en.wikipedia.org/wiki/Trim_tab), тоді як малі БПЛА просто додають зсув до виконавчого пристрою керуючої поверхні.
 
-The [Basic trimming](#basic-trimming) section explains the purpose of each trim parameter and how to find the correct value. The [Advanced Trimming](#advanced-trimming) section introduces parameters that can be set to automatically adjust the trims based on the measured airspeed and flap position.
+Розділ [Базове вирізання](#basic-trimming) пояснює призначення кожного параметра вирізання та як знайти правильне значення. Розділ [Розширене вирівнювання](#advanced-trimming) представляє параметри, які можуть бути встановлені для автоматичного налаштування вирівнювання на основі виміряної швидкості повітря та позиції закрилок.
 
-## Basic Trimming
+## Основна обрізка
 
-There are several parameters an operator might want to use in order to properly trim a fixed-wing aircraft. An overview of those parameters and their use case is shown below:
+Існують кілька параметрів, які оператор може бажати використовувати для належного обрізання літака з фіксованим крилом. Огляд цих параметрів та їх використання показано нижче:
 
 - [RCx_TRIM](../advanced_config/parameter_reference.md#RC1_TRIM) applies trim to the signal received from the RC transmitter. These parameters are set automatically during [RC calibration](../config/radio.md).
 - [CA_SV_CSx_TRIM](../advanced_config/parameter_reference.md#CA_SV_CS0_TRIM) applies trim to a control surfaces channel. These are used to finely align the control surfaces to default angles before flying.
@@ -22,9 +22,9 @@ The correct order to set the above parameters is:
 1. Літайте в стабілізованому режимі з крейсерською швидкістю та встановіть зміщення заданої точки вхідного кута атаки (`FW_PSP_OFF`) на бажаний кут атаки. Необхідний кут атаки при крейсерській швидкості відповідає куту крена, який потрібно літаку летіти, щоб утримати постійну висоту під час польоту з вирівняним крилом. Якщо ви використовуєте датчик швидкості повітря, також встановіть правильну крейсерську швидкість (`FW_AIRSPD_TRIM`).
 1. Подивіться на керування приводом у файлі журналу (завантажте його на [Flight Review](https://logs.px4.io) та перевірте графік керування приводом (_Actuator Controls_) на приклад) та встановіть трансцендентний кут (`TRIM_PITCH`). Встановіть це значення на середнє зміщення сигналу тану під час польоту на рівні крила.
 
-Крок 3 можна виконати перед кроком 2, якщо ви не хочете дивитися на журнал або якщо вам зручно керувати літаком вручну. You can then trim your remote (with the trim switches) and report the values to `TRIM_PITCH` (and remove the trims from your transmitter) or update `TRIM_PITCH` directly during flight via telemetry and QGC.
+Крок 3 можна виконати перед кроком 2, якщо ви не хочете дивитися на журнал або якщо вам зручно керувати літаком вручну. Потім ви можете обрізати свій пульт (за допомогою перемикачів обрізки) та повідомити значення для `TRIM_PITCH` (і видалити обрізки з вашого передавача) або оновити `TRIM_PITCH` безпосередньо під час польоту через телеметрію та QGC.
 
-## Advanced Trimming
+## Розширений обрізка
 
 Оскільки знижувальний момент крену, викликаний асиметричним повітряним профілем, збільшується разом із швидкістю повітря та коли висунуті закрилки, літак потребує повторного налаштування відповідно до поточно виміряної швидкості повітря та положення закрилків. Для цієї мети можна визначити білінійну криву функції швидкості повітря та функції інкременту тримання кута за допомогою параметрів стану закріплення (див. рисунок нижче):
 
