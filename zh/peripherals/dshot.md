@@ -23,7 +23,7 @@ DShot 电调与[PWM 电调](pwm_escs_and_servo.md)的接线方式相同。 唯�
 
 通常带有FMU和IO板的Pixhawk飞控将它们分别标记为`AUX`（连接到FMU）和`MAIN`（连接到IO控制器）。 `PWM AUX` 和 `PWM MAIN` 的输出选项卡在执行器配置屏幕上。 对于这些飞控来说，DShot 电调连接到 `AUX` 端口。
 
-没有IO板的飞控通常将输出端口标记为 `MAIN`， 并且这是您连接 DShot 电调的地方。 如果那些没有IO控制器的飞控有自己的固件，执行器分配将匹配到相应的`PWM MAIN`输出。 然而，如果无论有没有IO板都用的是同一个固件，如Pixhawk 4和 Pixhawk 4Mini, 同时在这种情况下使用的执行器选项是相同的： `PWM AUX` （比如：不匹配端口标签 `MAIN` 在“mini”案例中）。
+没有IO板的飞控通常将输出端口标记为 `MAIN`， 并且这是您连接 DShot 电调的地方。 如果那些没有IO控制器的飞控有自己的固件，执行器分配将匹配到相应的`PWM MAIN`输出。 然而，如果无论有没有IO板都用的是同一个固件，如Pixhawk 4和 Pixhawk 4Mini, 那么在这种情况下使用的执行器选项是相同的： `PWM AUX` （比如：不匹配端口标签 `MAIN` 在“mini”案例中）。
 
 ## 配置
 
@@ -43,17 +43,17 @@ DShot 具有不同的速度选项：_DShot150_，_DShot300_，_DShot600_ 和 _DS
 
 ## 关于电调的指令
 
-Commands can be sent to the ESC via the [MAVLink shell](../debug/mavlink_shell.md). See [here](../modules/modules_driver.md#dshot) for a full reference of the supported commands.
+可以通过 [MAVLink shell](../debug/mavlink_shell.md) 向电调发送命令。 查看[这里](../modules/modules_driver.md#dshot)以获取完整的参考命令。
 
-The most important ones are:
+其中最重要的是：
 
-- Make the first motor beep (helps with identifying motors):
+- 使第一个电机哔哔一下（有助于识别电机）：
 
   ```
   dshot beep1 -m 1
   ```
 
-- Retrieve ESC information (requires telemetry, see below):
+- 检索电调信息（需要TELE功能，请参见下文）：
 
   ```
   nsh> dshot esc_info -m 2
@@ -70,26 +70,26 @@ The most important ones are:
   INFO  [dshot] LED 3: unsupported
   ```
 
-  - Permanently reverse the spin direction of the first motor:
+  - 永久性反转第一个电机的旋转方向：
 
   ```
   dshot reverse -m 1
   dshot save -m 1
   ```
 
-  Retrieving ESC information after the `dshot reverse -m 1` command without the `dshot save -m 1` command will show:
+  在执行`dshot reverse -m 1`命令后而没有执行`dshot save -m 1`命令会显示电调信息的检索结果。
 
   ```
   Rotation Direction: reversed
   ```
 
-  after saving it with `dshot save -m 1` command, reversed direction will become new normal direction:
+  使用 `dshot save -m 1` 命令保存后，反向方向将变为新的正常方向：
 
   ```
   Rotation Direction: normal
   ```
 
-  To change direction again new `dshot reverse -m 1` command needs to be sent.
+  如果要再次改变方向，需要发送新的 `dshot reverse -m 1` 命令。
 
 ## Telemetry
 
@@ -115,15 +115,15 @@ dshot esc_info -m 1
 ```
 
 :::tip
-You may have to configure [MOT_POLE_COUNT](../advanced_config/parameter_reference.md#MOT_POLE_COUNT) to get the correct RPM values.
+您可能需要配置[MOT_POLE_COUNT](../advanced_config/parameter_reference.md#MOT_POLE_COUNT)以获取正确的转速（RPM值）。
 :::
 
 :::tip
-Not all DSHOT-capable ESCs support `[esc_info]`(e.g. APD 80F3x), even when telemetry is supported and enabled. The resulting error is:
+并非所有支持DSHOT的电调都支持`[esc_info]`（例如APD 80F3x），就算支持并且开启了TELE功能。 显示的错误是：
 
 ```
 ERROR [dshot] No data received. If telemetry is setup correctly, try again.
 ```
 
-Check manufacturer documentation for confirmation/details.
+查看制造商文档以获取详细信息。
 :::
