@@ -1,39 +1,39 @@
-# ULog File Format
+# Формат файлу ULog
 
-ULog is the file format used for logging messages. The format is self-describing, i.e. it contains the format and [uORB](../middleware/uorb.md) message types that are logged. This document is meant to be the ULog File Format Spec Documentation. It is intended especially for anyone who is interested in writing a ULog parser / serializer and needs to decode / encode files.
+ULog - це формат файлу, що використовується для логування повідомлень. Формат самоописуючий, тобто містить формат та типи повідомлень [uORB](../middleware/uorb.md), які реєструються. This document is meant to be the ULog File Format Spec Documentation. It is intended especially for anyone who is interested in writing a ULog parser / serializer and needs to decode / encode files.
 
-PX4 uses ULog to log uORB topics as messages related to (but not limited to) the following sources:
+PX4 використовує ULog для ведення журналу тем uORB як повідомлення, пов'язані з (але не обмежені) наступними джерелами:
 
-- **Device inputs:** Sensors, RC input, etc.
+- **Пристрій входу:** датчики, RC, вхід тощо.
 - **Internal states:** CPU load, attitude, EKF state, etc.
 - **String messages:** `printf` statements, including `PX4_INFO()` and `PX4_ERR()`.
 
 The format uses [little endian](https://en.wikipedia.org/wiki/Endianness) memory layout for all binary types (the least significant byte (LSB) of data type is placed at the lowest memory address).
 
-## Data types
+## Типи даних
 
-The following binary types are used for logging. They all correspond to the types in C.
+Для ведення журналу використовуються наступні типи двійкових даних. They all correspond to the types in C.
 
-| Type                | Size in Bytes |
-| ------------------- | ------------- |
-| int8_t, uint8_t   | 1             |
-| int16_t, uint16_t | 2             |
-| int32_t, uint32_t | 4             |
-| int64_t, uint64_t | 8             |
-| float               | 4             |
-| double              | 8             |
-| bool, char          | 1             |
+| Тип                 | Розмір у байтах |
+| ------------------- | --------------- |
+| int8_t, uint8_t   | 1               |
+| int16_t, uint16_t | 2               |
+| int32_t, uint32_t | 4               |
+| int64_t, uint64_t | 8               |
+| float               | 4               |
+| double              | 8               |
+| bool, char          | 1               |
 
-Additionally the types can be used as a fixed-size array: e.g. `float[5]`.
+Додатково типи можуть бути використані як масив фіксованого розміру: наприклад, `float[5]`.
 
-Strings (`char[length]`) do not contain the termination NULL character `'\0'` at the end.
+Рядки (`char[length]`) не містять завершуючий нульовий символ `'\0'` в кінці.
 
-::: info String comparisons are case sensitive, which should be taken into account when comparing message names when [adding subscriptions](#a-subscription-message).
+:::info Порівняння рядків чутливе до регістру, що слід враховувати при порівнянні імен повідомлень під час [додавання підписок](#a-subscription-message).
 :::
 
-## ULog File Structure
+## Структура файлу ULog
 
-ULog files have the following three sections:
+Файли ULog мають наступні три розділи:
 
 ```
 ----------------------
@@ -45,11 +45,11 @@ ULog files have the following three sections:
 ----------------------
 ```
 
-A description of each section is provided below.
+Опис кожного розділу наведено нижче.
 
-### Header Section
+### Розділ заголовка
 
-The header is a fixed-size section and has the following format (16 bytes):
+Заголовок є розділом фіксованого розміру та має наступний формат (16 байт):
 
 ```plain
 ----------------------------------------------------------------------
@@ -58,13 +58,13 @@ The header is a fixed-size section and has the following format (16 bytes):
 ----------------------------------------------------------------------
 ```
 
-- **File Magic (7 Bytes):** File type indicator that reads "ULogXYZ where XYZ is the magic bytes sequence `0x01 0x12 0x35`"
-- **Version (1 Byte):** File format version (currently 1)
-- **Timestamp (8 Bytes):** `uint64_t` integer that denotes when the logging started in microseconds.
+- **Файлова магія (7 байт):** Індикатор типу файлу, який читає "ULogXYZ де XYZ - це послідовність магічних байтів `0x01 0x12 0x35`"
+- **Версія (1 байт):** Версія формату файлу (наразі 1)
+- **Мітка часу (8 байтів):** `uint64_t` ціле число, що вказує на початок реєстрації в мікросекундах.
 
-### Definition & Data Section Message Header
+### Заголовок повідомлення розділу визначення та даних
 
-The _Definitions and Data_ sections contain a number of **messages**. Each message is preceded by this header:
+Секції _Визначення та Дані_ містять кілька **повідомлень**. Each message is preceded by this header:
 
 ```c
 struct message_header_s {
@@ -73,10 +73,10 @@ struct message_header_s {
 };
 ```
 
-- `msg_size` is the size of the message in bytes without the header.
-- `msg_type` defines the content, and is a single byte.
+- `msg_size` є розміром повідомлення в байтах без заголовка.
+- `msg_type` визначає вміст і є одним байтом.
 
-::: info Message sections below are prefixed with the character that corresponds to it's `msg_type`.
+:::info Розділи повідомлення нижче передуються символом, який відповідає його `msg_type`.
 :::
 
 ### Definitions Section
