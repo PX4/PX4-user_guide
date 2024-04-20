@@ -625,7 +625,7 @@ If the INA228 module is not powered, then by default, initialization of the driv
 
 <a id="ina228_usage"></a>
 
-### Usage
+### Використання
 ```
 ina228 <command> [arguments...]
  Commands:
@@ -1305,20 +1305,20 @@ sht3x <command> [arguments...]
    reset         Reinitialize sensor
 ```
 ## tap_esc
-Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tap_esc)
+Джерело: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tap_esc)
 
 
-### Description
+### Опис
 
-This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
+Цей модуль керує апаратним забезпеченням TAP_ESC через UART. Він слухає теми управління дією, робить змішування та записує вихідні ШІМ сигнали.
 
-### Implementation
+### Реалізація
 
-Currently the module is implemented as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
+На даний момент модуль реалізований лише у вигляді версії з потоками, що означає, що він працює у власному потоці, а не в черзі завдань.
 
-### Example
+### Приклади
 
-The module is typically started with:
+Модуль зазвичай починається з:
 
 ```
 tap_esc start -d /dev/ttyS2 -n <1-8>
@@ -1326,7 +1326,7 @@ tap_esc start -d /dev/ttyS2 -n <1-8>
 
 <a id="tap_esc_usage"></a>
 
-### Usage
+### Використання
 ```
 tap_esc <command> [arguments...]
  Commands:
@@ -1337,16 +1337,16 @@ tap_esc <command> [arguments...]
                  default: 4
 ```
 ## tone_alarm
-Source: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tone_alarm)
+Джерело: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tone_alarm)
 
 
-### Description
-This module is responsible for the tone alarm.
+### Опис
+Цей модуль відповідає за сигнал тривоги.
 
 
 <a id="tone_alarm_usage"></a>
 
-### Usage
+### Використання
 ```
 tone_alarm <command> [arguments...]
  Commands:
@@ -1357,16 +1357,16 @@ tone_alarm <command> [arguments...]
    status        print status info
 ```
 ## uwb
-Source: [drivers/uwb/uwb_sr150](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/uwb/uwb_sr150)
+Джерело: [drivers/uwb/uwb_sr150](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/uwb/uwb_sr150)
 
 
-### Description
+### Опис
 
-Driver for NXP UWB_SR150 UWB positioning system. This driver publishes a `uwb_distance` message whenever the UWB_SR150 has a position measurement available.
+Водій системи позиціонування NXP UWB_SR150. Цей драйвер публікує повідомлення `uwb_distance` кожного разу, коли UWB_SR150 має наявне вимірювання позиції.
 
-### Example
+### Приклади
 
-Start the driver with a given device:
+Запустіть драйвер з вказаним пристроєм:
 
 ```
 uwb start -d /dev/ttyS2
@@ -1374,7 +1374,7 @@ uwb start -d /dev/ttyS2
 
 <a id="uwb_usage"></a>
 
-### Usage
+### Використання
 ```
 uwb <command> [arguments...]
  Commands:
@@ -1392,13 +1392,13 @@ uwb <command> [arguments...]
 Source: [drivers/voxl2_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/voxl2_io)
 
 
-### Description
+### Опис
 This module is responsible for driving the output pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.
 
 
 <a id="voxl2_io_usage"></a>
 
-### Usage
+### Використання
 ```
 voxl2_io <command> [arguments...]
  Commands:
@@ -1432,8 +1432,8 @@ This module is responsible for...
 ### Implementation
 By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
 
-### Examples
-It is typically started with:
+### Приклади
+Зазвичай починається з:
 ```
 todo
 ```
@@ -1441,7 +1441,7 @@ todo
 
 <a id="voxl_esc_usage"></a>
 
-### Usage
+### Використання
 ```
 voxl_esc <command> [arguments...]
  Commands:
@@ -1483,11 +1483,11 @@ voxl_esc <command> [arguments...]
    status        print status info
 ```
 ## voxlpm
-Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/voxlpm)
+Джерело: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/voxlpm)
 
 <a id="voxlpm_usage"></a>
 
-### Usage
+### Використання
 ```
 voxlpm [arguments...]
    start
@@ -1508,16 +1508,16 @@ voxlpm [arguments...]
    status        print status info
 ```
 ## zenoh
-Source: [modules/zenoh](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/zenoh)
+Джерело: [modules/zenoh](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/zenoh)
 
 
-### Description
+### Опис
 
 Zenoh demo bridge
 
 <a id="zenoh_usage"></a>
 
-### Usage
+### Використання
 ```
 zenoh <command> [arguments...]
  Commands:
