@@ -8,7 +8,7 @@
 Інші загальні способи підключення RaPi та Pixhawk це:
 
 - Ethernet-з'єднання між RPi та Pixhawk. Контролери Pixhawk на основі FMUv5x, FMUv6x та пізніших можуть мати вбудований порт Ethernet. Див. [PX4 Ethernet > Підтримувані контролери](../advanced_config/ethernet_setup.md#supported-flight-controllers).
-- Serial connection to the RPi USB port. Це просто і надійно, але потребує додаткової плати адаптера USB-серійного інтерфейсу від FTDI Chip. Ця опція описана в [Pixhawk Companion > Налаштування послідовного порту](../companion_computer/pixhawk_companion.md#serial-port-setup).
+- Серійне підключення до USB-порту RPi. Це просто і надійно, але потребує додаткової плати адаптера USB-серійного інтерфейсу від FTDI Chip. Ця опція описана в [Pixhawk Companion > Налаштування послідовного порту](../companion_computer/pixhawk_companion.md#serial-port-setup).
 :::
 
 ## Підключення
@@ -19,7 +19,7 @@
 
 Це налаштування з'єднує Pixhawk `TELEM2` , що загалом рекомендується для офлайн керування. It is initially configured in PX4 to use with MAVLink, which we will change later when setting up ROS 2. Pixhawk ports can be located anywhere on the flight controller, but are almost always well labeled, and should be obvious on your particular [flight controller](../flight_controller/index.md).
 
-Connect the Pixhawk `TELEM2` `TX`/`RX`/`GND` pins to the complementary `RXD`/`TXD`/`Ground` pins on the RPi GPIO board:
+Підключіть контакти Pixhawk `TELEM2` `TX`/`RX`/`GND` до відповідних контактів `RXD`/`TXD`/`Ground` на платі GPIO RPi:
 
 | PX4 TELEM2 Pin | RPi GPIO Pin           |
 | -------------- | ---------------------- |
@@ -27,16 +27,16 @@ Connect the Pixhawk `TELEM2` `TX`/`RX`/`GND` pins to the complementary `RXD`/`TX
 | UART5_RX (3)   | TXD (GPIO 14 - pin 8)  |
 | GND (6)        | Ground (pin 6)         |
 
-The diagram shows Pixhawk `TELEM2` port pins on the left and RPi GPIO board pins on the right. The pins on the `TELEM2` port are normally numbered right-to-left as shown.
+Діаграма показує контакти порту Pixhawk `TELEM2` зліва та контакти плати GPIO RPi справа. The pins on the `TELEM2` port are normally numbered right-to-left as shown.
 
 | `TELEM2`                                                                                                      | RPi GPIO                                                      |
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
 | ![Pin numbering showing left-most pin is pin 1](../../assets/companion_computer/pixhawk_rpi/pins_numbers.png) | ![](../../assets/companion_computer/pixhawk_rpi/rpi_gpio.png) |
 
-::: info
-Almost all recent Pixhawk boards, such as the Pixhawk-6C, use the same connectors and pin numbers for corresponding ports, as defined in the Pixhawk Connector Standard. You can check the specific board documentation to confirm the pin layout.
+:::info
+Майже всі останні плати Pixhawk, такі як Pixhawk-6C, використовують ті ж самі роз'єми та номери контактів для відповідних портів, як визначено в Стандарті роз'ємів Pixhawk. You can check the specific board documentation to confirm the pin layout.
 
-The standard `TELEM2` pin assignments are shown below.
+Стандартні призначення контактів `TELEM2` показані нижче.
 
 | Піни      | Сигнал          | Напруга |
 | --------- | --------------- | ------- |
@@ -128,19 +128,19 @@ The following steps show how to install and setup Ubuntu 22.04 on the RPi. Note 
    sudo raspi-config
    ```
 
-1. Go to the **Interface Option** and then click **Serial Port**.
+1. Перейдіть до **Варіанти інтерфейсу**, а потім клацніть **Серійний порт**.
 
-   - Select **No** to disable serial login shell.
-   - Select **Yes** to enable the serial interface.
-   - Click **Finish** and restart the RPi.
+   - Виберіть **No**, щоб вимкнути послідовний вхід у оболонку.
+   - Виберіть **Так**, щоб увімкнути послідовний інтерфейс.
+   - Клацніть **Завершити** та перезапустіть RPi.
 
-1. Open the firmware boot configuration file in the `nano` editor on RaPi:
+1. Відкрийте файл конфігурації завантаження прошивки в редакторі `nano` на RaPi:
 
    ```sh
    sudo nano /boot/firmware/config.txt
    ```
 
-1. Append the following text to the end of the file (after the last line):
+1. Додайте наступний текст в кінець файлу (після останнього рядка):
 
    ```sh
    enable_uart=1
@@ -158,7 +158,7 @@ The following steps show how to install and setup Ubuntu 22.04 on the RPi. Note 
    ls /dev/ttyAMA0
    ```
 
-   The result of the command should include the RX/TX connection `/dev/ttyAMA0` (note that this serial port is also available as `/dev/serial0`).
+   Результат команди повинен містити підключення RX/TX `/dev/ttyAMA0` (зверніть увагу, що цей послідовний порт також доступний як `/dev/serial0`).
 
 RPi наразі налаштований для роботи з RPi та зв'язку за допомогою послідовного порту `/dev/ttyAMA0`. Зверніть увагу, що ми встановимо додаткове програмне забезпечення в наступних розділах для роботи з MAVLink та ROS 2.
 
@@ -174,7 +174,7 @@ PX4 рекомендує використовувати [MAVSDK](https://mavsdk.
 
 1. Підключіть Pixhawk до ноутбука за допомогою USB-кабеля.
 1. Відкрийте QGroundControl (повинно з'єднатися з транспортним засобом).
-1. [Check/change the following parameters](../advanced_config/parameters.md) in QGroundControl:
+1. [Перевірте/змініть наступні параметри](../advanced_config/parameters.md) в QGroundControl:
 
    ```ini
    MAV_1_CONFIG = TELEM2
@@ -182,11 +182,11 @@ PX4 рекомендує використовувати [MAVSDK](https://mavsdk.
    SER_TEL2_BAUD = 57600
    ```
 
-   Note that the parameters may already be set appropriately. For information about how serial ports and MAVLink configuration work see [Serial Port Configuration](../peripherals/serial_configuration.md) and [MAVLink Peripherals](../peripherals/mavlink_peripherals.md).
+   Зверніть увагу, що параметри можуть вже бути налаштовані належним чином. For information about how serial ports and MAVLink configuration work see [Serial Port Configuration](../peripherals/serial_configuration.md) and [MAVLink Peripherals](../peripherals/mavlink_peripherals.md).
 
-Then install setup MAVProxy on the RPi using the following terminal commands:
+Потім встановіть налаштування MAVProxy на RPi за допомогою наступних термінальних команд:
 
-1. Install MAVProxy:
+1. Встановіть MAVProxy:
 
    ```sh
    sudo apt install python3-pip
@@ -194,13 +194,13 @@ Then install setup MAVProxy on the RPi using the following terminal commands:
    sudo apt remove modemmanager
    ```
 
-1. Run MAVProxy, setting the port to connect to `/dev/ttyAMA0` and the baud rate to match the PX4:
+1. Запустіть MAVProxy, встановивши порт для підключення до `/dev/ttyAMA0` та швидкість передачі даних, щоб відповідати PX4:
 
    ```sh
    sudo mavproxy.py --master=/dev/serial0 --baudrate 57600
    ```
 
-   ::: info Note that above we used `/dev/serial0`, but we could equally well have used `/dev/ttyAMA0`. If we were connecting via USB then we would instead set the port as `/dev/ttyACM0`:
+   :::info Зверніть увагу, що вище ми використовували `/dev/serial0`, але ми могли б так само добре використовувати `/dev/ttyAMA0`. Якщо ми підключалися через USB, тоді ми замість цього встановили порт як `/dev/ttyACM0`:
 
    ```sh
    sudo chmod a+rw /dev/ttyACM0
@@ -210,15 +210,15 @@ Then install setup MAVProxy on the RPi using the following terminal commands:
 
 :::
 
-MAVProxy on RPi should now connect to the Pixhawk, via RX/TX pins. You should be able to see this in the RPi terminal.
+MAVProxy на RPi тепер повинен підключатися до Pixhawk через контакти RX/TX. Ви повинні бачити це в терміналі RPi.
 
-We have now verified that our connection is wired up properly. In the next section we'll set up the both Pixhawk and RPi to use uXRCE-DDS and ROS2 instead of MAVLink.
+Тепер ми підтвердили, що наше підключення пов'язано належним чином. У наступному розділі ми налаштуємо як Pixhawk, так і RPi для використання uXRCE-DDS та ROS2 замість MAVLink.
 
-## ROS 2 and uXRCE-DDS
+## ROS 2 та uXRCE-DDS
 
-The [ROS 2 Guide](../ros/ros2_comm.md) and [uXRCE-DDS](../middleware/uxrce_dds.md) pages cover the options for setting up the uXRCE-DDS and ROS, focussing on ROS 2 "Foxy". This tutorial uses ROS 2 "Humble" and covers the specific setup for working with RPi. It is worth reading both!
+Сторінки [Посібника ROS 2](../ros/ros2_comm.md) та [uXRCE-DDS](../middleware/uxrce_dds.md) охоплюють варіанти налаштування uXRCE-DDS та ROS, зосереджуючись на ROS 2 "Foxy". Цей посібник використовує ROS 2 "Humble" та охоплює конкретну настройку для роботи з RPi. It is worth reading both!
 
-### Pixhawk/PX4 Setup
+### Налаштування Pixhawk/PX4
 
 Next we set up ROS 2 instead of MAVLink on `TELEM2`. We do this by changing parameters in QGroundControl, which can be connected via USB, or using a telemetry radio connected to `TELEM1`.
 
