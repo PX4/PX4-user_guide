@@ -1,23 +1,23 @@
-# Multi-Vehicle Simulation with FlightGear
+# Симуляція кількох літальних апаратів з FlightGear
 
 :::warning
-This simulator is [community supported and maintained](../simulation/community_supported_simulators.md). It may or may not work with current versions of PX4.
+Цей симулятор [підтримується та утримується спільнотою](../simulation/community_supported_simulators.md). Це може працювати або не працювати з поточними версіями PX4.
 
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools supported by the core development team.
+Дивіться [Встановлення інструментарію](../dev_setup/dev_env.md) для отримання інформації про середовища та інструменти, які підтримуються основною командою розробників.
 :::
 
-This topic explains how to simulate multiple vehicles using FlightGear in SITL. All vehicle instances have parameters defined by their startup scripts.
+Цей розділ пояснює як моделювати кілька транспортних засобів за допомогою FlightGear в SITL. Всі екземпляри транспортних засобів мають параметри, визначені їхніми сценаріями запуску.
 
-::: info This is the most environmentally realistic way to simulate multiple vehicles running PX4, and allows easy testing of multiple different types of vehicles. It is suitable for testing multi-vehicle support in _QGroundControl_, [MAVSDK](https://mavsdk.mavlink.io/), etc.
+:::info Це найбільш екологічно реалістичний спосіб моделювання роботи кількох транспортних засобів PX4 і дозволяє легко тестувати різні типи транспортних засобів. Це підходить для тестування підтримки кількох транспортних засобів у _QGroundControl_, [MAVSDK](https://mavsdk.mavlink.io/), тощо.
 
-[Multi-Vehicle Simulation with Gazebo Classic](../sim_gazebo_classic/multi_vehicle_simulation.md) should be used instead for: swarm simulations with many vehicles, and testing features like computer vision that are only supported by Gazebo Classic.
+[Багатофункціональне моделювання транспортних засобів з Gazebo Classic](../sim_gazebo_classic/multi_vehicle_simulation.md) слід використовувати замість: імітації рою з багатьма транспортними засобами та тестування функцій, таких як комп'ютерне зорове спостереження, які підтримуються лише Gazebo Classic.
 :::
 
-## How to Start Multiple Instances
+## Як запустити кілька екземплярів
 
-To start multiple instances (on separate ports and IDs):
+Для запуску кількох екземплярів (на окремих портах та ID):
 
-1. Checkout the [PX4 branch that supports multiple vehicles](https://github.com/ThunderFly-aerospace/PX4Firmware/tree/flightgear-multi) (at ThunderFly-aerospace):
+1. Перевірте гілку [PX4, яка підтримує кілька транспортних засобів](https://github.com/ThunderFly-aerospace/PX4Firmware/tree/flightgear-multi) (у ThunderFly-aerospace):
 
    ```sh
    git clone https://github.com/ThunderFly-aerospace/PX4Firmware.git
@@ -25,28 +25,28 @@ To start multiple instances (on separate ports and IDs):
    git checkout flightgear-multi
    ```
 
-1. Build the PX4 Firmware using the standard toolchain (with FlightGear installed).
-1. Start the first instance using the [predefined scripts](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge/tree/master/scripts):
+1. Побудуйте прошивку PX4 за допомогою стандартного інструментарію (з встановленим FlightGear).
+1. Запустіть перший екземпляр, використовуючи [попередньо визначені скрипти](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge/tree/master/scripts):
 
    ```sh
    cd ./Tools/flightgear_bridge/scripts
    ./vehicle1.sh
    ```
 
-1. Start subsequent instances using another script:
+1. Почніть наступні екземпляри, використовуючи інший скрипт:
 
    ```sh
    ./vehicle2.sh
    ```
 
-Each instance should have its own startup script, which can represent a completely different vehicle type. For prepared scripts you should get the following view.
+Кожен екземпляр повинен мати свій власний запусковий скрипт, який може представляти абсолютно різний тип транспортного засобу. Для підготовлених сценаріїв вам слід отримати наступний вигляд.
 
 ![Multi-vehicle simulation using PX4 SITL and FlightGear](../../assets/simulation/flightgear/flightgear-multi-vehicle-sitl.jpg)
 
-Ground stations such as _QGroundControl_ connect to all instances using the normal UDP port 14550 (all traffic goes to the same port).
+Наземні станції, такі як _QGroundControl_, підключаються до всіх екземплярів за допомогою звичайного UDP-порту 14550 (весь трафік йде на один порт).
 
-The number of simultaneously running instances is limited mainly by computer resources. FlightGear is a single-thread application, but aerodynamics solvers consume a lot of memory. Therefore splitting to multiple computers and using a [multiplayer server](https://wiki.flightgear.org/Howto:Multiplayer) is probably required to run _many_ vehicle instances.
+Кількість одночасно працюючих екземплярів обмежена в основному ресурсами комп'ютера. FlightGear є однопотоковим додатком, але розв'язувачі аеродинаміки споживають багато пам'яті. Отже, розбиття на кілька комп'ютерів та використання [багатокористувацького сервера](https://wiki.flightgear.org/Howto:Multiplayer) ймовірно потрібно для запуску _багатьох_ екземплярів транспортних засобів.
 
-## Additional Resources
+## Додаткові ресурси
 
-- See [Simulation](../simulation/index.md) for more information about the port configuration.
+- Дивіться [Симуляція](../simulation/index.md) для отримання додаткової інформації щодо налаштування порту.
