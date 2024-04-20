@@ -1,7 +1,7 @@
-# Flight Log Analysis
+# Аналіз журналу польотів
 
-Information about collecting and analysing flight logs is covered in:
+Інформація про збір та аналіз журналів польотів описана в:
 
-- [Flight Reporting](../getting_started/flight_reporting.md) - How to download a log and report/discuss issues about a flight.
-- [Log Analysis using Flight Review](../log/flight_review.md) - How to analyse many common vehicle problems using the [Flight Review](https://logs.px4.io/) online tool.
-- [Flight Log Analysis](../log/flight_log_analysis.md) - Introduction to flight analysis and links to a number of analysis tools.
+- [Звіт про польот](../getting_started/flight_reporting.md) - Як завантажити журнал та звітувати/обговорювати питання щодо польоту.
+- [Аналіз журналу за допомогою Flight Review](../log/flight_review.md) - Як аналізувати багато загальних проблем з транспортними засобами за допомогою онлайн-інструменту [Flight Review](https://logs.px4.io/).
+- [Аналіз журналу польотів](../log/flight_log_analysis.md) - Вступ до аналізу польотів та посилання на ряд інструментів аналізу.
