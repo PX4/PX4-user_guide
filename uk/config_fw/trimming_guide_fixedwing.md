@@ -18,18 +18,18 @@ There are several parameters an operator might want to use in order to properly 
 
 The correct order to set the above parameters is:
 
-1. Trim the servos by physically adjusting the linkages lengths if possible and fine tune by trimming the PWM channels (use `PWM_MAIN/AUX_TRIMx`) on the bench to properly set the control surfaces to their theoretical position.
-1. Fly in stabilized mode at cruise speed and set the pitch setpoint offset (`FW_PSP_OFF`) to desired angle of attack. The required angle of attack at cruise speed corresponds to the pitch angle that the airplane needs to fly at in order to keep constant altitude during wing-leveled flight. If you are using an airspeed sensor, also set the correct cruise airspeed (`FW_AIRSPD_TRIM`).
-1. Look at the actuator controls in the log file (upload it to [Flight Review](https://logs.px4.io) and check the _Actuator Controls_ plot for example) and set the pitch trim (`TRIM_PITCH`). Set that value to the average offset of the pitch signal during wing-leveled flight.
+1. Обріжте сервоприводи, фізично налаштувавши довжини зв'язок, якщо це можливо, і відрегулюйте, обрізавши канали ШІМ (використовуйте `PWM_MAIN/AUX_TRIMx`) на верстаті, щоб належним чином встановити керуючі поверхні у їх теоретичне положення.
+1. Літайте в стабілізованому режимі з крейсерською швидкістю та встановіть зміщення заданої точки вхідного кута атаки (`FW_PSP_OFF`) на бажаний кут атаки. Необхідний кут атаки при крейсерській швидкості відповідає куту крена, який потрібно літаку летіти, щоб утримати постійну висоту під час польоту з вирівняним крилом. Якщо ви використовуєте датчик швидкості повітря, також встановіть правильну крейсерську швидкість (`FW_AIRSPD_TRIM`).
+1. Подивіться на керування приводом у файлі журналу (завантажте його на [Flight Review](https://logs.px4.io) та перевірте графік керування приводом (_Actuator Controls_) на приклад) та встановіть трансцендентний кут (`TRIM_PITCH`). Встановіть це значення на середнє зміщення сигналу тану під час польоту на рівні крила.
 
-Step 3 can be performed before step 2 if you don't want to have to look at the log, or if you feel comfortable flying in manual mode. You can then trim your remote (with the trim switches) and report the values to `TRIM_PITCH` (and remove the trims from your transmitter) or update `TRIM_PITCH` directly during flight via telemetry and QGC.
+Крок 3 можна виконати перед кроком 2, якщо ви не хочете дивитися на журнал або якщо вам зручно керувати літаком вручну. You can then trim your remote (with the trim switches) and report the values to `TRIM_PITCH` (and remove the trims from your transmitter) or update `TRIM_PITCH` directly during flight via telemetry and QGC.
 
 ## Advanced Trimming
 
-Given that the downward pitch moment induced by an asymmetric airfoil increases with airspeed and when the flaps are deployed, the aircraft needs to be re-trimmed according to the current measured airspeed and flaps position. For this purpose, a bilinear curve function of airspeed and a pitch trim increment function of the flaps state (see figure below) can be defined using the following parameters:
+Оскільки знижувальний момент крену, викликаний асиметричним повітряним профілем, збільшується разом із швидкістю повітря та коли висунуті закрилки, літак потребує повторного налаштування відповідно до поточно виміряної швидкості повітря та положення закрилків. Для цієї мети можна визначити білінійну криву функції швидкості повітря та функції інкременту тримання кута за допомогою параметрів стану закріплення (див. рисунок нижче):
 
-- [FW_DTRIM\_\[R/P/Y\]\_\[VMIN/VMAX\]](../advanced_config/parameter_reference.md#FW_DTRIM_R_VMIN) are the roll/pitch/yaw trim value added to `TRIM_ROLL/PITCH/YAW` at min/max airspeed (defined by [FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) and [FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)).
-- [CA_SV_CSx_FLAP](../advanced_config/parameter_reference.md#CA_SV_CS0_FLAP) and [CA_SV_CSx_SPOIL](../advanced_config/parameter_reference.md#CA_SV_CS0_SPOIL) are the trimming values that are applied to these control surfaces if the flaps or the spoilers are fully deployed, respectively.
+- [FW_DTRIM\_\[R/P/Y\]\_\[VMIN/VMAX\]](../advanced_config/parameter_reference.md#FW_DTRIM_R_VMIN) це значення обрізки крена/тангажу/рискання, додане до `TRIM_ROLL/PITCH/YAW` при мінімальній/максимальній швидкості повітря (визначеною за допомогою [FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) та [FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)).
+- [CA_SV_CSx_FLAP](../advanced_config/parameter_reference.md#CA_SV_CS0_FLAP) та [CA_SV_CSx_SPOIL](../advanced_config/parameter_reference.md#CA_SV_CS0_SPOIL) - це значення обрізки, які застосовуються до цих керуючих поверхонь, якщо закрилки або спойлери повністю випущені, відповідно.
 
 ![Dtrim Curve](../../assets/config/fw/fixedwing_dtrim.png)
 
@@ -37,4 +37,4 @@ Given that the downward pitch moment induced by an asymmetric airfoil increases 
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/15AbscUF1kRdWMh8ONcCRu6QBwGbqVGfl/view?usp=sharing
 Request access from dev team. -->
 
-A perfectly symmetrical airframe would only require pitch trim increments, but since a real airframe is never perfectly symmetrical, roll and yaw trims increments are also sometimes required.
+Ідеально симетрична конструкція фюзеляжу вимагала б лише інкрементів відкалібрування крена, але оскільки реальний фюзеляж ніколи не є ідеально симетричним, інкременти відкалібрування крена та курсу іноді також потрібні.
