@@ -16,30 +16,30 @@
 
 - [Holybro Pixhawk RPi CM4 Baseboard](https://holybro.com/products/pixhawk-rpi-cm4-baseboard) (www.holybro.com)
 
-  The baseboard can be purchased with or without an RPi CM4 and/or flight controller:
+  Базову плату можна придбати з або без RPi CM4 та/або контролером польоту:
 
   - Модуль Raspberry Pi CM4 (CM4008032), постачений компанією Holybro, має наступні технічні характеристики:
     - RAM: 8GB
     - eMMC: 32GB
     - Wireless: No
-  - The recommended minimum specification for the RPi CM4 is:
+  - Рекомендована мінімальна специфікація для RPi CM4:
     - RAM: 4GB (or 8GB)
     - eMMC: 16GB
     - Wireless: Yes
 
 ## Підключення & Порти
 
-::: info
-The [Holybro Documentation](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-rpi-cm4-baseboard/connections-and-ports) has more detailed (and possibly more "up to date") port and connection information.
+:::info
+[Документація Holybro](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-rpi-cm4-baseboard/connections-and-ports) містить більше детальної (і можливо більш "актуальної") інформації про порти та з'єднання.
 :::
 
-The diagram below shows all the connectors and ports on the baseboard.
+Діаграма нижче показує всі роз'єми та порти на базовій платі.
 
 ![Schematic diagram](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_ports.jpg)
 
-### RPi CM4 & FC Serial Connection
+### RPi CM4 та FC Послідовне підключення
 
-The flight controller `TELEM2` port is internally connected to RPi CM4 as shown:
+Порт керування польотом `TELEM2` внутрішньо підключений до RPi CM4, як показано:
 
 | RPi CM4 | FC TELEM2 (FMU) |
 | ------- | --------------- |
@@ -48,76 +48,76 @@ The flight controller `TELEM2` port is internally connected to RPi CM4 as shown:
 | GPIO16  | CTS             |
 | GPIO17  | RTS             |
 
-::: info
-The connection must be also be [configured in both RPi and PX4](#configure-px4-to-cm4-mavlink-serial-connection) (unless [Ethernet](#ethernet-connection-optional) is used instead).
+:::info
+Підключення також повинно бути [налаштоване як на RPi, так і на PX4](#configure-px4-to-cm4-mavlink-serial-connection) (якщо не використовується [Ethernet](#ethernet-connection-optional)).
 :::
 
-## Installing the Flight Controller
+## Встановлення Політного Контролера
 
-A plug-compatible flight controller such as [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md) and [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md) can simply be pushed into the module slot.
+Плагін-сумісний контролер польоту, такий як [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md) та [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md), може просто бути вставлений у роз'єм модуля.
 
-Flight controllers that have a different form factor will need additional wiring.
+Контролери польоту, які мають інший форм-фактор, будуть потребувати додаткового підключення проводів.
 
-## Installing the RPi CM4 Companion
+## Встановлення супутника RPi CM4
 
-This section shows how to install/attach a Raspberry Pi CM4 to the baseboard.
+Цей розділ показує, як встановити/прикріпити Raspberry Pi CM4 до базової плати.
 
 ![Image showing separate baseboard, baseboard cover, RPi, Flight controller, screws](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_disassembled.jpg)
 
-To install the Raspberry Pi CM4 companion computer:
+Щоб встановити компаньйонський комп'ютер Raspberry Pi CM4:
 
 1. Відключити `FAN` (FAN A).
 
    ![HB_Pixhawk_CM4_Fan](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_fan.jpg)
 
-1. Remove these 4 screws on the back side of the baseboard.
+1. Видаліть ці 4 гвинти на задній стороні підлогової дошки.
 
    ![Bottom of the board showing screws in corners holding the cover](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_bottom.jpg)
 
-1. Remove the baseboard case, install the CM4, and use the 4 screws to attach it (as shown):
+1. Видаліть підставку корпусу, встановіть CM4 та використовуйте 4 гвинти для його кріплення (як показано):
 
    ![HB_Pixhawk_CM4_Screws](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_screws.jpg)
 
-1. Reattach the cover.
+1. Прикріпіть кришку знову.
 
-## Power Module Wiring
+## Проводка силового модуля
 
-The PM03D power module is supplied with the board.
+Модуль живлення PM03D постачається разом з платою.
 
-The RPi CM4 and flight controller must be powered separately:
+RPi CM4 та контролер польоту повинні бути живлені окремо:
 
-- The flight controller is powered via the CLIK-Mate cable to `POWER1` or `POWER2` port
-- The RPi CM4 is powered by the `USB C` (CM4 Slave) connection. You can also use your own power supply to power the RPi CM4 baseboard.
+- Контролер польоту живиться через кабель CLIK-Mate до порту `POWER1` або порту `POWER2`
+- RPi CM4 працює від підключення `USB C` (CM4 Slave). Ви також можете використовувати власний блок живлення для живлення базової плати RPi CM4.
 
-The image below shows the wiring in greater detail.
+На зображенні нижче показана проводка більш детально.
 
 ![Image showing writing from the PM03D power module to the baseboard](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_wiring_guide.jpg)
 
-## Flashing the RPi CM4
+## Прошивка RPi CM4
 
-This section explains how you install your preferred Linux distro, such as "Raspberry Pi OS 64bit" onto the RPi EMCC.
+Цей розділ пояснює, як встановити вашу улюблену дистрибутив Linux, таку як "Raspberry Pi OS 64bit", на RPi EMCC.
 
-Notes:
+Примітки:
 
-- If you are using PX4, you will need to use PX4 version 1.13.1 or newer for PX4 to recognize this baseboard.
-- The fan does not indicate if the RPi CM4 is powered/running or not.
-- The power module plugged into Power1/2 does not power the RPi part. You can use the additional USB-C Cable from the PM03D power module to the CM4 Slave USB-C port.
-- The Micro-HDMI port is an output port.
-- RPi CM4 boards that do not have Wifi device will not connect automatically. In this case you will need to plug it into a router or plug a compatible Wifi dongle into the CM4 Host ports.
+- Якщо ви використовуєте PX4, вам потрібно використовувати версію PX4 1.13.1 або новішу, щоб PX4 впізнав цю базову плату.
+- Вентилятор не показує, чи живиться/працює RPi CM4.
+- Модуль живлення, вставлений у Power1/2, не живить частину RPi. Ви можете використовувати додатковий кабель USB-C від модуля живлення PM03D до порту USB-C CM4 Slave.
+- Порт Micro-HDMI є вихідним портом.
+- Плати RPi CM4, які не мають пристрою Wifi, не будуть автоматично підключатися. У цьому випадку вам знадобиться підключити його до маршрутизатора або підключити сумісний Wifi-донгл до портів хоста CM4.
 
 ### Flash EMMC
 
-To flash a RPi image onto EMMC.
+Записати образ RPi на EMMC.
 
 1. Switch Dip-Switch to `RPI`.
 
    ![](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/cm4_dip_switch.png)
 
-1. Connect computer to USB-C _CM4 Slave_ port used to power & flash the RPi.
+1. Підключіть комп'ютер до порту USB-C _CM4 Slave_, що використовується для живлення та прошивки RPi.
 
    ![](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/cm4_usbc_slave_port.png)
 
-1. Get `usbboot`, build it and run it.
+1. Отримайте `usbboot`, зберіть його та запустіть.
 
    ```sh
    sudo apt install libusb-1.0-0-dev
@@ -127,19 +127,19 @@ To flash a RPi image onto EMMC.
    sudo ./rpiboot
    ```
 
-1. You can now install your preferred Linux distro using The `rpi-imager`. Make sure you add WiFi and SSH settings (hidden behind the gear/advanced symbol).
+1. Тепер ви можете встановити свою перевагу Linux дистрибутив за допомогою `rpi-imager`. Переконайтеся, що ви додали налаштування WiFi та SSH (приховані за символом шестерні / розширеним).
 
    ```sh
    sudo apt install rpi-imager
    rpi-imager
    ```
 
-1. Once done, unplugging USB-C CM4 Slave (this will unmount the volumes, and power off the CM4).
-1. Switch Dip-Switch back to `EMMC`.
-1. Power on CM4 by providing power to USB-C CM4 Slave port.
-1. To check if it's booting/working you can either:
-   - Check there is HDMI output
-   - Connect via SSH (if set up in rpi-imager, and WiFi is available).
+1. Після завершення відключення USB-C CM4 Slave (це відмонтує томи та вимкне CM4).
+1. Перемикач Dip-Switch поверніть на `EMMC`.
+1. Увімкніть CM4, надаючи живлення через порт USB-C CM4 Slave.
+1. Щоб перевірити, чи запускається/працює, ви можете або:
+   - Перевірте, чи є вихід HDMI
+   - Підключіться через SSH (якщо налаштовано в rpi-imager, і є доступ до WiFi).
 
 ## Налаштуйте послідовне підключення PX4 до CM4 MAVLink
 
@@ -151,11 +151,11 @@ To flash a RPi image onto EMMC.
 
 ### Налаштування послідовного порту FC
 
-The FC should be set up to connect to the `TELEM2` port correctly by default. If not, you can configure the port using the parameters as shown.
+FC повинен бути налаштований для підключення до порту `TELEM2` правильно за замовчуванням. Якщо ні, ви можете налаштувати порт за допомогою параметрів, як показано.
 
-To enable this MAVLink instance on the FC:
+Для активації цього екземпляру MAVLink на FC:
 
-1. Connect a computer running QGroundControl via USB Type C port on the baseboard labeled `FC`
+1. Підключіть комп'ютер, на якому працює QGroundControl, через порт USB Type C на базовій платі, позначеній як `FC`
 
    ![Image of baseboard showing FC USB-C connector](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_fc_usb_c.jpg)
 
@@ -167,50 +167,50 @@ To enable this MAVLink instance on the FC:
 
 1. Перезавантажте FC.
 
-### RPi Serial Port Setup
+### Налаштування послідовного порту RPi
 
-On the RPi side:
+На стороні RPi:
 
-1. Connect to the RPi (using WiFi, a router, or a Wifi Dongle).
-1. Enable the RPi serial port by running `RPi-config`
+1. Підключіться до RPi (використовуючи WiFi, маршрутизатор або Wifi Dongle).
+1. Увімкніть послідовний порт RPi, запустивши `RPi-config`
 
-   - Go to `3 Interface Options`, then `I6 Serial Port`. Then choose:
+   - Перейдіть до `3 Варіанти інтерфейсу`, потім `I6 Серійний порт`. Потім введіть:
      - `login shell accessible over serial → No`
      - `serial port hardware enabled` → `Yes`
 
-1. Finish, and reboot. (This will add `enable_uart=1` to `/boot/config.txt`, and remove `console=serial0,115200` from `/boot/cmdline.txt`
-1. Now MAVLink traffic should be available on `/dev/serial0` at a baudrate of 921600.
+1. Завершіть і перезавантажте. (Це додасть `enable_uart=1` у `/boot/config.txt`, та видалить `consoleal0,115200` з `/boot/cmdline.txt`
+1. Тепер MAVLink-трафік повинен бути доступний на `/dev/serial0` з швидкістю передачі даних 921600.
 
-## Try out MAVSDK-Python
+## Спробуйте MAVSDK-Python
 
-1. Make sure the CM4 is connected to the internet, e.g. using a wifi, or ethernet.
-1. Install MAVSDK Python:
+1. Переконайтеся, що CM4 підключений до Інтернету, наприклад, використовуючи wifi або Ethernet.
+1. Встановіть MAVSDK Python:
 
    ```sh
    python3 -m pip install mavsdk
    ```
 
-1. Copy an example from the [MAVSDK-Python examples](https://github.com/mavlink/MAVSDK-Python/tree/main/examples).
-1. Change the `system_address="udp://:14540"` to `system_address="serial:///dev/serial0:921600"`
-1. Try out the example. Permission for the serial port should already be available through the `dialout` group.
+1. Скопіюйте приклад з [прикладів MAVSDK-Python](https://github.com/mavlink/MAVSDK-Python/tree/main/examples).
+1. Змініть `system_address="udp://:14540"` на `system_address="serial:///dev/serial0:921600"`
+1. Спробуйте приклад. Дозвіл на послідовний порт вже повинен бути доступний через групу `dialout`.
 
-## Ethernet Connection (Optional)
+## Підключення Ethernet (Необов'язково)
 
-The flight controller module is [internally connected to RPi CM4](#rpi-cm4-fc-serial-connection) from `TELEM2` (Serial).
+Модуль керування польотом [внутрішньо підключено до RPi CM4](#rpi-cm4-fc-serial-connection) з `TELEM2` (Serial).
 
-You can also set up a local Ethernet connection between them using the supplied cable. Ethernet connectivity provides a fast, reliable, and flexible communication alternative to using USB or other serial connections.
+Ви також можете налаштувати локальне підключення Ethernet між ними за допомогою постачаного кабелю. Підключення через Ethernet надає швидкий, надійний та гнучкий спосіб зв'язку, який може бути альтернативою використанню USB або інших послідовних з'єднань.
 
-::: info
-For more general information see: [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md).
+:::info
+Для отримання загальної інформації див. : [Налаштування Ethernet PX4](../advanced_config/ethernet_setup.md).
 :::
 
-### Connect the Cable
+### Підключіть кабель
 
-To set up a local ethernet connection between CM4 and the flight computer, the two ethernet ports need to be connected using the provided 8 pin to 4 pin connector.
+Для налаштування локального етнернет-з'єднання між CM4 та бортовим комп'ютером, потрібно підключити два етнернет-порти за допомогою наданого коннектора з 8 контактів до 4 контактів.
 
 ![HB_Pixhawk_CM4_Ethernet_Cable](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_ethernet_cable.png)
 
-The pinout of the cable is:
+Схема виводів кабелю:
 
 | CM4 Eth 8 Pin | FC ETH 4 Pin |
 | ------------- | ------------ |
@@ -223,25 +223,25 @@ The pinout of the cable is:
 | -             | N/A          |
 | -             | N/A          |
 
-### IP Setup on CM4
+### Налаштування IP на CM4
 
-Since there is no DHCP server active in this configuration, the IP addresses have to be set manually:
+Оскільки в цій конфігурації відсутній активний DHCP-сервер, IP-адреси повинні бути встановлені вручну:
 
-First, connect to the CM4 via SSH by connecting to the CM4’s WiFi (or use a Wifi dongle). Once the ethernet cables are plugged in, the `eth0` network interface seems to switch from DOWN to UP.
+Спочатку підключіться до CM4 через SSH, підключившись до WiFi CM4 (або використовуйте ключ Wi-Fi). Після того як етнергетичні кабелі підключені, мережевий інтерфейс `eth0` здається переходить зі стану DOWN в UP.
 
-You can check the status using:
+Ви можете перевірити статус за допомогою:
 
 ```sh
 ip address show eth0
 ```
 
-You can also try to enable it manually:
+Ви також можете спробувати увімкнути його вручну:
 
 ```sh
 sudo ip link set dev eth0 up
 ```
 
-It then seems to automatically set a link-local address, for this example it looks like this:
+Потім здається, що він автоматично встановлює локальну адресу зв'язку, для цього прикладу виглядає так:
 
 ```sh
 ip address show eth0
@@ -254,11 +254,11 @@ ip address show eth0
        valid_lft forever preferred_lft forever
 ```
 
-This means the CM4's ethernet IP is 169.254.21.183.
+Це означає, що IP-адреса мережі ethernet CM4 - 169.254.21.183.
 
-#### IP Setup on FC
+#### Налаштування IP на FC
 
-Now connect to the NuttX shell (using a console, or the MAVLink shell), and check the status of the link:
+Зараз підключіться до оболонки NuttX (використовуючи консоль або оболонку MAVLink) та перевірте статус зв'язку:
 
 ```sh
 ifconfig
@@ -267,9 +267,9 @@ eth0    Link encap:Ethernet HWaddr xx:xx:xx:xx:xx:xx at DOWN
         inet addr:0.0.0.0 DRaddr:192.168.0.254 Mask:255.255.255.0
 ```
 
-For this example, it is DOWN at first.
+На цьому прикладі спочатку він DOWN.
 
-To set it to UP:
+Щоб встановити його на UP:
 
 ```sh
 ifup eth0
@@ -277,7 +277,7 @@ ifup eth0
 ifup eth0...OK
 ```
 
-Now check the config again:
+Тепер знов перевірте конфігурацію:
 
 ```sh
 ifconfig
@@ -286,7 +286,7 @@ eth0    Link encap:Ethernet HWaddr xx:xx:xx:xx:xx:xx at UP
         inet addr:0.0.0.0 DRaddr:192.168.0.254 Mask:255.255.255.0
 ```
 
-However, it doesn’t have an IP yet. Set one that is similar to the one on the RPi CM4:
+Однак в нього ще немає IP. Встановіть такий, який схожий на той, що на RPi CM4:
 
 ```sh
 ifconfig eth0 169.254.21.184
@@ -301,13 +301,13 @@ eth0    Link encap:Ethernet HWaddr xx:xx:xx:xx:xx:xx at UP
         inet addr:169.254.21.184 DRaddr:169.254.21.1 Mask:255.255.255.0
 ```
 
-Now the devices should be able to ping each other.
+Тепер пристрої повинні мати можливість пінгувати одне одного.
 
-Note that this configuration is ephemeral and will be lost after a reboot, so we’ll need to find a way to configure it statically.
+Зверніть увагу, що ця конфігурація є ефемерною і буде втрачена після перезавантаження, тому нам потрібно знайти спосіб налаштувати її статично.
 
 #### Тест пінгу
 
-First from the CM4:
+Перший з CM4:
 
 ```sh
 ping 169.254.21.184
@@ -344,7 +344,7 @@ PING 169.254.21.183 56 bytes of data
 
 #### MAVLink/MAVSDK Test
 
-For this, we need to set the MAVLink instance to send traffic to the CM4's IP address:
+Для цього нам потрібно встановити екземпляр MAVLink для відправлення трафіку на IP-адресу CM4:
 
 Для початкового тесту ми можемо зробити:
 
@@ -352,9 +352,9 @@ For this, we need to set the MAVLink instance to send traffic to the CM4's IP ad
 mavlink start -o 14540 -t 169.254.21.183
 ```
 
-This will send MAVLink traffic on UDP to port 14540 (the MAVSDK/MAVROS port) to that IP which means MAVSDK can just listen to any UDP arriving at that default port.
+Це буде відправляти трафік MAVLink по UDP на порт 14540 (порт MAVSDK/MAVROS) на цей IP, що означає, що MAVSDK може просто слухати будь-який UDP, що надходить на цей типовий порт.
 
-To run a MAVSDK example, install mavsdk via pip, and try out an example from [MAVSDK-Python/examples](https://github.com/mavlink/MAVSDK-Python/tree/main/examples).
+Для запуску прикладу MAVSDK встановіть mavsdk через pip і спробуйте приклад з [MAVSDK-Python/examples](https://github.com/mavlink/MAVSDK-Python/tree/main/examples).
 
 Наприклад:
 
@@ -368,5 +368,5 @@ chmod +x tune.py
 
 ## Дивіться також
 
-- [Get The Pixhawk Raspberry Pi CM4 Baseboard By Holybro Talking With PX4](https://px4.io/get-the-pixhawk-raspberry-pi-cm4-baseboard-by-holybro-talking-with-px4/) (px4.io blog):
-  - Tutorial showing how to connect Pixhawk 6X + Raspberry Pi on CM4 baseboard via wired Ethernet.
+- [Отримати базову плату Pixhawk Raspberry Pi CM4 від Holybro, яка спілкується з PX4](https://px4.io/get-the-pixhawk-raspberry-pi-cm4-baseboard-by-holybro-talking-with-px4/) (блог px4.io):
+  - Урок, який показує, як підключити Pixhawk 6X + Raspberry Pi на базі CM4 через провідний Ethernet.
