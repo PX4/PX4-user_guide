@@ -1,25 +1,25 @@
-# Rovers (UGVs)
+# Марсоходи (UGVs)
 
 <LinkedBadge type="warning" text="Experimental" url="../airframes/#experimental-vehicles"/>
 
 :::warning
-Support for rover is [experimental](../airframes/index.md#experimental-vehicles). Maintainer volunteers, [contribution](../contribute/index.md) of new features, new frame configurations, or other improvements would all be very welcome!
+Підтримка для ровера є [експериментальною](../airframes/index.md#experimental-vehicles). Волонтери та контрибютори, [внесення](../contribute/index.md) нових функцій, нових конфігурацій каркасів або інших вдосконалень дуже вітається!
 :::
 
-PX4 supports rovers (Unmanned Ground Vehicles - UGVs) with [ackermann and differential](#rover-types) steering.
+PX4 підтримує ровери (безпілотні наземні транспортні засоби - UGVs) з керуванням [акермана та диференційним](#rover-types).
 
-This section contains build logs/instructions for assembling as well as configuring a number of UGV frames.
+У цьому розділі містяться журнали збірки/інструкції щодо складання та налаштування ряду UGV фреймів.
 
 ![Traxxas Rover Picture](../../assets/airframes/rover/traxxas_stampede_vxl/final_side.jpg)
 
-## Rover Types
+## Типи Марсоходів
 
-PX4 supports rovers with:
+PX4 підтримує рухомі з використанням:
 
-- **Differential steering**: direction is controlled by moving the left- and right-side wheels at different speeds. This kind of steering commonly used on bulldozers, tanks, and other tracked vehicles.
-- **Ackermann steering**: direction is controlled by pointing wheels in the direction of travel ([ackermann geometry](https://en.wikipedia.org/wiki/Ackermann_steering_geometry) compensates for the fact that wheels on the inside and outside of the turn move at different rates). This kind of steering is used on most commercial vehicles, including cars, trucks etc.
+- **Диференційне керування**: напрямок контролюється шляхом руху лівих і правих коліс з різною швидкістю. Цей вид керування часто використовується на бульдозерах, танках та інших гусеничних транспортних засобах.
+- **Кермування Акермана**: напрямок керування контролюється спрямуванням коліс у напрямку руху ([геометрія кермування Акермана](https://en.wikipedia.org/wiki/Ackermann_steering_geometry) компенсує той факт, що колеса на внутрішньому та зовнішньому повороті рухаються з різними швидкостями). Цей вид керування використовується на більшості комерційних транспортних засобів, включаючи автомобілі, вантажівки тощо.
 
-The supported frames can be seen in [Airframes Reference > Rover](../airframes/airframe_reference.md#rover).
+Підтримувані каркаси можна переглянути в [Довіднику про планери  >  Rover(Рухавець)](../airframes/airframe_reference.md#rover).
 
 ## How to Configure a Rover
 
@@ -35,9 +35,9 @@ Setting up a rover with Ackermann steering is straightforward:
 
 1. Open the [Actuators Configuration & Testing](../config/actuators.md) to map the steering and throttle functions to flight controller outputs.
 
-### Differential Steering Configuration
+### Конфігурація диференційного керування
 
-1. In the [Airframe](../config/airframe.md) configuration, select either the _Aion Robotics R1 UGV_ or _NXP Cup car: DF Robot GPX_
+1. У конфігурації [Airframe](../config/airframe.md) виберіть або _Aion Robotics R1 UGV_, або _NXP Cup car: DF Robot GPX_
 
    ![Select Differential steered airframe](../../assets/config/airframe/airframe_rover_aion.png)
 
@@ -47,13 +47,13 @@ Select the **Apply and Restart** button.
 
 ## Симуляція
 
-[Gazebo Classic](../sim_gazebo_classic/index.md) provides simulations for both types of steering:
+[Класичний Газебо](../sim_gazebo_classic/index.md) надає симуляції для обох типів керування:
 
 - Ackermann: [ackermann rover](../sim_gazebo_classic/vehicles.md#ackermann-ugv)
 - Differential: [r1 rover](../sim_gazebo_classic/vehicles.md#differential-ugv)
 
 ## Відео
 
-This video shows the [Traxxas Stampede Rover](../frames_rover/traxxas_stampede.md) (an Ackermann vehicle).
+Це відео показує [Traxxas Stampede Rover](../frames_rover/traxxas_stampede.md) (автомобіль Акермана).
 
 @[youtube](https://youtu.be/N3HvSKS3nCw)
