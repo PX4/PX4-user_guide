@@ -25,30 +25,30 @@ Pixhawk® 5X ідеально підходить для розробників �
 
 ## Ключові пункти дизайну
 
-- Modular flight controller
-  - separated IMU, FMU, and Base system connected by a 100-pin & a 50-pin Pixhawk® Autopilot Bus connector, designed for flexible and customizable systems
-- Redundancy
-  - 3x IMU sensors & 2x Barometer sensors on separate buses, allowing parallel and continuous operation even in the event of a hardware failure
-- Triple redundancy domains
-  - Completely isolated sensor domains with separate buses and separate power control
-- Temperature-controlled IMUs
-  - Onboard IMU heating resistors, allowing optimum working temperature of IMUs
-- Vibration isolation system
-  - Newly designed system to filter out high frequency vibration and reduce noise to ensure accurate readings
-- Ethernet interface
-  - For high-speed mission computer integration
-- Automated sensor calibration eliminating varying signals and temperature
-- Two smart batteries monitoring on SMBus
-- Additional GPIO line and 5V for the external NFC reader
-- Secure element for secure authentication of the drone (SE050)
+- Модульний політний контролер
+  - відокремлений IMU, FMU та Base system, з'єднані за допомогою роз'ємів Pixhawk® Autopilot Bus на 100 & 50 контактів, призначені для гнучких та налаштовуваних систем
+- Резервування
+  - 3x датчики IMU & 2x датчики барометра на окремих шинах, що дозволяє паралельну та безперервну роботу навіть в разі відмови обладнання
+- Потрійне резервування доменів
+  - Повністю ізольовані сенсорні домени з окремими шинами та окремим керуванням живленням
+- IMU з контролем температури
+  - Вбудовані нагрівальні резистори IMU, що забезпечують оптимальну робочу температуру IMU
+- Система ізоляції вібрації
+  - Нова система, призначена для фільтрації високочастотних вібрацій та зменшення шуму для забезпечення точних даних
+- Інтерфейс Ethernet
+  - Для високошвидкісної інтеграції комп'ютера місії
+- Автоматизоване калібрування сенсорів, що усуває відхилення сигналів та температури
+- Моніторинг двох розумних батарей на SMBus
+- Додаткова лінія GPIO та 5V для зовнішнього NFC зчитувача
+- Безпечний елемент для безпечної аутентифікації дрона (SE050)
 
 ## Технічна специфікація
 
 - FMU Processor: STM32F765
-  - 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
+  - 32 Bit Arm® Cortex®-M7, 216MHz, 2MB пам'ять, 512KB RAM
 - IO Processor: STM32F100
   - 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
-- On-board Sensors:
+- Бортові сенсори:
 
   - Accel/Gyro: ICM-20649
   - Accel/Gyro: ICM-42688P
@@ -56,25 +56,25 @@ Pixhawk® 5X ідеально підходить для розробників �
   - Magnetometer: BMM150
   - Barometer: 2x BMP388
 
-- Interfaces
+- Інтерфейси
 
-  - 16- PWM servo outputs
-  - R/C input for Spektrum / DSM
-  - Dedicated R/C input for PPM and S.Bus input
-  - Dedicated analog / PWM RSSI input and S.Bus output
-  - 4 general purpose serial ports
-    - 3 with full flow control
-    - 1 with separate 1.5A current limit
-    - 1 with I2C and additional GPIO line for external NFC reader
-  - 2 GPS ports
-    - 1 full GPS & Safety Switch Port
-    - 1 basic GPS port
-  - 1 I2C port
-  - 1 Ethernet port
+  - 16 PWM виводів сервоприводів
+  - R/C вхід для Spektrum / DSM
+  - Виділений R/C вхід для PPM та S.Bus входу
+  - Спеціалізований аналоговий / PWM вхід RSSI та вивід S.Bus
+  - 4 загальних послідовних порти
+    - 3 з повним контролем потоку
+    - 1 з окремим обмеженням струму 1,5 А
+    - 1 з I2C та додатковою лінією GPIO для зовнішнього NFC зчитувача
+  - 2 порти GPS
+    - 1 повний GPS порт & порт запобіжного перемикача
+    - 1 базовий порт GPS
+  - 1 I2C порт
+  - 1 порт Ethernet
     - Transformerless Applications
   - 100Mbps
-  - 1 SPI bus
-  - 2 chip select lines
+  - 1 шина SPI
+  - 2 лінії вибору чіпу
   - 2 data-ready lines
   - 1 SPI SYNC line
   - 1 SPI reset line
