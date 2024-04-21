@@ -1,27 +1,27 @@
 # Holybro X500 + Pixhawk4 Build
 
-::: info Holybro initially supplied this kit with a [Holybro Pixhawk 4](../flight_controller/pixhawk4.md)), but at time of writing this has been upgraded to a [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md). This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
+:::info Holybro спочатку постачав цей комплект з [Holybro Pixhawk 4](../flight_controller/pixhawk4.md)), але на момент написання це було оновлено до [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md). Цей журнал збірки все ще актуальний, оскільки збірка комплекту практично однакова і, ймовірно, залишиться такою ж, оскільки контролер польоту оновлюється.
 :::
 
-This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
+Ця тема надає повні інструкції для збирання комплекту та налаштування PX4 з використанням *QGroundControl*.
 
-## Key information
+## Основна Інформація
 
-- **Full Kit:** [Holybro X500 Kit](https://holybro.com/products/px4-development-kit-x500-v2)
-- **Flight controller:** [Pixhawk 4](../flight_controller/pixhawk4.md)
-- **Assembly time (approx.):** 3.75 hours (180 minutes for frame, 45 minutes for autopilot installation/configuration)
+- **Повний комплект:** [Комплект Holybro X500](https://holybro.com/products/px4-development-kit-x500-v2)
+- **Контролер польоту:** [Pixhawk 4](../flight_controller/pixhawk4.md)
+- **Час зборки (приблизно):** 3.75 години (180 хвилин на раму, 45 хвилин на встановлення/налаштування автопілота)
 
 ![Full X500 Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hero.png)
 
-## Bill of materials
+## Специфікація матеріалів
 
-The Holybro [X500 Kit](https://holybro.com/products/px4-development-kit-x500-v2) includes almost all the required components:
+Набір Holybro [X500 Kit](https://holybro.com/products/px4-development-kit-x500-v2) включає майже всі необхідні компоненти:
 
-* [Pixhawk 4 autopilot](../flight_controller/pixhawk4.md)
-* [Holybro M8N GPS](https://holybro.com/collections/gps/products/m8n-gps)
-* [Power Management - PM07](../power_module/holybro_pm07_pixhawk4_power_module.md)
-* Holybro Motors - 2216 KV880 x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
-* Holybro BLHeli S ESC 20A x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
+* [Pixhawk 4 автопілот](../flight_controller/pixhawk4.md)
+* [Holybro M9N GPS](https://holybro.com/collections/gps/products/m8n-gps)
+* [Керування живленням - PM07](../power_module/holybro_pm07_pixhawk4_power_module.md)
+* Двигуни Holybro - 2216 KV880 x4 (скасовано - перевірте [список запасних частин](https://holybro.com/products/spare-parts-x500-v2-kit) для поточної версії).
+* ESC Holybro BLHeli S 20A x4 (скасовано - перевірте [список запасних частин](https://holybro.com/products/spare-parts-x500-v2-kit) для поточної версії).
 * Propellers - 1045 x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
 * Battery Strap
 * Power and Radio Cables
@@ -197,28 +197,28 @@ That's it. The fully assembled kit is shown below:
 ## Конфігурація PX4
 
 :::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
+Повні інструкції щодо встановлення та налаштування PX4 можна знайти в [Основна конфігурація](../config/index.md).
 :::
 
-*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the X500 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl* використовується для встановлення автопілота PX4 та його налаштування / налаштування для рами X500. [Завантажте та встановіть](http://qgroundcontrol.com/downloads/) *QGroundControl* для вашої платформи.
 
-First update the firmware, airframe, and actuator mappings:
+Спочатку оновіть прошивку, конструкцію та відображення приводів:
 
-- [Firmware](../config/firmware.md)
-- [Airframe](../config/airframe.md)
+- [Прошивка](../config/firmware.md)
+- [Рама або планер](../config/airframe.md)
 
-  You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
+  Вам потрібно буде вибрати шасі *Holybro S500* (**Квадрокоптер x >  Holybro S500**).
 
   ![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/s500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
 
-- [Actuators](../config/actuators.md)
-  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
-  - Assign actuator functions to outputs to match your wiring.
-  - Test the configuration using the sliders.
+- [Приводи](../config/actuators.md)
+  - Вам не потрібно оновлювати геометрію транспортного засобу (оскільки це попередньо налаштована конструкція повітряного каркасу).
+  - Призначте функції приводу до виходів, щоб відповідати вашому підключенню.
+  - Перевірте конфігурацію, використовуючи слайдери.
 
-Then perform the mandatory setup/calibration:
+Потім виконайте обов'язкове налаштування / калібрування:
 
-- [Sensor Orientation](../config/flight_controller_orientation.md)
+- [Орієнтація сенсора](../config/flight_controller_orientation.md)
 - [Compass](../config/compass.md)
 - [Accelerometer](../config/accelerometer.md)
 - [Level Horizon Calibration](../config/level_horizon_calibration.md)
@@ -232,12 +232,12 @@ Ideally you should also do:
 - [Safety](../config/safety.md)
 
 
-## Tuning
+## Вдосконалення
 
-Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
+Набори вибору конструкції встановлюють параметри автопілота *за замовчуванням* для рами. Ці вистачають для польоту, але це добра ідея налаштувати параметри для конкретної конструкції рами.
 
-For instructions on how, start from [Autotune](../config/autotune.md).
+Для інструкцій щодо того, як розпочати, почніть з [Автоналаштування](../config/autotune.md).
 
-## Acknowledgements
+## Подяки
 
-This build log was provided by the Dronecode Test Flight Team.
+Цей журнал збірки був наданий Командою тестового польоту Dronecode.
