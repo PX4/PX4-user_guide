@@ -5,14 +5,14 @@ ULog - це формат файлу, що використовується дл�
 PX4 використовує ULog для ведення журналу тем uORB як повідомлення, пов'язані з (але не обмежені) наступними джерелами:
 
 - **Пристрій входу:** датчики, RC, вхід тощо.
-- **Internal states:** CPU load, attitude, EKF state, etc.
-- **String messages:** `printf` statements, including `PX4_INFO()` and `PX4_ERR()`.
+- **Внутрішні стани:** Завантаження ЦП, ставлення, стан EKF тощо.
+- **Рядкові повідомлення:** оператори `printf`, включаючи `PX4_INFO()` та `PX4_ERR()`.
 
-The format uses [little endian](https://en.wikipedia.org/wiki/Endianness) memory layout for all binary types (the least significant byte (LSB) of data type is placed at the lowest memory address).
+Формат використовує пам'ять з [маленьким кінцем](https://en.wikipedia.org/wiki/Endianness) для всіх бінарних типів (найменш значущий байт (LSB) типу даних розміщений за найнижчою адресою пам'яті).
 
 ## Типи даних
 
-Для ведення журналу використовуються наступні типи двійкових даних. They all correspond to the types in C.
+Для ведення журналу використовуються наступні типи двійкових даних. Вони всі відповідають типам у мові програмування C.
 
 | Тип                 | Розмір у байтах |
 | ------------------- | --------------- |
@@ -64,7 +64,7 @@ The format uses [little endian](https://en.wikipedia.org/wiki/Endianness) memory
 
 ### Заголовок повідомлення розділу визначення та даних
 
-Секції _Визначення та Дані_ містять кілька **повідомлень**. Each message is preceded by this header:
+Секції _Визначення та Дані_ містять кілька **повідомлень**. Кожне повідомлення передує цим заголовком:
 
 ```c
 struct message_header_s {
@@ -79,25 +79,25 @@ struct message_header_s {
 :::info Розділи повідомлення нижче передуються символом, який відповідає його `msg_type`.
 :::
 
-### Definitions Section
+### Розділ визначень
 
-The definitions section contains basic information such as software version, message format, initial parameter values, and so on.
+Розділ визначень містить основну інформацію, таку як версія програмного забезпечення, формат повідомлення, початкові значення параметрів тощо.
 
-The message types in this section are:
+Основні типи повідомлень в цьому розділі є:
 
 1. [Flag Bits](#b-flag-bits-message)
-2. [Format Definition](#f-format-message)
-3. [Information](#i-information-message)
+2. [Визначення формату](#f-format-message)
+3. [Інформація](#i-information-message)
 4. [Multi Information](#m-multi-information-message)
-5. [Parameter](#p-parameter-message)
-6. [Default Parameter](#q-default-parameter-message)
+5. [Параметр](#p-parameter-message)
+6. [Параметр за замовчуванням](#q-default-parameter-message)
 
-#### 'B': Flag Bits Message
+#### 'B': Повідомлення флагів бітів
 
-::: info This message must be the **first message** right after the header section, so that it has a fixed constant offset from the start of the file!
+:::info Це повідомлення повинно бути **першим повідомленням** одразу після розділу заголовка, щоб мати постійний фіксований зсув від початку файлу!
 :::
 
-This message provides information to the log parser whether the log is parsable or not.
+Це повідомлення надає інформацію лог-аналізатору про те, чи можна аналізувати журнал.
 
 ```c
 struct ulog_message_flag_bits_s {
@@ -108,32 +108,32 @@ struct ulog_message_flag_bits_s {
 };
 ```
 
-- `compat_flags`: compatible flag bits
+- `compat_flags`: біти сумісності прапорців
 
-  - These flags indicate the presence of features in the log file that are compatible with any ULog parser.
-  - `compat_flags[0]`: _DEFAULT_PARAMETERS_ (Bit 0): if set, the log contains [default parameters message](#q-default-parameter-message)
+  - Ці прапорці вказують на наявність функцій у файлі журналу, які сумісні з будь-яким парсером ULog.
+  - `compat_flags[0]`: _DEFAULT_PARAMETERS_ (Біт 0): якщо встановлено, журнал містить [повідомлення про типові параметри](#q-default-parameter-message)
 
-  The rest of the bits are currently not defined and must be set to 0. These bits can be used for future ULog changes that are compatible with existing parsers. For example, adding a new message type can be indicated by defining a new bit in the standard, and existing parsers will ignore the new message type. It means parsers can just ignore the bits if one of the unknown bits is set.
+  Решта бітів наразі не визначені і повинні бути встановлені на 0. Ці біти можуть бути використані для майбутніх змін ULog, які сумісні з існуючими парсерами. Наприклад, додавання нового типу повідомлення може бути вказане шляхом визначення нового біта у стандарті, а існуючі парсери ігноруватимуть новий тип повідомлення. Це означає, що парсери можуть просто ігнорувати біти, якщо один з невідомих бітів встановлений.
 
-- `incompat_flags`: incompatible flag bits.
+- `incompat_flags`: несумісні біти прапорців.
 
-  - `incompat_flags[0]`: _DATA_APPENDED_ (Bit 0): if set, the log contains appended data and at least one of the `appended_offsets` is non-zero.
+  - `incompat_flags[0]`: _DATA_APPENDED_ (Біт 0): якщо встановлено, журнал містить додані дані та щонайменше один з `appended_offsets` не є нульовим.
 
-  The rest of the bits are currently not defined and must be set to 0. This can be used to introduce breaking changes that existing parsers cannot handle. For example, when an old ULog parser that didn't have the concept of _DATA_APPENDED_ reads the newer ULog, it would stop parsing the log as the log will contain out-of-spec messages / concepts. If a parser finds any of these bits set that isn't specified, it must refuse to parse the log.
+  Решта бітів наразі не визначені і повинні бути встановлені на 0. Це може бути використано для введення руйнівних змін, які існуючі парсери не можуть обробити. Наприклад, коли старий парсер ULog, який не мав поняття _DATA_APPENDED_, читає новий ULog, він припинить розбір журналу, оскільки журнал міститиме повідомлення / концепції, які не відповідають специфікації. Якщо парсер виявляє, що будь-який з цих бітів встановлений, що не вказано, він повинен відмовитися від аналізу журналу.
 
-- `appended_offsets`: File offset (0-based) for appended data. If no data is appended, all offsets must be zero. This can be used to reliably append data for logs that may stop in the middle of a message. For example, crash dumps.
+- `appended_offsets`: Зсув файлу (0-основний) для додаваних даних. Якщо даних не додається, всі зміщення повинні бути нульовими. Це може бути використано для надійного додавання даних до журналів, які можуть припинитись посеред повідомлення. Наприклад, дампи збоїв.
 
-  A process appending data should do:
+  Процес додавання даних повинен виконати:
 
-  - set the relevant `incompat_flags` bit
-  - set the first `appended_offsets` that is currently 0 to the length of the log file without the appended data, as that is where the new data will start
-  - append any type of messages that are valid for the Data section.
+  - встановити відповідний біт `incompat_flags`
+  - встановіть перший `appended_offsets`, який наразі дорівнює 0, до довжини файлу журналу без доданих даних, оскільки саме там почнуться нові дані
+  - додайте будь-який тип повідомлень, які є дійсними для розділу Дані.
 
-It is possible that there are more fields appended at the end of this message in future ULog specifications. This means a parser must not assume a fixed length of this message. If the `msg_size` is bigger than expected (currently 40), any additional bytes must be ignored/discarded.
+Можливо, що у майбутніх специфікаціях ULog буде додано ще декілька полів в кінці цього повідомлення. Це означає, що парсер не повинен припускати фіксовану довжину цього повідомлення. Якщо розмір `msg_size` більший, ніж очікувалося (зараз 40), будь-які додаткові байти повинні бути проігноровані / відкинуті.
 
-#### 'F': Format Message
+#### 'F': Формат повідомлення
 
-Format message defines a single message name and its inner fields in a single string.
+Формат повідомлення визначає одне ім'я повідомлення та його внутрішні поля в одному рядку.
 
 ```c
 struct message_format_s {
@@ -142,35 +142,35 @@ struct message_format_s {
 };
 ```
 
-- `format` is a plain-text string with the following format: `message_name:field0;field1;`
-  - There can be an arbitrary amount of fields (minimum 1), separated by `;`.
-  - `message_name`: an arbitrary non-empty string with these allowed characters: `a-zA-Z0-9_-/` (and different from any of the [basic types](#data-types)).
+- `format` - це рядок звичайного тексту із наступним форматом: `message_name:field0;field1;`
+  - Може бути довільна кількість полів (мінімум 1), розділених за допомогою `;`.
+  - `message_name`: довільний непорожній рядок з цими допустимими символами: `a-zA-Z0-9_-/` (і відмінний від будь-якого з [основних типів](#data-types)).
 
-A `field` has the format: `type field_name`, or for an array: `type[array_length] field_name` is used (only fixed size arrays are supported). `field_name` must consist of the characters in the set `a-zA-Z0-9_`.
+Поле має формат: `тип назва_поля`, або для масиву: `тип[довжина_масиву] назва_поля` використовується (підтримуються лише масиви фіксованого розміру). `field_name` повинен складатися з символів у наборі `a-zA-Z0-9_`.
 
-A `type` is one of the [basic binary types](#data-types) or a `message_name` of another format definition (nested usage).
+`Тип` - один із [основних бінарних типів](#data-types) або `message_name` іншого визначення формату (вкладене використання).
 
-- A type can be used before it's defined.
-  - e.g. The message `MessageA:MessageB[2] msg_b` can come before the `MessageB:uint_8[3] data`
-- There can be arbitrary nesting but **no circular dependencies**
+- Тип може бути використаний до того, як він буде визначений.
+  - наприклад, Повідомлення `MessageA:MessageB[2] msg_b` може прийти до `MessageB:uint_8[3] data`
+- Може бути довільне вкладення, але **без циклічних залежностей**
   - e.g. `MessageA:MessageB[2] msg_b` & `MessageB:MessageA[4] msg_a`
 
-Some field names are special:
+Деякі назви полів є спеціальними:
 
-- `timestamp`: every message format with a [Subscription Message](#a-subscription-message) must include a timestamp field (for example a message format only used as part of a nested definition by another format may not include a timestamp field)
-  - Its type must be `uint64_t`.
-  - The unit is microseconds.
-  - The timestamp must always be monotonic increasing for a message series with the same `msg_id` (same subscription).
-- `_padding{}`: field names that start with `_padding` (e.g. `_padding[3]`) should not be displayed and their data must be ignored by a reader.
-  - These fields can be inserted by a writer to ensure correct alignment.
-  - If the padding field is the last field, then this field may not be logged, to avoid writing unnecessary data.
-  - This means the `message_data_s.data` will be shorter by the size of the padding.
-  - However the padding is still needed when the message is used in a nested definition.
-- In general, message fields are not necessarily aligned (i.e. the field offset within the message is not necessarily a multiple of its data size), so a reader must always use appropriate memory copy methods to access individual fields.
+- `відмітка часу`: кожен формат повідомлення з [Повідомленням про підписку](#a-subscription-message) повинен містити поле відмітки часу (наприклад, формат повідомлення, який використовується лише як частина вкладеного визначення іншим форматом, може не містити поля відмітки часу)
+  - Його тип повинен бути `uint64_t`.
+  - Одиниця вимірювання - мікросекунди.
+  - Часовий позначення завжди повинно бути монотонно зростаючим для серії повідомлень з тим самим `msg_id` (тією самою підпискою).
+- `_padding{}`: імена полів, які починаються з `_padding` (наприклад, `_padding[3]`), не повинні відображатися, і їх дані повинні бути ігноровані читачем.
+  - Ці поля можуть бути вставлені письменником для забезпечення правильного вирівнювання.
+  - Якщо поле відступу є останнім полем, тоді це поле може не бути зареєстроване, щоб уникнути запису непотрібних даних.
+  - Це означає, що `message_data_s.data` буде коротшим на розмір відступу.
+  - Однак відступ все ще потрібен, коли повідомлення використовується во вкладеному визначенні.
+- Загалом, поля повідомлень не обов'язково вирівняні (тобто зсув поля всередині повідомлення не обов'язково є кратним його розміру даних), тому читач завжди повинен використовувати відповідні методи копіювання пам'яті для доступу до окремих полів.
 
-#### 'I': Information Message
+#### 'I': Інформаційне повідомлення
 
-The Information message defines a dictionary type definition `key` : `value` pair for any information, including but not limited to Hardware version, Software version, Build toolchain for the software, etc.
+Повідомлення про інформацію визначає типове визначення словника `key` : `value` пари для будь-якої інформації, включаючи, але не обмежуючись, версію апаратного забезпечення, версію програмного забезпечення, засіб збірки для програмного забезпечення тощо.
 
 ```c
 struct ulog_message_info_header_s {
@@ -185,32 +185,32 @@ struct ulog_message_info_header_s {
 - `key`: Contains the key string in the form`type name`, e.g. `char[value_len] sys_toolchain_ver`. Valid characters for the name: `a-zA-Z0-9_-/`. The type may be one of the [basic types including arrays](#data-types).
 - `value`: Contains the data (with the length `value_len`) corresponding to the `key` e.g. `9.4.0`.
 
-::: info
-A key defined in the Information message must be unique. Meaning there must not be more than one definition with the same key value.
+:::info
+Ключ, визначений у повідомленні Інформації, повинен бути унікальним. Означає, що не повинно бути більше одного визначення з таким самим ключовим значенням.
 :::
 
-Parsers can store information messages as a dictionary.
+Парсери можуть зберігати інформаційні повідомлення у вигляді словника.
 
-Predefined information messages are:
+Попередньо визначені інформаційні повідомлення:
 
-| key                                 | Description                                 | Example for value  |
-| ----------------------------------- | ------------------------------------------- | ------------------ |
-| `char[value_len] sys_name`          | Name of the system                          | "PX4"              |
-| `char[value_len] ver_hw`            | Hardware version (board)                    | "PX4FMU_V4"        |
-| `char[value_len] ver_hw_subtype`    | Board subversion (variation)                | "V2"               |
-| `char[value_len] ver_sw`            | Software version (git tag)                  | "7f65e01"          |
-| `char[value_len] ver_sw_branch`     | git branch                                  | "master"           |
-| `uint32_t ver_sw_release`           | Software version (see below)                | 0x010401ff         |
-| `char[value_len] sys_os_name`       | Operating System Name                       | "Linux"            |
-| `char[value_len] sys_os_ve`r        | OS version (git tag)                        | "9f82919"          |
-| `uint32_t ver_os_release`           | OS version (see below)                      | 0x010401ff         |
-| `char[value_len] sys_toolchain`     | Toolchain Name                              | "GNU GCC"          |
-| `char[value_len] sys_toolchain_ver` | Toolchain Version                           | "6.2.1"            |
-| `char[value_len] sys_mcu`           | Chip name and revision                      | "STM32F42x, rev A" |
-| `char[value_len] sys_uuid`          | Unique identifier for vehicle (eg. MCU ID)  | "392a93e32fa3"...  |
-| `char[value_len] log_type`          | Type of the log (full log if not specified) | "mission"          |
-| `char[value_len] replay`            | File name of replayed log if in replay mode | "log001.ulg"       |
-| `int32_t time_ref_utc`              | UTC Time offset in seconds                  | -3600              |
+| key                                 | Опис                                                       | Example for value  |
+| ----------------------------------- | ---------------------------------------------------------- | ------------------ |
+| `char[value_len] sys_name`          | Name of the system                                         | "PX4"              |
+| `char[value_len] ver_hw`            | Hardware version (board)                                   | "PX4FMU_V4"        |
+| `char[value_len] ver_hw_subtype`    | Board subversion (variation)                               | "V2"               |
+| `char[value_len] ver_sw`            | Software version (git tag)                                 | "7f65e01"          |
+| `char[value_len] ver_sw_branch`     | git branch                                                 | "master"           |
+| `uint32_t ver_sw_release`           | Software version (see below)                               | 0x010401ff         |
+| `char[value_len] sys_os_name`       | Operating System Name                                      | "Linux"            |
+| `char[value_len] sys_os_ve`r        | OS version (git tag)                                       | "9f82919"          |
+| `uint32_t ver_os_release`           | Версія ОС (див. нижче)                                     | 0x010401ff         |
+| `char[value_len] sys_toolchain`     | Toolchain Name                                             | "GNU GCC"          |
+| `char[value_len] sys_toolchain_ver` | Toolchain Version                                          | "6.2.1"            |
+| `char[value_len] sys_mcu`           | Chip name and revision                                     | "STM32F42x, rev A" |
+| `char[value_len] sys_uuid`          | Unique identifier for vehicle (eg. MCU ID)                 | "392a93e32fa3"...  |
+| `char[value_len] log_type`          | Type of the log (full log if not specified)                | "mission"          |
+| `char[value_len] replay`            | Ім'я файлу відтвореного журналу, якщо в режимі відтворення | "log001.ulg"       |
+| `int32_t time_ref_utc`              | UTC Time offset in seconds                                 | -3600              |
 
 ::: info `value_len` represents the data size of the `value`. This is described in the `key`.
 :::
