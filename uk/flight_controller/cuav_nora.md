@@ -1,13 +1,13 @@
-# CUAV Nora Flight Controller
+# Диспетчер польотів CUAV Nora
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (або будь-який) автопілот. Звертайтесь до [виробника](https://www.cuav.net) щодо питань апаратного забезпечення або питань відповідності.
 :::
 
-The [Nora](https://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup> flight controller is a high-performance autopilot. It is an ideal choice for industrial drones and large-scale heavy-duty drones. It is mainly supplied to commercial manufacturers.
+Контролер польоту [Nora](https://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup> - це високопродуктивний автопілот. Це ідеальний вибір для промислових дронів і великомасштабних важких дронів. В основному постачається комерційним виробникам.
 
 ![CUAV x7](../../assets/flight_controller/cuav_nora/nora.png)
 
-Nora is a variant of the CUAV X7. It adopts an integrated motherboard (soft and hard board), which reduces flight controller's internal connectors, improves reliability, and places all the interfaces on the side (making the wiring more concise).
+Нора - це варіант CUAV X7. Він використовує інтегровану материнську плату (м'яку і тверду), що зменшує кількість внутрішніх роз'ємів польотного контролера, підвищує надійність і розміщує всі інтерфейси збоку (роблячи проводку більш лаконічною).
 
 :::info Цей польотний контролер [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
@@ -15,55 +15,55 @@ Nora is a variant of the CUAV X7. It adopts an integrated motherboard (soft and 
 ## Особливості
 
 - Внутрішнє поглинання ударів
-- The integrated process reduces the failure caused by interface damage.
-- Support USB_HS, download logs faster (PX4 not yet supported)
-- Support more dshot output
-- Support IMU heating, make the sensor work better
-- Dedicated CAN battery port
-- 3 sets of IMU sensors
-- Car-grade RM3100 compass
-- High performance processor
+- Інтегрований процес зменшує відмову, спричинену пошкодженням інтерфейсу.
+- Підтримка USB_HS, швидше завантаження журналів (PX4 ще не підтримується)
+- Підтримка більшої кількості виходів dshot
+- Підтримка нагріву IMU, покращення роботи датчика
+- Виділений порт для акумулятора CAN
+- 3 комплекти датчиків IMU
+- Автомобільний компас RM3100
+- Високопродуктивний процесор
 
 :::tip
-The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/nora.html) are the canonical reference for Nora. They should be used by preference as they contain the most complete and up to date information.
+Виробник [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/nora.html) є канонічним посиланням для Nora. Вони повинні використовуватися за перевагою, оскільки вони містять найбільш повну та актуальну інформацію.
 :::
 
 ## Короткий опис
 
-- Main FMU Processor: STM32H743
-- On-board sensors:
+- Головний FMU процесор: STM32H743
+- Бортові сенсори:
 
-  - Accelerometer/Gyroscope: ICM-20689
-  - Accelerometer/Gyroscope: ICM-20649
-  - Accelerometer/Gyroscope: BMI088
-  - Magnetometer: RM3100
-  - Barometer: MS5611\*2
+  - Акселерометр/Гіроскоп: ICM-20689
+  - Прискорювач/гіроскоп: ICM-20649
+  - Акселерометр/Гіроскоп: BMI088
+  - Магнітометр: RM3100
+  - Барометр: MS5611\*2
 
 - Інтерфейси:
-  - 14 PWM outputs （12 supports Dshot）
-  - Support multiple RC inputs (SBUs / CPPM / DSM)
-  - Analogue / PWM RSSI input
-  - 2 GPS ports(GPS and UART4 ports)
-  - 4 i2c buses(Two i2c dedicated ports)
-  - 2 CAN bus ports
-  - 2 Power ports(Power A is common adc interface, Power C is DroneCAN battery interface)
-  - 2 ADC input
-  - 1 USB ports
-- Power System:
-  - Power: 4.3~5.4V
-  - USB Input: 4.75~5.25V
-  - Servo Rail Input: 0~36V
-- Weight and Dimensions:
-  - Weight: 101 g
-- Other Characteristics:
-  - Operating temperature: -20 ~ 80°c（Measured value）
-  - Three imus
-  - Supports temperature compensation
-  - Internal shock absorption
+  - 14 ШІМ-виходів （12 підтримує Dshot）
+  - Підтримка декількох входів RC (SBU / CPPM / DSM)
+  - Аналоговий / PWM вхід RSSI
+  - 2 GPS порти (GPS і UART4 порти)
+  - 4 шини i2c (два виділені порти i2c)
+  - 2 порти CAN шини
+  - 2 порти живлення (Power A - загальний інтерфейс адаптера, Power C - інтерфейс акумулятора DroneCAN)
+  - 2 входи АЦП
+  - 1 USB порт
+- Система живлення:
+  - Живлення: 4.3~5.4В
+  - Вхід USB: 4.75~5.25В
+  - Вхід сервоприводу: 0~36V
+- Вага та розміри:
+  - Вага: 101 g
+- Інші характеристики:
+  - Робоча температура: -20 ~ 80°c (виміряне значення)
+  - Три імуси
+  - Підтримка компенсації температури
+  - Внутрішнє поглинання ударів
 
 ::: info
-When it runs PX4 firmware, only 8 PWM outputs work.
-The remaining 6 PWM ports are still being adapted (so it is not compatible with VOLT at time of writing).
+Коли він працює під управлінням прошивки PX4, працюють лише 8 ШІМ-виходів.
+Решта 6 ШІМ-портів все ще адаптуються (тому на момент написання статті вони не сумісні з VOLT).
 :::
 
 ## Де придбати
@@ -73,21 +73,21 @@ The remaining 6 PWM ports are still being adapted (so it is not compatible with 
 
 ## З'єднання (Проводка)
 
-[CUAV nora Wiring Quickstart](https://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
+[Короткий посібник з підключення CUAV nora](https://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
 
-## Size and Pinouts
+## Розмір та роз'єми
 
 ![CUAV x7](../../assets/flight_controller/cuav_nora/nora-size.jpg)
 
 ![X7 pinouts](../../assets/flight_controller/cuav_nora/nora-pinouts.jpg)
 
 :::warning
-The `RCIN` port is limited to powering the rc receiver and cannot be connected to any power/load.
+Порт `RCIN` призначено лише для живлення rc-приймача і його не можна підключати до жодного джерела живлення/навантаження.
 :::
 
-## Voltage Ratings
+## Номінальна напруга
 
-Nora AutoPilot\* can be triple-redundant on the power supply if three power sources are supplied. The two power rails are: **POWERA**, **POWERC** and **USB**.
+Nora AutoPilot\* може мати потрійне резервування джерела живлення, якщо до нього підключено три джерела живлення. Дві шини живлення: **POWERA**, **POWERC** і **USB**.
 
 ::: info The output power rails **PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered.
 :::
