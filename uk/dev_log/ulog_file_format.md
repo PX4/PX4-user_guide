@@ -181,9 +181,9 @@ struct ulog_message_info_header_s {
 };
 ```
 
-- `key_len`: Length of the key value
-- `key`: Contains the key string in the form`type name`, e.g. `char[value_len] sys_toolchain_ver`. Valid characters for the name: `a-zA-Z0-9_-/`. The type may be one of the [basic types including arrays](#data-types).
-- `value`: Contains the data (with the length `value_len`) corresponding to the `key` e.g. `9.4.0`.
+- `key_len`: Довжина значення ключа
+- `key`: Містить рядок ключа у формі `type name`, наприклад, `char[value_len] sys_toolchain_ver`. Допустимі символи для імені: `a-zA-Z0-9_-/`. Тип може бути одним з [основних типів, включаючи масиви](#data-types).
+- `значення`: Містить дані (з довжиною `value_len`), що відповідають ключу `key`, наприклад `9.4.0`.
 
 :::info
 Ключ, визначений у повідомленні Інформації, повинен бути унікальним. Означає, що не повинно бути більше одного визначення з таким самим ключовим значенням.
@@ -193,37 +193,37 @@ struct ulog_message_info_header_s {
 
 Попередньо визначені інформаційні повідомлення:
 
-| key                                 | Опис                                                       | Example for value  |
-| ----------------------------------- | ---------------------------------------------------------- | ------------------ |
-| `char[value_len] sys_name`          | Name of the system                                         | "PX4"              |
-| `char[value_len] ver_hw`            | Hardware version (board)                                   | "PX4FMU_V4"        |
-| `char[value_len] ver_hw_subtype`    | Board subversion (variation)                               | "V2"               |
-| `char[value_len] ver_sw`            | Software version (git tag)                                 | "7f65e01"          |
-| `char[value_len] ver_sw_branch`     | git branch                                                 | "master"           |
-| `uint32_t ver_sw_release`           | Software version (see below)                               | 0x010401ff         |
-| `char[value_len] sys_os_name`       | Operating System Name                                      | "Linux"            |
-| `char[value_len] sys_os_ve`r        | OS version (git tag)                                       | "9f82919"          |
-| `uint32_t ver_os_release`           | Версія ОС (див. нижче)                                     | 0x010401ff         |
-| `char[value_len] sys_toolchain`     | Toolchain Name                                             | "GNU GCC"          |
-| `char[value_len] sys_toolchain_ver` | Toolchain Version                                          | "6.2.1"            |
-| `char[value_len] sys_mcu`           | Chip name and revision                                     | "STM32F42x, rev A" |
-| `char[value_len] sys_uuid`          | Unique identifier for vehicle (eg. MCU ID)                 | "392a93e32fa3"...  |
-| `char[value_len] log_type`          | Type of the log (full log if not specified)                | "mission"          |
-| `char[value_len] replay`            | Ім'я файлу відтвореного журналу, якщо в режимі відтворення | "log001.ulg"       |
-| `int32_t time_ref_utc`              | UTC Time offset in seconds                                 | -3600              |
+| key                                 | Опис                                                                             | Приклад для значення |
+| ----------------------------------- | -------------------------------------------------------------------------------- | -------------------- |
+| `char[value_len] sys_name`          | Назва системи                                                                    | "PX4"                |
+| `char[value_len] ver_hw`            | Версія апаратного забезпечення (плата)                                           | "PX4FMU_V4"          |
+| `char[value_len] ver_hw_subtype`    | Підстава плати (варіація)                                                        | "V2"                 |
+| `char[value_len] ver_sw`            | Версія програмного забезпечення (git tag)                                        | "7f65e01"            |
+| `char[value_len] ver_sw_branch`     | git branch                                                                       | "master"             |
+| `uint32_t ver_sw_release`           | Версія програмного забезпечення (див. нижче)                                     | 0x010401ff           |
+| `char[value_len] sys_os_name`       | Назва операційної системи                                                        | "Linux"              |
+| `char[value_len] sys_os_ve`r        | Версія ОС (git tag)                                                              | "9f82919"            |
+| `uint32_t ver_os_release`           | Версія ОС (див. нижче)                                                           | 0x010401ff           |
+| `char[value_len] sys_toolchain`     | Назва набору інструментів                                                        | "GNU GCC"            |
+| `char[value_len] sys_toolchain_ver` | Версія інструментального набору                                                  | "6.2.1"              |
+| `char[value_len] sys_mcu`           | Назва мікросхеми та ревізія                                                      | "STM32F42x, rev A"   |
+| `char[value_len] sys_uuid`          | Унікальний ідентифікатор для транспортного засобу (наприклад, ідентифікатор MCU) | "392a93e32fa3"...    |
+| `char[value_len] log_type`          | Тип журналу (повний журнал, якщо не вказано)                                     | "mission"            |
+| `char[value_len] replay`            | Ім'я файлу відтвореного журналу, якщо в режимі відтворення                       | "log001.ulg"         |
+| `int32_t time_ref_utc`              | Зсув часу UTC в секундах                                                         | -3600                |
 
-::: info `value_len` represents the data size of the `value`. This is described in the `key`.
+:::info `value_` відображає розмір даних `значення`. Це описано у `key`.
 :::
 
-- The format of `ver_sw_release` and `ver_os_release` is: 0xAABBCCTT, where AA is **major**, BB is **minor**, CC is patch and TT is the **type**.
-  - **Type** is defined as following: `>= 0`: development, `>= 64`: alpha version, `>= 128`: beta version, `>= 192`: RC version, `== 255`: release version.
-  - For example, `0x010402FF` translates into the release version v1.4.2.
+- Формат `ver_sw_release` та `ver_os_release` становить: 0xAABBCCTT, де AA - **major**, BB - ** minor **, CC - патч, а TT - **type**.
+  - **Тип** визначається наступним чином: `>= 0`: розробка, `>= 64`: альфа-версія, `>= 128`: бета-версія, `>= 192`: RC-версія, `== 255`: версія релізу.
+  - Наприклад, `0x010402FF` перекладається у випуск версії v1.4.2.
 
-This message can also be used in the Data section (this is however the preferred section).
+Це повідомлення також може бути використано в розділі Дані (це, однак, переважний розділ).
 
-#### 'M': Multi Information Message
+#### 'M': Багатоінформаційне повідомлення
 
-Multi information message serves the same purpose as the information message, but for long messages or multiple messages with the same key.
+Повідомлення з багатою інформацією слугує такій же меті, як і повідомлення інформації, але для довгих повідомлень або кількох повідомлень з одним і тим же ключем.
 
 ```c
 struct ulog_message_info_multiple_header_s {
@@ -235,15 +235,15 @@ struct ulog_message_info_multiple_header_s {
 };
 ```
 
-- `is_continued` can be used for split-up messages: if set to 1, it is part of the previous message with the same key.
+- `is_continued` може бути використаний для розділення повідомлень: якщо встановлено 1, це частина попереднього повідомлення з тим самим ключем.
 
-Parsers can store all information multi messages as a 2D list, using the same order as the messages occur in the log.
+Парсери можуть зберігати всю інформацію про багато повідомлень у вигляді 2D-списку, використовуючи той самий порядок, що й повідомлення в лог-файлі.
 
-Valid names and types are the same as for the Information message.
+Дійсні імена та типи такі ж, як для повідомлення Інформація.
 
-#### 'P': Parameter Message
+#### 'P': Повідомлення параметра
 
-Parameter message in the _Definitions_ section defines the parameter values of the vehicle when logging is started. It uses the same format as the [Information Message](#i-information-message).
+Повідомлення параметра в розділі _Визначення_ визначає значення параметрів транспортного засобу при початку реєстрації. Він використовує той самий формат, що і [Повідомлення інформації](#i-information-message).
 
 ```c
 struct message_info_s {
@@ -254,13 +254,13 @@ struct message_info_s {
 };
 ```
 
-If a parameter dynamically changes during runtime, this message can also be [used in the Data section](#messages-shared-with-the-definitions-section) as well.
+Якщо параметр динамічно змінюється під час виконання, це повідомлення також може бути [використано в розділі Дані](#messages-shared-with-the-definitions-section) також.
 
-The data type is restricted to `int32_t` and `float`. Допустимі символи для імені: `a-zA-Z0-9_-/`.
+Тип даних обмежений `int32_t` та `float`. Допустимі символи для імені: `a-zA-Z0-9_-/`.
 
 #### 'Q': Параметр повідомлення за замовчуванням
 
-The default parameter message defines the default value of a parameter for a given vehicle and setup.
+Повідомлення параметра за замовчуванням визначає значення параметра для вказаного транспортного засобу та налаштувань.
 
 ```c
 struct ulog_message_parameter_default_header_s {
@@ -272,36 +272,36 @@ struct ulog_message_parameter_default_header_s {
 };
 ```
 
-- `default_types` is a bitfield and defines to which group(s) the value belongs to.
-  - At least one bit must be set:
-    - `1<<0`: system wide default
-    - `1<<1`: default for the current configuration (e.g. an airframe)
+- `default_types` є бітовим полем і визначає, до якої (яких) групи(ів) належить значення.
+  - Принаймні один біт повинен бути встановлений:
+    - `1<<0`: системний стандарт за замовчуванням
+    - `1<<1`: за замовчуванням для поточної конфігурації (наприклад, конструкція повітряного корпусу)
 
-A log may not contain default values for all parameters. In those cases the default is equal to the parameter value, and different default types are treated independently.
+Журнал не може містити значень за замовчуванням для всіх параметрів. У цих випадках значення за замовчуванням дорівнює значенню параметра, а різні типи за замовчуванням розглядаються незалежно один від одного.
 
-This message can also be used in the Data section, and the same data type and naming applies as for the Parameter message.
+Це повідомлення також може бути використане в розділі Дані, і застосовується той самий тип даних та найменування, як і для повідомлення Параметр.
 
-This section ends before the start of the first [Subscription Message](#a-subscription-message) or [Logging](#l-logged-string-message) message, whichever comes first.
+Цей розділ закінчується до початку першого [Повідомлення про підписку](#a-subscription-message) або повідомлення [Логування](#l-logged-string-message), яке спочатку.
 
 ### Розділ даних
 
-The message types in the _Data_ section are:
+Основні типи повідомлень в розділі _Дані_ є:
 
-1. [Subscription](#a-subscription-message)
-2. [Unsubscription](#r-unsubscription-message)
-3. [Logged Data](#d-logged-data-message)
-4. [Logged String](#l-logged-string-message)
+1. [Підписка](#a-subscription-message)
+2. [Відписка](#r-unsubscription-message)
+3. [Зареєстровані дані](#d-logged-data-message)
+4. [Зареєстрована рядок](#l-logged-string-message)
 5. [Tagged Logged String](#c-tagged-logged-string-message)
-6. [Synchronization](#s-synchronization-message)
+6. [Синхронізація](#s-synchronization-message)
 7. [Dropout Mark](#o-dropout-message)
-8. [Information](#i-information-message)
+8. [Інформація](#i-information-message)
 9. [Multi Information](#m-multi-information-message)
-10. [Parameter](#p-parameter-message)
-11. [Default Parameter](#q-default-parameter-message)
+10. [Параметр](#p-parameter-message)
+11. [Параметр за замовчуванням](#q-default-parameter-message)
 
-#### `A`: Subscription Message
+#### `A`: Повідомлення про підписку
 
-Subscribe a message by name and give it an id that is used in [Logged data Message](#d-logged-data-message). This must come before the first corresponding [Logged data Message](#d-logged-data-message).
+Підписати повідомлення за назвою та надати йому ідентифікатор, який використовується в [Зареєстрованому повідомленні Даних](#d-logged-data-message). Це повинно бути перед першим відповідним [Повідомленням про зареєстровані дані](#d-logged-data-message).
 
 ```c
 struct message_add_logged_s {
@@ -312,10 +312,10 @@ struct message_add_logged_s {
 };
 ```
 
-- `multi_id`: the same message format can have multiple instances, for example if the system has two sensors of the same type. The default and first instance must be 0.
-- `msg_id`: unique id to match [Logged data Message](#d-logged-data-message) data. The first use must set this to 0, then increase it.
-  - The same `msg_id` must not be used twice for different subscriptions.
-- `message_name`: message name to subscribe to. Must match one of the [Format Message](#f-format-message) definitions.
+- `multi_id`: той самий формат повідомлення може мати кілька екземплярів, наприклад, якщо система має два датчики одного типу. Стандартне та перше значення повинно бути 0.
+- `msg_id`: унікальний ідентифікатор для відповідності даним [Повідомлення про зареєстровані дані](#d-logged-data-message). Перше використання повинно встановити це на 0, а потім збільшувати його.
+  - Той же `msg_id` не повинен використовуватися двічі для різних підписок.
+- `message_name`: назва повідомлення для підписки. Повинно відповідати одному з визначень [Форматованого повідомлення](#f-format-message).
 
 #### `R`: Повідомлення про відписку
 
@@ -338,14 +338,14 @@ struct message_data_s {
 };
 ```
 
-- `msg_id`: as defined by a [Subscription Message](#a-subscription-message)
-- `data` contains the logged binary message as defined by [Format Message](#f-format-message)
+- `msg_id`: як визначено у [Повідомленні підписки](#a-subscription-message)
+- `дані` містять зареєстроване бінарне повідомлення, визначене за допомогою [Форматування повідомлення](#f-format-message)
 
-See above for special treatment of padding fields.
+Див. вище для спеціальної обробки полів відступу.
 
-#### 'L': Logged String Message
+#### 'L': Повідомлення про зареєстрований рядок
 
-Logged string message, i.e. `printf()` output.
+Зареєстрований рядковий повідомлення, тобто вихід `printf()`.
 
 ```c
 struct message_logging_s {
@@ -356,19 +356,19 @@ struct message_logging_s {
 };
 ```
 
-- `timestamp`: in microseconds
-- `log_level`: same as in the Linux kernel:
+- `часовий_відміток`: у мікросекундах
+- `log_level`: те саме, що і в ядрі Linux:
 
-| Name    | Level value | Meaning                          |
-| ------- | ----------- | -------------------------------- |
-| EMERG   | '0'         | System is unusable               |
-| ALERT   | '1'         | Action must be taken immediately |
-| CRIT    | '2'         | Critical conditions              |
-| ERR     | '3'         | Error conditions                 |
-| WARNING | '4'         | Warning conditions               |
-| NOTICE  | '5'         | Normal but significant condition |
-| INFO    | '6'         | Informational                    |
-| DEBUG   | '7'         | Debug-level messages             |
+| Name    | Level value | Meaning                            |
+| ------- | ----------- | ---------------------------------- |
+| EMERG   | '0'         | Система непридатна до використання |
+| ALERT   | '1'         | Дії повинні бути вжиті негайно     |
+| CRIT    | '2'         | Критичні умови                     |
+| ERR     | '3'         | Error conditions                   |
+| WARNING | '4'         | Warning conditions                 |
+| NOTICE  | '5'         | Normal but significant condition   |
+| INFO    | '6'         | Informational                      |
+| DEBUG   | '7'         | Debug-level messages               |
 
 #### 'C': Tagged Logged String Message
 
@@ -382,9 +382,9 @@ struct message_logging_tagged_s {
 };
 ```
 
-- `tag`: id representing source of logged message string. It could represent a process, thread or a class depending upon the system architecture.
+- `tag`: id представляє джерело записаного рядка повідомлення. Це може представляти процес, потік або клас в залежності від архітектури системи.
 
-  - For example, a reference implementation for an onboard computer running multiple processes to control different payloads, external disks, serial devices etc can encode these process identifiers using a `uint16_t enum` into the `tag` attribute of struct as follows:
+  - Наприклад, референсна реалізація для бортового комп'ютера, що виконує кілька процесів для керування різними навантаженнями, зовнішніми дисками, послідовними пристроями тощо, може кодувати ідентифікатори цих процесів, використовуючи `uint16_t enum` у атрибуті `tag` структури наступним чином:
 
   ```c
   enum class ulog_tag : uint16_t {
@@ -401,23 +401,23 @@ struct message_logging_tagged_s {
   };
   ```
 
-- `timestamp`: in microseconds
-- `log_level`: same as in the Linux kernel:
+- `часовий_відміток`: у мікросекундах
+- `log_level`: те саме, що і в ядрі Linux:
 
-| Name    | Level value | Meaning                          |
-| ------- | ----------- | -------------------------------- |
-| EMERG   | '0'         | System is unusable               |
-| ALERT   | '1'         | Action must be taken immediately |
-| CRIT    | '2'         | Critical conditions              |
-| ERR     | '3'         | Error conditions                 |
-| WARNING | '4'         | Warning conditions               |
-| NOTICE  | '5'         | Normal but significant condition |
-| INFO    | '6'         | Informational                    |
-| DEBUG   | '7'         | Debug-level messages             |
+| Назва   | Значення рівня | Значення                           |
+| ------- | -------------- | ---------------------------------- |
+| EMERG   | '0'            | Система непридатна до використання |
+| ALERT   | '1'            | Дії повинні бути вжиті негайно     |
+| CRIT    | '2'            | Критичні умови                     |
+| ERR     | '3'            | Умови помилки                      |
+| WARNING | '4'            | Умови попередження                 |
+| NOTICE  | '5'            | Нормальний, але значущий стан      |
+| INFO    | '6'            | Інформаційне                       |
+| DEBUG   | '7'            | Повідомлення рівня налагодження    |
 
-#### 'S': Synchronization message
+#### 'S': Повідомлення синхронізації
 
-Synchronization message so that a reader can recover from a corrupt message by searching for the next sync message.
+Повідомлення синхронізації, щоб читач міг відновитися від пошкодженого повідомлення, шукаючи наступне повідомлення синхронізації.
 
 ```c
 struct message_sync_s {
@@ -428,11 +428,11 @@ struct message_sync_s {
 
 - `sync_magic`: [0x2F, 0x73, 0x13, 0x20, 0x25, 0x0C, 0xBB, 0x12]
 
-#### 'O': Dropout message
+#### 'O': Повідомлення про відключення
 
-Mark a dropout (lost logging messages) of a given duration in ms.
+Позначте відсутність (втрачені повідомлення журналювання) заданої тривалості в мс.
 
-Dropouts can occur e.g. if the device is not fast enough.
+Відключення можуть виникати, наприклад, якщо пристрій не є достатньо швидким.
 
 ```c
 struct message_dropout_s {
@@ -441,49 +441,49 @@ struct message_dropout_s {
 };
 ```
 
-#### Messages shared with the Definitions Section
+#### Повідомлення, розділені розділом визначень
 
-Since the Definitions and Data Sections use the same message header format, they also share the same messages listed below:
+Оскільки Розділи Визначень та Дані використовують той же формат заголовка повідомлення, вони також діляться тими ж повідомленнями, які перераховані нижче:
 
-- [Information Message](#i-information-message).
-- [Multi Information Message](#m-multi-information-message)
-- [Parameter Message](#p-parameter-message)
-  - For the _Data_ section, the Parameter Message is used when the parameter value changes
-- [Default Parameter Message](#q-default-parameter-message)
+- [Інформаційне повідомлення](#i-information-message).
+- [Мульти-інформаційне повідомлення](#m-multi-information-message)
+- [Повідомлення параметра](#p-parameter-message)
+  - Для розділу _Дані_, Повідомлення Параметра використовується, коли змінюється значення параметра
+- [Повідомлення параметра за замовчуванням](#q-default-parameter-message)
 
-## Requirements for Parsers
+## Вимоги до Parsers
 
-A valid ULog parser must fulfill the following requirements:
+Дійсний розбірник ULog повинен відповідати наступним вимогам:
 
-- Must ignore unknown messages (but it can print a warning)
-- Parse future/unknown file format versions as well (but it can print a warning).
-- Must refuse to parse a log which contains unknown incompatibility bits set (`incompat_flags` of [Flag Bits Message](#b-flag-bits-message)), meaning the log contains breaking changes that the parser cannot handle.
-- A parser must be able to correctly handle logs that end abruptly, in the middle of a message. The unfinished message should just be discarded.
-- For appended data: a parser can assume the Data section exists, i.e. the offset points to a place after the Definitions section.
-  - Appended data must be treated as if it was part of the regular Data section.
+- Повинен ігнорувати невідомі повідомлення (але може вивести попередження)
+- Розбирайте майбутні/невідомі версії формату файлу також (але може вивести попередження).
+- Повинен відмовитися від аналізу журналу, який містить невідомі біти несумісності (`incompat_flags` у [Повідомлення про біти прапорців](#b-flag-bits-message)), що означає, що журнал містить руйнівні зміни, які парсер не може обробити.
+- Парсер повинен правильно обробляти журнали, які раптово закінчуються, посеред повідомлення. Недовершене повідомлення слід просто викинути.
+- Для доданих даних: парсер може вважати, що секція Даних існує, тобто зміщення вказує на місце після секції Визначень.
+  - Додані дані повинні трактуватися так, ніби вони були частиною звичайного розділу даних.
 
-## Known Parser Implementations
+## Відомі Реалізації Парсера
 
-- PX4-Autopilot: C++
+- PX4-Autopilot++: C++
   - [logger module](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger)
   - [replay module](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
-  - [hardfault_log module](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/hardfault_log): append hardfault crash data.
-- [pyulog](https://github.com/PX4/pyulog): python, ULog reader and writer library with CLI scripts.
-- [ulog_cpp](https://github.com/PX4/ulog_cpp): C++, ULog reader and writer library.
+  - [Модуль hardfault_log](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/hardfault_log): додайте дані про аварійне завершення.
+- [pyulog](https://github.com/PX4/pyulog): бібліотека python, ULog для зчитування та запису з CLI скриптами.
+- [ulog_cpp](https://github.com/PX4/ulog_cpp): C++, бібліотека читання та запису ULog на C++.
 - [FlightPlot](https://github.com/PX4/FlightPlot): Java, log plotter.
-- [MAVLink](https://github.com/mavlink/mavlink): Messages for ULog streaming via MAVLink (note that appending data is not supported, at least not for cut off messages).
-- [QGroundControl](https://github.com/mavlink/qgroundcontrol): C++, ULog streaming via MAVLink and minimal parsing for GeoTagging.
-- [mavlink-router](https://github.com/01org/mavlink-router): C++, ULog streaming via MAVLink.
-- [MAVGAnalysis](https://github.com/ecmnet/MAVGCL): Java, ULog streaming via MAVLink and parser for plotting and analysis.
-- [PlotJuggler](https://github.com/facontidavide/PlotJuggler): C++/Qt application to plot logs and time series. Supports ULog since version 2.1.3.
-- [ulogreader](https://github.com/maxsun/ulogreader): Javascript, ULog reader and parser outputs log in JSON object format.
-- [Foxglove Studio](https://github.com/foxglove/studio): an integrated visualization and diagnosis tool for robotics (Typescript ULog parser: https://github.com/foxglove/ulog).
+- [MAVLink](https://github.com/mavlink/mavlink): Повідомлення для потокового відображення ULog через MAVLink (зауважте, що додавання даних не підтримується, принаймні не для відсічених повідомлень).
+- [QGroundControl](https://github.com/mavlink/qgroundcontrol): C++, потік ULog через MAVLink та мінімальний розбір для геознаходження.
+- [mavlink-router](https://github.com/01org/mavlink-router): C++, потік ULog через MAVLink.
+- [MAVGAnalysis](https://github.com/ecmnet/MAVGCL): Java, ULog streaming через MAVLink та парсер для побудови графіків та аналізу.
+- [PlotJuggler](https://github.com/facontidavide/PlotJuggler): C++/Qt додаток для побудови графіків і часових рядів. Підтримує ULog з версії 2.1.3.
+- [ulogreader](https://github.com/maxsun/ulogreader): Javascript, ULog читач і парсер виводить журнал у форматі об'єкта JSON.
+- [Foxglove Studio](https://github.com/foxglove/studio): інтегрований інструмент візуалізації та діагностики для робототехніки (Парсер ULog на Typescript: https://github.com/foxglove/ulog).
 
-## File Format Version History
+## Історія версій формату файлу
 
-### Changes in version 2
+### Зміни у версії 2
 
-- Addition of [Multi Information Message](#m-multi-information-message) and [Flag Bits Message](#b-flag-bits-message) and the ability to append data to a log.
-  - This is used to add crash data to an existing log.
-  - If data is appended to a log that is cut in the middle of a message, it cannot be parsed with version 1 parsers.
-- Other than that forward and backward compatibility is given if parsers ignore unknown messages.
+- Додавання [Повідомлення з багатою інформацією](#m-multi-information-message) та [Прапорці Повідомлення](#b-flag-bits-message) та можливість додавання даних до журналу.
+  - Це використовується для додавання даних про збій до існуючого журналу.
+  - Якщо дані додаються до журналу, який обрізаний посередині повідомлення, їх не можна розбирати з парсерами версії 1.
+- Крім того, передня та задня сумісність забезпечується, якщо парсери ігнорують невідомі повідомлення.
