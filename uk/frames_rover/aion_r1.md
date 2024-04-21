@@ -2,85 +2,85 @@
 
 <Badge type="warning" text="main (PX4 v1.15)" />
 
-The [Aion R1](https://www.aionrobotics.com/)vehicle was chosen to test and improve the differential drive support for PX4, and to improve driver support for Roboclaw Motor Controllers, such as the [RoboClaw 2x15A](https://www.basicmicro.com/RoboClaw-2x15A-Motor-Controller_p_10.html).
+Транспортний засіб [Aion R1](https://www.aionrobotics.com/) був обраний для тестування та покращення підтримки диференційного приводу для PX4, а також для покращення підтримки водія для контролерів двигуна Roboclaw, таких як [RoboClaw 2x15A](https://www.basicmicro.com/RoboClaw-2x15A-Motor-Controller_p_10.html).
 
-The documentation and driver information here should also make it easier to work with Roboclaw controllers on other vehicles, and to work with vehicles like the [Aion R6](https://www.aionrobotics.com/r6).
+Документація та інформація про драйвери тут також повинна полегшити роботу з контролерами Roboclaw на інших транспортних засобах, а також з транспортними засобами, такими як [Aion R6](https://www.aionrobotics.com/r6).
 
-Currently, PX4 supports MANUAL mode for this setup.
+На даний момент PX4 підтримує режим MANUAL для цієї настройки.
 
 ![Aion Robotics R1 UGV](../../assets/airframes/rover/aion_r1/r1_rover_no_bg.png)
 
-## Parts List
+## Список деталей
 
-- [Aion R1 (Discontinued)](https://www.aionrobotics.com/)
-  - [Documentation](https://github-docs.readthedocs.io/en/latest/r1-ugv.html)
+- [Aion R1 (Припинено)](https://www.aionrobotics.com/)
+  - [Документація](https://github-docs.readthedocs.io/en/latest/r1-ugv.html)
 - [RoboClaw 2x15A](https://www.basicmicro.com/RoboClaw-2x15A-Motor-Controller_p_10.html)
-  - [R1 Roboclaw specifications](https://resources.basicmicro.com/aion-robotics-r1-autonomous-robot/)
+  - [Характеристики R1 Roboclaw](https://resources.basicmicro.com/aion-robotics-r1-autonomous-robot/)
 - [Auterion Skynode](../companion_computer/auterion_skynode.md)
 
-## Assembly
+## Збірка
 
-The assembly consists of a 3D-printed frame on which all the autopilot parts were attached.
-For this build this includes an [Auterion Skynode](../companion_computer/auterion_skynode.md), connected to a Pixhawk Adapter Board that interfaces with the RoboClaw motor controllers over serial.
+Збірка складається з рами, виготовленої за допомогою 3D-друку, на яку були закріплені всі частини автопілота.
+Для цієї збірки це включає [Auterion Skynode](../companion_computer/auterion_skynode.md), підключений до плати адаптера Pixhawk, яка взаємодіє з контролерами руху RoboClaw через послідовний порт.
 
-![R1 Assembly](../../assets/airframes/rover/aion_r1/r1_assembly.png)
+![Збірка R1](../../assets/airframes/rover/aion_r1/r1_assembly.png)
 
 :::info
-If using a standard Pixhawk you could connect the RoboClaw to the Autopilot without an Adapter Board.
+Якщо використовуєте стандартний Pixhawk, ви можете підключити RoboClaw до автопілота без плати адаптера.
 :::
 
-The RoboClaw should be connected to a suitable suitable serial (UART) port on the flight controller, such as `GPS2` or `TELEM1`.
-Other RoboClaw wiring is detailed in the [RoboClaw User Manual](https://downloads.basicmicro.com/docs/roboclaw_user_manual.pdf) 'Packet Serial Wiring' section and shown below (this setup has been validated for compatibility).
+RoboClaw повинен бути підключений до відповідного послідовного (UART) порту на контролері польоту, такого як `GPS2` або `TELEM1`.
+Інші з'єднання RoboClaw детально описані в розділі [Посібник користувача RoboClaw](https://downloads.basicmicro.com/docs/roboclaw_user_manual.pdf) "Проводка пакетної послідовної передачі даних" та показані нижче (ця настройка була перевірена на сумісність).
 
-![Serial Wiring Encoders](../../assets/airframes/rover/aion_r1/wiring_r1.jpg)
+![Послідовне підключення енкодерів](../../assets/airframes/rover/aion_r1/wiring_r1.jpg)
 
 ## Налаштування PX4
 
-### Rover Configuration
+### Конфігурація Rover
 
-Use _QGroundControl_ for rover configuration:
+Використовуйте _QGroundControl_ для налаштування рухомого об'єкту:
 
-1. In the [Basic Configuration](../config/index.md) section, select the [Airframe](../config/airframe.md) tab.
-2. Choose **Aion Robotics R1 UGV** under the **Rover** category.
+1. У розділі [Основні налаштування](../config/index.md) виберіть вкладку [Каркас](../config/airframe.md).
+2. Оберіть **Aion Robotics R1 UGV** у категорії **Rover**.
 
 ![Select Airframe](../../assets/airframes/rover/aion_r1/r1_airframe.png)
 
-### RoboClaw Configuration
+### Конфігурація RoboClaw
 
-First configure the serial connection:
+Спочатку налаштуйте послідовне з'єднання:
 
-1. Navigate to the [Parameters](../advanced_config/parameters.md) section in QGroundControl.
+1. Перейдіть до розділу [Параметри](../advanced_config/parameters.md) в QGroundControl.
 
-   - Set the [RBCLW_SER_CFG](../advanced_config/parameter_reference.md#RBCLW_SER_CFG) parameter to the serial port to which the RoboClaw is connected (such as `GPS2`).
-   - [RBCLW_COUNTS_REV](../advanced_config/parameter_reference.md#RBCLW_COUNTS_REV) specifies the number of encoder counts required for one wheel revolution.
-     This value should be left at `1200` for the tested `RoboClaw 2x15A Motor Controller`.
-     Adjust the value based on your specific encoder and wheel setup.
-   - RoboClaw motor controllers must be assigned a unique address on the bus.
-     The default address is 128 and you should not need to change this (if you do, update the PX4 parameter [RBCLW_ADDRESS](../advanced_config/parameter_reference.md#RBCLW_ADDRESS) to match).
+   - Встановіть параметр [RBCLW_SER_CFG](../advanced_config/parameter_reference.md#RBCLW_SER_CFG) на послідовний порт, до якого підключений RoboClaw (наприклад, `GPS2`).
+   - [RBCLW_COUNTS_REV](../advanced_config/parameter_reference.md#RBCLW_COUNTS_REV) визначає кількість лічильників енкодера, необхідних для одного оберту колеса.
+     Це значення повинно бути залишено на `1200` для протестованого `Контролера руху RoboClaw 2x15A`.
+     Відрегулюйте значення на основі вашого конкретного енкодера та налаштувань колеса.
+   - Контролери моторів RoboClaw повинні мати унікальну адресу на шині.
+     Стандартна адреса - 128, і вам не потрібно її змінювати (якщо ви це робите, оновіть параметр PX4 [RBCLW_ADDRESS](../advanced_config/parameter_reference.md#RBCLW_ADDRESS) відповідно).
 
-     ::: info
-     PX4 does not support multiple RoboClaw motor controllers in the same vehicle — each controller needs a unique address on the bus, and there is only one parameter for setting the address in PX4 (`RBCLW_ADDRESS`).
+     :::info
+     PX4 не підтримує кілька контролерів моторів RoboClaw у тому ж транспортному засобі — кожен контролер повинен мати унікальну адресу на шині, і є лише один параметр для встановлення адреси в PX4 (`RBCLW_ADDRESS`).
 
 :::
 
-Then configure the actuator configuration:
+Потім налаштуйте конфігурацію приводу:
 
-1. Navigate to [Actuators Configuration & Testing](../config/actuators.md) in QGroundControl.
-2. Select the RoboClaw driver from the list of _Actuator Outputs_.
+1. Перейдіть до [Конфігурації та тестування приводів](../config/actuators.md) в QGroundControl.
+2. Виберіть драйвер RoboClaw зі списку _Виводів приводів_.
 
-   For the channel assignments, disarm, minimum, and maximum values, please refer to the image below.
+   Для призначень каналу, роззброю, мінімальних та максимальних значень, будь ласка, звертайтеся до зображення нижче.
 
    ![RoboClaw QGC](../../assets/airframes/rover/aion_r1/roboclaw_actuator_config_qgc.png)
 
-   For systems with more than two motors, it is possible to assign the same function to several motors.
-   The reason for the unusual values, can be found in the [RoboClaw User Manual](https://downloads.basicmicro.com/docs/roboclaw_user_manual.pdf) under `Compatibility Commands` for `Packet Serial`:
+   Для систем з більш ніж двома двигунами можливо призначити одну й ту ж функцію кільком двигунам.
+   Причина нестандартних значень можна знайти в [Користувацькому посібнику RoboClaw](https://downloads.basicmicro.com/docs/roboclaw_user_manual.pdf) під `Командами сумісності` для `Пакетної послідовної передачі даних`:
 
    ```plain
-   Drive motor forward. Valid data range is 0 - 127. A value of 127 = full speed forward, 64 =
-   about half speed forward and 0 = full stop.
+   Приводити двигун вперед. Діапазон дійсних даних - від 0 до 127. Значення 127 = повна швидкість вперед, 64 =
+   приблизно напівшвидкість вперед і 0 = повна зупинка.
    ```
 
 ## Дивись також
 
 - [roboclaw](../modules/modules_driver.md#roboclaw) driver
-- [Roboclaw User Manual](https://downloads.basicmicro.com/docs/roboclaw_user_manual.pdf)
+- [Посібник користувача Roboclaw](https://downloads.basicmicro.com/docs/roboclaw_user_manual.pdf)
