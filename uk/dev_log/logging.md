@@ -37,19 +37,19 @@ Useful settings for specific cases:
 
 _Developers_ can further configure what information is logged via the [logger](../modules/modules_system.md#logger) module. This allows, for example, logging of your own uORB topics.
 
-### SD Card Configuration
+### Конфігурація SD-карти
 
 Separately, the list of logged topics can also be customized with a file on the SD card. Створіть файл `etc/logging/logger_topics.txt` на картці зі списком тем (для SITL це `build/px4_sitl_default/rootfs/fs/microsd/etc/logging/logger_topics.txt`):
 
 ```plain
-<topic_name> <interval> <instance>
+
 ```
 
-The `<interval>` is optional, and if specified, defines the minimum interval in ms between two logged messages of this topic. If not specified, the topic is logged at full rate.
+`<interval>` є необов'язковим, і якщо вказано, визначає мінімальний інтервал у мс між двома зареєстрованими повідомленнями цієї теми. Якщо не вказано, тема реєструється з повною швидкістю.
 
-The `<instance>` is optional, and if specified, defines the instance to log. If not specified, all instances of the topic are logged. To specify `<instance>`, `<interval>` must be specified. It can be set to 0 to log at full rate
+`<instance>` є необов'язковим, і якщо вказано, визначає екземпляр для журналювання. If not specified, all instances of the topic are logged. Для вказівки `<instance>`, необхідно вказати `<interval>` . It can be set to 0 to log at full rate
 
-The topics in this file replace all of the default logged topics.
+Теми в цьому файлі замінюють всі теми за замовчуванням, які були зареєстровані.
 
 Приклади :
 
@@ -60,32 +60,32 @@ sensor_gyro 200
 sensor_mag 200 1
 ```
 
-This configuration will log sensor_accel 0 at full rate, sensor_accel 1 at 10Hz, all sensor_gyro instances at 5Hz and sensor_mag 1 at 5Hz.
+Ця конфігурація буде реєструвати sensor_accel 0 з повною швидкістю, sensor_accel 1 з частотою 10 Гц, всі екземпляри sensor_gyro з частотою 5 Гц та sensor_mag 1 з частотою 5 Гц.
 
-## Scripts
+## Скрипти
 
-There are several scripts to analyze and convert logging files in the [pyulog](https://github.com/PX4/pyulog) repository.
+Є кілька сценаріїв для аналізу та конвертації файлів журналювання в репозиторії [pyulog](https://github.com/PX4/pyulog).
 
-## File size limitations
+## Обмеження розміру файлу
 
-The maximum file size depends on the file system and OS. The size limit on NuttX is currently around 2GB.
+Максимальний розмір файлу залежить від файлової системи та ОС. Розмір обмеження на NuttX наразі становить близько 2 ГБ.
 
-## Dropouts
+## Відключення
 
-Logging dropouts are undesired and there are a few factors that influence the amount of dropouts:
+Втрати логування небажані, і є кілька факторів, що впливають на кількість втрат:
 
-- Most SD cards we tested exhibit multiple pauses per minute. This shows itself as a several 100 ms delay during a write command. It causes a dropout if the write buffer fills up during this time. This effect depends on the SD card (see below).
-- Formatting an SD card can help to prevent dropouts.
-- Increasing the log buffer helps.
-- Decrease the logging rate of selected topics or remove unneeded topics from being logged (`info.py <file>` is useful for this).
+- Більшість SD-карт, які ми тестували, проявляють кілька пауз кожну хвилину. Це проявляється як кілька 100 мс затримка під час команди запису. Це призводить до відключення, якщо буфер запису заповнюється протягом цього часу. Цей ефект залежить від SD-карти (див. нижче).
+- Форматування SD-карти може допомогти у запобіганні викидань.
+- Збільшення буфера журналу допомагає.
+- Зменшіть частоту реєстрації обраних тем або видаліть непотрібні теми з реєстрації (`info.py <file>` корисний для цього).
 
-## SD Cards
+## SD-карти
 
-The maximum supported SD card size for NuttX is 32GB (SD Memory Card Specifications Version 2.0). The **SanDisk Extreme U3 32GB** and **Samsung EVO Plus 32** are known to be reliable cards (do not exhibit write-time spikes, and thus virtually no dropouts).
+Максимальний підтримуваний розмір SD-карти для NuttX - 32 ГБ (Специфікація карт пам’яті SD, версія 2.0). **SanDisk Extreme U3 32GB** та **Samsung EVO Plus 32** відомі як надійні карти (не проявляють піков запису часу, тому практично відсутні відмови).
 
-The table below shows the **mean sequential write speed [KB/s]** / **maximum write time per block (average) [ms]** for F4- (Pixracer), F7-, and H7-based flight controllers.
+Таблиця нижче показує **середню послідовну швидкість запису [KB/s]** / **максимальний час запису на блок (середній) [мс]** для контролерів польоту на основі F4- (Pixracer), F7- та H7-.
 
-| SD Card                                                       | F4            | F7         | H7        |
+| SD-карта                                                      | F4            | F7         | H7        |
 | ------------------------------------------------------------- | ------------- | ---------- | --------- |
 | SanDisk Extreme U3 32GB                                       | 1500 / **15** | 1800/10    | 2900/8    |
 | Samsung EVO Plus 32GB                                         | 1700/10-60    | 1800/10-60 | 1900/9-60 |
@@ -97,39 +97,39 @@ The table below shows the **mean sequential write speed [KB/s]** / **maximum wri
 | Sandisk Pixtor Class 10 16GB                                  | 334 / 250     | ?/?        | ?/?       |
 | Sandisk Extreme PLUS Class 10 32GB                            | 332 / 150     | ?/?        | ?/?       |
 
-Logging bandwidth with the default topics is around 50 KB/s, which almost all SD cards satisfy in terms of their mean sequential write speed.
+Запис пропускної здатності зі стандартними темами становить близько 50 КБ/с, що задовольняє майже всі SD-карти у термінах їх середньої послідовної швидкості запису.
 
-More important than the mean write speed is spikes (or generally high values) in the maximum write time per block (of 4 KB) or `fsync` times, as a long write time means a larger log buffer is needed to avoid dropouts.
+Важливішим, ніж середня швидкість запису, є піки (або взагалі високі значення) максимального часу запису на блок (4 КБ) або часи `fsync`, оскільки довгий час запису означає, що потрібен більший буфер журналу, щоб уникнути втрат даних.
 
-PX4 uses bigger buffers on F7/H7 and read caching, which is enough to compensate for spikes in many poor cards. That said, if your card has an `fsync` or write duration of several 100ms it is should not be preferred for use with PX4. You can check the value by running [sd_bench](../modules/modules_command.md#sd-bench) should be run with more iterations (around 100 should do).
+PX4 використовує більші буфери на F7/H7 та кешування читання, що достатньо компенсує піки на багатьох поганих картках. З цим сказано, якщо ваша картка має `fsync` або тривалість запису декілька 100 мс, вона не повинна бути вибрана для використання з PX4. Ви можете перевірити значення, запустивши [sd_bench](../modules/modules_command.md#sd-bench) слід запустити з більшою кількістю ітерацій (близько 100 має вистачити).
 
 ```sh
 sd_bench -r 100
 ```
 
-This defines the minimum buffer size: the larger this maximum, the larger the log buffer needs to be to avoid dropouts. PX4 uses bigger buffers on F7/H7 and read caching to make up for some of these issues.
+Це визначає мінімальний розмір буфера: чим більше це максимальне значення, тим більше потрібно мати розмір буфера журналу, щоб уникнути втрат даних. PX4 використовує більші буфери на F7/H7 та кешування читання, щоб компенсувати деякі з цих проблем.
 
-::: info
-If you have concerns about a particular card you can run the above test and report the results to https://github.com/PX4/PX4-Autopilot/issues/4634.
+:::info
+Якщо у вас є питання щодо певної картки, ви можете запустити вищезазначений тест та повідомити результати за посиланням https://github.com/PX4/PX4-Autopilot/issues/4634.
 :::
 
-## Log Streaming
+## Потокове ведення журналу
 
-The traditional and still fully supported way to do logging is using an SD card on the FMU. However there is an alternative, log streaming, which sends the same logging data via MAVLink. This method can be used for example in cases where the FMU does not have an SD card slot (e.g. Intel® Aero Ready to Fly Drone) or simply to avoid having to deal with SD cards. Both methods can be used independently and at the same time.
+Традиційний і все ще повністю підтримуваний спосіб ведення журналу - використання SD-карти на FMU. Однак є альтернатива, потокове ведення журналу, яке надсилає ті ж дані журналювання через MAVLink. Цей метод може бути використаний, наприклад, у випадках, коли FMU не має слоту для SD-карти (наприклад, Intel® Aero Ready to Fly Drone) або просто для уникнення проблем з SD-картами. Обидва методи можуть бути використані незалежно один від одного і одночасно.
 
-The requirement is that the link provides at least ~50KB/s, so for example a WiFi link. And only one client can request log streaming at the same time. The connection does not need to be reliable, the protocol is designed to handle drops.
+Вимога полягає в тому, що посилання забезпечує принаймні ~50KB/s, наприклад, WiFi-посилання. І тільки один клієнт може запитати потік журналування одночасно. Підключення не потребує надійності, протокол розроблений для обробки втрат.
 
-There are different clients that support ulog streaming:
+Існують різні клієнти, які підтримують потокову передачу ulog:
 
 - `mavlink_ulog_streaming.py` скрипт PX4-Autopilot/Tools.
-- QGroundControl: ![QGC Log Streaming](../../assets/gcs/qgc-log-streaming.png)
+- QGroundControl: ![Стрічка журналу QGC](../../assets/gcs/qgc-log-streaming.png)
 - [MAVGCL](https://github.com/ecmnet/MAVGCL)
 
 ### Діагностика
 
-- If log streaming does not start, make sure the `logger` is running (see above), and inspect the console output while starting.
-- If it still does not work, make sure that MAVLink 2 is used. Enforce it by setting `MAV_PROTO_VER` to 2.
-- Log streaming uses a maximum of 70% of the configured MAVLink rate (`-r` parameter). If more is needed, messages are dropped. The currently used percentage can be inspected with `mavlink status` (1.8% is used in this example):
+- Якщо потік журналування не починається, переконайтеся, що `logger` працює (див. вище), та перевірте вивід консолі під час запуску.
+- Якщо це все ще не працює, переконайтеся, що використовується MAVLink 2. Застосуйте це, встановивши `MAV_PROTO_VER` на 2.
+- Потік реєстрації використовує максимум 70% налаштованої швидкості MAVLink (`-r` параметр). Якщо потрібно більше, повідомлення видаляються. Поточний використаний відсоток можна перевірити за допомогою `mavlink status` (у цьому прикладі використано 1,8%):
 
   ```sh
   instance #0:
@@ -148,4 +148,4 @@ There are different clients that support ulog streaming:
           transport protocol: UDP (14556)
   ```
 
-  Also make sure `txerr` stays at 0. If this goes up, either the NuttX sending buffer is too small, the physical link is saturated or the hardware is too slow to handle the data.
+  Також переконайтеся, що `txerr` залишається на 0. Якщо це піде вгору, або буфер відправлення NuttX занадто малий, або фізичний зв'язок насичений, або апаратне забезпечення занадто повільне для обробки даних.
