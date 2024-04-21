@@ -95,40 +95,40 @@ Pixhawk® 5X ідеально підходить для розробників �
 - Розміри
 
   - Модуль політного контролера: 38.8 x 31.8 x 14.6mm
-  - Standard Baseboard: 52.4 x 103.4 x 16.7mm
+  - Стандартна базова плата: 52.4 x 103.4 x 16.7mm
 
-- Weight
+- Вага
 
-  - Flight Controller Module: 23g
-  - Standard Baseboard: 51g
+  - Модуль політного контролера: 23g
+  - Стандартна базова плата: 51g
 
-- Other Characteristics:
-  - Operating & storage temperature: -40 ~ 85°c
+- Інші характеристики:
+  - Температура роботи та зберігання: -40 ~ 85°c
 
 ## Де купити
 
 Замовляйте на [Holybro](https://holybro.com/products/pixhawk-5x).
 
-## Зборка/інсталяція
+## Збірка/інсталяція
 
 [Швидкий старт з підключення Pixhawk 5X](../assembly/quick_start_pixhawk5x.md) надає інструкції щодо збірки необхідних/важливих периферійних пристроїв, включаючи GPS, модуль живлення тощо.
 
 ## З'єднання
 
-![Pixhawk 5x Wiring Overview](../../assets/flight_controller/pixhawk5x/pixhawk5x_wiring_diagram.jpg)
+![Огляд підключення Pixhawk 5x](../../assets/flight_controller/pixhawk5x/pixhawk5x_wiring_diagram.jpg)
 
-## Pinouts
+## Розводка
 
-![Pixhawk 5X Pinout](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
+![Схема контактів Pixhawk 5X](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
 
 :::info
 Призначення контактів роз'ємів відбувається зліва направо (тобто Pin 1 - це найлівіший контакт).
 :::info
 
-- The [camera capture pin](../peripherals/camera.md#camera-capture) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
-- _Pixhawk 5X_ pinouts can be downloaded in PDF from from [here](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf).
+- [Контакт камери](../peripherals/camera.md#camera-capture) (`PI0`) є контактом 2 порту AD&IO, позначеним вище як `FMU_CAP1`.
+- Схему контактів _Pixhawk 5X_ можна завантажити у форматі PDF [тут](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) або [тут](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf).
 
-## Serial Port Mapping
+## Зіставлення послідовних портів
 
 | UART   | Device     | Port          |
 | ------ | ---------- | ------------- |
@@ -143,9 +143,9 @@ Pixhawk® 5X ідеально підходить для розробників �
 
 ## Розміри
 
-![Pixhawk 5X Dimensions](../../assets/flight_controller/pixhawk5x/pixhawk5x_dimensions_all.jpg)
+![Розміри Pixhawk 5X](../../assets/flight_controller/pixhawk5x/pixhawk5x_dimensions_all.jpg)
 
-## Voltage Ratings
+## Номінальна напруга
 
 _Pixhawk 5X_ може мати потрійну резервність у джерелі живлення, якщо подаються три джерела живлення. Три шини живлення: **POWER1**, **POWER2** і **USB**. Порти **POWER1** та **POWER2** на Pixhawk 5X використовують 6-контактний [Роз'єм плати CLIK-Mate Wire-to-Board PCB з кроком 2,00 мм](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670).
 
@@ -186,35 +186,35 @@ make px4_fmu-v5x_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## Відладочний порт
 
 [Системна консоль PX4](../debug/system_console.md) та інтерфейс [SWD](../debug/swd_debug.md) працюють на порту **FMU Debug**.
 
 Розводка та роз’єм відповідають інтерфейсу [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full), визначеному в [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (роз’єм JST SM10B).
 
-| Pin      | Сигнал           | Вольтаж |
-| -------- | ---------------- | ------- |
-| 1 (red)  | `Vtref`          | +3.3V   |
-| 2 (blk)  | Console TX (OUT) | +3.3V   |
-| 3 (blk)  | Console RX (IN)  | +3.3V   |
-| 4 (blk)  | `SWDIO`          | +3.3V   |
-| 5 (blk)  | `SWCLK`          | +3.3V   |
-| 6 (blk)  | `SWO`            | +3.3V   |
-| 7 (blk)  | NFC GPIO         | +3.3V   |
-| 8 (blk)  | PH11             | +3.3V   |
-| 9 (blk)  | nRST             | +3.3V   |
-| 10 (blk) | `GND`            | GND     |
+| Контакт      | Сигнал           | Вольтаж |
+| ------------ | ---------------- | ------- |
+| 1 (червоний) | `Vtref`          | +3.3V   |
+| 2 (чорний)   | Console TX (OUT) | +3.3V   |
+| 3 (чорний)   | Console RX (IN)  | +3.3V   |
+| 4 (чорний)   | `SWDIO`          | +3.3V   |
+| 5 (чорний)   | `SWCLK`          | +3.3V   |
+| 6 (чорний)   | `SWO`            | +3.3V   |
+| 7 (чорний)   | NFC GPIO         | +3.3V   |
+| 8 (чорний)   | PH11             | +3.3V   |
+| 9 (чорний)   | nRST             | +3.3V   |
+| 10 (чорний)  | `GND`            | GND     |
 
-For information about using this port see:
+Інформацію про використання цього порту див:
 
-- [SWD Debug Port](../debug/swd_debug.md)
-- [PX4 System Console](../debug/system_console.md) (Note, the FMU console maps to USART3).
+- [Порт відладки SWD](../debug/swd_debug.md)
+- [Системна консоль PX4](../debug/system_console.md) (Зауважте, що консоль FMU зіставляється з USART3).
 
 ## Периферійні пристрої
 
-- [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
-- [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
-- [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+- [Цифровий датчик швидкості польоту](https://holybro.com/products/digital-air-speed-sensor)
+- [Радіо модулі телеметрії](https://holybro.com/collections/telemetry-radios?orderby=date)
+- [Далекоміри / Датчики відстані](../sensor/rangefinders.md)
 
 ## Підтримувані платформи / Конструкції
 
