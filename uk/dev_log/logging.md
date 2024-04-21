@@ -1,12 +1,12 @@
-# Logging
+# Журналювання
 
-The [system logger](../modules/modules_system.md#logger) is able to log any ORB topic with all included fields. Everything necessary is generated from the `.msg` file, so that only the topic name needs to be specified. An optional interval parameter specifies the maximum logging rate of a certain topic. All existing instances of a topic are logged.
+Системний [журналізатор](../modules/modules_system.md#logger) може реєструвати будь-яку тему ORB з усіма включеними полями. Все необхідне генерується з файлу `.msg`, тому потрібно вказати лише назву теми. Необов'язковий параметр інтервалу визначає максимальну швидкість ведення журналу певної теми. Усі існуючі екземпляри теми реєструються.
 
-The output log format is [ULog](../dev_log/ulog_file_format.md).
+Формат виведення журналу - [ULog](../dev_log/ulog_file_format.md).
 
 ## Використання
 
-By default, logging is automatically started when arming, and stopped when disarming. A new log file is created for each arming session on the SD card. To display the current state, use `logger status` on the console. If you want to start logging immediately, use `logger on`. This overrides the arming state, as if the system was armed. `logger off` undoes this.
+За замовчуванням, реєстрація автоматично починається при взбиранні на охорону, і зупиняється при знятті з охорони. Для кожної сесії готовності на SD-картці створюється новий файл журналу. Для відображення поточного стану використовуйте `logger status` на консолі. Якщо ви хочете почати реєструвати негайно, використовуйте `logger on`. Це скасовує стан готовності, якщо система була увімкнена. `вимкнути логування` скасовує це.
 
 Якщо реєстрація припиниться через помилку запису або досягнення [максимального розміру файлу](#file-size-limitations), PX4 автоматично перезапустить реєстрацію в новому файлі.
 
@@ -18,28 +18,28 @@ logger help
 
 ## Налаштування
 
-The logging system is configured by default to collect sensible logs for [flight reporting](../getting_started/flight_reporting.md) with [Flight Review](http://logs.px4.io).
+За замовчуванням систему логування налаштовано на збір значущих записів для [звітування про польоти](../getting_started/flight_reporting.md) з [Flight Review](http://logs.px4.io).
 
-Logging may further be configured using the [SD Logging](../advanced_config/parameter_reference.md#sd-logging) parameters. The parameters you are most likely to change are listed below.
+Логування може бути подальшо налаштоване за допомогою параметрів [SD Logging](../advanced_config/parameter_reference.md#sd-logging). Параметри, які ви найімовірніше зміните, перераховані нижче.
 
-| Параметр                                                                 | Опис                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [РЕЖИМ SDLOG](../advanced_config/parameter_reference.md#SDLOG_MODE)      | Logging Mode. Defines when logging starts and stops.<br />- `-1`: Logging disabled.<br />- `0`: Log when armed until disarm (default).<br />- `1`: Log from boot until disarm.<br />- `2`: Log from boot until shutdown.<br />- `3`: Log based on the [AUX1 RC channel](../advanced_config/parameter_reference.md#RC_MAP_AUX1).<br />- `4`: Log from first armed until shutdown. |
-| [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | Logging profile. Use this to enable less common logging/analysis (e.g. for EKF2 replay, high rate logging for PID & filter tuning, thermal temperature calibration).                                                                                                                                                                                                                                                 |
-| [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".<br>This log can _not_ be used with [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), but is useful when you need a small log for geotagging or regulatory compliance.                                                                                                                                                                      |
+| Параметр                                                                 | Опис                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [РЕЖИМ SDLOG](../advanced_config/parameter_reference.md#SDLOG_MODE)      | Журналювання. Визначає, коли починається та закінчується ведення журналу.<br />- `-1`: Ведення журналу вимкнено.<br />- `0`: Записувати від увімкнення до вимкнення (типово).<br />- `1`: Записувати з моменту завантаження до вимкнення.<br />- `2`: Записувати з моменту завантаження до вимкнення живлення.<br />- `3`: Записувати на основі каналу дистанційного керування AUX1.<br />- `4`: Записувати з першого увімкнення до вимкнення живлення. |
+| [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | Профіль ведення журналу. Використовуйте це для увімкнення менш поширеного ведення журналу/аналізу (наприклад, для відтворення EKF2, ведення журналу високої швидкості для налаштування PID та фільтрів, калібрування температури термічної калібрування).                                                                                                                                                                                                                                   |
+| [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Створіть дуже малий додатковий "Журнал місії".<br>Цей журнал _не_ може бути використаний з [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool), але корисний, коли вам потрібен невеликий журнал для геотегування або дотримання регулятивних вимог.                                                                                                                                                                                                             |
 
-Useful settings for specific cases:
+Корисні налаштування для конкретних випадків:
 
-- Raw sensor data for comparison: [SDLOG_MODE=1](../advanced_config/parameter_reference.md#SDLOG_MODE) and [SDLOG_PROFILE=64](../advanced_config/parameter_reference.md#SDLOG_PROFILE).
-- Disabling logging altogether: [SDLOG_MODE=`-1`](../advanced_config/parameter_reference.md#SDLOG_MODE)
+- Сирові дані датчика для порівняння: [SDLOG_MODE=1](../advanced_config/parameter_reference.md#SDLOG_MODE) та [SDLOG_PROFILE=64](../advanced_config/parameter_reference.md#SDLOG_PROFILE).
+- Вимкнення ведення журналу повністю: [SDLOG_MODE=`-1`](../advanced_config/parameter_reference.md#SDLOG_MODE)
 
-### Logger module
+### Модуль реєстрації
 
-_Developers_ can further configure what information is logged via the [logger](../modules/modules_system.md#logger) module. This allows, for example, logging of your own uORB topics.
+_Розробники_ можуть додатково налаштувати, яка інформація реєструється за допомогою модуля [реєстратора](../modules/modules_system.md#logger). Це дозволяє, наприклад, реєструвати ваші власні теми uORB.
 
 ### Конфігурація SD-карти
 
-Separately, the list of logged topics can also be customized with a file on the SD card. Створіть файл `etc/logging/logger_topics.txt` на картці зі списком тем (для SITL це `build/px4_sitl_default/rootfs/fs/microsd/etc/logging/logger_topics.txt`):
+Окремо, список зареєстрованих тем також може бути налаштований за допомогою файлу на картці SD. Створіть файл `etc/logging/logger_topics.txt` на картці зі списком тем (для SITL це `build/px4_sitl_default/rootfs/fs/microsd/etc/logging/logger_topics.txt`):
 
 ```plain
 
@@ -47,7 +47,7 @@ Separately, the list of logged topics can also be customized with a file on the 
 
 `<interval>` є необов'язковим, і якщо вказано, визначає мінімальний інтервал у мс між двома зареєстрованими повідомленнями цієї теми. Якщо не вказано, тема реєструється з повною швидкістю.
 
-`<instance>` є необов'язковим, і якщо вказано, визначає екземпляр для журналювання. If not specified, all instances of the topic are logged. Для вказівки `<instance>`, необхідно вказати `<interval>` . It can be set to 0 to log at full rate
+`<instance>` є необов'язковим, і якщо вказано, визначає екземпляр для журналювання. Якщо не вказано, всі екземпляри теми реєструються. Для вказівки `<instance>`, необхідно вказати `<interval>` . Може бути встановлено на 0 для реєстрації з повною швидкістю
 
 Теми в цьому файлі замінюють всі теми за замовчуванням, які були зареєстровані.
 
