@@ -132,43 +132,43 @@ The following tools are used in this assembly:
 
    ![Add top board](../../assets/airframes/multicopter/dji_f450_cuav_5nano/6_add_top_board.jpg)
 
-1. Add damping foam to the *CUAV V5 nano* flight controller.
+1. Додайте амортизаційну пінку до польотного контролера *CUAV V5 nano*.
 
    ![Damping foam](../../assets/airframes/multicopter/dji_f450_cuav_5nano/7a_attach_cuav5nano.jpg) ![Damping foam](../../assets/airframes/multicopter/dji_f450_cuav_5nano/7b_attach_cuav5nano.jpg)
 
-1. Attach the FrSky receiver to the bottom board with double-sided tape.
+1. Прикріпіть приймач FrSky до нижньої плати за допомогою двосторонньої стрічки.
 
    ![Attach FrSky receiver with double-sided tape](../../assets/airframes/multicopter/dji_f450_cuav_5nano/8_attach_frsky.jpg)
 
-1. Attach the telemetry module to the vehicle’s bottom board using double-sided tape.
+1. Прикріпіть телеметричний модуль до нижньої плати транспортного засобу за допомогою двосторонньої стрічки.
 
    ![Attach telemetry radio](../../assets/airframes/multicopter/dji_f450_cuav_5nano/9a_telemtry_radio.jpg) ![Attach telemetry radio](../../assets/airframes/multicopter/dji_f450_cuav_5nano/9b_telemtry_radio.jpg)
 
-1. Put the aluminium standoffs on the button plate and attach GPS.
+1. Поставте алюмінієві опори на платформу кнопок і прикріпіть GPS.
 
    ![Aluminium standoffs](../../assets/airframes/multicopter/dji_f450_cuav_5nano/10_aluminium_standoffs.jpg)
 
-1. Plug in Telemetry (`TELEM1`), GPS module (`GPS/SAFETY`), RC receiver (`RC`), all 4 ESC’s (`M1-M4`), and the power module (`Power1`) into the flight controller. ![Attach peripherals to flight controller](../../assets/airframes/multicopter/dji_f450_cuav_5nano/12_fc_attach_periperhals.jpg)
+1. Підключіть телеметрію (`TELEM1`), модуль GPS (`GPS/SAFETY`), приймач RC (`RC`), всі 4 ESC (`M1-M4`), та модуль живлення (`Power1`) до контролера польоту. ![Attach peripherals to flight controller](../../assets/airframes/multicopter/dji_f450_cuav_5nano/12_fc_attach_periperhals.jpg)
 
-   ::: info The motor order is defined in the [Airframe Reference > Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)
+   :::info Порядок мотора визначено в [Довідник з літальних апаратів > Квадрокоптер x](../airframes/airframe_reference.md#quadrotor-x)
 :::
 
-That's it! The final build is shown below:
+Ось і все! Останню збірку показано нижче:
 
 ![Finished Setup](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_cuav5_nano_complete.jpg)
 
 
-## PX4 Configuration
+## Налаштування PX4
 
-*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl* використовується для встановлення автопілота PX4 та його налаштування / налаштування для рами. [Завантажте та встановіть](http://qgroundcontrol.com/downloads/) *QGroundControl* для вашої платформи.
 
 :::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
+Повні інструкції щодо встановлення та налаштування PX4 можна знайти в [Основна конфігурація](../config/index.md).
 :::
 
-First update the firmware, airframe, geometry and outputs:
+Спочатку оновіть прошивку, конструкцію та виходи:
 
-- [Firmware](../config/firmware.md)
+- [Прошивка](../config/firmware.md)
 - [Airframe](../config/airframe.md)
 
   ::: info You will need to select the *Generic Quadcopter* airframe (**Quadrotor x > Generic Quadcopter**).
@@ -201,11 +201,11 @@ Ideally you should also do:
 - [Safety](../config/safety.md)
 
 
-## Tuning
+## Вдосконалення
 
-Airframe selection sets *default* autopilot parameters for the frame. These may be good enough to fly with, but you should tune each frame build.
+Набори вибору конструкції встановлюють параметри автопілота *за замовчуванням* для рами. Ці можуть бути достатньо хороші для польоту, але вам слід налаштувати кожну конструкцію рами.
 
-For instructions on how, start from [Autotune](../config/autotune.md).
+Для інструкцій щодо того, як розпочати, почніть з [Автоналаштування](../config/autotune.md).
 
 
 ## Відео
