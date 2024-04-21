@@ -1,25 +1,25 @@
-# Holybro S500 V2 + Pixhawk 4 Build
+# Побудова Holybro S500 V2 + Pixhawk 4
 
-This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
+Ця тема надає повні інструкції для збирання комплекту та налаштування PX4 з використанням *QGroundControl*.
 
-::: info Holybro initially supplied this kit with a [Holybro Pixhawk 4](../flight_controller/pixhawk4.md), but at time of writing this has been upgraded to a more recent Pixhawk (6C). This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
+:::info Holybro спочатку постачав цей комплект з [Holybro Pixhawk 4](../flight_controller/pixhawk4.md), але на момент написання це було оновлено до більш пізнього Pixhawk (6C). Цей журнал збірки все ще актуальний, оскільки збірка комплекту практично однакова і, ймовірно, залишиться такою ж, оскільки контролер польоту оновлюється.
 :::
 
-## Key information
+## Основна Інформація
 
-- **Frame:** Holybro S500
-- **Flight controller:** [Pixhawk 4](../flight_controller/pixhawk4.md)
-- **Assembly time (approx.):** 90 minutes (45 minutes for frame, 45 minutes for autopilot installation/configuration)
+- **Каркас:** Holybro S500
+- **Контролер польоту:** [Pixhawk 4](../flight_controller/pixhawk4.md)
+- **Час зборки (приблизно):** 90 minutes (45 minutes for frame, 45 minutes for autopilot installation/configuration)
 
 ![Full S500 Kit](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_hero.png)
 
-## Bill of materials
+## Специфікація матеріалів
 
-The Holybro [S500 V2 Kit](https://holybro.com/collections/s500/products/s500-v2-development-kit) includes almost all the required components:
+Набір Holybro [S500 V2 Kit](https://holybro.com/collections/s500/products/s500-v2-development-kit) включає майже всі необхідні компоненти:
 
-* A recent Pixhawk autopilot
-  - For this log it was Pixhawk 4 but far more recent versions are now included.
-* Power Management PM02（Assembled）
+* Останній автопілот Pixhawk
+  - Для цього журналу був використаний Pixhawk 4, але зараз включені набагато більш нові версії.
+* Керування живленням PM02 (зібране)
 * ARM adopts high strength plastics
 * Motors - 2216 KV880（ V2 Update）
 * Propeller 1045（ V2 Update）
@@ -106,45 +106,45 @@ The following tools are used in this assembly:
 
 ![S500 Tools](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_tools.jpg)
 
-## Assembly
+## Збірка
 
-Estimate time to assemble is 90 minutes, about 45 minutes for frame assembly and 45 minutes installing and configuring the autopilot in QGroundControl.
+Оцінкований час для збирання - 90 хвилин, близько 45 хвилин на збірку рами та 45 хвилин на встановлення та налаштування автопілота в QGroundControl.
 
-1. Assembling the Landing Gear. We are going to start by assembling the landing gear to the vertical pole. Unscrew the landing gear screws and insert the vertical pole as shown below.
+1. Збірка шасі. Ми збираємося почати зі складання шасі на вертикальний стовп. Відкрутіть гвинти стійки посадки та вставте вертикальний стовп, як показано нижче.
 
    ![Figure 1](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig1.jpg)
 
    ![Figure 2](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig2.jpg)
 
-1. Assemble the Power Management Board to the landing gear. Screw the landing gear with a vertical pole to the Fully assembled Power Management Board.
+1. Зібрати плату управління живленням до стільникового шасі. Закрутіть шасі з вертикальним полем на повністю зібрану плату управління живленням.
 
-  The Board has 4 holes (see arrows below).
+  Дошка має 4 отвори (див. стрілки нижче).
 
   ![Figure 3](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig3.jpg)
 
-  Connect with the M3X8 screws, a total of 8 pieces, 4 on each side.
+  Підключіть за допомогою винтів M3X8, всього 8 штук, по 4 з кожного боку.
 
   ![Figure 4](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig4.jpg)
 
-1. Assemble the arms to the Power Management Board. Attach the arm to the Power Management Board.
+1. Зберігайте зброю на плату керування живленням. Прикріпіть руку до плати управління живленням.
 
    ![Figure 6](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig7.jpg)
 
    ![Figure 7](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig8.jpg)
 
-   Use M2 5X6 screws a total of 2 in each arm. Insert the screws from the bottom of the plate.
+   Використовуйте гвинти M2 5X6 по 2 штуки в кожній руці. Вставте гвинти знизу пластини.
 
    ![Figure 8](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig9.jpg)
 
-   Make sure the ESC cables run through the middle of the arm.
+   Переконайтеся, що кабелі ESC прокладені через середину руки.
 
    ![Figure 9](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig91.jpg)
 
-1. Assemble the 8*3 2.54mm pitch Horizontal Pin to the 10 to 10 pin cable (PWM) to the Power Management Board. Connect the 10 to 10 pin cable (PWM) to the 8*3 2.54mm pitch Horizontal Pin.
+1. Зібрати 8*3 2.54 мм штекер горизонтальної орієнтації до 10 до 10-контактного кабелю (ШШІ) до плати управління живленням. Підключіть кабель 10 до 10 контактів (PWM) до 8*3 2.54 мм кроку горизонтального контакту.
 
    ![Figure 10](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig10.jpg)
 
-   Cut a piece of 3M Tape and attach to the bottom of the Horizontal Pin:
+   Виріжте шматок стрічки 3M та прикріпіть його до нижньої частини горизонтального штиря:
 
    ![Figure 11](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig11.jpg)
 
@@ -154,51 +154,51 @@ Estimate time to assemble is 90 minutes, about 45 minutes for frame assembly and
 
    ![Figure 13](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig13.jpg)
 
-1. Assemble the motors to the arms. For this, we will need the 16 screws M3X7, 4 motors, and the 4 arms.
+1. Зберіть двигуни на руки. Для цього нам знадобляться 16 шурупів M3X7, 4 мотори та 4 руки.
 
-   Mount the motors in each arm put the screw through the bottom of the arm:
+   Встановіть двигуни в кожну руку, пропустіть гвинт через дно руки:
 
    ![Figure 14](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig14.jpg)
 
    ![Figure 15](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig15.jpg)
 
-   After the 4 motors are mounted on the arm grab the cables(red, blue, black) and put them through the arm thread. The 3 cables that are color-coded go connected to the ESC.
+   Після того, як 4 мотори встановлені на руку, візьміть кабелі (червоний, синій, чорний) і пропустіть їх через різьбу руки. 3 кабелі, які мають колірну маркування, підключаються до ESC.
 
    ![Figure 16](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig16.jpg)
 
    ![Figure 17](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig17.jpg)
 
-1. Mounting the GPS on the frame. For this, we will need the Pixhawk 4 GPS and the mounting plate.
+1. Монтаж GPS на рамці. Для цього нам знадобиться GPS Pixhawk 4 та монтажна плита.
 
    ![GPS Parts](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_gpskit.png)
 
-   Mount the GPS mast to the back of the Board, use the 4 screws:
+   Встановіть мачту GPS на задню частину дошки, використовуйте 4 гвинти:
 
    ![Figure 18](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig18.jpg)
 
    ![Figure 19](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig19.jpg)
 
-   Use the tape and stick the GPS to the top of the GPS mast:
+   Використовуйте стрічку та приклейте GPS на верх мачти GPS:
 
    ![Figure 20](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig20.jpg)
 
-1. Paste the FrSky to the Board. Paste FrSky with double-sided tape (3M) to the bottom board. Attach the FrSky to the frame:
+1. Вставте FrSky на дошку. Наклейте FrSky за допомогою двосторонньої стрічки (3M) на нижню плату. Прикріпіть FrSky до рами:
 
    ![Figure 21](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig21.jpg)
 
    ![Figure 22](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig22.jpg)
 
-1. Attach the Telemetry to the frame. The next step is to take the Holybro telemetry radio and attach it onto the frame, use 3M tape.
+1. Прикріпіть телеметрію до рами. Наступним кроком є взяти телеметричне радіо Holybro та прикріпити його до рами, використовуйте стрічку 3M.
 
    ![Figure 23](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig23.jpg)
 
    ![Figure 24](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig24.jpg)
 
-   This assembly attached it inside the frame facing outwards to the front of the vehicle. A picture is shown below of the radio sitting inside the bottom of the frame.
+   Цей збірний вузол прикріплений всередину рами, спрямований на зовнішню сторону вперед автомобіля. На нижче наведеному зображенні показано радіо, яке знаходиться всередині нижньої частини рами.
 
    ![Figure 25](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig25.jpg)
 
-1. Mounting the Pixhawk 4 to the plate. Use double-sided tape to attach the Pixhawk 4 to the center plate:
+1. Монтаж Pixhawk 4 на плату. Використовуйте двосторонній скотч для кріплення Pixhawk 4 до центральної пластини:
 
    ![Figure 26](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig26.jpg)
 
@@ -206,59 +206,59 @@ Estimate time to assemble is 90 minutes, about 45 minutes for frame assembly and
 
    ![Figure 28](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig28.jpg)
 
-   The next step is to mount the Pixhawk 4 with the plate to the frame. For this, we will need the M2 5X6 screws. Align the plate to the frame and insert the screws. Before you mount the plate we recommend putting tape on the Power Module (that way it's tight).
+   Наступним кроком є монтаж Pixhawk 4 на плату до рами. Для цього нам знадобляться винти M2 5X6. Вирівняйте пластину з рамою та вставте гвинти. Перед тим як встановлювати плату, ми рекомендуємо накласти стрічку на модуль живлення (таким чином він буде щільно фіксуватися).
 
    ![Figure 29](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig29.jpg)
 
    ![Figure 30](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig30.jpg)
 
-1. Assembling the Battery Mount to the frame. For this we will need the M2 5X6 screws and the battery mount:
+1. Збирання кронштейну батареї до рами. Для цього нам знадобляться винти M2 5X6 та кріплення батареї:
 
    ![Figure 31](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig31.jpg)
 
-   Insert the long rods to the small rings:
+   Вставте довгі важі в маленькі кільця:
 
    ![Figure 32](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig32.png)
 
    ![Figure 33](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig33.png)
 
-   Attach that to the frame, make sure all four sides are aligned to insert the screws:
+   Додайте це до рами, переконайтеся, що всі чотири сторони вирівняні для вставки гвинтів:
 
    ![Figure 34](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig34.jpg)
 
-   Assemble the small plate to the legs and screw on all four sides.
+   Зберіть маленьку пластину до ніг та відкрутіть по всіх чотирьох сторонах.
 
    ![Figure 35](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig35.jpg)
 
-   The final step is to attach the plate:
+   Останнім кроком є закріплення плати:
 
    ![Figure 36](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig36.jpg)
 
-1. Pixhawk 4 wiring. The Pixhawk 4, which has several different wires and connections with it. Included below is a picture of every wire needed with the Pixhawk and how it looks when connected.
+1. Підключення Pixhawk 4. Pixhawk 4, який має кілька різних дротів та з'єднань з ним. Нижче наведено зображення кожного дроту, який потрібен з Pixhawk, і його вигляд підключення.
 
-1. Plugin Telemetry and GPS module to the flight controller as seen in Figure 37; plug in the RC receiver, all 4 ESCs to the flight controller as well as the power module.
+1. Підключіть модуль телеметрії та GPS до контролера польоту, як показано на рисунку 37; підключіть RC приймач, всі 4 ESC до контролера польоту, а також модуль живлення.
 
    ![Figure 37](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig37.png)
 
 
-Fully assembled, the kit looks as shown below:
+Після повної збірки комплект виглядає як показано нижче:
 
 ![Pixhawk Assembled](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_pixhawk.jpg)
 
 ![Fully Assembled](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_assembled.jpg)
 
 
-## PX4 Configuration
+## Конфігурація PX4
 
-*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the QAV250 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl* використовується для встановлення автопілота PX4 та його налаштування / налаштування для рами QAV250. [Завантажте та встановіть](http://qgroundcontrol.com/downloads/) *QGroundControl* для вашої платформи.
 
 :::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/index.md).
+Повні інструкції щодо встановлення та налаштування PX4 можна знайти в [Основна конфігурація](../config/index.md).
 :::
 
-First update the firmware and airframe:
+Спочатку оновіть прошивку та конструкцію:
 
-* [Firmware](../config/firmware.md)
+* [Прошивка](../config/firmware.md)
 * [Airframe](../config/airframe.md)
 
   You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
@@ -288,12 +288,12 @@ Ideally you should also do:
 * [Safety](../config/safety.md)
 
 
-## Tuning
+## Вдосконалення
 
-Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
+Набори вибору конструкції встановлюють параметри автопілота *за замовчуванням* для рами. Ці вистачають для польоту, але це добра ідея налаштувати параметри для конкретної конструкції рами.
 
-For instructions on how, start from [Autotune](../config/autotune.md).
+Для інструкцій щодо того, як розпочати, почніть з [Автоналаштування](../config/autotune.md).
 
-## Acknowledgements
+## Подяки
 
-This build log was provided by the Dronecode Test Flight Team.
+Цей журнал збірки був наданий Командою тестового польоту PX4.
