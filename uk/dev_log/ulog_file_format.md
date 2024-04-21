@@ -291,9 +291,9 @@ struct ulog_message_parameter_default_header_s {
 2. [Відписка](#r-unsubscription-message)
 3. [Зареєстровані дані](#d-logged-data-message)
 4. [Зареєстрована рядок](#l-logged-string-message)
-5. [Tagged Logged String](#c-tagged-logged-string-message)
+5. [Позначений Зареєстрована рядок](#c-tagged-logged-string-message)
 6. [Синхронізація](#s-synchronization-message)
-7. [Dropout Mark](#o-dropout-message)
+7. [Відмова відмови](#o-dropout-message)
 8. [Інформація](#i-information-message)
 9. [Multi Information](#m-multi-information-message)
 10. [Параметр](#p-parameter-message)
@@ -359,16 +359,16 @@ struct message_logging_s {
 - `часовий_відміток`: у мікросекундах
 - `log_level`: те саме, що і в ядрі Linux:
 
-| Name    | Level value | Meaning                            |
-| ------- | ----------- | ---------------------------------- |
-| EMERG   | '0'         | Система непридатна до використання |
-| ALERT   | '1'         | Дії повинні бути вжиті негайно     |
-| CRIT    | '2'         | Критичні умови                     |
-| ERR     | '3'         | Error conditions                   |
-| WARNING | '4'         | Warning conditions                 |
-| NOTICE  | '5'         | Normal but significant condition   |
-| INFO    | '6'         | Informational                      |
-| DEBUG   | '7'         | Debug-level messages               |
+| Назва   | Значення рівня | Значення                           |
+| ------- | -------------- | ---------------------------------- |
+| EMERG   | '0'            | Система непридатна до використання |
+| ALERT   | '1'            | Дії повинні бути вжиті негайно     |
+| CRIT    | '2'            | Критичні умови                     |
+| ERR     | '3'            | Умови помилки                      |
+| WARNING | '4'            | Умови попередження                 |
+| NOTICE  | '5'            | Нормальний, але значущий стан      |
+| INFO    | '6'            | Інформаційний                      |
+| DEBUG   | '7'            | Повідомлення рівня налагодження    |
 
 #### 'C': Tagged Logged String Message
 
