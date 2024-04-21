@@ -74,14 +74,14 @@ table {
 </tr>
 <tr>
  <td><strong id="id_ext_status">id_ext_status</strong> (INT32)</td>
- <td>Extended status ID <p><strong>Comment:</strong> Extended status ID</p>   </td>
+ <td>Розширений ідентифікатор статусу <p><strong>Коментар:</strong> Розширений ідентифікатор статусу</p>   </td>
  <td>[1, 1000000] </td>
  <td>20034</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="int_ext_status">int_ext_status</strong> (INT32)</td>
- <td>Extended status interval (µs) <p><strong>Comment:</strong> Extended status interval (µs)</p>   </td>
+ <td>Розширений інтервал статусу (мкс) <p><strong>Comment:</strong> Extended status interval (µs)</p>   </td>
  <td>[0, 1000000] </td>
  <td>50000</td>
  <td>us</td>
