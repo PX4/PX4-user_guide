@@ -404,49 +404,49 @@ Similarly to vectors, also quanternions representing the attitude of the vehicle
 
 ### ROS, Gazebo and PX4 time synchronization
 
-By default, time synchronization between ROS 2 and PX4 is automatically managed by the [uXRCE-DDS middleware](https://micro-xrce-dds.docs.eprosima.com/en/latest/time_sync.html) and time synchronization statistics are available listening to the bridged topic `/fmu/out/timesync_status`. When the uXRCE-DDS client runs on a flight controller and the agent runs on a companion computer this is the desired behavior as time offsets, time drift, and communication latency, are computed and automatically compensated.
+За замовчуванням синхронізація часу між ROS 2 та PX4 автоматично керується проміжним ПЗ [uXRCE-DDS](https://micro-xrce-dds.docs.eprosima.com/en/latest/time_sync.html), а статистика синхронізації часу доступна при прослуховуванні мостової теми `/fmu/out/timesync_status`. Коли клієнт uXRCE-DDS працює на контролері польоту, а агент працює на супутниковому комп'ютері, це є бажана поведінка, оскільки зміщення часу, дрейф часу та затримка у комунікації обчислюються та автоматично компенсуються.
 
-For Gazebo simulations PX4 uses the Gazebo `/clock` topic as [time source](../sim_gazebo_gz/index.md#px4-gazebo-time-synchronization) instead. This clock is always slightly off-sync w.r.t. the OS clock (the real time factor is never exactly one) and it can can even run much faster or much slower depending on the [user preferences](http://sdformat.org/spec?elem=physics&ver=1.9). Note that this is different from the [simulation lockstep](../simulation/index.md#lockstep-simulation) procedure adopted with Gazebo Classic.
+Для симуляцій Gazebo PX4 використовує тему Gazebo `/clock` як [джерело часу](../sim_gazebo_gz/index.md#px4-gazebo-time-synchronization) замість. Цей годинник завжди трохи не синхронізований відносно. годинник операційної системи (фактор реального часу ніколи не є точно один) і він може навіть працювати набагато швидше або повільніше залежно від [переваг користувача](http://sdformat. org/spec? elem=physics&ver=1.9). Зверніть увагу, що це відрізняється від процедури [симуляційного блокування](../simulation/index.md#lockstep-simulation), яка була прийнята з Gazebo Classic.
 
-ROS2 users have then two possibilities regarding the [time source](https://design.ros2.org/articles/clock_and_time.html) of their nodes.
+Користувачі ROS2 мають дві можливості щодо [джерела часу](https://design.ros2.org/articles/clock_and_time.html) їх вузлів.
 
-#### ROS2 nodes use the OS clock as time source
+#### Вузли ROS2 використовують годинник ОС як джерело часу
 
-This scenario, which is the one considered in this page and in the [offboard_control](./offboard_control.md) guide, is also the standard behavior of the ROS2 nodes. The OS clock acts as time source and therefore it can be used only when the simulation real time factor is very close to one. The time synchronizer of the uXRCE-DDS client then bridges the OS clock on the ROS2 side with the Gazebo clock on the PX4 side. No further action is required by the user.
+Цей сценарій, який розглядається на цій сторінці та в керівництві [offboard_control](./offboard_control.md), також є стандартною поведінкою вузлів ROS2. Годинник ОС діє як джерело часу, тому його можна використовувати лише тоді, коли фактор реального часу симуляції дуже близький до одиниці. Часовий синхронізатор клієнта uXRCE-DDS потім з'єднує годинник ОС на стороні ROS2 з годинником Gazebo на стороні PX4. Користувачеві не потрібно вживати жодних подальших заходів.
 
-#### ROS2 nodes use the Gazebo clock as time source
+#### Вузли ROS2 використовують годинник Gazebo як джерело часу
 
-In this scenario, ROS2 also uses the Gazebo `/clock` topic as time source. This approach makes sense if the Gazebo simulation is running with real time factor different from one, or if ROS2 needs to directly interact with Gazebo. On the ROS2 side, direct interaction with Gazebo is achieved by the [ros_gz_bridge](https://github.com/gazebosim/ros_gz) package of the [ros_gz](https://github.com/gazebosim/ros_gz) repository. Read through the [repo](https://github.com/gazebosim/ros_gz#readme) and [package](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge#readme) READMEs to find out the right version that has to be installed depending on your ROS2 and Gazebo versions.
+У цьому сценарії ROS2 також використовує тему Gazebo `/clock` як джерело часу. Цей підхід має сенс, якщо симуляція Gazebo працює з коефіцієнтом реального часу, відмінним від одиниці, або якщо ROS2 потрібно безпосередньо взаємодіяти з Gazebo. На стороні ROS2 пряме взаємодія з Gazebo досягається за допомогою пакету [ros_gz_bridge](https://github.com/gazebosim/ros_gz) з репозиторію [ros_gz](https://github.com/gazebosim/ros_gz). Прочитайте [repo](https://github.com/gazebosim/ros_gz#readme) та [package](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge#readme) READMEs, щоб дізнатися правильну версію, яка повинна бути встановлена в залежності від вашої версії ROS2 та Gazebo.
 
-Once the package is installed and sourced, the node `parameter_bridge` provides the bridging capabilities and can be used to create an unidirectional `/clock` bridge:
+Якщо пакет встановлено та джерело підключено, вузол `parameter_bridge` надає можливості мостування і може бути використаний для створення одностороннього моста `/clock`:
 
 ```sh
 ros2 run ros_gz_bridge parameter_bridge /clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock
 ```
 
-At this point, every ROS2 node must be instructed to use the newly bridged `/clock` topic as time source instead of the OS one, this is done by setting the parameter `use_sim_time` (of _each_ node) to `true` (see [ROS clock and Time design](https://design.ros2.org/articles/clock_and_time.html)).
+На цьому етапі кожному вузлу ROS2 необхідно бути інструкцією використовувати новостворену тему `/clock` як джерело часу замість ОС, це робиться шляхом встановлення параметра `use_sim_time` (кожного вузла) на `true` (див. [ROS clock and Time design](https://design.ros2.org/articles/clock_and_time.html)).
 
-This concludes the modifications required on the ROS2 side. On the PX4 side, you are only required to stop the uXRCE-DDS time synchronization, setting the parameter [UXRCE_DDS_SYNCT](../advanced_config/parameter_reference.md#UXRCE_DDS_SYNCT) to `false`. By doing so, Gazebo will act as main and only time source for both ROS2 and PX4.
+Це завершує внесені зміни, необхідні на стороні ROS2. На стороні PX4 вам потрібно лише зупинити синхронізацію часу uXRCE-DDS, встановивши параметр [UXRCE_DDS_SYNCT](../advanced_config/parameter_reference.md#UXRCE_DDS_SYNCT) на `false`. Таким чином, Gazebo буде діяти як основний і єдиний джерело часу як для ROS2, так і для PX4.
 
-## ROS 2 Example Applications
+## Приклади програм ROS 2
 
-### ROS 2 Listener
+### Слухач ROS 2
 
-The ROS 2 [listener examples](https://github.com/PX4/px4_ros_com/tree/main/src/examples/listeners) in the [px4_ros_com](https://github.com/PX4/px4_ros_com) repo demonstrate how to write ROS nodes to listen to topics published by PX4.
+Приклади слухачів ROS 2 [у репозиторії px4_ros_com](https://github.com/PX4/px4_ros_com/tree/main/src/examples/listeners) демонструють, як писати вузли ROS для прослуховування тем, що публікуються PX4.
 
-Here we consider the [sensor_combined_listener.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/listeners/sensor_combined_listener.cpp) node under `px4_ros_com/src/examples/listeners`, which subscribes to the [SensorCombined](../msg_docs/SensorCombined.md) message.
+Тут ми розглядаємо вузол [sensor_combined_listener.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/listeners/sensor_combined_listener.cpp) у папці `px4_ros_com/src/examples/listeners`, який підписується на повідомлення [SensorCombined](../msg_docs/SensorCombined.md).
 
-::: info [Build ROS 2 Workspace](#build-ros-2-workspace) shows how to build and run this example.
+:::info [Побудуйте робоче середовище ROS 2](#build-ros-2-workspace) показує, як побудувати та запустити цей приклад.
 :::
 
-The code first imports the C++ libraries needed to interface with the ROS 2 middleware and the header file for the `SensorCombined` message to which the node subscribes:
+Спочатку код імпортує бібліотеки C++, необхідні для взаємодії з проміжним програмним забезпеченням ROS 2 та файл заголовка для повідомлення `SensorCombined`, на яке підписується вузол:
 
 ```cpp
 #include <rclcpp/rclcpp.hpp>
 #include <px4_msgs/msg/sensor_combined.hpp>
 ```
 
-Then it creates a `SensorCombinedListener` class that subclasses the generic `rclcpp::Node` base class.
+Потім він створює клас `SensorCombinedListener`, який успадковує загальний базовий клас `rclcpp::Node`.
 
 ```cpp
 /**
@@ -456,7 +456,7 @@ class SensorCombinedListener : public rclcpp::Node
 {
 ```
 
-This creates a callback function for when the `SensorCombined` uORB messages are received (now as micro XRCE-DDS messages), and outputs the content of the message fields each time the message is received.
+Це створює функцію зворотного виклику для отримання повідомлень uORB `SensorCombined` (тепер як повідомлення micro XRCE-DDS) та виводить вміст полів повідомлення кожного разу, коли повідомлення отримано.
 
 ```cpp
 public:
@@ -484,10 +484,10 @@ public:
     }
 ```
 
-::: info The subscription sets a QoS profile based on `rmw_qos_profile_sensor_data`. This is needed because the default ROS 2 QoS profile for subscribers is incompatible with the PX4 profile for publishers. For more information see: [ROS 2 Subscriber QoS Settings](#ros-2-subscriber-qos-settings),
+:::info Підписка встановлює профіль QoS на основі `rmw_qos_profile_sensor_data`. Це потрібно, оскільки типовий профіль якості обслуговування ROS 2 для підписників несумісний з профілем PX4 для видавців. Для отримання додаткової інформації див. : [ROS 2 Налаштування QoS для підписника](#ros-2-subscriber-qos-settings),
 :::
 
-The lines below create a publisher to the `SensorCombined` uORB topic, which can be matched with one or more compatible ROS 2 subscribers to the `fmu/sensor_combined/out` ROS 2 topic.
+Рядки нижче створюють виробника для теми uORB `SensorCombined`, яка може бути зіставлена з одним або кількома сумісними підписниками ROS 2 для теми ROS 2 `fmu/sensor_combined/out`.
 
 ```cpp
 private:
@@ -495,7 +495,7 @@ private:
 };
 ```
 
-The instantiation of the `SensorCombinedListener` class as a ROS node is done on the `main` function.
+Інстанціювання класу `SensorCombinedListener` як вузла ROS виконується у функції `main`.
 
 ```cpp
 int main(int argc, char *argv[])
@@ -514,9 +514,9 @@ This particular example has an associated launch file at [launch/sensor_combined
 
 ### ROS 2 Advertiser
 
-A ROS 2 advertiser node publishes data into the DDS/RTPS network (and hence to the PX4 Autopilot).
+Вузол рекламодавця ROS 2 публікує дані в мережу DDS/RTPS (і, отже, до автопілота PX4).
 
-Taking as an example the `debug_vect_advertiser.cpp` under `px4_ros_com/src/advertisers`, first we import required headers, including the `debug_vect` msg header.
+Беручи як приклад `debug_vect_advertiser.cpp` під `px4_ros_com/src/advertisers`, спочатку ми імпортуємо необхідні заголовки, включаючи заголовок повідомлення `debug_vect`.
 
 ```cpp
 #include <chrono>
@@ -526,14 +526,14 @@ Taking as an example the `debug_vect_advertiser.cpp` under `px4_ros_com/src/adve
 using namespace std::chrono_literals;
 ```
 
-Then the code creates a `DebugVectAdvertiser` class that subclasses the generic `rclcpp::Node` base class.
+Потім код створює клас `DebugVectAdvertiser`, який успадковує загальний базовий клас `rclcpp::Node`.
 
 ```cpp
 class DebugVectAdvertiser : public rclcpp::Node
 {
 ```
 
-The code below creates a function for when messages are to be sent. The messages are sent based on a timed callback, which sends two messages per second based on a timer.
+Код нижче створює функцію для відправлення повідомлень. Повідомлення надсилаються на основі виклику за часом, який надсилає два повідомлення на секунду за таймером.
 
 ```cpp
 public:
@@ -621,7 +621,7 @@ uxrce_dds_client start -n uav_1
 PX4_UXRCE_DDS_NS=uav_1 make px4_sitl gz_x500
 ```
 
-will generate topics under the namespaces:
+згенерує теми під просторами імен:
 
 ```sh
 /uav_1/fmu/in/  # for subscribers
@@ -631,17 +631,17 @@ will generate topics under the namespaces:
 
 ## ros2 CLI
 
-The [ros2 CLI](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools.html) is a useful tool for working with ROS. You can use it, for example, to quickly check whether topics are being published, and also inspect them in detail if you have `px4_msg` in the workspace. The command also lets you launch more complex ROS systems via a launch file. A few possibilities are demonstrated below.
+[ros2 CLI](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools.html) - це корисний інструмент для роботи з ROS. Ви можете використовувати його, наприклад, щоб швидко перевірити, чи публікуються теми, а також докладно їх перевірити, якщо у вас є `px4_msg` у робочому просторі. Команда також дозволяє вам запускати більш складні системи ROS за допомогою файлу запуску. Декілька можливостей демонструються нижче.
 
 ### ros2 topic list
 
-Use `ros2 topic list` to list the topics visible to ROS 2:
+Використовуйте `ros2 topic list`, щоб переглянути список тем, доступних для ROS 2:
 
 ```sh
 ros2 topic list
 ```
 
-If PX4 is connected to the agent, the result will be a list of topic types:
+Якщо PX4 підключений до агента, результатом буде список типів теми:
 
 ```
 /fmu/in/obstacle_distance
@@ -650,19 +650,19 @@ If PX4 is connected to the agent, the result will be a list of topic types:
 ...
 ```
 
-Note that the workspace does not need to build with `px4_msgs` for this to succeed; topic type information is part of the message payload.
+Зверніть увагу, що робочому простору не потрібно будувати з `px4_msgs` для успішного виконання; інформація про тип теми є частиною навантаження повідомлення.
 
 ### ros2 topic echo
 
-Use `ros2 topic echo` to show the details of a particular topic.
+Використовуйте `ros2 topic echo`, щоб показати деталі певної теми.
 
-Unlike with `ros2 topic list`, for this to work you must be in a workspace has built the `px4_msgs` and sourced `local_setup.bash` so that ROS can interpret the messages.
+На відміну від `ros2 topic list`, для цієї роботи вам потрібно знаходитися в робочому просторі, який побудував `px4_msgs` та джерело `local_setup.bash`, щоб ROS міг інтерпретувати повідомлення.
 
 ```sh
 ros2 topic echo /fmu/out/vehicle_status
 ```
 
-The command will echo the topic details as they update.
+Команда виведе деталі теми під час оновлення.
 
 ```
 ---
@@ -683,13 +683,13 @@ hil_state: 0
 
 ### ros2 topic hz
 
-You can get statistics about the rates of messages using `ros2 topic hz`. For example, to get the rates for `SensorCombined`:
+Ви можете отримати статистику про швидкість повідомлень, використовуючи `ros2 topic hz`. Наприклад, щоб отримати ставки для `SensorCombined`:
 
 ```
 ros2 topic hz /fmu/out/sensor_combined
 ```
 
-The output will look something like:
+Вихід буде виглядати приблизно так:
 
 ```sh
 average rate: 248.187
@@ -708,15 +708,15 @@ average rate: 247.485
 
 ### ros2 launch
 
-The `ros2 launch` command is used to start a ROS 2 launch file. For example, above we used `ros2 launch px4_ros_com sensor_combined_listener.launch.py` to start the listener example.
+Команда `ros2 launch` використовується для запуску файлу запуску ROS 2. Наприклад, вище ми використовували `ros2 launch px4_ros_com sensor_combined_listener.launch.py` для запуску прикладу слухача.
 
-You don't need to have a launch file, but they are very useful if you have a complex ROS 2 system that needs to start several components.
+Вам не потрібно мати файл запуску, але вони дуже корисні, якщо у вас складна система ROS 2, яка потребує запуску кількох компонентів.
 
-For information about launch files see [ROS 2 Tutorials > Creating launch files](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
+Для отримання інформації про файли запуску див. [Посібники ROS 2 >  Створення файлів запуску](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
 
 
 
-## Troubleshooting
+## Відстеження проблем
 
 ### Missing dependencies
 
@@ -727,7 +727,7 @@ If any are missing, they can be added separately:
   ```sh
   sudo apt install python3-colcon-common-extensions
   ```
-- The Eigen3 library used by the transforms library should be in the both the desktop and base packages. It should be installed as shown:
+- Бібліотеку Eigen3, яку використовує бібліотека трансформацій, повинно бути в обох пакунків: desktop та base. Воно повинно бути встановлено, як показано:
 
    :::: tabs
 
