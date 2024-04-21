@@ -75,26 +75,26 @@ Pixhawk® 5X ідеально підходить для розробників �
   - 100Mbps
   - 1 шина SPI
   - 2 лінії вибору чіпу
-  - 2 data-ready lines
-  - 1 SPI SYNC line
-  - 1 SPI reset line
-  - 2 CAN Buses for CAN peripheral
-    - CAN Bus has individual silent controls or ESC RX-MUX control
+  - 2 лінії даних
+  - 1 SPI SYNC лінія
+  - 1 лінія SPI reset
+  - 2 CAN шини для CAN периферії
+    - CAN шина має individual silent controls або ESC RX-MUX control
   - 2 Power input ports with SMBus
-  - 1 AD & IO port
-    - 2 additional analog input
-    - 1 PWM/Capture input
-    - 2 Dedicated debug and GPIO lines
+  - 1 AD & IO порт
+    - 2 додаткових аналогових входи
+    - 1 PWM/Capture вхід
+    - 2 виділені відладочні та GPIO лінії
 
-- Voltage Ratings
+- Номінальна напруга
 
-  - Max input voltage: 6V
-  - USB Power Input: 4.75~5.25V
-  - Servo Rail Input: 0~36V
+  - Максимальна вхідна напруга: 6V
+  - Живлення USB входу: 4.75~5.25V
+  - Вхід сервоприводу: 0~36V
 
 - Розміри
 
-  - Flight Controller Module: 38.8 x 31.8 x 14.6mm
+  - Модуль політного контролера: 38.8 x 31.8 x 14.6mm
   - Standard Baseboard: 52.4 x 103.4 x 16.7mm
 
 - Weight
