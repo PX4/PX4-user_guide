@@ -79,7 +79,7 @@
 
 ![CUAV x7](../../assets/flight_controller/cuav_nora/nora-size.jpg)
 
-![X7 pinouts](../../assets/flight_controller/cuav_nora/nora-pinouts.jpg)
+![Роз'єми X7](../../assets/flight_controller/cuav_nora/nora-pinouts.jpg)
 
 :::warning
 Порт `RCIN` призначено лише для живлення rc-приймача і його не можна підключати до жодного джерела живлення/навантаження.
@@ -89,20 +89,20 @@
 
 Nora AutoPilot\* може мати потрійне резервування джерела живлення, якщо до нього підключено три джерела живлення. Дві шини живлення: **POWERA**, **POWERC** і **USB**.
 
-::: info The output power rails **PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered.
+::: info Вихідні шини живлення **PWM OUT** (від 0В до 36В) не живлять плату контролера польоту (і не живляться від неї). Ви повинні подати живлення на один з виводів **POWERA**, **POWERC** або **USB**, інакше плата буде знеструмлена.
 :::
 
-**Normal Operation Maximum Ratings**
+**Максимальна напруга нормальної роботи**
 
-Under these conditions all power sources will be used in this order to power the system:
+За таких умов всі джерела живлення будуть використовуватися в цьому порядку для живлення системи:
 
-1. **POWERA** and **POWERC** inputs (4.3V to 5.4V)
-2. **USB** input (4.75V to 5.25V)
+1. **POWERA** та **POWERC** входи (від 4,3 В до 5,4 В)
+2. **USB** вхід (4.75V до 5.25V)
 
 ## Збірка прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно збирати цю прошивку! Вона попередньо зібрана й автоматично встановлюється _QGroundControl_ при підключенні відповідного апаратного забезпечення.
 :::
 
 Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
@@ -111,47 +111,47 @@ Most users will not need to build this firmware! It is pre-built and automatical
 make cuav_nora_default
 ```
 
-## Over Current Protection
+## Захист від перенапруги
 
-The _Nora_ has over-current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A. The _Nora_ has short circuit protection.
+_Nora_ має захист від перенапруги на периферійних пристроях з напругою 5 Вольт і 5 Вольт високої потужності, який обмежує струм до 2,5 А. _Nora_ має захист від короткого замикання.
 
 :::warning
-Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
+На роз'єми, позначені як контакт 1, можна подавати до 2,5 А (хоча вони розраховані лише на 1 А).
 :::
 
 ## Відладочний порт
 
-The system's serial console and SWD interface operate on the **DSU7** port. Simply connect the FTDI cable to the DSU7 connector (the product list contains the CUAV FTDI cable).
+Консоль послідовного доступу до системи та інтерфейс SWD працюють через порт **DSU7**. Просто підключіть кабель FTDI до роз'єму DSU7 (у списку продуктів є кабель CUAV FTDI).
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) operate on the **FMU Debug** port (`DSU7`).
+Системна консоль [PX4](../debug/system_console.md) та інтерфейс [SWD](../debug/swd_debug.md) працюють через порт **FMU Debug** (`DSU7`).
 
-The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-detail/en/jst-sales-america-inc/BM06B-GHS-TBT-LF-SN-N/455-1582-1-ND/807850) connector and has the following pinout:
+Відладочний порт (`DSU7`) використовує роз'єм [JST BM06B](https://www.digikey.com.au/product-detail/en/jst-sales-america-inc/BM06B-GHS-TBT-LF-SN-N/455-1582-1-ND/807850) і має наступну розводку:
 
 | Pin     | Сигнал         | Вольтаж |
 | ------- | -------------- | ------- |
-| 1 (red) | 5V+            | +5V     |
-| 2 (blk) | DEBUG TX (OUT) | +3.3V   |
-| 3 (blk) | DEBUG RX (IN)  | +3.3V   |
-| 4 (blk) | FMU_SWDIO      | +3.3V   |
-| 5 (blk) | FMU_SWCLK      | +3.3V   |
+| 1 (red) | 5V+            | +5В     |
+| 2 (blk) | DEBUG TX (OUT) | +3.3В   |
+| 3 (blk) | DEBUG RX (IN)  | +3.3В   |
+| 4 (blk) | FMU_SWDIO      | +3.3В   |
+| 5 (blk) | FMU_SWCLK      | +3.3В   |
 | 6 (blk) | GND            | GND     |
 
-CUAV provides a dedicated debugging cable, which can be connected to the `DSU7` port. This splits out an FTDI cable for connecting the [PX4 System Console](../debug/system_console.md) to a computer USB port, and SWD pins used for SWD/JTAG debugging. The provided debug cable does not connect to the SWD port `Vref` pin (1).
+CUAV надає спеціальний відладочний кабель, який можна підключити до порту `DSU7`. Він розділяє кабель FTDI для підключення [PX4 System Console](../debug/system_console.md) до USB-порту комп'ютера і виводи SWD, які використовуються для налагодження SWD/JTAG. Відладочний кабель, що входить до комплекту, не підключається до контакту (1) порту SWD `Vref`.
 
-![CUAV Debug cable](../../assets/flight_controller/cuav_v5_plus/cuav_v5_debug_cable.jpg)
+![Відладочний кабель CUAV](../../assets/flight_controller/cuav_v5_plus/cuav_v5_debug_cable.jpg)
 
 :::warning
-The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
+Вивід Vref SWD (1) використовує 5В як Vref, але процесор працює при напрузі 3,3В!
 
-Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines. For direct connection to _Segger Jlink_ we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and _NOT_ 5V).
+Деякі JTAG-адаптери (SEGGER J-Link) використовують напругу Vref для встановлення напруги на лініях SWD. Для прямого підключення до _Segger Jlink_ ми рекомендуємо використовувати 3,3 вольта з контакту 4 роз'єму з позначкою `DSM`/`SBUS`/`RSSI` для забезпечення `Vtref` на JTAG (тобто для забезпечення 3,3 В і _NOT_ 5 В).
 :::
 
-## Supported Platforms / Airframes
+## Підтримувані платформи / Конструкції
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Будь-який мультикоптер / літак / наземна платформа / човен, який може керуватися звичайними RC сервоприводами або сервоприводами Futaba S-Bus. Повний набір підтримуваних конфігурацій можна переглянути в [Довіднику авіаційних платформ](../airframes/airframe_reference.md).
 
 ## Подальша інформація
 
-- [Quick start](https://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
-- [CUAV docs](http://doc.cuav.net)
-- [nora schematic](https://github.com/cuav/hardware/tree/master/X7_Autopilot)
+- [Швидкий старт](https://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
+- [Документація CUAV](http://doc.cuav.net)
+- [схема nora](https://github.com/cuav/hardware/tree/master/X7_Autopilot)
