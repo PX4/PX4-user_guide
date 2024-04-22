@@ -6,17 +6,17 @@ PX4 не виробляє цей (або будь-який інший) авто�
 
 _Pixhawk 6C Mini_<sup>&reg;</sup> є останнім оновленням успішної серії політних контролерів Pixhawk®, розроблених та виготовлених у співпраці між Holybro<sup>&reg;</sup> та командою PX4.
 
-Він оснащений високопродуктивним процесором H7, резервуванням IMU, платою IMU з контролем температури та економічним дизайном, що забезпечує неймовірну продуктивність і надійність. It complies with the Pixhawk [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+Він оснащений високопродуктивним процесором H7, резервуванням IMU, платою IMU з контролем температури та економічним дизайном, що забезпечує неймовірну продуктивність і надійність. Він відповідає Pixhawk [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
 ![Pixhawk6c mini Upright Image](../../assets/flight_controller/pixhawk6c_mini/pixhawk6c_mini_hero.jpg)
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+Цей автопілот [підтримується](../flight_controller/autopilot_pixhawk_standard.md) командами підтримки та тестування PX4.
 :::
 
-## Introduction
+## Введення
 
-The Pixhawk® 6C Mini is the latest update to the successful family of Pixhawk® flight controllers.
+Pixhawk® 6C Mini є останнім оновленням успішної серії політних контролерів Pixhawk®.
 
 Inside the Pixhawk® 6C Mini, you can find an STMicroelectronics® based STM32H743, paired with sensor technology from Bosch® & InvenSense®, giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
 
