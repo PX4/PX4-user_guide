@@ -1,10 +1,10 @@
 # CUAV Pixhawk V6X
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+PX4 не виробляє цей (або будь-який інший) автопілот. Зверніться до [виробника](https://store.cuav.net/) щодо питань технічної підтримки або відповідності вимогам.
 :::
 
-_Pixhawk V6X_<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with CUAV<sup>&reg;</sup> and the PX4 team.
+_Pixhawk V6X_<sup>&reg;</sup> - останнє оновлення успішного сімейства польотних контролерів Pixhawk®, розроблене та виготовлене у співпраці з CUAV<sup>&reg;</sup> та командою PX4.
 
 Це базується на стандарті [Pixhawk​​® Autopilot FMUv6X](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf), [Стандарті шин автопілота](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf) та [Стандарті коннектора Pixhawk​​®](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
@@ -34,36 +34,36 @@ Pixhawk® V6X ідеально підходить для корпоративн�
   - 32 Bit Arm® Cortex®-M7, 480MHz, 2MB flash memory, 1MB RAM
 - IO Processor: STM32F103
   - 32 Bit Arm® Cortex®-M3, 72MHz, 20KB SRAM
-- On-board sensors
-  - Accel/Gyro: BMI088
-  - Accel/Gyro: ICM-42688-P
-  - Accel/Gyro: ICM-20649
+- Сенсори на платі
+  - Акселератор/гіроскоп: BMI088
+  - Акселератор/гіроскоп: ICM-42688-P
+  - Акселератор/гіроскоп: ICM-20649
   - Mag: RM3100
-  - Barometer: 2x ICP-20100
+  - Барометр: 2x ICP-20100
 
-### Electrical data
+### Електротехнічні дані
 
-- Voltage Ratings:
-  - Max input voltage: 5.7V
-  - USB Power Input: 4.75\~5.25V
-  - Servo Rail Input: 0\~9.9V
-- Current Ratings:
-  - TELEM1 and GPS2 combined output current limiter: 1.5A
-  - All other port combined output current limiter: 1.5A
+- Номінальна напруга:
+  - Максимальна вхідна напруга: 5,7 В
+  - Вхід USB Power: 4.75~5.25В
+  - Вхід на серворейку: 0\~9.9В
+- Номінальний струм:
+  - Комбінований обмежувач вихідного струму TELEM1 і GPS2: 1,5 А
+  - Комбінований обмежувач вихідного струму всіх інших портів: 1.5A
 
-### Interfaces
+### Інтерфейси
 
-- 16- PWM servo outputs
-- 1 Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
-- 3 TELEM Ports（with full flow control）
-- 1 UART4(Seial and I2C)
-- 2 GPS ports
-  - 1 full GPS plus Safety Switch Port(GPS1)
-  - 1 basic GPS port(with I2C,GPS2)
-- 2 USB Ports
+- 16 PWM виводів сервоприводів
+- 1 Виділений R/C вхід для Spektrum / DSM та S.Bus з аналоговим / PWM RSSI входом
+- 3 TELEM-порти (з повним контролем потоку)
+- 1 UART4(Seial та I2C)
+- 2 порти GPS
+  - 1 повноцінний порт GPS плюс порт перемикача безпеки (GPS1)
+  - 1 базовий GPS-порт (з I2C, GPS2)
+- 2 USB порти
   - 1 TYPE-C
   - JST GH1.25
-- 1 Ethernet port
+- 1 порт Ethernet
   - Transformerless Applications
   - 100Mbps
 - 1 SPI bus
