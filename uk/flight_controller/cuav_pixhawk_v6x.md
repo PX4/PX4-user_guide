@@ -66,13 +66,13 @@ Pixhawk® V6X ідеально підходить для корпоративн�
 - 1 порт Ethernet
   - Transformerless Applications
   - 100Mbps
-- 1 SPI bus
-  - 2 chip select lines
-  - 2 data-ready lines
-  - 1 SPI SYNC line
-  - 1 SPI reset line
-- 2 CAN Buses for CAN peripheral
-  - CAN Bus has individual silent controls or ESC RX-MUX control
+- 1 шина SPI
+  - 2 лінії вибору чіпу
+  - 2 лінії даних
+  - 1 SPI SYNC лінія
+  - 1 лінія SPI reset
+- 2 CAN шини для CAN периферії
+  - CAN шина має individual silent controls або ESC RX-MUX control
 - 4 power input ports
   - 2 Dronecan/UAVCAN power inputs
   - 2 SMBUS/I2C power inputs
@@ -151,21 +151,21 @@ Under these conditions the system will not draw any power (will not be operation
 1. **USB input** (operational range 4.7V to 5.7V, 0V to 6V undamaged)
 1. **Servo input:** `VDD_SERVO` pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
-**Voltage monitoring**
+**Моніторинг напруги**
 
-Digital DroneCAN/UAVCAN battery monitoring is enabled by default (see [Quickstart > Power](../assembly/quick_start_cuav_pixhawk_v6x.md#power)).
+Моніторинг акумулятора цифрових DroneCAN/UAVCAN увімкнено за замовчуванням (див. [Швидкий старт > Живлення](../assembly/quick_start_cuav_pixhawk_v6x.md#power)).
 
 ::: info
-Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
+Аналоговий моніторинг батареї через ADC не підтримується на цій конкретній платі, але може підтримуватися в варіантах цього контролера польоту з іншою базовою платою.
 :::
 
-## Building Firmware
+## Створення прошивки
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by _QGroundControl_ when appropriate hardware is connected.
+Більшості користувачів не потрібно збирати цю прошивку! Вона попередньо зібрана й автоматично встановлюється _QGroundControl_ при підключенні відповідного апаратного забезпечення.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+Щоб [зібрати PX4](../dev_setup/building_px4.md) для цієї цілі:
 
 ```
 make px4_fmu-v6x_default
@@ -173,7 +173,7 @@ make px4_fmu-v6x_default
 
 <a id="debug_port"></a>
 
-## Debug Port
+## Відладочний порт
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
 
