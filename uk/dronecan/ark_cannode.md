@@ -49,46 +49,46 @@ ARK CANnode підключений до шини CAN за допомогою с�
 
 ARK CANnode працює з [Прошивкою PX4 DroneCAN](px4_cannode_fw.md). Таким чином, він підтримує оновлення прошивки через шину CAN та [dynamic node allocation](index.md#node-id-allocation).
 
-ARK CANnode boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself see [PX4 DroneCAN Firmware > Building the Firmware](px4_cannode_fw.md#building-the-firmware).
+Плати ARK CANnode поставляються з останнім вбудованим програмним забезпеченням, але якщо ви хочете побудувати й прошити останнє програмне забезпечення самостійно, див. [PX4 DroneCAN Firmware > Building the Firmware](px4_cannode_fw.md#building-the-firmware).
 
-- Firmware target: `ark_cannode_default`
-- Bootloader target: `ark_cannode_canbootloader`
+- Ціль прошивки: `ark_cannode_default`
+- Ціль завантажувача: `ark_cannode_canbootloader`
 
-## Flight Controller Configuration
+## Налаштування режиму польоту
 
-### Enable DroneCAN
+### Увімкнення DroneCAN
 
-In order to use the ARK CANnode board, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
+Для використання плати ARK CANnode підключіть її до шини CAN Pixhawk та увімкніть драйвер DroneCAN, встановивши параметр [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) на `2` для динамічного призначення вузла (або `3`, якщо використовуєте [DroneCAN ESCs](../dronecan/escs.md)).
 
-The steps are:
+Кроки наступні:
 
-- In _QGroundControl_ set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
-- Connect ARK CANnode CAN to the Pixhawk CAN.
+- У _QGroundControl_ встановіть параметр [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) на `2` або `3` та перезавантажте (див. [Finding/Updating Parameters](../advanced_config/parameters.md)).
+- Підключіть ARK CANnode CAN до Pixhawk CAN.
 
-Once enabled, the module will be detected on boot.
+Після активації модуль буде виявлено при завантаженні.
 
-DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
+Конфігурацію DroneCAN в PX4 пояснено більш детально в [DroneCAN > Enabling DroneCAN](../dronecan/index.md#enabling-dronecan).
 
-### Enable Sensors
+### Увімкнення датчику
 
-You will need to enable the subscriber appropriate for each of the sensors that are connected to the ARK CANnode.
+Вам потрібно буде увімкнути підписника, відповідного для кожного з сенсорів, які підключені до ARK CANnode.
 
-This is done using the the parameters named like `UAVCAN_SUB_*` in the parameter reference (such as [UAVCAN_SUB_ASPD](../advanced_config/parameter_reference.md#UAVCAN_SUB_ASPD), [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO) etc.).
+Це робиться за допомогою параметрів, названих, наприклад, `UAVCAN_SUB_*` у посиланні на параметри (таких як [UAVCAN_SUB_ASPD](../advanced_config/parameter_reference.md#UAVCAN_SUB_ASPD), [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO) тощо).
 
-## Ark CANNode Configuration
+## Конфігурування CANNode Ark
 
-On the ARK CANnode, you may need to configure the following parameters:
+На ARK CANnode вам може знадобитися налаштувати наступні параметри:
 
-| Параметр                                                                                        | Опис                          |
-| ----------------------------------------------------------------------------------------------- | ----------------------------- |
-| <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | CAN built-in bus termination. |
+| Параметр                                                                                        | Опис                           |
+| ----------------------------------------------------------------------------------------------- | ------------------------------ |
+| <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | Вбудована завершення шини CAN. |
 
-## LED Meanings
+## Значення LED індикаторів
 
-You will see both red and blue LEDs on the ARK CANnode when it is being flashed, and a solid blue LED if it is running properly.
+Ви побачите як червоні, так і сині світлодіоди на ARK CANnode, коли він прошивається, і сталий синій світлодіод, якщо він працює належним чином.
 
-If you see a solid red LED there is an error and you should check the following:
+Якщо ви бачите червоний світлодіод, це означає, що виникла помилка, і вам слід перевірити наступне:
 
-- Make sure the flight controller has an SD card installed.
-- Make sure the ARK CANnode has `ark_cannode_canbootloader` installed prior to flashing `ark_cannode_default`.
-- Remove binaries from the root and ufw directories of the SD card and try to build and flash again.
+- Переконайтеся, що у польотному контролері встановлено SD-картку.
+- Переконайтеся, що ARK CANnode має встановлене `ark_cannode_canbootloader` перед тим, як прошивати `ark_cannode_default`.
+- Видаліть бінарні файли з кореневих та каталогів ufw SD-карти та спробуйте зібрати та знову прошити.
