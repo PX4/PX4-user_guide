@@ -1,53 +1,53 @@
 # ARK CANnode
 
-[ARK CANnode](https://arkelectron.com/product/ark-cannode/) is an open source generic [DroneCAN](../dronecan/index.md) node that includes a 6 degree of freedom IMU. Its main purpose is to enable the use of non-CAN sensors (I2C, SPI, UART) on the CAN bus. It also has PWM outputs to expand a vehicle's control outputs in quantity and physical distance.
+[ARK CANnode](https://arkelectron.com/product/ark-cannode/) - це опенсорсний [DroneCAN](../dronecan/index.md) вузол, який включає 6 ступенів свободи IMU. Його основна мета - дозволити використання датчиків, що не є CAN (I2C, SPI, UART) на шині CAN. Також він має виходи PWM для розширення вихідних сигналів транспортного засобу за кількістю та фізичною відстанню.
 
 ![ARK CANnode](../../assets/hardware/can_nodes/ark_cannode.jpg)
 
-## Where to Buy
+## Де купити
 
-Order this module from:
+Замовте цей модуль з:
 
-- [ARK Electronics](https://arkelectron.com/product/ark-cannode/) (US)
+- [Ark Electronics](https://arkelectron.com/product/ark-cannode/) (США)
 
-## Hardware Specifications
+## Характеристики обладнання
 
 - [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_CANNODE)
-- Sensors
+- Датчики
   - Bosch BMI088 6-Axis IMU or Invensense ICM-42688-P 6-Axis IMU
 - STM32F412CGU6 MCU
   - 1MB Flash
-- Two Pixhawk Standard CAN Connectors
-  - 4 Pin JST GH
+- Два роз'єми стандарту CAN для Pixhawk
+  - 4-контактний JST-GH
 - Pixhawk Standard I2C Connector
-  - 4 Pin JST GH
-- Pixhawk Standard UART/I2C Connector (Basic GPS Port)
-  - 6 Pin JST GH
+  - 4-контактний JST-GH
+- Стандартний коннектор UART/I2C для Pixhawk (Основний порт GPS)
+  - 6-контактний JST-GH
 - Pixhawk Standard SPI Connector
-  - 7 Pin JST GH
-- PWM Connector
-  - 10 Pin JST JST
-  - 8 PWM Outputs
-  - Matches Pixhawk 4 PWM Connector Pinout
+  - 7-контактний JST-GH
+- Коннектор PWM
+  - 10-контактний JST-SH
+  - 8 PWM виводів
+  - Відповідно до схеми підключення штирьових роз'ємів Pixhawk 4 PWM
 - Pixhawk Standard Debug Connector
-  - 6 Pin JST SH
-- Small Form Factor
-  - 3cm x 3cm x 1.3cm
-- LED Indicators
+  - 6-контактний JST-GH
+- Малий форм-фактор
+  - 3см x 3см x 1.3см
+- LED індикатори
 - USA Built
-- Power Requirements
-  - 5V
-  - Current dependent on connected peripherals
+- Вимоги до живлення
+  - 5В
+  - Сила струму залежить від підключених пристроїв
 
-## Hardware Setup
+## Налаштування обладнання
 
-### Wiring
+### Підключення
 
-The ARK CANnode is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/index.md#wiring) instructions.
+ARK CANnode підключений до шини CAN за допомогою стандартного кабелю JST GH з чотирма контактами Pixhawk. Для отримання додаткової інформації, зверніться до інструкцій з [проводки CAN](../can/index.md#wiring).
 
-## Firmware Setup
+## Налаштування прошивки
 
-ARK CANnode runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](index.md#node-id-allocation).
+ARK CANnode працює з [Прошивкою PX4 DroneCAN](px4_cannode_fw.md). Таким чином, він підтримує оновлення прошивки через шину CAN та [dynamic node allocation](index.md#node-id-allocation).
 
 ARK CANnode boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself see [PX4 DroneCAN Firmware > Building the Firmware](px4_cannode_fw.md#building-the-firmware).
 
