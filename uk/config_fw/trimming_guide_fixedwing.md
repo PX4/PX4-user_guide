@@ -1,4 +1,4 @@
-# Fixed-Wing Trimming Guide
+# Посібник з обрізання фіксованого крила
 
 Стрічки використовуються для калібрування керуючих поверхонь в умовах обрізання (відносна швидкість повітря, густина повітря, кут атаки, конфігурація літака тощо). Правильно обрізаний літак, що летить в умовах обтримування, буде утримувати свою позицію без потреби в будь-яких керувальних сигналах від пілота або стабілізуючого комп'ютера.
 
@@ -10,13 +10,13 @@
 
 Існують кілька параметрів, які оператор може бажати використовувати для належного обрізання літака з фіксованим крилом. Огляд цих параметрів та їх використання показано нижче:
 
-- [RCx_TRIM](../advanced_config/parameter_reference.md#RC1_TRIM) applies trim to the signal received from the RC transmitter. These parameters are set automatically during [RC calibration](../config/radio.md).
-- [CA_SV_CSx_TRIM](../advanced_config/parameter_reference.md#CA_SV_CS0_TRIM) applies trim to a control surfaces channel. These are used to finely align the control surfaces to default angles before flying.
-- [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF) applies an offset to the pitch setpoint. This is used to set the angle of attack at which your aircraft needs to fly at cruise speed.
-- [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) is used by the rate controllers to scale their output depending on the measured airspeed. See [Airspeed Scaling](../flight_stack/controller_diagrams.md#airspeed-scaling) for more details.
-- [TRIM_ROLL](../advanced_config/parameter_reference.md#TRIM_ROLL), [TRIM_PITCH](../advanced_config/parameter_reference.md#TRIM_PITCH) and [TRIM_YAW](../advanced_config/parameter_reference.md#TRIM_YAW) apply trim to the control signals _before_ mixing. For example, if you have two servos for the elevator, `TRIM_PITCH` applies trim to both of them. These are used when your control surfaces are aligned but the aircraft pitches/rolls/yaws up/down/left/right during manual (not stabilized) flight or if the control signal has a constant offset during stabilized flight.
+- [RCx_TRIM](../advanced_config/parameter_reference.md#RC1_TRIM) застосовує обрізку до сигналу, отриманого від пульту керування RC. Ці параметри автоматично встановлюються протягом [RC calibration](../config/radio.md).
+- [CA_SV_CSx_TRIM](../advanced_config/parameter_reference.md#CA_SV_CS0_TRIM) застосовує обрізку до каналу поверхонь керування. Ці засоби використовуються для точного вирівнювання керуючих поверхонь до типових кутів перед польотом.
+- [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF) застосовує зміщення до заданої точки висоти. Це використовується для встановлення кута атаки, при якому ваш літак повинен летіти з крейсерською швидкістю.
+- [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) використовується регуляторами швидкості для масштабування їх виходу в залежності від виміряної швидкості повітря. Див. [Масштабування швидкості повітря](../flight_stack/controller_diagrams.md#airspeed-scaling) для отримання додаткової інформації.
+- [TRIM_ROLL](../advanced_config/parameter_reference.md#TRIM_ROLL), [TRIM_PITCH](../advanced_config/parameter_reference.md#TRIM_PITCH) та [TRIM_YAW](../advanced_config/parameter_reference.md#TRIM_YAW) застосовують обрізку до сигналів керування _перед_ змішуванням. Наприклад, якщо у вас є два сервоприводи для елеватора, `TRIM_PITCH` застосовує обрізку до обох з них. Ці використовуються, коли ваші керуючі поверхні вирівняні, але літак піднімається/кочується/повертається вгору/вниз/ліворуч/праворуч під час ручного (не стабілізованого) польоту або якщо сигнал керування має постійний зсув під час стабілізованого польоту.
 
-The correct order to set the above parameters is:
+Правильний порядок встановлення вищезазначених параметрів:
 
 1. Обріжте сервоприводи, фізично налаштувавши довжини зв'язок, якщо це можливо, і відрегулюйте, обрізавши канали ШІМ (використовуйте `PWM_MAIN/AUX_TRIMx`) на верстаті, щоб належним чином встановити керуючі поверхні у їх теоретичне положення.
 1. Літайте в стабілізованому режимі з крейсерською швидкістю та встановіть зміщення заданої точки вхідного кута атаки (`FW_PSP_OFF`) на бажаний кут атаки. Необхідний кут атаки при крейсерській швидкості відповідає куту крена, який потрібно літаку летіти, щоб утримати постійну висоту під час польоту з вирівняним крилом. Якщо ви використовуєте датчик швидкості повітря, також встановіть правильну крейсерську швидкість (`FW_AIRSPD_TRIM`).
