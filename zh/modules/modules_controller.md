@@ -252,7 +252,7 @@ navigator <command> [arguments...]
 
    fencefile     load a geofence file from SD card, stored at etc/geofence.txt
 
-   fake_traffic  publishes 4 fake transponder_report_s uORB messages
+   fake_traffic  publishes 24 fake transponder_report_s uORB messages
 
    stop
 
