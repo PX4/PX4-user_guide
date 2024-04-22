@@ -1,8 +1,8 @@
-# Debugging with Eclipse and J-Link
+# Налагодження з Eclipse та J-Link
 
-This topic explains how to setup and use [MCU Eclipse](https://gnu-mcu-eclipse.github.io/) with a _Segger Jlink adapter_ to debug PX4 running on NuttX (e.g. Pixhawk series boards).
+Ця тема пояснює, як налаштувати та використовувати [MCU Eclipse](https://gnu-mcu-eclipse.github.io/) з адаптером _Segger Jlink_ для налагодження PX4, що працює на NuttX (наприклад, плати серії Pixhawk).
 
-## Required Hardware
+## Необхідне обладнання
 
 - [J-Link EDU Mini](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/)
 - Adapter to connect Segger JLink to Flight Controller [SWD Debug Port](../debug/swd_debug.md) (debug port).
