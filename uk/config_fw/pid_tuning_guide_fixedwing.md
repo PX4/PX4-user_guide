@@ -1,4 +1,4 @@
-# Fixed-wing Rate/Attitude Controller Tuning Guide
+# Посібник з налаштування регулятора швидкості/кутового положення літака
 
 Цей посібник пояснює, як вручну налаштувати петлі PID фіксованого крила. Призначено для досвідчених користувачів / експертів, оскільки неправильна настройка PID може зірвати ваш літак.
 
@@ -16,73 +16,73 @@
 
 Якщо доступний пілот, здатний до ручного польоту, то краще встановити деякі основні властивості системи на ручному випробуванні. Щоб це зробити, виконайте ці маневри. Навіть якщо ви не зможете відразу зафіксувати всі кількості на папері, журнал буде дуже корисним для подальшого налаштування.
 
-:::info Усі ці величини будуть автоматично зареєстровані. You only need to take notes if you want to directly move on to tuning without looking at the log files.
+:::info Усі ці величини будуть автоматично зареєстровані. Вам потрібно робити записи лише у випадку, якщо ви хочете безпосередньо перейти до налаштування без перегляду журнальних файлів.
 
-- Fly level with a convenient airspeed. Note throttle stick position and airspeed (example: 70% → 0.7 throttle, 15 m/s airspeed).
-- Climb with maximum throttle and sufficient airspeed for 10-30 seconds (example: 12 m/s airspeed, climbed 100 m in 30 seconds).
-- Descend with zero throttle and reasonable airspeed for 10-30 seconds (example: 18 m/s airspeed, descended 80 m in 30 seconds).
-- Bank hard right with full roll stick until 60 degrees roll, then bank hard left with full roll stick until 60 degrees in the opposite side.
-- Pitch up hard 45 degrees, pitch down hard 45 degrees.
+- Літаєте на рівній висоті зручною швидкістю повітря. Нотатка швидкість(приклад: 70% → 0,7 тролей, 15 м/с літаком).
+- Піднімайтеся з максимальним режимом газу та достатньою швидкістю повітря протягом 10-30 секунд (приклад: швидкість повітря 12 м/с, піднялася на 100 м за 30 секунд).
+- Знижуйте з нульовим режимом газу та розумною швидкістю повітря протягом 10-30 секунд (приклад: швидкість повітря 18 м/с, знизилася на 80 м за 30 секунд).
+- Поверніть праворуч з повністю відкоченим джойстиком до 60 градусів кочення, а потім поверніть наліво з повністю відкоченим джойстиком до 60 градусів у протилежному напрямку.
+- Круто підніміть на 45 градусів, круто опустіть на 45 градусів.
 :::
 
-This guide will use these quantities to set some of the controller gains later on.
+Цей посібник використовуватиме ці кількості для встановлення деяких коефіцієнтів контролера пізніше.
 
 ## Tune Roll
 
-Tune first the roll axis, then pitch. The roll axis is safer as an incorrect tuning leads only to motion, but not a loss of altitude.
+Спочатку налаштуйте вісь кочення, а потім тангаж. Ось кочення є безпечнішою, оскільки неправильна настройка призводить лише до руху, а не втрати висоти.
 
-### Tuning the Feedforward Gain
+### Налаштування коефіцієнта передавальної функції
 
-To tune this gain, first set the other gains to their minimum values (nominally 0.005, but check the parameter documentation).
+Щоб налаштувати цей коефіцієнт, спочатку встановіть інші коефіцієнти на їх мінімальні значення (зазвичай 0.005, але перевірте документацію параметрів).
 
-#### Gains to set to minimum values
+#### Отримані виграші встановлені на мінімальні значення
 
 - [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I)
 - [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P)
 
-#### Gains to tune
+#### Отримання для налаштування
 
-- [FW_RR_FF](../advanced_config/parameter_reference.md#FW_RR_FF) - start with a value of 0.4. Increase this value (doubling each time) until the plane rolls satisfactorily and reaches the setpoint. Back down the gain 20% at the end of the process.
+- [FW_RR_FF](../advanced_config/parameter_reference.md#FW_RR_FF) - починається зі значення 0.4. Збільшуйте це значення (подвоюючи його кожен раз), поки літак задовільно не кочується та не досягає встановленої точки. Знизити підсилення на 20% в кінці процесу.
 
-### Tuning the Rate Gain
+### Налаштування коефіцієнта коефіцієнта
 
-- [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P) - start with a value of 0.06. Increase this value (doubling each time) until the system starts to wobble / twitch. Then reduce gain by 50%.
+- [FW_RR_FF](../advanced_config/parameter_reference.md#FW_RR_P) - починається зі значення 0.06. Збільшуйте це значення (подвоюючи його кожного разу), поки система не почне дрімати / дріжати. Потім зменште посилення на 50%.
 
-### Tuning the Trim Offsets with the Integrator Gain
+### Налаштування зсувів обрізання з інтегральним коефіцієнтом підсилення
 
-- [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I) - start with a value of 0.01. Increase this value (doubling each time) until there is no offset between commanded and actual roll value (this will most likely require looking at a log file).
+- [FW_RR_FF](../advanced_config/parameter_reference.md#FW_RR_I) - починається зі значення 0.01. Збільшуйте це значення (подвоюючи його кожен раз), поки не буде відсутності між командованим та фактичним значенням кочення (це, ймовірно, потребуватиме перегляду файлу журналу).
 
 ## Tune Pitch
 
-The pitch axis might need more integrator gain and a correctly set pitch offset.
+Можливо, вісь крену потребує більшого коефіцієнта інтегратора та правильно встановленого зміщення крену.
 
-### Tuning the Feedforward Gain
+### Налаштування коефіцієнта передавальної функції
 
-To tune this gain, set the other gains to their minimum values.
+Для налаштування цього коефіцієнта встановіть інші коефіцієнти на їх мінімальні значення.
 
-#### Gains to set to minimum values
+#### Отримані виграші встановлені на мінімальні значення
 
 - [FW_PR_I](../advanced_config/parameter_reference.md#FW_PR_I)
 - [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_I)
 
-#### Gains to tune
+#### Отримання для налаштування
 
-- [FW_PR_FF](../advanced_config/parameter_reference.md#FW_PR_FF) - start with a value of 0.4. Increase this value (doubling each time) until the plane pitches satisfactory and reaches the setpoint. Back down the gain 20% at the end of the process.
+- [FW_PR_FF](../advanced_config/parameter_reference.md#FW_PR_FF) - початкове значення 0.4. Збільшуйте це значення (подвоюючи його кожного разу), поки літак не нахиляється задовільно і не досягає заданої точки. Знизити підсилення на 20% в кінці процесу.
 
-### Tuning the Rate Gain
+### Налаштування коефіцієнта коефіцієнта
 
-- [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_P) - start with a value of 0.04. Increase this value (doubling each time) until the system starts to wobble / twitch. Then reduce value by 50%.
+- [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_P) - починається зі значення 0.04. Збільшуйте це значення (подвоюючи його кожного разу), поки система почне дрімати / дріжати. Потім зменште значення на 50%.
 
-### Tuning the Trim Offsets with the Integrator Gain
+### Налаштування зсувів обрізання з інтегральним коефіцієнтом підсилення
 
-- [FW_PR_I](../advanced_config/parameter_reference.md#FW_PR_I) - start with a value of 0.01. Increase this value (doubling each time) until there is no offset between commanded and actual pitch value (this will most likely require looking at a log file).
+- [FW_PR_I](../advanced_config/parameter_reference.md#FW_PR_I) - починається зі значення 0.01. Збільшуйте це значення (подвоюючи його кожен раз), поки не буде відсутності між командованим та фактичним значенням крена (це, ймовірно, потребуватиме перегляду файлу журналу).
 
-## Adjusting the Time Constant of the Outer Loop
+## Налаштування часової константи зовнішньої петлі
 
-The overall softness / hardness of the control loop can be adjusted by the time constant. The default of 0.5 seconds should be fine for normal fixed-wing setups and usually does not require adjustment.
+Загальна м'якість / жорсткість керуючого циклу може бути налаштована за допомогою часової константи. За замовчуванням 0,5 секунди повинно бути достатньо для звичайних фіксованих крил і зазвичай не потребує налаштувань.
 
-- [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC) - set to a default of 0.5 seconds, increase to make the Pitch response softer, decrease to make the response harder.
-- [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) - set to a default of 0.5 seconds, increase to make the Roll response softer, decrease to make the response harder.
+- [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC) - встановлено за замовчуванням на 0,5 секунди, збільште, щоб зробити відповідь на крен м'якішою, зменште, щоб зробити відповідь жорстшою.
+- [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) - встановлено за замовчуванням на 0,5 секунди, збільшити, щоб зробити відгук Roll м'яким, зменшити, щоб зробити відгук жорстким.
 
 ## Інші параметри
 
