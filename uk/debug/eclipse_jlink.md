@@ -5,8 +5,8 @@
 ## Необхідне обладнання
 
 - [J-Link EDU Mini](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/)
-- Adapter to connect Segger JLink to Flight Controller [SWD Debug Port](../debug/swd_debug.md) (debug port).
-- Micro USB cable
+- Адаптер для підключення Segger JLink до контролера польоту [Порту відлагодження SWD](../debug/swd_debug.md) (порт відлагодження).
+- Мікро USB кабель
 
 ## Встановлення
 
@@ -15,118 +15,118 @@
 Налаштуйте PX4, дотримуючись звичайних вказівок:
 
 - [Setup the PX4 Developer Environment/Toolchain](../dev_setup/dev_env.md) for your platform (e.g. for Linux see: [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md)).
-- [Download PX4](../dev_setup/building_px4.md) and optionally build it on the command line.
+- [Завантажте PX4](../dev_setup/building_px4.md) та за потреби перезберіть його в командному рядку.
 
 ### Eclipse
 
-Для встановлення _Eclipse_:
+Встановлення _Eclipse_:
 
-1. Download [Eclipse CDT for C/C++ Developers](https://github.com/gnu-mcu-eclipse/org.eclipse.epp.packages/releases/) (MCU GitHub).
-1. Extract the Eclipse folder and copy it anywhere (there is no need to run any install scripts).
-1. Run _Eclipse_ and choose a location for your initial workbench.
+1. Завантажте [Eclipse CDT для розробників на C/C++](https://github.com/gnu-mcu-eclipse/org.eclipse.epp.packages/releases/) (MCU GitHub).
+1. Розпакуйте папку Eclipse та скопіюйте її куди завгодно (немає потреби запускати будь-які сценарії установки).
+1. Запустіть _Eclipse_ та виберіть місце для вашої початкової робочої області.
 
 ### Segger Jlink Tools
 
-To install the _Segger Jlink_ tools:
+Для встановлення інструментів _Segger Jlink_:
 
-1. Download and run the [J-Link Software and Documentation Pack](https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack) for your OS (Windows and Linux packages available).
-   - On Linux the tools are installed in **/usr/bin**.
+1. Завантажте та запустіть [Пакунок програмного забезпечення та документації J-Link](https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack) для вашої ОС (доступні пакети для Windows та Linux).
+   - У Linux інструменти встановлюються у **/usr/bin**.
 
 Для отримання додаткової інформації див. : [https://gnu-mcu-eclipse.github.io/debug/jlink/install/](https://gnu-mcu-eclipse.github.io/debug/jlink/install/).
 
 ## Перше використання
 
-1. Connect the _Segger JLink_ to the host computer and the [flight controller debug port](../debug/swd_debug.md) (via an adapter).
-1. Power the flight controller.
-1. Run _Eclipse_.
+1. Підключіть _Segger JLink_ до комп'ютера-хоста та [порту відлагодження контролера польоту](../debug/swd_debug.md) (через адаптер).
+1. Увімкніть модульний політний контролер.
+1. Запустіть _Eclipse_.
 1. Add a source by choosing **File > Import > C/C++ > Existing Code as Makefile Project** and click **Next**.
-1. Point it to the **PX4-Autopilot** folder and give it a name, then select _ARM Cross GCC_ in the _Toolchain for Indexer Settings_ and click **Finish**. Import takes a while, wait for it to complete.
-1. Set the MCU settings: right-click on the top-level project in the Project Explorer, select _Properties_ then under MCU choose _SEGGER J-Link Path_. Set it as shown in the screenshot below. ![Eclipse: Segger J-Link Path](../../assets/debug/eclipse_segger_jlink_path.png)
-1. Update packs:
+1. Вказати шлях до папки **PX4-Autopilot** та дати йому ім'я, потім виберіть _ARM Cross GCC_ у _Toolchain for Indexer Settings_ та натисніть на **Finish**. Імпорт триває деякий час. Дочекайтеся його завершення.
+1. Встановіть налаштування MCU: клацніть правою кнопкою миші на проект верхнього рівня в досліднику проектів, виберіть _Properties_, а потім під MCU виберіть _SEGGER J-Link Path_. Встановіть його, як показано на знімку екрану нижче. ![Eclipse: Segger J-Link Path](../../assets/debug/eclipse_segger_jlink_path.png)
+1. Пакети з оновленнями:
 
-   - Click the small icon on the top right called _Open Perspective_ and open the _Packs_ perspective. ![Eclipse: Workspace](../../assets/debug/eclipse_workspace_perspective.png)
-   - Click the **update all** button.
+   - Клацніть на маленьку іконку у верхньому правому куті під назвою _Open Perspective_ та відкрийте перспективу _Packs_. ![Eclipse: Workspace](../../assets/debug/eclipse_workspace_perspective.png)
+   - Клацніть кнопку **update all**.
 
      :::tip
-This takes a VERY LONG TIME (10 minutes).
-Ignore all the errors about missing packages that pop up.
+Це займає ДУЖЕ БАГАТО ЧАСУ (10 хвилин).
+Ігноруйте всі помилки про відсутні пакети.
 :::
 
      ![Eclipse: Workspace Packs Perspective](../../assets/debug/eclipse_packs_perspective.jpg)
 
-   - The STM32Fxx devices are found in the Keil folder, install by right-clicking and then selecting **install** on the according device for F4 and F7.
+   - Пристрої STM32Fxx знаходяться в папці Keil, встановлюються правою кнопкою миші та вибором **install** на відповідний пристрій для F4 та F7.
 
-1. Setup debug configuration for target:
+1. Налаштування конфігурації налагодження для цілі:
 
    - Right click project and open the _Settings_ (menu: **C/C++ Build > Settings**)
-   - Choose the _Devices_ Tab, _Devices_ section (Not _Boards_).
-   - Find the FMU chip you wish to debug.
+   - Виберіть вкладку _Devices_, розділ _Devices_ (Не _Boards_).
+   - Знайдіть FMU чіп, який ви хочете налагодити.
 
    ![Eclipse: Select FMU in settings](../../assets/debug/eclipse_settings_devices_fmu.png)
 
-1. Select debug configurations with the small drop-down next to the bug symbol: ![Eclipse: Debug config](../../assets/debug/eclipse_settings_debug_config.png)
-1. Then select _GDB SEGGER J-Link Debugging_ and then the **New config** button on the top left. ![Eclipse: GDB Segger Debug config](../../assets/debug/eclipse_settings_debug_config_gdb_segger.png)
-1. Setup build config:
+1. Виберіть налаштування відладки за допомогою невеликого випадаючого списку поруч із символом багу: ![Eclipse: Debug config](../../assets/debug/eclipse_settings_debug_config.png)
+1. Потім виберіть _GDB SEGGER J-Link Debugging_ і потім кнопку **New config** у верхньому лівому куті. ![Eclipse: GDB Segger Debug config](../../assets/debug/eclipse_settings_debug_config_gdb_segger.png)
+1. Налаштування конфігурації збірки:
 
-   - Give it a name and set the _C/C++ Application_ to the corresponding **.elf** file.
+   - Дайте йому назву та встановіть _C/C++ Application_ до відповідного **.elf** файлу.
    - Choose _Disable Auto build_
 
-     ::: info
-Remember that you must build the target from the command line before starting a debug session.
+     ::: інформація
+Пам'ятайте, що ви повинні побудувати ціль з командного рядка перед початком сеансу налагодження.
 :::
 
    ![Eclipse: GDB Segger Debug config](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config.png)
 
-1. The _Debugger_ and _Startup_ tabs shouldn’t need any modifications (just verify your settings with the screenshots below)
+1. Вкладки _Debugger_ та _Startup_ не повинні потребувати будь-яких змін (просто перевірте ваші налаштування за знімками екрану нижче)
 
    ![Eclipse: GDB Segger Debug config: debugger tab](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config_debugger_tab.png) ![Eclipse: GDB Segger Debug config: startup tab](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config_startup_tab.png)
 
-## SEGGER Task-aware debugging
+## Відлагодження з урахуванням завдань SEGGER
 
-Task-aware debugging (also known as [thread-aware debugging](https://www.segger.com/products/debug-probes/j-link/tools/j-link-gdb-server/thread-aware-debugging/)) allows you to show the context of all running threads/tasks instead of just the stack current task. This is quite useful since PX4 tends to run many different tasks.
+Task-aware debugging (also known as [thread-aware debugging](https://www.segger.com/products/debug-probes/j-link/tools/j-link-gdb-server/thread-aware-debugging/)) allows you to show the context of all running threads/tasks instead of just the stack current task. Це досить корисно, оскільки PX4 має тенденцію запускати виконання багато різних завдань.
 
-To enable this feature for use in Eclipse:
+Для активації цієї функції в Eclipse:
 
-1. You first need to enable `CONFIG_DEBUG_TCBINFO` in the NuttX configuration for your build (to expose the TCB offsets).
+1. Спочатку вам потрібно увімкнути `CONFIG_DEBUG_TCBINFO` у конфігурації NuttX для вашої збірки (щоб викрити зсуви TCB).
 
-   - Open a terminal in the root of your PX4-Autopilot source code
-   - In the terminal, open `menuconfig` using the appropriate make target for the build. This will be something like:
+   - Відкрийте термінал у кореневій теці вихідного коду PX4-Autopilot
+   - У терміналі відкрийте `menuconfig` використовуючи відповідну ціль make для збірки. Це виглядатиме приблизно так:
 
      ```sh
      make px4_fmu-v5_default boardguiconfig
      ```
 
-     (See [PX4 Menuconfig Setup](../hardware/porting_guide_config.md#px4-menuconfig-setup) for more information) on using the config tools).
+     (Див. [PX4 Menuconfig Setup](../hardware/porting_guide_config.md#px4-menuconfig-setup) для отримання додаткової інформації) щодо використання засобів конфігурації).
 
-   - Ensure that the _Enable TCBinfo struct for debug_ is selected as shown: ![NuttX: Menuconfig: CONFIG_DEBUG_TCBINFO](../../assets/debug/nuttx_tcb_task_aware.png)
+   - Переконайтеся, що параметр _Enable TCBinfo struct for debug_ вибраний, як показано: ![NuttX: Menuconfig: CONFIG_DEBUG_TCBINFO](../../assets/debug/nuttx_tcb_task_aware.png)
 
-1. Compile the **jlink-nuttx.so** library in the terminal by running the following command in the terminal: `make jlink-nuttx`
-1. Modify Eclipse to use this libary. In the _J-Link GDB Server Setup_ configuration, update **Other options** to include `-rtos /home/<PX4 path>/Tools/jlink-nuttx.so`, as shown in the image below.
+1. Скомпілюйте бібліотеку **jlink-nuttx.so** в терміналі, виконавши наступну команду в терміналі: `make jlink-nuttx`
+1. Змініть Eclipse, щоб використовувати цю бібліотеку. В конфігурації _J-Link GDB Server Setup_ оновіть **Other options**, щоб включити `-rtos /home/<PX4 path>/Tools/jlink-nuttx.so`, як показано нижче.
 
    ![Eclipse: GDB Segger Debug config RTOS aware: debugger tab](../../assets/debug/eclipse_settings_debug_config_gdb_segger_task_aware.png)
 
-1. When running the debugger you should see now multiple threads instead of just one:
+1. Під час запуску налагоджувача ви повинні побачити зараз декілька потоків замість одного:
 
    ![Eclipse: GDB Segger Debug config RTOS aware: debug session](../../assets/debug/eclipse_settings_debug_config_gdb_segger_task_aware_tasks.png)
 
-## Troubleshooting
+## Вирішення проблем
 
-### Target CPU not in Package Manager
+### Цільовий процесор відсутній в Package Manager
 
-If the target CPU does not appear in the package manager you may need these steps to get the register view working.
+Якщо цільовий ЦП не відображається в package manager, вам може знадобитися ці крок для запуску відображення реєстру.
 
-:::tip
-This should not generally happen (but anecdotally has been reported when connecting to an STM F7 controller).
+:::порада
+Це, як правило, не повинно траплятися (але повідомляжться про такі випадки при підключенні до контролера STM F7).
 :::
 
-Adding missing SVD files for the _Peripheral View_:
+Додавання відсутніх файлів SVD для _Peripheral View_:
 
-1. Find out where MCU Eclipse stores its packages (**Preferences > C/C++ > MCU Packages**):
+1. Дізнайтеся, де MCU Eclipse зберігає свої пакети (**Preferences > C/C++ > MCU Packages**):
 
    ![Eclipse: MCU Packages](../../assets/debug/eclipse_mcu_packages.png)
 
-2. Download missing packages from: http://www.keil.com/dd2/Pack/
-3. Open downloaded pack with a decompression tool, and extract the **.SVD** files from: **/CMSIS/SVD**.
-4. Select desired **.SVD** file in: **Debug Options > GDB SEGGER JLink Debugging > SVD Path**
+2. Завантажте відсутні пакети з: http://www.keil.com/dd2/Pack/
+3. Відкрийте завантажений пакет за допомогою інструменту для розпакування, та витягніть файли **.SVD** з: **/CMSIS/SVD**.
+4. Виберіть потрібний файл **.SVD** у: **Debug Options > GDB SEGGER JLink Debugging > SVD Path**
 
    ![Eclipse: SVD File path](../../assets/debug/eclipse_svd_file_path.png)
