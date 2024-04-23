@@ -1,131 +1,131 @@
-# Mission Mode (Fixed-Wing)
+# Режим місії (фіксоване крило)
 
 <img src="../../assets/site/position_fixed.svg" title="Global position fix required (e.g. GPS)" width="30px" />
 
-_Mission mode_ causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller.
-The mission is typically created and uploaded with a Ground Control Station (GCS) application like [QGroundControl](https://docs.qgroundcontrol.com/master/en/) (QGC).
+_Режим місії_ змушує транспортний засіб виконувати передбачений автономний [план місії](../flying/missions.md) (план польоту), який був завантажений до керуючого пристрою польоту.
+Зазвичай місія створюється та завантажується за допомогою програми для керування наземною станцією (GCS), такої як [QGroundControl](https://docs.qgroundcontrol.com/master/en/) (QGC).
 
 ::: info
 
-- This mode requires a global 3d position estimate (from GPS or inferred from a [local position](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
-- The vehicle must be armed before this mode can be engaged.
-- This mode is automatic - no user intervention is _required_ to control the vehicle.
-- RC control switches can be used to change flight modes on any vehicle.
+- Цей режим потребує глобальної оцінки 3D-позиції (з GPS або виведеної з [локальної позиції](../ros/external_position_estimation.md#enabling-auto-modes-with-a-local-position)).
+- Транспортний засіб повинен бути озброєний перед тим, як цей режим може бути активований.
+- Цей режим є автоматичним - для керування автомобілем не потрібно втручання користувача.
+- Перемикачі керування RC можна використовувати для зміни режимів польоту на будь-якому автомобілі.
 
 :::
 
 ## Опис
 
-Missions are usually created in a ground control station (e.g. [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html)) and uploaded prior to launch.
-They may also be created by a developer API, and/or uploaded in flight.
+Місії зазвичай створюються в земній контрольній станції (наприклад, [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html)) та завантажуються перед запуском.
+Вони також можуть бути створені за допомогою розробника API або завантажені під час польоту.
 
-[Mission commands](#mission-commands) are handled in a way that is appropriate for each fixed-wing flight characteristics (for example loiter is implemented as flying in a circle).
+[Команди місії](#mission-commands) обробляються таким чином, який є відповідним для кожної характеристики польоту з фіксованим крилом (наприклад, обертання виконується у вигляді польоту по колу).
 
 :::info
-Missions are uploaded onto a SD card that needs to be inserted **before** booting up the autopilot.
+Місії завантажуються на SD-карту, яку потрібно вставити **перед** запуском автопілота.
 :::
 
-At high level all vehicle types behave in the same way when MISSION mode is engaged:
+На високому рівні всі типи транспортних засобів ведуть себе однаково, коли ввімкнено режим МІСІЯ:
 
-1. If no mission is stored, or if PX4 has finished executing all mission commands, or if the [mission is not feasible](#mission-feasibility-checks):
+1. Якщо місія не збережена, або якщо PX4 завершив виконання всіх команд місії, або якщо [місія не є можливою](#mission-feasibility-checks):
 
-   - If flying the vehicle will loiter.
-   - If landed the vehicle will "wait".
+   - Якщо літає транспортний засіб, він буде марнувати час.
+   - Якщо посадять транспортний засіб, він буде "чекати".
 
-2. If a mission is stored and PX4 is flying it will execute the [mission/flight plan](../flying/missions.md) from the current step.
-   - A takeoff mission item will be treated as a normal waypoint.
+2. Якщо місія збережена, а PX4 летить, вона виконає [місію / план польоту](../flying/missions.md) з поточного кроку.
+   - Пункт відправлення буде розглядатися як звичайна точка місії.
 
-3. If a mission is stored and the vehicle is landed it will only takeoff if the active waypoint is a `Takeoff`.
-   If configured for catapult launch, the vehicle must also be launched (see [FW Takeoff/Landing in Mission](#mission-takeoff)).
+3. Якщо місія збережена, а транспортний засіб приземлений, він злетить лише у випадку, якщо активна точка маршруту - це 'Зльот'.
+   Якщо налаштовано для запуску з катапульта, транспортний засіб також повинен бути запущений (див. [Зліт/посадка FW у місії](#mission-takeoff)).
 
-4. If no mission is stored, or if PX4 has finished executing all mission commands:
-   - If flying the vehicle will loiter.
-   - If landed the vehicle will "wait".
+4. Якщо жодне завдання не збережено, або якщо PX4 завершив виконання всіх команд місії:
+   - Якщо літає транспортний засіб, він буде марнувати час.
+   - Якщо посадять транспортний засіб, він буде "чекати".
 
-5. You can manually change the current mission command by selecting it in _QGroundControl_.
+5. Ви можете вручну змінити поточну команду місії, вибравши її в _QGroundControl_.
 
-   ::: info
-   If you have a _Jump to item_ command in the mission, moving to another item will **not** reset the loop counter.
-   One implication is that if you change the current mission command to 1 this will not "fully restart" the mission.
+   :::info
+   Якщо у вас є команда _Перейти до елементу_ в місії, переміщення до іншого елементу **не** скине лічильник циклу.
+   Однією з наслідків є те, що якщо ви зміните поточну команду місії на 1, це не призведе до "повного перезапуску" місії.
 
 :::
 
-6. The mission will only reset when the vehicle is disarmed or when a new mission is uploaded.
+6. Місія скине тільки тоді, коли транспортний засіб буде роззброєний або коли буде завантажена нова місія.
 
    :::tip
-   To automatically disarm the vehicle after it lands, in _QGroundControl_ go to [Vehicle Setup > Safety](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/safety.html), navigate to _Land Mode Settings_ and check the box labeled _Disarm after_.
-   Enter the time to wait after landing before disarming the vehicle.
+   Щоб автоматично роззброїти транспортний засіб після посадки, у _QGroundControl_ перейдіть до [Налаштування Транспортного Засобу > Безпека](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/safety.html), перейдіть до _Налаштувань Режиму Посадки_ та позначте прапорець _Роззброювати після_.
+   Введіть час очікування після посадки перед відброюванням транспортного засобу.
 
 :::
 
-Missions can be paused by switching out of mission mode to any other mode (such as [Hold mode](../flight_modes_fw/hold.md) or [Position mode](../flight_modes_fw/position.md)), and resumed by switching back to mission mode.
-If the vehicle was not capturing images when it was paused, on resuming it will head from its _current position_ towards the same waypoint as it as was heading towards originally.
-If the vehicle was capturing images (has camera trigger items) it will instead head from its current position towards the last waypoint it traveled through (before pausing), and then retrace its path at the same speed and with the same camera triggering behaviour.
-This ensures that in survey/camera missions the planned path is captured.
-A mission can be uploaded while the vehicle is paused, in which which case the current active mission item is set to 1.
+Місії можна призупинити, переключившись з режиму місії на будь-який інший режим (наприклад, [режим утримання](../flight_modes_fw/hold.md) або [режим позиціонування](../flight_modes_fw/position.md)), і продовжити, переключившись назад в режим місії.
+Якщо транспортний засіб не захоплював зображення, коли він був призупинений, під час відновлення він рухатиметься зі своєї _поточної позиції_ до тієї ж точки шляху, до якої він спочатку рухався.
+Якщо транспортний засіб захоплював зображення (має елементи спуску камери), він замість цього рухатиметься зі своєї поточної позиції до останньої точки шляху, якою він проїхав (перед зупинкою), а потім пройде свій шлях з тією самою швидкістю та з такою самою поведінкою спуску камери.
+Це забезпечує, що планований шлях зафіксований під час місій з опитування/камери.
+Місію можна завантажити, коли транспортний засіб зупинений, у такому випадку поточний активний елемент місії встановлюється на 1.
 
 :::info
-When a mission is paused while the camera on the vehicle was triggering, PX4 sets the current active mission item to the previous waypoint, so that when the mission is restarted the vehicle will retrace its last mission leg.
-In addition, PX4 stores the last applied mission items for speed setting and camera triggering (from the already covered mission plan), and re-applies those settings on resuming the mission.
+Коли місію призупинено під час спрацювання камери на транспортному засобі, PX4 встановлює поточний активний пункт місії на попередню точку маршруту, так що при відновленні місії транспортний засіб буде повторювати свій останній етап місії.
+Крім того, PX4 зберігає останні застосовані пункти місії для налаштування швидкості та спуску камери (з вже покритого плану місії) та знову застосовує ці налаштування при відновленні місії.
 :::
 
 :::warning
-Ensure that the throttle stick is non-zero before switching to any RC mode (otherwise the vehicle will crash).
-We recommend you centre the control sticks before switching to any other mode.
+Переконайтеся, що палиця регулювання газу не дорівнює нулю перед переключенням в будь-який режим RC (інакше транспортний засіб розбився).
+Ми рекомендуємо вам вирівнювати ручки керування перед переходом до будь-якого іншого режиму.
 :::
 
-For more information about mission planning, see:
+Для отримання додаткової інформації про планування місії, див:
 
-- [Mission Planning](../flying/missions.md)
-- [Plan View](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html) (_QGroundControl_ User Guide)
+- [Планування місій](../flying/missions.md)
+- [План Перегляду](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/plan_view.html) (_Посібник користувача QGroundControl_)
 
-## Mission Feasibility Checks
+## Перевірки можливостей місії
 
-PX4 runs some basic sanity checks to determine if a mission is feasible when it is uploaded, and when the vehicle is first armed.
-If any of the checks fail, the user is notified and it is not possible to start the mission.
+PX4 виконує деякі базові перевірки на розумність, щоб визначити, чи є місія можливою під час завантаження, і коли транспортний засіб вперше зброєний.
+Якщо будь-яка з перевірок не пройде успішно, користувач отримує повідомлення, і почати місію неможливо.
 
-A subset of the most important checks are listed below:
+Підмножина найважливіших перевірок перерахована нижче:
 
-- First mission item too far away from vehicle ([MIS_DIST_1WP](#MIS_DIST_1WP))
-- Any mission item conflicts with a plan or safety geofence
-- More than one land start mission item defined ([MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START))
-- A fixed-wing landing has an infeasible slope angle ([FW_LND_ANG](#FW_LND_ANG))
-- Land start item (`MAV_CMD_DO_LAND_START`) appears in mission before an RTL item ([MAV_CMD_NAV_RETURN_TO_LAUNCH](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_RETURN_TO_LAUNCH))
-- Missing takeoff and/or land item when these are configured as a requirement ([MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ))
+- Перший пункт місії занадто далеко від транспортного засобу ([MIS_DIST_1WP](#MIS_DIST_1WP))
+- Будь-який елемент місії конфліктує з планом або безпечним геозахистом
+- Визначено більше одного елемента місії початку посадки ([MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START))
+- Посадка на фіксованих крилах має неможливий кут нахилу схилу ([FW_LND_ANG](#FW_LND_ANG))
+- Пункт початку посадки на землю (`MAV_CMD_DO_LAND_START`) з'являється в місії перед пунктом RTL ([MAV_CMD_NAV_RETURN_TO_LAUNCH](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_RETURN_TO_LAUNCH))
+- Відсутній пункт зльоту та/або посадки, коли вони налаштовані як вимога ([MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ))
 
-## QGroundControl Support
+## QGroundControl Підтримка
 
-_QGroundControl_ provides additional GCS-level mission handling support (in addition to that provided by the flight controller).
+_QGroundControl_ надає додаткову підтримку обробки місій на рівні GCS (на додачу до того, що надає контролер польоту).
 
-For more information see:
+Для додаткової інформації дивіться:
 
-- [Remove mission after vehicle lands](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands)
-- [Resume mission after Return mode](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/stable_v3.2_long.html#resume-mission)
+- [Видалити місію після посадки транспортного засобу](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands)
+- [Відновити місію після режиму Повернення](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/releases/stable_v3.2_long.html#resume-mission)
 
-## Mission Parameters
+## Параметри місії
 
-Mission behaviour is affected by a number of parameters, most of which are documented in [Parameter Reference > Mission](../advanced_config/parameter_reference.md#mission).
-A very small subset are listed below.
+Поведінка місій залежить від ряду параметрів, більшість з яких задокументовані в [Довідник параметрів > Місія](../advanced_config/parameter_reference.md#mission).
+Дуже маленька підмножина наведені нижче.
 
-General parameters:
+Загальні параметри:
 
-| Параметр                                                                                                                                     | Опис                                                                                                                                                                                               |
-| -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="NAV_RCL_ACT"></a>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)       | RC loss failsafe mode (what the vehicle will do if it looses RC connection) - e.g. enter hold mode, return mode, terminate etc. |
-| <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | Fixed-wing loiter radius.                                                                                                                                                          |
+| Параметр                                                                                                                                     | Опис                                                                                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="NAV_RCL_ACT"></a>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)       | Режим аварійного відновлення зв'язку RC (що робить транспортний засіб, якщо втрачає зв'язок RC) - наприклад, увійти в режим утримання, режим повернення, завершити тощо. |
+| <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | Фіксований радіус утримання крил.                                                                                                                                                           |
 
-Parameters related to [mission feasibility checks](#mission-feasibility-checks):
+Параметри, пов'язані з [перевірками можливостей місії](#mission-feasibility-checks):
 
-| Параметр                                                                                                                                                                   | Опис                                                                                                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)                                  | The mission will not be started if the current waypoint is more distant than this value from the home position. Disabled if value is 0 or less.         |
-| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)                                        | Maximum landing slope angle.                                                                                                                                            |
-| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Mission takeoff/landing requirement configuration. FW and VTOL both have it set to 2 by default, which means that the mission has to contain a landing. |
+| Параметр                                                                                                                                                                   | Опис                                                                                                                                                                                   |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)                                  | Місія не буде розпочата, якщо поточна точка шляху віддаленіша від домашньої позиції, ніж це значення. Вимкнено, якщо значення дорівнює 0 або менше.    |
+| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)                                        | Максимальний кут нахилу підйому.                                                                                                                                       |
+| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Конфігурація вимоги для зльоту/посадки місії. FW та VTOL обидва мають його задано на 2 за замовчуванням, що означає, що місія повинна містити посадку. |
 
-## Mission Commands
+## Команди місій
 
-PX4 "accepts" the following MAVLink mission commands in Mission mode (with some _caveats_, given after the list).
-Unless otherwise noted, the implementation is as defined in the MAVLink specification.
+PX4 "приймає" наступні команди місії MAVLink у режимі Місії (з деякими _попередженнями_, які наведені після списку).
+Якщо не вказано інше, реалізація відповідає визначенню у специфікації MAVLink.
 
 Предмети місії:
 
@@ -166,7 +166,7 @@ Unless otherwise noted, the implementation is as defined in the MAVLink specific
 - [MAV_CMD_DO_SET_CAMERA_ZOOM](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAMERA_ZOOM)
 - [MAV_CMD_DO_SET_CAMERA_FOCUS](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAMERA_FOCUS)
 
-GeoFence Definitions
+Визначення GeoFence
 
 - [MAV_CMD_NAV_FENCE_RETURN_POINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_FENCE_RETURN_POINT)
 - [MAV_CMD_NAV_FENCE_POLYGON_VERTEX_INCLUSION](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_FENCE_POLYGON_VERTEX_INCLUSION)
@@ -174,7 +174,7 @@ GeoFence Definitions
 - [MAV_CMD_NAV_FENCE_CIRCLE_INCLUSION](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_FENCE_CIRCLE_INCLUSION)
 - [MAV_CMD_NAV_FENCE_CIRCLE_EXCLUSION](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_FENCE_CIRCLE_EXCLUSION)
 
-Rally Points
+Точки збору
 
 - [MAV_CMD_NAV_RALLY_POINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_RALLY_POINT)
 
@@ -187,99 +187,99 @@ Please add an issue report or PR if you find a missing/incorrect message.
 - Not all messages/commands are exposed via _QGroundControl_.
 - The list may become out of date as messages are added.
   You can check the current set by inspecting the code.
-  Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_mission.cpp).
+  Підтримка - `MavlinkMissionManager::parse_mavlink_mission_item` у [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_mission.cpp).
 
-## Rounded turns: Inter-Waypoint Trajectory
+## Закруглені повороти: Траєкторія міжточкового маршруту
 
-PX4 expects to follow a straight line from the previous waypoint to the current target (it does not plan any other kind of path between waypoints - if you need one you can simulate this by adding additional waypoints).
+PX4 очікує пряму лінію від попередньої точки маршруту до поточної цілі (він не планує будь-якого іншого шляху між точками маршруту - якщо вам потрібен такий, ви можете симулювати це додаванням додаткових точок маршруту).
 
-The vehicle will follow a smooth rounded curve towards the next waypoint (if one is defined) defined by the acceptance radius ([NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)).
-The diagram below shows the sorts of paths that you might expect.
+Транспортний засіб буде слідувати плавною округлою кривою до наступної точки шляху (якщо визначено) визначеною радіусом прийняття ([NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)).
+Діаграма нижче показує види шляхів, які ви можете очікувати.
 
 ![acc-rad](../../assets/flying/acceptance_radius_mission.png)
 
-Vehicles switch to the next waypoint as soon as they enter the acceptance radius.
-This is defined by the "L1 distance", which is is computed from two parameters: [NPFG_DAMPING](../advanced_config/parameter_reference.md#NPFG_DAMPING) and [NPFG_PERIOD](../advanced_config/parameter_reference.md#NPFG_PERIOD), and the current ground speed.
-By default, it's about 70 meters.
+Транспортні засоби переходять на наступну точку шляху, як тільки вони увійшли в радіус прийняття.
+Це визначається "відстанню L1", яка обчислюється з двох параметрів: [NPFG_DAMPING](../advanced_config/parameter_reference.md#NPFG_DAMPING) та [NPFG_PERIOD](../advanced_config/parameter_reference.md#NPFG_PERIOD), та поточною швидкістю на землі.
+За замовчуванням, це приблизно 70 метрів.
 
-The equation is:
+Рівняння:
 
 $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}_{ {xy}_{ground} } \right \|$$
 
-## Mission Takeoff
+## Місія зліт
 
-Starting flights with mission takeoff (and landing using a mission landing) is the recommended way of operating a plane autonomously.
+Початок польотів з місією зльоту (і посадка за допомогою місії посадки) є рекомендованим способом автономної роботи літака.
 
-Both [runway takeoff](../flight_modes_fw/takeoff.md#runway-takeoff) and [hand-launched takeoff](../flight_modes_fw/takeoff.md#catapult-hand-launch) are supported — for configuration information see [Takeoff mode (FW)](../flight_modes_fw/takeoff.md).
+Обидва [зліт по злітній смузі](../flight_modes_fw/takeoff.md#runway-takeoff) та [ручний запуск злітний](../flight_modes_fw/takeoff.md#catapult-hand-launch) підтримуються — для інформації про конфігурацію див. [Режим зліт (FW)](../flight_modes_fw/takeoff.md).
 
-The takeoff behaviour is defined in a Takeoff mission item, which corresponds to the [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) MAVLink command.
-During mission execution the vehicle will takeoff towards this waypoint, and climb until the specified altitude is reached.
-The mission item is then accepted, and the mission will start executing the next item.
+Поведінка відбору визначена в елементі місій Takeoff, яка відповідає [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF).
+Під час виконання місії транспортний засіб злетить до цієї точки маршруту та підніметься, поки не буде досягнута вказана висота.
+Пункт місії потім приймається, і місія почне виконувати наступний пункт.
 
-More specifically, the takeoff mission item defines the takeoff course and clearance altitude.
-The course is the line between the vehicle starting point and the horizontal position defined in the mission item, while the clearance altitude is the mission item altitude.
+Конкретніше, пункт завдання зльоту визначає курс зльоту та висоту очищення.
+Курс - це лінія між точкою старту транспортного засобу та горизонтальним положенням, визначеним у пункті місії, тоді як висота дозволу - це висота пункту місії.
 
-For a runway takeoff, the `Takeoff` mission item will cause the vehicle to arm, throttle up the motors and take off.
-When hand-launching the vehicle will arm, but only throttle up when the vehicle is thrown (the acceleration trigger is detected).
-In both cases, the vehicle should be placed (or launched) facing towards the takeoff waypoint when the mission is started.
+Для зльоту зі злітної смуги, пункт місії `Takeoff` змусить транспортний засіб взберегтися, регулювати оберти моторів і злітати.
+Під час ручного запуску транспортний засіб буде озброєний, але тільки збільшить швидкість, коли транспортний засіб буде кинутий (виявлено спусковий прискорювач).
+У обох випадках транспортний засіб повинен бути розміщений (або запущений) у напрямку на візуальну точку вильоту при запуску місії.
 If possible, always make the vehicle takeoff into the wind.
 
-::: info
-A fixed-wing mission requires a `Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint.
+:::info
+Для виконання місії з фіксованим крилом потрібно додати елемент місії `Takeoff`, щоб взяти на озброєння; однак, якщо транспортний засіб вже знаходиться у повітрі, коли місія починається, елемент взяття на озброєння буде оброблено як звичайна точка маршруту.
 :::
 
-For more infomormation about takeoff behaviour and configuration see [Takeoff mode (FW)](../flight_modes_fw/takeoff.md).
+Для отримання додаткової інформації про поведінку взльоту та конфігурацію див. [Режим взльоту (FW)](../flight_modes_fw/takeoff.md).
 
-## Mission Landing
+## Посадка місії
 
-Fixed-wing mission landing is the recommended way to land a plane autonomously.
-This can be planned in _QGroundControl_ using [fixed-wing landing pattern](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/pattern_fixed_wing_landing.html).
+Посадка місії на літаку є рекомендованим способом автономної посадки літака.
+Це можна запланувати в _QGroundControl_ за допомогою [шаблону посадки фіксованого крила](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/plan_view/pattern_fixed_wing_landing.html).
 
-If possible, always plan the landing such that it does the approach into the wind.
+Якщо це можливо, завжди плануйте приземлення так, щоб воно виконувало підхід проти вітру.
 
-The following sections describe the landing sequence, land abort and nudging, safety considerations, and configuration.
+Наступні розділи описують послідовність посадки, відміну від посадки та коригування, питання безпеки та конфігурацію.
 
-### Landing Sequence
+### Посадкова послідовність
 
-A landing pattern consists of a loiter waypoint ([MAV_CMD_NAV_LOITER_TO_ALT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_TO_ALT)) followed by a land waypoint ([MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)).
-The positions of the two points define the start and end point of the landing approach, and hence the glide slope for the landing approach.
+Маршрут посадки складається з точки утримання ([MAV_CMD_NAV_LOITER_TO_ALT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_TO_ALT)), за якою слідує точка посадки ([MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)).
+Позиції двох точок визначають початкову та кінцеву точки підходу до посадки, а отже, кут звисання для підходу до посадки.
 
-This pattern results in the following landing sequence:
+Ця схема призводить до наступної послідовності посадки:
 
-1. **Fly to landing location**: The aircraft flies at its current altitude towards the loiter waypoint.
-2. **Descending orbit to approach altitude**: On reaching the loiter radius of the waypoint, the vehicle performs a descending orbit until it reaches the "approach altitude" (the altitude of the loiter waypoint).
-   The vehicle continues to orbit at this altitude until it has a tanjential path towards the land waypoint, at which point the landing approach is initiated.
-3. **Landing approach**: The aircraft follows the landing approach slope towards the land waypoint until the flare altitude is reached.
-4. **Flare**: The vehicle flares until it touches down.
+1. **Літайте до місця посадки**: Літак летить на поточній висоті до точки обертання.
+2. **Опускаючись на орбіту для наближення до висоти**: При досягненні радіусу утримання точки шляху, транспортний засіб виконує опускаючу орбіту до досягнення "висоти наближення" (висота точки утримання).
+   Транспортний засіб продовжує обертатися на цій висоті до тих пір, поки він не матиме тангенціальну траєкторію до пункту наземної точки, після чого ініціюється посадковий захід.
+3. **Приземлення**: Літак слідує нахилу під час приземлення до точки на землі до досягнення висоти флеру.
+4. **Світло**: Транспортний засіб світиться, доки не сідає на землю.
 
 ![Fixed-wing landing](../../assets/flying/fixed-wing_landing.png)
 
-### Landing Approach
+### Прильот на посадку
 
-The vehicle tracks the landing slope (generally at a slower speed than cruise) until reaching the flare altitude.
+Транспортний засіб відстежує кут посадки (зазвичай з меншою швидкістю, ніж під час круїзу) до досягнення висоти розгортання.
 
-Note that the glide slope is calculated from the 3D positions of the loiter and landing waypoints; if its angle exceeds the parameter [FW_LND_ANG](#FW_LND_ANG) the mission will be rejected as unfeasible on upload.
+Зверніть увагу, що кут зниження обчислюється з тривимірних позицій точок обертання та посадки; якщо його кут перевищує параметр [FW_LND_ANG](#FW_LND_ANG), місія буде відхилена як неможлива для завантаження.
 
-The parameters that affect the landing approach are listed below.
+Параметри, які впливають на посадковий захід, перераховані нижче.
 
-| Параметр                                                                                                                                      | Опис                                                                                                                                                                                  |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)           | The maximum achievable landing approach slope angle. Note that smaller angles may still be commanded via the landing pattern mission item.            |
-| [FW_LND_EARLYCFG](../advanced_config/parameter_reference.md#FW_LND_EARLYCFG)                        | Optionally deploy landing configuration during the landing descent orbit (e.g. flaps, spoilers, landing airspeed). |
-| [FW_LND_AIRSPD](../advanced_config/parameter_reference.md#FW_LND_AIRSPD)                            | Calibrated airspeed setpoint during landing.                                                                                                                          |
-| [FW_FLAPS_LND_SCL](../advanced_config/parameter_reference.md#FW_FLAPS_LND_SCL) | Flaps setting during landing.                                                                                                                                         |
-| [FW_LND_THRTC_SC](../advanced_config/parameter_reference.md#FW_LND_THRTC_SC)   | Altitude time constant factor for landing (overrides default [TECS tuning](../config_fw/position_tuning_guide_fixedwing.md)).                      |
+| Параметр                                                                                                                                      | Опис                                                                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)           | Максимальний досяжний кут нахилу під час посадки. Зверніть увагу, що менші кути все ще можуть бути вказані через пункт місії посадки.      |
+| [FW_LND_EARLYCFG](../advanced_config/parameter_reference.md#FW_LND_EARLYCFG)                        | Необов'язково розгортати конфігурацію посадкового спуску під час посадкової орбіти (наприклад, закрилки, спойлери, швидкість посадки).  |
+| [FW_LND_AIRSPD](../advanced_config/parameter_reference.md#FW_LND_AIRSPD)                            | Встановлена швидкість повітря під час посадки.                                                                                                             |
+| [FW_FLAPS_LND_SCL](../advanced_config/parameter_reference.md#FW_FLAPS_LND_SCL) | Налаштування Flaps під час посадки.                                                                                                                        |
+| [FW_LND_THRTC_SC](../advanced_config/parameter_reference.md#FW_LND_THRTC_SC)   | Фактор часової константи висоти для посадки (перевизначає типове [налаштування TECS](../config_fw/position_tuning_guide_fixedwing.md)). |
 
-### Flaring / Roll-out
+### Вогніння / Розгортання
 
-Flaring consists of a switch from altitude tracking to a shallow sink rate setpoint and constraints on the commandable throttle, resulting in nose up manuevering to slow the descent and produce a softer touchdown.
+Фларінг полягає в переключенні з відстеження висоти на маленький установлений показник швидкості опускання та обмеженнях на керований дросель, що призводить до підняття носа для сповільнення спуску та отримання більш м'якого приземлення.
 
-The flaring altitude is calculated during the final approach via "time-to-impact" ([FW_LND_FL_TIME](#FW_LND_FL_TIME)) and the approach descent rate.
-An additional safety parameter [FW_LND_FLALT](#FW_LND_FLALT) sets the minimum altitude at which the vehicle will flare (if the time based altitude is too low to allow a safe flare maneuver).
+Висота спалаху обчислюється під час останнього підходу через "час до впливу" ([FW_LND_FL_TIME](#FW_LND_FL_TIME)) та швидкість спуску на посадку.
+Додатковий параметр безпеки [FW_LND_FLALT](#FW_LND_FLALT) встановлює мінімальну висоту, на якій транспортний засіб виконає флер (якщо висота на основі часу занадто низька для безпечного виконання флер-маневру).
 
-If belly landing, the vehicle will continue in the flaring state until touchdown, land detection, and subsequent disarm. For runway landings, [FW_LND_TD_TIME](#FW_LND_TD_TIME) enables setting the time post flare start to pitch down the nose (e.g. consider tricycle gear) onto the runway ([RWTO_PSP](#RWTO_PSP)) and avoid bouncing. This time roughly corresponds to the touchdown post flare, and should be tuned for a given airframe during test flights only after the flare has been tuned.
+Якщо посадка на живіт, транспортний засіб буде продовжувати перебувати в стані сповільнення до посадки, виявлення землі та подальше відключення. Для посадки на взлетно-посадочной полосе, [FW_LND_TD_TIME](#FW_LND_TD_TIME) дозволяє встановити час після початку спадання для опускання носа (наприклад, розглядайте шасі з триколісною підвіскою) на взлетно-посадочій смузі ([RWTO_PSP](#RWTO_PSP)) та уникнути стрибків. Цей час приблизно відповідає посадковому посту після спалаху, і його слід налаштувати для певної конструкції корпусу під час тільки після того, як спалах буде налаштований під час випробувань.
 
-The parameters that affect flaring are listed below.
+Параметри, які впливають на вогнення, перераховані нижче.
 
 | Параметр                                                                                                                                                             | Опис                                                                                                                                                                                                   |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -296,7 +296,7 @@ The parameters that affect flaring are listed below.
 
 #### Operator Abort
 
-The landing may be aborted by the operator at any point during the final approach using the [MAV_CMD_DO_GO_AROUND](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GO_AROUND) command.
+Приземлення може бути перервано оператором в будь-якій точці під час остаточного підходу з використанням команди [MAV_CMD_DO_GO_AROUND](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GO_AROUND).
 On _QGroundControl_ a popup button appears during landing to enable this.
 
 Aborting the landing results in a climb out to an orbit pattern centered above the land waypoint.
@@ -323,21 +323,21 @@ Disabling terrain estimation with [FW_LND_USETER](#FW_LND_USETER) and select bit
 | <a id="FW_LND_ABORT"></a>[FW_LND_ABORT](../advanced_config/parameter_reference.md#FW_LND_ABORT)                                  | Determines which automatic abort criteria are enabled.                     |
 | <a id="FW_LND_USETER"></a>[FW_LND_USETER](../advanced_config/parameter_reference.md#FW_LND_USETER)                               | Enables use of the distance sensor during the final approach.              |
 
-### Nudging
+### Торкання
 
-In the case of minor GNSS or map discrepancies causing an offset approach, small manual adjustments to the landing approach and roll out can be made by the operator (via yaw stick) when [FW_LND_NUDGE](../advanced_config/parameter_reference.md#FW_LND_NUDGE) is enabled.
-Options include either nudging the approach angle or the full approach path.
+У разі незначних розбіжностей ГНСС або карти, що викликають зміщення при підході, оператор може вносити невеликі ручні коригування до підходу до посадки та виїзду (за допомогою палиці руля), коли [FW_LND_NUDGE](../advanced_config/parameter_reference.md#FW_LND_NUDGE) увімкнено.
+Варіанти включають виправлення кута підходу або повний шлях підходу.
 
-In both cases, the vehicle remains in full auto mode, tracking the shifted approach vector.
-[FW_LND_TD_OFF](../advanced_config/parameter_reference.md#FW_LND_TD_OFF) allows determination of how far to the left or right of the landing waypoint the projected touchdown point may be nudged.
-Yaw stick input corresponds to a nudge "rate".
-Once the stick is released (zero rate), the approach path or angle will stop moving.
+У обох випадках транспортний засіб залишається в режимі повного автоматичного керування, відстежуючи зміщений вектор підходу.
+[FW_LND_TD_OFF](../advanced_config/parameter_reference.md#FW_LND_TD_OFF) дозволяє визначити, на яку відстань вліво або вправо від пункту посадки може бути зміщена прогнозована точка дотику.
+Введення палиці Yaw відповідає натисканню "швидкості".
+Після відпускання палиці (нульова швидкість), шлях або кут підходу зупиниться відхилятися.
 
-![Fixed-wing landing nudging](../../assets/flying/fixed-wing_landing_nudge.png)
+![Торкання при посадці на фіксованому крилі](../../assets/flying/fixed-wing_landing_nudge.png)
 
-Approach path nudging is frozen once the flare starts.
-If conducting a runway landing with steerable nose wheel, the yaw stick command passes directly to the nose wheel from flare start, during roll out, until disarm.
-Note that if the wheel controller is enabled ([FW_W_EN](#FW_W_EN)), the controller will actively attempt to steer the vehicle to the approach path, i.e. "fighting" operator yaw stick inputs.
+Підхідний шлях зафіксований, як тільки починається закручування.
+Якщо виконується посадка на злітній смузі з керованим переднім колесом, команда керування починається безпосередньо на переднє колесо з початку флеру, під час виїзду, до відключення.
+Зверніть увагу, що якщо контролер колеса увімкнено ([FW_W_EN](#FW_W_EN)), контролер активно намагатиметься керувати транспортним засобом до шляху підходу, тобто "боротьба" з введеннями оператора посадки.
 
 :::info
 Nudging should not be used to supplement poor position control tuning.
