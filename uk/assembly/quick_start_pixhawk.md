@@ -54,7 +54,7 @@ GPS/компас слід монтувати на раму якомога под
 ![Pixhawk - Power Module](../../assets/flight_controller/pixhawk1/pixhawk_3dr_power_module.jpg)
 
 :::warning
-The power module supplies the flight controller itself, but cannot power servos and other hardware connected to the controller's output ports (rail). For copter this does not matter because the motors are separately powered.
+Модуль живлення постачає контролер польоту енергією, але не може живити сервоприводи та інше обладнання, підключене до виходних портів контролера (рейки). Для вертольотів це не має значення, оскільки мотори окремо живляться.
 :::
 
 Для літаків та ВТОЛ рейка виходу повинна бути окремо живлена для керування сервоприводами для рульових пристроїв, елеронами тощо. Зазвичай основний тяговий мотор використовує регулятор швидкості з вбудованим [BEC](https://en.wikipedia.org/wiki/Battery_eliminator_circuit), який можна підключити до виходної рейки Pixhawk. Якщо цього немає, вам доведеться налаштувати 5-вольтовий BEC для підключення до одного з вільних портів Pixhawk (без живлення сервоприводи не будуть працювати).
@@ -90,15 +90,15 @@ The power module supplies the flight controller itself, but cannot power servos 
 Відображення між головними/допоміжними вихідними портами та двигунами/сервоприводами для всіх підтримуваних повітряних та наземних конструкцій перераховані в [Довіднику з конструкцій повітряних суден](../airframes/airframe_reference.md).
 
 :::warning
-The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames).
-Make sure to use the correct mapping for your vehicle.
+Відображення не є однорідним для всіх конструкцій (наприклад, ви не можете покладатися на те, що ручка газу буде на тому ж вихідному порту для всіх повітряних конструкцій).
+Переконайтеся, що ви використовуєте правильне відображення для вашого транспортного засобу.
 :::
 
 :::tip
-If your frame is not listed in the reference then use a "generic" airframe of the correct type.
+Якщо ваша рама не вказана в довідці, використовуйте "загальну" раму відповідного типу.
 :::
 
-::: info The output rail must be separately powered, as discussed in the [Power](#power) section above.
+:::info Рейка виходу повинна бути окремо живлена, як це обговорюється в розділі [Живлення](#power) вище.
 :::
 
 <!-- INSERT image of the motor AUX/MAIN ports? -->
