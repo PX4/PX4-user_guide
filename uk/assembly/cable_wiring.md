@@ -17,34 +17,34 @@
 
 ### Кабель I2C
 
-The [I2C bus](https://en.wikipedia.org/wiki/I%C2%B2C) is widely used for connecting sensors. Cable colors from several vendors are specified in following table.
+[Шина I2C](https://en.wikipedia.org/wiki/I%C2%B2C) широко використовується для підключення датчиків. Кольори кабелів від кількох постачальників вказані в наступній таблиці.
 
-| Сигнал | Колір Pixhawk     | ThunderFly colors   | CUAV colors (I2C/CAN) |
-| ------ | ----------------- | ------------------- | --------------------- |
-| +5V    | ![red][1] Red     | ![red][1] Red       | ![red][1] Red         |
-| SCL    | ![black][2] Black | ![yellow][3] Yellow | ![white][4] White     |
-| SDA    | ![black][2] Black | ![green][5] Green   | ![yellow][3] Yellow   |
-| GND    | ![black][2] Black | ![black][2] Black   | ![black][2] Black     |
+| Сигнал | Колір Pixhawk     | Кольори ThunderFly  | Кольори CUAV (I2C/CAN) |
+| ------ | ----------------- | ------------------- | ---------------------- |
+| +5V    | ![red][1] Red     | ![red][1] Red       | ![red][1] Red          |
+| SCL    | ![black][2] Black | ![yellow][3] Yellow | ![white][4] White      |
+| SDA    | ![black][2] Black | ![green][5] Green   | ![yellow][3] Yellow    |
+| GND    | ![black][2] Black | ![black][2] Black   | ![black][2] Black      |
 
-The [Dronecode standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) assumes a 1.5k ohm pull-up resistor on SDA and SCL signals in autopilot.
+Стандарт [Dronecode](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) передбачає підтяжний резистор 1,5 кОм на сигналах SDA та SCL в автопілоті.
 
-#### Cable twisting
+#### Повернення кабелю
 
-I2C bus signal cross-talk and electromagnetic compatibility can be greatly improved by proper twisting of the cable wires. [Twisted pairs](https://en.wikipedia.org/wiki/Twisted_pair) is especially important for sensor wiring.
+Сигнал шини I2C та електромагнітна сумісність можуть бути значно покращені за допомогою належного скручування кабельних жил. [Закручені пари](https://en.wikipedia.org/wiki/Twisted_pair) особливо важливі для підключення датчиків.
 
-- 10 turns for each pair SCL/+5V and SDA/GND per 30cm cable length. ![I²C JST-GH cable](../../assets/hardware/cables/i2c_jst-gh_cable.jpg)
-- 4 turns of both pairs together per 30cm cable length. ![I²C JST-GH connector detail](../../assets/hardware/cables/i2c_jst-gh_connector.jpg)
+- 10 обертань для кожної пари SCL/+5V та SDA/GND на кожні 30 см довжини кабелю. ![I²C JST-GH cable](../../assets/hardware/cables/i2c_jst-gh_cable.jpg)
+- 4 обертання обох пар разом на 30 см довжини кабелю. ![I²C JST-GH connector detail](../../assets/hardware/cables/i2c_jst-gh_connector.jpg)
 
-When using appropriate twisted pair cables, the I²C bus is generally suitable for submeter-scale airframes. For larger aircraft the use of CAN or other differential signaling based interface is generally more reliable.
+При використанні відповідних скручених парних кабелів шина I²C, як правило, підходить для повітряних конструкцій масштабу підметра. Для великих літаків використання інтерфейсу на основі CAN або іншої диференційної сигнальної передачі, як правило, є надійнішим.
 
-::: info This turns/cable-length recommendation has been successfully used with I2C sensors including the [ThunderFly TFSLOT airspeed sensor](../sensor/airspeed_tfslot.md) and [TFRPM01 Revolution Counter](../sensor/thunderfly_tachometer.md).
+:::info Ця рекомендація щодо довжини кабелю/перемички була успішно використана з датчиками I2C, включаючи датчик швидкості повітря [ThunderFly TFSLOT](../sensor/airspeed_tfslot.md) та [лічильник обертів TFRPM01 ThunderFly](../sensor/thunderfly_tachometer.md).
 :::
 
-#### Pull-up resistors
+#### Підтягуючі резистори
 
-Pull-up resistors are required for all ends of an I2C bus. This acts both as [signal termination](https://en.wikipedia.org/wiki/Electrical_termination) and as bus idle signal generator.
+Підтяжки потрібні для всіх кінців шини I2C. Це діє як [сигнальна завершення](https://en.wikipedia.org/wiki/Electrical_termination) і як генератор сигналу пасивного автобусу.
 
-An oscilloscope measurement is sometimes required to check correct value of pull-up resistors. The signals on the I2C bus should have clear sharp rectangle-like edges and amplitude of few volts. In case the signal has a low amplitude, the value of pull-up resistors is too low and should be decreased. In the case of rounded signals, the value of pull-up resistors is too high.
+Іноді для перевірки правильного значення підтяжних резисторів потрібне вимірювання осцилографом. Сигнали на шині I2C повинні мати чіткі гострі прямокутні краї та амплітуду кількох вольт. У випадку, якщо сигнал має низьку амплітуду, значення підтяжних резисторів занадто низьке і його слід зменшити. У випадку закруглених сигналів, значення підтяжних резисторів занадто високе.
 
 ### UAVCAN cables
 
@@ -57,14 +57,14 @@ An oscilloscope measurement is sometimes required to check correct value of pull
 
 #### Cable Twisting
 
-CAN cables should also be twisted, for exactly the same reason as I2C cables. For CAN the recommended twisting is:
+Кабелі CAN також повинні бути скручені, з точно такої ж причини, що і кабелі I2C. Для CAN рекомендовано використовувати закручування:
 
-- 10 turns for each pair GND/+5V and CAN_L/CAN_H per 30cm cable length. ![CAN JST-GH cable](../../assets/hardware/cables/can_jst-gh_cable.jpg)
-- 4 turns of both pairs together per 30cm cable length.
+- 10 обертань для кожної пари GND/+5V та CAN_L/CAN_H на кожні 30 см довжини кабелю. ![CAN JST-GH cable](../../assets/hardware/cables/can_jst-gh_cable.jpg)
+- 4 обертання обох пар разом на 30 см довжини кабелю.
 
-### SPI
+### SPI (питома споживана потужність)
 
-[SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) is synchronous serial communication interface used for connecting faster sensors and devices. This protocol is commonly use is for connecting [optical flow](../sensor/optical_flow.md) sensors or special telemetry modems.
+[SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) є синхронним послідовним інтерфейсом зв'язку, який використовується для підключення швидших датчиків та пристроїв. Цей протокол зазвичай використовується для підключення [оптичних потокових](../sensor/optical_flow.md) датчиків або спеціальних телеметричних модемів.
 
 | Сигнал | Pixhawk Color     | ThunderFly color    |
 | ------ | ----------------- | ------------------- |
@@ -78,11 +78,11 @@ CAN cables should also be twisted, for exactly the same reason as I2C cables. Fo
 
 ### UART
 
-UART is used to connect peripherals to the autopilot. By default, UART does not support networking and therefore it directly connects two devices together. It is often used to connect an autopilot and a [radio modem](../telemetry/index.md).
+UART використовується для підключення периферійних пристроїв до автопілота. За замовчуванням UART не підтримує мережу, тому він безпосередньо з'єднує два пристрої один з одним. Це часто використовується для підключення автопілота та [радіомодему](../telemetry/index.md).
 
-CTS and RTS are signals that are used to indicate that data is being transmitted on TX/RX pins. This hand-shake mechanism increases reliability of data transfer. CTS and RTS may remain loose when it is not used by the device.
+CTS та RTS - це сигнали, які використовуються для позначення передачі даних на контактах TX/RX. Цей механізм рукостискання збільшує надійність передачі даних. CTS та RTS можуть залишатися вільними, коли їх не використовує пристрій.
 
-The connecting cable is not crossed. Therefore, it is necessary to connect only the autopilot and peripherals with this straight cable. The device must cross the wiring internally by swapping RX/TX and RTS/CTS pins.
+Кабель підключення не перетнутий. Отже, необхідно підключати лише автопілот та периферійні пристрої за допомогою цього прямого кабелю. Пристрій повинен перетнути проводку внутрішньо, помінявши піни RX/TX та RTS/CTS.
 
 | Сигнал | Колір Pixhawk     | ThunderFly color    |
 | ------ | ----------------- | ------------------- |
@@ -93,11 +93,11 @@ The connecting cable is not crossed. Therefore, it is necessary to connect only 
 | RTS    | ![black][2] Black | ![yellow][3] Yellow |
 | GND    | ![black][2] Black | ![black][2] Black   |
 
-UART signals are common sources of low frequency EMI, therefore the length of the cable should be minimized as much as possible. Cable twisting is not needed for UART cables.
+Сигнали UART є поширеними джерелами низькочастотних ЕМП, тому довжина кабелю повинна бути мінімізована настільки, наскільки це можливо. Для UART-кабелів не потрібно обертати кабель.
 
-### GPS(UART) & SAFETY
+### GPS(UART) &  SAFETY
 
-[GPS receivers and magnetometers](../gps_compass/index.md) are generally very sensitive to EMI. Therefore these should be mounted far away from RF sources (high-power cabling, ESCs, radio modems and its antenna). This may be insufficient if the cabling is badly designed.
+[Приймачі GPS та магнітометри](../gps_compass/index.md) зазвичай дуже чутливі до ЕМП. Тому їх слід монтувати подалі від джерел радіочастот (кабельного високовольтного живлення, регуляторів обертання, радіомодемів та їх антени). Це може бути недостатньо, якщо кабельне з'єднання погано спроектоване.
 
 | Сигнал          | Pixhawk Color     | ThunderFly color    |
 | --------------- | ----------------- | ------------------- |
@@ -123,9 +123,9 @@ UART signals are common sources of low frequency EMI, therefore the length of th
 | SDA    | ![black][2] Black | ![green][5] Green   |
 | GND    | ![black][2] Black | ![black][2] Black   |
 
-The GPS cable connects to both the UART and I2C bus. As twisting of UART is not applicable the length of the cable should be minimized as much as possible.
+Кабель GPS підключається як до шин UART, так і до шини I2C. Оскільки скручування UART не застосовується, довжина кабелю повинна бути мінімізована настільки, наскільки це можливо.
 
-### Analog signal (power module)
+### Аналоговий сигнал (модуль живлення)
 
 | Сигнал  | Колір Pixhawk     | ThunderFly колір    | Колір CUAV          |
 | ------- | ----------------- | ------------------- | ------------------- |
@@ -136,9 +136,9 @@ The GPS cable connects to both the UART and I2C bus. As twisting of UART is not 
 | GND     | ![black][2] Black | ![black][2] Black   | ![black][2] Black   |
 | GND     | ![black][2] Black | ![black][2] Black   | ![black][2] Black   |
 
-This connector is example of mix of relatively high-power and low voltage signaling. Unfortunately, twisting is applicable for high-power GND and VCC wires only. That does not help much for noisy reading of analog signals by autopilot.
+Цей роз'єм - це приклад поєднання відносно високої потужності та низького напруги сигналізації. На жаль, витягування застосовується лише для високовольтних дротів GND та VCC. Це не дуже допомагає для шумного читання аналогових сигналів автопілотом.
 
-### SAFETY
+### БЕЗПЕКА
 
 | Сигнал          | Pixhawk Color     | ThunderFly color  |
 | --------------- | ----------------- | ----------------- |
@@ -149,32 +149,32 @@ This connector is example of mix of relatively high-power and low voltage signal
 | +5V             | ![black][2] Black | ![red][1] Red     |
 | GND             | ![black][2] Black | ![black][2] Black |
 
-## High-power wiring
+## Високовольтне підключення
 
-For high power wiring the most important design criteria is having an appropriate wire thickness, in order to allow sufficient current to flow. The general cross section requirement is area of 1 mm² per 8A of wire current.
+Для високовольтного проводування найважливішим критерієм проектування є належна товщина дроту, щоб забезпечити достатній струмовий потік. Загальна вимога до перерізу - площа 1 мм² на кожні 8А струму проводу.
 
-While rarely practical, it is beneficial to have positive and negative wires twisted together.
+Хоча це рідко практично, корисно мати позитивні та негативні проводи скручені разом.
 
-EMI from high power cabling has a significant effect on magnetometers. For this reason a large seapration between high-power cables and navigation magnetometers is always required.
+ЕМП від високовольтного кабелю має значний вплив на магнітометри. З цієї причини завжди потрібно велике відокремлення між високовольтними кабелями та навігаційними магнітометрами.
 
-### Cable colour coding
+### Кодування кольорів кабелю
 
-Most manufacturers use red for the high voltage line and black for ground. Other colouring is at the manufacturer discretion. The [Pixhawk connector standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) requires only that the Voltage Common Collector (VCC) pin/cable be red.
+Більшість виробників використовують червоний колір для лінії високої напруги та чорний для землі. Інші кольори на власний розсуд виробника. Стандарт роз'єму [Pixhawk](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) вимагає лише те, щоб контакт напруги спільного колектора (VCC) був червоним.
 
-Color coding signal wires can help identify particular cables, making it easier to assemble your drone.
+Кодування кольорів сигнальних проводів може допомогти визначити певні кабелі, що полегшить збирання вашого безпілотника.
 
-A colour coding scheme designed for easy cable identification might follow the following rules:
+Схема кодування кольорів, призначена для легкого ідентифікації кабелів, може дотримуватися наступних правил:
 
-- The red and black colors are reserved for power.
-- The same signal type should have the same colour.
-- Color of the signal does not repeat in the connector for wires adjacent to each other.
-- Wiring harnesses of the same pin count have to have a unique color sequence. This determines the cable type. (This is especially useful on photographs used in a manual).
+- Червоний і чорний кольори зарезервовані для живлення.
+- Той самий тип сигналу повинен мати той самий колір.
+- Колір сигналу не повторюється в роз'ємі для дротів, що прилягають один до одного.
+- Проводові магістралі з однаковою кількістю контактів повинні мати унікальну послідовність кольорів. Це визначає тип кабелю. (Це особливо корисно для фотографій, які використовуються в посібнику).
 
-An example of a cable colouring designed to these rules is:
+Приклад кольорової позначки кабелю, розроблений згідно з цими правилами, є:
 
 | Колір        | Назва    | Бажане використання                         |
 | ------------ | -------- | ------------------------------------------- |
-| ![red][1]    | Червоний | Power voltage                               |
+| ![red][1]    | Червоний | Напруга живлення                            |
 | ![green][5]  | Зелений  | General purpose signal                      |
 | ![white][4]  | Білий    | General purpose signal                      |
 | ![yellow][3] | Жовтий   | General purpose signal                      |
@@ -185,9 +185,9 @@ An example of a cable colouring designed to these rules is:
 <!-- references for the image source.
 This approach just allows more compact markdown -->
 
-::: info The above rules were provided by Thunderfly and are used in their cable design.
+:::info Вищезазначені правила надані компанією Thunderfly та використовуються в їх кабельному дизайні.
 
-The cable colour-coding for Thunderfly and some other vendors are given in the sections below. The pin labels correspond to the pinout on the autopilot side. All cables are straight (1:1). If they require crossover (e.g. UART), this should be solved by internal connection of the devices.
+Кодування кольорів кабелю для Thunderfly та деяких інших виробників наведено у розділах нижче. Ярлики контактів відповідають роз'єму на боці автопілота. Всі кабелі прямі (1:1). Якщо вони потребують кросовер (наприклад, UART), це повинно бути вирішено внутрішнім з'єднанням пристроїв.
 :::
 
 [1]: ../../assets/hardware/cables/red.png
