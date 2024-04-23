@@ -2,9 +2,9 @@
 
 У цьому розділі перераховано обладнання автопілота, яке можна використовувати для запуску польотного стеку PX4).
 
-This section provides information about how to choose the flight controller, mount it, upload firmware (replacing an incompatible bootloader if needed), and configure its orientation.
+У цьому розділі надається інформація про те, як встановити контролер польоту, завантажити мікропрограму (за потреби замінити несумісний завантажувач) і налаштувати його орієнтацію.
 
-- [Flight Controller Selection](../getting_started/flight_controller_selection.md)
+- [Вибір політного контролера](../getting_started/flight_controller_selection.md)
 - [Монтаж польотного контролера](../assembly/mount_and_orient_controller.md)
 - [Оновлення прошивки](../config/firmware.md)
 - [Орієнтація сенсорів](../config/flight_controller_orientation.md)
