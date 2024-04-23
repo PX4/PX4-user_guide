@@ -18,7 +18,7 @@ _Pixhawk 6C Mini_<sup>&reg;</sup> є останнім оновленням ус�
 
 Pixhawk® 6C Mini є останнім оновленням успішної серії політних контролерів Pixhawk®.
 
-Inside the Pixhawk® 6C Mini, you can find an STMicroelectronics® based STM32H743, paired with sensor technology from Bosch® & InvenSense®, giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
+Всередині Pixhawk® 6C Mini ви можете знайти STM32H743 на базі STMicroelectronics®, у поєднанні з технологією сенсорів від Bosch® & InvenSense®, що надає гнучкість і надійність для керування будь-яким автономним апаратом, придатним як для академічних, так і для комерційних застосувань.
 
 The Pixhawk® 6C Mini's H7 microcontroller contain the Arm® Cortex®-M7 core running up to 480 MHz, has 2MB flash memory and 1MB RAM. Thanks to the updated processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
 
