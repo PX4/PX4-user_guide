@@ -1,21 +1,21 @@
-# Cable Wiring Basics
+# Основи підключення дротів
 
-Cables are a common source of [electromagnetic interference (EMI)](https://en.wikipedia.org/wiki/Electromagnetic_interference), which can cause problems including flyways, "toilet bowling" and generally poor flight. These problems can be avoided by using appropriate cabling in the UAV.
+Кабелі - це поширений джерело [електромагнітних перешкод (EMI)](https://en.wikipedia.org/wiki/Electromagnetic_interference), які можуть викликати проблеми, включаючи відхилення, "туалетне ковзання" та загалом погане керування. Цих проблем можна уникнути, використовуючи відповідне кабелювання в БПЛА.
 
-The following basic concepts should be kept in mind when designing drone cabling:
+Слід пам'ятати наступні базові концепції при проектуванні кабелювання дрона:
 
-- High-Power and signal cables should be separated as much as is practical.
-- Cable lengths should be the minimum needed to enable easy handling of wired components. The wire tension should be adequate to survive possible airframe deformations even in a crash landing (wires must not be the first thing to break).
-- Cable loops to reduce excess length should be avoided - use shorter lengths!
-- For digital signals you can decrease the baudrate to reduce radiated energy and increase the robustness of data transfer. This means that you may be able to use longer cables when high data rates are not needed.
+- Кабелі високої потужності та сигнальні кабелі повинні бути розділені настільки, наскільки це практично.
+- Довжина кабелів повинна бути мінімальною, достатньою для зручного оброблення провідних компонентів. Натяг дроту повинен бути достатнім, щоб витримати можливі деформації фюзеляжу навіть при аварійній посадці (дроти не повинні бути першим, що ламається).
+- Петлі кабелів для зменшення зайвої довжини слід уникати - використовуйте коротші довжини!
+- Для цифрових сигналів ви можете зменшити швидкість передачі даних, щоб зменшити випромінювану енергію та збільшити надійність передачі даних. Це означає, що ви можете використовувати більш довгі кабелі, коли високі швидкості передачі даних не потрібні.
 
-## Signal wiring
+## Проводка сигналу
 
-Signalling protocols have different characteristics, and therefore the cables used in each case require slightly different specifications.
+Сигнальні протоколи мають різні характеристики, тому кабелі, що використовуються у кожному випадку, потребують трохи різних технічних характеристик.
 
-This topic provides specific guidance of cabling for different signalling protocols, along with the [colour coding](#cable-colour-coding) used by a number different drone hardware vendors.
+Ця тема надає конкретні вказівки щодо кабелювання для різних сигнальних протоколів, разом з [колірною кодуванням](#cable-colour-coding), яке використовується кількома різними виробниками апаратного забезпечення дронів.
 
-### I2C cables
+### Кабель I2C
 
 The [I2C bus](https://en.wikipedia.org/wiki/I%C2%B2C) is widely used for connecting sensors. Cable colors from several vendors are specified in following table.
 
