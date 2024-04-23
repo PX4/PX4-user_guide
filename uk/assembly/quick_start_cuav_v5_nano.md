@@ -34,89 +34,89 @@
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_03.png)
 
-::: info If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../gps_compass/rtk_gps.md).
+:::info Якщо контролер не може бути змонтований в рекомендованій/стандартній орієнтації (наприклад, через обмеження місця), вам потрібно буде налаштувати програмне забезпечення автопілота з орієнтацією, яку ви фактично використовували: [Орієнтація контролера польоту](../gps_compass/rtk_gps.md).
 :::
 
-## GPS + Compass + Safety Switch + LED
+## GPS + Компас + Безпечний вимикач + Світлодіоди
 
-The recommended GPS module is the _Neo v2 GPS_, which contains GPS, compass, safety switch, buzzer, LED status light.
+Рекомендованим модулем GPS є _Neo v2 GPS_, який містить GPS, компас, запобіжний вимикач, зумер, світлодіодний індикатор статусу.
 
-::: info Other GPS modules may not work (see [this compatibility issue](../flight_controller/cuav_v5_nano.md#compatibility_gps)).
+:::info Інші модулі GPS можуть не працювати (див. [цю проблему сумісності](../flight_controller/cuav_v5_nano.md#compatibility_gps))).
 :::
 
-The GPS/Compass module should be [mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction marker towards the front of the vehicle (Neo GPS arrow is in the same direction as the flight control arrow). Connect to the flight control GPS interface using a cable.
+Модуль GPS/Компас слід [монтувати на раму](../assembly/mount_gps_compass.md) якомога подалі від інших електронних пристроїв, з напрямком вперед транспортного засобу (стрілка Neo GPS спрямована в тому ж напрямку, що й стрілка керування польотом). Під'єднайтеся до інтерфейсу GPS контролера польоту за допомогою кабелю.
 
-::: info
-If you use CAN GPS, please use the cable to connect to the flight control CAN interface.
+:::info
+Якщо ви використовуєте CAN GPS, будь ласка, використовуйте кабель для підключення до інтерфейсу CAN контролера польоту.
 :::
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_04.png)
 
-## Safety Switch
+## Запобіжний перемикач
 
-The dedicated safety switch that comes with the V5+ is only required if you are not using the recommended _Neo v2 GPS_ (which has an inbuilt safety switch).
+Спеціальний запобіжний вимикач, який поставляється з V5+, потрібен лише у випадку, якщо ви не використовуєте рекомендований _GPS Neo V2_ (у якому вбудований запобіжний вимикач).
 
-If you are flying without the GPS you must attach the switch directly to the `GPS1` port in order to be able to arm the vehicle and fly (If you use the old 6-pin GPS, please read the definition of the bottom interface to change the line).
+Якщо ви літаєте без GPS, ви повинні прикріпити вимикач безпосередньо до порту `GPS1`, щоб мати можливість озброїти рухомий засіб і летіти (якщо ви використовуєте старий GPS з 6 контактами, будь ласка, прочитайте визначення нижнього інтерфейсу для зміни лінії).
 
-## Buzzer
+## Зумер
 
-If you do not use the recommended _Neo v2 GPS_ the buzzer may not work.
+Якщо ви не використовуєте рекомендований _Neo v2 GPS_, зумер може не працювати.
 
-## Radio Control
+## Радіоуправління
 
-A remote control (RC) radio system is required if you want to manually control your vehicle (PX4 does not require a radio system for autonomous flight modes). You will need to select a compatible transmitter/receiver and then bind them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+Для ручного керування вашим апаратом потрібна система дистанційного керування радіо (RC) (PX4 не вимагає наявності системи радіо для автономних режимів польоту). Вам буде потрібно вибрати сумісний передавач/приймач та потім зв'язати їх, щоб вони взаємодіяли (прочитайте інструкції, що додаються до вашого конкретного передавача/приймача).
 
-The figure below shows how you can access your remote receiver (please find the S.Bus cable in the kit)
+На малюнку нижче показано, як ви можете отримати доступ до вашого віддаленого приймача (знайдіть кабель S.Bus у комплекті)
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_05.png)
 
-## Spektrum Satellite Receivers
+## Супутникові приймачі Spektrum
 
-The V5 nano has a dedicated DSM cable. If using a Spektrum satellite receiver, this should be connected to the flight controller `DSM/SBUS/RSSI` interface.
+V5 nano має присвячений кабель DSM. Якщо використовується супутниковий приймач Spektrum, його слід підключити до інтерфейсу `DSM/SBUS/RSSI` контролера польоту.
 
-## Power
+## Потужність
 
-The _v5 nano_ kit includes the _HV_PM_ module, which supports 2~14S LiPo batteries. Connect the 6pin connector of the _HW_PM_ module to the flight control `Power` interface.
+Набір _v5 nano_ включає модуль _HV_PM_, який підтримує LiPo-акумулятори від 2 до 14S. Підключіть 6-контактний роз'єм модуля _HW_PM_ до інтерфейсу живлення керування польотом `Power`.
 
 :::warning
-The supplied power module is unfused. Power **must** be turned off while connecting peripherals.
+Наданий модуль живлення не захищений від перегріву. Живлення **повинне** бути вимкнене при підключенні периферійних пристроїв.
 :::
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
-::: info
-The power module is not a power source for peripherals connected to the PWM outputs.
-If you're connecting servos/actuators you will need to separately power them using a BEC.
+:::info
+Модуль живлення не є джерелом живлення для периферійних пристроїв, підключених до виходів PWM.
+Якщо ви підключаєте сервоприводи / приводи, вам потрібно окремо живити їх за допомогою BEC.
 :::
 
-## Telemetry System (Optional)
+## Система телеметрії (Опціонально)
 
-A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+Система телеметрії дозволяє вам спілкуватися, контролювати та управляти транспортним засобом у польоті з наземної станції (наприклад, ви можете направляти БПЛА до певної позиції або завантажувати нове завдання).
 
-The communication channel is via Telemetry Radios. The vehicle-based radio should be connected to the **TELEM1** or **TELEM2** port (if connected to these ports, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
+Канал зв'язку здійснюється через телеметричні радіостанції. Радіостанцію, розташовану на транспортному засобі, слід підключити до порту **TELEM1** або **TELEM2** (якщо підключено до цих портів, додаткова конфігурація не потрібна). Інша радіостанція підключається до вашого комп'ютера або мобільного пристрою наземної станції (зазвичай через USB).
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_07.png)
 
 <a id="sd_card"></a>
 
-## SD Card (Optional)
+## SD-карта (Опціонально)
 
-An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory) is inserted in the factory (you do not need to do anything).
+[SD-картку](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory) вставляють на заводі (вам нічого не потрібно робити).
 
-## Motors
+## Двигуни
 
-Motors/servos are connected to the MAIN ports in the order specified for your vehicle in the [Airframes Reference](../airframes/airframe_reference.md).
+Мотори/сервоприводи підключені до портів MAIN в порядку, вказаному для вашого апарату в [Довіднику планерів](../airframes/airframe_reference.md).
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
-## Pinouts
+## Схема розташування виводів
 
 ![V5 nano pinouts](../../assets/flight_controller/cuav_v5_nano/v5_nano_pinouts.png)
 
-## Further Information
+## Детальна інформація
 
-- [Airframe buildlog using CUAV v5 nano on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5nano.md)
-- [CUAV V5 nano](../flight_controller/cuav_v5_nano.md)
-- [V5 nano manual](http://manual.cuav.net/V5-nano.pdf) (CUAV)
-- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
+- [Журнал збірки конструкції повітряного каркасу за допомогою CUAV v5 nano на рамі DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5nano.md)
+- [CUAV V5 nano ](../flight_controller/cuav_v5_nano.md)
+- [Посібник з V5 Nano](http://manual.cuav.net/V5-nano.pdf) (CUAV)
+- [Схема роз'ємів для посилання на FMUv5](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
 - [CUAV Github](https://github.com/cuav) (CUAV)
