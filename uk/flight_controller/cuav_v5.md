@@ -1,4 +1,4 @@
-# CUAV v5 (Discontinued)
+# CUAV v5 (Знято з виробництва)
 
 <Badge type="error" text="Discontinued" />
 
