@@ -66,74 +66,74 @@ Pix32 v6’s H7 MCU містить ядро Arm® Cortex®-M7 до 480 MHz, ма
 - 16- PWM серво виводів (8 з IO, 8 з FMU)
 - 3 загальних послідовних портів
   - `TELEM1` - Повний контроль потоку, повністю розділений поточним лімітом 1.5A
-  - `TELEM2` - Full flow control
+  - `TELEM2` - Повний контроль потоку
   - `TELEM3`
-- 2 GPS ports
-  - `GPS1` - Full GPS port (GPS plus safety switch)
-  - `GPS2` - Basic GPS port
-- 1 I2C port
-  - Supports dedicated I2C calibration EEPROM located on sensor module
-- 2 CAN Buses
-  - CAN Bus has individual silent controls or ESC RX-MUX control
-- 2 Debug ports:
+- 2 Порти GPS
+  - `GPS1` - Повний порт GPS (GPS плюс захисний перемикач)
+  - `GPS2` - Базовий порт GPS
+- 1 I2C порт
+  - Підтримує спеціалізовану I2C калібрування EEPROM, розташовану на модулі сенсорів
+- 2 CAN шини
+  - Кожна CAN шина має індивідуальне керування шумом або ESC RX-MUX контроль
+- 2 порти відладки:
   - FMU Debug
   - I/O Debug
-- Dedicated R/C input for Spektrum / DSM and S.BUS, CPPM, analog / PWM RSSI
-- Dedicated S.BUS output
-- 2 Power input ports (Analog)
+- Спеціалізований R/C вхід для Spektrum / DSM та S.BUS, CPPM, аналоговий / PWM RSSI
+- Спеціалізований S.BUS вивід
+- 2 вхідні порти живлення (аналогові)
 
-- Other Characteristics:
-  - Operating & storage temperature: -40 ~ 85°c
+- Інші Характеристики:
+  - Робоча & температура зберігання: -40 ~ 85°c
 
 ## Де купити
 
-Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/pix32-v6).
+Замовляйте з [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/pix32-v6).
 
-## Pinouts
+## Схема розташування виводів
 
-- [Holybro Pix32 v6 Baseboard Ports Pinout](https://docs.holybro.com/autopilot/pix32-v6/pix32-v6-baseboard-ports)
-- [Holybro Pix32 v6 Baseboard Ports Pinout](https://docs.holybro.com/autopilot/pix32-v6/pix32-v6-mini-base-ports)
+- [Порти Holybro Pix32 v6 Baseboard](https://docs.holybro.com/autopilot/pix32-v6/pix32-v6-baseboard-ports)
+- [Порти Holybro Pix32 v6 Baseboard](https://docs.holybro.com/autopilot/pix32-v6/pix32-v6-mini-base-ports)
 
 ## Зіставлення послідовних портів
 
-| UART   | Device     | Port          |
-| ------ | ---------- | ------------- |
-| USART1 | /dev/ttyS0 | GPS1          |
-| USART2 | /dev/ttyS1 | TELEM3        |
-| USART3 | /dev/ttyS2 | Debug Console |
-| UART5  | /dev/ttyS3 | TELEM2        |
-| USART6 | /dev/ttyS4 | PX4IO         |
-| UART7  | /dev/ttyS5 | TELEM1        |
-| UART8  | /dev/ttyS6 | GPS2          |
+| UART   | Пристрій   | Порт                  |
+| ------ | ---------- | --------------------- |
+| USART1 | /dev/ttyS0 | GPS1                  |
+| USART2 | /dev/ttyS1 | TELEM3                |
+| USART3 | /dev/ttyS2 | Консоль відлагодження |
+| UART5  | /dev/ttyS3 | TELEM2                |
+| USART6 | /dev/ttyS4 | PX4IO                 |
+| UART7  | /dev/ttyS5 | TELEM1                |
+| UART8  | /dev/ttyS6 | GPS2                  |
 
 ## Розміри
 
-- [Pix32v6 Dimensions](https://docs.holybro.com/autopilot/pix32-v6/dimensions)
+- [Розміри Pix32v6](https://docs.holybro.com/autopilot/pix32-v6/dimensions)
 
-## Voltage Ratings
+## Номінальна напруга
 
-_Pix32 v6_ can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **USB**, **POWER1**, **POWER2** (N/A on Pix32 v6 Mini-Baseboard) .
+_Pix32 v6_ може мати потрійну резервність у джерелі живлення, якщо подаються три джерела живлення. Три шляхи живлення: **USB**, **POWER1**, **POWER2** (N/A на Pix32 v6 Mini-Baseboard) .
 
-**Normal Operation Maximum Ratings**
+**Максимальна напруга нормальної роботи**
 
-Under these conditions all power sources will be used in this order to power the system:
+За таких умов всі джерела живлення будуть використовуватися в цьому порядку для живлення системи:
 
-1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
-1. **USB** input (4.75V to 5.25V)
+1. **POWER1** та **POWER2** входи (від 4,9 В до 5,5 В)
+1. **USB** вхід (4.75V до 5.25V)
 
-**Absolute Maximum Ratings**
+**Абсолютна максимальна напруга**
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+За таких умов система не буде витрачати жодної енергії (не буде працювати), але залишиться неушкодженою.
 
-1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
-1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
+1. **POWER1** і **POWER2** входи (робочий діапазон від 4,1 В до 5,7 В, від 0 В до 10 В без пошкоджень)
+1. **USB** вхід (операційний діапазон 4.1В до 5.7В, 0В до 6В без пошкоджень)
+1. Серво-вхід: пін VDD_SERVO виводу **FMU PWM OUT** та **I/O PWM OUT** (від 0В до 42В без пошкоджень)
 
-**Voltage monitoring**
+**Моніторинг напруги**
 
-Pix32 v6 uses analog power modules.
+Pix32 v6 використовує аналогові модулі живлення.
 
-Holybro makes various analog [power modules](../power_module/index.md) for different need.
+Holybro виготовляє різноманітні аналогові [модулі живлення](../power_module/index.md) для різних потреб.
 
 - [PM02 Power Module](../power_module/holybro_pm02.md)
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
