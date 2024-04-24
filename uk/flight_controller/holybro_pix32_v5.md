@@ -1,61 +1,61 @@
 # Holybro Pix32 v5
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
+:::warning PX4 не виробляє цей (чи будь-який) автопілот. Зверніться до [виробника](https://holybro.com/) щодо підтримки апаратного забезпечення чи відповідності вимогам.
 :::
 
-[Pix32 v5](https://holybro.com/products/pix32-v5)<sup>&reg;</sup> is an advanced autopilot flight controller designed and made by Holybro<sup>&reg;</sup>. It is optimized to run on PX4 firmware, which is intended for both academic and commercial developers. It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](https://nuttx.apache.org/) OS. It can be regarded as a variant version of Pixhawk4.
+[Pix32 v5](https://holybro.com/products/pix32-v5)<sup>&reg;</sup> є передовим автопілотом керування польотом, розробленим і виготовленим компанією Holybro<sup>&reg;</sup>. Він оптимізований для роботи з прошивкою PX4, яка призначена як для академічних, так і для комерційних розробників. Він базується на відкритому апаратному дизайні [Pixhawk-project](https://pixhawk.org/) **FMUv5** та запускає PX4 на операційній системі [NuttX](https://nuttx.apache.org/). Це можна вважати варіантом версії Pixhawk4.
 
-The Pix32 v5 is designed for pilots who need a high power, flexible and customisable flight control system. It is comprised of a separate flight controller and carrier (base) board, which are connected by a 100pin connector. This design allows users to either select a base board made by Holybro, or customize their own.
+Pix32 v5 розроблено для пілотів, які потребують потужності, гнучкої та настроюваної системи керування польотами. Він складається з окремого контролера польоту та базової плати, які з'єднані 100-контактним роз'ємом. Цей дизайн дозволяє користувачам вибирати базову плату від Holybro або налаштовувати свою власну.
 
 ![Pix32 v5 Family](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_family.jpg)
 
-::: info This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+::: info Цей польотний контролер [підтримується виробником](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Quick Summary
+## Короткий опис
 
-- Main FMU Processor: STM32F765
+- Головний FMU процесор: STM32F765
   - 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
 - IO Processor: STM32F100
-  - 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
-- On-board sensors:
+  - 32 Bit Arm®️ Cortex®️-M3, 24MHz, 8KB SRAM
+- Сенсори на платі:
   - Accel/Gyro: ICM-20689
-  - Accel/Gyro: BMI055 or ICM20602
-  - Magnetometer: IST8310
-  - Barometer: MS5611
-- GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
-- Interfaces:
-  - 8-16 PWM outputs (8 from IO, 8 from FMU)
-  - 3 dedicated PWM/Capture inputs on FMU
-  - Dedicated R/C input for CPPM
-  - Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
-  - Dedicated S.Bus servo output
-  - 5 general purpose serial ports
-    - 2 with full flow control
-    - 1 with separate 1.5A current limit
-  - 3 I2C ports
-  - 4 SPI buses
-    - 1 internal high speed SPI sensor bus with 4 chip selects and 6 DRDYs
-    - 1 internal low noise SPI bus dedicated for
-    - Barometer with 2 chip selects, no DRDYs
-    - 1 internal SPI bus dedicated for FRAM
-    - Supports dedicated SPI calibration EEPROM located on sensor module
-    - 1 external SPI buses
-  - Up to 2 CANBuses for dual CAN with serial ESC
-    - Each CANBus has individual silent controls or ESC RX-MUX control
-    - Analog inputs for voltage / current of 2 batteries
-    - 2 additional analog inputs
-- Electrical System:
-  - Power module output: 4.9~5.5V
-  - Max input voltage: 6V
-  - Max current sensing: 120A
-  - USB Power Input: 4.75~5.25V
-  - Servo Rail Input: 0~36V
-- Weight and Dimensions:
-  - Dimensions: 45x45x13.5mm
-  - Weight: 33.0g
-- Environmental Data, Quality & Reliability:
-  - Operating temperature: -40 ~ 85°c
+  - Accel/Gyro: BMI055 або ICM20602
+  - Магнітометр: IST8310
+  - Барометр: MS5611
+- GPS: u-blox Neo-M8N GPS/ГЛОНАСС приймач; інтегрований магнетометр IST8310
+- Інтерфейси:
+  - 8-16 PWM виходи (8 із IO, 8 із FMU)
+  - 3 спеціалізованих PWM/Capture входів на FMU
+  - Спеціалізований R/C вхід для CPPM
+  - Спеціалізований R/C вхід для Spektrum / DSM та S.Bus з аналоговим / PWM входом RSSI
+  - Спеціалізований S.BUS вивід сервоприводу
+  - 5 основних послідовних портів
+    - 2 з повним контролем потоку
+    - 1 з відокремленням 1.5A поточної межі
+  - 3x I2C порти
+  - 4 шини SPI
+    - 1 внутрішня шина датчика високої швидкості SPI з 4 обраними чіпами і 6 DRDY
+    - 1 внутрішня SPI шина, виділена для
+    - Барометр з 2-ма чіпами, не DRDY
+    - 1 внутрішня шина SPI виділена для FRAM
+    - Підтримує спеціалізовану SPI калібрування EEPROM, розташовану на модулі сенсорів
+    - 1 зовнішня шина SPI
+  - До 2 CANBus для подвійного CAN з послідовним ESC
+    - Кожна CAN шина має індивідуальне керування шумом або ESC RX-MUX контроль
+    - Аналогові входи для напруги / струму з 2 батарей
+    - 2 додаткових аналогових входи
+- Електрична система:
+  - Вивід енергомодуля 4.9~5.5 В
+  - Максимальна вхідна напруга: 6 В
+  - Максимальний струм у значенні: 120 A
+  - Живлення USB входу: 4.75~5.25V
+  - Вхід сервоприводу: 0~36 В
+- Вага та розміри:
+  - Розміри: 45x45x13.5мм
+  - Вага: 33.0гр
+- Дані про навколишнє середовище, якість & та надійність:
+  - Температура роботи: -40 ~ 85 °c
   - Storage temp. -40~85℃
   - CE
   - FCC
