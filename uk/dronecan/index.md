@@ -34,7 +34,7 @@ DroneCAN раніше відомий як UAVCAN v0 (або просто UAVCAN)
 - [Контролери ESC/двигуна](../dronecan/escs.md)
 - Датчики швидкості повітря
   - [Датчик швидкості Thiemar](https://github.com/thiemar/airspeed)
-- GNSS receivers for GNSS (GPS, GLONASS, BeiDou, and so on)
+- Приймачі ГНСС для ГНСС (GPS, GLONASS, BeiDou та інше)
   - [ARK GPS](../dronecan/ark_gps.md)
   - [ARK RTK GPS](../dronecan/ark_rtk_gps.md)
   - [CubePilot Here3](https://www.cubepilot.org/#/here/here3)
@@ -47,30 +47,30 @@ DroneCAN раніше відомий як UAVCAN v0 (або просто UAVCAN)
   - [Holybro DroneCAN H-RTK F9P Rover](https://holybro.com/products/dronecan-h-rtk-f9p-rover)
   - [Holybro DroneCAN H-RTK F9P Helical](https://holybro.com/products/dronecan-h-rtk-f9p-helical)
   - [Zubax GNSS](https://zubax.com/products/gnss_2)
-- Power monitors
-  - [Pomegranate Systems Power Module](../dronecan/pomegranate_systems_pm.md)
-  - [CUAV CAN PMU Power Module](../dronecan/cuav_can_pmu.md)
-- Compass
-  - [Holybro RM3100 Professional Grade Compass](https://holybro.com/products/dronecan-rm3100-compass)
-- Distance sensors
+- Монітори живлення
+  - [Силовий модуль Pomegranate Systems](../dronecan/pomegranate_systems_pm.md)
+  - [Модуль живлення CUAV CAN PMU](../dronecan/cuav_can_pmu.md)
+- Компас
+  - [Професійний компас Holybro RM3100](https://holybro.com/products/dronecan-rm3100-compass)
+- Датчики відстані
   - [ARK Flow](ark_flow.md)
-  - [Avionics Anonymous Laser Altimeter UAVCAN Interface](../dronecan/avanon_laser_interface.md)
-- Optical Flow
+  - [Авіоніка Анонімний Лазерний Альтиметр UAVCAN Інтерфейс](../dronecan/avanon_laser_interface.md)
+- Оптичний потік
   - [Ark Flow](ark_flow.md)
-- Generic CAN Node (enables use of I2C, SPI, UART sensors on the CAN bus).
+- Загальний вузол CAN (дозволяє використання датчиків I2C, SPI, UART на шині CAN).
   - [ARK CANnode](../dronecan/ark_cannode.md)
 
 ## Налаштування обладнання
 
 DroneCAN працює через мережу CAN. Апаратне забезпечення DroneCAN повинно бути підключене, як описано в [CAN > Проводка](../can/index.md#wiring).
 
-## Node ID Allocation
+## Виділення ідентифікатора вузла
 
 Кожен пристрій DroneCAN повинен бути налаштований з унікальним ідентифікатором вузла _node id_, який є унікальним на транспортному засобі.
 
-Most devices support _Dynamic Node Allocation (DNA)_, which allows PX4 to automatically configure the node ID of each detected peripheral on system startup. Consult the manufacturer documentation for details on whether your device supports DNA and how to enable it. Many devices will automatically switch to DNA if the node id is set to 0. PX4 will enable the built in allocation server if the [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) parameter is > 1 (set to 2 or 3).
+Більшість пристроїв підтримують _Динамічне призначення вузла (DNA)_, що дозволяє PX4 автоматично налаштовувати ідентифікатор вузла кожного виявленого периферійного пристрою при запуску системи. Консультуйте документацію виробника, щоб дізнатися, чи підтримує ваш пристрій ДНК та як її увімкнути. Багато пристроїв автоматично перейдуть на ДНК, якщо ідентифікатор вузла встановлено на 0. PX4 увімкне вбудований сервер виділення, якщо параметр [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) встановлений на значення > 1 (встановлено на 2 або 3).
 
-Some devices don't support DNA. Additionally, in certain mission-critical scenarios, you might prefer to manually configure node IDs beforehand instead of relying on the dynamic allocation server. If you wish to disable the DNA completely, set `UAVCAN_ENABLE` to `1` and manually set each node ID to a unique value. If the DNA is still running and certain devices need to be manually configured, give these devices a value greater than the total number of DroneCAN devices to avoid clashes.
+Деякі пристрої не підтримують ДНК. Додатково, в певних критичних сценаріях ви можливо віддасте перевагу ручній налаштування ідентифікаторів вузлів заздалегідь замість покладанняся на сервер динамічного виділення. Якщо ви бажаєте повністю вимкнути ДНК, встановіть `UAVCAN_ENABLE` на `1` і вручну встановіть кожен ідентифікатор вузла на унікальне значення. Якщо ДНК все ще працює і певні пристрої потребують ручної конфігурації, присвойте цим пристроям значення, більше, ніж загальна кількість пристроїв DroneCAN, щоб уникнути конфліктів.
 
 :::info Ідентифікатор вузла PX4 можна налаштувати, використовуючи параметр [UAVCAN_NODE_ID](../advanced_config/parameter_reference.md#UAVCAN_NODE_ID). Параметр за замовчуванням встановлено на 1.
 :::
@@ -81,100 +81,100 @@ Some devices don't support DNA. Additionally, in certain mission-critical scenar
 
 ## Конфігурація PX4
 
-DroneCAN is configured on PX4 by [setting specific PX4 parameters](../advanced_config/parameters.md) in QGroundControl. You will need to enable DroneCAN itself, along with subscriptions and publications for any features that you use.
+DroneCAN налаштовується на PX4 шляхом [встановлення конкретних параметрів PX4](../advanced_config/parameters.md) в QGroundControl. Вам потрібно буде увімкнути сам DroneCAN, разом із підписками та публікаціями для будь-яких функцій, які ви використовуєте.
 
-::: info In some cases you may need to also configure parameters on the connected CAN devices (these can also be [set using QGC](#qgc-cannode-parameter-configuration)).
+:::info У деяких випадках можливо знадобиться налаштувати параметри на підключених пристроях CAN (їх також можна [встановити за допомогою QGC](#qgc-cannode-parameter-configuration)).
 :::
 
-### Enabling DroneCAN
+### Увімкнення DroneCAN
 
-To enable the PX4 DroneCAN driver, set the [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) parameter:
+Щоб увімкнути драйвер PX4 DroneCAN, встановіть параметр [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE):
 
-- `0`: DroneCAN driver disabled
-- `1`: DroneCAN driver enabled for sensors, [DNA server](#node-id-allocation) disabled
-- `2`: DroneCAN driver enabled for sensors, DNA server enabled
-- `3`: DroneCAN driver enabled for sensors and ESCs, DNA server enabled
+- `0`: Вимкнено драйвер DroneCAN
+- `1`: Драйвер DroneCAN увімкнено для сенсорів, [сервер DNA](#node-id-allocation) вимкнено
+- `2`: Драйвер DroneCAN увімкнено для сенсорів, сервер DNA увімкнено
+- `3`: Драйвер DroneCAN увімкнено для сенсорів та ESC, сервер DNA увімкнено
 
-`2` or `3` are recommended, if DNA is supported.
+`2` або `3` рекомендовані, якщо підтримується ДНК.
 
 ### Підписки &  Публікації DroneCan
 
-PX4 does not publish or subscribe to DroneCAN messages that _might_ be needed by default, in order to avoid spamming the CAN bus. Instead you must enable publication or subscription to the messages associated with a particular feature by setting the associated [UAVCAN parameter](../advanced_config/parameter_reference.md#uavcan).
+PX4 не публікує або підписується на повідомлення DroneCAN, які _можуть_ бути потрібні за замовчуванням, щоб уникнути спаму на шині CAN. Замість цього вам потрібно увімкнути публікацію або підписку на повідомлення, пов'язані з певною функцією, встановивши відповідний параметр [UAVCAN](../advanced_config/parameter_reference.md#uavcan).
 
-::: info Sensor parameters may not exist (be visible in QGC) until you have enabled the associated DroneCAN [sensor subscription](#sensors)!
+:::info Параметри датчика можуть не існувати (бути видимими в QGC), поки ви не увімкнете пов'язану підписку на датчик DroneCAN [сенсор](#sensors)!
 
-For example, [SENS_FLOW_MINHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MINHGT) does not exist until [UAVCAN_SUB_FLOW](../advanced_config/parameter_reference.md#UAVCAN_SUB_FLOW) is enabled.
+Наприклад, [SENS_FLOW_MINHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MINHGT) не існує до тих пір, поки не буде увімкнено [UAVCAN_SUB_FLOW](../advanced_config/parameter_reference.md#UAVCAN_SUB_FLOW).
 :::
 
-For example, to use a connected DroneCAN smart battery you would enable the [UAVCAN_SUB_BAT](../advanced_config/parameter_reference.md#UAVCAN_SUB_BAT) parameter, which would subscribe PX4 to receive [BatteryInfo](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#batteryinfo) DroneCAN messages. If using a peripheral that needs to know if PX4 is armed, you would need to set the [UAVCAN_PUB_ARM](../advanced_config/parameter_reference.md#UAVCAN_PUB_ARM) parameter so that PX4 starts publishing [ArmingStatus](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#armingstatus) messages.
+Наприклад, для використання підключеної розумної батареї DroneCAN ви активуєте параметр [UAVCAN_SUB_BAT](../advanced_config/parameter_reference.md#UAVCAN_SUB_BAT), який підписує PX4 на отримання повідомлень DroneCAN [BatteryInfo](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#batteryinfo). Якщо використовується периферійний пристрій, який повинен знати, чи ввімкнено PX4, вам потрібно встановити параметр [UAVCAN_PUB_ARM](../advanced_config/parameter_reference.md#UAVCAN_PUB_ARM), щоб PX4 почав публікувати повідомлення [ArmingStatus](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#armingstatus).
 
-The parameter names are prefixed with `UAVCAN_SUB_` and `UAVCAN_PUB_` to indicate whether they enable PX4 subscribing or publishing. The remainder of the name indicates the specific message/feature being set.
+Назви параметрів передують префікси `UAVCAN_SUB_` та `UAVCAN_PUB_`, щоб позначити, чи вони дозволяють PX4 підписку або публікацію. Решта назви вказує на конкретне повідомлення/функцію, яка встановлюється.
 
-DroneCAN peripherals connected to PX4 can also be [configured using parameters via QGC](#qgc-cannode-parameter-configuration). By convention, parameters named with the prefix [CANNODE\_](../advanced_config/parameter_reference.md#CANNODE_BITRATE) have prefined meaning, and may be documented in the parameter reference. `CANNODE_` parameters prefixed with `CANNODE_PUB_` and `CANNODE_SUB_` enable the peripheral to publish or subscribe the associated DroneCAN message. These allow DroneCAN peripherals to be configured to only subscribe and publish messages that they actually need (in the same way that PX4 uses the corresponding `UAVCAN_PUB_`/`UAVCAN_SUB_` parameters). Note that a peripheral might might not use `CANNODE_` parameters, in which case it may have to publish/subscribe to particular messages whether or not they are needed.
+Периферійні пристрої DroneCAN, підключені до PX4, також можуть бути [налаштовані за допомогою параметрів через QGC](#qgc-cannode-parameter-configuration). За установою, параметри, які називаються префіксом [CANNODE\_](../advanced_config/parameter_reference.md#CANNODE_BITRATE), мають попередньо визначене значення і можуть бути задокументовані в посиланні на параметри. Параметри `CANNODE_`, які починаються з префіксів `CANNODE_PUB_` та `CANNODE_SUB_`, дозволяють периферійному пристрою публікувати або підписуватися на пов'язане повідомлення DroneCAN. Ці дозволяють пристроям DroneCAN налаштовуватися для підписки та публікації тільки тих повідомлень, які їм дійсно потрібні (так само, як PX4 використовує відповідні параметри `UAVCAN_PUB_`/`UAVCAN_SUB_`). Зверніть увагу, що периферійний пристрій може не використовувати параметри `CANNODE_`, у такому випадку він може публікувати / підписуватися на певні повідомлення, незалежно від того, чи вони потрібні.
 
-The following sections provide additional detail on the PX4 and DroneCAN peripheral parameters used to enable particular features.
+Наступні розділи надають додаткові відомості про параметри периферійних пристроїв PX4 та DroneCAN, які використовуються для увімкнення певних функцій.
 
-#### Sensors
+#### Датчики
 
-The DroneCAN sensor parameters/subscriptions that you can enable are (in PX4 v1.14):
+Параметри/підписки сенсора DroneCAN, які можна активувати (у PX4 v1.14):
 
-- [UAVCAN_SUB_ASPD](../advanced_config/parameter_reference.md#UAVCAN_SUB_ASPD): Airspeed
-- [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO): Barometer
-- [UAVCAN_SUB_BAT](../advanced_config/parameter_reference.md#UAVCAN_SUB_BAT): Battery monitor/Power module
-- [UAVCAN_SUB_BTN](../advanced_config/parameter_reference.md#UAVCAN_SUB_BTN): Button
-- [UAVCAN_SUB_DPRES](../advanced_config/parameter_reference.md#UAVCAN_SUB_DPRES): Differential pressure
-- [UAVCAN_SUB_FLOW](../advanced_config/parameter_reference.md#UAVCAN_SUB_FLOW): Optical flow
+- [UAVCAN_SUB_ASPD](../advanced_config/parameter_reference.md#UAVCAN_SUB_ASPD): Швидкість повітря
+- [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO): Барометр
+- [UAVCAN_SUB_BAT](../advanced_config/parameter_reference.md#UAVCAN_SUB_BAT): Монітор акумулятора/Модуль живлення
+- [UAVCAN_SUB_BTN](../advanced_config/parameter_reference.md#UAVCAN_SUB_BTN): Кнопка
+- [UAVCAN_SUB_DPRES](../advanced_config/parameter_reference.md#UAVCAN_SUB_DPRES): диференційний тиск
+- [UAVCAN_SUB_FLOW](../advanced_config/parameter_reference.md#UAVCAN_SUB_FLOW): Оптичний потік
 - [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS): GPS
-- [UAVCAN_SUB_HYGRO](../advanced_config/parameter_reference.md#UAVCAN_SUB_HYGRO): Hygrometer
-- [UAVCAN_SUB_ICE](../advanced_config/parameter_reference.md#UAVCAN_SUB_ICE): Internal combustion engine (ICE).
-- [UAVCAN_SUB_IMU](../advanced_config/parameter_reference.md#UAVCAN_SUB_IMU): IMU
-- [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG): Magnetometer (compass)
-- [UAVCAN_SUB_RNG](../advanced_config/parameter_reference.md#UAVCAN_SUB_RNG): Range finder (distance sensor).
+- [UAVCAN_SUB_HYGRO](../advanced_config/parameter_reference.md#UAVCAN_SUB_HYGRO): Гігрометр
+- [UAVCAN_SUB_ICE](../advanced_config/parameter_reference.md#UAVCAN_SUB_ICE): Внутрішньосгорювальний двигун (ICE).
+- [UAVCAN_SUB_IMU](../advanced_config/parameter_reference.md#UAVCAN_SUB_IMU): ІМУ
+- [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG): Магнітометр (компас)
+- [UAVCAN_SUB_RNG](../advanced_config/parameter_reference.md#UAVCAN_SUB_RNG): Дальномер (датчик відстані).
 
 #### GPS
 
-PX4 DroneCAN parameters:
+Параметри PX4 DroneCAN:
 
-- Enable [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS).
-- Enable [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG) if the GPS module has an inbuilt compass.
+- Увімкніть [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS).
+- Увімкніть [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG), якщо модуль GPS має вбудований компас.
 
-GPS CANNODE parameter ([set using QGC](#qgc-cannode-parameter-configuration)):
+Параметр GPS CANNODE ([встановлені за допомогою QGC](#qgc-cannode-parameter-configuration)):
 
-- Set [CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) to `1` for the last node on the CAN bus.
+- Встановіть [CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) на `1` для останнього вузла на шині CAN.
 
-Other PX4 Parameters:
+Інші параметри PX4:
 
-- If the GPS is not positioned at the vehicle centre of gravity you can account for the offset using [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z).
-- If the GPS module provides yaw information, you can enable GPS yaw fusion by setting bit 3 of [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) to true.
+- Якщо GPS не розташований в центрі ваги транспортного засобу, ви можете врахувати зміщення, використовуючи [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) та [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z).
+- Якщо модуль GPS надає інформацію про курс, ви можете увімкнути об'єднання курсу GPS, встановивши біт 3 [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) на true.
 
-#### RTK GPS
+#### RTK-GPS
 
-Set the same parameters as for [GPS](#gps) above. In addition, you may also need to set the following parameters depending on whether your RTK setup is Rover and Fixed Base, or Rover and Moving Base, or both.
+Встановіть ті ж параметри, що й для [GPS](#gps) вище. Крім того, вам може знадобитися встановити наступні параметри в залежності від того, чи є ваша налаштування RTK Ровером і Фіксованою Базою, або Ровером і Рухомою Базою, або обома.
 
-##### Rover and Fixed Base
+##### Ровер та фіксована база
 
-Position of rover is established using RTCM messages from the RTK base module (the base module is connected to QGC, which sends the RTCM information to PX4 via MAVLink).
+Позиція ровера встановлюється за допомогою RTCM-повідомлень від базового модуля RTK (базовий модуль підключений до QGC, який надсилає інформацію RTCM до PX4 через MAVLink).
 
-PX4 DroneCAN parameters:
+Параметри PX4 DroneCAN:
 
 - [UAVCAN_PUB_RTCM](../advanced_config/parameter_reference.md#UAVCAN_PUB_RTCM):
-  - Makes PX4 publish RTCM messages ([RTCMStream](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#rtcmstream)) to the bus (which it gets from the RTK base module via QGC).
+  - Робить PX4 публікує повідомлення RTCM ([RTCMStream](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#rtcmstream)) на шину (яку він отримує від базового модуля RTK через QGC).
 
-Rover module parameters (also [set using QGC](#qgc-cannode-parameter-configuration)):
+Параметри модуля Rover (також [встановлені за допомогою QGC](#qgc-cannode-parameter-configuration)):
 
-- [CANNODE_SUB_RTCM](../advanced_config/parameter_reference.md#CANNODE_SUB_RTCM) tells the rover that it should subscribe to [RTCMStream](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#rtcmstream) RTCM messages on the bus (from the moving base).
+- [CANNODE_SUB_RTCM](../advanced_config/parameter_reference.md#CANNODE_SUB_RTCM) повідомляє приймачу, що він повинен підписатися на повідомлення [RTCMStream](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#rtcmstream) RTCM на шині (від рухомої бази).
 
-::: info You could instead use [UAVCAN_PUB_MBD](../advanced_config/parameter_reference.md#UAVCAN_PUB_MBD) and [CANNODE_SUB_MBD](../advanced_config/parameter_reference.md#CANNODE_SUB_MBD), which also publish RTCM messages (these are newer). Using the [RTCMStream](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#rtcmstream) message means that you can implement moving base (see below) at the same time.
+:::info Ви можете замість цього використовувати [UAVCAN_PUB_MBD](../advanced_config/parameter_reference.md#UAVCAN_PUB_MBD) та [CANNODE_SUB_MBD](../advanced_config/parameter_reference.md#CANNODE_SUB_MBD), які також публікують повідомлення RTCM (це новіше). Використання повідомлення [RTCMStream](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#rtcmstream) означає, що ви можете реалізувати рухому базу (див. нижче) одночасно.
 :::
 
-##### Rover and Moving Base
+##### Ровер та Рухома База
 
-As discussed in [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md) a vehicle can have two RTK modules in order to calculate yaw from GPS. In this setup the vehicle has a _moving base_ RTK GPS and a _rover_ RTK GPS.
+Як обговорювалося в [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md), у транспортному засобі можуть бути два модулі RTK для обчислення кута повороту за допомогою GPS. У цьому налаштуванні транспортний засіб має _рухому базу_ RTK GPS та _роувер_ RTK GPS.
 
-These parameters can be [set on moving base and rover RTK CAN nodes](#qgc-cannode-parameter-configuration), respectively:
+Ці параметри можуть бути [встановлені на рухомій базі та приймачі RTK CAN-вузлах](#qgc-cannode-parameter-configuration) відповідно:
 
-- [CANNODE_PUB_MBD](../advanced_config/parameter_reference.md#CANNODE_PUB_MBD) causes a moving base GPS unit to publish [MovingBaselineData](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#movingbaselinedata)RTCM messages onto the bus (for the rover)
-- [CANNODE_SUB_MBD](../advanced_config/parameter_reference.md#CANNODE_SUB_MBD) tells the rover that it should subscribe to [MovingBaselineData](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#movingbaselinedata) RTCM messages on the bus (from the moving base).
+- [CANNODE_PUB_MBD](../advanced_config/parameter_reference.md#CANNODE_PUB_MBD) спричинює те, що рухома базова одиниця GPS публікує повідомлення RTCM [MovingBaselineData](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#movingbaselinedata) на шину (для ровера)
+- [CANNODE_SUB_MBD](../advanced_config/parameter_reference.md#CANNODE_SUB_MBD) повідомляє роверу, що він повинен підписатися на повідомлення RTCM [MovingBaselineData](https://dronecan.github.io/Specification/7._List_of_standard_data_types/#movingbaselinedata) на шині (від рухомої бази).
 
 Для PX4 вам також знадобиться встановити [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET), щоб вказати відносне положення рухомої бази та ровера: 0, якщо ваш Rover знаходиться перед вашою Рухомою Базою, 90, якщо Rover зправа від Рухомої Бази, 180, якщо Rover ззаду Рухомої Бази, або 270, якщо Rover зліва від Рухомої Бази.
 
