@@ -20,49 +20,49 @@ _Pixhawk 6X-RT_<sup>&reg;</sup> є останнім оновленням усп�
 
 Всередині Pixhawk®​ 6X-RT ви можете знайти NXP i.mx RT1176, поєднаний з сенсорною технологією від Bosch®​​, InvenSense®​​, що надає вам гнучкість і надійність для керування будь-яким автономним апаратом, придатним як для академічних, так і для комерційних застосувань.
 
-The Pixhawk® 6X-RT's i.mx RT1176 Crossover dual-core MCU contain an Arm® Cortex®-M7 core running up to 1GHz and Arm® Cortex®-M4 core running up to 400MHz, has 2MB SRAM and external XIP Flash with 64MB. The PX4 Autopilot takes advantage of the increased power and RAM. Thanks to the increased processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
+Двоядерний MCU в Pixhawk® 6X-RT i.mx RT1176 Crossover містить ядро Arm® Cortex®-M7 до 1GHz і ядро Arm® Cortex®-M4 до 400MHz, має 2MB SRAM та зовнішню XIP Flash обсягом 64MB. Автопілот PX4 використовує переваги збільшеної потужності та оперативної пам’яті. Завдяки збільшеній потужності обробки розробники можуть бути більш продуктивними та ефективними у своїй роботі з розробкою, що дозволяє використовувати складні алгоритми та моделі.
 
-The FMUv6X open standard includes high-performance, low-noise IMUs on board, designed for better stabilization. Triple redundant IMU & double redundant barometer on separate buses. When PX4 detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
+Відкритий стандарт FMUv6X включає високоефективні, низькошумні IMU на платі, розроблені для кращої стабілізації. IMU з потрійним резервуванням та барометр з подвійним резервуванням на окремих шинах. Коли PX4 виявляє відмову датчика, система плавно перемикатися на інший, щоб забезпечити надійність керування польотом.
 
-An independent LDO powers every sensor set with independent power control. A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
+Незалежний LDO живить кожен набір сенсорів з незалежним керуванням живленням. Система ізоляції вібрації для фільтрації високочастотної вібрації та зменшення шуму для забезпечення точних вимірювань, що дозволяє апаратам досягти кращих загальних польотних характеристик.
 
-External sensor bus (SPI5) has two chip select lines and data-ready signals for additional sensors and payload with SPI-interface, and with an integrated Microchip Ethernet PHY, high-speed communication with mission computers via ethernet is now possible.
+Зовнішня шина датчиків (SPI5) має дві лінії вибору чипів та сигнали готовності даних для додаткових датчиків та корисного навантаження з інтерфейсом SPI, а також з інтегрованим Microchip Ethernet PHY, високошвидкісний обмін даними з комп'ютерами місії через ethernet тепер можливий.
 
-The Pixhawk®​ 6X-RT is perfect for developers at corporate research labs, startups, academics (research, professors, students), and commercial application.
+Pixhawk®️sco6X-RT ідеально підходить для розробників корпоративних дослідницьких лабораторій, стартапів, академічних потреб (досліджень, професорів, студентів) та комерційного застосування.
 
-## Key Design Points
+## Ключові пункти дизайну
 
-- High performance [NXP i.MX RT1170 1GHz Crossover MCU](https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/i-mx-rt-crossover-mcus/i-mx-rt1170-1-ghz-crossover-mcu-with-arm-cortex-cores:i.MX-RT1170) with Arm® Cortex® cores
-- Hardware secure element [NXP EdgeLock SE051](https://www.nxp.com/products/security-and-authentication/authentication/edgelock-se051-proven-easy-to-use-iot-security-solution-with-support-for-updatability-and-custom-applets:SE051) an extension to the widely trusted EdgeLock SE050 Plug & Trust secure element family, supports applet updates in the field and delivers proven security certified to CC EAL 6+, with AVA_VAN.5 up to the OS level, for strong protection against the most recent attack scenarios. E.g, to securely store operator ID or certificates.
-- Modular flight controller: separated IMU, FMU, and Base system connected by a 100-pin & a 50-pin Pixhawk®​ Autopilot Bus connector.
-- Redundancy: 3x IMU sensors & 2x Barometer sensors on separate buses
-- Triple redundancy domains: Completely isolated sensor domains with separate buses and separate power control
-- Newly designed vibration isolation system to filter out high frequency vibration and reduce noise to ensure accurate readings
-- Ethernet interface for high-speed mission computer integration
-- IMUs are temperature-controlled by onboard heating resistors, allowing optimum working temperature of IMUs&#x20;
+- Високопродуктивний [NXP i.MX RT1170 1GHz Crossover MCU](https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/i-mx-rt-crossover-mcus/i-mx-rt1170-1-ghz-crossover-mcu-with-arm-cortex-cores:i.MX-RT1170) з ядрами Arm® Cortex®
+- Апаратний захисний елемент [NXP EdgeLock SE051](https://www.nxp.com/products/security-and-authentication/authentication/edgelock-se051-proven-easy-to-use-iot-security-solution-with-support-for-updatability-and-custom-applets:SE051) є розширенням надійного EdgeLock SE050 Plug & Trust сімейства захисних елементів, підтримує оновлення аплетів на місці та забезпечує перевірену безпеку, сертифіковану відповідно до CC EAL 6+, з AVA_VAN.5 до рівня ОС, для надійного захисту від останніх сценаріїв атак. Наприклад, для безпечного зберігання ідентифікатора оператора або сертифікатів.
+- Модульний політний контролер: розділені IMU, FMU та базова система, з'єднані за допомогою роз'ємів Pixhawk® Autopilot Bus на 100 контактів та 50 контактів.
+- Резервність: 3x датчики IMU та 2x датчики барометра на окремих шинах
+- Потрійне резервування доменів: повністю ізольовані сенсорні домени з окремими шинами та окремим керуванням живленням
+- Нова система ізоляції вібрацій для фільтрації високочастотних вібрацій та зменшення шуму для забезпечення точних вимірювань
+- Інтерфейс Ethernet для високошвидкісної інтеграції комп'ютера місії
+- IMU контролюються за допомогою нагрівальних резисторів на борту, що дозволяє досягти оптимальної робочої температури IMU&#x20;
 
-### Processors & Sensors
+### Процесори та датчики
 
-- FMU Processor: NXP i.MX RT1176
+- FMU процесор: NXP i.MX RT1176
   - 32 Bit Arm® Cortex®-M7, 1GHz
-  - 32 Bit Arm® Cortex®-M4, 400MHz secondary core
-  - 64MB external flash memory
+  - 32 Bit Arm® Cortex®-M4, 400MHz вторинне ядро
+  - 64MB зовнішньої флеш пам'яті
   - 2MB RAM
-- NXP EdgeLock SE051 hardware secure element
-  - IEC62443-4-2 certified for the applicable requirements
-  - 46 kB user memory with personalization options to go up to 104 kB
-  - Groundbreaking CC EAL6+ certified solution for IoT deployments
-  - AES and 3DES encryption and decryption
-- IO Processor: STM32F100
+- Апаратний захисний елемент NXP EdgeLock SE051
+  - Сертифіковано згідно з вимогами IEC62443-4-2
+  - 46 kB користувацької пам'яті з опціями персоналізації до 104 kB
+  - Сертифіковане рішення Groundbreaking CC EAL6+ для IoT
+  - AES та 3DES шифрування і дешифрування
+- IO процесор: STM32F100
   - 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
-- On-board sensors
-  - Accel/Gyro: ICM-20649 or BMI088
+- Бортові сенсори
+  - Accel/Gyro: ICM-20649 або BMI088
   - Accel/Gyro: ICM-42688-P
   - Accel/Gyro: ICM-42670-P
   - Mag: BMM150
   - Barometer: 2x BMP388
 
-### Electrical data
+### Електричні дані
 
 - Voltage Ratings:
   - Max input voltage: 6V
